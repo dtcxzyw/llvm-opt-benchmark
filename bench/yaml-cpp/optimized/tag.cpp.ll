@@ -7,13 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.YAML::Token" = type <{ i32, i32, %"struct.YAML::Mark", [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::vector", i32, [4 x i8] }>
-%"struct.YAML::Mark" = type { i32, i32, i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.YAML::Tag" = type { i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::allocator" = type { i8 }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_ = comdat any
@@ -77,7 +70,7 @@ entry:
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
   %arraydestroy.elementPast = phi ptr [ getelementptr inbounds ([20 x %"class.std::__cxx11::basic_string"], ptr @_ZN4YAMLL10TokenNamesB5cxx11E, i64 1, i64 0), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
-  %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #8
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN4YAMLL10TokenNamesB5cxx11E
   br i1 %arraydestroy.done, label %arraydestroy.done1, label %arraydestroy.body
@@ -89,12 +82,12 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML3TagC2ERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(84) %token) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data = getelementptr inbounds %"struct.YAML::Token", ptr %token, i64 0, i32 6
+  %data = getelementptr inbounds i8, ptr %token, i64 80
   %0 = load i32, ptr %data, align 8
   store i32 %0, ptr %this, align 8
-  %handle = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle) #8
-  %value = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #8
   %1 = load i32, ptr %this, align 8
   switch i32 %1, label %sw.epilog [
@@ -105,7 +98,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value3 = getelementptr inbounds %"struct.YAML::Token", ptr %token, i64 0, i32 4
+  %value3 = getelementptr inbounds i8, ptr %token, i64 24
   br label %invoke.cont18.invoke
 
 lpad:                                             ; preds = %invoke.cont18.invoke, %sw.bb15
@@ -116,20 +109,20 @@ lpad:                                             ; preds = %invoke.cont18.invok
   resume { ptr, i32 } %2
 
 sw.bb5:                                           ; preds = %entry
-  %value6 = getelementptr inbounds %"struct.YAML::Token", ptr %token, i64 0, i32 4
+  %value6 = getelementptr inbounds i8, ptr %token, i64 24
   br label %invoke.cont18.invoke
 
 sw.bb10:                                          ; preds = %entry
-  %value11 = getelementptr inbounds %"struct.YAML::Token", ptr %token, i64 0, i32 4
+  %value11 = getelementptr inbounds i8, ptr %token, i64 24
   br label %invoke.cont18.invoke
 
 sw.bb15:                                          ; preds = %entry
-  %value16 = getelementptr inbounds %"struct.YAML::Token", ptr %token, i64 0, i32 4
+  %value16 = getelementptr inbounds i8, ptr %token, i64 24
   %call19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %handle, ptr noundef nonnull align 8 dereferenceable(32) %value16)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %sw.bb15
-  %params = getelementptr inbounds %"struct.YAML::Token", ptr %token, i64 0, i32 5
+  %params = getelementptr inbounds i8, ptr %token, i64 56
   %3 = load ptr, ptr %params, align 8
   br label %invoke.cont18.invoke
 
@@ -170,7 +163,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %value)
   br label %return
 
@@ -184,7 +177,7 @@ invoke.cont:                                      ; preds = %sw.bb2
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %value7 = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 2
+  %value7 = getelementptr inbounds i8, ptr %this, i64 40
   %call.i13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value7)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -231,7 +224,7 @@ invoke.cont16:                                    ; preds = %sw.bb11
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %value19 = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 2
+  %value19 = getelementptr inbounds i8, ptr %this, i64 40
   %call.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %value19)
           to label %invoke.cont21 unwind label %lpad20
 
@@ -269,7 +262,7 @@ ehcleanup24:                                      ; preds = %ehcleanup23, %lpad1
   br label %eh.resume
 
 sw.bb25:                                          ; preds = %entry
-  %handle = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp28, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %handle)
   %call.i16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull @.str.21)
           to label %invoke.cont30 unwind label %lpad29
@@ -280,7 +273,7 @@ invoke.cont30:                                    ; preds = %sw.bb25
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %value33 = getelementptr inbounds %"struct.YAML::Tag", ptr %this, i64 0, i32 2
+  %value33 = getelementptr inbounds i8, ptr %this, i64 40
   %call.i17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(32) %value33)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -788,7 +781,7 @@ ehcleanup75.i:                                    ; preds = %ehcleanup73.i, %lpa
 
 arraydestroy.body.i:                              ; preds = %ehcleanup75.i, %arraydestroy.body.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.17.i, %ehcleanup75.i ]
-  %arraydestroy.element.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast.i, i64 -1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i) #8
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZN4YAMLL10TokenNamesB5cxx11E
   br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i

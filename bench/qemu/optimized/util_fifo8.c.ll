@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [27 x i8] c"fifo->num < fifo->capacity\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"../qemu/util/fifo8.c\00", align 1
@@ -32,11 +31,11 @@ entry:
   %conv = zext i32 %capacity to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 1) #8
   store ptr %call, ptr %fifo, align 8
-  %capacity1 = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity1 = getelementptr inbounds i8, ptr %fifo, i64 8
   store i32 %capacity, ptr %capacity1, align 8
-  %head = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %fifo, i64 12
   store i32 0, ptr %head, align 4
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   store i32 0, ptr %num, align 8
   ret void
 }
@@ -57,9 +56,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fifo8_push(ptr nocapture noundef %fifo, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num, align 8
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp = icmp ult i32 %0, %1
   br i1 %cmp, label %if.end, label %if.else
@@ -70,7 +69,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %fifo, align 8
-  %head = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %fifo, i64 12
   %3 = load i32, ptr %head, align 4
   %add = add i32 %3, %0
   %rem = urem i32 %add, %1
@@ -89,10 +88,10 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fifo8_push_all(ptr nocapture noundef %fifo, ptr nocapture noundef readonly %data, i32 noundef %num) local_unnamed_addr #0 {
 entry:
-  %num1 = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num1 = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num1, align 8
   %add = add i32 %0, %num
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.not = icmp ugt i32 %add, %1
   br i1 %cmp.not, label %if.else, label %if.end
@@ -102,7 +101,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %head = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %fifo, i64 12
   %2 = load i32, ptr %head, align 4
   %add3 = add i32 %2, %0
   %rem = urem i32 %add3, %1
@@ -145,7 +144,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i8 @fifo8_pop(ptr nocapture noundef %fifo) local_unnamed_addr #0 {
 entry:
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -156,14 +155,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %fifo, align 8
-  %head = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %fifo, i64 12
   %2 = load i32, ptr %head, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %head, align 4
   %idxprom = zext i32 %2 to i64
   %arrayidx = getelementptr i8, ptr %1, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %4 = load i32, ptr %capacity, align 8
   %rem = urem i32 %inc, %4
   store i32 %rem, ptr %head, align 4
@@ -179,7 +178,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %num1 = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num1 = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num1, align 8
   %cmp2.not = icmp ult i32 %0, %max
   br i1 %cmp2.not, label %if.else, label %if.end
@@ -189,9 +188,9 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %1 = load i32, ptr %capacity, align 8
-  %head = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %fifo, i64 12
   %2 = load i32, ptr %head, align 4
   %sub = sub i32 %1, %2
   %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %max)
@@ -214,9 +213,9 @@ if.end:                                           ; preds = %land.lhs.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @fifo8_reset(ptr nocapture noundef writeonly %fifo) local_unnamed_addr #5 {
 entry:
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   store i32 0, ptr %num, align 8
-  %head = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %fifo, i64 12
   store i32 0, ptr %head, align 4
   ret void
 }
@@ -224,7 +223,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @fifo8_is_empty(ptr nocapture noundef readonly %fifo) local_unnamed_addr #6 {
 entry:
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num, align 8
   %cmp = icmp eq i32 %0, 0
   ret i1 %cmp
@@ -233,9 +232,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @fifo8_is_full(ptr nocapture noundef readonly %fifo) local_unnamed_addr #6 {
 entry:
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num, align 8
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp = icmp eq i32 %0, %1
   ret i1 %cmp
@@ -244,9 +243,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @fifo8_num_free(ptr nocapture noundef readonly %fifo) local_unnamed_addr #6 {
 entry:
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   %1 = load i32, ptr %num, align 8
   %sub = sub i32 %0, %1
   ret i32 %sub
@@ -255,7 +254,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @fifo8_num_used(ptr nocapture noundef readonly %fifo) local_unnamed_addr #6 {
 entry:
-  %num = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %fifo, i64 16
   %0 = load i32, ptr %num, align 8
   ret i32 %0
 }

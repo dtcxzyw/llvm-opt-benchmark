@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-param_build_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/param_build_set.c\00", align 1
 @__func__.ossl_param_build_set_bn_pad = private unnamed_addr constant [28 x i8] c"ossl_param_build_set_bn_pad\00", align 1
 
@@ -138,7 +136,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call1, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call1, i64 24
   %0 = load i64, ptr %data_size, align 8
   %cmp4 = icmp ult i64 %0, %sz
   br i1 %cmp4, label %if.then5, label %if.end6

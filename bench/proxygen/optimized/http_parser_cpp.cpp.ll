@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { ptr, ptr }
-%"struct.proxygen::http_parser" = type { i8, i8, i8, i8, i32, i64, i16, i16, i16, i8, i8, ptr }
-%"struct.proxygen::http_parser_settings" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.proxygen::http_parser_url" = type { i16, i16, [7 x %struct.anon.0] }
 %struct.anon.0 = type { i16, i16 }
 
 @_ZN8proxygenL14method_stringsE = internal unnamed_addr constant [24 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28], align 16
@@ -132,10 +129,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN8proxygen27http_parser_execute_optionsEPNS_11http_parserEPKNS_20http_parser_settingsEhPKcm(ptr noundef %parser, ptr nocapture noundef readonly %settings, i8 noundef zeroext %options, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %state1 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 1
+  %state1 = getelementptr inbounds i8, ptr %parser, i64 1
   %0 = load i8, ptr %state1, align 1
   %.fr4790 = freeze i8 %0
-  %http_errno = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 10
+  %http_errno = getelementptr inbounds i8, ptr %parser, i64 23
   %bf.load = load i8, ptr %http_errno, align 1
   %bf.clear = and i8 %bf.load, 127
   %cmp.not = icmp eq i8 %bf.clear, 0
@@ -154,7 +151,7 @@ if.then4:                                         ; preds = %if.end
   ]
 
 do.body6:                                         ; preds = %if.then4
-  %on_message_complete = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 6
+  %on_message_complete = getelementptr inbounds i8, ptr %settings, i64 48
   %1 = load ptr, ptr %on_message_complete, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull %parser)
   %cmp8.not = icmp eq i32 %call, 0
@@ -204,28 +201,28 @@ for.body.lr.ph:                                   ; preds = %if.end
   %header_value_mark.0 = select i1 %cmp46, ptr %data, ptr null
   %cmp42 = icmp eq i8 %.fr4790, 51
   %spec.select = select i1 %cmp42, ptr %data, ptr null
-  %content_length3323 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 5
+  %content_length3323 = getelementptr inbounds i8, ptr %parser, i64 8
   %sub.ptr.lhs.cast3325 = ptrtoint ptr %add.ptr to i64
-  %on_body = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 5
-  %on_chunk_complete = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 9
-  %method3064 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 9
+  %on_body = getelementptr inbounds i8, ptr %settings, i64 40
+  %on_chunk_complete = getelementptr inbounds i8, ptr %settings, i64 72
+  %method3064 = getelementptr inbounds i8, ptr %parser, i64 22
   %sub.ptr.rhs.cast3074 = ptrtoint ptr %data to i64
-  %on_headers_complete = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 4
-  %header_state2290 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 2
-  %on_header_value2298 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 3
-  %http_major1729 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 6
-  %http_minor1733 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 7
+  %on_headers_complete = getelementptr inbounds i8, ptr %settings, i64 32
+  %header_state2290 = getelementptr inbounds i8, ptr %parser, i64 2
+  %on_header_value2298 = getelementptr inbounds i8, ptr %settings, i64 24
+  %http_major1729 = getelementptr inbounds i8, ptr %parser, i64 16
+  %http_minor1733 = getelementptr inbounds i8, ptr %parser, i64 18
   %10 = and i8 %options, 1
   %tobool1507.not = icmp eq i8 %10, 0
-  %on_url1584 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 1
-  %nread3621 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 4
-  %on_chunk_header3534 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 8
-  %on_message_complete3396 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 6
+  %on_url1584 = getelementptr inbounds i8, ptr %settings, i64 8
+  %nread3621 = getelementptr inbounds i8, ptr %parser, i64 4
+  %on_chunk_header3534 = getelementptr inbounds i8, ptr %settings, i64 64
+  %on_message_complete3396 = getelementptr inbounds i8, ptr %settings, i64 48
   %add.ptr3385 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %status_code3267 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 8
-  %index2896 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 3
-  %on_header_field = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 2
-  %on_reason425 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 7
+  %status_code3267 = getelementptr inbounds i8, ptr %parser, i64 20
+  %index2896 = getelementptr inbounds i8, ptr %parser, i64 3
+  %on_header_field = getelementptr inbounds i8, ptr %settings, i64 16
+  %on_reason425 = getelementptr inbounds i8, ptr %settings, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3652,7 +3649,7 @@ if.then3658:                                      ; preds = %for.end
   %sub.ptr.lhs.cast3659 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast3660 = ptrtoint ptr %data_or_header_data_start.1 to i64
   %sub.ptr.sub3661 = sub i64 %sub.ptr.lhs.cast3659, %sub.ptr.rhs.cast3660
-  %nread3662 = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 4
+  %nread3662 = getelementptr inbounds i8, ptr %parser, i64 4
   %170 = load i32, ptr %nread3662, align 4
   %171 = trunc i64 %sub.ptr.sub3661 to i32
   %conv3665 = add i32 %170, %171
@@ -3673,7 +3670,7 @@ do.body3677:                                      ; preds = %for.end, %if.then36
   br i1 %tobool3679.not, label %do.body3707, label %if.then3680
 
 if.then3680:                                      ; preds = %do.body3677
-  %on_header_field3681 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 2
+  %on_header_field3681 = getelementptr inbounds i8, ptr %settings, i64 16
   %172 = load ptr, ptr %on_header_field3681, align 8
   %sub.ptr.lhs.cast3682 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast3683 = ptrtoint ptr %header_field_mark.3 to i64
@@ -3701,7 +3698,7 @@ do.body3707:                                      ; preds = %if.end3694, %do.bod
   br i1 %tobool3709.not, label %do.body3737, label %if.then3710
 
 if.then3710:                                      ; preds = %do.body3707
-  %on_header_value3711 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 3
+  %on_header_value3711 = getelementptr inbounds i8, ptr %settings, i64 24
   %173 = load ptr, ptr %on_header_value3711, align 8
   %sub.ptr.lhs.cast3712 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast3713 = ptrtoint ptr %header_value_mark.5 to i64
@@ -3729,7 +3726,7 @@ do.body3737:                                      ; preds = %if.end3724, %do.bod
   br i1 %tobool3739.not, label %do.body3767, label %if.then3740
 
 if.then3740:                                      ; preds = %do.body3737
-  %on_url3741 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 1
+  %on_url3741 = getelementptr inbounds i8, ptr %settings, i64 8
   %174 = load ptr, ptr %on_url3741, align 8
   %sub.ptr.lhs.cast3742 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast3743 = ptrtoint ptr %url_mark.11 to i64
@@ -3757,7 +3754,7 @@ do.body3767:                                      ; preds = %if.end3754, %do.bod
   br i1 %tobool3769.not, label %do.body3797, label %if.then3770
 
 if.then3770:                                      ; preds = %do.body3767
-  %on_reason3771 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 7
+  %on_reason3771 = getelementptr inbounds i8, ptr %settings, i64 56
   %175 = load ptr, ptr %on_reason3771, align 8
   %sub.ptr.lhs.cast3772 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast3773 = ptrtoint ptr %reason_mark.3 to i64
@@ -3785,7 +3782,7 @@ do.body3797:                                      ; preds = %if.end3784, %do.bod
   br i1 %tobool3799.not, label %do.body3827, label %if.then3800
 
 if.then3800:                                      ; preds = %do.body3797
-  %on_body3801 = getelementptr inbounds %"struct.proxygen::http_parser_settings", ptr %settings, i64 0, i32 5
+  %on_body3801 = getelementptr inbounds i8, ptr %settings, i64 40
   %176 = load ptr, ptr %on_body3801, align 8
   %sub.ptr.lhs.cast3802 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast3803 = ptrtoint ptr %body_mark.6 to i64
@@ -3859,17 +3856,17 @@ entry:
   %cmp1 = icmp eq i32 %t, 1
   %0 = select i1 %cmp1, i8 5, i8 2
   %conv3 = select i1 %cmp, i8 20, i8 %0
-  %state = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %parser, i64 1
   store i8 %conv3, ptr %state, align 1
-  %nread = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 4
+  %nread = getelementptr inbounds i8, ptr %parser, i64 4
   store i32 0, ptr %nread, align 4
-  %upgrade = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 10
+  %upgrade = getelementptr inbounds i8, ptr %parser, i64 23
   store i8 %bf.value, ptr %parser, align 8
-  %method = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 9
+  %method = getelementptr inbounds i8, ptr %parser, i64 22
   store i8 0, ptr %method, align 2
-  %http_major = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 6
+  %http_major = getelementptr inbounds i8, ptr %parser, i64 16
   store i16 0, ptr %http_major, align 8
-  %http_minor = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 7
+  %http_minor = getelementptr inbounds i8, ptr %parser, i64 18
   store i16 0, ptr %http_minor, align 2
   store i8 0, ptr %upgrade, align 1
   ret void
@@ -3904,7 +3901,7 @@ entry:
 define noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
 entry:
   store i16 0, ptr %u, align 2
-  %port = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %u, i64 2
   store i16 0, ptr %port, align 2
   %tobool.not = icmp ne i32 %is_connect, 0
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %buflen
@@ -3916,6 +3913,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %0 = and i8 %options, 1
   %tobool212.i = icmp ne i8 %0, 0
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
+  %field_data10 = getelementptr inbounds i8, ptr %u, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4113,7 +4111,7 @@ sw.epilog:                                        ; preds = %_ZN8proxygenL14pars
 
 if.then:                                          ; preds = %sw.epilog
   %idxprom = zext nneg i32 %old_uf.076 to i64
-  %len = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 %idxprom, i32 1
+  %len = getelementptr inbounds [7 x %struct.anon.0], ptr %field_data10, i64 0, i64 %idxprom, i32 1
   %11 = load i16, ptr %len, align 2
   %inc = add i16 %11, 1
   store i16 %inc, ptr %len, align 2
@@ -4124,9 +4122,9 @@ if.end:                                           ; preds = %sw.epilog
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv9 = trunc i64 %sub.ptr.sub to i16
   %idxprom11 = zext nneg i32 %uf.0 to i64
-  %arrayidx12 = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [7 x %struct.anon.0], ptr %field_data10, i64 0, i64 %idxprom11
   store i16 %conv9, ptr %arrayidx12, align 2
-  %len16 = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 %idxprom11, i32 1
+  %len16 = getelementptr inbounds i8, ptr %arrayidx12, i64 2
   store i16 1, ptr %len16, align 2
   %shl = shl nuw nsw i32 1, %uf.0
   %12 = trunc i32 %shl to i16
@@ -4151,10 +4149,10 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp23.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %for.end
-  %arrayidx.i34 = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 1
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %u, i64 8
   %17 = load i16, ptr %arrayidx.i34, align 2
   %conv.i = zext i16 %17 to i64
-  %len.i = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 1, i32 1
+  %len.i = getelementptr inbounds i8, ptr %u, i64 10
   %18 = load i16, ptr %len.i, align 2
   %conv3.i = zext i16 %18 to i64
   store i16 0, ptr %len.i, align 2
@@ -4165,10 +4163,10 @@ if.then24:                                        ; preds = %for.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then24
   %sub.ptr.rhs.cast43.i = ptrtoint ptr %buf to i64
-  %arrayidx47.i = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 2
-  %len51.i = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 2, i32 1
-  %arrayidx67.i = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 6
-  %len71.i = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 6, i32 1
+  %arrayidx47.i = getelementptr inbounds i8, ptr %u, i64 12
+  %len51.i = getelementptr inbounds i8, ptr %u, i64 14
+  %arrayidx67.i = getelementptr inbounds i8, ptr %u, i64 28
+  %len71.i = getelementptr inbounds i8, ptr %u, i64 30
   br label %for.body.i
 
 for.body.i:                                       ; preds = %sw.epilog.i, %for.body.lr.ph.i
@@ -4402,9 +4400,9 @@ if.end35:                                         ; preds = %if.end29
   br i1 %tobool39.not, label %return, label %if.then40
 
 if.then40:                                        ; preds = %land.lhs.true, %if.end35
-  %arrayidx44 = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %u, i64 12
   %42 = load i16, ptr %arrayidx44, align 2
-  %len48 = getelementptr inbounds %"struct.proxygen::http_parser_url", ptr %u, i64 0, i32 2, i64 2, i32 1
+  %len48 = getelementptr inbounds i8, ptr %u, i64 14
   %43 = load i16, ptr %len48, align 2
   %idx.ext = zext i16 %42 to i64
   %add.ptr50 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
@@ -4453,7 +4451,7 @@ return:                                           ; preds = %if.end214.i, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8proxygen17http_parser_pauseEPNS_11http_parserEi(ptr nocapture noundef %parser, i32 noundef %paused) local_unnamed_addr #4 {
 entry:
-  %http_errno = getelementptr inbounds %"struct.proxygen::http_parser", ptr %parser, i64 0, i32 10
+  %http_errno = getelementptr inbounds i8, ptr %parser, i64 23
   %bf.load = load i8, ptr %http_errno, align 1
   %bf.clear = and i8 %bf.load, 127
   switch i8 %bf.clear, label %if.end [

@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/stringpiece.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::StringPiece" = type <{ ptr, i32, [4 x i8] }>
-
 @_ZN6icu_7511StringPiece4nposE = local_unnamed_addr constant i32 2147483647, align 4
 
 @_ZN6icu_7511StringPieceC1EPKc = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7511StringPieceC2EPKc
@@ -25,7 +23,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i32 [ %conv, %cond.false ], [ 0, %entry ]
-  %length_ = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %cond, ptr %length_, align 8
   ret void
 }
@@ -37,7 +35,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 define void @_ZN6icu_7511StringPieceC2ERKS0_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, i32 noundef %pos) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %pos, 0
-  %length_ = getelementptr inbounds %"class.icu_75::StringPiece", ptr %x, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i32, ptr %length_, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %pos)
   %pos.addr.0 = select i1 %cmp, i32 0, i32 %spec.select
@@ -47,7 +45,7 @@ entry:
   store ptr %add.ptr, ptr %this, align 8
   %2 = load i32, ptr %length_, align 8
   %sub = sub nsw i32 %2, %pos.addr.0
-  %length_8 = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this, i64 0, i32 1
+  %length_8 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %sub, ptr %length_8, align 8
   ret void
 }
@@ -56,7 +54,7 @@ entry:
 define void @_ZN6icu_7511StringPieceC2ERKS0_ii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, i32 noundef %pos, i32 noundef %len) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %pos, 0
-  %length_ = getelementptr inbounds %"class.icu_75::StringPiece", ptr %x, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i32, ptr %length_, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %pos)
   %pos.addr.0 = select i1 %cmp, i32 0, i32 %spec.select
@@ -68,7 +66,7 @@ entry:
   %idx.ext = sext i32 %pos.addr.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %this, align 8
-  %length_17 = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this, i64 0, i32 1
+  %length_17 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %len.addr.0, ptr %length_17, align 8
   ret void
 }
@@ -87,7 +85,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %conv.sink = phi i32 [ %conv, %if.then ], [ 0, %entry ]
-  %0 = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv.sink, ptr %0, align 8
   ret void
 }
@@ -95,7 +93,7 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7511StringPiece4findES0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture readonly %needle.coerce0, i32 %needle.coerce1, i32 noundef %offset) local_unnamed_addr #3 align 2 {
 entry:
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %length_.i, align 8
   %cmp = icmp eq i32 %0, 0
   %cmp3 = icmp eq i32 %needle.coerce1, 0
@@ -163,7 +161,7 @@ return:                                           ; preds = %if.then16.us, %for.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture readonly %other.coerce0, i32 %other.coerce1) local_unnamed_addr #3 align 2 {
 entry:
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %length_.i, align 8
   %cmp12 = icmp sgt i32 %0, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
@@ -210,9 +208,9 @@ return:                                           ; preds = %if.else, %if.end, %
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef signext i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %y) local_unnamed_addr #4 {
 entry:
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %x, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i32, ptr %length_.i, align 8
-  %length_.i10 = getelementptr inbounds %"class.icu_75::StringPiece", ptr %y, i64 0, i32 1
+  %length_.i10 = getelementptr inbounds i8, ptr %y, i64 8
   %1 = load i32, ptr %length_.i10, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return

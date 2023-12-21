@@ -4,31 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.DBusDisplay = type { %struct.Object, i32, i8, ptr, ptr, %struct.DisplayGLCtx, ptr, ptr, ptr, ptr, ptr, %struct.QemuClipboardPeer, ptr, ptr, [3 x %struct.DBusClipboardRequest], %struct.Notifier }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.DisplayGLCtx = type { ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%struct.DBusClipboardRequest = type { ptr, i32, i32 }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.DBusDisplayEvent = type { i32, %union.anon }
 %union.anon = type { ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.DBusChardev = type { %struct.SocketChardev, i8, ptr }
-%struct.SocketChardev = type { %struct.Chardev, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, i64, i8, ptr, i8, i8, i8, ptr, ptr, i8, ptr, i64, i8, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.DBusChardevClass = type { %struct.ChardevClass, ptr }
-%struct.ChardevBackend = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevDBus = type { ptr, i8, i8, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct._GError = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"/chardevs\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"/org/qemu/Display1/Chardev_%s\00", align 1
@@ -68,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @dbus_chardev_init(ptr noundef %dpy) local_unnamed_addr #0 {
 entry:
-  %notifier = getelementptr inbounds %struct.DBusDisplay, ptr %dpy, i64 0, i32 15
+  %notifier = getelementptr inbounds i8, ptr %dpy, i64 216
   store ptr @dbus_display_on_notify, ptr %notifier, align 8
   tail call void @dbus_display_notifier_add(ptr noundef nonnull %notifier) #4
   %call = tail call ptr @object_get_root() #4
@@ -88,19 +66,19 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %add.ptr = getelementptr i8, ptr %notifier, i64 -216
-  %1 = getelementptr inbounds %struct.DBusDisplayEvent, ptr %data, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %1, align 8
   tail call fastcc void @dbus_display_chardev_export(ptr noundef %add.ptr, ptr noundef %2)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %3 = getelementptr inbounds %struct.DBusDisplayEvent, ptr %data, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load ptr, ptr %3, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #4
-  %label.i.i = getelementptr inbounds %struct.Chardev, ptr %call.i.i.i, i64 0, i32 3
+  %label.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 96
   %5 = load ptr, ptr %label.i.i, align 8
   %call1.i.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %5) #4
-  %exported.i = getelementptr inbounds %struct.DBusChardev, ptr %4, i64 0, i32 1
+  %exported.i = getelementptr inbounds i8, ptr %4, i64 328
   %6 = load i8, ptr %exported.i, align 8
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
@@ -166,10 +144,10 @@ entry:
 define internal fastcc void @dbus_display_chardev_export(ptr nocapture noundef readonly %dpy, ptr noundef %chr) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #4
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %call.i.i, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %0 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %0) #4
-  %exported = getelementptr inbounds %struct.DBusChardev, ptr %chr, i64 0, i32 1
+  %exported = getelementptr inbounds i8, ptr %chr, i64 328
   %1 = load i8, ptr %exported, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -181,12 +159,12 @@ cleanup.thread:                                   ; preds = %entry
 
 cleanup:                                          ; preds = %entry
   %call1 = tail call ptr @g_dbus_object_skeleton_new(ptr noundef %call1.i) #4
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %chr, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %chr, i64 336
   %3 = load ptr, ptr %iface, align 8
   %call2 = tail call i64 @g_dbus_interface_skeleton_get_type() #5
   %call3 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %call2) #4
   tail call void @g_dbus_object_skeleton_add_interface(ptr noundef %call1, ptr noundef %call3) #4
-  %server = getelementptr inbounds %struct.DBusDisplay, ptr %dpy, i64 0, i32 7
+  %server = getelementptr inbounds i8, ptr %dpy, i64 80
   %4 = load ptr, ptr %server, align 8
   tail call void @g_dbus_object_manager_server_export(ptr noundef %4, ptr noundef %call1) #4
   store i8 1, ptr %exported, align 8
@@ -233,10 +211,10 @@ entry:
   %event = alloca %struct.DBusDisplayEvent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 131, ptr noundef nonnull @__func__.DBUS_CHARDEV) #4
   store i32 1, ptr %event, align 8
-  %0 = getelementptr inbounds %struct.DBusDisplayEvent, ptr %event, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %event, i64 8
   store ptr %call.i, ptr %0, align 8
   call void @dbus_display_notify(ptr noundef nonnull %event) #4
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %call.i, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %call.i, i64 336
   %1 = load ptr, ptr %iface, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -255,17 +233,17 @@ define internal void @char_dbus_class_init(ptr noundef %oc, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 122, ptr noundef nonnull @__func__.DBUS_CHARDEV_CLASS) #4
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #4
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i7, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i7, i64 104
   store ptr @dbus_chr_parse, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i7, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i7, i64 112
   store ptr @dbus_chr_open, ptr %open, align 8
-  %chr_set_fe_open = getelementptr inbounds %struct.ChardevClass, ptr %call.i7, i64 0, i32 17
+  %chr_set_fe_open = getelementptr inbounds i8, ptr %call.i7, i64 216
   store ptr @dbus_chr_set_fe_open, ptr %chr_set_fe_open, align 8
-  %chr_set_echo = getelementptr inbounds %struct.ChardevClass, ptr %call.i7, i64 0, i32 16
+  %chr_set_echo = getelementptr inbounds i8, ptr %call.i7, i64 208
   store ptr @dbus_chr_set_echo, ptr %chr_set_echo, align 8
-  %chr_be_event = getelementptr inbounds %struct.ChardevClass, ptr %call.i7, i64 0, i32 18
+  %chr_be_event = getelementptr inbounds i8, ptr %call.i7, i64 224
   %0 = load ptr, ptr %chr_be_event, align 8
-  %parent_chr_be_event = getelementptr inbounds %struct.DBusChardevClass, ptr %call.i, i64 0, i32 1
+  %parent_chr_be_event = getelementptr inbounds i8, ptr %call.i, i64 232
   store ptr %0, ptr %parent_chr_be_event, align 8
   store ptr @dbus_chr_be_event, ptr %chr_be_event, align 8
   ret void
@@ -287,11 +265,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 15, ptr %backend, align 8
   %call1 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call1, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call1) #4
   %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #4
-  %name4 = getelementptr inbounds %struct.ChardevDBus, ptr %call1, i64 0, i32 3
+  %name4 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call3, ptr %name4, align 8
   br label %return
 
@@ -305,7 +283,7 @@ entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %event = alloca %struct.DBusDisplayEvent, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -313,14 +291,14 @@ entry:
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 131, ptr noundef nonnull @__func__.DBUS_CHARDEV) #4
   store i32 0, ptr %event, align 8
-  %0 = getelementptr inbounds %struct.DBusDisplayEvent, ptr %event, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %event, i64 8
   store ptr %call.i, ptr %0, align 8
   %call3 = tail call ptr @qemu_dbus_display1_chardev_skeleton_new() #4
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %call.i, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %call.i, i64 336
   store ptr %call3, ptr %iface, align 8
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %1 = load ptr, ptr %u, align 8
-  %name = getelementptr inbounds %struct.ChardevDBus, ptr %1, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %name, align 8
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %call3, ptr noundef nonnull @.str.8, ptr noundef %2, ptr noundef null) #4
   %3 = load ptr, ptr %iface, align 8
@@ -333,7 +311,7 @@ entry:
   %call11 = call zeroext i1 @qemu_opt_set(ptr noundef %call9, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @error_abort) #4
   %call12 = call ptr @object_class_by_name(ptr noundef nonnull @.str.7) #4
   %call.i13 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call12, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #4
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i13, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i13, i64 104
   %4 = load ptr, ptr %parse, align 8
   call void %4(ptr noundef %call9, ptr noundef %call7, ptr noundef %spec.select) #4
   %5 = load ptr, ptr %spec.select, align 8
@@ -343,7 +321,7 @@ entry:
 if.end16:                                         ; preds = %entry
   %call17 = call ptr @object_class_by_name(ptr noundef nonnull @.str.7) #4
   %call.i14 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call17, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #4
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i14, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i14, i64 112
   %6 = load ptr, ptr %open, align 8
   call void %6(ptr noundef %chr, ptr noundef %call7, ptr noundef %be_opened, ptr noundef nonnull %spec.select) #4
   br label %cleanup
@@ -375,7 +353,7 @@ glib_autoptr_cleanup_ChardevBackend.exit:         ; preds = %glib_autoptr_cleanu
 define internal void @dbus_chr_set_fe_open(ptr noundef %chr, i32 noundef %fe_open) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 131, ptr noundef nonnull @__func__.DBUS_CHARDEV) #4
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %call.i, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %call.i, i64 336
   %0 = load ptr, ptr %iface, align 8
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %fe_open, ptr noundef null) #4
   ret void
@@ -385,7 +363,7 @@ entry:
 define internal void @dbus_chr_set_echo(ptr noundef %chr, i1 noundef zeroext %echo) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 131, ptr noundef nonnull @__func__.DBUS_CHARDEV) #4
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %call.i, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %call.i, i64 336
   %0 = load ptr, ptr %iface, align 8
   %conv = zext i1 %echo to i32
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %conv, ptr noundef null) #4
@@ -402,7 +380,7 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %call.i, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %call.i, i64 336
   %0 = load ptr, ptr %iface, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %sw.epilog, label %if.then
@@ -412,7 +390,7 @@ if.then:                                          ; preds = %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb, %if.then
-  %parent_chr_be_event = getelementptr inbounds %struct.DBusChardevClass, ptr %call1.i, i64 0, i32 1
+  %parent_chr_be_event = getelementptr inbounds i8, ptr %call1.i, i64 232
   %1 = load ptr, ptr %parent_chr_be_event, align 8
   tail call void %1(ptr noundef %chr, i32 noundef %event) #4
   ret void
@@ -451,7 +429,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = call i32 @dbus_display_error_quark() #4
   %1 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call2, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %2) #4
   br label %cleanup
@@ -469,7 +447,7 @@ if.then5:                                         ; preds = %if.end
   br label %cleanup
 
 if.end8:                                          ; preds = %if.end
-  %iface = getelementptr inbounds %struct.DBusChardev, ptr %dc, i64 0, i32 2
+  %iface = getelementptr inbounds i8, ptr %dc, i64 336
   %3 = load ptr, ptr %iface, align 8
   %call9 = call ptr @g_dbus_method_invocation_get_sender(ptr noundef %invocation) #4
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %call9, ptr noundef null) #4

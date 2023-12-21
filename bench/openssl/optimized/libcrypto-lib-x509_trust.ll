@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.x509_trust_st = type { i32, i32, ptr, ptr, i32, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.x509_cert_aux_st = type { ptr, ptr, ptr, ptr, ptr }
 
 @default_trust = internal unnamed_addr global ptr @obj_trust, align 8
 @trtable = internal unnamed_addr global ptr null, align 8
@@ -97,7 +87,7 @@ if.end3.i:                                        ; preds = %X509_TRUST_get_by_i
 
 X509_TRUST_get0.exit:                             ; preds = %if.then2.i, %if.end3.i
   %retval.0.i10 = phi ptr [ %add.ptr.i, %if.then2.i ], [ %call5.i, %if.end3.i ]
-  %check_trust = getelementptr inbounds %struct.x509_trust_st, ptr %retval.0.i10, i64 0, i32 2
+  %check_trust = getelementptr inbounds i8, ptr %retval.0.i10, i64 8
   %5 = load ptr, ptr %check_trust, align 8
   %call7 = call i32 %5(ptr noundef %retval.0.i10, ptr noundef %x, i32 noundef %flags) #6
   br label %return
@@ -110,13 +100,13 @@ return:                                           ; preds = %X509_TRUST_get0.exi
 ; Function Attrs: nounwind uwtable
 define internal i32 @obj_trust(i32 noundef %id, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end41, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %reject = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 1
+  %reject = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reject, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %land.lhs.true15, label %for.cond.preheader
@@ -226,7 +216,7 @@ if.end.i:                                         ; preds = %if.end45
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 8
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 232
   %11 = load i32, ptr %ex_flags.i, align 8
   %and2.i = and i32 %11, 8192
   %tobool.not.i = icmp eq i32 %and2.i, 0
@@ -415,7 +405,7 @@ if.then:                                          ; preds = %X509_TRUST_get_by_i
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %flags4 = getelementptr inbounds %struct.x509_trust_st, ptr %call1, i64 0, i32 1
+  %flags4 = getelementptr inbounds i8, ptr %call1, i64 4
   store i32 1, ptr %flags4, align 4
   br label %if.end6
 
@@ -433,21 +423,21 @@ if.end3.i:                                        ; preds = %X509_TRUST_get_by_i
 if.end6:                                          ; preds = %if.end3.i, %if.then2.i, %if.end
   %cmp23 = phi i1 [ true, %if.end ], [ false, %if.then2.i ], [ false, %if.end3.i ]
   %trtmp.0 = phi ptr [ %call1, %if.end ], [ %add.ptr.i, %if.then2.i ], [ %call5.i, %if.end3.i ]
-  %flags7 = getelementptr inbounds %struct.x509_trust_st, ptr %trtmp.0, i64 0, i32 1
+  %flags7 = getelementptr inbounds i8, ptr %trtmp.0, i64 4
   %4 = load i32, ptr %flags7, align 4
   %and8 = and i32 %4, 2
   %tobool.not = icmp eq i32 %and8, 0
   br i1 %tobool.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %name10 = getelementptr inbounds %struct.x509_trust_st, ptr %trtmp.0, i64 0, i32 3
+  %name10 = getelementptr inbounds i8, ptr %trtmp.0, i64 16
   %5 = load ptr, ptr %name10, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 149) #6
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end6
   %call12 = call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str, i32 noundef 151) #6
-  %name13 = getelementptr inbounds %struct.x509_trust_st, ptr %trtmp.0, i64 0, i32 3
+  %name13 = getelementptr inbounds i8, ptr %trtmp.0, i64 16
   store ptr %call12, ptr %name13, align 8
   %cmp14 = icmp eq ptr %call12, null
   br i1 %cmp14, label %err, label %if.end16
@@ -459,11 +449,11 @@ if.end16:                                         ; preds = %if.end11
   %or20 = or disjoint i32 %or, 2
   store i32 %or20, ptr %flags7, align 4
   store i32 %id, ptr %trtmp.0, align 8
-  %check_trust = getelementptr inbounds %struct.x509_trust_st, ptr %trtmp.0, i64 0, i32 2
+  %check_trust = getelementptr inbounds i8, ptr %trtmp.0, i64 8
   store ptr %ck, ptr %check_trust, align 8
-  %arg121 = getelementptr inbounds %struct.x509_trust_st, ptr %trtmp.0, i64 0, i32 4
+  %arg121 = getelementptr inbounds i8, ptr %trtmp.0, i64 24
   store i32 %arg1, ptr %arg121, align 8
-  %arg222 = getelementptr inbounds %struct.x509_trust_st, ptr %trtmp.0, i64 0, i32 5
+  %arg222 = getelementptr inbounds i8, ptr %trtmp.0, i64 32
   store ptr %arg2, ptr %arg222, align 8
   br i1 %cmp23, label %if.then24, label %return
 
@@ -544,7 +534,7 @@ entry:
   br i1 %cmp, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.x509_trust_st, ptr %p, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -556,7 +546,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.then1
-  %name = getelementptr inbounds %struct.x509_trust_st, ptr %p, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 190) #6
   br label %if.end6
@@ -572,7 +562,7 @@ if.end7:                                          ; preds = %entry, %if.end6, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_TRUST_get_flags(ptr nocapture noundef readonly %xp) local_unnamed_addr #4 {
 entry:
-  %flags = getelementptr inbounds %struct.x509_trust_st, ptr %xp, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %xp, i64 4
   %0 = load i32, ptr %flags, align 4
   ret i32 %0
 }
@@ -580,7 +570,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_TRUST_get0_name(ptr nocapture noundef readonly %xp) local_unnamed_addr #4 {
 entry:
-  %name = getelementptr inbounds %struct.x509_trust_st, ptr %xp, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %xp, i64 16
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -605,7 +595,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 8
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags, align 8
   %and2 = and i32 %0, 8192
   %tobool.not = icmp eq i32 %and2, 0
@@ -623,7 +613,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 define internal i32 @trust_1oidany(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
   %or = or i32 %flags, 24
-  %arg1 = getelementptr inbounds %struct.x509_trust_st, ptr %trust, i64 0, i32 4
+  %arg1 = getelementptr inbounds i8, ptr %trust, i64 24
   %0 = load i32, ptr %arg1, align 8
   %call = tail call i32 @obj_trust(i32 noundef %0, ptr noundef %x, i32 noundef %or), !range !4
   ret i32 %call
@@ -633,7 +623,7 @@ entry:
 define internal i32 @trust_1oid(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
   %and = and i32 %flags, -25
-  %arg1 = getelementptr inbounds %struct.x509_trust_st, ptr %trust, i64 0, i32 4
+  %arg1 = getelementptr inbounds i8, ptr %trust, i64 24
   %0 = load i32, ptr %arg1, align 8
   %call = tail call i32 @obj_trust(i32 noundef %0, ptr noundef %x, i32 noundef %and), !range !4
   ret i32 %call

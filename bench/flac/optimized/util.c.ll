@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%struct.bench_stats = type { ptr, i32, i32, double, double, double, double }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local double @benchmark_function(ptr nocapture noundef readonly %testfunc, i32 noundef %count) local_unnamed_addr #0 {
@@ -54,7 +53,7 @@ define dso_local void @benchmark_stats(ptr nocapture noundef %stats) local_unnam
 entry:
   %start.i = alloca %struct.timespec, align 8
   %end.i = alloca %struct.timespec, align 8
-  %run_count = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 1
+  %run_count = getelementptr inbounds i8, ptr %stats, i64 8
   %0 = load i32, ptr %run_count, align 8
   %1 = zext i32 %0 to i64
   %vla = alloca double, i64 %1, align 16
@@ -62,7 +61,7 @@ entry:
   br i1 %cmp40.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %loop_count = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 2
+  %loop_count = getelementptr inbounds i8, ptr %stats, i64 12
   %2 = getelementptr inbounds i8, ptr %start.i, i64 8
   %3 = getelementptr inbounds i8, ptr %end.i, i64 8
   br label %for.body
@@ -121,19 +120,19 @@ for.end:                                          ; preds = %entry, %for.end.loo
   %.lcssa39 = phi i64 [ %11, %for.end.loopexit ], [ 0, %entry ]
   call void @qsort(ptr noundef nonnull %vla, i64 noundef %.lcssa39, i64 noundef 8, ptr noundef nonnull @double_cmp) #6
   %12 = load double, ptr %vla, align 16
-  %max_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 6
+  %max_time = getelementptr inbounds i8, ptr %stats, i64 40
   store double %12, ptr %max_time, align 8
-  %min_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 3
+  %min_time = getelementptr inbounds i8, ptr %stats, i64 16
   store double %12, ptr %min_time, align 8
   %13 = load i32, ptr %run_count, align 8
   %cmp642.not = icmp eq i32 %13, 0
   br i1 %cmp642.not, label %for.end35.thread, label %for.body8.lr.ph
 
 for.end35.thread:                                 ; preds = %for.end
-  %conv3754 = uitofp i32 %13 to double
-  %div55 = fdiv double 0.000000e+00, %conv3754
-  %mean_time56 = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 4
-  store double %div55, ptr %mean_time56, align 8
+  %conv3752 = uitofp i32 %13 to double
+  %div53 = fdiv double 0.000000e+00, %conv3752
+  %mean_time54 = getelementptr inbounds i8, ptr %stats, i64 24
+  store double %div53, ptr %mean_time54, align 8
   br label %if.else
 
 for.body8.lr.ph:                                  ; preds = %for.end
@@ -141,19 +140,19 @@ for.body8.lr.ph:                                  ; preds = %for.end
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.body8
-  %indvars.iv50 = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next51, %for.body8 ]
-  %cond2948 = phi double [ %12, %for.body8.lr.ph ], [ %cond29, %for.body8 ]
-  %.47 = phi double [ %12, %for.body8.lr.ph ], [ %., %for.body8 ]
+  %indvars.iv48 = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next49, %for.body8 ]
+  %14 = phi double [ %12, %for.body8.lr.ph ], [ %cond29, %for.body8 ]
+  %15 = phi double [ %12, %for.body8.lr.ph ], [ %., %for.body8 ]
   %sum.043 = phi double [ 0.000000e+00, %for.body8.lr.ph ], [ %add, %for.body8 ]
-  %arrayidx11 = getelementptr inbounds double, ptr %vla, i64 %indvars.iv50
-  %14 = load double, ptr %arrayidx11, align 8
-  %cmp12 = fcmp olt double %.47, %14
-  %. = select i1 %cmp12, double %.47, double %14
-  %cmp21 = fcmp ogt double %cond2948, %14
-  %cond29 = select i1 %cmp21, double %cond2948, double %14
-  %add = fadd double %sum.043, %14
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
+  %arrayidx11 = getelementptr inbounds double, ptr %vla, i64 %indvars.iv48
+  %16 = load double, ptr %arrayidx11, align 8
+  %cmp12 = fcmp olt double %15, %16
+  %. = select i1 %cmp12, double %15, double %16
+  %cmp21 = fcmp ogt double %14, %16
+  %cond29 = select i1 %cmp21, double %14, double %16
+  %add = fadd double %sum.043, %16
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
   br i1 %exitcond.not, label %for.end35, label %for.body8, !llvm.loop !8
 
 for.end35:                                        ; preds = %for.body8
@@ -161,7 +160,7 @@ for.end35:                                        ; preds = %for.body8
   store double %cond29, ptr %max_time, align 8
   %conv37 = uitofp i32 %13 to double
   %div = fdiv double %add, %conv37
-  %mean_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 4
+  %mean_time = getelementptr inbounds i8, ptr %stats, i64 24
   store double %div, ptr %mean_time, align 8
   %and = and i32 %13, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -172,26 +171,26 @@ if.then:                                          ; preds = %for.end35
   %div4138 = lshr exact i32 %add40, 1
   %idxprom42 = zext nneg i32 %div4138 to i64
   %arrayidx43 = getelementptr inbounds double, ptr %vla, i64 %idxprom42
-  %15 = load double, ptr %arrayidx43, align 8
+  %17 = load double, ptr %arrayidx43, align 8
   br label %if.end
 
 if.else:                                          ; preds = %for.end35.thread, %for.end35
   %div4537 = lshr exact i32 %13, 1
   %idxprom46 = zext nneg i32 %div4537 to i64
   %arrayidx47 = getelementptr inbounds double, ptr %vla, i64 %idxprom46
-  %16 = load double, ptr %arrayidx47, align 8
+  %18 = load double, ptr %arrayidx47, align 8
   %add50 = add nuw i32 %div4537, 1
   %idxprom51 = zext i32 %add50 to i64
   %arrayidx52 = getelementptr inbounds double, ptr %vla, i64 %idxprom51
-  %17 = load double, ptr %arrayidx52, align 8
-  %add53 = fadd double %16, %17
+  %19 = load double, ptr %arrayidx52, align 8
+  %add53 = fadd double %18, %19
   %mul = fmul double %add53, 5.000000e-01
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi double [ %mul, %if.else ], [ %15, %if.then ]
-  %18 = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 5
-  store double %.sink, ptr %18, align 8
+  %.sink = phi double [ %mul, %if.else ], [ %17, %if.then ]
+  %20 = getelementptr inbounds i8, ptr %stats, i64 32
+  store double %.sink, ptr %20, align 8
   ret void
 }
 

@@ -4,102 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::theory::eq::EqClassesIterator" = type { ptr, i64 }
-%"class.cvc5::internal::theory::eq::EqualityEngine" = type { %"class.cvc5::context::ContextNotifyObj", %"class.cvc5::internal::EnvObj", ptr, ptr, ptr, %"class.cvc5::context::CDO", ptr, %"class.cvc5::internal::KindMap", %"class.cvc5::internal::KindMap", %"class.cvc5::internal::KindMap", %"class.std::unordered_map", %"class.std::unordered_map.2", %"class.std::vector", %"class.cvc5::context::CDO.23", %"class.std::vector.25", %"class.cvc5::context::CDO.23", %"class.std::vector.30", %"class.std::vector.35", %"class.cvc5::context::CDO.23", %"class.std::vector.40", %"class.std::vector.45", %"class.std::vector.50", %"class.std::vector.55", %"class.std::vector.60", %"class.std::vector.65", %"class.cvc5::context::CDO.23", %"class.std::vector.55", %"class.std::vector.70", %"class.std::vector.55", %"class.std::queue", %"class.std::vector.55", %"class.cvc5::context::CDO.23", %"class.std::vector.70", %"class.std::vector.70", %"struct.cvc5::internal::theory::eq::EqualityEngine::Statistics", %"class.std::deque.74", i8, %"class.cvc5::internal::NodeTemplate", i32, %"class.cvc5::internal::NodeTemplate", i32, i8, i8, ptr, i32, [4 x i8], %"class.cvc5::context::CDO.23", %"class.std::vector.80", %"class.cvc5::context::CDO.23", %"class.std::vector.55", %"class.std::unordered_map.85", %"class.std::vector.103", %"class.cvc5::context::CDO.108", %"class.std::vector.103", %"class.cvc5::context::CDO.108", %"class.cvc5::context::CDHashMap", %"class.std::__cxx11::basic_string" }
-%"class.cvc5::context::ContextNotifyObj" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.cvc5::context::CDO" = type <{ %"class.cvc5::context::ContextObj", i8, [7 x i8] }>
-%"class.cvc5::context::ContextObj" = type { ptr, ptr, ptr, ptr, ptr }
-%"class.cvc5::internal::KindMap" = type { %"class.std::bitset" }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { [6 x i64] }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map.2" = type { %"class.std::_Hashtable.3" }
-%"class.std::_Hashtable.3" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplication, std::allocator<cvc5::internal::theory::eq::FunctionApplication>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplication, std::allocator<cvc5::internal::theory::eq::FunctionApplication>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplication, std::allocator<cvc5::internal::theory::eq::FunctionApplication>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplication, std::allocator<cvc5::internal::theory::eq::FunctionApplication>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
-%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplicationPair, std::allocator<cvc5::internal::theory::eq::FunctionApplicationPair>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplicationPair, std::allocator<cvc5::internal::theory::eq::FunctionApplicationPair>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplicationPair, std::allocator<cvc5::internal::theory::eq::FunctionApplicationPair>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::FunctionApplicationPair, std::allocator<cvc5::internal::theory::eq::FunctionApplicationPair>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
-%"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityNode, std::allocator<cvc5::internal::theory::eq::EqualityNode>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityNode, std::allocator<cvc5::internal::theory::eq::EqualityNode>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityNode, std::allocator<cvc5::internal::theory::eq::EqualityNode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityNode, std::allocator<cvc5::internal::theory::eq::EqualityNode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.40" = type { %"struct.std::_Vector_base.41" }
-%"struct.std::_Vector_base.41" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::UseListNode, std::allocator<cvc5::internal::theory::eq::UseListNode>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::UseListNode, std::allocator<cvc5::internal::theory::eq::UseListNode>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::UseListNode, std::allocator<cvc5::internal::theory::eq::UseListNode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::UseListNode, std::allocator<cvc5::internal::theory::eq::UseListNode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
-%"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Equality, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Equality>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Equality, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Equality>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Equality, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Equality>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Equality, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Equality>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge, std::allocator<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge, std::allocator<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge, std::allocator<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge, std::allocator<cvc5::internal::theory::eq::EqualityEngine::EqualityEdge>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
-%"struct.std::_Vector_base.61" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Trigger, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Trigger>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Trigger, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Trigger>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Trigger, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Trigger>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::Trigger, std::allocator<cvc5::internal::theory::eq::EqualityEngine::Trigger>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
-%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::TriggerInfo, std::allocator<cvc5::internal::theory::eq::TriggerInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::TriggerInfo, std::allocator<cvc5::internal::theory::eq::TriggerInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::TriggerInfo, std::allocator<cvc5::internal::theory::eq::TriggerInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::TriggerInfo, std::allocator<cvc5::internal::theory::eq::TriggerInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::queue" = type { %"class.std::deque" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::vector.70" = type { %"struct.std::_Bvector_base" }
-%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
-%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
-%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"struct.cvc5::internal::theory::eq::EqualityEngine::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat" }
-%"class.cvc5::internal::IntStat" = type { %"class.cvc5::internal::ValueStat" }
-%"class.cvc5::internal::ValueStat" = type { ptr }
-%"class.std::deque.74" = type { %"class.std::_Deque_base.75" }
-%"class.std::_Deque_base.75" = type { %"struct.std::_Deque_base<cvc5::internal::theory::eq::MergeCandidate, std::allocator<cvc5::internal::theory::eq::MergeCandidate>>::_Deque_impl" }
-%"struct.std::_Deque_base<cvc5::internal::theory::eq::MergeCandidate, std::allocator<cvc5::internal::theory::eq::MergeCandidate>>::_Deque_impl" = type { %"struct.std::_Deque_base<cvc5::internal::theory::eq::MergeCandidate, std::allocator<cvc5::internal::theory::eq::MergeCandidate>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<cvc5::internal::theory::eq::MergeCandidate, std::allocator<cvc5::internal::theory::eq::MergeCandidate>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.79", %"struct.std::_Deque_iterator.79" }
-%"struct.std::_Deque_iterator.79" = type { ptr, ptr, ptr, ptr }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.std::vector.80" = type { %"struct.std::_Vector_base.81" }
-%"struct.std::_Vector_base.81" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate, std::allocator<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate, std::allocator<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate, std::allocator<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate, std::allocator<cvc5::internal::theory::eq::EqualityEngine::TriggerSetUpdate>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::CDO.23" = type <{ %"class.cvc5::context::ContextObj", i32, [4 x i8] }>
-%"class.std::vector.55" = type { %"struct.std::_Vector_base.56" }
-%"struct.std::_Vector_base.56" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map.85" = type { %"class.std::_Hashtable.86" }
-%"class.std::_Hashtable.86" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector.103" = type { %"struct.std::_Vector_base.104" }
-%"struct.std::_Vector_base.104" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::CDO.108" = type { %"class.cvc5::context::ContextObj", i64 }
-%"class.cvc5::context::CDHashMap" = type { %"class.cvc5::context::ContextObj", %"class.std::unordered_map.109", ptr, ptr }
-%"class.std::unordered_map.109" = type { %"class.std::_Hashtable.110" }
-%"class.std::_Hashtable.110" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::theory::eq::EqualityNode" = type { i32, i32, i32, i32 }
-%"class.cvc5::internal::theory::eq::EqClassIterator" = type { ptr, i32, i32 }
 %"class.cvc5::internal::NodeTemplate.126" = type { ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -130,15 +35,15 @@ entry:
 define hidden void @_ZN4cvc58internal6theory2eq17EqClassesIteratorC2EPKNS2_14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ee) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %ee, ptr %this, align 8
-  %d_it = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
+  %d_it = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %d_it, align 8
-  %d_data.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %ee, i64 0, i32 15, i32 1
+  %d_data.i.i = getelementptr inbounds i8, ptr %ee, i64 512
   %0 = load i32, ptr %d_data.i.i, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %d_isInternal = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %ee, i64 0, i32 33
+  %d_isInternal = getelementptr inbounds i8, ptr %ee, i64 1088
   %1 = load ptr, ptr %d_isInternal, align 8
   %2 = load i64, ptr %1, align 8
   %and.i.i.i.i = and i64 %2, 1
@@ -147,7 +52,7 @@ land.lhs.true:                                    ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call10 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %ee, i32 noundef 0)
-  %d_findId.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call10, i64 0, i32 1
+  %d_findId.i = getelementptr inbounds i8, ptr %call10, i64 4
   %3 = load i32, ptr %d_findId.i, align 4
   %conv12 = zext i32 %3 to i64
   %4 = load i64, ptr %d_it, align 8
@@ -170,8 +75,8 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theo
 define hidden void @_ZNK4cvc58internal6theory2eq17EqClassesIteratordeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_nodes = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %0, i64 0, i32 14
-  %d_it = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
+  %d_nodes = getelementptr inbounds i8, ptr %0, i64 448
+  %d_it = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %d_it, align 8
   %2 = load ptr, ptr %d_nodes, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %2, i64 %1
@@ -212,9 +117,9 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %i, align 8
   %cmp = icmp eq ptr %0, %1
-  %d_it = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
+  %d_it = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %d_it, align 8
-  %d_it3 = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %i, i64 0, i32 1
+  %d_it3 = getelementptr inbounds i8, ptr %i, i64 8
   %3 = load i64, ptr %d_it3, align 8
   %cmp4 = icmp eq i64 %2, %3
   %4 = select i1 %cmp, i1 %cmp4, i1 false
@@ -227,9 +132,9 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %i, align 8
   %cmp.i = icmp ne ptr %0, %1
-  %d_it.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
+  %d_it.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %d_it.i, align 8
-  %d_it3.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %i, i64 0, i32 1
+  %d_it3.i = getelementptr inbounds i8, ptr %i, i64 8
   %3 = load i64, ptr %d_it3.i, align 8
   %cmp4.i = icmp ne i64 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp4.i
@@ -239,42 +144,43 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_it = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
+  %d_it = getelementptr inbounds i8, ptr %this, i64 8
   %storemerge.in1 = load i64, ptr %d_it, align 8
   %storemerge2 = add i64 %storemerge.in1, 1
   store i64 %storemerge2, ptr %d_it, align 8
   %0 = load ptr, ptr %this, align 8
-  %d_data.i.i3 = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %0, i64 0, i32 15, i32 1
+  %d_data.i.i3 = getelementptr inbounds i8, ptr %0, i64 512
   %1 = load i32, ptr %d_data.i.i3, align 4
   %conv4 = zext i32 %1 to i64
   %cmp5 = icmp ult i64 %storemerge2, %conv4
   br i1 %cmp5, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %entry, %while.body
-  %2 = phi ptr [ %7, %while.body ], [ %0, %entry ]
+  %2 = phi ptr [ %8, %while.body ], [ %0, %entry ]
   %storemerge6 = phi i64 [ %storemerge, %while.body ], [ %storemerge2, %entry ]
-  %d_isInternal = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %2, i64 0, i32 33
+  %d_isInternal = getelementptr inbounds i8, ptr %2, i64 1088
   %3 = load ptr, ptr %d_isInternal, align 8
   %div.i.i.i.i.i = sdiv i64 %storemerge6, 64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %div.i.i.i.i.i
-  %rem.i.i.i.i.i = srem i64 %storemerge6, 64
-  %rem.lobit.i.i.i.i.i = ashr i64 %rem.i.i.i.i.i, 63
-  %storemerge.i.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i, i64 %rem.lobit.i.i.i.i.i
-  %conv4.i.i.i.i.i = and i64 %rem.i.i.i.i.i, 63
+  %4 = and i64 %storemerge6, -9223372036854775745
+  %cmp.i.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
+  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
+  %conv4.i.i.i.i.i = and i64 %storemerge6, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  %4 = load i64, ptr %storemerge.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %4, %shl.i.i.i
+  %5 = load i64, ptr %storemerge.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %5, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %land.rhs
   %conv8 = trunc i64 %storemerge6 to i32
   %call9 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %2, i32 noundef %conv8)
-  %d_findId.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call9, i64 0, i32 1
-  %5 = load i32, ptr %d_findId.i, align 4
-  %conv11 = zext i32 %5 to i64
-  %6 = load i64, ptr %d_it, align 8
-  %cmp13.not = icmp eq i64 %6, %conv11
+  %d_findId.i = getelementptr inbounds i8, ptr %call9, i64 4
+  %6 = load i32, ptr %d_findId.i, align 4
+  %conv11 = zext i32 %6 to i64
+  %7 = load i64, ptr %d_it, align 8
+  %cmp13.not = icmp eq i64 %7, %conv11
   br i1 %cmp13.not, label %while.end, label %lor.rhs.while.body_crit_edge
 
 lor.rhs.while.body_crit_edge:                     ; preds = %lor.rhs
@@ -282,13 +188,13 @@ lor.rhs.while.body_crit_edge:                     ; preds = %lor.rhs
   br label %while.body
 
 while.body:                                       ; preds = %lor.rhs.while.body_crit_edge, %land.rhs
-  %7 = phi ptr [ %2, %land.rhs ], [ %.pre, %lor.rhs.while.body_crit_edge ]
-  %storemerge.in = phi i64 [ %storemerge6, %land.rhs ], [ %6, %lor.rhs.while.body_crit_edge ]
+  %8 = phi ptr [ %2, %land.rhs ], [ %.pre, %lor.rhs.while.body_crit_edge ]
+  %storemerge.in = phi i64 [ %storemerge6, %land.rhs ], [ %7, %lor.rhs.while.body_crit_edge ]
   %storemerge = add i64 %storemerge.in, 1
   store i64 %storemerge, ptr %d_it, align 8
-  %d_data.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %7, i64 0, i32 15, i32 1
-  %8 = load i32, ptr %d_data.i.i, align 4
-  %conv = zext i32 %8 to i64
+  %d_data.i.i = getelementptr inbounds i8, ptr %8, i64 512
+  %9 = load i32, ptr %d_data.i.i, align 4
+  %conv = zext i32 %9 to i64
   %cmp = icmp ult i64 %storemerge, %conv
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !4
 
@@ -304,37 +210,38 @@ entry:
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
   %storemerge2.i = add i64 %retval.sroa.2.0.copyload, 1
   store i64 %storemerge2.i, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %d_data.i.i3.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %retval.sroa.0.0.copyload, i64 0, i32 15, i32 1
+  %d_data.i.i3.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload, i64 512
   %1 = load i32, ptr %d_data.i.i3.i, align 4
   %conv4.i = zext i32 %1 to i64
   %cmp5.i = icmp ult i64 %storemerge2.i, %conv4.i
   br i1 %cmp5.i, label %land.rhs.i, label %_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv.exit
 
 land.rhs.i:                                       ; preds = %entry, %while.body.i
-  %2 = phi ptr [ %7, %while.body.i ], [ %retval.sroa.0.0.copyload, %entry ]
+  %2 = phi ptr [ %8, %while.body.i ], [ %retval.sroa.0.0.copyload, %entry ]
   %storemerge6.i = phi i64 [ %storemerge.i, %while.body.i ], [ %storemerge2.i, %entry ]
-  %d_isInternal.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %2, i64 0, i32 33
+  %d_isInternal.i = getelementptr inbounds i8, ptr %2, i64 1088
   %3 = load ptr, ptr %d_isInternal.i, align 8
   %div.i.i.i.i.i.i = sdiv i64 %storemerge6.i, 64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %div.i.i.i.i.i.i
-  %rem.i.i.i.i.i.i = srem i64 %storemerge6.i, 64
-  %rem.lobit.i.i.i.i.i.i = ashr i64 %rem.i.i.i.i.i.i, 63
-  %storemerge.i.i.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i, i64 %rem.lobit.i.i.i.i.i.i
-  %conv4.i.i.i.i.i.i = and i64 %rem.i.i.i.i.i.i, 63
+  %4 = and i64 %storemerge6.i, -9223372036854775745
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 -8, i64 0
+  %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i.i
+  %conv4.i.i.i.i.i.i = and i64 %storemerge6.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i
-  %4 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %shl.i.i.i.i, %4
+  %5 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %5, %shl.i.i.i.i
   %tobool.i.i.i.i.not.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not.i, label %lor.rhs.i, label %while.body.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %conv8.i = trunc i64 %storemerge6.i to i32
   %call9.i = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %2, i32 noundef %conv8.i)
-  %d_findId.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call9.i, i64 0, i32 1
-  %5 = load i32, ptr %d_findId.i.i, align 4
-  %conv11.i = zext i32 %5 to i64
-  %6 = load i64, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %cmp13.not.i = icmp eq i64 %6, %conv11.i
+  %d_findId.i.i = getelementptr inbounds i8, ptr %call9.i, i64 4
+  %6 = load i32, ptr %d_findId.i.i, align 4
+  %conv11.i = zext i32 %6 to i64
+  %7 = load i64, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
+  %cmp13.not.i = icmp eq i64 %7, %conv11.i
   br i1 %cmp13.not.i, label %_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv.exit, label %lor.rhs.while.body_crit_edge.i
 
 lor.rhs.while.body_crit_edge.i:                   ; preds = %lor.rhs.i
@@ -342,13 +249,13 @@ lor.rhs.while.body_crit_edge.i:                   ; preds = %lor.rhs.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %lor.rhs.while.body_crit_edge.i, %land.rhs.i
-  %7 = phi ptr [ %2, %land.rhs.i ], [ %.pre.i, %lor.rhs.while.body_crit_edge.i ]
-  %storemerge.in.i = phi i64 [ %storemerge6.i, %land.rhs.i ], [ %6, %lor.rhs.while.body_crit_edge.i ]
+  %8 = phi ptr [ %2, %land.rhs.i ], [ %.pre.i, %lor.rhs.while.body_crit_edge.i ]
+  %storemerge.in.i = phi i64 [ %storemerge6.i, %land.rhs.i ], [ %7, %lor.rhs.while.body_crit_edge.i ]
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %d_data.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %7, i64 0, i32 15, i32 1
-  %8 = load i32, ptr %d_data.i.i.i, align 4
-  %conv.i = zext i32 %8 to i64
+  %d_data.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
+  %9 = load i32, ptr %d_data.i.i.i, align 4
+  %conv.i = zext i32 %9 to i64
   %cmp.i = icmp ult i64 %storemerge.i, %conv.i
   br i1 %cmp.i, label %land.rhs.i, label %_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv.exit, !llvm.loop !4
 
@@ -361,10 +268,10 @@ _ZN4cvc58internal6theory2eq17EqClassesIteratorppEv.exit: ; preds = %lor.rhs.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq17EqClassesIterator10isFinishedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_it = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
+  %d_it = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_it, align 8
   %1 = load ptr, ptr %this, align 8
-  %d_data.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %1, i64 0, i32 15, i32 1
+  %d_data.i.i = getelementptr inbounds i8, ptr %1, i64 512
   %2 = load i32, ptr %d_data.i.i, align 4
   %conv = zext i32 %2 to i64
   %cmp = icmp uge i64 %0, %conv
@@ -375,9 +282,9 @@ entry:
 define hidden void @_ZN4cvc58internal6theory2eq15EqClassIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %d_start = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 1
+  %d_start = getelementptr inbounds i8, ptr %this, i64 8
   store i32 -1, ptr %d_start, align 8
-  %d_current = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current = getelementptr inbounds i8, ptr %this, i64 12
   store i32 -1, ptr %d_current, align 4
   ret void
 }
@@ -390,9 +297,9 @@ entry:
   %0 = load ptr, ptr %eqc, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %call = call noundef i32 @_ZNK4cvc58internal6theory2eq14EqualityEngine9getNodeIdENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(1784) %ee, ptr noundef nonnull %agg.tmp)
-  %d_start = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 1
+  %d_start = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %call, ptr %d_start, align 8
-  %d_current = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %call, ptr %d_current, align 4
   ret void
 }
@@ -405,8 +312,8 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZNK4cvc58internal6theory2eq15EqClassIteratordeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_nodes = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %0, i64 0, i32 14
-  %d_current = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_nodes = getelementptr inbounds i8, ptr %0, i64 448
+  %d_current = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %d_current, align 4
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %d_nodes, align 8
@@ -448,9 +355,9 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %i, align 8
   %cmp = icmp eq ptr %0, %1
-  %d_current = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %d_current, align 4
-  %d_current3 = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %i, i64 0, i32 2
+  %d_current3 = getelementptr inbounds i8, ptr %i, i64 12
   %3 = load i32, ptr %d_current3, align 4
   %cmp4 = icmp eq i32 %2, %3
   %4 = select i1 %cmp, i1 %cmp4, i1 false
@@ -463,9 +370,9 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %i, align 8
   %cmp.i = icmp ne ptr %0, %1
-  %d_current.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %d_current.i, align 4
-  %d_current3.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %i, i64 0, i32 2
+  %d_current3.i = getelementptr inbounds i8, ptr %i, i64 12
   %3 = load i32, ptr %d_current3.i, align 4
   %cmp4.i = icmp ne i32 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp4.i
@@ -475,36 +382,36 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_current = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current = getelementptr inbounds i8, ptr %this, i64 12
   %.pre = load ptr, ptr %this, align 8
-  %.pre6 = load i32, ptr %d_current, align 4
+  %.pre4 = load i32, ptr %d_current, align 4
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
-  %0 = phi i32 [ %2, %do.body ], [ %.pre6, %entry ]
+  %0 = phi i32 [ %2, %do.body ], [ %.pre4, %entry ]
   %1 = phi ptr [ %3, %do.body ], [ %.pre, %entry ]
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %1, i32 noundef %0)
-  %d_nextId.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call, i64 0, i32 2
+  %d_nextId.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %d_nextId.i, align 4
   store i32 %2, ptr %d_current, align 4
   %3 = load ptr, ptr %this, align 8
-  %d_isInternal = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %3, i64 0, i32 33
+  %d_isInternal = getelementptr inbounds i8, ptr %3, i64 1088
   %4 = load ptr, ptr %d_isInternal, align 8
-  %div.i.i.i.i.i125 = lshr i32 %2, 6
-  %div.i.i.i.i.i1.zext = zext nneg i32 %div.i.i.i.i.i125 to i64
+  %div.i.i.i.i.i123 = lshr i32 %2, 6
+  %div.i.i.i.i.i1.zext = zext nneg i32 %div.i.i.i.i.i123 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i.i1.zext
-  %rem.i.i.i.i.i34 = and i32 %2, 63
-  %rem.i.i.i.i.i3.zext = zext nneg i32 %rem.i.i.i.i.i34 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i3.zext
-  %5 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %5, %shl.i.i.i
+  %5 = and i32 %2, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %5 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %6, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not, label %do.end, label %do.body, !llvm.loop !6
 
 do.end:                                           ; preds = %do.body
-  %d_start = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 1
-  %6 = load i32, ptr %d_start, align 8
-  %cmp = icmp eq i32 %2, %6
+  %d_start = getelementptr inbounds i8, ptr %this, i64 8
+  %7 = load i32, ptr %d_start, align 8
+  %cmp = icmp eq i32 %2, %7
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.end
@@ -521,7 +428,7 @@ entry:
   %retval.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %retval.sroa.2.0.this.addr.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %d_current.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = lshr i64 %retval.sroa.2.0.copyload, 32
   %2 = trunc i64 %1 to i32
   br label %do.body.i
@@ -530,26 +437,26 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = phi i32 [ %5, %do.body.i ], [ %2, %entry ]
   %4 = phi ptr [ %6, %do.body.i ], [ %retval.sroa.0.0.copyload, %entry ]
   %call.i = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %4, i32 noundef %3)
-  %d_nextId.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call.i, i64 0, i32 2
+  %d_nextId.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load i32, ptr %d_nextId.i.i, align 4
   store i32 %5, ptr %d_current.i, align 4
   %6 = load ptr, ptr %this, align 8
-  %d_isInternal.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %6, i64 0, i32 33
+  %d_isInternal.i = getelementptr inbounds i8, ptr %6, i64 1088
   %7 = load ptr, ptr %d_isInternal.i, align 8
-  %div.i.i.i.i.i125.i = lshr i32 %5, 6
-  %div.i.i.i.i.i1.zext.i = zext nneg i32 %div.i.i.i.i.i125.i to i64
+  %div.i.i.i.i.i123.i = lshr i32 %5, 6
+  %div.i.i.i.i.i1.zext.i = zext nneg i32 %div.i.i.i.i.i123.i to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %div.i.i.i.i.i1.zext.i
-  %rem.i.i.i.i.i34.i = and i32 %5, 63
-  %rem.i.i.i.i.i3.zext.i = zext nneg i32 %rem.i.i.i.i.i34.i to i64
-  %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i3.zext.i
-  %8 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %8, %shl.i.i.i.i
+  %8 = and i32 %5, 63
+  %conv4.i.i.i.i.i.i = zext nneg i32 %8 to i64
+  %shl.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i
+  %9 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %9, %shl.i.i.i.i
   %tobool.i.i.i.i.not.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not.i, label %do.end.i, label %do.body.i, !llvm.loop !6
 
 do.end.i:                                         ; preds = %do.body.i
-  %9 = load i32, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %cmp.i = icmp eq i32 %5, %9
+  %10 = load i32, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
+  %cmp.i = icmp eq i32 %5, %10
   br i1 %cmp.i, label %if.then.i, label %_ZN4cvc58internal6theory2eq15EqClassIteratorppEv.exit
 
 if.then.i:                                        ; preds = %do.end.i
@@ -565,7 +472,7 @@ _ZN4cvc58internal6theory2eq15EqClassIteratorppEv.exit: ; preds = %do.end.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIterator10isFinishedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_current = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 2
+  %d_current = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %d_current, align 4
   %cmp = icmp eq i32 %0, -1
   ret i1 %cmp

@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.YAML::ostream_wrapper" = type <{ %"class.std::vector", ptr, i64, i64, i64, i8, [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 
 $_ZNSt6vectorIcSaIcEE17_M_default_appendEm = comdat any
 
@@ -54,14 +49,14 @@ lpad.i.i:                                         ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call5.i.i.i.i1.i.i, ptr %this, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i, align 1
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #15
-  %m_pStream = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 1
+  %m_pStream = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_pStream, i8 0, i64 33, i1 false)
   ret void
 }
@@ -80,9 +75,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %m_pStream = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 1
+  %m_pStream = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %stream, ptr %m_pStream, align 8
-  %m_pos = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 2
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_pos, i8 0, i64 25, i1 false)
   ret void
 }
@@ -109,7 +104,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_pStream = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 1
+  %m_pStream = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_pStream, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -121,13 +116,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_pos = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 2
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %m_pos, align 8
   %call8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #15
   %add = add i64 %3, 1
@@ -182,10 +177,10 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i, 
   br i1 %cmp.i9.not16, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %m_pos.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 2
-  %m_col.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 4
-  %m_row.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 3
-  %m_comment.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 5
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_row.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 56
   %m_pos.i.promoted = load i64, ptr %m_pos.i, align 8
   %m_col.i.promoted = load i64, ptr %m_col.i, align 8
   %m_row.i.promoted = load i64, ptr %m_row.i, align 8
@@ -239,11 +234,11 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4YAML15ostream_wrapper10update_posEc(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, i8 noundef signext %ch) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 2
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %m_pos, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %m_pos, align 8
-  %m_col = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 4
+  %m_col = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %m_col, align 8
   %inc2 = add i64 %1, 1
   store i64 %inc2, ptr %m_col, align 8
@@ -251,12 +246,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_row = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 3
+  %m_row = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %m_row, align 8
   %inc3 = add i64 %2, 1
   store i64 %inc3, ptr %m_row, align 8
   store i64 0, ptr %m_col, align 8
-  %m_comment = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 5
+  %m_comment = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %m_comment, align 8
   br label %if.end
 
@@ -267,19 +262,19 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef %str, i64 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_pStream = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 1
+  %m_pStream = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_pStream, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_pos = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 2
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %m_pos, align 8
   %add = add i64 %size, 1
   %add6 = add i64 %add, %3
@@ -308,10 +303,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end.thread21, %if.end
-  %m_pos.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 2
-  %m_col.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 4
-  %m_row.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 3
-  %m_comment.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %this, i64 0, i32 5
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_row.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 56
   %m_pos.i.promoted = load i64, ptr %m_pos.i, align 8
   %m_col.i.promoted = load i64, ptr %m_col.i, align 8
   %m_row.i.promoted = load i64, ptr %m_row.i, align 8
@@ -377,13 +372,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i

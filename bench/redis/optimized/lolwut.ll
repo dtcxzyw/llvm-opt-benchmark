@@ -3,13 +3,6 @@ source_filename = "bench/redis/original/lolwut.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.redisObject = type { i32, i32, ptr }
-%struct.lwCanvas = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [12 x i8] c"Redis ver. \00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"255.255.255\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
@@ -85,24 +78,24 @@ define dso_local void @lolwutCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %verstr = alloca [64 x i8], align 16
   %ver = alloca i64, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 2
   br i1 %cmp, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.4) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx2 = getelementptr inbounds ptr, ptr %1, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %arrayidx2, align 8
   %call3 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %ver, ptr noundef null) #13
   %cmp4.not = icmp eq i32 %call3, 0
@@ -113,7 +106,7 @@ if.end:                                           ; preds = %if.then
   %conv = trunc i64 %5 to i32
   %call6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %verstr, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %conv) #13
   %6 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %6, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %add.ptr, ptr %argv, align 8
   %7 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %7, -2
@@ -188,9 +181,9 @@ if.end72:                                         ; preds = %if.then69, %if.else
   br i1 %cmp74, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end72
-  %argv77 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv77 = getelementptr inbounds i8, ptr %c, i64 96
   %16 = load ptr, ptr %argv77, align 8
-  %add.ptr78 = getelementptr inbounds ptr, ptr %16, i64 -2
+  %add.ptr78 = getelementptr inbounds i8, ptr %16, i64 -16
   store ptr %add.ptr78, ptr %argv77, align 8
   %17 = load i32, ptr %argc, align 8
   %add = add nsw i32 %17, 2
@@ -218,13 +211,13 @@ define dso_local noalias ptr @lwCreateCanvas(i32 noundef %width, i32 noundef %he
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #15
   store i32 %width, ptr %call, align 8
-  %height2 = getelementptr inbounds %struct.lwCanvas, ptr %call, i64 0, i32 1
+  %height2 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %height, ptr %height2, align 4
   %conv = sext i32 %width to i64
   %conv3 = sext i32 %height to i64
   %mul = mul nsw i64 %conv3, %conv
   %call4 = tail call noalias ptr @zmalloc(i64 noundef %mul) #15
-  %pixels = getelementptr inbounds %struct.lwCanvas, ptr %call, i64 0, i32 2
+  %pixels = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %pixels, align 8
   %0 = trunc i32 %bgcolor to i8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call4, i8 %0, i64 %mul, i1 false)
@@ -240,7 +233,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @lwFreeCanvas(ptr noundef %canvas) local_unnamed_addr #0 {
 entry:
-  %pixels = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 2
+  %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
   %0 = load ptr, ptr %pixels, align 8
   tail call void @zfree(ptr noundef %0) #13
   tail call void @zfree(ptr noundef %canvas) #13
@@ -263,14 +256,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 1
+  %height = getelementptr inbounds i8, ptr %canvas, i64 4
   %1 = load i32, ptr %height, align 4
   %cmp5.not = icmp sgt i32 %1, %y
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
   %conv = trunc i32 %color to i8
-  %pixels = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 2
+  %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
   %2 = load ptr, ptr %pixels, align 8
   %mul = mul nsw i32 %0, %y
   %add = add nsw i32 %mul, %x
@@ -297,13 +290,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 1
+  %height = getelementptr inbounds i8, ptr %canvas, i64 4
   %1 = load i32, ptr %height, align 4
   %cmp5.not = icmp sgt i32 %1, %y
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %pixels = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 2
+  %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
   %2 = load ptr, ptr %pixels, align 8
   %mul = mul nsw i32 %0, %y
   %add = add nsw i32 %mul, %x
@@ -330,9 +323,9 @@ entry:
   %cmp2 = icmp slt i32 %y1, %y2
   %cond3 = select i1 %cmp2, i32 1, i32 -1
   %sub4 = sub nsw i32 %0, %1
-  %height.i = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 1
+  %height.i = getelementptr inbounds i8, ptr %canvas, i64 4
   %conv.i = trunc i32 %color to i8
-  %pixels.i = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 2
+  %pixels.i = getelementptr inbounds i8, ptr %canvas, i64 8
   %sub7 = sub nsw i32 0, %1
   br label %while.body
 
@@ -408,9 +401,9 @@ entry:
   br label %for.body
 
 for.cond22.preheader:                             ; preds = %for.body
-  %height.i.i = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 1
+  %height.i.i = getelementptr inbounds i8, ptr %canvas, i64 4
   %conv.i.i = trunc i32 %color to i8
-  %pixels.i.i = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 2
+  %pixels.i.i = getelementptr inbounds i8, ptr %canvas, i64 8
   br label %for.body25
 
 for.body:                                         ; preds = %entry, %for.body

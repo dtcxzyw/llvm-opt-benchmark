@@ -24,9 +24,9 @@ $_ZN18OpenImageIO_v2_6_04pugi4impl38xml_memory_management_function_storageIiE10d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18OpenImageIO_v2_6_04pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_begin = getelementptr inbounds %"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr %this, i64 0, i32 2
+  %_begin = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
-  %_storage = getelementptr inbounds %"class.OpenImageIO_v2_6_0::pugi::xpath_node_set", ptr %this, i64 0, i32 1
+  %_storage = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %_storage
   br i1 %cmp.not, label %if.end, label %if.then
 

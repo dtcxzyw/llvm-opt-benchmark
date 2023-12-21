@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.TPMBackend = type { %struct.Object, ptr, i8, i8, ptr, ptr, %struct.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.TPMBackendClass = type { %struct.ObjectClass, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TPMIfClass = type { %struct.InterfaceClass, i32, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.TPMInfo = type { ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"../qemu/backends/tpm/tpm_backend.c\00", align 1
 @__func__.tpm_backend_init = private unnamed_addr constant [17 x i8] c"tpm_backend_init\00", align 1
@@ -36,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tpm_backend_finish_sync(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %cmd = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 4
+  %cmd = getelementptr inbounds i8, ptr %s, i64 56
   %0 = load ptr, ptr %cmd, align 8
   %tobool.not1 = icmp eq ptr %0, null
   br i1 %tobool.not1, label %while.end, label %while.body
@@ -61,7 +53,7 @@ define dso_local i32 @tpm_backend_get_type(ptr noundef %s) local_unnamed_addr #0
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %type = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call1.i, i64 96
   %0 = load i32, ptr %type, align 8
   ret i32 %0
 }
@@ -69,13 +61,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @tpm_backend_init(ptr nocapture noundef %s, ptr noundef %tpmif, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %tpmif1 = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 1
+  %tpmif1 = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load ptr, ptr %tpmif1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %id = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 5
+  %id = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %id, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @__func__.tpm_backend_init, ptr noundef nonnull @.str.1, ptr noundef %1) #4
   br label %return
@@ -83,7 +75,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr %tpmif, ptr %tpmif1, align 8
   %call = tail call ptr @object_ref(ptr noundef %tpmif) #4
-  %had_startup_error = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 3
+  %had_startup_error = getelementptr inbounds i8, ptr %s, i64 49
   store i8 0, ptr %had_startup_error, align 1
   br label %return
 
@@ -101,7 +93,7 @@ define dso_local i32 @tpm_backend_startup_tpm(ptr noundef %s, i64 noundef %buffe
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %cmd.i = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 4
+  %cmd.i = getelementptr inbounds i8, ptr %s, i64 56
   %0 = load ptr, ptr %cmd.i, align 8
   %tobool.not1.i = icmp eq ptr %0, null
   br i1 %tobool.not1.i, label %tpm_backend_finish_sync.exit, label %while.body.i
@@ -114,7 +106,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %tobool.not.i, label %tpm_backend_finish_sync.exit, label %while.body.i, !llvm.loop !5
 
 tpm_backend_finish_sync.exit:                     ; preds = %while.body.i, %entry
-  %startup_tpm = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 5
+  %startup_tpm = getelementptr inbounds i8, ptr %call1.i, i64 128
   %2 = load ptr, ptr %startup_tpm, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -126,7 +118,7 @@ cond.true:                                        ; preds = %tpm_backend_finish_
 cond.end:                                         ; preds = %tpm_backend_finish_sync.exit, %cond.true
   %cond = phi i32 [ %call2, %cond.true ], [ 0, %tpm_backend_finish_sync.exit ]
   %cmp = icmp ne i32 %cond, 0
-  %had_startup_error = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 3
+  %had_startup_error = getelementptr inbounds i8, ptr %s, i64 49
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %had_startup_error, align 1
   ret i32 %cond
@@ -135,7 +127,7 @@ cond.end:                                         ; preds = %tpm_backend_finish_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @tpm_backend_had_startup_error(ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
 entry:
-  %had_startup_error = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 3
+  %had_startup_error = getelementptr inbounds i8, ptr %s, i64 49
   %0 = load i8, ptr %had_startup_error, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -145,7 +137,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tpm_backend_deliver_request(ptr noundef %s, ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
-  %cmd1 = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 4
+  %cmd1 = getelementptr inbounds i8, ptr %s, i64 56
   %0 = load ptr, ptr %cmd1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -176,9 +168,9 @@ entry:
   %call.i3 = tail call ptr @object_get_class(ptr noundef %call.i) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
   store ptr null, ptr %err, align 8
-  %handle_request = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 13
+  %handle_request = getelementptr inbounds i8, ptr %call1.i, i64 192
   %0 = load ptr, ptr %handle_request, align 8
-  %cmd = getelementptr inbounds %struct.TPMBackend, ptr %call.i, i64 0, i32 4
+  %cmd = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load ptr, ptr %cmd, align 8
   call void %0(ptr noundef %call.i, ptr noundef %1, ptr noundef nonnull %err) #4
   %2 = load ptr, ptr %err, align 8
@@ -198,15 +190,15 @@ return:                                           ; preds = %entry, %if.then
 define internal void @tpm_backend_request_completed(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND) #4
-  %tpmif = getelementptr inbounds %struct.TPMBackend, ptr %call.i, i64 0, i32 1
+  %tpmif = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %tpmif, align 8
   %call.i4 = tail call ptr @object_get_class(ptr noundef %0) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 33, ptr noundef nonnull @__func__.TPM_IF_GET_CLASS) #4
-  %request_completed = getelementptr inbounds %struct.TPMIfClass, ptr %call1.i, i64 0, i32 2
+  %request_completed = getelementptr inbounds i8, ptr %call1.i, i64 120
   %1 = load ptr, ptr %request_completed, align 8
   %2 = load ptr, ptr %tpmif, align 8
   tail call void %1(ptr noundef %2, i32 noundef %ret) #4
-  %cmd = getelementptr inbounds %struct.TPMBackend, ptr %call.i, i64 0, i32 4
+  %cmd = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr null, ptr %cmd, align 8
   tail call void @object_unref(ptr noundef %call.i) #4
   ret void
@@ -217,7 +209,7 @@ define dso_local void @tpm_backend_reset(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %reset = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 6
+  %reset = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %reset, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -227,7 +219,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %cmd.i = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 4
+  %cmd.i = getelementptr inbounds i8, ptr %s, i64 56
   %1 = load ptr, ptr %cmd.i, align 8
   %tobool.not1.i = icmp eq ptr %1, null
   br i1 %tobool.not1.i, label %tpm_backend_finish_sync.exit, label %while.body.i
@@ -240,7 +232,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   br i1 %tobool.not.i, label %tpm_backend_finish_sync.exit, label %while.body.i, !llvm.loop !5
 
 tpm_backend_finish_sync.exit:                     ; preds = %while.body.i, %if.end
-  %had_startup_error = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 3
+  %had_startup_error = getelementptr inbounds i8, ptr %s, i64 49
   store i8 0, ptr %had_startup_error, align 1
   ret void
 }
@@ -250,7 +242,7 @@ define dso_local void @tpm_backend_cancel_cmd(ptr noundef %s) local_unnamed_addr
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %cancel_cmd = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 7
+  %cancel_cmd = getelementptr inbounds i8, ptr %call1.i, i64 144
   %0 = load ptr, ptr %cancel_cmd, align 8
   tail call void %0(ptr noundef %s) #4
   ret void
@@ -261,7 +253,7 @@ define dso_local zeroext i1 @tpm_backend_get_tpm_established_flag(ptr noundef %s
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %get_tpm_established_flag = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 8
+  %get_tpm_established_flag = getelementptr inbounds i8, ptr %call1.i, i64 152
   %0 = load ptr, ptr %get_tpm_established_flag, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -280,7 +272,7 @@ define dso_local i32 @tpm_backend_reset_tpm_established_flag(ptr noundef %s, i8 
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %reset_tpm_established_flag = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 9
+  %reset_tpm_established_flag = getelementptr inbounds i8, ptr %call1.i, i64 160
   %0 = load ptr, ptr %reset_tpm_established_flag, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -299,7 +291,7 @@ define dso_local i32 @tpm_backend_get_tpm_version(ptr noundef %s) local_unnamed_
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %get_tpm_version = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 10
+  %get_tpm_version = getelementptr inbounds i8, ptr %call1.i, i64 168
   %0 = load ptr, ptr %get_tpm_version, align 8
   %call1 = tail call i32 %0(ptr noundef %s) #4
   ret i32 %call1
@@ -310,7 +302,7 @@ define dso_local i64 @tpm_backend_get_buffer_size(ptr noundef %s) local_unnamed_
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %get_buffer_size = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 11
+  %get_buffer_size = getelementptr inbounds i8, ptr %call1.i, i64 176
   %0 = load ptr, ptr %get_buffer_size, align 8
   %call1 = tail call i64 %0(ptr noundef %s) #4
   ret i64 %call1
@@ -322,22 +314,22 @@ entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #5
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_GET_CLASS) #4
-  %tpmif = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 1
+  %tpmif = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load ptr, ptr %tpmif, align 8
   %call.i7 = tail call ptr @object_get_class(ptr noundef %0) #4
   %call1.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 33, ptr noundef nonnull @__func__.TPM_IF_GET_CLASS) #4
-  %id = getelementptr inbounds %struct.TPMBackend, ptr %s, i64 0, i32 5
+  %id = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %id, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %1) #4
   store ptr %call3, ptr %call, align 8
-  %model = getelementptr inbounds %struct.TPMIfClass, ptr %call1.i8, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %call1.i8, i64 112
   %2 = load i32, ptr %model, align 8
-  %model5 = getelementptr inbounds %struct.TPMInfo, ptr %call, i64 0, i32 1
+  %model5 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %2, ptr %model5, align 8
-  %get_tpm_options = getelementptr inbounds %struct.TPMBackendClass, ptr %call1.i, i64 0, i32 12
+  %get_tpm_options = getelementptr inbounds i8, ptr %call1.i, i64 184
   %3 = load ptr, ptr %get_tpm_options, align 8
   %call6 = tail call ptr %3(ptr noundef %s) #4
-  %options = getelementptr inbounds %struct.TPMInfo, ptr %call, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call6, ptr %options, align 8
   ret ptr %call
 }
@@ -380,10 +372,10 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @tpm_backend_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND) #4
-  %tpmif = getelementptr inbounds %struct.TPMBackend, ptr %call.i, i64 0, i32 1
+  %tpmif = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %tpmif, align 8
   tail call void @object_unref(ptr noundef %0) #4
-  %id = getelementptr inbounds %struct.TPMBackend, ptr %call.i, i64 0, i32 5
+  %id = getelementptr inbounds i8, ptr %call.i, i64 64
   %1 = load ptr, ptr %id, align 8
   tail call void @g_free(ptr noundef %1) #4
   ret void

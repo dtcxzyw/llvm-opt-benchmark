@@ -10,30 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"struct.absl::lts_20230802::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr }
-%"class.google::protobuf::compiler::objectivec::ImportWriter" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.absl::lts_20230802::flat_hash_map", i8, i8, %"class.std::vector", %"class.std::vector", %"class.std::vector" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.absl::lts_20230802::flat_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
-%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.0" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.0" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.1" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.1" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" = type { i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.google::protobuf::FileDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::ProtoFrameworkCollector" = type { %"class.google::protobuf::compiler::objectivec::LineConsumer", ptr }
 %"class.google::protobuf::compiler::objectivec::LineConsumer" = type { ptr }
 %"class.google::protobuf::io::Printer::Sub" = type { %"class.std::__cxx11::basic_string", %"struct.google::protobuf::io::Printer::ValueImpl", %"class.std::optional.43" }
@@ -64,24 +46,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload.57" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<google::protobuf::io::AnnotationCollector::Semantic>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<google::protobuf::io::AnnotationCollector::Semantic>::_Storage" = type { i32 }
-%"struct.std::__detail::__variant::_Variant_storage" = type { %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::tuple.83" = type { i8 }
 %"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
 %"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.82" }
 %"struct.std::_Head_base.82" = type { ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair.69" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
+%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %struct._Guard = type { ptr }
-%class.anon.90 = type <{ %class.anon, i8, [7 x i8] }>
-%class.anon = type { ptr, ptr }
-%class.anon.94 = type <{ %class.anon.64, i8, [7 x i8] }>
-%class.anon.64 = type { ptr, ptr }
-%class.anon.96 = type <{ %class.anon.65, i8, [7 x i8] }>
-%class.anon.65 = type { ptr, ptr }
 
 $_ZN6google8protobuf2io7Printer3SubD2Ev = comdat any
 
@@ -203,26 +175,26 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN6google8protobuf8compiler10objectivec12ImportWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_b(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %generate_for_named_framework, ptr noundef nonnull align 8 dereferenceable(32) %named_framework_to_proto_path_mappings_path, ptr noundef nonnull align 8 dereferenceable(32) %runtime_import_prefix, i1 noundef zeroext %for_bundled_proto) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %generate_for_named_framework)
-  %named_framework_to_proto_path_mappings_path_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 1
+  %named_framework_to_proto_path_mappings_path_ = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %named_framework_to_proto_path_mappings_path_, ptr noundef nonnull align 8 dereferenceable(32) %named_framework_to_proto_path_mappings_path)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %runtime_import_prefix_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 2
+  %runtime_import_prefix_ = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %runtime_import_prefix_, ptr noundef nonnull align 8 dereferenceable(32) %runtime_import_prefix)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %proto_file_to_framework_name_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 3
+  %proto_file_to_framework_name_ = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %proto_file_to_framework_name_, align 8
-  %slots_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %frombool = zext i1 %for_bundled_proto to i8
-  %for_bundled_proto_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 4
+  %for_bundled_proto_ = getelementptr inbounds i8, ptr %this, i64 128
   store i8 %frombool, ptr %for_bundled_proto_, align 8
-  %need_to_parse_mapping_file_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 5
+  %need_to_parse_mapping_file_ = getelementptr inbounds i8, ptr %this, i64 129
   store i8 1, ptr %need_to_parse_mapping_file_, align 1
-  %protobuf_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6
+  %protobuf_imports_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %protobuf_imports_, i8 0, i64 72, i1 false)
   ret void
 
@@ -277,7 +249,7 @@ entry:
   br i1 %call, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry
-  %for_bundled_proto_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 4
+  %for_bundled_proto_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %for_bundled_proto_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -285,28 +257,28 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   store i64 3, ptr %ref.tmp3, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str, ptr %2, align 8
   call void @_ZN6google8protobuf8compiler10objectivec16FilePathBasenameB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef %file)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #21
   %3 = extractvalue { i64, ptr } %call.i, 0
   store i64 %3, ptr %ref.tmp4, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp4, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %5 = extractvalue { i64, ptr } %call.i, 1
   store ptr %5, ptr %4, align 8
   %call.i18 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %header_extension) #21
   %6 = extractvalue { i64, ptr } %call.i18, 0
   store i64 %6, ptr %ref.tmp6, align 8
-  %7 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %8 = extractvalue { i64, ptr } %call.i18, 1
   store ptr %8, ptr %7, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then2
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 152
   %10 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %9, %10
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -314,12 +286,12 @@ invoke.cont8:                                     ; preds = %if.then2
 if.then.i:                                        ; preds = %invoke.cont8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   %11 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %cleanup.cont.sink.split
 
 if.else.i:                                        ; preds = %invoke.cont8
-  %protobuf_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6
+  %protobuf_imports_ = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %protobuf_imports_, ptr %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %cleanup.cont.sink.split unwind label %lpad9
 
@@ -340,15 +312,15 @@ if.end12:                                         ; preds = %entry
   br i1 %call13, label %if.end34, label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.end12
-  %other_framework_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7
+  %other_framework_imports_ = getelementptr inbounds i8, ptr %this, i64 160
   %call.i19 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %module_name) #21
   %14 = extractvalue { i64, ptr } %call.i19, 0
   store i64 %14, ptr %ref.tmp16, align 8
-  %15 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp16, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %16 = extractvalue { i64, ptr } %call.i19, 1
   store ptr %16, ptr %15, align 8
   store i64 1, ptr %ref.tmp19, align 8
-  %17 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp19, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store ptr @.str.1, ptr %17, align 8
   invoke void @_ZN6google8protobuf8compiler10objectivec16FilePathBasenameB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef %file)
           to label %invoke.cont23 unwind label %lpad17
@@ -357,22 +329,22 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   %call.i21 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #21
   %18 = extractvalue { i64, ptr } %call.i21, 0
   store i64 %18, ptr %ref.tmp21, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp21, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %20 = extractvalue { i64, ptr } %call.i21, 1
   store ptr %20, ptr %19, align 8
   %call.i22 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %header_extension) #21
   %21 = extractvalue { i64, ptr } %call.i22, 0
   store i64 %21, ptr %ref.tmp26, align 8
-  %22 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp26, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %23 = extractvalue { i64, ptr } %call.i22, 1
   store ptr %23, ptr %22, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp26)
           to label %invoke.cont28 unwind label %lpad24
 
 invoke.cont28:                                    ; preds = %invoke.cont23
-  %_M_finish.i23 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i23 = getelementptr inbounds i8, ptr %this, i64 168
   %24 = load ptr, ptr %_M_finish.i23, align 8
-  %_M_end_of_storage.i24 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i24 = getelementptr inbounds i8, ptr %this, i64 176
   %25 = load ptr, ptr %_M_end_of_storage.i24, align 8
   %cmp.not.i25 = icmp eq ptr %24, %25
   br i1 %cmp.not.i25, label %if.else.i29, label %if.then.i26
@@ -411,15 +383,15 @@ if.end34:                                         ; preds = %if.end12
   br i1 %call35, label %if.end56, label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.end34
-  %other_framework_imports_37 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7
+  %other_framework_imports_37 = getelementptr inbounds i8, ptr %this, i64 160
   %call.i33 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   %29 = extractvalue { i64, ptr } %call.i33, 0
   store i64 %29, ptr %ref.tmp39, align 8
-  %30 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp39, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
   %31 = extractvalue { i64, ptr } %call.i33, 1
   store ptr %31, ptr %30, align 8
   store i64 1, ptr %ref.tmp42, align 8
-  %32 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp42, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store ptr @.str.1, ptr %32, align 8
   invoke void @_ZN6google8protobuf8compiler10objectivec16FilePathBasenameB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp45, ptr noundef %file)
           to label %invoke.cont46 unwind label %lpad17
@@ -428,22 +400,22 @@ invoke.cont46:                                    ; preds = %invoke.cont43
   %call.i35 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #21
   %33 = extractvalue { i64, ptr } %call.i35, 0
   store i64 %33, ptr %ref.tmp44, align 8
-  %34 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp44, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
   %35 = extractvalue { i64, ptr } %call.i35, 1
   store ptr %35, ptr %34, align 8
   %call.i36 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %header_extension) #21
   %36 = extractvalue { i64, ptr } %call.i36, 0
   store i64 %36, ptr %ref.tmp49, align 8
-  %37 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp49, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   %38 = extractvalue { i64, ptr } %call.i36, 1
   store ptr %38, ptr %37, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp49)
           to label %invoke.cont51 unwind label %lpad47
 
 invoke.cont51:                                    ; preds = %invoke.cont46
-  %_M_finish.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %39 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %40 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %39, %40
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -473,7 +445,7 @@ ehcleanup55:                                      ; preds = %lpad52, %lpad47
   br label %eh.resume
 
 if.end56:                                         ; preds = %if.end34
-  %other_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 8
+  %other_imports_ = getelementptr inbounds i8, ptr %this, i64 184
   invoke void @_ZN6google8protobuf8compiler10objectivec8FilePathB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp58, ptr noundef %file)
           to label %invoke.cont59 unwind label %lpad17
 
@@ -483,9 +455,9 @@ invoke.cont59:                                    ; preds = %if.end56
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %call.i3839) #21
-  %_M_finish.i.i40 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i40 = getelementptr inbounds i8, ptr %this, i64 192
   %43 = load ptr, ptr %_M_finish.i.i40, align 8
-  %_M_end_of_storage.i.i41 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i41 = getelementptr inbounds i8, ptr %this, i64 200
   %44 = load ptr, ptr %_M_end_of_storage.i.i41, align 8
   %cmp.not.i.i42 = icmp eq ptr %43, %44
   br i1 %cmp.not.i.i42, label %if.else.i.i45, label %if.then.i.i43
@@ -503,7 +475,7 @@ cleanup.sink.split:                               ; preds = %if.then.i26, %if.th
   %ref.tmp57.sink.ph = phi ptr [ %ref.tmp57, %if.then.i.i43 ], [ %ref.tmp38, %if.then.i.i ], [ %ref.tmp15, %if.then.i26 ]
   %ref.tmp58.sink.ph = phi ptr [ %ref.tmp58, %if.then.i.i43 ], [ %ref.tmp45, %if.then.i.i ], [ %ref.tmp22, %if.then.i26 ]
   %45 = load ptr, ptr %_M_finish.i.i40.sink48, align 8
-  %incdec.ptr.i.i44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %45, i64 1
+  %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %45, i64 32
   store ptr %incdec.ptr.i.i44, ptr %_M_finish.i.i40.sink48, align 8
   br label %cleanup
 
@@ -556,7 +528,7 @@ declare void @_ZN6google8protobuf8compiler10objectivec16FilePathBasenameB5cxx11E
 define hidden void @_ZN6google8protobuf8compiler10objectivec12ImportWriter13ModuleForFileB5cxx11EPKNS0_14FileDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %file) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %need_to_parse_mapping_file_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 5
+  %need_to_parse_mapping_file_ = getelementptr inbounds i8, ptr %this, i64 129
   %0 = load i8, ptr %need_to_parse_mapping_file_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -567,8 +539,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %proto_file_to_framework_name_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 3
-  %name_.i = getelementptr inbounds %"class.google::protobuf::FileDescriptor", ptr %file, i64 0, i32 4
+  %proto_file_to_framework_name_ = getelementptr inbounds i8, ptr %this, i64 96
+  %name_.i = getelementptr inbounds i8, ptr %file, i64 8
   %2 = load ptr, ptr %name_.i, align 8
   %3 = load ptr, ptr %proto_file_to_framework_name_, align 8
   tail call void @llvm.prefetch.p0(ptr %3, i32 0, i32 1, i32 1)
@@ -589,7 +561,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %if.end
   %7 = extractvalue { ptr, ptr } %call4.i, 1
-  %second = getelementptr inbounds %"struct.std::pair", ptr %7, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %7, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %second)
   br label %return
 
@@ -640,9 +612,9 @@ declare void @_ZN6google8protobuf8compiler10objectivec8FilePathB5cxx11EPKNS0_14F
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8compiler10objectivec12ImportWriter16AddRuntimeImportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %header_name) local_unnamed_addr #3 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -650,12 +622,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %header_name)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 if.else.i:                                        ; preds = %entry
-  %protobuf_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6
+  %protobuf_imports_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %protobuf_imports_, ptr %0, ptr noundef nonnull align 8 dereferenceable(32) %header_name)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
@@ -668,16 +640,16 @@ define hidden void @_ZN6google8protobuf8compiler10objectivec12ImportWriter22Pars
 entry:
   %collector = alloca %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::ProtoFrameworkCollector", align 8
   %parse_error = alloca %"class.std::__cxx11::basic_string", align 8
-  %need_to_parse_mapping_file_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 5
+  %need_to_parse_mapping_file_ = getelementptr inbounds i8, ptr %this, i64 129
   store i8 0, ptr %need_to_parse_mapping_file_, align 1
-  %named_framework_to_proto_path_mappings_path_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 1
+  %named_framework_to_proto_path_mappings_path_ = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %named_framework_to_proto_path_mappings_path_) #21
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %proto_file_to_framework_name_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 3
+  %proto_file_to_framework_name_ = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler10objectivec12_GLOBAL__N_123ProtoFrameworkCollectorE, i64 0, inrange i32 0, i64 2), ptr %collector, align 8
-  %map_.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::ProtoFrameworkCollector", ptr %collector, i64 0, i32 1
+  %map_.i = getelementptr inbounds i8, ptr %collector, i64 8
   store ptr %proto_file_to_framework_name_, ptr %map_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parse_error) #21
   %call3 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %named_framework_to_proto_path_mappings_path_) #21
@@ -742,23 +714,23 @@ entry:
   %ref.tmp45 = alloca [1 x %"class.google::protobuf::io::Printer::Sub"], align 8
   %agg.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp49 = alloca %"class.std::allocator", align 1
-  %other_framework_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7
+  %other_framework_imports_ = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %other_framework_imports_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not59 = icmp eq ptr %0, %1
   br i1 %cmp.i.not59, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %value_.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %annotation_.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 2
-  %file_path.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %value_.i15 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 1
-  %consume_after.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 1, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
+  %annotation_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
+  %file_path.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
+  %value_.i15 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %consume_after.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf2io7Printer3SubD2Ev.exit
@@ -845,7 +817,7 @@ _ZN6google8protobuf2io7Printer3SubD2Ev.exit:      ; preds = %sw.bb.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #21
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.060, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.060, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -866,23 +838,23 @@ ehcleanup:                                        ; preds = %lpad13, %lpad.i12
   br label %eh.resume
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io7Printer3SubD2Ev.exit, %entry
-  %other_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 8
+  %other_imports_ = getelementptr inbounds i8, ptr %this, i64 184
   %13 = load ptr, ptr %other_imports_, align 8
-  %_M_finish.i16 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %this, i64 192
   %14 = load ptr, ptr %_M_finish.i16, align 8
   %cmp.i17.not61 = icmp eq ptr %13, %14
   br i1 %cmp.i17.not61, label %for.end91, label %for.body40.lr.ph
 
 for.body40.lr.ph:                                 ; preds = %for.end
-  %value_.i26 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 1
-  %_M_engaged.i.i.i.i.i.i28 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i34 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %annotation_.i37 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 2
-  %file_path.i.i.i.i.i.i.i38 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %value_.i42 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 1
-  %consume_after.i.i43 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 1, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i44 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i47 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp45, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %value_.i26 = getelementptr inbounds i8, ptr %ref.tmp45, i64 32
+  %_M_engaged.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp45, i64 176
+  %_M_engaged.i.i.i.i.i34 = getelementptr inbounds i8, ptr %ref.tmp45, i64 176
+  %annotation_.i37 = getelementptr inbounds i8, ptr %ref.tmp45, i64 112
+  %file_path.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp45, i64 136
+  %value_.i42 = getelementptr inbounds i8, ptr %ref.tmp45, i64 32
+  %consume_after.i.i43 = getelementptr inbounds i8, ptr %ref.tmp45, i64 72
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp45, i64 64
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp45, i64 48
   br label %for.body40
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %_ZN6google8protobuf2io7Printer3SubD2Ev.exit53
@@ -969,7 +941,7 @@ _ZN6google8protobuf2io7Printer3SubD2Ev.exit53:    ; preds = %sw.bb.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp48) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp49) #21
-  %incdec.ptr.i54 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin332.sroa.0.062, i64 1
+  %incdec.ptr.i54 = getelementptr inbounds i8, ptr %__begin332.sroa.0.062, i64 32
   %cmp.i17.not = icmp eq ptr %incdec.ptr.i54, %14
   br i1 %cmp.i17.not, label %for.end91, label %for.body40
 
@@ -1004,16 +976,16 @@ declare void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %annotation_ = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 2
+  %annotation_ = getelementptr inbounds i8, ptr %this, i64 112
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  %file_path.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %file_path.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i.i.i) #21
   %2 = load ptr, ptr %annotation_, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -1024,10 +996,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i
   br label %_ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit
 
 _ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %value_ = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 1
-  %consume_after.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 1, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
+  %consume_after.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i) #21
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
@@ -1037,7 +1009,7 @@ sw.bb.i.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt8optionalIN6go
   br label %_ZN6google8protobuf2io7Printer9ValueImplILb1EED2Ev.exit
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf2io7Printer9ValueImplILb1EED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1087,25 +1059,25 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %frombool = zext i1 %default_cpp_symbol to i8
   store i8 %frombool, ptr %default_cpp_symbol.addr, align 1
-  %runtime_import_prefix_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 2
+  %runtime_import_prefix_ = getelementptr inbounds i8, ptr %this, i64 64
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %runtime_import_prefix_) #21
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %protobuf_imports_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6
+  %protobuf_imports_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %protobuf_imports_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not200 = icmp eq ptr %0, %1
   br i1 %cmp.i.not200, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %value_.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %arrayinit.element = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 1
-  %value_.i36 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 1, i32 1
-  %_M_engaged.i.i.i.i.i.i38 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %2 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp, i64 2
+  %value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 184
+  %value_.i36 = getelementptr inbounds i8, ptr %ref.tmp, i64 216
+  %_M_engaged.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp, i64 360
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 368
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %arraydestroy.done24
@@ -1178,17 +1150,17 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 arraydestroy.body:                                ; preds = %invoke.cont18, %_ZN6google8protobuf2io7Printer3SubD2Ev.exit
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %_ZN6google8protobuf2io7Printer3SubD2Ev.exit ], [ %2, %invoke.cont18 ]
-  %arraydestroy.element = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1
-  %_M_engaged.i.i.i.i.i = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -184
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -8
   %8 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %arraydestroy.body
-  %annotation_.i = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 2
+  %annotation_.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -72
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %file_path.i.i.i.i.i.i.i = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %file_path.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i.i.i.i) #21
   %10 = load ptr, ptr %annotation_.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
@@ -1199,10 +1171,10 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i
   br label %_ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit.i
 
 _ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %arraydestroy.body
-  %value_.i42 = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 1
-  %consume_after.i.i = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 1, i32 1
+  %value_.i42 = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -152
+  %consume_after.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i.i) #21
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -120
   %11 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
@@ -1212,7 +1184,7 @@ sw.bb.i.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt8optionalIN6go
   br label %_ZN6google8protobuf2io7Printer3SubD2Ev.exit
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit.i
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast, i64 -1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -136
   %12 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf2io7Printer3SubD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1239,7 +1211,7 @@ arraydestroy.done24:                              ; preds = %_ZN6google8protobuf
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin4.sroa.0.0201, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0201, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -1260,7 +1232,7 @@ lpad21:                                           ; preds = %invoke.cont18
 
 arraydestroy.body26:                              ; preds = %arraydestroy.body26, %lpad21
   %arraydestroy.elementPast27 = phi ptr [ %2, %lpad21 ], [ %arraydestroy.element28, %arraydestroy.body26 ]
-  %arraydestroy.element28 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast27, i64 -1
+  %arraydestroy.element28 = getelementptr inbounds i8, ptr %arraydestroy.elementPast27, i64 -184
   call void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %arraydestroy.element28) #21
   %arraydestroy.done29 = icmp eq ptr %arraydestroy.element28, %ref.tmp
   br i1 %arraydestroy.done29, label %ehcleanup, label %arraydestroy.body26
@@ -1289,36 +1261,36 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %lpad.
 
 arraydestroy.body35:                              ; preds = %ehcleanup33, %arraydestroy.body35
   %arraydestroy.elementPast36 = phi ptr [ %arraydestroy.element37, %arraydestroy.body35 ], [ %arrayinit.endOfInit.0, %ehcleanup33 ]
-  %arraydestroy.element37 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast36, i64 -1
+  %arraydestroy.element37 = getelementptr inbounds i8, ptr %arraydestroy.elementPast36, i64 -184
   call void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %arraydestroy.element37) #21
   %arraydestroy.done38 = icmp eq ptr %arraydestroy.element37, %ref.tmp
   br i1 %arraydestroy.done38, label %eh.resume, label %arraydestroy.body35
 
 if.end:                                           ; preds = %entry
-  %for_bundled_proto_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 4
+  %for_bundled_proto_ = getelementptr inbounds i8, ptr %this, i64 128
   %18 = load i8, ptr %for_bundled_proto_, align 8
   %19 = and i8 %18, 1
   %tobool.not = icmp eq i8 %19, 0
   br i1 %tobool.not, label %if.end104, label %if.then41
 
 if.then41:                                        ; preds = %if.end
-  %protobuf_imports_43 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6
+  %protobuf_imports_43 = getelementptr inbounds i8, ptr %this, i64 136
   %20 = load ptr, ptr %protobuf_imports_43, align 8
-  %_M_finish.i43 = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i43 = getelementptr inbounds i8, ptr %this, i64 144
   %21 = load ptr, ptr %_M_finish.i43, align 8
   %cmp.i44.not202 = icmp eq ptr %20, %21
   br i1 %cmp.i44.not202, label %return, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %if.then41
-  %value_.i53 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 1
-  %_M_engaged.i.i.i.i.i.i55 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i61 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %annotation_.i64 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 2
-  %file_path.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %value_.i69 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 1
-  %consume_after.i.i70 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 1, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i74 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp57, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %value_.i53 = getelementptr inbounds i8, ptr %ref.tmp57, i64 32
+  %_M_engaged.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp57, i64 176
+  %_M_engaged.i.i.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp57, i64 176
+  %annotation_.i64 = getelementptr inbounds i8, ptr %ref.tmp57, i64 112
+  %file_path.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %ref.tmp57, i64 136
+  %value_.i69 = getelementptr inbounds i8, ptr %ref.tmp57, i64 32
+  %consume_after.i.i70 = getelementptr inbounds i8, ptr %ref.tmp57, i64 72
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %ref.tmp57, i64 64
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %ref.tmp57, i64 48
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %_ZN6google8protobuf2io7Printer3SubD2Ev.exit80
@@ -1406,7 +1378,7 @@ _ZN6google8protobuf2io7Printer3SubD2Ev.exit80:    ; preds = %sw.bb.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp60) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61) #21
-  %incdec.ptr.i81 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin444.sroa.0.0203, i64 1
+  %incdec.ptr.i81 = getelementptr inbounds i8, ptr %__begin444.sroa.0.0203, i64 32
   %cmp.i44.not = icmp eq ptr %incdec.ptr.i81, %21
   br i1 %cmp.i44.not, label %return, label %for.body52
 
@@ -1453,7 +1425,7 @@ invoke.cont113:                                   ; preds = %.noexc87
 
 invoke.cont117:                                   ; preds = %invoke.cont113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp110) #21
-  %value_.i92 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 0, i32 1
+  %value_.i92 = getelementptr inbounds i8, ptr %ref.tmp107, i64 32
   invoke void @_ZN6google8protobuf2io7Printer9ValueImplILb1EEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(73) %value_.i92, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114)
           to label %invoke.cont119 unwind label %lpad.i93
 
@@ -1464,9 +1436,9 @@ lpad.i93:                                         ; preds = %invoke.cont117
   br label %ehcleanup182
 
 invoke.cont119:                                   ; preds = %invoke.cont117
-  %_M_engaged.i.i.i.i.i.i94 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %ref.tmp107, i64 176
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i94, align 8
-  %arrayinit.element120 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1
+  %arrayinit.element120 = getelementptr inbounds i8, ptr %ref.tmp107, i64 184
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp122) #21
   %call.i100 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp121)
           to label %call.i.noexc99 unwind label %lpad123
@@ -1487,7 +1459,7 @@ lpad.i98:                                         ; preds = %.noexc101
 
 invoke.cont124:                                   ; preds = %.noexc101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element120, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp121) #21
-  %value_.i104 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1
+  %value_.i104 = getelementptr inbounds i8, ptr %ref.tmp107, i64 216
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i.i2.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %call.i.i2.i.i.i.noexc.i unwind label %lpad.i105
@@ -1498,18 +1470,18 @@ call.i.i2.i.i.i.noexc.i:                          ; preds = %invoke.cont124
   store ptr %p.addr, ptr %ref.tmp125.sroa.2.0.call.i.i2.i.i.i1.i.sroa_idx, align 8, !noalias !4
   %ref.tmp2.sroa.2.0.call.i.i2.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i.i1.i, i64 16
   store i8 0, ptr %ref.tmp2.sroa.2.0.call.i.i2.i.sroa_idx.i.i.i, align 16, !noalias !4
-  %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 24
+  %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp107, i64 240
   store ptr @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !4
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp107, i64 232
   store ptr %call.i.i2.i.i.i1.i, ptr %value_.i104, align 8, !alias.scope !4
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp107, i64 224
   store i64 0, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !4
   store ptr @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !4
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp107, i64 248
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !4
-  %consume_after.i.i106 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1, i32 1
+  %consume_after.i.i106 = getelementptr inbounds i8, ptr %ref.tmp107, i64 256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i.i106) #21
-  %consume_parens_if_empty.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 1, i32 2
+  %consume_parens_if_empty.i.i = getelementptr inbounds i8, ptr %ref.tmp107, i64 288
   store i8 0, ptr %consume_parens_if_empty.i.i, align 8
   %38 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i8 %38, 1
@@ -1537,9 +1509,9 @@ lpad.body.i:                                      ; preds = %lpad.i105, %lpad.i.
   br label %ehcleanup180
 
 invoke.cont127:                                   ; preds = %if.then.i.i, %call.i.i2.i.i.i.noexc.i
-  %_M_engaged.i.i.i.i.i.i107 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %ref.tmp107, i64 360
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i107, align 8
-  %arrayinit.element128 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 2
+  %arrayinit.element128 = getelementptr inbounds i8, ptr %ref.tmp107, i64 368
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp130) #21
   %call.i113 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp129)
           to label %call.i.noexc112 unwind label %lpad131
@@ -1560,7 +1532,7 @@ lpad.i111:                                        ; preds = %.noexc114
 
 invoke.cont132:                                   ; preds = %.noexc114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element128, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp129) #21
-  %value_.i117 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 2, i32 1
+  %value_.i117 = getelementptr inbounds i8, ptr %ref.tmp107, i64 400
   invoke void @_ZN6google8protobuf2io7Printer9ValueImplILb1EEC2IRKPKcvEEOT_(ptr noundef nonnull align 8 dereferenceable(73) %value_.i117, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6google8protobuf8compiler10objectivec28ProtobufLibraryFrameworkNameE)
           to label %invoke.cont134 unwind label %lpad.i118
 
@@ -1571,9 +1543,9 @@ lpad.i118:                                        ; preds = %invoke.cont132
   br label %ehcleanup178
 
 invoke.cont134:                                   ; preds = %invoke.cont132
-  %_M_engaged.i.i.i.i.i.i119 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 2, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %ref.tmp107, i64 544
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i119, align 8
-  %arrayinit.element135 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3
+  %arrayinit.element135 = getelementptr inbounds i8, ptr %ref.tmp107, i64 552
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp137) #21
   %call.i125 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp136)
           to label %call.i.noexc124 unwind label %lpad138
@@ -1594,7 +1566,7 @@ lpad.i123:                                        ; preds = %.noexc126
 
 invoke.cont139:                                   ; preds = %.noexc126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element135, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp136) #21
-  %value_.i129 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1
+  %value_.i129 = getelementptr inbounds i8, ptr %ref.tmp107, i64 584
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call.i.i2.i.i.i1.i130 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %call.i.i2.i.i.i.noexc.i134 unwind label %lpad.i131
@@ -1605,18 +1577,18 @@ call.i.i2.i.i.i.noexc.i134:                       ; preds = %invoke.cont139
   store ptr %p.addr, ptr %ref.tmp140.sroa.2.0.call.i.i2.i.i.i1.i130.sroa_idx, align 8, !noalias !7
   %ref.tmp2.sroa.2.0.call.i.i2.i.sroa_idx.i.i.i135 = getelementptr inbounds i8, ptr %call.i.i2.i.i.i1.i130, i64 16
   store i8 0, ptr %ref.tmp2.sroa.2.0.call.i.i2.i.sroa_idx.i.i.i135, align 16, !noalias !7
-  %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i136 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 24
+  %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i136 = getelementptr inbounds i8, ptr %ref.tmp107, i64 608
   store ptr @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i136, align 8, !alias.scope !7
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i137 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i137 = getelementptr inbounds i8, ptr %ref.tmp107, i64 600
   store ptr %call.i.i2.i.i.i1.i130, ptr %value_.i129, align 8, !alias.scope !7
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i138 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i138 = getelementptr inbounds i8, ptr %ref.tmp107, i64 592
   store i64 0, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i138, align 8, !alias.scope !7
   store ptr @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i137, align 8, !alias.scope !7
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %ref.tmp107, i64 616
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i139, align 8, !alias.scope !7
-  %consume_after.i.i140 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1, i32 1
+  %consume_after.i.i140 = getelementptr inbounds i8, ptr %ref.tmp107, i64 624
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i.i140) #21
-  %consume_parens_if_empty.i.i141 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 1, i32 2
+  %consume_parens_if_empty.i.i141 = getelementptr inbounds i8, ptr %ref.tmp107, i64 656
   store i8 0, ptr %consume_parens_if_empty.i.i141, align 8
   %44 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i139, align 8
   %cmp.i.i.i142 = icmp eq i8 %44, 1
@@ -1644,9 +1616,9 @@ lpad.body.i132:                                   ; preds = %lpad.i131, %lpad.i.
   br label %ehcleanup176
 
 invoke.cont142:                                   ; preds = %if.then.i.i144, %call.i.i2.i.i.i.noexc.i134
-  %_M_engaged.i.i.i.i.i.i143 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 3, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %ref.tmp107, i64 728
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i143, align 8
-  %arrayinit.element143 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4
+  %arrayinit.element143 = getelementptr inbounds i8, ptr %ref.tmp107, i64 736
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp145) #21
   %call.i152 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp144)
           to label %call.i.noexc151 unwind label %lpad146
@@ -1667,7 +1639,7 @@ lpad.i150:                                        ; preds = %.noexc153
 
 invoke.cont147:                                   ; preds = %.noexc153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element143, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp144) #21
-  %value_.i156 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1
+  %value_.i156 = getelementptr inbounds i8, ptr %ref.tmp107, i64 768
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %call.i.i2.i.i.i1.i157 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %call.i.i2.i.i.i.noexc.i161 unwind label %lpad.i158
@@ -1678,18 +1650,18 @@ call.i.i2.i.i.i.noexc.i161:                       ; preds = %invoke.cont147
   store ptr %p.addr, ptr %ref.tmp148.sroa.2.0.call.i.i2.i.i.i1.i157.sroa_idx, align 8, !noalias !10
   %ref.tmp2.sroa.2.0.call.i.i2.i.sroa_idx.i.i.i162 = getelementptr inbounds i8, ptr %call.i.i2.i.i.i1.i157, i64 16
   store i8 0, ptr %ref.tmp2.sroa.2.0.call.i.i2.i.sroa_idx.i.i.i162, align 16, !noalias !10
-  %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 24
+  %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %ref.tmp107, i64 792
   store ptr @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i163, align 8, !alias.scope !10
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164 = getelementptr inbounds i8, ptr %ref.tmp107, i64 784
   store ptr %call.i.i2.i.i.i1.i157, ptr %value_.i156, align 8, !alias.scope !10
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i165 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i165 = getelementptr inbounds i8, ptr %ref.tmp107, i64 776
   store i64 0, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i165, align 8, !alias.scope !10
   store ptr @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164, align 8, !alias.scope !10
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i166 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i166 = getelementptr inbounds i8, ptr %ref.tmp107, i64 800
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i166, align 8, !alias.scope !10
-  %consume_after.i.i167 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1, i32 1
+  %consume_after.i.i167 = getelementptr inbounds i8, ptr %ref.tmp107, i64 808
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i.i167) #21
-  %consume_parens_if_empty.i.i168 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 1, i32 2
+  %consume_parens_if_empty.i.i168 = getelementptr inbounds i8, ptr %ref.tmp107, i64 840
   store i8 0, ptr %consume_parens_if_empty.i.i168, align 8
   %48 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i166, align 8
   %cmp.i.i.i169 = icmp eq i8 %48, 1
@@ -1717,18 +1689,18 @@ lpad.body.i159:                                   ; preds = %lpad.i158, %lpad.i.
   br label %ehcleanup174
 
 invoke.cont150:                                   ; preds = %if.then.i.i171, %call.i.i2.i.i.i.noexc.i161
-  %_M_engaged.i.i.i.i.i.i170 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 4, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i170 = getelementptr inbounds i8, ptr %ref.tmp107, i64 912
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i170, align 8
   invoke void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr nonnull %ref.tmp107, i64 5, i64 149, ptr nonnull @.str.14)
           to label %invoke.cont160 unwind label %lpad157
 
 invoke.cont160:                                   ; preds = %invoke.cont150
-  %51 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 5
+  %51 = getelementptr inbounds i8, ptr %ref.tmp107, i64 920
   br label %arraydestroy.body162
 
 arraydestroy.body162:                             ; preds = %arraydestroy.body162, %invoke.cont160
   %arraydestroy.elementPast163 = phi ptr [ %51, %invoke.cont160 ], [ %arraydestroy.element164, %arraydestroy.body162 ]
-  %arraydestroy.element164 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast163, i64 -1
+  %arraydestroy.element164 = getelementptr inbounds i8, ptr %arraydestroy.elementPast163, i64 -184
   call void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %arraydestroy.element164) #21
   %arraydestroy.done165 = icmp eq ptr %arraydestroy.element164, %ref.tmp107
   br i1 %arraydestroy.done165, label %arraydestroy.done166, label %arraydestroy.body162
@@ -1783,12 +1755,12 @@ lpad146:                                          ; preds = %call.i.noexc151, %i
 lpad157:                                          ; preds = %invoke.cont150
   %58 = landingpad { ptr, i32 }
           cleanup
-  %59 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp107, i64 5
+  %59 = getelementptr inbounds i8, ptr %ref.tmp107, i64 920
   br label %arraydestroy.body169
 
 arraydestroy.body169:                             ; preds = %arraydestroy.body169, %lpad157
   %arraydestroy.elementPast170 = phi ptr [ %59, %lpad157 ], [ %arraydestroy.element171, %arraydestroy.body169 ]
-  %arraydestroy.element171 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast170, i64 -1
+  %arraydestroy.element171 = getelementptr inbounds i8, ptr %arraydestroy.elementPast170, i64 -184
   call void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %arraydestroy.element171) #21
   %arraydestroy.done172 = icmp eq ptr %arraydestroy.element171, %ref.tmp107
   br i1 %arraydestroy.done172, label %ehcleanup174, label %arraydestroy.body169
@@ -1866,7 +1838,7 @@ ehcleanup184:                                     ; preds = %lpad116, %ehcleanup
 
 arraydestroy.body189:                             ; preds = %ehcleanup184, %arraydestroy.body189
   %arraydestroy.elementPast190 = phi ptr [ %arraydestroy.element191, %arraydestroy.body189 ], [ %arrayinit.endOfInit109.7, %ehcleanup184 ]
-  %arraydestroy.element191 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %arraydestroy.elementPast190, i64 -1
+  %arraydestroy.element191 = getelementptr inbounds i8, ptr %arraydestroy.elementPast190, i64 -184
   call void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %arraydestroy.element191) #21
   %arraydestroy.done192 = icmp eq ptr %arraydestroy.element191, %ref.tmp107
   br i1 %arraydestroy.done192, label %eh.resume, label %arraydestroy.body189
@@ -1928,7 +1900,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i = icmp eq i8 %0, 0
   br i1 %switch.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i
@@ -1938,7 +1910,7 @@ sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %entry
   br label %_ZNSt8__detail9__variant13_Variant_baseIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEED2Ev.exit
 
 sw.bb2.i.i.i.i.i.i.i.i:                           ; preds = %entry
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant13_Variant_baseIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1997,13 +1969,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %if.then.
 
 if.then:                                          ; preds = %entry, %if.then.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   store i64 55, ptr %ref.tmp3, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.17, ptr %0, align 8
   store i64 %line.coerce0, ptr %ref.tmp4, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %line.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
   store i64 2, ptr %ref.tmp5, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp5, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr @.str.18, ptr %1, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %out_error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
@@ -2042,9 +2014,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
 
 if.then.i21.lr.ph:                                ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %sub.ptr.rhs.cast.i29 = ptrtoint ptr %9 to i64
-  %10 = getelementptr inbounds { i64, ptr }, ptr %proto_file, i64 0, i32 1
-  %map_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::ProtoFrameworkCollector", ptr %this, i64 0, i32 1
-  %11 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %proto_file, i64 8
+  %map_ = getelementptr inbounds i8, ptr %this, i64 8
+  %11 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %12 = ptrtoint ptr %proto_file to i64
   br label %if.then.i21
 
@@ -2100,7 +2072,7 @@ if.then39:                                        ; preds = %if.then33
   %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i45, ptr noundef nonnull @.str.20)
   %call2.i46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call43, ptr noundef %5, i64 noundef %4)
   %call46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i46, ptr noundef nonnull @.str.21)
-  %second = getelementptr inbounds %"struct.std::pair", ptr %19, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %19, i64 32
   %call48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef nonnull align 8 dereferenceable(32) %second)
   %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call48, ptr noundef nonnull @.str.22)
   %call50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call49, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -2159,7 +2131,7 @@ call.i.i.i50.noexc:                               ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i, label %invoke.cont67, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.i.i50.noexc
-  %slots_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %25, i64 0, i32 1
+  %slots_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %29 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8, !noalias !13
   %add.ptr.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp6.i.i.i.i.i.i.i.i.i), !noalias !13
@@ -2174,7 +2146,7 @@ if.then.i.i.i:                                    ; preds = %call.i.i.i50.noexc
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %.noexc, %call.i.i.i50.noexc
-  %slots_.i.i.i3.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %25, i64 0, i32 1
+  %slots_.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !13
   %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %30, i64 %26, i32 0, i32 1
   %call69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #21
@@ -2231,13 +2203,13 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
   %1 = load ptr, ptr %this, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !20
   %shr.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
   %3 = ptrtoint ptr %1 to i64
   %shr.i.i.i.i.i = lshr i64 %3, 12
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i.i.i
-  %slots_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %slots_.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i = and i8 %5, 127
@@ -2727,7 +2699,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
   %1 = load ptr, ptr %this, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !35
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
   %3 = ptrtoint ptr %1 to i64
@@ -2737,7 +2709,7 @@ entry:
   %conv.i = and i8 %4, 127
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %if.end36, %entry
@@ -2828,13 +2800,13 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %land.rhs
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i10 = icmp ugt i64 %4, 16
   br i1 %cmp.i10, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.then13
-  %compressed_tuple_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %mul.i11 = shl i64 %5, 5
   %mul3.i = mul i64 %4, 25
@@ -2862,7 +2834,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
   %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
   %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
-  %compressed_tuple_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
   store i64 %add, ptr %compressed_tuple_.i, align 8
@@ -2876,7 +2848,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
   store i64 %sub, ptr %add.ptr.i.i.i13, align 8
   %11 = trunc i64 %hash to i8
   %conv.i = and i8 %11, 127
-  %capacity_.i.i.i16 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %capacity_.i.i.i16, align 8
   %13 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %target.sroa.0.0
@@ -2895,9 +2867,9 @@ define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw
 entry:
   %agg.tmp.i = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %slots_.i.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
@@ -2936,7 +2908,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %new_capacity
   store i8 -1, ptr %arrayidx.i.i.i, align 1
   %div2.i.i.i.i.i = lshr i64 %new_capacity, 3
-  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %compressed_tuple_.i.i.i.i.i, align 8
   %5 = add i64 %div2.i.i.i.i.i, %4
   %sub.i.i20.i.i = sub i64 %new_capacity, %5
@@ -2982,8 +2954,8 @@ if.then:                                          ; preds = %for.body
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
   %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #21
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.69", ptr %add.ptr16, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.69", ptr %add.ptr, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 32
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #21
@@ -3042,8 +3014,8 @@ entry:
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE16transfer_slot_fnEPvSI_SI_(ptr noundef %set, ptr noundef %dst, ptr noundef %src) #3 comdat align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull align 8 dereferenceable(32) %src) #21
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.69", ptr %dst, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.69", ptr %src, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %src) #21
@@ -3078,7 +3050,7 @@ entry:
   %2 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %1, ptr %2) #21
   %3 = load i64, ptr %agg.tmp.i, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %3, ptr %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -3086,7 +3058,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
-  %second = getelementptr inbounds %"struct.std::pair.69", ptr %this, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second) #21
   ret void
 
@@ -3199,7 +3171,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3243,14 +3215,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !40
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -3259,8 +3231,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #21
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !40
 
@@ -3274,7 +3246,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -3290,7 +3262,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3337,14 +3309,14 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !40
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
@@ -3353,8 +3325,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i22, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #21
-  %incdec.ptr.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
+  %incdec.ptr1.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
   br i1 %cmp.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19, !llvm.loop !40
 
@@ -3368,7 +3340,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %if.then.i27
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i
@@ -3423,13 +3395,13 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE4findIS9_EENSH_8iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %hash) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8, !noalias !41
   %shr.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i = lshr i64 %2, 12
   %xor.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %slots_.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i = and i8 %4, 127
@@ -3514,12 +3486,12 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
-  %consume_after = getelementptr inbounds %"struct.google::protobuf::io::Printer::ValueImpl", ptr %this, i64 0, i32 1
+  %consume_after = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after) #21
-  %consume_parens_if_empty = getelementptr inbounds %"struct.google::protobuf::io::Printer::ValueImpl", ptr %this, i64 0, i32 2
+  %consume_parens_if_empty = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %consume_parens_if_empty, align 8
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i = icmp eq i8 %0, 1
@@ -3548,12 +3520,12 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
-  %consume_after = getelementptr inbounds %"struct.google::protobuf::io::Printer::ValueImpl", ptr %this, i64 0, i32 1
+  %consume_after = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after) #21
-  %consume_parens_if_empty = getelementptr inbounds %"struct.google::protobuf::io::Printer::ValueImpl", ptr %this, i64 0, i32 2
+  %consume_parens_if_empty = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %consume_parens_if_empty, align 8
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i = icmp eq i8 %0, 1
@@ -3578,7 +3550,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPS4_bE3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon.90, ptr %__functor.val, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i.i = icmp eq i8 %2, 0
@@ -3685,13 +3657,13 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
-  %consume_after = getelementptr inbounds %"struct.google::protobuf::io::Printer::ValueImpl", ptr %this, i64 0, i32 1
+  %consume_after = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after) #21
-  %consume_parens_if_empty = getelementptr inbounds %"struct.google::protobuf::io::Printer::ValueImpl", ptr %this, i64 0, i32 2
+  %consume_parens_if_empty = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %consume_parens_if_empty, align 8
   %2 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i3 = icmp eq i8 %2, 1
@@ -3734,7 +3706,7 @@ entry:
   %agg.tmp7.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8.i.i.i.i = alloca %"class.std::allocator", align 1
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon.94, ptr %__functor.val, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i.i = icmp eq i8 %2, 0
@@ -3746,22 +3718,22 @@ if.end.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp7.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp8.i.i.i.i)
   %3 = load ptr, ptr %__functor.val, align 8
-  %protobuf_imports_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %3, i64 0, i32 6
+  %protobuf_imports_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %protobuf_imports_.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %3, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not11.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.not11.i.i.i.i, label %"_ZZNK6google8protobuf8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPNS0_2io7PrinterEbENK3$_1clEv.exit.i.i.i", label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i
-  %6 = getelementptr inbounds %class.anon.64, ptr %__functor.val, i64 0, i32 1
-  %value_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1
-  %_M_engaged.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %annotation_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 2
-  %file_path.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %consume_after.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %6 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %value_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
+  %_M_engaged.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 176
+  %annotation_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 112
+  %file_path.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 136
+  %consume_after.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 72
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 64
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 48
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN6google8protobuf2io7Printer3SubD2Ev.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
@@ -3871,7 +3843,7 @@ _ZN6google8protobuf2io7Printer3SubD2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.i.i.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin4.sroa.0.012.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.012.i.i.i.i, i64 32
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %5
   br i1 %cmp.i.not.i.i.i.i, label %"_ZZNK6google8protobuf8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPNS0_2io7PrinterEbENK3$_1clEv.exit.i.i.i", label %for.body.i.i.i.i
 
@@ -3954,7 +3926,7 @@ entry:
   %agg.tmp7.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8.i.i.i.i = alloca %"class.std::allocator", align 1
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon.96, ptr %__functor.val, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i.i = icmp eq i8 %2, 0
@@ -3966,22 +3938,22 @@ if.end.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp7.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp8.i.i.i.i)
   %3 = load ptr, ptr %__functor.val, align 8
-  %protobuf_imports_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %3, i64 0, i32 6
+  %protobuf_imports_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %protobuf_imports_.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::ImportWriter", ptr %3, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not11.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.not11.i.i.i.i, label %"_ZZNK6google8protobuf8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPNS0_2io7PrinterEbENK3$_2clEv.exit.i.i.i", label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i
-  %6 = getelementptr inbounds %class.anon.65, ptr %__functor.val, i64 0, i32 1
-  %value_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1
-  %_M_engaged.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %annotation_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 2
-  %file_path.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %consume_after.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %ref.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %6 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %value_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
+  %_M_engaged.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 176
+  %annotation_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 112
+  %file_path.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 136
+  %consume_after.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 72
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 64
+  %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 48
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN6google8protobuf2io7Printer3SubD2Ev.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
@@ -4091,7 +4063,7 @@ _ZN6google8protobuf2io7Printer3SubD2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.i.i.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin4.sroa.0.012.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.012.i.i.i.i, i64 32
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %5
   br i1 %cmp.i.not.i.i.i.i, label %"_ZZNK6google8protobuf8compiler10objectivec12ImportWriter19PrintRuntimeImportsEPNS0_2io7PrinterEbENK3$_2clEv.exit.i.i.i", label %for.body.i.i.i.i
 

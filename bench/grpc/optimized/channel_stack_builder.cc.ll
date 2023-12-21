@@ -4,17 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_core::ChannelStackBuilder" = type { ptr, ptr, i32, %"class.std::__cxx11::basic_string", %"class.grpc_core::ChannelArgs", %"class.std::vector" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
-%"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<const grpc_channel_filter *, std::allocator<const grpc_channel_filter *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const grpc_channel_filter *, std::allocator<const grpc_channel_filter *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const grpc_channel_filter *, std::allocator<const grpc_channel_filter *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const grpc_channel_filter *, std::allocator<const grpc_channel_filter *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -56,18 +48,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9grpc_core19ChannelStackBuilderC2EPKc23grpc_channel_stack_typeRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %name, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(8) %channel_args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %name, ptr %name_, align 8
-  %type_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 2
+  %type_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %type, ptr %type_, align 8
-  %target_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 3
+  %target_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN9grpc_core19ChannelStackBuilder14unknown_targetB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %target_)
-  %args_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 4
+  %args_ = getelementptr inbounds i8, ptr %this, i64 56
   invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_, ptr noundef nonnull align 8 dereferenceable(8) %channel_args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %stack_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 5
+  %stack_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack_, i8 0, i64 24, i1 false)
   ret void
 
@@ -131,13 +123,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZN9grpc_core19ChannelStackBuilder14unknown_targetB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp)
-  %target_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 3
+  %target_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %target_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %target_2 = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 3
+  %target_2 = getelementptr inbounds i8, ptr %this, i64 24
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %target_2, ptr noundef nonnull %target)
   br label %if.end
 
@@ -155,7 +147,7 @@ define void @_ZN9grpc_core19ChannelStackBuilder13PrependFilterEPK19grpc_channel_
 entry:
   %filter.addr = alloca ptr, align 8
   store ptr %filter, ptr %filter.addr, align 8
-  %stack_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 5
+  %stack_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %stack_, align 8
   %call4 = call ptr @_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EERS7_(ptr noundef nonnull align 8 dereferenceable(24) %stack_, ptr %0, ptr noundef nonnull align 8 dereferenceable(8) %filter.addr)
   ret void
@@ -169,9 +161,9 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<const grpc_channel_filter *, std::allocator<const grpc_channel_filter *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<const grpc_channel_filter *, std::allocator<const grpc_channel_filter *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %1, %2
   br i1 %cmp.not, label %if.else26, label %if.then
@@ -184,20 +176,20 @@ if.then9:                                         ; preds = %if.then
   %3 = load ptr, ptr %__x, align 8
   store ptr %3, ptr %__position.coerce, align 8
   %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %4, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end38
 
 if.else:                                          ; preds = %if.then
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %sub.ptr.div.i
   %5 = load ptr, ptr %__x, align 8
-  %add.ptr.i9 = getelementptr inbounds ptr, ptr %1, i64 -1
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %1, i64 -8
   %6 = load ptr, ptr %add.ptr.i9, align 8
   store ptr %6, ptr %1, align 8
   %7 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr9.i = getelementptr inbounds ptr, ptr %7, i64 -1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %7, i64 -8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %add.ptr.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
@@ -256,7 +248,7 @@ if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %if.then.i.i.i12.i, %_ZNSt12_Vector_baseIPK19grpc_channel_filterSaIS2_EE11_M_allocateEm.exit.i
-  %incdec.ptr.i16 = getelementptr inbounds ptr, ptr %add.ptr.i15, i64 1
+  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 8
   %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.i.i.i16.i = ashr exact i64 %sub.ptr.sub.i.i.i15.i, 3
   %cmp.i.i.i17.i = icmp sgt i64 %sub.ptr.div.i.i.i16.i, 0
@@ -291,10 +283,10 @@ if.end38:                                         ; preds = %if.then9, %invoke.c
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core19ChannelStackBuilder12AppendFilterEPK19grpc_channel_filter(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stack_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 5
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %stack_ = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -302,7 +294,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %filter, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit
 
@@ -346,7 +338,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPK19grpc_channel_filterSaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 

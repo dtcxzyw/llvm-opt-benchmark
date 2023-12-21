@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ct_prn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sct_st = type { i32, ptr, i64, ptr, i64, i64, ptr, i64, i8, i8, ptr, i64, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [8 x i8] c"not set\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"unknown version\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"unknown log\00", align 1
@@ -57,9 +55,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %log_id = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id = getelementptr inbounds i8, ptr %sct, i64 24
   %0 = load ptr, ptr %log_id, align 8
-  %log_id_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 4
+  %log_id_len = getelementptr inbounds i8, ptr %sct, i64 32
   %1 = load i64, ptr %log_id_len, align 8
   %call = tail call ptr @CTLOG_STORE_get0_log_by_id(ptr noundef nonnull %log_store, ptr noundef %0, i64 noundef %1) #3
   br label %if.end
@@ -76,9 +74,9 @@ if.end:                                           ; preds = %if.then, %entry
 if.then4:                                         ; preds = %if.end
   %add5 = add nsw i32 %indent, 16
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.10, i32 noundef %add5, ptr noundef nonnull @.str.8) #3
-  %sct8 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 1
+  %sct8 = getelementptr inbounds i8, ptr %sct, i64 8
   %3 = load ptr, ptr %sct8, align 8
-  %sct_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 2
+  %sct_len = getelementptr inbounds i8, ptr %sct, i64 16
   %4 = load i64, ptr %sct_len, align 8
   %conv = trunc i64 %4 to i32
   %call9 = tail call i32 @BIO_hex_string(ptr noundef %out, i32 noundef %add5, i32 noundef 16, ptr noundef %3, i32 noundef %conv) #3
@@ -97,14 +95,14 @@ if.then14:                                        ; preds = %if.end10
 if.end18:                                         ; preds = %if.then14, %if.end10
   %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.13, i32 noundef %add, ptr noundef nonnull @.str.8) #3
   %add21 = add nsw i32 %indent, 16
-  %log_id22 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id22 = getelementptr inbounds i8, ptr %sct, i64 24
   %5 = load ptr, ptr %log_id22, align 8
-  %log_id_len23 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 4
+  %log_id_len23 = getelementptr inbounds i8, ptr %sct, i64 32
   %6 = load i64, ptr %log_id_len23, align 8
   %conv24 = trunc i64 %6 to i32
   %call25 = tail call i32 @BIO_hex_string(ptr noundef %out, i32 noundef %add21, i32 noundef 16, ptr noundef %5, i32 noundef %conv24) #3
   %call27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.14, i32 noundef %add, ptr noundef nonnull @.str.8) #3
-  %timestamp = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 5
+  %timestamp = getelementptr inbounds i8, ptr %sct, i64 40
   %7 = load i64, ptr %timestamp, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %genstr.i)
   %call.i = tail call ptr @ASN1_GENERALIZEDTIME_new() #3
@@ -138,7 +136,7 @@ if.end11.i:                                       ; preds = %if.then9.i, %if.end
 timestamp_print.exit:                             ; preds = %if.end18, %if.end11.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %genstr.i)
   %call29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.15, i32 noundef %add, ptr noundef nonnull @.str.8) #3
-  %ext_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 7
+  %ext_len = getelementptr inbounds i8, ptr %sct, i64 56
   %8 = load i64, ptr %ext_len, align 8
   %cmp30 = icmp eq i64 %8, 0
   br i1 %cmp30, label %if.then32, label %if.else
@@ -148,7 +146,7 @@ if.then32:                                        ; preds = %timestamp_print.exi
   br label %if.end38
 
 if.else:                                          ; preds = %timestamp_print.exit
-  %ext = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 6
+  %ext = getelementptr inbounds i8, ptr %sct, i64 48
   %9 = load ptr, ptr %ext, align 8
   %conv36 = trunc i64 %8 to i32
   %call37 = call i32 @BIO_hex_string(ptr noundef %out, i32 noundef %add21, i32 noundef 16, ptr noundef %9, i32 noundef %conv36) #3
@@ -161,10 +159,10 @@ if.end38:                                         ; preds = %if.else, %if.then32
   br i1 %cmp.i45, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end38
-  %hash_alg.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg.i = getelementptr inbounds i8, ptr %sct, i64 64
   %10 = load i8, ptr %hash_alg.i, align 8
   %conv.i48 = zext i8 %10 to i32
-  %sig_alg.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg.i = getelementptr inbounds i8, ptr %sct, i64 65
   %11 = load i8, ptr %sig_alg.i, align 1
   %conv1.i = zext i8 %11 to i32
   %call2.i49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.21, i32 noundef %conv.i48, i32 noundef %conv1.i) #3
@@ -177,9 +175,9 @@ if.else.i:                                        ; preds = %if.end38
 
 SCT_signature_algorithms_print.exit:              ; preds = %if.then.i, %if.else.i
   %call42 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.18, i32 noundef %add, ptr noundef nonnull @.str.8) #3
-  %sig = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig = getelementptr inbounds i8, ptr %sct, i64 72
   %12 = load ptr, ptr %sig, align 8
-  %sig_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len = getelementptr inbounds i8, ptr %sct, i64 80
   %13 = load i64, ptr %sig_len, align 8
   %conv44 = trunc i64 %13 to i32
   %call45 = call i32 @BIO_hex_string(ptr noundef %out, i32 noundef %add21, i32 noundef 16, ptr noundef %12, i32 noundef %conv44) #3

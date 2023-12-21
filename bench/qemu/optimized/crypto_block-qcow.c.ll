@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QCryptoBlockDriver = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.QCryptoBlock = type { i32, ptr, ptr, ptr, i64, i64, ptr, %struct.QemuMutex, i32, i64, i64, i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QCryptoBlockOpenOptions = type { i32, %union.anon }
-%union.anon = type { %struct.QCryptoBlockOptionsQCow }
-%struct.QCryptoBlockOptionsQCow = type { ptr }
-%struct.QCryptoBlockCreateOptions = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.QCryptoBlockCreateOptionsLUKS }
-%struct.QCryptoBlockCreateOptionsLUKS = type { ptr, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, i64 }
 
 @qcrypto_block_driver_qcow = dso_local local_unnamed_addr constant %struct.QCryptoBlockDriver { ptr @qcrypto_block_qcow_open, ptr @qcrypto_block_qcow_create, ptr null, ptr null, ptr @qcrypto_block_qcow_cleanup, ptr @qcrypto_block_qcow_encrypt, ptr @qcrypto_block_qcow_decrypt, ptr @qcrypto_block_qcow_has_format }, align 8
 @.str = private unnamed_addr constant [28 x i8] c"../qemu/crypto/block-qcow.c\00", align 1
@@ -35,14 +24,14 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sector_size = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 11
+  %sector_size = getelementptr inbounds i8, ptr %block, i64 128
   store i64 512, ptr %sector_size, align 8
-  %payload_offset = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 10
+  %payload_offset = getelementptr inbounds i8, ptr %block, i64 120
   store i64 0, ptr %payload_offset, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %u = getelementptr inbounds %struct.QCryptoBlockOpenOptions, ptr %options, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %options, i64 8
   %0 = load ptr, ptr %u, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then2, label %if.end
@@ -65,7 +54,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcrypto_block_qcow_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %initfunc, ptr nocapture readnone %writefunc, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds %struct.QCryptoBlockCreateOptions, ptr %options, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %options, i64 8
   %0 = load ptr, ptr %u, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -166,10 +155,10 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %keybuf, ptr nonnull align 1 %call, i64 %cond, i1 false)
   tail call void @g_free(ptr noundef nonnull %call) #8
   %call5 = tail call i64 @qcrypto_cipher_get_iv_len(i32 noundef 0, i32 noundef 1) #8
-  %niv = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 9
+  %niv = getelementptr inbounds i8, ptr %block, i64 112
   store i64 %call5, ptr %niv, align 8
   %call6 = tail call ptr @qcrypto_ivgen_new(i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %errp) #8
-  %ivgen = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 6
+  %ivgen = getelementptr inbounds i8, ptr %block, i64 48
   store ptr %call6, ptr %ivgen, align 8
   %tobool8.not = icmp eq ptr %call6, null
   br i1 %tobool8.not, label %fail, label %if.end10
@@ -180,9 +169,9 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp13, label %fail, label %if.end16
 
 if.end16:                                         ; preds = %if.end10
-  %sector_size = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 11
+  %sector_size = getelementptr inbounds i8, ptr %block, i64 128
   store i64 512, ptr %sector_size, align 8
-  %payload_offset = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 10
+  %payload_offset = getelementptr inbounds i8, ptr %block, i64 120
   store i64 0, ptr %payload_offset, align 8
   br label %return
 

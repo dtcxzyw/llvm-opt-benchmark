@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
 %struct.name2keysym_t = type { ptr, i32 }
-%struct.InputBarrier = type { %struct.Object, ptr, i32, ptr, i16, i16, i16, i16, %struct.SocketAddress, [1024 x i8] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.SocketAddress = type { i32, %union.anon }
-%union.anon = type { %struct.InetSocketAddress }
-%struct.InetSocketAddress = type { ptr, ptr, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.barrierMsg = type { i32, %union.anon.0 }
 %union.anon.0 = type { %struct.barrierSet }
 %struct.barrierSet = type { i32, [32 x %struct.anon] }
@@ -826,15 +818,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %saddr = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8
+  %saddr = getelementptr inbounds i8, ptr %call.i, i64 72
   store i32 0, ptr %saddr, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #8
-  %u = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1
+  %u = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %call3, ptr %u, align 8
   %call5 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #8
-  %port = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1, i32 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %call5, ptr %port, align 8
-  %x_origin = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 4
+  %x_origin = getelementptr inbounds i8, ptr %call.i, i64 64
   store <4 x i16> <i16 0, i16 0, i16 1920, i16 1080>, ptr %x_origin, align 8
   ret void
 }
@@ -843,7 +835,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @input_barrier_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %ioc_tag = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 2
+  %ioc_tag = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -854,7 +846,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %sioc = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 1
+  %sioc = getelementptr inbounds i8, ptr %call.i, i64 40
   %1 = load ptr, ptr %sioc, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end10, label %if.then5
@@ -867,13 +859,13 @@ if.then5:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %if.end
-  %name = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 56
   %3 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %3) #8
-  %u = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1
+  %u = getelementptr inbounds i8, ptr %call.i, i64 80
   %4 = load ptr, ptr %u, align 8
   tail call void @g_free(ptr noundef %4) #8
-  %port = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1, i32 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call.i, i64 88
   %5 = load ptr, ptr %port, align 8
   tail call void @g_free(ptr noundef %5) #8
   ret void
@@ -883,7 +875,7 @@ if.end10:                                         ; preds = %if.then5, %if.end
 define internal void @input_barrier_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.713, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @input_barrier_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.706, ptr noundef nonnull @input_barrier_get_name, ptr noundef nonnull @input_barrier_set_name) #8
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.707, ptr noundef nonnull @input_barrier_get_server, ptr noundef nonnull @input_barrier_set_server) #8
@@ -915,7 +907,7 @@ entry:
   %local_err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
   store ptr null, ptr %local_err, align 8
-  %name = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -926,12 +918,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @qio_channel_socket_new() #8
-  %sioc = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 1
+  %sioc = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call1, ptr %sioc, align 8
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.704, ptr noundef nonnull @.str.705, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
   tail call void @qio_channel_set_name(ptr noundef %call.i10, ptr noundef nonnull @.str.715) #8
   %1 = load ptr, ptr %sioc, align 8
-  %saddr = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8
+  %saddr = getelementptr inbounds i8, ptr %call.i, i64 72
   %call5 = call i32 @qio_channel_socket_connect_sync(ptr noundef %1, ptr noundef nonnull %saddr, ptr noundef nonnull %local_err) #8
   %2 = load ptr, ptr %local_err, align 8
   %tobool6.not = icmp eq ptr %2, null
@@ -948,7 +940,7 @@ if.end8:                                          ; preds = %if.end
   %4 = load ptr, ptr %sioc, align 8
   %call.i12 = call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.704, ptr noundef nonnull @.str.705, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
   %call13 = call i32 @qio_channel_add_watch(ptr noundef %call.i12, i32 noundef 1, ptr noundef nonnull @input_barrier_event, ptr noundef nonnull %call.i, ptr noundef null) #8
-  %ioc_tag = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 2
+  %ioc_tag = getelementptr inbounds i8, ptr %call.i, i64 48
   store i32 %call13, ptr %ioc_tag, align 8
   br label %return
 
@@ -962,7 +954,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @input_barrier_get_name(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %name = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %name, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -972,7 +964,7 @@ entry:
 define internal void @input_barrier_set_name(ptr noundef %obj, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %name = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -994,7 +986,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal noalias ptr @input_barrier_get_server(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %u = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1
+  %u = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load ptr, ptr %u, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -1004,7 +996,7 @@ entry:
 define internal void @input_barrier_set_server(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %u = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1
+  %u = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load ptr, ptr %u, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #8
@@ -1016,7 +1008,7 @@ entry:
 define internal noalias ptr @input_barrier_get_port(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %port = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1, i32 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %port, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -1026,7 +1018,7 @@ entry:
 define internal void @input_barrier_set_port(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %port = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 8, i32 1, i32 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %port, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #8
@@ -1038,7 +1030,7 @@ entry:
 define internal noalias ptr @input_barrier_get_x_origin(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %x_origin = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 4
+  %x_origin = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load i16, ptr %x_origin, align 8
   %conv = sext i16 %0 to i32
   %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.745, i32 noundef %conv) #8
@@ -1065,7 +1057,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %0 to i16
-  %x_origin = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 4
+  %x_origin = getelementptr inbounds i8, ptr %call.i, i64 64
   store i16 %conv, ptr %x_origin, align 8
   br label %return
 
@@ -1077,7 +1069,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal noalias ptr @input_barrier_get_y_origin(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %y_origin = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 5
+  %y_origin = getelementptr inbounds i8, ptr %call.i, i64 66
   %0 = load i16, ptr %y_origin, align 2
   %conv = sext i16 %0 to i32
   %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.745, i32 noundef %conv) #8
@@ -1104,7 +1096,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %0 to i16
-  %y_origin = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 5
+  %y_origin = getelementptr inbounds i8, ptr %call.i, i64 66
   store i16 %conv, ptr %y_origin, align 2
   br label %return
 
@@ -1116,7 +1108,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal noalias ptr @input_barrier_get_width(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %width = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 6
+  %width = getelementptr inbounds i8, ptr %call.i, i64 68
   %0 = load i16, ptr %width, align 4
   %conv = sext i16 %0 to i32
   %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.745, i32 noundef %conv) #8
@@ -1143,7 +1135,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %0 to i16
-  %width = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 6
+  %width = getelementptr inbounds i8, ptr %call.i, i64 68
   store i16 %conv, ptr %width, align 4
   br label %return
 
@@ -1155,7 +1147,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal noalias ptr @input_barrier_get_height(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.INPUT_BARRIER) #8
-  %height = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 7
+  %height = getelementptr inbounds i8, ptr %call.i, i64 70
   %0 = load i16, ptr %height, align 2
   %conv = sext i16 %0 to i32
   %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.745, i32 noundef %conv) #8
@@ -1182,7 +1174,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %0 to i16
-  %height = getelementptr inbounds %struct.InputBarrier, ptr %call.i, i64 0, i32 7
+  %height = getelementptr inbounds i8, ptr %call.i, i64 70
   store i16 %conv, ptr %height, align 2
   br label %return
 
@@ -1212,7 +1204,7 @@ entry:
   %len.i = alloca i32, align 4
   %msg = alloca %struct.barrierMsg, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %sioc.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 1
+  %sioc.i = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %sioc.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.704, ptr noundef nonnull @.str.705, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
   %call1.i = call i64 @qio_channel_read(ptr noundef %call.i.i, ptr noundef nonnull %len.i, i64 noundef 4, ptr noundef null) #8
@@ -1230,7 +1222,7 @@ if.end.i:                                         ; preds = %entry
 if.end7.i:                                        ; preds = %if.end.i
   %3 = load ptr, ptr %sioc.i, align 8
   %call.i130.i = call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.704, ptr noundef nonnull @.str.705, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
-  %buffer.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 9
+  %buffer.i = getelementptr inbounds i8, ptr %opaque, i64 112
   %4 = load i32, ptr %len.i, align 4
   %conv10.i = sext i32 %4 to i64
   %call11.i = call i64 @qio_channel_read(ptr noundef %call.i130.i, ptr noundef nonnull %buffer.i, i64 noundef %conv10.i, ptr noundef null) #8
@@ -1271,7 +1263,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 if.end47.i:                                       ; preds = %for.body.i
   %8 = trunc i64 %indvars.iv.i to i32
-  %add.ptr45.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 4
+  %add.ptr45.i = getelementptr i8, ptr %opaque, i64 116
   %sub46.i = add i32 %6, -4
   store i32 %8, ptr %msg, align 4
   switch i32 %8, label %if.then [
@@ -1302,23 +1294,23 @@ if.end47.i:                                       ; preds = %for.body.i
   ]
 
 if.end52.i:                                       ; preds = %if.end47.thread.i
-  %add.ptr.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 7
+  %add.ptr.i = getelementptr i8, ptr %opaque, i64 119
   %9 = load i16, ptr %add.ptr.i, align 2
   %call53.i = call zeroext i16 @ntohs(i16 noundef zeroext %9) #9
-  %10 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %msg, i64 4
   store i16 %call53.i, ptr %10, align 4
   %sub55.i = add i32 %6, -9
   %cmp58.i = icmp ult i32 %sub55.i, 2
   br i1 %cmp58.i, label %if.then, label %if.end.thread35
 
 if.end.thread35:                                  ; preds = %if.end52.i
-  %add.ptr54.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 9
+  %add.ptr54.i = getelementptr i8, ptr %opaque, i64 121
   %11 = load i16, ptr %add.ptr54.i, align 2
   %call62.i = call zeroext i16 @ntohs(i16 noundef zeroext %11) #9
   %minor.i = getelementptr inbounds i8, ptr %msg, i64 6
   store i16 %call62.i, ptr %minor.i, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %add.ptr.i436 = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 4
+  %add.ptr.i436 = getelementptr i8, ptr %opaque, i64 116
   br label %sw.bb.i
 
 do.body68.i:                                      ; preds = %if.end47.i
@@ -1328,7 +1320,7 @@ do.body68.i:                                      ; preds = %if.end47.i
 if.end73.i:                                       ; preds = %do.body68.i
   %12 = load i32, ptr %add.ptr45.i, align 4
   %call74.i = call i32 @ntohl(i32 noundef %12) #9
-  %13 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %msg, i64 4
   %sub77.i = add i32 %6, -8
   %div.i = sdiv i32 %call74.i, 2
   %cmp81.i = icmp sgt i32 %call74.i, 65
@@ -1342,7 +1334,8 @@ if.end.thread38:                                  ; preds = %if.end73.i
   br label %return
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end73.i
-  %p.1140.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 8
+  %p.1140.i = getelementptr i8, ptr %opaque, i64 120
+  %option.i = getelementptr inbounds i8, ptr %msg, i64 8
   %smax.i = call i32 @llvm.smax.i32(i32 %spec.select.i, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %land.rhs.i
@@ -1362,10 +1355,10 @@ do.body89.i:                                      ; preds = %land.rhs.i
 if.end94.i:                                       ; preds = %do.body89.i
   %15 = load i32, ptr %p.1144.i, align 4
   %call95.i = call i32 @ntohl(i32 noundef %15) #9
-  %arrayidx97.i = getelementptr %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1, i64 %indvars.iv147.i
+  %arrayidx97.i = getelementptr [32 x %struct.anon], ptr %option.i, i64 0, i64 %indvars.iv147.i
   %call106.i = call i32 @htonl(i32 noundef %call95.i) #9
   store i32 %call106.i, ptr %arrayidx97.i, align 4
-  %nul.i = getelementptr %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1, i64 %indvars.iv147.i, i32 1
+  %nul.i = getelementptr inbounds i8, ptr %arrayidx97.i, i64 4
   store i8 0, ptr %nul.i, align 4
   %16 = and i32 %14, 2147483644
   %cmp116.i = icmp eq i32 %16, 4
@@ -1375,7 +1368,7 @@ if.end119.i:                                      ; preds = %if.end94.i
   %add.ptr99.i = getelementptr i8, ptr %p.0.pn142.i, i64 8
   %17 = load i32, ptr %add.ptr99.i, align 4
   %call120.i = call i32 @ntohl(i32 noundef %17) #9
-  %value.i = getelementptr %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1, i64 %indvars.iv147.i, i32 2
+  %value.i = getelementptr inbounds i8, ptr %arrayidx97.i, i64 8
   store i32 %call120.i, ptr %value.i, align 4
   %sub126.i = add nsw i32 %14, -8
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
@@ -1390,14 +1383,14 @@ do.body131.i:                                     ; preds = %if.end47.i, %if.end
 if.end136.i:                                      ; preds = %do.body131.i
   %18 = load i16, ptr %add.ptr45.i, align 2
   %call137.i = call zeroext i16 @ntohs(i16 noundef zeroext %18) #9
-  %19 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %msg, i64 4
   store i16 %call137.i, ptr %19, align 4
   %20 = and i32 %6, -2
   %cmp144.i = icmp eq i32 %20, 6
   br i1 %cmp144.i, label %if.then, label %if.end147.i
 
 if.end147.i:                                      ; preds = %if.end136.i
-  %add.ptr139.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 6
+  %add.ptr139.i = getelementptr i8, ptr %opaque, i64 118
   %21 = load i16, ptr %add.ptr139.i, align 2
   %call148.i = call zeroext i16 @ntohs(i16 noundef zeroext %21) #9
   %y.i = getelementptr inbounds i8, ptr %msg, i64 6
@@ -1410,7 +1403,7 @@ do.body154.i:                                     ; preds = %if.end47.i, %if.end
 
 if.end159.i:                                      ; preds = %do.body154.i
   %22 = load i8, ptr %add.ptr45.i, align 1
-  %23 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %msg, i64 4
   store i8 %22, ptr %23, align 4
   br label %if.end
 
@@ -1429,7 +1422,7 @@ if.end170.i:                                      ; preds = %do.body165.i
   ]
 
 if.end187.i:                                      ; preds = %if.end170.i
-  %add.ptr174.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 6
+  %add.ptr174.i = getelementptr i8, ptr %opaque, i64 118
   %25 = load i16, ptr %add.ptr174.i, align 2
   %call188.i = call zeroext i16 @ntohs(i16 noundef zeroext %25) #9
   store i16 %call188.i, ptr %y172.i, align 2
@@ -1442,19 +1435,19 @@ do.body196.i:                                     ; preds = %if.end47.i, %if.end
 if.end201.i:                                      ; preds = %do.body196.i
   %26 = load i16, ptr %add.ptr45.i, align 2
   %call202.i = call zeroext i16 @ntohs(i16 noundef zeroext %26) #9
-  %27 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %msg, i64 4
   store i16 %call202.i, ptr %27, align 4
   %28 = and i32 %6, -2
   %cmp209.i = icmp eq i32 %28, 6
   br i1 %cmp209.i, label %if.then, label %if.end212.i
 
 if.end212.i:                                      ; preds = %if.end201.i
-  %add.ptr204.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 6
+  %add.ptr204.i = getelementptr i8, ptr %opaque, i64 118
   %29 = load i16, ptr %add.ptr204.i, align 2
   %call213.i = call zeroext i16 @ntohs(i16 noundef zeroext %29) #9
   %modifier.i = getelementptr inbounds i8, ptr %msg, i64 6
   store i16 %call213.i, ptr %modifier.i, align 2
-  %button.i = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1
+  %button.i = getelementptr inbounds i8, ptr %msg, i64 8
   store i16 0, ptr %button.i, align 4
   switch i32 %6, label %if.end225.i [
     i32 8, label %if.end
@@ -1462,7 +1455,7 @@ if.end212.i:                                      ; preds = %if.end201.i
   ]
 
 if.end225.i:                                      ; preds = %if.end212.i
-  %add.ptr215.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 8
+  %add.ptr215.i = getelementptr i8, ptr %opaque, i64 120
   %30 = load i16, ptr %add.ptr215.i, align 2
   %call226.i = call zeroext i16 @ntohs(i16 noundef zeroext %30) #9
   store i16 %call226.i, ptr %button.i, align 4
@@ -1475,7 +1468,7 @@ do.body234.i:                                     ; preds = %if.end47.i
 if.end239.i:                                      ; preds = %do.body234.i
   %31 = load i16, ptr %add.ptr45.i, align 2
   %call240.i = call zeroext i16 @ntohs(i16 noundef zeroext %31) #9
-  %32 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %msg, i64 4
   store i16 %call240.i, ptr %32, align 4
   %33 = and i32 %6, -2
   switch i32 %33, label %if.end263.i [
@@ -1484,10 +1477,10 @@ if.end239.i:                                      ; preds = %do.body234.i
   ]
 
 if.end263.i:                                      ; preds = %if.end239.i
-  %add.ptr255.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 8
+  %add.ptr255.i = getelementptr i8, ptr %opaque, i64 120
   %34 = load i16, ptr %add.ptr255.i, align 2
   %call264.i = call zeroext i16 @ntohs(i16 noundef zeroext %34) #9
-  %repeat.i = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1
+  %repeat.i = getelementptr inbounds i8, ptr %msg, i64 8
   store i16 %call264.i, ptr %repeat.i, align 4
   %button269.i = getelementptr inbounds i8, ptr %msg, i64 10
   store i16 0, ptr %button269.i, align 2
@@ -1497,7 +1490,7 @@ if.end263.i:                                      ; preds = %if.end239.i
   ]
 
 if.end277.i:                                      ; preds = %if.end263.i
-  %add.ptr266.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 10
+  %add.ptr266.i = getelementptr i8, ptr %opaque, i64 122
   %35 = load i16, ptr %add.ptr266.i, align 2
   %call278.i = call zeroext i16 @ntohs(i16 noundef zeroext %35) #9
   store i16 %call278.i, ptr %button269.i, align 2
@@ -1512,12 +1505,12 @@ do.body288.i:                                     ; preds = %if.end47.i
 
 if.end.thread32:                                  ; preds = %do.body288.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %add.ptr.i433 = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 4
+  %add.ptr.i433 = getelementptr i8, ptr %opaque, i64 116
   br label %if.end229.i
 
 if.then:                                          ; preds = %for.inc.i, %do.body89.i, %if.end94.i, %if.end239.i, %if.end239.i, %if.end170.i, %entry, %if.end.i, %if.end7.i, %if.end47.thread.i, %if.end52.i, %do.body68.i, %do.body131.i, %if.end136.i, %do.body154.i, %do.body165.i, %do.body196.i, %if.end201.i, %do.body234.i, %do.body288.i, %if.end47.i, %if.end212.i, %if.end263.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %ioc_tag = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 2
+  %ioc_tag = getelementptr inbounds i8, ptr %opaque, i64 48
   store i32 0, ptr %ioc_tag, align 8
   br label %return
 
@@ -1536,7 +1529,7 @@ if.end.thread30:                                  ; preds = %if.end263.i, %if.en
 if.end:                                           ; preds = %if.end225.i, %if.end212.i, %if.end159.i, %if.end147.i, %if.endthread-pre-split.loopexit, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i, %if.end47.i
   %37 = phi i32 [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %8, %if.end47.i ], [ %.pr.pre, %if.endthread-pre-split.loopexit ], [ %8, %if.end147.i ], [ %8, %if.end159.i ], [ %8, %if.end212.i ], [ %8, %if.end225.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %add.ptr.i4 = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 4
+  %add.ptr.i4 = getelementptr i8, ptr %opaque, i64 116
   switch i32 %37, label %if.end229.i [
     i32 27, label %sw.bb.i
     i32 1, label %sw.bb62.i
@@ -1559,13 +1552,13 @@ if.end:                                           ; preds = %if.end225.i, %if.en
   ]
 
 for.cond.preheader.i:                             ; preds = %if.end.thread30, %if.end
-  %repeat.i6 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1
+  %repeat.i6 = getelementptr inbounds i8, ptr %msg, i64 8
   %38 = load i16, ptr %repeat.i6, align 4
   %cmp210231.i = icmp sgt i16 %38, 0
   br i1 %cmp210231.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %39 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %msg, i64 4
   %button213.i = getelementptr inbounds i8, ptr %msg, i64 10
   %40 = load i32, ptr @qemu_input_map_xorgkbd_to_qcode_len, align 4
   %41 = load i16, ptr %button213.i, align 2
@@ -1635,7 +1628,7 @@ for.body.lr.ph.i.split:                           ; preds = %for.body.lr.ph.i
 
 sw.bb.i:                                          ; preds = %if.end.thread35, %if.end
   %add.ptr.i437 = phi ptr [ %add.ptr.i436, %if.end.thread35 ], [ %add.ptr.i4, %if.end ]
-  %50 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %msg, i64 4
   %51 = load i16, ptr %50, align 4
   %cmp.i = icmp slt i16 %51, 1
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
@@ -1649,19 +1642,19 @@ lor.lhs.false.i:                                  ; preds = %sw.bb.i
   br i1 %or.cond, label %if.then.i, label %if.end15.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %sw.bb.i
-  %ioc_tag.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 2
+  %ioc_tag.i = getelementptr inbounds i8, ptr %opaque, i64 48
   store i32 0, ptr %ioc_tag.i, align 8
   br label %return
 
 if.end15.i:                                       ; preds = %lor.lhs.false.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i437, ptr noundef nonnull align 1 dereferenceable(7) @.str.743, i64 7, i1 false)
-  %add.ptr17.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 11
+  %add.ptr17.i = getelementptr i8, ptr %opaque, i64 123
   %call25.i = call zeroext i16 @htons(i16 noundef zeroext 1) #9
   store i16 %call25.i, ptr %add.ptr17.i, align 2
-  %add.ptr27.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 13
+  %add.ptr27.i = getelementptr i8, ptr %opaque, i64 125
   %call36.i = call zeroext i16 @htons(i16 noundef zeroext 6) #9
   store i16 %call36.i, ptr %add.ptr27.i, align 2
-  %name.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %opaque, i64 56
   %53 = load ptr, ptr %name.i, align 8
   %call43.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #10
   %sext.i = shl i64 %call43.i, 32
@@ -1671,38 +1664,38 @@ if.end15.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp47.i, label %return, label %sw.epilog.i14
 
 sw.bb62.i:                                        ; preds = %if.end
-  %ioc_tag63.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 2
+  %ioc_tag63.i = getelementptr inbounds i8, ptr %opaque, i64 48
   store i32 0, ptr %ioc_tag63.i, align 8
   br label %return
 
 if.end72.i:                                       ; preds = %if.end
   store i32 1179535684, ptr %add.ptr.i4, align 1
-  %add.ptr75.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 8
-  %x_origin.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 4
+  %add.ptr75.i = getelementptr i8, ptr %opaque, i64 120
+  %x_origin.i = getelementptr inbounds i8, ptr %opaque, i64 64
   %55 = load i16, ptr %x_origin.i, align 8
   %call84.i = call zeroext i16 @htons(i16 noundef zeroext %55) #9
   store i16 %call84.i, ptr %add.ptr75.i, align 2
-  %add.ptr86.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 10
-  %y_origin.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 5
+  %add.ptr86.i = getelementptr i8, ptr %opaque, i64 122
+  %y_origin.i = getelementptr inbounds i8, ptr %opaque, i64 66
   %56 = load i16, ptr %y_origin.i, align 2
   %call95.i12 = call zeroext i16 @htons(i16 noundef zeroext %56) #9
   store i16 %call95.i12, ptr %add.ptr86.i, align 2
-  %add.ptr97.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 12
-  %width.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 6
+  %add.ptr97.i = getelementptr i8, ptr %opaque, i64 124
+  %width.i = getelementptr inbounds i8, ptr %opaque, i64 68
   %57 = load i16, ptr %width.i, align 4
   %call106.i13 = call zeroext i16 @htons(i16 noundef zeroext %57) #9
   store i16 %call106.i13, ptr %add.ptr97.i, align 2
-  %add.ptr108.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 14
-  %height.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 7
+  %add.ptr108.i = getelementptr i8, ptr %opaque, i64 126
+  %height.i = getelementptr inbounds i8, ptr %opaque, i64 70
   %58 = load i16, ptr %height.i, align 2
   %call117.i = call zeroext i16 @htons(i16 noundef zeroext %58) #9
   store i16 %call117.i, ptr %add.ptr108.i, align 2
-  %add.ptr119.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 16
+  %add.ptr119.i = getelementptr i8, ptr %opaque, i64 128
   %call128.i = call zeroext i16 @htons(i16 noundef zeroext 0) #9
   store i16 %call128.i, ptr %add.ptr119.i, align 2
-  %add.ptr130.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 18
+  %add.ptr130.i = getelementptr i8, ptr %opaque, i64 130
   store i16 %call128.i, ptr %add.ptr130.i, align 2
-  %add.ptr141.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 20
+  %add.ptr141.i = getelementptr i8, ptr %opaque, i64 132
   store i16 %call128.i, ptr %add.ptr141.i, align 2
   br label %if.end247.i
 
@@ -1711,23 +1704,23 @@ if.end168.i:                                      ; preds = %if.end
   br label %if.end247.i
 
 sw.bb175.i:                                       ; preds = %if.end
-  %59 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %msg, i64 4
   %60 = load i16, ptr %59, align 4
   %conv176.i = sext i16 %60 to i32
-  %x_origin177.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 4
+  %x_origin177.i = getelementptr inbounds i8, ptr %opaque, i64 64
   %61 = load i16, ptr %x_origin177.i, align 8
   %conv178.i = sext i16 %61 to i32
-  %width179.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 6
+  %width179.i = getelementptr inbounds i8, ptr %opaque, i64 68
   %62 = load i16, ptr %width179.i, align 4
   %conv180.i = sext i16 %62 to i32
   call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 0, i32 noundef %conv176.i, i32 noundef %conv178.i, i32 noundef %conv180.i) #8
   %y.i10 = getelementptr inbounds i8, ptr %msg, i64 6
   %63 = load i16, ptr %y.i10, align 2
   %conv181.i = sext i16 %63 to i32
-  %y_origin182.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 5
+  %y_origin182.i = getelementptr inbounds i8, ptr %opaque, i64 66
   %64 = load i16, ptr %y_origin182.i, align 2
   %conv183.i = sext i16 %64 to i32
-  %height184.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 7
+  %height184.i = getelementptr inbounds i8, ptr %opaque, i64 70
   %65 = load i16, ptr %height184.i, align 2
   %conv185.i = sext i16 %65 to i32
   call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 1, i32 noundef %conv181.i, i32 noundef %conv183.i, i32 noundef %conv185.i) #8
@@ -1735,7 +1728,7 @@ sw.bb175.i:                                       ; preds = %if.end
   br label %return
 
 sw.bb186.i:                                       ; preds = %if.end
-  %66 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %msg, i64 4
   %67 = load i16, ptr %66, align 4
   %conv188.i = sext i16 %67 to i32
   call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 0, i32 noundef %conv188.i) #8
@@ -1747,7 +1740,7 @@ sw.bb186.i:                                       ; preds = %if.end
   br label %return
 
 sw.bb191.i:                                       ; preds = %if.end
-  %69 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %msg, i64 4
   %70 = load i8, ptr %69, align 4
   %switch.tableidx = add i8 %70, -1
   %71 = icmp ult i8 %switch.tableidx, 4
@@ -1770,7 +1763,7 @@ input_barrier_to_mouse.exit.i:                    ; preds = %switch.lookup, %sw.
   br label %return
 
 sw.bb193.i:                                       ; preds = %if.end
-  %73 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %73 = getelementptr inbounds i8, ptr %msg, i64 4
   %74 = load i8, ptr %73, align 4
   %switch.tableidx48 = add i8 %74, -1
   %75 = icmp ult i8 %switch.tableidx48, 4
@@ -1804,7 +1797,7 @@ sw.bb196.i:                                       ; preds = %if.end.thread, %if.
   br label %return
 
 sw.bb206.i:                                       ; preds = %if.end
-  %button.i8 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1
+  %button.i8 = getelementptr inbounds i8, ptr %msg, i64 8
   %78 = load i16, ptr %button.i8, align 4
   %tobool.not.i.i = icmp eq i16 %78, 0
   %conv.i148.i = zext i16 %78 to i32
@@ -1821,7 +1814,7 @@ if.then.i.i:                                      ; preds = %sw.bb206.i
   br label %input_barrier_to_qcode.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb206.i
-  %81 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %81 = getelementptr inbounds i8, ptr %msg, i64 4
   %82 = load i16, ptr %81, align 4
   %83 = and i16 %82, -4096
   %or.cond.i.i = icmp eq i16 %83, -8192
@@ -1859,7 +1852,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   br i1 %exitcond.not, label %return, label %for.body.i7, !llvm.loop !8
 
 sw.bb218.i:                                       ; preds = %if.end
-  %button220.i = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1, i32 0, i32 1
+  %button220.i = getelementptr inbounds i8, ptr %msg, i64 8
   %87 = load i16, ptr %button220.i, align 4
   %tobool.not.i196.i = icmp eq i16 %87, 0
   %conv.i198.i = zext i16 %87 to i32
@@ -1876,7 +1869,7 @@ if.then.i200.i:                                   ; preds = %sw.bb218.i
   br label %input_barrier_to_qcode.exit218.i
 
 if.end.i205.i:                                    ; preds = %sw.bb218.i
-  %90 = getelementptr inbounds %struct.barrierMsg, ptr %msg, i64 0, i32 1
+  %90 = getelementptr inbounds i8, ptr %msg, i64 4
   %91 = load i16, ptr %90, align 4
   %92 = and i16 %91, -4096
   %or.cond.i206.i = icmp eq i16 %92, -8192
@@ -1912,10 +1905,10 @@ if.end229.i:                                      ; preds = %if.end.thread32, %i
 
 sw.epilog.i14:                                    ; preds = %if.end15.i
   %conv44.i = trunc i64 %call43.i to i32
-  %add.ptr38.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 15
+  %add.ptr38.i = getelementptr i8, ptr %opaque, i64 127
   %call51.i = call i32 @htonl(i32 noundef %conv44.i) #9
   store i32 %call51.i, ptr %add.ptr38.i, align 4
-  %add.ptr52.i = getelementptr %struct.InputBarrier, ptr %opaque, i64 0, i32 9, i64 19
+  %add.ptr52.i = getelementptr i8, ptr %opaque, i64 131
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr52.i, ptr align 1 %53, i64 %conv46.i, i1 false)
   %96 = add i32 %conv44.i, 15
   %tobool.not.i15 = icmp eq i32 %96, 0
@@ -1935,7 +1928,7 @@ if.end247.i:                                      ; preds = %sw.epilog.i14, %if.
   br i1 %cmp260.not.i, label %return, label %if.then262.i
 
 if.then262.i:                                     ; preds = %if.end247.i
-  %ioc_tag263.i = getelementptr inbounds %struct.InputBarrier, ptr %opaque, i64 0, i32 2
+  %ioc_tag263.i = getelementptr inbounds i8, ptr %opaque, i64 48
   store i32 0, ptr %ioc_tag263.i, align 8
   br label %return
 

@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._typeobject = type opaque
 %struct.PyType_Slot = type { i32, ptr }
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
-%struct.XxoObject = type { %struct._object, ptr }
 
 @xxmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 1 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 0, ptr @xx_methods, ptr @xx_slots, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"xxlimited_35\00", align 1
@@ -125,7 +124,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %x_attr.i = getelementptr inbounds %struct.XxoObject, ptr %call.i, i64 0, i32 1
+  %x_attr.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %x_attr.i, align 8
   br label %return
 
@@ -293,7 +292,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %x_attr, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -314,7 +313,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @Xxo_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -343,7 +342,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal void @Xxo_finalize(ptr nocapture noundef %self) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -372,7 +371,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @Xxo_getattro(ptr noundef %self, ptr noundef %name) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end8, label %if.then
@@ -409,7 +408,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nounwind uwtable
 define internal i32 @Xxo_setattr(ptr nocapture noundef %self, ptr noundef %name, ptr noundef %v) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end5

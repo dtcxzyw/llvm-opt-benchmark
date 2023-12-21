@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.do_nmi_s = type { i32, ptr, i8 }
-%struct.NMIClass = type { %struct.InterfaceClass, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"../qemu/hw/core/nmi.c\00", align 1
 @__func__.nmi_monitor_handle = private unnamed_addr constant [19 x i8] c"nmi_monitor_handle\00", align 1
@@ -27,14 +24,14 @@ entry:
   store i32 %cpu_index, ptr %ns, align 8
   %call = tail call ptr @object_get_root() #3
   %call.i = call i32 @object_child_foreach(ptr noundef %call, ptr noundef nonnull @do_nmi, ptr noundef nonnull %ns) #3
-  %handled = getelementptr inbounds %struct.do_nmi_s, ptr %ns, i64 0, i32 2
+  %handled = getelementptr inbounds i8, ptr %ns, i64 16
   %0 = load i8, ptr %handled, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %err = getelementptr inbounds %struct.do_nmi_s, ptr %ns, i64 0, i32 1
+  %err = getelementptr inbounds i8, ptr %ns, i64 8
   %2 = load ptr, ptr %err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %2) #3
   br label %if.end
@@ -84,12 +81,12 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 31, ptr noundef nonnull @__func__.NMI_GET_CLASS) #3
-  %handled = getelementptr inbounds %struct.do_nmi_s, ptr %opaque, i64 0, i32 2
+  %handled = getelementptr inbounds i8, ptr %opaque, i64 16
   store i8 1, ptr %handled, align 8
-  %nmi_monitor_handler = getelementptr inbounds %struct.NMIClass, ptr %call1.i, i64 0, i32 1
+  %nmi_monitor_handler = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %nmi_monitor_handler, align 8
   %1 = load i32, ptr %opaque, align 8
-  %err = getelementptr inbounds %struct.do_nmi_s, ptr %opaque, i64 0, i32 1
+  %err = getelementptr inbounds i8, ptr %opaque, i64 8
   tail call void %0(ptr noundef nonnull %call, i32 noundef %1, ptr noundef nonnull %err) #3
   %2 = load ptr, ptr %err, align 8
   %tobool3.not = icmp eq ptr %2, null

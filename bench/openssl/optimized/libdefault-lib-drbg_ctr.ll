@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_drbg_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.rand_drbg_ctr_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, [32 x i8], [16 x i8], [16 x i8], i64, [48 x i8] }
 
 @ossl_drbg_ctr_functions = local_unnamed_addr constant [17 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @drbg_ctr_new_wrapper }, %struct.ossl_dispatch_st { i32 2, ptr @drbg_ctr_free }, %struct.ossl_dispatch_st { i32 3, ptr @drbg_ctr_instantiate_wrapper }, %struct.ossl_dispatch_st { i32 4, ptr @drbg_ctr_uninstantiate_wrapper }, %struct.ossl_dispatch_st { i32 5, ptr @drbg_ctr_generate_wrapper }, %struct.ossl_dispatch_st { i32 6, ptr @drbg_ctr_reseed_wrapper }, %struct.ossl_dispatch_st { i32 8, ptr @ossl_drbg_enable_locking }, %struct.ossl_dispatch_st { i32 9, ptr @ossl_drbg_lock }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_drbg_unlock }, %struct.ossl_dispatch_st { i32 13, ptr @drbg_ctr_settable_ctx_params }, %struct.ossl_dispatch_st { i32 16, ptr @drbg_ctr_set_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @drbg_ctr_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 15, ptr @drbg_ctr_get_ctx_params }, %struct.ossl_dispatch_st { i32 17, ptr @drbg_ctr_verify_zeroization }, %struct.ossl_dispatch_st { i32 18, ptr @ossl_drbg_get_seed }, %struct.ossl_dispatch_st { i32 19, ptr @ossl_drbg_clear_seed }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [54 x i8] c"../openssl/providers/implementations/rands/drbg_ctr.c\00", align 1
@@ -48,7 +46,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then
@@ -56,16 +54,16 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %0, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %1) #7
-  %ctx_ctr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 1
+  %ctx_ctr = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ctx_ctr, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %2) #7
-  %ctx_df = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 2
+  %ctx_df = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %ctx_df, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %3) #7
-  %cipher_ecb = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 3
+  %cipher_ecb = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %cipher_ecb, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %4) #7
-  %cipher_ctr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 4
+  %cipher_ctr = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %cipher_ctr, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %5) #7
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %0, i64 noundef 176, ptr noundef nonnull @.str, i32 noundef 651) #7
@@ -130,17 +128,17 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %data.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data.i = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %1 = load ptr, ptr %data.i, align 8
-  %K.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %1, i64 0, i32 7
+  %K.i = getelementptr inbounds i8, ptr %1, i64 52
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %K.i, i64 noundef 32) #7
-  %V.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %1, i64 0, i32 8
+  %V.i = getelementptr inbounds i8, ptr %1, i64 84
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %V.i, i64 noundef 16) #7
-  %bltmp.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %1, i64 0, i32 9
+  %bltmp.i = getelementptr inbounds i8, ptr %1, i64 100
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %bltmp.i, i64 noundef 16) #7
-  %KX.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %1, i64 0, i32 11
+  %KX.i = getelementptr inbounds i8, ptr %1, i64 128
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %KX.i, i64 noundef 48) #7
-  %bltmp_pos.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %1, i64 0, i32 10
+  %bltmp_pos.i = getelementptr inbounds i8, ptr %1, i64 120
   store i64 0, ptr %bltmp_pos.i, align 8
   %call.i = tail call i32 @ossl_prov_drbg_uninstantiate(ptr noundef nonnull %vdrbg) #7
   %2 = load ptr, ptr %vdrbg, align 8
@@ -219,7 +217,7 @@ entry:
 define internal i32 @drbg_ctr_get_ctx_params(ptr noundef %vdrbg, ptr noundef %params) #0 {
 entry:
   %complete = alloca i32, align 4
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
   store i32 0, ptr %complete, align 4
   %call = call i32 @ossl_drbg_get_ctx_params_no_lock(ptr noundef %vdrbg, ptr noundef %params, ptr noundef nonnull %complete) #7
@@ -247,7 +245,7 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp10.not, label %if.end15, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
-  %use_df = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 6
+  %use_df = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %use_df, align 8
   %call12 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call9, i32 noundef %3) #7
   %tobool13.not = icmp eq i32 %call12, 0
@@ -259,7 +257,7 @@ if.end15:                                         ; preds = %land.lhs.true11, %i
   br i1 %cmp17.not, label %if.end26, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %cipher_ctr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 4
+  %cipher_ctr = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %cipher_ctr, align 8
   %cmp19 = icmp eq ptr %4, null
   br i1 %cmp19, label %err, label %lor.lhs.false
@@ -292,28 +290,33 @@ return:                                           ; preds = %err, %if.then30, %l
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_ctr_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %1 = load ptr, ptr %vdrbg, align 8
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %for.body.preheader, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef nonnull %1) #7
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %for.body.preheader
+  br i1 %tobool.not, label %return, label %if.end
 
-for.body.preheader:                               ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %land.lhs.true, %entry
+  %K = getelementptr inbounds i8, ptr %0, i64 52
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, 32
-  br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !4
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %i.021 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7, i64 %i.021
+for.cond8.preheader:                              ; preds = %for.cond
+  %V = getelementptr inbounds i8, ptr %0, i64 84
+  br label %for.body11
+
+for.body:                                         ; preds = %if.end, %for.cond
+  %i.021 = phi i64 [ 0, %if.end ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %K, i64 0, i64 %i.021
   %2 = load i8, ptr %arrayidx, align 1
   %cmp3.not = icmp eq i8 %2, 0
   br i1 %cmp3.not, label %for.cond, label %err
@@ -321,11 +324,15 @@ for.body:                                         ; preds = %for.body.preheader,
 for.cond8:                                        ; preds = %for.body11
   %inc19 = add nuw nsw i64 %i7.022, 1
   %exitcond28.not = icmp eq i64 %inc19, 16
-  br i1 %exitcond28.not, label %for.body25, label %for.body11, !llvm.loop !6
+  br i1 %exitcond28.not, label %for.cond22.preheader, label %for.body11, !llvm.loop !6
 
-for.body11:                                       ; preds = %for.cond, %for.cond8
-  %i7.022 = phi i64 [ %inc19, %for.cond8 ], [ 0, %for.cond ]
-  %arrayidx12 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8, i64 %i7.022
+for.cond22.preheader:                             ; preds = %for.cond8
+  %bltmp = getelementptr inbounds i8, ptr %0, i64 100
+  br label %for.body25
+
+for.body11:                                       ; preds = %for.cond8.preheader, %for.cond8
+  %i7.022 = phi i64 [ 0, %for.cond8.preheader ], [ %inc19, %for.cond8 ]
+  %arrayidx12 = getelementptr inbounds [16 x i8], ptr %V, i64 0, i64 %i7.022
   %3 = load i8, ptr %arrayidx12, align 1
   %cmp14.not = icmp eq i8 %3, 0
   br i1 %cmp14.not, label %for.cond8, label %err
@@ -333,11 +340,15 @@ for.body11:                                       ; preds = %for.cond, %for.cond
 for.cond22:                                       ; preds = %for.body25
   %inc33 = add nuw nsw i64 %i21.023, 1
   %exitcond29.not = icmp eq i64 %inc33, 16
-  br i1 %exitcond29.not, label %for.body39, label %for.body25, !llvm.loop !7
+  br i1 %exitcond29.not, label %for.cond36.preheader, label %for.body25, !llvm.loop !7
 
-for.body25:                                       ; preds = %for.cond8, %for.cond22
-  %i21.023 = phi i64 [ %inc33, %for.cond22 ], [ 0, %for.cond8 ]
-  %arrayidx26 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 %i21.023
+for.cond36.preheader:                             ; preds = %for.cond22
+  %KX = getelementptr inbounds i8, ptr %0, i64 128
+  br label %for.body39
+
+for.body25:                                       ; preds = %for.cond22.preheader, %for.cond22
+  %i21.023 = phi i64 [ 0, %for.cond22.preheader ], [ %inc33, %for.cond22 ]
+  %arrayidx26 = getelementptr inbounds [16 x i8], ptr %bltmp, i64 0, i64 %i21.023
   %4 = load i8, ptr %arrayidx26, align 1
   %cmp28.not = icmp eq i8 %4, 0
   br i1 %cmp28.not, label %for.cond22, label %err
@@ -347,15 +358,15 @@ for.cond36:                                       ; preds = %for.body39
   %exitcond30.not = icmp eq i64 %inc47, 48
   br i1 %exitcond30.not, label %for.end48, label %for.body39, !llvm.loop !8
 
-for.body39:                                       ; preds = %for.cond22, %for.cond36
-  %i35.024 = phi i64 [ %inc47, %for.cond36 ], [ 0, %for.cond22 ]
-  %arrayidx40 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 11, i64 %i35.024
+for.body39:                                       ; preds = %for.cond36.preheader, %for.cond36
+  %i35.024 = phi i64 [ 0, %for.cond36.preheader ], [ %inc47, %for.cond36 ]
+  %arrayidx40 = getelementptr inbounds [48 x i8], ptr %KX, i64 0, i64 %i35.024
   %5 = load i8, ptr %arrayidx40, align 1
   %cmp42.not = icmp eq i8 %5, 0
   br i1 %cmp42.not, label %for.cond36, label %err
 
 for.end48:                                        ; preds = %for.cond36
-  %bltmp_pos = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 10
+  %bltmp_pos = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load i64, ptr %bltmp_pos, align 8
   %cmp49.not = icmp eq i64 %6, 0
   %spec.select = zext i1 %cmp49.not to i32
@@ -390,25 +401,25 @@ entry:
   br i1 %cmp, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %use_df = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %call, i64 0, i32 6
+  %use_df = getelementptr inbounds i8, ptr %call, i64 48
   store i32 1, ptr %use_df, align 8
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   store ptr %call, ptr %data, align 8
-  %max_request.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 18
+  %max_request.i = getelementptr inbounds i8, ptr %drbg, i64 136
   store i64 65536, ptr %max_request.i, align 8
-  %min_entropylen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 19
+  %min_entropylen.i = getelementptr inbounds i8, ptr %drbg, i64 144
   store i64 0, ptr %min_entropylen.i, align 8
-  %max_entropylen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 20
+  %max_entropylen.i = getelementptr inbounds i8, ptr %drbg, i64 152
   store i64 2147483647, ptr %max_entropylen.i, align 8
-  %min_noncelen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 21
+  %min_noncelen.i = getelementptr inbounds i8, ptr %drbg, i64 160
   store i64 0, ptr %min_noncelen.i, align 8
-  %max_noncelen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen.i = getelementptr inbounds i8, ptr %drbg, i64 168
   store i64 2147483647, ptr %max_noncelen.i, align 8
-  %max_perslen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 23
+  %max_perslen.i = getelementptr inbounds i8, ptr %drbg, i64 176
   store i64 2147483647, ptr %max_perslen.i, align 8
-  %max_adinlen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 24
+  %max_adinlen.i = getelementptr inbounds i8, ptr %drbg, i64 184
   store i64 2147483647, ptr %max_adinlen.i, align 8
-  %keylen.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %call, i64 0, i32 5
+  %keylen.i = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load i64, ptr %keylen.i, align 8
   %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %return, label %if.then1.i
@@ -431,10 +442,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %K = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7
-  %V = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8
+  %K = getelementptr inbounds i8, ptr %0, i64 52
+  %V = getelementptr inbounds i8, ptr %0, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %K, i8 0, i64 48, i1 false)
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %K, ptr noundef null, i32 noundef -1) #7
@@ -467,17 +478,17 @@ return:                                           ; preds = %inc_128.exit, %if.e
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_ctr_uninstantiate(ptr noundef %drbg) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %K = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7
+  %K = getelementptr inbounds i8, ptr %0, i64 52
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %K, i64 noundef 32) #7
-  %V = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8
+  %V = getelementptr inbounds i8, ptr %0, i64 84
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %V, i64 noundef 16) #7
-  %bltmp = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9
+  %bltmp = getelementptr inbounds i8, ptr %0, i64 100
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %bltmp, i64 noundef 16) #7
-  %KX = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 11
+  %KX = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %KX, i64 noundef 48) #7
-  %bltmp_pos = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 10
+  %bltmp_pos = getelementptr inbounds i8, ptr %0, i64 120
   store i64 0, ptr %bltmp_pos, align 8
   %call = tail call i32 @ossl_prov_drbg_uninstantiate(ptr noundef %drbg) #7
   ret i32 %call
@@ -490,9 +501,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %V.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8
+  %V.i = getelementptr inbounds i8, ptr %0, i64 84
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end
@@ -522,7 +533,7 @@ return:                                           ; preds = %inc_128.exit, %entr
 define internal i32 @drbg_ctr_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adinlen) #0 {
 entry:
   %outl = alloca i32, align 4
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp ne ptr %adin, null
   %cmp1 = icmp ne i64 %adinlen, 0
@@ -530,7 +541,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %V.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8
+  %V.i = getelementptr inbounds i8, ptr %0, i64 84
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then
@@ -553,7 +564,7 @@ inc_128.exit:                                     ; preds = %do.body.i
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %inc_128.exit
-  %use_df = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 6
+  %use_df = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %use_df, align 8
   %tobool3.not = icmp eq i32 %2, 0
   %spec.select = select i1 %tobool3.not, i64 %adinlen, i64 1
@@ -563,7 +574,7 @@ if.end:                                           ; preds = %inc_128.exit
 if.end6:                                          ; preds = %if.end, %entry
   %adinlen.addr.0 = phi i64 [ %spec.select, %if.end ], [ 0, %entry ]
   %adin.addr.0 = phi ptr [ %spec.select40, %if.end ], [ %adin, %entry ]
-  %V.i44 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8
+  %V.i44 = getelementptr inbounds i8, ptr %0, i64 84
   br label %do.body.i45
 
 do.body.i45:                                      ; preds = %do.body.i45, %if.end6
@@ -604,8 +615,8 @@ inc_128.exit67:                                   ; preds = %do.body.i57
 
 if.end13:                                         ; preds = %inc_128.exit55
   tail call void @llvm.memset.p0.i64(ptr align 1 %out, i8 0, i64 %outlen, i1 false)
-  %ctx_ctr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 1
-  %add.ptr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8, i64 12
+  %ctx_ctr = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 96
   br label %do.body
 
 do.body:                                          ; preds = %if.end43, %if.end13
@@ -697,10 +708,10 @@ entry:
   %outlen = alloca i32, align 4
   %V_tmp = alloca [48 x i8], align 16
   %out = alloca [48 x i8], align 16
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
   store i32 16, ptr %outlen, align 4
-  %V = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8
+  %V = getelementptr inbounds i8, ptr %0, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %V_tmp, ptr noundef nonnull align 4 dereferenceable(16) %V, i64 16, i1 false)
   br label %do.body.i
 
@@ -721,7 +732,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
 inc_128.exit:                                     ; preds = %do.body.i
   %add.ptr = getelementptr inbounds i8, ptr %V_tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr, ptr noundef nonnull align 4 dereferenceable(16) %V, i64 16, i1 false)
-  %keylen = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load i64, ptr %keylen, align 8
   %cmp = icmp eq i64 %2, 16
   br i1 %cmp, label %if.end, label %do.body.i34
@@ -756,12 +767,12 @@ if.end:                                           ; preds = %inc_128.exit, %inc_
   br i1 %or.cond32, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end
-  %K = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7
+  %K = getelementptr inbounds i8, ptr %0, i64 52
   %6 = load i64, ptr %keylen, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %K, ptr nonnull align 16 %out, i64 %6, i1 false)
   %add.ptr23 = getelementptr inbounds i8, ptr %out, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %V, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr23, i64 16, i1 false)
-  %use_df = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 6
+  %use_df = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %use_df, align 8
   %tobool24.not = icmp eq i32 %7, 0
   br i1 %tobool24.not, label %if.else44, label %if.then25
@@ -779,12 +790,12 @@ if.then34:                                        ; preds = %if.then25
   store i32 16, ptr %outlen.i, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %bltmp.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %bltmp.i.i, i8 0, i64 48, i1 false)
-  %KX.i.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 11
+  %KX.i.i = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %KX.i.i, i8 0, i64 48, i1 false)
   %cmp.i.i = icmp eq i64 %6, 16
-  %arrayidx.i.i = getelementptr inbounds [48 x i8], ptr %bltmp.i.i, i64 0, i64 19
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bltmp.i.i, i64 19
   store i8 1, ptr %arrayidx.i.i, align 1
-  %arrayidx1.i.i = getelementptr inbounds [48 x i8], ptr %bltmp.i.i, i64 0, i64 35
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %bltmp.i.i, i64 35
   store i8 2, ptr %arrayidx1.i.i, align 1
   %mul.i.i = select i1 %cmp.i.i, i32 32, i32 48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %outlen.i.i.i)
@@ -805,8 +816,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %ctr_BCC_init.exit.i, label %for.body.i.i.i, !llvm.loop !15
 
 ctr_BCC_init.exit.i:                              ; preds = %for.body.i.i.i
-  %bltmp.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9
-  %ctx_df.i.i.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 2
+  %bltmp.i = getelementptr inbounds i8, ptr %0, i64 100
+  %ctx_df.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %ctx_df.i.i.i, align 8
   %call.i.i.i = call i32 @EVP_CipherUpdate(ptr noundef %10, ptr noundef nonnull %KX.i.i, ptr noundef nonnull %outlen.i.i.i, ptr noundef nonnull %KX.i.i, i32 noundef %mul.i.i) #7
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -828,30 +839,30 @@ if.end.i:                                         ; preds = %ctr_BCC_init.exit.i
   %add9.i = add i64 %add.i45, %in2len.addr.0.i
   %shr.i46 = lshr i64 %add9.i, 24
   %conv.i47 = trunc i64 %shr.i46 to i8
-  %incdec.ptr.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %0, i64 101
   store i8 %conv.i47, ptr %bltmp.i, align 1
   %shr10.i = lshr i64 %add9.i, 16
   %conv12.i = trunc i64 %shr10.i to i8
-  %incdec.ptr13.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 2
+  %incdec.ptr13.i = getelementptr inbounds i8, ptr %0, i64 102
   store i8 %conv12.i, ptr %incdec.ptr.i, align 1
   %shr14.i = lshr i64 %add9.i, 8
   %conv16.i = trunc i64 %shr14.i to i8
-  %incdec.ptr17.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 3
+  %incdec.ptr17.i = getelementptr inbounds i8, ptr %0, i64 103
   store i8 %conv16.i, ptr %incdec.ptr13.i, align 1
   %conv19.i = trunc i64 %add9.i to i8
-  %incdec.ptr20.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 4
+  %incdec.ptr20.i = getelementptr inbounds i8, ptr %0, i64 104
   store i8 %conv19.i, ptr %incdec.ptr17.i, align 1
-  %incdec.ptr21.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 5
+  %incdec.ptr21.i = getelementptr inbounds i8, ptr %0, i64 105
   store i8 0, ptr %incdec.ptr20.i, align 1
-  %incdec.ptr22.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 6
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %0, i64 106
   store i8 0, ptr %incdec.ptr21.i, align 1
-  %incdec.ptr23.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 9, i64 7
+  %incdec.ptr23.i = getelementptr inbounds i8, ptr %0, i64 107
   store i8 0, ptr %incdec.ptr22.i, align 1
   %12 = load i64, ptr %keylen, align 8
   %13 = trunc i64 %12 to i8
   %conv26.i = add i8 %13, 16
   store i8 %conv26.i, ptr %incdec.ptr23.i, align 1
-  %bltmp_pos.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 10
+  %bltmp_pos.i = getelementptr inbounds i8, ptr %0, i64 120
   store i64 8, ptr %bltmp_pos.i, align 8
   %call27.i = call fastcc i32 @ctr_BCC_update(ptr noundef nonnull %0, ptr noundef %in1, i64 noundef %spec.select.i), !range !10
   %tobool28.not.i = icmp eq i32 %call27.i, 0
@@ -943,7 +954,7 @@ if.end46.i:                                       ; preds = %if.end41.i
 
 if.end59.i:                                       ; preds = %if.end46.i
   %24 = load ptr, ptr %0, align 8
-  %add.ptr63.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 11, i64 16
+  %add.ptr63.i = getelementptr inbounds i8, ptr %0, i64 144
   %call66.i = call i32 @EVP_CipherUpdate(ptr noundef %24, ptr noundef nonnull %add.ptr63.i, ptr noundef nonnull %outlen.i, ptr noundef nonnull %KX.i.i, i32 noundef 16) #7
   %tobool67.i = icmp eq i32 %call66.i, 0
   %25 = load i32, ptr %outlen.i, align 4
@@ -958,7 +969,7 @@ if.end72.i:                                       ; preds = %if.end59.i
 
 if.then76.i:                                      ; preds = %if.end72.i
   %27 = load ptr, ptr %0, align 8
-  %add.ptr80.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 11, i64 32
+  %add.ptr80.i = getelementptr inbounds i8, ptr %0, i64 160
   %call84.i = call i32 @EVP_CipherUpdate(ptr noundef %27, ptr noundef nonnull %add.ptr80.i, ptr noundef nonnull %outlen.i, ptr noundef nonnull %add.ptr63.i, i32 noundef 16) #7
   %tobool85.i = icmp eq i32 %call84.i, 0
   %28 = load i32, ptr %outlen.i, align 4
@@ -979,8 +990,8 @@ if.end39:                                         ; preds = %ctr_df.exit, %if.th
   br i1 %tobool40.not, label %if.end45, label %if.then41
 
 if.then41:                                        ; preds = %if.end39
-  %KX = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 11
-  %seedlen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 32
+  %KX = getelementptr inbounds i8, ptr %0, i64 128
+  %seedlen = getelementptr inbounds i8, ptr %drbg, i64 232
   %29 = load i64, ptr %seedlen, align 8
   %cmp1.i = icmp eq i64 %29, 0
   br i1 %cmp1.i, label %if.end45, label %if.end.i48
@@ -995,7 +1006,7 @@ for.body.i:                                       ; preds = %if.end.i48, %for.bo
   %i.026.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end.i48 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %KX, i64 %i.026.i
   %31 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx5.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7, i64 %i.026.i
+  %arrayidx5.i = getelementptr inbounds [32 x i8], ptr %K, i64 0, i64 %i.026.i
   %32 = load i8, ptr %arrayidx5.i, align 1
   %xor24.i = xor i8 %32, %31
   store i8 %xor24.i, ptr %arrayidx5.i, align 1
@@ -1010,20 +1021,20 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i48
   %33 = phi i64 [ %.pre.i, %for.end.loopexit.i ], [ 0, %if.end.i48 ]
   %cmp9.not.i = icmp ult i64 %33, %29
-  br i1 %cmp9.not.i, label %for.body21.preheader.i, label %if.end45
+  br i1 %cmp9.not.i, label %for.body21.lr.ph.i, label %if.end45
 
-for.body21.preheader.i:                           ; preds = %for.end.i
+for.body21.lr.ph.i:                               ; preds = %for.end.i
   %sub.i = sub i64 %29, %33
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 16)
   %umax.i = call i64 @llvm.umax.i64(i64 %spec.store.select.i, i64 1)
   %invariant.gep.i = getelementptr i8, ptr %KX, i64 %33
   br label %for.body21.i
 
-for.body21.i:                                     ; preds = %for.body21.i, %for.body21.preheader.i
-  %i.128.i = phi i64 [ %inc30.i, %for.body21.i ], [ 0, %for.body21.preheader.i ]
+for.body21.i:                                     ; preds = %for.body21.i, %for.body21.lr.ph.i
+  %i.128.i = phi i64 [ 0, %for.body21.lr.ph.i ], [ %inc30.i, %for.body21.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %i.128.i
   %34 = load i8, ptr %gep.i, align 1
-  %arrayidx25.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8, i64 %i.128.i
+  %arrayidx25.i = getelementptr inbounds [16 x i8], ptr %V, i64 0, i64 %i.128.i
   %35 = load i8, ptr %arrayidx25.i, align 1
   %xor2723.i = xor i8 %35, %34
   store i8 %xor2723.i, ptr %arrayidx25.i, align 1
@@ -1032,116 +1043,116 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   br i1 %exitcond29.not.i, label %if.end45, label %for.body21.i, !llvm.loop !17
 
 if.else44:                                        ; preds = %if.end15
-  %cmp.i49 = icmp eq ptr %in1, null
-  %cmp1.i50 = icmp eq i64 %in1len, 0
-  %or.cond.i51 = or i1 %cmp.i49, %cmp1.i50
-  br i1 %or.cond.i51, label %ctr_XOR.exit79, label %if.end.i52
+  %cmp.i50 = icmp eq ptr %in1, null
+  %cmp1.i51 = icmp eq i64 %in1len, 0
+  %or.cond.i52 = or i1 %cmp.i50, %cmp1.i51
+  br i1 %or.cond.i52, label %ctr_XOR.exit83, label %if.end.i53
 
-if.end.i52:                                       ; preds = %if.else44
-  %inlen..i54 = call i64 @llvm.umin.i64(i64 %6, i64 %in1len)
-  %cmp425.not.i55 = icmp eq i64 %6, 0
-  br i1 %cmp425.not.i55, label %for.end.i65, label %for.body.i56
+if.end.i53:                                       ; preds = %if.else44
+  %inlen..i55 = call i64 @llvm.umin.i64(i64 %6, i64 %in1len)
+  %cmp425.not.i56 = icmp eq i64 %6, 0
+  br i1 %cmp425.not.i56, label %for.end.i68, label %for.body.i59
 
-for.body.i56:                                     ; preds = %if.end.i52, %for.body.i56
-  %i.026.i57 = phi i64 [ %inc.i61, %for.body.i56 ], [ 0, %if.end.i52 ]
-  %arrayidx.i58 = getelementptr inbounds i8, ptr %in1, i64 %i.026.i57
-  %36 = load i8, ptr %arrayidx.i58, align 1
-  %arrayidx5.i59 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7, i64 %i.026.i57
-  %37 = load i8, ptr %arrayidx5.i59, align 1
-  %xor24.i60 = xor i8 %37, %36
-  store i8 %xor24.i60, ptr %arrayidx5.i59, align 1
-  %inc.i61 = add nuw i64 %i.026.i57, 1
-  %exitcond.not.i62 = icmp eq i64 %inc.i61, %inlen..i54
-  br i1 %exitcond.not.i62, label %for.end.loopexit.i63, label %for.body.i56, !llvm.loop !16
+for.body.i59:                                     ; preds = %if.end.i53, %for.body.i59
+  %i.026.i60 = phi i64 [ %inc.i64, %for.body.i59 ], [ 0, %if.end.i53 ]
+  %arrayidx.i61 = getelementptr inbounds i8, ptr %in1, i64 %i.026.i60
+  %36 = load i8, ptr %arrayidx.i61, align 1
+  %arrayidx5.i62 = getelementptr inbounds [32 x i8], ptr %K, i64 0, i64 %i.026.i60
+  %37 = load i8, ptr %arrayidx5.i62, align 1
+  %xor24.i63 = xor i8 %37, %36
+  store i8 %xor24.i63, ptr %arrayidx5.i62, align 1
+  %inc.i64 = add nuw i64 %i.026.i60, 1
+  %exitcond.not.i65 = icmp eq i64 %inc.i64, %inlen..i55
+  br i1 %exitcond.not.i65, label %for.end.loopexit.i66, label %for.body.i59, !llvm.loop !16
 
-for.end.loopexit.i63:                             ; preds = %for.body.i56
-  %.pre.i64 = load i64, ptr %keylen, align 8
-  br label %for.end.i65
+for.end.loopexit.i66:                             ; preds = %for.body.i59
+  %.pre.i67 = load i64, ptr %keylen, align 8
+  br label %for.end.i68
 
-for.end.i65:                                      ; preds = %for.end.loopexit.i63, %if.end.i52
-  %38 = phi i64 [ %.pre.i64, %for.end.loopexit.i63 ], [ 0, %if.end.i52 ]
-  %cmp9.not.i66 = icmp ult i64 %38, %in1len
-  br i1 %cmp9.not.i66, label %for.body21.preheader.i67, label %ctr_XOR.exit79
+for.end.i68:                                      ; preds = %for.end.loopexit.i66, %if.end.i53
+  %38 = phi i64 [ %.pre.i67, %for.end.loopexit.i66 ], [ 0, %if.end.i53 ]
+  %cmp9.not.i69 = icmp ult i64 %38, %in1len
+  br i1 %cmp9.not.i69, label %for.body21.lr.ph.i70, label %ctr_XOR.exit83
 
-for.body21.preheader.i67:                         ; preds = %for.end.i65
-  %sub.i68 = sub i64 %in1len, %38
-  %spec.store.select.i69 = call i64 @llvm.umin.i64(i64 %sub.i68, i64 16)
-  %umax.i70 = call i64 @llvm.umax.i64(i64 %spec.store.select.i69, i64 1)
-  %invariant.gep.i71 = getelementptr i8, ptr %in1, i64 %38
-  br label %for.body21.i72
+for.body21.lr.ph.i70:                             ; preds = %for.end.i68
+  %sub.i71 = sub i64 %in1len, %38
+  %spec.store.select.i72 = call i64 @llvm.umin.i64(i64 %sub.i71, i64 16)
+  %umax.i74 = call i64 @llvm.umax.i64(i64 %spec.store.select.i72, i64 1)
+  %invariant.gep.i75 = getelementptr i8, ptr %in1, i64 %38
+  br label %for.body21.i76
 
-for.body21.i72:                                   ; preds = %for.body21.i72, %for.body21.preheader.i67
-  %i.128.i73 = phi i64 [ %inc30.i77, %for.body21.i72 ], [ 0, %for.body21.preheader.i67 ]
-  %gep.i74 = getelementptr i8, ptr %invariant.gep.i71, i64 %i.128.i73
-  %39 = load i8, ptr %gep.i74, align 1
-  %arrayidx25.i75 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8, i64 %i.128.i73
-  %40 = load i8, ptr %arrayidx25.i75, align 1
-  %xor2723.i76 = xor i8 %40, %39
-  store i8 %xor2723.i76, ptr %arrayidx25.i75, align 1
-  %inc30.i77 = add nuw nsw i64 %i.128.i73, 1
-  %exitcond29.not.i78 = icmp eq i64 %inc30.i77, %umax.i70
-  br i1 %exitcond29.not.i78, label %ctr_XOR.exit79, label %for.body21.i72, !llvm.loop !17
+for.body21.i76:                                   ; preds = %for.body21.i76, %for.body21.lr.ph.i70
+  %i.128.i77 = phi i64 [ 0, %for.body21.lr.ph.i70 ], [ %inc30.i81, %for.body21.i76 ]
+  %gep.i78 = getelementptr i8, ptr %invariant.gep.i75, i64 %i.128.i77
+  %39 = load i8, ptr %gep.i78, align 1
+  %arrayidx25.i79 = getelementptr inbounds [16 x i8], ptr %V, i64 0, i64 %i.128.i77
+  %40 = load i8, ptr %arrayidx25.i79, align 1
+  %xor2723.i80 = xor i8 %40, %39
+  store i8 %xor2723.i80, ptr %arrayidx25.i79, align 1
+  %inc30.i81 = add nuw nsw i64 %i.128.i77, 1
+  %exitcond29.not.i82 = icmp eq i64 %inc30.i81, %umax.i74
+  br i1 %exitcond29.not.i82, label %ctr_XOR.exit83, label %for.body21.i76, !llvm.loop !17
 
-ctr_XOR.exit79:                                   ; preds = %for.body21.i72, %if.else44, %for.end.i65
-  %41 = phi i64 [ %6, %if.else44 ], [ %38, %for.end.i65 ], [ %38, %for.body21.i72 ]
-  %cmp.i80 = icmp eq ptr %in2, null
-  %cmp1.i81 = icmp eq i64 %in2len, 0
-  %or.cond.i82 = or i1 %cmp.i80, %cmp1.i81
-  br i1 %or.cond.i82, label %if.end45, label %if.end.i83
+ctr_XOR.exit83:                                   ; preds = %for.body21.i76, %if.else44, %for.end.i68
+  %41 = phi i64 [ %6, %if.else44 ], [ %38, %for.end.i68 ], [ %38, %for.body21.i76 ]
+  %cmp.i84 = icmp eq ptr %in2, null
+  %cmp1.i85 = icmp eq i64 %in2len, 0
+  %or.cond.i86 = or i1 %cmp.i84, %cmp1.i85
+  br i1 %or.cond.i86, label %if.end45, label %if.end.i87
 
-if.end.i83:                                       ; preds = %ctr_XOR.exit79
-  %inlen..i85 = call i64 @llvm.umin.i64(i64 %41, i64 %in2len)
-  %cmp425.not.i86 = icmp eq i64 %41, 0
-  br i1 %cmp425.not.i86, label %for.end.i96, label %for.body.i87
+if.end.i87:                                       ; preds = %ctr_XOR.exit83
+  %inlen..i89 = call i64 @llvm.umin.i64(i64 %41, i64 %in2len)
+  %cmp425.not.i90 = icmp eq i64 %41, 0
+  br i1 %cmp425.not.i90, label %for.end.i102, label %for.body.i93
 
-for.body.i87:                                     ; preds = %if.end.i83, %for.body.i87
-  %i.026.i88 = phi i64 [ %inc.i92, %for.body.i87 ], [ 0, %if.end.i83 ]
-  %arrayidx.i89 = getelementptr inbounds i8, ptr %in2, i64 %i.026.i88
-  %42 = load i8, ptr %arrayidx.i89, align 1
-  %arrayidx5.i90 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 7, i64 %i.026.i88
-  %43 = load i8, ptr %arrayidx5.i90, align 1
-  %xor24.i91 = xor i8 %43, %42
-  store i8 %xor24.i91, ptr %arrayidx5.i90, align 1
-  %inc.i92 = add nuw i64 %i.026.i88, 1
-  %exitcond.not.i93 = icmp eq i64 %inc.i92, %inlen..i85
-  br i1 %exitcond.not.i93, label %for.end.loopexit.i94, label %for.body.i87, !llvm.loop !16
+for.body.i93:                                     ; preds = %if.end.i87, %for.body.i93
+  %i.026.i94 = phi i64 [ %inc.i98, %for.body.i93 ], [ 0, %if.end.i87 ]
+  %arrayidx.i95 = getelementptr inbounds i8, ptr %in2, i64 %i.026.i94
+  %42 = load i8, ptr %arrayidx.i95, align 1
+  %arrayidx5.i96 = getelementptr inbounds [32 x i8], ptr %K, i64 0, i64 %i.026.i94
+  %43 = load i8, ptr %arrayidx5.i96, align 1
+  %xor24.i97 = xor i8 %43, %42
+  store i8 %xor24.i97, ptr %arrayidx5.i96, align 1
+  %inc.i98 = add nuw i64 %i.026.i94, 1
+  %exitcond.not.i99 = icmp eq i64 %inc.i98, %inlen..i89
+  br i1 %exitcond.not.i99, label %for.end.loopexit.i100, label %for.body.i93, !llvm.loop !16
 
-for.end.loopexit.i94:                             ; preds = %for.body.i87
-  %.pre.i95 = load i64, ptr %keylen, align 8
-  br label %for.end.i96
+for.end.loopexit.i100:                            ; preds = %for.body.i93
+  %.pre.i101 = load i64, ptr %keylen, align 8
+  br label %for.end.i102
 
-for.end.i96:                                      ; preds = %for.end.loopexit.i94, %if.end.i83
-  %44 = phi i64 [ %.pre.i95, %for.end.loopexit.i94 ], [ 0, %if.end.i83 ]
-  %cmp9.not.i97 = icmp ult i64 %44, %in2len
-  br i1 %cmp9.not.i97, label %for.body21.preheader.i98, label %if.end45
+for.end.i102:                                     ; preds = %for.end.loopexit.i100, %if.end.i87
+  %44 = phi i64 [ %.pre.i101, %for.end.loopexit.i100 ], [ 0, %if.end.i87 ]
+  %cmp9.not.i103 = icmp ult i64 %44, %in2len
+  br i1 %cmp9.not.i103, label %for.body21.lr.ph.i104, label %if.end45
 
-for.body21.preheader.i98:                         ; preds = %for.end.i96
-  %sub.i99 = sub i64 %in2len, %44
-  %spec.store.select.i100 = call i64 @llvm.umin.i64(i64 %sub.i99, i64 16)
-  %umax.i101 = call i64 @llvm.umax.i64(i64 %spec.store.select.i100, i64 1)
-  %invariant.gep.i102 = getelementptr i8, ptr %in2, i64 %44
-  br label %for.body21.i103
+for.body21.lr.ph.i104:                            ; preds = %for.end.i102
+  %sub.i105 = sub i64 %in2len, %44
+  %spec.store.select.i106 = call i64 @llvm.umin.i64(i64 %sub.i105, i64 16)
+  %umax.i108 = call i64 @llvm.umax.i64(i64 %spec.store.select.i106, i64 1)
+  %invariant.gep.i109 = getelementptr i8, ptr %in2, i64 %44
+  br label %for.body21.i110
 
-for.body21.i103:                                  ; preds = %for.body21.i103, %for.body21.preheader.i98
-  %i.128.i104 = phi i64 [ %inc30.i108, %for.body21.i103 ], [ 0, %for.body21.preheader.i98 ]
-  %gep.i105 = getelementptr i8, ptr %invariant.gep.i102, i64 %i.128.i104
-  %45 = load i8, ptr %gep.i105, align 1
-  %arrayidx25.i106 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 8, i64 %i.128.i104
-  %46 = load i8, ptr %arrayidx25.i106, align 1
-  %xor2723.i107 = xor i8 %46, %45
-  store i8 %xor2723.i107, ptr %arrayidx25.i106, align 1
-  %inc30.i108 = add nuw nsw i64 %i.128.i104, 1
-  %exitcond29.not.i109 = icmp eq i64 %inc30.i108, %umax.i101
-  br i1 %exitcond29.not.i109, label %if.end45, label %for.body21.i103, !llvm.loop !17
+for.body21.i110:                                  ; preds = %for.body21.i110, %for.body21.lr.ph.i104
+  %i.128.i111 = phi i64 [ 0, %for.body21.lr.ph.i104 ], [ %inc30.i115, %for.body21.i110 ]
+  %gep.i112 = getelementptr i8, ptr %invariant.gep.i109, i64 %i.128.i111
+  %45 = load i8, ptr %gep.i112, align 1
+  %arrayidx25.i113 = getelementptr inbounds [16 x i8], ptr %V, i64 0, i64 %i.128.i111
+  %46 = load i8, ptr %arrayidx25.i113, align 1
+  %xor2723.i114 = xor i8 %46, %45
+  store i8 %xor2723.i114, ptr %arrayidx25.i113, align 1
+  %inc30.i115 = add nuw nsw i64 %i.128.i111, 1
+  %exitcond29.not.i116 = icmp eq i64 %inc30.i115, %umax.i108
+  br i1 %exitcond29.not.i116, label %if.end45, label %for.body21.i110, !llvm.loop !17
 
-if.end45:                                         ; preds = %for.body21.i, %for.body21.i103, %for.end.i96, %ctr_XOR.exit79, %for.end.i, %if.then41, %if.end39
+if.end45:                                         ; preds = %for.body21.i, %for.body21.i110, %for.end.i102, %ctr_XOR.exit83, %for.end.i, %if.then41, %if.end39
   %47 = load ptr, ptr %0, align 8
   %call49 = call i32 @EVP_CipherInit_ex(ptr noundef %47, ptr noundef null, ptr noundef null, ptr noundef nonnull %K, ptr noundef null, i32 noundef -1) #7
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %return, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %if.end45
-  %ctx_ctr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 1
+  %ctx_ctr = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load ptr, ptr %ctx_ctr, align 8
   %call54 = call i32 @EVP_CipherInit_ex(ptr noundef %48, ptr noundef null, ptr noundef null, ptr noundef nonnull %K, ptr noundef null, i32 noundef -1) #7
   %tobool55.not = icmp ne i32 %call54, 0
@@ -1171,7 +1182,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bltmp_pos = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 10
+  %bltmp_pos = getelementptr inbounds i8, ptr %ctr, i64 120
   %0 = load i64, ptr %bltmp_pos, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end16, label %if.then2
@@ -1182,14 +1193,14 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp4.not, label %if.end16, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
-  %bltmp = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 9
+  %bltmp = getelementptr inbounds i8, ptr %ctr, i64 100
   %add.ptr = getelementptr inbounds i8, ptr %bltmp, i64 %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %in, i64 %sub, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %in_tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %in_tmp.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %in_tmp.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(16) %bltmp, i64 16, i1 false)
-  %keylen.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 5
+  %keylen.i = getelementptr inbounds i8, ptr %ctr, i64 40
   %1 = load i64, ptr %keylen.i, align 8
   %cmp.not.i = icmp eq i64 %1, 16
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1201,7 +1212,7 @@ if.then.i:                                        ; preds = %if.then5
 
 if.end.i:                                         ; preds = %if.then.i, %if.then5
   %num_of_blk.0.i = phi i32 [ 48, %if.then.i ], [ 32, %if.then5 ]
-  %KX.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 11
+  %KX.i = getelementptr inbounds i8, ptr %ctr, i64 128
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %outlen.i.i)
   store i32 16, ptr %outlen.i.i, align 4
   %wide.trip.count.i.i = zext nneg i32 %num_of_blk.0.i to i64
@@ -1220,7 +1231,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %ctr_BCC_blocks.exit, label %for.body.i.i, !llvm.loop !15
 
 ctr_BCC_blocks.exit:                              ; preds = %for.body.i.i
-  %ctx_df.i.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 2
+  %ctx_df.i.i = getelementptr inbounds i8, ptr %ctr, i64 16
   %4 = load ptr, ptr %ctx_df.i.i, align 8
   %call.i.i = call i32 @EVP_CipherUpdate(ptr noundef %4, ptr noundef nonnull %KX.i, ptr noundef nonnull %outlen.i.i, ptr noundef nonnull %KX.i, i32 noundef %num_of_blk.0.i) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -1245,10 +1256,10 @@ if.end16:                                         ; preds = %if.then2, %if.end11
 
 for.body.lr.ph:                                   ; preds = %if.end16
   %add.ptr.i28 = getelementptr inbounds i8, ptr %in_tmp.i27, i64 16
-  %keylen.i29 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 5
+  %keylen.i29 = getelementptr inbounds i8, ptr %ctr, i64 40
   %add.ptr3.i32 = getelementptr inbounds i8, ptr %in_tmp.i27, i64 32
-  %KX.i35 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 11
-  %ctx_df.i.i44 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 2
+  %KX.i35 = getelementptr inbounds i8, ptr %ctr, i64 128
+  %ctx_df.i.i44 = getelementptr inbounds i8, ptr %ctr, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1308,7 +1319,7 @@ for.end:                                          ; preds = %for.inc, %if.end16
   br i1 %cmp24.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %for.end
-  %bltmp26 = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %ctr, i64 0, i32 9
+  %bltmp26 = getelementptr inbounds i8, ptr %ctr, i64 100
   %11 = load i64, ptr %bltmp_pos, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %bltmp26, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr29, ptr align 1 %in.addr.1.lcssa, i64 %inlen.addr.1.lcssa, i1 false)
@@ -1342,9 +1353,9 @@ declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %vctx, ptr noundef %params) unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vctx, i64 248
   %0 = load ptr, ptr %data, align 8
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %provctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %1) #7
   %call1 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #7
@@ -1360,7 +1371,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load i32, ptr %i, align 4
   %cmp3 = icmp ne i32 %2, 0
   %conv = zext i1 %cmp3 to i32
-  %use_df = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 6
+  %use_df = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %conv, ptr %use_df, align 8
   br label %if.end
 
@@ -1371,13 +1382,13 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp5.not, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call4, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call4, i64 8
   %3 = load i32, ptr %data_type, align 8
   %cmp8.not = icmp eq i32 %3, 4
   br i1 %cmp8.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then7
-  %data12 = getelementptr inbounds %struct.ossl_param_st, ptr %call4, i64 0, i32 2
+  %data12 = getelementptr inbounds i8, ptr %call4, i64 16
   %4 = load ptr, ptr %data12, align 8
   br label %if.end13
 
@@ -1388,15 +1399,15 @@ if.end13:                                         ; preds = %if.end11, %if.end
   br i1 %cmp15.not, label %if.end57, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  %data18 = getelementptr inbounds %struct.ossl_param_st, ptr %call14, i64 0, i32 2
+  %data18 = getelementptr inbounds i8, ptr %call14, i64 16
   %5 = load ptr, ptr %data18, align 8
-  %data_type19 = getelementptr inbounds %struct.ossl_param_st, ptr %call14, i64 0, i32 1
+  %data_type19 = getelementptr inbounds i8, ptr %call14, i64 8
   %6 = load i32, ptr %data_type19, align 8
   %cmp20.not = icmp eq i32 %6, 4
   br i1 %cmp20.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then17
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call14, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call14, i64 24
   %7 = load i64, ptr %data_size, align 8
   %cmp22 = icmp ult i64 %7, 3
   br i1 %cmp22, label %return, label %if.end25
@@ -1425,10 +1436,10 @@ if.end38:                                         ; preds = %if.end32
   %add.ptr40 = getelementptr inbounds i8, ptr %call34, i64 %9
   %add.ptr42 = getelementptr inbounds i8, ptr %add.ptr40, i64 -3
   store i32 4342597, ptr %add.ptr42, align 1
-  %cipher_ecb = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 3
+  %cipher_ecb = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %cipher_ecb, align 8
   call void @EVP_CIPHER_free(ptr noundef %10) #7
-  %cipher_ctr = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %0, i64 0, i32 4
+  %cipher_ctr = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %cipher_ctr, align 8
   call void @EVP_CIPHER_free(ptr noundef %11) #7
   %call44 = call ptr @EVP_CIPHER_fetch(ptr noundef %call, ptr noundef %5, ptr noundef %propquery.0) #7
@@ -1456,7 +1467,7 @@ if.end57:                                         ; preds = %if.end13
 
 land.lhs.true59:                                  ; preds = %lor.lhs.false51, %if.end57
   %14 = load ptr, ptr %data, align 8
-  %cipher_ctr.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %14, i64 0, i32 4
+  %cipher_ctr.i = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load ptr, ptr %cipher_ctr.i, align 8
   %cmp.i = icmp eq ptr %15, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1470,7 +1481,7 @@ if.then.i:                                        ; preds = %land.lhs.true59
 if.end.i:                                         ; preds = %land.lhs.true59
   %call.i = call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %15) #7
   %conv.i = sext i32 %call.i to i64
-  %keylen2.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %14, i64 0, i32 5
+  %keylen2.i = getelementptr inbounds i8, ptr %14, i64 40
   store i64 %conv.i, ptr %keylen2.i, align 8
   %16 = load ptr, ptr %14, align 8
   %cmp3.i = icmp eq ptr %16, null
@@ -1483,7 +1494,7 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.end.i
   %17 = phi ptr [ %call6.i, %if.then5.i ], [ %16, %if.end.i ]
-  %ctx_ctr.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %14, i64 0, i32 1
+  %ctx_ctr.i = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr %ctx_ctr.i, align 8
   %cmp9.i = icmp eq ptr %18, null
   br i1 %cmp9.i, label %if.end14.i, label %if.end14.thread.i
@@ -1503,7 +1514,7 @@ if.end14.thread.i:                                ; preds = %if.end8.i
 
 if.end22.i:                                       ; preds = %if.end14.thread.i, %if.end14.i
   %20 = phi ptr [ %17, %if.end14.thread.i ], [ %.pre.i, %if.end14.i ]
-  %cipher_ecb.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %14, i64 0, i32 3
+  %cipher_ecb.i = getelementptr inbounds i8, ptr %14, i64 24
   %21 = load ptr, ptr %cipher_ecb.i, align 8
   %call24.i = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %20, ptr noundef %21, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #7
   %tobool.not.i = icmp eq i32 %call24.i, 0
@@ -1518,18 +1529,18 @@ lor.lhs.false25.i:                                ; preds = %if.end22.i
 
 if.end31.i:                                       ; preds = %lor.lhs.false25.i
   %mul.i = shl i32 %call.i, 3
-  %strength.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 17
+  %strength.i = getelementptr inbounds i8, ptr %vctx, i64 128
   store i32 %mul.i, ptr %strength.i, align 8
   %add.i = add nsw i64 %conv.i, 16
-  %seedlen.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 32
+  %seedlen.i = getelementptr inbounds i8, ptr %vctx, i64 232
   store i64 %add.i, ptr %seedlen.i, align 8
-  %use_df.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %14, i64 0, i32 6
+  %use_df.i = getelementptr inbounds i8, ptr %14, i64 48
   %24 = load i32, ptr %use_df.i, align 8
   %tobool33.not.i = icmp eq i32 %24, 0
   br i1 %tobool33.not.i, label %if.end52.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end31.i
-  %ctx_df.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %14, i64 0, i32 2
+  %ctx_df.i = getelementptr inbounds i8, ptr %14, i64 16
   %25 = load ptr, ptr %ctx_df.i, align 8
   %cmp35.i = icmp eq ptr %25, null
   br i1 %cmp35.i, label %if.end40.i, label %if.end45.i
@@ -1549,27 +1560,27 @@ if.end45.i:                                       ; preds = %if.end40.i, %if.the
 
 if.end52.i:                                       ; preds = %if.end45.i, %if.end31.i
   %28 = load ptr, ptr %data, align 8
-  %max_request.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 18
+  %max_request.i.i = getelementptr inbounds i8, ptr %vctx, i64 136
   store i64 65536, ptr %max_request.i.i, align 8
-  %use_df.i.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %28, i64 0, i32 6
+  %use_df.i.i = getelementptr inbounds i8, ptr %28, i64 48
   %29 = load i32, ptr %use_df.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %29, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end52.i
-  %min_entropylen.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 19
+  %min_entropylen.i.i = getelementptr inbounds i8, ptr %vctx, i64 144
   store i64 0, ptr %min_entropylen.i.i, align 8
-  %max_entropylen.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 20
+  %max_entropylen.i.i = getelementptr inbounds i8, ptr %vctx, i64 152
   store i64 2147483647, ptr %max_entropylen.i.i, align 8
-  %min_noncelen.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 21
+  %min_noncelen.i.i = getelementptr inbounds i8, ptr %vctx, i64 160
   store i64 0, ptr %min_noncelen.i.i, align 8
-  %max_noncelen.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 22
+  %max_noncelen.i.i = getelementptr inbounds i8, ptr %vctx, i64 168
   store i64 2147483647, ptr %max_noncelen.i.i, align 8
-  %max_perslen.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 23
+  %max_perslen.i.i = getelementptr inbounds i8, ptr %vctx, i64 176
   store i64 2147483647, ptr %max_perslen.i.i, align 8
-  %max_adinlen.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 24
+  %max_adinlen.i.i = getelementptr inbounds i8, ptr %vctx, i64 184
   store i64 2147483647, ptr %max_adinlen.i.i, align 8
-  %keylen.i.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %28, i64 0, i32 5
+  %keylen.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %30 = load i64, ptr %keylen.i.i, align 8
   %cmp.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp.not.i.i, label %if.end63, label %if.then1.i.i
@@ -1581,7 +1592,7 @@ if.then1.i.i:                                     ; preds = %if.then.i.i
   br label %if.end63
 
 if.else.i.i:                                      ; preds = %if.end52.i
-  %keylen6.i.i = getelementptr inbounds %struct.rand_drbg_ctr_st, ptr %28, i64 0, i32 5
+  %keylen6.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %31 = load i64, ptr %keylen6.i.i, align 8
   %cmp7.not.i.i = icmp eq i64 %31, 0
   br i1 %cmp7.not.i.i, label %cond.end.i.i, label %cond.true.i.i
@@ -1592,15 +1603,15 @@ cond.true.i.i:                                    ; preds = %if.else.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.else.i.i
   %cond.i.i = phi i64 [ %32, %cond.true.i.i ], [ 2147483647, %if.else.i.i ]
-  %min_entropylen8.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 19
+  %min_entropylen8.i.i = getelementptr inbounds i8, ptr %vctx, i64 144
   store i64 %cond.i.i, ptr %min_entropylen8.i.i, align 8
-  %max_entropylen9.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 20
+  %max_entropylen9.i.i = getelementptr inbounds i8, ptr %vctx, i64 152
   store i64 %cond.i.i, ptr %max_entropylen9.i.i, align 8
-  %min_noncelen10.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 21
-  %max_perslen12.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 23
+  %min_noncelen10.i.i = getelementptr inbounds i8, ptr %vctx, i64 160
+  %max_perslen12.i.i = getelementptr inbounds i8, ptr %vctx, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %min_noncelen10.i.i, i8 0, i64 16, i1 false)
   store i64 %cond.i.i, ptr %max_perslen12.i.i, align 8
-  %max_adinlen13.i.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 24
+  %max_adinlen13.i.i = getelementptr inbounds i8, ptr %vctx, i64 184
   store i64 %cond.i.i, ptr %max_adinlen13.i.i, align 8
   br label %if.end63
 

@@ -588,7 +588,7 @@ lor.lhs.false88.i:                                ; preds = %if.end67.i
   br label %if.then93.i
 
 if.then93.i:                                      ; preds = %lor.lhs.false88.i, %if.end67.i
-  %arrayidx94.i = getelementptr ptr, ptr %float_strings.3, i64 1
+  %arrayidx94.i = getelementptr i8, ptr %float_strings.3, i64 8
   %9 = load ptr, ptr %arrayidx94.i, align 8
   %call95.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %p.0.i, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 3) #13
   %add.ptr96.i = getelementptr i8, ptr %p.0.i, i64 3
@@ -774,7 +774,7 @@ if.end235.i:                                      ; preds = %if.else231.i, %if.t
   br i1 %tobool133.not.i, label %if.then254.i, label %if.then246.i
 
 if.then246.i:                                     ; preds = %if.end235.i
-  %arrayidx247.i = getelementptr ptr, ptr %float_strings.3, i64 2
+  %arrayidx247.i = getelementptr i8, ptr %float_strings.3, i64 16
   %14 = load ptr, ptr %arrayidx247.i, align 8
   %15 = load i8, ptr %14, align 1
   %incdec.ptr249.i = getelementptr i8, ptr %spec.select138.i, i64 1

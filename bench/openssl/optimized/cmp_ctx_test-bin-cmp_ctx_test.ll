@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/cmp_ctx_test-bin-cmp_ctx_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_cmp_ctx_st = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.test_fixture = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/test/cmp_ctx_test.c\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Error parsing test options\0A\00", align 1
 @.str.2 = private unnamed_addr constant [22 x i8] c"test_CTX_libctx_propq\00", align 1
@@ -305,9 +301,9 @@ if.then2:                                         ; preds = %entry
   %0 = getelementptr i8, ptr %call, i64 8
   %call.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @X509_new() #6
-  %status.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 64
+  %status.i = getelementptr inbounds i8, ptr %call.val, i64 456
   store i32 1, ptr %status.i, align 8
-  %failInfoCode.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 66
+  %failInfoCode.i = getelementptr inbounds i8, ptr %call.val, i64 472
   store i32 1, ptr %failInfoCode.i, align 8
   %call2.i = tail call ptr @OPENSSL_sk_new_null() #6
   %call3.i = tail call i32 @ossl_cmp_ctx_set0_statusString(ptr noundef %call.val, ptr noundef %call2.i) #6
@@ -402,55 +398,55 @@ land.lhs.true.i:                                  ; preds = %if.end40.i
   br i1 %cmp45.i, label %land.lhs.true47.i, label %land.end.i
 
 land.lhs.true47.i:                                ; preds = %land.lhs.true.i
-  %statusString.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 65
+  %statusString.i = getelementptr inbounds i8, ptr %call.val, i64 464
   %3 = load ptr, ptr %statusString.i, align 8
   %cmp48.i = icmp eq ptr %3, null
   br i1 %cmp48.i, label %land.lhs.true50.i, label %land.end.i
 
 land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
-  %newCert.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 67
+  %newCert.i = getelementptr inbounds i8, ptr %call.val, i64 480
   %4 = load ptr, ptr %newCert.i, align 8
   %cmp51.i = icmp eq ptr %4, null
   br i1 %cmp51.i, label %land.lhs.true53.i, label %land.end.i
 
 land.lhs.true53.i:                                ; preds = %land.lhs.true50.i
-  %newChain.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 68
+  %newChain.i = getelementptr inbounds i8, ptr %call.val, i64 488
   %5 = load ptr, ptr %newChain.i, align 8
   %cmp54.i = icmp eq ptr %5, null
   br i1 %cmp54.i, label %land.lhs.true56.i, label %land.end.i
 
 land.lhs.true56.i:                                ; preds = %land.lhs.true53.i
-  %caPubs.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 69
+  %caPubs.i = getelementptr inbounds i8, ptr %call.val, i64 496
   %6 = load ptr, ptr %caPubs.i, align 8
   %cmp57.i = icmp eq ptr %6, null
   br i1 %cmp57.i, label %land.lhs.true59.i, label %land.end.i
 
 land.lhs.true59.i:                                ; preds = %land.lhs.true56.i
-  %extraCertsIn.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 70
+  %extraCertsIn.i = getelementptr inbounds i8, ptr %call.val, i64 504
   %7 = load ptr, ptr %extraCertsIn.i, align 8
   %cmp60.i = icmp eq ptr %7, null
   br i1 %cmp60.i, label %land.lhs.true62.i, label %land.end.i
 
 land.lhs.true62.i:                                ; preds = %land.lhs.true59.i
-  %validatedSrvCert.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 21
+  %validatedSrvCert.i = getelementptr inbounds i8, ptr %call.val, i64 152
   %8 = load ptr, ptr %validatedSrvCert.i, align 8
   %cmp63.i = icmp eq ptr %8, null
   br i1 %cmp63.i, label %land.lhs.true65.i, label %land.end.i
 
 land.lhs.true65.i:                                ; preds = %land.lhs.true62.i
-  %transactionID.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 39
+  %transactionID.i = getelementptr inbounds i8, ptr %call.val, i64 280
   %9 = load ptr, ptr %transactionID.i, align 8
   %cmp66.i = icmp eq ptr %9, null
   br i1 %cmp66.i, label %land.lhs.true68.i, label %land.end.i
 
 land.lhs.true68.i:                                ; preds = %land.lhs.true65.i
-  %senderNonce.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 40
+  %senderNonce.i = getelementptr inbounds i8, ptr %call.val, i64 288
   %10 = load ptr, ptr %senderNonce.i, align 8
   %cmp69.i = icmp eq ptr %10, null
   br i1 %cmp69.i, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true68.i
-  %recipNonce.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 41
+  %recipNonce.i = getelementptr inbounds i8, ptr %call.val, i64 296
   %11 = load ptr, ptr %recipNonce.i, align 8
   %cmp71.i = icmp eq ptr %11, null
   %12 = zext i1 %cmp71.i to i32
@@ -675,7 +671,7 @@ OSSL_CMP_CTX_get_log_cb.exit.thread.i:            ; preds = %if.end17.i
   br label %if.end22.i
 
 OSSL_CMP_CTX_get_log_cb.exit.i:                   ; preds = %if.end17.i
-  %log_cb.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 2
+  %log_cb.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %1 = load ptr, ptr %log_cb.i.i, align 8
   %cmp19.i = icmp eq ptr %1, null
   br i1 %cmp19.i, label %if.end22.i, label %if.then21.i
@@ -705,7 +701,7 @@ OSSL_CMP_CTX_get_log_cb.exit25.thread.i:          ; preds = %if.end26.i
   br label %if.then30.i
 
 OSSL_CMP_CTX_get_log_cb.exit25.i:                 ; preds = %if.end26.i
-  %log_cb.i22.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 2
+  %log_cb.i22.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %2 = load ptr, ptr %log_cb.i22.i, align 8
   %cmp28.not.i = icmp eq ptr %2, @test_log_cb
   br i1 %cmp28.not.i, label %if.end31.i, label %if.then30.i
@@ -735,7 +731,7 @@ OSSL_CMP_CTX_get_log_cb.exit31.thread.i:          ; preds = %if.end35.i
   br label %if.end44.i
 
 OSSL_CMP_CTX_get_log_cb.exit31.i:                 ; preds = %if.end35.i
-  %log_cb.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 2
+  %log_cb.i28.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %3 = load ptr, ptr %log_cb.i28.i, align 8
   %cmp37.i = icmp eq ptr %3, null
   br i1 %cmp37.i, label %if.end44.i, label %if.end40.i
@@ -762,7 +758,7 @@ OSSL_CMP_CTX_get_log_cb.exit37.thread.i:          ; preds = %if.end44.i
 OSSL_CMP_CTX_get_log_cb.exit37.i:                 ; preds = %if.end44.i, %if.end44.thread20.i, %if.end40.i
   %res.819.i = phi i32 [ 0, %if.end44.i ], [ 0, %if.end44.thread20.i ], [ %res.6.i, %if.end40.i ]
   %retval.0.i2971317.i = phi ptr [ null, %if.end44.i ], [ %3, %if.end44.thread20.i ], [ @test_log_cb, %if.end40.i ]
-  %log_cb.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 2
+  %log_cb.i34.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %4 = load ptr, ptr %log_cb.i34.i, align 8
   %cmp46.i = icmp eq ptr %4, null
   br i1 %cmp46.i, label %if.then48.i, label %if.end49.i
@@ -891,7 +887,7 @@ if.then2:                                         ; preds = %entry
   %cmp.i = icmp ne i32 %call.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @.str.92, i32 noundef %conv.i) #6
-  %log_cb.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 2
+  %log_cb.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %1 = load ptr, ptr %log_cb.i, align 8
   %cmp3.i = icmp eq ptr %1, null
   %conv4.i = zext i1 %cmp3.i to i32
@@ -1022,7 +1018,7 @@ OSSL_CMP_CTX_get0_serverPath.exit.thread.i:       ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_serverPath.exit.i:              ; preds = %if.end19.i
-  %serverPath.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 7
+  %serverPath.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
   %1 = load ptr, ptr %serverPath.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -1046,7 +1042,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_serverPath.exit31.thread.i, label %OSSL_CMP_CTX_get0_serverPath.exit31.i
 
 OSSL_CMP_CTX_get0_serverPath.exit31.i:            ; preds = %if.end28.i
-  %serverPath.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 7
+  %serverPath.i28.i = getelementptr inbounds i8, ptr %call.val, i64 56
   %2 = load ptr, ptr %serverPath.i28.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -1091,7 +1087,7 @@ OSSL_CMP_CTX_get0_serverPath.exit37.thread.i:     ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_serverPath.exit37.i:            ; preds = %if.end41.i
-  %serverPath.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 7
+  %serverPath.i34.i = getelementptr inbounds i8, ptr %call.val, i64 56
   %3 = load ptr, ptr %serverPath.i34.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -1131,7 +1127,7 @@ OSSL_CMP_CTX_get0_serverPath.exit43.thread.i:     ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_serverPath.exit43.i:            ; preds = %if.end54.i
-  %serverPath.i40.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 7
+  %serverPath.i40.i = getelementptr inbounds i8, ptr %call.val, i64 56
   %4 = load ptr, ptr %serverPath.i40.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -1229,7 +1225,7 @@ OSSL_CMP_CTX_get0_server.exit.thread.i:           ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_server.exit.i:                  ; preds = %if.end19.i
-  %server.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 8
+  %server.i.i = getelementptr inbounds i8, ptr %call.val, i64 64
   %1 = load ptr, ptr %server.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -1253,7 +1249,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_server.exit31.thread.i, label %OSSL_CMP_CTX_get0_server.exit31.i
 
 OSSL_CMP_CTX_get0_server.exit31.i:                ; preds = %if.end28.i
-  %server.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 8
+  %server.i28.i = getelementptr inbounds i8, ptr %call.val, i64 64
   %2 = load ptr, ptr %server.i28.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -1298,7 +1294,7 @@ OSSL_CMP_CTX_get0_server.exit37.thread.i:         ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_server.exit37.i:                ; preds = %if.end41.i
-  %server.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 8
+  %server.i34.i = getelementptr inbounds i8, ptr %call.val, i64 64
   %3 = load ptr, ptr %server.i34.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -1338,7 +1334,7 @@ OSSL_CMP_CTX_get0_server.exit43.thread.i:         ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_server.exit43.i:                ; preds = %if.end54.i
-  %server.i40.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 8
+  %server.i40.i = getelementptr inbounds i8, ptr %call.val, i64 64
   %4 = load ptr, ptr %server.i40.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -1434,7 +1430,7 @@ OSSL_CMP_CTX_get_serverPort.exit.thread.i:        ; preds = %if.end17.i
   br label %if.then21.i
 
 OSSL_CMP_CTX_get_serverPort.exit.i:               ; preds = %if.end17.i
-  %serverPort.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 9
+  %serverPort.i.i = getelementptr inbounds i8, ptr %call.val, i64 72
   %1 = load i32, ptr %serverPort.i.i, align 8
   %cmp19.i = icmp eq i32 %1, 0
   br i1 %cmp19.i, label %if.end22.i, label %if.then21.i
@@ -1464,7 +1460,7 @@ OSSL_CMP_CTX_get_serverPort.exit25.thread.i:      ; preds = %if.end26.i
   br label %if.then30.i
 
 OSSL_CMP_CTX_get_serverPort.exit25.i:             ; preds = %if.end26.i
-  %serverPort.i22.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 9
+  %serverPort.i22.i = getelementptr inbounds i8, ptr %call.val, i64 72
   %2 = load i32, ptr %serverPort.i22.i, align 8
   %cmp28.not.i = icmp eq i32 %2, 1
   br i1 %cmp28.not.i, label %if.end31.i, label %if.then30.i
@@ -1488,7 +1484,7 @@ if.end35.i:                                       ; preds = %if.then34.i, %if.en
   br i1 %cmp.i.i, label %if.end49.thread.i, label %OSSL_CMP_CTX_get_serverPort.exit31.i
 
 OSSL_CMP_CTX_get_serverPort.exit31.i:             ; preds = %if.end35.i
-  %serverPort.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 9
+  %serverPort.i28.i = getelementptr inbounds i8, ptr %call.val, i64 72
   %3 = load i32, ptr %serverPort.i28.i, align 8
   switch i32 %3, label %OSSL_CMP_CTX_get_serverPort.exit37.i [
     i32 0, label %if.end44.i
@@ -1604,7 +1600,7 @@ OSSL_CMP_CTX_get0_proxy.exit.thread.i:            ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_proxy.exit.i:                   ; preds = %if.end19.i
-  %proxy.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 10
+  %proxy.i.i = getelementptr inbounds i8, ptr %call.val, i64 80
   %1 = load ptr, ptr %proxy.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -1628,7 +1624,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_proxy.exit31.thread.i, label %OSSL_CMP_CTX_get0_proxy.exit31.i
 
 OSSL_CMP_CTX_get0_proxy.exit31.i:                 ; preds = %if.end28.i
-  %proxy.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 10
+  %proxy.i28.i = getelementptr inbounds i8, ptr %call.val, i64 80
   %2 = load ptr, ptr %proxy.i28.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -1673,7 +1669,7 @@ OSSL_CMP_CTX_get0_proxy.exit37.thread.i:          ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_proxy.exit37.i:                 ; preds = %if.end41.i
-  %proxy.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 10
+  %proxy.i34.i = getelementptr inbounds i8, ptr %call.val, i64 80
   %3 = load ptr, ptr %proxy.i34.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -1713,7 +1709,7 @@ OSSL_CMP_CTX_get0_proxy.exit43.thread.i:          ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_proxy.exit43.i:                 ; preds = %if.end54.i
-  %proxy.i40.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 10
+  %proxy.i40.i = getelementptr inbounds i8, ptr %call.val, i64 80
   %4 = load ptr, ptr %proxy.i40.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -1811,7 +1807,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit.thread.i:         ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_no_proxy.exit.i:                ; preds = %if.end19.i
-  %no_proxy.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 11
+  %no_proxy.i.i = getelementptr inbounds i8, ptr %call.val, i64 88
   %1 = load ptr, ptr %no_proxy.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -1835,7 +1831,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_no_proxy.exit31.thread.i, label %OSSL_CMP_CTX_get0_no_proxy.exit31.i
 
 OSSL_CMP_CTX_get0_no_proxy.exit31.i:              ; preds = %if.end28.i
-  %no_proxy.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 11
+  %no_proxy.i28.i = getelementptr inbounds i8, ptr %call.val, i64 88
   %2 = load ptr, ptr %no_proxy.i28.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -1880,7 +1876,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit37.thread.i:       ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_no_proxy.exit37.i:              ; preds = %if.end41.i
-  %no_proxy.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 11
+  %no_proxy.i34.i = getelementptr inbounds i8, ptr %call.val, i64 88
   %3 = load ptr, ptr %no_proxy.i34.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -1920,7 +1916,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit43.thread.i:       ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_no_proxy.exit43.i:              ; preds = %if.end54.i
-  %no_proxy.i40.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 11
+  %no_proxy.i40.i = getelementptr inbounds i8, ptr %call.val, i64 88
   %4 = load ptr, ptr %no_proxy.i40.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -2016,7 +2012,7 @@ OSSL_CMP_CTX_get_http_cb.exit.thread.i:           ; preds = %if.end17.i
   br label %if.end22.i
 
 OSSL_CMP_CTX_get_http_cb.exit.i:                  ; preds = %if.end17.i
-  %http_cb.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 17
+  %http_cb.i.i = getelementptr inbounds i8, ptr %call.val, i64 120
   %1 = load ptr, ptr %http_cb.i.i, align 8
   %cmp19.i = icmp eq ptr %1, null
   br i1 %cmp19.i, label %if.end22.i, label %if.then21.i
@@ -2046,7 +2042,7 @@ OSSL_CMP_CTX_get_http_cb.exit25.thread.i:         ; preds = %if.end26.i
   br label %if.then30.i
 
 OSSL_CMP_CTX_get_http_cb.exit25.i:                ; preds = %if.end26.i
-  %http_cb.i22.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 17
+  %http_cb.i22.i = getelementptr inbounds i8, ptr %call.val, i64 120
   %2 = load ptr, ptr %http_cb.i22.i, align 8
   %cmp28.not.i = icmp eq ptr %2, @test_http_cb
   br i1 %cmp28.not.i, label %if.end31.i, label %if.then30.i
@@ -2076,7 +2072,7 @@ OSSL_CMP_CTX_get_http_cb.exit31.thread.i:         ; preds = %if.end35.i
   br label %if.end44.i
 
 OSSL_CMP_CTX_get_http_cb.exit31.i:                ; preds = %if.end35.i
-  %http_cb.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 17
+  %http_cb.i28.i = getelementptr inbounds i8, ptr %call.val, i64 120
   %3 = load ptr, ptr %http_cb.i28.i, align 8
   %cmp37.i = icmp eq ptr %3, null
   br i1 %cmp37.i, label %if.end44.i, label %if.end40.i
@@ -2103,7 +2099,7 @@ OSSL_CMP_CTX_get_http_cb.exit37.thread.i:         ; preds = %if.end44.i
 OSSL_CMP_CTX_get_http_cb.exit37.i:                ; preds = %if.end44.i, %if.end44.thread20.i, %if.end40.i
   %res.819.i = phi i32 [ 0, %if.end44.i ], [ 0, %if.end44.thread20.i ], [ %res.6.i, %if.end40.i ]
   %retval.0.i2971317.i = phi ptr [ null, %if.end44.i ], [ %3, %if.end44.thread20.i ], [ @test_http_cb, %if.end40.i ]
-  %http_cb.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 17
+  %http_cb.i34.i = getelementptr inbounds i8, ptr %call.val, i64 120
   %4 = load ptr, ptr %http_cb.i34.i, align 8
   %cmp46.i = icmp eq ptr %4, null
   br i1 %cmp46.i, label %if.then48.i, label %if.end49.i
@@ -2340,7 +2336,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit.thread.i:       ; preds = %if.end17.i
   br label %if.end22.i
 
 OSSL_CMP_CTX_get_transfer_cb.exit.i:              ; preds = %if.end17.i
-  %transfer_cb.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 4
+  %transfer_cb.i.i = getelementptr inbounds i8, ptr %call.val, i64 32
   %1 = load ptr, ptr %transfer_cb.i.i, align 8
   %cmp19.i = icmp eq ptr %1, null
   br i1 %cmp19.i, label %if.end22.i, label %if.then21.i
@@ -2370,7 +2366,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit25.thread.i:     ; preds = %if.end26.i
   br label %if.then30.i
 
 OSSL_CMP_CTX_get_transfer_cb.exit25.i:            ; preds = %if.end26.i
-  %transfer_cb.i22.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 4
+  %transfer_cb.i22.i = getelementptr inbounds i8, ptr %call.val, i64 32
   %2 = load ptr, ptr %transfer_cb.i22.i, align 8
   %cmp28.not.i = icmp eq ptr %2, @test_transfer_cb
   br i1 %cmp28.not.i, label %if.end31.i, label %if.then30.i
@@ -2400,7 +2396,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit31.thread.i:     ; preds = %if.end35.i
   br label %if.end44.i
 
 OSSL_CMP_CTX_get_transfer_cb.exit31.i:            ; preds = %if.end35.i
-  %transfer_cb.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 4
+  %transfer_cb.i28.i = getelementptr inbounds i8, ptr %call.val, i64 32
   %3 = load ptr, ptr %transfer_cb.i28.i, align 8
   %cmp37.i = icmp eq ptr %3, null
   br i1 %cmp37.i, label %if.end44.i, label %if.end40.i
@@ -2427,7 +2423,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit37.thread.i:     ; preds = %if.end44.i
 OSSL_CMP_CTX_get_transfer_cb.exit37.i:            ; preds = %if.end44.i, %if.end44.thread20.i, %if.end40.i
   %res.819.i = phi i32 [ 0, %if.end44.i ], [ 0, %if.end44.thread20.i ], [ %res.6.i, %if.end40.i ]
   %retval.0.i2971317.i = phi ptr [ null, %if.end44.i ], [ %3, %if.end44.thread20.i ], [ @test_transfer_cb, %if.end40.i ]
-  %transfer_cb.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 4
+  %transfer_cb.i34.i = getelementptr inbounds i8, ptr %call.val, i64 32
   %4 = load ptr, ptr %transfer_cb.i34.i, align 8
   %cmp46.i = icmp eq ptr %4, null
   br i1 %cmp46.i, label %if.then48.i, label %if.end49.i
@@ -2666,7 +2662,7 @@ OSSL_CMP_CTX_get0_srvCert.exit.thread.i:          ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_srvCert.exit.i:                 ; preds = %if.end19.i
-  %srvCert.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 20
+  %srvCert.i.i = getelementptr inbounds i8, ptr %call.val, i64 144
   %1 = load ptr, ptr %srvCert.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -2696,7 +2692,7 @@ OSSL_CMP_CTX_get0_srvCert.exit26.thread.i:        ; preds = %if.end28.i
   br label %if.then32.i
 
 OSSL_CMP_CTX_get0_srvCert.exit26.i:               ; preds = %if.end28.i
-  %srvCert.i23.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 20
+  %srvCert.i23.i = getelementptr inbounds i8, ptr %call.val, i64 144
   %2 = load ptr, ptr %srvCert.i23.i, align 8
   %cmp30.i = icmp eq ptr %2, null
   br i1 %cmp30.i, label %if.then32.i, label %if.end33.i
@@ -2726,7 +2722,7 @@ OSSL_CMP_CTX_get0_srvCert.exit32.thread.i:        ; preds = %if.end37.i
   br label %if.then41.i
 
 OSSL_CMP_CTX_get0_srvCert.exit32.i:               ; preds = %if.end37.i
-  %srvCert.i29.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 20
+  %srvCert.i29.i = getelementptr inbounds i8, ptr %call.val, i64 144
   %3 = load ptr, ptr %srvCert.i29.i, align 8
   %cmp39.i = icmp eq ptr %3, null
   br i1 %cmp39.i, label %if.then41.i, label %if.end42.i
@@ -2756,7 +2752,7 @@ OSSL_CMP_CTX_get0_srvCert.exit38.thread.i:        ; preds = %if.end46.i
   br label %if.then50.i
 
 OSSL_CMP_CTX_get0_srvCert.exit38.i:               ; preds = %if.end46.i
-  %srvCert.i35.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 20
+  %srvCert.i35.i = getelementptr inbounds i8, ptr %call.val, i64 144
   %4 = load ptr, ptr %srvCert.i35.i, align 8
   %cmp48.i = icmp eq ptr %4, null
   br i1 %cmp48.i, label %if.then50.i, label %if.end51.i
@@ -2986,7 +2982,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit.thread.i:  ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_expected_sender.exit.i:         ; preds = %if.end19.i
-  %expected_sender.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 22
+  %expected_sender.i.i = getelementptr inbounds i8, ptr %call.val, i64 160
   %1 = load ptr, ptr %expected_sender.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -3010,7 +3006,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_expected_sender.exit30.thread.i, label %OSSL_CMP_CTX_get0_expected_sender.exit30.i
 
 OSSL_CMP_CTX_get0_expected_sender.exit30.i:       ; preds = %if.end28.i
-  %expected_sender.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 22
+  %expected_sender.i27.i = getelementptr inbounds i8, ptr %call.val, i64 160
   %2 = load ptr, ptr %expected_sender.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -3055,7 +3051,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit36.thread.i: ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_expected_sender.exit36.i:       ; preds = %if.end41.i
-  %expected_sender.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 22
+  %expected_sender.i33.i = getelementptr inbounds i8, ptr %call.val, i64 160
   %3 = load ptr, ptr %expected_sender.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -3095,7 +3091,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit42.thread.i: ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_expected_sender.exit42.i:       ; preds = %if.end54.i
-  %expected_sender.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 22
+  %expected_sender.i39.i = getelementptr inbounds i8, ptr %call.val, i64 160
   %4 = load ptr, ptr %expected_sender.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -3593,7 +3589,7 @@ OSSL_CMP_CTX_get0_cert.exit.thread.i:             ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_cert.exit.i:                    ; preds = %if.end19.i
-  %cert.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 28
+  %cert.i.i = getelementptr inbounds i8, ptr %call.val, i64 200
   %1 = load ptr, ptr %cert.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -3623,7 +3619,7 @@ OSSL_CMP_CTX_get0_cert.exit26.thread.i:           ; preds = %if.end28.i
   br label %if.then32.i
 
 OSSL_CMP_CTX_get0_cert.exit26.i:                  ; preds = %if.end28.i
-  %cert.i23.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 28
+  %cert.i23.i = getelementptr inbounds i8, ptr %call.val, i64 200
   %2 = load ptr, ptr %cert.i23.i, align 8
   %cmp30.i = icmp eq ptr %2, null
   br i1 %cmp30.i, label %if.then32.i, label %if.end33.i
@@ -3653,7 +3649,7 @@ OSSL_CMP_CTX_get0_cert.exit32.thread.i:           ; preds = %if.end37.i
   br label %if.then41.i
 
 OSSL_CMP_CTX_get0_cert.exit32.i:                  ; preds = %if.end37.i
-  %cert.i29.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 28
+  %cert.i29.i = getelementptr inbounds i8, ptr %call.val, i64 200
   %3 = load ptr, ptr %cert.i29.i, align 8
   %cmp39.i = icmp eq ptr %3, null
   br i1 %cmp39.i, label %if.then41.i, label %if.end42.i
@@ -3683,7 +3679,7 @@ OSSL_CMP_CTX_get0_cert.exit38.thread.i:           ; preds = %if.end46.i
   br label %if.then50.i
 
 OSSL_CMP_CTX_get0_cert.exit38.i:                  ; preds = %if.end46.i
-  %cert.i35.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 28
+  %cert.i35.i = getelementptr inbounds i8, ptr %call.val, i64 200
   %4 = load ptr, ptr %cert.i35.i, align 8
   %cmp48.i = icmp eq ptr %4, null
   br i1 %cmp48.i, label %if.then50.i, label %if.end51.i
@@ -3781,7 +3777,7 @@ OSSL_CMP_CTX_get0_pkey.exit.thread.i:             ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_pkey.exit.i:                    ; preds = %if.end19.i
-  %pkey.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 30
+  %pkey.i.i = getelementptr inbounds i8, ptr %call.val, i64 216
   %1 = load ptr, ptr %pkey.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -3811,7 +3807,7 @@ OSSL_CMP_CTX_get0_pkey.exit26.thread.i:           ; preds = %if.end28.i
   br label %if.then32.i
 
 OSSL_CMP_CTX_get0_pkey.exit26.i:                  ; preds = %if.end28.i
-  %pkey.i23.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 30
+  %pkey.i23.i = getelementptr inbounds i8, ptr %call.val, i64 216
   %2 = load ptr, ptr %pkey.i23.i, align 8
   %cmp30.i = icmp eq ptr %2, null
   br i1 %cmp30.i, label %if.then32.i, label %if.end33.i
@@ -3841,7 +3837,7 @@ OSSL_CMP_CTX_get0_pkey.exit32.thread.i:           ; preds = %if.end37.i
   br label %if.then41.i
 
 OSSL_CMP_CTX_get0_pkey.exit32.i:                  ; preds = %if.end37.i
-  %pkey.i29.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 30
+  %pkey.i29.i = getelementptr inbounds i8, ptr %call.val, i64 216
   %3 = load ptr, ptr %pkey.i29.i, align 8
   %cmp39.i = icmp eq ptr %3, null
   br i1 %cmp39.i, label %if.then41.i, label %if.end42.i
@@ -3871,7 +3867,7 @@ OSSL_CMP_CTX_get0_pkey.exit38.thread.i:           ; preds = %if.end46.i
   br label %if.then50.i
 
 OSSL_CMP_CTX_get0_pkey.exit38.i:                  ; preds = %if.end46.i
-  %pkey.i35.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 30
+  %pkey.i35.i = getelementptr inbounds i8, ptr %call.val, i64 216
   %4 = load ptr, ptr %pkey.i35.i, align 8
   %cmp48.i = icmp eq ptr %4, null
   br i1 %cmp48.i, label %if.then50.i, label %if.end51.i
@@ -3971,13 +3967,13 @@ if.then.i.i:                                      ; preds = %if.end19.i
   br label %if.end24.i
 
 if.end.i.i:                                       ; preds = %if.end19.i
-  %referenceValue.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 31
+  %referenceValue.i.i = getelementptr inbounds i8, ptr %call.val, i64 224
   %1 = load ptr, ptr %referenceValue.i.i, align 8
   %cmp1.i.i = icmp eq ptr %1, null
   br i1 %cmp1.i.i, label %if.end24.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit.i
 
 OSSL_CMP_CTX_get1_referenceValue_str.exit.i:      ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data.i.i, align 8
   %3 = load i32, ptr %1, align 8
   %conv.i33.i = sext i32 %3 to i64
@@ -4014,13 +4010,13 @@ if.then.i47.i:                                    ; preds = %if.end28.i
   br label %OSSL_CMP_CTX_get1_referenceValue_str.exit48.i
 
 if.end.i39.i:                                     ; preds = %if.end28.i
-  %referenceValue.i40.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 31
+  %referenceValue.i40.i = getelementptr inbounds i8, ptr %call.val, i64 224
   %4 = load ptr, ptr %referenceValue.i40.i, align 8
   %cmp1.i41.i = icmp eq ptr %4, null
   br i1 %cmp1.i41.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit48.i, label %cond.false.i42.i
 
 cond.false.i42.i:                                 ; preds = %if.end.i39.i
-  %data.i43.i = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data.i43.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data.i43.i, align 8
   %6 = load i32, ptr %4, align 8
   %conv.i44.i = sext i32 %6 to i64
@@ -4068,13 +4064,13 @@ if.then.i61.i:                                    ; preds = %if.end41.i
   br label %if.then45.i
 
 if.end.i53.i:                                     ; preds = %if.end41.i
-  %referenceValue.i54.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 31
+  %referenceValue.i54.i = getelementptr inbounds i8, ptr %call.val, i64 224
   %7 = load ptr, ptr %referenceValue.i54.i, align 8
   %cmp1.i55.i = icmp eq ptr %7, null
   br i1 %cmp1.i55.i, label %if.then45.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit62.i
 
 OSSL_CMP_CTX_get1_referenceValue_str.exit62.i:    ; preds = %if.end.i53.i
-  %data.i57.i = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 2
+  %data.i57.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data.i57.i, align 8
   %9 = load i32, ptr %7, align 8
   %conv.i58.i = sext i32 %9 to i64
@@ -4126,13 +4122,13 @@ if.then.i72.i:                                    ; preds = %if.end58.i
   br label %if.then62.i
 
 if.end.i64.i:                                     ; preds = %if.end58.i
-  %referenceValue.i65.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 31
+  %referenceValue.i65.i = getelementptr inbounds i8, ptr %call.val, i64 224
   %10 = load ptr, ptr %referenceValue.i65.i, align 8
   %cmp1.i66.i = icmp eq ptr %10, null
   br i1 %cmp1.i66.i, label %if.then62.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit73.i
 
 OSSL_CMP_CTX_get1_referenceValue_str.exit73.i:    ; preds = %if.end.i64.i
-  %data.i68.i = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data.i68.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.i68.i, align 8
   %12 = load i32, ptr %10, align 8
   %conv.i69.i = sext i32 %12 to i64
@@ -4239,13 +4235,13 @@ if.then.i.i:                                      ; preds = %if.end19.i
   br label %if.end24.i
 
 if.end.i.i:                                       ; preds = %if.end19.i
-  %secretValue.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 32
+  %secretValue.i.i = getelementptr inbounds i8, ptr %call.val, i64 232
   %1 = load ptr, ptr %secretValue.i.i, align 8
   %cmp1.i.i = icmp eq ptr %1, null
   br i1 %cmp1.i.i, label %if.end24.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit.i
 
 OSSL_CMP_CTX_get1_secretValue_str.exit.i:         ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data.i.i, align 8
   %3 = load i32, ptr %1, align 8
   %conv.i33.i = sext i32 %3 to i64
@@ -4282,13 +4278,13 @@ if.then.i47.i:                                    ; preds = %if.end28.i
   br label %OSSL_CMP_CTX_get1_secretValue_str.exit48.i
 
 if.end.i39.i:                                     ; preds = %if.end28.i
-  %secretValue.i40.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 32
+  %secretValue.i40.i = getelementptr inbounds i8, ptr %call.val, i64 232
   %4 = load ptr, ptr %secretValue.i40.i, align 8
   %cmp1.i41.i = icmp eq ptr %4, null
   br i1 %cmp1.i41.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit48.i, label %cond.false.i42.i
 
 cond.false.i42.i:                                 ; preds = %if.end.i39.i
-  %data.i43.i = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data.i43.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data.i43.i, align 8
   %6 = load i32, ptr %4, align 8
   %conv.i44.i = sext i32 %6 to i64
@@ -4336,13 +4332,13 @@ if.then.i61.i:                                    ; preds = %if.end41.i
   br label %if.then45.i
 
 if.end.i53.i:                                     ; preds = %if.end41.i
-  %secretValue.i54.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 32
+  %secretValue.i54.i = getelementptr inbounds i8, ptr %call.val, i64 232
   %7 = load ptr, ptr %secretValue.i54.i, align 8
   %cmp1.i55.i = icmp eq ptr %7, null
   br i1 %cmp1.i55.i, label %if.then45.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit62.i
 
 OSSL_CMP_CTX_get1_secretValue_str.exit62.i:       ; preds = %if.end.i53.i
-  %data.i57.i = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 2
+  %data.i57.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data.i57.i, align 8
   %9 = load i32, ptr %7, align 8
   %conv.i58.i = sext i32 %9 to i64
@@ -4394,13 +4390,13 @@ if.then.i72.i:                                    ; preds = %if.end58.i
   br label %if.then62.i
 
 if.end.i64.i:                                     ; preds = %if.end58.i
-  %secretValue.i65.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 32
+  %secretValue.i65.i = getelementptr inbounds i8, ptr %call.val, i64 232
   %10 = load ptr, ptr %secretValue.i65.i, align 8
   %cmp1.i66.i = icmp eq ptr %10, null
   br i1 %cmp1.i66.i, label %if.then62.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit73.i
 
 OSSL_CMP_CTX_get1_secretValue_str.exit73.i:       ; preds = %if.end.i64.i
-  %data.i68.i = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data.i68.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.i68.i, align 8
   %12 = load i32, ptr %10, align 8
   %conv.i69.i = sext i32 %12 to i64
@@ -4505,7 +4501,7 @@ OSSL_CMP_CTX_get0_recipient.exit.thread.i:        ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_recipient.exit.i:               ; preds = %if.end19.i
-  %recipient.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 37
+  %recipient.i.i = getelementptr inbounds i8, ptr %call.val, i64 264
   %1 = load ptr, ptr %recipient.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -4529,7 +4525,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_recipient.exit30.thread.i, label %OSSL_CMP_CTX_get0_recipient.exit30.i
 
 OSSL_CMP_CTX_get0_recipient.exit30.i:             ; preds = %if.end28.i
-  %recipient.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 37
+  %recipient.i27.i = getelementptr inbounds i8, ptr %call.val, i64 264
   %2 = load ptr, ptr %recipient.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -4574,7 +4570,7 @@ OSSL_CMP_CTX_get0_recipient.exit36.thread.i:      ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_recipient.exit36.i:             ; preds = %if.end41.i
-  %recipient.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 37
+  %recipient.i33.i = getelementptr inbounds i8, ptr %call.val, i64 264
   %3 = load ptr, ptr %recipient.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -4614,7 +4610,7 @@ OSSL_CMP_CTX_get0_recipient.exit42.thread.i:      ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_recipient.exit42.i:             ; preds = %if.end54.i
-  %recipient.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 37
+  %recipient.i39.i = getelementptr inbounds i8, ptr %call.val, i64 264
   %4 = load ptr, ptr %recipient.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -4665,7 +4661,7 @@ entry:
 if.then2:                                         ; preds = %entry
   %0 = getelementptr i8, ptr %call, i64 8
   %call.val = load ptr, ptr %0, align 8
-  %geninfo_ITAVs.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 43
+  %geninfo_ITAVs.i = getelementptr inbounds i8, ptr %call.val, i64 312
   %1 = load ptr, ptr %geninfo_ITAVs.i, align 8
   %call2.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %call3.i = tail call ptr @OSSL_CMP_ITAV_new() #6
@@ -4849,7 +4845,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit.thread.i:    ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit.i:           ; preds = %if.end19.i
-  %extraCertsOut.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 46
+  %extraCertsOut.i.i = getelementptr inbounds i8, ptr %call.val, i64 328
   %1 = load ptr, ptr %extraCertsOut.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -4873,7 +4869,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_extraCertsOut.exit30.thread.i, label %OSSL_CMP_CTX_get0_extraCertsOut.exit30.i
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit30.i:         ; preds = %if.end28.i
-  %extraCertsOut.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 46
+  %extraCertsOut.i27.i = getelementptr inbounds i8, ptr %call.val, i64 328
   %2 = load ptr, ptr %extraCertsOut.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -4918,7 +4914,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit36.thread.i:  ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit36.i:         ; preds = %if.end41.i
-  %extraCertsOut.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 46
+  %extraCertsOut.i33.i = getelementptr inbounds i8, ptr %call.val, i64 328
   %3 = load ptr, ptr %extraCertsOut.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -4958,7 +4954,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit42.thread.i:  ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit42.i:         ; preds = %if.end54.i
-  %extraCertsOut.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 46
+  %extraCertsOut.i39.i = getelementptr inbounds i8, ptr %call.val, i64 328
   %4 = load ptr, ptr %extraCertsOut.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -5350,7 +5346,7 @@ OSSL_CMP_CTX_get0_issuer.exit.thread.i:           ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_issuer.exit.i:                  ; preds = %if.end19.i
-  %issuer.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 49
+  %issuer.i.i = getelementptr inbounds i8, ptr %call.val, i64 352
   %1 = load ptr, ptr %issuer.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -5374,7 +5370,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_issuer.exit30.thread.i, label %OSSL_CMP_CTX_get0_issuer.exit30.i
 
 OSSL_CMP_CTX_get0_issuer.exit30.i:                ; preds = %if.end28.i
-  %issuer.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 49
+  %issuer.i27.i = getelementptr inbounds i8, ptr %call.val, i64 352
   %2 = load ptr, ptr %issuer.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -5419,7 +5415,7 @@ OSSL_CMP_CTX_get0_issuer.exit36.thread.i:         ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_issuer.exit36.i:                ; preds = %if.end41.i
-  %issuer.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 49
+  %issuer.i33.i = getelementptr inbounds i8, ptr %call.val, i64 352
   %3 = load ptr, ptr %issuer.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -5459,7 +5455,7 @@ OSSL_CMP_CTX_get0_issuer.exit42.thread.i:         ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_issuer.exit42.i:                ; preds = %if.end54.i
-  %issuer.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 49
+  %issuer.i39.i = getelementptr inbounds i8, ptr %call.val, i64 352
   %4 = load ptr, ptr %issuer.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -5557,7 +5553,7 @@ OSSL_CMP_CTX_get0_subjectName.exit.thread.i:      ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_subjectName.exit.i:             ; preds = %if.end19.i
-  %subjectName.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 52
+  %subjectName.i.i = getelementptr inbounds i8, ptr %call.val, i64 376
   %1 = load ptr, ptr %subjectName.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -5581,7 +5577,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_subjectName.exit30.thread.i, label %OSSL_CMP_CTX_get0_subjectName.exit30.i
 
 OSSL_CMP_CTX_get0_subjectName.exit30.i:           ; preds = %if.end28.i
-  %subjectName.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 52
+  %subjectName.i27.i = getelementptr inbounds i8, ptr %call.val, i64 376
   %2 = load ptr, ptr %subjectName.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -5626,7 +5622,7 @@ OSSL_CMP_CTX_get0_subjectName.exit36.thread.i:    ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_subjectName.exit36.i:           ; preds = %if.end41.i
-  %subjectName.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 52
+  %subjectName.i33.i = getelementptr inbounds i8, ptr %call.val, i64 376
   %3 = load ptr, ptr %subjectName.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -5666,7 +5662,7 @@ OSSL_CMP_CTX_get0_subjectName.exit42.thread.i:    ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_subjectName.exit42.i:           ; preds = %if.end54.i
-  %subjectName.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 52
+  %subjectName.i39.i = getelementptr inbounds i8, ptr %call.val, i64 376
   %4 = load ptr, ptr %subjectName.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -5764,7 +5760,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit.thread.i:    ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_reqExtensions.exit.i:           ; preds = %if.end19.i
-  %reqExtensions.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 56
+  %reqExtensions.i.i = getelementptr inbounds i8, ptr %call.val, i64 400
   %1 = load ptr, ptr %reqExtensions.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -5794,7 +5790,7 @@ if.then.i26.i:                                    ; preds = %if.end28.i
   br label %OSSL_CMP_CTX_get0_reqExtensions.exit27.i
 
 if.end.i23.i:                                     ; preds = %if.end28.i
-  %reqExtensions.i24.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 56
+  %reqExtensions.i24.i = getelementptr inbounds i8, ptr %call.val, i64 400
   %2 = load ptr, ptr %reqExtensions.i24.i, align 8
   br label %OSSL_CMP_CTX_get0_reqExtensions.exit27.i
 
@@ -5828,7 +5824,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit33.thread.i:  ; preds = %if.end37.i
   br label %if.then41.i
 
 OSSL_CMP_CTX_get0_reqExtensions.exit33.i:         ; preds = %if.end37.i
-  %reqExtensions.i30.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 56
+  %reqExtensions.i30.i = getelementptr inbounds i8, ptr %call.val, i64 400
   %3 = load ptr, ptr %reqExtensions.i30.i, align 8
   %cmp39.i = icmp eq ptr %3, null
   br i1 %cmp39.i, label %if.then41.i, label %if.end42.i
@@ -5858,7 +5854,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit39.thread.i:  ; preds = %if.end46.i
   br label %if.then50.i
 
 OSSL_CMP_CTX_get0_reqExtensions.exit39.i:         ; preds = %if.end46.i
-  %reqExtensions.i36.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 56
+  %reqExtensions.i36.i = getelementptr inbounds i8, ptr %call.val, i64 400
   %4 = load ptr, ptr %reqExtensions.i36.i, align 8
   %cmp48.i = icmp eq ptr %4, null
   br i1 %cmp48.i, label %if.then50.i, label %if.end51.i
@@ -6016,7 +6012,7 @@ entry:
 if.then2:                                         ; preds = %entry
   %0 = getelementptr i8, ptr %call, i64 8
   %call.val = load ptr, ptr %0, align 8
-  %policies.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 57
+  %policies.i = getelementptr inbounds i8, ptr %call.val, i64 408
   %1 = load ptr, ptr %policies.i, align 8
   %call2.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %call3.i = tail call ptr @POLICYINFO_new() #6
@@ -6200,7 +6196,7 @@ OSSL_CMP_CTX_get0_oldCert.exit.thread.i:          ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_oldCert.exit.i:                 ; preds = %if.end19.i
-  %oldCert.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 60
+  %oldCert.i.i = getelementptr inbounds i8, ptr %call.val, i64 424
   %1 = load ptr, ptr %oldCert.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -6230,7 +6226,7 @@ OSSL_CMP_CTX_get0_oldCert.exit26.thread.i:        ; preds = %if.end28.i
   br label %if.then32.i
 
 OSSL_CMP_CTX_get0_oldCert.exit26.i:               ; preds = %if.end28.i
-  %oldCert.i23.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 60
+  %oldCert.i23.i = getelementptr inbounds i8, ptr %call.val, i64 424
   %2 = load ptr, ptr %oldCert.i23.i, align 8
   %cmp30.i = icmp eq ptr %2, null
   br i1 %cmp30.i, label %if.then32.i, label %if.end33.i
@@ -6260,7 +6256,7 @@ OSSL_CMP_CTX_get0_oldCert.exit32.thread.i:        ; preds = %if.end37.i
   br label %if.then41.i
 
 OSSL_CMP_CTX_get0_oldCert.exit32.i:               ; preds = %if.end37.i
-  %oldCert.i29.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 60
+  %oldCert.i29.i = getelementptr inbounds i8, ptr %call.val, i64 424
   %3 = load ptr, ptr %oldCert.i29.i, align 8
   %cmp39.i = icmp eq ptr %3, null
   br i1 %cmp39.i, label %if.then41.i, label %if.end42.i
@@ -6290,7 +6286,7 @@ OSSL_CMP_CTX_get0_oldCert.exit38.thread.i:        ; preds = %if.end46.i
   br label %if.then50.i
 
 OSSL_CMP_CTX_get0_oldCert.exit38.i:               ; preds = %if.end46.i
-  %oldCert.i35.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 60
+  %oldCert.i35.i = getelementptr inbounds i8, ptr %call.val, i64 424
   %4 = load ptr, ptr %oldCert.i35.i, align 8
   %cmp48.i = icmp eq ptr %4, null
   br i1 %cmp48.i, label %if.then50.i, label %if.end51.i
@@ -6341,7 +6337,7 @@ entry:
 if.then2:                                         ; preds = %entry
   %0 = getelementptr i8, ptr %call, i64 8
   %call.val = load ptr, ptr %0, align 8
-  %genm_ITAVs.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 63
+  %genm_ITAVs.i = getelementptr inbounds i8, ptr %call.val, i64 448
   %1 = load ptr, ptr %genm_ITAVs.i, align 8
   %call2.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %call3.i = tail call ptr @OSSL_CMP_ITAV_new() #6
@@ -6523,7 +6519,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit.thread.i:       ; preds = %if.end17.i
   br label %if.end22.i
 
 OSSL_CMP_CTX_get_certConf_cb.exit.i:              ; preds = %if.end17.i
-  %certConf_cb.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 71
+  %certConf_cb.i.i = getelementptr inbounds i8, ptr %call.val, i64 512
   %1 = load ptr, ptr %certConf_cb.i.i, align 8
   %cmp19.i = icmp eq ptr %1, null
   br i1 %cmp19.i, label %if.end22.i, label %if.then21.i
@@ -6553,7 +6549,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit25.thread.i:     ; preds = %if.end26.i
   br label %if.then30.i
 
 OSSL_CMP_CTX_get_certConf_cb.exit25.i:            ; preds = %if.end26.i
-  %certConf_cb.i22.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 71
+  %certConf_cb.i22.i = getelementptr inbounds i8, ptr %call.val, i64 512
   %2 = load ptr, ptr %certConf_cb.i22.i, align 8
   %cmp28.not.i = icmp eq ptr %2, @test_certConf_cb
   br i1 %cmp28.not.i, label %if.end31.i, label %if.then30.i
@@ -6583,7 +6579,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit31.thread.i:     ; preds = %if.end35.i
   br label %if.end44.i
 
 OSSL_CMP_CTX_get_certConf_cb.exit31.i:            ; preds = %if.end35.i
-  %certConf_cb.i28.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 71
+  %certConf_cb.i28.i = getelementptr inbounds i8, ptr %call.val, i64 512
   %3 = load ptr, ptr %certConf_cb.i28.i, align 8
   %cmp37.i = icmp eq ptr %3, null
   br i1 %cmp37.i, label %if.end44.i, label %if.end40.i
@@ -6610,7 +6606,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit37.thread.i:     ; preds = %if.end44.i
 OSSL_CMP_CTX_get_certConf_cb.exit37.i:            ; preds = %if.end44.i, %if.end44.thread20.i, %if.end40.i
   %res.819.i = phi i32 [ 0, %if.end44.i ], [ 0, %if.end44.thread20.i ], [ %res.6.i, %if.end40.i ]
   %retval.0.i2971317.i = phi ptr [ null, %if.end44.i ], [ %3, %if.end44.thread20.i ], [ @test_certConf_cb, %if.end40.i ]
-  %certConf_cb.i34.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 71
+  %certConf_cb.i34.i = getelementptr inbounds i8, ptr %call.val, i64 512
   %4 = load ptr, ptr %certConf_cb.i34.i, align 8
   %cmp46.i = icmp eq ptr %4, null
   br i1 %cmp46.i, label %if.then48.i, label %if.end49.i
@@ -8021,7 +8017,7 @@ OSSL_CMP_CTX_get0_transactionID.exit.thread.i:    ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_transactionID.exit.i:           ; preds = %if.end19.i
-  %transactionID.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 39
+  %transactionID.i.i = getelementptr inbounds i8, ptr %call.val, i64 280
   %1 = load ptr, ptr %transactionID.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -8045,7 +8041,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_transactionID.exit30.thread.i, label %OSSL_CMP_CTX_get0_transactionID.exit30.i
 
 OSSL_CMP_CTX_get0_transactionID.exit30.i:         ; preds = %if.end28.i
-  %transactionID.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 39
+  %transactionID.i27.i = getelementptr inbounds i8, ptr %call.val, i64 280
   %2 = load ptr, ptr %transactionID.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -8090,7 +8086,7 @@ OSSL_CMP_CTX_get0_transactionID.exit36.thread.i:  ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_transactionID.exit36.i:         ; preds = %if.end41.i
-  %transactionID.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 39
+  %transactionID.i33.i = getelementptr inbounds i8, ptr %call.val, i64 280
   %3 = load ptr, ptr %transactionID.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -8130,7 +8126,7 @@ OSSL_CMP_CTX_get0_transactionID.exit42.thread.i:  ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_transactionID.exit42.i:         ; preds = %if.end54.i
-  %transactionID.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 39
+  %transactionID.i39.i = getelementptr inbounds i8, ptr %call.val, i64 280
   %4 = load ptr, ptr %transactionID.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -8228,7 +8224,7 @@ OSSL_CMP_CTX_get0_senderNonce.exit.thread.i:      ; preds = %if.end19.i
   br label %if.end24.i
 
 OSSL_CMP_CTX_get0_senderNonce.exit.i:             ; preds = %if.end19.i
-  %senderNonce.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 40
+  %senderNonce.i.i = getelementptr inbounds i8, ptr %call.val, i64 288
   %1 = load ptr, ptr %senderNonce.i.i, align 8
   %cmp21.i = icmp eq ptr %1, null
   br i1 %cmp21.i, label %if.end24.i, label %if.then23.i
@@ -8252,7 +8248,7 @@ if.end28.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_senderNonce.exit30.thread.i, label %OSSL_CMP_CTX_get0_senderNonce.exit30.i
 
 OSSL_CMP_CTX_get0_senderNonce.exit30.i:           ; preds = %if.end28.i
-  %senderNonce.i27.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 40
+  %senderNonce.i27.i = getelementptr inbounds i8, ptr %call.val, i64 288
   %2 = load ptr, ptr %senderNonce.i27.i, align 8
   %cmp30.i = icmp eq ptr %2, %call.i
   br i1 %cmp30.i, label %if.end33.thread.i, label %if.end33.i
@@ -8297,7 +8293,7 @@ OSSL_CMP_CTX_get0_senderNonce.exit36.thread.i:    ; preds = %if.end41.i
   br label %if.then45.i
 
 OSSL_CMP_CTX_get0_senderNonce.exit36.i:           ; preds = %if.end41.i
-  %senderNonce.i33.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 40
+  %senderNonce.i33.i = getelementptr inbounds i8, ptr %call.val, i64 288
   %3 = load ptr, ptr %senderNonce.i33.i, align 8
   %cmp43.i = icmp eq ptr %3, null
   br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
@@ -8337,7 +8333,7 @@ OSSL_CMP_CTX_get0_senderNonce.exit42.thread.i:    ; preds = %if.end54.i
   br label %if.then58.i
 
 OSSL_CMP_CTX_get0_senderNonce.exit42.i:           ; preds = %if.end54.i
-  %senderNonce.i39.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 40
+  %senderNonce.i39.i = getelementptr inbounds i8, ptr %call.val, i64 288
   %4 = load ptr, ptr %senderNonce.i39.i, align 8
   %cmp56.i = icmp eq ptr %4, null
   br i1 %cmp56.i, label %if.then58.i, label %if.end59.i
@@ -8420,7 +8416,7 @@ OSSL_CMP_CTX_get0_recipNonce.exit.thread.i:       ; preds = %if.end11.i
   br label %if.end16.i
 
 OSSL_CMP_CTX_get0_recipNonce.exit.i:              ; preds = %if.end11.i
-  %recipNonce.i.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 41
+  %recipNonce.i.i = getelementptr inbounds i8, ptr %call.val, i64 296
   %1 = load ptr, ptr %recipNonce.i.i, align 8
   %cmp13.i = icmp eq ptr %1, null
   br i1 %cmp13.i, label %if.end16.i, label %if.then15.i
@@ -8444,7 +8440,7 @@ if.end20.i:                                       ; preds = %if.then19.i, %if.en
   br i1 %cmp.i.i, label %OSSL_CMP_CTX_get0_recipNonce.exit28.thread.i, label %OSSL_CMP_CTX_get0_recipNonce.exit28.i
 
 OSSL_CMP_CTX_get0_recipNonce.exit28.i:            ; preds = %if.end20.i
-  %recipNonce.i25.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 41
+  %recipNonce.i25.i = getelementptr inbounds i8, ptr %call.val, i64 296
   %2 = load ptr, ptr %recipNonce.i25.i, align 8
   %cmp22.i = icmp eq ptr %2, %call.i
   br i1 %cmp22.i, label %if.end25.thread.i, label %if.end25.i
@@ -8489,7 +8485,7 @@ OSSL_CMP_CTX_get0_recipNonce.exit34.thread.i:     ; preds = %if.end33.i
   br label %if.then37.i
 
 OSSL_CMP_CTX_get0_recipNonce.exit34.i:            ; preds = %if.end33.i
-  %recipNonce.i31.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 41
+  %recipNonce.i31.i = getelementptr inbounds i8, ptr %call.val, i64 296
   %3 = load ptr, ptr %recipNonce.i31.i, align 8
   %cmp35.i = icmp eq ptr %3, null
   br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
@@ -8529,7 +8525,7 @@ OSSL_CMP_CTX_get0_recipNonce.exit40.thread.i:     ; preds = %if.end46.i
   br label %if.then50.i
 
 OSSL_CMP_CTX_get0_recipNonce.exit40.i:            ; preds = %if.end46.i
-  %recipNonce.i37.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call.val, i64 0, i32 41
+  %recipNonce.i37.i = getelementptr inbounds i8, ptr %call.val, i64 296
   %4 = load ptr, ptr %recipNonce.i37.i, align 8
   %cmp48.i = icmp eq ptr %4, null
   br i1 %cmp48.i, label %if.then50.i, label %if.end51.i
@@ -8598,7 +8594,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @OSSL_CMP_CTX_new(ptr noundef null, ptr noundef null) #6
-  %ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %ctx, align 8
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 34, ptr noundef nonnull @.str.57, ptr noundef %call2) #6
   %tobool4.not = icmp eq i32 %call3, 0

@@ -3,16 +3,12 @@ source_filename = "bench/openssl/original/tls13secretstest-bin-packet.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.wpacket_sub = type { ptr, i64, i64, i64, i32 }
-
 @.str = private unnamed_addr constant [27 x i8] c"../openssl/crypto/packet.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
   %cmp.i = icmp ne ptr %0, null
   %cmp1.i = icmp ne i64 %len, 0
@@ -20,9 +16,9 @@ entry:
   br i1 %1, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %maxsize.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize.i = getelementptr inbounds i8, ptr %pkt, i64 32
   %2 = load i64, ptr %maxsize.i, align 8
-  %written.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %3 = load i64, ptr %written.i, align 8
   %sub.i = sub i64 %2, %3
   %cmp4.i = icmp ult i64 %sub.i, %len
@@ -54,7 +50,7 @@ if.end35.i:                                       ; preds = %if.then15.i, %land.
   br i1 %cmp36.not.i, label %if.end, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end35.i
-  %staticbuf.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf.i.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %6 = load ptr, ptr %staticbuf.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %if.end.i.i
@@ -65,14 +61,14 @@ cond.false.i.i:                                   ; preds = %if.then38.i
   br i1 %cmp3.not.i.i, label %return.sink.split.i, label %cond.end7.i.i
 
 cond.end7.i.i:                                    ; preds = %cond.false.i.i
-  %data.i.i = getelementptr inbounds %struct.buf_mem_st, ptr %7, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data.i.i, align 8
   %cmp9.i.i = icmp eq ptr %8, null
   br i1 %cmp9.i.i, label %return.sink.split.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end7.i.i, %if.then38.i
   %cond816.i.i = phi ptr [ %8, %cond.end7.i.i ], [ %6, %if.then38.i ]
-  %endfirst.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i.i = load i8, ptr %endfirst.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not.i.i = icmp eq i8 %bf.clear.i.i, 0
@@ -81,14 +77,14 @@ if.end.i.i:                                       ; preds = %cond.end7.i.i, %if.
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %9 = load i64, ptr %maxsize.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond816.i.i, i64 %9
-  %curr.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %10 = load i64, ptr %curr.i.i, align 8
   %idx.neg.i.i = sub i64 0, %10
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   br label %WPACKET_get_curr.exit.i
 
 if.end12.i.i:                                     ; preds = %if.end.i.i
-  %curr13.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr13.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %11 = load i64, ptr %curr13.i.i, align 8
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %cond816.i.i, i64 %11
   br label %WPACKET_get_curr.exit.i
@@ -112,7 +108,7 @@ return.sink.split.i:                              ; preds = %if.then44.i, %cond.
   br label %if.end
 
 if.end:                                           ; preds = %return.sink.split.i, %WPACKET_get_curr.exit.i, %if.end35.i
-  %curr = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr = getelementptr inbounds i8, ptr %pkt, i64 16
   %12 = load <2 x i64>, ptr %curr, align 8
   %13 = insertelement <2 x i64> poison, i64 %len, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> poison, <2 x i32> zeroinitializer
@@ -128,7 +124,7 @@ return:                                           ; preds = %if.then15.i, %if.en
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_reserve_bytes(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp = icmp ne ptr %0, null
   %cmp1 = icmp ne i64 %len, 0
@@ -136,9 +132,9 @@ entry:
   br i1 %1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   %2 = load i64, ptr %maxsize, align 8
-  %written = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written = getelementptr inbounds i8, ptr %pkt, i64 24
   %3 = load i64, ptr %written, align 8
   %sub = sub i64 %2, %3
   %cmp4 = icmp ult i64 %sub, %len
@@ -170,7 +166,7 @@ if.end35:                                         ; preds = %if.then15, %land.lh
   br i1 %cmp36.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %staticbuf.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %6 = load ptr, ptr %staticbuf.i, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %cond.false.i, label %if.end.i
@@ -181,14 +177,14 @@ cond.false.i:                                     ; preds = %if.then38
   br i1 %cmp3.not.i, label %return.sink.split, label %cond.end7.i
 
 cond.end7.i:                                      ; preds = %cond.false.i
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %7, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data.i, align 8
   %cmp9.i = icmp eq ptr %8, null
   br i1 %cmp9.i, label %return.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end7.i, %if.then38
   %cond816.i = phi ptr [ %8, %cond.end7.i ], [ %6, %if.then38 ]
-  %endfirst.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i = load i8, ptr %endfirst.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -197,14 +193,14 @@ if.end.i:                                         ; preds = %cond.end7.i, %if.th
 if.then10.i:                                      ; preds = %if.end.i
   %9 = load i64, ptr %maxsize, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %cond816.i, i64 %9
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %10 = load i64, ptr %curr.i, align 8
   %idx.neg.i = sub i64 0, %10
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   br label %WPACKET_get_curr.exit
 
 if.end12.i:                                       ; preds = %if.end.i
-  %curr13.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr13.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %11 = load i64, ptr %curr13.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %cond816.i, i64 %11
   br label %WPACKET_get_curr.exit
@@ -237,7 +233,7 @@ define dso_local i32 @WPACKET_sub_allocate_bytes__(ptr nocapture noundef %pkt, i
 entry:
   %lenchars.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %WPACKET_start_sub_packet_len__.exit.thread, label %if.end.i
@@ -247,7 +243,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp5.not.i, label %if.end9.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %endfirst.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i = load i8, ptr %endfirst.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool7.not.i = icmp eq i8 %bf.clear.i, 0
@@ -262,14 +258,14 @@ if.end13.i:                                       ; preds = %if.end9.i
   %1 = load ptr, ptr %subs.i, align 8
   store ptr %1, ptr %call.i, align 8
   store ptr %call.i, ptr %subs.i, align 8
-  %written.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written.i, align 8
   %add.i = add i64 %2, %lenbytes
-  %pwritten.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 3
+  %pwritten.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add.i, ptr %pwritten.i, align 8
-  %lenbytes16.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 2
+  %lenbytes16.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %lenbytes, ptr %lenbytes16.i, align 8
-  %packet_len.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 1
+  %packet_len.i = getelementptr inbounds i8, ptr %call.i, i64 8
   br i1 %cmp5.not.i, label %WPACKET_start_sub_packet_len__.exit.thread9, label %WPACKET_start_sub_packet_len__.exit
 
 WPACKET_start_sub_packet_len__.exit.thread9:      ; preds = %if.end13.i
@@ -321,7 +317,7 @@ return:                                           ; preds = %WPACKET_close.exit.
 define dso_local i32 @WPACKET_start_sub_packet_len__(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars = alloca ptr, align 8
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.end
@@ -331,7 +327,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool7.not = icmp eq i8 %bf.clear, 0
@@ -346,14 +342,14 @@ if.end13:                                         ; preds = %if.end9
   %1 = load ptr, ptr %subs, align 8
   store ptr %1, ptr %call, align 8
   store ptr %call, ptr %subs, align 8
-  %written = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written, align 8
   %add = add i64 %2, %lenbytes
-  %pwritten = getelementptr inbounds %struct.wpacket_sub, ptr %call, i64 0, i32 3
+  %pwritten = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %add, ptr %pwritten, align 8
-  %lenbytes16 = getelementptr inbounds %struct.wpacket_sub, ptr %call, i64 0, i32 2
+  %lenbytes16 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %lenbytes, ptr %lenbytes16, align 8
-  %packet_len = getelementptr inbounds %struct.wpacket_sub, ptr %call, i64 0, i32 1
+  %packet_len = getelementptr inbounds i8, ptr %call, i64 8
   br i1 %cmp5.not, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end13
@@ -373,7 +369,7 @@ return:                                           ; preds = %if.end20, %if.end9,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_close(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -397,7 +393,7 @@ declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @WPACKET_get_curr(ptr nocapture noundef readonly %pkt) local_unnamed_addr #2 {
 entry:
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   %0 = load ptr, ptr %staticbuf, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.false, label %if.end
@@ -408,31 +404,31 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp3.not, label %return, label %cond.end7
 
 cond.end7:                                        ; preds = %cond.false
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp9 = icmp eq ptr %2, null
   br i1 %cmp9, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %cond.end7
   %cond816 = phi ptr [ %2, %cond.end7 ], [ %0, %entry ]
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   %3 = load i64, ptr %maxsize, align 8
   %add.ptr = getelementptr inbounds i8, ptr %cond816, i64 %3
-  %curr = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr = getelementptr inbounds i8, ptr %pkt, i64 16
   %4 = load i64, ptr %curr, align 8
   %idx.neg = sub i64 0, %4
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %curr13 = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr13 = getelementptr inbounds i8, ptr %pkt, i64 16
   %5 = load i64, ptr %curr13, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %cond816, i64 %5
   br label %return
@@ -445,7 +441,7 @@ return:                                           ; preds = %cond.false, %cond.e
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_sub_reserve_bytes__(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool = icmp ne i8 %bf.clear, 0
@@ -455,7 +451,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add i64 %lenbytes, %len
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
   %cmp.i = icmp ne ptr %0, null
   %cmp1.i = icmp ne i64 %add, 0
@@ -463,9 +459,9 @@ if.end:                                           ; preds = %entry
   br i1 %1, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %maxsize.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize.i = getelementptr inbounds i8, ptr %pkt, i64 32
   %2 = load i64, ptr %maxsize.i, align 8
-  %written.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %3 = load i64, ptr %written.i, align 8
   %sub.i = sub i64 %2, %3
   %cmp4.i = icmp ult i64 %sub.i, %add
@@ -497,7 +493,7 @@ if.end35.i:                                       ; preds = %if.then15.i, %land.
   br i1 %cmp36.not.i, label %if.then5, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end35.i
-  %staticbuf.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf.i.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %6 = load ptr, ptr %staticbuf.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %if.end.i.i
@@ -508,7 +504,7 @@ cond.false.i.i:                                   ; preds = %if.then38.i
   br i1 %cmp3.not.i.i, label %return.sink.split, label %cond.end7.i.i
 
 cond.end7.i.i:                                    ; preds = %cond.false.i.i
-  %data.i.i = getelementptr inbounds %struct.buf_mem_st, ptr %7, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data.i.i, align 8
   %cmp9.i.i = icmp eq ptr %8, null
   br i1 %cmp9.i.i, label %return.sink.split, label %if.end.i.i
@@ -523,14 +519,14 @@ if.end.i.i:                                       ; preds = %cond.end7.i.i, %if.
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %9 = load i64, ptr %maxsize.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond816.i.i, i64 %9
-  %curr.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %10 = load i64, ptr %curr.i.i, align 8
   %idx.neg.i.i = sub i64 0, %10
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   br label %WPACKET_get_curr.exit.i
 
 if.end12.i.i:                                     ; preds = %if.end.i.i
-  %curr13.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr13.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %11 = load i64, ptr %curr13.i.i, align 8
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %cond816.i.i, i64 %11
   br label %WPACKET_get_curr.exit.i
@@ -581,21 +577,21 @@ if.end:                                           ; preds = %entry
   %sub.i = xor i64 %notmask.i, -1
   %add.i = add nuw nsw i64 %sub.i, %lenbytes
   %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   store ptr %buf, ptr %staticbuf, align 8
   store ptr null, ptr %pkt, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %len)
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 %cond, ptr %maxsize, align 8
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %endfirst, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.i, i8 0, i64 16, i1 false)
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 110) #12
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %call.i, ptr %subs.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %wpacket_intern_init_len.exit, label %if.end.i
@@ -605,9 +601,9 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %wpacket_intern_init_len.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %pwritten.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 3
+  %pwritten.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %lenbytes, ptr %pwritten.i, align 8
-  %lenbytes6.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 2
+  %lenbytes6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %lenbytes, ptr %lenbytes6.i, align 8
   %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i), !range !5
   %tobool.not.i = icmp eq i32 %call7.i, 0
@@ -620,7 +616,7 @@ if.then8.i:                                       ; preds = %if.end3.i
   br label %wpacket_intern_init_len.exit
 
 if.end11.i:                                       ; preds = %if.end3.i
-  %packet_len.i = getelementptr inbounds %struct.wpacket_sub, ptr %2, i64 0, i32 1
+  %packet_len.i = getelementptr inbounds i8, ptr %2, i64 8
   store i64 0, ptr %packet_len.i, align 8
   br label %wpacket_intern_init_len.exit
 
@@ -643,19 +639,19 @@ entry:
   br i1 %0, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   store ptr %buf, ptr %staticbuf, align 8
   store ptr null, ptr %pkt, align 8
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 %len, ptr %maxsize, align 8
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %endfirst, align 8
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.i, i8 0, i64 16, i1 false)
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 110) #12
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %call.i, ptr %subs.i, align 8
   %cmp.i = icmp ne ptr %call.i, null
   %spec.select = zext i1 %cmp.i to i32
@@ -674,7 +670,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   store ptr null, ptr %staticbuf, align 8
   store ptr %buf, ptr %pkt, align 8
   %0 = add i64 %lenbytes, -8
@@ -684,17 +680,17 @@ if.end:                                           ; preds = %entry
   %sub.i = xor i64 %notmask.i, -1
   %add.i = add nuw nsw i64 %sub.i, %lenbytes
   %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 %retval.0.i, ptr %maxsize, align 8
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %endfirst, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.i, i8 0, i64 16, i1 false)
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 110) #12
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %call.i, ptr %subs.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %wpacket_intern_init_len.exit, label %if.end.i
@@ -704,9 +700,9 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %wpacket_intern_init_len.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %pwritten.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 3
+  %pwritten.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %lenbytes, ptr %pwritten.i, align 8
-  %lenbytes6.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 2
+  %lenbytes6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %lenbytes, ptr %lenbytes6.i, align 8
   %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i), !range !5
   %tobool.not.i = icmp eq i32 %call7.i, 0
@@ -719,7 +715,7 @@ if.then8.i:                                       ; preds = %if.end3.i
   br label %wpacket_intern_init_len.exit
 
 if.end11.i:                                       ; preds = %if.end3.i
-  %packet_len.i = getelementptr inbounds %struct.wpacket_sub, ptr %1, i64 0, i32 1
+  %packet_len.i = getelementptr inbounds i8, ptr %1, i64 8
   store i64 0, ptr %packet_len.i, align 8
   br label %wpacket_intern_init_len.exit
 
@@ -740,19 +736,19 @@ entry:
   br i1 %cmp.not.i, label %WPACKET_init_len.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %staticbuf.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf.i = getelementptr inbounds i8, ptr %pkt, i64 8
   store ptr null, ptr %staticbuf.i, align 8
   store ptr %buf, ptr %pkt, align 8
-  %maxsize.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize.i = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 -1, ptr %maxsize.i, align 8
-  %endfirst.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i = load i8, ptr %endfirst.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %endfirst.i, align 8
-  %curr.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.i.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 110) #12
-  %subs.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i.i = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %call.i.i, ptr %subs.i.i, align 8
   %cmp.i.i = icmp ne ptr %call.i.i, null
   %spec.select = zext i1 %cmp.i.i to i32
@@ -773,17 +769,17 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %add.i = add nuw nsw i64 %sub.i, %lenbytes
   %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt, i8 0, i64 16, i1 false)
   store i64 %retval.0.i, ptr %maxsize, align 8
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %endfirst, align 8
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.i, i8 0, i64 16, i1 false)
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 110) #12
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %call.i, ptr %subs.i, align 8
   %cmp.i = icmp ne ptr %call.i, null
   %spec.select = zext i1 %cmp.i to i32
@@ -793,17 +789,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_init_null_der(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %maxsize = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt, i8 0, i64 16, i1 false)
   store i64 -1, ptr %maxsize, align 8
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %endfirst, align 8
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.i, i8 0, i64 16, i1 false)
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 110) #12
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %call.i, ptr %subs.i, align 8
   %cmp.i = icmp ne ptr %call.i, null
   %spec.select = zext i1 %cmp.i to i32
@@ -813,13 +809,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @WPACKET_set_flags(ptr nocapture noundef readonly %pkt, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags6 = getelementptr inbounds %struct.wpacket_sub, ptr %0, i64 0, i32 4
+  %flags6 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %flags, ptr %flags6, align 8
   br label %return
 
@@ -831,7 +827,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_fill_lengths(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %for.body
@@ -856,16 +852,16 @@ return:                                           ; preds = %for.inc, %for.body,
 define internal fastcc i32 @wpacket_intern_close(ptr nocapture noundef %pkt, ptr noundef %sub, i32 noundef %doclose) unnamed_addr #0 {
 entry:
   %data.i = alloca ptr, align 8
-  %written = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written = getelementptr inbounds i8, ptr %pkt, i64 24
   %0 = load i64, ptr %written, align 8
-  %pwritten = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 3
+  %pwritten = getelementptr inbounds i8, ptr %sub, i64 24
   %1 = load i64, ptr %pwritten, align 8
   %sub1 = sub i64 %0, %1
   %cmp = icmp eq i64 %sub1, 0
   br i1 %cmp, label %land.lhs.true, label %if.end23
 
 land.lhs.true:                                    ; preds = %entry
-  %flags = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %sub, i64 32
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 1
   %cmp2.not = icmp eq i32 %and, 0
@@ -881,12 +877,12 @@ if.then7:                                         ; preds = %land.lhs.true4
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.then7
-  %curr = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr = getelementptr inbounds i8, ptr %pkt, i64 16
   %3 = load i64, ptr %curr, align 8
-  %lenbytes = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 2
+  %lenbytes = getelementptr inbounds i8, ptr %sub, i64 16
   %4 = load i64, ptr %lenbytes, align 8
   %sub11 = sub i64 %3, %4
-  %packet_len = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 1
+  %packet_len = getelementptr inbounds i8, ptr %sub, i64 8
   %5 = load i64, ptr %packet_len, align 8
   %cmp12 = icmp eq i64 %sub11, %5
   br i1 %cmp12, label %if.then13, label %if.end20
@@ -904,13 +900,13 @@ if.end20:                                         ; preds = %if.then13, %if.end1
   br label %if.end23
 
 if.end23:                                         ; preds = %entry, %if.end20, %land.lhs.true4
-  %lenbytes24 = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 2
+  %lenbytes24 = getelementptr inbounds i8, ptr %sub, i64 16
   %7 = load i64, ptr %lenbytes24, align 8
   %cmp25.not = icmp eq i64 %7, 0
   br i1 %cmp25.not, label %if.else56, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   %8 = load ptr, ptr %staticbuf, align 8
   %cmp27.not = icmp eq ptr %8, null
   br i1 %cmp27.not, label %cond.false, label %if.then37
@@ -921,18 +917,18 @@ cond.false:                                       ; preds = %if.then26
   br i1 %cmp30.not, label %if.end79, label %cond.end34
 
 cond.end34:                                       ; preds = %cond.false
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %9, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data, align 8
   %cmp36.not = icmp eq ptr %10, null
   br i1 %cmp36.not, label %if.end79, label %if.then37
 
 if.then37:                                        ; preds = %if.then26, %cond.end34
   %cond3585 = phi ptr [ %10, %cond.end34 ], [ %8, %if.then26 ]
-  %flags38 = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 4
+  %flags38 = getelementptr inbounds i8, ptr %sub, i64 32
   %11 = load i32, ptr %flags38, align 8
   %and39 = and i32 %11, 4
   %cmp40 = icmp eq i32 %and39, 0
-  %packet_len42 = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 1
+  %packet_len42 = getelementptr inbounds i8, ptr %sub, i64 8
   %12 = load i64, ptr %packet_len42, align 8
   %arrayidx = getelementptr inbounds i8, ptr %cond3585, i64 %12
   br i1 %cmp40, label %for.body.preheader.i, label %if.end.i45
@@ -985,7 +981,7 @@ put_quic_value.exit:                              ; preds = %ossl_quic_vlint_enc
   br label %if.end79
 
 if.else56:                                        ; preds = %if.end23
-  %endfirst = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool57.not = icmp eq i8 %bf.clear, 0
@@ -1000,7 +996,7 @@ land.lhs.true60:                                  ; preds = %land.lhs.true58
   br i1 %cmp, label %lor.lhs.false, label %if.then65
 
 lor.lhs.false:                                    ; preds = %land.lhs.true60
-  %flags62 = getelementptr inbounds %struct.wpacket_sub, ptr %sub, i64 0, i32 4
+  %flags62 = getelementptr inbounds i8, ptr %sub, i64 32
   %15 = load i32, ptr %flags62, align 8
   %and63 = and i32 %15, 2
   %cmp64 = icmp eq i32 %and63, 0
@@ -1072,13 +1068,13 @@ if.end70:                                         ; preds = %WPACKET_put_bytes__
   br i1 %cmp71, label %if.then72, label %if.end79
 
 if.then72:                                        ; preds = %if.end70
-  %subs.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %18 = load ptr, ptr %subs.i.i, align 8
   %cmp.i.i75.not = icmp eq ptr %18, null
   br i1 %cmp.i.i75.not, label %return, label %if.end.i.i77
 
 if.end.i.i77:                                     ; preds = %if.then72
-  %maxsize.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize.i.i = getelementptr inbounds i8, ptr %pkt, i64 32
   %19 = load i64, ptr %maxsize.i.i, align 8
   %20 = load i64, ptr %written, align 8
   %cmp4.i.i78 = icmp eq i64 %19, %20
@@ -1105,7 +1101,7 @@ if.then15.i.i:                                    ; preds = %land.lhs.true.i.i
   br i1 %cmp31.i.i, label %return, label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.then15.i.i, %land.lhs.true.i.i, %if.end7.i.i
-  %staticbuf.i.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf.i.i.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %23 = load ptr, ptr %staticbuf.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %if.end.i.i.i
@@ -1116,7 +1112,7 @@ cond.false.i.i.i:                                 ; preds = %if.end35.i.i
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false6.i56, label %cond.end7.i.i.i
 
 cond.end7.i.i.i:                                  ; preds = %cond.false.i.i.i
-  %data.i.i.i = getelementptr inbounds %struct.buf_mem_st, ptr %24, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %data.i.i.i, align 8
   %cmp9.i.i.i = icmp eq ptr %25, null
   br i1 %cmp9.i.i.i, label %lor.lhs.false6.i56, label %if.end.i.i.i
@@ -1129,7 +1125,7 @@ if.end.i.i.i:                                     ; preds = %cond.end7.i.i.i, %i
   br i1 %tobool.not.i.i.i, label %WPACKET_get_curr.exit.i.i.thread, label %if.then44.i.i
 
 WPACKET_get_curr.exit.i.i.thread:                 ; preds = %if.end.i.i.i
-  %curr13.i.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr13.i.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %26 = load i64, ptr %curr13.i.i.i, align 8
   %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %cond816.i.i.i, i64 %26
   br label %lor.lhs.false6.i56
@@ -1137,7 +1133,7 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %if.end.i.i.i
 if.then44.i.i:                                    ; preds = %if.end.i.i.i
   %27 = load i64, ptr %maxsize.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond816.i.i.i, i64 %27
-  %curr.i.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i.i.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %28 = load i64, ptr %curr.i.i.i, align 8
   %idx.neg.i.i.i = sub i64 0, %28
   %add.ptr11.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.neg.i.i.i
@@ -1146,7 +1142,7 @@ if.then44.i.i:                                    ; preds = %if.end.i.i.i
 
 lor.lhs.false6.i56:                               ; preds = %cond.false.i.i.i, %cond.end7.i.i.i, %if.then44.i.i, %WPACKET_get_curr.exit.i.i.thread
   %data.i52.0 = phi ptr [ %add.ptr14.i.i.i, %WPACKET_get_curr.exit.i.i.thread ], [ %add.ptr.i.i, %if.then44.i.i ], [ null, %cond.end7.i.i.i ], [ null, %cond.false.i.i.i ]
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %29 = load <2 x i64>, ptr %curr.i, align 8
   %30 = add <2 x i64> %29, <i64 1, i64 1>
   store <2 x i64> %30, ptr %curr.i, align 8
@@ -1165,7 +1161,7 @@ if.end79:                                         ; preds = %if.end.i.i58, %lor.
 
 if.then81:                                        ; preds = %if.end79
   %33 = load ptr, ptr %sub, align 8
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr %33, ptr %subs, align 8
   call void @CRYPTO_free(ptr noundef nonnull %sub, ptr noundef nonnull @.str, i32 noundef 313) #12
   br label %return
@@ -1178,7 +1174,7 @@ return:                                           ; preds = %if.then72, %if.end.
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_finish(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1211,7 +1207,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_start_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %WPACKET_start_sub_packet_len__.exit, label %if.end.i
@@ -1225,11 +1221,11 @@ if.end13.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %subs.i, align 8
   store ptr %1, ptr %call.i, align 8
   store ptr %call.i, ptr %subs.i, align 8
-  %written.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written.i, align 8
-  %pwritten.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 3
+  %pwritten.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %2, ptr %pwritten.i, align 8
-  %packet_len.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 1
+  %packet_len.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %packet_len.i, i8 0, i64 16, i1 false)
   br label %WPACKET_start_sub_packet_len__.exit
 
@@ -1289,7 +1285,7 @@ return:                                           ; preds = %put_value.exit, %lo
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @WPACKET_set_max_size(ptr nocapture noundef %pkt, i64 noundef %maxsize) local_unnamed_addr #4 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %for.cond
@@ -1301,7 +1297,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   br i1 %cmp6.not, label %for.end, label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
-  %lenbytes9 = getelementptr inbounds %struct.wpacket_sub, ptr %sub.0, i64 0, i32 2
+  %lenbytes9 = getelementptr inbounds i8, ptr %sub.0, i64 16
   %2 = load i64, ptr %lenbytes9, align 8
   %cmp10 = icmp eq i64 %2, 0
   %spec.store.select = select i1 %cmp10, i64 8, i64 %2
@@ -1315,13 +1311,13 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp14, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %written = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written = getelementptr inbounds i8, ptr %pkt, i64 24
   %3 = load i64, ptr %written, align 8
   %cmp16 = icmp ugt i64 %3, %maxsize
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %lor.lhs.false
-  %maxsize20 = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize20 = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 %maxsize, ptr %maxsize20, align 8
   br label %return
 
@@ -1395,7 +1391,7 @@ entry:
   %dest.i = alloca ptr, align 8
   %lenchars.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %WPACKET_start_sub_packet_len__.exit.thread, label %if.end.i
@@ -1405,7 +1401,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp5.not.i, label %if.end9.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %endfirst.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i = load i8, ptr %endfirst.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool7.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1420,14 +1416,14 @@ if.end13.i:                                       ; preds = %if.end9.i
   %1 = load ptr, ptr %subs.i, align 8
   store ptr %1, ptr %call.i, align 8
   store ptr %call.i, ptr %subs.i, align 8
-  %written.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written.i, align 8
   %add.i = add i64 %2, %lenbytes
-  %pwritten.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 3
+  %pwritten.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add.i, ptr %pwritten.i, align 8
-  %lenbytes16.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 2
+  %lenbytes16.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %lenbytes, ptr %lenbytes16.i, align 8
-  %packet_len.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 1
+  %packet_len.i = getelementptr inbounds i8, ptr %call.i, i64 8
   br i1 %cmp5.not.i, label %WPACKET_start_sub_packet_len__.exit.thread13, label %WPACKET_start_sub_packet_len__.exit
 
 WPACKET_start_sub_packet_len__.exit.thread13:     ; preds = %if.end13.i
@@ -1501,7 +1497,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %written5 = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written5 = getelementptr inbounds i8, ptr %pkt, i64 24
   %0 = load i64, ptr %written5, align 8
   store i64 %0, ptr %written, align 8
   br label %return
@@ -1514,7 +1510,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @WPACKET_get_length(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %len) local_unnamed_addr #8 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp = icmp ne ptr %0, null
   %cmp1 = icmp ne ptr %len, null
@@ -1522,9 +1518,9 @@ entry:
   br i1 %1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %written = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written, align 8
-  %pwritten = getelementptr inbounds %struct.wpacket_sub, ptr %0, i64 0, i32 3
+  %pwritten = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %pwritten, align 8
   %sub = sub i64 %2, %3
   store i64 %sub, ptr %len, align 8
@@ -1543,7 +1539,7 @@ entry:
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   %1 = load ptr, ptr %staticbuf, align 8
   %cmp1 = icmp eq ptr %1, null
   %2 = zext i1 %cmp1 to i32
@@ -1557,7 +1553,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @WPACKET_cleanup(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %subs = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
   %cmp.not4 = icmp eq ptr %0, null
   br i1 %cmp.not4, label %for.end, label %for.body
@@ -1596,13 +1592,13 @@ if.end6.i:                                        ; preds = %if.end3.i
 if.end:                                           ; preds = %if.end6.i, %entry, %if.end.i, %if.end3.i
   %retval.0.i.ph = phi i64 [ 4, %if.end3.i ], [ 2, %if.end.i ], [ 1, %entry ], [ 8, %if.end6.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
-  %subs.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %WPACKET_start_sub_packet_len__.exit.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %endfirst.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i = load i8, ptr %endfirst.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool7.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1621,14 +1617,14 @@ WPACKET_start_sub_packet_len__.exit:              ; preds = %if.end9.i
   %1 = load ptr, ptr %subs.i, align 8
   store ptr %1, ptr %call.i, align 8
   store ptr %call.i, ptr %subs.i, align 8
-  %written.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written.i, align 8
   %add.i = add i64 %2, %retval.0.i.ph
-  %pwritten.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 3
+  %pwritten.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add.i, ptr %pwritten.i, align 8
-  %lenbytes16.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 2
+  %lenbytes16.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %retval.0.i.ph, ptr %lenbytes16.i, align 8
-  %packet_len.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i, i64 0, i32 1
+  %packet_len.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %2, ptr %packet_len.i, align 8
   %call23.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %retval.0.i.ph, ptr noundef nonnull %lenchars.i), !range !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenchars.i)
@@ -1637,7 +1633,7 @@ WPACKET_start_sub_packet_len__.exit:              ; preds = %if.end9.i
 
 if.end4:                                          ; preds = %WPACKET_start_sub_packet_len__.exit
   %3 = load ptr, ptr %subs.i, align 8
-  %flags = getelementptr inbounds %struct.wpacket_sub, ptr %3, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i32, ptr %flags, align 8
   %or = or i32 %4, 4
   store i32 %or, ptr %flags, align 8
@@ -1651,13 +1647,13 @@ return:                                           ; preds = %WPACKET_start_sub_p
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @WPACKET_start_quic_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %subs.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %WPACKET_start_quic_sub_packet_bound.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %endfirst.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i.i = load i8, ptr %endfirst.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool7.not.i.i = icmp eq i8 %bf.clear.i.i, 0
@@ -1672,16 +1668,16 @@ if.end.i.i:                                       ; preds = %if.end9.i.i
   %1 = load ptr, ptr %subs.i.i, align 8
   store ptr %1, ptr %call.i.i, align 8
   store ptr %call.i.i, ptr %subs.i.i, align 8
-  %written.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written.i.i, align 8
   %add.i.i = add i64 %2, 4
-  %pwritten.i.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i.i, i64 0, i32 3
+  %pwritten.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %add.i.i, ptr %pwritten.i.i, align 8
-  %lenbytes16.i.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i.i, i64 0, i32 2
+  %lenbytes16.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4, ptr %lenbytes16.i.i, align 8
-  %packet_len.i.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i.i, i64 0, i32 1
+  %packet_len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %2, ptr %packet_len.i.i, align 8
-  %maxsize.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 4
+  %maxsize.i.i = getelementptr inbounds i8, ptr %pkt, i64 32
   %3 = load i64, ptr %maxsize.i.i, align 8
   %sub.i.i = sub i64 %3, %2
   %cmp4.i.i = icmp ult i64 %sub.i.i, 4
@@ -1718,11 +1714,11 @@ if.end35.i.i:                                     ; preds = %if.then15.i.i.if.en
   %add.i.pre-phi = phi i64 [ %.pre12, %if.then15.i.i.if.end35.i.i_crit_edge ], [ %add.i.i, %land.lhs.true.i.i4 ], [ %add.i.i, %if.end7.i.i ]
   %6 = phi ptr [ %.pre11, %if.then15.i.i.if.end35.i.i_crit_edge ], [ %call.i.i, %land.lhs.true.i.i4 ], [ %call.i.i, %if.end7.i.i ]
   store i64 %add.i.pre-phi, ptr %written.i.i, align 8
-  %curr.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 2
+  %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %7 = load i64, ptr %curr.i, align 8
   %add1.i = add i64 %7, 4
   store i64 %add1.i, ptr %curr.i, align 8
-  %flags.i = getelementptr inbounds %struct.wpacket_sub, ptr %6, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i32, ptr %flags.i, align 8
   %or.i = or i32 %8, 4
   store i32 %or.i, ptr %flags.i, align 8
@@ -1755,13 +1751,13 @@ if.end6.i.i:                                      ; preds = %if.end3.i.i
 if.end.i:                                         ; preds = %if.end6.i.i, %if.end3.i.i, %if.end.i.i, %entry
   %retval.0.i.ph.i = phi i64 [ 4, %if.end3.i.i ], [ 2, %if.end.i.i ], [ 1, %entry ], [ 8, %if.end6.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i.i)
-  %subs.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 5
+  %subs.i.i = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %WPACKET_start_sub_packet_len__.exit.thread.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %endfirst.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 6
+  %endfirst.i.i = getelementptr inbounds i8, ptr %pkt, i64 48
   %bf.load.i.i = load i8, ptr %endfirst.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool7.not.i.i = icmp eq i8 %bf.clear.i.i, 0
@@ -1780,14 +1776,14 @@ WPACKET_start_sub_packet_len__.exit.i:            ; preds = %if.end9.i.i
   %1 = load ptr, ptr %subs.i.i, align 8
   store ptr %1, ptr %call.i.i, align 8
   store ptr %call.i.i, ptr %subs.i.i, align 8
-  %written.i.i = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 3
+  %written.i.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %2 = load i64, ptr %written.i.i, align 8
   %add.i.i = add i64 %2, %retval.0.i.ph.i
-  %pwritten.i.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i.i, i64 0, i32 3
+  %pwritten.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %add.i.i, ptr %pwritten.i.i, align 8
-  %lenbytes16.i.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i.i, i64 0, i32 2
+  %lenbytes16.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %retval.0.i.ph.i, ptr %lenbytes16.i.i, align 8
-  %packet_len.i.i = getelementptr inbounds %struct.wpacket_sub, ptr %call.i.i, i64 0, i32 1
+  %packet_len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %2, ptr %packet_len.i.i, align 8
   %call23.i.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %retval.0.i.ph.i, ptr noundef nonnull %lenchars.i.i), !range !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenchars.i.i)
@@ -1796,7 +1792,7 @@ WPACKET_start_sub_packet_len__.exit.i:            ; preds = %if.end9.i.i
 
 lor.lhs.false:                                    ; preds = %WPACKET_start_sub_packet_len__.exit.i
   %3 = load ptr, ptr %subs.i.i, align 8
-  %flags.i = getelementptr inbounds %struct.wpacket_sub, ptr %3, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i32, ptr %flags.i, align 8
   %or.i = or i32 %4, 4
   store i32 %or.i, ptr %flags.i, align 8

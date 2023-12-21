@@ -14,37 +14,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr }
 %struct.anon.1 = type { ptr }
 %struct.HMAT_LB_Data = type { i8, i8, i64 }
-%struct.NumaState = type { i32, i8, i8, [128 x %struct.NodeInfo], [4 x [6 x ptr]], [128 x [4 x ptr]] }
 %struct.NodeInfo = type { i64, ptr, i8, i8, i8, i16, [128 x i8] }
-%struct.NumaHmatLBOptions = type { i16, i16, i32, i32, i8, i64, i8, i64 }
-%struct.HMAT_LB_Info = type { i8, i8, i64, i64, ptr }
-%struct._GArray = type { ptr, i32 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.NumaHmatCacheOptions = type { i32, i64, i8, i32, i32, i16 }
-%struct.NumaOptions = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.NumaCpuOptions }
-%struct.NumaCpuOptions = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 %struct.CpuInstanceProperties = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 %struct.NumaNodeOptions = type { i8, i16, i8, ptr, i8, i64, ptr, i8, i16 }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.uint16List = type { ptr, i16 }
-%struct.CPUArchId = type { i64, i64, %struct.CpuInstanceProperties, ptr, ptr }
 %struct.NumaNodeMem = type { i64, i64 }
-%struct.MemoryDeviceInfoList = type { ptr, ptr }
-%struct.MemoryDeviceInfo = type { i32, %union.anon.3 }
-%union.anon.3 = type { %struct.PCDIMMDeviceInfoWrapper }
-%struct.PCDIMMDeviceInfoWrapper = type { ptr }
-%struct.PCDIMMDeviceInfo = type { ptr, i64, i64, i64, i64, ptr, i8, i8 }
-%struct.VirtioPMEMDeviceInfo = type { ptr, i64, i64, ptr }
-%struct.VirtioMEMDeviceInfo = type { ptr, i64, i64, i64, i64, i64, i64, ptr }
-%struct.SgxEPCDeviceInfo = type { ptr, i64, i64, i64, ptr }
-%struct.RAMBlockNotifier = type { ptr, ptr, ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"numa\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"type\00", align 1
@@ -139,14 +112,15 @@ entry:
 define dso_local void @parse_numa_hmat_lb(ptr nocapture noundef %numa_state, ptr nocapture noundef readonly %node, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %lb_data = alloca %struct.HMAT_LB_Data, align 8
-  %nodes = getelementptr inbounds %struct.NumaState, ptr %numa_state, i64 0, i32 3
-  %hierarchy = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 2
+  %nodes = getelementptr inbounds i8, ptr %numa_state, i64 8
+  %hmat_lb1 = getelementptr inbounds i8, ptr %numa_state, i64 19464
+  %hierarchy = getelementptr inbounds i8, ptr %node, i64 4
   %0 = load i32, ptr %hierarchy, align 4
   %idxprom = zext i32 %0 to i64
-  %data_type = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 3
+  %data_type = getelementptr inbounds i8, ptr %node, i64 8
   %1 = load i32, ptr %data_type, align 8
   %idxprom2 = zext i32 %1 to i64
-  %arrayidx3 = getelementptr %struct.NumaState, ptr %numa_state, i64 0, i32 4, i64 %idxprom, i64 %idxprom2
+  %arrayidx3 = getelementptr [4 x [6 x ptr]], ptr %hmat_lb1, i64 0, i64 %idxprom, i64 %idxprom2
   %2 = load ptr, ptr %arrayidx3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lb_data, i8 0, i64 16, i1 false)
   %3 = load i16, ptr %node, align 8
@@ -160,7 +134,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %node, i64 2
   %5 = load i16, ptr %target, align 2
   %conv8 = zext i16 %5 to i32
   %cmp10 = icmp slt i32 %4, %conv8
@@ -204,10 +178,10 @@ if.then33:                                        ; preds = %if.end31
   %idxprom36 = zext i32 %10 to i64
   %11 = load i32, ptr %data_type, align 8
   %idxprom39 = zext i32 %11 to i64
-  %arrayidx40 = getelementptr %struct.NumaState, ptr %numa_state, i64 0, i32 4, i64 %idxprom36, i64 %idxprom39
+  %arrayidx40 = getelementptr [4 x [6 x ptr]], ptr %hmat_lb1, i64 0, i64 %idxprom36, i64 %idxprom39
   store ptr %call, ptr %arrayidx40, align 8
   %call41 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 16) #11
-  %list = getelementptr inbounds %struct.HMAT_LB_Info, ptr %call, i64 0, i32 4
+  %list = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call41, ptr %list, align 8
   %.pre = load i32, ptr %hierarchy, align 4
   br label %if.end42
@@ -219,21 +193,21 @@ if.end42:                                         ; preds = %if.then33, %if.end3
   store i8 %conv44, ptr %hmat_lb.0, align 8
   %13 = load i32, ptr %data_type, align 8
   %conv47 = trunc i32 %13 to i8
-  %data_type48 = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 1
+  %data_type48 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 1
   store i8 %conv47, ptr %data_type48, align 1
   %14 = load i16, ptr %node, align 8
   %conv50 = trunc i16 %14 to i8
   store i8 %conv50, ptr %lb_data, align 8
   %15 = load i16, ptr %target, align 2
   %conv53 = trunc i16 %15 to i8
-  %target54 = getelementptr inbounds %struct.HMAT_LB_Data, ptr %lb_data, i64 0, i32 1
+  %target54 = getelementptr inbounds i8, ptr %lb_data, i64 1
   store i8 %conv53, ptr %target54, align 1
   %16 = load i32, ptr %data_type, align 8
   %cmp56 = icmp ult i32 %16, 3
   br i1 %cmp56, label %if.then58, label %if.then137
 
 if.then58:                                        ; preds = %if.end42
-  %has_latency = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 4
+  %has_latency = getelementptr inbounds i8, ptr %node, i64 12
   %17 = load i8, ptr %has_latency, align 4
   %18 = and i8 %17, 1
   %tobool59.not = icmp eq i8 %18, 0
@@ -244,16 +218,16 @@ if.then60:                                        ; preds = %if.then58
   br label %return
 
 if.end61:                                         ; preds = %if.then58
-  %has_bandwidth = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 6
+  %has_bandwidth = getelementptr inbounds i8, ptr %node, i64 24
   %19 = load i8, ptr %has_bandwidth, align 8
   %20 = and i8 %19, 1
   %tobool62.not = icmp eq i8 %20, 0
   br i1 %tobool62.not, label %for.cond.preheader, label %if.then63
 
 for.cond.preheader:                               ; preds = %if.end61
-  %list65 = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 4
+  %list65 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 24
   %21 = load ptr, ptr %list65, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %21, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i32, ptr %len, align 8
   %cmp66129.not = icmp eq i32 %22, 0
   br i1 %cmp66129.not, label %for.end, label %for.body.lr.ph
@@ -276,7 +250,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp75, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %target79 = getelementptr %struct.HMAT_LB_Data, ptr %23, i64 %idxprom69, i32 1
+  %target79 = getelementptr inbounds i8, ptr %arrayidx70, i64 1
   %26 = load i8, ptr %target79, align 1
   %27 = zext i8 %26 to i16
   %cmp81 = icmp eq i16 %15, %27
@@ -294,12 +268,12 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %exitcond135.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %base = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %hmat_lb.0, i64 16
   %28 = load i64, ptr %base, align 8
   %tobool89.not = icmp eq i64 %28, 0
   %spec.select = select i1 %tobool89.not, i64 -1, i64 %28
   store i64 %spec.select, ptr %base, align 8
-  %latency = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 5
+  %latency = getelementptr inbounds i8, ptr %node, i64 16
   %29 = load i64, ptr %latency, align 8
   %tobool92.not = icmp eq i64 %29, 0
   br i1 %tobool92.not, label %if.end233, label %while.cond.preheader
@@ -321,7 +295,7 @@ while.body:                                       ; preds = %while.cond.preheade
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %temp_base.0.lcssa = phi i64 [ 1, %while.cond.preheader ], [ %mul, %while.body ]
   %div106 = udiv i64 %29, %spec.select
-  %range_bitmap = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 2
+  %range_bitmap = getelementptr inbounds i8, ptr %hmat_lb.0, i64 8
   %30 = load i64, ptr %range_bitmap, align 8
   %cond113 = tail call i64 @llvm.umax.i64(i64 %30, i64 %div106)
   %cmp114 = icmp ugt i64 %cond113, 65534
@@ -342,7 +316,7 @@ if.else:                                          ; preds = %while.end
   br label %if.end233.sink.split
 
 if.then137:                                       ; preds = %if.end42
-  %has_bandwidth138 = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 6
+  %has_bandwidth138 = getelementptr inbounds i8, ptr %node, i64 24
   %33 = load i8, ptr %has_bandwidth138, align 8
   %34 = and i8 %33, 1
   %tobool139.not = icmp eq i8 %34, 0
@@ -353,7 +327,7 @@ if.then140:                                       ; preds = %if.then137
   br label %return
 
 if.end141:                                        ; preds = %if.then137
-  %has_latency142 = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 4
+  %has_latency142 = getelementptr inbounds i8, ptr %node, i64 12
   %35 = load i8, ptr %has_latency142, align 4
   %36 = and i8 %35, 1
   %tobool143.not = icmp eq i8 %36, 0
@@ -364,16 +338,16 @@ if.then144:                                       ; preds = %if.end141
   br label %return
 
 if.end145:                                        ; preds = %if.end141
-  %bandwidth = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 7
+  %bandwidth = getelementptr inbounds i8, ptr %node, i64 32
   %37 = load i64, ptr %bandwidth, align 8
   %rem146 = and i64 %37, 1048575
   %cmp147 = icmp eq i64 %rem146, 0
   br i1 %cmp147, label %for.cond156.preheader, label %if.then149
 
 for.cond156.preheader:                            ; preds = %if.end145
-  %list157 = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 4
+  %list157 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 24
   %38 = load ptr, ptr %list157, align 8
-  %len158 = getelementptr inbounds %struct._GArray, ptr %38, i64 0, i32 1
+  %len158 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load i32, ptr %len158, align 8
   %cmp159127.not = icmp eq i32 %39, 0
   br i1 %cmp159127.not, label %for.end187, label %for.body161.lr.ph
@@ -398,7 +372,7 @@ for.body161:                                      ; preds = %for.body161.lr.ph, 
   br i1 %cmp170, label %land.lhs.true172, label %for.inc185
 
 land.lhs.true172:                                 ; preds = %for.body161
-  %target175 = getelementptr %struct.HMAT_LB_Data, ptr %40, i64 %idxprom164, i32 1
+  %target175 = getelementptr inbounds i8, ptr %arrayidx165, i64 1
   %43 = load i8, ptr %target175, align 1
   %44 = zext i8 %43 to i16
   %cmp177 = icmp eq i16 %15, %44
@@ -416,7 +390,7 @@ for.inc185:                                       ; preds = %for.body161, %land.
   br i1 %exitcond.not, label %for.end187, label %for.body161, !llvm.loop !8
 
 for.end187:                                       ; preds = %for.inc185, %for.cond156.preheader
-  %base188 = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 3
+  %base188 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 16
   %45 = load i64, ptr %base188, align 8
   %spec.select125 = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
   store i64 %spec.select125, ptr %base188, align 8
@@ -425,7 +399,7 @@ for.end187:                                       ; preds = %for.inc185, %for.co
   br i1 %tobool197.not, label %if.end233, label %if.then198
 
 if.then198:                                       ; preds = %for.end187
-  %range_bitmap199 = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 2
+  %range_bitmap199 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 8
   %47 = load i64, ptr %range_bitmap199, align 8
   %or201 = or i64 %47, %46
   %48 = tail call i64 @llvm.cttz.i64(i64 %or201, i1 true), !range !9
@@ -467,9 +441,9 @@ if.end233.sink.split:                             ; preds = %if.else, %if.else21
 
 if.end233:                                        ; preds = %if.end233.sink.split, %for.end187, %for.end
   %.sink = phi i64 [ 0, %for.end ], [ 0, %for.end187 ], [ %.pre136, %if.end233.sink.split ]
-  %data230 = getelementptr inbounds %struct.HMAT_LB_Data, ptr %lb_data, i64 0, i32 2
+  %data230 = getelementptr inbounds i8, ptr %lb_data, i64 8
   store i64 %.sink, ptr %data230, align 8
-  %list234 = getelementptr inbounds %struct.HMAT_LB_Info, ptr %hmat_lb.0, i64 0, i32 4
+  %list234 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 24
   %56 = load ptr, ptr %list234, align 8
   %call235 = call ptr @g_array_append_vals(ptr noundef %56, ptr noundef nonnull %lb_data, i32 noundef 1) #11
   br label %return
@@ -496,7 +470,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @parse_numa_hmat_cache(ptr nocapture noundef readonly %ms, ptr nocapture noundef readonly %node, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
+  %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
   %1 = load i32, ptr %0, align 8
   %2 = load i32, ptr %node, align 8
@@ -508,7 +482,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %nodes = getelementptr inbounds %struct.NumaState, ptr %0, i64 0, i32 3
+  %nodes = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom = zext i32 %2 to i64
   %lb_info_provided = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom, i32 4
   %3 = load i8, ptr %lb_info_provided, align 2
@@ -520,7 +494,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %level = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %node, i64 0, i32 2
+  %level = getelementptr inbounds i8, ptr %node, i64 16
   %4 = load i8, ptr %level, align 8
   %conv9 = zext i8 %4 to i32
   %5 = add i8 %4, -4
@@ -532,7 +506,7 @@ if.then16:                                        ; preds = %if.end8
   br label %return
 
 if.end19:                                         ; preds = %if.end8
-  %associativity = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %node, i64 0, i32 3
+  %associativity = getelementptr inbounds i8, ptr %node, i64 20
   %6 = load i32, ptr %associativity, align 4
   %cmp20 = icmp ult i32 %6, 3
   br i1 %cmp20, label %if.end23, label %if.else
@@ -542,7 +516,7 @@ if.else:                                          ; preds = %if.end19
   unreachable
 
 if.end23:                                         ; preds = %if.end19
-  %policy = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %node, i64 0, i32 4
+  %policy = getelementptr inbounds i8, ptr %node, i64 24
   %7 = load i32, ptr %policy, align 8
   %cmp24 = icmp ult i32 %7, 3
   br i1 %cmp24, label %if.end28, label %if.else27
@@ -552,8 +526,9 @@ if.else27:                                        ; preds = %if.end23
   unreachable
 
 if.end28:                                         ; preds = %if.end23
+  %hmat_cache30 = getelementptr inbounds i8, ptr %0, i64 19656
   %idxprom35 = zext nneg i8 %4 to i64
-  %arrayidx36 = getelementptr %struct.NumaState, ptr %0, i64 0, i32 5, i64 %idxprom, i64 %idxprom35
+  %arrayidx36 = getelementptr [128 x [4 x ptr]], ptr %hmat_cache30, i64 0, i64 %idxprom, i64 %idxprom35
   %8 = load ptr, ptr %arrayidx36, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end41, label %if.then37
@@ -569,7 +544,7 @@ if.end41:                                         ; preds = %if.end28
 land.lhs.true:                                    ; preds = %if.end41
   %sub = add nsw i32 %conv9, -1
   %idxprom53 = zext nneg i32 %sub to i64
-  %arrayidx54 = getelementptr %struct.NumaState, ptr %0, i64 0, i32 5, i64 %idxprom, i64 %idxprom53
+  %arrayidx54 = getelementptr [128 x [4 x ptr]], ptr %hmat_cache30, i64 0, i64 %idxprom, i64 %idxprom53
   %9 = load ptr, ptr %arrayidx54, align 8
   %cmp55 = icmp eq ptr %9, null
   br i1 %cmp55, label %if.then57, label %land.lhs.true66
@@ -579,9 +554,9 @@ if.then57:                                        ; preds = %land.lhs.true
   br label %return
 
 land.lhs.true66:                                  ; preds = %land.lhs.true
-  %size = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %node, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %node, i64 8
   %10 = load i64, ptr %size, align 8
-  %size77 = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %9, i64 0, i32 1
+  %size77 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %size77, align 8
   %cmp78.not = icmp ugt i64 %10, %11
   br i1 %cmp78.not, label %if.end98, label %if.then80
@@ -597,15 +572,15 @@ if.end98:                                         ; preds = %land.lhs.true66
 land.lhs.true103:                                 ; preds = %if.end41, %if.end98
   %add = add nuw nsw i32 %conv9, 1
   %idxprom111 = zext nneg i32 %add to i64
-  %arrayidx112 = getelementptr %struct.NumaState, ptr %0, i64 0, i32 5, i64 %idxprom, i64 %idxprom111
+  %arrayidx112 = getelementptr [128 x [4 x ptr]], ptr %hmat_cache30, i64 0, i64 %idxprom, i64 %idxprom111
   %12 = load ptr, ptr %arrayidx112, align 8
   %tobool113.not = icmp eq ptr %12, null
   br i1 %tobool113.not, label %if.end147, label %land.lhs.true114
 
 land.lhs.true114:                                 ; preds = %land.lhs.true103
-  %size115 = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %node, i64 0, i32 1
+  %size115 = getelementptr inbounds i8, ptr %node, i64 8
   %13 = load i64, ptr %size115, align 8
-  %size126 = getelementptr inbounds %struct.NumaHmatCacheOptions, ptr %12, i64 0, i32 1
+  %size126 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i64, ptr %size126, align 8
   %cmp127.not = icmp ult i64 %13, %14
   br i1 %cmp127.not, label %if.end147, label %if.then129
@@ -618,11 +593,12 @@ if.end147:                                        ; preds = %land.lhs.true114, %
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %node, i64 32, i1 false)
   %15 = load ptr, ptr %numa_state, align 8
+  %hmat_cache149 = getelementptr inbounds i8, ptr %15, i64 19656
   %16 = load i32, ptr %node, align 8
   %idxprom151 = zext i32 %16 to i64
   %17 = load i8, ptr %level, align 8
   %idxprom154 = zext i8 %17 to i64
-  %arrayidx155 = getelementptr %struct.NumaState, ptr %15, i64 0, i32 5, i64 %idxprom151, i64 %idxprom154
+  %arrayidx155 = getelementptr [128 x [4 x ptr]], ptr %hmat_cache149, i64 0, i64 %idxprom151, i64 %idxprom154
   store ptr %call, ptr %arrayidx155, align 8
   br label %return
 
@@ -636,7 +612,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @set_numa_options(ptr noundef %ms, ptr noundef %object, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
+  %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -656,18 +632,18 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.NumaOptions, ptr %object, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %object, i64 8
   tail call fastcc void @parse_numa_node(ptr noundef nonnull %ms, ptr noundef nonnull %u, ptr noundef %errp)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %if.end
-  %u2 = getelementptr inbounds %struct.NumaOptions, ptr %object, i64 0, i32 1
+  %u2 = getelementptr inbounds i8, ptr %object, i64 8
   %2 = load i16, ptr %u2, align 2
   %dst2.i = getelementptr inbounds i8, ptr %object, i64 10
   %3 = load i16, ptr %dst2.i, align 2
   %val3.i = getelementptr inbounds i8, ptr %object, i64 12
   %4 = load i8, ptr %val3.i, align 2
-  %nodes.i = getelementptr inbounds %struct.NumaState, ptr %0, i64 0, i32 3
+  %nodes.i = getelementptr inbounds i8, ptr %0, i64 8
   %conv.i = zext i16 %2 to i32
   %cmp.i = icmp ugt i16 %2, 127
   %cmp6.i = icmp ugt i16 %3, 127
@@ -681,7 +657,8 @@ if.then.i:                                        ; preds = %sw.bb1
 
 if.end.i:                                         ; preds = %sw.bb1
   %idxprom.i = zext nneg i16 %2 to i64
-  %present.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %idxprom.i, i32 2
+  %arrayidx.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %idxprom.i
+  %present.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %5 = load i8, ptr %present.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -719,15 +696,16 @@ if.then31.i:                                      ; preds = %if.end23.i
   br label %sw.epilog
 
 if.end33.i:                                       ; preds = %if.end23.i
-  %arrayidx37.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %idxprom.i, i32 6, i64 %idxprom12.i
+  %distance.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 22
+  %arrayidx37.i = getelementptr [128 x i8], ptr %distance.i, i64 0, i64 %idxprom12.i
   store i8 %4, ptr %arrayidx37.i, align 1
   %9 = load ptr, ptr %numa_state, align 8
-  %have_numa_distance.i = getelementptr inbounds %struct.NumaState, ptr %9, i64 0, i32 1
+  %have_numa_distance.i = getelementptr inbounds i8, ptr %9, i64 4
   store i8 1, ptr %have_numa_distance.i, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %if.end
-  %u4 = getelementptr inbounds %struct.NumaOptions, ptr %object, i64 0, i32 1
+  %u4 = getelementptr inbounds i8, ptr %object, i64 8
   %10 = load i8, ptr %u4, align 8
   %11 = and i8 %10, 1
   %tobool5.not = icmp eq i8 %11, 0
@@ -738,9 +716,10 @@ if.then6:                                         ; preds = %sw.bb3
   br label %sw.epilog
 
 if.end7:                                          ; preds = %sw.bb3
-  %node_id = getelementptr inbounds %struct.NumaOptions, ptr %object, i64 0, i32 1, i32 0, i32 1
+  %nodes = getelementptr inbounds i8, ptr %0, i64 8
+  %node_id = getelementptr inbounds i8, ptr %object, i64 16
   %12 = load i64, ptr %node_id, align 8
-  %present = getelementptr %struct.NumaState, ptr %0, i64 0, i32 3, i64 %12, i32 2
+  %present = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %12, i32 2
   %13 = load i8, ptr %present, align 8
   %14 = and i8 %13, 1
   %tobool10.not = icmp eq i8 %14, 0
@@ -755,7 +734,7 @@ if.end14:                                         ; preds = %if.end7
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end
-  %hmat_enabled = getelementptr inbounds %struct.NumaState, ptr %0, i64 0, i32 2
+  %hmat_enabled = getelementptr inbounds i8, ptr %0, i64 5
   %15 = load i8, ptr %hmat_enabled, align 1
   %16 = and i8 %15, 1
   %tobool18.not = icmp eq i8 %16, 0
@@ -766,12 +745,12 @@ if.then19:                                        ; preds = %sw.bb16
   br label %sw.epilog
 
 if.end20:                                         ; preds = %sw.bb16
-  %u22 = getelementptr inbounds %struct.NumaOptions, ptr %object, i64 0, i32 1
+  %u22 = getelementptr inbounds i8, ptr %object, i64 8
   tail call void @parse_numa_hmat_lb(ptr noundef nonnull %0, ptr noundef nonnull %u22, ptr noundef %errp)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end
-  %hmat_enabled25 = getelementptr inbounds %struct.NumaState, ptr %0, i64 0, i32 2
+  %hmat_enabled25 = getelementptr inbounds i8, ptr %0, i64 5
   %17 = load i8, ptr %hmat_enabled25, align 1
   %18 = and i8 %17, 1
   %tobool26.not = icmp eq i8 %18, 0
@@ -782,7 +761,7 @@ if.then27:                                        ; preds = %sw.bb23
   br label %sw.epilog
 
 if.end28:                                         ; preds = %sw.bb23
-  %u29 = getelementptr inbounds %struct.NumaOptions, ptr %object, i64 0, i32 1
+  %u29 = getelementptr inbounds i8, ptr %object, i64 8
   tail call void @parse_numa_hmat_cache(ptr noundef nonnull %ms, ptr noundef nonnull %u29, ptr noundef %errp)
   br label %sw.epilog
 
@@ -803,18 +782,18 @@ entry:
   store ptr null, ptr %err, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %ms) #11
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
-  %max_cpus1 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 8
+  %max_cpus1 = getelementptr inbounds i8, ptr %ms, i64 320
   %0 = load i32, ptr %max_cpus1, align 8
-  %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
+  %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %1 = load ptr, ptr %numa_state, align 8
-  %nodes = getelementptr inbounds %struct.NumaState, ptr %1, i64 0, i32 3
+  %nodes = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %node, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %nodeid = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 1
+  %nodeid = getelementptr inbounds i8, ptr %node, i64 2
   %4 = load i16, ptr %nodeid, align 2
   br label %if.end
 
@@ -836,7 +815,7 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   %idxprom = zext nneg i16 %nodenr.0 to i64
   %arrayidx = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom
-  %present = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom, i32 2
+  %present = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load i8, ptr %present, align 8
   %7 = and i8 %6, 1
   %tobool8.not = icmp eq i8 %7, 0
@@ -847,9 +826,9 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end11:                                         ; preds = %if.end7
-  %initiator = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom, i32 5
+  %initiator = getelementptr inbounds i8, ptr %arrayidx, i64 20
   store i16 128, ptr %initiator, align 4
-  %has_initiator = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 7
+  %has_initiator = getelementptr inbounds i8, ptr %node, i64 40
   %8 = load i8, ptr %has_initiator, align 8
   %9 = and i8 %8, 1
   %tobool14.not = icmp eq i8 %9, 0
@@ -857,7 +836,7 @@ if.end11:                                         ; preds = %if.end7
 
 if.then15:                                        ; preds = %if.end11
   %10 = load ptr, ptr %numa_state, align 8
-  %hmat_enabled = getelementptr inbounds %struct.NumaState, ptr %10, i64 0, i32 2
+  %hmat_enabled = getelementptr inbounds i8, ptr %10, i64 5
   %11 = load i8, ptr %hmat_enabled, align 1
   %12 = and i8 %11, 1
   %tobool17.not = icmp eq i8 %12, 0
@@ -868,7 +847,7 @@ if.then18:                                        ; preds = %if.then15
   br label %return
 
 if.end19:                                         ; preds = %if.then15
-  %initiator20 = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 8
+  %initiator20 = getelementptr inbounds i8, ptr %node, i64 42
   %13 = load i16, ptr %initiator20, align 2
   %cmp22 = icmp ugt i16 %13, 127
   br i1 %cmp22, label %if.then24, label %if.end27
@@ -883,9 +862,9 @@ if.end27:                                         ; preds = %if.end19
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end27, %if.end11
-  %cpus33 = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 3
-  %cpu_index_to_instance_props = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 46
-  %node_id = getelementptr inbounds %struct.CpuInstanceProperties, ptr %props, i64 0, i32 1
+  %cpus33 = getelementptr inbounds i8, ptr %node, i64 8
+  %cpu_index_to_instance_props = getelementptr inbounds i8, ptr %call1.i, i64 328
+  %node_id = getelementptr inbounds i8, ptr %props, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end41, %if.end32
@@ -895,7 +874,7 @@ for.cond:                                         ; preds = %if.end41, %if.end32
   br i1 %tobool34.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %value = getelementptr inbounds %struct.uint16List, ptr %cpus.0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %cpus.0, i64 8
   %14 = load i16, ptr %value, align 8
   %conv35 = zext i16 %14 to i32
   %cmp36.not = icmp ugt i32 %0, %conv35
@@ -926,7 +905,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %tobool48.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %for.end
-  %memdev = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 6
+  %memdev = getelementptr inbounds i8, ptr %node, i64 32
   %18 = load ptr, ptr %memdev, align 8
   %tobool49 = icmp ne ptr %18, null
   %19 = zext i1 %tobool49 to i32
@@ -937,7 +916,7 @@ lor.end:                                          ; preds = %lor.rhs, %for.end
   store i32 %lor.ext, ptr @have_memdevs, align 4
   %20 = load i32, ptr @have_mem, align 4
   %tobool50.not = icmp ne i32 %20, 0
-  %has_mem = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 4
+  %has_mem = getelementptr inbounds i8, ptr %node, i64 16
   %21 = load i8, ptr %has_mem, align 8
   %22 = and i8 %21, 1
   %tobool52 = icmp ne i8 %22, 0
@@ -950,7 +929,7 @@ lor.end:                                          ; preds = %lor.rhs, %for.end
   br i1 %or.cond, label %if.then64, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %lor.end
-  %memdev60 = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 6
+  %memdev60 = getelementptr inbounds i8, ptr %node, i64 32
   %24 = load ptr, ptr %memdev60, align 8
   %tobool61 = icmp ne ptr %24, null
   %or.cond1 = select i1 %tobool61, i1 %23, i1 false
@@ -964,7 +943,7 @@ if.end65:                                         ; preds = %lor.lhs.false
   br i1 %tobool57, label %if.then68, label %if.end77
 
 if.then68:                                        ; preds = %if.end65
-  %numa_mem_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 39
+  %numa_mem_supported = getelementptr inbounds i8, ptr %call1.i, i64 293
   %25 = load i8, ptr %numa_mem_supported, align 1
   %26 = and i8 %25, 1
   %tobool69.not = icmp eq i8 %26, 0
@@ -976,7 +955,7 @@ if.then70:                                        ; preds = %if.then68
   br label %return
 
 if.end71:                                         ; preds = %if.then68
-  %mem = getelementptr inbounds %struct.NumaNodeOptions, ptr %node, i64 0, i32 5
+  %mem = getelementptr inbounds i8, ptr %node, i64 24
   %27 = load i64, ptr %mem, align 8
   store i64 %27, ptr %arrayidx, align 8
   %28 = load i8, ptr @qtest_allowed, align 1
@@ -1012,7 +991,7 @@ if.end86:                                         ; preds = %if.then80
   %call88 = call i64 @object_property_get_uint(ptr noundef nonnull %call82, ptr noundef nonnull @.str.48, ptr noundef null) #11
   store i64 %call88, ptr %arrayidx, align 8
   %call.i62 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call82, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.49, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #11
-  %node_memdev = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom, i32 1
+  %node_memdev = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call.i62, ptr %node_memdev, align 8
   br label %if.end95
 
@@ -1043,43 +1022,43 @@ entry:
   %node = alloca %struct.NumaNodeOptions, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %ms) #11
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
-  %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
+  %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
-  %nodes = getelementptr inbounds %struct.NumaState, ptr %0, i64 0, i32 3
+  %nodes = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %entry
-  %ram_slots = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 21
+  %ram_slots = getelementptr inbounds i8, ptr %ms, i64 160
   %2 = load i64, ptr %ram_slots, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %auto_enable_numa_with_memhp = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 34
+  %auto_enable_numa_with_memhp = getelementptr inbounds i8, ptr %call1.i, i64 288
   %3 = load i8, ptr %auto_enable_numa_with_memhp, align 8
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %land.lhs.true2, %land.lhs.true
-  %maxram_size = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 20
+  %maxram_size = getelementptr inbounds i8, ptr %ms, i64 152
   %5 = load i64, ptr %maxram_size, align 8
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %ms, i64 144
   %6 = load i64, ptr %ram_size, align 8
   %cmp4 = icmp ugt i64 %5, %6
   br i1 %cmp4, label %land.lhs.true5, label %lor.lhs.false7
 
 land.lhs.true5:                                   ; preds = %lor.lhs.false
-  %auto_enable_numa_with_memdev = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 35
+  %auto_enable_numa_with_memdev = getelementptr inbounds i8, ptr %call1.i, i64 289
   %7 = load i8, ptr %auto_enable_numa_with_memdev, align 1
   %8 = and i8 %7, 1
   %tobool6.not = icmp eq i8 %8, 0
   br i1 %tobool6.not, label %lor.lhs.false7, label %if.then
 
 lor.lhs.false7:                                   ; preds = %land.lhs.true5, %lor.lhs.false
-  %auto_enable_numa = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 40
+  %auto_enable_numa = getelementptr inbounds i8, ptr %call1.i, i64 294
   %9 = load i8, ptr %auto_enable_numa, align 2
   %10 = and i8 %9, 1
   %tobool8.not = icmp eq i8 %10, 0
@@ -1088,7 +1067,7 @@ lor.lhs.false7:                                   ; preds = %land.lhs.true5, %lo
 if.then:                                          ; preds = %lor.lhs.false7, %land.lhs.true5, %land.lhs.true2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %node, i8 0, i64 48, i1 false)
   call fastcc void @parse_numa_node(ptr noundef nonnull %ms, ptr noundef nonnull %node, ptr noundef nonnull @error_abort)
-  %ram_size9 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 19
+  %ram_size9 = getelementptr inbounds i8, ptr %ms, i64 144
   %11 = load i64, ptr %ram_size9, align 8
   store i64 %11, ptr %nodes, align 8
   br label %if.end12
@@ -1133,17 +1112,17 @@ if.end23:                                         ; preds = %for.end
   br i1 %cmp26, label %for.body32, label %if.end60
 
 for.body32:                                       ; preds = %if.end23, %for.body32
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %for.body32 ], [ 0, %if.end23 ]
-  %numa_total.058 = phi i64 [ %add, %for.body32 ], [ 0, %if.end23 ]
-  %arrayidx34 = getelementptr %struct.NodeInfo, ptr %nodes, i64 %indvars.iv64
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %for.body32 ], [ 0, %if.end23 ]
+  %numa_total.059 = phi i64 [ %add, %for.body32 ], [ 0, %if.end23 ]
+  %arrayidx34 = getelementptr %struct.NodeInfo, ptr %nodes, i64 %indvars.iv65
   %21 = load i64, ptr %arrayidx34, align 8
-  %add = add i64 %21, %numa_total.058
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next65, %13
+  %add = add i64 %21, %numa_total.059
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next66, %13
   br i1 %exitcond.not, label %for.end37, label %for.body32, !llvm.loop !12
 
 for.end37:                                        ; preds = %for.body32
-  %ram_size38 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 19
+  %ram_size38 = getelementptr inbounds i8, ptr %ms, i64 144
   %22 = load i64, ptr %ram_size38, align 8
   %cmp39.not = icmp eq i64 %add, %22
   br i1 %cmp39.not, label %if.end42, label %if.then40
@@ -1159,13 +1138,13 @@ if.end42:                                         ; preds = %for.end37
   br i1 %tobool.not.i, label %if.end55, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %if.end42
-  %default_ram_id = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 43
+  %default_ram_id = getelementptr inbounds i8, ptr %call1.i, i64 304
   %24 = load ptr, ptr %default_ram_id, align 8
   %tobool45.not = icmp eq ptr %24, null
   br i1 %tobool45.not, label %if.end55, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true44
-  %memdev = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 15
+  %memdev = getelementptr inbounds i8, ptr %ms, i64 112
   %25 = load ptr, ptr %memdev, align 8
   %tobool47.not = icmp eq ptr %25, null
   br i1 %tobool47.not, label %if.end49, label %if.then48
@@ -1177,7 +1156,7 @@ if.then48:                                        ; preds = %if.then46
 
 if.end49:                                         ; preds = %if.then46
   %call50 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #14
-  %ram = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 16
+  %ram = getelementptr inbounds i8, ptr %ms, i64 120
   store ptr %call50, ptr %ram, align 8
   %26 = load ptr, ptr %default_ram_id, align 8
   %27 = load i64, ptr %ram_size38, align 8
@@ -1193,13 +1172,14 @@ for.body.i:                                       ; preds = %if.end49, %for.inc.
   %32 = phi ptr [ %36, %for.inc.i ], [ %29, %if.end49 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end49 ]
   %addr.010.i = phi i64 [ %addr.1.i, %for.inc.i ], [ 0, %if.end49 ]
-  %node_memdev.i = getelementptr %struct.NumaState, ptr %32, i64 0, i32 3, i64 %indvars.iv.i, i32 1
+  %nodes.i = getelementptr inbounds i8, ptr %32, i64 8
+  %arrayidx.i = getelementptr [128 x %struct.NodeInfo], ptr %nodes.i, i64 0, i64 %indvars.iv.i
+  %node_memdev.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %33 = load ptr, ptr %node_memdev.i, align 8
   %tobool.not.i39 = icmp eq ptr %33, null
   br i1 %tobool.not.i39, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.NumaState, ptr %32, i64 0, i32 3, i64 %indvars.iv.i
   %34 = load i64, ptr %arrayidx.i, align 8
   %call.i40 = tail call ptr @machine_consume_memdev(ptr noundef nonnull %ms, ptr noundef nonnull %33) #11
   tail call void @memory_region_add_subregion(ptr noundef %28, i64 noundef %addr.010.i, ptr noundef %call.i40) #11
@@ -1220,14 +1200,14 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 if.end55:                                         ; preds = %for.inc.i, %if.end49, %land.lhs.true44, %if.end42
   %38 = phi i32 [ %30, %if.end49 ], [ %12, %land.lhs.true44 ], [ %12, %if.end42 ], [ %35, %for.inc.i ]
   %39 = phi ptr [ %29, %if.end49 ], [ %19, %land.lhs.true44 ], [ %19, %if.end42 ], [ %36, %for.inc.i ]
-  %have_numa_distance = getelementptr inbounds %struct.NumaState, ptr %39, i64 0, i32 1
+  %have_numa_distance = getelementptr inbounds i8, ptr %39, i64 4
   %40 = load i8, ptr %have_numa_distance, align 4
   %41 = and i8 %40, 1
   %tobool57.not = icmp eq i8 %41, 0
   br i1 %tobool57.not, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %nodes.i = getelementptr inbounds %struct.NumaState, ptr %39, i64 0, i32 3
+  %nodes.i41 = getelementptr inbounds i8, ptr %39, i64 8
   %cmp8.i = icmp sgt i32 %38, 0
   br i1 %cmp8.i, label %for.cond2.preheader.preheader.i, label %if.end60
 
@@ -1236,28 +1216,28 @@ for.cond2.preheader.preheader.i:                  ; preds = %if.then58
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.inc55.i, %for.cond2.preheader.preheader.i
-  %indvars.iv.i41 = phi i64 [ 0, %for.cond2.preheader.preheader.i ], [ %indvars.iv.next.i43, %for.inc55.i ]
+  %indvars.iv.i42 = phi i64 [ 0, %for.cond2.preheader.preheader.i ], [ %indvars.iv.next.i44, %for.inc55.i ]
   %is_asymmetrical.09.i = phi i8 [ 0, %for.cond2.preheader.preheader.i ], [ %is_asymmetrical.2.i, %for.inc55.i ]
   br label %for.body4.i
 
-for.body4.i:                                      ; preds = %for.inc.i42, %for.cond2.preheader.i
-  %indvars.iv18.i = phi i64 [ %indvars.iv.i41, %for.cond2.preheader.i ], [ %indvars.iv.next19.i, %for.inc.i42 ]
-  %is_asymmetrical.15.i = phi i8 [ %is_asymmetrical.09.i, %for.cond2.preheader.i ], [ %is_asymmetrical.2.i, %for.inc.i42 ]
-  %arrayidx6.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %indvars.iv.i41, i32 6, i64 %indvars.iv18.i
+for.body4.i:                                      ; preds = %for.inc.i43, %for.cond2.preheader.i
+  %indvars.iv18.i = phi i64 [ %indvars.iv.i42, %for.cond2.preheader.i ], [ %indvars.iv.next19.i, %for.inc.i43 ]
+  %is_asymmetrical.15.i = phi i8 [ %is_asymmetrical.09.i, %for.cond2.preheader.i ], [ %is_asymmetrical.2.i, %for.inc.i43 ]
+  %arrayidx6.i = getelementptr %struct.NodeInfo, ptr %nodes.i41, i64 %indvars.iv.i42, i32 6, i64 %indvars.iv18.i
   %42 = load i8, ptr %arrayidx6.i, align 1
   %cmp7.i = icmp eq i8 %42, 0
-  %arrayidx13.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %indvars.iv18.i, i32 6, i64 %indvars.iv.i41
+  %arrayidx13.i = getelementptr %struct.NodeInfo, ptr %nodes.i41, i64 %indvars.iv18.i, i32 6, i64 %indvars.iv.i42
   %43 = load i8, ptr %arrayidx13.i, align 1
   br i1 %cmp7.i, label %land.lhs.true.i, label %land.lhs.true29.i
 
 land.lhs.true.i:                                  ; preds = %for.body4.i
   %cmp15.i = icmp ne i8 %43, 0
-  %cmp17.not.i = icmp eq i64 %indvars.iv.i41, %indvars.iv18.i
+  %cmp17.not.i = icmp eq i64 %indvars.iv.i42, %indvars.iv18.i
   %or.cond.i = or i1 %cmp17.not.i, %cmp15.i
-  br i1 %or.cond.i, label %for.inc.i42, label %if.then19.i
+  br i1 %or.cond.i, label %for.inc.i43, label %if.then19.i
 
 if.then19.i:                                      ; preds = %land.lhs.true.i
-  %44 = trunc i64 %indvars.iv.i41 to i32
+  %44 = trunc i64 %indvars.iv.i42 to i32
   %45 = trunc i64 %indvars.iv18.i to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, i32 noundef %44, i32 noundef %45) #11
   tail call void @exit(i32 noundef 1) #13
@@ -1268,26 +1248,26 @@ land.lhs.true29.i:                                ; preds = %for.body4.i
   %cmp51.not.i = icmp eq i8 %42, %43
   %or.cond38.i = or i1 %cmp36.not.i, %cmp51.not.i
   %spec.select.i = select i1 %or.cond38.i, i8 %is_asymmetrical.15.i, i8 1
-  br label %for.inc.i42
+  br label %for.inc.i43
 
-for.inc.i42:                                      ; preds = %land.lhs.true29.i, %land.lhs.true.i
+for.inc.i43:                                      ; preds = %land.lhs.true29.i, %land.lhs.true.i
   %is_asymmetrical.2.i = phi i8 [ %spec.select.i, %land.lhs.true29.i ], [ %is_asymmetrical.15.i, %land.lhs.true.i ]
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count20.i
   br i1 %exitcond.not.i, label %for.inc55.i, label %for.body4.i, !llvm.loop !14
 
-for.inc55.i:                                      ; preds = %for.inc.i42
-  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
-  %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count20.i
+for.inc55.i:                                      ; preds = %for.inc.i43
+  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
+  %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count20.i
   br i1 %exitcond21.not.i, label %for.end57.i, label %for.cond2.preheader.i, !llvm.loop !15
 
 for.end57.i:                                      ; preds = %for.inc55.i
   %46 = and i8 %is_asymmetrical.2.i, 1
   %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %for.cond2.preheader.i46.preheader, label %for.cond63.preheader.us.i
+  br i1 %.not, label %for.cond2.preheader.i47.preheader, label %for.cond63.preheader.us.i
 
-for.cond2.preheader.i46.preheader:                ; preds = %for.cond63.for.inc83_crit_edge.us.i, %for.end57.i
-  br label %for.cond2.preheader.i46
+for.cond2.preheader.i47.preheader:                ; preds = %for.cond63.for.inc83_crit_edge.us.i, %for.end57.i
+  br label %for.cond2.preheader.i47
 
 for.cond63.preheader.us.i:                        ; preds = %for.end57.i, %for.cond63.for.inc83_crit_edge.us.i
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %for.cond63.for.inc83_crit_edge.us.i ], [ 0, %for.end57.i ]
@@ -1299,7 +1279,7 @@ for.body66.us.i:                                  ; preds = %for.inc80.us.i, %fo
   br i1 %cmp67.not.us.i, label %for.inc80.us.i, label %land.lhs.true69.us.i
 
 land.lhs.true69.us.i:                             ; preds = %for.body66.us.i
-  %arrayidx74.us.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %indvars.iv27.i, i32 6, i64 %indvars.iv22.i
+  %arrayidx74.us.i = getelementptr %struct.NodeInfo, ptr %nodes.i41, i64 %indvars.iv27.i, i32 6, i64 %indvars.iv22.i
   %47 = load i8, ptr %arrayidx74.us.i, align 1
   %cmp76.us.i = icmp eq i8 %47, 0
   br i1 %cmp76.us.i, label %if.then78.i, label %for.inc80.us.i
@@ -1312,38 +1292,38 @@ for.inc80.us.i:                                   ; preds = %land.lhs.true69.us.
 for.cond63.for.inc83_crit_edge.us.i:              ; preds = %for.inc80.us.i
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count20.i
-  br i1 %exitcond31.not.i, label %for.cond2.preheader.i46.preheader, label %for.cond63.preheader.us.i, !llvm.loop !17
+  br i1 %exitcond31.not.i, label %for.cond2.preheader.i47.preheader, label %for.cond63.preheader.us.i, !llvm.loop !17
 
 if.then78.i:                                      ; preds = %land.lhs.true69.us.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.59) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
-for.cond2.preheader.i46:                          ; preds = %for.cond2.preheader.i46.preheader, %for.inc30.i
-  %48 = phi i32 [ %55, %for.inc30.i ], [ %38, %for.cond2.preheader.i46.preheader ]
-  %49 = phi i32 [ %56, %for.inc30.i ], [ %38, %for.cond2.preheader.i46.preheader ]
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.inc30.i ], [ 0, %for.cond2.preheader.i46.preheader ]
+for.cond2.preheader.i47:                          ; preds = %for.cond2.preheader.i47.preheader, %for.inc30.i
+  %48 = phi i32 [ %55, %for.inc30.i ], [ %38, %for.cond2.preheader.i47.preheader ]
+  %49 = phi i32 [ %56, %for.inc30.i ], [ %38, %for.cond2.preheader.i47.preheader ]
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.inc30.i ], [ 0, %for.cond2.preheader.i47.preheader ]
   %cmp518.i = icmp sgt i32 %49, 0
   br i1 %cmp518.i, label %for.body6.i, label %for.cond2.preheader.for.inc30_crit_edge.i
 
-for.cond2.preheader.for.inc30_crit_edge.i:        ; preds = %for.cond2.preheader.i46
-  %.pre.i47 = sext i32 %49 to i64
+for.cond2.preheader.for.inc30_crit_edge.i:        ; preds = %for.cond2.preheader.i47
+  %.pre.i48 = sext i32 %49 to i64
   br label %for.inc30.i
 
-for.body6.i:                                      ; preds = %for.cond2.preheader.i46, %for.inc.i51
-  %50 = phi i32 [ %53, %for.inc.i51 ], [ %48, %for.cond2.preheader.i46 ]
-  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i52, %for.inc.i51 ], [ 0, %for.cond2.preheader.i46 ]
-  %arrayidx8.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %indvars.iv24.i, i32 6, i64 %indvars.iv.i49
+for.body6.i:                                      ; preds = %for.cond2.preheader.i47, %for.inc.i52
+  %50 = phi i32 [ %53, %for.inc.i52 ], [ %48, %for.cond2.preheader.i47 ]
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i53, %for.inc.i52 ], [ 0, %for.cond2.preheader.i47 ]
+  %arrayidx8.i = getelementptr %struct.NodeInfo, ptr %nodes.i41, i64 %indvars.iv24.i, i32 6, i64 %indvars.iv.i50
   %51 = load i8, ptr %arrayidx8.i, align 1
-  %cmp9.i50 = icmp eq i8 %51, 0
-  br i1 %cmp9.i50, label %if.then.i, label %for.inc.i51
+  %cmp9.i51 = icmp eq i8 %51, 0
+  br i1 %cmp9.i51, label %if.then.i, label %for.inc.i52
 
 if.then.i:                                        ; preds = %for.body6.i
-  %cmp11.i = icmp eq i64 %indvars.iv24.i, %indvars.iv.i49
+  %cmp11.i = icmp eq i64 %indvars.iv24.i, %indvars.iv.i50
   br i1 %cmp11.i, label %for.inc.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx23.i = getelementptr %struct.NodeInfo, ptr %nodes.i, i64 %indvars.iv.i49, i32 6, i64 %indvars.iv24.i
+  %arrayidx23.i = getelementptr %struct.NodeInfo, ptr %nodes.i41, i64 %indvars.iv.i50, i32 6, i64 %indvars.iv24.i
   %52 = load i8, ptr %arrayidx23.i, align 1
   br label %for.inc.sink.split.i
 
@@ -1351,23 +1331,23 @@ for.inc.sink.split.i:                             ; preds = %if.else.i, %if.then
   %.sink.i = phi i8 [ %52, %if.else.i ], [ 10, %if.then.i ]
   store i8 %.sink.i, ptr %arrayidx8.i, align 1
   %.pre = load ptr, ptr %numa_state, align 8
-  %.pre67 = load i32, ptr %.pre, align 8
-  br label %for.inc.i51
+  %.pre68 = load i32, ptr %.pre, align 8
+  br label %for.inc.i52
 
-for.inc.i51:                                      ; preds = %for.inc.sink.split.i, %for.body6.i
-  %53 = phi i32 [ %.pre67, %for.inc.sink.split.i ], [ %50, %for.body6.i ]
-  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
+for.inc.i52:                                      ; preds = %for.inc.sink.split.i, %for.body6.i
+  %53 = phi i32 [ %.pre68, %for.inc.sink.split.i ], [ %50, %for.body6.i ]
+  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 1
   %54 = sext i32 %53 to i64
-  %cmp5.i = icmp slt i64 %indvars.iv.next.i52, %54
+  %cmp5.i = icmp slt i64 %indvars.iv.next.i53, %54
   br i1 %cmp5.i, label %for.body6.i, label %for.inc30.i, !llvm.loop !18
 
-for.inc30.i:                                      ; preds = %for.inc.i51, %for.cond2.preheader.for.inc30_crit_edge.i
-  %55 = phi i32 [ %48, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %53, %for.inc.i51 ]
-  %.pre-phi.i = phi i64 [ %.pre.i47, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %54, %for.inc.i51 ]
-  %56 = phi i32 [ %49, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %53, %for.inc.i51 ]
+for.inc30.i:                                      ; preds = %for.inc.i52, %for.cond2.preheader.for.inc30_crit_edge.i
+  %55 = phi i32 [ %48, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %53, %for.inc.i52 ]
+  %.pre-phi.i = phi i64 [ %.pre.i48, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %54, %for.inc.i52 ]
+  %56 = phi i32 [ %49, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %53, %for.inc.i52 ]
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %cmp.i48 = icmp slt i64 %indvars.iv.next25.i, %.pre-phi.i
-  br i1 %cmp.i48, label %for.cond2.preheader.i46, label %if.end60, !llvm.loop !19
+  %cmp.i49 = icmp slt i64 %indvars.iv.next25.i, %.pre-phi.i
+  br i1 %cmp.i49, label %for.cond2.preheader.i47, label %if.end60, !llvm.loop !19
 
 if.end60:                                         ; preds = %for.inc30.i, %if.then58, %if.end55, %if.end23
   ret void
@@ -1416,7 +1396,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %if.end
-  %has_mem = getelementptr inbounds %struct.NumaOptions, ptr %0, i64 0, i32 1, i32 0, i32 2
+  %has_mem = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i8, ptr %has_mem, align 8
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -1425,7 +1405,7 @@ land.lhs.true:                                    ; preds = %if.end
 if.then4:                                         ; preds = %land.lhs.true
   %call5 = call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.60) #11
   %4 = load ptr, ptr %object, align 8
-  %mem = getelementptr inbounds %struct.NumaOptions, ptr %4, i64 0, i32 1, i32 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %4, i64 32
   %call7 = call i32 @qemu_strtosz_MiB(ptr noundef %call5, ptr noundef null, ptr noundef nonnull %mem) #11
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -1471,14 +1451,14 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %props = getelementptr inbounds %struct.CPUArchId, ptr %slot, i64 0, i32 2
+  %props = getelementptr inbounds i8, ptr %slot, i64 16
   %1 = load i8, ptr %props, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end15, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %node_id4 = getelementptr inbounds %struct.CPUArchId, ptr %slot, i64 0, i32 2, i32 1
+  %node_id4 = getelementptr inbounds i8, ptr %slot, i64 24
   %3 = load i64, ptr %node_id4, align 8
   %call5 = tail call zeroext i1 @object_property_set_int(ptr noundef %dev, ptr noundef nonnull @.str.36, i64 noundef %3, ptr noundef %errp) #11
   br label %if.end15
@@ -1486,7 +1466,7 @@ if.then2:                                         ; preds = %if.then
 if.else:                                          ; preds = %entry
   %sext = shl i64 %call, 32
   %conv6 = ashr exact i64 %sext, 32
-  %node_id8 = getelementptr inbounds %struct.CPUArchId, ptr %slot, i64 0, i32 2, i32 1
+  %node_id8 = getelementptr inbounds i8, ptr %slot, i64 24
   %4 = load i64, ptr %node_id8, align 8
   %cmp9.not = icmp eq i64 %conv6, %4
   br i1 %cmp9.not, label %if.end15, label %if.then11
@@ -1506,7 +1486,7 @@ declare zeroext i1 @object_property_set_int(ptr noundef, ptr noundef, i64 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @query_numa_node_mem(ptr nocapture noundef %node_mem, ptr nocapture noundef readonly %ms) local_unnamed_addr #1 {
 entry:
-  %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
+  %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %for.end, label %lor.lhs.false
@@ -1522,12 +1502,12 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not27.i, label %numa_stat_memory_devices.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %node_plugged_mem20.i = getelementptr inbounds %struct.NumaNodeMem, ptr %node_mem, i64 0, i32 1
+  %node_plugged_mem20.i = getelementptr inbounds i8, ptr %node_mem, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %info.028.i = phi ptr [ %call.i, %for.body.lr.ph.i ], [ %27, %for.inc.i ]
-  %value1.i = getelementptr inbounds %struct.MemoryDeviceInfoList, ptr %info.028.i, i64 0, i32 1
+  %value1.i = getelementptr inbounds i8, ptr %info.028.i, i64 8
   %2 = load ptr, ptr %value1.i, align 8
   %tobool2.not.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i, label %for.inc.i, label %if.then.i
@@ -1543,11 +1523,11 @@ if.then.i:                                        ; preds = %for.body.i
   ]
 
 cond.end.i:                                       ; preds = %if.then.i, %if.then.i
-  %cond.in.i = getelementptr inbounds %struct.MemoryDeviceInfo, ptr %2, i64 0, i32 1
+  %cond.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %cond.i = load ptr, ptr %cond.in.i, align 8
-  %size.i = getelementptr inbounds %struct.PCDIMMDeviceInfo, ptr %cond.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %cond.i, i64 16
   %4 = load i64, ptr %size.i, align 8
-  %node.i = getelementptr inbounds %struct.PCDIMMDeviceInfo, ptr %cond.i, i64 0, i32 4
+  %node.i = getelementptr inbounds i8, ptr %cond.i, i64 32
   %5 = load i64, ptr %node.i, align 8
   %arrayidx.i = getelementptr %struct.NumaNodeMem, ptr %node_mem, i64 %5
   %6 = load i64, ptr %arrayidx.i, align 8
@@ -1562,9 +1542,9 @@ cond.end.i:                                       ; preds = %if.then.i, %if.then
   br label %for.inc.i
 
 sw.bb11.i:                                        ; preds = %if.then.i
-  %u12.i = getelementptr inbounds %struct.MemoryDeviceInfo, ptr %2, i64 0, i32 1
+  %u12.i = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %u12.i, align 8
-  %size14.i = getelementptr inbounds %struct.VirtioPMEMDeviceInfo, ptr %10, i64 0, i32 2
+  %size14.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %size14.i, align 8
   %12 = load i64, ptr %node_mem, align 8
   %add17.i = add i64 %12, %11
@@ -1576,11 +1556,11 @@ sw.bb11.i:                                        ; preds = %if.then.i
   br label %for.inc.i
 
 sw.bb22.i:                                        ; preds = %if.then.i
-  %u23.i = getelementptr inbounds %struct.MemoryDeviceInfo, ptr %2, i64 0, i32 1
+  %u23.i = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %u23.i, align 8
-  %size25.i = getelementptr inbounds %struct.VirtioMEMDeviceInfo, ptr %15, i64 0, i32 3
+  %size25.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i64, ptr %size25.i, align 8
-  %node26.i = getelementptr inbounds %struct.VirtioMEMDeviceInfo, ptr %15, i64 0, i32 6
+  %node26.i = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load i64, ptr %node26.i, align 8
   %arrayidx27.i = getelementptr %struct.NumaNodeMem, ptr %node_mem, i64 %17
   %18 = load i64, ptr %arrayidx27.i, align 8
@@ -1595,11 +1575,11 @@ sw.bb22.i:                                        ; preds = %if.then.i
   br label %for.inc.i
 
 sw.bb35.i:                                        ; preds = %if.then.i
-  %u36.i = getelementptr inbounds %struct.MemoryDeviceInfo, ptr %2, i64 0, i32 1
+  %u36.i = getelementptr inbounds i8, ptr %2, i64 8
   %22 = load ptr, ptr %u36.i, align 8
-  %size38.i = getelementptr inbounds %struct.SgxEPCDeviceInfo, ptr %22, i64 0, i32 2
+  %size38.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load i64, ptr %size38.i, align 8
-  %node39.i = getelementptr inbounds %struct.SgxEPCDeviceInfo, ptr %22, i64 0, i32 3
+  %node39.i = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load i64, ptr %node39.i, align 8
   %arrayidx40.i = getelementptr %struct.NumaNodeMem, ptr %node_mem, i64 %24
   %25 = load i64, ptr %arrayidx40.i, align 8
@@ -1629,7 +1609,8 @@ numa_stat_memory_devices.exit:                    ; preds = %for.inc.i, %if.end
 for.body:                                         ; preds = %numa_stat_memory_devices.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %numa_stat_memory_devices.exit ]
   %30 = phi ptr [ %33, %for.body ], [ %28, %numa_stat_memory_devices.exit ]
-  %arrayidx = getelementptr %struct.NumaState, ptr %30, i64 0, i32 3, i64 %indvars.iv
+  %nodes = getelementptr inbounds i8, ptr %30, i64 8
+  %arrayidx = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %indvars.iv
   %31 = load i64, ptr %arrayidx, align 8
   %arrayidx9 = getelementptr %struct.NumaNodeMem, ptr %node_mem, i64 %indvars.iv
   %32 = load i64, ptr %arrayidx9, align 8
@@ -1650,19 +1631,19 @@ for.end:                                          ; preds = %for.body, %numa_sta
 define dso_local void @ram_block_notifier_add(ptr noundef %n) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 5), align 8
-  %next = getelementptr inbounds %struct.RAMBlockNotifier, ptr %n, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %n, i64 24
   store ptr %0, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev = getelementptr inbounds %struct.RAMBlockNotifier, ptr %0, i64 0, i32 3, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %next, ptr %le_prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr %n, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 5), align 8
-  %le_prev5 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %n, i64 0, i32 3, i32 1
+  %le_prev5 = getelementptr inbounds i8, ptr %n, i64 32
   store ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 5), ptr %le_prev5, align 8
   %1 = load ptr, ptr %n, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -1699,15 +1680,15 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_block_notifier_remove(ptr noundef %n) local_unnamed_addr #1 {
 entry:
-  %next = getelementptr inbounds %struct.RAMBlockNotifier, ptr %n, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %n, i64 24
   %0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
-  %le_prev9.phi.trans.insert = getelementptr inbounds %struct.RAMBlockNotifier, ptr %n, i64 0, i32 3, i32 1
+  %le_prev9.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 32
   %.pre9 = load ptr, ptr %le_prev9.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev5 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %0, i64 0, i32 3, i32 1
+  %le_prev5 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.pre9, ptr %le_prev5, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
@@ -1715,7 +1696,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.then
   %1 = phi ptr [ %.pre, %if.then ], [ null, %entry ]
   store ptr %1, ptr %.pre9, align 8
-  %ram_block_removed = getelementptr inbounds %struct.RAMBlockNotifier, ptr %n, i64 0, i32 1
+  %ram_block_removed = getelementptr inbounds i8, ptr %n, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %ram_block_removed, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -1739,7 +1720,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ram_block_removed = getelementptr inbounds %struct.RAMBlockNotifier, ptr %opaque, i64 0, i32 1
+  %ram_block_removed = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %ram_block_removed, align 8
   tail call void %0(ptr noundef %opaque, ptr noundef nonnull %call2, i64 noundef %call1, i64 noundef %call) #11
   br label %if.end
@@ -1757,7 +1738,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %for.inc
   %notifier.06 = phi ptr [ %1, %for.inc ], [ %0, %entry ]
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %notifier.06, i64 0, i32 3
+  %next1 = getelementptr inbounds i8, ptr %notifier.06, i64 24
   %1 = load ptr, ptr %next1, align 8
   %2 = load ptr, ptr %notifier.06, align 8
   %tobool2.not = icmp eq ptr %2, null
@@ -1784,9 +1765,9 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %for.inc
   %notifier.06 = phi ptr [ %1, %for.inc ], [ %0, %entry ]
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %notifier.06, i64 0, i32 3
+  %next1 = getelementptr inbounds i8, ptr %notifier.06, i64 24
   %1 = load ptr, ptr %next1, align 8
-  %ram_block_removed = getelementptr inbounds %struct.RAMBlockNotifier, ptr %notifier.06, i64 0, i32 1
+  %ram_block_removed = getelementptr inbounds i8, ptr %notifier.06, i64 8
   %2 = load ptr, ptr %ram_block_removed, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %for.inc, label %if.then
@@ -1812,9 +1793,9 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %for.inc
   %notifier.06 = phi ptr [ %1, %for.inc ], [ %0, %entry ]
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %notifier.06, i64 0, i32 3
+  %next1 = getelementptr inbounds i8, ptr %notifier.06, i64 24
   %1 = load ptr, ptr %next1, align 8
-  %ram_block_resized = getelementptr inbounds %struct.RAMBlockNotifier, ptr %notifier.06, i64 0, i32 2
+  %ram_block_resized = getelementptr inbounds i8, ptr %notifier.06, i64 16
   %2 = load ptr, ptr %ram_block_resized, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %for.inc, label %if.then

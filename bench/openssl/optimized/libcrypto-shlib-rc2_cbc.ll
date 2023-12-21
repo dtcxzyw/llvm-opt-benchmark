@@ -25,7 +25,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx55 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %tin, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -192,7 +192,7 @@ sw.epilog:                                        ; preds = %sw.bb123, %if.then8
   %xor127 = xor i64 %tin0.3, %tout0.0.lcssa
   %xor128 = xor i64 %tin1.7, %tout1.0.lcssa
   store i64 %xor127, ptr %tin, align 16
-  %arrayidx130 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 8
   store i64 %xor128, ptr %arrayidx130, align 8
   call void @RC2_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
   %17 = load i64, ptr %tin, align 16
@@ -250,7 +250,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body227.lr.ph, label %for.end295
 
 for.body227.lr.ph:                                ; preds = %if.else
-  %arrayidx257 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx257 = getelementptr inbounds i8, ptr %tin, i64 8
   br label %for.body227
 
 for.body227:                                      ; preds = %for.body227.lr.ph, %for.body227
@@ -362,7 +362,7 @@ if.then298:                                       ; preds = %for.end295
   %conv325 = zext i8 %36 to i64
   %shl326 = shl nuw nsw i64 %conv325, 24
   %or327 = or disjoint i64 %or323, %shl326
-  %arrayidx328 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx328 = getelementptr inbounds i8, ptr %tin, i64 8
   store i64 %or327, ptr %arrayidx328, align 8
   call void @RC2_decrypt(ptr noundef nonnull %tin, ptr noundef %ks)
   %37 = load i64, ptr %tin, align 16
@@ -474,7 +474,7 @@ entry:
   %and = and i32 %conv, 65535
   %shr = lshr i64 %0, 16
   %conv1 = trunc i64 %shr to i32
-  %arrayidx2 = getelementptr inbounds i64, ptr %d, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load i64, ptr %arrayidx2, align 8
   %conv3 = trunc i64 %1 to i32
   %and4 = and i32 %conv3, 65535
@@ -504,7 +504,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %add = add i32 %and8, %x0.0
   %and9 = and i32 %x3.0, %x2.0
   %add10 = add i32 %add, %and9
-  %incdec.ptr = getelementptr inbounds i32, ptr %p0.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p0.0, i64 4
   %2 = load i32, ptr %p0.0, align 4
   %add11 = add i32 %add10, %2
   %and12 = and i32 %add11, 65535
@@ -514,7 +514,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %not14 = xor i32 %or, -1
   %and15 = and i32 %x2.0, %not14
   %and17 = and i32 %or, %x3.0
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %p0.0, i64 2
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %p0.0, i64 8
   %3 = load i32, ptr %incdec.ptr, align 4
   %add16 = add i32 %3, %x1.0
   %add18 = add i32 %add16, %and15
@@ -526,7 +526,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %not25 = xor i32 %or24, -1
   %and26 = and i32 %x3.0, %not25
   %and28 = and i32 %or24, %or
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %p0.0, i64 3
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %p0.0, i64 12
   %4 = load i32, ptr %incdec.ptr19, align 4
   %add27 = add i32 %4, %x2.0
   %add29 = add i32 %add27, %and26
@@ -538,7 +538,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %not36 = xor i32 %or35, -1
   %and37 = and i32 %or, %not36
   %and39 = and i32 %or35, %or24
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %p0.0, i64 4
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %p0.0, i64 16
   %5 = load i32, ptr %incdec.ptr30, align 4
   %add38 = add i32 %5, %x3.0
   %add40 = add i32 %add38, %and37
@@ -603,13 +603,13 @@ entry:
   %and = and i32 %conv, 65535
   %shr = lshr i64 %0, 16
   %conv1 = trunc i64 %shr to i32
-  %arrayidx2 = getelementptr inbounds i64, ptr %d, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load i64, ptr %arrayidx2, align 8
   %conv3 = trunc i64 %1 to i32
   %and4 = and i32 %conv3, 65535
   %shr5 = lshr i64 %1, 16
   %conv6 = trunc i64 %shr5 to i32
-  %arrayidx7 = getelementptr inbounds [64 x i32], ptr %key, i64 0, i64 63
+  %arrayidx7 = getelementptr inbounds i8, ptr %key, i64 252
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end79, %entry
@@ -626,7 +626,7 @@ for.cond:                                         ; preds = %if.end79, %entry
   %not = xor i32 %x2.0, -1
   %and12 = and i32 %x0.0, %not
   %and13 = and i32 %x2.0, %x1.0
-  %incdec.ptr = getelementptr inbounds i32, ptr %p0.0, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p0.0, i64 -4
   %2 = load i32, ptr %p0.0, align 4
   %3 = add nuw nsw i32 %and12, %and13
   %4 = add i32 %3, %2
@@ -638,7 +638,7 @@ for.cond:                                         ; preds = %if.end79, %entry
   %not21 = xor i32 %x1.0, -1
   %and22 = and i32 %sub15, %not21
   %and24 = and i32 %x1.0, %x0.0
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %p0.0, i64 -2
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %p0.0, i64 -8
   %5 = load i32, ptr %incdec.ptr, align 4
   %6 = add i32 %and24, %5
   %7 = add i32 %6, %and22
@@ -650,7 +650,7 @@ for.cond:                                         ; preds = %if.end79, %entry
   %not33 = xor i32 %x0.0, -1
   %and34 = and i32 %sub27, %not33
   %and36 = and i32 %sub15, %x0.0
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %p0.0, i64 -3
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %p0.0, i64 -12
   %8 = load i32, ptr %incdec.ptr26, align 4
   %9 = add i32 %and36, %8
   %10 = add i32 %9, %and34
@@ -661,7 +661,7 @@ for.cond:                                         ; preds = %if.end79, %entry
   %not45 = xor i32 %and16, -1
   %and46 = and i32 %sub39, %not45
   %and48 = and i32 %sub27, %sub15
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %p0.0, i64 -4
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %p0.0, i64 -16
   %11 = load i32, ptr %incdec.ptr38, align 4
   %12 = add i32 %11, %and48
   %13 = add i32 %12, %and46

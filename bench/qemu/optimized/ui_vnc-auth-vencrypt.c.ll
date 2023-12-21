@@ -4,30 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.VncState = type { i64, ptr, ptr, i32, i32, [2048 x [3 x i64]], ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, [16 x i8], ptr, i8, i8, ptr, i64, i64, %struct.Buffer, %struct.Buffer, ptr, %struct.PixelFormat, i32, i8, ptr, %struct.audsettings, ptr, i64, i8, %struct.QemuMutex, ptr, %struct.Buffer, ptr, %struct.VncZlib, %struct.VncHextile, ptr, %struct.VncZywrle, %struct.Notifier, %struct.QemuClipboardPeer, ptr, i32, %union.anon }
-%struct.PixelFormat = type { i8, i8, i8, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.audsettings = type { i32, i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.Buffer = type { ptr, i64, i64, i64, ptr }
-%struct.VncZlib = type { %struct.Buffer, %struct.Buffer, %struct.z_stream_s, i32 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.VncHextile = type { ptr }
-%struct.VncZywrle = type { [4096 x i32] }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.VncDisplay = type { %union.anon.0, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.DisplayChangeListener, ptr, i32, ptr, i32, ptr, %struct.QemuMutex, i32, ptr, %struct.VncSurface, ptr, i32, ptr, %union.anon.2, i8, ptr, i64, i32, i32, i32, i32, i8, i8, i8, ptr, ptr, ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.DisplayChangeListener = type { i64, ptr, ptr, ptr, %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.VncSurface = type { %struct.timeval, [2048 x [3 x i64]], [32 x [40 x %struct.VncRectStat]], ptr, i32 }
-%struct.VncRectStat = type { [10 x %struct.timeval], i32, double, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [20 x i8] c"Unsupported version\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -104,7 +80,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %vs, i32 noundef %conv, i32 noundef %conv2) #4
   br label %trace_vnc_auth_vencrypt_version.exit
@@ -125,7 +101,7 @@ lor.lhs.false:                                    ; preds = %trace_vnc_auth_venc
   br i1 %cmp8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_vnc_auth_vencrypt_version.exit
-  %auth = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 22
+  %auth = getelementptr inbounds i8, ptr %vs, i64 49264
   %11 = load i32, ptr %auth, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i15)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -151,7 +127,7 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i22
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #4
   %call10.i.i26 = tail call i32 @qemu_get_thread_id() #4
   %17 = load i64, ptr %_now.i.i15, align 8
-  %tv_usec.i.i27 = getelementptr inbounds %struct.timeval, ptr %_now.i.i15, i64 0, i32 1
+  %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %18 = load i64, ptr %tv_usec.i.i27, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i26, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %vs, i32 noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
   br label %trace_vnc_auth_fail.exit
@@ -170,7 +146,7 @@ trace_vnc_auth_fail.exit:                         ; preds = %if.then, %land.lhs.
 if.else:                                          ; preds = %lor.lhs.false
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 0) #4
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #4
-  %subauth = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 23
+  %subauth = getelementptr inbounds i8, ptr %vs, i64 49268
   %19 = load i32, ptr %subauth, align 4
   tail call void @vnc_write_u32(ptr noundef %vs, i32 noundef %19) #4
   tail call void @vnc_flush(ptr noundef %vs) #4
@@ -220,7 +196,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %vs, i32 noundef %call) #4
   br label %trace_vnc_auth_vencrypt_subauth.exit
@@ -231,13 +207,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vnc_auth_vencrypt_subauth.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %subauth = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 23
+  %subauth = getelementptr inbounds i8, ptr %vs, i64 49268
   %7 = load i32, ptr %subauth, align 4
   %cmp.not = icmp eq i32 %call, %7
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %trace_vnc_auth_vencrypt_subauth.exit
-  %auth1 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 22
+  %auth1 = getelementptr inbounds i8, ptr %vs, i64 49264
   %8 = load i32, ptr %auth1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i29)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -263,7 +239,7 @@ if.then8.i.i38:                                   ; preds = %if.then.i.i36
   %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #4
   %call10.i.i40 = tail call i32 @qemu_get_thread_id() #4
   %14 = load i64, ptr %_now.i.i29, align 8
-  %tv_usec.i.i41 = getelementptr inbounds %struct.timeval, ptr %_now.i.i29, i64 0, i32 1
+  %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i29, i64 8
   %15 = load i64, ptr %tv_usec.i.i41, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i40, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %vs, i32 noundef %8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1) #4
   br label %trace_vnc_auth_fail.exit
@@ -283,7 +259,7 @@ if.else:                                          ; preds = %trace_vnc_auth_venc
   store ptr null, ptr %err, align 8
   tail call void @vnc_write_u8(ptr noundef nonnull %vs, i8 noundef zeroext 1) #4
   tail call void @vnc_flush(ptr noundef nonnull %vs) #4
-  %ioc_tag = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 3
+  %ioc_tag = getelementptr inbounds i8, ptr %vs, i64 24
   %16 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %16, 0
   br i1 %tobool.not, label %if.end, label %if.then2
@@ -294,20 +270,20 @@ if.then2:                                         ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.else
-  %ioc = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 2
+  %ioc = getelementptr inbounds i8, ptr %vs, i64 16
   %17 = load ptr, ptr %ioc, align 8
-  %vd = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 7
+  %vd = getelementptr inbounds i8, ptr %vs, i64 49192
   %18 = load ptr, ptr %vd, align 8
-  %tlscreds = getelementptr inbounds %struct.VncDisplay, ptr %18, i64 0, i32 33
+  %tlscreds = getelementptr inbounds i8, ptr %18, i64 285008
   %19 = load ptr, ptr %tlscreds, align 8
-  %tlsauthzid = getelementptr inbounds %struct.VncDisplay, ptr %18, i64 0, i32 35
+  %tlsauthzid = getelementptr inbounds i8, ptr %18, i64 285024
   %20 = load ptr, ptr %tlsauthzid, align 8
   %call7 = call ptr @qio_channel_tls_new_server(ptr noundef %17, ptr noundef %19, ptr noundef %20, ptr noundef nonnull %err) #4
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end
-  %auth10 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 22
+  %auth10 = getelementptr inbounds i8, ptr %vs, i64 49264
   %21 = load i32, ptr %auth10, align 8
   %22 = load ptr, ptr %err, align 8
   %call11 = call ptr @error_get_pretty(ptr noundef %22) #4
@@ -335,7 +311,7 @@ if.then8.i.i52:                                   ; preds = %if.then.i.i50
   %call9.i.i53 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43, ptr noundef null) #4
   %call10.i.i54 = call i32 @qemu_get_thread_id() #4
   %28 = load i64, ptr %_now.i.i43, align 8
-  %tv_usec.i.i55 = getelementptr inbounds %struct.timeval, ptr %_now.i.i43, i64 0, i32 1
+  %tv_usec.i.i55 = getelementptr inbounds i8, ptr %_now.i.i43, i64 8
   %29 = load i64, ptr %tv_usec.i.i55, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i54, i64 noundef %28, i64 noundef %29, ptr noundef nonnull %vs, i32 noundef %21, ptr noundef nonnull @.str.7, ptr noundef %call11) #4
   br label %trace_vnc_auth_fail.exit57
@@ -382,7 +358,7 @@ if.then8.i.i68:                                   ; preds = %if.then.i.i66
   %call9.i.i69 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59, ptr noundef null) #4
   %call10.i.i70 = call i32 @qemu_get_thread_id() #4
   %37 = load i64, ptr %_now.i.i59, align 8
-  %tv_usec.i.i71 = getelementptr inbounds %struct.timeval, ptr %_now.i.i59, i64 0, i32 1
+  %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i59, i64 8
   %38 = load i64, ptr %tv_usec.i.i71, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i70, i64 noundef %37, i64 noundef %38, ptr noundef nonnull %vs, ptr noundef %call.i58, ptr noundef nonnull @.str.9) #4
   br label %trace_vnc_client_io_wrap.exit
@@ -394,7 +370,7 @@ if.else.i.i72:                                    ; preds = %if.then.i.i66
 trace_vnc_client_io_wrap.exit:                    ; preds = %if.end12, %land.lhs.true5.i.i63, %if.then8.i.i68, %if.else.i.i72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i59)
   %call18 = call ptr @qio_channel_tls_get_session(ptr noundef nonnull %call7) #4
-  %tls19 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 25
+  %tls19 = getelementptr inbounds i8, ptr %vs, i64 49288
   store ptr %call18, ptr %tls19, align 8
   call void @qio_channel_tls_handshake(ptr noundef nonnull %call7, ptr noundef nonnull @vnc_tls_handshake_done, ptr noundef nonnull %vs, ptr noundef null, ptr noundef null) #4
   br label %return
@@ -439,7 +415,7 @@ entry:
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %auth = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 22
+  %auth = getelementptr inbounds i8, ptr %user_data, i64 49264
   %0 = load i32, ptr %auth, align 8
   %1 = load ptr, ptr %err, align 8
   %call1 = call ptr @error_get_pretty(ptr noundef %1) #4
@@ -467,7 +443,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = call i32 @qemu_get_thread_id() #4
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %user_data, i32 noundef %0, ptr noundef nonnull @.str.16, ptr noundef %call1) #4
   br label %trace_vnc_auth_fail.exit
@@ -484,7 +460,7 @@ trace_vnc_auth_fail.exit:                         ; preds = %if.then, %land.lhs.
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %ioc_tag = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 3
+  %ioc_tag = getelementptr inbounds i8, ptr %user_data, i64 24
   %10 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end, label %if.then2
@@ -494,11 +470,11 @@ if.then2:                                         ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.else
-  %ioc = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 2
+  %ioc = getelementptr inbounds i8, ptr %user_data, i64 16
   %11 = load ptr, ptr %ioc, align 8
   %call5 = call i32 @qio_channel_add_watch(ptr noundef %11, i32 noundef 29, ptr noundef nonnull @vnc_client_io, ptr noundef nonnull %user_data, ptr noundef null) #4
   store i32 %call5, ptr %ioc_tag, align 8
-  %subauth.i = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 23
+  %subauth.i = getelementptr inbounds i8, ptr %user_data, i64 49268
   %12 = load i32, ptr %subauth.i, align 4
   switch i32 %12, label %sw.default.i [
     i32 257, label %sw.bb.i
@@ -517,7 +493,7 @@ sw.bb1.i:                                         ; preds = %if.end, %if.end
   br label %if.end7
 
 sw.default.i:                                     ; preds = %if.end
-  %auth.i = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 22
+  %auth.i = getelementptr inbounds i8, ptr %user_data, i64 49264
   %13 = load i32, ptr %auth.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %14 = load i32, ptr @trace_events_enabled_count, align 4
@@ -543,7 +519,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #4
   %call10.i.i.i = call i32 @qemu_get_thread_id() #4
   %19 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %user_data, i32 noundef %13, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1) #4
   br label %trace_vnc_auth_fail.exit.i
@@ -555,7 +531,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_vnc_auth_fail.exit.i:                       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.default.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   call void @vnc_write_u8(ptr noundef nonnull %user_data, i8 noundef zeroext 1) #4
-  %minor.i = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 21
+  %minor.i = getelementptr inbounds i8, ptr %user_data, i64 49260
   %21 = load i32, ptr %minor.i, align 4
   %cmp.i = icmp sgt i32 %21, 7
   br i1 %cmp.i, label %if.then.i, label %if.end.i

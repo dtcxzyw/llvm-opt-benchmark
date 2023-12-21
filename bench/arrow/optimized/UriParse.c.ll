@@ -4,16 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UriMemoryManagerStruct = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UriTextRangeStructA = type { ptr, ptr }
+%struct.UriParserStateStructA = type { ptr, i32, ptr, ptr }
 %struct.UriUriStructA = type { %struct.UriTextRangeStructA, %struct.UriTextRangeStructA, %struct.UriTextRangeStructA, %struct.UriHostDataStructA, %struct.UriTextRangeStructA, ptr, ptr, %struct.UriTextRangeStructA, %struct.UriTextRangeStructA, i32, i32, ptr }
 %struct.UriHostDataStructA = type { ptr, ptr, %struct.UriTextRangeStructA }
-%struct.UriPathSegmentStructA = type { %struct.UriTextRangeStructA, ptr, ptr }
-%struct.UriParserStateStructA = type { ptr, i32, ptr, ptr }
-%struct.UriTextRangeStructW = type { ptr, ptr }
+%struct.UriTextRangeStructA = type { ptr, ptr }
+%struct.UriParserStateStructW = type { ptr, i32, ptr, ptr }
 %struct.UriUriStructW = type { %struct.UriTextRangeStructW, %struct.UriTextRangeStructW, %struct.UriTextRangeStructW, %struct.UriHostDataStructW, %struct.UriTextRangeStructW, ptr, ptr, %struct.UriTextRangeStructW, %struct.UriTextRangeStructW, i32, i32, ptr }
 %struct.UriHostDataStructW = type { ptr, ptr, %struct.UriTextRangeStructW }
-%struct.UriPathSegmentStructW = type { %struct.UriTextRangeStructW, ptr, ptr }
-%struct.UriParserStateStructW = type { ptr, i32, ptr, ptr }
+%struct.UriTextRangeStructW = type { ptr, ptr }
 
 @defaultMemoryManager = external global %struct.UriMemoryManagerStruct, align 8
 @uriSafeToPointToA = external local_unnamed_addr constant ptr, align 8
@@ -158,7 +156,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i, %sw.bb.i
   %first.tr.lcssa.i.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %scevgep.i.i, %sw.bb.i.i ]
   %5 = load ptr, ptr %state, align 8
   %6 = load ptr, ptr %5, align 8
-  %calloc.i.i.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 1
+  %calloc.i.i.i.i = getelementptr inbounds i8, ptr %memory.addr.0, i64 8
   %7 = load ptr, ptr %calloc.i.i.i.i, align 8
   %call.i.i.i.i = tail call ptr %7(ptr noundef nonnull %memory.addr.0, i64 noundef 1, i64 noundef 32) #7
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
@@ -170,25 +168,25 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %spec.select.i.i.i.i = select i1 %cmp1.i.i.i.i, ptr %8, ptr %6
   %spec.select16.i.i.i.i = select i1 %cmp1.i.i.i.i, ptr %8, ptr %first.tr.lcssa.i.i
   store ptr %spec.select.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %9 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i.i.i.i, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %spec.select16.i.i.i.i, ptr %9, align 8
   %10 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 5
+  %pathHead.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load ptr, ptr %pathHead.i.i.i.i, align 8
   %cmp11.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp11.i.i.i.i, label %uriOnExitSegmentNzNcOrScheme2A.exit.i.i, label %if.else16.i.i.i.i
 
 if.else16.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %pathTail18.i.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 6
+  %pathTail18.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 104
   %12 = load ptr, ptr %pathTail18.i.i.i.i, align 8
-  %next.i.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %12, i64 0, i32 1
+  %next.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   br label %uriOnExitSegmentNzNcOrScheme2A.exit.i.i
 
 uriOnExitSegmentNzNcOrScheme2A.exit.i.i:          ; preds = %if.else16.i.i.i.i, %if.end.i.i.i.i
   %pathHead.sink.i.i.i.i = phi ptr [ %next.i.i.i.i, %if.else16.i.i.i.i ], [ %pathHead.i.i.i.i, %if.end.i.i.i.i ]
   store ptr %call.i.i.i.i, ptr %pathHead.sink.i.i.i.i, align 8
   %13 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %13, i64 0, i32 6
+  %pathTail.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 104
   store ptr %call.i.i.i.i, ptr %pathTail.i.i.i.i, align 8
   %14 = load ptr, ptr %state, align 8
   store ptr null, ptr %14, align 8
@@ -334,7 +332,7 @@ sw.bb40.i.i:                                      ; preds = %if.end2.i.i
   %add.ptr41.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 1
   %call42.i.i = tail call fastcc ptr @uriParseHierPartA(ptr noundef %state, ptr noundef nonnull %add.ptr41.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
   %19 = load ptr, ptr %state, align 8
-  %afterLast45.i.i = getelementptr inbounds %struct.UriTextRangeStructA, ptr %19, i64 0, i32 1
+  %afterLast45.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %first.tr83.i.i, ptr %afterLast45.i.i, align 8
   %cmp46.i.i = icmp eq ptr %call42.i.i, null
   br i1 %cmp46.i.i, label %if.then13, label %if.end49.i.i
@@ -396,13 +394,13 @@ if.then13.sink.split.sink.split:                  ; preds = %sw.default.i.i, %if
 if.then13.sink.split:                             ; preds = %if.then13.sink.split.sink.split, %if.end20.i.i
   %.sink = phi ptr [ %18, %if.end20.i.i ], [ %22, %if.then13.sink.split.sink.split ]
   %call.i66.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %.sink, ptr noundef nonnull %memory.addr.0), !range !5
-  %errorPos.i67.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i67.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i67.i.i, align 8
   store i32 3, ptr %1, align 8
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then13.sink.split, %sw.bb40.i.i, %if.end33.i.i, %sw.bb14.i.i, %sw.bb4.i.i, %sw.bb18.i, %sw.bb8.i, %uriParseUriReferenceA.exit
-  %errorPos = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos = getelementptr inbounds i8, ptr %state, i64 16
   %23 = load ptr, ptr %errorPos, align 8
   %cmp15 = icmp ugt ptr %23, %afterLast
   br i1 %cmp15, label %if.then16, label %if.end18
@@ -424,7 +422,7 @@ if.then21:                                        ; preds = %if.end19
   %25 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %25, ptr noundef nonnull %memory.addr.0), !range !5
   %retval.0.i.afterLast = select i1 %cmp22, ptr %retval.0.i, ptr %afterLast
-  %26 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %retval.0.i.afterLast, ptr %26, align 8
   store i32 1, ptr %1, align 8
   br label %return
@@ -485,7 +483,7 @@ if.then13.i.i:                                    ; preds = %do.body.i.i
   br i1 %cmp14.not.i.i, label %if.end17.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.then13.i.i
-  %errorPos16.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state.i.i, i64 0, i32 2
+  %errorPos16.i.i = getelementptr inbounds i8, ptr %state.i.i, i64 16
   %0 = load ptr, ptr %errorPos16.i.i, align 8
   store ptr %0, ptr %errorPos, align 8
   br label %if.end17.i.i
@@ -535,7 +533,7 @@ if.then13.i:                                      ; preds = %do.body.i
   br i1 %cmp14.not.i, label %if.end17.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then13.i
-  %errorPos16.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state.i, i64 0, i32 2
+  %errorPos16.i = getelementptr inbounds i8, ptr %state.i, i64 16
   %0 = load ptr, ptr %errorPos16.i, align 8
   store ptr %0, ptr %errorPos, align 8
   br label %if.end17.i
@@ -582,7 +580,7 @@ if.then13:                                        ; preds = %do.end
   br i1 %cmp14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  %errorPos16 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos16 = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load ptr, ptr %errorPos16, align 8
   store ptr %0, ptr %errorPos, align 8
   br label %if.end17
@@ -615,7 +613,7 @@ if.else:                                          ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.else
   %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %do.body ]
-  %owner = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 10
+  %owner = getelementptr inbounds i8, ptr %uri, i64 148
   %0 = load i32, ptr %owner, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end91, label %if.then7
@@ -626,13 +624,13 @@ if.then7:                                         ; preds = %do.end
   br i1 %cmp8.not, label %if.end22, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructA, ptr %uri, i64 0, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %uri, i64 8
   %2 = load ptr, ptr %afterLast, align 8
   %cmp13.not = icmp eq ptr %1, %2
   br i1 %cmp13.not, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.then9
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %3 = load ptr, ptr %free, align 8
   tail call void %3(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %1) #7
   br label %if.end17
@@ -642,19 +640,19 @@ if.end17:                                         ; preds = %if.then14, %if.then
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end17, %if.then7
-  %userInfo = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 1
+  %userInfo = getelementptr inbounds i8, ptr %uri, i64 16
   %4 = load ptr, ptr %userInfo, align 8
   %cmp24.not = icmp eq ptr %4, null
   br i1 %cmp24.not, label %if.end40, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %afterLast29 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 1, i32 1
+  %afterLast29 = getelementptr inbounds i8, ptr %uri, i64 24
   %5 = load ptr, ptr %afterLast29, align 8
   %cmp30.not = icmp eq ptr %4, %5
   br i1 %cmp30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %if.then25
-  %free32 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free32 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %6 = load ptr, ptr %free32, align 8
   tail call void %6(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %4) #7
   br label %if.end35
@@ -664,33 +662,33 @@ if.end35:                                         ; preds = %if.then31, %if.then
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end35, %if.end22
-  %hostData = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3
-  %ipFuture = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3, i32 2
+  %hostData = getelementptr inbounds i8, ptr %uri, i64 48
+  %ipFuture = getelementptr inbounds i8, ptr %uri, i64 64
   %7 = load ptr, ptr %ipFuture, align 8
   %cmp42.not = icmp eq ptr %7, null
   br i1 %cmp42.not, label %if.end66, label %if.then43
 
 if.then43:                                        ; preds = %if.end40
-  %afterLast49 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3, i32 2, i32 1
+  %afterLast49 = getelementptr inbounds i8, ptr %uri, i64 72
   %8 = load ptr, ptr %afterLast49, align 8
   %cmp50.not = icmp eq ptr %7, %8
   br i1 %cmp50.not, label %if.end66.thread, label %if.then51
 
 if.then51:                                        ; preds = %if.then43
-  %free52 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free52 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %9 = load ptr, ptr %free52, align 8
   tail call void %9(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %7) #7
   br label %if.end66.thread
 
 if.end66.thread:                                  ; preds = %if.then43, %if.then51
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %uri, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hostText, i8 0, i64 16, i1 false)
   br label %if.end91.sink.split
 
 if.end66:                                         ; preds = %if.end40
-  %hostText67.phi.trans.insert = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 2
+  %hostText67.phi.trans.insert = getelementptr inbounds i8, ptr %uri, i64 32
   %.pre = load ptr, ptr %hostText67.phi.trans.insert, align 8
-  %hostText67 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 2
+  %hostText67 = getelementptr inbounds i8, ptr %uri, i64 32
   %cmp69.not = icmp eq ptr %.pre, null
   br i1 %cmp69.not, label %if.end91, label %land.lhs.true
 
@@ -700,19 +698,19 @@ land.lhs.true:                                    ; preds = %if.end66
   br i1 %cmp71, label %land.lhs.true72, label %if.end91
 
 land.lhs.true72:                                  ; preds = %land.lhs.true
-  %ip6 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   %11 = load ptr, ptr %ip6, align 8
   %cmp74 = icmp eq ptr %11, null
   br i1 %cmp74, label %if.then75, label %if.end91
 
 if.then75:                                        ; preds = %land.lhs.true72
-  %afterLast79 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 2, i32 1
+  %afterLast79 = getelementptr inbounds i8, ptr %uri, i64 40
   %12 = load ptr, ptr %afterLast79, align 8
   %cmp80.not = icmp eq ptr %.pre, %12
   br i1 %cmp80.not, label %if.end91.sink.split, label %if.then81
 
 if.then81:                                        ; preds = %if.then75
-  %free82 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free82 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %13 = load ptr, ptr %free82, align 8
   tail call void %13(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %.pre) #7
   br label %if.end91.sink.split
@@ -723,26 +721,26 @@ if.end91.sink.split:                              ; preds = %if.then75, %if.then
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end91.sink.split, %if.end66, %land.lhs.true, %land.lhs.true72, %do.end
-  %hostData92 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3
+  %hostData92 = getelementptr inbounds i8, ptr %uri, i64 48
   %14 = load ptr, ptr %hostData92, align 8
   %cmp94.not = icmp eq ptr %14, null
   br i1 %cmp94.not, label %if.end101, label %if.then95
 
 if.then95:                                        ; preds = %if.end91
-  %free96 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free96 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %15 = load ptr, ptr %free96, align 8
   tail call void %15(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %14) #7
   store ptr null, ptr %hostData92, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then95, %if.end91
-  %ip6103 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3, i32 1
+  %ip6103 = getelementptr inbounds i8, ptr %uri, i64 56
   %16 = load ptr, ptr %ip6103, align 8
   %cmp104.not = icmp eq ptr %16, null
   br i1 %cmp104.not, label %if.end111, label %if.then105
 
 if.then105:                                       ; preds = %if.end101
-  %free106 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free106 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %17 = load ptr, ptr %free106, align 8
   tail call void %17(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %16) #7
   store ptr null, ptr %ip6103, align 8
@@ -754,19 +752,19 @@ if.end111:                                        ; preds = %if.then105, %if.end
   br i1 %tobool113.not, label %if.end132, label %land.lhs.true114
 
 land.lhs.true114:                                 ; preds = %if.end111
-  %portText = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 4
+  %portText = getelementptr inbounds i8, ptr %uri, i64 80
   %19 = load ptr, ptr %portText, align 8
   %cmp116.not = icmp eq ptr %19, null
   br i1 %cmp116.not, label %if.end132, label %if.then117
 
 if.then117:                                       ; preds = %land.lhs.true114
-  %afterLast121 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 4, i32 1
+  %afterLast121 = getelementptr inbounds i8, ptr %uri, i64 88
   %20 = load ptr, ptr %afterLast121, align 8
   %cmp122.not = icmp eq ptr %19, %20
   br i1 %cmp122.not, label %if.end127, label %if.then123
 
 if.then123:                                       ; preds = %if.then117
-  %free124 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free124 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %21 = load ptr, ptr %free124, align 8
   tail call void %21(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %19) #7
   br label %if.end127
@@ -776,18 +774,18 @@ if.end127:                                        ; preds = %if.then123, %if.the
   br label %if.end132
 
 if.end132:                                        ; preds = %if.end127, %land.lhs.true114, %if.end111
-  %pathHead = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 5
+  %pathHead = getelementptr inbounds i8, ptr %uri, i64 96
   %22 = load ptr, ptr %pathHead, align 8
   %cmp133.not = icmp eq ptr %22, null
   br i1 %cmp133.not, label %if.end156, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end132
-  %free150 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free150 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end153
   %segWalk.0100 = phi ptr [ %22, %while.cond.preheader ], [ %23, %if.end153 ]
-  %next137 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %segWalk.0100, i64 0, i32 1
+  %next137 = getelementptr inbounds i8, ptr %segWalk.0100, i64 16
   %23 = load ptr, ptr %next137, align 8
   %24 = load i32, ptr %owner, align 4
   %tobool139.not = icmp eq i32 %24, 0
@@ -799,7 +797,7 @@ land.lhs.true140:                                 ; preds = %while.body
   br i1 %cmp142.not, label %if.end153, label %land.lhs.true143
 
 land.lhs.true143:                                 ; preds = %land.lhs.true140
-  %afterLast147 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %segWalk.0100, i64 0, i32 1
+  %afterLast147 = getelementptr inbounds i8, ptr %segWalk.0100, i64 8
   %26 = load ptr, ptr %afterLast147, align 8
   %cmp148 = icmp ult ptr %25, %26
   br i1 %cmp148, label %if.then149, label %if.end153
@@ -825,19 +823,19 @@ if.end156:                                        ; preds = %while.end, %if.end1
   br i1 %tobool158.not, label %return, label %if.then159
 
 if.then159:                                       ; preds = %if.end156
-  %query = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 7
+  %query = getelementptr inbounds i8, ptr %uri, i64 112
   %30 = load ptr, ptr %query, align 8
   %cmp161.not = icmp eq ptr %30, null
   br i1 %cmp161.not, label %if.end177, label %if.then162
 
 if.then162:                                       ; preds = %if.then159
-  %afterLast166 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 7, i32 1
+  %afterLast166 = getelementptr inbounds i8, ptr %uri, i64 120
   %31 = load ptr, ptr %afterLast166, align 8
   %cmp167.not = icmp eq ptr %30, %31
   br i1 %cmp167.not, label %if.end172, label %if.then168
 
 if.then168:                                       ; preds = %if.then162
-  %free169 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free169 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %32 = load ptr, ptr %free169, align 8
   tail call void %32(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %30) #7
   br label %if.end172
@@ -847,19 +845,19 @@ if.end172:                                        ; preds = %if.then168, %if.the
   br label %if.end177
 
 if.end177:                                        ; preds = %if.end172, %if.then159
-  %fragment = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 8
+  %fragment = getelementptr inbounds i8, ptr %uri, i64 128
   %33 = load ptr, ptr %fragment, align 8
   %cmp179.not = icmp eq ptr %33, null
   br i1 %cmp179.not, label %return, label %if.then180
 
 if.then180:                                       ; preds = %if.end177
-  %afterLast184 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 8, i32 1
+  %afterLast184 = getelementptr inbounds i8, ptr %uri, i64 136
   %34 = load ptr, ptr %afterLast184, align 8
   %cmp185.not = icmp eq ptr %33, %34
   br i1 %cmp185.not, label %if.end190, label %if.then186
 
 if.then186:                                       ; preds = %if.then180
-  %free187 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free187 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %35 = load ptr, ptr %free187, align 8
   tail call void %35(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %33) #7
   br label %if.end190
@@ -893,7 +891,7 @@ entry:
   store ptr %uri, ptr %parser, align 8
   %1 = load ptr, ptr @defaultMemoryManager, align 8
   %call2 = call ptr %1(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #7
-  %ip6 = getelementptr inbounds %struct.UriUriStructA, ptr %uri, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
   %call4 = call fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
   %call5 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
@@ -913,16 +911,16 @@ entry:
   br i1 %cmp.not470, label %if.end.lr.ph, label %if.then
 
 if.end.lr.ph:                                     ; preds = %entry
-  %arrayidx324 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 1
-  %arrayidx344 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 2
+  %arrayidx324 = getelementptr inbounds i8, ptr %digitHistory, i64 1
+  %arrayidx344 = getelementptr inbounds i8, ptr %digitHistory, i64 2
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -962,9 +960,9 @@ sw.bb:                                            ; preds = %for.cond3, %for.con
 if.then6:                                         ; preds = %sw.bb
   %2 = load ptr, ptr %state, align 8
   %call.i211 = call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i212 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i212 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i212, align 8
-  %errorCode.i213 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i213 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i213, align 8
   br label %return
 
@@ -987,9 +985,9 @@ sw.bb10:                                          ; preds = %for.cond3
 if.then18:                                        ; preds = %sw.bb10
   %3 = load ptr, ptr %state, align 8
   %call.i214 = call i32 @uriFreeUriMembersMmA(ptr noundef %3, ptr noundef %memory), !range !5
-  %errorPos1.i215 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i215 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i215, align 8
-  %errorCode.i216 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i216 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i216, align 8
   br label %return
 
@@ -1007,9 +1005,9 @@ if.then25:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg
   %5 = load ptr, ptr %state, align 8
   %call.i217 = call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
-  %errorPos1.i218 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i218 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i218, align 8
-  %errorCode.i219 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i219 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i219, align 8
   br label %return
 
@@ -1028,9 +1026,9 @@ if.then34:                                        ; preds = %if.else26
   %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr37, i64 1
   %7 = load ptr, ptr %state, align 8
   %call.i220 = call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef %memory), !range !5
-  %errorPos1.i221 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i221 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr38, ptr %errorPos1.i221, align 8
-  %errorCode.i222 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i222 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i222, align 8
   br label %return
 
@@ -1052,19 +1050,19 @@ if.then54:                                        ; preds = %land.lhs.true42
   %cmp57 = icmp ugt i8 %4, 2
   %9 = load ptr, ptr %state, align 8
   %call.i223 = call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
-  %errorPos1.i224 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i224 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp57, label %if.then59, label %if.else61
 
 if.then59:                                        ; preds = %if.then54
   %add.ptr60 = getelementptr inbounds i8, ptr %first.addr.1, i64 -3
   store ptr %add.ptr60, ptr %errorPos1.i224, align 8
-  %errorCode.i225 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i225 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i225, align 8
   br label %return
 
 if.else61:                                        ; preds = %if.then54
   %cmp64 = icmp ugt i8 %6, 5
-  %errorCode.i228 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i228 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp64, label %if.then66, label %if.else68
 
 if.then66:                                        ; preds = %if.else61
@@ -1082,7 +1080,7 @@ if.else68:                                        ; preds = %if.else61
 if.end75:                                         ; preds = %if.else39, %land.lhs.true42
   %call = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #7
   %10 = load ptr, ptr %state, align 8
-  %ip6 = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %10, i64 56
   %11 = load ptr, ptr %ip6, align 8
   %add76 = add nsw i32 %ip4OctetsDone.1, 12
   %idxprom77 = sext i32 %add76 to i64
@@ -1104,9 +1102,9 @@ switch.early.test:                                ; preds = %sw.bb80
 if.then89:                                        ; preds = %switch.early.test, %switch.early.test, %sw.bb80
   %12 = load ptr, ptr %state, align 8
   %call.i232 = call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory), !range !5
-  %errorPos1.i233 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i233 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i233, align 8
-  %errorCode.i234 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i234 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i234, align 8
   br label %return
 
@@ -1124,9 +1122,9 @@ if.then98:                                        ; preds = %if.else90
   %add.ptr101 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg100
   %14 = load ptr, ptr %state, align 8
   %call.i235 = call i32 @uriFreeUriMembersMmA(ptr noundef %14, ptr noundef %memory), !range !5
-  %errorPos1.i236 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i236 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr101, ptr %errorPos1.i236, align 8
-  %errorCode.i237 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i237 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i237, align 8
   br label %return
 
@@ -1145,9 +1143,9 @@ if.then110:                                       ; preds = %if.else102
   %add.ptr114 = getelementptr inbounds i8, ptr %add.ptr113, i64 1
   %16 = load ptr, ptr %state, align 8
   %call.i238 = call i32 @uriFreeUriMembersMmA(ptr noundef %16, ptr noundef %memory), !range !5
-  %errorPos1.i239 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i239 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr114, ptr %errorPos1.i239, align 8
-  %errorCode.i240 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i240 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i240, align 8
   br label %return
 
@@ -1169,19 +1167,19 @@ if.then131:                                       ; preds = %land.lhs.true118
   %cmp134 = icmp ugt i8 %13, 2
   %18 = load ptr, ptr %state, align 8
   %call.i241 = call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory), !range !5
-  %errorPos1.i242 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i242 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp134, label %if.then136, label %if.else138
 
 if.then136:                                       ; preds = %if.then131
   %add.ptr137 = getelementptr inbounds i8, ptr %first.addr.1, i64 -3
   store ptr %add.ptr137, ptr %errorPos1.i242, align 8
-  %errorCode.i243 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i243 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i243, align 8
   br label %return
 
 if.else138:                                       ; preds = %if.then131
   %cmp141 = icmp ugt i8 %15, 5
-  %errorCode.i246 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i246 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp141, label %if.then143, label %if.else145
 
 if.then143:                                       ; preds = %if.else138
@@ -1198,10 +1196,10 @@ if.else145:                                       ; preds = %if.else138
 
 if.end152:                                        ; preds = %if.else115, %land.lhs.true118
   %19 = load ptr, ptr %state, align 8
-  %afterLast154 = getelementptr inbounds %struct.UriUriStructA, ptr %19, i64 0, i32 2, i32 1
+  %afterLast154 = getelementptr inbounds i8, ptr %19, i64 40
   store ptr %first.addr.1, ptr %afterLast154, align 8
   %20 = load ptr, ptr %state, align 8
-  %ip6157 = getelementptr inbounds %struct.UriUriStructA, ptr %20, i64 0, i32 3, i32 1
+  %ip6157 = getelementptr inbounds i8, ptr %20, i64 56
   %21 = load ptr, ptr %ip6157, align 8
   %add.ptr161 = getelementptr inbounds i8, ptr %21, i64 12
   %mul162 = shl nsw i32 %quadsAfterZipperCount.0476, 1
@@ -1211,9 +1209,9 @@ if.end152:                                        ; preds = %if.else115, %land.l
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr165, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext163, i1 false)
   %call170 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #7
   %22 = load ptr, ptr %state, align 8
-  %ip6173 = getelementptr inbounds %struct.UriUriStructA, ptr %22, i64 0, i32 3, i32 1
+  %ip6173 = getelementptr inbounds i8, ptr %22, i64 56
   %23 = load ptr, ptr %ip6173, align 8
-  %arrayidx175 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 15
+  %arrayidx175 = getelementptr inbounds i8, ptr %23, i64 15
   store i8 %call170, ptr %arrayidx175, align 1
   %add.ptr176 = getelementptr inbounds i8, ptr %first.addr.1, i64 1
   br label %return
@@ -1221,9 +1219,9 @@ if.end152:                                        ; preds = %if.else115, %land.l
 sw.default:                                       ; preds = %for.cond3
   %24 = load ptr, ptr %state, align 8
   %call.i250 = call i32 @uriFreeUriMembersMmA(ptr noundef %24, ptr noundef %memory), !range !5
-  %errorPos1.i251 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i251 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i251, align 8
-  %errorCode.i252 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i252 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i252, align 8
   br label %return
 
@@ -1237,9 +1235,9 @@ sw.epilog:                                        ; preds = %if.end75, %if.end7
 if.then179:                                       ; preds = %sw.epilog
   %25 = load ptr, ptr %state, align 8
   %call.i253 = call i32 @uriFreeUriMembersMmA(ptr noundef %25, ptr noundef %memory), !range !5
-  %errorPos1.i254 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i254 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i254, align 8
-  %errorCode.i255 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i255 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i255, align 8
   br label %return
 
@@ -1287,9 +1285,9 @@ sw.bb183:                                         ; preds = %do.body, %do.body, 
 if.then186:                                       ; preds = %sw.bb183
   %27 = load ptr, ptr %state, align 8
   %call.i256 = call i32 @uriFreeUriMembersMmA(ptr noundef %27, ptr noundef %memory), !range !5
-  %errorPos1.i257 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i257 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i257, align 8
-  %errorCode.i258 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i258 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i258, align 8
   br label %return
 
@@ -1300,9 +1298,9 @@ sw.bb195:                                         ; preds = %do.body, %do.body, 
 if.then198:                                       ; preds = %sw.bb195
   %28 = load ptr, ptr %state, align 8
   %call.i259 = call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %memory), !range !5
-  %errorPos1.i260 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i260 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i260, align 8
-  %errorCode.i261 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i261 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i261, align 8
   br label %return
 
@@ -1313,9 +1311,9 @@ sw.bb207:                                         ; preds = %do.body, %do.body, 
 if.then210:                                       ; preds = %sw.bb207
   %29 = load ptr, ptr %state, align 8
   %call.i262 = call i32 @uriFreeUriMembersMmA(ptr noundef %29, ptr noundef %memory), !range !5
-  %errorPos1.i263 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i263 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i263, align 8
-  %errorCode.i264 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i264 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i264, align 8
   br label %return
 
@@ -1337,7 +1335,7 @@ if.then223:                                       ; preds = %if.then222
 
 if.else230:                                       ; preds = %if.then222
   %30 = load ptr, ptr %state, align 8
-  %ip6234 = getelementptr inbounds %struct.UriUriStructA, ptr %30, i64 0, i32 3, i32 1
+  %ip6234 = getelementptr inbounds i8, ptr %30, i64 56
   %31 = load ptr, ptr %ip6234, align 8
   %mul237 = shl nsw i32 %quadsDone.1, 1
   %idx.ext238 = sext i32 %mul237 to i64
@@ -1361,9 +1359,9 @@ if.end242:                                        ; preds = %if.end240, %sw.bb21
 if.then246:                                       ; preds = %if.end242
   %32 = load ptr, ptr %state, align 8
   %call.i265 = call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory), !range !5
-  %errorPos1.i266 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i266 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i266, align 8
-  %errorCode.i267 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i267 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i267, align 8
   br label %return
 
@@ -1375,9 +1373,9 @@ if.end247:                                        ; preds = %if.end242
 if.then251:                                       ; preds = %if.end247
   %33 = load ptr, ptr %state, align 8
   %call.i268 = call i32 @uriFreeUriMembersMmA(ptr noundef %33, ptr noundef %memory), !range !5
-  %errorPos1.i269 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i269 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i269, align 8
-  %errorCode.i270 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i270 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i270, align 8
   br label %return
 
@@ -1393,16 +1391,16 @@ if.then257:                                       ; preds = %if.end252
 if.then264:                                       ; preds = %if.then257
   %35 = load ptr, ptr %state, align 8
   %call.i271 = call i32 @uriFreeUriMembersMmA(ptr noundef %35, ptr noundef %memory), !range !5
-  %errorPos1.i272 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i272 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr248, ptr %errorPos1.i272, align 8
-  %errorCode.i273 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i273 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i273, align 8
   br label %return
 
 if.end265:                                        ; preds = %if.then257
   %mul261 = shl nsw i32 %quadsDone.2, 1
   %36 = load ptr, ptr %state, align 8
-  %ip6268 = getelementptr inbounds %struct.UriUriStructA, ptr %36, i64 0, i32 3, i32 1
+  %ip6268 = getelementptr inbounds i8, ptr %36, i64 56
   %37 = load ptr, ptr %ip6268, align 8
   %idx.ext271 = sext i32 %mul261 to i64
   %add.ptr272 = getelementptr inbounds i8, ptr %37, i64 %idx.ext271
@@ -1416,9 +1414,9 @@ if.end265:                                        ; preds = %if.then257
 if.then278:                                       ; preds = %if.end265
   %38 = load ptr, ptr %state, align 8
   %call.i274 = call i32 @uriFreeUriMembersMmA(ptr noundef %38, ptr noundef %memory), !range !5
-  %errorPos1.i275 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i275 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i275, align 8
-  %errorCode.i276 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i276 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i276, align 8
   br label %return
 
@@ -1430,9 +1428,9 @@ if.end279:                                        ; preds = %if.end265
 if.then284:                                       ; preds = %if.end279
   %40 = load ptr, ptr %state, align 8
   %call.i277 = call i32 @uriFreeUriMembersMmA(ptr noundef %40, ptr noundef %memory), !range !5
-  %errorPos1.i278 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i278 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr275, ptr %errorPos1.i278, align 8
-  %errorCode.i279 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i279 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i279, align 8
   br label %return
 
@@ -1455,9 +1453,9 @@ lor.lhs.false294:                                 ; preds = %sw.bb291
 if.then307:                                       ; preds = %lor.lhs.false294, %sw.bb291
   %41 = load ptr, ptr %state, align 8
   %call.i280 = call i32 @uriFreeUriMembersMmA(ptr noundef %41, ptr noundef %memory), !range !5
-  %errorPos1.i281 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i281 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i281, align 8
-  %errorCode.i282 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i282 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i282, align 8
   br label %return
 
@@ -1475,9 +1473,9 @@ if.then316:                                       ; preds = %if.else308
   %add.ptr319 = getelementptr inbounds i8, ptr %first.addr.2, i64 %idx.neg318
   %43 = load ptr, ptr %state, align 8
   %call.i283 = call i32 @uriFreeUriMembersMmA(ptr noundef %43, ptr noundef %memory), !range !5
-  %errorPos1.i284 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i284 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr319, ptr %errorPos1.i284, align 8
-  %errorCode.i285 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i285 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i285, align 8
   br label %return
 
@@ -1496,9 +1494,9 @@ if.then328:                                       ; preds = %if.else320
   %add.ptr332 = getelementptr inbounds i8, ptr %add.ptr331, i64 1
   %45 = load ptr, ptr %state, align 8
   %call.i286 = call i32 @uriFreeUriMembersMmA(ptr noundef %45, ptr noundef %memory), !range !5
-  %errorPos1.i287 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i287 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr332, ptr %errorPos1.i287, align 8
-  %errorCode.i288 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i288 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i288, align 8
   br label %return
 
@@ -1520,19 +1518,19 @@ if.then349:                                       ; preds = %land.lhs.true336
   %cmp352 = icmp ugt i8 %42, 2
   %47 = load ptr, ptr %state, align 8
   %call.i289 = call i32 @uriFreeUriMembersMmA(ptr noundef %47, ptr noundef %memory), !range !5
-  %errorPos1.i290 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i290 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp352, label %if.then354, label %if.else356
 
 if.then354:                                       ; preds = %if.then349
   %add.ptr355 = getelementptr inbounds i8, ptr %first.addr.2, i64 -3
   store ptr %add.ptr355, ptr %errorPos1.i290, align 8
-  %errorCode.i291 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i291 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i291, align 8
   br label %return
 
 if.else356:                                       ; preds = %if.then349
   %cmp359 = icmp ugt i8 %44, 5
-  %errorCode.i294 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i294 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp359, label %if.then361, label %if.else363
 
 if.then361:                                       ; preds = %if.else356
@@ -1560,9 +1558,9 @@ land.lhs.true380:                                 ; preds = %sw.bb378
 
 if.then386:                                       ; preds = %land.lhs.true380
   %call.i298 = call i32 @uriFreeUriMembersMmA(ptr noundef %48, ptr noundef %memory), !range !5
-  %errorPos1.i299 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i299 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i299, align 8
-  %errorCode.i300 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i300 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i300, align 8
   br label %return
 
@@ -1579,7 +1577,7 @@ if.then392:                                       ; preds = %if.end387
   br label %if.end410
 
 if.else399:                                       ; preds = %land.lhs.true380
-  %ip6403 = getelementptr inbounds %struct.UriUriStructA, ptr %48, i64 0, i32 3, i32 1
+  %ip6403 = getelementptr inbounds i8, ptr %48, i64 56
   %49 = load ptr, ptr %ip6403, align 8
   %add.ptr408 = getelementptr inbounds i8, ptr %49, i64 14
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr408) #7
@@ -1588,7 +1586,7 @@ if.else399:                                       ; preds = %land.lhs.true380
 if.end410:                                        ; preds = %if.then392, %if.else399, %if.end387
   %quadsAfterZipperCount.4 = phi i32 [ %inc398, %if.then392 ], [ %quadsAfterZipperCount.1, %if.else399 ], [ %quadsAfterZipperCount.1, %if.end387 ]
   %50 = load ptr, ptr %state, align 8
-  %ip6413 = getelementptr inbounds %struct.UriUriStructA, ptr %50, i64 0, i32 3, i32 1
+  %ip6413 = getelementptr inbounds i8, ptr %50, i64 56
   %51 = load ptr, ptr %ip6413, align 8
   %add.ptr416 = getelementptr inbounds i8, ptr %51, i64 16
   %mul417 = shl nsw i32 %quadsAfterZipperCount.4, 1
@@ -1597,7 +1595,7 @@ if.end410:                                        ; preds = %if.then392, %if.els
   %add.ptr420 = getelementptr inbounds i8, ptr %add.ptr416, i64 %idx.neg419
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr420, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext418, i1 false)
   %52 = load ptr, ptr %state, align 8
-  %afterLast426 = getelementptr inbounds %struct.UriUriStructA, ptr %52, i64 0, i32 2, i32 1
+  %afterLast426 = getelementptr inbounds i8, ptr %52, i64 40
   store ptr %first.addr.2, ptr %afterLast426, align 8
   %add.ptr427 = getelementptr inbounds i8, ptr %first.addr.2, i64 1
   br label %return
@@ -1605,9 +1603,9 @@ if.end410:                                        ; preds = %if.then392, %if.els
 sw.default428:                                    ; preds = %do.body
   %53 = load ptr, ptr %state, align 8
   %call.i301 = call i32 @uriFreeUriMembersMmA(ptr noundef %53, ptr noundef %memory), !range !5
-  %errorPos1.i302 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i302 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i302, align 8
-  %errorCode.i303 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i303 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i303, align 8
   br label %return
 
@@ -1635,9 +1633,9 @@ sw.epilog429:                                     ; preds = %sw.epilog429.sink.s
 sw.epilog429.thread:                              ; preds = %land.lhs.true336, %if.else333
   %call372 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3) #7
   %54 = load ptr, ptr %state, align 8
-  %ip6375 = getelementptr inbounds %struct.UriUriStructA, ptr %54, i64 0, i32 3, i32 1
+  %ip6375 = getelementptr inbounds i8, ptr %54, i64 56
   %55 = load ptr, ptr %ip6375, align 8
-  %arrayidx377 = getelementptr inbounds [16 x i8], ptr %55, i64 0, i64 12
+  %arrayidx377 = getelementptr inbounds i8, ptr %55, i64 12
   store i8 %call372, ptr %arrayidx377, align 1
   %incdec.ptr430647 = getelementptr inbounds i8, ptr %first.addr.2, i64 1
   %cmp431.not648 = icmp ult ptr %incdec.ptr430647, %afterLast
@@ -1646,9 +1644,9 @@ sw.epilog429.thread:                              ; preds = %land.lhs.true336, %
 if.then433:                                       ; preds = %sw.epilog429.thread, %sw.epilog429
   %56 = load ptr, ptr %state, align 8
   %call.i304 = call i32 @uriFreeUriMembersMmA(ptr noundef %56, ptr noundef %memory), !range !5
-  %errorPos1.i305 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i305 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i305, align 8
-  %errorCode.i306 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i306 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i306, align 8
   br label %return
 
@@ -1794,7 +1792,7 @@ if.end.i:                                         ; preds = %do.end
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %3 = load ptr, ptr %state, align 8
   store ptr %first, ptr %3, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 4
   %cmp.not82.i.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not82.i.i, label %if.end2.i.i, label %if.then.i.i
 
@@ -1802,7 +1800,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i, %sw.bb.i
   %first.tr.lcssa.i.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
   %4 = load ptr, ptr %state, align 8
   %5 = load ptr, ptr %4, align 8
-  %calloc.i.i.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 1
+  %calloc.i.i.i.i = getelementptr inbounds i8, ptr %memory.addr.0, i64 8
   %6 = load ptr, ptr %calloc.i.i.i.i, align 8
   %call.i.i.i.i = tail call ptr %6(ptr noundef nonnull %memory.addr.0, i64 noundef 1, i64 noundef 32) #7
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
@@ -1814,25 +1812,25 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %spec.select.i.i.i.i = select i1 %cmp1.i.i.i.i, ptr %7, ptr %5
   %spec.select16.i.i.i.i = select i1 %cmp1.i.i.i.i, ptr %7, ptr %first.tr.lcssa.i.i
   store ptr %spec.select.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %8 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i.i.i.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %spec.select16.i.i.i.i, ptr %8, align 8
   %9 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %9, i64 0, i32 5
+  %pathHead.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 96
   %10 = load ptr, ptr %pathHead.i.i.i.i, align 8
   %cmp11.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp11.i.i.i.i, label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i, label %if.else16.i.i.i.i
 
 if.else16.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %pathTail18.i.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %9, i64 0, i32 6
+  %pathTail18.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %pathTail18.i.i.i.i, align 8
-  %next.i.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %11, i64 0, i32 1
+  %next.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i
 
 uriOnExitSegmentNzNcOrScheme2W.exit.i.i:          ; preds = %if.else16.i.i.i.i, %if.end.i.i.i.i
   %pathHead.sink.i.i.i.i = phi ptr [ %next.i.i.i.i, %if.else16.i.i.i.i ], [ %pathHead.i.i.i.i, %if.end.i.i.i.i ]
   store ptr %call.i.i.i.i, ptr %pathHead.sink.i.i.i.i, align 8
   %12 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %12, i64 0, i32 6
+  %pathTail.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 104
   store ptr %call.i.i.i.i, ptr %pathTail.i.i.i.i, align 8
   %13 = load ptr, ptr %state, align 8
   store ptr null, ptr %13, align 8
@@ -1926,7 +1924,7 @@ if.end2.i.i:                                      ; preds = %sw.bb.i, %sw.bb.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %first.tr83.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
   %cmp.not.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %if.then.i.i
 
@@ -1940,12 +1938,12 @@ if.end8.i.i:                                      ; preds = %sw.bb4.i.i
   br label %uriParseUriReferenceW.exit
 
 sw.bb10.i.i:                                      ; preds = %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i
-  %add.ptr11.i.i = getelementptr inbounds i32, ptr %first.tr83.i.i, i64 1
+  %add.ptr11.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
   %call12.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef nonnull %add.ptr11.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb13.i.i:                                      ; preds = %if.end2.i.i
-  %add.ptr14.i.i = getelementptr inbounds i32, ptr %first.tr83.i.i, i64 1
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
   %call15.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp16.i.i = icmp eq ptr %call15.i.i, null
   br i1 %cmp16.i.i, label %if.then13, label %if.end18.i.i
@@ -1974,10 +1972,10 @@ if.end35.i.i:                                     ; preds = %if.end31.i.i
   br label %uriParseUriReferenceW.exit
 
 sw.bb37.i.i:                                      ; preds = %if.end2.i.i
-  %add.ptr38.i.i = getelementptr inbounds i32, ptr %first.tr83.i.i, i64 1
+  %add.ptr38.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
   %call39.i.i = tail call fastcc ptr @uriParseHierPartW(ptr noundef %state, ptr noundef nonnull %add.ptr38.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
   %18 = load ptr, ptr %state, align 8
-  %afterLast42.i.i = getelementptr inbounds %struct.UriTextRangeStructW, ptr %18, i64 0, i32 1
+  %afterLast42.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %first.tr83.i.i, ptr %afterLast42.i.i, align 8
   %cmp43.i.i = icmp eq ptr %call39.i.i, null
   br i1 %cmp43.i.i, label %if.then13, label %if.end45.i.i
@@ -1998,7 +1996,7 @@ if.end50.i.i:                                     ; preds = %sw.default.i.i
 sw.bb2.i:                                         ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %19 = load ptr, ptr %state, align 8
   store ptr %first, ptr %19, align 8
-  %add.ptr6.i = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr6.i = getelementptr inbounds i8, ptr %first, i64 4
   %call7.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr6.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
@@ -2014,7 +2012,7 @@ if.end12.i:                                       ; preds = %sw.bb8.i
   br label %uriParseUriReferenceW.exit
 
 sw.bb17.i:                                        ; preds = %if.end.i
-  %add.ptr18.i = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr18.i = getelementptr inbounds i8, ptr %first, i64 4
   %call19.i = tail call fastcc ptr @uriParsePartHelperTwoW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr18.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %if.then13, label %if.end22.i
@@ -2039,13 +2037,13 @@ if.then13.sink.split.sink.split:                  ; preds = %sw.default.i.i, %if
 if.then13.sink.split:                             ; preds = %if.then13.sink.split.sink.split, %if.end18.i.i
   %.sink = phi ptr [ %17, %if.end18.i.i ], [ %21, %if.then13.sink.split.sink.split ]
   %call.i66.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %.sink, ptr noundef nonnull %memory.addr.0), !range !5
-  %errorPos.i67.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i67.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i67.i.i, align 8
   store i32 3, ptr %1, align 8
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then13.sink.split, %sw.bb37.i.i, %if.end31.i.i, %sw.bb13.i.i, %sw.bb4.i.i, %sw.bb17.i, %sw.bb8.i, %uriParseUriReferenceW.exit
-  %errorPos = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos = getelementptr inbounds i8, ptr %state, i64 16
   %22 = load ptr, ptr %errorPos, align 8
   %cmp15 = icmp ugt ptr %22, %afterLast
   br i1 %cmp15, label %if.then16, label %if.end18
@@ -2067,7 +2065,7 @@ if.then21:                                        ; preds = %if.end19
   %24 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %24, ptr noundef nonnull %memory.addr.0), !range !5
   %retval.0.i.afterLast = select i1 %cmp22, ptr %retval.0.i, ptr %afterLast
-  %25 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %retval.0.i.afterLast, ptr %25, align 8
   store i32 1, ptr %1, align 8
   br label %return
@@ -2128,7 +2126,7 @@ if.then13.i.i:                                    ; preds = %do.body.i.i
   br i1 %cmp14.not.i.i, label %if.end17.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.then13.i.i
-  %errorPos16.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state.i.i, i64 0, i32 2
+  %errorPos16.i.i = getelementptr inbounds i8, ptr %state.i.i, i64 16
   %0 = load ptr, ptr %errorPos16.i.i, align 8
   store ptr %0, ptr %errorPos, align 8
   br label %if.end17.i.i
@@ -2178,7 +2176,7 @@ if.then13.i:                                      ; preds = %do.body.i
   br i1 %cmp14.not.i, label %if.end17.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then13.i
-  %errorPos16.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state.i, i64 0, i32 2
+  %errorPos16.i = getelementptr inbounds i8, ptr %state.i, i64 16
   %0 = load ptr, ptr %errorPos16.i, align 8
   store ptr %0, ptr %errorPos, align 8
   br label %if.end17.i
@@ -2225,7 +2223,7 @@ if.then13:                                        ; preds = %do.end
   br i1 %cmp14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  %errorPos16 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos16 = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load ptr, ptr %errorPos16, align 8
   store ptr %0, ptr %errorPos, align 8
   br label %if.end17
@@ -2256,7 +2254,7 @@ if.else:                                          ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.else
   %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %do.body ]
-  %owner = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 10
+  %owner = getelementptr inbounds i8, ptr %uri, i64 148
   %0 = load i32, ptr %owner, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end91, label %if.then7
@@ -2267,13 +2265,13 @@ if.then7:                                         ; preds = %do.end
   br i1 %cmp8.not, label %if.end22, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructW, ptr %uri, i64 0, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %uri, i64 8
   %2 = load ptr, ptr %afterLast, align 8
   %cmp13.not = icmp eq ptr %1, %2
   br i1 %cmp13.not, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.then9
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %3 = load ptr, ptr %free, align 8
   tail call void %3(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %1) #7
   br label %if.end17
@@ -2283,19 +2281,19 @@ if.end17:                                         ; preds = %if.then14, %if.then
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end17, %if.then7
-  %userInfo = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 1
+  %userInfo = getelementptr inbounds i8, ptr %uri, i64 16
   %4 = load ptr, ptr %userInfo, align 8
   %cmp24.not = icmp eq ptr %4, null
   br i1 %cmp24.not, label %if.end40, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %afterLast29 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 1, i32 1
+  %afterLast29 = getelementptr inbounds i8, ptr %uri, i64 24
   %5 = load ptr, ptr %afterLast29, align 8
   %cmp30.not = icmp eq ptr %4, %5
   br i1 %cmp30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %if.then25
-  %free32 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free32 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %6 = load ptr, ptr %free32, align 8
   tail call void %6(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %4) #7
   br label %if.end35
@@ -2305,33 +2303,33 @@ if.end35:                                         ; preds = %if.then31, %if.then
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end35, %if.end22
-  %hostData = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3
-  %ipFuture = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3, i32 2
+  %hostData = getelementptr inbounds i8, ptr %uri, i64 48
+  %ipFuture = getelementptr inbounds i8, ptr %uri, i64 64
   %7 = load ptr, ptr %ipFuture, align 8
   %cmp42.not = icmp eq ptr %7, null
   br i1 %cmp42.not, label %if.end66, label %if.then43
 
 if.then43:                                        ; preds = %if.end40
-  %afterLast49 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3, i32 2, i32 1
+  %afterLast49 = getelementptr inbounds i8, ptr %uri, i64 72
   %8 = load ptr, ptr %afterLast49, align 8
   %cmp50.not = icmp eq ptr %7, %8
   br i1 %cmp50.not, label %if.end66.thread, label %if.then51
 
 if.then51:                                        ; preds = %if.then43
-  %free52 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free52 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %9 = load ptr, ptr %free52, align 8
   tail call void %9(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %7) #7
   br label %if.end66.thread
 
 if.end66.thread:                                  ; preds = %if.then43, %if.then51
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %uri, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hostText, i8 0, i64 16, i1 false)
   br label %if.end91.sink.split
 
 if.end66:                                         ; preds = %if.end40
-  %hostText67.phi.trans.insert = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 2
+  %hostText67.phi.trans.insert = getelementptr inbounds i8, ptr %uri, i64 32
   %.pre = load ptr, ptr %hostText67.phi.trans.insert, align 8
-  %hostText67 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 2
+  %hostText67 = getelementptr inbounds i8, ptr %uri, i64 32
   %cmp69.not = icmp eq ptr %.pre, null
   br i1 %cmp69.not, label %if.end91, label %land.lhs.true
 
@@ -2341,19 +2339,19 @@ land.lhs.true:                                    ; preds = %if.end66
   br i1 %cmp71, label %land.lhs.true72, label %if.end91
 
 land.lhs.true72:                                  ; preds = %land.lhs.true
-  %ip6 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   %11 = load ptr, ptr %ip6, align 8
   %cmp74 = icmp eq ptr %11, null
   br i1 %cmp74, label %if.then75, label %if.end91
 
 if.then75:                                        ; preds = %land.lhs.true72
-  %afterLast79 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 2, i32 1
+  %afterLast79 = getelementptr inbounds i8, ptr %uri, i64 40
   %12 = load ptr, ptr %afterLast79, align 8
   %cmp80.not = icmp eq ptr %.pre, %12
   br i1 %cmp80.not, label %if.end91.sink.split, label %if.then81
 
 if.then81:                                        ; preds = %if.then75
-  %free82 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free82 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %13 = load ptr, ptr %free82, align 8
   tail call void %13(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %.pre) #7
   br label %if.end91.sink.split
@@ -2364,26 +2362,26 @@ if.end91.sink.split:                              ; preds = %if.then75, %if.then
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end91.sink.split, %if.end66, %land.lhs.true, %land.lhs.true72, %do.end
-  %hostData92 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3
+  %hostData92 = getelementptr inbounds i8, ptr %uri, i64 48
   %14 = load ptr, ptr %hostData92, align 8
   %cmp94.not = icmp eq ptr %14, null
   br i1 %cmp94.not, label %if.end101, label %if.then95
 
 if.then95:                                        ; preds = %if.end91
-  %free96 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free96 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %15 = load ptr, ptr %free96, align 8
   tail call void %15(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %14) #7
   store ptr null, ptr %hostData92, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then95, %if.end91
-  %ip6103 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3, i32 1
+  %ip6103 = getelementptr inbounds i8, ptr %uri, i64 56
   %16 = load ptr, ptr %ip6103, align 8
   %cmp104.not = icmp eq ptr %16, null
   br i1 %cmp104.not, label %if.end111, label %if.then105
 
 if.then105:                                       ; preds = %if.end101
-  %free106 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free106 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %17 = load ptr, ptr %free106, align 8
   tail call void %17(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %16) #7
   store ptr null, ptr %ip6103, align 8
@@ -2395,19 +2393,19 @@ if.end111:                                        ; preds = %if.then105, %if.end
   br i1 %tobool113.not, label %if.end132, label %land.lhs.true114
 
 land.lhs.true114:                                 ; preds = %if.end111
-  %portText = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 4
+  %portText = getelementptr inbounds i8, ptr %uri, i64 80
   %19 = load ptr, ptr %portText, align 8
   %cmp116.not = icmp eq ptr %19, null
   br i1 %cmp116.not, label %if.end132, label %if.then117
 
 if.then117:                                       ; preds = %land.lhs.true114
-  %afterLast121 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 4, i32 1
+  %afterLast121 = getelementptr inbounds i8, ptr %uri, i64 88
   %20 = load ptr, ptr %afterLast121, align 8
   %cmp122.not = icmp eq ptr %19, %20
   br i1 %cmp122.not, label %if.end127, label %if.then123
 
 if.then123:                                       ; preds = %if.then117
-  %free124 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free124 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %21 = load ptr, ptr %free124, align 8
   tail call void %21(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %19) #7
   br label %if.end127
@@ -2417,18 +2415,18 @@ if.end127:                                        ; preds = %if.then123, %if.the
   br label %if.end132
 
 if.end132:                                        ; preds = %if.end127, %land.lhs.true114, %if.end111
-  %pathHead = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 5
+  %pathHead = getelementptr inbounds i8, ptr %uri, i64 96
   %22 = load ptr, ptr %pathHead, align 8
   %cmp133.not = icmp eq ptr %22, null
   br i1 %cmp133.not, label %if.end156, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end132
-  %free150 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free150 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end153
   %segWalk.0100 = phi ptr [ %22, %while.cond.preheader ], [ %23, %if.end153 ]
-  %next137 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %segWalk.0100, i64 0, i32 1
+  %next137 = getelementptr inbounds i8, ptr %segWalk.0100, i64 16
   %23 = load ptr, ptr %next137, align 8
   %24 = load i32, ptr %owner, align 4
   %tobool139.not = icmp eq i32 %24, 0
@@ -2440,7 +2438,7 @@ land.lhs.true140:                                 ; preds = %while.body
   br i1 %cmp142.not, label %if.end153, label %land.lhs.true143
 
 land.lhs.true143:                                 ; preds = %land.lhs.true140
-  %afterLast147 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %segWalk.0100, i64 0, i32 1
+  %afterLast147 = getelementptr inbounds i8, ptr %segWalk.0100, i64 8
   %26 = load ptr, ptr %afterLast147, align 8
   %cmp148 = icmp ult ptr %25, %26
   br i1 %cmp148, label %if.then149, label %if.end153
@@ -2466,19 +2464,19 @@ if.end156:                                        ; preds = %while.end, %if.end1
   br i1 %tobool158.not, label %return, label %if.then159
 
 if.then159:                                       ; preds = %if.end156
-  %query = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 7
+  %query = getelementptr inbounds i8, ptr %uri, i64 112
   %30 = load ptr, ptr %query, align 8
   %cmp161.not = icmp eq ptr %30, null
   br i1 %cmp161.not, label %if.end177, label %if.then162
 
 if.then162:                                       ; preds = %if.then159
-  %afterLast166 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 7, i32 1
+  %afterLast166 = getelementptr inbounds i8, ptr %uri, i64 120
   %31 = load ptr, ptr %afterLast166, align 8
   %cmp167.not = icmp eq ptr %30, %31
   br i1 %cmp167.not, label %if.end172, label %if.then168
 
 if.then168:                                       ; preds = %if.then162
-  %free169 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free169 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %32 = load ptr, ptr %free169, align 8
   tail call void %32(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %30) #7
   br label %if.end172
@@ -2488,19 +2486,19 @@ if.end172:                                        ; preds = %if.then168, %if.the
   br label %if.end177
 
 if.end177:                                        ; preds = %if.end172, %if.then159
-  %fragment = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 8
+  %fragment = getelementptr inbounds i8, ptr %uri, i64 128
   %33 = load ptr, ptr %fragment, align 8
   %cmp179.not = icmp eq ptr %33, null
   br i1 %cmp179.not, label %return, label %if.then180
 
 if.then180:                                       ; preds = %if.end177
-  %afterLast184 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 8, i32 1
+  %afterLast184 = getelementptr inbounds i8, ptr %uri, i64 136
   %34 = load ptr, ptr %afterLast184, align 8
   %cmp185.not = icmp eq ptr %33, %34
   br i1 %cmp185.not, label %if.end190, label %if.then186
 
 if.then186:                                       ; preds = %if.then180
-  %free187 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory.addr.0, i64 0, i32 4
+  %free187 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
   %35 = load ptr, ptr %free187, align 8
   tail call void %35(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %33) #7
   br label %if.end190
@@ -2534,7 +2532,7 @@ entry:
   store ptr %uri, ptr %parser, align 8
   %1 = load ptr, ptr @defaultMemoryManager, align 8
   %call2 = call ptr %1(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #7
-  %ip6 = getelementptr inbounds %struct.UriUriStructW, ptr %uri, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
   %call4 = call fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
   %call5 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager), !range !5
@@ -2554,16 +2552,16 @@ entry:
   br i1 %cmp.not470, label %if.end.lr.ph, label %if.then
 
 if.end.lr.ph:                                     ; preds = %entry
-  %arrayidx315 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 1
-  %arrayidx335 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 2
+  %arrayidx315 = getelementptr inbounds i8, ptr %digitHistory, i64 1
+  %arrayidx335 = getelementptr inbounds i8, ptr %digitHistory, i64 2
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -2602,9 +2600,9 @@ sw.bb:                                            ; preds = %for.cond3, %for.con
 if.then5:                                         ; preds = %sw.bb
   %2 = load ptr, ptr %state, align 8
   %call.i211 = call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i212 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i212 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i212, align 8
-  %errorCode.i213 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i213 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i213, align 8
   br label %return
 
@@ -2628,9 +2626,9 @@ sw.bb7:                                           ; preds = %for.cond3
 if.then15:                                        ; preds = %sw.bb7
   %4 = load ptr, ptr %state, align 8
   %call.i214 = call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
-  %errorPos1.i215 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i215 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i215, align 8
-  %errorCode.i216 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i216 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i216, align 8
   br label %return
 
@@ -2648,9 +2646,9 @@ if.then22:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg
   %6 = load ptr, ptr %state, align 8
   %call.i217 = call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory), !range !5
-  %errorPos1.i218 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i218 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i218, align 8
-  %errorCode.i219 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i219 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i219, align 8
   br label %return
 
@@ -2666,12 +2664,12 @@ if.then31:                                        ; preds = %if.else23
   %idx.ext32 = zext nneg i32 %digitCount.1 to i64
   %idx.neg33 = sub nsw i64 0, %idx.ext32
   %add.ptr34 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg33
-  %add.ptr35 = getelementptr inbounds i32, ptr %add.ptr34, i64 1
+  %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr34, i64 4
   %8 = load ptr, ptr %state, align 8
   %call.i220 = call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef %memory), !range !5
-  %errorPos1.i221 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i221 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr35, ptr %errorPos1.i221, align 8
-  %errorCode.i222 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i222 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i222, align 8
   br label %return
 
@@ -2693,29 +2691,29 @@ if.then51:                                        ; preds = %land.lhs.true39
   %cmp54 = icmp ugt i8 %5, 2
   %10 = load ptr, ptr %state, align 8
   %call.i223 = call i32 @uriFreeUriMembersMmW(ptr noundef %10, ptr noundef %memory), !range !5
-  %errorPos1.i224 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i224 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp54, label %if.then56, label %if.else58
 
 if.then56:                                        ; preds = %if.then51
-  %add.ptr57 = getelementptr inbounds i32, ptr %first.addr.1, i64 -3
+  %add.ptr57 = getelementptr inbounds i8, ptr %first.addr.1, i64 -12
   store ptr %add.ptr57, ptr %errorPos1.i224, align 8
-  %errorCode.i225 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i225 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i225, align 8
   br label %return
 
 if.else58:                                        ; preds = %if.then51
   %cmp61 = icmp ugt i8 %7, 5
-  %errorCode.i228 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i228 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp61, label %if.then63, label %if.else65
 
 if.then63:                                        ; preds = %if.else58
-  %add.ptr64 = getelementptr inbounds i32, ptr %first.addr.1, i64 -2
+  %add.ptr64 = getelementptr inbounds i8, ptr %first.addr.1, i64 -8
   store ptr %add.ptr64, ptr %errorPos1.i224, align 8
   store i32 1, ptr %errorCode.i228, align 8
   br label %return
 
 if.else65:                                        ; preds = %if.else58
-  %add.ptr66 = getelementptr inbounds i32, ptr %first.addr.1, i64 -1
+  %add.ptr66 = getelementptr inbounds i8, ptr %first.addr.1, i64 -4
   store ptr %add.ptr66, ptr %errorPos1.i224, align 8
   store i32 1, ptr %errorCode.i228, align 8
   br label %return
@@ -2723,7 +2721,7 @@ if.else65:                                        ; preds = %if.else58
 if.end72:                                         ; preds = %if.else36, %land.lhs.true39
   %call = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #7
   %11 = load ptr, ptr %state, align 8
-  %ip6 = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %11, i64 56
   %12 = load ptr, ptr %ip6, align 8
   %add73 = add nsw i32 %ip4OctetsDone.1, 12
   %idxprom74 = sext i32 %add73 to i64
@@ -2745,9 +2743,9 @@ switch.early.test:                                ; preds = %sw.bb77
 if.then86:                                        ; preds = %switch.early.test, %switch.early.test, %sw.bb77
   %13 = load ptr, ptr %state, align 8
   %call.i232 = call i32 @uriFreeUriMembersMmW(ptr noundef %13, ptr noundef %memory), !range !5
-  %errorPos1.i233 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i233 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i233, align 8
-  %errorCode.i234 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i234 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i234, align 8
   br label %return
 
@@ -2765,9 +2763,9 @@ if.then95:                                        ; preds = %if.else87
   %add.ptr98 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg97
   %15 = load ptr, ptr %state, align 8
   %call.i235 = call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef %memory), !range !5
-  %errorPos1.i236 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i236 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr98, ptr %errorPos1.i236, align 8
-  %errorCode.i237 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i237 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i237, align 8
   br label %return
 
@@ -2783,12 +2781,12 @@ if.then107:                                       ; preds = %if.else99
   %idx.ext108 = zext nneg i32 %digitCount.1 to i64
   %idx.neg109 = sub nsw i64 0, %idx.ext108
   %add.ptr110 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg109
-  %add.ptr111 = getelementptr inbounds i32, ptr %add.ptr110, i64 1
+  %add.ptr111 = getelementptr inbounds i8, ptr %add.ptr110, i64 4
   %17 = load ptr, ptr %state, align 8
   %call.i238 = call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %memory), !range !5
-  %errorPos1.i239 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i239 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr111, ptr %errorPos1.i239, align 8
-  %errorCode.i240 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i240 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i240, align 8
   br label %return
 
@@ -2810,39 +2808,39 @@ if.then128:                                       ; preds = %land.lhs.true115
   %cmp131 = icmp ugt i8 %14, 2
   %19 = load ptr, ptr %state, align 8
   %call.i241 = call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory), !range !5
-  %errorPos1.i242 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i242 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp131, label %if.then133, label %if.else135
 
 if.then133:                                       ; preds = %if.then128
-  %add.ptr134 = getelementptr inbounds i32, ptr %first.addr.1, i64 -3
+  %add.ptr134 = getelementptr inbounds i8, ptr %first.addr.1, i64 -12
   store ptr %add.ptr134, ptr %errorPos1.i242, align 8
-  %errorCode.i243 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i243 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i243, align 8
   br label %return
 
 if.else135:                                       ; preds = %if.then128
   %cmp138 = icmp ugt i8 %16, 5
-  %errorCode.i246 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i246 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp138, label %if.then140, label %if.else142
 
 if.then140:                                       ; preds = %if.else135
-  %add.ptr141 = getelementptr inbounds i32, ptr %first.addr.1, i64 -2
+  %add.ptr141 = getelementptr inbounds i8, ptr %first.addr.1, i64 -8
   store ptr %add.ptr141, ptr %errorPos1.i242, align 8
   store i32 1, ptr %errorCode.i246, align 8
   br label %return
 
 if.else142:                                       ; preds = %if.else135
-  %add.ptr143 = getelementptr inbounds i32, ptr %first.addr.1, i64 -1
+  %add.ptr143 = getelementptr inbounds i8, ptr %first.addr.1, i64 -4
   store ptr %add.ptr143, ptr %errorPos1.i242, align 8
   store i32 1, ptr %errorCode.i246, align 8
   br label %return
 
 if.end149:                                        ; preds = %if.else112, %land.lhs.true115
   %20 = load ptr, ptr %state, align 8
-  %afterLast151 = getelementptr inbounds %struct.UriUriStructW, ptr %20, i64 0, i32 2, i32 1
+  %afterLast151 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr %first.addr.1, ptr %afterLast151, align 8
   %21 = load ptr, ptr %state, align 8
-  %ip6154 = getelementptr inbounds %struct.UriUriStructW, ptr %21, i64 0, i32 3, i32 1
+  %ip6154 = getelementptr inbounds i8, ptr %21, i64 56
   %22 = load ptr, ptr %ip6154, align 8
   %add.ptr158 = getelementptr inbounds i8, ptr %22, i64 12
   %mul159 = shl nsw i32 %quadsAfterZipperCount.0476, 1
@@ -2852,35 +2850,35 @@ if.end149:                                        ; preds = %if.else112, %land.l
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr162, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext160, i1 false)
   %call167 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #7
   %23 = load ptr, ptr %state, align 8
-  %ip6170 = getelementptr inbounds %struct.UriUriStructW, ptr %23, i64 0, i32 3, i32 1
+  %ip6170 = getelementptr inbounds i8, ptr %23, i64 56
   %24 = load ptr, ptr %ip6170, align 8
-  %arrayidx172 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 15
+  %arrayidx172 = getelementptr inbounds i8, ptr %24, i64 15
   store i8 %call167, ptr %arrayidx172, align 1
-  %add.ptr173 = getelementptr inbounds i32, ptr %first.addr.1, i64 1
+  %add.ptr173 = getelementptr inbounds i8, ptr %first.addr.1, i64 4
   br label %return
 
 sw.default:                                       ; preds = %for.cond3
   %25 = load ptr, ptr %state, align 8
   %call.i250 = call i32 @uriFreeUriMembersMmW(ptr noundef %25, ptr noundef %memory), !range !5
-  %errorPos1.i251 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i251 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i251, align 8
-  %errorCode.i252 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i252 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i252, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %if.end72, %if.end6
   %digitCount.2 = phi i32 [ 0, %if.end72 ], [ %inc, %if.end6 ]
   %ip4OctetsDone.2 = phi i32 [ %inc76, %if.end72 ], [ %ip4OctetsDone.1, %if.end6 ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %first.addr.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.1, i64 4
   %cmp174.not = icmp ult ptr %incdec.ptr, %afterLast
   br i1 %cmp174.not, label %for.cond3, label %if.then176
 
 if.then176:                                       ; preds = %sw.epilog
   %26 = load ptr, ptr %state, align 8
   %call.i253 = call i32 @uriFreeUriMembersMmW(ptr noundef %26, ptr noundef %memory), !range !5
-  %errorPos1.i254 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i254 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i254, align 8
-  %errorCode.i255 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i255 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i255, align 8
   br label %return
 
@@ -2927,9 +2925,9 @@ sw.bb179:                                         ; preds = %do.body, %do.body, 
 if.then182:                                       ; preds = %sw.bb179
   %28 = load ptr, ptr %state, align 8
   %call.i256 = call i32 @uriFreeUriMembersMmW(ptr noundef %28, ptr noundef %memory), !range !5
-  %errorPos1.i257 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i257 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i257, align 8
-  %errorCode.i258 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i258 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i258, align 8
   br label %return
 
@@ -2940,9 +2938,9 @@ sw.bb190:                                         ; preds = %do.body, %do.body, 
 if.then193:                                       ; preds = %sw.bb190
   %29 = load ptr, ptr %state, align 8
   %call.i259 = call i32 @uriFreeUriMembersMmW(ptr noundef %29, ptr noundef %memory), !range !5
-  %errorPos1.i260 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i260 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i260, align 8
-  %errorCode.i261 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i261 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i261, align 8
   br label %return
 
@@ -2953,9 +2951,9 @@ sw.bb201:                                         ; preds = %do.body, %do.body, 
 if.then204:                                       ; preds = %sw.bb201
   %30 = load ptr, ptr %state, align 8
   %call.i262 = call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef %memory), !range !5
-  %errorPos1.i263 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i263 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i263, align 8
-  %errorCode.i264 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i264 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i264, align 8
   br label %return
 
@@ -2977,7 +2975,7 @@ if.then216:                                       ; preds = %if.then215
 
 if.else223:                                       ; preds = %if.then215
   %31 = load ptr, ptr %state, align 8
-  %ip6227 = getelementptr inbounds %struct.UriUriStructW, ptr %31, i64 0, i32 3, i32 1
+  %ip6227 = getelementptr inbounds i8, ptr %31, i64 56
   %32 = load ptr, ptr %ip6227, align 8
   %mul230 = shl nsw i32 %quadsDone.1, 1
   %idx.ext231 = sext i32 %mul230 to i64
@@ -3001,23 +2999,23 @@ if.end235:                                        ; preds = %if.end233, %sw.bb21
 if.then239:                                       ; preds = %if.end235
   %33 = load ptr, ptr %state, align 8
   %call.i265 = call i32 @uriFreeUriMembersMmW(ptr noundef %33, ptr noundef %memory), !range !5
-  %errorPos1.i266 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i266 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i266, align 8
-  %errorCode.i267 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i267 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i267, align 8
   br label %return
 
 if.end240:                                        ; preds = %if.end235
-  %add.ptr241 = getelementptr inbounds i32, ptr %first.addr.2, i64 1
+  %add.ptr241 = getelementptr inbounds i8, ptr %first.addr.2, i64 4
   %cmp242.not = icmp ult ptr %add.ptr241, %afterLast
   br i1 %cmp242.not, label %if.end245, label %if.then244
 
 if.then244:                                       ; preds = %if.end240
   %34 = load ptr, ptr %state, align 8
   %call.i268 = call i32 @uriFreeUriMembersMmW(ptr noundef %34, ptr noundef %memory), !range !5
-  %errorPos1.i269 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i269 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i269, align 8
-  %errorCode.i270 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i270 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i270, align 8
   br label %return
 
@@ -3033,32 +3031,32 @@ if.then249:                                       ; preds = %if.end245
 if.then256:                                       ; preds = %if.then249
   %36 = load ptr, ptr %state, align 8
   %call.i271 = call i32 @uriFreeUriMembersMmW(ptr noundef %36, ptr noundef %memory), !range !5
-  %errorPos1.i272 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i272 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr241, ptr %errorPos1.i272, align 8
-  %errorCode.i273 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i273 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i273, align 8
   br label %return
 
 if.end257:                                        ; preds = %if.then249
   %mul253 = shl nsw i32 %quadsDone.2, 1
   %37 = load ptr, ptr %state, align 8
-  %ip6260 = getelementptr inbounds %struct.UriUriStructW, ptr %37, i64 0, i32 3, i32 1
+  %ip6260 = getelementptr inbounds i8, ptr %37, i64 56
   %38 = load ptr, ptr %ip6260, align 8
   %idx.ext263 = sext i32 %mul253 to i64
   %add.ptr264 = getelementptr inbounds i8, ptr %38, i64 %idx.ext263
   %sub265 = sub nsw i32 16, %mul253
   %conv266 = sext i32 %sub265 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr264, i8 0, i64 %conv266, i1 false)
-  %add.ptr267 = getelementptr inbounds i32, ptr %first.addr.2, i64 2
+  %add.ptr267 = getelementptr inbounds i8, ptr %first.addr.2, i64 8
   %cmp268.not = icmp ult ptr %add.ptr267, %afterLast
   br i1 %cmp268.not, label %if.end271, label %if.then270
 
 if.then270:                                       ; preds = %if.end257
   %39 = load ptr, ptr %state, align 8
   %call.i274 = call i32 @uriFreeUriMembersMmW(ptr noundef %39, ptr noundef %memory), !range !5
-  %errorPos1.i275 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i275 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i275, align 8
-  %errorCode.i276 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i276 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i276, align 8
   br label %return
 
@@ -3070,9 +3068,9 @@ if.end271:                                        ; preds = %if.end257
 if.then275:                                       ; preds = %if.end271
   %41 = load ptr, ptr %state, align 8
   %call.i277 = call i32 @uriFreeUriMembersMmW(ptr noundef %41, ptr noundef %memory), !range !5
-  %errorPos1.i278 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i278 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr267, ptr %errorPos1.i278, align 8
-  %errorCode.i279 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i279 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i279, align 8
   br label %return
 
@@ -3095,9 +3093,9 @@ lor.lhs.false285:                                 ; preds = %sw.bb282
 if.then298:                                       ; preds = %lor.lhs.false285, %sw.bb282
   %42 = load ptr, ptr %state, align 8
   %call.i280 = call i32 @uriFreeUriMembersMmW(ptr noundef %42, ptr noundef %memory), !range !5
-  %errorPos1.i281 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i281 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i281, align 8
-  %errorCode.i282 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i282 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i282, align 8
   br label %return
 
@@ -3115,9 +3113,9 @@ if.then307:                                       ; preds = %if.else299
   %add.ptr310 = getelementptr inbounds i32, ptr %first.addr.2, i64 %idx.neg309
   %44 = load ptr, ptr %state, align 8
   %call.i283 = call i32 @uriFreeUriMembersMmW(ptr noundef %44, ptr noundef %memory), !range !5
-  %errorPos1.i284 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i284 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr310, ptr %errorPos1.i284, align 8
-  %errorCode.i285 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i285 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i285, align 8
   br label %return
 
@@ -3133,12 +3131,12 @@ if.then319:                                       ; preds = %if.else311
   %idx.ext320 = zext nneg i32 %digitCount.3 to i64
   %idx.neg321 = sub nsw i64 0, %idx.ext320
   %add.ptr322 = getelementptr inbounds i32, ptr %first.addr.2, i64 %idx.neg321
-  %add.ptr323 = getelementptr inbounds i32, ptr %add.ptr322, i64 1
+  %add.ptr323 = getelementptr inbounds i8, ptr %add.ptr322, i64 4
   %46 = load ptr, ptr %state, align 8
   %call.i286 = call i32 @uriFreeUriMembersMmW(ptr noundef %46, ptr noundef %memory), !range !5
-  %errorPos1.i287 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i287 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr323, ptr %errorPos1.i287, align 8
-  %errorCode.i288 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i288 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i288, align 8
   br label %return
 
@@ -3160,29 +3158,29 @@ if.then340:                                       ; preds = %land.lhs.true327
   %cmp343 = icmp ugt i8 %43, 2
   %48 = load ptr, ptr %state, align 8
   %call.i289 = call i32 @uriFreeUriMembersMmW(ptr noundef %48, ptr noundef %memory), !range !5
-  %errorPos1.i290 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i290 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp343, label %if.then345, label %if.else347
 
 if.then345:                                       ; preds = %if.then340
-  %add.ptr346 = getelementptr inbounds i32, ptr %first.addr.2, i64 -3
+  %add.ptr346 = getelementptr inbounds i8, ptr %first.addr.2, i64 -12
   store ptr %add.ptr346, ptr %errorPos1.i290, align 8
-  %errorCode.i291 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i291 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i291, align 8
   br label %return
 
 if.else347:                                       ; preds = %if.then340
   %cmp350 = icmp ugt i8 %45, 5
-  %errorCode.i294 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i294 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp350, label %if.then352, label %if.else354
 
 if.then352:                                       ; preds = %if.else347
-  %add.ptr353 = getelementptr inbounds i32, ptr %first.addr.2, i64 -2
+  %add.ptr353 = getelementptr inbounds i8, ptr %first.addr.2, i64 -8
   store ptr %add.ptr353, ptr %errorPos1.i290, align 8
   store i32 1, ptr %errorCode.i294, align 8
   br label %return
 
 if.else354:                                       ; preds = %if.else347
-  %add.ptr355 = getelementptr inbounds i32, ptr %first.addr.2, i64 -1
+  %add.ptr355 = getelementptr inbounds i8, ptr %first.addr.2, i64 -4
   store ptr %add.ptr355, ptr %errorPos1.i290, align 8
   store i32 1, ptr %errorCode.i294, align 8
   br label %return
@@ -3200,9 +3198,9 @@ land.lhs.true371:                                 ; preds = %sw.bb369
 
 if.then377:                                       ; preds = %land.lhs.true371
   %call.i298 = call i32 @uriFreeUriMembersMmW(ptr noundef %49, ptr noundef %memory), !range !5
-  %errorPos1.i299 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i299 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i299, align 8
-  %errorCode.i300 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i300 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i300, align 8
   br label %return
 
@@ -3219,7 +3217,7 @@ if.then383:                                       ; preds = %if.end378
   br label %if.end401
 
 if.else390:                                       ; preds = %land.lhs.true371
-  %ip6394 = getelementptr inbounds %struct.UriUriStructW, ptr %49, i64 0, i32 3, i32 1
+  %ip6394 = getelementptr inbounds i8, ptr %49, i64 56
   %50 = load ptr, ptr %ip6394, align 8
   %add.ptr399 = getelementptr inbounds i8, ptr %50, i64 14
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr399) #7
@@ -3228,7 +3226,7 @@ if.else390:                                       ; preds = %land.lhs.true371
 if.end401:                                        ; preds = %if.then383, %if.else390, %if.end378
   %quadsAfterZipperCount.4 = phi i32 [ %inc389, %if.then383 ], [ %quadsAfterZipperCount.1, %if.else390 ], [ %quadsAfterZipperCount.1, %if.end378 ]
   %51 = load ptr, ptr %state, align 8
-  %ip6404 = getelementptr inbounds %struct.UriUriStructW, ptr %51, i64 0, i32 3, i32 1
+  %ip6404 = getelementptr inbounds i8, ptr %51, i64 56
   %52 = load ptr, ptr %ip6404, align 8
   %add.ptr407 = getelementptr inbounds i8, ptr %52, i64 16
   %mul408 = shl nsw i32 %quadsAfterZipperCount.4, 1
@@ -3237,17 +3235,17 @@ if.end401:                                        ; preds = %if.then383, %if.els
   %add.ptr411 = getelementptr inbounds i8, ptr %add.ptr407, i64 %idx.neg410
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr411, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext409, i1 false)
   %53 = load ptr, ptr %state, align 8
-  %afterLast417 = getelementptr inbounds %struct.UriUriStructW, ptr %53, i64 0, i32 2, i32 1
+  %afterLast417 = getelementptr inbounds i8, ptr %53, i64 40
   store ptr %first.addr.2, ptr %afterLast417, align 8
-  %add.ptr418 = getelementptr inbounds i32, ptr %first.addr.2, i64 1
+  %add.ptr418 = getelementptr inbounds i8, ptr %first.addr.2, i64 4
   br label %return
 
 sw.default419:                                    ; preds = %do.body
   %54 = load ptr, ptr %state, align 8
   %call.i301 = call i32 @uriFreeUriMembersMmW(ptr noundef %54, ptr noundef %memory), !range !5
-  %errorPos1.i302 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i302 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i302, align 8
-  %errorCode.i303 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i303 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i303, align 8
   br label %return
 
@@ -3269,27 +3267,27 @@ sw.epilog420:                                     ; preds = %sw.epilog420.sink.s
   %digitCount.5 = phi i32 [ %digitCount.4, %if.end271 ], [ %digitCount.4, %if.end245 ], [ %inc211, %sw.epilog420.sink.split ]
   %quadsAfterZipperCount.5 = phi i32 [ %quadsAfterZipperCount.3, %if.end271 ], [ %quadsAfterZipperCount.3, %if.end245 ], [ %quadsAfterZipperCount.1, %sw.epilog420.sink.split ]
   %letterAmong.1 = phi i32 [ 0, %if.end271 ], [ 0, %if.end245 ], [ %letterAmong.1.ph, %sw.epilog420.sink.split ]
-  %incdec.ptr421 = getelementptr inbounds i32, ptr %first.addr.4, i64 1
+  %incdec.ptr421 = getelementptr inbounds i8, ptr %first.addr.4, i64 4
   %cmp422.not = icmp ult ptr %incdec.ptr421, %afterLast
   br i1 %cmp422.not, label %do.body, label %if.then424, !llvm.loop !10
 
 sw.epilog420.thread:                              ; preds = %land.lhs.true327, %if.else324
   %call363 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3) #7
   %56 = load ptr, ptr %state, align 8
-  %ip6366 = getelementptr inbounds %struct.UriUriStructW, ptr %56, i64 0, i32 3, i32 1
+  %ip6366 = getelementptr inbounds i8, ptr %56, i64 56
   %57 = load ptr, ptr %ip6366, align 8
-  %arrayidx368 = getelementptr inbounds [16 x i8], ptr %57, i64 0, i64 12
+  %arrayidx368 = getelementptr inbounds i8, ptr %57, i64 12
   store i8 %call363, ptr %arrayidx368, align 1
-  %incdec.ptr421647 = getelementptr inbounds i32, ptr %first.addr.2, i64 1
+  %incdec.ptr421647 = getelementptr inbounds i8, ptr %first.addr.2, i64 4
   %cmp422.not648 = icmp ult ptr %incdec.ptr421647, %afterLast
   br i1 %cmp422.not648, label %if.end, label %if.then424
 
 if.then424:                                       ; preds = %sw.epilog420.thread, %sw.epilog420
   %58 = load ptr, ptr %state, align 8
   %call.i304 = call i32 @uriFreeUriMembersMmW(ptr noundef %58, ptr noundef %memory), !range !5
-  %errorPos1.i305 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i305 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i305, align 8
-  %errorCode.i306 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i306 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i306, align 8
   br label %return
 
@@ -3322,7 +3320,7 @@ if.then:                                          ; preds = %tailrecurse.backedg
   %first.tr.lcssa = phi ptr [ %first, %entry ], [ %first.tr.be, %tailrecurse.backedge ]
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %2 = load ptr, ptr %calloc.i, align 8
   %call.i = tail call ptr %2(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -3334,26 +3332,26 @@ if.end.i:                                         ; preds = %if.then
   %spec.select.i = select i1 %cmp1.i, ptr %3, ptr %1
   %spec.select16.i = select i1 %cmp1.i, ptr %3, ptr %first.tr.lcssa
   store ptr %spec.select.i, ptr %call.i, align 8
-  %4 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %spec.select16.i, ptr %4, align 8
   %5 = load ptr, ptr %state, align 8
-  %pathHead.i = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 5
+  %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
   br i1 %cmp11.i, label %if.end, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.end.i
-  %pathTail18.i = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 6
+  %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
-  %next.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %7, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %7, i64 16
   br label %if.end
 
 if.then2:                                         ; preds = %if.then
   %8 = load ptr, ptr %state, align 8
   %call.i56 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %8, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
@@ -3361,7 +3359,7 @@ if.end:                                           ; preds = %if.else16.i, %if.en
   %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
   store ptr %call.i, ptr %pathHead.sink.i, align 8
   %9 = load ptr, ptr %state, align 8
-  %pathTail.i = getelementptr inbounds %struct.UriUriStructA, ptr %9, i64 0, i32 6
+  %pathTail.i = getelementptr inbounds i8, ptr %9, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
   %10 = load ptr, ptr %state, align 8
   store ptr null, ptr %10, align 8
@@ -3478,9 +3476,9 @@ sw.bb15:                                          ; preds = %if.end6
 
 if.then21:                                        ; preds = %sw.bb15
   %call.i57 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %14, ptr noundef %memory), !range !5
-  %errorPos.i58 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i58 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i58, align 8
-  %errorCode.i59 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i59 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i59, align 8
   br label %return
 
@@ -3499,9 +3497,9 @@ if.end31:                                         ; preds = %if.end22
 if.then35:                                        ; preds = %if.end31
   %15 = load ptr, ptr %state, align 8
   %call.i60 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %15, ptr noundef %memory), !range !5
-  %errorPos.i61 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i61 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i61, align 8
-  %errorCode.i62 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i62 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i62, align 8
   br label %return
 
@@ -3524,9 +3522,9 @@ sw.default:                                       ; preds = %if.end6
 
 if.then48:                                        ; preds = %sw.default
   %call.i63 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory), !range !5
-  %errorPos.i64 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i64 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i64, align 8
-  %errorCode.i65 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i65 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i65, align 8
   br label %return
 
@@ -3549,9 +3547,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -3563,9 +3561,9 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
   %call.i21 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %1, ptr noundef %memory), !range !5
-  %errorPos1.i22 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i22 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i22, align 8
-  %errorCode.i23 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i23 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i23, align 8
   br label %return
 
@@ -3605,9 +3603,9 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
 if.then7:                                         ; preds = %sw.bb
   %3 = load ptr, ptr %state, align 8
   %call.i24 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %3, ptr noundef %memory), !range !5
-  %errorPos1.i25 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i25 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i25, align 8
-  %errorCode.i26 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i26 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i26, align 8
   br label %return
 
@@ -3646,18 +3644,18 @@ sw.bb11:                                          ; preds = %if.end8, %if.end8, 
 sw.default:                                       ; preds = %if.end8
   %5 = load ptr, ptr %state, align 8
   %call.i27 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
-  %errorPos1.i28 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i28 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr4, ptr %errorPos1.i28, align 8
-  %errorCode.i29 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i29 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i29, align 8
   br label %return
 
 sw.default14:                                     ; preds = %if.end3
   %6 = load ptr, ptr %state, align 8
   %call.i30 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %6, ptr noundef %memory), !range !5
-  %errorPos1.i31 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i31, align 8
-  %errorCode.i32 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i32, align 8
   br label %return
 
@@ -3674,7 +3672,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %state.val = load ptr, ptr %state, align 8
-  %absolutePath.i = getelementptr inbounds %struct.UriUriStructA, ptr %state.val, i64 0, i32 9
+  %absolutePath.i = getelementptr inbounds i8, ptr %state.val, i64 144
   store i32 1, ptr %absolutePath.i, align 8
   br label %return
 
@@ -3691,10 +3689,10 @@ sw.bb:                                            ; preds = %if.end
 if.then.i:                                        ; preds = %sw.bb
   %1 = load ptr, ptr @uriSafeToPointToA, align 8
   %2 = load ptr, ptr %state, align 8
-  %hostText.i = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 2
+  %hostText.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %1, ptr %hostText.i, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast4.i = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 2, i32 1
+  %afterLast4.i = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %afterLast4.i, align 8
   br label %uriParseAuthorityA.exit
 
@@ -3793,14 +3791,14 @@ sw.bb.i:                                          ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %sw.bb.i
   %5 = load ptr, ptr %state, align 8
-  %hostText11.i = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 2
+  %hostText11.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %add.ptr.i, ptr %hostText11.i, align 8
   %call13.i = tail call fastcc ptr @uriParseAuthorityTwoA(ptr noundef nonnull %state, ptr noundef nonnull %call.i, ptr noundef nonnull %afterLast)
   br label %uriParseAuthorityA.exit
 
 if.end.preheader.i.i:                             ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %6 = load ptr, ptr %state, align 8
-  %userInfo.i = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 1
+  %userInfo.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %add.ptr, ptr %userInfo.i, align 8
   %.pre.i.i = load i8, ptr %add.ptr, align 1
   br label %if.end.i.i
@@ -3903,53 +3901,53 @@ if.end4.i.i:                                      ; preds = %sw.bb.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %8 = load ptr, ptr %state, align 8
-  %userInfo.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %8, i64 0, i32 1
+  %userInfo.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %userInfo.i.i.i, align 8
-  %hostText.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %8, i64 0, i32 2
+  %hostText.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %9, ptr %hostText.i.i.i, align 8
   %10 = load ptr, ptr %state, align 8
-  %userInfo5.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 1
+  %userInfo5.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   store ptr null, ptr %userInfo5.i.i.i, align 8
   %11 = load ptr, ptr %state, align 8
-  %afterLast.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 2, i32 1
+  %afterLast.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %call.i.i, ptr %afterLast.i.i.i, align 8
   %12 = load ptr, ptr %memory, align 8
   %call.i39.i.i = tail call ptr %12(ptr noundef nonnull %memory, i64 noundef 4) #7
   %13 = load ptr, ptr %state, align 8
-  %hostData.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %13, i64 0, i32 3
+  %hostData.i.i.i = getelementptr inbounds i8, ptr %13, i64 48
   store ptr %call.i39.i.i, ptr %hostData.i.i.i, align 8
   %14 = load ptr, ptr %state, align 8
-  %hostData11.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %14, i64 0, i32 3
+  %hostData11.i.i.i = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load ptr, ptr %hostData11.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %hostText17.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %14, i64 0, i32 2
+  %hostText17.i.i.i = getelementptr inbounds i8, ptr %14, i64 32
   %16 = load ptr, ptr %hostText17.i.i.i, align 8
-  %afterLast21.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %14, i64 0, i32 2, i32 1
+  %afterLast21.i.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %17 = load ptr, ptr %afterLast21.i.i.i, align 8
   %call22.i.i.i = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %15, ptr noundef %16, ptr noundef %17) #7
   %tobool.not.i40.i.i = icmp eq i32 %call22.i.i.i, 0
   br i1 %tobool.not.i40.i.i, label %uriParseAuthorityA.exit, label %if.then23.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end.i.i.i
-  %free.i.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   %18 = load ptr, ptr %free.i.i.i, align 8
   %19 = load ptr, ptr %state, align 8
-  %hostData25.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %19, i64 0, i32 3
+  %hostData25.i.i.i = getelementptr inbounds i8, ptr %19, i64 48
   %20 = load ptr, ptr %hostData25.i.i.i, align 8
   tail call void %18(ptr noundef nonnull %memory, ptr noundef %20) #7
   %21 = load ptr, ptr %state, align 8
-  %hostData28.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %21, i64 0, i32 3
+  %hostData28.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
   store ptr null, ptr %hostData28.i.i.i, align 8
   br label %uriParseAuthorityA.exit
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   %call.i36.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %14, ptr noundef nonnull %memory), !range !5
-  %errorPos.i37.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i37.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i37.i.i, align 8
-  %errorCode.i38.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i38.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i38.i.i, align 8
   br label %return
 
@@ -4050,30 +4048,30 @@ sw.default.i.i.i:                                 ; preds = %if.end2.i.i.i
 if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
   %23 = load ptr, ptr %state, align 8
   %call.i34.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %23, ptr noundef %memory), !range !5
-  %errorPos.i.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
-  %errorCode.i35.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i35.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i35.i.i, align 8
   br label %return
 
 sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %24 = load ptr, ptr %state, align 8
-  %afterLast7.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %24, i64 0, i32 2, i32 1
+  %afterLast7.i.i = getelementptr inbounds i8, ptr %24, i64 40
   store ptr %first.tr53.i.i, ptr %afterLast7.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 1
   %25 = load ptr, ptr %state, align 8
-  %portText.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %25, i64 0, i32 4
+  %portText.i.i = getelementptr inbounds i8, ptr %25, i64 80
   store ptr %add.ptr.i.i, ptr %portText.i.i, align 8
   %call11.i.i = tail call fastcc ptr @uriParseOwnPortUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityA.exit
 
 sw.bb12.i.i:                                      ; preds = %if.end.i.i
   %26 = load ptr, ptr %state, align 8
-  %afterLast14.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %26, i64 0, i32 1, i32 1
+  %afterLast14.i.i = getelementptr inbounds i8, ptr %26, i64 24
   store ptr %first.tr53.i.i, ptr %afterLast14.i.i, align 8
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 1
   %27 = load ptr, ptr %state, align 8
-  %hostText17.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %27, i64 0, i32 2
+  %hostText17.i.i = getelementptr inbounds i8, ptr %27, i64 32
   store ptr %add.ptr15.i.i, ptr %hostText17.i.i, align 8
   %call20.i.i = tail call fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityA.exit
@@ -4081,19 +4079,19 @@ sw.bb12.i.i:                                      ; preds = %if.end.i.i
 sw.default.i.i:                                   ; preds = %if.end.i.i
   %28 = load ptr, ptr %state, align 8
   %call.i31.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %memory), !range !5
-  %errorPos1.i32.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i32.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr53.i.i, ptr %errorPos1.i32.i.i, align 8
-  %errorCode.i33.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i33.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i33.i.i, align 8
   br label %return
 
 sw.default.i:                                     ; preds = %if.end.i
   %29 = load ptr, ptr @uriSafeToPointToA, align 8
   %30 = load ptr, ptr %state, align 8
-  %hostText19.i = getelementptr inbounds %struct.UriUriStructA, ptr %30, i64 0, i32 2
+  %hostText19.i = getelementptr inbounds i8, ptr %30, i64 32
   store ptr %29, ptr %hostText19.i, align 8
   %31 = load ptr, ptr %state, align 8
-  %afterLast23.i = getelementptr inbounds %struct.UriUriStructA, ptr %31, i64 0, i32 2, i32 1
+  %afterLast23.i = getelementptr inbounds i8, ptr %31, i64 40
   store ptr %29, ptr %afterLast23.i, align 8
   br label %if.end4
 
@@ -4108,7 +4106,7 @@ if.end4:                                          ; preds = %sw.default.i.i.i, %
   br i1 %cmp.not19.i, label %if.end.lr.ph.i, label %uriParsePathAbsEmptyA.exit
 
 if.end.lr.ph.i:                                   ; preds = %if.end4
-  %calloc.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i.i = getelementptr inbounds i8, ptr %memory, i64 8
   %32 = load ptr, ptr @uriSafeToPointToA, align 8
   br label %if.end.i19
 
@@ -4135,26 +4133,26 @@ if.end.i.i24:                                     ; preds = %if.end4.i
   %spec.select.i.i = select i1 %cmp1.i.i25, ptr %32, ptr %add.ptr.i21
   %spec.select16.i.i = select i1 %cmp1.i.i25, ptr %32, ptr %call.i22
   store ptr %spec.select.i.i, ptr %call.i.i23, align 8
-  %35 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i.i23, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %call.i.i23, i64 8
   store ptr %spec.select16.i.i, ptr %35, align 8
   %36 = load ptr, ptr %state, align 8
-  %pathHead.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %36, i64 0, i32 5
+  %pathHead.i.i = getelementptr inbounds i8, ptr %36, i64 96
   %37 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %37, null
   br i1 %cmp11.i.i, label %if.end8.i26, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.end.i.i24
-  %pathTail18.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %36, i64 0, i32 6
+  %pathTail18.i.i = getelementptr inbounds i8, ptr %36, i64 104
   %38 = load ptr, ptr %pathTail18.i.i, align 8
-  %next.i.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %38, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %38, i64 16
   br label %if.end8.i26
 
 if.then7.i:                                       ; preds = %if.end4.i
   %39 = load ptr, ptr %state, align 8
   %call.i16.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %39, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
-  %errorCode.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i, align 8
   br label %uriParsePathAbsEmptyA.exit
 
@@ -4162,7 +4160,7 @@ if.end8.i26:                                      ; preds = %if.else16.i.i, %if.
   %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i.i24 ]
   store ptr %call.i.i23, ptr %pathHead.sink.i.i, align 8
   %40 = load ptr, ptr %state, align 8
-  %pathTail.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %40, i64 0, i32 6
+  %pathTail.i.i = getelementptr inbounds i8, ptr %40, i64 104
   store ptr %call.i.i23, ptr %pathTail.i.i, align 8
   %cmp.not.i27 = icmp ult ptr %call.i22, %afterLast
   br i1 %cmp.not.i27, label %if.end.i19, label %uriParsePathAbsEmptyA.exit
@@ -4175,7 +4173,7 @@ uriParsePathAbsEmptyA.exit:                       ; preds = %if.end.i19, %sw.bb.
 
 if.end.i31:                                       ; preds = %if.end
   %state.val17 = load ptr, ptr %state, align 8
-  %absolutePath.i28 = getelementptr inbounds %struct.UriUriStructA, ptr %state.val17, i64 0, i32 9
+  %absolutePath.i28 = getelementptr inbounds i8, ptr %state.val17, i64 144
   store i32 1, ptr %absolutePath.i28, align 8
   %42 = load i8, ptr %first, align 1
   %conv.i32 = sext i8 %42 to i32
@@ -4273,7 +4271,7 @@ uriParseSegmentNzA.exit.i:                        ; preds = %sw.bb.i33
   br i1 %cmp1.i36, label %return, label %if.end4.i37
 
 if.end4.i37:                                      ; preds = %uriParseSegmentNzA.exit.i
-  %calloc.i.i38 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i.i38 = getelementptr inbounds i8, ptr %memory, i64 8
   %43 = load ptr, ptr %calloc.i.i38, align 8
   %call.i16.i39 = tail call ptr %43(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i17.i = icmp eq ptr %call.i16.i39, null
@@ -4285,25 +4283,25 @@ if.end.i18.i:                                     ; preds = %if.end4.i37
   %spec.select.i.i41 = select i1 %cmp1.i.i40, ptr %44, ptr %first
   %spec.select16.i.i42 = select i1 %cmp1.i.i40, ptr %44, ptr %call1.i.i
   store ptr %spec.select.i.i41, ptr %call.i16.i39, align 8
-  %45 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i16.i39, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %call.i16.i39, i64 8
   store ptr %spec.select16.i.i42, ptr %45, align 8
   %46 = load ptr, ptr %state, align 8
-  %pathHead.i.i43 = getelementptr inbounds %struct.UriUriStructA, ptr %46, i64 0, i32 5
+  %pathHead.i.i43 = getelementptr inbounds i8, ptr %46, i64 96
   %47 = load ptr, ptr %pathHead.i.i43, align 8
   %cmp11.i.i44 = icmp eq ptr %47, null
   br i1 %cmp11.i.i44, label %if.end7.i, label %if.else16.i.i45
 
 if.else16.i.i45:                                  ; preds = %if.end.i18.i
-  %pathTail18.i.i46 = getelementptr inbounds %struct.UriUriStructA, ptr %46, i64 0, i32 6
+  %pathTail18.i.i46 = getelementptr inbounds i8, ptr %46, i64 104
   %48 = load ptr, ptr %pathTail18.i.i46, align 8
-  %next.i.i47 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %48, i64 0, i32 1
+  %next.i.i47 = getelementptr inbounds i8, ptr %48, i64 16
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.else16.i.i45, %if.end.i18.i
   %pathHead.sink.i.i48 = phi ptr [ %next.i.i47, %if.else16.i.i45 ], [ %pathHead.i.i43, %if.end.i18.i ]
   store ptr %call.i16.i39, ptr %pathHead.sink.i.i48, align 8
   %49 = load ptr, ptr %state, align 8
-  %pathTail.i.i49 = getelementptr inbounds %struct.UriUriStructA, ptr %49, i64 0, i32 6
+  %pathTail.i.i49 = getelementptr inbounds i8, ptr %49, i64 104
   store ptr %call.i16.i39, ptr %pathTail.i.i49, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
   br i1 %cmp.not19.i.i, label %if.end.i22.i, label %return
@@ -4331,25 +4329,25 @@ if.end.i.i.i54:                                   ; preds = %if.end4.i.i52
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %44, ptr %add.ptr.i.i51
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %44, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
-  %52 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i.i.i, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %spec.select16.i.i.i, ptr %52, align 8
   %53 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %53, i64 0, i32 5
+  %pathHead.i.i.i = getelementptr inbounds i8, ptr %53, i64 96
   %54 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %54, null
   br i1 %cmp11.i.i.i, label %if.end8.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i54
-  %pathTail18.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %53, i64 0, i32 6
+  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %53, i64 104
   %55 = load ptr, ptr %pathTail18.i.i.i, align 8
-  %next.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %55, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %55, i64 16
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i54
   %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i54 ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
   %56 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %56, i64 0, i32 6
+  %pathTail.i.i.i = getelementptr inbounds i8, ptr %56, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %call.i23.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i22.i, label %return
@@ -4357,9 +4355,9 @@ if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %i
 return.sink.split.i:                              ; preds = %if.end4.i.i52, %if.end4.i37
   %57 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %57, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i.i55 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i.i.i55 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i55, align 8
-  %errorCode.i.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
@@ -4396,10 +4394,10 @@ sw.bb10:                                          ; preds = %if.end
 
 if.end17:                                         ; preds = %sw.bb10
   %1 = load ptr, ptr %state, align 8
-  %query = getelementptr inbounds %struct.UriUriStructA, ptr %1, i64 0, i32 7
+  %query = getelementptr inbounds i8, ptr %1, i64 112
   store ptr %add.ptr12, ptr %query, align 8
   %2 = load ptr, ptr %state, align 8
-  %afterLast23 = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 7, i32 1
+  %afterLast23 = getelementptr inbounds i8, ptr %2, i64 120
   store ptr %call13, ptr %afterLast23, align 8
   %cmp.not.i = icmp ult ptr %call13, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %return
@@ -4419,10 +4417,10 @@ return.sink.split:                                ; preds = %sw.bb.i, %sw.bb
   %add.ptr.i.sink = phi ptr [ %add.ptr, %sw.bb ], [ %add.ptr.i, %sw.bb.i ]
   %call.i.sink = phi ptr [ %call, %sw.bb ], [ %call.i, %sw.bb.i ]
   %4 = load ptr, ptr %state, align 8
-  %fragment.i = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 8
+  %fragment.i = getelementptr inbounds i8, ptr %4, i64 128
   store ptr %add.ptr.i.sink, ptr %fragment.i, align 8
   %5 = load ptr, ptr %state, align 8
-  %afterLast9.i = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 8, i32 1
+  %afterLast9.i = getelementptr inbounds i8, ptr %5, i64 136
   store ptr %call.i.sink, ptr %afterLast9.i, align 8
   br label %return
 
@@ -4436,7 +4434,7 @@ define internal fastcc i32 @uriOnExitSegmentNzNcOrScheme2A(ptr nocapture noundef
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %2 = load ptr, ptr %calloc.i, align 8
   %call.i = tail call ptr %2(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -4448,25 +4446,25 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr %3, ptr %1
   %spec.select16.i = select i1 %cmp1.i, ptr %3, ptr %first
   store ptr %spec.select.i, ptr %call.i, align 8
-  %4 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %spec.select16.i, ptr %4, align 8
   %5 = load ptr, ptr %state, align 8
-  %pathHead.i = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 5
+  %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
   br i1 %cmp11.i, label %if.end, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.end.i
-  %pathTail18.i = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 6
+  %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
-  %next.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %7, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %7, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.else16.i, %if.end.i
   %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
   store ptr %call.i, ptr %pathHead.sink.i, align 8
   %8 = load ptr, ptr %state, align 8
-  %pathTail.i = getelementptr inbounds %struct.UriUriStructA, ptr %8, i64 0, i32 6
+  %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
   %9 = load ptr, ptr %state, align 8
   store ptr null, ptr %9, align 8
@@ -4586,7 +4584,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @uriPushPathSegmentA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
-  %calloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
   %call = tail call ptr %0(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp = icmp eq ptr %call, null
@@ -4598,25 +4596,25 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %cmp1, ptr %1, ptr %first
   %spec.select16 = select i1 %cmp1, ptr %1, ptr %afterLast
   store ptr %spec.select, ptr %call, align 8
-  %2 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %spec.select16, ptr %2, align 8
   %3 = load ptr, ptr %state, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 5
+  %pathHead = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %pathHead, align 8
   %cmp11 = icmp eq ptr %4, null
   br i1 %cmp11, label %return.sink.split, label %if.else16
 
 if.else16:                                        ; preds = %if.end
-  %pathTail18 = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 6
+  %pathTail18 = getelementptr inbounds i8, ptr %3, i64 104
   %5 = load ptr, ptr %pathTail18, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %5, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %5, i64 16
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.else16
   %pathHead.sink = phi ptr [ %next, %if.else16 ], [ %pathHead, %if.end ]
   store ptr %call, ptr %pathHead.sink, align 8
   %6 = load ptr, ptr %state, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 6
+  %pathTail = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %call, ptr %pathTail, align 8
   br label %return
 
@@ -4632,7 +4630,7 @@ entry:
   br i1 %cmp.not19, label %if.end.lr.ph, label %return
 
 if.end.lr.ph:                                     ; preds = %entry
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr @uriSafeToPointToA, align 8
   br label %if.end
 
@@ -4659,26 +4657,26 @@ if.end.i:                                         ; preds = %if.end4
   %spec.select.i = select i1 %cmp1.i, ptr %0, ptr %add.ptr
   %spec.select16.i = select i1 %cmp1.i, ptr %0, ptr %call
   store ptr %spec.select.i, ptr %call.i, align 8
-  %3 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %spec.select16.i, ptr %3, align 8
   %4 = load ptr, ptr %state, align 8
-  %pathHead.i = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 5
+  %pathHead.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %5, null
   br i1 %cmp11.i, label %if.end8, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.end.i
-  %pathTail18.i = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 6
+  %pathTail18.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i, align 8
-  %next.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %6, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %6, i64 16
   br label %if.end8
 
 if.then7:                                         ; preds = %if.end4
   %7 = load ptr, ptr %state, align 8
   %call.i16 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
@@ -4686,7 +4684,7 @@ if.end8:                                          ; preds = %if.else16.i, %if.en
   %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
   store ptr %call.i, ptr %pathHead.sink.i, align 8
   %8 = load ptr, ptr %state, align 8
-  %pathTail.i = getelementptr inbounds %struct.UriUriStructA, ptr %8, i64 0, i32 6
+  %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
   %cmp.not = icmp ult ptr %call, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -4800,7 +4798,7 @@ uriParseSegmentNzA.exit.i:                        ; preds = %sw.bb
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %uriParseSegmentNzA.exit.i
-  %calloc.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i.i = getelementptr inbounds i8, ptr %memory, i64 8
   %1 = load ptr, ptr %calloc.i.i, align 8
   %call.i11.i = tail call ptr %1(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i12.i = icmp eq ptr %call.i11.i, null
@@ -4812,25 +4810,25 @@ if.end.i13.i:                                     ; preds = %if.else.i
   %spec.select.i.i = select i1 %cmp1.i.i, ptr %2, ptr %first
   %spec.select16.i.i = select i1 %cmp1.i.i, ptr %2, ptr %call1.i.i
   store ptr %spec.select.i.i, ptr %call.i11.i, align 8
-  %3 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i11.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %call.i11.i, i64 8
   store ptr %spec.select16.i.i, ptr %3, align 8
   %4 = load ptr, ptr %state, align 8
-  %pathHead.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 5
+  %pathHead.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %5, null
   br i1 %cmp11.i.i, label %if.end3.i, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.end.i13.i
-  %pathTail18.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 6
+  %pathTail18.i.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i.i, align 8
-  %next.i.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %6, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %6, i64 16
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else16.i.i, %if.end.i13.i
   %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i13.i ]
   store ptr %call.i11.i, ptr %pathHead.sink.i.i, align 8
   %7 = load ptr, ptr %state, align 8
-  %pathTail.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 6
+  %pathTail.i.i = getelementptr inbounds i8, ptr %7, i64 104
   store ptr %call.i11.i, ptr %pathTail.i.i, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
   br i1 %cmp.not19.i.i, label %if.end.i17.i, label %return
@@ -4858,25 +4856,25 @@ if.end.i.i.i:                                     ; preds = %if.end4.i.i
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %2, ptr %add.ptr.i.i
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %2, ptr %call.i18.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
-  %10 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i.i.i, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %spec.select16.i.i.i, ptr %10, align 8
   %11 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 5
+  %pathHead.i.i.i = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %12, null
   br i1 %cmp11.i.i.i, label %if.end8.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i
-  %pathTail18.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 6
+  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %13 = load ptr, ptr %pathTail18.i.i.i, align 8
-  %next.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %13, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i
   %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
   %14 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %14, i64 0, i32 6
+  %pathTail.i.i.i = getelementptr inbounds i8, ptr %14, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %call.i18.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i17.i, label %return
@@ -4884,9 +4882,9 @@ if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %i
 return.sink.split.i:                              ; preds = %if.end4.i.i, %if.else.i
   %15 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %15, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
-  %errorCode.i.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
@@ -4909,9 +4907,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -5012,9 +5010,9 @@ sw.bb1:                                           ; preds = %if.end, %if.end, %i
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
   %call.i11 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i12 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
-  %errorCode.i13 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i13, align 8
   br label %return
 
@@ -5034,9 +5032,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -5083,9 +5081,9 @@ if.end4:                                          ; preds = %sw.bb
 if.then7:                                         ; preds = %if.end4
   %2 = load ptr, ptr %state, align 8
   %call.i30 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i31 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i31, align 8
-  %errorCode.i32 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i32, align 8
   br label %return
 
@@ -5097,9 +5095,9 @@ if.end8:                                          ; preds = %if.end4
 if.then12:                                        ; preds = %if.end8
   %4 = load ptr, ptr %state, align 8
   %call.i33 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory), !range !5
-  %errorPos1.i34 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i34 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %call, ptr %errorPos1.i34, align 8
-  %errorCode.i35 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i35 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i35, align 8
   br label %return
 
@@ -5111,19 +5109,19 @@ sw.bb14:                                          ; preds = %if.end, %if.end, %i
   %5 = load ptr, ptr %memory, align 8
   %call15 = tail call ptr %5(ptr noundef nonnull %memory, i64 noundef 16) #7
   %6 = load ptr, ptr %state, align 8
-  %ip6 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %call15, ptr %ip6, align 8
   %7 = load ptr, ptr %state, align 8
-  %ip618 = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 3, i32 1
+  %ip618 = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load ptr, ptr %ip618, align 8
   %cmp19 = icmp eq ptr %8, null
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %sw.bb14
   %call.i36 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %7, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i37 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i37 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i37, align 8
   br label %return
 
@@ -5134,9 +5132,9 @@ if.end22:                                         ; preds = %sw.bb14
 sw.default:                                       ; preds = %if.end
   %9 = load ptr, ptr %state, align 8
   %call.i38 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
-  %errorPos1.i39 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i39 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i39, align 8
-  %errorCode.i40 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i40 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i40, align 8
   br label %return
 
@@ -5184,10 +5182,10 @@ sw.bb.i:                                          ; preds = %if.end.i
 if.end4:                                          ; preds = %sw.bb.i, %if.end.i, %sw.bb
   %retval.0.i = phi ptr [ %afterLast, %sw.bb ], [ %afterLast, %sw.bb.i ], [ %first.tr7.i, %if.end.i ]
   %3 = load ptr, ptr %state, align 8
-  %portText = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 4
+  %portText = getelementptr inbounds i8, ptr %3, i64 80
   store ptr %add.ptr, ptr %portText, align 8
   %4 = load ptr, ptr %state, align 8
-  %afterLast9 = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 4, i32 1
+  %afterLast9 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %retval.0.i, ptr %afterLast9, align 8
   br label %return
 
@@ -5205,9 +5203,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -5219,9 +5217,9 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
   %call.i36 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %1, ptr noundef %memory), !range !5
-  %errorPos1.i37 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i37 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i37, align 8
-  %errorCode.i38 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i38 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i38, align 8
   br label %return
 
@@ -5306,9 +5304,9 @@ if.end8:                                          ; preds = %if.end.i
 if.then11:                                        ; preds = %sw.bb.i, %sw.bb, %if.end8
   %5 = load ptr, ptr %state, align 8
   %call.i39 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
-  %errorPos1.i40 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i40 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i40, align 8
-  %errorCode.i41 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i41 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i41, align 8
   br label %return
 
@@ -5319,17 +5317,17 @@ if.end12:                                         ; preds = %if.end8
 
 if.then16:                                        ; preds = %if.end12
   %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %6, ptr noundef %memory), !range !5
-  %errorPos1.i43 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr7.i, ptr %errorPos1.i43, align 8
-  %errorCode.i44 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i44, align 8
   br label %return
 
 if.end17:                                         ; preds = %if.end12
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %first, ptr %hostText, align 8
   %7 = load ptr, ptr %state, align 8
-  %ipFuture = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 3, i32 2
+  %ipFuture = getelementptr inbounds i8, ptr %7, i64 64
   store ptr %first, ptr %ipFuture, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %first.tr7.i, i64 1
   %cmp.not16.i = icmp ult ptr %add.ptr21, %afterLast
@@ -5521,28 +5519,28 @@ uriParseIpFutLoopA.exit.thread:                   ; preds = %if.end.i48, %if.end
   %first.tr17.lcssa.sink.i = phi ptr [ %afterLast, %if.end17 ], [ %first.tr17.i, %if.end.i48 ]
   %10 = load ptr, ptr %state, align 8
   %call.i11.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %10, ptr noundef %memory), !range !5
-  %errorPos1.i12.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i12.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr17.lcssa.sink.i, ptr %errorPos1.i12.i, align 8
-  %errorCode.i13.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i13.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i13.i, align 8
   br label %return
 
 if.end26:                                         ; preds = %sw.bb.i50, %if.end.i.i
   %retval.0.i4563 = phi ptr [ %add.ptr.i51, %if.end.i.i ], [ %afterLast, %sw.bb.i50 ]
   %11 = load ptr, ptr %state, align 8
-  %afterLast29 = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 2, i32 1
+  %afterLast29 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %retval.0.i4563, ptr %afterLast29, align 8
   %12 = load ptr, ptr %state, align 8
-  %afterLast33 = getelementptr inbounds %struct.UriUriStructA, ptr %12, i64 0, i32 3, i32 2, i32 1
+  %afterLast33 = getelementptr inbounds i8, ptr %12, i64 72
   store ptr %retval.0.i4563, ptr %afterLast33, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end3
   %13 = load ptr, ptr %state, align 8
   %call.i53 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %13, ptr noundef %memory), !range !5
-  %errorPos1.i54 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i54 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i54, align 8
-  %errorCode.i55 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i55 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i55, align 8
   br label %return
 
@@ -5560,9 +5558,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -5661,9 +5659,9 @@ sw.bb1:                                           ; preds = %if.end, %if.end, %i
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
   %call.i11 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i12 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
-  %errorCode.i13 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i13, align 8
   br label %return
 
@@ -5688,53 +5686,53 @@ if.end2.preheader:                                ; preds = %entry
 if.then:                                          ; preds = %sw.bb7, %entry
   %first.tr.lcssa = phi ptr [ %first, %entry ], [ %scevgep, %sw.bb7 ]
   %1 = load ptr, ptr %state, align 8
-  %userInfo.i = getelementptr inbounds %struct.UriUriStructA, ptr %1, i64 0, i32 1
+  %userInfo.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %userInfo.i, align 8
-  %hostText.i = getelementptr inbounds %struct.UriUriStructA, ptr %1, i64 0, i32 2
+  %hostText.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %2, ptr %hostText.i, align 8
   %3 = load ptr, ptr %state, align 8
-  %userInfo5.i = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 1
+  %userInfo5.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %userInfo5.i, align 8
   %4 = load ptr, ptr %state, align 8
-  %afterLast.i = getelementptr inbounds %struct.UriUriStructA, ptr %4, i64 0, i32 4, i32 1
+  %afterLast.i = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %first.tr.lcssa, ptr %afterLast.i, align 8
   %5 = load ptr, ptr %memory, align 8
   %call.i = tail call ptr %5(ptr noundef nonnull %memory, i64 noundef 4) #7
   %6 = load ptr, ptr %state, align 8
-  %hostData.i = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 3
+  %hostData.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %call.i, ptr %hostData.i, align 8
   %7 = load ptr, ptr %state, align 8
-  %hostData10.i = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 3
+  %hostData10.i = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %hostData10.i, align 8
   %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %if.then1, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %hostText16.i = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 2
+  %hostText16.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %hostText16.i, align 8
-  %afterLast20.i = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 2, i32 1
+  %afterLast20.i = getelementptr inbounds i8, ptr %7, i64 40
   %10 = load ptr, ptr %afterLast20.i, align 8
   %call21.i = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %8, ptr noundef %9, ptr noundef %10) #7
   %tobool.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool.not.i, label %return, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end.i
-  %free.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i = getelementptr inbounds i8, ptr %memory, i64 32
   %11 = load ptr, ptr %free.i, align 8
   %12 = load ptr, ptr %state, align 8
-  %hostData24.i = getelementptr inbounds %struct.UriUriStructA, ptr %12, i64 0, i32 3
+  %hostData24.i = getelementptr inbounds i8, ptr %12, i64 48
   %13 = load ptr, ptr %hostData24.i, align 8
   tail call void %11(ptr noundef nonnull %memory, ptr noundef %13) #7
   %14 = load ptr, ptr %state, align 8
-  %hostData27.i = getelementptr inbounds %struct.UriUriStructA, ptr %14, i64 0, i32 3
+  %hostData27.i = getelementptr inbounds i8, ptr %14, i64 48
   store ptr null, ptr %hostData27.i, align 8
   br label %return
 
 if.then1:                                         ; preds = %if.then
   %call.i41 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %7, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
@@ -5827,10 +5825,10 @@ if.end2:                                          ; preds = %if.end2.preheader, 
 
 sw.bb:                                            ; preds = %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2
   %16 = load ptr, ptr %state, align 8
-  %afterLast3 = getelementptr inbounds %struct.UriUriStructA, ptr %16, i64 0, i32 2, i32 1
+  %afterLast3 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %afterLast3, align 8
   %17 = load ptr, ptr %state, align 8
-  %portText = getelementptr inbounds %struct.UriUriStructA, ptr %17, i64 0, i32 4
+  %portText = getelementptr inbounds i8, ptr %17, i64 80
   store ptr null, ptr %portText, align 8
   %add.ptr = getelementptr inbounds i8, ptr %first.tr52, i64 1
   %call6 = tail call fastcc ptr @uriParseOwnUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
@@ -5843,7 +5841,7 @@ sw.bb7:                                           ; preds = %if.end2, %if.end2, 
 
 sw.bb10:                                          ; preds = %if.end2
   %18 = load ptr, ptr %state, align 8
-  %portText12 = getelementptr inbounds %struct.UriUriStructA, ptr %18, i64 0, i32 4
+  %portText12 = getelementptr inbounds i8, ptr %18, i64 80
   store ptr null, ptr %portText12, align 8
   %call14 = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef nonnull %state, ptr noundef nonnull %first.tr52, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp15 = icmp eq ptr %call14, null
@@ -5855,17 +5853,17 @@ if.end18:                                         ; preds = %sw.bb10
 
 sw.bb20:                                          ; preds = %if.end2
   %19 = load ptr, ptr %state, align 8
-  %afterLast23 = getelementptr inbounds %struct.UriUriStructA, ptr %19, i64 0, i32 2, i32 1
+  %afterLast23 = getelementptr inbounds i8, ptr %19, i64 40
   store ptr null, ptr %afterLast23, align 8
   %20 = load ptr, ptr %state, align 8
-  %portText25 = getelementptr inbounds %struct.UriUriStructA, ptr %20, i64 0, i32 4
+  %portText25 = getelementptr inbounds i8, ptr %20, i64 80
   store ptr null, ptr %portText25, align 8
   %21 = load ptr, ptr %state, align 8
-  %afterLast28 = getelementptr inbounds %struct.UriUriStructA, ptr %21, i64 0, i32 1, i32 1
+  %afterLast28 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr %first.tr52, ptr %afterLast28, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %first.tr52, i64 1
   %22 = load ptr, ptr %state, align 8
-  %hostText31 = getelementptr inbounds %struct.UriUriStructA, ptr %22, i64 0, i32 2
+  %hostText31 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %add.ptr29, ptr %hostText31, align 8
   %call34 = tail call fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr29, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %return
@@ -5878,9 +5876,9 @@ sw.default:                                       ; preds = %if.end2
 if.then37:                                        ; preds = %sw.default
   %23 = load ptr, ptr %state, align 8
   %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %23, ptr noundef %memory), !range !5
-  %errorPos.i43 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i43, align 8
-  %errorCode.i44 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i44, align 8
   br label %return
 
@@ -5897,7 +5895,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %afterLast1 = getelementptr inbounds %struct.UriUriStructA, ptr %0, i64 0, i32 2, i32 1
+  %afterLast1 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %afterLast, ptr %afterLast1, align 8
   br label %return
 
@@ -5914,7 +5912,7 @@ sw.bb:                                            ; preds = %if.end
 
 if.end5:                                          ; preds = %sw.bb
   %2 = load ptr, ptr %state, align 8
-  %hostText8 = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 2
+  %hostText8 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %add.ptr, ptr %hostText8, align 8
   %cmp.not.i = icmp ult ptr %call, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %return
@@ -5952,10 +5950,10 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
 if.end4.i:                                        ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
   %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr7.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
   %6 = load ptr, ptr %state, align 8
-  %portText.i = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 4
+  %portText.i = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %add.ptr.i, ptr %portText.i, align 8
   %7 = load ptr, ptr %state, align 8
-  %afterLast9.i = getelementptr inbounds %struct.UriUriStructA, ptr %7, i64 0, i32 4, i32 1
+  %afterLast9.i = getelementptr inbounds i8, ptr %7, i64 88
   store ptr %retval.0.i.i, ptr %afterLast9.i, align 8
   br label %return
 
@@ -5966,45 +5964,45 @@ tailrecurse.i:                                    ; preds = %if.end, %sw.bb.i19
 
 if.then.i:                                        ; preds = %tailrecurse.i
   %8 = load ptr, ptr %state, align 8
-  %afterLast.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %8, i64 0, i32 2, i32 1
+  %afterLast.i.i = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %first.tr.i, ptr %afterLast.i.i, align 8
   %9 = load ptr, ptr %memory, align 8
   %call.i.i = tail call ptr %9(ptr noundef nonnull %memory, i64 noundef 4) #7
   %10 = load ptr, ptr %state, align 8
-  %hostData.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 3
+  %hostData.i.i = getelementptr inbounds i8, ptr %10, i64 48
   store ptr %call.i.i, ptr %hostData.i.i, align 8
   %11 = load ptr, ptr %state, align 8
-  %hostData3.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 3
+  %hostData3.i.i = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %hostData3.i.i, align 8
   %cmp.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i, label %if.then1.i, label %if.end.i.i17
 
 if.end.i.i17:                                     ; preds = %if.then.i
-  %hostText9.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 2
+  %hostText9.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %hostText9.i.i, align 8
-  %afterLast13.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 2, i32 1
+  %afterLast13.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %14 = load ptr, ptr %afterLast13.i.i, align 8
   %call14.i.i = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %12, ptr noundef %13, ptr noundef %14) #7
   %tobool.not.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.end.i.i17
-  %free.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   %15 = load ptr, ptr %free.i.i, align 8
   %16 = load ptr, ptr %state, align 8
-  %hostData17.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %16, i64 0, i32 3
+  %hostData17.i.i = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load ptr, ptr %hostData17.i.i, align 8
   tail call void %15(ptr noundef nonnull %memory, ptr noundef %17) #7
   %18 = load ptr, ptr %state, align 8
-  %hostData20.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %18, i64 0, i32 3
+  %hostData20.i.i = getelementptr inbounds i8, ptr %18, i64 48
   store ptr null, ptr %hostData20.i.i, align 8
   br label %return
 
 if.then1.i:                                       ; preds = %if.then.i
   %call.i22.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %11, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
-  %errorCode.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i, align 8
   br label %return
 
@@ -6105,9 +6103,9 @@ sw.default.i:                                     ; preds = %if.end2.i
 if.then11.i:                                      ; preds = %sw.default.i
   %20 = load ptr, ptr %state, align 8
   %call.i23.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %20, ptr noundef %memory), !range !5
-  %errorPos.i24.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos.i24.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i24.i, align 8
-  %errorCode.i25.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i25.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i25.i, align 8
   br label %return
 
@@ -6124,45 +6122,45 @@ return:                                           ; preds = %sw.bb.i19, %if.end1
 define internal fastcc i32 @uriOnExitOwnHostUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %userInfo = getelementptr inbounds %struct.UriUriStructA, ptr %0, i64 0, i32 1
+  %userInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %userInfo, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %0, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %hostText, align 8
   %2 = load ptr, ptr %state, align 8
-  %userInfo5 = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 1
+  %userInfo5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %userInfo5, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 2, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %first, ptr %afterLast, align 8
   %4 = load ptr, ptr %memory, align 8
   %call = tail call ptr %4(ptr noundef nonnull %memory, i64 noundef 4) #7
   %5 = load ptr, ptr %state, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 3
+  %hostData = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %call, ptr %hostData, align 8
   %6 = load ptr, ptr %state, align 8
-  %hostData11 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 3
+  %hostData11 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %hostData11, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostText17 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 2
+  %hostText17 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %hostText17, align 8
-  %afterLast21 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 2, i32 1
+  %afterLast21 = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %afterLast21, align 8
   %call22 = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) #7
   %tobool.not = icmp eq i32 %call22, 0
   br i1 %tobool.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %10 = load ptr, ptr %free, align 8
   %11 = load ptr, ptr %state, align 8
-  %hostData25 = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 3
+  %hostData25 = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %hostData25, align 8
   tail call void %10(ptr noundef nonnull %memory, ptr noundef %12) #7
   %13 = load ptr, ptr %state, align 8
-  %hostData28 = getelementptr inbounds %struct.UriUriStructA, ptr %13, i64 0, i32 3
+  %hostData28 = getelementptr inbounds i8, ptr %13, i64 48
   store ptr null, ptr %hostData28, align 8
   br label %return
 
@@ -6175,45 +6173,45 @@ return:                                           ; preds = %if.end, %if.then23,
 define internal fastcc i32 @uriOnExitOwnPortUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %userInfo = getelementptr inbounds %struct.UriUriStructA, ptr %0, i64 0, i32 1
+  %userInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %userInfo, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %0, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %hostText, align 8
   %2 = load ptr, ptr %state, align 8
-  %userInfo5 = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 1
+  %userInfo5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %userInfo5, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 4, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %first, ptr %afterLast, align 8
   %4 = load ptr, ptr %memory, align 8
   %call = tail call ptr %4(ptr noundef nonnull %memory, i64 noundef 4) #7
   %5 = load ptr, ptr %state, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructA, ptr %5, i64 0, i32 3
+  %hostData = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %call, ptr %hostData, align 8
   %6 = load ptr, ptr %state, align 8
-  %hostData10 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 3
+  %hostData10 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %hostData10, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostText16 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 2
+  %hostText16 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %hostText16, align 8
-  %afterLast20 = getelementptr inbounds %struct.UriUriStructA, ptr %6, i64 0, i32 2, i32 1
+  %afterLast20 = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %afterLast20, align 8
   %call21 = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) #7
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %10 = load ptr, ptr %free, align 8
   %11 = load ptr, ptr %state, align 8
-  %hostData24 = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 3
+  %hostData24 = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %hostData24, align 8
   tail call void %10(ptr noundef nonnull %memory, ptr noundef %12) #7
   %13 = load ptr, ptr %state, align 8
-  %hostData27 = getelementptr inbounds %struct.UriUriStructA, ptr %13, i64 0, i32 3
+  %hostData27 = getelementptr inbounds i8, ptr %13, i64 48
   store ptr null, ptr %hostData27, align 8
   br label %return
 
@@ -6231,9 +6229,9 @@ entry:
 if.then:                                          ; preds = %tailrecurse.backedge, %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -6340,11 +6338,11 @@ tailrecurse.backedge:                             ; preds = %sw.bb6, %sw.bb
 
 sw.bb8:                                           ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
-  %afterLast9 = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 1, i32 1
+  %afterLast9 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %first.tr33, ptr %afterLast9, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %first.tr33, i64 1
   %3 = load ptr, ptr %state, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %add.ptr10, ptr %hostText, align 8
   %call14 = tail call fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr10, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %return
@@ -6352,9 +6350,9 @@ sw.bb8:                                           ; preds = %if.end
 sw.default:                                       ; preds = %if.end
   %4 = load ptr, ptr %state, align 8
   %call.i26 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory), !range !5
-  %errorPos1.i27 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  %errorPos1.i27 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr33, ptr %errorPos1.i27, align 8
-  %errorCode.i28 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  %errorCode.i28 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i28, align 8
   br label %return
 
@@ -6367,37 +6365,37 @@ return:                                           ; preds = %sw.bb, %sw.default,
 define internal fastcc i32 @uriOnExitOwnHost2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %afterLast = getelementptr inbounds %struct.UriUriStructA, ptr %0, i64 0, i32 2, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %first, ptr %afterLast, align 8
   %1 = load ptr, ptr %memory, align 8
   %call = tail call ptr %1(ptr noundef nonnull %memory, i64 noundef 4) #7
   %2 = load ptr, ptr %state, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructA, ptr %2, i64 0, i32 3
+  %hostData = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %call, ptr %hostData, align 8
   %3 = load ptr, ptr %state, align 8
-  %hostData3 = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 3
+  %hostData3 = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %hostData3, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostText9 = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 2
+  %hostText9 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %hostText9, align 8
-  %afterLast13 = getelementptr inbounds %struct.UriUriStructA, ptr %3, i64 0, i32 2, i32 1
+  %afterLast13 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = load ptr, ptr %afterLast13, align 8
   %call14 = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6) #7
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %7 = load ptr, ptr %free, align 8
   %8 = load ptr, ptr %state, align 8
-  %hostData17 = getelementptr inbounds %struct.UriUriStructA, ptr %8, i64 0, i32 3
+  %hostData17 = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load ptr, ptr %hostData17, align 8
   tail call void %7(ptr noundef nonnull %memory, ptr noundef %9) #7
   %10 = load ptr, ptr %state, align 8
-  %hostData20 = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 3
+  %hostData20 = getelementptr inbounds i8, ptr %10, i64 48
   store ptr null, ptr %hostData20, align 8
   br label %return
 
@@ -6540,7 +6538,7 @@ if.then:                                          ; preds = %tailrecurse.backedg
   %first.tr.lcssa = phi ptr [ %first, %entry ], [ %first.tr.be, %tailrecurse.backedge ]
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %2 = load ptr, ptr %calloc.i, align 8
   %call.i = tail call ptr %2(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -6552,26 +6550,26 @@ if.end.i:                                         ; preds = %if.then
   %spec.select.i = select i1 %cmp1.i, ptr %3, ptr %1
   %spec.select16.i = select i1 %cmp1.i, ptr %3, ptr %first.tr.lcssa
   store ptr %spec.select.i, ptr %call.i, align 8
-  %4 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %spec.select16.i, ptr %4, align 8
   %5 = load ptr, ptr %state, align 8
-  %pathHead.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 5
+  %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
   br i1 %cmp11.i, label %if.end, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.end.i
-  %pathTail18.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 6
+  %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
-  %next.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %7, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %7, i64 16
   br label %if.end
 
 if.then2:                                         ; preds = %if.then
   %8 = load ptr, ptr %state, align 8
   %call.i56 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
@@ -6579,7 +6577,7 @@ if.end:                                           ; preds = %if.else16.i, %if.en
   %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
   store ptr %call.i, ptr %pathHead.sink.i, align 8
   %9 = load ptr, ptr %state, align 8
-  %pathTail.i = getelementptr inbounds %struct.UriUriStructW, ptr %9, i64 0, i32 6
+  %pathTail.i = getelementptr inbounds i8, ptr %9, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
   %10 = load ptr, ptr %state, align 8
   store ptr null, ptr %10, align 8
@@ -6677,7 +6675,7 @@ sw.bb:                                            ; preds = %if.end6
   br i1 %cmp8, label %return, label %tailrecurse.backedge
 
 sw.bb12:                                          ; preds = %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6, %if.end6
-  %add.ptr = getelementptr inbounds i32, ptr %first.tr72, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first.tr72, i64 4
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %sw.bb12, %sw.bb
@@ -6695,15 +6693,15 @@ sw.bb14:                                          ; preds = %if.end6
 
 if.then20:                                        ; preds = %sw.bb14
   %call.i57 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %14, ptr noundef %memory), !range !5
-  %errorPos.i58 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i58 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i58, align 8
-  %errorCode.i59 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i59 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i59, align 8
   br label %return
 
 if.end21:                                         ; preds = %sw.bb14
   store ptr null, ptr %14, align 8
-  %add.ptr25 = getelementptr inbounds i32, ptr %first.tr72, i64 1
+  %add.ptr25 = getelementptr inbounds i8, ptr %first.tr72, i64 4
   %call26 = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %return, label %if.end29
@@ -6716,9 +6714,9 @@ if.end29:                                         ; preds = %if.end21
 if.then33:                                        ; preds = %if.end29
   %15 = load ptr, ptr %state, align 8
   %call.i60 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef %memory), !range !5
-  %errorPos.i61 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i61 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i61, align 8
-  %errorCode.i62 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i62 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i62, align 8
   br label %return
 
@@ -6741,9 +6739,9 @@ sw.default:                                       ; preds = %if.end6
 
 if.then45:                                        ; preds = %sw.default
   %call.i63 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %18, ptr noundef %memory), !range !5
-  %errorPos.i64 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i64 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i64, align 8
-  %errorCode.i65 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i65 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i65, align 8
   br label %return
 
@@ -6766,23 +6764,23 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   %cmp1.not = icmp ult ptr %add.ptr, %afterLast
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
   %call.i21 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %1, ptr noundef %memory), !range !5
-  %errorPos1.i22 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i22 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i22, align 8
-  %errorCode.i23 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i23 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i23, align 8
   br label %return
 
@@ -6814,16 +6812,16 @@ if.end3:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
-  %add.ptr4 = getelementptr inbounds i32, ptr %first, i64 2
+  %add.ptr4 = getelementptr inbounds i8, ptr %first, i64 8
   %cmp5.not = icmp ult ptr %add.ptr4, %afterLast
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %sw.bb
   %3 = load ptr, ptr %state, align 8
   %call.i24 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %3, ptr noundef %memory), !range !5
-  %errorPos1.i25 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i25 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i25, align 8
-  %errorCode.i26 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i26 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i26, align 8
   br label %return
 
@@ -6855,24 +6853,24 @@ if.end7:                                          ; preds = %sw.bb
   ]
 
 sw.bb9:                                           ; preds = %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7
-  %add.ptr10 = getelementptr inbounds i32, ptr %first, i64 3
+  %add.ptr10 = getelementptr inbounds i8, ptr %first, i64 12
   br label %return
 
 sw.default:                                       ; preds = %if.end7
   %5 = load ptr, ptr %state, align 8
   %call.i27 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory), !range !5
-  %errorPos1.i28 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i28 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr4, ptr %errorPos1.i28, align 8
-  %errorCode.i29 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i29 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i29, align 8
   br label %return
 
 sw.default12:                                     ; preds = %if.end3
   %6 = load ptr, ptr %state, align 8
   %call.i30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory), !range !5
-  %errorPos1.i31 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i31, align 8
-  %errorCode.i32 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i32, align 8
   br label %return
 
@@ -6889,7 +6887,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %state.val = load ptr, ptr %state, align 8
-  %absolutePath.i = getelementptr inbounds %struct.UriUriStructW, ptr %state.val, i64 0, i32 9
+  %absolutePath.i = getelementptr inbounds i8, ptr %state.val, i64 144
   store i32 1, ptr %absolutePath.i, align 8
   br label %return
 
@@ -6899,17 +6897,17 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %if.end.i31
 
 sw.bb:                                            ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   %cmp.not.i = icmp ult ptr %add.ptr, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
   %1 = load ptr, ptr @uriSafeToPointToW, align 8
   %2 = load ptr, ptr %state, align 8
-  %hostText.i = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 2
+  %hostText.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %1, ptr %hostText.i, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast4.i = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 2, i32 1
+  %afterLast4.i = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %afterLast4.i, align 8
   br label %uriParseAuthorityW.exit
 
@@ -7000,14 +6998,14 @@ if.end.i:                                         ; preds = %sw.bb
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %first, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 8
   %call.i = tail call fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp5.i = icmp eq ptr %call.i, null
   br i1 %cmp5.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %sw.bb.i
   %5 = load ptr, ptr %state, align 8
-  %hostText10.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 2
+  %hostText10.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %add.ptr.i, ptr %hostText10.i, align 8
   %cmp.not.i.i = icmp ult ptr %call.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i.i, label %uriParseAuthorityW.exit
@@ -7018,7 +7016,7 @@ if.end.i.i:                                       ; preds = %if.end7.i
   br i1 %cond.i.i, label %sw.bb.i.i, label %if.end3
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %call.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
   %cmp.not6.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
   br i1 %cmp.not6.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
@@ -7030,23 +7028,23 @@ if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.tr7.i.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
   %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr7.i.i.i, %if.end.i.i.i ]
   %8 = load ptr, ptr %state, align 8
-  %portText.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %8, i64 0, i32 4
+  %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
   store ptr %add.ptr.i.i, ptr %portText.i.i, align 8
   %9 = load ptr, ptr %state, align 8
-  %afterLast8.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %9, i64 0, i32 4, i32 1
+  %afterLast8.i.i = getelementptr inbounds i8, ptr %9, i64 88
   store ptr %retval.0.i.i.i, ptr %afterLast8.i.i, align 8
   br label %uriParseAuthorityW.exit
 
 if.end.preheader.i.i:                             ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %10 = load ptr, ptr %state, align 8
-  %userInfo.i = getelementptr inbounds %struct.UriUriStructW, ptr %10, i64 0, i32 1
+  %userInfo.i = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %add.ptr, ptr %userInfo.i, align 8
   %.pre.i.i = load i32, ptr %add.ptr, align 4
   br label %if.end.i22.i
@@ -7148,53 +7146,53 @@ if.end3.i26.i:                                    ; preds = %sw.bb.i25.i
 
 if.then.i.i.i:                                    ; preds = %if.end3.i26.i
   %12 = load ptr, ptr %state, align 8
-  %userInfo.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %12, i64 0, i32 1
+  %userInfo.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %userInfo.i.i.i, align 8
-  %hostText.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %12, i64 0, i32 2
+  %hostText.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %hostText.i.i.i, align 8
   %14 = load ptr, ptr %state, align 8
-  %userInfo5.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %14, i64 0, i32 1
+  %userInfo5.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr null, ptr %userInfo5.i.i.i, align 8
   %15 = load ptr, ptr %state, align 8
-  %afterLast.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %15, i64 0, i32 2, i32 1
+  %afterLast.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
   store ptr %call.i.i, ptr %afterLast.i.i.i, align 8
   %16 = load ptr, ptr %memory, align 8
   %call.i39.i.i = tail call ptr %16(ptr noundef nonnull %memory, i64 noundef 4) #7
   %17 = load ptr, ptr %state, align 8
-  %hostData.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %17, i64 0, i32 3
+  %hostData.i.i.i = getelementptr inbounds i8, ptr %17, i64 48
   store ptr %call.i39.i.i, ptr %hostData.i.i.i, align 8
   %18 = load ptr, ptr %state, align 8
-  %hostData11.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %18, i64 0, i32 3
+  %hostData11.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load ptr, ptr %hostData11.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i28.i
 
 if.end.i.i28.i:                                   ; preds = %if.then.i.i.i
-  %hostText17.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %18, i64 0, i32 2
+  %hostText17.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load ptr, ptr %hostText17.i.i.i, align 8
-  %afterLast21.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %18, i64 0, i32 2, i32 1
+  %afterLast21.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %21 = load ptr, ptr %afterLast21.i.i.i, align 8
   %call22.i.i.i = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %19, ptr noundef %20, ptr noundef %21) #7
   %tobool.not.i40.i.i = icmp eq i32 %call22.i.i.i, 0
   br i1 %tobool.not.i40.i.i, label %uriParseAuthorityW.exit, label %if.then23.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end.i.i28.i
-  %free.i.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   %22 = load ptr, ptr %free.i.i.i, align 8
   %23 = load ptr, ptr %state, align 8
-  %hostData25.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %23, i64 0, i32 3
+  %hostData25.i.i.i = getelementptr inbounds i8, ptr %23, i64 48
   %24 = load ptr, ptr %hostData25.i.i.i, align 8
   tail call void %22(ptr noundef nonnull %memory, ptr noundef %24) #7
   %25 = load ptr, ptr %state, align 8
-  %hostData28.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %25, i64 0, i32 3
+  %hostData28.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
   store ptr null, ptr %hostData28.i.i.i, align 8
   br label %uriParseAuthorityW.exit
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   %call.i36.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %18, ptr noundef nonnull %memory), !range !5
-  %errorPos.i37.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i37.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i37.i.i, align 8
-  %errorCode.i38.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i38.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i38.i.i, align 8
   br label %return
 
@@ -7294,30 +7292,30 @@ sw.default.i.i.i:                                 ; preds = %if.end2.i.i.i
 if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
   %27 = load ptr, ptr %state, align 8
   %call.i34.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %27, ptr noundef %memory), !range !5
-  %errorPos.i.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
-  %errorCode.i35.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i35.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i35.i.i, align 8
   br label %return
 
 sw.bb5.i.i:                                       ; preds = %if.end.i22.i
   %28 = load ptr, ptr %state, align 8
-  %afterLast6.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %28, i64 0, i32 2, i32 1
+  %afterLast6.i.i = getelementptr inbounds i8, ptr %28, i64 40
   store ptr %first.tr53.i.i, ptr %afterLast6.i.i, align 8
-  %add.ptr.i23.i = getelementptr inbounds i32, ptr %first.tr53.i.i, i64 1
+  %add.ptr.i23.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 4
   %29 = load ptr, ptr %state, align 8
-  %portText.i24.i = getelementptr inbounds %struct.UriUriStructW, ptr %29, i64 0, i32 4
+  %portText.i24.i = getelementptr inbounds i8, ptr %29, i64 80
   store ptr %add.ptr.i23.i, ptr %portText.i24.i, align 8
   %call10.i.i = tail call fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i23.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityW.exit
 
 sw.bb11.i.i:                                      ; preds = %if.end.i22.i
   %30 = load ptr, ptr %state, align 8
-  %afterLast13.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %30, i64 0, i32 1, i32 1
+  %afterLast13.i.i = getelementptr inbounds i8, ptr %30, i64 24
   store ptr %first.tr53.i.i, ptr %afterLast13.i.i, align 8
-  %add.ptr14.i.i = getelementptr inbounds i32, ptr %first.tr53.i.i, i64 1
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 4
   %31 = load ptr, ptr %state, align 8
-  %hostText16.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %31, i64 0, i32 2
+  %hostText16.i.i = getelementptr inbounds i8, ptr %31, i64 32
   store ptr %add.ptr14.i.i, ptr %hostText16.i.i, align 8
   %call19.i.i = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityW.exit
@@ -7325,19 +7323,19 @@ sw.bb11.i.i:                                      ; preds = %if.end.i22.i
 sw.default.i.i:                                   ; preds = %if.end.i22.i
   %32 = load ptr, ptr %state, align 8
   %call.i31.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory), !range !5
-  %errorPos1.i32.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i32.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr53.i.i, ptr %errorPos1.i32.i.i, align 8
-  %errorCode.i33.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i33.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i33.i.i, align 8
   br label %return
 
 sw.default.i:                                     ; preds = %if.end.i
   %33 = load ptr, ptr @uriSafeToPointToW, align 8
   %34 = load ptr, ptr %state, align 8
-  %hostText18.i = getelementptr inbounds %struct.UriUriStructW, ptr %34, i64 0, i32 2
+  %hostText18.i = getelementptr inbounds i8, ptr %34, i64 32
   store ptr %33, ptr %hostText18.i, align 8
   %35 = load ptr, ptr %state, align 8
-  %afterLast22.i = getelementptr inbounds %struct.UriUriStructW, ptr %35, i64 0, i32 2, i32 1
+  %afterLast22.i = getelementptr inbounds i8, ptr %35, i64 40
   store ptr %33, ptr %afterLast22.i, align 8
   br label %if.end3
 
@@ -7352,7 +7350,7 @@ if.end3:                                          ; preds = %sw.default.i.i.i, %
   br i1 %cmp.not19.i, label %if.end.lr.ph.i, label %uriParsePathAbsEmptyW.exit
 
 if.end.lr.ph.i:                                   ; preds = %if.end3
-  %calloc.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i.i = getelementptr inbounds i8, ptr %memory, i64 8
   %36 = load ptr, ptr @uriSafeToPointToW, align 8
   br label %if.end.i19
 
@@ -7363,7 +7361,7 @@ if.end.i19:                                       ; preds = %if.end7.i26, %if.en
   br i1 %cond.i, label %sw.bb.i20, label %uriParsePathAbsEmptyW.exit
 
 sw.bb.i20:                                        ; preds = %if.end.i19
-  %add.ptr.i21 = getelementptr inbounds i32, ptr %first.tr20.i, i64 1
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %first.tr20.i, i64 4
   %call.i22 = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr.i21, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp1.i = icmp eq ptr %call.i22, null
   br i1 %cmp1.i, label %uriParsePathAbsEmptyW.exit, label %if.end3.i
@@ -7379,26 +7377,26 @@ if.end.i.i24:                                     ; preds = %if.end3.i
   %spec.select.i.i = select i1 %cmp1.i.i25, ptr %36, ptr %add.ptr.i21
   %spec.select16.i.i = select i1 %cmp1.i.i25, ptr %36, ptr %call.i22
   store ptr %spec.select.i.i, ptr %call.i.i23, align 8
-  %39 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i.i23, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %call.i.i23, i64 8
   store ptr %spec.select16.i.i, ptr %39, align 8
   %40 = load ptr, ptr %state, align 8
-  %pathHead.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %40, i64 0, i32 5
+  %pathHead.i.i = getelementptr inbounds i8, ptr %40, i64 96
   %41 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %41, null
   br i1 %cmp11.i.i, label %if.end7.i26, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.end.i.i24
-  %pathTail18.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %40, i64 0, i32 6
+  %pathTail18.i.i = getelementptr inbounds i8, ptr %40, i64 104
   %42 = load ptr, ptr %pathTail18.i.i, align 8
-  %next.i.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %42, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %42, i64 16
   br label %if.end7.i26
 
 if.then6.i:                                       ; preds = %if.end3.i
   %43 = load ptr, ptr %state, align 8
   %call.i16.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
-  %errorCode.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i, align 8
   br label %uriParsePathAbsEmptyW.exit
 
@@ -7406,7 +7404,7 @@ if.end7.i26:                                      ; preds = %if.else16.i.i, %if.
   %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i.i24 ]
   store ptr %call.i.i23, ptr %pathHead.sink.i.i, align 8
   %44 = load ptr, ptr %state, align 8
-  %pathTail.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %44, i64 0, i32 6
+  %pathTail.i.i = getelementptr inbounds i8, ptr %44, i64 104
   store ptr %call.i.i23, ptr %pathTail.i.i, align 8
   %cmp.not.i27 = icmp ult ptr %call.i22, %afterLast
   br i1 %cmp.not.i27, label %if.end.i19, label %uriParsePathAbsEmptyW.exit
@@ -7419,7 +7417,7 @@ uriParsePathAbsEmptyW.exit:                       ; preds = %if.end.i19, %sw.bb.
 
 if.end.i31:                                       ; preds = %if.end
   %state.val17 = load ptr, ptr %state, align 8
-  %absolutePath.i28 = getelementptr inbounds %struct.UriUriStructW, ptr %state.val17, i64 0, i32 9
+  %absolutePath.i28 = getelementptr inbounds i8, ptr %state.val17, i64 144
   store i32 1, ptr %absolutePath.i28, align 8
   %46 = load i32, ptr %first, align 4
   switch i32 %46, label %return [
@@ -7516,7 +7514,7 @@ uriParseSegmentNzW.exit.i:                        ; preds = %sw.bb.i32
   br i1 %cmp1.i35, label %return, label %if.end3.i36
 
 if.end3.i36:                                      ; preds = %uriParseSegmentNzW.exit.i
-  %calloc.i.i37 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i.i37 = getelementptr inbounds i8, ptr %memory, i64 8
   %47 = load ptr, ptr %calloc.i.i37, align 8
   %call.i16.i38 = tail call ptr %47(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i17.i = icmp eq ptr %call.i16.i38, null
@@ -7528,25 +7526,25 @@ if.end.i18.i:                                     ; preds = %if.end3.i36
   %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %48, ptr %first
   %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %48, ptr %call1.i.i
   store ptr %spec.select.i.i40, ptr %call.i16.i38, align 8
-  %49 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i16.i38, i64 0, i32 1
+  %49 = getelementptr inbounds i8, ptr %call.i16.i38, i64 8
   store ptr %spec.select16.i.i41, ptr %49, align 8
   %50 = load ptr, ptr %state, align 8
-  %pathHead.i.i42 = getelementptr inbounds %struct.UriUriStructW, ptr %50, i64 0, i32 5
+  %pathHead.i.i42 = getelementptr inbounds i8, ptr %50, i64 96
   %51 = load ptr, ptr %pathHead.i.i42, align 8
   %cmp11.i.i43 = icmp eq ptr %51, null
   br i1 %cmp11.i.i43, label %if.end6.i, label %if.else16.i.i44
 
 if.else16.i.i44:                                  ; preds = %if.end.i18.i
-  %pathTail18.i.i45 = getelementptr inbounds %struct.UriUriStructW, ptr %50, i64 0, i32 6
+  %pathTail18.i.i45 = getelementptr inbounds i8, ptr %50, i64 104
   %52 = load ptr, ptr %pathTail18.i.i45, align 8
-  %next.i.i46 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %52, i64 0, i32 1
+  %next.i.i46 = getelementptr inbounds i8, ptr %52, i64 16
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.else16.i.i44, %if.end.i18.i
   %pathHead.sink.i.i47 = phi ptr [ %next.i.i46, %if.else16.i.i44 ], [ %pathHead.i.i42, %if.end.i18.i ]
   store ptr %call.i16.i38, ptr %pathHead.sink.i.i47, align 8
   %53 = load ptr, ptr %state, align 8
-  %pathTail.i.i48 = getelementptr inbounds %struct.UriUriStructW, ptr %53, i64 0, i32 6
+  %pathTail.i.i48 = getelementptr inbounds i8, ptr %53, i64 104
   store ptr %call.i16.i38, ptr %pathTail.i.i48, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
   br i1 %cmp.not19.i.i, label %if.end.i22.i49, label %return
@@ -7558,7 +7556,7 @@ if.end.i22.i49:                                   ; preds = %if.end6.i, %if.end7
   br i1 %cond.i.i50, label %sw.bb.i.i51, label %return
 
 sw.bb.i.i51:                                      ; preds = %if.end.i22.i49
-  %add.ptr.i.i52 = getelementptr inbounds i32, ptr %first.tr20.i.i, i64 1
+  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 4
   %call.i23.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i52, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
   %cmp1.i24.i = icmp eq ptr %call.i23.i, null
   br i1 %cmp1.i24.i, label %return, label %if.end3.i.i53
@@ -7574,25 +7572,25 @@ if.end.i.i.i55:                                   ; preds = %if.end3.i.i53
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %add.ptr.i.i52
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
-  %56 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i.i.i, i64 0, i32 1
+  %56 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %spec.select16.i.i.i, ptr %56, align 8
   %57 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %57, i64 0, i32 5
+  %pathHead.i.i.i = getelementptr inbounds i8, ptr %57, i64 96
   %58 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %58, null
   br i1 %cmp11.i.i.i, label %if.end7.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i55
-  %pathTail18.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %57, i64 0, i32 6
+  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %57, i64 104
   %59 = load ptr, ptr %pathTail18.i.i.i, align 8
-  %next.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %59, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %59, i64 16
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i55
   %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i55 ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
   %60 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %60, i64 0, i32 6
+  %pathTail.i.i.i = getelementptr inbounds i8, ptr %60, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
   %cmp.not.i.i56 = icmp ult ptr %call.i23.i, %afterLast
   br i1 %cmp.not.i.i56, label %if.end.i22.i49, label %return
@@ -7600,9 +7598,9 @@ if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %i
 return.sink.split.i:                              ; preds = %if.end3.i.i53, %if.end3.i36
   %61 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %61, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i.i57 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i57, align 8
-  %errorCode.i.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
@@ -7625,23 +7623,23 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   %call = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %return.sink.split
 
 sw.bb9:                                           ; preds = %if.end
-  %add.ptr11 = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr11 = getelementptr inbounds i8, ptr %first, i64 4
   %call12 = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef nonnull %add.ptr11, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %sw.bb9
   %1 = load ptr, ptr %state, align 8
-  %query = getelementptr inbounds %struct.UriUriStructW, ptr %1, i64 0, i32 7
+  %query = getelementptr inbounds i8, ptr %1, i64 112
   store ptr %add.ptr11, ptr %query, align 8
   %2 = load ptr, ptr %state, align 8
-  %afterLast21 = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 7, i32 1
+  %afterLast21 = getelementptr inbounds i8, ptr %2, i64 120
   store ptr %call12, ptr %afterLast21, align 8
   %cmp.not.i = icmp ult ptr %call12, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %return
@@ -7652,7 +7650,7 @@ if.end.i:                                         ; preds = %if.end15
   br i1 %cond.i, label %sw.bb.i, label %return
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %call12, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call12, i64 4
   %call.i = tail call fastcc ptr @uriParseQueryFragW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %return.sink.split
@@ -7661,10 +7659,10 @@ return.sink.split:                                ; preds = %sw.bb.i, %sw.bb
   %add.ptr.i.sink = phi ptr [ %add.ptr, %sw.bb ], [ %add.ptr.i, %sw.bb.i ]
   %call.i.sink = phi ptr [ %call, %sw.bb ], [ %call.i, %sw.bb.i ]
   %4 = load ptr, ptr %state, align 8
-  %fragment.i = getelementptr inbounds %struct.UriUriStructW, ptr %4, i64 0, i32 8
+  %fragment.i = getelementptr inbounds i8, ptr %4, i64 128
   store ptr %add.ptr.i.sink, ptr %fragment.i, align 8
   %5 = load ptr, ptr %state, align 8
-  %afterLast8.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 8, i32 1
+  %afterLast8.i = getelementptr inbounds i8, ptr %5, i64 136
   store ptr %call.i.sink, ptr %afterLast8.i, align 8
   br label %return
 
@@ -7678,7 +7676,7 @@ define internal fastcc i32 @uriOnExitSegmentNzNcOrScheme2W(ptr nocapture noundef
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %2 = load ptr, ptr %calloc.i, align 8
   %call.i = tail call ptr %2(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -7690,25 +7688,25 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr %3, ptr %1
   %spec.select16.i = select i1 %cmp1.i, ptr %3, ptr %first
   store ptr %spec.select.i, ptr %call.i, align 8
-  %4 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %spec.select16.i, ptr %4, align 8
   %5 = load ptr, ptr %state, align 8
-  %pathHead.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 5
+  %pathHead.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %6, null
   br i1 %cmp11.i, label %if.end, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.end.i
-  %pathTail18.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 6
+  %pathTail18.i = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load ptr, ptr %pathTail18.i, align 8
-  %next.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %7, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %7, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.else16.i, %if.end.i
   %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
   store ptr %call.i, ptr %pathHead.sink.i, align 8
   %8 = load ptr, ptr %state, align 8
-  %pathTail.i = getelementptr inbounds %struct.UriUriStructW, ptr %8, i64 0, i32 6
+  %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
   %9 = load ptr, ptr %state, align 8
   store ptr null, ptr %9, align 8
@@ -7827,7 +7825,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @uriPushPathSegmentW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
-  %calloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
   %call = tail call ptr %0(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp = icmp eq ptr %call, null
@@ -7839,25 +7837,25 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %cmp1, ptr %1, ptr %first
   %spec.select16 = select i1 %cmp1, ptr %1, ptr %afterLast
   store ptr %spec.select, ptr %call, align 8
-  %2 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %spec.select16, ptr %2, align 8
   %3 = load ptr, ptr %state, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 5
+  %pathHead = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %pathHead, align 8
   %cmp11 = icmp eq ptr %4, null
   br i1 %cmp11, label %return.sink.split, label %if.else16
 
 if.else16:                                        ; preds = %if.end
-  %pathTail18 = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 6
+  %pathTail18 = getelementptr inbounds i8, ptr %3, i64 104
   %5 = load ptr, ptr %pathTail18, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %5, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %5, i64 16
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.else16
   %pathHead.sink = phi ptr [ %next, %if.else16 ], [ %pathHead, %if.end ]
   store ptr %call, ptr %pathHead.sink, align 8
   %6 = load ptr, ptr %state, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 6
+  %pathTail = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %call, ptr %pathTail, align 8
   br label %return
 
@@ -7873,7 +7871,7 @@ entry:
   br i1 %cmp.not19, label %if.end.lr.ph, label %return
 
 if.end.lr.ph:                                     ; preds = %entry
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr @uriSafeToPointToW, align 8
   br label %if.end
 
@@ -7884,7 +7882,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first.tr20, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first.tr20, i64 4
   %call = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
@@ -7900,26 +7898,26 @@ if.end.i:                                         ; preds = %if.end3
   %spec.select.i = select i1 %cmp1.i, ptr %0, ptr %add.ptr
   %spec.select16.i = select i1 %cmp1.i, ptr %0, ptr %call
   store ptr %spec.select.i, ptr %call.i, align 8
-  %3 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %spec.select16.i, ptr %3, align 8
   %4 = load ptr, ptr %state, align 8
-  %pathHead.i = getelementptr inbounds %struct.UriUriStructW, ptr %4, i64 0, i32 5
+  %pathHead.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i, align 8
   %cmp11.i = icmp eq ptr %5, null
   br i1 %cmp11.i, label %if.end7, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.end.i
-  %pathTail18.i = getelementptr inbounds %struct.UriUriStructW, ptr %4, i64 0, i32 6
+  %pathTail18.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i, align 8
-  %next.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %6, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %6, i64 16
   br label %if.end7
 
 if.then6:                                         ; preds = %if.end3
   %7 = load ptr, ptr %state, align 8
   %call.i16 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %7, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
@@ -7927,7 +7925,7 @@ if.end7:                                          ; preds = %if.else16.i, %if.en
   %pathHead.sink.i = phi ptr [ %next.i, %if.else16.i ], [ %pathHead.i, %if.end.i ]
   store ptr %call.i, ptr %pathHead.sink.i, align 8
   %8 = load ptr, ptr %state, align 8
-  %pathTail.i = getelementptr inbounds %struct.UriUriStructW, ptr %8, i64 0, i32 6
+  %pathTail.i = getelementptr inbounds i8, ptr %8, i64 104
   store ptr %call.i, ptr %pathTail.i, align 8
   %cmp.not = icmp ult ptr %call, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -8040,7 +8038,7 @@ uriParseSegmentNzW.exit.i:                        ; preds = %sw.bb
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %uriParseSegmentNzW.exit.i
-  %calloc.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i.i = getelementptr inbounds i8, ptr %memory, i64 8
   %1 = load ptr, ptr %calloc.i.i, align 8
   %call.i11.i = tail call ptr %1(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #7
   %cmp.i12.i = icmp eq ptr %call.i11.i, null
@@ -8052,25 +8050,25 @@ if.end.i13.i:                                     ; preds = %if.else.i
   %spec.select.i.i = select i1 %cmp1.i.i, ptr %2, ptr %first
   %spec.select16.i.i = select i1 %cmp1.i.i, ptr %2, ptr %call1.i.i
   store ptr %spec.select.i.i, ptr %call.i11.i, align 8
-  %3 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i11.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %call.i11.i, i64 8
   store ptr %spec.select16.i.i, ptr %3, align 8
   %4 = load ptr, ptr %state, align 8
-  %pathHead.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %4, i64 0, i32 5
+  %pathHead.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %pathHead.i.i, align 8
   %cmp11.i.i = icmp eq ptr %5, null
   br i1 %cmp11.i.i, label %if.end3.i, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.end.i13.i
-  %pathTail18.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %4, i64 0, i32 6
+  %pathTail18.i.i = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %pathTail18.i.i, align 8
-  %next.i.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %6, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %6, i64 16
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else16.i.i, %if.end.i13.i
   %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i13.i ]
   store ptr %call.i11.i, ptr %pathHead.sink.i.i, align 8
   %7 = load ptr, ptr %state, align 8
-  %pathTail.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %7, i64 0, i32 6
+  %pathTail.i.i = getelementptr inbounds i8, ptr %7, i64 104
   store ptr %call.i11.i, ptr %pathTail.i.i, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
   br i1 %cmp.not19.i.i, label %if.end.i17.i, label %return
@@ -8082,7 +8080,7 @@ if.end.i17.i:                                     ; preds = %if.end3.i, %if.end7
   br i1 %cond.i.i, label %sw.bb.i.i, label %return
 
 sw.bb.i.i:                                        ; preds = %if.end.i17.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %first.tr20.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 4
   %call.i18.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
   %cmp1.i19.i = icmp eq ptr %call.i18.i, null
   br i1 %cmp1.i19.i, label %return, label %if.end3.i.i
@@ -8098,25 +8096,25 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %2, ptr %add.ptr.i.i
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %2, ptr %call.i18.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
-  %10 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %call.i.i.i, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %spec.select16.i.i.i, ptr %10, align 8
   %11 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 5
+  %pathHead.i.i.i = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %pathHead.i.i.i, align 8
   %cmp11.i.i.i = icmp eq ptr %12, null
   br i1 %cmp11.i.i.i, label %if.end7.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i
-  %pathTail18.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 6
+  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %11, i64 104
   %13 = load ptr, ptr %pathTail18.i.i.i, align 8
-  %next.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %13, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i
   %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
   %14 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %14, i64 0, i32 6
+  %pathTail.i.i.i = getelementptr inbounds i8, ptr %14, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %call.i18.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i17.i, label %return
@@ -8124,14 +8122,14 @@ if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %i
 return.sink.split.i:                              ; preds = %if.end3.i.i, %if.else.i
   %15 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
-  %errorCode.i.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   %call2 = tail call fastcc ptr @uriParsePartHelperTwoW(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %return
 
@@ -8149,9 +8147,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -8245,15 +8243,15 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   br label %return
 
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
   %call.i11 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i12 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
-  %errorCode.i13 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i13, align 8
   br label %return
 
@@ -8273,9 +8271,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -8321,9 +8319,9 @@ if.end3:                                          ; preds = %sw.bb
 if.then5:                                         ; preds = %if.end3
   %2 = load ptr, ptr %state, align 8
   %call.i30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i31 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i31 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i31, align 8
-  %errorCode.i32 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i32 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i32, align 8
   br label %return
 
@@ -8335,33 +8333,33 @@ if.end6:                                          ; preds = %if.end3
 if.then8:                                         ; preds = %if.end6
   %4 = load ptr, ptr %state, align 8
   %call.i33 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
-  %errorPos1.i34 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i34 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %call, ptr %errorPos1.i34, align 8
-  %errorCode.i35 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i35 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i35, align 8
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %add.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %call, i64 4
   br label %return
 
 sw.bb10:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %5 = load ptr, ptr %memory, align 8
   %call11 = tail call ptr %5(ptr noundef nonnull %memory, i64 noundef 16) #7
   %6 = load ptr, ptr %state, align 8
-  %ip6 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 3, i32 1
+  %ip6 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %call11, ptr %ip6, align 8
   %7 = load ptr, ptr %state, align 8
-  %ip614 = getelementptr inbounds %struct.UriUriStructW, ptr %7, i64 0, i32 3, i32 1
+  %ip614 = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load ptr, ptr %ip614, align 8
   %cmp15 = icmp eq ptr %8, null
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %sw.bb10
   %call.i36 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %7, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i37 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i37 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i37, align 8
   br label %return
 
@@ -8372,9 +8370,9 @@ if.end17:                                         ; preds = %sw.bb10
 sw.default:                                       ; preds = %if.end
   %9 = load ptr, ptr %state, align 8
   %call.i38 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory), !range !5
-  %errorPos1.i39 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i39 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i39, align 8
-  %errorCode.i40 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i40 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i40, align 8
   br label %return
 
@@ -8392,23 +8390,23 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   %cmp1.not = icmp ult ptr %add.ptr, %afterLast
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %state, align 8
   %call.i36 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %1, ptr noundef %memory), !range !5
-  %errorPos1.i37 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i37 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i37, align 8
-  %errorCode.i38 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i38 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i38, align 8
   br label %return
 
@@ -8440,7 +8438,7 @@ if.end3:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
-  %add.ptr4 = getelementptr inbounds i32, ptr %first, i64 2
+  %add.ptr4 = getelementptr inbounds i8, ptr %first, i64 8
   %cmp.not6.i = icmp ult ptr %add.ptr4, %afterLast
   br i1 %cmp.not6.i, label %if.end.i, label %if.then9
 
@@ -8473,7 +8471,7 @@ if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %first.tr7.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %first.tr7.i, i64 4
   %cmp.not.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %if.then9
 
@@ -8484,9 +8482,9 @@ if.end7:                                          ; preds = %if.end.i
 if.then9:                                         ; preds = %sw.bb.i, %sw.bb, %if.end7
   %4 = load ptr, ptr %state, align 8
   %call.i39 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
-  %errorPos1.i40 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i40 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i40, align 8
-  %errorCode.i41 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i41 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i41, align 8
   br label %return
 
@@ -8497,19 +8495,19 @@ if.end10:                                         ; preds = %if.end7
 
 if.then12:                                        ; preds = %if.end10
   %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory), !range !5
-  %errorPos1.i43 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr7.i, ptr %errorPos1.i43, align 8
-  %errorCode.i44 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i44, align 8
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %first, ptr %hostText, align 8
   %6 = load ptr, ptr %state, align 8
-  %ipFuture = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 3, i32 2
+  %ipFuture = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %first, ptr %ipFuture, align 8
-  %add.ptr17 = getelementptr inbounds i32, ptr %first.tr7.i, i64 1
+  %add.ptr17 = getelementptr inbounds i8, ptr %first.tr7.i, i64 4
   %cmp.not16.i = icmp ult ptr %add.ptr17, %afterLast
   br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopW.exit.thread
 
@@ -8602,7 +8600,7 @@ if.end.i46:                                       ; preds = %if.end.i46.backedge
   ]
 
 sw.bb.i47:                                        ; preds = %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46
-  %add.ptr.i48 = getelementptr inbounds i32, ptr %first.tr17.i, i64 1
+  %add.ptr.i48 = getelementptr inbounds i8, ptr %first.tr17.i, i64 4
   %cmp.not.i.i = icmp ult ptr %add.ptr.i48, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end21
 
@@ -8696,28 +8694,28 @@ uriParseIpFutLoopW.exit.thread:                   ; preds = %if.end.i46, %if.end
   %first.tr17.lcssa.sink.i = phi ptr [ %afterLast, %if.end13 ], [ %first.tr17.i, %if.end.i46 ]
   %9 = load ptr, ptr %state, align 8
   %call.i11.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory), !range !5
-  %errorPos1.i12.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i12.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr17.lcssa.sink.i, ptr %errorPos1.i12.i, align 8
-  %errorCode.i13.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i13.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i13.i, align 8
   br label %return
 
 if.end21:                                         ; preds = %sw.bb.i47, %if.end.i.i
   %retval.0.i4559 = phi ptr [ %add.ptr.i48, %if.end.i.i ], [ %afterLast, %sw.bb.i47 ]
   %10 = load ptr, ptr %state, align 8
-  %afterLast24 = getelementptr inbounds %struct.UriUriStructW, ptr %10, i64 0, i32 2, i32 1
+  %afterLast24 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %retval.0.i4559, ptr %afterLast24, align 8
   %11 = load ptr, ptr %state, align 8
-  %afterLast28 = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 3, i32 2, i32 1
+  %afterLast28 = getelementptr inbounds i8, ptr %11, i64 72
   store ptr %retval.0.i4559, ptr %afterLast28, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end3
   %12 = load ptr, ptr %state, align 8
   %call.i49 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %memory), !range !5
-  %errorPos1.i50 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i50 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i50, align 8
-  %errorCode.i51 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i51 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i51, align 8
   br label %return
 
@@ -8735,9 +8733,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -8829,15 +8827,15 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   br label %return
 
 sw.default:                                       ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
   %call.i11 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %2, ptr noundef %memory), !range !5
-  %errorPos1.i12 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i12 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first, ptr %errorPos1.i12, align 8
-  %errorCode.i13 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i13 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i13, align 8
   br label %return
 
@@ -8855,53 +8853,53 @@ entry:
 if.then:                                          ; preds = %sw.bb7, %entry
   %first.tr.lcssa = phi ptr [ %first, %entry ], [ %add.ptr8, %sw.bb7 ]
   %0 = load ptr, ptr %state, align 8
-  %userInfo.i = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 1
+  %userInfo.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %userInfo.i, align 8
-  %hostText.i = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 2
+  %hostText.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %hostText.i, align 8
   %2 = load ptr, ptr %state, align 8
-  %userInfo5.i = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 1
+  %userInfo5.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %userInfo5.i, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast.i = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 4, i32 1
+  %afterLast.i = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %first.tr.lcssa, ptr %afterLast.i, align 8
   %4 = load ptr, ptr %memory, align 8
   %call.i = tail call ptr %4(ptr noundef nonnull %memory, i64 noundef 4) #7
   %5 = load ptr, ptr %state, align 8
-  %hostData.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 3
+  %hostData.i = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %call.i, ptr %hostData.i, align 8
   %6 = load ptr, ptr %state, align 8
-  %hostData10.i = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 3
+  %hostData10.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %hostData10.i, align 8
   %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %if.then1, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %hostText16.i = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 2
+  %hostText16.i = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %hostText16.i, align 8
-  %afterLast20.i = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 2, i32 1
+  %afterLast20.i = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %afterLast20.i, align 8
   %call21.i = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) #7
   %tobool.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool.not.i, label %return, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end.i
-  %free.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i = getelementptr inbounds i8, ptr %memory, i64 32
   %10 = load ptr, ptr %free.i, align 8
   %11 = load ptr, ptr %state, align 8
-  %hostData24.i = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 3
+  %hostData24.i = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %hostData24.i, align 8
   tail call void %10(ptr noundef nonnull %memory, ptr noundef %12) #7
   %13 = load ptr, ptr %state, align 8
-  %hostData27.i = getelementptr inbounds %struct.UriUriStructW, ptr %13, i64 0, i32 3
+  %hostData27.i = getelementptr inbounds i8, ptr %13, i64 48
   store ptr null, ptr %hostData27.i, align 8
   br label %return
 
 if.then1:                                         ; preds = %if.then
   %call.i41 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %6, ptr noundef nonnull %memory), !range !5
-  %errorPos.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i, align 8
   br label %return
 
@@ -8993,23 +8991,23 @@ if.end2:                                          ; preds = %entry, %sw.bb7
 
 sw.bb:                                            ; preds = %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2
   %15 = load ptr, ptr %state, align 8
-  %afterLast3 = getelementptr inbounds %struct.UriUriStructW, ptr %15, i64 0, i32 2, i32 1
+  %afterLast3 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr null, ptr %afterLast3, align 8
   %16 = load ptr, ptr %state, align 8
-  %portText = getelementptr inbounds %struct.UriUriStructW, ptr %16, i64 0, i32 4
+  %portText = getelementptr inbounds i8, ptr %16, i64 80
   store ptr null, ptr %portText, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %first.tr52, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first.tr52, i64 4
   %call6 = tail call fastcc ptr @uriParseOwnUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb7:                                           ; preds = %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2
-  %add.ptr8 = getelementptr inbounds i32, ptr %first.tr52, i64 1
+  %add.ptr8 = getelementptr inbounds i8, ptr %first.tr52, i64 4
   %cmp.not = icmp ult ptr %add.ptr8, %afterLast
   br i1 %cmp.not, label %if.end2, label %if.then
 
 sw.bb10:                                          ; preds = %if.end2
   %17 = load ptr, ptr %state, align 8
-  %portText12 = getelementptr inbounds %struct.UriUriStructW, ptr %17, i64 0, i32 4
+  %portText12 = getelementptr inbounds i8, ptr %17, i64 80
   store ptr null, ptr %portText12, align 8
   %call14 = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull %state, ptr noundef nonnull %first.tr52, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp15 = icmp eq ptr %call14, null
@@ -9021,17 +9019,17 @@ if.end17:                                         ; preds = %sw.bb10
 
 sw.bb19:                                          ; preds = %if.end2
   %18 = load ptr, ptr %state, align 8
-  %afterLast22 = getelementptr inbounds %struct.UriUriStructW, ptr %18, i64 0, i32 2, i32 1
+  %afterLast22 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr null, ptr %afterLast22, align 8
   %19 = load ptr, ptr %state, align 8
-  %portText24 = getelementptr inbounds %struct.UriUriStructW, ptr %19, i64 0, i32 4
+  %portText24 = getelementptr inbounds i8, ptr %19, i64 80
   store ptr null, ptr %portText24, align 8
   %20 = load ptr, ptr %state, align 8
-  %afterLast27 = getelementptr inbounds %struct.UriUriStructW, ptr %20, i64 0, i32 1, i32 1
+  %afterLast27 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %first.tr52, ptr %afterLast27, align 8
-  %add.ptr28 = getelementptr inbounds i32, ptr %first.tr52, i64 1
+  %add.ptr28 = getelementptr inbounds i8, ptr %first.tr52, i64 4
   %21 = load ptr, ptr %state, align 8
-  %hostText30 = getelementptr inbounds %struct.UriUriStructW, ptr %21, i64 0, i32 2
+  %hostText30 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %add.ptr28, ptr %hostText30, align 8
   %call33 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr28, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %return
@@ -9044,9 +9042,9 @@ sw.default:                                       ; preds = %if.end2
 if.then36:                                        ; preds = %sw.default
   %22 = load ptr, ptr %state, align 8
   %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %22, ptr noundef %memory), !range !5
-  %errorPos.i43 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i43 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i43, align 8
-  %errorCode.i44 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i44, align 8
   br label %return
 
@@ -9063,7 +9061,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %state, align 8
-  %afterLast1 = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 2, i32 1
+  %afterLast1 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %afterLast, ptr %afterLast1, align 8
   br label %return
 
@@ -9073,14 +9071,14 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %tailrecurse.i
 
 sw.bb:                                            ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
   %call = tail call fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %sw.bb
   %2 = load ptr, ptr %state, align 8
-  %hostText7 = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 2
+  %hostText7 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %add.ptr, ptr %hostText7, align 8
   %cmp.not.i = icmp ult ptr %call, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %return
@@ -9091,7 +9089,7 @@ if.end.i:                                         ; preds = %if.end4
   br i1 %cond.i, label %sw.bb.i, label %return
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %call, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 4
   %cmp.not6.i.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not6.i.i, label %if.end.i.i, label %if.end3.i
 
@@ -9103,17 +9101,17 @@ if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i.i
   br i1 %switch.i.i, label %sw.bb.i.i, label %if.end3.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %first.tr7.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i, i64 4
   %cmp.not.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
   %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr7.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
   %5 = load ptr, ptr %state, align 8
-  %portText.i = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 4
+  %portText.i = getelementptr inbounds i8, ptr %5, i64 80
   store ptr %add.ptr.i, ptr %portText.i, align 8
   %6 = load ptr, ptr %state, align 8
-  %afterLast8.i = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 4, i32 1
+  %afterLast8.i = getelementptr inbounds i8, ptr %6, i64 88
   store ptr %retval.0.i.i, ptr %afterLast8.i, align 8
   br label %return
 
@@ -9124,45 +9122,45 @@ tailrecurse.i:                                    ; preds = %if.end, %sw.bb.i19
 
 if.then.i:                                        ; preds = %tailrecurse.i
   %7 = load ptr, ptr %state, align 8
-  %afterLast.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %7, i64 0, i32 2, i32 1
+  %afterLast.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %first.tr.i, ptr %afterLast.i.i, align 8
   %8 = load ptr, ptr %memory, align 8
   %call.i.i = tail call ptr %8(ptr noundef nonnull %memory, i64 noundef 4) #7
   %9 = load ptr, ptr %state, align 8
-  %hostData.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %9, i64 0, i32 3
+  %hostData.i.i = getelementptr inbounds i8, ptr %9, i64 48
   store ptr %call.i.i, ptr %hostData.i.i, align 8
   %10 = load ptr, ptr %state, align 8
-  %hostData3.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %10, i64 0, i32 3
+  %hostData3.i.i = getelementptr inbounds i8, ptr %10, i64 48
   %11 = load ptr, ptr %hostData3.i.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i, label %if.then1.i, label %if.end.i.i17
 
 if.end.i.i17:                                     ; preds = %if.then.i
-  %hostText9.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %10, i64 0, i32 2
+  %hostText9.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %hostText9.i.i, align 8
-  %afterLast13.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %10, i64 0, i32 2, i32 1
+  %afterLast13.i.i = getelementptr inbounds i8, ptr %10, i64 40
   %13 = load ptr, ptr %afterLast13.i.i, align 8
   %call14.i.i = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %11, ptr noundef %12, ptr noundef %13) #7
   %tobool.not.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.end.i.i17
-  %free.i.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   %14 = load ptr, ptr %free.i.i, align 8
   %15 = load ptr, ptr %state, align 8
-  %hostData17.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %15, i64 0, i32 3
+  %hostData17.i.i = getelementptr inbounds i8, ptr %15, i64 48
   %16 = load ptr, ptr %hostData17.i.i, align 8
   tail call void %14(ptr noundef nonnull %memory, ptr noundef %16) #7
   %17 = load ptr, ptr %state, align 8
-  %hostData20.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %17, i64 0, i32 3
+  %hostData20.i.i = getelementptr inbounds i8, ptr %17, i64 48
   store ptr null, ptr %hostData20.i.i, align 8
   br label %return
 
 if.then1.i:                                       ; preds = %if.then.i
   %call.i22.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %10, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
-  %errorCode.i.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i.i, align 8
   br label %return
 
@@ -9262,9 +9260,9 @@ sw.default.i:                                     ; preds = %if.end2.i
 if.then10.i:                                      ; preds = %sw.default.i
   %19 = load ptr, ptr %state, align 8
   %call.i23.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory), !range !5
-  %errorPos.i24.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos.i24.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i24.i, align 8
-  %errorCode.i25.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i25.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 3, ptr %errorCode.i25.i, align 8
   br label %return
 
@@ -9274,7 +9272,7 @@ if.end.i27.i:                                     ; preds = %sw.default.i
   br i1 %cond.i.i, label %sw.bb.i.i20, label %return
 
 sw.bb.i.i20:                                      ; preds = %if.end.i27.i
-  %add.ptr.i.i21 = getelementptr inbounds i32, ptr %first.tr.i, i64 1
+  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %first.tr.i, i64 4
   %cmp.not6.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
   br i1 %cmp.not6.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
@@ -9286,17 +9284,17 @@ if.end.i.i.i:                                     ; preds = %sw.bb.i.i20, %sw.bb
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.tr7.i.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
   %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr7.i.i.i, %if.end.i.i.i ]
   %22 = load ptr, ptr %state, align 8
-  %portText.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %22, i64 0, i32 4
+  %portText.i.i = getelementptr inbounds i8, ptr %22, i64 80
   store ptr %add.ptr.i.i21, ptr %portText.i.i, align 8
   %23 = load ptr, ptr %state, align 8
-  %afterLast8.i.i = getelementptr inbounds %struct.UriUriStructW, ptr %23, i64 0, i32 4, i32 1
+  %afterLast8.i.i = getelementptr inbounds i8, ptr %23, i64 88
   store ptr %retval.0.i.i.i, ptr %afterLast8.i.i, align 8
   br label %return
 
@@ -9309,45 +9307,45 @@ return:                                           ; preds = %sw.bb.i19, %if.end3
 define internal fastcc i32 @uriOnExitOwnHostUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %userInfo = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 1
+  %userInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %userInfo, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %hostText, align 8
   %2 = load ptr, ptr %state, align 8
-  %userInfo5 = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 1
+  %userInfo5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %userInfo5, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 2, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %first, ptr %afterLast, align 8
   %4 = load ptr, ptr %memory, align 8
   %call = tail call ptr %4(ptr noundef nonnull %memory, i64 noundef 4) #7
   %5 = load ptr, ptr %state, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 3
+  %hostData = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %call, ptr %hostData, align 8
   %6 = load ptr, ptr %state, align 8
-  %hostData11 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 3
+  %hostData11 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %hostData11, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostText17 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 2
+  %hostText17 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %hostText17, align 8
-  %afterLast21 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 2, i32 1
+  %afterLast21 = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %afterLast21, align 8
   %call22 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) #7
   %tobool.not = icmp eq i32 %call22, 0
   br i1 %tobool.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %10 = load ptr, ptr %free, align 8
   %11 = load ptr, ptr %state, align 8
-  %hostData25 = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 3
+  %hostData25 = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %hostData25, align 8
   tail call void %10(ptr noundef nonnull %memory, ptr noundef %12) #7
   %13 = load ptr, ptr %state, align 8
-  %hostData28 = getelementptr inbounds %struct.UriUriStructW, ptr %13, i64 0, i32 3
+  %hostData28 = getelementptr inbounds i8, ptr %13, i64 48
   store ptr null, ptr %hostData28, align 8
   br label %return
 
@@ -9360,45 +9358,45 @@ return:                                           ; preds = %if.end, %if.then23,
 define internal fastcc i32 @uriOnExitOwnPortUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %userInfo = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 1
+  %userInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %userInfo, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %hostText, align 8
   %2 = load ptr, ptr %state, align 8
-  %userInfo5 = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 1
+  %userInfo5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %userInfo5, align 8
   %3 = load ptr, ptr %state, align 8
-  %afterLast = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 4, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %first, ptr %afterLast, align 8
   %4 = load ptr, ptr %memory, align 8
   %call = tail call ptr %4(ptr noundef nonnull %memory, i64 noundef 4) #7
   %5 = load ptr, ptr %state, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructW, ptr %5, i64 0, i32 3
+  %hostData = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %call, ptr %hostData, align 8
   %6 = load ptr, ptr %state, align 8
-  %hostData10 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 3
+  %hostData10 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %hostData10, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostText16 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 2
+  %hostText16 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %hostText16, align 8
-  %afterLast20 = getelementptr inbounds %struct.UriUriStructW, ptr %6, i64 0, i32 2, i32 1
+  %afterLast20 = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %afterLast20, align 8
   %call21 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) #7
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %10 = load ptr, ptr %free, align 8
   %11 = load ptr, ptr %state, align 8
-  %hostData24 = getelementptr inbounds %struct.UriUriStructW, ptr %11, i64 0, i32 3
+  %hostData24 = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %hostData24, align 8
   tail call void %10(ptr noundef nonnull %memory, ptr noundef %12) #7
   %13 = load ptr, ptr %state, align 8
-  %hostData27 = getelementptr inbounds %struct.UriUriStructW, ptr %13, i64 0, i32 3
+  %hostData27 = getelementptr inbounds i8, ptr %13, i64 48
   store ptr null, ptr %hostData27, align 8
   br label %return
 
@@ -9416,9 +9414,9 @@ entry:
 if.then:                                          ; preds = %tailrecurse.backedge, %entry
   %0 = load ptr, ptr %state, align 8
   %call.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %0, ptr noundef %memory), !range !5
-  %errorPos1.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i, align 8
-  %errorCode.i = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i, align 8
   br label %return
 
@@ -9514,7 +9512,7 @@ sw.bb:                                            ; preds = %if.end, %if.end, %i
   br i1 %cmp1, label %return, label %tailrecurse.backedge
 
 sw.bb5:                                           ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first.tr33, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first.tr33, i64 4
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %sw.bb5, %sw.bb
@@ -9524,11 +9522,11 @@ tailrecurse.backedge:                             ; preds = %sw.bb5, %sw.bb
 
 sw.bb7:                                           ; preds = %if.end
   %2 = load ptr, ptr %state, align 8
-  %afterLast8 = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 1, i32 1
+  %afterLast8 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %first.tr33, ptr %afterLast8, align 8
-  %add.ptr9 = getelementptr inbounds i32, ptr %first.tr33, i64 1
+  %add.ptr9 = getelementptr inbounds i8, ptr %first.tr33, i64 4
   %3 = load ptr, ptr %state, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 2
+  %hostText = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %add.ptr9, ptr %hostText, align 8
   %call13 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr9, ptr noundef nonnull %afterLast, ptr noundef %memory)
   br label %return
@@ -9536,9 +9534,9 @@ sw.bb7:                                           ; preds = %if.end
 sw.default:                                       ; preds = %if.end
   %4 = load ptr, ptr %state, align 8
   %call.i26 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
-  %errorPos1.i27 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 2
+  %errorPos1.i27 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr33, ptr %errorPos1.i27, align 8
-  %errorCode.i28 = getelementptr inbounds %struct.UriParserStateStructW, ptr %state, i64 0, i32 1
+  %errorCode.i28 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i28, align 8
   br label %return
 
@@ -9551,37 +9549,37 @@ return:                                           ; preds = %sw.bb, %sw.default,
 define internal fastcc i32 @uriOnExitOwnHost2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %afterLast = getelementptr inbounds %struct.UriUriStructW, ptr %0, i64 0, i32 2, i32 1
+  %afterLast = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %first, ptr %afterLast, align 8
   %1 = load ptr, ptr %memory, align 8
   %call = tail call ptr %1(ptr noundef nonnull %memory, i64 noundef 4) #7
   %2 = load ptr, ptr %state, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructW, ptr %2, i64 0, i32 3
+  %hostData = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %call, ptr %hostData, align 8
   %3 = load ptr, ptr %state, align 8
-  %hostData3 = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 3
+  %hostData3 = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %hostData3, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostText9 = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 2
+  %hostText9 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %hostText9, align 8
-  %afterLast13 = getelementptr inbounds %struct.UriUriStructW, ptr %3, i64 0, i32 2, i32 1
+  %afterLast13 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = load ptr, ptr %afterLast13, align 8
   %call14 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6) #7
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %7 = load ptr, ptr %free, align 8
   %8 = load ptr, ptr %state, align 8
-  %hostData17 = getelementptr inbounds %struct.UriUriStructW, ptr %8, i64 0, i32 3
+  %hostData17 = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load ptr, ptr %hostData17, align 8
   tail call void %7(ptr noundef nonnull %memory, ptr noundef %9) #7
   %10 = load ptr, ptr %state, align 8
-  %hostData20 = getelementptr inbounds %struct.UriUriStructW, ptr %10, i64 0, i32 3
+  %hostData20 = getelementptr inbounds i8, ptr %10, i64 48
   store ptr null, ptr %hostData20, align 8
   br label %return
 
@@ -9690,7 +9688,7 @@ sw.bb:                                            ; preds = %if.end, %if.end, %i
   br i1 %cmp1, label %return, label %tailrecurse.backedge
 
 sw.bb5:                                           ; preds = %if.end, %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %first.tr15, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %first.tr15, i64 4
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %sw.bb5, %sw.bb

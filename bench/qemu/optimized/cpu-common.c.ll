@@ -13,43 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.__atomic_wide_counter = type { i64 }
 %union.CPUTailQ = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.0, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.1, %union.anon.2, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon.0 = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.3 }
-%struct.anon.3 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.4 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 %struct.qemu_work_item = type { %struct.anon.7, ptr, %union.run_on_cpu_data, i8, i8, i8 }
 %struct.anon.7 = type { ptr }
 %union.run_on_cpu_data = type { i64 }
 %struct.timeval = type { i64, i64 }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.CPUBreakpoint = type { i64, i32, %union.anon.8 }
-%union.anon.8 = type { %struct.QTailQLink }
 
 @pending_cpus = internal unnamed_addr global i32 0, align 4
 @qemu_cpu_list_lock = dso_local global %struct.QemuMutex zeroinitializer, align 8
@@ -126,7 +93,7 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #10
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %2 = load i32, ptr %cpu_index, align 8
   %cmp = icmp eq i32 %2, -1
   br i1 %cmp, label %if.then, label %if.else7
@@ -146,12 +113,12 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %some_cpu.0.in7.i = phi i64 [ %5, %for.body.i ], [ %3, %if.then ]
   %max_cpu_index.06.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %if.then ]
   %some_cpu.0.i = inttoptr i64 %some_cpu.0.in7.i to ptr
-  %cpu_index.i = getelementptr inbounds %struct.CPUState, ptr %some_cpu.0.i, i64 0, i32 51
+  %cpu_index.i = getelementptr inbounds i8, ptr %some_cpu.0.i, i64 712
   %4 = load i32, ptr %cpu_index.i, align 8
   %cmp.not.i = icmp slt i32 %4, %max_cpu_index.06.i
   %add.i = add i32 %4, 1
   %spec.select.i = select i1 %cmp.not.i, i32 %max_cpu_index.06.i, i32 %add.i
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %some_cpu.0.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %some_cpu.0.i, i64 568
   %5 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %tobool.not.i = icmp eq i64 %5, 0
@@ -175,10 +142,10 @@ if.else9:                                         ; preds = %if.else7
   unreachable
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %cpu_get_free_index.exit.thread, %cpu_get_free_index.exit, %if.else7
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu, i64 568
   store ptr null, ptr %node, align 8
   %6 = load ptr, ptr getelementptr inbounds (%union.CPUTailQ, ptr @cpus_queue, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 35, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %cpu, i64 576
   store ptr %6, ptr %tql_prev, align 8
   %7 = ptrtoint ptr %cpu to i64
   store atomic i64 %7, ptr %6 release, align 8
@@ -199,8 +166,8 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #10
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 35
-  %tql_prev = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 35, i32 0, i32 1
+  %node = getelementptr inbounds i8, ptr %cpu, i64 568
+  %tql_prev = getelementptr inbounds i8, ptr %cpu, i64 576
   %2 = load ptr, ptr %tql_prev, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %do.body
@@ -211,7 +178,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %do.body
-  %tql_prev9 = getelementptr inbounds %struct.CPUState, ptr %3, i64 0, i32 35, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %3, i64 576
   store ptr %2, ptr %tql_prev9, align 8
   %.pre = load ptr, ptr %tql_prev, align 8
   %.pre10 = load ptr, ptr %node, align 8
@@ -227,7 +194,7 @@ while.end:                                        ; preds = %if.then4, %if.else
   %6 = phi ptr [ %.pre, %if.then4 ], [ %2, %if.else ]
   store atomic i64 %5, ptr %6 monotonic, align 8
   store ptr null, ptr %tql_prev, align 8
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   store i32 -1, ptr %cpu_index, align 8
   %7 = load i32, ptr @cpu_list_generation_id, align 4
   %inc = add i32 %7, 1
@@ -250,13 +217,13 @@ entry:
 for.body:                                         ; preds = %entry, %while.end5
   %cpu.06.in = phi i64 [ %2, %while.end5 ], [ %0, %entry ]
   %cpu.06 = inttoptr i64 %cpu.06.in to ptr
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu.06, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %cmp = icmp eq i32 %1, %index
   br i1 %cmp, label %return, label %while.end5
 
 while.end5:                                       ; preds = %for.body
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %tobool.not = icmp eq i64 %2, 0
@@ -279,22 +246,22 @@ if.then:                                          ; preds = %entry
   br label %while.end14
 
 if.end:                                           ; preds = %entry
-  %func2 = getelementptr inbounds %struct.qemu_work_item, ptr %wi, i64 0, i32 1
+  %func2 = getelementptr inbounds i8, ptr %wi, i64 8
   store ptr %func, ptr %func2, align 8
-  %data3 = getelementptr inbounds %struct.qemu_work_item, ptr %wi, i64 0, i32 2
+  %data3 = getelementptr inbounds i8, ptr %wi, i64 16
   store i64 %data.coerce, ptr %data3, align 8
-  %done = getelementptr inbounds %struct.qemu_work_item, ptr %wi, i64 0, i32 5
+  %done = getelementptr inbounds i8, ptr %wi, i64 26
   store i8 0, ptr %done, align 2
-  %free = getelementptr inbounds %struct.qemu_work_item, ptr %wi, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %wi, i64 24
   store i8 0, ptr %free, align 8
-  %exclusive = getelementptr inbounds %struct.qemu_work_item, ptr %wi, i64 0, i32 4
+  %exclusive = getelementptr inbounds i8, ptr %wi, i64 25
   store i8 0, ptr %exclusive, align 1
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %work_mutex.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 25
+  %work_mutex.i = getelementptr inbounds i8, ptr %cpu, i64 448
   tail call void %1(ptr noundef nonnull %work_mutex.i, ptr noundef nonnull @.str, i32 noundef 135) #10
   store ptr null, ptr %wi, align 8
-  %sqh_last.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 26, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %cpu, i64 504
   %2 = load ptr, ptr %sqh_last.i, align 8
   store ptr %wi, ptr %2, align 8
   store ptr %wi, ptr %sqh_last.i, align 8
@@ -334,22 +301,22 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 define dso_local void @async_run_on_cpu(ptr noundef %cpu, ptr noundef %func, i64 %data.coerce) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %func1 = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 1
+  %func1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %func, ptr %func1, align 8
-  %data2 = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 2
+  %data2 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %data.coerce, ptr %data2, align 8
-  %free = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %free, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %work_mutex.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 25
+  %work_mutex.i = getelementptr inbounds i8, ptr %cpu, i64 448
   tail call void %1(ptr noundef nonnull %work_mutex.i, ptr noundef nonnull @.str, i32 noundef 135) #10
   store ptr null, ptr %call, align 8
-  %sqh_last.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 26, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %cpu, i64 504
   %2 = load ptr, ptr %sqh_last.i, align 8
   store ptr %call, ptr %2, align 8
   store ptr %call, ptr %sqh_last.i, align 8
-  %done.i = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 5
+  %done.i = getelementptr inbounds i8, ptr %call, i64 26
   store i8 0, ptr %done.i, align 2
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %work_mutex.i, ptr noundef nonnull @.str, i32 noundef 138) #10
   tail call void @qemu_cpu_kick(ptr noundef %cpu) #10
@@ -364,7 +331,7 @@ define dso_local void @start_exclusive() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %exclusive_context_count = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 17
+  %exclusive_context_count = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i32, ptr %exclusive_context_count, align 16
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %while.end, label %if.then
@@ -407,14 +374,14 @@ while.end20:                                      ; preds = %exclusive_idle.exit
   %other_cpu.09.in = phi i64 [ %12, %while.end32 ], [ %9, %exclusive_idle.exit ]
   %running_cpus.08 = phi i32 [ %running_cpus.1, %while.end32 ], [ 0, %exclusive_idle.exit ]
   %other_cpu.09 = inttoptr i64 %other_cpu.09.in to ptr
-  %running = getelementptr inbounds %struct.CPUState, ptr %other_cpu.09, i64 0, i32 6
+  %running = getelementptr inbounds i8, ptr %other_cpu.09, i64 188
   %10 = load atomic i8, ptr %running monotonic, align 4
   %11 = and i8 %10, 1
   %tobool23.not = icmp eq i8 %11, 0
   br i1 %tobool23.not, label %while.end32, label %if.then25
 
 if.then25:                                        ; preds = %while.end20
-  %has_waiter = getelementptr inbounds %struct.CPUState, ptr %other_cpu.09, i64 0, i32 7
+  %has_waiter = getelementptr inbounds i8, ptr %other_cpu.09, i64 189
   store i8 1, ptr %has_waiter, align 1
   %inc26 = add i32 %running_cpus.08, 1
   tail call void @qemu_cpu_kick(ptr noundef nonnull %other_cpu.09) #10
@@ -422,7 +389,7 @@ if.then25:                                        ; preds = %while.end20
 
 while.end32:                                      ; preds = %while.end20, %if.then25
   %running_cpus.1 = phi i32 [ %inc26, %if.then25 ], [ %running_cpus.08, %while.end20 ]
-  %node = getelementptr inbounds %struct.CPUState, ptr %other_cpu.09, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %other_cpu.09, i64 568
   %12 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
   %tobool15.not = icmp eq i64 %12, 0
@@ -445,7 +412,7 @@ while.end49:                                      ; preds = %while.end39, %while
 while.end52:                                      ; preds = %while.end49, %while.end39.thread, %while.end39
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 226) #10
   %16 = load ptr, ptr %0, align 8
-  %exclusive_context_count53 = getelementptr inbounds %struct.CPUState, ptr %16, i64 0, i32 17
+  %exclusive_context_count53 = getelementptr inbounds i8, ptr %16, i64 208
   store i32 1, ptr %exclusive_context_count53, align 16
   br label %return
 
@@ -460,12 +427,12 @@ define dso_local void @end_exclusive() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %exclusive_context_count = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 17
+  %exclusive_context_count = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i32, ptr %exclusive_context_count, align 16
   %dec = add i32 %2, -1
   store i32 %dec, ptr %exclusive_context_count, align 16
   %3 = load ptr, ptr %0, align 8
-  %exclusive_context_count1 = getelementptr inbounds %struct.CPUState, ptr %3, i64 0, i32 17
+  %exclusive_context_count1 = getelementptr inbounds i8, ptr %3, i64 208
   %4 = load i32, ptr %exclusive_context_count1, align 16
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %while.end, label %return
@@ -488,7 +455,7 @@ declare void @qemu_cond_broadcast(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_exec_start(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
 entry:
-  %running = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 6
+  %running = getelementptr inbounds i8, ptr %cpu, i64 188
   store atomic i8 1, ptr %running monotonic, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
   fence seq_cst
@@ -500,7 +467,7 @@ if.then:                                          ; preds = %entry
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #10
-  %has_waiter = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 7
+  %has_waiter = getelementptr inbounds i8, ptr %cpu, i64 189
   %3 = load i8, ptr %has_waiter, align 1
   %4 = and i8 %3, 1
   %tobool11.not = icmp eq i8 %4, 0
@@ -535,7 +502,7 @@ if.end34:                                         ; preds = %glib_autoptr_cleanu
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_exec_end(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
 entry:
-  %running = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 6
+  %running = getelementptr inbounds i8, ptr %cpu, i64 188
   store atomic i8 0, ptr %running monotonic, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   fence seq_cst
@@ -547,7 +514,7 @@ if.then:                                          ; preds = %entry
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #10
-  %has_waiter = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 7
+  %has_waiter = getelementptr inbounds i8, ptr %cpu, i64 189
   %3 = load i8, ptr %has_waiter, align 1
   %4 = and i8 %3, 1
   %tobool11.not = icmp eq i8 %4, 0
@@ -579,24 +546,24 @@ declare void @qemu_cond_signal(ptr noundef) local_unnamed_addr #1
 define dso_local void @async_safe_run_on_cpu(ptr noundef %cpu, ptr noundef %func, i64 %data.coerce) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %func1 = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 1
+  %func1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %func, ptr %func1, align 8
-  %data2 = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 2
+  %data2 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %data.coerce, ptr %data2, align 8
-  %free = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %free, align 8
-  %exclusive = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 4
+  %exclusive = getelementptr inbounds i8, ptr %call, i64 25
   store i8 1, ptr %exclusive, align 1
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %work_mutex.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 25
+  %work_mutex.i = getelementptr inbounds i8, ptr %cpu, i64 448
   tail call void %1(ptr noundef nonnull %work_mutex.i, ptr noundef nonnull @.str, i32 noundef 135) #10
   store ptr null, ptr %call, align 8
-  %sqh_last.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 26, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %cpu, i64 504
   %2 = load ptr, ptr %sqh_last.i, align 8
   store ptr %call, ptr %2, align 8
   store ptr %call, ptr %sqh_last.i, align 8
-  %done.i = getelementptr inbounds %struct.qemu_work_item, ptr %call, i64 0, i32 5
+  %done.i = getelementptr inbounds i8, ptr %call, i64 26
   store i8 0, ptr %done.i, align 2
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %work_mutex.i, ptr noundef nonnull @.str, i32 noundef 138) #10
   tail call void @qemu_cpu_kick(ptr noundef %cpu) #10
@@ -608,15 +575,15 @@ define dso_local void @process_queued_cpu_work(ptr noundef %cpu) local_unnamed_a
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %work_mutex = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 25
+  %work_mutex = getelementptr inbounds i8, ptr %cpu, i64 448
   tail call void %1(ptr noundef nonnull %work_mutex, ptr noundef nonnull @.str, i32 noundef 338) #10
-  %work_list = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 26
+  %work_list = getelementptr inbounds i8, ptr %cpu, i64 496
   %2 = load ptr, ptr %work_list, align 16
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %entry
-  %sqh_last = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 26, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %cpu, i64 504
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   br label %while.body6
 
@@ -638,7 +605,7 @@ if.then15:                                        ; preds = %while.body6
 if.end19:                                         ; preds = %if.then15, %while.body6
   store ptr null, ptr %4, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %work_mutex, ptr noundef nonnull @.str, i32 noundef 346) #10
-  %exclusive = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 4
+  %exclusive = getelementptr inbounds i8, ptr %4, i64 25
   %6 = load i8, ptr %exclusive, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -647,18 +614,18 @@ if.end19:                                         ; preds = %if.then15, %while.b
 if.then24:                                        ; preds = %if.end19
   tail call void @qemu_mutex_unlock_iothread() #10
   tail call void @start_exclusive()
-  %func = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %func, align 8
-  %data = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %data, align 8
   tail call void %8(ptr noundef nonnull %cpu, i64 %9) #10
   %10 = load ptr, ptr %3, align 8
-  %exclusive_context_count.i = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 17
+  %exclusive_context_count.i = getelementptr inbounds i8, ptr %10, i64 208
   %11 = load i32, ptr %exclusive_context_count.i, align 16
   %dec.i = add i32 %11, -1
   store i32 %dec.i, ptr %exclusive_context_count.i, align 16
   %12 = load ptr, ptr %3, align 8
-  %exclusive_context_count1.i = getelementptr inbounds %struct.CPUState, ptr %12, i64 0, i32 17
+  %exclusive_context_count1.i = getelementptr inbounds i8, ptr %12, i64 208
   %13 = load i32, ptr %exclusive_context_count1.i, align 16
   %tobool.not.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i, label %while.end.i, label %end_exclusive.exit
@@ -677,9 +644,9 @@ end_exclusive.exit:                               ; preds = %if.then24, %while.e
   br label %while.end34
 
 if.else:                                          ; preds = %if.end19
-  %func25 = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 1
+  %func25 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load ptr, ptr %func25, align 8
-  %data26 = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 2
+  %data26 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = load i64, ptr %data26, align 8
   tail call void %16(ptr noundef nonnull %cpu, i64 %17) #10
   br label %while.end34
@@ -688,7 +655,7 @@ while.end34:                                      ; preds = %if.else, %end_exclu
   %18 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %19 = inttoptr i64 %18 to ptr
   tail call void %19(ptr noundef nonnull %work_mutex, ptr noundef nonnull @.str, i32 noundef 362) #10
-  %free = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %4, i64 24
   %20 = load i8, ptr %free, align 8
   %21 = and i8 %20, 1
   %tobool38.not = icmp eq i8 %21, 0
@@ -699,7 +666,7 @@ if.then39:                                        ; preds = %while.end34
   br label %if.end48
 
 while.end46:                                      ; preds = %while.end34
-  %done = getelementptr inbounds %struct.qemu_work_item, ptr %4, i64 0, i32 5
+  %done = getelementptr inbounds i8, ptr %4, i64 26
   store atomic i8 1, ptr %done release, align 2
   br label %if.end48
 
@@ -729,7 +696,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
-  %gdb_adjust_breakpoint = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 12
+  %gdb_adjust_breakpoint = getelementptr inbounds i8, ptr %call1.i, i64 264
   %0 = load ptr, ptr %gdb_adjust_breakpoint, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -742,33 +709,33 @@ if.end:                                           ; preds = %if.then, %entry
   %pc.addr.0 = phi i64 [ %call2, %if.then ], [ %pc, %entry ]
   %call3 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #13
   store i64 %pc.addr.0, ptr %call3, align 8
-  %flags5 = getelementptr inbounds %struct.CPUBreakpoint, ptr %call3, i64 0, i32 1
+  %flags5 = getelementptr inbounds i8, ptr %call3, i64 8
   store i32 %flags, ptr %flags5, align 8
   %and = and i32 %flags, 16
   %tobool6.not = icmp eq i32 %and, 0
   br i1 %tobool6.not, label %do.body22, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %breakpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 36
+  %breakpoints = getelementptr inbounds i8, ptr %cpu, i64 584
   %1 = load ptr, ptr %breakpoints, align 8
-  %entry8 = getelementptr inbounds %struct.CPUBreakpoint, ptr %call3, i64 0, i32 2
+  %entry8 = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr %1, ptr %entry8, align 8
   %cmp.not = icmp eq ptr %1, null
-  %tql_prev15 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 36, i32 0, i32 1
-  %tql_prev = getelementptr inbounds %struct.CPUBreakpoint, ptr %1, i64 0, i32 2, i32 0, i32 1
+  %tql_prev15 = getelementptr inbounds i8, ptr %cpu, i64 592
+  %tql_prev = getelementptr inbounds i8, ptr %1, i64 24
   %tql_prev15.sink = select i1 %cmp.not, ptr %tql_prev15, ptr %tql_prev
   store ptr %entry8, ptr %tql_prev15.sink, align 8
   store ptr %call3, ptr %breakpoints, align 8
-  %tql_prev20 = getelementptr inbounds %struct.CPUBreakpoint, ptr %call3, i64 0, i32 2, i32 0, i32 1
+  %tql_prev20 = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr %breakpoints, ptr %tql_prev20, align 8
   br label %if.end34
 
 do.body22:                                        ; preds = %if.end
-  %entry23 = getelementptr inbounds %struct.CPUBreakpoint, ptr %call3, i64 0, i32 2
+  %entry23 = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr null, ptr %entry23, align 8
-  %tql_prev25 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 36, i32 0, i32 1
+  %tql_prev25 = getelementptr inbounds i8, ptr %cpu, i64 592
   %2 = load ptr, ptr %tql_prev25, align 8
-  %tql_prev27 = getelementptr inbounds %struct.CPUBreakpoint, ptr %call3, i64 0, i32 2, i32 0, i32 1
+  %tql_prev27 = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr %2, ptr %tql_prev27, align 8
   store ptr %call3, ptr %2, align 8
   store ptr %entry23, ptr %tql_prev25, align 8
@@ -783,7 +750,7 @@ if.then36:                                        ; preds = %if.end34
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then36, %if.end34
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %3 = load i32, ptr %cpu_index, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -809,7 +776,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %3, i64 noundef %pc.addr.0, i32 noundef %flags) #10
   br label %trace_breakpoint_insert.exit
@@ -831,7 +798,7 @@ define dso_local i32 @cpu_breakpoint_remove(ptr noundef %cpu, i64 noundef %pc, i
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
-  %gdb_adjust_breakpoint = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 12
+  %gdb_adjust_breakpoint = getelementptr inbounds i8, ptr %call1.i, i64 264
   %0 = load ptr, ptr %gdb_adjust_breakpoint, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -842,7 +809,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %pc.addr.0 = phi i64 [ %call2, %if.then ], [ %pc, %entry ]
-  %breakpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 36
+  %breakpoints = getelementptr inbounds i8, ptr %cpu, i64 584
   %bp.011 = load ptr, ptr %breakpoints, align 8
   %tobool3.not12 = icmp eq ptr %bp.011, null
   br i1 %tobool3.not12, label %return, label %for.body
@@ -854,7 +821,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %flags5 = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.013, i64 0, i32 1
+  %flags5 = getelementptr inbounds i8, ptr %bp.013, i64 8
   %2 = load i32, ptr %flags5, align 8
   %cmp6 = icmp eq i32 %2, %flags
   br i1 %cmp6, label %if.then7, label %for.inc
@@ -864,7 +831,7 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %entry9 = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.013, i64 0, i32 2
+  %entry9 = getelementptr inbounds i8, ptr %bp.013, i64 16
   %bp.0 = load ptr, ptr %entry9, align 8
   %tobool3.not = icmp eq ptr %bp.0, null
   br i1 %tobool3.not, label %return, label %for.body, !llvm.loop !22
@@ -878,22 +845,22 @@ return:                                           ; preds = %for.inc, %if.end, %
 define dso_local void @cpu_breakpoint_remove_by_ref(ptr nocapture noundef %cpu, ptr noundef %bp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %entry1 = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp, i64 0, i32 2
+  %entry1 = getelementptr inbounds i8, ptr %bp, i64 16
   %0 = load ptr, ptr %entry1, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev7 = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7 = getelementptr inbounds i8, ptr %bp, i64 24
   %1 = load ptr, ptr %tql_prev7, align 8
-  %tql_prev8 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 36, i32 0, i32 1
-  %tql_prev5 = getelementptr inbounds %struct.CPUBreakpoint, ptr %0, i64 0, i32 2, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 592
+  %tql_prev5 = getelementptr inbounds i8, ptr %0, i64 24
   %tql_prev8.sink = select i1 %cmp.not, ptr %tql_prev8, ptr %tql_prev5
   store ptr %1, ptr %tql_prev8.sink, align 8
   %2 = load ptr, ptr %entry1, align 8
   store ptr %2, ptr %1, align 8
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry1, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %cpu_index, align 8
   %4 = load i64, ptr %bp, align 8
-  %flags = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %bp, i64 8
   %5 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -919,7 +886,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %3, i64 noundef %4, i32 noundef %5) #10
   br label %trace_breakpoint_remove.exit
@@ -937,16 +904,16 @@ trace_breakpoint_remove.exit:                     ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_breakpoint_remove_all(ptr nocapture noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
-  %breakpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 36
+  %breakpoints = getelementptr inbounds i8, ptr %cpu, i64 584
   %0 = load ptr, ptr %breakpoints, align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %for.inc
   %bp.06 = phi ptr [ %1, %for.inc ], [ %0, %entry ]
-  %entry1 = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.06, i64 0, i32 2
+  %entry1 = getelementptr inbounds i8, ptr %bp.06, i64 16
   %1 = load ptr, ptr %entry1, align 8
-  %flags = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.06, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %bp.06, i64 8
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, %mask
   %tobool2.not = icmp eq i32 %and, 0

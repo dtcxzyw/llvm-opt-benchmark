@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
 %struct.q_obj_BALLOON_CHANGE_arg = type { i64 }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.HvBalloonInfo = type { i64, i64 }
 %struct.q_obj_MEMORY_DEVICE_SIZE_CHANGE_arg = type { ptr, i64, ptr }
 %struct.q_obj_MEM_UNPLUG_ERROR_arg = type { ptr, ptr }
@@ -74,7 +73,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool8.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -100,7 +99,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool11.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -152,7 +151,7 @@ entry:
   %param = alloca %struct.HvBalloonInfo, align 8
   %arg = alloca ptr, align 8
   store i64 %committed, ptr %param, align 8
-  %available2 = getelementptr inbounds %struct.HvBalloonInfo, ptr %param, i64 0, i32 1
+  %available2 = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %available, ptr %available2, align 8
   store ptr %param, ptr %arg, align 8
   %call = call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.2) #3
@@ -196,7 +195,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool7.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i10, label %land.lhs.true.i8
@@ -222,7 +221,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool10.not, label %qobject_unref_impl.exit19, label %lor.lhs.false.i11
 
 lor.lhs.false.i11:                                ; preds = %if.end
-  %refcnt.i12 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i12 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i12, align 8
   %tobool1.not.i13 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i13, label %if.else.i18, label %land.lhs.true.i14
@@ -253,9 +252,9 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_MEMORY_DEVICE_SIZE_CHANGE_arg, align 8
   store ptr %id, ptr %param, align 8
-  %size2 = getelementptr inbounds %struct.q_obj_MEMORY_DEVICE_SIZE_CHANGE_arg, ptr %param, i64 0, i32 1
+  %size2 = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %size, ptr %size2, align 8
-  %qom_path3 = getelementptr inbounds %struct.q_obj_MEMORY_DEVICE_SIZE_CHANGE_arg, ptr %param, i64 0, i32 2
+  %qom_path3 = getelementptr inbounds i8, ptr %param, i64 16
   store ptr %qom_path, ptr %qom_path3, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.3) #3
   %call4 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -301,7 +300,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool10.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -327,7 +326,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool13.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -358,7 +357,7 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_MEM_UNPLUG_ERROR_arg, align 8
   store ptr %device, ptr %param, align 8
-  %msg2 = getelementptr inbounds %struct.q_obj_MEM_UNPLUG_ERROR_arg, ptr %param, i64 0, i32 1
+  %msg2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %msg, ptr %msg2, align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.CompatPolicy, ptr @compat_policy, i64 0, i32 3), align 4
   %cmp = icmp eq i32 %0, 1
@@ -409,7 +408,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool10.not, label %if.end12, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %3, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -435,7 +434,7 @@ if.end12:                                         ; preds = %if.then5.i, %land.l
   br i1 %tobool14.not, label %return, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end12
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %5, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17

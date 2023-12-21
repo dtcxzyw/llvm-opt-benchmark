@@ -41,15 +41,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.std::pair" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
 %"struct.std::pair.22" = type { i32, i32 }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.llvh::MemoryBuffer" = type { ptr, ptr, ptr }
-%"class.llvh::StringMapEntry" = type <{ %"class.llvh::StringMapEntryBase", i8, [7 x i8] }>
-%"class.llvh::StringMapEntryBase" = type { i64 }
 %"class.llvh::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
-%"class.llvh::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
 
 $_ZN4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE6insertERKS2_ = comdat any
 
@@ -625,13 +618,13 @@ entry:
   %I193 = alloca %"class.llvh::StringRef", align 8
   %I212 = alloca %"class.llvh::StringRef", align 8
   store ptr %ProcCpuinfoContent.coerce0, ptr %ProcCpuinfoContent, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %ProcCpuinfoContent, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ProcCpuinfoContent, i64 8
   store i64 %ProcCpuinfoContent.coerce1, ptr %0, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %Lines, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %Lines, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Lines, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %Lines, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Lines, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %Lines, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %ProcCpuinfoContent, ptr noundef nonnull align 8 dereferenceable(16) %Lines, ptr nonnull @.str.30, i64 1, i32 noundef -1, i1 noundef zeroext true) #19
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -639,8 +632,8 @@ entry:
   br i1 %cmp.not876, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp5, i64 0, i32 1
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp17, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   %4 = zext i32 %1 to i64
   br label %for.body
 
@@ -651,13 +644,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %Hardware.sroa.0.0878 = phi ptr [ null, %for.body.lr.ph ], [ %Hardware.sroa.0.1, %for.inc ]
   %Hardware.sroa.4.0877 = phi i64 [ 0, %for.body.lr.ph ], [ %Hardware.sroa.4.1, %for.inc ]
   %5 = load ptr, ptr %Lines, align 8
-  %Length.i1044 = getelementptr inbounds %"class.llvh::StringRef", ptr %5, i64 %indvars.iv, i32 1
+  %arrayidx.i1003 = getelementptr inbounds %"class.llvh::StringRef", ptr %5, i64 %indvars.iv
+  %Length.i1044 = getelementptr inbounds i8, ptr %arrayidx.i1003, i64 8
   %6 = load i64, ptr %Length.i1044, align 8
   %cmp.i1046 = icmp ugt i64 %6, 14
   br i1 %cmp.i1046, label %if.end.i1426, label %if.end
 
 if.end.i1426:                                     ; preds = %for.body
-  %arrayidx.i1003 = getelementptr inbounds %"class.llvh::StringRef", ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx.i1003, align 8
   %bcmp839 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %7, ptr noundef nonnull dereferenceable(15) @.str.31, i64 15)
   %cmp5.i1050 = icmp eq i32 %bcmp839, 0
@@ -757,13 +750,13 @@ for.body40.lr.ph:                                 ; preds = %if.end33
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc88
   %indvars.iv908 = phi i64 [ 0, %for.body40.lr.ph ], [ %indvars.iv.next909, %for.inc88 ]
-  %Length.i1022 = getelementptr inbounds %"class.llvh::StringRef", ptr %18, i64 %indvars.iv908, i32 1
+  %arrayidx.i983 = getelementptr inbounds %"class.llvh::StringRef", ptr %18, i64 %indvars.iv908
+  %Length.i1022 = getelementptr inbounds i8, ptr %arrayidx.i983, i64 8
   %20 = load i64, ptr %Length.i1022, align 8
   %cmp.i1024 = icmp ugt i64 %20, 7
   br i1 %cmp.i1024, label %if.end.i1444, label %for.inc88
 
 if.end.i1444:                                     ; preds = %for.body40
-  %arrayidx.i983 = getelementptr inbounds %"class.llvh::StringRef", ptr %18, i64 %indvars.iv908
   %21 = load ptr, ptr %arrayidx.i983, align 8
   %bcmp844 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %21, ptr noundef nonnull dereferenceable(8) @.str.38, i64 8)
   %cmp5.i1028 = icmp eq i32 %bcmp844, 0
@@ -773,7 +766,7 @@ land.lhs.true.i921:                               ; preds = %if.end.i1444
   %add.ptr.i1087 = getelementptr inbounds i8, ptr %21, i64 8
   %sub.i1089 = add i64 %20, -8
   store ptr %add.ptr.i1087, ptr %ref.tmp48, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp48, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   store i64 %sub.i1089, ptr %22, align 8
   %call.i290 = call noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, ptr nonnull @.str.32, i64 3, i64 noundef 0) #19
   %23 = load i64, ptr %22, align 8
@@ -899,13 +892,13 @@ for.body106.lr.ph:                                ; preds = %if.then99
 
 for.body106:                                      ; preds = %for.body106.lr.ph, %for.inc134
   %indvars.iv911 = phi i64 [ 0, %for.body106.lr.ph ], [ %indvars.iv.next912, %for.inc134 ]
-  %Length.i1011 = getelementptr inbounds %"class.llvh::StringRef", ptr %30, i64 %indvars.iv911, i32 1
+  %arrayidx.i973 = getelementptr inbounds %"class.llvh::StringRef", ptr %30, i64 %indvars.iv911
+  %Length.i1011 = getelementptr inbounds i8, ptr %arrayidx.i973, i64 8
   %32 = load i64, ptr %Length.i1011, align 8
   %cmp.i1013 = icmp ugt i64 %32, 7
   br i1 %cmp.i1013, label %if.end.i1453, label %for.inc134
 
 if.end.i1453:                                     ; preds = %for.body106
-  %arrayidx.i973 = getelementptr inbounds %"class.llvh::StringRef", ptr %30, i64 %indvars.iv911
   %33 = load ptr, ptr %arrayidx.i973, align 8
   %bcmp859 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %33, ptr noundef nonnull dereferenceable(8) @.str.38, i64 8)
   %cmp5.i1017 = icmp eq i32 %bcmp859, 0
@@ -915,7 +908,7 @@ land.lhs.true.i697:                               ; preds = %if.end.i1453
   %add.ptr.i1070 = getelementptr inbounds i8, ptr %33, i64 8
   %sub.i1072 = add i64 %32, -8
   store ptr %add.ptr.i1070, ptr %ref.tmp114, align 8
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp114, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
   store i64 %sub.i1072, ptr %34, align 8
   %call.i366 = call noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp114, ptr nonnull @.str.32, i64 3, i64 noundef 0) #19
   %35 = load i64, ptr %34, align 8
@@ -990,13 +983,13 @@ for.body148.lr.ph:                                ; preds = %if.then141
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.inc180
   %indvars.iv914 = phi i64 [ 0, %for.body148.lr.ph ], [ %indvars.iv.next915, %for.inc180 ]
-  %Length.i1006 = getelementptr inbounds %"class.llvh::StringRef", ptr %42, i64 %indvars.iv914, i32 1
+  %arrayidx.i963 = getelementptr inbounds %"class.llvh::StringRef", ptr %42, i64 %indvars.iv914
+  %Length.i1006 = getelementptr inbounds i8, ptr %arrayidx.i963, i64 8
   %44 = load i64, ptr %Length.i1006, align 8
   %cmp.i = icmp ugt i64 %44, 7
   br i1 %cmp.i, label %if.end.i1462, label %for.inc180
 
 if.end.i1462:                                     ; preds = %for.body148
-  %arrayidx.i963 = getelementptr inbounds %"class.llvh::StringRef", ptr %42, i64 %indvars.iv914
   %45 = load ptr, ptr %arrayidx.i963, align 8
   %bcmp863 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %45, ptr noundef nonnull dereferenceable(8) @.str.38, i64 8)
   %cmp5.i = icmp eq i32 %bcmp863, 0
@@ -1006,7 +999,7 @@ land.lhs.true.i613:                               ; preds = %if.end.i1462
   %add.ptr.i = getelementptr inbounds i8, ptr %45, i64 8
   %sub.i = add i64 %44, -8
   store ptr %add.ptr.i, ptr %ref.tmp156, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp156, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %ref.tmp156, i64 8
   store i64 %sub.i, ptr %46, align 8
   %call.i406 = call noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp156, ptr nonnull @.str.32, i64 3, i64 noundef 0) #19
   %47 = load i64, ptr %46, align 8
@@ -1084,7 +1077,7 @@ if.then187:                                       ; preds = %if.end.i.i1547
   br i1 %cmp191.not891, label %for.end223, label %for.body192.lr.ph
 
 for.body192.lr.ph:                                ; preds = %if.then187
-  %Length.i.i1346 = getelementptr inbounds %"class.llvh::StringRef", ptr %I193, i64 0, i32 1
+  %Length.i.i1346 = getelementptr inbounds i8, ptr %I193, i64 8
   br label %for.body192
 
 for.body192:                                      ; preds = %for.body192.lr.ph, %for.inc202
@@ -1124,7 +1117,7 @@ if.end.i1351:                                     ; preds = %if.end.i1391
 
 for.inc202:                                       ; preds = %for.body192, %if.end.i1391, %if.end.i1351
   %Variant.2 = phi i32 [ %Variant.1, %if.end.i1351 ], [ %Variant.0892, %if.end.i1391 ], [ %Variant.0892, %for.body192 ]
-  %incdec.ptr = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin2.0893, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0893, i64 16
   %cmp191.not = icmp eq ptr %incdec.ptr, %add.ptr.i1324
   br i1 %cmp191.not, label %for.end203, label %for.body192
 
@@ -1138,7 +1131,7 @@ for.end203:                                       ; preds = %for.inc202
   br i1 %cmp210.not895, label %for.end223, label %for.body211.lr.ph
 
 for.body211.lr.ph:                                ; preds = %for.end203
-  %Length.i.i1333 = getelementptr inbounds %"class.llvh::StringRef", ptr %I212, i64 0, i32 1
+  %Length.i.i1333 = getelementptr inbounds i8, ptr %I212, i64 8
   br label %for.body211
 
 for.body211:                                      ; preds = %for.body211.lr.ph, %for.inc221
@@ -1178,7 +1171,7 @@ if.end.i1335:                                     ; preds = %if.end.i1399
 
 for.inc221:                                       ; preds = %for.body211, %if.end.i1399, %if.end.i1335
   %Part.2 = phi i32 [ %Part.1, %if.end.i1335 ], [ %Part.0896, %if.end.i1399 ], [ %Part.0896, %for.body211 ]
-  %incdec.ptr222 = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin2205.0897, i64 1
+  %incdec.ptr222 = getelementptr inbounds i8, ptr %__begin2205.0897, i64 16
   %cmp210.not = icmp eq ptr %incdec.ptr222, %add.ptr.i1318
   br i1 %cmp210.not, label %for.end223, label %for.body211
 
@@ -1221,20 +1214,20 @@ entry:
   %CPUFeatures = alloca %"class.llvh::SmallVector", align 8
   %ref.tmp = alloca %"class.llvh::StringRef", align 8
   store ptr %ProcCpuinfoContent.coerce0, ptr %ProcCpuinfoContent, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %ProcCpuinfoContent, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ProcCpuinfoContent, i64 8
   store i64 %ProcCpuinfoContent.coerce1, ptr %0, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %Lines, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %Lines, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Lines, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %Lines, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Lines, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %Lines, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %ProcCpuinfoContent, ptr noundef nonnull align 8 dereferenceable(16) %Lines, ptr nonnull @.str.30, i64 1, i32 noundef -1, i1 noundef zeroext true) #19
   %add.ptr.i.i.i.i.i68 = getelementptr inbounds i8, ptr %CPUFeatures, i64 16
   store ptr %add.ptr.i.i.i.i.i68, ptr %CPUFeatures, align 8
-  %Size.i.i.i.i.i69 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %CPUFeatures, i64 0, i32 1
+  %Size.i.i.i.i.i69 = getelementptr inbounds i8, ptr %CPUFeatures, i64 8
   store i32 0, ptr %Size.i.i.i.i.i69, align 8
-  %Capacity2.i.i.i.i.i70 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %CPUFeatures, i64 0, i32 2
+  %Capacity2.i.i.i.i.i70 = getelementptr inbounds i8, ptr %CPUFeatures, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i70, align 4
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not105 = icmp eq i32 %1, 0
@@ -1248,7 +1241,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %Lines, align 8
   %arrayidx.i211 = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 %indvars.iv
-  %Length.i219 = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 %indvars.iv, i32 1
+  %Length.i219 = getelementptr inbounds i8, ptr %arrayidx.i211, i64 8
   %4 = load i64, ptr %Length.i219, align 8
   %cmp.i221 = icmp ugt i64 %4, 7
   br i1 %cmp.i221, label %if.end.i, label %for.inc
@@ -1268,14 +1261,14 @@ if.then10:                                        ; preds = %if.then
   %6 = load ptr, ptr %Lines, align 8
   %arrayidx.i201 = getelementptr inbounds %"class.llvh::StringRef", ptr %6, i64 %indvars.iv
   %add = add nuw i64 %call8, 1
-  %Length.i.i257 = getelementptr inbounds %"class.llvh::StringRef", ptr %6, i64 %indvars.iv, i32 1
+  %Length.i.i257 = getelementptr inbounds i8, ptr %arrayidx.i201, i64 8
   %7 = load i64, ptr %Length.i.i257, align 8
   %.sroa.speculated99 = call i64 @llvm.umin.i64(i64 %7, i64 %add)
   %8 = load ptr, ptr %arrayidx.i201, align 8
   %add.ptr.i.i259 = getelementptr inbounds i8, ptr %8, i64 %.sroa.speculated99
   %sub.i.i261 = sub i64 %7, %.sroa.speculated99
   store ptr %add.ptr.i.i259, ptr %ref.tmp, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %sub.i.i261, ptr %9, align 8
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %CPUFeatures, i8 noundef signext 32, i32 noundef -1, i1 noundef zeroext true) #19
   br label %for.end
@@ -1296,9 +1289,9 @@ for.body21.lr.ph:                                 ; preds = %for.end
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc29
-  %indvars.iv115 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next116, %for.inc29 ]
+  %indvars.iv116 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next117, %for.inc29 ]
   %HaveVectorSupport.0108 = phi i8 [ 0, %for.body21.lr.ph ], [ %HaveVectorSupport.1, %for.inc29 ]
-  %arrayidx.i196 = getelementptr inbounds %"class.llvh::StringRef", ptr %10, i64 %indvars.iv115
+  %arrayidx.i196 = getelementptr inbounds %"class.llvh::StringRef", ptr %10, i64 %indvars.iv116
   %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i196, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx, align 8
   %cmp.i283 = icmp eq i64 %agg.tmp22.sroa.2.0.copyload, 2
@@ -1313,8 +1306,8 @@ if.end.i.i:                                       ; preds = %for.body21
 
 for.inc29:                                        ; preds = %if.end.i.i, %for.body21
   %HaveVectorSupport.1 = phi i8 [ %HaveVectorSupport.0108, %for.body21 ], [ %spec.select, %if.end.i.i ]
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %cmp20.not = icmp eq i64 %indvars.iv.next116, %11
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %cmp20.not = icmp eq i64 %indvars.iv.next117, %11
   br i1 %cmp20.not, label %for.end31.loopexit, label %for.body21, !llvm.loop !15
 
 for.end31.loopexit:                               ; preds = %for.inc29
@@ -1324,24 +1317,24 @@ for.end31.loopexit:                               ; preds = %for.inc29
 
 for.end31:                                        ; preds = %for.end31.loopexit, %for.end
   %HaveVectorSupport.0.lcssa.ph = phi i1 [ %13, %for.end31.loopexit ], [ true, %for.end ]
-  %.pr121 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %cmp37.not110 = icmp eq i32 %.pr121, 0
+  %.pr122 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %cmp37.not110 = icmp eq i32 %.pr122, 0
   br i1 %cmp37.not110, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body38.lr.ph
 
 for.body38.lr.ph:                                 ; preds = %for.end31
   %14 = load ptr, ptr %Lines, align 8
-  %15 = zext i32 %.pr121 to i64
+  %15 = zext i32 %.pr122 to i64
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.inc75
-  %indvars.iv117 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next118, %for.inc75 ]
-  %Length.i214 = getelementptr inbounds %"class.llvh::StringRef", ptr %14, i64 %indvars.iv117, i32 1
+  %indvars.iv118 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next119, %for.inc75 ]
+  %arrayidx.i191 = getelementptr inbounds %"class.llvh::StringRef", ptr %14, i64 %indvars.iv118
+  %Length.i214 = getelementptr inbounds i8, ptr %arrayidx.i191, i64 8
   %16 = load i64, ptr %Length.i214, align 8
   %cmp.i = icmp ugt i64 %16, 9
   br i1 %cmp.i, label %if.end.i273, label %for.inc75
 
 if.end.i273:                                      ; preds = %for.body38
-  %arrayidx.i191 = getelementptr inbounds %"class.llvh::StringRef", ptr %14, i64 %indvars.iv117
   %17 = load ptr, ptr %arrayidx.i191, align 8
   %bcmp104 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %17, ptr noundef nonnull dereferenceable(10) @.str.100, i64 10)
   %cmp5.i = icmp eq i32 %bcmp104, 0
@@ -1355,8 +1348,8 @@ if.then43:                                        ; preds = %if.end.i273
 if.then50:                                        ; preds = %if.then43
   %add51 = add i64 %call48, 10
   %18 = load ptr, ptr %Lines, align 8
-  %arrayidx.i = getelementptr inbounds %"class.llvh::StringRef", ptr %18, i64 %indvars.iv117
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %18, i64 %indvars.iv117, i32 1
+  %arrayidx.i = getelementptr inbounds %"class.llvh::StringRef", ptr %18, i64 %indvars.iv118
+  %Length.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %19 = load i64, ptr %Length.i.i, align 8
   %.sroa.speculated92 = call i64 @llvm.umin.i64(i64 %19, i64 %add51)
   %20 = load ptr, ptr %arrayidx.i, align 8
@@ -1396,8 +1389,8 @@ if.end68:                                         ; preds = %if.end65
   br i1 %cmp69, label %cleanup, label %_ZN4llvh9StringRefC2EPKc.exit178
 
 for.inc75:                                        ; preds = %if.end.i273, %for.body38
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %cmp37.not = icmp eq i64 %indvars.iv.next118, %15
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %cmp37.not = icmp eq i64 %indvars.iv.next119, %15
   br i1 %cmp37.not, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body38, !llvm.loop !16
 
 _ZN4llvh9StringRefC2EPKc.exit178:                 ; preds = %for.inc75, %entry, %for.end31, %_ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit.thread, %if.then43, %if.end68
@@ -1442,12 +1435,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %attr, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)
   store i32 1, ptr %attr, align 8
-  %insn_cnt = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i64 0, i32 1
+  %insn_cnt = getelementptr inbounds i8, ptr %attr, i64 4
   store i32 5, ptr %insn_cnt, align 4
   %1 = ptrtoint ptr %insns to i64
-  %insns1 = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i64 0, i32 2
+  %insns1 = getelementptr inbounds i8, ptr %attr, i64 8
   store i64 %1, ptr %insns1, align 8
-  %license = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i64 0, i32 3
+  %license = getelementptr inbounds i8, ptr %attr, i64 16
   store i64 ptrtoint (ptr @.str.106 to i64), ptr %license, align 8
   %call = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef nonnull %attr, i64 noundef 48) #19
   %conv = trunc i64 %call to i32
@@ -2025,13 +2018,13 @@ entry:
   %UniqueItems = alloca %"class.llvh::SmallSet", align 8
   %Data = alloca %"struct.std::pair", align 8
   %ref.tmp43 = alloca %"struct.std::pair.22", align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.229, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
   call void @_ZN4llvh12MemoryBuffer15getFileAsStreamERKNS_5TwineE(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %Text, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp) #19
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %Text, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %Text, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %0 = and i8 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i8 %0, 0
@@ -2046,9 +2039,9 @@ _ZNK4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
 
 if.then:                                          ; preds = %_ZNK4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit
   %call2 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #19
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %call2, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %call2, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -2058,7 +2051,7 @@ if.then:                                          ; preds = %_ZNK4llvh7ErrorOrIS
 
 if.then.i.i:                                      ; preds = %if.then
   %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call2, ptr noundef nonnull @.str.230, i64 noundef 11) #19
-  %OutBufCur.i6.i40.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i, i64 0, i32 3
+  %OutBufCur.i6.i40.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   %.pre = load ptr, ptr %OutBufCur.i6.i40.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
@@ -2072,7 +2065,7 @@ if.then4.i.i:                                     ; preds = %if.then
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %4 = phi ptr [ %.pre, %if.then.i.i ], [ %add.ptr.i.i, %if.then4.i.i ]
   %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %call2, %if.then4.i.i ]
-  %OutBufEnd.i5.i39 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 2
+  %OutBufEnd.i5.i39 = getelementptr inbounds i8, ptr %phi.call.i, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i39, align 8
   %sub.ptr.lhs.cast.i7.i41 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i42 = ptrtoint ptr %4 to i64
@@ -2085,7 +2078,7 @@ if.then.i.i50:                                    ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit52
 
 if.then4.i.i47:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %OutBufCur.i6.i40 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 3
+  %OutBufCur.i6.i40 = getelementptr inbounds i8, ptr %phi.call.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) @.str.231, i64 15, i1 false)
   %6 = load ptr, ptr %OutBufCur.i6.i40, align 8
   %add.ptr.i.i48 = getelementptr inbounds i8, ptr %6, i64 15
@@ -2095,15 +2088,15 @@ if.then4.i.i47:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit52:               ; preds = %if.then.i.i50, %if.then4.i.i47
   %phi.call.i49 = phi ptr [ %call3.i.i51, %if.then.i.i50 ], [ %phi.call.i, %if.then4.i.i47 ]
   %vtable.i = load ptr, ptr %retval.sroa.31.0.copyload.i, align 8, !noalias !21
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8, !noalias !21
   call void %7(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %retval.sroa.31.0.copyload.i, i32 noundef %retval.sroa.0.0.copyload.i) #19
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #19
   %call2.i53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #19
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i49, ptr noundef %call.i, i64 noundef %call2.i53) #19
-  %OutBufEnd.i5.i55 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 2
+  %OutBufEnd.i5.i55 = getelementptr inbounds i8, ptr %call3.i, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i55, align 8
-  %OutBufCur.i6.i56 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
+  %OutBufCur.i6.i56 = getelementptr inbounds i8, ptr %call3.i, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i56, align 8
   %cmp.i.i60 = icmp eq ptr %8, %9
   br i1 %cmp.i.i60, label %if.then.i.i66, label %if.then4.i.i63
@@ -2126,37 +2119,37 @@ _ZN4llvh11raw_ostreamlsEPKc.exit68:               ; preds = %if.then.i.i66, %if.
 if.end:                                           ; preds = %entry, %_ZNK4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %strs, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %strs, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %strs, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %strs, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %strs, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %strs, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i, align 4
   %11 = load ptr, ptr %Text, align 8
-  %BufferStart.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %11, i64 0, i32 1
+  %BufferStart.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %BufferStart.i, align 8
-  %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %11, i64 0, i32 2
+  %BufferEnd.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %BufferEnd.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store ptr %12, ptr %ref.tmp8, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp8, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %14, align 8
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %strs, ptr nonnull @.str.30, i64 1, i32 noundef -1, i1 noundef zeroext false) #19
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %UniqueItems, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %UniqueItems, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %UniqueItems, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %15 = getelementptr inbounds %"class.llvh::SmallSet", ptr %UniqueItems, i64 0, i32 1, i32 0, i32 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %UniqueItems, i64 280
   store i32 0, ptr %15, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallSet", ptr %UniqueItems, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 288
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallSet", ptr %UniqueItems, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 296
   store ptr %15, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallSet", ptr %UniqueItems, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 304
   store ptr %15, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallSet", ptr %UniqueItems, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %UniqueItems, i64 312
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %16 = load ptr, ptr %strs, align 8
   %17 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -2166,12 +2159,12 @@ if.end:                                           ; preds = %entry, %_ZNK4llvh7E
   br i1 %cmp.not142, label %for.end.thread, label %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph
 
 _ZN4llvh9StringRefC2EPKc.exit57.lr.ph:            ; preds = %if.end
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp.i, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp2.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %Data, i64 8
-  %second.i.i20.i.i = getelementptr inbounds %"struct.std::pair", ptr %Data, i64 0, i32 1
-  %ref.tmp4.sroa.2.0.second.i.i20.sroa_idx.i.i = getelementptr inbounds %"struct.std::pair", ptr %Data, i64 0, i32 1, i32 1
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp.i78, i64 0, i32 1
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp.i92, i64 0, i32 1
+  %second.i.i20.i.i = getelementptr inbounds i8, ptr %Data, i64 16
+  %ref.tmp4.sroa.2.0.second.i.i20.sroa_idx.i.i = getelementptr inbounds i8, ptr %Data, i64 24
+  %19 = getelementptr inbounds i8, ptr %ref.tmp.i78, i64 8
+  %20 = getelementptr inbounds i8, ptr %ref.tmp.i92, i64 8
   br label %_ZN4llvh9StringRefC2EPKc.exit57
 
 _ZN4llvh9StringRefC2EPKc.exit57:                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph, %for.inc
@@ -2179,7 +2172,7 @@ _ZN4llvh9StringRefC2EPKc.exit57:                  ; preds = %_ZN4llvh9StringRefC
   %CurPhysicalId.0144 = phi i32 [ -1, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %CurPhysicalId.5, %for.inc ]
   %CurCoreId.0143 = phi i32 [ -1, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %CurCoreId.3, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin1.0145, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %__begin1.0145, i64 8
   %call.i.i71 = call noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.0145, ptr nonnull @.str.232, i64 6, i64 noundef 0) #19
   %21 = load i64, ptr %Length.i.i, align 8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %call.i.i71, i64 %21)
@@ -2341,7 +2334,7 @@ if.then42:                                        ; preds = %if.end38
 for.inc:                                          ; preds = %_ZN4llvh9StringRefC2EPKc.exit77, %if.end38, %if.then42, %if.end.i149
   %CurCoreId.3 = phi i32 [ -1, %if.then42 ], [ %CurCoreId.2, %if.end38 ], [ %CurCoreId.0143, %if.end.i149 ], [ %CurCoreId.0143, %_ZN4llvh9StringRefC2EPKc.exit77 ]
   %CurPhysicalId.5 = phi i32 [ -1, %if.then42 ], [ %CurPhysicalId.4, %if.end38 ], [ %CurPhysicalId.0144, %if.end.i149 ], [ %CurPhysicalId.0144, %_ZN4llvh9StringRefC2EPKc.exit77 ]
-  %incdec.ptr = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin1.0145, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0145, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %_ZN4llvh9StringRefC2EPKc.exit57
 
@@ -2359,7 +2352,7 @@ for.end:                                          ; preds = %for.inc
 for.end.thread:                                   ; preds = %for.end, %if.end
   %43 = phi ptr [ null, %if.end ], [ %.pre149, %for.end ]
   %conv = phi i32 [ 0, %if.end ], [ %42, %for.end ]
-  %Set.i = getelementptr inbounds %"class.llvh::SmallSet", ptr %UniqueItems, i64 0, i32 1
+  %Set.i = getelementptr inbounds i8, ptr %UniqueItems, i64 272
   call void @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %Set.i, ptr noundef %43)
   %44 = load ptr, ptr %UniqueItems, align 8
   %cmp.i.i.i.i121 = icmp eq ptr %44, %add.ptr.i.i.i.i.i.i
@@ -2392,7 +2385,7 @@ if.then.i:                                        ; preds = %cleanup
 
 _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %47, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %48 = load ptr, ptr %vfn.i.i.i, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(24) %47) #19
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
@@ -2420,7 +2413,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.155, i64 4)
   %2 = extractvalue { ptr, i8 } %call.i, 0
   %3 = load ptr, ptr %2, align 8
-  %second.i = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %3, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = lshr i32 %asmresult3.i309, 15
   %5 = trunc i32 %4 to i8
   %frombool = and i8 %5, 1
@@ -2428,7 +2421,7 @@ if.end:                                           ; preds = %entry
   %call.i310 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.156, i64 3)
   %6 = extractvalue { ptr, i8 } %call.i310, 0
   %7 = load ptr, ptr %6, align 8
-  %second.i311 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %7, i64 0, i32 1
+  %second.i311 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = lshr i32 %asmresult3.i309, 23
   %9 = trunc i32 %8 to i8
   %frombool12 = and i8 %9, 1
@@ -2436,7 +2429,7 @@ if.end:                                           ; preds = %entry
   %call.i312 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.157, i64 3)
   %10 = extractvalue { ptr, i8 } %call.i312, 0
   %11 = load ptr, ptr %10, align 8
-  %second.i313 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %11, i64 0, i32 1
+  %second.i313 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = lshr i32 %asmresult3.i309, 25
   %13 = trunc i32 %12 to i8
   %frombool18 = and i8 %13, 1
@@ -2444,7 +2437,7 @@ if.end:                                           ; preds = %entry
   %call.i314 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.158, i64 4)
   %14 = extractvalue { ptr, i8 } %call.i314, 0
   %15 = load ptr, ptr %14, align 8
-  %second.i315 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %15, i64 0, i32 1
+  %second.i315 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = lshr i32 %asmresult3.i309, 26
   %17 = trunc i32 %16 to i8
   %frombool24 = and i8 %17, 1
@@ -2452,21 +2445,21 @@ if.end:                                           ; preds = %entry
   %call.i316 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.159, i64 4)
   %18 = extractvalue { ptr, i8 } %call.i316, 0
   %19 = load ptr, ptr %18, align 8
-  %second.i317 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %19, i64 0, i32 1
+  %second.i317 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = trunc i32 %asmresult2.i308 to i8
   %frombool30 = and i8 %20, 1
   store i8 %frombool30, ptr %second.i317, align 1
   %call.i318 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.160, i64 6)
   %21 = extractvalue { ptr, i8 } %call.i318, 0
   %22 = load ptr, ptr %21, align 8
-  %second.i319 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %22, i64 0, i32 1
+  %second.i319 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = lshr i8 %20, 1
   %frombool36 = and i8 %23, 1
   store i8 %frombool36, ptr %second.i319, align 1
   %call.i320 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.161, i64 5)
   %24 = extractvalue { ptr, i8 } %call.i320, 0
   %25 = load ptr, ptr %24, align 8
-  %second.i321 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %25, i64 0, i32 1
+  %second.i321 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = lshr i32 %asmresult2.i308, 9
   %27 = trunc i32 %26 to i8
   %frombool42 = and i8 %27, 1
@@ -2474,7 +2467,7 @@ if.end:                                           ; preds = %entry
   %call.i322 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.162, i64 4)
   %28 = extractvalue { ptr, i8 } %call.i322, 0
   %29 = load ptr, ptr %28, align 8
-  %second.i323 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %29, i64 0, i32 1
+  %second.i323 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = lshr i32 %asmresult2.i308, 13
   %31 = trunc i32 %30 to i8
   %frombool48 = and i8 %31, 1
@@ -2482,7 +2475,7 @@ if.end:                                           ; preds = %entry
   %call.i324 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.163, i64 6)
   %32 = extractvalue { ptr, i8 } %call.i324, 0
   %33 = load ptr, ptr %32, align 8
-  %second.i325 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %33, i64 0, i32 1
+  %second.i325 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = lshr i32 %asmresult2.i308, 19
   %35 = trunc i32 %34 to i8
   %frombool54 = and i8 %35, 1
@@ -2490,7 +2483,7 @@ if.end:                                           ; preds = %entry
   %call.i326 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.164, i64 6)
   %36 = extractvalue { ptr, i8 } %call.i326, 0
   %37 = load ptr, ptr %36, align 8
-  %second.i327 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %37, i64 0, i32 1
+  %second.i327 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = lshr i32 %asmresult2.i308, 20
   %39 = trunc i32 %38 to i8
   %frombool60 = and i8 %39, 1
@@ -2498,7 +2491,7 @@ if.end:                                           ; preds = %entry
   %call.i328 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.165, i64 5)
   %40 = extractvalue { ptr, i8 } %call.i328, 0
   %41 = load ptr, ptr %40, align 8
-  %second.i329 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %41, i64 0, i32 1
+  %second.i329 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = lshr i32 %asmresult2.i308, 22
   %43 = trunc i32 %42 to i8
   %frombool66 = and i8 %43, 1
@@ -2506,7 +2499,7 @@ if.end:                                           ; preds = %entry
   %call.i330 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.166, i64 6)
   %44 = extractvalue { ptr, i8 } %call.i330, 0
   %45 = load ptr, ptr %44, align 8
-  %second.i331 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %45, i64 0, i32 1
+  %second.i331 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = lshr i32 %asmresult2.i308, 23
   %47 = trunc i32 %46 to i8
   %frombool72 = and i8 %47, 1
@@ -2514,7 +2507,7 @@ if.end:                                           ; preds = %entry
   %call.i332 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.167, i64 3)
   %48 = extractvalue { ptr, i8 } %call.i332, 0
   %49 = load ptr, ptr %48, align 8
-  %second.i333 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %49, i64 0, i32 1
+  %second.i333 = getelementptr inbounds i8, ptr %49, i64 8
   %50 = lshr i32 %asmresult2.i308, 25
   %51 = trunc i32 %50 to i8
   %frombool78 = and i8 %51, 1
@@ -2522,7 +2515,7 @@ if.end:                                           ; preds = %entry
   %call.i334 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.168, i64 5)
   %52 = extractvalue { ptr, i8 } %call.i334, 0
   %53 = load ptr, ptr %52, align 8
-  %second.i335 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %53, i64 0, i32 1
+  %second.i335 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = lshr i32 %asmresult2.i308, 30
   %55 = trunc i32 %54 to i8
   %frombool84 = and i8 %55, 1
@@ -2548,7 +2541,7 @@ land.end:                                         ; preds = %land.lhs.true91, %i
   %call.i338 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.169, i64 3)
   %60 = extractvalue { ptr, i8 } %call.i338, 0
   %61 = load ptr, ptr %60, align 8
-  %second.i339 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %61, i64 0, i32 1
+  %second.i339 = getelementptr inbounds i8, ptr %61, i64 8
   store i8 %frombool95, ptr %second.i339, align 1
   %62 = and i32 %asmresult2.i308, 4096
   %tobool108 = icmp ne i32 %62, 0
@@ -2556,7 +2549,7 @@ land.end:                                         ; preds = %land.lhs.true91, %i
   %call.i340 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.170, i64 3)
   %64 = extractvalue { ptr, i8 } %call.i340, 0
   %65 = load ptr, ptr %64, align 8
-  %second.i341 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %65, i64 0, i32 1
+  %second.i341 = getelementptr inbounds i8, ptr %65, i64 8
   %frombool114 = zext i1 %63 to i8
   store i8 %frombool114, ptr %second.i341, align 1
   %66 = and i32 %asmresult2.i308, 67108864
@@ -2565,7 +2558,7 @@ land.end:                                         ; preds = %land.lhs.true91, %i
   %call.i342 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.171, i64 5)
   %68 = extractvalue { ptr, i8 } %call.i342, 0
   %69 = load ptr, ptr %68, align 8
-  %second.i343 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %69, i64 0, i32 1
+  %second.i343 = getelementptr inbounds i8, ptr %69, i64 8
   %frombool123 = zext i1 %67 to i8
   store i8 %frombool123, ptr %second.i343, align 1
   %70 = and i32 %asmresult2.i308, 536870912
@@ -2574,7 +2567,7 @@ land.end:                                         ; preds = %land.lhs.true91, %i
   %call.i344 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.172, i64 4)
   %72 = extractvalue { ptr, i8 } %call.i344, 0
   %73 = load ptr, ptr %72, align 8
-  %second.i345 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %73, i64 0, i32 1
+  %second.i345 = getelementptr inbounds i8, ptr %73, i64 8
   %frombool132 = zext i1 %71 to i8
   store i8 %frombool132, ptr %second.i345, align 1
   %74 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
@@ -2596,7 +2589,7 @@ land.end137:                                      ; preds = %land.rhs135, %land.
   %call.i354 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.173, i64 4)
   %77 = extractvalue { ptr, i8 } %call.i354, 0
   %78 = load ptr, ptr %77, align 8
-  %second.i355 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %78, i64 0, i32 1
+  %second.i355 = getelementptr inbounds i8, ptr %78, i64 8
   %frombool147 = zext i1 %76 to i8
   store i8 %frombool147, ptr %second.i355, align 1
   %79 = and i32 %ECX.0, 32
@@ -2605,7 +2598,7 @@ land.end137:                                      ; preds = %land.rhs135, %land.
   %call.i356 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.174, i64 5)
   %81 = extractvalue { ptr, i8 } %call.i356, 0
   %82 = load ptr, ptr %81, align 8
-  %second.i357 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %82, i64 0, i32 1
+  %second.i357 = getelementptr inbounds i8, ptr %82, i64 8
   %frombool156 = zext i1 %80 to i8
   store i8 %frombool156, ptr %second.i357, align 1
   %83 = and i32 %ECX.0, 64
@@ -2614,7 +2607,7 @@ land.end137:                                      ; preds = %land.rhs135, %land.
   %call.i358 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.175, i64 5)
   %85 = extractvalue { ptr, i8 } %call.i358, 0
   %86 = load ptr, ptr %85, align 8
-  %second.i359 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %86, i64 0, i32 1
+  %second.i359 = getelementptr inbounds i8, ptr %86, i64 8
   %frombool165 = zext i1 %84 to i8
   store i8 %frombool165, ptr %second.i359, align 1
   %87 = and i32 %ECX.0, 256
@@ -2623,7 +2616,7 @@ land.end137:                                      ; preds = %land.rhs135, %land.
   %call.i360 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.176, i64 6)
   %89 = extractvalue { ptr, i8 } %call.i360, 0
   %90 = load ptr, ptr %89, align 8
-  %second.i361 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %90, i64 0, i32 1
+  %second.i361 = getelementptr inbounds i8, ptr %90, i64 8
   %frombool174 = zext i1 %88 to i8
   store i8 %frombool174, ptr %second.i361, align 1
   br i1 %cmp134, label %land.lhs.true176, label %_ZN4llvh9StringRefC2EPKc.exit921.critedge
@@ -2635,13 +2628,13 @@ land.lhs.true176:                                 ; preds = %land.end137
   %call.i362 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.177, i64 3)
   %92 = extractvalue { ptr, i8 } %call.i362, 0
   %93 = load ptr, ptr %92, align 8
-  %second.i363 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %93, i64 0, i32 1
+  %second.i363 = getelementptr inbounds i8, ptr %93, i64 8
   %frombool185 = zext i1 %spec.select to i8
   store i8 %frombool185, ptr %second.i363, align 1
   %call.i364 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.178, i64 3)
   %94 = extractvalue { ptr, i8 } %call.i364, 0
   %95 = load ptr, ptr %94, align 8
-  %second.i365 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %95, i64 0, i32 1
+  %second.i365 = getelementptr inbounds i8, ptr %95, i64 8
   %96 = lshr i32 %ECX.0, 15
   %97 = trunc i32 %96 to i8
   %frombool194 = and i8 %97, 1
@@ -2656,12 +2649,12 @@ _ZN4llvh9StringRefC2EPKc.exit921.critedge:        ; preds = %land.end137
   %call.i366 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.177, i64 3)
   %100 = extractvalue { ptr, i8 } %call.i366, 0
   %101 = load ptr, ptr %100, align 8
-  %second.i367 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %101, i64 0, i32 1
+  %second.i367 = getelementptr inbounds i8, ptr %101, i64 8
   store i8 0, ptr %second.i367, align 1
   %call.i368 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.178, i64 3)
   %102 = extractvalue { ptr, i8 } %call.i368, 0
   %103 = load ptr, ptr %102, align 8
-  %second.i369 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %103, i64 0, i32 1
+  %second.i369 = getelementptr inbounds i8, ptr %103, i64 8
   store i8 0, ptr %second.i369, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit921
 
@@ -2670,7 +2663,7 @@ _ZN4llvh9StringRefC2EPKc.exit921:                 ; preds = %land.lhs.true176, %
   %call.i370 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.179, i64 4)
   %104 = extractvalue { ptr, i8 } %call.i370, 0
   %105 = load ptr, ptr %104, align 8
-  %second.i371 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %105, i64 0, i32 1
+  %second.i371 = getelementptr inbounds i8, ptr %105, i64 8
   store i8 %frombool205, ptr %second.i371, align 1
   %106 = and i32 %ECX.0, 2097152
   %tobool210 = icmp ne i32 %106, 0
@@ -2678,7 +2671,7 @@ _ZN4llvh9StringRefC2EPKc.exit921:                 ; preds = %land.lhs.true176, %
   %call.i372 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.180, i64 3)
   %108 = extractvalue { ptr, i8 } %call.i372, 0
   %109 = load ptr, ptr %108, align 8
-  %second.i373 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %109, i64 0, i32 1
+  %second.i373 = getelementptr inbounds i8, ptr %109, i64 8
   %frombool214 = zext i1 %107 to i8
   store i8 %frombool214, ptr %second.i373, align 1
   %110 = and i32 %ECX.0, 536870912
@@ -2687,7 +2680,7 @@ _ZN4llvh9StringRefC2EPKc.exit921:                 ; preds = %land.lhs.true176, %
   %call.i374 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.181, i64 6)
   %112 = extractvalue { ptr, i8 } %call.i374, 0
   %113 = load ptr, ptr %112, align 8
-  %second.i375 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %113, i64 0, i32 1
+  %second.i375 = getelementptr inbounds i8, ptr %113, i64 8
   %frombool223 = zext i1 %111 to i8
   store i8 %frombool223, ptr %second.i375, align 1
   %114 = and i32 %EDX.0, 536870912
@@ -2696,7 +2689,7 @@ _ZN4llvh9StringRefC2EPKc.exit921:                 ; preds = %land.lhs.true176, %
   %call.i376 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.182, i64 5)
   %116 = extractvalue { ptr, i8 } %call.i376, 0
   %117 = load ptr, ptr %116, align 8
-  %second.i377 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %117, i64 0, i32 1
+  %second.i377 = getelementptr inbounds i8, ptr %117, i64 8
   %frombool232 = zext i1 %115 to i8
   store i8 %frombool232, ptr %second.i377, align 1
   %cmp233 = icmp ugt i32 %asmresult.i346, -2147483641
@@ -2719,7 +2712,7 @@ land.end237:                                      ; preds = %land.rhs234, %_ZN4l
   %call.i382 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.183, i64 6)
   %120 = extractvalue { ptr, i8 } %call.i382, 0
   %121 = load ptr, ptr %120, align 8
-  %second.i383 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %121, i64 0, i32 1
+  %second.i383 = getelementptr inbounds i8, ptr %121, i64 8
   %frombool247 = zext i1 %119 to i8
   store i8 %frombool247, ptr %second.i383, align 1
   %122 = and i32 %EBX.1, 512
@@ -2728,7 +2721,7 @@ land.end237:                                      ; preds = %land.rhs234, %_ZN4l
   %call.i384 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.184, i64 8)
   %124 = extractvalue { ptr, i8 } %call.i384, 0
   %125 = load ptr, ptr %124, align 8
-  %second.i385 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %125, i64 0, i32 1
+  %second.i385 = getelementptr inbounds i8, ptr %125, i64 8
   %frombool256 = zext i1 %123 to i8
   store i8 %frombool256, ptr %second.i385, align 1
   %cmp257 = icmp ugt i32 %asmresult.i, 6
@@ -2752,7 +2745,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i390 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.185, i64 8)
   %128 = extractvalue { ptr, i8 } %call.i390, 0
   %129 = load ptr, ptr %128, align 8
-  %second.i391 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %129, i64 0, i32 1
+  %second.i391 = getelementptr inbounds i8, ptr %129, i64 8
   %frombool271 = zext i1 %127 to i8
   store i8 %frombool271, ptr %second.i391, align 1
   %130 = and i32 %EBX.2, 4
@@ -2761,7 +2754,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i392 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.186, i64 3)
   %132 = extractvalue { ptr, i8 } %call.i392, 0
   %133 = load ptr, ptr %132, align 8
-  %second.i393 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %133, i64 0, i32 1
+  %second.i393 = getelementptr inbounds i8, ptr %133, i64 8
   %frombool280 = zext i1 %131 to i8
   store i8 %frombool280, ptr %second.i393, align 1
   %134 = and i32 %EBX.2, 8
@@ -2770,7 +2763,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i394 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.187, i64 3)
   %136 = extractvalue { ptr, i8 } %call.i394, 0
   %137 = load ptr, ptr %136, align 8
-  %second.i395 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %137, i64 0, i32 1
+  %second.i395 = getelementptr inbounds i8, ptr %137, i64 8
   %frombool289 = zext i1 %135 to i8
   store i8 %frombool289, ptr %second.i395, align 1
   %138 = and i32 %EBX.2, 32
@@ -2781,7 +2774,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i396 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.188, i64 4)
   %140 = extractvalue { ptr, i8 } %call.i396, 0
   %141 = load ptr, ptr %140, align 8
-  %second.i397 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %141, i64 0, i32 1
+  %second.i397 = getelementptr inbounds i8, ptr %141, i64 8
   store i8 %frombool300, ptr %second.i397, align 1
   %142 = and i32 %EBX.2, 256
   %tobool305 = icmp ne i32 %142, 0
@@ -2789,7 +2782,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i398 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.189, i64 4)
   %144 = extractvalue { ptr, i8 } %call.i398, 0
   %145 = load ptr, ptr %144, align 8
-  %second.i399 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %145, i64 0, i32 1
+  %second.i399 = getelementptr inbounds i8, ptr %145, i64 8
   %frombool309 = zext i1 %143 to i8
   store i8 %frombool309, ptr %second.i399, align 1
   %146 = and i32 %EBX.2, 1024
@@ -2798,7 +2791,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i400 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.190, i64 7)
   %148 = extractvalue { ptr, i8 } %call.i400, 0
   %149 = load ptr, ptr %148, align 8
-  %second.i401 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %149, i64 0, i32 1
+  %second.i401 = getelementptr inbounds i8, ptr %149, i64 8
   %frombool318 = zext i1 %147 to i8
   store i8 %frombool318, ptr %second.i401, align 1
   %150 = and i32 %EBX.2, 2048
@@ -2807,7 +2800,7 @@ land.end261:                                      ; preds = %land.rhs258, %land.
   %call.i402 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.191, i64 3)
   %152 = extractvalue { ptr, i8 } %call.i402, 0
   %153 = load ptr, ptr %152, align 8
-  %second.i403 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %153, i64 0, i32 1
+  %second.i403 = getelementptr inbounds i8, ptr %153, i64 8
   %frombool327 = zext i1 %151 to i8
   store i8 %frombool327, ptr %second.i403, align 1
   br i1 %cmp257, label %land.lhs.true329, label %land.end346.critedge
@@ -2819,7 +2812,7 @@ land.lhs.true329:                                 ; preds = %land.end261
   %call.i404 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.192, i64 7)
   %155 = extractvalue { ptr, i8 } %call.i404, 0
   %156 = load ptr, ptr %155, align 8
-  %second.i405 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %156, i64 0, i32 1
+  %second.i405 = getelementptr inbounds i8, ptr %156, i64 8
   %frombool338 = zext i1 %spec.select287 to i8
   store i8 %frombool338, ptr %second.i405, align 1
   %157 = and i32 %EBX.2, 131072
@@ -2832,7 +2825,7 @@ land.end346.critedge:                             ; preds = %land.end261
   %call.i406 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.192, i64 7)
   %159 = extractvalue { ptr, i8 } %call.i406, 0
   %160 = load ptr, ptr %159, align 8
-  %second.i407 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %160, i64 0, i32 1
+  %second.i407 = getelementptr inbounds i8, ptr %160, i64 8
   store i8 0, ptr %second.i407, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1061
 
@@ -2841,7 +2834,7 @@ _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %
   %call.i408 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.193, i64 8)
   %161 = extractvalue { ptr, i8 } %call.i408, 0
   %162 = load ptr, ptr %161, align 8
-  %second.i409 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %162, i64 0, i32 1
+  %second.i409 = getelementptr inbounds i8, ptr %162, i64 8
   store i8 %frombool349, ptr %second.i409, align 1
   %163 = and i32 %EBX.2, 262144
   %tobool354 = icmp ne i32 %163, 0
@@ -2849,7 +2842,7 @@ _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %
   %call.i410 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.194, i64 6)
   %165 = extractvalue { ptr, i8 } %call.i410, 0
   %166 = load ptr, ptr %165, align 8
-  %second.i411 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %166, i64 0, i32 1
+  %second.i411 = getelementptr inbounds i8, ptr %166, i64 8
   %frombool358 = zext i1 %164 to i8
   store i8 %frombool358, ptr %second.i411, align 1
   %167 = and i32 %EBX.2, 524288
@@ -2858,7 +2851,7 @@ _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %
   %call.i412 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.195, i64 3)
   %169 = extractvalue { ptr, i8 } %call.i412, 0
   %170 = load ptr, ptr %169, align 8
-  %second.i413 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %170, i64 0, i32 1
+  %second.i413 = getelementptr inbounds i8, ptr %170, i64 8
   %frombool367 = zext i1 %168 to i8
   store i8 %frombool367, ptr %second.i413, align 1
   %171 = and i32 %EBX.2, 2097152
@@ -2869,7 +2862,7 @@ _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %
   %call.i414 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.196, i64 10)
   %173 = extractvalue { ptr, i8 } %call.i414, 0
   %174 = load ptr, ptr %173, align 8
-  %second.i415 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %174, i64 0, i32 1
+  %second.i415 = getelementptr inbounds i8, ptr %174, i64 8
   store i8 %frombool378, ptr %second.i415, align 1
   %175 = and i32 %EBX.2, 8388608
   %tobool383 = icmp ne i32 %175, 0
@@ -2877,7 +2870,7 @@ _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %
   %call.i416 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.197, i64 10)
   %177 = extractvalue { ptr, i8 } %call.i416, 0
   %178 = load ptr, ptr %177, align 8
-  %second.i417 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %178, i64 0, i32 1
+  %second.i417 = getelementptr inbounds i8, ptr %178, i64 8
   %frombool387 = zext i1 %176 to i8
   store i8 %frombool387, ptr %second.i417, align 1
   %179 = and i32 %EBX.2, 16777216
@@ -2886,7 +2879,7 @@ _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %
   %call.i418 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.198, i64 4)
   %181 = extractvalue { ptr, i8 } %call.i418, 0
   %182 = load ptr, ptr %181, align 8
-  %second.i419 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %182, i64 0, i32 1
+  %second.i419 = getelementptr inbounds i8, ptr %182, i64 8
   %frombool396 = zext i1 %180 to i8
   store i8 %frombool396, ptr %second.i419, align 1
   br i1 %cmp257, label %land.lhs.true420, label %land.end457.critedge.critedge
@@ -2898,7 +2891,7 @@ land.lhs.true420:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i420 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.199, i64 8)
   %184 = extractvalue { ptr, i8 } %call.i420, 0
   %185 = load ptr, ptr %184, align 8
-  %second.i421 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %185, i64 0, i32 1
+  %second.i421 = getelementptr inbounds i8, ptr %185, i64 8
   %frombool407 = zext i1 %spec.select290 to i8
   store i8 %frombool407, ptr %second.i421, align 1
   %186 = and i32 %EBX.2, 134217728
@@ -2908,7 +2901,7 @@ land.lhs.true420:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i424587 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.200, i64 8)
   %188 = extractvalue { ptr, i8 } %call.i424587, 0
   %189 = load ptr, ptr %188, align 8
-  %second.i425588 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %189, i64 0, i32 1
+  %second.i425588 = getelementptr inbounds i8, ptr %189, i64 8
   store i8 %187, ptr %second.i425588, align 1
   %190 = and i32 %EBX.2, 268435456
   %tobool423.not = icmp ne i32 %190, 0
@@ -2916,13 +2909,13 @@ land.lhs.true420:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i426 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.201, i64 8)
   %191 = extractvalue { ptr, i8 } %call.i426, 0
   %192 = load ptr, ptr %191, align 8
-  %second.i427 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %192, i64 0, i32 1
+  %second.i427 = getelementptr inbounds i8, ptr %192, i64 8
   %frombool429 = zext i1 %spec.select292 to i8
   store i8 %frombool429, ptr %second.i427, align 1
   %call.i428 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.202, i64 3)
   %193 = extractvalue { ptr, i8 } %call.i428, 0
   %194 = load ptr, ptr %193, align 8
-  %second.i429 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %194, i64 0, i32 1
+  %second.i429 = getelementptr inbounds i8, ptr %194, i64 8
   %195 = lshr i32 %EBX.2, 29
   %196 = trunc i32 %195 to i8
   %frombool438 = and i8 %196, 1
@@ -2933,7 +2926,7 @@ land.lhs.true420:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i430 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.203, i64 8)
   %198 = extractvalue { ptr, i8 } %call.i430, 0
   %199 = load ptr, ptr %198, align 8
-  %second.i431 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %199, i64 0, i32 1
+  %second.i431 = getelementptr inbounds i8, ptr %199, i64 8
   %frombool449 = zext i1 %spec.select293 to i8
   store i8 %frombool449, ptr %second.i431, align 1
   %tobool454.not = icmp slt i32 %EBX.2, 0
@@ -2945,27 +2938,27 @@ land.end457.critedge.critedge:                    ; preds = %_ZN4llvh9StringRefC
   %call.i422 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.199, i64 8)
   %201 = extractvalue { ptr, i8 } %call.i422, 0
   %202 = load ptr, ptr %201, align 8
-  %second.i423 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %202, i64 0, i32 1
+  %second.i423 = getelementptr inbounds i8, ptr %202, i64 8
   store i8 0, ptr %second.i423, align 1
   %call.i424 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.200, i64 8)
   %203 = extractvalue { ptr, i8 } %call.i424, 0
   %204 = load ptr, ptr %203, align 8
-  %second.i425 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %204, i64 0, i32 1
+  %second.i425 = getelementptr inbounds i8, ptr %204, i64 8
   store i8 0, ptr %second.i425, align 1
   %call.i432 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.201, i64 8)
   %205 = extractvalue { ptr, i8 } %call.i432, 0
   %206 = load ptr, ptr %205, align 8
-  %second.i433 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %206, i64 0, i32 1
+  %second.i433 = getelementptr inbounds i8, ptr %206, i64 8
   store i8 0, ptr %second.i433, align 1
   %call.i434 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.202, i64 3)
   %207 = extractvalue { ptr, i8 } %call.i434, 0
   %208 = load ptr, ptr %207, align 8
-  %second.i435 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %208, i64 0, i32 1
+  %second.i435 = getelementptr inbounds i8, ptr %208, i64 8
   store i8 0, ptr %second.i435, align 1
   %call.i436 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.203, i64 8)
   %209 = extractvalue { ptr, i8 } %call.i436, 0
   %210 = load ptr, ptr %209, align 8
-  %second.i437 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %210, i64 0, i32 1
+  %second.i437 = getelementptr inbounds i8, ptr %210, i64 8
   store i8 0, ptr %second.i437, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1171
 
@@ -2974,7 +2967,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i438 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.204, i64 8)
   %211 = extractvalue { ptr, i8 } %call.i438, 0
   %212 = load ptr, ptr %211, align 8
-  %second.i439 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %212, i64 0, i32 1
+  %second.i439 = getelementptr inbounds i8, ptr %212, i64 8
   store i8 %frombool460, ptr %second.i439, align 1
   %and464 = and i32 %ECX.2, 1
   %tobool465 = icmp ne i32 %and464, 0
@@ -2982,7 +2975,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i440 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.205, i64 11)
   %214 = extractvalue { ptr, i8 } %call.i440, 0
   %215 = load ptr, ptr %214, align 8
-  %second.i441 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %215, i64 0, i32 1
+  %second.i441 = getelementptr inbounds i8, ptr %215, i64 8
   %frombool469 = zext i1 %213 to i8
   store i8 %frombool469, ptr %second.i441, align 1
   %216 = and i32 %ECX.2, 2
@@ -2993,7 +2986,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i442 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.206, i64 10)
   %218 = extractvalue { ptr, i8 } %call.i442, 0
   %219 = load ptr, ptr %218, align 8
-  %second.i443 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %219, i64 0, i32 1
+  %second.i443 = getelementptr inbounds i8, ptr %219, i64 8
   store i8 %frombool480, ptr %second.i443, align 1
   %220 = and i32 %ECX.2, 16
   %tobool485 = icmp ne i32 %220, 0
@@ -3001,7 +2994,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i444 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.207, i64 3)
   %222 = extractvalue { ptr, i8 } %call.i444, 0
   %223 = load ptr, ptr %222, align 8
-  %second.i445 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %223, i64 0, i32 1
+  %second.i445 = getelementptr inbounds i8, ptr %223, i64 8
   %frombool489 = zext i1 %221 to i8
   store i8 %frombool489, ptr %second.i445, align 1
   %224 = and i32 %ECX.2, 32
@@ -3010,7 +3003,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i446 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.208, i64 7)
   %226 = extractvalue { ptr, i8 } %call.i446, 0
   %227 = load ptr, ptr %226, align 8
-  %second.i447 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %227, i64 0, i32 1
+  %second.i447 = getelementptr inbounds i8, ptr %227, i64 8
   %frombool498 = zext i1 %225 to i8
   store i8 %frombool498, ptr %second.i447, align 1
   %228 = and i32 %ECX.2, 64
@@ -3021,7 +3014,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i448 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.209, i64 11)
   %230 = extractvalue { ptr, i8 } %call.i448, 0
   %231 = load ptr, ptr %230, align 8
-  %second.i449 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %231, i64 0, i32 1
+  %second.i449 = getelementptr inbounds i8, ptr %231, i64 8
   store i8 %frombool509, ptr %second.i449, align 1
   %232 = and i32 %ECX.2, 128
   %tobool514 = icmp ne i32 %232, 0
@@ -3029,7 +3022,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i450 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.210, i64 5)
   %234 = extractvalue { ptr, i8 } %call.i450, 0
   %235 = load ptr, ptr %234, align 8
-  %second.i451 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %235, i64 0, i32 1
+  %second.i451 = getelementptr inbounds i8, ptr %235, i64 8
   %frombool518 = zext i1 %233 to i8
   store i8 %frombool518, ptr %second.i451, align 1
   %236 = and i32 %ECX.2, 256
@@ -3038,7 +3031,7 @@ _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %
   %call.i452 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.211, i64 4)
   %238 = extractvalue { ptr, i8 } %call.i452, 0
   %239 = load ptr, ptr %238, align 8
-  %second.i453 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %239, i64 0, i32 1
+  %second.i453 = getelementptr inbounds i8, ptr %239, i64 8
   %frombool527 = zext i1 %237 to i8
   store i8 %frombool527, ptr %second.i453, align 1
   br i1 %cmp257, label %land.lhs.true551, label %land.end568.critedge
@@ -3050,7 +3043,7 @@ land.lhs.true551:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i454 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.212, i64 4)
   %241 = extractvalue { ptr, i8 } %call.i454, 0
   %242 = load ptr, ptr %241, align 8
-  %second.i455 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %242, i64 0, i32 1
+  %second.i455 = getelementptr inbounds i8, ptr %242, i64 8
   %frombool538 = zext i1 %spec.select297 to i8
   store i8 %frombool538, ptr %second.i455, align 1
   %243 = and i32 %ECX.2, 1024
@@ -3060,7 +3053,7 @@ land.lhs.true551:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i458590 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.213, i64 10)
   %245 = extractvalue { ptr, i8 } %call.i458590, 0
   %246 = load ptr, ptr %245, align 8
-  %second.i459591 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %246, i64 0, i32 1
+  %second.i459591 = getelementptr inbounds i8, ptr %246, i64 8
   store i8 %244, ptr %second.i459591, align 1
   %247 = and i32 %ECX.2, 2048
   %tobool554.not = icmp ne i32 %247, 0
@@ -3068,7 +3061,7 @@ land.lhs.true551:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i460 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.214, i64 10)
   %248 = extractvalue { ptr, i8 } %call.i460, 0
   %249 = load ptr, ptr %248, align 8
-  %second.i461 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %249, i64 0, i32 1
+  %second.i461 = getelementptr inbounds i8, ptr %249, i64 8
   %frombool560 = zext i1 %spec.select299 to i8
   store i8 %frombool560, ptr %second.i461, align 1
   %250 = and i32 %ECX.2, 4096
@@ -3081,17 +3074,17 @@ land.end568.critedge:                             ; preds = %_ZN4llvh9StringRefC
   %call.i456 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.212, i64 4)
   %252 = extractvalue { ptr, i8 } %call.i456, 0
   %253 = load ptr, ptr %252, align 8
-  %second.i457 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %253, i64 0, i32 1
+  %second.i457 = getelementptr inbounds i8, ptr %253, i64 8
   store i8 0, ptr %second.i457, align 1
   %call.i458 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.213, i64 10)
   %254 = extractvalue { ptr, i8 } %call.i458, 0
   %255 = load ptr, ptr %254, align 8
-  %second.i459 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %255, i64 0, i32 1
+  %second.i459 = getelementptr inbounds i8, ptr %255, i64 8
   store i8 0, ptr %second.i459, align 1
   %call.i462 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.214, i64 10)
   %256 = extractvalue { ptr, i8 } %call.i462, 0
   %257 = load ptr, ptr %256, align 8
-  %second.i463 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %257, i64 0, i32 1
+  %second.i463 = getelementptr inbounds i8, ptr %257, i64 8
   store i8 0, ptr %second.i463, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1281
 
@@ -3100,7 +3093,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i464 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.215, i64 12)
   %258 = extractvalue { ptr, i8 } %call.i464, 0
   %259 = load ptr, ptr %258, align 8
-  %second.i465 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %259, i64 0, i32 1
+  %second.i465 = getelementptr inbounds i8, ptr %259, i64 8
   store i8 %frombool571, ptr %second.i465, align 1
   %260 = and i32 %ECX.2, 16384
   %tobool576.not = icmp ne i32 %260, 0
@@ -3110,7 +3103,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i466 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.216, i64 15)
   %262 = extractvalue { ptr, i8 } %call.i466, 0
   %263 = load ptr, ptr %262, align 8
-  %second.i467 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %263, i64 0, i32 1
+  %second.i467 = getelementptr inbounds i8, ptr %263, i64 8
   store i8 %frombool582, ptr %second.i467, align 1
   %264 = and i32 %ECX.2, 4194304
   %tobool587 = icmp ne i32 %264, 0
@@ -3118,7 +3111,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i468 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.217, i64 5)
   %266 = extractvalue { ptr, i8 } %call.i468, 0
   %267 = load ptr, ptr %266, align 8
-  %second.i469 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %267, i64 0, i32 1
+  %second.i469 = getelementptr inbounds i8, ptr %267, i64 8
   %frombool591 = zext i1 %265 to i8
   store i8 %frombool591, ptr %second.i469, align 1
   %268 = and i32 %ECX.2, 33554432
@@ -3127,7 +3120,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i470 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.218, i64 8)
   %270 = extractvalue { ptr, i8 } %call.i470, 0
   %271 = load ptr, ptr %270, align 8
-  %second.i471 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %271, i64 0, i32 1
+  %second.i471 = getelementptr inbounds i8, ptr %271, i64 8
   %frombool600 = zext i1 %269 to i8
   store i8 %frombool600, ptr %second.i471, align 1
   %272 = and i32 %ECX.2, 134217728
@@ -3136,7 +3129,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i472 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.219, i64 7)
   %274 = extractvalue { ptr, i8 } %call.i472, 0
   %275 = load ptr, ptr %274, align 8
-  %second.i473 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %275, i64 0, i32 1
+  %second.i473 = getelementptr inbounds i8, ptr %275, i64 8
   %frombool609 = zext i1 %273 to i8
   store i8 %frombool609, ptr %second.i473, align 1
   %276 = and i32 %ECX.2, 268435456
@@ -3145,7 +3138,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i474 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.220, i64 9)
   %278 = extractvalue { ptr, i8 } %call.i474, 0
   %279 = load ptr, ptr %278, align 8
-  %second.i475 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %279, i64 0, i32 1
+  %second.i475 = getelementptr inbounds i8, ptr %279, i64 8
   %frombool618 = zext i1 %277 to i8
   store i8 %frombool618, ptr %second.i475, align 1
   %280 = and i32 %EDX.2, 262144
@@ -3154,7 +3147,7 @@ _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %land.lhs.true551, %
   %call.i476 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.221, i64 7)
   %282 = extractvalue { ptr, i8 } %call.i476, 0
   %283 = load ptr, ptr %282, align 8
-  %second.i477 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %283, i64 0, i32 1
+  %second.i477 = getelementptr inbounds i8, ptr %283, i64 8
   %frombool627 = zext i1 %281 to i8
   store i8 %frombool627, ptr %second.i477, align 1
   %cmp628 = icmp ugt i32 %asmresult.i, 12
@@ -3164,12 +3157,12 @@ _ZN4llvh9StringRefC2EPKc.exit1361:                ; preds = %_ZN4llvh9StringRefC
   %call.i484 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.222, i64 8)
   %284 = extractvalue { ptr, i8 } %call.i484, 0
   %285 = load ptr, ptr %284, align 8
-  %second.i485 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %285, i64 0, i32 1
+  %second.i485 = getelementptr inbounds i8, ptr %285, i64 8
   store i8 0, ptr %second.i485, align 1
   %call.i486 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.223, i64 6)
   %286 = extractvalue { ptr, i8 } %call.i486, 0
   %287 = load ptr, ptr %286, align 8
-  %second.i487 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %287, i64 0, i32 1
+  %second.i487 = getelementptr inbounds i8, ptr %287, i64 8
   store i8 0, ptr %second.i487, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1371
 
@@ -3183,7 +3176,7 @@ land.lhs.true657:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i482 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.222, i64 8)
   %289 = extractvalue { ptr, i8 } %call.i482, 0
   %290 = load ptr, ptr %289, align 8
-  %second.i483 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %290, i64 0, i32 1
+  %second.i483 = getelementptr inbounds i8, ptr %290, i64 8
   store i8 %spec.select302, ptr %second.i483, align 1
   %291 = and i32 %asmresult.i478, 2
   %tobool649.not = icmp eq i32 %291, 0
@@ -3191,7 +3184,7 @@ land.lhs.true657:                                 ; preds = %_ZN4llvh9StringRefC
   %call.i486574 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.223, i64 6)
   %292 = extractvalue { ptr, i8 } %call.i486574, 0
   %293 = load ptr, ptr %292, align 8
-  %second.i487575 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %293, i64 0, i32 1
+  %second.i487575 = getelementptr inbounds i8, ptr %293, i64 8
   store i8 %spec.select303, ptr %second.i487575, align 1
   %294 = and i32 %asmresult.i478, 8
   %tobool660.not = icmp eq i32 %294, 0
@@ -3204,7 +3197,7 @@ _ZN4llvh9StringRefC2EPKc.exit1371:                ; preds = %_ZN4llvh9StringRefC
   %call.i488 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.224, i64 6)
   %295 = extractvalue { ptr, i8 } %call.i488, 0
   %296 = load ptr, ptr %295, align 8
-  %second.i489 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %296, i64 0, i32 1
+  %second.i489 = getelementptr inbounds i8, ptr %296, i64 8
   store i8 %frombool666, ptr %second.i489, align 1
   %cmp667 = icmp ugt i32 %asmresult.i, 19
   br i1 %cmp667, label %land.rhs668, label %land.end671
@@ -3222,7 +3215,7 @@ land.end671:                                      ; preds = %land.rhs668, %_ZN4l
   %call.i494 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.225, i64 7)
   %300 = extractvalue { ptr, i8 } %call.i494, 0
   %301 = load ptr, ptr %300, align 8
-  %second.i495 = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %301, i64 0, i32 1
+  %second.i495 = getelementptr inbounds i8, ptr %301, i64 8
   %frombool681 = zext i1 %299 to i8
   store i8 %frombool681, ptr %second.i495, align 1
   br label %return
@@ -3251,9 +3244,9 @@ entry:
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %TargetTripleString) #19
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %TargetTripleString) #19
   call void @_ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr %call.i, i64 %call2.i) #19
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store i8 4, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %ref.tmp2, ptr %ref.tmp1, align 8
   call void @_ZN4llvh6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %PT, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1) #19
@@ -3264,8 +3257,8 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNK4llvh6Triple19get64BitArchVariantEv(ptr nonnull sret(%"class.llvh::Triple") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(56) %PT) #19
   %call.i3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %PT, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %PT, i64 0, i32 1
-  %Arch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp4, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %PT, i64 32
+  %Arch3.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
   br label %if.end
@@ -3310,7 +3303,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %release = getelementptr inbounds %struct.utsname, ptr %info, i64 0, i32 2
+  %release = getelementptr inbounds i8, ptr %info, i64 130
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
@@ -3347,13 +3340,13 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() local
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef nonnull align 4 dereferenceable(8) %V) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.llvh::SmallSet", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Set = getelementptr inbounds %"class.llvh::SmallSet", ptr %this, i64 0, i32 1
+  %Set = getelementptr inbounds i8, ptr %this, i64 272
   %call.i = tail call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EES0_ISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %Set, ptr noundef nonnull align 4 dereferenceable(8) %V)
   %1 = extractvalue { ptr, i8 } %call.i, 1
   %2 = and i8 %1, 1
@@ -3364,7 +3357,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %this, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %4 to i64
   %add.ptr.i14.i = getelementptr inbounds %"struct.std::pair.22", ptr %3, i64 %conv.i.i
@@ -3385,7 +3378,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %10, label %_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.22", ptr %I.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %I.07.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i14.i
   br i1 %cmp.not.i, label %if.end9, label %for.body.i, !llvm.loop !31
 
@@ -3398,7 +3391,7 @@ if.end9:                                          ; preds = %for.inc.i, %_ZNK4ll
   br i1 %cmp12, label %if.then13, label %while.body.lr.ph
 
 if.then13:                                        ; preds = %if.end, %if.end9
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %11 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i10 = icmp ult i32 %4, %11
   br i1 %cmp.not.i10, label %_ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit, label %if.then.i
@@ -3423,7 +3416,7 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit: ; preds
   br label %return
 
 while.body.lr.ph:                                 ; preds = %if.end9
-  %Set20 = getelementptr inbounds %"class.llvh::SmallSet", ptr %this, i64 0, i32 1
+  %Set20 = getelementptr inbounds i8, ptr %this, i64 272
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -3431,7 +3424,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %16 = load ptr, ptr %this, align 8
   %conv.i.i16 = zext i32 %15 to i64
   %add.ptr.i.i17 = getelementptr inbounds %"struct.std::pair.22", ptr %16, i64 %conv.i.i16
-  %arrayidx.i = getelementptr inbounds %"struct.std::pair.22", ptr %add.ptr.i.i17, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i17, i64 -8
   %call.i18 = tail call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EES0_ISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %Set20, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i)
   %17 = load i32, ptr %Size.i.i, align 8
   %sub.i = add i32 %17, -1
@@ -3440,7 +3433,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not.i, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %while.body
-  %Set25 = getelementptr inbounds %"class.llvh::SmallSet", ptr %this, i64 0, i32 1
+  %Set25 = getelementptr inbounds i8, ptr %this, i64 272
   %call.i21 = tail call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EES0_ISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %Set25, ptr noundef nonnull align 4 dereferenceable(8) %V)
   br label %return
 
@@ -3472,13 +3465,13 @@ entry:
 
 while.body.lr.ph.i:                               ; preds = %entry
   %0 = load i32, ptr %__v, align 4
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair.22", ptr %__v, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %__v, i64 4
   %1 = load i32, ptr %second.i.i.i, align 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.lr.ph.i
   %__x.028.i = phi ptr [ %__x.026.i, %while.body.lr.ph.i ], [ %__x.028.i.be, %while.body.i.backedge ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.028.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.028.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i, align 4
   %cmp.i.i.i = icmp slt i32 %0, %2
   br i1 %cmp.i.i.i, label %cond.end.i, label %lor.rhs.i.i.i
@@ -3488,26 +3481,26 @@ lor.rhs.i.i.i:                                    ; preds = %while.body.i
   br i1 %cmp4.i.i.i, label %cond.end.i.thread, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i
-  %second5.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.028.i, i64 0, i32 1, i32 0, i64 4
+  %second5.i.i.i = getelementptr inbounds i8, ptr %__x.028.i, i64 36
   %3 = load i32, ptr %second5.i.i.i, align 4
   %cmp6.i.i.i = icmp slt i32 %1, %3
   br i1 %cmp6.i.i.i, label %cond.end.i, label %cond.end.i.thread
 
-cond.end.i:                                       ; preds = %while.body.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i, i64 0, i32 2
-  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
+cond.end.i:                                       ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i, %while.body.i
+  %_M_right.i.i = getelementptr inbounds i8, ptr %__x.028.i, i64 16
+  %__x.0.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %if.then.i, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %cond.end.i, %cond.end.i.thread
-  %__x.028.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i15, %cond.end.i.thread ]
+  %__x.028.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i16, %cond.end.i.thread ]
   br label %while.body.i, !llvm.loop !33
 
 cond.end.i.thread:                                ; preds = %lor.rhs.i.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i, i64 0, i32 3
-  %__x.0.i15 = load ptr, ptr %_M_right.i.i, align 8
-  %cmp.not.i16 = icmp eq ptr %__x.0.i15, null
-  br i1 %cmp.not.i16, label %if.end12.i, label %while.body.i.backedge
+  %_M_right.i.i15 = getelementptr inbounds i8, ptr %__x.028.i, i64 24
+  %__x.0.i16 = load ptr, ptr %_M_right.i.i15, align 8
+  %cmp.not.i17 = icmp eq ptr %__x.0.i16, null
+  br i1 %cmp.not.i17, label %if.end12.i, label %while.body.i.backedge
 
 if.then.i:                                        ; preds = %cond.end.i, %entry
   %__y.0.lcssa33.i = phi ptr [ %add.ptr.i.i, %entry ], [ %__x.028.i, %cond.end.i ]
@@ -3518,13 +3511,13 @@ if.then.i:                                        ; preds = %cond.end.i, %entry
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i) #20
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
-  %.pre26 = load i32, ptr %__v, align 4
+  %.pre27 = load i32, ptr %__v, align 4
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %cond.end.i.thread, %if.else.i
-  %5 = phi i32 [ %.pre26, %if.else.i ], [ %0, %cond.end.i.thread ]
+  %5 = phi i32 [ %.pre27, %if.else.i ], [ %0, %cond.end.i.thread ]
   %6 = phi i32 [ %.pre, %if.else.i ], [ %2, %cond.end.i.thread ]
   %__y.0.lcssa32.i = phi ptr [ %__y.0.lcssa33.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
@@ -3536,9 +3529,9 @@ lor.rhs.i.i5.i:                                   ; preds = %if.end12.i
   br i1 %cmp4.i.i6.i, label %return, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i:     ; preds = %lor.rhs.i.i5.i
-  %second.i.i8.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i, i64 0, i32 1, i32 0, i64 4
+  %second.i.i8.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 36
   %7 = load i32, ptr %second.i.i8.i, align 4
-  %second5.i.i9.i = getelementptr inbounds %"struct.std::pair.22", ptr %__v, i64 0, i32 1
+  %second5.i.i9.i = getelementptr inbounds i8, ptr %__v, i64 4
   %8 = load i32, ptr %second5.i.i9.i, align 4
   %cmp6.i.i10.i = icmp slt i32 %7, %8
   br i1 %cmp6.i.i10.i, label %if.then, label %return
@@ -3549,7 +3542,7 @@ if.then:                                          ; preds = %if.then.i, %_ZNKSt4
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
-  %_M_storage.i.i.i.i6 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1
+  %_M_storage.i.i.i.i6 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 32
   %9 = load i32, ptr %__v, align 4
   %10 = load i32, ptr %_M_storage.i.i.i.i6, align 4
   %cmp.i.i.i7 = icmp slt i32 %9, %10
@@ -3560,9 +3553,9 @@ lor.rhs.i.i.i8:                                   ; preds = %lor.rhs.i
   br i1 %cmp4.i.i.i9, label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i8
-  %second.i.i.i10 = getelementptr inbounds %"struct.std::pair.22", ptr %__v, i64 0, i32 1
+  %second.i.i.i10 = getelementptr inbounds i8, ptr %__v, i64 4
   %11 = load i32, ptr %second.i.i.i10, align 4
-  %second5.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1, i32 0, i64 4
+  %second5.i.i.i11 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 36
   %12 = load i32, ptr %second5.i.i.i11, align 4
   %cmp6.i.i.i12 = icmp slt i32 %11, %12
   br label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit
@@ -3570,7 +3563,7 @@ land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i8
 _ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit: ; preds = %if.then, %lor.rhs.i, %lor.rhs.i.i.i8, %land.rhs.i.i.i
   %13 = phi i1 [ true, %if.then ], [ true, %lor.rhs.i ], [ false, %lor.rhs.i.i.i8 ], [ %cmp6.i.i.i12, %land.rhs.i.i.i ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   %14 = load i64, ptr %__v, align 4
   store i64 %14, ptr %_M_storage.i.i.i.i.i, align 4
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %13, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #19
@@ -3607,10 +3600,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null
@@ -3702,12 +3695,12 @@ while.cond.i.i.i:                                 ; preds = %entry, %while.body.
   ]
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %ref.tmp.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 8
   %.pre = load ptr, ptr %incdec.ptr.i.i.i, align 8
   br label %while.cond.i.i.i, !llvm.loop !35
 
 if.then8:                                         ; preds = %entry
-  %NumTombstones = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %NumTombstones, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %NumTombstones, align 8
@@ -3725,9 +3718,9 @@ if.then.i.i.i:                                    ; preds = %if.end9
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end9
   store i64 %Key.coerce1, ptr %call.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %call.i.i.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 0, ptr %second.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %call.i.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %cmp.not.i = icmp eq i64 %Key.coerce1, 0
   br i1 %cmp.not.i, label %_ZN4llvh14StringMapEntryIbE6CreateINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit, label %if.then.i
 
@@ -3739,7 +3732,7 @@ _ZN4llvh14StringMapEntryIbE6CreateINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %Key.coerce1
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %call.i.i.i, ptr %arrayidx, align 8
-  %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %NumItems, align 4
   %inc = add i32 %4, 1
   store i32 %inc, ptr %NumItems, align 4
@@ -3759,7 +3752,7 @@ while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12,
   ]
 
 while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, %while.cond.i.i.i9
-  %incdec.ptr.i.i.i13 = getelementptr inbounds ptr, ptr %ref.tmp13.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0, i64 8
   br label %while.cond.i.i.i9, !llvm.loop !35
 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i

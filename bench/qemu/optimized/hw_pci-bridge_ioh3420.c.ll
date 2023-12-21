@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIERootPortClass = type { %struct.PCIDeviceClass, ptr, %struct.ResettablePhases, ptr, ptr, ptr, i32, i32, i32, i32, i32 }
-%struct.ResettablePhases = type { ptr, ptr, ptr }
 
 @ioh3420_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @ioh3420_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"ioh3420\00", align 1
@@ -60,29 +55,29 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 82, ptr noundef nonnull @__func__.PCIE_ROOT_PORT_CLASS) #3
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i12, i64 210
   store i16 13344, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i12, i64 212
   store i8 2, ptr %revision, align 4
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_ioh3420, ptr %vmsd, align 8
-  %aer_vector = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 3
+  %aer_vector = getelementptr inbounds i8, ptr %call.i13, i64 264
   store ptr @ioh3420_aer_vector, ptr %aer_vector, align 8
-  %interrupts_init = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 4
+  %interrupts_init = getelementptr inbounds i8, ptr %call.i13, i64 272
   store ptr @ioh3420_interrupts_init, ptr %interrupts_init, align 8
-  %interrupts_uninit = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 5
+  %interrupts_uninit = getelementptr inbounds i8, ptr %call.i13, i64 280
   store ptr @ioh3420_interrupts_uninit, ptr %interrupts_uninit, align 8
-  %exp_offset = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 6
+  %exp_offset = getelementptr inbounds i8, ptr %call.i13, i64 288
   store i32 144, ptr %exp_offset, align 8
-  %aer_offset = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 7
+  %aer_offset = getelementptr inbounds i8, ptr %call.i13, i64 292
   store i32 256, ptr %aer_offset, align 4
-  %ssvid_offset = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 8
+  %ssvid_offset = getelementptr inbounds i8, ptr %call.i13, i64 296
   store i32 64, ptr %ssvid_offset, align 8
-  %ssid = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 10
+  %ssid = getelementptr inbounds i8, ptr %call.i13, i64 304
   store i32 0, ptr %ssid, align 8
   ret void
 }

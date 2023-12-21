@@ -7,20 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
 %struct.vfio_irq_set = type { i32, i32, i32, i32, i32, [0 x i8] }
-%struct.VFIODevice = type { %struct.anon, %struct.anon.0, %struct.anon.1, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %union.anon = type { i64 }
-%struct.VFIORegion = type { ptr, i64, ptr, i64, i32, i32, ptr, i8 }
-%struct.VFIODeviceOps = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %union.anon.2 = type { i64 }
-%struct.VFIOBitmap = type { ptr, i64, i64 }
-%struct.vfio_info_cap_header = type { i16, i16, i32 }
-%struct.vfio_region_info = type { i32, i32, i32, i32, i64, i64 }
-%struct.vfio_device_info = type { i32, i32, i32, i32, i32, i32 }
-%struct.vfio_region_info_cap_sparse_mmap = type { %struct.vfio_info_cap_header, i32, i32, [0 x %struct.vfio_region_sparse_mmap_area] }
 %struct.vfio_region_sparse_mmap_area = type { i64, i64 }
 %struct.VFIOMmap = type { %struct.MemoryRegion, ptr, i64, i64 }
 %struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.5, %union.anon.6, %union.anon.7, ptr, i32, ptr, ptr, i8 }
@@ -29,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %union.anon.6 = type { %struct.QTailQLink }
 %union.anon.7 = type { %struct.QTailQLink }
-%struct.vfio_region_info_cap_type = type { %struct.vfio_info_cap_header, i32, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/hw/vfio/helpers.c\00", align 1
 @__func__.vfio_set_irq_signaling = private unnamed_addr constant [23 x i8] c"vfio_set_irq_signaling\00", align 1
@@ -102,15 +90,15 @@ define dso_local void @vfio_disable_irqindex(ptr nocapture noundef readonly %vba
 entry:
   %irq_set = alloca %struct.vfio_irq_set, align 4
   store i32 20, ptr %irq_set, align 4
-  %flags = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %irq_set, i64 4
   store i32 33, ptr %flags, align 4
-  %index1 = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 2
+  %index1 = getelementptr inbounds i8, ptr %irq_set, i64 8
   store i32 %index, ptr %index1, align 4
-  %start = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 3
+  %start = getelementptr inbounds i8, ptr %irq_set, i64 12
   store i32 0, ptr %start, align 4
-  %count = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %irq_set, i64 16
   store i32 0, ptr %count, align 4
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %vbasedev, i64 88
   %0 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 15214, ptr noundef nonnull %irq_set) #11
   ret void
@@ -124,15 +112,15 @@ define dso_local void @vfio_unmask_single_irqindex(ptr nocapture noundef readonl
 entry:
   %irq_set = alloca %struct.vfio_irq_set, align 4
   store i32 20, ptr %irq_set, align 4
-  %flags = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %irq_set, i64 4
   store i32 17, ptr %flags, align 4
-  %index1 = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 2
+  %index1 = getelementptr inbounds i8, ptr %irq_set, i64 8
   store i32 %index, ptr %index1, align 4
-  %start = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 3
+  %start = getelementptr inbounds i8, ptr %irq_set, i64 12
   store i32 0, ptr %start, align 4
-  %count = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %irq_set, i64 16
   store i32 1, ptr %count, align 4
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %vbasedev, i64 88
   %0 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 15214, ptr noundef nonnull %irq_set) #11
   ret void
@@ -143,15 +131,15 @@ define dso_local void @vfio_mask_single_irqindex(ptr nocapture noundef readonly 
 entry:
   %irq_set = alloca %struct.vfio_irq_set, align 4
   store i32 20, ptr %irq_set, align 4
-  %flags = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %irq_set, i64 4
   store i32 9, ptr %flags, align 4
-  %index1 = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 2
+  %index1 = getelementptr inbounds i8, ptr %irq_set, i64 8
   store i32 %index, ptr %index1, align 4
-  %start = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 3
+  %start = getelementptr inbounds i8, ptr %irq_set, i64 12
   store i32 0, ptr %start, align 4
-  %count = getelementptr inbounds %struct.vfio_irq_set, ptr %irq_set, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %irq_set, i64 16
   store i32 1, ptr %count, align 4
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %vbasedev, i64 88
   %0 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 15214, ptr noundef nonnull %irq_set) #11
   ret void
@@ -163,17 +151,17 @@ entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #12
   store i32 24, ptr %call, align 4
   %or = or i32 %action, 4
-  %flags = getelementptr inbounds %struct.vfio_irq_set, ptr %call, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %or, ptr %flags, align 4
-  %index2 = getelementptr inbounds %struct.vfio_irq_set, ptr %call, i64 0, i32 2
+  %index2 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %index, ptr %index2, align 4
-  %start = getelementptr inbounds %struct.vfio_irq_set, ptr %call, i64 0, i32 3
+  %start = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %subindex, ptr %start, align 4
-  %count = getelementptr inbounds %struct.vfio_irq_set, ptr %call, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %call, i64 16
   store i32 1, ptr %count, align 4
-  %data = getelementptr inbounds %struct.vfio_irq_set, ptr %call, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %fd, ptr %data, align 4
-  %fd3 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 8
+  %fd3 = getelementptr inbounds i8, ptr %vbasedev, i64 88
   %0 = load i32, ptr %fd3, align 8
   %call4 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 15214, ptr noundef nonnull %call) #11
   %tobool.not = icmp eq i32 %call4, 0
@@ -288,10 +276,10 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb7, %sw.bb4, %sw.bb2, %sw.bb
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %fd, align 8
   %conv9 = zext nneg i32 %size to i64
-  %fd_offset = getelementptr inbounds %struct.VFIORegion, ptr %opaque, i64 0, i32 1
+  %fd_offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i64, ptr %fd_offset, align 8
   %add = add i64 %2, %addr
   %call10 = call i64 @pwrite64(i32 noundef %1, ptr noundef nonnull %buf, i64 noundef %conv9, i64 noundef %add) #11
@@ -299,18 +287,18 @@ sw.epilog:                                        ; preds = %sw.bb7, %sw.bb4, %s
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.epilog
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %name, align 8
-  %nr = getelementptr inbounds %struct.VFIORegion, ptr %opaque, i64 0, i32 7
+  %nr = getelementptr inbounds i8, ptr %opaque, i64 48
   %4 = load i8, ptr %nr, align 8
   %conv13 = zext i8 %4 to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.vfio_region_write, ptr noundef %3, i32 noundef %conv13, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.epilog
-  %name14 = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 6
+  %name14 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %name14, align 8
-  %nr15 = getelementptr inbounds %struct.VFIORegion, ptr %opaque, i64 0, i32 7
+  %nr15 = getelementptr inbounds i8, ptr %opaque, i64 48
   %6 = load i8, ptr %nr15, align 8
   %conv16 = zext i8 %6 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -337,7 +325,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %5, i32 noundef %conv16, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #11
   br label %trace_vfio_region_write.exit
@@ -348,9 +336,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_region_write.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %ops = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 15
+  %ops = getelementptr inbounds i8, ptr %0, i64 104
   %14 = load ptr, ptr %ops, align 8
-  %vfio_eoi = getelementptr inbounds %struct.VFIODeviceOps, ptr %14, i64 0, i32 2
+  %vfio_eoi = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %vfio_eoi, align 8
   call void %15(ptr noundef nonnull %0) #11
   ret void
@@ -369,10 +357,10 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca %union.anon.2, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %fd, align 8
   %conv = zext i32 %size to i64
-  %fd_offset = getelementptr inbounds %struct.VFIORegion, ptr %opaque, i64 0, i32 1
+  %fd_offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i64, ptr %fd_offset, align 8
   %add = add i64 %2, %addr
   %call = call i64 @pread64(i32 noundef %1, ptr noundef nonnull %buf, i64 noundef %conv, i64 noundef %add) #11
@@ -380,9 +368,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %name, align 8
-  %nr = getelementptr inbounds %struct.VFIORegion, ptr %opaque, i64 0, i32 7
+  %nr = getelementptr inbounds i8, ptr %opaque, i64 48
   %4 = load i8, ptr %nr, align 8
   %conv4 = zext i8 %4 to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.vfio_region_read, ptr noundef %3, i32 noundef %conv4, i64 noundef %addr, i32 noundef %size) #11
@@ -421,9 +409,9 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %sw.bb12, %sw.bb9, %sw.bb6, %sw.bb
   %data.0 = phi i64 [ %8, %sw.bb12 ], [ %conv11, %sw.bb9 ], [ %conv8, %sw.bb6 ], [ %conv5, %sw.bb ]
-  %name14 = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 6
+  %name14 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load ptr, ptr %name14, align 8
-  %nr15 = getelementptr inbounds %struct.VFIORegion, ptr %opaque, i64 0, i32 7
+  %nr15 = getelementptr inbounds i8, ptr %opaque, i64 48
   %10 = load i8, ptr %nr15, align 8
   %conv16 = zext i8 %10 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -450,7 +438,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %16 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %9, i32 noundef %conv16, i64 noundef %addr, i32 noundef %size, i64 noundef %data.0) #11
   br label %trace_vfio_region_read.exit
@@ -461,9 +449,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_region_read.exit:                      ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %ops = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 15
+  %ops = getelementptr inbounds i8, ptr %0, i64 104
   %18 = load ptr, ptr %ops, align 8
-  %vfio_eoi = getelementptr inbounds %struct.VFIODeviceOps, ptr %18, i64 0, i32 2
+  %vfio_eoi = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %vfio_eoi, align 8
   call void %19(ptr noundef nonnull %0) #11
   br label %return
@@ -485,12 +473,12 @@ entry:
   %sub2 = sub nsw i64 0, %conv.i
   %and = and i64 %sub, %sub2
   %div = udiv i64 %and, %conv.i
-  %pages = getelementptr inbounds %struct.VFIOBitmap, ptr %vbmap, i64 0, i32 2
+  %pages = getelementptr inbounds i8, ptr %vbmap, i64 16
   store i64 %div, ptr %pages, align 8
   %sub6 = add i64 %div, 63
   %and7 = lshr i64 %sub6, 3
   %div86 = and i64 %and7, 2305843009213693944
-  %size9 = getelementptr inbounds %struct.VFIOBitmap, ptr %vbmap, i64 0, i32 1
+  %size9 = getelementptr inbounds i8, ptr %vbmap, i64 8
   store i64 %div86, ptr %size9, align 8
   %call11 = tail call noalias ptr @g_try_malloc0(i64 noundef %div86) #12
   store ptr %call11, ptr %vbmap, align 8
@@ -517,7 +505,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp3, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct.vfio_info_cap_header, ptr %hdr.09, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %hdr.09, i64 4
   %1 = load i32, ptr %next, align 4
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !5
@@ -530,14 +518,14 @@ return:                                           ; preds = %for.body, %for.inc,
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
 define dso_local ptr @vfio_get_region_info_cap(ptr noundef readonly %info, i16 noundef zeroext %id) local_unnamed_addr #6 {
 entry:
-  %flags = getelementptr inbounds %struct.vfio_region_info, ptr %info, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 8
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cap_offset = getelementptr inbounds %struct.vfio_region_info, ptr %info, i64 0, i32 3
+  %cap_offset = getelementptr inbounds i8, ptr %info, i64 12
   %1 = load i32, ptr %cap_offset, align 4
   %cmp.not8.i = icmp eq i32 %1, 0
   br i1 %cmp.not8.i, label %return, label %for.body.i
@@ -551,7 +539,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %cmp3.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.vfio_info_cap_header, ptr %hdr.09.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %hdr.09.i, i64 4
   %3 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !5
@@ -564,14 +552,14 @@ return:                                           ; preds = %for.inc.i, %for.bod
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
 define dso_local ptr @vfio_get_device_info_cap(ptr noundef readonly %info, i16 noundef zeroext %id) local_unnamed_addr #6 {
 entry:
-  %flags = getelementptr inbounds %struct.vfio_device_info, ptr %info, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 128
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cap_offset = getelementptr inbounds %struct.vfio_device_info, ptr %info, i64 0, i32 4
+  %cap_offset = getelementptr inbounds i8, ptr %info, i64 16
   %1 = load i32, ptr %cap_offset, align 4
   %cmp.not8.i = icmp eq i32 %1, 0
   br i1 %cmp.not8.i, label %return, label %for.body.i
@@ -585,7 +573,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %cmp3.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.vfio_info_cap_header, ptr %hdr.09.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %hdr.09.i, i64 4
   %3 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !5
@@ -609,31 +597,31 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %vbasedev, ptr %region, align 8
   %0 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct.vfio_region_info, ptr %0, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %flags, align 4
-  %flags2 = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 4
+  %flags2 = getelementptr inbounds i8, ptr %region, i64 32
   store i32 %1, ptr %flags2, align 8
-  %size = getelementptr inbounds %struct.vfio_region_info, ptr %0, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %size, align 8
-  %size3 = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 3
+  %size3 = getelementptr inbounds i8, ptr %region, i64 24
   store i64 %2, ptr %size3, align 8
-  %offset = getelementptr inbounds %struct.vfio_region_info, ptr %0, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %offset, align 8
-  %fd_offset = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 1
+  %fd_offset = getelementptr inbounds i8, ptr %region, i64 8
   store i64 %3, ptr %fd_offset, align 8
   %conv = trunc i32 %index to i8
-  %nr = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 7
+  %nr = getelementptr inbounds i8, ptr %region, i64 48
   store i8 %conv, ptr %nr, align 8
   %tobool5.not = icmp eq i64 %2, 0
   br i1 %tobool5.not, label %if.end28, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %call7 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 272) #15
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %region, i64 16
   store ptr %call7, ptr %mem, align 8
   %4 = load i64, ptr %size3, align 8
   tail call void @memory_region_init_io(ptr noundef %call7, ptr noundef %obj, ptr noundef nonnull @vfio_region_ops, ptr noundef nonnull %region, ptr noundef %name, i64 noundef %4) #11
-  %no_mmap = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 12
+  %no_mmap = getelementptr inbounds i8, ptr %vbasedev, i64 98
   %5 = load i8, ptr %no_mmap, align 2
   %6 = and i8 %5, 1
   %tobool10.not = icmp eq i8 %6, 0
@@ -652,7 +640,7 @@ if.then13:                                        ; preds = %land.lhs.true
   br i1 %tobool.not.i.i, label %if.then16, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then13
-  %cap_offset.i.i = getelementptr inbounds %struct.vfio_region_info, ptr %0, i64 0, i32 3
+  %cap_offset.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %cap_offset.i.i, align 4
   %cmp.not8.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not8.i.i.i, label %if.then16, label %for.body.i.i.i
@@ -666,18 +654,18 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i, %for.in
   br i1 %cmp3.i.i.i, label %if.end.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %next.i.i.i = getelementptr inbounds %struct.vfio_info_cap_header, ptr %hdr.09.i.i.i, i64 0, i32 2
+  %next.i.i.i = getelementptr inbounds i8, ptr %hdr.09.i.i.i, i64 4
   %11 = load i32, ptr %next.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %11, 0
   br i1 %cmp.not.i.i.i, label %if.then16, label %for.body.i.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %for.body.i.i.i
   %12 = load ptr, ptr %region, align 8
-  %name.i = getelementptr inbounds %struct.VFIODevice, ptr %12, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %12, i64 72
   %13 = load ptr, ptr %name.i, align 8
   %14 = load i8, ptr %nr, align 8
   %conv.i = zext i8 %14 to i32
-  %nr_areas.i = getelementptr inbounds %struct.vfio_region_info_cap_sparse_mmap, ptr %hdr.09.i.i.i, i64 0, i32 1
+  %nr_areas.i = getelementptr inbounds i8, ptr %hdr.09.i.i.i, i64 8
   %15 = load i32, ptr %nr_areas.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %16 = load i32, ptr @trace_events_enabled_count, align 4
@@ -703,7 +691,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #11
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %21 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, ptr noundef %13, i32 noundef %conv.i, i32 noundef %15) #11
   br label %trace_vfio_region_sparse_mmap_header.exit.i
@@ -717,14 +705,15 @@ trace_vfio_region_sparse_mmap_header.exit.i:      ; preds = %if.else.i.i.i, %if.
   %23 = load i32, ptr %nr_areas.i, align 8
   %conv2.i = zext i32 %23 to i64
   %call3.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv2.i, i64 noundef 304) #15
-  %mmaps.i = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps.i = getelementptr inbounds i8, ptr %region, i64 40
   store ptr %call3.i, ptr %mmaps.i, align 8
   %24 = load i32, ptr %nr_areas.i, align 8
   %cmp46.not.i = icmp eq i32 %24, 0
   br i1 %cmp46.not.i, label %vfio_setup_region_sparse_mmaps.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %trace_vfio_region_sparse_mmap_header.exit.i
-  %tv_usec.i.i41.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i29.i, i64 0, i32 1
+  %areas.i = getelementptr inbounds i8, ptr %hdr.09.i.i.i, i64 16
+  %tv_usec.i.i41.i = getelementptr inbounds i8, ptr %_now.i.i29.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -732,13 +721,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %i.048.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc36.i, %for.inc.i ]
   %j.047.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %j.1.i, %for.inc.i ]
   %idxprom.i = sext i32 %i.048.i to i64
-  %size.i = getelementptr %struct.vfio_region_info_cap_sparse_mmap, ptr %hdr.09.i.i.i, i64 0, i32 3, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr [0 x %struct.vfio_region_sparse_mmap_area], ptr %areas.i, i64 0, i64 %idxprom.i
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %26 = load i64, ptr %size.i, align 8
   %tobool6.not.i = icmp eq i64 %26, 0
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.vfio_region_info_cap_sparse_mmap, ptr %hdr.09.i.i.i, i64 0, i32 3, i64 %idxprom.i
   %27 = load i64, ptr %arrayidx.i, align 8
   %add.i = add i64 %26, -1
   %sub.i = add i64 %add.i, %27
@@ -803,7 +792,7 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
 vfio_setup_region_sparse_mmaps.exit:              ; preds = %trace_vfio_region_sparse_mmap_header.exit.i, %for.end.loopexit.i
   %40 = phi ptr [ %call3.i, %trace_vfio_region_sparse_mmap_header.exit.i ], [ %.pre51.i, %for.end.loopexit.i ]
   %j.0.lcssa.i = phi i32 [ 0, %trace_vfio_region_sparse_mmap_header.exit.i ], [ %j.1.i, %for.end.loopexit.i ]
-  %nr_mmaps.i = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps.i = getelementptr inbounds i8, ptr %region, i64 36
   store i32 %j.0.lcssa.i, ptr %nr_mmaps.i, align 4
   %conv38.i = sext i32 %j.0.lcssa.i to i64
   %mul.i = mul nsw i64 %conv38.i, 304
@@ -812,21 +801,21 @@ vfio_setup_region_sparse_mmaps.exit:              ; preds = %trace_vfio_region_s
   br label %if.end28
 
 if.then16:                                        ; preds = %for.inc.i.i.i, %if.then13, %if.end.i.i
-  %nr_mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps = getelementptr inbounds i8, ptr %region, i64 36
   store i32 1, ptr %nr_mmaps, align 4
   %call19 = tail call noalias dereferenceable_or_null(304) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 304) #15
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
   store ptr %call19, ptr %mmaps, align 8
-  %offset21 = getelementptr inbounds %struct.VFIOMmap, ptr %call19, i64 0, i32 2
+  %offset21 = getelementptr inbounds i8, ptr %call19, i64 280
   store i64 0, ptr %offset21, align 8
   %41 = load i64, ptr %size3, align 8
-  %size25 = getelementptr inbounds %struct.VFIOMmap, ptr %call19, i64 0, i32 3
+  %size25 = getelementptr inbounds i8, ptr %call19, i64 288
   store i64 %41, ptr %size25, align 16
   br label %if.end28
 
 if.end28:                                         ; preds = %vfio_setup_region_sparse_mmaps.exit, %if.then6, %land.lhs.true, %if.then16, %if.end
   tail call void @g_free(ptr noundef nonnull %0) #11
-  %name29 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name29 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %42 = load ptr, ptr %name29, align 8
   %43 = load i32, ptr %flags2, align 8
   %conv31 = zext i32 %43 to i64
@@ -856,7 +845,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %51 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %52 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %51, i64 noundef %52, ptr noundef %42, i32 noundef %index, ptr noundef %name, i64 noundef %conv31, i64 noundef %44, i64 noundef %45) #11
   br label %trace_vfio_region_setup.exit
@@ -879,9 +868,9 @@ define dso_local i32 @vfio_get_region_info(ptr nocapture noundef readonly %vbase
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
   store ptr %call, ptr %info, align 8
-  %index1 = getelementptr inbounds %struct.vfio_region_info, ptr %call, i64 0, i32 2
+  %index1 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %index, ptr %index1, align 8
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %vbasedev, i64 88
   store i32 32, ptr %call, align 8
   %0 = load i32, ptr %fd, align 8
   %call313 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 15212, ptr noundef nonnull %call) #11
@@ -930,37 +919,38 @@ define dso_local i32 @vfio_region_mmap(ptr nocapture noundef readonly %region) l
 entry:
   %_now.i.i58 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %region, i64 16
   %0 = load ptr, ptr %mem, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %region, i64 32
   %1 = load i32, ptr %flags, align 8
   %or6 = and i32 %1, 3
-  %nr_mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps = getelementptr inbounds i8, ptr %region, i64 36
   %2 = load i32, ptr %nr_mmaps, align 4
   %cmp74.not = icmp eq i32 %2, 0
   br i1 %cmp74.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
-  %fd_offset = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 1
-  %tv_usec.i.i70 = getelementptr inbounds %struct.timeval, ptr %_now.i.i58, i64 0, i32 1
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
+  %fd_offset = getelementptr inbounds i8, ptr %region, i64 8
+  %tv_usec.i.i70 = getelementptr inbounds i8, ptr %_now.i.i58, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_vfio_region_mmap.exit
   %i.075 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %trace_vfio_region_mmap.exit ]
   %3 = load ptr, ptr %mmaps, align 8
   %idxprom = sext i32 %i.075 to i64
-  %size = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom, i32 3
+  %arrayidx = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 288
   %4 = load i64, ptr %size, align 16
   %5 = load ptr, ptr %region, align 8
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %5, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load i32, ptr %fd, align 8
   %7 = load i64, ptr %fd_offset, align 8
-  %offset = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom, i32 2
+  %offset = getelementptr inbounds i8, ptr %arrayidx, i64 280
   %8 = load i64, ptr %offset, align 8
   %add = add i64 %8, %7
   %call = tail call ptr @mmap64(ptr noundef null, i64 noundef %4, i32 noundef %or6, i32 noundef 1, i32 noundef %6, i64 noundef %add) #11
@@ -981,10 +971,11 @@ if.then18:                                        ; preds = %for.body
   %call21 = tail call ptr @memory_region_name(ptr noundef %13) #11
   %14 = load i64, ptr %fd_offset, align 8
   %15 = load ptr, ptr %mmaps, align 8
-  %offset26 = getelementptr %struct.VFIOMmap, ptr %15, i64 %idxprom, i32 2
+  %arrayidx25 = getelementptr %struct.VFIOMmap, ptr %15, i64 %idxprom
+  %offset26 = getelementptr inbounds i8, ptr %arrayidx25, i64 280
   %16 = load i64, ptr %offset26, align 8
   %add27 = add i64 %16, %14
-  %size37 = getelementptr %struct.VFIOMmap, ptr %15, i64 %idxprom, i32 3
+  %size37 = getelementptr inbounds i8, ptr %arrayidx25, i64 288
   %17 = load i64, ptr %size37, align 16
   %add38 = add i64 %17, -1
   %sub39 = add i64 %add38, %add27
@@ -1012,7 +1003,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %23 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, ptr noundef %call21, i32 noundef %i.075, i64 noundef %add27, i64 noundef %sub39, i32 noundef %sub) #11
   br label %trace_vfio_region_mmap_fault.exit
@@ -1046,25 +1037,27 @@ if.end48:                                         ; preds = %for.body
   %28 = load ptr, ptr %mem, align 8
   %call57 = tail call ptr @memory_region_owner(ptr noundef %28) #11
   %29 = load ptr, ptr %mmaps, align 8
-  %size61 = getelementptr %struct.VFIOMmap, ptr %29, i64 %idxprom, i32 3
+  %arrayidx60 = getelementptr %struct.VFIOMmap, ptr %29, i64 %idxprom
+  %size61 = getelementptr inbounds i8, ptr %arrayidx60, i64 288
   %30 = load i64, ptr %size61, align 16
-  %mmap65 = getelementptr %struct.VFIOMmap, ptr %29, i64 %idxprom, i32 1
+  %mmap65 = getelementptr inbounds i8, ptr %arrayidx60, i64 272
   %31 = load ptr, ptr %mmap65, align 16
   tail call void @memory_region_init_ram_device_ptr(ptr noundef %arrayidx54, ptr noundef %call57, ptr noundef %call51, i64 noundef %30, ptr noundef %31) #11
   tail call void @g_free(ptr noundef %call51) #11
   %32 = load ptr, ptr %mem, align 8
   %33 = load ptr, ptr %mmaps, align 8
   %arrayidx69 = getelementptr %struct.VFIOMmap, ptr %33, i64 %idxprom
-  %offset70 = getelementptr %struct.VFIOMmap, ptr %33, i64 %idxprom, i32 2
+  %offset70 = getelementptr inbounds i8, ptr %arrayidx69, i64 280
   %34 = load i64, ptr %offset70, align 8
   tail call void @memory_region_add_subregion(ptr noundef %32, i64 noundef %34, ptr noundef %arrayidx69) #11
   %35 = load ptr, ptr %mmaps, align 8
   %arrayidx77 = getelementptr %struct.VFIOMmap, ptr %35, i64 %idxprom
   %call79 = tail call ptr @memory_region_name(ptr noundef %arrayidx77) #11
   %36 = load ptr, ptr %mmaps, align 8
-  %offset83 = getelementptr %struct.VFIOMmap, ptr %36, i64 %idxprom, i32 2
+  %arrayidx82 = getelementptr %struct.VFIOMmap, ptr %36, i64 %idxprom
+  %offset83 = getelementptr inbounds i8, ptr %arrayidx82, i64 280
   %37 = load i64, ptr %offset83, align 8
-  %size91 = getelementptr %struct.VFIOMmap, ptr %36, i64 %idxprom, i32 3
+  %size91 = getelementptr inbounds i8, ptr %arrayidx82, i64 288
   %38 = load i64, ptr %size91, align 16
   %add92 = add i64 %37, -1
   %sub93 = add i64 %add92, %38
@@ -1121,15 +1114,16 @@ declare ptr @memory_region_name(ptr noundef) local_unnamed_addr #4
 define internal fastcc void @vfio_subregion_unmap(ptr nocapture noundef readonly %region, i32 noundef %index) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
   %0 = load ptr, ptr %mmaps, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr %struct.VFIOMmap, ptr %0, i64 %idxprom
   %call = tail call ptr @memory_region_name(ptr noundef %arrayidx) #11
   %1 = load ptr, ptr %mmaps, align 8
-  %offset = getelementptr %struct.VFIOMmap, ptr %1, i64 %idxprom, i32 2
+  %arrayidx3 = getelementptr %struct.VFIOMmap, ptr %1, i64 %idxprom
+  %offset = getelementptr inbounds i8, ptr %arrayidx3, i64 280
   %2 = load i64, ptr %offset, align 8
-  %size = getelementptr %struct.VFIOMmap, ptr %1, i64 %idxprom, i32 3
+  %size = getelementptr inbounds i8, ptr %arrayidx3, i64 288
   %3 = load i64, ptr %size, align 16
   %add = add i64 %2, -1
   %sub = add i64 %add, %3
@@ -1157,7 +1151,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %call, i64 noundef %2, i64 noundef %sub) #11
   br label %trace_vfio_region_unmap.exit
@@ -1168,15 +1162,16 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_region_unmap.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %mem11 = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem11 = getelementptr inbounds i8, ptr %region, i64 16
   %11 = load ptr, ptr %mem11, align 8
   %12 = load ptr, ptr %mmaps, align 8
   %arrayidx14 = getelementptr %struct.VFIOMmap, ptr %12, i64 %idxprom
   tail call void @memory_region_del_subregion(ptr noundef %11, ptr noundef %arrayidx14) #11
   %13 = load ptr, ptr %mmaps, align 8
-  %mmap = getelementptr %struct.VFIOMmap, ptr %13, i64 %idxprom, i32 1
+  %arrayidx18 = getelementptr %struct.VFIOMmap, ptr %13, i64 %idxprom
+  %mmap = getelementptr inbounds i8, ptr %arrayidx18, i64 272
   %14 = load ptr, ptr %mmap, align 16
-  %size22 = getelementptr %struct.VFIOMmap, ptr %13, i64 %idxprom, i32 3
+  %size22 = getelementptr inbounds i8, ptr %arrayidx18, i64 288
   %15 = load i64, ptr %size22, align 16
   %call23 = tail call i32 @munmap(ptr noundef %14, i64 noundef %15) #11
   %16 = load ptr, ptr %mmaps, align 8
@@ -1199,19 +1194,19 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_region_unmap(ptr nocapture noundef readonly %region) local_unnamed_addr #0 {
 entry:
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %region, i64 16
   %0 = load ptr, ptr %mem, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr_mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps = getelementptr inbounds i8, ptr %region, i64 36
   %1 = load i32, ptr %nr_mmaps, align 4
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1243,19 +1238,19 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 define dso_local void @vfio_region_exit(ptr nocapture noundef readonly %region) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %region, i64 16
   %0 = load ptr, ptr %mem, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr_mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps = getelementptr inbounds i8, ptr %region, i64 36
   %1 = load i32, ptr %nr_mmaps, align 4
   %cmp10.not = icmp eq i32 %1, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1263,13 +1258,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mmaps, align 8
   %idxprom = sext i32 %i.011 to i64
-  %mmap = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom, i32 1
+  %arrayidx = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom
+  %mmap = getelementptr inbounds i8, ptr %arrayidx, i64 272
   %4 = load ptr, ptr %mmap, align 16
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %for.inc, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %arrayidx = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom
   %5 = load ptr, ptr %mem, align 8
   tail call void @memory_region_del_subregion(ptr noundef %5, ptr noundef %arrayidx) #11
   %.pre = load i32, ptr %nr_mmaps, align 4
@@ -1283,9 +1278,9 @@ for.inc:                                          ; preds = %for.body, %if.then2
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %7 = load ptr, ptr %region, align 8
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %7, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %7, i64 72
   %8 = load ptr, ptr %name, align 8
-  %nr = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 7
+  %nr = getelementptr inbounds i8, ptr %region, i64 48
   %9 = load i8, ptr %nr, align 8
   %conv = zext i8 %9 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1312,7 +1307,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %8, i32 noundef %conv) #11
   br label %trace_vfio_region_exit.exit
@@ -1335,19 +1330,19 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 define dso_local void @vfio_region_finalize(ptr nocapture noundef %region) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %region, i64 16
   %0 = load ptr, ptr %mem, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr_mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps = getelementptr inbounds i8, ptr %region, i64 36
   %1 = load i32, ptr %nr_mmaps, align 4
   %cmp22.not = icmp eq i32 %1, 0
   br i1 %cmp22.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1355,13 +1350,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.023 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mmaps, align 8
   %idxprom = sext i32 %i.023 to i64
-  %mmap = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom, i32 1
+  %arrayidx = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom
+  %mmap = getelementptr inbounds i8, ptr %arrayidx, i64 272
   %4 = load ptr, ptr %mmap, align 16
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %for.inc, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %size = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom, i32 3
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 288
   %5 = load i64, ptr %size, align 16
   %call = tail call i32 @munmap(ptr noundef nonnull %4, i64 noundef %5) #11
   %6 = load ptr, ptr %mmaps, align 8
@@ -1385,13 +1381,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   tail call void @object_unparent(ptr noundef %8) #11
   %9 = load ptr, ptr %mem, align 8
   tail call void @g_free(ptr noundef %9) #11
-  %mmaps17 = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps17 = getelementptr inbounds i8, ptr %region, i64 40
   %10 = load ptr, ptr %mmaps17, align 8
   tail call void @g_free(ptr noundef %10) #11
   %11 = load ptr, ptr %region, align 8
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %11, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %11, i64 72
   %12 = load ptr, ptr %name, align 8
-  %nr = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 7
+  %nr = getelementptr inbounds i8, ptr %region, i64 48
   %13 = load i8, ptr %nr, align 8
   %conv = zext i8 %13 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1418,7 +1414,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, ptr noundef %12, i32 noundef %conv) #11
   br label %trace_vfio_region_finalize.exit
@@ -1445,19 +1441,19 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #4
 define dso_local void @vfio_region_mmaps_set_enabled(ptr nocapture noundef readonly %region, i1 noundef zeroext %enabled) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %region, i64 16
   %0 = load ptr, ptr %mem, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr_mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 5
+  %nr_mmaps = getelementptr inbounds i8, ptr %region, i64 36
   %1 = load i32, ptr %nr_mmaps, align 4
   %cmp9.not = icmp eq i32 %1, 0
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mmaps = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 6
+  %mmaps = getelementptr inbounds i8, ptr %region, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1465,13 +1461,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.010 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mmaps, align 8
   %idxprom = sext i32 %i.010 to i64
-  %mmap = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom, i32 1
+  %arrayidx = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom
+  %mmap = getelementptr inbounds i8, ptr %arrayidx, i64 272
   %4 = load ptr, ptr %mmap, align 16
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %for.inc, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %arrayidx = getelementptr %struct.VFIOMmap, ptr %3, i64 %idxprom
   tail call void @memory_region_set_enabled(ptr noundef %arrayidx, i1 noundef zeroext %enabled) #11
   %.pre = load i32, ptr %nr_mmaps, align 4
   br label %for.inc
@@ -1513,7 +1509,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %enabled to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %call, i32 noundef %conv12.i.i) #11
@@ -1540,14 +1536,14 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 define dso_local i32 @vfio_get_dev_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %type, i32 noundef %subtype, ptr nocapture noundef %info) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %num_regions = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 17
+  %num_regions = getelementptr inbounds i8, ptr %vbasedev, i64 116
   %0 = load i32, ptr %num_regions, align 4
   %cmp17.not = icmp eq i32 %0, 0
   br i1 %cmp17.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %vbasedev, i64 72
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1558,14 +1554,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %info, align 8
-  %flags.i = getelementptr inbounds %struct.vfio_region_info, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %2, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %cap_offset.i = getelementptr inbounds %struct.vfio_region_info, ptr %1, i64 0, i32 3
+  %cap_offset.i = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i32, ptr %cap_offset.i, align 4
   %cmp.not8.i.i = icmp eq i32 %3, 0
   br i1 %cmp.not8.i.i, label %if.then3, label %for.body.i.i
@@ -1579,7 +1575,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.inc.
   br i1 %cmp3.i.i, label %if.end4, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.vfio_info_cap_header, ptr %hdr.09.i.i, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %hdr.09.i.i, i64 4
   %5 = load i32, ptr %next.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i, label %if.then3, label %for.body.i.i, !llvm.loop !5
@@ -1590,9 +1586,9 @@ if.then3:                                         ; preds = %for.inc.i.i, %if.en
 
 if.end4:                                          ; preds = %for.body.i.i
   %6 = load ptr, ptr %name, align 8
-  %type5 = getelementptr inbounds %struct.vfio_region_info_cap_type, ptr %hdr.09.i.i, i64 0, i32 1
+  %type5 = getelementptr inbounds i8, ptr %hdr.09.i.i, i64 8
   %7 = load i32, ptr %type5, align 4
-  %subtype6 = getelementptr inbounds %struct.vfio_region_info_cap_type, ptr %hdr.09.i.i, i64 0, i32 2
+  %subtype6 = getelementptr inbounds i8, ptr %hdr.09.i.i, i64 12
   %8 = load i32, ptr %subtype6, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1668,14 +1664,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %info, align 8
-  %flags.i = getelementptr inbounds %struct.vfio_region_info, ptr %0, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %1, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %vfio_get_region_info_cap.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %cap_offset.i = getelementptr inbounds %struct.vfio_region_info, ptr %0, i64 0, i32 3
+  %cap_offset.i = getelementptr inbounds i8, ptr %0, i64 12
   %2 = load i32, ptr %cap_offset.i, align 4
   %cmp.not8.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not8.i.i, label %vfio_get_region_info_cap.exit, label %for.body.i.i
@@ -1689,7 +1685,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.inc.
   br i1 %cmp3.i.i, label %vfio_get_region_info_cap.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.vfio_info_cap_header, ptr %hdr.09.i.i, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %hdr.09.i.i, i64 4
   %4 = load i32, ptr %next.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i, label %vfio_get_region_info_cap.exit, label %for.body.i.i, !llvm.loop !5

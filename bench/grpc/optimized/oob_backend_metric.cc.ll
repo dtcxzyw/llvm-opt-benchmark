@@ -13,107 +13,19 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.upb_MiniTable = type { ptr, ptr, i16, i16, i8, i8, i8, i8, [0 x %struct._upb_FastTable_Entry] }
 %struct._upb_FastTable_Entry = type { i64, ptr }
 %"class.grpc_core::RefCountedPtr.41" = type { ptr }
-%"class.grpc_core::OrcaProducer" = type { %"class.grpc_core::Subchannel::DataProducerInterface", %"class.grpc_core::RefCountedPtr", %"class.grpc_core::RefCountedPtr.2", ptr, %"class.absl::lts_20230802::Mutex", %"class.std::set", %"class.grpc_core::Duration", %"class.std::unique_ptr" }
-%"class.grpc_core::Subchannel::DataProducerInterface" = type { %"class.grpc_core::DualRefCounted" }
-%"class.grpc_core::DualRefCounted" = type { %"class.grpc_core::Orphanable", %"struct.std::atomic.0" }
-%"class.grpc_core::Orphanable" = type { ptr }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.grpc_core::RefCountedPtr.2" = type { ptr }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic.3" }
-%"struct.std::atomic.3" = type { %"struct.std::__atomic_base.4" }
-%"struct.std::__atomic_base.4" = type { i64 }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<grpc_core::OrcaWatcher *, grpc_core::OrcaWatcher *, std::_Identity<grpc_core::OrcaWatcher *>, std::less<grpc_core::OrcaWatcher *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<grpc_core::OrcaWatcher *, grpc_core::OrcaWatcher *, std::_Identity<grpc_core::OrcaWatcher *>, std::less<grpc_core::OrcaWatcher *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.grpc_core::Duration" = type { i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
 %"struct.std::_Head_base.6" = type { ptr }
-%"class.grpc_core::DualRefCounted.7" = type { %"class.grpc_core::Orphanable", %"struct.std::atomic.0" }
-%"class.grpc_core::Subchannel" = type { %"class.grpc_core::DualRefCounted.7", %"class.grpc_core::RefCountedPtr.8", %"class.grpc_core::SubchannelKey", %struct.grpc_resolved_address, %"class.grpc_core::ChannelArgs", ptr, %"class.grpc_core::RefCountedPtr.10", %"class.grpc_core::Duration", %"class.std::unique_ptr.11", %"struct.grpc_core::SubchannelConnector::Result", %struct.grpc_closure, %"class.absl::lts_20230802::Mutex", i8, i32, %"class.absl::lts_20230802::Status", %"class.grpc_core::Subchannel::ConnectivityStateWatcherList", %"class.grpc_core::WorkSerializer", %"class.grpc_core::RefCountedPtr.2", %"class.grpc_core::BackOff", %"class.grpc_core::Timestamp", %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", i32, %"class.std::map.32", %"class.std::shared_ptr" }
-%"class.grpc_core::RefCountedPtr.8" = type { ptr }
-%"class.grpc_core::SubchannelKey" = type { %struct.grpc_resolved_address, %"class.grpc_core::ChannelArgs" }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
-%"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
-%"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr.9" }
-%"class.grpc_core::RefCountedPtr.9" = type { ptr }
-%"class.grpc_core::RefCountedPtr.10" = type { ptr }
-%"class.std::unique_ptr.11" = type { %"struct.std::__uniq_ptr_data.12" }
-%"struct.std::__uniq_ptr_data.12" = type { %"class.std::__uniq_ptr_impl.13" }
-%"class.std::__uniq_ptr_impl.13" = type { %"class.std::tuple.14" }
-%"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
-%"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.16" }
-%"struct.std::_Head_base.16" = type { ptr }
-%"struct.grpc_core::SubchannelConnector::Result" = type { ptr, %"class.grpc_core::ChannelArgs", %"class.grpc_core::RefCountedPtr.17" }
-%"class.grpc_core::RefCountedPtr.17" = type { ptr }
-%struct.grpc_closure = type { %union.anon, ptr, ptr, %union.anon.18 }
-%union.anon = type { ptr }
-%union.anon.18 = type { i64 }
-%"class.absl::lts_20230802::Status" = type { i64 }
-%"class.grpc_core::Subchannel::ConnectivityStateWatcherList" = type { ptr, %"class.std::map" }
-%"class.std::map" = type { %"class.std::_Rb_tree.19" }
-%"class.std::_Rb_tree.19" = type { %"struct.std::_Rb_tree<grpc_core::Subchannel::ConnectivityStateWatcherInterface *, std::pair<grpc_core::Subchannel::ConnectivityStateWatcherInterface *const, grpc_core::RefCountedPtr<grpc_core::Subchannel::ConnectivityStateWatcherInterface>>, std::_Select1st<std::pair<grpc_core::Subchannel::ConnectivityStateWatcherInterface *const, grpc_core::RefCountedPtr<grpc_core::Subchannel::ConnectivityStateWatcherInterface>>>, std::less<grpc_core::Subchannel::ConnectivityStateWatcherInterface *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<grpc_core::Subchannel::ConnectivityStateWatcherInterface *, std::pair<grpc_core::Subchannel::ConnectivityStateWatcherInterface *const, grpc_core::RefCountedPtr<grpc_core::Subchannel::ConnectivityStateWatcherInterface>>, std::_Select1st<std::pair<grpc_core::Subchannel::ConnectivityStateWatcherInterface *const, grpc_core::RefCountedPtr<grpc_core::Subchannel::ConnectivityStateWatcherInterface>>>, std::less<grpc_core::Subchannel::ConnectivityStateWatcherInterface *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.23", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.23" = type { %"struct.std::less.24" }
-%"struct.std::less.24" = type { i8 }
-%"class.grpc_core::WorkSerializer" = type { %"class.std::unique_ptr.26" }
-%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
-%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
-%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
-%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.31" }
-%"struct.std::_Head_base.31" = type { ptr }
-%"class.grpc_core::BackOff" = type { %"class.grpc_core::BackOff::Options", %"class.absl::lts_20230802::random_internal::NonsecureURBGBase", i8, %"class.grpc_core::Duration" }
-%"class.grpc_core::BackOff::Options" = type { %"class.grpc_core::Duration", double, double, %"class.grpc_core::Duration" }
-%"class.absl::lts_20230802::random_internal::NonsecureURBGBase" = type { %"class.absl::lts_20230802::random_internal::randen_engine" }
-%"class.absl::lts_20230802::random_internal::randen_engine" = type { [264 x i8], i64, %"class.absl::lts_20230802::random_internal::Randen" }
-%"class.absl::lts_20230802::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
-%"class.grpc_core::Timestamp" = type { i64 }
-%"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
-%"class.std::map.32" = type { %"class.std::_Rb_tree.33" }
-%"class.std::_Rb_tree.33" = type { %"struct.std::_Rb_tree<grpc_core::UniqueTypeName, std::pair<const grpc_core::UniqueTypeName, grpc_core::Subchannel::DataProducerInterface *>, std::_Select1st<std::pair<const grpc_core::UniqueTypeName, grpc_core::Subchannel::DataProducerInterface *>>, std::less<grpc_core::UniqueTypeName>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<grpc_core::UniqueTypeName, std::pair<const grpc_core::UniqueTypeName, grpc_core::Subchannel::DataProducerInterface *>, std::_Select1st<std::pair<const grpc_core::UniqueTypeName, grpc_core::Subchannel::DataProducerInterface *>>, std::less<grpc_core::UniqueTypeName>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.37", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.37" = type { %"struct.std::less.38" }
-%"struct.std::less.38" = type { i8 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.grpc_core::RefCounted.84" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic.3" }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::OrcaProducer::ConnectivityWatcher" = type { %"class.grpc_core::Subchannel::ConnectivityStateWatcherInterface", %"class.grpc_core::WeakRefCountedPtr.42", ptr }
-%"class.grpc_core::Subchannel::ConnectivityStateWatcherInterface" = type { %"class.grpc_core::RefCounted" }
-%"class.grpc_core::WeakRefCountedPtr.42" = type { ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
-%"class.grpc_core::OrcaWatcher" = type { %"class.grpc_core::InternalSubchannelDataWatcherInterface", %"class.grpc_core::Duration", %"class.std::unique_ptr.43", %"class.grpc_core::RefCountedPtr.51" }
-%"class.grpc_core::InternalSubchannelDataWatcherInterface" = type { %"class.grpc_core::SubchannelInterface::DataWatcherInterface" }
-%"class.grpc_core::SubchannelInterface::DataWatcherInterface" = type { ptr }
-%"class.std::unique_ptr.43" = type { %"struct.std::__uniq_ptr_data.44" }
-%"struct.std::__uniq_ptr_data.44" = type { %"class.std::__uniq_ptr_impl.45" }
-%"class.std::__uniq_ptr_impl.45" = type { %"class.std::tuple.46" }
-%"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
-%"struct.std::_Tuple_impl.47" = type { %"struct.std::_Head_base.50" }
-%"struct.std::_Head_base.50" = type { ptr }
-%"class.grpc_core::RefCountedPtr.51" = type { ptr }
 %"class.std::unique_ptr.52" = type { %"struct.std::__uniq_ptr_data.53" }
 %"struct.std::__uniq_ptr_data.53" = type { %"class.std::__uniq_ptr_impl.54" }
 %"class.std::__uniq_ptr_impl.54" = type { %"class.std::tuple.55" }
 %"class.std::tuple.55" = type { %"struct.std::_Tuple_impl.56" }
 %"struct.std::_Tuple_impl.56" = type { %"struct.std::_Head_base.59" }
 %"struct.std::_Head_base.59" = type { ptr }
-%"class.grpc_core::OrcaProducer::OrcaStreamEventHandler" = type { %"class.grpc_core::SubchannelStreamClient::CallEventHandler", %"class.grpc_core::WeakRefCountedPtr.42", %"class.grpc_core::Duration" }
-%"class.grpc_core::SubchannelStreamClient::CallEventHandler" = type { ptr }
+%"class.grpc_core::RefCountedPtr.2" = type { ptr }
 %"class.std::unique_ptr.88" = type { %"struct.std::__uniq_ptr_data.89" }
 %"struct.std::__uniq_ptr_data.89" = type { %"class.std::__uniq_ptr_impl.90" }
 %"class.std::__uniq_ptr_impl.90" = type { %"class.std::tuple.91" }
@@ -126,6 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
+%"class.grpc_core::RefCountedPtr" = type { ptr }
 %"class.std::unique_ptr.68" = type { %"struct.std::__uniq_ptr_data.69" }
 %"struct.std::__uniq_ptr_data.69" = type { %"class.std::__uniq_ptr_impl.70" }
 %"class.std::__uniq_ptr_impl.70" = type { %"class.std::tuple.71" }
@@ -139,38 +52,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct._upb_ArenaHead = type { ptr, ptr }
+%"class.absl::lts_20230802::Status" = type { i64 }
 %"class.grpc_core::DebugLocation" = type { i8 }
-%"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator" = type { %"class.grpc_core::BackendMetricAllocatorInterface", %"class.grpc_core::WeakRefCountedPtr.42", %"struct.grpc_core::BackendMetricData", %"class.std::vector", %struct.grpc_closure }
-%"class.grpc_core::BackendMetricAllocatorInterface" = type { ptr }
-%"struct.grpc_core::BackendMetricData" = type { double, double, double, double, double, %"class.std::map.60", %"class.std::map.60", %"class.std::map.60" }
-%"class.std::map.60" = type { %"class.std::_Rb_tree.61" }
-%"class.std::_Rb_tree.61" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, double>, std::_Select1st<std::pair<const std::basic_string_view<char>, double>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, double>, std::_Select1st<std::pair<const std::basic_string_view<char>, double>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.65", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.65" = type { %"struct.std::less.66" }
-%"struct.std::less.66" = type { i8 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<char, grpc_core::DefaultDeleteChar>, std::allocator<std::unique_ptr<char, grpc_core::DefaultDeleteChar>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<char, grpc_core::DefaultDeleteChar>, std::allocator<std::unique_ptr<char, grpc_core::DefaultDeleteChar>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<char, grpc_core::DefaultDeleteChar>, std::allocator<std::unique_ptr<char, grpc_core::DefaultDeleteChar>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<char, grpc_core::DefaultDeleteChar>, std::allocator<std::unique_ptr<char, grpc_core::DefaultDeleteChar>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::channelz::SubchannelNode" = type { %"class.grpc_core::channelz::BaseNode", %"struct.std::atomic.138", %"class.absl::lts_20230802::Mutex", %"class.grpc_core::RefCountedPtr.17", %"class.std::__cxx11::basic_string", %"class.grpc_core::channelz::CallCountingHelper", %"class.grpc_core::channelz::ChannelTrace" }
-%"class.grpc_core::channelz::BaseNode" = type { %"class.grpc_core::RefCounted.137", i32, i64, %"class.std::__cxx11::basic_string" }
-%"class.grpc_core::RefCounted.137" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"struct.std::atomic.138" = type { i32 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.105 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.105 = type { i64, [8 x i8] }
-%"class.grpc_core::channelz::CallCountingHelper" = type { %"struct.std::atomic.3", %"struct.std::atomic.3", %"struct.std::atomic.3", %"struct.std::atomic.139" }
-%"struct.std::atomic.139" = type { double }
-%"class.grpc_core::channelz::ChannelTrace" = type { i64, i64, i64, i64, ptr, ptr, %struct.gpr_timespec }
-%struct.gpr_timespec = type { i64, i32, i32 }
 %"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
 %"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
 %"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
 %"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
 %"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
 %"struct.std::_Head_base.132" = type { ptr }
-%class.anon = type { ptr, ptr }
 
 $_ZN9grpc_core14MakeOrphanableINS_22SubchannelStreamClientEJRNS_13RefCountedPtrINS_19ConnectedSubchannelEEEP16grpc_pollset_setSt10unique_ptrINS_12OrcaProducer22OrcaStreamEventHandlerESt14default_deleteISA_EEPKcEEES8_IT_NS_16OrphanableDeleteEEDpOT0_ = comdat any
 
@@ -375,7 +264,7 @@ declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 derefer
 define void @_ZN9grpc_core12OrcaProducer5StartENS_13RefCountedPtrINS_10SubchannelEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef %subchannel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.41", align 8
-  %subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 1
+  %subchannel_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %subchannel, align 8
   store ptr null, ptr %subchannel, align 8
   %1 = load ptr, ptr %subchannel_, align 8
@@ -384,7 +273,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_10SubchannelEEaSEOS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted.7", ptr %1, i64 0, i32 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw add ptr %refs_.i.i.i, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i.i = and i64 %2, -4294967296
   %cmp.i.i.i = icmp eq i64 %shr.i.mask.i.i.i, 4294967296
@@ -403,7 +292,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(928) %1) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_10SubchannelEEaSEOS2_.exit
@@ -417,15 +306,15 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_10SubchannelEEaSEOS2_.exit: ; preds = %entry, %if.end.i.i.i, %delete.notnull.i.i.i.i
   %8 = load ptr, ptr %subchannel_, align 8
-  %mu_.i = getelementptr inbounds %"class.grpc_core::Subchannel", ptr %8, i64 0, i32 11
+  %mu_.i = getelementptr inbounds i8, ptr %8, i64 400
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i), !noalias !4
-  %connected_subchannel_.i = getelementptr inbounds %"class.grpc_core::Subchannel", ptr %8, i64 0, i32 17
+  %connected_subchannel_.i = getelementptr inbounds i8, ptr %8, i64 488
   %9 = load ptr, ptr %connected_subchannel_.i, align 8, !noalias !4
   %cmp.not.i.i2 = icmp eq ptr %9, null
   br i1 %cmp.not.i.i2, label %invoke.cont.i, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZN9grpc_core13RefCountedPtrINS_10SubchannelEEaSEOS2_.exit
-  %refs_.i.i.i4 = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %9, i64 0, i32 1
+  %refs_.i.i.i4 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = atomicrmw add ptr %refs_.i.i.i4, i64 1 monotonic, align 8, !noalias !4
   %.pre.i.i = load ptr, ptr %connected_subchannel_.i, align 8, !noalias !4
   br label %invoke.cont.i
@@ -443,36 +332,36 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
   unreachable
 
 _ZN9grpc_core10Subchannel20connected_subchannelEv.exit: ; preds = %invoke.cont.i
-  %connected_subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 2
+  %connected_subchannel_ = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %connected_subchannel_, align 8
   store ptr %11, ptr %connected_subchannel_, align 8
   %cmp.not.i.i5 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i5, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %_ZN9grpc_core10Subchannel20connected_subchannelEv.exit
-  %refs_.i.i.i7 = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %14, i64 0, i32 1
+  %refs_.i.i.i7 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = atomicrmw sub ptr %refs_.i.i.i7, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %15, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i9, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 if.then.i.i.i9:                                   ; preds = %if.then.i.i6
   %vtable.i.i.i.i10 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i10, i64 1
+  %vfn.i.i.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i.i.i10, i64 8
   %16 = load ptr, ptr %vfn.i.i.i.i11, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(40) %14) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit: ; preds = %if.then.i.i.i9, %if.then.i.i6, %_ZN9grpc_core10Subchannel20connected_subchannelEv.exit
-  %refs_.i.i15 = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i15 = getelementptr inbounds i8, ptr %this, i64 8
   %17 = atomicrmw add ptr %refs_.i.i15, i64 1 monotonic, align 8, !noalias !7
   %call.i21 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
           to label %call.i.noexc unwind label %if.then.i41
 
 call.i.noexc:                                     ; preds = %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %call.i21, i64 0, i32 1
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i21, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !10
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 0, inrange i32 0, i64 2), ptr %call.i21, align 8, !noalias !10
-  %producer_.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %call.i21, i64 0, i32 1
+  %producer_.i.i = getelementptr inbounds i8, ptr %call.i21, i64 16
   store ptr %this, ptr %producer_.i.i, align 8, !noalias !10
   %call.i.i = invoke noundef ptr @_Z23grpc_pollset_set_createv()
           to label %_ZN9grpc_core17WeakRefCountedPtrINS_10Subchannel21DataProducerInterfaceEED2Ev.exit unwind label %if.then.i.i.i16, !noalias !10
@@ -486,7 +375,7 @@ if.then.i.i.i16:                                  ; preds = %call.i.noexc
 
 delete.notnull.i.i.i.i18:                         ; preds = %if.then.i.i.i16
   %vtable.i.i.i.i19 = load ptr, ptr %this, align 8, !noalias !10
-  %vfn.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i19, i64 2
+  %vfn.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i20, align 8, !noalias !10
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %this) #20, !noalias !10
   br label %lpad.body.thread
@@ -496,9 +385,9 @@ lpad.body.thread:                                 ; preds = %if.then.i.i.i16, %d
   br label %eh.resume
 
 _ZN9grpc_core17WeakRefCountedPtrINS_10Subchannel21DataProducerInterfaceEED2Ev.exit: ; preds = %call.i.noexc
-  %interested_parties_.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %call.i21, i64 0, i32 2
+  %interested_parties_.i.i = getelementptr inbounds i8, ptr %call.i21, i64 24
   store ptr %call.i.i, ptr %interested_parties_.i.i, align 8, !noalias !10
-  %connectivity_watcher_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 3
+  %connectivity_watcher_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i21, ptr %connectivity_watcher_, align 8
   %21 = load ptr, ptr %subchannel_, align 8
   store ptr %call.i21, ptr %agg.tmp, align 8
@@ -511,14 +400,14 @@ invoke.cont13:                                    ; preds = %_ZN9grpc_core17Weak
   br i1 %cmp.not.i26, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducer19ConnectivityWatcherEED2Ev.exit, label %if.then.i27
 
 if.then.i27:                                      ; preds = %invoke.cont13
-  %refs_.i.i28 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %22, i64 0, i32 1
+  %refs_.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = atomicrmw sub ptr %refs_.i.i28, i64 1 acq_rel, align 8
   %cmp.i.i.i29 = icmp eq i64 %23, 1
   br i1 %cmp.i.i.i29, label %if.then.i.i30, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducer19ConnectivityWatcherEED2Ev.exit
 
 if.then.i.i30:                                    ; preds = %if.then.i27
   %vtable.i.i.i31 = load ptr, ptr %22, align 8
-  %vfn.i.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i.i31, i64 1
+  %vfn.i.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i.i31, i64 8
   %24 = load ptr, ptr %vfn.i.i.i32, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducer19ConnectivityWatcherEED2Ev.exit
@@ -535,7 +424,7 @@ if.then.i41:                                      ; preds = %_ZN9grpc_core13RefC
 
 delete.notnull.i.i44:                             ; preds = %if.then.i41
   %vtable.i.i45 = load ptr, ptr %this, align 8
-  %vfn.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i45, i64 2
+  %vfn.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i45, i64 16
   %27 = load ptr, ptr %vfn.i.i46, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
   br label %eh.resume
@@ -548,14 +437,14 @@ lpad12:                                           ; preds = %_ZN9grpc_core17Weak
   br i1 %cmp.not.i48, label %eh.resume, label %if.then.i49
 
 if.then.i49:                                      ; preds = %lpad12
-  %refs_.i.i50 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %29, i64 0, i32 1
+  %refs_.i.i50 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = atomicrmw sub ptr %refs_.i.i50, i64 1 acq_rel, align 8
   %cmp.i.i.i51 = icmp eq i64 %30, 1
   br i1 %cmp.i.i.i51, label %if.then.i.i52, label %eh.resume
 
 if.then.i.i52:                                    ; preds = %if.then.i49
   %vtable.i.i.i53 = load ptr, ptr %29, align 8
-  %vfn.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i53, i64 1
+  %vfn.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i53, i64 8
   %31 = load ptr, ptr %vfn.i.i.i54, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29) #20
   br label %eh.resume
@@ -572,9 +461,9 @@ declare void @_ZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedP
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core12OrcaProducer6OrphanEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 4
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %stream_client_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %stream_client_, align 8
   store ptr null, ptr %stream_client_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -605,7 +494,7 @@ terminate.lpad.i:                                 ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClientENS0_16OrphanableDeleteEE5resetEPS1_.exit
-  %subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 1
+  %subchannel_ = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %subchannel_, align 8
   %cmp.i.not = icmp eq ptr %6, null
   br i1 %cmp.i.not, label %if.then, label %do.end
@@ -615,7 +504,7 @@ if.then:                                          ; preds = %_ZN4absl12lts_20230
   unreachable
 
 do.end:                                           ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %connectivity_watcher_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 3
+  %connectivity_watcher_ = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %connectivity_watcher_, align 8
   tail call void @_ZN9grpc_core10Subchannel28CancelConnectivityStateWatchEPNS0_33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(928) %6, ptr noundef %7)
   %8 = load ptr, ptr %subchannel_, align 8
@@ -633,22 +522,21 @@ declare void @_ZN9grpc_core10Subchannel18RemoveDataProducerEPNS0_21DataProducerI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core12OrcaProducer10AddWatcherEPNS_11OrcaWatcherE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %watcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 4
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %0 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt ptr %0, %watcher
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !13
@@ -658,14 +546,14 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %entry
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %_M_left.i3.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %1
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #25
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
   br label %if.end12.i.i.i
 
@@ -681,7 +569,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i6.i.i, align 8
   %cmp.i.i7.i.i = icmp ugt ptr %3, %watcher
   br label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
@@ -692,26 +580,26 @@ _ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_E
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i1, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i1, i64 32
   store ptr %watcher, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i1, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #20
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %5, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %if.end12.i.i.i
-  %report_interval_.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %watcher, i64 0, i32 1
+  %report_interval_.i = getelementptr inbounds i8, ptr %watcher, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %report_interval_.i, align 8
-  %report_interval_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 6
+  %report_interval_ = getelementptr inbounds i8, ptr %this, i64 96
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %report_interval_, align 8
   %cmp.i = icmp slt i64 %retval.sroa.0.0.copyload.i, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   store i64 %retval.sroa.0.0.copyload.i, ptr %report_interval_, align 8
-  %stream_client_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_ = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %stream_client_, align 8
   store ptr null, ptr %stream_client_, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
@@ -775,33 +663,33 @@ entry:
   %ref.tmp3 = alloca ptr, align 8
   %ref.tmp6 = alloca %"class.std::unique_ptr.52", align 8
   %ref.tmp8 = alloca ptr, align 8
-  %connected_subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 2
+  %connected_subchannel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %connected_subchannel_, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 1
+  %subchannel_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %subchannel_, align 8
-  %pollset_set_.i = getelementptr inbounds %"class.grpc_core::Subchannel", ptr %1, i64 0, i32 5
+  %pollset_set_.i = getelementptr inbounds i8, ptr %1, i64 312
   %2 = load ptr, ptr %pollset_set_.i, align 8
   store ptr %2, ptr %ref.tmp3, align 8
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %invoke.cont unwind label %if.then.i16
 
 invoke.cont:                                      ; preds = %if.end
-  %report_interval_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 6
+  %report_interval_ = getelementptr inbounds i8, ptr %this, i64 96
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %report_interval_, align 8, !noalias !18
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8, !noalias !18
-  %producer_.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %call.i2, i64 0, i32 1
+  %producer_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store ptr %this, ptr %producer_.i.i, align 8, !noalias !18
-  %report_interval_.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %call.i2, i64 0, i32 2
+  %report_interval_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 16
   store i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %report_interval_.i.i, align 8, !noalias !18
   store ptr %call.i2, ptr %ref.tmp6, align 8, !alias.scope !18
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core22grpc_orca_client_traceE, i64 0, i32 2) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core22grpc_orca_client_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.i.not = icmp eq i8 %5, 0
   %cond = select i1 %tobool.i.i.i.not, ptr null, ptr @.str.4
@@ -810,7 +698,7 @@ invoke.cont:                                      ; preds = %if.end
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont
-  %stream_client_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_ = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
   %7 = load ptr, ptr %stream_client_, align 8
@@ -857,7 +745,7 @@ _ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClientENS0_16OrphanableDeleteEED2
 
 _ZNKSt14default_deleteIN9grpc_core12OrcaProducer22OrcaStreamEventHandlerEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClientENS0_16OrphanableDeleteEED2Ev.exit
   %vtable.i.i4 = load ptr, ptr %14, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i4, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
   %15 = load ptr, ptr %vfn.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   br label %return
@@ -874,7 +762,7 @@ lpad9:                                            ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN9grpc_core12OrcaProducer22OrcaStreamEventHandlerEEclEPS2_.exit.i11: ; preds = %lpad9
   %vtable.i.i12 = load ptr, ptr %17, align 8
-  %vfn.i.i13 = getelementptr inbounds ptr, ptr %vtable.i.i12, i64 1
+  %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 8
   %18 = load ptr, ptr %vfn.i.i13, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_10Subchannel21DataProducerInterfaceEED2Ev.exit22
@@ -888,7 +776,7 @@ if.then.i16:                                      ; preds = %if.end
 
 delete.notnull.i.i19:                             ; preds = %if.then.i16
   %vtable.i.i20 = load ptr, ptr %this, align 8
-  %vfn.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i20, i64 2
+  %vfn.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i20, i64 16
   %21 = load ptr, ptr %vfn.i.i21, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_10Subchannel21DataProducerInterfaceEED2Ev.exit22
@@ -903,20 +791,20 @@ define void @_ZN9grpc_core12OrcaProducer13RemoveWatcherEPNS_11OrcaWatcherE(ptr n
 entry:
   %watcher.addr = alloca ptr, align 8
   store ptr %watcher, ptr %watcher.addr, align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 4
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %watchers_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5
+  %watchers_ = getelementptr inbounds i8, ptr %this, i64 48
   %call.i1 = invoke noundef i64 @_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5eraseERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %watchers_, ptr noundef nonnull align 8 dereferenceable(8) %watcher.addr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_node_count.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %stream_client_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_ = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %stream_client_, align 8
   store ptr null, ptr %stream_client_, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -952,18 +840,18 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %invoke.cont
-  %_M_left.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %_M_left.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %cmp.i.not7.i = icmp eq ptr %8, %add.ptr.i.i.i
   br i1 %cmp.i.not7.i, label %cleanup, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %retval.sroa.0.09.i = phi i64 [ %spec.select.i, %for.body.i ], [ 9223372036854775807, %if.end ]
   %__begin1.sroa.0.08.i = phi ptr [ %call.i.i, %for.body.i ], [ %8, %if.end ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.08.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 32
   %9 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %report_interval_.i.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %9, i64 0, i32 1
+  %report_interval_.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %report_interval_.i.i, align 8
   %spec.select.i = call i64 @llvm.smin.i64(i64 %retval.sroa.0.0.copyload.i.i, i64 %retval.sroa.0.09.i)
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.08.i) #25
@@ -971,14 +859,14 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   br i1 %cmp.i.not.i, label %invoke.cont4, label %for.body.i
 
 invoke.cont4:                                     ; preds = %for.body.i
-  %report_interval_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 6
+  %report_interval_ = getelementptr inbounds i8, ptr %this, i64 96
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %report_interval_, align 8
   %cmp.i = icmp slt i64 %spec.select.i, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp.i, label %if.then9, label %cleanup
 
 if.then9:                                         ; preds = %invoke.cont4
   store i64 %spec.select.i, ptr %report_interval_, align 8
-  %stream_client_11 = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_11 = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load ptr, ptr %stream_client_11, align 8
   store ptr null, ptr %stream_client_11, align 8
   %tobool.not.i.i2 = icmp eq ptr %10, null
@@ -1019,18 +907,18 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit8:       ; preds = %cleanup
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define i64 @_ZNK9grpc_core12OrcaProducer20GetMinIntervalLockedEv(ptr noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_M_left.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %cmp.i.not7 = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.i.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %retval.sroa.0.09 = phi i64 [ %spec.select, %for.body ], [ 9223372036854775807, %entry ]
   %__begin1.sroa.0.08 = phi ptr [ %call.i, %for.body ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.08, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 32
   %1 = load ptr, ptr %_M_storage.i.i, align 8
-  %report_interval_.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %1, i64 0, i32 1
+  %report_interval_.i = getelementptr inbounds i8, ptr %1, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %report_interval_.i, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.0.09)
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.08) #25
@@ -1053,7 +941,7 @@ entry:
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %0, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8
   %.pre.i = load ptr, ptr %args, align 8
   br label %invoke.cont
@@ -1077,7 +965,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN9grpc_core22SubchannelStreamClient16CallEventHandlerEEclEPS2_.exit.i: ; preds = %invoke.cont9
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
   br label %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient16CallEventHandlerESt14default_deleteIS2_EED2Ev.exit
@@ -1089,14 +977,14 @@ _ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient16CallEventHandlerESt14defa
   br i1 %cmp.not.i3, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient16CallEventHandlerESt14default_deleteIS2_EED2Ev.exit
-  %refs_.i.i5 = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %8, i64 0, i32 1
+  %refs_.i.i5 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = atomicrmw sub ptr %refs_.i.i5, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %9, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i4
   %vtable.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
@@ -1113,7 +1001,7 @@ lpad8:                                            ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN9grpc_core22SubchannelStreamClient16CallEventHandlerEEclEPS2_.exit.i7: ; preds = %lpad8
   %vtable.i.i8 = load ptr, ptr %12, align 8
-  %vfn.i.i9 = getelementptr inbounds ptr, ptr %vtable.i.i8, i64 1
+  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
   %13 = load ptr, ptr %vfn.i.i9, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #20
   br label %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient16CallEventHandlerESt14default_deleteIS2_EED2Ev.exit10
@@ -1125,14 +1013,14 @@ _ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient16CallEventHandlerESt14defa
   br i1 %cmp.not.i11, label %cleanup.action, label %if.then.i12
 
 if.then.i12:                                      ; preds = %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient16CallEventHandlerESt14default_deleteIS2_EED2Ev.exit10
-  %refs_.i.i13 = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %14, i64 0, i32 1
+  %refs_.i.i13 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = atomicrmw sub ptr %refs_.i.i13, i64 1 acq_rel, align 8
   %cmp.i.i.i14 = icmp eq i64 %15, 1
   br i1 %cmp.i.i.i14, label %if.then.i.i15, label %cleanup.action
 
 if.then.i.i15:                                    ; preds = %if.then.i12
   %vtable.i.i.i16 = load ptr, ptr %14, align 8
-  %vfn.i.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i.i16, i64 1
+  %vfn.i.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i.i16, i64 8
   %16 = load ptr, ptr %vfn.i.i.i17, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(40) %14) #20
   br label %cleanup.action
@@ -1145,7 +1033,7 @@ cleanup.action:                                   ; preds = %if.then.i.i15, %if.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core12OrcaProducer14NotifyWatchersERKNS_17BackendMetricDataE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(184) %backend_metric_data) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core22grpc_orca_client_traceE, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core22grpc_orca_client_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
@@ -1155,22 +1043,22 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %mu_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 4
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_left.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %cmp.i.not7 = icmp eq ptr %2, %add.ptr.i.i
   br i1 %cmp.i.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %__begin1.sroa.0.08 = phi ptr [ %call.i, %for.inc ], [ %2, %if.end ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.08, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 32
   %3 = load ptr, ptr %_M_storage.i.i, align 8
-  %watcher_.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %3, i64 0, i32 2
+  %watcher_.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %watcher_.i, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(184) %backend_metric_data)
           to label %for.inc unwind label %lpad
@@ -1216,26 +1104,26 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core12OrcaProducer25OnConnectivityStateChangeE23grpc_connectivity_state(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %state) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 4
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
   %cmp = icmp eq i32 %state, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 1
+  %subchannel_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %subchannel_, align 8
-  %mu_.i = getelementptr inbounds %"class.grpc_core::Subchannel", ptr %0, i64 0, i32 11
+  %mu_.i = getelementptr inbounds i8, ptr %0, i64 400
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then
-  %connected_subchannel_.i = getelementptr inbounds %"class.grpc_core::Subchannel", ptr %0, i64 0, i32 17
+  %connected_subchannel_.i = getelementptr inbounds i8, ptr %0, i64 488
   %1 = load ptr, ptr %connected_subchannel_.i, align 8, !noalias !21
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %1, i64 0, i32 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8, !noalias !21
   %.pre.i.i = load ptr, ptr %connected_subchannel_.i, align 8, !noalias !21
   br label %invoke.cont.i
@@ -1253,27 +1141,27 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
   unreachable
 
 invoke.cont2:                                     ; preds = %invoke.cont.i
-  %connected_subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 2
+  %connected_subchannel_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %connected_subchannel_, align 8
   store ptr %3, ptr %connected_subchannel_, align 8
   %cmp.not.i.i1 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i1, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit, label %if.then.i.i2
 
 if.then.i.i2:                                     ; preds = %invoke.cont2
-  %refs_.i.i.i3 = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %6, i64 0, i32 1
+  %refs_.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw sub ptr %refs_.i.i.i3, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i2
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(40) %6) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i.i2, %invoke.cont2
-  %_M_node_count.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %9 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %9, 0
   br i1 %cmp.i.i, label %if.end9, label %if.then5
@@ -1299,27 +1187,27 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
   resume { ptr, i32 } %10
 
 if.else:                                          ; preds = %entry
-  %connected_subchannel_7 = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 2
+  %connected_subchannel_7 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %connected_subchannel_7, align 8
   store ptr null, ptr %connected_subchannel_7, align 8
   %cmp.not.i7 = icmp eq ptr %13, null
   br i1 %cmp.not.i7, label %invoke.cont8, label %if.then.i8
 
 if.then.i8:                                       ; preds = %if.else
-  %refs_.i.i9 = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %13, i64 0, i32 1
+  %refs_.i.i9 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = atomicrmw sub ptr %refs_.i.i9, i64 1 acq_rel, align 8
   %cmp.i.i.i10 = icmp eq i64 %14, 1
   br i1 %cmp.i.i.i10, label %if.then.i.i11, label %invoke.cont8
 
 if.then.i.i11:                                    ; preds = %if.then.i8
   %vtable.i.i.i12 = load ptr, ptr %13, align 8
-  %vfn.i.i.i13 = getelementptr inbounds ptr, ptr %vtable.i.i.i12, i64 1
+  %vfn.i.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i.i12, i64 8
   %15 = load ptr, ptr %vfn.i.i.i13, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(40) %13) #20
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.then.i.i11, %if.then.i8, %if.else
-  %stream_client_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_ = getelementptr inbounds i8, ptr %this, i64 104
   %16 = load ptr, ptr %stream_client_, align 8
   store ptr null, ptr %stream_client_, align 8
   %tobool.not.i.i = icmp eq ptr %16, null
@@ -1357,7 +1245,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit19:      ; preds = %if.end9
 define void @_ZN9grpc_core11OrcaWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %this, i64 0, i32 3
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %producer_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit, label %if.then
@@ -1372,7 +1260,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %.pr, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %.pr, i64 8
   %1 = atomicrmw add ptr %refs_.i.i, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i = and i64 %1, -4294967296
   %cmp.i.i = icmp eq i64 %shr.i.mask.i.i, 4294967296
@@ -1391,7 +1279,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.th
 
 delete.notnull.i.i.i:                             ; preds = %if.end.i.i
   %vtable.i.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit
@@ -1404,14 +1292,14 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %entry, %if.end, %if.end.i.i, %delete.notnull.i.i.i
-  %watcher_ = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %this, i64 0, i32 2
+  %watcher_ = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %watcher_, align 8
   %cmp.not.i1 = icmp eq ptr %7, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN9grpc_core23OobBackendMetricWatcherESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core23OobBackendMetricWatcherEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN9grpc_core23OobBackendMetricWatcherEEclEPS1_.exit.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit
   %vtable.i.i2 = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i2, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i2, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
   br label %_ZNSt10unique_ptrIN9grpc_core23OobBackendMetricWatcherESt14default_deleteIS1_EED2Ev.exit
@@ -1495,8 +1383,8 @@ _ZN9grpc_core12OrcaProducer4TypeEv.exit:          ; preds = %entry, %init.check.
   store i64 %4, ptr %agg.tmp, align 8, !alias.scope !31
   %name.sroa.2.0.name_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %5, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i, align 8, !alias.scope !31
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp2, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   store ptr %this, ptr %agg.tmp2, align 8
   %ref.tmp.sroa.2.0.agg.tmp2.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store ptr %created, ptr %ref.tmp.sroa.2.0.agg.tmp2.sroa_idx, align 8
@@ -1528,10 +1416,10 @@ _ZNSt8functionIFvPPN9grpc_core10Subchannel21DataProducerInterfaceEEED2Ev.exit: ;
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt8functionIFvPPN9grpc_core10Subchannel21DataProducerInterfaceEEED2Ev.exit
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %this, i64 0, i32 3
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %producer_, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted.7", ptr %subchannel, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %subchannel, i64 8
   %12 = atomicrmw add ptr %refs_.i.i, i64 4294967296 monotonic, align 8, !noalias !32
   store ptr %subchannel, ptr %agg.tmp3, align 8, !alias.scope !32
   invoke void @_ZN9grpc_core12OrcaProducer5StartENS_13RefCountedPtrINS_10SubchannelEEE(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull %agg.tmp3)
@@ -1543,7 +1431,7 @@ invoke.cont5:                                     ; preds = %if.then
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont5
-  %refs_.i.i5 = getelementptr inbounds %"class.grpc_core::DualRefCounted.7", ptr %13, i64 0, i32 1
+  %refs_.i.i5 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = atomicrmw add ptr %refs_.i.i5, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i = and i64 %14, -4294967296
   %cmp.i.i = icmp eq i64 %shr.i.mask.i.i, 4294967296
@@ -1562,7 +1450,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i6, %if.t
 
 delete.notnull.i.i.i:                             ; preds = %if.end.i.i
   %vtable.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(928) %13) #20
   br label %if.end
@@ -1599,7 +1487,7 @@ lpad4:                                            ; preds = %if.then
   br label %common.resume
 
 if.end:                                           ; preds = %delete.notnull.i.i.i, %if.end.i.i, %invoke.cont5, %_ZNSt8functionIFvPPN9grpc_core10Subchannel21DataProducerInterfaceEEED2Ev.exit
-  %producer_6 = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %this, i64 0, i32 3
+  %producer_6 = getelementptr inbounds i8, ptr %this, i64 24
   %25 = load ptr, ptr %producer_6, align 8
   call void @_ZN9grpc_core12OrcaProducer10AddWatcherEPNS_11OrcaWatcherE(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull %this)
   ret void
@@ -1615,7 +1503,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %refs_.i = getelementptr inbounds %"class.grpc_core::DualRefCounted.7", ptr %0, i64 0, i32 1
+  %refs_.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw add ptr %refs_.i, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i = and i64 %1, -4294967296
   %cmp.i = icmp eq i64 %shr.i.mask.i, 4294967296
@@ -1634,7 +1522,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 delete.notnull.i.i:                               ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(928) %0) #20
   br label %if.end
@@ -1657,11 +1545,11 @@ _ZNSt10unique_ptrIN9grpc_core11OrcaWatcherESt14default_deleteIS1_EED2Ev.exit:
   %0 = load i64, ptr %watcher, align 8, !noalias !35
   store ptr null, ptr %watcher, align 8, !noalias !35
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !35
-  %report_interval_.i.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %call.i, i64 0, i32 1
+  %report_interval_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %report_interval.coerce, ptr %report_interval_.i.i, align 8, !noalias !35
-  %watcher_.i.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %call.i, i64 0, i32 2
+  %watcher_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %0, ptr %watcher_.i.i, align 8, !noalias !35
-  %producer_.i.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %call.i, i64 0, i32 3
+  %producer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %producer_.i.i, align 8, !noalias !35
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -1710,7 +1598,7 @@ _ZN9grpc_core12OrcaProducer4TypeEv.exit:          ; preds = %entry, %init.check.
 define linkonce_odr void @_ZN9grpc_core12OrcaProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %stream_client_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 7
+  %stream_client_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %stream_client_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClientENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i
@@ -1730,8 +1618,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClientENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %entry, %if.then.i
   store ptr null, ptr %stream_client_, align 8
-  %watchers_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %watchers_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %watchers_, ptr noundef %4)
           to label %_ZNSt3setIPN9grpc_core11OrcaWatcherESt4lessIS2_ESaIS2_EED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1744,34 +1632,34 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 _ZNSt3setIPN9grpc_core11OrcaWatcherESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClientENS0_16OrphanableDeleteEED2Ev.exit
-  %mu_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 4
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #20
-  %connected_subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 2
+  %connected_subchannel_ = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %connected_subchannel_, align 8
   %cmp.not.i1 = icmp eq ptr %7, null
   br i1 %cmp.not.i1, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZNSt3setIPN9grpc_core11OrcaWatcherESt4lessIS2_ESaIS2_EED2Ev.exit
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.84", ptr %7, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %8, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i2
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit: ; preds = %_ZNSt3setIPN9grpc_core11OrcaWatcherESt4lessIS2_ESaIS2_EED2Ev.exit, %if.then.i2, %if.then.i.i
-  %subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %this, i64 0, i32 1
+  %subchannel_ = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %subchannel_, align 8
   %cmp.not.i3 = icmp eq ptr %10, null
   br i1 %cmp.not.i3, label %_ZN9grpc_core13RefCountedPtrINS_10SubchannelEED2Ev.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
-  %refs_.i.i5 = getelementptr inbounds %"class.grpc_core::DualRefCounted.7", ptr %10, i64 0, i32 1
+  %refs_.i.i5 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = atomicrmw add ptr %refs_.i.i5, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i = and i64 %11, -4294967296
   %cmp.i.i = icmp eq i64 %shr.i.mask.i.i, 4294967296
@@ -1790,7 +1678,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i8, %if.t
 
 delete.notnull.i.i.i:                             ; preds = %if.end.i.i
   %vtable.i.i.i6 = load ptr, ptr %10, align 8
-  %vfn.i.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i.i6, i64 2
+  %vfn.i.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i.i6, i64 16
   %14 = load ptr, ptr %vfn.i.i.i7, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(928) %10) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_10SubchannelEED2Ev.exit
@@ -1889,7 +1777,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #20
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1945,10 +1833,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null
@@ -1967,26 +1855,26 @@ declare noundef ptr @_Z23grpc_pollset_set_createv() local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %interested_parties_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %this, i64 0, i32 2
+  %interested_parties_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %interested_parties_, align 8
   invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %this, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %producer_, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %1, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.not.i.i = icmp eq i64 %2, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
@@ -2006,26 +1894,26 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %interested_parties_.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %this, i64 0, i32 2
+  %interested_parties_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %interested_parties_.i, align 8
   invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %0)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %producer_.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %this, i64 0, i32 1
+  %producer_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %producer_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %1, i64 0, i32 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.not.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.not.i.i.i, label %delete.notnull.i.i.i, label %_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD2Ev.exit
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
   br label %_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD2Ev.exit
@@ -2045,7 +1933,7 @@ _ZN9grpc_core12OrcaProducer19ConnectivityWatcherD2Ev.exit: ; preds = %invoke.con
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer19ConnectivityWatcher25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %self, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %this, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %producer_, align 8
   tail call void @_ZN9grpc_core12OrcaProducer25OnConnectivityStateChangeE23grpc_connectivity_state(ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %state)
   %2 = load ptr, ptr %self, align 8
@@ -2054,14 +1942,14 @@ entry:
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEE5resetEPS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %2, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %3, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEE5resetEPS2_.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEE5resetEPS2_.exit
@@ -2073,7 +1961,7 @@ _ZN9grpc_core13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN9grpc_core12OrcaProducer19ConnectivityWatcher18interested_partiesEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %interested_parties_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::ConnectivityWatcher", ptr %this, i64 0, i32 2
+  %interested_parties_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %interested_parties_, align 8
   ret ptr %0
 }
@@ -2091,81 +1979,76 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.039.i = load ptr, ptr %_M_parent.i.i.i, align 8
-  %cmp.not40.i = icmp eq ptr %__x.039.i, null
-  br i1 %cmp.not40.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.lr.ph.i
+  %__x.038.i = load ptr, ptr %_M_parent.i.i.i, align 8
+  %cmp.not39.i = icmp eq ptr %__x.038.i, null
+  br i1 %cmp.not39.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %0 = load ptr, ptr %__x, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end19.i, %while.body.lr.ph.i
-  %__x.042.i = phi ptr [ %__x.039.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
-  %__y.041.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.042.i, i64 0, i32 1
+  %__x.041.i = phi ptr [ %__x.038.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
+  %__y.040.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i, align 8
   %cmp.i.i = icmp ult ptr %1, %0
-  br i1 %cmp.i.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %while.body.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
-  br label %if.end19.i
+  br i1 %cmp.i.i, label %if.end19.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
   %cmp.i18.i = icmp ult ptr %0, %1
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 2
   br i1 %cmp.i18.i, label %if.end19.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else.i
-  %2 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_right.i20.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
+  %_M_left.i19.i = getelementptr inbounds i8, ptr %__x.041.i, i64 16
+  %2 = load ptr, ptr %_M_left.i19.i, align 8
+  %_M_right.i20.i = getelementptr inbounds i8, ptr %__x.041.i, i64 24
   %3 = load ptr, ptr %_M_right.i20.i, align 8
   %cmp.not5.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.else12.i, %while.body.i.i
   %__x.addr.07.i.i = phi ptr [ %__x.addr.1.i.i, %while.body.i.i ], [ %2, %if.else12.i ]
-  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.042.i, %if.else12.i ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i, i64 0, i32 1
+  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.041.i, %if.else12.i ]
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult ptr %4, %0
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 3
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 2
   %__y.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__y.addr.06.i.i, ptr %__x.addr.07.i.i
-  %__x.addr.1.in.i.i = select i1 %cmp.i.i.i, ptr %_M_right.i.i.i, ptr %_M_left.i.i.i
+  %__x.addr.1.in.v.i.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 %__x.addr.1.in.v.i.i
   %__x.addr.1.i.i = load ptr, ptr %__x.addr.1.in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.addr.1.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i, label %while.body.i.i, !llvm.loop !53
 
 _ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i: ; preds = %while.body.i.i, %if.else12.i
-  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.042.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
+  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.041.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
   %cmp.not5.i21.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i21.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i23.i
 
 while.body.i23.i:                                 ; preds = %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i, %while.body.i23.i
-  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i32.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ]
-  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.041.i, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ]
-  %_M_storage.i.i.i26.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i24.i, i64 0, i32 1
+  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i31.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ]
+  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ]
+  %_M_storage.i.i.i26.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i26.i, align 8
   %cmp.i.i27.i = icmp ult ptr %0, %5
-  %_M_left.i.i28.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 2
-  %_M_right.i.i29.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 3
-  %__y.addr.1.i30.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
-  %__x.addr.1.in.i31.i = select i1 %cmp.i.i27.i, ptr %_M_left.i.i28.i, ptr %_M_right.i.i29.i
-  %__x.addr.1.i32.i = load ptr, ptr %__x.addr.1.in.i31.i, align 8
-  %cmp.not.i33.i = icmp eq ptr %__x.addr.1.i32.i, null
-  br i1 %cmp.not.i33.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i23.i, !llvm.loop !54
+  %__y.addr.1.i28.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
+  %__x.addr.1.in.v.i29.i = select i1 %cmp.i.i27.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 %__x.addr.1.in.v.i29.i
+  %__x.addr.1.i31.i = load ptr, ptr %__x.addr.1.in.i30.i, align 8
+  %cmp.not.i32.i = icmp eq ptr %__x.addr.1.i31.i, null
+  br i1 %cmp.not.i32.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i23.i, !llvm.loop !54
 
-if.end19.i:                                       ; preds = %if.else.i, %if.then.i
-  %__y.1.i = phi ptr [ %__y.041.i, %if.then.i ], [ %__x.042.i, %if.else.i ]
-  %__x.1.in.i = phi ptr [ %_M_right.i.i, %if.then.i ], [ %_M_left.i.i, %if.else.i ]
-  %__x.0.i = load ptr, ptr %__x.1.in.i, align 8
+if.end19.i:                                       ; preds = %if.else.i, %while.body.i
+  %.sink.i = phi i64 [ 24, %while.body.i ], [ 16, %if.else.i ]
+  %__y.1.i = phi ptr [ %__y.040.i, %while.body.i ], [ %__x.041.i, %if.else.i ]
+  %_M_left.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 %.sink.i
+  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i, !llvm.loop !55
 
 _ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
   %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.041.i, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2173,24 +2056,24 @@ _ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_E
   %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
   %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
   %or.cond.i = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
-  br i1 %or.cond.i, label %if.then.i7, label %if.else.i4
+  br i1 %or.cond.i, label %if.then.i, label %if.else.i4
 
-if.then.i7:                                       ; preds = %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit
-  invoke void @_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.039.i)
+if.then.i:                                        ; preds = %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit
+  invoke void @_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.038.i)
           to label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %if.then.i7
+terminate.lpad.i.i:                               ; preds = %if.then.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
-_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i: ; preds = %if.then.i7
+_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_left.i.i1, align 8
-  %_M_right.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i8, align 8
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i, align 8
   br label %_ZNSt8_Rb_treeIPN9grpc_core11OrcaWatcherES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit
 
@@ -2225,20 +2108,20 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %this, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %producer_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %0, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.not.i.i = icmp eq i64 %1, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
@@ -2251,20 +2134,20 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %entry,
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %producer_.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %this, i64 0, i32 1
+  %producer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %producer_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %0, i64 0, i32 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.not.i.i.i = icmp eq i64 %1, 1
   br i1 %cmp.not.i.i.i, label %delete.notnull.i.i.i, label %_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD2Ev.exit
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD2Ev.exit
@@ -2308,7 +2191,7 @@ entry:
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %call.i.i, i64 0, i32 1
+  %end.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load ptr, ptr %end.i.i.i.i, align 8
   %2 = load ptr, ptr %call.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -2338,7 +2221,7 @@ if.end.i.i:                                       ; preds = %upb_Arena_Malloc.ex
 
 invoke.cont2:                                     ; preds = %if.end.i.i, %upb_Arena_Malloc.exit.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ null, %upb_Arena_Malloc.exit.i.i ]
-  %report_interval_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %this, i64 0, i32 2
+  %report_interval_ = getelementptr inbounds i8, ptr %this, i64 16
   %call5 = invoke { i64, i64 } @_ZNK9grpc_core8Duration11as_timespecEv(ptr noundef nonnull align 8 dereferenceable(8) %report_interval_)
           to label %invoke.cont4 unwind label %if.then.i.i29
 
@@ -2407,7 +2290,7 @@ invoke.cont14:                                    ; preds = %invoke.cont11
 if.then.i.i:                                      ; preds = %invoke.cont14
   %14 = load ptr, ptr %agg.result, align 8
   %tobool.not = icmp eq ptr %14, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
   %15 = load ptr, ptr %bytes, align 8
   %bytes18 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes18, ptr %15
@@ -2449,13 +2332,13 @@ entry:
   %ref.tmp.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %call = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %this, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %producer_, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %1, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8
   %.pre.i = load ptr, ptr %producer_, align 8
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
@@ -2463,43 +2346,43 @@ if.then.i:                                        ; preds = %entry
 _ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %if.then.i, %entry
   %3 = phi ptr [ %.pre.i, %if.then.i ], [ null, %entry ]
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %producer_.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 1
+  %producer_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %3, ptr %producer_.i, align 8
-  %backend_metric_data_.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2
+  %backend_metric_data_.i = getelementptr inbounds i8, ptr %call, i64 16
   store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %backend_metric_data_.i, align 8
-  %application_utilization.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 2
+  %application_utilization.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %application_utilization.i.i, align 8
-  %eps.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 4
+  %eps.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store double -1.000000e+00, ptr %eps.i.i, align 8
-  %4 = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 5, i32 0, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call, i64 64
   store i32 0, ptr %4, align 8
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %4, ptr %_M_left.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 5, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %4, ptr %_M_right.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  %5 = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 6, i32 0, i32 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %call, i64 112
   store i32 0, ptr %5, align 8
-  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call, i64 120
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i, align 8
-  %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 6, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call, i64 128
   store ptr %5, ptr %_M_left.i.i.i.i.i2.i.i, align 8
-  %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 6, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call, i64 136
   store ptr %5, ptr %_M_right.i.i.i.i.i3.i.i, align 8
-  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 6, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call, i64 144
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i, align 8
-  %6 = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %call, i64 160
   store i32 0, ptr %6, align 8
-  %_M_parent.i.i.i.i.i5.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call, i64 168
   store ptr null, ptr %_M_parent.i.i.i.i.i5.i.i, align 8
-  %_M_left.i.i.i.i.i6.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call, i64 176
   store ptr %6, ptr %_M_left.i.i.i.i.i6.i.i, align 8
-  %_M_right.i.i.i.i.i7.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call, i64 184
   store ptr %6, ptr %_M_right.i.i.i.i.i7.i.i, align 8
-  %_M_node_count.i.i.i.i.i8.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_node_count.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %call5 = tail call noundef ptr @_ZN9grpc_core22ParseBackendMetricDataESt17basic_string_viewIcSt11char_traitsIcEEPNS_31BackendMetricAllocatorInterfaceE(i64 %serialized_message.coerce0, ptr %serialized_message.coerce1, ptr noundef nonnull %call)
   %cmp = icmp eq ptr %call5, null
@@ -2507,7 +2390,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %if.the
 
 delete.notnull:                                   ; preds = %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(256) %call) #20
   tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 29, ptr nonnull @.str.9)
@@ -2516,12 +2399,12 @@ delete.notnull:                                   ; preds = %_ZN9grpc_core17Weak
 if.end:                                           ; preds = %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %closure_.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 4
-  %cb1.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 4, i32 1
+  %closure_.i = getelementptr inbounds i8, ptr %call, i64 224
+  %cb1.i.i = getelementptr inbounds i8, ptr %call, i64 232
   store ptr @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocator23NotifyWatchersInExecCtxEPvN4absl12lts_202308026StatusE, ptr %cb1.i.i, align 8
-  %cb_arg2.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 4, i32 2
+  %cb_arg2.i.i = getelementptr inbounds i8, ptr %call, i64 240
   store ptr %call, ptr %cb_arg2.i.i, align 8
-  %error_data.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %call, i64 0, i32 4, i32 3
+  %error_data.i.i = getelementptr inbounds i8, ptr %call, i64 248
   store i64 0, ptr %error_data.i.i, align 8
   store i64 0, ptr %agg.tmp.i, align 8, !alias.scope !62
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %closure_.i, ptr noundef nonnull %agg.tmp.i)
@@ -2569,9 +2452,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 153, i32 noundef 2, ptr noundef nonnull @_ZZN9grpc_core12OrcaProducer22OrcaStreamEventHandler31RecvTrailingMetadataReadyLockedEPNS_22SubchannelStreamClientE16grpc_status_codeE13kErrorMessage)
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler", ptr %this, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %producer_, align 8
-  %subchannel_ = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %1, i64 0, i32 1
+  %subchannel_ = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %subchannel_, align 8
   %call3 = tail call noundef ptr @_ZN9grpc_core10Subchannel13channelz_nodeEv(ptr noundef nonnull align 8 dereferenceable(928) %2)
   %cmp4.not = icmp eq ptr %call3, null
@@ -2579,7 +2462,7 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.then
   call void @grpc_slice_from_static_string(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull @_ZZN9grpc_core12OrcaProducer22OrcaStreamEventHandler31RecvTrailingMetadataReadyLockedEPNS_22SubchannelStreamClientE16grpc_status_codeE13kErrorMessage)
-  %trace_.i = getelementptr inbounds %"class.grpc_core::channelz::SubchannelNode", ptr %call3, i64 0, i32 6
+  %trace_.i = getelementptr inbounds i8, ptr %call3, i64 152
   call void @_ZN9grpc_core8channelz12ChannelTrace13AddTraceEventENS1_8SeverityERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(64) %trace_.i, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   br label %if.end6
 
@@ -2607,9 +2490,9 @@ declare void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_view
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %string_storage_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 3
+  %string_storage_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %string_storage_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -2633,7 +2516,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 _ZSt8_DestroyISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEEEvPT_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.125", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !68
 
@@ -2651,8 +2534,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %named_metrics.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2, i32 7
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %named_metrics.i = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_dESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %named_metrics.i, ptr noundef %6)
           to label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS3_ESaISt4pairIKS3_dEEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -2665,8 +2548,8 @@ terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorISt10un
   unreachable
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS3_ESaISt4pairIKS3_dEEED2Ev.exit.i: ; preds = %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EED2Ev.exit
-  %utilization.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2, i32 6
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
+  %utilization.i = getelementptr inbounds i8, ptr %this, i64 104
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 120
   %9 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_dESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %utilization.i, ptr noundef %9)
           to label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS3_ESaISt4pairIKS3_dEEED2Ev.exit3.i unwind label %terminate.lpad.i.i2.i
@@ -2679,8 +2562,8 @@ terminate.lpad.i.i2.i:                            ; preds = %_ZNSt3mapISt17basic
   unreachable
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS3_ESaISt4pairIKS3_dEEED2Ev.exit3.i: ; preds = %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS3_ESaISt4pairIKS3_dEEED2Ev.exit.i
-  %request_cost.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2, i32 5
-  %_M_parent.i.i.i.i4.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %request_cost.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_parent.i.i.i.i4.i = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %_M_parent.i.i.i.i4.i, align 8
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_dESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %request_cost.i, ptr noundef %12)
           to label %_ZN9grpc_core17BackendMetricDataD2Ev.exit unwind label %terminate.lpad.i.i5.i
@@ -2693,20 +2576,20 @@ terminate.lpad.i.i5.i:                            ; preds = %_ZNSt3mapISt17basic
   unreachable
 
 _ZN9grpc_core17BackendMetricDataD2Ev.exit:        ; preds = %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS3_ESaISt4pairIKS3_dEEED2Ev.exit3.i
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load ptr, ptr %producer_, align 8
   %cmp.not.i = icmp eq ptr %15, null
   br i1 %cmp.not.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9grpc_core17BackendMetricDataD2Ev.exit
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %15, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.not.i.i = icmp eq i64 %16, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15) #20
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit
@@ -2726,7 +2609,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocator25AllocateBackendMetricDataEv(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %backend_metric_data_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 2
+  %backend_metric_data_ = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %backend_metric_data_
 }
 
@@ -2734,10 +2617,10 @@ entry:
 define linkonce_odr noundef ptr @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocator14AllocateStringEm(ptr noundef nonnull align 8 dereferenceable(256) %this, i64 noundef %size) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @gpr_malloc(i64 noundef %size)
-  %string_storage_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %string_storage_ = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2745,7 +2628,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.125", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE12emplace_backIJRPcEEERS3_DpOT_.exit
 
@@ -2792,14 +2675,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %4 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !72, !noalias !69
   store i64 %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !69, !noalias !72
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !72, !noalias !69
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.125", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.125", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !74
 
 _ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.125", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE17_M_realloc_insertIJRPcEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %if.then.i20.i
 
@@ -2828,10 +2711,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_dESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null
@@ -2849,12 +2732,12 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocator23NotifyWatchersInExecCtxEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef %0) #3 comdat align 2 {
 delete.end:
-  %producer_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %arg, i64 0, i32 1
+  %producer_ = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %producer_, align 8
-  %backend_metric_data_ = getelementptr inbounds %"class.grpc_core::OrcaProducer::OrcaStreamEventHandler::BackendMetricAllocator", ptr %arg, i64 0, i32 2
+  %backend_metric_data_ = getelementptr inbounds i8, ptr %arg, i64 16
   tail call void @_ZN9grpc_core12OrcaProducer14NotifyWatchersERKNS_17BackendMetricDataE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(184) %backend_metric_data_)
   %vtable = load ptr, ptr %arg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %arg) #20
   ret void
@@ -2905,7 +2788,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %1, i64 0, i32 1
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %refs_.i.i.i.i acquire, align 8, !noalias !76
   br label %do.body.i.i.i.i
 
@@ -2923,14 +2806,14 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 
 _ZN9grpc_core14DualRefCountedINS_10Subchannel21DataProducerInterfaceEE12RefIfNonZeroEv.exit.i.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ null, %do.body.i.i.i.i ], [ %1, %do.cond.i.i.i.i ]
-  %producer_.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %0, i64 0, i32 3
+  %producer_.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %producer_.i.i.i, align 8
   store ptr %storemerge.i.i.i.i, ptr %producer_.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core14DualRefCountedINS_10Subchannel21DataProducerInterfaceEE12RefIfNonZeroEv.exit.i.i.i
-  %refs_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %6, i64 0, i32 1
+  %refs_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw add ptr %refs_.i.i.i.i.i.i.i, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i.i.i.i.i.i = and i64 %7, -4294967296
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %shr.i.mask.i.i.i.i.i.i.i, 4294967296
@@ -2949,7 +2832,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   br label %if.end.i.i.i
@@ -2962,7 +2845,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZN9grpc_core14DualRefCountedINS_10Subchannel21DataProducerInterfaceEE12RefIfNonZeroEv.exit.i.i.i, %entry
-  %producer_2.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaWatcher", ptr %0, i64 0, i32 3
+  %producer_2.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %producer_2.i.i.i, align 8
   %cmp.i5.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i5.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i, label %"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
@@ -2971,27 +2854,27 @@ _ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i: ; preds = %if.e
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22, !noalias !80
   %14 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %14, i8 0, i64 32, i1 false), !noalias !80
-  %refs_.i.i.i.i6.i.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %call.i.i.i.i, i64 0, i32 1
+  %refs_.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 4294967296, ptr %refs_.i.i.i.i6.i.i.i, align 8, !noalias !80
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !80
-  %subchannel_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 1
-  %15 = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %subchannel_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %15 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
+  %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 64
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  %_M_left.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %subchannel_.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !80
   store ptr %15, ptr %_M_left.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  %_M_right.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   store ptr %15, ptr %_M_right.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  %_M_node_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 88
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  %report_interval_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 6
+  %report_interval_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 96
   store i64 9223372036854775807, ptr %report_interval_.i.i.i.i.i, align 8, !noalias !80
-  %stream_client_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::OrcaProducer", ptr %call.i.i.i.i, i64 0, i32 7
+  %stream_client_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 104
   store ptr null, ptr %stream_client_.i.i.i.i.i, align 8, !noalias !80
   store ptr %call.i.i.i.i, ptr %producer_2.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %__args.val, align 8
-  %16 = getelementptr inbounds %class.anon, ptr %__functor, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %__functor, i64 8
   %17 = load ptr, ptr %16, align 8
   store i8 1, ptr %17, align 1
   br label %"_ZSt10__invoke_rIvRZN9grpc_core11OrcaWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"

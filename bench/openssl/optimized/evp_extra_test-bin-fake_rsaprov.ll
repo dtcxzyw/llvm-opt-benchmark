@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
-%struct.fake_rsa_keydata = type { i32, i32 }
 
 @key_deleted = internal unnamed_addr global i1 false, align 4
 @.str = private unnamed_addr constant [2 x i8] c"n\00", align 1
@@ -232,7 +231,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %status = getelementptr inbounds %struct.fake_rsa_keydata, ptr %provkey, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %provkey, i64 4
   %0 = load i32, ptr %status, align 4
   %call3 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.9, i32 noundef 324, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef %0, i32 noundef 0) #12
   %tobool4.not = icmp eq i32 %call3, 0
@@ -593,7 +592,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %status = getelementptr inbounds %struct.fake_rsa_keydata, ptr %provkey, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %provkey, i64 4
   %0 = load i32, ptr %status, align 4
   %call3 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.9, i32 noundef 387, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef %0, i32 noundef 0) #12
   %tobool4.not = icmp eq i32 %call3, 0
@@ -661,7 +660,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @fake_rsa_keymgmt_import(ptr nocapture noundef writeonly %keydata, i32 %selection, ptr nocapture readnone %p) #4 {
 entry:
-  %status = getelementptr inbounds %struct.fake_rsa_keydata, ptr %keydata, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %keydata, i64 4
   store i32 1, ptr %status, align 4
   ret i32 1
 }
@@ -713,7 +712,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %reference, align 8
-  %status = getelementptr inbounds %struct.fake_rsa_keydata, ptr %0, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %status, align 4
   %cmp1.not = icmp eq i32 %1, 1
   br i1 %cmp1.not, label %if.end3, label %return
@@ -766,7 +765,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %status = getelementptr inbounds %struct.fake_rsa_keydata, ptr %.call.i, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %.call.i, i64 4
   store i32 2, ptr %status, align 4
   br label %return
 
@@ -920,7 +919,7 @@ if.end:                                           ; preds = %sw.bb
   br i1 %tobool.not, label %sw.epilog, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %status.i = getelementptr inbounds %struct.fake_rsa_keydata, ptr %.call.i, i64 0, i32 1
+  %status.i = getelementptr inbounds i8, ptr %.call.i, i64 4
   store i32 1, ptr %status.i, align 4
   %call6 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.9, i32 noundef 631, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 0) #12
   %tobool7.not = icmp eq i32 %call6, 0
@@ -929,13 +928,13 @@ if.end4:                                          ; preds = %if.end
 if.end9:                                          ; preds = %if.end4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.45, ptr noundef nonnull %object_type) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx10 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp11, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.29, i64 noundef 0) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx10, ptr noundef nonnull align 8 dereferenceable(40) %tmp11, i64 40, i1 false)
-  %arrayidx12 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp13, ptr noundef nonnull @.str.47, ptr noundef nonnull %key, i64 noundef 8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx12, ptr noundef nonnull align 8 dereferenceable(40) %tmp13, i64 40, i1 false)
-  %arrayidx14 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp15) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx14, ptr noundef nonnull align 8 dereferenceable(40) %tmp15, i64 40, i1 false)
   %call16 = call i32 %object_cb(ptr noundef nonnull %params, ptr noundef %object_cbarg) #12

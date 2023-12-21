@@ -11,6 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
+%"class.absl::lts_20230802::Time" = type { %"class.absl::lts_20230802::Duration" }
+%"class.absl::lts_20230802::Duration" = type { %"class.absl::lts_20230802::Duration::HiRep", i32 }
+%"class.absl::lts_20230802::Duration::HiRep" = type { i32, i32 }
 %"class.google::protobuf::Timestamp" = type { %"class.google::protobuf::Message", %union.anon.0 }
 %"class.google::protobuf::Message" = type { %"class.google::protobuf::MessageLite" }
 %"class.google::protobuf::MessageLite" = type { ptr, %"class.google::protobuf::internal::InternalMetadata" }
@@ -18,15 +21,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { %"struct.google::protobuf::Timestamp::Impl_" }
 %"struct.google::protobuf::Timestamp::Impl_" = type { i64, i32, %"class.google::protobuf::internal::CachedSize" }
 %"class.google::protobuf::internal::CachedSize" = type { i32 }
-%"class.absl::lts_20230802::Time" = type { %"class.absl::lts_20230802::Duration" }
-%"class.absl::lts_20230802::Duration" = type { %"class.absl::lts_20230802::Duration::HiRep", i32 }
-%"class.absl::lts_20230802::Duration::HiRep" = type { i32, i32 }
+%"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
+%"class.std::allocator" = type { i8 }
 %"class.google::protobuf::Duration" = type { %"class.google::protobuf::Message", %union.anon.1 }
 %union.anon.1 = type { %"struct.google::protobuf::Duration::Impl_" }
 %"struct.google::protobuf::Duration::Impl_" = type { i64, i32, %"class.google::protobuf::internal::CachedSize" }
-%"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
-%"class.std::allocator" = type { i8 }
-%struct.timeval = type { i64, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -88,9 +87,9 @@ entry:
   %ref.tmp9.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp10.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %timestamp, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
@@ -106,7 +105,7 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   store i64 1, ptr %ref.tmp.i, align 8, !noalias !4
-  %3 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.1, ptr %3, align 8, !noalias !4
   %rem.i.i = srem i32 %2, 1000000
   %div.i.i = sdiv i32 %2, 1000000
@@ -118,7 +117,7 @@ if.then.i.i:                                      ; preds = %invoke.cont.i
   %retval.sroa.0.0.insert.ext.i.i.i.i.i.i = zext i32 %div.i.i to i64
   %4 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i.i to ptr
   store ptr %4, ptr %ref.tmp.i.i.i, align 8, !noalias !10
-  %dispatcher_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i, align 8, !noalias !10
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr nonnull @.str.6, i64 4, ptr nonnull %ref.tmp.i.i.i, i64 1)
           to label %.noexc.i unwind label %lpad.i
@@ -138,7 +137,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
   %retval.sroa.0.0.insert.ext.i.i.i.i8.i.i = zext i32 %div7.i.i to i64
   %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i8.i.i to ptr
   store ptr %5, ptr %ref.tmp.i3.i.i, align 8, !noalias !13
-  %dispatcher_.i.i.i9.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i3.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i9.i.i = getelementptr inbounds i8, ptr %ref.tmp.i3.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i9.i.i, align 8, !noalias !13
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr nonnull @.str.7, i64 4, ptr nonnull %ref.tmp.i3.i.i, i64 1)
           to label %.noexc3.i unwind label %lpad.i
@@ -152,7 +151,7 @@ if.else8.i.i:                                     ; preds = %if.else.i.i
   %retval.sroa.0.0.insert.ext.i.i.i.i17.i.i = zext i32 %2 to i64
   %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i17.i.i to ptr
   store ptr %6, ptr %ref.tmp.i12.i.i, align 8, !noalias !16
-  %dispatcher_.i.i.i18.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i12.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i18.i.i = getelementptr inbounds i8, ptr %ref.tmp.i12.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i18.i.i, align 8, !noalias !16
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr nonnull @.str.8, i64 4, ptr nonnull %ref.tmp.i12.i.i, i64 1)
           to label %.noexc4.i unwind label %lpad.i
@@ -165,7 +164,7 @@ invoke.cont11.i:                                  ; preds = %.noexc4.i, %.noexc3
   %call.i5.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #15
   %7 = extractvalue { i64, ptr } %call.i5.i, 0
   store i64 %7, ptr %ref.tmp9.i, align 8, !noalias !4
-  %8 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp9.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %9 = extractvalue { i64, ptr } %call.i5.i, 1
   store ptr %9, ptr %8, align 8, !noalias !4
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.i)
@@ -188,7 +187,7 @@ lpad12.i:                                         ; preds = %invoke.cont11.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i, %entry
   store i64 1, ptr %ref.tmp15.i, align 8, !noalias !4
-  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp15.i, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp15.i, i64 8
   store ptr @.str.5, ptr %12, align 8, !noalias !4
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp15.i)
           to label %_ZN6google8protobuf4util12_GLOBAL__N_110FormatTimeB5cxx11Eli.exit unwind label %lpad.i
@@ -212,10 +211,10 @@ entry:
   %result.i = alloca %"class.absl::lts_20230802::Time", align 8
   %ref.tmp = alloca %"class.google::protobuf::Timestamp", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %result.i)
-  %hi_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Duration::HiRep", ptr %result.i, i64 0, i32 1
+  %hi_.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 4
   store i32 0, ptr %hi_.i.i.i.i, align 4
   store i32 0, ptr %result.i, align 8
-  %rep_lo_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Duration", ptr %result.i, i64 0, i32 1
+  %rep_lo_.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 8
   store i32 0, ptr %rep_lo_.i.i.i, align 8
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN4absl12lts_2023080212RFC3339_fullE) #15
   %call.i = call noundef zeroext i1 @_ZN4absl12lts_202308029ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES4_PNS0_4TimeEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %call.i.i.i, ptr nonnull @_ZN4absl12lts_2023080212RFC3339_fullE, i64 %value.coerce0, ptr %value.coerce1, ptr noundef nonnull %result.i, ptr noundef null)
@@ -254,15 +253,15 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %seconds.addr.0.i, %sub.i
   call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
-  %3 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %ref.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %seconds.addr.1.i, ptr %3, align 8, !alias.scope !19
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !19
   %cmp.i = icmp eq ptr %ref.tmp, %timestamp
   br i1 %cmp.i, label %_ZN6google8protobuf9TimestampaSEOS1_.exit, label %if.end.i2
 
 if.end.i2:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.exit
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %timestamp, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %timestamp, i64 8
   %4 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i = and i64 %4, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -280,7 +279,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i2
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %6, %if.then.i.i.i ], [ %7, %if.else.i.i.i ]
-  %_internal_metadata_.i4.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %ref.tmp, i64 0, i32 1
+  %_internal_metadata_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i64, ptr %_internal_metadata_.i4.i, align 8
   %and.i.i5.i = and i64 %8, 1
   %tobool.i.not.i6.i = icmp eq i64 %and.i.i5.i, 0
@@ -358,9 +357,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %seconds.addr.0.i, %sub.i
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %3 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %3, align 8, !alias.scope !22
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !22
   ret void
 }
@@ -384,9 +383,9 @@ invoke.cont1:
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp20 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %duration, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %cmp = icmp slt i64 %1, 0
   %cmp3 = icmp slt i32 %2, 0
@@ -410,7 +409,7 @@ lpad:                                             ; preds = %if.else8.i, %if.the
 if.end:                                           ; preds = %invoke.cont1, %invoke.cont4
   %seconds.0 = phi i64 [ %sub, %invoke.cont4 ], [ %1, %invoke.cont1 ]
   %nanos.0 = phi i32 [ %sub6, %invoke.cont4 ], [ %2, %invoke.cont1 ]
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %call.i8 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %seconds.0, ptr noundef nonnull %digits_.i)
           to label %invoke.cont7 unwind label %lpad
 
@@ -419,7 +418,7 @@ invoke.cont7:                                     ; preds = %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont8 unwind label %lpad
@@ -430,7 +429,7 @@ invoke.cont8:                                     ; preds = %invoke.cont7
 
 invoke.cont12:                                    ; preds = %invoke.cont8
   store i64 1, ptr %ref.tmp11, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp11, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store ptr @.str.1, ptr %4, align 8
   %rem.i = srem i32 %nanos.0, 1000000
   %div.i = sdiv i32 %nanos.0, 1000000
@@ -442,7 +441,7 @@ if.then.i:                                        ; preds = %invoke.cont12
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %div.i to i64
   %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
   store ptr %5, ptr %ref.tmp.i.i, align 8, !noalias !28
-  %dispatcher_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8, !noalias !28
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr nonnull @.str.6, i64 4, ptr nonnull %ref.tmp.i.i, i64 1)
           to label %.noexc unwind label %lpad
@@ -462,7 +461,7 @@ if.then4.i:                                       ; preds = %if.else.i
   %retval.sroa.0.0.insert.ext.i.i.i.i8.i = zext i32 %div7.i to i64
   %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i8.i to ptr
   store ptr %6, ptr %ref.tmp.i3.i, align 8, !noalias !31
-  %dispatcher_.i.i.i9.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i3.i, i64 0, i32 1
+  %dispatcher_.i.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp.i3.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i9.i, align 8, !noalias !31
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr nonnull @.str.7, i64 4, ptr nonnull %ref.tmp.i3.i, i64 1)
           to label %.noexc9 unwind label %lpad
@@ -476,7 +475,7 @@ if.else8.i:                                       ; preds = %if.else.i
   %retval.sroa.0.0.insert.ext.i.i.i.i17.i = zext i32 %nanos.0 to i64
   %7 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i17.i to ptr
   store ptr %7, ptr %ref.tmp.i12.i, align 8, !noalias !34
-  %dispatcher_.i.i.i18.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i12.i, i64 0, i32 1
+  %dispatcher_.i.i.i18.i = getelementptr inbounds i8, ptr %ref.tmp.i12.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i18.i, align 8, !noalias !34
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr nonnull @.str.8, i64 4, ptr nonnull %ref.tmp.i12.i, i64 1)
           to label %.noexc10 unwind label %lpad
@@ -489,7 +488,7 @@ invoke.cont15:                                    ; preds = %.noexc10, %.noexc9,
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #15
   %8 = extractvalue { i64, ptr } %call.i, 0
   store i64 %8, ptr %ref.tmp13, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp13, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %10 = extractvalue { i64, ptr } %call.i, 1
   store ptr %10, ptr %9, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13)
@@ -507,7 +506,7 @@ lpad16:                                           ; preds = %invoke.cont15
 
 invoke.cont21:                                    ; preds = %invoke.cont8, %invoke.cont18
   store i64 1, ptr %ref.tmp20, align 8
-  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp20, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   store ptr @.str.2, ptr %12, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp20)
           to label %nrvo.skipdtor unwind label %lpad
@@ -597,7 +596,7 @@ invoke.cont:                                      ; preds = %if.then10
   %6 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %5, ptr %6) #15
   %7 = load i64, ptr %agg.tmp.i, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %9 = load ptr, ptr %8, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %7, ptr %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %invoke.cont18 unwind label %lpad17
@@ -644,7 +643,7 @@ invoke.cont25:                                    ; preds = %if.else
   %13 = extractvalue { i64, ptr } %call.i32, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i28, i64 %12, ptr %13) #15
   %14 = load i64, ptr %agg.tmp.i28, align 8
-  %15 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i28, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %agg.tmp.i28, i64 8
   %16 = load ptr, ptr %15, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, i64 %14, ptr %16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
@@ -666,7 +665,7 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %19 = extractvalue { i64, ptr } %call.i49, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i45, i64 %18, ptr %19) #15
   %20 = load i64, ptr %agg.tmp.i45, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i45, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %agg.tmp.i45, i64 8
   %22 = load ptr, ptr %21, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, i64 %20, ptr %22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38)
           to label %invoke.cont40 unwind label %lpad39
@@ -732,10 +731,10 @@ invoke.cont68:                                    ; preds = %for.body.i, %if.end
   %sub66 = sub nsw i64 0, %mul
   %seconds.0 = select i1 %cmp6, i64 %sub65, i64 %call44
   %nanos.0 = select i1 %cmp6, i64 %sub66, i64 %mul
-  %28 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %duration, i64 16
   store i64 %seconds.0, ptr %28, align 8
   %conv69 = trunc i64 %nanos.0 to i32
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %duration, i64 24
   store i32 %conv69, ptr %nanos_.i.i, align 8
   br label %cleanup
 
@@ -805,9 +804,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %conv, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %div, %if.else.i ]
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %0, align 8, !alias.scope !40
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !40
   ret void
 }
@@ -844,9 +843,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %conv, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %div, %if.else.i ]
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %1 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %1, align 8, !alias.scope !43
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !43
   ret void
 }
@@ -883,9 +882,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %conv, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %div, %if.else.i ]
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %1 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %1, align 8, !alias.scope !46
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !46
   ret void
 }
@@ -894,9 +893,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
 define void @_ZN6google8protobuf4util8TimeUtil17SecondsToDurationEl(ptr noalias nonnull sret(%"class.google::protobuf::Duration") align 8 %agg.result, i64 noundef %seconds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds, ptr %0, align 8, !alias.scope !49
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %nanos_.i.i.i, align 8, !alias.scope !49
   ret void
 }
@@ -906,9 +905,9 @@ define void @_ZN6google8protobuf4util8TimeUtil17MinutesToDurationEl(ptr noalias 
 entry:
   %mul = mul nsw i64 %minutes, 60
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %mul, ptr %0, align 8, !alias.scope !52
-  %nanos_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %nanos_.i.i.i.i, align 8, !alias.scope !52
   ret void
 }
@@ -918,9 +917,9 @@ define void @_ZN6google8protobuf4util8TimeUtil15HoursToDurationEl(ptr noalias no
 entry:
   %mul = mul nsw i64 %hours, 3600
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %mul, ptr %0, align 8, !alias.scope !57
-  %nanos_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %nanos_.i.i.i.i, align 8, !alias.scope !57
   ret void
 }
@@ -928,10 +927,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil21DurationToNanosecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
   %mul = mul nsw i64 %1, 1000000000
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %duration, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %conv = sext i32 %2 to i64
   %add = add nsw i64 %mul, %conv
@@ -941,10 +940,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil22DurationToMicrosecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
   %mul = mul nsw i64 %1, 1000000
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %duration, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i2 to i64
@@ -961,7 +960,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil17DurationToSecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
   ret i64 %1
 }
@@ -969,10 +968,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil22DurationToMillisecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
   %mul = mul nsw i64 %1, 1000
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %duration, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000000
   %div.i.sext = sext i32 %div.i2 to i64
@@ -989,7 +988,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil17DurationToMinutesERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
   %div.i = sdiv i64 %1, 60
   %rem.i = srem i64 %1, 60
@@ -1004,7 +1003,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
   %div.i = sdiv i64 %1, 3600
   %rem.i = srem i64 %1, 3600
@@ -1028,9 +1027,9 @@ entry:
   %sub.i = ashr i64 %rem, 31
   %seconds.addr.1.i = add nsw i64 %sub.i, %div
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %0, align 8, !alias.scope !62
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !62
   ret void
 }
@@ -1049,9 +1048,9 @@ entry:
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %div, %sub.i
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %1 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %1, align 8, !alias.scope !65
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !65
   ret void
 }
@@ -1070,9 +1069,9 @@ entry:
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %div, %sub.i
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %1 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %1, align 8, !alias.scope !68
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !68
   ret void
 }
@@ -1081,9 +1080,9 @@ entry:
 define void @_ZN6google8protobuf4util8TimeUtil18SecondsToTimestampEl(ptr noalias nonnull sret(%"class.google::protobuf::Timestamp") align 8 %agg.result, i64 noundef %seconds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds, ptr %0, align 8, !alias.scope !71
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %nanos_.i.i.i, align 8, !alias.scope !71
   ret void
 }
@@ -1091,10 +1090,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil22TimestampToNanosecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
   %mul = mul nsw i64 %1, 1000000000
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %timestamp, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %conv = sext i32 %2 to i64
   %add = add nsw i64 %mul, %conv
@@ -1104,10 +1103,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil23TimestampToMicrosecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
   %mul = mul nsw i64 %1, 1000000
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %timestamp, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i2 to i64
@@ -1124,10 +1123,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil23TimestampToMillisecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
   %mul = mul nsw i64 %1, 1000
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %timestamp, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000000
   %div.i.sext = sext i32 %div.i2 to i64
@@ -1144,7 +1143,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil18TimestampToSecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %timestamp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
   ret i64 %1
 }
@@ -1153,9 +1152,9 @@ entry:
 define void @_ZN6google8protobuf4util8TimeUtil16TimeTToTimestampEl(ptr noalias nonnull sret(%"class.google::protobuf::Timestamp") align 8 %agg.result, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %value, ptr %0, align 8, !alias.scope !74
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %nanos_.i.i.i, align 8, !alias.scope !74
   ret void
 }
@@ -1163,7 +1162,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobuf4util8TimeUtil16TimestampToTimeTERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %value, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %value, i64 16
   %1 = load i64, ptr %0, align 8
   ret i64 %1
 }
@@ -1172,7 +1171,7 @@ entry:
 define void @_ZN6google8protobuf4util8TimeUtil18TimevalToTimestampERK7timeval(ptr noalias sret(%"class.google::protobuf::Timestamp") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %value, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %value, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %2 = trunc i64 %1 to i32
   %conv = mul i32 %2, 1000
@@ -1197,9 +1196,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %seconds.addr.0.i, %sub.i
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %4 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %4, align 8, !alias.scope !77
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !77
   ret void
 }
@@ -1207,9 +1206,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZN6google8protobuf4util8TimeUtil18TimestampToTimevalERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %value, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %value, i64 16
   %1 = load i64, ptr %0, align 8
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %value, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i2 to i64
@@ -1228,7 +1227,7 @@ entry:
 define void @_ZN6google8protobuf4util8TimeUtil17TimevalToDurationERK7timeval(ptr noalias sret(%"class.google::protobuf::Duration") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %value, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %value, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %2 = trunc i64 %1 to i32
   %conv = mul i32 %2, 1000
@@ -1271,9 +1270,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %nanos.addr.0.i, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %seconds.addr.0.i, %if.else.i ]
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %4 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %4, align 8, !alias.scope !80
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !80
   ret void
 }
@@ -1281,9 +1280,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZN6google8protobuf4util8TimeUtil17DurationToTimevalERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %value, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %value, i64 16
   %1 = load i64, ptr %0, align 8
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %value, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i5 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i5 to i64
@@ -1307,14 +1306,14 @@ entry:
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufpLERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Duration", align 8
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %d2, i64 16
   %3 = load i64, ptr %2, align 8
   %add = add nsw i64 %3, %1
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %d1, i64 24
   %4 = load i32, ptr %nanos_.i.i, align 8
-  %nanos_.i.i5 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i5 = getelementptr inbounds i8, ptr %d2, i64 24
   %5 = load i32, ptr %nanos_.i.i5, align 8
   %add4 = add nsw i32 %5, %4
   %6 = add i32 %add4, -1000000000
@@ -1356,15 +1355,15 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %nanos.addr.0.i, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %seconds.addr.0.i, %if.else.i ]
   call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
-  %7 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %ref.tmp, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !83
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !83
   %cmp.i = icmp eq ptr %ref.tmp, %d1
   br i1 %cmp.i, label %_ZN6google8protobuf8DurationaSEOS1_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %d1, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %d1, i64 8
   %8 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i = and i64 %8, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1382,7 +1381,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i6
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %10, %if.then.i.i.i ], [ %11, %if.else.i.i.i ]
-  %_internal_metadata_.i4.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %ref.tmp, i64 0, i32 1
+  %_internal_metadata_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_internal_metadata_.i4.i, align 8
   %and.i.i5.i = and i64 %12, 1
   %tobool.i.not.i6.i = icmp eq i64 %and.i.i5.i, 0
@@ -1430,14 +1429,14 @@ declare void @_ZN6google8protobuf8DurationD1Ev(ptr noundef nonnull align 8 deref
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmIERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Duration", align 8
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %d2, i64 16
   %3 = load i64, ptr %2, align 8
   %sub = sub nsw i64 %1, %3
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %d1, i64 24
   %4 = load i32, ptr %nanos_.i.i, align 8
-  %nanos_.i.i5 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i5 = getelementptr inbounds i8, ptr %d2, i64 24
   %5 = load i32, ptr %nanos_.i.i5, align 8
   %sub4 = sub nsw i32 %4, %5
   %6 = add i32 %sub4, -1000000000
@@ -1479,15 +1478,15 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %nanos.addr.0.i, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %seconds.addr.0.i, %if.else.i ]
   call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
-  %7 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %ref.tmp, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !86
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !86
   %cmp.i = icmp eq ptr %ref.tmp, %d1
   br i1 %cmp.i, label %_ZN6google8protobuf8DurationaSEOS1_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %d1, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %d1, i64 8
   %8 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i = and i64 %8, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1505,7 +1504,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i6
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %10, %if.then.i.i.i ], [ %11, %if.else.i.i.i ]
-  %_internal_metadata_.i4.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %ref.tmp, i64 0, i32 1
+  %_internal_metadata_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_internal_metadata_.i4.i, align 8
   %and.i.i5.i = and i64 %12, 1
   %tobool.i.not.i6.i = icmp eq i64 %and.i.i5.i, 0
@@ -1549,10 +1548,10 @@ _ZN6google8protobuf8DurationaSEOS1_.exit:         ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmLERNS0_8DurationEl(ptr noundef nonnull returned align 8 dereferenceable(32) %d, i64 noundef %r) local_unnamed_addr #6 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d, i64 16
   %1 = load i64, ptr %0, align 8
   %cmp.i = icmp slt i64 %1, 0
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %d, i64 24
   %2 = load i32, ptr %nanos_.i.i.i, align 8
   %cmp2.i = icmp slt i32 %2, 0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
@@ -1588,10 +1587,10 @@ entry:
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmLERNS0_8DurationEd(ptr noundef nonnull returned align 8 dereferenceable(32) %d, double noundef %r) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Duration", align 8
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d, i64 16
   %1 = load i64, ptr %0, align 8
   %conv = sitofp i64 %1 to double
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %d, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %conv2 = sitofp i32 %2 to double
   %3 = tail call double @llvm.fmuladd.f64(double %conv2, double 1.000000e-09, double %conv)
@@ -1640,15 +1639,15 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %nanos.addr.0.i, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %seconds.addr.0.i, %if.else.i ]
   call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
-  %5 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %ref.tmp, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %seconds.addr.1.i, ptr %5, align 8, !alias.scope !89
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !89
   %cmp.i = icmp eq ptr %ref.tmp, %d
   br i1 %cmp.i, label %_ZN6google8protobuf8DurationaSEOS1_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %d, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %d, i64 8
   %6 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i = and i64 %6, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1666,7 +1665,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i6
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %8, %if.then.i.i.i ], [ %9, %if.else.i.i.i ]
-  %_internal_metadata_.i4.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %ref.tmp, i64 0, i32 1
+  %_internal_metadata_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %10 = load i64, ptr %_internal_metadata_.i4.i, align 8
   %and.i.i5.i = and i64 %10, 1
   %tobool.i.not.i6.i = icmp eq i64 %and.i.i5.i, 0
@@ -1713,10 +1712,10 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufdVERNS0_8DurationEl(ptr noundef nonnull returned align 8 dereferenceable(32) %d, i64 noundef %r) local_unnamed_addr #6 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d, i64 16
   %1 = load i64, ptr %0, align 8
   %cmp.i = icmp slt i64 %1, 0
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %d, i64 24
   %2 = load i32, ptr %nanos_.i.i.i, align 8
   %cmp2.i = icmp slt i32 %2, 0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
@@ -1759,10 +1758,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufrMERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #8 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8
   %cmp.i = icmp slt i64 %1, 0
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %d1, i64 24
   %2 = load i32, ptr %nanos_.i.i.i, align 8
   %cmp2.i = icmp slt i32 %2, 0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
@@ -1774,10 +1773,10 @@ entry:
   %mul.i33.sink.i = mul nuw nsw i128 %mul.i33.sink.in.i, 1000000000
   %coerce2.sroa.0.0.insert.ext.i45.i = zext i32 %.sink.i to i128
   %coerce.sroa.0.0.insert.insert.i47.i = add nuw nsw i128 %mul.i33.sink.i, %coerce2.sroa.0.0.insert.ext.i45.i
-  %3 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %d2, i64 16
   %4 = load i64, ptr %3, align 8
   %cmp.i4 = icmp slt i64 %4, 0
-  %nanos_.i.i.i6 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i6 = getelementptr inbounds i8, ptr %d2, i64 24
   %5 = load i32, ptr %nanos_.i.i.i6, align 8
   %cmp2.i7 = icmp slt i32 %5, 0
   %or.cond27 = or i1 %cmp.i4, %cmp2.i7
@@ -1808,10 +1807,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6google8protobufdvERKNS0_8DurationES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #5 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8
   %cmp.i = icmp slt i64 %1, 0
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d1, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %d1, i64 24
   %2 = load i32, ptr %nanos_.i.i.i, align 8
   %cmp2.i = icmp slt i32 %2, 0
   %or.cond = or i1 %cmp.i, %cmp2.i
@@ -1823,10 +1822,10 @@ entry:
   %mul.i33.sink.i = mul nuw nsw i128 %mul.i33.sink.in.i, 1000000000
   %coerce2.sroa.0.0.insert.ext.i45.i = zext i32 %.sink.i to i128
   %coerce.sroa.0.0.insert.insert.i47.i = add nuw nsw i128 %mul.i33.sink.i, %coerce2.sroa.0.0.insert.ext.i45.i
-  %3 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %d2, i64 16
   %4 = load i64, ptr %3, align 8
   %cmp.i2 = icmp slt i64 %4, 0
-  %nanos_.i.i.i4 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d2, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i4 = getelementptr inbounds i8, ptr %d2, i64 24
   %5 = load i32, ptr %nanos_.i.i.i4, align 8
   %cmp2.i5 = icmp slt i32 %5, 0
   %or.cond23 = or i1 %cmp.i2, %cmp2.i5
@@ -1850,14 +1849,14 @@ entry:
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufpLERNS0_9TimestampERKNS0_8DurationE(ptr noundef nonnull returned align 8 dereferenceable(32) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Timestamp", align 8
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %t, i64 16
   %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %d, i64 16
   %3 = load i64, ptr %2, align 8
   %add = add nsw i64 %3, %1
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %4 = load i32, ptr %nanos_.i.i, align 8
-  %nanos_.i.i5 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i5 = getelementptr inbounds i8, ptr %d, i64 24
   %5 = load i32, ptr %nanos_.i.i5, align 8
   %add4 = add nsw i32 %5, %4
   %6 = add i32 %add4, -1000000000
@@ -1881,15 +1880,15 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %seconds.addr.0.i, %sub.i
   call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
-  %7 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %ref.tmp, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !92
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !92
   %cmp.i = icmp eq ptr %ref.tmp, %t
   br i1 %cmp.i, label %_ZN6google8protobuf9TimestampaSEOS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.exit
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %t, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %8 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i = and i64 %8, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1907,7 +1906,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %10, %if.then.i.i.i ], [ %11, %if.else.i.i.i ]
-  %_internal_metadata_.i4.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %ref.tmp, i64 0, i32 1
+  %_internal_metadata_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_internal_metadata_.i4.i, align 8
   %and.i.i5.i = and i64 %12, 1
   %tobool.i.not.i6.i = icmp eq i64 %and.i.i5.i, 0
@@ -1952,14 +1951,14 @@ _ZN6google8protobuf9TimestampaSEOS1_.exit:        ; preds = %_ZN6google8protobuf
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmIERNS0_9TimestampERKNS0_8DurationE(ptr noundef nonnull returned align 8 dereferenceable(32) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Timestamp", align 8
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %t, i64 16
   %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %d, i64 16
   %3 = load i64, ptr %2, align 8
   %sub = sub nsw i64 %1, %3
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %4 = load i32, ptr %nanos_.i.i, align 8
-  %nanos_.i.i5 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %d, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i5 = getelementptr inbounds i8, ptr %d, i64 24
   %5 = load i32, ptr %nanos_.i.i5, align 8
   %sub4 = sub nsw i32 %4, %5
   %6 = add i32 %sub4, -1000000000
@@ -1983,15 +1982,15 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   %sub.i = sext i32 %nanos.addr.0.lobit.i to i64
   %seconds.addr.1.i = add nsw i64 %seconds.addr.0.i, %sub.i
   call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
-  %7 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %ref.tmp, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !95
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !95
   %cmp.i = icmp eq ptr %ref.tmp, %t
   br i1 %cmp.i, label %_ZN6google8protobuf9TimestampaSEOS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.exit
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %t, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %8 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i = and i64 %8, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -2009,7 +2008,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %10, %if.then.i.i.i ], [ %11, %if.else.i.i.i ]
-  %_internal_metadata_.i4.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %ref.tmp, i64 0, i32 1
+  %_internal_metadata_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_internal_metadata_.i4.i, align 8
   %and.i.i5.i = and i64 %12, 1
   %tobool.i.not.i6.i = icmp eq i64 %and.i.i5.i, 0
@@ -2053,14 +2052,14 @@ _ZN6google8protobuf9TimestampaSEOS1_.exit:        ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobufmiERKNS0_9TimestampES3_(ptr noalias sret(%"class.google::protobuf::Duration") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %t1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %t1, i64 16
   %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t2, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %t2, i64 16
   %3 = load i64, ptr %2, align 8
   %sub = sub nsw i64 %1, %3
-  %nanos_.i.i = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t1, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i = getelementptr inbounds i8, ptr %t1, i64 24
   %4 = load i32, ptr %nanos_.i.i, align 8
-  %nanos_.i.i3 = getelementptr inbounds %"class.google::protobuf::Timestamp", ptr %t2, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i3 = getelementptr inbounds i8, ptr %t2, i64 24
   %5 = load i32, ptr %nanos_.i.i3, align 8
   %sub4 = sub nsw i32 %4, %5
   %6 = add i32 %sub4, -1000000000
@@ -2102,9 +2101,9 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   %nanos.addr.1.i = phi i32 [ %sub.i, %if.then4.i ], [ %add11.i, %if.then9.i ], [ %nanos.addr.0.i, %if.else.i ]
   %seconds.addr.1.i = phi i64 [ %add5.i, %if.then4.i ], [ %sub10.i, %if.then9.i ], [ %seconds.addr.0.i, %if.else.i ]
   tail call void @_ZN6google8protobuf8DurationC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
-  %7 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !98
-  %nanos_.i.i.i = getelementptr inbounds %"class.google::protobuf::Duration", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %nanos_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !98
   ret void
 }

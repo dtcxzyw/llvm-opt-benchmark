@@ -3,16 +3,6 @@ source_filename = "bench/rocksdb/original/trace_record.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::TraceRecord" = type { ptr, i64 }
-%"class.rocksdb::WriteQueryTraceRecord" = type { %"class.rocksdb::QueryTraceRecord", %"class.rocksdb::PinnableSlice" }
-%"class.rocksdb::QueryTraceRecord" = type { %"class.rocksdb::TraceRecord" }
-%"class.rocksdb::PinnableSlice" = type <{ %"class.rocksdb::Slice", %"class.rocksdb::Cleanable", %"class.std::__cxx11::basic_string", ptr, i8, [7 x i8] }>
-%"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.rocksdb::Cleanable" = type { %"struct.rocksdb::Cleanable::Cleanup" }
-%"struct.rocksdb::Cleanable::Cleanup" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -20,19 +10,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
-%"class.rocksdb::GetQueryTraceRecord" = type { %"class.rocksdb::QueryTraceRecord", i32, [4 x i8], %"class.rocksdb::PinnableSlice" }
-%"class.rocksdb::IteratorQueryTraceRecord" = type { %"class.rocksdb::QueryTraceRecord", %"class.rocksdb::PinnableSlice", %"class.rocksdb::PinnableSlice" }
-%"class.rocksdb::IteratorSeekQueryTraceRecord" = type { %"class.rocksdb::IteratorQueryTraceRecord", i32, i32, %"class.rocksdb::PinnableSlice" }
-%"class.rocksdb::MultiGetQueryTraceRecord" = type { %"class.rocksdb::QueryTraceRecord", %"class.std::vector.10", %"class.std::vector.15" }
+%"class.rocksdb::PinnableSlice" = type <{ %"class.rocksdb::Slice", %"class.rocksdb::Cleanable", %"class.std::__cxx11::basic_string", ptr, i8, [7 x i8] }>
+%"class.rocksdb::Slice" = type { ptr, i64 }
+%"class.rocksdb::Cleanable" = type { %"struct.rocksdb::Cleanable::Cleanup" }
+%"struct.rocksdb::Cleanable::Cleanup" = type { ptr, ptr, ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
 %"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
 %"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" }
@@ -100,7 +88,7 @@ $_ZTVN7rocksdb16QueryTraceRecordE = comdat any
 define void @_ZN7rocksdb11TraceRecordC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %timestamp) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %timestamp_ = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_, align 8
   ret void
 }
@@ -108,7 +96,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK7rocksdb11TraceRecord12GetTimestampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
 entry:
-  %timestamp_ = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %timestamp_, align 8
   ret i64 %0
 }
@@ -143,7 +131,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %timestamp) unnamed_addr #0 align 2 {
 entry:
-  %timestamp_.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb16QueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -152,10 +140,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb21WriteQueryTraceRecordC2EONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(89) %write_batch_rep, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %rep_, ptr noundef nonnull align 8 dereferenceable(89) %write_batch_rep)
   ret void
 }
@@ -165,20 +153,20 @@ declare void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb21WriteQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(32) %write_batch_rep, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str, ptr %rep_, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %size_.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %write_batch_rep) #17
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %write_batch_rep) #17
@@ -207,13 +195,13 @@ lpad3:                                            ; preds = %entry
 define void @_ZN7rocksdb21WriteQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str, ptr %rep_, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %size_.i, align 8
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %0 = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   ret void
 }
@@ -240,9 +228,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK7rocksdb21WriteQueryTraceRecord16GetWriteBatchRepEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
 entry:
-  %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %rep_, align 8
-  %retval.sroa.2.0.rep_.sroa_idx = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0.rep_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.rep_.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -256,7 +244,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN7rocksdb21WriteQueryTraceRecord6AcceptEPNS_11TraceRecord7HandlerEPSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %handler, ptr noundef %result) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %handler, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %handler, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %result)
   ret void
@@ -265,12 +253,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb19GetQueryTraceRecordC2EjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 1
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %column_family_id, ptr %cf_id_, align 8
-  %key_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %key_, ptr noundef nonnull align 8 dereferenceable(89) %key)
   ret void
 }
@@ -278,22 +266,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb19GetQueryTraceRecordC2EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 1
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %column_family_id, ptr %cf_id_, align 8
-  %key_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr @.str, ptr %key_, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %size_.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %this, i64 112
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
@@ -322,13 +310,13 @@ lpad3:                                            ; preds = %entry
 define void @_ZN7rocksdb19GetQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %key_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr @.str, ptr %key_, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %size_.i, align 8
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %0 = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   ret void
 }
@@ -344,7 +332,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7rocksdb19GetQueryTraceRecord17GetColumnFamilyIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #1 align 2 {
 entry:
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 1
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %cf_id_, align 8
   ret i32 %0
 }
@@ -352,9 +340,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK7rocksdb19GetQueryTraceRecord6GetKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #1 align 2 {
 entry:
-  %key_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload = load ptr, ptr %key_, align 8
-  %retval.sroa.2.0.key_.sroa_idx = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %retval.sroa.2.0.key_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.key_.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -365,7 +353,7 @@ entry:
 define void @_ZN7rocksdb19GetQueryTraceRecord6AcceptEPNS_11TraceRecord7HandlerEPSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %handler, ptr noundef %result) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %handler, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %handler, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %result)
   ret void
@@ -374,35 +362,35 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb24IteratorQueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(208) %this, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str, ptr %lower_, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %size_.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %self_space_.i, ptr %buf_.i, align 8
-  %upper_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr @.str, ptr %upper_, align 8
-  %size_.i.i2 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %size_.i.i2 = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %size_.i.i2, align 8
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 128
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  %self_space_.i3 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 2
+  %self_space_.i3 = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i3) #17
-  %pinned_.i4 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 4
+  %pinned_.i4 = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %pinned_.i4, align 8
-  %buf_.i5 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 3
+  %buf_.i5 = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %self_space_.i3, ptr %buf_.i5, align 8
   ret void
 
@@ -417,12 +405,12 @@ lpad2:                                            ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb24IteratorQueryTraceRecordC2EONS_13PinnableSliceES2_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %lower_, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound)
-  %upper_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_ = getelementptr inbounds i8, ptr %this, i64 112
   invoke void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %upper_, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -432,9 +420,9 @@ invoke.cont3:                                     ; preds = %entry
 lpad2:                                            ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   resume { ptr, i32 } %0
 }
@@ -442,35 +430,35 @@ lpad2:                                            ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb24IteratorQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str, ptr %lower_, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %size_.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %self_space_.i, ptr %buf_.i, align 8
-  %upper_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr @.str, ptr %upper_, align 8
-  %size_.i.i3 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %size_.i.i3 = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %size_.i.i3, align 8
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 128
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  %self_space_.i4 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 2
+  %self_space_.i4 = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i4) #17
-  %pinned_.i5 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 4
+  %pinned_.i5 = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %pinned_.i5, align 8
-  %buf_.i6 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 3
+  %buf_.i6 = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %self_space_.i4, ptr %buf_.i6, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_bound) #17
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_bound) #17
@@ -523,13 +511,13 @@ ehcleanup:                                        ; preds = %lpad5, %lpad2
 define void @_ZN7rocksdb24IteratorQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  %self_space_.i1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i1 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i1) #17
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   ret void
 }
@@ -547,9 +535,9 @@ declare void @llvm.trap() #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK7rocksdb24IteratorQueryTraceRecord13GetLowerBoundEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #1 align 2 {
 entry:
-  %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_ = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %lower_, align 8
-  %retval.sroa.2.0.lower_.sroa_idx = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0.lower_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.lower_.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -559,9 +547,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK7rocksdb24IteratorQueryTraceRecord13GetUpperBoundEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #1 align 2 {
 entry:
-  %upper_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_ = getelementptr inbounds i8, ptr %this, i64 112
   %retval.sroa.0.0.copyload = load ptr, ptr %upper_, align 8
-  %retval.sroa.2.0.upper_.sroa_idx = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %retval.sroa.2.0.upper_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.upper_.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -571,26 +559,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lower_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str, ptr %lower_.i, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %size_.i.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %self_space_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i) #17
-  %pinned_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 4
+  %pinned_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %pinned_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %self_space_.i.i, ptr %buf_.i.i, align 8
-  %upper_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr @.str, ptr %upper_.i, align 8
-  %size_.i.i2.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %size_.i.i2.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %size_.i.i2.i, align 8
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 128
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN7rocksdb24IteratorQueryTraceRecordC2Em.exit unwind label %lpad2.i
 
@@ -606,18 +594,18 @@ lpad2.i:                                          ; preds = %entry
   br label %common.resume
 
 _ZN7rocksdb24IteratorQueryTraceRecordC2Em.exit:   ; preds = %entry
-  %self_space_.i3.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 2
+  %self_space_.i3.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i3.i) #17
-  %pinned_.i4.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 4
+  %pinned_.i4.i = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %pinned_.i4.i, align 8
-  %buf_.i5.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 3
+  %buf_.i5.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %self_space_.i3.i, ptr %buf_.i5.i, align 8
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %seek_type, ptr %type_, align 8
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 2
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 212
   store i32 %column_family_id, ptr %cf_id_, align 4
-  %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 216
   invoke void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %key_, ptr noundef nonnull align 8 dereferenceable(89) %key)
           to label %invoke.cont unwind label %lpad
 
@@ -634,26 +622,26 @@ lpad:                                             ; preds = %_ZN7rocksdb24Iterat
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lower_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str, ptr %lower_.i, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %size_.i.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %self_space_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i) #17
-  %pinned_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 4
+  %pinned_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %pinned_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %self_space_.i.i, ptr %buf_.i.i, align 8
-  %upper_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr @.str, ptr %upper_.i, align 8
-  %size_.i.i2.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %size_.i.i2.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %size_.i.i2.i, align 8
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 128
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN7rocksdb24IteratorQueryTraceRecordC2Em.exit unwind label %lpad2.i
 
@@ -669,31 +657,31 @@ lpad2.i:                                          ; preds = %entry
   br label %common.resume
 
 _ZN7rocksdb24IteratorQueryTraceRecordC2Em.exit:   ; preds = %entry
-  %self_space_.i3.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 2
+  %self_space_.i3.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i3.i) #17
-  %pinned_.i4.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 4
+  %pinned_.i4.i = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %pinned_.i4.i, align 8
-  %buf_.i5.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 3
+  %buf_.i5.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %self_space_.i3.i, ptr %buf_.i5.i, align 8
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %seek_type, ptr %type_, align 8
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 2
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 212
   store i32 %column_family_id, ptr %cf_id_, align 4
-  %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 216
   store ptr @.str, ptr %key_, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %size_.i.i, align 8
-  %3 = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 232
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN7rocksdb24IteratorQueryTraceRecordC2Em.exit
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %this, i64 304
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 296
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
@@ -731,12 +719,12 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjONS_13PinnableSliceES3_S3_m(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lower_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1
+  %lower_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %lower_.i, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound)
-  %upper_.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2
+  %upper_.i = getelementptr inbounds i8, ptr %this, i64 112
   invoke void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %upper_.i, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound)
           to label %_ZN7rocksdb24IteratorQueryTraceRecordC2EONS_13PinnableSliceES2_m.exit unwind label %lpad2.i
 
@@ -747,19 +735,19 @@ common.resume:                                    ; preds = %lpad, %lpad2.i
 lpad2.i:                                          ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %self_space_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i) #17
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %common.resume
 
 _ZN7rocksdb24IteratorQueryTraceRecordC2EONS_13PinnableSliceES2_m.exit: ; preds = %entry
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %seek_type, ptr %type_, align 8
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 2
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 212
   store i32 %column_family_id, ptr %cf_id_, align 4
-  %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 216
   invoke void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %key_, ptr noundef nonnull align 8 dereferenceable(89) %key)
           to label %invoke.cont unwind label %lpad
 
@@ -778,24 +766,24 @@ define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjRKNSt7__
 entry:
   tail call void @_ZN7rocksdb24IteratorQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp)
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %seek_type, ptr %type_, align 8
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 2
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 212
   store i32 %column_family_id, ptr %cf_id_, align 4
-  %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 216
   store ptr @.str, ptr %key_, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %size_.i.i, align 8
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 232
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %this, i64 304
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 296
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
@@ -834,22 +822,22 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 216
   store ptr @.str, ptr %key_, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %size_.i, align 8
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
-  %0 = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %self_space_.i.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 2
+  %self_space_.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i) #17
-  %1 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %self_space_.i1.i = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 2
+  %self_space_.i1.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i1.i) #17
-  %2 = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this, i64 0, i32 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret void
 }
@@ -865,7 +853,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK7rocksdb28IteratorSeekQueryTraceRecord12GetTraceTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #1 align 2 {
 entry:
-  %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %type_, align 8
   %conv = trunc i32 %0 to i8
   ret i8 %conv
@@ -874,7 +862,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7rocksdb28IteratorSeekQueryTraceRecord11GetSeekTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #1 align 2 {
 entry:
-  %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %type_, align 8
   ret i32 %0
 }
@@ -882,7 +870,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7rocksdb28IteratorSeekQueryTraceRecord17GetColumnFamilyIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #1 align 2 {
 entry:
-  %cf_id_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 2
+  %cf_id_ = getelementptr inbounds i8, ptr %this, i64 212
   %0 = load i32, ptr %cf_id_, align 4
   ret i32 %0
 }
@@ -890,9 +878,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK7rocksdb28IteratorSeekQueryTraceRecord6GetKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #1 align 2 {
 entry:
-  %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3
+  %key_ = getelementptr inbounds i8, ptr %this, i64 216
   %retval.sroa.0.0.copyload = load ptr, ptr %key_, align 8
-  %retval.sroa.2.0.key_.sroa_idx = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %retval.sroa.2.0.key_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 224
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.key_.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -903,7 +891,7 @@ entry:
 define void @_ZN7rocksdb28IteratorSeekQueryTraceRecord6AcceptEPNS_11TraceRecord7HandlerEPSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %handler, ptr noundef %result) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %handler, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %handler, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %result)
   ret void
@@ -912,11 +900,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb24MultiGetQueryTraceRecordC2ESt6vectorIjSaIjEEOS1_INS_13PinnableSliceESaIS4_EEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %column_family_ids, ptr nocapture noundef nonnull align 8 dereferenceable(24) %keys, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %column_family_ids, i64 0, i32 1
+  %cf_ids_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %column_family_ids, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %column_family_ids, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -942,10 +930,10 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i1, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %cf_ids_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %column_family_ids, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -963,15 +951,15 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 2
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %keys_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2
+  %keys_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %keys, align 8
   store ptr %4, ptr %keys_, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %keys, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %keys, i64 8
   %5 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %keys, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %keys, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys, i8 0, i64 24, i1 false)
@@ -982,11 +970,11 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 define void @_ZN7rocksdb24MultiGetQueryTraceRecordC2ESt6vectorIjSaIjEERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %column_family_ids, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %keys, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ps = alloca %"class.rocksdb::PinnableSlice", align 8
-  %timestamp_.i.i = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this, i64 0, i32 1
+  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %column_family_ids, i64 0, i32 1
+  %cf_ids_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %column_family_ids, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %column_family_ids, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1012,10 +1000,10 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i5, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %cf_ids_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %column_family_ids, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1033,9 +1021,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 2
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %keys_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2
+  %keys_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys_, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %keys, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %keys, i64 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %keys, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
@@ -1052,13 +1040,13 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont4
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ps, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %ps, i64 8
   %8 = getelementptr inbounds i8, ptr %ps, i64 16
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps, i64 0, i32 2
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps, i64 0, i32 4
-  %buf_.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps, i64 0, i32 3
-  %_M_finish.i.i12 = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %ps, i64 48
+  %pinned_.i = getelementptr inbounds i8, ptr %ps, i64 88
+  %buf_.i = getelementptr inbounds i8, ptr %ps, i64 80
+  %_M_finish.i.i12 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont15
@@ -1096,7 +1084,7 @@ if.then.i.i:                                      ; preds = %invoke.cont13
 
 .noexc13:                                         ; preds = %if.then.i.i
   %14 = load ptr, ptr %_M_finish.i.i12, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %14, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 96
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i12, align 8
   br label %invoke.cont15
 
@@ -1107,7 +1095,7 @@ if.else.i.i:                                      ; preds = %invoke.cont13
 invoke.cont15:                                    ; preds = %.noexc13, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
   call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin1.sroa.0.022, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.022, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1157,7 +1145,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1168,7 +1156,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end33
 
 if.then4:                                         ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i
@@ -1181,11 +1169,11 @@ if.then4:                                         ; preds = %if.end
 
 for.body.i.i.i:                                   ; preds = %if.then4, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %3, %if.then4 ]
-  %self_space_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i) #17
   %5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %4
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -1218,18 +1206,18 @@ if.end33:                                         ; preds = %_ZNSt12_Vector_base
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
-  %self_space_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i) #17
   %2 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -1254,9 +1242,9 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit: ; preds = %invok
 define void @_ZN7rocksdb24MultiGetQueryTraceRecordD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1
+  %cf_ids_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %cf_ids_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %invoke.cont.i.i
@@ -1266,20 +1254,20 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %entry, %invoke.cont.i.i
-  %keys_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2
+  %keys_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %keys_, align 8
-  %_M_finish.i.i1 = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i1 = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_finish.i.i1, align 8
   %tobool.not.i.i2 = icmp eq ptr %3, %2
   br i1 %tobool.not.i.i2, label %invoke.cont.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
-  %self_space_.i.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i.i.i) #17
   %4 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -1291,11 +1279,11 @@ _ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit: ; preds = %for.body
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.pre, %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit ]
-  %self_space_.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i.i) #17
   %5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -1336,8 +1324,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7rocksdb24MultiGetQueryTraceRecord18GetColumnFamilyIDsEv(ptr noalias nocapture writeonly sret(%"class.std::vector.10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %cf_ids_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %cf_ids_, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1350,7 +1338,7 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %add.ptr.i.i.i3 = getelementptr inbounds i32, ptr null, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i3, ptr %_M_end_of_storage.i.i.i4, align 8
   br label %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit
@@ -1367,14 +1355,14 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #15
   store ptr %call5.i.i.i.i2.i6.i, ptr %agg.result, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i, ptr align 4 %1, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit
 
 _ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i6 = phi ptr [ %add.ptr.i.i.i3, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  %_M_finish.i.i.i5 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i6, ptr %_M_finish.i.i.i5, align 8
   ret void
 }
@@ -1382,9 +1370,9 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7rocksdb24MultiGetQueryTraceRecord7GetKeysEv(ptr noalias nocapture writeonly sret(%"class.std::vector.25") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %keys_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2
+  %keys_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %keys_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_finish.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
@@ -1404,7 +1392,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; pred
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %add.ptr3.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr null, i64 %sub.ptr.div.i.i.i.i.i
-  %_M_end_of_storage4.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr3.i.i, ptr %_M_end_of_storage4.i.i, align 8
   br label %invoke.cont
 
@@ -1413,7 +1401,7 @@ for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorIN7rock
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #15
   store ptr %call5.i.i.i.i1.i, ptr %agg.result, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i1.i, i64 %sub.ptr.div.i.i.i.i.i
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -1421,14 +1409,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i, %for.body.i.i.i.i.preheader.i.i ]
   %__first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.preheader.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.06.i.i.i.i.i.i, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -1437,7 +1425,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 define void @_ZN7rocksdb24MultiGetQueryTraceRecord6AcceptEPNS_11TraceRecord7HandlerEPSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %handler, ptr noundef %result) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %handler, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %handler, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %result)
   ret void
@@ -1528,11 +1516,11 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %__first, %entry ]
-  %self_space_.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i) #17
   %1 = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %incdec.ptr.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 96
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN7rocksdb13PinnableSliceEEvT_S3_.exit, label %for.body.i.i, !llvm.loop !4
 
@@ -1548,11 +1536,11 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %__first, %entry ]
-  %self_space_.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i, i64 0, i32 2
+  %self_space_.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i) #17
   %0 = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  %incdec.ptr.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 96
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN7rocksdb13PinnableSliceEEEvT_S5_.exit, label %for.body.i, !llvm.loop !4
 
@@ -1602,8 +1590,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.09.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.010.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i, i64 96
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__last.coerce
   br i1 %cmp.i.i.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -1679,7 +1667,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(89) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1728,8 +1716,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.09.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 96
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !7
 
@@ -1768,7 +1756,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %cmp.i.i.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.i.i.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
@@ -1779,8 +1767,8 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
           to label %for.inc.i.i.i.i.i30 unwind label %lpad.i.i.i.i.i24
 
 for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i.i31 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.09.i.i.i.i.i23, i64 1
-  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.010.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i23, i64 96
+  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 96
   %cmp.i.i.not.i.i.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i31, %0
   br i1 %cmp.i.i.not.i.i.i.i.i33, label %invoke.cont14, label %for.body.i.i.i.i.i21, !llvm.loop !7
 
@@ -1824,11 +1812,11 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i30
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont14 ]
-  %self_space_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i) #17
   %18 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !4
 
@@ -1841,7 +1829,7 @@ if.then.i39:                                      ; preds = %_ZSt8_DestroyIPN7ro
   br label %_ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exit, %if.then.i39
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %cond.i19, i64 %cond.i
@@ -1857,7 +1845,7 @@ lpad.body:                                        ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lpad.body.thread, %lpad.body
-  %self_space_.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %cond.i19, i64 %sub.ptr.div.i, i32 2
+  %self_space_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i) #17
   %22 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #17

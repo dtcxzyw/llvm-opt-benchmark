@@ -3,26 +3,6 @@ source_filename = "bench/node/original/fs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
-%struct.uv_timespec_t = type { i64, i64 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.uv__queue = type { ptr, ptr }
-%struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_loop_s = type { ptr, i32, %struct.uv__queue, %union.anon, ptr, i32, i64, i32, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, %struct.uv__queue, %union.pthread_mutex_t, %struct.uv_async_s, %union.pthread_rwlock_t, ptr, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, ptr, %struct.uv__io_s, i32, %struct.anon, i64, i64, [2 x i32], %struct.uv__io_s, %struct.uv_signal_s, i32, %struct.uv__io_s, ptr, i32 }
-%union.anon = type { ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.0 = type { [4 x ptr] }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.anon = type { ptr, i32 }
-%struct.uv_signal_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.1, ptr, i32, ptr, i32, %struct.anon.2, i32, i32 }
-%union.anon.1 = type { [4 x ptr] }
-%struct.anon.2 = type { ptr, ptr, ptr, i32 }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
 %struct.timespec = type { i64, i64 }
 %struct.statfs = type { i64, i64, i64, i64, i64, i64, i64, %struct.__fsid_t, i64, i64, i64, [4 x i64] }
 %struct.__fsid_t = type { [2 x i32] }
@@ -30,11 +10,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uv__statx_timestamp = type { i64, i32, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.pollfd = type { i32, i16, i16 }
-%struct.iovec = type { ptr, i64 }
-%struct.uv_dir_s = type { ptr, i64, [4 x ptr], ptr }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
+%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
+%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
+%struct.uv_timespec_t = type { i64, i64 }
+%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
+%struct.uv__queue = type { ptr, ptr }
+%struct.uv_buf_t = type { ptr, i64 }
 %struct.uv_dirent_s = type { ptr, i32 }
-%struct.uv_statfs_s = type { i64, i64, i64, i64, i64, i64, i64, [4 x i64] }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @uv__fs_statx.no_statx = internal unnamed_addr global i32 0, align 4
@@ -54,21 +36,21 @@ entry:
   br i1 %cmp, label %do.end26, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 12, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else23, label %if.else
@@ -80,21 +62,21 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end26, label %do.body21
 
 do.body21:                                        ; preds = %if.else
-  %flags17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags17 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags17, align 4
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end26
 
 if.else23:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %flags1722 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags1722 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags1722, align 4
-  %work_req24 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req24 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req24)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -141,99 +123,99 @@ entry:
   %bufsml.i365 = getelementptr inbounds i8, ptr %w, i64 40
   %atime.i322 = getelementptr inbounds i8, ptr %w, i64 -16
   %tmp.sroa.2.0.arrayidx.sroa_idx.i337 = getelementptr inbounds i8, ptr %ts.i321, i64 8
-  %arrayidx1.i338 = getelementptr inbounds [2 x %struct.timespec], ptr %ts.i321, i64 0, i64 1
+  %arrayidx1.i338 = getelementptr inbounds i8, ptr %ts.i321, i64 16
   %mtime.i339 = getelementptr inbounds i8, ptr %w, i64 -8
-  %tmp2.sroa.2.0.arrayidx1.sroa_idx.i354 = getelementptr inbounds [2 x %struct.timespec], ptr %ts.i321, i64 0, i64 1, i32 1
+  %tmp2.sroa.2.0.arrayidx1.sroa_idx.i354 = getelementptr inbounds i8, ptr %ts.i321, i64 24
   %path.i355 = getelementptr i8, ptr %w, i64 -232
   %new_path110 = getelementptr inbounds i8, ptr %w, i64 -64
-  %f_bsize.i = getelementptr inbounds %struct.statfs, ptr %buf.i, i64 0, i32 1
-  %f_blocks.i = getelementptr inbounds %struct.statfs, ptr %buf.i, i64 0, i32 2
-  %f_bfree.i = getelementptr inbounds %struct.statfs, ptr %buf.i, i64 0, i32 3
-  %f_bavail.i = getelementptr inbounds %struct.statfs, ptr %buf.i, i64 0, i32 4
-  %f_files.i = getelementptr inbounds %struct.statfs, ptr %buf.i, i64 0, i32 5
-  %f_ffree.i = getelementptr inbounds %struct.statfs, ptr %buf.i, i64 0, i32 6
+  %f_bsize.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %f_blocks.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %f_bfree.i = getelementptr inbounds i8, ptr %buf.i, i64 24
+  %f_bavail.i = getelementptr inbounds i8, ptr %buf.i, i64 32
+  %f_files.i = getelementptr inbounds i8, ptr %buf.i, i64 40
+  %f_ffree.i = getelementptr inbounds i8, ptr %buf.i, i64 48
   %ptr.i318 = getelementptr i8, ptr %w, i64 -240
   %statbuf102 = getelementptr inbounds i8, ptr %w, i64 -224
-  %st_mode.i.i268 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 3
+  %st_mode.i.i268 = getelementptr inbounds i8, ptr %pbuf.i261, i64 24
   %st_mode2.i.i270 = getelementptr inbounds i8, ptr %w, i64 -216
-  %st_nlink.i.i271 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 2
+  %st_nlink.i.i271 = getelementptr inbounds i8, ptr %pbuf.i261, i64 16
   %st_nlink3.i.i272 = getelementptr inbounds i8, ptr %w, i64 -208
-  %st_uid.i.i273 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 4
+  %st_uid.i.i273 = getelementptr inbounds i8, ptr %pbuf.i261, i64 28
   %st_uid5.i.i275 = getelementptr inbounds i8, ptr %w, i64 -200
-  %st_rdev.i.i279 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 7
+  %st_rdev.i.i279 = getelementptr inbounds i8, ptr %pbuf.i261, i64 40
   %st_rdev8.i.i280 = getelementptr inbounds i8, ptr %w, i64 -184
-  %st_ino.i.i281 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 1
+  %st_ino.i.i281 = getelementptr inbounds i8, ptr %pbuf.i261, i64 8
   %st_ino9.i.i282 = getelementptr inbounds i8, ptr %w, i64 -176
-  %st_size.i.i283 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 8
+  %st_size.i.i283 = getelementptr inbounds i8, ptr %pbuf.i261, i64 48
   %st_size10.i.i284 = getelementptr inbounds i8, ptr %w, i64 -168
-  %st_blocks.i.i287 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 10
+  %st_blocks.i.i287 = getelementptr inbounds i8, ptr %pbuf.i261, i64 64
   %st_blocks12.i.i288 = getelementptr inbounds i8, ptr %w, i64 -152
-  %st_atim.i.i289 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 11
+  %st_atim.i.i289 = getelementptr inbounds i8, ptr %pbuf.i261, i64 72
   %st_atim13.i.i290 = getelementptr inbounds i8, ptr %w, i64 -128
-  %st_mtim.i.i293 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 12
+  %st_mtim.i.i293 = getelementptr inbounds i8, ptr %pbuf.i261, i64 88
   %st_mtim19.i.i294 = getelementptr inbounds i8, ptr %w, i64 -112
-  %st_ctim.i.i297 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 13
+  %st_ctim.i.i297 = getelementptr inbounds i8, ptr %pbuf.i261, i64 104
   %st_ctim26.i.i298 = getelementptr inbounds i8, ptr %w, i64 -96
-  %tv_nsec29.i.i299 = getelementptr inbounds %struct.stat, ptr %pbuf.i261, i64 0, i32 13, i32 1
+  %tv_nsec29.i.i299 = getelementptr inbounds i8, ptr %pbuf.i261, i64 112
   %tv_nsec31.i.i300 = getelementptr inbounds i8, ptr %w, i64 -88
   %st_birthtim.i.i301 = getelementptr inbounds i8, ptr %w, i64 -80
   %tv_nsec38.i.i302 = getelementptr inbounds i8, ptr %w, i64 -72
   %st_flags.i.i303 = getelementptr inbounds i8, ptr %w, i64 -144
   %flags.i244 = getelementptr inbounds i8, ptr %w, i64 -52
   %len2.i = getelementptr inbounds i8, ptr %w, i64 48
-  %events.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 1
-  %revents.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 2
+  %events.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 4
+  %revents.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 6
   %cb.i194 = getelementptr inbounds i8, ptr %w, i64 -256
   %mode.i = getelementptr inbounds i8, ptr %w, i64 -48
   %loop.i = getelementptr inbounds i8, ptr %w, i64 -264
-  %st_mode.i.i129 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 3
-  %st_nlink.i.i132 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 2
-  %st_uid.i.i134 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 4
-  %st_rdev.i.i140 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 7
-  %st_ino.i.i142 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 1
-  %st_size.i.i144 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 8
-  %st_blocks.i.i148 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 10
-  %st_atim.i.i150 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 11
-  %st_mtim.i.i154 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 12
-  %st_ctim.i.i158 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 13
-  %tv_nsec29.i.i160 = getelementptr inbounds %struct.stat, ptr %pbuf.i122, i64 0, i32 13, i32 1
+  %st_mode.i.i129 = getelementptr inbounds i8, ptr %pbuf.i122, i64 24
+  %st_nlink.i.i132 = getelementptr inbounds i8, ptr %pbuf.i122, i64 16
+  %st_uid.i.i134 = getelementptr inbounds i8, ptr %pbuf.i122, i64 28
+  %st_rdev.i.i140 = getelementptr inbounds i8, ptr %pbuf.i122, i64 40
+  %st_ino.i.i142 = getelementptr inbounds i8, ptr %pbuf.i122, i64 8
+  %st_size.i.i144 = getelementptr inbounds i8, ptr %pbuf.i122, i64 48
+  %st_blocks.i.i148 = getelementptr inbounds i8, ptr %pbuf.i122, i64 64
+  %st_atim.i.i150 = getelementptr inbounds i8, ptr %pbuf.i122, i64 72
+  %st_mtim.i.i154 = getelementptr inbounds i8, ptr %pbuf.i122, i64 88
+  %st_ctim.i.i158 = getelementptr inbounds i8, ptr %pbuf.i122, i64 104
+  %tv_nsec29.i.i160 = getelementptr inbounds i8, ptr %pbuf.i122, i64 112
   %tmp.sroa.2.0.arrayidx.sroa_idx.i100 = getelementptr inbounds i8, ptr %ts.i84, i64 8
-  %arrayidx1.i101 = getelementptr inbounds [2 x %struct.timespec], ptr %ts.i84, i64 0, i64 1
-  %tmp2.sroa.2.0.arrayidx1.sroa_idx.i117 = getelementptr inbounds [2 x %struct.timespec], ptr %ts.i84, i64 0, i64 1, i32 1
+  %arrayidx1.i101 = getelementptr inbounds i8, ptr %ts.i84, i64 16
+  %tmp2.sroa.2.0.arrayidx1.sroa_idx.i117 = getelementptr inbounds i8, ptr %ts.i84, i64 24
   %tmp.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %ts.i, i64 8
-  %arrayidx1.i = getelementptr inbounds [2 x %struct.timespec], ptr %ts.i, i64 0, i64 1
-  %tmp2.sroa.2.0.arrayidx1.sroa_idx.i = getelementptr inbounds [2 x %struct.timespec], ptr %ts.i, i64 0, i64 1, i32 1
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 3
-  %st_nlink.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 2
-  %st_uid.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 4
-  %st_rdev.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 7
-  %st_ino.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 1
-  %st_size.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 8
-  %st_blocks.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 10
-  %st_atim.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 11
-  %st_mtim.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 12
-  %st_ctim.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 13
-  %tv_nsec29.i.i = getelementptr inbounds %struct.stat, ptr %pbuf.i, i64 0, i32 13, i32 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %ts.i, i64 16
+  %tmp2.sroa.2.0.arrayidx1.sroa_idx.i = getelementptr inbounds i8, ptr %ts.i, i64 24
+  %st_mode.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 24
+  %st_nlink.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 16
+  %st_uid.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 28
+  %st_rdev.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 40
+  %st_ino.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 8
+  %st_size.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 48
+  %st_blocks.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 64
+  %st_atim.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 72
+  %st_mtim.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 88
+  %st_ctim.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 104
+  %tv_nsec29.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 112
   %uid31 = getelementptr inbounds i8, ptr %w, i64 -24
   %gid32 = getelementptr inbounds i8, ptr %w, i64 -20
-  %type.i416 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 1
-  %fs_type.i417 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 3
-  %result.i418 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 6
-  %loop2.i420 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 4
-  %path3.i421 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 8
-  %new_path.i422 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 10
-  %bufs.i423 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 15
-  %flags17.i425 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 12
-  %mode18.i426 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 13
-  %work_req31.i427 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 21
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %src_statsbuf.i, i64 0, i32 3
-  %st_ino.i = getelementptr inbounds %struct.stat, ptr %src_statsbuf.i, i64 0, i32 1
-  %st_ino27.i = getelementptr inbounds %struct.stat, ptr %dst_statsbuf.i, i64 0, i32 1
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %dst_statsbuf.i, i64 0, i32 8
-  %st_size84.i = getelementptr inbounds %struct.stat, ptr %src_statsbuf.i, i64 0, i32 8
-  %file.i400 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 11
-  %off5.i = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 16
-  %len6.i = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req.i, i64 0, i32 22, i64 0, i32 1
+  %type.i416 = getelementptr inbounds i8, ptr %fs_req.i, i64 8
+  %fs_type.i417 = getelementptr inbounds i8, ptr %fs_req.i, i64 64
+  %result.i418 = getelementptr inbounds i8, ptr %fs_req.i, i64 88
+  %loop2.i420 = getelementptr inbounds i8, ptr %fs_req.i, i64 72
+  %path3.i421 = getelementptr inbounds i8, ptr %fs_req.i, i64 104
+  %new_path.i422 = getelementptr inbounds i8, ptr %fs_req.i, i64 272
+  %bufs.i423 = getelementptr inbounds i8, ptr %fs_req.i, i64 296
+  %flags17.i425 = getelementptr inbounds i8, ptr %fs_req.i, i64 284
+  %mode18.i426 = getelementptr inbounds i8, ptr %fs_req.i, i64 288
+  %work_req31.i427 = getelementptr inbounds i8, ptr %fs_req.i, i64 336
+  %st_mode.i = getelementptr inbounds i8, ptr %src_statsbuf.i, i64 24
+  %st_ino.i = getelementptr inbounds i8, ptr %src_statsbuf.i, i64 8
+  %st_ino27.i = getelementptr inbounds i8, ptr %dst_statsbuf.i, i64 8
+  %st_size.i = getelementptr inbounds i8, ptr %dst_statsbuf.i, i64 48
+  %st_size84.i = getelementptr inbounds i8, ptr %src_statsbuf.i, i64 48
+  %file.i400 = getelementptr inbounds i8, ptr %fs_req.i, i64 280
+  %off5.i = getelementptr inbounds i8, ptr %fs_req.i, i64 304
+  %len6.i = getelementptr inbounds i8, ptr %fs_req.i, i64 384
   %1 = and i32 %0, -2
   %switch = icmp eq i32 %1, 2
   br label %do.body
@@ -460,12 +442,12 @@ if.then79.i:                                      ; preds = %if.end75.i
 
 if.end83.i:                                       ; preds = %if.end75.i, %if.end63.i
   %33 = load i64, ptr %st_size84.i, align 8
-  %cond514 = icmp eq i64 %33, 0
-  br i1 %cond514, label %out.i.thread, label %if.end90.i
+  %cond513 = icmp eq i64 %33, 0
+  br i1 %cond513, label %out.i.thread, label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end83.i, %if.end97.i
-  %in_offset.0.i516 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
-  %bytes_to_send.0.i515 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
+  %in_offset.0.i515 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
+  %bytes_to_send.0.i514 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
   store i32 6, ptr %type.i416, align 8
   store i32 5, ptr %fs_type.i417, align 8
   store ptr null, ptr %new_path.i422, align 8
@@ -473,8 +455,8 @@ if.end90.i:                                       ; preds = %if.end83.i, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %loop2.i420, i8 0, i64 40, i1 false)
   store i32 %conv.i428, ptr %flags17.i425, align 4
   store i32 %conv.i413, ptr %file.i400, align 8
-  store i64 %in_offset.0.i516, ptr %off5.i, align 8
-  store i64 %bytes_to_send.0.i515, ptr %len6.i, align 8
+  store i64 %in_offset.0.i515, ptr %off5.i, align 8
+  store i64 %bytes_to_send.0.i514, ptr %len6.i, align 8
   call void @uv__fs_work(ptr noundef nonnull %work_req31.i427)
   %34 = load i64, ptr %result.i418, align 8
   call void @uv_fs_req_cleanup(ptr noundef nonnull %fs_req.i)
@@ -486,8 +468,8 @@ if.then95.i:                                      ; preds = %if.end90.i
   br label %out.i
 
 if.end97.i:                                       ; preds = %if.end90.i
-  %sub98.i = sub nsw i64 %bytes_to_send.0.i515, %34
-  %add.i = add nuw nsw i64 %34, %in_offset.0.i516
+  %sub98.i = sub nsw i64 %bytes_to_send.0.i514, %34
+  %add.i = add nuw nsw i64 %34, %in_offset.0.i515
   %cond = icmp eq i64 %sub98.i, 0
   br i1 %cond, label %out.i.thread, label %if.end90.i
 
@@ -901,7 +883,7 @@ if.end16.i:                                       ; preds = %if.end15.i, %if.end
 
 if.then18.i:                                      ; preds = %if.end16.i
   %94 = load ptr, ptr %loop.i, align 8
-  %cloexec_lock.i = getelementptr inbounds %struct.uv_loop_s, ptr %94, i64 0, i32 16
+  %cloexec_lock.i = getelementptr inbounds i8, ptr %94, i64 304
   call void @uv_rwlock_rdlock(ptr noundef nonnull %cloexec_lock.i) #16
   br label %if.end19.i
 
@@ -932,7 +914,7 @@ if.end30.i:                                       ; preds = %if.then25.i, %land.
 
 if.then33.i:                                      ; preds = %if.end30.i
   %96 = load ptr, ptr %loop.i, align 8
-  %cloexec_lock35.i = getelementptr inbounds %struct.uv_loop_s, ptr %96, i64 0, i32 16
+  %cloexec_lock35.i = getelementptr inbounds i8, ptr %96, i64 304
   call void @uv_rwlock_rdunlock(ptr noundef nonnull %cloexec_lock35.i) #16
   br label %clobber.i
 
@@ -977,7 +959,7 @@ if.then9.i:                                       ; preds = %sw.bb72
 
 if.then12.i:                                      ; preds = %if.then9.i
   %104 = load ptr, ptr %102, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %102, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %102, i64 8
   %105 = load i64, ptr %iov_len.i, align 8
   %call13.i = call i64 @read(i32 noundef %100, ptr noundef %104, i64 noundef %105) #16
   br label %if.end36.i
@@ -994,7 +976,7 @@ if.else21.i:                                      ; preds = %sw.bb72
 
 if.then24.i:                                      ; preds = %if.else21.i
   %106 = load ptr, ptr %102, align 8
-  %iov_len26.i = getelementptr inbounds %struct.iovec, ptr %102, i64 0, i32 1
+  %iov_len26.i = getelementptr inbounds i8, ptr %102, i64 8
   %107 = load i64, ptr %iov_len26.i, align 8
   %call27.i = call i64 @pread64(i32 noundef %100, ptr noundef %106, i64 noundef %107, i64 noundef %101) #16
   br label %if.end36.i
@@ -1062,7 +1044,7 @@ sw.bb76:                                          ; preds = %do.body
 if.end.i202:                                      ; preds = %sw.bb76
   %113 = load ptr, ptr %path.i355, align 8
   %call1.i204 = call ptr @opendir(ptr noundef %113)
-  %dir2.i = getelementptr inbounds %struct.uv_dir_s, ptr %call.i200, i64 0, i32 3
+  %dir2.i = getelementptr inbounds i8, ptr %call.i200, i64 48
   store ptr %call1.i204, ptr %dir2.i, align 8
   %cmp4.i = icmp eq ptr %call1.i204, null
   br i1 %cmp4.i, label %error.i, label %uv__fs_opendir.exit
@@ -1079,13 +1061,13 @@ uv__fs_opendir.exit:                              ; preds = %if.end.i202, %error
 
 sw.bb79:                                          ; preds = %do.body
   %add.ptr.val71 = load ptr, ptr %ptr.i318, align 8
-  %nentries.i = getelementptr inbounds %struct.uv_dir_s, ptr %add.ptr.val71, i64 0, i32 1
+  %nentries.i = getelementptr inbounds i8, ptr %add.ptr.val71, i64 8
   %114 = load i64, ptr %nentries.i, align 8
   %cmp911.not.i = icmp eq i64 %114, 0
   br i1 %cmp911.not.i, label %uv__fs_readdir.exit, label %while.body.lr.ph.lr.ph.i
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %sw.bb79
-  %dir2.i207 = getelementptr inbounds %struct.uv_dir_s, ptr %add.ptr.val71, i64 0, i32 3
+  %dir2.i207 = getelementptr inbounds i8, ptr %add.ptr.val71, i64 48
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end28.i, %while.body.lr.ph.lr.ph.i
@@ -1106,7 +1088,7 @@ if.then.i218:                                     ; preds = %while.body.i
   br i1 %cmp7.not.i, label %uv__fs_readdir.exit, label %error.i216
 
 if.end10.i:                                       ; preds = %while.body.i
-  %d_name.i = getelementptr inbounds %struct.dirent, ptr %call3.i208, i64 0, i32 4
+  %d_name.i = getelementptr inbounds i8, ptr %call3.i208, i64 19
   %call11.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull dereferenceable(2) @.str.2) #18
   %cmp12.i = icmp eq i32 %call11.i, 0
   br i1 %cmp12.i, label %if.then19.i, label %lor.lhs.false.i210
@@ -1131,7 +1113,7 @@ if.end20.i:                                       ; preds = %lor.lhs.false.i210
 
 if.end28.i:                                       ; preds = %if.end20.i
   %call29.i = call i32 @uv__fs_get_dirent_type(ptr noundef nonnull %call3.i208) #16
-  %type.i = getelementptr inbounds %struct.uv_dirent_s, ptr %118, i64 %conv13.i, i32 1
+  %type.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 %call29.i, ptr %type.i, align 8
   %inc.i = add i32 %dirent_idx.0.ph12.i, 1
   %conv.i213 = zext i32 %inc.i to i64
@@ -1167,7 +1149,7 @@ uv__fs_readdir.exit:                              ; preds = %if.end28.i, %for.bo
 
 sw.bb82:                                          ; preds = %do.body
   %123 = load ptr, ptr %ptr.i318, align 8
-  %dir1.i = getelementptr inbounds %struct.uv_dir_s, ptr %123, i64 0, i32 3
+  %dir1.i = getelementptr inbounds i8, ptr %123, i64 48
   %124 = load ptr, ptr %dir1.i, align 8
   %cmp.not.i = icmp eq ptr %124, null
   br i1 %cmp.not.i, label %uv__fs_closedir.exit, label %if.then.i220
@@ -1613,22 +1595,22 @@ if.end5.i:                                        ; preds = %if.end.i315
   %174 = load i64, ptr %buf.i, align 8
   store i64 %174, ptr %call1.i316, align 8
   %175 = load i64, ptr %f_bsize.i, align 8
-  %f_bsize7.i = getelementptr inbounds %struct.uv_statfs_s, ptr %call1.i316, i64 0, i32 1
+  %f_bsize7.i = getelementptr inbounds i8, ptr %call1.i316, i64 8
   store i64 %175, ptr %f_bsize7.i, align 8
   %176 = load i64, ptr %f_blocks.i, align 8
-  %f_blocks8.i = getelementptr inbounds %struct.uv_statfs_s, ptr %call1.i316, i64 0, i32 2
+  %f_blocks8.i = getelementptr inbounds i8, ptr %call1.i316, i64 16
   store i64 %176, ptr %f_blocks8.i, align 8
   %177 = load i64, ptr %f_bfree.i, align 8
-  %f_bfree9.i = getelementptr inbounds %struct.uv_statfs_s, ptr %call1.i316, i64 0, i32 3
+  %f_bfree9.i = getelementptr inbounds i8, ptr %call1.i316, i64 24
   store i64 %177, ptr %f_bfree9.i, align 8
   %178 = load i64, ptr %f_bavail.i, align 8
-  %f_bavail10.i = getelementptr inbounds %struct.uv_statfs_s, ptr %call1.i316, i64 0, i32 4
+  %f_bavail10.i = getelementptr inbounds i8, ptr %call1.i316, i64 32
   store i64 %178, ptr %f_bavail10.i, align 8
   %179 = load i64, ptr %f_files.i, align 8
-  %f_files11.i = getelementptr inbounds %struct.uv_statfs_s, ptr %call1.i316, i64 0, i32 5
+  %f_files11.i = getelementptr inbounds i8, ptr %call1.i316, i64 40
   store i64 %179, ptr %f_files11.i, align 8
   %180 = load i64, ptr %f_ffree.i, align 8
-  %f_ffree12.i = getelementptr inbounds %struct.uv_statfs_s, ptr %call1.i316, i64 0, i32 6
+  %f_ffree12.i = getelementptr inbounds i8, ptr %call1.i316, i64 48
   store i64 %180, ptr %f_ffree12.i, align 8
   store ptr %call1.i316, ptr %ptr.i318, align 8
   br label %uv__fs_statfs.exit
@@ -1697,14 +1679,14 @@ sw.bb119:                                         ; preds = %do.body
   %call.i358 = call i32 @uv__getiovmax() #16
   %187 = load i32, ptr %nbufs1.i, align 4
   %188 = load ptr, ptr %bufs2.i359, align 8
-  %cmp.not45.i = icmp eq i32 %187, 0
-  br i1 %cmp.not45.i, label %while.end.i, label %while.body.i361
+  %cmp.not44.i = icmp eq i32 %187, 0
+  br i1 %cmp.not44.i, label %while.end.i, label %while.body.i361
 
 while.body.i361:                                  ; preds = %sw.bb119, %uv__fs_buf_offset.exit.i
   %189 = phi ptr [ %add.ptr.i375, %uv__fs_buf_offset.exit.i ], [ %188, %sw.bb119 ]
-  %nbufs.047.i = phi i32 [ %sub.i376, %uv__fs_buf_offset.exit.i ], [ %187, %sw.bb119 ]
-  %total.046.i = phi i64 [ %add27.i, %uv__fs_buf_offset.exit.i ], [ 0, %sw.bb119 ]
-  %spec.select.i362 = call i32 @llvm.umin.i32(i32 %nbufs.047.i, i32 %call.i358)
+  %nbufs.046.i = phi i32 [ %sub.i376, %uv__fs_buf_offset.exit.i ], [ %187, %sw.bb119 ]
+  %total.045.i = phi i64 [ %add27.i, %uv__fs_buf_offset.exit.i ], [ 0, %sw.bb119 ]
+  %spec.select.i362 = call i32 @llvm.umin.i32(i32 %nbufs.046.i, i32 %call.i358)
   store i32 %spec.select.i362, ptr %nbufs1.i, align 4
   br label %do.body.i
 
@@ -1729,7 +1711,7 @@ if.then.i.i384:                                   ; preds = %do.body.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i384
   %194 = load ptr, ptr %190, align 8
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %190, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %190, i64 8
   %195 = load i64, ptr %iov_len.i.i, align 8
   %call.i.i385 = call i64 @write(i32 noundef %192, ptr noundef %194, i64 noundef %195) #16
   br label %uv__fs_write.exit.i
@@ -1746,7 +1728,7 @@ if.else14.i.i:                                    ; preds = %do.body.i
 
 if.then17.i.i:                                    ; preds = %if.else14.i.i
   %196 = load ptr, ptr %190, align 8
-  %iov_len19.i.i = getelementptr inbounds %struct.iovec, ptr %190, i64 0, i32 1
+  %iov_len19.i.i = getelementptr inbounds i8, ptr %190, i64 8
   %197 = load i64, ptr %iov_len19.i.i, align 8
   %call20.i.i = call i64 @pwrite64(i32 noundef %192, ptr noundef %196, i64 noundef %197, i64 noundef %193) #16
   br label %uv__fs_write.exit.i
@@ -1771,8 +1753,8 @@ do.end.i:                                         ; preds = %uv__fs_write.exit.i
 
 if.then12.i364:                                   ; preds = %do.end.i, %land.rhs.i381, %if.else14.i.i, %if.then.i.i384
   %r.0.i3235.i = phi i64 [ %r.0.i.i, %land.rhs.i381 ], [ 0, %if.then.i.i384 ], [ 0, %if.else14.i.i ], [ 0, %do.end.i ]
-  %cmp13.i = icmp eq i64 %total.046.i, 0
-  %spec.select28.i = select i1 %cmp13.i, i64 %r.0.i3235.i, i64 %total.046.i
+  %cmp13.i = icmp eq i64 %total.045.i, 0
+  %spec.select28.i = select i1 %cmp13.i, i64 %r.0.i3235.i, i64 %total.045.i
   br label %while.end.i
 
 if.end16.i369:                                    ; preds = %do.end.i
@@ -1808,21 +1790,22 @@ if.then.i29.i:                                    ; preds = %land.rhs.i.i
   %202 = load ptr, ptr %arrayidx5.i.i, align 8
   %add.ptr.i.i378 = getelementptr inbounds i8, ptr %202, i64 %size.addr.018.i.i
   store ptr %add.ptr.i.i378, ptr %arrayidx5.i.i, align 8
+  %len7.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 8
   %sub8.i.i = sub i64 %201, %size.addr.018.i.i
-  store i64 %sub8.i.i, ptr %len.i.i, align 8
-  %.pre56.i = load ptr, ptr %bufs2.i359, align 8
+  store i64 %sub8.i.i, ptr %len7.i.i, align 8
+  %.pre54.i = load ptr, ptr %bufs2.i359, align 8
   br label %uv__fs_buf_offset.exit.i
 
 uv__fs_buf_offset.exit.i:                         ; preds = %for.body.i.i, %if.then.i29.i
-  %203 = phi ptr [ %.pre56.i, %if.then.i29.i ], [ %200, %for.body.i.i ]
+  %203 = phi ptr [ %.pre54.i, %if.then.i29.i ], [ %200, %for.body.i.i ]
   %offset.015.i.i = phi i64 [ %offset.019.i.i, %if.then.i29.i ], [ %inc.i.i, %for.body.i.i ]
   %conv.i374 = trunc i64 %offset.015.i.i to i32
   store i32 %conv.i374, ptr %nbufs1.i, align 4
   %idx.ext.i = and i64 %offset.015.i.i, 4294967295
   %add.ptr.i375 = getelementptr inbounds %struct.uv_buf_t, ptr %203, i64 %idx.ext.i
   store ptr %add.ptr.i375, ptr %bufs2.i359, align 8
-  %sub.i376 = sub i32 %nbufs.047.i, %conv.i374
-  %add27.i = add nuw nsw i64 %r.0.i.i, %total.046.i
+  %sub.i376 = sub i32 %nbufs.046.i, %conv.i374
+  %add27.i = add nuw nsw i64 %r.0.i.i, %total.045.i
   %cmp.not.i377 = icmp eq i32 %sub.i376, 0
   br i1 %cmp.not.i377, label %while.end.i, label %while.body.i361
 
@@ -1895,7 +1878,7 @@ define internal void @uv__fs_done(ptr noundef %w, i32 noundef %status) #0 {
 entry:
   %loop = getelementptr inbounds i8, ptr %w, i64 -264
   %0 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %0, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %active_reqs, align 8
@@ -1922,21 +1905,21 @@ entry:
   br i1 %cmp, label %do.end26, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 13, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else23, label %if.else
@@ -1948,21 +1931,21 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end26, label %do.body21
 
 do.body21:                                        ; preds = %if.else
-  %mode17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode17 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode17, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end26
 
 if.else23:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %mode1722 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode1722 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode1722, align 8
-  %work_req24 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req24 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req24)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -1980,21 +1963,21 @@ entry:
   br i1 %cmp, label %do.end27, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 26, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else24, label %if.else
@@ -2006,25 +1989,25 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end27, label %do.body22
 
 do.body22:                                        ; preds = %if.else
-  %uid17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 17
+  %uid17 = getelementptr inbounds i8, ptr %req, i64 312
   store i32 %uid, ptr %uid17, align 8
-  %gid18 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 18
+  %gid18 = getelementptr inbounds i8, ptr %req, i64 316
   store i32 %gid, ptr %gid18, align 4
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end27
 
 if.else24:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %uid1723 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 17
+  %uid1723 = getelementptr inbounds i8, ptr %req, i64 312
   store i32 %uid, ptr %uid1723, align 8
-  %gid1824 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 18
+  %gid1824 = getelementptr inbounds i8, ptr %req, i64 316
   store i32 %gid, ptr %gid1824, align 4
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req25 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req25)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2042,23 +2025,23 @@ entry:
   br i1 %cmp, label %do.end18, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 2, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
   %cmp6.not = icmp eq ptr %cb, null
   br i1 %cmp6.not, label %if.else, label %if.then7
@@ -2069,16 +2052,16 @@ if.then7:                                         ; preds = %do.body1
   br i1 %tobool.not, label %do.body14, label %do.end18
 
 do.body14:                                        ; preds = %if.then7
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end18
 
 if.else:                                          ; preds = %do.body1
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req16 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req16)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2098,40 +2081,40 @@ entry:
   br i1 %cmp, label %do.end14, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 14, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
-  %mode6 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode6 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode6, align 8
   %cmp8.not = icmp eq ptr %cb, null
   br i1 %cmp8.not, label %if.else, label %do.body10
 
 do.body10:                                        ; preds = %do.body1
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end14
 
 if.else:                                          ; preds = %do.body1
-  %work_req12 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req12 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req12)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2149,42 +2132,42 @@ entry:
   br i1 %cmp, label %do.end15, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 27, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
-  %uid6 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 17
+  %uid6 = getelementptr inbounds i8, ptr %req, i64 312
   store i32 %uid, ptr %uid6, align 8
-  %gid7 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 18
+  %gid7 = getelementptr inbounds i8, ptr %req, i64 316
   store i32 %gid, ptr %gid7, align 4
   %cmp9.not = icmp eq ptr %cb, null
   br i1 %cmp9.not, label %if.else, label %do.body11
 
 do.body11:                                        ; preds = %do.body1
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end15
 
 if.else:                                          ; preds = %do.body1
-  %work_req13 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req13 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req13)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2202,21 +2185,21 @@ entry:
   br i1 %cmp, label %do.end27, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 30, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else24, label %if.else
@@ -2228,25 +2211,25 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end27, label %do.body22
 
 do.body22:                                        ; preds = %if.else
-  %uid17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 17
+  %uid17 = getelementptr inbounds i8, ptr %req, i64 312
   store i32 %uid, ptr %uid17, align 8
-  %gid18 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 18
+  %gid18 = getelementptr inbounds i8, ptr %req, i64 316
   store i32 %gid, ptr %gid18, align 4
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end27
 
 if.else24:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %uid1723 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 17
+  %uid1723 = getelementptr inbounds i8, ptr %req, i64 312
   store i32 %uid, ptr %uid1723, align 8
-  %gid1824 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 18
+  %gid1824 = getelementptr inbounds i8, ptr %req, i64 316
   store i32 %gid, ptr %gid1824, align 4
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req25 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req25)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2264,23 +2247,23 @@ entry:
   br i1 %cmp, label %do.end18, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 16, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
   %cmp6.not = icmp eq ptr %cb, null
   br i1 %cmp6.not, label %if.else, label %if.then7
@@ -2291,16 +2274,16 @@ if.then7:                                         ; preds = %do.body1
   br i1 %tobool.not, label %do.body14, label %do.end18
 
 do.body14:                                        ; preds = %if.then7
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end18
 
 if.else:                                          ; preds = %do.body1
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req16 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req16)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2320,23 +2303,23 @@ entry:
   br i1 %cmp, label %do.end18, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 8, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
   %cmp6.not = icmp eq ptr %cb, null
   br i1 %cmp6.not, label %if.else, label %if.then7
@@ -2347,16 +2330,16 @@ if.then7:                                         ; preds = %do.body1
   br i1 %tobool.not, label %do.body14, label %do.end18
 
 do.body14:                                        ; preds = %if.then7
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end18
 
 if.else:                                          ; preds = %do.body1
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req16 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req16)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2376,23 +2359,23 @@ entry:
   br i1 %cmp, label %do.end18, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 15, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
   %cmp6.not = icmp eq ptr %cb, null
   br i1 %cmp6.not, label %if.else, label %if.then7
@@ -2403,16 +2386,16 @@ if.then7:                                         ; preds = %do.body1
   br i1 %tobool.not, label %do.body14, label %do.end18
 
 do.body14:                                        ; preds = %if.then7
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end18
 
 if.else:                                          ; preds = %do.body1
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req16 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req16)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2430,40 +2413,40 @@ entry:
   br i1 %cmp, label %do.end14, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 9, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
-  %off6 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 16
+  %off6 = getelementptr inbounds i8, ptr %req, i64 304
   store i64 %off, ptr %off6, align 8
   %cmp8.not = icmp eq ptr %cb, null
   br i1 %cmp8.not, label %if.else, label %do.body10
 
 do.body10:                                        ; preds = %do.body1
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end14
 
 if.else:                                          ; preds = %do.body1
-  %work_req12 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req12 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req12)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2481,42 +2464,42 @@ entry:
   br i1 %cmp, label %do.end15, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 11, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file5 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file5, align 8
-  %atime6 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 19
+  %atime6 = getelementptr inbounds i8, ptr %req, i64 320
   store double %atime, ptr %atime6, align 8
-  %mtime7 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 20
+  %mtime7 = getelementptr inbounds i8, ptr %req, i64 328
   store double %mtime, ptr %mtime7, align 8
   %cmp9.not = icmp eq ptr %cb, null
   br i1 %cmp9.not, label %if.else, label %do.body11
 
 do.body11:                                        ; preds = %do.body1
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end15
 
 if.else:                                          ; preds = %do.body1
-  %work_req13 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req13 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req13)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2534,21 +2517,21 @@ entry:
   br i1 %cmp, label %do.end27, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 36, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else24, label %if.else
@@ -2560,25 +2543,25 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end27, label %do.body22
 
 do.body22:                                        ; preds = %if.else
-  %atime17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 19
+  %atime17 = getelementptr inbounds i8, ptr %req, i64 320
   store double %atime, ptr %atime17, align 8
-  %mtime18 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 20
+  %mtime18 = getelementptr inbounds i8, ptr %req, i64 328
   store double %mtime, ptr %mtime18, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end27
 
 if.else24:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %atime1723 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 19
+  %atime1723 = getelementptr inbounds i8, ptr %req, i64 320
   store double %atime, ptr %atime1723, align 8
-  %mtime1824 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 20
+  %mtime1824 = getelementptr inbounds i8, ptr %req, i64 328
   store double %mtime, ptr %mtime1824, align 8
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req25 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req25)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2596,21 +2579,21 @@ entry:
   br i1 %cmp, label %do.end31, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 7, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else28, label %if.else
@@ -2627,17 +2610,17 @@ if.then18:                                        ; preds = %if.else
   br i1 %tobool.not, label %do.body26, label %do.end31
 
 do.body26:                                        ; preds = %if.then18
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end31
 
 if.else28:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req29 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req29 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req29)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2655,21 +2638,21 @@ entry:
   br i1 %cmp, label %do.end41, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 23, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path4 = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path4, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb5 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb5, align 8
   %cmp8 = icmp eq ptr %cb, null
   br i1 %cmp8, label %if.else38, label %if.else
@@ -2696,18 +2679,18 @@ if.then28:                                        ; preds = %if.else
   br i1 %tobool.not, label %do.body36, label %do.end41
 
 do.body36:                                        ; preds = %if.then28
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end41
 
 if.else38:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
   store ptr %new_path, ptr %new_path4, align 8
-  %work_req39 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req39 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req39)
   %2 = load i64, ptr %result, align 8
   %conv = trunc i64 %2 to i32
@@ -2735,21 +2718,21 @@ entry:
   br i1 %cmp, label %do.end32, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 19, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else29, label %if.else
@@ -2761,26 +2744,26 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end32, label %if.then19
 
 if.then19:                                        ; preds = %if.else
-  %mode17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode17 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode17, align 8
   %call20 = tail call i32 @uv__iou_fs_mkdir(ptr noundef %loop, ptr noundef nonnull %req) #16
   %tobool.not = icmp eq i32 %call20, 0
   br i1 %tobool.not, label %do.body27, label %do.end32
 
 do.body27:                                        ; preds = %if.then19
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end32
 
 if.else29:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %mode1725 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode1725 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode1725, align 8
-  %work_req30 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req30 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req30)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2800,21 +2783,21 @@ entry:
   br i1 %cmp, label %do.end17, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 20, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
   %call = tail call ptr @uv__strdup(ptr noundef %tpl) #16
   store ptr %call, ptr %path, align 8
@@ -2826,16 +2809,16 @@ do.body10:                                        ; preds = %do.body1
   br i1 %cmp11.not, label %if.else, label %do.body13
 
 do.body13:                                        ; preds = %do.body10
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end17
 
 if.else:                                          ; preds = %do.body10
-  %work_req15 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req15 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req15)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2853,21 +2836,21 @@ entry:
   br i1 %cmp, label %do.end17, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 35, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
   %call = tail call ptr @uv__strdup(ptr noundef %tpl) #16
   store ptr %call, ptr %path, align 8
@@ -2879,16 +2862,16 @@ do.body10:                                        ; preds = %do.body1
   br i1 %cmp11.not, label %if.else, label %do.body13
 
 do.body13:                                        ; preds = %do.body10
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end17
 
 if.else:                                          ; preds = %do.body10
-  %work_req15 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req15 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req15)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2906,21 +2889,21 @@ entry:
   br i1 %cmp, label %do.end33, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 1, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else30, label %if.else
@@ -2932,30 +2915,30 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end33, label %if.then20
 
 if.then20:                                        ; preds = %if.else
-  %flags17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags17 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags17, align 4
-  %mode18 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode18 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode18, align 8
   %call21 = tail call i32 @uv__iou_fs_open(ptr noundef %loop, ptr noundef nonnull %req) #16
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %do.body28, label %do.end33
 
 do.body28:                                        ; preds = %if.then20
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end33
 
 if.else30:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %flags1726 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags1726 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags1726, align 4
-  %mode1827 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
+  %mode1827 = getelementptr inbounds i8, ptr %req, i64 288
   store i32 %mode, ptr %mode1827, align 8
-  %work_req31 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req31 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req31)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -2975,21 +2958,21 @@ entry:
   br i1 %cmp, label %do.end44, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 3, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs3 = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs3, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp6 = icmp eq ptr %bufs, null
   %cmp7 = icmp eq i32 %nbufs, 0
@@ -2997,18 +2980,18 @@ do.body1:                                         ; preds = %entry
   br i1 %or.cond, label %do.end44, label %if.end9
 
 if.end9:                                          ; preds = %do.body1
-  %off10 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 16
+  %off10 = getelementptr inbounds i8, ptr %req, i64 304
   store i64 %off, ptr %off10, align 8
-  %file11 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file11 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file11, align 8
   store ptr %bufs, ptr %bufs3, align 8
-  %nbufs13 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 14
+  %nbufs13 = getelementptr inbounds i8, ptr %req, i64 292
   store i32 %nbufs, ptr %nbufs13, align 4
   %cond = icmp eq ptr %cb, null
   br i1 %cond, label %if.else, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 22
+  %bufsml = getelementptr inbounds i8, ptr %req, i64 376
   store ptr %bufsml, ptr %bufs3, align 8
   %conv = zext i32 %nbufs to i64
   %cmp18 = icmp ugt i32 %nbufs, 4
@@ -3029,16 +3012,16 @@ if.end28:                                         ; preds = %if.end16, %if.end23
   br i1 %tobool.not, label %do.body39, label %do.end44
 
 do.body39:                                        ; preds = %if.end28
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end44
 
 if.else:                                          ; preds = %if.end9
-  %work_req41 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req41 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req41)
   %2 = load i64, ptr %result, align 8
   %conv43 = trunc i64 %2 to i32
@@ -3058,21 +3041,21 @@ entry:
   br i1 %cmp, label %do.end26, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 22, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else23, label %if.else
@@ -3084,21 +3067,21 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end26, label %do.body21
 
 do.body21:                                        ; preds = %if.else
-  %flags17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags17 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags17, align 4
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end26
 
 if.else23:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %flags1722 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags1722 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags1722, align 4
-  %work_req24 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req24 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req24)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3116,21 +3099,21 @@ entry:
   br i1 %cmp, label %do.end25, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 31, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else22, label %if.else
@@ -3142,17 +3125,17 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end25, label %do.body20
 
 do.body20:                                        ; preds = %if.else
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end25
 
 if.else22:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req23 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req23)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3170,28 +3153,28 @@ entry:
   br i1 %cmp, label %do.end20, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 32, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
   %cmp5 = icmp eq ptr %dir, null
   br i1 %cmp5, label %do.end20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body1
-  %dir6 = getelementptr inbounds %struct.uv_dir_s, ptr %dir, i64 0, i32 3
+  %dir6 = getelementptr inbounds i8, ptr %dir, i64 48
   %0 = load ptr, ptr %dir6, align 8
   %cmp7 = icmp eq ptr %0, null
   br i1 %cmp7, label %do.end20, label %lor.lhs.false8
@@ -3207,16 +3190,16 @@ if.end11:                                         ; preds = %lor.lhs.false8
   br i1 %cmp14.not, label %if.else, label %do.body16
 
 do.body16:                                        ; preds = %if.end11
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %2 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %2, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end20
 
 if.else:                                          ; preds = %if.end11
-  %work_req18 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req18 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req18)
   %3 = load i64, ptr %result, align 8
   %conv = trunc i64 %3 to i32
@@ -3234,42 +3217,42 @@ entry:
   br i1 %cmp, label %do.end16, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 33, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
   %cmp5 = icmp eq ptr %dir, null
   br i1 %cmp5, label %do.end16, label %if.end7
 
 if.end7:                                          ; preds = %do.body1
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   store ptr %dir, ptr %ptr, align 8
   %cmp10.not = icmp eq ptr %cb, null
   br i1 %cmp10.not, label %if.else, label %do.body12
 
 do.body12:                                        ; preds = %if.end7
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end16
 
 if.else:                                          ; preds = %if.end7
-  %work_req14 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req14 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req14)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3287,21 +3270,21 @@ entry:
   br i1 %cmp, label %do.end25, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 25, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else22, label %if.else
@@ -3313,17 +3296,17 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end25, label %do.body20
 
 do.body20:                                        ; preds = %if.else
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end25
 
 if.else22:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req23 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req23)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3341,21 +3324,21 @@ entry:
   br i1 %cmp, label %do.end25, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 28, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else22, label %if.else
@@ -3367,17 +3350,17 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end25, label %do.body20
 
 do.body20:                                        ; preds = %if.else
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end25
 
 if.else22:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req23 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req23)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3395,21 +3378,21 @@ entry:
   br i1 %cmp, label %do.end41, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 21, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path4 = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path4, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb5 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb5, align 8
   %cmp8 = icmp eq ptr %cb, null
   br i1 %cmp8, label %if.else38, label %if.else
@@ -3436,18 +3419,18 @@ if.then28:                                        ; preds = %if.else
   br i1 %tobool.not, label %do.body36, label %do.end41
 
 do.body36:                                        ; preds = %if.then28
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end41
 
 if.else38:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
   store ptr %new_path, ptr %new_path4, align 8
-  %work_req39 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req39 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req39)
   %2 = load i64, ptr %result, align 8
   %conv = trunc i64 %2 to i32
@@ -3467,21 +3450,21 @@ entry:
   br i1 %cmp, label %do.end25, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 18, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else22, label %if.else
@@ -3493,17 +3476,17 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end25, label %do.body20
 
 do.body20:                                        ; preds = %if.else
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end25
 
 if.else22:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req23 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req23)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3521,44 +3504,44 @@ entry:
   br i1 %cmp, label %do.end14, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 5, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb3 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb3, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %in_fd, ptr %flags, align 4
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %out_fd, ptr %file, align 8
-  %off5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 16
+  %off5 = getelementptr inbounds i8, ptr %req, i64 304
   store i64 %off, ptr %off5, align 8
-  %len6 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 22, i64 0, i32 1
+  %len6 = getelementptr inbounds i8, ptr %req, i64 384
   store i64 %len, ptr %len6, align 8
   %cmp8.not = icmp eq ptr %cb, null
   br i1 %cmp8.not, label %if.else, label %do.body10
 
 do.body10:                                        ; preds = %do.body1
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end14
 
 if.else:                                          ; preds = %do.body1
-  %work_req12 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req12 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req12)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3576,21 +3559,21 @@ entry:
   br i1 %cmp, label %do.end31, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 6, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else28, label %if.else
@@ -3607,17 +3590,17 @@ if.then18:                                        ; preds = %if.else
   br i1 %tobool.not, label %do.body26, label %do.end31
 
 do.body26:                                        ; preds = %if.then18
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end31
 
 if.else28:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req29 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req29 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req29)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3635,21 +3618,21 @@ entry:
   br i1 %cmp, label %do.end42, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 24, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path4 = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path4, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb5 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb5, align 8
   %cmp8 = icmp eq ptr %cb, null
   br i1 %cmp8, label %if.else39, label %if.else
@@ -3671,27 +3654,27 @@ if.then29:                                        ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr align 1 %path, i64 %add, i1 false)
   %0 = load ptr, ptr %new_path4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %new_path, i64 %add13, i1 false)
-  %flags27 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags27 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags27, align 4
   %call30 = tail call i32 @uv__iou_fs_symlink(ptr noundef %loop, ptr noundef nonnull %req) #16
   %tobool.not = icmp eq i32 %call30, 0
   br i1 %tobool.not, label %do.body37, label %do.end42
 
 do.body37:                                        ; preds = %if.then29
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end42
 
 if.else39:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
   store ptr %new_path, ptr %new_path4, align 8
-  %flags2736 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags2736 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags2736, align 4
-  %work_req40 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req40 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req40)
   %2 = load i64, ptr %result, align 8
   %conv = trunc i64 %2 to i32
@@ -3711,21 +3694,21 @@ entry:
   br i1 %cmp, label %do.end31, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 17, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else28, label %if.else
@@ -3742,17 +3725,17 @@ if.then18:                                        ; preds = %if.else
   br i1 %tobool.not, label %do.body26, label %do.end31
 
 do.body26:                                        ; preds = %if.then18
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end31
 
 if.else28:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req29 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req29 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req29)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3772,21 +3755,21 @@ entry:
   br i1 %cmp, label %do.end27, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 10, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else24, label %if.else
@@ -3798,25 +3781,25 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end27, label %do.body22
 
 do.body22:                                        ; preds = %if.else
-  %atime17 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 19
+  %atime17 = getelementptr inbounds i8, ptr %req, i64 320
   store double %atime, ptr %atime17, align 8
-  %mtime18 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 20
+  %mtime18 = getelementptr inbounds i8, ptr %req, i64 328
   store double %mtime, ptr %mtime18, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end27
 
 if.else24:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %atime1723 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 19
+  %atime1723 = getelementptr inbounds i8, ptr %req, i64 320
   store double %atime, ptr %atime1723, align 8
-  %mtime1824 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 20
+  %mtime1824 = getelementptr inbounds i8, ptr %req, i64 328
   store double %mtime, ptr %mtime1824, align 8
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req25 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req25)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -3834,21 +3817,21 @@ entry:
   br i1 %cmp, label %do.end44, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 4, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs3 = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs3, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp6 = icmp eq ptr %bufs, null
   %cmp7 = icmp eq i32 %nbufs, 0
@@ -3856,11 +3839,11 @@ do.body1:                                         ; preds = %entry
   br i1 %or.cond, label %do.end44, label %if.end9
 
 if.end9:                                          ; preds = %do.body1
-  %file10 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
+  %file10 = getelementptr inbounds i8, ptr %req, i64 280
   store i32 %file, ptr %file10, align 8
-  %nbufs11 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 14
+  %nbufs11 = getelementptr inbounds i8, ptr %req, i64 292
   store i32 %nbufs, ptr %nbufs11, align 4
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 22
+  %bufsml = getelementptr inbounds i8, ptr %req, i64 376
   store ptr %bufsml, ptr %bufs3, align 8
   %conv = zext i32 %nbufs to i64
   %cmp13 = icmp ugt i32 %nbufs, 4
@@ -3876,7 +3859,7 @@ if.end18:                                         ; preds = %if.end9
 if.end23:                                         ; preds = %if.end9, %if.end18
   %0 = phi ptr [ %call, %if.end18 ], [ %bufsml, %if.end9 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %bufs, i64 %mul, i1 false)
-  %off27 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 16
+  %off27 = getelementptr inbounds i8, ptr %req, i64 304
   store i64 %off, ptr %off27, align 8
   %cmp28.not = icmp eq ptr %cb, null
   br i1 %cmp28.not, label %if.else, label %if.then30
@@ -3887,16 +3870,16 @@ if.then30:                                        ; preds = %if.end23
   br i1 %tobool.not, label %do.body39, label %do.end44
 
 do.body39:                                        ; preds = %if.then30
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end44
 
 if.else:                                          ; preds = %if.end23
-  %work_req41 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req41 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req41)
   %2 = load i64, ptr %result, align 8
   %conv43 = trunc i64 %2 to i32
@@ -3914,19 +3897,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   %0 = load ptr, ptr %path, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %cb = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb = getelementptr inbounds i8, ptr %req, i64 80
   %1 = load ptr, ptr %cb, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %lor.lhs.false, label %if.then7
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   %2 = load i32, ptr %fs_type, align 8
   switch i32 %2, label %if.end9 [
     i32 20, label %if.then7
@@ -3939,15 +3922,15 @@ if.then7:                                         ; preds = %lor.lhs.false, %lor
 
 if.end9:                                          ; preds = %lor.lhs.false, %if.then7, %if.end
   store ptr null, ptr %path, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %fs_type11 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type11 = getelementptr inbounds i8, ptr %req, i64 64
   %3 = load i32, ptr %fs_type11, align 8
   %cmp12 = icmp eq i32 %3, 32
   br i1 %cmp12, label %land.lhs.true13, label %if.end16
 
 land.lhs.true13:                                  ; preds = %if.end9
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %4 = load ptr, ptr %ptr, align 8
   %cmp14.not = icmp eq ptr %4, null
   br i1 %cmp14.not, label %if.end23, label %if.then15
@@ -3963,7 +3946,7 @@ if.end16:                                         ; preds = %if.then15, %if.end9
   br i1 %cmp18, label %land.lhs.true19, label %if.end23
 
 land.lhs.true19:                                  ; preds = %if.end16
-  %ptr20 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr20 = getelementptr inbounds i8, ptr %req, i64 96
   %6 = load ptr, ptr %ptr20, align 8
   %cmp21.not = icmp eq ptr %6, null
   br i1 %cmp21.not, label %if.end23, label %if.then22
@@ -3973,9 +3956,9 @@ if.then22:                                        ; preds = %land.lhs.true19
   br label %if.end23
 
 if.end23:                                         ; preds = %land.lhs.true13, %if.then22, %land.lhs.true19, %if.end16
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   %7 = load ptr, ptr %bufs, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 22
+  %bufsml = getelementptr inbounds i8, ptr %req, i64 376
   %cmp24.not = icmp eq ptr %7, %bufsml
   br i1 %cmp24.not, label %if.end27, label %if.then25
 
@@ -3990,9 +3973,9 @@ if.end27:                                         ; preds = %if.then25, %if.end2
   br i1 %cmp30.not, label %if.end36, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %if.end27
-  %ptr32 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr32 = getelementptr inbounds i8, ptr %req, i64 96
   %9 = load ptr, ptr %ptr32, align 8
-  %statbuf = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9
+  %statbuf = getelementptr inbounds i8, ptr %req, i64 112
   %cmp33.not = icmp eq ptr %9, %statbuf
   br i1 %cmp33.not, label %if.end36, label %if.then34
 
@@ -4001,7 +3984,7 @@ if.then34:                                        ; preds = %land.lhs.true31
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %land.lhs.true31, %if.end27
-  %ptr37 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr37 = getelementptr inbounds i8, ptr %req, i64 96
   store ptr null, ptr %ptr37, align 8
   br label %return
 
@@ -4022,21 +4005,21 @@ entry:
   br i1 %cmp, label %do.end38, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 29, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path4 = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path4, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb5 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb5, align 8
   %tobool.not = icmp ult i32 %flags, 8
   br i1 %tobool.not, label %do.body9, label %do.end38
@@ -4062,22 +4045,22 @@ do.body33:                                        ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call17, ptr align 1 %path, i64 %add, i1 false)
   %0 = load ptr, ptr %new_path4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %new_path, i64 %add15, i1 false)
-  %flags29 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags29 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags29, align 4
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end38
 
 if.else35:                                        ; preds = %do.body9
   store ptr %path, ptr %path3, align 8
   store ptr %new_path, ptr %new_path4, align 8
-  %flags2934 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
+  %flags2934 = getelementptr inbounds i8, ptr %req, i64 284
   store i32 %flags, ptr %flags2934, align 4
-  %work_req36 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req36 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req36)
   %2 = load i64, ptr %result, align 8
   %conv = trunc i64 %2 to i32
@@ -4095,21 +4078,21 @@ entry:
   br i1 %cmp, label %do.end25, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 6, ptr %type, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   store i32 34, ptr %fs_type, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
+  %result = getelementptr inbounds i8, ptr %req, i64 88
+  %loop2 = getelementptr inbounds i8, ptr %req, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   store ptr %loop, ptr %loop2, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path3 = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %path3, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
+  %new_path = getelementptr inbounds i8, ptr %req, i64 272
   store ptr null, ptr %new_path, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
+  %bufs = getelementptr inbounds i8, ptr %req, i64 296
   store ptr null, ptr %bufs, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 5
+  %cb4 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %cb, ptr %cb4, align 8
   %cmp7 = icmp eq ptr %cb, null
   br i1 %cmp7, label %if.else22, label %if.else
@@ -4121,17 +4104,17 @@ if.else:                                          ; preds = %do.body1
   br i1 %cmp12, label %do.end25, label %do.body20
 
 do.body20:                                        ; preds = %if.else
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__work_submit(ptr noundef %loop, ptr noundef nonnull %work_req, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #16
   br label %do.end25
 
 if.else22:                                        ; preds = %do.body1
   store ptr %path, ptr %path3, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
+  %work_req23 = getelementptr inbounds i8, ptr %req, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %work_req23)
   %1 = load i64, ptr %result, align 8
   %conv = trunc i64 %1 to i32
@@ -4145,7 +4128,7 @@ do.end25:                                         ; preds = %if.else, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @uv_fs_get_system_error(ptr nocapture noundef readonly %req) local_unnamed_addr #4 {
 entry:
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   %1 = trunc i64 %0 to i32
   %conv = sub i32 0, %1
@@ -4304,7 +4287,7 @@ declare i32 @scandir64(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @uv__fs_scandir_filter(ptr nocapture noundef readonly %dent) #10 {
 entry:
-  %d_name = getelementptr inbounds %struct.dirent, ptr %dent, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %dent, i64 19
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(2) @.str.2) #18
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -4324,9 +4307,9 @@ land.end:                                         ; preds = %land.rhs, %entry
 define internal i32 @uv__fs_scandir_sort(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %d_name = getelementptr inbounds %struct.dirent, ptr %0, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %0, i64 19
   %1 = load ptr, ptr %b, align 8
-  %d_name1 = getelementptr inbounds %struct.dirent, ptr %1, i64 0, i32 4
+  %d_name1 = getelementptr inbounds i8, ptr %1, i64 19
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(1) %d_name1) #18
   ret i32 %call
 }

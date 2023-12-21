@@ -3,18 +3,10 @@ source_filename = "bench/abseil-cpp/original/crc_cord_state.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.absl::crc_internal::CrcCordState::RefcountedRep" = type { %"struct.std::atomic", %"struct.absl::crc_internal::CrcCordState::Rep" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.absl::crc_internal::CrcCordState::Rep" = type { %"struct.absl::crc_internal::CrcCordState::PrefixCrc", %"class.std::deque" }
 %"struct.absl::crc_internal::CrcCordState::PrefixCrc" = type <{ i64, %"class.absl::crc32c_t", [4 x i8] }>
 %"class.absl::crc32c_t" = type { i32 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl" }
-%"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl" = type { %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"struct.std::_Deque_iterator.3" = type { ptr, ptr, ptr, ptr }
+%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -71,11 +63,11 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   store i32 1, ptr %call, align 4
-  %rep.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call, i64 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %rep.i, align 8
-  %crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %crc.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %crc.i.i.i, align 4
-  %prefix_crc.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call, i64 0, i32 1, i32 1
+  %prefix_crc.i.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, i64 noundef 0)
           to label %invoke.cont2 unwind label %lpad1
@@ -129,11 +121,11 @@ define dso_local void @_ZN4absl12crc_internal12CrcCordStateC2Ev(ptr nocapture no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
   store i32 1, ptr %call, align 4
-  %rep.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call, i64 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %rep.i, align 8
-  %crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %crc.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %crc.i.i.i, align 4
-  %prefix_crc.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call, i64 0, i32 1, i32 1
+  %prefix_crc.i.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
@@ -183,17 +175,17 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN4absl12crc_internal12CrcCordState5UnrefEPNS1_13RefcountedRepE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then
-  %prefix_crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1
+  %prefix_crc.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %prefix_crc.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4absl12crc_internal12CrcCordState13RefcountedRepD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %3, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i.i.i
 
@@ -201,7 +193,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i ]
   %5 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %4
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -243,17 +235,17 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN4absl12crc_internal12CrcCordState5UnrefEPNS1_13RefcountedRepE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then
-  %prefix_crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1
+  %prefix_crc.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %prefix_crc.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4absl12crc_internal12CrcCordState13RefcountedRepD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %3, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i.i.i
 
@@ -261,7 +253,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i ]
   %5 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %4
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -300,17 +292,17 @@ entry:
   br i1 %or.cond.i, label %_ZN4absl12crc_internal12CrcCordState5UnrefEPNS1_13RefcountedRepE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %prefix_crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1
+  %prefix_crc.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %prefix_crc.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4absl12crc_internal12CrcCordState13RefcountedRepD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %3, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i.i.i
 
@@ -318,7 +310,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i ]
   %5 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %4
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -354,65 +346,65 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local i32 @_ZNK4absl12crc_internal12CrcCordState8ChecksumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_start.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %rep.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
-  %_M_first3.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !8
   %cmp.i.i2 = icmp eq ptr %1, %4
   br i1 %cmp.i.i2, label %if.then.i.i, label %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit
 
 if.then.i.i:                                      ; preds = %if.then4
-  %_M_node5.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %6, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 512
   br label %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit
 
 _ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit: ; preds = %if.then4, %if.then.i.i
   %7 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i ], [ %1, %if.then4 ]
-  %crc = getelementptr %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %7, i64 -1, i32 1
+  %crc = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load i32, ptr %crc, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %crc10 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %crc10 = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %crc10, align 8
-  %_M_first3.i.i.i6 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i6 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load ptr, ptr %_M_first3.i.i.i6, align 8, !noalias !11
   %cmp.i.i7 = icmp eq ptr %1, %9
   br i1 %cmp.i.i7, label %if.then.i.i19, label %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit13
 
 _ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit13: ; preds = %if.end8
-  %crc15 = getelementptr %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %1, i64 -1, i32 1
+  %crc15 = getelementptr inbounds i8, ptr %1, i64 -8
   br label %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit23
 
 if.then.i.i19:                                    ; preds = %if.end8
-  %_M_node5.i.i.i10 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i.i10 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load ptr, ptr %_M_node5.i.i.i10, align 8, !noalias !11
-  %add.ptr.i.i11 = getelementptr inbounds ptr, ptr %10, i64 -1
+  %add.ptr.i.i11 = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i11, align 8
-  %crc1526 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %11, i64 31, i32 1
-  %add.ptr.i.i.i22 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %11, i64 32
+  %crc1526 = getelementptr inbounds i8, ptr %11, i64 504
+  %add.ptr.i.i.i22 = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit23
 
 _ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit23: ; preds = %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit13, %if.then.i.i19
   %agg.tmp11.sroa.0.0.copyload28.in = phi ptr [ %crc1526, %if.then.i.i19 ], [ %crc15, %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit13 ]
   %12 = phi ptr [ %add.ptr.i.i.i22, %if.then.i.i19 ], [ %1, %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE4backEv.exit13 ]
   %agg.tmp11.sroa.0.0.copyload28 = load i32, ptr %agg.tmp11.sroa.0.0.copyload28.in, align 8
-  %incdec.ptr.i.i18 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %12, i64 -1
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %12, i64 -16
   %13 = load i64, ptr %incdec.ptr.i.i18, align 8
   %sub = sub i64 %13, %3
   %call23 = tail call i32 @_ZN4absl18RemoveCrc32cPrefixENS_8crc32c_tES0_m(i32 %agg.tmp.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload28, i64 noundef %sub)
@@ -432,14 +424,14 @@ declare i32 @_ZN4absl18RemoveCrc32cPrefixENS_8crc32c_tES0_m(i32, i32, i64 nounde
 define dso_local { i64, i32 } @_ZNK4absl12crc_internal12CrcCordState29NormalizedPrefixCrcAtNthChunkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %n) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %rep.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1
+  %rep.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %rep.i.i, align 8
   %cmp.i = icmp eq i64 %1, 0
-  %_M_start.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %_M_start.i, align 8, !noalias !11
-  %_M_first3.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !11
-  %_M_node5.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !11
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
@@ -523,9 +515,9 @@ _ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EEixEm.exit57: ;
   %storemerge.i.i.i.i50 = phi ptr [ %add.ptr15.i.i.i.i49, %_ZNKSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EEixEm.exit29 ], [ %add.ptr.i.i.i.i28, %if.then.i.i.i.i55 ]
   %.pn = load i64, ptr %.pn.in, align 8
   %sub62 = sub i64 %.pn, %1
-  %agg.tmp10.sroa.0.0.copyload65.in = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %agg.tmp10.sroa.0.0.copyload65.in = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp10.sroa.0.0.copyload65 = load i32, ptr %agg.tmp10.sroa.0.0.copyload65.in, align 8
-  %crc17 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %storemerge.i.i.i.i50, i64 0, i32 1
+  %crc17 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i50, i64 8
   %agg.tmp13.sroa.0.0.copyload = load i32, ptr %crc17, align 8
   %call19 = tail call i32 @_ZN4absl18RemoveCrc32cPrefixENS_8crc32c_tES0_m(i32 %agg.tmp10.sroa.0.0.copyload65, i32 %agg.tmp13.sroa.0.0.copyload, i64 noundef %sub62)
   br label %return
@@ -542,14 +534,14 @@ return:                                           ; preds = %_ZNKSt5dequeIN4absl
 define dso_local void @_ZN4absl12crc_internal12CrcCordState9NormalizeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %rep.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1
+  %rep.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %rep.i.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_start.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
@@ -557,19 +549,19 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %call4 = tail call noundef ptr @_ZN4absl12crc_internal12CrcCordState11mutable_repEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %_M_start.i9 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i9 = getelementptr inbounds i8, ptr %call4, i64 32
   %4 = load ptr, ptr %_M_start.i9, align 8, !noalias !21
-  %_M_finish.i10 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i10 = getelementptr inbounds i8, ptr %call4, i64 64
   %5 = load ptr, ptr %_M_finish.i10, align 8, !noalias !24
   %cmp.i.i17.not22 = icmp eq ptr %4, %5
   br i1 %cmp.i.i17.not22, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_M_node5.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %call4, i64 56
   %6 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !21
-  %_M_last4.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %call4, i64 48
   %7 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !21
-  %crc = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %call4, i64 0, i32 1
+  %crc = getelementptr inbounds i8, ptr %call4, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit
@@ -580,19 +572,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %9 = load i64, ptr %call4, align 8
   %sub = sub i64 %8, %9
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %crc, align 8
-  %crc12 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %__begin2.sroa.0.023, i64 0, i32 1
+  %crc12 = getelementptr inbounds i8, ptr %__begin2.sroa.0.023, i64 8
   %agg.tmp11.sroa.0.0.copyload = load i32, ptr %crc12, align 8
   %call14 = tail call i32 @_ZN4absl18RemoveCrc32cPrefixENS_8crc32c_tES0_m(i32 %agg.tmp.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i64 noundef %sub)
   store i32 %call14, ptr %crc12, align 8
   store i64 %sub, ptr %__begin2.sroa.0.023, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %__begin2.sroa.0.023, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.023, i64 16
   %cmp.i18 = icmp eq ptr %incdec.ptr.i, %__begin2.sroa.8.024
   br i1 %cmp.i18, label %if.then.i, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.11.025, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.025, i64 8
   %10 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %10, i64 32
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit: ; preds = %for.body, %if.then.i
@@ -627,20 +619,20 @@ entry.if.end_crit_edge:                           ; preds = %entry
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
   store i32 1, ptr %call2, align 4
-  %rep.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call2, i64 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %call2, i64 8
   store i64 0, ptr %rep.i, align 8
-  %crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call2, i64 0, i32 1, i32 0, i32 1
+  %crc.i.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   store i32 0, ptr %crc.i.i.i, align 4
-  %prefix_crc.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %call2, i64 0, i32 1, i32 1
+  %prefix_crc.i.i = getelementptr inbounds i8, ptr %call2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   %2 = load ptr, ptr %this, align 8
-  %rep = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %2, i64 0, i32 1
+  %rep = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep.i, ptr noundef nonnull align 8 dereferenceable(12) %rep, i64 12, i1 false)
-  %prefix_crc3.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %2, i64 0, i32 1, i32 1
+  %prefix_crc3.i = getelementptr inbounds i8, ptr %2, i64 24
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc3.i)
   %3 = load ptr, ptr %this, align 8
   %4 = atomicrmw sub ptr %3, i32 1 acq_rel, align 4
@@ -650,17 +642,17 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %or.cond.i, label %_ZN4absl12crc_internal12CrcCordState5UnrefEPNS1_13RefcountedRepE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %invoke.cont
-  %prefix_crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %3, i64 0, i32 1, i32 1
+  %prefix_crc.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %prefix_crc.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4absl12crc_internal12CrcCordState13RefcountedRepD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %3, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %3, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 96
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %6 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %6, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i.i.i
 
@@ -668,7 +660,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i ]
   %8 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %8) #16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %7
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -697,7 +689,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl12crc_internal12CrcCordState5UnrefEPNS1_13RefcountedRepE.exit
   %11 = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %call2, %_ZN4absl12crc_internal12CrcCordState5UnrefEPNS1_13RefcountedRepE.exit ]
-  %rep9 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %11, i64 0, i32 1
+  %rep9 = getelementptr inbounds i8, ptr %11, i64 8
   ret ptr %rep9
 }
 
@@ -711,11 +703,11 @@ entry:
   %ref.tmp13 = alloca %"class.absl::crc32c_t", align 4
   %call = tail call noundef ptr @_ZN4absl12crc_internal12CrcCordState11mutable_repEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_start.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %_M_node.i.i.i, align 8
-  %_M_node1.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -726,14 +718,14 @@ entry:
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 5
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %_M_first.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.div6.i.i.i = ashr exact i64 %sub.ptr.sub5.i.i.i, 4
   %add.i.i.i = add nsw i64 %mul.i.i.i, %sub.ptr.div6.i.i.i
-  %_M_last.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::RefcountedRep", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %_M_last.i.i.i, align 8
   %6 = load ptr, ptr %_M_start.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i = ptrtoint ptr %5 to i64
@@ -742,20 +734,20 @@ entry:
   %sub.ptr.div11.i.i.i = ashr exact i64 %sub.ptr.sub10.i.i.i, 4
   %add12.i.i.i = sub nsw i64 0, %sub.ptr.div11.i.i.i
   %cmp.not = icmp eq i64 %add.i.i.i, %add12.i.i.i
-  %_M_finish.i13 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i13 = getelementptr inbounds i8, ptr %call, i64 64
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_start.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load ptr, ptr %_M_start.i, align 8, !noalias !27
   %8 = load ptr, ptr %_M_finish.i13, align 8, !noalias !30
   %cmp.i.i.not20 = icmp eq ptr %7, %8
   br i1 %cmp.i.i.not20, label %if.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then
-  %_M_node5.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %9 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !27
-  %_M_last4.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %10 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !27
   br label %for.body
 
@@ -763,19 +755,19 @@ for.body:                                         ; preds = %for.body.preheader,
   %__begin3.sroa.11.023 = phi ptr [ %__begin3.sroa.11.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit ], [ %9, %for.body.preheader ]
   %__begin3.sroa.8.022 = phi ptr [ %__begin3.sroa.8.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit ], [ %10, %for.body.preheader ]
   %__begin3.sroa.0.021 = phi ptr [ %__begin3.sroa.0.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit ], [ %7, %for.body.preheader ]
-  %crc6 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %__begin3.sroa.0.021, i64 0, i32 1
+  %crc6 = getelementptr inbounds i8, ptr %__begin3.sroa.0.021, i64 8
   %11 = load i32, ptr %crc6, align 4
   %add = add i32 %11, 779543579
   %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add, i32 %add, i32 15)
   store i32 %or.i.i, ptr %crc6, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %__begin3.sroa.0.021, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.021, i64 16
   %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin3.sroa.8.022
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__begin3.sroa.11.023, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.11.023, i64 8
   %12 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %12, i64 32
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit: ; preds = %for.body, %if.then.i
@@ -789,23 +781,23 @@ if.else:                                          ; preds = %entry
   store i32 0, ptr %ref.tmp12, align 4
   store i32 1, ptr %ref.tmp13, align 4
   %13 = load ptr, ptr %_M_finish.i13, align 8
-  %_M_last.i14 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i14 = getelementptr inbounds i8, ptr %call, i64 80
   %14 = load ptr, ptr %_M_last.i14, align 8
-  %add.ptr.i15 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %14, i64 -1
+  %add.ptr.i15 = getelementptr inbounds i8, ptr %14, i64 -16
   %cmp.not.i = icmp eq ptr %13, %add.ptr.i15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i16
 
 if.then.i16:                                      ; preds = %if.else
   store i64 0, ptr %13, align 8
-  %crc.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %13, i64 0, i32 1
+  %crc.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store i32 1, ptr %crc.i.i.i.i, align 8
   %15 = load ptr, ptr %_M_finish.i13, align 8
-  %incdec.ptr.i17 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %15, i64 1
+  %incdec.ptr.i17 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %incdec.ptr.i17, ptr %_M_finish.i13, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
-  %prefix_crc11 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::Rep", ptr %call, i64 0, i32 1
+  %prefix_crc11 = getelementptr inbounds i8, ptr %call, i64 16
   call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_push_back_auxIJiNS0_8crc32c_tEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc11, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13)
   br label %if.end
 
@@ -820,7 +812,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
@@ -838,7 +830,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !33
 
@@ -854,7 +846,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #16
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !6
 
@@ -894,24 +886,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %12, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %13, i64 32
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 31
@@ -961,11 +953,11 @@ entry:
   br i1 %cmp.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -976,14 +968,14 @@ if.then:                                          ; preds = %entry
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 5
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -991,11 +983,11 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 4
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 3
-  %_M_start.i9 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 2
-  %_M_node.i.i10 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 3
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %__x, i64 48
+  %_M_start.i9 = getelementptr inbounds i8, ptr %__x, i64 16
+  %_M_node.i.i10 = getelementptr inbounds i8, ptr %__x, i64 72
   %6 = load ptr, ptr %_M_node.i.i10, align 8
-  %_M_node1.i.i11 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 3
+  %_M_node1.i.i11 = getelementptr inbounds i8, ptr %__x, i64 40
   %7 = load ptr, ptr %_M_node1.i.i11, align 8
   %sub.ptr.lhs.cast.i.i12 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i13 = ptrtoint ptr %7 to i64
@@ -1006,14 +998,14 @@ if.then:                                          ; preds = %entry
   %sub.i.i18 = add nsw i64 %sub.ptr.div.i.i15, %conv.neg.i.i17
   %mul.i.i19 = shl nsw i64 %sub.i.i18, 5
   %8 = load ptr, ptr %_M_finish.i8, align 8
-  %_M_first.i.i20 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 1
+  %_M_first.i.i20 = getelementptr inbounds i8, ptr %__x, i64 56
   %9 = load ptr, ptr %_M_first.i.i20, align 8
   %sub.ptr.lhs.cast3.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast4.i.i22 = ptrtoint ptr %9 to i64
   %sub.ptr.sub5.i.i23 = sub i64 %sub.ptr.lhs.cast3.i.i21, %sub.ptr.rhs.cast4.i.i22
   %sub.ptr.div6.i.i24 = ashr exact i64 %sub.ptr.sub5.i.i23, 4
   %add.i.i25 = add nsw i64 %mul.i.i19, %sub.ptr.div6.i.i24
-  %_M_last.i.i26 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 2
+  %_M_last.i.i26 = getelementptr inbounds i8, ptr %__x, i64 32
   %10 = load ptr, ptr %_M_last.i.i26, align 8
   %11 = load ptr, ptr %_M_start.i9, align 8
   %sub.ptr.lhs.cast8.i.i27 = ptrtoint ptr %10 to i64
@@ -1022,48 +1014,48 @@ if.then:                                          ; preds = %entry
   %sub.ptr.div11.i.i30 = ashr exact i64 %sub.ptr.sub10.i.i29, 4
   %add12.i.i31 = add nsw i64 %add.i.i25, %sub.ptr.div11.i.i30
   %cmp3.not = icmp ult i64 %add12.i.i, %add12.i.i31
-  %_M_first3.i.i49 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 1
+  %_M_first3.i.i49 = getelementptr inbounds i8, ptr %__x, i64 24
   %12 = load ptr, ptr %_M_first3.i.i49, align 8, !noalias !11
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %_M_last4.i.i40 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 2
+  %_M_last4.i.i40 = getelementptr inbounds i8, ptr %__x, i64 64
   %13 = load ptr, ptr %_M_last4.i.i40, align 8, !noalias !34
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %_M_first3.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
   store ptr %11, ptr %agg.tmp.i.i.i, align 8, !noalias !43
-  %_M_first.i.i25.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %12, ptr %_M_first.i.i25.i.i, align 8, !noalias !43
-  %_M_last.i.i27.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %10, ptr %_M_last.i.i27.i.i, align 8, !noalias !43
-  %_M_node.i.i29.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !43
   store ptr %8, ptr %agg.tmp1.i.i.i, align 8, !noalias !43
-  %_M_first.i1.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 1
+  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %9, ptr %_M_first.i1.i.i.i, align 8, !noalias !43
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   store ptr %13, ptr %_M_last.i3.i.i.i, align 8, !noalias !43
-  %_M_node.i5.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 3
+  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %6, ptr %_M_node.i5.i.i.i, align 8, !noalias !43
   store ptr %5, ptr %agg.tmp2.i.i.i, align 8, !noalias !43
-  %_M_first.i7.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %14, ptr %_M_first.i7.i.i.i, align 8, !noalias !43
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %4, ptr %_M_last.i9.i.i.i, align 8, !noalias !43
-  %_M_node.i11.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %1, ptr %_M_node.i11.i.i.i, align 8, !noalias !43
   call void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
   %15 = load <2 x ptr>, ptr %agg.tmp.i.i, align 16, !noalias !46
-  %_M_last4.i.i34.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i, i64 0, i32 2
+  %_M_last4.i.i34.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %16 = load ptr, ptr %_M_last4.i.i34.i.i, align 16, !noalias !46
-  %_M_node5.i.i36.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i, i64 0, i32 3
+  %_M_node5.i.i36.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   %17 = load ptr, ptr %_M_node5.i.i36.i.i, align 8, !noalias !46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !37
   %18 = load ptr, ptr %_M_node.i.i, align 8
@@ -1072,7 +1064,7 @@ if.then4:                                         ; preds = %if.then
 
 for.body.i.i:                                     ; preds = %if.then4, %for.body.i.i
   %__n.04.i.pn.i = phi ptr [ %__n.04.i.i, %for.body.i.i ], [ %17, %if.then4 ]
-  %__n.04.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i, i64 1
+  %__n.04.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i, i64 8
   %19 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %19) #16
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %18
@@ -1080,7 +1072,7 @@ for.body.i.i:                                     ; preds = %if.then4, %for.body
 
 _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_erase_at_endESt15_Deque_iteratorIS3_RS3_PS3_E.exit: ; preds = %for.body.i.i, %if.then4
   store <2 x ptr> %15, ptr %_M_finish.i, align 8
-  %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %16, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx, align 8
   store ptr %17, ptr %_M_node.i.i, align 8
   br label %if.end19
@@ -1113,7 +1105,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %7, i64 %cond.i.i
   %20 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !49
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %20, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 512
   %mul.i.i66 = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i64, %mul.i.i66
   %add.ptr15.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %20, i64 %sub14.i.i
@@ -1124,32 +1116,32 @@ _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS
   %__mid.sroa.7.0 = phi ptr [ %10, %if.then.i.i ], [ %add.ptr.i.i.i, %cond.end.i.i ]
   %__mid.sroa.11.0 = phi ptr [ %7, %if.then.i.i ], [ %add.ptr11.i.i, %cond.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
-  %_M_first3.i81 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first3.i81 = getelementptr inbounds i8, ptr %this, i64 24
   %21 = load ptr, ptr %_M_first3.i81, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i89), !noalias !52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i86), !noalias !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i87), !noalias !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i88), !noalias !55
   store ptr %11, ptr %agg.tmp.i.i.i86, align 8, !noalias !58
-  %_M_first.i.i25.i.i99 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i86, i64 0, i32 1
+  %_M_first.i.i25.i.i99 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i86, i64 8
   store ptr %12, ptr %_M_first.i.i25.i.i99, align 8, !noalias !58
-  %_M_last.i.i27.i.i100 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i86, i64 0, i32 2
+  %_M_last.i.i27.i.i100 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i86, i64 16
   store ptr %10, ptr %_M_last.i.i27.i.i100, align 8, !noalias !58
-  %_M_node.i.i29.i.i101 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i86, i64 0, i32 3
+  %_M_node.i.i29.i.i101 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i86, i64 24
   store ptr %7, ptr %_M_node.i.i29.i.i101, align 8, !noalias !58
   store ptr %storemerge.i.i, ptr %agg.tmp1.i.i.i87, align 8, !noalias !58
-  %_M_first.i1.i.i.i102 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i87, i64 0, i32 1
+  %_M_first.i1.i.i.i102 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i87, i64 8
   store ptr %__mid.sroa.3.0, ptr %_M_first.i1.i.i.i102, align 8, !noalias !58
-  %_M_last.i3.i.i.i103 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i87, i64 0, i32 2
+  %_M_last.i3.i.i.i103 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i87, i64 16
   store ptr %__mid.sroa.7.0, ptr %_M_last.i3.i.i.i103, align 8, !noalias !58
-  %_M_node.i5.i.i.i104 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i87, i64 0, i32 3
+  %_M_node.i5.i.i.i104 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i87, i64 24
   store ptr %__mid.sroa.11.0, ptr %_M_node.i5.i.i.i104, align 8, !noalias !58
   store ptr %5, ptr %agg.tmp2.i.i.i88, align 8, !noalias !58
-  %_M_first.i7.i.i.i105 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i88, i64 0, i32 1
+  %_M_first.i7.i.i.i105 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i88, i64 8
   store ptr %21, ptr %_M_first.i7.i.i.i105, align 8, !noalias !58
-  %_M_last.i9.i.i.i106 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i88, i64 0, i32 2
+  %_M_last.i9.i.i.i106 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i88, i64 16
   store ptr %4, ptr %_M_last.i9.i.i.i106, align 8, !noalias !58
-  %_M_node.i11.i.i.i107 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i88, i64 0, i32 3
+  %_M_node.i11.i.i.i107 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i88, i64 24
   store ptr %1, ptr %_M_node.i11.i.i.i107, align 8, !noalias !58
   call void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i89, ptr noundef nonnull %agg.tmp.i.i.i86, ptr noundef nonnull %agg.tmp1.i.i.i87, ptr noundef nonnull %agg.tmp2.i.i.i88), !noalias !55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i86), !noalias !55
@@ -1158,22 +1150,22 @@ _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i89), !noalias !52
   %22 = load <2 x ptr>, ptr %_M_finish.i, align 8
   store <2 x ptr> %22, ptr %agg.tmp13, align 16
-  %_M_last.i116 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp13, i64 0, i32 2
-  %_M_last4.i117 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i116 = getelementptr inbounds i8, ptr %agg.tmp13, i64 16
+  %_M_last4.i117 = getelementptr inbounds i8, ptr %this, i64 64
   %23 = load <2 x ptr>, ptr %_M_last4.i117, align 8
   store <2 x ptr> %23, ptr %_M_last.i116, align 16
   store ptr %storemerge.i.i, ptr %agg.tmp15, align 8
-  %_M_first.i120 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp15, i64 0, i32 1
+  %_M_first.i120 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   store ptr %__mid.sroa.3.0, ptr %_M_first.i120, align 8
-  %_M_last.i122 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp15, i64 0, i32 2
+  %_M_last.i122 = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   store ptr %__mid.sroa.7.0, ptr %_M_last.i122, align 8
-  %_M_node.i124 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp15, i64 0, i32 3
+  %_M_node.i124 = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
   store ptr %__mid.sroa.11.0, ptr %_M_node.i124, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %24 = load <2 x ptr>, ptr %_M_finish.i8, align 8, !noalias !61
   store <2 x ptr> %24, ptr %agg.tmp16, align 16, !alias.scope !61
-  %_M_last.i.i129 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp16, i64 0, i32 2
-  %_M_last4.i.i130 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 2
+  %_M_last.i.i129 = getelementptr inbounds i8, ptr %agg.tmp16, i64 16
+  %_M_last4.i.i130 = getelementptr inbounds i8, ptr %__x, i64 64
   %25 = load <2 x ptr>, ptr %_M_last4.i.i130, align 8, !noalias !61
   store <2 x ptr> %25, ptr %_M_last.i.i129, align 16, !alias.scope !61
   call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE19_M_range_insert_auxISt15_Deque_iteratorIS3_RKS3_PS8_EEEvS7_IS3_RS3_PS3_ET_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp13, ptr noundef nonnull %agg.tmp15, ptr noundef nonnull %agg.tmp16)
@@ -1190,16 +1182,16 @@ entry:
   %agg.tmp43 = alloca %"struct.std::_Deque_iterator.3", align 8
   %agg.tmp44 = alloca %"struct.std::_Deque_iterator.3", align 8
   %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %1 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %2 = load ptr, ptr %_M_node5.i, align 8
   %3 = load ptr, ptr %__last, align 8
-  %_M_first3.i5 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 1
+  %_M_first3.i5 = getelementptr inbounds i8, ptr %__last, i64 8
   %4 = load ptr, ptr %_M_first3.i5, align 8
-  %_M_last4.i7 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
-  %_M_node5.i9 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 3
+  %_M_last4.i7 = getelementptr inbounds i8, ptr %__last, i64 16
+  %_M_node5.i9 = getelementptr inbounds i8, ptr %__last, i64 24
   %5 = load ptr, ptr %_M_node5.i9, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -1220,13 +1212,13 @@ entry:
   %add.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i, %sub.ptr.div11.i.i.i
   %add12.i.i.i = add i64 %add.i.i.i, %mul.i.i.i
   %6 = load ptr, ptr %__pos, align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %_M_start, align 8
   %cmp = icmp eq ptr %6, %7
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_first.i10 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %_M_first.i10, align 8, !noalias !64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
@@ -1250,9 +1242,9 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %sub.ptr.div.i.i.i.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %sub.ptr.div.i, %if.then ]
   %9 = phi ptr [ %.pre4.i, %if.then.i ], [ %8, %if.then ]
   %10 = phi ptr [ %.pre.i, %if.then.i ], [ %6, %if.then ]
-  %_M_last4.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !67
-  %_M_node5.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !67
   %sub.i.i.i11 = sub nsw i64 0, %add12.i.i.i
   %add.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %add12.i.i.i
@@ -1279,7 +1271,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div911.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %cond.i.i.i.i
   %13 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !67
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %13, i64 32
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 512
   %mul.i.i.i.i = shl nsw i64 %cond.i.i.i.i, 5
   %sub14.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %13, i64 %sub14.i.i.i.i
@@ -1308,28 +1300,28 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   %19 = phi ptr [ %24, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i ], [ %__new_start.sroa.6.0, %for.body.i.i.i.i.preheader ]
   %20 = phi ptr [ %23, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i ], [ %__new_start.sroa.9.0, %for.body.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i, i64 16, i1 false), !noalias !70
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %agg.tmp.sroa.7.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
-  %add.ptr.i.i.i.i.i32 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i, i64 8
   %21 = load ptr, ptr %add.ptr.i.i.i.i.i32, align 8, !noalias !70
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %21, i64 32
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i
   %agg.tmp.sroa.0.1.i.i.i = phi ptr [ %21, %if.then.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ]
   %agg.tmp.sroa.7.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %agg.tmp.sroa.7.0.i.i.i, %for.body.i.i.i.i ]
   %agg.tmp.sroa.10.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i32, %if.then.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %18, i64 1
+  %incdec.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %cmp.i5.i.i.i.i = icmp eq ptr %incdec.ptr.i3.i.i.i.i, %19
   br i1 %cmp.i5.i.i.i.i, label %if.then.i6.i.i.i.i, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i
 
 if.then.i6.i.i.i.i:                               ; preds = %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i
-  %add.ptr.i8.i.i.i.i = getelementptr inbounds ptr, ptr %20, i64 1
+  %add.ptr.i8.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %add.ptr.i8.i.i.i.i, align 8, !noalias !70
-  %add.ptr.i.i10.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %22, i64 32
+  %add.ptr.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i: ; preds = %if.then.i6.i.i.i.i, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i
@@ -1347,13 +1339,13 @@ invoke.cont:                                      ; preds = %_ZNSt15_Deque_itera
   br label %if.end45
 
 if.else:                                          ; preds = %entry
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
   %26 = load ptr, ptr %_M_finish, align 8
   %cmp18 = icmp eq ptr %6, %26
   br i1 %cmp18, label %if.then19, label %if.else41
 
 if.then19:                                        ; preds = %if.else
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   %27 = load ptr, ptr %_M_last.i34, align 8
   %sub.ptr.lhs.cast.i35 = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %6 to i64
@@ -1375,9 +1367,9 @@ if.end.i41:                                       ; preds = %if.then.i52, %if.th
   %28 = phi ptr [ %.pre.i53, %if.then.i52 ], [ %6, %if.then19 ]
   %sub.ptr.lhs.cast.i.i.pre-phi.i = phi i64 [ %.pre5.i55, %if.then.i52 ], [ %sub.ptr.rhs.cast.i36, %if.then19 ]
   %29 = phi ptr [ %.pre4.i54, %if.then.i52 ], [ %27, %if.then19 ]
-  %_M_first3.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %30 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !83
-  %_M_node5.i.i.i45 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 72
   %31 = load ptr, ptr %_M_node5.i.i.i45, align 8
   %sub.ptr.rhs.cast.i.i.i46 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi.i, %sub.ptr.rhs.cast.i.i.i46
@@ -1406,7 +1398,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %31, i64 %cond.i.i.i
   %32 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !83
-  %add.ptr.i.i.i.i50 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 32
+  %add.ptr.i.i.i.i50 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i.i51 = shl nsw i64 %cond.i.i.i, 5
   %sub14.i.i.i = sub nsw i64 %add.i.i.i49, %mul.i.i.i51
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 %sub14.i.i.i
@@ -1435,28 +1427,28 @@ for.body.i.i.i.i83:                               ; preds = %for.body.i.i.i.i83.
   %38 = phi ptr [ %43, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i95 ], [ %29, %for.body.i.i.i.i83.preheader ]
   %39 = phi ptr [ %42, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i95 ], [ %31, %for.body.i.i.i.i83.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i84, i64 16, i1 false), !noalias !86
-  %incdec.ptr.i.i.i.i.i87 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i84, i64 1
+  %incdec.ptr.i.i.i.i.i87 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i84, i64 16
   %cmp.i.i.i.i.i88 = icmp eq ptr %incdec.ptr.i.i.i.i.i87, %agg.tmp.sroa.7.0.i.i.i85
   br i1 %cmp.i.i.i.i.i88, label %if.then.i.i.i.i.i101, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i89
 
 if.then.i.i.i.i.i101:                             ; preds = %for.body.i.i.i.i83
-  %add.ptr.i.i.i.i.i102 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i86, i64 1
+  %add.ptr.i.i.i.i.i102 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i86, i64 8
   %40 = load ptr, ptr %add.ptr.i.i.i.i.i102, align 8, !noalias !86
-  %add.ptr.i.i.i.i.i.i103 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %40, i64 32
+  %add.ptr.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %40, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i89
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i89: ; preds = %if.then.i.i.i.i.i101, %for.body.i.i.i.i83
   %agg.tmp.sroa.0.1.i.i.i90 = phi ptr [ %40, %if.then.i.i.i.i.i101 ], [ %incdec.ptr.i.i.i.i.i87, %for.body.i.i.i.i83 ]
   %agg.tmp.sroa.7.1.i.i.i91 = phi ptr [ %add.ptr.i.i.i.i.i.i103, %if.then.i.i.i.i.i101 ], [ %agg.tmp.sroa.7.0.i.i.i85, %for.body.i.i.i.i83 ]
   %agg.tmp.sroa.10.1.i.i.i92 = phi ptr [ %add.ptr.i.i.i.i.i102, %if.then.i.i.i.i.i101 ], [ %agg.tmp.sroa.10.0.i.i.i86, %for.body.i.i.i.i83 ]
-  %incdec.ptr.i3.i.i.i.i93 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %37, i64 1
+  %incdec.ptr.i3.i.i.i.i93 = getelementptr inbounds i8, ptr %37, i64 16
   %cmp.i5.i.i.i.i94 = icmp eq ptr %incdec.ptr.i3.i.i.i.i93, %38
   br i1 %cmp.i5.i.i.i.i94, label %if.then.i6.i.i.i.i98, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i95
 
 if.then.i6.i.i.i.i98:                             ; preds = %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i89
-  %add.ptr.i8.i.i.i.i99 = getelementptr inbounds ptr, ptr %39, i64 1
+  %add.ptr.i8.i.i.i.i99 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %add.ptr.i8.i.i.i.i99, align 8, !noalias !86
-  %add.ptr.i.i10.i.i.i.i100 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %41, i64 32
+  %add.ptr.i.i10.i.i.i.i100 = getelementptr inbounds i8, ptr %41, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i95
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i95: ; preds = %if.then.i6.i.i.i.i98, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i89
@@ -1475,29 +1467,29 @@ invoke.cont28:                                    ; preds = %_ZNSt15_Deque_itera
 
 if.else41:                                        ; preds = %if.else
   store ptr %6, ptr %agg.tmp42, align 8
-  %_M_first.i111 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp42, i64 0, i32 1
-  %_M_first3.i112 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 1
+  %_M_first.i111 = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
+  %_M_first3.i112 = getelementptr inbounds i8, ptr %__pos, i64 8
   %45 = load <2 x ptr>, ptr %_M_first3.i112, align 8
   store <2 x ptr> %45, ptr %_M_first.i111, align 8
-  %_M_node.i115 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp42, i64 0, i32 3
-  %_M_node5.i116 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 3
+  %_M_node.i115 = getelementptr inbounds i8, ptr %agg.tmp42, i64 24
+  %_M_node5.i116 = getelementptr inbounds i8, ptr %__pos, i64 24
   %46 = load ptr, ptr %_M_node5.i116, align 8
   store ptr %46, ptr %_M_node.i115, align 8
   store ptr %0, ptr %agg.tmp43, align 8
-  %_M_first.i117 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp43, i64 0, i32 1
+  %_M_first.i117 = getelementptr inbounds i8, ptr %agg.tmp43, i64 8
   %47 = load ptr, ptr %_M_first3.i, align 8
   store ptr %47, ptr %_M_first.i117, align 8
-  %_M_last.i119 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp43, i64 0, i32 2
+  %_M_last.i119 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
   store ptr %1, ptr %_M_last.i119, align 8
-  %_M_node.i121 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp43, i64 0, i32 3
+  %_M_node.i121 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
   store ptr %2, ptr %_M_node.i121, align 8
   store ptr %3, ptr %agg.tmp44, align 8
-  %_M_first.i123 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp44, i64 0, i32 1
+  %_M_first.i123 = getelementptr inbounds i8, ptr %agg.tmp44, i64 8
   store ptr %4, ptr %_M_first.i123, align 8
-  %_M_last.i125 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp44, i64 0, i32 2
+  %_M_last.i125 = getelementptr inbounds i8, ptr %agg.tmp44, i64 16
   %48 = load ptr, ptr %_M_last4.i7, align 8
   store ptr %48, ptr %_M_last.i125, align 8
-  %_M_node.i127 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp44, i64 0, i32 3
+  %_M_node.i127 = getelementptr inbounds i8, ptr %agg.tmp44, i64 24
   store ptr %5, ptr %_M_node.i127, align 8
   call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE13_M_insert_auxISt15_Deque_iteratorIS3_RKS3_PS8_EEEvS7_IS3_RS3_PS3_ET_SF_m(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp42, ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %agg.tmp44, i64 noundef %add12.i.i.i)
   br label %if.end45
@@ -1509,9 +1501,9 @@ if.end45:                                         ; preds = %invoke.cont28, %if.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
@@ -1519,14 +1511,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i136
@@ -1583,7 +1575,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
   %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !95
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %8, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %8, i64 %sub14.i.i
@@ -1608,7 +1600,7 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__g
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0202 = getelementptr inbounds ptr, ptr %11, i64 1
+  %__node.0202 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
   %cmp4.not203 = icmp eq ptr %__node.0202, %12
   br i1 %cmp4.not203, label %for.end, label %for.body
@@ -1671,7 +1663,7 @@ cond.end.i.i41:                                   ; preds = %cond.false.i.i39, %
   %cond.i.i42 = phi i64 [ %div911.i.i60, %cond.true.i.i59 ], [ %sub10.i.i40, %cond.false.i.i39 ]
   %add.ptr11.i.i43 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i42
   %18 = load ptr, ptr %add.ptr11.i.i43, align 8, !noalias !99
-  %add.ptr.i.i.i44 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %18, i64 32
+  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i45 = shl nsw i64 %cond.i.i42, 5
   %sub14.i.i46 = sub nsw i64 %add.i.i37, %mul.i.i45
   %add.ptr15.i.i47 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %18, i64 %sub14.i.i46
@@ -1691,7 +1683,7 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__g
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0204, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0204, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !102
@@ -1701,7 +1693,7 @@ for.end:                                          ; preds = %_ZSt14__copy_move_a
   %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
   %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
   %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %storemerge.i.i49, %_ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
   %sub.ptr.lhs.cast.i70 = ptrtoint ptr %25 to i64
@@ -1760,7 +1752,7 @@ cond.end.i.i111:                                  ; preds = %cond.false.i.i109, 
   %cond.i.i112 = phi i64 [ %div911.i.i125, %cond.true.i.i124 ], [ %sub10.i.i110, %cond.false.i.i109 ]
   %add.ptr11.i.i113 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i112
   %26 = load ptr, ptr %add.ptr11.i.i113, align 8, !noalias !103
-  %add.ptr.i.i.i114 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %26, i64 32
+  %add.ptr.i.i.i114 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i115 = shl nsw i64 %cond.i.i112, 5
   %sub14.i.i116 = sub nsw i64 %add.i.i107, %mul.i.i115
   %add.ptr15.i.i117 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %26, i64 %sub14.i.i116
@@ -1778,11 +1770,11 @@ _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLE
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i130 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i130 = getelementptr inbounds i8, ptr %__result, i64 8
   %29 = load ptr, ptr %_M_first3.i130, align 8
-  %_M_last4.i132 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i132 = getelementptr inbounds i8, ptr %__result, i64 16
   %30 = load ptr, ptr %_M_last4.i132, align 8
-  %_M_node5.i134 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i134 = getelementptr inbounds i8, ptr %__result, i64 24
   %31 = load ptr, ptr %_M_node5.i134, align 8
   %sub.ptr.lhs.cast.i135 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i137 = sub i64 %sub.ptr.lhs.cast.i135, %sub.ptr.rhs.cast.i136
@@ -1839,7 +1831,7 @@ cond.end.i.i176:                                  ; preds = %cond.false.i.i174, 
   %cond.i.i177 = phi i64 [ %div911.i.i190, %cond.true.i.i189 ], [ %sub10.i.i175, %cond.false.i.i174 ]
   %add.ptr11.i.i178 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i177
   %32 = load ptr, ptr %add.ptr11.i.i178, align 8, !noalias !106
-  %add.ptr.i.i.i179 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 32
+  %add.ptr.i.i.i179 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i180 = shl nsw i64 %cond.i.i177, 5
   %sub14.i.i181 = sub nsw i64 %add.i.i172, %mul.i.i180
   %add.ptr15.i.i182 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 %sub14.i.i181
@@ -1860,11 +1852,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i118 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i118 ]
   store ptr %.sink205, ptr %agg.result, align 8
-  %_M_first.i8.i144 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i8.i144 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i144, align 8
-  %_M_last.i.i145 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i145 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i145, align 8
-  %_M_node.i9.i147 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i9.i147 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i147, align 8
   ret void
 }
@@ -1899,10 +1891,10 @@ entry:
   %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %__pos, i64 24
   %0 = load ptr, ptr %_M_node.i, align 8
-  %_M_node1.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -1913,14 +1905,14 @@ entry:
   %sub.i = add nsw i64 %sub.ptr.div.i, %conv.neg.i
   %mul.i = shl nsw i64 %sub.i, 5
   %2 = load ptr, ptr %__pos, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %__pos, i64 8
   %3 = load ptr, ptr %_M_first.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = ashr exact i64 %sub.ptr.sub5.i, 4
   %add.i = add nsw i64 %mul.i, %sub.ptr.div6.i
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i, align 8
   %5 = load ptr, ptr %_M_start, align 8
   %sub.ptr.lhs.cast8.i = ptrtoint ptr %4 to i64
@@ -1928,8 +1920,8 @@ entry:
   %sub.ptr.sub10.i = sub i64 %sub.ptr.lhs.cast8.i, %sub.ptr.rhs.cast9.i
   %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 4
   %add12.i = add nsw i64 %add.i, %sub.ptr.div11.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %_M_node.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -1939,7 +1931,7 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 5
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %8 to i64
@@ -1952,7 +1944,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else51
 
 if.then:                                          ; preds = %entry
-  %_M_first.i18 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i18 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %_M_first.i18, align 8
   %sub.ptr.rhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i20
@@ -2004,7 +1996,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div911.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %cond.i.i.i.i
   %14 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !112
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %14, i64 32
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 512
   %mul.i.i.i.i = shl nsw i64 %cond.i.i.i.i, 5
   %sub14.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %14, i64 %sub14.i.i.i.i
@@ -2043,7 +2035,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %10, i64 %cond.i.i
   %15 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !115
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %15, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 512
   %mul.i.i35 = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i34, %mul.i.i35
   %add.ptr15.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %15, i64 %sub14.i.i
@@ -2095,7 +2087,7 @@ cond.end.i.i50:                                   ; preds = %cond.false.i.i48, %
   %cond.i.i51 = phi i64 [ %div911.i.i61, %cond.true.i.i60 ], [ %sub10.i.i49, %cond.false.i.i48 ]
   %add.ptr11.i.i52 = getelementptr inbounds ptr, ptr %19, i64 %cond.i.i51
   %20 = load ptr, ptr %add.ptr11.i.i52, align 8, !noalias !118
-  %add.ptr.i.i.i53 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %20, i64 32
+  %add.ptr.i.i.i53 = getelementptr inbounds i8, ptr %20, i64 512
   %mul.i.i54 = shl nsw i64 %cond.i.i51, 5
   %sub14.i.i55 = sub nsw i64 %add.i.i46, %mul.i.i54
   %add.ptr15.i.i56 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %20, i64 %sub14.i.i55
@@ -2117,28 +2109,28 @@ for.body.i.i.i.i.i:                               ; preds = %_ZStplRKSt15_Deque_
   %22 = phi ptr [ %27, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i ], [ %__new_start.sroa.9.0, %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit64 ]
   %23 = phi ptr [ %26, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i ], [ %__new_start.sroa.13.0, %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit64 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i, i64 16, i1 false), !noalias !121
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %agg.tmp.sroa.7.0.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i, i64 8
   %24 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !121
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %24, i64 32
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i
 
 _ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %agg.tmp.sroa.0.1.i.i.i.i = phi ptr [ %24, %if.then.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %agg.tmp.sroa.7.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.7.0.i.i.i.i, %for.body.i.i.i.i.i ]
   %agg.tmp.sroa.10.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %21, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 16
   %cmp.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %22
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %23, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8, !noalias !121
-  %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %25, i64 32
+  %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i
@@ -2158,23 +2150,23 @@ invoke.cont:                                      ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !136
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !136
   store ptr %storemerge.i.i57, ptr %agg.tmp.i.i.i, align 8, !noalias !139
-  %_M_first.i.i25.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %__start_n.sroa.3.0, ptr %_M_first.i.i25.i.i, align 8, !noalias !139
-  %_M_last.i.i27.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %__start_n.sroa.7.0, ptr %_M_last.i.i27.i.i, align 8, !noalias !139
-  %_M_node.i.i29.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %__start_n.sroa.11.0, ptr %_M_node.i.i29.i.i, align 8, !noalias !139
   %29 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %29, ptr %agg.tmp1.i.i.i, align 16, !noalias !139
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   %30 = load <2 x ptr>, ptr %ref.tmp.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %30, ptr %_M_last.i3.i.i.i, align 16, !noalias !139
   store ptr %13, ptr %agg.tmp2.i.i.i, align 8, !noalias !139
-  %_M_first.i7.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %12, ptr %_M_first.i7.i.i.i, align 8, !noalias !139
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %11, ptr %_M_last.i9.i.i.i, align 8, !noalias !139
-  %_M_node.i11.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %10, ptr %_M_node.i11.i.i.i, align 8, !noalias !139
   invoke void @_ZSt15__copy_move_ditILb1EN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_St15_Deque_iteratorIS3_S4_S5_EET3_S6_IT0_T1_T2_ESC_S8_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
           to label %invoke.cont22 unwind label %lpad
@@ -2185,10 +2177,10 @@ invoke.cont22:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !136
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !133
   %31 = load <2 x ptr>, ptr %__first, align 8
-  %_M_last4.i112 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last4.i112 = getelementptr inbounds i8, ptr %__first, i64 16
   %32 = load <2 x ptr>, ptr %_M_last4.i112, align 8
   %33 = load <2 x ptr>, ptr %__last, align 8
-  %_M_last4.i118 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i118 = getelementptr inbounds i8, ptr %__last, i64 16
   %34 = load <2 x ptr>, ptr %_M_last4.i118, align 8
   %35 = load ptr, ptr %__pos, align 8, !noalias !142
   %36 = load ptr, ptr %_M_first.i, align 8, !noalias !142
@@ -2222,7 +2214,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %38, i64 %cond.i.i.i
   %39 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !142
-  %add.ptr.i.i.i.i128 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %39, i64 32
+  %add.ptr.i.i.i.i128 = getelementptr inbounds i8, ptr %39, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 5
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %39, i64 %sub14.i.i.i
@@ -2238,17 +2230,17 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i131), !noalias !148
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i132), !noalias !148
   store <2 x ptr> %31, ptr %agg.tmp.i.i.i130, align 16, !noalias !151
-  %_M_last.i.i27.i.i144 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i130, i64 0, i32 2
+  %_M_last.i.i27.i.i144 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i130, i64 16
   store <2 x ptr> %32, ptr %_M_last.i.i27.i.i144, align 16, !noalias !151
   store <2 x ptr> %33, ptr %agg.tmp1.i.i.i131, align 16, !noalias !151
-  %_M_last.i3.i.i.i147 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i131, i64 0, i32 2
+  %_M_last.i3.i.i.i147 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i131, i64 16
   store <2 x ptr> %34, ptr %_M_last.i3.i.i.i147, align 16, !noalias !151
   store ptr %storemerge.i.i.i, ptr %agg.tmp2.i.i.i132, align 8, !noalias !151
-  %_M_first.i7.i.i.i149 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i132, i64 0, i32 1
+  %_M_first.i7.i.i.i149 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i132, i64 8
   store ptr %agg.tmp25.sroa.2.0, ptr %_M_first.i7.i.i.i149, align 8, !noalias !151
-  %_M_last.i9.i.i.i150 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i132, i64 0, i32 2
+  %_M_last.i9.i.i.i150 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i132, i64 16
   store ptr %agg.tmp25.sroa.5.0, ptr %_M_last.i9.i.i.i150, align 8, !noalias !151
-  %_M_node.i11.i.i.i151 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i132, i64 0, i32 3
+  %_M_node.i11.i.i.i151 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i132, i64 24
   store ptr %agg.tmp25.sroa.8.0, ptr %_M_node.i11.i.i.i151, align 8, !noalias !151
   invoke void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i133, ptr noundef nonnull %agg.tmp.i.i.i130, ptr noundef nonnull %agg.tmp1.i.i.i131, ptr noundef nonnull %agg.tmp2.i.i.i132)
           to label %_ZSt4copyISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ES0_IS4_RS4_PS4_EET0_T_SD_SC_.exit unwind label %lpad
@@ -2273,7 +2265,7 @@ for.body.i:                                       ; preds = %lpad, %for.body.i
   %__n.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %__new_start.sroa.13.0, %lpad ]
   %44 = load ptr, ptr %__n.04.i, align 8
   call void @_ZdlPv(ptr noundef %44) #16
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__n.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__n.04.i, i64 8
   %cmp.i158 = icmp ult ptr %incdec.ptr.i, %43
   br i1 %cmp.i158, label %for.body.i, label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit, !llvm.loop !6
 
@@ -2283,11 +2275,11 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_des
 
 if.else:                                          ; preds = %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit
   %45 = load ptr, ptr %__first, align 8
-  %_M_first3.i160 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
+  %_M_first3.i160 = getelementptr inbounds i8, ptr %__first, i64 8
   %46 = load ptr, ptr %_M_first3.i160, align 8
-  %_M_last4.i162 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last4.i162 = getelementptr inbounds i8, ptr %__first, i64 16
   %47 = load ptr, ptr %_M_last4.i162, align 8
-  %_M_node5.i164 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node5.i164 = getelementptr inbounds i8, ptr %__first, i64 24
   %48 = load ptr, ptr %_M_node5.i164, align 8
   %sub = sub nsw i64 %__n, %add12.i
   %sub.ptr.lhs.cast.i.i.i168 = ptrtoint ptr %45 to i64
@@ -2318,7 +2310,7 @@ cond.end.i.i.i175:                                ; preds = %cond.false.i.i.i173
   %cond.i.i.i176 = phi i64 [ %div911.i.i.i184, %cond.true.i.i.i183 ], [ %sub10.i.i.i174, %cond.false.i.i.i173 ]
   %add.ptr11.i.i.i177 = getelementptr inbounds ptr, ptr %48, i64 %cond.i.i.i176
   %49 = load ptr, ptr %add.ptr11.i.i.i177, align 8
-  %add.ptr.i.i17.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %49, i64 32
+  %add.ptr.i.i17.i.i = getelementptr inbounds i8, ptr %49, i64 512
   %mul.i.i.i178 = shl nsw i64 %cond.i.i.i176, 5
   %sub14.i.i.i179 = sub nsw i64 %add.i.i.i172, %mul.i.i.i178
   %add.ptr15.i.i.i180 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %49, i64 %sub14.i.i.i179
@@ -2348,28 +2340,28 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %54 = phi ptr [ %59, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i ], [ %__new_start.sroa.9.0, %for.body.i.i.i.i.i.i.preheader ]
   %55 = phi ptr [ %58, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i ], [ %__new_start.sroa.13.0, %for.body.i.i.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i.i, i64 16, i1 false), !noalias !154
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %agg.tmp.sroa.7.0.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i240 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i.i.i.i240 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i.i, i64 8
   %56 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i240, align 8, !noalias !154
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %56, i64 32
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i
 
 _ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %agg.tmp.sroa.0.1.i.i.i.i.i = phi ptr [ %56, %if.then.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %agg.tmp.sroa.7.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.7.0.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %agg.tmp.sroa.10.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i240, %if.then.i.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i224 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %53, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i224 = getelementptr inbounds i8, ptr %53, i64 16
   %cmp.i.i.i.i.i.i.i225 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i224, %54
   br i1 %cmp.i.i.i.i.i.i.i225, label %if.then.i.i.i.i.i.i.i238, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i238:                         ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i239 = getelementptr inbounds ptr, ptr %55, i64 1
+  %add.ptr.i.i.i.i.i.i.i239 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i239, align 8, !noalias !154
-  %add.ptr.i.i3.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %57, i64 32
+  %add.ptr.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i238, %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i
@@ -2396,28 +2388,28 @@ for.body.i.i.i.i.i226:                            ; preds = %_ZSt22__uninitializ
   %62 = phi ptr [ %67, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i235 ], [ %__mid.sroa.8.2.i, %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_ES7_SaIS4_EET0_T_SA_S9_RT1_.exit.i ]
   %63 = phi ptr [ %66, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i235 ], [ %__mid.sroa.12.2.i, %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_ES7_SaIS4_EET0_T_SA_S9_RT1_.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i227, i64 16, i1 false), !noalias !167
-  %incdec.ptr.i.i.i.i.i.i230 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i.i227, i64 1
+  %incdec.ptr.i.i.i.i.i.i230 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i227, i64 16
   %cmp.i.i.i.i.i.i231 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i230, %agg.tmp.sroa.7.0.i.i.i.i228
   br i1 %cmp.i.i.i.i.i.i231, label %if.then.i.i.i.i.i.i236, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i236:                           ; preds = %for.body.i.i.i.i.i226
-  %add.ptr.i.i.i.i.i.i237 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i229, i64 1
+  %add.ptr.i.i.i.i.i.i237 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i229, i64 8
   %64 = load ptr, ptr %add.ptr.i.i.i.i.i.i237, align 8, !noalias !167
-  %add.ptr.i.i.i.i.i.i35.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %64, i64 32
+  %add.ptr.i.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %64, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i236, %for.body.i.i.i.i.i226
   %agg.tmp.sroa.0.1.i.i.i.i232 = phi ptr [ %64, %if.then.i.i.i.i.i.i236 ], [ %incdec.ptr.i.i.i.i.i.i230, %for.body.i.i.i.i.i226 ]
   %agg.tmp.sroa.7.1.i.i.i.i233 = phi ptr [ %add.ptr.i.i.i.i.i.i35.i, %if.then.i.i.i.i.i.i236 ], [ %agg.tmp.sroa.7.0.i.i.i.i228, %for.body.i.i.i.i.i226 ]
   %agg.tmp.sroa.10.1.i.i.i.i234 = phi ptr [ %add.ptr.i.i.i.i.i.i237, %if.then.i.i.i.i.i.i236 ], [ %agg.tmp.sroa.10.0.i.i.i.i229, %for.body.i.i.i.i.i226 ]
-  %incdec.ptr.i3.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %61, i64 1
+  %incdec.ptr.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 16
   %cmp.i5.i.i.i.i.i = icmp eq ptr %incdec.ptr.i3.i.i.i.i.i, %62
   br i1 %cmp.i5.i.i.i.i.i, label %if.then.i6.i.i.i.i.i, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i235
 
 if.then.i6.i.i.i.i.i:                             ; preds = %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds ptr, ptr %63, i64 1
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %add.ptr.i8.i.i.i.i.i, align 8, !noalias !167
-  %add.ptr.i.i10.i.i.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %65, i64 32
+  %add.ptr.i.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i235
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i235: ; preds = %if.then.i6.i.i.i.i.i, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i
@@ -2432,29 +2424,29 @@ invoke.cont38:                                    ; preds = %_ZNSt15_Deque_itera
   store ptr %__new_start.sroa.5.0, ptr %_M_first.i18, align 8
   store ptr %__new_start.sroa.9.0, ptr %_M_last.i, align 8
   store ptr %__new_start.sroa.13.0, ptr %_M_node1.i, align 8
-  %_M_last4.i250 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i250 = getelementptr inbounds i8, ptr %__last, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i262), !noalias !176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i259), !noalias !179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i260), !noalias !179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i261), !noalias !179
   store ptr %__mid.sroa.0.0, ptr %agg.tmp.i.i.i259, align 8, !noalias !182
-  %_M_first.i.i25.i.i272 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i259, i64 0, i32 1
+  %_M_first.i.i25.i.i272 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i259, i64 8
   store ptr %__mid.sroa.7.2, ptr %_M_first.i.i25.i.i272, align 8, !noalias !182
-  %_M_last.i.i27.i.i273 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i259, i64 0, i32 2
+  %_M_last.i.i27.i.i273 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i259, i64 16
   store ptr %__mid.sroa.14.2, ptr %_M_last.i.i27.i.i273, align 8, !noalias !182
-  %_M_node.i.i29.i.i274 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i259, i64 0, i32 3
+  %_M_node.i.i29.i.i274 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i259, i64 24
   store ptr %__mid.sroa.21.2, ptr %_M_node.i.i29.i.i274, align 8, !noalias !182
   %69 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %69, ptr %agg.tmp1.i.i.i260, align 16, !noalias !182
-  %_M_last.i3.i.i.i276 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i260, i64 0, i32 2
+  %_M_last.i3.i.i.i276 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i260, i64 16
   %70 = load <2 x ptr>, ptr %_M_last4.i250, align 8
   store <2 x ptr> %70, ptr %_M_last.i3.i.i.i276, align 16, !noalias !182
   store ptr %13, ptr %agg.tmp2.i.i.i261, align 8, !noalias !182
-  %_M_first.i7.i.i.i278 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i261, i64 0, i32 1
+  %_M_first.i7.i.i.i278 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i261, i64 8
   store ptr %12, ptr %_M_first.i7.i.i.i278, align 8, !noalias !182
-  %_M_last.i9.i.i.i279 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i261, i64 0, i32 2
+  %_M_last.i9.i.i.i279 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i261, i64 16
   store ptr %11, ptr %_M_last.i9.i.i.i279, align 8, !noalias !182
-  %_M_node.i11.i.i.i280 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i261, i64 0, i32 3
+  %_M_node.i11.i.i.i280 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i261, i64 24
   store ptr %10, ptr %_M_node.i11.i.i.i280, align 8, !noalias !182
   invoke void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i262, ptr noundef nonnull %agg.tmp.i.i.i259, ptr noundef nonnull %agg.tmp1.i.i.i260, ptr noundef nonnull %agg.tmp2.i.i.i261)
           to label %_ZSt4copyISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ES0_IS4_RS4_PS4_EET0_T_SD_SC_.exit287 unwind label %lpad
@@ -2473,7 +2465,7 @@ lpad49:                                           ; preds = %_ZNSt11_Deque_baseI
           to label %eh.resume unwind label %terminate.lpad
 
 if.else51:                                        ; preds = %entry
-  %_M_last.i289 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i289 = getelementptr inbounds i8, ptr %this, i64 64
   %72 = load ptr, ptr %_M_last.i289, align 8
   %sub.ptr.lhs.cast.i290 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i292 = sub i64 %sub.ptr.lhs.cast.i290, %sub.ptr.lhs.cast3.i.i
@@ -2526,7 +2518,7 @@ cond.end.i.i.i308:                                ; preds = %cond.false.i.i.i306
   %cond.i.i.i309 = phi i64 [ %div911.i.i.i319, %cond.true.i.i.i318 ], [ %sub10.i.i.i307, %cond.false.i.i.i306 ]
   %add.ptr11.i.i.i310 = getelementptr inbounds ptr, ptr %73, i64 %cond.i.i.i309
   %77 = load ptr, ptr %add.ptr11.i.i.i310, align 8, !noalias !188
-  %add.ptr.i.i.i.i311 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %77, i64 32
+  %add.ptr.i.i.i.i311 = getelementptr inbounds i8, ptr %77, i64 512
   %mul.i.i.i312 = shl nsw i64 %cond.i.i.i309, 5
   %sub14.i.i.i313 = sub nsw i64 %add.i.i.i304, %mul.i.i.i312
   %add.ptr15.i.i.i314 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %77, i64 %sub14.i.i.i313
@@ -2566,7 +2558,7 @@ cond.end.i.i.i347:                                ; preds = %cond.false.i.i.i345
   %cond.i.i.i348 = phi i64 [ %div911.i.i.i358, %cond.true.i.i.i357 ], [ %sub10.i.i.i346, %cond.false.i.i.i345 ]
   %add.ptr11.i.i.i349 = getelementptr inbounds ptr, ptr %73, i64 %cond.i.i.i348
   %78 = load ptr, ptr %add.ptr11.i.i.i349, align 8, !noalias !191
-  %add.ptr.i.i.i.i350 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %78, i64 32
+  %add.ptr.i.i.i.i350 = getelementptr inbounds i8, ptr %78, i64 512
   %mul.i.i.i351 = shl nsw i64 %cond.i.i.i348, 5
   %sub14.i.i.i352 = sub nsw i64 %add.i.i.i343, %mul.i.i.i351
   %add.ptr15.i.i.i353 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %78, i64 %sub14.i.i.i352
@@ -2619,7 +2611,7 @@ cond.end.i.i.i377:                                ; preds = %cond.false.i.i.i375
   %cond.i.i.i378 = phi i64 [ %div911.i.i.i388, %cond.true.i.i.i387 ], [ %sub10.i.i.i376, %cond.false.i.i.i375 ]
   %add.ptr11.i.i.i379 = getelementptr inbounds ptr, ptr %82, i64 %cond.i.i.i378
   %83 = load ptr, ptr %add.ptr11.i.i.i379, align 8, !noalias !194
-  %add.ptr.i.i.i.i380 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %83, i64 32
+  %add.ptr.i.i.i.i380 = getelementptr inbounds i8, ptr %83, i64 512
   %mul.i.i.i381 = shl nsw i64 %cond.i.i.i378, 5
   %sub14.i.i.i382 = sub nsw i64 %add.i.i.i373, %mul.i.i.i381
   %add.ptr15.i.i.i383 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %83, i64 %sub14.i.i.i382
@@ -2641,28 +2633,28 @@ for.body.i.i.i.i.i419:                            ; preds = %_ZStmiRKSt15_Deque_
   %85 = phi ptr [ %90, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i431 ], [ %81, %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit391 ]
   %86 = phi ptr [ %89, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i431 ], [ %82, %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit391 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i420, i64 16, i1 false), !noalias !197
-  %incdec.ptr.i.i.i.i.i.i.i423 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i.i420, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i423 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i420, i64 16
   %cmp.i.i.i.i.i.i.i424 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i423, %agg.tmp.sroa.7.0.i.i.i.i421
   br i1 %cmp.i.i.i.i.i.i.i424, label %if.then.i.i.i.i.i.i.i437, label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i425
 
 if.then.i.i.i.i.i.i.i437:                         ; preds = %for.body.i.i.i.i.i419
-  %add.ptr.i.i.i.i.i.i.i438 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i422, i64 1
+  %add.ptr.i.i.i.i.i.i.i438 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i422, i64 8
   %87 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i438, align 8, !noalias !197
-  %add.ptr.i.i.i.i.i.i.i.i439 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %87, i64 32
+  %add.ptr.i.i.i.i.i.i.i.i439 = getelementptr inbounds i8, ptr %87, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i425
 
 _ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i425: ; preds = %if.then.i.i.i.i.i.i.i437, %for.body.i.i.i.i.i419
   %agg.tmp.sroa.0.1.i.i.i.i426 = phi ptr [ %87, %if.then.i.i.i.i.i.i.i437 ], [ %incdec.ptr.i.i.i.i.i.i.i423, %for.body.i.i.i.i.i419 ]
   %agg.tmp.sroa.7.1.i.i.i.i427 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i439, %if.then.i.i.i.i.i.i.i437 ], [ %agg.tmp.sroa.7.0.i.i.i.i421, %for.body.i.i.i.i.i419 ]
   %agg.tmp.sroa.10.1.i.i.i.i428 = phi ptr [ %add.ptr.i.i.i.i.i.i.i438, %if.then.i.i.i.i.i.i.i437 ], [ %agg.tmp.sroa.10.0.i.i.i.i422, %for.body.i.i.i.i.i419 ]
-  %incdec.ptr.i.i.i.i.i.i429 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %84, i64 1
+  %incdec.ptr.i.i.i.i.i.i429 = getelementptr inbounds i8, ptr %84, i64 16
   %cmp.i.i.i.i.i.i430 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i429, %85
   br i1 %cmp.i.i.i.i.i.i430, label %if.then.i.i.i.i.i.i434, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i431
 
 if.then.i.i.i.i.i.i434:                           ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i425
-  %add.ptr.i.i.i.i.i.i435 = getelementptr inbounds ptr, ptr %86, i64 1
+  %add.ptr.i.i.i.i.i.i435 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load ptr, ptr %add.ptr.i.i.i.i.i.i435, align 8, !noalias !197
-  %add.ptr.i.i3.i.i.i.i.i436 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %88, i64 32
+  %add.ptr.i.i3.i.i.i.i.i436 = getelementptr inbounds i8, ptr %88, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i431
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i431: ; preds = %if.then.i.i.i.i.i.i434, %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i425
@@ -2683,22 +2675,22 @@ invoke.cont71:                                    ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i461), !noalias !211
   %92 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %92, ptr %agg.tmp.i.i.i459, align 16, !noalias !214
-  %_M_last.i.i27.i.i473 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i459, i64 0, i32 2
+  %_M_last.i.i27.i.i473 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i459, i64 16
   %93 = load <2 x ptr>, ptr %ref.tmp54.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %93, ptr %_M_last.i.i27.i.i473, align 16, !noalias !214
   store ptr %storemerge.i.i.i384, ptr %agg.tmp1.i.i.i460, align 8, !noalias !214
-  %_M_first.i1.i.i.i475 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i460, i64 0, i32 1
+  %_M_first.i1.i.i.i475 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i460, i64 8
   store ptr %__finish_n.sroa.3.0, ptr %_M_first.i1.i.i.i475, align 8, !noalias !214
-  %_M_last.i3.i.i.i476 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i460, i64 0, i32 2
+  %_M_last.i3.i.i.i476 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i460, i64 16
   store ptr %__finish_n.sroa.7.0, ptr %_M_last.i3.i.i.i476, align 8, !noalias !214
-  %_M_node.i5.i.i.i477 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i460, i64 0, i32 3
+  %_M_node.i5.i.i.i477 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i460, i64 24
   store ptr %__finish_n.sroa.11.0, ptr %_M_node.i5.i.i.i477, align 8, !noalias !214
   store ptr %76, ptr %agg.tmp2.i.i.i461, align 8, !noalias !214
-  %_M_first.i7.i.i.i478 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i461, i64 0, i32 1
+  %_M_first.i7.i.i.i478 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i461, i64 8
   store ptr %74, ptr %_M_first.i7.i.i.i478, align 8, !noalias !214
-  %_M_last.i9.i.i.i479 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i461, i64 0, i32 2
+  %_M_last.i9.i.i.i479 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i461, i64 16
   store ptr %75, ptr %_M_last.i9.i.i.i479, align 8, !noalias !214
-  %_M_node.i11.i.i.i480 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i461, i64 0, i32 3
+  %_M_node.i11.i.i.i480 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i461, i64 24
   store ptr %73, ptr %_M_node.i11.i.i.i480, align 8, !noalias !214
   invoke void @_ZSt24__copy_move_backward_ditILb1EN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_St15_Deque_iteratorIS3_S4_S5_EET3_S6_IT0_T1_T2_ESC_S8_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i462, ptr noundef nonnull %agg.tmp.i.i.i459, ptr noundef nonnull %agg.tmp1.i.i.i460, ptr noundef nonnull %agg.tmp2.i.i.i461)
           to label %invoke.cont78 unwind label %lpad70
@@ -2708,25 +2700,25 @@ invoke.cont78:                                    ; preds = %invoke.cont71
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i460), !noalias !211
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i461), !noalias !211
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i462), !noalias !208
-  %_M_last4.i490 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
-  %_M_last4.i496 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i490 = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_last4.i496 = getelementptr inbounds i8, ptr %__last, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i508), !noalias !217
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i505), !noalias !220
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i506), !noalias !220
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i507), !noalias !220
   %94 = load <2 x ptr>, ptr %__first, align 8
   store <2 x ptr> %94, ptr %agg.tmp.i.i.i505, align 16, !noalias !223
-  %_M_last.i.i27.i.i519 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i505, i64 0, i32 2
+  %_M_last.i.i27.i.i519 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i505, i64 16
   %95 = load <2 x ptr>, ptr %_M_last4.i490, align 8
   store <2 x ptr> %95, ptr %_M_last.i.i27.i.i519, align 16, !noalias !223
   %96 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %96, ptr %agg.tmp1.i.i.i506, align 16, !noalias !223
-  %_M_last.i3.i.i.i522 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i506, i64 0, i32 2
+  %_M_last.i3.i.i.i522 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i506, i64 16
   %97 = load <2 x ptr>, ptr %_M_last4.i496, align 8
   store <2 x ptr> %97, ptr %_M_last.i3.i.i.i522, align 16, !noalias !223
   %98 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %98, ptr %agg.tmp2.i.i.i507, align 16, !noalias !223
-  %_M_last.i9.i.i.i525 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i507, i64 0, i32 2
+  %_M_last.i9.i.i.i525 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i507, i64 16
   %99 = load <2 x ptr>, ptr %ref.tmp54.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %99, ptr %_M_last.i9.i.i.i525, align 16, !noalias !223
   invoke void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i508, ptr noundef nonnull %agg.tmp.i.i.i505, ptr noundef nonnull %agg.tmp1.i.i.i506, ptr noundef nonnull %agg.tmp2.i.i.i507)
@@ -2750,7 +2742,7 @@ lpad70:                                           ; preds = %invoke.cont98, %inv
 
 for.body.i535:                                    ; preds = %lpad70, %for.body.i535
   %__n.04.i536.pn = phi ptr [ %__n.04.i536, %for.body.i535 ], [ %103, %lpad70 ]
-  %__n.04.i536 = getelementptr inbounds ptr, ptr %__n.04.i536.pn, i64 1
+  %__n.04.i536 = getelementptr inbounds i8, ptr %__n.04.i536.pn, i64 8
   %104 = load ptr, ptr %__n.04.i536, align 8
   call void @_ZdlPv(ptr noundef %104) #16
   %cmp.i538 = icmp ult ptr %__n.04.i536, %__new_finish.sroa.7.0
@@ -2762,11 +2754,11 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_des
 
 if.else84:                                        ; preds = %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit361
   %105 = load ptr, ptr %__first, align 8
-  %_M_first3.i541 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
+  %_M_first3.i541 = getelementptr inbounds i8, ptr %__first, i64 8
   %106 = load ptr, ptr %_M_first3.i541, align 8
-  %_M_last4.i543 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last4.i543 = getelementptr inbounds i8, ptr %__first, i64 16
   %107 = load ptr, ptr %_M_last4.i543, align 8
-  %_M_node5.i545 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node5.i545 = getelementptr inbounds i8, ptr %__first, i64 24
   %108 = load ptr, ptr %_M_node5.i545, align 8
   %sub.ptr.lhs.cast.i.i.i553 = ptrtoint ptr %105 to i64
   %sub.ptr.rhs.cast.i.i.i554 = ptrtoint ptr %106 to i64
@@ -2796,7 +2788,7 @@ cond.end.i.i.i561:                                ; preds = %cond.false.i.i.i559
   %cond.i.i.i562 = phi i64 [ %div911.i.i.i575, %cond.true.i.i.i574 ], [ %sub10.i.i.i560, %cond.false.i.i.i559 ]
   %add.ptr11.i.i.i564 = getelementptr inbounds ptr, ptr %108, i64 %cond.i.i.i562
   %109 = load ptr, ptr %add.ptr11.i.i.i564, align 8
-  %add.ptr.i.i17.i.i565 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %109, i64 32
+  %add.ptr.i.i17.i.i565 = getelementptr inbounds i8, ptr %109, i64 512
   %mul.i.i.i567 = shl nsw i64 %cond.i.i.i562, 5
   %sub14.i.i.i568 = sub nsw i64 %add.i.i.i557, %mul.i.i.i567
   %add.ptr15.i.i.i569 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %109, i64 %sub14.i.i.i568
@@ -2824,28 +2816,28 @@ for.body.i.i.i.i.i633:                            ; preds = %invoke.cont86, %_ZN
   %115 = phi ptr [ %120, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i648 ], [ %112, %invoke.cont86 ]
   %116 = phi ptr [ %119, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i648 ], [ %113, %invoke.cont86 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i637, i64 16, i1 false), !noalias !226
-  %incdec.ptr.i.i.i.i.i.i640 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i.i637, i64 1
+  %incdec.ptr.i.i.i.i.i.i640 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i637, i64 16
   %cmp.i.i.i.i.i.i641 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i640, %agg.tmp.sroa.7.0.i.i.i.i638
   br i1 %cmp.i.i.i.i.i.i641, label %if.then.i.i.i.i.i.i683, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i642
 
 if.then.i.i.i.i.i.i683:                           ; preds = %for.body.i.i.i.i.i633
-  %add.ptr.i.i.i.i.i.i684 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i639, i64 1
+  %add.ptr.i.i.i.i.i.i684 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i639, i64 8
   %117 = load ptr, ptr %add.ptr.i.i.i.i.i.i684, align 8, !noalias !226
-  %add.ptr.i.i.i.i.i.i.i685 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %117, i64 32
+  %add.ptr.i.i.i.i.i.i.i685 = getelementptr inbounds i8, ptr %117, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i642
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i642: ; preds = %if.then.i.i.i.i.i.i683, %for.body.i.i.i.i.i633
   %agg.tmp.sroa.0.1.i.i.i.i643 = phi ptr [ %117, %if.then.i.i.i.i.i.i683 ], [ %incdec.ptr.i.i.i.i.i.i640, %for.body.i.i.i.i.i633 ]
   %agg.tmp.sroa.7.1.i.i.i.i644 = phi ptr [ %add.ptr.i.i.i.i.i.i.i685, %if.then.i.i.i.i.i.i683 ], [ %agg.tmp.sroa.7.0.i.i.i.i638, %for.body.i.i.i.i.i633 ]
   %agg.tmp.sroa.10.1.i.i.i.i645 = phi ptr [ %add.ptr.i.i.i.i.i.i684, %if.then.i.i.i.i.i.i683 ], [ %agg.tmp.sroa.10.0.i.i.i.i639, %for.body.i.i.i.i.i633 ]
-  %incdec.ptr.i3.i.i.i.i.i646 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %114, i64 1
+  %incdec.ptr.i3.i.i.i.i.i646 = getelementptr inbounds i8, ptr %114, i64 16
   %cmp.i5.i.i.i.i.i647 = icmp eq ptr %incdec.ptr.i3.i.i.i.i.i646, %115
   br i1 %cmp.i5.i.i.i.i.i647, label %if.then.i6.i.i.i.i.i680, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i648
 
 if.then.i6.i.i.i.i.i680:                          ; preds = %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i642
-  %add.ptr.i8.i.i.i.i.i681 = getelementptr inbounds ptr, ptr %116, i64 1
+  %add.ptr.i8.i.i.i.i.i681 = getelementptr inbounds i8, ptr %116, i64 8
   %118 = load ptr, ptr %add.ptr.i8.i.i.i.i.i681, align 8, !noalias !226
-  %add.ptr.i.i10.i.i.i.i.i682 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %118, i64 32
+  %add.ptr.i.i10.i.i.i.i.i682 = getelementptr inbounds i8, ptr %118, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i648
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i648: ; preds = %if.then.i6.i.i.i.i.i680, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_EppEv.exit.i.i.i.i.i642
@@ -2872,28 +2864,28 @@ for.body.i.i.i.i.i.i660:                          ; preds = %_ZSt22__uninitializ
   %123 = phi ptr [ %128, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i672 ], [ %__mid.sroa.8.2.i655, %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ES0_IS4_RS4_PS4_ES4_ET0_T_SD_SC_RSaIT1_E.exit.i ]
   %124 = phi ptr [ %127, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i672 ], [ %__mid.sroa.12.2.i656, %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ES0_IS4_RS4_PS4_ES4_ET0_T_SD_SC_RSaIT1_E.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i.i661, i64 16, i1 false), !noalias !237
-  %incdec.ptr.i.i.i.i.i.i.i.i664 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %agg.tmp.sroa.0.0.i.i.i.i.i661, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i664 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i661, i64 16
   %cmp.i.i.i.i.i.i.i.i665 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i664, %agg.tmp.sroa.7.0.i.i.i.i.i662
   br i1 %cmp.i.i.i.i.i.i.i.i665, label %if.then.i.i.i.i.i.i.i.i677, label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i666
 
 if.then.i.i.i.i.i.i.i.i677:                       ; preds = %for.body.i.i.i.i.i.i660
-  %add.ptr.i.i.i.i.i.i.i.i678 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i.i663, i64 1
+  %add.ptr.i.i.i.i.i.i.i.i678 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i.i663, i64 8
   %125 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i678, align 8, !noalias !237
-  %add.ptr.i.i.i.i.i.i.i.i.i679 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %125, i64 32
+  %add.ptr.i.i.i.i.i.i.i.i.i679 = getelementptr inbounds i8, ptr %125, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i666
 
 _ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i666: ; preds = %if.then.i.i.i.i.i.i.i.i677, %for.body.i.i.i.i.i.i660
   %agg.tmp.sroa.0.1.i.i.i.i.i667 = phi ptr [ %125, %if.then.i.i.i.i.i.i.i.i677 ], [ %incdec.ptr.i.i.i.i.i.i.i.i664, %for.body.i.i.i.i.i.i660 ]
   %agg.tmp.sroa.7.1.i.i.i.i.i668 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i679, %if.then.i.i.i.i.i.i.i.i677 ], [ %agg.tmp.sroa.7.0.i.i.i.i.i662, %for.body.i.i.i.i.i.i660 ]
   %agg.tmp.sroa.10.1.i.i.i.i.i669 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i678, %if.then.i.i.i.i.i.i.i.i677 ], [ %agg.tmp.sroa.10.0.i.i.i.i.i663, %for.body.i.i.i.i.i.i660 ]
-  %incdec.ptr.i.i.i.i.i.i.i670 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %122, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i670 = getelementptr inbounds i8, ptr %122, i64 16
   %cmp.i.i.i.i.i.i.i671 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i670, %123
   br i1 %cmp.i.i.i.i.i.i.i671, label %if.then.i.i.i.i.i.i.i674, label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i672
 
 if.then.i.i.i.i.i.i.i674:                         ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i666
-  %add.ptr.i.i.i.i.i.i35.i675 = getelementptr inbounds ptr, ptr %124, i64 1
+  %add.ptr.i.i.i.i.i.i35.i675 = getelementptr inbounds i8, ptr %124, i64 8
   %126 = load ptr, ptr %add.ptr.i.i.i.i.i.i35.i675, align 8, !noalias !237
-  %add.ptr.i.i3.i.i.i.i.i.i676 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %126, i64 32
+  %add.ptr.i.i3.i.i.i.i.i.i676 = getelementptr inbounds i8, ptr %126, i64 512
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i672
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EppEv.exit.i.i.i.i.i.i672: ; preds = %if.then.i.i.i.i.i.i.i674, %_ZNSt13move_iteratorISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_EEppEv.exit.i.i.i.i.i.i666
@@ -2914,19 +2906,19 @@ invoke.cont98:                                    ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i706), !noalias !251
   %130 = load <2 x ptr>, ptr %__first, align 8
   store <2 x ptr> %130, ptr %agg.tmp.i.i.i704, align 16, !noalias !254
-  %_M_last.i.i27.i.i718 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i704, i64 0, i32 2
+  %_M_last.i.i27.i.i718 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i704, i64 16
   %131 = load <2 x ptr>, ptr %_M_last4.i543, align 8
   store <2 x ptr> %131, ptr %_M_last.i.i27.i.i718, align 16, !noalias !254
   store ptr %__mid85.sroa.0.0, ptr %agg.tmp1.i.i.i705, align 8, !noalias !254
-  %_M_first.i1.i.i.i720 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i705, i64 0, i32 1
+  %_M_first.i1.i.i.i720 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i705, i64 8
   store ptr %__mid85.sroa.7.2, ptr %_M_first.i1.i.i.i720, align 8, !noalias !254
-  %_M_last.i3.i.i.i721 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i705, i64 0, i32 2
+  %_M_last.i3.i.i.i721 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i705, i64 16
   store ptr %__mid85.sroa.14.2, ptr %_M_last.i3.i.i.i721, align 8, !noalias !254
-  %_M_node.i5.i.i.i722 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i705, i64 0, i32 3
+  %_M_node.i5.i.i.i722 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i705, i64 24
   store ptr %__mid85.sroa.21.2, ptr %_M_node.i5.i.i.i722, align 8, !noalias !254
   %132 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %132, ptr %agg.tmp2.i.i.i706, align 16, !noalias !254
-  %_M_last.i9.i.i.i724 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i706, i64 0, i32 2
+  %_M_last.i9.i.i.i724 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i706, i64 16
   %133 = load <2 x ptr>, ptr %ref.tmp54.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %133, ptr %_M_last.i9.i.i.i724, align 16, !noalias !254
   invoke void @_ZSt15__copy_move_ditILb0EN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i707, ptr noundef nonnull %agg.tmp.i.i.i704, ptr noundef nonnull %agg.tmp1.i.i.i705, ptr noundef nonnull %agg.tmp2.i.i.i706)
@@ -2966,11 +2958,11 @@ unreachable:                                      ; preds = %_ZNSt11_Deque_baseI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__new_elems) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2980,13 +2972,13 @@ entry:
   %conv.neg.i.i.neg = zext i1 %tobool.i.i to i64
   %sub.i.i.neg = sub nsw i64 %conv.neg.i.i.neg, %sub.ptr.div.i.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -3088,9 +3080,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -3098,7 +3090,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -3112,7 +3104,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -3165,7 +3157,7 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_all
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit32, label %if.then.i.i.i.i.i29
 
@@ -3186,19 +3178,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %5, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %6, i64 32
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }
@@ -3206,11 +3198,11 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__new_elems) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -3220,13 +3212,13 @@ entry:
   %conv.neg.i.i.neg = zext i1 %tobool.i.i to i64
   %sub.i.i.neg = sub nsw i64 %conv.neg.i.i.neg, %sub.ptr.div.i.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -3247,7 +3239,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %sub4 = add i64 %__new_elems, 31
   %div9 = lshr i64 %sub4, 5
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %_M_map_size.i, align 8
   %9 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
@@ -3326,9 +3318,9 @@ unreachable:                                      ; preds = %for.end17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1EN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_St15_Deque_iteratorIS3_S4_S5_EET3_S6_IT0_T1_T2_ESC_S8_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
@@ -3336,14 +3328,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i136
@@ -3400,7 +3392,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
   %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !261
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %8, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %8, i64 %sub14.i.i
@@ -3425,7 +3417,7 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__g
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0202 = getelementptr inbounds ptr, ptr %11, i64 1
+  %__node.0202 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
   %cmp4.not203 = icmp eq ptr %__node.0202, %12
   br i1 %cmp4.not203, label %for.end, label %for.body
@@ -3488,7 +3480,7 @@ cond.end.i.i41:                                   ; preds = %cond.false.i.i39, %
   %cond.i.i42 = phi i64 [ %div911.i.i60, %cond.true.i.i59 ], [ %sub10.i.i40, %cond.false.i.i39 ]
   %add.ptr11.i.i43 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i42
   %18 = load ptr, ptr %add.ptr11.i.i43, align 8, !noalias !265
-  %add.ptr.i.i.i44 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %18, i64 32
+  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i45 = shl nsw i64 %cond.i.i42, 5
   %sub14.i.i46 = sub nsw i64 %add.i.i37, %mul.i.i45
   %add.ptr15.i.i47 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %18, i64 %sub14.i.i46
@@ -3508,7 +3500,7 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__g
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0204, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0204, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !268
@@ -3518,7 +3510,7 @@ for.end:                                          ; preds = %_ZSt14__copy_move_a
   %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
   %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
   %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %storemerge.i.i49, %_ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
   %sub.ptr.lhs.cast.i70 = ptrtoint ptr %25 to i64
@@ -3577,7 +3569,7 @@ cond.end.i.i111:                                  ; preds = %cond.false.i.i109, 
   %cond.i.i112 = phi i64 [ %div911.i.i125, %cond.true.i.i124 ], [ %sub10.i.i110, %cond.false.i.i109 ]
   %add.ptr11.i.i113 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i112
   %26 = load ptr, ptr %add.ptr11.i.i113, align 8, !noalias !269
-  %add.ptr.i.i.i114 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %26, i64 32
+  %add.ptr.i.i.i114 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i115 = shl nsw i64 %cond.i.i112, 5
   %sub14.i.i116 = sub nsw i64 %add.i.i107, %mul.i.i115
   %add.ptr15.i.i117 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %26, i64 %sub14.i.i116
@@ -3595,11 +3587,11 @@ _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLE
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i130 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i130 = getelementptr inbounds i8, ptr %__result, i64 8
   %29 = load ptr, ptr %_M_first3.i130, align 8
-  %_M_last4.i132 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i132 = getelementptr inbounds i8, ptr %__result, i64 16
   %30 = load ptr, ptr %_M_last4.i132, align 8
-  %_M_node5.i134 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i134 = getelementptr inbounds i8, ptr %__result, i64 24
   %31 = load ptr, ptr %_M_node5.i134, align 8
   %sub.ptr.lhs.cast.i135 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i137 = sub i64 %sub.ptr.lhs.cast.i135, %sub.ptr.rhs.cast.i136
@@ -3656,7 +3648,7 @@ cond.end.i.i176:                                  ; preds = %cond.false.i.i174, 
   %cond.i.i177 = phi i64 [ %div911.i.i190, %cond.true.i.i189 ], [ %sub10.i.i175, %cond.false.i.i174 ]
   %add.ptr11.i.i178 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i177
   %32 = load ptr, ptr %add.ptr11.i.i178, align 8, !noalias !272
-  %add.ptr.i.i.i179 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 32
+  %add.ptr.i.i.i179 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i180 = shl nsw i64 %cond.i.i177, 5
   %sub14.i.i181 = sub nsw i64 %add.i.i172, %mul.i.i180
   %add.ptr15.i.i182 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 %sub14.i.i181
@@ -3677,11 +3669,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i118 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i118 ]
   store ptr %.sink205, ptr %agg.result, align 8
-  %_M_first.i8.i144 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i8.i144 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i144, align 8
-  %_M_last.i.i145 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i145 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i145, align 8
-  %_M_node.i9.i147 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i9.i147 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i147, align 8
   ret void
 }
@@ -3689,23 +3681,23 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_St15_Deque_iteratorIS3_S4_S5_EET3_S6_IT0_T1_T2_ESC_S8_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %2 = load ptr, ptr %_M_first, align 8
   %3 = load ptr, ptr %__last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
@@ -3725,9 +3717,9 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
   br i1 %tobool.not.i, label %if.end.thread.i, label %if.end.i
 
 if.end.thread.i:                                  ; preds = %while.body.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.12.0, i64 -8
   %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !275
-  %add.ptr6.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %9, i64 32
+  %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 512
   %.sroa.speculated24.i = tail call i64 @llvm.smin.i64(i64 %storemerge12.i, i64 32)
   %.pre237 = ptrtoint ptr %agg.tmp.sroa.0.0 to i64
   %.pre238 = ptrtoint ptr %8 to i64
@@ -3776,7 +3768,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
   %10 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !275
-  %add.ptr.i.i.i7.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %10, i64 32
+  %add.ptr.i.i.i7.i = getelementptr inbounds i8, ptr %10, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 5
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %10, i64 %sub14.i.i.i
@@ -3801,7 +3793,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
   store ptr %agg.tmp.sroa.9.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %13 = load ptr, ptr %_M_node1, align 8
-  %__node.0231 = getelementptr inbounds ptr, ptr %13, i64 -1
+  %__node.0231 = getelementptr inbounds i8, ptr %13, i64 -8
   %14 = load ptr, ptr %_M_node, align 8
   %cmp4.not232 = icmp eq ptr %__node.0231, %14
   br i1 %cmp4.not232, label %for.end, label %for.body
@@ -3813,7 +3805,7 @@ for.body:                                         ; preds = %_ZSt23__copy_move_b
   %18 = phi ptr [ %storemerge.i.i.i56, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit74 ], [ %12, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
   %__node.0233 = phi ptr [ %__node.0, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit74 ], [ %__node.0231, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
   %19 = load ptr, ptr %__node.0233, align 8
-  %add.ptr6 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %19, i64 32
+  %add.ptr6 = getelementptr inbounds i8, ptr %19, i64 512
   br label %while.body.i20
 
 while.body.i20:                                   ; preds = %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i55, %for.body
@@ -3827,9 +3819,9 @@ while.body.i20:                                   ; preds = %_ZNSt15_Deque_itera
   br i1 %tobool.not.i23, label %if.end.thread.i70, label %if.end.i24
 
 if.end.thread.i70:                                ; preds = %while.body.i20
-  %add.ptr.i71 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 -1
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
   %21 = load ptr, ptr %add.ptr.i71, align 8, !noalias !279
-  %add.ptr6.i72 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %21, i64 32
+  %add.ptr6.i72 = getelementptr inbounds i8, ptr %21, i64 512
   %.sroa.speculated24.i73 = tail call i64 @llvm.smin.i64(i64 %storemerge12.i22, i64 32)
   %.pre245 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
   %.pre246 = ptrtoint ptr %20 to i64
@@ -3878,7 +3870,7 @@ cond.end.i.i.i48:                                 ; preds = %cond.false.i.i.i46,
   %cond.i.i.i49 = phi i64 [ %div911.i.i.i67, %cond.true.i.i.i66 ], [ %sub10.i.i.i47, %cond.false.i.i.i46 ]
   %add.ptr11.i.i.i50 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i.i49
   %22 = load ptr, ptr %add.ptr11.i.i.i50, align 8, !noalias !279
-  %add.ptr.i.i.i7.i51 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %22, i64 32
+  %add.ptr.i.i.i7.i51 = getelementptr inbounds i8, ptr %22, i64 512
   %mul.i.i.i52 = shl nsw i64 %cond.i.i.i49, 5
   %sub14.i.i.i53 = sub nsw i64 %add.i.i.i44, %mul.i.i.i52
   %add.ptr15.i.i.i54 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %22, i64 %sub14.i.i.i53
@@ -3898,7 +3890,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.8.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0233, i64 -1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0233, i64 -8
   %23 = load ptr, ptr %_M_node, align 8
   %cmp4.not = icmp eq ptr %__node.0, %23
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !282
@@ -3909,7 +3901,7 @@ for.end:                                          ; preds = %_ZSt23__copy_move_b
   %26 = phi ptr [ %11, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit74 ]
   %27 = phi ptr [ %12, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %storemerge.i.i.i56, %_ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit74 ]
   %28 = load ptr, ptr %__first, align 8
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %29 = load ptr, ptr %_M_last, align 8
   %sub.ptr.lhs.cast.i81 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i82 = ptrtoint ptr %28 to i64
@@ -3929,9 +3921,9 @@ while.body.i99:                                   ; preds = %for.end, %_ZNSt15_D
   br i1 %tobool.not.i102, label %if.end.thread.i144, label %if.end.i103
 
 if.end.thread.i144:                               ; preds = %while.body.i99
-  %add.ptr.i145 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 -1
+  %add.ptr.i145 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
   %31 = load ptr, ptr %add.ptr.i145, align 8, !noalias !283
-  %add.ptr6.i146 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %31, i64 32
+  %add.ptr6.i146 = getelementptr inbounds i8, ptr %31, i64 512
   %.sroa.speculated24.i147 = tail call i64 @llvm.smin.i64(i64 %storemerge12.i101, i64 32)
   %.pre241 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
   %.pre242 = ptrtoint ptr %30 to i64
@@ -3980,7 +3972,7 @@ cond.end.i.i.i127:                                ; preds = %cond.false.i.i.i125
   %cond.i.i.i128 = phi i64 [ %div911.i.i.i141, %cond.true.i.i.i140 ], [ %sub10.i.i.i126, %cond.false.i.i.i125 ]
   %add.ptr11.i.i.i129 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i128
   %32 = load ptr, ptr %add.ptr11.i.i.i129, align 8, !noalias !283
-  %add.ptr.i.i.i7.i130 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 32
+  %add.ptr.i.i.i7.i130 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i.i131 = shl nsw i64 %cond.i.i.i128, 5
   %sub14.i.i.i132 = sub nsw i64 %add.i.i.i123, %mul.i.i.i131
   %add.ptr15.i.i.i133 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %32, i64 %sub14.i.i.i132
@@ -3999,11 +3991,11 @@ if.end:                                           ; preds = %entry
   %33 = load ptr, ptr %__first, align 8
   %34 = load ptr, ptr %__last, align 8
   %35 = load ptr, ptr %__result, align 8
-  %_M_first3.i150 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i150 = getelementptr inbounds i8, ptr %__result, i64 8
   %36 = load ptr, ptr %_M_first3.i150, align 8
-  %_M_last4.i152 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i152 = getelementptr inbounds i8, ptr %__result, i64 16
   %37 = load ptr, ptr %_M_last4.i152, align 8
-  %_M_node5.i154 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i154 = getelementptr inbounds i8, ptr %__result, i64 24
   %38 = load ptr, ptr %_M_node5.i154, align 8
   %sub.ptr.lhs.cast.i155 = ptrtoint ptr %34 to i64
   %sub.ptr.rhs.cast.i156 = ptrtoint ptr %33 to i64
@@ -4023,9 +4015,9 @@ while.body.i173:                                  ; preds = %if.end, %_ZNSt15_De
   br i1 %tobool.not.i176, label %if.end.thread.i218, label %if.end.i177
 
 if.end.thread.i218:                               ; preds = %while.body.i173
-  %add.ptr.i219 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 -1
+  %add.ptr.i219 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
   %40 = load ptr, ptr %add.ptr.i219, align 8, !noalias !286
-  %add.ptr6.i220 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %40, i64 32
+  %add.ptr6.i220 = getelementptr inbounds i8, ptr %40, i64 512
   %.sroa.speculated24.i221 = tail call i64 @llvm.smin.i64(i64 %storemerge12.i175, i64 32)
   %.pre = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
   %.pre234 = ptrtoint ptr %39 to i64
@@ -4074,7 +4066,7 @@ cond.end.i.i.i201:                                ; preds = %cond.false.i.i.i199
   %cond.i.i.i202 = phi i64 [ %div911.i.i.i215, %cond.true.i.i.i214 ], [ %sub10.i.i.i200, %cond.false.i.i.i199 ]
   %add.ptr11.i.i.i203 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i202
   %41 = load ptr, ptr %add.ptr11.i.i.i203, align 8, !noalias !286
-  %add.ptr.i.i.i7.i204 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %41, i64 32
+  %add.ptr.i.i.i7.i204 = getelementptr inbounds i8, ptr %41, i64 512
   %mul.i.i.i205 = shl nsw i64 %cond.i.i.i202, 5
   %sub14.i.i.i206 = sub nsw i64 %add.i.i.i197, %mul.i.i.i205
   %add.ptr15.i.i.i207 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %41, i64 %sub14.i.i.i206
@@ -4095,11 +4087,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.9.2.sink = phi ptr [ %25, %for.end ], [ %37, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i208 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i134 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %24, %for.end ], [ %38, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i208 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i134 ]
   store ptr %.sink249, ptr %agg.result, align 8
-  %_M_first.i.i164 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i.i164 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i.i164, align 8
-  %_M_last.i.i165 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i165 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.9.2.sink, ptr %_M_last.i.i165, align 8
-  %_M_node.i.i167 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i.i167 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i.i167, align 8
   ret void
 }
@@ -4107,11 +4099,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_push_back_auxIJiNS0_8crc32c_tEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4122,14 +4114,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 5
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -4145,7 +4137,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -4163,22 +4155,22 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #15
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i32, ptr %__args, align 4
   %conv.i.i = sext i32 %10 to i64
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %__args1, align 4
   store i64 %conv.i.i, ptr %9, align 8
-  %crc.i.i.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %9, i64 0, i32 1
+  %crc.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %agg.tmp.sroa.0.0.copyload.i.i, ptr %crc.i.i.i, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr14 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr14, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr14, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %12, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<absl::crc_internal::CrcCordState::PrefixCrc, std::allocator<absl::crc_internal::CrcCordState::PrefixCrc>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void

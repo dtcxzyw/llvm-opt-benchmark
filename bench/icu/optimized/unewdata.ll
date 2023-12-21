@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%struct.UNewDataMemory = type { ptr, i16, i8, i8 }
 
 @.str.1 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 @_ZL13dummyDataInfo = internal constant %struct.UDataInfo { i16 20, i16 0, i8 0, i8 0, i8 2, i8 0, [4 x i8] zeroinitializer, [4 x i8] zeroinitializer, [4 x i8] zeroinitializer }, align 2
@@ -176,11 +175,11 @@ if.end91:                                         ; preds = %if.end74, %land.lhs
   %commentLength.0 = phi i32 [ %12, %if.then82 ], [ 0, %land.lhs.true79 ], [ 0, %if.end74 ]
   %add93 = add i16 %headerSize.0, 15
   %and = and i16 %add93, -16
-  %headerSize95 = getelementptr inbounds %struct.UNewDataMemory, ptr %call8, i64 0, i32 1
+  %headerSize95 = getelementptr inbounds i8, ptr %call8, i64 8
   store i16 %and, ptr %headerSize95, align 8
-  %magic1 = getelementptr inbounds %struct.UNewDataMemory, ptr %call8, i64 0, i32 2
+  %magic1 = getelementptr inbounds i8, ptr %call8, i64 10
   store i8 -38, ptr %magic1, align 2
-  %magic2 = getelementptr inbounds %struct.UNewDataMemory, ptr %call8, i64 0, i32 3
+  %magic2 = getelementptr inbounds i8, ptr %call8, i64 11
   store i8 39, ptr %magic2, align 1
   %call98 = call i32 @T_FileStream_write(ptr noundef nonnull %call70, ptr noundef nonnull %headerSize95, i32 noundef 4)
   %13 = load ptr, ptr %call8, align 8
@@ -265,7 +264,7 @@ if.then10:                                        ; preds = %if.then4
   br label %if.end11
 
 if.else:                                          ; preds = %if.then4
-  %headerSize = getelementptr inbounds %struct.UNewDataMemory, ptr %pData, i64 0, i32 1
+  %headerSize = getelementptr inbounds i8, ptr %pData, i64 8
   %3 = load i16, ptr %headerSize, align 8
   %conv = zext i16 %3 to i32
   %sub = sub i32 %call6, %conv

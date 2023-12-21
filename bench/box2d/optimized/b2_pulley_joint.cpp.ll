@@ -3,22 +3,8 @@ source_filename = "bench/box2d/original/b2_pulley_joint.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.b2JointDef = type <{ i32, [4 x i8], %struct.b2JointUserData, ptr, ptr, i8, [7 x i8] }>
-%struct.b2JointUserData = type { i64 }
-%struct.b2PulleyJointDef = type { %struct.b2JointDef.base, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
-%struct.b2JointDef.base = type <{ i32, [4 x i8], %struct.b2JointUserData, ptr, ptr, i8 }>
-%struct.b2Vec2 = type { float, float }
-%class.b2Body = type { i32, i16, i32, %struct.b2Transform, %struct.b2Sweep, %struct.b2Vec2, float, %struct.b2Vec2, float, ptr, ptr, ptr, ptr, i32, ptr, ptr, float, float, float, float, float, float, float, float, %struct.b2BodyUserData }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
-%struct.b2BodyUserData = type { i64 }
-%class.b2PulleyJoint = type { %class.b2Joint, %struct.b2Vec2, %struct.b2Vec2, float, float, %struct.b2Vec2, %struct.b2Vec2, float, float, float, i32, i32, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float }
-%class.b2Joint = type { ptr, i32, ptr, ptr, %struct.b2JointEdge, %struct.b2JointEdge, ptr, ptr, i32, i8, i8, %struct.b2JointUserData }
-%struct.b2JointEdge = type { ptr, ptr, ptr, ptr }
-%struct.b2SolverData = type { %struct.b2TimeStep, ptr, ptr }
-%struct.b2TimeStep = type { float, float, float, i32, i32, i8 }
 %struct.b2Position = type { %struct.b2Vec2, float }
+%struct.b2Vec2 = type { float, float }
 %struct.b2Velocity = type { %struct.b2Vec2, float }
 
 $_ZN13b2PulleyJointD2Ev = comdat any
@@ -48,26 +34,26 @@ $_ZN13b2PulleyJointD0Ev = comdat any
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN16b2PulleyJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_S4_S4_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %groundA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %groundB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchorA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchorB, float noundef %r) local_unnamed_addr #0 align 2 {
 entry:
-  %bodyA = getelementptr inbounds %struct.b2JointDef, ptr %this, i64 0, i32 3
+  %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
-  %bodyB = getelementptr inbounds %struct.b2JointDef, ptr %this, i64 0, i32 4
+  %bodyB = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %bB, ptr %bodyB, align 8
-  %groundAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 1
+  %groundAnchorA = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i64, ptr %groundA, align 4
   store i64 %0, ptr %groundAnchorA, align 4
-  %groundAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 2
+  %groundAnchorB = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i64, ptr %groundB, align 4
   store i64 %1, ptr %groundAnchorB, align 4
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %bA, i64 0, i32 3
+  %m_xf.i = getelementptr inbounds i8, ptr %bA, i64 12
   %2 = load float, ptr %anchorA, align 4
   %3 = load float, ptr %m_xf.i, align 4
   %sub.i.i = fsub float %2, %3
-  %y.i.i = getelementptr inbounds %struct.b2Vec2, ptr %anchorA, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %anchorA, i64 4
   %4 = load float, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %class.b2Body, ptr %bA, i64 0, i32 3, i32 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %bA, i64 16
   %5 = load float, ptr %y3.i.i, align 4
   %sub4.i.i = fsub float %4, %5
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %bA, i64 0, i32 3, i32 1
+  %q.i.i = getelementptr inbounds i8, ptr %bA, i64 20
   %6 = load <2 x float>, ptr %q.i.i, align 4
   %7 = extractelement <2 x float> %6, i64 0
   %fneg.i.i = fneg float %7
@@ -79,18 +65,18 @@ entry:
   %13 = insertelement <2 x float> poison, float %sub.i.i, i64 0
   %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
   %15 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> %14, <2 x float> %10)
-  %localAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 3
+  %localAnchorA = getelementptr inbounds i8, ptr %this, i64 52
   store <2 x float> %15, ptr %localAnchorA, align 4
-  %m_xf.i5 = getelementptr inbounds %class.b2Body, ptr %bB, i64 0, i32 3
+  %m_xf.i5 = getelementptr inbounds i8, ptr %bB, i64 12
   %16 = load float, ptr %anchorB, align 4
   %17 = load float, ptr %m_xf.i5, align 4
   %sub.i.i6 = fsub float %16, %17
-  %y.i.i7 = getelementptr inbounds %struct.b2Vec2, ptr %anchorB, i64 0, i32 1
+  %y.i.i7 = getelementptr inbounds i8, ptr %anchorB, i64 4
   %18 = load float, ptr %y.i.i7, align 4
-  %y3.i.i8 = getelementptr inbounds %class.b2Body, ptr %bB, i64 0, i32 3, i32 0, i32 1
+  %y3.i.i8 = getelementptr inbounds i8, ptr %bB, i64 16
   %19 = load float, ptr %y3.i.i8, align 4
   %sub4.i.i9 = fsub float %18, %19
-  %q.i.i10 = getelementptr inbounds %class.b2Body, ptr %bB, i64 0, i32 3, i32 1
+  %q.i.i10 = getelementptr inbounds i8, ptr %bB, i64 20
   %20 = load <2 x float>, ptr %q.i.i10, align 4
   %21 = extractelement <2 x float> %20, i64 0
   %fneg.i.i13 = fneg float %21
@@ -102,33 +88,33 @@ entry:
   %27 = insertelement <2 x float> poison, float %sub.i.i6, i64 0
   %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
   %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> %28, <2 x float> %24)
-  %localAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 4
+  %localAnchorB = getelementptr inbounds i8, ptr %this, i64 60
   store <2 x float> %29, ptr %localAnchorB, align 4
   %30 = load float, ptr %anchorA, align 4
   %31 = load float, ptr %groundA, align 4
   %sub.i = fsub float %30, %31
   %32 = load float, ptr %y.i.i, align 4
-  %y2.i = getelementptr inbounds %struct.b2Vec2, ptr %groundA, i64 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %groundA, i64 4
   %33 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %32, %33
   %mul4.i = fmul float %sub3.i, %sub3.i
   %34 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %34)
-  %lengthA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 5
+  %lengthA = getelementptr inbounds i8, ptr %this, i64 68
   store float %sqrt.i, ptr %lengthA, align 4
   %35 = load float, ptr %anchorB, align 4
   %36 = load float, ptr %groundB, align 4
   %sub.i18 = fsub float %35, %36
   %37 = load float, ptr %y.i.i7, align 4
-  %y2.i20 = getelementptr inbounds %struct.b2Vec2, ptr %groundB, i64 0, i32 1
+  %y2.i20 = getelementptr inbounds i8, ptr %groundB, i64 4
   %38 = load float, ptr %y2.i20, align 4
   %sub3.i21 = fsub float %37, %38
   %mul4.i25 = fmul float %sub3.i21, %sub3.i21
   %39 = tail call float @llvm.fmuladd.f32(float %sub.i18, float %sub.i18, float %mul4.i25)
   %sqrt.i26 = tail call noundef float @llvm.sqrt.f32(float %39)
-  %lengthB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 6
+  %lengthB = getelementptr inbounds i8, ptr %this, i64 72
   store float %sqrt.i26, ptr %lengthB, align 8
-  %ratio = getelementptr inbounds %struct.b2PulleyJointDef, ptr %this, i64 0, i32 7
+  %ratio = getelementptr inbounds i8, ptr %this, i64 76
   store float %r, ptr %ratio, align 4
   ret void
 }
@@ -138,40 +124,40 @@ define void @_ZN13b2PulleyJointC2EPK16b2PulleyJointDef(ptr noundef nonnull align
 entry:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13b2PulleyJoint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %groundAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 1
-  %m_groundAnchorA2 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
+  %groundAnchorA = getelementptr inbounds i8, ptr %def, i64 36
+  %m_groundAnchorA2 = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %groundAnchorA, align 4
   store i64 %0, ptr %m_groundAnchorA2, align 8
-  %groundAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 2
-  %m_groundAnchorB3 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %groundAnchorB = getelementptr inbounds i8, ptr %def, i64 44
+  %m_groundAnchorB3 = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i64, ptr %groundAnchorB, align 4
   store i64 %1, ptr %m_groundAnchorB3, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 3
-  %m_localAnchorA4 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5
+  %localAnchorA = getelementptr inbounds i8, ptr %def, i64 52
+  %m_localAnchorA4 = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load i64, ptr %localAnchorA, align 4
   store i64 %2, ptr %m_localAnchorA4, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 4
-  %m_localAnchorB5 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6
+  %localAnchorB = getelementptr inbounds i8, ptr %def, i64 60
+  %m_localAnchorB5 = getelementptr inbounds i8, ptr %this, i64 160
   %3 = load i64, ptr %localAnchorB, align 4
   store i64 %3, ptr %m_localAnchorB5, align 8
-  %lengthA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 5
+  %lengthA = getelementptr inbounds i8, ptr %def, i64 68
   %4 = load float, ptr %lengthA, align 4
-  %m_lengthA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 3
+  %m_lengthA = getelementptr inbounds i8, ptr %this, i64 144
   store float %4, ptr %m_lengthA, align 8
-  %lengthB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 6
+  %lengthB = getelementptr inbounds i8, ptr %def, i64 72
   %5 = load float, ptr %lengthB, align 8
-  %m_lengthB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 4
+  %m_lengthB = getelementptr inbounds i8, ptr %this, i64 148
   store float %5, ptr %m_lengthB, align 4
-  %ratio = getelementptr inbounds %struct.b2PulleyJointDef, ptr %def, i64 0, i32 7
+  %ratio = getelementptr inbounds i8, ptr %def, i64 76
   %6 = load float, ptr %ratio, align 4
-  %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 8
+  %m_ratio = getelementptr inbounds i8, ptr %this, i64 172
   store float %6, ptr %m_ratio, align 4
   %7 = load float, ptr %lengthA, align 4
   %8 = load float, ptr %lengthB, align 8
   %9 = tail call float @llvm.fmuladd.f32(float %6, float %8, float %7)
-  %m_constant = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 7
+  %m_constant = getelementptr inbounds i8, ptr %this, i64 168
   store float %9, ptr %m_constant, align 8
-  %m_impulse = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 9
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_impulse, align 8
   ret void
 }
@@ -184,49 +170,49 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN13b2PulleyJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #4 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_islandIndex = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 2
+  %m_islandIndex = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %m_islandIndex, align 8
-  %m_indexA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 10
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 180
   store i32 %1, ptr %m_indexA, align 4
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_islandIndex2 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 2
+  %m_islandIndex2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %m_islandIndex2, align 8
-  %m_indexB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 11
+  %m_indexB = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %3, ptr %m_indexB, align 8
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4
-  %m_localCenterA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 16
+  %m_sweep = getelementptr inbounds i8, ptr %0, i64 28
+  %m_localCenterA = getelementptr inbounds i8, ptr %this, i64 220
   %4 = load i64, ptr %m_sweep, align 4
   store i64 %4, ptr %m_localCenterA, align 4
-  %m_sweep5 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 4
-  %m_localCenterB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 17
+  %m_sweep5 = getelementptr inbounds i8, ptr %2, i64 28
+  %m_localCenterB = getelementptr inbounds i8, ptr %this, i64 228
   %5 = load i64, ptr %m_sweep5, align 4
   store i64 %5, ptr %m_localCenterB, align 4
-  %m_invMass = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 17
+  %m_invMass = getelementptr inbounds i8, ptr %0, i64 148
   %6 = load float, ptr %m_invMass, align 4
-  %m_invMassA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 18
+  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
   store float %6, ptr %m_invMassA, align 4
-  %m_invMass9 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 17
+  %m_invMass9 = getelementptr inbounds i8, ptr %2, i64 148
   %7 = load float, ptr %m_invMass9, align 4
-  %m_invMassB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 19
+  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
   store float %7, ptr %m_invMassB, align 8
-  %m_invI = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 19
+  %m_invI = getelementptr inbounds i8, ptr %0, i64 156
   %8 = load float, ptr %m_invI, align 4
-  %m_invIA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 20
+  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   store float %8, ptr %m_invIA, align 4
-  %m_invI12 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 19
+  %m_invI12 = getelementptr inbounds i8, ptr %2, i64 156
   %9 = load float, ptr %m_invI12, align 4
-  %m_invIB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 21
+  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   store float %9, ptr %m_invIB, align 8
-  %positions = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 1
+  %positions = getelementptr inbounds i8, ptr %data, i64 24
   %10 = load ptr, ptr %positions, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom
   %a = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom, i32 1
   %11 = load float, ptr %a, align 4
-  %velocities = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 2
+  %velocities = getelementptr inbounds i8, ptr %data, i64 32
   %12 = load ptr, ptr %velocities, align 8
   %arrayidx20 = getelementptr inbounds %struct.b2Velocity, ptr %12, i64 %idxprom
   %w = getelementptr inbounds %struct.b2Velocity, ptr %12, i64 %idxprom, i32 1
@@ -238,17 +224,17 @@ entry:
   %arrayidx38 = getelementptr inbounds %struct.b2Velocity, ptr %12, i64 %idxprom27
   %w44 = getelementptr inbounds %struct.b2Velocity, ptr %12, i64 %idxprom27, i32 1
   %15 = load float, ptr %w44, align 4
-  %m_localAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5
-  %y.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5, i32 1
-  %y2.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 16, i32 1
-  %m_rA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 14
-  %m_localAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6
-  %y.i28 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6, i32 1
-  %y2.i29 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 17, i32 1
-  %m_rB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 15
-  %m_groundAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
-  %m_uA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 12
-  %m_groundAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 152
+  %y.i = getelementptr inbounds i8, ptr %this, i64 156
+  %y2.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_rA = getelementptr inbounds i8, ptr %this, i64 204
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 160
+  %y.i28 = getelementptr inbounds i8, ptr %this, i64 164
+  %y2.i29 = getelementptr inbounds i8, ptr %this, i64 232
+  %m_rB = getelementptr inbounds i8, ptr %this, i64 212
+  %m_groundAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_uA = getelementptr inbounds i8, ptr %this, i64 188
+  %m_groundAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %16 = load <2 x float>, ptr %arrayidx, align 4
   %17 = load <2 x float>, ptr %arrayidx20, align 4
   %18 = load <2 x float>, ptr %arrayidx28, align 4
@@ -343,25 +329,25 @@ entry:
   %90 = extractelement <2 x float> %87, i64 1
   %mul87 = fmul float %86, %90
   %91 = tail call float @llvm.fmuladd.f32(float %mul87, float %86, float %80)
-  %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 8
+  %m_ratio = getelementptr inbounds i8, ptr %this, i64 172
   %92 = load float, ptr %m_ratio, align 4
   %mul90 = fmul float %92, %92
   %93 = tail call float @llvm.fmuladd.f32(float %mul90, float %91, float %89)
-  %m_mass = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 22
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 252
   %cmp93 = fcmp ogt float %93, 0.000000e+00
   %div96 = fdiv float 1.000000e+00, %93
   %storemerge = select i1 %cmp93, float %div96, float %93
   store float %storemerge, ptr %m_mass, align 4
-  %warmStarting = getelementptr inbounds %struct.b2TimeStep, ptr %data, i64 0, i32 5
+  %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
   %94 = load i8, ptr %warmStarting, align 4
   %95 = and i8 %94, 1
   %tobool.not = icmp eq i8 %95, 0
   br i1 %tobool.not, label %if.else125, label %if.then99
 
 if.then99:                                        ; preds = %entry
-  %dtRatio = getelementptr inbounds %struct.b2TimeStep, ptr %data, i64 0, i32 2
+  %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
   %96 = load float, ptr %dtRatio, align 8
-  %m_impulse = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 9
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 176
   %97 = load float, ptr %m_impulse, align 8
   %mul101 = fmul float %96, %97
   store float %mul101, ptr %m_impulse, align 8
@@ -393,7 +379,7 @@ if.then99:                                        ; preds = %entry
   br label %if.end127
 
 if.else125:                                       ; preds = %entry
-  %m_impulse126 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 9
+  %m_impulse126 = getelementptr inbounds i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_impulse126, align 8
   %120 = insertelement <2 x float> poison, float %13, i64 0
   %121 = insertelement <2 x float> %120, float %15, i64 1
@@ -431,50 +417,50 @@ if.end127:                                        ; preds = %if.else125, %if.the
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN13b2PulleyJoint24SolveVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #5 align 2 {
 entry:
-  %velocities = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 2
+  %velocities = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %velocities, align 8
-  %m_indexA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 10
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 180
   %1 = load i32, ptr %m_indexA, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Velocity, ptr %0, i64 %idxprom
   %w = getelementptr inbounds %struct.b2Velocity, ptr %0, i64 %idxprom, i32 1
   %2 = load float, ptr %w, align 4
-  %m_indexB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 11
+  %m_indexB = getelementptr inbounds i8, ptr %this, i64 184
   %3 = load i32, ptr %m_indexB, align 8
   %idxprom7 = sext i32 %3 to i64
   %arrayidx8 = getelementptr inbounds %struct.b2Velocity, ptr %0, i64 %idxprom7
   %w14 = getelementptr inbounds %struct.b2Velocity, ptr %0, i64 %idxprom7, i32 1
   %4 = load float, ptr %w14, align 4
-  %m_rA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 14
-  %y.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 14, i32 1
+  %m_rA = getelementptr inbounds i8, ptr %this, i64 204
+  %y.i = getelementptr inbounds i8, ptr %this, i64 208
   %5 = load float, ptr %y.i, align 8
   %6 = load float, ptr %m_rA, align 4
   %mul1.i = fmul float %2, %6
   %7 = fmul float %2, %5
-  %m_rB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 15
-  %y.i18 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 15, i32 1
+  %m_rB = getelementptr inbounds i8, ptr %this, i64 212
+  %y.i18 = getelementptr inbounds i8, ptr %this, i64 216
   %8 = load float, ptr %y.i18, align 8
   %9 = load float, ptr %m_rB, align 4
   %mul1.i20 = fmul float %4, %9
   %10 = fmul float %4, %8
-  %m_uA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 12
-  %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 8
+  %m_uA = getelementptr inbounds i8, ptr %this, i64 188
+  %m_ratio = getelementptr inbounds i8, ptr %this, i64 172
   %11 = load float, ptr %m_ratio, align 4
-  %m_uB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 13
+  %m_uB = getelementptr inbounds i8, ptr %this, i64 196
   %neg = fneg float %11
-  %m_mass = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 22
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 252
   %12 = load float, ptr %m_mass, align 4
   %fneg21 = fneg float %12
-  %m_impulse = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 9
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load float, ptr %m_impulse, align 8
-  %m_invMassA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 18
+  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
   %14 = load <4 x float>, ptr %m_invMassA, align 4
-  %m_invIA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 20
+  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   %15 = load float, ptr %m_invIA, align 4
   %16 = fneg float %5
-  %m_invMassB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 19
+  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
   %17 = load <4 x float>, ptr %m_invMassB, align 8
-  %m_invIB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 21
+  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   %18 = load float, ptr %m_invIB, align 8
   %19 = fneg float %8
   %20 = load <2 x float>, ptr %arrayidx, align 4
@@ -550,16 +536,16 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN13b2PulleyJoint24SolvePositionConstraintsERK12b2SolverData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #4 align 2 {
 entry:
-  %positions = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 1
+  %positions = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load ptr, ptr %positions, align 8
-  %m_indexA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 10
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 180
   %1 = load i32, ptr %m_indexA, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom
   %2 = load <2 x float>, ptr %arrayidx, align 4
   %a = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom, i32 1
   %3 = load float, ptr %a, align 4
-  %m_indexB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 11
+  %m_indexB = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i32, ptr %m_indexB, align 8
   %idxprom7 = sext i32 %4 to i64
   %arrayidx8 = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom7
@@ -570,29 +556,29 @@ entry:
   %call2.i = tail call float @cosf(float noundef %3) #15
   %call.i22 = tail call float @sinf(float noundef %6) #15
   %call2.i23 = tail call float @cosf(float noundef %6) #15
-  %m_localAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5
-  %m_localCenterA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 16
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 152
+  %m_localCenterA = getelementptr inbounds i8, ptr %this, i64 220
   %7 = load float, ptr %m_localAnchorA, align 8
   %8 = load float, ptr %m_localCenterA, align 4
   %sub.i = fsub float %7, %8
-  %y.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 156
   %9 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 16, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %this, i64 224
   %10 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %9, %10
   %11 = fneg float %call.i
-  %m_localAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6
-  %m_localCenterB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 17
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 160
+  %m_localCenterB = getelementptr inbounds i8, ptr %this, i64 228
   %12 = load float, ptr %m_localAnchorB, align 8
   %13 = load float, ptr %m_localCenterB, align 4
   %sub.i29 = fsub float %12, %13
-  %y.i30 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6, i32 1
+  %y.i30 = getelementptr inbounds i8, ptr %this, i64 164
   %14 = load float, ptr %y.i30, align 4
-  %y2.i31 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 17, i32 1
+  %y2.i31 = getelementptr inbounds i8, ptr %this, i64 232
   %15 = load float, ptr %y2.i31, align 8
   %sub3.i32 = fsub float %14, %15
   %16 = fneg float %call.i22
-  %m_groundAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
+  %m_groundAnchorA = getelementptr inbounds i8, ptr %this, i64 128
   %17 = insertelement <2 x float> poison, float %sub3.i, i64 0
   %18 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> zeroinitializer
   %19 = insertelement <2 x float> poison, float %11, i64 0
@@ -606,7 +592,7 @@ entry:
   %27 = fadd <2 x float> %2, %26
   %28 = load <2 x float>, ptr %m_groundAnchorA, align 8
   %29 = fsub <2 x float> %27, %28
-  %m_groundAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %m_groundAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %30 = insertelement <2 x float> poison, float %sub3.i32, i64 0
   %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
   %32 = insertelement <2 x float> poison, float %16, i64 0
@@ -656,26 +642,26 @@ entry:
   %64 = extractelement <2 x float> %uB.sroa.0.0, i64 1
   %65 = extractelement <2 x float> %39, i64 0
   %66 = tail call noundef float @llvm.fmuladd.f32(float %65, float %64, float %neg.i77)
-  %m_invMassA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 18
+  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
   %67 = load float, ptr %m_invMassA, align 4
-  %m_invIA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 20
+  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   %68 = load float, ptr %m_invIA, align 4
   %mul = fmul float %60, %68
   %69 = tail call float @llvm.fmuladd.f32(float %mul, float %60, float %67)
-  %m_invMassB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 19
+  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
   %70 = load float, ptr %m_invMassB, align 8
-  %m_invIB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 21
+  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   %71 = load float, ptr %m_invIB, align 8
   %mul35 = fmul float %66, %71
   %72 = tail call float @llvm.fmuladd.f32(float %mul35, float %66, float %70)
-  %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 8
+  %m_ratio = getelementptr inbounds i8, ptr %this, i64 172
   %73 = load float, ptr %m_ratio, align 4
   %mul38 = fmul float %73, %73
   %74 = tail call float @llvm.fmuladd.f32(float %mul38, float %72, float %69)
   %cmp40 = fcmp ogt float %74, 0.000000e+00
   %div42 = fdiv float 1.000000e+00, %74
   %mass.0 = select i1 %cmp40, float %div42, float %74
-  %m_constant = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 7
+  %m_constant = getelementptr inbounds i8, ptr %this, i64 168
   %75 = load float, ptr %m_constant, align 8
   %sub = fsub float %75, %sqrt.i
   %neg = fneg float %73
@@ -738,13 +724,13 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define <2 x float> @_ZNK13b2PulleyJoint10GetAnchorAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_localAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 152
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load <4 x float>, ptr %m_localAnchorA, align 8
-  %y.i.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 156
   %2 = load <4 x float>, ptr %y.i.i, align 4
   %3 = load <2 x float>, ptr %q.i.i, align 4
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -763,13 +749,13 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define <2 x float> @_ZNK13b2PulleyJoint10GetAnchorBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
-  %m_localAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 160
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load <4 x float>, ptr %m_localAnchorB, align 8
-  %y.i.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 164
   %2 = load <4 x float>, ptr %y.i.i, align 4
   %3 = load <2 x float>, ptr %q.i.i, align 4
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -788,9 +774,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK13b2PulleyJoint16GetReactionForceEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, float noundef %inv_dt) unnamed_addr #7 align 2 {
 entry:
-  %m_impulse = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 9
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load <4 x float>, ptr %m_impulse, align 8
-  %m_uB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 13
+  %m_uB = getelementptr inbounds i8, ptr %this, i64 196
   %1 = load <2 x float>, ptr %m_uB, align 4
   %2 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
   %3 = fmul <2 x float> %2, %1
@@ -809,7 +795,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK13b2PulleyJoint16GetGroundAnchorAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_groundAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
+  %m_groundAnchorA = getelementptr inbounds i8, ptr %this, i64 128
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_groundAnchorA, align 8
   ret <2 x float> %retval.sroa.0.0.copyload
 }
@@ -817,7 +803,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK13b2PulleyJoint16GetGroundAnchorBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_groundAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %m_groundAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_groundAnchorB, align 8
   ret <2 x float> %retval.sroa.0.0.copyload
 }
@@ -825,7 +811,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK13b2PulleyJoint10GetLengthAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_lengthA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 3
+  %m_lengthA = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load float, ptr %m_lengthA, align 8
   ret float %0
 }
@@ -833,7 +819,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK13b2PulleyJoint10GetLengthBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_lengthB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 4
+  %m_lengthB = getelementptr inbounds i8, ptr %this, i64 148
   %0 = load float, ptr %m_lengthB, align 4
   ret float %0
 }
@@ -841,7 +827,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK13b2PulleyJoint8GetRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 8
+  %m_ratio = getelementptr inbounds i8, ptr %this, i64 172
   %0 = load float, ptr %m_ratio, align 4
   ret float %0
 }
@@ -849,16 +835,16 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK13b2PulleyJoint17GetCurrentLengthAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_localAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
-  %c.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1, i32 1
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 152
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
+  %c.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load float, ptr %c.i.i, align 4
   %2 = load float, ptr %m_localAnchorA, align 8
   %3 = load float, ptr %q.i.i, align 4
-  %y.i.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 156
   %4 = load float, ptr %y.i.i, align 4
   %5 = fneg float %3
   %neg.i.i = fmul float %4, %5
@@ -867,12 +853,12 @@ entry:
   %add.i.i = fadd float %7, %6
   %mul12.i.i = fmul float %1, %4
   %8 = tail call float @llvm.fmuladd.f32(float %3, float %2, float %mul12.i.i)
-  %y14.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 0, i32 1
+  %y14.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load float, ptr %y14.i.i, align 4
   %add15.i.i = fadd float %8, %9
-  %m_groundAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
+  %m_groundAnchorA = getelementptr inbounds i8, ptr %this, i64 128
   %10 = load float, ptr %m_groundAnchorA, align 8
-  %m_groundAnchorA.sroa_idx = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1, i32 1
+  %m_groundAnchorA.sroa_idx = getelementptr inbounds i8, ptr %this, i64 132
   %11 = load float, ptr %m_groundAnchorA.sroa_idx, align 4
   %sub.i = fsub float %add.i.i, %10
   %sub3.i = fsub float %add15.i.i, %11
@@ -885,16 +871,16 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK13b2PulleyJoint17GetCurrentLengthBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
-  %m_localAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
-  %c.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1, i32 1
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 160
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
+  %c.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load float, ptr %c.i.i, align 4
   %2 = load float, ptr %m_localAnchorB, align 8
   %3 = load float, ptr %q.i.i, align 4
-  %y.i.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 164
   %4 = load float, ptr %y.i.i, align 4
   %5 = fneg float %3
   %neg.i.i = fmul float %4, %5
@@ -903,12 +889,12 @@ entry:
   %add.i.i = fadd float %7, %6
   %mul12.i.i = fmul float %1, %4
   %8 = tail call float @llvm.fmuladd.f32(float %3, float %2, float %mul12.i.i)
-  %y14.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 0, i32 1
+  %y14.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load float, ptr %y14.i.i, align 4
   %add15.i.i = fadd float %8, %9
-  %m_groundAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %m_groundAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %10 = load float, ptr %m_groundAnchorB, align 8
-  %m_groundAnchorB.sroa_idx = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2, i32 1
+  %m_groundAnchorB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 140
   %11 = load float, ptr %m_groundAnchorB.sroa_idx, align 4
   %sub.i = fsub float %add.i.i, %10
   %sub3.i = fsub float %add15.i.i, %11
@@ -921,63 +907,63 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13b2PulleyJoint4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #1 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_islandIndex = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 2
+  %m_islandIndex = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %m_islandIndex, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_islandIndex2 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 2
+  %m_islandIndex2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %m_islandIndex2, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.1, i32 noundef %1)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.2, i32 noundef %3)
-  %m_collideConnected = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 10
+  %m_collideConnected = getelementptr inbounds i8, ptr %this, i64 117
   %4 = load i8, ptr %m_collideConnected, align 1
   %5 = and i8 %4, 1
   %conv = zext nneg i8 %5 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.3, i32 noundef %conv)
-  %m_groundAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
+  %m_groundAnchorA = getelementptr inbounds i8, ptr %this, i64 128
   %6 = load float, ptr %m_groundAnchorA, align 8
   %conv3 = fpext float %6 to double
-  %y = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 132
   %7 = load float, ptr %y, align 4
   %conv5 = fpext float %7 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.4, double noundef %conv3, double noundef %conv5)
-  %m_groundAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %m_groundAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %8 = load float, ptr %m_groundAnchorB, align 8
   %conv7 = fpext float %8 to double
-  %y9 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2, i32 1
+  %y9 = getelementptr inbounds i8, ptr %this, i64 140
   %9 = load float, ptr %y9, align 4
   %conv10 = fpext float %9 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.5, double noundef %conv7, double noundef %conv10)
-  %m_localAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 152
   %10 = load float, ptr %m_localAnchorA, align 8
   %conv12 = fpext float %10 to double
-  %y14 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 5, i32 1
+  %y14 = getelementptr inbounds i8, ptr %this, i64 156
   %11 = load float, ptr %y14, align 4
   %conv15 = fpext float %11 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.6, double noundef %conv12, double noundef %conv15)
-  %m_localAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 160
   %12 = load float, ptr %m_localAnchorB, align 8
   %conv17 = fpext float %12 to double
-  %y19 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 6, i32 1
+  %y19 = getelementptr inbounds i8, ptr %this, i64 164
   %13 = load float, ptr %y19, align 4
   %conv20 = fpext float %13 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.7, double noundef %conv17, double noundef %conv20)
-  %m_lengthA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 3
+  %m_lengthA = getelementptr inbounds i8, ptr %this, i64 144
   %14 = load float, ptr %m_lengthA, align 8
   %conv21 = fpext float %14 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.8, double noundef %conv21)
-  %m_lengthB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 4
+  %m_lengthB = getelementptr inbounds i8, ptr %this, i64 148
   %15 = load float, ptr %m_lengthB, align 4
   %conv22 = fpext float %15 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.9, double noundef %conv22)
-  %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 8
+  %m_ratio = getelementptr inbounds i8, ptr %this, i64 172
   %16 = load float, ptr %m_ratio, align 4
   %conv23 = fpext float %16 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.10, double noundef %conv23)
-  %m_index = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 8
+  %m_index = getelementptr inbounds i8, ptr %this, i64 112
   %17 = load i32, ptr %m_index, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.11, i32 noundef %17)
   ret void
@@ -988,24 +974,24 @@ declare void @_Z6b2DumpPKcz(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN13b2PulleyJoint11ShiftOriginERK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %newOrigin) unnamed_addr #10 align 2 {
 entry:
-  %m_groundAnchorA = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1
+  %m_groundAnchorA = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load float, ptr %newOrigin, align 4
   %1 = load float, ptr %m_groundAnchorA, align 8
   %sub.i = fsub float %1, %0
   store float %sub.i, ptr %m_groundAnchorA, align 8
-  %y.i = getelementptr inbounds %struct.b2Vec2, ptr %newOrigin, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %newOrigin, i64 4
   %2 = load float, ptr %y.i, align 4
-  %y3.i = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 1, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load float, ptr %y3.i, align 4
   %sub4.i = fsub float %3, %2
   store float %sub4.i, ptr %y3.i, align 4
-  %m_groundAnchorB = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2
+  %m_groundAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %4 = load float, ptr %newOrigin, align 4
   %5 = load float, ptr %m_groundAnchorB, align 8
   %sub.i2 = fsub float %5, %4
   store float %sub.i2, ptr %m_groundAnchorB, align 8
   %6 = load float, ptr %y.i, align 4
-  %y3.i4 = getelementptr inbounds %class.b2PulleyJoint, ptr %this, i64 0, i32 2, i32 1
+  %y3.i4 = getelementptr inbounds i8, ptr %this, i64 140
   %7 = load float, ptr %y3.i4, align 4
   %sub4.i5 = fsub float %7, %6
   store float %sub4.i5, ptr %y3.i4, align 4

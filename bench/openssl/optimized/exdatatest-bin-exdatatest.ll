@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/exdatatest-bin-exdatatest.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.myobj_st = type { %struct.crypto_ex_data_st, i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.myobj_ex_data_st = type { ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [12 x i8] c"test_exdata\00", align 1
 @gbl_result = internal unnamed_addr global i1 false, align 4
 @.str.1 = private unnamed_addr constant [29 x i8] c"../openssl/test/exdatatest.c\00", align 1
@@ -88,10 +84,10 @@ if.then.i:                                        ; preds = %if.end6
   %2 = load i32, ptr @MYOBJ_new.count, align 4
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr @MYOBJ_new.count, align 4
-  %id.i = getelementptr inbounds %struct.myobj_st, ptr %call.i, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %inc.i, ptr %id.i, align 8
   %call1.i = tail call i32 @CRYPTO_new_ex_data(i32 noundef 13, ptr noundef nonnull %call.i, ptr noundef nonnull %call.i) #2
-  %st.i = getelementptr inbounds %struct.myobj_st, ptr %call.i, i64 0, i32 2
+  %st.i = getelementptr inbounds i8, ptr %call.i, i64 20
   store i32 %call1.i, ptr %st.i, align 4
   br label %MYOBJ_new.exit
 
@@ -104,22 +100,22 @@ if.then.i38:                                      ; preds = %MYOBJ_new.exit
   %3 = load i32, ptr @MYOBJ_new.count, align 4
   %inc.i39 = add nsw i32 %3, 1
   store i32 %inc.i39, ptr @MYOBJ_new.count, align 4
-  %id.i40 = getelementptr inbounds %struct.myobj_st, ptr %call.i36, i64 0, i32 1
+  %id.i40 = getelementptr inbounds i8, ptr %call.i36, i64 16
   store i32 %inc.i39, ptr %id.i40, align 8
   %call1.i41 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 13, ptr noundef nonnull %call.i36, ptr noundef nonnull %call.i36) #2
-  %st.i42 = getelementptr inbounds %struct.myobj_st, ptr %call.i36, i64 0, i32 2
+  %st.i42 = getelementptr inbounds i8, ptr %call.i36, i64 20
   store i32 %call1.i41, ptr %st.i42, align 4
   br label %MYOBJ_new.exit43
 
 MYOBJ_new.exit43:                                 ; preds = %MYOBJ_new.exit, %if.then.i38
-  %st = getelementptr inbounds %struct.myobj_st, ptr %call.i, i64 0, i32 2
+  %st = getelementptr inbounds i8, ptr %call.i, i64 20
   %4 = load i32, ptr %st, align 4
   %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 243, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %4, i32 noundef 1) #2
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %MYOBJ_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %MYOBJ_new.exit43
-  %st13 = getelementptr inbounds %struct.myobj_st, ptr %call.i36, i64 0, i32 2
+  %st13 = getelementptr inbounds i8, ptr %call.i36, i64 20
   %5 = load i32, ptr %st13, align 4
   %call14 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 243, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %5, i32 noundef 1) #2
   %tobool15.not = icmp eq i32 %call14, 0
@@ -267,7 +263,7 @@ if.end50:                                         ; preds = %if.end45
 
 if.end55:                                         ; preds = %if.end50
   %call56 = tail call fastcc ptr @MYOBJ_dup(ptr noundef nonnull %call.i)
-  %st57 = getelementptr inbounds %struct.myobj_st, ptr %call56, i64 0, i32 2
+  %st57 = getelementptr inbounds i8, ptr %call56, i64 20
   %19 = load i32, ptr %st57, align 4
   %call58 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef %19, i32 noundef 1) #2
   %tobool59.not = icmp eq i32 %call58, 0
@@ -281,7 +277,7 @@ if.end61:                                         ; preds = %if.end55
   br i1 %tobool65.not, label %MYOBJ_free.exit, label %if.end67
 
 if.end67:                                         ; preds = %if.end61
-  %dup = getelementptr inbounds %struct.myobj_ex_data_st, ptr %call63, i64 0, i32 2
+  %dup = getelementptr inbounds i8, ptr %call63, i64 12
   %21 = load i32, ptr %dup, align 4
   %call68 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef %21, i32 noundef 1) #2
   %tobool69.not = icmp eq i32 %call68, 0
@@ -499,7 +495,7 @@ if.then:                                          ; preds = %lor.lhs.false15, %l
   br label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false15
-  %new = getelementptr inbounds %struct.myobj_ex_data_st, ptr %call, i64 0, i32 1
+  %new = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %new, align 8
   br label %if.end
 
@@ -551,7 +547,7 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false11
   br i1 %tobool17.not, label %if.then, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false14
-  %new = getelementptr inbounds %struct.myobj_ex_data_st, ptr %call15, i64 0, i32 1
+  %new = getelementptr inbounds i8, ptr %call15, i64 8
   %6 = load i32, ptr %new, align 8
   %cmp19 = icmp ne i32 %6, 0
   %conv20 = zext i1 %cmp19 to i32
@@ -567,7 +563,7 @@ if.else:                                          ; preds = %lor.lhs.false18
   %7 = load ptr, ptr %from_d, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %call15, align 8
-  %dup = getelementptr inbounds %struct.myobj_ex_data_st, ptr %call15, i64 0, i32 2
+  %dup = getelementptr inbounds i8, ptr %call15, i64 12
   store i32 1, ptr %dup, align 4
   store ptr %call15, ptr %from_d, align 8
   br label %if.end
@@ -643,7 +639,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i1 false, ptr @gbl_result, align 4
-  %st = getelementptr inbounds %struct.myobj_st, ptr %obj, i64 0, i32 2
+  %st = getelementptr inbounds i8, ptr %obj, i64 20
   store i32 0, ptr %st, align 4
   br label %return
 
@@ -667,7 +663,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i1 false, ptr @gbl_result, align 4
-  %st = getelementptr inbounds %struct.myobj_st, ptr %obj, i64 0, i32 2
+  %st = getelementptr inbounds i8, ptr %obj, i64 20
   store i32 0, ptr %st, align 4
   br label %return
 
@@ -687,10 +683,10 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr @MYOBJ_new.count, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr @MYOBJ_new.count, align 4
-  %id.i = getelementptr inbounds %struct.myobj_st, ptr %call.i, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %inc.i, ptr %id.i, align 8
   %call1.i = tail call i32 @CRYPTO_new_ex_data(i32 noundef 13, ptr noundef nonnull %call.i, ptr noundef nonnull %call.i) #2
-  %st.i = getelementptr inbounds %struct.myobj_st, ptr %call.i, i64 0, i32 2
+  %st.i = getelementptr inbounds i8, ptr %call.i, i64 20
   store i32 %call1.i, ptr %st.i, align 4
   %call2 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 13, ptr noundef nonnull %call.i, ptr noundef %in) #2
   %1 = load i32, ptr %st.i, align 4

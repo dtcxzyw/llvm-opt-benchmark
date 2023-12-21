@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_m128_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local i64 @helper_divu_i128(ptr nocapture noundef writeonly %env, i64 noundef %ul, i64 noundef %uh, i64 noundef %vl, i64 noundef %vh) local_unnamed_addr #0 {
 entry:
@@ -31,7 +28,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.else
   %qh.0 = phi i64 [ %retval.sroa.2.0.extract.trunc.i, %if.else ], [ -1, %entry ]
   %ql.0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %if.else ], [ -1, %entry ]
-  %retxh = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 26
+  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %qh.0, ptr %retxh, align 8
   ret i64 %ql.0
 }
@@ -61,7 +58,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.else
   %rh.0 = phi i64 [ %retval.sroa.2.0.extract.trunc.i, %if.else ], [ %uh, %entry ]
   %rl.0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %if.else ], [ %ul, %entry ]
-  %retxh = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 26
+  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %rh.0, ptr %retxh, align 8
   ret i64 %rl.0
 }
@@ -100,7 +97,7 @@ if.else10:                                        ; preds = %if.else
 if.end21:                                         ; preds = %if.else, %entry, %if.else10
   %ql.0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %if.else10 ], [ -1, %entry ], [ 0, %if.else ]
   %qh.0 = phi i64 [ %retval.sroa.2.0.extract.trunc.i, %if.else10 ], [ -1, %entry ], [ -9223372036854775808, %if.else ]
-  %retxh = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 26
+  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %qh.0, ptr %retxh, align 8
   ret i64 %ql.0
 }
@@ -130,7 +127,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.else
   %rl.0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %if.else ], [ %ul, %entry ]
   %rh.0 = phi i64 [ %retval.sroa.2.0.extract.trunc.i, %if.else ], [ %uh, %entry ]
-  %retxh = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 26
+  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %rh.0, ptr %retxh, align 8
   ret i64 %rl.0
 }

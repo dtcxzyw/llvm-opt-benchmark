@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._GOnce = type { i32, ptr }
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.SocketAddress = type { i32, %union.anon }
-%union.anon = type { %struct.InetSocketAddress }
-%struct.InetSocketAddress = type { ptr, ptr, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.QIODNSResolverLookupData = type { ptr, ptr, i64 }
 
 @instance_init = internal global %struct._GOnce zeroinitializer, align 8
 @instance = internal unnamed_addr global ptr null, align 8
@@ -79,21 +75,21 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %uaddr.i)
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %uport.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
-  %u.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %addr, i64 8
   store ptr null, ptr %err.i, align 8
   store i64 0, ptr %naddrs, align 8
   store ptr null, ptr %addrs, align 8
   %1 = getelementptr inbounds i8, ptr %ai.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 40, i1 false)
   store i32 1, ptr %ai.i, align 8
-  %has_numeric.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 2
+  %has_numeric.i = getelementptr inbounds i8, ptr %addr, i64 24
   %2 = load i8, ptr %has_numeric.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %numeric.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 3
+  %numeric.i = getelementptr inbounds i8, ptr %addr, i64 25
   %4 = load i8, ptr %numeric.i, align 1
   %5 = and i8 %4, 1
   %tobool1.not.i = icmp eq i8 %5, 0
@@ -105,7 +101,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %sw.bb
   %call.i = call i32 @inet_ai_family_from_address(ptr noundef nonnull %u.i, ptr noundef nonnull %err.i) #7
-  %ai_family.i = getelementptr inbounds %struct.addrinfo, ptr %ai.i, i64 0, i32 1
+  %ai_family.i = getelementptr inbounds i8, ptr %ai.i, i64 4
   store i32 %call.i, ptr %ai_family.i, align 4
   store i32 1, ptr %1, align 8
   %6 = load ptr, ptr %err.i, align 8
@@ -126,7 +122,7 @@ if.then6.i:                                       ; preds = %if.end5.i
   br label %qio_dns_resolver_lookup_sync_inet.exit
 
 if.end7.i:                                        ; preds = %if.end5.i
-  %port8.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 1
+  %port8.i = getelementptr inbounds i8, ptr %addr, i64 16
   %8 = load ptr, ptr %port8.i, align 8
   %cmp9.not.i = icmp eq ptr %8, null
   br i1 %cmp9.not.i, label %if.else.i, label %if.then10.i
@@ -170,7 +166,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %e.03.i = phi ptr [ %e.0.i, %for.body.i ], [ %e.01.i, %for.cond.preheader.i ]
   %inc.i = add i64 %13, 1
   store i64 %inc.i, ptr %naddrs, align 8
-  %ai_next.i = getelementptr inbounds %struct.addrinfo, ptr %e.03.i, i64 0, i32 7
+  %ai_next.i = getelementptr inbounds i8, ptr %e.03.i, i64 40
   %e.0.i = load ptr, ptr %ai_next.i, align 8
   %cmp32.not.i = icmp eq ptr %e.0.i, null
   br i1 %cmp32.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -184,11 +180,11 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   br i1 %cmp35.not5.i, label %for.end75.i, label %for.body36.lr.ph.i
 
 for.body36.lr.ph.i:                               ; preds = %for.end.i
-  %has_to50.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 4
-  %to52.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 5
-  %has_ipv453.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 6
-  %has_mptcp65.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 12
-  %mptcp68.i = getelementptr inbounds %struct.SocketAddress, ptr %addr, i64 0, i32 1, i32 0, i32 13
+  %has_to50.i = getelementptr inbounds i8, ptr %addr, i64 26
+  %to52.i = getelementptr inbounds i8, ptr %addr, i64 28
+  %has_ipv453.i = getelementptr inbounds i8, ptr %addr, i64 30
+  %has_mptcp65.i = getelementptr inbounds i8, ptr %addr, i64 36
+  %mptcp68.i = getelementptr inbounds i8, ptr %addr, i64 37
   br label %for.body36.i
 
 for.body36.i:                                     ; preds = %for.body36.i, %for.body36.lr.ph.i
@@ -196,12 +192,12 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
   %i.06.i = phi i64 [ 0, %for.body36.lr.ph.i ], [ %inc73.i, %for.body36.i ]
   %call37.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i32 0, ptr %call37.i, align 8
-  %ai_addr.i = getelementptr inbounds %struct.addrinfo, ptr %e.17.i, i64 0, i32 5
+  %ai_addr.i = getelementptr inbounds i8, ptr %e.17.i, i64 24
   %15 = load ptr, ptr %ai_addr.i, align 8
-  %ai_addrlen.i = getelementptr inbounds %struct.addrinfo, ptr %e.17.i, i64 0, i32 4
+  %ai_addrlen.i = getelementptr inbounds i8, ptr %e.17.i, i64 16
   %16 = load i32, ptr %ai_addrlen.i, align 8
   %call40.i = call i32 @getnameinfo(ptr noundef %15, i32 noundef %16, ptr noundef nonnull %uaddr.i, i32 noundef 46, ptr noundef nonnull %uport.i, i32 noundef 32, i32 noundef 3) #7
-  %u41.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1
+  %u41.i = getelementptr inbounds i8, ptr %call37.i, i64 8
   %call44.i = call noalias ptr @g_strdup(ptr noundef nonnull %uaddr.i) #7
   %call47.i = call noalias ptr @g_strdup(ptr noundef nonnull %uport.i) #7
   %17 = load i8, ptr %has_to50.i, align 2
@@ -212,33 +208,33 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
   %22 = load i8, ptr %mptcp68.i, align 1
   %23 = and i8 %22, 1
   store ptr %call44.i, ptr %u41.i, align 8
-  %.compoundliteral.sroa.2.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 1
+  %.compoundliteral.sroa.2.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   store ptr %call47.i, ptr %.compoundliteral.sroa.2.0.u41.sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 2
+  %.compoundliteral.sroa.3.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 24
   store i8 1, ptr %.compoundliteral.sroa.3.0.u41.sroa_idx.i, align 8
-  %.compoundliteral.sroa.4.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 3
+  %.compoundliteral.sroa.4.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 25
   store i8 1, ptr %.compoundliteral.sroa.4.0.u41.sroa_idx.i, align 1
-  %.compoundliteral.sroa.5.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 4
+  %.compoundliteral.sroa.5.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 26
   store i8 %18, ptr %.compoundliteral.sroa.5.0.u41.sroa_idx.i, align 2
-  %.compoundliteral.sroa.61.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 5
+  %.compoundliteral.sroa.61.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 28
   store i16 %19, ptr %.compoundliteral.sroa.61.0.u41.sroa_idx.i, align 4
-  %.compoundliteral.sroa.7.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 6
+  %.compoundliteral.sroa.7.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 30
   %24 = load <4 x i8>, ptr %has_ipv453.i, align 2
   %25 = and <4 x i8> %24, <i8 1, i8 1, i8 1, i8 1>
   store <4 x i8> %25, ptr %.compoundliteral.sroa.7.0.u41.sroa_idx.i, align 2
-  %.compoundliteral.sroa.11.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 10
+  %.compoundliteral.sroa.11.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 34
   store i8 0, ptr %.compoundliteral.sroa.11.0.u41.sroa_idx.i, align 2
-  %.compoundliteral.sroa.12.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 11
+  %.compoundliteral.sroa.12.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 35
   store i8 0, ptr %.compoundliteral.sroa.12.0.u41.sroa_idx.i, align 1
-  %.compoundliteral.sroa.13.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 12
+  %.compoundliteral.sroa.13.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 36
   store i8 %21, ptr %.compoundliteral.sroa.13.0.u41.sroa_idx.i, align 4
-  %.compoundliteral.sroa.14.0.u41.sroa_idx.i = getelementptr inbounds %struct.SocketAddress, ptr %call37.i, i64 0, i32 1, i32 0, i32 13
+  %.compoundliteral.sroa.14.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 37
   store i8 %23, ptr %.compoundliteral.sroa.14.0.u41.sroa_idx.i, align 1
   %26 = load ptr, ptr %addrs, align 8
   %arrayidx71.i = getelementptr ptr, ptr %26, i64 %i.06.i
   store ptr %call37.i, ptr %arrayidx71.i, align 8
   %inc73.i = add i64 %i.06.i, 1
-  %ai_next74.i = getelementptr inbounds %struct.addrinfo, ptr %e.17.i, i64 0, i32 7
+  %ai_next74.i = getelementptr inbounds i8, ptr %e.17.i, i64 40
   %e.1.i = load ptr, ptr %ai_next74.i, align 8
   %cmp35.not.i = icmp eq ptr %e.1.i, null
   br i1 %cmp35.not.i, label %for.end75.loopexit.i, label %for.body36.i, !llvm.loop !7
@@ -313,8 +309,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_DNS_RESOLVER) #7
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %naddrs = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %opaque, i64 0, i32 2
-  %addrs = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %opaque, i64 0, i32 1
+  %naddrs = getelementptr inbounds i8, ptr %opaque, i64 16
+  %addrs = getelementptr inbounds i8, ptr %opaque, i64 8
   %call2 = call i32 @qio_dns_resolver_lookup_sync(ptr poison, ptr noundef %0, ptr noundef nonnull %naddrs, ptr noundef nonnull %addrs, ptr noundef nonnull %err), !range !8
   %1 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -338,13 +334,13 @@ define internal void @qio_dns_resolver_lookup_data_free(ptr noundef %opaque) #0 
 entry:
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qapi_free_SocketAddress(ptr noundef %0) #7
-  %naddrs = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %opaque, i64 0, i32 2
+  %naddrs = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i64, ptr %naddrs, align 8
   %cmp7.not = icmp eq i64 %1, 0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %addrs = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %opaque, i64 0, i32 1
+  %addrs = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -359,7 +355,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry
-  %addrs1 = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %opaque, i64 0, i32 1
+  %addrs1 = getelementptr inbounds i8, ptr %opaque, i64 8
   %5 = load ptr, ptr %addrs1, align 8
   tail call void @g_free(ptr noundef %5) #7
   tail call void @g_free(ptr noundef nonnull %opaque) #7
@@ -376,7 +372,7 @@ entry:
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %naddrs1 = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %call, i64 0, i32 2
+  %naddrs1 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i64, ptr %naddrs1, align 8
   store i64 %0, ptr %naddrs, align 8
   %call3 = tail call noalias ptr @g_malloc0_n(i64 noundef %0, i64 noundef 8) #8
@@ -386,7 +382,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %addrs5 = getelementptr inbounds %struct.QIODNSResolverLookupData, ptr %call, i64 0, i32 1
+  %addrs5 = getelementptr inbounds i8, ptr %call, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

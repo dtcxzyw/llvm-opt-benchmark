@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-asn_pack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/asn_pack.c\00", align 1
 @__func__.ASN1_item_pack = private unnamed_addr constant [15 x i8] c"ASN1_item_pack\00", align 1
 @__func__.ASN1_item_unpack = private unnamed_addr constant [17 x i8] c"ASN1_item_unpack\00", align 1
@@ -35,7 +33,7 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %lor.lhs.false, %if.then
   %octmp.0 = phi ptr [ %call, %if.then ], [ %0, %lor.lhs.false ]
   tail call void @ASN1_STRING_set0(ptr noundef nonnull %octmp.0, ptr noundef null, i32 noundef 0) #2
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %octmp.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %octmp.0, i64 8
   %call5 = tail call i32 @ASN1_item_i2d(ptr noundef %obj, ptr noundef nonnull %data, ptr noundef %it) #2
   store i32 %call5, ptr %octmp.0, align 8
   %cmp6 = icmp slt i32 %call5, 1
@@ -98,7 +96,7 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 define ptr @ASN1_item_unpack(ptr nocapture noundef readonly %oct, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %1 = load i32, ptr %oct, align 8
@@ -123,7 +121,7 @@ declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 define ptr @ASN1_item_unpack_ex(ptr nocapture noundef readonly %oct, ptr noundef %it, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %1 = load i32, ptr %oct, align 8

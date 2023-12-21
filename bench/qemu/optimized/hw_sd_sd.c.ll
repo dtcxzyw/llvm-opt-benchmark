@@ -12,18 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.SDState = type { %struct.DeviceState, i8, i32, [8 x i8], [16 x i8], [16 x i8], i16, i32, [64 x i8], i8, ptr, i32, i32, i32, i8, ptr, i32, i64, i32, i32, i32, i32, [16 x i8], i32, [6 x i8], i8, i8, i32, i64, i32, [512 x i8], ptr, ptr, ptr, i8, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
 %struct.timeval = type { i64, i64 }
-%struct.SDCardClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"sd-card-spi\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"sd-card\00", align 1
@@ -253,7 +242,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %call.i6 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
-  %me_no_qdev_me_kill_mammoth_with_rocks = getelementptr inbounds %struct.SDState, ptr %call.i6, i64 0, i32 1
+  %me_no_qdev_me_kill_mammoth_with_rocks = getelementptr inbounds i8, ptr %call.i6, i64 160
   store i8 1, ptr %me_no_qdev_me_kill_mammoth_with_rocks, align 8
   br label %return
 
@@ -276,7 +265,7 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #1
 define internal void @sd_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
-  %spec_version = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 9
+  %spec_version = getelementptr inbounds i8, ptr %call.i, i64 280
   %0 = load i8, ptr %spec_version, align 8
   %.off = add i8 %0, -1
   %switch = icmp ult i8 %.off, 3
@@ -288,7 +277,7 @@ sw.default:                                       ; preds = %entry
   br label %if.end22
 
 sw.epilog:                                        ; preds = %entry
-  %blk = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %call.i, i64 288
   %1 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end22, label %if.then
@@ -342,11 +331,11 @@ if.end22:                                         ; preds = %if.end14, %if.end20
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @sd_set_cb(ptr nocapture noundef %sd, ptr noundef %readonly, ptr noundef %insert) local_unnamed_addr #0 {
 entry:
-  %readonly_cb = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 31
+  %readonly_cb = getelementptr inbounds i8, ptr %sd, i64 912
   store ptr %readonly, ptr %readonly_cb, align 8
-  %inserted_cb = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 32
+  %inserted_cb = getelementptr inbounds i8, ptr %sd, i64 920
   store ptr %insert, ptr %inserted_cb, align 8
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %0 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -386,7 +375,7 @@ define dso_local i32 @sd_do_command(ptr noundef %sd, ptr nocapture noundef %req,
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %0 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -396,7 +385,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %call, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %enable = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 34
+  %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %1 = load i8, ptr %enable, align 8
   %2 = and i8 %1, 1
   %tobool3.not = icmp eq i8 %2, 0
@@ -427,7 +416,7 @@ do.end:                                           ; preds = %do.body, %if.then14
 
 if.end21:                                         ; preds = %do.end, %if.end
   %7 = phi i8 [ %6, %do.end ], [ %3, %if.end ]
-  %card_status22 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status22 = getelementptr inbounds i8, ptr %sd, i64 212
   %8 = load i32, ptr %card_status22, align 4
   %and23 = and i32 %8, 33554432
   %tobool24.not = icmp eq i32 %and23, 0
@@ -481,7 +470,7 @@ if.then40:                                        ; preds = %if.then29
   br label %sd_response_name.exit
 
 if.end44:                                         ; preds = %if.end.i, %if.end.i, %if.end12.i, %cmd_valid_while_locked.exit, %if.end21
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %19 = load i32, ptr %state, align 4
   %switch.tableidx = add i32 %19, 1
   %20 = icmp ult i32 %switch.tableidx, 10
@@ -491,12 +480,12 @@ switch.lookup:                                    ; preds = %if.end44
   %21 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.sd_do_command, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
-  %mode4.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 11
+  %mode4.i = getelementptr inbounds i8, ptr %sd, i64 296
   store i32 %switch.load, ptr %mode4.i, align 8
   br label %sd_set_mode.exit
 
 sd_set_mode.exit:                                 ; preds = %if.end44, %switch.lookup
-  %expecting_acmd45 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 26
+  %expecting_acmd45 = getelementptr inbounds i8, ptr %sd, i64 379
   %22 = load i8, ptr %expecting_acmd45, align 1
   %23 = and i8 %22, 1
   %tobool46.not = icmp eq i8 %23, 0
@@ -512,7 +501,7 @@ if.then47:                                        ; preds = %sd_set_mode.exit
   %req.sroa.1052.0.extract.trunc.i = trunc i64 %req.sroa.1052.0.extract.shift.i to i32
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %24 = load ptr, ptr %proto.i.i, align 8
   %25 = load ptr, ptr %24, align 8
   %call1.i = tail call ptr @sd_acmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc.i) #17
@@ -560,7 +549,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
   %33 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i.i, align 8
   %35 = trunc i64 %.coerce.sroa.0.0.copyload to i32
   %conv11.i.i.i = and i32 %35, 255
@@ -580,10 +569,11 @@ trace_sdcard_app_command.exit.i:                  ; preds = %if.else.i.i.i, %if.
   store i32 %or.i, ptr %card_status22, align 4
   %call.i.i62.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i63.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i62.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i64.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i63.i, i64 0, i32 12
+  %proto.i64.i = getelementptr inbounds i8, ptr %call1.i.i63.i, i64 264
   %38 = load ptr, ptr %proto.i64.i, align 8
+  %acmd.i = getelementptr inbounds i8, ptr %38, i64 520
   %idxprom.i47 = and i64 %.coerce.sroa.0.0.copyload, 255
-  %arrayidx.i = getelementptr %struct.SDProto, ptr %38, i64 0, i32 2, i64 %idxprom.i47
+  %arrayidx.i = getelementptr [64 x ptr], ptr %acmd.i, i64 0, i64 %idxprom.i47
   %39 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i48 = icmp eq ptr %39, null
   br i1 %tobool.not.i48, label %if.end.i51, label %if.then.i49
@@ -591,9 +581,10 @@ trace_sdcard_app_command.exit.i:                  ; preds = %if.else.i.i.i, %if.
 if.then.i49:                                      ; preds = %trace_sdcard_app_command.exit.i
   %call.i.i65.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i66.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i65.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i67.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i66.i, i64 0, i32 12
+  %proto.i67.i = getelementptr inbounds i8, ptr %call1.i.i66.i, i64 264
   %40 = load ptr, ptr %proto.i67.i, align 8
-  %arrayidx10.i = getelementptr %struct.SDProto, ptr %40, i64 0, i32 2, i64 %idxprom.i47
+  %acmd7.i = getelementptr inbounds i8, ptr %40, i64 520
+  %arrayidx10.i = getelementptr [64 x ptr], ptr %acmd7.i, i64 0, i64 %idxprom.i47
   %41 = load ptr, ptr %arrayidx10.i, align 8
   %call11.i = tail call i32 %41(ptr noundef nonnull %sd, i64 %.coerce.sroa.0.0.copyload, i8 %.coerce.sroa.2.0.copyload) #17
   br label %if.end52
@@ -628,7 +619,7 @@ sw.bb.i:                                          ; preds = %if.end.i51
   br i1 %cond5.i, label %sw.bb14.i, label %do.body100.i
 
 sw.bb14.i:                                        ; preds = %sw.bb.i
-  %sd_status.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 8
+  %sd_status.i = getelementptr inbounds i8, ptr %sd, i64 216
   %44 = load i8, ptr %sd_status.i, align 8
   %45 = and i8 %44, 63
   %req.sroa.1052.0.extract.trunc.tr.i = trunc i64 %req.sroa.1052.0.extract.shift.i to i8
@@ -644,9 +635,9 @@ sw.bb25.i:                                        ; preds = %if.end.i51
 
 sw.bb27.i:                                        ; preds = %sw.bb25.i
   store i32 5, ptr %state, align 4
-  %data_start.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start.i = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start.i, align 8
-  %data_offset.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset.i = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset.i, align 8
   br label %send_response.thread86
 
@@ -656,14 +647,14 @@ sw.bb31.i:                                        ; preds = %if.end.i51
   br i1 %cond3.i, label %sw.bb33.i, label %do.body100.i
 
 sw.bb33.i:                                        ; preds = %sw.bb31.i
-  %blk_written.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 27
+  %blk_written.i = getelementptr inbounds i8, ptr %sd, i64 380
   %49 = load i32, ptr %blk_written.i, align 4
-  %data.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data.i = getelementptr inbounds i8, ptr %sd, i64 396
   store i32 %49, ptr %data.i, align 4
   store i32 5, ptr %state, align 4
-  %data_start35.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start35.i = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start35.i, align 8
-  %data_offset36.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset36.i = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset36.i, align 8
   br label %send_response.thread86
 
@@ -678,7 +669,7 @@ sw.bb44.i:                                        ; preds = %if.end.i51
   br i1 %cmp.not.i, label %if.end48.i, label %do.body100.i
 
 if.end48.i:                                       ; preds = %sw.bb44.i
-  %ocr.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 2
+  %ocr.i = getelementptr inbounds i8, ptr %sd, i64 164
   %52 = load i32, ptr %ocr.i, align 4
   %tobool50.not.i = icmp sgt i32 %52, -1
   %and53.i = and i32 %req.sroa.1052.0.extract.trunc.i, 16777215
@@ -689,7 +680,7 @@ if.then51.i:                                      ; preds = %if.end48.i
   br i1 %cmp54.not.i, label %if.else.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.then51.i
-  %ocr_power_timer.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 33
+  %ocr_power_timer.i = getelementptr inbounds i8, ptr %sd, i64 928
   %53 = load ptr, ptr %ocr_power_timer.i, align 8
   tail call void @timer_del(ptr noundef %53) #17
   tail call void @sd_ocr_powerup(ptr noundef nonnull %sd)
@@ -697,7 +688,7 @@ if.then56.i:                                      ; preds = %if.then51.i
 
 if.else.i:                                        ; preds = %if.then51.i
   tail call fastcc void @trace_sdcard_inquiry_cmd41()
-  %ocr_power_timer57.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 33
+  %ocr_power_timer57.i = getelementptr inbounds i8, ptr %sd, i64 928
   %54 = load ptr, ptr %ocr_power_timer57.i, align 8
   %call58.i = tail call zeroext i1 @timer_pending(ptr noundef %54) #17
   br i1 %call58.i, label %if.end64.i, label %if.then59.i
@@ -731,9 +722,9 @@ sw.bb78.i:                                        ; preds = %if.end.i51
 
 sw.bb80.i:                                        ; preds = %sw.bb78.i
   store i32 5, ptr %state, align 4
-  %data_start82.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start82.i = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start82.i, align 8
-  %data_offset83.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset83.i = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset83.i, align 8
   br label %send_response.thread86
 
@@ -778,7 +769,7 @@ if.then55:                                        ; preds = %if.then55.sink.spli
 
 send_response.thread86:                           ; preds = %sw.bb73.i, %sw.bb39.i, %sw.bb14.i, %sw.bb27.i, %sw.bb33.i, %sw.bb80.i
   %62 = load i8, ptr %req, align 4
-  %current_cmd88 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 25
+  %current_cmd88 = getelementptr inbounds i8, ptr %sd, i64 378
   store i8 %62, ptr %current_cmd88, align 2
   %63 = load i32, ptr %card_status22, align 4
   %and6189 = and i32 %63, -3585
@@ -789,7 +780,7 @@ send_response.thread86:                           ; preds = %sw.bb73.i, %sw.bb39
 
 send_response.thread97:                           ; preds = %if.end64.i, %if.then70.i
   %64 = load i8, ptr %req, align 4
-  %current_cmd99 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 25
+  %current_cmd99 = getelementptr inbounds i8, ptr %sd, i64 378
   store i8 %64, ptr %current_cmd99, align 2
   %65 = load i32, ptr %card_status22, align 4
   %and61100 = and i32 %65, -3585
@@ -800,7 +791,7 @@ send_response.thread97:                           ; preds = %if.end64.i, %if.the
 
 send_response:                                    ; preds = %if.end52
   %66 = load i8, ptr %req, align 4
-  %current_cmd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 25
+  %current_cmd = getelementptr inbounds i8, ptr %sd, i64 378
   store i8 %66, ptr %current_cmd, align 2
   %67 = load i32, ptr %card_status22, align 4
   %and61 = and i32 %67, -3585
@@ -824,12 +815,12 @@ send_response.sw.bb68_crit_edge:                  ; preds = %send_response
   br label %sw.bb68
 
 sw.bb65:                                          ; preds = %send_response
-  %cid = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 4
+  %cid = getelementptr inbounds i8, ptr %sd, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %response, ptr noundef nonnull align 8 dereferenceable(16) %cid, i64 16, i1 false)
   br label %if.end7.i
 
 sw.bb66:                                          ; preds = %send_response
-  %csd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 5
+  %csd = getelementptr inbounds i8, ptr %sd, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %response, ptr noundef nonnull align 8 dereferenceable(16) %csd, i64 16, i1 false)
   br label %if.end7.i
 
@@ -851,7 +842,7 @@ sw.bb69:                                          ; preds = %send_response
   %conv.i58 = trunc i32 %or6.i to i16
   %and8.i = and i32 %or63, -524329
   store i32 %and8.i, ptr %card_status22, align 4
-  %rca.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca.i = getelementptr inbounds i8, ptr %sd, i64 208
   %69 = load i16, ptr %rca.i, align 8
   %70 = tail call i16 @llvm.bswap.i16(i16 %69)
   store i16 %70, ptr %response, align 1
@@ -927,7 +918,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %85 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %86 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %85, i64 noundef %86, ptr noundef %retval.0.i64, i32 noundef %rsplen.082) #17
   br label %trace_sdcard_response.exit
@@ -963,7 +954,7 @@ entry:
   %req.sroa.0.0.extract.trunc = trunc i64 %req.coerce0 to i8
   %req.sroa.16187.0.extract.shift = lshr i64 %req.coerce0, 32
   %req.sroa.16187.0.extract.trunc = trunc i64 %req.sroa.16187.0.extract.shift to i32
-  %ocr = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 2
+  %ocr = getelementptr inbounds i8, ptr %sd, i64 164
   %0 = load i32, ptr %ocr, align 4
   %and = and i32 %0, 1073741824
   %tobool.not = icmp eq i32 %and, 0
@@ -975,7 +966,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %expecting_acmd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 26
+  %expecting_acmd = getelementptr inbounds i8, ptr %sd, i64 379
   %2 = load i8, ptr %expecting_acmd, align 1
   %3 = and i8 %2, 1
   %tobool5.not = icmp eq i8 %3, 0
@@ -984,11 +975,11 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i, i64 0, i32 12
+  %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %4 = load ptr, ptr %proto.i, align 8
   %5 = load ptr, ptr %4, align 8
   %call8 = tail call ptr @sd_cmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc) #17
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %6 = load i32, ptr %state, align 4
   %cmp.i = icmp eq i32 %6, -1
   br i1 %cmp.i, label %sd_state_name.exit, label %if.end.i
@@ -1033,7 +1024,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %5, ptr noundef %call8, i32 noundef %conv3, i32 noundef %req.sroa.16187.0.extract.trunc, ptr noundef %retval.0.i) #17
   br label %trace_sdcard_normal_command.exit
@@ -1047,7 +1038,7 @@ trace_sdcard_normal_command.exit:                 ; preds = %sd_state_name.exit,
   br label %if.end
 
 if.end:                                           ; preds = %trace_sdcard_normal_command.exit, %lor.lhs.false
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
   %15 = load i32, ptr %card_status, align 4
   %and12 = and i32 %15, -33
   store i32 %and12, ptr %card_status, align 4
@@ -1069,7 +1060,7 @@ if.then22:                                        ; preds = %lor.lhs.false16, %i
 
 if.end24:                                         ; preds = %if.then22, %lor.lhs.false16
   %rca.0 = phi i32 [ %shr, %if.then22 ], [ 0, %lor.lhs.false16 ]
-  %multi_blk_cnt = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 19
+  %multi_blk_cnt = getelementptr inbounds i8, ptr %sd, i64 340
   %20 = load i32, ptr %multi_blk_cnt, align 4
   %.fr = freeze i32 %20
   %cmp25 = icmp eq i32 %.fr, 0
@@ -1099,9 +1090,10 @@ land.lhs.true44:                                  ; preds = %if.end38
 if.end49:                                         ; preds = %land.lhs.true44, %if.end38
   %call.i.i213 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i214 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i213, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i215 = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i214, i64 0, i32 12
+  %proto.i215 = getelementptr inbounds i8, ptr %call1.i.i214, i64 264
   %24 = load ptr, ptr %proto.i215, align 8
-  %arrayidx54 = getelementptr %struct.SDProto, ptr %24, i64 0, i32 1, i64 %idxprom
+  %cmd51 = getelementptr inbounds i8, ptr %24, i64 8
+  %arrayidx54 = getelementptr [64 x ptr], ptr %cmd51, i64 0, i64 %idxprom
   %25 = load ptr, ptr %arrayidx54, align 8
   %tobool55.not = icmp eq ptr %25, null
   br i1 %tobool55.not, label %if.end63, label %if.then56
@@ -1109,9 +1101,10 @@ if.end49:                                         ; preds = %land.lhs.true44, %i
 if.then56:                                        ; preds = %if.end49
   %call.i.i216 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i217 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i216, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i218 = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i217, i64 0, i32 12
+  %proto.i218 = getelementptr inbounds i8, ptr %call1.i.i217, i64 264
   %26 = load ptr, ptr %proto.i218, align 8
-  %arrayidx61 = getelementptr %struct.SDProto, ptr %26, i64 0, i32 1, i64 %idxprom
+  %cmd58 = getelementptr inbounds i8, ptr %26, i64 8
+  %arrayidx61 = getelementptr [64 x ptr], ptr %cmd58, i64 0, i64 %idxprom
   %27 = load ptr, ptr %arrayidx61, align 8
   %call62 = tail call i32 %27(ptr noundef nonnull %sd, i64 %req.coerce0, i8 %req.coerce1) #17
   br label %return
@@ -1148,23 +1141,23 @@ if.end63:                                         ; preds = %if.end49
   ]
 
 sw.bb68:                                          ; preds = %if.end63
-  %mode = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 11
+  %mode = getelementptr inbounds i8, ptr %sd, i64 296
   %28 = load i32, ptr %mode, align 8
   %cond16 = icmp eq i32 %28, 2
   br i1 %cond16, label %sw.bb69, label %sw.epilog437
 
 sw.bb69:                                          ; preds = %sw.bb68
   tail call fastcc void @sd_function_switch(ptr noundef nonnull %sd, i32 noundef %req.sroa.16187.0.extract.trunc)
-  %state71 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state71 = getelementptr inbounds i8, ptr %sd, i64 300
   store i32 5, ptr %state71, align 4
-  %data_start = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start, align 8
-  %data_offset = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset, align 8
   br label %return
 
 sw.bb74:                                          ; preds = %if.end63
-  %state75 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state75 = getelementptr inbounds i8, ptr %sd, i64 300
   %29 = load i32, ptr %state75, align 4
   switch i32 %29, label %sw.epilog437 [
     i32 3, label %sw.bb76
@@ -1175,7 +1168,7 @@ sw.bb74:                                          ; preds = %if.end63
   ]
 
 sw.bb76:                                          ; preds = %sw.bb74
-  %rca77 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca77 = getelementptr inbounds i8, ptr %sd, i64 208
   %30 = load i16, ptr %rca77, align 8
   %conv78 = zext i16 %30 to i32
   %cmp79.not = icmp eq i32 %rca.0, %conv78
@@ -1186,7 +1179,7 @@ if.end82:                                         ; preds = %sw.bb76
   br label %return
 
 sw.bb84:                                          ; preds = %sw.bb74, %sw.bb74
-  %rca85 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca85 = getelementptr inbounds i8, ptr %sd, i64 208
   %31 = load i16, ptr %rca85, align 8
   %conv86 = zext i16 %31 to i32
   %cmp87 = icmp eq i32 %rca.0, %conv86
@@ -1197,7 +1190,7 @@ if.end90:                                         ; preds = %sw.bb84
   br label %return
 
 sw.bb92:                                          ; preds = %sw.bb74
-  %rca93 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca93 = getelementptr inbounds i8, ptr %sd, i64 208
   %32 = load i16, ptr %rca93, align 8
   %conv94 = zext i16 %32 to i32
   %cmp95.not = icmp eq i32 %rca.0, %conv94
@@ -1208,7 +1201,7 @@ if.end98:                                         ; preds = %sw.bb92
   br label %return
 
 sw.bb100:                                         ; preds = %sw.bb74
-  %rca101 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca101 = getelementptr inbounds i8, ptr %sd, i64 208
   %33 = load i16, ptr %rca101, align 8
   %conv102 = zext i16 %33 to i32
   %cmp103 = icmp eq i32 %rca.0, %conv102
@@ -1219,19 +1212,19 @@ if.end106:                                        ; preds = %sw.bb100
   br label %return
 
 sw.bb110:                                         ; preds = %if.end63
-  %spec_version = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version = getelementptr inbounds i8, ptr %sd, i64 280
   %34 = load i8, ptr %spec_version, align 8
   %cmp112 = icmp ult i8 %34, 2
   br i1 %cmp112, label %sw.epilog437, label %if.end115
 
 if.end115:                                        ; preds = %sw.bb110
-  %state116 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state116 = getelementptr inbounds i8, ptr %sd, i64 300
   %35 = load i32, ptr %state116, align 4
   %cmp117.not = icmp eq i32 %35, 0
   br i1 %cmp117.not, label %if.end120, label %sw.epilog437
 
 if.end120:                                        ; preds = %if.end115
-  %vhs = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 13
+  %vhs = getelementptr inbounds i8, ptr %sd, i64 304
   store i32 0, ptr %vhs, align 8
   %tobool123.not = icmp ult i32 %req.sroa.16187.0.extract.trunc, 256
   br i1 %tobool123.not, label %if.then131, label %lor.lhs.false124
@@ -1254,7 +1247,7 @@ if.end135:                                        ; preds = %lor.lhs.false124
   br label %return
 
 sw.bb138:                                         ; preds = %if.end63
-  %state139 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state139 = getelementptr inbounds i8, ptr %sd, i64 300
   %37 = load i32, ptr %state139, align 4
   switch i32 %37, label %sw.epilog437 [
     i32 3, label %sw.bb140
@@ -1262,7 +1255,7 @@ sw.bb138:                                         ; preds = %if.end63
   ]
 
 sw.bb140:                                         ; preds = %sw.bb138
-  %rca141 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca141 = getelementptr inbounds i8, ptr %sd, i64 208
   %38 = load i16, ptr %rca141, align 8
   %conv142 = zext i16 %38 to i32
   %cmp143.not = icmp eq i32 %rca.0, %conv142
@@ -1275,17 +1268,17 @@ sw.bb147:                                         ; preds = %sw.bb138
 
 if.end150:                                        ; preds = %sw.bb147
   store i32 5, ptr %state139, align 4
-  %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
-  %csd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
+  %csd = getelementptr inbounds i8, ptr %sd, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(16) %csd, i64 16, i1 false)
-  %data_start153 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start153 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 %cond, ptr %data_start153, align 8
-  %data_offset154 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset154 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset154, align 8
   br label %return
 
 sw.bb157:                                         ; preds = %if.end63
-  %state158 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state158 = getelementptr inbounds i8, ptr %sd, i64 300
   %39 = load i32, ptr %state158, align 4
   switch i32 %39, label %sw.epilog437 [
     i32 3, label %sw.bb159
@@ -1293,7 +1286,7 @@ sw.bb157:                                         ; preds = %if.end63
   ]
 
 sw.bb159:                                         ; preds = %sw.bb157
-  %rca160 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca160 = getelementptr inbounds i8, ptr %sd, i64 208
   %40 = load i16, ptr %rca160, align 8
   %conv161 = zext i16 %40 to i32
   %cmp162.not = icmp eq i32 %rca.0, %conv161
@@ -1306,17 +1299,17 @@ sw.bb166:                                         ; preds = %sw.bb157
 
 if.end169:                                        ; preds = %sw.bb166
   store i32 5, ptr %state158, align 4
-  %data171 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
-  %cid = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 4
+  %data171 = getelementptr inbounds i8, ptr %sd, i64 396
+  %cid = getelementptr inbounds i8, ptr %sd, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %data171, ptr noundef nonnull align 8 dereferenceable(16) %cid, i64 16, i1 false)
-  %data_start174 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start174 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 %cond, ptr %data_start174, align 8
-  %data_offset175 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset175 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset175, align 8
   br label %return
 
 sw.bb178:                                         ; preds = %if.end63
-  %state179 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state179 = getelementptr inbounds i8, ptr %sd, i64 300
   %41 = load i32, ptr %state179, align 4
   switch i32 %41, label %sw.epilog437 [
     i32 5, label %sw.bb180
@@ -1332,7 +1325,7 @@ sw.bb182:                                         ; preds = %sw.bb178
   br label %return
 
 sw.bb187:                                         ; preds = %if.end63
-  %mode188 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 11
+  %mode188 = getelementptr inbounds i8, ptr %sd, i64 296
   %42 = load i32, ptr %mode188, align 8
   %cond15 = icmp eq i32 %42, 2
   br i1 %cond15, label %sw.bb189, label %sw.epilog437
@@ -1342,7 +1335,7 @@ sw.bb189:                                         ; preds = %sw.bb187
   br i1 %call190, label %if.end197, label %land.lhs.true191
 
 land.lhs.true191:                                 ; preds = %sw.bb189
-  %rca192 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca192 = getelementptr inbounds i8, ptr %sd, i64 208
   %43 = load i16, ptr %rca192, align 8
   %conv193 = zext i16 %43 to i32
   %cmp194.not = icmp eq i32 %rca.0, %conv193
@@ -1352,25 +1345,25 @@ if.end197:                                        ; preds = %land.lhs.true191, %
   br label %return
 
 sw.bb200:                                         ; preds = %if.end63
-  %mode201 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 11
+  %mode201 = getelementptr inbounds i8, ptr %sd, i64 296
   %44 = load i32, ptr %mode201, align 8
   %cond14 = icmp eq i32 %44, 2
   br i1 %cond14, label %sw.bb202, label %sw.epilog437
 
 sw.bb202:                                         ; preds = %sw.bb200
-  %rca203 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca203 = getelementptr inbounds i8, ptr %sd, i64 208
   %45 = load i16, ptr %rca203, align 8
   %conv204 = zext i16 %45 to i32
   %cmp205.not = icmp eq i32 %rca.0, %conv204
   br i1 %cmp205.not, label %if.end208, label %return
 
 if.end208:                                        ; preds = %sw.bb202
-  %state209 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state209 = getelementptr inbounds i8, ptr %sd, i64 300
   store i32 -1, ptr %state209, align 4
   br label %return
 
 sw.bb212:                                         ; preds = %if.end63
-  %state213 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state213 = getelementptr inbounds i8, ptr %sd, i64 300
   %46 = load i32, ptr %state213, align 4
   %cond13 = icmp eq i32 %46, 4
   br i1 %cond13, label %sw.bb214, label %sw.epilog437
@@ -1388,51 +1381,51 @@ if.then218:                                       ; preds = %sw.bb214
 if.else:                                          ; preds = %sw.bb214
   %conv221 = trunc i64 %req.sroa.16187.0.extract.shift to i16
   tail call fastcc void @trace_sdcard_set_blocklen(i16 noundef zeroext %conv221)
-  %blk_len = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len = getelementptr inbounds i8, ptr %sd, i64 336
   store i32 %req.sroa.16187.0.extract.trunc, ptr %blk_len, align 8
   br label %return
 
 sw.bb226:                                         ; preds = %if.end63, %if.end63
-  %state227 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state227 = getelementptr inbounds i8, ptr %sd, i64 300
   %48 = load i32, ptr %state227, align 4
   %cond12 = icmp eq i32 %48, 4
   br i1 %cond12, label %sw.bb228, label %sw.epilog437
 
 sw.bb228:                                         ; preds = %sw.bb226
-  %blk_len229 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len229 = getelementptr inbounds i8, ptr %sd, i64 336
   %49 = load i32, ptr %blk_len229, align 8
   %call230 = tail call fastcc zeroext i1 @address_in_range(ptr noundef nonnull %sd, ptr noundef nonnull @.str.38, i64 noundef %cond, i32 noundef %49)
   br i1 %call230, label %if.end232, label %return
 
 if.end232:                                        ; preds = %sw.bb228
   store i32 5, ptr %state227, align 4
-  %data_start234 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start234 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 %cond, ptr %data_start234, align 8
-  %data_offset235 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset235 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset235, align 8
   br label %return
 
 sw.bb238:                                         ; preds = %if.end63, %if.end63
-  %state239 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state239 = getelementptr inbounds i8, ptr %sd, i64 300
   %50 = load i32, ptr %state239, align 4
   %cond11 = icmp eq i32 %50, 4
   br i1 %cond11, label %sw.bb240, label %sw.epilog437
 
 sw.bb240:                                         ; preds = %sw.bb238
-  %blk_len241 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len241 = getelementptr inbounds i8, ptr %sd, i64 336
   %51 = load i32, ptr %blk_len241, align 8
   %call242 = tail call fastcc zeroext i1 @address_in_range(ptr noundef nonnull %sd, ptr noundef nonnull @.str.39, i64 noundef %cond, i32 noundef %51)
   br i1 %call242, label %if.end244, label %return
 
 if.end244:                                        ; preds = %sw.bb240
   store i32 6, ptr %state239, align 4
-  %data_start246 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start246 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 %cond, ptr %data_start246, align 8
-  %data_offset247 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset247 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset247, align 8
-  %blk_written = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 27
+  %blk_written = getelementptr inbounds i8, ptr %sd, i64 380
   store i32 0, ptr %blk_written, align 4
-  %size = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size = getelementptr inbounds i8, ptr %sd, i64 328
   %52 = load i64, ptr %size, align 8
   %cmp248 = icmp ult i64 %52, 2147483649
   br i1 %cmp248, label %if.then250, label %if.end257
@@ -1457,7 +1450,7 @@ if.then253:                                       ; preds = %if.then250
   br label %if.end257
 
 if.end257:                                        ; preds = %if.then250, %if.then253, %if.end244
-  %arrayidx259 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx259 = getelementptr i8, ptr %sd, i64 206
   %58 = load i8, ptr %arrayidx259, align 2
   %59 = and i8 %58, 48
   %tobool262.not = icmp eq i8 %59, 0
@@ -1470,41 +1463,41 @@ if.then263:                                       ; preds = %if.end257
   br label %return
 
 sw.bb269:                                         ; preds = %if.end63
-  %state270 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state270 = getelementptr inbounds i8, ptr %sd, i64 300
   %61 = load i32, ptr %state270, align 4
   %cond10 = icmp eq i32 %61, 4
   br i1 %cond10, label %sw.bb271, label %sw.epilog437
 
 sw.bb271:                                         ; preds = %sw.bb269
   store i32 6, ptr %state270, align 4
-  %data_start273 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start273 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start273, align 8
-  %data_offset274 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset274 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset274, align 8
   br label %return
 
 sw.bb277:                                         ; preds = %if.end63
-  %state278 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state278 = getelementptr inbounds i8, ptr %sd, i64 300
   %62 = load i32, ptr %state278, align 4
   %cond9 = icmp eq i32 %62, 4
   br i1 %cond9, label %sw.bb279, label %sw.epilog437
 
 sw.bb279:                                         ; preds = %sw.bb277
   store i32 6, ptr %state278, align 4
-  %data_start281 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start281 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start281, align 8
-  %data_offset282 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset282 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset282, align 8
   br label %return
 
 sw.bb285:                                         ; preds = %if.end63
-  %size286 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size286 = getelementptr inbounds i8, ptr %sd, i64 328
   %63 = load i64, ptr %size286, align 8
   %cmp287 = icmp ugt i64 %63, 2147483648
   br i1 %cmp287, label %return, label %if.end290
 
 if.end290:                                        ; preds = %sw.bb285
-  %state291 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state291 = getelementptr inbounds i8, ptr %sd, i64 300
   %64 = load i32, ptr %state291, align 4
   %cond8 = icmp eq i32 %64, 4
   br i1 %cond8, label %sw.bb292, label %sw.epilog437
@@ -1516,7 +1509,7 @@ sw.bb292:                                         ; preds = %if.end290
 if.end295:                                        ; preds = %sw.bb292
   store i32 7, ptr %state291, align 4
   %shr.i219 = lshr i64 %cond, 21
-  %wp_group_bmap = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 15
+  %wp_group_bmap = getelementptr inbounds i8, ptr %sd, i64 312
   %65 = load ptr, ptr %wp_group_bmap, align 8
   %rem.i = and i64 %shr.i219, 63
   %shl.i = shl nuw i64 1, %rem.i
@@ -1529,13 +1522,13 @@ if.end295:                                        ; preds = %sw.bb292
   br label %return
 
 sw.bb301:                                         ; preds = %if.end63
-  %size302 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size302 = getelementptr inbounds i8, ptr %sd, i64 328
   %67 = load i64, ptr %size302, align 8
   %cmp303 = icmp ugt i64 %67, 2147483648
   br i1 %cmp303, label %return, label %if.end306
 
 if.end306:                                        ; preds = %sw.bb301
-  %state307 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state307 = getelementptr inbounds i8, ptr %sd, i64 300
   %68 = load i32, ptr %state307, align 4
   %cond7 = icmp eq i32 %68, 4
   br i1 %cond7, label %sw.bb308, label %sw.epilog437
@@ -1547,7 +1540,7 @@ sw.bb308:                                         ; preds = %if.end306
 if.end311:                                        ; preds = %sw.bb308
   store i32 7, ptr %state307, align 4
   %shr.i220 = lshr i64 %cond, 21
-  %wp_group_bmap314 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 15
+  %wp_group_bmap314 = getelementptr inbounds i8, ptr %sd, i64 312
   %69 = load ptr, ptr %wp_group_bmap314, align 8
   %rem.i221 = and i64 %shr.i220, 63
   %shl.i222 = shl nuw i64 1, %rem.i221
@@ -1561,19 +1554,19 @@ if.end311:                                        ; preds = %sw.bb308
   br label %return
 
 sw.bb318:                                         ; preds = %if.end63
-  %size319 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size319 = getelementptr inbounds i8, ptr %sd, i64 328
   %71 = load i64, ptr %size319, align 8
   %cmp320 = icmp ugt i64 %71, 2147483648
   br i1 %cmp320, label %return, label %if.end323
 
 if.end323:                                        ; preds = %sw.bb318
-  %state324 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state324 = getelementptr inbounds i8, ptr %sd, i64 300
   %72 = load i32, ptr %state324, align 4
   %cond6 = icmp eq i32 %72, 4
   br i1 %cond6, label %sw.bb325, label %sw.epilog437
 
 sw.bb325:                                         ; preds = %if.end323
-  %blk_len328 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len328 = getelementptr inbounds i8, ptr %sd, i64 336
   %73 = load i32, ptr %blk_len328, align 8
   %call329 = tail call fastcc zeroext i1 @address_in_range(ptr noundef nonnull %sd, ptr noundef nonnull @.str.42, i64 noundef %req.sroa.16187.0.extract.shift, i32 noundef %73)
   br i1 %call329, label %if.end331, label %return
@@ -1581,44 +1574,44 @@ sw.bb325:                                         ; preds = %if.end323
 if.end331:                                        ; preds = %sw.bb325
   store i32 5, ptr %state324, align 4
   %call335 = tail call fastcc i32 @sd_wpbits(ptr noundef nonnull %sd, i64 noundef %req.sroa.16187.0.extract.shift)
-  %data336 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data336 = getelementptr inbounds i8, ptr %sd, i64 396
   store i32 %call335, ptr %data336, align 4
-  %data_start338 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start338 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 %cond, ptr %data_start338, align 8
-  %data_offset339 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset339 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset339, align 8
   br label %return
 
 sw.bb342:                                         ; preds = %if.end63
-  %state343 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state343 = getelementptr inbounds i8, ptr %sd, i64 300
   %74 = load i32, ptr %state343, align 4
   %cond5 = icmp eq i32 %74, 4
   br i1 %cond5, label %sw.bb344, label %sw.epilog437
 
 sw.bb344:                                         ; preds = %sw.bb342
-  %erase_start = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 20
+  %erase_start = getelementptr inbounds i8, ptr %sd, i64 344
   store i32 %req.sroa.16187.0.extract.trunc, ptr %erase_start, align 8
   br label %return
 
 sw.bb348:                                         ; preds = %if.end63
-  %state349 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state349 = getelementptr inbounds i8, ptr %sd, i64 300
   %75 = load i32, ptr %state349, align 4
   %cond4 = icmp eq i32 %75, 4
   br i1 %cond4, label %sw.bb350, label %sw.epilog437
 
 sw.bb350:                                         ; preds = %sw.bb348
-  %erase_end = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 21
+  %erase_end = getelementptr inbounds i8, ptr %sd, i64 348
   store i32 %req.sroa.16187.0.extract.trunc, ptr %erase_end, align 4
   br label %return
 
 sw.bb354:                                         ; preds = %if.end63
-  %state355 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state355 = getelementptr inbounds i8, ptr %sd, i64 300
   %76 = load i32, ptr %state355, align 4
   %cond3 = icmp eq i32 %76, 4
   br i1 %cond3, label %sw.bb356, label %sw.epilog437
 
 sw.bb356:                                         ; preds = %sw.bb354
-  %arrayidx358 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx358 = getelementptr i8, ptr %sd, i64 206
   %77 = load i8, ptr %arrayidx358, align 2
   %78 = and i8 %77, 48
   %tobool361.not = icmp eq i8 %78, 0
@@ -1637,21 +1630,21 @@ if.end365:                                        ; preds = %sw.bb356
   br label %return
 
 sw.bb370:                                         ; preds = %if.end63
-  %state371 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state371 = getelementptr inbounds i8, ptr %sd, i64 300
   %80 = load i32, ptr %state371, align 4
   %cond2 = icmp eq i32 %80, 4
   br i1 %cond2, label %sw.bb372, label %sw.epilog437
 
 sw.bb372:                                         ; preds = %sw.bb370
   store i32 6, ptr %state371, align 4
-  %data_start374 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start374 = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start374, align 8
-  %data_offset375 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset375 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset375, align 8
   br label %return
 
 sw.bb378:                                         ; preds = %if.end63
-  %state379 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state379 = getelementptr inbounds i8, ptr %sd, i64 300
   %81 = load i32, ptr %state379, align 4
   switch i32 %81, label %sw.epilog394 [
     i32 1, label %return
@@ -1679,14 +1672,14 @@ sw.epilog394:                                     ; preds = %sw.bb378, %if.then3
   br i1 %call395, label %if.end403, label %if.then396
 
 if.then396:                                       ; preds = %sw.epilog394
-  %rca397 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca397 = getelementptr inbounds i8, ptr %sd, i64 208
   %83 = load i16, ptr %rca397, align 8
   %conv398 = zext i16 %83 to i32
   %cmp399.not = icmp eq i32 %rca.0, %conv398
   br i1 %cmp399.not, label %if.end403, label %return
 
 if.end403:                                        ; preds = %if.then396, %sw.epilog394
-  %expecting_acmd404 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 26
+  %expecting_acmd404 = getelementptr inbounds i8, ptr %sd, i64 379
   store i8 1, ptr %expecting_acmd404, align 1
   %84 = load i32, ptr %card_status, align 4
   %or406 = or i32 %84, 32
@@ -1694,13 +1687,13 @@ if.end403:                                        ; preds = %if.then396, %sw.epi
   br label %return
 
 sw.bb407:                                         ; preds = %if.end63
-  %state408 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state408 = getelementptr inbounds i8, ptr %sd, i64 300
   %85 = load i32, ptr %state408, align 4
   %cond1 = icmp eq i32 %85, 4
   br i1 %cond1, label %sw.bb409, label %sw.epilog437
 
 sw.bb409:                                         ; preds = %sw.bb407
-  %data_offset410 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset410 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset410, align 8
   %and412 = and i32 %req.sroa.16187.0.extract.trunc, 1
   %tobool413.not = icmp eq i32 %and412, 0
@@ -1730,10 +1723,10 @@ sw.epilog437:                                     ; preds = %sw.bb407, %sw.bb370
 if.then.i:                                        ; preds = %sw.epilog437
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %88 = load ptr, ptr %proto.i.i, align 8
   %89 = load ptr, ptr %88, align 8
-  %state.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state.i = getelementptr inbounds i8, ptr %sd, i64 300
   %90 = load i32, ptr %state.i, align 4
   %cmp.i3.i = icmp eq i32 %90, -1
   br i1 %cmp.i3.i, label %sd_state_name.exit.i, label %if.end.i.i
@@ -1754,7 +1747,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 sd_state_name.exit.i:                             ; preds = %if.end4.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %91, %if.end4.i.i ], [ @.str.28, %if.then.i ]
-  %spec_version.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version.i = getelementptr inbounds i8, ptr %sd, i64 280
   %92 = load i8, ptr %spec_version.i, align 8
   %cmp.i4.i = icmp ugt i8 %92, 3
   br i1 %cmp.i4.i, label %sd_version_str.exit.i, label %if.end.i5.i
@@ -1782,7 +1775,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 define dso_local void @sd_write_byte(ptr noundef %sd, i8 noundef zeroext %value) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %0 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %sw.epilog, label %lor.lhs.false
@@ -1792,14 +1785,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %call, label %lor.lhs.false2, label %sw.epilog
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %enable = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 34
+  %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %1 = load i8, ptr %enable, align 8
   %2 = and i8 %1, 1
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %3 = load i32, ptr %state, align 4
   %cmp.not = icmp eq i32 %3, 6
   br i1 %cmp.not, label %if.end10, label %do.body
@@ -1815,7 +1808,7 @@ if.then8:                                         ; preds = %do.body
   br label %sw.epilog
 
 if.end10:                                         ; preds = %if.end
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
   %5 = load i32, ptr %card_status, align 4
   %and = and i32 %5, 1140850688
   %tobool11.not = icmp eq i32 %and, 0
@@ -1824,10 +1817,10 @@ if.end10:                                         ; preds = %if.end
 if.end13:                                         ; preds = %if.end10
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i, i64 0, i32 12
+  %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %6 = load ptr, ptr %proto.i, align 8
   %7 = load ptr, ptr %6, align 8
-  %current_cmd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 25
+  %current_cmd = getelementptr inbounds i8, ptr %sd, i64 378
   %8 = load i8, ptr %current_cmd, align 2
   %call15 = tail call ptr @sd_acmd_name(i8 noundef zeroext %8) #17
   %9 = load i8, ptr %current_cmd, align 2
@@ -1855,7 +1848,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %9 to i32
   %conv12.i.i = zext i8 %value to i32
@@ -1881,28 +1874,29 @@ trace_sdcard_write_data.exit:                     ; preds = %if.end13, %land.lhs
   ]
 
 sw.bb:                                            ; preds = %trace_sdcard_write_data.exit
-  %data_offset = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset = getelementptr inbounds i8, ptr %sd, i64 392
   %18 = load i32, ptr %data_offset, align 8
   %inc = add i32 %18, 1
   store i32 %inc, ptr %data_offset, align 8
   %idxprom = zext i32 %18 to i64
-  %arrayidx = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom
+  %arrayidx = getelementptr [512 x i8], ptr %data, i64 0, i64 %idxprom
   store i8 %value, ptr %arrayidx, align 1
-  %blk_len = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len = getelementptr inbounds i8, ptr %sd, i64 336
   %19 = load i32, ptr %blk_len, align 8
   %cmp20.not = icmp ult i32 %inc, %19
   br i1 %cmp20.not, label %sw.epilog, label %if.then22
 
 if.then22:                                        ; preds = %sw.bb
   store i32 7, ptr %state, align 4
-  %data_start = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start = getelementptr inbounds i8, ptr %sd, i64 384
   %20 = load i64, ptr %data_start, align 8
   tail call fastcc void @sd_blk_write(ptr noundef nonnull %sd, i64 noundef %20, i32 noundef %inc)
-  %blk_written = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 27
+  %blk_written = getelementptr inbounds i8, ptr %sd, i64 380
   %21 = load i32, ptr %blk_written, align 4
   %inc25 = add i32 %21, 1
   store i32 %inc25, ptr %blk_written, align 4
-  %arrayidx26 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx26 = getelementptr i8, ptr %sd, i64 206
   %22 = load i8, ptr %arrayidx26, align 2
   %23 = or i8 %22, 64
   store i8 %23, ptr %arrayidx26, align 2
@@ -1910,21 +1904,21 @@ if.then22:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %trace_sdcard_write_data.exit
-  %data_offset32 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset32 = getelementptr inbounds i8, ptr %sd, i64 392
   %24 = load i32, ptr %data_offset32, align 8
   %cmp33 = icmp eq i32 %24, 0
   br i1 %cmp33, label %if.then35, label %if.end51
 
 if.then35:                                        ; preds = %sw.bb31
-  %data_start36 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start36 = getelementptr inbounds i8, ptr %sd, i64 384
   %25 = load i64, ptr %data_start36, align 8
-  %blk_len37 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len37 = getelementptr inbounds i8, ptr %sd, i64 336
   %26 = load i32, ptr %blk_len37, align 8
   %call38 = tail call fastcc zeroext i1 @address_in_range(ptr noundef nonnull %sd, ptr noundef nonnull @.str.8, i64 noundef %25, i32 noundef %26)
   br i1 %call38, label %if.end40, label %sw.epilog
 
 if.end40:                                         ; preds = %if.then35
-  %size = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size = getelementptr inbounds i8, ptr %sd, i64 328
   %27 = load i64, ptr %size, align 8
   %cmp41 = icmp ult i64 %27, 2147483649
   br i1 %cmp41, label %if.then43, label %if.end51
@@ -1950,23 +1944,24 @@ if.then46:                                        ; preds = %if.then43
   br label %sw.epilog
 
 if.end51:                                         ; preds = %if.end40, %if.then43, %sw.bb31
+  %data52 = getelementptr inbounds i8, ptr %sd, i64 396
   %34 = load i32, ptr %data_offset32, align 8
   %inc54 = add i32 %34, 1
   store i32 %inc54, ptr %data_offset32, align 8
   %idxprom55 = zext i32 %34 to i64
-  %arrayidx56 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom55
+  %arrayidx56 = getelementptr [512 x i8], ptr %data52, i64 0, i64 %idxprom55
   store i8 %value, ptr %arrayidx56, align 1
-  %blk_len58 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len58 = getelementptr inbounds i8, ptr %sd, i64 336
   %35 = load i32, ptr %blk_len58, align 8
   %cmp59.not = icmp ult i32 %inc54, %35
   br i1 %cmp59.not, label %sw.epilog, label %if.then61
 
 if.then61:                                        ; preds = %if.end51
   store i32 7, ptr %state, align 4
-  %data_start63 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start63 = getelementptr inbounds i8, ptr %sd, i64 384
   %36 = load i64, ptr %data_start63, align 8
   tail call fastcc void @sd_blk_write(ptr noundef nonnull %sd, i64 noundef %36, i32 noundef %inc54)
-  %blk_written65 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 27
+  %blk_written65 = getelementptr inbounds i8, ptr %sd, i64 380
   %37 = load i32, ptr %blk_written65, align 4
   %inc66 = add i32 %37, 1
   store i32 %inc66, ptr %blk_written65, align 4
@@ -1976,11 +1971,11 @@ if.then61:                                        ; preds = %if.end51
   %add = add i64 %39, %conv68
   store i64 %add, ptr %data_start63, align 8
   store i32 0, ptr %data_offset32, align 8
-  %arrayidx72 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx72 = getelementptr i8, ptr %sd, i64 206
   %40 = load i8, ptr %arrayidx72, align 2
   %41 = or i8 %40, 64
   store i8 %41, ptr %arrayidx72, align 2
-  %multi_blk_cnt = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 19
+  %multi_blk_cnt = getelementptr inbounds i8, ptr %sd, i64 340
   %42 = load i32, ptr %multi_blk_cnt, align 4
   %cmp76.not = icmp eq i32 %42, 0
   br i1 %cmp76.not, label %if.end85, label %if.then78
@@ -2000,25 +1995,27 @@ if.end85:                                         ; preds = %if.then78, %if.then
   br label %sw.epilog
 
 sw.bb88:                                          ; preds = %trace_sdcard_write_data.exit
-  %data_offset90 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data89 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset90 = getelementptr inbounds i8, ptr %sd, i64 392
   %43 = load i32, ptr %data_offset90, align 8
   %inc91 = add i32 %43, 1
   store i32 %inc91, ptr %data_offset90, align 8
   %idxprom92 = zext i32 %43 to i64
-  %arrayidx93 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom92
+  %arrayidx93 = getelementptr [512 x i8], ptr %data89, i64 0, i64 %idxprom92
   store i8 %value, ptr %arrayidx93, align 1
   %cmp96 = icmp ugt i32 %inc91, 15
   br i1 %cmp96, label %if.then98, label %sw.epilog
 
 if.then98:                                        ; preds = %sw.bb88
   store i32 7, ptr %state, align 4
+  %cid = getelementptr inbounds i8, ptr %sd, i64 176
   br label %for.body
 
 for.body:                                         ; preds = %if.then98, %for.inc
   %indvars.iv127 = phi i64 [ 0, %if.then98 ], [ %indvars.iv.next128, %for.inc ]
-  %arrayidx104 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 4, i64 %indvars.iv127
+  %arrayidx104 = getelementptr [16 x i8], ptr %cid, i64 0, i64 %indvars.iv127
   %44 = load i8, ptr %arrayidx104, align 1
-  %arrayidx109 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %indvars.iv127
+  %arrayidx109 = getelementptr [512 x i8], ptr %data89, i64 0, i64 %indvars.iv127
   %45 = load i8, ptr %arrayidx109, align 1
   %cmp111.not = icmp eq i8 %44, %45
   br i1 %cmp111.not, label %for.inc, label %if.then113
@@ -2042,9 +2039,9 @@ for.end:                                          ; preds = %for.inc
 
 for.body126:                                      ; preds = %for.end, %for.body126
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %for.body126 ], [ 0, %for.end ]
-  %arrayidx129 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 4, i64 %indvars.iv131
+  %arrayidx129 = getelementptr [16 x i8], ptr %cid, i64 0, i64 %indvars.iv131
   %48 = load i8, ptr %arrayidx129, align 1
-  %arrayidx135 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %indvars.iv131
+  %arrayidx135 = getelementptr [512 x i8], ptr %data89, i64 0, i64 %indvars.iv131
   %49 = load i8, ptr %arrayidx135, align 1
   %and141115 = and i8 %49, %48
   store i8 %and141115, ptr %arrayidx129, align 1
@@ -2057,28 +2054,30 @@ if.end146:                                        ; preds = %for.body126, %for.e
   br label %sw.epilog
 
 sw.bb149:                                         ; preds = %trace_sdcard_write_data.exit
-  %data_offset151 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data150 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset151 = getelementptr inbounds i8, ptr %sd, i64 392
   %50 = load i32, ptr %data_offset151, align 8
   %inc152 = add i32 %50, 1
   store i32 %inc152, ptr %data_offset151, align 8
   %idxprom153 = zext i32 %50 to i64
-  %arrayidx154 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom153
+  %arrayidx154 = getelementptr [512 x i8], ptr %data150, i64 0, i64 %idxprom153
   store i8 %value, ptr %arrayidx154, align 1
   %cmp157 = icmp ugt i32 %inc152, 15
   br i1 %cmp157, label %if.then159, label %sw.epilog
 
 if.then159:                                       ; preds = %sw.bb149
   store i32 7, ptr %state, align 4
+  %csd166 = getelementptr inbounds i8, ptr %sd, i64 192
   br label %for.body165
 
 for.body165:                                      ; preds = %if.then159, %for.inc188
   %indvars.iv = phi i64 [ 0, %if.then159 ], [ %indvars.iv.next, %for.inc188 ]
-  %arrayidx168 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx168 = getelementptr [16 x i8], ptr %csd166, i64 0, i64 %indvars.iv
   %51 = load i8, ptr %arrayidx168, align 1
   %arrayidx171 = getelementptr [16 x i8], ptr @sd_csd_rw_mask, i64 0, i64 %indvars.iv
   %52 = load i8, ptr %arrayidx171, align 1
   %or173113 = or i8 %52, %51
-  %arrayidx176 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %indvars.iv
+  %arrayidx176 = getelementptr [512 x i8], ptr %data150, i64 0, i64 %indvars.iv
   %53 = load i8, ptr %arrayidx176, align 1
   %or181114 = or i8 %53, %52
   %cmp182.not = icmp eq i8 %or173113, %or181114
@@ -2096,9 +2095,9 @@ for.inc188:                                       ; preds = %for.body165, %if.th
   br i1 %exitcond.not, label %for.end190, label %for.body165, !llvm.loop !10
 
 for.end190:                                       ; preds = %for.inc188
-  %arrayidx192 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx192 = getelementptr i8, ptr %sd, i64 206
   %55 = load i8, ptr %arrayidx192, align 2
-  %arrayidx195 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 14
+  %arrayidx195 = getelementptr i8, ptr %sd, i64 410
   %56 = load i8, ptr %arrayidx195, align 2
   %conv196 = zext i8 %56 to i32
   %not = xor i32 %conv196, -1
@@ -2124,10 +2123,10 @@ for.body212:                                      ; preds = %if.end203, %for.bod
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %for.body212 ], [ 0, %if.end203 ]
   %arrayidx214 = getelementptr [16 x i8], ptr @sd_csd_rw_mask, i64 0, i64 %indvars.iv123
   %59 = load i8, ptr %arrayidx214, align 1
-  %arrayidx218 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 %indvars.iv123
+  %arrayidx218 = getelementptr [16 x i8], ptr %csd166, i64 0, i64 %indvars.iv123
   %60 = load i8, ptr %arrayidx218, align 1
   %or220111 = or i8 %60, %59
-  %arrayidx224 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %indvars.iv123
+  %arrayidx224 = getelementptr [512 x i8], ptr %data150, i64 0, i64 %indvars.iv123
   %61 = load i8, ptr %arrayidx224, align 1
   %and230112 = and i8 %61, %or220111
   store i8 %and230112, ptr %arrayidx218, align 1
@@ -2140,14 +2139,15 @@ if.end235:                                        ; preds = %for.body212, %if.en
   br label %sw.epilog
 
 sw.bb238:                                         ; preds = %trace_sdcard_write_data.exit
-  %data_offset240 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data239 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset240 = getelementptr inbounds i8, ptr %sd, i64 392
   %62 = load i32, ptr %data_offset240, align 8
   %inc241 = add i32 %62, 1
   store i32 %inc241, ptr %data_offset240, align 8
   %idxprom242 = zext i32 %62 to i64
-  %arrayidx243 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom242
+  %arrayidx243 = getelementptr [512 x i8], ptr %data239, i64 0, i64 %idxprom242
   store i8 %value, ptr %arrayidx243, align 1
-  %blk_len245 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len245 = getelementptr inbounds i8, ptr %sd, i64 336
   %63 = load i32, ptr %blk_len245, align 8
   %cmp246.not = icmp ult i32 %inc241, %63
   br i1 %cmp246.not, label %sw.epilog, label %if.then248
@@ -2159,14 +2159,15 @@ if.then248:                                       ; preds = %sw.bb238
   br label %sw.epilog
 
 sw.bb252:                                         ; preds = %trace_sdcard_write_data.exit
-  %data_offset254 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data253 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset254 = getelementptr inbounds i8, ptr %sd, i64 392
   %64 = load i32, ptr %data_offset254, align 8
   %inc255 = add i32 %64, 1
   store i32 %inc255, ptr %data_offset254, align 8
   %idxprom256 = zext i32 %64 to i64
-  %arrayidx257 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom256
+  %arrayidx257 = getelementptr [512 x i8], ptr %data253, i64 0, i64 %idxprom256
   store i8 %value, ptr %arrayidx257, align 1
-  %blk_len259 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len259 = getelementptr inbounds i8, ptr %sd, i64 336
   %65 = load i32, ptr %blk_len259, align 8
   %cmp260.not = icmp ult i32 %inc255, %65
   br i1 %cmp260.not, label %sw.epilog, label %if.then262
@@ -2219,7 +2220,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %addr, i32 noundef %len) #17
   br label %trace_sdcard_write_block.exit
@@ -2230,14 +2231,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sdcard_write_block.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %7 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %trace_sdcard_write_block.exit
   %conv = zext i32 %len to i64
-  %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
   %call = tail call i32 @blk_pwrite(ptr noundef nonnull %7, i64 noundef %addr, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef 0) #17
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2256,7 +2257,7 @@ define internal fastcc zeroext i1 @address_in_range(ptr nocapture noundef %sd, p
 entry:
   %conv = zext i32 %length to i64
   %add = add i64 %conv, %addr
-  %size = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size = getelementptr inbounds i8, ptr %sd, i64 328
   %0 = load i64, ptr %size, align 8
   %cmp = icmp ule i64 %add, %0
   br i1 %cmp, label %return, label %do.body
@@ -2272,7 +2273,7 @@ if.then4:                                         ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then4
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
   %2 = load i32, ptr %card_status, align 4
   %or = or i32 %2, 1073741824
   store i32 %or, ptr %card_status, align 4
@@ -2287,7 +2288,7 @@ define internal fastcc void @sd_lock_command(ptr nocapture noundef %sd) unnamed_
 entry:
   %_now.i.i68 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
   %0 = load i8, ptr %data, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 8
@@ -2295,13 +2296,13 @@ entry:
   %and5 = and i32 %conv, 4
   %and9 = and i32 %conv, 2
   %and13 = and i32 %conv, 1
-  %blk_len = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len = getelementptr inbounds i8, ptr %sd, i64 336
   %1 = load i32, ptr %blk_len, align 8
   %cmp = icmp ugt i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx16 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 1
+  %arrayidx16 = getelementptr i8, ptr %sd, i64 397
   %2 = load i8, ptr %arrayidx16, align 1
   %conv17 = zext i8 %2 to i32
   br label %if.end
@@ -2336,7 +2337,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9) #17
   br label %trace_sdcard_lock.exit
@@ -2374,7 +2375,7 @@ if.then8.i.i77:                                   ; preds = %if.then.i.i75
   %call9.i.i78 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i68, ptr noundef null) #17
   %call10.i.i79 = tail call i32 @qemu_get_thread_id() #17
   %15 = load i64, ptr %_now.i.i68, align 8
-  %tv_usec.i.i80 = getelementptr inbounds %struct.timeval, ptr %_now.i.i68, i64 0, i32 1
+  %tv_usec.i.i80 = getelementptr inbounds i8, ptr %_now.i.i68, i64 8
   %16 = load i64, ptr %tv_usec.i.i80, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i79, i64 noundef %15, i64 noundef %16) #17
   br label %trace_sdcard_unlock.exit
@@ -2391,7 +2392,7 @@ if.end21:                                         ; preds = %trace_sdcard_unlock
   br i1 %tobool.not, label %if.end55, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
   %17 = load i32, ptr %card_status, align 4
   %and24 = and i32 %17, 33554432
   %tobool25.not = icmp eq i32 %and24, 0
@@ -2408,14 +2409,14 @@ lor.lhs.false:                                    ; preds = %if.then23
   br i1 %or.cond2, label %if.then43, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false
-  %wp_switch = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 14
+  %wp_switch = getelementptr inbounds i8, ptr %sd, i64 308
   %21 = load i8, ptr %wp_switch, align 4
   %22 = and i8 %21, 1
   %tobool36.not = icmp eq i8 %22, 0
   br i1 %tobool36.not, label %lor.lhs.false38, label %if.then43
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %arrayidx39 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx39 = getelementptr i8, ptr %sd, i64 206
   %23 = load i8, ptr %arrayidx39, align 2
   %24 = and i8 %23, 32
   %tobool42.not = icmp eq i8 %24, 0
@@ -2427,9 +2428,9 @@ if.then43:                                        ; preds = %lor.lhs.false38, %l
   br label %if.end144
 
 if.end45:                                         ; preds = %lor.lhs.false38
-  %wp_group_bmap = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 15
+  %wp_group_bmap = getelementptr inbounds i8, ptr %sd, i64 312
   %25 = load ptr, ptr %wp_group_bmap, align 8
-  %wp_group_bits = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 16
+  %wp_group_bits = getelementptr inbounds i8, ptr %sd, i64 320
   %26 = load i32, ptr %wp_group_bits, align 8
   %cmp.i = icmp ult i32 %26, 65
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2453,7 +2454,7 @@ bitmap_zero.exit:                                 ; preds = %if.then.i, %if.else
   %30 = load i32, ptr %card_status, align 4
   %and53 = and i32 %30, -33554433
   store i32 %and53, ptr %card_status, align 4
-  %pwd_len54 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 23
+  %pwd_len54 = getelementptr inbounds i8, ptr %sd, i64 368
   store i32 0, ptr %pwd_len54, align 8
   %31 = load ptr, ptr @stderr, align 8
   %32 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 31, i64 1, ptr %31) #19
@@ -2466,7 +2467,7 @@ if.end55:                                         ; preds = %if.end21
   br i1 %cmp57, label %if.then68, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %if.end55
-  %pwd_len60 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 23
+  %pwd_len60 = getelementptr inbounds i8, ptr %sd, i64 368
   %34 = load i32, ptr %pwd_len60, align 8
   %cmp61.not = icmp ule i32 %pwd_len.0, %34
   %add65 = add nuw nsw i32 %34, 16
@@ -2475,7 +2476,7 @@ lor.lhs.false59:                                  ; preds = %if.end55
   br i1 %or.cond65, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %lor.lhs.false59, %if.end55
-  %card_status69 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status69 = getelementptr inbounds i8, ptr %sd, i64 212
   %35 = load i32, ptr %card_status69, align 4
   %or70 = or i32 %35, 16777216
   store i32 %or70, ptr %card_status69, align 4
@@ -2486,15 +2487,15 @@ if.end71:                                         ; preds = %lor.lhs.false59
   br i1 %tobool73.not, label %if.end83, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end71
-  %pwd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 22
-  %add.ptr = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 2
+  %pwd = getelementptr inbounds i8, ptr %sd, i64 352
+  %add.ptr = getelementptr i8, ptr %sd, i64 398
   %conv77 = zext nneg i32 %34 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %pwd, ptr %add.ptr, i64 %conv77)
   %tobool79.not = icmp eq i32 %bcmp, 0
   br i1 %tobool79.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %land.lhs.true
-  %card_status81 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status81 = getelementptr inbounds i8, ptr %sd, i64 212
   %36 = load i32, ptr %card_status81, align 4
   %or82 = or i32 %36, 16777216
   store i32 %or82, ptr %card_status81, align 4
@@ -2518,7 +2519,7 @@ lor.lhs.false101:                                 ; preds = %lor.lhs.false88
   br i1 %or.cond6.not, label %land.lhs.true105, label %if.end132
 
 land.lhs.true105:                                 ; preds = %lor.lhs.false101
-  %card_status106 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status106 = getelementptr inbounds i8, ptr %sd, i64 212
   %39 = load i32, ptr %card_status106, align 4
   %and107 = and i32 %39, 33554432
   %tobool108 = icmp ne i32 %and107, 0
@@ -2529,22 +2530,22 @@ land.lhs.true105:                                 ; preds = %lor.lhs.false101
   br i1 %or.cond67, label %if.then117, label %if.end132
 
 if.then117:                                       ; preds = %lor.lhs.false88, %land.lhs.true105, %if.end83
-  %card_status118 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status118 = getelementptr inbounds i8, ptr %sd, i64 212
   %41 = load i32, ptr %card_status118, align 4
   %or119 = or i32 %41, 16777216
   store i32 %or119, ptr %card_status118, align 4
   br label %if.end144
 
 if.end132:                                        ; preds = %land.lhs.true105, %lor.lhs.false101
-  %pwd123 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 22
-  %add.ptr127 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 2
+  %pwd123 = getelementptr inbounds i8, ptr %sd, i64 352
+  %add.ptr127 = getelementptr i8, ptr %sd, i64 398
   %idx.ext = zext i32 %34 to i64
   %add.ptr129 = getelementptr i8, ptr %add.ptr127, i64 %idx.ext
   %conv130 = sext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pwd123, ptr align 1 %add.ptr129, i64 %conv130, i1 false)
   %spec.store.select = select i1 %tobool89.not, i32 %sub, i32 0
   store i32 %spec.store.select, ptr %pwd_len60, align 8
-  %card_status139 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status139 = getelementptr inbounds i8, ptr %sd, i64 212
   %42 = load i32, ptr %card_status139, align 4
   br i1 %tobool18, label %if.then138, label %if.else141
 
@@ -2566,7 +2567,7 @@ if.end144:                                        ; preds = %if.else141, %if.the
 define dso_local zeroext i8 @sd_read_byte(ptr noundef %sd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %0 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2576,14 +2577,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %call, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %enable = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 34
+  %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %1 = load i8, ptr %enable, align 8
   %2 = and i8 %1, 1
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %3 = load i32, ptr %state, align 4
   %cmp.not = icmp eq i32 %3, 5
   br i1 %cmp.not, label %if.end10, label %do.body
@@ -2599,21 +2600,21 @@ if.then8:                                         ; preds = %do.body
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
   %5 = load i32, ptr %card_status, align 4
   %and = and i32 %5, 1140850688
   %tobool11.not = icmp eq i32 %and, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end10
-  %ocr = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 2
+  %ocr = getelementptr inbounds i8, ptr %sd, i64 164
   %6 = load i32, ptr %ocr, align 4
   %and14 = and i32 %6, 1073741824
   %tobool15.not = icmp eq i32 %and14, 0
   br i1 %tobool15.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end13
-  %blk_len = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len = getelementptr inbounds i8, ptr %sd, i64 336
   %7 = load i32, ptr %blk_len, align 8
   br label %cond.end
 
@@ -2621,10 +2622,10 @@ cond.end:                                         ; preds = %if.end13, %cond.fal
   %cond = phi i32 [ %7, %cond.false ], [ 512, %if.end13 ]
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i, i64 0, i32 12
+  %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %8 = load ptr, ptr %proto.i, align 8
   %9 = load ptr, ptr %8, align 8
-  %current_cmd = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 25
+  %current_cmd = getelementptr inbounds i8, ptr %sd, i64 378
   %10 = load i8, ptr %current_cmd, align 2
   %call17 = tail call ptr @sd_acmd_name(i8 noundef zeroext %10) #17
   %11 = load i8, ptr %current_cmd, align 2
@@ -2652,7 +2653,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %11 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %9, ptr noundef %call17, i32 noundef %conv11.i.i, i32 noundef %cond) #17
@@ -2681,12 +2682,13 @@ trace_sdcard_read_data.exit:                      ; preds = %cond.end, %land.lhs
   ]
 
 sw.bb:                                            ; preds = %trace_sdcard_read_data.exit
-  %data_offset = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset = getelementptr inbounds i8, ptr %sd, i64 392
   %20 = load i32, ptr %data_offset, align 8
   %inc = add i32 %20, 1
   store i32 %inc, ptr %data_offset, align 8
   %idxprom = zext i32 %20 to i64
-  %arrayidx = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom
+  %arrayidx = getelementptr [512 x i8], ptr %data, i64 0, i64 %idxprom
   %21 = load i8, ptr %arrayidx, align 1
   %cmp22 = icmp ugt i32 %inc, 63
   br i1 %cmp22, label %if.then24, label %return
@@ -2696,12 +2698,13 @@ if.then24:                                        ; preds = %sw.bb
   br label %return
 
 sw.bb27:                                          ; preds = %trace_sdcard_read_data.exit, %trace_sdcard_read_data.exit
-  %data_offset29 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data28 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset29 = getelementptr inbounds i8, ptr %sd, i64 392
   %22 = load i32, ptr %data_offset29, align 8
   %inc30 = add i32 %22, 1
   store i32 %inc30, ptr %data_offset29, align 8
   %idxprom31 = zext i32 %22 to i64
-  %arrayidx32 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom31
+  %arrayidx32 = getelementptr [512 x i8], ptr %data28, i64 0, i64 %idxprom31
   %23 = load i8, ptr %arrayidx32, align 1
   %cmp34 = icmp ugt i32 %inc30, 15
   br i1 %cmp34, label %if.then36, label %return
@@ -2711,12 +2714,13 @@ if.then36:                                        ; preds = %sw.bb27
   br label %return
 
 sw.bb39:                                          ; preds = %trace_sdcard_read_data.exit
-  %data_offset40 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %sd_status = getelementptr inbounds i8, ptr %sd, i64 216
+  %data_offset40 = getelementptr inbounds i8, ptr %sd, i64 392
   %24 = load i32, ptr %data_offset40, align 8
   %inc41 = add i32 %24, 1
   store i32 %inc41, ptr %data_offset40, align 8
   %idxprom42 = zext i32 %24 to i64
-  %arrayidx43 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 8, i64 %idxprom42
+  %arrayidx43 = getelementptr [64 x i8], ptr %sd_status, i64 0, i64 %idxprom42
   %25 = load i8, ptr %arrayidx43, align 1
   %cmp46 = icmp ugt i32 %inc41, 63
   br i1 %cmp46, label %if.then48, label %return
@@ -2726,13 +2730,13 @@ if.then48:                                        ; preds = %sw.bb39
   br label %return
 
 sw.bb51:                                          ; preds = %trace_sdcard_read_data.exit
-  %data_offset52 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset52 = getelementptr inbounds i8, ptr %sd, i64 392
   %26 = load i32, ptr %data_offset52, align 8
   %cmp53 = icmp eq i32 %26, 0
   br i1 %cmp53, label %if.then55, label %if.end56
 
 if.then55:                                        ; preds = %sw.bb51
-  %data_start = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start = getelementptr inbounds i8, ptr %sd, i64 384
   %27 = load i64, ptr %data_start, align 8
   tail call fastcc void @sd_blk_read(ptr noundef nonnull %sd, i64 noundef %27, i32 noundef %cond)
   %.pre76 = load i32, ptr %data_offset52, align 8
@@ -2740,10 +2744,11 @@ if.then55:                                        ; preds = %sw.bb51
 
 if.end56:                                         ; preds = %if.then55, %sw.bb51
   %28 = phi i32 [ %.pre76, %if.then55 ], [ %26, %sw.bb51 ]
+  %data57 = getelementptr inbounds i8, ptr %sd, i64 396
   %inc59 = add i32 %28, 1
   store i32 %inc59, ptr %data_offset52, align 8
   %idxprom60 = zext i32 %28 to i64
-  %arrayidx61 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom60
+  %arrayidx61 = getelementptr [512 x i8], ptr %data57, i64 0, i64 %idxprom60
   %29 = load i8, ptr %arrayidx61, align 1
   %cmp63.not = icmp ult i32 %inc59, %cond
   br i1 %cmp63.not, label %return, label %if.then65
@@ -2753,13 +2758,13 @@ if.then65:                                        ; preds = %if.end56
   br label %return
 
 sw.bb68:                                          ; preds = %trace_sdcard_read_data.exit
-  %data_offset69 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset69 = getelementptr inbounds i8, ptr %sd, i64 392
   %30 = load i32, ptr %data_offset69, align 8
   %cmp70 = icmp eq i32 %30, 0
   br i1 %cmp70, label %if.then72, label %if.end78
 
 if.then72:                                        ; preds = %sw.bb68
-  %data_start73 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start73 = getelementptr inbounds i8, ptr %sd, i64 384
   %31 = load i64, ptr %data_start73, align 8
   %call74 = tail call fastcc zeroext i1 @address_in_range(ptr noundef nonnull %sd, ptr noundef nonnull @.str.11, i64 noundef %31, i32 noundef %cond)
   br i1 %call74, label %if.end76, label %return
@@ -2772,22 +2777,23 @@ if.end76:                                         ; preds = %if.then72
 
 if.end78:                                         ; preds = %if.end76, %sw.bb68
   %33 = phi i32 [ %.pre75, %if.end76 ], [ %30, %sw.bb68 ]
+  %data79 = getelementptr inbounds i8, ptr %sd, i64 396
   %inc81 = add i32 %33, 1
   store i32 %inc81, ptr %data_offset69, align 8
   %idxprom82 = zext i32 %33 to i64
-  %arrayidx83 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom82
+  %arrayidx83 = getelementptr [512 x i8], ptr %data79, i64 0, i64 %idxprom82
   %34 = load i8, ptr %arrayidx83, align 1
   %cmp85.not = icmp ult i32 %inc81, %cond
   br i1 %cmp85.not, label %return, label %if.then87
 
 if.then87:                                        ; preds = %if.end78
   %conv88 = zext i32 %cond to i64
-  %data_start89 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 28
+  %data_start89 = getelementptr inbounds i8, ptr %sd, i64 384
   %35 = load i64, ptr %data_start89, align 8
   %add = add i64 %35, %conv88
   store i64 %add, ptr %data_start89, align 8
   store i32 0, ptr %data_offset69, align 8
-  %multi_blk_cnt = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 19
+  %multi_blk_cnt = getelementptr inbounds i8, ptr %sd, i64 340
   %36 = load i32, ptr %multi_blk_cnt, align 4
   %cmp91.not = icmp eq i32 %36, 0
   br i1 %cmp91.not, label %return, label %if.then93
@@ -2803,7 +2809,7 @@ if.then97:                                        ; preds = %if.then93
   br label %return
 
 sw.bb102:                                         ; preds = %trace_sdcard_read_data.exit
-  %data_offset103 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset103 = getelementptr inbounds i8, ptr %sd, i64 392
   %37 = load i32, ptr %data_offset103, align 8
   %cmp104 = icmp ugt i32 %37, 62
   br i1 %cmp104, label %if.then106, label %if.end108
@@ -2821,12 +2827,13 @@ if.end108:                                        ; preds = %if.then106, %sw.bb1
   br label %return
 
 sw.bb113:                                         ; preds = %trace_sdcard_read_data.exit
-  %data_offset115 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data114 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset115 = getelementptr inbounds i8, ptr %sd, i64 392
   %39 = load i32, ptr %data_offset115, align 8
   %inc116 = add i32 %39, 1
   store i32 %inc116, ptr %data_offset115, align 8
   %idxprom117 = zext i32 %39 to i64
-  %arrayidx118 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom117
+  %arrayidx118 = getelementptr [512 x i8], ptr %data114, i64 0, i64 %idxprom117
   %40 = load i8, ptr %arrayidx118, align 1
   %cmp120 = icmp ugt i32 %inc116, 3
   br i1 %cmp120, label %if.then122, label %return
@@ -2836,12 +2843,13 @@ if.then122:                                       ; preds = %sw.bb113
   br label %return
 
 sw.bb125:                                         ; preds = %trace_sdcard_read_data.exit
-  %data_offset127 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data126 = getelementptr inbounds i8, ptr %sd, i64 396
+  %data_offset127 = getelementptr inbounds i8, ptr %sd, i64 392
   %41 = load i32, ptr %data_offset127, align 8
   %inc128 = add i32 %41, 1
   store i32 %inc128, ptr %data_offset127, align 8
   %idxprom129 = zext i32 %41 to i64
-  %arrayidx130 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom129
+  %arrayidx130 = getelementptr [512 x i8], ptr %data126, i64 0, i64 %idxprom129
   %42 = load i8, ptr %arrayidx130, align 1
   %cmp132 = icmp ugt i32 %inc128, 3
   br i1 %cmp132, label %if.then134, label %return
@@ -2851,12 +2859,13 @@ if.then134:                                       ; preds = %sw.bb125
   br label %return
 
 sw.bb137:                                         ; preds = %trace_sdcard_read_data.exit
-  %data_offset138 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %scr = getelementptr inbounds i8, ptr %sd, i64 168
+  %data_offset138 = getelementptr inbounds i8, ptr %sd, i64 392
   %43 = load i32, ptr %data_offset138, align 8
   %inc139 = add i32 %43, 1
   store i32 %inc139, ptr %data_offset138, align 8
   %idxprom140 = zext i32 %43 to i64
-  %arrayidx141 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 3, i64 %idxprom140
+  %arrayidx141 = getelementptr [8 x i8], ptr %scr, i64 0, i64 %idxprom140
   %44 = load i8, ptr %arrayidx141, align 1
   %cmp144 = icmp ugt i32 %inc139, 7
   br i1 %cmp144, label %if.then146, label %return
@@ -2866,19 +2875,19 @@ if.then146:                                       ; preds = %sw.bb137
   br label %return
 
 sw.bb149:                                         ; preds = %trace_sdcard_read_data.exit
-  %data_offset150 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset150 = getelementptr inbounds i8, ptr %sd, i64 392
   %45 = load i32, ptr %data_offset150, align 8
   %cmp151 = icmp eq i32 %45, 0
   br i1 %cmp151, label %if.then153, label %sw.bb149.if.end157_crit_edge
 
 sw.bb149.if.end157_crit_edge:                     ; preds = %sw.bb149
-  %blk_len164.phi.trans.insert = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %blk_len164.phi.trans.insert = getelementptr inbounds i8, ptr %sd, i64 336
   %.pre = load i32, ptr %blk_len164.phi.trans.insert, align 8
   br label %if.end157
 
 if.then153:                                       ; preds = %sw.bb149
-  %data154 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
-  %blk_len155 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
+  %data154 = getelementptr inbounds i8, ptr %sd, i64 396
+  %blk_len155 = getelementptr inbounds i8, ptr %sd, i64 336
   %46 = load i32, ptr %blk_len155, align 8
   %conv156 = zext i32 %46 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %data154, i8 -20, i64 %conv156, i1 false)
@@ -2886,10 +2895,11 @@ if.then153:                                       ; preds = %sw.bb149
 
 if.end157:                                        ; preds = %sw.bb149.if.end157_crit_edge, %if.then153
   %47 = phi i32 [ %.pre, %sw.bb149.if.end157_crit_edge ], [ %46, %if.then153 ]
+  %data158 = getelementptr inbounds i8, ptr %sd, i64 396
   %inc160 = add i32 %45, 1
   store i32 %inc160, ptr %data_offset150, align 8
   %idxprom161 = zext i32 %45 to i64
-  %arrayidx162 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom161
+  %arrayidx162 = getelementptr [512 x i8], ptr %data158, i64 0, i64 %idxprom161
   %48 = load i8, ptr %arrayidx162, align 1
   %cmp165.not = icmp ult i32 %inc160, %47
   br i1 %cmp165.not, label %return, label %if.then167
@@ -2941,7 +2951,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %addr, i32 noundef %len) #17
   br label %trace_sdcard_read_block.exit
@@ -2952,14 +2962,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sdcard_read_block.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %7 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %trace_sdcard_read_block.exit
   %conv = zext i32 %len to i64
-  %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
   %call = tail call i32 @blk_pread(ptr noundef nonnull %7, i64 noundef %addr, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef 0) #17
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2980,7 +2990,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define dso_local void @sd_enable(ptr nocapture noundef writeonly %sd, i1 noundef zeroext %enable) #5 {
 entry:
   %frombool = zext i1 %enable to i8
-  %enable1 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 34
+  %enable1 = getelementptr inbounds i8, ptr %sd, i64 936
   store i8 %frombool, ptr %enable1, align 8
   ret void
 }
@@ -3036,7 +3046,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #17
   br label %trace_sdcard_powerup.exit
@@ -3047,7 +3057,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sdcard_powerup.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %ocr = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 2
+  %ocr = getelementptr inbounds i8, ptr %opaque, i64 164
   %7 = load i32, ptr %ocr, align 4
   %tobool.not = icmp sgt i32 %7, -1
   br i1 %tobool.not, label %if.end, label %if.else
@@ -3059,7 +3069,7 @@ if.else:                                          ; preds = %trace_sdcard_poweru
 if.end:                                           ; preds = %trace_sdcard_powerup.exit
   %or.i = or disjoint i32 %7, -2147483648
   store i32 %or.i, ptr %ocr, align 4
-  %size = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 17
+  %size = getelementptr inbounds i8, ptr %opaque, i64 328
   %8 = load i64, ptr %size, align 8
   %cmp = icmp ugt i64 %8, 2147483648
   br i1 %cmp, label %if.then4, label %if.end14
@@ -3101,7 +3111,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #17
   br label %_nocheck__trace_sdcard_inquiry_cmd41.exit
@@ -3135,16 +3145,17 @@ declare ptr @sd_cmd_name(i8 noundef zeroext) local_unnamed_addr #1
 define internal fastcc void @sd_function_switch(ptr nocapture noundef %sd, i32 noundef %arg) unnamed_addr #9 {
 entry:
   %tobool = icmp slt i32 %arg, 0
-  %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
   store <8 x i8> <i8 0, i8 1, i8 -128, i8 1, i8 -128, i8 1, i8 -128, i8 1>, ptr %data, align 4
-  %arrayidx17 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 8
+  %arrayidx17 = getelementptr i8, ptr %sd, i64 404
   store <4 x i8> <i8 -128, i8 1, i8 -128, i8 67>, ptr %arrayidx17, align 4
-  %arrayidx25 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 12
+  %arrayidx25 = getelementptr i8, ptr %sd, i64 408
   store i8 -128, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 13
+  %arrayidx27 = getelementptr i8, ptr %sd, i64 409
   store i8 3, ptr %arrayidx27, align 1
-  %arrayidx29 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 14
+  %arrayidx29 = getelementptr i8, ptr %sd, i64 410
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %arrayidx29, i8 0, i64 3, i1 false)
+  %function_group = getelementptr inbounds i8, ptr %sd, i64 372
   br i1 %tobool, label %for.body, label %for.body.us
 
 for.body.us:                                      ; preds = %entry, %for.body.us
@@ -3157,7 +3168,7 @@ for.body.us:                                      ; preds = %entry, %for.body.us
   %shr36.us = lshr i32 %i.026.us, 1
   %sub.us = sub nuw nsw i32 16, %shr36.us
   %idxprom37.us = zext nneg i32 %sub.us to i64
-  %arrayidx38.us = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom37.us
+  %arrayidx38.us = getelementptr [512 x i8], ptr %data, i64 0, i64 %idxprom37.us
   %0 = load i8, ptr %arrayidx38.us, align 1
   %1 = trunc i32 %shl.us to i8
   %conv40.us = or i8 %0, %1
@@ -3177,7 +3188,7 @@ for.body:                                         ; preds = %entry, %if.end
 
 if.then:                                          ; preds = %for.body
   %conv = trunc i32 %and30 to i8
-  %arrayidx33 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 24, i64 %indvars.iv
+  %arrayidx33 = getelementptr [6 x i8], ptr %function_group, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx33, align 1
   br label %if.end
 
@@ -3188,7 +3199,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %shr36 = lshr i32 %3, 1
   %sub = sub nuw nsw i32 16, %shr36
   %idxprom37 = zext nneg i32 %sub to i64
-  %arrayidx38 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 %idxprom37
+  %arrayidx38 = getelementptr [512 x i8], ptr %data, i64 0, i64 %idxprom37
   %4 = load i8, ptr %arrayidx38, align 1
   %5 = trunc i32 %shl to i8
   %conv40 = or i8 %4, %5
@@ -3198,7 +3209,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %exitcond30.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body.us, %if.end
-  %arrayidx42 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 17
+  %arrayidx42 = getelementptr i8, ptr %sd, i64 413
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %arrayidx42, i8 0, i64 47, i1 false)
   ret void
 }
@@ -3208,7 +3219,7 @@ define internal fastcc zeroext i1 @sd_is_spi(ptr noundef %sd) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i, i64 0, i32 12
+  %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %0 = load ptr, ptr %proto.i, align 8
   %cmp = icmp eq ptr %0, @sd_proto_spi
   ret i1 %cmp
@@ -3242,7 +3253,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i16 %length to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i) #17
@@ -3263,10 +3274,10 @@ define internal fastcc i32 @sd_wpbits(ptr nocapture noundef readonly %sd, i64 no
 entry:
   %shr.i = lshr i64 %addr, 21
   %conv = trunc i64 %shr.i to i32
-  %size = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size = getelementptr inbounds i8, ptr %sd, i64 328
   %0 = load i64, ptr %size, align 8
-  %wp_group_bits = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 16
-  %wp_group_bmap = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 15
+  %wp_group_bits = getelementptr inbounds i8, ptr %sd, i64 320
+  %wp_group_bmap = getelementptr inbounds i8, ptr %sd, i64 312
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -3319,10 +3330,10 @@ for.end:                                          ; preds = %for.inc
 define internal fastcc void @sd_erase(ptr noundef %sd) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %erase_start1 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 20
+  %erase_start1 = getelementptr inbounds i8, ptr %sd, i64 344
   %0 = load i32, ptr %erase_start1, align 8
   %conv = zext i32 %0 to i64
-  %erase_end2 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 21
+  %erase_end2 = getelementptr inbounds i8, ptr %sd, i64 348
   %1 = load i32, ptr %erase_end2, align 4
   %conv3 = zext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3349,7 +3360,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %0, i32 noundef %1) #17
   br label %trace_sdcard_erase.exit
@@ -3370,7 +3381,7 @@ lor.lhs.false:                                    ; preds = %trace_sdcard_erase.
   br i1 %cmp9, label %for.end.sink.split, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %ocr = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 2
+  %ocr = getelementptr inbounds i8, ptr %sd, i64 164
   %11 = load i32, ptr %ocr, align 4
   %12 = and i32 %11, 1073741824
   %tobool.not = icmp eq i32 %12, 0
@@ -3378,7 +3389,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %mul14 = shl nuw nsw i64 %conv3, 9
   %erase_end.0 = select i1 %tobool.not, i64 %conv3, i64 %mul14
   %erase_start.0 = select i1 %tobool.not, i64 %conv, i64 %mul
-  %size = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
+  %size = getelementptr inbounds i8, ptr %sd, i64 328
   %13 = load i64, ptr %size, align 8
   %cmp16 = icmp ugt i64 %erase_start.0, %13
   %cmp20 = icmp ugt i64 %erase_end.0, %13
@@ -3388,19 +3399,19 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end27:                                         ; preds = %if.end
   store i32 -1, ptr %erase_start1, align 8
   store i32 -1, ptr %erase_end2, align 4
-  %arrayidx = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
+  %arrayidx = getelementptr i8, ptr %sd, i64 206
   %14 = load i8, ptr %arrayidx, align 2
   %15 = or i8 %14, 64
   store i8 %15, ptr %arrayidx, align 2
-  %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
+  %data = getelementptr inbounds i8, ptr %sd, i64 396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %data, i8 -1, i64 512, i1 false)
   %cmp34.not37 = icmp ugt i64 %erase_start.0, %erase_end.0
   br i1 %cmp34.not37, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end27
-  %wp_group_bits = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 16
-  %wp_group_bmap = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 15
-  %card_status47 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %wp_group_bits = getelementptr inbounds i8, ptr %sd, i64 320
+  %wp_group_bmap = getelementptr inbounds i8, ptr %sd, i64 312
+  %card_status47 = getelementptr inbounds i8, ptr %sd, i64 212
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -3450,7 +3461,7 @@ if.else:                                          ; preds = %for.body.us
 
 for.end.sink.split:                               ; preds = %if.end, %trace_sdcard_erase.exit, %lor.lhs.false
   %.sink42 = phi i32 [ 268435456, %lor.lhs.false ], [ 268435456, %trace_sdcard_erase.exit ], [ -2147483648, %if.end ]
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
   %22 = load i32, ptr %card_status, align 4
   %or24 = or i32 %22, %.sink42
   store i32 %or24, ptr %card_status, align 4
@@ -3468,7 +3479,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @sd_cmd_GO_IDLE_STATE(ptr noundef %sd, i64 %req.coerce0, i8 %req.coerce1) #0 {
 entry:
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3482,7 +3493,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %1 = load ptr, ptr %proto.i.i, align 8
   %cmp.i = icmp eq ptr %1, @sd_proto_spi
   %cond = zext i1 %cmp.i to i32
@@ -3492,7 +3503,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @sd_cmd_SEND_OP_CMD(ptr nocapture noundef writeonly %sd, i64 %req.coerce0, i8 %req.coerce1) #5 {
 entry:
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   store i32 4, ptr %state, align 4
   ret i32 1
 }
@@ -3509,11 +3520,11 @@ if.then:                                          ; preds = %entry
   %req.sroa.0.0.extract.trunc = trunc i64 %req.coerce0 to i32
   %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i, i64 0, i32 12
+  %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %1 = load ptr, ptr %proto.i, align 8
   %2 = load ptr, ptr %1, align 8
   %conv3 = and i32 %req.sroa.0.0.extract.trunc, 255
-  %spec_version = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version = getelementptr inbounds i8, ptr %sd, i64 280
   %3 = load i8, ptr %spec_version, align 8
   %cmp.i2 = icmp ugt i8 %3, 3
   br i1 %cmp.i2, label %sd_version_str.exit, label %if.end.i
@@ -3545,7 +3556,7 @@ if.then:                                          ; preds = %entry
   %req.sroa.0.0.extract.trunc = trunc i64 %req.coerce0 to i32
   %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i, i64 0, i32 12
+  %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %1 = load ptr, ptr %proto.i, align 8
   %2 = load ptr, ptr %1, align 8
   %conv3 = and i32 %req.sroa.0.0.extract.trunc, 255
@@ -3586,7 +3597,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #17
   br label %trace_sdcard_reset.exit
@@ -3597,7 +3608,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sdcard_reset.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %blk = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %call.i, i64 288
   %7 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3613,17 +3624,17 @@ if.end:                                           ; preds = %trace_sdcard_reset.
   %shr.i = lshr i64 %shl, 21
   %add = add nuw nsw i64 %shr.i, 1
   store i64 %add, ptr %sect, align 8
-  %state = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %call.i, i64 300
   store i32 0, ptr %state, align 4
-  %rca = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 6
+  %rca = getelementptr inbounds i8, ptr %call.i, i64 208
   store i16 0, ptr %rca, align 8
-  %size3 = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 17
+  %size3 = getelementptr inbounds i8, ptr %call.i, i64 328
   store i64 %shl, ptr %size3, align 8
-  %ocr.i = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 2
+  %ocr.i = getelementptr inbounds i8, ptr %call.i, i64 164
   store i32 16776960, ptr %ocr.i, align 4
   %call.i.i.i.i = call ptr @object_get_class(ptr noundef nonnull %call.i) #17
   %call1.i.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i.i, i64 0, i32 12
+  %proto.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 264
   %9 = load ptr, ptr %proto.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %9, @sd_proto_spi
   br i1 %cmp.i.i, label %if.then.i, label %sd_set_ocr.exit
@@ -3633,29 +3644,29 @@ if.then.i:                                        ; preds = %if.end
   br label %sd_set_ocr.exit
 
 sd_set_ocr.exit:                                  ; preds = %if.end, %if.then.i
-  %scr.i = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 3
-  %spec_version.i = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 9
+  %scr.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %spec_version.i = getelementptr inbounds i8, ptr %call.i, i64 280
   %10 = load i8, ptr %spec_version.i, align 8
   %cmp.i = icmp eq i8 %10, 1
   %..i = select i1 %cmp.i, i8 1, i8 2
   store i8 %..i, ptr %scr.i, align 8
-  %arrayidx12.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 3, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %call.i, i64 169
   store i8 37, ptr %arrayidx12.i, align 1
-  %arrayidx14.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 3, i64 2
+  %arrayidx14.i = getelementptr i8, ptr %call.i, i64 170
   %cmp17.i = icmp ugt i8 %10, 2
   %spec.store.select.i = select i1 %cmp17.i, i8 -128, i8 0
   store i8 %spec.store.select.i, ptr %arrayidx14.i, align 2
-  %arrayidx27.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 3, i64 3
+  %arrayidx27.i = getelementptr i8, ptr %call.i, i64 171
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx27.i, i8 0, i64 5, i1 false)
-  %cid.i = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 4
+  %cid.i = getelementptr inbounds i8, ptr %call.i, i64 176
   store <8 x i8> <i8 -86, i8 88, i8 89, i8 81, i8 69, i8 77, i8 85, i8 33>, ptr %cid.i, align 8
-  %arrayidx16.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 4, i64 8
+  %arrayidx16.i = getelementptr i8, ptr %call.i, i64 184
   store <4 x i8> <i8 1, i8 -34, i8 -83, i8 -66>, ptr %arrayidx16.i, align 8
-  %arrayidx24.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 4, i64 12
+  %arrayidx24.i = getelementptr i8, ptr %call.i, i64 188
   store i8 -17, ptr %arrayidx24.i, align 4
-  %arrayidx26.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 4, i64 13
+  %arrayidx26.i = getelementptr i8, ptr %call.i, i64 189
   store i8 0, ptr %arrayidx26.i, align 1
-  %arrayidx28.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 4, i64 14
+  %arrayidx28.i = getelementptr i8, ptr %call.i, i64 190
   store i8 98, ptr %arrayidx28.i, align 2
   br label %for.cond2.preheader.i.i
 
@@ -3691,7 +3702,7 @@ for.inc14.i.i:                                    ; preds = %for.body5.i.i
 sd_set_cid.exit:                                  ; preds = %for.inc14.i.i
   %shl.i = shl i8 %spec.select.i.i, 1
   %or.i = or disjoint i8 %shl.i, 1
-  %arrayidx32.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 4, i64 15
+  %arrayidx32.i = getelementptr i8, ptr %call.i, i64 191
   store i8 %or.i, ptr %arrayidx32.i, align 1
   %cmp2.i = icmp ult i64 %shl, 2147483649
   br i1 %cmp2.i, label %if.then4.i, label %if.else.i
@@ -3742,35 +3753,35 @@ if.end98.i:                                       ; preds = %if.else.i, %if.then
   %.sink48.i = phi i8 [ -1, %if.then4.i ], [ -128, %if.else.i ]
   %.sink47.i = phi i8 [ -110, %if.then4.i ], [ 10, %if.else.i ]
   %.sink.i = phi i8 [ %conv54.i, %if.then4.i ], [ 64, %if.else.i ]
-  %19 = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 5
+  %19 = getelementptr inbounds i8, ptr %call.i, i64 192
   store i8 %.sink66, ptr %19, align 8
-  %20 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 1
+  %20 = getelementptr i8, ptr %call.i, i64 193
   store i8 %.sink65, ptr %20, align 1
-  %21 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 2
+  %21 = getelementptr i8, ptr %call.i, i64 194
   store i8 0, ptr %21, align 2
-  %22 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 3
+  %22 = getelementptr i8, ptr %call.i, i64 195
   store i8 50, ptr %22, align 1
-  %23 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 4
+  %23 = getelementptr i8, ptr %call.i, i64 196
   store i8 %.sink64, ptr %23, align 4
-  %24 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 5
+  %24 = getelementptr i8, ptr %call.i, i64 197
   store i8 %.sink63, ptr %24, align 1
-  %25 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 6
+  %25 = getelementptr i8, ptr %call.i, i64 198
   store i8 %.sink, ptr %25, align 2
-  %26 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 7
+  %26 = getelementptr i8, ptr %call.i, i64 199
   store i8 %conv76.i.sink, ptr %26, align 1
-  %27 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 8
+  %27 = getelementptr i8, ptr %call.i, i64 200
   store i8 %conv81.i.sink, ptr %27, align 8
-  %28 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 9
+  %28 = getelementptr i8, ptr %call.i, i64 201
   store i8 %conv85.sink.i, ptr %28, align 1
-  %29 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 10
+  %29 = getelementptr i8, ptr %call.i, i64 202
   store i8 %.sink49.i, ptr %29, align 2
-  %30 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 11
+  %30 = getelementptr i8, ptr %call.i, i64 203
   store i8 %.sink48.i, ptr %30, align 1
-  %31 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 12
+  %31 = getelementptr i8, ptr %call.i, i64 204
   store i8 %.sink47.i, ptr %31, align 4
-  %32 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 13
+  %32 = getelementptr i8, ptr %call.i, i64 205
   store i8 %.sink.i, ptr %32, align 1
-  %33 = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 14
+  %33 = getelementptr i8, ptr %call.i, i64 206
   store i8 0, ptr %33, align 2
   br label %for.cond2.preheader.i.i32
 
@@ -3806,13 +3817,13 @@ for.inc14.i.i49:                                  ; preds = %for.body5.i.i37
 sd_set_csd.exit:                                  ; preds = %for.inc14.i.i49
   %shl101.i = shl i8 %spec.select.i.i46, 1
   %or102.i = or disjoint i8 %shl101.i, 1
-  %arrayidx105.i = getelementptr %struct.SDState, ptr %call.i, i64 0, i32 5, i64 15
+  %arrayidx105.i = getelementptr i8, ptr %call.i, i64 207
   store i8 %or102.i, ptr %arrayidx105.i, align 1
-  %card_status.i = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 7
+  %card_status.i = getelementptr inbounds i8, ptr %call.i, i64 212
   store i32 256, ptr %card_status.i, align 4
-  %sd_status.i = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 8
+  %sd_status.i = getelementptr inbounds i8, ptr %call.i, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sd_status.i, i8 0, i64 64, i1 false)
-  %wp_group_bmap = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 15
+  %wp_group_bmap = getelementptr inbounds i8, ptr %call.i, i64 312
   %36 = load ptr, ptr %wp_group_bmap, align 8
   call void @g_free(ptr noundef %36) #17
   %37 = load ptr, ptr %blk, align 8
@@ -3827,11 +3838,11 @@ cond.true:                                        ; preds = %sd_set_csd.exit
 
 cond.end:                                         ; preds = %sd_set_csd.exit, %cond.true
   %cond = phi i8 [ %38, %cond.true ], [ 0, %sd_set_csd.exit ]
-  %wp_switch = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 14
+  %wp_switch = getelementptr inbounds i8, ptr %call.i, i64 308
   store i8 %cond, ptr %wp_switch, align 4
   %39 = load i64, ptr %sect, align 8
   %conv = trunc i64 %39 to i32
-  %wp_group_bits = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 16
+  %wp_group_bits = getelementptr inbounds i8, ptr %call.i, i64 320
   store i32 %conv, ptr %wp_group_bits, align 8
   %sext = shl i64 %39, 32
   %conv10 = ashr exact i64 %sext, 32
@@ -3848,23 +3859,23 @@ if.then.i62:                                      ; preds = %cond.end
 
 bitmap_new.exit:                                  ; preds = %cond.end
   store ptr %call.i.i, ptr %wp_group_bmap, align 8
-  %function_group = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 24
+  %function_group = getelementptr inbounds i8, ptr %call.i, i64 372
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %function_group, i8 0, i64 6, i1 false)
-  %erase_start = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 20
+  %erase_start = getelementptr inbounds i8, ptr %call.i, i64 344
   store i32 -1, ptr %erase_start, align 8
-  %erase_end = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 21
+  %erase_end = getelementptr inbounds i8, ptr %call.i, i64 348
   store i32 -1, ptr %erase_end, align 4
-  %blk_len = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 18
+  %blk_len = getelementptr inbounds i8, ptr %call.i, i64 336
   store i32 512, ptr %blk_len, align 8
-  %pwd_len = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 23
+  %pwd_len = getelementptr inbounds i8, ptr %call.i, i64 368
   store i32 0, ptr %pwd_len, align 8
-  %expecting_acmd = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 26
+  %expecting_acmd = getelementptr inbounds i8, ptr %call.i, i64 379
   store i8 0, ptr %expecting_acmd, align 1
-  %dat_lines = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 35
+  %dat_lines = getelementptr inbounds i8, ptr %call.i, i64 937
   store i8 15, ptr %dat_lines, align 1
-  %cmd_line = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 36
+  %cmd_line = getelementptr inbounds i8, ptr %call.i, i64 938
   store i8 1, ptr %cmd_line, align 2
-  %multi_blk_cnt = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 19
+  %multi_blk_cnt = getelementptr inbounds i8, ptr %call.i, i64 340
   store i32 0, ptr %multi_blk_cnt, align 4
   ret void
 }
@@ -3913,13 +3924,13 @@ entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
-  %blk.i = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 10
+  %blk.i = getelementptr inbounds i8, ptr %opaque, i64 288
   %0 = load ptr, ptr %blk.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %sd_get_inserted.exit.thread, label %sd_get_inserted.exit
 
 sd_get_inserted.exit.thread:                      ; preds = %entry
-  %wp_switch.i30 = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 14
+  %wp_switch.i30 = getelementptr inbounds i8, ptr %opaque, i64 308
   %1 = load i8, ptr %wp_switch.i30, align 4
   %2 = and i8 %1, 1
   %tobool.i31 = icmp ne i8 %2, 0
@@ -3927,7 +3938,7 @@ sd_get_inserted.exit.thread:                      ; preds = %entry
 
 sd_get_inserted.exit:                             ; preds = %entry
   %call.i14 = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #17
-  %wp_switch.i = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 14
+  %wp_switch.i = getelementptr inbounds i8, ptr %opaque, i64 308
   %3 = load i8, ptr %wp_switch.i, align 4
   %4 = and i8 %3, 1
   %tobool.i = icmp ne i8 %4, 0
@@ -3958,7 +3969,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext nneg i8 %4 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv12.i.i) #17
@@ -4000,7 +4011,7 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i22
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #17
   %call10.i.i26 = tail call i32 @qemu_get_thread_id() #17
   %17 = load i64, ptr %_now.i.i15, align 8
-  %tv_usec.i.i27 = getelementptr inbounds %struct.timeval, ptr %_now.i.i15, i64 0, i32 1
+  %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %18 = load i64, ptr %tv_usec.i.i27, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i26, i64 noundef %17, i64 noundef %18) #17
   br label %trace_sdcard_ejected.exit
@@ -4016,21 +4027,21 @@ trace_sdcard_ejected.exit:                        ; preds = %if.else, %land.lhs.
 if.end:                                           ; preds = %trace_sdcard_ejected.exit, %trace_sdcard_inserted.exit
   %tobool.i32 = phi i1 [ %tobool.i33, %trace_sdcard_ejected.exit ], [ %tobool.i, %trace_sdcard_inserted.exit ]
   %19 = phi i1 [ false, %trace_sdcard_ejected.exit ], [ true, %trace_sdcard_inserted.exit ]
-  %me_no_qdev_me_kill_mammoth_with_rocks = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 1
+  %me_no_qdev_me_kill_mammoth_with_rocks = getelementptr inbounds i8, ptr %opaque, i64 160
   %20 = load i8, ptr %me_no_qdev_me_kill_mammoth_with_rocks, align 8
   %21 = and i8 %20, 1
   %tobool6.not = icmp eq i8 %21, 0
   br i1 %tobool6.not, label %if.else14, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %inserted_cb = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 32
+  %inserted_cb = getelementptr inbounds i8, ptr %opaque, i64 920
   %22 = load ptr, ptr %inserted_cb, align 8
   %conv = zext i1 %19 to i32
   tail call void @qemu_set_irq(ptr noundef %22, i32 noundef %conv) #17
   br i1 %19, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.then7
-  %readonly_cb = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 31
+  %readonly_cb = getelementptr inbounds i8, ptr %opaque, i64 912
   %23 = load ptr, ptr %readonly_cb, align 8
   %conv12 = zext i1 %tobool.i32 to i32
   tail call void @qemu_set_irq(ptr noundef %23, i32 noundef %conv12) #17
@@ -4053,7 +4064,7 @@ if.end22:                                         ; preds = %if.else14, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @sd_get_inserted(ptr nocapture noundef readonly %sd) #0 {
 entry:
-  %blk = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 10
+  %blk = getelementptr inbounds i8, ptr %sd, i64 288
   %0 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -4070,7 +4081,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sd_get_readonly(ptr nocapture noundef readonly %sd) #11 {
 entry:
-  %wp_switch = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 14
+  %wp_switch = getelementptr inbounds i8, ptr %sd, i64 308
   %0 = load i8, ptr %wp_switch, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -4089,11 +4100,11 @@ declare void @type_register_static_array(ptr noundef, i32 noundef) local_unnamed
 define internal void @sd_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
-  %enable = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 34
+  %enable = getelementptr inbounds i8, ptr %call.i, i64 936
   store i8 1, ptr %enable, align 8
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #21
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @sd_ocr_powerup, ptr noundef %call.i) #17
-  %ocr_power_timer = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 33
+  %ocr_power_timer = getelementptr inbounds i8, ptr %call.i, i64 928
   store ptr %call.i.i.i, ptr %ocr_power_timer, align 8
   ret void
 }
@@ -4102,7 +4113,7 @@ entry:
 define internal void @sd_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
-  %ocr_power_timer = getelementptr inbounds %struct.SDState, ptr %call.i, i64 0, i32 33
+  %ocr_power_timer = getelementptr inbounds i8, ptr %call.i, i64 928
   %0 = load ptr, ptr %ocr_power_timer, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -4121,42 +4132,42 @@ define internal void @sd_class_init(ptr noundef %klass, ptr nocapture readnone %
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #17
   %call.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #17
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sd_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sd_properties) #17
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @sd_vmstate, ptr %vmsd, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sd_reset, ptr %reset, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str.100, ptr %bus_type, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %set_voltage = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 6
+  %set_voltage = getelementptr inbounds i8, ptr %call.i18, i64 216
   store ptr @sd_set_voltage, ptr %set_voltage, align 8
-  %get_dat_lines = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 7
+  %get_dat_lines = getelementptr inbounds i8, ptr %call.i18, i64 224
   store ptr @sd_get_dat_lines, ptr %get_dat_lines, align 8
-  %get_cmd_line = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 8
+  %get_cmd_line = getelementptr inbounds i8, ptr %call.i18, i64 232
   store ptr @sd_get_cmd_line, ptr %get_cmd_line, align 8
-  %do_command = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 1
+  %do_command = getelementptr inbounds i8, ptr %call.i18, i64 176
   store ptr @sd_do_command, ptr %do_command, align 8
-  %write_byte = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 2
+  %write_byte = getelementptr inbounds i8, ptr %call.i18, i64 184
   store ptr @sd_write_byte, ptr %write_byte, align 8
-  %read_byte = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 3
+  %read_byte = getelementptr inbounds i8, ptr %call.i18, i64 192
   store ptr @sd_read_byte, ptr %read_byte, align 8
-  %receive_ready = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 4
+  %receive_ready = getelementptr inbounds i8, ptr %call.i18, i64 200
   store ptr @sd_receive_ready, ptr %receive_ready, align 8
-  %data_ready = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 5
+  %data_ready = getelementptr inbounds i8, ptr %call.i18, i64 208
   store ptr @sd_data_ready, ptr %data_ready, align 8
-  %enable = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 9
+  %enable = getelementptr inbounds i8, ptr %call.i18, i64 240
   store ptr @sd_enable, ptr %enable, align 8
-  %get_inserted = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 10
+  %get_inserted = getelementptr inbounds i8, ptr %call.i18, i64 248
   store ptr @sd_get_inserted, ptr %get_inserted, align 8
-  %get_readonly = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 11
+  %get_readonly = getelementptr inbounds i8, ptr %call.i18, i64 256
   store ptr @sd_get_readonly, ptr %get_readonly, align 8
-  %proto = getelementptr inbounds %struct.SDCardClass, ptr %call.i18, i64 0, i32 12
+  %proto = getelementptr inbounds i8, ptr %call.i18, i64 264
   store ptr @sd_proto_sd, ptr %proto, align 8
   ret void
 }
@@ -4166,9 +4177,9 @@ define internal void @sd_spi_class_init(ptr noundef %klass, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #17
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #17
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.135, ptr %desc, align 8
-  %proto = getelementptr inbounds %struct.SDCardClass, ptr %call.i2, i64 0, i32 12
+  %proto = getelementptr inbounds i8, ptr %call.i2, i64 264
   store ptr @sd_proto_spi, ptr %proto, align 8
   ret void
 }
@@ -4208,7 +4219,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %millivolts to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i) #17
@@ -4246,14 +4257,14 @@ sw.epilog:                                        ; preds = %if.then, %do.body, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i8 @sd_get_dat_lines(ptr nocapture noundef readonly %sd) #11 {
 entry:
-  %enable = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 34
+  %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %0 = load i8, ptr %enable, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %dat_lines = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 35
+  %dat_lines = getelementptr inbounds i8, ptr %sd, i64 937
   %2 = load i8, ptr %dat_lines, align 1
   br label %cond.end
 
@@ -4265,14 +4276,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sd_get_cmd_line(ptr nocapture noundef readonly %sd) #11 {
 entry:
-  %enable = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 34
+  %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %0 = load i8, ptr %enable, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %cmd_line = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 36
+  %cmd_line = getelementptr inbounds i8, ptr %sd, i64 938
   %2 = load i8, ptr %cmd_line, align 2
   %3 = and i8 %2, 1
   %4 = icmp ne i8 %3, 0
@@ -4286,7 +4297,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sd_receive_ready(ptr nocapture noundef readonly %sd) #11 {
 entry:
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
   %cmp = icmp eq i32 %0, 6
   ret i1 %cmp
@@ -4295,7 +4306,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sd_data_ready(ptr nocapture noundef readonly %sd) #11 {
 entry:
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
   %cmp = icmp eq i32 %0, 5
   ret i1 %cmp
@@ -4311,7 +4322,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sd_ocr_vmstate_needed(ptr nocapture noundef readonly %opaque) #11 {
 entry:
-  %ocr = getelementptr inbounds %struct.SDState, ptr %opaque, i64 0, i32 2
+  %ocr = getelementptr inbounds i8, ptr %opaque, i64 164
   %0 = load i32, ptr %ocr, align 4
   %tobool.not = icmp sgt i32 %0, -1
   ret i1 %tobool.not
@@ -4320,7 +4331,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @sd_cmd_ALL_SEND_CID(ptr noundef %sd, i64 %req.coerce0, i8 %req.coerce1) #0 {
 entry:
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4335,7 +4346,7 @@ if.then.i:                                        ; preds = %if.then
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %2 = load ptr, ptr %proto.i.i, align 8
   %3 = load ptr, ptr %2, align 8
   %conv3.i = and i32 %req.sroa.0.0.extract.trunc.i, 255
@@ -4359,7 +4370,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 sd_state_name.exit.i:                             ; preds = %if.end4.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %5, %if.end4.i.i ], [ @.str.28, %if.then.i ]
-  %spec_version.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version.i = getelementptr inbounds i8, ptr %sd, i64 280
   %6 = load i8, ptr %spec_version.i, align 8
   %cmp.i4.i = icmp ugt i8 %6, 3
   br i1 %cmp.i4.i, label %sd_version_str.exit.i, label %if.end.i5.i
@@ -4387,7 +4398,7 @@ return:                                           ; preds = %sd_version_str.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @sd_cmd_SEND_RELATIVE_ADDR(ptr noundef %sd, i64 %req.coerce0, i8 %req.coerce1) #0 {
 entry:
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
   %1 = and i32 %0, -2
   %switch = icmp eq i32 %1, 2
@@ -4395,7 +4406,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   store i32 3, ptr %state, align 4
-  %rca.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 6
+  %rca.i = getelementptr inbounds i8, ptr %sd, i64 208
   %2 = load i16, ptr %rca.i, align 8
   %add.i = add i16 %2, 17767
   store i16 %add.i, ptr %rca.i, align 8
@@ -4411,7 +4422,7 @@ if.then.i:                                        ; preds = %sw.default
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %4 = load ptr, ptr %proto.i.i, align 8
   %5 = load ptr, ptr %4, align 8
   %conv3.i = and i32 %req.sroa.0.0.extract.trunc.i, 255
@@ -4435,7 +4446,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 sd_state_name.exit.i:                             ; preds = %if.end4.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %7, %if.end4.i.i ], [ @.str.28, %if.then.i ]
-  %spec_version.i = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version.i = getelementptr inbounds i8, ptr %sd, i64 280
   %8 = load i8, ptr %spec_version.i, align 8
   %cmp.i4.i = icmp ugt i8 %8, 3
   br i1 %cmp.i4.i, label %sd_version_str.exit.i, label %if.end.i5.i
@@ -4459,7 +4470,7 @@ return:                                           ; preds = %sd_version_str.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @sd_cmd_SEND_TUNING_BLOCK(ptr noundef %sd, i64 %req.coerce0, i8 %req.coerce1) #0 {
 entry:
-  %spec_version = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version = getelementptr inbounds i8, ptr %sd, i64 280
   %0 = load i8, ptr %spec_version, align 8
   %cmp = icmp ult i8 %0, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -4474,7 +4485,7 @@ if.then.i:                                        ; preds = %if.then
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %2 = load ptr, ptr %proto.i.i, align 8
   %3 = load ptr, ptr %2, align 8
   %conv3.i = and i32 %req.sroa.0.0.extract.trunc.i, 255
@@ -4494,7 +4505,7 @@ sd_version_str.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %return
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %6 = load i32, ptr %state, align 4
   %cmp2.not = icmp eq i32 %6, 4
   br i1 %cmp2.not, label %if.end7, label %if.then4
@@ -4509,7 +4520,7 @@ if.then.i10:                                      ; preds = %if.then4
   %req.sroa.0.0.extract.trunc.i11 = trunc i64 %req.coerce0 to i32
   %call.i.i.i12 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i14 = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i13, i64 0, i32 12
+  %proto.i.i14 = getelementptr inbounds i8, ptr %call1.i.i.i13, i64 264
   %8 = load ptr, ptr %proto.i.i14, align 8
   %9 = load ptr, ptr %8, align 8
   %conv3.i15 = and i32 %req.sroa.0.0.extract.trunc.i11, 255
@@ -4550,7 +4561,7 @@ sd_version_str.exit.i21:                          ; preds = %if.end.i5.i, %sd_st
 
 if.end7:                                          ; preds = %if.end
   store i32 5, ptr %state, align 4
-  %data_offset = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 29
+  %data_offset = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset, align 8
   br label %return
 
@@ -4564,7 +4575,7 @@ define internal i32 @sd_cmd_SET_BLOCK_COUNT(ptr noundef %sd, i64 %req.coerce0, i
 entry:
   %req.sroa.3.0.extract.shift = lshr i64 %req.coerce0, 32
   %req.sroa.3.0.extract.trunc = trunc i64 %req.sroa.3.0.extract.shift to i32
-  %spec_version = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 9
+  %spec_version = getelementptr inbounds i8, ptr %sd, i64 280
   %0 = load i8, ptr %spec_version, align 8
   %cmp = icmp ult i8 %0, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -4579,7 +4590,7 @@ if.then.i:                                        ; preds = %if.then
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i, i64 0, i32 12
+  %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %2 = load ptr, ptr %proto.i.i, align 8
   %3 = load ptr, ptr %2, align 8
   %conv3.i = and i32 %req.sroa.0.0.extract.trunc.i, 255
@@ -4599,7 +4610,7 @@ sd_version_str.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %return
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 12
+  %state = getelementptr inbounds i8, ptr %sd, i64 300
   %6 = load i32, ptr %state, align 4
   %cmp2.not = icmp eq i32 %6, 4
   br i1 %cmp2.not, label %if.end7, label %if.then4
@@ -4614,7 +4625,7 @@ if.then.i15:                                      ; preds = %if.then4
   %req.sroa.0.0.extract.trunc.i16 = trunc i64 %req.coerce0 to i32
   %call.i.i.i17 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
-  %proto.i.i19 = getelementptr inbounds %struct.SDCardClass, ptr %call1.i.i.i18, i64 0, i32 12
+  %proto.i.i19 = getelementptr inbounds i8, ptr %call1.i.i.i18, i64 264
   %8 = load ptr, ptr %proto.i.i19, align 8
   %9 = load ptr, ptr %8, align 8
   %conv3.i20 = and i32 %req.sroa.0.0.extract.trunc.i16, 255
@@ -4654,7 +4665,7 @@ sd_version_str.exit.i26:                          ; preds = %if.end.i5.i, %sd_st
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %multi_blk_cnt = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 19
+  %multi_blk_cnt = getelementptr inbounds i8, ptr %sd, i64 340
   store i32 %req.sroa.3.0.extract.trunc, ptr %multi_blk_cnt, align 4
   br label %return
 

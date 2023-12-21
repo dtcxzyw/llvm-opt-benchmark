@@ -6,179 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
 %"class.node::crypto::ArrayBufferOrViewContents" = type { i8, i64, i64, ptr }
-%"class.v8::FunctionCallbackInfo" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.39", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.64", %"class.std::unordered_set", %"class.std::unique_ptr.88", %"class.std::unique_ptr.96", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.108", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.116", %"class.std::shared_ptr.119", %"class.std::vector.122", %"class.std::vector.122", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.39", %"class.node::AliasedBufferBase.29", i32, %"class.std::unique_ptr.127", %"class.node::AliasedBufferBase.39", i64, double, i64, %"class.std::unique_ptr.135", i8, i64, i64, %"class.std::unordered_set.143", %"class.std::unique_ptr.163", i8, %"class.std::__cxx11::list.171", %"class.node::ListHead", %"class.node::ListHead.176", %"class.std::__cxx11::list.178", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.183", %"class.std::__cxx11::list.188", %"class.node::MutexBase", %"class.std::__cxx11::list.193", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.208", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.226", %"class.std::function", %"class.std::unique_ptr.241", %"class.node::builtins::BuiltinLoader", %"class.std::function.255", %"class.std::unordered_map.257" }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.26, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.26 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.27, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.27 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.25, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.25 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.28, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.28 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.29", %"class.node::AliasedBufferBase", %"class.v8::Global.32", %"class.std::vector", ptr, %"struct.std::array" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global", ptr }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.v8::Global.32" = type { %"class.v8::PersistentBase.33" }
-%"class.v8::PersistentBase.33" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [4 x %"class.v8::Global.37"] }
-%"class.v8::Global.37" = type { %"class.v8::PersistentBase.38" }
-%"class.v8::PersistentBase.38" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.29" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.42" }
-%"class.node::AliasedBufferBase.42" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.43", ptr }
-%"class.v8::Global.43" = type { %"class.v8::PersistentBase.44" }
-%"class.v8::PersistentBase.44" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.45" }
-%"class.std::_Hashtable.45" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.64" = type { %"struct.std::_Vector_base.65" }
-%"struct.std::_Vector_base.65" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.69" }
-%"class.std::_Hashtable.69" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.88" = type { %"struct.std::__uniq_ptr_data.89" }
-%"struct.std::__uniq_ptr_data.89" = type { %"class.std::__uniq_ptr_impl.90" }
-%"class.std::__uniq_ptr_impl.90" = type { %"class.std::tuple.91" }
-%"class.std::tuple.91" = type { %"struct.std::_Tuple_impl.92" }
-%"struct.std::_Tuple_impl.92" = type { %"struct.std::_Head_base.95" }
-%"struct.std::_Head_base.95" = type { ptr }
-%"class.std::unique_ptr.96" = type { %"struct.std::__uniq_ptr_data.97" }
-%"struct.std::__uniq_ptr_data.97" = type { %"class.std::__uniq_ptr_impl.98" }
-%"class.std::__uniq_ptr_impl.98" = type { %"class.std::tuple.99" }
-%"class.std::tuple.99" = type { %"struct.std::_Tuple_impl.100" }
-%"struct.std::_Tuple_impl.100" = type { %"struct.std::_Head_base.103" }
-%"struct.std::_Head_base.103" = type { ptr }
-%"class.std::unique_ptr.108" = type { %"struct.std::__uniq_ptr_data.109" }
-%"struct.std::__uniq_ptr_data.109" = type { %"class.std::__uniq_ptr_impl.110" }
-%"class.std::__uniq_ptr_impl.110" = type { %"class.std::tuple.111" }
-%"class.std::tuple.111" = type { %"struct.std::_Tuple_impl.112" }
-%"struct.std::_Tuple_impl.112" = type { %"struct.std::_Head_base.115" }
-%"struct.std::_Head_base.115" = type { ptr }
-%"class.std::shared_ptr.116" = type { %"class.std::__shared_ptr.117" }
-%"class.std::__shared_ptr.117" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.119" = type { %"class.std::__shared_ptr.120" }
-%"class.std::__shared_ptr.120" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.122" = type { %"struct.std::_Vector_base.123" }
-%"struct.std::_Vector_base.123" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.107 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.107 = type { i64, [8 x i8] }
-%"class.node::AliasedBufferBase.29" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.30", ptr }
-%"class.v8::Global.30" = type { %"class.v8::PersistentBase.31" }
-%"class.v8::PersistentBase.31" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.127" = type { %"struct.std::__uniq_ptr_data.128" }
-%"struct.std::__uniq_ptr_data.128" = type { %"class.std::__uniq_ptr_impl.129" }
-%"class.std::__uniq_ptr_impl.129" = type { %"class.std::tuple.130" }
-%"class.std::tuple.130" = type { %"struct.std::_Tuple_impl.131" }
-%"struct.std::_Tuple_impl.131" = type { %"struct.std::_Head_base.134" }
-%"struct.std::_Head_base.134" = type { ptr }
-%"class.node::AliasedBufferBase.39" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.40", ptr }
-%"class.v8::Global.40" = type { %"class.v8::PersistentBase.41" }
-%"class.v8::PersistentBase.41" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
-%"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
-%"class.std::__uniq_ptr_impl.137" = type { %"class.std::tuple.138" }
-%"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
-%"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.142" }
-%"struct.std::_Head_base.142" = type { ptr }
-%"class.std::unordered_set.143" = type { %"class.std::_Hashtable.144" }
-%"class.std::_Hashtable.144" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.163" = type { %"struct.std::__uniq_ptr_data.164" }
-%"struct.std::__uniq_ptr_data.164" = type { %"class.std::__uniq_ptr_impl.165" }
-%"class.std::__uniq_ptr_impl.165" = type { %"class.std::tuple.166" }
-%"class.std::tuple.166" = type { %"struct.std::_Tuple_impl.167" }
-%"struct.std::_Tuple_impl.167" = type { %"struct.std::_Head_base.170" }
-%"struct.std::_Head_base.170" = type { ptr }
-%"class.std::__cxx11::list.171" = type { %"class.std::__cxx11::_List_base.172" }
-%"class.std::__cxx11::_List_base.172" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.176" = type { %"class.node::ListNode.177" }
-%"class.node::ListNode.177" = type { ptr, ptr }
-%"class.std::__cxx11::list.178" = type { %"class.std::__cxx11::_List_base.179" }
-%"class.std::__cxx11::_List_base.179" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.183" = type { %"struct.std::_Vector_base.184" }
-%"struct.std::_Vector_base.184" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.188" = type { %"class.std::__cxx11::_List_base.189" }
-%"class.std::__cxx11::_List_base.189" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.193" = type { %"class.std::__cxx11::_List_base.194" }
-%"class.std::__cxx11::_List_base.194" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.198", %"class.std::unique_ptr.200", ptr }
-%"struct.std::atomic.198" = type { %"struct.std::__atomic_base.199" }
-%"struct.std::__atomic_base.199" = type { i64 }
-%"class.std::unique_ptr.200" = type { %"struct.std::__uniq_ptr_data.201" }
-%"struct.std::__uniq_ptr_data.201" = type { %"class.std::__uniq_ptr_impl.202" }
-%"class.std::__uniq_ptr_impl.202" = type { %"class.std::tuple.203" }
-%"class.std::tuple.203" = type { %"struct.std::_Tuple_impl.204" }
-%"struct.std::_Tuple_impl.204" = type { %"struct.std::_Head_base.207" }
-%"struct.std::_Head_base.207" = type { ptr }
-%"struct.std::atomic.208" = type { %"struct.std::__atomic_base.209" }
-%"struct.std::__atomic_base.209" = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set.210", i64 }
-%"class.std::unordered_set.210" = type { %"class.std::_Hashtable.211" }
-%"class.std::_Hashtable.211" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.226" = type { %"class.std::_Hashtable.227" }
-%"class.std::_Hashtable.227" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.241" = type { %"struct.std::__uniq_ptr_data.242" }
-%"struct.std::__uniq_ptr_data.242" = type { %"class.std::__uniq_ptr_impl.243" }
-%"class.std::__uniq_ptr_impl.243" = type { %"class.std::tuple.244" }
-%"class.std::tuple.244" = type { %"struct.std::_Tuple_impl.245" }
-%"struct.std::_Tuple_impl.245" = type { %"struct.std::_Head_base.248" }
-%"struct.std::_Head_base.248" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.252" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.249" }
-%"class.std::shared_ptr.249" = type { %"class.std::__shared_ptr.250" }
-%"class.std::__shared_ptr.250" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.252" = type { %"class.std::__shared_ptr.253" }
-%"class.std::__shared_ptr.253" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.255" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.257" = type { %"class.std::_Hashtable.258" }
-%"class.std::_Hashtable.258" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.node::crypto::ByteSource" = type { ptr, ptr, i64 }
 %"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
 %"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
@@ -186,12 +13,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
 %"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
 %"struct.std::_Head_base.17" = type { ptr }
-%struct.Netscape_spkac_st = type { ptr, ptr }
-%"class.node::ExternalReferenceRegistry" = type { i8, %"class.std::vector.281" }
-%"class.std::vector.281" = type { %"struct.std::_Vector_base.282" }
-%"struct.std::_Vector_base.282" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.107 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.107 = type { i64, [8 x i8] }
 %"class.std::allocator.104" = type { i8 }
 
 $_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE = comdat any
@@ -238,12 +62,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %input) local_unnamed_addr #3 {
 entry:
-  %length_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %input, i64 16
   %0 = load i64, ptr %length_.i, align 8
   %cmp.i = icmp eq i64 %0, 0
-  %data_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %input, i64 24
   %1 = load ptr, ptr %data_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 1
+  %offset_.i = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %2
   %retval.0.i = select i1 %cmp.i, ptr %input, ptr %add.ptr.i
@@ -286,7 +110,7 @@ define dso_local void @_ZN4node6crypto5SPKAC11VerifySpkacERKN2v820FunctionCallba
 entry:
   %input = alloca %"class.node::crypto::ArrayBufferOrViewContents", align 8
   %0 = load ptr, ptr %args, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %cmp.i.i.i.i = icmp eq ptr %call1.i, null
@@ -319,14 +143,14 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %length_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %12, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %13 = load ptr, ptr %args, align 8
-  %arrayidx.i37 = getelementptr inbounds i64, ptr %13, i64 1
+  %arrayidx.i37 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %arrayidx.i37, align 8
   %15 = ptrtoint ptr %14 to i64
   %add1.i = add i64 %15, 608
@@ -334,22 +158,22 @@ if.then.i:                                        ; preds = %_ZN4node11Environme
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-  %values_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   call void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr %retval.i.sroa.0.0)
-  %length_.i9 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 2
+  %length_.i9 = getelementptr inbounds i8, ptr %input, i64 16
   %18 = load i64, ptr %length_.i9, align 8
   %cmp = icmp eq i64 %18, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %19 = load ptr, ptr %args, align 8
-  %arrayidx.i25 = getelementptr inbounds i64, ptr %19, i64 3
-  %arrayidx.i89 = getelementptr inbounds i64, ptr %19, i64 1
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %19, i64 24
+  %arrayidx.i89 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %arrayidx.i89, align 8
   %21 = ptrtoint ptr %20 to i64
   %add1.i.i83 = add i64 %21, 648
@@ -363,7 +187,7 @@ if.end:                                           ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp.i, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %24 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str)
   %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr %call.i.i) #15
@@ -371,10 +195,10 @@ if.then13:                                        ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end
   %25 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %25, i64 3
-  %data_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %25, i64 24
+  %data_.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %26 = load ptr, ptr %data_.i.i, align 8
-  %offset_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 1
+  %offset_.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %27 = load i64, ptr %offset_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 %27
   %conv.i = trunc i64 %18 to i32
@@ -404,7 +228,7 @@ _ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit: ;
 
 _ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread: ; preds = %_ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit, %if.end14, %_ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread16
   %add.i.i = phi i64 [ 640, %_ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread16 ], [ 640, %if.end14 ], [ %30, %_ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit ]
-  %arrayidx.i86 = getelementptr inbounds i64, ptr %25, i64 1
+  %arrayidx.i86 = getelementptr inbounds i8, ptr %25, i64 8
   %31 = load ptr, ptr %arrayidx.i86, align 8
   %32 = ptrtoint ptr %31 to i64
   %add1.i.i = add i64 %add.i.i, %32
@@ -421,9 +245,9 @@ return:                                           ; preds = %_ZN4node6crypto5SPK
 define linkonce_odr dso_local void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %buf.coerce) unnamed_addr #3 comdat align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %offset_ = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %this, i64 0, i32 1
-  %length_ = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %this, i64 0, i32 2
-  %data_ = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %this, i64 0, i32 3
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 8
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i = icmp eq ptr %buf.coerce, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %offset_, i8 0, i64 24, i1 false)
   br i1 %cmp.i, label %if.end63, label %do.body
@@ -499,12 +323,12 @@ cleanup20.thread:                                 ; preds = %entry
   br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
 
 if.end:                                           ; preds = %entry
-  %length_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %input, i64 16
   %0 = load i64, ptr %length_.i, align 8
   %cmp.i2 = icmp eq i64 %0, 0
-  %data_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %input, i64 24
   %1 = load ptr, ptr %data_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 1
+  %offset_.i = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %2
   %retval.0.i = select i1 %cmp.i2, ptr %input, ptr %add.ptr.i
@@ -577,7 +401,7 @@ entry:
   %input = alloca %"class.node::crypto::ArrayBufferOrViewContents", align 8
   %pkey = alloca %"class.node::crypto::ByteSource", align 8
   %0 = load ptr, ptr %args, align 8
-  %arrayidx.i.i15 = getelementptr inbounds i64, ptr %0, i64 1
+  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i15, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %cmp.i.i.i.i = icmp eq ptr %call1.i, null
@@ -610,14 +434,14 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %length_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %12, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %13 = load ptr, ptr %args, align 8
-  %arrayidx.i73 = getelementptr inbounds i64, ptr %13, i64 1
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %arrayidx.i73, align 8
   %15 = ptrtoint ptr %14 to i64
   %add1.i = add i64 %15, 608
@@ -625,22 +449,22 @@ if.then.i:                                        ; preds = %_ZN4node11Environme
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-  %values_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   call void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr %retval.i.sroa.0.0)
-  %length_.i16 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 2
+  %length_.i16 = getelementptr inbounds i8, ptr %input, i64 16
   %18 = load i64, ptr %length_.i16, align 8
   %cmp = icmp eq i64 %18, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %19 = load ptr, ptr %args, align 8
-  %arrayidx.i52 = getelementptr inbounds i64, ptr %19, i64 3
-  %arrayidx.i133 = getelementptr inbounds i64, ptr %19, i64 1
+  %arrayidx.i52 = getelementptr inbounds i8, ptr %19, i64 24
+  %arrayidx.i133 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %arrayidx.i133, align 8
   %21 = ptrtoint ptr %20 to i64
   %add1.i.i = add i64 %21, 648
@@ -654,7 +478,7 @@ if.end:                                           ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp.i, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %24 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str)
   %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr %call.i.i) #15
@@ -665,7 +489,7 @@ if.end14:                                         ; preds = %if.end
   %25 = load ptr, ptr %pkey, align 8
   %cmp.i17.not = icmp eq ptr %25, null
   %26 = load ptr, ptr %args, align 8
-  %arrayidx.i48 = getelementptr inbounds i64, ptr %26, i64 3
+  %arrayidx.i48 = getelementptr inbounds i8, ptr %26, i64 24
   br i1 %cmp.i17.not, label %cleanup.sink.split, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
@@ -675,7 +499,7 @@ if.end20:                                         ; preds = %if.end14
 
 cleanup.sink.split:                               ; preds = %if.end20, %if.end14
   %.sink18 = phi i64 [ 648, %if.end14 ], [ 616, %if.end20 ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %26, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %arrayidx.i.i, align 8
   %28 = ptrtoint ptr %27 to i64
   %add1.i.i.i = add i64 %.sink18, %28
@@ -702,12 +526,12 @@ declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 derefe
 define dso_local void @_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE(ptr noalias sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input) local_unnamed_addr #3 {
 entry:
   %buf = alloca ptr, align 8
-  %length_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %input, i64 16
   %0 = load i64, ptr %length_.i, align 8
   %cmp.i = icmp eq i64 %0, 0
-  %data_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %input, i64 24
   %1 = load ptr, ptr %data_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 1
+  %offset_.i = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %2
   %retval.0.i = select i1 %cmp.i, ptr %input, ptr %add.ptr.i
@@ -719,7 +543,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr null, ptr %buf, align 8
   %3 = load ptr, ptr %call2, align 8
-  %challenge = getelementptr inbounds %struct.Netscape_spkac_st, ptr %3, i64 0, i32 1
+  %challenge = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %challenge, align 8
   %call5 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %buf, ptr noundef %4) #15
   %cmp = icmp sgt i32 %call5, -1
@@ -758,7 +582,7 @@ entry:
   %input = alloca %"class.node::crypto::ArrayBufferOrViewContents", align 8
   %cert = alloca %"class.node::crypto::ByteSource", align 8
   %0 = load ptr, ptr %args, align 8
-  %arrayidx.i.i14 = getelementptr inbounds i64, ptr %0, i64 1
+  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i14, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %cmp.i.i.i.i = icmp eq ptr %call1.i, null
@@ -791,14 +615,14 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %length_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %12, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %13 = load ptr, ptr %args, align 8
-  %arrayidx.i59 = getelementptr inbounds i64, ptr %13, i64 1
+  %arrayidx.i59 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %arrayidx.i59, align 8
   %15 = ptrtoint ptr %14 to i64
   %add1.i = add i64 %15, 608
@@ -806,22 +630,22 @@ if.then.i:                                        ; preds = %_ZN4node11Environme
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-  %values_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   call void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr %retval.i.sroa.0.0)
-  %length_.i15 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 2
+  %length_.i15 = getelementptr inbounds i8, ptr %input, i64 16
   %18 = load i64, ptr %length_.i15, align 8
   %cmp = icmp eq i64 %18, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %19 = load ptr, ptr %args, align 8
-  %arrayidx.i45 = getelementptr inbounds i64, ptr %19, i64 3
-  %arrayidx.i115 = getelementptr inbounds i64, ptr %19, i64 1
+  %arrayidx.i45 = getelementptr inbounds i8, ptr %19, i64 24
+  %arrayidx.i115 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %arrayidx.i115, align 8
   %21 = ptrtoint ptr %20 to i64
   %add1.i.i = add i64 %21, 648
@@ -835,7 +659,7 @@ if.end:                                           ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp.i, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %24 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str)
   %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr %call.i.i) #15
@@ -844,9 +668,9 @@ if.then13:                                        ; preds = %if.end
 if.end14:                                         ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  %data_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 3
+  %data_.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %25 = load ptr, ptr %data_.i.i, align 8, !noalias !5
-  %offset_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %input, i64 0, i32 1
+  %offset_.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %26 = load i64, ptr %offset_.i.i, align 8, !noalias !5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 %26
   %conv.i = trunc i64 %18 to i32
@@ -857,7 +681,7 @@ if.end14:                                         ; preds = %if.end
 if.end.i18:                                       ; preds = %if.end14
   store ptr null, ptr %buf.i, align 8, !noalias !5
   %27 = load ptr, ptr %call2.i, align 8, !noalias !5
-  %challenge.i = getelementptr inbounds %struct.Netscape_spkac_st, ptr %27, i64 0, i32 1
+  %challenge.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %challenge.i, align 8, !noalias !5
   %call5.i = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %buf.i, ptr noundef %28) #15, !noalias !5
   %cmp.i19 = icmp sgt i32 %call5.i, -1
@@ -887,17 +711,17 @@ _ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exi
 
 if.then16:                                        ; preds = %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread, %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit
   %30 = load ptr, ptr %args, align 8
-  %arrayidx.i41 = getelementptr inbounds i64, ptr %30, i64 3
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %30, i64 24
   br label %cleanup.sink.split
 
 if.end20:                                         ; preds = %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %31 = load ptr, ptr %isolate_.i, align 8
-  %size_.i = getelementptr inbounds %"class.node::crypto::ByteSource", ptr %cert, i64 0, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %cert, i64 16
   %32 = load i64, ptr %size_.i, align 8
   %call24 = call ptr @_ZN4node6EncodeEPN2v87IsolateEPKcmNS_8encodingE(ptr noundef %31, ptr noundef nonnull %.pr, i64 noundef %32, i32 noundef 6) #15
   %33 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %33, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %33, i64 24
   %cmp.i62 = icmp eq ptr %call24, null
   br i1 %cmp.i62, label %cleanup.sink.split, label %cleanup
 
@@ -905,7 +729,7 @@ cleanup.sink.split:                               ; preds = %if.end20, %if.then1
   %.sink = phi ptr [ %30, %if.then16 ], [ %33, %if.end20 ]
   %.sink22 = phi i64 [ 648, %if.then16 ], [ 616, %if.end20 ]
   %arrayidx.i.sink.ph = phi ptr [ %arrayidx.i41, %if.then16 ], [ %arrayidx.i, %if.end20 ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %.sink, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
   %34 = load ptr, ptr %arrayidx.i.i, align 8
   %35 = ptrtoint ptr %34 to i64
   %add1.i.i.i = add i64 %.sink22, %35
@@ -929,10 +753,10 @@ declare ptr @_ZN4node6EncodeEPN2v87IsolateEPKcmNS_8encodingE(ptr noundef, ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto5SPKAC10InitializeEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE(ptr nocapture noundef readonly %env, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call ptr %1(ptr noundef nonnull align 8 dereferenceable(872) %0) #15
   tail call void @_ZN4node21SetMethodNoSideEffectEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr %call2.i, ptr %target.coerce, i64 15, ptr nonnull @.str.1, ptr noundef nonnull @_ZN4node6crypto5SPKAC11VerifySpkacERKN2v820FunctionCallbackInfoINS2_5ValueEEE) #15
@@ -946,10 +770,10 @@ declare void @_ZN4node21SetMethodNoSideEffectEN2v85LocalINS0_7ContextEEENS1_INS0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto5SPKAC26RegisterExternalReferencesEPNS_25ExternalReferenceRegistryE(ptr nocapture noundef %registry) local_unnamed_addr #3 {
 entry:
-  %external_references_.i.i = getelementptr inbounds %"class.node::ExternalReferenceRegistry", ptr %registry, i64 0, i32 1
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.node::ExternalReferenceRegistry", ptr %registry, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %external_references_.i.i = getelementptr inbounds i8, ptr %registry, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %registry, i64 16
   %0 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.node::ExternalReferenceRegistry", ptr %registry, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %registry, i64 24
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
@@ -957,7 +781,7 @@ entry:
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 ptrtoint (ptr @_ZN4node6crypto5SPKAC11VerifySpkacERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %.pre = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
@@ -1002,7 +826,7 @@ if.then.i.i.i12.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i
 
 _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i, label %if.then.i21.i.i.i.i.i
 
@@ -1026,7 +850,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 if.then.i.i.i.i7:                                 ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
   store i64 ptrtoint (ptr @_ZN4node6crypto5SPKAC15ExportPublicKeyERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %5, align 8
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i8 = getelementptr inbounds i64, ptr %6, i64 1
+  %incdec.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i.i.i.i8, ptr %_M_finish.i.i.i.i, align 8
   %.pre75 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit38
@@ -1071,7 +895,7 @@ if.then.i.i.i12.i.i.i.i.i36:                      ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i30
 
 _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i30: ; preds = %if.then.i.i.i12.i.i.i.i.i36, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i26
-  %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i28, i64 1
+  %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i28, i64 8
   %tobool.not.i.i.i.i.i.i32 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i32, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i34, label %if.then.i21.i.i.i.i.i33
 
@@ -1095,7 +919,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 if.then.i.i.i.i43:                                ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit38
   store i64 ptrtoint (ptr @_ZN4node6crypto5SPKAC15ExportChallengeERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %9, align 8
   %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i44 = getelementptr inbounds i64, ptr %10, i64 1
+  %incdec.ptr.i.i.i.i44 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i.i.i44, ptr %_M_finish.i.i.i.i, align 8
   br label %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit74
 
@@ -1139,7 +963,7 @@ if.then.i.i.i12.i.i.i.i.i72:                      ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i66
 
 _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i66: ; preds = %if.then.i.i.i12.i.i.i.i.i72, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i62
-  %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i64, i64 1
+  %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i64, i64 8
   %tobool.not.i.i.i.i.i.i68 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i68, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i70, label %if.then.i21.i.i.i.i.i69
 
@@ -1327,7 +1151,7 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp11, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 2

@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [4 x i8] c"obj\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"input=DER\00", align 1
@@ -78,13 +77,13 @@ if.end8:                                          ; preds = %if.then7, %if.end
 if.then.i:                                        ; preds = %if.end8
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %objtype.addr.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 1
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
+  %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i64, ptr %1, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.5, ptr noundef %2, i64 noundef %3) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %params.i, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
   %call.i = call i32 %data_cb(ptr noundef nonnull %params.i, ptr noundef %data_cbarg) #5
@@ -163,7 +162,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
 
 if.end5:                                          ; preds = %lor.lhs.false
   %call6 = tail call i32 @ERR_set_mark() #5
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %data, align 8
   %call7 = tail call i32 @BIO_read(ptr noundef nonnull %call, ptr noundef %0, i32 noundef 16) #5
   %cmp9 = icmp eq i32 %call7, 16
@@ -228,12 +227,12 @@ if.then.i:                                        ; preds = %next
   store i32 2, ptr %objtype.addr.i, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %objtype.addr.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
   %6 = load ptr, ptr %data, align 8
   %7 = load i64, ptr %call1, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.5, ptr noundef %6, i64 noundef %7) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %params.i, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
   %call.i = call i32 %data_cb(ptr noundef nonnull %params.i, ptr noundef %data_cbarg) #5
@@ -309,7 +308,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
 
 if.end5:                                          ; preds = %lor.lhs.false
   %call6 = tail call i32 @ERR_set_mark() #5
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %data, align 8
   %call7 = tail call i32 @BIO_read(ptr noundef nonnull %call, ptr noundef %0, i32 noundef 24) #5
   %cmp9 = icmp eq i32 %call7, 24
@@ -373,12 +372,12 @@ if.then.i:                                        ; preds = %next
   store i32 2, ptr %objtype.addr.i, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %objtype.addr.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
   %5 = load ptr, ptr %data, align 8
   %6 = load i64, ptr %call1, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.5, ptr noundef %5, i64 noundef %6) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %params.i, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
   %call.i = call i32 %data_cb(ptr noundef nonnull %params.i, ptr noundef %data_cbarg) #5

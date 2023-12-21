@@ -545,9 +545,9 @@ for.cond.i:                                       ; preds = %for.inc.i, %entry
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i
-  %arg0.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %2 = load i64, ptr %arg0.i, align 8
-  %arg1.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg1.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %3 = load i64, ptr %arg1.i, align 8
   %call5.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %conn_rxfc.i, ptr noundef null, i64 noundef %2, i64 noundef %3, ptr noundef nonnull @fake_now, ptr noundef null) #7
   %cmp6.i = icmp ne i32 %call5.i, 0
@@ -557,7 +557,7 @@ sw.bb.i:                                          ; preds = %for.cond.i
   br i1 %tobool.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb9.i:                                         ; preds = %for.cond.i
-  %stream_idx.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %4 = load i64, ptr %stream_idx.i, align 8
   %call10.i = call i32 @test_size_t_lt(ptr noundef nonnull @.str.2, i32 noundef 501, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %4, i64 noundef 3) #7
   %tobool11.not.i = icmp eq i32 %call10.i, 0
@@ -573,9 +573,9 @@ lor.lhs.false.i:                                  ; preds = %sw.bb9.i
 if.end17.i:                                       ; preds = %lor.lhs.false.i
   %5 = load i64, ptr %stream_idx.i, align 8
   %arrayidx.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %5
-  %arg019.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg019.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %6 = load i64, ptr %arg019.i, align 8
-  %arg120.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg120.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %7 = load i64, ptr %arg120.i, align 8
   %call21.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %arrayidx.i, ptr noundef nonnull %conn_rxfc.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @fake_now, ptr noundef null) #7
   %cmp22.i = icmp ne i32 %call21.i, 0
@@ -595,7 +595,7 @@ sw.bb30.i:                                        ; preds = %for.cond.i
   br i1 %tobool31.not.i, label %land.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb30.i
-  %stream_idx32.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx32.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %9 = load i64, ptr %stream_idx32.i, align 8
   %cmp33.i = icmp ult i64 %9, 3
   br i1 %cmp33.i, label %land.rhs.i, label %land.end.i
@@ -614,12 +614,12 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
   br i1 %tobool42.not.i, label %run_rxfc_script.exit, label %if.end44.i
 
 if.end44.i:                                       ; preds = %land.end.i
-  %stream_idx45.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx45.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %12 = load i64, ptr %stream_idx45.i, align 8
   %arrayidx46.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %12
-  %arg047.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg047.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %13 = load i64, ptr %arg047.i, align 8
-  %arg148.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg148.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %14 = load i64, ptr %arg148.i, align 8
   %conv49.i = trunc i64 %14 to i32
   %call50.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %arrayidx46.i, i64 noundef %13, i32 noundef %conv49.i) #7
@@ -634,7 +634,7 @@ sw.bb57.i:                                        ; preds = %for.cond.i
   br i1 %tobool58.not.i, label %land.end68.i, label %land.lhs.true59.i
 
 land.lhs.true59.i:                                ; preds = %sw.bb57.i
-  %stream_idx60.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx60.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %15 = load i64, ptr %stream_idx60.i, align 8
   %cmp61.i = icmp ult i64 %15, 3
   br i1 %cmp61.i, label %land.rhs63.i, label %land.end68.i
@@ -653,15 +653,15 @@ land.end68.i:                                     ; preds = %land.rhs63.i, %land
   br i1 %tobool73.not.i, label %run_rxfc_script.exit, label %if.end75.i
 
 if.end75.i:                                       ; preds = %land.end68.i
-  %stream_idx76.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx76.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %18 = load i64, ptr %stream_idx76.i, align 8
   %arrayidx77.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %18
-  %arg078.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg078.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %19 = load i64, ptr %arg078.i, align 8
-  %arg179.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg179.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %20 = load i64, ptr %arg179.i, align 8
   %call83.i = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %arrayidx77.i, i64 noundef %19, i64 %20) #7
-  %expect_fail.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 4
+  %expect_fail.i = getelementptr inbounds i8, ptr %op.0.i, i64 32
   %21 = load i8, ptr %expect_fail.i, align 8
   %tobool84.not.i = icmp eq i8 %21, 0
   %lnot.ext.i = zext i1 %tobool84.not.i to i32
@@ -678,14 +678,14 @@ sw.bb89.i:                                        ; preds = %for.cond.i
 
 if.end95.i:                                       ; preds = %sw.bb89.i
   %call96.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %conn_rxfc.i) #7
-  %arg097.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg097.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %22 = load i64, ptr %arg097.i, align 8
   %call98.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 542, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %call96.i, i64 noundef %22) #7
   %tobool99.not.i = icmp eq i32 %call98.i, 0
   br i1 %tobool99.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb102.i:                                       ; preds = %for.cond.i
-  %stream_idx103.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx103.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %23 = load i64, ptr %stream_idx103.i, align 8
   %cmp104.i = icmp ult i64 %23, 3
   br i1 %cmp104.i, label %land.rhs106.i, label %land.end111.i
@@ -707,7 +707,7 @@ if.end118.i:                                      ; preds = %land.end111.i
   %26 = load i64, ptr %stream_idx103.i, align 8
   %arrayidx120.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %26
   %call121.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %arrayidx120.i) #7
-  %arg0122.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0122.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %27 = load i64, ptr %arg0122.i, align 8
   %call123.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 550, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, i64 noundef %call121.i, i64 noundef %27) #7
   %tobool124.not.i = icmp eq i32 %call123.i, 0
@@ -722,14 +722,14 @@ sw.bb127.i:                                       ; preds = %for.cond.i
 
 if.end133.i:                                      ; preds = %sw.bb127.i
   %call134.i = call i64 @ossl_quic_rxfc_get_swm(ptr noundef nonnull %conn_rxfc.i) #7
-  %arg0135.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0135.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %28 = load i64, ptr %arg0135.i, align 8
   %call136.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.45, i64 noundef %call134.i, i64 noundef %28) #7
   %tobool137.not.i = icmp eq i32 %call136.i, 0
   br i1 %tobool137.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb140.i:                                       ; preds = %for.cond.i
-  %stream_idx141.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx141.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %29 = load i64, ptr %stream_idx141.i, align 8
   %cmp142.i = icmp ult i64 %29, 3
   br i1 %cmp142.i, label %land.rhs144.i, label %land.end149.i
@@ -751,7 +751,7 @@ if.end156.i:                                      ; preds = %land.end149.i
   %32 = load i64, ptr %stream_idx141.i, align 8
   %arrayidx158.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %32
   %call159.i = call i64 @ossl_quic_rxfc_get_swm(ptr noundef nonnull %arrayidx158.i) #7
-  %arg0160.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0160.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %33 = load i64, ptr %arg0160.i, align 8
   %call161.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 565, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.45, i64 noundef %call159.i, i64 noundef %33) #7
   %tobool162.not.i = icmp eq i32 %call161.i, 0
@@ -766,14 +766,14 @@ sw.bb165.i:                                       ; preds = %for.cond.i
 
 if.end171.i:                                      ; preds = %sw.bb165.i
   %call172.i = call i64 @ossl_quic_rxfc_get_rwm(ptr noundef nonnull %conn_rxfc.i) #7
-  %arg0173.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0173.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %34 = load i64, ptr %arg0173.i, align 8
   %call174.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 572, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.45, i64 noundef %call172.i, i64 noundef %34) #7
   %tobool175.not.i = icmp eq i32 %call174.i, 0
   br i1 %tobool175.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb178.i:                                       ; preds = %for.cond.i
-  %stream_idx179.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx179.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %35 = load i64, ptr %stream_idx179.i, align 8
   %cmp180.i = icmp ult i64 %35, 3
   br i1 %cmp180.i, label %land.rhs182.i, label %land.end187.i
@@ -795,7 +795,7 @@ if.end194.i:                                      ; preds = %land.end187.i
   %38 = load i64, ptr %stream_idx179.i, align 8
   %arrayidx196.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %38
   %call197.i = call i64 @ossl_quic_rxfc_get_rwm(ptr noundef nonnull %arrayidx196.i) #7
-  %arg0198.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0198.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %39 = load i64, ptr %arg0198.i, align 8
   %call199.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 580, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.45, i64 noundef %call197.i, i64 noundef %39) #7
   %tobool200.not.i = icmp eq i32 %call199.i, 0
@@ -809,11 +809,11 @@ sw.bb203.i:                                       ; preds = %for.cond.i
   br i1 %tobool207.not.i, label %run_rxfc_script.exit, label %if.end209.i
 
 if.end209.i:                                      ; preds = %sw.bb203.i
-  %arg1210.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg1210.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %40 = load i64, ptr %arg1210.i, align 8
   %conv211.i = trunc i64 %40 to i32
   %call212.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %conn_rxfc.i, i32 noundef %conv211.i) #7
-  %arg0213.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0213.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %41 = load i64, ptr %arg0213.i, align 8
   %conv214.i = trunc i64 %41 to i32
   %call215.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef %call212.i, i32 noundef %conv214.i) #7
@@ -821,7 +821,7 @@ if.end209.i:                                      ; preds = %sw.bb203.i
   br i1 %tobool216.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb219.i:                                       ; preds = %for.cond.i
-  %stream_idx220.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx220.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %42 = load i64, ptr %stream_idx220.i, align 8
   %cmp221.i = icmp ult i64 %42, 3
   br i1 %cmp221.i, label %land.rhs223.i, label %land.end228.i
@@ -842,11 +842,11 @@ land.end228.i:                                    ; preds = %land.rhs223.i, %sw.
 if.end235.i:                                      ; preds = %land.end228.i
   %45 = load i64, ptr %stream_idx220.i, align 8
   %arrayidx237.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %45
-  %arg1238.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg1238.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %46 = load i64, ptr %arg1238.i, align 8
   %conv239.i = trunc i64 %46 to i32
   %call240.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %arrayidx237.i, i32 noundef %conv239.i) #7
-  %arg0241.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0241.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %47 = load i64, ptr %arg0241.i, align 8
   %conv242.i = trunc i64 %47 to i32
   %call243.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 597, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef %call240.i, i32 noundef %conv242.i) #7
@@ -861,11 +861,11 @@ sw.bb247.i:                                       ; preds = %for.cond.i
   br i1 %tobool251.not.i, label %run_rxfc_script.exit, label %if.end253.i
 
 if.end253.i:                                      ; preds = %sw.bb247.i
-  %arg1254.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg1254.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %48 = load i64, ptr %arg1254.i, align 8
   %conv255.i = trunc i64 %48 to i32
   %call256.i = call i32 @ossl_quic_rxfc_get_error(ptr noundef nonnull %conn_rxfc.i, i32 noundef %conv255.i) #7
-  %arg0257.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0257.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %49 = load i64, ptr %arg0257.i, align 8
   %conv258.i = trunc i64 %49 to i32
   %call259.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 605, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef %call256.i, i32 noundef %conv258.i) #7
@@ -873,7 +873,7 @@ if.end253.i:                                      ; preds = %sw.bb247.i
   br i1 %tobool260.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb263.i:                                       ; preds = %for.cond.i
-  %stream_idx264.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 1
+  %stream_idx264.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %50 = load i64, ptr %stream_idx264.i, align 8
   %cmp265.i = icmp ult i64 %50, 3
   br i1 %cmp265.i, label %land.rhs267.i, label %land.end272.i
@@ -894,11 +894,11 @@ land.end272.i:                                    ; preds = %land.rhs267.i, %sw.
 if.end279.i:                                      ; preds = %land.end272.i
   %53 = load i64, ptr %stream_idx264.i, align 8
   %arrayidx281.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %53
-  %arg1282.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 3
+  %arg1282.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
   %54 = load i64, ptr %arg1282.i, align 8
   %conv283.i = trunc i64 %54 to i32
   %call284.i = call i32 @ossl_quic_rxfc_get_error(ptr noundef nonnull %arrayidx281.i, i32 noundef %conv283.i) #7
-  %arg0285.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0285.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %55 = load i64, ptr %arg0285.i, align 8
   %conv286.i = trunc i64 %55 to i32
   %call287.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 614, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.53, i32 noundef %call284.i, i32 noundef %conv286.i) #7
@@ -906,7 +906,7 @@ if.end279.i:                                      ; preds = %land.end272.i
   br i1 %tobool288.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb291.i:                                       ; preds = %for.cond.i
-  %arg0294.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 2
+  %arg0294.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %56 = load i64, ptr %arg0294.i, align 8
   %57 = load i64, ptr @cur_time.0, align 8
   %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %57, i64 %56)
@@ -915,14 +915,14 @@ sw.bb291.i:                                       ; preds = %for.cond.i
 
 sw.bb300.i:                                       ; preds = %for.cond.i
   %58 = load ptr, ptr @stderr, align 8
-  %msg.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %op.0.i, i64 40
   %59 = load ptr, ptr %msg.i, align 8
   %call301.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.57, ptr noundef %59) #8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb300.i, %sw.bb291.i, %if.end279.i, %if.end253.i, %if.end235.i, %if.end209.i, %if.end194.i, %if.end171.i, %if.end156.i, %if.end133.i, %if.end118.i, %if.end95.i, %if.end75.i, %if.end44.i, %if.end27.i, %sw.bb.i
   %conn_init_done.1.i = phi i32 [ %conn_init_done.0.i, %sw.bb300.i ], [ %conn_init_done.0.i, %sw.bb291.i ], [ %conn_init_done.0.i, %if.end279.i ], [ %conn_init_done.0.i, %if.end253.i ], [ %conn_init_done.0.i, %if.end235.i ], [ %conn_init_done.0.i, %if.end209.i ], [ %conn_init_done.0.i, %if.end194.i ], [ %conn_init_done.0.i, %if.end171.i ], [ %conn_init_done.0.i, %if.end156.i ], [ %conn_init_done.0.i, %if.end133.i ], [ %conn_init_done.0.i, %if.end118.i ], [ %conn_init_done.0.i, %if.end95.i ], [ %conn_init_done.0.i, %if.end75.i ], [ %conn_init_done.0.i, %if.end44.i ], [ %conn_init_done.0.i, %if.end27.i ], [ 1, %sw.bb.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.rx_test_op, ptr %op.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %op.0.i, i64 48
   br label %for.cond.i, !llvm.loop !5
 
 run_rxfc_script.exit.loopexit:                    ; preds = %for.cond.i

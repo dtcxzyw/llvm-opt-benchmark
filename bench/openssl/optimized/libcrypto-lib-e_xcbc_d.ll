@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.DESX_CBC_KEY = type { %struct.DES_ks, [8 x i8], [8 x i8] }
-%struct.DES_ks = type { [16 x %union.anon] }
-%union.anon = type { [2 x i32] }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, ptr, i32, i32, i64, ptr, i32, i32, [32 x i8], ptr, ptr }
 
 @d_xcbc_cipher = internal constant %struct.evp_cipher_st { i32 80, i32 8, i32 24, i32 8, i64 2, i32 1, ptr @desx_cbc_init_key, ptr @desx_cbc_cipher, ptr null, i32 144, ptr @EVP_CIPHER_set_asn1_iv, ptr @EVP_CIPHER_get_asn1_iv, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
@@ -24,12 +20,12 @@ entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef %call) #3
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %inw = getelementptr inbounds %struct.DESX_CBC_KEY, ptr %call1, i64 0, i32 1
+  %inw = getelementptr inbounds i8, ptr %call1, i64 128
   %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i64, ptr %arrayidx2, align 1
   store i64 %0, ptr %inw, align 4
   %call3 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %outw = getelementptr inbounds %struct.DESX_CBC_KEY, ptr %call3, i64 0, i32 2
+  %outw = getelementptr inbounds i8, ptr %call3, i64 136
   %arrayidx5 = getelementptr inbounds i8, ptr %key, i64 16
   %1 = load i64, ptr %arrayidx5, align 1
   store i64 %1, ptr %outw, align 4
@@ -43,7 +39,7 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -52,9 +48,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %out.addr.018 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr4, %while.body ]
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %inw = getelementptr inbounds %struct.DESX_CBC_KEY, ptr %call1, i64 0, i32 1
+  %inw = getelementptr inbounds i8, ptr %call1, i64 128
   %call2 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %outw = getelementptr inbounds %struct.DESX_CBC_KEY, ptr %call2, i64 0, i32 2
+  %outw = getelementptr inbounds i8, ptr %call2, i64 136
   %call3 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
   tail call void @DES_xcbc_encrypt(ptr noundef %in.addr.019, ptr noundef %out.addr.018, i64 noundef 1073741824, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %inw, ptr noundef nonnull %outw, i32 noundef %call3) #3
   %sub = add i64 %inl.addr.020, -1073741824
@@ -72,11 +68,11 @@ while.end:                                        ; preds = %while.body, %entry
 
 if.then:                                          ; preds = %while.end
   %call5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %iv7 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv7 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call9 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %inw10 = getelementptr inbounds %struct.DESX_CBC_KEY, ptr %call9, i64 0, i32 1
+  %inw10 = getelementptr inbounds i8, ptr %call9, i64 128
   %call11 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %outw12 = getelementptr inbounds %struct.DESX_CBC_KEY, ptr %call11, i64 0, i32 2
+  %outw12 = getelementptr inbounds i8, ptr %call11, i64 136
   %call13 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
   tail call void @DES_xcbc_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call5, ptr noundef nonnull %iv7, ptr noundef nonnull %inw10, ptr noundef nonnull %outw12, i32 noundef %call13) #3
   br label %if.end

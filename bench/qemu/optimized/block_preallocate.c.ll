@@ -8,33 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.12 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
-%struct.BDRVReopenState = type { ptr, i32, i32, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.2, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.3, %union.anon.4, i32, [16 x %struct.anon.5], ptr, %struct.anon.6, ptr, ptr, %struct.anon.7, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.8, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.9, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.anon.8 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.9 = type { ptr }
-%struct.CoQueue = type { %struct.anon.10 }
-%struct.anon.10 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.11, %struct.anon.11, i32, i32, ptr }
-%struct.anon.11 = type { ptr }
-%struct.BDRVPreallocateState = type { %struct.PreallocateOpts, i64, i64, i64, ptr }
-%struct.PreallocateOpts = type { i64, i64 }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.BdrvChild = type { ptr, ptr, ptr, i32, ptr, i64, i64, i8, i8, %struct.anon.0, %struct.anon.1 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
 
 @bdrv_preallocate_filter = internal global %struct.BlockDriver { ptr @.str, i32 48, i8 1, i8 0, i8 0, i8 0, i8 0, i8 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @preallocate_reopen_prepare, ptr @preallocate_reopen_commit, ptr null, ptr @preallocate_reopen_abort, ptr null, ptr @preallocate_open, ptr null, ptr @preallocate_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @preallocate_set_perm, ptr null, ptr @preallocate_child_perm, ptr null, ptr null, %struct.anon zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @preallocate_co_preadv_part, ptr null, ptr null, ptr @preallocate_co_pwritev_part, ptr @preallocate_co_pwrite_zeroes, ptr @preallocate_co_pdiscard, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @preallocate_co_flush, ptr null, ptr null, ptr null, ptr @preallocate_co_truncate, ptr @preallocate_co_getlength, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"preallocate\00", align 1
@@ -110,10 +84,10 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %options = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 6
+  %options = getelementptr inbounds i8, ptr %reopen_state, i64 40
   %0 = load ptr, ptr %options, align 8
   %1 = load ptr, ptr %reopen_state, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %1, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %2, align 8
   %call4 = tail call fastcc zeroext i1 @preallocate_absorb_opts(ptr noundef %call, ptr noundef %0, ptr noundef %3, ptr noundef %errp)
@@ -124,7 +98,7 @@ if.then5:                                         ; preds = %do.end
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end6:                                          ; preds = %do.end
-  %flags = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %reopen_state, i64 8
   %4 = load i32, ptr %flags, align 8
   %and = and i32 %4, 2
   %cmp = icmp eq i32 %and, 0
@@ -132,9 +106,9 @@ if.end6:                                          ; preds = %do.end
 
 if.then7:                                         ; preds = %if.end6
   %5 = load ptr, ptr %reopen_state, align 8
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %5, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %opaque.i, align 8
-  %data_end.i = getelementptr inbounds %struct.BDRVPreallocateState, ptr %6, i64 0, i32 1
+  %data_end.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %data_end.i, align 8
   %cmp.i = icmp slt i64 %7, 0
   br i1 %cmp.i, label %if.end13, label %if.end.i
@@ -145,12 +119,12 @@ if.end.i:                                         ; preds = %if.then7
   br i1 %cmp1.i, label %if.then11, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %zero_start.i = getelementptr inbounds %struct.BDRVPreallocateState, ptr %6, i64 0, i32 2
+  %zero_start.i = getelementptr inbounds i8, ptr %6, i64 24
   store i64 -22, ptr %zero_start.i, align 8
-  %file_end.i = getelementptr inbounds %struct.BDRVPreallocateState, ptr %6, i64 0, i32 3
+  %file_end.i = getelementptr inbounds i8, ptr %6, i64 32
   store i64 -22, ptr %file_end.i, align 8
   store i64 -22, ptr %data_end.i, align 8
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %5, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %5, i64 16840
   %8 = load ptr, ptr %file.i, align 8
   %call5.i = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %5, ptr noundef %8, ptr noundef null) #6
   br label %if.end13
@@ -160,7 +134,7 @@ if.then11:                                        ; preds = %if.end.i
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end13:                                         ; preds = %if.then7, %if.end3.i, %if.end6
-  %opaque = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 8
+  %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
   store ptr %call, ptr %opaque, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -174,9 +148,9 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end13, %if.then1
 define internal void @preallocate_reopen_commit(ptr nocapture noundef %state) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %opaque1 = getelementptr inbounds %struct.BDRVReopenState, ptr %state, i64 0, i32 8
+  %opaque1 = getelementptr inbounds i8, ptr %state, i64 56
   %2 = load ptr, ptr %opaque1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %3 = load ptr, ptr %opaque1, align 8
@@ -188,7 +162,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @preallocate_reopen_abort(ptr nocapture noundef %state) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BDRVReopenState, ptr %state, i64 0, i32 8
+  %opaque = getelementptr inbounds i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque, align 8
   tail call void @g_free(ptr noundef %0) #6
   store ptr null, ptr %opaque, align 8
@@ -198,7 +172,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @preallocate_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call, label %do.end, label %if.else
@@ -208,14 +182,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   store i64 -22, ptr %data_end, align 8
-  %zero_start = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start = getelementptr inbounds i8, ptr %0, i64 24
   store i64 -22, ptr %zero_start, align 8
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %0, i64 32
   store i64 -22, ptr %file_end, align 8
   %call1 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @preallocate_drop_resize_bh, ptr noundef nonnull %bs, ptr noundef nonnull @.str.12, ptr noundef null) #6
-  %drop_resize_bh = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 4
+  %drop_resize_bh = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %call1, ptr %drop_resize_bh, align 8
   %call2 = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.13, ptr noundef nonnull %bs, ptr noundef %errp) #6
   %cmp = icmp slt i32 %call2, 0
@@ -223,7 +197,7 @@ do.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %do.end
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call7 = tail call fastcc zeroext i1 @preallocate_absorb_opts(ptr noundef nonnull %0, ptr noundef %options, ptr noundef %2, ptr noundef %errp)
@@ -232,18 +206,18 @@ if.end4:                                          ; preds = %do.end
 if.end9:                                          ; preds = %if.end4
   %3 = load ptr, ptr %file, align 8
   %4 = load ptr, ptr %3, align 8
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %4, i64 16588
   %5 = load i32, ptr %supported_write_flags, align 4
   %and = and i32 %5, 16
   %or = or disjoint i32 %and, 64
-  %supported_write_flags12 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 19
+  %supported_write_flags12 = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags12, align 4
   %6 = load ptr, ptr %3, align 8
-  %supported_zero_flags = getelementptr inbounds %struct.BlockDriverState, ptr %6, i64 0, i32 20
+  %supported_zero_flags = getelementptr inbounds i8, ptr %6, i64 16592
   %7 = load i32, ptr %supported_zero_flags, align 8
   %and15 = and i32 %7, 276
   %or16 = or disjoint i32 %and15, 64
-  %supported_zero_flags17 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags17 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or16, ptr %supported_zero_flags17, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -260,7 +234,7 @@ return:                                           ; preds = %do.end, %glib_autop
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @preallocate_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call, label %do.end, label %if.else
@@ -271,12 +245,12 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %drop_resize_bh = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 4
+  %drop_resize_bh = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %drop_resize_bh, align 8
   tail call void @qemu_bh_cancel(ptr noundef %1) #6
   %2 = load ptr, ptr %drop_resize_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %2) #6
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %data_end, align 8
   %cmp = icmp sgt i64 %3, -1
   br i1 %cmp, label %if.then3, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -293,31 +267,31 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then3, %do.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @preallocate_set_perm(ptr nocapture noundef readonly %bs, i64 noundef %perm, i64 %shared) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = and i64 %perm, 10
   %2 = icmp eq i64 %1, 10
-  %drop_resize_bh = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 4
+  %drop_resize_bh = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %drop_resize_bh, align 8
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   tail call void @qemu_bh_cancel(ptr noundef %3) #6
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %data_end, align 8
   %cmp = icmp slt i64 %4, 0
   br i1 %cmp, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.then
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %5 = load ptr, ptr %file, align 8
   %6 = load ptr, ptr %5, align 8
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %6, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %6, i64 16888
   %7 = load i64, ptr %total_sectors, align 8
   %mul = shl i64 %7, 9
-  %zero_start = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %mul, ptr %zero_start, align 8
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %mul, ptr %file_end, align 8
   store i64 %mul, ptr %data_end, align 8
   br label %if.end5
@@ -333,7 +307,7 @@ if.end5:                                          ; preds = %if.then, %if.then1,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @preallocate_child_perm(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_default_perms(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #6
   %1 = and i64 %perm, 10
@@ -341,7 +315,7 @@ entry:
   br i1 %2, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %data_end, align 8
   %cmp.not = icmp eq i64 %3, -22
   br i1 %cmp.not, label %if.end, label %if.then
@@ -362,7 +336,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @preallocate_co_preadv_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv_part(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #6
   ret i32 %call
@@ -372,7 +346,7 @@ entry:
 define internal i32 @preallocate_co_pwritev_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %call = tail call zeroext i1 @handle_write(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext false)
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pwritev_part(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #6
   ret i32 %call1
@@ -387,7 +361,7 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call2 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #6
   br label %return
@@ -400,7 +374,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @preallocate_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pdiscard(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #6
   ret i32 %call
@@ -409,7 +383,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @preallocate_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_flush(ptr noundef %1) #6
@@ -421,15 +395,15 @@ define internal i32 @preallocate_co_truncate(ptr nocapture noundef readonly %bs,
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %data_end, align 8
   %cmp3 = icmp sgt i64 %1, -1
   %cmp5 = icmp slt i64 %1, %offset
@@ -437,13 +411,13 @@ entry:
   br i1 %or.cond43, label %if.then6, label %if.end45
 
 if.then6:                                         ; preds = %entry
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %file_end, align 8
   %cmp7 = icmp slt i64 %2, 0
   br i1 %cmp7, label %if.then8, label %if.end16
 
 if.then8:                                         ; preds = %if.then6
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %3 = load ptr, ptr %file, align 8
   %4 = load ptr, ptr %3, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %4) #6
@@ -476,7 +450,7 @@ if.else:                                          ; preds = %if.end16
   br i1 %cmp28, label %if.then30, label %if.end43
 
 if.then30:                                        ; preds = %if.else
-  %file31 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file31 = getelementptr inbounds i8, ptr %bs, i64 16840
   %8 = load ptr, ptr %file31, align 8
   %call33 = call i32 @bdrv_co_truncate(ptr noundef %8, i64 noundef %7, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %spec.select) #6
   %cmp34 = icmp slt i32 %call33, 0
@@ -498,7 +472,7 @@ if.end43:                                         ; preds = %if.else, %if.end39,
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end43, %entry
-  %file46 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file46 = getelementptr inbounds i8, ptr %bs, i64 16840
   %10 = load ptr, ptr %file46, align 8
   %call48 = call i32 @bdrv_co_truncate(ptr noundef %10, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef nonnull %spec.select) #6
   %cmp49 = icmp slt i32 %call48, 0
@@ -507,9 +481,9 @@ if.end45:                                         ; preds = %if.end43, %entry
 if.then51:                                        ; preds = %if.end45
   %conv52 = sext i32 %call48 to i64
   store i64 %conv52, ptr %data_end, align 8
-  %zero_start = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %conv52, ptr %zero_start, align 8
-  %file_end54 = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end54 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %conv52, ptr %file_end54, align 8
   br label %cleanup
 
@@ -521,9 +495,9 @@ if.end55:                                         ; preds = %if.end45
 
 if.then57:                                        ; preds = %if.end55
   store i64 %offset, ptr %data_end, align 8
-  %zero_start59 = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start59 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %offset, ptr %zero_start59, align 8
-  %file_end60 = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end60 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %offset, ptr %file_end60, align 8
   br label %cleanup
 
@@ -538,15 +512,15 @@ cleanup:                                          ; preds = %if.end55, %if.then5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @preallocate_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %data_end, align 8
   %cmp = icmp sgt i64 %1, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %2, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %3) #6
@@ -557,9 +531,9 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   store i64 %call, ptr %data_end, align 8
-  %zero_start = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %call, ptr %zero_start, align 8
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %call, ptr %file_end, align 8
   br label %return
 
@@ -585,7 +559,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @qemu_opt_get_size(ptr noundef %call, ptr noundef nonnull @.str.3, i64 noundef 1048576) #6
-  %prealloc_align = getelementptr inbounds %struct.PreallocateOpts, ptr %dest, i64 0, i32 1
+  %prealloc_align = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %call2, ptr %prealloc_align, align 8
   %call3 = tail call i64 @qemu_opt_get_size(ptr noundef %call, ptr noundef nonnull @.str.4, i64 noundef 134217728) #6
   store i64 %call3, ptr %dest, align 8
@@ -600,7 +574,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %bl = getelementptr inbounds %struct.BlockDriverState, ptr %child_bs, i64 0, i32 17
+  %bl = getelementptr inbounds i8, ptr %child_bs, i64 16464
   %1 = load i32, ptr %bl, align 8
   %conv = zext i32 %1 to i64
   %rem8 = srem i64 %0, %conv
@@ -635,15 +609,15 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @preallocate_truncate_to_real_size(ptr nocapture noundef readonly %bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %file_end, align 8
   %cmp = icmp slt i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %2, align 8
   %call = tail call i64 @bdrv_getlength(ptr noundef %3) #6
@@ -661,13 +635,13 @@ if.then5:                                         ; preds = %if.then
 
 if.end9:                                          ; preds = %if.then, %entry
   %6 = phi i64 [ %call, %if.then ], [ %1, %entry ]
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %data_end, align 8
   %cmp11 = icmp slt i64 %7, %6
   br i1 %cmp11, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end9
-  %file14 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file14 = getelementptr inbounds i8, ptr %bs, i64 16840
   %8 = load ptr, ptr %file14, align 8
   %call16 = tail call i32 @bdrv_truncate(ptr noundef %8, i64 noundef %7, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null) #6
   %cmp17 = icmp slt i32 %call16, 0
@@ -715,9 +689,9 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %opaque, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
-  %data_end.i = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %data_end.i, align 8
   %cmp.i = icmp slt i64 %1, 0
   br i1 %cmp.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end.i
@@ -728,12 +702,12 @@ if.end.i:                                         ; preds = %do.end
   br i1 %cmp1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %zero_start.i = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 -22, ptr %zero_start.i, align 8
-  %file_end.i = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end.i = getelementptr inbounds i8, ptr %0, i64 32
   store i64 -22, ptr %file_end.i, align 8
   store i64 -22, ptr %data_end.i, align 8
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %opaque, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %opaque, i64 16840
   %2 = load ptr, ptr %file.i, align 8
   %call5.i = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %opaque, ptr noundef %2, ptr noundef null) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -758,15 +732,15 @@ declare i32 @bdrv_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @handle_write(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %want_merge_zero) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %add = add i64 %bytes, %offset
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
-  %bl = getelementptr inbounds %struct.BlockDriverState, ptr %2, i64 0, i32 17
+  %bl = getelementptr inbounds i8, ptr %2, i64 16464
   %3 = load i32, ptr %bl, align 8
-  %prealloc_align2 = getelementptr inbounds %struct.PreallocateOpts, ptr %0, i64 0, i32 1
+  %prealloc_align2 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %prealloc_align2, align 8
   %conv = zext i32 %3 to i64
   %cond = tail call i64 @llvm.smax.i64(i64 %4, i64 %conv)
@@ -784,7 +758,7 @@ if.end:                                           ; preds = %entry
   br i1 %call, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %data_end, align 8
   %cmp9 = icmp slt i64 %5, 0
   br i1 %cmp9, label %if.then11, label %if.end27
@@ -798,7 +772,7 @@ if.then11:                                        ; preds = %if.end8
   br i1 %cmp17, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.then11
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %file_end, align 8
   %cmp21 = icmp slt i64 %8, 0
   br i1 %cmp21, label %if.then23, label %if.end27
@@ -814,7 +788,7 @@ if.end27:                                         ; preds = %if.end20, %if.then2
 
 if.end32:                                         ; preds = %if.end27
   store i64 %add, ptr %data_end, align 8
-  %zero_start = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 2
+  %zero_start = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %zero_start, align 8
   %cmp34 = icmp sgt i64 %10, -1
   %brmerge.not = and i1 %cmp34, %want_merge_zero
@@ -825,7 +799,7 @@ if.then36:                                        ; preds = %if.end32
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end32, %if.then36
-  %file_end39 = getelementptr inbounds %struct.BDRVPreallocateState, ptr %0, i64 0, i32 3
+  %file_end39 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i64, ptr %file_end39, align 8
   %cmp40 = icmp slt i64 %11, 0
   br i1 %cmp40, label %if.then42, label %if.end52
@@ -895,14 +869,14 @@ declare i32 @bdrv_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc zeroext i1 @has_prealloc_perms(ptr nocapture readonly %bs.24.val, ptr nocapture readonly %bs.16840.val) unnamed_addr #0 {
 entry:
-  %perm = getelementptr inbounds %struct.BdrvChild, ptr %bs.16840.val, i64 0, i32 5
+  %perm = getelementptr inbounds i8, ptr %bs.16840.val, i64 40
   %0 = load i64, ptr %perm, align 8
   %1 = and i64 %0, 10
   %2 = icmp eq i64 %1, 10
   br i1 %2, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
-  %shared_perm = getelementptr inbounds %struct.BdrvChild, ptr %bs.16840.val, i64 0, i32 6
+  %shared_perm = getelementptr inbounds i8, ptr %bs.16840.val, i64 48
   %3 = load i64, ptr %shared_perm, align 8
   %and = and i64 %3, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -922,7 +896,7 @@ if.else8:                                         ; preds = %if.end
   unreachable
 
 if.end10:                                         ; preds = %entry
-  %data_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %bs.24.val, i64 0, i32 1
+  %data_end = getelementptr inbounds i8, ptr %bs.24.val, i64 16
   %4 = load i64, ptr %data_end, align 8
   %cmp = icmp slt i64 %4, 0
   br i1 %cmp, label %if.end13, label %if.else12
@@ -932,7 +906,7 @@ if.else12:                                        ; preds = %if.end10
   unreachable
 
 if.end13:                                         ; preds = %if.end10
-  %zero_start = getelementptr inbounds %struct.BDRVPreallocateState, ptr %bs.24.val, i64 0, i32 2
+  %zero_start = getelementptr inbounds i8, ptr %bs.24.val, i64 24
   %5 = load i64, ptr %zero_start, align 8
   %cmp14 = icmp slt i64 %5, 0
   br i1 %cmp14, label %if.end17, label %if.else16
@@ -942,7 +916,7 @@ if.else16:                                        ; preds = %if.end13
   unreachable
 
 if.end17:                                         ; preds = %if.end13
-  %file_end = getelementptr inbounds %struct.BDRVPreallocateState, ptr %bs.24.val, i64 0, i32 3
+  %file_end = getelementptr inbounds i8, ptr %bs.24.val, i64 32
   %6 = load i64, ptr %file_end, align 8
   %cmp18 = icmp slt i64 %6, 0
   br i1 %cmp18, label %return, label %if.else20

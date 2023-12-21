@@ -3,8 +3,8 @@ source_filename = "bench/redis/original/listpack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.listpackEntry = type { ptr, i32, i64 }
 %struct.pick = type { i32, i32 }
+%struct.listpackEntry = type { ptr, i32, i64 }
 %struct.rand_pick = type { i32, i32 }
 
 @.str = private unnamed_addr constant [2 x i8] c"p\00", align 1
@@ -3780,13 +3780,13 @@ cond.end16:                                       ; preds = %cond.end
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end16
-  %slen = getelementptr inbounds %struct.listpackEntry, ptr %key, i64 0, i32 1
+  %slen = getelementptr inbounds i8, ptr %key, i64 8
   %conv.i = trunc i64 %0 to i32
   store i32 %conv.i, ptr %slen, align 4
   br label %lpGetValue.exit
 
 if.else.i:                                        ; preds = %cond.end16
-  %lval = getelementptr inbounds %struct.listpackEntry, ptr %key, i64 0, i32 2
+  %lval = getelementptr inbounds i8, ptr %key, i64 16
   store i64 %0, ptr %lval, align 8
   br label %lpGetValue.exit
 
@@ -3814,13 +3814,13 @@ cond.end29:                                       ; preds = %if.end
   br i1 %tobool.not.i12, label %if.else.i15, label %if.then.i13
 
 if.then.i13:                                      ; preds = %cond.end29
-  %slen30 = getelementptr inbounds %struct.listpackEntry, ptr %val, i64 0, i32 1
+  %slen30 = getelementptr inbounds i8, ptr %val, i64 8
   %conv.i14 = trunc i64 %1 to i32
   store i32 %conv.i14, ptr %slen30, align 4
   br label %lpGetValue.exit16
 
 if.else.i15:                                      ; preds = %cond.end29
-  %lval31 = getelementptr inbounds %struct.listpackEntry, ptr %val, i64 0, i32 2
+  %lval31 = getelementptr inbounds i8, ptr %val, i64 16
   store i64 %1, ptr %lval31, align 8
   br label %lpGetValue.exit16
 
@@ -3907,7 +3907,7 @@ lpLength.exit:                                    ; preds = %entry, %do.body.i
   br i1 %tobool.not, label %cond.false, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %while.end.i, %lpLength.exit
-  %retval.0.in.i82 = phi i32 [ %retval.0.in.i, %lpLength.exit ], [ %inc.i, %while.end.i ]
+  %retval.0.in.i84 = phi i32 [ %retval.0.in.i, %lpLength.exit ], [ %inc.i, %while.end.i ]
   %cmp59.not = icmp eq i32 %count, 0
   br i1 %cmp59.not, label %for.end, label %for.body
 
@@ -3919,10 +3919,10 @@ cond.false:                                       ; preds = %lpLength.exit
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %call7 = tail call i32 @rand() #15
-  %rem = urem i32 %call7, %retval.0.in.i82
+  %rem = urem i32 %call7, %retval.0.in.i84
   %arrayidx = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv
   store i32 %rem, ptr %arrayidx, align 4
-  %order = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv, i32 1
+  %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = trunc i64 %indvars.iv to i32
   store i32 %5, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3956,6 +3956,7 @@ lpAssertValidEntry.exit.i:                        ; preds = %if.end.i21
 
 lpFirst.exit:                                     ; preds = %for.end, %lpAssertValidEntry.exit.i
   %retval.0.i22 = phi ptr [ %add.ptr.i, %lpAssertValidEntry.exit.i ], [ null, %for.end ]
+  %invariant.gep67 = getelementptr inbounds i8, ptr %call, i64 4
   br i1 %cmp59.not, label %for.end32, label %while.cond.preheader.lr.ph
 
 while.cond.preheader.lr.ph:                       ; preds = %lpFirst.exit
@@ -3963,22 +3964,22 @@ while.cond.preheader.lr.ph:                       ; preds = %lpFirst.exit
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %while.end
-  %indvars.iv75 = phi i64 [ 0, %while.cond.preheader.lr.ph ], [ %indvars.iv.next76, %while.end ]
-  %p.070 = phi ptr [ %retval.0.i22, %while.cond.preheader.lr.ph ], [ %p.1.lcssa, %while.end ]
-  %j.068 = phi i32 [ 0, %while.cond.preheader.lr.ph ], [ %j.1.lcssa, %while.end ]
-  %arrayidx18 = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv75
+  %indvars.iv77 = phi i64 [ 0, %while.cond.preheader.lr.ph ], [ %indvars.iv.next78, %while.end ]
+  %p.072 = phi ptr [ %retval.0.i22, %while.cond.preheader.lr.ph ], [ %p.1.lcssa, %while.end ]
+  %j.070 = phi i32 [ 0, %while.cond.preheader.lr.ph ], [ %j.1.lcssa, %while.end ]
+  %arrayidx18 = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv77
   %9 = load i32, ptr %arrayidx18, align 4
-  %cmp2061 = icmp ult i32 %j.068, %9
+  %cmp2061 = icmp ult i32 %j.070, %9
   br i1 %cmp2061, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %10 = add nuw i32 %j.068, 1
+  %10 = add nuw i32 %j.070, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %9, i32 %10)
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %lpNext.exit
-  %p.163 = phi ptr [ %retval.0.i31, %lpNext.exit ], [ %p.070, %while.body.preheader ]
-  %j.162 = phi i32 [ %inc23, %lpNext.exit ], [ %j.068, %while.body.preheader ]
+  %p.163 = phi ptr [ %retval.0.i31, %lpNext.exit ], [ %p.072, %while.body.preheader ]
+  %j.162 = phi i32 [ %inc23, %lpNext.exit ], [ %j.070, %while.body.preheader ]
   %tobool.not.i24 = icmp eq ptr %p.163, null
   br i1 %tobool.not.i24, label %cond.false.i, label %cond.end.i
 
@@ -4134,9 +4135,9 @@ if.end11.i.i:                                     ; preds = %if.end.i.i43
   br i1 %cmp12.i.i, label %lpEncodeBacklen.exit.i, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.end11.i.i
-  %switch.tableidx88 = add nsw i8 %17, 15
-  %22 = icmp ult i8 %switch.tableidx88, 4
-  br i1 %22, label %switch.lookup87, label %if.end46.i.i
+  %switch.tableidx90 = add nsw i8 %17, 15
+  %22 = icmp ult i8 %switch.tableidx90, 4
+  br i1 %22, label %switch.lookup89, label %if.end46.i.i
 
 if.end46.i.i:                                     ; preds = %if.end18.i.i
   %and49.i.i = and i32 %conv.i.i, 240
@@ -4181,15 +4182,15 @@ if.else31.i.i:                                    ; preds = %if.else12.i.i
   %spec.select.i = select i1 %cmp32.i.i, i64 4, i64 5
   br label %lpEncodeBacklen.exit.i
 
-switch.lookup87:                                  ; preds = %if.end18.i.i
-  %25 = zext nneg i8 %switch.tableidx88 to i64
-  %switch.gep89 = getelementptr inbounds [4 x i32], ptr @switch.table.lpRandomEntries.4, i64 0, i64 %25
-  %switch.load90 = load i32, ptr %switch.gep89, align 4
+switch.lookup89:                                  ; preds = %if.end18.i.i
+  %25 = zext nneg i8 %switch.tableidx90 to i64
+  %switch.gep91 = getelementptr inbounds [4 x i32], ptr @switch.table.lpRandomEntries.4, i64 0, i64 %25
+  %switch.load92 = load i32, ptr %switch.gep91, align 4
   br label %lpEncodeBacklen.exit.i
 
-lpEncodeBacklen.exit.i:                           ; preds = %switch.lookup87, %if.else31.i.i, %if.else12.i.i, %if.else.i.i, %lpCurrentEncodedSizeUnsafe.exit.i, %if.end59.i.i, %if.end11.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i, %if.end25.i
-  %conv2750.shrunk.i = phi i32 [ %retval.0.i35.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i35.i, %if.else.i.i ], [ %retval.0.i35.i, %if.else12.i.i ], [ %retval.0.i35.i, %if.else31.i.i ], [ 2, %if.end11.i.i ], [ 1, %if.end25.i ], [ 0, %if.end59.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load90, %switch.lookup87 ]
-  %retval.0.i37.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end11.i.i ], [ 1, %if.end25.i ], [ 1, %if.end59.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup87 ]
+lpEncodeBacklen.exit.i:                           ; preds = %switch.lookup89, %if.else31.i.i, %if.else12.i.i, %if.else.i.i, %lpCurrentEncodedSizeUnsafe.exit.i, %if.end59.i.i, %if.end11.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i, %if.end25.i
+  %conv2750.shrunk.i = phi i32 [ %retval.0.i35.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %retval.0.i35.i, %if.else.i.i ], [ %retval.0.i35.i, %if.else12.i.i ], [ %retval.0.i35.i, %if.else31.i.i ], [ 2, %if.end11.i.i ], [ 1, %if.end25.i ], [ 0, %if.end59.i.i ], [ %add.i.i, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load92, %switch.lookup89 ]
+  %retval.0.i37.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %if.else.i.i ], [ 3, %if.else12.i.i ], [ %spec.select.i, %if.else31.i.i ], [ 1, %if.end11.i.i ], [ 1, %if.end25.i ], [ 1, %if.end59.i.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup89 ]
   %conv2750.i = zext i32 %conv2750.shrunk.i to i64
   %26 = getelementptr i8, ptr %add.ptr.i.i25, i64 %retval.0.i37.i
   %add.ptr29.i = getelementptr i8, ptr %26, i64 %conv2750.i
@@ -4228,14 +4229,14 @@ cond.false.i.i32:                                 ; preds = %lor.lhs.false.i, %i
 lpNext.exit:                                      ; preds = %lpDecodeBacklen.exit.i, %lpSkip.exit.i
   %retval.0.i31 = phi ptr [ null, %lpSkip.exit.i ], [ %add.ptr.i.i25, %lpDecodeBacklen.exit.i ]
   %inc23 = add nuw i32 %j.162, 1
-  %exitcond74.not = icmp eq i32 %inc23, %9
-  br i1 %exitcond74.not, label %while.end, label %while.body, !llvm.loop !16
+  %exitcond76.not = icmp eq i32 %inc23, %9
+  br i1 %exitcond76.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %lpNext.exit, %while.cond.preheader
-  %j.1.lcssa = phi i32 [ %j.068, %while.cond.preheader ], [ %umax, %lpNext.exit ]
-  %p.1.lcssa = phi ptr [ %p.070, %while.cond.preheader ], [ %retval.0.i31, %lpNext.exit ]
-  %order26 = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv75, i32 1
-  %29 = load i32, ptr %order26, align 4
+  %j.1.lcssa = phi i32 [ %j.070, %while.cond.preheader ], [ %umax, %lpNext.exit ]
+  %p.1.lcssa = phi ptr [ %p.072, %while.cond.preheader ], [ %retval.0.i31, %lpNext.exit ]
+  %gep68 = getelementptr inbounds %struct.pick, ptr %invariant.gep67, i64 %indvars.iv77
+  %29 = load i32, ptr %gep68, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
   %call.i.i33 = call fastcc ptr @lpGetWithSize(ptr noundef %p.1.lcssa, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i34 = icmp eq ptr %call.i.i33, null
@@ -4247,13 +4248,13 @@ while.end:                                        ; preds = %lpNext.exit, %while
   %idxprom28 = sext i32 %29 to i64
   %arrayidx29 = getelementptr inbounds %struct.listpackEntry, ptr %entries, i64 %idxprom28
   store ptr %call.i.i33, ptr %arrayidx29, align 8
-  %slen.i = getelementptr inbounds %struct.listpackEntry, ptr %entries, i64 %idxprom28, i32 1
+  %slen.i = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   store i32 %spec.select, ptr %slen.i, align 8
-  %lval1.i = getelementptr inbounds %struct.listpackEntry, ptr %entries, i64 %idxprom28, i32 2
+  %lval1.i = getelementptr inbounds i8, ptr %arrayidx29, i64 16
   store i64 %spec.select47, ptr %lval1.i, align 8
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %conv
-  br i1 %exitcond79.not, label %for.end32, label %while.cond.preheader, !llvm.loop !17
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %conv
+  br i1 %exitcond81.not, label %for.end32, label %while.cond.preheader, !llvm.loop !17
 
 for.end32:                                        ; preds = %while.end, %lpFirst.exit
   tail call void @zfree(ptr noundef %call) #15
@@ -4360,7 +4361,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %mul8 = shl nuw i32 %rem, 1
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
   store i32 %mul8, ptr %arrayidx, align 4
-  %order = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv, i32 1
+  %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = trunc i64 %indvars.iv to i32
   store i32 %6, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4431,14 +4432,14 @@ land.rhs35.us.us:                                 ; preds = %land.rhs35.us.us.pr
   br i1 %cmp39.us.us, label %while.body42.us.us, label %while.end.us.loopexit.split.loop.exit
 
 while.body42.us.us:                               ; preds = %land.rhs35.us.us
-  %order45.us.us = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv71, i32 1
+  %order45.us.us = getelementptr inbounds i8, ptr %arrayidx37.us.us, i64 4
   %14 = load i32, ptr %order45.us.us, align 4
   %idxprom46.us.us = sext i32 %14 to i64
   %arrayidx47.us.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46.us.us
   store ptr %call.i.i.us, ptr %arrayidx47.us.us, align 8
-  %slen.i.us.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46.us.us, i32 1
+  %slen.i.us.us = getelementptr inbounds i8, ptr %arrayidx47.us.us, i64 8
   store i32 %spec.select.us, ptr %slen.i.us.us, align 8
-  %lval1.i.us.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46.us.us, i32 2
+  %lval1.i.us.us = getelementptr inbounds i8, ptr %arrayidx47.us.us, i64 16
   store i64 %spec.select45.us, ptr %lval1.i.us.us, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, %conv
@@ -4493,20 +4494,20 @@ land.rhs35:                                       ; preds = %land.rhs35.preheade
   br i1 %cmp39, label %while.body42, label %while.end.loopexit.split.loop.exit79
 
 while.body42:                                     ; preds = %land.rhs35
-  %order45 = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv67, i32 1
+  %order45 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
   %19 = load i32, ptr %order45, align 4
   %idxprom46 = sext i32 %19 to i64
   %arrayidx47 = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46
   store ptr %call.i.i, ptr %arrayidx47, align 8
-  %slen.i = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46, i32 1
+  %slen.i = getelementptr inbounds i8, ptr %arrayidx47, i64 8
   store i32 %spec.select, ptr %slen.i, align 8
-  %lval1.i = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46, i32 2
+  %lval1.i = getelementptr inbounds i8, ptr %arrayidx47, i64 16
   store i64 %spec.select45, ptr %lval1.i, align 8
   %arrayidx50 = getelementptr inbounds %struct.listpackEntry, ptr %vals, i64 %idxprom46
   store ptr %call.i.i36, ptr %arrayidx50, align 8
-  %slen.i43 = getelementptr inbounds %struct.listpackEntry, ptr %vals, i64 %idxprom46, i32 1
+  %slen.i43 = getelementptr inbounds i8, ptr %arrayidx50, i64 8
   store i32 %spec.select46, ptr %slen.i43, align 8
-  %lval1.i44 = getelementptr inbounds %struct.listpackEntry, ptr %vals, i64 %idxprom46, i32 2
+  %lval1.i44 = getelementptr inbounds i8, ptr %arrayidx50, i64 16
   store i64 %spec.select47, ptr %lval1.i44, align 8
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %conv
@@ -4649,9 +4650,9 @@ cond.end.us:                                      ; preds = %while.body.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i)
   %arrayidx.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %indvars.iv56
   store ptr %call.i.i23.us, ptr %arrayidx.us, align 8
-  %slen.i.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %indvars.iv56, i32 1
+  %slen.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
   store i32 %spec.select39.us, ptr %slen.i.us, align 8
-  %lval1.i.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %indvars.iv56, i32 2
+  %lval1.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 16
   store i64 %spec.select40.us, ptr %lval1.i.us, align 8
   %call11.us = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %call5.us)
   %tobool12.not.us = icmp eq ptr %call11.us, null
@@ -4695,9 +4696,9 @@ cond.end:                                         ; preds = %while.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i)
   %arrayidx = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %indvars.iv
   store ptr %call.i.i23, ptr %arrayidx, align 8
-  %slen.i = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %indvars.iv, i32 1
+  %slen.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %spec.select39, ptr %slen.i, align 8
-  %lval1.i = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %indvars.iv, i32 2
+  %lval1.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 %spec.select40, ptr %lval1.i, align 8
   %call11 = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %call5)
   %tobool12.not = icmp eq ptr %call11, null
@@ -4720,9 +4721,9 @@ cond.end21:                                       ; preds = %cond.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i27)
   %arrayidx26 = getelementptr inbounds %struct.listpackEntry, ptr %vals, i64 %indvars.iv
   store ptr %call.i.i28, ptr %arrayidx26, align 8
-  %slen.i35 = getelementptr inbounds %struct.listpackEntry, ptr %vals, i64 %indvars.iv, i32 1
+  %slen.i35 = getelementptr inbounds i8, ptr %arrayidx26, i64 8
   store i32 %spec.select41, ptr %slen.i35, align 8
-  %lval1.i36 = getelementptr inbounds %struct.listpackEntry, ptr %vals, i64 %indvars.iv, i32 2
+  %lval1.i36 = getelementptr inbounds i8, ptr %arrayidx26, i64 16
   store i64 %spec.select42, ptr %lval1.i36, align 8
   %call28 = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %call11)
   %dec = add nsw i32 %remaining.051, -1

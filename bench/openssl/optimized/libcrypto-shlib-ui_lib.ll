@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ui_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ui_st = type { ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.ui_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st }
 %struct.ui_string_st = type { i32, ptr, i32, ptr, i64, %union.anon, i32 }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { ptr, ptr, ptr }
@@ -48,7 +45,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @CRYPTO_THREAD_lock_new() #7
-  %lock = getelementptr inbounds %struct.ui_st, ptr %call, i64 0, i32 5
+  %lock = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call1, ptr %lock, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -75,13 +72,13 @@ if.then11:                                        ; preds = %if.end9
 if.end13:                                         ; preds = %if.end5, %if.then11, %if.end9
   %method.addr.1 = phi ptr [ %call12, %if.then11 ], [ %call8, %if.end9 ], [ %method, %if.end5 ]
   store ptr %method.addr.1, ptr %call, align 8
-  %ex_data = getelementptr inbounds %struct.ui_st, ptr %call, i64 0, i32 3
+  %ex_data = getelementptr inbounds i8, ptr %call, i64 24
   %call14 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 11, ptr noundef nonnull %call, ptr noundef nonnull %ex_data) #7
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end13
-  %flags.i = getelementptr inbounds %struct.ui_st, ptr %call, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 2
   %cmp1.not.i = icmp eq i32 %and.i, 0
@@ -89,15 +86,15 @@ if.end.i:                                         ; preds = %if.end13
 
 if.then2.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %call, align 8
-  %ui_destroy_data.i = getelementptr inbounds %struct.ui_method_st, ptr %1, i64 0, i32 7
+  %ui_destroy_data.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %ui_destroy_data.i, align 8
-  %user_data.i = getelementptr inbounds %struct.ui_st, ptr %call, i64 0, i32 2
+  %user_data.i = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %user_data.i, align 8
   tail call void %2(ptr noundef nonnull %call, ptr noundef %3) #7
   br label %UI_free.exit
 
 UI_free.exit:                                     ; preds = %if.end.i, %if.then2.i
-  %strings.i = getelementptr inbounds %struct.ui_st, ptr %call, i64 0, i32 1
+  %strings.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %strings.i, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %4, ptr noundef nonnull @free_string) #7
   tail call void @CRYPTO_free_ex_data(i32 noundef 11, ptr noundef nonnull %call, ptr noundef nonnull %ex_data) #7
@@ -140,7 +137,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %ui, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 2
   %cmp1.not = icmp eq i32 %and, 0
@@ -148,20 +145,20 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %ui, align 8
-  %ui_destroy_data = getelementptr inbounds %struct.ui_method_st, ptr %1, i64 0, i32 7
+  %ui_destroy_data = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %ui_destroy_data, align 8
-  %user_data = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 2
+  %user_data = getelementptr inbounds i8, ptr %ui, i64 16
   %3 = load ptr, ptr %user_data, align 8
   tail call void %2(ptr noundef nonnull %ui, ptr noundef %3) #7
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %strings = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 1
+  %strings = getelementptr inbounds i8, ptr %ui, i64 8
   %4 = load ptr, ptr %strings, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %4, ptr noundef nonnull @free_string) #7
-  %ex_data = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 3
+  %ex_data = getelementptr inbounds i8, ptr %ui, i64 24
   tail call void @CRYPTO_free_ex_data(i32 noundef 11, ptr noundef nonnull %ui, ptr noundef nonnull %ex_data) #7
-  %lock = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 5
+  %lock = getelementptr inbounds i8, ptr %ui, i64 48
   %5 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %5) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %ui, ptr noundef nonnull @.str, i32 noundef 81) #7
@@ -176,14 +173,14 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal void @free_string(ptr noundef %uis) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %uis, i64 64
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %out_string = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 1
+  %out_string = getelementptr inbounds i8, ptr %uis, i64 8
   %1 = load ptr, ptr %out_string, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 53) #7
   %2 = load i32, ptr %uis, align 8
@@ -191,13 +188,13 @@ if.then:                                          ; preds = %entry
   br i1 %cond, label %sw.bb, label %if.end
 
 sw.bb:                                            ; preds = %if.then
-  %_ = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5
+  %_ = getelementptr inbounds i8, ptr %uis, i64 40
   %3 = load ptr, ptr %_, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 56) #7
-  %ok_chars = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5, i32 0, i32 1
+  %ok_chars = getelementptr inbounds i8, ptr %uis, i64 48
   %4 = load ptr, ptr %ok_chars, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 57) #7
-  %cancel_chars = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5, i32 0, i32 2
+  %cancel_chars = getelementptr inbounds i8, ptr %uis, i64 56
   %5 = load ptr, ptr %cancel_chars, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 58) #7
   br label %if.end
@@ -226,7 +223,7 @@ entry:
   br i1 %cmp.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %strings.i = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 1
+  %strings.i = getelementptr inbounds i8, ptr %ui, i64 8
   %0 = load ptr, ptr %strings.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.then3
@@ -239,11 +236,11 @@ if.then.i:                                        ; preds = %if.then
 
 if.then3:                                         ; preds = %if.then, %if.then.i
   %1 = phi ptr [ %0, %if.then ], [ %call.i, %if.then.i ]
-  %_ = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 5
+  %_ = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %minsize, ptr %_, align 8
   %result_maxsize = getelementptr inbounds i8, ptr %call, i64 44
   store i32 %maxsize, ptr %result_maxsize, align 4
-  %test_buf6 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 5, i32 0, i32 1
+  %test_buf6 = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %test_buf, ptr %test_buf6, align 8
   %call9 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %1, ptr noundef nonnull %call) #7
   %cmp10 = icmp slt i32 %call9, 1
@@ -251,14 +248,14 @@ if.then3:                                         ; preds = %if.then, %if.then.i
 
 if.then11:                                        ; preds = %if.then3
   %dec = add nsw i32 %call9, -1
-  %flags.i = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 6
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 64
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end13.sink.split, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.then11
-  %out_string.i = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 1
+  %out_string.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %out_string.i, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 53) #7
   %4 = load i32, ptr %call, align 8
@@ -271,14 +268,14 @@ sw.bb.i:                                          ; preds = %if.then.i11
   br label %if.end13.sink.split.sink.split
 
 if.else:                                          ; preds = %if.then.i
-  %flags.i12 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 6
+  %flags.i12 = getelementptr inbounds i8, ptr %call, i64 64
   %6 = load i32, ptr %flags.i12, align 8
   %and.i13 = and i32 %6, 1
   %tobool.not.i14 = icmp eq i32 %and.i13, 0
   br i1 %tobool.not.i14, label %if.end13.sink.split, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.else
-  %out_string.i16 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 1
+  %out_string.i16 = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load ptr, ptr %out_string.i16, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 53) #7
   %8 = load i32, ptr %call, align 8
@@ -286,10 +283,10 @@ if.then.i15:                                      ; preds = %if.else
   br i1 %cond.i17, label %sw.bb.i18, label %if.end13.sink.split
 
 sw.bb.i18:                                        ; preds = %if.then.i15
-  %_.i19 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 5
+  %_.i19 = getelementptr inbounds i8, ptr %call, i64 40
   %9 = load ptr, ptr %_.i19, align 8
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 56) #7
-  %ok_chars.i20 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 5, i32 0, i32 1
+  %ok_chars.i20 = getelementptr inbounds i8, ptr %call, i64 48
   br label %if.end13.sink.split.sink.split
 
 if.end13.sink.split.sink.split:                   ; preds = %sw.bb.i, %sw.bb.i18
@@ -297,7 +294,7 @@ if.end13.sink.split.sink.split:                   ; preds = %sw.bb.i, %sw.bb.i18
   %ret.0.ph.ph = phi i32 [ -1, %sw.bb.i18 ], [ %dec, %sw.bb.i ]
   %10 = load ptr, ptr %ok_chars.i20.sink, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 57) #7
-  %cancel_chars.i21 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 5, i32 0, i32 2
+  %cancel_chars.i21 = getelementptr inbounds i8, ptr %call, i64 56
   %11 = load ptr, ptr %cancel_chars.i21, align 8
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 58) #7
   br label %if.end13.sink.split
@@ -423,7 +420,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %cmp11.not, label %if.end34, label %if.then13
 
 if.then13:                                        ; preds = %for.end
-  %strings.i = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 1
+  %strings.i = getelementptr inbounds i8, ptr %ui, i64 8
   %3 = load ptr, ptr %strings.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %if.then.i, label %if.then17
@@ -436,11 +433,11 @@ if.then.i:                                        ; preds = %if.then13
 
 if.then17:                                        ; preds = %if.then13, %if.then.i
   %4 = phi ptr [ %3, %if.then13 ], [ %call.i, %if.then.i ]
-  %_ = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 5
+  %_ = getelementptr inbounds i8, ptr %call10, i64 40
   store ptr %action_desc, ptr %_, align 8
-  %ok_chars20 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 5, i32 0, i32 1
+  %ok_chars20 = getelementptr inbounds i8, ptr %call10, i64 48
   store ptr %ok_chars, ptr %ok_chars20, align 8
-  %cancel_chars22 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 5, i32 0, i32 2
+  %cancel_chars22 = getelementptr inbounds i8, ptr %call10, i64 56
   store ptr %cancel_chars, ptr %cancel_chars22, align 8
   %call25 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %4, ptr noundef nonnull %call10) #7
   %cmp26 = icmp slt i32 %call25, 1
@@ -448,14 +445,14 @@ if.then17:                                        ; preds = %if.then13, %if.then
 
 if.then28:                                        ; preds = %if.then17
   %dec = add nsw i32 %call25, -1
-  %flags.i = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 6
+  %flags.i = getelementptr inbounds i8, ptr %call10, i64 64
   %5 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %5, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %free_string.exit, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.then28
-  %out_string.i = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 1
+  %out_string.i = getelementptr inbounds i8, ptr %call10, i64 8
   %6 = load ptr, ptr %out_string.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 53) #7
   %7 = load i32, ptr %call10, align 8
@@ -476,14 +473,14 @@ free_string.exit:                                 ; preds = %if.then28, %if.then
   br label %if.end34
 
 if.else30:                                        ; preds = %if.then.i
-  %flags.i18 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 6
+  %flags.i18 = getelementptr inbounds i8, ptr %call10, i64 64
   %11 = load i32, ptr %flags.i18, align 8
   %and.i19 = and i32 %11, 1
   %tobool.not.i20 = icmp eq i32 %and.i19, 0
   br i1 %tobool.not.i20, label %free_string.exit28, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.else30
-  %out_string.i22 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 1
+  %out_string.i22 = getelementptr inbounds i8, ptr %call10, i64 8
   %12 = load ptr, ptr %out_string.i22, align 8
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 53) #7
   %13 = load i32, ptr %call10, align 8
@@ -491,13 +488,13 @@ if.then.i21:                                      ; preds = %if.else30
   br i1 %cond.i23, label %sw.bb.i24, label %free_string.exit28
 
 sw.bb.i24:                                        ; preds = %if.then.i21
-  %_.i25 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 5
+  %_.i25 = getelementptr inbounds i8, ptr %call10, i64 40
   %14 = load ptr, ptr %_.i25, align 8
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 56) #7
-  %ok_chars.i26 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 5, i32 0, i32 1
+  %ok_chars.i26 = getelementptr inbounds i8, ptr %call10, i64 48
   %15 = load ptr, ptr %ok_chars.i26, align 8
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 57) #7
-  %cancel_chars.i27 = getelementptr inbounds %struct.ui_string_st, ptr %call10, i64 0, i32 5, i32 0, i32 2
+  %cancel_chars.i27 = getelementptr inbounds i8, ptr %call10, i64 56
   %16 = load ptr, ptr %cancel_chars.i27, align 8
   tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 58) #7
   br label %free_string.exit28
@@ -643,7 +640,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.else, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %ui_construct_prompt = getelementptr inbounds %struct.ui_method_st, ptr %0, i64 0, i32 8
+  %ui_construct_prompt = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %ui_construct_prompt, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.else, label %if.then
@@ -714,9 +711,9 @@ declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define ptr @UI_add_user_data(ptr noundef %ui, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
-  %user_data1 = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 2
+  %user_data1 = getelementptr inbounds i8, ptr %ui, i64 16
   %0 = load ptr, ptr %user_data1, align 8
-  %flags = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %ui, i64 40
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 2
   %cmp.not = icmp eq i32 %and, 0
@@ -724,7 +721,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %ui, align 8
-  %ui_destroy_data = getelementptr inbounds %struct.ui_method_st, ptr %2, i64 0, i32 7
+  %ui_destroy_data = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %ui_destroy_data, align 8
   tail call void %3(ptr noundef nonnull %ui, ptr noundef %0) #7
   %.pre = load i32, ptr %flags, align 8
@@ -743,13 +740,13 @@ if.end:                                           ; preds = %if.then, %entry
 define i32 @UI_dup_user_data(ptr noundef %ui, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ui, align 8
-  %ui_duplicate_data = getelementptr inbounds %struct.ui_method_st, ptr %0, i64 0, i32 6
+  %ui_duplicate_data = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %ui_duplicate_data, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ui_destroy_data = getelementptr inbounds %struct.ui_method_st, ptr %0, i64 0, i32 7
+  %ui_destroy_data = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %ui_destroy_data, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %if.then, label %if.end
@@ -772,8 +769,8 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %user_data1.i = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 2
-  %flags.i = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %user_data1.i = getelementptr inbounds i8, ptr %ui, i64 16
+  %flags.i = getelementptr inbounds i8, ptr %ui, i64 40
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 2
   %cmp.not.i = icmp eq i32 %and.i, 0
@@ -782,7 +779,7 @@ if.end7:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.end7
   %4 = load ptr, ptr %user_data1.i, align 8
   %5 = load ptr, ptr %ui, align 8
-  %ui_destroy_data.i = getelementptr inbounds %struct.ui_method_st, ptr %5, i64 0, i32 7
+  %ui_destroy_data.i = getelementptr inbounds i8, ptr %5, i64 56
   %6 = load ptr, ptr %ui_destroy_data.i, align 8
   tail call void %6(ptr noundef nonnull %ui, ptr noundef %4) #7
   %.pre.i = load i32, ptr %flags.i, align 8
@@ -803,7 +800,7 @@ return:                                           ; preds = %UI_add_user_data.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @UI_get0_user_data(ptr nocapture noundef readonly %ui) local_unnamed_addr #4 {
 entry:
-  %user_data = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 2
+  %user_data = getelementptr inbounds i8, ptr %ui, i64 16
   %0 = load ptr, ptr %user_data, align 8
   ret ptr %0
 }
@@ -821,7 +818,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %strings = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 1
+  %strings = getelementptr inbounds i8, ptr %ui, i64 8
   %0 = load ptr, ptr %strings, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
   %cmp2.not = icmp sgt i32 %call1, %i
@@ -842,7 +839,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %switch.i, label %sw.bb.i, label %return
 
 sw.bb.i:                                          ; preds = %if.end4
-  %result_buf.i = getelementptr inbounds %struct.ui_string_st, ptr %call7, i64 0, i32 3
+  %result_buf.i = getelementptr inbounds i8, ptr %call7, i64 24
   %3 = load ptr, ptr %result_buf.i, align 8
   br label %return
 
@@ -862,7 +859,7 @@ entry:
   br i1 %switch, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %result_buf = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 3
+  %result_buf = getelementptr inbounds i8, ptr %uis, i64 24
   %1 = load ptr, ptr %result_buf, align 8
   br label %return
 
@@ -886,7 +883,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %strings = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 1
+  %strings = getelementptr inbounds i8, ptr %ui, i64 8
   %0 = load ptr, ptr %strings, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
   %cmp2.not = icmp sgt i32 %call1, %i
@@ -907,7 +904,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %switch.i, label %sw.bb.i, label %return
 
 sw.bb.i:                                          ; preds = %if.end4
-  %result_len.i = getelementptr inbounds %struct.ui_string_st, ptr %call7, i64 0, i32 4
+  %result_len.i = getelementptr inbounds i8, ptr %call7, i64 32
   %3 = load i64, ptr %result_len.i, align 8
   %conv.i = trunc i64 %3 to i32
   br label %return
@@ -926,7 +923,7 @@ entry:
   br i1 %switch, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %result_len = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 4
+  %result_len = getelementptr inbounds i8, ptr %uis, i64 32
   %1 = load i64, ptr %result_len, align 8
   %conv = trunc i64 %1 to i32
   br label %return
@@ -940,7 +937,7 @@ return:                                           ; preds = %entry, %sw.bb
 define i32 @UI_process(ptr noundef %ui) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ui, align 8
-  %ui_open_session = getelementptr inbounds %struct.ui_method_st, ptr %0, i64 0, i32 1
+  %ui_open_session = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %ui_open_session, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -951,7 +948,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3, label %err, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %flags = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %ui, i64 40
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 256
   %tobool.not = icmp eq i32 %and, 0
@@ -962,7 +959,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end
-  %strings = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 1
+  %strings = getelementptr inbounds i8, ptr %ui, i64 8
   %3 = load ptr, ptr %strings, align 8
   %call744 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #7
   %cmp845 = icmp sgt i32 %call744, 0
@@ -971,7 +968,7 @@ if.end5:                                          ; preds = %if.then4, %if.end
 for.body:                                         ; preds = %if.end5, %for.inc
   %i.046 = phi i32 [ %inc, %for.inc ], [ 0, %if.end5 ]
   %4 = load ptr, ptr %ui, align 8
-  %ui_write_string = getelementptr inbounds %struct.ui_method_st, ptr %4, i64 0, i32 2
+  %ui_write_string = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %ui_write_string, align 8
   %cmp10.not = icmp eq ptr %5, null
   br i1 %cmp10.not, label %for.inc, label %land.lhs.true11
@@ -992,7 +989,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 
 for.end:                                          ; preds = %for.inc, %if.end5
   %8 = load ptr, ptr %ui, align 8
-  %ui_flush = getelementptr inbounds %struct.ui_method_st, ptr %8, i64 0, i32 3
+  %ui_flush = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %ui_flush, align 8
   %cmp22.not = icmp eq ptr %9, null
   br i1 %cmp22.not, label %if.end30, label %if.then23
@@ -1013,7 +1010,7 @@ if.end30:                                         ; preds = %if.then23, %for.end
 for.body36:                                       ; preds = %if.end30, %sw.default50
   %i.149 = phi i32 [ %inc56, %sw.default50 ], [ 0, %if.end30 ]
   %11 = load ptr, ptr %ui, align 8
-  %ui_read_string = getelementptr inbounds %struct.ui_method_st, ptr %11, i64 0, i32 4
+  %ui_read_string = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %ui_read_string, align 8
   %cmp38.not = icmp eq ptr %12, null
   br i1 %cmp38.not, label %err.sink.split, label %if.then39
@@ -1046,7 +1043,7 @@ err:                                              ; preds = %land.lhs.true11, %i
   %cmp66 = phi ptr [ @.str.2, %land.lhs.true ], [ @.str.4, %if.then23 ], [ @.str.6, %if.end30 ], [ @.str.1, %err.sink.split ], [ @.str.5, %if.then39 ], [ @.str.6, %sw.default50 ], [ @.str.3, %land.lhs.true11 ]
   %state.0 = phi ptr [ @.str.2, %land.lhs.true ], [ @.str.4, %if.then23 ], [ null, %if.end30 ], [ @.str.1, %err.sink.split ], [ @.str.5, %if.then39 ], [ null, %sw.default50 ], [ @.str.3, %land.lhs.true11 ]
   %16 = load ptr, ptr %ui, align 8
-  %ui_close_session = getelementptr inbounds %struct.ui_method_st, ptr %16, i64 0, i32 5
+  %ui_close_session = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load ptr, ptr %ui_close_session, align 8
   %cmp59.not = icmp eq ptr %17, null
   br i1 %cmp59.not, label %if.end69, label %land.lhs.true60
@@ -1081,10 +1078,10 @@ entry:
   %uis = alloca %struct.ui_string_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %uis, i8 0, i64 72, i1 false)
   store i32 5, ptr %uis, align 8
-  %out_string = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 1
+  %out_string = getelementptr inbounds i8, ptr %uis, i64 8
   store ptr %str, ptr %out_string, align 8
   %0 = load ptr, ptr %ui, align 8
-  %ui_write_string = getelementptr inbounds %struct.ui_method_st, ptr %0, i64 0, i32 2
+  %ui_write_string = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ui_write_string, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1121,7 +1118,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %flags = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %ui, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 8
   %and.lobit = and i32 %and, 1
@@ -1133,7 +1130,7 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %flags9 = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %flags9 = getelementptr inbounds i8, ptr %ui, i64 40
   %1 = load i32, ptr %flags9, align 8
   %and10 = and i32 %1, 1
   br label %return
@@ -1152,7 +1149,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb8,
 ; Function Attrs: nounwind uwtable
 define i32 @UI_set_ex_data(ptr noundef %r, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.ui_st, ptr %r, i64 0, i32 3
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 24
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #7
   ret i32 %call
 }
@@ -1162,7 +1159,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @UI_get_ex_data(ptr noundef %r, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.ui_st, ptr %r, i64 0, i32 3
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 24
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #7
   ret ptr %call
 }
@@ -1197,7 +1194,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %if.end, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %ex_data = getelementptr inbounds %struct.ui_method_st, ptr %call, i64 0, i32 9
+  %ex_data = getelementptr inbounds i8, ptr %call, i64 72
   %call5 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 14, ptr noundef nonnull %call, ptr noundef nonnull %ex_data) #7
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.then7, label %return
@@ -1235,7 +1232,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ex_data = getelementptr inbounds %struct.ui_method_st, ptr %ui_method, i64 0, i32 9
+  %ex_data = getelementptr inbounds i8, ptr %ui_method, i64 72
   tail call void @CRYPTO_free_ex_data(i32 noundef 14, ptr noundef nonnull %ui_method, ptr noundef nonnull %ex_data) #7
   %0 = load ptr, ptr %ui_method, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 613) #7
@@ -1254,7 +1251,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_open_session = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 1
+  %ui_open_session = getelementptr inbounds i8, ptr %method, i64 8
   store ptr %opener, ptr %ui_open_session, align 8
   br label %return
 
@@ -1270,7 +1267,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_write_string = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 2
+  %ui_write_string = getelementptr inbounds i8, ptr %method, i64 16
   store ptr %writer, ptr %ui_write_string, align 8
   br label %return
 
@@ -1286,7 +1283,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_flush = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 3
+  %ui_flush = getelementptr inbounds i8, ptr %method, i64 24
   store ptr %flusher, ptr %ui_flush, align 8
   br label %return
 
@@ -1302,7 +1299,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_read_string = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 4
+  %ui_read_string = getelementptr inbounds i8, ptr %method, i64 32
   store ptr %reader, ptr %ui_read_string, align 8
   br label %return
 
@@ -1318,7 +1315,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_close_session = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 5
+  %ui_close_session = getelementptr inbounds i8, ptr %method, i64 40
   store ptr %closer, ptr %ui_close_session, align 8
   br label %return
 
@@ -1334,9 +1331,9 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_duplicate_data = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 6
+  %ui_duplicate_data = getelementptr inbounds i8, ptr %method, i64 48
   store ptr %duplicator, ptr %ui_duplicate_data, align 8
-  %ui_destroy_data = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 7
+  %ui_destroy_data = getelementptr inbounds i8, ptr %method, i64 56
   store ptr %destructor, ptr %ui_destroy_data, align 8
   br label %return
 
@@ -1352,7 +1349,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_construct_prompt = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 8
+  %ui_construct_prompt = getelementptr inbounds i8, ptr %method, i64 64
   store ptr %prompt_constructor, ptr %ui_construct_prompt, align 8
   br label %return
 
@@ -1364,7 +1361,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @UI_method_set_ex_data(ptr noundef %method, i32 noundef %idx, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 9
+  %ex_data = getelementptr inbounds i8, ptr %method, i64 72
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %data) #7
   ret i32 %call
 }
@@ -1376,7 +1373,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_open_session = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 1
+  %ui_open_session = getelementptr inbounds i8, ptr %method, i64 8
   %0 = load ptr, ptr %ui_open_session, align 8
   br label %return
 
@@ -1392,7 +1389,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_write_string = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 2
+  %ui_write_string = getelementptr inbounds i8, ptr %method, i64 16
   %0 = load ptr, ptr %ui_write_string, align 8
   br label %return
 
@@ -1408,7 +1405,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_flush = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 3
+  %ui_flush = getelementptr inbounds i8, ptr %method, i64 24
   %0 = load ptr, ptr %ui_flush, align 8
   br label %return
 
@@ -1424,7 +1421,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_read_string = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 4
+  %ui_read_string = getelementptr inbounds i8, ptr %method, i64 32
   %0 = load ptr, ptr %ui_read_string, align 8
   br label %return
 
@@ -1440,7 +1437,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_close_session = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 5
+  %ui_close_session = getelementptr inbounds i8, ptr %method, i64 40
   %0 = load ptr, ptr %ui_close_session, align 8
   br label %return
 
@@ -1456,7 +1453,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_construct_prompt = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 8
+  %ui_construct_prompt = getelementptr inbounds i8, ptr %method, i64 64
   %0 = load ptr, ptr %ui_construct_prompt, align 8
   br label %return
 
@@ -1472,7 +1469,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_duplicate_data = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 6
+  %ui_duplicate_data = getelementptr inbounds i8, ptr %method, i64 48
   %0 = load ptr, ptr %ui_duplicate_data, align 8
   br label %return
 
@@ -1488,7 +1485,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ui_destroy_data = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 7
+  %ui_destroy_data = getelementptr inbounds i8, ptr %method, i64 56
   %0 = load ptr, ptr %ui_destroy_data, align 8
   br label %return
 
@@ -1500,7 +1497,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define ptr @UI_method_get_ex_data(ptr noundef %method, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.ui_method_st, ptr %method, i64 0, i32 9
+  %ex_data = getelementptr inbounds i8, ptr %method, i64 72
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #7
   ret ptr %call
 }
@@ -1515,7 +1512,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @UI_get_input_flags(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
 entry:
-  %input_flags = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 2
+  %input_flags = getelementptr inbounds i8, ptr %uis, i64 16
   %0 = load i32, ptr %input_flags, align 8
   ret i32 %0
 }
@@ -1523,7 +1520,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @UI_get0_output_string(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
 entry:
-  %out_string = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 1
+  %out_string = getelementptr inbounds i8, ptr %uis, i64 8
   %0 = load ptr, ptr %out_string, align 8
   ret ptr %0
 }
@@ -1536,7 +1533,7 @@ entry:
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %_ = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5
+  %_ = getelementptr inbounds i8, ptr %uis, i64 40
   %1 = load ptr, ptr %_, align 8
   br label %return
 
@@ -1553,7 +1550,7 @@ entry:
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %test_buf = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5, i32 0, i32 1
+  %test_buf = getelementptr inbounds i8, ptr %uis, i64 48
   %1 = load ptr, ptr %test_buf, align 8
   br label %return
 
@@ -1571,7 +1568,7 @@ entry:
   br i1 %switch, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %_ = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5
+  %_ = getelementptr inbounds i8, ptr %uis, i64 40
   %1 = load i32, ptr %_, align 8
   br label %return
 
@@ -1610,7 +1607,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @UI_set_result_ex(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %ui, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, -2
   store i32 %and, ptr %flags, align 8
@@ -1622,7 +1619,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %_ = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5
+  %_ = getelementptr inbounds i8, ptr %uis, i64 40
   %2 = load i32, ptr %_, align 8
   %cmp = icmp sgt i32 %2, %len
   br i1 %cmp, label %if.then, label %if.end
@@ -1655,7 +1652,7 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %result_buf = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 3
+  %result_buf = getelementptr inbounds i8, ptr %uis, i64 24
   %8 = load ptr, ptr %result_buf, align 8
   %cmp16 = icmp eq ptr %8, null
   br i1 %cmp16, label %if.then17, label %if.end18
@@ -1680,12 +1677,12 @@ if.then24:                                        ; preds = %if.end18
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end18
-  %result_len = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 4
+  %result_len = getelementptr inbounds i8, ptr %uis, i64 32
   store i64 %conv, ptr %result_len, align 8
   br label %return
 
 sw.bb28:                                          ; preds = %entry
-  %result_buf29 = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 3
+  %result_buf29 = getelementptr inbounds i8, ptr %uis, i64 24
   %11 = load ptr, ptr %result_buf29, align 8
   %cmp30 = icmp eq ptr %11, null
   br i1 %cmp30, label %if.then32, label %if.end33
@@ -1703,9 +1700,9 @@ if.end33:                                         ; preds = %sw.bb28
   br i1 %tobool.not35, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end33
-  %ok_chars = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5, i32 0, i32 1
+  %ok_chars = getelementptr inbounds i8, ptr %uis, i64 48
   %13 = load ptr, ptr %ok_chars, align 8
-  %cancel_chars = getelementptr inbounds %struct.ui_string_st, ptr %uis, i64 0, i32 5, i32 0, i32 2
+  %cancel_chars = getelementptr inbounds i8, ptr %uis, i64 56
   br label %for.body
 
 for.cond:                                         ; preds = %if.end45
@@ -1779,16 +1776,16 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp8.not, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %if.else7
-  %out_string = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 1
+  %out_string = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %prompt, ptr %out_string, align 8
   %tobool.not = icmp ne i32 %prompt_freeable, 0
   %cond = zext i1 %tobool.not to i32
-  %flags = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %cond, ptr %flags, align 8
-  %input_flags10 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 2
+  %input_flags10 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %input_flags, ptr %input_flags10, align 8
   store i32 %type, ptr %call, align 8
-  %result_buf12 = getelementptr inbounds %struct.ui_string_st, ptr %call, i64 0, i32 3
+  %result_buf12 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %result_buf, ptr %result_buf12, align 8
   br label %if.end14
 

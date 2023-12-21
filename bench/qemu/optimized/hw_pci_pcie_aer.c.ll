@@ -7,29 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PCIEAERErrorName = type { ptr, i32, i8 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
 %struct.PCIEAERErr = type { i32, i16, i16, [4 x i32], [4 x i32] }
 
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/hw/pci/pcie_aer.c\00", align 1
@@ -100,9 +77,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @pcie_aer_init(ptr noundef %dev, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 1, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size) #13
-  %aer_cap = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap = getelementptr inbounds i8, ptr %dev, i64 2172
   store i16 %offset, ptr %aer_cap, align 4
-  %log_max = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 1
+  %log_max = getelementptr inbounds i8, ptr %dev, i64 2178
   %0 = load i16, ptr %log_max, align 2
   %cmp = icmp ugt i16 %0, 128
   br i1 %cmp, label %if.then, label %if.end
@@ -116,27 +93,27 @@ if.end:                                           ; preds = %entry
   %narrow = mul nuw nsw i16 %0, 40
   %mul = zext nneg i16 %narrow to i64
   %call = tail call noalias ptr @g_malloc0(i64 noundef %mul) #14
-  %log = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 2
+  %log = getelementptr inbounds i8, ptr %dev, i64 2184
   store ptr %call, ptr %log, align 8
-  %w1cmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 6
+  %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
   %1 = load ptr, ptr %w1cmask, align 16
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
   %add.ptr14 = getelementptr i8, ptr %add.ptr, i64 4
   store i32 67104816, ptr %add.ptr14, align 1
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
   %2 = load i32, ptr %cap_present, align 4
   %and = and i32 %2, 2048
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end24, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %3 = load ptr, ptr %config, align 8
   %add.ptr18 = getelementptr i8, ptr %3, i64 %idx.ext
   %add.ptr19 = getelementptr i8, ptr %add.ptr18, i64 8
   store i32 37748736, ptr %add.ptr19, align 1
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
   %4 = load ptr, ptr %wmask, align 8
   %add.ptr22 = getelementptr i8, ptr %4, i64 %idx.ext
   %add.ptr23 = getelementptr i8, ptr %add.ptr22, i64 8
@@ -144,12 +121,12 @@ if.then15:                                        ; preds = %if.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then15, %if.end
-  %config25 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config25 = getelementptr inbounds i8, ptr %dev, i64 168
   %5 = load ptr, ptr %config25, align 8
   %add.ptr28 = getelementptr i8, ptr %5, i64 %idx.ext
   %add.ptr29 = getelementptr i8, ptr %add.ptr28, i64 12
   store i32 4595760, ptr %add.ptr29, align 1
-  %wmask30 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask30 = getelementptr inbounds i8, ptr %dev, i64 184
   %6 = load ptr, ptr %wmask30, align 8
   %add.ptr33 = getelementptr i8, ptr %6, i64 %idx.ext
   %add.ptr34 = getelementptr i8, ptr %add.ptr33, i64 12
@@ -215,7 +192,7 @@ declare zeroext i8 @pcie_cap_get_type(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_aer_exit(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
-  %log = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 2
+  %log = getelementptr inbounds i8, ptr %dev, i64 2184
   %0 = load ptr, ptr %log, align 8
   tail call void @g_free(ptr noundef %0) #13
   ret void
@@ -234,9 +211,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %aer_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap1 = getelementptr inbounds i8, ptr %dev, i64 2172
   %1 = load i16, ptr %aer_cap1, align 4
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -264,7 +241,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.PCIEAERErr, ptr %err, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %err, i64 6
   %2 = load i16, ptr %flags, align 2
   %3 = and i16 %2, 1
   %tobool1.not = icmp eq i16 %3, 0
@@ -276,14 +253,14 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %aer_cap11 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap11 = getelementptr inbounds i8, ptr %dev, i64 2172
   %5 = load i16, ptr %aer_cap11, align 4
   %tobool12.not = icmp eq i16 %5, 0
   br i1 %tobool12.not, label %if.end29.thread, label %if.end29
 
 if.end29:                                         ; preds = %if.end10
-  %exp = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %6 = load ptr, ptr %config, align 8
   %7 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %7 to i64
@@ -302,9 +279,9 @@ if.end29.thread:                                  ; preds = %if.end10
   br i1 %tobool1.not, label %if.else50, label %if.end38.i.thread
 
 if.end38.i.thread:                                ; preds = %if.end29.thread
-  %config.i167 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config.i167 = getelementptr inbounds i8, ptr %dev, i64 168
   %8 = load ptr, ptr %config.i167, align 8
-  %exp.i168 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36
+  %exp.i168 = getelementptr inbounds i8, ptr %dev, i64 2168
   %9 = load i8, ptr %exp.i168, align 8
   %idx.ext.i169 = zext i8 %9 to i64
   %add.ptr.i170 = getelementptr i8, ptr %8, i64 %idx.ext.i169
@@ -389,9 +366,9 @@ land.lhs.true:                                    ; preds = %pcie_aer_uncor_defa
 if.then68:                                        ; preds = %land.lhs.true
   %spec.select.v = select i1 %cmp, i16 9, i16 1
   %spec.select = or i16 %devsta.0159, %spec.select.v
-  %config.i35 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config.i35 = getelementptr inbounds i8, ptr %dev, i64 168
   %13 = load ptr, ptr %config.i35, align 8
-  %exp.i36 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36
+  %exp.i36 = getelementptr inbounds i8, ptr %dev, i64 2168
   %14 = load i8, ptr %exp.i36, align 8
   %idx.ext.i37 = zext i8 %14 to i64
   %add.ptr.i38 = getelementptr i8, ptr %13, i64 %idx.ext.i37
@@ -456,15 +433,15 @@ land.lhs.true.i.i:                                ; preds = %if.end9.i.i
   br i1 %tobool15.not.i.i, label %if.end22.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %land.lhs.true.i.i
-  %aer_log.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4
+  %aer_log.i.i = getelementptr inbounds i8, ptr %dev, i64 2176
   %19 = load i16, ptr %aer_log.i.i, align 8
-  %log_max.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 1
+  %log_max.i.i.i = getelementptr inbounds i8, ptr %dev, i64 2178
   %20 = load i16, ptr %log_max.i.i.i, align 2
   %cmp.i.i.i = icmp eq i16 %19, %20
   br i1 %cmp.i.i.i, label %if.end33.i, label %aer_log_add_err.exit.i.i
 
 aer_log_add_err.exit.i.i:                         ; preds = %if.then16.i.i
-  %log.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 2
+  %log.i.i.i = getelementptr inbounds i8, ptr %dev, i64 2184
   %21 = load ptr, ptr %log.i.i.i, align 8
   %idxprom.i.i.i = zext i16 %19 to i64
   %arrayidx.i.i.i = getelementptr %struct.PCIEAERErr, ptr %21, i64 %idxprom.i.i.i
@@ -503,9 +480,9 @@ if.else73:                                        ; preds = %pcie_aer_uncor_defa
   %26 = or i16 %25, %devsta.0159
   %27 = or i16 %26, 8
   %spec.select182 = select i1 %cmp, i16 %27, i16 %26
-  %config.i66 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config.i66 = getelementptr inbounds i8, ptr %dev, i64 168
   %28 = load ptr, ptr %config.i66, align 8
-  %exp.i67 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36
+  %exp.i67 = getelementptr inbounds i8, ptr %dev, i64 2168
   %29 = load i8, ptr %exp.i67, align 8
   %idx.ext.i68 = zext i8 %29 to i64
   %add.ptr.i69 = getelementptr i8, ptr %28, i64 %idx.ext.i68
@@ -567,15 +544,15 @@ land.lhs.true.i.i91:                              ; preds = %if.end9.i.i88
   br i1 %tobool15.not.i.i96, label %if.end22.i.i113, label %if.then16.i.i97
 
 if.then16.i.i97:                                  ; preds = %land.lhs.true.i.i91
-  %aer_log.i.i98 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4
+  %aer_log.i.i98 = getelementptr inbounds i8, ptr %dev, i64 2176
   %34 = load i16, ptr %aer_log.i.i98, align 8
-  %log_max.i.i.i99 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 1
+  %log_max.i.i.i99 = getelementptr inbounds i8, ptr %dev, i64 2178
   %35 = load i16, ptr %log_max.i.i.i99, align 2
   %cmp.i.i.i100 = icmp eq i16 %34, %35
   br i1 %cmp.i.i.i100, label %pcie_aer_record_error.exit.i106, label %aer_log_add_err.exit.i.i101
 
 aer_log_add_err.exit.i.i101:                      ; preds = %if.then16.i.i97
-  %log.i.i.i102 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 2
+  %log.i.i.i102 = getelementptr inbounds i8, ptr %dev, i64 2184
   %36 = load ptr, ptr %log.i.i.i102, align 8
   %idxprom.i.i.i103 = zext i16 %34 to i64
   %arrayidx.i.i.i104 = getelementptr %struct.PCIEAERErr, ptr %36, i64 %idxprom.i.i.i103
@@ -639,7 +616,7 @@ if.end79:                                         ; preds = %if.then11.i, %if.el
   %cmp16.i.i = phi i1 [ false, %if.end38.i ], [ false, %if.end38.i53 ], [ true, %if.then54.i ], [ true, %if.else64.i ], [ false, %if.then11.i ]
   %cmp24.i.i = phi i1 [ true, %if.end38.i ], [ true, %if.end38.i53 ], [ false, %if.then54.i ], [ true, %if.else64.i ], [ true, %if.then11.i ]
   %inj.sroa.50.3 = phi i32 [ 1, %if.end38.i ], [ 1, %if.end38.i53 ], [ 4, %if.then54.i ], [ 2, %if.else64.i ], [ 1, %if.then11.i ]
-  %source_id = getelementptr inbounds %struct.PCIEAERErr, ptr %err, i64 0, i32 1
+  %source_id = getelementptr inbounds i8, ptr %err, i64 4
   %43 = load i16, ptr %source_id, align 4
   br label %while.body.i
 
@@ -681,9 +658,9 @@ pcie_aer_msg_vbridge.exit.i:                      ; preds = %if.then.i.i, %land.
   br i1 %tobool.not.i.not.i, label %pcie_aer_msg.exit, label %if.end13.i116
 
 if.end13.i116:                                    ; preds = %pcie_aer_msg_vbridge.exit.i, %if.end.i115
-  %config.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev.addr.027.i, i64 0, i32 3
+  %config.i.i = getelementptr inbounds i8, ptr %dev.addr.027.i, i64 168
   %47 = load ptr, ptr %config.i.i, align 8
-  %exp.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev.addr.027.i, i64 0, i32 36
+  %exp.i.i = getelementptr inbounds i8, ptr %dev.addr.027.i, i64 2168
   %48 = load i8, ptr %exp.i.i, align 8
   %idx.ext.i.i117 = zext i8 %48 to i64
   %add.ptr.i14.i = getelementptr i8, ptr %47, i64 %idx.ext.i.i117
@@ -739,7 +716,7 @@ if.end16.i:                                       ; preds = %pcie_aer_msg_alldev
   br i1 %cmp.i, label %if.then20.i, label %if.end21.i
 
 if.then20.i:                                      ; preds = %if.end16.i
-  %aer_cap2.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev.addr.027.i, i64 0, i32 36, i32 3
+  %aer_cap2.i.i = getelementptr inbounds i8, ptr %dev.addr.027.i, i64 2172
   %55 = load i16, ptr %aer_cap2.i.i, align 4
   %idx.ext.i19.i = zext i16 %55 to i64
   %add.ptr3.i20.i = getelementptr i8, ptr %53, i64 %idx.ext.i19.i
@@ -878,7 +855,7 @@ if.then84:                                        ; preds = %pcie_aer_msg.exit
   %61 = getelementptr inbounds i8, ptr %header_log_overflow, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %61, i8 0, i64 36, i1 false)
   store i32 32768, ptr %header_log_overflow, align 4
-  %62 = getelementptr inbounds %struct.PCIEAERErr, ptr %header_log_overflow, i64 0, i32 2
+  %62 = getelementptr inbounds i8, ptr %header_log_overflow, i64 6
   store i16 1, ptr %62, align 2
   %call85 = call i32 @pcie_aer_inject_error(ptr noundef %dev, ptr noundef nonnull %header_log_overflow), !range !9
   %tobool86.not = icmp eq i32 %call85, 0
@@ -900,9 +877,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define dso_local void @pcie_aer_write_config(ptr nocapture noundef %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %err.i = alloca %struct.PCIEAERErr, align 4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %aer_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap1 = getelementptr inbounds i8, ptr %dev, i64 2172
   %1 = load i16, ptr %aer_cap1, align 4
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -918,7 +895,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %err.i)
-  %aer_log4.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4
+  %aer_log4.i = getelementptr inbounds i8, ptr %dev, i64 2176
   %and.i = and i32 %add.ptr2.val, 1024
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
@@ -938,7 +915,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %pcie_aer_clear_error.exit
 
 for.body.lr.ph.i.i:                               ; preds = %lor.lhs.false.i
-  %log.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 2
+  %log.i.i = getelementptr inbounds i8, ptr %dev, i64 2184
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -968,7 +945,7 @@ aer_log_del_err.exit.i:                           ; preds = %pcie_aer_update_unc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %err.i, ptr noundef nonnull align 4 dereferenceable(40) %7, i64 40, i1 false)
   %dec.i.i = add i16 %5, -1
   store i16 %dec.i.i, ptr %aer_log4.i, align 8
-  %arrayidx5.i.i = getelementptr %struct.PCIEAERErr, ptr %7, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %7, i64 40
   %conv.i.i = zext i16 %dec.i.i to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %7, ptr align 4 %arrayidx5.i.i, i64 %mul.i.i, i1 false)
@@ -982,7 +959,7 @@ pcie_aer_clear_error.exit:                        ; preds = %if.then.i, %aer_log
 if.else:                                          ; preds = %entry
   %and6 = and i32 %add.ptr2.val, 1024
   %tobool7.not = icmp eq i32 %and6, 0
-  %aer_log = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4
+  %aer_log = getelementptr inbounds i8, ptr %dev, i64 2176
   br i1 %tobool7.not, label %if.else9, label %if.then8
 
 if.then8:                                         ; preds = %if.else
@@ -991,7 +968,7 @@ if.then8:                                         ; preds = %if.else
   br i1 %cmp6.not.i, label %if.end11, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then8
-  %log.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 4, i32 2
+  %log.i = getelementptr inbounds i8, ptr %dev, i64 2184
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1019,20 +996,20 @@ if.end11:                                         ; preds = %for.body.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_aer_root_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
 entry:
-  %aer_cap = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap = getelementptr inbounds i8, ptr %dev, i64 2172
   %0 = load i16, ptr %aer_cap, align 4
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
   %1 = load ptr, ptr %wmask, align 8
   %idx.ext = zext i16 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
   %add.ptr1 = getelementptr i8, ptr %add.ptr, i64 44
   store i32 7, ptr %add.ptr1, align 1
-  %w1cmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 6
+  %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
   %2 = load ptr, ptr %w1cmask, align 16
   %add.ptr4 = getelementptr i8, ptr %2, i64 %idx.ext
   %add.ptr5 = getelementptr i8, ptr %add.ptr4, i64 48
   store i32 127, ptr %add.ptr5, align 1
-  %cmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 4
+  %cmask = getelementptr inbounds i8, ptr %dev, i64 176
   %3 = load ptr, ptr %cmask, align 16
   %add.ptr8 = getelementptr i8, ptr %3, i64 %idx.ext
   %add.ptr9 = getelementptr i8, ptr %add.ptr8, i64 48
@@ -1043,9 +1020,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_aer_root_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %aer_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap1 = getelementptr inbounds i8, ptr %dev, i64 2172
   %1 = load i16, ptr %aer_cap1, align 4
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1057,9 +1034,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_aer_root_write_config(ptr noundef %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len, i32 noundef %root_cmd_prev) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %aer_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %aer_cap1 = getelementptr inbounds i8, ptr %dev, i64 2172
   %1 = load i16, ptr %aer_cap1, align 4
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1156,7 +1133,7 @@ declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal zeroext i1 @pcie_aer_state_log_num_valid(ptr nocapture noundef readonly %opaque, i32 %version_id) #6 {
 entry:
   %0 = load i16, ptr %opaque, align 8
-  %log_max = getelementptr inbounds %struct.PCIEAERLog, ptr %opaque, i64 0, i32 1
+  %log_max = getelementptr inbounds i8, ptr %opaque, i64 2
   %1 = load i16, ptr %log_max, align 2
   %cmp = icmp ule i16 %0, %1
   ret i1 %cmp
@@ -1181,13 +1158,13 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %tobool.not, label %if.end, label %for.cond
 
 if.end:                                           ; preds = %for.body
-  %val = getelementptr [24 x %struct.PCIEAERErrorName], ptr @pcie_aer_error_list, i64 0, i64 %indvars.iv, i32 1
+  %val = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %val, align 8
   store i32 %1, ptr %status, align 4
-  %2 = and i64 %indvars.iv, 24
-  %tobool3 = icmp eq i64 %2, 16
-  %frombool = zext i1 %tobool3 to i8
-  store i8 %frombool, ptr %correctable, align 1
+  %correctable2 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %2 = load i8, ptr %correctable2, align 4
+  %3 = and i8 %2, 1
+  store i8 %3, ptr %correctable, align 1
   br label %return
 
 return:                                           ; preds = %for.cond, %if.end
@@ -1207,10 +1184,10 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pcie_aer_update_log(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %err) unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36
-  %aer_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 3
+  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %aer_cap1 = getelementptr inbounds i8, ptr %dev, i64 2172
   %1 = load i16, ptr %aer_cap1, align 4
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1238,7 +1215,7 @@ if.end11:                                         ; preds = %if.end
   %and12 = and i32 %add.ptr3.val, -2080
   %and14 = and i32 %3, 31
   %or = or disjoint i32 %and12, %and14
-  %flags = getelementptr inbounds %struct.PCIEAERErr, ptr %err, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %err, i64 6
   %5 = load i16, ptr %flags, align 2
   %conv15 = zext i16 %5 to i32
   %and16 = and i32 %conv15, 4
@@ -1247,13 +1224,14 @@ if.end11:                                         ; preds = %if.end
 
 for.cond.preheader:                               ; preds = %if.end11
   %add.ptr21 = getelementptr i8, ptr %add.ptr, i64 28
+  %header = getelementptr inbounds i8, ptr %err, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %mul = shl nuw nsw i64 %indvars.iv, 2
   %add.ptr23 = getelementptr i8, ptr %add.ptr21, i64 %mul
-  %arrayidx = getelementptr %struct.PCIEAERErr, ptr %err, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx = getelementptr [4 x i32], ptr %header, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
   %7 = tail call i32 @llvm.bswap.i32(i32 %6)
   store i32 %7, ptr %add.ptr23, align 1
@@ -1294,13 +1272,14 @@ land.lhs.true:                                    ; preds = %if.end33
 
 for.cond48.preheader:                             ; preds = %land.lhs.true
   %add.ptr53 = getelementptr i8, ptr %add.ptr, i64 56
+  %prefix = getelementptr inbounds i8, ptr %err, i64 24
   br label %for.body52
 
 for.body52:                                       ; preds = %for.cond48.preheader, %for.body52
   %indvars.iv30 = phi i64 [ 0, %for.cond48.preheader ], [ %indvars.iv.next31, %for.body52 ]
   %mul55 = shl nuw nsw i64 %indvars.iv30, 2
   %add.ptr56 = getelementptr i8, ptr %add.ptr53, i64 %mul55
-  %arrayidx58 = getelementptr %struct.PCIEAERErr, ptr %err, i64 0, i32 4, i64 %indvars.iv30
+  %arrayidx58 = getelementptr [4 x i32], ptr %prefix, i64 0, i64 %indvars.iv30
   %12 = load i32, ptr %arrayidx58, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
   store i32 %13, ptr %add.ptr56, align 1

@@ -10,72 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.InterfaceInfo = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QTest = type { %struct.Object, i8, ptr, ptr, %struct.CharBackend, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct._GString = type { ptr, i64, i64 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.NamedGPIOList = type { ptr, ptr, i32, i32, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.0, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.1, %union.anon.2, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon.0 = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.3 }
-%struct.anon.3 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.4 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.12, %union.anon.13 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.12 = type { %struct.QTailQLink }
-%union.anon.13 = type { %struct.QTailQLink }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.7, %union.anon.8, %union.anon.9, ptr, i32, ptr, ptr, i8 }
-%union.anon.7 = type { %struct.QTailQLink }
-%union.anon.8 = type { %struct.QTailQLink }
-%union.anon.9 = type { %struct.QTailQLink }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.14, i8, %struct.EventNotifier, %struct.anon.15, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.BHList = type { ptr }
-%struct.anon.14 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.15 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.10, %struct.NotifierList }
-%struct.anon.10 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.11 }
-%struct.anon.11 = type { ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
 
 @qtest_log_fp = internal unnamed_addr global ptr null, align 8
 @qtest_opened = internal unnamed_addr global i1 false, align 1
@@ -279,7 +213,7 @@ define dso_local void @qtest_server_init(ptr noundef %qtest_chrdev, ptr noundef 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -295,7 +229,7 @@ if.then4:                                         ; preds = %entry
 
 if.end5:                                          ; preds = %entry
   %call6 = tail call ptr @object_new(ptr noundef nonnull @.str.3) #18
-  %label = getelementptr inbounds %struct.Chardev, ptr %call, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %call, i64 96
   %0 = load ptr, ptr %label, align 8
   %call7 = tail call zeroext i1 @object_property_set_str(ptr noundef %call6, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @error_abort) #18
   %tobool8.not = icmp eq ptr %qtest_log, null
@@ -366,7 +300,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %qtest_chr = getelementptr inbounds %struct.QTest, ptr %0, i64 0, i32 4
+  %qtest_chr = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %qtest_chr, align 8
   %cmp = icmp ne ptr %1, null
   br label %land.end
@@ -393,7 +327,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call1 = tail call ptr @g_string_append(ptr noundef %1, ptr noundef %buf) #18
   %2 = load ptr, ptr @qtest_server_inproc_recv.gstr, align 8
   %3 = load ptr, ptr %2, align 8
-  %len = getelementptr inbounds %struct._GString, ptr %2, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %len, align 8
   %5 = getelementptr i8, ptr %3, i64 %4
   %arrayidx = getelementptr i8, ptr %5, i64 -1
@@ -570,7 +504,7 @@ lor.lhs.false.i:                                  ; preds = %do.end16.i
   br i1 %cmp21.i, label %if.then22.i, label %if.else84.i
 
 if.then22.i:                                      ; preds = %lor.lhs.false.i, %do.end16.i
-  %arrayidx24.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx24.i = getelementptr i8, ptr %call6, i64 8
   %12 = load ptr, ptr %arrayidx24.i, align 8
   %tobool25.not.i = icmp eq ptr %12, null
   br i1 %tobool25.not.i, label %if.else27.i, label %do.end29.i
@@ -580,7 +514,7 @@ if.else27.i:                                      ; preds = %if.then22.i
   unreachable
 
 do.end29.i:                                       ; preds = %if.then22.i
-  %arrayidx30.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx30.i = getelementptr i8, ptr %call6, i64 16
   %13 = load ptr, ptr %arrayidx30.i, align 8
   %arrayidx33.i = getelementptr i8, ptr %11, i64 14
   %14 = load i8, ptr %arrayidx33.i, align 1
@@ -674,7 +608,7 @@ if.else53.i:                                      ; preds = %qtest_send_prefix.e
   br label %qtest_process_command.exit
 
 if.end55.i:                                       ; preds = %if.end47.i
-  %gpios.i = getelementptr inbounds %struct.DeviceState, ptr %call.i456.i, i64 0, i32 10
+  %gpios.i = getelementptr inbounds i8, ptr %call.i456.i, i64 96
   %ngl.0562.i = load ptr, ptr %gpios.i, align 8
   %tobool57.not563.i = icmp eq ptr %ngl.0562.i, null
   br i1 %tobool57.not563.i, label %for.end79.i, label %for.body58.lr.ph.i
@@ -693,7 +627,7 @@ for.body58.us.i:                                  ; preds = %for.body58.lr.ph.i,
 
 for.inc78.us.i:                                   ; preds = %for.body70.us.i, %for.cond67.preheader.us.i, %for.body58.us.i
   %interception_succeeded.1.us.i = phi i8 [ %interception_succeeded.0564.us.i, %for.body58.us.i ], [ 1, %for.cond67.preheader.us.i ], [ 1, %for.body70.us.i ]
-  %node.us.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.0565.us.i, i64 0, i32 4
+  %node.us.i = getelementptr inbounds i8, ptr %ngl.0565.us.i, i64 24
   %ngl.0.us.i = load ptr, ptr %node.us.i, align 8
   %tobool57.not.us.i = icmp eq ptr %ngl.0.us.i, null
   br i1 %tobool57.not.us.i, label %for.end79.loopexit.i, label %for.body58.us.i, !llvm.loop !7
@@ -711,19 +645,19 @@ for.body70.us.i:                                  ; preds = %for.cond67.preheade
   br i1 %cmp68.us.i, label %for.body70.us.i, label %for.inc78.us.i, !llvm.loop !8
 
 for.cond67.preheader.us.i:                        ; preds = %for.body58.us.i
-  %num_out.us.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.0565.us.i, i64 0, i32 3
+  %num_out.us.i = getelementptr inbounds i8, ptr %ngl.0565.us.i, i64 20
   %33 = load i32, ptr %num_out.us.i, align 4
   %cmp68560.us.i = icmp sgt i32 %33, 0
   br i1 %cmp68560.us.i, label %for.body70.us.i, label %for.inc78.us.i
 
 for.body58.i:                                     ; preds = %for.body58.lr.ph.i, %for.body58.i
   %ngl.0565.i = phi ptr [ %ngl.0.i, %for.body58.i ], [ %ngl.0562.i, %for.body58.lr.ph.i ]
-  %in.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.0565.i, i64 0, i32 1
+  %in.i = getelementptr inbounds i8, ptr %ngl.0565.i, i64 8
   %34 = load ptr, ptr %in.i, align 8
-  %num_in.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.0565.i, i64 0, i32 2
+  %num_in.i = getelementptr inbounds i8, ptr %ngl.0565.i, i64 16
   %35 = load i32, ptr %num_in.i, align 8
   call void @qemu_irq_intercept_in(ptr noundef %34, ptr noundef nonnull @qtest_irq_handler, i32 noundef %35) #18
-  %node.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.0565.i, i64 0, i32 4
+  %node.i = getelementptr inbounds i8, ptr %ngl.0565.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool57.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool57.not.i, label %for.end79.i, label %for.body58.i, !llvm.loop !7
@@ -771,25 +705,25 @@ if.else84.i:                                      ; preds = %lor.lhs.false.i
   br i1 %cmp87.i, label %do.body92.i, label %if.else139.i
 
 do.body92.i:                                      ; preds = %if.else84.i
-  %arrayidx93.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx93.i = getelementptr i8, ptr %call6, i64 8
   %44 = load ptr, ptr %arrayidx93.i, align 8
   %tobool94.not.i = icmp eq ptr %44, null
   br i1 %tobool94.not.i, label %if.else105.i, label %land.lhs.true95.i
 
 land.lhs.true95.i:                                ; preds = %do.body92.i
-  %arrayidx96.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx96.i = getelementptr i8, ptr %call6, i64 16
   %45 = load ptr, ptr %arrayidx96.i, align 8
   %tobool97.not.i = icmp eq ptr %45, null
   br i1 %tobool97.not.i, label %if.else105.i, label %land.lhs.true98.i
 
 land.lhs.true98.i:                                ; preds = %land.lhs.true95.i
-  %arrayidx99.i = getelementptr ptr, ptr %call6, i64 3
+  %arrayidx99.i = getelementptr i8, ptr %call6, i64 24
   %46 = load ptr, ptr %arrayidx99.i, align 8
   %tobool100.not.i = icmp eq ptr %46, null
   br i1 %tobool100.not.i, label %if.else105.i, label %land.lhs.true101.i
 
 land.lhs.true101.i:                               ; preds = %land.lhs.true98.i
-  %arrayidx102.i = getelementptr ptr, ptr %call6, i64 4
+  %arrayidx102.i = getelementptr i8, ptr %call6, i64 32
   %47 = load ptr, ptr %arrayidx102.i, align 8
   %tobool103.not.i = icmp eq ptr %47, null
   br i1 %tobool103.not.i, label %if.else105.i, label %do.end107.i
@@ -890,13 +824,13 @@ lor.lhs.false149.i:                               ; preds = %lor.lhs.false144.i
   br i1 %cmp152.i, label %do.body156.i, label %if.else220.i
 
 do.body156.i:                                     ; preds = %lor.lhs.false149.i, %lor.lhs.false144.i, %if.else139.i
-  %arrayidx157.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx157.i = getelementptr i8, ptr %call6, i64 8
   %61 = load ptr, ptr %arrayidx157.i, align 8
   %tobool158.not.i = icmp eq ptr %61, null
   br i1 %tobool158.not.i, label %if.else163.i, label %land.lhs.true159.i
 
 land.lhs.true159.i:                               ; preds = %do.body156.i
-  %arrayidx160.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx160.i = getelementptr i8, ptr %call6, i64 16
   %62 = load ptr, ptr %arrayidx160.i, align 8
   %tobool161.not.i = icmp eq ptr %62, null
   br i1 %tobool161.not.i, label %if.else163.i, label %do.end165.i
@@ -1001,7 +935,7 @@ lor.lhs.false230.i:                               ; preds = %lor.lhs.false225.i
   br i1 %cmp233.i, label %if.then235.i, label %if.else293.i
 
 if.then235.i:                                     ; preds = %lor.lhs.false230.i, %lor.lhs.false225.i, %if.else220.i
-  %arrayidx240.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx240.i = getelementptr i8, ptr %call6, i64 8
   %74 = load ptr, ptr %arrayidx240.i, align 8
   %tobool241.not.i = icmp eq ptr %74, null
   br i1 %tobool241.not.i, label %if.else243.i, label %do.end245.i
@@ -1096,13 +1030,13 @@ lor.lhs.false308.i:                               ; preds = %lor.lhs.false303.i
   br i1 %cmp311.i, label %do.body317.i, label %if.else532.i
 
 do.body317.i:                                     ; preds = %lor.lhs.false308.i, %lor.lhs.false303.i, %lor.lhs.false298.i, %if.else293.i
-  %arrayidx318.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx318.i = getelementptr i8, ptr %call6, i64 8
   %80 = load ptr, ptr %arrayidx318.i, align 8
   %tobool319.not.i = icmp eq ptr %80, null
   br i1 %tobool319.not.i, label %if.else324.i, label %land.lhs.true320.i
 
 land.lhs.true320.i:                               ; preds = %do.body317.i
-  %arrayidx321.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx321.i = getelementptr i8, ptr %call6, i64 16
   %81 = load ptr, ptr %arrayidx321.i, align 8
   %tobool322.not.i = icmp eq ptr %81, null
   br i1 %tobool322.not.i, label %if.else324.i, label %do.end326.i
@@ -1148,7 +1082,7 @@ if.then350.i:                                     ; preds = %do.end344.i
   %86 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %87 = inttoptr i64 %86 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
-  %as.i = getelementptr inbounds %struct.CPUState, ptr %87, i64 0, i32 29
+  %as.i = getelementptr inbounds i8, ptr %87, i64 528
   %88 = load ptr, ptr %as.i, align 16
   %89 = load i64, ptr %addr314.i, align 8
   %call381.i = call i32 @address_space_write(ptr noundef %88, i64 noundef %89, i32 1, ptr noundef nonnull %data.i, i64 noundef 1) #18
@@ -1170,7 +1104,7 @@ tswap16s.exit.i:                                  ; preds = %if.then.i514.i, %if
   %92 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %93 = inttoptr i64 %92 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
-  %as397.i = getelementptr inbounds %struct.CPUState, ptr %93, i64 0, i32 29
+  %as397.i = getelementptr inbounds i8, ptr %93, i64 528
   %94 = load ptr, ptr %as397.i, align 16
   %95 = load i64, ptr %addr314.i, align 8
   %call430.i = call i32 @address_space_write(ptr noundef %94, i64 noundef %95, i32 1, ptr noundef nonnull %data389.i, i64 noundef 2) #18
@@ -1192,7 +1126,7 @@ tswap32s.exit.i:                                  ; preds = %if.then.i517.i, %if
   %98 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %99 = inttoptr i64 %98 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %as446.i = getelementptr inbounds %struct.CPUState, ptr %99, i64 0, i32 29
+  %as446.i = getelementptr inbounds i8, ptr %99, i64 528
   %100 = load ptr, ptr %as446.i, align 16
   %101 = load i64, ptr %addr314.i, align 8
   %call479.i = call i32 @address_space_write(ptr noundef %100, i64 noundef %101, i32 1, ptr noundef nonnull %data438.i, i64 noundef 4) #18
@@ -1213,7 +1147,7 @@ tswap64s.exit.i:                                  ; preds = %if.then.i520.i, %if
   %104 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %105 = inttoptr i64 %104 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
-  %as494.i = getelementptr inbounds %struct.CPUState, ptr %105, i64 0, i32 29
+  %as494.i = getelementptr inbounds i8, ptr %105, i64 528
   %106 = load ptr, ptr %as494.i, align 16
   %107 = load i64, ptr %addr314.i, align 8
   %call527.i = call i32 @address_space_write(ptr noundef %106, i64 noundef %107, i32 1, ptr noundef nonnull %data487.i, i64 noundef 8) #18
@@ -1262,7 +1196,7 @@ lor.lhs.false547.i:                               ; preds = %lor.lhs.false542.i
 
 if.then552.i:                                     ; preds = %lor.lhs.false547.i, %lor.lhs.false542.i, %lor.lhs.false537.i, %if.else532.i
   store i64 -1, ptr %value554.i, align 8
-  %arrayidx557.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx557.i = getelementptr i8, ptr %call6, i64 8
   %112 = load ptr, ptr %arrayidx557.i, align 8
   %tobool558.not.i = icmp eq ptr %112, null
   br i1 %tobool558.not.i, label %if.else560.i, label %do.end562.i
@@ -1295,11 +1229,11 @@ while.end583.i:                                   ; preds = %do.end571.i
   %115 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %116 = inttoptr i64 %115 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
-  %as585.i = getelementptr inbounds %struct.CPUState, ptr %116, i64 0, i32 29
+  %as585.i = getelementptr inbounds i8, ptr %116, i64 528
   %117 = load ptr, ptr %as585.i, align 16
   %118 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i.i = getelementptr inbounds %struct.AddressSpace, ptr %117, i64 0, i32 3
+  %current_map.i.i = getelementptr inbounds i8, ptr %117, i64 32
   %119 = load atomic i64, ptr %current_map.i.i monotonic, align 8
   %120 = inttoptr i64 %119 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1318,7 +1252,7 @@ land.lhs.true.i1527.if.else.i1524_crit_edge.i:    ; preds = %land.lhs.true.i1527
   br label %if.else.i1524.i
 
 if.then6.i1529.i:                                 ; preds = %land.lhs.true.i1527.i
-  %ram_block.i1530.i = getelementptr inbounds %struct.MemoryRegion, ptr %call4.i1522.i, i64 0, i32 11
+  %ram_block.i1530.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 56
   %122 = load ptr, ptr %ram_block.i1530.i, align 8
   %123 = load i64, ptr %addr1.i1509.i, align 8
   %call7.i1531.i = call ptr @qemu_map_ram_ptr(ptr noundef %122, i64 noundef %123) #18
@@ -1343,11 +1277,11 @@ while.end632.i:                                   ; preds = %do.end571.i
   %128 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %129 = inttoptr i64 %128 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !15
-  %as634.i = getelementptr inbounds %struct.CPUState, ptr %129, i64 0, i32 29
+  %as634.i = getelementptr inbounds i8, ptr %129, i64 528
   %130 = load ptr, ptr %as634.i, align 16
   %131 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i521.i = getelementptr inbounds %struct.AddressSpace, ptr %130, i64 0, i32 3
+  %current_map.i521.i = getelementptr inbounds i8, ptr %130, i64 32
   %132 = load atomic i64, ptr %current_map.i521.i monotonic, align 8
   %133 = inttoptr i64 %132 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1366,7 +1300,7 @@ land.lhs.true.i1496.if.else.i1493_crit_edge.i:    ; preds = %land.lhs.true.i1496
   br label %if.else.i1493.i
 
 if.then6.i1498.i:                                 ; preds = %land.lhs.true.i1496.i
-  %ram_block.i1499.i = getelementptr inbounds %struct.MemoryRegion, ptr %call4.i1491.i, i64 0, i32 11
+  %ram_block.i1499.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 56
   %135 = load ptr, ptr %ram_block.i1499.i, align 8
   %136 = load i64, ptr %addr1.i1478.i, align 8
   %call7.i1500.i = call ptr @qemu_map_ram_ptr(ptr noundef %135, i64 noundef %136) #18
@@ -1394,11 +1328,11 @@ while.end682.i:                                   ; preds = %do.end571.i
   %142 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %143 = inttoptr i64 %142 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
-  %as684.i = getelementptr inbounds %struct.CPUState, ptr %143, i64 0, i32 29
+  %as684.i = getelementptr inbounds i8, ptr %143, i64 528
   %144 = load ptr, ptr %as684.i, align 16
   %145 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i523.i = getelementptr inbounds %struct.AddressSpace, ptr %144, i64 0, i32 3
+  %current_map.i523.i = getelementptr inbounds i8, ptr %144, i64 32
   %146 = load atomic i64, ptr %current_map.i523.i monotonic, align 8
   %147 = inttoptr i64 %146 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1417,7 +1351,7 @@ land.lhs.true.i1465.if.else.i1462_crit_edge.i:    ; preds = %land.lhs.true.i1465
   br label %if.else.i1462.i
 
 if.then6.i1467.i:                                 ; preds = %land.lhs.true.i1465.i
-  %ram_block.i1468.i = getelementptr inbounds %struct.MemoryRegion, ptr %call4.i1460.i, i64 0, i32 11
+  %ram_block.i1468.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 56
   %149 = load ptr, ptr %ram_block.i1468.i, align 8
   %150 = load i64, ptr %addr1.i1447.i, align 8
   %call7.i1469.i = call ptr @qemu_map_ram_ptr(ptr noundef %149, i64 noundef %150) #18
@@ -1445,11 +1379,11 @@ while.end731.i:                                   ; preds = %do.end571.i
   %156 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %157 = inttoptr i64 %156 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %as733.i = getelementptr inbounds %struct.CPUState, ptr %157, i64 0, i32 29
+  %as733.i = getelementptr inbounds i8, ptr %157, i64 528
   %158 = load ptr, ptr %as733.i, align 16
   %159 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i526.i = getelementptr inbounds %struct.AddressSpace, ptr %158, i64 0, i32 3
+  %current_map.i526.i = getelementptr inbounds i8, ptr %158, i64 32
   %160 = load atomic i64, ptr %current_map.i526.i monotonic, align 8
   %161 = inttoptr i64 %160 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1468,7 +1402,7 @@ land.lhs.true.i1434.if.else.i1431_crit_edge.i:    ; preds = %land.lhs.true.i1434
   br label %if.else.i1431.i
 
 if.then6.i1436.i:                                 ; preds = %land.lhs.true.i1434.i
-  %ram_block.i1437.i = getelementptr inbounds %struct.MemoryRegion, ptr %call4.i1429.i, i64 0, i32 11
+  %ram_block.i1437.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 56
   %163 = load ptr, ptr %ram_block.i1437.i, align 8
   %164 = load i64, ptr %addr1.i1416.i, align 8
   %call7.i1438.i = call ptr @qemu_map_ram_ptr(ptr noundef %163, i64 noundef %164) #18
@@ -1519,13 +1453,13 @@ if.else771.i:                                     ; preds = %lor.lhs.false547.i
   br i1 %cmp774.i, label %do.body781.i, label %if.else869.i
 
 do.body781.i:                                     ; preds = %if.else771.i
-  %arrayidx782.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx782.i = getelementptr i8, ptr %call6, i64 8
   %173 = load ptr, ptr %arrayidx782.i, align 8
   %tobool783.not.i = icmp eq ptr %173, null
   br i1 %tobool783.not.i, label %if.else788.i, label %land.lhs.true784.i
 
 land.lhs.true784.i:                               ; preds = %do.body781.i
-  %arrayidx785.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx785.i = getelementptr i8, ptr %call6, i64 16
   %174 = load ptr, ptr %arrayidx785.i, align 8
   %tobool786.not.i = icmp eq ptr %174, null
   br i1 %tobool786.not.i, label %if.else788.i, label %do.end790.i
@@ -1569,7 +1503,7 @@ do.end814.i:                                      ; preds = %do.body809.i
   %178 = load i64, ptr %len.i, align 8
   %179 = load i64, ptr %addr777.i, align 8
   %180 = inttoptr i64 %177 to ptr
-  %as822.i = getelementptr inbounds %struct.CPUState, ptr %180, i64 0, i32 29
+  %as822.i = getelementptr inbounds i8, ptr %180, i64 528
   %181 = load ptr, ptr %as822.i, align 16
   %call13.i1391.i = call i32 @address_space_read_full(ptr noundef %181, i64 noundef %179, i32 1, ptr noundef %call815.i, i64 noundef %178) #18
   %182 = load i64, ptr %len.i, align 8
@@ -1606,13 +1540,13 @@ if.else869.i:                                     ; preds = %if.else771.i
   br i1 %cmp872.i, label %do.body879.i, label %if.else949.i
 
 do.body879.i:                                     ; preds = %if.else869.i
-  %arrayidx880.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx880.i = getelementptr i8, ptr %call6, i64 8
   %186 = load ptr, ptr %arrayidx880.i, align 8
   %tobool881.not.i = icmp eq ptr %186, null
   br i1 %tobool881.not.i, label %if.else886.i, label %land.lhs.true882.i
 
 land.lhs.true882.i:                               ; preds = %do.body879.i
-  %arrayidx883.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx883.i = getelementptr i8, ptr %call6, i64 16
   %187 = load ptr, ptr %arrayidx883.i, align 8
   %tobool884.not.i = icmp eq ptr %187, null
   br i1 %tobool884.not.i, label %if.else886.i, label %do.end888.i
@@ -1648,7 +1582,7 @@ do.end906.i:                                      ; preds = %do.end897.i
   %191 = load i64, ptr %len876.i, align 8
   %192 = load i64, ptr %addr875.i, align 8
   %193 = inttoptr i64 %190 to ptr
-  %as914.i = getelementptr inbounds %struct.CPUState, ptr %193, i64 0, i32 29
+  %as914.i = getelementptr inbounds i8, ptr %193, i64 528
   %194 = load ptr, ptr %as914.i, align 16
   %call13.i.i = call i32 @address_space_read_full(ptr noundef %194, i64 noundef %192, i32 1, ptr noundef %call907.i, i64 noundef %191) #18
   %195 = load i64, ptr %len876.i, align 8
@@ -1665,19 +1599,19 @@ if.else949.i:                                     ; preds = %if.else869.i
   br i1 %cmp952.i, label %do.body960.i, label %if.else1068.i
 
 do.body960.i:                                     ; preds = %if.else949.i
-  %arrayidx961.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx961.i = getelementptr i8, ptr %call6, i64 8
   %196 = load ptr, ptr %arrayidx961.i, align 8
   %tobool962.not.i = icmp eq ptr %196, null
   br i1 %tobool962.not.i, label %if.else970.i, label %land.lhs.true963.i
 
 land.lhs.true963.i:                               ; preds = %do.body960.i
-  %arrayidx964.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx964.i = getelementptr i8, ptr %call6, i64 16
   %197 = load ptr, ptr %arrayidx964.i, align 8
   %tobool965.not.i = icmp eq ptr %197, null
   br i1 %tobool965.not.i, label %if.else970.i, label %land.lhs.true966.i
 
 land.lhs.true966.i:                               ; preds = %land.lhs.true963.i
-  %arrayidx967.i = getelementptr ptr, ptr %call6, i64 3
+  %arrayidx967.i = getelementptr i8, ptr %call6, i64 24
   %198 = load ptr, ptr %arrayidx967.i, align 8
   %tobool968.not.i = icmp eq ptr %198, null
   br i1 %tobool968.not.i, label %if.else970.i, label %do.end972.i
@@ -1802,7 +1736,7 @@ while.end1032.i:                                  ; preds = %for.inc1025.i, %if.
   %215 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %216 = inttoptr i64 %215 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
-  %as1034.i = getelementptr inbounds %struct.CPUState, ptr %216, i64 0, i32 29
+  %as1034.i = getelementptr inbounds i8, ptr %216, i64 528
   %217 = load ptr, ptr %as1034.i, align 16
   %218 = load i64, ptr %addr955.i, align 8
   %219 = load i64, ptr %len956.i, align 8
@@ -1820,19 +1754,19 @@ if.else1068.i:                                    ; preds = %if.else949.i
   br i1 %cmp1071.i, label %do.body1078.i, label %if.else1163.i
 
 do.body1078.i:                                    ; preds = %if.else1068.i
-  %arrayidx1079.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx1079.i = getelementptr i8, ptr %call6, i64 8
   %222 = load ptr, ptr %arrayidx1079.i, align 8
   %tobool1080.not.i = icmp eq ptr %222, null
   br i1 %tobool1080.not.i, label %if.else1088.i, label %land.lhs.true1081.i
 
 land.lhs.true1081.i:                              ; preds = %do.body1078.i
-  %arrayidx1082.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx1082.i = getelementptr i8, ptr %call6, i64 16
   %223 = load ptr, ptr %arrayidx1082.i, align 8
   %tobool1083.not.i = icmp eq ptr %223, null
   br i1 %tobool1083.not.i, label %if.else1088.i, label %land.lhs.true1084.i
 
 land.lhs.true1084.i:                              ; preds = %land.lhs.true1081.i
-  %arrayidx1085.i = getelementptr ptr, ptr %call6, i64 3
+  %arrayidx1085.i = getelementptr i8, ptr %call6, i64 24
   %224 = load ptr, ptr %arrayidx1085.i, align 8
   %tobool1086.not.i = icmp eq ptr %224, null
   br i1 %tobool1086.not.i, label %if.else1088.i, label %do.end1090.i
@@ -1884,7 +1818,7 @@ if.then1119.i:                                    ; preds = %do.end1117.i
   %231 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %232 = inttoptr i64 %231 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !23
-  %as1128.i = getelementptr inbounds %struct.CPUState, ptr %232, i64 0, i32 29
+  %as1128.i = getelementptr inbounds i8, ptr %232, i64 528
   %233 = load ptr, ptr %as1128.i, align 16
   %234 = load i64, ptr %addr1074.i, align 8
   %235 = load i64, ptr %len1075.i, align 8
@@ -1905,19 +1839,19 @@ if.else1163.i:                                    ; preds = %if.else1068.i
   br i1 %cmp1166.i, label %do.body1174.i, label %if.else1260.i
 
 do.body1174.i:                                    ; preds = %if.else1163.i
-  %arrayidx1175.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx1175.i = getelementptr i8, ptr %call6, i64 8
   %238 = load ptr, ptr %arrayidx1175.i, align 8
   %tobool1176.not.i = icmp eq ptr %238, null
   br i1 %tobool1176.not.i, label %if.else1184.i, label %land.lhs.true1177.i
 
 land.lhs.true1177.i:                              ; preds = %do.body1174.i
-  %arrayidx1178.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx1178.i = getelementptr i8, ptr %call6, i64 16
   %239 = load ptr, ptr %arrayidx1178.i, align 8
   %tobool1179.not.i = icmp eq ptr %239, null
   br i1 %tobool1179.not.i, label %if.else1184.i, label %land.lhs.true1180.i
 
 land.lhs.true1180.i:                              ; preds = %land.lhs.true1177.i
-  %arrayidx1181.i = getelementptr ptr, ptr %call6, i64 3
+  %arrayidx1181.i = getelementptr i8, ptr %call6, i64 24
   %240 = load ptr, ptr %arrayidx1181.i, align 8
   %tobool1182.not.i = icmp eq ptr %240, null
   br i1 %tobool1182.not.i, label %if.else1184.i, label %do.end1186.i
@@ -1976,7 +1910,7 @@ while.end1224.i:                                  ; preds = %if.then1215.i, %if.
   %249 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %250 = inttoptr i64 %249 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !24
-  %as1226.i = getelementptr inbounds %struct.CPUState, ptr %250, i64 0, i32 29
+  %as1226.i = getelementptr inbounds i8, ptr %250, i64 528
   %251 = load ptr, ptr %as1226.i, align 16
   %252 = load i64, ptr %addr1169.i, align 8
   %253 = load i64, ptr %len1170.i, align 8
@@ -2017,7 +1951,7 @@ land.lhs.true1273.i:                              ; preds = %if.else1270.i
   br i1 %cmp1276.i, label %if.then1278.i, label %if.else1298.i
 
 if.then1278.i:                                    ; preds = %land.lhs.true1273.i
-  %arrayidx1279.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx1279.i = getelementptr i8, ptr %call6, i64 8
   %258 = load ptr, ptr %arrayidx1279.i, align 8
   %tobool1280.not.i = icmp eq ptr %258, null
   br i1 %tobool1280.not.i, label %if.else1292.i, label %if.then1281.i
@@ -2058,13 +1992,13 @@ if.else1298.thread.i:                             ; preds = %if.else1270.i
 
 if.then1303.i:                                    ; preds = %if.else1298.thread.i, %if.else1298.i
   store ptr null, ptr %local_err.i, align 8
-  %arrayidx1305.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx1305.i = getelementptr i8, ptr %call6, i64 8
   %260 = load ptr, ptr %arrayidx1305.i, align 8
   %tobool1306.not.i = icmp eq ptr %260, null
   br i1 %tobool1306.not.i, label %if.else1311.i, label %land.lhs.true1307.i
 
 land.lhs.true1307.i:                              ; preds = %if.then1303.i
-  %arrayidx1308.i = getelementptr ptr, ptr %call6, i64 2
+  %arrayidx1308.i = getelementptr i8, ptr %call6, i64 16
   %261 = load ptr, ptr %arrayidx1308.i, align 8
   %tobool1309.not.i = icmp eq ptr %261, null
   br i1 %tobool1309.not.i, label %if.else1311.i, label %do.end1313.i
@@ -2104,7 +2038,7 @@ land.lhs.true1329.i:                              ; preds = %if.else1298.i
   br i1 %cmp1332.i, label %do.body1337.i, label %if.else1354.i
 
 do.body1337.i:                                    ; preds = %land.lhs.true1329.i
-  %arrayidx1338.i = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx1338.i = getelementptr i8, ptr %call6, i64 8
   %265 = load ptr, ptr %arrayidx1338.i, align 8
   %tobool1339.not.i = icmp eq ptr %265, null
   br i1 %tobool1339.not.i, label %if.else1341.i, label %do.end1343.i
@@ -2369,7 +2303,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %arrayidx = getelementptr %struct.AioContext, ptr %call2, i64 0, i32 19, i32 0, i64 1
+  %arrayidx = getelementptr i8, ptr %call2, i64 488
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -2418,7 +2352,7 @@ declare i64 @llvm.bswap.i64(i64) #13
 define internal fastcc void @rcu_read_auto_lock() unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @get_ptr_rcu_reader() #18
-  %depth.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
   %0 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -2445,7 +2379,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
-  %depth.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i, i64 0, i32 2
+  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %0 = load i32, ptr %depth.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -2464,7 +2398,7 @@ while.end.i.i.i:                                  ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
   fence seq_cst
-  %waiting.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i, i64 0, i32 1
+  %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %1 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i.i = icmp eq i8 %2, 0
@@ -2495,14 +2429,14 @@ land.lhs.true6:                                   ; preds = %entry
   br i1 %call7, label %lor.rhs, label %return
 
 lor.rhs:                                          ; preds = %land.lhs.true6, %entry
-  %rom_device.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr, i64 0, i32 6
+  %rom_device.i = getelementptr inbounds i8, ptr %mr, i64 45
   %2 = load i8, ptr %rom_device.i, align 1
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs
-  %romd_mode.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr, i64 0, i32 1
+  %romd_mode.i = getelementptr inbounds i8, ptr %mr, i64 40
   %4 = load i8, ptr %romd_mode.i, align 8
   %5 = and i8 %4, 1
   %tobool1.i = icmp ne i8 %5, 0
@@ -2542,9 +2476,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @qtest_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.76, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #18
-  %unparent = getelementptr inbounds %struct.ObjectClass, ptr %oc, i64 0, i32 4
+  %unparent = getelementptr inbounds i8, ptr %oc, i64 80
   store ptr @qtest_unparent, ptr %unparent, align 8
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qtest_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @qtest_get_chardev, ptr noundef nonnull @qtest_set_chardev) #18
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @qtest_get_log, ptr noundef nonnull @qtest_set_log) #18
@@ -2560,7 +2494,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %qtest_chr = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 4
+  %qtest_chr = getelementptr inbounds i8, ptr %call.i, i64 64
   tail call void @qemu_chr_fe_disconnect(ptr noundef nonnull %qtest_chr) #18
   %.b5 = load i1, ptr @qtest_opened, align 1
   br i1 %.b5, label %if.else, label %if.end
@@ -2585,7 +2519,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %entry
-  %has_machine_link = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 1
+  %has_machine_link = getelementptr inbounds i8, ptr %call.i, i64 40
   %2 = load i8, ptr %has_machine_link, align 8
   %3 = and i8 %2, 1
   %tobool8.not = icmp eq i8 %3, 0
@@ -2614,7 +2548,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chr_name = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 2
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %chr_name, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then2, label %if.end3
@@ -2624,23 +2558,23 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %parent = getelementptr inbounds %struct.Object, ptr %uc, i64 0, i32 4
+  %parent = getelementptr inbounds i8, ptr %uc, i64 32
   %2 = load ptr, ptr %parent, align 8
   %call4 = tail call ptr @qdev_get_machine() #18
   %cmp.not = icmp eq ptr %2, %call4
   br i1 %cmp.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %has_machine_link = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 1
+  %has_machine_link = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 1, ptr %has_machine_link, align 8
   %call6 = tail call ptr @qdev_get_machine() #18
   %call7 = tail call ptr @object_property_add_const_link(ptr noundef %call6, ptr noundef nonnull @.str.3, ptr noundef nonnull %uc) #18
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end3, %if.then5
-  %chr1.i = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 3
+  %chr1.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %3 = load ptr, ptr %chr1.i, align 8
-  %log.i = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 5
+  %log.i = getelementptr inbounds i8, ptr %call.i, i64 120
   %4 = load ptr, ptr %log.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2664,7 +2598,7 @@ if.end4.sink.split.i:                             ; preds = %if.else.i, %if.then
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end4.sink.split.i, %if.then.i
-  %qtest_chr.i = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 4
+  %qtest_chr.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %call5.i = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %qtest_chr.i, ptr noundef %3, ptr noundef %errp) #18
   br i1 %call5.i, label %if.end7.i, label %return
 
@@ -2696,7 +2630,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qtest_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.QTEST) #18
-  %chr_name = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 2
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %chr_name, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #18
   ret ptr %call1
@@ -2724,12 +2658,12 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %chr_name = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 2
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %1) #18
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %value) #18
   store ptr %call4, ptr %chr_name, align 8
-  %chr6 = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 3
+  %chr6 = getelementptr inbounds i8, ptr %call.i, i64 56
   %2 = load ptr, ptr %chr6, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
@@ -2751,7 +2685,7 @@ return:                                           ; preds = %if.end10, %if.then2
 define internal noalias ptr @qtest_get_log(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.QTEST) #18
-  %log = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 5
+  %log = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %log, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #18
   ret ptr %call1
@@ -2770,7 +2704,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %log = getelementptr inbounds %struct.QTest, ptr %call.i, i64 0, i32 5
+  %log = getelementptr inbounds i8, ptr %call.i, i64 120
   %1 = load ptr, ptr %log, align 8
   tail call void @g_free(ptr noundef %1) #18
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #18

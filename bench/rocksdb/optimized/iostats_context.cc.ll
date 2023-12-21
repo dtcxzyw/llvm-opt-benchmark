@@ -64,7 +64,7 @@ define weak_odr hidden noundef ptr @_ZTWN7rocksdb15iostats_contextE() local_unna
 define void @_ZN7rocksdb14IOStatsContext5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i64 4, ptr %this, align 8
-  %bytes_written = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 1
+  %bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %bytes_written, i8 0, i64 144, i1 false)
   ret void
 }
@@ -102,7 +102,7 @@ lpad:                                             ; preds = %if.end271, %invoke.
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry, %invoke.cont5
-  %bytes_read = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 2
+  %bytes_read = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %bytes_read, align 8
   %cmp11.not = icmp eq i64 %3, 0
   %or.cond20 = select i1 %exclude_zero_counters, i1 %cmp11.not, i1 false
@@ -126,7 +126,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
           to label %if.end22 unwind label %lpad
 
 if.end22:                                         ; preds = %if.end, %invoke.cont18
-  %bytes_written = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 1
+  %bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %bytes_written, align 8
   %cmp25.not = icmp eq i64 %5, 0
   %or.cond21 = select i1 %exclude_zero_counters, i1 %cmp25.not, i1 false
@@ -150,7 +150,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %if.end36 unwind label %lpad
 
 if.end36:                                         ; preds = %if.end22, %invoke.cont32
-  %open_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 3
+  %open_nanos = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i64, ptr %open_nanos, align 8
   %cmp39.not = icmp eq i64 %7, 0
   %or.cond22 = select i1 %exclude_zero_counters, i1 %cmp39.not, i1 false
@@ -174,7 +174,7 @@ invoke.cont46:                                    ; preds = %invoke.cont43
           to label %if.end50 unwind label %lpad
 
 if.end50:                                         ; preds = %if.end36, %invoke.cont46
-  %allocate_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 4
+  %allocate_nanos = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load i64, ptr %allocate_nanos, align 8
   %cmp53.not = icmp eq i64 %9, 0
   %or.cond23 = select i1 %exclude_zero_counters, i1 %cmp53.not, i1 false
@@ -198,7 +198,7 @@ invoke.cont60:                                    ; preds = %invoke.cont57
           to label %if.end64 unwind label %lpad
 
 if.end64:                                         ; preds = %if.end50, %invoke.cont60
-  %write_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 5
+  %write_nanos = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load i64, ptr %write_nanos, align 8
   %cmp67.not = icmp eq i64 %11, 0
   %or.cond24 = select i1 %exclude_zero_counters, i1 %cmp67.not, i1 false
@@ -222,7 +222,7 @@ invoke.cont74:                                    ; preds = %invoke.cont71
           to label %if.end78 unwind label %lpad
 
 if.end78:                                         ; preds = %if.end64, %invoke.cont74
-  %read_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 6
+  %read_nanos = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i64, ptr %read_nanos, align 8
   %cmp81.not = icmp eq i64 %13, 0
   %or.cond25 = select i1 %exclude_zero_counters, i1 %cmp81.not, i1 false
@@ -246,7 +246,7 @@ invoke.cont88:                                    ; preds = %invoke.cont85
           to label %if.end92 unwind label %lpad
 
 if.end92:                                         ; preds = %if.end78, %invoke.cont88
-  %range_sync_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 7
+  %range_sync_nanos = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load i64, ptr %range_sync_nanos, align 8
   %cmp95.not = icmp eq i64 %15, 0
   %or.cond26 = select i1 %exclude_zero_counters, i1 %cmp95.not, i1 false
@@ -270,7 +270,7 @@ invoke.cont102:                                   ; preds = %invoke.cont99
           to label %if.end106 unwind label %lpad
 
 if.end106:                                        ; preds = %if.end92, %invoke.cont102
-  %fsync_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 8
+  %fsync_nanos = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load i64, ptr %fsync_nanos, align 8
   %cmp109.not = icmp eq i64 %17, 0
   %or.cond27 = select i1 %exclude_zero_counters, i1 %cmp109.not, i1 false
@@ -294,7 +294,7 @@ invoke.cont116:                                   ; preds = %invoke.cont113
           to label %if.end120 unwind label %lpad
 
 if.end120:                                        ; preds = %if.end106, %invoke.cont116
-  %prepare_write_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 9
+  %prepare_write_nanos = getelementptr inbounds i8, ptr %this, i64 72
   %19 = load i64, ptr %prepare_write_nanos, align 8
   %cmp123.not = icmp eq i64 %19, 0
   %or.cond28 = select i1 %exclude_zero_counters, i1 %cmp123.not, i1 false
@@ -318,7 +318,7 @@ invoke.cont130:                                   ; preds = %invoke.cont127
           to label %if.end134 unwind label %lpad
 
 if.end134:                                        ; preds = %if.end120, %invoke.cont130
-  %logger_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 10
+  %logger_nanos = getelementptr inbounds i8, ptr %this, i64 80
   %21 = load i64, ptr %logger_nanos, align 8
   %cmp137.not = icmp eq i64 %21, 0
   %or.cond29 = select i1 %exclude_zero_counters, i1 %cmp137.not, i1 false
@@ -342,7 +342,7 @@ invoke.cont144:                                   ; preds = %invoke.cont141
           to label %if.end148 unwind label %lpad
 
 if.end148:                                        ; preds = %if.end134, %invoke.cont144
-  %cpu_write_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 11
+  %cpu_write_nanos = getelementptr inbounds i8, ptr %this, i64 88
   %23 = load i64, ptr %cpu_write_nanos, align 8
   %cmp151.not = icmp eq i64 %23, 0
   %or.cond30 = select i1 %exclude_zero_counters, i1 %cmp151.not, i1 false
@@ -366,7 +366,7 @@ invoke.cont158:                                   ; preds = %invoke.cont155
           to label %if.end162 unwind label %lpad
 
 if.end162:                                        ; preds = %if.end148, %invoke.cont158
-  %cpu_read_nanos = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 12
+  %cpu_read_nanos = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load i64, ptr %cpu_read_nanos, align 8
   %cmp165.not = icmp eq i64 %25, 0
   %or.cond31 = select i1 %exclude_zero_counters, i1 %cmp165.not, i1 false
@@ -390,7 +390,7 @@ invoke.cont172:                                   ; preds = %invoke.cont169
           to label %if.end176 unwind label %lpad
 
 if.end176:                                        ; preds = %if.end162, %invoke.cont172
-  %file_io_stats_by_temperature = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 13
+  %file_io_stats_by_temperature = getelementptr inbounds i8, ptr %this, i64 104
   %27 = load i64, ptr %file_io_stats_by_temperature, align 8
   %cmp179.not = icmp eq i64 %27, 0
   %or.cond32 = select i1 %exclude_zero_counters, i1 %cmp179.not, i1 false
@@ -414,7 +414,7 @@ invoke.cont187:                                   ; preds = %invoke.cont183
           to label %if.end191 unwind label %lpad
 
 if.end191:                                        ; preds = %if.end176, %invoke.cont187
-  %warm_file_bytes_read = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 13, i32 1
+  %warm_file_bytes_read = getelementptr inbounds i8, ptr %this, i64 112
   %29 = load i64, ptr %warm_file_bytes_read, align 8
   %cmp195.not = icmp eq i64 %29, 0
   %or.cond33 = select i1 %exclude_zero_counters, i1 %cmp195.not, i1 false
@@ -438,7 +438,7 @@ invoke.cont203:                                   ; preds = %invoke.cont199
           to label %if.end207 unwind label %lpad
 
 if.end207:                                        ; preds = %if.end191, %invoke.cont203
-  %cold_file_bytes_read = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 13, i32 2
+  %cold_file_bytes_read = getelementptr inbounds i8, ptr %this, i64 120
   %31 = load i64, ptr %cold_file_bytes_read, align 8
   %cmp211.not = icmp eq i64 %31, 0
   %or.cond34 = select i1 %exclude_zero_counters, i1 %cmp211.not, i1 false
@@ -462,7 +462,7 @@ invoke.cont219:                                   ; preds = %invoke.cont215
           to label %if.end223 unwind label %lpad
 
 if.end223:                                        ; preds = %if.end207, %invoke.cont219
-  %hot_file_read_count = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 13, i32 3
+  %hot_file_read_count = getelementptr inbounds i8, ptr %this, i64 128
   %33 = load i64, ptr %hot_file_read_count, align 8
   %cmp227.not = icmp eq i64 %33, 0
   %or.cond35 = select i1 %exclude_zero_counters, i1 %cmp227.not, i1 false
@@ -486,7 +486,7 @@ invoke.cont235:                                   ; preds = %invoke.cont231
           to label %if.end239 unwind label %lpad
 
 if.end239:                                        ; preds = %if.end223, %invoke.cont235
-  %warm_file_read_count = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 13, i32 4
+  %warm_file_read_count = getelementptr inbounds i8, ptr %this, i64 136
   %35 = load i64, ptr %warm_file_read_count, align 8
   %cmp243.not = icmp eq i64 %35, 0
   %or.cond36 = select i1 %exclude_zero_counters, i1 %cmp243.not, i1 false
@@ -510,7 +510,7 @@ invoke.cont251:                                   ; preds = %invoke.cont247
           to label %if.end255 unwind label %lpad
 
 if.end255:                                        ; preds = %if.end239, %invoke.cont251
-  %cold_file_read_count = getelementptr inbounds %"struct.rocksdb::IOStatsContext", ptr %this, i64 0, i32 13, i32 5
+  %cold_file_read_count = getelementptr inbounds i8, ptr %this, i64 144
   %37 = load i64, ptr %cold_file_read_count, align 8
   %cmp259.not = icmp eq i64 %37, 0
   %or.cond37 = select i1 %exclude_zero_counters, i1 %cmp259.not, i1 false

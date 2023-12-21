@@ -62,7 +62,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(14) @.str.1) #8
   %cmp2 = icmp eq i32 %call1, 0
@@ -96,13 +96,13 @@ if.else19:                                        ; preds = %if.else15
 if.end25:                                         ; preds = %if.else15, %if.else11, %if.else7, %if.else, %if.end
   %.sink = phi i32 [ 0, %if.end ], [ 1, %if.else ], [ 2, %if.else7 ], [ 3, %if.else11 ], [ 4, %if.else15 ]
   store i32 %.sink, ptr @test_type, align 4
-  %arrayidx26 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx26 = getelementptr inbounds i8, ptr %argv, i64 16
   %5 = load ptr, ptr %arrayidx26, align 8
   store ptr %5, ptr @path_crypto, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %argv, i64 3
+  %arrayidx27 = getelementptr inbounds i8, ptr %argv, i64 24
   %6 = load ptr, ptr %arrayidx27, align 8
   store ptr %6, ptr @path_ssl, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %argv, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %argv, i64 32
   %7 = load ptr, ptr %arrayidx28, align 8
   store ptr %7, ptr @path_atexit, align 8
   %cmp29 = icmp eq ptr %5, null
@@ -224,14 +224,14 @@ if.then36.i:                                      ; preds = %if.end33, %if.end31
 
 lor.lhs.false.i:                                  ; preds = %if.then36.i
   %30 = load ptr, ptr %ssllib.i, align 8
-  %arrayidx40.i = getelementptr inbounds [5 x %union.anon], ptr %symbols.i, i64 0, i64 1
+  %arrayidx40.i = getelementptr inbounds i8, ptr %symbols.i, i64 8
   %call41.i = call i32 @sd_sym(ptr noundef %30, ptr noundef nonnull @.str.14, ptr noundef nonnull %arrayidx40.i) #9
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %if.then47.i, label %lor.lhs.false43.i
 
 lor.lhs.false43.i:                                ; preds = %lor.lhs.false.i
   %31 = load ptr, ptr %ssllib.i, align 8
-  %arrayidx44.i = getelementptr inbounds [5 x %union.anon], ptr %symbols.i, i64 0, i64 2
+  %arrayidx44.i = getelementptr inbounds i8, ptr %symbols.i, i64 16
   %call45.i = call i32 @sd_sym(ptr noundef %31, ptr noundef nonnull @.str.15, ptr noundef nonnull %arrayidx44.i) #9
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %if.then47.i, label %if.end49.i
@@ -267,28 +267,28 @@ if.end59.i:                                       ; preds = %if.end58.i, %if.end
 
 lor.lhs.false63.i:                                ; preds = %if.end59.i
   %40 = load ptr, ptr %cryptolib.i, align 8
-  %arrayidx64.i = getelementptr inbounds [5 x %union.anon], ptr %symbols.i, i64 0, i64 1
+  %arrayidx64.i = getelementptr inbounds i8, ptr %symbols.i, i64 8
   %call65.i = call i32 @sd_sym(ptr noundef %40, ptr noundef nonnull @.str.19, ptr noundef nonnull %arrayidx64.i) #9
   %tobool66.not.i = icmp eq i32 %call65.i, 0
   br i1 %tobool66.not.i, label %if.then79.i, label %lor.lhs.false67.i
 
 lor.lhs.false67.i:                                ; preds = %lor.lhs.false63.i
   %41 = load ptr, ptr %cryptolib.i, align 8
-  %arrayidx68.i = getelementptr inbounds [5 x %union.anon], ptr %symbols.i, i64 0, i64 2
+  %arrayidx68.i = getelementptr inbounds i8, ptr %symbols.i, i64 16
   %call69.i = call i32 @sd_sym(ptr noundef %41, ptr noundef nonnull @.str.20, ptr noundef nonnull %arrayidx68.i) #9
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %if.then79.i, label %lor.lhs.false71.i
 
 lor.lhs.false71.i:                                ; preds = %lor.lhs.false67.i
   %42 = load ptr, ptr %cryptolib.i, align 8
-  %arrayidx72.i = getelementptr inbounds [5 x %union.anon], ptr %symbols.i, i64 0, i64 3
+  %arrayidx72.i = getelementptr inbounds i8, ptr %symbols.i, i64 24
   %call73.i = call i32 @sd_sym(ptr noundef %42, ptr noundef nonnull @.str.21, ptr noundef nonnull %arrayidx72.i) #9
   %tobool74.not.i = icmp eq i32 %call73.i, 0
   br i1 %tobool74.not.i, label %if.then79.i, label %lor.lhs.false75.i
 
 lor.lhs.false75.i:                                ; preds = %lor.lhs.false71.i
   %43 = load ptr, ptr %cryptolib.i, align 8
-  %arrayidx76.i = getelementptr inbounds [5 x %union.anon], ptr %symbols.i, i64 0, i64 4
+  %arrayidx76.i = getelementptr inbounds i8, ptr %symbols.i, i64 32
   %call77.i = call i32 @sd_sym(ptr noundef %43, ptr noundef nonnull @.str.22, ptr noundef nonnull %arrayidx76.i) #9
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %if.then79.i, label %if.end81.i

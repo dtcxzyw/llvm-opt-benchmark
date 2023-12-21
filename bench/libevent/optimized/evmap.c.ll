@@ -3,29 +3,6 @@ source_filename = "bench/libevent/original/evmap.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.event_signal_map = type { ptr, i32 }
-%struct.event_base = type { ptr, ptr, %struct.event_changelist, ptr, %struct.evsig_info, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, %struct.evcallback_list, ptr, i32, i32, %struct.event_signal_map, %struct.event_signal_map, %struct.min_heap, %struct.timeval, %struct.evutil_monotonic_timer, %struct.timeval, i64, i64, ptr, ptr, i32, ptr, i32, %struct.timeval, i32, i32, i32, [2 x i32], %struct.event, ptr, %struct.evutil_weakrand_state, %struct.once_event_list, [2 x %struct.evwatch_list] }
-%struct.event_changelist = type { ptr, i32, i32 }
-%struct.evsig_info = type { %struct.event, [2 x i32], i32, i32, [65 x ptr], ptr, i32 }
-%struct.evcallback_list = type { ptr, ptr }
-%struct.min_heap = type { ptr, i64, i64 }
-%struct.evutil_monotonic_timer = type { i32, %struct.timeval, %struct.timeval }
-%struct.timeval = type { i64, i64 }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, i16, i16, ptr, %union.anon.2, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.evutil_weakrand_state = type { i32 }
-%struct.once_event_list = type { ptr }
-%struct.evwatch_list = type { ptr, ptr }
-%struct.eventop = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64 }
-%struct.evmap_io = type { %struct.event_dlist, i16, i16, i16 }
-%struct.event_dlist = type { ptr }
 %struct.event_change = type { i32, i16, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [44 x i8] c"Too many events reading or writing on fd %d\00", align 1
@@ -35,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @evmap_io_initmap_(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
-  %nentries.i = getelementptr inbounds %struct.event_signal_map, ptr %ctx, i64 0, i32 1
+  %nentries.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries.i, align 8
   store ptr null, ptr %ctx, align 8
   ret void
@@ -44,7 +21,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @evmap_signal_initmap_(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %ctx, i64 0, i32 1
+  %nentries = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries, align 8
   store ptr null, ptr %ctx, align 8
   ret void
@@ -58,7 +35,7 @@ entry:
   br i1 %cmp.not.i, label %evmap_signal_clear_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %nentries.i = getelementptr inbounds %struct.event_signal_map, ptr %ctx, i64 0, i32 1
+  %nentries.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %nentries.i, align 8
   %cmp110.i = icmp sgt i32 %1, 0
   br i1 %cmp110.i, label %for.body.i, label %for.end.i
@@ -95,7 +72,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br label %evmap_signal_clear_.exit
 
 evmap_signal_clear_.exit:                         ; preds = %entry, %for.end.i
-  %nentries11.i = getelementptr inbounds %struct.event_signal_map, ptr %ctx, i64 0, i32 1
+  %nentries11.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries11.i, align 8
   ret void
 }
@@ -108,7 +85,7 @@ entry:
   br i1 %cmp.not, label %if.end10, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %ctx, i64 0, i32 1
+  %nentries = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %nentries, align 8
   %cmp110 = icmp sgt i32 %1, 0
   br i1 %cmp110, label %for.body, label %for.end
@@ -145,7 +122,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %if.end10
 
 if.end10:                                         ; preds = %for.end, %entry
-  %nentries11 = getelementptr inbounds %struct.event_signal_map, ptr %ctx, i64 0, i32 1
+  %nentries11 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries11, align 8
   ret void
 }
@@ -156,12 +133,12 @@ declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @evmap_io_add_(ptr noundef %base, i32 noundef %fd, ptr noundef %ev) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %base, align 8
-  %io2 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
+  %io2 = getelementptr inbounds i8, ptr %base, i64 808
   %cmp = icmp slt i32 %fd, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23, i32 1
+  %nentries = getelementptr inbounds i8, ptr %base, i64 816
   %1 = load i32, ptr %nentries, align 8
   %cmp4.not = icmp sgt i32 %1, %fd
   br i1 %cmp4.not, label %do.body10, label %if.then.i
@@ -214,7 +191,7 @@ do.body10:                                        ; preds = %if.end13.i, %if.end
   br i1 %cmp11, label %if.then12, label %if.end27
 
 if.then12:                                        ; preds = %do.body10
-  %fdinfo_len = getelementptr inbounds %struct.eventop, ptr %0, i64 0, i32 8
+  %fdinfo_len = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %fdinfo_len, align 8
   %add = add i64 %6, 16
   %call13 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %add) #8
@@ -236,13 +213,13 @@ if.end23:                                         ; preds = %if.then12
 
 if.end27:                                         ; preds = %if.end23, %do.body10
   %10 = phi ptr [ %.pre68, %if.end23 ], [ %5, %do.body10 ]
-  %nread32 = getelementptr inbounds %struct.evmap_io, ptr %10, i64 0, i32 1
+  %nread32 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i16, ptr %nread32, align 8
   %conv33 = zext i16 %11 to i32
-  %nwrite34 = getelementptr inbounds %struct.evmap_io, ptr %10, i64 0, i32 2
+  %nwrite34 = getelementptr inbounds i8, ptr %10, i64 10
   %12 = load i16, ptr %nwrite34, align 2
   %conv35 = zext i16 %12 to i32
-  %nclose36 = getelementptr inbounds %struct.evmap_io, ptr %10, i64 0, i32 3
+  %nclose36 = getelementptr inbounds i8, ptr %10, i64 12
   %13 = load i16, ptr %nclose36, align 4
   %conv37 = zext i16 %13 to i32
   %tobool38.not = icmp eq i16 %11, 0
@@ -253,7 +230,7 @@ if.end27:                                         ; preds = %if.end23, %do.body1
   %tobool49.not = icmp eq i16 %13, 0
   %15 = or disjoint i16 %old.1, 128
   %old.2 = select i1 %tobool49.not, i16 %old.1, i16 %15
-  %ev_events = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 3
+  %ev_events = getelementptr inbounds i8, ptr %ev, i64 60
   %16 = load i16, ptr %ev_events, align 4
   %17 = and i16 %16, 2
   %tobool56.not.not = icmp eq i16 %17, 0
@@ -300,7 +277,7 @@ land.lhs.true:                                    ; preds = %if.end107
   br i1 %tobool109.not, label %if.end120, label %land.lhs.true110
 
 land.lhs.true110:                                 ; preds = %land.lhs.true
-  %ev_events111 = getelementptr inbounds %struct.event, ptr %23, i64 0, i32 3
+  %ev_events111 = getelementptr inbounds i8, ptr %23, i64 60
   %24 = load i16, ptr %ev_events111, align 4
   %25 = xor i16 %24, %16
   %26 = and i16 %25, 32
@@ -317,9 +294,9 @@ if.end120:                                        ; preds = %land.lhs.true110, %
 
 if.then122:                                       ; preds = %if.end120
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 16
-  %add123 = getelementptr inbounds %struct.eventop, ptr %0, i64 0, i32 2
+  %add123 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = load ptr, ptr %add123, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 2
+  %ev_fd = getelementptr inbounds i8, ptr %ev, i64 56
   %28 = load i32, ptr %ev_fd, align 8
   %29 = and i16 %16, 32
   %or12856 = or i16 %res.2, %29
@@ -336,19 +313,19 @@ if.end135:                                        ; preds = %if.then122, %if.end
   %conv140 = trunc i32 %nclose.0 to i16
   store i16 %conv140, ptr %nclose36, align 4
   %30 = load ptr, ptr %10, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6
+  %ev_ = getelementptr inbounds i8, ptr %ev, i64 72
   store ptr %30, ptr %ev_, align 8
   %cmp145.not = icmp eq ptr %30, null
   br i1 %cmp145.not, label %if.end155, label %if.then147
 
 if.then147:                                       ; preds = %if.end135
-  %le_prev = getelementptr inbounds %struct.event, ptr %30, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %30, i64 80
   store ptr %ev_, ptr %le_prev, align 8
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then147, %if.end135
   store ptr %ev, ptr %10, align 8
-  %le_prev162 = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev162 = getelementptr inbounds i8, ptr %ev, i64 80
   store ptr %10, ptr %le_prev162, align 8
   br label %return
 
@@ -365,12 +342,12 @@ declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #2
 define dso_local i32 @evmap_io_del_(ptr noundef %base, i32 noundef %fd, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %base, align 8
-  %io2 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
+  %io2 = getelementptr inbounds i8, ptr %base, i64 808
   %cmp = icmp slt i32 %fd, 0
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23, i32 1
+  %nentries = getelementptr inbounds i8, ptr %base, i64 816
   %1 = load i32, ptr %nentries, align 8
   %cmp4.not = icmp sgt i32 %1, %fd
   br i1 %cmp4.not, label %if.end6, label %return
@@ -380,13 +357,13 @@ if.end6:                                          ; preds = %do.end
   %idxprom = zext nneg i32 %fd to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  %nread7 = getelementptr inbounds %struct.evmap_io, ptr %3, i64 0, i32 1
+  %nread7 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i16, ptr %nread7, align 8
   %conv = zext i16 %4 to i32
-  %nwrite8 = getelementptr inbounds %struct.evmap_io, ptr %3, i64 0, i32 2
+  %nwrite8 = getelementptr inbounds i8, ptr %3, i64 10
   %5 = load i16, ptr %nwrite8, align 2
   %conv9 = zext i16 %5 to i32
-  %nclose10 = getelementptr inbounds %struct.evmap_io, ptr %3, i64 0, i32 3
+  %nclose10 = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i16, ptr %nclose10, align 4
   %conv11 = zext i16 %6 to i32
   %tobool.not = icmp eq i16 %4, 0
@@ -397,7 +374,7 @@ if.end6:                                          ; preds = %do.end
   %tobool22.not = icmp eq i16 %6, 0
   %8 = or disjoint i16 %old.1, 128
   %old.2 = select i1 %tobool22.not, i16 %old.1, i16 %8
-  %ev_events = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 3
+  %ev_events = getelementptr inbounds i8, ptr %ev, i64 60
   %9 = load i16, ptr %ev_events, align 4
   %10 = and i16 %9, 2
   %tobool29.not = icmp eq i16 %10, 0
@@ -433,9 +410,9 @@ if.then74:                                        ; preds = %if.then61, %if.end7
   %res.246 = phi i16 [ %res.1, %if.end72 ], [ %14, %if.then61 ]
   %nclose.044 = phi i32 [ %nclose.0, %if.end72 ], [ 0, %if.then61 ]
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 16
-  %del = getelementptr inbounds %struct.eventop, ptr %0, i64 0, i32 3
+  %del = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %del, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 2
+  %ev_fd = getelementptr inbounds i8, ptr %ev, i64 56
   %16 = load i32, ptr %ev_fd, align 8
   %17 = and i16 %9, 32
   %or7934 = or i16 %res.246, %17
@@ -453,15 +430,15 @@ if.end85:                                         ; preds = %if.then74, %if.end7
   store i16 %conv88, ptr %nwrite8, align 2
   %conv90 = trunc i32 %nclose.045 to i16
   store i16 %conv90, ptr %nclose10, align 4
-  %ev_ = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6
+  %ev_ = getelementptr inbounds i8, ptr %ev, i64 72
   %18 = load ptr, ptr %ev_, align 8
   %cmp93.not = icmp eq ptr %18, null
-  %le_prev110.phi.trans.insert = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev110.phi.trans.insert = getelementptr inbounds i8, ptr %ev, i64 80
   %.pre47 = load ptr, ptr %le_prev110.phi.trans.insert, align 8
   br i1 %cmp93.not, label %if.end104, label %if.then95
 
 if.then95:                                        ; preds = %if.end85
-  %le_prev103 = getelementptr inbounds %struct.event, ptr %18, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev103 = getelementptr inbounds i8, ptr %18, i64 80
   store ptr %.pre47, ptr %le_prev103, align 8
   %.pre = load ptr, ptr %ev_, align 8
   br label %if.end104
@@ -479,12 +456,12 @@ return:                                           ; preds = %do.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define dso_local void @evmap_io_active_(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %events) local_unnamed_addr #1 {
 entry:
-  %io1 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
+  %io1 = getelementptr inbounds i8, ptr %base, i64 808
   %cmp = icmp slt i32 %fd, 0
   br i1 %cmp, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23, i32 1
+  %nentries = getelementptr inbounds i8, ptr %base, i64 816
   %0 = load i32, ptr %nentries, align 8
   %cmp2.not = icmp sgt i32 %0, %fd
   br i1 %cmp2.not, label %if.end, label %for.end
@@ -504,7 +481,7 @@ for.cond.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %ev.012 = phi ptr [ %ev.0, %for.inc ], [ %ev.010, %for.cond.preheader ]
-  %ev_events = getelementptr inbounds %struct.event, ptr %ev.012, i64 0, i32 3
+  %ev_events = getelementptr inbounds i8, ptr %ev.012, i64 60
   %3 = load i16, ptr %ev_events, align 4
   %and13 = and i16 %3, %events
   %and = sext i16 %and13 to i32
@@ -517,7 +494,7 @@ if.then10:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then10
-  %ev_ = getelementptr inbounds %struct.event, ptr %ev.012, i64 0, i32 6
+  %ev_ = getelementptr inbounds i8, ptr %ev.012, i64 72
   %ev.0 = load ptr, ptr %ev_, align 8
   %cmp7.not = icmp eq ptr %ev.0, null
   br i1 %cmp7.not, label %for.end, label %for.body, !llvm.loop !8
@@ -531,14 +508,14 @@ declare void @event_active_nolock_(ptr noundef, i32 noundef, i16 noundef signext
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evmap_signal_add_(ptr noundef %base, i32 noundef %sig, ptr noundef %ev) local_unnamed_addr #1 {
 entry:
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 3
+  %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   %0 = load ptr, ptr %evsigsel, align 8
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
+  %sigmap = getelementptr inbounds i8, ptr %base, i64 824
   %or.cond = icmp ugt i32 %sig, 64
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24, i32 1
+  %nentries = getelementptr inbounds i8, ptr %base, i64 832
   %1 = load i32, ptr %nentries, align 8
   %cmp2.not = icmp sgt i32 %1, %sig
   br i1 %cmp2.not, label %do.body, label %while.cond.preheader.i
@@ -588,7 +565,7 @@ do.body:                                          ; preds = %if.end13.i, %if.end
 
 if.then9:                                         ; preds = %do.body
   %6 = load ptr, ptr %evsigsel, align 8
-  %fdinfo_len = getelementptr inbounds %struct.eventop, ptr %6, i64 0, i32 8
+  %fdinfo_len = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load i64, ptr %fdinfo_len, align 8
   %add = add i64 %7, 8
   %call11 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %add) #8
@@ -615,15 +592,15 @@ if.end25:                                         ; preds = %if.end21, %do.body
   br i1 %cmp29, label %if.then31, label %do.body39.thread
 
 do.body39.thread:                                 ; preds = %if.end25
-  %ev_29 = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6
+  %ev_29 = getelementptr inbounds i8, ptr %ev, i64 72
   store ptr %12, ptr %ev_29, align 8
   %.pre33 = load ptr, ptr %11, align 8
   br label %if.then44
 
 if.then31:                                        ; preds = %if.end25
-  %add32 = getelementptr inbounds %struct.eventop, ptr %0, i64 0, i32 2
+  %add32 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %add32, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 2
+  %ev_fd = getelementptr inbounds i8, ptr %ev, i64 56
   %14 = load i32, ptr %ev_fd, align 8
   %call33 = tail call i32 %13(ptr noundef nonnull %base, i32 noundef %14, i16 noundef signext 0, i16 noundef signext 8, ptr noundef %ev) #8
   %cmp34 = icmp eq i32 %call33, -1
@@ -631,7 +608,7 @@ if.then31:                                        ; preds = %if.end25
 
 do.body39:                                        ; preds = %if.then31
   %.pr = load ptr, ptr %11, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6
+  %ev_ = getelementptr inbounds i8, ptr %ev, i64 72
   store ptr %.pr, ptr %ev_, align 8
   %cmp42.not = icmp eq ptr %.pr, null
   br i1 %cmp42.not, label %if.end52, label %if.then44
@@ -639,13 +616,13 @@ do.body39:                                        ; preds = %if.then31
 if.then44:                                        ; preds = %do.body39.thread, %do.body39
   %15 = phi ptr [ %.pre33, %do.body39.thread ], [ %.pr, %do.body39 ]
   %ev_31 = phi ptr [ %ev_29, %do.body39.thread ], [ %ev_, %do.body39 ]
-  %le_prev = getelementptr inbounds %struct.event, ptr %15, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %15, i64 80
   store ptr %ev_31, ptr %le_prev, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then44, %do.body39
   store ptr %ev, ptr %11, align 8
-  %le_prev59 = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev59 = getelementptr inbounds i8, ptr %ev, i64 80
   store ptr %11, ptr %le_prev59, align 8
   br label %return
 
@@ -657,14 +634,14 @@ return:                                           ; preds = %if.end9.i, %while.e
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
 entry:
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 3
+  %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   %0 = load ptr, ptr %evsigsel, align 8
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
+  %sigmap = getelementptr inbounds i8, ptr %base, i64 824
   %cmp = icmp slt i32 %sig, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24, i32 1
+  %nentries = getelementptr inbounds i8, ptr %base, i64 832
   %1 = load i32, ptr %nentries, align 8
   %cmp1.not = icmp sgt i32 %1, %sig
   br i1 %cmp1.not, label %if.end, label %return
@@ -674,15 +651,15 @@ if.end:                                           ; preds = %lor.lhs.false
   %idxprom = zext nneg i32 %sig to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6
+  %ev_ = getelementptr inbounds i8, ptr %ev, i64 72
   %4 = load ptr, ptr %ev_, align 8
   %cmp2.not = icmp eq ptr %4, null
-  %le_prev18.phi.trans.insert = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev18.phi.trans.insert = getelementptr inbounds i8, ptr %ev, i64 80
   %.pre11 = load ptr, ptr %le_prev18.phi.trans.insert, align 8
   br i1 %cmp2.not, label %if.end12, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %le_prev11 = getelementptr inbounds %struct.event, ptr %4, i64 0, i32 6, i32 0, i32 0, i32 1
+  %le_prev11 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr %.pre11, ptr %le_prev11, align 8
   %.pre = load ptr, ptr %ev_, align 8
   br label %if.end12
@@ -695,9 +672,9 @@ if.end12:                                         ; preds = %if.end, %if.then3
   br i1 %cmp19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end12
-  %del = getelementptr inbounds %struct.eventop, ptr %0, i64 0, i32 3
+  %del = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %del, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 2
+  %ev_fd = getelementptr inbounds i8, ptr %ev, i64 56
   %8 = load i32, ptr %ev_fd, align 8
   %call = tail call i32 %7(ptr noundef nonnull %base, i32 noundef %8, i16 noundef signext 0, i16 noundef signext 8, ptr noundef null) #8
   %cmp21 = icmp eq i32 %call, -1
@@ -714,12 +691,12 @@ return:                                           ; preds = %if.then20, %entry, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @evmap_signal_active_(ptr nocapture noundef readonly %base, i32 noundef %sig, i32 noundef %ncalls) local_unnamed_addr #1 {
 entry:
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
+  %sigmap = getelementptr inbounds i8, ptr %base, i64 824
   %cmp = icmp slt i32 %sig, 0
   br i1 %cmp, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %nentries = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24, i32 1
+  %nentries = getelementptr inbounds i8, ptr %base, i64 832
   %0 = load i32, ptr %nentries, align 8
   %cmp1.not = icmp sgt i32 %0, %sig
   br i1 %cmp1.not, label %if.end, label %for.end
@@ -744,7 +721,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %ev.09 = phi ptr [ %ev.07, %for.body.lr.ph ], [ %ev.0, %for.body ]
   tail call void @event_active_nolock_(ptr noundef nonnull %ev.09, i32 noundef 8, i16 noundef signext %conv) #8
-  %ev_ = getelementptr inbounds %struct.event, ptr %ev.09, i64 0, i32 6
+  %ev_ = getelementptr inbounds i8, ptr %ev.09, i64 72
   %ev.0 = load ptr, ptr %ev_, align 8
   %cmp4.not = icmp eq ptr %ev.0, null
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !9
@@ -769,8 +746,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evmap_reinit_(ptr noundef %base) local_unnamed_addr #1 {
 entry:
-  %io.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
-  %nentries.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23, i32 1
+  %io.i = getelementptr inbounds i8, ptr %base, i64 808
+  %nentries.i = getelementptr inbounds i8, ptr %base, i64 816
   %0 = load i32, ptr %nentries.i, align 8
   %cmp7.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i, label %for.body.i, label %if.end
@@ -789,21 +766,21 @@ if.end.i:                                         ; preds = %for.body.i
   %4 = trunc i64 %indvars.iv.i to i32
   %5 = load ptr, ptr %base, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 16
-  %nread.i = getelementptr inbounds %struct.evmap_io, ptr %3, i64 0, i32 1
+  %nread.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i16, ptr %nread.i, align 8
   %tobool.not.i16 = icmp eq i16 %6, 0
   %spec.select.i = select i1 %tobool.not.i16, i16 0, i16 2
-  %nwrite.i = getelementptr inbounds %struct.evmap_io, ptr %3, i64 0, i32 2
+  %nwrite.i = getelementptr inbounds i8, ptr %3, i64 10
   %7 = load i16, ptr %nwrite.i, align 2
   %tobool3.not.i = icmp eq i16 %7, 0
   %8 = or disjoint i16 %spec.select.i, 4
   %events.1.i = select i1 %tobool3.not.i, i16 %spec.select.i, i16 %8
-  %nclose.i = getelementptr inbounds %struct.evmap_io, ptr %3, i64 0, i32 3
+  %nclose.i = getelementptr inbounds i8, ptr %3, i64 12
   %9 = load i16, ptr %nclose.i, align 4
   %tobool9.not.i = icmp eq i16 %9, 0
   %10 = or disjoint i16 %events.1.i, 128
   %events.2.i = select i1 %tobool9.not.i, i16 %events.1.i, i16 %10
-  %fdinfo_len.i = getelementptr inbounds %struct.eventop, ptr %5, i64 0, i32 8
+  %fdinfo_len.i = getelementptr inbounds i8, ptr %5, i64 56
   %11 = load i64, ptr %fdinfo_len.i, align 8
   %tobool15.not.i = icmp eq i64 %11, 0
   br i1 %tobool15.not.i, label %if.end18.i, label %if.then16.i
@@ -822,7 +799,7 @@ land.lhs.true.i:                                  ; preds = %if.end18.i
   br i1 %tobool22.not.i, label %if.end30.i, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %land.lhs.true.i
-  %ev_events.i = getelementptr inbounds %struct.event, ptr %12, i64 0, i32 3
+  %ev_events.i = getelementptr inbounds i8, ptr %12, i64 60
   %13 = load i16, ptr %ev_events.i, align 4
   %14 = and i16 %13, 32
   %spec.select15.i = or disjoint i16 %14, %events.2.i
@@ -830,7 +807,7 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true.i
 
 if.end30.i:                                       ; preds = %land.lhs.true23.i, %land.lhs.true.i, %if.end18.i
   %events.3.i = phi i16 [ %events.2.i, %land.lhs.true.i ], [ 0, %if.end18.i ], [ %spec.select15.i, %land.lhs.true23.i ]
-  %add.i = getelementptr inbounds %struct.eventop, ptr %5, i64 0, i32 2
+  %add.i = getelementptr inbounds i8, ptr %5, i64 16
   %15 = load ptr, ptr %add.i, align 8
   %call.i17 = tail call i32 %15(ptr noundef nonnull %base, i32 noundef %4, i16 noundef signext 0, i16 noundef signext %events.3.i, ptr noundef nonnull %add.ptr.i) #8
   %cmp.i18 = icmp eq i32 %call.i17, -1
@@ -852,14 +829,14 @@ evmap_io_foreach_fd.exit:                         ; preds = %for.inc.i
 
 if.end:                                           ; preds = %entry, %evmap_io_foreach_fd.exit
   %result.324 = phi i32 [ %result.2, %evmap_io_foreach_fd.exit ], [ 0, %entry ]
-  %sigmap1.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
-  %nentries.i2 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24, i32 1
+  %sigmap1.i = getelementptr inbounds i8, ptr %base, i64 824
+  %nentries.i2 = getelementptr inbounds i8, ptr %base, i64 832
   %18 = load i32, ptr %nentries.i2, align 8
   %cmp7.i3 = icmp sgt i32 %18, 0
   br i1 %cmp7.i3, label %for.body.i5.preheader, label %evmap_signal_foreach_signal.exit
 
 for.body.i5.preheader:                            ; preds = %if.end
-  %evsigsel.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 3
+  %evsigsel.i = getelementptr inbounds i8, ptr %base, i64 32
   br label %for.body.i5
 
 for.body.i5:                                      ; preds = %for.body.i5.preheader, %for.inc.i13
@@ -881,7 +858,7 @@ if.end.i9:                                        ; preds = %for.body.i5
 if.then.i:                                        ; preds = %if.end.i9
   %23 = trunc i64 %indvars.iv.i6 to i32
   %24 = load ptr, ptr %evsigsel.i, align 8
-  %add.i20 = getelementptr inbounds %struct.eventop, ptr %24, i64 0, i32 2
+  %add.i20 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %add.i20, align 8
   %call.i = tail call i32 %25(ptr noundef nonnull %base, i32 noundef %23, i16 noundef signext 1, i16 noundef signext 8, ptr noundef nonnull %22) #8
   %cmp3.i = icmp eq i32 %call.i, -1
@@ -911,8 +888,8 @@ return:                                           ; preds = %evmap_signal_foreac
 ; Function Attrs: nounwind uwtable
 define dso_local void @evmap_delete_all_(ptr nocapture noundef readonly %base) local_unnamed_addr #1 {
 entry:
-  %sigmap1.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
-  %nentries.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24, i32 1
+  %sigmap1.i = getelementptr inbounds i8, ptr %base, i64 824
+  %nentries.i = getelementptr inbounds i8, ptr %base, i64 832
   %0 = load i32, ptr %nentries.i, align 8
   %cmp7.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i, label %for.body.i, label %evmap_signal_foreach_signal.exit
@@ -952,8 +929,8 @@ for.inc.i:                                        ; preds = %if.end.i, %if.end.f
   br i1 %cmp.i, label %for.body.i, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
 
 evmap_signal_foreach_signal.exit:                 ; preds = %for.inc.i, %entry
-  %io.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
-  %nentries.i2 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23, i32 1
+  %io.i = getelementptr inbounds i8, ptr %base, i64 808
+  %nentries.i2 = getelementptr inbounds i8, ptr %base, i64 816
   %9 = load i32, ptr %nentries.i2, align 8
   %cmp7.i3 = icmp sgt i32 %9, 0
   br i1 %cmp7.i3, label %for.body.i5, label %evmap_io_foreach_fd.exit
@@ -1006,32 +983,28 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @event_changelist_remove_all_(ptr nocapture noundef %changelist, ptr nocapture noundef readonly %base) local_unnamed_addr #5 {
 entry:
-  %n_changes = getelementptr inbounds %struct.event_changelist, ptr %changelist, i64 0, i32 1
+  %n_changes = getelementptr inbounds i8, ptr %changelist, i64 8
   %0 = load i32, ptr %n_changes, align 8
   %cmp5 = icmp sgt i32 %0, 0
-  br i1 %cmp5, label %for.body.lr.ph, label %for.end
+  br i1 %cmp5, label %for.body, label %for.end
 
-for.body.lr.ph:                                   ; preds = %entry
-  %io.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
-  %sigmap.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %1 = load ptr, ptr %changelist, align 8
   %arrayidx = getelementptr inbounds %struct.event_change, ptr %1, i64 %indvars.iv
-  %read_change.i = getelementptr inbounds %struct.event_change, ptr %1, i64 %indvars.iv, i32 2
+  %read_change.i = getelementptr inbounds i8, ptr %arrayidx, i64 6
   %2 = load i8, ptr %read_change.i, align 2
   %3 = and i8 %2, 8
   %tobool.not.i = icmp eq i8 %3, 0
   %4 = load i32, ptr %arrayidx, align 4
   %idxprom4.i = sext i32 %4 to i64
-  %io.sink.i = select i1 %tobool.not.i, ptr %io.i, ptr %sigmap.i
-  %.sink4.i = select i1 %tobool.not.i, i64 16, i64 8
-  %5 = load ptr, ptr %io.sink.i, align 8
+  %..i = select i1 %tobool.not.i, i64 808, i64 824
+  %.5.i = select i1 %tobool.not.i, i64 16, i64 8
+  %io.i = getelementptr inbounds i8, ptr %base, i64 %..i
+  %5 = load ptr, ptr %io.i, align 8
   %arrayidx5.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom4.i
   %6 = load ptr, ptr %arrayidx5.i, align 8
-  %add.ptr6.i = getelementptr inbounds i8, ptr %6, i64 %.sink4.i
+  %add.ptr6.i = getelementptr inbounds i8, ptr %6, i64 %.5.i
   store i32 0, ptr %add.ptr6.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %n_changes, align 8
@@ -1063,7 +1036,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @event_changelist_add_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
-  %changelist1 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2
+  %changelist1 = getelementptr inbounds i8, ptr %base, i64 16
   %conv15 = zext i16 %events to i32
   %0 = trunc i16 %events to i8
   %1 = and i8 %0, 56
@@ -1073,9 +1046,9 @@ entry:
   br i1 %cmp.i, label %do.end.i, label %event_changelist_get_or_construct.exit
 
 do.end.i:                                         ; preds = %entry
-  %n_changes.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2, i32 1
+  %n_changes.i = getelementptr inbounds i8, ptr %base, i64 24
   %3 = load i32, ptr %n_changes.i, align 8
-  %changes_size.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2, i32 2
+  %changes_size.i = getelementptr inbounds i8, ptr %base, i64 28
   %4 = load i32, ptr %changes_size.i, align 4
   %cmp1.i = icmp eq i32 %3, %4
   %.pre14.i = load ptr, ptr %changelist1, align 8
@@ -1108,15 +1081,14 @@ event_changelist_get_or_construct.exit.thread11:  ; preds = %do.end.i, %event_ch
   %7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i64 0, ptr %7, align 4
   store i32 %fd, ptr %arrayidx.i, align 4
-  %old_events9.i = getelementptr inbounds %struct.event_change, ptr %5, i64 %idxprom.i, i32 1
-  store i16 %old, ptr %old_events9.i, align 4
+  store i16 %old, ptr %7, align 4
   br label %if.end
 
 event_changelist_get_or_construct.exit:           ; preds = %entry
   %8 = load ptr, ptr %changelist1, align 8
   %9 = sext i32 %2 to i64
   %10 = getelementptr %struct.event_change, ptr %8, i64 %9
-  %arrayidx13.i = getelementptr %struct.event_change, ptr %10, i64 -1
+  %arrayidx13.i = getelementptr i8, ptr %10, i64 -12
   %tobool.not = icmp eq ptr %arrayidx13.i, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1127,7 +1099,7 @@ if.end:                                           ; preds = %event_changelist_ge
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %read_change = getelementptr inbounds %struct.event_change, ptr %retval.0.i14, i64 0, i32 2
+  %read_change = getelementptr inbounds i8, ptr %retval.0.i14, i64 6
   store i8 %conv2, ptr %read_change, align 2
   br label %if.end7
 
@@ -1137,7 +1109,7 @@ if.end7:                                          ; preds = %if.then6, %if.end
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  %write_change = getelementptr inbounds %struct.event_change, ptr %retval.0.i14, i64 0, i32 3
+  %write_change = getelementptr inbounds i8, ptr %retval.0.i14, i64 7
   store i8 %conv2, ptr %write_change, align 1
   br label %if.end12
 
@@ -1147,7 +1119,7 @@ if.end12:                                         ; preds = %if.then11, %if.end7
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %close_change = getelementptr inbounds %struct.event_change, ptr %retval.0.i14, i64 0, i32 4
+  %close_change = getelementptr inbounds i8, ptr %retval.0.i14, i64 8
   store i8 %conv2, ptr %close_change, align 4
   br label %return
 
@@ -1159,7 +1131,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @event_changelist_del_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
-  %changelist1 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2
+  %changelist1 = getelementptr inbounds i8, ptr %base, i64 16
   %conv21 = zext i16 %events to i32
   %0 = trunc i16 %events to i8
   %1 = and i8 %0, 32
@@ -1169,9 +1141,9 @@ entry:
   br i1 %cmp.i, label %do.end.i, label %event_changelist_get_or_construct.exit
 
 do.end.i:                                         ; preds = %entry
-  %n_changes.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2, i32 1
+  %n_changes.i = getelementptr inbounds i8, ptr %base, i64 24
   %3 = load i32, ptr %n_changes.i, align 8
-  %changes_size.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2, i32 2
+  %changes_size.i = getelementptr inbounds i8, ptr %base, i64 28
   %4 = load i32, ptr %changes_size.i, align 4
   %cmp1.i = icmp eq i32 %3, %4
   %.pre14.i = load ptr, ptr %changelist1, align 8
@@ -1204,15 +1176,14 @@ event_changelist_get_or_construct.exit.thread17:  ; preds = %do.end.i, %event_ch
   %7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i64 0, ptr %7, align 4
   store i32 %fd, ptr %arrayidx.i, align 4
-  %old_events9.i = getelementptr inbounds %struct.event_change, ptr %5, i64 %idxprom.i, i32 1
-  store i16 %old, ptr %old_events9.i, align 4
+  store i16 %old, ptr %7, align 4
   br label %if.end
 
 event_changelist_get_or_construct.exit:           ; preds = %entry
   %8 = load ptr, ptr %changelist1, align 8
   %9 = sext i32 %2 to i64
   %10 = getelementptr %struct.event_change, ptr %8, i64 %9
-  %arrayidx13.i = getelementptr %struct.event_change, ptr %10, i64 -1
+  %arrayidx13.i = getelementptr i8, ptr %10, i64 -12
   %tobool.not = icmp eq ptr %arrayidx13.i, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1223,11 +1194,11 @@ if.end:                                           ; preds = %event_changelist_ge
   br i1 %tobool5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %old_events = getelementptr inbounds %struct.event_change, ptr %retval.0.i20, i64 0, i32 1
+  %old_events = getelementptr inbounds i8, ptr %retval.0.i20, i64 4
   %11 = load i16, ptr %old_events, align 4
   %12 = and i16 %11, 10
   %tobool9.not = icmp eq i16 %12, 0
-  %read_change = getelementptr inbounds %struct.event_change, ptr %retval.0.i20, i64 0, i32 2
+  %read_change = getelementptr inbounds i8, ptr %retval.0.i20, i64 6
   %.conv2 = select i1 %tobool9.not, i8 0, i8 %conv2
   store i8 %.conv2, ptr %read_change, align 2
   br label %if.end13
@@ -1238,11 +1209,11 @@ if.end13:                                         ; preds = %if.then6, %if.end
   br i1 %tobool16.not, label %if.end26, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  %old_events18 = getelementptr inbounds %struct.event_change, ptr %retval.0.i20, i64 0, i32 1
+  %old_events18 = getelementptr inbounds i8, ptr %retval.0.i20, i64 4
   %13 = load i16, ptr %old_events18, align 4
   %14 = and i16 %13, 4
   %tobool21.not = icmp eq i16 %14, 0
-  %write_change = getelementptr inbounds %struct.event_change, ptr %retval.0.i20, i64 0, i32 3
+  %write_change = getelementptr inbounds i8, ptr %retval.0.i20, i64 7
   %.conv223 = select i1 %tobool21.not, i8 0, i8 %conv2
   store i8 %.conv223, ptr %write_change, align 1
   br label %if.end26
@@ -1253,11 +1224,11 @@ if.end26:                                         ; preds = %if.then17, %if.end1
   br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %if.end26
-  %old_events31 = getelementptr inbounds %struct.event_change, ptr %retval.0.i20, i64 0, i32 1
+  %old_events31 = getelementptr inbounds i8, ptr %retval.0.i20, i64 4
   %15 = load i16, ptr %old_events31, align 4
   %16 = and i16 %15, 128
   %tobool34.not = icmp eq i16 %16, 0
-  %close_change = getelementptr inbounds %struct.event_change, ptr %retval.0.i20, i64 0, i32 4
+  %close_change = getelementptr inbounds i8, ptr %retval.0.i20, i64 8
   %.conv224 = select i1 %tobool34.not, i8 0, i8 %conv2
   store i8 %.conv224, ptr %close_change, align 4
   br label %return
@@ -1276,8 +1247,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evmap_foreach_event_(ptr noundef %base, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
-  %io.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23
-  %nentries.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 23, i32 1
+  %io.i = getelementptr inbounds i8, ptr %base, i64 808
+  %nentries.i = getelementptr inbounds i8, ptr %base, i64 816
   %0 = load i32, ptr %nentries.i, align 8
   %cmp7.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i, label %for.body.i, label %if.end
@@ -1298,7 +1269,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp.not5.i, label %for.inc.i, label %for.body.i16
 
 for.cond.i:                                       ; preds = %for.body.i16
-  %ev_.i = getelementptr inbounds %struct.event, ptr %ev.06.i, i64 0, i32 6
+  %ev_.i = getelementptr inbounds i8, ptr %ev.06.i, i64 72
   %ev.0.i = load ptr, ptr %ev_.i, align 8
   %cmp.not.i = icmp eq ptr %ev.0.i, null
   br i1 %cmp.not.i, label %if.end.for.inc_crit_edge.i.loopexit, label %for.body.i16, !llvm.loop !14
@@ -1322,8 +1293,8 @@ for.inc.i:                                        ; preds = %if.end.i, %if.end.f
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !10
 
 if.end:                                           ; preds = %for.inc.i, %entry
-  %sigmap1.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24
-  %nentries.i2 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 24, i32 1
+  %sigmap1.i = getelementptr inbounds i8, ptr %base, i64 824
+  %nentries.i2 = getelementptr inbounds i8, ptr %base, i64 832
   %6 = load i32, ptr %nentries.i2, align 8
   %cmp7.i3 = icmp sgt i32 %6, 0
   br i1 %cmp7.i3, label %for.body.i5, label %return
@@ -1344,7 +1315,7 @@ if.end.i9:                                        ; preds = %for.body.i5
   br i1 %cmp.not5.i20, label %for.inc.i13, label %for.body.i23
 
 for.cond.i27:                                     ; preds = %for.body.i23
-  %ev_.i28 = getelementptr inbounds %struct.event, ptr %ev.06.i24, i64 0, i32 6
+  %ev_.i28 = getelementptr inbounds i8, ptr %ev.06.i24, i64 72
   %ev.0.i29 = load ptr, ptr %ev_.i28, align 8
   %cmp.not.i30 = icmp eq ptr %ev.0.i29, null
   br i1 %cmp.not.i30, label %if.end.for.inc_crit_edge.i11.loopexit, label %for.body.i23, !llvm.loop !15

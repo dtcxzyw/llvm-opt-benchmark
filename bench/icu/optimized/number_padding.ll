@@ -6,23 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::number::impl::Padder" = type { i32, %union.anon }
 %union.anon = type { %struct.anon }
 %struct.anon = type { i32, i32 }
-%"struct.icu_75::number::impl::DecimalFormatProperties" = type <{ %"class.icu_75::number::impl::NullableValue", %"class.icu_75::number::impl::NullableValue.0", %"class.icu_75::number::impl::CurrencyPluralInfoWrapper", %"class.icu_75::number::impl::NullableValue.1", i8, i8, i8, i8, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::number::impl::NullableValue.4", %"class.icu_75::UnicodeString", i8, i8, [2 x i8], %"class.icu_75::number::impl::NullableValue.5", i8, i8, [2 x i8], i32, [4 x i8], %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", double, %"class.icu_75::number::impl::NullableValue.6", i32, i8, [3 x i8] }>
-%"class.icu_75::number::impl::NullableValue" = type { i8, i32 }
-%"class.icu_75::number::impl::NullableValue.0" = type { i8, [7 x i8], %"class.icu_75::CurrencyUnit" }
-%"class.icu_75::CurrencyUnit" = type { %"class.icu_75::MeasureUnit.base", [4 x i16], [4 x i8] }
-%"class.icu_75::MeasureUnit.base" = type <{ %"class.icu_75::UObject", ptr, i16, i8 }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::number::impl::CurrencyPluralInfoWrapper" = type { %"class.icu_75::LocalPointer" }
-%"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
-%"class.icu_75::LocalPointerBase" = type { ptr }
-%"class.icu_75::number::impl::NullableValue.1" = type { i8, i32 }
-%"class.icu_75::number::impl::NullableValue.4" = type { i8, i32 }
-%"class.icu_75::number::impl::NullableValue.5" = type { i8, i32 }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.3, [32 x i8] }
-%struct.anon.3 = type { i16, i32, i32, ptr }
-%"class.icu_75::number::impl::NullableValue.6" = type { i8, i32 }
 
 @_ZN6icu_756number4impl6PadderC1Eii24UNumberFormatPadPosition = unnamed_addr alias void (ptr, i32, i32, i32), ptr @_ZN6icu_756number4impl6PadderC2Eii24UNumberFormatPadPosition
 @_ZN6icu_756number4impl6PadderC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN6icu_756number4impl6PadderC2Ei
@@ -31,9 +14,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_756number4impl6PadderC2Eii24UNumberFormatPadPosition(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, i32 noundef %cp, i32 noundef %width, i32 noundef %position) unnamed_addr #0 align 2 {
 entry:
   store i32 %width, ptr %this, align 4
-  %fUnion2 = getelementptr inbounds %"class.icu_75::number::impl::Padder", ptr %this, i64 0, i32 1
+  %fUnion2 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %cp, ptr %fUnion2, align 4
-  %fPosition = getelementptr inbounds %"class.icu_75::number::impl::Padder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fPosition = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %position, ptr %fPosition, align 4
   ret void
 }
@@ -73,7 +56,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i32 -3, ptr %retval, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::number::impl::Padder", ptr %retval, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %retval, i64 4
   store i32 65810, ptr %fUnion2.i, align 4
   br label %return
 
@@ -89,31 +72,31 @@ return:                                           ; preds = %if.else, %if.then
 define { i64, i32 } @_ZN6icu_756number4impl6Padder13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr noundef nonnull align 8 dereferenceable(757) %properties) local_unnamed_addr #1 align 2 {
 entry:
   %retval = alloca %"class.icu_75::number::impl::Padder", align 8
-  %fUnion.i.i = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 30, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %properties, i64 400
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 30, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %properties, i64 404
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp = icmp sgt i32 %cond.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %padString = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 30
+  %padString = getelementptr inbounds i8, ptr %properties, i64 392
   %call2 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %padString, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %padCp.0 = phi i32 [ %call2, %if.then ], [ 32, %entry ]
-  %formatWidth = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 10
+  %formatWidth = getelementptr inbounds i8, ptr %properties, i64 72
   %3 = load i32, ptr %formatWidth, align 8
-  %padPosition = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 29
+  %padPosition = getelementptr inbounds i8, ptr %properties, i64 384
   %4 = load i8, ptr %padPosition, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
-  %fValue.i = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 29, i32 1
+  %fValue.i = getelementptr inbounds i8, ptr %properties, i64 388
   %6 = load i32, ptr %fValue.i, align 4
   %cond.i4 = select i1 %tobool.not.i, i32 %6, i32 0
   call void @_ZN6icu_756number4impl6PadderC1Eii24UNumberFormatPadPosition(ptr noundef nonnull align 4 dereferenceable(12) %retval, i32 noundef %padCp.0, i32 noundef %3, i32 noundef %cond.i4)
@@ -131,11 +114,11 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull a
 define noundef i32 @_ZNK6icu_756number4impl6Padder11padAndApplyERKNS1_8ModifierES5_RNS_22FormattedStringBuilderEiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %mod1, ptr noundef nonnull align 8 dereferenceable(8) %mod2, ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %leftIndex, i32 noundef %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %mod1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %mod1)
   %vtable2 = load ptr, ptr %mod2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %mod2)
   %2 = load i32, ptr %this, align 4
@@ -148,20 +131,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable7 = load ptr, ptr %mod1, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 2
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 16
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %mod1, ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %leftIndex, i32 noundef %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add11 = add nsw i32 %call9, %rightIndex
   %vtable12 = load ptr, ptr %mod2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 2
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 16
   %6 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %mod2, ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %leftIndex, i32 noundef %add11, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add15 = add nsw i32 %call14, %call9
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fUnion = getelementptr inbounds %"class.icu_75::number::impl::Padder", ptr %this, i64 0, i32 1
-  %fPosition = getelementptr inbounds %"class.icu_75::number::impl::Padder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fUnion = getelementptr inbounds i8, ptr %this, i64 4
+  %fPosition = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %fPosition, align 4
   %8 = load i32, ptr %fUnion, align 4
   switch i32 %7, label %if.end27 [
@@ -199,13 +182,13 @@ if.end27:                                         ; preds = %if.end, %_ZN12_GLOB
   %length.0 = phi i32 [ %mul.i, %_ZN12_GLOBAL__N_116addPaddingHelperEiiRN6icu_7522FormattedStringBuilderEiR10UErrorCode.exit ], [ %mul.i56, %_ZN12_GLOBAL__N_116addPaddingHelperEiiRN6icu_7522FormattedStringBuilderEiR10UErrorCode.exit62 ], [ 0, %if.end ]
   %add28 = add nsw i32 %length.0, %rightIndex
   %vtable29 = load ptr, ptr %mod1, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 2
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 16
   %11 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %mod1, ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %leftIndex, i32 noundef %add28, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add32 = add nsw i32 %call31, %length.0
   %add33 = add nsw i32 %add32, %rightIndex
   %vtable34 = load ptr, ptr %mod2, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 2
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 16
   %12 = load ptr, ptr %vfn35, align 8
   %call36 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %mod2, ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %leftIndex, i32 noundef %add33, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add37 = add nsw i32 %call36, %add32

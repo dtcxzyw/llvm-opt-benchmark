@@ -3,25 +3,14 @@ source_filename = "bench/openssl/original/libcrypto-lib-ocsp_ext.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ocsp_req_info_st = type { ptr, ptr, ptr, ptr }
-%struct.ocsp_one_request_st = type { ptr, ptr }
-%struct.ocsp_response_data_st = type { ptr, %struct.ocsp_responder_id_st, ptr, ptr, ptr }
-%struct.ocsp_responder_id_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ocsp_single_response_st = type { ptr, ptr, ptr, ptr, ptr }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ocsp_crl_id_st = type { ptr, ptr, ptr }
-%struct.ocsp_service_locator_st = type { ptr, ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/ocsp/ocsp_ext.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_get_ext_count(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_count(ptr noundef %0) #3
   ret i32 %call
@@ -32,7 +21,7 @@ declare i32 @X509v3_get_ext_count(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_get_ext_by_NID(ptr nocapture noundef readonly %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #3
   ret i32 %call
@@ -43,7 +32,7 @@ declare i32 @X509v3_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_get_ext_by_OBJ(ptr nocapture noundef readonly %x, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #3
   ret i32 %call
@@ -54,7 +43,7 @@ declare i32 @X509v3_get_ext_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_get_ext_by_critical(ptr nocapture noundef readonly %x, i32 noundef %crit, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_critical(ptr noundef %0, i32 noundef %crit, i32 noundef %lastpos) #3
   ret i32 %call
@@ -65,7 +54,7 @@ declare i32 @X509v3_get_ext_by_critical(ptr noundef, i32 noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_REQUEST_get_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call ptr @X509v3_get_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -76,7 +65,7 @@ declare ptr @X509v3_get_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_REQUEST_delete_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call ptr @X509v3_delete_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -87,7 +76,7 @@ declare ptr @X509v3_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_REQUEST_get1_ext_d2i(ptr nocapture noundef readonly %x, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %requestExtensions, align 8
   %call = tail call ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) #3
   ret ptr %call
@@ -98,7 +87,7 @@ declare ptr @X509V3_get_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_add1_ext_i2d(ptr noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %call = tail call i32 @X509V3_add1_i2d(ptr noundef nonnull %requestExtensions, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) #3
   ret i32 %call
 }
@@ -108,7 +97,7 @@ declare i32 @X509V3_add1_i2d(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %x, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %requestExtensions, ptr noundef %ex, i32 noundef %loc) #3
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
@@ -120,7 +109,7 @@ declare ptr @X509v3_add_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_ONEREQ_get_ext_count(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_count(ptr noundef %0) #3
   ret i32 %call
@@ -129,7 +118,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_ONEREQ_get_ext_by_NID(ptr nocapture noundef readonly %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #3
   ret i32 %call
@@ -138,7 +127,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_ONEREQ_get_ext_by_OBJ(ptr nocapture noundef readonly %x, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #3
   ret i32 %call
@@ -147,7 +136,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_ONEREQ_get_ext_by_critical(ptr nocapture noundef readonly %x, i32 noundef %crit, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_critical(ptr noundef %0, i32 noundef %crit, i32 noundef %lastpos) #3
   ret i32 %call
@@ -156,7 +145,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_ONEREQ_get_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call ptr @X509v3_get_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -165,7 +154,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_ONEREQ_delete_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call ptr @X509v3_delete_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -174,7 +163,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_ONEREQ_get1_ext_d2i(ptr nocapture noundef readonly %x, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %singleRequestExtensions, align 8
   %call = tail call ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) #3
   ret ptr %call
@@ -183,7 +172,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_ONEREQ_add1_ext_i2d(ptr noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %call = tail call i32 @X509V3_add1_i2d(ptr noundef nonnull %singleRequestExtensions, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) #3
   ret i32 %call
 }
@@ -191,7 +180,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_ONEREQ_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %x, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %singleRequestExtensions, ptr noundef %ex, i32 noundef %loc) #3
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
@@ -201,7 +190,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_BASICRESP_get_ext_count(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_count(ptr noundef %0) #3
   ret i32 %call
@@ -210,7 +199,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_BASICRESP_get_ext_by_NID(ptr nocapture noundef readonly %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #3
   ret i32 %call
@@ -219,7 +208,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_BASICRESP_get_ext_by_OBJ(ptr nocapture noundef readonly %x, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #3
   ret i32 %call
@@ -228,7 +217,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_BASICRESP_get_ext_by_critical(ptr nocapture noundef readonly %x, i32 noundef %crit, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_critical(ptr noundef %0, i32 noundef %crit, i32 noundef %lastpos) #3
   ret i32 %call
@@ -237,7 +226,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_BASICRESP_get_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call ptr @X509v3_get_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -246,7 +235,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_BASICRESP_delete_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call ptr @X509v3_delete_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -255,7 +244,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_BASICRESP_get1_ext_d2i(ptr nocapture noundef readonly %x, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %responseExtensions, align 8
   %call = tail call ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) #3
   ret ptr %call
@@ -264,7 +253,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_BASICRESP_add1_ext_i2d(ptr noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %call = tail call i32 @X509V3_add1_i2d(ptr noundef nonnull %responseExtensions, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) #3
   ret i32 %call
 }
@@ -272,7 +261,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_BASICRESP_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %x, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %responseExtensions, ptr noundef %ex, i32 noundef %loc) #3
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
@@ -282,7 +271,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_SINGLERESP_get_ext_count(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_count(ptr noundef %0) #3
   ret i32 %call
@@ -291,7 +280,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_SINGLERESP_get_ext_by_NID(ptr nocapture noundef readonly %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #3
   ret i32 %call
@@ -300,7 +289,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_SINGLERESP_get_ext_by_OBJ(ptr nocapture noundef readonly %x, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #3
   ret i32 %call
@@ -309,7 +298,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_SINGLERESP_get_ext_by_critical(ptr nocapture noundef readonly %x, i32 noundef %crit, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call i32 @X509v3_get_ext_by_critical(ptr noundef %0, i32 noundef %crit, i32 noundef %lastpos) #3
   ret i32 %call
@@ -318,7 +307,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_SINGLERESP_get_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call ptr @X509v3_get_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -327,7 +316,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_SINGLERESP_delete_ext(ptr nocapture noundef readonly %x, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call ptr @X509v3_delete_ext(ptr noundef %0, i32 noundef %loc) #3
   ret ptr %call
@@ -336,7 +325,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_SINGLERESP_get1_ext_d2i(ptr nocapture noundef readonly %x, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %singleExtensions, align 8
   %call = tail call ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %nid, ptr noundef %crit, ptr noundef %idx) #3
   ret ptr %call
@@ -345,7 +334,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_SINGLERESP_add1_ext_i2d(ptr noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %call = tail call i32 @X509V3_add1_i2d(ptr noundef nonnull %singleExtensions, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) #3
   ret i32 %call
 }
@@ -353,7 +342,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_SINGLERESP_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %x, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %singleExtensions, ptr noundef %ex, i32 noundef %loc) #3
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
@@ -363,7 +352,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_request_add1_nonce(ptr noundef %req, ptr noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %req, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %req, i64 24
   %call = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %requestExtensions, ptr noundef %val, i32 noundef %len), !range !4
   ret i32 %call
 }
@@ -383,7 +372,7 @@ entry:
 if.end4:                                          ; preds = %entry
   %conv = zext nneg i32 %call to i64
   %call6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 262) #3
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %os, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %os, i64 8
   store ptr %call6, ptr %data, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %err, label %if.end11
@@ -426,7 +415,7 @@ return:                                           ; preds = %entry, %err
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_basic_add1_nonce(ptr noundef %resp, ptr noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %resp, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %resp, i64 40
   %call = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %responseExtensions, ptr noundef %val, i32 noundef %len), !range !4
   ret i32 %call
 }
@@ -434,10 +423,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_check_nonce(ptr nocapture noundef readonly %req, ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
 entry:
-  %requestExtensions.i = getelementptr inbounds %struct.ocsp_req_info_st, ptr %req, i64 0, i32 3
+  %requestExtensions.i = getelementptr inbounds i8, ptr %req, i64 24
   %0 = load ptr, ptr %requestExtensions.i, align 8
   %call.i = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef 366, i32 noundef -1) #3
-  %responseExtensions.i = getelementptr inbounds %struct.ocsp_response_data_st, ptr %bs, i64 0, i32 4
+  %responseExtensions.i = getelementptr inbounds i8, ptr %bs, i64 40
   %1 = load ptr, ptr %responseExtensions.i, align 8
   %call.i11 = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %1, i32 noundef 366, i32 noundef -1) #3
   %cmp = icmp slt i32 %call.i, 0
@@ -479,7 +468,7 @@ declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_copy_nonce(ptr noundef %resp, ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
-  %requestExtensions.i = getelementptr inbounds %struct.ocsp_req_info_st, ptr %req, i64 0, i32 3
+  %requestExtensions.i = getelementptr inbounds i8, ptr %req, i64 24
   %0 = load ptr, ptr %requestExtensions.i, align 8
   %call.i = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef 366, i32 noundef -1) #3
   %cmp = icmp slt i32 %call.i, 0
@@ -488,7 +477,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %requestExtensions.i, align 8
   %call.i4 = tail call ptr @X509v3_get_ext(ptr noundef %1, i32 noundef %call.i) #3
-  %responseExtensions.i = getelementptr inbounds %struct.ocsp_response_data_st, ptr %resp, i64 0, i32 4
+  %responseExtensions.i = getelementptr inbounds i8, ptr %resp, i64 40
   %call.i5 = tail call ptr @X509v3_add_ext(ptr noundef nonnull %responseExtensions.i, ptr noundef %call.i4, i32 noundef -1) #3
   %cmp.i = icmp ne ptr %call.i5, null
   %conv.i = zext i1 %cmp.i to i32
@@ -527,7 +516,7 @@ if.end11:                                         ; preds = %if.end5, %if.end
 
 if.then13:                                        ; preds = %if.end11
   %call14 = tail call ptr @ASN1_INTEGER_new() #3
-  %crlNum = getelementptr inbounds %struct.ocsp_crl_id_st, ptr %call, i64 0, i32 1
+  %crlNum = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call14, ptr %crlNum, align 8
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %err, label %if.end17
@@ -544,7 +533,7 @@ if.end23:                                         ; preds = %if.end17, %if.end11
 
 if.then25:                                        ; preds = %if.end23
   %call26 = tail call ptr @ASN1_GENERALIZEDTIME_new() #3
-  %crlTime = getelementptr inbounds %struct.ocsp_crl_id_st, ptr %call, i64 0, i32 2
+  %crlTime = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call26, ptr %crlTime, align 8
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %err, label %if.end29
@@ -615,7 +604,7 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %land.lhs.true, %while.body
-  %incdec.ptr = getelementptr inbounds ptr, ptr %oids.addr.0911, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %oids.addr.0911, i64 8
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %while.end, label %while.body
@@ -692,19 +681,19 @@ land.lhs.true:                                    ; preds = %if.end6
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %call9 = tail call ptr @OPENSSL_sk_new_null() #3
-  %locator = getelementptr inbounds %struct.ocsp_service_locator_st, ptr %call, i64 0, i32 1
+  %locator = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call9, ptr %locator, align 8
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %err, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %land.lhs.true, %land.lhs.true8
-  %locator32 = getelementptr inbounds %struct.ocsp_service_locator_st, ptr %call, i64 0, i32 1
+  %locator32 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %urls, align 8
   %tobool14.not19 = icmp eq ptr %2, null
   br i1 %tobool14.not19, label %while.end, label %while.body
 
 land.rhs:                                         ; preds = %if.end30
-  %incdec.ptr = getelementptr inbounds ptr, ptr %urls.addr.01820, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %urls.addr.01820, i64 8
   %3 = load ptr, ptr %incdec.ptr, align 8
   %tobool14.not = icmp eq ptr %3, null
   br i1 %tobool14.not, label %while.end, label %while.body
@@ -733,11 +722,11 @@ if.end26:                                         ; preds = %if.end22
   br i1 %tobool28.not, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.end26
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call15, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call15, i64 8
   %5 = load ptr, ptr %location, align 8
   store i32 6, ptr %5, align 8
   %6 = load ptr, ptr %location, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %6, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call23, ptr %d, align 8
   %7 = load ptr, ptr %locator32, align 8
   %call35 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %call15) #3

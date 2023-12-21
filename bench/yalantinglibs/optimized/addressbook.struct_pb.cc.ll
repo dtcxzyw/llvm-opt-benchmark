@@ -3,23 +3,22 @@ source_filename = "bench/yalantinglibs/original/addressbook.struct_pb.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.struct_pb::UnknownFields::Field" = type { ptr, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.tutorial::Person::PhoneNumber" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"struct.struct_pb::UnknownFields" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::allocator.0" = type { i8 }
+%"struct.tutorial::Person::PhoneNumber" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"struct.tutorial::Person" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", %"class.std::vector.3" }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl" }
 %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl" = type { %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::allocator.0" = type { i8 }
-%"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE = comdat any
 
@@ -43,7 +42,7 @@ $_ZN8tutorial6PersonD2Ev = comdat any
 define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN8tutorial6Person11PhoneNumberEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -51,16 +50,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %do.body.i17
@@ -81,7 +80,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21: ; preds = %do.body.i17
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ], [ %add8, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21 ]
-  %type = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %t, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %4, 0
   br i1 %cmp.not, label %if.end14, label %if.then9
@@ -111,7 +110,7 @@ if.end14:                                         ; preds = %_ZN9struct_pb8inter
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9struct_pb8internal12serialize_toIN8tutorial6Person11PhoneNumberEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i36 = icmp eq i64 %0, 0
   br i1 %cmp.i36, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit59
@@ -151,7 +150,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit43: ; preds = %while.body.i3
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit43, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit43 ]
-  %type = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %t, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %6, 0
   br i1 %cmp.not, label %if.end11, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit27
@@ -190,7 +189,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 if.end11:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end
   %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %9 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i7.i = icmp eq ptr %9, %10
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -200,12 +199,12 @@ for.body.i:                                       ; preds = %if.end11, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %9, %if.end11 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.4
   %11 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %12 = load i64, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %11, i64 %12, i1 false)
   %13 = load i64, ptr %len.i, align 8
   %add.i = add i64 %13, %pos.4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %10
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -224,9 +223,9 @@ entry:
   br i1 %cmp297.not, label %return, label %land.lhs.true.i311.lr.ph
 
 land.lhs.true.i311.lr.ph:                         ; preds = %entry
-  %type = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %t, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %t, i64 32
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %0 = getelementptr inbounds i8, ptr %t, i64 16
   br label %land.lhs.true.i311
 
 land.lhs.true.i311:                               ; preds = %land.lhs.true.i311.lr.ph, %sw.epilog
@@ -961,9 +960,9 @@ if.end3:                                          ; preds = %if.end3.sink.split,
   %14 = phi i64 [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc105.i.sink, %if.end3.sink.split ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i176 = sub i64 %14, %sub
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %16 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -973,7 +972,7 @@ if.then.i.i.i:                                    ; preds = %if.end3
   %ref.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %sub.i176, ptr %ref.tmp.sroa.3.0..sroa_idx.i, align 8
   %17 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %17, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %return
 
@@ -1019,7 +1018,7 @@ if.then.i.i.i12.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %tobool.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i21.i.i.i.i
 
@@ -1043,9 +1042,9 @@ if.end7:                                          ; preds = %sw.bb4
   store i64 %add, ptr %pos, align 8
   %add.ptr.i177 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i178 = sub i64 %add, %sub
-  %_M_finish.i.i.i179 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i179 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %19 = load ptr, ptr %_M_finish.i.i.i179, align 8
-  %_M_end_of_storage.i.i.i180 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i180 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %20 = load ptr, ptr %_M_end_of_storage.i.i.i180, align 8
   %cmp.not.i.i.i181 = icmp eq ptr %19, %20
   br i1 %cmp.not.i.i.i181, label %if.else.i.i.i185, label %if.then.i.i.i182
@@ -1055,7 +1054,7 @@ if.then.i.i.i182:                                 ; preds = %if.end7
   %ref.tmp.sroa.3.0..sroa_idx.i183 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %sub.i178, ptr %ref.tmp.sroa.3.0..sroa_idx.i183, align 8
   %21 = load ptr, ptr %_M_finish.i.i.i179, align 8
-  %incdec.ptr.i.i.i184 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %21, i64 1
+  %incdec.ptr.i.i.i184 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i.i.i184, ptr %_M_finish.i.i.i179, align 8
   br label %return
 
@@ -1101,7 +1100,7 @@ if.then.i.i.i12.i.i.i.i213:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i207
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i207: ; preds = %if.then.i.i.i12.i.i.i.i213, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i202
-  %incdec.ptr.i.i.i.i208 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i204, i64 1
+  %incdec.ptr.i.i.i.i208 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i204, i64 16
   %tobool.not.i.i.i.i.i209 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i.i209, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211, label %if.then.i21.i.i.i.i210
 
@@ -1299,9 +1298,9 @@ if.end19:                                         ; preds = %if.end15
   store i64 %add16, ptr %pos, align 8
   %add.ptr.i216 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i217 = sub i64 %add16, %sub
-  %_M_finish.i.i.i218 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i218 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %40 = load ptr, ptr %_M_finish.i.i.i218, align 8
-  %_M_end_of_storage.i.i.i219 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i219 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %41 = load ptr, ptr %_M_end_of_storage.i.i.i219, align 8
   %cmp.not.i.i.i220 = icmp eq ptr %40, %41
   br i1 %cmp.not.i.i.i220, label %if.else.i.i.i224, label %if.then.i.i.i221
@@ -1311,7 +1310,7 @@ if.then.i.i.i221:                                 ; preds = %if.end19
   %ref.tmp.sroa.3.0..sroa_idx.i222 = getelementptr inbounds i8, ptr %40, i64 8
   store i64 %sub.i217, ptr %ref.tmp.sroa.3.0..sroa_idx.i222, align 8
   %42 = load ptr, ptr %_M_finish.i.i.i218, align 8
-  %incdec.ptr.i.i.i223 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %42, i64 1
+  %incdec.ptr.i.i.i223 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %incdec.ptr.i.i.i223, ptr %_M_finish.i.i.i218, align 8
   br label %return
 
@@ -1357,7 +1356,7 @@ if.then.i.i.i12.i.i.i.i252:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i246
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i246: ; preds = %if.then.i.i.i12.i.i.i.i252, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i241
-  %incdec.ptr.i.i.i.i247 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i243, i64 1
+  %incdec.ptr.i.i.i.i247 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i243, i64 16
   %tobool.not.i.i.i.i.i248 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i.i248, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i250, label %if.then.i21.i.i.i.i249
 
@@ -1381,9 +1380,9 @@ if.end25:                                         ; preds = %sw.bb21
   store i64 %add22, ptr %pos, align 8
   %add.ptr.i255 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i256 = sub i64 %add22, %sub
-  %_M_finish.i.i.i257 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i257 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %44 = load ptr, ptr %_M_finish.i.i.i257, align 8
-  %_M_end_of_storage.i.i.i258 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i258 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %45 = load ptr, ptr %_M_end_of_storage.i.i.i258, align 8
   %cmp.not.i.i.i259 = icmp eq ptr %44, %45
   br i1 %cmp.not.i.i.i259, label %if.else.i.i.i263, label %if.then.i.i.i260
@@ -1393,7 +1392,7 @@ if.then.i.i.i260:                                 ; preds = %if.end25
   %ref.tmp.sroa.3.0..sroa_idx.i261 = getelementptr inbounds i8, ptr %44, i64 8
   store i64 %sub.i256, ptr %ref.tmp.sroa.3.0..sroa_idx.i261, align 8
   %46 = load ptr, ptr %_M_finish.i.i.i257, align 8
-  %incdec.ptr.i.i.i262 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %46, i64 1
+  %incdec.ptr.i.i.i262 = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %incdec.ptr.i.i.i262, ptr %_M_finish.i.i.i257, align 8
   br label %return
 
@@ -1439,7 +1438,7 @@ if.then.i.i.i12.i.i.i.i291:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i285
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i285: ; preds = %if.then.i.i.i12.i.i.i.i291, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i280
-  %incdec.ptr.i.i.i.i286 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i282, i64 1
+  %incdec.ptr.i.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i282, i64 16
   %tobool.not.i.i.i.i.i287 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i.i287, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i289, label %if.then.i21.i.i.i.i288
 
@@ -1503,7 +1502,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN8tutorial6PersonEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -1511,16 +1510,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %do.body.i58
@@ -1541,7 +1540,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit62: ; preds = %do.body.i58
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit62, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ], [ %add8, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit62 ]
-  %id = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load i32, ptr %id, align 8
   %cmp.not = icmp eq i32 %4, 0
   br i1 %cmp.not, label %if.end14, label %if.then9
@@ -1565,7 +1564,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit55: ; preds = %do.body.i51
 
 if.end14:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit55, %if.end
   %total.1 = phi i64 [ %add13, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit55 ], [ %total.0, %if.end ]
-  %_M_string_length.i.i25 = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 2, i32 1
+  %_M_string_length.i.i25 = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load i64, ptr %_M_string_length.i.i25, align 8
   %cmp.i26 = icmp eq i64 %5, 0
   br i1 %cmp.i26, label %if.end25, label %do.body.i44
@@ -1586,9 +1585,9 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit48: ; preds = %do.body.i44
 
 if.end25:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit48, %if.end14
   %total.2 = phi i64 [ %total.1, %if.end14 ], [ %add24, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit48 ]
-  %phones = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3
+  %phones = getelementptr inbounds i8, ptr %t, i64 72
   %6 = load ptr, ptr %phones, align 8
-  %_M_finish.i.i29 = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i29 = getelementptr inbounds i8, ptr %t, i64 80
   %7 = load ptr, ptr %_M_finish.i.i29, align 8
   %cmp.i.i30 = icmp eq ptr %6, %7
   br i1 %cmp.i.i30, label %if.end40, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
@@ -1596,7 +1595,7 @@ if.end25:                                         ; preds = %_ZN9struct_pb8inter
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i: ; preds = %if.end25, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit
   %total.345 = phi i64 [ %add38, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %total.2, %if.end25 ]
   %__begin3.sroa.0.044 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %6, %if.end25 ]
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.044, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.044, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i32 = icmp eq i64 %8, 0
   br i1 %cmp.i.i32, label %if.end.i, label %do.body.i17.i
@@ -1616,7 +1615,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i: ; preds = %do.body.i17
 
 if.end.i:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
   %total.0.i = phi i64 [ 0, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i ], [ %add8.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i ]
-  %type.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__begin3.sroa.0.044, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.044, i64 32
   %9 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %if.then9.i
@@ -1654,7 +1653,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add36 = add i64 %total.345, 2
   %add37 = add i64 %add36, %total.1.i
   %add38 = add i64 %add37, %ret.i.0
-  %incdec.ptr.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__begin3.sroa.0.044, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.044, i64 40
   %cmp.i31 = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i31, label %if.end40, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
@@ -1666,7 +1665,7 @@ if.end40:                                         ; preds = %_ZN9struct_pb8inter
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9struct_pb8internal12serialize_toIN8tutorial6PersonEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i78 = icmp eq i64 %0, 0
   br i1 %cmp.i78, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154
@@ -1706,7 +1705,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138: ; preds = %while.body.i
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ]
-  %id = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load i32, ptr %id, align 8
   %cmp.not = icmp eq i32 %6, 0
   br i1 %cmp.not, label %if.end11, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122
@@ -1744,8 +1743,8 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106: ; preds = %while.body.i
 
 if.end11:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106, %if.end
   %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i98, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ]
-  %email = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 2
-  %_M_string_length.i.i81 = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 2, i32 1
+  %email = getelementptr inbounds i8, ptr %t, i64 40
+  %_M_string_length.i.i81 = getelementptr inbounds i8, ptr %t, i64 48
   %9 = load i64, ptr %_M_string_length.i.i81, align 8
   %cmp.i82 = icmp eq i64 %9, 0
   br i1 %cmp.i82, label %if.end24, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit90
@@ -1788,9 +1787,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit74: ; preds = %while.body.i6
 
 if.end24:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit74, %if.end11
   %pos.5 = phi i64 [ %pos.3, %if.end11 ], [ %add23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit74 ]
-  %phones = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3
+  %phones = getelementptr inbounds i8, ptr %t, i64 72
   %15 = load ptr, ptr %phones, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 80
   %16 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i, label %if.end41, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
@@ -1800,7 +1799,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i: ; preds = %if.end24, %_ZN9st
   %__begin3.sroa.0.0169 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit105 ], [ %15, %if.end24 ]
   %arrayidx3.i51 = getelementptr inbounds i8, ptr %data, i64 %pos.6170
   store i8 34, ptr %arrayidx3.i51, align 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.0169, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0169, i64 8
   %17 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i87 = icmp eq i64 %17, 0
   br i1 %cmp.i.i87, label %if.end.i, label %do.body.i17.i
@@ -1820,7 +1819,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i: ; preds = %do.body.i17
 
 if.end.i:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
   %total.0.i = phi i64 [ 0, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i ], [ %add8.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i ]
-  %type.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__begin3.sroa.0.0169, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0169, i64 32
   %18 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %18, 0
   br i1 %cmp.not.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %if.then9.i
@@ -1943,14 +1942,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i: ; preds = %while.body.i.
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit105:         ; preds = %if.end.i91, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i
   %add39 = add i64 %inc2.i, %total.1.i
-  %incdec.ptr.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__begin3.sroa.0.0169, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0169, i64 40
   %cmp.i86 = icmp eq ptr %incdec.ptr.i, %16
   br i1 %cmp.i86, label %if.end41, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 if.end41:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit105, %if.end24
   %pos.8 = phi i64 [ %pos.5, %if.end24 ], [ %add39, %_ZN9struct_pb13UnknownFieldsD2Ev.exit105 ]
   %29 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i112 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i112 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %30 = load ptr, ptr %_M_finish.i.i112, align 8
   %cmp.i7.i = icmp eq ptr %29, %30
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -1960,12 +1959,12 @@ for.body.i:                                       ; preds = %if.end41, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %29, %if.end41 ]
   %add.ptr.i113 = getelementptr inbounds i8, ptr %data, i64 %pos.9
   %31 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %32 = load i64, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i113, ptr align 1 %31, i64 %32, i1 false)
   %33 = load i64, ptr %len.i, align 8
   %add.i114 = add i64 %33, %pos.9
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i115 = icmp eq ptr %incdec.ptr.i.i, %30
   br i1 %cmp.i.i115, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -1983,15 +1982,15 @@ entry:
   br i1 %cmp541.not, label %return, label %land.lhs.true.i638.lr.ph
 
 land.lhs.true.i638.lr.ph:                         ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %phones = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 3
-  %email = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 2
-  %_M_string_length.i.i.i406 = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 2, i32 1
-  %0 = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 2, i32 2
-  %id = getelementptr inbounds %"struct.tutorial::Person", ptr %t, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %t, i64 80
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %t, i64 88
+  %phones = getelementptr inbounds i8, ptr %t, i64 72
+  %email = getelementptr inbounds i8, ptr %t, i64 40
+  %_M_string_length.i.i.i406 = getelementptr inbounds i8, ptr %t, i64 48
+  %0 = getelementptr inbounds i8, ptr %t, i64 56
+  %id = getelementptr inbounds i8, ptr %t, i64 32
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %1 = getelementptr inbounds i8, ptr %t, i64 16
   br label %land.lhs.true.i638
 
 land.lhs.true.i638:                               ; preds = %land.lhs.true.i638.lr.ph, %sw.epilog
@@ -2978,18 +2977,18 @@ if.end39:                                         ; preds = %if.end104.i384, %if
 if.then.i432:                                     ; preds = %if.end39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %89 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 0, i32 2
+  %89 = getelementptr inbounds i8, ptr %87, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #18
   store ptr %89, ptr %87, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #18
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %90 = load ptr, ptr %87, align 8
   store i8 0, ptr %90, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   %91 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %91, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %91, i64 40
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -3000,7 +2999,7 @@ if.else.i:                                        ; preds = %if.end39
 
 _ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i432, %if.else.i
   %92 = phi ptr [ %incdec.ptr.i, %if.then.i432 ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %92, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %92, i64 -40
   %add.ptr43 = getelementptr inbounds i8, ptr %data, i64 %86
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
@@ -3036,15 +3035,15 @@ _ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcm
 
 if.then47:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcm.exit
   %96 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i436 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %96, i64 -1
+  %incdec.ptr.i436 = getelementptr inbounds i8, ptr %96, i64 -40
   store ptr %incdec.ptr.i436, ptr %_M_finish.i, align 8
   %97 = load ptr, ptr %incdec.ptr.i436, align 8
-  %98 = getelementptr %"struct.tutorial::Person::PhoneNumber", ptr %96, i64 -1, i32 0, i32 2
+  %98 = getelementptr inbounds i8, ptr %96, i64 -24
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %97, %98
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i437
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %if.then47
-  %_M_string_length.i.i.i.i.i.i.i438 = getelementptr %"struct.tutorial::Person::PhoneNumber", ptr %96, i64 -1, i32 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i438 = getelementptr inbounds i8, ptr %96, i64 -32
   %99 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i438, align 8
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %99, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -3119,7 +3118,7 @@ define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN8tutorial
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -3127,17 +3126,17 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %3 = load ptr, ptr %t, align 8
-  %_M_finish.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %t, i64 0, i32 1
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %t, i64 8
   %4 = load ptr, ptr %_M_finish.i.i7, align 8
   %cmp.i.i8 = icmp eq ptr %3, %4
   br i1 %cmp.i.i8, label %if.end, label %for.body
@@ -3161,7 +3160,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add = add i64 %total.015, 2
   %add10 = add i64 %add, %call8
   %add11 = add i64 %add10, %ret.i.0
-  %incdec.ptr.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__begin3.sroa.0.014, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014, i64 96
   %cmp.i = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i, label %if.end, label %for.body
 
@@ -3176,7 +3175,7 @@ entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp8 = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %t, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %t, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end, label %for.body
@@ -3216,14 +3215,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN8tutorial6PersonEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr, i64 poison, ptr noundef nonnull align 8 dereferenceable(96) %__begin3.sroa.0.047, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8)
   %add = add i64 %inc2.i, %call7
-  %incdec.ptr.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__begin3.sroa.0.047, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.047, i64 96
   %cmp.i22 = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i22, label %if.end, label %for.body
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %entry
   %pos.2 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %3 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i32 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i32 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %4 = load ptr, ptr %_M_finish.i.i32, align 8
   %cmp.i7.i = icmp eq ptr %3, %4
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -3233,12 +3232,12 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %3, %if.end ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.3
   %5 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %6 = load i64, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %5, i64 %6, i1 false)
   %7 = load i64, ptr %len.i, align 8
   %add.i = add i64 %7, %pos.3
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i33 = icmp eq ptr %incdec.ptr.i.i, %4
   br i1 %cmp.i.i33, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -3255,7 +3254,7 @@ entry:
   br i1 %cmp200.not, label %return, label %land.lhs.true.i160.lr.ph
 
 land.lhs.true.i160.lr.ph:                         ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %t, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 8
   br label %land.lhs.true.i160
 
 land.lhs.true.i160:                               ; preds = %land.lhs.true.i160.lr.ph, %if.end14
@@ -3594,7 +3593,7 @@ if.end5:                                          ; preds = %if.end104.i, %if.en
   %sz.0168 = phi i64 [ %or88.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %or70.i, %if.end64.i ], [ %or61.i, %if.end55.i ], [ %or52.i, %if.end46.i ], [ %or43.i, %if.end37.i ], [ %or34.i, %if.end28.i ], [ %or25.i, %if.end19.i ], [ %or.i, %if.end12.i ], [ %and9.i, %if.then5.i ], [ %conv.i, %if.then.i ]
   %call6 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt6vectorIN8tutorial6PersonESaIS1_EE12emplace_backIJEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %t)
   %28 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %28, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 -96
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
@@ -3630,7 +3629,7 @@ _ZN9struct_pb8internal14deserialize_toIN8tutorial6PersonEEEbRT_PKcm.exit: ; pred
 
 if.then12:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN8tutorial6PersonEEEbRT_PKcm.exit
   %32 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.tutorial::Person", ptr %32, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %32, i64 -96
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   call void @_ZN8tutorial6PersonD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %incdec.ptr.i) #18
   br label %return
@@ -3656,9 +3655,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(96) ptr @_
 entry:
   %ref.tmp.i1.i.i.i = alloca %"class.std::allocator.0", align 1
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.0", align 1
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -3666,32 +3665,32 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   store ptr %2, ptr %0, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %email.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %0, i64 0, i32 2
+  %email.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
-  %4 = getelementptr inbounds %"struct.tutorial::Person", ptr %0, i64 0, i32 2, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %email.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
   store ptr %4, ptr %email.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
-  %_M_string_length.i.i.i2.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %0, i64 0, i32 2, i32 1
+  %_M_string_length.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %_M_string_length.i.i.i2.i.i.i, align 8
   %5 = load ptr, ptr %email.i.i.i, align 8
   store i8 0, ptr %5, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
-  %phones.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %0, i64 0, i32 3
+  %phones.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones.i.i.i, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.tutorial::Person", ptr %6, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %6, i64 96
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end
 
@@ -3702,7 +3701,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %7 = phi ptr [ %.pre, %if.else ], [ %incdec.ptr, %if.then ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %7, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 -96
   ret ptr %add.ptr.i.i
 }
 
@@ -3744,14 +3743,14 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__len1, ptr noundef %__s, i64 noundef %__len2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8
   %1 = add i64 %__len1, %__pos
   %sub2 = sub i64 %0, %1
   %add = sub i64 %__len2, %__len1
   %sub4 = add i64 %add, %0
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
 
@@ -3889,7 +3888,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 define linkonce_odr dso_local void @_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.0", align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3926,12 +3925,12 @@ _ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit:
   %add.ptr = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   store ptr %2, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %3, align 1
@@ -3944,16 +3943,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #18
   store ptr %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !12, !noalias !15
   %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -3965,31 +3964,31 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !12, !noalias !15
   %8 = load i64, ptr %6, align 8, !alias.scope !15, !noalias !12
   store i64 %8, ptr %4, align 8, !alias.scope !12, !noalias !15
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   br label %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %9 = phi i64 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !15, !noalias !12
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   store i8 0, ptr %6, align 1, !alias.scope !15, !noalias !12
-  %type.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %type3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %type.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %type3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %10 = load i32, ptr %type3.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   store i32 %10, ptr %type.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #18
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %for.body.i.i.i12
 
@@ -3998,16 +3997,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8tuto
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i24, %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #18
   store ptr %11, ptr %__cur.07.i.i.i13, align 8, !alias.scope !18, !noalias !21
   %12 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !21, !noalias !18
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %cmp.i.i.i.i.i.i.i.i.i15 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i.i.i.i15, label %if.then.i.i.i.i.i.i.i.i28, label %if.else.i.i.i.i.i.i.i.i16
 
 if.then.i.i.i.i.i.i.i.i28:                        ; preds = %for.body.i.i.i12
-  %_M_string_length.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !21, !noalias !18
   %cmp3.i.i.i.i.i.i.i.i.i30 = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i30)
@@ -4019,25 +4018,25 @@ if.else.i.i.i.i.i.i.i.i16:                        ; preds = %for.body.i.i.i12
   store ptr %12, ptr %__cur.07.i.i.i13, align 8, !alias.scope !18, !noalias !21
   %15 = load i64, ptr %13, align 8, !alias.scope !21, !noalias !18
   store i64 %15, ptr %11, align 8, !alias.scope !18, !noalias !21
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %.pre.i.i.i.i18 = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17, align 8, !alias.scope !21, !noalias !18
   br label %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19
 
 _ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i.i28
   %16 = phi i64 [ %14, %if.then.i.i.i.i.i.i.i.i28 ], [ %.pre.i.i.i.i18, %if.else.i.i.i.i.i.i.i.i16 ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !18, !noalias !21
   store ptr %13, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !21, !noalias !18
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !21, !noalias !18
   store i8 0, ptr %13, align 1, !alias.scope !21, !noalias !18
-  %type.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %type3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %type.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %type3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %17 = load i32, ptr %type3.i.i.i.i.i.i.i23, align 8, !alias.scope !21, !noalias !18
   store i32 %17, ptr %type.i.i.i.i.i.i.i22, align 8, !alias.scope !18, !noalias !21
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #18
-  %incdec.ptr.i.i.i24 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i25 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
   br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %for.body.i.i.i12, !llvm.loop !17
 
@@ -4051,7 +4050,7 @@ if.then.i33:                                      ; preds = %_ZNSt6vectorIN8tuto
   br label %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %if.then.i33
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %cond.i10, i64 %cond.i
@@ -4076,7 +4075,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN8tutorial6PersonESaIS1_EE17_M_
 entry:
   %ref.tmp.i1.i.i.i = alloca %"class.std::allocator.0", align 1
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.0", align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4113,29 +4112,29 @@ _ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit: ; preds = %_
   %add.ptr = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr, i8 0, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   store ptr %2, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %email.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
+  %email.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
-  %4 = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 2
+  %4 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %email.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
   store ptr %4, ptr %email.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
-  %_M_string_length.i.i.i2.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 1
+  %_M_string_length.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   store i64 0, ptr %_M_string_length.i.i.i2.i.i.i, align 8
   %5 = load ptr, ptr %email.i.i.i, align 8
   store i8 0, ptr %5, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
-  %phones.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
+  %phones.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
@@ -4144,14 +4143,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i10, %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit ]
   call void @_ZSt19__relocate_object_aIN8tutorial6PersonES1_SaIS1_EEvPT_PT0_RT1_(ptr noundef nonnull %__cur.07.i.i.i, ptr noundef %__first.addr.06.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %this) #18
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 96
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.tutorial::Person", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 96
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19, label %for.body.i.i.i12
 
@@ -4159,8 +4158,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8tuto
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   call void @_ZSt19__relocate_object_aIN8tutorial6PersonES1_SaIS1_EEvPT_PT0_RT1_(ptr noundef nonnull %__cur.07.i.i.i13, ptr noundef %__first.addr.06.i.i.i14, ptr noundef nonnull align 1 dereferenceable(1) %this) #18
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"struct.tutorial::Person", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"struct.tutorial::Person", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 96
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 96
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19, label %for.body.i.i.i12, !llvm.loop !23
 
@@ -4174,7 +4173,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorIN8tuto
   br label %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8tutorial6PersonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<tutorial::Person, std::allocator<tutorial::Person>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %cond.i
@@ -4185,16 +4184,16 @@ _ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE13_M_deallocateEPS1_m.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN8tutorial6PersonES1_SaIS1_EEvPT_PT0_RT1_(ptr noalias noundef %__dest, ptr noalias noundef %__orig, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__dest, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %__dest, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__dest, ptr noundef nonnull align 1 dereferenceable(1) %__orig) #18
   store ptr %0, ptr %__dest, align 8
   %1 = load ptr, ptr %__orig, align 8
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__orig, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %__orig, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__orig, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -4206,34 +4205,34 @@ if.else.i.i.i.i:                                  ; preds = %entry
   store ptr %1, ptr %__dest, align 8
   %4 = load i64, ptr %2, align 8
   store i64 %4, ptr %0, align 8
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__orig, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %__orig, i64 8
   %.pre = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %5 = phi i64 [ %.pre, %if.else.i.i.i.i ], [ %3, %if.then.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__orig, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__dest, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 8
+  %_M_string_length.i13.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 8
   store i64 %5, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %2, ptr %__orig, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
   store i8 0, ptr %2, align 1
-  %id.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__dest, i64 0, i32 1
-  %id3.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 1
+  %id.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 32
+  %id3.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 32
   %6 = load i32, ptr %id3.i.i.i, align 8
   store i32 %6, ptr %id.i.i.i, align 8
-  %email.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__dest, i64 0, i32 2
-  %email4.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 2
-  %7 = getelementptr inbounds %"struct.tutorial::Person", ptr %__dest, i64 0, i32 2, i32 2
+  %email.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 40
+  %email4.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 40
+  %7 = getelementptr inbounds i8, ptr %__dest, i64 56
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %email.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %email4.i.i.i) #18
   store ptr %7, ptr %email.i.i.i, align 8
   %8 = load ptr, ptr %email4.i.i.i, align 8
-  %9 = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 2, i32 2
+  %9 = getelementptr inbounds i8, ptr %__orig, i64 56
   %cmp.i.i4.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i4.i.i.i, label %if.then.i8.i.i.i, label %if.else.i5.i.i.i
 
 if.then.i8.i.i.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i
-  %_M_string_length.i.i9.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 2, i32 1
+  %_M_string_length.i.i9.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 48
   %10 = load i64, ptr %_M_string_length.i.i9.i.i.i, align 8
   %cmp3.i.i10.i.i.i = icmp ult i64 %10, 16
   tail call void @llvm.assume(i1 %cmp3.i.i10.i.i.i)
@@ -4245,24 +4244,24 @@ if.else.i5.i.i.i:                                 ; preds = %_ZNSt7__cxx1112basi
   store ptr %8, ptr %email.i.i.i, align 8
   %11 = load i64, ptr %9, align 8
   store i64 %11, ptr %7, align 8
-  %_M_string_length.i12.i6.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 2, i32 1
+  %_M_string_length.i12.i6.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %__orig, i64 48
   %.pre3 = load i64, ptr %_M_string_length.i12.i6.i.i.i.phi.trans.insert, align 8
   br label %_ZNSt16allocator_traitsISaIN8tutorial6PersonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN8tutorial6PersonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %if.then.i8.i.i.i, %if.else.i5.i.i.i
   %12 = phi i64 [ %10, %if.then.i8.i.i.i ], [ %.pre3, %if.else.i5.i.i.i ]
-  %_M_string_length.i12.i6.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 2, i32 1
-  %_M_string_length.i13.i7.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__dest, i64 0, i32 2, i32 1
+  %_M_string_length.i12.i6.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 48
+  %_M_string_length.i13.i7.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 48
   store i64 %12, ptr %_M_string_length.i13.i7.i.i.i, align 8
   store ptr %9, ptr %email4.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i6.i.i.i, align 8
   store i8 0, ptr %9, align 1
-  %phones.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__dest, i64 0, i32 3
-  %phones5.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 3
+  %phones.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 72
+  %phones5.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 72
   %13 = load <2 x ptr>, ptr %phones5.i.i.i, align 8
   store <2 x ptr> %13, ptr %phones.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__dest, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %__orig, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 88
+  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 88
   %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones5.i.i.i, i8 0, i64 24, i1 false)
@@ -4273,9 +4272,9 @@ _ZNSt16allocator_traitsISaIN8tutorial6PersonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8tutorial6PersonD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %phones = getelementptr inbounds %"struct.tutorial::Person", ptr %this, i64 0, i32 3
+  %phones = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %phones, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.tutorial::Person", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -4283,12 +4282,12 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyIN8tutorial6Person11PhoneNumberEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN8tutorial6Person11PhoneNumberEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
@@ -4300,7 +4299,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
 
 _ZSt8_DestroyIN8tutorial6Person11PhoneNumberEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.04.i.i.i.i) #18
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !24
 
@@ -4318,14 +4317,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %email = getelementptr inbounds %"struct.tutorial::Person", ptr %this, i64 0, i32 2
+  %email = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %email, align 8
-  %7 = getelementptr inbounds %"struct.tutorial::Person", ptr %this, i64 0, i32 2, i32 2
+  %7 = getelementptr inbounds i8, ptr %this, i64 56
   %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit
-  %_M_string_length.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %this, i64 0, i32 2, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -4338,12 +4337,12 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN8tuto
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %email) #18
   %9 = load ptr, ptr %this, align 8
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i.i2 = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %if.then.i.i3
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i6, align 8
   %cmp3.i.i.i7 = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i7)

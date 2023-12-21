@@ -11,13 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %union.anon.4 = type { %struct.QTailQLink }
-%struct.HTIFState = type { i32, i32, i64, i64, i64, i64, %struct.MemoryRegion, %struct.CharBackend, i64 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 
 @line_size = dso_local local_unnamed_addr global i8 16, align 1
 @.str = private unnamed_addr constant [9 x i8] c"fromhost\00", align 1
@@ -144,19 +137,19 @@ if.end4:                                          ; preds = %if.else.if.end4_cri
   %sub13 = sub i64 %3, %cond
   %sub14 = sub i64 %2, %cond
   %call = tail call noalias dereferenceable_or_null(384) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 384) #18
-  %tohost_offset15 = getelementptr inbounds %struct.HTIFState, ptr %call, i64 0, i32 4
+  %tohost_offset15 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %sub13, ptr %tohost_offset15, align 8
-  %fromhost_offset16 = getelementptr inbounds %struct.HTIFState, ptr %call, i64 0, i32 5
+  %fromhost_offset16 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %sub14, ptr %fromhost_offset16, align 16
-  %pending_read = getelementptr inbounds %struct.HTIFState, ptr %call, i64 0, i32 8
+  %pending_read = getelementptr inbounds i8, ptr %call, i64 376
   store i64 0, ptr %pending_read, align 8
   store i32 0, ptr %call, align 16
-  %fromhost_inprogress = getelementptr inbounds %struct.HTIFState, ptr %call, i64 0, i32 1
+  %fromhost_inprogress = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %fromhost_inprogress, align 4
-  %chr17 = getelementptr inbounds %struct.HTIFState, ptr %call, i64 0, i32 7
+  %chr17 = getelementptr inbounds i8, ptr %call, i64 320
   %call18 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr17, ptr noundef %chr, ptr noundef nonnull @error_abort) #16
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr17, ptr noundef nonnull @htif_can_recv, ptr noundef nonnull @htif_recv, ptr noundef nonnull @htif_event, ptr noundef nonnull @htif_be_change, ptr noundef nonnull %call, ptr noundef null, i1 noundef zeroext true) #16
-  %mmio = getelementptr inbounds %struct.HTIFState, ptr %call, i64 0, i32 6
+  %mmio = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef null, ptr noundef nonnull @htif_mm_ops, ptr noundef nonnull %call, ptr noundef nonnull @.str.7, i64 noundef %sub) #16
   tail call void @memory_region_add_subregion_overlap(ptr noundef %address_space, i64 noundef %cond, ptr noundef nonnull %mmio, i32 noundef 1) #16
   ret ptr %call
@@ -182,14 +175,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pending_read = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 8
+  %pending_read = getelementptr inbounds i8, ptr %opaque, i64 376
   %0 = load i64, ptr %pending_read, align 8
   %1 = load i8, ptr %buf, align 1
   %conv = zext i8 %1 to i64
   %shr = and i64 %0, -281474976710656
   %shl2 = or disjoint i64 %shr, %conv
   %or4 = or disjoint i64 %shl2, 256
-  %fromhost = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 3
+  %fromhost = getelementptr inbounds i8, ptr %opaque, i64 16
   store i64 %or4, ptr %fromhost, align 16
   br label %return
 
@@ -206,7 +199,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @htif_be_change(ptr noundef %opaque) #0 {
 entry:
-  %chr = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 7
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 320
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @htif_can_recv, ptr noundef nonnull @htif_recv, ptr noundef nonnull @htif_event, ptr noundef nonnull @htif_be_change, ptr noundef %opaque, ptr noundef null, i1 noundef zeroext true) #16
   ret i32 0
 }
@@ -218,13 +211,13 @@ declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @htif_mm_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %tohost_offset = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 4
+  %tohost_offset = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i64, ptr %tohost_offset, align 8
   %cmp = icmp eq i64 %0, %addr
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %tohost = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 2
+  %tohost = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i64, ptr %tohost, align 8
   %and = and i64 %1, 4294967295
   br label %return
@@ -235,19 +228,19 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
-  %tohost4 = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 2
+  %tohost4 = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i64, ptr %tohost4, align 8
   %shr = lshr i64 %2, 32
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %fromhost_offset = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 5
+  %fromhost_offset = getelementptr inbounds i8, ptr %opaque, i64 32
   %3 = load i64, ptr %fromhost_offset, align 16
   %cmp7 = icmp eq i64 %3, %addr
   br i1 %cmp7, label %if.then8, label %if.else10
 
 if.then8:                                         ; preds = %if.else6
-  %fromhost = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 3
+  %fromhost = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load i64, ptr %fromhost, align 16
   %and9 = and i64 %4, 4294967295
   br label %return
@@ -258,7 +251,7 @@ if.else10:                                        ; preds = %if.else6
   br i1 %cmp13, label %if.then14, label %if.else18
 
 if.then14:                                        ; preds = %if.else10
-  %fromhost15 = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 3
+  %fromhost15 = getelementptr inbounds i8, ptr %opaque, i64 16
   %5 = load i64, ptr %fromhost15, align 16
   %shr16 = lshr i64 %5, 32
   br label %return
@@ -278,13 +271,13 @@ entry:
   %syscall.i = alloca [8 x i64], align 16
   %ch.i = alloca i8, align 1
   %ch139.i = alloca i8, align 1
-  %tohost_offset = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 4
+  %tohost_offset = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i64, ptr %tohost_offset, align 8
   %cmp = icmp eq i64 %0, %addr
   br i1 %cmp, label %if.then, label %if.else5
 
 if.then:                                          ; preds = %entry
-  %tohost = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 2
+  %tohost = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i64, ptr %tohost, align 8
   %cmp1 = icmp eq i64 %1, 0
   br i1 %cmp1, label %if.then2, label %if.else
@@ -311,7 +304,7 @@ if.then8:                                         ; preds = %if.else5
 
 if.then10:                                        ; preds = %if.then8
   %shl = shl i64 %value, 32
-  %tohost11 = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 2
+  %tohost11 = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i64, ptr %tohost11, align 8
   %or = or i64 %3, %shl
   store i64 %or, ptr %tohost11, align 8
@@ -439,7 +432,7 @@ if.else81.i:                                      ; preds = %if.then10.i
   br i1 %cmp84.i, label %land.lhs.true86.i, label %do.body103.i
 
 land.lhs.true86.i:                                ; preds = %if.else81.i
-  %arrayidx87.i = getelementptr inbounds [8 x i64], ptr %syscall.i, i64 0, i64 1
+  %arrayidx87.i = getelementptr inbounds i8, ptr %syscall.i, i64 8
   %19 = load i64, ptr %arrayidx87.i, align 8
   %call.i48.i = call zeroext i1 @target_words_bigendian() #16
   %20 = call i64 @llvm.bswap.i64(i64 %19)
@@ -448,7 +441,7 @@ land.lhs.true86.i:                                ; preds = %if.else81.i
   br i1 %cmp89.i, label %land.lhs.true91.i, label %do.body103.i
 
 land.lhs.true91.i:                                ; preds = %land.lhs.true86.i
-  %arrayidx92.i = getelementptr inbounds [8 x i64], ptr %syscall.i, i64 0, i64 3
+  %arrayidx92.i = getelementptr inbounds i8, ptr %syscall.i, i64 24
   %21 = load i64, ptr %arrayidx92.i, align 8
   %call.i50.i = call zeroext i1 @target_words_bigendian() #16
   %22 = call i64 @llvm.bswap.i64(i64 %21)
@@ -457,13 +450,13 @@ land.lhs.true91.i:                                ; preds = %land.lhs.true86.i
   br i1 %cmp94.i, label %if.then96.i, label %do.body103.i
 
 if.then96.i:                                      ; preds = %land.lhs.true91.i
-  %arrayidx97.i = getelementptr inbounds [8 x i64], ptr %syscall.i, i64 0, i64 2
+  %arrayidx97.i = getelementptr inbounds i8, ptr %syscall.i, i64 16
   %23 = load i64, ptr %arrayidx97.i, align 16
   %call.i52.i = call zeroext i1 @target_words_bigendian() #16
   %24 = call i64 @llvm.bswap.i64(i64 %23)
   %retval.0.i53.i = select i1 %call.i52.i, i64 %24, i64 %23
   call void @cpu_physical_memory_rw(i64 noundef %retval.0.i53.i, ptr noundef nonnull %ch.i, i64 noundef 1, i1 noundef zeroext false) #16
-  %chr.i = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 7
+  %chr.i = getelementptr inbounds i8, ptr %opaque, i64 320
   %call99.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr.i, ptr noundef nonnull %ch.i, i32 noundef 1) #16
   %conv101.i = and i64 %3, 254
   %or.i = or disjoint i64 %conv101.i, 256
@@ -492,7 +485,7 @@ if.then129.i:                                     ; preds = %if.then10
   ]
 
 if.then133.i:                                     ; preds = %if.then129.i
-  %pending_read.i = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 8
+  %pending_read.i = getelementptr inbounds i8, ptr %opaque, i64 376
   store i64 %or, ptr %pending_read.i, align 8
   store i64 0, ptr %tohost11, align 8
   br label %htif_handle_tohost_write.exit
@@ -500,7 +493,7 @@ if.then133.i:                                     ; preds = %if.then129.i
 if.then138.i:                                     ; preds = %if.then129.i
   %conv140.i = trunc i64 %3 to i8
   store i8 %conv140.i, ptr %ch139.i, align 1
-  %chr141.i = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 7
+  %chr141.i = getelementptr inbounds i8, ptr %opaque, i64 320
   %call142.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr141.i, ptr noundef nonnull %ch139.i, i32 noundef 1) #16
   %conv144.i = and i64 %3, 255
   %or145.i = or disjoint i64 %conv144.i, 256
@@ -518,7 +511,7 @@ if.end154.i:                                      ; preds = %if.else150.i, %if.e
   %resp.0.i = phi i64 [ %or.i, %if.then96.i ], [ 0, %if.then111.i ], [ 0, %do.body103.i ], [ 0, %if.else116.i ], [ %or145.i, %if.then138.i ], [ 0, %if.else146.i ], [ 0, %if.else150.i ]
   %shl.i = and i64 %or, -281474976710656
   %or159.i = or i64 %resp.0.i, %shl.i
-  %fromhost.i = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 3
+  %fromhost.i = getelementptr inbounds i8, ptr %opaque, i64 16
   store i64 %or159.i, ptr %fromhost.i, align 16
   store i64 0, ptr %tohost11, align 8
   br label %htif_handle_tohost_write.exit
@@ -530,16 +523,16 @@ htif_handle_tohost_write.exit:                    ; preds = %if.end80.i, %if.the
   br label %if.end31
 
 if.else14:                                        ; preds = %if.else5
-  %fromhost_offset = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 5
+  %fromhost_offset = getelementptr inbounds i8, ptr %opaque, i64 32
   %27 = load i64, ptr %fromhost_offset, align 16
   %cmp15 = icmp eq i64 %27, %addr
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
-  %fromhost_inprogress = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 1
+  %fromhost_inprogress = getelementptr inbounds i8, ptr %opaque, i64 4
   store i32 1, ptr %fromhost_inprogress, align 4
   %and17 = and i64 %value, 4294967295
-  %fromhost = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 3
+  %fromhost = getelementptr inbounds i8, ptr %opaque, i64 16
   store i64 %and17, ptr %fromhost, align 16
   br label %if.end31
 
@@ -550,11 +543,11 @@ if.else18:                                        ; preds = %if.else14
 
 if.then22:                                        ; preds = %if.else18
   %shl23 = shl i64 %value, 32
-  %fromhost24 = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 3
+  %fromhost24 = getelementptr inbounds i8, ptr %opaque, i64 16
   %28 = load i64, ptr %fromhost24, align 16
   %or25 = or i64 %28, %shl23
   store i64 %or25, ptr %fromhost24, align 16
-  %fromhost_inprogress26 = getelementptr inbounds %struct.HTIFState, ptr %opaque, i64 0, i32 1
+  %fromhost_inprogress26 = getelementptr inbounds i8, ptr %opaque, i64 4
   store i32 0, ptr %fromhost_inprogress26, align 4
   br label %if.end31
 

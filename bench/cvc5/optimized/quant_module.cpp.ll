@@ -5,10 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate.412" = type { ptr }
-%"class.cvc5::internal::theory::QuantifiersModule" = type { %"class.cvc5::internal::EnvObj", ptr, ptr, ptr, ptr }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 
 $_ZN4cvc58internal6theory17QuantifiersModuleD2Ev = comdat any
 
@@ -75,13 +72,13 @@ define hidden void @_ZN4cvc58internal6theory17QuantifiersModuleC2ERNS0_3EnvERNS1
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory17QuantifiersModuleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %qs, ptr %d_qstate, align 8
-  %d_qim = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 2
+  %d_qim = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %qim, ptr %d_qim, align 8
-  %d_qreg = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 3
+  %d_qreg = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %qr, ptr %d_qreg, align 8
-  %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 4
+  %d_treg = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %tr, ptr %d_treg, align 8
   ret void
 }
@@ -97,7 +94,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK4cvc58internal6theory17QuantifiersModule17getEqualityEngineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_qstate, align 8
   %call = tail call noundef ptr @_ZNK4cvc58internal6theory11TheoryState17getEqualityEngineEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   ret ptr %call
@@ -110,14 +107,14 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory17QuantifiersModule8a
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_qstate, align 8
   %1 = load ptr, ptr %n1, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %2 = load ptr, ptr %n2, align 8
   store ptr %2, ptr %agg.tmp2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
   ret i1 %call
@@ -130,14 +127,14 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory17QuantifiersModule11
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_qstate, align 8
   %1 = load ptr, ptr %n1, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %2 = load ptr, ptr %n2, align 8
   store ptr %2, ptr %agg.tmp2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
   ret i1 %call
@@ -147,12 +144,12 @@ entry:
 define hidden void @_ZNK4cvc58internal6theory17QuantifiersModule17getRepresentativeENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_qstate, align 8
   %1 = load ptr, ptr %n, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %agg.tmp)
   ret void
@@ -161,7 +158,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK4cvc58internal6theory17QuantifiersModule15getTermDatabaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 4
+  %d_treg = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %d_treg, align 8
   %call = tail call noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getTermDatabaseEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   ret ptr %call
@@ -172,7 +169,7 @@ declare noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getTe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(248) ptr @_ZN4cvc58internal6theory17QuantifiersModule8getStateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_qstate, align 8
   ret ptr %0
 }
@@ -180,7 +177,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(376) ptr @_ZN4cvc58internal6theory17QuantifiersModule19getInferenceManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_qim = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 2
+  %d_qim = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_qim, align 8
   ret ptr %0
 }
@@ -188,7 +185,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(488) ptr @_ZN4cvc58internal6theory17QuantifiersModule22getQuantifiersRegistryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_qreg = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 3
+  %d_qreg = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_qreg, align 8
   ret ptr %0
 }
@@ -196,7 +193,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN4cvc58internal6theory17QuantifiersModule15getTermRegistryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 4
+  %d_treg = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %d_treg, align 8
   ret ptr %0
 }
@@ -295,9 +292,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #12

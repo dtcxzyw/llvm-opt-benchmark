@@ -266,8 +266,8 @@ entry:
   %buf1320 = alloca [67 x i8], align 16
   store ptr %format, ptr %f, align 8
   %invariant.gep = getelementptr i8, ptr %buf1320, i64 -2
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds i8, ptr %ap, i64 16
   %arrayidx.i.i331 = getelementptr inbounds i8, ptr %buf1320, i64 64
   %arrayidx.i.i325 = getelementptr inbounds i8, ptr %buf832, i64 64
   %arrayidx.i = getelementptr inbounds i8, ptr %buf580, i64 64

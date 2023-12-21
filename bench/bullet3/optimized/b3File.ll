@@ -3,40 +3,10 @@ source_filename = "bench/bullet3/original/b3File.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.bParse::bFile" = type <{ ptr, [7 x i8], i8, ptr, i32, i32, %class.b3HashMap, i32, [4 x i8], ptr, ptr, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.12, %class.b3HashMap.16, %class.b3HashMap, i32, [4 x i8] }>
-%class.b3AlignedObjectArray.8 = type <{ %class.b3AlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.9 = type { i8 }
-%class.b3AlignedObjectArray.12 = type <{ %class.b3AlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.13 = type { i8 }
-%class.b3HashMap.16 = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.12, %class.b3AlignedObjectArray.4 }
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%class.b3AlignedObjectArray.4 = type <{ %class.b3AlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.5 = type { i8 }
-%class.b3HashMap = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.4 }
-%class.b3AlignedObjectArray.0 = type <{ %class.b3AlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.1 = type { i8 }
 %"class.bParse::bChunkInd" = type { i32, i32, ptr, i32, i32 }
-%"class.bParse::bDNA" = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.17, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.21, %class.b3AlignedObjectArray.25, %class.b3HashMap.29, %class.b3HashMap.34, i32, [4 x i8] }
-%class.b3AlignedObjectArray.17 = type <{ %class.b3AlignedAllocator.18, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.18 = type { i8 }
-%class.b3AlignedObjectArray.21 = type <{ %class.b3AlignedAllocator.22, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.22 = type { i8 }
-%class.b3AlignedObjectArray.25 = type <{ %class.b3AlignedAllocator.26, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.26 = type { i8 }
-%class.b3HashMap.29 = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.30 }
-%class.b3AlignedObjectArray.30 = type <{ %class.b3AlignedAllocator.31, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.31 = type { i8 }
-%class.b3HashMap.34 = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.35 }
-%class.b3AlignedObjectArray.35 = type <{ %class.b3AlignedAllocator.36, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.36 = type { i8 }
 %class.b3HashPtr = type { %union.anon.40 }
 %union.anon.40 = type { ptr }
 %"struct.bParse::bNameInfo" = type { ptr, i8, i32, i32 }
-%"class.bParse::bChunkPtr4" = type { i32, i32, %union.anon, i32, i32 }
-%union.anon = type { i32 }
-%"class.bParse::bChunkPtr8" = type { i32, i32, %union.anon.39, i32, i32 }
-%union.anon.39 = type { i64 }
 
 $_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev = comdat any
 
@@ -159,144 +129,145 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %headerString) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mOwnsBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 2
+  %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
   store i8 1, ptr %mOwnsBuffer, align 1
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
-  %mFileLen = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 4
-  %m_ownsMemory.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 6
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
+  %mFileLen = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mFileBuffer, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %m_data.i.i.i, align 8
-  %m_size.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_ownsMemory.i.i3.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 6
+  %m_ownsMemory.i.i3.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i.i3.i, align 8
-  %m_data.i.i4.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
+  %m_data.i.i4.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %m_data.i.i4.i, align 8
-  %m_size.i.i5.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 2
+  %m_size.i.i5.i = getelementptr inbounds i8, ptr %this, i64 68
   store i32 0, ptr %m_size.i.i5.i, align 4
-  %m_capacity.i.i6.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 3
+  %m_capacity.i.i6.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i6.i, align 8
-  %m_ownsMemory.i.i7.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 6
+  %m_ownsMemory.i.i7.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i.i7.i, align 8
-  %m_data.i.i8.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i.i8.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %m_data.i.i8.i, align 8
-  %m_size.i.i9.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 2
+  %m_size.i.i9.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %m_size.i.i9.i, align 4
-  %m_capacity.i.i10.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
+  %m_capacity.i.i10.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i10.i, align 8
-  %m_ownsMemory.i.i11.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 6
+  %m_ownsMemory.i.i11.i = getelementptr inbounds i8, ptr %this, i64 152
   store i8 1, ptr %m_ownsMemory.i.i11.i, align 8
-  %m_data.i.i12.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
+  %m_data.i.i12.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr null, ptr %m_data.i.i12.i, align 8
-  %m_size.i.i13.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 2
+  %m_size.i.i13.i = getelementptr inbounds i8, ptr %this, i64 132
   store i32 0, ptr %m_size.i.i13.i, align 4
-  %m_capacity.i.i14.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 3
+  %m_capacity.i.i14.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 0, ptr %m_capacity.i.i14.i, align 8
-  %mDataStart = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 7
+  %mDataStart = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %mDataStart, align 8
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
-  %m_ownsMemory.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 6
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mFileDNA, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 188
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i14 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 6
+  %m_ownsMemory.i.i14 = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %m_ownsMemory.i.i14, align 8
-  %m_data.i.i15 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 5
+  %m_data.i.i15 = getelementptr inbounds i8, ptr %this, i64 232
   store ptr null, ptr %m_data.i.i15, align 8
-  %m_size.i.i16 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 2
+  %m_size.i.i16 = getelementptr inbounds i8, ptr %this, i64 220
   store i32 0, ptr %m_size.i.i16, align 4
-  %m_capacity.i.i17 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 3
+  %m_capacity.i.i17 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %m_capacity.i.i17, align 8
-  %m_ownsMemory.i.i18 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 6
+  %m_ownsMemory.i.i18 = getelementptr inbounds i8, ptr %this, i64 272
   store i8 1, ptr %m_ownsMemory.i.i18, align 8
-  %m_data.i.i19 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i19 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr null, ptr %m_data.i.i19, align 8
-  %m_size.i.i20 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i.i20 = getelementptr inbounds i8, ptr %this, i64 252
   store i32 0, ptr %m_size.i.i20, align 4
-  %m_capacity.i.i21 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i21 = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %m_capacity.i.i21, align 8
-  %m_ownsMemory.i.i.i22 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 6
+  %m_ownsMemory.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 304
   store i8 1, ptr %m_ownsMemory.i.i.i22, align 8
-  %m_data.i.i.i23 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 5
+  %m_data.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 296
   store ptr null, ptr %m_data.i.i.i23, align 8
-  %m_size.i.i.i24 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 2
+  %m_size.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 284
   store i32 0, ptr %m_size.i.i.i24, align 4
-  %m_capacity.i.i.i25 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 3
+  %m_capacity.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 288
   store i32 0, ptr %m_capacity.i.i.i25, align 8
-  %m_ownsMemory.i.i3.i26 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 6
+  %m_ownsMemory.i.i3.i26 = getelementptr inbounds i8, ptr %this, i64 336
   store i8 1, ptr %m_ownsMemory.i.i3.i26, align 8
-  %m_data.i.i4.i27 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 5
+  %m_data.i.i4.i27 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr null, ptr %m_data.i.i4.i27, align 8
-  %m_size.i.i5.i28 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 2
+  %m_size.i.i5.i28 = getelementptr inbounds i8, ptr %this, i64 316
   store i32 0, ptr %m_size.i.i5.i28, align 4
-  %m_capacity.i.i6.i29 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 3
+  %m_capacity.i.i6.i29 = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_capacity.i.i6.i29, align 8
-  %m_ownsMemory.i.i7.i30 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 6
+  %m_ownsMemory.i.i7.i30 = getelementptr inbounds i8, ptr %this, i64 368
   store i8 1, ptr %m_ownsMemory.i.i7.i30, align 8
-  %m_data.i.i8.i31 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 5
+  %m_data.i.i8.i31 = getelementptr inbounds i8, ptr %this, i64 360
   store ptr null, ptr %m_data.i.i8.i31, align 8
-  %m_size.i.i9.i32 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 2
+  %m_size.i.i9.i32 = getelementptr inbounds i8, ptr %this, i64 348
   store i32 0, ptr %m_size.i.i9.i32, align 4
-  %m_capacity.i.i10.i33 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 3
+  %m_capacity.i.i10.i33 = getelementptr inbounds i8, ptr %this, i64 352
   store i32 0, ptr %m_capacity.i.i10.i33, align 8
-  %m_ownsMemory.i.i11.i34 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 6
+  %m_ownsMemory.i.i11.i34 = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i11.i34, align 8
-  %m_data.i.i12.i35 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 5
+  %m_data.i.i12.i35 = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %m_data.i.i12.i35, align 8
-  %m_size.i.i13.i36 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 2
+  %m_size.i.i13.i36 = getelementptr inbounds i8, ptr %this, i64 380
   store i32 0, ptr %m_size.i.i13.i36, align 4
-  %m_capacity.i.i14.i37 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 3
+  %m_capacity.i.i14.i37 = getelementptr inbounds i8, ptr %this, i64 384
   store i32 0, ptr %m_capacity.i.i14.i37, align 8
-  %m_ownsMemory.i.i.i38 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 6
+  %m_ownsMemory.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 432
   store i8 1, ptr %m_ownsMemory.i.i.i38, align 8
-  %m_data.i.i.i39 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 5
+  %m_data.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 424
   store ptr null, ptr %m_data.i.i.i39, align 8
-  %m_size.i.i.i40 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 2
+  %m_size.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 412
   store i32 0, ptr %m_size.i.i.i40, align 4
-  %m_capacity.i.i.i41 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 3
+  %m_capacity.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 416
   store i32 0, ptr %m_capacity.i.i.i41, align 8
-  %m_ownsMemory.i.i3.i42 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 6
+  %m_ownsMemory.i.i3.i42 = getelementptr inbounds i8, ptr %this, i64 464
   store i8 1, ptr %m_ownsMemory.i.i3.i42, align 8
-  %m_data.i.i4.i43 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 5
+  %m_data.i.i4.i43 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr null, ptr %m_data.i.i4.i43, align 8
-  %m_size.i.i5.i44 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 2
+  %m_size.i.i5.i44 = getelementptr inbounds i8, ptr %this, i64 444
   store i32 0, ptr %m_size.i.i5.i44, align 4
-  %m_capacity.i.i6.i45 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 3
+  %m_capacity.i.i6.i45 = getelementptr inbounds i8, ptr %this, i64 448
   store i32 0, ptr %m_capacity.i.i6.i45, align 8
-  %m_ownsMemory.i.i7.i46 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 6
+  %m_ownsMemory.i.i7.i46 = getelementptr inbounds i8, ptr %this, i64 496
   store i8 1, ptr %m_ownsMemory.i.i7.i46, align 8
-  %m_data.i.i8.i47 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 5
+  %m_data.i.i8.i47 = getelementptr inbounds i8, ptr %this, i64 488
   store ptr null, ptr %m_data.i.i8.i47, align 8
-  %m_size.i.i9.i48 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 2
+  %m_size.i.i9.i48 = getelementptr inbounds i8, ptr %this, i64 476
   store i32 0, ptr %m_size.i.i9.i48, align 4
-  %m_capacity.i.i10.i49 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 3
+  %m_capacity.i.i10.i49 = getelementptr inbounds i8, ptr %this, i64 480
   store i32 0, ptr %m_capacity.i.i10.i49, align 8
-  %m_ownsMemory.i.i11.i50 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 6
+  %m_ownsMemory.i.i11.i50 = getelementptr inbounds i8, ptr %this, i64 528
   store i8 1, ptr %m_ownsMemory.i.i11.i50, align 8
-  %m_data.i.i12.i51 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 5
+  %m_data.i.i12.i51 = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %m_data.i.i12.i51, align 8
-  %m_size.i.i13.i52 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 2
+  %m_size.i.i13.i52 = getelementptr inbounds i8, ptr %this, i64 508
   store i32 0, ptr %m_size.i.i13.i52, align 4
-  %m_capacity.i.i14.i53 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 3
+  %m_capacity.i.i14.i53 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_capacity.i.i14.i53, align 8
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   store i32 0, ptr %mFlags, align 8
+  %m_headerString = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont9, %for.body
   %indvars.iv = phi i64 [ 0, %invoke.cont9 ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %headerString, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx11 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [7 x i8], ptr %m_headerString, i64 0, i64 %indvars.iv
   store i8 %0, ptr %arrayidx11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -329,12 +300,12 @@ if.then:                                          ; preds = %for.end
 lpad12:                                           ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
-  %mDataPointers = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15
-  %m_chunkPtrPtrMap = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14
-  %m_chunks = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13
-  %m_pointerPtrFixupArray = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12
-  %m_pointerFixupArray = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11
-  %mLibPointers = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6
+  %mDataPointers = getelementptr inbounds i8, ptr %this, i64 408
+  %m_chunkPtrPtrMap = getelementptr inbounds i8, ptr %this, i64 280
+  %m_chunks = getelementptr inbounds i8, ptr %this, i64 248
+  %m_pointerPtrFixupArray = getelementptr inbounds i8, ptr %this, i64 216
+  %m_pointerFixupArray = getelementptr inbounds i8, ptr %this, i64 184
+  %mLibPointers = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %mDataPointers) #30
   tail call void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_chunkPtrPtrMap) #30
   tail call void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_chunks) #30
@@ -370,13 +341,13 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -394,20 +365,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -425,20 +396,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 68
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i11 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %m_data.i.i.i11, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i12, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit
-  %m_ownsMemory.i.i.i14 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i15 = icmp eq i8 %12, 0
@@ -456,20 +427,20 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
   store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i20, align 8
-  %m_data.i.i.i21 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %m_data.i.i.i21, align 8
   %tobool.not.i.i.i22 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i22, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit31, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i24 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i8, ptr %m_ownsMemory.i.i.i24, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i25 = icmp eq i8 %17, 0
@@ -487,12 +458,12 @@ terminate.lpad.i27:                               ; preds = %if.then3.i.i.i26
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i23, %if.then3.i.i.i26
-  %m_size.i.i.i28 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i.i29 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i.i29 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i29, align 8
   store ptr null, ptr %m_data.i.i.i21, align 8
   store i32 0, ptr %m_size.i.i.i28, align 4
-  %m_capacity.i.i.i30 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i.i30, align 8
   ret void
 }
@@ -500,13 +471,13 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -524,20 +495,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -555,20 +526,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3HashPtrED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 68
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i11 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %m_data.i.i.i11, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i12, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit
-  %m_ownsMemory.i.i.i14 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i15 = icmp eq i8 %12, 0
@@ -586,20 +557,20 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
   store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i20, align 8
-  %m_data.i.i.i21 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %m_data.i.i.i21, align 8
   %tobool.not.i.i.i22 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i22, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit31, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i24 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i8, ptr %m_ownsMemory.i.i.i24, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i25 = icmp eq i8 %17, 0
@@ -617,12 +588,12 @@ terminate.lpad.i27:                               ; preds = %if.then3.i.i.i26
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i23, %if.then3.i.i.i26
-  %m_size.i.i.i28 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i.i29 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i.i29 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i29, align 8
   store ptr null, ptr %m_data.i.i.i21, align 8
   store i32 0, ptr %m_size.i.i.i28, align 4
-  %m_capacity.i.i.i30 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i.i30, align 8
   ret void
 }
@@ -630,13 +601,13 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -647,12 +618,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -667,13 +638,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -684,12 +655,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -706,149 +677,150 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
 invoke.cont9:
   %header.i = alloca [13 x i8], align 1
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mOwnsBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 2
-  %m_ownsMemory.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 6
+  %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %mOwnsBuffer, i8 0, i64 17, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %m_data.i.i.i, align 8
-  %m_size.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_ownsMemory.i.i3.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 6
+  %m_ownsMemory.i.i3.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i.i3.i, align 8
-  %m_data.i.i4.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
+  %m_data.i.i4.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %m_data.i.i4.i, align 8
-  %m_size.i.i5.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 2
+  %m_size.i.i5.i = getelementptr inbounds i8, ptr %this, i64 68
   store i32 0, ptr %m_size.i.i5.i, align 4
-  %m_capacity.i.i6.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 3
+  %m_capacity.i.i6.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i6.i, align 8
-  %m_ownsMemory.i.i7.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 6
+  %m_ownsMemory.i.i7.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i.i7.i, align 8
-  %m_data.i.i8.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i.i8.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %m_data.i.i8.i, align 8
-  %m_size.i.i9.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 2
+  %m_size.i.i9.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %m_size.i.i9.i, align 4
-  %m_capacity.i.i10.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
+  %m_capacity.i.i10.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i10.i, align 8
-  %m_ownsMemory.i.i11.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 6
+  %m_ownsMemory.i.i11.i = getelementptr inbounds i8, ptr %this, i64 152
   store i8 1, ptr %m_ownsMemory.i.i11.i, align 8
-  %m_data.i.i12.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
+  %m_data.i.i12.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr null, ptr %m_data.i.i12.i, align 8
-  %m_size.i.i13.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 2
+  %m_size.i.i13.i = getelementptr inbounds i8, ptr %this, i64 132
   store i32 0, ptr %m_size.i.i13.i, align 4
-  %m_capacity.i.i14.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 3
+  %m_capacity.i.i14.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 0, ptr %m_capacity.i.i14.i, align 8
-  %mDataStart = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 7
+  %mDataStart = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %mDataStart, align 8
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
-  %m_ownsMemory.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 6
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mFileDNA, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 188
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i9 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 6
+  %m_ownsMemory.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %m_ownsMemory.i.i9, align 8
-  %m_data.i.i10 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 5
+  %m_data.i.i10 = getelementptr inbounds i8, ptr %this, i64 232
   store ptr null, ptr %m_data.i.i10, align 8
-  %m_size.i.i11 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 2
+  %m_size.i.i11 = getelementptr inbounds i8, ptr %this, i64 220
   store i32 0, ptr %m_size.i.i11, align 4
-  %m_capacity.i.i12 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 3
+  %m_capacity.i.i12 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %m_capacity.i.i12, align 8
-  %m_ownsMemory.i.i13 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 6
+  %m_ownsMemory.i.i13 = getelementptr inbounds i8, ptr %this, i64 272
   store i8 1, ptr %m_ownsMemory.i.i13, align 8
-  %m_data.i.i14 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i14 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr null, ptr %m_data.i.i14, align 8
-  %m_size.i.i15 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i.i15 = getelementptr inbounds i8, ptr %this, i64 252
   store i32 0, ptr %m_size.i.i15, align 4
-  %m_capacity.i.i16 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i16 = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %m_capacity.i.i16, align 8
-  %m_ownsMemory.i.i.i17 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 6
+  %m_ownsMemory.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 304
   store i8 1, ptr %m_ownsMemory.i.i.i17, align 8
-  %m_data.i.i.i18 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 5
+  %m_data.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 296
   store ptr null, ptr %m_data.i.i.i18, align 8
-  %m_size.i.i.i19 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 2
+  %m_size.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 284
   store i32 0, ptr %m_size.i.i.i19, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 288
   store i32 0, ptr %m_capacity.i.i.i20, align 8
-  %m_ownsMemory.i.i3.i21 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 6
+  %m_ownsMemory.i.i3.i21 = getelementptr inbounds i8, ptr %this, i64 336
   store i8 1, ptr %m_ownsMemory.i.i3.i21, align 8
-  %m_data.i.i4.i22 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 5
+  %m_data.i.i4.i22 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr null, ptr %m_data.i.i4.i22, align 8
-  %m_size.i.i5.i23 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 2
+  %m_size.i.i5.i23 = getelementptr inbounds i8, ptr %this, i64 316
   store i32 0, ptr %m_size.i.i5.i23, align 4
-  %m_capacity.i.i6.i24 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 3
+  %m_capacity.i.i6.i24 = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_capacity.i.i6.i24, align 8
-  %m_ownsMemory.i.i7.i25 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 6
+  %m_ownsMemory.i.i7.i25 = getelementptr inbounds i8, ptr %this, i64 368
   store i8 1, ptr %m_ownsMemory.i.i7.i25, align 8
-  %m_data.i.i8.i26 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 5
+  %m_data.i.i8.i26 = getelementptr inbounds i8, ptr %this, i64 360
   store ptr null, ptr %m_data.i.i8.i26, align 8
-  %m_size.i.i9.i27 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 2
+  %m_size.i.i9.i27 = getelementptr inbounds i8, ptr %this, i64 348
   store i32 0, ptr %m_size.i.i9.i27, align 4
-  %m_capacity.i.i10.i28 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 3
+  %m_capacity.i.i10.i28 = getelementptr inbounds i8, ptr %this, i64 352
   store i32 0, ptr %m_capacity.i.i10.i28, align 8
-  %m_ownsMemory.i.i11.i29 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 6
+  %m_ownsMemory.i.i11.i29 = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i11.i29, align 8
-  %m_data.i.i12.i30 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 5
+  %m_data.i.i12.i30 = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %m_data.i.i12.i30, align 8
-  %m_size.i.i13.i31 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 2
+  %m_size.i.i13.i31 = getelementptr inbounds i8, ptr %this, i64 380
   store i32 0, ptr %m_size.i.i13.i31, align 4
-  %m_capacity.i.i14.i32 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 3
+  %m_capacity.i.i14.i32 = getelementptr inbounds i8, ptr %this, i64 384
   store i32 0, ptr %m_capacity.i.i14.i32, align 8
-  %m_ownsMemory.i.i.i33 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 6
+  %m_ownsMemory.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 432
   store i8 1, ptr %m_ownsMemory.i.i.i33, align 8
-  %m_data.i.i.i34 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 5
+  %m_data.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 424
   store ptr null, ptr %m_data.i.i.i34, align 8
-  %m_size.i.i.i35 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 2
+  %m_size.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 412
   store i32 0, ptr %m_size.i.i.i35, align 4
-  %m_capacity.i.i.i36 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 0, i32 3
+  %m_capacity.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 416
   store i32 0, ptr %m_capacity.i.i.i36, align 8
-  %m_ownsMemory.i.i3.i37 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 6
+  %m_ownsMemory.i.i3.i37 = getelementptr inbounds i8, ptr %this, i64 464
   store i8 1, ptr %m_ownsMemory.i.i3.i37, align 8
-  %m_data.i.i4.i38 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 5
+  %m_data.i.i4.i38 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr null, ptr %m_data.i.i4.i38, align 8
-  %m_size.i.i5.i39 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 2
+  %m_size.i.i5.i39 = getelementptr inbounds i8, ptr %this, i64 444
   store i32 0, ptr %m_size.i.i5.i39, align 4
-  %m_capacity.i.i6.i40 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 1, i32 3
+  %m_capacity.i.i6.i40 = getelementptr inbounds i8, ptr %this, i64 448
   store i32 0, ptr %m_capacity.i.i6.i40, align 8
-  %m_ownsMemory.i.i7.i41 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 6
+  %m_ownsMemory.i.i7.i41 = getelementptr inbounds i8, ptr %this, i64 496
   store i8 1, ptr %m_ownsMemory.i.i7.i41, align 8
-  %m_data.i.i8.i42 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 5
+  %m_data.i.i8.i42 = getelementptr inbounds i8, ptr %this, i64 488
   store ptr null, ptr %m_data.i.i8.i42, align 8
-  %m_size.i.i9.i43 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 2
+  %m_size.i.i9.i43 = getelementptr inbounds i8, ptr %this, i64 476
   store i32 0, ptr %m_size.i.i9.i43, align 4
-  %m_capacity.i.i10.i44 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 2, i32 3
+  %m_capacity.i.i10.i44 = getelementptr inbounds i8, ptr %this, i64 480
   store i32 0, ptr %m_capacity.i.i10.i44, align 8
-  %m_ownsMemory.i.i11.i45 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 6
+  %m_ownsMemory.i.i11.i45 = getelementptr inbounds i8, ptr %this, i64 528
   store i8 1, ptr %m_ownsMemory.i.i11.i45, align 8
-  %m_data.i.i12.i46 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 5
+  %m_data.i.i12.i46 = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %m_data.i.i12.i46, align 8
-  %m_size.i.i13.i47 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 2
+  %m_size.i.i13.i47 = getelementptr inbounds i8, ptr %this, i64 508
   store i32 0, ptr %m_size.i.i13.i47, align 4
-  %m_capacity.i.i14.i48 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15, i32 3, i32 3
+  %m_capacity.i.i14.i48 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_capacity.i.i14.i48, align 8
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   store i32 0, ptr %mFlags, align 8
+  %m_headerString = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont9, %for.body
   %indvars.iv = phi i64 [ 0, %invoke.cont9 ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %headerString, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx11 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [7 x i8], ptr %m_headerString, i64 0, i64 %indvars.iv
   store i8 %0, ptr %arrayidx11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %mFileLen = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 4
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileLen = getelementptr inbounds i8, ptr %this, i64 24
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %memoryBuffer, ptr %mFileBuffer, align 8
   store i32 %len, ptr %mFileLen, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %header.i)
@@ -859,15 +831,14 @@ for.end:                                          ; preds = %for.body
 
 if.end.i:                                         ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %header.i, ptr noundef nonnull align 1 dereferenceable(12) %memoryBuffer, i64 12, i1 false)
-  %arrayidx.i = getelementptr inbounds [13 x i8], ptr %header.i, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %header.i, i64 12
   store i8 0, ptr %arrayidx.i, align 1
-  %m_headerString.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 1
-  %call.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %header.i, ptr noundef nonnull dereferenceable(1) %m_headerString.i, i64 noundef 6) #28
+  %call.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %header.i, ptr noundef nonnull dereferenceable(1) %m_headerString, i64 noundef 6) #28
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end10.i, label %_ZN6bParse5bFile11parseHeaderEv.exit
 
 if.end10.i:                                       ; preds = %if.end.i
-  %arrayidx11.i = getelementptr inbounds [13 x i8], ptr %header.i, i64 0, i64 6
+  %arrayidx11.i = getelementptr inbounds i8, ptr %header.i, i64 6
   %1 = load i8, ptr %arrayidx11.i, align 1
   %cmp12.i = icmp eq i8 %1, 100
   %.pre = load i32, ptr %mFlags, align 8
@@ -882,14 +853,14 @@ if.end14.i:                                       ; preds = %if.then13.i, %if.en
   %2 = phi i32 [ %or.i, %if.then13.i ], [ %.pre, %if.end10.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %header.i, i64 9
   %call16.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #28
-  %mVersion.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 5
+  %mVersion.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %call16.i, ptr %mVersion.i, align 4
-  %arrayidx23.i = getelementptr inbounds [13 x i8], ptr %header.i, i64 0, i64 7
+  %arrayidx23.i = getelementptr inbounds i8, ptr %header.i, i64 7
   %3 = load i8, ptr %arrayidx23.i, align 1
   %cmp25.i = icmp eq i8 %3, 45
   %..i = select i1 %cmp25.i, i32 8, i32 16
   %or30.i = or i32 %..i, %2
-  %arrayidx32.i = getelementptr inbounds [13 x i8], ptr %header.i, i64 0, i64 8
+  %arrayidx32.i = getelementptr inbounds i8, ptr %header.i, i64 8
   %4 = load i8, ptr %arrayidx32.i, align 1
   %cmp34.i = icmp eq i8 %4, 86
   %or39.i = or i32 %or30.i, 4
@@ -907,14 +878,14 @@ _ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %for.end, %if.end.i,
 define dso_local void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mOwnsBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 2
+  %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
   %0 = load i8, ptr %mOwnsBuffer, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mFileBuffer, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -925,7 +896,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %mMemoryDNA, align 8
   %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -936,7 +907,7 @@ delete.notnull:                                   ; preds = %if.end
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %mFileDNA, align 8
   %isnull5 = icmp eq ptr %4, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -947,17 +918,17 @@ delete.notnull6:                                  ; preds = %delete.end
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end
-  %mDataPointers = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 15
+  %mDataPointers = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %mDataPointers) #30
-  %m_chunkPtrPtrMap = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14
+  %m_chunkPtrPtrMap = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_chunkPtrPtrMap) #30
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.end7
-  %m_ownsMemory.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %6 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i = icmp eq i8 %7, 0
@@ -975,20 +946,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit: ; preds = %delete.end7, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 252
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i3 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 5
+  %m_data.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_data.i.i.i3, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i4, label %_ZN20b3AlignedObjectArrayIPcED2Ev.exit, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit
-  %m_ownsMemory.i.i.i6 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 6
+  %m_ownsMemory.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 240
   %11 = load i8, ptr %m_ownsMemory.i.i.i6, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i7 = icmp eq i8 %12, 0
@@ -1006,20 +977,20 @@ terminate.lpad.i9:                                ; preds = %if.then3.i.i.i8
   unreachable
 
 _ZN20b3AlignedObjectArrayIPcED2Ev.exit:           ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev.exit, %if.then.i.i.i5, %if.then3.i.i.i8
-  %m_size.i.i.i10 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 2
-  %m_ownsMemory.i1.i.i11 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 6
+  %m_size.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_ownsMemory.i1.i.i11 = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %m_ownsMemory.i1.i.i11, align 8
   store ptr null, ptr %m_data.i.i.i3, align 8
   store i32 0, ptr %m_size.i.i.i10, align 4
-  %m_capacity.i.i.i12 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 3
+  %m_capacity.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %m_capacity.i.i.i12, align 8
-  %m_data.i.i.i13 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 5
+  %m_data.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 200
   %15 = load ptr, ptr %m_data.i.i.i13, align 8
   %tobool.not.i.i.i14 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i14, label %_ZN20b3AlignedObjectArrayIPcED2Ev.exit23, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %_ZN20b3AlignedObjectArrayIPcED2Ev.exit
-  %m_ownsMemory.i.i.i16 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 6
+  %m_ownsMemory.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 208
   %16 = load i8, ptr %m_ownsMemory.i.i.i16, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i17 = icmp eq i8 %17, 0
@@ -1037,14 +1008,14 @@ terminate.lpad.i19:                               ; preds = %if.then3.i.i.i18
   unreachable
 
 _ZN20b3AlignedObjectArrayIPcED2Ev.exit23:         ; preds = %_ZN20b3AlignedObjectArrayIPcED2Ev.exit, %if.then.i.i.i15, %if.then3.i.i.i18
-  %m_size.i.i.i20 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 2
-  %m_ownsMemory.i1.i.i21 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 6
+  %m_size.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 188
+  %m_ownsMemory.i1.i.i21 = getelementptr inbounds i8, ptr %this, i64 208
   store i8 1, ptr %m_ownsMemory.i1.i.i21, align 8
   store ptr null, ptr %m_data.i.i.i13, align 8
   store i32 0, ptr %m_size.i.i.i20, align 4
-  %m_capacity.i.i.i22 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 3
+  %m_capacity.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %m_capacity.i.i.i22, align 8
-  %mLibPointers = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6
+  %mLibPointers = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %mLibPointers) #30
   ret void
 }
@@ -1072,34 +1043,34 @@ declare void @llvm.trap() #11
 define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr nocapture noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #12 align 2 {
 entry:
   %header = alloca [13 x i8], align 1
-  %mFileLen = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 4
+  %mFileLen = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %mFileLen, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mFileBuffer, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %header, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
-  %arrayidx = getelementptr inbounds [13 x i8], ptr %header, i64 0, i64 12
+  %arrayidx = getelementptr inbounds i8, ptr %header, i64 12
   store i8 0, ptr %arrayidx, align 1
-  %m_headerString = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 1
+  %m_headerString = getelementptr inbounds i8, ptr %this, i64 8
   %call = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %header, ptr noundef nonnull dereferenceable(1) %m_headerString, i64 noundef 6) #28
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %arrayidx11 = getelementptr inbounds [13 x i8], ptr %header, i64 0, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %header, i64 6
   %2 = load i8, ptr %arrayidx11, align 1
   %cmp12 = icmp eq i8 %2, 100
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end10
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %3 = load i32, ptr %mFlags, align 8
   %or = or i32 %3, 64
   store i32 %or, ptr %mFlags, align 8
@@ -1108,21 +1079,21 @@ if.then13:                                        ; preds = %if.end10
 if.end14:                                         ; preds = %if.then13, %if.end10
   %add.ptr = getelementptr inbounds i8, ptr %header, i64 9
   %call16 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #28
-  %mVersion = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 5
+  %mVersion = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %call16, ptr %mVersion, align 4
-  %arrayidx23 = getelementptr inbounds [13 x i8], ptr %header, i64 0, i64 7
+  %arrayidx23 = getelementptr inbounds i8, ptr %header, i64 7
   %4 = load i8, ptr %arrayidx23, align 1
   %cmp25 = icmp eq i8 %4, 45
-  %mFlags27 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags27 = getelementptr inbounds i8, ptr %this, i64 536
   %5 = load i32, ptr %mFlags27, align 8
   %. = select i1 %cmp25, i32 8, i32 16
   %or30 = or i32 %5, %.
-  %arrayidx32 = getelementptr inbounds [13 x i8], ptr %header, i64 0, i64 8
+  %arrayidx32 = getelementptr inbounds i8, ptr %header, i64 8
   %6 = load i8, ptr %arrayidx32, align 1
   %cmp34 = icmp eq i8 %6, 86
   %or39 = or i32 %or30, 4
   %7 = select i1 %cmp34, i32 %or39, i32 %or30
-  %mFlags48 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags48 = getelementptr inbounds i8, ptr %this, i64 536
   %or49 = or i32 %7, 1
   store i32 %or49, ptr %mFlags48, align 8
   br label %return
@@ -1143,7 +1114,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN6bParse5bFile2okEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this) local_unnamed_addr #15 align 2 {
 entry:
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 1
   %cmp = icmp ne i32 %and, 0
@@ -1154,26 +1125,26 @@ entry:
 define dso_local void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %verboseMode, ptr noundef %memDna, i32 noundef %memDnaLength) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dna = alloca %"class.bParse::bChunkInd", align 8
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 1
   %cmp = icmp eq i32 %and, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mFileBuffer, align 8
-  %oldPtr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dna, i64 0, i32 2
+  %oldPtr = getelementptr inbounds i8, ptr %dna, i64 8
   store ptr null, ptr %oldPtr, align 8
-  %mFileLen = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 4
+  %mFileLen = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %mFileLen, align 8
   %cmp222 = icmp sgt i32 %2, 0
   br i1 %cmp222, label %for.body.lr.ph, label %if.then53
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mDataStart = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 7
-  %len = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dna, i64 0, i32 1
-  %mVersion = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 5
+  %mDataStart = getelementptr inbounds i8, ptr %this, i64 160
+  %len = getelementptr inbounds i8, ptr %dna, i64 4
+  %mVersion = getelementptr inbounds i8, ptr %this, i64 28
   %.pre = load i32, ptr %mDataStart, align 8
   br label %for.body
 
@@ -1282,20 +1253,20 @@ if.end56:                                         ; preds = %for.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end56
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %call57, ptr %mFileDNA, align 8
   %21 = load i32, ptr %mFlags, align 8
   %and62 = and i32 %21, 4
   %cmp63 = icmp ne i32 %and62, 0
   tail call void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferenceable(420) %call57, ptr noundef nonnull %19, i32 noundef %.pre30, i1 noundef zeroext %cmp63)
-  %mVersion64 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 5
+  %mVersion64 = getelementptr inbounds i8, ptr %this, i64 28
   %22 = load i32, ptr %mVersion64, align 4
   %cmp65 = icmp eq i32 %22, 276
   br i1 %cmp65, label %for.cond68.preheader, label %if.end88
 
 for.cond68.preheader:                             ; preds = %invoke.cont
   %23 = load ptr, ptr %mFileDNA, align 8
-  %m_size.i.i25 = getelementptr inbounds %"class.bParse::bDNA", ptr %23, i64 0, i32 1, i32 2
+  %m_size.i.i25 = getelementptr inbounds i8, ptr %23, i64 36
   %24 = load i32, ptr %m_size.i.i25, align 4
   %cmp7126 = icmp sgt i32 %24, 0
   br i1 %cmp7126, label %for.body72, label %if.end88
@@ -1322,7 +1293,7 @@ lpad:                                             ; preds = %if.end56
 for.inc80:                                        ; preds = %for.body72, %if.then77
   %inc81 = add nuw nsw i32 %i67.027, 1
   %28 = load ptr, ptr %mFileDNA, align 8
-  %m_size.i.i = getelementptr inbounds %"class.bParse::bDNA", ptr %28, i64 0, i32 1, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %28, i64 36
   %29 = load i32, ptr %m_size.i.i, align 4
   %cmp71 = icmp slt i32 %inc81, %29
   br i1 %cmp71, label %for.body72, label %if.end88, !llvm.loop !10
@@ -1343,14 +1314,14 @@ if.end93:                                         ; preds = %if.then91, %if.end8
           to label %invoke.cont96 unwind label %lpad95
 
 invoke.cont96:                                    ; preds = %if.end93
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %call94, ptr %mMemoryDNA, align 8
   tail call void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferenceable(420) %call94, ptr noundef %memDna, i32 noundef %memDnaLength, i1 noundef zeroext false)
   %31 = load ptr, ptr %mMemoryDNA, align 8
-  %m_size.i.i18 = getelementptr inbounds %"class.bParse::bDNA", ptr %31, i64 0, i32 1, i32 2
+  %m_size.i.i18 = getelementptr inbounds i8, ptr %31, i64 36
   %32 = load i32, ptr %m_size.i.i18, align 4
   %33 = load ptr, ptr %mFileDNA, align 8
-  %m_size.i.i19 = getelementptr inbounds %"class.bParse::bDNA", ptr %33, i64 0, i32 1, i32 2
+  %m_size.i.i19 = getelementptr inbounds i8, ptr %33, i64 36
   %34 = load i32, ptr %m_size.i.i19, align 4
   %cmp103.not = icmp eq i32 %32, %34
   br i1 %cmp103.not, label %if.end107, label %if.then104
@@ -1372,23 +1343,23 @@ if.end107:                                        ; preds = %if.then104, %invoke
   %38 = load ptr, ptr %mMemoryDNA, align 8
   tail call void @_ZN6bParse4bDNA12initCmpFlagsEPS0_(ptr noundef nonnull align 8 dereferenceable(420) %37, ptr noundef %38)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %39 = load ptr, ptr %vfn, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(540) %this)
   tail call void @_ZN6bParse5bFile15resolvePointersEi(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %verboseMode)
-  %m_size.i.i20 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i.i20 = getelementptr inbounds i8, ptr %this, i64 252
   %40 = load i32, ptr %m_size.i.i20, align 4
   %cmp5.i = icmp sgt i32 %40, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.end107
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
-  %m_size.i.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %m_data.i.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
-  %m_data.i6.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
-  %m_data.i9.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
-  %m_data.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_data.i9.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit.i, %for.body.lr.ph.i
@@ -1625,10 +1596,10 @@ declare void @_ZN6bParse4bDNA12initCmpFlagsEPS0_(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile15resolvePointersEi(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %verboseMode) local_unnamed_addr #2 align 2 {
 entry:
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
   %tobool.not = icmp eq ptr %0, null
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %mMemoryDNA, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
   tail call void @_ZN6bParse5bFile23resolvePointersMismatchEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
@@ -1637,27 +1608,27 @@ entry:
   br i1 %tobool3.not, label %if.end, label %if.end.thread
 
 if.end:                                           ; preds = %entry
-  %m_size.i14 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i14 = getelementptr inbounds i8, ptr %this, i64 252
   %2 = load i32, ptr %m_size.i14, align 4
   %cmp15 = icmp sgt i32 %2, 0
   br i1 %cmp15, label %for.body.us.preheader, label %for.end
 
 if.end.thread:                                    ; preds = %entry
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %m_size.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 252
   %3 = load i32, ptr %m_size.i, align 4
   %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef 300, i32 noundef %3)
-  %m_size.i1422 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i1422 = getelementptr inbounds i8, ptr %this, i64 252
   %4 = load i32, ptr %m_size.i1422, align 4
   %cmp1523 = icmp sgt i32 %4, 0
   br i1 %cmp1523, label %for.body.preheader, label %if.then31
 
 for.body.preheader:                               ; preds = %if.end.thread
-  %m_data.i26 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i26 = getelementptr inbounds i8, ptr %this, i64 264
   br label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
@@ -1669,13 +1640,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %tobool12.not.us, label %if.then14.us, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
-  %dna_nr.us = getelementptr inbounds %"class.bParse::bChunkInd", ptr %5, i64 %indvars.iv19, i32 3
+  %dna_nr.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 16
   %7 = load i32, ptr %dna_nr.us, align 8
   %call13.us = tail call noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %7)
   br i1 %call13.us, label %if.then14.us, label %for.inc.us
 
 if.then14.us:                                     ; preds = %lor.lhs.false.us, %for.body.us
-  %dna_nr15.us = getelementptr inbounds %"class.bParse::bChunkInd", ptr %5, i64 %indvars.iv19, i32 3
+  %dna_nr15.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 16
   %8 = load i32, ptr %dna_nr15.us, align 8
   %call16.us = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %8)
   %9 = load i16, ptr %call16.us, align 2
@@ -1700,19 +1671,19 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool12.not, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %12, i64 %indvars.iv, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %14 = load i32, ptr %dna_nr, align 8
   %call13 = tail call noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %14)
   br i1 %call13, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %lor.lhs.false, %for.body
-  %dna_nr15 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %12, i64 %indvars.iv, i32 3
+  %dna_nr15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %15 = load i32, ptr %dna_nr15, align 8
   %call16 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %15)
   %16 = load i16, ptr %call16, align 2
   %conv = sext i16 %16 to i32
   %call17 = tail call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %conv)
-  %oldPtr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %12, i64 %indvars.iv, i32 2
+  %oldPtr = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %17 = load ptr, ptr %oldPtr, align 8
   %call21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %call17, ptr noundef %17)
   tail call void @_ZN6bParse5bFile20resolvePointersChunkERKNS_9bChunkIndEi(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i32 noundef %verboseMode)
@@ -1740,19 +1711,19 @@ if.end33:                                         ; preds = %if.then31, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN6bParse5bFile17updateOldPointersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this) local_unnamed_addr #18 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 252
   %0 = load i32, ptr %m_size.i, align 4
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
-  %m_capacity.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
-  %m_size.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %m_data.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
-  %m_data.i6.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
-  %m_data.i9.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_data.i9.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6bParse5bFile14findLibPointerEPv.exit
@@ -1838,9 +1809,9 @@ for.end:                                          ; preds = %_ZN6bParse5bFile14f
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile4swapEPcRNS_9bChunkIndEb(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %head, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dataChunk, i1 noundef zeroext %ignoreEndianFlag) local_unnamed_addr #2 align 2 {
 entry:
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %dataChunk, i64 16
   %1 = load i32, ptr %dna_nr, align 8
   %call = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %0, i32 noundef %1)
   %lhsv = load i32, ptr %dataChunk, align 8
@@ -1864,7 +1835,7 @@ if.end12:                                         ; preds = %if.then, %entry
   %7 = load i16, ptr %call, align 2
   %conv15 = sext i16 %7 to i32
   %call16 = tail call noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr noundef nonnull align 8 dereferenceable(420) %6, i32 noundef %conv15)
-  %nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %dataChunk, i64 20
   %8 = load i32, ptr %nr, align 4
   %cmp188 = icmp sgt i32 %8, 0
   br i1 %cmp188, label %for.body.lr.ph, label %for.end
@@ -1901,55 +1872,56 @@ entry:
   br i1 %cmp, label %for.end53, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
   %call = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %0, i32 noundef %dna_nr)
-  %arrayidx = getelementptr inbounds i16, ptr %call, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %call, i64 2
   %1 = load i16, ptr %arrayidx, align 2
   %conv = sext i16 %1 to i32
   %2 = load ptr, ptr %mFileDNA, align 8
   %call3 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %2, i32 noundef 0)
   %3 = load i16, ptr %call3, align 2
-  %cmp536 = icmp sgt i16 %1, 0
-  br i1 %cmp536, label %for.body.lr.ph, label %for.end53
+  %cmp538 = icmp sgt i16 %1, 0
+  br i1 %cmp538, label %for.body.lr.ph, label %for.end53
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mFlags.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags.i = getelementptr inbounds i8, ptr %this, i64 536
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end47
-  %call.pn40 = phi ptr [ %call, %for.body.lr.ph ], [ %strc.041, %if.end47 ]
-  %buf.038 = phi ptr [ %data, %for.body.lr.ph ], [ %add.ptr49, %if.end47 ]
-  %i.037 = phi i32 [ 0, %for.body.lr.ph ], [ %inc51, %if.end47 ]
-  %strc.041 = getelementptr inbounds i16, ptr %call.pn40, i64 2
+  %call.pn42 = phi ptr [ %call, %for.body.lr.ph ], [ %strc.043, %if.end47 ]
+  %buf.040 = phi ptr [ %data, %for.body.lr.ph ], [ %add.ptr49, %if.end47 ]
+  %i.039 = phi i32 [ 0, %for.body.lr.ph ], [ %inc51, %if.end47 ]
+  %strc.043 = getelementptr inbounds i8, ptr %call.pn42, i64 4
   %4 = load ptr, ptr %mFileDNA, align 8
-  %5 = load i16, ptr %strc.041, align 2
+  %5 = load i16, ptr %strc.043, align 2
   %conv8 = sext i16 %5 to i32
   %call9 = tail call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %4, i32 noundef %conv8)
   %6 = load ptr, ptr %mFileDNA, align 8
-  %arrayidx11 = getelementptr inbounds i16, ptr %call.pn40, i64 3
+  %arrayidx11 = getelementptr inbounds i8, ptr %call.pn42, i64 6
   %7 = load i16, ptr %arrayidx11, align 2
   %conv12 = sext i16 %7 to i32
   %call13 = tail call noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull align 8 dereferenceable(420) %6, i32 noundef %conv12)
   %8 = load ptr, ptr %mFileDNA, align 8
-  %9 = load i16, ptr %strc.041, align 2
+  %9 = load i16, ptr %strc.043, align 2
   %10 = load i16, ptr %arrayidx11, align 2
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bDNA", ptr %8, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %8, i64 48
   %11 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i16 %10 to i64
-  %m_isPointer.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %11, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %11, i64 %idxprom.i.i
+  %m_isPointer.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %12 = load i8, ptr %m_isPointer.i, align 8
   %13 = and i8 %12, 1
   %tobool.not.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %mPtrLen.i = getelementptr inbounds %"class.bParse::bDNA", ptr %8, i64 0, i32 7
+  %mPtrLen.i = getelementptr inbounds i8, ptr %8, i64 416
   %14 = load i32, ptr %mPtrLen.i, align 8
   br label %_ZN6bParse4bDNA14getElementSizeEss.exit
 
 cond.false.i:                                     ; preds = %for.body
-  %m_data.i5.i = getelementptr inbounds %"class.bParse::bDNA", ptr %8, i64 0, i32 4, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %8, i64 144
   %15 = load ptr, ptr %m_data.i5.i, align 8
   %idxprom.i6.i = sext i16 %9 to i64
   %arrayidx.i7.i = getelementptr inbounds i16, ptr %15, i64 %idxprom.i6.i
@@ -1959,9 +1931,9 @@ cond.false.i:                                     ; preds = %for.body
 
 _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %cond.true.i, %cond.false.i
   %conv5.sink.i = phi i32 [ %conv5.i, %cond.false.i ], [ %14, %cond.true.i ]
-  %m_dim06.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %11, i64 %idxprom.i.i, i32 2
+  %m_dim06.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %17 = load i32, ptr %m_dim06.i, align 4
-  %m_dim18.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %11, i64 %idxprom.i.i, i32 3
+  %m_dim18.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %18 = load i32, ptr %m_dim18.i, align 8
   %mul7.i = mul i32 %18, %17
   %mul9.i = mul i32 %mul7.i, %conv5.sink.i
@@ -1977,33 +1949,34 @@ if.then25:                                        ; preds = %land.lhs.true
   %call27 = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %8, ptr noundef %call9)
   %20 = load ptr, ptr %mFileDNA, align 8
   %21 = load i16, ptr %arrayidx11, align 2
-  %m_data.i.i24 = getelementptr inbounds %"class.bParse::bDNA", ptr %20, i64 0, i32 1, i32 5
+  %m_data.i.i24 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %m_data.i.i24, align 8
   %idxprom.i.i25 = sext i16 %21 to i64
-  %m_dim0.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %22, i64 %idxprom.i.i25, i32 2
+  %arrayidx.i.i26 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %22, i64 %idxprom.i.i25
+  %m_dim0.i = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 12
   %23 = load i32, ptr %m_dim0.i, align 4
-  %m_dim1.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %22, i64 %idxprom.i.i25, i32 3
+  %m_dim1.i = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 16
   %24 = load i32, ptr %m_dim1.i, align 8
   %mul.i = mul nsw i32 %24, %23
   %cmp31 = icmp eq i32 %mul.i, 1
   br i1 %cmp31, label %if.then32, label %for.cond34.preheader
 
 for.cond34.preheader:                             ; preds = %if.then25
-  %cmp3532 = icmp sgt i32 %mul.i, 0
-  br i1 %cmp3532, label %for.body36, label %if.end47
+  %cmp3534 = icmp sgt i32 %mul.i, 0
+  br i1 %cmp3534, label %for.body36, label %if.end47
 
 if.then32:                                        ; preds = %if.then25
-  tail call void @_ZN6bParse5bFile10swapStructEiPcb(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %call27, ptr noundef %buf.038, i1 noundef zeroext %ignoreEndianFlag)
+  tail call void @_ZN6bParse5bFile10swapStructEiPcb(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %call27, ptr noundef %buf.040, i1 noundef zeroext %ignoreEndianFlag)
   br label %if.end47
 
 for.body36:                                       ; preds = %for.cond34.preheader, %for.body36
-  %i33.034 = phi i32 [ %inc, %for.body36 ], [ 0, %for.cond34.preheader ]
-  %tmpBuf.033 = phi ptr [ %add.ptr38, %for.body36 ], [ %buf.038, %for.cond34.preheader ]
-  tail call void @_ZN6bParse5bFile10swapStructEiPcb(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %call27, ptr noundef %tmpBuf.033, i1 noundef zeroext %ignoreEndianFlag)
+  %i33.036 = phi i32 [ %inc, %for.body36 ], [ 0, %for.cond34.preheader ]
+  %tmpBuf.035 = phi ptr [ %add.ptr38, %for.body36 ], [ %buf.040, %for.cond34.preheader ]
+  tail call void @_ZN6bParse5bFile10swapStructEiPcb(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %call27, ptr noundef %tmpBuf.035, i1 noundef zeroext %ignoreEndianFlag)
   %div = sdiv i32 %mul9.i, %mul.i
   %idx.ext = sext i32 %div to i64
-  %add.ptr38 = getelementptr inbounds i8, ptr %tmpBuf.033, i64 %idx.ext
-  %inc = add nuw nsw i32 %i33.034, 1
+  %add.ptr38 = getelementptr inbounds i8, ptr %tmpBuf.035, i64 %idx.ext
+  %inc = add nuw nsw i32 %i33.036, 1
   %exitcond.not = icmp eq i32 %inc, %mul.i
   br i1 %exitcond.not, label %if.end47, label %for.body36, !llvm.loop !15
 
@@ -2024,12 +1997,12 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %or.cond26.i, label %for.body.i, label %if.end.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
-  %sp.022.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %buf.038, %if.then.i ]
+  %sp.022.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %buf.040, %if.then.i ]
   %i.021.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then.i ]
   %27 = load i16, ptr %sp.022.i, align 2
   %call.i = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %27)
   store i16 %call.i, ptr %sp.022.i, align 2
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %sp.022.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %sp.022.i, i64 2
   %inc.i = add nuw nsw i32 %i.021.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %mul7.i
   br i1 %exitcond.not.i, label %if.end.i, label %for.body.i, !llvm.loop !16
@@ -2042,7 +2015,7 @@ if.end.i:                                         ; preds = %for.body.i, %if.the
 
 for.body17.i:                                     ; preds = %if.end.i, %for.body17.i
   %i14.025.i = phi i32 [ %inc27.i, %for.body17.i ], [ 0, %if.end.i ]
-  %cp.024.i = phi ptr [ %add.ptr.i, %for.body17.i ], [ %buf.038, %if.end.i ]
+  %cp.024.i = phi ptr [ %add.ptr.i, %for.body17.i ], [ %buf.040, %if.end.i ]
   %29 = load <4 x i8>, ptr %cp.024.i, align 1
   %30 = shufflevector <4 x i8> %29, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x i8> %30, ptr %cp.024.i, align 1
@@ -2053,10 +2026,10 @@ for.body17.i:                                     ; preds = %if.end.i, %for.body
 
 if.end47:                                         ; preds = %for.body36, %for.body17.i, %for.cond34.preheader, %if.end.i, %lor.lhs.false.i, %if.then32
   %idx.ext48 = sext i32 %mul9.i to i64
-  %add.ptr49 = getelementptr inbounds i8, ptr %buf.038, i64 %idx.ext48
-  %inc51 = add nuw nsw i32 %i.037, 1
-  %exitcond43.not = icmp eq i32 %inc51, %conv
-  br i1 %exitcond43.not, label %for.end53, label %for.body, !llvm.loop !18
+  %add.ptr49 = getelementptr inbounds i8, ptr %buf.040, i64 %idx.ext48
+  %inc51 = add nuw nsw i32 %i.039, 1
+  %exitcond45.not = icmp eq i32 %inc51, %conv
+  br i1 %exitcond45.not, label %for.end53, label %for.body, !llvm.loop !18
 
 for.end53:                                        ; preds = %if.end47, %if.end, %entry
   ret void
@@ -2065,7 +2038,7 @@ for.end53:                                        ; preds = %if.end47, %if.end, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN6bParse5bFile7swapLenEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef %dataPtr) local_unnamed_addr #19 align 2 {
 entry:
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 16
   %tobool.not = icmp eq i32 %and, 0
@@ -2083,11 +2056,11 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %len = getelementptr inbounds %"class.bParse::bChunkPtr4", ptr %dataPtr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dataPtr, i64 4
   %2 = load <4 x i8>, ptr %len, align 1
   %3 = shufflevector <4 x i8> %2, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x i8> %3, ptr %len, align 1
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkPtr4", ptr %dataPtr, i64 0, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %dataPtr, i64 12
   %4 = load <8 x i8>, ptr %dna_nr, align 1
   %5 = shufflevector <8 x i8> %4, <8 x i8> poison, <8 x i32> <i32 3, i32 2, i32 1, i32 0, i32 7, i32 6, i32 5, i32 4>
   store <8 x i8> %5, ptr %dna_nr, align 1
@@ -2105,11 +2078,11 @@ if.then36:                                        ; preds = %if.else
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then36, %if.else
-  %len42 = getelementptr inbounds %"class.bParse::bChunkPtr8", ptr %dataPtr, i64 0, i32 1
+  %len42 = getelementptr inbounds i8, ptr %dataPtr, i64 4
   %7 = load <4 x i8>, ptr %len42, align 1
   %8 = shufflevector <4 x i8> %7, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x i8> %8, ptr %len42, align 1
-  %dna_nr53 = getelementptr inbounds %"class.bParse::bChunkPtr8", ptr %dataPtr, i64 0, i32 3
+  %dna_nr53 = getelementptr inbounds i8, ptr %dataPtr, i64 16
   %9 = load <8 x i8>, ptr %dna_nr53, align 1
   %10 = shufflevector <8 x i8> %9, <8 x i8> poison, <8 x i32> <i32 3, i32 2, i32 1, i32 0, i32 7, i32 6, i32 5, i32 4>
   store <8 x i8> %10, ptr %dna_nr53, align 1
@@ -2122,7 +2095,7 @@ if.end73:                                         ; preds = %if.end39, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile7swapDNAEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %ptr) local_unnamed_addr #2 align 2 {
 entry:
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 4
   %cmp.not = icmp eq i32 %and, 0
@@ -2144,7 +2117,7 @@ if.end6:                                          ; preds = %entry, %if.then4
   %dataLen.0 = phi i32 [ %call5, %if.then4 ], [ %1, %entry ]
   %call7 = tail call noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef %2)
   store i32 %call7, ptr %spec.select, align 4
-  %incdec.ptr8 = getelementptr inbounds i32, ptr %spec.select, i64 1
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %cmp967 = icmp sgt i32 %dataLen.0, 0
   br i1 %cmp967, label %while.cond.preheader, label %for.end
 
@@ -2171,7 +2144,7 @@ for.end:                                          ; preds = %while.end, %if.end6
   %add.i = add i64 %4, 3
   %and.i = and i64 %add.i, -4
   %5 = inttoptr i64 %and.i to ptr
-  %incdec.ptr14 = getelementptr inbounds i32, ptr %5, i64 1
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %incdec.ptr14, align 4
   br i1 %cmp.not, label %if.end19, label %if.then16
 
@@ -2189,11 +2162,11 @@ if.end19:                                         ; preds = %for.end, %if.then16
   br i1 %cmp2370, label %while.cond25.preheader.preheader, label %for.end33.thread
 
 while.cond25.preheader.preheader:                 ; preds = %if.end19
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %5, i64 2
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %5, i64 8
   br label %while.cond25.preheader
 
 for.end33.thread:                                 ; preds = %if.end19
-  %incdec.ptr3597 = getelementptr inbounds i32, ptr %5, i64 3
+  %incdec.ptr3597 = getelementptr inbounds i8, ptr %5, i64 12
   br label %for.end45
 
 while.cond25.preheader:                           ; preds = %while.cond25.preheader.preheader, %while.end29
@@ -2218,7 +2191,7 @@ for.end33:                                        ; preds = %while.end29
   %add.i65 = add i64 %9, 3
   %and.i66 = and i64 %add.i65, -4
   %10 = inttoptr i64 %and.i66 to ptr
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %10, i64 1
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %10, i64 4
   br i1 %cmp2370, label %for.body38, label %for.end45
 
 for.body38:                                       ; preds = %for.end33, %for.body38
@@ -2228,65 +2201,66 @@ for.body38:                                       ; preds = %for.end33, %for.bod
   %call40 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %11)
   store i16 %call40, ptr %shtPtr.075, align 2
   %inc43 = add nuw nsw i32 %i.276, 1
-  %incdec.ptr44 = getelementptr inbounds i16, ptr %shtPtr.075, i64 1
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %shtPtr.075, i64 2
   %exitcond89.not = icmp eq i32 %inc43, %dataLen.1
   br i1 %exitcond89.not, label %for.end45, label %for.body38, !llvm.loop !23
 
 for.end45:                                        ; preds = %for.body38, %for.end33.thread, %for.end33
   %shtPtr.0.lcssa = phi ptr [ %incdec.ptr35, %for.end33 ], [ %incdec.ptr3597, %for.end33.thread ], [ %incdec.ptr44, %for.body38 ]
-  %and46 = and i32 %dataLen.1, 1
-  %spec.select64.idx = zext nneg i32 %and46 to i64
-  %spec.select64 = getelementptr inbounds i16, ptr %shtPtr.0.lcssa, i64 %spec.select64.idx
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %spec.select64, i64 1
-  %12 = load i32, ptr %incdec.ptr51, align 4
+  %and46 = shl i32 %dataLen.1, 1
+  %12 = and i32 %and46, 2
+  %spec.select64.idx = zext nneg i32 %12 to i64
+  %spec.select64 = getelementptr inbounds i8, ptr %shtPtr.0.lcssa, i64 %spec.select64.idx
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %spec.select64, i64 4
+  %13 = load i32, ptr %incdec.ptr51, align 4
   br i1 %cmp.not, label %if.end56, label %if.then53
 
 if.then53:                                        ; preds = %for.end45
-  %call54 = tail call noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef %12)
+  %call54 = tail call noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef %13)
   %.pre93 = load i32, ptr %incdec.ptr51, align 4
   br label %if.end56
 
 if.end56:                                         ; preds = %for.end45, %if.then53
-  %13 = phi i32 [ %.pre93, %if.then53 ], [ %12, %for.end45 ]
-  %dataLen.2 = phi i32 [ %call54, %if.then53 ], [ %12, %for.end45 ]
-  %call57 = tail call noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef %13)
+  %14 = phi i32 [ %.pre93, %if.then53 ], [ %13, %for.end45 ]
+  %dataLen.2 = phi i32 [ %call54, %if.then53 ], [ %13, %for.end45 ]
+  %call57 = tail call noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef %14)
   store i32 %call57, ptr %incdec.ptr51, align 4
   %cmp6084 = icmp sgt i32 %dataLen.2, 0
   br i1 %cmp6084, label %for.body61.preheader, label %for.end84
 
 for.body61.preheader:                             ; preds = %if.end56
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %spec.select64, i64 2
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %spec.select64, i64 8
   br label %for.body61
 
 for.body61:                                       ; preds = %for.body61.preheader, %for.inc82
   %i.386 = phi i32 [ %inc83, %for.inc82 ], [ 0, %for.body61.preheader ]
   %shtPtr.285 = phi ptr [ %shtPtr.3.lcssa, %for.inc82 ], [ %incdec.ptr58, %for.body61.preheader ]
-  %arrayidx62 = getelementptr inbounds i16, ptr %shtPtr.285, i64 1
-  %14 = load i16, ptr %arrayidx62, align 2
-  %conv = sext i16 %14 to i32
-  %15 = load i16, ptr %shtPtr.285, align 2
-  %call64 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %15)
+  %arrayidx62 = getelementptr inbounds i8, ptr %shtPtr.285, i64 2
+  %15 = load i16, ptr %arrayidx62, align 2
+  %conv = sext i16 %15 to i32
+  %16 = load i16, ptr %shtPtr.285, align 2
+  %call64 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %16)
   store i16 %call64, ptr %shtPtr.285, align 2
-  %16 = load i16, ptr %arrayidx62, align 2
-  %call67 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %16)
+  %17 = load i16, ptr %arrayidx62, align 2
+  %call67 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %17)
   store i16 %call67, ptr %arrayidx62, align 2
-  %shtPtr.378 = getelementptr inbounds i16, ptr %shtPtr.285, i64 2
-  %cmp7079 = icmp sgt i16 %14, 0
+  %shtPtr.378 = getelementptr inbounds i8, ptr %shtPtr.285, i64 4
+  %cmp7079 = icmp sgt i16 %15, 0
   br i1 %cmp7079, label %for.body71, label %for.inc82
 
 for.body71:                                       ; preds = %for.body61, %for.body71
   %shtPtr.382 = phi ptr [ %shtPtr.3, %for.body71 ], [ %shtPtr.378, %for.body61 ]
   %a.081 = phi i32 [ %inc79, %for.body71 ], [ 0, %for.body61 ]
   %shtPtr.2.pn80 = phi ptr [ %shtPtr.382, %for.body71 ], [ %shtPtr.285, %for.body61 ]
-  %17 = load i16, ptr %shtPtr.382, align 2
-  %call73 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %17)
+  %18 = load i16, ptr %shtPtr.382, align 2
+  %call73 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %18)
   store i16 %call73, ptr %shtPtr.382, align 2
-  %arrayidx75 = getelementptr inbounds i16, ptr %shtPtr.2.pn80, i64 3
-  %18 = load i16, ptr %arrayidx75, align 2
-  %call76 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %18)
+  %arrayidx75 = getelementptr inbounds i8, ptr %shtPtr.2.pn80, i64 6
+  %19 = load i16, ptr %arrayidx75, align 2
+  %call76 = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %19)
   store i16 %call76, ptr %arrayidx75, align 2
   %inc79 = add nuw nsw i32 %a.081, 1
-  %shtPtr.3 = getelementptr inbounds i16, ptr %shtPtr.382, i64 2
+  %shtPtr.3 = getelementptr inbounds i8, ptr %shtPtr.382, i64 4
   %exitcond90.not = icmp eq i32 %inc79, %conv
   br i1 %exitcond90.not, label %for.inc82, label %for.body71, !llvm.loop !24
 
@@ -2308,9 +2282,9 @@ declare noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef sign
 define dso_local void @_ZN6bParse5bFile9writeFileEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %fileName) local_unnamed_addr #20 align 2 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %fileName, ptr noundef nonnull @.str.7)
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mFileBuffer, align 8
-  %mFileLen = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 4
+  %mFileLen = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %mFileLen, align 8
   %conv = sext i32 %1 to i64
   %call2 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %conv, ptr noundef %call)
@@ -2325,22 +2299,22 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 define dso_local void @_ZN6bParse5bFile7preSwapEv(ptr noundef nonnull align 8 dereferenceable(540) %this) local_unnamed_addr #2 align 2 {
 entry:
   %dataChunk = alloca %"class.bParse::bChunkInd", align 8
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mFileBuffer, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %arrayidx2, align 1
   %cmp = icmp eq i8 %1, 86
   %. = select i1 %cmp, i8 118, i8 86
   store i8 %., ptr %arrayidx2, align 1
-  %mDataStart = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 7
+  %mDataStart = getelementptr inbounds i8, ptr %this, i64 160
   store i32 12, ptr %mDataStart, align 8
   %2 = load ptr, ptr %mFileBuffer, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %dataChunk, align 8
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %3 = load i32, ptr %mFlags, align 8
   %call = call noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull align 8 poison, ptr noundef nonnull %dataChunk, ptr noundef nonnull %add.ptr, i32 noundef %3)
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %dataChunk, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %if.end33, %entry
@@ -2393,7 +2367,7 @@ define dso_local noundef ptr @_ZN6bParse5bFile10readStructEPcRNS_9bChunkIndE(ptr
 entry:
   %ref.tmp = alloca %class.b3HashPtr, align 8
   %ref.tmp84 = alloca ptr, align 8
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -2404,9 +2378,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %mFileDNA, align 8
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %dataChunk, i64 16
   %2 = load i32, ptr %dna_nr, align 8
   %call = tail call noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr noundef nonnull align 8 dereferenceable(420) %1, i32 noundef %2)
   br i1 %call, label %if.end93, label %if.then3
@@ -2441,7 +2415,7 @@ if.end21:                                         ; preds = %if.then16
   br i1 %cmp23, label %if.then24, label %if.end48
 
 if.then24:                                        ; preds = %if.end21
-  %nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %dataChunk, i64 20
   %10 = load i32, ptr %nr, align 4
   %mul = shl nsw i32 %10, 1
   %add = or disjoint i32 %mul, 1
@@ -2483,7 +2457,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %for.body.us.preheader, %if.then24
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %17 = load ptr, ptr %vfn, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull %call26)
   br label %return
@@ -2494,7 +2468,7 @@ if.end48:                                         ; preds = %if.end21, %if.then3
   br i1 %cmp50.not, label %if.end93, label %if.then51
 
 if.then51:                                        ; preds = %if.end48
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %18 = load ptr, ptr %mMemoryDNA, align 8
   %call52 = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef %call8)
   %cmp53.not = icmp eq i32 %call52, -1
@@ -2512,7 +2486,7 @@ if.then54:                                        ; preds = %if.then51
   %conv63 = sext i16 %23 to i32
   %call64 = tail call noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr noundef nonnull align 8 dereferenceable(420) %22, i32 noundef %conv63)
   %conv65 = sext i16 %call64 to i32
-  %nr68 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 4
+  %nr68 = getelementptr inbounds i8, ptr %dataChunk, i64 20
   %24 = load i32, ptr %nr68, align 4
   %mul69 = mul nsw i32 %24, %conv65
   %add70 = add nsw i32 %mul69, 1
@@ -2521,7 +2495,7 @@ if.then54:                                        ; preds = %if.then51
   %conv75 = sext i32 %mul69 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call72, i8 0, i64 %conv75, i1 false)
   %vtable76 = load ptr, ptr %this, align 8
-  %vfn77 = getelementptr inbounds ptr, ptr %vtable76, i64 4
+  %vfn77 = getelementptr inbounds i8, ptr %vtable76, i64 32
   %25 = load ptr, ptr %vfn77, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull %call72)
   %26 = load i32, ptr %nr68, align 4
@@ -2529,7 +2503,7 @@ if.then54:                                        ; preds = %if.then51
   br i1 %cmp8051, label %for.body81.lr.ph, label %return
 
 for.body81.lr.ph:                                 ; preds = %if.then54
-  %mLibPointers = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6
+  %mLibPointers = getelementptr inbounds i8, ptr %this, i64 32
   %idx.ext = sext i16 %call64 to i64
   %idx.ext85 = sext i16 %call12 to i64
   br label %for.body81
@@ -2551,14 +2525,14 @@ for.body81:                                       ; preds = %for.body81.lr.ph, %
   br i1 %cmp80, label %for.body81, label %return, !llvm.loop !28
 
 if.end93:                                         ; preds = %if.end, %if.then51, %if.end48
-  %len = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dataChunk, i64 4
   %29 = load i32, ptr %len, align 4
   %add95 = add nsw i32 %29, 1
   %conv96 = sext i32 %add95 to i64
   %call97 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv96) #33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call97, i8 0, i64 %conv96, i1 false)
   %vtable101 = load ptr, ptr %this, align 8
-  %vfn102 = getelementptr inbounds ptr, ptr %vtable101, i64 4
+  %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 32
   %30 = load ptr, ptr %vfn102, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull %call97)
   %31 = load i32, ptr %len, align 4
@@ -2591,55 +2565,56 @@ entry:
   br i1 %or.cond, label %for.end74, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %mMemoryDNA, align 8
   %call = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %0, i32 noundef %new_dna)
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %mFileDNA, align 8
   %call5 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %1, i32 noundef %old_dna)
   store ptr %call5, ptr %filePtrOld, align 8
   %2 = load ptr, ptr %mMemoryDNA, align 8
   %call7 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %2, i32 noundef 0)
   %3 = load i16, ptr %call7, align 2
-  %arrayidx8 = getelementptr inbounds i16, ptr %call, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %call, i64 2
   %4 = load i16, ptr %arrayidx8, align 2
   %conv = sext i16 %4 to i32
-  %cmp966 = icmp sgt i16 %4, 0
-  br i1 %cmp966, label %for.body, label %for.end74
+  %cmp968 = icmp sgt i16 %4, 0
+  br i1 %cmp968, label %for.body, label %for.end74
 
 for.body:                                         ; preds = %if.end4, %for.inc71
-  %cpc.069 = phi ptr [ %add.ptr69, %for.inc71 ], [ %strcPtr, %if.end4 ]
-  %ele.068 = phi i32 [ %inc72, %for.inc71 ], [ 0, %if.end4 ]
-  %call.pn67 = phi ptr [ %memoryStruct.071, %for.inc71 ], [ %call, %if.end4 ]
-  %memoryStruct.071 = getelementptr inbounds i16, ptr %call.pn67, i64 2
+  %cpc.071 = phi ptr [ %add.ptr69, %for.inc71 ], [ %strcPtr, %if.end4 ]
+  %ele.070 = phi i32 [ %inc72, %for.inc71 ], [ 0, %if.end4 ]
+  %call.pn69 = phi ptr [ %memoryStruct.073, %for.inc71 ], [ %call, %if.end4 ]
+  %memoryStruct.073 = getelementptr inbounds i8, ptr %call.pn69, i64 4
   %5 = load ptr, ptr %mMemoryDNA, align 8
-  %6 = load i16, ptr %memoryStruct.071, align 2
+  %6 = load i16, ptr %memoryStruct.073, align 2
   %conv12 = sext i16 %6 to i32
   %call13 = call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %5, i32 noundef %conv12)
   %7 = load ptr, ptr %mMemoryDNA, align 8
-  %arrayidx15 = getelementptr inbounds i16, ptr %call.pn67, i64 3
+  %arrayidx15 = getelementptr inbounds i8, ptr %call.pn69, i64 6
   %8 = load i16, ptr %arrayidx15, align 2
   %conv16 = sext i16 %8 to i32
   %call17 = call noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull align 8 dereferenceable(420) %7, i32 noundef %conv16)
   %9 = load ptr, ptr %mMemoryDNA, align 8
-  %10 = load i16, ptr %memoryStruct.071, align 2
+  %10 = load i16, ptr %memoryStruct.073, align 2
   %11 = load i16, ptr %arrayidx15, align 2
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bDNA", ptr %9, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %9, i64 48
   %12 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i16 %11 to i64
-  %m_isPointer.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %12, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %12, i64 %idxprom.i.i
+  %m_isPointer.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %13 = load i8, ptr %m_isPointer.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i = icmp eq i8 %14, 0
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %mPtrLen.i = getelementptr inbounds %"class.bParse::bDNA", ptr %9, i64 0, i32 7
+  %mPtrLen.i = getelementptr inbounds i8, ptr %9, i64 416
   %15 = load i32, ptr %mPtrLen.i, align 8
   br label %_ZN6bParse4bDNA14getElementSizeEss.exit
 
 cond.false.i:                                     ; preds = %for.body
-  %m_data.i5.i = getelementptr inbounds %"class.bParse::bDNA", ptr %9, i64 0, i32 4, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %9, i64 144
   %16 = load ptr, ptr %m_data.i5.i, align 8
   %idxprom.i6.i = sext i16 %10 to i64
   %arrayidx.i7.i = getelementptr inbounds i16, ptr %16, i64 %idxprom.i6.i
@@ -2649,10 +2624,10 @@ cond.false.i:                                     ; preds = %for.body
 
 _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %cond.true.i, %cond.false.i
   %conv5.sink.i = phi i32 [ %conv5.i, %cond.false.i ], [ %15, %cond.true.i ]
-  %m_dim06.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %12, i64 %idxprom.i.i, i32 2
+  %m_dim06.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %18 = load i32, ptr %m_dim06.i, align 4
   %mul7.i = mul nsw i32 %18, %conv5.sink.i
-  %m_dim18.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %12, i64 %idxprom.i.i, i32 3
+  %m_dim18.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %19 = load i32, ptr %m_dim18.i, align 8
   %mul9.i = mul nsw i32 %mul7.i, %19
   %call24 = call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonnull align 8 dereferenceable(420) %9, i16 noundef signext %10)
@@ -2660,7 +2635,7 @@ _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %cond.true.i, %cond.
   br i1 %cmp25.not, label %if.else66, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit
-  %20 = load i16, ptr %memoryStruct.071, align 2
+  %20 = load i16, ptr %memoryStruct.073, align 2
   %cmp29.not = icmp slt i16 %20, %3
   br i1 %cmp29.not, label %if.else66, label %land.lhs.true30
 
@@ -2677,89 +2652,91 @@ if.then34:                                        ; preds = %land.lhs.true30
 if.then36:                                        ; preds = %if.then34
   %22 = load ptr, ptr %mFileDNA, align 8
   %23 = load ptr, ptr %filePtrOld, align 8
-  %arrayidx38 = getelementptr inbounds i16, ptr %23, i64 1
+  %arrayidx38 = getelementptr inbounds i8, ptr %23, i64 2
   %24 = load i16, ptr %arrayidx38, align 2
-  %m_data.i.i42 = getelementptr inbounds %"class.bParse::bDNA", ptr %22, i64 0, i32 1, i32 5
+  %m_data.i.i42 = getelementptr inbounds i8, ptr %22, i64 48
   %25 = load ptr, ptr %m_data.i.i42, align 8
   %idxprom.i.i43 = sext i16 %24 to i64
-  %m_dim0.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %25, i64 %idxprom.i.i43, i32 2
+  %arrayidx.i.i44 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %25, i64 %idxprom.i.i43
+  %m_dim0.i = getelementptr inbounds i8, ptr %arrayidx.i.i44, i64 12
   %26 = load i32, ptr %m_dim0.i, align 4
-  %m_dim1.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %25, i64 %idxprom.i.i43, i32 3
+  %m_dim1.i = getelementptr inbounds i8, ptr %arrayidx.i.i44, i64 16
   %27 = load i32, ptr %m_dim1.i, align 8
   %mul.i = mul i32 %27, %26
   %call41 = call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %22, ptr noundef %call13)
   %28 = load ptr, ptr %mFileDNA, align 8
   %29 = load ptr, ptr %filePtrOld, align 8
-  %arrayidx44 = getelementptr inbounds i16, ptr %29, i64 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %29, i64 2
   %30 = load i16, ptr %arrayidx44, align 2
-  %m_data.i.i44 = getelementptr inbounds %"class.bParse::bDNA", ptr %28, i64 0, i32 1, i32 5
-  %31 = load ptr, ptr %m_data.i.i44, align 8
-  %idxprom.i.i45 = sext i16 %30 to i64
-  %m_isPointer.i46 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %31, i64 %idxprom.i.i45, i32 1
-  %32 = load i8, ptr %m_isPointer.i46, align 8
+  %m_data.i.i45 = getelementptr inbounds i8, ptr %28, i64 48
+  %31 = load ptr, ptr %m_data.i.i45, align 8
+  %idxprom.i.i46 = sext i16 %30 to i64
+  %arrayidx.i.i47 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %31, i64 %idxprom.i.i46
+  %m_isPointer.i48 = getelementptr inbounds i8, ptr %arrayidx.i.i47, i64 8
+  %32 = load i8, ptr %m_isPointer.i48, align 8
   %33 = and i8 %32, 1
-  %tobool.not.i47 = icmp eq i8 %33, 0
-  br i1 %tobool.not.i47, label %cond.false.i55, label %cond.true.i48
+  %tobool.not.i49 = icmp eq i8 %33, 0
+  br i1 %tobool.not.i49, label %cond.false.i57, label %cond.true.i50
 
-cond.true.i48:                                    ; preds = %if.then36
-  %mPtrLen.i49 = getelementptr inbounds %"class.bParse::bDNA", ptr %28, i64 0, i32 7
-  %34 = load i32, ptr %mPtrLen.i49, align 8
-  br label %_ZN6bParse4bDNA14getElementSizeEss.exit60
+cond.true.i50:                                    ; preds = %if.then36
+  %mPtrLen.i51 = getelementptr inbounds i8, ptr %28, i64 416
+  %34 = load i32, ptr %mPtrLen.i51, align 8
+  br label %_ZN6bParse4bDNA14getElementSizeEss.exit62
 
-cond.false.i55:                                   ; preds = %if.then36
+cond.false.i57:                                   ; preds = %if.then36
   %35 = load i16, ptr %29, align 2
-  %m_data.i5.i56 = getelementptr inbounds %"class.bParse::bDNA", ptr %28, i64 0, i32 4, i32 5
-  %36 = load ptr, ptr %m_data.i5.i56, align 8
-  %idxprom.i6.i57 = sext i16 %35 to i64
-  %arrayidx.i7.i58 = getelementptr inbounds i16, ptr %36, i64 %idxprom.i6.i57
-  %37 = load i16, ptr %arrayidx.i7.i58, align 2
-  %conv5.i59 = sext i16 %37 to i32
-  br label %_ZN6bParse4bDNA14getElementSizeEss.exit60
+  %m_data.i5.i58 = getelementptr inbounds i8, ptr %28, i64 144
+  %36 = load ptr, ptr %m_data.i5.i58, align 8
+  %idxprom.i6.i59 = sext i16 %35 to i64
+  %arrayidx.i7.i60 = getelementptr inbounds i16, ptr %36, i64 %idxprom.i6.i59
+  %37 = load i16, ptr %arrayidx.i7.i60, align 2
+  %conv5.i61 = sext i16 %37 to i32
+  br label %_ZN6bParse4bDNA14getElementSizeEss.exit62
 
-_ZN6bParse4bDNA14getElementSizeEss.exit60:        ; preds = %cond.true.i48, %cond.false.i55
-  %conv5.sink.i50 = phi i32 [ %conv5.i59, %cond.false.i55 ], [ %34, %cond.true.i48 ]
-  %m_dim06.i51 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %31, i64 %idxprom.i.i45, i32 2
-  %38 = load i32, ptr %m_dim06.i51, align 4
-  %mul7.i52 = mul nsw i32 %38, %conv5.sink.i50
-  %m_dim18.i53 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %31, i64 %idxprom.i.i45, i32 3
-  %39 = load i32, ptr %m_dim18.i53, align 8
-  %mul9.i54 = mul nsw i32 %mul7.i52, %39
+_ZN6bParse4bDNA14getElementSizeEss.exit62:        ; preds = %cond.true.i50, %cond.false.i57
+  %conv5.sink.i52 = phi i32 [ %conv5.i61, %cond.false.i57 ], [ %34, %cond.true.i50 ]
+  %m_dim06.i53 = getelementptr inbounds i8, ptr %arrayidx.i.i47, i64 12
+  %38 = load i32, ptr %m_dim06.i53, align 4
+  %mul7.i54 = mul nsw i32 %38, %conv5.sink.i52
+  %m_dim18.i55 = getelementptr inbounds i8, ptr %arrayidx.i.i47, i64 16
+  %39 = load i32, ptr %m_dim18.i55, align 8
+  %mul9.i56 = mul nsw i32 %mul7.i54, %39
   %cmp46 = icmp eq i32 %mul.i, 1
   br i1 %cmp46, label %if.then47, label %for.cond49.preheader
 
-for.cond49.preheader:                             ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit60
-  %cmp5061 = icmp sgt i32 %mul.i, 0
-  br i1 %cmp5061, label %for.body51, label %for.inc71
+for.cond49.preheader:                             ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit62
+  %cmp5063 = icmp sgt i32 %mul.i, 0
+  br i1 %cmp5063, label %for.body51, label %for.inc71
 
-if.then47:                                        ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit60
-  call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %cpc.069, ptr noundef nonnull %call35, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
+if.then47:                                        ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit62
+  call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %cpc.071, ptr noundef nonnull %call35, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
   br label %for.inc71
 
 for.body51:                                       ; preds = %for.cond49.preheader, %for.body51
-  %i.064 = phi i32 [ %inc, %for.body51 ], [ 0, %for.cond49.preheader ]
-  %tmpCpo.063 = phi ptr [ %add.ptr56, %for.body51 ], [ %call35, %for.cond49.preheader ]
-  %tmpCpc.062 = phi ptr [ %add.ptr53, %for.body51 ], [ %cpc.069, %for.cond49.preheader ]
-  call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %tmpCpc.062, ptr noundef %tmpCpo.063, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
+  %i.066 = phi i32 [ %inc, %for.body51 ], [ 0, %for.cond49.preheader ]
+  %tmpCpo.065 = phi ptr [ %add.ptr56, %for.body51 ], [ %call35, %for.cond49.preheader ]
+  %tmpCpc.064 = phi ptr [ %add.ptr53, %for.body51 ], [ %cpc.071, %for.cond49.preheader ]
+  call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %tmpCpc.064, ptr noundef %tmpCpo.065, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
   %div = sdiv i32 %mul9.i, %mul.i
   %idx.ext = sext i32 %div to i64
-  %add.ptr53 = getelementptr inbounds i8, ptr %tmpCpc.062, i64 %idx.ext
-  %div54 = sdiv i32 %mul9.i54, %mul.i
+  %add.ptr53 = getelementptr inbounds i8, ptr %tmpCpc.064, i64 %idx.ext
+  %div54 = sdiv i32 %mul9.i56, %mul.i
   %idx.ext55 = sext i32 %div54 to i64
-  %add.ptr56 = getelementptr inbounds i8, ptr %tmpCpo.063, i64 %idx.ext55
-  %inc = add nuw nsw i32 %i.064, 1
+  %add.ptr56 = getelementptr inbounds i8, ptr %tmpCpo.065, i64 %idx.ext55
+  %inc = add nuw nsw i32 %i.066, 1
   %exitcond.not = icmp eq i32 %inc, %mul.i
   br i1 %exitcond.not, label %for.inc71, label %for.body51, !llvm.loop !29
 
 if.else66:                                        ; preds = %land.lhs.true30, %land.lhs.true, %_ZN6bParse4bDNA14getElementSizeEss.exit
-  call void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %call5, ptr noundef %call17, ptr noundef %call13, ptr noundef %cpc.069, ptr noundef %dtPtr, i1 noundef zeroext %fixupPointers)
+  call void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %call5, ptr noundef %call17, ptr noundef %call13, ptr noundef %cpc.071, ptr noundef %dtPtr, i1 noundef zeroext %fixupPointers)
   br label %for.inc71
 
 for.inc71:                                        ; preds = %for.body51, %if.then34, %if.then47, %for.cond49.preheader, %if.else66
   %idx.ext68 = sext i32 %mul9.i to i64
-  %add.ptr69 = getelementptr inbounds i8, ptr %cpc.069, i64 %idx.ext68
-  %inc72 = add nuw nsw i32 %ele.068, 1
-  %exitcond72.not = icmp eq i32 %inc72, %conv
-  br i1 %exitcond72.not, label %for.end74, label %for.body, !llvm.loop !30
+  %add.ptr69 = getelementptr inbounds i8, ptr %cpc.071, i64 %idx.ext68
+  %inc72 = add nuw nsw i32 %ele.070, 1
+  %exitcond74.not = icmp eq i32 %inc72, %conv
+  br i1 %exitcond74.not, label %for.end74, label %for.body, !llvm.loop !30
 
 for.end74:                                        ; preds = %for.inc71, %if.end4, %entry
   ret void
@@ -2769,7 +2746,7 @@ for.end74:                                        ; preds = %for.inc71, %if.end4
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE6insertERKS0_RKS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #2 comdat align 2 {
 entry:
   %0 = load i32, ptr %key, align 8
-  %arrayidx2.i = getelementptr inbounds [2 x i32], ptr %key, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %arrayidx2.i, align 4
   %add.i = add nsw i32 %1, %0
   %shl.i = shl i32 %add.i, 15
@@ -2785,18 +2762,18 @@ entry:
   %add10.i = add nsw i32 %xor7.i, %not9.i
   %shr11.i = ashr i32 %add10.i, 16
   %xor12.i = xor i32 %shr11.i, %add10.i
-  %m_valueArray = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2
-  %m_capacity.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 3
+  %m_valueArray = getelementptr inbounds i8, ptr %this, i64 64
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i32, ptr %m_capacity.i, align 8
   %sub.i = add nsw i32 %2, -1
   %and.i = and i32 %xor12.i, %sub.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %m_size.i.i, align 4
   %cmp.not.i = icmp ult i32 %and.i, %3
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %and.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i
@@ -2805,10 +2782,10 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp6.not13.i, label %if.end, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end.i
-  %m_data.i6.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i6.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load ptr, ptr %m_data.i6.i, align 8
   %6 = load ptr, ptr %key, align 8
-  %m_data.i9.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i9.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %m_data.i9.i, align 8
   br label %land.rhs.i
 
@@ -2828,14 +2805,14 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 if.then:                                          ; preds = %land.rhs.i
   %9 = load ptr, ptr %value, align 8
-  %m_data.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i7.i
   store ptr %9, ptr %arrayidx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %while.body.i, %entry, %if.end.i
-  %m_size.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 68
   %11 = load i32, ptr %m_size.i, align 4
   %cmp.i = icmp eq i32 %11, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit
@@ -2850,7 +2827,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit: ; preds = %if.end, %if.then.i
   %12 = phi i32 [ %.pre.i, %if.then.i ], [ %11, %if.end ]
-  %m_data.i13 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load ptr, ptr %m_data.i13, align 8
   %idxprom.i14 = sext i32 %12 to i64
   %arrayidx.i15 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i14
@@ -2859,15 +2836,15 @@ _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit: ; pre
   %15 = load i32, ptr %m_size.i, align 4
   %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %m_size.i, align 4
-  %m_size.i.i16 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i16 = getelementptr inbounds i8, ptr %this, i64 100
   %16 = load i32, ptr %m_size.i.i16, align 4
-  %m_capacity.i.i17 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i17 = getelementptr inbounds i8, ptr %this, i64 104
   %17 = load i32, ptr %m_capacity.i.i17, align 8
   %cmp.i18 = icmp eq i32 %16, %17
   br i1 %cmp.i18, label %if.then.i24, label %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit
 
 if.then.i24:                                      ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit
-  %m_keyArray = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3
+  %m_keyArray = getelementptr inbounds i8, ptr %this, i64 96
   %tobool.not.i.i25 = icmp eq i32 %16, 0
   %mul.i.i26 = shl nsw i32 %16, 1
   %cond.i.i27 = select i1 %tobool.not.i.i25, i32 1, i32 %mul.i.i26
@@ -2877,7 +2854,7 @@ if.then.i24:                                      ; preds = %_ZN20b3AlignedObjec
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit, %if.then.i24
   %18 = phi i32 [ %.pre.i28, %if.then.i24 ], [ %16, %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit ]
-  %m_data.i20 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 112
   %19 = load ptr, ptr %m_data.i20, align 8
   %idxprom.i21 = sext i32 %18 to i64
   %arrayidx.i22 = getelementptr inbounds %class.b3HashPtr, ptr %19, i64 %idxprom.i21
@@ -2915,12 +2892,12 @@ if.then14:                                        ; preds = %_ZN20b3AlignedObjec
 
 if.end20:                                         ; preds = %if.then14, %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit
   %hash.0 = phi i32 [ %and19, %if.then14 ], [ %and.i, %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit ]
-  %m_data.i46 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i46 = getelementptr inbounds i8, ptr %this, i64 16
   %26 = load ptr, ptr %m_data.i46, align 8
   %idxprom.i47 = sext i32 %hash.0 to i64
   %arrayidx.i48 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i47
   %27 = load i32, ptr %arrayidx.i48, align 4
-  %m_data.i49 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i49 = getelementptr inbounds i8, ptr %this, i64 48
   %28 = load ptr, ptr %m_data.i49, align 8
   %idxprom.i50 = sext i32 %11 to i64
   %arrayidx.i51 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i50
@@ -2939,14 +2916,14 @@ declare noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6bParse5bFile14getFileElementEPsPcS2_S2_PS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %firstStruct, ptr nocapture noundef readonly %lookupName, ptr nocapture noundef readonly %lookupType, ptr noundef readnone %data, ptr noundef writeonly %foundPos) local_unnamed_addr #2 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i16, ptr %firstStruct, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %firstStruct, i64 2
   %0 = load i16, ptr %arrayidx, align 2
   %conv = sext i16 %0 to i32
   %cmp14 = icmp sgt i16 %0, 0
   br i1 %cmp14, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %.pre = load ptr, ptr %mFileDNA, align 8
   br label %for.body
 
@@ -2955,34 +2932,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %data.addr.017 = phi ptr [ %data, %for.body.lr.ph ], [ %add.ptr20, %if.end19 ]
   %firstStruct.pn16 = phi ptr [ %firstStruct, %for.body.lr.ph ], [ %old.018, %if.end19 ]
   %i.015 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end19 ]
-  %old.018 = getelementptr inbounds i16, ptr %firstStruct.pn16, i64 2
+  %old.018 = getelementptr inbounds i8, ptr %firstStruct.pn16, i64 4
   %2 = load i16, ptr %old.018, align 2
   %conv3 = sext i16 %2 to i32
   %call = tail call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %1, i32 noundef %conv3)
   %3 = load ptr, ptr %mFileDNA, align 8
-  %arrayidx5 = getelementptr inbounds i16, ptr %firstStruct.pn16, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %firstStruct.pn16, i64 6
   %4 = load i16, ptr %arrayidx5, align 2
   %conv6 = sext i16 %4 to i32
   %call7 = tail call noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull align 8 dereferenceable(420) %3, i32 noundef %conv6)
   %5 = load ptr, ptr %mFileDNA, align 8
   %6 = load i16, ptr %arrayidx5, align 2
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bDNA", ptr %5, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i16 %6 to i64
-  %m_isPointer.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i
+  %m_isPointer.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %8 = load i8, ptr %m_isPointer.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %mPtrLen.i = getelementptr inbounds %"class.bParse::bDNA", ptr %5, i64 0, i32 7
+  %mPtrLen.i = getelementptr inbounds i8, ptr %5, i64 416
   %10 = load i32, ptr %mPtrLen.i, align 8
   br label %_ZN6bParse4bDNA14getElementSizeEss.exit
 
 cond.false.i:                                     ; preds = %for.body
   %11 = load i16, ptr %old.018, align 2
-  %m_data.i5.i = getelementptr inbounds %"class.bParse::bDNA", ptr %5, i64 0, i32 4, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %5, i64 144
   %12 = load ptr, ptr %m_data.i5.i, align 8
   %idxprom.i6.i = sext i16 %11 to i64
   %arrayidx.i7.i = getelementptr inbounds i16, ptr %12, i64 %idxprom.i6.i
@@ -3010,10 +2988,10 @@ if.then17:                                        ; preds = %if.then16
   br label %return
 
 if.end19:                                         ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit
-  %m_dim06.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 2
+  %m_dim06.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %14 = load i32, ptr %m_dim06.i, align 4
   %mul7.i = mul nsw i32 %14, %conv5.sink.i
-  %m_dim18.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 3
+  %m_dim18.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %15 = load i32, ptr %m_dim18.i, align 8
   %mul9.i = mul nsw i32 %mul7.i, %15
   %idx.ext = sext i32 %mul9.i to i64
@@ -3030,51 +3008,52 @@ return:                                           ; preds = %if.end19, %entry, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %dna_addr, ptr nocapture noundef readonly %lookupName, ptr nocapture noundef readonly %lookupType, ptr noundef %strcData, ptr noundef %data, i1 noundef zeroext %fixupPointers) local_unnamed_addr #2 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i16, ptr %dna_addr, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %dna_addr, i64 2
   %0 = load i16, ptr %arrayidx, align 2
   %conv = sext i16 %0 to i32
-  %cmp64 = icmp sgt i16 %0, 0
-  br i1 %cmp64, label %for.body.lr.ph, label %for.end65
+  %cmp65 = icmp sgt i16 %0, 0
+  br i1 %cmp65, label %for.body.lr.ph, label %for.end65
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %.pre = load ptr, ptr %mFileDNA, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end59
   %1 = phi ptr [ %.pre, %for.body.lr.ph ], [ %5, %if.end59 ]
-  %dna_addr.pn67 = phi ptr [ %dna_addr, %for.body.lr.ph ], [ %dna_addr.addr.068, %if.end59 ]
-  %data.addr.066 = phi ptr [ %data, %for.body.lr.ph ], [ %add.ptr61, %if.end59 ]
-  %i.065 = phi i32 [ 0, %for.body.lr.ph ], [ %inc63, %if.end59 ]
-  %dna_addr.addr.068 = getelementptr inbounds i16, ptr %dna_addr.pn67, i64 2
-  %2 = load i16, ptr %dna_addr.addr.068, align 2
+  %dna_addr.pn68 = phi ptr [ %dna_addr, %for.body.lr.ph ], [ %dna_addr.addr.069, %if.end59 ]
+  %data.addr.067 = phi ptr [ %data, %for.body.lr.ph ], [ %add.ptr61, %if.end59 ]
+  %i.066 = phi i32 [ 0, %for.body.lr.ph ], [ %inc63, %if.end59 ]
+  %dna_addr.addr.069 = getelementptr inbounds i8, ptr %dna_addr.pn68, i64 4
+  %2 = load i16, ptr %dna_addr.addr.069, align 2
   %conv3 = sext i16 %2 to i32
   %call = tail call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %1, i32 noundef %conv3)
   %3 = load ptr, ptr %mFileDNA, align 8
-  %arrayidx5 = getelementptr inbounds i16, ptr %dna_addr.pn67, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %dna_addr.pn68, i64 6
   %4 = load i16, ptr %arrayidx5, align 2
   %conv6 = sext i16 %4 to i32
   %call7 = tail call noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull align 8 dereferenceable(420) %3, i32 noundef %conv6)
   %5 = load ptr, ptr %mFileDNA, align 8
   %6 = load i16, ptr %arrayidx5, align 2
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bDNA", ptr %5, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i16 %6 to i64
-  %m_isPointer.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i
+  %m_isPointer.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %8 = load i8, ptr %m_isPointer.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %mPtrLen.i = getelementptr inbounds %"class.bParse::bDNA", ptr %5, i64 0, i32 7
+  %mPtrLen.i = getelementptr inbounds i8, ptr %5, i64 416
   %10 = load i32, ptr %mPtrLen.i, align 8
   br label %_ZN6bParse4bDNA14getElementSizeEss.exit
 
 cond.false.i:                                     ; preds = %for.body
-  %11 = load i16, ptr %dna_addr.addr.068, align 2
-  %m_data.i5.i = getelementptr inbounds %"class.bParse::bDNA", ptr %5, i64 0, i32 4, i32 5
+  %11 = load i16, ptr %dna_addr.addr.069, align 2
+  %m_data.i5.i = getelementptr inbounds i8, ptr %5, i64 144
   %12 = load ptr, ptr %m_data.i5.i, align 8
   %idxprom.i6.i = sext i16 %11 to i64
   %arrayidx.i7.i = getelementptr inbounds i16, ptr %12, i64 %idxprom.i6.i
@@ -3084,9 +3063,9 @@ cond.false.i:                                     ; preds = %for.body
 
 _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %cond.true.i, %cond.false.i
   %conv5.sink.i = phi i32 [ %conv5.i, %cond.false.i ], [ %10, %cond.true.i ]
-  %m_dim06.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 2
+  %m_dim06.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %14 = load i32, ptr %m_dim06.i, align 4
-  %m_dim18.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 3
+  %m_dim18.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %15 = load i32, ptr %m_dim18.i, align 8
   %mul7.i = mul i32 %15, %14
   %mul9.i = mul i32 %mul7.i, %conv5.sink.i
@@ -3119,10 +3098,10 @@ if.then21:                                        ; preds = %if.end18
 
 if.then28:                                        ; preds = %if.then21
   %call30 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %5)
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %18 = load ptr, ptr %mMemoryDNA, align 8
   %call31 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %18)
-  tail call void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %strcData, ptr noundef %data.addr.066)
+  tail call void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %strcData, ptr noundef %data.addr.067)
   br i1 %fixupPointers, label %if.then32, label %for.end65
 
 if.then32:                                        ; preds = %if.then28
@@ -3130,19 +3109,19 @@ if.then32:                                        ; preds = %if.then28
   br i1 %cmp33, label %for.cond35.preheader, label %if.else
 
 for.cond35.preheader:                             ; preds = %if.then32
-  %m_size.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 2
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 3
-  %m_pointerFixupArray = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 5
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 188
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %m_pointerFixupArray = getelementptr inbounds i8, ptr %this, i64 184
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 200
   %idx.ext = sext i32 %call31 to i64
   %idx.ext39 = sext i32 %call30 to i64
   br label %for.body37
 
 for.body37:                                       ; preds = %for.cond35.preheader, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit
-  %a.071 = phi i32 [ 0, %for.cond35.preheader ], [ %inc, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit ]
-  %cpo.070 = phi ptr [ %data.addr.066, %for.cond35.preheader ], [ %add.ptr40, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit ]
-  %cpc.069 = phi ptr [ %strcData, %for.cond35.preheader ], [ %add.ptr38, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit ]
-  tail call void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %cpc.069, ptr noundef %cpo.070)
+  %a.072 = phi i32 [ 0, %for.cond35.preheader ], [ %inc, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit ]
+  %cpo.071 = phi ptr [ %data.addr.067, %for.cond35.preheader ], [ %add.ptr40, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit ]
+  %cpc.070 = phi ptr [ %strcData, %for.cond35.preheader ], [ %add.ptr38, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit ]
+  tail call void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %cpc.070, ptr noundef %cpo.071)
   %19 = load i32, ptr %m_size.i.i, align 4
   %20 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %19, %20
@@ -3161,15 +3140,15 @@ _ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit: ; preds = %for.body37, %if.t
   %22 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %21 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom.i
-  store ptr %cpc.069, ptr %arrayidx.i, align 8
+  store ptr %cpc.070, ptr %arrayidx.i, align 8
   %23 = load i32, ptr %m_size.i.i, align 4
   %inc.i = add nsw i32 %23, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %add.ptr38 = getelementptr inbounds i8, ptr %cpc.069, i64 %idx.ext
-  %add.ptr40 = getelementptr inbounds i8, ptr %cpo.070, i64 %idx.ext39
-  %inc = add nuw nsw i32 %a.071, 1
-  %exitcond82.not = icmp eq i32 %inc, %mul7.i
-  br i1 %exitcond82.not, label %for.end65, label %for.body37, !llvm.loop !32
+  %add.ptr38 = getelementptr inbounds i8, ptr %cpc.070, i64 %idx.ext
+  %add.ptr40 = getelementptr inbounds i8, ptr %cpo.071, i64 %idx.ext39
+  %inc = add nuw nsw i32 %a.072, 1
+  %exitcond83.not = icmp eq i32 %inc, %mul7.i
+  br i1 %exitcond83.not, label %for.end65, label %for.body37, !llvm.loop !32
 
 if.else:                                          ; preds = %if.then32
   %arrayidx41 = getelementptr inbounds i8, ptr %call7, i64 1
@@ -3178,61 +3157,61 @@ if.else:                                          ; preds = %if.then32
   br i1 %cmp43, label %if.then44, label %if.else45
 
 if.then44:                                        ; preds = %if.else
-  %m_size.i.i26 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 2
-  %25 = load i32, ptr %m_size.i.i26, align 4
-  %m_capacity.i.i27 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 3
-  %26 = load i32, ptr %m_capacity.i.i27, align 8
-  %cmp.i28 = icmp eq i32 %25, %26
-  br i1 %cmp.i28, label %if.then.i33, label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit38
+  %m_size.i.i27 = getelementptr inbounds i8, ptr %this, i64 220
+  %25 = load i32, ptr %m_size.i.i27, align 4
+  %m_capacity.i.i28 = getelementptr inbounds i8, ptr %this, i64 224
+  %26 = load i32, ptr %m_capacity.i.i28, align 8
+  %cmp.i29 = icmp eq i32 %25, %26
+  br i1 %cmp.i29, label %if.then.i34, label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit39
 
-if.then.i33:                                      ; preds = %if.then44
-  %m_pointerPtrFixupArray = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12
-  %tobool.not.i.i34 = icmp eq i32 %25, 0
-  %mul.i.i35 = shl nsw i32 %25, 1
-  %cond.i.i36 = select i1 %tobool.not.i.i34, i32 1, i32 %mul.i.i35
-  tail call void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pointerPtrFixupArray, i32 noundef %cond.i.i36)
-  %.pre.i37 = load i32, ptr %m_size.i.i26, align 4
-  br label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit38
+if.then.i34:                                      ; preds = %if.then44
+  %m_pointerPtrFixupArray = getelementptr inbounds i8, ptr %this, i64 216
+  %tobool.not.i.i35 = icmp eq i32 %25, 0
+  %mul.i.i36 = shl nsw i32 %25, 1
+  %cond.i.i37 = select i1 %tobool.not.i.i35, i32 1, i32 %mul.i.i36
+  tail call void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pointerPtrFixupArray, i32 noundef %cond.i.i37)
+  %.pre.i38 = load i32, ptr %m_size.i.i27, align 4
+  br label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit39
 
-_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit38: ; preds = %if.then44, %if.then.i33
-  %27 = phi i32 [ %.pre.i37, %if.then.i33 ], [ %25, %if.then44 ]
-  %m_data.i29 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 5
-  %28 = load ptr, ptr %m_data.i29, align 8
-  %idxprom.i30 = sext i32 %27 to i64
-  %arrayidx.i31 = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i30
-  store ptr %strcData, ptr %arrayidx.i31, align 8
-  %29 = load i32, ptr %m_size.i.i26, align 4
-  %inc.i32 = add nsw i32 %29, 1
-  store i32 %inc.i32, ptr %m_size.i.i26, align 4
+_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit39: ; preds = %if.then44, %if.then.i34
+  %27 = phi i32 [ %.pre.i38, %if.then.i34 ], [ %25, %if.then44 ]
+  %m_data.i30 = getelementptr inbounds i8, ptr %this, i64 232
+  %28 = load ptr, ptr %m_data.i30, align 8
+  %idxprom.i31 = sext i32 %27 to i64
+  %arrayidx.i32 = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i31
+  store ptr %strcData, ptr %arrayidx.i32, align 8
+  %29 = load i32, ptr %m_size.i.i27, align 4
+  %inc.i33 = add nsw i32 %29, 1
+  store i32 %inc.i33, ptr %m_size.i.i27, align 4
   br label %for.end65
 
 if.else45:                                        ; preds = %if.else
-  %m_size.i.i39 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 2
-  %30 = load i32, ptr %m_size.i.i39, align 4
-  %m_capacity.i.i40 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 3
-  %31 = load i32, ptr %m_capacity.i.i40, align 8
-  %cmp.i41 = icmp eq i32 %30, %31
-  br i1 %cmp.i41, label %if.then.i46, label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit51
+  %m_size.i.i40 = getelementptr inbounds i8, ptr %this, i64 188
+  %30 = load i32, ptr %m_size.i.i40, align 4
+  %m_capacity.i.i41 = getelementptr inbounds i8, ptr %this, i64 192
+  %31 = load i32, ptr %m_capacity.i.i41, align 8
+  %cmp.i42 = icmp eq i32 %30, %31
+  br i1 %cmp.i42, label %if.then.i47, label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit52
 
-if.then.i46:                                      ; preds = %if.else45
-  %m_pointerFixupArray46 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11
-  %tobool.not.i.i47 = icmp eq i32 %30, 0
-  %mul.i.i48 = shl nsw i32 %30, 1
-  %cond.i.i49 = select i1 %tobool.not.i.i47, i32 1, i32 %mul.i.i48
-  tail call void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pointerFixupArray46, i32 noundef %cond.i.i49)
-  %.pre.i50 = load i32, ptr %m_size.i.i39, align 4
-  br label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit51
+if.then.i47:                                      ; preds = %if.else45
+  %m_pointerFixupArray46 = getelementptr inbounds i8, ptr %this, i64 184
+  %tobool.not.i.i48 = icmp eq i32 %30, 0
+  %mul.i.i49 = shl nsw i32 %30, 1
+  %cond.i.i50 = select i1 %tobool.not.i.i48, i32 1, i32 %mul.i.i49
+  tail call void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pointerFixupArray46, i32 noundef %cond.i.i50)
+  %.pre.i51 = load i32, ptr %m_size.i.i40, align 4
+  br label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit52
 
-_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit51: ; preds = %if.else45, %if.then.i46
-  %32 = phi i32 [ %.pre.i50, %if.then.i46 ], [ %30, %if.else45 ]
-  %m_data.i42 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 5
-  %33 = load ptr, ptr %m_data.i42, align 8
-  %idxprom.i43 = sext i32 %32 to i64
-  %arrayidx.i44 = getelementptr inbounds ptr, ptr %33, i64 %idxprom.i43
-  store ptr %strcData, ptr %arrayidx.i44, align 8
-  %34 = load i32, ptr %m_size.i.i39, align 4
-  %inc.i45 = add nsw i32 %34, 1
-  store i32 %inc.i45, ptr %m_size.i.i39, align 4
+_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit52: ; preds = %if.else45, %if.then.i47
+  %32 = phi i32 [ %.pre.i51, %if.then.i47 ], [ %30, %if.else45 ]
+  %m_data.i43 = getelementptr inbounds i8, ptr %this, i64 200
+  %33 = load ptr, ptr %m_data.i43, align 8
+  %idxprom.i44 = sext i32 %32 to i64
+  %arrayidx.i45 = getelementptr inbounds ptr, ptr %33, i64 %idxprom.i44
+  store ptr %strcData, ptr %arrayidx.i45, align 8
+  %34 = load i32, ptr %m_size.i.i40, align 4
+  %inc.i46 = add nsw i32 %34, 1
+  store i32 %inc.i46, ptr %m_size.i.i40, align 4
   br label %for.end65
 
 if.else51:                                        ; preds = %if.then21
@@ -3242,21 +3221,21 @@ if.else51:                                        ; preds = %if.then21
 
 if.then54:                                        ; preds = %if.else51
   %conv55 = sext i32 %eleLen.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %strcData, ptr align 1 %data.addr.066, i64 %conv55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %strcData, ptr align 1 %data.addr.067, i64 %conv55, i1 false)
   br label %for.end65
 
 if.else56:                                        ; preds = %if.else51
-  tail call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul7.i, ptr noundef %lookupType, ptr noundef %call, ptr noundef %data.addr.066, ptr noundef %strcData)
+  tail call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul7.i, ptr noundef %lookupType, ptr noundef %call, ptr noundef %data.addr.067, ptr noundef %strcData)
   br label %for.end65
 
 if.end59:                                         ; preds = %if.end18
   %idx.ext60 = sext i32 %eleLen.0 to i64
-  %add.ptr61 = getelementptr inbounds i8, ptr %data.addr.066, i64 %idx.ext60
-  %inc63 = add nuw nsw i32 %i.065, 1
+  %add.ptr61 = getelementptr inbounds i8, ptr %data.addr.067, i64 %idx.ext60
+  %inc63 = add nuw nsw i32 %i.066, 1
   %exitcond.not = icmp eq i32 %inc63, %conv
   br i1 %exitcond.not, label %for.end65, label %for.body, !llvm.loop !33
 
-for.end65:                                        ; preds = %if.end59, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit, %entry, %if.then28, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit51, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit38, %if.else56, %if.then54
+for.end65:                                        ; preds = %if.end59, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit, %entry, %if.then28, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit52, %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit39, %if.else56, %if.then54
   ret void
 }
 
@@ -3266,7 +3245,7 @@ entry:
   br i1 %ignoreEndianFlag, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 4
   %tobool2.not = icmp eq i32 %and, 0
@@ -3285,7 +3264,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %2 = load i16, ptr %sp.022, align 2
   %call = tail call noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext %2)
   store i16 %call, ptr %sp.022, align 2
-  %incdec.ptr = getelementptr inbounds i16, ptr %sp.022, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %sp.022, i64 2
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %inc, %arraySize
   br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !16
@@ -3320,10 +3299,10 @@ entry:
   br i1 %or.cond, label %if.end, label %if.end56
 
 if.end:                                           ; preds = %entry
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
   %call = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %0)
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %mMemoryDNA, align 8
   %call3 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %1)
   %cmp = icmp eq i32 %call, %call3
@@ -3342,7 +3321,7 @@ if.else:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.else
   %2 = load i32, ptr %src, align 8
-  %arrayidx8 = getelementptr inbounds [2 x i32], ptr %src, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %src, i64 4
   %3 = load i32, ptr %arrayidx8, align 4
   %cmp9 = icmp eq i32 %2, %3
   br i1 %cmp9, label %if.then10, label %if.else13
@@ -3358,7 +3337,7 @@ if.else13:                                        ; preds = %if.then7
   %longValue.sroa.8.0.extract.shift = lshr i64 %4, 24
   %longValue.sroa.10.0.extract.shift = lshr i64 %4, 32
   %longValue.sroa.16.0.extract.shift = lshr i64 %4, 56
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %5 = load i32, ptr %mFlags, align 8
   %and = and i32 %5, 4
   %tobool14.not = icmp eq i32 %and, 0
@@ -3404,14 +3383,14 @@ if.else35:                                        ; preds = %if.else
 
 if.then39:                                        ; preds = %if.else35
   %6 = load i32, ptr %src, align 8
-  %arrayidx43 = getelementptr inbounds [2 x i32], ptr %src, i64 0, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %src, i64 4
   %7 = load i32, ptr %arrayidx43, align 4
   %cmp44 = icmp eq i32 %6, %7
   br i1 %cmp44, label %if.then45, label %if.else49
 
 if.then45:                                        ; preds = %if.then39
   store i32 %6, ptr %dst, align 8
-  %arrayidx48 = getelementptr inbounds [2 x i32], ptr %dst, i64 0, i64 1
+  %arrayidx48 = getelementptr inbounds i8, ptr %dst, i64 4
   store i32 0, ptr %arrayidx48, align 4
   br label %if.end56
 
@@ -3629,44 +3608,44 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @_ZN6bParse5bFile23resolvePointersMismatchEv(ptr noundef nonnull align 8 dereferenceable(540) %this) local_unnamed_addr #2 align 2 {
 entry:
   %dp.sroa.0 = alloca ptr, align 8
-  %m_size.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 188
   %0 = load i32, ptr %m_size.i, align 4
   %cmp137 = icmp sgt i32 %0, 0
   br i1 %cmp137, label %for.body.lr.ph, label %for.cond5.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 11, i32 5
-  %m_capacity.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
-  %m_size.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %m_data.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
-  %m_data.i6.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
-  %m_data.i9.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 200
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_data.i9.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %for.body
 
 for.cond5.preheader:                              ; preds = %for.inc, %entry
-  %m_size.i23 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 2
+  %m_size.i23 = getelementptr inbounds i8, ptr %this, i64 220
   %1 = load i32, ptr %m_size.i23, align 4
   %cmp7143 = icmp sgt i32 %1, 0
   br i1 %cmp7143, label %for.body8.lr.ph, label %for.end34
 
 for.body8.lr.ph:                                  ; preds = %for.cond5.preheader
-  %m_data.i24 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 12, i32 5
-  %m_capacity.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 3
-  %m_size.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 2
-  %m_data.i.i.i28 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 0, i32 5
-  %m_data.i6.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 3, i32 5
-  %m_data.i9.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 1, i32 5
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14, i32 2, i32 5
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
-  %m_capacity.i.i.i.i47 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
-  %m_size.i.i.i.i50 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %m_data.i.i.i.i54 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
-  %m_data.i6.i.i.i60 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
-  %m_data.i9.i.i.i61 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
-  %m_data.i.i.i72 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
-  %mFlags.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %m_data.i24 = getelementptr inbounds i8, ptr %this, i64 232
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 352
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %m_data.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 296
+  %m_data.i6.i.i = getelementptr inbounds i8, ptr %this, i64 392
+  %m_data.i9.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 360
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
+  %m_capacity.i.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i.i50 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_data.i.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i6.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 144
+  %m_data.i9.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 80
+  %m_data.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 112
+  %mFlags.i = getelementptr inbounds i8, ptr %this, i64 536
   %dp.sroa.0.4.arrayidx48.i.sroa_idx173 = getelementptr inbounds i8, ptr %dp.sroa.0, i64 4
   br label %for.body8
 
@@ -3892,7 +3871,7 @@ if.then20:                                        ; preds = %_ZN6bParse5bFile14f
   %conv = sext i32 %mul to i64
   %call21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #33
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %41 = load ptr, ptr %vfn, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull %call21)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call21, i8 0, i64 %conv, i1 false)
@@ -3929,7 +3908,7 @@ if.else.i:                                        ; preds = %if.end.i77
 
 if.then7.i:                                       ; preds = %if.else.i
   %45 = load i32, ptr %oldPtr.0141, align 8
-  %arrayidx8.i = getelementptr inbounds [2 x i32], ptr %oldPtr.0141, i64 0, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %oldPtr.0141, i64 4
   %46 = load i32, ptr %arrayidx8.i, align 4
   %cmp9.i = icmp eq i32 %45, %46
   br i1 %cmp9.i, label %if.then10.i, label %if.else13.i
@@ -3990,7 +3969,7 @@ if.else35.i:                                      ; preds = %if.else.i
 
 if.then39.i:                                      ; preds = %if.else35.i
   %49 = load i32, ptr %oldPtr.0141, align 8
-  %arrayidx43.i = getelementptr inbounds [2 x i32], ptr %oldPtr.0141, i64 0, i64 1
+  %arrayidx43.i = getelementptr inbounds i8, ptr %oldPtr.0141, i64 4
   %50 = load i32, ptr %arrayidx43.i, align 4
   %cmp44.i = icmp eq i32 %49, %50
   br i1 %cmp44.i, label %if.then45.i, label %if.else49.i
@@ -4120,17 +4099,17 @@ entry:
   %add10.i.i.i = add nsw i32 %xor7.i.i.i, %not9.i.i.i
   %shr11.i.i.i = ashr i32 %add10.i.i.i, 16
   %xor12.i.i.i = xor i32 %shr11.i.i.i, %add10.i.i.i
-  %m_capacity.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i32, ptr %m_capacity.i.i.i, align 8
   %sub.i.i = add nsw i32 %1, -1
   %and.i.i = and i32 %sub.i.i, %xor12.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %2 = load i32, ptr %m_size.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %and.i.i, %2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %entry
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %and.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i.i
@@ -4139,9 +4118,9 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp6.not13.i.i, label %return, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.end.i.i
-  %m_data.i6.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
+  %m_data.i6.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %m_data.i6.i.i, align 8
-  %m_data.i9.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
+  %m_data.i9.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %m_data.i9.i.i, align 8
   br label %land.rhs.i.i
 
@@ -4160,7 +4139,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp6.not.i.i, label %return, label %land.rhs.i.i, !llvm.loop !11
 
 _ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit: ; preds = %land.rhs.i.i
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %7 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %return, label %if.then
@@ -4178,19 +4157,19 @@ return:                                           ; preds = %while.body.i.i, %if
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile20resolvePointersChunkERKNS_9bChunkIndEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dataChunk, i32 noundef %verboseMode) local_unnamed_addr #2 align 2 {
 entry:
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
   %tobool.not = icmp eq ptr %0, null
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %mMemoryDNA, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %dataChunk, i64 16
   %2 = load i32, ptr %dna_nr, align 8
   %call = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %2)
   %3 = load i16, ptr %call, align 2
   %conv = sext i16 %3 to i32
   %call3 = tail call noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %conv)
-  %oldPtr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 2
+  %oldPtr = getelementptr inbounds i8, ptr %dataChunk, i64 8
   %4 = load ptr, ptr %oldPtr, align 8
   %5 = ptrtoint ptr %4 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
@@ -4210,17 +4189,17 @@ entry:
   %add10.i.i.i.i = add nsw i32 %xor7.i.i.i.i, %not9.i.i.i.i
   %shr11.i.i.i.i = ashr i32 %add10.i.i.i.i, 16
   %xor12.i.i.i.i = xor i32 %shr11.i.i.i.i, %add10.i.i.i.i
-  %m_capacity.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load i32, ptr %m_capacity.i.i.i.i, align 8
   %sub.i.i.i = add nsw i32 %6, -1
   %and.i.i.i = and i32 %xor12.i.i.i.i, %sub.i.i.i
-  %m_size.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %7 = load i32, ptr %m_size.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %and.i.i.i, %7
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit
 
 if.end.i.i.i:                                     ; preds = %entry
-  %m_data.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load ptr, ptr %m_data.i.i.i.i, align 8
   %idxprom.i.i.i.i = sext i32 %and.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i.i.i
@@ -4229,9 +4208,9 @@ if.end.i.i.i:                                     ; preds = %entry
   br i1 %cmp6.not13.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit, label %land.rhs.lr.ph.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %if.end.i.i.i
-  %m_data.i6.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
+  %m_data.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %9 = load ptr, ptr %m_data.i6.i.i.i, align 8
-  %m_data.i9.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
+  %m_data.i9.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load ptr, ptr %m_data.i9.i.i.i, align 8
   br label %land.rhs.i.i.i
 
@@ -4250,7 +4229,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp6.not.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit, label %land.rhs.i.i.i, !llvm.loop !11
 
 _ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i: ; preds = %land.rhs.i.i.i
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %12 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit, label %if.then.i
@@ -4262,7 +4241,7 @@ if.then.i:                                        ; preds = %_ZN9b3HashMapI9b3Ha
 
 _ZN6bParse5bFile14findLibPointerEPv.exit:         ; preds = %while.body.i.i.i, %entry, %if.end.i.i.i, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, %if.then.i
   %retval.0.i = phi ptr [ %13, %if.then.i ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %entry ], [ null, %if.end.i.i.i ], [ null, %while.body.i.i.i ]
-  %nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %dataChunk, i64 20
   %14 = load i32, ptr %nr, align 4
   %cmp8 = icmp sgt i32 %14, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
@@ -4294,56 +4273,57 @@ entry:
   %cleanName159 = alloca [1024 x i8], align 16
   %dbarray192 = alloca [512 x double], align 16
   %cleanName206 = alloca [1024 x i8], align 16
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
   %tobool.not = icmp eq ptr %0, null
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %mMemoryDNA, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
   %call = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef 0)
   %2 = load i16, ptr %call, align 2
   %call3 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %dna_nr)
-  %arrayidx4 = getelementptr inbounds i16, ptr %call3, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %call3, i64 2
   %3 = load i16, ptr %arrayidx4, align 2
   %conv = sext i16 %3 to i32
-  %cmp278 = icmp sgt i16 %3, 0
-  br i1 %cmp278, label %for.body.lr.ph, label %for.end242
+  %cmp280 = icmp sgt i16 %3, 0
+  br i1 %cmp280, label %for.body.lr.ph, label %for.end242
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %"class.bParse::bDNA", ptr %cond, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %cond, i64 48
   %and96 = and i32 %verboseMode, 1
   %tobool97.not = icmp eq i32 %and96, 0
-  %cmp101255 = icmp sgt i32 %recursion, 0
+  %cmp101257 = icmp sgt i32 %recursion, 0
   %add = add nsw i32 %recursion, 1
-  %m_capacity.i.i.i.i122 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
-  %m_size.i.i.i.i125 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %m_data.i.i.i.i129 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
-  %m_data.i6.i.i.i135 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
-  %m_data.i9.i.i.i136 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
-  %m_data.i.i.i147 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
-  %mPtrLen.i = getelementptr inbounds %"class.bParse::bDNA", ptr %cond, i64 0, i32 7
-  %m_data.i5.i = getelementptr inbounds %"class.bParse::bDNA", ptr %cond, i64 0, i32 4, i32 5
+  %m_capacity.i.i.i.i122 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i.i125 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_data.i.i.i.i129 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i6.i.i.i135 = getelementptr inbounds i8, ptr %this, i64 144
+  %m_data.i9.i.i.i136 = getelementptr inbounds i8, ptr %this, i64 80
+  %m_data.i.i.i147 = getelementptr inbounds i8, ptr %this, i64 112
+  %mPtrLen.i = getelementptr inbounds i8, ptr %cond, i64 416
+  %m_data.i5.i = getelementptr inbounds i8, ptr %cond, i64 144
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6bParse4bDNA14getElementSizeEss.exit
-  %elemPtr.0282 = phi ptr [ %strcPtr, %for.body.lr.ph ], [ %add.ptr238, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
-  %call3.pn281 = phi ptr [ %call3, %for.body.lr.ph ], [ %oldStruct.0284, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
-  %totalSize.0280 = phi i32 [ 0, %for.body.lr.ph ], [ %add236, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
-  %ele.0279 = phi i32 [ 0, %for.body.lr.ph ], [ %inc240, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
-  %oldStruct.0284 = getelementptr inbounds i16, ptr %call3.pn281, i64 2
-  %4 = load i16, ptr %oldStruct.0284, align 2
+  %elemPtr.0284 = phi ptr [ %strcPtr, %for.body.lr.ph ], [ %add.ptr238, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
+  %call3.pn283 = phi ptr [ %call3, %for.body.lr.ph ], [ %oldStruct.0286, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
+  %totalSize.0282 = phi i32 [ 0, %for.body.lr.ph ], [ %add236, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
+  %ele.0281 = phi i32 [ 0, %for.body.lr.ph ], [ %inc240, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
+  %oldStruct.0286 = getelementptr inbounds i8, ptr %call3.pn283, i64 4
+  %4 = load i16, ptr %oldStruct.0286, align 2
   %conv6 = sext i16 %4 to i32
   %call7 = call noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %conv6)
-  %arrayidx8 = getelementptr inbounds i16, ptr %call3.pn281, i64 3
+  %arrayidx8 = getelementptr inbounds i8, ptr %call3.pn283, i64 6
   %5 = load i16, ptr %arrayidx8, align 2
   %conv9 = sext i16 %5 to i32
   %call10 = call noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %conv9)
   %6 = load i16, ptr %arrayidx8, align 2
   %7 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i16 %6 to i64
-  %m_dim0.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 2
+  %arrayidx.i.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i
+  %m_dim0.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %8 = load i32, ptr %m_dim0.i, align 4
-  %m_dim1.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %7, i64 %idxprom.i.i, i32 3
+  %m_dim1.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %9 = load i32, ptr %m_dim1.i, align 8
   %mul.i = mul i32 %9, %8
   %10 = load i8, ptr %call10, align 1
@@ -4356,33 +4336,33 @@ if.then:                                          ; preds = %for.body
 
 for.cond18.preheader:                             ; preds = %if.then
   %arrayidx27 = getelementptr inbounds i8, ptr %call10, i64 1
-  %wide.trip.count309 = zext nneg i32 %mul.i to i64
+  %wide.trip.count311 = zext nneg i32 %mul.i to i64
   br label %for.body20
 
 for.body20:                                       ; preds = %for.cond18.preheader, %_ZN6bParse5bFile14findLibPointerEPv.exit
-  %indvars.iv306 = phi i64 [ 0, %for.cond18.preheader ], [ %indvars.iv.next307, %_ZN6bParse5bFile14findLibPointerEPv.exit ]
+  %indvars.iv308 = phi i64 [ 0, %for.cond18.preheader ], [ %indvars.iv.next309, %_ZN6bParse5bFile14findLibPointerEPv.exit ]
   br i1 %tobool97.not, label %if.end, label %for.cond23.preheader
 
 for.cond23.preheader:                             ; preds = %for.body20
-  br i1 %cmp101255, label %for.body25, label %for.end
+  br i1 %cmp101257, label %for.body25, label %for.end
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.body25
-  %i.0275 = phi i32 [ %inc, %for.body25 ], [ 0, %for.cond23.preheader ]
+  %i.0277 = phi i32 [ %inc, %for.body25 ], [ 0, %for.cond23.preheader ]
   %call26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %inc = add nuw nsw i32 %i.0275, 1
-  %exitcond305.not = icmp eq i32 %inc, %recursion
-  br i1 %exitcond305.not, label %for.end, label %for.body25, !llvm.loop !40
+  %inc = add nuw nsw i32 %i.0277, 1
+  %exitcond307.not = icmp eq i32 %inc, %recursion
+  br i1 %exitcond307.not, label %for.end, label %for.body25, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body25, %for.cond23.preheader
   %call28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %arrayidx27)
-  %arrayidx29 = getelementptr inbounds ptr, ptr %elemPtr.0282, i64 %indvars.iv306
+  %arrayidx29 = getelementptr inbounds ptr, ptr %elemPtr.0284, i64 %indvars.iv308
   %11 = load ptr, ptr %arrayidx29, align 8
   %call30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %11)
   %call32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %arrayidx27)
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %for.body20
-  %arrayidx34 = getelementptr inbounds ptr, ptr %elemPtr.0282, i64 %indvars.iv306
+  %arrayidx34 = getelementptr inbounds ptr, ptr %elemPtr.0284, i64 %indvars.iv308
   %12 = load ptr, ptr %arrayidx34, align 8
   %13 = ptrtoint ptr %12 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
@@ -4449,23 +4429,23 @@ if.then.i:                                        ; preds = %_ZN9b3HashMapI9b3Ha
 _ZN6bParse5bFile14findLibPointerEPv.exit:         ; preds = %while.body.i.i.i, %if.end, %if.end.i.i.i, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, %if.then.i
   %retval.0.i = phi ptr [ %21, %if.then.i ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %if.end ], [ null, %if.end.i.i.i ], [ null, %while.body.i.i.i ]
   store ptr %retval.0.i, ptr %arrayidx34, align 8
-  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
-  %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count309
-  br i1 %exitcond310.not, label %if.end232, label %for.body20, !llvm.loop !41
+  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
+  %exitcond312.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count311
+  br i1 %exitcond312.not, label %if.end232, label %for.body20, !llvm.loop !41
 
 if.else:                                          ; preds = %if.then
-  %22 = load ptr, ptr %elemPtr.0282, align 8
+  %22 = load ptr, ptr %elemPtr.0284, align 8
   br i1 %tobool97.not, label %if.end57, label %for.cond45.preheader
 
 for.cond45.preheader:                             ; preds = %if.else
-  br i1 %cmp101255, label %for.body47, label %for.end51
+  br i1 %cmp101257, label %for.body47, label %for.end51
 
 for.body47:                                       ; preds = %for.cond45.preheader, %for.body47
-  %i44.0271 = phi i32 [ %inc50, %for.body47 ], [ 0, %for.cond45.preheader ]
+  %i44.0273 = phi i32 [ %inc50, %for.body47 ], [ 0, %for.cond45.preheader ]
   %call48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %inc50 = add nuw nsw i32 %i44.0271, 1
-  %exitcond301.not = icmp eq i32 %inc50, %recursion
-  br i1 %exitcond301.not, label %for.end51, label %for.body47, !llvm.loop !42
+  %inc50 = add nuw nsw i32 %i44.0273, 1
+  %exitcond303.not = icmp eq i32 %inc50, %recursion
+  br i1 %exitcond303.not, label %for.end51, label %for.body47, !llvm.loop !42
 
 for.end51:                                        ; preds = %for.body47, %for.cond45.preheader
   %arrayidx52 = getelementptr inbounds i8, ptr %call10, i64 1
@@ -4539,7 +4519,7 @@ _ZN6bParse5bFile14findLibPointerEPv.exit151:      ; preds = %_ZN9b3HashMapI9b3Ha
   br i1 %tobool59.not, label %if.end232, label %if.then60
 
 if.then60:                                        ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit151
-  store ptr %31, ptr %elemPtr.0282, align 8
+  store ptr %31, ptr %elemPtr.0284, align 8
   %arrayidx61 = getelementptr inbounds i8, ptr %call10, i64 1
   %32 = load i8, ptr %arrayidx61, align 1
   %cmp63 = icmp eq i8 %32, 42
@@ -4547,12 +4527,12 @@ if.then60:                                        ; preds = %_ZN6bParse5bFile14f
 
 if.then67:                                        ; preds = %if.then60
   %33 = load ptr, ptr %31, align 8
-  %tobool70.not272 = icmp eq ptr %33, null
-  br i1 %tobool70.not272, label %if.end232, label %while.body
+  %tobool70.not274 = icmp eq ptr %33, null
+  br i1 %tobool70.not274, label %if.end232, label %while.body
 
 while.body:                                       ; preds = %if.then67, %if.end78
-  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %if.end78 ], [ 0, %if.then67 ]
-  %arrayidx72 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv302
+  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %if.end78 ], [ 0, %if.then67 ]
+  %arrayidx72 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv304
   %34 = load ptr, ptr %arrayidx72, align 8
   %35 = ptrtoint ptr %34 to i64
   %ref.tmp.sroa.0.0.extract.trunc.i152 = trunc i64 %35 to i32
@@ -4619,13 +4599,13 @@ _ZN6bParse5bFile14findLibPointerEPv.exit198:      ; preds = %_ZN9b3HashMapI9b3Ha
 
 if.end78:                                         ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit198
   store ptr %43, ptr %arrayidx72, align 8
-  %indvars.iv.next303 = add nuw i64 %indvars.iv302, 1
+  %indvars.iv.next305 = add nuw i64 %indvars.iv304, 1
   br label %while.body, !llvm.loop !43
 
 if.else84:                                        ; preds = %for.body
-  %44 = load i16, ptr %oldStruct.0284, align 2
+  %44 = load i16, ptr %oldStruct.0286, align 2
   %call86 = call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonnull align 8 dereferenceable(420) %cond, i16 noundef signext %44)
-  %45 = load i16, ptr %oldStruct.0284, align 2
+  %45 = load i16, ptr %oldStruct.0286, align 2
   %cmp90.not = icmp slt i16 %45, %2
   br i1 %cmp90.not, label %if.else140, label %if.then91
 
@@ -4668,29 +4648,30 @@ _Z12getCleanNamePKcPc.exit:                       ; preds = %for.inc.i, %if.then
   %47 = load i16, ptr %arrayidx8, align 2
   %48 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i200 = sext i16 %47 to i64
-  %m_dim0.i201 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %48, i64 %idxprom.i.i200, i32 2
-  %49 = load i32, ptr %m_dim0.i201, align 4
-  %m_dim1.i202 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %48, i64 %idxprom.i.i200, i32 3
-  %50 = load i32, ptr %m_dim1.i202, align 8
-  %mul.i203 = mul i32 %50, %49
+  %arrayidx.i.i201 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %48, i64 %idxprom.i.i200
+  %m_dim0.i202 = getelementptr inbounds i8, ptr %arrayidx.i.i201, i64 12
+  %49 = load i32, ptr %m_dim0.i202, align 4
+  %m_dim1.i203 = getelementptr inbounds i8, ptr %arrayidx.i.i201, i64 16
+  %50 = load i32, ptr %m_dim1.i203, align 8
+  %mul.i204 = mul i32 %50, %49
   br i1 %tobool97.not, label %if.end115, label %for.cond100.preheader
 
 for.cond100.preheader:                            ; preds = %_Z12getCleanNamePKcPc.exit
-  br i1 %cmp101255, label %for.body102, label %for.end106
+  br i1 %cmp101257, label %for.body102, label %for.end106
 
 for.body102:                                      ; preds = %for.cond100.preheader, %for.body102
-  %i99.0256 = phi i32 [ %inc105, %for.body102 ], [ 0, %for.cond100.preheader ]
+  %i99.0258 = phi i32 [ %inc105, %for.body102 ], [ 0, %for.cond100.preheader ]
   %call103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %inc105 = add nuw nsw i32 %i99.0256, 1
+  %inc105 = add nuw nsw i32 %i99.0258, 1
   %exitcond.not = icmp eq i32 %inc105, %recursion
   br i1 %exitcond.not, label %for.end106, label %for.body102, !llvm.loop !44
 
 for.end106:                                       ; preds = %for.body102, %for.cond100.preheader
-  %cmp107 = icmp sgt i32 %mul.i203, 1
+  %cmp107 = icmp sgt i32 %mul.i204, 1
   br i1 %cmp107, label %if.end115.thread, label %if.else111
 
 if.end115.thread:                                 ; preds = %for.end106
-  %call110 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %cleanName, ptr noundef %call7, i32 noundef %mul.i203)
+  %call110 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %cleanName, ptr noundef %call7, i32 noundef %mul.i204)
   br label %for.body119.preheader
 
 if.else111:                                       ; preds = %for.end106
@@ -4698,35 +4679,35 @@ if.else111:                                       ; preds = %for.end106
   br label %if.end115
 
 if.end115:                                        ; preds = %if.else111, %_Z12getCleanNamePKcPc.exit
-  %cmp118257 = icmp sgt i32 %mul.i203, 0
-  br i1 %cmp118257, label %for.body119.preheader, label %for.end125
+  %cmp118259 = icmp sgt i32 %mul.i204, 0
+  br i1 %cmp118259, label %for.body119.preheader, label %for.end125
 
 for.body119.preheader:                            ; preds = %if.end115.thread, %if.end115
   br label %for.body119
 
 for.body119:                                      ; preds = %for.body119.preheader, %for.body119
-  %i116.0259 = phi i32 [ %inc124, %for.body119 ], [ 0, %for.body119.preheader ]
-  %byteOffset.0258 = phi i32 [ %add122, %for.body119 ], [ 0, %for.body119.preheader ]
-  %idx.ext = sext i32 %byteOffset.0258 to i64
-  %add.ptr120 = getelementptr inbounds i8, ptr %elemPtr.0282, i64 %idx.ext
+  %i116.0261 = phi i32 [ %inc124, %for.body119 ], [ 0, %for.body119.preheader ]
+  %byteOffset.0260 = phi i32 [ %add122, %for.body119 ], [ 0, %for.body119.preheader ]
+  %idx.ext = sext i32 %byteOffset.0260 to i64
+  %add.ptr120 = getelementptr inbounds i8, ptr %elemPtr.0284, i64 %idx.ext
   %call121 = call noundef i32 @_ZN6bParse5bFile30resolvePointersStructRecursiveEPciii(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %add.ptr120, i32 noundef %call86, i32 noundef %verboseMode, i32 noundef %add)
-  %add122 = add nsw i32 %call121, %byteOffset.0258
-  %inc124 = add nuw nsw i32 %i116.0259, 1
-  %exitcond290.not = icmp eq i32 %inc124, %mul.i203
-  br i1 %exitcond290.not, label %for.end125, label %for.body119, !llvm.loop !45
+  %add122 = add nsw i32 %call121, %byteOffset.0260
+  %inc124 = add nuw nsw i32 %i116.0261, 1
+  %exitcond292.not = icmp eq i32 %inc124, %mul.i204
+  br i1 %exitcond292.not, label %for.end125, label %for.body119, !llvm.loop !45
 
 for.end125:                                       ; preds = %for.body119, %if.end115
   br i1 %tobool97.not, label %if.end232, label %for.cond130.preheader
 
 for.cond130.preheader:                            ; preds = %for.end125
-  br i1 %cmp101255, label %for.body132, label %for.end136
+  br i1 %cmp101257, label %for.body132, label %for.end136
 
 for.body132:                                      ; preds = %for.cond130.preheader, %for.body132
-  %i129.0261 = phi i32 [ %inc135, %for.body132 ], [ 0, %for.cond130.preheader ]
+  %i129.0263 = phi i32 [ %inc135, %for.body132 ], [ 0, %for.cond130.preheader ]
   %call133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %inc135 = add nuw nsw i32 %i129.0261, 1
-  %exitcond291.not = icmp eq i32 %inc135, %recursion
-  br i1 %exitcond291.not, label %for.end136, label %for.body132, !llvm.loop !46
+  %inc135 = add nuw nsw i32 %i129.0263, 1
+  %exitcond293.not = icmp eq i32 %inc135, %recursion
+  br i1 %exitcond293.not, label %for.end136, label %for.body132, !llvm.loop !46
 
 for.end136:                                       ; preds = %for.body132, %for.cond130.preheader
   %call138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %cleanName)
@@ -4759,52 +4740,52 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   br i1 %cmp153, label %if.then158, label %if.then197
 
 if.then158:                                       ; preds = %lor.lhs.false, %if.else147, %lor.rhs
-  %call.i204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
-  %conv.i205 = trunc i64 %call.i204 to i32
-  %.sroa.speculated.i206 = call i32 @llvm.smin.i32(i32 %conv.i205, i32 1024)
-  %cmp16.i207 = icmp sgt i32 %conv.i205, 0
-  br i1 %cmp16.i207, label %for.body.preheader.i210, label %_Z12getCleanNamePKcPc.exit222
+  %call.i205 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
+  %conv.i206 = trunc i64 %call.i205 to i32
+  %.sroa.speculated.i207 = call i32 @llvm.smin.i32(i32 %conv.i206, i32 1024)
+  %cmp16.i208 = icmp sgt i32 %conv.i206, 0
+  br i1 %cmp16.i208, label %for.body.preheader.i211, label %_Z12getCleanNamePKcPc.exit223
 
-for.body.preheader.i210:                          ; preds = %if.then158
-  %smax.i211 = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i206, i32 1)
-  %wide.trip.count.i212 = zext nneg i32 %smax.i211 to i64
-  br label %for.body.i213
+for.body.preheader.i211:                          ; preds = %if.then158
+  %smax.i212 = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i207, i32 1)
+  %wide.trip.count.i213 = zext nneg i32 %smax.i212 to i64
+  br label %for.body.i214
 
-for.body.i213:                                    ; preds = %for.inc.i216, %for.body.preheader.i210
-  %indvars.iv.i214 = phi i64 [ 0, %for.body.preheader.i210 ], [ %indvars.iv.next.i219, %for.inc.i216 ]
-  %arrayidx.i215 = getelementptr inbounds i8, ptr %call10, i64 %indvars.iv.i214
-  %51 = load i8, ptr %arrayidx.i215, align 1
-  switch i8 %51, label %if.else.i221 [
-    i8 93, label %for.inc.i216
-    i8 91, label %for.inc.i216
+for.body.i214:                                    ; preds = %for.inc.i217, %for.body.preheader.i211
+  %indvars.iv.i215 = phi i64 [ 0, %for.body.preheader.i211 ], [ %indvars.iv.next.i220, %for.inc.i217 ]
+  %arrayidx.i216 = getelementptr inbounds i8, ptr %call10, i64 %indvars.iv.i215
+  %51 = load i8, ptr %arrayidx.i216, align 1
+  switch i8 %51, label %if.else.i222 [
+    i8 93, label %for.inc.i217
+    i8 91, label %for.inc.i217
   ]
 
-if.else.i221:                                     ; preds = %for.body.i213
-  br label %for.inc.i216
+if.else.i222:                                     ; preds = %for.body.i214
+  br label %for.inc.i217
 
-for.inc.i216:                                     ; preds = %if.else.i221, %for.body.i213, %for.body.i213
-  %.sink.i217 = phi i8 [ %51, %if.else.i221 ], [ 0, %for.body.i213 ], [ 0, %for.body.i213 ]
-  %arrayidx9.i218 = getelementptr inbounds i8, ptr %cleanName159, i64 %indvars.iv.i214
-  store i8 %.sink.i217, ptr %arrayidx9.i218, align 1
-  %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i214, 1
-  %exitcond.not.i220 = icmp eq i64 %indvars.iv.next.i219, %wide.trip.count.i212
-  br i1 %exitcond.not.i220, label %_Z12getCleanNamePKcPc.exit222, label %for.body.i213, !llvm.loop !5
+for.inc.i217:                                     ; preds = %if.else.i222, %for.body.i214, %for.body.i214
+  %.sink.i218 = phi i8 [ %51, %if.else.i222 ], [ 0, %for.body.i214 ], [ 0, %for.body.i214 ]
+  %arrayidx9.i219 = getelementptr inbounds i8, ptr %cleanName159, i64 %indvars.iv.i215
+  store i8 %.sink.i218, ptr %arrayidx9.i219, align 1
+  %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i215, 1
+  %exitcond.not.i221 = icmp eq i64 %indvars.iv.next.i220, %wide.trip.count.i213
+  br i1 %exitcond.not.i221, label %_Z12getCleanNamePKcPc.exit223, label %for.body.i214, !llvm.loop !5
 
-_Z12getCleanNamePKcPc.exit222:                    ; preds = %for.inc.i216, %if.then158
-  %idxprom14.i208 = sext i32 %.sroa.speculated.i206 to i64
-  %arrayidx15.i209 = getelementptr inbounds i8, ptr %cleanName159, i64 %idxprom14.i208
-  store i8 0, ptr %arrayidx15.i209, align 1
-  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.4, ptr noundef %call7, ptr noundef %elemPtr.0282, ptr noundef nonnull %dbarray)
-  br i1 %cmp101255, label %for.body165, label %for.end169
+_Z12getCleanNamePKcPc.exit223:                    ; preds = %for.inc.i217, %if.then158
+  %idxprom14.i209 = sext i32 %.sroa.speculated.i207 to i64
+  %arrayidx15.i210 = getelementptr inbounds i8, ptr %cleanName159, i64 %idxprom14.i209
+  store i8 0, ptr %arrayidx15.i210, align 1
+  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.4, ptr noundef %call7, ptr noundef %elemPtr.0284, ptr noundef nonnull %dbarray)
+  br i1 %cmp101257, label %for.body165, label %for.end169
 
-for.body165:                                      ; preds = %_Z12getCleanNamePKcPc.exit222, %for.body165
-  %i162.0267 = phi i32 [ %inc168, %for.body165 ], [ 0, %_Z12getCleanNamePKcPc.exit222 ]
+for.body165:                                      ; preds = %_Z12getCleanNamePKcPc.exit223, %for.body165
+  %i162.0269 = phi i32 [ %inc168, %for.body165 ], [ 0, %_Z12getCleanNamePKcPc.exit223 ]
   %call166 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %inc168 = add nuw nsw i32 %i162.0267, 1
-  %exitcond295.not = icmp eq i32 %inc168, %recursion
-  br i1 %exitcond295.not, label %for.end169, label %for.body165, !llvm.loop !47
+  %inc168 = add nuw nsw i32 %i162.0269, 1
+  %exitcond297.not = icmp eq i32 %inc168, %recursion
+  br i1 %exitcond297.not, label %for.end169, label %for.body165, !llvm.loop !47
 
-for.end169:                                       ; preds = %for.body165, %_Z12getCleanNamePKcPc.exit222
+for.end169:                                       ; preds = %for.body165, %_Z12getCleanNamePKcPc.exit223
   %cmp170 = icmp eq i32 %mul.i, 1
   br i1 %cmp170, label %if.end177.thread, label %if.end177
 
@@ -4814,84 +4795,84 @@ if.end177.thread:                                 ; preds = %for.end169
 
 if.end177:                                        ; preds = %for.end169
   %call176 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %cleanName159, ptr noundef %call7, i32 noundef %mul.i)
-  %cmp179268 = icmp sgt i32 %mul.i, 0
-  br i1 %cmp179268, label %for.body180.preheader, label %for.end186
+  %cmp179270 = icmp sgt i32 %mul.i, 0
+  br i1 %cmp179270, label %for.body180.preheader, label %for.end186
 
 for.body180.preheader:                            ; preds = %if.end177.thread, %if.end177
-  %wide.trip.count299 = zext nneg i32 %mul.i to i64
+  %wide.trip.count301 = zext nneg i32 %mul.i to i64
   br label %for.body180
 
 for.body180:                                      ; preds = %for.body180.preheader, %for.body180
-  %indvars.iv296 = phi i64 [ 0, %for.body180.preheader ], [ %indvars.iv.next297, %for.body180 ]
-  %arrayidx182 = getelementptr inbounds i32, ptr %dbarray, i64 %indvars.iv296
+  %indvars.iv298 = phi i64 [ 0, %for.body180.preheader ], [ %indvars.iv.next299, %for.body180 ]
+  %arrayidx182 = getelementptr inbounds i32, ptr %dbarray, i64 %indvars.iv298
   %52 = load i32, ptr %arrayidx182, align 4
   %call183 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %52)
-  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %for.end186, label %for.body180, !llvm.loop !48
+  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
+  %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
+  br i1 %exitcond302.not, label %for.end186, label %for.body180, !llvm.loop !48
 
 for.end186:                                       ; preds = %for.body180, %if.end177
   %call188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %cleanName159)
   br label %if.end232
 
 if.then197:                                       ; preds = %lor.rhs
-  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.24, ptr noundef %call7, ptr noundef %elemPtr.0282, ptr noundef nonnull %dbarray192)
-  br i1 %cmp101255, label %for.body201, label %for.end205
+  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.24, ptr noundef %call7, ptr noundef %elemPtr.0284, ptr noundef nonnull %dbarray192)
+  br i1 %cmp101257, label %for.body201, label %for.end205
 
 for.body201:                                      ; preds = %if.then197, %for.body201
-  %i198.0263 = phi i32 [ %inc204, %for.body201 ], [ 0, %if.then197 ]
+  %i198.0265 = phi i32 [ %inc204, %for.body201 ], [ 0, %if.then197 ]
   %call202 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %inc204 = add nuw nsw i32 %i198.0263, 1
-  %exitcond292.not = icmp eq i32 %inc204, %recursion
-  br i1 %exitcond292.not, label %for.end205, label %for.body201, !llvm.loop !49
+  %inc204 = add nuw nsw i32 %i198.0265, 1
+  %exitcond294.not = icmp eq i32 %inc204, %recursion
+  br i1 %exitcond294.not, label %for.end205, label %for.body201, !llvm.loop !49
 
 for.end205:                                       ; preds = %for.body201, %if.then197
-  %call.i223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
-  %conv.i224 = trunc i64 %call.i223 to i32
-  %.sroa.speculated.i225 = call i32 @llvm.smin.i32(i32 %conv.i224, i32 1024)
-  %cmp16.i226 = icmp sgt i32 %conv.i224, 0
-  br i1 %cmp16.i226, label %for.body.preheader.i229, label %_Z12getCleanNamePKcPc.exit241
+  %call.i224 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
+  %conv.i225 = trunc i64 %call.i224 to i32
+  %.sroa.speculated.i226 = call i32 @llvm.smin.i32(i32 %conv.i225, i32 1024)
+  %cmp16.i227 = icmp sgt i32 %conv.i225, 0
+  br i1 %cmp16.i227, label %for.body.preheader.i230, label %_Z12getCleanNamePKcPc.exit242
 
-for.body.preheader.i229:                          ; preds = %for.end205
-  %smax.i230 = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i225, i32 1)
-  %wide.trip.count.i231 = zext nneg i32 %smax.i230 to i64
-  br label %for.body.i232
+for.body.preheader.i230:                          ; preds = %for.end205
+  %smax.i231 = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i226, i32 1)
+  %wide.trip.count.i232 = zext nneg i32 %smax.i231 to i64
+  br label %for.body.i233
 
-for.body.i232:                                    ; preds = %for.inc.i235, %for.body.preheader.i229
-  %indvars.iv.i233 = phi i64 [ 0, %for.body.preheader.i229 ], [ %indvars.iv.next.i238, %for.inc.i235 ]
-  %arrayidx.i234 = getelementptr inbounds i8, ptr %call10, i64 %indvars.iv.i233
-  %53 = load i8, ptr %arrayidx.i234, align 1
-  switch i8 %53, label %if.else.i240 [
-    i8 93, label %for.inc.i235
-    i8 91, label %for.inc.i235
+for.body.i233:                                    ; preds = %for.inc.i236, %for.body.preheader.i230
+  %indvars.iv.i234 = phi i64 [ 0, %for.body.preheader.i230 ], [ %indvars.iv.next.i239, %for.inc.i236 ]
+  %arrayidx.i235 = getelementptr inbounds i8, ptr %call10, i64 %indvars.iv.i234
+  %53 = load i8, ptr %arrayidx.i235, align 1
+  switch i8 %53, label %if.else.i241 [
+    i8 93, label %for.inc.i236
+    i8 91, label %for.inc.i236
   ]
 
-if.else.i240:                                     ; preds = %for.body.i232
-  br label %for.inc.i235
+if.else.i241:                                     ; preds = %for.body.i233
+  br label %for.inc.i236
 
-for.inc.i235:                                     ; preds = %if.else.i240, %for.body.i232, %for.body.i232
-  %.sink.i236 = phi i8 [ %53, %if.else.i240 ], [ 0, %for.body.i232 ], [ 0, %for.body.i232 ]
-  %arrayidx9.i237 = getelementptr inbounds i8, ptr %cleanName206, i64 %indvars.iv.i233
-  store i8 %.sink.i236, ptr %arrayidx9.i237, align 1
-  %indvars.iv.next.i238 = add nuw nsw i64 %indvars.iv.i233, 1
-  %exitcond.not.i239 = icmp eq i64 %indvars.iv.next.i238, %wide.trip.count.i231
-  br i1 %exitcond.not.i239, label %_Z12getCleanNamePKcPc.exit241, label %for.body.i232, !llvm.loop !5
+for.inc.i236:                                     ; preds = %if.else.i241, %for.body.i233, %for.body.i233
+  %.sink.i237 = phi i8 [ %53, %if.else.i241 ], [ 0, %for.body.i233 ], [ 0, %for.body.i233 ]
+  %arrayidx9.i238 = getelementptr inbounds i8, ptr %cleanName206, i64 %indvars.iv.i234
+  store i8 %.sink.i237, ptr %arrayidx9.i238, align 1
+  %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i234, 1
+  %exitcond.not.i240 = icmp eq i64 %indvars.iv.next.i239, %wide.trip.count.i232
+  br i1 %exitcond.not.i240, label %_Z12getCleanNamePKcPc.exit242, label %for.body.i233, !llvm.loop !5
 
-_Z12getCleanNamePKcPc.exit241:                    ; preds = %for.inc.i235, %for.end205
-  %idxprom14.i227 = sext i32 %.sroa.speculated.i225 to i64
-  %arrayidx15.i228 = getelementptr inbounds i8, ptr %cleanName206, i64 %idxprom14.i227
-  store i8 0, ptr %arrayidx15.i228, align 1
+_Z12getCleanNamePKcPc.exit242:                    ; preds = %for.inc.i236, %for.end205
+  %idxprom14.i228 = sext i32 %.sroa.speculated.i226 to i64
+  %arrayidx15.i229 = getelementptr inbounds i8, ptr %cleanName206, i64 %idxprom14.i228
+  store i8 0, ptr %arrayidx15.i229, align 1
   %cmp209 = icmp eq i32 %mul.i, 1
   br i1 %cmp209, label %if.end215.thread, label %if.end215
 
-if.end215.thread:                                 ; preds = %_Z12getCleanNamePKcPc.exit241
+if.end215.thread:                                 ; preds = %_Z12getCleanNamePKcPc.exit242
   %call211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %call10, ptr noundef %call7)
   br label %for.body218.preheader
 
-if.end215:                                        ; preds = %_Z12getCleanNamePKcPc.exit241
+if.end215:                                        ; preds = %_Z12getCleanNamePKcPc.exit242
   %call214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %cleanName206, ptr noundef %call7, i32 noundef %mul.i)
-  %cmp217264 = icmp sgt i32 %mul.i, 0
-  br i1 %cmp217264, label %for.body218.preheader, label %for.end224
+  %cmp217266 = icmp sgt i32 %mul.i, 0
+  br i1 %cmp217266, label %for.body218.preheader, label %for.end224
 
 for.body218.preheader:                            ; preds = %if.end215.thread, %if.end215
   %wide.trip.count = zext nneg i32 %mul.i to i64
@@ -4903,8 +4884,8 @@ for.body218:                                      ; preds = %for.body218.prehead
   %54 = load double, ptr %arrayidx220, align 8
   %call221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, double noundef %54)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond294.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond294.not, label %for.end224, label %for.body218, !llvm.loop !50
+  %exitcond296.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond296.not, label %for.end224, label %for.body218, !llvm.loop !50
 
 for.end224:                                       ; preds = %for.body218, %if.end215
   %call226 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %cleanName206)
@@ -4913,19 +4894,20 @@ for.end224:                                       ; preds = %for.body218, %if.en
 if.end232:                                        ; preds = %while.body.i.i.i142, %if.end.i.i.i175, %while.body, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i193, %_ZN6bParse5bFile14findLibPointerEPv.exit198, %_ZN6bParse5bFile14findLibPointerEPv.exit, %while.body.i.i.i189, %if.then67, %if.end.i.i.i128, %if.end57, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i146, %for.end136, %for.end125, %if.then145, %for.end224, %for.end186, %if.else140, %_ZN6bParse5bFile14findLibPointerEPv.exit151, %if.then60
   %55 = load i16, ptr %arrayidx8, align 2
   %56 = load ptr, ptr %m_data.i.i, align 8
-  %idxprom.i.i243 = sext i16 %55 to i64
-  %m_isPointer.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %56, i64 %idxprom.i.i243, i32 1
+  %idxprom.i.i244 = sext i16 %55 to i64
+  %arrayidx.i.i245 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %56, i64 %idxprom.i.i244
+  %m_isPointer.i = getelementptr inbounds i8, ptr %arrayidx.i.i245, i64 8
   %57 = load i8, ptr %m_isPointer.i, align 8
   %58 = and i8 %57, 1
-  %tobool.not.i244 = icmp eq i8 %58, 0
-  br i1 %tobool.not.i244, label %cond.false.i, label %cond.true.i
+  %tobool.not.i246 = icmp eq i8 %58, 0
+  br i1 %tobool.not.i246, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end232
   %59 = load i32, ptr %mPtrLen.i, align 8
   br label %_ZN6bParse4bDNA14getElementSizeEss.exit
 
 cond.false.i:                                     ; preds = %if.end232
-  %60 = load i16, ptr %oldStruct.0284, align 2
+  %60 = load i16, ptr %oldStruct.0286, align 2
   %61 = load ptr, ptr %m_data.i5.i, align 8
   %idxprom.i6.i = sext i16 %60 to i64
   %arrayidx.i7.i = getelementptr inbounds i16, ptr %61, i64 %idxprom.i6.i
@@ -4935,18 +4917,18 @@ cond.false.i:                                     ; preds = %if.end232
 
 _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %cond.true.i, %cond.false.i
   %conv5.sink.i = phi i32 [ %conv5.i, %cond.false.i ], [ %59, %cond.true.i ]
-  %m_dim06.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %56, i64 %idxprom.i.i243, i32 2
+  %m_dim06.i = getelementptr inbounds i8, ptr %arrayidx.i.i245, i64 12
   %63 = load i32, ptr %m_dim06.i, align 4
   %mul7.i = mul nsw i32 %63, %conv5.sink.i
-  %m_dim18.i = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %56, i64 %idxprom.i.i243, i32 3
+  %m_dim18.i = getelementptr inbounds i8, ptr %arrayidx.i.i245, i64 16
   %64 = load i32, ptr %m_dim18.i, align 8
   %mul9.i = mul nsw i32 %mul7.i, %64
-  %add236 = add nsw i32 %mul9.i, %totalSize.0280
+  %add236 = add nsw i32 %mul9.i, %totalSize.0282
   %idx.ext237 = sext i32 %mul9.i to i64
-  %add.ptr238 = getelementptr inbounds i8, ptr %elemPtr.0282, i64 %idx.ext237
-  %inc240 = add nuw nsw i32 %ele.0279, 1
-  %exitcond311.not = icmp eq i32 %inc240, %conv
-  br i1 %exitcond311.not, label %for.end242, label %for.body, !llvm.loop !51
+  %add.ptr238 = getelementptr inbounds i8, ptr %elemPtr.0284, i64 %idx.ext237
+  %inc240 = add nuw nsw i32 %ele.0281, 1
+  %exitcond313.not = icmp eq i32 %inc240, %conv
+  br i1 %exitcond313.not, label %for.end242, label %for.body, !llvm.loop !51
 
 for.end242:                                       ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit, %entry
   %totalSize.0.lcssa = phi i32 [ 0, %entry ], [ %add236, %_ZN6bParse4bDNA14getElementSizeEss.exit ]
@@ -4957,13 +4939,13 @@ for.end242:                                       ; preds = %_ZN6bParse4bDNA14ge
 define dso_local void @_ZN6bParse5bFile10dumpChunksEPNS_4bDNAE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %dna) local_unnamed_addr #2 align 2 {
 entry:
   %codestr = alloca [5 x i8], align 1
-  %m_size.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 252
   %0 = load i32, ptr %m_size.i, align 4
   %cmp13 = icmp sgt i32 %0, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
   %arrayinit.element = getelementptr inbounds i8, ptr %codestr, i64 1
   %arrayinit.element5 = getelementptr inbounds i8, ptr %codestr, i64 2
   %arrayinit.element7 = getelementptr inbounds i8, ptr %codestr, i64 3
@@ -4986,7 +4968,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %5 = load i8, ptr %arrayidx8, align 1
   store i8 %5, ptr %arrayinit.element7, align 1
   store i8 0, ptr %arrayinit.element9, align 1
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %1, i64 %indvars.iv, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %6 = load i32, ptr %dna_nr, align 8
   %call10 = call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %dna, i32 noundef %6)
   %7 = load i16, ptr %call10, align 2
@@ -4995,13 +4977,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %8 = trunc i64 %indvars.iv to i32
   %call13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %8, ptr noundef %call12)
   %call14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull %codestr)
-  %oldPtr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %1, i64 %indvars.iv, i32 2
+  %oldPtr = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %9 = load ptr, ptr %oldPtr, align 8
   %call15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %9)
-  %len = getelementptr inbounds %"class.bParse::bChunkInd", ptr %1, i64 %indvars.iv, i32 1
+  %len = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %10 = load i32, ptr %len, align 4
   %call16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %10)
-  %nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %1, i64 %indvars.iv, i32 4
+  %nr = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %11 = load i32, ptr %nr, align 4
   %call17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %11)
   %12 = load i32, ptr %nr, align 4
@@ -5027,32 +5009,32 @@ for.end:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile11writeChunksEP8_IO_FILEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef %fp, i1 noundef zeroext %fixupPointers) unnamed_addr #2 align 2 {
 entry:
-  %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 9
+  %mFileDNA = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
   %tobool.not = icmp eq ptr %0, null
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %mMemoryDNA, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
-  %m_size.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 252
   %2 = load i32, ptr %m_size.i, align 4
   %cmp20 = icmp sgt i32 %2, 0
   br i1 %cmp20, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
-  %m_capacity.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 3
-  %m_size.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %m_data.i.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 0, i32 5
-  %m_data.i6.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 3, i32 5
-  %m_data.i9.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 1, i32 5
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_data.i9.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.bParse::bChunkInd", ptr %3, i64 %indvars.iv
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %3, i64 %indvars.iv, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %4 = load i32, ptr %dna_nr, align 8
   %call5 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %cond, i32 noundef %4)
   %5 = load i16, ptr %call5, align 2
@@ -5084,10 +5066,10 @@ if.then:                                          ; preds = %for.body
 
 if.then28:                                        ; preds = %if.then
   %conv24 = sext i16 %call23 to i32
-  %nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %3, i64 %indvars.iv, i32 4
+  %nr = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %13 = load i32, ptr %nr, align 4
   %mul = mul nsw i32 %13, %conv24
-  %len = getelementptr inbounds %"class.bParse::bChunkInd", ptr %3, i64 %indvars.iv, i32 1
+  %len = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 %mul, ptr %len, align 4
   br label %if.end
 
@@ -5096,7 +5078,7 @@ if.end:                                           ; preds = %if.then, %if.then28
   %14 = load ptr, ptr %mMemoryDNA, align 8
   %15 = load i32, ptr %dna_nr, align 8
   %call32 = tail call noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull align 8 dereferenceable(420) %14, i32 noundef %15)
-  %oldPtr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %3, i64 %indvars.iv, i32 2
+  %oldPtr = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %16 = load ptr, ptr %oldPtr, align 8
   br i1 %fixupPointers, label %cond.true34, label %cond.end38
 
@@ -5165,7 +5147,7 @@ if.then.i:                                        ; preds = %_ZN9b3HashMapI9b3Ha
 
 cond.end38:                                       ; preds = %while.body.i.i.i, %if.end, %if.then.i, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, %if.end.i.i.i, %cond.true34
   %cond39 = phi ptr [ %25, %if.then.i ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %cond.true34 ], [ null, %if.end.i.i.i ], [ %16, %if.end ], [ null, %while.body.i.i.i ]
-  %len40 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %3, i64 %indvars.iv, i32 1
+  %len40 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %26 = load i32, ptr %len40, align 4
   %conv41 = sext i32 %26 to i64
   %call42 = tail call i64 @fwrite(ptr noundef %cond39, i64 noundef %conv41, i64 noundef 1, ptr noundef %fp)
@@ -5204,7 +5186,7 @@ declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #16
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -5221,13 +5203,13 @@ _ZN20b3AlignedObjectArrayIPcE8allocateEi.exit:    ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIPcE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -5245,20 +5227,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIPcE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.44)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -5269,7 +5251,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -5286,16 +5268,16 @@ declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE10growTablesERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %m_capacity.i, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_size.i, align 4
   %cmp = icmp slt i32 %2, %1
   br i1 %cmp, label %for.body9.lr.ph.i, label %if.end
 
 for.body9.lr.ph.i:                                ; preds = %entry
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %1)
-  %m_data10.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data10.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = sext i32 %2 to i64
   %wide.trip.count.i = sext i32 %1 to i64
   br label %for.body9.i
@@ -5311,15 +5293,15 @@ for.body9.i:                                      ; preds = %for.body9.i, %for.b
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %1, ptr %m_size.i, align 4
-  %m_size.i.i17 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %m_size.i.i17, align 4
   %cmp4.i18 = icmp slt i32 %5, %1
   br i1 %cmp4.i18, label %for.body9.lr.ph.i19, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
 
 for.body9.lr.ph.i19:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_next = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_next, i32 noundef %1)
-  %m_data10.i20 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data10.i20 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = sext i32 %5 to i64
   br label %for.body9.i23
 
@@ -5345,7 +5327,7 @@ for.cond10.preheader:                             ; preds = %for.body
   br i1 %cmp745, label %for.body12.lr.ph, label %for.cond18.preheader
 
 for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
-  %m_data.i29 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i29 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count55 = zext nneg i32 %1 to i64
   br label %for.body12
 
@@ -5363,8 +5345,8 @@ for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b
   br i1 %cmp1949, label %for.body20.lr.ph, label %if.end
 
 for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
-  %m_data.i32 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
-  %m_data.i39 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i32 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_data.i39 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count60 = zext nneg i32 %2 to i64
   br label %for.body20
 
@@ -5382,7 +5364,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %10 = load ptr, ptr %m_data.i32, align 8
   %arrayidx.i34 = getelementptr inbounds %class.b3HashPtr, ptr %10, i64 %indvars.iv57
   %11 = load i32, ptr %arrayidx.i34, align 8
-  %arrayidx2.i = getelementptr inbounds [2 x i32], ptr %arrayidx.i34, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 4
   %12 = load i32, ptr %arrayidx2.i, align 4
   %add.i = add nsw i32 %12, %11
   %shl.i = shl i32 %add.i, 15
@@ -5423,7 +5405,7 @@ if.end:                                           ; preds = %for.body20, %for.co
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -5440,13 +5422,13 @@ _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE8allocateEi.exit: ; preds = 
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -5464,20 +5446,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.44)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -5488,7 +5470,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -5501,7 +5483,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI9b3HashPtrE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -5518,13 +5500,13 @@ _ZN20b3AlignedObjectArrayI9b3HashPtrE8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayI9b3HashPtrE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -5542,20 +5524,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI9b3HashPtrE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.44)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayI9b3HashPtrE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -5566,7 +5548,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayI9b3HashPtrE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -5579,7 +5561,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -5596,13 +5578,13 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -5620,20 +5602,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.44)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -5644,7 +5626,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8

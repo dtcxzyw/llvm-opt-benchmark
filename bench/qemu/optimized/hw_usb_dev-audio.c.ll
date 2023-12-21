@@ -15,35 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.USBDescConfig = type { i8, i8, i8, i8, i8, i8, ptr, i8, ptr }
 %struct.USBDescOther = type { i8, ptr }
 %struct.USBDescEndpoint = type { i8, i8, i16, i8, i8, i8, i8, ptr, i8, i8, i16 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.USBAudioState = type { %struct.USBDevice, %struct.QEMUSoundCard, %struct.anon.2, i32, i32, i32, i8 }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.QEMUSoundCard = type { ptr, ptr, %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { i32, %struct.audsettings, ptr, %struct.Volume, %struct.streambuf, i32 }
-%struct.audsettings = type { i32, i32, i32, i32 }
-%struct.Volume = type { i8, i32, [16 x i8] }
-%struct.streambuf = type { ptr, i64, i64, i64 }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.6, %union.anon.7 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.3 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
 
 @usb_audio_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 6008, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @usb_audio_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"usb-audio\00", align 1
@@ -156,26 +127,26 @@ define internal void @usb_audio_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_audio, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @usb_audio_properties) #8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i10, i64 280
   store ptr @.str.2, ptr %product_desc, align 8
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @usb_audio_realize, ptr %realize, align 8
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 6
+  %handle_reset = getelementptr inbounds i8, ptr %call.i10, i64 216
   store ptr @usb_audio_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 7
+  %handle_control = getelementptr inbounds i8, ptr %call.i10, i64 224
   store ptr @usb_audio_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 8
+  %handle_data = getelementptr inbounds i8, ptr %call.i10, i64 232
   store ptr @usb_audio_handle_data, ptr %handle_data, align 8
-  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i10, i64 184
   store ptr @usb_audio_unrealize, ptr %unrealize, align 8
-  %set_interface = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 9
+  %set_interface = getelementptr inbounds i8, ptr %call.i10, i64 240
   store ptr @usb_audio_set_interface, ptr %set_interface, align 8
   ret void
 }
@@ -186,31 +157,32 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @usb_audio_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 659, ptr noundef nonnull @__func__.USB_AUDIO) #8
-  %card = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 1
+  %card = getelementptr inbounds i8, ptr %call.i, i64 5864
   %call1 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str, ptr noundef nonnull %card, ptr noundef %errp) #8
   br i1 %call1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %multi = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi = getelementptr inbounds i8, ptr %call.i, i64 6004
   %0 = load i8, ptr %multi, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr @desc_audio, ptr @desc_audio_multi
-  %usb_desc = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 25
+  %usb_desc = getelementptr inbounds i8, ptr %dev, i64 5640
   store ptr %cond, ptr %usb_desc, align 8
   tail call void @usb_desc_create_serial(ptr noundef %dev) #8
   tail call void @usb_desc_init(ptr noundef %dev) #8
-  %opaque = getelementptr inbounds %struct.USBDevice, ptr %call.i, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %call.i, ptr %opaque, align 8
-  %out = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2
+  %out = getelementptr inbounds i8, ptr %call.i, i64 5896
   store i32 0, ptr %out, align 8
-  %vol = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3
+  %vol = getelementptr inbounds i8, ptr %call.i, i64 5928
   store i8 0, ptr %vol, align 8
+  %vol9 = getelementptr inbounds i8, ptr %call.i, i64 5936
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr [16 x i8], ptr %vol9, i64 0, i64 %indvars.iv
   store i8 -16, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i8, ptr %multi, align 4
@@ -222,33 +194,33 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 659, ptr noundef nonnull @__func__.USB_AUDIO) #8
-  %channels1.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 5
+  %channels1.i = getelementptr inbounds i8, ptr %call.i.i, i64 5984
   store i32 2, ptr %channels1.i, align 8
-  %buffer_user.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 4
+  %buffer_user.i = getelementptr inbounds i8, ptr %call.i.i, i64 5996
   %5 = load i32, ptr %buffer_user.i, align 4
   %tobool.not.i = icmp eq i32 %5, 0
   %spec.select.i = select i1 %tobool.not.i, i32 6144, i32 %5
-  %6 = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 5
+  %6 = getelementptr inbounds i8, ptr %call.i.i, i64 6000
   store i32 %spec.select.i, ptr %6, align 8
-  %vol.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 3
-  %channels10.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 3, i32 1
+  %vol.i = getelementptr inbounds i8, ptr %call.i.i, i64 5928
+  %channels10.i = getelementptr inbounds i8, ptr %call.i.i, i64 5932
   store i32 2, ptr %channels10.i, align 4
-  %as.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 1
+  %as.i = getelementptr inbounds i8, ptr %call.i.i, i64 5900
   store <4 x i32> <i32 48000, i32 2, i32 3, i32 0>, ptr %as.i, align 4
-  %buf.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 4
+  %buf.i = getelementptr inbounds i8, ptr %call.i.i, i64 5952
   %7 = load ptr, ptr %buf.i, align 8
   tail call void @g_free(ptr noundef %7) #8
   %rem.i.i = urem i32 %spec.select.i, 192
   %sub.i.i = sub nuw i32 %spec.select.i, %rem.i.i
   %conv.i.i = zext i32 %sub.i.i to i64
-  %size1.i.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 4, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 5960
   store i64 %conv.i.i, ptr %size1.i.i, align 8
   %call.i24.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i.i) #9
   store ptr %call.i24.i, ptr %buf.i, align 8
-  %prod.i.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 4, i32 2
+  %prod.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 5968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prod.i.i, i8 0, i64 16, i1 false)
-  %card.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 1
-  %voice.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 2
+  %card.i = getelementptr inbounds i8, ptr %call.i.i, i64 5864
+  %voice.i = getelementptr inbounds i8, ptr %call.i.i, i64 5920
   %8 = load ptr, ptr %voice.i, align 8
   %call27.i = tail call ptr @AUD_open_out(ptr noundef nonnull %card.i, ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %call.i.i, ptr noundef nonnull @output_callback, ptr noundef nonnull %as.i) #8
   store ptr %call27.i, ptr %voice.i, align 8
@@ -265,7 +237,7 @@ return:                                           ; preds = %entry, %for.end
 define internal void @usb_audio_handle_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 659, ptr noundef nonnull @__func__.USB_AUDIO) #8
-  %debug = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %call.i, i64 5992
   %0 = load i32, ptr %debug, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -276,7 +248,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %voice9.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 2
+  %voice9.i = getelementptr inbounds i8, ptr %call.i, i64 5920
   %3 = load ptr, ptr %voice9.i, align 8
   tail call void @AUD_set_active_out(ptr noundef %3, i32 noundef 0) #8
   %4 = load i32, ptr %debug, align 8
@@ -289,7 +261,7 @@ if.then10.i:                                      ; preds = %if.end
   br label %usb_audio_set_output_altset.exit
 
 usb_audio_set_output_altset.exit:                 ; preds = %if.end, %if.then10.i
-  %out13.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2
+  %out13.i = getelementptr inbounds i8, ptr %call.i, i64 5896
   store i32 0, ptr %out13.i, align 8
   ret void
 }
@@ -298,7 +270,7 @@ usb_audio_set_output_altset.exit:                 ; preds = %if.end, %if.then10.
 define internal void @usb_audio_handle_control(ptr noundef %dev, ptr noundef %p, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length, ptr noundef %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 659, ptr noundef nonnull @__func__.USB_AUDIO) #8
-  %debug = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %call.i, i64 5992
   %0 = load i32, ptr %debug, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -344,7 +316,7 @@ sw.bb:                                            ; preds = %if.end4, %if.end4, 
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
-  %vol.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3
+  %vol.i = getelementptr inbounds i8, ptr %call.i, i64 5928
   %3 = load i8, ptr %vol.i, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %data, align 1
@@ -352,7 +324,7 @@ sw.bb.i:                                          ; preds = %sw.bb
 
 sw.bb10.i:                                        ; preds = %sw.bb
   %conv11.i = zext i8 %sub.i to i32
-  %multi.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi.i = getelementptr inbounds i8, ptr %call.i, i64 6004
   %5 = load i8, ptr %multi.i, align 4
   %6 = and i8 %5, 1
   %tobool12.not.i = icmp eq i8 %6, 0
@@ -361,8 +333,9 @@ sw.bb10.i:                                        ; preds = %sw.bb
   br i1 %cmp.i, label %if.then.i, label %if.then10
 
 if.then.i:                                        ; preds = %sw.bb10.i
+  %vol18.i = getelementptr inbounds i8, ptr %call.i, i64 5936
   %idxprom.i = zext i8 %sub.i to i64
-  %arrayidx19.i = getelementptr %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3, i32 2, i64 %idxprom.i
+  %arrayidx19.i = getelementptr [16 x i8], ptr %vol18.i, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx19.i, align 1
   %conv20.i = zext i8 %7 to i32
   %mul.i = mul nuw nsw i32 %conv20.i, 34816
@@ -379,7 +352,7 @@ if.then.i:                                        ; preds = %sw.bb10.i
 
 sw.bb29.i:                                        ; preds = %sw.bb
   %conv30.i = zext i8 %sub.i to i32
-  %multi31.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi31.i = getelementptr inbounds i8, ptr %call.i, i64 6004
   %9 = load i8, ptr %multi31.i, align 4
   %10 = and i8 %9, 1
   %tobool32.not.i = icmp eq i8 %10, 0
@@ -395,7 +368,7 @@ if.then37.i:                                      ; preds = %sw.bb29.i
 
 sw.bb41.i:                                        ; preds = %sw.bb
   %conv42.i = zext i8 %sub.i to i32
-  %multi43.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi43.i = getelementptr inbounds i8, ptr %call.i, i64 6004
   %11 = load i8, ptr %multi43.i, align 4
   %12 = and i8 %11, 1
   %tobool44.not.i = icmp eq i8 %12, 0
@@ -411,7 +384,7 @@ if.then49.i:                                      ; preds = %sw.bb41.i
 
 sw.bb53.i:                                        ; preds = %sw.bb
   %conv54.i = zext i8 %sub.i to i32
-  %multi55.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi55.i = getelementptr inbounds i8, ptr %call.i, i64 6004
   %13 = load i8, ptr %multi55.i, align 4
   %14 = and i8 %13, 1
   %tobool56.not.i = icmp eq i8 %14, 0
@@ -432,7 +405,7 @@ if.then10:                                        ; preds = %sw.bb, %sw.bb53.i, 
 
 if.end16:                                         ; preds = %if.then61.i, %if.then49.i, %if.then37.i, %if.then.i, %sw.bb.i
   %ret.0.i = phi i32 [ 2, %if.then61.i ], [ 2, %if.then49.i ], [ 2, %if.then37.i ], [ 2, %if.then.i ], [ 1, %sw.bb.i ]
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %ret.0.i, ptr %actual_length, align 8
   br label %sw.epilog
 
@@ -454,13 +427,13 @@ sw.bb17:                                          ; preds = %if.end4, %if.end4, 
 sw.bb.i53:                                        ; preds = %sw.bb17
   %17 = load i8, ptr %data, align 1
   %18 = and i8 %17, 1
-  %vol.i54 = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3
+  %vol.i54 = getelementptr inbounds i8, ptr %call.i, i64 5928
   store i8 %18, ptr %vol.i54, align 8
   br label %if.then44.i
 
 sw.bb10.i41:                                      ; preds = %sw.bb17
   %conv11.i42 = zext i8 %sub.i34 to i32
-  %multi.i43 = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi.i43 = getelementptr inbounds i8, ptr %call.i, i64 6004
   %19 = load i8, ptr %multi.i43, align 4
   %20 = and i8 %19, 1
   %tobool12.not.i44 = icmp eq i8 %20, 0
@@ -495,8 +468,9 @@ if.end.i:                                         ; preds = %if.then23.i, %if.th
   %cmp33.i = icmp ugt i16 %sub27.i, -30652
   %25 = trunc i32 %div.i51 to i8
   %conv37.i = select i1 %cmp33.i, i8 -1, i8 %25
+  %vol40.i = getelementptr inbounds i8, ptr %call.i, i64 5936
   %idxprom.i52 = zext i8 %sub.i34 to i64
-  %arrayidx41.i = getelementptr %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3, i32 2, i64 %idxprom.i52
+  %arrayidx41.i = getelementptr [16 x i8], ptr %vol40.i, i64 0, i64 %idxprom.i52
   store i8 %conv37.i, ptr %arrayidx41.i, align 1
   br label %if.then44.i
 
@@ -507,18 +481,19 @@ if.then44.i:                                      ; preds = %if.end.i, %sw.bb.i5
 
 if.then47.i:                                      ; preds = %if.then44.i
   %27 = load ptr, ptr @stderr, align 8
-  %vol49.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3
+  %vol49.i = getelementptr inbounds i8, ptr %call.i, i64 5928
   %28 = load i8, ptr %vol49.i, align 8
   %29 = and i8 %28, 1
   %conv52.i = zext nneg i8 %29 to i32
   %call53.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.60, i32 noundef %conv52.i) #10
-  %multi54.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 6
+  %multi54.i = getelementptr inbounds i8, ptr %call.i, i64 6004
+  %vol62.i = getelementptr inbounds i8, ptr %call.i, i64 5936
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then47.i
   %indvars.iv.i = phi i64 [ 0, %if.then47.i ], [ %indvars.iv.next.i, %for.body.i ]
   %30 = load ptr, ptr @stderr, align 8
-  %arrayidx64.i = getelementptr %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3, i32 2, i64 %indvars.iv.i
+  %arrayidx64.i = getelementptr [16 x i8], ptr %vol62.i, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %arrayidx64.i, align 1
   %conv65.i = zext i8 %31 to i32
   %32 = trunc i64 %indvars.iv.i to i32
@@ -537,9 +512,9 @@ for.end.i:                                        ; preds = %for.body.i
   br label %usb_audio_set_control.exit
 
 usb_audio_set_control.exit:                       ; preds = %if.then44.i, %for.end.i
-  %voice.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 2
+  %voice.i = getelementptr inbounds i8, ptr %call.i, i64 5920
   %37 = load ptr, ptr %voice.i, align 8
-  %vol71.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 3
+  %vol71.i = getelementptr inbounds i8, ptr %call.i, i64 5928
   tail call void @audio_set_volume_out(ptr noundef %37, ptr noundef nonnull %vol71.i) #8
   br label %sw.epilog
 
@@ -565,7 +540,7 @@ if.then34:                                        ; preds = %fail
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then10, %if.then25, %if.then34, %fail
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog
 
@@ -581,32 +556,32 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %ep = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %ep, align 8
   %2 = load i8, ptr %1, align 8
   %cmp1 = icmp eq i8 %2, 1
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %out.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 2
+  %out.i = getelementptr inbounds i8, ptr %dev, i64 5896
   %3 = load i32, ptr %out.i, align 8
   %cmp.i = icmp eq i32 %3, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %status.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status.i = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status.i, align 4
   br label %if.end8
 
 if.end.i:                                         ; preds = %if.then
-  %buf.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 2, i32 4
-  %channels.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 2, i32 5
+  %buf.i = getelementptr inbounds i8, ptr %dev, i64 5952
+  %channels.i = getelementptr inbounds i8, ptr %dev, i64 5984
   %4 = load i32, ptr %channels.i, align 8
-  %size.i.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 2, i32 4, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %dev, i64 5960
   %5 = load i64, ptr %size.i.i, align 8
-  %prod.i.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 2, i32 4, i32 2
+  %prod.i.i = getelementptr inbounds i8, ptr %dev, i64 5968
   %6 = load i64, ptr %prod.i.i, align 8
-  %cons.i.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 2, i32 4, i32 3
+  %cons.i.i = getelementptr inbounds i8, ptr %dev, i64 5976
   %7 = load i64, ptr %cons.i.i, align 8
   %sub.neg.i.i = sub i64 %5, %6
   %sub1.i.i = add i64 %sub.neg.i.i, %7
@@ -616,7 +591,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp.i.i, label %streambuf_put.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %size3.i.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size3.i.i = getelementptr inbounds i8, ptr %p, i64 64
   %8 = load i64, ptr %size3.i.i, align 8
   %cmp6.not.i.i = icmp eq i64 %8, %conv.i.i
   br i1 %cmp6.not.i.i, label %if.end9.i.i, label %streambuf_put.exit.i
@@ -641,16 +616,16 @@ if.end16.i.i:                                     ; preds = %if.end9.i.i
   br label %streambuf_put.exit.i
 
 streambuf_put.exit.i:                             ; preds = %if.end16.i.i, %if.end.i.i, %if.end.i
-  %actual_length.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length.i = getelementptr inbounds i8, ptr %p, i64 88
   %11 = load i32, ptr %actual_length.i, align 8
   %conv.i = sext i32 %11 to i64
-  %size.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %p, i64 64
   %12 = load i64, ptr %size.i, align 8
   %cmp3.i = icmp ugt i64 %12, %conv.i
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end8
 
 land.lhs.true.i:                                  ; preds = %streambuf_put.exit.i
-  %debug.i = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 3
+  %debug.i = getelementptr inbounds i8, ptr %dev, i64 5992
   %13 = load i32, ptr %debug.i, align 8
   %cmp5.i = icmp ugt i32 %13, 1
   br i1 %cmp5.i, label %if.then7.i, label %if.end8
@@ -662,20 +637,20 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   br label %if.end8
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
-  %debug = getelementptr inbounds %struct.USBAudioState, ptr %dev, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %dev, i64 5992
   %15 = load i32, ptr %debug, align 8
   %tobool.not = icmp eq i32 %15, 0
   br i1 %tobool.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %16 = load ptr, ptr @stderr, align 8
-  %ep5 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep5 = getelementptr inbounds i8, ptr %p, i64 16
   %17 = load ptr, ptr %ep5, align 8
   %18 = load i8, ptr %17, align 8
   %conv7 = zext i8 %18 to i32
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %p, i64 64
   %19 = load i64, ptr %size, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.63, i32 noundef %0, i32 noundef %conv7, i64 noundef %19) #10
   br label %if.end8
@@ -688,7 +663,7 @@ if.end8:                                          ; preds = %if.then7.i, %land.l
 define internal void @usb_audio_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 659, ptr noundef nonnull @__func__.USB_AUDIO) #8
-  %debug = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %call.i, i64 5992
   %0 = load i32, ptr %debug, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -699,7 +674,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %voice9.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 2
+  %voice9.i = getelementptr inbounds i8, ptr %call.i, i64 5920
   %3 = load ptr, ptr %voice9.i, align 8
   tail call void @AUD_set_active_out(ptr noundef %3, i32 noundef 0) #8
   %4 = load i32, ptr %debug, align 8
@@ -712,13 +687,13 @@ if.then10.i:                                      ; preds = %if.end
   br label %usb_audio_set_output_altset.exit
 
 usb_audio_set_output_altset.exit:                 ; preds = %if.end, %if.then10.i
-  %out13.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2
+  %out13.i = getelementptr inbounds i8, ptr %call.i, i64 5896
   store i32 0, ptr %out13.i, align 8
-  %card = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 1
+  %card = getelementptr inbounds i8, ptr %call.i, i64 5864
   %6 = load ptr, ptr %voice9.i, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %6) #8
   tail call void @AUD_remove_card(ptr noundef nonnull %card) #8
-  %buf = getelementptr inbounds %struct.USBAudioState, ptr %call.i, i64 0, i32 2, i32 4
+  %buf = getelementptr inbounds i8, ptr %call.i, i64 5952
   %7 = load ptr, ptr %buf, align 8
   tail call void @g_free(ptr noundef %7) #8
   store ptr null, ptr %buf, align 8
@@ -759,11 +734,11 @@ entry:
   br i1 %tobool.old.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %buf = getelementptr inbounds %struct.USBAudioState, ptr %opaque, i64 0, i32 2, i32 4
-  %prod.i = getelementptr inbounds %struct.USBAudioState, ptr %opaque, i64 0, i32 2, i32 4, i32 2
-  %cons.i = getelementptr inbounds %struct.USBAudioState, ptr %opaque, i64 0, i32 2, i32 4, i32 3
-  %size.i = getelementptr inbounds %struct.USBAudioState, ptr %opaque, i64 0, i32 2, i32 4, i32 1
-  %voice = getelementptr inbounds %struct.USBAudioState, ptr %opaque, i64 0, i32 2, i32 2
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 5952
+  %prod.i = getelementptr inbounds i8, ptr %opaque, i64 5968
+  %cons.i = getelementptr inbounds i8, ptr %opaque, i64 5976
+  %size.i = getelementptr inbounds i8, ptr %opaque, i64 5960
+  %voice = getelementptr inbounds i8, ptr %opaque, i64 5920
   %.pre = load i64, ptr %cons.i, align 8
   br label %while.body
 
@@ -827,7 +802,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry, %entry, %entry
-  %channels = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 2, i32 5
+  %channels = getelementptr inbounds i8, ptr %s, i64 5984
   %0 = load i32, ptr %channels, align 8
   %idxprom = zext nneg i32 %altset to i64
   %arrayidx = getelementptr [4 x i32], ptr @altset_channels, i64 0, i64 %idxprom
@@ -838,41 +813,41 @@ sw.bb1:                                           ; preds = %entry, %entry, %ent
 if.then:                                          ; preds = %sw.bb1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 659, ptr noundef nonnull @__func__.USB_AUDIO) #8
-  %channels1.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 5
+  %channels1.i = getelementptr inbounds i8, ptr %call.i.i, i64 5984
   store i32 %1, ptr %channels1.i, align 8
-  %buffer_user.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 4
+  %buffer_user.i = getelementptr inbounds i8, ptr %call.i.i, i64 5996
   %2 = load i32, ptr %buffer_user.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   %mul4.i = mul i32 %1, 3072
   %spec.select.i = select i1 %tobool.not.i, i32 %mul4.i, i32 %2
-  %3 = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 5
+  %3 = getelementptr inbounds i8, ptr %call.i.i, i64 6000
   store i32 %spec.select.i, ptr %3, align 8
-  %vol.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 3
-  %channels10.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 3, i32 1
+  %vol.i = getelementptr inbounds i8, ptr %call.i.i, i64 5928
+  %channels10.i = getelementptr inbounds i8, ptr %call.i.i, i64 5932
   store i32 %1, ptr %channels10.i, align 4
-  %as.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 1
+  %as.i = getelementptr inbounds i8, ptr %call.i.i, i64 5900
   store i32 48000, ptr %as.i, align 4
-  %nchannels.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 1, i32 1
+  %nchannels.i = getelementptr inbounds i8, ptr %call.i.i, i64 5904
   store i32 %1, ptr %nchannels.i, align 4
-  %fmt.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 1, i32 2
+  %fmt.i = getelementptr inbounds i8, ptr %call.i.i, i64 5908
   store i32 3, ptr %fmt.i, align 4
-  %endianness.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 1, i32 3
+  %endianness.i = getelementptr inbounds i8, ptr %call.i.i, i64 5912
   store i32 0, ptr %endianness.i, align 4
-  %buf.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 4
+  %buf.i = getelementptr inbounds i8, ptr %call.i.i, i64 5952
   %4 = load ptr, ptr %buf.i, align 8
   tail call void @g_free(ptr noundef %4) #8
   %mul.i.i = mul i32 %1, 96
   %rem.i.i = urem i32 %spec.select.i, %mul.i.i
   %sub.i.i = sub nuw i32 %spec.select.i, %rem.i.i
   %conv.i.i = zext i32 %sub.i.i to i64
-  %size1.i.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 4, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 5960
   store i64 %conv.i.i, ptr %size1.i.i, align 8
   %call.i24.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i.i) #9
   store ptr %call.i24.i, ptr %buf.i, align 8
-  %prod.i.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 4, i32 2
+  %prod.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 5968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prod.i.i, i8 0, i64 16, i1 false)
-  %card.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 1
-  %voice.i = getelementptr inbounds %struct.USBAudioState, ptr %call.i.i, i64 0, i32 2, i32 2
+  %card.i = getelementptr inbounds i8, ptr %call.i.i, i64 5864
+  %voice.i = getelementptr inbounds i8, ptr %call.i.i, i64 5920
   %5 = load ptr, ptr %voice.i, align 8
   %call27.i = tail call ptr @AUD_open_out(ptr noundef nonnull %card.i, ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull %call.i.i, ptr noundef nonnull @output_callback, ptr noundef nonnull %as.i) #8
   store ptr %call27.i, ptr %voice.i, align 8
@@ -884,8 +859,8 @@ if.then:                                          ; preds = %sw.bb1
 
 if.end:                                           ; preds = %if.then, %sw.bb1
   %7 = phi i32 [ %.pre, %if.then ], [ %0, %sw.bb1 ]
-  %buf = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 2, i32 4
-  %buffer = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 5
+  %buf = getelementptr inbounds i8, ptr %s, i64 5952
+  %buffer = getelementptr inbounds i8, ptr %s, i64 6000
   %8 = load i32, ptr %buffer, align 8
   %9 = load ptr, ptr %buf, align 8
   tail call void @g_free(ptr noundef %9) #8
@@ -893,20 +868,20 @@ if.end:                                           ; preds = %if.then, %sw.bb1
   %rem.i = urem i32 %8, %mul.i
   %sub.i = sub nuw i32 %8, %rem.i
   %conv.i = zext i32 %sub.i to i64
-  %size1.i = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 2, i32 4, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %s, i64 5960
   store i64 %conv.i, ptr %size1.i, align 8
   %call.i13 = tail call noalias ptr @g_malloc(i64 noundef %conv.i) #9
   store ptr %call.i13, ptr %buf, align 8
-  %prod.i = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 2, i32 4, i32 2
+  %prod.i = getelementptr inbounds i8, ptr %s, i64 5968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prod.i, i8 0, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.end
   %.sink14 = phi i32 [ 1, %if.end ], [ %altset, %entry ]
-  %voice9 = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 2, i32 2
+  %voice9 = getelementptr inbounds i8, ptr %s, i64 5920
   %10 = load ptr, ptr %voice9, align 8
   tail call void @AUD_set_active_out(ptr noundef %10, i32 noundef %.sink14) #8
-  %debug = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %s, i64 5992
   %11 = load i32, ptr %debug, align 8
   %tobool.not = icmp eq i32 %11, 0
   br i1 %tobool.not, label %if.end12, label %if.then10
@@ -917,7 +892,7 @@ if.then10:                                        ; preds = %sw.epilog
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %sw.epilog
-  %out13 = getelementptr inbounds %struct.USBAudioState, ptr %s, i64 0, i32 2
+  %out13 = getelementptr inbounds i8, ptr %s, i64 5896
   store i32 %altset, ptr %out13, align 8
   br label %return
 

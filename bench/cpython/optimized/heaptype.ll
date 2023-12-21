@@ -12,21 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct._heaptypeobject = type { %struct._typeobject, %struct.PyAsyncMethods, %struct.PyNumberMethods, %struct.PyMappingMethods, %struct.PySequenceMethods, %struct.PyBufferProcs, ptr, ptr, ptr, ptr, ptr, ptr, %struct._specialization_cache }
-%struct.PyAsyncMethods = type { ptr, ptr, ptr, ptr }
-%struct.PyNumberMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyMappingMethods = type { ptr, ptr, ptr }
-%struct.PySequenceMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyBufferProcs = type { ptr, ptr }
-%struct._specialization_cache = type { ptr, i32, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
-%struct.HeapCTypeObject = type { %struct._object, i32 }
-%struct.HeapCTypeSubclassObject = type { %struct.HeapCTypeObject, i32 }
-%struct.HeapCTypeWithDictObject = type { %struct._object, ptr }
-%struct.HeapCTypeWithWeakrefObject = type { %struct._object, ptr }
-%struct.HeapCTypeWithBufferObject = type { %struct.HeapCTypeObject, [4 x i8] }
-%struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.HeapCTypeSetattrObject = type { %struct._object, i64 }
 
 @.str = private unnamed_addr constant [25 x i8] c"A class used for tests\C2\B7\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"A class used for tests\00", align 1
@@ -444,13 +429,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %HeapCTypeViaMetaclass_slots, i8 0, i64 16, i1 false)
   store ptr @.str.31, ptr %HeapCTypeViaMetaclass_spec, align 8
-  %basicsize = getelementptr inbounds %struct.PyType_Spec, ptr %HeapCTypeViaMetaclass_spec, i64 0, i32 1
+  %basicsize = getelementptr inbounds i8, ptr %HeapCTypeViaMetaclass_spec, i64 8
   store i32 16, ptr %basicsize, align 8
-  %itemsize = getelementptr inbounds %struct.PyType_Spec, ptr %HeapCTypeViaMetaclass_spec, i64 0, i32 2
+  %itemsize = getelementptr inbounds i8, ptr %HeapCTypeViaMetaclass_spec, i64 12
   store i32 0, ptr %itemsize, align 4
-  %flags = getelementptr inbounds %struct.PyType_Spec, ptr %HeapCTypeViaMetaclass_spec, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %HeapCTypeViaMetaclass_spec, i64 16
   store i32 1024, ptr %flags, align 8
-  %slots = getelementptr inbounds %struct.PyType_Spec, ptr %HeapCTypeViaMetaclass_spec, i64 0, i32 4
+  %slots = getelementptr inbounds i8, ptr %HeapCTypeViaMetaclass_spec, i64 24
   store ptr %HeapCTypeViaMetaclass_slots, ptr %slots, align 8
   %call1 = call ptr @PyType_FromMetaclass(ptr noundef nonnull %meta, ptr noundef null, ptr noundef nonnull %HeapCTypeViaMetaclass_spec, ptr noundef null) #7
   br label %return
@@ -493,11 +478,11 @@ if.then9:                                         ; preds = %if.end6
 if.end11:                                         ; preds = %if.end6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %call7, ptr noundef nonnull align 1 dereferenceable(13) @.str.38, i64 13, i1 false)
   store ptr %call2, ptr %call, align 8
-  %basicsize = getelementptr inbounds %struct.PyType_Spec, ptr %call, i64 0, i32 1
+  %basicsize = getelementptr inbounds i8, ptr %call, i64 8
   store i32 16, ptr %basicsize, align 8
-  %itemsize = getelementptr inbounds %struct.PyType_Spec, ptr %call, i64 0, i32 2
+  %itemsize = getelementptr inbounds i8, ptr %call, i64 12
   store i32 0, ptr %itemsize, align 4
-  %flags = getelementptr inbounds %struct.PyType_Spec, ptr %call, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %flags, align 8
   %call14 = tail call ptr @PyMem_Malloc(i64 noundef 48) #7
   %cmp15 = icmp eq ptr %call14, null
@@ -509,17 +494,17 @@ if.then16:                                        ; preds = %if.end11
 
 if.end18:                                         ; preds = %if.end11
   store i32 70, ptr %call14, align 8
-  %pfunc = getelementptr inbounds %struct.PyType_Slot, ptr %call14, i64 0, i32 1
+  %pfunc = getelementptr inbounds i8, ptr %call14, i64 8
   store ptr @simple_str, ptr %pfunc, align 8
-  %arrayidx20 = getelementptr %struct.PyType_Slot, ptr %call14, i64 1
+  %arrayidx20 = getelementptr i8, ptr %call14, i64 16
   store i32 56, ptr %arrayidx20, align 8
-  %pfunc23 = getelementptr %struct.PyType_Slot, ptr %call14, i64 1, i32 1
+  %pfunc23 = getelementptr i8, ptr %call14, i64 24
   store ptr %call7, ptr %pfunc23, align 8
-  %arrayidx24 = getelementptr %struct.PyType_Slot, ptr %call14, i64 2
+  %arrayidx24 = getelementptr i8, ptr %call14, i64 32
   store i32 0, ptr %arrayidx24, align 8
-  %pfunc27 = getelementptr %struct.PyType_Slot, ptr %call14, i64 2, i32 1
+  %pfunc27 = getelementptr i8, ptr %call14, i64 40
   store ptr null, ptr %pfunc27, align 8
-  %slots28 = getelementptr inbounds %struct.PyType_Spec, ptr %call, i64 0, i32 4
+  %slots28 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call14, ptr %slots28, align 8
   %call29 = tail call ptr @PyType_FromSpec(ptr noundef nonnull %call) #7
   %cmp30 = icmp eq ptr %call29, null
@@ -534,7 +519,7 @@ if.end32:                                         ; preds = %if.end18
   tail call void @PyMem_Free(ptr noundef nonnull %call7) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call14, i8 -35, i64 48, i1 false)
   tail call void @PyMem_Free(ptr noundef nonnull %call14) #7
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call29, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call29, i64 24
   %0 = load ptr, ptr %tp_name, align 8
   %call33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.32) #8
   %cmp34 = icmp eq i32 %call33, 0
@@ -545,7 +530,7 @@ cond.false:                                       ; preds = %if.end32
   unreachable
 
 cond.end:                                         ; preds = %if.end32
-  %ht_name = getelementptr inbounds %struct._heaptypeobject, ptr %call29, i64 0, i32 6
+  %ht_name = getelementptr inbounds i8, ptr %call29, i64 856
   %1 = load ptr, ptr %ht_name, align 8
   %call35 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %1) #7
   %call36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call35, ptr noundef nonnull dereferenceable(6) @.str.35) #8
@@ -557,7 +542,7 @@ cond.false39:                                     ; preds = %cond.end
   unreachable
 
 cond.end40:                                       ; preds = %cond.end
-  %ht_qualname = getelementptr inbounds %struct._heaptypeobject, ptr %call29, i64 0, i32 8
+  %ht_qualname = getelementptr inbounds i8, ptr %call29, i64 872
   %2 = load ptr, ptr %ht_qualname, align 8
   %call41 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %2) #7
   %call42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call41, ptr noundef nonnull dereferenceable(6) @.str.35) #8
@@ -569,7 +554,7 @@ cond.false45:                                     ; preds = %cond.end40
   unreachable
 
 cond.end46:                                       ; preds = %cond.end40
-  %tp_doc = getelementptr inbounds %struct._typeobject, ptr %call29, i64 0, i32 20
+  %tp_doc = getelementptr inbounds i8, ptr %call29, i64 176
   %3 = load ptr, ptr %tp_doc, align 8
   %call47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.38) #8
   %cmp48 = icmp eq i32 %call47, 0
@@ -726,7 +711,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then.i, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %tp_basicsize = getelementptr inbounds %struct._typeobject, ptr %call1, i64 0, i32 2
+  %tp_basicsize = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load i64, ptr %tp_basicsize, align 8
   %conv = trunc i64 %0 to i32
   store i32 %conv, ptr getelementptr inbounds (%struct.PyType_Spec, ptr @MinimalType_spec, i64 0, i32 1), align 8
@@ -934,7 +919,7 @@ cond.false:                                       ; preds = %if.end31
   unreachable
 
 cond.end:                                         ; preds = %if.end31
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %call24, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %call24, i64 24
   %8 = load ptr, ptr %ob_item, align 8
   %9 = load i32, ptr %8, align 8
   %add.i.i = add i32 %9, 1
@@ -1201,16 +1186,16 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   store ptr @.str.59, ptr %ImmutableSubclass_spec, align 8
-  %basicsize = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 1
-  %tp_basicsize = getelementptr inbounds %struct._typeobject, ptr %base, i64 0, i32 2
+  %basicsize = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 8
+  %tp_basicsize = getelementptr inbounds i8, ptr %base, i64 32
   %2 = load i64, ptr %tp_basicsize, align 8
   %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %basicsize, align 8
-  %itemsize = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 2
+  %itemsize = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 12
   store i32 0, ptr %itemsize, align 4
-  %flags = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 16
   store i32 256, ptr %flags, align 8
-  %slots = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 4
+  %slots = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 24
   store ptr @empty_type_slots, ptr %slots, align 8
   %call1 = call ptr @PyType_FromSpecWithBases(ptr noundef nonnull %ImmutableSubclass_spec, ptr noundef nonnull %base) #7
   ret ptr %call1
@@ -1234,16 +1219,16 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   store ptr @.str.60, ptr %ImmutableSubclass_spec, align 8
-  %basicsize = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 1
-  %tp_basicsize = getelementptr inbounds %struct._typeobject, ptr %base, i64 0, i32 2
+  %basicsize = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 8
+  %tp_basicsize = getelementptr inbounds i8, ptr %base, i64 32
   %2 = load i64, ptr %tp_basicsize, align 8
   %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %basicsize, align 8
-  %itemsize = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 2
+  %itemsize = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 12
   store i32 0, ptr %itemsize, align 4
-  %flags = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 16
   store i32 0, ptr %flags, align 8
-  %slots = getelementptr inbounds %struct.PyType_Spec, ptr %ImmutableSubclass_spec, i64 0, i32 4
+  %slots = getelementptr inbounds i8, ptr %ImmutableSubclass_spec, i64 24
   store ptr @empty_type_slots, ptr %slots, align 8
   %call1 = call ptr @PyType_FromSpecWithBases(ptr noundef nonnull %ImmutableSubclass_spec, ptr noundef nonnull %base) #7
   ret ptr %call1
@@ -1327,7 +1312,7 @@ declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @heapctype_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
 entry:
-  %value = getelementptr inbounds %struct.HeapCTypeObject, ptr %self, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %self, i64 16
   store i32 10, ptr %value, align 8
   ret i32 0
 }
@@ -1415,9 +1400,9 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @heapctypesubclass_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
 entry:
-  %value.i = getelementptr inbounds %struct.HeapCTypeObject, ptr %self, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 10, ptr %value.i, align 8
-  %value2 = getelementptr inbounds %struct.HeapCTypeSubclassObject, ptr %self, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %self, i64 24
   store i32 20, ptr %value2, align 8
   ret i32 0
 }
@@ -1427,7 +1412,7 @@ define internal void @heapctypewithdict_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %dict = getelementptr inbounds %struct.HeapCTypeWithDictObject, ptr %self, i64 0, i32 1
+  %dict = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %dict, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1567,7 +1552,7 @@ define internal void @heapctypewithweakref_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %weakreflist = getelementptr inbounds %struct.HeapCTypeWithWeakrefObject, ptr %self, i64 0, i32 1
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %Py_XDECREF.exit, label %if.end
@@ -1618,7 +1603,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @heapctypewithbuffer_getbuffer(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
-  %buffer = getelementptr inbounds %struct.HeapCTypeWithBufferObject, ptr %self, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %self, i64 24
   store <4 x i8> <i8 49, i8 50, i8 51, i8 52>, ptr %buffer, align 8
   %call = tail call i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %self, ptr noundef nonnull %buffer, i64 noundef 4, i32 noundef 1, i32 noundef %flags) #7
   ret i32 %call
@@ -1627,7 +1612,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @heapctypewithbuffer_releasebuffer(ptr noundef readnone %self, ptr nocapture noundef readonly %view) #0 {
 entry:
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %view, i64 8
   %0 = load ptr, ptr %obj, align 8
   %cmp = icmp eq ptr %0, %self
   br i1 %cmp, label %cond.end, label %cond.false
@@ -1645,7 +1630,7 @@ declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @heapctypesetattr_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
 entry:
-  %value = getelementptr inbounds %struct.HeapCTypeSetattrObject, ptr %self, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %self, i64 16
   store i64 10, ptr %value, align 8
   ret i32 0
 }
@@ -1691,7 +1676,7 @@ if.end7:                                          ; preds = %if.end4
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end7
-  %value10 = getelementptr inbounds %struct.HeapCTypeSetattrObject, ptr %self, i64 0, i32 1
+  %value10 = getelementptr inbounds i8, ptr %self, i64 16
   store i64 0, ptr %value10, align 8
   br label %return
 
@@ -1727,7 +1712,7 @@ land.lhs.true:                                    ; preds = %Py_DECREF.exit
   br i1 %tobool19.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %land.lhs.true, %Py_DECREF.exit
-  %value22 = getelementptr inbounds %struct.HeapCTypeSetattrObject, ptr %self, i64 0, i32 1
+  %value22 = getelementptr inbounds i8, ptr %self, i64 16
   store i64 %call16, ptr %value22, align 8
   br label %return
 
@@ -1956,9 +1941,9 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %subtype, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %subtype, i64 304
   %4 = load ptr, ptr %tp_alloc, align 8
   %call1 = tail call ptr %4(ptr noundef %subtype, i64 noundef %3) #7
   %tobool.not = icmp eq ptr %call1, null
@@ -1971,10 +1956,14 @@ if.end:                                           ; preds = %PyTuple_GET_SIZE.ex
 
 for.cond.preheader:                               ; preds = %if.end
   %cmp18 = icmp sgt i64 %3, 0
-  br i1 %cmp18, label %for.body, label %Py_XDECREF.exit
+  br i1 %cmp18, label %for.body.lr.ph, label %Py_XDECREF.exit
 
-for.body:                                         ; preds = %for.cond.preheader, %_Py_NewRef.exit
-  %i.019 = phi i64 [ %inc, %_Py_NewRef.exit ], [ 0, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_Py_NewRef.exit
+  %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_Py_NewRef.exit ]
   %args.val = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %args.val, i64 168
   %call6.val = load i64, ptr %5, align 8
@@ -1987,7 +1976,7 @@ cond.false:                                       ; preds = %for.body
   unreachable
 
 cond.end:                                         ; preds = %for.body
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %args, i64 0, i32 1, i64 %i.019
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.019
   %7 = load ptr, ptr %arrayidx, align 8
   %8 = load i32, ptr %7, align 8
   %add.i.i = add i32 %8, 1
@@ -2029,7 +2018,7 @@ Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %f
 ; Function Attrs: nounwind uwtable
 define internal i64 @HeapCCollection_length(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %ob_type.i = getelementptr inbounds %struct._object, ptr %self, i64 0, i32 1
+  %ob_type.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load ptr, ptr %ob_type.i, align 8
   %cmp.not.i = icmp eq ptr %0, @PyLong_Type
   br i1 %cmp.not.i, label %cond.false.i, label %cond.end.i
@@ -2047,7 +2036,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SIZE.exit:                                     ; preds = %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %self, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i64, ptr %ob_size.i, align 8
   ret i64 %1
 }
@@ -2059,7 +2048,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ob_type.i = getelementptr inbounds %struct._object, ptr %self, i64 0, i32 1
+  %ob_type.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load ptr, ptr %ob_type.i, align 8
   %cmp.not.i = icmp eq ptr %0, @PyLong_Type
   br i1 %cmp.not.i, label %cond.false.i, label %cond.end.i
@@ -2077,7 +2066,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SIZE.exit:                                     ; preds = %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %self, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i64, ptr %ob_size.i, align 8
   %cmp1.not = icmp sgt i64 %1, %i
   br i1 %cmp1.not, label %if.end, label %if.then
@@ -2117,13 +2106,13 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %ob_type.i = getelementptr inbounds %struct._object, ptr %self, i64 0, i32 1
+  %ob_type.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load ptr, ptr %ob_type.i, align 8
   %cmp.not.i8 = icmp eq ptr %0, @PyLong_Type
   br i1 %cmp.not.i8, label %cond.false.i, label %cond.end.i.lr.ph
 
 cond.end.i.lr.ph:                                 ; preds = %for.cond.preheader
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %self, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %self, i64 16
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.inc, %for.cond.preheader
@@ -2179,7 +2168,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ob_type.i = getelementptr inbounds %struct._object, ptr %self, i64 0, i32 1
+  %ob_type.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load ptr, ptr %ob_type.i, align 8
   %cmp.not.i = icmp eq ptr %0, @PyLong_Type
   br i1 %cmp.not.i, label %cond.false.i, label %cond.end.i
@@ -2197,7 +2186,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SET_SIZE.exit:                                 ; preds = %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %self, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i64, ptr %ob_size.i, align 8
   store i64 0, ptr %ob_size.i, align 8
   %cmp15 = icmp sgt i64 %1, 0
@@ -2244,7 +2233,7 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   %call1 = tail call i32 @HeapCCollection_clear(ptr noundef %self), !range !8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #7
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #7
   %2 = load i64, ptr %self.val, align 8

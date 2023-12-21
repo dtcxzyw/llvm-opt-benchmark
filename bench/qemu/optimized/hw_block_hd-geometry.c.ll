@@ -36,10 +36,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cylinders1 = getelementptr inbounds %struct.HDGeometry, ptr %geo, i64 0, i32 2
+  %cylinders1 = getelementptr inbounds i8, ptr %geo, i64 8
   %0 = load i32, ptr %cylinders1, align 4
   store i32 %0, ptr %pcyls, align 4
-  %sectors = getelementptr inbounds %struct.HDGeometry, ptr %geo, i64 0, i32 1
+  %sectors = getelementptr inbounds i8, ptr %geo, i64 4
   %1 = load i32, ptr %sectors, align 4
   store i32 %1, ptr %psecs, align 4
   %2 = load i32, ptr %geo, align 4
@@ -55,10 +55,10 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %arrayidx.i = getelementptr inbounds [512 x i8], ptr %buf.i, i64 0, i64 510
+  %arrayidx.i = getelementptr inbounds i8, ptr %buf.i, i64 510
   %3 = load i8, ptr %arrayidx.i, align 2
   %cmp1.i = icmp ne i8 %3, 85
-  %arrayidx3.i = getelementptr inbounds [512 x i8], ptr %buf.i, i64 0, i64 511
+  %arrayidx3.i = getelementptr inbounds i8, ptr %buf.i, i64 511
   %4 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.i = icmp ne i8 %4, -86
   %or.cond.i = select i1 %cmp1.i, i1 true, i1 %cmp5.i
@@ -71,19 +71,20 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %nr_sects13.i = getelementptr %struct.partition, ptr %add.ptr.i, i64 %indvars.iv.i, i32 9
+  %add.ptr12.i = getelementptr %struct.partition, ptr %add.ptr.i, i64 %indvars.iv.i
+  %nr_sects13.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 12
   %6 = load i32, ptr %nr_sects13.i, align 2
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %end_head.i = getelementptr %struct.partition, ptr %add.ptr.i, i64 %indvars.iv.i, i32 5
+  %end_head.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 5
   %7 = load i8, ptr %end_head.i, align 1
   %tobool16.not.i = icmp eq i8 %7, 0
   br i1 %tobool16.not.i, label %for.inc.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %land.lhs.true.i
-  %end_sector.i = getelementptr %struct.partition, ptr %add.ptr.i, i64 %indvars.iv.i, i32 6
+  %end_sector.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 6
   %8 = load i8, ptr %end_sector.i, align 4
   %9 = and i8 %8, 63
   %cmp21.i = icmp eq i8 %9, 0
@@ -126,7 +127,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
   %16 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %blk, i32 noundef %conv26.i, i32 noundef %add.i, i32 noundef %and.i) #6
   br label %if.else7
@@ -237,7 +238,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = call i32 @qemu_get_thread_id() #6
   %33 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %33, i64 noundef %34, ptr noundef %blk, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %translation.1) #6
   br label %trace_hd_geometry_guess.exit

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/passphrase.c\00", align 1
 @__func__.ossl_pw_set_passphrase = private unnamed_addr constant [23 x i8] c"ossl_pw_set_passphrase\00", align 1
@@ -35,17 +32,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %_ = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_ = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load ptr, ptr %_, align 8
-  %passphrase_len = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len = getelementptr inbounds i8, ptr %data, i64 16
   %2 = load i64, ptr %passphrase_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 21) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %cached_passphrase.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase.i = getelementptr inbounds i8, ptr %data, i64 32
   %3 = load ptr, ptr %cached_passphrase.i, align 8
-  %cached_passphrase_len.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len.i = getelementptr inbounds i8, ptr %data, i64 40
   %4 = load i64, ptr %cached_passphrase_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 29) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %data, i8 0, i64 48, i1 false)
@@ -60,9 +57,9 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define void @ossl_pw_clear_passphrase_cache(ptr nocapture noundef %data) local_unnamed_addr #0 {
 entry:
-  %cached_passphrase = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %cached_passphrase, align 8
-  %cached_passphrase_len = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len = getelementptr inbounds i8, ptr %data, i64 40
   %1 = load i64, ptr %cached_passphrase_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 29) #7
   store ptr null, ptr %cached_passphrase, align 8
@@ -92,17 +89,17 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %ossl_pw_clear_passphrase_data.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %_.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_.i = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %_.i, align 8
-  %passphrase_len.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len.i = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i64, ptr %passphrase_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 21) #7
   br label %ossl_pw_clear_passphrase_data.exit
 
 ossl_pw_clear_passphrase_data.exit:               ; preds = %if.then.i, %if.then2.i
-  %cached_passphrase.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %4 = load ptr, ptr %cached_passphrase.i.i, align 8
-  %cached_passphrase_len.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len.i.i = getelementptr inbounds i8, ptr %data, i64 40
   %5 = load i64, ptr %cached_passphrase_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 29) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %data, i8 0, i64 48, i1 false)
@@ -120,13 +117,13 @@ cond.false:                                       ; preds = %ossl_pw_clear_passp
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %call6, %cond.false ]
-  %_ = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_ = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %cond, ptr %_, align 8
   %cmp9 = icmp eq ptr %cond, null
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %cond.end
-  %passphrase_len14 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len14 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 %passphrase_len, ptr %passphrase_len14, align 8
   br label %return
 
@@ -165,24 +162,24 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %ossl_pw_clear_passphrase_data.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %_.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_.i = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %_.i, align 8
-  %passphrase_len.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len.i = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i64, ptr %passphrase_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 21) #7
   br label %ossl_pw_clear_passphrase_data.exit
 
 ossl_pw_clear_passphrase_data.exit:               ; preds = %if.then.i, %if.then2.i
-  %cached_passphrase.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %4 = load ptr, ptr %cached_passphrase.i.i, align 8
-  %cached_passphrase_len.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len.i.i = getelementptr inbounds i8, ptr %data, i64 40
   %5 = load i64, ptr %cached_passphrase_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 29) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %data, i8 0, i64 48, i1 false)
   store i32 2, ptr %data, align 8
-  %_ = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_ = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %cb, ptr %_, align 8
-  %password_cbarg = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %password_cbarg = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %cbarg, ptr %password_cbarg, align 8
   br label %return
 
@@ -211,24 +208,24 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %ossl_pw_clear_passphrase_data.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %_.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_.i = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %_.i, align 8
-  %passphrase_len.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len.i = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i64, ptr %passphrase_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 21) #7
   br label %ossl_pw_clear_passphrase_data.exit
 
 ossl_pw_clear_passphrase_data.exit:               ; preds = %if.then.i, %if.then2.i
-  %cached_passphrase.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %4 = load ptr, ptr %cached_passphrase.i.i, align 8
-  %cached_passphrase_len.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len.i.i = getelementptr inbounds i8, ptr %data, i64 40
   %5 = load i64, ptr %cached_passphrase_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 29) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %data, i8 0, i64 48, i1 false)
   store i32 3, ptr %data, align 8
-  %_ = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_ = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %cb, ptr %_, align 8
-  %passphrase_cbarg = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_cbarg = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %cbarg, ptr %passphrase_cbarg, align 8
   br label %return
 
@@ -257,24 +254,24 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %ossl_pw_clear_passphrase_data.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %_.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_.i = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %_.i, align 8
-  %passphrase_len.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len.i = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i64, ptr %passphrase_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 21) #7
   br label %ossl_pw_clear_passphrase_data.exit
 
 ossl_pw_clear_passphrase_data.exit:               ; preds = %if.then.i, %if.then2.i
-  %cached_passphrase.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %4 = load ptr, ptr %cached_passphrase.i.i, align 8
-  %cached_passphrase_len.i.i = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len.i.i = getelementptr inbounds i8, ptr %data, i64 40
   %5 = load i64, ptr %cached_passphrase_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 29) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %data, i8 0, i64 48, i1 false)
   store i32 4, ptr %data, align 8
-  %_ = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_ = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %ui_method, ptr %_, align 8
-  %ui_method_data = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %ui_method_data = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %ui_data, ptr %ui_method_data, align 8
   br label %return
 
@@ -286,7 +283,7 @@ return:                                           ; preds = %ossl_pw_clear_passp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_pw_enable_passphrase_caching(ptr nocapture noundef %data) local_unnamed_addr #3 {
 entry:
-  %flag_cache_passphrase = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 2
+  %flag_cache_passphrase = getelementptr inbounds i8, ptr %data, i64 24
   %bf.load = load i8, ptr %flag_cache_passphrase, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_cache_passphrase, align 8
@@ -296,7 +293,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_pw_disable_passphrase_caching(ptr nocapture noundef %data) local_unnamed_addr #3 {
 entry:
-  %flag_cache_passphrase = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 2
+  %flag_cache_passphrase = getelementptr inbounds i8, ptr %data, i64 24
   %bf.load = load i8, ptr %flag_cache_passphrase, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_cache_passphrase, align 8
@@ -311,26 +308,26 @@ entry:
   br i1 %cmp, label %if.end5, label %if.else
 
 if.else:                                          ; preds = %entry
-  %flag_cache_passphrase = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 2
+  %flag_cache_passphrase = getelementptr inbounds i8, ptr %data, i64 24
   %bf.load = load i8, ptr %flag_cache_passphrase, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %cached_passphrase = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase = getelementptr inbounds i8, ptr %data, i64 32
   %1 = load ptr, ptr %cached_passphrase, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end11, label %if.end5.thread54
 
 if.end5.thread54:                                 ; preds = %land.lhs.true
-  %cached_passphrase_len = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len = getelementptr inbounds i8, ptr %data, i64 40
   br label %if.then7
 
 if.end5:                                          ; preds = %entry
-  %_ = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_ = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %_, align 8
-  %passphrase_len = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_len = getelementptr inbounds i8, ptr %data, i64 16
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end17, label %if.then7
 
@@ -348,9 +345,9 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %if.end11
-  %_15 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_15 = getelementptr inbounds i8, ptr %data, i64 8
   %3 = load ptr, ptr %_15, align 8
-  %passphrase_cbarg = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %passphrase_cbarg = getelementptr inbounds i8, ptr %data, i64 16
   %4 = load ptr, ptr %passphrase_cbarg, align 8
   %call = tail call i32 %3(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, ptr noundef %4) #7
   br label %do_cache
@@ -361,7 +358,7 @@ if.end17:                                         ; preds = %if.end5, %if.end11
   br i1 %cmp19.not, label %if.end25, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call18, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call18, i64 8
   %5 = load i32, ptr %data_type, align 8
   %cmp21.not = icmp eq i32 %5, 4
   br i1 %cmp21.not, label %if.end23, label %if.then22
@@ -373,7 +370,7 @@ if.then22:                                        ; preds = %if.then20
   br label %return
 
 if.end23:                                         ; preds = %if.then20
-  %data24 = getelementptr inbounds %struct.ossl_param_st, ptr %call18, i64 0, i32 2
+  %data24 = getelementptr inbounds i8, ptr %call18, i64 16
   %6 = load ptr, ptr %data24, align 8
   br label %if.end25
 
@@ -386,7 +383,7 @@ if.end25:                                         ; preds = %if.end23, %if.end17
   ]
 
 if.then28:                                        ; preds = %if.end25
-  %_30 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_30 = getelementptr inbounds i8, ptr %data, i64 8
   %8 = load ptr, ptr %_30, align 8
   %call31 = tail call ptr @UI_UTIL_wrap_read_pem_callback(ptr noundef %8, i32 noundef %verify) #7
   %cmp33 = icmp eq ptr %call31, null
@@ -399,7 +396,7 @@ if.then34:                                        ; preds = %if.then28
   br label %return
 
 if.end44:                                         ; preds = %if.end25
-  %_40 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1
+  %_40 = getelementptr inbounds i8, ptr %data, i64 8
   %9 = load ptr, ptr %_40, align 8
   %cmp45 = icmp eq ptr %9, null
   br i1 %cmp45, label %if.then46, label %if.end47
@@ -413,7 +410,7 @@ if.then46:                                        ; preds = %if.end25, %if.end44
 if.end47:                                         ; preds = %if.then28, %if.end44
   %allocated_ui_method.071 = phi ptr [ null, %if.end44 ], [ %call31, %if.then28 ]
   %ui_method.070 = phi ptr [ %9, %if.end44 ], [ %call31, %if.then28 ]
-  %ui_data.072.in = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %ui_data.072.in = getelementptr inbounds i8, ptr %data, i64 16
   %ui_data.072 = load ptr, ptr %ui_data.072.in, align 8
   %cmp.i = icmp ne ptr %pass, null
   %cmp1.i = icmp ne i64 %pass_size, 0
@@ -558,27 +555,27 @@ do_cache:                                         ; preds = %do_ui_passphrase.ex
   br i1 %tobool49.not, label %return, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %do_cache
-  %flag_cache_passphrase51 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 2
+  %flag_cache_passphrase51 = getelementptr inbounds i8, ptr %data, i64 24
   %bf.load52 = load i8, ptr %flag_cache_passphrase51, align 8
   %bf.clear53 = and i8 %bf.load52, 1
   %tobool55.not = icmp eq i8 %bf.clear53, 0
   br i1 %tobool55.not, label %return, label %if.then56
 
 if.then56:                                        ; preds = %land.lhs.true50
-  %cached_passphrase57 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 3
+  %cached_passphrase57 = getelementptr inbounds i8, ptr %data, i64 32
   %10 = load ptr, ptr %cached_passphrase57, align 8
   %cmp58 = icmp eq ptr %10, null
   br i1 %cmp58, label %if.then56.if.then61_crit_edge, label %lor.lhs.false
 
 if.then56.if.then61_crit_edge:                    ; preds = %if.then56
-  %cached_passphrase_len63.phi.trans.insert = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len63.phi.trans.insert = getelementptr inbounds i8, ptr %data, i64 40
   %.pre = load i64, ptr %cached_passphrase_len63.phi.trans.insert, align 8
   %.pre73 = load i64, ptr %pass_len, align 8
   br label %if.then61
 
 lor.lhs.false:                                    ; preds = %if.then56
   %11 = load i64, ptr %pass_len, align 8
-  %cached_passphrase_len59 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len59 = getelementptr inbounds i8, ptr %data, i64 40
   %12 = load i64, ptr %cached_passphrase_len59, align 8
   %cmp60 = icmp ugt i64 %11, %12
   br i1 %cmp60, label %if.then61, label %if.end69
@@ -610,7 +607,7 @@ if.end69:                                         ; preds = %if.end67, %lor.lhs.
   %arrayidx = getelementptr inbounds i8, ptr %18, i64 %19
   store i8 0, ptr %arrayidx, align 1
   %20 = load i64, ptr %pass_len, align 8
-  %cached_passphrase_len72 = getelementptr inbounds %struct.ossl_passphrase_data_st, ptr %data, i64 0, i32 4
+  %cached_passphrase_len72 = getelementptr inbounds i8, ptr %data, i64 40
   store i64 %20, ptr %cached_passphrase_len72, align 8
   br label %return
 
@@ -641,7 +638,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   store i64 0, ptr %password_len.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %params.i, ptr noundef nonnull align 16 dereferenceable(80) @__const.ossl_pw_get_password.params, i64 80, i1 false)
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %params.i, i64 16
   store ptr @.str.4, ptr %data.i, align 16
   %conv.i = sext i32 %size to i64
   %call.i = call i32 @ossl_pw_get_passphrase(ptr noundef %buf, i64 noundef %conv.i, ptr noundef nonnull %password_len.i, ptr noundef nonnull %params.i, i32 noundef %rwflag, ptr noundef %userdata)
@@ -663,7 +660,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   store i64 0, ptr %password_len.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %params.i, ptr noundef nonnull align 16 dereferenceable(80) @__const.ossl_pw_get_password.params, i64 80, i1 false)
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %params.i, i64 16
   store ptr @.str.5, ptr %data.i, align 16
   %conv.i = sext i32 %size to i64
   %call.i = call i32 @ossl_pw_get_passphrase(ptr noundef %buf, i64 noundef %conv.i, ptr noundef nonnull %password_len.i, ptr noundef nonnull %params.i, i32 noundef %rwflag, ptr noundef %userdata)

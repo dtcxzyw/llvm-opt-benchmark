@@ -3,70 +3,15 @@ source_filename = "bench/hermes/original/SimpleDiagHandler.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::SourceMgr" = type { %"class.std::vector", %"class.std::map", i32, %"class.std::vector.3", ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<const char *, std::pair<const char *const, unsigned int>, std::_Select1st<std::pair<const char *const, unsigned int>>, std::less<const char *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<const char *, std::pair<const char *const, unsigned int>, std::_Select1st<std::pair<const char *const, unsigned int>>, std::less<const char *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::SMDiagnostic" = type { ptr, %"class.llvh::SMLoc", %"class.std::__cxx11::basic_string", i32, i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.24", %"class.llvh::SmallVector" }
-%"class.llvh::SMLoc" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
-%"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [4 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [48 x i8] }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 %"class.llvh::StringRef" = type { ptr, i64 }
-%"class.hermes::SimpleDiagHandlerRAII" = type <{ %"class.hermes::SimpleDiagHandler", ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.hermes::SimpleDiagHandler" = type { %"class.llvh::SMDiagnostic" }
-%"class.hermes::SourceErrorManager" = type { %"class.llvh::SourceMgr", %"struct.hermes::SourceErrorOutputOptions", %"class.std::shared_ptr", %"struct.hermes::SourceErrorManager::FindLineCache", %"struct.hermes::StringSetVector", [4 x i32], i32, i8, %"class.llvh::SmallBitVector", %"class.llvh::SmallBitVector", %"class.hermes::OptValue", i8, [7 x i8], %"class.llvh::DenseMap.8", %"class.llvh::DenseMap.8", i32, ptr, %"class.std::vector.11", %"class.std::vector.16" }
-%"struct.hermes::SourceErrorOutputOptions" = type { i8, i64 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"struct.hermes::SourceErrorManager::FindLineCache" = type { i32, i32, %"class.llvh::StringRef", %"class.llvh::StringRef" }
-%"struct.hermes::StringSetVector" = type { %"class.std::deque", %"class.llvh::DenseMap" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::SmallBitVector" = type { i64 }
-%"class.hermes::OptValue" = type <{ i32, i8, [3 x i8] }>
-%"class.llvh::DenseMap.8" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
-%"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvh::SMFixIt" = type { %"class.llvh::SMRange", %"class.std::__cxx11::basic_string" }
 %"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
+%"class.llvh::SMLoc" = type { ptr }
 %"struct.std::pair" = type { i32, i32 }
 
 $_ZNSt6vectorISt4pairIjjESaIS1_EEaSERKS3_ = comdat any
@@ -85,9 +30,9 @@ $_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6hermes17SimpleDiagHandler11installIntoERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) %sm) local_unnamed_addr #0 align 2 {
 entry:
-  %DiagHandler.i.i = getelementptr inbounds %"class.llvh::SourceMgr", ptr %sm, i64 0, i32 4
+  %DiagHandler.i.i = getelementptr inbounds i8, ptr %sm, i64 104
   store ptr @_ZN6hermes17SimpleDiagHandler7handlerERKN4llvh12SMDiagnosticEPv, ptr %DiagHandler.i.i, align 8
-  %DiagContext.i.i = getelementptr inbounds %"class.llvh::SourceMgr", ptr %sm, i64 0, i32 5
+  %DiagContext.i.i = getelementptr inbounds i8, ptr %sm, i64 112
   store ptr %this, ptr %DiagContext.i.i, align 8
   ret void
 }
@@ -95,13 +40,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes17SimpleDiagHandler7handlerERKN4llvh12SMDiagnosticEPv(ptr noundef nonnull align 8 dereferenceable(360) %msg, ptr noundef %ctx) #1 align 2 {
 entry:
-  %Kind.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 5
+  %Kind.i = getelementptr inbounds i8, ptr %msg, i64 56
   %0 = load i32, ptr %Kind.i, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %Message.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %ctx, i64 0, i32 6
+  %Message.i.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i) #12
   %call2.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i) #12
   %cmp.i.i.not = icmp eq i64 %call2.i.i.i, 0
@@ -109,22 +54,22 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, ptr noundef nonnull align 8 dereferenceable(16) %msg, i64 16, i1 false)
-  %Filename.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %ctx, i64 0, i32 2
-  %Filename3.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 2
+  %Filename.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %Filename3.i = getelementptr inbounds i8, ptr %msg, i64 16
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Filename.i, ptr noundef nonnull align 8 dereferenceable(32) %Filename3.i) #12
-  %LineNo.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %ctx, i64 0, i32 3
-  %LineNo4.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 3
+  %LineNo.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %LineNo4.i = getelementptr inbounds i8, ptr %msg, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %LineNo.i, ptr noundef nonnull align 8 dereferenceable(12) %LineNo4.i, i64 12, i1 false)
-  %Message5.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 6
+  %Message5.i = getelementptr inbounds i8, ptr %msg, i64 64
   %call6.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Message5.i) #12
-  %LineContents.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %ctx, i64 0, i32 7
-  %LineContents7.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 7
+  %LineContents.i = getelementptr inbounds i8, ptr %ctx, i64 96
+  %LineContents7.i = getelementptr inbounds i8, ptr %msg, i64 96
   %call8.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i, ptr noundef nonnull align 8 dereferenceable(32) %LineContents7.i) #12
-  %Ranges.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %ctx, i64 0, i32 8
-  %Ranges9.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 8
+  %Ranges.i = getelementptr inbounds i8, ptr %ctx, i64 128
+  %Ranges9.i = getelementptr inbounds i8, ptr %msg, i64 128
   %call10.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairIjjESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %Ranges.i, ptr noundef nonnull align 8 dereferenceable(24) %Ranges9.i)
-  %FixIts.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %ctx, i64 0, i32 9
-  %FixIts11.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %msg, i64 0, i32 9
+  %FixIts.i = getelementptr inbounds i8, ptr %ctx, i64 152
+  %FixIts11.i = getelementptr inbounds i8, ptr %msg, i64 152
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplINS_7SMFixItEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %FixIts.i, ptr noundef nonnull align 8 dereferenceable(16) %FixIts11.i)
   br label %if.end4
 
@@ -140,48 +85,48 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:
   %ref.tmp3 = alloca %"class.llvh::Twine", align 8
   %ref.tmp4 = alloca %"class.llvh::Twine", align 8
   %ref.tmp12 = alloca %"class.llvh::StringRef", align 8
-  %LineNo.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 3
+  %LineNo.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %LineNo.i, align 8
   %ref.tmp5.sroa.0.0.insert.ext = zext i32 %0 to i64
   %1 = inttoptr i64 %ref.tmp5.sroa.0.0.insert.ext to ptr
   store ptr %1, ptr %ref.tmp4, align 8, !alias.scope !4
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str, ptr %RHS4.i.i.i, align 8, !alias.scope !4
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 10, ptr %LHSKind5.i.i.i, align 8, !alias.scope !4
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !4
-  %ColumnNo.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 4
+  %ColumnNo.i = getelementptr inbounds i8, ptr %this, i64 52
   %2 = load i32, ptr %ColumnNo.i, align 4
   %add = add nsw i32 %2, 1
   %ref.tmp8.sroa.0.0.insert.ext = zext i32 %add to i64
   %3 = inttoptr i64 %ref.tmp8.sroa.0.0.insert.ext to ptr
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !9
-  %RHS4.i.i.i27 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i27 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %3, ptr %RHS4.i.i.i27, align 8, !alias.scope !9
-  %LHSKind5.i.i.i28 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 2, ptr %LHSKind5.i.i.i28, align 8, !alias.scope !9
-  %RHSKind6.i.i.i29 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i29 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 10, ptr %RHSKind6.i.i.i29, align 1, !alias.scope !9
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8, !alias.scope !14
-  %RHS4.i.i.i58 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str, ptr %RHS4.i.i.i58, align 8, !alias.scope !14
-  %LHSKind5.i.i.i59 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind5.i.i.i59 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 2, ptr %LHSKind5.i.i.i59, align 8, !alias.scope !14
-  %RHSKind6.i.i.i60 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind6.i.i.i60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 3, ptr %RHSKind6.i.i.i60, align 1, !alias.scope !14
-  %Message.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 6
+  %Message.i = getelementptr inbounds i8, ptr %this, i64 64
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #12
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #12
   store ptr %call.i.i, ptr %ref.tmp12, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp12, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store i64 %call2.i.i, ptr %4, align 8
   store ptr %ref.tmp2, ptr %ref.tmp, align 8, !alias.scope !19
-  %RHS4.i.i.i89 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %ref.tmp12, ptr %RHS4.i.i.i89, align 8, !alias.scope !19
-  %LHSKind5.i.i.i90 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i90 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 2, ptr %LHSKind5.i.i.i90, align 8, !alias.scope !19
-  %RHSKind6.i.i.i91 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 5, ptr %RHSKind6.i.i.i91, align 1, !alias.scope !19
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp) #12
   ret void
@@ -192,49 +137,49 @@ declare void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes21SimpleDiagHandlerRAIIC2ERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef nonnull align 8 dereferenceable(464) %sourceErrorManager) unnamed_addr #1 align 2 {
 entry:
-  %Filename.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 2
+  %Filename.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Filename.i.i) #12
-  %LineNo.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 3
+  %LineNo.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %LineNo.i.i, align 8
-  %ColumnNo.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 4
+  %ColumnNo.i.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %ColumnNo.i.i, align 4
-  %Kind.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 5
+  %Kind.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %Kind.i.i, align 8
-  %Message.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 6
+  %Message.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i) #12
-  %LineContents.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 7
+  %LineContents.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i.i) #12
-  %Ranges.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 8
+  %Ranges.i.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Ranges.i.i, i8 0, i64 24, i1 false)
-  %FixIts.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9, i32 1
+  %FixIts.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %FixIts.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 164
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %sourceErrorManager_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 1
+  %sourceErrorManager_ = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %sourceErrorManager, ptr %sourceErrorManager_, align 8
-  %oldHandler_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 2
-  %DiagHandler.i.i = getelementptr inbounds %"class.llvh::SourceMgr", ptr %sourceErrorManager, i64 0, i32 4
+  %oldHandler_ = getelementptr inbounds i8, ptr %this, i64 368
+  %DiagHandler.i.i = getelementptr inbounds i8, ptr %sourceErrorManager, i64 104
   %0 = load ptr, ptr %DiagHandler.i.i, align 8
   store ptr %0, ptr %oldHandler_, align 8
-  %oldContext_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 3
-  %DiagContext.i.i = getelementptr inbounds %"class.llvh::SourceMgr", ptr %sourceErrorManager, i64 0, i32 5
+  %oldContext_ = getelementptr inbounds i8, ptr %this, i64 376
+  %DiagContext.i.i = getelementptr inbounds i8, ptr %sourceErrorManager, i64 112
   %1 = load ptr, ptr %DiagContext.i.i, align 8
   store ptr %1, ptr %oldContext_, align 8
-  %oldErrorLimit_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 4
-  %errorLimit_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %sourceErrorManager, i64 0, i32 6
+  %oldErrorLimit_ = getelementptr inbounds i8, ptr %this, i64 384
+  %errorLimit_.i = getelementptr inbounds i8, ptr %sourceErrorManager, i64 312
   %2 = load i32, ptr %errorLimit_.i, align 8
   %cmp.i = icmp eq i32 %2, -1
   %spec.select.i = select i1 %cmp.i, i32 0, i32 %2
   store i32 %spec.select.i, ptr %oldErrorLimit_, align 8
   store ptr @_ZN6hermes17SimpleDiagHandler7handlerERKN4llvh12SMDiagnosticEPv, ptr %DiagHandler.i.i, align 8
   store ptr %this, ptr %DiagContext.i.i, align 8
-  %messageCount_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %sourceErrorManager, i64 0, i32 5
+  %messageCount_.i = getelementptr inbounds i8, ptr %sourceErrorManager, i64 296
   store i32 0, ptr %messageCount_.i, align 8
-  %errorLimitReached_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %sourceErrorManager, i64 0, i32 7
+  %errorLimitReached_.i = getelementptr inbounds i8, ptr %sourceErrorManager, i64 316
   store i8 0, ptr %errorLimitReached_.i, align 4
   store i32 1, ptr %errorLimit_.i, align 8
   ret void
@@ -243,27 +188,27 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes21SimpleDiagHandlerRAIID2Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 align 2 {
 entry:
-  %sourceErrorManager_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 1
+  %sourceErrorManager_ = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %sourceErrorManager_, align 8
-  %messageCount_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %0, i64 0, i32 5
+  %messageCount_.i = getelementptr inbounds i8, ptr %0, i64 296
   store i32 0, ptr %messageCount_.i, align 8
-  %errorLimitReached_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %0, i64 0, i32 7
+  %errorLimitReached_.i = getelementptr inbounds i8, ptr %0, i64 316
   store i8 0, ptr %errorLimitReached_.i, align 4
   %1 = load ptr, ptr %sourceErrorManager_, align 8
-  %oldErrorLimit_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 4
+  %oldErrorLimit_ = getelementptr inbounds i8, ptr %this, i64 384
   %2 = load i32, ptr %oldErrorLimit_, align 8
   %cmp.i = icmp eq i32 %2, 0
   %cond.i = select i1 %cmp.i, i32 -1, i32 %2
-  %errorLimit_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %1, i64 0, i32 6
+  %errorLimit_.i = getelementptr inbounds i8, ptr %1, i64 312
   store i32 %cond.i, ptr %errorLimit_.i, align 8
   %3 = load ptr, ptr %sourceErrorManager_, align 8
-  %oldHandler_ = getelementptr inbounds %"class.hermes::SimpleDiagHandlerRAII", ptr %this, i64 0, i32 2
-  %DiagHandler.i.i = getelementptr inbounds %"class.llvh::SourceMgr", ptr %3, i64 0, i32 4
+  %oldHandler_ = getelementptr inbounds i8, ptr %this, i64 368
+  %DiagHandler.i.i = getelementptr inbounds i8, ptr %3, i64 104
   %4 = load <2 x ptr>, ptr %oldHandler_, align 8
   store <2 x ptr> %4, ptr %DiagHandler.i.i, align 8
-  %FixIts.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9
+  %FixIts.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %5 = load ptr, ptr %FixIts.i.i, align 8
-  %Size.i.i.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %6 = load i32, ptr %Size.i.i.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq i32 %6, 0
   br i1 %cmp.not3.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i, label %while.body.i.preheader.i.i.i
@@ -275,8 +220,8 @@ while.body.i.preheader.i.i.i:                     ; preds = %entry
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.i.preheader.i.i.i
   %E.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %while.body.i.preheader.i.i.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %E.addr.04.i.i.i.i, i64 -1
-  %Text.i.i.i.i.i = getelementptr %"class.llvh::SMFixIt", ptr %E.addr.04.i.i.i.i, i64 -1, i32 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i.i.i.i, i64 -48
+  %Text.i.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i.i.i.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i) #12
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !24
@@ -287,7 +232,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i: ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i, %entry
   %7 = phi ptr [ %.pre.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i ], [ %5, %entry ]
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 9, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %cmp.i.i.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i, label %if.then.i.i.i.i
 
@@ -296,7 +241,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i
 
 _ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
-  %Ranges.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 8
+  %Ranges.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %8 = load ptr, ptr %Ranges.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6hermes17SimpleDiagHandlerD2Ev.exit, label %if.then.i.i.i.i.i
@@ -306,11 +251,11 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh11SmallVect
   br label %_ZN6hermes17SimpleDiagHandlerD2Ev.exit
 
 _ZN6hermes17SimpleDiagHandlerD2Ev.exit:           ; preds = %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i, %if.then.i.i.i.i.i
-  %LineContents.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 7
+  %LineContents.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i.i) #12
-  %Message.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 6
+  %Message.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i) #12
-  %Filename.i.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 2
+  %Filename.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Filename.i.i) #12
   ret void
 }
@@ -327,14 +272,14 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -380,7 +325,7 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -398,12 +343,12 @@ for.body.i.i.i.i.i:                               ; preds = %if.then27, %for.bod
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then27 ]
   %9 = load i32, ptr %__first.addr.07.i.i.i.i.i, align 4
   store i32 %9, ptr %__result.addr.08.i.i.i.i.i, align 4
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 4
   %10 = load i32, ptr %second.i.i.i.i.i.i, align 4
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 4
   store i32 %10, ptr %second3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end69, !llvm.loop !26
@@ -418,12 +363,12 @@ for.body.i.i.i.i.i37:                             ; preds = %if.else49, %for.bod
   %__first.addr.07.i.i.i.i.i40 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i37 ], [ %1, %if.else49 ]
   %11 = load i32, ptr %__first.addr.07.i.i.i.i.i40, align 4
   store i32 %11, ptr %__result.addr.08.i.i.i.i.i39, align 4
-  %second.i.i.i.i.i.i41 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 1
+  %second.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i40, i64 4
   %12 = load i32, ptr %second.i.i.i.i.i.i41, align 4
-  %second3.i.i.i.i.i.i42 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 1
+  %second3.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i39, i64 4
   store i32 %12, ptr %second3.i.i.i.i.i.i42, align 4
-  %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i.i40, i64 1
-  %incdec.ptr1.i.i.i.i.i44 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i.i39, i64 1
+  %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i40, i64 8
+  %incdec.ptr1.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i39, i64 8
   %dec.i.i.i.i.i45 = add nsw i64 %__n.09.i.i.i.i.i38, -1
   %cmp.i.i.i.i.i46 = icmp ugt i64 %__n.09.i.i.i.i.i38, 1
   br i1 %cmp.i.i.i.i.i46, label %for.body.i.i.i.i.i37, label %_ZSt4copyIPSt4pairIjjES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !27
@@ -453,15 +398,15 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPSt4pairI
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr62, %_ZSt4copyIPSt4pairIjjES2_ET0_T_S4_S3_.exit ]
   %16 = load i64, ptr %__first.addr.06.i.i.i.i, align 4
   store i64 %16, ptr %__cur.07.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %13
   br i1 %cmp.not.i.i.i.i, label %if.end69, label %for.body.i.i.i.i, !llvm.loop !28
 
 if.end69:                                         ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i, %if.then27, %_ZSt4copyIPSt4pairIjjES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE13_M_deallocateEPS1_m.exit
   %17 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds %"struct.std::pair", ptr %17, i64 %sub.ptr.div.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -485,10 +430,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
-  %Size.i18 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i18, align 8
   %conv.i19 = zext i32 %1 to i64
   %cmp3.not = icmp ult i32 %1, %0
@@ -508,11 +453,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 1
-  %Text3.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 1
+  %Text.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i) #12
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 48
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 48
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end11.loopexit, !llvm.loop !29
@@ -533,14 +478,14 @@ if.end11:                                         ; preds = %if.then4, %if.end11
 
 while.body.i:                                     ; preds = %if.end11, %while.body.i
   %E.addr.04.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i59, %if.end11 ]
-  %incdec.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %E.addr.04.i, i64 -1
-  %Text.i.i = getelementptr %"class.llvh::SMFixIt", ptr %E.addr.04.i, i64 -1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -48
+  %Text.i.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i) #12
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %NewEnd.0
   br i1 %cmp.not.i, label %return.sink.split, label %while.body.i, !llvm.loop !24
 
 if.end13:                                         ; preds = %if.end
-  %Capacity.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %Capacity.i, align 4
   %cmp15 = icmp ult i32 %5, %0
   br i1 %cmp15, label %if.then16, label %if.else19
@@ -556,8 +501,8 @@ while.body.i26.preheader:                         ; preds = %if.then16
 
 while.body.i26:                                   ; preds = %while.body.i26.preheader, %while.body.i26
   %E.addr.04.i27 = phi ptr [ %incdec.ptr.i28, %while.body.i26 ], [ %add.ptr.i, %while.body.i26.preheader ]
-  %incdec.ptr.i28 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %E.addr.04.i27, i64 -1
-  %Text.i.i29 = getelementptr %"class.llvh::SMFixIt", ptr %E.addr.04.i27, i64 -1, i32 1
+  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %E.addr.04.i27, i64 -48
+  %Text.i.i29 = getelementptr inbounds i8, ptr %E.addr.04.i27, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i29) #12
   %cmp.not.i30 = icmp eq ptr %incdec.ptr.i28, %6
   br i1 %cmp.not.i30, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31, label %while.body.i26, !llvm.loop !24
@@ -581,11 +526,11 @@ for.body.i.i.i.i.i40:                             ; preds = %for.body.i.i.i.i.i4
   %__result.addr.08.i.i.i.i.i42 = phi ptr [ %incdec.ptr1.i.i.i.i.i48, %for.body.i.i.i.i.i40 ], [ %8, %for.body.preheader.i.i.i.i.i38 ]
   %__first.addr.07.i.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i.i47, %for.body.i.i.i.i.i40 ], [ %7, %for.body.preheader.i.i.i.i.i38 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.08.i.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i43, i64 16, i1 false)
-  %Text.i.i.i.i.i.i44 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__result.addr.08.i.i.i.i.i42, i64 0, i32 1
-  %Text3.i.i.i.i.i.i45 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.addr.07.i.i.i.i.i43, i64 0, i32 1
+  %Text.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 16
+  %Text3.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 16
   %call.i.i.i.i.i.i46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i45) #12
-  %incdec.ptr.i.i.i.i.i47 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.addr.07.i.i.i.i.i43, i64 1
-  %incdec.ptr1.i.i.i.i.i48 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__result.addr.08.i.i.i.i.i42, i64 1
+  %incdec.ptr.i.i.i.i.i47 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 48
+  %incdec.ptr1.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 48
   %dec.i.i.i.i.i49 = add nsw i64 %__n.09.i.i.i.i.i41, -1
   %cmp.i.i.i.i.i50 = icmp ugt i64 %__n.09.i.i.i.i.i41, 1
   br i1 %cmp.i.i.i.i.i50, label %for.body.i.i.i.i.i40, label %if.end28, !llvm.loop !29
@@ -609,11 +554,11 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr33, %for.body.i.i.i.i.preheader ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr30, %for.body.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i54 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %Text3.i.i.i.i.i.i55 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %Text.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i54, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i55) #12
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 48
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i65
   br i1 %cmp.not.i.i.i.i, label %return.sink.split, label %for.body.i.i.i.i, !llvm.loop !30
 
@@ -628,7 +573,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %MinSize) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %Capacity.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4
   %conv.i = zext i32 %0 to i64
   %add = add nuw nsw i64 %conv.i, 2
@@ -668,7 +613,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %1 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
   %add.ptr.i30 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %1, i64 %conv.i5
@@ -679,11 +624,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i, %_ZN4llvh11safe_mallocEm.exit ]
   %__first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZN4llvh11safe_mallocEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.06.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %Text3.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.sroa.0.06.i.i.i.i, i64 0, i32 1
+  %Text.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i) #12
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first.sroa.0.06.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
   br i1 %cmp.i.i.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, label %for.body.i.i.i.i, !llvm.loop !31
 
@@ -700,8 +645,8 @@ while.body.i.preheader:                           ; preds = %_ZN4llvh23SmallVect
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
   %E.addr.04.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i, %while.body.i.preheader ]
-  %incdec.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %E.addr.04.i, i64 -1
-  %Text.i.i = getelementptr %"class.llvh::SMFixIt", ptr %E.addr.04.i, i64 -1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -48
+  %Text.i.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i) #12
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %.pre
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit, label %while.body.i, !llvm.loop !24

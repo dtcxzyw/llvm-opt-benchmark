@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/util_reserved-region.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._GList = type { ptr, ptr, ptr }
-%struct.ReservedRegion = type { %struct.Range, i32 }
-%struct.Range = type { i64, i64 }
-
 @.str = private unnamed_addr constant [57 x i8] c"range->lob <= range->upb || range->lob == range->upb + 1\00", align 1
 @.str.1 = private unnamed_addr constant [99 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qemu/range.h\00", align 1
 @__PRETTY_FUNCTION__.range_invariant = private unnamed_addr constant [36 x i8] c"void range_invariant(const Range *)\00", align 1
@@ -84,7 +80,7 @@ range_contains_range.exit:                        ; preds = %lor.lhs.false.i
   br i1 %spec.select.i, label %if.then8, label %if.else16
 
 if.then8:                                         ; preds = %range_contains_range.exit
-  %prev9 = getelementptr inbounds %struct._GList, ptr %l.0426, i64 0, i32 2
+  %prev9 = getelementptr inbounds i8, ptr %l.0426, i64 16
   %3 = load ptr, ptr %prev9, align 8
   %4 = load ptr, ptr %l.0426, align 8
   tail call void @g_free(ptr noundef %4) #4
@@ -167,9 +163,9 @@ if.else.i.i.i236:                                 ; preds = %range_upb.exit230
 
 range_set_bounds.exit240:                         ; preds = %range_upb.exit230
   %call39 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
-  %type = getelementptr inbounds %struct.ReservedRegion, ptr %1, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i32, ptr %type, align 8
-  %type40 = getelementptr inbounds %struct.ReservedRegion, ptr %call39, i64 0, i32 1
+  %type40 = getelementptr inbounds i8, ptr %call39, i64 16
   store i32 %7, ptr %type40, align 8
   %reg.val71 = load i64, ptr %reg, align 8
   %reg.val72 = load i64, ptr %0, align 8
@@ -194,7 +190,7 @@ if.else.i248:                                     ; preds = %range_is_empty.exit
 range_lob.exit249:                                ; preds = %range_is_empty.exit.i246
   %sub43 = add i64 %reg.val71, -1
   store i64 %.val.pre, ptr %call39, align 8
-  %upb2.i250 = getelementptr inbounds %struct.Range, ptr %call39, i64 0, i32 1
+  %upb2.i250 = getelementptr inbounds i8, ptr %call39, i64 8
   store i64 %sub43, ptr %upb2.i250, align 8
   %cmp.not.i.i.i251 = icmp ule i64 %.val.pre, %sub43
   %cmp3.i.i.i252 = icmp eq i64 %reg.val71, %.val.pre
@@ -282,7 +278,7 @@ if.else.i330:                                     ; preds = %range_is_empty.exit
 if.end66.sink.split:                              ; preds = %range_is_empty.exit.i328, %range_lob.exit194, %if.then8, %for.body
   %l.0426.sink = phi ptr [ %l.0426, %for.body ], [ %3, %if.then8 ], [ %l.0426, %range_lob.exit194 ], [ %l.0426, %range_is_empty.exit.i328 ]
   %list.addr.1.ph = phi ptr [ %list.addr.0427, %for.body ], [ %call11, %if.then8 ], [ %list.addr.0427, %range_lob.exit194 ], [ %list.addr.0427, %range_is_empty.exit.i328 ]
-  %next33 = getelementptr inbounds %struct._GList, ptr %l.0426.sink, i64 0, i32 1
+  %next33 = getelementptr inbounds i8, ptr %l.0426.sink, i64 8
   %8 = load ptr, ptr %next33, align 8
   br label %if.end66
 

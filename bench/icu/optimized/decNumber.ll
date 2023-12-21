@@ -36,12 +36,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @uprv_decNumberFromInt32_75(ptr noundef returned %dn, i32 noundef %in) local_unnamed_addr #0 {
 entry:
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits.i.i = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits.i.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %dn, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   %cmp.i = icmp eq i32 %in, 0
   br i1 %cmp.i, label %if.end7, label %for.body.i.preheader
@@ -105,12 +105,12 @@ if.end7:                                          ; preds = %entry, %if.then6, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @uprv_decNumberFromUInt32_75(ptr noundef returned %dn, i32 noundef %uin) local_unnamed_addr #1 {
 entry:
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %dn, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu.i, align 1
   %cmp = icmp eq i32 %uin, 0
   br i1 %cmp, label %return, label %for.body
@@ -165,12 +165,12 @@ return:                                           ; preds = %entry, %_ZL12decGet
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define ptr @uprv_decNumberZero_75(ptr noundef returned writeonly %dn) local_unnamed_addr #2 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits, align 4
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent, align 4
   store i32 1, ptr %dn, align 4
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu, align 1
   ret ptr %dn
 }
@@ -178,7 +178,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define i32 @uprv_decNumberToInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #3 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 112
   %tobool.not = icmp eq i8 %1, 0
@@ -190,20 +190,20 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %if.end35, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %3 = load i32, ptr %exponent, align 4
   %cmp2.not = icmp eq i32 %3, 0
   br i1 %cmp2.not, label %if.else, label %if.end35
 
 if.else:                                          ; preds = %lor.lhs.false1
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %4 = load i8, ptr %lsu, align 1
   %conv3 = zext i8 %4 to i32
   %cmp528 = icmp sgt i32 %2, 1
   br i1 %cmp528, label %for.body.preheader, label %if.else23
 
 for.body.preheader:                               ; preds = %if.else
-  %incdec.ptr = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %dn, i64 10
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
@@ -262,7 +262,7 @@ declare ptr @uprv_decContextSetStatus_75(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define i32 @uprv_decNumberToUInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #3 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 112
   %tobool.not = icmp eq i8 %1, 0
@@ -274,14 +274,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %if.end36, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %3 = load i32, ptr %exponent, align 4
   %cmp2.not = icmp eq i32 %3, 0
   br i1 %cmp2.not, label %lor.lhs.false3, label %if.end36
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false1
   %tobool7.not = icmp sgt i8 %0, -1
-  %lsu18.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu18.phi.trans.insert = getelementptr inbounds i8, ptr %dn, i64 9
   %.pre = load i8, ptr %lsu18.phi.trans.insert, align 1
   br i1 %tobool7.not, label %if.else, label %land.lhs.true
 
@@ -296,7 +296,7 @@ if.else:                                          ; preds = %lor.lhs.false3
   br i1 %cmp2220, label %for.body.preheader, label %if.else32
 
 for.body.preheader:                               ; preds = %if.else
-  %incdec.ptr = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %dn, i64 10
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
@@ -353,7 +353,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL11decToStringPK9decNumberPch(ptr nocapture noundef readonly %dn, ptr nocapture noundef writeonly %string, i8 noundef zeroext %eng) unnamed_addr #0 {
 entry:
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %0 = load i32, ptr %exponent, align 4
   %lsu.ptr = getelementptr inbounds i8, ptr %dn, i64 9
   %1 = load i32, ptr %dn, align 4
@@ -372,7 +372,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %narrow = add nuw i32 %cond, 8
   %add.ptr.add = zext i32 %narrow to i64
   %add.ptr3.ptr.ptr.ptr = getelementptr inbounds i8, ptr %dn, i64 %add.ptr.add
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %3 = load i8, ptr %bits, align 4
   %cmp5.not = icmp sgt i8 %3, -1
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -1094,12 +1094,12 @@ if.then27:                                        ; preds = %for.end
   br i1 %or.cond1, label %if.else.i, label %if.end34
 
 if.end34:                                         ; preds = %if.then27
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %dn, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu.i, align 1
   br label %for.cond.i
 
@@ -1241,7 +1241,7 @@ if.end107:                                        ; preds = %for.end103
   br i1 %cmp108.not, label %if.end117, label %if.then109
 
 if.then109:                                       ; preds = %if.end107
-  %clamp = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %set, i64 24
   %19 = load i8, ptr %clamp, align 4
   %tobool110.not = icmp ne i8 %19, 0
   %cmp114 = icmp sgt i32 %d.2.lcssa, %18
@@ -1381,7 +1381,7 @@ if.end209:                                        ; preds = %for.inc205, %for.bo
   br i1 %cmp218.not, label %if.else220, label %if.then219
 
 if.then219:                                       ; preds = %if.end209
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   br label %if.end237
 
 if.else220:                                       ; preds = %if.end209
@@ -1430,9 +1430,9 @@ for.inc249:                                       ; preds = %for.body240, %if.en
   br i1 %cmp239.not, label %for.end251, label %for.body240, !llvm.loop !22
 
 for.end251:                                       ; preds = %for.inc249, %if.end237
-  %bits252 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits252 = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 %bits.2, ptr %bits252, align 4
-  %exponent253 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent253 = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 %exponent.3, ptr %exponent253, align 4
   store i32 %d.6, ptr %dn, align 4
   %37 = load i32, ptr %set, align 4
@@ -1445,7 +1445,7 @@ if.then257:                                       ; preds = %for.end251
   br label %do.end.sink.split
 
 if.else258:                                       ; preds = %for.end251
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %38 = load i32, ptr %emin, align 4
   %sub262 = sub nsw i32 %38, %d.6
   %cmp263.not = icmp sgt i32 %exponent.3, %sub262
@@ -1453,7 +1453,7 @@ if.else258:                                       ; preds = %for.end251
 
 lor.lhs.false264:                                 ; preds = %if.else258
   %sub260 = add nsw i32 %exponent.3, -1
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %39 = load i32, ptr %emax, align 4
   %sub268 = sub nsw i32 %39, %37
   %cmp269 = icmp sgt i32 %sub260, %sub268
@@ -1496,11 +1496,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then229, %if.then27, %if.then121, %if.then.i
   %40 = phi i32 [ %.pr167, %if.then.i ], [ 1, %if.then121 ], [ 1, %if.then27 ], [ 16, %if.then229 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %dn, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %dn, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -1526,7 +1526,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
-  %lsu1 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu1 = getelementptr inbounds i8, ptr %dn, i64 9
   %cmp2.not = icmp eq ptr %lsu1, %lsu
   br i1 %cmp2.not, label %if.end, label %for.cond.preheader
 
@@ -1562,7 +1562,7 @@ if.then11:                                        ; preds = %if.end
   br label %return
 
 if.end13:                                         ; preds = %entry
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %4 = load i32, ptr %exponent, align 4
   %add = add nsw i32 %4, %sub
   store i32 %add, ptr %exponent, align 4
@@ -1623,7 +1623,7 @@ if.then34:                                        ; preds = %if.end17.thread, %i
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.end32
-  %lsu37 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu37 = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu37, align 1
   store i32 1, ptr %dn, align 4
   br label %return
@@ -1687,7 +1687,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
 
 if.else83:                                        ; preds = %if.end76
   store i32 %15, ptr %dn, align 4
-  %lsu87 = getelementptr %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu87 = getelementptr i8, ptr %dn, i64 9
   br label %for.body91
 
 for.body91:                                       ; preds = %if.else83, %for.body91
@@ -1731,7 +1731,7 @@ if.else102:                                       ; preds = %for.end52
 
 if.else130:                                       ; preds = %if.else102
   store i32 %20, ptr %dn, align 4
-  %lsu133 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu133 = getelementptr inbounds i8, ptr %dn, i64 9
   %sub137 = sub i32 1, %sub54
   %conv136109 = trunc i32 %shr116 to i8
   store i8 %conv136109, ptr %lsu133, align 1
@@ -1780,7 +1780,7 @@ if.end141:                                        ; preds = %if.end141.lr.ph, %f
   br i1 %cmp162, label %if.end169, label %for.cond135
 
 if.end169.sink.split:                             ; preds = %if.else102, %if.end76
-  %lsu127 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu127 = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu127, align 1
   store i32 1, ptr %dn, align 4
   br label %if.end169
@@ -1804,12 +1804,12 @@ return:                                           ; preds = %if.end169, %if.then
 define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #3 {
 entry:
   %nmin = alloca %struct.decNumber, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %0 = load i32, ptr %emin, align 4
   %1 = load i32, ptr %dn, align 4
   %sub = sub nsw i32 %0, %1
   %add = add nsw i32 %sub, 1
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %2 = load i32, ptr %exponent, align 4
   %cmp.not = icmp sgt i32 %2, %add
   br i1 %cmp.not, label %if.end14thread-pre-split, label %if.then
@@ -1823,11 +1823,11 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %nmin, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %nmin, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %nmin, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %nmin, i64 4
   store i32 1, ptr %nmin, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %nmin, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %nmin, i64 9
   store i8 1, ptr %lsu.i, align 1
   store i32 %0, ptr %exponent.i, align 4
   %call6 = call fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef nonnull %dn, ptr noundef nonnull %nmin, i8 noundef zeroext 1)
@@ -1867,7 +1867,7 @@ if.then16:                                        ; preds = %if.end14
 
 if.end17:                                         ; preds = %if.then16, %if.end14
   %6 = load i32, ptr %exponent, align 4
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %7 = load i32, ptr %emax, align 4
   %8 = load i32, ptr %set, align 4
   %sub20 = sub nsw i32 %7, %8
@@ -1887,7 +1887,7 @@ if.then31:                                        ; preds = %if.end24
   br label %return
 
 if.end32:                                         ; preds = %if.end24
-  %clamp = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %set, i64 24
   %10 = load i8, ptr %clamp, align 4
   %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %return, label %if.end34
@@ -1902,7 +1902,7 @@ if.end34:                                         ; preds = %if.end32
   br i1 %or.cond49, label %land.lhs.true46, label %if.then49
 
 land.lhs.true46:                                  ; preds = %if.end34
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %12 = load i8, ptr %bits, align 4
   %13 = and i8 %12, 112
   %cmp48 = icmp eq i8 %13, 0
@@ -2083,16 +2083,16 @@ entry:
   %dzero = alloca %struct.decNumber, align 4
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %dzero, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dzero, i64 4
   store i32 1, ptr %dzero, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dzero, i64 9
   store i8 0, ptr %lsu.i, align 1
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   store i32 %0, ptr %exponent.i, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %bits, align 4
   %2 = and i8 %1, -128
   %call3 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext %2, ptr noundef nonnull %status)
@@ -2115,11 +2115,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -2139,10 +2139,10 @@ entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [92 x i8], align 16
   %0 = load i32, ptr %set, align 4
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits1, align 4
   %conv = zext i8 %1 to i32
-  %bits2 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits2 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits2, align 4
   %conv3 = zext i8 %2 to i32
   %xor = xor i8 %2, %negate
@@ -2184,17 +2184,17 @@ if.end43:                                         ; preds = %if.else, %if.then24
   %bits.0.in = phi i8 [ %1, %if.then24 ], [ %xor, %if.else ]
   %bits.0 = and i8 %bits.0.in, -128
   %4 = or disjoint i8 %bits.0, 64
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   store i8 %4, ptr %bits.i, align 4
   br label %if.end473
 
 if.end50:                                         ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
   %5 = load i8, ptr %lsu, align 1
   %cmp52 = icmp eq i8 %5, 0
   br i1 %cmp52, label %land.lhs.true53, label %if.end117
@@ -2208,16 +2208,16 @@ land.lhs.true53:                                  ; preds = %if.end50
   br i1 %or.cond240, label %if.then61, label %if.end117
 
 if.then61:                                        ; preds = %land.lhs.true53
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %7 = load i32, ptr %exponent, align 4
   store i32 0, ptr %residue, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %2, ptr %bits1.i, align 4
-  %exponent.i245 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i245 = getelementptr inbounds i8, ptr %rhs, i64 4
   %8 = load i32, ptr %exponent.i245, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %8, ptr %exponent2.i, align 4
-  %lsu.i246 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i246 = getelementptr inbounds i8, ptr %rhs, i64 9
   %9 = load i32, ptr %rhs, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu.i246, i32 noundef %9, ptr noundef nonnull %residue, ptr noundef %status)
   %10 = load i8, ptr %bits1.i, align 4
@@ -2251,7 +2251,7 @@ if.end85:                                         ; preds = %if.then83, %if.then
   br i1 %tobool86.not, label %if.end116, label %if.then87
 
 if.then87:                                        ; preds = %if.end85
-  %round = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %set, i64 12
   %15 = load i32, ptr %round, align 4
   %cmp88.not = icmp eq i32 %15, 6
   br i1 %cmp88.not, label %if.else91, label %if.then89
@@ -2445,7 +2445,7 @@ if.end116:                                        ; preds = %if.else95, %_ZL14de
   br label %if.end473
 
 if.end117:                                        ; preds = %land.lhs.true53, %if.end50
-  %lsu118 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu118 = getelementptr inbounds i8, ptr %rhs, i64 9
   %35 = load i8, ptr %lsu118, align 1
   %cmp121 = icmp eq i8 %35, 0
   br i1 %cmp121, label %land.lhs.true122, label %if.end157
@@ -2459,14 +2459,14 @@ land.lhs.true122:                                 ; preds = %if.end117
   br i1 %or.cond381, label %if.then130, label %if.end157
 
 if.then130:                                       ; preds = %land.lhs.true122
-  %exponent132 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent132 = getelementptr inbounds i8, ptr %rhs, i64 4
   %38 = load i32, ptr %exponent132, align 4
   store i32 0, ptr %residue, align 4
-  %bits1.i248 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i248 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %1, ptr %bits1.i248, align 4
-  %exponent.i249 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i249 = getelementptr inbounds i8, ptr %lhs, i64 4
   %39 = load i32, ptr %exponent.i249, align 4
-  %exponent2.i250 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i250 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %39, ptr %exponent2.i250, align 4
   %40 = load i32, ptr %lhs, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu, i32 noundef %40, ptr noundef nonnull %residue, ptr noundef %status)
@@ -2493,7 +2493,7 @@ if.then142:                                       ; preds = %if.then137
 if.end147:                                        ; preds = %if.then142, %if.then137
   %45 = phi i32 [ %.pre386, %if.then142 ], [ %42, %if.then137 ]
   %adjust131.0 = phi i32 [ %sub145, %if.then142 ], [ %sub135, %if.then137 ]
-  %lsu148 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu148 = getelementptr inbounds i8, ptr %res, i64 9
   %sub151 = sub nsw i32 0, %adjust131.0
   %call152 = tail call fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef nonnull %lsu148, i32 noundef %45, i32 noundef %sub151)
   store i32 %call152, ptr %res, align 4
@@ -2507,9 +2507,9 @@ if.end156:                                        ; preds = %if.end147, %if.then
   br label %if.end473
 
 if.end157:                                        ; preds = %land.lhs.true122, %if.end117
-  %exponent158 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent158 = getelementptr inbounds i8, ptr %rhs, i64 4
   %47 = load i32, ptr %exponent158, align 4
-  %exponent159 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent159 = getelementptr inbounds i8, ptr %lhs, i64 4
   %48 = load i32, ptr %exponent159, align 4
   %sub160 = sub nsw i32 %47, %48
   %cmp161 = icmp eq i32 %sub160, 0
@@ -2521,13 +2521,13 @@ land.lhs.true162:                                 ; preds = %if.end157
   br i1 %cmp164, label %land.lhs.true165, label %if.end297
 
 land.lhs.true165:                                 ; preds = %land.lhs.true162
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %50 = load i32, ptr %emin, align 4
   %cmp167.not = icmp slt i32 %47, %50
   br i1 %cmp167.not, label %if.end297, label %land.lhs.true168
 
 land.lhs.true168:                                 ; preds = %land.lhs.true165
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %51 = load i32, ptr %emax, align 4
   %reass.sub = sub i32 %51, %0
   %add172 = add i32 %reass.sub, 1
@@ -2573,7 +2573,7 @@ if.then198:                                       ; preds = %if.then196
 
 if.end200:                                        ; preds = %if.then198, %if.then196
   %conv201 = trunc i32 %add189 to i8
-  %lsu202 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu202 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %conv201, ptr %lsu202, align 1
   br label %if.end473
 
@@ -2592,7 +2592,7 @@ if.then213:                                       ; preds = %if.then211
 
 if.end215:                                        ; preds = %if.then213, %if.then211
   %conv216 = trunc i32 %sub209 to i8
-  %lsu217 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu217 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %conv216, ptr %lsu217, align 1
   %54 = load i32, ptr %res, align 4
   %cmp222 = icmp slt i32 %54, 50
@@ -2659,15 +2659,15 @@ if.then253:                                       ; preds = %if.end246
   %tobool256.not = icmp eq i8 %and, 0
   %spec.select = select i1 %tobool256.not, i32 1, i32 -1
   store i32 %spec.select, ptr %residue, align 4
-  %bits.i254 = getelementptr inbounds %struct.decNumber, ptr %rhs.addr.0, i64 0, i32 2
+  %bits.i254 = getelementptr inbounds i8, ptr %rhs.addr.0, i64 8
   %61 = load i8, ptr %bits.i254, align 4
-  %bits1.i255 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i255 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %61, ptr %bits1.i255, align 4
-  %exponent.i256 = getelementptr inbounds %struct.decNumber, ptr %rhs.addr.0, i64 0, i32 1
+  %exponent.i256 = getelementptr inbounds i8, ptr %rhs.addr.0, i64 4
   %62 = load i32, ptr %exponent.i256, align 4
-  %exponent2.i257 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i257 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %62, ptr %exponent2.i257, align 4
-  %lsu.i258 = getelementptr inbounds %struct.decNumber, ptr %rhs.addr.0, i64 0, i32 3
+  %lsu.i258 = getelementptr inbounds i8, ptr %rhs.addr.0, i64 9
   %63 = load i32, ptr %rhs.addr.0, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu.i258, i32 noundef %63, ptr noundef nonnull %residue, ptr noundef %status)
   %cmp260 = icmp sgt i32 %sub255, 0
@@ -2871,7 +2871,7 @@ if.end297:                                        ; preds = %land.lhs.true162, %
   %add303 = add nsw i32 %82, %padding.1
   %83 = load i32, ptr %lhs.addr.1, align 4
   %maxdigits.0 = tail call i32 @llvm.smax.i32(i32 %83, i32 %add303)
-  %lsu309 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu309 = getelementptr inbounds i8, ptr %res, i64 9
   %cmp311.not = icmp slt i32 %maxdigits.0, %0
   br i1 %cmp311.not, label %lor.lhs.false312, label %if.then316
 
@@ -2914,13 +2914,13 @@ if.end342:                                        ; preds = %if.then333, %cond.e
   %acc.0 = phi ptr [ %accbuff, %cond.end326 ], [ %lsu309, %lor.lhs.false312 ], [ %call336, %if.then333 ]
   %allocacc.0 = phi ptr [ null, %cond.end326 ], [ null, %lor.lhs.false312 ], [ %call336, %if.then333 ]
   %86 = and i8 %bits.2, -128
-  %bits346 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits346 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %86, ptr %bits346, align 4
-  %exponent347 = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.1, i64 0, i32 1
+  %exponent347 = getelementptr inbounds i8, ptr %lhs.addr.1, i64 4
   %87 = load i32, ptr %exponent347, align 4
-  %exponent348 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent348 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %87, ptr %exponent348, align 4
-  %lsu349 = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.1, i64 0, i32 3
+  %lsu349 = getelementptr inbounds i8, ptr %lhs.addr.1, i64 9
   %88 = load i32, ptr %lhs.addr.1, align 4
   %cmp352 = icmp slt i32 %88, 50
   br i1 %cmp352, label %cond.true353, label %cond.end363
@@ -2934,7 +2934,7 @@ cond.true353:                                     ; preds = %if.end342
 
 cond.end363:                                      ; preds = %if.end342, %cond.true353
   %cond364 = phi i32 [ %conv357, %cond.true353 ], [ %88, %if.end342 ]
-  %lsu365 = getelementptr inbounds %struct.decNumber, ptr %rhs.addr.1, i64 0, i32 3
+  %lsu365 = getelementptr inbounds i8, ptr %rhs.addr.1, i64 9
   %90 = load i32, ptr %rhs.addr.1, align 4
   %cmp368 = icmp slt i32 %90, 50
   br i1 %cmp368, label %cond.true369, label %cond.end379
@@ -3078,7 +3078,7 @@ land.lhs.true453:                                 ; preds = %land.lhs.true446
   br i1 %cmp455, label %if.then456, label %do.end
 
 if.then456:                                       ; preds = %land.lhs.true453
-  %round457 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 3
+  %round457 = getelementptr inbounds i8, ptr %set, i64 12
   %110 = load i32, ptr %round457, align 4
   %cmp458 = icmp eq i32 %110, 6
   %and467 = and i8 %107, 127
@@ -3124,11 +3124,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -3145,43 +3145,43 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 ; Function Attrs: mustprogress uwtable
 define ptr @uprv_decNumberAnd_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
 entry:
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits, align 4
   %or.cond = icmp ult i8 %1, 16
   br i1 %or.cond, label %lor.lhs.false7, label %if.then
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %exponent8 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent8 = getelementptr inbounds i8, ptr %rhs, i64 4
   %2 = load i32, ptr %exponent8, align 4
   %cmp9.not = icmp eq i32 %2, 0
   br i1 %cmp9.not, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %bits11 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits11 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i8, ptr %bits11, align 4
   %or.cond63 = icmp ult i8 %3, 16
   br i1 %or.cond63, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false, %entry
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   %call6.i = tail call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef 128)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
-  %lsu20 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
+  %lsu20 = getelementptr inbounds i8, ptr %rhs, i64 9
   %lsu22.ptr = getelementptr inbounds i8, ptr %res, i64 9
   %4 = load i32, ptr %lhs, align 4
   %cmp24 = icmp slt i32 %4, 50
@@ -3305,8 +3305,8 @@ if.end107:                                        ; preds = %if.then99, %for.bod
   br i1 %cmp118, label %if.then119, label %for.inc127
 
 if.then119:                                       ; preds = %if.end107, %if.end107.us
-  %bits.i.i65 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i66 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i65 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i66 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i66, align 4
   store i32 1, ptr %res, align 4
   store i8 0, ptr %lsu22.ptr, align 1
@@ -3352,9 +3352,9 @@ if.end.i:                                         ; preds = %for.body.i
 _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end.i, %for.end130
   %digits.0.lcssa.i = phi i32 [ %conv135, %for.end130 ], [ %sub5.i, %if.end.i ], [ %digits.09.i, %for.body.i ]
   store i32 %digits.0.lcssa.i, ptr %res, align 4
-  %exponent137 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent137 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent137, align 4
-  %bits138 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits138 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits138, align 4
   br label %return
 
@@ -3367,9 +3367,9 @@ define ptr @uprv_decNumberCompare_75(ptr noundef returned %res, ptr noundef %lhs
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits.i, align 4
-  %bits22.phi.trans.insert.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits22.phi.trans.insert.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %.pre150.i = load i8, ptr %bits22.phi.trans.insert.i, align 4
   %or.i = or i8 %.pre150.i, %0
   %and24.i = and i8 %or.i, 48
@@ -3383,12 +3383,12 @@ if.end131.i:                                      ; preds = %entry
 
 if.else145.i:                                     ; preds = %if.end131.i
   %cmp158.i = icmp eq i32 %call138.i, 0
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   br i1 %cmp158.i, label %if.end, label %if.then180.i
 
@@ -3423,11 +3423,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end131.i, %if.then.i
   %1 = phi i32 [ %.pr.pre, %if.then.i ], [ 16, %if.end131.i ]
-  %bits.i.i5 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i6 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i5 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i6 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i6, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i7 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i7 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i7, align 1
   store i8 32, ptr %bits.i.i5, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -3446,18 +3446,18 @@ define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decCon
 entry:
   %residue = alloca i32, align 4
   %cmp = icmp eq i8 %op, 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   br i1 %cmp, label %if.then, label %entry.if.end19_crit_edge
 
 entry.if.end19_crit_edge:                         ; preds = %entry
-  %bits22.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits22.phi.trans.insert = getelementptr inbounds i8, ptr %rhs, i64 8
   %.pre150 = load i8, ptr %bits22.phi.trans.insert, align 4
   br label %if.end19
 
 if.then:                                          ; preds = %entry
   %cmp2.not = icmp sgt i8 %0, -1
-  %bits13 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits13 = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %bits13, align 4
   %cmp16.not = icmp sgt i8 %1, -1
   br i1 %cmp2.not, label %land.lhs.true12, label %land.lhs.true
@@ -3470,9 +3470,9 @@ land.lhs.true12:                                  ; preds = %if.then
 
 if.end19:                                         ; preds = %entry.if.end19_crit_edge, %land.lhs.true, %land.lhs.true12
   %2 = phi i8 [ %.pre150, %entry.if.end19_crit_edge ], [ %1, %land.lhs.true ], [ %1, %land.lhs.true12 ]
-  %bits20 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits20 = getelementptr inbounds i8, ptr %lhs, i64 8
   %conv21 = zext i8 %0 to i32
-  %bits22 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits22 = getelementptr inbounds i8, ptr %rhs, i64 8
   %conv23 = zext i8 %2 to i32
   %or = or i8 %2, %0
   %and24 = and i8 %or, 48
@@ -3534,7 +3534,7 @@ cond.true:                                        ; preds = %if.else71
 
 cond.end:                                         ; preds = %if.else71, %cond.true
   %cond = phi i32 [ %conv74, %cond.true ], [ %6, %if.else71 ]
-  %lsu76 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu76 = getelementptr inbounds i8, ptr %rhs, i64 9
   %8 = load i32, ptr %rhs, align 4
   %cmp79 = icmp slt i32 %8, 50
   br i1 %cmp79, label %cond.true80, label %cond.end90
@@ -3640,20 +3640,20 @@ if.then154:                                       ; preds = %if.else145, %if.els
   br i1 %or.cond3, label %if.then159, label %if.end177
 
 if.then159:                                       ; preds = %if.then154
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %16 = load i32, ptr %exponent, align 4
-  %exponent160 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent160 = getelementptr inbounds i8, ptr %rhs, i64 4
   %17 = load i32, ptr %exponent160, align 4
   %cmp161.not = icmp eq i32 %16, %17
   br i1 %cmp161.not, label %if.end177.thread, label %if.end177.thread107
 
 if.end177.thread:                                 ; preds = %if.then159
-  %bits.i103 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i103 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i103, align 4
-  %exponent.i104 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i104 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i104, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i105 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i105 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i105, align 1
   br label %if.end247
 
@@ -3667,23 +3667,23 @@ if.end177.thread107:                              ; preds = %if.then159
   br label %if.then180.sink.split
 
 if.end177:                                        ; preds = %if.then154
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   br i1 %cmp158, label %if.end247, label %if.then180
 
 if.then180.sink.split:                            ; preds = %land.lhs.true, %land.lhs.true12, %if.end177.thread107
   %result.3113.ph = phi i32 [ %spec.select93, %if.end177.thread107 ], [ -1, %land.lhs.true ], [ 1, %land.lhs.true12 ]
-  %bits.i109 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i109 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i109, align 4
-  %exponent.i138 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i138 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i138, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i139 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i139 = getelementptr inbounds i8, ptr %res, i64 9
   br label %if.then180
 
 if.then180:                                       ; preds = %if.then180.sink.split, %if.end177
@@ -3719,9 +3719,9 @@ if.then206:                                       ; preds = %if.then194
 if.else211:                                       ; preds = %if.then194
   %23 = and i8 %21, %19
   %or.cond4.not = icmp sgt i8 %23, -1
-  %exponent223 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent223 = getelementptr inbounds i8, ptr %lhs, i64 4
   %24 = load i32, ptr %exponent223, align 4
-  %exponent224 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent224 = getelementptr inbounds i8, ptr %rhs, i64 4
   %25 = load i32, ptr %exponent224, align 4
   br i1 %or.cond4.not, label %if.else222, label %if.then215
 
@@ -3750,15 +3750,15 @@ if.end239:                                        ; preds = %if.end231.thread, %
   %result.5 = phi i32 [ %sub238, %if.then237 ], [ %result.4, %if.end231 ], [ %., %if.end231.thread ]
   %cmp240 = icmp sgt i32 %result.5, 0
   %cond244 = select i1 %cmp240, ptr %lhs, ptr %rhs
-  %bits.i94 = getelementptr inbounds %struct.decNumber, ptr %cond244, i64 0, i32 2
+  %bits.i94 = getelementptr inbounds i8, ptr %cond244, i64 8
   %26 = load i8, ptr %bits.i94, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %26, ptr %bits1.i, align 4
-  %exponent.i95 = getelementptr inbounds %struct.decNumber, ptr %cond244, i64 0, i32 1
+  %exponent.i95 = getelementptr inbounds i8, ptr %cond244, i64 4
   %27 = load i32, ptr %exponent.i95, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %27, ptr %exponent2.i, align 4
-  %lsu.i96 = getelementptr inbounds %struct.decNumber, ptr %cond244, i64 0, i32 3
+  %lsu.i96 = getelementptr inbounds i8, ptr %cond244, i64 9
   %28 = load i32, ptr %cond244, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %lsu.i96, i32 noundef %28, ptr noundef nonnull %residue, ptr noundef %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef %status)
@@ -3772,9 +3772,9 @@ if.end247:                                        ; preds = %if.else145.thread12
 define ptr @uprv_decNumberCompareSignal_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
 entry:
   %status = alloca i32, align 4
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits.i, align 4
-  %bits22.phi.trans.insert.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits22.phi.trans.insert.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %.pre150.i = load i8, ptr %bits22.phi.trans.insert.i, align 4
   %or.i = or i8 %.pre150.i, %0
   %and24.i = and i8 %or.i, 48
@@ -3788,12 +3788,12 @@ if.end131.i:                                      ; preds = %entry
 
 if.else145.i:                                     ; preds = %if.end131.i
   %cmp158.i = icmp eq i32 %call138.i, 0
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   br i1 %cmp158.i, label %if.end, label %if.then180.i
 
@@ -3829,11 +3829,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end131.i, %if.then.i
   %1 = phi i32 [ %.pr.pre, %if.then.i ], [ 16, %if.end131.i ]
-  %bits.i.i5 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i6 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i5 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i6 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i6, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i7 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i7 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i7, align 1
   store i8 32, ptr %bits.i.i5, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -3872,11 +3872,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -3899,7 +3899,7 @@ entry:
   %bufa = alloca [4 x %struct.decNumber], align 16
   %bufb = alloca [4 x %struct.decNumber], align 16
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %cmp.not = icmp sgt i8 %0, -1
   br i1 %cmp.not, label %if.end21, label %if.then
@@ -3938,14 +3938,14 @@ if.end.i:                                         ; preds = %if.end15
   store <2 x i32> %4, ptr %a.0, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %lhs, i64 9
   %5 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %a.0, i64 9
   store i8 %5, ptr %lsu4.i, align 1
   %6 = extractelement <2 x i32> %4, i64 0
   %cmp7.i = icmp sgt i32 %6, 1
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %a.0, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %a.0, i64 10
   %cmp13.i = icmp ult i32 %6, 50
   %idxprom.i = zext nneg i32 %6 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -3958,7 +3958,7 @@ cond.end.i:                                       ; preds = %if.then8.i
 
 for.body.preheader.i:                             ; preds = %if.then8.i, %cond.end.i
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %lhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %lhs, i64 10
   %8 = add i64 %idxprom.pn.i, %lhs77
   %9 = add i64 %8, 9
   %10 = add i64 %lhs77, 11
@@ -3969,7 +3969,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   br label %uprv_decNumberCopy_75.exit
 
 uprv_decNumberCopy_75.exit:                       ; preds = %if.end15, %for.body.preheader.i, %if.end.i
-  %bits17 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 2
+  %bits17 = getelementptr inbounds i8, ptr %a.0, i64 8
   %13 = and i8 %.pre, 127
   store i8 %13, ptr %bits17, align 4
   br label %if.end21
@@ -3977,7 +3977,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %if.end15, %for.body
 if.end21:                                         ; preds = %uprv_decNumberCopy_75.exit, %entry
   %lhs.addr.0 = phi ptr [ %a.0, %uprv_decNumberCopy_75.exit ], [ %lhs, %entry ]
   %allocbufa.1 = phi ptr [ %allocbufa.0, %uprv_decNumberCopy_75.exit ], [ null, %entry ]
-  %bits22 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits22 = getelementptr inbounds i8, ptr %rhs, i64 8
   %14 = load i8, ptr %bits22, align 4
   %cmp25.not = icmp sgt i8 %14, -1
   br i1 %cmp25.not, label %if.end62, label %if.then26
@@ -4020,14 +4020,14 @@ if.end.i32:                                       ; preds = %if.end56
   store <2 x i32> %18, ptr %b.0, align 4
   %lsu.ptr.i37 = getelementptr inbounds i8, ptr %rhs, i64 9
   %19 = load i8, ptr %lsu.ptr.i37, align 1
-  %lsu4.i38 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 3
+  %lsu4.i38 = getelementptr inbounds i8, ptr %b.0, i64 9
   store i8 %19, ptr %lsu4.i38, align 1
   %20 = extractelement <2 x i32> %18, i64 0
   %cmp7.i39 = icmp sgt i32 %20, 1
   br i1 %cmp7.i39, label %if.then8.i40, label %uprv_decNumberCopy_75.exit59
 
 if.then8.i40:                                     ; preds = %if.end.i32
-  %add.ptr.i41 = getelementptr %struct.decNumber, ptr %b.0, i64 0, i32 3, i64 1
+  %add.ptr.i41 = getelementptr i8, ptr %b.0, i64 10
   %cmp13.i42 = icmp ult i32 %20, 50
   %idxprom.i43 = zext nneg i32 %20 to i64
   br i1 %cmp13.i42, label %cond.end.i56, label %for.body.preheader.i45
@@ -4040,7 +4040,7 @@ cond.end.i56:                                     ; preds = %if.then8.i40
 
 for.body.preheader.i45:                           ; preds = %if.then8.i40, %cond.end.i56
   %idxprom.pn.i46 = phi i64 [ %idx.ext.i58, %cond.end.i56 ], [ %idxprom.i43, %if.then8.i40 ]
-  %add.ptr20.i49 = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i49 = getelementptr i8, ptr %rhs, i64 10
   %22 = add i64 %idxprom.pn.i46, %rhs78
   %23 = add i64 %22, 9
   %24 = add i64 %rhs78, 11
@@ -4051,7 +4051,7 @@ for.body.preheader.i45:                           ; preds = %if.then8.i40, %cond
   br label %uprv_decNumberCopy_75.exit59
 
 uprv_decNumberCopy_75.exit59:                     ; preds = %if.end56, %for.body.preheader.i45, %if.end.i32
-  %bits58 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 2
+  %bits58 = getelementptr inbounds i8, ptr %b.0, i64 8
   %27 = and i8 %.pre80, 127
   store i8 %27, ptr %bits58, align 4
   br label %if.end62
@@ -4100,11 +4100,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then11, %if.then.i
   %28 = phi i32 [ %.pr, %if.then.i ], [ 16, %if.then11 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -4125,26 +4125,26 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bits = getelementptr inbounds %struct.decNumber, ptr %src, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i8, ptr %bits, align 4
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %dest, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %dest, i64 8
   store i8 %0, ptr %bits1, align 4
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %src, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %src, i64 4
   %1 = load i32, ptr %exponent, align 4
-  %exponent2 = getelementptr inbounds %struct.decNumber, ptr %dest, i64 0, i32 1
+  %exponent2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %1, ptr %exponent2, align 4
   %2 = load i32, ptr %src, align 4
   store i32 %2, ptr %dest, align 4
   %lsu.ptr = getelementptr inbounds i8, ptr %src, i64 9
   %3 = load i8, ptr %lsu.ptr, align 1
-  %lsu4 = getelementptr inbounds %struct.decNumber, ptr %dest, i64 0, i32 3
+  %lsu4 = getelementptr inbounds i8, ptr %dest, i64 9
   store i8 %3, ptr %lsu4, align 1
   %4 = load i32, ptr %src, align 4
   %cmp7 = icmp sgt i32 %4, 1
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end
-  %add.ptr = getelementptr %struct.decNumber, ptr %dest, i64 0, i32 3, i64 1
+  %add.ptr = getelementptr i8, ptr %dest, i64 10
   %cmp13 = icmp ult i32 %4, 50
   %idxprom = zext nneg i32 %4 to i64
   br i1 %cmp13, label %cond.end, label %for.body.preheader
@@ -4159,7 +4159,7 @@ for.body.preheader:                               ; preds = %if.then8, %cond.end
   %idxprom.pn = phi i64 [ %idx.ext, %cond.end ], [ %idxprom, %if.then8 ]
   %.pn = getelementptr i8, ptr %src, i64 %idxprom.pn
   %add.ptr17.ptr28 = getelementptr i8, ptr %.pn, i64 9
-  %add.ptr20 = getelementptr %struct.decNumber, ptr %src, i64 0, i32 3, i64 1
+  %add.ptr20 = getelementptr i8, ptr %src, i64 10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -4201,11 +4201,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -4226,10 +4226,10 @@ entry:
   %varbuff = alloca [73 x i8], align 16
   %residue = alloca i32, align 4
   %0 = load i32, ptr %set, align 4
-  %bits2 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits2 = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits2, align 4
   %conv = zext i8 %1 to i32
-  %bits3 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits3 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits3, align 4
   %conv4 = zext i8 %2 to i32
   %xor = xor i8 %2, %1
@@ -4268,11 +4268,11 @@ if.then31:                                        ; preds = %if.then23
   br label %if.end698
 
 if.end33:                                         ; preds = %if.then23
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   %5 = or disjoint i8 %and, 64
   store i8 %5, ptr %bits.i, align 4
@@ -4282,32 +4282,32 @@ if.else:                                          ; preds = %if.end
   store i32 0, ptr %residue, align 4
   %6 = and i8 %op, 80
   %tobool41.not = icmp eq i8 %6, 0
-  %bits.i371 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i371 = getelementptr inbounds i8, ptr %res, i64 8
   br i1 %tobool41.not, label %if.else43, label %if.then42
 
 if.then42:                                        ; preds = %if.else
   store i8 %1, ptr %bits.i371, align 4
-  %exponent.i369 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i369 = getelementptr inbounds i8, ptr %lhs, i64 4
   %7 = load i32, ptr %exponent.i369, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %7, ptr %exponent2.i, align 4
-  %lsu.i370 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu.i370 = getelementptr inbounds i8, ptr %lhs, i64 9
   %8 = load i32, ptr %lhs, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu.i370, i32 noundef %8, ptr noundef nonnull %residue, ptr noundef %status)
   br label %if.end54
 
 if.else43:                                        ; preds = %if.else
-  %exponent.i372 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i372 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i372, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i373 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i373 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i373, align 1
   store i8 %and, ptr %bits.i371, align 4
   %tobool48.not = icmp sgt i8 %op, -1
   br i1 %tobool48.not, label %if.end54, label %if.then49
 
 if.then49:                                        ; preds = %if.else43
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %9 = load i32, ptr %emin, align 4
   %10 = load i32, ptr %set, align 4
   %sub = add i32 %9, 1
@@ -4337,7 +4337,7 @@ land.lhs.true:                                    ; preds = %if.end55
   br i1 %or.cond356, label %if.then66, label %if.end97
 
 if.then66:                                        ; preds = %land.lhs.true
-  %lsu67 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu67 = getelementptr inbounds i8, ptr %lhs, i64 9
   %14 = load i8, ptr %lsu67, align 1
   %cmp70 = icmp eq i8 %14, 0
   br i1 %cmp70, label %land.lhs.true71, label %if.else82
@@ -4351,12 +4351,12 @@ land.lhs.true71:                                  ; preds = %if.then66
   br i1 %or.cond357, label %if.then79, label %if.else82
 
 if.then79:                                        ; preds = %land.lhs.true71
-  %bits.i374 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i374 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i374, align 4
-  %exponent.i375 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i375 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i375, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i376 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i376 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i376, align 1
   %16 = load i32, ptr %status, align 4
   %or81 = or i32 %16, 8
@@ -4364,12 +4364,12 @@ if.then79:                                        ; preds = %land.lhs.true71
   br label %if.end698
 
 if.else82:                                        ; preds = %land.lhs.true71, %if.then66
-  %bits.i377 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i377 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i377, align 4
-  %exponent.i378 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i378 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i378, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i379 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i379 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i379, align 1
   %17 = and i8 %op, 80
   %tobool86.not = icmp eq i8 %17, 0
@@ -4408,15 +4408,15 @@ if.then110:                                       ; preds = %land.lhs.true102
 
 if.then114:                                       ; preds = %if.then110
   store i32 0, ptr %residue, align 4
-  %exponent115 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent115 = getelementptr inbounds i8, ptr %lhs, i64 4
   %22 = load i32, ptr %exponent115, align 4
-  %exponent116 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent116 = getelementptr inbounds i8, ptr %rhs, i64 4
   %23 = load i32, ptr %exponent116, align 4
   %sub117 = sub nsw i32 %22, %23
   %call118 = tail call ptr @uprv_decNumberCopy_75(ptr noundef %res, ptr noundef nonnull %lhs)
-  %bits119 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits119 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %and, ptr %bits119, align 4
-  %exponent120 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent120 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %sub117, ptr %exponent120, align 4
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
   br label %if.end698
@@ -4427,20 +4427,20 @@ if.else121:                                       ; preds = %if.then110
   br i1 %tobool124.not, label %if.else128, label %if.then125
 
 if.then125:                                       ; preds = %if.else121
-  %bits.i380 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i381 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i380 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i381 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i381, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i382 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i382 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i382, align 1
   store i8 %and, ptr %bits.i380, align 4
   br label %if.end698
 
 if.else128:                                       ; preds = %if.else121
-  %exponent129 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent129 = getelementptr inbounds i8, ptr %rhs, i64 4
   %25 = load i32, ptr %exponent129, align 4
   %call130 = tail call ptr @uprv_decNumberCopy_75(ptr noundef %res, ptr noundef nonnull %lhs)
-  %exponent131 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent131 = getelementptr inbounds i8, ptr %res, i64 4
   %26 = load i32, ptr %exponent131, align 4
   %cmp132 = icmp slt i32 %25, %26
   br i1 %cmp132, label %if.then133, label %if.end698
@@ -4450,9 +4450,9 @@ if.then133:                                       ; preds = %if.else128
   br label %if.end698
 
 if.end138:                                        ; preds = %land.lhs.true102, %if.end97
-  %exponent139 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent139 = getelementptr inbounds i8, ptr %lhs, i64 4
   %27 = load i32, ptr %exponent139, align 4
-  %exponent142 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent142 = getelementptr inbounds i8, ptr %rhs, i64 4
   %28 = load i32, ptr %exponent142, align 4
   %29 = load i32, ptr %rhs, align 4
   %add144.neg = add i32 %.pre, %27
@@ -4470,11 +4470,11 @@ if.then150:                                       ; preds = %if.end138
   br i1 %tobool153.not, label %if.end157, label %if.then154
 
 if.then154:                                       ; preds = %if.then150
-  %bits.i383 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i384 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i383 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i384 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i384, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i385 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i385 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i385, align 1
   store i8 %and, ptr %bits.i383, align 4
   br label %if.end698
@@ -4492,10 +4492,10 @@ if.then161:                                       ; preds = %if.end157
 
 if.then167:                                       ; preds = %if.then161
   store i32 0, ptr %residue, align 4
-  %bits1.i387 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i387 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %1, ptr %bits1.i387, align 4
   %31 = load i32, ptr %exponent139, align 4
-  %exponent2.i389 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i389 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %31, ptr %exponent2.i389, align 4
   %32 = load i32, ptr %lhs, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu98.ptr, i32 noundef %32, ptr noundef nonnull %residue, ptr noundef %status)
@@ -4683,7 +4683,7 @@ for.body297:                                      ; preds = %if.end293, %for.bod
   %pow.0446 = phi ptr [ %incdec.ptr299, %for.body297 ], [ getelementptr inbounds ([10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 1), %if.end293 ]
   %exponent.0445 = phi i32 [ %dec, %for.body297 ], [ %sub145, %if.end293 ]
   %dec = add nsw i32 %exponent.0445, -1
-  %incdec.ptr299 = getelementptr inbounds i32, ptr %pow.0446, i64 1
+  %incdec.ptr299 = getelementptr inbounds i8, ptr %pow.0446, i64 4
   %56 = load i32, ptr %incdec.ptr299, align 4
   %cmp296.not = icmp ugt i32 %56, %conv295
   br i1 %cmp296.not, label %for.cond301.preheader, label %for.body297, !llvm.loop !35
@@ -4692,7 +4692,7 @@ for.body304:                                      ; preds = %for.cond301.prehead
   %pow.1451 = phi ptr [ %incdec.ptr307, %for.body304 ], [ getelementptr inbounds ([10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 1), %for.cond301.preheader ]
   %exponent.1450 = phi i32 [ %inc305, %for.body304 ], [ %exponent.0.lcssa, %for.cond301.preheader ]
   %inc305 = add nsw i32 %exponent.1450, 1
-  %incdec.ptr307 = getelementptr inbounds i32, ptr %pow.1451, i64 1
+  %incdec.ptr307 = getelementptr inbounds i8, ptr %pow.1451, i64 4
   %57 = load i32, ptr %incdec.ptr307, align 4
   %cmp303.not = icmp ugt i32 %57, %conv277
   br i1 %cmp303.not, label %for.end308, label %for.body304, !llvm.loop !36
@@ -4990,7 +4990,7 @@ for.cond440:                                      ; preds = %if.then436, %for.co
   %accdigits.1 = add nsw i32 %accdigits.1.in, 1
   %91 = load i32, ptr %pow.2, align 4
   %cmp442.not = icmp ugt i32 %91, %conv434
-  %incdec.ptr446 = getelementptr inbounds i32, ptr %pow.2, i64 1
+  %incdec.ptr446 = getelementptr inbounds i8, ptr %pow.2, i64 4
   br i1 %cmp442.not, label %if.end450, label %for.cond440, !llvm.loop !42
 
 if.else448:                                       ; preds = %if.then436
@@ -5093,10 +5093,10 @@ if.then516:                                       ; preds = %if.then510
   %97 = load i32, ptr %exponent139, align 4
   %98 = load i32, ptr %exponent142, align 4
   %spec.select363 = call i32 @llvm.smin.i32(i32 %98, i32 %97)
-  %bits.i391 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i392 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i391 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i392 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 1, ptr %res, align 4
-  %lsu.i393 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i393 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i393, align 1
   store i32 %spec.select363, ptr %exponent.i392, align 4
   %99 = and i8 %95, -128
@@ -5313,10 +5313,10 @@ if.end687:                                        ; preds = %for.end609, %if.end
   %bits.0 = phi i8 [ %and, %if.then498 ], [ %and, %if.then493 ], [ %130, %_ZL12decGetDigitsPhi.exit412 ], [ %95, %cond.end554 ], [ %and, %if.end506 ], [ %95, %for.end609 ]
   %accdigits.6 = phi i32 [ %accdigits.5, %if.then498 ], [ %accdigits.5, %if.then493 ], [ %digits.0.lcssa.i411, %_ZL12decGetDigitsPhi.exit412 ], [ %digits.0.lcssa.i, %cond.end554 ], [ %accdigits.5, %if.end506 ], [ %digits.0.lcssa.i, %for.end609 ]
   %accnext.4 = phi ptr [ %accnext.3, %if.then498 ], [ %accnext.3, %if.then493 ], [ %var1.0, %_ZL12decGetDigitsPhi.exit412 ], [ %var1.0, %cond.end554 ], [ %accnext.3, %if.end506 ], [ %var1.0, %for.end609 ]
-  %exponent688 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent688 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %exponent.5, ptr %exponent688, align 4
   %131 = and i8 %bits.0, -128
-  %bits692 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits692 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %131, ptr %bits692, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %accnext.4, i32 noundef %accdigits.6, ptr noundef nonnull %residue, ptr noundef %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
@@ -5367,11 +5367,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -5395,13 +5395,13 @@ entry:
   br i1 %cmp.i, label %if.then2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %1 = load i32, ptr %emax.i, align 4
   %cmp1.i = icmp sgt i32 %1, 999999
   br i1 %cmp1.i, label %if.then2, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %2 = load i32, ptr %emin.i, align 4
   %cmp3.i = icmp slt i32 %2, -999999
   br i1 %cmp3.i, label %if.then2, label %if.else.i
@@ -5412,7 +5412,7 @@ if.else.i:                                        ; preds = %lor.lhs.false2.i
   br i1 %cmp5.i, label %if.then2, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.else.i
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %4 = load i32, ptr %exponent.i, align 4
   %add.i = add i32 %3, -1000001
   %5 = add i32 %add.i, %4
@@ -5420,7 +5420,7 @@ lor.lhs.false6.i:                                 ; preds = %if.else.i
   br i1 %or.cond.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %6 = load i8, ptr %lsu.i, align 1
   %cmp14.i = icmp eq i8 %6, 0
   %cmp17.i = icmp eq i32 %3, 1
@@ -5428,7 +5428,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
   br i1 %or.cond13.i, label %land.lhs.true18.i, label %if.then2
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true.i
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %7 = load i8, ptr %bits.i, align 4
   %8 = and i8 %7, 112
   %cmp20.i = icmp eq i8 %8, 0
@@ -5456,11 +5456,11 @@ if.then3.i:                                       ; preds = %if.then.i6
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i7:                                       ; preds = %if.then.i6
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -5488,7 +5488,7 @@ entry:
   %bufd = alloca [3 x %struct.decNumber], align 16
   %numone = alloca %struct.decNumber, align 4
   store i32 0, ptr %ignore, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 112
@@ -5505,12 +5505,12 @@ if.then6:                                         ; preds = %if.then
   br i1 %cmp10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.then6
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   br label %if.end295
 
@@ -5519,24 +5519,24 @@ if.else:                                          ; preds = %if.then6
   br i1 %cmp.i, label %if.end295, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i143 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i143 = getelementptr inbounds i8, ptr %rhs, i64 4
   %1 = load i32, ptr %exponent.i143, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %1, ptr %exponent2.i, align 4
   %2 = load i32, ptr %rhs, align 4
   store i32 %2, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %3, ptr %lsu4.i, align 1
   %4 = load i32, ptr %rhs, align 4
   %cmp7.i = icmp sgt i32 %4, 1
   br i1 %cmp7.i, label %if.then8.i, label %if.end295
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -5551,7 +5551,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -5569,7 +5569,7 @@ if.else13:                                        ; preds = %if.then
   br label %if.end295
 
 if.end16:                                         ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %rhs, i64 9
   %7 = load i8, ptr %lsu, align 1
   %cmp19 = icmp eq i8 %7, 0
   br i1 %cmp19, label %land.lhs.true, label %if.end30
@@ -5580,21 +5580,21 @@ land.lhs.true:                                    ; preds = %if.end16
   br i1 %cmp20, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %land.lhs.true
-  %bits.i144 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i144 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i144, align 4
-  %exponent.i145 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i145 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i145, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i146 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i146 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 1, ptr %lsu.i146, align 1
   br label %if.end295
 
 if.end30:                                         ; preds = %land.lhs.true, %if.end16
-  %bits.i147 = getelementptr inbounds %struct.decNumber, ptr %bufd, i64 0, i32 2
+  %bits.i147 = getelementptr inbounds i8, ptr %bufd, i64 8
   store i8 0, ptr %bits.i147, align 8
-  %exponent.i148 = getelementptr inbounds %struct.decNumber, ptr %bufd, i64 0, i32 1
+  %exponent.i148 = getelementptr inbounds i8, ptr %bufd, i64 4
   store i32 1, ptr %bufd, align 16
-  %lsu.i149 = getelementptr inbounds %struct.decNumber, ptr %bufd, i64 0, i32 3
+  %lsu.i149 = getelementptr inbounds i8, ptr %bufd, i64 9
   store i8 4, ptr %lsu.i149, align 1
   %9 = load i32, ptr %set, align 4
   %sub = sub nsw i32 0, %9
@@ -5619,10 +5619,10 @@ if.end45:                                         ; preds = %if.end30
 if.then47:                                        ; preds = %if.end45
   %11 = load i32, ptr %set, align 4
   %sub49 = add nsw i32 %11, -1
-  %bits.i150 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i150 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i150, align 4
-  %exponent.i151 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
-  %lsu.i152 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %exponent.i151 = getelementptr inbounds i8, ptr %res, i64 4
+  %lsu.i152 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 1, ptr %lsu.i152, align 1
   %cmp.i153 = icmp eq i32 %sub49, 0
   br i1 %cmp.i153, label %_ZL14decShiftToMostPhii.exit, label %if.end.i154
@@ -5737,13 +5737,13 @@ _ZL14decShiftToMostPhii.exit:                     ; preds = %for.body90.i, %if.t
 
 if.end60:                                         ; preds = %if.end45
   %call61 = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %aset, i32 noundef 64)
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
-  %emax62 = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
+  %emax62 = getelementptr inbounds i8, ptr %aset, i64 4
   %21 = load <2 x i32>, ptr %emax, align 4
   store <2 x i32> %21, ptr %emax62, align 4
-  %clamp = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %aset, i64 24
   store i8 0, ptr %clamp, align 4
-  %exponent64 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent64 = getelementptr inbounds i8, ptr %rhs, i64 4
   %22 = load i32, ptr %exponent64, align 4
   %23 = load i32, ptr %rhs, align 4
   %add = add nsw i32 %23, %22
@@ -5751,12 +5751,12 @@ if.end60:                                         ; preds = %if.end45
   br i1 %cmp66, label %if.then67, label %if.else78
 
 if.then67:                                        ; preds = %if.end60
-  %bits.i162 = getelementptr inbounds %struct.decNumber, ptr %bufa, i64 0, i32 2
+  %bits.i162 = getelementptr inbounds i8, ptr %bufa, i64 8
   store i8 0, ptr %bits.i162, align 8
-  %exponent.i163 = getelementptr inbounds %struct.decNumber, ptr %bufa, i64 0, i32 1
+  %exponent.i163 = getelementptr inbounds i8, ptr %bufa, i64 4
   store i32 0, ptr %exponent.i163, align 4
   store i32 1, ptr %bufa, align 16
-  %lsu.i164 = getelementptr inbounds %struct.decNumber, ptr %bufa, i64 0, i32 3
+  %lsu.i164 = getelementptr inbounds i8, ptr %bufa, i64 9
   store i8 2, ptr %lsu.i164, align 1
   %24 = load i8, ptr %bits, align 4
   %cmp74.not = icmp sgt i8 %24, -1
@@ -5812,7 +5812,7 @@ if.then118:                                       ; preds = %if.then114
 if.end121:                                        ; preds = %if.then114, %cond.end106
   %allocrhs.0 = phi ptr [ null, %cond.end106 ], [ %call116, %if.then114 ]
   %newrhs.0 = phi ptr [ %bufr, %cond.end106 ], [ %call116, %if.then114 ]
-  %newrhs.0.sroa.phi = getelementptr inbounds %struct.decNumber, ptr %newrhs.0, i64 0, i32 1
+  %newrhs.0.sroa.phi = getelementptr inbounds i8, ptr %newrhs.0, i64 4
   %call122 = call ptr @uprv_decNumberCopy_75(ptr noundef nonnull %newrhs.0, ptr noundef nonnull %rhs)
   store i32 %sub87, ptr %newrhs.0.sroa.phi, align 4
   %.pre = load i32, ptr %newrhs.0, align 4
@@ -5890,31 +5890,31 @@ if.then190:                                       ; preds = %if.then186
 if.end193:                                        ; preds = %if.then186, %cond.end177
   %allocbuft.0 = phi ptr [ null, %cond.end177 ], [ %call188, %if.then186 ]
   %t.0 = phi ptr [ %buft, %cond.end177 ], [ %call188, %if.then186 ]
-  %t.0.sroa.phi223 = getelementptr inbounds %struct.decNumber, ptr %t.0, i64 0, i32 1
+  %t.0.sroa.phi223 = getelementptr inbounds i8, ptr %t.0, i64 4
   %call194 = call ptr @uprv_decNumberCopy_75(ptr noundef nonnull %t.0, ptr noundef nonnull %x.0)
-  %bits.i165 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 2
+  %bits.i165 = getelementptr inbounds i8, ptr %a.0, i64 8
   store i8 0, ptr %bits.i165, align 4
-  %exponent.i166 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 1
+  %exponent.i166 = getelementptr inbounds i8, ptr %a.0, i64 4
   store i32 0, ptr %exponent.i166, align 4
   store i32 1, ptr %a.0, align 4
-  %lsu.i167 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 3
+  %lsu.i167 = getelementptr inbounds i8, ptr %a.0, i64 9
   store i8 1, ptr %lsu.i167, align 1
   store i8 0, ptr %bits.i147, align 8
   store i32 0, ptr %exponent.i148, align 4
   store i32 1, ptr %bufd, align 16
   store i8 2, ptr %lsu.i149, align 1
-  %bits.i171 = getelementptr inbounds %struct.decNumber, ptr %numone, i64 0, i32 2
+  %bits.i171 = getelementptr inbounds i8, ptr %numone, i64 8
   store i8 0, ptr %bits.i171, align 4
-  %exponent.i172 = getelementptr inbounds %struct.decNumber, ptr %numone, i64 0, i32 1
+  %exponent.i172 = getelementptr inbounds i8, ptr %numone, i64 4
   store i32 0, ptr %exponent.i172, align 4
   store i32 1, ptr %numone, align 4
-  %lsu.i173 = getelementptr inbounds %struct.decNumber, ptr %numone, i64 0, i32 3
+  %lsu.i173 = getelementptr inbounds i8, ptr %numone, i64 9
   store i8 1, ptr %lsu.i173, align 1
   %call204 = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %tset, i32 noundef 64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %dset, ptr noundef nonnull align 4 dereferenceable(28) %tset, i64 28, i1 false)
   store i32 %mul136, ptr %aset, align 4
   store i32 %add135, ptr %tset, align 4
-  %emin208 = getelementptr inbounds %struct.decContext, ptr %tset, i64 0, i32 2
+  %emin208 = getelementptr inbounds i8, ptr %tset, i64 8
   store i32 -999999999, ptr %emin208, align 4
   br label %for.cond
 
@@ -5955,12 +5955,12 @@ if.then229:                                       ; preds = %if.then67, %if.then
   %38 = load i32, ptr %arrayidx231, align 4
   %add232 = add nsw i32 %p.0198, 2
   store i32 %add232, ptr %aset, align 4
-  %bits.i174 = getelementptr inbounds %struct.decNumber, ptr %t.1194, i64 0, i32 2
+  %bits.i174 = getelementptr inbounds i8, ptr %t.1194, i64 8
   store i8 0, ptr %bits.i174, align 4
-  %exponent.i175 = getelementptr inbounds %struct.decNumber, ptr %t.1194, i64 0, i32 1
+  %exponent.i175 = getelementptr inbounds i8, ptr %t.1194, i64 4
   store i32 0, ptr %exponent.i175, align 4
   store i32 1, ptr %t.1194, align 4
-  %lsu.i176 = getelementptr inbounds %struct.decNumber, ptr %t.1194, i64 0, i32 3
+  %lsu.i176 = getelementptr inbounds i8, ptr %t.1194, i64 9
   store i8 1, ptr %lsu.i176, align 1
   br label %for.cond237
 
@@ -6028,7 +6028,7 @@ if.end270:                                        ; preds = %if.end261.thread, %
   %allocrhs.2190 = phi ptr [ %allocrhs.1, %if.end227 ], [ %allocrhs.2191, %if.end261 ], [ %allocrhs.2191, %if.then240 ], [ %allocrhs.2191, %land.lhs.true250 ], [ %allocrhs.2191, %if.end261.thread ]
   %a.2 = phi ptr [ %a.0, %if.end227 ], [ %t.1194, %if.end261 ], [ %t.1194, %if.then240 ], [ %t.1194, %land.lhs.true250 ], [ %t.1194, %if.end261.thread ]
   store i32 1, ptr %residue, align 4
-  %lsu271 = getelementptr inbounds %struct.decNumber, ptr %a.2, i64 0, i32 3
+  %lsu271 = getelementptr inbounds i8, ptr %a.2, i64 9
   %44 = load i8, ptr %lsu271, align 1
   %cmp274 = icmp eq i8 %44, 0
   br i1 %cmp274, label %land.lhs.true275, label %if.end284
@@ -6039,7 +6039,7 @@ land.lhs.true275:                                 ; preds = %if.end270
   br i1 %cmp277, label %land.lhs.true278, label %if.end284
 
 land.lhs.true278:                                 ; preds = %land.lhs.true275
-  %bits279 = getelementptr inbounds %struct.decNumber, ptr %a.2, i64 0, i32 2
+  %bits279 = getelementptr inbounds i8, ptr %a.2, i64 8
   %46 = load i8, ptr %bits279, align 4
   %47 = and i8 %46, 112
   %cmp282 = icmp eq i8 %47, 0
@@ -6052,13 +6052,13 @@ if.then283:                                       ; preds = %land.lhs.true278
 if.end284:                                        ; preds = %if.then283, %land.lhs.true278, %land.lhs.true275, %if.end270
   %48 = load i32, ptr %set, align 4
   store i32 %48, ptr %aset, align 4
-  %bits.i177 = getelementptr inbounds %struct.decNumber, ptr %a.2, i64 0, i32 2
+  %bits.i177 = getelementptr inbounds i8, ptr %a.2, i64 8
   %49 = load i8, ptr %bits.i177, align 4
-  %bits1.i178 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i178 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %49, ptr %bits1.i178, align 4
-  %exponent.i179 = getelementptr inbounds %struct.decNumber, ptr %a.2, i64 0, i32 1
+  %exponent.i179 = getelementptr inbounds i8, ptr %a.2, i64 4
   %50 = load i32, ptr %exponent.i179, align 4
-  %exponent2.i180 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i180 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %50, ptr %exponent2.i180, align 4
   %51 = load i32, ptr %a.2, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %aset, ptr noundef nonnull %lsu271, i32 noundef %51, ptr noundef nonnull %residue, ptr noundef %status)
@@ -6104,7 +6104,7 @@ entry:
   %bufa = alloca [7 x %struct.decNumber], align 16
   %dzero = alloca %struct.decNumber, align 4
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 112
   %cmp.not = icmp eq i8 %1, 0
@@ -6116,13 +6116,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i, label %if.then54, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %3 = load i32, ptr %emax.i, align 4
   %cmp1.i = icmp sgt i32 %3, 999999
   br i1 %cmp1.i, label %if.then54, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %4 = load i32, ptr %emin.i, align 4
   %cmp3.i = icmp slt i32 %4, -999999
   br i1 %cmp3.i, label %if.then54, label %if.else.i
@@ -6133,7 +6133,7 @@ if.else.i:                                        ; preds = %lor.lhs.false2.i
   br i1 %cmp5.i, label %if.then54, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.else.i
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %lhs, i64 4
   %6 = load i32, ptr %exponent.i, align 4
   %add.i = add i32 %5, -1000001
   %7 = add i32 %add.i, %6
@@ -6141,7 +6141,7 @@ lor.lhs.false6.i:                                 ; preds = %if.else.i
   br i1 %or.cond.i, label %land.lhs.true.i, label %lor.lhs.false
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %lhs, i64 9
   %8 = load i8, ptr %lsu.i, align 1
   %cmp14.i = icmp eq i8 %8, 0
   %cmp17.i = icmp eq i32 %5, 1
@@ -6149,7 +6149,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
   br i1 %or.cond13.i, label %lor.lhs.false, label %if.then54
 
 lor.lhs.false:                                    ; preds = %land.lhs.true.i, %lor.lhs.false6.i, %entry
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %9 = load i8, ptr %bits1, align 4
   %10 = and i8 %9, 112
   %cmp4.not = icmp eq i8 %10, 0
@@ -6161,13 +6161,13 @@ land.lhs.true5:                                   ; preds = %lor.lhs.false
   br i1 %cmp.i24, label %if.then54, label %lor.lhs.false.i25
 
 lor.lhs.false.i25:                                ; preds = %land.lhs.true5
-  %emax.i26 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i26 = getelementptr inbounds i8, ptr %set, i64 4
   %12 = load i32, ptr %emax.i26, align 4
   %cmp1.i27 = icmp sgt i32 %12, 999999
   br i1 %cmp1.i27, label %if.then54, label %lor.lhs.false2.i28
 
 lor.lhs.false2.i28:                               ; preds = %lor.lhs.false.i25
-  %emin.i29 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i29 = getelementptr inbounds i8, ptr %set, i64 8
   %13 = load i32, ptr %emin.i29, align 4
   %cmp3.i30 = icmp slt i32 %13, -999999
   br i1 %cmp3.i30, label %if.then54, label %if.else.i31
@@ -6178,7 +6178,7 @@ if.else.i31:                                      ; preds = %lor.lhs.false2.i28
   br i1 %cmp5.i32, label %if.then54, label %lor.lhs.false6.i33
 
 lor.lhs.false6.i33:                               ; preds = %if.else.i31
-  %exponent.i34 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i34 = getelementptr inbounds i8, ptr %rhs, i64 4
   %15 = load i32, ptr %exponent.i34, align 4
   %add.i35 = add i32 %14, -1000001
   %16 = add i32 %add.i35, %15
@@ -6186,7 +6186,7 @@ lor.lhs.false6.i33:                               ; preds = %if.else.i31
   br i1 %or.cond.i36, label %land.lhs.true.i39, label %lor.lhs.false8
 
 land.lhs.true.i39:                                ; preds = %lor.lhs.false6.i33
-  %lsu.i40 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i40 = getelementptr inbounds i8, ptr %rhs, i64 9
   %17 = load i8, ptr %lsu.i40, align 1
   %cmp14.i41 = icmp eq i8 %17, 0
   %cmp17.i42 = icmp eq i32 %14, 1
@@ -6194,7 +6194,7 @@ land.lhs.true.i39:                                ; preds = %lor.lhs.false6.i33
   br i1 %or.cond13.i43, label %lor.lhs.false8, label %if.then54
 
 lor.lhs.false8:                                   ; preds = %land.lhs.true.i39, %lor.lhs.false6.i33, %lor.lhs.false
-  %bits9 = getelementptr inbounds %struct.decNumber, ptr %fhs, i64 0, i32 2
+  %bits9 = getelementptr inbounds i8, ptr %fhs, i64 8
   %18 = load i8, ptr %bits9, align 4
   %19 = and i8 %18, 112
   %cmp12.not = icmp eq i8 %19, 0
@@ -6206,13 +6206,13 @@ land.lhs.true13:                                  ; preds = %lor.lhs.false8
   br i1 %cmp.i54, label %if.then54, label %lor.lhs.false.i55
 
 lor.lhs.false.i55:                                ; preds = %land.lhs.true13
-  %emax.i56 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i56 = getelementptr inbounds i8, ptr %set, i64 4
   %21 = load i32, ptr %emax.i56, align 4
   %cmp1.i57 = icmp sgt i32 %21, 999999
   br i1 %cmp1.i57, label %if.then54, label %lor.lhs.false2.i58
 
 lor.lhs.false2.i58:                               ; preds = %lor.lhs.false.i55
-  %emin.i59 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i59 = getelementptr inbounds i8, ptr %set, i64 8
   %22 = load i32, ptr %emin.i59, align 4
   %cmp3.i60 = icmp slt i32 %22, -999999
   br i1 %cmp3.i60, label %if.then54, label %if.else.i61
@@ -6223,7 +6223,7 @@ if.else.i61:                                      ; preds = %lor.lhs.false2.i58
   br i1 %cmp5.i62, label %if.then54, label %lor.lhs.false6.i63
 
 lor.lhs.false6.i63:                               ; preds = %if.else.i61
-  %exponent.i64 = getelementptr inbounds %struct.decNumber, ptr %fhs, i64 0, i32 1
+  %exponent.i64 = getelementptr inbounds i8, ptr %fhs, i64 4
   %24 = load i32, ptr %exponent.i64, align 4
   %add.i65 = add i32 %23, -1000001
   %25 = add i32 %add.i65, %24
@@ -6231,7 +6231,7 @@ lor.lhs.false6.i63:                               ; preds = %if.else.i61
   br i1 %or.cond.i66, label %land.lhs.true.i69, label %if.end
 
 land.lhs.true.i69:                                ; preds = %lor.lhs.false6.i63
-  %lsu.i70 = getelementptr inbounds %struct.decNumber, ptr %fhs, i64 0, i32 3
+  %lsu.i70 = getelementptr inbounds i8, ptr %fhs, i64 9
   %26 = load i8, ptr %lsu.i70, align 1
   %cmp14.i71 = icmp eq i8 %26, 0
   %cmp17.i72 = icmp eq i32 %23, 1
@@ -6244,9 +6244,9 @@ if.end:                                           ; preds = %land.lhs.true.i69, 
   %28 = load i32, ptr %rhs, align 4
   %add = add nsw i32 %28, %27
   store i32 %add, ptr %dcmul, align 4
-  %emax = getelementptr inbounds %struct.decContext, ptr %dcmul, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %dcmul, i64 4
   store i32 999999999, ptr %emax, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %dcmul, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %dcmul, i64 8
   store i32 -999999999, ptr %emin, align 4
   %cmp19 = icmp slt i32 %add, 50
   br i1 %cmp19, label %cond.true, label %cond.end
@@ -6285,22 +6285,22 @@ if.then40:                                        ; preds = %if.end36
   br i1 %tobool42.not, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %if.then40
-  %bits.i84 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i85 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i84 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i85 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i85, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i86 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i86 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i86, align 1
   store i8 32, ptr %bits.i84, align 4
   br label %do.end
 
 if.end46:                                         ; preds = %if.then40
-  %bits.i87 = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 2
+  %bits.i87 = getelementptr inbounds i8, ptr %dzero, i64 8
   store i8 0, ptr %bits.i87, align 4
-  %exponent.i88 = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 1
+  %exponent.i88 = getelementptr inbounds i8, ptr %dzero, i64 4
   store i32 0, ptr %exponent.i88, align 4
   store i32 1, ptr %dzero, align 4
-  %lsu.i89 = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 3
+  %lsu.i89 = getelementptr inbounds i8, ptr %dzero, i64 9
   store i8 0, ptr %lsu.i89, align 1
   br label %if.end48
 
@@ -6339,11 +6339,11 @@ if.then3.i:                                       ; preds = %if.then.i90
 
 if.else.i91:                                      ; preds = %if.then30, %if.then.i90
   %32 = phi i32 [ %31, %if.then.i90 ], [ 16, %if.then30 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -6369,10 +6369,10 @@ entry:
   %zrhibuff = alloca [10 x i32], align 16
   %zaccbuff = alloca [20 x i64], align 16
   store i32 0, ptr %residue, align 4
-  %bits3 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits3 = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits3, align 4
   %conv = zext i8 %0 to i32
-  %bits4 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits4 = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %bits4, align 4
   %xor = xor i8 %1, %0
   %and = and i8 %xor, -128
@@ -6396,7 +6396,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
   %4 = load i8, ptr %lsu, align 1
   %cmp26 = icmp eq i8 %4, 0
   br i1 %cmp26, label %land.lhs.true27, label %lor.lhs.false
@@ -6416,7 +6416,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true27, %l
   br i1 %cmp37, label %land.lhs.true38, label %if.end53
 
 land.lhs.true38:                                  ; preds = %lor.lhs.false
-  %lsu39 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu39 = getelementptr inbounds i8, ptr %rhs, i64 9
   %6 = load i8, ptr %lsu39, align 1
   %cmp42 = icmp eq i8 %6, 0
   br i1 %cmp42, label %land.lhs.true43, label %if.end53
@@ -6436,11 +6436,11 @@ if.then51:                                        ; preds = %land.lhs.true43, %l
   br label %return
 
 if.end53:                                         ; preds = %land.lhs.true43, %land.lhs.true38, %lor.lhs.false
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   %9 = or disjoint i8 %and, 64
   store i8 %9, ptr %bits.i, align 4
@@ -6525,7 +6525,7 @@ if.end108:                                        ; preds = %if.end100
   br i1 %cmp112215, label %for.body.preheader, label %for.end124
 
 for.body.preheader:                               ; preds = %if.end108
-  %lsu110 = getelementptr inbounds %struct.decNumber, ptr %spec.select193, i64 0, i32 3
+  %lsu110 = getelementptr inbounds i8, ptr %spec.select193, i64 9
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc122
@@ -6558,19 +6558,19 @@ for.body116:                                      ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.inc122, label %for.body116, !llvm.loop !49
 
 for.inc122:                                       ; preds = %for.body116
-  %incdec.ptr123 = getelementptr inbounds i32, ptr %lip.0216, i64 1
+  %incdec.ptr123 = getelementptr inbounds i8, ptr %lip.0216, i64 4
   %cmp112 = icmp sgt i32 %count.1211, 1
   br i1 %cmp112, label %for.body, label %for.end124, !llvm.loop !50
 
 for.end124:                                       ; preds = %for.inc122, %if.end108
   %lip.0.lcssa = phi ptr [ %zlhi.0, %if.end108 ], [ %incdec.ptr123, %for.inc122 ]
-  %add.ptr125 = getelementptr inbounds i32, ptr %lip.0.lcssa, i64 -1
+  %add.ptr125 = getelementptr inbounds i8, ptr %lip.0.lcssa, i64 -4
   %21 = load i32, ptr %spec.select, align 4
   %cmp130224 = icmp sgt i32 %21, 0
   br i1 %cmp130224, label %for.body131.preheader, label %for.end150
 
 for.body131.preheader:                            ; preds = %for.end124
-  %lsu127 = getelementptr inbounds %struct.decNumber, ptr %spec.select, i64 0, i32 3
+  %lsu127 = getelementptr inbounds i8, ptr %spec.select, i64 9
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.preheader, %for.inc148
@@ -6603,13 +6603,13 @@ for.body137:                                      ; preds = %for.body131, %for.b
   br i1 %exitcond257.not, label %for.inc148, label %for.body137, !llvm.loop !51
 
 for.inc148:                                       ; preds = %for.body137
-  %incdec.ptr149 = getelementptr inbounds i32, ptr %rip.0225, i64 1
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %rip.0225, i64 4
   %cmp130 = icmp sgt i32 %count.3220, 1
   br i1 %cmp130, label %for.body131, label %for.end150, !llvm.loop !52
 
 for.end150:                                       ; preds = %for.inc148, %for.end124
   %rip.0.lcssa = phi ptr [ %zrhi.0, %for.end124 ], [ %incdec.ptr149, %for.inc148 ]
-  %add.ptr151 = getelementptr inbounds i32, ptr %rip.0.lcssa, i64 -1
+  %add.ptr151 = getelementptr inbounds i8, ptr %rip.0.lcssa, i64 -4
   %add.ptr154 = getelementptr inbounds i64, ptr %add.ptr, i64 %conv89
   %cmp155229 = icmp sgt i32 %add73, 0
   br i1 %cmp155229, label %for.body156.preheader, label %for.cond160.preheader
@@ -6665,8 +6665,8 @@ for.body166:                                      ; preds = %for.body166.prehead
   %38 = load i64, ptr %lp.1234, align 8
   %add170 = add i64 %mul169, %38
   store i64 %add170, ptr %lp.1234, align 8
-  %incdec.ptr172 = getelementptr inbounds i32, ptr %lip.1233, i64 1
-  %incdec.ptr173 = getelementptr inbounds i64, ptr %lp.1234, i64 1
+  %incdec.ptr172 = getelementptr inbounds i8, ptr %lip.1233, i64 4
+  %incdec.ptr173 = getelementptr inbounds i8, ptr %lp.1234, i64 8
   %cmp165.not = icmp ugt ptr %incdec.ptr172, %add.ptr125
   br i1 %cmp165.not, label %for.end174, label %for.body166, !llvm.loop !53
 
@@ -6692,7 +6692,7 @@ if.end187:                                        ; preds = %for.body184
 
 if.else:                                          ; preds = %if.end187
   %div192 = udiv i64 %39, 1000000000000000000
-  %add.ptr195 = getelementptr inbounds i64, ptr %lp.2236, i64 2
+  %add.ptr195 = getelementptr inbounds i8, ptr %lp.2236, i64 16
   %40 = load i64, ptr %add.ptr195, align 8
   %add196 = add i64 %40, %div192
   store i64 %add196, ptr %add.ptr195, align 8
@@ -6706,7 +6706,7 @@ if.end204:                                        ; preds = %if.end187, %if.else
   %41 = phi i64 [ %sub199, %if.else ], [ %39, %if.end187 ]
   %carry.0.in = phi i64 [ %sub202, %if.else ], [ %div188, %if.end187 ]
   %conv205 = and i64 %carry.0.in, 4294967295
-  %add.ptr206 = getelementptr inbounds i64, ptr %lp.2236, i64 1
+  %add.ptr206 = getelementptr inbounds i8, ptr %lp.2236, i64 8
   %42 = load i64, ptr %add.ptr206, align 8
   %add207 = add i64 %42, %conv205
   store i64 %add207, ptr %add.ptr206, align 8
@@ -6716,13 +6716,13 @@ if.end204:                                        ; preds = %if.end187, %if.else
   br label %for.inc211
 
 for.inc211:                                       ; preds = %for.body184, %if.end204
-  %incdec.ptr212 = getelementptr inbounds i64, ptr %lp.2236, i64 1
+  %incdec.ptr212 = getelementptr inbounds i8, ptr %lp.2236, i64 8
   %cmp183 = icmp ult ptr %incdec.ptr212, %add.ptr154
   br i1 %cmp183, label %for.body184, label %for.inc214, !llvm.loop !54
 
 for.inc214:                                       ; preds = %for.inc211, %for.end174
   %lazy.1 = phi i32 [ %dec.mux, %for.end174 ], [ 18, %for.inc211 ]
-  %incdec.ptr215 = getelementptr inbounds i32, ptr %rip.1238, i64 1
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %rip.1238, i64 4
   %cmp161.not = icmp ugt ptr %incdec.ptr215, %add.ptr151
   br i1 %cmp161.not, label %for.cond217.preheader, label %for.body162, !llvm.loop !55
 
@@ -6751,7 +6751,7 @@ for.end233:                                       ; preds = %for.body225
   %conv234 = trunc i32 %div226 to i8
   store i8 %conv234, ptr %incdec.ptr232, align 1
   %incdec.ptr235 = getelementptr inbounds i8, ptr %up.1240, i64 2
-  %incdec.ptr237 = getelementptr inbounds i64, ptr %lp.3245, i64 1
+  %incdec.ptr237 = getelementptr inbounds i8, ptr %lp.3245, i64 8
   %cmp220 = icmp ult ptr %incdec.ptr237, %add.ptr154
   br i1 %cmp220, label %for.body221, label %for.end238.loopexit, !llvm.loop !57
 
@@ -6840,7 +6840,7 @@ for.body318.lr.ph:                                ; preds = %cond.end310.thread,
   %idx.ext312262.pn = phi i64 [ %idx.ext312262, %cond.end310.thread ], [ %idx.ext312, %cond.end310 ]
   %.pn = getelementptr i8, ptr %spec.select, i64 %idx.ext312262.pn
   %add.ptr313.ptr265 = getelementptr i8, ptr %.pn, i64 9
-  %lsu325 = getelementptr inbounds %struct.decNumber, ptr %spec.select193, i64 0, i32 3
+  %lsu325 = getelementptr inbounds i8, ptr %spec.select193, i64 9
   br label %for.body318
 
 for.body318:                                      ; preds = %for.body318.lr.ph, %if.end335
@@ -6880,7 +6880,7 @@ if.end340:                                        ; preds = %if.end335, %cond.en
   %allocacc.2 = phi ptr [ %allocacc.0, %for.end238 ], [ %allocacc.1, %cond.end310 ], [ %allocacc.1, %if.end335 ]
   %acc.1 = phi ptr [ %zacc.0, %for.end238 ], [ %acc.0, %cond.end310 ], [ %acc.0, %if.end335 ]
   %accunits.2 = phi i32 [ %conv242, %for.end238 ], [ 1, %cond.end310 ], [ %accunits.1, %if.end335 ]
-  %bits341 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits341 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %and, ptr %bits341, align 4
   %53 = sext i32 %accunits.2 to i64
   %54 = getelementptr i8, ptr %acc.1, i64 %53
@@ -6906,9 +6906,9 @@ if.end.i:                                         ; preds = %for.body.i
 _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end.i, %if.end340
   %digits.0.lcssa.i = phi i32 [ %accunits.2, %if.end340 ], [ %sub5.i, %if.end.i ], [ %digits.09.i, %for.body.i ]
   store i32 %digits.0.lcssa.i, ptr %res, align 4
-  %exponent344 = getelementptr inbounds %struct.decNumber, ptr %spec.select193, i64 0, i32 1
+  %exponent344 = getelementptr inbounds i8, ptr %spec.select193, i64 4
   %56 = load i32, ptr %exponent344, align 4
-  %exponent345 = getelementptr inbounds %struct.decNumber, ptr %spec.select, i64 0, i32 1
+  %exponent345 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %57 = load i32, ptr %exponent345, align 4
   %add346 = add nsw i32 %57, %56
   %cmp348 = icmp slt i32 %56, 0
@@ -6917,7 +6917,7 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end
   %58 = select i1 %cmp348, i1 %cmp351, i1 false
   %59 = select i1 %58, i1 %cmp353, i1 false
   %exponent.0 = select i1 %59, i32 -1999999998, i32 %add346
-  %exponent356 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent356 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %exponent.0, ptr %exponent356, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef %acc.1, i32 noundef %digits.0.lcssa.i, ptr noundef nonnull %residue, ptr noundef %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef %status)
@@ -6957,30 +6957,30 @@ return:                                           ; preds = %if.end363.thread, %
 ; Function Attrs: mustprogress uwtable
 define ptr @uprv_decNumberInvert_75(ptr noundef returned %res, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
 entry:
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %bits, align 4
   %or.cond = icmp ult i8 %1, 16
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   %call6.i = tail call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef 128)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %rhs, i64 9
   %lsu7.ptr = getelementptr inbounds i8, ptr %res, i64 9
   %2 = load i32, ptr %rhs, align 4
   %cmp9 = icmp slt i32 %2, 50
@@ -7068,8 +7068,8 @@ if.end65:                                         ; preds = %if.then57, %for.bod
   br i1 %cmp70, label %if.then71, label %for.inc78
 
 if.then71:                                        ; preds = %if.end65, %if.end65.us
-  %bits.i.i46 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i47 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i46 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i47 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i47, align 4
   store i32 1, ptr %res, align 4
   store i8 0, ptr %lsu7.ptr, align 1
@@ -7114,9 +7114,9 @@ if.end.i:                                         ; preds = %for.body.i
 _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end.i, %for.end80
   %digits.0.lcssa.i = phi i32 [ %conv85, %for.end80 ], [ %sub5.i, %if.end.i ], [ %digits.09.i, %for.body.i ]
   store i32 %digits.0.lcssa.i, ptr %res, align 4
-  %exponent87 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent87 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent87, align 4
-  %bits88 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits88 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits88, align 4
   br label %return
 
@@ -7134,13 +7134,13 @@ entry:
   br i1 %cmp.i, label %if.then2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %1 = load i32, ptr %emax.i, align 4
   %cmp1.i = icmp sgt i32 %1, 999999
   br i1 %cmp1.i, label %if.then2, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %2 = load i32, ptr %emin.i, align 4
   %cmp3.i = icmp slt i32 %2, -999999
   br i1 %cmp3.i, label %if.then2, label %if.else.i
@@ -7151,7 +7151,7 @@ if.else.i:                                        ; preds = %lor.lhs.false2.i
   br i1 %cmp5.i, label %if.then2, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.else.i
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %4 = load i32, ptr %exponent.i, align 4
   %add.i = add i32 %3, -1000001
   %5 = add i32 %add.i, %4
@@ -7159,7 +7159,7 @@ lor.lhs.false6.i:                                 ; preds = %if.else.i
   br i1 %or.cond.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %6 = load i8, ptr %lsu.i, align 1
   %cmp14.i = icmp eq i8 %6, 0
   %cmp17.i = icmp eq i32 %3, 1
@@ -7167,7 +7167,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
   br i1 %or.cond13.i, label %land.lhs.true18.i, label %if.then2
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true.i
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %7 = load i8, ptr %bits.i, align 4
   %8 = and i8 %7, 112
   %cmp20.i = icmp eq i8 %8, 0
@@ -7195,11 +7195,11 @@ if.then3.i:                                       ; preds = %if.then.i6
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i7:                                       ; preds = %if.then.i6
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -7225,7 +7225,7 @@ entry:
   %aset = alloca %struct.decContext, align 4
   %bset = alloca %struct.decContext, align 4
   store i32 0, ptr %ignore, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 112
@@ -7252,24 +7252,24 @@ if.else:                                          ; preds = %if.then6
   br i1 %cmp.i, label %if.end319, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %2 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %2, ptr %exponent2.i, align 4
   %3 = load i32, ptr %rhs, align 4
   store i32 %3, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %4 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %4, ptr %lsu4.i, align 1
   %5 = load i32, ptr %rhs, align 4
   %cmp7.i = icmp sgt i32 %5, 1
   br i1 %cmp7.i, label %if.then8.i, label %if.end319
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %5, 50
   %idxprom.i = zext nneg i32 %5 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -7284,7 +7284,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -7302,7 +7302,7 @@ if.else12:                                        ; preds = %if.then
   br label %if.end319
 
 if.end15:                                         ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %rhs, i64 9
   %8 = load i8, ptr %lsu, align 1
   %cmp18 = icmp eq i8 %8, 0
   br i1 %cmp18, label %land.lhs.true, label %if.end28
@@ -7313,11 +7313,11 @@ land.lhs.true:                                    ; preds = %if.end15
   br i1 %cmp19, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %land.lhs.true
-  %bits.i142 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i143 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i142 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i143 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i143, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   store i8 -64, ptr %bits.i142, align 4
   br label %if.end319
@@ -7333,7 +7333,7 @@ if.then33:                                        ; preds = %if.end28
   br label %if.end319
 
 if.end35:                                         ; preds = %if.end28
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %11 = load i32, ptr %exponent, align 4
   %cmp36 = icmp eq i32 %11, 0
   %.pre = load i32, ptr %set, align 4
@@ -7345,7 +7345,7 @@ if.then40:                                        ; preds = %if.end35
   br i1 %cmp18, label %land.lhs.true44, label %if.end55
 
 land.lhs.true44:                                  ; preds = %if.then40
-  %arrayidx46 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %arrayidx46 = getelementptr inbounds i8, ptr %rhs, i64 10
   %12 = load i8, ptr %arrayidx46, align 1
   %cmp48 = icmp eq i8 %12, 1
   br i1 %cmp48, label %land.lhs.true49, label %if.end68
@@ -7357,7 +7357,7 @@ land.lhs.true49:                                  ; preds = %land.lhs.true44
 
 if.then52:                                        ; preds = %land.lhs.true49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %aset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
-  %round = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %aset, i64 12
   store i32 3, ptr %round, align 4
   %call53 = call ptr @uprv_decNumberFromString_75(ptr noundef %res, ptr noundef nonnull @.str.18, ptr noundef nonnull %aset)
   %14 = load i32, ptr %status, align 4
@@ -7376,7 +7376,7 @@ land.lhs.true60:                                  ; preds = %if.end55
 
 if.then63:                                        ; preds = %land.lhs.true60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %aset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
-  %round64 = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 3
+  %round64 = getelementptr inbounds i8, ptr %aset, i64 12
   store i32 3, ptr %round64, align 4
   %call65 = call ptr @uprv_decNumberFromString_75(ptr noundef %res, ptr noundef nonnull @.str.19, ptr noundef nonnull %aset)
   %16 = load i32, ptr %status, align 4
@@ -7451,12 +7451,12 @@ if.end165:                                        ; preds = %if.then158, %cond.e
   %22 = load i32, ptr %exponent, align 4
   %23 = load i32, ptr %rhs, align 4
   %add169 = add nsw i32 %23, %22
-  %bits.i.i.i = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 2
+  %bits.i.i.i = getelementptr inbounds i8, ptr %a.0, i64 8
   store i8 0, ptr %bits.i.i.i, align 4
-  %exponent.i.i.i = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 1
+  %exponent.i.i.i = getelementptr inbounds i8, ptr %a.0, i64 4
   store i32 0, ptr %exponent.i.i.i, align 4
   store i32 1, ptr %a.0, align 4
-  %lsu.i.i.i = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 3
+  %lsu.i.i.i = getelementptr inbounds i8, ptr %a.0, i64 9
   store i8 0, ptr %lsu.i.i.i, align 1
   %cmp.i.i = icmp eq i32 %add169, 0
   br i1 %cmp.i.i, label %uprv_decNumberFromInt32_75.exit, label %for.body.i.preheader.i
@@ -7514,12 +7514,12 @@ if.then6.i:                                       ; preds = %uprv_decNumberFromU
   br label %uprv_decNumberFromInt32_75.exit
 
 uprv_decNumberFromInt32_75.exit:                  ; preds = %if.end165, %uprv_decNumberFromUInt32_75.exit.i, %if.then6.i
-  %bits.i.i.i144 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 2
+  %bits.i.i.i144 = getelementptr inbounds i8, ptr %b.0, i64 8
   store i8 0, ptr %bits.i.i.i144, align 4
-  %exponent.i.i.i145 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 1
+  %exponent.i.i.i145 = getelementptr inbounds i8, ptr %b.0, i64 4
   store i32 0, ptr %exponent.i.i.i145, align 4
   store i32 1, ptr %b.0, align 4
-  %lsu.i.i.i146 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 3
+  %lsu.i.i.i146 = getelementptr inbounds i8, ptr %b.0, i64 9
   store i8 0, ptr %lsu.i.i.i146, align 1
   br label %for.body.i.i148
 
@@ -7568,7 +7568,7 @@ uprv_decNumberFromInt32_75.exit176:               ; preds = %for.body.i.i.i164, 
   %call173 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, ptr noundef nonnull %ignore)
   store i32 0, ptr %residue, align 4
   store i32 2, ptr %aset, align 4
-  %round175 = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 3
+  %round175 = getelementptr inbounds i8, ptr %aset, i64 12
   store i32 5, ptr %round175, align 4
   %30 = load i8, ptr %bits, align 4
   store i8 %30, ptr %bits.i.i.i144, align 4
@@ -7640,23 +7640,23 @@ uprv_decNumberFromUInt32_75.exit.i214:            ; preds = %if.end.i.i.i210, %f
   store i32 16, ptr %aset, align 4
   store i32 3, ptr %round175, align 4
   %call195 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
-  %bits.i217 = getelementptr inbounds %struct.decNumber, ptr %numone, i64 0, i32 2
+  %bits.i217 = getelementptr inbounds i8, ptr %numone, i64 8
   store i8 0, ptr %bits.i217, align 4
-  %exponent.i218 = getelementptr inbounds %struct.decNumber, ptr %numone, i64 0, i32 1
+  %exponent.i218 = getelementptr inbounds i8, ptr %numone, i64 4
   store i32 0, ptr %exponent.i218, align 4
   store i32 1, ptr %numone, align 4
-  %lsu.i219 = getelementptr inbounds %struct.decNumber, ptr %numone, i64 0, i32 3
+  %lsu.i219 = getelementptr inbounds i8, ptr %numone, i64 9
   store i8 1, ptr %lsu.i219, align 1
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
-  %emax199 = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
+  %emax199 = getelementptr inbounds i8, ptr %aset, i64 4
   %37 = load <2 x i32>, ptr %emax, align 4
   store <2 x i32> %37, ptr %emax199, align 4
-  %clamp = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %aset, i64 24
   store i8 0, ptr %clamp, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %bset, ptr noundef nonnull align 4 dereferenceable(28) %aset, i64 28, i1 false)
-  %emax201 = getelementptr inbounds %struct.decContext, ptr %bset, i64 0, i32 1
+  %emax201 = getelementptr inbounds i8, ptr %bset, i64 4
   store i32 1999998, ptr %emax201, align 4
-  %emin202 = getelementptr inbounds %struct.decContext, ptr %bset, i64 0, i32 2
+  %emin202 = getelementptr inbounds i8, ptr %bset, i64 8
   store i32 -1999998, ptr %emin202, align 4
   br label %for.cond.outer
 
@@ -7746,12 +7746,12 @@ _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread247: ; preds = %i
 
 if.else145.i:                                     ; preds = %if.end131.i
   %cmp158.i = icmp eq i32 %call138.i, 0
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %cmp, i64 0, i32 2
+  %bits.i.i = getelementptr inbounds i8, ptr %cmp, i64 8
   store i8 0, ptr %bits.i.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %cmp, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %cmp, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %cmp, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %cmp, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %cmp, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   br i1 %cmp158.i, label %if.then262, label %if.then180.i
 
@@ -7766,7 +7766,7 @@ if.then184.i:                                     ; preds = %if.then180.i
 
 _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit: ; preds = %if.then256
   %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %cmp, ptr noundef nonnull %rhs, ptr noundef nonnull %numone, ptr noundef nonnull %aset, ptr noundef nonnull %ignore)
-  %lsu258.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %cmp, i64 0, i32 3
+  %lsu258.phi.trans.insert = getelementptr inbounds i8, ptr %cmp, i64 9
   %.pre240 = load i8, ptr %lsu258.phi.trans.insert, align 1
   %56 = icmp eq i8 %.pre240, 0
   br i1 %56, label %if.then262, label %if.else264
@@ -7838,10 +7838,10 @@ if.end311:                                        ; preds = %for.end.if.end311_c
   %65 = phi i8 [ %.pre241, %for.end.if.end311_crit_edge ], [ %.pre242, %if.then310 ], [ %.pre242, %land.lhs.true305 ], [ %.pre242, %land.lhs.true302 ]
   %66 = load i32, ptr %set, align 4
   store i32 %66, ptr %aset, align 4
-  %bits1.i222 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i222 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %65, ptr %bits1.i222, align 4
   %67 = load i32, ptr %exponent.i.i.i, align 4
-  %exponent2.i224 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i224 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %67, ptr %exponent2.i224, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %aset, ptr noundef nonnull %lsu.i.i.i, i32 noundef %64, ptr noundef nonnull %residue, ptr noundef %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
@@ -7873,7 +7873,7 @@ define ptr @uprv_decNumberLogB_75(ptr noundef returned %res, ptr noundef %rhs, p
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 48
@@ -7890,24 +7890,24 @@ if.then5:                                         ; preds = %if.else
   br i1 %cmp.i.i, label %uprv_decNumberCopyAbs_75.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5
-  %bits1.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %1 = load i32, ptr %exponent.i.i, align 4
-  %exponent2.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %1, ptr %exponent2.i.i, align 4
   %2 = load i32, ptr %rhs, align 4
   store i32 %2, ptr %res, align 4
   %lsu.ptr.i.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i8, ptr %lsu.ptr.i.i, align 1
-  %lsu4.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %3, ptr %lsu4.i.i, align 1
   %4 = load i32, ptr %rhs, align 4
   %cmp7.i.i = icmp sgt i32 %4, 1
   br i1 %cmp7.i.i, label %if.then8.i.i, label %uprv_decNumberCopyAbs_75.exit
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i.i = icmp ult i32 %4, 50
   %idxprom.i.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i.i, label %cond.end.i.i, label %for.body.preheader.i.i
@@ -7922,7 +7922,7 @@ for.body.preheader.i.i:                           ; preds = %cond.end.i.i, %if.t
   %idxprom.pn.i.i = phi i64 [ %idx.ext.i.i, %cond.end.i.i ], [ %idxprom.i.i, %if.then8.i.i ]
   %.pn.i.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i.i
   %add.ptr17.ptr28.i.i = getelementptr i8, ptr %.pn.i.i, i64 9
-  %add.ptr20.i.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -7936,14 +7936,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp21.i.i, label %for.body.i.i, label %uprv_decNumberCopyAbs_75.exit, !llvm.loop !34
 
 uprv_decNumberCopyAbs_75.exit:                    ; preds = %for.body.i.i, %if.then5, %if.end.i.i
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
   %7 = load i8, ptr %bits.i, align 4
   %8 = and i8 %7, 127
   store i8 %8, ptr %bits.i, align 4
   br label %if.end26
 
 if.else7:                                         ; preds = %if.else
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %rhs, i64 9
   %9 = load i8, ptr %lsu, align 1
   %cmp9 = icmp eq i8 %9, 0
   %.pre = load i32, ptr %rhs, align 4
@@ -7952,26 +7952,26 @@ if.else7:                                         ; preds = %if.else
   br i1 %or.cond, label %if.then25.thread, label %if.else19
 
 if.then25.thread:                                 ; preds = %if.else7
-  %bits.i16 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i16 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i, align 1
   store i8 -64, ptr %bits.i16, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else19:                                        ; preds = %if.else7
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %10 = load i32, ptr %exponent, align 4
   %add = add nsw i32 %.pre, %10
   %sub = add nsw i32 %add, -1
-  %bits.i.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i.i.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i.i.i, align 4
-  %exponent.i.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i.i, align 1
   %cmp.i.i17 = icmp eq i32 %sub, 0
   br i1 %cmp.i.i17, label %if.end26, label %for.body.i.preheader.i
@@ -8049,11 +8049,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i20 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i21 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i20 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i21 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i21, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i20, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8070,7 +8070,7 @@ if.end26:                                         ; preds = %uprv_decNumberCopyA
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #1 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 16
@@ -8088,7 +8088,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %if.end18, label %if.else2
 
 if.else2:                                         ; preds = %if.else
-  %bits3 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits3 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits3, align 4
   %3 = and i8 %2, 16
   %tobool6.not = icmp eq i8 %3, 0
@@ -8118,26 +8118,26 @@ if.then21:                                        ; preds = %if.end18
   br i1 %cmp.i, label %if.end60, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %lhs.addr.0, i64 8
   %7 = load i8, ptr %bits.i, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %7, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %lhs.addr.0, i64 4
   %8 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %8, ptr %exponent2.i, align 4
   %9 = load i32, ptr %lhs.addr.0, align 4
   store i32 %9, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %lhs.addr.0, i64 9
   %10 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %10, ptr %lsu4.i, align 1
   %11 = load i32, ptr %lhs.addr.0, align 4
   %cmp7.i = icmp sgt i32 %11, 1
   br i1 %cmp7.i, label %if.then8.i, label %if.end60
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %11, 50
   %idxprom.i = zext nneg i32 %11 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -8152,7 +8152,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %lhs.addr.0, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %lhs.addr.0, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -8166,9 +8166,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp21.i, label %for.body.i, label %if.end60, !llvm.loop !34
 
 if.else22:                                        ; preds = %if.end18
-  %bits23 = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 2
+  %bits23 = getelementptr inbounds i8, ptr %lhs.addr.0, i64 8
   %14 = load i8, ptr %bits23, align 4
-  %bits24 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits24 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %14, ptr %bits24, align 4
   %lsu.ptr = getelementptr i8, ptr %res, i64 9
   %15 = load i32, ptr %set, align 4
@@ -8191,7 +8191,7 @@ for.body.preheader:                               ; preds = %cond.end.thread, %c
   %idx.ext43.pn = phi i64 [ %idx.ext43, %cond.end.thread ], [ %idx.ext, %cond.end ]
   %.pn = getelementptr i8, ptr %res, i64 %idx.ext43.pn
   %add.ptr.ptr46 = getelementptr i8, ptr %.pn, i64 9
-  %lsu32 = getelementptr %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 3
+  %lsu32 = getelementptr i8, ptr %lhs.addr.0, i64 9
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -8298,12 +8298,12 @@ _ZL8decDecapP9decNumberi.exit:                    ; preds = %for.body.i.i, %if.e
   br label %if.end60
 
 if.end60:                                         ; preds = %for.body.i, %if.end.i, %if.then21, %cond.end48, %_ZL8decDecapP9decNumberi.exit
-  %bits61 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits61 = getelementptr inbounds i8, ptr %res, i64 8
   %28 = load i8, ptr %bits61, align 4
   %29 = and i8 %28, -49
   %30 = or disjoint i8 %29, 32
   store i8 %30, ptr %bits61, align 4
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent, align 4
   ret ptr %res
 }
@@ -8315,26 +8315,26 @@ entry:
   br i1 %cmp.i, label %uprv_decNumberCopy_75.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits.i, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %1 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %1, ptr %exponent2.i, align 4
   %2 = load i32, ptr %rhs, align 4
   store i32 %2, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %3, ptr %lsu4.i, align 1
   %4 = load i32, ptr %rhs, align 4
   %cmp7.i = icmp sgt i32 %4, 1
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -8349,7 +8349,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -8363,7 +8363,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp21.i, label %for.body.i, label %uprv_decNumberCopy_75.exit, !llvm.loop !34
 
 uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry, %if.end.i
-  %bits = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %res, i64 8
   %7 = load i8, ptr %bits, align 4
   %8 = and i8 %7, 127
   store i8 %8, ptr %bits, align 4
@@ -8388,13 +8388,13 @@ entry:
   br i1 %cmp.i, label %if.then128, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %1 = load i32, ptr %emax.i, align 4
   %cmp1.i = icmp sgt i32 %1, 999999
   br i1 %cmp1.i, label %if.then128, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %2 = load i32, ptr %emin.i, align 4
   %cmp3.i = icmp slt i32 %2, -999999
   br i1 %cmp3.i, label %if.then128, label %if.else.i
@@ -8405,7 +8405,7 @@ if.else.i:                                        ; preds = %lor.lhs.false2.i
   br i1 %cmp5.i, label %if.then128, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.else.i
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %4 = load i32, ptr %exponent.i, align 4
   %add.i = add i32 %3, -1000001
   %5 = add i32 %add.i, %4
@@ -8413,7 +8413,7 @@ lor.lhs.false6.i:                                 ; preds = %if.else.i
   br i1 %or.cond.i, label %land.lhs.true.i, label %do.body
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %6 = load i8, ptr %lsu.i, align 1
   %cmp14.i = icmp eq i8 %6, 0
   %cmp17.i = icmp eq i32 %3, 1
@@ -8421,7 +8421,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false6.i
   br i1 %or.cond13.i, label %land.lhs.true18.i, label %if.then128
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true.i
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %7 = load i8, ptr %bits.i, align 4
   %8 = and i8 %7, 112
   %cmp20.i = icmp eq i8 %8, 0
@@ -8429,14 +8429,14 @@ land.lhs.true18.i:                                ; preds = %land.lhs.true.i
 
 do.body:                                          ; preds = %lor.lhs.false6.i, %land.lhs.true18.i
   %call3 = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %aset, i32 noundef 64)
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %9 = load i8, ptr %bits, align 4
   %tobool4.not = icmp ult i8 %9, 16
   %.pre88 = load i32, ptr %rhs, align 4
   br i1 %tobool4.not, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %do.body
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %rhs, i64 9
   %10 = load i8, ptr %lsu, align 1
   %cmp = icmp eq i8 %10, 0
   %cmp8 = icmp eq i32 %.pre88, 1
@@ -8447,16 +8447,16 @@ if.then14:                                        ; preds = %land.lhs.true
   store i32 0, ptr %residue, align 4
   store i32 0, ptr %copystat, align 4
   store i32 1, ptr %aset, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %bufw, i64 8
   store i8 %9, ptr %bits1.i, align 8
   %11 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %bufw, i64 4
   store i32 %11, ptr %exponent2.i, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %bufw, ptr noundef nonnull %aset, ptr noundef nonnull %lsu, i32 noundef %.pre88, ptr noundef nonnull %residue, ptr noundef nonnull %copystat)
   %12 = load i32, ptr %copystat, align 4
   %and16 = and i32 %12, 32
   %tobool17.not = icmp eq i32 %and16, 0
-  %lsu19 = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 3
+  %lsu19 = getelementptr inbounds i8, ptr %bufw, i64 9
   %13 = load i8, ptr %lsu19, align 1
   %cmp21 = icmp eq i8 %13, 1
   %or.cond = select i1 %tobool17.not, i1 %cmp21, i1 false
@@ -8535,10 +8535,10 @@ uprv_decNumberFromInt32_75.exit:                  ; preds = %uprv_decNumberFromU
   %18 = phi i32 [ %digits.0.lcssa.i.i.i, %uprv_decNumberFromUInt32_75.exit.i.uprv_decNumberFromInt32_75.exit_crit_edge ], [ 1, %if.then22 ], [ %digits.0.lcssa.i.i.i, %if.then6.i ]
   %19 = phi i8 [ %.pre86, %uprv_decNumberFromUInt32_75.exit.i.uprv_decNumberFromInt32_75.exit_crit_edge ], [ 0, %if.then22 ], [ -128, %if.then6.i ]
   store i32 0, ptr %residue, align 4
-  %bits1.i61 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i61 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %19, ptr %bits1.i61, align 4
   %20 = load i32, ptr %exponent2.i, align 4
-  %exponent2.i63 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i63 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %20, ptr %exponent2.i63, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu19, i32 noundef %18, ptr noundef nonnull %residue, ptr noundef nonnull %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
@@ -8565,11 +8565,11 @@ if.end52:                                         ; preds = %if.end24, %if.then4
   %a.0 = phi ptr [ %call48, %if.then46 ], [ %bufa, %if.end24 ]
   %a.085 = ptrtoint ptr %a.0 to i64
   store i32 %add31, ptr %aset, align 4
-  %emax = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %aset, i64 4
   store i32 999999, ptr %emax, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %aset, i64 8
   store i32 -999999, ptr %emin, align 4
-  %clamp = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %aset, i64 24
   store i8 0, ptr %clamp, align 4
   %call54 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %rhs, ptr noundef nonnull %aset, ptr noundef nonnull %status)
   %23 = load i32, ptr %status, align 4
@@ -8581,14 +8581,14 @@ if.end52:                                         ; preds = %if.end24, %if.then4
   br i1 %or.cond55, label %if.end120, label %if.end61
 
 if.end61:                                         ; preds = %if.end52
-  %bits62 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 2
+  %bits62 = getelementptr inbounds i8, ptr %a.0, i64 8
   %24 = load i8, ptr %bits62, align 4
   %25 = and i8 %24, 112
   %tobool65.not = icmp eq i8 %25, 0
   br i1 %tobool65.not, label %lor.lhs.false, label %if.then78
 
 lor.lhs.false:                                    ; preds = %if.end61
-  %lsu66 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 3
+  %lsu66 = getelementptr inbounds i8, ptr %a.0, i64 9
   %26 = load i8, ptr %lsu66, align 1
   %cmp69 = icmp eq i8 %26, 0
   br i1 %cmp69, label %land.lhs.true70, label %if.end80
@@ -8603,20 +8603,20 @@ if.then78:                                        ; preds = %land.lhs.true70, %i
   br i1 %cmp.i65, label %if.end120, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then78
-  %bits1.i67 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i67 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %24, ptr %bits1.i67, align 4
   %28 = load <2 x i32>, ptr %a.0, align 4
   store <2 x i32> %28, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %a.0, i64 9
   %29 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %29, ptr %lsu4.i, align 1
   %30 = extractelement <2 x i32> %28, i64 0
   %cmp7.i = icmp sgt i32 %30, 1
   br i1 %cmp7.i, label %if.then8.i, label %if.end120
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %30, 50
   %idxprom.i = zext nneg i32 %30 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -8629,7 +8629,7 @@ cond.end.i:                                       ; preds = %if.then8.i
 
 for.body.preheader.i:                             ; preds = %if.then8.i, %cond.end.i
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %a.0, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %a.0, i64 10
   %32 = add i64 %idxprom.pn.i, %a.085
   %33 = add i64 %32, 9
   %34 = add i64 %a.085, 11
@@ -8660,12 +8660,12 @@ if.then105:                                       ; preds = %if.then101
 if.end108:                                        ; preds = %if.end80, %if.then101
   %allocbufb.0 = phi ptr [ %call103, %if.then101 ], [ null, %if.end80 ]
   %b.0 = phi ptr [ %call103, %if.then101 ], [ %bufb, %if.end80 ]
-  %bits.i70 = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 2
+  %bits.i70 = getelementptr inbounds i8, ptr %bufw, i64 8
   store i8 0, ptr %bits.i70, align 8
-  %exponent.i71 = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 1
+  %exponent.i71 = getelementptr inbounds i8, ptr %bufw, i64 4
   store i32 0, ptr %exponent.i71, align 4
-  %lsu.i72 = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 3
-  %arrayidx111 = getelementptr inbounds %struct.decNumber, ptr %bufw, i64 0, i32 3, i64 1
+  %lsu.i72 = getelementptr inbounds i8, ptr %bufw, i64 9
+  %arrayidx111 = getelementptr inbounds i8, ptr %bufw, i64 10
   store i8 1, ptr %arrayidx111, align 2
   store i8 0, ptr %lsu.i72, align 1
   store i32 2, ptr %bufw, align 16
@@ -8715,11 +8715,11 @@ if.then3.i:                                       ; preds = %if.then.i73
 
 if.else.i74:                                      ; preds = %if.then46, %if.then.i73
   %40 = phi i32 [ %39, %if.then.i73 ], [ 16, %if.then46 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8760,11 +8760,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8803,11 +8803,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8846,11 +8846,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8889,11 +8889,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8913,13 +8913,13 @@ entry:
   %dzero = alloca %struct.decNumber, align 4
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %dzero, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dzero, i64 4
   store i32 1, ptr %dzero, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dzero, i64 9
   store i8 0, ptr %lsu.i, align 1
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   store i32 %0, ptr %exponent.i, align 4
   %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef nonnull %status)
@@ -8942,11 +8942,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -8968,7 +8968,7 @@ entry:
   %status = alloca i32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, 64
@@ -8977,7 +8977,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr %set, align 4
   store i32 %2, ptr %res, align 4
-  %lsu.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr i8, ptr %res, i64 9
   %cmp11.i = icmp sgt i32 %2, 1
   br i1 %cmp11.i, label %if.then.preheader.i, label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
 
@@ -9000,26 +9000,26 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.p
   %9 = trunc i32 %8 to i8
   %conv.i = add i8 %9, -1
   store i8 %conv.i, ptr %up.0.lcssa.i, align 1
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i, align 4
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %10 = load i32, ptr %emax.i, align 4
   %11 = load i32, ptr %set, align 4
   %sub4.i = add i32 %10, 1
   %add.i = sub i32 %sub4.i, %11
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %add.i, ptr %exponent.i, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bits.i8 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 2
+  %bits.i8 = getelementptr inbounds i8, ptr %dtiny, i64 8
   store i8 0, ptr %bits.i8, align 4
-  %exponent.i9 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 1
+  %exponent.i9 = getelementptr inbounds i8, ptr %dtiny, i64 4
   store i32 1, ptr %dtiny, align 4
-  %lsu.i10 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 3
+  %lsu.i10 = getelementptr inbounds i8, ptr %dtiny, i64 9
   store i8 1, ptr %lsu.i10, align 1
   store i32 -1000000000, ptr %exponent.i9, align 4
-  %round = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 6, ptr %round, align 4
   %call1 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef nonnull %status)
   %12 = load i32, ptr %status, align 4
@@ -9038,11 +9038,11 @@ if.then.i:                                        ; preds = %if.then4
   br i1 %tobool2.not.i, label %if.else.i, label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -9061,7 +9061,7 @@ define internal fastcc void @_ZL14decSetMaxValueP9decNumberP10decContext(ptr noc
 entry:
   %0 = load i32, ptr %set, align 4
   store i32 %0, ptr %dn, align 4
-  %lsu = getelementptr %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr i8, ptr %dn, i64 9
   %cmp11 = icmp sgt i32 %0, 1
   br i1 %cmp11, label %if.then.preheader, label %if.else
 
@@ -9084,14 +9084,14 @@ if.else:                                          ; preds = %if.then.preheader, 
   %7 = trunc i32 %6 to i8
   %conv = add i8 %7, -1
   store i8 %conv, ptr %up.0.lcssa, align 1
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits, align 4
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %8 = load i32, ptr %emax, align 4
   %9 = load i32, ptr %set, align 4
   %sub4 = add i32 %8, 1
   %add = sub i32 %sub4, %9
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 %add, ptr %exponent, align 4
   ret void
 }
@@ -9104,7 +9104,7 @@ entry:
   %status = alloca i32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %cmp = icmp ugt i8 %0, -65
   br i1 %cmp, label %if.then, label %if.end
@@ -9112,7 +9112,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %set, align 4
   store i32 %1, ptr %res, align 4
-  %lsu.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr i8, ptr %res, i64 9
   %cmp11.i = icmp sgt i32 %1, 1
   br i1 %cmp11.i, label %if.then.preheader.i, label %_ZL14decSetMaxValueP9decNumberP10decContext.exit
 
@@ -9135,27 +9135,27 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.p
   %8 = trunc i32 %7 to i8
   %conv.i = add i8 %8, -1
   store i8 %conv.i, ptr %up.0.lcssa.i, align 1
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i, align 4
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %9 = load i32, ptr %emax.i, align 4
   %10 = load i32, ptr %set, align 4
   %sub4.i = add i32 %9, 1
   %add.i = sub i32 %sub4.i, %10
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %add.i, ptr %exponent.i, align 4
   store i8 -128, ptr %bits.i, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bits.i9 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 2
+  %bits.i9 = getelementptr inbounds i8, ptr %dtiny, i64 8
   store i8 0, ptr %bits.i9, align 4
-  %exponent.i10 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 1
+  %exponent.i10 = getelementptr inbounds i8, ptr %dtiny, i64 4
   store i32 1, ptr %dtiny, align 4
-  %lsu.i11 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 3
+  %lsu.i11 = getelementptr inbounds i8, ptr %dtiny, i64 9
   store i8 1, ptr %lsu.i11, align 1
   store i32 -1000000000, ptr %exponent.i10, align 4
-  %round = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 0, ptr %round, align 4
   %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %status)
   %11 = load i32, ptr %status, align 4
@@ -9174,11 +9174,11 @@ if.then.i:                                        ; preds = %if.then5
   br i1 %tobool2.not.i, label %if.else.i, label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -9200,14 +9200,14 @@ entry:
   %status = alloca i32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 48
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits1, align 4
   %3 = and i8 %2, 48
   %cmp4.not = icmp eq i8 %3, 0
@@ -9231,24 +9231,24 @@ if.then10:                                        ; preds = %if.else
 
 if.end.i.i:                                       ; preds = %if.then10
   %5 = load i8, ptr %bits, align 4
-  %bits1.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %5, ptr %bits1.i.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %lhs, i64 4
   %6 = load i32, ptr %exponent.i.i, align 4
-  %exponent2.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %6, ptr %exponent2.i.i, align 4
   %7 = load i32, ptr %lhs, align 4
   store i32 %7, ptr %res, align 4
   %lsu.ptr.i.i = getelementptr inbounds i8, ptr %lhs, i64 9
   %8 = load i8, ptr %lsu.ptr.i.i, align 1
-  %lsu4.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %8, ptr %lsu4.i.i, align 1
   %9 = load i32, ptr %lhs, align 4
   %cmp7.i.i = icmp sgt i32 %9, 1
   br i1 %cmp7.i.i, label %if.then8.i.i, label %uprv_decNumberCopySign_75.exit
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i.i = icmp ult i32 %9, 50
   %idxprom.i.i = zext nneg i32 %9 to i64
   br i1 %cmp13.i.i, label %cond.end.i.i, label %for.body.preheader.i.i
@@ -9263,7 +9263,7 @@ for.body.preheader.i.i:                           ; preds = %cond.end.i.i, %if.t
   %idxprom.pn.i.i = phi i64 [ %idx.ext.i.i, %cond.end.i.i ], [ %idxprom.i.i, %if.then8.i.i ]
   %.pn.i.i = getelementptr i8, ptr %lhs, i64 %idxprom.pn.i.i
   %add.ptr17.ptr28.i.i = getelementptr i8, ptr %.pn.i.i, i64 9
-  %add.ptr20.i.i = getelementptr %struct.decNumber, ptr %lhs, i64 0, i32 3, i64 1
+  %add.ptr20.i.i = getelementptr i8, ptr %lhs, i64 10
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -9278,7 +9278,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 uprv_decNumberCopySign_75.exit:                   ; preds = %for.body.i.i, %if.then10, %if.end.i.i
   %12 = and i8 %4, -128
-  %bits2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits2.i = getelementptr inbounds i8, ptr %res, i64 8
   %13 = load i8, ptr %bits2.i, align 4
   %14 = and i8 %13, 127
   %or4.i = or disjoint i8 %14, %12
@@ -9296,7 +9296,7 @@ if.then14:                                        ; preds = %if.else12
 
 if.then19:                                        ; preds = %if.then14
   tail call fastcc void @_ZL14decSetMaxValueP9decNumberP10decContext(ptr noundef %res, ptr noundef nonnull %set)
-  %bits20 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits20 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 -128, ptr %bits20, align 4
   br label %return
 
@@ -9312,24 +9312,24 @@ if.then26:                                        ; preds = %if.else21
 if.end29:                                         ; preds = %if.else21, %if.then14
   %.sink = phi i32 [ 0, %if.then14 ], [ 6, %if.else21 ]
   %sub.0 = phi i8 [ 0, %if.then14 ], [ -128, %if.else21 ]
-  %round28 = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
+  %round28 = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 %.sink, ptr %round28, align 4
-  %bits.i27 = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 2
+  %bits.i27 = getelementptr inbounds i8, ptr %dtiny, i64 8
   store i8 0, ptr %bits.i27, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dtiny, i64 4
   store i32 1, ptr %dtiny, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dtiny, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dtiny, i64 9
   store i8 1, ptr %lsu.i, align 1
   store i32 -1000000000, ptr %exponent.i, align 4
   %call31 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext %sub.0, ptr noundef nonnull %status)
-  %bits.i28 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i28 = getelementptr inbounds i8, ptr %res, i64 8
   %17 = load i8, ptr %bits.i28, align 4
   %18 = and i8 %17, 112
   %cmp.not.i = icmp eq i8 %18, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.end37
 
 if.end.i:                                         ; preds = %if.end29
-  %lsu.i29 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i29 = getelementptr inbounds i8, ptr %res, i64 9
   %19 = load i8, ptr %lsu.i29, align 1
   %cmp2.i = icmp eq i8 %19, 0
   %.pre.i = load i32, ptr %res, align 4
@@ -9338,10 +9338,10 @@ if.end.i:                                         ; preds = %if.end29
   br i1 %or.cond.i, label %if.end37, label %uprv_decNumberIsNormal_75.exit
 
 uprv_decNumberIsNormal_75.exit:                   ; preds = %if.end.i
-  %exponent.i30 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i30 = getelementptr inbounds i8, ptr %res, i64 4
   %20 = load i32, ptr %exponent.i30, align 4
   %add.i = add nsw i32 %20, %.pre.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %21 = load i32, ptr %emin.i, align 4
   %cmp12.not.i.not = icmp sgt i32 %add.i, %21
   br i1 %cmp12.not.i.not, label %return, label %if.end37
@@ -9367,11 +9367,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.else, %if.then.i
   %22 = phi i32 [ %.pr, %if.then.i ], [ 16, %if.else ]
-  %bits.i.i31 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i32 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i31 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i32 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i32, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i31, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -9388,7 +9388,7 @@ return:                                           ; preds = %uprv_decNumberIsNor
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef %lhs, ptr noundef %rhs, i8 noundef zeroext %abs_c) unnamed_addr #3 {
 entry:
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
   %0 = load i8, ptr %lsu, align 1
   %cmp = icmp eq i8 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -9399,7 +9399,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i8, ptr %bits, align 4
   %3 = and i8 %2, 112
   %cmp4 = icmp eq i8 %3, 0
@@ -9414,7 +9414,7 @@ if.end:                                           ; preds = %land.lhs.true2, %la
   br i1 %tobool.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %lsu6 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu6 = getelementptr inbounds i8, ptr %rhs, i64 9
   %4 = load i8, ptr %lsu6, align 1
   %cmp9 = icmp eq i8 %4, 0
   br i1 %cmp9, label %land.lhs.true10, label %if.end19
@@ -9425,7 +9425,7 @@ land.lhs.true10:                                  ; preds = %if.then5
   br i1 %cmp12, label %land.lhs.true13, label %if.end19
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %bits14 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits14 = getelementptr inbounds i8, ptr %rhs, i64 8
   %6 = load i8, ptr %bits14, align 4
   %7 = and i8 %6, 112
   %cmp17 = icmp eq i8 %7, 0
@@ -9437,7 +9437,7 @@ if.end19:                                         ; preds = %land.lhs.true10, %i
   br i1 %tobool23.not, label %return, label %if.end19.if.end61_crit_edge
 
 if.end19.if.end61_crit_edge:                      ; preds = %if.end19
-  %bits64.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits64.phi.trans.insert = getelementptr inbounds i8, ptr %rhs, i64 8
   %.pre = load i8, ptr %bits64.phi.trans.insert, align 4
   br label %if.end61
 
@@ -9445,7 +9445,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool23.not, label %if.end30, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.else
-  %bits25 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits25 = getelementptr inbounds i8, ptr %lhs, i64 8
   %8 = load i8, ptr %bits25, align 4
   %cmp28.not = icmp sgt i8 %8, -1
   %spec.select43 = select i1 %cmp28.not, i32 1, i32 -1
@@ -9453,7 +9453,7 @@ land.lhs.true24:                                  ; preds = %if.else
 
 if.end30:                                         ; preds = %land.lhs.true24, %if.else
   %result.1 = phi i32 [ 0, %if.else ], [ %spec.select43, %land.lhs.true24 ]
-  %lsu31 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu31 = getelementptr inbounds i8, ptr %rhs, i64 9
   %9 = load i8, ptr %lsu31, align 1
   %cmp34 = icmp eq i8 %9, 0
   br i1 %cmp34, label %land.lhs.true35, label %if.else44
@@ -9464,14 +9464,14 @@ land.lhs.true35:                                  ; preds = %if.end30
   br i1 %cmp37, label %land.lhs.true38, label %if.else44
 
 land.lhs.true38:                                  ; preds = %land.lhs.true35
-  %bits39 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits39 = getelementptr inbounds i8, ptr %rhs, i64 8
   %11 = load i8, ptr %bits39, align 4
   %12 = and i8 %11, 112
   %cmp42 = icmp eq i8 %12, 0
   br i1 %cmp42, label %if.end51, label %if.else44
 
 if.else44:                                        ; preds = %land.lhs.true38, %land.lhs.true35, %if.end30
-  %bits45 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits45 = getelementptr inbounds i8, ptr %rhs, i64 8
   %13 = load i8, ptr %bits45, align 4
   %cmp48.not = icmp sgt i8 %13, -1
   %spec.select44 = select i1 %cmp48.not, i32 1, i32 -1
@@ -9492,7 +9492,7 @@ if.end54:                                         ; preds = %if.end51
 if.end61:                                         ; preds = %if.end19.if.end61_crit_edge, %if.end54, %land.lhs.true13
   %15 = phi i8 [ %.pre, %if.end19.if.end61_crit_edge ], [ %6, %land.lhs.true13 ], [ %14, %if.end54 ]
   %result.2 = phi i32 [ 1, %if.end19.if.end61_crit_edge ], [ 1, %land.lhs.true13 ], [ %result.1, %if.end54 ]
-  %bits62 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits62 = getelementptr inbounds i8, ptr %lhs, i64 8
   %16 = load i8, ptr %bits62, align 4
   %conv63 = zext i8 %16 to i32
   %conv65 = zext i8 %15 to i32
@@ -9514,16 +9514,16 @@ if.then73:                                        ; preds = %if.then68
   br label %return
 
 if.end82:                                         ; preds = %if.end61
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %17 = load i32, ptr %exponent, align 4
-  %exponent83 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent83 = getelementptr inbounds i8, ptr %rhs, i64 4
   %18 = load i32, ptr %exponent83, align 4
   %cmp84 = icmp sgt i32 %17, %18
   %sub86 = sub nsw i32 0, %result.2
   %rhs.addr.0 = select i1 %cmp84, ptr %lhs, ptr %rhs
   %lhs.addr.0 = select i1 %cmp84, ptr %rhs, ptr %lhs
   %result.4 = select i1 %cmp84, i32 %sub86, i32 %result.2
-  %lsu88 = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 3
+  %lsu88 = getelementptr inbounds i8, ptr %lhs.addr.0, i64 9
   %19 = load i32, ptr %lhs.addr.0, align 4
   %cmp91 = icmp slt i32 %19, 50
   br i1 %cmp91, label %cond.true, label %cond.end
@@ -9537,7 +9537,7 @@ cond.true:                                        ; preds = %if.end82
 
 cond.end:                                         ; preds = %if.end82, %cond.true
   %cond = phi i32 [ %conv93, %cond.true ], [ %19, %if.end82 ]
-  %lsu96 = getelementptr inbounds %struct.decNumber, ptr %rhs.addr.0, i64 0, i32 3
+  %lsu96 = getelementptr inbounds i8, ptr %rhs.addr.0, i64 9
   %21 = load i32, ptr %rhs.addr.0, align 4
   %cmp99 = icmp slt i32 %21, 50
   br i1 %cmp99, label %cond.true100, label %cond.end110
@@ -9551,9 +9551,9 @@ cond.true100:                                     ; preds = %cond.end
 
 cond.end110:                                      ; preds = %cond.end, %cond.true100
   %cond111 = phi i32 [ %conv104, %cond.true100 ], [ %21, %cond.end ]
-  %exponent112 = getelementptr inbounds %struct.decNumber, ptr %rhs.addr.0, i64 0, i32 1
+  %exponent112 = getelementptr inbounds i8, ptr %rhs.addr.0, i64 4
   %23 = load i32, ptr %exponent112, align 4
-  %exponent113 = getelementptr inbounds %struct.decNumber, ptr %lhs.addr.0, i64 0, i32 1
+  %exponent113 = getelementptr inbounds i8, ptr %lhs.addr.0, i64 4
   %24 = load i32, ptr %exponent113, align 4
   %sub114 = sub nsw i32 %23, %24
   %call = tail call fastcc noundef i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef nonnull %lsu88, i32 noundef %cond, ptr noundef nonnull %lsu96, i32 noundef %cond111, i32 noundef %sub114), !range !44
@@ -9570,32 +9570,32 @@ return:                                           ; preds = %if.then73, %if.end5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @uprv_decNumberCopySign_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #1 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %cmp.i = icmp eq ptr %res, %lhs
   br i1 %cmp.i, label %uprv_decNumberCopy_75.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits.i, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %1, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %lhs, i64 4
   %2 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %2, ptr %exponent2.i, align 4
   %3 = load i32, ptr %lhs, align 4
   store i32 %3, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %lhs, i64 9
   %4 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %4, ptr %lsu4.i, align 1
   %5 = load i32, ptr %lhs, align 4
   %cmp7.i = icmp sgt i32 %5, 1
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %5, 50
   %idxprom.i = zext nneg i32 %5 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -9610,7 +9610,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %lhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %lhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %lhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -9625,7 +9625,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry, %if.end.i
   %8 = and i8 %0, -128
-  %bits2 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits2 = getelementptr inbounds i8, ptr %res, i64 8
   %9 = load i8, ptr %bits2, align 4
   %10 = and i8 %9, 127
   %or4 = or disjoint i8 %10, %8
@@ -9636,14 +9636,14 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uprv_decNumberIsNormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 112
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %2 = load i8, ptr %lsu, align 1
   %cmp2 = icmp eq i8 %2, 0
   %.pre = load i32, ptr %dn, align 4
@@ -9652,10 +9652,10 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %3 = load i32, ptr %exponent, align 4
   %add = add nsw i32 %.pre, %3
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %4 = load i32, ptr %emin, align 4
   %cmp12.not = icmp sgt i32 %add, %4
   %. = zext i1 %cmp12.not to i32
@@ -9669,43 +9669,43 @@ return:                                           ; preds = %if.end, %if.end10, 
 ; Function Attrs: mustprogress uwtable
 define ptr @uprv_decNumberOr_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
 entry:
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits, align 4
   %or.cond = icmp ult i8 %1, 16
   br i1 %or.cond, label %lor.lhs.false7, label %if.then
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %exponent8 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent8 = getelementptr inbounds i8, ptr %rhs, i64 4
   %2 = load i32, ptr %exponent8, align 4
   %cmp9.not = icmp eq i32 %2, 0
   br i1 %cmp9.not, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %bits11 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits11 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i8, ptr %bits11, align 4
   %or.cond62 = icmp ult i8 %3, 16
   br i1 %or.cond62, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false, %entry
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   %call6.i = tail call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef 128)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
-  %lsu20 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
+  %lsu20 = getelementptr inbounds i8, ptr %rhs, i64 9
   %lsu22.ptr = getelementptr inbounds i8, ptr %res, i64 9
   %4 = load i32, ptr %lhs, align 4
   %cmp24 = icmp slt i32 %4, 50
@@ -9828,8 +9828,8 @@ if.end107:                                        ; preds = %if.then99, %for.bod
   br i1 %cmp118, label %if.then119, label %for.inc127
 
 if.then119:                                       ; preds = %if.end107, %if.end107.us
-  %bits.i.i64 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i65 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i64 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i65 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i65, align 4
   store i32 1, ptr %res, align 4
   store i8 0, ptr %lsu22.ptr, align 1
@@ -9875,9 +9875,9 @@ if.end.i:                                         ; preds = %for.body.i
 _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end.i, %for.end130
   %digits.0.lcssa.i = phi i32 [ %conv135, %for.end130 ], [ %sub5.i, %if.end.i ], [ %digits.09.i, %for.body.i ]
   store i32 %digits.0.lcssa.i, ptr %res, align 4
-  %exponent137 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent137 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent137, align 4
-  %bits138 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits138 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits138, align 4
   br label %return
 
@@ -9891,13 +9891,13 @@ entry:
   %dzero = alloca %struct.decNumber, align 4
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %dzero, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dzero, i64 4
   store i32 1, ptr %dzero, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dzero, i64 9
   store i8 0, ptr %lsu.i, align 1
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   store i32 %0, ptr %exponent.i, align 4
   %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef nonnull %status)
@@ -9920,11 +9920,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -9963,11 +9963,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -9993,10 +9993,10 @@ entry:
   %0 = load i32, ptr %set, align 4
   store i32 0, ptr %residue, align 4
   store i32 0, ptr %status, align 4
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits1, align 4
   %conv = zext i8 %1 to i32
-  %bits2 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits2 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits2, align 4
   %conv3 = zext i8 %2 to i32
   %or = or i32 %conv3, %conv
@@ -10024,7 +10024,7 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp24.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then16
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
   %4 = load i8, ptr %lsu, align 1
   %cmp27 = icmp eq i8 %4, 0
   br i1 %cmp27, label %land.lhs.true28, label %if.else.i196
@@ -10038,22 +10038,22 @@ land.lhs.true28:                                  ; preds = %land.lhs.true
   br i1 %or.cond134, label %if.else, label %if.else.i196
 
 if.else:                                          ; preds = %land.lhs.true28, %if.then16
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %dnOne, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %dnOne, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dnOne, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dnOne, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %dnOne, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dnOne, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dnOne, i64 9
   store i8 1, ptr %lsu.i, align 1
   %call40 = call ptr @uprv_decNumberCompare_75(ptr noundef nonnull %dacbuff, ptr noundef nonnull %lhs, ptr noundef nonnull %dnOne, ptr noundef nonnull %set)
-  %bits.i140 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i140 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i140, align 4
-  %exponent.i141 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i141 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i141, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i142 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i142 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i142, align 1
-  %bits42 = getelementptr inbounds %struct.decNumber, ptr %dacbuff, i64 0, i32 2
+  %bits42 = getelementptr inbounds i8, ptr %dacbuff, i64 8
   %6 = load i8, ptr %bits42, align 8
   %cmp45.not = icmp sgt i8 %6, -1
   br i1 %cmp45.not, label %if.else54, label %if.then46
@@ -10067,7 +10067,7 @@ if.then48:                                        ; preds = %if.then46
   br label %if.end349
 
 if.else54:                                        ; preds = %if.else
-  %lsu55 = getelementptr inbounds %struct.decNumber, ptr %dacbuff, i64 0, i32 3
+  %lsu55 = getelementptr inbounds i8, ptr %dacbuff, i64 9
   %7 = load i8, ptr %lsu55, align 1
   %cmp58 = icmp eq i8 %7, 0
   br i1 %cmp58, label %if.then59, label %if.else69
@@ -10205,12 +10205,12 @@ if.end81:                                         ; preds = %if.end, %entry
   br i1 %cmp106.not, label %if.end134, label %if.then107
 
 if.then107:                                       ; preds = %if.end81
-  %bits.i143 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i143 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i143, align 4
-  %exponent.i144 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i144 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i144, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i145 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i145 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i145, align 1
   %cmp110 = icmp eq i32 %call82, 0
   br i1 %cmp110, label %if.then111, label %if.else114
@@ -10235,7 +10235,7 @@ if.end123:                                        ; preds = %land.lhs.true116, %
   br label %if.end349
 
 if.end134:                                        ; preds = %if.end81
-  %lsu135 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu135 = getelementptr inbounds i8, ptr %lhs, i64 9
   %19 = load i8, ptr %lsu135, align 1
   %cmp138 = icmp eq i8 %19, 0
   br i1 %cmp138, label %land.lhs.true139, label %if.end165
@@ -10256,11 +10256,11 @@ if.else151:                                       ; preds = %if.then147
   %21 = lshr i8 %2, 1
   %22 = and i8 %21, 64
   %spec.select138 = or disjoint i8 %spec.select135, %22
-  %bits.i146 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i147 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i146 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i147 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i147, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i148 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i148 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i148, align 1
   store i8 %spec.select138, ptr %bits.i146, align 4
   br label %if.end349
@@ -10282,13 +10282,13 @@ if.end174:                                        ; preds = %if.then167
   br i1 %cmp.i149, label %if.then351, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end174
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %23 = load i32, ptr %emax.i, align 4
   %cmp1.i150 = icmp sgt i32 %23, 999999
   br i1 %cmp1.i150, label %if.then351, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %24 = load i32, ptr %emin.i, align 4
   %cmp3.i = icmp slt i32 %24, -999999
   br i1 %cmp3.i, label %if.then351, label %if.else.i151
@@ -10299,7 +10299,7 @@ if.else.i151:                                     ; preds = %lor.lhs.false2.i
   br i1 %cmp5.i, label %if.then351, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.else.i151
-  %exponent.i152 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i152 = getelementptr inbounds i8, ptr %lhs, i64 4
   %26 = load i32, ptr %exponent.i152, align 4
   %add.i = add i32 %25, -1000001
   %27 = add i32 %add.i, %26
@@ -10319,7 +10319,7 @@ if.else.i162:                                     ; preds = %land.lhs.true.i, %l
   br i1 %cmp5.i163, label %if.else.i196, label %lor.lhs.false6.i164
 
 lor.lhs.false6.i164:                              ; preds = %if.else.i162
-  %exponent.i165 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i165 = getelementptr inbounds i8, ptr %rhs, i64 4
   %30 = load i32, ptr %exponent.i165, align 4
   %add.i166 = add i32 %29, -1000001
   %31 = add i32 %add.i166, %30
@@ -10327,7 +10327,7 @@ lor.lhs.false6.i164:                              ; preds = %if.else.i162
   br i1 %or.cond.i167, label %land.lhs.true.i170, label %if.end181
 
 land.lhs.true.i170:                               ; preds = %lor.lhs.false6.i164
-  %lsu.i171 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i171 = getelementptr inbounds i8, ptr %rhs, i64 9
   %32 = load i8, ptr %lsu.i171, align 1
   %cmp17.i173 = icmp eq i32 %29, 1
   %33 = and i8 %2, 112
@@ -10338,11 +10338,11 @@ land.lhs.true.i170:                               ; preds = %lor.lhs.false6.i164
 
 if.end181:                                        ; preds = %land.lhs.true.i170, %lor.lhs.false6.i164
   %call182 = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %aset, i32 noundef 64)
-  %emax = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %aset, i64 4
   store i32 999999, ptr %emax, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %aset, i64 8
   store i32 -999999, ptr %emin, align 4
-  %clamp = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %aset, i64 24
   store i8 0, ptr %clamp, align 4
   %36 = load i32, ptr %lhs, align 4
   %37 = load i32, ptr %set, align 4
@@ -10352,22 +10352,22 @@ if.end181:                                        ; preds = %land.lhs.true.i170,
   br label %if.end212
 
 if.then192:                                       ; preds = %if.end165
-  %bits.i185 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i185 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i185, align 4
-  %exponent.i186 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i186 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i186, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i187 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i187 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 1, ptr %lsu.i187, align 1
   br label %if.end349
 
 if.end196:                                        ; preds = %if.end165
   %spec.select139 = tail call i32 @llvm.abs.i32(i32 %call82, i1 true)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %aset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
-  %round = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %aset, i64 12
   store i32 3, ptr %round, align 4
   %38 = load i32, ptr %rhs, align 4
-  %exponent202 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent202 = getelementptr inbounds i8, ptr %rhs, i64 4
   %39 = load i32, ptr %exponent202, align 4
   %add203 = add i32 %38, %0
   %add204 = add i32 %add203, %39
@@ -10409,7 +10409,7 @@ if.end238:                                        ; preds = %cond.end223, %cond.
 
 if.then240:                                       ; preds = %if.end238, %if.end238, %if.end238
   %call241 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %lhs, ptr noundef nonnull %aset, ptr noundef nonnull %status)
-  %lsu242 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 3
+  %lsu242 = getelementptr inbounds i8, ptr %dac.0, i64 9
   %42 = load i8, ptr %lsu242, align 1
   %cmp245 = icmp eq i8 %42, 0
   br i1 %cmp245, label %land.lhs.true246, label %if.else270
@@ -10420,7 +10420,7 @@ land.lhs.true246:                                 ; preds = %if.then240
   br i1 %cmp248, label %land.lhs.true249, label %if.else270
 
 land.lhs.true249:                                 ; preds = %land.lhs.true246
-  %bits250 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 2
+  %bits250 = getelementptr inbounds i8, ptr %dac.0, i64 8
   %44 = load i8, ptr %bits250, align 4
   %45 = and i8 %44, 112
   %cmp253 = icmp eq i8 %45, 0
@@ -10436,7 +10436,7 @@ if.then258:                                       ; preds = %if.then254
   %call264 = call fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef nonnull %lsu242, i32 noundef 1, i32 noundef %sub261)
   store i32 %call264, ptr %dac.0, align 4
   %sub266 = sub nsw i32 1, %46
-  %exponent267 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 1
+  %exponent267 = getelementptr inbounds i8, ptr %dac.0, i64 4
   store i32 %sub266, ptr %exponent267, align 4
   %47 = load i32, ptr %status, align 4
   %or268 = or i32 %47, 2080
@@ -10449,12 +10449,12 @@ if.else270:                                       ; preds = %land.lhs.true249, %
   br label %if.end343
 
 if.else274:                                       ; preds = %if.end238
-  %bits.i188 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 2
+  %bits.i188 = getelementptr inbounds i8, ptr %dac.0, i64 8
   store i8 0, ptr %bits.i188, align 4
-  %exponent.i189 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 1
+  %exponent.i189 = getelementptr inbounds i8, ptr %dac.0, i64 4
   store i32 0, ptr %exponent.i189, align 4
   store i32 1, ptr %dac.0, align 4
-  %lsu.i190 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 3
+  %lsu.i190 = getelementptr inbounds i8, ptr %dac.0, i64 9
   store i8 1, ptr %lsu.i190, align 1
   %48 = load i8, ptr %bits2, align 4
   %cmp281.not = icmp sgt i8 %48, -1
@@ -10567,15 +10567,15 @@ if.then333:                                       ; preds = %if.then301, %land.l
 
 if.end343:                                        ; preds = %for.end, %if.else270, %if.then258, %if.then254
   %allocinv.2 = phi ptr [ %allocinv.1, %for.end ], [ null, %if.then254 ], [ null, %if.then258 ], [ null, %if.else270 ]
-  %bits.i191 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 2
+  %bits.i191 = getelementptr inbounds i8, ptr %dac.0, i64 8
   %57 = load i8, ptr %bits.i191, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %57, ptr %bits1.i, align 4
-  %exponent.i192 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 1
+  %exponent.i192 = getelementptr inbounds i8, ptr %dac.0, i64 4
   %58 = load i32, ptr %exponent.i192, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %58, ptr %exponent2.i, align 4
-  %lsu.i193 = getelementptr inbounds %struct.decNumber, ptr %dac.0, i64 0, i32 3
+  %lsu.i193 = getelementptr inbounds i8, ptr %dac.0, i64 9
   %59 = load i32, ptr %dac.0, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %lsu.i193, i32 noundef %59, ptr noundef nonnull %residue, ptr noundef nonnull %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
@@ -10620,11 +10620,11 @@ if.then3.i:                                       ; preds = %if.then.i194
 
 if.else.i196:                                     ; preds = %cond.end223.thread, %if.end196, %land.lhs.true.i170, %if.else.i162, %if.then167, %if.then147, %land.lhs.true116, %land.lhs.true, %land.lhs.true28, %if.then.i194
   %61 = phi i32 [ %60, %if.then.i194 ], [ 128, %land.lhs.true28 ], [ 128, %land.lhs.true ], [ 128, %land.lhs.true116 ], [ 128, %if.then147 ], [ 128, %if.then167 ], [ 128, %if.else.i162 ], [ 128, %land.lhs.true.i170 ], [ 128, %if.end196 ], [ 16, %cond.end223.thread ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -10798,13 +10798,13 @@ return:                                           ; preds = %for.body90, %if.end
 define internal fastcc noundef i32 @_ZL9decGetIntPK9decNumber(ptr nocapture noundef readonly %dn) unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %dn, align 4
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %1 = load i32, ptr %exponent, align 4
   %add = add i32 %1, %0
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %2 = load i8, ptr %bits, align 4
   %cmp = icmp slt i8 %2, 0
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %3 = load i8, ptr %lsu, align 1
   %cmp3 = icmp eq i8 %3, 0
   %cmp5 = icmp eq i32 %0, 1
@@ -10972,11 +10972,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -10997,14 +10997,14 @@ entry:
   %workset = alloca %struct.decContext, align 4
   %0 = load i32, ptr %set, align 4
   store i32 0, ptr %residue, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %1 = load i32, ptr %emin, align 4
   %reass.sub = sub i32 %1, %0
   %sub1 = add i32 %reass.sub, 1
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i8, ptr %bits, align 4
   %conv = zext i8 %2 to i32
-  %bits2 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits2 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i8, ptr %bits2, align 4
   %conv3 = zext i8 %3 to i32
   %or = or i32 %conv3, %conv
@@ -11038,24 +11038,24 @@ if.else21:                                        ; preds = %if.else
   br i1 %cmp.i, label %do.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else21
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %2, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %lhs, i64 4
   %5 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %5, ptr %exponent2.i, align 4
   %6 = load i32, ptr %lhs, align 4
   store i32 %6, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %lhs, i64 9
   %7 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %7, ptr %lsu4.i, align 1
   %8 = load i32, ptr %lhs, align 4
   %cmp7.i = icmp sgt i32 %8, 1
   br i1 %cmp7.i, label %if.then8.i, label %do.end
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %8, 50
   %idxprom.i = zext nneg i32 %8 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -11070,7 +11070,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %lhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %lhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %lhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -11088,7 +11088,7 @@ if.end24:                                         ; preds = %entry
   br i1 %tobool25.not, label %if.else27, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %11 = load i32, ptr %exponent, align 4
   br label %if.end29
 
@@ -11109,7 +11109,7 @@ lor.lhs.false33:                                  ; preds = %if.end29
   br i1 %cmp34, label %if.then37, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false33
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %12 = load i32, ptr %emax, align 4
   %cmp36 = icmp sgt i32 %reqexp.0, %12
   br i1 %cmp36, label %if.then37, label %if.end39
@@ -11121,7 +11121,7 @@ if.then37:                                        ; preds = %if.end29, %if.end29
   br label %do.end
 
 if.end39:                                         ; preds = %lor.lhs.false35
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
   %14 = load i8, ptr %lsu, align 1
   %cmp41 = icmp eq i8 %14, 0
   %.pre = load i32, ptr %lhs, align 4
@@ -11136,12 +11136,12 @@ land.lhs.true:                                    ; preds = %if.end39
 
 if.then49:                                        ; preds = %land.lhs.true
   %call50 = tail call ptr @uprv_decNumberCopy_75(ptr noundef %res, ptr noundef nonnull %lhs)
-  %exponent51 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent51 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %reqexp.0, ptr %exponent51, align 4
   br label %if.end95
 
 if.else52:                                        ; preds = %land.lhs.true, %if.end39
-  %exponent53 = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent53 = getelementptr inbounds i8, ptr %lhs, i64 4
   %16 = load i32, ptr %exponent53, align 4
   %sub54 = sub nsw i32 %reqexp.0, %16
   %sub56 = sub nsw i32 %.pre, %sub54
@@ -11161,10 +11161,10 @@ if.end60:                                         ; preds = %if.else52
 if.then62:                                        ; preds = %if.end60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
   store i32 %sub56, ptr %workset, align 4
-  %bits1.i72 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i72 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %2, ptr %bits1.i72, align 4
   %18 = load i32, ptr %exponent53, align 4
-  %exponent2.i74 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i74 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %18, ptr %exponent2.i74, align 4
   %19 = load i32, ptr %lhs, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %workset, ptr noundef nonnull %lsu, i32 noundef %19, ptr noundef nonnull %residue, ptr noundef %status)
@@ -11188,7 +11188,7 @@ if.then71:                                        ; preds = %if.then68
   br label %do.end
 
 if.end74:                                         ; preds = %if.then68
-  %lsu75 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu75 = getelementptr inbounds i8, ptr %res, i64 9
   %call78 = tail call fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef nonnull %lsu75, i32 noundef %22, i32 noundef 1)
   store i32 %call78, ptr %res, align 4
   %24 = load i32, ptr %exponent2.i74, align 4
@@ -11202,17 +11202,17 @@ if.else82:                                        ; preds = %if.end60
   br i1 %cmp84, label %if.then85, label %if.else82.if.end95_crit_edge
 
 if.else82.if.end95_crit_edge:                     ; preds = %if.else82
-  %exponent96.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent96.phi.trans.insert = getelementptr inbounds i8, ptr %res, i64 4
   %.pre76 = load i32, ptr %exponent96.phi.trans.insert, align 4
   br label %if.end95
 
 if.then85:                                        ; preds = %if.else82
-  %lsu86 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu86 = getelementptr inbounds i8, ptr %res, i64 9
   %25 = load i32, ptr %res, align 4
   %sub89 = sub nsw i32 0, %sub54
   %call90 = tail call fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef nonnull %lsu86, i32 noundef %25, i32 noundef %sub89)
   store i32 %call90, ptr %res, align 4
-  %exponent92 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent92 = getelementptr inbounds i8, ptr %res, i64 4
   %26 = load i32, ptr %exponent92, align 4
   %add = add nsw i32 %26, %sub54
   store i32 %add, ptr %exponent92, align 4
@@ -11259,7 +11259,7 @@ entry:
   %dropped = alloca i32, align 4
   store i32 0, ptr %status, align 4
   store i32 0, ptr %residue, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 48
   %cmp.not = icmp eq i8 %1, 0
@@ -11270,13 +11270,13 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 if.end:                                           ; preds = %entry
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %2 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %2, ptr %exponent2.i, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i32, ptr %rhs, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %lsu.i, i32 noundef %3, ptr noundef nonnull %residue, ptr noundef nonnull %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
@@ -11303,11 +11303,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -11325,14 +11325,14 @@ if.end4:                                          ; preds = %_ZL9decStatusP9decN
 define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext %all, i8 noundef zeroext %noclamp, ptr nocapture noundef writeonly %dropped) unnamed_addr #0 {
 entry:
   store i32 0, ptr %dropped, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 112
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %2 = load i8, ptr %lsu, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -11343,7 +11343,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %.pre = load i32, ptr %dn, align 4
   %cmp7 = icmp eq i32 %.pre, 1
   %or.cond68 = select i1 %cmp, i1 %cmp7, i1 false
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   br i1 %or.cond68, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
@@ -11418,7 +11418,7 @@ for.end:                                          ; preds = %if.end29.us, %for.b
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %for.end
-  %clamp = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %set, i64 24
   %7 = load i8, ptr %clamp, align 4
   %tobool47 = icmp eq i8 %7, 0
   %tobool49 = icmp ne i8 %noclamp, 0
@@ -11426,7 +11426,7 @@ if.end46:                                         ; preds = %for.end
   br i1 %or.cond, label %if.end61, label %if.then50
 
 if.then50:                                        ; preds = %if.end46
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %8 = load i32, ptr %emax, align 4
   %9 = load i32, ptr %set, align 4
   %10 = add i32 %8, 1
@@ -11595,11 +11595,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -11638,11 +11638,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -11681,11 +11681,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -11705,14 +11705,14 @@ entry:
   %res120 = ptrtoint ptr %res to i64
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 48
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.end196
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits1, align 4
   %conv2 = zext i8 %2 to i32
   %and3 = and i32 %conv2, 48
@@ -11725,7 +11725,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp8.not, label %lor.lhs.false9, label %if.else.i
 
 lor.lhs.false9:                                   ; preds = %if.else
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %3 = load i32, ptr %exponent, align 4
   %cmp10.not = icmp eq i32 %3, 0
   br i1 %cmp10.not, label %if.else12, label %if.else.i
@@ -11765,7 +11765,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp29.not, label %if.end199, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %land.lhs.true
-  %bits31 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits31 = getelementptr inbounds i8, ptr %res, i64 8
   %8 = load i8, ptr %bits31, align 4
   %9 = and i8 %8, 64
   %cmp34.not = icmp eq i8 %9, 0
@@ -11973,11 +11973,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %lor.lhs.false19, %if.else12, %if.else12, %if.else12, %if.else, %lor.lhs.false9, %if.then.i
   %40 = phi i32 [ %.pr.pre, %if.then.i ], [ 128, %lor.lhs.false9 ], [ 128, %if.else ], [ 128, %if.else12 ], [ 128, %if.else12 ], [ 128, %if.else12 ], [ 128, %lor.lhs.false19 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -12128,10 +12128,10 @@ return:                                           ; preds = %entry, %for.end82, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #11 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %bits1, align 4
   %conv2 = zext i8 %1 to i32
   %or = or i32 %conv2, %conv
@@ -12158,9 +12158,9 @@ land.lhs.true15:                                  ; preds = %if.else
   br label %if.end27
 
 if.else22:                                        ; preds = %entry
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %4 = load i32, ptr %exponent, align 4
-  %exponent23 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent23 = getelementptr inbounds i8, ptr %rhs, i64 4
   %5 = load i32, ptr %exponent23, align 4
   %cmp24 = icmp eq i32 %4, %5
   %spec.select9 = zext i1 %cmp24 to i8
@@ -12168,12 +12168,12 @@ if.else22:                                        ; preds = %entry
 
 if.end27:                                         ; preds = %if.else22, %land.lhs.true15, %if.then, %if.else
   %ret.0 = phi i8 [ 0, %if.else ], [ 1, %if.then ], [ %.lobit, %land.lhs.true15 ], [ %spec.select9, %if.else22 ]
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %ret.0, ptr %lsu.i, align 1
   ret ptr %res
 }
@@ -12184,14 +12184,14 @@ entry:
   %status = alloca i32, align 4
   %residue = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 48
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits1, align 4
   %conv2 = zext i8 %2 to i32
   %and3 = and i32 %conv2, 48
@@ -12208,7 +12208,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp8.not, label %lor.lhs.false9, label %if.else.i
 
 lor.lhs.false9:                                   ; preds = %if.else
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %3 = load i32, ptr %exponent, align 4
   %cmp10.not = icmp eq i32 %3, 0
   br i1 %cmp10.not, label %if.else12, label %if.else.i
@@ -12224,7 +12224,7 @@ if.else12:                                        ; preds = %lor.lhs.false9
 lor.lhs.false19:                                  ; preds = %if.else12
   %4 = tail call i32 @llvm.abs.i32(i32 %call13, i1 true)
   %5 = load i32, ptr %set, align 4
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %6 = load i32, ptr %emax, align 4
   %add = add nsw i32 %6, %5
   %mul = shl nsw i32 %add, 1
@@ -12233,14 +12233,14 @@ lor.lhs.false19:                                  ; preds = %if.else12
 
 if.else22:                                        ; preds = %lor.lhs.false19
   %call23 = tail call ptr @uprv_decNumberCopy_75(ptr noundef %res, ptr noundef nonnull %lhs)
-  %bits24 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits24 = getelementptr inbounds i8, ptr %res, i64 8
   %7 = load i8, ptr %bits24, align 4
   %8 = and i8 %7, 64
   %cmp27.not = icmp eq i8 %8, 0
   br i1 %cmp27.not, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.else22
-  %exponent29 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent29 = getelementptr inbounds i8, ptr %res, i64 4
   %9 = load i32, ptr %exponent29, align 4
   %add30 = add nsw i32 %9, %call13
   store i32 %add30, ptr %exponent29, align 4
@@ -12269,11 +12269,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %lor.lhs.false19, %if.else12, %if.else12, %if.else12, %if.else, %lor.lhs.false9, %if.then.i
   %10 = phi i32 [ %.pr, %if.then.i ], [ 128, %lor.lhs.false9 ], [ 128, %if.else ], [ 128, %if.else12 ], [ 128, %if.else12 ], [ 128, %if.else12 ], [ 128, %lor.lhs.false19 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -12292,14 +12292,14 @@ define ptr @uprv_decNumberShift_75(ptr noundef returned %res, ptr noundef %lhs, 
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 48
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.end86
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits1 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i8, ptr %bits1, align 4
   %conv2 = zext i8 %2 to i32
   %and3 = and i32 %conv2, 48
@@ -12312,7 +12312,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp8.not, label %lor.lhs.false9, label %if.else.i
 
 lor.lhs.false9:                                   ; preds = %if.else
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %3 = load i32, ptr %exponent, align 4
   %cmp10.not = icmp eq i32 %3, 0
   br i1 %cmp10.not, label %if.else12, label %if.else.i
@@ -12337,7 +12337,7 @@ if.else22:                                        ; preds = %lor.lhs.false19
   br i1 %cmp24.not, label %if.end89, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else22
-  %bits25 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits25 = getelementptr inbounds i8, ptr %res, i64 8
   %6 = load i8, ptr %bits25, align 4
   %7 = and i8 %6, 64
   %cmp28.not = icmp eq i8 %7, 0
@@ -12353,7 +12353,7 @@ if.then31:                                        ; preds = %if.then29
   br i1 %cmp33, label %if.then34, label %if.else36
 
 if.then34:                                        ; preds = %if.then31
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu, align 1
   store i32 1, ptr %res, align 4
   br label %if.end89
@@ -12376,13 +12376,13 @@ if.end:                                           ; preds = %if.then40, %if.else
   br i1 %cmp46, label %if.then50, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.end
-  %lsu48 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu48 = getelementptr inbounds i8, ptr %res, i64 9
   %11 = load i8, ptr %lsu48, align 1
   %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.end89, label %if.then50
 
 if.then50:                                        ; preds = %lor.lhs.false47, %if.end
-  %lsu51 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu51 = getelementptr inbounds i8, ptr %res, i64 9
   %call54 = tail call fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef nonnull %lsu51, i32 noundef %10, i32 noundef %call13)
   store i32 %call54, ptr %res, align 4
   br label %if.end89
@@ -12391,7 +12391,7 @@ if.else58:                                        ; preds = %if.then29
   %sub59 = sub nsw i32 0, %call13
   %12 = load i32, ptr %res, align 4
   %cmp61.not = icmp sgt i32 %12, %sub59
-  %lsu67 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu67 = getelementptr inbounds i8, ptr %res, i64 9
   br i1 %cmp61.not, label %if.else66, label %if.then62
 
 if.then62:                                        ; preds = %if.else58
@@ -12440,11 +12440,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %lor.lhs.false19, %if.else12, %if.else12, %if.else12, %if.else, %lor.lhs.false9, %if.then.i
   %15 = phi i32 [ %.pr49.pre, %if.then.i ], [ 128, %lor.lhs.false9 ], [ 128, %if.else ], [ 128, %if.else12 ], [ 128, %if.else12 ], [ 128, %if.else12 ], [ 128, %lor.lhs.false19 ]
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -12463,7 +12463,7 @@ define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returne
 entry:
   %0 = load i32, ptr %dn, align 4
   %cmp.not = icmp sgt i32 %0, %drop
-  %lsu2 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu2 = getelementptr inbounds i8, ptr %dn, i64 9
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -12561,7 +12561,7 @@ entry:
   store i32 0, ptr %residue, align 4
   store i32 0, ptr %status, align 4
   store i32 0, ptr %ignore, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 112
@@ -12582,24 +12582,24 @@ if.else:                                          ; preds = %if.then7
   br i1 %cmp.i, label %if.end350, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %1 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %1, ptr %exponent2.i, align 4
   %2 = load i32, ptr %rhs, align 4
   store i32 %2, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %3, ptr %lsu4.i, align 1
   %4 = load i32, ptr %rhs, align 4
   %cmp7.i = icmp sgt i32 %4, 1
   br i1 %cmp7.i, label %if.then8.i, label %if.end350
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -12614,7 +12614,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -12632,10 +12632,10 @@ if.else13:                                        ; preds = %if.then
   br label %if.end350
 
 if.end16:                                         ; preds = %entry
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %7 = load i32, ptr %exponent, align 4
   %div = ashr i32 %7, 1
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %rhs, i64 9
   %8 = load i8, ptr %lsu, align 1
   %cmp20 = icmp eq i8 %8, 0
   br i1 %cmp20, label %land.lhs.true, label %if.end30
@@ -12650,22 +12650,22 @@ if.then27:                                        ; preds = %land.lhs.true
   br i1 %cmp.i187, label %uprv_decNumberCopy_75.exit215, label %if.end.i188
 
 if.end.i188:                                      ; preds = %if.then27
-  %bits1.i190 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i190 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i190, align 4
   %10 = load i32, ptr %exponent, align 4
-  %exponent2.i192 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i192 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %10, ptr %exponent2.i192, align 4
   %11 = load i32, ptr %rhs, align 4
   store i32 %11, ptr %res, align 4
   %12 = load i8, ptr %lsu, align 1
-  %lsu4.i194 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i194 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %12, ptr %lsu4.i194, align 1
   %13 = load i32, ptr %rhs, align 4
   %cmp7.i195 = icmp sgt i32 %13, 1
   br i1 %cmp7.i195, label %if.then8.i196, label %uprv_decNumberCopy_75.exit215
 
 if.then8.i196:                                    ; preds = %if.end.i188
-  %add.ptr.i197 = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i197 = getelementptr i8, ptr %res, i64 10
   %cmp13.i198 = icmp ult i32 %13, 50
   %idxprom.i199 = zext nneg i32 %13 to i64
   br i1 %cmp13.i198, label %cond.end.i212, label %for.body.preheader.i201
@@ -12680,7 +12680,7 @@ for.body.preheader.i201:                          ; preds = %if.then8.i196, %con
   %idxprom.pn.i202 = phi i64 [ %idx.ext.i214, %cond.end.i212 ], [ %idxprom.i199, %if.then8.i196 ]
   %.pn.i203 = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i202
   %add.ptr17.ptr28.i204 = getelementptr i8, ptr %.pn.i203, i64 9
-  %add.ptr20.i205 = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i205 = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i206
 
 for.body.i206:                                    ; preds = %for.body.i206, %for.body.preheader.i201
@@ -12694,7 +12694,7 @@ for.body.i206:                                    ; preds = %for.body.i206, %for
   br i1 %cmp21.i211, label %for.body.i206, label %uprv_decNumberCopy_75.exit215, !llvm.loop !34
 
 uprv_decNumberCopy_75.exit215:                    ; preds = %for.body.i206, %if.then27, %if.end.i188
-  %exponent29 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent29 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %div, ptr %exponent29, align 4
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
   br label %if.end350
@@ -12780,19 +12780,19 @@ if.end101.uprv_decNumberCopy_75.exit244_crit_edge: ; preds = %if.end101
 
 if.end.i217:                                      ; preds = %if.end101
   %20 = load i8, ptr %bits, align 4
-  %bits1.i219 = getelementptr inbounds %struct.decNumber, ptr %f.0, i64 0, i32 2
+  %bits1.i219 = getelementptr inbounds i8, ptr %f.0, i64 8
   store i8 %20, ptr %bits1.i219, align 4
   %21 = load i32, ptr %exponent, align 4
   %22 = load i32, ptr %rhs, align 4
   store i32 %22, ptr %f.0, align 4
   %23 = load i8, ptr %lsu, align 1
-  %lsu4.i223 = getelementptr inbounds %struct.decNumber, ptr %f.0, i64 0, i32 3
+  %lsu4.i223 = getelementptr inbounds i8, ptr %f.0, i64 9
   store i8 %23, ptr %lsu4.i223, align 1
   %cmp7.i224 = icmp sgt i32 %22, 1
   br i1 %cmp7.i224, label %if.then8.i225, label %uprv_decNumberCopy_75.exit244
 
 if.then8.i225:                                    ; preds = %if.end.i217
-  %add.ptr.i226 = getelementptr %struct.decNumber, ptr %f.0, i64 0, i32 3, i64 1
+  %add.ptr.i226 = getelementptr i8, ptr %f.0, i64 10
   %cmp13.i227 = icmp ult i32 %22, 50
   %idxprom.i228 = zext nneg i32 %22 to i64
   br i1 %cmp13.i227, label %cond.end.i241, label %for.body.preheader.i230
@@ -12805,7 +12805,7 @@ cond.end.i241:                                    ; preds = %if.then8.i225
 
 for.body.preheader.i230:                          ; preds = %if.then8.i225, %cond.end.i241
   %idxprom.pn.i231 = phi i64 [ %idx.ext.i243, %cond.end.i241 ], [ %idxprom.i228, %if.then8.i225 ]
-  %add.ptr20.i234 = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i234 = getelementptr i8, ptr %rhs, i64 10
   %25 = add i64 %idxprom.pn.i231, %rhs399
   %26 = add i64 %25, 9
   %27 = add i64 %rhs399, 11
@@ -12818,20 +12818,20 @@ for.body.preheader.i230:                          ; preds = %if.then8.i225, %con
 uprv_decNumberCopy_75.exit244:                    ; preds = %if.end101.uprv_decNumberCopy_75.exit244_crit_edge, %for.body.preheader.i230, %if.end.i217
   %30 = phi i32 [ %.pre409, %if.end101.uprv_decNumberCopy_75.exit244_crit_edge ], [ %22, %for.body.preheader.i230 ], [ %22, %if.end.i217 ]
   %31 = phi i32 [ %.pre, %if.end101.uprv_decNumberCopy_75.exit244_crit_edge ], [ %21, %for.body.preheader.i230 ], [ %21, %if.end.i217 ]
-  %exponent103 = getelementptr inbounds %struct.decNumber, ptr %f.0, i64 0, i32 1
+  %exponent103 = getelementptr inbounds i8, ptr %f.0, i64 4
   %add105 = add nsw i32 %30, %31
   %sub107 = sub nsw i32 0, %30
   store i32 %sub107, ptr %exponent103, align 4
   %call109 = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %workset, i32 noundef 64)
-  %emax = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %workset, i64 4
   store i32 999999999, ptr %emax, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %workset, i64 8
   store i32 -999999999, ptr %emin, align 4
   store i32 %cond48, ptr %workset, align 4
-  %bits111 = getelementptr inbounds %struct.decNumber, ptr %buft, i64 0, i32 2
+  %bits111 = getelementptr inbounds i8, ptr %buft, i64 8
   store i8 0, ptr %bits111, align 8
   store i32 3, ptr %buft, align 16
-  %bits113 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 2
+  %bits113 = getelementptr inbounds i8, ptr %a.0, i64 8
   store i8 0, ptr %bits113, align 4
   store i32 3, ptr %a.0, align 4
   %and115 = and i32 %add105, 1
@@ -12853,30 +12853,30 @@ for.body.preheader:                               ; preds = %if.else132, %uprv_d
   %.sink404 = phi i8 [ 5, %if.else132 ], [ 1, %uprv_decNumberCopy_75.exit244 ]
   %.sink = phi i8 [ 2, %if.else132 ], [ 8, %uprv_decNumberCopy_75.exit244 ]
   %exp.0 = phi i32 [ %inc, %if.else132 ], [ %add105, %uprv_decNumberCopy_75.exit244 ]
-  %33 = getelementptr inbounds %struct.decNumber, ptr %buft, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %buft, i64 4
   store i32 %.sink408, ptr %33, align 4
-  %34 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %a.0, i64 4
   store i32 %.sink407, ptr %34, align 4
-  %35 = getelementptr inbounds %struct.decNumber, ptr %buft, i64 0, i32 3
+  %35 = getelementptr inbounds i8, ptr %buft, i64 9
   store i8 9, ptr %35, align 1
-  %36 = getelementptr inbounds %struct.decNumber, ptr %buft, i64 0, i32 3, i64 1
+  %36 = getelementptr inbounds i8, ptr %buft, i64 10
   store i8 %.sink406, ptr %36, align 2
-  %37 = getelementptr inbounds %struct.decNumber, ptr %buft, i64 0, i32 3, i64 2
+  %37 = getelementptr inbounds i8, ptr %buft, i64 11
   store i8 %.sink405, ptr %37, align 1
-  %38 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 3
+  %38 = getelementptr inbounds i8, ptr %a.0, i64 9
   store i8 9, ptr %38, align 1
-  %39 = getelementptr %struct.decNumber, ptr %a.0, i64 0, i32 3, i64 1
+  %39 = getelementptr i8, ptr %a.0, i64 10
   store i8 %.sink404, ptr %39, align 1
-  %40 = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 3, i64 2
+  %40 = getelementptr inbounds i8, ptr %a.0, i64 11
   store i8 %.sink, ptr %40, align 1
   %call149 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %f.0, ptr noundef nonnull %workset, ptr noundef nonnull %ignore)
   %call150 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
-  %bits.i245 = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 2
+  %bits.i245 = getelementptr inbounds i8, ptr %dzero, i64 8
   store i8 0, ptr %bits.i245, align 4
-  %exponent.i246 = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 1
+  %exponent.i246 = getelementptr inbounds i8, ptr %dzero, i64 4
   store i32 0, ptr %exponent.i246, align 4
   store i32 1, ptr %dzero, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dzero, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dzero, i64 9
   store i8 0, ptr %lsu.i, align 1
   store i8 0, ptr %bits111, align 8
   store i32 1, ptr %buft, align 16
@@ -12899,7 +12899,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %approxset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
-  %round = getelementptr inbounds %struct.decContext, ptr %approxset, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %approxset, i64 12
   store i32 3, ptr %round, align 4
   %div174 = sdiv i32 %exp.0, 2
   %43 = load i32, ptr %34, align 4
@@ -12922,19 +12922,19 @@ if.then179:                                       ; preds = %for.end
 
 if.end.i256:                                      ; preds = %if.then179
   %46 = load i8, ptr %bits113, align 4
-  %bits1.i258 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i258 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %46, ptr %bits1.i258, align 4
   %47 = load <2 x i32>, ptr %a.0, align 4
   store <2 x i32> %47, ptr %res, align 4
   %48 = load i8, ptr %38, align 1
-  %lsu4.i262 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i262 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %48, ptr %lsu4.i262, align 1
   %49 = extractelement <2 x i32> %47, i64 0
   %cmp7.i263 = icmp sgt i32 %49, 1
   br i1 %cmp7.i263, label %if.then8.i264, label %do.end
 
 if.then8.i264:                                    ; preds = %if.end.i256
-  %add.ptr.i265 = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i265 = getelementptr i8, ptr %res, i64 10
   %cmp13.i266 = icmp ult i32 %49, 50
   %idxprom.i267 = zext nneg i32 %49 to i64
   br i1 %cmp13.i266, label %cond.end.i280, label %for.body.preheader.i269
@@ -12969,12 +12969,12 @@ if.end181:                                        ; preds = %for.end
   %sub191 = xor i32 %58, -1
   store i32 %sub191, ptr %33, align 4
   %call193 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef nonnull %ignore)
-  %round194 = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 3
+  %round194 = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 1, ptr %round194, align 4
   %call195 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef %b.0, ptr noundef %b.0, ptr noundef %b.0, ptr noundef nonnull %workset, ptr noundef nonnull %ignore)
-  %bits.i284 = getelementptr inbounds %struct.decNumber, ptr %f.0, i64 0, i32 2
+  %bits.i284 = getelementptr inbounds i8, ptr %f.0, i64 8
   %59 = load i8, ptr %bits.i284, align 4
-  %bits22.phi.trans.insert.i = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 2
+  %bits22.phi.trans.insert.i = getelementptr inbounds i8, ptr %b.0, i64 8
   %.pre150.i = load i8, ptr %bits22.phi.trans.insert.i, align 4
   %or.i = or i8 %.pre150.i, %59
   %and24.i = and i8 %or.i, 48
@@ -12999,10 +12999,10 @@ if.then143.i:                                     ; preds = %if.end131.i
 if.else145.i:                                     ; preds = %if.end131.i
   %cmp158.i = icmp eq i32 %call138.i, 0
   store i8 0, ptr %bits22.phi.trans.insert.i, align 4
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 1
+  %exponent.i.i = getelementptr inbounds i8, ptr %b.0, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %b.0, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %b.0, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   br i1 %cmp158.i, label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit, label %if.then180.i
 
@@ -13045,10 +13045,10 @@ if.then143.i308:                                  ; preds = %if.end131.i297
 if.else145.i300:                                  ; preds = %if.end131.i297
   %cmp158.i301 = icmp eq i32 %call138.i298, 0
   store i8 0, ptr %bits22.phi.trans.insert.i, align 4
-  %exponent.i.i303 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 1
+  %exponent.i.i303 = getelementptr inbounds i8, ptr %b.0, i64 4
   store i32 0, ptr %exponent.i.i303, align 4
   store i32 1, ptr %b.0, align 4
-  %lsu.i.i304 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 3
+  %lsu.i.i304 = getelementptr inbounds i8, ptr %b.0, i64 9
   store i8 0, ptr %lsu.i.i304, align 1
   br i1 %cmp158.i301, label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit310, label %if.then180.i305
 
@@ -13074,7 +13074,7 @@ if.end237.sink.split:                             ; preds = %if.end237.sink.spli
   store i32 %inc203, ptr %33, align 4
   store i8 1, ptr %35, align 1
   %call206 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext %.sink415, ptr noundef nonnull %ignore)
-  %emax211 = getelementptr inbounds %struct.decContext, ptr %approxset, i64 0, i32 1
+  %emax211 = getelementptr inbounds i8, ptr %approxset, i64 4
   %64 = load <2 x i32>, ptr %emax211, align 4
   %65 = insertelement <2 x i32> poison, i32 %div174, i64 0
   %66 = shufflevector <2 x i32> %65, <2 x i32> poison, <2 x i32> zeroinitializer
@@ -13093,18 +13093,18 @@ if.end237:                                        ; preds = %if.end237.sink.spli
 if.end.i312:                                      ; preds = %if.end237
   %69 = load i8, ptr %bits113, align 4
   store i8 %69, ptr %bits22.phi.trans.insert.i, align 4
-  %exponent2.i316 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 1
+  %exponent2.i316 = getelementptr inbounds i8, ptr %b.0, i64 4
   store i32 %add240, ptr %exponent2.i316, align 4
   %70 = load i32, ptr %a.0, align 4
   store i32 %70, ptr %b.0, align 4
   %71 = load i8, ptr %38, align 1
-  %lsu4.i318 = getelementptr inbounds %struct.decNumber, ptr %b.0, i64 0, i32 3
+  %lsu4.i318 = getelementptr inbounds i8, ptr %b.0, i64 9
   store i8 %71, ptr %lsu4.i318, align 1
   %cmp7.i319 = icmp sgt i32 %70, 1
   br i1 %cmp7.i319, label %if.then8.i320, label %uprv_decNumberCopy_75.exit339
 
 if.then8.i320:                                    ; preds = %if.end.i312
-  %add.ptr.i321 = getelementptr %struct.decNumber, ptr %b.0, i64 0, i32 3, i64 1
+  %add.ptr.i321 = getelementptr i8, ptr %b.0, i64 10
   %cmp13.i322 = icmp ult i32 %70, 50
   %idxprom.i323 = zext nneg i32 %70 to i64
   br i1 %cmp13.i322, label %cond.end.i336, label %for.body.preheader.i325
@@ -13184,7 +13184,7 @@ if.then275:                                       ; preds = %if.else271
   br label %if.end321
 
 if.else277:                                       ; preds = %if.else271
-  %emax278 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax278 = getelementptr inbounds i8, ptr %set, i64 4
   %85 = load i32, ptr %emax278, align 4
   %86 = load i32, ptr %set, align 4
   %87 = add i32 %85, 1
@@ -13194,7 +13194,7 @@ if.else277:                                       ; preds = %if.else271
   br i1 %cmp284, label %land.lhs.true285, label %if.end289
 
 land.lhs.true285:                                 ; preds = %if.else277
-  %clamp = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %set, i64 24
   %89 = load i8, ptr %clamp, align 4
   %tobool286.not = icmp eq i8 %89, 0
   br i1 %tobool286.not, label %if.end289, label %if.then287
@@ -13256,7 +13256,7 @@ if.then324:                                       ; preds = %if.end321
   %98 = load i32, ptr %exponent, align 4
   %99 = load i32, ptr %rhs, align 4
   %add327 = add nsw i32 %99, %98
-  %emin329 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin329 = getelementptr inbounds i8, ptr %set, i64 8
   %100 = load i32, ptr %emin329, align 4
   %mul330 = shl nsw i32 %100, 1
   %cmp331.not.not.not = icmp sgt i32 %add327, %mul330
@@ -13279,19 +13279,19 @@ if.end340:                                        ; preds = %103, %if.then324, %
 
 if.end.i341:                                      ; preds = %if.end340
   %104 = load i8, ptr %bits113, align 4
-  %bits1.i343 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i343 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %104, ptr %bits1.i343, align 4
   %105 = load <2 x i32>, ptr %a.0, align 4
   store <2 x i32> %105, ptr %res, align 4
   %106 = load i8, ptr %38, align 1
-  %lsu4.i347 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i347 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %106, ptr %lsu4.i347, align 1
   %107 = extractelement <2 x i32> %105, i64 0
   %cmp7.i348 = icmp sgt i32 %107, 1
   br i1 %cmp7.i348, label %if.then8.i349, label %do.end
 
 if.then8.i349:                                    ; preds = %if.end.i341
-  %add.ptr.i350 = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i350 = getelementptr i8, ptr %res, i64 10
   %cmp13.i351 = icmp ult i32 %107, 50
   %idxprom.i352 = zext nneg i32 %107 to i64
   br i1 %cmp13.i351, label %cond.end.i365, label %for.body.preheader.i354
@@ -13360,11 +13360,11 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then66, %if.end30, %if.then7, %if.then.i
   %114 = phi i32 [ %.pr388, %if.then.i ], [ 128, %if.then7 ], [ 128, %if.end30 ], [ 16, %if.then66 ]
-  %bits.i.i370 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i371 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i370 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i371 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i371, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i372 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i372 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i372, align 1
   store i8 32, ptr %bits.i.i370, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -13403,11 +13403,11 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -13429,7 +13429,7 @@ entry:
   %workset = alloca %struct.decContext, align 4
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 112
@@ -13446,24 +13446,24 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %1 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %1, ptr %exponent2.i, align 4
   %2 = load i32, ptr %rhs, align 4
   store i32 %2, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %3, ptr %lsu4.i, align 1
   %4 = load i32, ptr %rhs, align 4
   %cmp7.i = icmp sgt i32 %4, 1
   br i1 %cmp7.i, label %if.then8.i, label %return
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -13478,7 +13478,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -13497,7 +13497,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end15
 
 if.else6:                                         ; preds = %entry
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %7 = load i32, ptr %exponent, align 4
   %cmp7 = icmp sgt i32 %7, -1
   br i1 %cmp7, label %if.then8, label %if.end10
@@ -13507,23 +13507,23 @@ if.then8:                                         ; preds = %if.else6
   br i1 %cmp.i15, label %return, label %if.end.i16
 
 if.end.i16:                                       ; preds = %if.then8
-  %bits1.i18 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i18 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i18, align 4
   %8 = load i32, ptr %exponent, align 4
-  %exponent2.i20 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i20 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %8, ptr %exponent2.i20, align 4
   %9 = load i32, ptr %rhs, align 4
   store i32 %9, ptr %res, align 4
   %lsu.ptr.i21 = getelementptr inbounds i8, ptr %rhs, i64 9
   %10 = load i8, ptr %lsu.ptr.i21, align 1
-  %lsu4.i22 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i22 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %10, ptr %lsu4.i22, align 1
   %11 = load i32, ptr %rhs, align 4
   %cmp7.i23 = icmp sgt i32 %11, 1
   br i1 %cmp7.i23, label %if.then8.i24, label %return
 
 if.then8.i24:                                     ; preds = %if.end.i16
-  %add.ptr.i25 = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i25 = getelementptr i8, ptr %res, i64 10
   %cmp13.i26 = icmp ult i32 %11, 50
   %idxprom.i27 = zext nneg i32 %11 to i64
   br i1 %cmp13.i26, label %cond.end.i40, label %for.body.preheader.i29
@@ -13538,7 +13538,7 @@ for.body.preheader.i29:                           ; preds = %if.then8.i24, %cond
   %idxprom.pn.i30 = phi i64 [ %idx.ext.i42, %cond.end.i40 ], [ %idxprom.i27, %if.then8.i24 ]
   %.pn.i31 = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i30
   %add.ptr17.ptr28.i32 = getelementptr i8, ptr %.pn.i31, i64 9
-  %add.ptr20.i33 = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i33 = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.body.i34, %for.body.preheader.i29
@@ -13555,14 +13555,14 @@ if.end10:                                         ; preds = %if.else6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
   %14 = load i32, ptr %rhs, align 4
   store i32 %14, ptr %workset, align 4
-  %traps = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 4
+  %traps = getelementptr inbounds i8, ptr %workset, i64 16
   store i32 0, ptr %traps, align 4
-  %bits.i44 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits.i44 = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits.i44, align 4
-  %exponent.i45 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent.i45 = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent.i45, align 4
   store i32 1, ptr %dn, align 4
-  %lsu.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu.i = getelementptr inbounds i8, ptr %dn, i64 9
   store i8 0, ptr %lsu.i, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
@@ -13586,11 +13586,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %_ZL9decStatusP9decNumberjP10decContext.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %bits.i.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i.i, align 1
   store i8 32, ptr %bits.i.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit.i
@@ -13602,7 +13602,7 @@ _ZL9decStatusP9decNumberjP10decContext.exit.i:    ; preds = %if.else.i.i, %if.th
 
 uprv_decNumberQuantize_75.exit:                   ; preds = %if.end10, %_ZL9decStatusP9decNumberjP10decContext.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
-  %status14 = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 5
+  %status14 = getelementptr inbounds i8, ptr %workset, i64 20
   %16 = load i32, ptr %status14, align 4
   br label %if.end15
 
@@ -13626,11 +13626,11 @@ if.then3.i:                                       ; preds = %if.then.i47
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 if.else.i:                                        ; preds = %if.then.i47
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
@@ -13649,13 +13649,13 @@ define ptr @uprv_decNumberToIntegralValue_75(ptr noundef returned %res, ptr noun
 entry:
   %workset = alloca %struct.decContext, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
-  %traps = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 4
+  %traps = getelementptr inbounds i8, ptr %workset, i64 16
   store i32 0, ptr %traps, align 4
   %call = call ptr @uprv_decNumberToIntegralExact_75(ptr noundef %res, ptr noundef %rhs, ptr noundef nonnull %workset)
-  %status = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 5
+  %status = getelementptr inbounds i8, ptr %workset, i64 20
   %0 = load i32, ptr %status, align 4
   %and = and i32 %0, 128
-  %status1 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 5
+  %status1 = getelementptr inbounds i8, ptr %set, i64 20
   %1 = load i32, ptr %status1, align 4
   %or = or i32 %1, %and
   store i32 %or, ptr %status1, align 4
@@ -13665,43 +13665,43 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define ptr @uprv_decNumberXor_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
 entry:
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %lhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i8, ptr %bits, align 4
   %or.cond = icmp ult i8 %1, 16
   br i1 %or.cond, label %lor.lhs.false7, label %if.then
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %exponent8 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent8 = getelementptr inbounds i8, ptr %rhs, i64 4
   %2 = load i32, ptr %exponent8, align 4
   %cmp9.not = icmp eq i32 %2, 0
   br i1 %cmp9.not, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %bits11 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits11 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i8, ptr %bits11, align 4
   %or.cond62 = icmp ult i8 %3, 16
   br i1 %or.cond62, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false, %entry
-  %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i, align 4
   store i32 1, ptr %res, align 4
-  %lsu.i.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu.i.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 0, ptr %lsu.i.i, align 1
   store i8 32, ptr %bits.i.i, align 4
   %call6.i = tail call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef 128)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
-  %lsu20 = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
+  %lsu20 = getelementptr inbounds i8, ptr %rhs, i64 9
   %lsu22.ptr = getelementptr inbounds i8, ptr %res, i64 9
   %4 = load i32, ptr %lhs, align 4
   %cmp24 = icmp slt i32 %4, 50
@@ -13825,8 +13825,8 @@ if.end106:                                        ; preds = %if.then98, %for.bod
   br i1 %cmp117, label %if.then118, label %for.inc126
 
 if.then118:                                       ; preds = %if.end106, %if.end106.us
-  %bits.i.i64 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  %exponent.i.i65 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %bits.i.i64 = getelementptr inbounds i8, ptr %res, i64 8
+  %exponent.i.i65 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent.i.i65, align 4
   store i32 1, ptr %res, align 4
   store i8 0, ptr %lsu22.ptr, align 1
@@ -13872,9 +13872,9 @@ if.end.i:                                         ; preds = %for.body.i
 _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end.i, %for.end129
   %digits.0.lcssa.i = phi i32 [ %conv134, %for.end129 ], [ %sub5.i, %if.end.i ], [ %digits.09.i, %for.body.i ]
   store i32 %digits.0.lcssa.i, ptr %res, align 4
-  %exponent136 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent136 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 0, ptr %exponent136, align 4
-  %bits137 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits137 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 0, ptr %bits137, align 4
   br label %return
 
@@ -13885,7 +13885,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 112
@@ -13910,7 +13910,7 @@ if.end11:                                         ; preds = %if.end
 if.end18:                                         ; preds = %entry
   %1 = and i8 %0, 112
   %cmp.not.i = icmp ne i8 %1, 0
-  %lsu.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu.phi.trans.insert = getelementptr inbounds i8, ptr %dn, i64 9
   %.pre = load i8, ptr %lsu.phi.trans.insert, align 1
   br i1 %cmp.not.i, label %if.end26, label %if.end.i
 
@@ -13922,10 +13922,10 @@ if.end.i:                                         ; preds = %if.end18
   br i1 %or.cond.i, label %land.lhs.true, label %uprv_decNumberIsNormal_75.exit
 
 uprv_decNumberIsNormal_75.exit:                   ; preds = %if.end.i
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dn, i64 4
   %2 = load i32, ptr %exponent.i, align 4
   %add.i = add nsw i32 %2, %.pre.i
-  %emin.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %set, i64 8
   %3 = load i32, ptr %emin.i, align 4
   %cmp12.not.i.not = icmp sgt i32 %add.i, %3
   br i1 %cmp12.not.i.not, label %if.then19, label %if.end26
@@ -13984,26 +13984,26 @@ entry:
   br i1 %cmp.i, label %uprv_decNumberCopy_75.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %bits.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
+  %bits.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits.i, align 4
-  %bits1.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits1.i = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %0, ptr %bits1.i, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %1 = load i32, ptr %exponent.i, align 4
-  %exponent2.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
+  %exponent2.i = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %1, ptr %exponent2.i, align 4
   %2 = load i32, ptr %rhs, align 4
   store i32 %2, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i8, ptr %lsu.ptr.i, align 1
-  %lsu4.i = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 3
+  %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %3, ptr %lsu4.i, align 1
   %4 = load i32, ptr %rhs, align 4
   %cmp7.i = icmp sgt i32 %4, 1
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr %struct.decNumber, ptr %res, i64 0, i32 3, i64 1
+  %add.ptr.i = getelementptr i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -14018,7 +14018,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr %struct.decNumber, ptr %rhs, i64 0, i32 3, i64 1
+  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -14032,7 +14032,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp21.i, label %for.body.i, label %uprv_decNumberCopy_75.exit, !llvm.loop !34
 
 uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry, %if.end.i
-  %bits = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %res, i64 8
   %7 = load i8, ptr %bits, align 4
   %8 = xor i8 %7, -128
   store i8 %8, ptr %bits, align 4
@@ -14050,7 +14050,7 @@ entry:
   br i1 %cmp.not8, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -14070,7 +14070,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @uprv_decNumberSetBCD_75(ptr noundef returned %dn, ptr noundef readonly %bcd, i32 noundef %n) local_unnamed_addr #1 {
 entry:
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %0 = load i32, ptr %dn, align 4
   %cmp = icmp slt i32 %0, 50
   br i1 %cmp, label %cond.true, label %cond.end
@@ -14112,14 +14112,14 @@ for.end:                                          ; preds = %for.body, %cond.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uprv_decNumberIsSubnormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %1 = and i8 %0, 112
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %2 = load i8, ptr %lsu, align 1
   %cmp2 = icmp eq i8 %2, 0
   %.pre = load i32, ptr %dn, align 4
@@ -14128,10 +14128,10 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %3 = load i32, ptr %exponent, align 4
   %add = add nsw i32 %.pre, %3
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %4 = load i32, ptr %emin, align 4
   %cmp12.not = icmp sle i32 %add, %4
   %. = zext i1 %cmp12.not to i32
@@ -14537,7 +14537,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %round = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %set, i64 12
   %0 = load i32, ptr %round, align 4
   switch i32 %0, label %sw.default [
     i32 7, label %sw.bb
@@ -14551,7 +14551,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %1 = load i8, ptr %lsu, align 1
   %2 = urem i8 %1, 5
   %cmp1 = icmp slt i32 %residue, 0
@@ -14583,7 +14583,7 @@ if.else21:                                        ; preds = %sw.bb18
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.else21
-  %lsu24 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu24 = getelementptr inbounds i8, ptr %dn, i64 9
   %3 = load i8, ptr %lsu24, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -14598,7 +14598,7 @@ sw.bb35:                                          ; preds = %if.end
   br i1 %cmp36, label %if.then70, label %return
 
 sw.bb39:                                          ; preds = %if.end
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %5 = load i8, ptr %bits, align 4
   %cmp42.not = icmp sgt i8 %5, -1
   br i1 %cmp42.not, label %if.else47, label %if.then43
@@ -14613,7 +14613,7 @@ if.else47:                                        ; preds = %sw.bb39
   br i1 %cmp48, label %if.then70, label %return
 
 sw.bb52:                                          ; preds = %if.end
-  %bits53 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits53 = getelementptr inbounds i8, ptr %dn, i64 8
   %6 = load i8, ptr %bits53, align 4
   %cmp56.not = icmp sgt i8 %6, -1
   br i1 %cmp56.not, label %sw.epilog, label %if.else61
@@ -14676,12 +14676,12 @@ for.body.preheader:                               ; preds = %if.end78
   br label %for.end
 
 for.end:                                          ; preds = %for.body.preheader, %if.end78
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %17 = load i32, ptr %exponent, align 4
   %inc = add nsw i32 %17, 1
   store i32 %inc, ptr %exponent, align 4
   %add = add nsw i32 %8, %inc
-  %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %set, i64 4
   %18 = load i32, ptr %emax, align 4
   %add89 = add nsw i32 %18, 1
   %cmp90 = icmp sgt i32 %add, %add89
@@ -14749,11 +14749,11 @@ for.body129.preheader:                            ; preds = %if.end117
   br label %for.end136
 
 for.end136:                                       ; preds = %for.body129.preheader, %if.end117
-  %exponent137 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent137 = getelementptr inbounds i8, ptr %dn, i64 4
   %30 = load i32, ptr %exponent137, align 4
   %dec = add nsw i32 %30, -1
   store i32 %dec, ptr %exponent137, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %31 = load i32, ptr %emin, align 4
   %32 = load i32, ptr %set, align 4
   %sub141 = add i32 %31, 1
@@ -14802,7 +14802,7 @@ if.end169:                                        ; preds = %if.end165
 if.end174:                                        ; preds = %if.end93, %if.end165, %if.then110, %if.then74
   %35 = phi i32 [ %20, %if.then110 ], [ %8, %if.then74 ], [ %20, %if.end165 ], [ %8, %if.end93 ]
   %bump.08689 = phi i32 [ %bump.08690, %if.then110 ], [ 1, %if.then74 ], [ %bump.08690, %if.end165 ], [ 1, %if.end93 ]
-  %lsu175 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu175 = getelementptr inbounds i8, ptr %dn, i64 9
   %cmp178 = icmp slt i32 %35, 50
   br i1 %cmp178, label %cond.true, label %cond.end
 
@@ -14825,10 +14825,10 @@ return:                                           ; preds = %if.else, %sw.bb14, 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #7 {
 entry:
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
   %and = and i8 %0, -128
-  %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
+  %lsu = getelementptr inbounds i8, ptr %dn, i64 9
   %1 = load i8, ptr %lsu, align 1
   %cmp = icmp eq i8 %1, 0
   br i1 %cmp, label %land.lhs.true, label %if.end17
@@ -14842,9 +14842,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %land.lhs.true
-  %emax9 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax9 = getelementptr inbounds i8, ptr %set, i64 4
   %4 = load i32, ptr %emax9, align 4
-  %clamp = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 6
+  %clamp = getelementptr inbounds i8, ptr %set, i64 24
   %5 = load i8, ptr %clamp, align 4
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %if.end, label %if.then10
@@ -14857,7 +14857,7 @@ if.then10:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then10, %if.then
   %emax.0 = phi i32 [ %sub12, %if.then10 ], [ %4, %if.then ]
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %7 = load i32, ptr %exponent, align 4
   %cmp13 = icmp sgt i32 %7, %emax.0
   br i1 %cmp13, label %if.then14, label %return
@@ -14868,11 +14868,11 @@ if.then14:                                        ; preds = %if.end
 
 if.end17:                                         ; preds = %land.lhs.true, %entry
   store i8 0, ptr %bits, align 4
-  %exponent.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent.i = getelementptr inbounds i8, ptr %dn, i64 4
   store i32 0, ptr %exponent.i, align 4
   store i32 1, ptr %dn, align 4
   store i8 0, ptr %lsu, align 1
-  %round = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 3
+  %round = getelementptr inbounds i8, ptr %set, i64 12
   %8 = load i32, ptr %round, align 4
   switch i32 %8, label %if.else [
     i32 5, label %if.then28
@@ -14915,7 +14915,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then28, %if.then
   %conv.i = add i8 %16, -1
   store i8 %conv.i, ptr %up.0.lcssa.i, align 1
   store i8 0, ptr %bits, align 4
-  %emax.i = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %set, i64 4
   %17 = load i32, ptr %emax.i, align 4
   %18 = load i32, ptr %set, align 4
   %sub4.i = add i32 %17, 1
@@ -14948,7 +14948,7 @@ define internal fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(pt
 entry:
   %dn37 = ptrtoint ptr %dn to i64
   %workset = alloca %struct.decContext, align 4
-  %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %set, i64 8
   %0 = load i32, ptr %emin, align 4
   %1 = load i32, ptr %set, align 4
   %sub.neg = add i32 %0, 1
@@ -14964,14 +14964,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3, label %land.lhs.true4, label %if.end10
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %4 = load i8, ptr %bits, align 4
   %5 = and i8 %4, 112
   %cmp6 = icmp eq i8 %5, 0
   br i1 %cmp6, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %land.lhs.true4
-  %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %6 = load i32, ptr %exponent, align 4
   %cmp7 = icmp slt i32 %6, %sub1
   br i1 %cmp7, label %if.then8, label %if.end57
@@ -14986,7 +14986,7 @@ if.end10:                                         ; preds = %land.lhs.true4, %la
   %8 = load i32, ptr %status, align 4
   %or11 = or i32 %8, 4096
   store i32 %or11, ptr %status, align 4
-  %exponent12 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
+  %exponent12 = getelementptr inbounds i8, ptr %dn, i64 4
   %9 = load i32, ptr %exponent12, align 4
   %sub13 = sub nsw i32 %sub1, %9
   %cmp14 = icmp slt i32 %sub13, 1
@@ -15006,7 +15006,7 @@ if.end20:                                         ; preds = %if.end10
   %10 = load i32, ptr %dn, align 4
   %sub22 = sub nsw i32 %10, %sub13
   store i32 %sub22, ptr %workset, align 4
-  %emin24 = getelementptr inbounds %struct.decContext, ptr %workset, i64 0, i32 2
+  %emin24 = getelementptr inbounds i8, ptr %workset, i64 8
   %11 = load i32, ptr %emin24, align 4
   %sub25 = sub nsw i32 %11, %sub13
   store i32 %sub25, ptr %emin24, align 4
@@ -15100,7 +15100,7 @@ land.lhs.true47:                                  ; preds = %if.end42
   br i1 %cmp49, label %land.lhs.true50, label %if.end57
 
 land.lhs.true50:                                  ; preds = %land.lhs.true47
-  %bits51 = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
+  %bits51 = getelementptr inbounds i8, ptr %dn, i64 8
   %27 = load i8, ptr %bits51, align 4
   %28 = and i8 %27, 112
   %cmp54 = icmp eq i8 %28, 0

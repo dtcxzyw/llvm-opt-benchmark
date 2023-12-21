@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-x509_meth.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_lookup_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/x509/x509_meth.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -54,7 +52,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_new_item(ptr nocapture noundef writeonly %method, ptr noundef %new_item) local_unnamed_addr #2 {
 entry:
-  %new_item1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 1
+  %new_item1 = getelementptr inbounds i8, ptr %method, i64 8
   store ptr %new_item, ptr %new_item1, align 8
   ret i32 1
 }
@@ -62,7 +60,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_new_item(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %new_item = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 1
+  %new_item = getelementptr inbounds i8, ptr %method, i64 8
   %0 = load ptr, ptr %new_item, align 8
   ret ptr %0
 }
@@ -70,7 +68,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_free(ptr nocapture noundef writeonly %method, ptr noundef %free_fn) local_unnamed_addr #2 {
 entry:
-  %free = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %method, i64 16
   store ptr %free_fn, ptr %free, align 8
   ret i32 1
 }
@@ -78,7 +76,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_free(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %free = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %method, i64 16
   %0 = load ptr, ptr %free, align 8
   ret ptr %0
 }
@@ -86,7 +84,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_init(ptr nocapture noundef writeonly %method, ptr noundef %init) local_unnamed_addr #2 {
 entry:
-  %init1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 3
+  %init1 = getelementptr inbounds i8, ptr %method, i64 24
   store ptr %init, ptr %init1, align 8
   ret i32 1
 }
@@ -94,7 +92,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_init(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %init = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %method, i64 24
   %0 = load ptr, ptr %init, align 8
   ret ptr %0
 }
@@ -102,7 +100,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_shutdown(ptr nocapture noundef writeonly %method, ptr noundef %shutdown) local_unnamed_addr #2 {
 entry:
-  %shutdown1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 4
+  %shutdown1 = getelementptr inbounds i8, ptr %method, i64 32
   store ptr %shutdown, ptr %shutdown1, align 8
   ret i32 1
 }
@@ -110,7 +108,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_shutdown(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %shutdown = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 4
+  %shutdown = getelementptr inbounds i8, ptr %method, i64 32
   %0 = load ptr, ptr %shutdown, align 8
   ret ptr %0
 }
@@ -118,7 +116,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_ctrl(ptr nocapture noundef writeonly %method, ptr noundef %ctrl) local_unnamed_addr #2 {
 entry:
-  %ctrl1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 5
+  %ctrl1 = getelementptr inbounds i8, ptr %method, i64 40
   store ptr %ctrl, ptr %ctrl1, align 8
   ret i32 1
 }
@@ -126,7 +124,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_ctrl(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %ctrl = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 5
+  %ctrl = getelementptr inbounds i8, ptr %method, i64 40
   %0 = load ptr, ptr %ctrl, align 8
   ret ptr %0
 }
@@ -134,7 +132,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_get_by_subject(ptr nocapture noundef writeonly %method, ptr noundef %get_by_subject) local_unnamed_addr #2 {
 entry:
-  %get_by_subject1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 6
+  %get_by_subject1 = getelementptr inbounds i8, ptr %method, i64 48
   store ptr %get_by_subject, ptr %get_by_subject1, align 8
   ret i32 1
 }
@@ -142,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_get_by_subject(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %get_by_subject = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 6
+  %get_by_subject = getelementptr inbounds i8, ptr %method, i64 48
   %0 = load ptr, ptr %get_by_subject, align 8
   ret ptr %0
 }
@@ -150,7 +148,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_get_by_issuer_serial(ptr nocapture noundef writeonly %method, ptr noundef %get_by_issuer_serial) local_unnamed_addr #2 {
 entry:
-  %get_by_issuer_serial1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 7
+  %get_by_issuer_serial1 = getelementptr inbounds i8, ptr %method, i64 56
   store ptr %get_by_issuer_serial, ptr %get_by_issuer_serial1, align 8
   ret i32 1
 }
@@ -158,7 +156,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_get_by_issuer_serial(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %get_by_issuer_serial = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 7
+  %get_by_issuer_serial = getelementptr inbounds i8, ptr %method, i64 56
   %0 = load ptr, ptr %get_by_issuer_serial, align 8
   ret ptr %0
 }
@@ -166,7 +164,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_get_by_fingerprint(ptr nocapture noundef writeonly %method, ptr noundef %get_by_fingerprint) local_unnamed_addr #2 {
 entry:
-  %get_by_fingerprint1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 8
+  %get_by_fingerprint1 = getelementptr inbounds i8, ptr %method, i64 64
   store ptr %get_by_fingerprint, ptr %get_by_fingerprint1, align 8
   ret i32 1
 }
@@ -174,7 +172,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_get_by_fingerprint(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %get_by_fingerprint = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 8
+  %get_by_fingerprint = getelementptr inbounds i8, ptr %method, i64 64
   %0 = load ptr, ptr %get_by_fingerprint, align 8
   ret ptr %0
 }
@@ -182,7 +180,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_meth_set_get_by_alias(ptr nocapture noundef writeonly %method, ptr noundef %get_by_alias) local_unnamed_addr #2 {
 entry:
-  %get_by_alias1 = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 9
+  %get_by_alias1 = getelementptr inbounds i8, ptr %method, i64 72
   store ptr %get_by_alias, ptr %get_by_alias1, align 8
   ret i32 1
 }
@@ -190,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_meth_get_get_by_alias(ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %get_by_alias = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 9
+  %get_by_alias = getelementptr inbounds i8, ptr %method, i64 72
   %0 = load ptr, ptr %get_by_alias, align 8
   ret ptr %0
 }

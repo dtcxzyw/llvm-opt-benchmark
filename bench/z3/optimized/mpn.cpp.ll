@@ -397,30 +397,30 @@ if.else65:                                        ; preds = %land.lhs.true40, %l
   %14 = getelementptr inbounds i8, ptr %u, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
   store ptr %14, ptr %u, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %u, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %u, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %u, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %u, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %15 = getelementptr inbounds i8, ptr %v, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 64, i1 false)
   store ptr %15, ptr %v, align 8
-  %m_pos.i.i63 = getelementptr inbounds %class.buffer, ptr %v, i64 0, i32 1
+  %m_pos.i.i63 = getelementptr inbounds i8, ptr %v, i64 8
   store i32 0, ptr %m_pos.i.i63, align 8
-  %m_capacity.i.i64 = getelementptr inbounds %class.buffer, ptr %v, i64 0, i32 2
+  %m_capacity.i.i64 = getelementptr inbounds i8, ptr %v, i64 12
   store i32 16, ptr %m_capacity.i.i64, align 4
   %16 = getelementptr inbounds i8, ptr %t_ms, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, i8 0, i64 64, i1 false)
   store ptr %16, ptr %t_ms, align 8
-  %m_pos.i.i66 = getelementptr inbounds %class.buffer, ptr %t_ms, i64 0, i32 1
+  %m_pos.i.i66 = getelementptr inbounds i8, ptr %t_ms, i64 8
   store i32 0, ptr %m_pos.i.i66, align 8
-  %m_capacity.i.i67 = getelementptr inbounds %class.buffer, ptr %t_ms, i64 0, i32 2
+  %m_capacity.i.i67 = getelementptr inbounds i8, ptr %t_ms, i64 12
   store i32 16, ptr %m_capacity.i.i67, align 4
   %17 = getelementptr inbounds i8, ptr %t_ab, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %17, i8 0, i64 64, i1 false)
   store ptr %17, ptr %t_ab, align 8
-  %m_pos.i.i69 = getelementptr inbounds %class.buffer, ptr %t_ab, i64 0, i32 1
+  %m_pos.i.i69 = getelementptr inbounds i8, ptr %t_ab, i64 8
   store i32 0, ptr %m_pos.i.i69, align 8
-  %m_capacity.i.i70 = getelementptr inbounds %class.buffer, ptr %t_ab, i64 0, i32 2
+  %m_capacity.i.i70 = getelementptr inbounds i8, ptr %t_ab, i64 12
   store i32 16, ptr %m_capacity.i.i70, align 4
   %call = invoke noundef i32 @_ZNK11mpn_manager13div_normalizeEPKjjS1_jR7sbufferIjLj16EES4_(ptr nonnull align 1 poison, ptr noundef %numer, i32 noundef %lnum, ptr noundef nonnull %denom, i32 noundef %lden, ptr noundef nonnull align 8 dereferenceable(80) %u, ptr noundef nonnull align 8 dereferenceable(80) %v)
           to label %invoke.cont71 unwind label %lpad70
@@ -678,14 +678,14 @@ land.rhs:                                         ; preds = %land.rhs, %land.rhs
 while.end:                                        ; preds = %land.rhs, %entry
   %d.0.lcssa = phi i32 [ 0, %entry ], [ %d.0104, %land.rhs ]
   %add = add i32 %lnum, 1
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %n_numer, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %n_numer, i64 8
   %1 = load i32, ptr %m_pos.i.i, align 8
   %cmp.i = icmp ult i32 %1, %add
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %n_numer, i64 0, i32 2
-  %m_initial_buffer.i.i.i.i = getelementptr inbounds %class.buffer, ptr %n_numer, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %n_numer, i64 12
+  %m_initial_buffer.i.i.i.i = getelementptr inbounds i8, ptr %n_numer, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i, %for.cond.preheader.i
@@ -762,14 +762,14 @@ for.cond6.preheader.i:                            ; preds = %if.else.i
   br label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
 
 _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit:          ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i, %if.else.i, %for.cond6.preheader.i
-  %m_pos.i.i51 = getelementptr inbounds %class.buffer, ptr %n_denom, i64 0, i32 1
+  %m_pos.i.i51 = getelementptr inbounds i8, ptr %n_denom, i64 8
   %9 = load i32, ptr %m_pos.i.i51, align 8
   %cmp.i52 = icmp ult i32 %9, %lden
   br i1 %cmp.i52, label %for.cond.preheader.i56, label %if.else.i53
 
 for.cond.preheader.i56:                           ; preds = %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
-  %m_capacity.i.i57 = getelementptr inbounds %class.buffer, ptr %n_denom, i64 0, i32 2
-  %m_initial_buffer.i.i.i.i58 = getelementptr inbounds %class.buffer, ptr %n_denom, i64 0, i32 3
+  %m_capacity.i.i57 = getelementptr inbounds i8, ptr %n_denom, i64 12
+  %m_initial_buffer.i.i.i.i58 = getelementptr inbounds i8, ptr %n_denom, i64 16
   br label %for.body.i59
 
 for.body.i59:                                     ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i85, %for.cond.preheader.i56
@@ -969,7 +969,7 @@ if.end72:                                         ; preds = %for.body13, %for.co
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK11mpn_manager5div_1ER7sbufferIjLj16EEjPj(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %numer, i32 noundef %denom, ptr nocapture noundef writeonly %quot) local_unnamed_addr #7 align 2 {
 entry:
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %numer, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %numer, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
   %j.035 = add i32 %0, -1
   %cmp.not36 = icmp eq i32 %j.035, 0
@@ -1042,19 +1042,19 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK11mpn_manager5div_nER7sbufferIjLj16EERKS1_PjS5_S2_S2_(ptr nocapture nonnull readnone align 1 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %numer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %denom, ptr nocapture noundef writeonly %quot, ptr nocapture readnone %rem, ptr noundef nonnull align 8 dereferenceable(80) %ms, ptr noundef nonnull align 8 dereferenceable(80) %ab) local_unnamed_addr #7 align 2 {
 entry:
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %numer, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %numer, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
-  %m_pos.i53 = getelementptr inbounds %class.buffer, ptr %denom, i64 0, i32 1
+  %m_pos.i53 = getelementptr inbounds i8, ptr %denom, i64 8
   %1 = load i32, ptr %m_pos.i53, align 8
   %add = add i32 %1, 1
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %ms, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %ms, i64 8
   %2 = load i32, ptr %m_pos.i.i, align 8
   %cmp.i = icmp ult i32 %2, %add
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %ms, i64 0, i32 2
-  %m_initial_buffer.i.i.i.i = getelementptr inbounds %class.buffer, ptr %ms, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %ms, i64 12
+  %m_initial_buffer.i.i.i.i = getelementptr inbounds i8, ptr %ms, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i, %for.cond.preheader.i
@@ -1146,9 +1146,9 @@ for.body.lr.ph:                                   ; preds = %_ZN6bufferIjLb0ELj1
   %cmp225.not.i = icmp eq i32 %add, 0
   %11 = zext i32 %add to i64
   %add50 = add i32 %1, 2
-  %m_pos.i.i78 = getelementptr inbounds %class.buffer, ptr %ab, i64 0, i32 1
-  %m_capacity.i.i84 = getelementptr inbounds %class.buffer, ptr %ab, i64 0, i32 2
-  %m_initial_buffer.i.i.i.i85 = getelementptr inbounds %class.buffer, ptr %ab, i64 0, i32 3
+  %m_pos.i.i78 = getelementptr inbounds i8, ptr %ab, i64 8
+  %m_capacity.i.i84 = getelementptr inbounds i8, ptr %ab, i64 12
+  %m_initial_buffer.i.i.i.i85 = getelementptr inbounds i8, ptr %ab, i64 16
   %cond.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %add)
   %cmp231.not.i = icmp eq i32 %cond.i, 0
   %wide.trip.count.i124 = zext i32 %cond.i to i64
@@ -1428,7 +1428,7 @@ for.end66:                                        ; preds = %if.end65, %_ZN6buff
 define hidden void @_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %numer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %denom, i32 noundef %d, ptr nocapture noundef writeonly %rem) local_unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp eq i32 %d, 0
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %denom, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %denom, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
   br i1 %cmp, label %for.cond.preheader, label %for.cond5.preheader
 
@@ -1498,7 +1498,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 define linkonce_odr hidden void @_ZN7sbufferIjLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_initial_buffer.i.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.not.i.i.i = icmp eq ptr %0, %m_initial_buffer.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %0, null
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp.i.i.i.i
@@ -1536,21 +1536,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %temp, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %temp, i64 16
   store ptr %m_initial_buffer.i.i, ptr %temp, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %temp, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %temp, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %temp, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %temp, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %cmp2.not.i.i = icmp eq i32 %lng, 0
   br i1 %cmp2.not.i.i, label %_ZN7sbufferIjLj16EEC2EjRKj.exit.thread, label %for.body.i.i
 
 _ZN7sbufferIjLj16EEC2EjRKj.exit.thread:           ; preds = %if.else
-  %m_initial_buffer.i.i24165 = getelementptr inbounds %class.buffer, ptr %t_numer, i64 0, i32 3
+  %m_initial_buffer.i.i24165 = getelementptr inbounds i8, ptr %t_numer, i64 16
   store ptr %m_initial_buffer.i.i24165, ptr %t_numer, align 8
-  %m_pos.i.i25166 = getelementptr inbounds %class.buffer, ptr %t_numer, i64 0, i32 1
+  %m_pos.i.i25166 = getelementptr inbounds i8, ptr %t_numer, i64 8
   store i32 0, ptr %m_pos.i.i25166, align 8
-  %m_capacity.i.i26167 = getelementptr inbounds %class.buffer, ptr %t_numer, i64 0, i32 2
+  %m_capacity.i.i26167 = getelementptr inbounds i8, ptr %t_numer, i64 12
   store i32 16, ptr %m_capacity.i.i26167, align 4
   br label %for.body.i.i28.preheader
 
@@ -1620,20 +1620,20 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i:    ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %exitcond.not.i.i, label %_ZN7sbufferIjLj16EEC2EjRKj.exit, label %for.body.i.i, !llvm.loop !25
 
 _ZN7sbufferIjLj16EEC2EjRKj.exit:                  ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i
-  %m_initial_buffer.i.i24 = getelementptr inbounds %class.buffer, ptr %t_numer, i64 0, i32 3
+  %m_initial_buffer.i.i24 = getelementptr inbounds i8, ptr %t_numer, i64 16
   store ptr %m_initial_buffer.i.i24, ptr %t_numer, align 8
-  %m_pos.i.i25 = getelementptr inbounds %class.buffer, ptr %t_numer, i64 0, i32 1
+  %m_pos.i.i25 = getelementptr inbounds i8, ptr %t_numer, i64 8
   store i32 0, ptr %m_pos.i.i25, align 8
-  %m_capacity.i.i26 = getelementptr inbounds %class.buffer, ptr %t_numer, i64 0, i32 2
+  %m_capacity.i.i26 = getelementptr inbounds i8, ptr %t_numer, i64 12
   store i32 16, ptr %m_capacity.i.i26, align 4
   %cmp2.not.i.i27 = icmp eq i32 %lng, -1
   br i1 %cmp2.not.i.i27, label %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i93.thread, label %for.body.i.i28.preheader
 
 _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i93.thread: ; preds = %_ZN7sbufferIjLj16EEC2EjRKj.exit
-  %m_initial_buffer.i.i64176 = getelementptr inbounds %class.buffer, ptr %t_denom, i64 0, i32 3
+  %m_initial_buffer.i.i64176 = getelementptr inbounds i8, ptr %t_denom, i64 16
   store ptr %m_initial_buffer.i.i64176, ptr %t_denom, align 8
-  %m_pos.i.i65177 = getelementptr inbounds %class.buffer, ptr %t_denom, i64 0, i32 1
-  %m_capacity.i.i66178 = getelementptr inbounds %class.buffer, ptr %t_denom, i64 0, i32 2
+  %m_pos.i.i65177 = getelementptr inbounds i8, ptr %t_denom, i64 8
+  %m_capacity.i.i66178 = getelementptr inbounds i8, ptr %t_denom, i64 12
   store i32 16, ptr %m_capacity.i.i66178, align 4
   store i32 0, ptr %m_initial_buffer.i.i64176, align 8
   store i32 1, ptr %m_pos.i.i65177, align 8
@@ -1717,10 +1717,10 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i54:  ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %exitcond.not.i.i59, label %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i93, label %for.body.i.i28, !llvm.loop !25
 
 _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i93:  ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i.i54
-  %m_initial_buffer.i.i64 = getelementptr inbounds %class.buffer, ptr %t_denom, i64 0, i32 3
+  %m_initial_buffer.i.i64 = getelementptr inbounds i8, ptr %t_denom, i64 16
   store ptr %m_initial_buffer.i.i64, ptr %t_denom, align 8
-  %m_pos.i.i65 = getelementptr inbounds %class.buffer, ptr %t_denom, i64 0, i32 1
-  %m_capacity.i.i66 = getelementptr inbounds %class.buffer, ptr %t_denom, i64 0, i32 2
+  %m_pos.i.i65 = getelementptr inbounds i8, ptr %t_denom, i64 8
+  %m_capacity.i.i66 = getelementptr inbounds i8, ptr %t_denom, i64 12
   store i32 16, ptr %m_capacity.i.i66, align 4
   store i32 0, ptr %m_initial_buffer.i.i64, align 8
   store i32 1, ptr %m_pos.i.i65, align 8
@@ -1887,7 +1887,7 @@ for.body.i115.preheader:                          ; preds = %for.cond.preheader.
   %37 = load ptr, ptr %t_numer, align 8
   %38 = zext i32 %33 to i64
   %39 = getelementptr i32, ptr %37, i64 %38
-  %arrayidx.i.i116.le = getelementptr i32, ptr %39, i64 -1
+  %arrayidx.i.i116.le = getelementptr i8, ptr %39, i64 -4
   %40 = load i32, ptr %arrayidx.i.i116.le, align 4
   br label %invoke.cont30
 

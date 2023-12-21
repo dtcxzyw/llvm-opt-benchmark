@@ -12,29 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.USBDescConfig = type { i8, i8, i8, i8, i8, i8, ptr, i8, ptr }
 %struct.USBDescOther = type { i8, ptr }
 %struct.USBDescEndpoint = type { i8, i8, i16, i8, i8, i8, i8, ptr, i8, i8, i16 }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.USBWacomState = type { %struct.USBDevice, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32 }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.3, %union.anon.4 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
 
 @wacom_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.2, i64 5920, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @usb_wacom_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [17 x i8] c"usb-wacom-tablet\00", align 1
@@ -91,27 +68,27 @@ define internal void @usb_wacom_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #7
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i10, i64 280
   store ptr @.str.3, ptr %product_desc, align 8
-  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 15
+  %usb_desc = getelementptr inbounds i8, ptr %call.i10, i64 288
   store ptr @desc_wacom, ptr %usb_desc, align 8
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @usb_wacom_realize, ptr %realize, align 8
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 6
+  %handle_reset = getelementptr inbounds i8, ptr %call.i10, i64 216
   store ptr @usb_wacom_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 7
+  %handle_control = getelementptr inbounds i8, ptr %call.i10, i64 224
   store ptr @usb_wacom_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 8
+  %handle_data = getelementptr inbounds i8, ptr %call.i10, i64 232
   store ptr @usb_wacom_handle_data, ptr %handle_data, align 8
-  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i10, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i10, i64 184
   store ptr @usb_wacom_unrealize, ptr %unrealize, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_wacom, ptr %vmsd, align 8
   ret void
 }
@@ -123,9 +100,9 @@ entry:
   tail call void @usb_desc_create_serial(ptr noundef %dev) #7
   tail call void @usb_desc_init(ptr noundef %dev) #7
   %call1 = tail call ptr @usb_ep_get(ptr noundef %dev, i32 noundef 105, i32 noundef 1) #7
-  %intr = getelementptr inbounds %struct.USBWacomState, ptr %call.i, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %call.i, i64 5864
   store ptr %call1, ptr %intr, align 8
-  %changed = getelementptr inbounds %struct.USBWacomState, ptr %call.i, i64 0, i32 12
+  %changed = getelementptr inbounds i8, ptr %call.i, i64 5916
   store i32 1, ptr %changed, align 4
   ret void
 }
@@ -133,8 +110,8 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @usb_wacom_handle_reset(ptr nocapture noundef writeonly %dev) #2 {
 entry:
-  %dx = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 3
-  %mode = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 10
+  %dx = getelementptr inbounds i8, ptr %dev, i64 5880
+  %mode = getelementptr inbounds i8, ptr %dev, i64 5908
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dx, i8 0, i64 24, i1 false)
   store i32 1, ptr %mode, align 4
   ret void
@@ -164,18 +141,18 @@ sw.bb:                                            ; preds = %if.end
 
 sw.bb1:                                           ; preds = %sw.bb
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(110) %data, ptr noundef nonnull align 16 dereferenceable(110) @qemu_wacom_hid_report_descriptor, i64 110, i1 false)
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 110, ptr %actual_length, align 8
   br label %sw.epilog35
 
 sw.bb2:                                           ; preds = %if.end
-  %mouse_grabbed = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 9
+  %mouse_grabbed = getelementptr inbounds i8, ptr %dev, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %sw.bb2
-  %eh_entry = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 2
+  %eh_entry = getelementptr inbounds i8, ptr %dev, i64 5872
   %1 = load ptr, ptr %eh_entry, align 8
   tail call void @qemu_remove_mouse_event_handler(ptr noundef %1) #7
   store i32 0, ptr %mouse_grabbed, align 8
@@ -184,23 +161,23 @@ if.then3:                                         ; preds = %sw.bb2
 if.end5:                                          ; preds = %if.then3, %sw.bb2
   %2 = load i8, ptr %data, align 1
   %conv = zext i8 %2 to i32
-  %mode = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 10
+  %mode = getelementptr inbounds i8, ptr %dev, i64 5908
   store i32 %conv, ptr %mode, align 4
   br label %sw.epilog35
 
 sw.bb6:                                           ; preds = %if.end
   store i8 0, ptr %data, align 1
-  %mode8 = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 10
+  %mode8 = getelementptr inbounds i8, ptr %dev, i64 5908
   %3 = load i32, ptr %mode8, align 4
   %conv9 = trunc i32 %3 to i8
   %arrayidx10 = getelementptr i8, ptr %data, i64 1
   store i8 %conv9, ptr %arrayidx10, align 1
-  %actual_length11 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length11 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 2, ptr %actual_length11, align 8
   br label %sw.epilog35
 
 sw.bb12:                                          ; preds = %if.end
-  %mode13 = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 10
+  %mode13 = getelementptr inbounds i8, ptr %dev, i64 5908
   %4 = load i32, ptr %mode13, align 4
   switch i32 %4, label %sw.epilog35 [
     i32 1, label %if.then16
@@ -209,33 +186,33 @@ sw.bb12:                                          ; preds = %if.end
 
 if.then16:                                        ; preds = %sw.bb12
   %call17 = tail call fastcc i32 @usb_mouse_poll(ptr noundef nonnull %dev, ptr noundef %data, i32 noundef %length), !range !5
-  %actual_length18 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length18 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call17, ptr %actual_length18, align 8
   br label %sw.epilog35
 
 if.then22:                                        ; preds = %sw.bb12
   %call23 = tail call fastcc i32 @usb_wacom_poll(ptr noundef nonnull %dev, ptr noundef %data, i32 noundef %length), !range !6
-  %actual_length24 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length24 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call23, ptr %actual_length24, align 8
   br label %sw.epilog35
 
 sw.bb27:                                          ; preds = %if.end
-  %idle = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 11
+  %idle = getelementptr inbounds i8, ptr %dev, i64 5912
   %5 = load i8, ptr %idle, align 8
   store i8 %5, ptr %data, align 1
-  %actual_length29 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length29 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 1, ptr %actual_length29, align 8
   br label %sw.epilog35
 
 sw.bb30:                                          ; preds = %if.end
   %shr31 = lshr i32 %value, 8
   %conv32 = trunc i32 %shr31 to i8
-  %idle33 = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 11
+  %idle33 = getelementptr inbounds i8, ptr %dev, i64 5912
   store i8 %conv32, ptr %idle33, align 8
   br label %sw.epilog35
 
 sw.default34:                                     ; preds = %if.end
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog35
 
@@ -246,7 +223,7 @@ sw.epilog35:                                      ; preds = %sw.bb12, %if.then16
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_wacom_handle_data(ptr noundef %dev, ptr noundef %p) #0 {
 entry:
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i64, ptr %size, align 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %0) #8
   %1 = load i32, ptr %p, align 8
@@ -254,32 +231,32 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %ep = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %ep, align 8
   %3 = load i8, ptr %2, align 8
   %cmp = icmp eq i8 %3, 1
   br i1 %cmp, label %if.then, label %sw.default
 
 if.then:                                          ; preds = %sw.bb
-  %changed = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 12
+  %changed = getelementptr inbounds i8, ptr %dev, i64 5916
   %4 = load i32, ptr %changed, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.end
 
 lor.lhs.false:                                    ; preds = %if.then
-  %idle = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 11
+  %idle = getelementptr inbounds i8, ptr %dev, i64 5912
   %5 = load i8, ptr %idle, align 8
   %tobool3.not = icmp eq i8 %5, 0
   br i1 %tobool3.not, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %lor.lhs.false
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status, align 4
   br label %cleanup
 
 if.end:                                           ; preds = %lor.lhs.false, %if.then
   store i32 0, ptr %changed, align 4
-  %mode = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 10
+  %mode = getelementptr inbounds i8, ptr %dev, i64 5908
   %6 = load i32, ptr %mode, align 4
   switch i32 %6, label %if.end22 [
     i32 1, label %if.then8
@@ -289,29 +266,29 @@ if.end:                                           ; preds = %lor.lhs.false, %if.
 if.then8:                                         ; preds = %if.end
   %7 = load i64, ptr %size, align 8
   %conv11 = trunc i64 %7 to i32
-  %mouse_grabbed.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 9
+  %mouse_grabbed.i = getelementptr inbounds i8, ptr %dev, i64 5904
   %8 = load i32, ptr %mouse_grabbed.i, align 8
   %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then8
   %call.i = tail call ptr @qemu_add_mouse_event_handler(ptr noundef nonnull @usb_mouse_event, ptr noundef nonnull %dev, i32 noundef 0, ptr noundef nonnull @.str.15) #7
-  %eh_entry.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 2
+  %eh_entry.i = getelementptr inbounds i8, ptr %dev, i64 5872
   store ptr %call.i, ptr %eh_entry.i, align 8
   tail call void @qemu_activate_mouse_event_handler(ptr noundef %call.i) #7
   store i32 1, ptr %mouse_grabbed.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then8
-  %dx3.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 3
+  %dx3.i = getelementptr inbounds i8, ptr %dev, i64 5880
   %9 = load i32, ptr %dx3.i, align 8
   %.val.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 127)
   %retval.0.i.i = tail call i32 @llvm.smax.i32(i32 %.val.i.i, i32 -128)
-  %dy5.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 4
+  %dy5.i = getelementptr inbounds i8, ptr %dev, i64 5884
   %10 = load i32, ptr %dy5.i, align 4
   %.val.i23.i = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
   %retval.0.i24.i = tail call i32 @llvm.smax.i32(i32 %.val.i23.i, i32 -128)
-  %dz7.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 5
+  %dz7.i = getelementptr inbounds i8, ptr %dev, i64 5888
   %11 = load i32, ptr %dz7.i, align 8
   %.val.i25.i = tail call i32 @llvm.smin.i32(i32 %11, i32 127)
   %retval.0.i26.i = tail call i32 @llvm.smax.i32(i32 %.val.i25.i, i32 -128)
@@ -321,7 +298,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   store i32 %sub11.i, ptr %dy5.i, align 4
   %sub13.i = sub i32 %11, %retval.0.i26.i
   store i32 %sub13.i, ptr %dz7.i, align 8
-  %buttons_state.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 6
+  %buttons_state.i = getelementptr inbounds i8, ptr %dev, i64 5892
   %12 = load i32, ptr %buttons_state.i, align 4
   %13 = trunc i32 %12 to i8
   %conv.i = and i8 %13, 7
@@ -344,14 +321,14 @@ if.then34.i:                                      ; preds = %if.end.i
 if.then16:                                        ; preds = %if.end
   %14 = load i64, ptr %size, align 8
   %conv19 = trunc i64 %14 to i32
-  %mouse_grabbed.i14 = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 9
+  %mouse_grabbed.i14 = getelementptr inbounds i8, ptr %dev, i64 5904
   %15 = load i32, ptr %mouse_grabbed.i14, align 8
   %tobool.not.i15 = icmp eq i32 %15, 0
   br i1 %tobool.not.i15, label %if.then.i24, label %if.end.i16
 
 if.then.i24:                                      ; preds = %if.then16
   %call.i25 = tail call ptr @qemu_add_mouse_event_handler(ptr noundef nonnull @usb_wacom_event, ptr noundef nonnull %dev, i32 noundef 1, ptr noundef nonnull @.str.15) #7
-  %eh_entry.i26 = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 2
+  %eh_entry.i26 = getelementptr inbounds i8, ptr %dev, i64 5872
   store ptr %call.i25, ptr %eh_entry.i26, align 8
   tail call void @qemu_activate_mouse_event_handler(ptr noundef %call.i25) #7
   store i32 1, ptr %mouse_grabbed.i14, align 8
@@ -362,7 +339,7 @@ if.end.i16:                                       ; preds = %if.then.i24, %if.th
   br i1 %cmp.i17, label %if.end22, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end.i16
-  %buttons_state.i18 = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 6
+  %buttons_state.i18 = getelementptr inbounds i8, ptr %dev, i64 5892
   %16 = load i32, ptr %buttons_state.i18, align 4
   %and.i = and i32 %16, 1
   %and7.i = shl i32 %16, 5
@@ -376,7 +353,7 @@ if.end19.i:                                       ; preds = %if.end.i16
   %20 = trunc i32 %b.2.i to i8
   %arrayidx23.i = getelementptr i8, ptr %call, i64 5
   store i8 %20, ptr %arrayidx23.i, align 1
-  %x.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 7
+  %x.i = getelementptr inbounds i8, ptr %dev, i64 5896
   %21 = load i32, ptr %x.i, align 8
   %conv25.i = trunc i32 %21 to i8
   %arrayidx26.i = getelementptr i8, ptr %call, i64 1
@@ -385,7 +362,7 @@ if.end19.i:                                       ; preds = %if.end.i16
   %conv28.i = trunc i32 %shr.i to i8
   %arrayidx29.i = getelementptr i8, ptr %call, i64 2
   store i8 %conv28.i, ptr %arrayidx29.i, align 1
-  %y.i = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 8
+  %y.i = getelementptr inbounds i8, ptr %dev, i64 5900
   %22 = load i32, ptr %y.i, align 4
   %conv31.i20 = trunc i32 %22 to i8
   %arrayidx32.i21 = getelementptr i8, ptr %call, i64 3
@@ -407,7 +384,7 @@ if.end22:                                         ; preds = %if.end19.i, %if.end
   br label %cleanup
 
 sw.default:                                       ; preds = %entry, %sw.bb
-  %status26 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status26 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status26, align 4
   br label %cleanup
 
@@ -419,13 +396,13 @@ cleanup:                                          ; preds = %if.end22, %sw.defau
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_wacom_unrealize(ptr nocapture noundef %dev) #0 {
 entry:
-  %mouse_grabbed = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 9
+  %mouse_grabbed = getelementptr inbounds i8, ptr %dev, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %eh_entry = getelementptr inbounds %struct.USBWacomState, ptr %dev, i64 0, i32 2
+  %eh_entry = getelementptr inbounds i8, ptr %dev, i64 5872
   %1 = load ptr, ptr %eh_entry, align 8
   tail call void @qemu_remove_mouse_event_handler(ptr noundef %1) #7
   store i32 0, ptr %mouse_grabbed, align 8
@@ -455,29 +432,29 @@ declare void @qemu_remove_mouse_event_handler(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @usb_mouse_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
-  %mouse_grabbed = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 9
+  %mouse_grabbed = getelementptr inbounds i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @qemu_add_mouse_event_handler(ptr noundef nonnull @usb_mouse_event, ptr noundef nonnull %s, i32 noundef 0, ptr noundef nonnull @.str.15) #7
-  %eh_entry = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 2
+  %eh_entry = getelementptr inbounds i8, ptr %s, i64 5872
   store ptr %call, ptr %eh_entry, align 8
   tail call void @qemu_activate_mouse_event_handler(ptr noundef %call) #7
   store i32 1, ptr %mouse_grabbed, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %dx3 = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 3
+  %dx3 = getelementptr inbounds i8, ptr %s, i64 5880
   %1 = load i32, ptr %dx3, align 8
   %.val.i = tail call i32 @llvm.smin.i32(i32 %1, i32 127)
   %retval.0.i = tail call i32 @llvm.smax.i32(i32 %.val.i, i32 -128)
-  %dy5 = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 4
+  %dy5 = getelementptr inbounds i8, ptr %s, i64 5884
   %2 = load i32, ptr %dy5, align 4
   %.val.i23 = tail call i32 @llvm.smin.i32(i32 %2, i32 127)
   %retval.0.i24 = tail call i32 @llvm.smax.i32(i32 %.val.i23, i32 -128)
-  %dz7 = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 5
+  %dz7 = getelementptr inbounds i8, ptr %s, i64 5888
   %3 = load i32, ptr %dz7, align 8
   %.val.i25 = tail call i32 @llvm.smin.i32(i32 %3, i32 127)
   %retval.0.i26 = tail call i32 @llvm.smax.i32(i32 %.val.i25, i32 -128)
@@ -487,7 +464,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 %sub11, ptr %dy5, align 4
   %sub13 = sub i32 %3, %retval.0.i26
   store i32 %sub13, ptr %dz7, align 8
-  %buttons_state = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 6
+  %buttons_state = getelementptr inbounds i8, ptr %s, i64 5892
   %4 = load i32, ptr %buttons_state, align 4
   %5 = trunc i32 %4 to i8
   %conv = and i8 %5, 7
@@ -515,14 +492,14 @@ if.end37:                                         ; preds = %if.then34, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @usb_wacom_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
-  %mouse_grabbed = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 9
+  %mouse_grabbed = getelementptr inbounds i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @qemu_add_mouse_event_handler(ptr noundef nonnull @usb_wacom_event, ptr noundef nonnull %s, i32 noundef 1, ptr noundef nonnull @.str.15) #7
-  %eh_entry = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 2
+  %eh_entry = getelementptr inbounds i8, ptr %s, i64 5872
   store ptr %call, ptr %eh_entry, align 8
   tail call void @qemu_activate_mouse_event_handler(ptr noundef %call) #7
   store i32 1, ptr %mouse_grabbed, align 8
@@ -533,7 +510,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end
-  %buttons_state = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 6
+  %buttons_state = getelementptr inbounds i8, ptr %s, i64 5892
   %1 = load i32, ptr %buttons_state, align 4
   %and = and i32 %1, 1
   %and7 = shl i32 %1, 5
@@ -541,14 +518,14 @@ if.end19:                                         ; preds = %if.end
   %and13 = shl i32 %1, 3
   %3 = and i32 %and13, 32
   %b.2 = or disjoint i32 %2, %3
-  %mode = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 10
+  %mode = getelementptr inbounds i8, ptr %s, i64 5908
   %4 = load i32, ptr %mode, align 4
   %conv = trunc i32 %4 to i8
   store i8 %conv, ptr %buf, align 1
   %5 = trunc i32 %b.2 to i8
   %arrayidx23 = getelementptr i8, ptr %buf, i64 5
   store i8 %5, ptr %arrayidx23, align 1
-  %x = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 7
+  %x = getelementptr inbounds i8, ptr %s, i64 5896
   %6 = load i32, ptr %x, align 8
   %conv25 = trunc i32 %6 to i8
   %arrayidx26 = getelementptr i8, ptr %buf, i64 1
@@ -558,7 +535,7 @@ if.end19:                                         ; preds = %if.end
   %conv28 = trunc i32 %shr to i8
   %arrayidx29 = getelementptr i8, ptr %buf, i64 2
   store i8 %conv28, ptr %arrayidx29, align 1
-  %y = getelementptr inbounds %struct.USBWacomState, ptr %s, i64 0, i32 8
+  %y = getelementptr inbounds i8, ptr %s, i64 5900
   %8 = load i32, ptr %y, align 4
   %conv31 = trunc i32 %8 to i8
   %arrayidx32 = getelementptr i8, ptr %buf, i64 3
@@ -585,23 +562,23 @@ declare ptr @qemu_add_mouse_event_handler(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_mouse_event(ptr nocapture noundef %opaque, i32 noundef %dx1, i32 noundef %dy1, i32 noundef %dz1, i32 noundef %buttons_state) #0 {
 entry:
-  %dx = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 3
+  %dx = getelementptr inbounds i8, ptr %opaque, i64 5880
   %0 = load i32, ptr %dx, align 8
   %add = add i32 %0, %dx1
   store i32 %add, ptr %dx, align 8
-  %dy = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 4
+  %dy = getelementptr inbounds i8, ptr %opaque, i64 5884
   %1 = load i32, ptr %dy, align 4
   %add1 = add i32 %1, %dy1
   store i32 %add1, ptr %dy, align 4
-  %dz = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 5
+  %dz = getelementptr inbounds i8, ptr %opaque, i64 5888
   %2 = load i32, ptr %dz, align 8
   %add2 = add i32 %2, %dz1
   store i32 %add2, ptr %dz, align 8
-  %buttons_state3 = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 6
+  %buttons_state3 = getelementptr inbounds i8, ptr %opaque, i64 5892
   store i32 %buttons_state, ptr %buttons_state3, align 4
-  %changed = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 12
+  %changed = getelementptr inbounds i8, ptr %opaque, i64 5916
   store i32 1, ptr %changed, align 4
-  %intr = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %opaque, i64 5864
   %3 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %3, i32 noundef 0) #7
   ret void
@@ -616,21 +593,21 @@ define internal void @usb_wacom_event(ptr nocapture noundef %opaque, i32 noundef
 entry:
   %mul = mul i32 %x, 5040
   %div = sdiv i32 %mul, 32767
-  %x1 = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 7
+  %x1 = getelementptr inbounds i8, ptr %opaque, i64 5896
   store i32 %div, ptr %x1, align 8
   %mul2 = mul i32 %y, 3780
   %div3 = sdiv i32 %mul2, 32767
-  %y4 = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 8
+  %y4 = getelementptr inbounds i8, ptr %opaque, i64 5900
   store i32 %div3, ptr %y4, align 4
-  %dz5 = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 5
+  %dz5 = getelementptr inbounds i8, ptr %opaque, i64 5888
   %0 = load i32, ptr %dz5, align 8
   %add = add i32 %0, %dz
   store i32 %add, ptr %dz5, align 8
-  %buttons_state6 = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 6
+  %buttons_state6 = getelementptr inbounds i8, ptr %opaque, i64 5892
   store i32 %buttons_state, ptr %buttons_state6, align 4
-  %changed = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 12
+  %changed = getelementptr inbounds i8, ptr %opaque, i64 5916
   store i32 1, ptr %changed, align 4
-  %intr = getelementptr inbounds %struct.USBWacomState, ptr %opaque, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %opaque, i64 5864
   %1 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %1, i32 noundef 0) #7
   ret void

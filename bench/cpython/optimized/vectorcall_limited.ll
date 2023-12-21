@@ -59,14 +59,14 @@ entry:
   %args = alloca [3 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %args, i8 0, i64 24, i1 false)
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.2) #3
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %args, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %Py_XDECREF.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.3) #3
-  %arrayidx3 = getelementptr inbounds [3 x ptr], ptr %args, i64 0, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %args, i64 16
   store ptr %call2, ptr %arrayidx3, align 16
   %tobool5.not = icmp eq ptr %call2, null
   br i1 %tobool5.not, label %if.then.i, label %if.end7
@@ -102,7 +102,7 @@ if.then.i:                                        ; preds = %if.end15, %if.end11
 Py_XDECREF.exit:                                  ; preds = %entry, %leave, %if.then.i
   %result.015 = phi ptr [ %call20, %leave ], [ %result.0.ph23, %if.then.i ], [ null, %entry ]
   %kwnames.014 = phi ptr [ %call12, %leave ], [ %kwnames.0.ph22, %if.then.i ], [ null, %entry ]
-  %arrayidx22 = getelementptr inbounds [3 x ptr], ptr %args, i64 0, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx22, align 16
   %cmp.not.i5 = icmp eq ptr %0, null
   br i1 %cmp.not.i5, label %Py_XDECREF.exit7, label %if.then.i6
@@ -135,14 +135,14 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %callable, ptr %args, align 16
   %call1 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.2) #3
-  %arrayidx2 = getelementptr inbounds [3 x ptr], ptr %args, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call1, ptr %arrayidx2, align 8
   %tobool4.not = icmp eq ptr %call1, null
   br i1 %tobool4.not, label %Py_XDECREF.exit, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.3) #3
-  %arrayidx8 = getelementptr inbounds [3 x ptr], ptr %args, i64 0, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %args, i64 16
   store ptr %call7, ptr %arrayidx8, align 16
   %tobool10.not = icmp eq ptr %call7, null
   br i1 %tobool10.not, label %Py_XDECREF.exit, label %if.end12
@@ -181,7 +181,7 @@ if.then.i8:                                       ; preds = %Py_XDECREF.exit
 Py_XDECREF.exit9:                                 ; preds = %entry, %Py_XDECREF.exit, %if.then.i8
   %kwnames.01926 = phi ptr [ %kwnames.0.ph, %Py_XDECREF.exit ], [ %kwnames.0.ph, %if.then.i8 ], [ null, %entry ]
   %result.02125 = phi ptr [ %result.0.ph, %Py_XDECREF.exit ], [ %result.0.ph, %if.then.i8 ], [ null, %entry ]
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %args, i64 0, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx27, align 16
   %cmp.not.i10 = icmp eq ptr %0, null
   br i1 %cmp.not.i10, label %Py_XDECREF.exit12, label %if.then.i11

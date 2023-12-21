@@ -3,9 +3,8 @@ source_filename = "bench/qemu/original/util_hbitmap.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.HBitmapIter = type { ptr, i32, i64, [7 x i64] }
-%struct.HBitmap = type { i64, i64, i64, i32, ptr, [7 x ptr], [7 x i64] }
 %struct.timeval = type { i64, i64 }
+%struct.HBitmapIter = type { ptr, i32, i64, [7 x i64] }
 
 @.str = private unnamed_addr constant [15 x i8] c"pos < hb->size\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/util/hbitmap.c\00", align 1
@@ -70,12 +69,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @hbitmap_iter_next(ptr noundef %hbi) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 6
+  %arrayidx = getelementptr i8, ptr %hbi, i64 72
   %0 = load i64, ptr %arrayidx, align 8
   %1 = load ptr, ptr %hbi, align 8
-  %arrayidx2 = getelementptr %struct.HBitmap, ptr %1, i64 0, i32 5, i64 6
+  %arrayidx2 = getelementptr i8, ptr %1, i64 88
   %2 = load ptr, ptr %arrayidx2, align 8
-  %pos = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %hbi, i64 16
   %3 = load i64, ptr %pos, align 8
   %arrayidx3 = getelementptr i64, ptr %2, i64 %3
   %4 = load i64, ptr %arrayidx3, align 8
@@ -101,7 +100,7 @@ if.end6:                                          ; preds = %if.then.if.end6_cri
   %shl = shl i64 %5, 6
   %6 = tail call i64 @llvm.cttz.i64(i64 %cur.0, i1 true), !range !5
   %add = or disjoint i64 %shl, %6
-  %granularity = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 1
+  %granularity = getelementptr inbounds i8, ptr %hbi, i64 8
   %7 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %7 to i64
   %shl12 = shl i64 %add, %sh_prom
@@ -116,9 +115,11 @@ return:                                           ; preds = %if.then, %if.end6
 define internal fastcc i64 @hbitmap_iter_skip_words(ptr noundef %hbi) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %pos1 = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 2
+  %pos1 = getelementptr inbounds i8, ptr %hbi, i64 16
   %0 = load i64, ptr %pos1, align 8
   %1 = load ptr, ptr %hbi, align 8
+  %cur3 = getelementptr inbounds i8, ptr %hbi, i64 24
+  %levels = getelementptr inbounds i8, ptr %1, i64 40
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -128,9 +129,9 @@ do.body:                                          ; preds = %do.body, %entry
   %dec = add i32 %i.0, -1
   %shr = lshr i64 %pos.0, 6
   %idxprom = zext i32 %dec to i64
-  %arrayidx = getelementptr %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [7 x i64], ptr %cur3, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
-  %arrayidx5 = getelementptr %struct.HBitmap, ptr %1, i64 0, i32 5, i64 %idxprom
+  %arrayidx5 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx5, align 8
   %arrayidx6 = getelementptr i64, ptr %3, i64 %shr
   %4 = load i64, ptr %arrayidx6, align 8
@@ -170,10 +171,10 @@ if.end11:                                         ; preds = %for.body
   %add = or disjoint i64 %6, %shl
   %sub = add i64 %cur.033, -1
   %and12 = and i64 %sub, %cur.033
-  %arrayidx15 = getelementptr %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 %indvars.iv35
+  %arrayidx15 = getelementptr [7 x i64], ptr %cur3, i64 0, i64 %indvars.iv35
   store i64 %and12, ptr %arrayidx15, align 8
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %arrayidx19 = getelementptr %struct.HBitmap, ptr %1, i64 0, i32 5, i64 %indvars.iv.next36
+  %arrayidx19 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv.next36
   %7 = load ptr, ptr %arrayidx19, align 8
   %arrayidx20 = getelementptr i64, ptr %7, i64 %add
   %8 = load i64, ptr %arrayidx20, align 8
@@ -209,7 +210,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %hbi, i64 noundef %pos.1.lcssa, i64 noundef %cur.0.lcssa) #12
   br label %trace_hbitmap_iter_skip_words.exit
@@ -236,11 +237,11 @@ return:                                           ; preds = %trace_hbitmap_iter_
 define dso_local void @hbitmap_iter_init(ptr nocapture noundef writeonly %hbi, ptr noundef %hb, i64 noundef %first) local_unnamed_addr #0 {
 entry:
   store ptr %hb, ptr %hbi, align 8
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %first, %sh_prom
-  %size = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %hb, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp = icmp ult i64 %shr, %1
   br i1 %cmp, label %if.end, label %if.else
@@ -251,11 +252,13 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %shr2 = lshr i64 %shr, 6
-  %pos3 = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 2
+  %pos3 = getelementptr inbounds i8, ptr %hbi, i64 16
   store i64 %shr2, ptr %pos3, align 8
   %2 = load i32, ptr %granularity, align 8
-  %granularity5 = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 1
+  %granularity5 = getelementptr inbounds i8, ptr %hbi, i64 8
   store i32 %2, ptr %granularity5, align 8
+  %levels = getelementptr inbounds i8, ptr %hb, i64 40
+  %cur = getelementptr inbounds i8, ptr %hbi, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -264,13 +267,13 @@ for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %conv = and i64 %pos.019, 63
   %shr7 = lshr i64 %pos.019, 6
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.next
+  %arrayidx = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx, align 8
   %arrayidx8 = getelementptr i64, ptr %3, i64 %shr7
   %4 = load i64, ptr %arrayidx8, align 8
   %shl = shl nuw i64 1, %conv
   %not = sub i64 0, %shl
-  %arrayidx12 = getelementptr %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr [7 x i64], ptr %cur, i64 0, i64 %indvars.iv.next
   %cmp13.not = icmp eq i64 %indvars.iv.next, 6
   %not18 = xor i64 %shl, -1
   %and22 = select i1 %cmp13.not, i64 -1, i64 %not18
@@ -312,11 +315,11 @@ if.end5:                                          ; preds = %if.end
   %add = add nuw i64 %count, %start
   %cond = select i1 %cmp7, i64 %1, i64 %add
   store ptr %hb, ptr %hbi, align 8
-  %granularity.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity.i = getelementptr inbounds i8, ptr %hb, i64 24
   %2 = load i32, ptr %granularity.i, align 8
   %sh_prom.i = zext nneg i32 %2 to i64
   %shr.i = lshr i64 %start, %sh_prom.i
-  %size.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %hb, i64 8
   %3 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %shr.i, %3
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -327,10 +330,12 @@ if.else.i:                                        ; preds = %if.end5
 
 if.end.i:                                         ; preds = %if.end5
   %shr2.i = lshr i64 %shr.i, 6
-  %pos3.i = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 2
+  %pos3.i = getelementptr inbounds i8, ptr %hbi, i64 16
   store i64 %shr2.i, ptr %pos3.i, align 8
-  %granularity5.i = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 1
+  %granularity5.i = getelementptr inbounds i8, ptr %hbi, i64 8
   store i32 %2, ptr %granularity5.i, align 8
+  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
+  %cur.i = getelementptr inbounds i8, ptr %hbi, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
@@ -339,13 +344,13 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %conv.i = and i64 %pos.019.i, 63
   %shr7.i = lshr i64 %pos.019.i, 6
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv.next.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx8.i = getelementptr i64, ptr %4, i64 %shr7.i
   %5 = load i64, ptr %arrayidx8.i, align 8
   %shl.i = shl nuw i64 1, %conv.i
   %not.i = sub i64 0, %shl.i
-  %arrayidx12.i = getelementptr %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 %indvars.iv.next.i
+  %arrayidx12.i = getelementptr [7 x i64], ptr %cur.i, i64 0, i64 %indvars.iv.next.i
   %cmp13.not.i = icmp eq i64 %indvars.iv.next.i, 6
   %not18.i = xor i64 %shl.i, -1
   %and22.i = select i1 %cmp13.not.i, i64 -1, i64 %not18.i
@@ -356,10 +361,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp6.not.i, label %hbitmap_iter_init.exit, label %for.body.i, !llvm.loop !9
 
 hbitmap_iter_init.exit:                           ; preds = %for.body.i
-  %arrayidx.i18 = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 6
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %hbi, i64 72
   %6 = load i64, ptr %arrayidx.i18, align 8
   %7 = load ptr, ptr %hbi, align 8
-  %arrayidx2.i = getelementptr %struct.HBitmap, ptr %7, i64 0, i32 5, i64 6
+  %arrayidx2.i = getelementptr i8, ptr %7, i64 88
   %8 = load ptr, ptr %arrayidx2.i, align 8
   %9 = load i64, ptr %pos3.i, align 8
   %arrayidx3.i = getelementptr i64, ptr %8, i64 %9
@@ -403,12 +408,12 @@ return:                                           ; preds = %if.then.i, %hbitmap
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @hbitmap_next_zero(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %shr = ashr i64 %start, %sh_prom
   %shr1 = ashr i64 %shr, 6
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr i8, ptr %hb, i64 88
   %1 = load ptr, ptr %arrayidx, align 8
   %arrayidx2 = getelementptr i64, ptr %1, i64 %shr1
   %2 = load i64, ptr %arrayidx2, align 8
@@ -433,7 +438,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end7
-  %size = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %hb, i64 8
   %5 = load i64, ptr %size, align 8
   br label %cond.end
 
@@ -442,7 +447,7 @@ cond.false:                                       ; preds = %if.end7
   %sub10 = add i64 %add, %count
   %shr13 = ashr i64 %sub10, %sh_prom
   %add14 = add i64 %shr13, 1
-  %size26.phi.trans.insert = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size26.phi.trans.insert = getelementptr inbounds i8, ptr %hb, i64 8
   %.pre = load i64, ptr %size26.phi.trans.insert, align 8
   br label %cond.end
 
@@ -627,7 +632,7 @@ return:                                           ; preds = %if.end18, %if.end8,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @hbitmap_empty(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %count = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %hb, i64 16
   %0 = load i64, ptr %count, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -636,7 +641,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @hbitmap_granularity(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   ret i32 %0
 }
@@ -644,9 +649,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @hbitmap_count(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %count = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %hb, i64 16
   %0 = load i64, ptr %count, align 8
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %1 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %1 to i64
   %shl = shl i64 %0, %sh_prom
@@ -660,12 +665,12 @@ entry:
   %cmp = icmp eq i64 %count, 0
   %add = add i64 %start, -1
   %sub = add i64 %add, %count
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br i1 %cmp, label %if.end21.split, label %tailrecurse
 
 tailrecurse:                                      ; preds = %entry, %land.lhs.true
   %hb.tr = phi ptr [ %18, %land.lhs.true ], [ %hb, %entry ]
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb.tr, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb.tr, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %shr = lshr i64 %start, %sh_prom
@@ -707,7 +712,7 @@ trace_hbitmap_set.exit:                           ; preds = %tailrecurse, %land.
   %8 = load i32, ptr %granularity, align 8
   %sh_prom5 = zext i32 %8 to i64
   %shr9 = lshr i64 %sub, %sh_prom5
-  %size = getelementptr inbounds %struct.HBitmap, ptr %hb.tr, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %hb.tr, i64 8
   %9 = load i64, ptr %size, align 8
   %cmp10 = icmp ult i64 %shr9, %9
   br i1 %cmp10, label %if.end12, label %if.else
@@ -719,13 +724,14 @@ if.else:                                          ; preds = %trace_hbitmap_set.e
 if.end12:                                         ; preds = %trace_hbitmap_set.exit
   %shr6 = lshr i64 %start, %sh_prom5
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb.tr, i64 noundef %shr6, i64 noundef %shr9)
-  %count16 = getelementptr inbounds %struct.HBitmap, ptr %hb.tr, i64 0, i32 2
+  %count16 = getelementptr inbounds i8, ptr %hb.tr, i64 16
   %10 = load i64, ptr %count16, align 8
   %.neg = add nuw i64 %shr9, 1
   %11 = add i64 %shr6, %call
   %sub15 = sub i64 %.neg, %11
   %add17 = add i64 %sub15, %10
   store i64 %add17, ptr %count16, align 8
+  %levels26.i = getelementptr inbounds i8, ptr %hb.tr, i64 40
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %hb_set_elem.exit37.i, %if.end12
@@ -740,7 +746,7 @@ tailrecurse.i:                                    ; preds = %hb_set_elem.exit37.
   br i1 %cmp.i, label %if.then.i, label %if.end25.i
 
 if.then.i:                                        ; preds = %tailrecurse.i
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb.tr, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels26.i, i64 0, i64 %idxprom.i
   %or.i = or i64 %start.tr.i, 63
   %12 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx2.i = getelementptr i64, ptr %12, i64 %shr.i
@@ -774,7 +780,7 @@ if.end25.i:                                       ; preds = %if.end.i, %if.then.
   %start.addr.0.i = phi i64 [ %add.i, %if.then.i ], [ %start.tr.i, %tailrecurse.i ], [ %add6.i, %if.end.i ]
   %changed.1.i = phi i1 [ %cmp8.i.i, %if.then.i ], [ false, %tailrecurse.i ], [ %or1828.i, %if.end.i ]
   %i.1.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end.i ]
-  %arrayidx28.i = getelementptr %struct.HBitmap, ptr %hb.tr, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx28.i = getelementptr [7 x ptr], ptr %levels26.i, i64 0, i64 %idxprom.i
   %16 = load ptr, ptr %arrayidx28.i, align 8
   %arrayidx29.i = getelementptr i64, ptr %16, i64 %i.1.i
   %cmp.unshifted.i30.i = xor i64 %start.addr.0.i, %last.tr.i
@@ -814,7 +820,7 @@ hb_set_between.exit:                              ; preds = %hb_set_elem.exit37.
   br i1 %current.ret.tr38.i, label %land.lhs.true, label %if.end21.split
 
 land.lhs.true:                                    ; preds = %hb_set_between.exit
-  %meta = getelementptr inbounds %struct.HBitmap, ptr %hb.tr, i64 0, i32 4
+  %meta = getelementptr inbounds i8, ptr %hb.tr, i64 32
   %18 = load ptr, ptr %meta, align 8
   %tobool.not = icmp eq ptr %18, null
   br i1 %tobool.not, label %if.end21.split, label %tailrecurse
@@ -828,13 +834,13 @@ define internal fastcc i64 @hb_count_between(ptr noundef %hb, i64 noundef %start
 entry:
   %hbi = alloca %struct.HBitmapIter, align 8
   %add = add i64 %last, 1
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %0 to i64
   store ptr %hb, ptr %hbi, align 8
   %1 = lshr i64 -1, %sh_prom
   %shr.i = and i64 %1, %start
-  %size.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %hb, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %shr.i, %2
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -845,10 +851,12 @@ if.else.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %shr2.i = lshr i64 %shr.i, 6
-  %pos3.i = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 2
+  %pos3.i = getelementptr inbounds i8, ptr %hbi, i64 16
   store i64 %shr2.i, ptr %pos3.i, align 8
-  %granularity5.i = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 1
+  %granularity5.i = getelementptr inbounds i8, ptr %hbi, i64 8
   store i32 %0, ptr %granularity5.i, align 8
+  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
+  %cur.i = getelementptr inbounds i8, ptr %hbi, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
@@ -857,13 +865,13 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %conv.i = and i64 %pos.019.i, 63
   %shr7.i = lshr i64 %pos.019.i, 6
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv.next.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx8.i = getelementptr i64, ptr %3, i64 %shr7.i
   %4 = load i64, ptr %arrayidx8.i, align 8
   %shl.i = shl nuw i64 1, %conv.i
   %not.i = sub i64 0, %shl.i
-  %arrayidx12.i = getelementptr %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 %indvars.iv.next.i
+  %arrayidx12.i = getelementptr [7 x i64], ptr %cur.i, i64 0, i64 %indvars.iv.next.i
   %cmp13.not.i = icmp eq i64 %indvars.iv.next.i, 6
   %not18.i = xor i64 %shl.i, -1
   %and22.i = select i1 %cmp13.not.i, i64 -1, i64 %not18.i
@@ -874,7 +882,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp6.not.i, label %for.cond.preheader, label %for.body.i, !llvm.loop !9
 
 for.cond.preheader:                               ; preds = %for.body.i
-  %arrayidx.i7 = getelementptr inbounds %struct.HBitmapIter, ptr %hbi, i64 0, i32 3, i64 6
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %hbi, i64 72
   %shr = lshr i64 %add, 6
   %.pre = load i64, ptr %arrayidx.i7, align 8
   br label %for.cond
@@ -926,7 +934,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add = add i64 %count, %start
   %sub = add i64 %add, -1
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %cmp = icmp eq i64 %count, 0
@@ -984,7 +992,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr15) #12
   br label %trace_hbitmap_reset.exit
@@ -998,7 +1006,7 @@ trace_hbitmap_reset.exit:                         ; preds = %if.end10, %land.lhs
   %10 = load i32, ptr %granularity, align 8
   %sh_prom17 = zext i32 %10 to i64
   %shr21 = lshr i64 %sub, %sh_prom17
-  %size = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %hb, i64 8
   %11 = load i64, ptr %size, align 8
   %cmp22 = icmp ult i64 %shr21, %11
   br i1 %cmp22, label %if.end25, label %if.else24
@@ -1010,10 +1018,11 @@ if.else24:                                        ; preds = %trace_hbitmap_reset
 if.end25:                                         ; preds = %trace_hbitmap_reset.exit
   %shr18 = lshr i64 %start, %sh_prom17
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef %shr18, i64 noundef %shr21)
-  %count26 = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count26 = getelementptr inbounds i8, ptr %hb, i64 16
   %12 = load i64, ptr %count26, align 8
   %sub27 = sub i64 %12, %call
   store i64 %sub27, ptr %count26, align 8
+  %levels22.i = getelementptr inbounds i8, ptr %hb, i64 40
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then34.i, %if.end25
@@ -1028,7 +1037,7 @@ tailrecurse.i:                                    ; preds = %if.then34.i, %if.en
   br i1 %cmp.i, label %if.then.i, label %if.end21.i
 
 if.then.i:                                        ; preds = %tailrecurse.i
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels22.i, i64 0, i64 %idxprom.i
   %or.i = or i64 %start.tr.i, 63
   %13 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx2.i = getelementptr i64, ptr %13, i64 %shr.i
@@ -1071,7 +1080,7 @@ if.end21.i:                                       ; preds = %if.end8.i, %if.then
   %pos.1.i = phi i64 [ %pos.0.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %pos.0.i, %if.end8.i ]
   %changed.2.i = phi i8 [ %changed.0.i, %if.then.i ], [ 0, %tailrecurse.i ], [ %18, %if.end8.i ]
   %i.1.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end8.i ]
-  %arrayidx24.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx24.i = getelementptr [7 x ptr], ptr %levels22.i, i64 0, i64 %idxprom.i
   %19 = load ptr, ptr %arrayidx24.i, align 8
   %arrayidx25.i = getelementptr i64, ptr %19, i64 %i.1.i
   %cmp.unshifted.i28.i = xor i64 %start.addr.0.i, %last.tr.i
@@ -1121,7 +1130,7 @@ hb_reset_between.exit:                            ; preds = %hb_reset_elem.exit3
   br i1 %current.ret.tr38.i, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %hb_reset_between.exit
-  %meta = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 4
+  %meta = getelementptr inbounds i8, ptr %hb, i64 32
   %23 = load ptr, ptr %meta, align 8
   %tobool.not = icmp eq ptr %23, null
   br i1 %tobool.not, label %if.end31, label %if.then29
@@ -1137,13 +1146,15 @@ if.end31:                                         ; preds = %entry, %if.then29, 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @hbitmap_reset_all(ptr nocapture noundef %hb) local_unnamed_addr #3 {
 entry:
+  %levels = getelementptr inbounds i8, ptr %hb, i64 40
+  %sizes = getelementptr inbounds i8, ptr %hb, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 6, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 6, i64 %indvars.iv
+  %arrayidx2 = getelementptr [7 x i64], ptr %sizes, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx2, align 8
   %mul = shl i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %mul, i1 false)
@@ -1152,10 +1163,9 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
-  %levels3 = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 5
-  %2 = load ptr, ptr %levels3, align 8
+  %2 = load ptr, ptr %levels, align 8
   store i64 -9223372036854775808, ptr %2, align 8
-  %count = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %hb, i64 16
   store i64 0, ptr %count, align 8
   ret void
 }
@@ -1166,7 +1176,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @hbitmap_is_serializable(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %cmp = icmp slt i32 %0, 58
   ret i1 %cmp
@@ -1175,11 +1185,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @hbitmap_get(ptr nocapture noundef readonly %hb, i64 noundef %item) local_unnamed_addr #0 {
 entry:
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %item, %sh_prom
-  %size = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %hb, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp = icmp ult i64 %shr, %1
   br i1 %cmp, label %if.end, label %if.else
@@ -1191,7 +1201,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %and = and i64 %shr, 63
   %shl = shl nuw i64 1, %and
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr i8, ptr %hb, i64 88
   %2 = load ptr, ptr %arrayidx, align 8
   %shr1 = lshr i64 %shr, 6
   %arrayidx2 = getelementptr i64, ptr %2, i64 %shr1
@@ -1204,7 +1214,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @hbitmap_serialization_align(ptr nocapture noundef readonly %hb) local_unnamed_addr #0 {
 entry:
-  %granularity.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity.i = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity.i, align 8
   %cmp.i = icmp slt i32 %0, 58
   br i1 %cmp.i, label %if.end, label %if.else
@@ -1243,7 +1253,7 @@ define internal fastcc void @serialization_chunk(ptr nocapture noundef readonly 
 entry:
   %add = add i64 %start, -1
   %sub = add i64 %add, %count
-  %granularity.i.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 3
+  %granularity.i.i = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity.i.i, align 8
   %cmp.i.i = icmp slt i32 %0, 58
   br i1 %cmp.i.i, label %hbitmap_serialization_align.exit, label %if.else.i
@@ -1266,7 +1276,7 @@ if.else:                                          ; preds = %hbitmap_serializati
 
 if.end:                                           ; preds = %hbitmap_serialization_align.exit
   %shr = lshr i64 %sub, %sh_prom.i
-  %size = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %hb, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp2 = icmp ult i64 %shr, %1
   br i1 %cmp2, label %if.end5, label %if.else4
@@ -1291,7 +1301,7 @@ if.end19:                                         ; preds = %if.end5
   %shr22 = lshr i64 %start, %sh_prom.i
   %shr23 = lshr i64 %shr22, 6
   %shr27 = lshr i64 %shr, 6
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr i8, ptr %hb, i64 88
   %2 = load ptr, ptr %arrayidx, align 8
   %arrayidx28 = getelementptr i64, ptr %2, i64 %shr23
   store ptr %arrayidx28, ptr %first_el, align 8
@@ -1324,7 +1334,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %2 = load i64, ptr %incdec.ptr35, align 8
   store i64 %2, ptr %buf.addr.06, align 1
   %add.ptr1 = getelementptr i8, ptr %buf.addr.06, i64 8
-  %incdec.ptr = getelementptr i64, ptr %incdec.ptr35, i64 1
+  %incdec.ptr = getelementptr i8, ptr %incdec.ptr35, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
@@ -1355,7 +1365,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %2 = load i64, ptr %buf.addr.07, align 1
   store i64 %2, ptr %incdec.ptr46, align 8
   %add.ptr1 = getelementptr i8, ptr %buf.addr.07, i64 8
-  %incdec.ptr = getelementptr i64, ptr %incdec.ptr46, i64 1
+  %incdec.ptr = getelementptr i8, ptr %incdec.ptr46, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
 
@@ -1363,11 +1373,12 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %finish, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %while.end
-  %size1.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %hb, i64 8
   %3 = load i64, ptr %size1.i, align 8
   %sub.i = add i64 %3, 63
   %shr.i = lshr i64 %sub.i, 6
   %cond.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 1)
+  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i
@@ -1383,11 +1394,11 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
   %sub4.i = add nuw nsw i64 %size.023.i, 63
   %shr5.i = lshr i64 %sub4.i, 6
   %cond11.i = tail call i64 @llvm.umax.i64(i64 %shr5.i, i64 1)
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mul.i = shl nuw nsw i64 %cond11.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, i8 0, i64 %mul.i, i1 false)
-  %arrayidx18.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv25.i
+  %arrayidx18.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv25.i
   br label %for.body14.i
 
 for.body14.i:                                     ; preds = %for.inc.i, %for.body.i
@@ -1415,15 +1426,14 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !16
 
 hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
-  %levels26.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 5
-  %9 = load ptr, ptr %levels26.i, align 8
+  %9 = load ptr, ptr %levels.i, align 8
   %10 = load i64, ptr %9, align 8
   %or29.i = or i64 %10, -9223372036854775808
   store i64 %or29.i, ptr %9, align 8
   %11 = load i64, ptr %size1.i, align 8
   %sub31.i = add i64 %11, -1
   %call.i = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef 0, i64 noundef %sub31.i)
-  %count.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %hb, i64 16
   store i64 %call.i, ptr %count.i, align 8
   br label %if.end4
 
@@ -1434,11 +1444,12 @@ if.end4:                                          ; preds = %entry, %hbitmap_des
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hbitmap_deserialize_finish(ptr noundef %bitmap) local_unnamed_addr #0 {
 entry:
-  %size1 = getelementptr inbounds %struct.HBitmap, ptr %bitmap, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i64, ptr %size1, align 8
   %sub = add i64 %0, 63
   %shr = lshr i64 %sub, 6
   %cond = tail call i64 @llvm.umax.i64(i64 %shr, i64 1)
+  %levels = getelementptr inbounds i8, ptr %bitmap, i64 40
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.inc
@@ -1454,11 +1465,11 @@ for.body:                                         ; preds = %entry, %for.cond.lo
   %sub4 = add nuw nsw i64 %size.023, 63
   %shr5 = lshr i64 %sub4, 6
   %cond11 = tail call i64 @llvm.umax.i64(i64 %shr5, i64 1)
-  %arrayidx = getelementptr %struct.HBitmap, ptr %bitmap, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %mul = shl nuw nsw i64 %cond11, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, i8 0, i64 %mul, i1 false)
-  %arrayidx18 = getelementptr %struct.HBitmap, ptr %bitmap, i64 0, i32 5, i64 %indvars.iv25
+  %arrayidx18 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv25
   br label %for.body14
 
 for.body14:                                       ; preds = %for.body, %for.inc
@@ -1486,15 +1497,14 @@ for.inc:                                          ; preds = %for.body14, %if.the
   br i1 %exitcond.not, label %for.cond.loopexit, label %for.body14, !llvm.loop !16
 
 for.end25:                                        ; preds = %for.cond.loopexit
-  %levels26 = getelementptr inbounds %struct.HBitmap, ptr %bitmap, i64 0, i32 5
-  %6 = load ptr, ptr %levels26, align 8
+  %6 = load ptr, ptr %levels, align 8
   %7 = load i64, ptr %6, align 8
   %or29 = or i64 %7, -9223372036854775808
   store i64 %or29, ptr %6, align 8
   %8 = load i64, ptr %size1, align 8
   %sub31 = add i64 %8, -1
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %bitmap, i64 noundef 0, i64 noundef %sub31)
-  %count = getelementptr inbounds %struct.HBitmap, ptr %bitmap, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %bitmap, i64 16
   store i64 %call, ptr %count, align 8
   ret void
 }
@@ -1516,11 +1526,12 @@ if.end:                                           ; preds = %entry
   br i1 %finish, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %size1.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %hb, i64 8
   %2 = load i64, ptr %size1.i, align 8
   %sub.i = add i64 %2, 63
   %shr.i = lshr i64 %sub.i, 6
   %cond.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 1)
+  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i
@@ -1536,11 +1547,11 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
   %sub4.i = add nuw nsw i64 %size.023.i, 63
   %shr5.i = lshr i64 %sub4.i, 6
   %cond11.i = tail call i64 @llvm.umax.i64(i64 %shr5.i, i64 1)
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %mul.i = shl nuw nsw i64 %cond11.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %mul.i, i1 false)
-  %arrayidx18.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv25.i
+  %arrayidx18.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv25.i
   br label %for.body14.i
 
 for.body14.i:                                     ; preds = %for.inc.i, %for.body.i
@@ -1568,15 +1579,14 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !16
 
 hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
-  %levels26.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 5
-  %8 = load ptr, ptr %levels26.i, align 8
+  %8 = load ptr, ptr %levels.i, align 8
   %9 = load i64, ptr %8, align 8
   %or29.i = or i64 %9, -9223372036854775808
   store i64 %or29.i, ptr %8, align 8
   %10 = load i64, ptr %size1.i, align 8
   %sub31.i = add i64 %10, -1
   %call.i = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef 0, i64 noundef %sub31.i)
-  %count.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %hb, i64 16
   store i64 %call.i, ptr %count.i, align 8
   br label %if.end3
 
@@ -1601,11 +1611,12 @@ if.end:                                           ; preds = %entry
   br i1 %finish, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %size1.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %hb, i64 8
   %2 = load i64, ptr %size1.i, align 8
   %sub.i = add i64 %2, 63
   %shr.i = lshr i64 %sub.i, 6
   %cond.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 1)
+  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i
@@ -1621,11 +1632,11 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
   %sub4.i = add nuw nsw i64 %size.023.i, 63
   %shr5.i = lshr i64 %sub4.i, 6
   %cond11.i = tail call i64 @llvm.umax.i64(i64 %shr5.i, i64 1)
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %mul.i = shl nuw nsw i64 %cond11.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %mul.i, i1 false)
-  %arrayidx18.i = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv25.i
+  %arrayidx18.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv25.i
   br label %for.body14.i
 
 for.body14.i:                                     ; preds = %for.inc.i, %for.body.i
@@ -1653,15 +1664,14 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !16
 
 hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
-  %levels26.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 5
-  %8 = load ptr, ptr %levels26.i, align 8
+  %8 = load ptr, ptr %levels.i, align 8
   %9 = load i64, ptr %8, align 8
   %or29.i = or i64 %9, -9223372036854775808
   store i64 %or29.i, ptr %8, align 8
   %10 = load i64, ptr %size1.i, align 8
   %sub31.i = add i64 %10, -1
   %call.i = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef 0, i64 noundef %sub31.i)
-  %count.i = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %hb, i64 16
   store i64 %call.i, ptr %count.i, align 8
   br label %if.end3
 
@@ -1672,19 +1682,23 @@ if.end3:                                          ; preds = %entry, %hbitmap_des
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hbitmap_free(ptr noundef %hb) local_unnamed_addr #0 {
 entry:
-  %meta = getelementptr inbounds %struct.HBitmap, ptr %hb, i64 0, i32 4
+  %meta = getelementptr inbounds i8, ptr %hb, i64 32
   %0 = load ptr, ptr %meta, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %for.body, label %if.else
+  br i1 %tobool.not, label %for.cond.preheader, label %if.else
+
+for.cond.preheader:                               ; preds = %entry
+  %levels = getelementptr inbounds i8, ptr %hb, i64 40
+  br label %for.body
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 787, ptr noundef nonnull @__PRETTY_FUNCTION__.hbitmap_free) #11
   unreachable
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 7, %entry ]
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 7, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb, i64 0, i32 5, i64 %indvars.iv.next
+  %arrayidx = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv.next
   %1 = load ptr, ptr %arrayidx, align 8
   tail call void @g_free(ptr noundef %1) #12
   %cmp.not = icmp eq i64 %indvars.iv.next, 0
@@ -1731,10 +1745,12 @@ if.else9:                                         ; preds = %if.end5
   unreachable
 
 if.end10:                                         ; preds = %if.end5
-  %size11 = getelementptr inbounds %struct.HBitmap, ptr %call, i64 0, i32 1
+  %size11 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %shr, ptr %size11, align 8
-  %granularity12 = getelementptr inbounds %struct.HBitmap, ptr %call, i64 0, i32 3
+  %granularity12 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %granularity, ptr %granularity12, align 8
+  %sizes = getelementptr inbounds i8, ptr %call, i64 96
+  %levels = getelementptr inbounds i8, ptr %call, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %if.end10, %for.body
@@ -1744,10 +1760,10 @@ for.body:                                         ; preds = %if.end10, %for.body
   %sub15 = add nuw nsw i64 %size.addr.024, 63
   %shr16 = lshr i64 %sub15, 6
   %cond = tail call i64 @llvm.umax.i64(i64 %shr16, i64 1)
-  %arrayidx = getelementptr %struct.HBitmap, ptr %call, i64 0, i32 6, i64 %indvars.iv.next
+  %arrayidx = getelementptr [7 x i64], ptr %sizes, i64 0, i64 %indvars.iv.next
   store i64 %cond, ptr %arrayidx, align 8
   %call18 = tail call noalias ptr @g_malloc0_n(i64 noundef %cond, i64 noundef 8) #13
-  %arrayidx20 = getelementptr %struct.HBitmap, ptr %call, i64 0, i32 5, i64 %indvars.iv.next
+  %arrayidx20 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv.next
   store ptr %call18, ptr %arrayidx20, align 8
   %cmp13.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !18
@@ -1761,8 +1777,7 @@ if.else23:                                        ; preds = %for.end
   unreachable
 
 if.end24:                                         ; preds = %for.end
-  %levels25 = getelementptr inbounds %struct.HBitmap, ptr %call, i64 0, i32 5
-  %0 = load ptr, ptr %levels25, align 8
+  %0 = load ptr, ptr %levels, align 8
   %1 = load i64, ptr %0, align 8
   %or = or i64 %1, -9223372036854775808
   store i64 %or, ptr %0, align 8
@@ -1783,14 +1798,14 @@ if.else:                                          ; preds = %if.then61, %entry
   unreachable
 
 if.end:                                           ; preds = %entry, %if.then61
-  %size.tr53 = phi i64 [ %shl66, %if.then61 ], [ %size, %entry ]
+  %size.tr52 = phi i64 [ %shl66, %if.then61 ], [ %size, %entry ]
   %hb.tr51 = phi ptr [ %6, %if.then61 ], [ %hb, %entry ]
-  store i64 %size.tr53, ptr %hb.tr51, align 8
-  %granularity = getelementptr inbounds %struct.HBitmap, ptr %hb.tr51, i64 0, i32 3
+  store i64 %size.tr52, ptr %hb.tr51, align 8
+  %granularity = getelementptr inbounds i8, ptr %hb.tr51, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %shl = shl nuw i64 1, %sh_prom
-  %add = add nsw i64 %size.tr53, -1
+  %add = add nsw i64 %size.tr52, -1
   %sub = add i64 %add, %shl
   %shr = lshr i64 %sub, %sh_prom
   %cmp3 = icmp ult i64 %shr, 2199023255553
@@ -1801,14 +1816,14 @@ if.else5:                                         ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %size7 = getelementptr inbounds %struct.HBitmap, ptr %hb.tr51, i64 0, i32 1
+  %size7 = getelementptr inbounds i8, ptr %hb.tr51, i64 8
   %1 = load i64, ptr %size7, align 8
   %cmp10 = icmp eq i64 %shr, %1
   br i1 %cmp10, label %if.end67, label %if.end12
 
 if.end12:                                         ; preds = %if.end6
   %cmp8 = icmp ult i64 %shr, %1
-  br i1 %cmp8, label %if.then13, label %if.end32.split
+  br i1 %cmp8, label %if.then13, label %for.body.preheader
 
 if.then13:                                        ; preds = %if.end12
   %sub22 = sub i64 0, %shl
@@ -1821,10 +1836,18 @@ if.else30:                                        ; preds = %if.then13
   tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 853, ptr noundef nonnull @__PRETTY_FUNCTION__.hbitmap_truncate) #11
   unreachable
 
+for.body.preheader:                               ; preds = %if.end12
+  store i64 %shr, ptr %size7, align 8
+  %sizes = getelementptr inbounds i8, ptr %hb.tr51, i64 96
+  %levels = getelementptr inbounds i8, ptr %hb.tr51, i64 40
+  br label %for.body
+
 for.body.us.preheader:                            ; preds = %if.then13
   %sub27 = sub i64 %shl26, %and
   tail call void @hbitmap_reset(ptr noundef nonnull %hb.tr51, i64 noundef %and, i64 noundef %sub27)
   store i64 %shr, ptr %size7, align 8
+  %sizes54 = getelementptr inbounds i8, ptr %hb.tr51, i64 96
+  %levels55 = getelementptr inbounds i8, ptr %hb.tr51, i64 40
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %if.end40.us
@@ -1834,14 +1857,14 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %div47.us = lshr i64 %sub36.us, 6
   %cond.us = tail call i64 @llvm.umax.i64(i64 %div47.us, i64 1)
   %idxprom.us = zext i32 %dec49.us to i64
-  %arrayidx.us = getelementptr %struct.HBitmap, ptr %hb.tr51, i64 0, i32 6, i64 %idxprom.us
+  %arrayidx.us = getelementptr [7 x i64], ptr %sizes54, i64 0, i64 %idxprom.us
   %2 = load i64, ptr %arrayidx.us, align 8
   %cmp38.us = icmp eq i64 %2, %cond.us
   br i1 %cmp38.us, label %for.end, label %if.end40.us
 
 if.end40.us:                                      ; preds = %for.body.us
   store i64 %cond.us, ptr %arrayidx.us, align 8
-  %arrayidx48.us = getelementptr %struct.HBitmap, ptr %hb.tr51, i64 0, i32 5, i64 %idxprom.us
+  %arrayidx48.us = getelementptr [7 x ptr], ptr %levels55, i64 0, i64 %idxprom.us
   %3 = load ptr, ptr %arrayidx48.us, align 8
   %call.us = tail call ptr @g_realloc_n(ptr noundef %3, i64 noundef %cond.us, i64 noundef 8) #12
   store ptr %call.us, ptr %arrayidx48.us, align 8
@@ -1849,25 +1872,21 @@ if.end40.us:                                      ; preds = %for.body.us
   %cmp34.not.us = icmp eq i32 %dec49.us, 0
   br i1 %cmp34.not.us, label %for.end, label %for.body.us, !llvm.loop !19
 
-if.end32.split:                                   ; preds = %if.end12
-  store i64 %shr, ptr %size7, align 8
-  br label %for.body
-
-for.body:                                         ; preds = %if.end32.split, %if.end40
-  %dec49 = phi i32 [ 6, %if.end32.split ], [ %dec, %if.end40 ]
-  %size.addr.048 = phi i64 [ %shr, %if.end32.split ], [ %cond, %if.end40 ]
+for.body:                                         ; preds = %for.body.preheader, %if.end40
+  %dec49 = phi i32 [ %dec, %if.end40 ], [ 6, %for.body.preheader ]
+  %size.addr.048 = phi i64 [ %cond, %if.end40 ], [ %shr, %for.body.preheader ]
   %sub36 = add nsw i64 %size.addr.048, 63
   %div47 = lshr i64 %sub36, 6
   %cond = tail call i64 @llvm.umax.i64(i64 %div47, i64 1)
   %idxprom = zext i32 %dec49 to i64
-  %arrayidx = getelementptr %struct.HBitmap, ptr %hb.tr51, i64 0, i32 6, i64 %idxprom
+  %arrayidx = getelementptr [7 x i64], ptr %sizes, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 8
   %cmp38 = icmp eq i64 %4, %cond
   br i1 %cmp38, label %for.end, label %if.end40
 
 if.end40:                                         ; preds = %for.body
   store i64 %cond, ptr %arrayidx, align 8
-  %arrayidx48 = getelementptr %struct.HBitmap, ptr %hb.tr51, i64 0, i32 5, i64 %idxprom
+  %arrayidx48 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx48, align 8
   %call = tail call ptr @g_realloc_n(ptr noundef %5, i64 noundef %cond, i64 noundef 8) #12
   store ptr %call, ptr %arrayidx48, align 8
@@ -1880,7 +1899,7 @@ if.end40:                                         ; preds = %for.body
   br i1 %cmp34.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %if.end40, %for.body, %for.body.us, %if.end40.us
-  %meta = getelementptr inbounds %struct.HBitmap, ptr %hb.tr51, i64 0, i32 4
+  %meta = getelementptr inbounds i8, ptr %hb.tr51, i64 32
   %6 = load ptr, ptr %meta, align 8
   %tobool60.not = icmp eq ptr %6, null
   br i1 %tobool60.not, label %if.end67, label %if.then61
@@ -1921,9 +1940,9 @@ if.else6:                                         ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %count.i = getelementptr inbounds %struct.HBitmap, ptr %a, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load i64, ptr %count.i, align 8
-  %granularity.i = getelementptr inbounds %struct.HBitmap, ptr %a, i64 0, i32 3
+  %granularity.i = getelementptr inbounds i8, ptr %a, i64 24
   %4 = load i32, ptr %granularity.i, align 8
   %sh_prom.i = zext nneg i32 %4 to i64
   %shl.i = shl i64 %3, %sh_prom.i
@@ -1933,9 +1952,9 @@ if.end7:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7
-  %count.i46 = getelementptr inbounds %struct.HBitmap, ptr %b, i64 0, i32 2
+  %count.i46 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load i64, ptr %count.i46, align 8
-  %granularity.i47 = getelementptr inbounds %struct.HBitmap, ptr %b, i64 0, i32 3
+  %granularity.i47 = getelementptr inbounds i8, ptr %b, i64 24
   %6 = load i32, ptr %granularity.i47, align 8
   %sh_prom.i48 = zext nneg i32 %6 to i64
   %shl.i49 = shl i64 %5, %sh_prom.i48
@@ -1947,13 +1966,18 @@ lor.lhs.false:                                    ; preds = %if.end7
 if.end14:                                         ; preds = %lor.lhs.false
   %7 = or i64 %shl.i49, %shl.i
   %brmerge.demorgan.not = icmp eq i64 %7, 0
-  br i1 %brmerge.demorgan.not, label %for.body.i, label %if.end21
+  br i1 %brmerge.demorgan.not, label %if.then20, label %if.end21
 
-for.body.i:                                       ; preds = %if.end14, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 6, %if.end14 ]
-  %arrayidx.i = getelementptr %struct.HBitmap, ptr %result, i64 0, i32 5, i64 %indvars.iv.i
+if.then20:                                        ; preds = %if.end14
+  %levels.i = getelementptr inbounds i8, ptr %result, i64 40
+  %sizes.i = getelementptr inbounds i8, ptr %result, i64 96
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.then20
+  %indvars.iv.i = phi i64 [ 6, %if.then20 ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i = getelementptr [7 x ptr], ptr %levels.i, i64 0, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx2.i = getelementptr %struct.HBitmap, ptr %result, i64 0, i32 6, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr [7 x i64], ptr %sizes.i, i64 0, i64 %indvars.iv.i
   %9 = load i64, ptr %arrayidx2.i, align 8
   %mul.i = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %mul.i, i1 false)
@@ -1962,8 +1986,7 @@ for.body.i:                                       ; preds = %if.end14, %for.body
   br i1 %cmp.not.i, label %hbitmap_reset_all.exit, label %for.body.i, !llvm.loop !12
 
 hbitmap_reset_all.exit:                           ; preds = %for.body.i
-  %levels3.i = getelementptr inbounds %struct.HBitmap, ptr %result, i64 0, i32 5
-  %10 = load ptr, ptr %levels3.i, align 8
+  %10 = load ptr, ptr %levels.i, align 8
   store i64 -9223372036854775808, ptr %10, align 8
   br label %return.sink.split
 
@@ -1973,29 +1996,33 @@ if.end21:                                         ; preds = %if.end14
 
 if.then24:                                        ; preds = %if.end21
   %or.cond45 = or i1 %cmp12, %cmp8
-  br i1 %or.cond45, label %if.end29, label %for.body.i59
+  br i1 %or.cond45, label %if.end29, label %if.then28
 
-for.body.i59:                                     ; preds = %if.then24, %for.body.i59
-  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i64, %for.body.i59 ], [ 6, %if.then24 ]
-  %arrayidx.i61 = getelementptr %struct.HBitmap, ptr %result, i64 0, i32 5, i64 %indvars.iv.i60
-  %11 = load ptr, ptr %arrayidx.i61, align 8
-  %arrayidx2.i62 = getelementptr %struct.HBitmap, ptr %result, i64 0, i32 6, i64 %indvars.iv.i60
-  %12 = load i64, ptr %arrayidx2.i62, align 8
-  %mul.i63 = shl i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %mul.i63, i1 false)
-  %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i60, -1
-  %cmp.not.i65 = icmp eq i64 %indvars.iv.next.i64, 0
-  br i1 %cmp.not.i65, label %hbitmap_reset_all.exit68, label %for.body.i59, !llvm.loop !12
+if.then28:                                        ; preds = %if.then24
+  %levels.i59 = getelementptr inbounds i8, ptr %result, i64 40
+  %sizes.i60 = getelementptr inbounds i8, ptr %result, i64 96
+  br label %for.body.i61
 
-hbitmap_reset_all.exit68:                         ; preds = %for.body.i59
-  %levels3.i66 = getelementptr inbounds %struct.HBitmap, ptr %result, i64 0, i32 5
-  %13 = load ptr, ptr %levels3.i66, align 8
+for.body.i61:                                     ; preds = %for.body.i61, %if.then28
+  %indvars.iv.i62 = phi i64 [ 6, %if.then28 ], [ %indvars.iv.next.i66, %for.body.i61 ]
+  %arrayidx.i63 = getelementptr [7 x ptr], ptr %levels.i59, i64 0, i64 %indvars.iv.i62
+  %11 = load ptr, ptr %arrayidx.i63, align 8
+  %arrayidx2.i64 = getelementptr [7 x i64], ptr %sizes.i60, i64 0, i64 %indvars.iv.i62
+  %12 = load i64, ptr %arrayidx2.i64, align 8
+  %mul.i65 = shl i64 %12, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %mul.i65, i1 false)
+  %indvars.iv.next.i66 = add nsw i64 %indvars.iv.i62, -1
+  %cmp.not.i67 = icmp eq i64 %indvars.iv.next.i66, 0
+  br i1 %cmp.not.i67, label %hbitmap_reset_all.exit69, label %for.body.i61, !llvm.loop !12
+
+hbitmap_reset_all.exit69:                         ; preds = %for.body.i61
+  %13 = load ptr, ptr %levels.i59, align 8
   store i64 -9223372036854775808, ptr %13, align 8
-  %count.i67 = getelementptr inbounds %struct.HBitmap, ptr %result, i64 0, i32 2
-  store i64 0, ptr %count.i67, align 8
+  %count.i68 = getelementptr inbounds i8, ptr %result, i64 16
+  store i64 0, ptr %count.i68, align 8
   br label %if.end29
 
-if.end29:                                         ; preds = %hbitmap_reset_all.exit68, %if.then24
+if.end29:                                         ; preds = %hbitmap_reset_all.exit69, %if.then24
   br i1 %cmp12, label %if.end32, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
@@ -2003,13 +2030,13 @@ if.then31:                                        ; preds = %if.end29
   %or.cond.i7.i = icmp sgt i64 %14, -1
   br i1 %or.cond.i7.i, label %if.end.i.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %for.body.i69, %if.then31
+if.else.i.i:                                      ; preds = %for.body.i70, %if.then31
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @__PRETTY_FUNCTION__.hbitmap_next_dirty_area) #11
   unreachable
 
-if.end.i.i:                                       ; preds = %if.then31, %for.body.i69
-  %15 = phi i64 [ %16, %for.body.i69 ], [ %14, %if.then31 ]
-  %storemerge8.i = phi i64 [ %spec.select.i.i, %for.body.i69 ], [ 0, %if.then31 ]
+if.end.i.i:                                       ; preds = %if.then31, %for.body.i70
+  %15 = phi i64 [ %16, %for.body.i70 ], [ %14, %if.then31 ]
+  %storemerge8.i = phi i64 [ %spec.select.i.i, %for.body.i70 ], [ 0, %if.then31 ]
   %cmp5.not.i.i = icmp sgt i64 %15, %storemerge8.i
   br i1 %cmp5.not.i.i, label %if.end7.i.i, label %if.end32
 
@@ -2017,9 +2044,9 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 %15, %storemerge8.i
   %call.i.i = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %a, i64 noundef %storemerge8.i, i64 noundef %sub.i.i), !range !11
   %cmp8.i.i = icmp slt i64 %call.i.i, 0
-  br i1 %cmp8.i.i, label %if.end32, label %for.body.i69
+  br i1 %cmp8.i.i, label %if.end32, label %for.body.i70
 
-for.body.i69:                                     ; preds = %if.end7.i.i
+for.body.i70:                                     ; preds = %if.end7.i.i
   %sub11.i.i = sub nsw i64 %15, %call.i.i
   %call19.i.i = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %a, i64 noundef %call.i.i, i64 noundef %sub11.i.i), !range !11
   %cmp2026.i.i = icmp slt i64 %call19.i.i, 0
@@ -2036,75 +2063,82 @@ if.end32:                                         ; preds = %if.end7.i.i, %if.en
 
 if.then34:                                        ; preds = %if.end32
   %18 = load i64, ptr %b, align 8
-  %or.cond.i7.i70 = icmp sgt i64 %18, -1
-  br i1 %or.cond.i7.i70, label %if.end.i.i72, label %if.else.i.i71
+  %or.cond.i7.i71 = icmp sgt i64 %18, -1
+  br i1 %or.cond.i7.i71, label %if.end.i.i73, label %if.else.i.i72
 
-if.else.i.i71:                                    ; preds = %for.body.i79, %if.then34
+if.else.i.i72:                                    ; preds = %for.body.i80, %if.then34
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @__PRETTY_FUNCTION__.hbitmap_next_dirty_area) #11
   unreachable
 
-if.end.i.i72:                                     ; preds = %if.then34, %for.body.i79
-  %19 = phi i64 [ %20, %for.body.i79 ], [ %18, %if.then34 ]
-  %storemerge8.i73 = phi i64 [ %spec.select.i.i83, %for.body.i79 ], [ 0, %if.then34 ]
-  %cmp5.not.i.i74 = icmp sgt i64 %19, %storemerge8.i73
-  br i1 %cmp5.not.i.i74, label %if.end7.i.i75, label %return
+if.end.i.i73:                                     ; preds = %if.then34, %for.body.i80
+  %19 = phi i64 [ %20, %for.body.i80 ], [ %18, %if.then34 ]
+  %storemerge8.i74 = phi i64 [ %spec.select.i.i84, %for.body.i80 ], [ 0, %if.then34 ]
+  %cmp5.not.i.i75 = icmp sgt i64 %19, %storemerge8.i74
+  br i1 %cmp5.not.i.i75, label %if.end7.i.i76, label %return
 
-if.end7.i.i75:                                    ; preds = %if.end.i.i72
-  %sub.i.i76 = sub nsw i64 %19, %storemerge8.i73
-  %call.i.i77 = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %b, i64 noundef %storemerge8.i73, i64 noundef %sub.i.i76), !range !11
-  %cmp8.i.i78 = icmp slt i64 %call.i.i77, 0
-  br i1 %cmp8.i.i78, label %return, label %for.body.i79
+if.end7.i.i76:                                    ; preds = %if.end.i.i73
+  %sub.i.i77 = sub nsw i64 %19, %storemerge8.i74
+  %call.i.i78 = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %b, i64 noundef %storemerge8.i74, i64 noundef %sub.i.i77), !range !11
+  %cmp8.i.i79 = icmp slt i64 %call.i.i78, 0
+  br i1 %cmp8.i.i79, label %return, label %for.body.i80
 
-for.body.i79:                                     ; preds = %if.end7.i.i75
-  %sub11.i.i80 = sub nsw i64 %19, %call.i.i77
-  %call19.i.i81 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %b, i64 noundef %call.i.i77, i64 noundef %sub11.i.i80), !range !11
-  %cmp2026.i.i82 = icmp slt i64 %call19.i.i81, 0
-  %spec.select.i.i83 = select i1 %cmp2026.i.i82, i64 %19, i64 %call19.i.i81
-  %sub23.i.i84 = sub i64 %spec.select.i.i83, %call.i.i77
-  tail call void @hbitmap_set(ptr noundef nonnull %result, i64 noundef %call.i.i77, i64 noundef %sub23.i.i84)
+for.body.i80:                                     ; preds = %if.end7.i.i76
+  %sub11.i.i81 = sub nsw i64 %19, %call.i.i78
+  %call19.i.i82 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %b, i64 noundef %call.i.i78, i64 noundef %sub11.i.i81), !range !11
+  %cmp2026.i.i83 = icmp slt i64 %call19.i.i82, 0
+  %spec.select.i.i84 = select i1 %cmp2026.i.i83, i64 %19, i64 %call19.i.i82
+  %sub23.i.i85 = sub i64 %spec.select.i.i84, %call.i.i78
+  tail call void @hbitmap_set(ptr noundef nonnull %result, i64 noundef %call.i.i78, i64 noundef %sub23.i.i85)
   %20 = load i64, ptr %b, align 8
-  %21 = or i64 %20, %spec.select.i.i83
-  %or.cond.i.i85 = icmp sgt i64 %21, -1
-  br i1 %or.cond.i.i85, label %if.end.i.i72, label %if.else.i.i71, !llvm.loop !20
+  %21 = or i64 %20, %spec.select.i.i84
+  %or.cond.i.i86 = icmp sgt i64 %21, -1
+  br i1 %or.cond.i.i86, label %if.end.i.i73, label %if.else.i.i72, !llvm.loop !20
 
 if.end36:                                         ; preds = %if.end21
-  %size = getelementptr inbounds %struct.HBitmap, ptr %a, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %a, i64 8
   %22 = load i64, ptr %size, align 8
-  %size37 = getelementptr inbounds %struct.HBitmap, ptr %b, i64 0, i32 1
+  %size37 = getelementptr inbounds i8, ptr %b, i64 8
   %23 = load i64, ptr %size37, align 8
   %cmp38 = icmp eq i64 %22, %23
-  br i1 %cmp38, label %for.cond43.preheader, label %if.else40
+  br i1 %cmp38, label %for.cond.preheader, label %if.else40
+
+for.cond.preheader:                               ; preds = %if.end36
+  %sizes = getelementptr inbounds i8, ptr %a, i64 96
+  %levels = getelementptr inbounds i8, ptr %a, i64 40
+  %levels49 = getelementptr inbounds i8, ptr %b, i64 40
+  %levels53 = getelementptr inbounds i8, ptr %result, i64 40
+  br label %for.cond43.preheader
 
 if.else40:                                        ; preds = %if.end36
   tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 936, ptr noundef nonnull @__PRETTY_FUNCTION__.hbitmap_merge) #11
   unreachable
 
-for.cond43.preheader:                             ; preds = %if.end36, %for.inc57
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc57 ], [ 6, %if.end36 ]
-  %arrayidx = getelementptr %struct.HBitmap, ptr %a, i64 0, i32 6, i64 %indvars.iv
+for.cond43.preheader:                             ; preds = %for.cond.preheader, %for.inc57
+  %indvars.iv = phi i64 [ 6, %for.cond.preheader ], [ %indvars.iv.next, %for.inc57 ]
+  %arrayidx = getelementptr [7 x i64], ptr %sizes, i64 0, i64 %indvars.iv
   %24 = load i64, ptr %arrayidx, align 8
-  %cmp4487.not = icmp eq i64 %24, 0
-  br i1 %cmp4487.not, label %for.inc57, label %for.body45.lr.ph
+  %cmp4488.not = icmp eq i64 %24, 0
+  br i1 %cmp4488.not, label %for.inc57, label %for.body45.lr.ph
 
 for.body45.lr.ph:                                 ; preds = %for.cond43.preheader
-  %arrayidx47 = getelementptr %struct.HBitmap, ptr %a, i64 0, i32 5, i64 %indvars.iv
-  %arrayidx51 = getelementptr %struct.HBitmap, ptr %b, i64 0, i32 5, i64 %indvars.iv
-  %arrayidx55 = getelementptr %struct.HBitmap, ptr %result, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx47 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv
+  %arrayidx51 = getelementptr [7 x ptr], ptr %levels49, i64 0, i64 %indvars.iv
+  %arrayidx55 = getelementptr [7 x ptr], ptr %levels53, i64 0, i64 %indvars.iv
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %for.body45
-  %j.088 = phi i64 [ 0, %for.body45.lr.ph ], [ %inc, %for.body45 ]
+  %j.089 = phi i64 [ 0, %for.body45.lr.ph ], [ %inc, %for.body45 ]
   %25 = load ptr, ptr %arrayidx47, align 8
-  %arrayidx48 = getelementptr i64, ptr %25, i64 %j.088
+  %arrayidx48 = getelementptr i64, ptr %25, i64 %j.089
   %26 = load i64, ptr %arrayidx48, align 8
   %27 = load ptr, ptr %arrayidx51, align 8
-  %arrayidx52 = getelementptr i64, ptr %27, i64 %j.088
+  %arrayidx52 = getelementptr i64, ptr %27, i64 %j.089
   %28 = load i64, ptr %arrayidx52, align 8
   %or = or i64 %28, %26
   %29 = load ptr, ptr %arrayidx55, align 8
-  %arrayidx56 = getelementptr i64, ptr %29, i64 %j.088
+  %arrayidx56 = getelementptr i64, ptr %29, i64 %j.089
   store i64 %or, ptr %arrayidx56, align 8
-  %inc = add nuw i64 %j.088, 1
+  %inc = add nuw i64 %j.089, 1
   %30 = load i64, ptr %arrayidx, align 8
   %cmp44 = icmp ult i64 %inc, %30
   br i1 %cmp44, label %for.body45, label %for.inc57, !llvm.loop !21
@@ -2115,7 +2149,7 @@ for.inc57:                                        ; preds = %for.body45, %for.co
   br i1 %cmp42.not, label %for.end58, label %for.cond43.preheader, !llvm.loop !22
 
 for.end58:                                        ; preds = %for.inc57
-  %size59 = getelementptr inbounds %struct.HBitmap, ptr %result, i64 0, i32 1
+  %size59 = getelementptr inbounds i8, ptr %result, i64 8
   %31 = load i64, ptr %size59, align 8
   %sub = add i64 %31, -1
   %call60 = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %result, i64 noundef 0, i64 noundef %sub)
@@ -2123,11 +2157,11 @@ for.end58:                                        ; preds = %for.inc57
 
 return.sink.split:                                ; preds = %hbitmap_reset_all.exit, %for.end58
   %call60.sink = phi i64 [ %call60, %for.end58 ], [ 0, %hbitmap_reset_all.exit ]
-  %count = getelementptr inbounds %struct.HBitmap, ptr %result, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %call60.sink, ptr %count, align 8
   br label %return
 
-return:                                           ; preds = %if.end7.i.i75, %if.end.i.i72, %return.sink.split, %lor.lhs.false, %if.end7, %if.end32
+return:                                           ; preds = %if.end7.i.i76, %if.end.i.i73, %return.sink.split, %lor.lhs.false, %if.end7, %if.end32
   ret void
 }
 
@@ -2135,10 +2169,10 @@ return:                                           ; preds = %if.end7.i.i75, %if.
 define dso_local ptr @hbitmap_sha256(ptr nocapture noundef readonly %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %hash = alloca ptr, align 8
-  %arrayidx = getelementptr %struct.HBitmap, ptr %bitmap, i64 0, i32 6, i64 6
+  %arrayidx = getelementptr i8, ptr %bitmap, i64 144
   %0 = load i64, ptr %arrayidx, align 8
   %mul = shl i64 %0, 3
-  %arrayidx1 = getelementptr %struct.HBitmap, ptr %bitmap, i64 0, i32 5, i64 6
+  %arrayidx1 = getelementptr i8, ptr %bitmap, i64 88
   %1 = load ptr, ptr %arrayidx1, align 8
   store ptr null, ptr %hash, align 8
   %call = call i32 @qcrypto_hash_digest(i32 noundef 3, ptr noundef %1, i64 noundef %mul, ptr noundef nonnull %hash, ptr noundef %errp) #12

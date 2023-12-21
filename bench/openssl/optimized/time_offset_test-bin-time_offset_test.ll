@@ -57,16 +57,16 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [22 x %struct.TESTDATA], ptr @tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
-  %data1 = getelementptr inbounds %struct.asn1_string_st, ptr %at, i64 0, i32 2
+  %data1 = getelementptr inbounds i8, ptr %at, i64 8
   store ptr %0, ptr %data1, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %at, align 8
-  %type = getelementptr inbounds [22 x %struct.TESTDATA], ptr @tests, i64 0, i64 %idxprom, i32 2
+  %type = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %1 = load i32, ptr %type, align 4
-  %type3 = getelementptr inbounds %struct.asn1_string_st, ptr %at, i64 0, i32 1
+  %type3 = getelementptr inbounds i8, ptr %at, i64 4
   store i32 %1, ptr %type3, align 4
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %at, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %at, i64 16
   store i64 0, ptr %flags, align 8
   %call4 = call i32 @ASN1_TIME_diff(ptr noundef nonnull %day, ptr noundef nonnull %sec, ptr noundef nonnull @the_asn1_time, ptr noundef nonnull %at) #3
   %cmp = icmp ne i32 %call4, 0
@@ -101,7 +101,7 @@ if.else18:                                        ; preds = %if.else14
 
 if.end26:                                         ; preds = %if.else18, %if.else14, %if.else, %if.end
   %ret.0 = phi i32 [ 1, %if.end ], [ -1, %if.else ], [ 1, %if.else14 ], [ %., %if.else18 ]
-  %time_result = getelementptr inbounds [22 x %struct.TESTDATA], ptr @tests, i64 0, i64 %idxprom, i32 1
+  %time_result = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i32, ptr %time_result, align 8
   %call27 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %5, i32 noundef %ret.0) #3
   %tobool28.not = icmp eq i32 %call27, 0

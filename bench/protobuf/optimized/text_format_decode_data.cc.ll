@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"struct.std::pair" = type { i32, %"class.std::__cxx11::basic_string" }
-%"struct.std::_Vector_base<std::pair<int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<int, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::DecodeDataBuilder" = type { i8, i8, i8, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -80,13 +79,13 @@ entry:
   %ref.tmp30 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp32 = alloca %"struct.std::pair", align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<int, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not15 = icmp eq ptr %0, %1
   br i1 %cmp.i.not15, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %i.sroa.0.016, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.016, i64 40
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
 
@@ -141,13 +140,13 @@ lpad:                                             ; preds = %invoke.cont21, %inv
 for.end:                                          ; preds = %for.cond, %entry
   call void @_ZN6google8protobuf8compiler10objectivec20TextFormatDecodeData19DecodeDataForStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %input_for_decode, ptr noundef nonnull align 8 dereferenceable(32) %desired_output)
   store i32 %key, ptr %ref.tmp32, align 8
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp32, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %for.end
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<int, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -155,10 +154,10 @@ invoke.cont34:                                    ; preds = %for.end
 if.then.i.i:                                      ; preds = %invoke.cont34
   %6 = load i32, ptr %ref.tmp32, align 8
   store i32 %6, ptr %4, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i) #17
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   br label %invoke.cont36
 
@@ -345,14 +344,14 @@ cleanup.action74:                                 ; preds = %lpad47, %lpad57
   br label %cleanup.action81
 
 cleanup.done78:                                   ; preds = %land.rhs22, %if.then.i.i26
-  %decode_data_.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::DecodeDataBuilder", ptr %builder, i64 0, i32 4
+  %decode_data_.i = getelementptr inbounds i8, ptr %builder, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decode_data_.i) #17
   store i8 0, ptr %builder, align 8
-  %op_.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::DecodeDataBuilder", ptr %builder, i64 0, i32 2
+  %op_.i.i = getelementptr inbounds i8, ptr %builder, i64 2
   store i8 0, ptr %op_.i.i, align 2
-  %segment_len_.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::DecodeDataBuilder", ptr %builder, i64 0, i32 3
+  %segment_len_.i.i = getelementptr inbounds i8, ptr %builder, i64 4
   store i32 0, ptr %segment_len_.i.i, align 4
-  %is_all_upper_.i.i = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::DecodeDataBuilder", ptr %builder, i64 0, i32 1
+  %is_all_upper_.i.i = getelementptr inbounds i8, ptr %builder, i64 1
   store i8 1, ptr %is_all_upper_.i.i, align 1
   %call83102 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %desired_output) #17
   %cmp103.not = icmp eq i64 %call83102, 0
@@ -695,7 +694,7 @@ entry:
   %data_outputstream = alloca %"class.google::protobuf::io::OstreamOutputStream", align 8
   %output_stream = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %data_stringstream)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<int, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, %1
@@ -708,27 +707,27 @@ if.then:                                          ; preds = %entry
 invoke.cont2:                                     ; preds = %if.then
   %2 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %3 = and i8 %2, 1
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output_stream, i64 0, i32 1
-  %buffer_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 2
+  %cur_.i = getelementptr inbounds i8, ptr %output_stream, i64 64
+  %buffer_.i.i = getelementptr inbounds i8, ptr %output_stream, i64 16
   store ptr %buffer_.i.i, ptr %output_stream, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %output_stream, i64 8
   store ptr %buffer_.i.i, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %output_stream, i64 48
   store ptr %data_outputstream, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %output_stream, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %output_stream, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %output_stream, i64 58
   store i8 %3, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output_stream, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %output_stream, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
   %call2.i3 = invoke noundef i64 @_ZNK6google8protobuf2io19OstreamOutputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(72) %data_outputstream)
           to label %call2.i.noexc unwind label %lpad3
 
 call2.i.noexc:                                    ; preds = %invoke.cont2
-  %start_count_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output_stream, i64 0, i32 2
+  %start_count_.i = getelementptr inbounds i8, ptr %output_stream, i64 72
   store i64 %call2.i3, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
@@ -843,7 +842,7 @@ invoke.cont15:                                    ; preds = %while.body.i.i.i25,
   %incdec.ptr2.i.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i21, i64 1
   store i8 %conv1.i.i.i23, ptr %ptr.addr.i.0.lcssa.i.i21, align 1
   store ptr %incdec.ptr2.i.i.i24, ptr %cur_.i, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %i.sroa.0.044, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %i.sroa.0.044, i64 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #17
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #17
   %18 = load ptr, ptr %cur_.i, align 8
@@ -870,7 +869,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont15
 for.inc:                                          ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i38 = phi ptr [ %add.ptr.i.i.i37, %if.end.i.i.i ], [ %call.i.i.i39, %if.then.i.i.i ]
   store ptr %retval.0.i.i.i38, ptr %cur_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %i.sroa.0.044, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.044, i64 40
   %20 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %20
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !11
@@ -988,7 +987,7 @@ declare void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBuf
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<int, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1025,8 +1024,8 @@ _ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %cond.i10, i64 %sub.ptr.div.i
   %2 = load i32, ptr %__args, align 8
   store i32 %2, ptr %add.ptr, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  %second3.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__args, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i) #17
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i
@@ -1038,18 +1037,18 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %3 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !15, !noalias !12
   store i32 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12
 
@@ -1060,12 +1059,12 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt4pai
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %4 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !21, !noalias !18
   store i32 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !18, !noalias !21
-  %second.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %second.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %second3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i16) #17
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12, !llvm.loop !17
 
@@ -1079,7 +1078,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt4pai
   br label %_ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit
 
 _ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<int, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.std::pair", ptr %cond.i10, i64 %cond.i

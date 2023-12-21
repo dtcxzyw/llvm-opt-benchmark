@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.OpenImageIO_v2_6_0::ustring" = type { ptr }
-%"class.OpenImageIO_v2_6_0::TextureOptions" = type { i32, i32, %"class.OpenImageIO_v2_6_0::ustring", i32, i32, i32, i32, i32, i8, [3 x i8], %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef.0", i32, [4 x i8], %"class.OpenImageIO_v2_6_0::VaryingRef", %"class.OpenImageIO_v2_6_0::VaryingRef" }
-%"class.OpenImageIO_v2_6_0::VaryingRef.0" = type <{ ptr, i32, [4 x i8] }>
-%"class.OpenImageIO_v2_6_0::VaryingRef" = type <{ ptr, i32, [4 x i8] }>
-%"class.OpenImageIO_v2_6_0::TextureOpt" = type { i32, i32, %"class.OpenImageIO_v2_6_0::ustring", i32, i32, i32, i32, i32, i8, float, float, float, float, float, ptr, float, %union.anon.2, i32, i32, float, float, i32, i32 }
-%union.anon.2 = type { float }
 %"class.OpenImageIO_v2_6_0::basic_string_view" = type { ptr, i64 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -47,58 +42,58 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
-  %interpmode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 6
+  %interpmode = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   store i32 3, ptr %interpmode, align 4
-  %anisotropic = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 7
+  %anisotropic = getelementptr inbounds i8, ptr %this, i64 32
   store i32 32, ptr %anisotropic, align 8
-  %conservative_filter = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 8
+  %conservative_filter = getelementptr inbounds i8, ptr %this, i64 36
   store i8 1, ptr %conservative_filter, align 4
-  %sblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 10
+  %sblur = getelementptr inbounds i8, ptr %this, i64 40
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE, ptr %sblur, align 8
-  %m_step.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 10, i32 1
+  %m_step.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %m_step.i.i, align 8
-  %tblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 11
+  %tblur = getelementptr inbounds i8, ptr %this, i64 56
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE, ptr %tblur, align 8
-  %m_step.i.i1 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 11, i32 1
+  %m_step.i.i1 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %m_step.i.i1, align 8
-  %swidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 12
+  %swidth = getelementptr inbounds i8, ptr %this, i64 72
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE, ptr %swidth, align 8
-  %m_step.i.i2 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 12, i32 1
+  %m_step.i.i2 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %m_step.i.i2, align 8
-  %twidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 13
+  %twidth = getelementptr inbounds i8, ptr %this, i64 88
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE, ptr %twidth, align 8
-  %m_step.i.i3 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 13, i32 1
+  %m_step.i.i3 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %m_step.i.i3, align 8
-  %time = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 14
+  %time = getelementptr inbounds i8, ptr %this, i64 104
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_timeE, ptr %time, align 8
-  %m_step.i.i4 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 14, i32 1
+  %m_step.i.i4 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_step.i.i4, align 8
-  %bias = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 15
+  %bias = getelementptr inbounds i8, ptr %this, i64 120
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_biasE, ptr %bias, align 8
-  %m_step.i.i5 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 15, i32 1
+  %m_step.i.i5 = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %m_step.i.i5, align 8
-  %fill = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 16
+  %fill = getelementptr inbounds i8, ptr %this, i64 136
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_fillE, ptr %fill, align 8
-  %m_step.i.i6 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 16, i32 1
+  %m_step.i.i6 = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %m_step.i.i6, align 8
-  %missingcolor = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 17
+  %missingcolor = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %missingcolor, align 8
-  %m_step.i.i7 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 17, i32 1
+  %m_step.i.i7 = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %m_step.i.i7, align 8
-  %samples = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 18
+  %samples = getelementptr inbounds i8, ptr %this, i64 168
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115default_samplesE, ptr %samples, align 8
-  %m_step.i.i8 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 18, i32 1
+  %m_step.i.i8 = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %m_step.i.i8, align 8
-  %rwrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 19
+  %rwrap = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %rwrap, align 8
-  %rblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 21
+  %rblur = getelementptr inbounds i8, ptr %this, i64 192
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE, ptr %rblur, align 8
-  %m_step.i.i9 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 21, i32 1
+  %m_step.i.i9 = getelementptr inbounds i8, ptr %this, i64 200
   store i32 0, ptr %m_step.i.i9, align 8
-  %rwidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 22
+  %rwidth = getelementptr inbounds i8, ptr %this, i64 208
   store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE, ptr %rwidth, align 8
-  %m_step.i.i10 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 22, i32 1
+  %m_step.i.i10 = getelementptr inbounds i8, ptr %this, i64 216
   store i32 0, ptr %m_step.i.i10, align 8
   ret void
 }
@@ -108,98 +103,98 @@ define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2ERKNS_10TextureOptE(ptr no
 entry:
   %0 = load i32, ptr %opt, align 8
   store i32 %0, ptr %this, align 8
-  %subimage = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 1
-  %subimage3 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 1
+  %subimage = getelementptr inbounds i8, ptr %this, i64 4
+  %subimage3 = getelementptr inbounds i8, ptr %opt, i64 4
   %1 = load i32, ptr %subimage3, align 4
   store i32 %1, ptr %subimage, align 4
-  %subimagename = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 2
-  %subimagename4 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 2
+  %subimagename = getelementptr inbounds i8, ptr %this, i64 8
+  %subimagename4 = getelementptr inbounds i8, ptr %opt, i64 8
   %2 = load ptr, ptr %subimagename4, align 8
   store ptr %2, ptr %subimagename, align 8
-  %swrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 3
-  %swrap5 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 3
+  %swrap = getelementptr inbounds i8, ptr %this, i64 16
+  %swrap5 = getelementptr inbounds i8, ptr %opt, i64 16
   %3 = load i32, ptr %swrap5, align 8
   store i32 %3, ptr %swrap, align 8
-  %twrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 4
-  %twrap6 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 4
+  %twrap = getelementptr inbounds i8, ptr %this, i64 20
+  %twrap6 = getelementptr inbounds i8, ptr %opt, i64 20
   %4 = load i32, ptr %twrap6, align 4
   store i32 %4, ptr %twrap, align 4
-  %mipmode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 5
-  %mipmode7 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 5
+  %mipmode = getelementptr inbounds i8, ptr %this, i64 24
+  %mipmode7 = getelementptr inbounds i8, ptr %opt, i64 24
   %5 = load i32, ptr %mipmode7, align 8
   store i32 %5, ptr %mipmode, align 8
-  %interpmode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 6
-  %interpmode8 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 6
+  %interpmode = getelementptr inbounds i8, ptr %this, i64 28
+  %interpmode8 = getelementptr inbounds i8, ptr %opt, i64 28
   %6 = load i32, ptr %interpmode8, align 4
   store i32 %6, ptr %interpmode, align 4
-  %anisotropic = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 7
-  %anisotropic9 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 7
+  %anisotropic = getelementptr inbounds i8, ptr %this, i64 32
+  %anisotropic9 = getelementptr inbounds i8, ptr %opt, i64 32
   %7 = load i32, ptr %anisotropic9, align 8
   store i32 %7, ptr %anisotropic, align 8
-  %conservative_filter = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 8
-  %conservative_filter10 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 8
+  %conservative_filter = getelementptr inbounds i8, ptr %this, i64 36
+  %conservative_filter10 = getelementptr inbounds i8, ptr %opt, i64 36
   %8 = load i8, ptr %conservative_filter10, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %conservative_filter, align 4
-  %sblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 10
-  %sblur11 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 9
+  %sblur = getelementptr inbounds i8, ptr %this, i64 40
+  %sblur11 = getelementptr inbounds i8, ptr %opt, i64 40
   store ptr %sblur11, ptr %sblur, align 8
-  %m_step.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 10, i32 1
+  %m_step.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %m_step.i.i, align 8
-  %tblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 11
-  %tblur12 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 10
+  %tblur = getelementptr inbounds i8, ptr %this, i64 56
+  %tblur12 = getelementptr inbounds i8, ptr %opt, i64 44
   store ptr %tblur12, ptr %tblur, align 8
-  %m_step.i.i21 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 11, i32 1
+  %m_step.i.i21 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %m_step.i.i21, align 8
-  %swidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 12
-  %swidth14 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 11
+  %swidth = getelementptr inbounds i8, ptr %this, i64 72
+  %swidth14 = getelementptr inbounds i8, ptr %opt, i64 48
   store ptr %swidth14, ptr %swidth, align 8
-  %m_step.i.i22 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 12, i32 1
+  %m_step.i.i22 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %m_step.i.i22, align 8
-  %twidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 13
-  %twidth16 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 12
+  %twidth = getelementptr inbounds i8, ptr %this, i64 88
+  %twidth16 = getelementptr inbounds i8, ptr %opt, i64 52
   store ptr %twidth16, ptr %twidth, align 8
-  %m_step.i.i23 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 13, i32 1
+  %m_step.i.i23 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %m_step.i.i23, align 8
-  %time = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 14
-  %time18 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 15
+  %time = getelementptr inbounds i8, ptr %this, i64 104
+  %time18 = getelementptr inbounds i8, ptr %opt, i64 72
   store ptr %time18, ptr %time, align 8
-  %m_step.i.i24 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 14, i32 1
+  %m_step.i.i24 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_step.i.i24, align 8
-  %bias = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 15
-  %10 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 16
+  %bias = getelementptr inbounds i8, ptr %this, i64 120
+  %10 = getelementptr inbounds i8, ptr %opt, i64 76
   store ptr %10, ptr %bias, align 8
-  %m_step.i.i25 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 15, i32 1
+  %m_step.i.i25 = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %m_step.i.i25, align 8
-  %fill = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 16
-  %fill21 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 13
+  %fill = getelementptr inbounds i8, ptr %this, i64 136
+  %fill21 = getelementptr inbounds i8, ptr %opt, i64 56
   store ptr %fill21, ptr %fill, align 8
-  %m_step.i.i26 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 16, i32 1
+  %m_step.i.i26 = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %m_step.i.i26, align 8
-  %missingcolor = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 17
-  %missingcolor23 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 14
+  %missingcolor = getelementptr inbounds i8, ptr %this, i64 152
+  %missingcolor23 = getelementptr inbounds i8, ptr %opt, i64 64
   %11 = load ptr, ptr %missingcolor23, align 8
   store ptr %11, ptr %missingcolor, align 8
-  %m_step.i.i27 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 17, i32 1
+  %m_step.i.i27 = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %m_step.i.i27, align 8
-  %samples = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 18
-  %samples25 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 17
+  %samples = getelementptr inbounds i8, ptr %this, i64 168
+  %samples25 = getelementptr inbounds i8, ptr %opt, i64 80
   store ptr %samples25, ptr %samples, align 8
-  %m_step.i.i28 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 18, i32 1
+  %m_step.i.i28 = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %m_step.i.i28, align 8
-  %rwrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 19
-  %rwrap27 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 18
+  %rwrap = getelementptr inbounds i8, ptr %this, i64 184
+  %rwrap27 = getelementptr inbounds i8, ptr %opt, i64 84
   %12 = load i32, ptr %rwrap27, align 4
   store i32 %12, ptr %rwrap, align 8
-  %rblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 21
-  %rblur28 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 19
+  %rblur = getelementptr inbounds i8, ptr %this, i64 192
+  %rblur28 = getelementptr inbounds i8, ptr %opt, i64 88
   store ptr %rblur28, ptr %rblur, align 8
-  %m_step.i.i29 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 21, i32 1
+  %m_step.i.i29 = getelementptr inbounds i8, ptr %this, i64 200
   store i32 0, ptr %m_step.i.i29, align 8
-  %rwidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 22
-  %rwidth30 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %opt, i64 0, i32 20
+  %rwidth = getelementptr inbounds i8, ptr %this, i64 208
+  %rwidth30 = getelementptr inbounds i8, ptr %opt, i64 92
   store ptr %rwidth30, ptr %rwidth, align 8
-  %m_step.i.i30 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %this, i64 0, i32 22, i32 1
+  %m_step.i.i30 = getelementptr inbounds i8, ptr %this, i64 216
   store i32 0, ptr %m_step.i.i30, align 8
   ret void
 }
@@ -209,155 +204,155 @@ define void @_ZN18OpenImageIO_v2_6_010TextureOptC2ERKNS_14TextureOptionsEi(ptr n
 entry:
   %0 = load i32, ptr %opt, align 8
   store i32 %0, ptr %this, align 8
-  %subimage = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 1
-  %subimage3 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 1
+  %subimage = getelementptr inbounds i8, ptr %this, i64 4
+  %subimage3 = getelementptr inbounds i8, ptr %opt, i64 4
   %1 = load i32, ptr %subimage3, align 4
   store i32 %1, ptr %subimage, align 4
-  %subimagename = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 2
-  %subimagename4 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 2
+  %subimagename = getelementptr inbounds i8, ptr %this, i64 8
+  %subimagename4 = getelementptr inbounds i8, ptr %opt, i64 8
   %2 = load ptr, ptr %subimagename4, align 8
   store ptr %2, ptr %subimagename, align 8
-  %swrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 3
-  %swrap5 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 3
+  %swrap = getelementptr inbounds i8, ptr %this, i64 16
+  %swrap5 = getelementptr inbounds i8, ptr %opt, i64 16
   %3 = load i32, ptr %swrap5, align 8
   store i32 %3, ptr %swrap, align 8
-  %twrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 4
-  %twrap6 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 4
+  %twrap = getelementptr inbounds i8, ptr %this, i64 20
+  %twrap6 = getelementptr inbounds i8, ptr %opt, i64 20
   %4 = load i32, ptr %twrap6, align 4
   store i32 %4, ptr %twrap, align 4
-  %mipmode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 5
-  %mipmode7 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 5
+  %mipmode = getelementptr inbounds i8, ptr %this, i64 24
+  %mipmode7 = getelementptr inbounds i8, ptr %opt, i64 24
   %5 = load i32, ptr %mipmode7, align 8
   store i32 %5, ptr %mipmode, align 8
-  %interpmode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 6
-  %interpmode8 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 6
+  %interpmode = getelementptr inbounds i8, ptr %this, i64 28
+  %interpmode8 = getelementptr inbounds i8, ptr %opt, i64 28
   %6 = load i32, ptr %interpmode8, align 4
   store i32 %6, ptr %interpmode, align 4
-  %anisotropic = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 7
-  %anisotropic9 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 7
+  %anisotropic = getelementptr inbounds i8, ptr %this, i64 32
+  %anisotropic9 = getelementptr inbounds i8, ptr %opt, i64 32
   %7 = load i32, ptr %anisotropic9, align 8
   store i32 %7, ptr %anisotropic, align 8
-  %conservative_filter = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 8
-  %conservative_filter10 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 8
+  %conservative_filter = getelementptr inbounds i8, ptr %this, i64 36
+  %conservative_filter10 = getelementptr inbounds i8, ptr %opt, i64 36
   %8 = load i8, ptr %conservative_filter10, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %conservative_filter, align 4
-  %sblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 9
-  %sblur11 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 10
+  %sblur = getelementptr inbounds i8, ptr %this, i64 40
+  %sblur11 = getelementptr inbounds i8, ptr %opt, i64 40
   %10 = load ptr, ptr %sblur11, align 8
-  %m_step.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 10, i32 1
+  %m_step.i = getelementptr inbounds i8, ptr %opt, i64 48
   %11 = load i32, ptr %m_step.i, align 8
   %mul.i = mul nsw i32 %11, %index
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %idx.ext.i
   %12 = load float, ptr %add.ptr.i, align 4
   store float %12, ptr %sblur, align 8
-  %tblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 10
-  %tblur12 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 11
+  %tblur = getelementptr inbounds i8, ptr %this, i64 44
+  %tblur12 = getelementptr inbounds i8, ptr %opt, i64 56
   %13 = load ptr, ptr %tblur12, align 8
-  %m_step.i32 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 11, i32 1
+  %m_step.i32 = getelementptr inbounds i8, ptr %opt, i64 64
   %14 = load i32, ptr %m_step.i32, align 8
   %mul.i33 = mul nsw i32 %14, %index
   %idx.ext.i34 = sext i32 %mul.i33 to i64
   %add.ptr.i35 = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i34
   %15 = load float, ptr %add.ptr.i35, align 4
   store float %15, ptr %tblur, align 4
-  %swidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 11
-  %swidth15 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 12
+  %swidth = getelementptr inbounds i8, ptr %this, i64 48
+  %swidth15 = getelementptr inbounds i8, ptr %opt, i64 72
   %16 = load ptr, ptr %swidth15, align 8
-  %m_step.i36 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 12, i32 1
+  %m_step.i36 = getelementptr inbounds i8, ptr %opt, i64 80
   %17 = load i32, ptr %m_step.i36, align 8
   %mul.i37 = mul nsw i32 %17, %index
   %idx.ext.i38 = sext i32 %mul.i37 to i64
   %add.ptr.i39 = getelementptr inbounds i8, ptr %16, i64 %idx.ext.i38
   %18 = load float, ptr %add.ptr.i39, align 4
   store float %18, ptr %swidth, align 8
-  %twidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 12
-  %twidth18 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 13
+  %twidth = getelementptr inbounds i8, ptr %this, i64 52
+  %twidth18 = getelementptr inbounds i8, ptr %opt, i64 88
   %19 = load ptr, ptr %twidth18, align 8
-  %m_step.i40 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 13, i32 1
+  %m_step.i40 = getelementptr inbounds i8, ptr %opt, i64 96
   %20 = load i32, ptr %m_step.i40, align 8
   %mul.i41 = mul nsw i32 %20, %index
   %idx.ext.i42 = sext i32 %mul.i41 to i64
   %add.ptr.i43 = getelementptr inbounds i8, ptr %19, i64 %idx.ext.i42
   %21 = load float, ptr %add.ptr.i43, align 4
   store float %21, ptr %twidth, align 4
-  %fill = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 13
-  %fill21 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 16
+  %fill = getelementptr inbounds i8, ptr %this, i64 56
+  %fill21 = getelementptr inbounds i8, ptr %opt, i64 136
   %22 = load ptr, ptr %fill21, align 8
-  %m_step.i44 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 16, i32 1
+  %m_step.i44 = getelementptr inbounds i8, ptr %opt, i64 144
   %23 = load i32, ptr %m_step.i44, align 8
   %mul.i45 = mul nsw i32 %23, %index
   %idx.ext.i46 = sext i32 %mul.i45 to i64
   %add.ptr.i47 = getelementptr inbounds i8, ptr %22, i64 %idx.ext.i46
   %24 = load float, ptr %add.ptr.i47, align 4
   store float %24, ptr %fill, align 8
-  %missingcolor24 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 17
+  %missingcolor24 = getelementptr inbounds i8, ptr %opt, i64 152
   %25 = load ptr, ptr %missingcolor24, align 8
   %tobool27.not = icmp eq ptr %25, null
-  %m_step.i48 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 17, i32 1
+  %m_step.i48 = getelementptr inbounds i8, ptr %opt, i64 160
   %26 = load i32, ptr %m_step.i48, align 8
   %mul.i49 = mul nsw i32 %26, %index
   %idx.ext.i50 = sext i32 %mul.i49 to i64
   %add.ptr.i51 = getelementptr inbounds i8, ptr %25, i64 %idx.ext.i50
   %cond = select i1 %tobool27.not, ptr null, ptr %add.ptr.i51
-  %missingcolor = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 14
+  %missingcolor = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %cond, ptr %missingcolor, align 8
-  %time = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 15
-  %time31 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 14
+  %time = getelementptr inbounds i8, ptr %this, i64 72
+  %time31 = getelementptr inbounds i8, ptr %opt, i64 104
   %27 = load ptr, ptr %time31, align 8
-  %m_step.i52 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 14, i32 1
+  %m_step.i52 = getelementptr inbounds i8, ptr %opt, i64 112
   %28 = load i32, ptr %m_step.i52, align 8
   %mul.i53 = mul nsw i32 %28, %index
   %idx.ext.i54 = sext i32 %mul.i53 to i64
   %add.ptr.i55 = getelementptr inbounds i8, ptr %27, i64 %idx.ext.i54
   %29 = load float, ptr %add.ptr.i55, align 4
   store float %29, ptr %time, align 8
-  %30 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 16
-  %bias = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 15
+  %30 = getelementptr inbounds i8, ptr %this, i64 76
+  %bias = getelementptr inbounds i8, ptr %opt, i64 120
   %31 = load ptr, ptr %bias, align 8
-  %m_step.i56 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 15, i32 1
+  %m_step.i56 = getelementptr inbounds i8, ptr %opt, i64 128
   %32 = load i32, ptr %m_step.i56, align 8
   %mul.i57 = mul nsw i32 %32, %index
   %idx.ext.i58 = sext i32 %mul.i57 to i64
   %add.ptr.i59 = getelementptr inbounds i8, ptr %31, i64 %idx.ext.i58
   %33 = load float, ptr %add.ptr.i59, align 4
   store float %33, ptr %30, align 4
-  %samples = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 17
-  %samples36 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 18
+  %samples = getelementptr inbounds i8, ptr %this, i64 80
+  %samples36 = getelementptr inbounds i8, ptr %opt, i64 168
   %34 = load ptr, ptr %samples36, align 8
-  %m_step.i60 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 18, i32 1
+  %m_step.i60 = getelementptr inbounds i8, ptr %opt, i64 176
   %35 = load i32, ptr %m_step.i60, align 8
   %mul.i61 = mul nsw i32 %35, %index
   %idx.ext.i62 = sext i32 %mul.i61 to i64
   %add.ptr.i63 = getelementptr inbounds i8, ptr %34, i64 %idx.ext.i62
   %36 = load i32, ptr %add.ptr.i63, align 4
   store i32 %36, ptr %samples, align 8
-  %rwrap = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 18
-  %rwrap39 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 19
+  %rwrap = getelementptr inbounds i8, ptr %this, i64 84
+  %rwrap39 = getelementptr inbounds i8, ptr %opt, i64 184
   %37 = load i32, ptr %rwrap39, align 8
   store i32 %37, ptr %rwrap, align 4
-  %rblur = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 19
-  %rblur40 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 21
+  %rblur = getelementptr inbounds i8, ptr %this, i64 88
+  %rblur40 = getelementptr inbounds i8, ptr %opt, i64 192
   %38 = load ptr, ptr %rblur40, align 8
-  %m_step.i64 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 21, i32 1
+  %m_step.i64 = getelementptr inbounds i8, ptr %opt, i64 200
   %39 = load i32, ptr %m_step.i64, align 8
   %mul.i65 = mul nsw i32 %39, %index
   %idx.ext.i66 = sext i32 %mul.i65 to i64
   %add.ptr.i67 = getelementptr inbounds i8, ptr %38, i64 %idx.ext.i66
   %40 = load float, ptr %add.ptr.i67, align 4
   store float %40, ptr %rblur, align 8
-  %rwidth = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 20
-  %rwidth43 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 22
+  %rwidth = getelementptr inbounds i8, ptr %this, i64 92
+  %rwidth43 = getelementptr inbounds i8, ptr %opt, i64 208
   %41 = load ptr, ptr %rwidth43, align 8
-  %m_step.i68 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOptions", ptr %opt, i64 0, i32 22, i32 1
+  %m_step.i68 = getelementptr inbounds i8, ptr %opt, i64 216
   %42 = load i32, ptr %m_step.i68, align 8
   %mul.i69 = mul nsw i32 %42, %index
   %idx.ext.i70 = sext i32 %mul.i69 to i64
   %add.ptr.i71 = getelementptr inbounds i8, ptr %41, i64 %idx.ext.i70
   %43 = load float, ptr %add.ptr.i71, align 4
   store float %43, ptr %rwidth, align 4
-  %envlayout = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TextureOpt", ptr %this, i64 0, i32 22
+  %envlayout = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %envlayout, align 4
   ret void
 }
@@ -523,49 +518,49 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   store ptr @.str, ptr %agg.tmp.i.i, align 8
-  %m_len.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i.i, i64 0, i32 1
+  %m_len.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store i64 7, ptr %m_len.i.i.i, align 8
   %call.i1.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i.i)
   store ptr %call.i1.i, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i2.i)
   store ptr @.str.2, ptr %agg.tmp.i2.i, align 8
-  %m_len.i.i4.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i2.i, i64 0, i32 1
+  %m_len.i.i4.i = getelementptr inbounds i8, ptr %agg.tmp.i2.i, i64 8
   store i64 5, ptr %m_len.i.i4.i, align 8
   %call.i5.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i2.i)
   store ptr %call.i5.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 1), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i2.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i7.i)
   store ptr @.str.3, ptr %agg.tmp.i7.i, align 8
-  %m_len.i.i9.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i7.i, i64 0, i32 1
+  %m_len.i.i9.i = getelementptr inbounds i8, ptr %agg.tmp.i7.i, i64 8
   store i64 5, ptr %m_len.i.i9.i, align 8
   %call.i10.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i7.i)
   store ptr %call.i10.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 2), align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i7.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i12.i)
   store ptr @.str.4, ptr %agg.tmp.i12.i, align 8
-  %m_len.i.i14.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i12.i, i64 0, i32 1
+  %m_len.i.i14.i = getelementptr inbounds i8, ptr %agg.tmp.i12.i, i64 8
   store i64 8, ptr %m_len.i.i14.i, align 8
   %call.i15.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i12.i)
   store ptr %call.i15.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 3), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i12.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i17.i)
   store ptr @.str.5, ptr %agg.tmp.i17.i, align 8
-  %m_len.i.i19.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i17.i, i64 0, i32 1
+  %m_len.i.i19.i = getelementptr inbounds i8, ptr %agg.tmp.i17.i, i64 8
   store i64 6, ptr %m_len.i.i19.i, align 8
   %call.i20.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i17.i)
   store ptr %call.i20.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 4), align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i22.i)
   store ptr @.str.6, ptr %agg.tmp.i22.i, align 8
-  %m_len.i.i24.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i22.i, i64 0, i32 1
+  %m_len.i.i24.i = getelementptr inbounds i8, ptr %agg.tmp.i22.i, i64 8
   store i64 13, ptr %m_len.i.i24.i, align 8
   %call.i25.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i22.i)
   store ptr %call.i25.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 5), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i22.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i27.i)
   store ptr @.str.7, ptr %agg.tmp.i27.i, align 8
-  %m_len.i.i29.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i27.i, i64 0, i32 1
+  %m_len.i.i29.i = getelementptr inbounds i8, ptr %agg.tmp.i27.i, i64 8
   store i64 21, ptr %m_len.i.i29.i, align 8
   %call.i30.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i27.i)
   store ptr %call.i30.i, ptr getelementptr inbounds ([8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 6), align 16

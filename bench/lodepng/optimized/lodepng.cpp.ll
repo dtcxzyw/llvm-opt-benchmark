@@ -13,18 +13,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Hash = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.LodePNGBitWriter = type { ptr, i8 }
 %struct.LodePNGColorMode = type { i32, i32, ptr, i64, i32, i32, i32, i32 }
-%struct.LodePNGInfo = type { i32, i32, i32, %struct.LodePNGColorMode, i32, i32, i32, i32, i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, i32, %struct.LodePNGTime, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, [3 x ptr], [3 x i64] }
-%struct.LodePNGTime = type { i32, i32, i32, i32, i32, i32 }
 %struct.ColorTree = type { [16 x ptr], i32 }
-%struct.LodePNGColorStats = type { i32, i32, i16, i16, i16, i32, i32, [1024 x i8], i32, i64, i32, i32 }
 %struct.LodePNGState = type { %struct.LodePNGDecoderSettings, %struct.LodePNGEncoderSettings, %struct.LodePNGColorMode, %struct.LodePNGInfo, i32 }
 %struct.LodePNGDecoderSettings = type { %struct.LodePNGDecompressSettings, i32, i32, i32, i32, i32, i32, i64, i64 }
 %struct.LodePNGEncoderSettings = type { %struct.LodePNGCompressSettings, i32, i32, i32, ptr, i32, i32, i32 }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%struct.LodePNGInfo = type { i32, i32, i32, %struct.LodePNGColorMode, i32, i32, i32, i32, i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, i32, %struct.LodePNGTime, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, [3 x ptr], [3 x i64] }
+%struct.LodePNGTime = type { i32, i32, i32, i32, i32, i32 }
+%struct.LodePNGColorStats = type { i32, i32, i16, i16, i16, i32, i32, [1024 x i8], i32, i64, i32, i32 }
 %"class.lodepng::State" = type { %struct.LodePNGState }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIhSaIhEE17_M_default_appendEm = comdat any
 
@@ -279,7 +279,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
 if.then9:                                         ; preds = %for.body
   %arrayidx12 = getelementptr inbounds %struct.BPMNode, ptr %call.i, i64 %numpresent.0143
   store i32 %0, ptr %arrayidx12, align 8
-  %index = getelementptr inbounds %struct.BPMNode, ptr %call.i, i64 %numpresent.0143, i32 1
+  %index = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   store i32 %i.0142, ptr %index, align 4
   %inc = add i64 %numpresent.0143, 1
   br label %for.inc
@@ -300,13 +300,13 @@ for.body.preheader.i:                             ; preds = %for.inc
   ]
 
 if.then18:                                        ; preds = %for.body.preheader.i
-  %arrayidx19 = getelementptr inbounds i32, ptr %lengths, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %lengths, i64 4
   store i32 1, ptr %arrayidx19, align 4
   store i32 1, ptr %lengths, align 4
   br label %if.end139
 
 if.then22:                                        ; preds = %for.body.preheader.i
-  %index24 = getelementptr inbounds %struct.BPMNode, ptr %call.i, i64 0, i32 1
+  %index24 = getelementptr inbounds i8, ptr %call.i, i64 4
   %1 = load i32, ptr %index24, align 4
   %idxprom25 = zext i32 %1 to i64
   %arrayidx26 = getelementptr inbounds i32, ptr %lengths, i64 %idxprom25
@@ -400,32 +400,32 @@ for.body.preheader.i.i:                           ; preds = %for.end46.i
 
 _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %for.end46.i, %for.body.preheader.i.i
   tail call void @free(ptr noundef %call.i.i) #34
-  %listsize = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 5
+  %listsize = getelementptr inbounds i8, ptr %lists, i64 32
   store i32 %maxbitlen, ptr %listsize, align 8
   %mul33 = shl i32 %maxbitlen, 1
   %add = add i32 %maxbitlen, 1
   %mul34 = mul i32 %mul33, %add
   store i32 %mul34, ptr %lists, align 8
-  %nextfree = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 3
+  %nextfree = getelementptr inbounds i8, ptr %lists, i64 20
   store i32 0, ptr %nextfree, align 4
-  %numfree = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 2
+  %numfree = getelementptr inbounds i8, ptr %lists, i64 16
   store i32 %mul34, ptr %numfree, align 8
   %conv37 = zext i32 %mul34 to i64
   %mul38 = mul nuw nsw i64 %conv37, 24
   %call.i57 = tail call noalias noundef ptr @malloc(i64 noundef %mul38) #33
-  %memory = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 1
+  %memory = getelementptr inbounds i8, ptr %lists, i64 8
   store ptr %call.i57, ptr %memory, align 8
   %mul42 = shl nuw nsw i64 %conv37, 3
   %call.i58 = tail call noalias noundef ptr @malloc(i64 noundef %mul42) #33
-  %freelist = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 4
+  %freelist = getelementptr inbounds i8, ptr %lists, i64 24
   store ptr %call.i58, ptr %freelist, align 8
   %conv45 = zext i32 %maxbitlen to i64
   %mul46 = shl nuw nsw i64 %conv45, 3
   %call.i59 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #33
-  %chains0 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 6
+  %chains0 = getelementptr inbounds i8, ptr %lists, i64 40
   store ptr %call.i59, ptr %chains0, align 8
   %call.i60 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #33
-  %chains1 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 7
+  %chains1 = getelementptr inbounds i8, ptr %lists, i64 48
   store ptr %call.i60, ptr %chains1, align 8
   %5 = insertelement <4 x ptr> poison, ptr %call.i58, i64 0
   %6 = insertelement <4 x ptr> %5, ptr %call.i57, i64 1
@@ -472,9 +472,9 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
 
 for.body9.i63:                                    ; preds = %for.body4.i, %for.body9.i63
   %node.038.i = phi ptr [ %node.0.i, %for.body9.i63 ], [ %node.036.i, %for.body4.i ]
-  %in_use10.i = getelementptr inbounds %struct.BPMNode, ptr %node.038.i, i64 0, i32 3
+  %in_use10.i = getelementptr inbounds i8, ptr %node.038.i, i64 16
   store i32 1, ptr %in_use10.i, align 8
-  %tail12.i = getelementptr inbounds %struct.BPMNode, ptr %node.038.i, i64 0, i32 2
+  %tail12.i = getelementptr inbounds i8, ptr %node.038.i, i64 8
   %node.0.i = load ptr, ptr %tail12.i, align 8
   %cmp8.not.i = icmp eq ptr %node.0.i, null
   br i1 %cmp8.not.i, label %for.end13.i, label %for.body9.i63, !llvm.loop !17
@@ -487,9 +487,9 @@ for.end13.i:                                      ; preds = %for.body9.i63, %for
 
 for.body18.i:                                     ; preds = %for.end13.i, %for.body18.i
   %node.141.i = phi ptr [ %node.1.i, %for.body18.i ], [ %node.139.i, %for.end13.i ]
-  %in_use19.i = getelementptr inbounds %struct.BPMNode, ptr %node.141.i, i64 0, i32 3
+  %in_use19.i = getelementptr inbounds i8, ptr %node.141.i, i64 16
   store i32 1, ptr %in_use19.i, align 8
-  %tail21.i = getelementptr inbounds %struct.BPMNode, ptr %node.141.i, i64 0, i32 2
+  %tail21.i = getelementptr inbounds i8, ptr %node.141.i, i64 8
   %node.1.i = load ptr, ptr %tail21.i, align 8
   %cmp17.not.i = icmp eq ptr %node.1.i, null
   br i1 %cmp17.not.i, label %for.inc23.i, label %for.body18.i, !llvm.loop !18
@@ -508,11 +508,11 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %_ZL14bpmnode_create
   %16 = phi i32 [ %mul34, %for.end78 ], [ 0, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit.sink.split ]
   %17 = load ptr, ptr %call.i58, align 8
   store i32 %15, ptr %17, align 8
-  %index54.i = getelementptr inbounds %struct.BPMNode, ptr %17, i64 0, i32 1
+  %index54.i = getelementptr inbounds i8, ptr %17, i64 4
   store i32 1, ptr %index54.i, align 4
-  %tail55.i = getelementptr inbounds %struct.BPMNode, ptr %17, i64 0, i32 2
+  %tail55.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr null, ptr %tail55.i, align 8
-  %arrayidx82 = getelementptr inbounds %struct.BPMNode, ptr %call.i, i64 1
+  %arrayidx82 = getelementptr inbounds i8, ptr %call.i, i64 24
   %18 = load i32, ptr %arrayidx82, align 8
   %cmp.not.i70 = icmp ugt i32 %16, 1
   br i1 %cmp.not.i70, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139, label %for.cond.preheader.i71
@@ -541,9 +541,9 @@ for.body4.i87:                                    ; preds = %for.cond2.preheader
 
 for.body9.i93:                                    ; preds = %for.body4.i87, %for.body9.i93
   %node.038.i94 = phi ptr [ %node.0.i97, %for.body9.i93 ], [ %node.036.i91, %for.body4.i87 ]
-  %in_use10.i95 = getelementptr inbounds %struct.BPMNode, ptr %node.038.i94, i64 0, i32 3
+  %in_use10.i95 = getelementptr inbounds i8, ptr %node.038.i94, i64 16
   store i32 1, ptr %in_use10.i95, align 8
-  %tail12.i96 = getelementptr inbounds %struct.BPMNode, ptr %node.038.i94, i64 0, i32 2
+  %tail12.i96 = getelementptr inbounds i8, ptr %node.038.i94, i64 8
   %node.0.i97 = load ptr, ptr %tail12.i96, align 8
   %cmp8.not.i98 = icmp eq ptr %node.0.i97, null
   br i1 %cmp8.not.i98, label %for.end13.i99, label %for.body9.i93, !llvm.loop !17
@@ -556,9 +556,9 @@ for.end13.i99:                                    ; preds = %for.body9.i93, %for
 
 for.body18.i103:                                  ; preds = %for.end13.i99, %for.body18.i103
   %node.141.i104 = phi ptr [ %node.1.i107, %for.body18.i103 ], [ %node.139.i101, %for.end13.i99 ]
-  %in_use19.i105 = getelementptr inbounds %struct.BPMNode, ptr %node.141.i104, i64 0, i32 3
+  %in_use19.i105 = getelementptr inbounds i8, ptr %node.141.i104, i64 16
   store i32 1, ptr %in_use19.i105, align 8
-  %tail21.i106 = getelementptr inbounds %struct.BPMNode, ptr %node.141.i104, i64 0, i32 2
+  %tail21.i106 = getelementptr inbounds i8, ptr %node.141.i104, i64 8
   %node.1.i107 = load ptr, ptr %tail21.i106, align 8
   %cmp17.not.i108 = icmp eq ptr %node.1.i107, null
   br i1 %cmp17.not.i108, label %for.inc23.i109, label %for.body18.i103, !llvm.loop !18
@@ -573,50 +573,50 @@ for.end25.i114:                                   ; preds = %for.inc23.i109, %fo
   %cmp29.not44.i115 = icmp eq i32 %mul34, 0
   br i1 %cmp29.not44.i115, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139, label %for.body30.i119
 
-for.body30.i119:                                  ; preds = %for.end25.i114, %for.inc43.i124
-  %19 = phi i32 [ %21, %for.inc43.i124 ], [ 0, %for.end25.i114 ]
-  %i.245.i120 = phi i32 [ %inc44.i125, %for.inc43.i124 ], [ 0, %for.end25.i114 ]
+for.body30.i119:                                  ; preds = %for.end25.i114, %for.inc43.i125
+  %19 = phi i32 [ %21, %for.inc43.i125 ], [ 0, %for.end25.i114 ]
+  %i.245.i120 = phi i32 [ %inc44.i126, %for.inc43.i125 ], [ 0, %for.end25.i114 ]
   %idxprom32.i121 = zext i32 %i.245.i120 to i64
-  %in_use34.i122 = getelementptr inbounds %struct.BPMNode, ptr %call.i57, i64 %idxprom32.i121, i32 3
-  %20 = load i32, ptr %in_use34.i122, align 8
-  %tobool.not.i123 = icmp eq i32 %20, 0
-  br i1 %tobool.not.i123, label %if.then35.i133, label %for.inc43.i124
+  %arrayidx33.i122 = getelementptr inbounds %struct.BPMNode, ptr %call.i57, i64 %idxprom32.i121
+  %in_use34.i123 = getelementptr inbounds i8, ptr %arrayidx33.i122, i64 16
+  %20 = load i32, ptr %in_use34.i123, align 8
+  %tobool.not.i124 = icmp eq i32 %20, 0
+  br i1 %tobool.not.i124, label %if.then35.i134, label %for.inc43.i125
 
-if.then35.i133:                                   ; preds = %for.body30.i119
-  %arrayidx33.i134 = getelementptr inbounds %struct.BPMNode, ptr %call.i57, i64 %idxprom32.i121
+if.then35.i134:                                   ; preds = %for.body30.i119
   %inc40.i135 = add i32 %19, 1
   %idxprom41.i136 = zext i32 %19 to i64
   %arrayidx42.i137 = getelementptr inbounds ptr, ptr %call.i58, i64 %idxprom41.i136
-  store ptr %arrayidx33.i134, ptr %arrayidx42.i137, align 8
-  br label %for.inc43.i124
+  store ptr %arrayidx33.i122, ptr %arrayidx42.i137, align 8
+  br label %for.inc43.i125
 
-for.inc43.i124:                                   ; preds = %if.then35.i133, %for.body30.i119
-  %21 = phi i32 [ %19, %for.body30.i119 ], [ %inc40.i135, %if.then35.i133 ]
-  %inc44.i125 = add i32 %i.245.i120, 1
-  %cmp29.not.i126 = icmp eq i32 %inc44.i125, %mul34
-  br i1 %cmp29.not.i126, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139.loopexit, label %for.body30.i119, !llvm.loop !21
+for.inc43.i125:                                   ; preds = %if.then35.i134, %for.body30.i119
+  %21 = phi i32 [ %19, %for.body30.i119 ], [ %inc40.i135, %if.then35.i134 ]
+  %inc44.i126 = add i32 %i.245.i120, 1
+  %cmp29.not.i127 = icmp eq i32 %inc44.i126, %mul34
+  br i1 %cmp29.not.i127, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139.loopexit, label %for.body30.i119, !llvm.loop !21
 
-_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139.loopexit: ; preds = %for.inc43.i124
+_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139.loopexit: ; preds = %for.inc43.i125
   store i32 %21, ptr %numfree, align 8
   br label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139
 
 _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139: ; preds = %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139.loopexit, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit, %for.end25.i114
   %22 = phi i32 [ 1, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit ], [ 0, %for.end25.i114 ], [ 0, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139.loopexit ]
-  %inc50.i128 = add nuw nsw i32 %22, 1
-  store i32 %inc50.i128, ptr %nextfree, align 4
-  %idxprom51.i129 = zext nneg i32 %22 to i64
-  %arrayidx52.i130 = getelementptr inbounds ptr, ptr %call.i58, i64 %idxprom51.i129
-  %23 = load ptr, ptr %arrayidx52.i130, align 8
+  %inc50.i129 = add nuw nsw i32 %22, 1
+  store i32 %inc50.i129, ptr %nextfree, align 4
+  %idxprom51.i130 = zext nneg i32 %22 to i64
+  %arrayidx52.i131 = getelementptr inbounds ptr, ptr %call.i58, i64 %idxprom51.i130
+  %23 = load ptr, ptr %arrayidx52.i131, align 8
   store i32 %18, ptr %23, align 8
-  %index54.i131 = getelementptr inbounds %struct.BPMNode, ptr %23, i64 0, i32 1
-  store i32 2, ptr %index54.i131, align 4
-  %tail55.i132 = getelementptr inbounds %struct.BPMNode, ptr %23, i64 0, i32 2
-  store ptr null, ptr %tail55.i132, align 8
+  %index54.i132 = getelementptr inbounds i8, ptr %23, i64 4
+  store i32 2, ptr %index54.i132, align 4
+  %tail55.i133 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr null, ptr %tail55.i133, align 8
   %cmp87.not147 = icmp eq i32 %maxbitlen, 0
   br i1 %cmp87.not147, label %for.cond102.preheader, label %for.body88.lr.ph
 
 for.body88.lr.ph:                                 ; preds = %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139
-  %arrayidx95 = getelementptr inbounds %struct.BPMNode, ptr %call.i57, i64 1
+  %arrayidx95 = getelementptr inbounds i8, ptr %call.i57, i64 24
   br label %for.body88
 
 for.cond102.preheader:                            ; preds = %for.body88, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit139
@@ -658,7 +658,7 @@ for.end110:                                       ; preds = %for.cond102.prehead
 
 for.cond118.preheader:                            ; preds = %for.end110, %for.inc131
   %node.0155 = phi ptr [ %node.0, %for.inc131 ], [ %node.0153, %for.end110 ]
-  %index119 = getelementptr inbounds %struct.BPMNode, ptr %node.0155, i64 0, i32 1
+  %index119 = getelementptr inbounds i8, ptr %node.0155, i64 4
   %25 = load i32, ptr %index119, align 4
   %cmp120.not151 = icmp eq i32 %25, 0
   br i1 %cmp120.not151, label %for.inc131, label %for.body121
@@ -679,7 +679,7 @@ for.body121:                                      ; preds = %for.cond118.prehead
   br i1 %cmp120.not, label %for.inc131, label %for.body121, !llvm.loop !24
 
 for.inc131:                                       ; preds = %for.body121, %for.cond118.preheader
-  %tail = getelementptr inbounds %struct.BPMNode, ptr %node.0155, i64 0, i32 2
+  %tail = getelementptr inbounds i8, ptr %node.0155, i64 8
   %node.0 = load ptr, ptr %tail, align 8
   %tobool116.not = icmp eq ptr %node.0, null
   br i1 %tobool116.not, label %if.end133, label %for.cond118.preheader, !llvm.loop !25
@@ -708,9 +708,9 @@ return:                                           ; preds = %if.end3, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @_ZL14bpmnode_createP8BPMListsijP7BPMNode(ptr nocapture noundef %lists, i32 noundef %weight, i32 noundef %index, ptr noundef %tail) unnamed_addr #3 {
 entry:
-  %nextfree = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 3
+  %nextfree = getelementptr inbounds i8, ptr %lists, i64 20
   %0 = load i32, ptr %nextfree, align 4
-  %numfree = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 2
+  %numfree = getelementptr inbounds i8, ptr %lists, i64 16
   %1 = load i32, ptr %numfree, align 8
   %cmp.not = icmp ult i32 %0, %1
   br i1 %cmp.not, label %if.end47, label %for.cond.preheader
@@ -721,19 +721,19 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp1.not34, label %for.cond2.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %memory = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 1
+  %memory = getelementptr inbounds i8, ptr %lists, i64 8
   br label %for.body
 
 for.cond2.preheader:                              ; preds = %for.body, %for.cond.preheader
   %3 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.body ]
-  %listsize = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 5
+  %listsize = getelementptr inbounds i8, ptr %lists, i64 32
   %4 = load i32, ptr %listsize, align 8
   %cmp3.not42 = icmp eq i32 %4, 0
   br i1 %cmp3.not42, label %for.end25, label %for.body4.lr.ph
 
 for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
-  %chains0 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 6
-  %chains1 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 7
+  %chains0 = getelementptr inbounds i8, ptr %lists, i64 40
+  %chains1 = getelementptr inbounds i8, ptr %lists, i64 48
   br label %for.body4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -758,9 +758,9 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
 
 for.body9:                                        ; preds = %for.body4, %for.body9
   %node.038 = phi ptr [ %node.0, %for.body9 ], [ %node.036, %for.body4 ]
-  %in_use10 = getelementptr inbounds %struct.BPMNode, ptr %node.038, i64 0, i32 3
+  %in_use10 = getelementptr inbounds i8, ptr %node.038, i64 16
   store i32 1, ptr %in_use10, align 8
-  %tail12 = getelementptr inbounds %struct.BPMNode, ptr %node.038, i64 0, i32 2
+  %tail12 = getelementptr inbounds i8, ptr %node.038, i64 8
   %node.0 = load ptr, ptr %tail12, align 8
   %cmp8.not = icmp eq ptr %node.0, null
   br i1 %cmp8.not, label %for.end13, label %for.body9, !llvm.loop !17
@@ -774,9 +774,9 @@ for.end13:                                        ; preds = %for.body9, %for.bod
 
 for.body18:                                       ; preds = %for.end13, %for.body18
   %node.141 = phi ptr [ %node.1, %for.body18 ], [ %node.139, %for.end13 ]
-  %in_use19 = getelementptr inbounds %struct.BPMNode, ptr %node.141, i64 0, i32 3
+  %in_use19 = getelementptr inbounds i8, ptr %node.141, i64 16
   store i32 1, ptr %in_use19, align 8
-  %tail21 = getelementptr inbounds %struct.BPMNode, ptr %node.141, i64 0, i32 2
+  %tail21 = getelementptr inbounds i8, ptr %node.141, i64 8
   %node.1 = load ptr, ptr %tail21, align 8
   %cmp17.not = icmp eq ptr %node.1, null
   br i1 %cmp17.not, label %for.inc23, label %for.body18, !llvm.loop !18
@@ -798,8 +798,8 @@ for.end25:                                        ; preds = %for.end25.loopexit,
   br i1 %cmp29.not44, label %if.end47, label %for.body30.lr.ph
 
 for.body30.lr.ph:                                 ; preds = %for.end25
-  %memory31 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 1
-  %freelist = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 4
+  %memory31 = getelementptr inbounds i8, ptr %lists, i64 8
+  %freelist = getelementptr inbounds i8, ptr %lists, i64 24
   br label %for.body30
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.inc43
@@ -807,13 +807,13 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   %i.245 = phi i32 [ 0, %for.body30.lr.ph ], [ %inc44, %for.inc43 ]
   %12 = load ptr, ptr %memory31, align 8
   %idxprom32 = zext i32 %i.245 to i64
-  %in_use34 = getelementptr inbounds %struct.BPMNode, ptr %12, i64 %idxprom32, i32 3
+  %arrayidx33 = getelementptr inbounds %struct.BPMNode, ptr %12, i64 %idxprom32
+  %in_use34 = getelementptr inbounds i8, ptr %arrayidx33, i64 16
   %13 = load i32, ptr %in_use34, align 8
   %tobool.not = icmp eq i32 %13, 0
   br i1 %tobool.not, label %if.then35, label %for.inc43
 
 if.then35:                                        ; preds = %for.body30
-  %arrayidx33 = getelementptr inbounds %struct.BPMNode, ptr %12, i64 %idxprom32
   %14 = load ptr, ptr %freelist, align 8
   %15 = load i32, ptr %numfree, align 8
   %inc40 = add i32 %15, 1
@@ -832,7 +832,7 @@ for.inc43:                                        ; preds = %for.body30, %if.the
 
 if.end47:                                         ; preds = %for.inc43, %for.end25, %entry
   %17 = phi i32 [ %0, %entry ], [ 0, %for.end25 ], [ 0, %for.inc43 ]
-  %freelist48 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 4
+  %freelist48 = getelementptr inbounds i8, ptr %lists, i64 24
   %18 = load ptr, ptr %freelist48, align 8
   %inc50 = add nuw i32 %17, 1
   store i32 %inc50, ptr %nextfree, align 4
@@ -840,9 +840,9 @@ if.end47:                                         ; preds = %for.inc43, %for.end
   %arrayidx52 = getelementptr inbounds ptr, ptr %18, i64 %idxprom51
   %19 = load ptr, ptr %arrayidx52, align 8
   store i32 %weight, ptr %19, align 8
-  %index54 = getelementptr inbounds %struct.BPMNode, ptr %19, i64 0, i32 1
+  %index54 = getelementptr inbounds i8, ptr %19, i64 4
   store i32 %index, ptr %index54, align 4
-  %tail55 = getelementptr inbounds %struct.BPMNode, ptr %19, i64 0, i32 2
+  %tail55 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %tail, ptr %tail55, align 8
   ret ptr %19
 }
@@ -850,18 +850,18 @@ if.end47:                                         ; preds = %for.inc43, %for.end
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr nocapture noundef %lists, ptr nocapture noundef readonly %leaves, i64 noundef %numpresent, i32 noundef %c, i32 noundef %num) unnamed_addr #4 {
 entry:
-  %chains1 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 7
+  %chains1 = getelementptr inbounds i8, ptr %lists, i64 48
   %0 = load ptr, ptr %chains1, align 8
   %idxprom60 = sext i32 %c to i64
   %arrayidx61 = getelementptr inbounds ptr, ptr %0, i64 %idxprom60
   %1 = load ptr, ptr %arrayidx61, align 8
-  %index62 = getelementptr inbounds %struct.BPMNode, ptr %1, i64 0, i32 1
+  %index62 = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %index62, align 4
   %cmp63 = icmp eq i32 %c, 0
   br i1 %cmp63, label %if.then, label %if.else.lr.ph
 
 if.else.lr.ph:                                    ; preds = %entry
-  %chains013 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 6
+  %chains013 = getelementptr inbounds i8, ptr %lists, i64 40
   %add56 = add i32 %num, 1
   %numpresent.tr = trunc i64 %numpresent to i32
   %3 = shl i32 %numpresent.tr, 1
@@ -908,7 +908,7 @@ if.end47.us:                                      ; preds = %land.lhs.true.us, %
   %17 = load ptr, ptr %chains1, align 8
   %arrayidx.us = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.next
   %18 = load ptr, ptr %arrayidx.us, align 8
-  %index.us = getelementptr inbounds %struct.BPMNode, ptr %18, i64 0, i32 1
+  %index.us = getelementptr inbounds i8, ptr %18, i64 4
   %19 = load i32, ptr %index.us, align 4
   %cmp.us = icmp eq i32 %16, 0
   br i1 %cmp.us, label %if.then, label %if.else.us
@@ -922,7 +922,7 @@ if.then:                                          ; preds = %if.end47.us, %entry
   br i1 %cmp1.not, label %if.end, label %if.end64
 
 if.end:                                           ; preds = %if.then
-  %chains0 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 6
+  %chains0 = getelementptr inbounds i8, ptr %lists, i64 40
   %20 = load ptr, ptr %chains0, align 8
   %arrayidx7 = getelementptr inbounds ptr, ptr %20, i64 %idxprom.lcssa
   store ptr %.lcssa53, ptr %arrayidx7, align 8
@@ -963,7 +963,7 @@ if.then35:                                        ; preds = %land.lhs.true.us, %
   %28 = load ptr, ptr %chains1, align 8
   %arrayidx42 = getelementptr inbounds ptr, ptr %28, i64 %.us-phi69
   %29 = load ptr, ptr %arrayidx42, align 8
-  %tail = getelementptr inbounds %struct.BPMNode, ptr %29, i64 0, i32 2
+  %tail = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %tail, align 8
   %call43 = tail call fastcc noundef ptr @_ZL14bpmnode_createP8BPMListsijP7BPMNode(ptr noundef nonnull %lists, i32 noundef %.us-phi71, i32 noundef %add39, ptr noundef %30)
   br label %if.end64.sink.split
@@ -994,9 +994,9 @@ entry:
   %0 = load ptr, ptr %out, align 8
   %1 = load i64, ptr %outsize, align 8
   store ptr %0, ptr %v, align 8, !alias.scope !26
-  %size1.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %v, i64 8
   store i64 %1, ptr %size1.i, align 8, !alias.scope !26
-  %allocsize.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 2
+  %allocsize.i = getelementptr inbounds i8, ptr %v, i64 16
   store i64 %1, ptr %allocsize.i, align 8, !alias.scope !26
   %call = call fastcc noundef i32 @_ZL16lodepng_inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v, ptr noundef %in, i64 noundef %insize, ptr noundef %settings)
   %2 = load ptr, ptr %v, align 8
@@ -1019,23 +1019,23 @@ entry:
   br i1 %or.cond.i, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry
-  %ignore_nlen.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 1
-  %size23.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
-  %max_output_size = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 2
-  %table_len.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i, i64 0, i32 4
-  %table_len.i64.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i, i64 0, i32 4
-  %table_len.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 4
-  %lengths.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 1
-  %numcodes6.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 3
-  %maxbitlen7.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 2
-  %table_value.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 5
-  %lengths.i.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i, i64 0, i32 1
-  %numcodes6.i.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i, i64 0, i32 3
-  %maxbitlen7.i.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i, i64 0, i32 2
-  %table_value.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i, i64 0, i32 5
-  %table_value.i212.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i, i64 0, i32 5
-  %lengths.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i, i64 0, i32 1
+  %ignore_nlen.i = getelementptr inbounds i8, ptr %settings, i64 4
+  %size23.i = getelementptr inbounds i8, ptr %out, i64 8
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
+  %max_output_size = getelementptr inbounds i8, ptr %settings, i64 8
+  %table_len.i.i = getelementptr inbounds i8, ptr %tree_ll.i, i64 24
+  %table_len.i64.i = getelementptr inbounds i8, ptr %tree_d.i, i64 24
+  %table_len.i.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 24
+  %lengths.i.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 8
+  %numcodes6.i.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 20
+  %maxbitlen7.i.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 16
+  %table_value.i.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 32
+  %lengths.i.i.i.i = getelementptr inbounds i8, ptr %tree_d.i, i64 8
+  %numcodes6.i.i.i.i = getelementptr inbounds i8, ptr %tree_d.i, i64 20
+  %maxbitlen7.i.i.i.i = getelementptr inbounds i8, ptr %tree_d.i, i64 16
+  %table_value.i.i = getelementptr inbounds i8, ptr %tree_ll.i, i64 32
+  %table_value.i212.i = getelementptr inbounds i8, ptr %tree_d.i, i64 32
+  %lengths.i.i = getelementptr inbounds i8, ptr %tree_ll.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end22
@@ -1668,7 +1668,7 @@ while.end.i.i:                                    ; preds = %while.cond39.i.i
   br i1 %tobool157.not.i.i, label %if.end159.i.i, label %while.end169.i.i
 
 if.end159.i.i:                                    ; preds = %while.end.i.i
-  %arrayidx160.i.i = getelementptr inbounds i32, ptr %call.i133.i.i, i64 256
+  %arrayidx160.i.i = getelementptr inbounds i8, ptr %call.i133.i.i, i64 1024
   %57 = load i32, ptr %arrayidx160.i.i, align 4
   %cmp161.i.i = icmp eq i32 %57, 0
   br i1 %cmp161.i.i, label %while.end169.i.i, label %if.end163.i.i
@@ -2336,14 +2336,14 @@ entry:
   %0 = load ptr, ptr %out, align 8
   %1 = load i64, ptr %outsize, align 8
   store ptr %0, ptr %v, align 8, !alias.scope !58
-  %size1.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %v, i64 8
   store i64 %1, ptr %size1.i, align 8, !alias.scope !58
-  %allocsize.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 2
+  %allocsize.i = getelementptr inbounds i8, ptr %v, i64 16
   store i64 %1, ptr %allocsize.i, align 8, !alias.scope !58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %hash.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %writer.i)
   store ptr %v, ptr %writer.i, align 8
-  %bp.i.i = getelementptr inbounds %struct.LodePNGBitWriter, ptr %writer.i, i64 0, i32 1
+  %bp.i.i = getelementptr inbounds i8, ptr %writer.i, i64 8
   store i8 0, ptr %bp.i.i, align 8
   %2 = load i32, ptr %settings, align 8
   %cmp.i = icmp ugt i32 %2, 2
@@ -2456,27 +2456,27 @@ if.end16.i:                                       ; preds = %if.else8.i, %if.els
   %div18.i = udiv i64 %sub.i, %blocksize.0.i
   %cmp19.i = icmp ugt i64 %blocksize.0.i, %sub.i
   %spec.store.select1.i = select i1 %cmp19.i, i64 1, i64 %div18.i
-  %windowsize.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 2
+  %windowsize.i = getelementptr inbounds i8, ptr %settings, i64 8
   %17 = load i32, ptr %windowsize.i, align 8
   %call.i.i.i = call noalias noundef dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #33
   store ptr %call.i.i.i, ptr %hash.i, align 8
   %conv.i.i = zext i32 %17 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %call.i39.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i.i) #33
-  %val.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 2
+  %val.i.i = getelementptr inbounds i8, ptr %hash.i, i64 16
   store ptr %call.i39.i.i, ptr %val.i.i, align 8
   %mul3.i.i = shl nuw nsw i64 %conv.i.i, 1
   %call.i40.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #33
-  %chain.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 1
+  %chain.i.i = getelementptr inbounds i8, ptr %hash.i, i64 8
   store ptr %call.i40.i.i, ptr %chain.i.i, align 8
   %call.i41.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #33
-  %zeros.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 5
+  %zeros.i.i = getelementptr inbounds i8, ptr %hash.i, i64 40
   store ptr %call.i41.i.i, ptr %zeros.i.i, align 8
   %call.i42.i.i = call noalias noundef dereferenceable_or_null(1036) ptr @malloc(i64 noundef 1036) #33
-  %headz.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 3
+  %headz.i.i = getelementptr inbounds i8, ptr %hash.i, i64 24
   store ptr %call.i42.i.i, ptr %headz.i.i, align 8
   %call.i43.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #33
-  %chainz.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 4
+  %chainz.i.i = getelementptr inbounds i8, ptr %hash.i, i64 32
   store ptr %call.i43.i.i, ptr %chainz.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   %tobool14.not.i.i = icmp eq ptr %call.i40.i.i, null
@@ -2534,33 +2534,33 @@ _ZL9hash_initP4Hashj.exit.i:                      ; preds = %for.body58.i.i, %fo
 
 for.body.lr.ph.i:                                 ; preds = %_ZL9hash_initP4Hashj.exit.i
   %sub26.i = add i64 %spec.store.select1.i, -1
-  %table_len.i.i55.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i52.i, i64 0, i32 4
-  %table_len.i160.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i53.i, i64 0, i32 4
-  %table_len.i161.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 4
-  %use_lz77.i59.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 1
-  %minmatch.i63.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 3
-  %nicematch.i64.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 4
-  %lazymatching.i65.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 5
-  %size.phi.trans.insert.i.i = getelementptr inbounds %struct.uivector, ptr %lz77_encoded.i51.i, i64 0, i32 1
-  %allocsize1.i.i.i = getelementptr inbounds %struct.uivector, ptr %lz77_encoded.i51.i, i64 0, i32 2
-  %lengths.i.i69.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i52.i, i64 0, i32 1
-  %maxbitlen3.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i52.i, i64 0, i32 2
-  %numcodes4.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i52.i, i64 0, i32 3
-  %lengths.i179.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i53.i, i64 0, i32 1
-  %maxbitlen3.i182.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i53.i, i64 0, i32 2
-  %numcodes4.i184.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i53.i, i64 0, i32 3
-  %lengths188.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 1
-  %table_value.i.i58.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i52.i, i64 0, i32 5
-  %table_value.i314.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i53.i, i64 0, i32 5
-  %table_value.i317.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_cl.i.i, i64 0, i32 5
-  %table_len.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i.i, i64 0, i32 4
-  %table_len.i21.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i.i, i64 0, i32 4
-  %lengths.i.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i.i, i64 0, i32 1
-  %numcodes6.i.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i.i, i64 0, i32 3
-  %maxbitlen7.i.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i.i, i64 0, i32 2
-  %lengths.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i.i, i64 0, i32 1
-  %table_value.i.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll.i.i, i64 0, i32 5
-  %table_value.i138.i.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d.i.i, i64 0, i32 5
+  %table_len.i.i55.i = getelementptr inbounds i8, ptr %tree_ll.i52.i, i64 24
+  %table_len.i160.i.i = getelementptr inbounds i8, ptr %tree_d.i53.i, i64 24
+  %table_len.i161.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 24
+  %use_lz77.i59.i = getelementptr inbounds i8, ptr %settings, i64 4
+  %minmatch.i63.i = getelementptr inbounds i8, ptr %settings, i64 12
+  %nicematch.i64.i = getelementptr inbounds i8, ptr %settings, i64 16
+  %lazymatching.i65.i = getelementptr inbounds i8, ptr %settings, i64 20
+  %size.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %lz77_encoded.i51.i, i64 8
+  %allocsize1.i.i.i = getelementptr inbounds i8, ptr %lz77_encoded.i51.i, i64 16
+  %lengths.i.i69.i = getelementptr inbounds i8, ptr %tree_ll.i52.i, i64 8
+  %maxbitlen3.i.i.i = getelementptr inbounds i8, ptr %tree_ll.i52.i, i64 16
+  %numcodes4.i.i.i = getelementptr inbounds i8, ptr %tree_ll.i52.i, i64 20
+  %lengths.i179.i.i = getelementptr inbounds i8, ptr %tree_d.i53.i, i64 8
+  %maxbitlen3.i182.i.i = getelementptr inbounds i8, ptr %tree_d.i53.i, i64 16
+  %numcodes4.i184.i.i = getelementptr inbounds i8, ptr %tree_d.i53.i, i64 20
+  %lengths188.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 8
+  %table_value.i.i58.i = getelementptr inbounds i8, ptr %tree_ll.i52.i, i64 32
+  %table_value.i314.i.i = getelementptr inbounds i8, ptr %tree_d.i53.i, i64 32
+  %table_value.i317.i.i = getelementptr inbounds i8, ptr %tree_cl.i.i, i64 32
+  %table_len.i.i.i = getelementptr inbounds i8, ptr %tree_ll.i.i, i64 24
+  %table_len.i21.i.i = getelementptr inbounds i8, ptr %tree_d.i.i, i64 24
+  %lengths.i.i.i.i = getelementptr inbounds i8, ptr %tree_d.i.i, i64 8
+  %numcodes6.i.i.i.i = getelementptr inbounds i8, ptr %tree_d.i.i, i64 20
+  %maxbitlen7.i.i.i.i = getelementptr inbounds i8, ptr %tree_d.i.i, i64 16
+  %lengths.i.i = getelementptr inbounds i8, ptr %tree_ll.i.i, i64 8
+  %table_value.i.i.i = getelementptr inbounds i8, ptr %tree_ll.i.i, i64 32
+  %table_value.i138.i.i = getelementptr inbounds i8, ptr %tree_d.i.i, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2628,11 +2628,11 @@ if.then3.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %cmp1.i.i.i, label %if.then2.i.i.i, label %if.end9.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then3.i.i
-  %size.i.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 1
+  %size.i.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 8
   %21 = load i64, ptr %size.i.i.i, align 8
   %add.i.i.i = add i64 %21, 1
   store i64 %add.i.i.i, ptr %size.i.i.i, align 8
-  %allocsize.i.i.i.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 2
+  %allocsize.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 16
   %22 = load i64, ptr %allocsize.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %22, %add.i.i.i
   %.pre153.i = load ptr, ptr %.pre155.i, align 8
@@ -2663,7 +2663,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.t
   %and12.i.i.i = zext nneg i8 %20 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i, %and12.i.i.i
   %26 = load ptr, ptr %.pre155.i, align 8
-  %size16.i.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 1
+  %size16.i.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 8
   %27 = load i64, ptr %size16.i.i.i, align 8
   %28 = getelementptr i8, ptr %26, i64 %27
   %arrayidx18.i.i.i = getelementptr i8, ptr %28, i64 -1
@@ -2682,11 +2682,11 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i:      ; preds = %if.end9.i.i.i, %if.
   br i1 %cmp1.i24.i.i, label %if.then2.i33.i.i, label %if.end9.i25.i.i
 
 if.then2.i33.i.i:                                 ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i
-  %size.i34.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 1
+  %size.i34.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 8
   %32 = load i64, ptr %size.i34.i.i, align 8
   %add.i35.i.i = add i64 %32, 1
   store i64 %add.i35.i.i, ptr %size.i34.i.i, align 8
-  %allocsize.i.i.i36.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 2
+  %allocsize.i.i.i36.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 16
   %33 = load i64, ptr %allocsize.i.i.i36.i.i, align 8
   %cmp.i.i.i37.i.i = icmp ult i64 %33, %add.i35.i.i
   %.pre156.i = load ptr, ptr %.pre155.i, align 8
@@ -2716,7 +2716,7 @@ if.end.i38.i.i:                                   ; preds = %if.then3.i.i.i48.i.
 if.end9.i25.i.i:                                  ; preds = %if.end.i38.i.i, %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i
   %shl.i28.i.i = shl nuw i8 1, %31
   %37 = load ptr, ptr %.pre155.i, align 8
-  %size16.i29.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 1
+  %size16.i29.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 8
   %38 = load i64, ptr %size16.i29.i.i, align 8
   %39 = getelementptr i8, ptr %37, i64 %38
   %arrayidx18.i30.i.i = getelementptr i8, ptr %39, i64 -1
@@ -2734,11 +2734,11 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit49.i.i:    ; preds = %if.end9.i25.i.i, %i
   br i1 %cmp1.i51.i.i, label %if.then2.i58.i.i, label %if.end9.i52.i.i
 
 if.then2.i58.i.i:                                 ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit49.i.i
-  %size.i59.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 1
+  %size.i59.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 8
   %42 = load i64, ptr %size.i59.i.i, align 8
   %add.i60.i.i = add i64 %42, 1
   store i64 %add.i60.i.i, ptr %size.i59.i.i, align 8
-  %allocsize.i.i.i61.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 2
+  %allocsize.i.i.i61.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 16
   %43 = load i64, ptr %allocsize.i.i.i61.i.i, align 8
   %cmp.i.i.i62.i.i = icmp ult i64 %43, %add.i60.i.i
   %.pre158.i = load ptr, ptr %.pre155.i, align 8
@@ -2783,8 +2783,8 @@ for.cond.preheader.i.i:                           ; preds = %_ZL9writeBitsP16Lod
   br i1 %cmp146.i.i, label %for.body.lr.ph.i44.i, label %if.then16.i.i
 
 for.body.lr.ph.i44.i:                             ; preds = %for.cond.preheader.i.i
-  %size.i84.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 1
-  %allocsize.i.i.i86.i.i = getelementptr inbounds %struct.ucvector, ptr %.pre155.i, i64 0, i32 2
+  %size.i84.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 8
+  %allocsize.i.i.i86.i.i = getelementptr inbounds i8, ptr %.pre155.i, i64 16
   br label %for.body.i45.i
 
 if.then5.i.i:                                     ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit74.i.i
@@ -2890,9 +2890,9 @@ if.then16.i.loopexit.i:                           ; preds = %_ZL17writeBitsRever
 if.then16.i.i:                                    ; preds = %if.then16.i.loopexit.i, %if.then8.i.i, %for.cond.preheader.i.i
   %72 = phi ptr [ %.pre163.i, %if.then8.i.i ], [ %.pre164.i, %for.cond.preheader.i.i ], [ %.pre164.i, %if.then16.i.loopexit.i ]
   %73 = phi ptr [ %.pre150.i.i, %if.then8.i.i ], [ %.pre151.i.i, %for.cond.preheader.i.i ], [ %.pre151.i.i, %if.then16.i.loopexit.i ]
-  %arrayidx18.i.i = getelementptr inbounds i32, ptr %73, i64 256
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %73, i64 1024
   %74 = load i32, ptr %arrayidx18.i.i, align 4
-  %arrayidx20.i.i = getelementptr inbounds i32, ptr %72, i64 256
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %72, i64 1024
   %75 = load i32, ptr %arrayidx20.i.i, align 4
   %conv21.i.i = zext i32 %75 to i64
   %cmp.not14.i96.i.i = icmp eq i32 %75, 0
@@ -2901,8 +2901,8 @@ if.then16.i.i:                                    ; preds = %if.then16.i.loopexi
 for.body.lr.ph.i97.i.i:                           ; preds = %if.then16.i.i
   %.pre.i99.i.i = load i8, ptr %bp.i.i, align 8
   %76 = load ptr, ptr %writer.i, align 8
-  %size.i119.i.i = getelementptr inbounds %struct.ucvector, ptr %76, i64 0, i32 1
-  %allocsize.i.i.i121.i.i = getelementptr inbounds %struct.ucvector, ptr %76, i64 0, i32 2
+  %size.i119.i.i = getelementptr inbounds i8, ptr %76, i64 8
+  %allocsize.i.i.i121.i.i = getelementptr inbounds i8, ptr %76, i64 16
   br label %for.body.i100.i.i
 
 for.body.i100.i.i:                                ; preds = %if.end8.i103.i.i, %for.body.lr.ph.i97.i.i
@@ -3095,7 +3095,7 @@ for.body23.i.i:                                   ; preds = %for.inc37.i.i, %for
   br i1 %cmp28.i.i, label %if.then29.i.i, label %for.inc37.i.i
 
 if.then29.i.i:                                    ; preds = %for.body23.i.i
-  %arrayidx31.i.i = getelementptr i32, ptr %arrayidx25.i67.i, i64 2
+  %arrayidx31.i.i = getelementptr i8, ptr %arrayidx25.i67.i, i64 8
   %112 = load i32, ptr %arrayidx31.i.i, align 4
   %idxprom32.i.i = zext i32 %112 to i64
   %arrayidx33.i108.i = getelementptr inbounds i32, ptr %call.i162.i.i, i64 %idxprom32.i.i
@@ -3112,9 +3112,9 @@ for.inc37.i.i:                                    ; preds = %if.then29.i.i, %for
   br i1 %cmp22.not.i.i, label %for.end39.i.i, label %for.body23.i.i, !llvm.loop !81
 
 for.end39.i.i:                                    ; preds = %for.inc37.i.i, %if.end20.i.i
-  %arrayidx40.i.i = getelementptr inbounds i32, ptr %call.i.i56.i, i64 256
+  %arrayidx40.i.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 1024
   store i32 1, ptr %arrayidx40.i.i, align 4
-  %invariant.gep.i.i.i = getelementptr i32, ptr %call.i.i56.i, i64 -1
+  %invariant.gep.i.i.i = getelementptr i8, ptr %call.i.i56.i, i64 -4
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %for.end39.i.i
@@ -3148,7 +3148,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i: ; preds = %if
   br i1 %tobool42.not.i.i, label %if.end44.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 if.end44.i.i:                                     ; preds = %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i
-  %invariant.gep.i169.i.i = getelementptr i32, ptr %call.i162.i.i, i64 -1
+  %invariant.gep.i169.i.i = getelementptr i8, ptr %call.i162.i.i, i64 -4
   br label %while.cond.i170.i.i
 
 while.cond.i170.i.i:                              ; preds = %while.cond.i170.i.i, %if.end44.i.i
@@ -3219,12 +3219,12 @@ for.body79.lr.ph.i.i:                             ; preds = %for.cond77.preheade
   br label %for.cond87.preheader.i.i
 
 for.cond87.preheader.i.i:                         ; preds = %for.body79.lr.ph.i.i, %for.cond77.preheader.i.i
-  %invariant.gep345.i.i = getelementptr i32, ptr %call.i192.i.i, i64 2
+  %invariant.gep345.i.i = getelementptr i8, ptr %call.i192.i.i, i64 8
   %cmp88.not347.i.i = icmp eq i64 %add60.i.i, 0
   br i1 %cmp88.not347.i.i, label %for.end180.i.i, label %while.cond90.preheader.i.preheader.i
 
 while.cond90.preheader.i.preheader.i:             ; preds = %for.cond87.preheader.i.i
-  %invariant.gep.i = getelementptr i32, ptr %call.i192.i.i, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %call.i192.i.i, i64 4
   br label %while.cond90.preheader.i.i
 
 while.cond90.preheader.i.i:                       ; preds = %for.inc163.i.i, %while.cond90.preheader.i.preheader.i
@@ -3409,8 +3409,8 @@ for.body205.lr.ph.i.i:                            ; preds = %land.rhs187.i.i, %w
   call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %sub199.i.i, i64 noundef 5)
   call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %conv202.i.i, i64 noundef 4)
   %133 = load ptr, ptr %writer.i, align 8
-  %size30.i.i.i = getelementptr inbounds %struct.ucvector, ptr %133, i64 0, i32 1
-  %allocsize.i.i23.i.i.i = getelementptr inbounds %struct.ucvector, ptr %133, i64 0, i32 2
+  %size30.i.i.i = getelementptr inbounds i8, ptr %133, i64 8
+  %allocsize.i.i23.i.i.i = getelementptr inbounds i8, ptr %133, i64 16
   %bp.i.promoted126.i = load i8, ptr %bp.i.i, align 8
   br label %for.body205.i.i
 
@@ -3774,14 +3774,14 @@ for.end246.i.loopexit.i:                          ; preds = %for.inc244.i.i
 for.end246.i.i:                                   ; preds = %for.end246.i.loopexit.i, %for.cond213.preheader.i.i
   call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef nonnull %writer.i, ptr noundef nonnull %lz77_encoded.i51.i, ptr noundef nonnull %tree_ll.i52.i, ptr noundef nonnull %tree_d.i53.i)
   %209 = load ptr, ptr %lengths.i.i69.i, align 8
-  %arrayidx248.i.i = getelementptr inbounds i32, ptr %209, i64 256
+  %arrayidx248.i.i = getelementptr inbounds i8, ptr %209, i64 1024
   %210 = load i32, ptr %arrayidx248.i.i, align 4
   %cmp249.i.i = icmp eq i32 %210, 0
   br i1 %cmp249.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %if.end251.i.i
 
 if.end251.i.i:                                    ; preds = %for.end246.i.i
   %211 = load ptr, ptr %tree_ll.i52.i, align 8
-  %arrayidx253.i.i = getelementptr inbounds i32, ptr %211, i64 256
+  %arrayidx253.i.i = getelementptr inbounds i8, ptr %211, i64 1024
   %212 = load i32, ptr %arrayidx253.i.i, align 4
   %conv256.i.i = zext i32 %210 to i64
   call fastcc void @_ZL17writeBitsReversedP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %212, i64 noundef %conv256.i.i)
@@ -3864,9 +3864,9 @@ entry:
   %0 = load ptr, ptr %out, align 8
   %1 = load i64, ptr %outsize, align 8
   store ptr %0, ptr %v, align 8, !alias.scope !92
-  %size1.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %v, i64 8
   store i64 %1, ptr %size1.i, align 8, !alias.scope !92
-  %allocsize.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 2
+  %allocsize.i = getelementptr inbounds i8, ptr %v, i64 16
   store i64 %1, ptr %allocsize.i, align 8, !alias.scope !92
   %call = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v, ptr noundef %in, i64 noundef %insize, ptr noundef %settings)
   %2 = load ptr, ptr %v, align 8
@@ -3910,22 +3910,22 @@ if.end18:                                         ; preds = %if.end5
 if.end21:                                         ; preds = %if.end18
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 2
   %sub = add i64 %insize, -2
-  %custom_inflate.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 4
+  %custom_inflate.i = getelementptr inbounds i8, ptr %settings, i64 24
   %3 = load ptr, ptr %custom_inflate.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end21
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %call.i = tail call noundef i32 %3(ptr noundef %out, ptr noundef nonnull %size.i, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %settings)
   %4 = load i64, ptr %size.i, align 8
-  %allocsize.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %4, ptr %allocsize.i, align 8
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %if.end23, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %max_output_size.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 2
+  %max_output_size.i = getelementptr inbounds i8, ptr %settings, i64 8
   %5 = load i64, ptr %max_output_size.i, align 8
   %tobool5.not.i = icmp eq i64 %5, 0
   br i1 %tobool5.not.i, label %return, label %land.lhs.true.i
@@ -3966,7 +3966,7 @@ if.then25:                                        ; preds = %if.end23
   %conv9.i = zext i8 %11 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i
   %12 = load ptr, ptr %out, align 8
-  %size = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %out, i64 8
   %13 = load i64, ptr %size, align 8
   %conv29 = trunc i64 %13 to i32
   %call30 = tail call fastcc noundef i32 @_ZL7adler32PKhj(ptr noundef %12, i32 noundef %conv29)
@@ -3988,7 +3988,7 @@ entry:
   %deflatesize = alloca i64, align 8
   store ptr null, ptr %deflatedata, align 8
   store i64 0, ptr %deflatesize, align 8
-  %custom_deflate.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 7
+  %custom_deflate.i = getelementptr inbounds i8, ptr %settings, i64 32
   %0 = load ptr, ptr %custom_deflate.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit, label %if.then.i
@@ -4169,11 +4169,11 @@ _ZL14update_adler32jPKhj.exit:                    ; preds = %entry, %while.end.l
 define void @_Z30lodepng_compress_settings_initP23LodePNGCompressSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #7 {
 entry:
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %settings, align 8
-  %nicematch = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 4
+  %nicematch = getelementptr inbounds i8, ptr %settings, i64 16
   store i32 128, ptr %nicematch, align 8
-  %lazymatching = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 5
+  %lazymatching = getelementptr inbounds i8, ptr %settings, i64 20
   store i32 1, ptr %lazymatching, align 4
-  %custom_zlib = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 6
+  %custom_zlib = getelementptr inbounds i8, ptr %settings, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib, i8 0, i64 24, i1 false)
   ret void
 }
@@ -5346,12 +5346,12 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.end.i.i,
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z23lodepng_color_mode_initP16LodePNGColorMode(ptr nocapture noundef writeonly %info) local_unnamed_addr #7 {
 entry:
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %info, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined, i8 0, i64 16, i1 false)
   store i32 6, ptr %info, align 8
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %info, i64 4
   store i32 8, ptr %bitdepth, align 4
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %info, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette, i8 0, i64 16, i1 false)
   ret void
 }
@@ -5359,7 +5359,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_Z26lodepng_color_mode_cleanupP16LodePNGColorMode(ptr nocapture noundef %info) local_unnamed_addr #13 {
 entry:
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %palette.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %if.then.i
@@ -5376,7 +5376,7 @@ _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_Z21lodepng_palette_clearP16LodePNGColorMode(ptr nocapture noundef %info) local_unnamed_addr #13 {
 entry:
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %palette, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5393,7 +5393,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr nocapture noundef %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #13 {
 entry:
-  %palette.i.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %dest, i64 0, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %dest, i64 8
   %0 = load ptr, ptr %palette.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
@@ -5405,7 +5405,7 @@ if.then.i.i:                                      ; preds = %entry
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %dest, ptr noundef nonnull align 1 dereferenceable(40) %source, i64 40, i1 false), !alias.scope !109
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %source, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load ptr, ptr %palette, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -5414,7 +5414,7 @@ if.then:                                          ; preds = %_Z26lodepng_color_m
   %call.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #33
   store ptr %call.i, ptr %palette.i.i, align 8
   %tobool3.not = icmp eq ptr %call.i, null
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %source, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %source, i64 16
   %2 = load i64, ptr %palettesize, align 8
   br i1 %tobool3.not, label %land.lhs.true, label %if.end
 
@@ -5441,10 +5441,10 @@ return:                                           ; preds = %land.lhs.true, %for
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr noalias nocapture writeonly sret(%struct.LodePNGColorMode) align 8 %agg.result, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #7 {
 entry:
-  %key_defined.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %agg.result, i64 0, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %agg.result, i64 0, i32 1
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %agg.result, i64 0, i32 2
+  %bitdepth.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %palette.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
   store i32 %colortype, ptr %agg.result, align 8
   store i32 %bitdepth, ptr %bitdepth.i, align 4
@@ -5454,7 +5454,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i32 @_Z19lodepng_palette_addP16LodePNGColorModehhhh(ptr nocapture noundef %info, i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, i8 noundef zeroext %a) local_unnamed_addr #14 {
 entry:
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %palette, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then.i, label %if.end4
@@ -5494,7 +5494,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit: ; preds = %for.bo
 
 if.end4:                                          ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, %entry
   %6 = phi ptr [ %.pr, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit ], [ %0, %entry ]
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %info, i64 16
   %7 = load i64, ptr %palettesize, align 8
   %cmp = icmp ugt i64 %7, 255
   br i1 %cmp, label %return, label %if.end6
@@ -5535,7 +5535,7 @@ return:                                           ; preds = %if.then.i, %if.end4
 define noundef i32 @_Z15lodepng_get_bppPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %info, align 8
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %bitdepth, align 4
   switch i32 %0, label %sw.default.i.i [
     i32 0, label %_ZL19lodepng_get_bpp_lct16LodePNGColorTypej.exit
@@ -5631,13 +5631,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_Z25lodepng_has_palette_alphaPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #8 {
 entry:
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i64, ptr %palettesize, align 8
   %cmp.not4 = icmp eq i64 %0, 0
   br i1 %cmp.not4, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %info, i64 8
   %1 = load ptr, ptr %palette, align 8
   br label %for.body
 
@@ -5663,7 +5663,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_Z22lodepng_can_have_alphaPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #8 {
 entry:
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %info, i64 24
   %0 = load i32, ptr %key_defined, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %lor.end
@@ -5675,13 +5675,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %palettesize.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %info, i64 16
   %3 = load i64, ptr %palettesize.i, align 8
   %cmp.not4.i = icmp eq i64 %3, 0
   br i1 %cmp.not4.i, label %lor.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %lor.rhs
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %info, i64 8
   %4 = load ptr, ptr %palette.i, align 8
   br label %for.body.i
 
@@ -5708,7 +5708,7 @@ lor.end:                                          ; preds = %for.body.i, %for.co
 define noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %color) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %color, align 8
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %color, i64 4
   %1 = load i32, ptr %bitdepth, align 4
   switch i32 %0, label %sw.default.i.i.i [
     i32 0, label %_ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit
@@ -5774,14 +5774,14 @@ _ZL14lodepng_strlenPKc.exit:                      ; preds = %while.cond.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr nocapture noundef %info, ptr noundef %key, ptr nocapture noundef readonly %str, i64 noundef %size) unnamed_addr #2 {
 entry:
-  %text_keys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
+  %text_keys = getelementptr inbounds i8, ptr %info, i64 80
   %0 = load ptr, ptr %text_keys, align 8
-  %text_num = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 8
+  %text_num = getelementptr inbounds i8, ptr %info, i64 72
   %1 = load i64, ptr %text_num, align 8
   %add = shl i64 %1, 3
   %mul = add i64 %add, 8
   %call.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %mul) #35
-  %text_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
+  %text_strings = getelementptr inbounds i8, ptr %info, i64 88
   %2 = load ptr, ptr %text_strings, align 8
   %3 = load i64, ptr %text_num, align 8
   %add2 = shl i64 %3, 3
@@ -5842,7 +5842,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %for.body.preheader.
 _ZL12alloc_stringPKc.exit:                        ; preds = %_ZL14lodepng_strlenPKc.exit.i, %_ZL14lodepng_memcpyPvPKvm.exit.i.i
   %6 = load ptr, ptr %text_keys, align 8
   %7 = getelementptr ptr, ptr %6, i64 %inc
-  %arrayidx = getelementptr ptr, ptr %7, i64 -1
+  %arrayidx = getelementptr i8, ptr %7, i64 -8
   store ptr %call.i.i.i, ptr %arrayidx, align 8
   %add.i = add i64 %size, 1
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #33
@@ -5866,7 +5866,7 @@ _ZL18alloc_string_sizedPKcm.exit:                 ; preds = %_ZL12alloc_stringPK
   %8 = load ptr, ptr %text_strings, align 8
   %9 = load i64, ptr %text_num, align 8
   %10 = getelementptr ptr, ptr %8, i64 %9
-  %arrayidx22 = getelementptr ptr, ptr %10, i64 -1
+  %arrayidx22 = getelementptr i8, ptr %10, i64 -8
   store ptr %call.i.i, ptr %arrayidx22, align 8
   %11 = load ptr, ptr %text_keys, align 8
   %12 = load i64, ptr %text_num, align 8
@@ -5892,14 +5892,14 @@ return:                                           ; preds = %if.end9, %if.end.th
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr nocapture noundef readonly %info) local_unnamed_addr #2 {
 entry:
-  %text_num.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 8
+  %text_num.i = getelementptr inbounds i8, ptr %info, i64 72
   %0 = load i64, ptr %text_num.i, align 8
   %cmp.not8.i = icmp eq i64 %0, 0
   br i1 %cmp.not8.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %text_keys.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
-  %text_strings.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
+  %text_keys.i = getelementptr inbounds i8, ptr %info, i64 80
+  %text_strings.i = getelementptr inbounds i8, ptr %info, i64 88
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -5920,10 +5920,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %for.body.i, !llvm.loop !127
 
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %for.body.i, %entry
-  %text_keys2.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
+  %text_keys2.i = getelementptr inbounds i8, ptr %info, i64 80
   %6 = load ptr, ptr %text_keys2.i, align 8
   tail call void @free(ptr noundef %6) #34
-  %text_strings3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
+  %text_strings3.i = getelementptr inbounds i8, ptr %info, i64 88
   %7 = load ptr, ptr %text_strings3.i, align 8
   tail call void @free(ptr noundef %7) #34
   ret void
@@ -5939,16 +5939,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %itext_num = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 11
+  %itext_num = getelementptr inbounds i8, ptr %info, i64 96
   %0 = load i64, ptr %itext_num, align 8
   %cmp.not14 = icmp eq i64 %0, 0
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %itext_keys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 12
-  %itext_langtags = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 13
-  %itext_transkeys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 14
-  %itext_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 15
+  %itext_keys = getelementptr inbounds i8, ptr %info, i64 104
+  %itext_langtags = getelementptr inbounds i8, ptr %info, i64 112
+  %itext_transkeys = getelementptr inbounds i8, ptr %info, i64 120
+  %itext_strings = getelementptr inbounds i8, ptr %info, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -5979,16 +5979,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !128
 
 for.end:                                          ; preds = %for.body, %entry
-  %itext_keys4 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 12
+  %itext_keys4 = getelementptr inbounds i8, ptr %info, i64 104
   %10 = load ptr, ptr %itext_keys4, align 8
   tail call void @free(ptr noundef %10) #34
-  %itext_langtags5 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 13
+  %itext_langtags5 = getelementptr inbounds i8, ptr %info, i64 112
   %11 = load ptr, ptr %itext_langtags5, align 8
   tail call void @free(ptr noundef %11) #34
-  %itext_transkeys6 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 14
+  %itext_transkeys6 = getelementptr inbounds i8, ptr %info, i64 120
   %12 = load ptr, ptr %itext_transkeys6, align 8
   tail call void @free(ptr noundef %12) #34
-  %itext_strings7 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 15
+  %itext_strings7 = getelementptr inbounds i8, ptr %info, i64 128
   %13 = load ptr, ptr %itext_strings7, align 8
   tail call void @free(ptr noundef %13) #34
   ret void
@@ -6017,26 +6017,26 @@ _ZL14lodepng_strlenPKc.exit:                      ; preds = %while.cond.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr nocapture noundef %info, ptr noundef %key, ptr noundef %langtag, ptr noundef %transkey, ptr nocapture noundef readonly %str, i64 noundef %size) unnamed_addr #2 {
 entry:
-  %itext_keys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 12
+  %itext_keys = getelementptr inbounds i8, ptr %info, i64 104
   %0 = load ptr, ptr %itext_keys, align 8
-  %itext_num = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 11
+  %itext_num = getelementptr inbounds i8, ptr %info, i64 96
   %1 = load i64, ptr %itext_num, align 8
   %add = shl i64 %1, 3
   %mul = add i64 %add, 8
   %call.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %mul) #35
-  %itext_langtags = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 13
+  %itext_langtags = getelementptr inbounds i8, ptr %info, i64 112
   %2 = load ptr, ptr %itext_langtags, align 8
   %3 = load i64, ptr %itext_num, align 8
   %add2 = shl i64 %3, 3
   %mul3 = add i64 %add2, 8
   %call.i31 = tail call noalias noundef ptr @realloc(ptr noundef %2, i64 noundef %mul3) #35
-  %itext_transkeys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 14
+  %itext_transkeys = getelementptr inbounds i8, ptr %info, i64 120
   %4 = load ptr, ptr %itext_transkeys, align 8
   %5 = load i64, ptr %itext_num, align 8
   %add6 = shl i64 %5, 3
   %mul7 = add i64 %add6, 8
   %call.i32 = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul7) #35
-  %itext_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 15
+  %itext_strings = getelementptr inbounds i8, ptr %info, i64 128
   %6 = load ptr, ptr %itext_strings, align 8
   %7 = load i64, ptr %itext_num, align 8
   %add10 = shl i64 %7, 3
@@ -6113,7 +6113,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %for.body.preheader.
 _ZL12alloc_stringPKc.exit:                        ; preds = %_ZL14lodepng_strlenPKc.exit.i, %_ZL14lodepng_memcpyPvPKvm.exit.i.i
   %10 = load ptr, ptr %itext_keys, align 8
   %11 = getelementptr ptr, ptr %10, i64 %inc
-  %arrayidx = getelementptr ptr, ptr %11, i64 -1
+  %arrayidx = getelementptr i8, ptr %11, i64 -8
   store ptr %call.i.i.i, ptr %arrayidx, align 8
   br label %while.cond.i.i34
 
@@ -6150,7 +6150,7 @@ _ZL12alloc_stringPKc.exit50:                      ; preds = %_ZL14lodepng_strlen
   %13 = load ptr, ptr %itext_langtags, align 8
   %14 = load i64, ptr %itext_num, align 8
   %15 = getelementptr ptr, ptr %13, i64 %14
-  %arrayidx42 = getelementptr ptr, ptr %15, i64 -1
+  %arrayidx42 = getelementptr i8, ptr %15, i64 -8
   store ptr %call.i.i.i43, ptr %arrayidx42, align 8
   br label %while.cond.i.i51
 
@@ -6187,7 +6187,7 @@ _ZL12alloc_stringPKc.exit67:                      ; preds = %_ZL14lodepng_strlen
   %17 = load ptr, ptr %itext_transkeys, align 8
   %18 = load i64, ptr %itext_num, align 8
   %19 = getelementptr ptr, ptr %17, i64 %18
-  %arrayidx47 = getelementptr ptr, ptr %19, i64 -1
+  %arrayidx47 = getelementptr i8, ptr %19, i64 -8
   store ptr %call.i.i.i60, ptr %arrayidx47, align 8
   %add.i = add i64 %size, 1
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #33
@@ -6211,7 +6211,7 @@ _ZL18alloc_string_sizedPKcm.exit:                 ; preds = %_ZL12alloc_stringPK
   %20 = load ptr, ptr %itext_strings, align 8
   %21 = load i64, ptr %itext_num, align 8
   %22 = getelementptr ptr, ptr %20, i64 %21
-  %arrayidx52 = getelementptr ptr, ptr %22, i64 -1
+  %arrayidx52 = getelementptr i8, ptr %22, i64 -8
   store ptr %call.i.i, ptr %arrayidx52, align 8
   br label %return
 
@@ -6223,7 +6223,7 @@ return:                                           ; preds = %if.end21, %if.end25
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(ptr nocapture noundef %info, ptr noundef %name, ptr nocapture noundef readonly %profile, i32 noundef %profile_size) local_unnamed_addr #2 {
 entry:
-  %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
+  %iccp_name = getelementptr inbounds i8, ptr %info, i64 240
   %0 = load ptr, ptr %iccp_name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -6231,16 +6231,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef nonnull %0) #34
   store ptr null, ptr %iccp_name, align 8
-  %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile.i = getelementptr inbounds i8, ptr %info, i64 248
   %1 = load ptr, ptr %iccp_profile.i, align 8
   tail call void @free(ptr noundef %1) #34
   store ptr null, ptr %iccp_profile.i, align 8
-  %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size.i = getelementptr inbounds i8, ptr %info, i64 256
   store i32 0, ptr %iccp_profile_size.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %iccp_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %info, i64 232
   store i32 1, ptr %iccp_defined, align 8
   %cmp.i = icmp eq i32 %profile_size, 0
   br i1 %cmp.i, label %_ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit, label %while.cond.i.i.i
@@ -6278,7 +6278,7 @@ _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpy
   store ptr %call.i.i.i.i, ptr %iccp_name, align 8
   %conv.i = zext i32 %profile_size to i64
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #33
-  %iccp_profile.i5 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile.i5 = getelementptr inbounds i8, ptr %info, i64 248
   store ptr %call.i.i, ptr %iccp_profile.i5, align 8
   %tobool4.not.i = icmp eq ptr %call.i.i, null
   %or.cond.i = or i1 %tobool.not.i2.i.i, %tobool4.not.i
@@ -6286,7 +6286,7 @@ _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpy
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %_ZL12alloc_stringPKc.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %profile, i64 %conv.i, i1 false), !alias.scope !149
-  %iccp_profile_size.i6 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size.i6 = getelementptr inbounds i8, ptr %info, i64 256
   store i32 %profile_size, ptr %iccp_profile_size.i6, align 8
   br label %_ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit
 
@@ -6298,17 +6298,17 @@ _ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit: ; preds = %if.end, %_ZL12allo
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_Z17lodepng_clear_iccP11LodePNGInfo(ptr nocapture noundef %info) local_unnamed_addr #13 {
 entry:
-  %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
+  %iccp_name = getelementptr inbounds i8, ptr %info, i64 240
   %0 = load ptr, ptr %iccp_name, align 8
   tail call void @free(ptr noundef %0) #34
   store ptr null, ptr %iccp_name, align 8
-  %iccp_profile = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %info, i64 248
   %1 = load ptr, ptr %iccp_profile, align 8
   tail call void @free(ptr noundef %1) #34
   store ptr null, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %info, i64 256
   store i32 0, ptr %iccp_profile_size, align 8
-  %iccp_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %info, i64 232
   store i32 0, ptr %iccp_defined, align 8
   ret void
 }
@@ -6316,32 +6316,32 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z17lodepng_info_initP11LodePNGInfo(ptr nocapture noundef writeonly %info) local_unnamed_addr #7 {
 entry:
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
-  %key_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 4
+  %color = getelementptr inbounds i8, ptr %info, i64 16
+  %key_defined.i = getelementptr inbounds i8, ptr %info, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %info, i64 20
   store i32 8, ptr %bitdepth.i, align 4
-  %palette.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %info, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
-  %interlace_method = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 2
+  %interlace_method = getelementptr inbounds i8, ptr %info, i64 8
   store i32 0, ptr %interlace_method, align 8
   store i32 0, ptr %info, align 8
-  %filter_method = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 1
+  %filter_method = getelementptr inbounds i8, ptr %info, i64 4
   store i32 0, ptr %filter_method, align 4
-  %background_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 4
-  %phys_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 18
+  %background_defined = getelementptr inbounds i8, ptr %info, i64 56
+  %phys_defined = getelementptr inbounds i8, ptr %info, i64 164
   store i32 0, ptr %phys_defined, align 4
-  %gama_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 22
+  %gama_defined = getelementptr inbounds i8, ptr %info, i64 180
   store i32 0, ptr %gama_defined, align 4
-  %chrm_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 24
+  %chrm_defined = getelementptr inbounds i8, ptr %info, i64 188
   store i32 0, ptr %chrm_defined, align 4
-  %srgb_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 33
+  %srgb_defined = getelementptr inbounds i8, ptr %info, i64 224
   store i32 0, ptr %srgb_defined, align 8
-  %iccp_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %info, i64 232
   store i32 0, ptr %iccp_defined, align 8
-  %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
-  %sbit_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 39
+  %iccp_name = getelementptr inbounds i8, ptr %info, i64 240
+  %sbit_defined = getelementptr inbounds i8, ptr %info, i64 260
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined, i8 0, i64 84, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined, i8 0, i64 68, i1 false)
@@ -6351,7 +6351,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr nocapture noundef %info) local_unnamed_addr #2 {
 entry:
-  %palette.i.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %info, i64 24
   %0 = load ptr, ptr %palette.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
@@ -6362,14 +6362,14 @@ if.then.i.i:                                      ; preds = %entry
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %text_num.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 8
+  %text_num.i = getelementptr inbounds i8, ptr %info, i64 72
   %1 = load i64, ptr %text_num.i, align 8
   %cmp.not8.i = icmp eq i64 %1, 0
   br i1 %cmp.not8.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
-  %text_keys.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
-  %text_strings.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
+  %text_keys.i = getelementptr inbounds i8, ptr %info, i64 80
+  %text_strings.i = getelementptr inbounds i8, ptr %info, i64 88
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -6390,30 +6390,31 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit, label %for.body.i, !llvm.loop !127
 
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %for.body.i, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
-  %text_keys2.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
+  %text_keys2.i = getelementptr inbounds i8, ptr %info, i64 80
   %7 = load ptr, ptr %text_keys2.i, align 8
   tail call void @free(ptr noundef %7) #34
-  %text_strings3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
+  %text_strings3.i = getelementptr inbounds i8, ptr %info, i64 88
   %8 = load ptr, ptr %text_strings3.i, align 8
   tail call void @free(ptr noundef %8) #34
   tail call fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef nonnull %info)
-  %iccp_name.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
+  %iccp_name.i = getelementptr inbounds i8, ptr %info, i64 240
   %9 = load ptr, ptr %iccp_name.i, align 8
   tail call void @free(ptr noundef %9) #34
   store ptr null, ptr %iccp_name.i, align 8
-  %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile.i = getelementptr inbounds i8, ptr %info, i64 248
   %10 = load ptr, ptr %iccp_profile.i, align 8
   tail call void @free(ptr noundef %10) #34
   store ptr null, ptr %iccp_profile.i, align 8
-  %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size.i = getelementptr inbounds i8, ptr %info, i64 256
   store i32 0, ptr %iccp_profile_size.i, align 8
-  %iccp_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 35
+  %iccp_defined.i = getelementptr inbounds i8, ptr %info, i64 232
   store i32 0, ptr %iccp_defined.i, align 8
+  %unknown_chunks_data.i = getelementptr inbounds i8, ptr %info, i64 280
   br label %for.body.i5
 
 for.body.i5:                                      ; preds = %for.body.i5, %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit
   %indvars.iv.i = phi i64 [ 0, %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit ], [ %indvars.iv.next.i, %for.body.i5 ]
-  %arrayidx.i6 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 44, i64 %indvars.iv.i
+  %arrayidx.i6 = getelementptr inbounds [3 x ptr], ptr %unknown_chunks_data.i, i64 0, i64 %indvars.iv.i
   %11 = load ptr, ptr %arrayidx.i6, align 8
   tail call void @free(ptr noundef %11) #34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6429,17 +6430,17 @@ define noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr nocapture nounde
 entry:
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef %dest)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(328) %dest, ptr noundef nonnull align 1 dereferenceable(328) %source, i64 328, i1 false), !alias.scope !154
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 3
-  %key_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 3, i32 4
+  %color = getelementptr inbounds i8, ptr %dest, i64 16
+  %key_defined.i = getelementptr inbounds i8, ptr %dest, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 3, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %dest, i64 20
   store i32 8, ptr %bitdepth.i, align 4
-  %palette.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 3, i32 2
-  %color2 = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 3
+  %palette.i = getelementptr inbounds i8, ptr %dest, i64 24
+  %color2 = getelementptr inbounds i8, ptr %source, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %color, ptr noundef nonnull align 1 dereferenceable(40) %color2, i64 40, i1 false), !alias.scope !158
-  %palette.i22 = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 3, i32 2
+  %palette.i22 = getelementptr inbounds i8, ptr %source, i64 24
   %0 = load ptr, ptr %palette.i22, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %if.then.i
@@ -6448,7 +6449,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #33
   store ptr %call.i.i, ptr %palette.i, align 8
   %tobool3.not.i = icmp eq ptr %call.i.i, null
-  %palettesize.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 3, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %source, i64 32
   %1 = load i64, ptr %palettesize.i, align 8
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %if.end.i
 
@@ -6467,16 +6468,16 @@ for.body.preheader.i.i:                           ; preds = %if.end.i
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry, %if.end.i, %for.body.preheader.i.i
-  %text_num.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 8
-  %text_num1.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 8
+  %text_num.i = getelementptr inbounds i8, ptr %dest, i64 72
+  %text_num1.i = getelementptr inbounds i8, ptr %source, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %text_num.i, i8 0, i64 24, i1 false)
   %4 = load i64, ptr %text_num1.i, align 8
   %cmp.not10.i = icmp eq i64 %4, 0
   br i1 %cmp.not10.i, label %if.end7, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %text_keys2.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 9
-  %text_strings3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 10
+  %text_keys2.i = getelementptr inbounds i8, ptr %source, i64 80
+  %text_strings3.i = getelementptr inbounds i8, ptr %source, i64 88
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %_Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit.i
@@ -6511,18 +6512,18 @@ _Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit.i:  ; preds = %while.cond.i.i.i
   br i1 %tobool.not.i24, label %for.cond.i, label %return
 
 if.end7:                                          ; preds = %for.cond.i, %if.end
-  %itext_num.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 11
-  %itext_num1.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 11
+  %itext_num.i = getelementptr inbounds i8, ptr %dest, i64 96
+  %itext_num1.i = getelementptr inbounds i8, ptr %source, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %itext_num.i, i8 0, i64 40, i1 false)
   %11 = load i64, ptr %itext_num1.i, align 8
   %cmp.not16.i = icmp eq i64 %11, 0
   br i1 %cmp.not16.i, label %if.end12, label %for.body.lr.ph.i26
 
 for.body.lr.ph.i26:                               ; preds = %if.end7
-  %itext_keys2.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 12
-  %itext_langtags3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 13
-  %itext_transkeys5.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 14
-  %itext_strings7.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 15
+  %itext_keys2.i = getelementptr inbounds i8, ptr %source, i64 104
+  %itext_langtags3.i = getelementptr inbounds i8, ptr %source, i64 112
+  %itext_transkeys5.i = getelementptr inbounds i8, ptr %source, i64 120
+  %itext_strings7.i = getelementptr inbounds i8, ptr %source, i64 128
   br label %for.body.i27
 
 for.cond.i40:                                     ; preds = %_Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2_S2_.exit.i
@@ -6563,17 +6564,17 @@ _Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2_S2_.exit.i: ; preds = %while.cond.i.
   br i1 %tobool.not.i38, label %for.cond.i40, label %return
 
 if.end12:                                         ; preds = %for.cond.i40, %if.end7
-  %iccp_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %source, i64 232
   %22 = load i32, ptr %iccp_defined, align 8
   %tobool13.not = icmp eq i32 %22, 0
   br i1 %tobool13.not, label %if.end20, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 36
+  %iccp_name = getelementptr inbounds i8, ptr %source, i64 240
   %23 = load ptr, ptr %iccp_name, align 8
-  %iccp_profile = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %source, i64 248
   %24 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %source, i64 256
   %25 = load i32, ptr %iccp_profile_size, align 8
   %cmp.i = icmp eq i32 %25, 0
   br i1 %cmp.i, label %return, label %while.cond.i.i.i43
@@ -6608,11 +6609,11 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i.i:             ; preds = %for.body.preheader.
   br label %_ZL12alloc_stringPKc.exit.i
 
 _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpyPvPKvm.exit.i.i.i, %_ZL14lodepng_strlenPKc.exit.i.i
-  %iccp_name.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 36
+  %iccp_name.i = getelementptr inbounds i8, ptr %dest, i64 240
   store ptr %call.i.i.i.i, ptr %iccp_name.i, align 8
   %conv.i = zext i32 %25 to i64
   %call.i.i51 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #33
-  %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 37
+  %iccp_profile.i = getelementptr inbounds i8, ptr %dest, i64 248
   store ptr %call.i.i51, ptr %iccp_profile.i, align 8
   %tobool4.not.i52 = icmp eq ptr %call.i.i51, null
   %or.cond.i = or i1 %tobool.not.i2.i.i, %tobool4.not.i52
@@ -6620,32 +6621,38 @@ _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpy
 
 _ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit: ; preds = %_ZL12alloc_stringPKc.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i51, ptr align 1 %24, i64 %conv.i, i1 false), !alias.scope !172
-  %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 38
+  %iccp_profile_size.i = getelementptr inbounds i8, ptr %dest, i64 256
   store i32 %25, ptr %iccp_profile_size.i, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit, %if.end12
-  %scevgep.i = getelementptr i8, ptr %dest, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i, i8 0, i64 48, i1 false)
+  %unknown_chunks_data.i = getelementptr inbounds i8, ptr %dest, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %unknown_chunks_data.i, i8 0, i64 48, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end20
   %indvars.iv.i.i = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 44, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %unknown_chunks_data.i, i64 0, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx.i.i, align 8
   tail call void @free(ptr noundef %27) #34
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %cmp.not.i.i, label %for.body.i54, label %for.body.i.i, !llvm.loop !153
+  br i1 %cmp.not.i.i, label %for.cond.preheader.i, label %for.body.i.i, !llvm.loop !153
 
-for.body.i54:                                     ; preds = %for.body.i.i, %for.inc30.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc30.i ], [ 0, %for.body.i.i ]
-  %arrayidx.i55 = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 45, i64 %indvars.iv
+for.cond.preheader.i:                             ; preds = %for.body.i.i
+  %unknown_chunks_size.i = getelementptr inbounds i8, ptr %source, i64 304
+  %unknown_chunks_size1.i = getelementptr inbounds i8, ptr %dest, i64 304
+  %unknown_chunks_data22.i = getelementptr inbounds i8, ptr %source, i64 280
+  br label %for.body.i54
+
+for.body.i54:                                     ; preds = %for.inc30.i, %for.cond.preheader.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc30.i ], [ 0, %for.cond.preheader.i ]
+  %arrayidx.i55 = getelementptr inbounds [3 x i64], ptr %unknown_chunks_size.i, i64 0, i64 %indvars.iv
   %28 = load i64, ptr %arrayidx.i55, align 8
-  %arrayidx3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 45, i64 %indvars.iv
+  %arrayidx3.i = getelementptr inbounds [3 x i64], ptr %unknown_chunks_size1.i, i64 0, i64 %indvars.iv
   store i64 %28, ptr %arrayidx3.i, align 8
   %call.i.i56 = tail call noalias noundef ptr @malloc(i64 noundef %28) #33
-  %arrayidx8.i57 = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 44, i64 %indvars.iv
+  %arrayidx8.i57 = getelementptr inbounds [3 x ptr], ptr %unknown_chunks_data.i, i64 0, i64 %indvars.iv
   store ptr %call.i.i56, ptr %arrayidx8.i57, align 8
   %tobool.not.i58 = icmp ne ptr %call.i.i56, null
   %tobool15.not.i = icmp eq i64 %28, 0
@@ -6658,7 +6665,7 @@ for.cond16.preheader.i:                           ; preds = %for.body.i54
   br i1 %cmp2022.not.i, label %for.inc30.i, label %for.body21.lr.ph.i
 
 for.body21.lr.ph.i:                               ; preds = %for.cond16.preheader.i
-  %arrayidx24.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 44, i64 %indvars.iv
+  %arrayidx24.i = getelementptr inbounds [3 x ptr], ptr %unknown_chunks_data22.i, i64 0, i64 %indvars.iv
   br label %for.body21.i
 
 for.body21.i:                                     ; preds = %for.body21.i, %for.body21.lr.ph.i
@@ -6704,7 +6711,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %mode_in, i64 8
   %1 = load ptr, ptr %palette, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6715,17 +6722,17 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.not.i, label %if.end.i, label %if.end5
 
 if.end.i:                                         ; preds = %if.end
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %mode_out, i64 4
   %3 = load i32, ptr %bitdepth.i, align 4
-  %bitdepth2.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 1
+  %bitdepth2.i = getelementptr inbounds i8, ptr %mode_in, i64 4
   %4 = load i32, ptr %bitdepth2.i, align 4
   %cmp3.not.i = icmp eq i32 %3, %4
   br i1 %cmp3.not.i, label %if.end5.i, label %if.end5
 
 if.end5.i:                                        ; preds = %if.end.i
-  %key_defined.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %mode_out, i64 24
   %5 = load i32, ptr %key_defined.i, align 8
-  %key_defined6.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined6.i = getelementptr inbounds i8, ptr %mode_in, i64 24
   %6 = load i32, ptr %key_defined6.i, align 8
   %cmp7.not.i = icmp eq i32 %5, %6
   br i1 %cmp7.not.i, label %if.end9.i, label %if.end5
@@ -6735,33 +6742,33 @@ if.end9.i:                                        ; preds = %if.end5.i
   br i1 %tobool.not.i, label %if.end24.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  %key_r.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 5
+  %key_r.i = getelementptr inbounds i8, ptr %mode_out, i64 28
   %7 = load i32, ptr %key_r.i, align 4
-  %key_r12.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 5
+  %key_r12.i = getelementptr inbounds i8, ptr %mode_in, i64 28
   %8 = load i32, ptr %key_r12.i, align 4
   %cmp13.not.i = icmp eq i32 %7, %8
   br i1 %cmp13.not.i, label %if.end15.i, label %if.end5
 
 if.end15.i:                                       ; preds = %if.then11.i
-  %key_g.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 6
+  %key_g.i = getelementptr inbounds i8, ptr %mode_out, i64 32
   %9 = load i32, ptr %key_g.i, align 8
-  %key_g16.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 6
+  %key_g16.i = getelementptr inbounds i8, ptr %mode_in, i64 32
   %10 = load i32, ptr %key_g16.i, align 8
   %cmp17.not.i = icmp eq i32 %9, %10
   br i1 %cmp17.not.i, label %if.end19.i, label %if.end5
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %key_b.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 7
+  %key_b.i = getelementptr inbounds i8, ptr %mode_out, i64 36
   %11 = load i32, ptr %key_b.i, align 4
-  %key_b20.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 7
+  %key_b20.i = getelementptr inbounds i8, ptr %mode_in, i64 36
   %12 = load i32, ptr %key_b20.i, align 4
   %cmp21.not.i = icmp eq i32 %11, %12
   br i1 %cmp21.not.i, label %if.end24.i, label %if.end5
 
 if.end24.i:                                       ; preds = %if.end19.i, %if.end9.i
-  %palettesize.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %mode_out, i64 16
   %13 = load i64, ptr %palettesize.i, align 8
-  %palettesize25.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 3
+  %palettesize25.i = getelementptr inbounds i8, ptr %mode_in, i64 16
   %14 = load i64, ptr %palettesize25.i, align 8
   %cmp26.not.i = icmp eq i64 %13, %14
   br i1 %cmp26.not.i, label %for.cond.preheader.i, label %if.end5
@@ -6772,9 +6779,9 @@ for.cond.preheader.i:                             ; preds = %if.end24.i
   br i1 %cmp30.not20.i, label %if.then3, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %mode_out, i64 8
   %15 = load ptr, ptr %palette.i, align 8
-  %palette31.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette31.i = getelementptr inbounds i8, ptr %mode_in, i64 8
   %16 = load ptr, ptr %palette31.i, align 8
   br label %for.body.i
 
@@ -6840,9 +6847,9 @@ if.end5:                                          ; preds = %for.body.i, %if.end
   br i1 %cmp7, label %if.then8, label %if.then43
 
 if.then8:                                         ; preds = %if.end5
-  %palettesize9 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 3
+  %palettesize9 = getelementptr inbounds i8, ptr %mode_out, i64 16
   %19 = load i64, ptr %palettesize9, align 8
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %mode_out, i64 4
   %20 = load i32, ptr %bitdepth, align 4
   %sh_prom = zext nneg i32 %20 to i64
   %shl = shl nuw i64 1, %sh_prom
@@ -6850,23 +6857,23 @@ if.then8:                                         ; preds = %if.end5
   br i1 %cmp12, label %if.then13, label %if.end26.thread
 
 if.end26.thread:                                  ; preds = %if.then8
-  %palette11 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 2
+  %palette11 = getelementptr inbounds i8, ptr %mode_out, i64 8
   %21 = load ptr, ptr %palette11, align 8
   %spec.select184 = tail call i64 @llvm.umin.i64(i64 %19, i64 %shl)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tree, i8 0, i64 128, i1 false), !alias.scope !183
-  %index.i185 = getelementptr inbounds %struct.ColorTree, ptr %tree, i64 0, i32 1
+  %index.i185 = getelementptr inbounds i8, ptr %tree, i64 128
   store i32 -1, ptr %index.i185, align 8
   br label %for.body.preheader
 
 if.then13:                                        ; preds = %if.then8
-  %palettesize14 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 3
+  %palettesize14 = getelementptr inbounds i8, ptr %mode_in, i64 16
   %22 = load i64, ptr %palettesize14, align 8
-  %palette15 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette15 = getelementptr inbounds i8, ptr %mode_in, i64 8
   %23 = load ptr, ptr %palette15, align 8
   br i1 %cmp, label %land.lhs.true18, label %if.end26
 
 land.lhs.true18:                                  ; preds = %if.then13
-  %bitdepth19 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 1
+  %bitdepth19 = getelementptr inbounds i8, ptr %mode_in, i64 4
   %24 = load i32, ptr %bitdepth19, align 4
   %cmp21 = icmp eq i32 %24, %20
   br i1 %cmp21, label %if.then22, label %if.end26
@@ -6883,7 +6890,7 @@ for.body.preheader.i66:                           ; preds = %if.then22
 if.end26:                                         ; preds = %if.then13, %land.lhs.true18
   %spec.select = tail call i64 @llvm.umin.i64(i64 %22, i64 %shl)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tree, i8 0, i64 128, i1 false), !alias.scope !183
-  %index.i = getelementptr inbounds %struct.ColorTree, ptr %tree, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %tree, i64 128
   store i32 -1, ptr %index.i, align 8
   %cmp30.not160 = icmp eq i64 %22, 0
   br i1 %cmp30.not160, label %if.then43, label %for.body.preheader
@@ -6942,7 +6949,7 @@ if.then.i:                                        ; preds = %for.body.i68
 
 if.end.i74:                                       ; preds = %if.then.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call.i.i, i8 0, i64 128, i1 false), !alias.scope !190
-  %index.i.i = getelementptr inbounds %struct.ColorTree, ptr %call.i.i, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
   store i32 -1, ptr %index.i.i, align 8
   %.pre.i = load ptr, ptr %arrayidx.i70, align 8
   br label %if.end26.i
@@ -6954,17 +6961,17 @@ if.end26.i:                                       ; preds = %if.end.i74, %for.bo
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i68, !llvm.loop !193
 
 for.inc:                                          ; preds = %if.end26.i
-  %index30.i = getelementptr inbounds %struct.ColorTree, ptr %30, i64 0, i32 1
+  %index30.i = getelementptr inbounds i8, ptr %30, i64 128
   store i32 %conv36, ptr %index30.i, align 8
   %inc = add i64 %i.0161, 1
   %cmp30.not = icmp eq i64 %inc, %spec.select188
   br i1 %cmp30.not, label %if.then43, label %for.body, !llvm.loop !194
 
 if.then43:                                        ; preds = %for.inc, %if.end26, %if.end5
-  %bitdepth44 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 1
+  %bitdepth44 = getelementptr inbounds i8, ptr %mode_in, i64 4
   %31 = load i32, ptr %bitdepth44, align 4
   %cmp45 = icmp eq i32 %31, 16
-  %bitdepth47 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth47 = getelementptr inbounds i8, ptr %mode_out, i64 4
   %32 = load i32, ptr %bitdepth47, align 4
   %cmp48 = icmp eq i32 %32, 16
   %or.cond = select i1 %cmp45, i1 %cmp48, i1 false
@@ -7097,7 +7104,7 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %for.body52, %if.t
   br i1 %cmp51.not, label %if.end87, label %for.body52, !llvm.loop !195
 
 if.else:                                          ; preds = %if.then43
-  %bitdepth56 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth56 = getelementptr inbounds i8, ptr %mode_out, i64 4
   %cmp57 = icmp eq i32 %32, 8
   br i1 %cmp57, label %land.lhs.true58, label %if.else69
 
@@ -7131,10 +7138,10 @@ for.cond27.preheader.i:                           ; preds = %if.then.i85
   br i1 %cmp28.not239.i, label %if.end87, label %for.body29.lr.ph.i
 
 for.body29.lr.ph.i:                               ; preds = %for.cond27.preheader.i
-  %key_defined35.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined35.i = getelementptr inbounds i8, ptr %mode_in, i64 24
   %39 = load i32, ptr %key_defined35.i, align 8, !noalias !201
   %tobool36.not.i = icmp eq i32 %39, 0
-  %key_r46.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 5
+  %key_r46.i = getelementptr inbounds i8, ptr %mode_in, i64 28
   br label %for.body29.i
 
 for.cond.preheader.i90:                           ; preds = %if.then.i85
@@ -7159,7 +7166,7 @@ for.body.i91:                                     ; preds = %for.cond.preheader.
   br i1 %cmp3.not.i95, label %for.end.i96, label %for.body.i91, !llvm.loop !202
 
 for.end.i96:                                      ; preds = %for.body.i91
-  %key_defined.i97 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined.i97 = getelementptr inbounds i8, ptr %mode_in, i64 24
   %41 = load i32, ptr %key_defined.i97, align 8, !noalias !201
   %tobool.not.i98 = icmp eq i32 %41, 0
   br i1 %tobool.not.i98, label %if.end87, label %for.body12.lr.ph.i
@@ -7167,7 +7174,7 @@ for.end.i96:                                      ; preds = %for.body.i91
 for.body12.lr.ph.i:                               ; preds = %for.end.i96
   %mul.neg.i = mul i64 %mul, -4
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.neg.i
-  %key_r.i99 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 5
+  %key_r.i99 = getelementptr inbounds i8, ptr %mode_in, i64 28
   %42 = load i32, ptr %key_r.i99, align 4, !noalias !201
   br label %for.body12.i
 
@@ -7235,10 +7242,10 @@ if.else55.i:                                      ; preds = %if.then.i85
 for.body59.lr.ph.i:                               ; preds = %if.else55.i
   %conv61.i = zext i32 %31 to i64
   %cmp4.not.i.i = icmp eq i32 %31, 0
-  %key_defined67.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined67.i = getelementptr inbounds i8, ptr %mode_in, i64 24
   %48 = load i32, ptr %key_defined67.i, align 8, !noalias !201
   %tobool68.not.i = icmp eq i32 %48, 0
-  %key_r70.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 5
+  %key_r70.i = getelementptr inbounds i8, ptr %mode_in, i64 28
   br label %for.body59.i
 
 for.body59.i:                                     ; preds = %land.end72.i, %for.body59.lr.ph.i
@@ -7309,12 +7316,12 @@ for.cond132.preheader.i:                          ; preds = %if.then86.i
   br i1 %cmp91.not233.i, label %if.end87, label %for.body134.lr.ph.i
 
 for.body134.lr.ph.i:                              ; preds = %for.cond132.preheader.i
-  %key_defined147.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined147.i = getelementptr inbounds i8, ptr %mode_in, i64 24
   %55 = load i32, ptr %key_defined147.i, align 8, !noalias !201
   %tobool148.not.i = icmp eq i32 %55, 0
-  %key_r160.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 5
-  %key_g173.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 6
-  %key_b186.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 7
+  %key_r160.i = getelementptr inbounds i8, ptr %mode_in, i64 28
+  %key_g173.i = getelementptr inbounds i8, ptr %mode_in, i64 32
+  %key_b186.i = getelementptr inbounds i8, ptr %mode_in, i64 36
   br label %for.body134.i
 
 for.cond90.preheader.i:                           ; preds = %if.then86.i
@@ -7334,7 +7341,7 @@ for.body92.i:                                     ; preds = %for.cond90.preheade
   br i1 %cmp91.not.i, label %for.end100.i, label %for.body92.i, !llvm.loop !211
 
 for.end100.i:                                     ; preds = %for.body92.i
-  %key_defined101.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined101.i = getelementptr inbounds i8, ptr %mode_in, i64 24
   %56 = load i32, ptr %key_defined101.i, align 8, !noalias !201
   %tobool102.not.i = icmp eq i32 %56, 0
   br i1 %tobool102.not.i, label %if.end87, label %for.body110.lr.ph.i
@@ -7342,9 +7349,9 @@ for.end100.i:                                     ; preds = %for.body92.i
 for.body110.lr.ph.i:                              ; preds = %for.end100.i
   %mul105.neg.i = mul i64 %mul, -4
   %add.ptr107.i = getelementptr inbounds i8, ptr %add.ptr99.i, i64 %mul105.neg.i
-  %key_r113.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 5
-  %key_g.i81 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 6
-  %key_b.i82 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 7
+  %key_r113.i = getelementptr inbounds i8, ptr %mode_in, i64 28
+  %key_g.i81 = getelementptr inbounds i8, ptr %mode_in, i64 32
+  %key_b.i82 = getelementptr inbounds i8, ptr %mode_in, i64 36
   %57 = load i32, ptr %key_r113.i, align 4, !noalias !201
   br label %for.body110.i
 
@@ -7456,7 +7463,7 @@ for.cond219.preheader.i:                          ; preds = %if.then201.i
 for.body221.lr.ph.i:                              ; preds = %for.cond219.preheader.i
   %conv224.i = zext i32 %31 to i64
   %cmp4.not.i184.i = icmp eq i32 %31, 0
-  %palette226.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette226.i = getelementptr inbounds i8, ptr %mode_in, i64 8
   %73 = load ptr, ptr %palette226.i, align 8, !noalias !201
   br i1 %cmp4.not.i184.i, label %for.body221.us.i, label %for.body221.i
 
@@ -7474,7 +7481,7 @@ for.cond205.preheader.i:                          ; preds = %if.then201.i
   br i1 %cmp206.not227.i, label %if.end87, label %for.body207.lr.ph.i
 
 for.body207.lr.ph.i:                              ; preds = %for.cond205.preheader.i
-  %palette.i80 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette.i80 = getelementptr inbounds i8, ptr %mode_in, i64 8
   %75 = load ptr, ptr %palette.i80, align 8, !noalias !201
   br label %for.body207.i
 
@@ -7784,7 +7791,7 @@ for.body.i.i113:                                  ; preds = %for.cond.i.i, %if.t
   br i1 %tobool.not.i.i, label %if.end87, label %for.cond.i.i
 
 _ZL14color_tree_getP9ColorTreehhhh.exit.i:        ; preds = %for.cond.i.i
-  %index.i.i119 = getelementptr inbounds %struct.ColorTree, ptr %101, i64 0, i32 1
+  %index.i.i119 = getelementptr inbounds i8, ptr %101, i64 128
   %102 = load i32, ptr %index.i.i119, align 8
   %cmp58.i = icmp slt i32 %102, 0
   br i1 %cmp58.i, label %if.end87, label %if.end60.i
@@ -7943,17 +7950,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %a, i64 4
   %2 = load i32, ptr %bitdepth, align 4
-  %bitdepth2 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 1
+  %bitdepth2 = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load i32, ptr %bitdepth2, align 4
   %cmp3.not = icmp eq i32 %2, %3
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %a, i64 24
   %4 = load i32, ptr %key_defined, align 8
-  %key_defined6 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 4
+  %key_defined6 = getelementptr inbounds i8, ptr %b, i64 24
   %5 = load i32, ptr %key_defined6, align 8
   %cmp7.not = icmp eq i32 %4, %5
   br i1 %cmp7.not, label %if.end9, label %return
@@ -7963,33 +7970,33 @@ if.end9:                                          ; preds = %if.end5
   br i1 %tobool.not, label %if.end24, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %key_r = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 5
+  %key_r = getelementptr inbounds i8, ptr %a, i64 28
   %6 = load i32, ptr %key_r, align 4
-  %key_r12 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 5
+  %key_r12 = getelementptr inbounds i8, ptr %b, i64 28
   %7 = load i32, ptr %key_r12, align 4
   %cmp13.not = icmp eq i32 %6, %7
   br i1 %cmp13.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11
-  %key_g = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 6
+  %key_g = getelementptr inbounds i8, ptr %a, i64 32
   %8 = load i32, ptr %key_g, align 8
-  %key_g16 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 6
+  %key_g16 = getelementptr inbounds i8, ptr %b, i64 32
   %9 = load i32, ptr %key_g16, align 8
   %cmp17.not = icmp eq i32 %8, %9
   br i1 %cmp17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end15
-  %key_b = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 7
+  %key_b = getelementptr inbounds i8, ptr %a, i64 36
   %10 = load i32, ptr %key_b, align 4
-  %key_b20 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 7
+  %key_b20 = getelementptr inbounds i8, ptr %b, i64 36
   %11 = load i32, ptr %key_b20, align 4
   %cmp21.not = icmp eq i32 %10, %11
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end19, %if.end9
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %a, i64 16
   %12 = load i64, ptr %palettesize, align 8
-  %palettesize25 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 3
+  %palettesize25 = getelementptr inbounds i8, ptr %b, i64 16
   %13 = load i64, ptr %palettesize25, align 8
   %cmp26.not = icmp eq i64 %12, %13
   br i1 %cmp26.not, label %for.cond.preheader, label %return
@@ -8000,9 +8007,9 @@ for.cond.preheader:                               ; preds = %if.end24
   br i1 %cmp30.not20, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %a, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load ptr, ptr %palette, align 8
-  %palette31 = getelementptr inbounds %struct.LodePNGColorMode, ptr %b, i64 0, i32 2
+  %palette31 = getelementptr inbounds i8, ptr %b, i64 8
   %15 = load ptr, ptr %palette31, align 8
   br label %for.body
 
@@ -8050,7 +8057,7 @@ if.then:                                          ; preds = %entry
   store i16 %add6, ptr %b, align 2
   store i16 %add6, ptr %g, align 2
   store i16 %add6, ptr %r, align 2
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %mode, i64 24
   %3 = load i32, ptr %key_defined, align 8
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -8062,7 +8069,7 @@ land.lhs.true:                                    ; preds = %if.then
   %5 = load i8, ptr %arrayidx4, align 1
   %conv16 = zext i8 %5 to i32
   %add17 = or disjoint i32 %mul12, %conv16
-  %key_r = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r = getelementptr inbounds i8, ptr %mode, i64 28
   %6 = load i32, ptr %key_r, align 4
   %cmp18 = icmp eq i32 %add17, %6
   br i1 %cmp18, label %if.end176.sink.split, label %if.else
@@ -8100,7 +8107,7 @@ if.then23:                                        ; preds = %entry
   %conv54 = zext i8 %12 to i16
   %add55 = or disjoint i16 %mul50, %conv54
   store i16 %add55, ptr %b, align 2
-  %key_defined57 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined57 = getelementptr inbounds i8, ptr %mode, i64 24
   %13 = load i32, ptr %key_defined57, align 8
   %tobool58.not = icmp eq i32 %13, 0
   br i1 %tobool58.not, label %if.else97, label %land.lhs.true59
@@ -8112,7 +8119,7 @@ land.lhs.true59:                                  ; preds = %if.then23
   %15 = load i8, ptr %arrayidx31, align 1
   %conv68 = zext i8 %15 to i32
   %add69 = or disjoint i32 %mul64, %conv68
-  %key_r70 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r70 = getelementptr inbounds i8, ptr %mode, i64 28
   %16 = load i32, ptr %key_r70, align 4
   %cmp71 = icmp eq i32 %add69, %16
   br i1 %cmp71, label %land.lhs.true72, label %if.else97
@@ -8124,7 +8131,7 @@ land.lhs.true72:                                  ; preds = %land.lhs.true59
   %18 = load i8, ptr %arrayidx42, align 1
   %conv81 = zext i8 %18 to i32
   %add82 = or disjoint i32 %mul77, %conv81
-  %key_g = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 6
+  %key_g = getelementptr inbounds i8, ptr %mode, i64 32
   %19 = load i32, ptr %key_g, align 8
   %cmp83 = icmp eq i32 %add82, %19
   br i1 %cmp83, label %land.lhs.true84, label %if.else97
@@ -8136,7 +8143,7 @@ land.lhs.true84:                                  ; preds = %land.lhs.true72
   %21 = load i8, ptr %arrayidx53, align 1
   %conv93 = zext i8 %21 to i32
   %add94 = or disjoint i32 %mul89, %conv93
-  %key_b = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 7
+  %key_b = getelementptr inbounds i8, ptr %mode, i64 36
   %22 = load i32, ptr %key_b, align 4
   %cmp95 = icmp eq i32 %add94, %22
   br i1 %cmp95, label %if.end176.sink.split, label %if.else97
@@ -8238,7 +8245,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %mode, i64 4
   %1 = load i32, ptr %bitdepth, align 4
   switch i32 %1, label %if.else21 [
     i32 8, label %for.cond.preheader
@@ -8342,7 +8349,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %_ZL26readBitsFromRe
   br i1 %cmp24.not, label %if.end177, label %for.body25, !llvm.loop !227
 
 if.then40:                                        ; preds = %entry
-  %bitdepth41 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth41 = getelementptr inbounds i8, ptr %mode, i64 4
   %8 = load i32, ptr %bitdepth41, align 4
   %cmp42 = icmp eq i32 %8, 8
   %cmp4.not.i106 = icmp eq i64 %numpixels, 0
@@ -8380,7 +8387,7 @@ for.body48:                                       ; preds = %for.cond46.preheade
   br i1 %cmp47.not, label %if.end177, label %for.body48, !llvm.loop !232
 
 if.then68:                                        ; preds = %entry
-  %bitdepth69 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth69 = getelementptr inbounds i8, ptr %mode, i64 4
   %12 = load i32, ptr %bitdepth69, align 4
   %cmp70 = icmp eq i32 %12, 8
   %cmp73.not155 = icmp eq i64 %numpixels, 0
@@ -8392,7 +8399,7 @@ for.cond85.preheader:                             ; preds = %if.then68
 for.body87.lr.ph:                                 ; preds = %for.cond85.preheader
   %conv90 = zext i32 %12 to i64
   %cmp4.not.i108 = icmp eq i32 %12, 0
-  %palette92 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 2
+  %palette92 = getelementptr inbounds i8, ptr %mode, i64 8
   %13 = load ptr, ptr %palette92, align 8
   br i1 %cmp4.not.i108, label %for.body87.us, label %for.body87
 
@@ -8409,7 +8416,7 @@ for.cond72.preheader:                             ; preds = %if.then68
   br i1 %cmp73.not155, label %if.end177, label %for.body74.lr.ph
 
 for.body74.lr.ph:                                 ; preds = %for.cond72.preheader
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %mode, i64 8
   %14 = load ptr, ptr %palette, align 8
   br label %for.body74
 
@@ -8465,7 +8472,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit127.loopexit: ; preds = %for.body.i111
   br i1 %cmp86.not, label %if.end177, label %for.body87, !llvm.loop !237
 
 if.then104:                                       ; preds = %entry
-  %bitdepth105 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth105 = getelementptr inbounds i8, ptr %mode, i64 4
   %20 = load i32, ptr %bitdepth105, align 4
   %cmp106 = icmp eq i32 %20, 8
   %cmp109.not148 = icmp eq i64 %numpixels, 0
@@ -8510,7 +8517,7 @@ for.body124:                                      ; preds = %for.cond122.prehead
   br i1 %cmp123.not, label %if.end177, label %for.body124, !llvm.loop !244
 
 if.then139:                                       ; preds = %entry
-  %bitdepth140 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth140 = getelementptr inbounds i8, ptr %mode, i64 4
   %23 = load i32, ptr %bitdepth140, align 4
   %cmp141 = icmp eq i32 %23, 8
   %cmp144.not142 = icmp eq i64 %numpixels, 0
@@ -8572,7 +8579,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %mode, i64 4
   %1 = load i32, ptr %bitdepth, align 4
   switch i32 %1, label %if.else28 [
     i32 8, label %if.then2
@@ -8585,14 +8592,14 @@ if.then2:                                         ; preds = %if.then
   store i8 %2, ptr %b, align 1
   store i8 %2, ptr %g, align 1
   store i8 %2, ptr %r, align 1
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %mode, i64 24
   %3 = load i32, ptr %key_defined, align 8
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
   %conv = zext i8 %2 to i32
-  %key_r = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r = getelementptr inbounds i8, ptr %mode, i64 28
   %4 = load i32, ptr %key_r, align 4
   %cmp3 = icmp eq i32 %4, %conv
   br i1 %cmp3, label %if.end227.sink.split, label %if.else
@@ -8607,7 +8614,7 @@ if.then8:                                         ; preds = %if.then
   store i8 %5, ptr %b, align 1
   store i8 %5, ptr %g, align 1
   store i8 %5, ptr %r, align 1
-  %key_defined10 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined10 = getelementptr inbounds i8, ptr %mode, i64 24
   %6 = load i32, ptr %key_defined10, align 8
   %tobool11.not = icmp eq i32 %6, 0
   br i1 %tobool11.not, label %if.else26, label %land.lhs.true12
@@ -8621,7 +8628,7 @@ land.lhs.true12:                                  ; preds = %if.then8
   %8 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %8 to i32
   %add22 = or disjoint i32 %mul17, %conv21
-  %key_r23 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r23 = getelementptr inbounds i8, ptr %mode, i64 28
   %9 = load i32, ptr %key_r23, align 4
   %cmp24 = icmp eq i32 %add22, %9
   br i1 %cmp24, label %if.end227.sink.split, label %if.else26
@@ -8668,13 +8675,13 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit:       ; preds = %for.body.i, %if.els
   store i8 %conv36, ptr %b, align 1
   store i8 %conv36, ptr %g, align 1
   store i8 %conv36, ptr %r, align 1
-  %key_defined37 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined37 = getelementptr inbounds i8, ptr %mode, i64 24
   %13 = load i32, ptr %key_defined37, align 8
   %tobool38.not = icmp eq i32 %13, 0
   br i1 %tobool38.not, label %if.else43, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %_ZL26readBitsFromReversedStreamPmPKhm.exit
-  %key_r40 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r40 = getelementptr inbounds i8, ptr %mode, i64 28
   %14 = load i32, ptr %key_r40, align 4
   %cmp41 = icmp eq i32 %result.0.lcssa.i, %14
   br i1 %cmp41, label %if.end227.sink.split, label %if.else43
@@ -8683,10 +8690,10 @@ if.else43:                                        ; preds = %land.lhs.true39, %_
   br label %if.end227.sink.split
 
 if.then50:                                        ; preds = %entry
-  %bitdepth51 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth51 = getelementptr inbounds i8, ptr %mode, i64 4
   %15 = load i32, ptr %bitdepth51, align 4
   %cmp52 = icmp eq i32 %15, 8
-  %key_defined63 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined63 = getelementptr inbounds i8, ptr %mode, i64 24
   br i1 %cmp52, label %if.then53, label %if.else78
 
 if.then53:                                        ; preds = %if.then50
@@ -8707,7 +8714,7 @@ if.then53:                                        ; preds = %if.then50
 land.lhs.true65:                                  ; preds = %if.then53
   %20 = load i8, ptr %r, align 1
   %conv66 = zext i8 %20 to i32
-  %key_r67 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r67 = getelementptr inbounds i8, ptr %mode, i64 28
   %21 = load i32, ptr %key_r67, align 4
   %cmp68 = icmp eq i32 %21, %conv66
   br i1 %cmp68, label %land.lhs.true69, label %if.else76
@@ -8715,14 +8722,14 @@ land.lhs.true65:                                  ; preds = %if.then53
 land.lhs.true69:                                  ; preds = %land.lhs.true65
   %22 = load i8, ptr %g, align 1
   %conv70 = zext i8 %22 to i32
-  %key_g = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 6
+  %key_g = getelementptr inbounds i8, ptr %mode, i64 32
   %23 = load i32, ptr %key_g, align 8
   %cmp71 = icmp eq i32 %23, %conv70
   br i1 %cmp71, label %land.lhs.true72, label %if.else76
 
 land.lhs.true72:                                  ; preds = %land.lhs.true69
   %conv73 = zext i8 %18 to i32
-  %key_b = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 7
+  %key_b = getelementptr inbounds i8, ptr %mode, i64 36
   %24 = load i32, ptr %key_b, align 4
   %cmp74 = icmp eq i32 %24, %conv73
   br i1 %cmp74, label %if.end227.sink.split, label %if.else76
@@ -8754,7 +8761,7 @@ land.lhs.true90:                                  ; preds = %if.else78
   %30 = load i8, ptr %arrayidx98, align 1
   %conv99 = zext i8 %30 to i32
   %add100 = or disjoint i32 %mul95, %conv99
-  %key_r101 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 5
+  %key_r101 = getelementptr inbounds i8, ptr %mode, i64 28
   %31 = load i32, ptr %key_r101, align 4
   %cmp102 = icmp eq i32 %add100, %31
   br i1 %cmp102, label %land.lhs.true103, label %if.else130
@@ -8767,7 +8774,7 @@ land.lhs.true103:                                 ; preds = %land.lhs.true90
   %33 = load i8, ptr %arrayidx111, align 1
   %conv112 = zext i8 %33 to i32
   %add113 = or disjoint i32 %mul108, %conv112
-  %key_g114 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 6
+  %key_g114 = getelementptr inbounds i8, ptr %mode, i64 32
   %34 = load i32, ptr %key_g114, align 8
   %cmp115 = icmp eq i32 %add113, %34
   br i1 %cmp115, label %land.lhs.true116, label %if.else130
@@ -8779,7 +8786,7 @@ land.lhs.true116:                                 ; preds = %land.lhs.true103
   %35 = load i8, ptr %arrayidx124, align 1
   %conv125 = zext i8 %35 to i32
   %add126 = or disjoint i32 %mul121, %conv125
-  %key_b127 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 7
+  %key_b127 = getelementptr inbounds i8, ptr %mode, i64 36
   %36 = load i32, ptr %key_b127, align 4
   %cmp128 = icmp eq i32 %add126, %36
   br i1 %cmp128, label %if.end227.sink.split, label %if.else130
@@ -8788,7 +8795,7 @@ if.else130:                                       ; preds = %land.lhs.true116, %
   br label %if.end227.sink.split
 
 if.then136:                                       ; preds = %entry
-  %bitdepth137 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth137 = getelementptr inbounds i8, ptr %mode, i64 4
   %37 = load i32, ptr %bitdepth137, align 4
   %cmp138 = icmp eq i32 %37, 8
   br i1 %cmp138, label %if.then139, label %if.else142
@@ -8830,7 +8837,7 @@ for.body.i148:                                    ; preds = %for.body.i148.prehe
 
 if.end150:                                        ; preds = %for.body.i148, %if.else142, %if.then139
   %index.0 = phi i32 [ %conv141, %if.then139 ], [ 0, %if.else142 ], [ %or.i160, %for.body.i148 ]
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %mode, i64 8
   %42 = load ptr, ptr %palette, align 8
   %mul151 = shl i32 %index.0, 2
   %idxprom = zext i32 %mul151 to i64
@@ -8857,7 +8864,7 @@ if.end150:                                        ; preds = %for.body.i148, %if.
   br label %if.end227.sink.split
 
 if.then172:                                       ; preds = %entry
-  %bitdepth173 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth173 = getelementptr inbounds i8, ptr %mode, i64 4
   %50 = load i32, ptr %bitdepth173, align 4
   %cmp174 = icmp eq i32 %50, 8
   br i1 %cmp174, label %if.then175, label %if.else182
@@ -8887,7 +8894,7 @@ if.else182:                                       ; preds = %if.then172
   br label %if.end227.sink.split
 
 if.then193:                                       ; preds = %entry
-  %bitdepth194 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
+  %bitdepth194 = getelementptr inbounds i8, ptr %mode, i64 4
   %55 = load i32, ptr %bitdepth194, align 4
   %cmp195 = icmp eq i32 %55, 8
   br i1 %cmp195, label %if.then196, label %if.else209
@@ -8967,12 +8974,12 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr nocapture noundef writeonly %r_out, ptr nocapture noundef writeonly %g_out, ptr nocapture noundef writeonly %b_out, i32 noundef %r_in, i32 noundef %g_in, i32 noundef %b_in, ptr nocapture noundef readonly %mode_out, ptr nocapture noundef readonly %mode_in) local_unnamed_addr #12 {
 entry:
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %mode_in, i64 4
   %0 = load i32, ptr %bitdepth, align 4
   %notmask = shl nsw i32 -1, %0
   %sub = xor i32 %notmask, -1
   %div = udiv i32 65535, %sub
-  %bitdepth1 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth1 = getelementptr inbounds i8, ptr %mode_out, i64 4
   %1 = load i32, ptr %bitdepth1, align 4
   %sub2 = sub i32 16, %1
   %2 = load i32, ptr %mode_in, align 8
@@ -8996,13 +9003,13 @@ if.then11:                                        ; preds = %entry, %entry
 
 if.then18:                                        ; preds = %entry
   %conv = zext i32 %r_in to i64
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %mode_in, i64 16
   %3 = load i64, ptr %palettesize, align 8
   %cmp19.not = icmp ugt i64 %3, %conv
   br i1 %cmp19.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then18
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %mode_in, i64 8
   %4 = load ptr, ptr %palette, align 8
   %mul21 = shl i32 %r_in, 2
   %idxprom = zext i32 %mul21 to i64
@@ -9070,13 +9077,13 @@ lor.lhs.false68:                                  ; preds = %lor.lhs.false64
   br i1 %cmp71.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false68
-  %palettesize75 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 3
+  %palettesize75 = getelementptr inbounds i8, ptr %mode_out, i64 16
   %9 = load i64, ptr %palettesize75, align 8
   %cmp7649.not = icmp eq i64 %9, 0
   br i1 %cmp7649.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %palette79 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 2
+  %palette79 = getelementptr inbounds i8, ptr %mode_out, i64 8
   %10 = load ptr, ptr %palette79, align 8
   br label %for.body
 
@@ -9126,18 +9133,18 @@ return:                                           ; preds = %for.inc, %for.cond.
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z24lodepng_color_stats_initP17LodePNGColorStats(ptr nocapture noundef writeonly %stats) local_unnamed_addr #7 {
 entry:
-  %alpha = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 5
+  %alpha = getelementptr inbounds i8, ptr %stats, i64 16
   store i32 0, ptr %alpha, align 8
-  %numcolors = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 6
+  %numcolors = getelementptr inbounds i8, ptr %stats, i64 20
   store i32 0, ptr %numcolors, align 4
-  %bits = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 8
+  %bits = getelementptr inbounds i8, ptr %stats, i64 1048
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %stats, i8 0, i64 14, i1 false)
   store i32 1, ptr %bits, align 8
-  %numpixels = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 9
+  %numpixels = getelementptr inbounds i8, ptr %stats, i64 1056
   store i64 0, ptr %numpixels, align 8
-  %allow_palette = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 10
+  %allow_palette = getelementptr inbounds i8, ptr %stats, i64 1064
   store i32 1, ptr %allow_palette, align 8
-  %allow_greyscale = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 11
+  %allow_greyscale = getelementptr inbounds i8, ptr %stats, i64 1068
   store i32 1, ptr %allow_greyscale, align 4
   ret void
 }
@@ -9164,7 +9171,7 @@ entry:
   %0 = load i32, ptr %mode_in, align 8
   %1 = and i32 %0, -5
   %narrow.i = icmp eq i32 %1, 0
-  %key_defined.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %mode_in, i64 24
   %2 = load i32, ptr %key_defined.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   %3 = and i32 %0, 4
@@ -9173,13 +9180,13 @@ entry:
   br i1 %or.cond241, label %lor.rhs.i, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit
 
 lor.rhs.i:                                        ; preds = %entry
-  %palettesize.i.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 3
+  %palettesize.i.i = getelementptr inbounds i8, ptr %mode_in, i64 16
   %4 = load i64, ptr %palettesize.i.i, align 8
   %cmp.not4.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not4.i.i, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %lor.rhs.i
-  %palette.i.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %mode_in, i64 8
   %5 = load ptr, ptr %palette.i.i, align 8
   br label %for.body.i.i
 
@@ -9199,7 +9206,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 _Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit: ; preds = %for.cond.i.i, %for.body.i.i, %entry, %lor.rhs.i
   %conv.i162 = phi i32 [ 0, %entry ], [ 1, %lor.rhs.i ], [ 1, %for.cond.i.i ], [ 0, %for.body.i.i ]
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %mode_in, i64 4
   %7 = load i32, ptr %bitdepth.i, align 4
   switch i32 %0, label %sw.default.i.i.i [
     i32 0, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
@@ -9228,13 +9235,13 @@ sw.default.i.i.i:                                 ; preds = %_Z22lodepng_can_hav
 _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit, %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit, %sw.bb1.i.i.i, %sw.bb3.i.i.i, %sw.bb4.i.i.i, %sw.bb5.i.i.i, %sw.default.i.i.i
   %retval.0.i.i.i = phi i32 [ 0, %sw.default.i.i.i ], [ 0, %sw.bb5.i.i.i ], [ 4, %sw.bb4.i.i.i ], [ 2, %sw.bb3.i.i.i ], [ 3, %sw.bb1.i.i.i ], [ 1, %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit ], [ 1, %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit ]
   %mul.i.i163 = mul i32 %retval.0.i.i.i, %7
-  %bits = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 8
+  %bits = getelementptr inbounds i8, ptr %stats, i64 1048
   %8 = load i32, ptr %bits, align 8
   %cmp = icmp eq i32 %8, 1
   %cmp6 = icmp eq i32 %mul.i.i163, 1
   %9 = and i1 %cmp, %cmp6
   %cmp8 = icmp ult i32 %mul.i.i163, 9
-  %numcolors = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 6
+  %numcolors = getelementptr inbounds i8, ptr %stats, i64 20
   %10 = load i32, ptr %numcolors, align 4
   br i1 %cmp8, label %if.then, label %if.end
 
@@ -9246,17 +9253,17 @@ if.then:                                          ; preds = %_Z15lodepng_get_bpp
 
 if.end:                                           ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit, %if.then
   %maxnumcolors.0 = phi i32 [ %spec.select, %if.then ], [ 257, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit ]
-  %numpixels14 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 9
+  %numpixels14 = getelementptr inbounds i8, ptr %stats, i64 1056
   %11 = load i64, ptr %numpixels14, align 8
   %add15 = add i64 %11, %mul
   store i64 %add15, ptr %numpixels14, align 8
-  %allow_palette = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 10
+  %allow_palette = getelementptr inbounds i8, ptr %stats, i64 1064
   %12 = load i32, ptr %allow_palette, align 8
   %tobool16.not = icmp eq i32 %12, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tree, i8 0, i64 128, i1 false), !alias.scope !253
-  %index.i = getelementptr inbounds %struct.ColorTree, ptr %tree, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %tree, i64 128
   store i32 -1, ptr %index.i, align 8
-  %alpha = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 5
+  %alpha = getelementptr inbounds i8, ptr %stats, i64 16
   %13 = load i32, ptr %alpha, align 8
   %tobool19.not = icmp eq i32 %13, 0
   %alpha_done.0 = select i1 %tobool19.not, i32 %conv.i162, i32 1
@@ -9267,7 +9274,7 @@ if.end:                                           ; preds = %_Z15lodepng_get_bpp
   %cmp26 = icmp eq i32 %8, 16
   %cmp30.not = icmp uge i32 %8, %mul.i.i163
   %narrow243 = or i1 %cmp30.not, %9
-  %numcolors33 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 6
+  %numcolors33 = getelementptr inbounds i8, ptr %stats, i64 20
   %cmp34.not = icmp uge i32 %10, %maxnumcolors.0
   %15 = select i1 %cmp34.not, i1 true, i1 %cmp26
   %narrow244 = select i1 %15, i1 true, i1 %tobool16.not
@@ -9276,12 +9283,16 @@ if.end:                                           ; preds = %_Z15lodepng_get_bpp
 
 for.cond.preheader:                               ; preds = %if.end
   %cmp41250.not = icmp eq i32 %10, 0
-  br i1 %cmp41250.not, label %if.end52, label %for.body
+  br i1 %cmp41250.not, label %if.end52, label %for.body.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.0251 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %palette = getelementptr inbounds i8, ptr %stats, i64 24
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %i.0251 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %mul42 = shl nuw nsw i64 %i.0251, 2
-  %arrayidx = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 7, i64 %mul42
+  %arrayidx = getelementptr inbounds [1024 x i8], ptr %palette, i64 0, i64 %mul42
   %16 = load i8, ptr %arrayidx, align 1
   %arrayidx44 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %17 = load i8, ptr %arrayidx44, align 1
@@ -9327,7 +9338,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %if.then.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call.i.i, i8 0, i64 128, i1 false), !alias.scope !256
-  %index.i.i = getelementptr inbounds %struct.ColorTree, ptr %call.i.i, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
   store i32 -1, ptr %index.i.i, align 8
   %.pre.i = load ptr, ptr %arrayidx.i, align 8
   br label %if.end26.i
@@ -9339,7 +9350,7 @@ if.end26.i:                                       ; preds = %if.end.i, %for.body
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !193
 
 for.inc:                                          ; preds = %if.end26.i
-  %index30.i = getelementptr inbounds %struct.ColorTree, ptr %21, i64 0, i32 1
+  %index30.i = getelementptr inbounds i8, ptr %21, i64 128
   store i32 %conv47, ptr %index30.i, align 8
   %inc = add nuw nsw i64 %i.0251, 1
   %22 = load i32, ptr %numcolors33, align 4
@@ -9413,10 +9424,10 @@ if.then91:                                        ; preds = %lor.lhs.false76, %l
   store i16 0, ptr %g93, align 2
   store i16 0, ptr %b94, align 2
   store i16 0, ptr %a95, align 2
-  %key_r = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 2
-  %key_g = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 3
-  %key_b = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 4
-  %key = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 1
+  %key_r = getelementptr inbounds i8, ptr %stats, i64 8
+  %key_g = getelementptr inbounds i8, ptr %stats, i64 10
+  %key_b = getelementptr inbounds i8, ptr %stats, i64 12
+  %key = getelementptr inbounds i8, ptr %stats, i64 4
   br label %for.body98
 
 for.body98:                                       ; preds = %if.then91, %for.inc175
@@ -9567,11 +9578,11 @@ if.else212:                                       ; preds = %for.cond56, %if.end
   br i1 %cmp218.not258, label %for.end376, label %for.body219.lr.ph
 
 for.body219.lr.ph:                                ; preds = %if.else212
-  %key_r257 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 2
-  %key_g262 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 3
-  %key_b267 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 4
-  %key278 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 1
-  %palette340 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 7
+  %key_r257 = getelementptr inbounds i8, ptr %stats, i64 8
+  %key_g262 = getelementptr inbounds i8, ptr %stats, i64 10
+  %key_b267 = getelementptr inbounds i8, ptr %stats, i64 12
+  %key278 = getelementptr inbounds i8, ptr %stats, i64 4
+  %palette340 = getelementptr inbounds i8, ptr %stats, i64 24
   br label %for.body219
 
 for.body219:                                      ; preds = %for.body219.lr.ph, %for.inc374
@@ -9768,7 +9779,7 @@ for.body.i.i168:                                  ; preds = %for.cond.i.i172, %i
   br i1 %tobool.not.i.i, label %for.body.i179.preheader, label %for.cond.i.i172
 
 _ZL14color_tree_hasP9ColorTreehhhh.exit:          ; preds = %for.cond.i.i172
-  %index.i.i174 = getelementptr inbounds %struct.ColorTree, ptr %84, i64 0, i32 1
+  %index.i.i174 = getelementptr inbounds i8, ptr %84, i64 128
   %85 = load i32, ptr %index.i.i174, align 8
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %for.body.i179.preheader, label %for.inc374
@@ -9807,7 +9818,7 @@ if.then.i205:                                     ; preds = %for.body.i179
 
 if.end.i208:                                      ; preds = %if.then.i205
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call.i.i206, i8 0, i64 128, i1 false), !alias.scope !263
-  %index.i.i209 = getelementptr inbounds %struct.ColorTree, ptr %call.i.i206, i64 0, i32 1
+  %index.i.i209 = getelementptr inbounds i8, ptr %call.i.i206, i64 128
   store i32 -1, ptr %index.i.i209, align 8
   %.pre.i210 = load ptr, ptr %arrayidx.i197, align 8
   br label %if.end26.i199
@@ -9819,7 +9830,7 @@ if.end26.i199:                                    ; preds = %if.end.i208, %for.b
   br i1 %exitcond.not.i201, label %if.end336, label %for.body.i179, !llvm.loop !193
 
 if.end336:                                        ; preds = %if.end26.i199
-  %index30.i203 = getelementptr inbounds %struct.ColorTree, ptr %88, i64 0, i32 1
+  %index30.i203 = getelementptr inbounds i8, ptr %88, i64 128
   store i32 %55, ptr %index30.i203, align 8
   %89 = load i32, ptr %numcolors33, align 4
   %cmp338 = icmp ult i32 %89, 256
@@ -9869,7 +9880,7 @@ for.inc374:                                       ; preds = %_ZL14color_tree_has
 
 for.end376:                                       ; preds = %for.inc374, %if.end364, %if.else212.thread, %if.else212
   %cmp218.not258272 = phi i1 [ true, %if.else212.thread ], [ true, %if.else212 ], [ %cmp218.not258, %if.end364 ], [ %cmp218.not258, %for.inc374 ]
-  %key377 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 1
+  %key377 = getelementptr inbounds i8, ptr %stats, i64 4
   %92 = load i32, ptr %key377, align 4
   %tobool378.not = icmp eq i32 %92, 0
   br i1 %tobool378.not, label %if.end415, label %land.lhs.true379
@@ -9881,9 +9892,9 @@ land.lhs.true379:                                 ; preds = %for.end376
   br i1 %or.cond266, label %if.end415, label %for.body385.lr.ph
 
 for.body385.lr.ph:                                ; preds = %land.lhs.true379
-  %key_r390 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 2
-  %key_g395 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 3
-  %key_b400 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 4
+  %key_r390 = getelementptr inbounds i8, ptr %stats, i64 8
+  %key_g395 = getelementptr inbounds i8, ptr %stats, i64 10
+  %key_b400 = getelementptr inbounds i8, ptr %stats, i64 12
   br label %for.body385
 
 for.body385:                                      ; preds = %for.body385.lr.ph, %for.inc412
@@ -9931,11 +9942,11 @@ for.inc412:                                       ; preds = %for.body385, %land.
   br i1 %cmp384.not, label %if.end415, label %for.body385, !llvm.loop !267
 
 if.end415:                                        ; preds = %for.inc412, %land.lhs.true379, %for.end376
-  %key_r416 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 2
+  %key_r416 = getelementptr inbounds i8, ptr %stats, i64 8
   %105 = load <2 x i16>, ptr %key_r416, align 8
   %106 = mul <2 x i16> %105, <i16 257, i16 257>
   store <2 x i16> %106, ptr %key_r416, align 8
-  %key_b430 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 4
+  %key_b430 = getelementptr inbounds i8, ptr %stats, i64 12
   %107 = load i16, ptr %key_b430, align 4
   %add435 = mul i16 %107, 257
   store i16 %add435, ptr %key_b430, align 4
@@ -9950,14 +9961,14 @@ cleanup:                                          ; preds = %if.then.i, %for.inc
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(ptr noundef writeonly %w, ptr noundef writeonly %h, ptr nocapture noundef %state, ptr noundef readonly %in, i64 noundef %insize) local_unnamed_addr #2 {
 entry:
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
   %cmp = icmp eq i64 %insize, 0
   %cmp1 = icmp eq ptr %in, null
   %or.cond = or i1 %cmp1, %cmp
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %error = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %state, i64 536
   store i32 48, ptr %error, align 8
   br label %return
 
@@ -9966,38 +9977,38 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %error4 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error4 = getelementptr inbounds i8, ptr %state, i64 536
   store i32 27, ptr %error4, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %info_png)
-  %color.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %color.i = getelementptr inbounds i8, ptr %state, i64 224
+  %key_defined.i.i = getelementptr inbounds i8, ptr %state, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i, align 8
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 1
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %state, i64 228
   store i32 8, ptr %bitdepth.i.i, align 4
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %state, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method.i = getelementptr inbounds i8, ptr %state, i64 216
   store i32 0, ptr %interlace_method.i, align 8
   store i32 0, ptr %info_png, align 8
-  %filter_method.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 1
+  %filter_method.i = getelementptr inbounds i8, ptr %state, i64 212
   store i32 0, ptr %filter_method.i, align 4
-  %background_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 4
-  %phys_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 18
+  %background_defined.i = getelementptr inbounds i8, ptr %state, i64 264
+  %phys_defined.i = getelementptr inbounds i8, ptr %state, i64 372
   store i32 0, ptr %phys_defined.i, align 4
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %state, i64 388
   store i32 0, ptr %gama_defined.i, align 4
-  %chrm_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 24
+  %chrm_defined.i = getelementptr inbounds i8, ptr %state, i64 396
   store i32 0, ptr %chrm_defined.i, align 4
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %state, i64 432
   store i32 0, ptr %srgb_defined.i, align 8
-  %iccp_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined.i = getelementptr inbounds i8, ptr %state, i64 440
   store i32 0, ptr %iccp_defined.i, align 8
-  %iccp_name.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 36
-  %sbit_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 39
+  %iccp_name.i = getelementptr inbounds i8, ptr %state, i64 448
+  %sbit_defined.i = getelementptr inbounds i8, ptr %state, i64 468
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i, i8 0, i64 84, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i, i8 0, i64 68, i1 false)
@@ -10048,7 +10059,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false27
   br i1 %cmp34.not, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %lor.lhs.false31, %lor.lhs.false27, %lor.lhs.false23, %lor.lhs.false19, %lor.lhs.false15, %lor.lhs.false11, %lor.lhs.false7, %if.end5
-  %error36 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error36 = getelementptr inbounds i8, ptr %state, i64 536
   store i32 28, ptr %error36, align 8
   br label %return
 
@@ -10075,7 +10086,7 @@ if.end37:                                         ; preds = %lor.lhs.false31
   br i1 %cmp38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  %error40 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error40 = getelementptr inbounds i8, ptr %state, i64 536
   store i32 94, ptr %error40, align 8
   br label %return
 
@@ -10085,7 +10096,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool.not, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end41
-  %error45 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error45 = getelementptr inbounds i8, ptr %state, i64 536
   store i32 29, ptr %error45, align 8
   br label %return
 
@@ -10168,13 +10179,13 @@ if.end56:                                         ; preds = %if.then55, %if.end5
   br i1 %or.cond1, label %if.then71, label %if.end73
 
 if.then71:                                        ; preds = %if.end56
-  %error72 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error72 = getelementptr inbounds i8, ptr %state, i64 536
   store i32 93, ptr %error72, align 8
   br label %return
 
 if.end73:                                         ; preds = %if.end56
   %call78 = tail call fastcc noundef i32 @_ZL18checkColorValidity16LodePNGColorTypej(i32 noundef %conv60, i32 noundef %conv58), !range !269
-  %error79 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error79 = getelementptr inbounds i8, ptr %state, i64 536
   store i32 %call78, ptr %error79, align 8
   %tobool81.not = icmp eq i32 %call78, 0
   br i1 %tobool81.not, label %if.end84, label %return
@@ -10204,7 +10215,7 @@ if.then97:                                        ; preds = %if.end94
   br label %return
 
 if.end99:                                         ; preds = %if.end94
-  %ignore_crc = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 1
+  %ignore_crc = getelementptr inbounds i8, ptr %state, i64 40
   %25 = load i32, ptr %ignore_crc, align 8
   %tobool100.not = icmp eq i32 %25, 0
   br i1 %tobool100.not, label %if.then101, label %return
@@ -10364,7 +10375,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %land.lhs.true9.i
   br i1 %cmp19.i.not, label %if.then10, label %if.end.i72
 
 if.then10:                                        ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit
-  %color = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
+  %color = getelementptr inbounds i8, ptr %state, i64 224
   %conv11 = zext nneg i32 %or10.i.i to i64
   %call12 = tail call fastcc noundef i32 @_ZL14readChunk_PLTEP16LodePNGColorModePKhm(ptr noundef nonnull %color, ptr noundef nonnull %arrayidx.i, i64 noundef %conv11), !range !33
   br label %if.end112
@@ -10394,7 +10405,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit88:       ; preds = %land.lhs.true9.i80
   br i1 %cmp19.i87.not, label %if.then15, label %if.end.i103
 
 if.then15:                                        ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit88
-  %color17 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
+  %color17 = getelementptr inbounds i8, ptr %state, i64 224
   %12 = load i32, ptr %color17, align 8
   switch i32 %12, label %return [
     i32 3, label %if.then.i
@@ -10404,7 +10415,7 @@ if.then15:                                        ; preds = %_Z25lodepng_chunk_t
 
 if.then.i:                                        ; preds = %if.then15
   %conv18 = zext nneg i32 %or10.i.i to i64
-  %palettesize.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %state, i64 240
   %13 = load i64, ptr %palettesize.i, align 8
   %cmp1.i = icmp ult i64 %13, %conv18
   br i1 %cmp1.i, label %return, label %for.cond.preheader.i
@@ -10414,7 +10425,7 @@ for.cond.preheader.i:                             ; preds = %if.then.i
   br i1 %cmp3.not27.i, label %land.lhs.true115, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %palette.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %state, i64 232
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -10436,7 +10447,7 @@ if.then8.i:                                       ; preds = %if.then15
   br i1 %cmp9.not.i, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %if.then8.i
-  %key_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %state, i64 248
   store i32 1, ptr %key_defined.i, align 8
   %16 = load i8, ptr %arrayidx.i, align 1
   %conv13.i = zext i8 %16 to i32
@@ -10445,20 +10456,18 @@ if.end11.i:                                       ; preds = %if.then8.i
   %17 = load i8, ptr %arrayidx15.i90, align 1
   %conv16.i91 = zext i8 %17 to i32
   %add17.i = or disjoint i32 %mul14.i, %conv16.i91
-  %key_b.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 7
+  %key_b.i = getelementptr inbounds i8, ptr %state, i64 260
   store i32 %add17.i, ptr %key_b.i, align 4
-  %key_g.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 6
+  %key_g.i = getelementptr inbounds i8, ptr %state, i64 256
   store i32 %add17.i, ptr %key_g.i, align 8
-  %key_r.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 5
-  store i32 %add17.i, ptr %key_r.i, align 4
-  br label %land.lhs.true115
+  br label %return.sink.split.i
 
 if.then21.i:                                      ; preds = %if.then15
   %cmp22.not.i = icmp eq i32 %or10.i.i, 6
   br i1 %cmp22.not.i, label %if.end24.i, label %return
 
 if.end24.i:                                       ; preds = %if.then21.i
-  %key_defined25.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %key_defined25.i = getelementptr inbounds i8, ptr %state, i64 248
   store i32 1, ptr %key_defined25.i, align 8
   %18 = load i8, ptr %arrayidx.i, align 1
   %conv27.i = zext i8 %18 to i32
@@ -10467,7 +10476,7 @@ if.end24.i:                                       ; preds = %if.then21.i
   %19 = load i8, ptr %arrayidx29.i, align 1
   %conv30.i = zext i8 %19 to i32
   %add31.i = or disjoint i32 %mul28.i, %conv30.i
-  %key_r32.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 5
+  %key_r32.i = getelementptr inbounds i8, ptr %state, i64 252
   store i32 %add31.i, ptr %key_r32.i, align 4
   %arrayidx33.i = getelementptr inbounds i8, ptr %add.ptr, i64 10
   %20 = load i8, ptr %arrayidx33.i, align 1
@@ -10477,7 +10486,7 @@ if.end24.i:                                       ; preds = %if.then21.i
   %21 = load i8, ptr %arrayidx36.i, align 1
   %conv37.i = zext i8 %21 to i32
   %add38.i = or disjoint i32 %mul35.i, %conv37.i
-  %key_g39.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 6
+  %key_g39.i = getelementptr inbounds i8, ptr %state, i64 256
   store i32 %add38.i, ptr %key_g39.i, align 8
   %arrayidx40.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %22 = load i8, ptr %arrayidx40.i, align 1
@@ -10487,8 +10496,13 @@ if.end24.i:                                       ; preds = %if.then21.i
   %23 = load i8, ptr %arrayidx43.i, align 1
   %conv44.i = zext i8 %23 to i32
   %add45.i = or disjoint i32 %mul42.i, %conv44.i
-  %key_b46.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 7
-  store i32 %add45.i, ptr %key_b46.i, align 4
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %if.end24.i, %if.end11.i
+  %.sink.i = phi i64 [ 36, %if.end24.i ], [ 28, %if.end11.i ]
+  %add45.sink.i = phi i32 [ %add45.i, %if.end24.i ], [ %add17.i, %if.end11.i ]
+  %key_b46.i = getelementptr inbounds i8, ptr %color17, i64 %.sink.i
+  store i32 %add45.sink.i, ptr %key_b46.i, align 4
   br label %land.lhs.true115
 
 if.end.i103:                                      ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit88, %land.lhs.true9.i80, %land.lhs.true.i76, %if.end.i72
@@ -10516,7 +10530,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit119:      ; preds = %land.lhs.true9.i111
   br i1 %cmp19.i118.not, label %if.then23, label %if.else27
 
 if.then23:                                        ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit119
-  %info_png24 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png24 = getelementptr inbounds i8, ptr %state, i64 208
   %conv25 = zext nneg i32 %or10.i.i to i64
   %call26 = tail call fastcc noundef i32 @_ZL14readChunk_bKGDP11LodePNGInfoPKhm(ptr noundef nonnull %info_png24, ptr noundef nonnull %arrayidx.i, i64 noundef %conv25), !range !271
   br label %if.end112
@@ -10527,7 +10541,7 @@ if.else27:                                        ; preds = %if.end.i103, %land.
   br i1 %tobool29.not, label %if.else34, label %if.then30
 
 if.then30:                                        ; preds = %if.else27
-  %info_png31 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png31 = getelementptr inbounds i8, ptr %state, i64 208
   %conv32 = zext nneg i32 %or10.i.i to i64
   %call33 = tail call fastcc noundef i32 @_ZL14readChunk_tEXtP11LodePNGInfoPKhm(ptr noundef nonnull %info_png31, ptr noundef nonnull %arrayidx.i, i64 noundef %conv32), !range !272
   br label %if.end112
@@ -10538,7 +10552,7 @@ if.else34:                                        ; preds = %if.else27
   br i1 %tobool36.not, label %if.else41, label %if.then37
 
 if.then37:                                        ; preds = %if.else34
-  %info_png38 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png38 = getelementptr inbounds i8, ptr %state, i64 208
   %conv39 = zext nneg i32 %or10.i.i to i64
   %call40 = tail call fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %info_png38, ptr noundef %state, ptr noundef nonnull %arrayidx.i, i64 noundef %conv39)
   br label %if.end112
@@ -10549,7 +10563,7 @@ if.else41:                                        ; preds = %if.else34
   br i1 %tobool43.not, label %if.else49, label %if.then44
 
 if.then44:                                        ; preds = %if.else41
-  %info_png45 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png45 = getelementptr inbounds i8, ptr %state, i64 208
   %conv47 = zext nneg i32 %or10.i.i to i64
   %call48 = tail call fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %info_png45, ptr noundef %state, ptr noundef nonnull %arrayidx.i, i64 noundef %conv47)
   br label %if.end112
@@ -10560,7 +10574,7 @@ if.else49:                                        ; preds = %if.else41
   br i1 %tobool51.not, label %if.else56, label %if.then52
 
 if.then52:                                        ; preds = %if.else49
-  %info_png53 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png53 = getelementptr inbounds i8, ptr %state, i64 208
   %conv54 = zext nneg i32 %or10.i.i to i64
   %call55 = tail call fastcc noundef i32 @_ZL14readChunk_tIMEP11LodePNGInfoPKhm(ptr noundef nonnull %info_png53, ptr noundef nonnull %arrayidx.i, i64 noundef %conv54), !range !273
   br label %if.end112
@@ -10571,7 +10585,7 @@ if.else56:                                        ; preds = %if.else49
   br i1 %tobool58.not, label %if.else63, label %if.then59
 
 if.then59:                                        ; preds = %if.else56
-  %info_png60 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png60 = getelementptr inbounds i8, ptr %state, i64 208
   %conv61 = zext nneg i32 %or10.i.i to i64
   %call62 = tail call fastcc noundef i32 @_ZL14readChunk_pHYsP11LodePNGInfoPKhm(ptr noundef nonnull %info_png60, ptr noundef nonnull %arrayidx.i, i64 noundef %conv61), !range !274
   br label %if.end112
@@ -10586,7 +10600,7 @@ if.then66:                                        ; preds = %if.else63
   br i1 %cmp.not.i120, label %if.end.i122, label %return
 
 if.end.i122:                                      ; preds = %if.then66
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %state, i64 388
   store i32 1, ptr %gama_defined.i, align 4
   %28 = load i8, ptr %arrayidx.i, align 1
   %conv.i123 = zext i8 %28 to i32
@@ -10605,7 +10619,7 @@ if.end.i122:                                      ; preds = %if.then66
   %31 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %31 to i32
   %add10.i = or disjoint i32 %add7.i, %conv9.i
-  %gama_gamma.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 23
+  %gama_gamma.i = getelementptr inbounds i8, ptr %state, i64 392
   store i32 %add10.i, ptr %gama_gamma.i, align 8
   br label %land.lhs.true115
 
@@ -10615,7 +10629,7 @@ if.else70:                                        ; preds = %if.else63
   br i1 %tobool72.not, label %if.else77, label %if.then73
 
 if.then73:                                        ; preds = %if.else70
-  %info_png74 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png74 = getelementptr inbounds i8, ptr %state, i64 208
   %conv75 = zext nneg i32 %or10.i.i to i64
   %call76 = tail call fastcc noundef i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr noundef nonnull %info_png74, ptr noundef nonnull %arrayidx.i, i64 noundef %conv75), !range !275
   br label %if.end112
@@ -10630,11 +10644,11 @@ if.then80:                                        ; preds = %if.else77
   br i1 %cmp.not.i128, label %if.end.i130, label %return
 
 if.end.i130:                                      ; preds = %if.then80
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %state, i64 432
   store i32 1, ptr %srgb_defined.i, align 8
   %32 = load i8, ptr %arrayidx.i, align 1
   %conv.i131 = zext i8 %32 to i32
-  %srgb_intent.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 34
+  %srgb_intent.i = getelementptr inbounds i8, ptr %state, i64 436
   store i32 %conv.i131, ptr %srgb_intent.i, align 4
   br label %land.lhs.true115
 
@@ -10644,7 +10658,7 @@ if.else84:                                        ; preds = %if.else77
   br i1 %tobool86.not, label %if.else92, label %if.then87
 
 if.then87:                                        ; preds = %if.else84
-  %info_png88 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png88 = getelementptr inbounds i8, ptr %state, i64 208
   %conv90 = zext nneg i32 %or10.i.i to i64
   %call91 = tail call fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %info_png88, ptr noundef %state, ptr noundef nonnull %arrayidx.i, i64 noundef %conv90)
   br label %if.end112
@@ -10655,7 +10669,7 @@ if.else92:                                        ; preds = %if.else84
   br i1 %tobool94.not, label %return, label %if.then95
 
 if.then95:                                        ; preds = %if.else92
-  %info_png96 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png96 = getelementptr inbounds i8, ptr %state, i64 208
   %conv97 = zext nneg i32 %or10.i.i to i64
   %call98 = tail call fastcc noundef i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr noundef nonnull %info_png96, ptr noundef nonnull %arrayidx.i, i64 noundef %conv97), !range !276
   br label %if.end112
@@ -10665,8 +10679,8 @@ if.end112:                                        ; preds = %if.then30, %if.then
   %tobool113.not = icmp eq i32 %error.0, 0
   br i1 %tobool113.not, label %land.lhs.true115, label %return
 
-land.lhs.true115:                                 ; preds = %for.body.i, %if.end.i130, %if.end.i122, %for.cond.preheader.i, %if.end24.i, %if.end11.i, %if.end112
-  %ignore_crc = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 1
+land.lhs.true115:                                 ; preds = %for.body.i, %if.end.i130, %if.end.i122, %return.sink.split.i, %for.cond.preheader.i, %if.end112
+  %ignore_crc = getelementptr inbounds i8, ptr %state, i64 40
   %33 = load i32, ptr %ignore_crc, align 8
   %tobool117.not = icmp eq i32 %33, 0
   br i1 %tobool117.not, label %if.then118, label %return
@@ -10686,14 +10700,14 @@ return:                                           ; preds = %if.then118, %if.els
 define internal fastcc noundef i32 @_ZL14readChunk_PLTEP16LodePNGColorModePKhm(ptr nocapture noundef %color, ptr nocapture noundef readonly %data, i64 noundef %chunkLength) unnamed_addr #14 {
 entry:
   %div = udiv i64 %chunkLength, 3
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %color, i64 16
   store i64 %div, ptr %palettesize, align 8
   %0 = add i64 %chunkLength, -771
   %or.cond = icmp ult i64 %0, -768
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %color, i64 8
   %1 = load ptr, ptr %palette.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.then.i, label %for.body.i.preheader
@@ -10805,7 +10819,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %color, i64 16
   %1 = load i64, ptr %palettesize, align 8
   %cmp1 = icmp ult i64 %1, %chunkLength
   br i1 %cmp1, label %return, label %for.cond.preheader
@@ -10815,7 +10829,7 @@ for.cond.preheader:                               ; preds = %if.then
   br i1 %cmp3.not27, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %color, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -10839,7 +10853,7 @@ if.then8:                                         ; preds = %entry
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then8
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %color, i64 24
   store i32 1, ptr %key_defined, align 8
   %4 = load i8, ptr %data, align 1
   %conv13 = zext i8 %4 to i32
@@ -10848,20 +10862,18 @@ if.end11:                                         ; preds = %if.then8
   %5 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %5 to i32
   %add17 = or disjoint i32 %mul14, %conv16
-  %key_b = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 7
+  %key_b = getelementptr inbounds i8, ptr %color, i64 36
   store i32 %add17, ptr %key_b, align 4
-  %key_g = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 6
+  %key_g = getelementptr inbounds i8, ptr %color, i64 32
   store i32 %add17, ptr %key_g, align 8
-  %key_r = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 5
-  store i32 %add17, ptr %key_r, align 4
-  br label %return
+  br label %return.sink.split
 
 if.then21:                                        ; preds = %entry
   %cmp22.not = icmp eq i64 %chunkLength, 6
   br i1 %cmp22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then21
-  %key_defined25 = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 4
+  %key_defined25 = getelementptr inbounds i8, ptr %color, i64 24
   store i32 1, ptr %key_defined25, align 8
   %6 = load i8, ptr %data, align 1
   %conv27 = zext i8 %6 to i32
@@ -10870,7 +10882,7 @@ if.end24:                                         ; preds = %if.then21
   %7 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %7 to i32
   %add31 = or disjoint i32 %mul28, %conv30
-  %key_r32 = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 5
+  %key_r32 = getelementptr inbounds i8, ptr %color, i64 28
   store i32 %add31, ptr %key_r32, align 4
   %arrayidx33 = getelementptr inbounds i8, ptr %data, i64 2
   %8 = load i8, ptr %arrayidx33, align 1
@@ -10880,7 +10892,7 @@ if.end24:                                         ; preds = %if.then21
   %9 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %9 to i32
   %add38 = or disjoint i32 %mul35, %conv37
-  %key_g39 = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 6
+  %key_g39 = getelementptr inbounds i8, ptr %color, i64 32
   store i32 %add38, ptr %key_g39, align 8
   %arrayidx40 = getelementptr inbounds i8, ptr %data, i64 4
   %10 = load i8, ptr %arrayidx40, align 1
@@ -10890,19 +10902,24 @@ if.end24:                                         ; preds = %if.then21
   %11 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %11 to i32
   %add45 = or disjoint i32 %mul42, %conv44
-  %key_b46 = getelementptr inbounds %struct.LodePNGColorMode, ptr %color, i64 0, i32 7
-  store i32 %add45, ptr %key_b46, align 4
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end11, %if.end24
+  %.sink = phi i64 [ 36, %if.end24 ], [ 28, %if.end11 ]
+  %add45.sink = phi i32 [ %add45, %if.end24 ], [ %add17, %if.end11 ]
+  %key_b46 = getelementptr inbounds i8, ptr %color, i64 %.sink
+  store i32 %add45.sink, ptr %key_b46, align 4
   br label %return
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %if.end24, %if.end11, %entry, %if.then21, %if.then8, %if.then
-  %retval.0 = phi i32 [ 39, %if.then ], [ 30, %if.then8 ], [ 41, %if.then21 ], [ 42, %entry ], [ 0, %if.end11 ], [ 0, %if.end24 ], [ 0, %for.cond.preheader ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %return.sink.split, %for.cond.preheader, %entry, %if.then21, %if.then8, %if.then
+  %retval.0 = phi i32 [ 39, %if.then ], [ 30, %if.then8 ], [ 41, %if.then21 ], [ 42, %entry ], [ 0, %for.cond.preheader ], [ 0, %return.sink.split ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc noundef i32 @_ZL14readChunk_bKGDP11LodePNGInfoPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %data, i64 noundef %chunkLength) unnamed_addr #15 {
 entry:
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
+  %color = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
   switch i32 %0, label %return [
     i32 3, label %if.then
@@ -10919,30 +10936,28 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %1 = load i8, ptr %data, align 1
   %conv = zext i8 %1 to i64
-  %palettesize = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %info, i64 32
   %2 = load i64, ptr %palettesize, align 8
   %cmp4.not = icmp ugt i64 %2, %conv
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %background_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 4
+  %background_defined = getelementptr inbounds i8, ptr %info, i64 56
   store i32 1, ptr %background_defined, align 8
   %3 = load i8, ptr %data, align 1
   %conv8 = zext i8 %3 to i32
-  %background_b = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 7
+  %background_b = getelementptr inbounds i8, ptr %info, i64 68
   store i32 %conv8, ptr %background_b, align 4
-  %background_g = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 6
+  %background_g = getelementptr inbounds i8, ptr %info, i64 64
   store i32 %conv8, ptr %background_g, align 8
-  %background_r = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
-  store i32 %conv8, ptr %background_r, align 4
-  br label %return
+  br label %return.sink.split
 
 if.then15:                                        ; preds = %entry, %entry
   %cmp16.not = icmp eq i64 %chunkLength, 2
   br i1 %cmp16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then15
-  %background_defined19 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 4
+  %background_defined19 = getelementptr inbounds i8, ptr %info, i64 56
   store i32 1, ptr %background_defined19, align 8
   %4 = load i8, ptr %data, align 1
   %conv21 = zext i8 %4 to i32
@@ -10951,20 +10966,18 @@ if.end18:                                         ; preds = %if.then15
   %5 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %5 to i32
   %add = or disjoint i32 %mul, %conv23
-  %background_b24 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 7
+  %background_b24 = getelementptr inbounds i8, ptr %info, i64 68
   store i32 %add, ptr %background_b24, align 4
-  %background_g25 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 6
+  %background_g25 = getelementptr inbounds i8, ptr %info, i64 64
   store i32 %add, ptr %background_g25, align 8
-  %background_r26 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
-  store i32 %add, ptr %background_r26, align 4
-  br label %return
+  br label %return.sink.split
 
 if.then35:                                        ; preds = %entry, %entry
   %cmp36.not = icmp eq i64 %chunkLength, 6
   br i1 %cmp36.not, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.then35
-  %background_defined39 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 4
+  %background_defined39 = getelementptr inbounds i8, ptr %info, i64 56
   store i32 1, ptr %background_defined39, align 8
   %6 = load i8, ptr %data, align 1
   %conv41 = zext i8 %6 to i32
@@ -10973,7 +10986,7 @@ if.end38:                                         ; preds = %if.then35
   %7 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %7 to i32
   %add45 = or disjoint i32 %mul42, %conv44
-  %background_r46 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
+  %background_r46 = getelementptr inbounds i8, ptr %info, i64 60
   store i32 %add45, ptr %background_r46, align 4
   %arrayidx47 = getelementptr inbounds i8, ptr %data, i64 2
   %8 = load i8, ptr %arrayidx47, align 1
@@ -10983,7 +10996,7 @@ if.end38:                                         ; preds = %if.then35
   %9 = load i8, ptr %arrayidx50, align 1
   %conv51 = zext i8 %9 to i32
   %add52 = or disjoint i32 %mul49, %conv51
-  %background_g53 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 6
+  %background_g53 = getelementptr inbounds i8, ptr %info, i64 64
   store i32 %add52, ptr %background_g53, align 8
   %arrayidx54 = getelementptr inbounds i8, ptr %data, i64 4
   %10 = load i8, ptr %arrayidx54, align 1
@@ -10993,12 +11006,17 @@ if.end38:                                         ; preds = %if.then35
   %11 = load i8, ptr %arrayidx57, align 1
   %conv58 = zext i8 %11 to i32
   %add59 = or disjoint i32 %mul56, %conv58
-  %background_b60 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 7
-  store i32 %add59, ptr %background_b60, align 4
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end18, %if.end38, %if.end6
+  %.sink = phi i64 [ 60, %if.end6 ], [ 68, %if.end38 ], [ 60, %if.end18 ]
+  %conv8.sink = phi i32 [ %conv8, %if.end6 ], [ %add59, %if.end38 ], [ %add, %if.end18 ]
+  %background_r = getelementptr inbounds i8, ptr %info, i64 %.sink
+  store i32 %conv8.sink, ptr %background_r, align 4
   br label %return
 
-return:                                           ; preds = %if.end6, %if.end38, %if.end18, %entry, %if.then35, %if.then15, %if.end, %if.then
-  %retval.0 = phi i32 [ 43, %if.then ], [ 103, %if.end ], [ 44, %if.then15 ], [ 45, %if.then35 ], [ 0, %entry ], [ 0, %if.end18 ], [ 0, %if.end38 ], [ 0, %if.end6 ]
+return:                                           ; preds = %return.sink.split, %entry, %if.then35, %if.then15, %if.end, %if.then
+  %retval.0 = phi i32 [ 43, %if.then ], [ 103, %if.end ], [ 44, %if.then15 ], [ 45, %if.then35 ], [ 0, %entry ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -11144,14 +11162,14 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.end9
 if.end29:                                         ; preds = %_ZL14lodepng_memcpyPvPKvm.exit
   %conv30 = trunc i64 %chunkLength to i32
   %sub = sub i32 %conv30, %add
-  %max_text_size = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %decoder, i64 0, i32 7
+  %max_text_size = getelementptr inbounds i8, ptr %decoder, i64 64
   %3 = load i64, ptr %max_text_size, align 8
-  %max_output_size = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %zlibsettings, i64 0, i32 2
+  %max_output_size = getelementptr inbounds i8, ptr %zlibsettings, i64 8
   store i64 %3, ptr %max_output_size, align 8
   %arrayidx32 = getelementptr inbounds i8, ptr %data, i64 %conv4
   %conv33 = zext i32 %sub to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i)
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %zlibsettings, i64 0, i32 3
+  %custom_zlib.i = getelementptr inbounds i8, ptr %zlibsettings, i64 16
   %4 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, label %if.then.i
@@ -11176,7 +11194,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %while.end
 
 _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %if.end29
-  %size1.i.i = getelementptr inbounds %struct.ucvector, ptr %v.i, i64 0, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %v.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v.i, i8 0, i64 24, i1 false)
   %call12.i = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v.i, ptr noundef %arrayidx32, i64 noundef %conv33, ptr noundef nonnull %zlibsettings)
   %8 = load ptr, ptr %v.i, align 8
@@ -11352,9 +11370,9 @@ _ZL14lodepng_memcpyPvPKvm.exit80:                 ; preds = %if.end77, %for.body
 if.then89:                                        ; preds = %_ZL14lodepng_memcpyPvPKvm.exit80
   store ptr null, ptr %str, align 8
   store i64 0, ptr %size, align 8
-  %max_text_size = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %decoder, i64 0, i32 7
+  %max_text_size = getelementptr inbounds i8, ptr %decoder, i64 64
   %6 = load i64, ptr %max_text_size, align 8
-  %max_output_size = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %zlibsettings, i64 0, i32 2
+  %max_output_size = getelementptr inbounds i8, ptr %zlibsettings, i64 8
   store i64 %6, ptr %max_output_size, align 8
   %idxprom90 = zext i32 %add84 to i64
   %arrayidx91 = getelementptr inbounds i8, ptr %data, i64 %idxprom90
@@ -11405,7 +11423,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %time_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 16
+  %time_defined = getelementptr inbounds i8, ptr %info, i64 136
   store i32 1, ptr %time_defined, align 8
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
@@ -11414,32 +11432,32 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i32
   %add = or disjoint i32 %mul, %conv2
-  %time = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17
+  %time = getelementptr inbounds i8, ptr %info, i64 140
   store i32 %add, ptr %time, align 4
   %arrayidx3 = getelementptr inbounds i8, ptr %data, i64 2
   %2 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %2 to i32
-  %month = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17, i32 1
+  %month = getelementptr inbounds i8, ptr %info, i64 144
   store i32 %conv4, ptr %month, align 4
   %arrayidx6 = getelementptr inbounds i8, ptr %data, i64 3
   %3 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %3 to i32
-  %day = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17, i32 2
+  %day = getelementptr inbounds i8, ptr %info, i64 148
   store i32 %conv7, ptr %day, align 4
   %arrayidx9 = getelementptr inbounds i8, ptr %data, i64 4
   %4 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %4 to i32
-  %hour = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17, i32 3
+  %hour = getelementptr inbounds i8, ptr %info, i64 152
   store i32 %conv10, ptr %hour, align 4
   %arrayidx12 = getelementptr inbounds i8, ptr %data, i64 5
   %5 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %5 to i32
-  %minute = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17, i32 4
+  %minute = getelementptr inbounds i8, ptr %info, i64 156
   store i32 %conv13, ptr %minute, align 4
   %arrayidx15 = getelementptr inbounds i8, ptr %data, i64 6
   %6 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %6 to i32
-  %second = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17, i32 5
+  %second = getelementptr inbounds i8, ptr %info, i64 160
   store i32 %conv16, ptr %second, align 4
   br label %return
 
@@ -11455,7 +11473,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %phys_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 18
+  %phys_defined = getelementptr inbounds i8, ptr %info, i64 164
   store i32 1, ptr %phys_defined, align 4
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
@@ -11474,7 +11492,7 @@ if.end:                                           ; preds = %entry
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %add10 = or disjoint i32 %add7, %conv9
-  %phys_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 19
+  %phys_x = getelementptr inbounds i8, ptr %info, i64 168
   store i32 %add10, ptr %phys_x, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %data, i64 4
   %4 = load i8, ptr %arrayidx11, align 1
@@ -11494,12 +11512,12 @@ if.end:                                           ; preds = %entry
   %7 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %7 to i32
   %add24 = or disjoint i32 %add21, %conv23
-  %phys_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 20
+  %phys_y = getelementptr inbounds i8, ptr %info, i64 172
   store i32 %add24, ptr %phys_y, align 4
   %arrayidx25 = getelementptr inbounds i8, ptr %data, i64 8
   %8 = load i8, ptr %arrayidx25, align 1
   %conv26 = zext i8 %8 to i32
-  %phys_unit = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 21
+  %phys_unit = getelementptr inbounds i8, ptr %info, i64 176
   store i32 %conv26, ptr %phys_unit, align 8
   br label %return
 
@@ -11515,7 +11533,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %chrm_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 24
+  %chrm_defined = getelementptr inbounds i8, ptr %info, i64 188
   store i32 1, ptr %chrm_defined, align 4
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
@@ -11534,7 +11552,7 @@ if.end:                                           ; preds = %entry
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %add10 = or disjoint i32 %add7, %conv9
-  %chrm_white_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 25
+  %chrm_white_x = getelementptr inbounds i8, ptr %info, i64 192
   store i32 %add10, ptr %chrm_white_x, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %data, i64 4
   %4 = load i8, ptr %arrayidx11, align 1
@@ -11554,7 +11572,7 @@ if.end:                                           ; preds = %entry
   %7 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %7 to i32
   %add24 = or disjoint i32 %add21, %conv23
-  %chrm_white_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 26
+  %chrm_white_y = getelementptr inbounds i8, ptr %info, i64 196
   store i32 %add24, ptr %chrm_white_y, align 4
   %arrayidx25 = getelementptr inbounds i8, ptr %data, i64 8
   %8 = load i8, ptr %arrayidx25, align 1
@@ -11574,7 +11592,7 @@ if.end:                                           ; preds = %entry
   %11 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %11 to i32
   %add38 = or disjoint i32 %add35, %conv37
-  %chrm_red_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 27
+  %chrm_red_x = getelementptr inbounds i8, ptr %info, i64 200
   store i32 %add38, ptr %chrm_red_x, align 8
   %arrayidx39 = getelementptr inbounds i8, ptr %data, i64 12
   %12 = load i8, ptr %arrayidx39, align 1
@@ -11594,7 +11612,7 @@ if.end:                                           ; preds = %entry
   %15 = load i8, ptr %arrayidx50, align 1
   %conv51 = zext i8 %15 to i32
   %add52 = or disjoint i32 %add49, %conv51
-  %chrm_red_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 28
+  %chrm_red_y = getelementptr inbounds i8, ptr %info, i64 204
   store i32 %add52, ptr %chrm_red_y, align 4
   %arrayidx53 = getelementptr inbounds i8, ptr %data, i64 16
   %16 = load i8, ptr %arrayidx53, align 1
@@ -11614,7 +11632,7 @@ if.end:                                           ; preds = %entry
   %19 = load i8, ptr %arrayidx64, align 1
   %conv65 = zext i8 %19 to i32
   %add66 = or disjoint i32 %add63, %conv65
-  %chrm_green_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 29
+  %chrm_green_x = getelementptr inbounds i8, ptr %info, i64 208
   store i32 %add66, ptr %chrm_green_x, align 8
   %arrayidx67 = getelementptr inbounds i8, ptr %data, i64 20
   %20 = load i8, ptr %arrayidx67, align 1
@@ -11634,7 +11652,7 @@ if.end:                                           ; preds = %entry
   %23 = load i8, ptr %arrayidx78, align 1
   %conv79 = zext i8 %23 to i32
   %add80 = or disjoint i32 %add77, %conv79
-  %chrm_green_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 30
+  %chrm_green_y = getelementptr inbounds i8, ptr %info, i64 212
   store i32 %add80, ptr %chrm_green_y, align 4
   %arrayidx81 = getelementptr inbounds i8, ptr %data, i64 24
   %24 = load i8, ptr %arrayidx81, align 1
@@ -11654,7 +11672,7 @@ if.end:                                           ; preds = %entry
   %27 = load i8, ptr %arrayidx92, align 1
   %conv93 = zext i8 %27 to i32
   %add94 = or disjoint i32 %add91, %conv93
-  %chrm_blue_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 31
+  %chrm_blue_x = getelementptr inbounds i8, ptr %info, i64 216
   store i32 %add94, ptr %chrm_blue_x, align 8
   %arrayidx95 = getelementptr inbounds i8, ptr %data, i64 28
   %28 = load i8, ptr %arrayidx95, align 1
@@ -11674,7 +11692,7 @@ if.end:                                           ; preds = %entry
   %31 = load i8, ptr %arrayidx106, align 1
   %conv107 = zext i8 %31 to i32
   %add108 = or disjoint i32 %add105, %conv107
-  %chrm_blue_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 32
+  %chrm_blue_y = getelementptr inbounds i8, ptr %info, i64 220
   store i32 %add108, ptr %chrm_blue_y, align 4
   br label %return
 
@@ -11691,9 +11709,9 @@ entry:
   %zlibsettings = alloca %struct.LodePNGDecompressSettings, align 8
   store i64 0, ptr %size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zlibsettings, ptr noundef nonnull align 8 dereferenceable(40) %decoder, i64 40, i1 false)
-  %iccp_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %info, i64 232
   store i32 1, ptr %iccp_defined, align 8
-  %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
+  %iccp_name = getelementptr inbounds i8, ptr %info, i64 240
   %0 = load ptr, ptr %iccp_name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -11701,11 +11719,11 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef nonnull %0) #34
   store ptr null, ptr %iccp_name, align 8
-  %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile.i = getelementptr inbounds i8, ptr %info, i64 248
   %1 = load ptr, ptr %iccp_profile.i, align 8
   tail call void @free(ptr noundef %1) #34
   store ptr null, ptr %iccp_profile.i, align 8
-  %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size.i = getelementptr inbounds i8, ptr %info, i64 256
   store i32 0, ptr %iccp_profile_size.i, align 8
   store i32 0, ptr %iccp_defined, align 8
   br label %if.end
@@ -11775,15 +11793,15 @@ for.end32:                                        ; preds = %for.body24
 if.end44:                                         ; preds = %for.end32
   %conv45 = trunc i64 %chunkLength to i32
   %sub = sub i32 %conv45, %add
-  %max_icc_size = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %decoder, i64 0, i32 8
+  %max_icc_size = getelementptr inbounds i8, ptr %decoder, i64 72
   %8 = load i64, ptr %max_icc_size, align 8
-  %max_output_size = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %zlibsettings, i64 0, i32 2
+  %max_output_size = getelementptr inbounds i8, ptr %zlibsettings, i64 8
   store i64 %8, ptr %max_output_size, align 8
-  %iccp_profile = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %info, i64 248
   %arrayidx47 = getelementptr inbounds i8, ptr %data, i64 %conv4
   %conv48 = zext i32 %sub to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i)
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %zlibsettings, i64 0, i32 3
+  %custom_zlib.i = getelementptr inbounds i8, ptr %zlibsettings, i64 16
   %9 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, label %if.then.i
@@ -11805,14 +11823,14 @@ if.then3.i:                                       ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %v.i)
   %spec.select40 = select i1 %cmp.i, i32 113, i32 110
   %conv5553 = trunc i64 %12 to i32
-  %iccp_profile_size54 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size54 = getelementptr inbounds i8, ptr %info, i64 256
   store i32 %conv5553, ptr %iccp_profile_size54, align 8
   br label %return
 
 _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %if.end44
   %13 = load ptr, ptr %iccp_profile, align 8
   store ptr %13, ptr %v.i, align 8, !alias.scope !310
-  %size1.i.i = getelementptr inbounds %struct.ucvector, ptr %v.i, i64 0, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %v.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size1.i.i, i8 0, i64 16, i1 false)
   %call12.i = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v.i, ptr noundef %arrayidx47, i64 noundef %conv48, ptr noundef nonnull %zlibsettings)
   %14 = load ptr, ptr %v.i, align 8
@@ -11825,7 +11843,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %if.
 .thread:                                          ; preds = %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread42, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit
   %.ph = phi i64 [ %10, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread42 ], [ %15, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
   %conv5548 = trunc i64 %.ph to i32
-  %iccp_profile_size49 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size49 = getelementptr inbounds i8, ptr %info, i64 256
   store i32 %conv5548, ptr %iccp_profile_size49, align 8
   %16 = icmp eq i32 %conv5548, 0
   %17 = select i1 %16, i32 100, i32 0
@@ -11836,7 +11854,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %if.
   %cmp52 = icmp ugt i64 %15, %19
   %spec.select = select i1 %cmp52, i32 113, i32 %call12.i
   %conv55 = trunc i64 %15 to i32
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %info, i64 256
   store i32 %conv55, ptr %iccp_profile_size, align 8
   br label %return
 
@@ -11848,13 +11866,13 @@ return:                                           ; preds = %18, %if.then3.i, %.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc noundef i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %data, i64 noundef %chunkLength) unnamed_addr #15 {
 entry:
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
+  %color = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.then23, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %bitdepth2 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 1
+  %bitdepth2 = getelementptr inbounds i8, ptr %info, i64 20
   %1 = load i32, ptr %bitdepth2, align 4
   switch i32 %0, label %return [
     i32 0, label %if.then
@@ -11876,15 +11894,15 @@ if.end:                                           ; preds = %if.then
   br i1 %or.cond, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %sbit_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 39
+  %sbit_defined = getelementptr inbounds i8, ptr %info, i64 260
   store i32 1, ptr %sbit_defined, align 4
   %3 = load i8, ptr %data, align 1
   %conv15 = zext i8 %3 to i32
-  %sbit_b = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 42
+  %sbit_b = getelementptr inbounds i8, ptr %info, i64 272
   store i32 %conv15, ptr %sbit_b, align 8
-  %sbit_g = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 41
+  %sbit_g = getelementptr inbounds i8, ptr %info, i64 268
   store i32 %conv15, ptr %sbit_g, align 4
-  %sbit_r = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r = getelementptr inbounds i8, ptr %info, i64 264
   store i32 %conv15, ptr %sbit_r, align 8
   br label %return
 
@@ -11922,19 +11940,19 @@ if.end39:                                         ; preds = %lor.lhs.false34
   br i1 %or.cond67, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.end39
-  %sbit_defined53 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 39
+  %sbit_defined53 = getelementptr inbounds i8, ptr %info, i64 260
   store i32 1, ptr %sbit_defined53, align 4
   %7 = load i8, ptr %data, align 1
   %conv55 = zext i8 %7 to i32
-  %sbit_r56 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r56 = getelementptr inbounds i8, ptr %info, i64 264
   store i32 %conv55, ptr %sbit_r56, align 8
   %8 = load i8, ptr %arrayidx31, align 1
   %conv58 = zext i8 %8 to i32
-  %sbit_g59 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 41
+  %sbit_g59 = getelementptr inbounds i8, ptr %info, i64 268
   store i32 %conv58, ptr %sbit_g59, align 4
   %9 = load i8, ptr %arrayidx35, align 1
   %conv61 = zext i8 %9 to i32
-  %sbit_b62 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 42
+  %sbit_b62 = getelementptr inbounds i8, ptr %info, i64 272
   store i32 %conv61, ptr %sbit_b62, align 8
   br label %return
 
@@ -11962,19 +11980,19 @@ if.end79:                                         ; preds = %lor.lhs.false74
   br i1 %or.cond68, label %return, label %if.end88
 
 if.end88:                                         ; preds = %if.end79
-  %sbit_defined89 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 39
+  %sbit_defined89 = getelementptr inbounds i8, ptr %info, i64 260
   store i32 1, ptr %sbit_defined89, align 4
   %12 = load i8, ptr %data, align 1
   %conv91 = zext i8 %12 to i32
-  %sbit_b92 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 42
+  %sbit_b92 = getelementptr inbounds i8, ptr %info, i64 272
   store i32 %conv91, ptr %sbit_b92, align 8
-  %sbit_g93 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 41
+  %sbit_g93 = getelementptr inbounds i8, ptr %info, i64 268
   store i32 %conv91, ptr %sbit_g93, align 4
-  %sbit_r94 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r94 = getelementptr inbounds i8, ptr %info, i64 264
   store i32 %conv91, ptr %sbit_r94, align 8
   %13 = load i8, ptr %arrayidx75, align 1
   %conv96 = zext i8 %13 to i32
-  %sbit_a = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 43
+  %sbit_a = getelementptr inbounds i8, ptr %info, i64 276
   store i32 %conv96, ptr %sbit_a, align 4
   br label %return
 
@@ -12020,23 +12038,23 @@ if.end121:                                        ; preds = %lor.lhs.false116
   br i1 %or.cond71, label %return, label %if.end138
 
 if.end138:                                        ; preds = %if.end121
-  %sbit_defined139 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 39
+  %sbit_defined139 = getelementptr inbounds i8, ptr %info, i64 260
   store i32 1, ptr %sbit_defined139, align 4
   %18 = load i8, ptr %data, align 1
   %conv141 = zext i8 %18 to i32
-  %sbit_r142 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r142 = getelementptr inbounds i8, ptr %info, i64 264
   store i32 %conv141, ptr %sbit_r142, align 8
   %19 = load i8, ptr %arrayidx109, align 1
   %conv144 = zext i8 %19 to i32
-  %sbit_g145 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 41
+  %sbit_g145 = getelementptr inbounds i8, ptr %info, i64 268
   store i32 %conv144, ptr %sbit_g145, align 4
   %20 = load i8, ptr %arrayidx113, align 1
   %conv147 = zext i8 %20 to i32
-  %sbit_b148 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 42
+  %sbit_b148 = getelementptr inbounds i8, ptr %info, i64 272
   store i32 %conv147, ptr %sbit_b148, align 8
   %21 = load i8, ptr %arrayidx117, align 1
   %conv150 = zext i8 %21 to i32
-  %sbit_a151 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 43
+  %sbit_a151 = getelementptr inbounds i8, ptr %info, i64 276
   store i32 %conv150, ptr %sbit_a151, align 4
   br label %return
 
@@ -12067,7 +12085,7 @@ entry:
   store i32 0, ptr %h, align 4
   store i32 0, ptr %w, align 4
   %call.i = tail call noundef i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(ptr noundef nonnull %w, ptr noundef nonnull %h, ptr noundef %state, ptr noundef %in, i64 noundef %insize)
-  %error.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error.i = getelementptr inbounds i8, ptr %state, i64 536
   store i32 %call.i, ptr %error.i, align 8
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread
@@ -12075,11 +12093,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %0 = load i32, ptr %w, align 4
   %1 = load i32, ptr %h, align 4
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %color.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
-  %info_raw.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
+  %info_png.i = getelementptr inbounds i8, ptr %state, i64 208
+  %color.i = getelementptr inbounds i8, ptr %state, i64 224
+  %info_raw.i = getelementptr inbounds i8, ptr %state, i64 168
   %color.val.i = load i32, ptr %color.i, align 8
-  %2 = getelementptr %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 1
+  %2 = getelementptr i8, ptr %state, i64 228
   %color.val211.i = load i32, ptr %2, align 4
   switch i32 %color.val.i, label %sw.default.i.i.i.i.i [
     i32 0, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i.i
@@ -12109,7 +12127,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit.i.i: ; preds = %sw.default.i.i.i.i.
   %retval.0.i.i.i.i.i = phi i32 [ 0, %sw.default.i.i.i.i.i ], [ 0, %sw.bb5.i.i.i.i.i ], [ 4, %sw.bb4.i.i.i.i.i ], [ 2, %sw.bb3.i.i.i.i.i ], [ 3, %sw.bb1.i.i.i.i.i ], [ 1, %if.end.i ], [ 1, %if.end.i ]
   %mul.i.i.i.i = mul i32 %retval.0.i.i.i.i.i, %color.val211.i
   %3 = load i32, ptr %info_raw.i, align 8
-  %bitdepth.i9.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %bitdepth.i9.i.i = getelementptr inbounds i8, ptr %state, i64 172
   %4 = load i32, ptr %bitdepth.i9.i.i, align 4
   switch i32 %3, label %sw.default.i.i.i16.i.i [
     i32 0, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit17.i.i
@@ -12233,21 +12251,23 @@ if.end6.i:                                        ; preds = %_ZL22lodepng_pixel_
 if.end11.i:                                       ; preds = %if.end6.i
   %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 33
   %sub.ptr.rhs.cast.i = ptrtoint ptr %in to i64
-  %read_text_chunks.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 5
-  %gama_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
-  %gama_gamma.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 23
-  %srgb_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
-  %srgb_intent.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 34
-  %ignore_critical.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 2
-  %remember_unknown_chunks.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 6
-  %ignore_crc.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 1
+  %read_text_chunks.i = getelementptr inbounds i8, ptr %state, i64 56
+  %gama_defined.i.i = getelementptr inbounds i8, ptr %state, i64 388
+  %gama_gamma.i.i = getelementptr inbounds i8, ptr %state, i64 392
+  %srgb_defined.i.i = getelementptr inbounds i8, ptr %state, i64 432
+  %srgb_intent.i.i = getelementptr inbounds i8, ptr %state, i64 436
+  %ignore_critical.i = getelementptr inbounds i8, ptr %state, i64 44
+  %remember_unknown_chunks.i = getelementptr inbounds i8, ptr %state, i64 60
+  %unknown_chunks_data.i = getelementptr inbounds i8, ptr %state, i64 488
+  %unknown_chunks_size.i = getelementptr inbounds i8, ptr %state, i64 512
+  %ignore_crc.i = getelementptr inbounds i8, ptr %state, i64 40
   %add.ptr290.i = getelementptr inbounds i8, ptr %in, i64 %insize
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr290.i to i64
-  %background_defined39.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 4
-  %background_r46.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 5
-  %background_g53.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 6
-  %background_b60.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 7
-  %palettesize.i105 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 3
+  %background_defined39.i = getelementptr inbounds i8, ptr %state, i64 264
+  %background_r46.i = getelementptr inbounds i8, ptr %state, i64 268
+  %background_g53.i = getelementptr inbounds i8, ptr %state, i64 272
+  %background_b24.i = getelementptr inbounds i8, ptr %state, i64 276
+  %palettesize.i105 = getelementptr inbounds i8, ptr %state, i64 240
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end292.i, %if.end11.i
@@ -12263,7 +12283,7 @@ while.body.i:                                     ; preds = %if.end292.i, %if.en
   br i1 %or.cond208.i, label %if.then16.i, label %if.end21.i
 
 if.then16.i:                                      ; preds = %while.body.i
-  %ignore_end.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 3
+  %ignore_end.i = getelementptr inbounds i8, ptr %state, i64 48
   %5 = load i32, ptr %ignore_end.i, align 8
   %tobool17.not.i = icmp eq i32 %5, 0
   br i1 %tobool17.not.i, label %if.end381.thread579.i.sink.split, label %land.lhs.true295.i
@@ -12290,7 +12310,7 @@ if.end21.i:                                       ; preds = %while.body.i
   br i1 %cmp23.i, label %if.then24.i, label %if.end31.i
 
 if.then24.i:                                      ; preds = %if.end21.i
-  %ignore_end26.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 3
+  %ignore_end26.i = getelementptr inbounds i8, ptr %state, i64 48
   %10 = load i32, ptr %ignore_end26.i, align 8
   %tobool27.not.i = icmp eq i32 %10, 0
   br i1 %tobool27.not.i, label %if.end381.thread579.i.sink.split, label %land.lhs.true295.i
@@ -12431,7 +12451,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit132:      ; preds = %land.lhs.true9.i124
 
 if.then92.i:                                      ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit132
   %26 = load i32, ptr %color.i, align 8
-  switch i32 %26, label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread [
+  switch i32 %26, label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit [
     i32 3, label %if.then.i102
     i32 0, label %if.then15.i
     i32 4, label %if.then15.i
@@ -12454,10 +12474,9 @@ if.end6.i106:                                     ; preds = %if.end.i103
   store i32 1, ptr %background_defined39.i, align 8
   %29 = load i8, ptr %arrayidx.i.i, align 1
   %conv8.i = zext i8 %29 to i32
-  store i32 %conv8.i, ptr %background_b60.i, align 4
+  store i32 %conv8.i, ptr %background_b24.i, align 4
   store i32 %conv8.i, ptr %background_g53.i, align 8
-  store i32 %conv8.i, ptr %background_r46.i, align 4
-  br label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread
+  br label %return.sink.split.i
 
 if.then15.i:                                      ; preds = %if.then92.i, %if.then92.i
   %cmp16.not.i = icmp eq i32 %or10.i.i.i, 2
@@ -12472,10 +12491,9 @@ if.end18.i:                                       ; preds = %if.then15.i
   %31 = load i8, ptr %arrayidx22.i, align 1
   %conv23.i = zext i8 %31 to i32
   %add.i101 = or disjoint i32 %mul.i100, %conv23.i
-  store i32 %add.i101, ptr %background_b60.i, align 4
+  store i32 %add.i101, ptr %background_b24.i, align 4
   store i32 %add.i101, ptr %background_g53.i, align 8
-  store i32 %add.i101, ptr %background_r46.i, align 4
-  br label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread
+  br label %return.sink.split.i
 
 if.then35.i:                                      ; preds = %if.then92.i, %if.then92.i
   %cmp36.not.i = icmp eq i32 %or10.i.i.i, 6
@@ -12508,10 +12526,16 @@ if.end38.i:                                       ; preds = %if.then35.i
   %37 = load i8, ptr %arrayidx57.i, align 1
   %conv58.i = zext i8 %37 to i32
   %add59.i = or disjoint i32 %mul56.i, %conv58.i
-  store i32 %add59.i, ptr %background_b60.i, align 4
-  br label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread
+  br label %return.sink.split.i
 
-_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread: ; preds = %if.then92.i, %if.end18.i, %if.end38.i, %if.end6.i106
+return.sink.split.i:                              ; preds = %if.end38.i, %if.end18.i, %if.end6.i106
+  %.sink.i = phi i64 [ 60, %if.end6.i106 ], [ 68, %if.end38.i ], [ 60, %if.end18.i ]
+  %conv8.sink.i = phi i32 [ %conv8.i, %if.end6.i106 ], [ %add59.i, %if.end38.i ], [ %add.i101, %if.end18.i ]
+  %background_r.i = getelementptr inbounds i8, ptr %info_png.i, i64 %.sink.i
+  store i32 %conv8.sink.i, ptr %background_r.i, align 4
+  br label %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit
+
+_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit:       ; preds = %if.then92.i, %return.sink.split.i
   store i32 0, ptr %error.i, align 8
   br label %if.end276.i
 
@@ -12709,18 +12733,18 @@ if.end245.i:                                      ; preds = %if.else238.i
 if.then248.i:                                     ; preds = %if.end245.i
   %sub.i = add nsw i32 %critical_pos.0536.i, -1
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx250.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 44, i64 %idxprom.i
-  %arrayidx254.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 45, i64 %idxprom.i
+  %arrayidx250.i = getelementptr inbounds [3 x ptr], ptr %unknown_chunks_data.i, i64 0, i64 %idxprom.i
+  %arrayidx254.i = getelementptr inbounds [3 x i64], ptr %unknown_chunks_size.i, i64 0, i64 %idxprom.i
   %call255.i = tail call noundef i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr noundef nonnull %arrayidx250.i, ptr noundef nonnull %arrayidx254.i, ptr noundef nonnull %chunk.0538.i), !range !33
   store i32 %call255.i, ptr %error.i, align 8
   %tobool258.not.i = icmp eq i32 %call255.i, 0
   br i1 %tobool258.not.i, label %if.then289.i, label %if.end381.thread579.i
 
-if.end276.i:                                      ; preds = %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread, %if.then229.i, %if.then216.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, %if.then192.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then138.i, %if.then124.i, %if.then120.i, %if.then107.i, %if.then104.i, %if.then79.i, %if.then66.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i, %for.body.preheader.i.i, %if.end56.i
-  %critical_pos.1.i = phi i32 [ %critical_pos.0536.i, %if.then79.i ], [ %critical_pos.0536.i, %if.then107.i ], [ %critical_pos.0536.i, %if.then104.i ], [ %critical_pos.0536.i, %if.then124.i ], [ %critical_pos.0536.i, %if.then120.i ], [ %critical_pos.0536.i, %if.then142.i ], [ %critical_pos.0536.i, %if.then138.i ], [ %critical_pos.0536.i, %if.then156.i ], [ %critical_pos.0536.i, %if.then168.i ], [ %critical_pos.0536.i, %if.then192.i ], [ %critical_pos.0536.i, %if.then216.i ], [ %critical_pos.0536.i, %if.then229.i ], [ %critical_pos.0536.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 2, %if.then66.i ], [ 3, %if.end56.i ], [ 3, %for.body.preheader.i.i ], [ %critical_pos.0536.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %critical_pos.0536.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %critical_pos.0536.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread ]
-  %idatsize.1.i = phi i64 [ %idatsize.0537.i, %if.then79.i ], [ %idatsize.0537.i, %if.then107.i ], [ %idatsize.0537.i, %if.then104.i ], [ %idatsize.0537.i, %if.then124.i ], [ %idatsize.0537.i, %if.then120.i ], [ %idatsize.0537.i, %if.then142.i ], [ %idatsize.0537.i, %if.then138.i ], [ %idatsize.0537.i, %if.then156.i ], [ %idatsize.0537.i, %if.then168.i ], [ %idatsize.0537.i, %if.then192.i ], [ %idatsize.0537.i, %if.then216.i ], [ %idatsize.0537.i, %if.then229.i ], [ %idatsize.0537.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ %idatsize.0537.i, %if.then66.i ], [ %add.i218.i, %if.end56.i ], [ %add.i218.i, %for.body.preheader.i.i ], [ %idatsize.0537.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %idatsize.0537.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %idatsize.0537.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread ]
-  %tobool288.not.i = phi i1 [ true, %if.then79.i ], [ true, %if.then107.i ], [ true, %if.then104.i ], [ true, %if.then124.i ], [ true, %if.then120.i ], [ true, %if.then142.i ], [ true, %if.then138.i ], [ true, %if.then156.i ], [ true, %if.then168.i ], [ true, %if.then192.i ], [ true, %if.then216.i ], [ true, %if.then229.i ], [ false, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ true, %if.then66.i ], [ true, %if.end56.i ], [ true, %for.body.preheader.i.i ], [ true, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread ]
-  %IEND.1.i = phi i8 [ 0, %if.then79.i ], [ 0, %if.then107.i ], [ 0, %if.then104.i ], [ 0, %if.then124.i ], [ 0, %if.then120.i ], [ 0, %if.then142.i ], [ 0, %if.then138.i ], [ 0, %if.then156.i ], [ 0, %if.then168.i ], [ 0, %if.then192.i ], [ 0, %if.then216.i ], [ 0, %if.then229.i ], [ 1, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 0, %if.then66.i ], [ 0, %if.end56.i ], [ 0, %for.body.preheader.i.i ], [ 0, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit.thread ]
+if.end276.i:                                      ; preds = %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit, %if.then229.i, %if.then216.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, %if.then192.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then138.i, %if.then124.i, %if.then120.i, %if.then107.i, %if.then104.i, %if.then79.i, %if.then66.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i, %for.body.preheader.i.i, %if.end56.i
+  %critical_pos.1.i = phi i32 [ %critical_pos.0536.i, %if.then79.i ], [ %critical_pos.0536.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %critical_pos.0536.i, %if.then107.i ], [ %critical_pos.0536.i, %if.then104.i ], [ %critical_pos.0536.i, %if.then124.i ], [ %critical_pos.0536.i, %if.then120.i ], [ %critical_pos.0536.i, %if.then142.i ], [ %critical_pos.0536.i, %if.then138.i ], [ %critical_pos.0536.i, %if.then156.i ], [ %critical_pos.0536.i, %if.then168.i ], [ %critical_pos.0536.i, %if.then192.i ], [ %critical_pos.0536.i, %if.then216.i ], [ %critical_pos.0536.i, %if.then229.i ], [ %critical_pos.0536.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 2, %if.then66.i ], [ 3, %if.end56.i ], [ 3, %for.body.preheader.i.i ], [ %critical_pos.0536.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %critical_pos.0536.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
+  %idatsize.1.i = phi i64 [ %idatsize.0537.i, %if.then79.i ], [ %idatsize.0537.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %idatsize.0537.i, %if.then107.i ], [ %idatsize.0537.i, %if.then104.i ], [ %idatsize.0537.i, %if.then124.i ], [ %idatsize.0537.i, %if.then120.i ], [ %idatsize.0537.i, %if.then142.i ], [ %idatsize.0537.i, %if.then138.i ], [ %idatsize.0537.i, %if.then156.i ], [ %idatsize.0537.i, %if.then168.i ], [ %idatsize.0537.i, %if.then192.i ], [ %idatsize.0537.i, %if.then216.i ], [ %idatsize.0537.i, %if.then229.i ], [ %idatsize.0537.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ %idatsize.0537.i, %if.then66.i ], [ %add.i218.i, %if.end56.i ], [ %add.i218.i, %for.body.preheader.i.i ], [ %idatsize.0537.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %idatsize.0537.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
+  %tobool288.not.i = phi i1 [ true, %if.then79.i ], [ true, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ true, %if.then107.i ], [ true, %if.then104.i ], [ true, %if.then124.i ], [ true, %if.then120.i ], [ true, %if.then142.i ], [ true, %if.then138.i ], [ true, %if.then156.i ], [ true, %if.then168.i ], [ true, %if.then192.i ], [ true, %if.then216.i ], [ true, %if.then229.i ], [ false, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ true, %if.then66.i ], [ true, %if.end56.i ], [ true, %for.body.preheader.i.i ], [ true, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
+  %IEND.1.i = phi i8 [ 0, %if.then79.i ], [ 0, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ 0, %if.then107.i ], [ 0, %if.then104.i ], [ 0, %if.then124.i ], [ 0, %if.then120.i ], [ 0, %if.then142.i ], [ 0, %if.then138.i ], [ 0, %if.then156.i ], [ 0, %if.then168.i ], [ 0, %if.then192.i ], [ 0, %if.then216.i ], [ 0, %if.then229.i ], [ 1, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 0, %if.then66.i ], [ 0, %if.end56.i ], [ 0, %for.body.preheader.i.i ], [ 0, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
   %55 = load i32, ptr %ignore_crc.i, align 8
   %tobool278.not.i = icmp eq i32 %55, 0
   br i1 %tobool278.not.i, label %if.then281.i, label %if.end287.i
@@ -12820,13 +12844,13 @@ land.lhs.true295.i:                               ; preds = %if.end292.i, %if.th
   br i1 %cmp298.i, label %land.lhs.true299.i, label %if.then308.i
 
 land.lhs.true299.i:                               ; preds = %land.lhs.true295.i
-  %palette.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %state, i64 232
   %65 = load ptr, ptr %palette.i, align 8
   %tobool302.not.i = icmp eq ptr %65, null
   br i1 %tobool302.not.i, label %if.end381.thread579.i.sink.split, label %if.then308.i
 
 if.then308.i:                                     ; preds = %land.lhs.true299.i, %land.lhs.true295.i
-  %interlace_method.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method.i = getelementptr inbounds i8, ptr %state, i64 216
   %66 = load i32, ptr %interlace_method.i, align 8
   %cmp310.i = icmp eq i32 %66, 0
   br i1 %cmp310.i, label %if.then311.i, label %if.else316.i
@@ -13017,7 +13041,7 @@ if.end364.i:                                      ; preds = %if.then357.i, %if.e
 if.end370.i:                                      ; preds = %if.end364.i, %if.then311.i
   %expected_size.3.i = phi i64 [ %mul8.i.i, %if.then311.i ], [ %add369.i, %if.end364.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i.i)
-  %custom_zlib.i.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %state, i64 0, i32 3
+  %custom_zlib.i.i = getelementptr inbounds i8, ptr %state, i64 16
   %72 = load ptr, ptr %custom_zlib.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %72, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -13032,7 +13056,7 @@ if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_
   br label %if.end374.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %max_output_size.i.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %state, i64 0, i32 2
+  %max_output_size.i.i = getelementptr inbounds i8, ptr %state, i64 8
   %73 = load i64, ptr %max_output_size.i.i, align 8
   %tobool4.not.i.i = icmp eq i64 %73, 0
   %.pre560.pre562.i = load i64, ptr %scanlines_size.i, align 8
@@ -13043,8 +13067,8 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %if.end381.thread579.i.sink.split
 
 if.else.i.i:                                      ; preds = %if.end370.i
-  %size1.i.i.i = getelementptr inbounds %struct.ucvector, ptr %v.i.i, i64 0, i32 1
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %v.i.i, i64 0, i32 2
+  %size1.i.i.i = getelementptr inbounds i8, ptr %v.i.i, i64 8
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %v.i.i, i64 16
   %tobool8.not.i.i = icmp eq i64 %expected_size.3.i, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v.i.i, i8 0, i64 24, i1 false)
   br i1 %tobool8.not.i.i, label %if.end11.i.i, label %if.then.i.i.i.i
@@ -13087,8 +13111,8 @@ if.end381.thread.i:                               ; preds = %if.end374.i
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 if.end381.thread579.i.sink.split:                 ; preds = %if.end31.i, %if.then46.i, %if.then180.i, %if.then204.i, %if.then281.i, %if.else238.i, %if.then35.i, %if.then15.i, %if.end.i103, %if.then.i102, %if.then16.i, %if.then24.i, %land.lhs.true299.i, %if.then3.i.i
-  %retval.0.i99.sink = phi i32 [ %error.0.i.ph.i, %if.then3.i.i ], [ 30, %if.then16.i ], [ 63, %if.then24.i ], [ 106, %land.lhs.true299.i ], [ 43, %if.then.i102 ], [ 103, %if.end.i103 ], [ 44, %if.then15.i ], [ 45, %if.then35.i ], [ 69, %if.else238.i ], [ 57, %if.then281.i ], [ 98, %if.then204.i ], [ 96, %if.then180.i ], [ 95, %if.then46.i ], [ 64, %if.end31.i ]
-  store i32 %retval.0.i99.sink, ptr %error.i, align 8
+  %retval.0.i99.ph.sink = phi i32 [ %error.0.i.ph.i, %if.then3.i.i ], [ 30, %if.then16.i ], [ 63, %if.then24.i ], [ 106, %land.lhs.true299.i ], [ 45, %if.then35.i ], [ 44, %if.then15.i ], [ 103, %if.end.i103 ], [ 43, %if.then.i102 ], [ 69, %if.else238.i ], [ 57, %if.then281.i ], [ 98, %if.then204.i ], [ 96, %if.then180.i ], [ 95, %if.then46.i ], [ 64, %if.end31.i ]
+  store i32 %retval.0.i99.ph.sink, ptr %error.i, align 8
   br label %if.end381.thread579.i
 
 if.end381.thread579.i:                            ; preds = %if.then248.i, %if.then229.i, %if.then216.i, %if.then192.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then124.i, %if.then107.i, %if.then79.i, %if.then66.i, %if.end381.thread579.i.sink.split
@@ -13795,7 +13819,7 @@ _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit: ; preds = %if.end381.thread.
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
-  %color_convert = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 4
+  %color_convert = getelementptr inbounds i8, ptr %state, i64 52
   %162 = load i32, ptr %color_convert, align 4
   %tobool2.not = icmp eq i32 %162, 0
   br i1 %tobool2.not, label %if.then8, label %lor.lhs.false
@@ -13813,9 +13837,9 @@ if.end.i32:                                       ; preds = %lor.lhs.false
   br i1 %cmp3.not.i, label %if.end5.i, label %if.else
 
 if.end5.i:                                        ; preds = %if.end.i32
-  %key_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %state, i64 192
   %167 = load i32, ptr %key_defined.i, align 8
-  %key_defined6.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %key_defined6.i = getelementptr inbounds i8, ptr %state, i64 248
   %168 = load i32, ptr %key_defined6.i, align 8
   %cmp7.not.i = icmp eq i32 %167, %168
   br i1 %cmp7.not.i, label %if.end9.i, label %if.else
@@ -13825,31 +13849,31 @@ if.end9.i:                                        ; preds = %if.end5.i
   br i1 %tobool.not.i33, label %if.end24.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  %key_r.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 5
+  %key_r.i = getelementptr inbounds i8, ptr %state, i64 196
   %169 = load i32, ptr %key_r.i, align 4
-  %key_r12.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 5
+  %key_r12.i = getelementptr inbounds i8, ptr %state, i64 252
   %170 = load i32, ptr %key_r12.i, align 4
   %cmp13.not.i = icmp eq i32 %169, %170
   br i1 %cmp13.not.i, label %if.end15.i, label %if.else
 
 if.end15.i:                                       ; preds = %if.then11.i
-  %key_g.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 6
+  %key_g.i = getelementptr inbounds i8, ptr %state, i64 200
   %171 = load i32, ptr %key_g.i, align 8
-  %key_g16.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 6
+  %key_g16.i = getelementptr inbounds i8, ptr %state, i64 256
   %172 = load i32, ptr %key_g16.i, align 8
   %cmp17.not.i = icmp eq i32 %171, %172
   br i1 %cmp17.not.i, label %if.end19.i, label %if.else
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %key_b.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 7
+  %key_b.i = getelementptr inbounds i8, ptr %state, i64 204
   %173 = load i32, ptr %key_b.i, align 4
-  %key_b20.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 7
+  %key_b20.i = getelementptr inbounds i8, ptr %state, i64 260
   %174 = load i32, ptr %key_b20.i, align 4
   %cmp21.not.i = icmp eq i32 %173, %174
   br i1 %cmp21.not.i, label %if.end24.i, label %if.else
 
 if.end24.i:                                       ; preds = %if.end19.i, %if.end9.i
-  %palettesize.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %state, i64 184
   %175 = load i64, ptr %palettesize.i, align 8
   %176 = load i64, ptr %palettesize.i105, align 8
   %cmp26.not.i = icmp eq i64 %175, %176
@@ -13861,9 +13885,9 @@ for.cond.preheader.i:                             ; preds = %if.end24.i
   br i1 %cmp30.not20.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %palette.i34 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 2
+  %palette.i34 = getelementptr inbounds i8, ptr %state, i64 176
   %177 = load ptr, ptr %palette.i34, align 8
-  %palette31.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette31.i = getelementptr inbounds i8, ptr %state, i64 232
   %178 = load ptr, ptr %palette31.i, align 8
   br label %for.body.i
 
@@ -13882,7 +13906,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp34.not.i, label %for.cond.i, label %if.else
 
 if.then8:                                         ; preds = %if.end
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 2
+  %palette.i.i.i = getelementptr inbounds i8, ptr %state, i64 176
   %181 = load ptr, ptr %palette.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %181, null
   br i1 %tobool.not.i.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %if.then.i.i.i
@@ -13893,7 +13917,7 @@ if.then.i.i.i:                                    ; preds = %if.then8
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i.i, %if.then8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %info_raw.i, ptr noundef nonnull align 1 dereferenceable(40) %color.i, i64 40, i1 false), !alias.scope !335
-  %palette.i36 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette.i36 = getelementptr inbounds i8, ptr %state, i64 232
   %182 = load ptr, ptr %palette.i36, align 8
   %tobool.not.i37 = icmp eq ptr %182, null
   br i1 %tobool.not.i37, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %if.then.i
@@ -14007,70 +14031,70 @@ return:                                           ; preds = %for.cond.i, %if.end
 define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr nocapture noundef %out, ptr noundef %w, ptr noundef %h, ptr noundef %in, i64 noundef %insize, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %state = alloca %struct.LodePNGState, align 8
-  %color_convert.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 4
+  %color_convert.i.i = getelementptr inbounds i8, ptr %state, i64 52
   store i32 1, ptr %color_convert.i.i, align 4
-  %read_text_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 5
-  %remember_unknown_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 6
-  %max_text_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 7
+  %read_text_chunks.i.i = getelementptr inbounds i8, ptr %state, i64 56
+  %remember_unknown_chunks.i.i = getelementptr inbounds i8, ptr %state, i64 60
+  %max_text_size.i.i = getelementptr inbounds i8, ptr %state, i64 64
   store i64 16777216, ptr %max_text_size.i.i, align 8
-  %max_icc_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 8
+  %max_icc_size.i.i = getelementptr inbounds i8, ptr %state, i64 72
   store i64 16777216, ptr %max_icc_size.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %state, i8 0, i64 52, i1 false)
-  %encoder.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1
+  %encoder.i = getelementptr inbounds i8, ptr %state, i64 80
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %encoder.i, align 8
-  %nicematch.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 4
+  %nicematch.i.i.i = getelementptr inbounds i8, ptr %state, i64 96
   store i32 128, ptr %nicematch.i.i.i, align 8
-  %lazymatching.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 5
+  %lazymatching.i.i.i = getelementptr inbounds i8, ptr %state, i64 100
   store i32 1, ptr %lazymatching.i.i.i, align 4
-  %custom_zlib.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 6
+  %custom_zlib.i.i.i = getelementptr inbounds i8, ptr %state, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib.i.i.i, i8 0, i64 24, i1 false)
-  %filter_palette_zero.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 2
+  %filter_palette_zero.i.i = getelementptr inbounds i8, ptr %state, i64 132
   store i32 1, ptr %filter_palette_zero.i.i, align 4
-  %filter_strategy.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 3
+  %filter_strategy.i.i = getelementptr inbounds i8, ptr %state, i64 136
   store i32 5, ptr %filter_strategy.i.i, align 8
-  %auto_convert.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 1
+  %auto_convert.i.i = getelementptr inbounds i8, ptr %state, i64 128
   store i32 1, ptr %auto_convert.i.i, align 8
-  %predefined_filters.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 4
-  %text_compression.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 7
+  %predefined_filters.i.i = getelementptr inbounds i8, ptr %state, i64 144
+  %text_compression.i.i = getelementptr inbounds i8, ptr %state, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %predefined_filters.i.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %text_compression.i.i, align 8
-  %info_raw.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 4
+  %info_raw.i = getelementptr inbounds i8, ptr %state, i64 168
+  %key_defined.i.i = getelementptr inbounds i8, ptr %state, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 2
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %state, i64 172
+  %palette.i.i = getelementptr inbounds i8, ptr %state, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %color.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
-  %key_defined.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %info_png.i = getelementptr inbounds i8, ptr %state, i64 208
+  %color.i.i = getelementptr inbounds i8, ptr %state, i64 224
+  %key_defined.i.i.i = getelementptr inbounds i8, ptr %state, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i.i, align 8
-  %bitdepth.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 1
+  %bitdepth.i.i.i = getelementptr inbounds i8, ptr %state, i64 228
   store i32 8, ptr %bitdepth.i.i.i, align 4
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette.i.i.i = getelementptr inbounds i8, ptr %state, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method.i.i = getelementptr inbounds i8, ptr %state, i64 216
   store i32 0, ptr %interlace_method.i.i, align 8
   store i32 0, ptr %info_png.i, align 8
-  %filter_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 1
+  %filter_method.i.i = getelementptr inbounds i8, ptr %state, i64 212
   store i32 0, ptr %filter_method.i.i, align 4
-  %background_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 4
-  %phys_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 18
+  %background_defined.i.i = getelementptr inbounds i8, ptr %state, i64 264
+  %phys_defined.i.i = getelementptr inbounds i8, ptr %state, i64 372
   store i32 0, ptr %phys_defined.i.i, align 4
-  %gama_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
+  %gama_defined.i.i = getelementptr inbounds i8, ptr %state, i64 388
   store i32 0, ptr %gama_defined.i.i, align 4
-  %chrm_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 24
+  %chrm_defined.i.i = getelementptr inbounds i8, ptr %state, i64 396
   store i32 0, ptr %chrm_defined.i.i, align 4
-  %srgb_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
+  %srgb_defined.i.i = getelementptr inbounds i8, ptr %state, i64 432
   store i32 0, ptr %srgb_defined.i.i, align 8
-  %iccp_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined.i.i = getelementptr inbounds i8, ptr %state, i64 440
   store i32 0, ptr %iccp_defined.i.i, align 8
-  %iccp_name.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 36
-  %sbit_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 39
+  %iccp_name.i.i = getelementptr inbounds i8, ptr %state, i64 448
+  %sbit_defined.i.i = getelementptr inbounds i8, ptr %state, i64 468
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i.i, i8 0, i64 84, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i.i, i8 0, i64 68, i1 false)
-  %error.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error.i = getelementptr inbounds i8, ptr %state, i64 536
   store i32 1, ptr %error.i, align 8
   store i32 %colortype, ptr %info_raw.i, align 8
   store i32 %bitdepth, ptr %bitdepth.i.i, align 4
@@ -14094,74 +14118,74 @@ _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z18lodepng_state_initP12LodePNGState(ptr nocapture noundef writeonly %state) local_unnamed_addr #7 {
 entry:
-  %color_convert.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 4
+  %color_convert.i = getelementptr inbounds i8, ptr %state, i64 52
   store i32 1, ptr %color_convert.i, align 4
-  %read_text_chunks.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 5
+  %read_text_chunks.i = getelementptr inbounds i8, ptr %state, i64 56
   store i32 1, ptr %read_text_chunks.i, align 8
-  %remember_unknown_chunks.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 6
+  %remember_unknown_chunks.i = getelementptr inbounds i8, ptr %state, i64 60
   store i32 0, ptr %remember_unknown_chunks.i, align 4
-  %max_text_size.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 7
+  %max_text_size.i = getelementptr inbounds i8, ptr %state, i64 64
   store i64 16777216, ptr %max_text_size.i, align 8
-  %max_icc_size.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 8
+  %max_icc_size.i = getelementptr inbounds i8, ptr %state, i64 72
   store i64 16777216, ptr %max_icc_size.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %state, i8 0, i64 52, i1 false)
-  %encoder = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1
+  %encoder = getelementptr inbounds i8, ptr %state, i64 80
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %encoder, align 8
-  %nicematch.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 4
+  %nicematch.i.i = getelementptr inbounds i8, ptr %state, i64 96
   store i32 128, ptr %nicematch.i.i, align 8
-  %lazymatching.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 5
+  %lazymatching.i.i = getelementptr inbounds i8, ptr %state, i64 100
   store i32 1, ptr %lazymatching.i.i, align 4
-  %custom_zlib.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 6
+  %custom_zlib.i.i = getelementptr inbounds i8, ptr %state, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib.i.i, i8 0, i64 24, i1 false)
-  %filter_palette_zero.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 2
+  %filter_palette_zero.i = getelementptr inbounds i8, ptr %state, i64 132
   store i32 1, ptr %filter_palette_zero.i, align 4
-  %filter_strategy.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 3
+  %filter_strategy.i = getelementptr inbounds i8, ptr %state, i64 136
   store i32 5, ptr %filter_strategy.i, align 8
-  %auto_convert.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 1
+  %auto_convert.i = getelementptr inbounds i8, ptr %state, i64 128
   store i32 1, ptr %auto_convert.i, align 8
-  %predefined_filters.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 4
-  %text_compression.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 7
+  %predefined_filters.i = getelementptr inbounds i8, ptr %state, i64 144
+  %text_compression.i = getelementptr inbounds i8, ptr %state, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %predefined_filters.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %text_compression.i, align 8
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
-  %key_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 4
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
+  %key_defined.i = getelementptr inbounds i8, ptr %state, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %info_raw, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %state, i64 172
   store i32 8, ptr %bitdepth.i, align 4
-  %palette.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %state, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %color.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
+  %color.i = getelementptr inbounds i8, ptr %state, i64 224
+  %key_defined.i.i = getelementptr inbounds i8, ptr %state, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i, align 8
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 1
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %state, i64 228
   store i32 8, ptr %bitdepth.i.i, align 4
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %state, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method.i = getelementptr inbounds i8, ptr %state, i64 216
   store i32 0, ptr %interlace_method.i, align 8
   store i32 0, ptr %info_png, align 8
-  %filter_method.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 1
+  %filter_method.i = getelementptr inbounds i8, ptr %state, i64 212
   store i32 0, ptr %filter_method.i, align 4
-  %background_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 4
-  %phys_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 18
+  %background_defined.i = getelementptr inbounds i8, ptr %state, i64 264
+  %phys_defined.i = getelementptr inbounds i8, ptr %state, i64 372
   store i32 0, ptr %phys_defined.i, align 4
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %state, i64 388
   store i32 0, ptr %gama_defined.i, align 4
-  %chrm_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 24
+  %chrm_defined.i = getelementptr inbounds i8, ptr %state, i64 396
   store i32 0, ptr %chrm_defined.i, align 4
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %state, i64 432
   store i32 0, ptr %srgb_defined.i, align 8
-  %iccp_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined.i = getelementptr inbounds i8, ptr %state, i64 440
   store i32 0, ptr %iccp_defined.i, align 8
-  %iccp_name.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 36
-  %sbit_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 39
+  %iccp_name.i = getelementptr inbounds i8, ptr %state, i64 448
+  %sbit_defined.i = getelementptr inbounds i8, ptr %state, i64 468
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i, i8 0, i64 84, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i, i8 0, i64 68, i1 false)
-  %error = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %state, i64 536
   store i32 1, ptr %error, align 8
   ret void
 }
@@ -14169,7 +14193,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z21lodepng_state_cleanupP12LodePNGState(ptr nocapture noundef %state) local_unnamed_addr #2 {
 entry:
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %state, i64 176
   %0 = load ptr, ptr %palette.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
@@ -14180,7 +14204,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %info_png)
   ret void
 }
@@ -14285,15 +14309,15 @@ _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %entry, %i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z29lodepng_decoder_settings_initP22LodePNGDecoderSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #7 {
 entry:
-  %color_convert = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %settings, i64 0, i32 4
+  %color_convert = getelementptr inbounds i8, ptr %settings, i64 52
   store i32 1, ptr %color_convert, align 4
-  %read_text_chunks = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %settings, i64 0, i32 5
+  %read_text_chunks = getelementptr inbounds i8, ptr %settings, i64 56
   store i32 1, ptr %read_text_chunks, align 8
-  %remember_unknown_chunks = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %settings, i64 0, i32 6
+  %remember_unknown_chunks = getelementptr inbounds i8, ptr %settings, i64 60
   store i32 0, ptr %remember_unknown_chunks, align 4
-  %max_text_size = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %settings, i64 0, i32 7
+  %max_text_size = getelementptr inbounds i8, ptr %settings, i64 64
   store i64 16777216, ptr %max_text_size, align 8
-  %max_icc_size = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %settings, i64 0, i32 8
+  %max_icc_size = getelementptr inbounds i8, ptr %settings, i64 72
   store i64 16777216, ptr %max_icc_size, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %settings, i8 0, i64 52, i1 false)
   ret void
@@ -14303,20 +14327,20 @@ entry:
 define void @_Z29lodepng_encoder_settings_initP22LodePNGEncoderSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #7 {
 entry:
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %settings, align 8
-  %nicematch.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 4
+  %nicematch.i = getelementptr inbounds i8, ptr %settings, i64 16
   store i32 128, ptr %nicematch.i, align 8
-  %lazymatching.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 5
+  %lazymatching.i = getelementptr inbounds i8, ptr %settings, i64 20
   store i32 1, ptr %lazymatching.i, align 4
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 6
+  %custom_zlib.i = getelementptr inbounds i8, ptr %settings, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib.i, i8 0, i64 24, i1 false)
-  %filter_palette_zero = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 2
+  %filter_palette_zero = getelementptr inbounds i8, ptr %settings, i64 52
   store i32 1, ptr %filter_palette_zero, align 4
-  %filter_strategy = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 3
+  %filter_strategy = getelementptr inbounds i8, ptr %settings, i64 56
   store i32 5, ptr %filter_strategy, align 8
-  %auto_convert = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 1
+  %auto_convert = getelementptr inbounds i8, ptr %settings, i64 48
   store i32 1, ptr %auto_convert, align 8
-  %predefined_filters = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 4
-  %text_compression = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 7
+  %predefined_filters = getelementptr inbounds i8, ptr %settings, i64 64
+  %text_compression = getelementptr inbounds i8, ptr %settings, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %predefined_filters, i8 0, i64 16, i1 false)
   store i32 1, ptr %text_compression, align 8
   ret void
@@ -14325,7 +14349,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr nocapture noundef %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
 entry:
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 2, i32 2
+  %palette.i.i.i = getelementptr inbounds i8, ptr %dest, i64 176
   %0 = load ptr, ptr %palette.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %if.then.i.i.i
@@ -14336,48 +14360,48 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i.i, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3
+  %info_png.i = getelementptr inbounds i8, ptr %dest, i64 208
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %info_png.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(544) %dest, ptr noundef nonnull align 8 dereferenceable(544) %source, i64 544, i1 false)
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 2
-  %key_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 2, i32 4
+  %info_raw = getelementptr inbounds i8, ptr %dest, i64 168
+  %key_defined.i = getelementptr inbounds i8, ptr %dest, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %info_raw, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 2, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %dest, i64 172
   store i32 8, ptr %bitdepth.i, align 4
-  %color.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 3
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 3, i32 4
+  %color.i = getelementptr inbounds i8, ptr %dest, i64 224
+  %key_defined.i.i = getelementptr inbounds i8, ptr %dest, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i, align 8
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 3, i32 1
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %dest, i64 228
   store i32 8, ptr %bitdepth.i.i, align 4
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 3, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %dest, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 2
+  %interlace_method.i = getelementptr inbounds i8, ptr %dest, i64 216
   store i32 0, ptr %interlace_method.i, align 8
   store i32 0, ptr %info_png.i, align 8
-  %filter_method.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 1
+  %filter_method.i = getelementptr inbounds i8, ptr %dest, i64 212
   store i32 0, ptr %filter_method.i, align 4
-  %background_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 4
-  %phys_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 18
+  %background_defined.i = getelementptr inbounds i8, ptr %dest, i64 264
+  %phys_defined.i = getelementptr inbounds i8, ptr %dest, i64 372
   store i32 0, ptr %phys_defined.i, align 4
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %dest, i64 388
   store i32 0, ptr %gama_defined.i, align 4
-  %chrm_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 24
+  %chrm_defined.i = getelementptr inbounds i8, ptr %dest, i64 396
   store i32 0, ptr %chrm_defined.i, align 4
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %dest, i64 432
   store i32 0, ptr %srgb_defined.i, align 8
-  %iccp_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 35
+  %iccp_defined.i = getelementptr inbounds i8, ptr %dest, i64 440
   store i32 0, ptr %iccp_defined.i, align 8
-  %iccp_name.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 36
-  %sbit_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 3, i32 39
+  %iccp_name.i = getelementptr inbounds i8, ptr %dest, i64 448
+  %sbit_defined.i = getelementptr inbounds i8, ptr %dest, i64 468
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i, i8 0, i64 84, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i, i8 0, i64 68, i1 false)
-  %info_raw2 = getelementptr inbounds %struct.LodePNGState, ptr %source, i64 0, i32 2
+  %info_raw2 = getelementptr inbounds i8, ptr %source, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %info_raw, ptr noundef nonnull align 1 dereferenceable(40) %info_raw2, i64 40, i1 false), !alias.scope !343
-  %palette.i14 = getelementptr inbounds %struct.LodePNGState, ptr %source, i64 0, i32 2, i32 2
+  %palette.i14 = getelementptr inbounds i8, ptr %source, i64 176
   %1 = load ptr, ptr %palette.i14, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end, label %if.then.i
@@ -14386,7 +14410,7 @@ if.then.i:                                        ; preds = %_Z26lodepng_color_m
   %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #33
   store ptr %call.i.i, ptr %palette.i.i.i, align 8
   %tobool3.not.i = icmp eq ptr %call.i.i, null
-  %palettesize.i = getelementptr inbounds %struct.LodePNGState, ptr %source, i64 0, i32 2, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %source, i64 184
   %2 = load i64, ptr %palettesize.i, align 8
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %if.end.i
 
@@ -14405,14 +14429,14 @@ for.body.preheader.i.i:                           ; preds = %if.end.i
   br label %if.end
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %land.lhs.true.i
-  %error = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %dest, i64 536
   store i32 83, ptr %error, align 8
   br label %if.end11
 
 if.end:                                           ; preds = %land.lhs.true.i, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %if.end.i, %for.body.preheader.i.i
-  %error16 = getelementptr inbounds %struct.LodePNGState, ptr %dest, i64 0, i32 4
+  %error16 = getelementptr inbounds i8, ptr %dest, i64 536
   store i32 0, ptr %error16, align 8
-  %info_png5 = getelementptr inbounds %struct.LodePNGState, ptr %source, i64 0, i32 3
+  %info_png5 = getelementptr inbounds i8, ptr %source, i64 208
   %call6 = tail call noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef nonnull %info_png.i, ptr noundef nonnull %info_png5)
   store i32 %call6, ptr %error16, align 8
   br label %if.end11
@@ -14439,61 +14463,61 @@ entry:
   %mode16 = alloca %struct.LodePNGColorMode, align 8
   store ptr null, ptr %data, align 8
   store i64 0, ptr %datasize, align 8
-  %info_png1 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %color.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 4
+  %info_png1 = getelementptr inbounds i8, ptr %state, i64 208
+  %color.i = getelementptr inbounds i8, ptr %info, i64 16
+  %key_defined.i.i = getelementptr inbounds i8, ptr %info, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %outv, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i, align 8
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 1
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %info, i64 20
   store i32 8, ptr %bitdepth.i.i, align 4
-  %palette.i.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %info, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 2
+  %interlace_method.i = getelementptr inbounds i8, ptr %info, i64 8
   store i32 0, ptr %interlace_method.i, align 8
   store i32 0, ptr %info, align 8
-  %filter_method.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 1
+  %filter_method.i = getelementptr inbounds i8, ptr %info, i64 4
   store i32 0, ptr %filter_method.i, align 4
-  %background_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 4
-  %phys_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 18
+  %background_defined.i = getelementptr inbounds i8, ptr %info, i64 56
+  %phys_defined.i = getelementptr inbounds i8, ptr %info, i64 164
   store i32 0, ptr %phys_defined.i, align 4
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %info, i64 180
   store i32 0, ptr %gama_defined.i, align 4
-  %chrm_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 24
+  %chrm_defined.i = getelementptr inbounds i8, ptr %info, i64 188
   store i32 0, ptr %chrm_defined.i, align 4
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %info, i64 224
   store i32 0, ptr %srgb_defined.i, align 8
-  %iccp_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 35
+  %iccp_defined.i = getelementptr inbounds i8, ptr %info, i64 232
   store i32 0, ptr %iccp_defined.i, align 8
-  %iccp_name.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
-  %sbit_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 39
+  %iccp_name.i = getelementptr inbounds i8, ptr %info, i64 240
+  %sbit_defined.i = getelementptr inbounds i8, ptr %info, i64 260
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i, i8 0, i64 84, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i, i8 0, i64 68, i1 false)
-  %key_defined.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %auto_color, i64 0, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %auto_color, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %auto_color, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %auto_color, i64 0, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %auto_color, i64 4
   store i32 8, ptr %bitdepth.i, align 4
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %auto_color, i64 0, i32 2
+  %palette.i = getelementptr inbounds i8, ptr %auto_color, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outsize, align 8
-  %error = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %state, i64 536
   store i32 0, ptr %error, align 8
-  %color = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
+  %color = getelementptr inbounds i8, ptr %state, i64 224
   %0 = load i32, ptr %color, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %force_palette = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 5
+  %force_palette = getelementptr inbounds i8, ptr %state, i64 152
   %1 = load i32, ptr %force_palette, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
-  %palettesize = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %state, i64 240
   %2 = load i64, ptr %palettesize, align 8
   %3 = add i64 %2, -257
   %or.cond236 = icmp ult i64 %3, -256
@@ -14504,7 +14528,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %cleanup
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  %encoder9 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1
+  %encoder9 = getelementptr inbounds i8, ptr %state, i64 80
   %4 = load i32, ptr %encoder9, align 8
   %cmp10 = icmp ugt i32 %4, 2
   br i1 %cmp10, label %if.then11, label %if.end13
@@ -14514,7 +14538,7 @@ if.then11:                                        ; preds = %if.end
   br label %cleanup
 
 if.end13:                                         ; preds = %if.end
-  %interlace_method = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method = getelementptr inbounds i8, ptr %state, i64 216
   %5 = load i32, ptr %interlace_method, align 8
   %cmp14 = icmp ugt i32 %5, 1
   br i1 %cmp14, label %if.then15, label %if.end17
@@ -14524,7 +14548,7 @@ if.then15:                                        ; preds = %if.end13
   br label %cleanup
 
 if.end17:                                         ; preds = %if.end13
-  %bitdepth = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %state, i64 228
   %6 = load i32, ptr %bitdepth, align 4
   switch i32 %0, label %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread [
     i32 0, label %sw.bb.i
@@ -14575,9 +14599,9 @@ _ZL18checkColorValidity16LodePNGColorTypej.exit.thread: ; preds = %sw.bb.i, %sw.
   br label %cleanup
 
 if.end25:                                         ; preds = %sw.bb30.i, %sw.bb24.i, %sw.bb8.i, %sw.bb.i, %sw.bb.i, %sw.bb.i, %sw.bb.i, %sw.bb.i, %sw.bb14.i, %sw.bb14.i, %sw.bb14.i, %sw.bb14.i
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
   %10 = load i32, ptr %info_raw, align 8
-  %bitdepth28 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %bitdepth28 = getelementptr inbounds i8, ptr %state, i64 172
   %11 = load i32, ptr %bitdepth28, align 4
   switch i32 %10, label %_ZL18checkColorValidity16LodePNGColorTypej.exit257.thread [
     i32 0, label %sw.bb.i256
@@ -14629,34 +14653,34 @@ _ZL18checkColorValidity16LodePNGColorTypej.exit257.thread: ; preds = %sw.bb.i256
 
 if.end34:                                         ; preds = %sw.bb30.i244, %sw.bb24.i248, %sw.bb8.i253, %sw.bb.i256, %sw.bb.i256, %sw.bb.i256, %sw.bb.i256, %sw.bb.i256, %sw.bb14.i251, %sw.bb14.i251, %sw.bb14.i251, %sw.bb14.i251
   %call36 = call noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef nonnull %info, ptr noundef nonnull %info_png1)
-  %auto_convert = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 1
+  %auto_convert = getelementptr inbounds i8, ptr %state, i64 128
   %15 = load i32, ptr %auto_convert, align 8
   %tobool38.not = icmp eq i32 %15, 0
   br i1 %tobool38.not, label %if.end260, label %if.then39
 
 if.then39:                                        ; preds = %if.end34
-  %alpha.i = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 5
+  %alpha.i = getelementptr inbounds i8, ptr %stats, i64 16
   store i32 0, ptr %alpha.i, align 8
-  %numcolors.i = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 6
+  %numcolors.i = getelementptr inbounds i8, ptr %stats, i64 20
   store i32 0, ptr %numcolors.i, align 4
-  %bits.i = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 8
+  %bits.i = getelementptr inbounds i8, ptr %stats, i64 1048
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %stats, i8 0, i64 14, i1 false)
   store i32 1, ptr %bits.i, align 8
-  %numpixels.i = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 9
+  %numpixels.i = getelementptr inbounds i8, ptr %stats, i64 1056
   store i64 0, ptr %numpixels.i, align 8
-  %allow_palette.i = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 10
+  %allow_palette.i = getelementptr inbounds i8, ptr %stats, i64 1064
   store i32 1, ptr %allow_palette.i, align 8
-  %allow_greyscale.i = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 11
+  %allow_greyscale.i = getelementptr inbounds i8, ptr %stats, i64 1068
   store i32 1, ptr %allow_greyscale.i, align 4
-  %iccp_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %16 = load i32, ptr %iccp_defined, align 8
   %tobool40.not = icmp eq i32 %16, 0
   br i1 %tobool40.not, label %if.end54, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.then39
-  %iccp_profile = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %state, i64 456
   %17 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %state, i64 464
   %18 = load i32, ptr %iccp_profile_size, align 8
   %cmp.i = icmp ult i32 %18, 20
   br i1 %cmp.i, label %if.end54, label %if.end.i
@@ -14724,7 +14748,7 @@ if.end54:                                         ; preds = %land.lhs.true41, %i
   br i1 %tobool59.not, label %if.end61, label %cleanup
 
 if.end61:                                         ; preds = %if.end54
-  %background_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 4
+  %background_defined = getelementptr inbounds i8, ptr %state, i64 264
   %27 = load i32, ptr %background_defined, align 8
   %tobool62.not = icmp eq i32 %27, 0
   br i1 %tobool62.not, label %if.end72, label %if.then63
@@ -14733,16 +14757,16 @@ if.then63:                                        ; preds = %if.end61
   store i32 0, ptr %r, align 4
   store i32 0, ptr %g, align 4
   store i32 0, ptr %b, align 4
-  %bitdepth.i.i274 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode16, i64 0, i32 1
-  %palette.i.i275 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode16, i64 0, i32 2
+  %bitdepth.i.i274 = getelementptr inbounds i8, ptr %mode16, i64 4
+  %palette.i.i275 = getelementptr inbounds i8, ptr %mode16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %palette.i.i275, i8 0, i64 32, i1 false)
   store i32 2, ptr %mode16, align 8, !alias.scope !351
   store i32 16, ptr %bitdepth.i.i274, align 4, !alias.scope !351
-  %background_r = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 5
+  %background_r = getelementptr inbounds i8, ptr %state, i64 268
   %28 = load i32, ptr %background_r, align 4
-  %background_g = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 6
+  %background_g = getelementptr inbounds i8, ptr %state, i64 272
   %29 = load i32, ptr %background_g, align 8
-  %background_b = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 7
+  %background_b = getelementptr inbounds i8, ptr %state, i64 276
   %30 = load i32, ptr %background_b, align 4
   %call65 = call noundef i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr noundef nonnull %r, ptr noundef nonnull %g, ptr noundef nonnull %b, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %mode16, ptr noundef nonnull %color), !range !354
   %31 = load i32, ptr %r, align 4
@@ -14760,20 +14784,20 @@ if.end72:                                         ; preds = %if.then63, %if.end6
   br i1 %tobool77.not, label %if.end79, label %cleanup
 
 if.end79:                                         ; preds = %if.end72
-  %sbit_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 39
+  %sbit_defined = getelementptr inbounds i8, ptr %state, i64 468
   %34 = load i32, ptr %sbit_defined, align 4
   %tobool80.not = icmp eq i32 %34, 0
   br i1 %tobool80.not, label %if.end217, label %if.then81
 
 if.then81:                                        ; preds = %if.end79
-  %sbit_r = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 40
+  %sbit_r = getelementptr inbounds i8, ptr %state, i64 472
   %35 = load i32, ptr %sbit_r, align 8
-  %sbit_g = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 41
+  %sbit_g = getelementptr inbounds i8, ptr %state, i64 476
   %36 = load i32, ptr %sbit_g, align 4
   %. = call i32 @llvm.umax.i32(i32 %35, i32 %36)
-  %sbit_b = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 42
+  %sbit_b = getelementptr inbounds i8, ptr %state, i64 480
   %37 = load i32, ptr %sbit_b, align 8
-  %sbit_a = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 43
+  %sbit_a = getelementptr inbounds i8, ptr %state, i64 484
   %38 = load i32, ptr %sbit_a, align 4
   %.. = call i32 @llvm.umax.i32(i32 %., i32 %37)
   %spec.select358 = call i32 @llvm.umax.i32(i32 %.., i32 %38)
@@ -14845,7 +14869,7 @@ land.lhs.true211:                                 ; preds = %if.end202
 
 if.end217:                                        ; preds = %land.lhs.true211, %if.end202, %if.end79
   %allow_convert.4 = phi i32 [ %allow_convert.3, %if.end202 ], [ 1, %if.end79 ], [ %spec.select242, %land.lhs.true211 ]
-  %force_palette219 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 5
+  %force_palette219 = getelementptr inbounds i8, ptr %state, i64 152
   %48 = load i32, ptr %force_palette219, align 8
   %tobool220.not = icmp eq i32 %48, 0
   br i1 %tobool220.not, label %if.end237, label %if.then221
@@ -14875,14 +14899,14 @@ if.then239:                                       ; preds = %land.lhs.true229, %
   br i1 %tobool243.not, label %if.end260, label %if.then244
 
 if.then244:                                       ; preds = %if.then239
-  %background_r245 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
-  %background_g246 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 6
-  %background_b247 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 7
-  %background_r248 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 5
+  %background_r245 = getelementptr inbounds i8, ptr %info, i64 60
+  %background_g246 = getelementptr inbounds i8, ptr %info, i64 64
+  %background_b247 = getelementptr inbounds i8, ptr %info, i64 68
+  %background_r248 = getelementptr inbounds i8, ptr %state, i64 268
   %54 = load i32, ptr %background_r248, align 4
-  %background_g249 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 6
+  %background_g249 = getelementptr inbounds i8, ptr %state, i64 272
   %55 = load i32, ptr %background_g249, align 8
-  %background_b250 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 7
+  %background_b250 = getelementptr inbounds i8, ptr %state, i64 276
   %56 = load i32, ptr %background_b250, align 4
   %call253 = call noundef i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr noundef nonnull %background_r245, ptr noundef nonnull %background_g246, ptr noundef nonnull %background_b247, i32 noundef %54, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %color.i, ptr noundef nonnull %color), !range !354
   %tobool254.not = icmp eq i32 %call253, 0
@@ -14893,15 +14917,15 @@ if.then255:                                       ; preds = %if.then244
   br label %cleanup
 
 if.end260:                                        ; preds = %land.lhs.true229, %if.end237, %if.then244, %if.then239, %if.end34
-  %iccp_defined261 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined261 = getelementptr inbounds i8, ptr %state, i64 440
   %57 = load i32, ptr %iccp_defined261, align 8
   %tobool262.not = icmp eq i32 %57, 0
   br i1 %tobool262.not, label %if.end293, label %if.then263
 
 if.then263:                                       ; preds = %if.end260
-  %iccp_profile264 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 37
+  %iccp_profile264 = getelementptr inbounds i8, ptr %state, i64 456
   %58 = load ptr, ptr %iccp_profile264, align 8
-  %iccp_profile_size265 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 38
+  %iccp_profile_size265 = getelementptr inbounds i8, ptr %state, i64 464
   %59 = load i32, ptr %iccp_profile_size265, align 8
   %cmp.i276 = icmp ult i32 %59, 20
   br i1 %cmp.i276, label %_ZL15isRGBICCProfilePKhj.exit305, label %if.end.i277
@@ -15050,13 +15074,13 @@ if.end344:                                        ; preds = %if.end338
   br i1 %tobool353.not, label %if.end355, label %cleanup
 
 if.end355:                                        ; preds = %if.end344
-  %unknown_chunks_data = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 44
+  %unknown_chunks_data = getelementptr inbounds i8, ptr %info, i64 280
   %77 = load ptr, ptr %unknown_chunks_data, align 8
   %tobool356.not = icmp eq ptr %77, null
   br i1 %tobool356.not, label %if.end367, label %if.then357
 
 if.then357:                                       ; preds = %if.end355
-  %unknown_chunks_size = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 45
+  %unknown_chunks_size = getelementptr inbounds i8, ptr %info, i64 304
   %78 = load i64, ptr %unknown_chunks_size, align 8
   %call361 = call fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef nonnull %outv, ptr noundef nonnull %77, i64 noundef %78), !range !33
   store i32 %call361, ptr %error, align 8
@@ -15110,7 +15134,7 @@ if.then399:                                       ; preds = %if.end397
   br i1 %tobool403.not, label %if.end406, label %cleanup
 
 if.end406:                                        ; preds = %if.then399, %if.end397
-  %sbit_defined407 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 39
+  %sbit_defined407 = getelementptr inbounds i8, ptr %state, i64 468
   %84 = load i32, ptr %sbit_defined407, align 4
   %tobool408.not = icmp eq i32 %84, 0
   br i1 %tobool408.not, label %if.end416, label %if.then409
@@ -15133,7 +15157,7 @@ if.then420:                                       ; preds = %if.end416
   br i1 %tobool425.not, label %if.end428, label %cleanup
 
 if.end428:                                        ; preds = %if.then420, %if.end416
-  %force_palette430 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 5
+  %force_palette430 = getelementptr inbounds i8, ptr %state, i64 152
   %86 = load i32, ptr %force_palette430, align 8
   %tobool431.not = icmp eq i32 %86, 0
   br i1 %tobool431.not, label %if.end448, label %land.lhs.true432
@@ -15179,13 +15203,13 @@ if.then467:                                       ; preds = %if.end465
   br i1 %tobool471.not, label %if.end474, label %cleanup
 
 if.end474:                                        ; preds = %if.then467, %if.end465
-  %arrayidx476 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 44, i64 1
+  %arrayidx476 = getelementptr inbounds i8, ptr %info, i64 288
   %91 = load ptr, ptr %arrayidx476, align 8
   %tobool477.not = icmp eq ptr %91, null
   br i1 %tobool477.not, label %if.end489, label %if.then478
 
 if.then478:                                       ; preds = %if.end474
-  %arrayidx482 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 45, i64 1
+  %arrayidx482 = getelementptr inbounds i8, ptr %info, i64 312
   %92 = load i64, ptr %arrayidx482, align 8
   %call483 = call fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef nonnull %outv, ptr noundef nonnull %91, i64 noundef %92), !range !33
   store i32 %call483, ptr %error, align 8
@@ -15201,28 +15225,28 @@ if.end489:                                        ; preds = %if.then478, %if.end
   br i1 %tobool495.not, label %if.end497, label %cleanup
 
 if.end497:                                        ; preds = %if.end489
-  %time_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 16
+  %time_defined = getelementptr inbounds i8, ptr %info, i64 136
   %95 = load i32, ptr %time_defined, align 8
   %tobool498.not = icmp eq i32 %95, 0
   br i1 %tobool498.not, label %if.end506, label %if.then499
 
 if.then499:                                       ; preds = %if.end497
-  %time = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 17
+  %time = getelementptr inbounds i8, ptr %info, i64 140
   %call500 = call fastcc noundef i32 @_ZL13addChunk_tIMEP8ucvectorPK11LodePNGTime(ptr noundef nonnull %outv, ptr noundef nonnull %time), !range !33
   store i32 %call500, ptr %error, align 8
   %tobool503.not = icmp eq i32 %call500, 0
   br i1 %tobool503.not, label %if.end506, label %cleanup
 
 if.end506:                                        ; preds = %if.then499, %if.end497
-  %text_num = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 8
+  %text_num = getelementptr inbounds i8, ptr %info, i64 72
   %96 = load i64, ptr %text_num, align 8
   %cmp507.not368 = icmp eq i64 %96, 0
   br i1 %cmp507.not368, label %for.end.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end506
-  %text_keys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
-  %text_compression = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 7
-  %text_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
+  %text_keys = getelementptr inbounds i8, ptr %info, i64 80
+  %text_compression = getelementptr inbounds i8, ptr %state, i64 160
+  %text_strings = getelementptr inbounds i8, ptr %info, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -15292,13 +15316,13 @@ for.inc:                                          ; preds = %if.then523, %if.els
   br i1 %cmp507.not, label %for.end, label %for.body, !llvm.loop !356
 
 for.end:                                          ; preds = %for.inc
-  %add_id = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 6
+  %add_id = getelementptr inbounds i8, ptr %state, i64 156
   %105 = load i32, ptr %add_id, align 4
   %tobool548.not = icmp eq i32 %105, 0
   br i1 %tobool548.not, label %if.end601, label %for.cond550.preheader
 
 for.end.thread:                                   ; preds = %if.end506
-  %add_id382 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 6
+  %add_id382 = getelementptr inbounds i8, ptr %state, i64 156
   %106 = load i32, ptr %add_id382, align 4
   %tobool548.not383 = icmp eq i32 %106, 0
   br i1 %tobool548.not383, label %if.end601, label %if.then593
@@ -15308,7 +15332,7 @@ for.cond550.preheader:                            ; preds = %for.end
   br i1 %cmp552.not370, label %if.then593, label %for.body553.lr.ph
 
 for.body553.lr.ph:                                ; preds = %for.cond550.preheader
-  %text_keys554 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
+  %text_keys554 = getelementptr inbounds i8, ptr %info, i64 80
   %107 = load ptr, ptr %text_keys554, align 8
   br label %for.body553
 
@@ -15375,17 +15399,17 @@ if.then593:                                       ; preds = %for.inc589, %for.en
   br i1 %tobool597.not, label %if.end601, label %cleanup
 
 if.end601:                                        ; preds = %land.lhs.true583, %for.end.thread, %if.then593, %for.end
-  %itext_num = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 11
+  %itext_num = getelementptr inbounds i8, ptr %info, i64 96
   %118 = load i64, ptr %itext_num, align 8
   %cmp603.not372 = icmp eq i64 %118, 0
   br i1 %cmp603.not372, label %for.end635, label %for.body604.lr.ph
 
 for.body604.lr.ph:                                ; preds = %if.end601
-  %itext_keys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 12
-  %text_compression619 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 7
-  %itext_langtags = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 13
-  %itext_transkeys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 14
-  %itext_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 15
+  %itext_keys = getelementptr inbounds i8, ptr %info, i64 104
+  %text_compression619 = getelementptr inbounds i8, ptr %state, i64 160
+  %itext_langtags = getelementptr inbounds i8, ptr %info, i64 112
+  %itext_transkeys = getelementptr inbounds i8, ptr %info, i64 120
+  %itext_strings = getelementptr inbounds i8, ptr %info, i64 128
   br label %for.body604
 
 for.cond602:                                      ; preds = %if.end617
@@ -15451,13 +15475,13 @@ if.end617:                                        ; preds = %_ZL14lodepng_strlen
   br i1 %tobool630.not, label %for.cond602, label %cleanup
 
 for.end635:                                       ; preds = %for.cond602, %if.end601
-  %arrayidx637 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 44, i64 2
+  %arrayidx637 = getelementptr inbounds i8, ptr %info, i64 296
   %131 = load ptr, ptr %arrayidx637, align 8
   %tobool638.not = icmp eq ptr %131, null
   br i1 %tobool638.not, label %if.end650, label %if.then639
 
 if.then639:                                       ; preds = %for.end635
-  %arrayidx643 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 45, i64 2
+  %arrayidx643 = getelementptr inbounds i8, ptr %info, i64 320
   %132 = load i64, ptr %arrayidx643, align 8
   %call644 = call fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef nonnull %outv, ptr noundef nonnull %131, i64 noundef %132), !range !33
   store i32 %call644, ptr %error, align 8
@@ -15482,7 +15506,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %cleanup, %if.then.i.i
-  %size1.i = getelementptr inbounds %struct.ucvector, ptr %outv, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %outv, i64 8
   %135 = load ptr, ptr %outv, align 8
   store ptr %135, ptr %out, align 8
   %136 = load i64, ptr %size1.i, align 8
@@ -15496,34 +15520,34 @@ define internal fastcc noundef i32 @_ZL23lodepng_color_stats_addP17LodePNGColorS
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit:
   %image = alloca [8 x i8], align 1
   %mode = alloca %struct.LodePNGColorMode, align 8
-  %key_defined.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 4
+  %key_defined.i = getelementptr inbounds i8, ptr %mode, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 1
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode, i64 0, i32 2
+  %bitdepth.i = getelementptr inbounds i8, ptr %mode, i64 4
+  %palette.i = getelementptr inbounds i8, ptr %mode, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
   %shr = lshr i32 %r, 8
   %conv = trunc i32 %shr to i8
   store i8 %conv, ptr %image, align 1
   %conv1 = trunc i32 %r to i8
-  %arrayidx2 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %image, i64 1
   store i8 %conv1, ptr %arrayidx2, align 1
   %shr3 = lshr i32 %g, 8
   %conv4 = trunc i32 %shr3 to i8
-  %arrayidx5 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %image, i64 2
   store i8 %conv4, ptr %arrayidx5, align 1
   %conv6 = trunc i32 %g to i8
-  %arrayidx7 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %image, i64 3
   store i8 %conv6, ptr %arrayidx7, align 1
   %shr8 = lshr i32 %b, 8
   %conv9 = trunc i32 %shr8 to i8
-  %arrayidx10 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %image, i64 4
   store i8 %conv9, ptr %arrayidx10, align 1
   %conv11 = trunc i32 %b to i8
-  %arrayidx12 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 5
+  %arrayidx12 = getelementptr inbounds i8, ptr %image, i64 5
   store i8 %conv11, ptr %arrayidx12, align 1
-  %arrayidx15 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 6
+  %arrayidx15 = getelementptr inbounds i8, ptr %image, i64 6
   store i8 -1, ptr %arrayidx15, align 1
-  %arrayidx17 = getelementptr inbounds [8 x i8], ptr %image, i64 0, i64 7
+  %arrayidx17 = getelementptr inbounds i8, ptr %image, i64 7
   store i8 -1, ptr %arrayidx17, align 1
   store i32 16, ptr %bitdepth.i, align 4
   store i32 6, ptr %mode, align 8
@@ -15534,15 +15558,15 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL17auto_choose_colorP16LodePNGColorModePKS_PK17LodePNGColorStats(ptr nocapture noundef %mode_out, ptr nocapture noundef readonly %mode_in, ptr nocapture noundef readonly %stats) unnamed_addr #2 {
 entry:
-  %numpixels1 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 9
+  %numpixels1 = getelementptr inbounds i8, ptr %stats, i64 1056
   %0 = load i64, ptr %numpixels1, align 8
-  %alpha2 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 5
+  %alpha2 = getelementptr inbounds i8, ptr %stats, i64 16
   %1 = load i32, ptr %alpha2, align 8
-  %key3 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 1
+  %key3 = getelementptr inbounds i8, ptr %stats, i64 4
   %2 = load i32, ptr %key3, align 4
-  %bits4 = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 8
+  %bits4 = getelementptr inbounds i8, ptr %stats, i64 1048
   %3 = load i32, ptr %bits4, align 8
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %mode_out, i64 24
   store i32 0, ptr %key_defined, align 8
   %tobool = icmp eq i32 %2, 0
   %cmp = icmp ugt i64 %0, 16
@@ -15551,14 +15575,14 @@ entry:
   %bits.0 = select i1 %or.cond.not, i32 %3, i32 %spec.store.select
   %4 = load i32, ptr %stats, align 8
   %tobool8.not = icmp eq i32 %4, 0
-  %allow_greyscale = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 11
+  %allow_greyscale = getelementptr inbounds i8, ptr %stats, i64 1068
   %5 = load i32, ptr %allow_greyscale, align 4
   %tobool9.not = icmp ne i32 %5, 0
   %narrow = select i1 %tobool9.not, i1 %tobool8.not, i1 false
   %cmp14 = icmp ugt i32 %bits.0, 7
   %or.cond2.not = select i1 %narrow, i1 true, i1 %cmp14
   %spec.store.select6 = select i1 %or.cond2.not, i32 %bits.0, i32 8
-  %numcolors = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 6
+  %numcolors = getelementptr inbounds i8, ptr %stats, i64 20
   %6 = load i32, ptr %numcolors, align 4
   %conv17 = zext i32 %6 to i64
   %cmp18 = icmp ult i32 %6, 3
@@ -15578,7 +15602,7 @@ entry:
   %cmp38.not = icmp ugt i32 %spec.store.select6, %cond25
   %not.or.cond5.not = xor i1 %or.cond5.not, true
   %or.cond64.not = select i1 %not.or.cond5.not, i1 true, i1 %cmp38.not
-  %allow_palette = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 10
+  %allow_palette = getelementptr inbounds i8, ptr %stats, i64 1064
   %9 = load i32, ptr %allow_palette, align 8
   %tobool41.not = icmp ne i32 %9, 0
   %10 = select i1 %tobool41.not, i1 %or.cond64.not, i1 false
@@ -15589,8 +15613,8 @@ entry:
   br i1 %narrow79, label %if.else, label %if.then45
 
 if.then45:                                        ; preds = %entry
-  %palette = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 7
-  %palette.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %stats, i64 24
+  %palette.i = getelementptr inbounds i8, ptr %mode_out, i64 8
   %13 = load ptr, ptr %palette.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %if.then.i
@@ -15606,7 +15630,7 @@ _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %if.then45, %if.the
   br i1 %cmp48.not82, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
-  %palettesize.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 3
+  %palettesize.i = getelementptr inbounds i8, ptr %mode_out, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -15705,22 +15729,22 @@ for.inc:                                          ; preds = %if.end4.i
 for.end:                                          ; preds = %for.inc, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i, %if.end4.i, %if.then.i.i, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
   %error.1 = phi i32 [ 0, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit ], [ 83, %if.then.i.i ], [ 108, %if.end4.i ], [ 83, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i ], [ 0, %for.inc ]
   store i32 3, ptr %mode_out, align 8
-  %bitdepth = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth = getelementptr inbounds i8, ptr %mode_out, i64 4
   store i32 %cond25, ptr %bitdepth, align 4
   %36 = load i32, ptr %mode_in, align 8
   %cmp63 = icmp eq i32 %36, 3
   br i1 %cmp63, label %land.lhs.true64, label %if.end98
 
 land.lhs.true64:                                  ; preds = %for.end
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %mode_in, i64 16
   %37 = load i64, ptr %palettesize, align 8
-  %palettesize65 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 3
+  %palettesize65 = getelementptr inbounds i8, ptr %mode_out, i64 16
   %38 = load i64, ptr %palettesize65, align 8
   %cmp66.not = icmp ult i64 %37, %38
   br i1 %cmp66.not, label %if.end98, label %land.lhs.true67
 
 land.lhs.true67:                                  ; preds = %land.lhs.true64
-  %bitdepth68 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 1
+  %bitdepth68 = getelementptr inbounds i8, ptr %mode_in, i64 4
   %39 = load i32, ptr %bitdepth68, align 4
   %cmp70 = icmp eq i32 %39, %cond25
   br i1 %cmp70, label %if.then71, label %if.end98
@@ -15737,7 +15761,7 @@ if.then.i.i67:                                    ; preds = %if.then71
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i67, %if.then71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %mode_out, ptr noundef nonnull align 1 dereferenceable(40) %mode_in, i64 40, i1 false), !alias.scope !360
-  %palette.i68 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_in, i64 0, i32 2
+  %palette.i68 = getelementptr inbounds i8, ptr %mode_in, i64 8
   %41 = load ptr, ptr %palette.i68, align 8
   %tobool.not.i69 = icmp eq ptr %41, null
   br i1 %tobool.not.i69, label %if.end98, label %if.then.i70
@@ -15760,7 +15784,7 @@ for.body.preheader.i.i:                           ; preds = %if.end.i
   br label %if.end98
 
 if.else:                                          ; preds = %entry
-  %bitdepth74 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 1
+  %bitdepth74 = getelementptr inbounds i8, ptr %mode_out, i64 4
   store i32 %spec.store.select6, ptr %bitdepth74, align 4
   %cond78 = select i1 %narrow, i32 4, i32 6
   %cond81 = select i1 %narrow, i32 0, i32 2
@@ -15773,23 +15797,23 @@ if.else:                                          ; preds = %entry
 if.then86:                                        ; preds = %if.else
   %notmask = shl nsw i32 -1, %spec.store.select6
   %sub = xor i32 %notmask, -1
-  %key_r = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 2
+  %key_r = getelementptr inbounds i8, ptr %stats, i64 8
   %45 = load i16, ptr %key_r, align 8
   %conv88 = zext i16 %45 to i32
   %and = and i32 %conv88, %sub
-  %key_r89 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 5
+  %key_r89 = getelementptr inbounds i8, ptr %mode_out, i64 28
   store i32 %and, ptr %key_r89, align 4
-  %key_g = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 3
+  %key_g = getelementptr inbounds i8, ptr %stats, i64 10
   %46 = load i16, ptr %key_g, align 2
   %conv90 = zext i16 %46 to i32
   %and91 = and i32 %conv90, %sub
-  %key_g92 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 6
+  %key_g92 = getelementptr inbounds i8, ptr %mode_out, i64 32
   store i32 %and91, ptr %key_g92, align 8
-  %key_b = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 4
+  %key_b = getelementptr inbounds i8, ptr %stats, i64 12
   %47 = load i16, ptr %key_b, align 4
   %conv93 = zext i16 %47 to i32
   %and94 = and i32 %conv93, %sub
-  %key_b95 = getelementptr inbounds %struct.LodePNGColorMode, ptr %mode_out, i64 0, i32 7
+  %key_b95 = getelementptr inbounds i8, ptr %mode_out, i64 36
   store i32 %and94, ptr %key_b95, align 4
   store i32 1, ptr %key_defined, align 8
   br label %if.end98
@@ -15810,9 +15834,9 @@ entry:
   %filter_passstart = alloca [8 x i64], align 16
   %padded_passstart = alloca [8 x i64], align 16
   %passstart = alloca [8 x i64], align 16
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info_png, i64 0, i32 3
+  %color = getelementptr inbounds i8, ptr %info_png, i64 16
   %0 = load i32, ptr %color, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info_png, i64 0, i32 3, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %info_png, i64 20
   %1 = load i32, ptr %bitdepth.i, align 4
   switch i32 %0, label %sw.default.i.i.i [
     i32 0, label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
@@ -15841,7 +15865,7 @@ sw.default.i.i.i:                                 ; preds = %entry
 _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %entry, %entry, %sw.bb1.i.i.i, %sw.bb3.i.i.i, %sw.bb4.i.i.i, %sw.bb5.i.i.i, %sw.default.i.i.i
   %retval.0.i.i.i = phi i32 [ 0, %sw.default.i.i.i ], [ 0, %sw.bb5.i.i.i ], [ 4, %sw.bb4.i.i.i ], [ 2, %sw.bb3.i.i.i ], [ 3, %sw.bb1.i.i.i ], [ 1, %entry ], [ 1, %entry ]
   %mul.i.i = mul i32 %retval.0.i.i.i, %1
-  %interlace_method = getelementptr inbounds %struct.LodePNGInfo, ptr %info_png, i64 0, i32 2
+  %interlace_method = getelementptr inbounds i8, ptr %info_png, i64 8
   %2 = load i32, ptr %interlace_method, align 8
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then, label %for.body.i
@@ -15992,13 +16016,13 @@ cond.end.i:                                       ; preds = %for.body37.i, %cond
   br i1 %cmp36.not.i, label %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit, label %for.body37.i, !llvm.loop !325
 
 _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %cond.end.i
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %filter_passstart, i64 0, i64 7
+  %arrayidx = getelementptr inbounds i8, ptr %filter_passstart, i64 56
   %15 = load i64, ptr %arrayidx, align 8
   store i64 %15, ptr %outsize, align 8
   %call.i90 = tail call noalias noundef ptr @malloc(i64 noundef %15) #33
   store ptr %call.i90, ptr %out, align 8
   %tobool48.not = icmp eq ptr %call.i90, null
-  %arrayidx51 = getelementptr inbounds [8 x i64], ptr %passstart, i64 0, i64 7
+  %arrayidx51 = getelementptr inbounds i8, ptr %passstart, i64 56
   %16 = load i64, ptr %arrayidx51, align 8
   %call.i91 = tail call noalias noundef ptr @malloc(i64 noundef %16) #33
   %tobool53 = icmp eq ptr %call.i91, null
@@ -16353,11 +16377,11 @@ if.end116:                                        ; preds = %if.end, %if.else, %
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc noundef i32 @_ZL14writeSignatureP8ucvector(ptr nocapture noundef %out) unnamed_addr #13 {
 entry:
-  %size = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size, align 8
   %add = add i64 %0, 8
   store i64 %add, ptr %size, align 8
-  %allocsize.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i, align 8
   %cmp.i.i = icmp ult i64 %1, %add
   %.pre = load ptr, ptr %out, align 8
@@ -16389,7 +16413,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_IHDRP8ucvectorjj16LodePNGColorTypejj(ptr nocapture noundef %out, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth, i32 noundef %interlace_method) unnamed_addr #2 {
 entry:
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, -14
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -16401,7 +16425,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -16479,13 +16503,13 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr nocapture noundef %out, ptr noundef %data, i64 noundef %datasize) unnamed_addr #2 {
 entry:
-  %size = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %out, i64 8
   %sub.ptr.rhs.cast = ptrtoint ptr %data to i64
   %cmp28.not = icmp eq i64 %datasize, 0
   br i1 %cmp28.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %allocsize = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize = getelementptr inbounds i8, ptr %out, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %datasize
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr to i64
   %.pre = load i64, ptr %size, align 8
@@ -16635,7 +16659,7 @@ entry:
   %compressedsize = alloca i64, align 8
   store ptr null, ptr %compressed, align 8
   store i64 0, ptr %compressedsize, align 8
-  %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
+  %iccp_name = getelementptr inbounds i8, ptr %info, i64 240
   %0 = load ptr, ptr %iccp_name, align 8
   br label %while.cond.i
 
@@ -16655,12 +16679,12 @@ _ZL14lodepng_strlenPKc.exit:                      ; preds = %while.cond.i
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL14lodepng_strlenPKc.exit
-  %iccp_profile = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %info, i64 248
   %3 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %info, i64 256
   %4 = load i32, ptr %iccp_profile_size, align 8
   %conv = zext i32 %4 to i64
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %zlibsettings, i64 0, i32 6
+  %custom_zlib.i = getelementptr inbounds i8, ptr %zlibsettings, i64 24
   %5 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i12 = icmp eq ptr %5, null
   br i1 %tobool.not.i12, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %if.then.i
@@ -16679,7 +16703,7 @@ if.then3:                                         ; preds = %if.then.i, %_ZL13zl
   %add = add nuw nsw i64 %sub.ptr.sub.i, 2
   %6 = load i64, ptr %compressedsize, align 8
   %add4 = add i64 %add, %6
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %7 = load i64, ptr %size.i, align 8
   %add.i.i = add i64 %7, %add4
   %cmp.i.not.i = icmp ult i64 %add.i.i, %7
@@ -16692,7 +16716,7 @@ if.end.i:                                         ; preds = %if.then3
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %8 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %8, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -16770,7 +16794,7 @@ return:                                           ; preds = %_ZL14lodepng_strlen
 define internal fastcc noundef i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo(ptr nocapture noundef %out, i32 %info.228.val) unnamed_addr #2 {
 entry:
   %conv = trunc i32 %info.228.val to i8
-  %size.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i.i, align 8
   %cmp.i.not.i.i = icmp eq i64 %0, -1
   br i1 %cmp.i.not.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %if.end.i.i
@@ -16782,7 +16806,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   store i64 %add.i7.i.i, ptr %size.i.i, align 8
-  %allocsize.i.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %add.i7.i.i
   %.pre.i.i = load ptr, ptr %out, align 8
@@ -16820,7 +16844,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.end.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_gAMAP8ucvectorPK11LodePNGInfo(ptr nocapture noundef %out, ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, -5
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -16832,7 +16856,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -16857,7 +16881,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 4
   store i32 1095582055, ptr %add.ptr11.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr10.i, i64 8
-  %gama_gamma = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 23
+  %gama_gamma = getelementptr inbounds i8, ptr %info, i64 184
   %3 = load i32, ptr %gama_gamma, align 8
   %shr.i = lshr i32 %3, 24
   %conv.i = trunc i32 %shr.i to i8
@@ -16884,7 +16908,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_cHRMP8ucvectorPK11LodePNGInfo(ptr nocapture noundef %out, ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, -33
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -16896,7 +16920,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -16921,7 +16945,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 4
   store i32 1297238115, ptr %add.ptr11.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr10.i, i64 8
-  %chrm_white_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 25
+  %chrm_white_x = getelementptr inbounds i8, ptr %info, i64 192
   %3 = load i32, ptr %chrm_white_x, align 8
   %shr.i = lshr i32 %3, 24
   %conv.i = trunc i32 %shr.i to i8
@@ -16938,7 +16962,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 11
   store i8 %conv10.i, ptr %arrayidx11.i, align 1
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 12
-  %chrm_white_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 26
+  %chrm_white_y = getelementptr inbounds i8, ptr %info, i64 196
   %4 = load i32, ptr %chrm_white_y, align 4
   %shr.i9 = lshr i32 %4, 24
   %conv.i10 = trunc i32 %shr.i9 to i8
@@ -16955,7 +16979,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i18 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 15
   store i8 %conv10.i17, ptr %arrayidx11.i18, align 1
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 16
-  %chrm_red_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 27
+  %chrm_red_x = getelementptr inbounds i8, ptr %info, i64 200
   %5 = load i32, ptr %chrm_red_x, align 8
   %shr.i19 = lshr i32 %5, 24
   %conv.i20 = trunc i32 %shr.i19 to i8
@@ -16972,7 +16996,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i28 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 19
   store i8 %conv10.i27, ptr %arrayidx11.i28, align 1
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 20
-  %chrm_red_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 28
+  %chrm_red_y = getelementptr inbounds i8, ptr %info, i64 204
   %6 = load i32, ptr %chrm_red_y, align 4
   %shr.i29 = lshr i32 %6, 24
   %conv.i30 = trunc i32 %shr.i29 to i8
@@ -16989,7 +17013,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i38 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 23
   store i8 %conv10.i37, ptr %arrayidx11.i38, align 1
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 24
-  %chrm_green_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 29
+  %chrm_green_x = getelementptr inbounds i8, ptr %info, i64 208
   %7 = load i32, ptr %chrm_green_x, align 8
   %shr.i39 = lshr i32 %7, 24
   %conv.i40 = trunc i32 %shr.i39 to i8
@@ -17006,7 +17030,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i48 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 27
   store i8 %conv10.i47, ptr %arrayidx11.i48, align 1
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 28
-  %chrm_green_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 30
+  %chrm_green_y = getelementptr inbounds i8, ptr %info, i64 212
   %8 = load i32, ptr %chrm_green_y, align 4
   %shr.i49 = lshr i32 %8, 24
   %conv.i50 = trunc i32 %shr.i49 to i8
@@ -17023,7 +17047,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i58 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 31
   store i8 %conv10.i57, ptr %arrayidx11.i58, align 1
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 32
-  %chrm_blue_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 31
+  %chrm_blue_x = getelementptr inbounds i8, ptr %info, i64 216
   %9 = load i32, ptr %chrm_blue_x, align 8
   %shr.i59 = lshr i32 %9, 24
   %conv.i60 = trunc i32 %shr.i59 to i8
@@ -17040,7 +17064,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i68 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 35
   store i8 %conv10.i67, ptr %arrayidx11.i68, align 1
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 36
-  %chrm_blue_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 32
+  %chrm_blue_y = getelementptr inbounds i8, ptr %info, i64 220
   %10 = load i32, ptr %chrm_blue_y, align 4
   %shr.i69 = lshr i32 %10, 24
   %conv.i70 = trunc i32 %shr.i69 to i8
@@ -17067,13 +17091,13 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_sBITP8ucvectorPK11LodePNGInfo(ptr nocapture noundef %out, ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
+  %color = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.then20, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %bitdepth2 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3, i32 1
+  %bitdepth2 = getelementptr inbounds i8, ptr %info, i64 20
   %1 = load i32, ptr %bitdepth2, align 4
   %2 = freeze i32 %1
   switch i32 %0, label %return [
@@ -17084,14 +17108,14 @@ cond.end:                                         ; preds = %entry
   ]
 
 if.then:                                          ; preds = %cond.end
-  %sbit_r = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r = getelementptr inbounds i8, ptr %info, i64 264
   %3 = load i32, ptr %sbit_r, align 8
   %4 = add i32 %3, -1
   %or.cond.not = icmp ult i32 %4, %2
   br i1 %or.cond.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %5 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp eq i64 %5, -1
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -17103,7 +17127,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %6 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %6, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -17135,19 +17159,19 @@ if.end11:                                         ; preds = %if.then3.i.i.i, %if
 
 if.then20:                                        ; preds = %entry, %cond.end
   %cond160 = phi i32 [ %2, %cond.end ], [ 8, %entry ]
-  %sbit_r21 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r21 = getelementptr inbounds i8, ptr %info, i64 264
   %9 = load i32, ptr %sbit_r21, align 8
   %cmp22 = icmp eq i32 %9, 0
   br i1 %cmp22, label %return, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %if.then20
-  %sbit_g = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 41
+  %sbit_g = getelementptr inbounds i8, ptr %info, i64 268
   %10 = load i32, ptr %sbit_g, align 4
   %cmp24 = icmp eq i32 %10, 0
   br i1 %cmp24, label %return, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false23
-  %sbit_b = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 42
+  %sbit_b = getelementptr inbounds i8, ptr %info, i64 272
   %11 = load i32, ptr %sbit_b, align 8
   %cmp26 = icmp eq i32 %11, 0
   br i1 %cmp26, label %return, label %if.end28
@@ -17161,7 +17185,7 @@ if.end28:                                         ; preds = %lor.lhs.false25
   br i1 %or.cond65, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end28
-  %size.i71 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i71 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load i64, ptr %size.i71, align 8
   %cmp.i.not.i73 = icmp ugt i64 %12, -4
   br i1 %cmp.i.not.i73, label %return, label %if.end.i74
@@ -17173,7 +17197,7 @@ if.end.i74:                                       ; preds = %if.end38
 
 if.end4.i78:                                      ; preds = %if.end.i74
   store i64 %add.i7.i75, ptr %size.i71, align 8
-  %allocsize.i.i.i79 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i79 = getelementptr inbounds i8, ptr %out, i64 16
   %13 = load i64, ptr %allocsize.i.i.i79, align 8
   %cmp.i.i.i80 = icmp ult i64 %13, %add.i7.i75
   %.pre.i81 = load ptr, ptr %out, align 8
@@ -17212,13 +17236,13 @@ if.end43:                                         ; preds = %if.then3.i.i.i95, %
   br label %if.then134
 
 if.then57:                                        ; preds = %cond.end
-  %sbit_r58 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r58 = getelementptr inbounds i8, ptr %info, i64 264
   %18 = load i32, ptr %sbit_r58, align 8
   %cmp59 = icmp eq i32 %18, 0
   br i1 %cmp59, label %return, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %if.then57
-  %sbit_a = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 43
+  %sbit_a = getelementptr inbounds i8, ptr %info, i64 276
   %19 = load i32, ptr %sbit_a, align 4
   %cmp61 = icmp eq i32 %19, 0
   br i1 %cmp61, label %return, label %if.end63
@@ -17230,7 +17254,7 @@ if.end63:                                         ; preds = %lor.lhs.false60
   br i1 %or.cond66, label %return, label %if.end70
 
 if.end70:                                         ; preds = %if.end63
-  %size.i97 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i97 = getelementptr inbounds i8, ptr %out, i64 8
   %20 = load i64, ptr %size.i97, align 8
   %cmp.i.not.i99 = icmp ugt i64 %20, -3
   br i1 %cmp.i.not.i99, label %return, label %if.end.i100
@@ -17242,7 +17266,7 @@ if.end.i100:                                      ; preds = %if.end70
 
 if.end4.i104:                                     ; preds = %if.end.i100
   store i64 %add.i7.i101, ptr %size.i97, align 8
-  %allocsize.i.i.i105 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i105 = getelementptr inbounds i8, ptr %out, i64 16
   %21 = load i64, ptr %allocsize.i.i.i105, align 8
   %cmp.i.i.i106 = icmp ult i64 %21, %add.i7.i101
   %.pre.i107 = load ptr, ptr %out, align 8
@@ -17277,25 +17301,25 @@ if.end75:                                         ; preds = %if.then3.i.i.i121, 
   br label %if.then134
 
 if.then86:                                        ; preds = %cond.end
-  %sbit_r87 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 40
+  %sbit_r87 = getelementptr inbounds i8, ptr %info, i64 264
   %25 = load i32, ptr %sbit_r87, align 8
   %cmp88 = icmp eq i32 %25, 0
   br i1 %cmp88, label %return, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %if.then86
-  %sbit_g90 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 41
+  %sbit_g90 = getelementptr inbounds i8, ptr %info, i64 268
   %26 = load i32, ptr %sbit_g90, align 4
   %cmp91 = icmp eq i32 %26, 0
   br i1 %cmp91, label %return, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %lor.lhs.false89
-  %sbit_b93 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 42
+  %sbit_b93 = getelementptr inbounds i8, ptr %info, i64 272
   %27 = load i32, ptr %sbit_b93, align 8
   %cmp94 = icmp eq i32 %27, 0
   br i1 %cmp94, label %return, label %lor.lhs.false95
 
 lor.lhs.false95:                                  ; preds = %lor.lhs.false92
-  %sbit_a96 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 43
+  %sbit_a96 = getelementptr inbounds i8, ptr %info, i64 276
   %28 = load i32, ptr %sbit_a96, align 4
   %cmp97 = icmp eq i32 %28, 0
   %cmp100 = icmp ugt i32 %25, %2
@@ -17309,7 +17333,7 @@ lor.lhs.false95:                                  ; preds = %lor.lhs.false92
   br i1 %or.cond70, label %return, label %if.end111
 
 if.end111:                                        ; preds = %lor.lhs.false95
-  %size.i123 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i123 = getelementptr inbounds i8, ptr %out, i64 8
   %29 = load i64, ptr %size.i123, align 8
   %cmp.i.not.i125 = icmp ugt i64 %29, -5
   br i1 %cmp.i.not.i125, label %return, label %if.end.i126
@@ -17321,7 +17345,7 @@ if.end.i126:                                      ; preds = %if.end111
 
 if.end4.i130:                                     ; preds = %if.end.i126
   store i64 %add.i7.i127, ptr %size.i123, align 8
-  %allocsize.i.i.i131 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i131 = getelementptr inbounds i8, ptr %out, i64 16
   %30 = load i64, ptr %allocsize.i.i.i131, align 8
   %cmp.i.i.i132 = icmp ult i64 %30, %add.i7.i127
   %.pre.i133 = load ptr, ptr %out, align 8
@@ -17376,7 +17400,7 @@ return:                                           ; preds = %if.then.i.i.i142, %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_PLTEP8ucvectorPK16LodePNGColorMode(ptr nocapture noundef %out, ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i64, ptr %palettesize, align 8
   %1 = add i64 %0, -257
   %or.cond = icmp ult i64 %1, -256
@@ -17384,7 +17408,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %mul = mul nuw nsw i64 %0, 3
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %2 = load i64, ptr %size.i, align 8
   %add.i.i = add i64 %2, %mul
   %cmp.i.not.i = icmp ult i64 %add.i.i, %2
@@ -17397,7 +17421,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %3 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %3, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -17438,7 +17462,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %if.end4.i, %if.then
   br i1 %cmp7.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %info, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -17488,13 +17512,13 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 3
+  %palettesize = getelementptr inbounds i8, ptr %info, i64 16
   %1 = load i64, ptr %palettesize, align 8
   %cmp2.not103 = icmp eq i64 %1, 0
   br i1 %cmp2.not103, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %palette = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load ptr, ptr %palette, align 8
   %invariant.gep = getelementptr i8, ptr %2, i64 -1
   br label %for.body
@@ -17513,7 +17537,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp2.not, label %return, label %for.body, !llvm.loop !394
 
 if.then6:                                         ; preds = %for.body
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %4 = load i64, ptr %size.i, align 8
   %add.i.i = add i64 %4, %i.0105
   %cmp.i.not.i = icmp ult i64 %add.i.i, %4
@@ -17526,7 +17550,7 @@ if.end.i:                                         ; preds = %if.then6
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %5 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %5, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -17566,7 +17590,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %if.end4.i, %if.then
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 -8
   store i32 1397641844, ptr %add.ptr11.i, align 1
-  %palette13 = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 2
+  %palette13 = getelementptr inbounds i8, ptr %info, i64 8
   %invariant.gep107 = getelementptr i8, ptr %add.ptr9.i, i64 -4
   br label %for.body12
 
@@ -17584,13 +17608,13 @@ for.body12:                                       ; preds = %_ZL18lodepng_chunk_
   br i1 %cmp11.not, label %if.then77, label %for.body12, !llvm.loop !395
 
 if.then24:                                        ; preds = %entry
-  %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 4
+  %key_defined = getelementptr inbounds i8, ptr %info, i64 24
   %9 = load i32, ptr %key_defined, align 8
   %tobool25.not = icmp eq i32 %9, 0
   br i1 %tobool25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.then24
-  %size.i32 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i32 = getelementptr inbounds i8, ptr %out, i64 8
   %10 = load i64, ptr %size.i32, align 8
   %cmp.i.not.i34 = icmp ugt i64 %10, -3
   br i1 %cmp.i.not.i34, label %return, label %if.end.i35
@@ -17602,7 +17626,7 @@ if.end.i35:                                       ; preds = %if.then26
 
 if.end4.i39:                                      ; preds = %if.end.i35
   store i64 %add.i7.i36, ptr %size.i32, align 8
-  %allocsize.i.i.i40 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i40 = getelementptr inbounds i8, ptr %out, i64 16
   %11 = load i64, ptr %allocsize.i.i.i40, align 8
   %cmp.i.i.i41 = icmp ult i64 %11, %add.i7.i36
   %.pre.i42 = load ptr, ptr %out, align 8
@@ -17626,7 +17650,7 @@ if.end31:                                         ; preds = %if.then3.i.i.i56, %
   store <4 x i8> <i8 0, i8 0, i8 0, i8 2>, ptr %add.ptr10.i46, align 1
   %add.ptr11.i50 = getelementptr inbounds i8, ptr %add.ptr10.i46, i64 4
   store i32 1397641844, ptr %add.ptr11.i50, align 1
-  %key_r = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 5
+  %key_r = getelementptr inbounds i8, ptr %info, i64 28
   %13 = load i32, ptr %key_r, align 4
   %shr = lshr i32 %13, 8
   %conv32 = trunc i32 %shr to i8
@@ -17639,13 +17663,13 @@ if.end31:                                         ; preds = %if.then3.i.i.i56, %
   br label %if.then77
 
 if.then41:                                        ; preds = %entry
-  %key_defined42 = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 4
+  %key_defined42 = getelementptr inbounds i8, ptr %info, i64 24
   %15 = load i32, ptr %key_defined42, align 8
   %tobool43.not = icmp eq i32 %15, 0
   br i1 %tobool43.not, label %return, label %if.then44
 
 if.then44:                                        ; preds = %if.then41
-  %size.i58 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i58 = getelementptr inbounds i8, ptr %out, i64 8
   %16 = load i64, ptr %size.i58, align 8
   %cmp.i.not.i60 = icmp ugt i64 %16, -7
   br i1 %cmp.i.not.i60, label %return, label %if.end.i61
@@ -17657,7 +17681,7 @@ if.end.i61:                                       ; preds = %if.then44
 
 if.end4.i65:                                      ; preds = %if.end.i61
   store i64 %add.i7.i62, ptr %size.i58, align 8
-  %allocsize.i.i.i66 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i66 = getelementptr inbounds i8, ptr %out, i64 16
   %17 = load i64, ptr %allocsize.i.i.i66, align 8
   %cmp.i.i.i67 = icmp ult i64 %17, %add.i7.i62
   %.pre.i68 = load ptr, ptr %out, align 8
@@ -17681,7 +17705,7 @@ if.end49:                                         ; preds = %if.then3.i.i.i82, %
   store <4 x i8> <i8 0, i8 0, i8 0, i8 6>, ptr %add.ptr10.i72, align 1
   %add.ptr11.i76 = getelementptr inbounds i8, ptr %add.ptr10.i72, i64 4
   store i32 1397641844, ptr %add.ptr11.i76, align 1
-  %key_r50 = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 5
+  %key_r50 = getelementptr inbounds i8, ptr %info, i64 28
   %19 = load i32, ptr %key_r50, align 4
   %shr51 = lshr i32 %19, 8
   %conv52 = trunc i32 %shr51 to i8
@@ -17691,7 +17715,7 @@ if.end49:                                         ; preds = %if.then3.i.i.i82, %
   %conv56 = trunc i32 %20 to i8
   %arrayidx57 = getelementptr inbounds i8, ptr %add.ptr10.i72, i64 9
   store i8 %conv56, ptr %arrayidx57, align 1
-  %key_g = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 6
+  %key_g = getelementptr inbounds i8, ptr %info, i64 32
   %21 = load i32, ptr %key_g, align 8
   %shr58 = lshr i32 %21, 8
   %conv59 = trunc i32 %shr58 to i8
@@ -17701,7 +17725,7 @@ if.end49:                                         ; preds = %if.then3.i.i.i82, %
   %conv63 = trunc i32 %22 to i8
   %arrayidx64 = getelementptr inbounds i8, ptr %add.ptr10.i72, i64 11
   store i8 %conv63, ptr %arrayidx64, align 1
-  %key_b = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 7
+  %key_b = getelementptr inbounds i8, ptr %info, i64 36
   %23 = load i32, ptr %key_b, align 4
   %shr65 = lshr i32 %23, 8
   %conv66 = trunc i32 %shr65 to i8
@@ -17726,7 +17750,7 @@ return:                                           ; preds = %if.end, %if.then, %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_bKGDP8ucvectorPK11LodePNGInfo(ptr nocapture noundef %out, ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
+  %color = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
   switch i32 %0, label %return [
     i32 0, label %if.then
@@ -17737,7 +17761,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry, %entry
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %1 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp ugt i64 %1, -3
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -17749,7 +17773,7 @@ if.end.i:                                         ; preds = %if.then
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %2 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %2, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -17773,7 +17797,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   store <4 x i8> <i8 0, i8 0, i8 0, i8 2>, ptr %add.ptr10.i, align 1
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 4
   store i32 1145523042, ptr %add.ptr11.i, align 1
-  %background_r = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
+  %background_r = getelementptr inbounds i8, ptr %info, i64 60
   %4 = load i32, ptr %background_r, align 4
   %shr = lshr i32 %4, 8
   %conv = trunc i32 %shr to i8
@@ -17786,7 +17810,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   br label %if.then61
 
 if.then15:                                        ; preds = %entry, %entry
-  %size.i20 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i20 = getelementptr inbounds i8, ptr %out, i64 8
   %6 = load i64, ptr %size.i20, align 8
   %cmp.i.not.i22 = icmp ugt i64 %6, -7
   br i1 %cmp.i.not.i22, label %return, label %if.end.i23
@@ -17798,7 +17822,7 @@ if.end.i23:                                       ; preds = %if.then15
 
 if.end4.i27:                                      ; preds = %if.end.i23
   store i64 %add.i7.i24, ptr %size.i20, align 8
-  %allocsize.i.i.i28 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i28 = getelementptr inbounds i8, ptr %out, i64 16
   %7 = load i64, ptr %allocsize.i.i.i28, align 8
   %cmp.i.i.i29 = icmp ult i64 %7, %add.i7.i24
   %.pre.i30 = load ptr, ptr %out, align 8
@@ -17822,7 +17846,7 @@ if.end20:                                         ; preds = %if.then3.i.i.i44, %
   store <4 x i8> <i8 0, i8 0, i8 0, i8 6>, ptr %add.ptr10.i34, align 1
   %add.ptr11.i38 = getelementptr inbounds i8, ptr %add.ptr10.i34, i64 4
   store i32 1145523042, ptr %add.ptr11.i38, align 1
-  %background_r21 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
+  %background_r21 = getelementptr inbounds i8, ptr %info, i64 60
   %9 = load i32, ptr %background_r21, align 4
   %shr22 = lshr i32 %9, 8
   %conv23 = trunc i32 %shr22 to i8
@@ -17832,7 +17856,7 @@ if.end20:                                         ; preds = %if.then3.i.i.i44, %
   %conv27 = trunc i32 %10 to i8
   %arrayidx28 = getelementptr inbounds i8, ptr %add.ptr10.i34, i64 9
   store i8 %conv27, ptr %arrayidx28, align 1
-  %background_g = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 6
+  %background_g = getelementptr inbounds i8, ptr %info, i64 64
   %11 = load i32, ptr %background_g, align 8
   %shr29 = lshr i32 %11, 8
   %conv30 = trunc i32 %shr29 to i8
@@ -17842,7 +17866,7 @@ if.end20:                                         ; preds = %if.then3.i.i.i44, %
   %conv34 = trunc i32 %12 to i8
   %arrayidx35 = getelementptr inbounds i8, ptr %add.ptr10.i34, i64 11
   store i8 %conv34, ptr %arrayidx35, align 1
-  %background_b = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 7
+  %background_b = getelementptr inbounds i8, ptr %info, i64 68
   %13 = load i32, ptr %background_b, align 4
   %shr36 = lshr i32 %13, 8
   %conv37 = trunc i32 %shr36 to i8
@@ -17855,7 +17879,7 @@ if.end20:                                         ; preds = %if.then3.i.i.i44, %
   br label %if.then61
 
 if.then47:                                        ; preds = %entry
-  %size.i46 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i46 = getelementptr inbounds i8, ptr %out, i64 8
   %15 = load i64, ptr %size.i46, align 8
   %cmp.i.not.i48 = icmp eq i64 %15, -1
   br i1 %cmp.i.not.i48, label %return, label %if.end.i49
@@ -17867,7 +17891,7 @@ if.end.i49:                                       ; preds = %if.then47
 
 if.end4.i53:                                      ; preds = %if.end.i49
   store i64 %add.i7.i50, ptr %size.i46, align 8
-  %allocsize.i.i.i54 = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i54 = getelementptr inbounds i8, ptr %out, i64 16
   %16 = load i64, ptr %allocsize.i.i.i54, align 8
   %cmp.i.i.i55 = icmp ult i64 %16, %add.i7.i50
   %.pre.i56 = load ptr, ptr %out, align 8
@@ -17891,7 +17915,7 @@ if.end52:                                         ; preds = %if.then3.i.i.i70, %
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr10.i60, align 1
   %add.ptr11.i64 = getelementptr inbounds i8, ptr %add.ptr10.i60, i64 4
   store i32 1145523042, ptr %add.ptr11.i64, align 1
-  %background_r53 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 5
+  %background_r53 = getelementptr inbounds i8, ptr %info, i64 60
   %18 = load i32, ptr %background_r53, align 4
   %conv55 = trunc i32 %18 to i8
   %arrayidx56 = getelementptr inbounds i8, ptr %add.ptr10.i60, i64 8
@@ -17911,7 +17935,7 @@ return:                                           ; preds = %if.then.i.i.i65, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_pHYsP8ucvectorPK11LodePNGInfo(ptr nocapture noundef %out, ptr nocapture noundef readonly %info) unnamed_addr #2 {
 entry:
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, -10
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -17923,7 +17947,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -17948,7 +17972,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 4
   store i32 1935231088, ptr %add.ptr11.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr10.i, i64 8
-  %phys_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 19
+  %phys_x = getelementptr inbounds i8, ptr %info, i64 168
   %3 = load i32, ptr %phys_x, align 8
   %shr.i = lshr i32 %3, 24
   %conv.i = trunc i32 %shr.i to i8
@@ -17965,7 +17989,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %arrayidx11.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 11
   store i8 %conv10.i, ptr %arrayidx11.i, align 1
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 12
-  %phys_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 20
+  %phys_y = getelementptr inbounds i8, ptr %info, i64 172
   %4 = load i32, ptr %phys_y, align 4
   %shr.i4 = lshr i32 %4, 24
   %conv.i5 = trunc i32 %shr.i4 to i8
@@ -17981,7 +18005,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %conv10.i12 = trunc i32 %4 to i8
   %arrayidx11.i13 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 15
   store i8 %conv10.i12, ptr %arrayidx11.i13, align 1
-  %phys_unit = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 21
+  %phys_unit = getelementptr inbounds i8, ptr %info, i64 176
   %5 = load i32, ptr %phys_unit, align 8
   %conv = trunc i32 %5 to i8
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr10.i, i64 16
@@ -18001,7 +18025,7 @@ entry:
   %zlibsize = alloca i64, align 8
   store ptr null, ptr %zlib, align 8
   store i64 0, ptr %zlibsize, align 8
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %zlibsettings, i64 0, i32 6
+  %custom_zlib.i = getelementptr inbounds i8, ptr %zlibsettings, i64 24
   %0 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %if.then.i
@@ -18019,7 +18043,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %entry
 if.then:                                          ; preds = %if.then.i, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit
   %1 = load i64, ptr %zlibsize, align 8
   %2 = load ptr, ptr %zlib, align 8
-  %size.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %3 = load i64, ptr %size.i.i, align 8
   %add.i.i.i = add i64 %3, %1
   %cmp.i.not.i.i = icmp ult i64 %add.i.i.i, %3
@@ -18032,7 +18056,7 @@ if.end.i.i:                                       ; preds = %if.then
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   store i64 %add.i7.i.i, ptr %size.i.i, align 8
-  %allocsize.i.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %4 = load i64, ptr %allocsize.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %4, %add.i7.i.i
   %.pre.i.i = load ptr, ptr %out, align 8
@@ -18094,7 +18118,7 @@ if.end:                                           ; preds = %if.then.i, %_ZL14lo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_tIMEP8ucvectorPK11LodePNGTime(ptr nocapture noundef %out, ptr nocapture noundef readonly %time) unnamed_addr #2 {
 entry:
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, -8
   br i1 %cmp.i.not.i, label %return, label %if.end.i
@@ -18106,7 +18130,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -18139,27 +18163,27 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
   %conv2 = trunc i32 %4 to i8
   %arrayidx3 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 9
   store i8 %conv2, ptr %arrayidx3, align 1
-  %month = getelementptr inbounds %struct.LodePNGTime, ptr %time, i64 0, i32 1
+  %month = getelementptr inbounds i8, ptr %time, i64 4
   %5 = load i32, ptr %month, align 4
   %conv4 = trunc i32 %5 to i8
   %arrayidx5 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 10
   store i8 %conv4, ptr %arrayidx5, align 1
-  %day = getelementptr inbounds %struct.LodePNGTime, ptr %time, i64 0, i32 2
+  %day = getelementptr inbounds i8, ptr %time, i64 8
   %6 = load i32, ptr %day, align 4
   %conv6 = trunc i32 %6 to i8
   %arrayidx7 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 11
   store i8 %conv6, ptr %arrayidx7, align 1
-  %hour = getelementptr inbounds %struct.LodePNGTime, ptr %time, i64 0, i32 3
+  %hour = getelementptr inbounds i8, ptr %time, i64 12
   %7 = load i32, ptr %hour, align 4
   %conv8 = trunc i32 %7 to i8
   %arrayidx9 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 12
   store i8 %conv8, ptr %arrayidx9, align 1
-  %minute = getelementptr inbounds %struct.LodePNGTime, ptr %time, i64 0, i32 4
+  %minute = getelementptr inbounds i8, ptr %time, i64 16
   %8 = load i32, ptr %minute, align 4
   %conv10 = trunc i32 %8 to i8
   %arrayidx11 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 13
   store i8 %conv10, ptr %arrayidx11, align 1
-  %second = getelementptr inbounds %struct.LodePNGTime, ptr %time, i64 0, i32 5
+  %second = getelementptr inbounds i8, ptr %time, i64 20
   %9 = load i32, ptr %second, align 4
   %conv12 = trunc i32 %9 to i8
   %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 14
@@ -18210,7 +18234,7 @@ _ZL14lodepng_strlenPKc.exit18:                    ; preds = %while.cond.i11
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL14lodepng_strlenPKc.exit18
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %zlibsettings, i64 0, i32 6
+  %custom_zlib.i = getelementptr inbounds i8, ptr %zlibsettings, i64 24
   %3 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i19 = icmp eq ptr %3, null
   br i1 %tobool.not.i19, label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, label %if.then.i
@@ -18229,7 +18253,7 @@ if.then4:                                         ; preds = %if.then.i, %_ZL13zl
   %add = add nuw nsw i64 %sub.ptr.sub.i17, 2
   %4 = load i64, ptr %compressedsize, align 8
   %add5 = add i64 %add, %4
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %5 = load i64, ptr %size.i, align 8
   %add.i.i = add i64 %5, %add5
   %cmp.i.not.i = icmp ult i64 %add.i.i, %5
@@ -18242,7 +18266,7 @@ if.end.i:                                         ; preds = %if.then4
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %6 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %6, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -18351,7 +18375,7 @@ _ZL14lodepng_strlenPKc.exit17:                    ; preds = %while.cond.i10
 if.end:                                           ; preds = %_ZL14lodepng_strlenPKc.exit17
   %add = add nuw nsw i64 %sub.ptr.sub.i, 1
   %add2 = add i64 %add, %sub.ptr.sub.i16
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %3 = load i64, ptr %size.i, align 8
   %add.i.i = add i64 %3, %add2
   %cmp.i.not.i = icmp ult i64 %add.i.i, %3
@@ -18364,7 +18388,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %4 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %4, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -18495,7 +18519,7 @@ if.end:                                           ; preds = %_ZL14lodepng_strlen
   br i1 %tobool.not, label %if.then5, label %if.then9
 
 if.then5:                                         ; preds = %if.end
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %zlibsettings, i64 0, i32 6
+  %custom_zlib.i = getelementptr inbounds i8, ptr %zlibsettings, i64 24
   %5 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i57 = icmp eq ptr %5, null
   br i1 %tobool.not.i57, label %if.end7, label %if.then.i
@@ -18517,7 +18541,7 @@ if.then9:                                         ; preds = %if.then.i, %if.end,
   %add12 = add i64 %add11, %sub.ptr.sub.i47
   %add13 = add i64 %add12, %sub.ptr.sub.i55
   %add15 = add i64 %add13, %cond
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
   %7 = load i64, ptr %size.i, align 8
   %add.i.i = add i64 %add15, %7
   %cmp.i.not.i = icmp ult i64 %add.i.i, %7
@@ -18530,7 +18554,7 @@ if.end.i:                                         ; preds = %if.then9
 
 if.end4.i:                                        ; preds = %if.end.i
   store i64 %add.i7.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %8 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %8, %add.i7.i
   %.pre.i = load ptr, ptr %out, align 8
@@ -18647,7 +18671,7 @@ return:                                           ; preds = %_ZL14lodepng_strlen
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL13addChunk_IENDP8ucvector(ptr nocapture noundef %out) unnamed_addr #2 {
 entry:
-  %size.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i.i, align 8
   %add.i7.i.i = add i64 %0, 12
   %cmp.i8.i.i = icmp ult i64 %0, -12
@@ -18655,7 +18679,7 @@ entry:
 
 if.end4.i.i:                                      ; preds = %entry
   store i64 %add.i7.i.i, ptr %size.i.i, align 8
-  %allocsize.i.i.i.i = getelementptr inbounds %struct.ucvector, ptr %out, i64 0, i32 2
+  %allocsize.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %1 = load i64, ptr %allocsize.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %add.i7.i.i
   %.pre.i.i = load ptr, ptr %out, align 8
@@ -18692,70 +18716,70 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.then.i.i
 define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %state = alloca %struct.LodePNGState, align 8
-  %color_convert.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 4
+  %color_convert.i.i = getelementptr inbounds i8, ptr %state, i64 52
   store i32 1, ptr %color_convert.i.i, align 4
-  %read_text_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 5
+  %read_text_chunks.i.i = getelementptr inbounds i8, ptr %state, i64 56
   store i32 1, ptr %read_text_chunks.i.i, align 8
-  %remember_unknown_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 6
+  %remember_unknown_chunks.i.i = getelementptr inbounds i8, ptr %state, i64 60
   store i32 0, ptr %remember_unknown_chunks.i.i, align 4
-  %max_text_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 7
+  %max_text_size.i.i = getelementptr inbounds i8, ptr %state, i64 64
   store i64 16777216, ptr %max_text_size.i.i, align 8
-  %max_icc_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 8
+  %max_icc_size.i.i = getelementptr inbounds i8, ptr %state, i64 72
   store i64 16777216, ptr %max_icc_size.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %state, i8 0, i64 52, i1 false)
-  %encoder.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1
+  %encoder.i = getelementptr inbounds i8, ptr %state, i64 80
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %encoder.i, align 8
-  %nicematch.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 4
+  %nicematch.i.i.i = getelementptr inbounds i8, ptr %state, i64 96
   store i32 128, ptr %nicematch.i.i.i, align 8
-  %lazymatching.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 5
+  %lazymatching.i.i.i = getelementptr inbounds i8, ptr %state, i64 100
   store i32 1, ptr %lazymatching.i.i.i, align 4
-  %custom_zlib.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 0, i32 6
+  %custom_zlib.i.i.i = getelementptr inbounds i8, ptr %state, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib.i.i.i, i8 0, i64 24, i1 false)
-  %filter_palette_zero.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 2
+  %filter_palette_zero.i.i = getelementptr inbounds i8, ptr %state, i64 132
   store i32 1, ptr %filter_palette_zero.i.i, align 4
-  %filter_strategy.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 3
+  %filter_strategy.i.i = getelementptr inbounds i8, ptr %state, i64 136
   store i32 5, ptr %filter_strategy.i.i, align 8
-  %auto_convert.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 1
+  %auto_convert.i.i = getelementptr inbounds i8, ptr %state, i64 128
   store i32 1, ptr %auto_convert.i.i, align 8
-  %predefined_filters.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 4
-  %text_compression.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 1, i32 7
+  %predefined_filters.i.i = getelementptr inbounds i8, ptr %state, i64 144
+  %text_compression.i.i = getelementptr inbounds i8, ptr %state, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %predefined_filters.i.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %text_compression.i.i, align 8
-  %info_raw.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 4
+  %info_raw.i = getelementptr inbounds i8, ptr %state, i64 168
+  %key_defined.i.i = getelementptr inbounds i8, ptr %state, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 2
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %state, i64 172
+  %palette.i.i = getelementptr inbounds i8, ptr %state, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %color.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
-  %key_defined.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 4
+  %info_png.i = getelementptr inbounds i8, ptr %state, i64 208
+  %color.i.i = getelementptr inbounds i8, ptr %state, i64 224
+  %key_defined.i.i.i = getelementptr inbounds i8, ptr %state, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i.i, i8 0, i64 16, i1 false)
-  %bitdepth.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 1
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3, i32 2
+  %bitdepth.i.i.i = getelementptr inbounds i8, ptr %state, i64 228
+  %palette.i.i.i = getelementptr inbounds i8, ptr %state, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method.i.i = getelementptr inbounds i8, ptr %state, i64 216
   store i32 0, ptr %interlace_method.i.i, align 8
   store i32 0, ptr %info_png.i, align 8
-  %filter_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 1
+  %filter_method.i.i = getelementptr inbounds i8, ptr %state, i64 212
   store i32 0, ptr %filter_method.i.i, align 4
-  %background_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 4
-  %phys_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 18
+  %background_defined.i.i = getelementptr inbounds i8, ptr %state, i64 264
+  %phys_defined.i.i = getelementptr inbounds i8, ptr %state, i64 372
   store i32 0, ptr %phys_defined.i.i, align 4
-  %gama_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
+  %gama_defined.i.i = getelementptr inbounds i8, ptr %state, i64 388
   store i32 0, ptr %gama_defined.i.i, align 4
-  %chrm_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 24
+  %chrm_defined.i.i = getelementptr inbounds i8, ptr %state, i64 396
   store i32 0, ptr %chrm_defined.i.i, align 4
-  %srgb_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
+  %srgb_defined.i.i = getelementptr inbounds i8, ptr %state, i64 432
   store i32 0, ptr %srgb_defined.i.i, align 8
-  %iccp_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined.i.i = getelementptr inbounds i8, ptr %state, i64 440
   store i32 0, ptr %iccp_defined.i.i, align 8
-  %iccp_name.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 36
-  %sbit_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 39
+  %iccp_name.i.i = getelementptr inbounds i8, ptr %state, i64 448
+  %sbit_defined.i.i = getelementptr inbounds i8, ptr %state, i64 468
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i.i, i8 0, i64 84, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i.i, i8 0, i64 68, i1 false)
-  %error.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 4
+  %error.i = getelementptr inbounds i8, ptr %state, i64 536
   store i32 1, ptr %error.i, align 8
   store i32 %colortype, ptr %info_raw.i, align 8
   store i32 %bitdepth, ptr %bitdepth.i.i, align 4
@@ -18925,7 +18949,7 @@ _ZL16lodepng_filesizePKc.exit:                    ; preds = %if.end4.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL16lodepng_filesizePKc.exit
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %buffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -18983,7 +19007,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define noundef i32 @_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #34
   %call.i = tail call noalias ptr @fopen(ptr noundef %call3, ptr noundef nonnull @.str.1)
@@ -19014,7 +19038,7 @@ entry:
   store ptr null, ptr %buffer, align 8
   store i64 0, ptr %buffersize, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i)
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 3
+  %custom_zlib.i = getelementptr inbounds i8, ptr %settings, i64 16
   %0 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -19025,7 +19049,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exitthread-pre-split, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %max_output_size.i = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 2
+  %max_output_size.i = getelementptr inbounds i8, ptr %settings, i64 8
   %1 = load i64, ptr %max_output_size.i, align 8
   %tobool4.not.i = icmp eq i64 %1, 0
   br i1 %tobool4.not.i, label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exitthread-pre-split, label %land.lhs.true.i
@@ -19037,7 +19061,7 @@ land.lhs.true.i:                                  ; preds = %if.then3.i
   br label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exitthread-pre-split
 
 if.else.i:                                        ; preds = %entry
-  %size1.i.i = getelementptr inbounds %struct.ucvector, ptr %v.i, i64 0, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %v.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v.i, i8 0, i64 24, i1 false)
   %call12.i = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v.i, ptr noundef %in, i64 noundef %insize, ptr noundef nonnull %settings)
   %3 = load ptr, ptr %v.i, align 8
@@ -19059,7 +19083,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %_ZL
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load i64, ptr %buffersize, align 8
   %arrayidx = getelementptr inbounds i8, ptr %5, i64 %7
@@ -19081,7 +19105,7 @@ if.end:                                           ; preds = %if.then, %_ZL15zlib
 define internal fastcc noundef i32 @_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings(ptr noundef %out, ptr noundef %outsize, i64 noundef %expected_size, ptr noundef %in, i64 noundef %insize, ptr noundef %settings) unnamed_addr #5 {
 entry:
   %v = alloca %struct.ucvector, align 8
-  %custom_zlib = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 3
+  %custom_zlib = getelementptr inbounds i8, ptr %settings, i64 16
   %0 = load ptr, ptr %custom_zlib, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -19092,7 +19116,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end14, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %max_output_size = getelementptr inbounds %struct.LodePNGDecompressSettings, ptr %settings, i64 0, i32 2
+  %max_output_size = getelementptr inbounds i8, ptr %settings, i64 8
   %1 = load i64, ptr %max_output_size, align 8
   %tobool4.not = icmp eq i64 %1, 0
   br i1 %tobool4.not, label %if.end14, label %land.lhs.true
@@ -19107,9 +19131,9 @@ if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %out, align 8
   %4 = load i64, ptr %outsize, align 8
   store ptr %3, ptr %v, align 8, !alias.scope !436
-  %size1.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %v, i64 8
   store i64 %4, ptr %size1.i, align 8, !alias.scope !436
-  %allocsize.i = getelementptr inbounds %struct.ucvector, ptr %v, i64 0, i32 2
+  %allocsize.i = getelementptr inbounds i8, ptr %v, i64 16
   store i64 %4, ptr %allocsize.i, align 8, !alias.scope !436
   %tobool8.not = icmp eq i64 %expected_size, 0
   br i1 %tobool8.not, label %if.end11, label %if.then9
@@ -19153,7 +19177,7 @@ if.end14:                                         ; preds = %land.lhs.true, %if.
 define noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEERKS2_RK25LodePNGDecompressSettings(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(40) %settings) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -19171,7 +19195,7 @@ entry:
   %buffersize = alloca i64, align 8
   store ptr null, ptr %buffer, align 8
   store i64 0, ptr %buffersize, align 8
-  %custom_zlib.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 6
+  %custom_zlib.i = getelementptr inbounds i8, ptr %settings, i64 24
   %0 = load ptr, ptr %custom_zlib.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -19193,7 +19217,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %if.then.
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load i64, ptr %buffersize, align 8
   %arrayidx = getelementptr inbounds i8, ptr %1, i64 %3
@@ -19217,7 +19241,7 @@ entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -19228,7 +19252,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffersize.i)
   store ptr null, ptr %buffer.i, align 8
   store i64 0, ptr %buffersize.i, align 8
-  %custom_zlib.i.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 6
+  %custom_zlib.i.i = getelementptr inbounds i8, ptr %settings, i64 24
   %2 = load ptr, ptr %custom_zlib.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -19250,7 +19274,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i: ; preds = %if.els
   br i1 %tobool.not.i, label %_ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i
-  %_M_finish.i.i3 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i.i3 = getelementptr inbounds i8, ptr %out, i64 8
   %4 = load ptr, ptr %_M_finish.i.i3, align 8
   %5 = load i64, ptr %buffersize.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %5
@@ -19273,74 +19297,74 @@ _ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit: ; p
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7lodepng5StateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(544) %this) unnamed_addr #7 align 2 {
 entry:
-  %color_convert.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 4
+  %color_convert.i.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 1, ptr %color_convert.i.i, align 4
-  %read_text_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 5
+  %read_text_chunks.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 1, ptr %read_text_chunks.i.i, align 8
-  %remember_unknown_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 6
+  %remember_unknown_chunks.i.i = getelementptr inbounds i8, ptr %this, i64 60
   store i32 0, ptr %remember_unknown_chunks.i.i, align 4
-  %max_text_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 7
+  %max_text_size.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 16777216, ptr %max_text_size.i.i, align 8
-  %max_icc_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 8
+  %max_icc_size.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 16777216, ptr %max_icc_size.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %this, i8 0, i64 52, i1 false)
-  %encoder.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1
+  %encoder.i = getelementptr inbounds i8, ptr %this, i64 80
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %encoder.i, align 8
-  %nicematch.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 0, i32 4
+  %nicematch.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 128, ptr %nicematch.i.i.i, align 8
-  %lazymatching.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 0, i32 5
+  %lazymatching.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 1, ptr %lazymatching.i.i.i, align 4
-  %custom_zlib.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 0, i32 6
+  %custom_zlib.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib.i.i.i, i8 0, i64 24, i1 false)
-  %filter_palette_zero.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 2
+  %filter_palette_zero.i.i = getelementptr inbounds i8, ptr %this, i64 132
   store i32 1, ptr %filter_palette_zero.i.i, align 4
-  %filter_strategy.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 3
+  %filter_strategy.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 5, ptr %filter_strategy.i.i, align 8
-  %auto_convert.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 1
+  %auto_convert.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 1, ptr %auto_convert.i.i, align 8
-  %predefined_filters.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 4
-  %text_compression.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 7
+  %predefined_filters.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %text_compression.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %predefined_filters.i.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %text_compression.i.i, align 8
-  %info_raw.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 4
+  %info_raw.i = getelementptr inbounds i8, ptr %this, i64 168
+  %key_defined.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %info_raw.i, align 8
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 1
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %this, i64 172
   store i32 8, ptr %bitdepth.i.i, align 4
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3
-  %color.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3
-  %key_defined.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3, i32 4
+  %info_png.i = getelementptr inbounds i8, ptr %this, i64 208
+  %color.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %key_defined.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i.i, align 8
-  %bitdepth.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3, i32 1
+  %bitdepth.i.i.i = getelementptr inbounds i8, ptr %this, i64 228
   store i32 8, ptr %bitdepth.i.i.i, align 4
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3, i32 2
+  %palette.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 2
+  %interlace_method.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 0, ptr %interlace_method.i.i, align 8
   store i32 0, ptr %info_png.i, align 8
-  %filter_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 1
+  %filter_method.i.i = getelementptr inbounds i8, ptr %this, i64 212
   store i32 0, ptr %filter_method.i.i, align 4
-  %background_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 4
-  %phys_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 18
+  %background_defined.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %phys_defined.i.i = getelementptr inbounds i8, ptr %this, i64 372
   store i32 0, ptr %phys_defined.i.i, align 4
-  %gama_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 22
+  %gama_defined.i.i = getelementptr inbounds i8, ptr %this, i64 388
   store i32 0, ptr %gama_defined.i.i, align 4
-  %chrm_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 24
+  %chrm_defined.i.i = getelementptr inbounds i8, ptr %this, i64 396
   store i32 0, ptr %chrm_defined.i.i, align 4
-  %srgb_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 33
+  %srgb_defined.i.i = getelementptr inbounds i8, ptr %this, i64 432
   store i32 0, ptr %srgb_defined.i.i, align 8
-  %iccp_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 35
+  %iccp_defined.i.i = getelementptr inbounds i8, ptr %this, i64 440
   store i32 0, ptr %iccp_defined.i.i, align 8
-  %iccp_name.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 36
-  %sbit_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 39
+  %iccp_name.i.i = getelementptr inbounds i8, ptr %this, i64 448
+  %sbit_defined.i.i = getelementptr inbounds i8, ptr %this, i64 468
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i.i, i8 0, i64 84, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i.i, i8 0, i64 68, i1 false)
-  %error.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 4
+  %error.i = getelementptr inbounds i8, ptr %this, i64 536
   store i32 1, ptr %error.i, align 8
   ret void
 }
@@ -19348,74 +19372,74 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7lodepng5StateC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %other) unnamed_addr #2 align 2 {
 entry:
-  %color_convert.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 4
+  %color_convert.i.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 1, ptr %color_convert.i.i, align 4
-  %read_text_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 5
+  %read_text_chunks.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 1, ptr %read_text_chunks.i.i, align 8
-  %remember_unknown_chunks.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 6
+  %remember_unknown_chunks.i.i = getelementptr inbounds i8, ptr %this, i64 60
   store i32 0, ptr %remember_unknown_chunks.i.i, align 4
-  %max_text_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 7
+  %max_text_size.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 16777216, ptr %max_text_size.i.i, align 8
-  %max_icc_size.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 8
+  %max_icc_size.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 16777216, ptr %max_icc_size.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %this, i8 0, i64 52, i1 false)
-  %encoder.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1
+  %encoder.i = getelementptr inbounds i8, ptr %this, i64 80
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %encoder.i, align 8
-  %nicematch.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 0, i32 4
+  %nicematch.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 128, ptr %nicematch.i.i.i, align 8
-  %lazymatching.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 0, i32 5
+  %lazymatching.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 1, ptr %lazymatching.i.i.i, align 4
-  %custom_zlib.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 0, i32 6
+  %custom_zlib.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %custom_zlib.i.i.i, i8 0, i64 24, i1 false)
-  %filter_palette_zero.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 2
+  %filter_palette_zero.i.i = getelementptr inbounds i8, ptr %this, i64 132
   store i32 1, ptr %filter_palette_zero.i.i, align 4
-  %filter_strategy.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 3
+  %filter_strategy.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 5, ptr %filter_strategy.i.i, align 8
-  %auto_convert.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 1
+  %auto_convert.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 1, ptr %auto_convert.i.i, align 8
-  %predefined_filters.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 4
-  %text_compression.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 1, i32 7
+  %predefined_filters.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %text_compression.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %predefined_filters.i.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %text_compression.i.i, align 8
-  %info_raw.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2
-  %key_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 4
+  %info_raw.i = getelementptr inbounds i8, ptr %this, i64 168
+  %key_defined.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %info_raw.i, align 8
-  %bitdepth.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 1
+  %bitdepth.i.i = getelementptr inbounds i8, ptr %this, i64 172
   store i32 8, ptr %bitdepth.i.i, align 4
-  %palette.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 2
+  %palette.i.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i, i8 0, i64 16, i1 false)
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3
-  %color.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3
-  %key_defined.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3, i32 4
+  %info_png.i = getelementptr inbounds i8, ptr %this, i64 208
+  %color.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %key_defined.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %color.i.i, align 8
-  %bitdepth.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3, i32 1
+  %bitdepth.i.i.i = getelementptr inbounds i8, ptr %this, i64 228
   store i32 8, ptr %bitdepth.i.i.i, align 4
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 3, i32 2
+  %palette.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  %interlace_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 2
+  %interlace_method.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 0, ptr %interlace_method.i.i, align 8
   store i32 0, ptr %info_png.i, align 8
-  %filter_method.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 1
+  %filter_method.i.i = getelementptr inbounds i8, ptr %this, i64 212
   store i32 0, ptr %filter_method.i.i, align 4
-  %background_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 4
-  %phys_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 18
+  %background_defined.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %phys_defined.i.i = getelementptr inbounds i8, ptr %this, i64 372
   store i32 0, ptr %phys_defined.i.i, align 4
-  %gama_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 22
+  %gama_defined.i.i = getelementptr inbounds i8, ptr %this, i64 388
   store i32 0, ptr %gama_defined.i.i, align 4
-  %chrm_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 24
+  %chrm_defined.i.i = getelementptr inbounds i8, ptr %this, i64 396
   store i32 0, ptr %chrm_defined.i.i, align 4
-  %srgb_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 33
+  %srgb_defined.i.i = getelementptr inbounds i8, ptr %this, i64 432
   store i32 0, ptr %srgb_defined.i.i, align 8
-  %iccp_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 35
+  %iccp_defined.i.i = getelementptr inbounds i8, ptr %this, i64 440
   store i32 0, ptr %iccp_defined.i.i, align 8
-  %iccp_name.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 36
-  %sbit_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3, i32 39
+  %iccp_name.i.i = getelementptr inbounds i8, ptr %this, i64 448
+  %sbit_defined.i.i = getelementptr inbounds i8, ptr %this, i64 468
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %background_defined.i.i, i8 0, i64 84, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iccp_name.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %sbit_defined.i.i, i8 0, i64 68, i1 false)
-  %error.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 4
+  %error.i = getelementptr inbounds i8, ptr %this, i64 536
   store i32 1, ptr %error.i, align 8
   tail call void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr noundef nonnull %this, ptr noundef nonnull %other)
   ret void
@@ -19424,7 +19448,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7lodepng5StateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %palette.i.i.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 2, i32 2
+  %palette.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %palette.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
@@ -19435,7 +19459,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i.i.i, i8 0, i64 16, i1 false)
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %this, i64 0, i32 3
+  %info_png.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %info_png.i)
   ret void
 }
@@ -19464,9 +19488,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZN7lodepng5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state)
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
   store i32 %colortype, ptr %info_raw, align 8
-  %bitdepth4 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %bitdepth4 = getelementptr inbounds i8, ptr %state, i64 172
   store i32 %bitdepth, ptr %bitdepth4, align 4
   %1 = load i32, ptr %w, align 4
   %2 = load i32, ptr %h, align 4
@@ -19507,7 +19531,7 @@ invoke.cont:                                      ; preds = %sw.default.i.i.i.i,
   %mul4.i.i = mul nuw nsw i64 %and.i.i, %conv.i.i
   %add.i.i = add nuw nsw i64 %mul4.i.i, 7
   %div54.i.i = lshr i64 %add.i.i, 3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = getelementptr i8, ptr %0, i64 %div54.i.i
   %arrayidx = getelementptr i8, ptr %4, i64 %mul3.i.i
@@ -19538,7 +19562,7 @@ if.end:                                           ; preds = %invoke.cont9, %entr
 define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) %w, ptr noundef nonnull align 4 dereferenceable(4) %h, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -19565,9 +19589,9 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %w, align 4
   %2 = load i32, ptr %h, align 4
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
   %3 = load i32, ptr %info_raw, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %state, i64 172
   %4 = load i32, ptr %bitdepth.i, align 4
   switch i32 %3, label %sw.default.i.i.i.i [
     i32 0, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
@@ -19606,7 +19630,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %if.then, %if.the
   %mul4.i.i = mul nuw nsw i64 %and.i.i, %conv.i.i
   %add.i.i = add nuw nsw i64 %mul4.i.i, 7
   %div54.i.i = lshr i64 %add.i.i, 3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = getelementptr i8, ptr %0, i64 %div54.i.i
   %arrayidx = getelementptr i8, ptr %6, i64 %mul3.i.i
@@ -19627,7 +19651,7 @@ if.end:                                           ; preds = %_Z20lodepng_get_raw
 define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RNS_5StateERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) %w, ptr noundef nonnull align 4 dereferenceable(4) %h, ptr noundef nonnull align 8 dereferenceable(544) %state, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -19668,7 +19692,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 
 if.end:                                           ; preds = %invoke.cont
   %2 = load ptr, ptr %buffer, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, %3
   %spec.select.i = select i1 %cmp.i.i.i, ptr null, ptr %2
@@ -19704,7 +19728,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load i64, ptr %buffersize, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %2
@@ -19764,7 +19788,7 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %entry, %entr
   %add.i = add nuw nsw i64 %mul4.i, 7
   %div54.i = lshr i64 %add.i, 3
   %add6.i = add i64 %div54.i, %mul3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %in, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %in, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -19784,7 +19808,7 @@ if.end:                                           ; preds = %_ZL24lodepng_get_ra
   br i1 %tobool.not.i, label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %_M_finish.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %out, i64 8
   %3 = load ptr, ptr %_M_finish.i.i7, align 8
   %4 = load i64, ptr %buffersize.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %4
@@ -19818,7 +19842,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load i64, ptr %buffersize, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %2
@@ -19840,9 +19864,9 @@ define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEERKS2_jjRNS_5StateE(ptr 
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
   %0 = load i32, ptr %info_raw, align 8
-  %bitdepth.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %bitdepth.i = getelementptr inbounds i8, ptr %state, i64 172
   %1 = load i32, ptr %bitdepth.i, align 4
   switch i32 %0, label %sw.default.i.i.i.i [
     i32 0, label %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
@@ -19882,7 +19906,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %entry, %entry, %
   %add.i.i = add nuw nsw i64 %mul4.i.i, 7
   %div54.i.i = lshr i64 %add.i.i, 3
   %add6.i.i = add i64 %div54.i.i, %mul3.i.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %in, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %in, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -19902,7 +19926,7 @@ if.end:                                           ; preds = %_Z20lodepng_get_raw
   br i1 %tobool.not.i, label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %_M_finish.i.i6 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i.i6 = getelementptr inbounds i8, ptr %out, i64 8
   %5 = load ptr, ptr %_M_finish.i.i6, align 8
   %6 = load i64, ptr %buffersize.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %6
@@ -19960,7 +19984,7 @@ invoke.cont:                                      ; preds = %.noexc, %call.i.noe
 
 if.then:                                          ; preds = %invoke.cont
   %2 = load ptr, ptr %buffer, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #34
   %call.i.i = call noalias ptr @fopen(ptr noundef %call3.i, ptr noundef nonnull @.str.1)
@@ -20046,7 +20070,7 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %entry, %entr
   %add.i = add nuw nsw i64 %mul4.i, 7
   %div54.i = lshr i64 %add.i, 3
   %add6.i = add i64 %div54.i, %mul3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %in, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %in, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -20122,7 +20146,7 @@ for.body19:                                       ; preds = %for.body11, %for.bo
 
 for.end24:                                        ; preds = %for.body19
   %call.i.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #33
-  %lengths.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths.i = getelementptr inbounds i8, ptr %tree, i64 8
   store ptr %call.i.i, ptr %lengths.i, align 8
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit, label %for.body.i
@@ -20139,9 +20163,9 @@ for.body.i:                                       ; preds = %for.end24, %for.bod
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !444
 
 for.end.i:                                        ; preds = %for.body.i
-  %numcodes6.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 3
+  %numcodes6.i = getelementptr inbounds i8, ptr %tree, i64 20
   store i32 288, ptr %numcodes6.i, align 4
-  %maxbitlen7.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 2
+  %maxbitlen7.i = getelementptr inbounds i8, ptr %tree, i64 16
   store i32 15, ptr %maxbitlen7.i, align 8
   %call8.i = tail call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree), !range !33
   br label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit
@@ -20161,7 +20185,7 @@ define internal fastcc noundef i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTr
 entry:
   %mul = shl nuw nsw i64 %numcodes, 2
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #33
-  %lengths = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths = getelementptr inbounds i8, ptr %tree, i64 8
   store ptr %call.i, ptr %lengths, align 8
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -20185,9 +20209,9 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %conv5 = trunc i64 %numcodes to i32
-  %numcodes6 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 3
+  %numcodes6 = getelementptr inbounds i8, ptr %tree, i64 20
   store i32 %conv5, ptr %numcodes6, align 4
-  %maxbitlen7 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 2
+  %maxbitlen7 = getelementptr inbounds i8, ptr %tree, i64 16
   store i32 %maxbitlen, ptr %maxbitlen7, align 8
   %call8 = tail call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree), !range !33
   br label %return
@@ -20200,13 +20224,13 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr nocapture noundef %tree) unnamed_addr #2 {
 entry:
-  %numcodes = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 3
+  %numcodes = getelementptr inbounds i8, ptr %tree, i64 20
   %0 = load i32, ptr %numcodes, align 4
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 2
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #33
   store ptr %call.i, ptr %tree, align 8
-  %maxbitlen = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 2
+  %maxbitlen = getelementptr inbounds i8, ptr %tree, i64 16
   %1 = load i32, ptr %maxbitlen, align 8
   %add = add i32 %1, 1
   %conv1 = zext i32 %add to i64
@@ -20234,7 +20258,7 @@ for.cond19.preheader:                             ; preds = %for.body.preheader,
   br i1 %cmp21.not53, label %for.cond31.preheader, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
-  %lengths = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths = getelementptr inbounds i8, ptr %tree, i64 8
   %2 = load ptr, ptr %lengths, align 8
   br label %for.body22
 
@@ -20246,7 +20270,7 @@ for.body34.preheader:                             ; preds = %for.cond31.preheade
   %umax = tail call i32 @llvm.umax.i32(i32 %add, i32 2)
   %wide.trip.count = zext i32 %umax to i64
   %.pre = load i32, ptr %call.i46, align 4
-  %invariant.gep = getelementptr i32, ptr %call.i45, i64 -1
+  %invariant.gep = getelementptr i8, ptr %call.i45, i64 -4
   br label %for.body34
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.body22
@@ -20266,7 +20290,7 @@ for.cond46.preheader:                             ; preds = %for.body34, %for.co
   br i1 %cmp21.not53, label %if.then78, label %for.body49.lr.ph
 
 for.body49.lr.ph:                                 ; preds = %for.cond46.preheader
-  %lengths50 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths50 = getelementptr inbounds i8, ptr %tree, i64 8
   br label %for.body49
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.body34
@@ -20334,7 +20358,7 @@ if.end.i:                                         ; preds = %if.then78
   br i1 %cmp119.not.i, label %for.body14.i.preheader, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %lengths.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths.i = getelementptr inbounds i8, ptr %tree, i64 8
   %17 = load ptr, ptr %lengths.i, align 8
   br label %for.body.i
 
@@ -20398,11 +20422,11 @@ for.body14.i:                                     ; preds = %for.body14.i.prehea
 
 for.end23.i:                                      ; preds = %for.body14.i
   %call.i100.i = tail call noalias noundef ptr @malloc(i64 noundef %size.1.i) #33
-  %table_len.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 4
+  %table_len.i = getelementptr inbounds i8, ptr %tree, i64 24
   store ptr %call.i100.i, ptr %table_len.i, align 8
   %mul25.i = shl i64 %size.1.i, 1
   %call.i101.i = tail call noalias noundef ptr @malloc(i64 noundef %mul25.i) #33
-  %table_value.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 5
+  %table_value.i = getelementptr inbounds i8, ptr %tree, i64 32
   store ptr %call.i101.i, ptr %table_value.i, align 8
   %tobool28.not.i = icmp eq ptr %call.i100.i, null
   %tobool30.not.i = icmp eq ptr %call.i101.i, null
@@ -20465,7 +20489,7 @@ for.end61.i:                                      ; preds = %for.inc59.i
   br i1 %cmp65130.not.i, label %for.cond148.preheader.i, label %for.body66.lr.ph.i
 
 for.body66.lr.ph.i:                               ; preds = %for.end61.i
-  %lengths68.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths68.i = getelementptr inbounds i8, ptr %tree, i64 8
   br label %for.body66.i
 
 for.body66.i:                                     ; preds = %for.inc143.i, %for.body66.lr.ph.i
@@ -20642,12 +20666,12 @@ entry:
   ]
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bp23 = getelementptr inbounds %struct.LodePNGBitWriter, ptr %writer, i64 0, i32 1
+  %bp23 = getelementptr inbounds i8, ptr %writer, i64 8
   %.pre = load i8, ptr %bp23, align 8
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %bp = getelementptr inbounds %struct.LodePNGBitWriter, ptr %writer, i64 0, i32 1
+  %bp = getelementptr inbounds i8, ptr %writer, i64 8
   %0 = load i8, ptr %bp, align 8
   %1 = and i8 %0, 7
   %cmp1 = icmp eq i8 %1, 0
@@ -20655,11 +20679,11 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %2 = load ptr, ptr %writer, align 8
-  %size = getelementptr inbounds %struct.ucvector, ptr %2, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %size, align 8
   %add = add i64 %3, 1
   store i64 %add, ptr %size, align 8
-  %allocsize.i.i = getelementptr inbounds %struct.ucvector, ptr %2, i64 0, i32 2
+  %allocsize.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %allocsize.i.i, align 8
   %cmp.i.i = icmp ult i64 %4, %add
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end
@@ -20680,7 +20704,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
 if.end:                                           ; preds = %if.then3.i.i, %if.then2
   %6 = load ptr, ptr %writer, align 8
   %7 = load ptr, ptr %6, align 8
-  %size8 = getelementptr inbounds %struct.ucvector, ptr %6, i64 0, i32 1
+  %size8 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %size8, align 8
   %9 = getelementptr i8, ptr %7, i64 %8
   %arrayidx = getelementptr i8, ptr %9, i64 -1
@@ -20695,7 +20719,7 @@ if.end9:                                          ; preds = %if.end, %if.then
   %shl = shl i32 %value, %and12
   %10 = load ptr, ptr %writer, align 8
   %11 = load ptr, ptr %10, align 8
-  %size16 = getelementptr inbounds %struct.ucvector, ptr %10, i64 0, i32 1
+  %size16 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %size16, align 8
   %13 = getelementptr i8, ptr %11, i64 %12
   %arrayidx18 = getelementptr i8, ptr %13, i64 -1
@@ -20717,11 +20741,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then27:                                        ; preds = %for.body
   %19 = load ptr, ptr %writer, align 8
-  %size30 = getelementptr inbounds %struct.ucvector, ptr %19, i64 0, i32 1
+  %size30 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %size30, align 8
   %add31 = add i64 %20, 1
   store i64 %add31, ptr %size30, align 8
-  %allocsize.i.i23 = getelementptr inbounds %struct.ucvector, ptr %19, i64 0, i32 2
+  %allocsize.i.i23 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i64, ptr %allocsize.i.i23, align 8
   %cmp.i.i24 = icmp ult i64 %21, %add31
   br i1 %cmp.i.i24, label %if.then.i.i26, label %if.end35
@@ -20742,7 +20766,7 @@ if.then3.i.i31:                                   ; preds = %if.then.i.i26
 if.end35:                                         ; preds = %if.then3.i.i31, %if.then27
   %23 = load ptr, ptr %writer, align 8
   %24 = load ptr, ptr %23, align 8
-  %size39 = getelementptr inbounds %struct.ucvector, ptr %23, i64 0, i32 1
+  %size39 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i64, ptr %size39, align 8
   %26 = getelementptr i8, ptr %24, i64 %25
   %arrayidx41 = getelementptr i8, ptr %26, i64 -1
@@ -20760,7 +20784,7 @@ if.end42:                                         ; preds = %if.end35, %for.body
   %shl49 = shl nuw nsw i32 %conv44, %and48
   %27 = load ptr, ptr %writer, align 8
   %28 = load ptr, ptr %27, align 8
-  %size53 = getelementptr inbounds %struct.ucvector, ptr %27, i64 0, i32 1
+  %size53 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i64, ptr %size53, align 8
   %30 = getelementptr i8, ptr %28, i64 %29
   %arrayidx55 = getelementptr i8, ptr %30, i64 -1
@@ -20805,16 +20829,16 @@ if.end7:                                          ; preds = %if.end
 for.body.lr.ph:                                   ; preds = %if.end7
   %conv = zext nneg i32 %sub to i64
   %add.ptr2.i = getelementptr inbounds i8, ptr %in, i64 %insize
-  %val.i = getelementptr inbounds %struct.Hash, ptr %hash, i64 0, i32 2
-  %chain.i = getelementptr inbounds %struct.Hash, ptr %hash, i64 0, i32 1
-  %zeros.i = getelementptr inbounds %struct.Hash, ptr %hash, i64 0, i32 5
-  %headz.i = getelementptr inbounds %struct.Hash, ptr %hash, i64 0, i32 3
-  %chainz.i = getelementptr inbounds %struct.Hash, ptr %hash, i64 0, i32 4
+  %val.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %chain.i = getelementptr inbounds i8, ptr %hash, i64 8
+  %zeros.i = getelementptr inbounds i8, ptr %hash, i64 40
+  %headz.i = getelementptr inbounds i8, ptr %hash, i64 24
+  %chainz.i = getelementptr inbounds i8, ptr %hash, i64 32
   %cmp44.not299.not = icmp eq i32 %cond, 0
   %conv55 = zext nneg i32 %windowsize to i64
   %tobool125.not = icmp eq i32 %lazymatching, 0
-  %size.i = getelementptr inbounds %struct.uivector, ptr %out, i64 0, i32 1
-  %allocsize1.i.i = getelementptr inbounds %struct.uivector, ptr %out, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %out, i64 8
+  %allocsize1.i.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc226
@@ -21143,7 +21167,7 @@ _ZL18uivector_push_backP8uivectorj.exit:          ; preds = %if.then143, %if.the
   %34 = phi ptr [ %call.i.i.i, %if.then4.i.i ], [ %.pre.i151, %if.then143 ]
   store i64 %add.i150, ptr %size.i, align 8
   %35 = getelementptr i32, ptr %34, i64 %add.i150
-  %arrayidx.i153 = getelementptr i32, ptr %35, i64 -1
+  %arrayidx.i153 = getelementptr i8, ptr %35, i64 -4
   store i32 %conv146, ptr %arrayidx.i153, align 4
   br label %if.end159
 
@@ -21342,15 +21366,15 @@ if.then.i197:                                     ; preds = %if.then4.i.i205, %_
   store i32 %add12.i, ptr %arrayidx14.i, align 4
   %57 = load ptr, ptr %out, align 8
   %58 = getelementptr i32, ptr %57, i64 %54
-  %arrayidx17.i = getelementptr i32, ptr %58, i64 1
+  %arrayidx17.i = getelementptr i8, ptr %58, i64 4
   store i32 %conv2.i, ptr %arrayidx17.i, align 4
   %59 = load ptr, ptr %out, align 8
   %60 = getelementptr i32, ptr %59, i64 %54
-  %arrayidx20.i = getelementptr i32, ptr %60, i64 2
+  %arrayidx20.i = getelementptr i8, ptr %60, i64 8
   store i32 %conv4.i199, ptr %arrayidx20.i, align 4
   %61 = load ptr, ptr %out, align 8
   %62 = getelementptr i32, ptr %61, i64 %54
-  %arrayidx23.i = getelementptr i32, ptr %62, i64 3
+  %arrayidx23.i = getelementptr i8, ptr %62, i64 12
   store i32 %conv9.i198, ptr %arrayidx23.i, align 4
   br label %for.body191.preheader
 
@@ -21519,7 +21543,7 @@ for.inc226.sink.split:                            ; preds = %_ZL18uivector_push_
   %.sink = phi ptr [ %47, %_ZL18uivector_push_backP8uivectorj.exit186 ], [ %42, %_ZL18uivector_push_backP8uivectorj.exit170 ]
   %conv181.sink.in = phi i8 [ %43, %_ZL18uivector_push_backP8uivectorj.exit186 ], [ %38, %_ZL18uivector_push_backP8uivectorj.exit170 ]
   %conv181.sink = zext i8 %conv181.sink.in to i32
-  %arrayidx.i178 = getelementptr i32, ptr %.sink, i64 -1
+  %arrayidx.i178 = getelementptr i8, ptr %.sink, i64 -4
   store i32 %conv181.sink, ptr %arrayidx.i178, align 4
   br label %for.inc226
 
@@ -21541,15 +21565,15 @@ return:                                           ; preds = %if.end159, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr nocapture noundef %writer, ptr nocapture noundef readonly %lz77_encoded, ptr nocapture noundef readonly %tree_ll, ptr nocapture noundef readonly %tree_d) unnamed_addr #2 {
 entry:
-  %size = getelementptr inbounds %struct.uivector, ptr %lz77_encoded, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %lz77_encoded, i64 8
   %0 = load i64, ptr %size, align 8
   %cmp.not58 = icmp eq i64 %0, 0
   br i1 %cmp.not58, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %lengths = getelementptr inbounds %struct.HuffmanTree, ptr %tree_ll, i64 0, i32 1
-  %bp.i = getelementptr inbounds %struct.LodePNGBitWriter, ptr %writer, i64 0, i32 1
-  %lengths21 = getelementptr inbounds %struct.HuffmanTree, ptr %tree_d, i64 0, i32 1
+  %lengths = getelementptr inbounds i8, ptr %tree_ll, i64 8
+  %bp.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %lengths21 = getelementptr inbounds i8, ptr %tree_d, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -21581,11 +21605,11 @@ for.body.i:                                       ; preds = %if.end8.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body.i
   %9 = load ptr, ptr %writer, align 8
-  %size.i = getelementptr inbounds %struct.ucvector, ptr %9, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %size.i, align 8
   %add.i = add i64 %10, 1
   store i64 %add.i, ptr %size.i, align 8
-  %allocsize.i.i.i = getelementptr inbounds %struct.ucvector, ptr %9, i64 0, i32 2
+  %allocsize.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i64, ptr %allocsize.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %11, %add.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i
@@ -21606,7 +21630,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i
   %13 = load ptr, ptr %writer, align 8
   %14 = load ptr, ptr %13, align 8
-  %size7.i = getelementptr inbounds %struct.ucvector, ptr %13, i64 0, i32 1
+  %size7.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i64, ptr %size7.i, align 8
   %16 = getelementptr i8, ptr %14, i64 %15
   %arrayidx.i = getelementptr i8, ptr %16, i64 -1
@@ -21626,7 +21650,7 @@ if.end8.i:                                        ; preds = %if.end.i, %for.body
   %shl.i = shl nuw nsw i32 %conv12.i, %and16.i
   %19 = load ptr, ptr %writer, align 8
   %20 = load ptr, ptr %19, align 8
-  %size20.i = getelementptr inbounds %struct.ucvector, ptr %19, i64 0, i32 1
+  %size20.i = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i64, ptr %size20.i, align 8
   %22 = getelementptr i8, ptr %20, i64 %21
   %arrayidx22.i = getelementptr i8, ptr %22, i64 -1
@@ -21652,9 +21676,9 @@ if.then:                                          ; preds = %_ZL17writeBitsRever
   %26 = load i32, ptr %arrayidx6, align 4
   %27 = load ptr, ptr %lz77_encoded, align 8
   %28 = getelementptr i32, ptr %27, i64 %i.059
-  %arrayidx8 = getelementptr i32, ptr %28, i64 1
+  %arrayidx8 = getelementptr i8, ptr %28, i64 4
   %29 = load i32, ptr %arrayidx8, align 4
-  %arrayidx11 = getelementptr i32, ptr %28, i64 2
+  %arrayidx11 = getelementptr i8, ptr %28, i64 8
   %30 = load i32, ptr %arrayidx11, align 4
   %idxprom12 = zext i32 %30 to i64
   %arrayidx13 = getelementptr inbounds [30 x i32], ptr @_ZL13DISTANCEEXTRA, i64 0, i64 %idxprom12
@@ -21687,11 +21711,11 @@ for.body.i24:                                     ; preds = %if.end8.i27, %for.b
 
 if.then.i41:                                      ; preds = %for.body.i24
   %39 = load ptr, ptr %writer, align 8
-  %size.i42 = getelementptr inbounds %struct.ucvector, ptr %39, i64 0, i32 1
+  %size.i42 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i64, ptr %size.i42, align 8
   %add.i43 = add i64 %40, 1
   store i64 %add.i43, ptr %size.i42, align 8
-  %allocsize.i.i.i44 = getelementptr inbounds %struct.ucvector, ptr %39, i64 0, i32 2
+  %allocsize.i.i.i44 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load i64, ptr %allocsize.i.i.i44, align 8
   %cmp.i.i.i45 = icmp ult i64 %41, %add.i43
   br i1 %cmp.i.i.i45, label %if.then.i.i.i51, label %if.end.i46
@@ -21712,7 +21736,7 @@ if.then3.i.i.i56:                                 ; preds = %if.then.i.i.i51
 if.end.i46:                                       ; preds = %if.then3.i.i.i56, %if.then.i41
   %43 = load ptr, ptr %writer, align 8
   %44 = load ptr, ptr %43, align 8
-  %size7.i47 = getelementptr inbounds %struct.ucvector, ptr %43, i64 0, i32 1
+  %size7.i47 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load i64, ptr %size7.i47, align 8
   %46 = getelementptr i8, ptr %44, i64 %45
   %arrayidx.i48 = getelementptr i8, ptr %46, i64 -1
@@ -21732,7 +21756,7 @@ if.end8.i27:                                      ; preds = %if.end.i46, %for.bo
   %shl.i34 = shl nuw nsw i32 %conv12.i32, %and16.i33
   %49 = load ptr, ptr %writer, align 8
   %50 = load ptr, ptr %49, align 8
-  %size20.i35 = getelementptr inbounds %struct.ucvector, ptr %49, i64 0, i32 1
+  %size20.i35 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i64, ptr %size20.i35, align 8
   %52 = getelementptr i8, ptr %50, i64 %51
   %arrayidx22.i36 = getelementptr i8, ptr %52, i64 -1
@@ -21770,7 +21794,7 @@ entry:
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bp = getelementptr inbounds %struct.LodePNGBitWriter, ptr %writer, i64 0, i32 1
+  %bp = getelementptr inbounds i8, ptr %writer, i64 8
   %.pre = load i8, ptr %bp, align 8
   br label %for.body
 
@@ -21783,11 +21807,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then:                                          ; preds = %for.body
   %2 = load ptr, ptr %writer, align 8
-  %size = getelementptr inbounds %struct.ucvector, ptr %2, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %size, align 8
   %add = add i64 %3, 1
   store i64 %add, ptr %size, align 8
-  %allocsize.i.i = getelementptr inbounds %struct.ucvector, ptr %2, i64 0, i32 2
+  %allocsize.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %allocsize.i.i, align 8
   %cmp.i.i = icmp ult i64 %4, %add
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end
@@ -21808,7 +21832,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
 if.end:                                           ; preds = %if.then3.i.i, %if.then
   %6 = load ptr, ptr %writer, align 8
   %7 = load ptr, ptr %6, align 8
-  %size7 = getelementptr inbounds %struct.ucvector, ptr %6, i64 0, i32 1
+  %size7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %size7, align 8
   %9 = getelementptr i8, ptr %7, i64 %8
   %arrayidx = getelementptr i8, ptr %9, i64 -1
@@ -21828,7 +21852,7 @@ if.end8:                                          ; preds = %if.end, %for.body
   %shl = shl nuw nsw i32 %conv12, %and16
   %11 = load ptr, ptr %writer, align 8
   %12 = load ptr, ptr %11, align 8
-  %size20 = getelementptr inbounds %struct.ucvector, ptr %11, i64 0, i32 1
+  %size20 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %size20, align 8
   %14 = getelementptr i8, ptr %12, i64 %13
   %arrayidx22 = getelementptr i8, ptr %14, i64 -1
@@ -21850,7 +21874,7 @@ for.end:                                          ; preds = %if.end8, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj(ptr nocapture noundef %tree, ptr nocapture noundef readonly %frequencies, i64 noundef %mincodes, i64 noundef %numcodes, i32 noundef %maxbitlen) unnamed_addr #2 {
 entry:
-  %invariant.gep = getelementptr i32, ptr %frequencies, i64 -1
+  %invariant.gep = getelementptr i8, ptr %frequencies, i64 -4
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
@@ -21866,16 +21890,16 @@ while.cond:                                       ; preds = %while.cond, %entry
 while.end:                                        ; preds = %while.cond
   %mul = shl i64 %numcodes.addr.0, 2
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #33
-  %lengths = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
+  %lengths = getelementptr inbounds i8, ptr %tree, i64 8
   store ptr %call.i, ptr %lengths, align 8
   %tobool2.not = icmp eq ptr %call.i, null
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %while.end
-  %maxbitlen3 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 2
+  %maxbitlen3 = getelementptr inbounds i8, ptr %tree, i64 16
   store i32 %maxbitlen, ptr %maxbitlen3, align 8
   %conv = trunc i64 %numcodes.addr.0 to i32
-  %numcodes4 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 3
+  %numcodes4 = getelementptr inbounds i8, ptr %tree, i64 20
   store i32 %conv, ptr %numcodes4, align 4
   %call6 = tail call noundef i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef nonnull %call.i, ptr noundef nonnull %frequencies, i64 noundef %numcodes.addr.0, i32 noundef %maxbitlen), !range !33
   %tobool7.not = icmp eq i32 %call6, 0
@@ -23106,9 +23130,9 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %entry, %entry, %sw.
   %add = add i32 %mul.i.i, 7
   %div188 = lshr i32 %add, 3
   %conv = zext nneg i32 %div188 to i64
-  %filter_strategy = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 3
+  %filter_strategy = getelementptr inbounds i8, ptr %settings, i64 56
   %0 = load i32, ptr %filter_strategy, align 8
-  %filter_palette_zero = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 2
+  %filter_palette_zero = getelementptr inbounds i8, ptr %settings, i64 52
   %1 = load i32, ptr %filter_palette_zero, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -23168,7 +23192,7 @@ for.cond246.preheader:                            ; preds = %if.else
   br i1 %cmp247.not27, label %return, label %for.body248.lr.ph
 
 for.body248.lr.ph:                                ; preds = %for.cond246.preheader
-  %predefined_filters = getelementptr inbounds %struct.LodePNGEncoderSettings, ptr %settings, i64 0, i32 4
+  %predefined_filters = getelementptr inbounds i8, ptr %settings, i64 64
   %3 = zext i32 %h to i64
   br label %for.body248
 
@@ -23488,7 +23512,7 @@ for.body248:                                      ; preds = %for.body248.lr.ph, 
 if.then269:                                       ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %zlibsettings, ptr noundef nonnull align 1 dereferenceable(48) %settings, i64 48, i1 false), !alias.scope !512
   store i32 1, ptr %zlibsettings, align 8
-  %custom_zlib = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %zlibsettings, i64 0, i32 6
+  %custom_zlib = getelementptr inbounds i8, ptr %zlibsettings, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %custom_zlib, i8 0, i64 16, i1 false)
   br label %for.body277
 
@@ -23881,13 +23905,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -24004,9 +24028,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64

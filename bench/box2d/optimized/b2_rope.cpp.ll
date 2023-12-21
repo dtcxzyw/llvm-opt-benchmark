@@ -3,10 +3,7 @@ source_filename = "bench/box2d/original/b2_rope.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b2Rope = type { %struct.b2Vec2, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.b2Vec2, %struct.b2RopeTuning }
 %struct.b2Vec2 = type { float, float }
-%struct.b2RopeTuning = type <{ i32, i32, float, float, float, float, float, float, float, i8, i8, i8, i8 }>
-%struct.b2RopeDef = type { %struct.b2Vec2, ptr, i32, ptr, %struct.b2Vec2, %struct.b2RopeTuning }
 %struct.b2RopeStretch = type { i32, i32, float, float, float, float, float, float }
 %struct.b2RopeBend = type { i32, i32, i32, float, float, float, float, float, float, float, float, float, float, float }
 %struct.b2Color = type { float, float, float, float }
@@ -19,17 +16,17 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6b2RopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_tuning = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12
+  %m_tuning = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %m_tuning, align 8
-  %bendingModel.i = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 1
+  %bendingModel.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 1, ptr %bendingModel.i, align 4
-  %damping.i = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 2
+  %damping.i = getelementptr inbounds i8, ptr %this, i64 96
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %damping.i, align 8
-  %bendStiffness.i = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 6
+  %bendStiffness.i = getelementptr inbounds i8, ptr %this, i64 112
   store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %bendStiffness.i, align 8
-  %bendDamping.i = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 8
+  %bendDamping.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %bendDamping.i, i8 0, i64 7, i1 false)
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_stretchConstraints, i8 0, i64 64, i1 false)
   ret void
@@ -38,43 +35,43 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6b2RopeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_stretchConstraints, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %m_bendConstraints, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_bindPositions = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 6
+  %m_bindPositions = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_bindPositions, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_ps, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %3)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %m_p0s = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
+  %m_p0s = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %m_p0s, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %4)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %m_vs = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
+  %m_vs = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %m_vs, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %5)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  %m_invMasses = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 10
+  %m_invMasses = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %m_invMasses, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %6)
           to label %invoke.cont7 unwind label %terminate.lpad
@@ -108,41 +105,41 @@ define void @_ZN6b2Rope6CreateERK9b2RopeDef(ptr nocapture noundef nonnull align 
 entry:
   %0 = load i64, ptr %def, align 8
   store i64 %0, ptr %this, align 8
-  %count = getelementptr inbounds %struct.b2RopeDef, ptr %def, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %def, i64 16
   %1 = load i32, ptr %count, align 8
-  %m_count = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 1
+  %m_count = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %m_count, align 8
   %mul = shl i32 %1, 3
   %call.i = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul)
-  %m_bindPositions = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 6
+  %m_bindPositions = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call.i, ptr %m_bindPositions, align 8
   %2 = load i32, ptr %m_count, align 8
   %mul6 = shl i32 %2, 3
   %call.i66 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul6)
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i66, ptr %m_ps, align 8
   %3 = load i32, ptr %m_count, align 8
   %mul11 = shl i32 %3, 3
   %call.i67 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul11)
-  %m_p0s = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
+  %m_p0s = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i67, ptr %m_p0s, align 8
   %4 = load i32, ptr %m_count, align 8
   %mul16 = shl i32 %4, 3
   %call.i68 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul16)
-  %m_vs = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
+  %m_vs = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %call.i68, ptr %m_vs, align 8
   %5 = load i32, ptr %m_count, align 8
   %mul21 = shl i32 %5, 2
   %call.i69 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul21)
-  %m_invMasses = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 10
+  %m_invMasses = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %call.i69, ptr %m_invMasses, align 8
   %6 = load i32, ptr %m_count, align 8
   %cmp207 = icmp sgt i32 %6, 0
   br i1 %cmp207, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %vertices = getelementptr inbounds %struct.b2RopeDef, ptr %def, i64 0, i32 1
-  %masses = getelementptr inbounds %struct.b2RopeDef, ptr %def, i64 0, i32 3
+  %vertices = getelementptr inbounds i8, ptr %def, i64 8
+  %masses = getelementptr inbounds i8, ptr %def, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -190,19 +187,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %entry
   %.lcssa = phi i32 [ %6, %entry ], [ %24, %for.body ]
   %sub = add nsw i32 %.lcssa, -1
-  %m_stretchCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 2
+  %m_stretchCount = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %sub, ptr %m_stretchCount, align 4
   %sub59 = add nsw i32 %.lcssa, -2
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sub59, ptr %m_bendCount, align 8
   %mul62 = shl i32 %sub, 5
   %call.i77 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul62)
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call.i77, ptr %m_stretchConstraints, align 8
   %26 = load i32, ptr %m_bendCount, align 8
   %mul67 = mul i32 %26, 56
   %call.i78 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul67)
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i78, ptr %m_bendConstraints, align 8
   %27 = load i32, ptr %m_stretchCount, align 4
   %cmp73209 = icmp sgt i32 %27, 0
@@ -229,7 +226,7 @@ for.body74:                                       ; preds = %for.end, %for.body7
   %34 = load float, ptr %arrayidx83.sroa_idx, align 4
   %35 = trunc i64 %indvars.iv215 to i32
   store i32 %35, ptr %arrayidx77, align 4
-  %i2 = getelementptr inbounds %struct.b2RopeStretch, ptr %29, i64 %indvars.iv215, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx77, i64 4
   %36 = trunc i64 %indvars.iv.next216 to i32
   store i32 %36, ptr %i2, align 4
   %sub.i.i = fsub float %31, %33
@@ -237,20 +234,20 @@ for.body74:                                       ; preds = %for.end, %for.body7
   %mul4.i.i = fmul float %sub3.i.i, %sub3.i.i
   %37 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul4.i.i)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %37)
-  %L = getelementptr inbounds %struct.b2RopeStretch, ptr %29, i64 %indvars.iv215, i32 4
+  %L = getelementptr inbounds i8, ptr %arrayidx77, i64 16
   store float %sqrt.i.i, ptr %L, align 4
   %38 = load ptr, ptr %m_invMasses, align 8
   %arrayidx88 = getelementptr inbounds float, ptr %38, i64 %indvars.iv215
   %39 = load float, ptr %arrayidx88, align 4
-  %invMass1 = getelementptr inbounds %struct.b2RopeStretch, ptr %29, i64 %indvars.iv215, i32 2
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx77, i64 8
   store float %39, ptr %invMass1, align 4
   %40 = load ptr, ptr %m_invMasses, align 8
   %arrayidx92 = getelementptr inbounds float, ptr %40, i64 %indvars.iv.next216
   %41 = load float, ptr %arrayidx92, align 4
-  %invMass2 = getelementptr inbounds %struct.b2RopeStretch, ptr %29, i64 %indvars.iv215, i32 3
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx77, i64 12
   store float %41, ptr %invMass2, align 4
-  %lambda = getelementptr inbounds %struct.b2RopeStretch, ptr %29, i64 %indvars.iv215, i32 5
-  %damper = getelementptr inbounds %struct.b2RopeStretch, ptr %29, i64 %indvars.iv215, i32 7
+  %lambda = getelementptr inbounds i8, ptr %arrayidx77, i64 20
+  %damper = getelementptr inbounds i8, ptr %arrayidx77, i64 28
   store float 0.000000e+00, ptr %damper, align 4
   store <2 x float> zeroinitializer, ptr %lambda, align 4
   %42 = load i32, ptr %m_stretchCount, align 4
@@ -279,29 +276,29 @@ for.body100:                                      ; preds = %for.cond97.preheade
   %52 = load float, ptr %arrayidx117.sroa_idx, align 4
   %53 = trunc i64 %indvars.iv218 to i32
   store i32 %53, ptr %arrayidx104, align 4
-  %i2120 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 1
+  %i2120 = getelementptr inbounds i8, ptr %arrayidx104, i64 4
   %54 = trunc i64 %indvars.iv.next219 to i32
   store i32 %54, ptr %i2120, align 4
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx104, i64 8
   %55 = trunc i64 %50 to i32
   store i32 %55, ptr %i3, align 4
   %56 = load ptr, ptr %m_invMasses, align 8
   %arrayidx124 = getelementptr inbounds float, ptr %56, i64 %indvars.iv218
   %57 = load float, ptr %arrayidx124, align 4
-  %invMass1125 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 3
+  %invMass1125 = getelementptr inbounds i8, ptr %arrayidx104, i64 12
   store float %57, ptr %invMass1125, align 4
   %58 = load ptr, ptr %m_invMasses, align 8
   %arrayidx129 = getelementptr inbounds float, ptr %58, i64 %indvars.iv.next219
   %59 = load float, ptr %arrayidx129, align 4
-  %invMass2130 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 4
+  %invMass2130 = getelementptr inbounds i8, ptr %arrayidx104, i64 16
   store float %59, ptr %invMass2130, align 4
   %60 = load ptr, ptr %m_invMasses, align 8
   %arrayidx134 = getelementptr inbounds float, ptr %60, i64 %50
   %61 = load float, ptr %arrayidx134, align 4
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx104, i64 20
   store float %61, ptr %invMass3, align 4
-  %invEffectiveMass = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 6
-  %L1 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 8
+  %invEffectiveMass = getelementptr inbounds i8, ptr %arrayidx104, i64 24
+  %L1 = getelementptr inbounds i8, ptr %arrayidx104, i64 32
   %62 = insertelement <2 x float> poison, float %46, i64 0
   %63 = insertelement <2 x float> %62, float %48, i64 1
   %64 = insertelement <2 x float> poison, float %48, i64 0
@@ -366,7 +363,7 @@ if.end170:                                        ; preds = %if.end145
   %101 = insertelement <2 x float> poison, float %sub3.i140, i64 0
   %102 = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> zeroinitializer
   %103 = fmul <2 x float> %82, %102
-  %alpha1 = getelementptr inbounds %struct.b2RopeBend, ptr %44, i64 %indvars.iv218, i32 10
+  %alpha1 = getelementptr inbounds i8, ptr %arrayidx104, i64 40
   %104 = insertelement <2 x float> poison, float %sub.i137, i64 0
   %105 = shufflevector <2 x float> %104, <2 x float> poison, <2 x i32> zeroinitializer
   %106 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %105, <2 x float> %103)
@@ -383,11 +380,11 @@ for.inc175:                                       ; preds = %if.end145, %for.bod
   br i1 %cmp99, label %for.body100, label %for.end177, !llvm.loop !7
 
 for.end177:                                       ; preds = %for.inc175, %for.cond97.preheader
-  %gravity = getelementptr inbounds %struct.b2RopeDef, ptr %def, i64 0, i32 4
-  %m_gravity = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 11
+  %gravity = getelementptr inbounds i8, ptr %def, i64 32
+  %m_gravity = getelementptr inbounds i8, ptr %this, i64 80
   %112 = load i64, ptr %gravity, align 8
   store i64 %112, ptr %m_gravity, align 8
-  %tuning = getelementptr inbounds %struct.b2RopeDef, ptr %def, i64 0, i32 5
+  %tuning = getelementptr inbounds i8, ptr %def, i64 40
   tail call void @_ZN6b2Rope9SetTuningERK12b2RopeTuning(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(39) %tuning)
   ret void
 }
@@ -401,25 +398,26 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Rope9SetTuningERK12b2RopeTuning(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(39) %tuning) local_unnamed_addr #6 align 2 {
 entry:
-  %m_tuning = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12
+  %m_tuning = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(39) %m_tuning, ptr noundef nonnull align 4 dereferenceable(39) %tuning, i64 39, i1 false)
-  %bendHertz = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 7
+  %bendHertz = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load float, ptr %bendHertz, align 4
   %mul = fmul float %0, 0x401921FB60000000
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_bendCount, align 8
   %cmp33 = icmp sgt i32 %1, 0
   br i1 %cmp33, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %bendDamping = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 8
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %bendDamping = getelementptr inbounds i8, ptr %this, i64 120
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_bendConstraints, align 8
-  %L1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 8
+  %arrayidx = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv
+  %L1 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load <2 x float>, ptr %L1, align 4
   %4 = fmul <2 x float> %3, %3
   %5 = extractelement <2 x float> %4, i64 0
@@ -429,7 +427,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %spring = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 12
+  %spring = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store float 0.000000e+00, ptr %spring, align 4
   br label %for.inc
 
@@ -438,14 +436,14 @@ if.end:                                           ; preds = %for.body
   %shift = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %8 = fadd <2 x float> %7, %shift
   %add = extractelement <2 x float> %8, i64 0
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %9 = load float, ptr %invMass1, align 4
   %div12 = fdiv float %9, %5
-  %invMass2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 4
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %10 = load float, ptr %invMass2, align 4
   %mul13 = fmul float %add, %10
   %11 = tail call float @llvm.fmuladd.f32(float %mul13, float %add, float %div12)
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %12 = load float, ptr %invMass3, align 4
   %div15 = fdiv float %12, %6
   %add16 = fadd float %11, %div15
@@ -453,7 +451,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.end
-  %spring19 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 12
+  %spring19 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store float 0.000000e+00, ptr %spring19, align 4
   br label %for.inc
 
@@ -461,7 +459,7 @@ if.end21:                                         ; preds = %if.end
   %div22 = fdiv float 1.000000e+00, %add16
   %mul23 = fmul float %mul, %div22
   %mul24 = fmul float %mul, %mul23
-  %spring25 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 12
+  %spring25 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store float %mul24, ptr %spring25, align 4
   %mul26 = fmul float %div22, 2.000000e+00
   %13 = load float, ptr %bendDamping, align 8
@@ -471,7 +469,7 @@ if.end21:                                         ; preds = %if.end
 
 for.inc:                                          ; preds = %if.end21, %if.then18, %if.then
   %mul29.sink = phi float [ %mul29, %if.end21 ], [ 0.000000e+00, %if.then18 ], [ 0.000000e+00, %if.then ]
-  %damper30 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 13
+  %damper30 = getelementptr inbounds i8, ptr %arrayidx, i64 52
   store float %mul29.sink, ptr %damper30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %m_bendCount, align 8
@@ -480,26 +478,27 @@ for.inc:                                          ; preds = %if.end21, %if.then1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry
-  %stretchHertz = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 4
+  %stretchHertz = getelementptr inbounds i8, ptr %this, i64 104
   %16 = load float, ptr %stretchHertz, align 8
   %mul32 = fmul float %16, 0x401921FB60000000
-  %m_stretchCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 2
+  %m_stretchCount = getelementptr inbounds i8, ptr %this, i64 12
   %17 = load i32, ptr %m_stretchCount, align 4
   %cmp3535 = icmp sgt i32 %17, 0
   br i1 %cmp3535, label %for.body36.lr.ph, label %for.end59
 
 for.body36.lr.ph:                                 ; preds = %for.end
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
-  %stretchDamping = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 5
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
+  %stretchDamping = getelementptr inbounds i8, ptr %this, i64 108
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.inc57
   %18 = phi i32 [ %17, %for.body36.lr.ph ], [ %23, %for.inc57 ]
   %indvars.iv38 = phi i64 [ 0, %for.body36.lr.ph ], [ %indvars.iv.next39, %for.inc57 ]
   %19 = load ptr, ptr %m_stretchConstraints, align 8
-  %invMass141 = getelementptr inbounds %struct.b2RopeStretch, ptr %19, i64 %indvars.iv38, i32 2
+  %arrayidx39 = getelementptr inbounds %struct.b2RopeStretch, ptr %19, i64 %indvars.iv38
+  %invMass141 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %20 = load float, ptr %invMass141, align 4
-  %invMass242 = getelementptr inbounds %struct.b2RopeStretch, ptr %19, i64 %indvars.iv38, i32 3
+  %invMass242 = getelementptr inbounds i8, ptr %arrayidx39, i64 12
   %21 = load float, ptr %invMass242, align 4
   %add43 = fadd float %20, %21
   %cmp44 = fcmp oeq float %add43, 0.000000e+00
@@ -509,13 +508,13 @@ if.end46:                                         ; preds = %for.body36
   %div48 = fdiv float 1.000000e+00, %add43
   %mul49 = fmul float %mul32, %div48
   %mul50 = fmul float %mul32, %mul49
-  %spring51 = getelementptr inbounds %struct.b2RopeStretch, ptr %19, i64 %indvars.iv38, i32 6
+  %spring51 = getelementptr inbounds i8, ptr %arrayidx39, i64 24
   store float %mul50, ptr %spring51, align 4
   %mul52 = fmul float %div48, 2.000000e+00
   %22 = load float, ptr %stretchDamping, align 4
   %mul54 = fmul float %mul52, %22
   %mul55 = fmul float %mul32, %mul54
-  %damper56 = getelementptr inbounds %struct.b2RopeStretch, ptr %19, i64 %indvars.iv38, i32 7
+  %damper56 = getelementptr inbounds i8, ptr %arrayidx39, i64 28
   store float %mul55, ptr %damper56, align 4
   %.pre = load i32, ptr %m_stretchCount, align 4
   br label %for.inc57
@@ -540,22 +539,22 @@ entry:
 if.end:                                           ; preds = %entry
   %div = fdiv float 1.000000e+00, %dt
   %fneg = fneg float %dt
-  %m_tuning = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12
-  %damping = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 2
+  %m_tuning = getelementptr inbounds i8, ptr %this, i64 88
+  %damping = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load float, ptr %damping, align 8
   %mul = fmul float %0, %fneg
   %call = tail call float @expf(float noundef %mul) #16
-  %m_count = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 1
+  %m_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_count, align 8
   %cmp267 = icmp sgt i32 %1, 0
   br i1 %cmp267, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %m_invMasses = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 10
-  %m_bindPositions = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 6
-  %m_p0s = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
-  %m_vs21 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
-  %m_gravity = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 11
+  %m_invMasses = getelementptr inbounds i8, ptr %this, i64 72
+  %m_bindPositions = getelementptr inbounds i8, ptr %this, i64 40
+  %m_p0s = getelementptr inbounds i8, ptr %this, i64 56
+  %m_vs21 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_gravity = getelementptr inbounds i8, ptr %this, i64 80
   %2 = insertelement <2 x float> poison, float %call, i64 0
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
   %4 = insertelement <2 x float> poison, float %dt, i64 0
@@ -611,7 +610,7 @@ for.inc:                                          ; preds = %if.then4, %if.else
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %bendingModel = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 1
+  %bendingModel = getelementptr inbounds i8, ptr %this, i64 92
   %29 = load i32, ptr %bendingModel, align 4
   %cmp26 = icmp eq i32 %29, 0
   br i1 %cmp26, label %if.then27, label %if.end28
@@ -621,23 +620,23 @@ if.then27:                                        ; preds = %for.end
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %for.end
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %30 = load i32, ptr %m_bendCount, align 8
   %cmp3169 = icmp sgt i32 %30, 0
   br i1 %cmp3169, label %for.body32.lr.ph, label %for.cond39.preheader
 
 for.body32.lr.ph:                                 ; preds = %if.end28
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body32
 
 for.cond39.preheader:                             ; preds = %for.body32, %if.end28
-  %m_stretchCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 2
+  %m_stretchCount = getelementptr inbounds i8, ptr %this, i64 12
   %31 = load i32, ptr %m_stretchCount, align 4
   %cmp4071 = icmp sgt i32 %31, 0
   br i1 %cmp4071, label %for.body41.lr.ph, label %for.cond49.preheader
 
 for.body41.lr.ph:                                 ; preds = %for.cond39.preheader
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body41
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
@@ -657,8 +656,8 @@ for.cond49.preheader:                             ; preds = %for.body41, %for.co
   br i1 %cmp5173, label %for.body52.lr.ph, label %for.cond64.preheader
 
 for.body52.lr.ph:                                 ; preds = %for.cond49.preheader
-  %m_vs54 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_vs54 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   %36 = insertelement <2 x float> poison, float %dt, i64 0
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body52
@@ -706,9 +705,9 @@ for.cond110.preheader:                            ; preds = %for.cond110.prehead
   br i1 %cmp11277, label %for.body113.lr.ph, label %for.end135
 
 for.body113.lr.ph:                                ; preds = %for.cond110.preheader
-  %m_ps116 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %m_p0s119 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
-  %m_vs124 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
+  %m_ps116 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_p0s119 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_vs124 = getelementptr inbounds i8, ptr %this, i64 64
   %51 = insertelement <2 x float> poison, float %div, i64 0
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body113
@@ -799,21 +798,21 @@ declare float @expf(float noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN6b2Rope15ApplyBendForcesEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #7 align 2 {
 entry:
-  %bendHertz = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 7
+  %bendHertz = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load float, ptr %bendHertz, align 4
   %mul = fmul float %0, 0x401921FB60000000
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_bendCount, align 8
   %cmp173 = icmp sgt i32 %1, 0
   br i1 %cmp173, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %m_vs = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
-  %isometric = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 9
-  %fixedEffectiveMass = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 10
-  %bendDamping = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 8
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
+  %m_vs = getelementptr inbounds i8, ptr %this, i64 64
+  %isometric = getelementptr inbounds i8, ptr %this, i64 124
+  %fixedEffectiveMass = getelementptr inbounds i8, ptr %this, i64 125
+  %bendDamping = getelementptr inbounds i8, ptr %this, i64 120
   %fneg = fneg float %dt
   br label %for.body
 
@@ -828,14 +827,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load float, ptr %arrayidx3, align 4
   %arrayidx3.sroa_idx = getelementptr inbounds i8, ptr %arrayidx3, i64 4
   %6 = load float, ptr %arrayidx3.sroa_idx, align 4
-  %i2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %7 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom5
   %8 = load float, ptr %arrayidx6, align 4
   %arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 4
   %9 = load float, ptr %arrayidx6.sroa_idx, align 4
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %i3, align 4
   %idxprom8 = sext i32 %10 to i64
   %arrayidx9 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom8
@@ -871,7 +870,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %L1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 8
+  %L1 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %32 = load <2 x float>, ptr %L1, align 4
   %33 = fmul <2 x float> %32, %32
   br label %if.end
@@ -923,16 +922,16 @@ if.end32:                                         ; preds = %if.end
   br i1 %tobool45.not, label %if.else47, label %if.then46
 
 if.then46:                                        ; preds = %if.end32
-  %invEffectiveMass = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 6
+  %invEffectiveMass = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %60 = load float, ptr %invEffectiveMass, align 4
   br label %if.end54
 
 if.else47:                                        ; preds = %if.end32
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %61 = load float, ptr %invMass1, align 4
   %mul3.i69 = fmul float %56, %56
   %62 = tail call noundef float @llvm.fmuladd.f32(float %55, float %55, float %mul3.i69)
-  %invMass2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 4
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %63 = load float, ptr %invMass2, align 4
   %64 = fmul <2 x float> %57, %57
   %mul3.i72 = extractelement <2 x float> %64, i64 1
@@ -940,7 +939,7 @@ if.else47:                                        ; preds = %if.end32
   %66 = tail call noundef float @llvm.fmuladd.f32(float %65, float %65, float %mul3.i72)
   %mul51 = fmul float %66, %63
   %67 = tail call float @llvm.fmuladd.f32(float %61, float %62, float %mul51)
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %68 = load float, ptr %invMass3, align 4
   %69 = fmul <2 x float> %54, %54
   %mul3.i75 = extractelement <2 x float> %69, i64 1
@@ -977,7 +976,7 @@ if.end57:                                         ; preds = %if.end54
   %mul70 = fmul float %add68, %mul64
   %81 = tail call float @llvm.fmuladd.f32(float %mul60, float %call35, float %mul70)
   %mul71 = fmul float %81, %fneg
-  %invMass173 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 3
+  %invMass173 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %82 = load float, ptr %invMass173, align 4
   %mul74 = fmul float %82, %mul71
   %83 = load ptr, ptr %m_vs, align 8
@@ -990,7 +989,7 @@ if.end57:                                         ; preds = %if.end54
   %88 = fmul <2 x float> %50, %87
   %89 = fsub <2 x float> %85, %88
   store <2 x float> %89, ptr %arrayidx79, align 4
-  %invMass281 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 4
+  %invMass281 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %90 = load float, ptr %invMass281, align 4
   %mul82 = fmul float %mul71, %90
   %91 = load ptr, ptr %m_vs, align 8
@@ -1003,7 +1002,7 @@ if.end57:                                         ; preds = %if.end54
   %96 = load <2 x float>, ptr %arrayidx87, align 4
   %97 = fadd <2 x float> %95, %96
   store <2 x float> %97, ptr %arrayidx87, align 4
-  %invMass389 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 5
+  %invMass389 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %98 = load float, ptr %invMass389, align 4
   %mul90 = fmul float %mul71, %98
   %99 = load ptr, ptr %m_vs, align 8
@@ -1032,18 +1031,18 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN6b2Rope19SolveBend_PBD_AngleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bendCount, align 8
   %cmp158 = icmp sgt i32 %0, 0
   br i1 %cmp158, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bendStiffness = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 6
+  %bendStiffness = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load float, ptr %bendStiffness, align 8
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %isometric = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 9
-  %fixedEffectiveMass = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 10
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
+  %isometric = getelementptr inbounds i8, ptr %this, i64 124
+  %fixedEffectiveMass = getelementptr inbounds i8, ptr %this, i64 125
   %fneg = fneg float %1
   br label %for.body
 
@@ -1056,12 +1055,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom2 = sext i32 %4 to i64
   %arrayidx3 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom2
   %5 = load <2 x float>, ptr %arrayidx3, align 4
-  %i2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %6 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom5
   %7 = load <2 x float>, ptr %arrayidx6, align 4
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %8 = load i32, ptr %i3, align 4
   %idxprom8 = sext i32 %8 to i64
   %arrayidx9 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom8
@@ -1088,7 +1087,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %L1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 8
+  %L1 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %25 = load <2 x float>, ptr %L1, align 4
   %26 = fmul <2 x float> %25, %25
   br label %if.end
@@ -1126,18 +1125,18 @@ if.end23:                                         ; preds = %if.end
   br i1 %tobool33.not, label %if.else35, label %if.then34
 
 if.then34:                                        ; preds = %if.end23
-  %invEffectiveMass = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 6
+  %invEffectiveMass = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %44 = load float, ptr %invEffectiveMass, align 4
   br label %if.end42
 
 if.else35:                                        ; preds = %if.end23
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %45 = load float, ptr %invMass1, align 4
   %46 = fmul <2 x float> %36, %36
   %mul3.i64 = extractelement <2 x float> %46, i64 1
   %47 = extractelement <2 x float> %36, i64 0
   %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %47, float %mul3.i64)
-  %invMass2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 4
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %49 = load float, ptr %invMass2, align 4
   %50 = fmul <2 x float> %41, %41
   %mul3.i67 = extractelement <2 x float> %50, i64 1
@@ -1145,7 +1144,7 @@ if.else35:                                        ; preds = %if.end23
   %52 = tail call noundef float @llvm.fmuladd.f32(float %51, float %51, float %mul3.i67)
   %mul39 = fmul float %52, %49
   %53 = tail call float @llvm.fmuladd.f32(float %45, float %48, float %mul39)
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %54 = load float, ptr %invMass3, align 4
   %55 = fmul <2 x float> %40, %40
   %mul3.i70 = extractelement <2 x float> %55, i64 1
@@ -1160,7 +1159,7 @@ if.end42:                                         ; preds = %if.else35, %if.then
   br i1 %cmp43, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end42
-  %invEffectiveMass45 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 6
+  %invEffectiveMass45 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %59 = load float, ptr %invEffectiveMass45, align 4
   br label %if.end46
 
@@ -1168,13 +1167,13 @@ if.end46:                                         ; preds = %if.then44, %if.end4
   %sum.1 = phi float [ %59, %if.then44 ], [ %sum.0, %if.end42 ]
   %mul47 = fmul float %call13, %fneg
   %div48 = fdiv float %mul47, %sum.1
-  %invMass150 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 3
+  %invMass150 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %60 = load float, ptr %invMass150, align 4
   %mul51 = fmul float %60, %div48
-  %invMass254 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 4
+  %invMass254 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %61 = load float, ptr %invMass254, align 4
   %mul55 = fmul float %div48, %61
-  %invMass358 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 5
+  %invMass358 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %62 = load float, ptr %invMass358, align 4
   %mul59 = fmul float %div48, %62
   %63 = load ptr, ptr %m_ps, align 8
@@ -1220,17 +1219,17 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN6b2Rope20SolveBend_XPBD_AngleEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #7 align 2 {
 entry:
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bendCount, align 8
   %cmp215 = icmp sgt i32 %0, 0
   br i1 %cmp215, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %m_p0s = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
-  %isometric = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 9
-  %fixedEffectiveMass = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 10
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
+  %m_p0s = getelementptr inbounds i8, ptr %this, i64 56
+  %isometric = getelementptr inbounds i8, ptr %this, i64 124
+  %fixedEffectiveMass = getelementptr inbounds i8, ptr %this, i64 125
   %mul62 = fmul float %dt, %dt
   br label %for.body
 
@@ -1243,12 +1242,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom2 = sext i32 %3 to i64
   %arrayidx3 = getelementptr inbounds %struct.b2Vec2, ptr %2, i64 %idxprom2
   %4 = load <2 x float>, ptr %arrayidx3, align 4
-  %i2 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %5 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %2, i64 %idxprom5
   %6 = load <2 x float>, ptr %arrayidx6, align 4
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load i32, ptr %i3, align 4
   %idxprom8 = sext i32 %7 to i64
   %arrayidx9 = getelementptr inbounds %struct.b2Vec2, ptr %2, i64 %idxprom8
@@ -1258,7 +1257,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load float, ptr %arrayidx12, align 4
   %11 = extractelement <2 x float> %4, i64 0
   %sub.i = fsub float %11, %10
-  %y2.i = getelementptr inbounds %struct.b2Vec2, ptr %9, i64 %idxprom2, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   %12 = load float, ptr %y2.i, align 4
   %13 = extractelement <2 x float> %4, i64 1
   %sub3.i = fsub float %13, %12
@@ -1266,7 +1265,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %14 = load float, ptr %arrayidx16, align 4
   %15 = extractelement <2 x float> %6, i64 0
   %sub.i39 = fsub float %15, %14
-  %y2.i41 = getelementptr inbounds %struct.b2Vec2, ptr %9, i64 %idxprom5, i32 1
+  %y2.i41 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
   %16 = load float, ptr %y2.i41, align 4
   %17 = extractelement <2 x float> %6, i64 1
   %sub3.i42 = fsub float %17, %16
@@ -1274,7 +1273,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %18 = load float, ptr %arrayidx21, align 4
   %19 = extractelement <2 x float> %8, i64 0
   %sub.i45 = fsub float %19, %18
-  %y2.i47 = getelementptr inbounds %struct.b2Vec2, ptr %9, i64 %idxprom8, i32 1
+  %y2.i47 = getelementptr inbounds i8, ptr %arrayidx21, i64 4
   %20 = load float, ptr %y2.i47, align 4
   %21 = extractelement <2 x float> %8, i64 1
   %sub3.i48 = fsub float %21, %20
@@ -1290,10 +1289,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %L1 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 8
+  %L1 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %26 = load float, ptr %L1, align 4
   %mul = fmul float %26, %26
-  %L2 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 9
+  %L2 = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %27 = load float, ptr %L2, align 4
   %mul27 = fmul float %27, %27
   br label %if.end
@@ -1343,16 +1342,16 @@ if.end33:                                         ; preds = %if.end
   br i1 %tobool46.not, label %if.else48, label %if.then47
 
 if.then47:                                        ; preds = %if.end33
-  %invEffectiveMass = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 6
+  %invEffectiveMass = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %48 = load float, ptr %invEffectiveMass, align 4
   br label %if.end55
 
 if.else48:                                        ; preds = %if.end33
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %49 = load float, ptr %invMass1, align 4
   %mul3.i96 = fmul float %44, %44
   %50 = tail call noundef float @llvm.fmuladd.f32(float %43, float %43, float %mul3.i96)
-  %invMass2 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 4
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %51 = load float, ptr %invMass2, align 4
   %52 = fmul <2 x float> %45, %45
   %mul3.i99 = extractelement <2 x float> %52, i64 1
@@ -1360,7 +1359,7 @@ if.else48:                                        ; preds = %if.end33
   %54 = tail call noundef float @llvm.fmuladd.f32(float %53, float %53, float %mul3.i99)
   %mul52 = fmul float %54, %51
   %55 = tail call float @llvm.fmuladd.f32(float %49, float %50, float %mul52)
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %56 = load float, ptr %invMass3, align 4
   %57 = fmul <2 x float> %42, %42
   %mul3.i102 = extractelement <2 x float> %57, i64 1
@@ -1375,12 +1374,12 @@ if.end55:                                         ; preds = %if.else48, %if.then
   br i1 %cmp56, label %for.inc, label %if.end58
 
 if.end58:                                         ; preds = %if.end55
-  %spring = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 12
+  %spring = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %61 = load float, ptr %spring, align 4
   %mul59 = fmul float %61, %dt
   %mul60 = fmul float %mul59, %dt
   %div61 = fdiv float 1.000000e+00, %mul60
-  %damper = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 13
+  %damper = getelementptr inbounds i8, ptr %arrayidx, i64 52
   %62 = load float, ptr %damper, align 4
   %mul63 = fmul float %mul62, %62
   %mul64 = fmul float %mul63, %div61
@@ -1397,7 +1396,7 @@ if.end58:                                         ; preds = %if.end55
   %68 = extractelement <2 x float> %42, i64 0
   %69 = tail call noundef float @llvm.fmuladd.f32(float %68, float %sub.i45, float %mul3.i111)
   %add69 = fadd float %69, %add
-  %lambda = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 7
+  %lambda = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %70 = load float, ptr %lambda, align 4
   %71 = tail call float @llvm.fmuladd.f32(float %div61, float %70, float %call36)
   %72 = tail call float @llvm.fmuladd.f32(float %div65, float %add69, float %71)
@@ -1405,13 +1404,13 @@ if.end58:                                         ; preds = %if.end55
   %73 = tail call float @llvm.fmuladd.f32(float %add72, float %sum.0, float %div61)
   %fneg = fneg float %72
   %div74 = fdiv float %fneg, %73
-  %invMass176 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 3
+  %invMass176 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %74 = load float, ptr %invMass176, align 4
   %mul77 = fmul float %74, %div74
-  %invMass280 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 4
+  %invMass280 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %75 = load float, ptr %invMass280, align 4
   %mul81 = fmul float %75, %div74
-  %invMass384 = getelementptr inbounds %struct.b2RopeBend, ptr %1, i64 %indvars.iv, i32 5
+  %invMass384 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %76 = load float, ptr %invMass384, align 4
   %mul85 = fmul float %76, %div74
   %77 = load ptr, ptr %m_ps, align 8
@@ -1460,16 +1459,16 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Rope22SolveBend_PBD_DistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %bendStiffness = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 6
+  %bendStiffness = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load float, ptr %bendStiffness, align 8
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_bendCount, align 8
   %cmp47 = icmp sgt i32 %1, 0
   br i1 %cmp47, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1478,7 +1477,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %m_bendConstraints, align 8
   %arrayidx = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 4
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i32, ptr %i3, align 4
   %6 = load ptr, ptr %m_ps, align 8
   %idxprom3 = sext i32 %4 to i64
@@ -1500,9 +1499,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %15 = fmul <2 x float> %9, %14
   %d.sroa.0.0 = select i1 %cmp.i, <2 x float> %9, <2 x float> %15
   %retval.0.i = select i1 %cmp.i, float 0.000000e+00, float %sqrt.i.i
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %16 = load float, ptr %invMass1, align 4
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %17 = load float, ptr %invMass3, align 4
   %add = fadd float %16, %17
   %cmp9 = fcmp oeq float %add, 0.000000e+00
@@ -1512,9 +1511,9 @@ if.end:                                           ; preds = %for.body
   %div = fdiv float %16, %add
   %div12 = fdiv float %17, %add
   %mul = fmul float %0, %div
-  %L1 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 8
+  %L1 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %18 = load float, ptr %L1, align 4
-  %L2 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 9
+  %L2 = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %19 = load float, ptr %L2, align 4
   %add13 = fadd float %18, %19
   %sub = fsub float %add13, %retval.0.i
@@ -1550,16 +1549,16 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Rope20SolveBend_PBD_HeightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bendCount, align 8
   %cmp104 = icmp sgt i32 %0, 0
   br i1 %cmp104, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bendStiffness = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 6
+  %bendStiffness = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load float, ptr %bendStiffness, align 8
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   %fneg = fneg float %1
   br label %for.body
 
@@ -1572,17 +1571,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load i32, ptr %arrayidx, align 4
   %idxprom2 = sext i32 %5 to i64
   %arrayidx3 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %idxprom2
-  %i2 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %6 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %idxprom5
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load i32, ptr %i3, align 4
   %idxprom8 = sext i32 %7 to i64
   %arrayidx9 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %idxprom8
-  %alpha1 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 10
+  %alpha1 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %8 = load float, ptr %alpha1, align 4
-  %alpha2 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 11
+  %alpha2 = getelementptr inbounds i8, ptr %arrayidx, i64 44
   %9 = load float, ptr %alpha2, align 4
   %10 = load <2 x float>, ptr %arrayidx3, align 4
   %11 = load <2 x float>, ptr %arrayidx6, align 4
@@ -1604,13 +1603,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp16, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %24 = load float, ptr %invMass1, align 4
   %mul = fmul float %8, %24
-  %invMass2 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 4
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %25 = load float, ptr %invMass2, align 4
   %26 = tail call float @llvm.fmuladd.f32(float %mul, float %8, float %25)
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %3, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %27 = load float, ptr %invMass3, align 4
   %mul27 = fmul float %9, %27
   %28 = tail call float @llvm.fmuladd.f32(float %mul27, float %9, float %26)
@@ -1670,16 +1669,16 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Rope22SolveBend_PBD_TriangleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %bendStiffness = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 6
+  %bendStiffness = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load float, ptr %bendStiffness, align 8
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_bendCount, align 8
   %cmp73 = icmp sgt i32 %1, 0
   br i1 %cmp73, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1690,19 +1689,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %arrayidx, align 4
   %idxprom2 = sext i32 %4 to i64
   %arrayidx3 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom2
-  %i2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %5 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom5
-  %i3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 2
+  %i3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load i32, ptr %i3, align 4
   %idxprom8 = sext i32 %6 to i64
   %arrayidx9 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom8
-  %invMass1 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 3
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %7 = load float, ptr %invMass1, align 4
-  %invMass2 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 4
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %8 = load float, ptr %invMass2, align 4
-  %invMass3 = getelementptr inbounds %struct.b2RopeBend, ptr %2, i64 %indvars.iv, i32 5
+  %invMass3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %9 = load float, ptr %invMass3, align 4
   %add = fadd float %7, %9
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %add)
@@ -1756,16 +1755,16 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Rope16SolveStretch_PBDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %stretchStiffness = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 12, i32 3
+  %stretchStiffness = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load float, ptr %stretchStiffness, align 4
-  %m_stretchCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 2
+  %m_stretchCount = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_stretchCount, align 4
   %cmp45 = icmp sgt i32 %1, 0
   br i1 %cmp45, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1778,7 +1777,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom2 = sext i32 %5 to i64
   %arrayidx3 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %idxprom2
   %6 = load <2 x float>, ptr %arrayidx3, align 4
-  %i2 = getelementptr inbounds %struct.b2RopeStretch, ptr %3, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %7 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %idxprom5
@@ -1796,9 +1795,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %15 = fmul <2 x float> %9, %14
   %d.sroa.0.0 = select i1 %cmp.i, <2 x float> %9, <2 x float> %15
   %retval.0.i = select i1 %cmp.i, float 0.000000e+00, float %sqrt.i.i
-  %invMass1 = getelementptr inbounds %struct.b2RopeStretch, ptr %3, i64 %indvars.iv, i32 2
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %16 = load float, ptr %invMass1, align 4
-  %invMass2 = getelementptr inbounds %struct.b2RopeStretch, ptr %3, i64 %indvars.iv, i32 3
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %17 = load float, ptr %invMass2, align 4
   %add = fadd float %16, %17
   %cmp8 = fcmp oeq float %add, 0.000000e+00
@@ -1808,7 +1807,7 @@ if.end:                                           ; preds = %for.body
   %div = fdiv float %16, %add
   %div11 = fdiv float %17, %add
   %mul = fmul float %0, %div
-  %L12 = getelementptr inbounds %struct.b2RopeStretch, ptr %3, i64 %indvars.iv, i32 4
+  %L12 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %18 = load float, ptr %L12, align 4
   %sub = fsub float %18, %retval.0.i
   %mul13 = fmul float %mul, %sub
@@ -1845,15 +1844,15 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Rope17SolveStretch_XPBDEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #9 align 2 {
 entry:
-  %m_stretchCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 2
+  %m_stretchCount = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %m_stretchCount, align 4
   %cmp87 = icmp sgt i32 %0, 0
   br i1 %cmp87, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %m_p0s = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
+  %m_p0s = getelementptr inbounds i8, ptr %this, i64 56
   %mul20 = fmul float %dt, %dt
   br label %for.body
 
@@ -1867,7 +1866,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom2 = sext i32 %4 to i64
   %arrayidx3 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom2
   %5 = load <2 x float>, ptr %arrayidx3, align 4
-  %i2 = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 1
+  %i2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %i2, align 4
   %idxprom5 = sext i32 %6 to i64
   %arrayidx6 = getelementptr inbounds %struct.b2Vec2, ptr %3, i64 %idxprom5
@@ -1877,7 +1876,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load float, ptr %arrayidx9, align 4
   %10 = extractelement <2 x float> %5, i64 0
   %sub.i = fsub float %10, %9
-  %y2.i = getelementptr inbounds %struct.b2Vec2, ptr %8, i64 %idxprom2, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %arrayidx9, i64 4
   %11 = load float, ptr %y2.i, align 4
   %12 = extractelement <2 x float> %5, i64 1
   %sub3.i = fsub float %12, %11
@@ -1885,7 +1884,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = load float, ptr %arrayidx13, align 4
   %14 = extractelement <2 x float> %7, i64 0
   %sub.i27 = fsub float %14, %13
-  %y2.i29 = getelementptr inbounds %struct.b2Vec2, ptr %8, i64 %idxprom5, i32 1
+  %y2.i29 = getelementptr inbounds i8, ptr %arrayidx13, i64 4
   %15 = load float, ptr %y2.i29, align 4
   %16 = extractelement <2 x float> %7, i64 1
   %sub3.i30 = fsub float %16, %15
@@ -1902,9 +1901,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %23 = fmul <2 x float> %17, %22
   %u.sroa.0.0 = select i1 %cmp.i, <2 x float> %17, <2 x float> %23
   %retval.0.i = select i1 %cmp.i, float 0.000000e+00, float %sqrt.i.i
-  %invMass1 = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 2
+  %invMass1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %24 = load float, ptr %invMass1, align 4
-  %invMass2 = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 3
+  %invMass2 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %25 = load float, ptr %invMass2, align 4
   %add = fadd float %24, %25
   %cmp18 = fcmp oeq float %add, 0.000000e+00
@@ -1915,17 +1914,17 @@ if.end:                                           ; preds = %for.body
   %fneg2.i = fneg float %26
   %27 = extractelement <2 x float> %u.sroa.0.0, i64 0
   %fneg.i = fneg float %27
-  %spring = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 6
+  %spring = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %28 = load float, ptr %spring, align 4
   %mul = fmul float %28, %dt
   %mul19 = fmul float %mul, %dt
   %div = fdiv float 1.000000e+00, %mul19
-  %damper = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 7
+  %damper = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %29 = load float, ptr %damper, align 4
   %mul21 = fmul float %mul20, %29
   %mul22 = fmul float %mul21, %div
   %div23 = fdiv float %mul22, %dt
-  %L24 = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 4
+  %L24 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %30 = load float, ptr %L24, align 4
   %sub = fsub float %retval.0.i, %30
   %mul3.i = fmul float %sub3.i, %fneg2.i
@@ -1933,7 +1932,7 @@ if.end:                                           ; preds = %for.body
   %mul3.i46 = fmul float %sub3.i30, %26
   %32 = tail call noundef float @llvm.fmuladd.f32(float %27, float %sub.i27, float %mul3.i46)
   %add27 = fadd float %31, %32
-  %lambda = getelementptr inbounds %struct.b2RopeStretch, ptr %2, i64 %indvars.iv, i32 5
+  %lambda = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %33 = load float, ptr %lambda, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %div, float %33, float %sub)
   %35 = tail call float @llvm.fmuladd.f32(float %div23, float %add27, float %34)
@@ -1979,26 +1978,26 @@ define void @_ZN6b2Rope5ResetERK6b2Vec2(ptr nocapture noundef nonnull align 8 de
 entry:
   %0 = load i64, ptr %position, align 4
   store i64 %0, ptr %this, align 8
-  %m_count = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 1
+  %m_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_count, align 8
   %cmp18 = icmp sgt i32 %1, 0
   br i1 %cmp18, label %for.body.lr.ph, label %for.cond16.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bindPositions = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 6
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %m_p0s = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 8
-  %m_vs = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 9
+  %m_bindPositions = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
+  %m_p0s = getelementptr inbounds i8, ptr %this, i64 56
+  %m_vs = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.body, %entry
-  %m_bendCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 3
+  %m_bendCount = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %m_bendCount, align 8
   %cmp1720 = icmp sgt i32 %2, 0
   br i1 %cmp1720, label %for.body18.lr.ph, label %for.cond25.preheader
 
 for.body18.lr.ph:                                 ; preds = %for.cond16.preheader
-  %m_bendConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 5
+  %m_bendConstraints = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body18
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2029,13 +2028,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.cond16.preheader, !llvm.loop !24
 
 for.cond25.preheader:                             ; preds = %for.body18, %for.cond16.preheader
-  %m_stretchCount = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 2
+  %m_stretchCount = getelementptr inbounds i8, ptr %this, i64 12
   %16 = load i32, ptr %m_stretchCount, align 4
   %cmp2622 = icmp sgt i32 %16, 0
   br i1 %cmp2622, label %for.body27.lr.ph, label %for.end33
 
 for.body27.lr.ph:                                 ; preds = %for.cond25.preheader
-  %m_stretchConstraints = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 4
+  %m_stretchConstraints = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body27
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.body18
@@ -2076,7 +2075,7 @@ entry:
   store <4 x float> <float 0x3FD99999A0000000, float 5.000000e-01, float 0x3FE6666660000000, float 1.000000e+00>, ptr %c, align 16
   store <4 x float> <float 0x3FB99999A0000000, float 0x3FE99999A0000000, float 0x3FB99999A0000000, float 1.000000e+00>, ptr %pg, align 16
   store <4 x float> <float 0x3FE6666660000000, float 0x3FC99999A0000000, float 0x3FD99999A0000000, float 1.000000e+00>, ptr %pd, align 16
-  %m_count = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 1
+  %m_count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_count, align 8
   %cmp16 = icmp sgt i32 %0, 1
   br i1 %cmp16, label %for.body.lr.ph, label %entry.for.end_crit_edge
@@ -2087,8 +2086,8 @@ entry.for.end_crit_edge:                          ; preds = %entry
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_ps = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
-  %m_invMasses = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 10
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 48
+  %m_invMasses = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2098,7 +2097,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx4 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next
   %vtable = load ptr, ptr %draw, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx4, ptr noundef nonnull align 4 dereferenceable(16) %c)
   %3 = load ptr, ptr %m_invMasses, align 8
@@ -2109,7 +2108,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %m_ps, align 8
   %arrayidx10 = getelementptr inbounds %struct.b2Vec2, ptr %5, i64 %indvars.iv
   %vtable11 = load ptr, ptr %draw, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 8
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 64
   %6 = load ptr, ptr %vfn12, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx10, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %pd.pg)
   %7 = load i32, ptr %m_count, align 8
@@ -2120,17 +2119,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry.for.end_crit_edge
   %idxprom17.pre-phi = phi i64 [ %.pre, %entry.for.end_crit_edge ], [ %8, %for.body ]
-  %m_invMasses14 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 10
+  %m_invMasses14 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load ptr, ptr %m_invMasses14, align 8
   %arrayidx18 = getelementptr inbounds float, ptr %9, i64 %idxprom17.pre-phi
   %10 = load float, ptr %arrayidx18, align 4
   %cmp19 = fcmp ogt float %10, 0.000000e+00
   %pd.pg1 = select i1 %cmp19, ptr %pd, ptr %pg
-  %m_ps24 = getelementptr inbounds %class.b2Rope, ptr %this, i64 0, i32 7
+  %m_ps24 = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load ptr, ptr %m_ps24, align 8
   %arrayidx28 = getelementptr inbounds %struct.b2Vec2, ptr %11, i64 %idxprom17.pre-phi
   %vtable29 = load ptr, ptr %draw, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 8
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 64
   %12 = load ptr, ptr %vfn30, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx28, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %pd.pg1)
   ret void

@@ -867,10 +867,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyHamtNode_Array = type { %struct._object, [32 x ptr], i64 }
-%struct.PyHamtNode_Collision = type { %struct.PyVarObject, i32, [1 x ptr] }
 %struct.PyHamtIteratorState = type { [8 x ptr], [8 x i64], i8 }
-%struct.PyHamtIterator = type { %struct._object, ptr, %struct.PyHamtIteratorState, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"items\00", align 1
 @PyHamtIterator_as_mapping = internal global %struct.PyMappingMethods { ptr @hamt_baseiter_tp_len, ptr null, ptr null }, align 8
@@ -917,7 +914,7 @@ hamt_hash.exit:                                   ; preds = %entry
   %xor4.i = xor i64 %shr.i, %call.i
   %xor.i = trunc i64 %xor4.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %xor.i, i32 -2)
-  %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 1
+  %h_root = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %h_root, align 8
   %call1 = call fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef %val, ptr noundef nonnull %added_leaf)
   %cmp2 = icmp eq ptr %call1, null
@@ -976,17 +973,17 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %call.i20, i64 0, i32 1
+  %h_root.i = getelementptr inbounds i8, ptr %call.i20, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h_root.i, i8 0, i64 24, i1 false)
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i20) #11
   store ptr %call1, ptr %h_root.i, align 8
   %7 = load i32, ptr %added_leaf, align 4
   %tobool.not = icmp ne i32 %7, 0
-  %h_count15 = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 3
+  %h_count15 = getelementptr inbounds i8, ptr %o, i64 32
   %8 = load i64, ptr %h_count15, align 8
   %add = zext i1 %tobool.not to i64
   %cond = add i64 %8, %add
-  %h_count16 = getelementptr inbounds %struct.PyHamtObject, ptr %call.i20, i64 0, i32 3
+  %h_count16 = getelementptr inbounds i8, ptr %call.i20, i64 32
   store i64 %cond, ptr %h_count16, align 8
   br label %return
 
@@ -1014,8 +1011,9 @@ if.else:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.else
   %shr.i = lshr i32 %hash, %shift
   %and.i = and i32 %shr.i, 31
+  %a_array.i = getelementptr inbounds i8, ptr %node, i64 16
   %idxprom.i = zext nneg i32 %and.i to i64
-  %arrayidx.i = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i18 = icmp eq ptr %1, null
   %add.i = add i32 %shift, 5
@@ -1043,35 +1041,35 @@ Py_DECREF.exit74.i:                               ; preds = %if.then1.i72.i, %if
   br i1 %cmp5.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %Py_DECREF.exit74.i
-  %a_count.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %node, i64 0, i32 2
+  %a_count.i = getelementptr inbounds i8, ptr %node, i64 272
   %4 = load i64, ptr %a_count.i, align 8
-  %call.i45 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
-  %cmp.i46 = icmp eq ptr %call.i45, null
-  br i1 %cmp.i46, label %if.then11.i, label %hamt_node_array_new.exit
+  %call.i46 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
+  %cmp.i47 = icmp eq ptr %call.i46, null
+  br i1 %cmp.i47, label %if.then11.i, label %hamt_node_array_new.exit
 
 hamt_node_array_new.exit:                         ; preds = %if.end7.i
   %add8.i = add i64 %4, 1
-  %scevgep.i = getelementptr i8, ptr %call.i45, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i, i8 0, i64 256, i1 false)
-  %a_count.i47 = getelementptr inbounds %struct.PyHamtNode_Array, ptr %call.i45, i64 0, i32 2
-  store i64 %add8.i, ptr %a_count.i47, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %call.i45, i64 -16
+  %a_array.i48 = getelementptr i8, ptr %call.i46, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i48, i8 0, i64 256, i1 false)
+  %a_count.i49 = getelementptr inbounds i8, ptr %call.i46, i64 272
+  store i64 %add8.i, ptr %a_count.i49, align 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %call.i46, i64 -16
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %6, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %7, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %7, i64 1096
   %8 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %_gc_prev.i.i, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = ptrtoint ptr %add.ptr.i.i.i to i64
   store i64 %11, ptr %10, align 8
-  %_gc_prev.i.i.i48 = getelementptr i8, ptr %call.i45, i64 -8
-  %12 = load i64, ptr %_gc_prev.i.i.i48, align 8
+  %_gc_prev.i.i.i50 = getelementptr i8, ptr %call.i46, i64 -8
+  %12 = load i64, ptr %_gc_prev.i.i.i50, align 8
   %and.i.i.i = and i64 %12, 3
   %or.i.i.i = or i64 %and.i.i.i, %9
-  store i64 %or.i.i.i, ptr %_gc_prev.i.i.i48, align 8
+  store i64 %or.i.i.i, ptr %_gc_prev.i.i.i50, align 8
   %13 = ptrtoint ptr %8 to i64
   store i64 %13, ptr %add.ptr.i.i.i, align 8
   store i64 %11, ptr %_gc_prev.i.i, align 8
@@ -1094,8 +1092,8 @@ if.then1.i63.i:                                   ; preds = %if.end.i60.i
   br label %return
 
 for.body.i:                                       ; preds = %hamt_node_array_new.exit, %_Py_XNewRef.exit
-  %i.0.i126 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %inc.i, %_Py_XNewRef.exit ]
-  %arrayidx15.i = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %i.0.i126
+  %i.0.i128 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %inc.i, %_Py_XNewRef.exit ]
+  %arrayidx15.i = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0.i128
   %16 = load ptr, ptr %arrayidx15.i, align 8
   %cmp.not.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -1111,14 +1109,14 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %for.body.i, %if.then.i.i, %if.end.i.i.i
-  %arrayidx18.i = getelementptr %struct.PyHamtNode_Array, ptr %call.i45, i64 0, i32 1, i64 %i.0.i126
+  %arrayidx18.i = getelementptr [32 x ptr], ptr %a_array.i48, i64 0, i64 %i.0.i128
   store ptr %16, ptr %arrayidx18.i, align 8
-  %inc.i = add nuw nsw i64 %i.0.i126, 1
+  %inc.i = add nuw nsw i64 %i.0.i128, 1
   %exitcond.not = icmp eq i64 %inc.i, 32
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %_Py_XNewRef.exit
-  %arrayidx21.i = getelementptr %struct.PyHamtNode_Array, ptr %call.i45, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx21.i = getelementptr [32 x ptr], ptr %a_array.i48, i64 0, i64 %idxprom.i
   store ptr %call4.i, ptr %arrayidx21.i, align 8
   br label %return
 
@@ -1148,25 +1146,25 @@ if.then1.i54.i:                                   ; preds = %if.end.i51.i
   br label %return
 
 if.end30.i:                                       ; preds = %if.else26.i
-  %a_count.i40 = getelementptr inbounds %struct.PyHamtNode_Array, ptr %node, i64 0, i32 2
+  %a_count.i40 = getelementptr inbounds i8, ptr %node, i64 272
   %20 = load i64, ptr %a_count.i40, align 8
   %call.i.i = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
   %cmp.i.i41 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i41, label %if.then33.i, label %hamt_node_array_new.exit.i
 
 hamt_node_array_new.exit.i:                       ; preds = %if.end30.i
-  %scevgep.i.i = getelementptr i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i.i, i8 0, i64 256, i1 false)
-  %a_count.i.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %call.i.i, i64 0, i32 2
+  %a_array.i.i = getelementptr i8, ptr %call.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i.i, i8 0, i64 256, i1 false)
+  %a_count.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 272
   store i64 %20, ptr %a_count.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -16
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %22 = load ptr, ptr %21, align 8
-  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %22, i64 0, i32 2
+  %interp.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %interp.i.i.i.i, align 8
-  %generation03.i.i.i = getelementptr inbounds %struct._is, ptr %23, i64 0, i32 13, i32 5
+  %generation03.i.i.i = getelementptr inbounds i8, ptr %23, i64 1096
   %24 = load ptr, ptr %generation03.i.i.i, align 8
-  %_gc_prev.i.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %24, i64 0, i32 1
+  %_gc_prev.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %_gc_prev.i.i.i, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = ptrtoint ptr %add.ptr.i.i.i.i to i64
@@ -1179,16 +1177,16 @@ hamt_node_array_new.exit.i:                       ; preds = %if.end30.i
   %29 = ptrtoint ptr %24 to i64
   store i64 %29, ptr %add.ptr.i.i.i.i, align 8
   store i64 %27, ptr %_gc_prev.i.i.i, align 8
-  br label %for.body.i42
+  br label %for.body.i43
 
-for.body.i42:                                     ; preds = %_Py_XNewRef.exit.i, %hamt_node_array_new.exit.i
-  %i.07.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %inc.i44, %_Py_XNewRef.exit.i ]
-  %arrayidx.i43 = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %i.07.i
-  %30 = load ptr, ptr %arrayidx.i43, align 8
+for.body.i43:                                     ; preds = %_Py_XNewRef.exit.i, %hamt_node_array_new.exit.i
+  %i.07.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %inc.i45, %_Py_XNewRef.exit.i ]
+  %arrayidx.i44 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.07.i
+  %30 = load ptr, ptr %arrayidx.i44, align 8
   %cmp.not.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i, label %_Py_XNewRef.exit.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %for.body.i42
+if.then.i.i.i:                                    ; preds = %for.body.i43
   %31 = load i32, ptr %30, align 8
   %add.i.i.i.i = add i32 %31, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
@@ -1198,12 +1196,12 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   store i32 %add.i.i.i.i, ptr %30, align 8
   br label %_Py_XNewRef.exit.i
 
-_Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %for.body.i42
-  %arrayidx4.i = getelementptr %struct.PyHamtNode_Array, ptr %call.i.i, i64 0, i32 1, i64 %i.07.i
+_Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %for.body.i43
+  %arrayidx4.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %i.07.i
   store ptr %30, ptr %arrayidx4.i, align 8
-  %inc.i44 = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i44, 32
-  br i1 %exitcond.not.i, label %do.body.i, label %for.body.i42, !llvm.loop !7
+  %inc.i45 = add nuw nsw i64 %i.07.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i45, 32
+  br i1 %exitcond.not.i, label %do.body.i, label %for.body.i43, !llvm.loop !7
 
 if.then33.i:                                      ; preds = %if.end30.i
   %32 = load i64, ptr %call23.i, align 8
@@ -1222,7 +1220,7 @@ if.then1.i45.i:                                   ; preds = %if.end.i42.i
   br label %return
 
 do.body.i:                                        ; preds = %_Py_XNewRef.exit.i
-  %arrayidx37.i = getelementptr %struct.PyHamtNode_Array, ptr %call.i.i, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx37.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %idxprom.i
   %34 = load ptr, ptr %arrayidx37.i, align 8
   store ptr %call23.i, ptr %arrayidx37.i, align 8
   %35 = load i64, ptr %34, align 8
@@ -1241,7 +1239,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %c_hash.i = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 1
+  %c_hash.i = getelementptr inbounds i8, ptr %node, i64 24
   %37 = load i32, ptr %c_hash.i, align 8
   %cmp.i19 = icmp eq i32 %37, %hash
   br i1 %cmp.i19, label %if.then.i26, label %if.else.i20
@@ -1250,80 +1248,89 @@ if.then.i26:                                      ; preds = %if.else6
   %38 = getelementptr i8, ptr %node, i64 16
   %self.val7.i = load i64, ptr %38, align 8
   %cmp8.i103 = icmp sgt i64 %self.val7.i, 0
-  br i1 %cmp8.i103, label %for.body.i105, label %sw.bb1.i
+  br i1 %cmp8.i103, label %for.body.lr.ph.i105, label %sw.bb1.i
 
-for.body.i105:                                    ; preds = %if.then.i26, %for.inc.i
-  %i.09.i = phi i64 [ %add.i108, %for.inc.i ], [ 0, %if.then.i26 ]
-  %arrayidx.i106 = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %i.09.i
-  %39 = load ptr, ptr %arrayidx.i106, align 8
+for.body.lr.ph.i105:                              ; preds = %if.then.i26
+  %c_array.i106 = getelementptr inbounds i8, ptr %node, i64 32
+  br label %for.body.i107
+
+for.body.i107:                                    ; preds = %for.inc.i, %for.body.lr.ph.i105
+  %i.09.i = phi i64 [ 0, %for.body.lr.ph.i105 ], [ %add.i110, %for.inc.i ]
+  %arrayidx.i108 = getelementptr [1 x ptr], ptr %c_array.i106, i64 0, i64 %i.09.i
+  %39 = load ptr, ptr %arrayidx.i108, align 8
   %call2.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %key, ptr noundef %39, i32 noundef 2) #11
   %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %return, label %if.end.i107
+  br i1 %cmp3.i, label %return, label %if.end.i109
 
-if.end.i107:                                      ; preds = %for.body.i105
+if.end.i109:                                      ; preds = %for.body.i107
   %cmp4.i = icmp eq i32 %call2.i, 1
   br i1 %cmp4.i, label %sw.bb19.i, label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end.i107
-  %add.i108 = add i64 %i.09.i, 2
-  %self.val.i109 = load i64, ptr %38, align 8
-  %cmp.i110 = icmp slt i64 %add.i108, %self.val.i109
-  br i1 %cmp.i110, label %for.body.i105, label %sw.bb1.i.loopexit, !llvm.loop !8
+for.inc.i:                                        ; preds = %if.end.i109
+  %add.i110 = add i64 %i.09.i, 2
+  %self.val.i111 = load i64, ptr %38, align 8
+  %cmp.i112 = icmp slt i64 %add.i110, %self.val.i111
+  br i1 %cmp.i112, label %for.body.i107, label %sw.bb1.i.loopexit, !llvm.loop !8
 
 sw.bb1.i.loopexit:                                ; preds = %for.inc.i
   %.pre = load i32, ptr %c_hash.i, align 8
   br label %sw.bb1.i
 
 sw.bb1.i:                                         ; preds = %sw.bb1.i.loopexit, %if.then.i26
-  %self.val.i = phi i64 [ %self.val.i109, %sw.bb1.i.loopexit ], [ %self.val7.i, %if.then.i26 ]
+  %self.val.i = phi i64 [ %self.val.i111, %sw.bb1.i.loopexit ], [ %self.val7.i, %if.then.i26 ]
   %40 = phi i32 [ %.pre, %sw.bb1.i.loopexit ], [ %hash, %if.then.i26 ]
   %add.i29 = add i64 %self.val.i, 2
   %call.i89 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %add.i29) #11
   %cmp.i90 = icmp eq ptr %call.i89, null
-  br i1 %cmp.i90, label %return, label %for.cond.preheader.i
+  br i1 %cmp.i90, label %return, label %for.cond.preheader.i91
 
-for.cond.preheader.i:                             ; preds = %sw.bb1.i
+for.cond.preheader.i91:                           ; preds = %sw.bb1.i
   %cmp110.i = icmp sgt i64 %add.i29, 0
-  br i1 %cmp110.i, label %for.body.preheader.i101, label %hamt_node_collision_new.exit
+  br i1 %cmp110.i, label %for.body.lr.ph.i, label %hamt_node_collision_new.exit
 
-for.body.preheader.i101:                          ; preds = %for.cond.preheader.i
-  %scevgep.i102 = getelementptr i8, ptr %call.i89, i64 32
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i91
+  %c_array.i102 = getelementptr inbounds i8, ptr %call.i89, i64 32
   %41 = shl nuw i64 %add.i29, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i102, i8 0, i64 %41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %c_array.i102, i8 0, i64 %41, i1 false)
   br label %hamt_node_collision_new.exit
 
-hamt_node_collision_new.exit:                     ; preds = %for.cond.preheader.i, %for.body.preheader.i101
-  %ob_size.i.i92 = getelementptr inbounds %struct.PyVarObject, ptr %call.i89, i64 0, i32 1
-  store i64 %add.i29, ptr %ob_size.i.i92, align 8
-  %c_hash.i93 = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %call.i89, i64 0, i32 1
-  store i32 %40, ptr %c_hash.i93, align 8
-  %add.ptr.i.i.i94 = getelementptr i8, ptr %call.i89, i64 -16
+hamt_node_collision_new.exit:                     ; preds = %for.cond.preheader.i91, %for.body.lr.ph.i
+  %ob_size.i.i93 = getelementptr inbounds i8, ptr %call.i89, i64 16
+  store i64 %add.i29, ptr %ob_size.i.i93, align 8
+  %c_hash.i94 = getelementptr inbounds i8, ptr %call.i89, i64 24
+  store i32 %40, ptr %c_hash.i94, align 8
+  %add.ptr.i.i.i95 = getelementptr i8, ptr %call.i89, i64 -16
   %42 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %43 = load ptr, ptr %42, align 8
-  %interp.i.i.i95 = getelementptr inbounds %struct._ts, ptr %43, i64 0, i32 2
-  %44 = load ptr, ptr %interp.i.i.i95, align 8
-  %generation03.i.i96 = getelementptr inbounds %struct._is, ptr %44, i64 0, i32 13, i32 5
-  %45 = load ptr, ptr %generation03.i.i96, align 8
-  %_gc_prev.i.i97 = getelementptr inbounds %struct.PyGC_Head, ptr %45, i64 0, i32 1
-  %46 = load i64, ptr %_gc_prev.i.i97, align 8
+  %interp.i.i.i96 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = load ptr, ptr %interp.i.i.i96, align 8
+  %generation03.i.i97 = getelementptr inbounds i8, ptr %44, i64 1096
+  %45 = load ptr, ptr %generation03.i.i97, align 8
+  %_gc_prev.i.i98 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = load i64, ptr %_gc_prev.i.i98, align 8
   %47 = inttoptr i64 %46 to ptr
-  %48 = ptrtoint ptr %add.ptr.i.i.i94 to i64
+  %48 = ptrtoint ptr %add.ptr.i.i.i95 to i64
   store i64 %48, ptr %47, align 8
-  %_gc_prev.i.i.i98 = getelementptr i8, ptr %call.i89, i64 -8
-  %49 = load i64, ptr %_gc_prev.i.i.i98, align 8
-  %and.i.i.i99 = and i64 %49, 3
-  %or.i.i.i100 = or i64 %and.i.i.i99, %46
-  store i64 %or.i.i.i100, ptr %_gc_prev.i.i.i98, align 8
+  %_gc_prev.i.i.i99 = getelementptr i8, ptr %call.i89, i64 -8
+  %49 = load i64, ptr %_gc_prev.i.i.i99, align 8
+  %and.i.i.i100 = and i64 %49, 3
+  %or.i.i.i101 = or i64 %and.i.i.i100, %46
+  store i64 %or.i.i.i101, ptr %_gc_prev.i.i.i99, align 8
   %50 = ptrtoint ptr %45 to i64
-  store i64 %50, ptr %add.ptr.i.i.i94, align 8
-  store i64 %48, ptr %_gc_prev.i.i97, align 8
-  %self.val49.i120 = load i64, ptr %38, align 8
-  %cmp8.i121 = icmp sgt i64 %self.val49.i120, 0
-  br i1 %cmp8.i121, label %for.body.i36, label %for.end.i34
+  store i64 %50, ptr %add.ptr.i.i.i95, align 8
+  store i64 %48, ptr %_gc_prev.i.i98, align 8
+  %self.val49.i122 = load i64, ptr %38, align 8
+  %cmp8.i123 = icmp sgt i64 %self.val49.i122, 0
+  br i1 %cmp8.i123, label %for.body.i36.lr.ph, label %for.end.i34
 
-for.body.i36:                                     ; preds = %hamt_node_collision_new.exit, %_Py_NewRef.exit88
-  %i.0.i33122 = phi i64 [ %inc.i39, %_Py_NewRef.exit88 ], [ 0, %hamt_node_collision_new.exit ]
-  %arrayidx.i37 = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %i.0.i33122
+for.body.i36.lr.ph:                               ; preds = %hamt_node_collision_new.exit
+  %c_array.i = getelementptr inbounds i8, ptr %node, i64 32
+  %c_array10.i = getelementptr inbounds i8, ptr %call.i89, i64 32
+  br label %for.body.i36
+
+for.body.i36:                                     ; preds = %for.body.i36.lr.ph, %_Py_NewRef.exit88
+  %i.0.i33124 = phi i64 [ 0, %for.body.i36.lr.ph ], [ %inc.i39, %_Py_NewRef.exit88 ]
+  %arrayidx.i37 = getelementptr [1 x ptr], ptr %c_array.i, i64 0, i64 %i.0.i33124
   %51 = load ptr, ptr %arrayidx.i37, align 8
   %52 = load i32, ptr %51, align 8
   %add.i.i85 = add i32 %52, 1
@@ -1335,9 +1342,9 @@ if.end.i.i87:                                     ; preds = %for.body.i36
   br label %_Py_NewRef.exit88
 
 _Py_NewRef.exit88:                                ; preds = %for.body.i36, %if.end.i.i87
-  %arrayidx11.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i89, i64 0, i32 2, i64 %i.0.i33122
+  %arrayidx11.i = getelementptr [1 x ptr], ptr %c_array10.i, i64 0, i64 %i.0.i33124
   store ptr %51, ptr %arrayidx11.i, align 8
-  %inc.i39 = add nuw nsw i64 %i.0.i33122, 1
+  %inc.i39 = add nuw nsw i64 %i.0.i33124, 1
   %self.val49.i = load i64, ptr %38, align 8
   %cmp8.i = icmp slt i64 %inc.i39, %self.val49.i
   br i1 %cmp8.i, label %for.body.i36, label %for.end.i34, !llvm.loop !9
@@ -1354,7 +1361,8 @@ if.end.i.i83:                                     ; preds = %for.end.i34
   br label %_Py_NewRef.exit84
 
 _Py_NewRef.exit84:                                ; preds = %for.end.i34, %if.end.i.i83
-  %arrayidx14.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i89, i64 0, i32 2, i64 %i.0.i33.lcssa
+  %c_array13.i = getelementptr inbounds i8, ptr %call.i89, i64 32
+  %arrayidx14.i = getelementptr [1 x ptr], ptr %c_array13.i, i64 0, i64 %i.0.i33.lcssa
   store ptr %key, ptr %arrayidx14.i, align 8
   %54 = load i32, ptr %val, align 8
   %add.i.i77 = add i32 %54, 1
@@ -1367,14 +1375,14 @@ if.end.i.i79:                                     ; preds = %_Py_NewRef.exit84
 
 _Py_NewRef.exit80:                                ; preds = %_Py_NewRef.exit84, %if.end.i.i79
   %add17.i = add nuw i64 %i.0.i33.lcssa, 1
-  %arrayidx18.i35 = getelementptr %struct.PyHamtNode_Collision, ptr %call.i89, i64 0, i32 2, i64 %add17.i
+  %arrayidx18.i35 = getelementptr [1 x ptr], ptr %c_array13.i, i64 0, i64 %add17.i
   store ptr %val, ptr %arrayidx18.i35, align 8
   store i32 1, ptr %added_leaf, align 4
   br label %return
 
-sw.bb19.i:                                        ; preds = %if.end.i107
+sw.bb19.i:                                        ; preds = %if.end.i109
   %add20.i = or disjoint i64 %i.09.i, 1
-  %arrayidx22.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %add20.i
+  %arrayidx22.i = getelementptr [1 x ptr], ptr %c_array.i106, i64 0, i64 %add20.i
   %55 = load ptr, ptr %arrayidx22.i, align 8
   %cmp23.i = icmp eq ptr %55, %val
   br i1 %cmp23.i, label %if.then24.i, label %if.end26.i
@@ -1392,52 +1400,56 @@ if.end.i.i75:                                     ; preds = %if.then24.i
 if.end26.i:                                       ; preds = %sw.bb19.i
   %57 = load i32, ptr %c_hash.i, align 8
   %self.val50.i = load i64, ptr %38, align 8
-  %call.i132 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %self.val50.i) #11
-  %cmp.i = icmp eq ptr %call.i132, null
-  br i1 %cmp.i, label %return, label %for.cond.preheader.i133
+  %call.i134 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %self.val50.i) #11
+  %cmp.i = icmp eq ptr %call.i134, null
+  br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
-for.cond.preheader.i133:                          ; preds = %if.end26.i
-  %cmp110.i134 = icmp sgt i64 %self.val50.i, 0
-  br i1 %cmp110.i134, label %for.body.preheader.i, label %for.cond33.i.preheader
+for.cond.preheader.i:                             ; preds = %if.end26.i
+  %cmp110.i135 = icmp sgt i64 %self.val50.i, 0
+  br i1 %cmp110.i135, label %for.body.lr.ph.i146, label %for.cond33.i.preheader
 
-for.body.preheader.i:                             ; preds = %for.cond.preheader.i133
-  %scevgep.i145 = getelementptr i8, ptr %call.i132, i64 32
+for.body.lr.ph.i146:                              ; preds = %for.cond.preheader.i
+  %c_array.i147 = getelementptr inbounds i8, ptr %call.i134, i64 32
   %58 = shl nuw i64 %self.val50.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i145, i8 0, i64 %58, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %c_array.i147, i8 0, i64 %58, i1 false)
   br label %for.cond33.i.preheader
 
-for.cond33.i.preheader:                           ; preds = %for.body.preheader.i, %for.cond.preheader.i133
-  %ob_size.i.i136 = getelementptr inbounds %struct.PyVarObject, ptr %call.i132, i64 0, i32 1
-  store i64 %self.val50.i, ptr %ob_size.i.i136, align 8
-  %c_hash.i137 = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %call.i132, i64 0, i32 1
-  store i32 %57, ptr %c_hash.i137, align 8
-  %add.ptr.i.i.i138 = getelementptr i8, ptr %call.i132, i64 -16
+for.cond33.i.preheader:                           ; preds = %for.body.lr.ph.i146, %for.cond.preheader.i
+  %ob_size.i.i137 = getelementptr inbounds i8, ptr %call.i134, i64 16
+  store i64 %self.val50.i, ptr %ob_size.i.i137, align 8
+  %c_hash.i138 = getelementptr inbounds i8, ptr %call.i134, i64 24
+  store i32 %57, ptr %c_hash.i138, align 8
+  %add.ptr.i.i.i139 = getelementptr i8, ptr %call.i134, i64 -16
   %59 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %60 = load ptr, ptr %59, align 8
-  %interp.i.i.i139 = getelementptr inbounds %struct._ts, ptr %60, i64 0, i32 2
-  %61 = load ptr, ptr %interp.i.i.i139, align 8
-  %generation03.i.i140 = getelementptr inbounds %struct._is, ptr %61, i64 0, i32 13, i32 5
-  %62 = load ptr, ptr %generation03.i.i140, align 8
-  %_gc_prev.i.i141 = getelementptr inbounds %struct.PyGC_Head, ptr %62, i64 0, i32 1
-  %63 = load i64, ptr %_gc_prev.i.i141, align 8
+  %interp.i.i.i140 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = load ptr, ptr %interp.i.i.i140, align 8
+  %generation03.i.i141 = getelementptr inbounds i8, ptr %61, i64 1096
+  %62 = load ptr, ptr %generation03.i.i141, align 8
+  %_gc_prev.i.i142 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = load i64, ptr %_gc_prev.i.i142, align 8
   %64 = inttoptr i64 %63 to ptr
-  %65 = ptrtoint ptr %add.ptr.i.i.i138 to i64
+  %65 = ptrtoint ptr %add.ptr.i.i.i139 to i64
   store i64 %65, ptr %64, align 8
-  %_gc_prev.i.i.i142 = getelementptr i8, ptr %call.i132, i64 -8
-  %66 = load i64, ptr %_gc_prev.i.i.i142, align 8
-  %and.i.i.i143 = and i64 %66, 3
-  %or.i.i.i144 = or i64 %and.i.i.i143, %63
-  store i64 %or.i.i.i144, ptr %_gc_prev.i.i.i142, align 8
+  %_gc_prev.i.i.i143 = getelementptr i8, ptr %call.i134, i64 -8
+  %66 = load i64, ptr %_gc_prev.i.i.i143, align 8
+  %and.i.i.i144 = and i64 %66, 3
+  %or.i.i.i145 = or i64 %and.i.i.i144, %63
+  store i64 %or.i.i.i145, ptr %_gc_prev.i.i.i143, align 8
   %67 = ptrtoint ptr %62 to i64
-  store i64 %67, ptr %add.ptr.i.i.i138, align 8
-  store i64 %65, ptr %_gc_prev.i.i141, align 8
-  %self.val51.i123 = load i64, ptr %38, align 8
-  %cmp35.i124 = icmp sgt i64 %self.val51.i123, 0
-  br i1 %cmp35.i124, label %for.body36.i, label %do.body.i28
+  store i64 %67, ptr %add.ptr.i.i.i139, align 8
+  store i64 %65, ptr %_gc_prev.i.i142, align 8
+  %self.val51.i125 = load i64, ptr %38, align 8
+  %cmp35.i126 = icmp sgt i64 %self.val51.i125, 0
+  br i1 %cmp35.i126, label %for.body36.i.lr.ph, label %do.body.i28
 
-for.body36.i:                                     ; preds = %for.cond33.i.preheader, %_Py_NewRef.exit72
-  %i.1.i125 = phi i64 [ %inc43.i, %_Py_NewRef.exit72 ], [ 0, %for.cond33.i.preheader ]
-  %arrayidx38.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %i.1.i125
+for.body36.i.lr.ph:                               ; preds = %for.cond33.i.preheader
+  %c_array40.i = getelementptr inbounds i8, ptr %call.i134, i64 32
+  br label %for.body36.i
+
+for.body36.i:                                     ; preds = %for.body36.i.lr.ph, %_Py_NewRef.exit72
+  %i.1.i127 = phi i64 [ 0, %for.body36.i.lr.ph ], [ %inc43.i, %_Py_NewRef.exit72 ]
+  %arrayidx38.i = getelementptr [1 x ptr], ptr %c_array.i106, i64 0, i64 %i.1.i127
   %68 = load ptr, ptr %arrayidx38.i, align 8
   %69 = load i32, ptr %68, align 8
   %add.i.i69 = add i32 %69, 1
@@ -1449,15 +1461,16 @@ if.end.i.i71:                                     ; preds = %for.body36.i
   br label %_Py_NewRef.exit72
 
 _Py_NewRef.exit72:                                ; preds = %for.body36.i, %if.end.i.i71
-  %arrayidx41.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i132, i64 0, i32 2, i64 %i.1.i125
+  %arrayidx41.i = getelementptr [1 x ptr], ptr %c_array40.i, i64 0, i64 %i.1.i127
   store ptr %68, ptr %arrayidx41.i, align 8
-  %inc43.i = add nuw nsw i64 %i.1.i125, 1
+  %inc43.i = add nuw nsw i64 %i.1.i127, 1
   %self.val51.i = load i64, ptr %38, align 8
   %cmp35.i = icmp slt i64 %inc43.i, %self.val51.i
   br i1 %cmp35.i, label %for.body36.i, label %do.body.i28, !llvm.loop !10
 
 do.body.i28:                                      ; preds = %_Py_NewRef.exit72, %for.cond33.i.preheader
-  %arrayidx46.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i132, i64 0, i32 2, i64 %add20.i
+  %c_array45.i = getelementptr inbounds i8, ptr %call.i134, i64 32
+  %arrayidx46.i = getelementptr [1 x ptr], ptr %c_array45.i, i64 0, i64 %add20.i
   %70 = load ptr, ptr %arrayidx46.i, align 8
   %71 = load i32, ptr %val, align 8
   %add.i.i65 = add i32 %71, 1
@@ -1491,20 +1504,20 @@ if.else.i20:                                      ; preds = %if.else6
   br i1 %cmp1.i, label %return, label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.else.i20
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 2, ptr %ob_size.i.i, align 8
-  %scevgep.i54 = getelementptr i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep.i54, i8 0, i64 16, i1 false)
-  %b_bitmap.i56 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i, i64 0, i32 1
+  %b_array.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b_array.i, i8 0, i64 16, i1 false)
+  %b_bitmap.i56 = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %b_bitmap.i56, align 8
   %add.ptr.i.i.i57 = getelementptr i8, ptr %call.i, i64 -16
   %74 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %75 = load ptr, ptr %74, align 8
-  %interp.i.i.i58 = getelementptr inbounds %struct._ts, ptr %75, i64 0, i32 2
+  %interp.i.i.i58 = getelementptr inbounds i8, ptr %75, i64 16
   %76 = load ptr, ptr %interp.i.i.i58, align 8
-  %generation03.i.i59 = getelementptr inbounds %struct._is, ptr %76, i64 0, i32 13, i32 5
+  %generation03.i.i59 = getelementptr inbounds i8, ptr %76, i64 1096
   %77 = load ptr, ptr %generation03.i.i59, align 8
-  %_gc_prev.i.i60 = getelementptr inbounds %struct.PyGC_Head, ptr %77, i64 0, i32 1
+  %_gc_prev.i.i60 = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load i64, ptr %_gc_prev.i.i60, align 8
   %79 = inttoptr i64 %78 to ptr
   %80 = ptrtoint ptr %add.ptr.i.i.i57 to i64
@@ -1524,15 +1537,15 @@ if.end52.i:                                       ; preds = %if.else.i20
   store i32 %shl.i, ptr %b_bitmap.i56, align 8
   %84 = load i32, ptr %node, align 8
   %add.i.i = add i32 %84, 1
-  %cmp.i.i50 = icmp eq i32 %add.i.i, 0
-  br i1 %cmp.i.i50, label %_Py_NewRef.exit, label %if.end.i.i51
+  %cmp.i.i52 = icmp eq i32 %add.i.i, 0
+  br i1 %cmp.i.i52, label %_Py_NewRef.exit, label %if.end.i.i53
 
-if.end.i.i51:                                     ; preds = %if.end52.i
+if.end.i.i53:                                     ; preds = %if.end52.i
   store i32 %add.i.i, ptr %node, align 8
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %if.end52.i, %if.end.i.i51
-  %arrayidx56.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i, i64 1
+_Py_NewRef.exit:                                  ; preds = %if.end52.i, %if.end.i.i53
+  %arrayidx56.i = getelementptr i8, ptr %call.i, i64 40
   store ptr %node, ptr %arrayidx56.i, align 8
   %call57.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull %call.i, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
   %85 = load i64, ptr %call.i, align 8
@@ -1550,8 +1563,8 @@ if.then1.i.i25:                                   ; preds = %if.end.i.i22
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #11
   br label %return
 
-return:                                           ; preds = %for.body.i105, %if.end26.i, %if.else.i20, %sw.bb1.i, %if.then1.i.i25, %if.end.i.i22, %_Py_NewRef.exit, %if.then1.i64.i, %if.end.i61.i, %_Py_NewRef.exit68, %_Py_NewRef.exit80, %if.then24.i, %if.end.i.i75, %if.then1.i.i, %if.end.i.i, %do.body.i, %if.then1.i45.i, %if.end.i42.i, %if.then33.i, %if.then1.i54.i, %if.end.i51.i, %if.then28.i, %if.else.i, %for.end.i, %if.then1.i63.i, %if.end.i60.i, %if.then11.i, %Py_DECREF.exit74.i, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ null, %Py_DECREF.exit74.i ], [ null, %if.then11.i ], [ null, %if.then1.i63.i ], [ null, %if.end.i60.i ], [ null, %if.else.i ], [ %node, %if.then28.i ], [ %node, %if.then1.i54.i ], [ %node, %if.end.i51.i ], [ null, %if.then33.i ], [ null, %if.then1.i45.i ], [ null, %if.end.i42.i ], [ %call.i45, %for.end.i ], [ %call.i.i, %do.body.i ], [ %call.i.i, %if.then1.i.i ], [ %call.i.i, %if.end.i.i ], [ %call.i89, %_Py_NewRef.exit80 ], [ %call.i132, %if.end.i61.i ], [ %call.i132, %if.then1.i64.i ], [ %call.i132, %_Py_NewRef.exit68 ], [ %call57.i, %_Py_NewRef.exit ], [ %call57.i, %if.then1.i.i25 ], [ %call57.i, %if.end.i.i22 ], [ %node, %if.then24.i ], [ %node, %if.end.i.i75 ], [ null, %sw.bb1.i ], [ null, %if.else.i20 ], [ null, %if.end26.i ], [ null, %for.body.i105 ]
+return:                                           ; preds = %for.body.i107, %if.end26.i, %if.else.i20, %sw.bb1.i, %if.then1.i.i25, %if.end.i.i22, %_Py_NewRef.exit, %if.then1.i64.i, %if.end.i61.i, %_Py_NewRef.exit68, %_Py_NewRef.exit80, %if.then24.i, %if.end.i.i75, %if.then1.i.i, %if.end.i.i, %do.body.i, %if.then1.i45.i, %if.end.i42.i, %if.then33.i, %if.then1.i54.i, %if.end.i51.i, %if.then28.i, %if.else.i, %for.end.i, %if.then1.i63.i, %if.end.i60.i, %if.then11.i, %Py_DECREF.exit74.i, %if.then
+  %retval.0 = phi ptr [ %call1, %if.then ], [ null, %Py_DECREF.exit74.i ], [ null, %if.then11.i ], [ null, %if.then1.i63.i ], [ null, %if.end.i60.i ], [ null, %if.else.i ], [ %node, %if.then28.i ], [ %node, %if.then1.i54.i ], [ %node, %if.end.i51.i ], [ null, %if.then33.i ], [ null, %if.then1.i45.i ], [ null, %if.end.i42.i ], [ %call.i46, %for.end.i ], [ %call.i.i, %do.body.i ], [ %call.i.i, %if.then1.i.i ], [ %call.i.i, %if.end.i.i ], [ %call.i89, %_Py_NewRef.exit80 ], [ %call.i134, %if.end.i61.i ], [ %call.i134, %if.then1.i64.i ], [ %call.i134, %_Py_NewRef.exit68 ], [ %call57.i, %_Py_NewRef.exit ], [ %call57.i, %if.then1.i.i25 ], [ %call57.i, %if.end.i.i22 ], [ %node, %if.then24.i ], [ %node, %if.end.i.i75 ], [ null, %sw.bb1.i ], [ null, %if.else.i20 ], [ null, %if.end26.i ], [ null, %for.body.i107 ]
   ret ptr %retval.0
 }
 
@@ -1569,7 +1582,7 @@ hamt_hash.exit:                                   ; preds = %entry
   %xor.i = trunc i64 %xor4.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %xor.i, i32 -2)
   store ptr null, ptr %new_root, align 8
-  %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 1
+  %h_root = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %h_root, align 8
   %call1 = call fastcc i32 @hamt_node_without(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef nonnull %new_root)
   switch i32 %call1, label %sw.default [
@@ -1582,9 +1595,9 @@ hamt_hash.exit:                                   ; preds = %entry
 sw.bb2:                                           ; preds = %hamt_hash.exit
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i, align 8
-  %hamt_empty.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 72, i32 0, i32 2
+  %hamt_empty.i = getelementptr inbounds i8, ptr %3, i64 416320
   %4 = load i32, ptr %hamt_empty.i, align 8
   %add.i.i.i = add i32 %4, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -1627,15 +1640,15 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end10:                                         ; preds = %sw.bb6
-  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %call.i12, i64 0, i32 1
+  %h_root.i = getelementptr inbounds i8, ptr %call.i12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h_root.i, i8 0, i64 24, i1 false)
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i12) #11
   %9 = load ptr, ptr %new_root, align 8
   store ptr %9, ptr %h_root.i, align 8
-  %h_count = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 3
+  %h_count = getelementptr inbounds i8, ptr %o, i64 32
   %10 = load i64, ptr %h_count, align 8
   %sub = add i64 %10, -1
-  %h_count12 = getelementptr inbounds %struct.PyHamtObject, ptr %call.i12, i64 0, i32 3
+  %h_count12 = getelementptr inbounds i8, ptr %call.i12, i64 32
   store i64 %sub, ptr %h_count12, align 8
   br label %return
 
@@ -1660,29 +1673,30 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sub_node.i)
   %shr.i.i = lshr i32 %hash, %shift
-  %and.i.i119 = and i32 %shr.i.i, 31
-  %shl.i120 = shl nuw i32 1, %and.i.i119
-  %b_bitmap.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 1
+  %and.i.i125 = and i32 %shr.i.i, 31
+  %shl.i126 = shl nuw i32 1, %and.i.i125
+  %b_bitmap.i = getelementptr inbounds i8, ptr %node, i64 24
   %1 = load i32, ptr %b_bitmap.i, align 8
-  %and.i = and i32 %1, %shl.i120
+  %and.i = and i32 %1, %shl.i126
   %cmp.i14 = icmp eq i32 %and.i, 0
   br i1 %cmp.i14, label %hamt_node_bitmap_without.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %sub.i117 = add i32 %shl.i120, -1
-  %and.i118 = and i32 %1, %sub.i117
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %and.i118), !range !11
+  %sub.i123 = add i32 %shl.i126, -1
+  %and.i124 = and i32 %1, %sub.i123
+  %2 = tail call i32 @llvm.ctpop.i32(i32 %and.i124), !range !11
   %mul.i = shl nuw nsw i32 %2, 1
   %add.i = or disjoint i32 %mul.i, 1
+  %b_array.i = getelementptr inbounds i8, ptr %node, i64 32
   %idxprom.i = zext nneg i32 %mul.i to i64
-  %arrayidx.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %idxprom4.i = zext nneg i32 %add.i to i64
   %cmp6.i = icmp eq ptr %3, null
   br i1 %cmp6.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %arrayidx5.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 2, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %idxprom4.i
   %4 = load ptr, ptr %arrayidx5.i, align 8
   store ptr null, ptr %sub_node.i, align 8
   %add8.i = add i32 %shift, 5
@@ -1694,8 +1708,8 @@ sw.bb10.i:                                        ; preds = %if.then7.i
   %5 = load ptr, ptr %sub_node.i, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val.i = load ptr, ptr %6, align 8
-  %cmp.i115.not = icmp eq ptr %.val.i, @_PyHamt_BitmapNode_Type
-  br i1 %cmp.i115.not, label %if.then12.i, label %if.end41.i
+  %cmp.i121.not = icmp eq ptr %.val.i, @_PyHamt_BitmapNode_Type
+  br i1 %cmp.i121.not, label %if.then12.i, label %if.end41.i
 
 if.then12.i:                                      ; preds = %sw.bb10.i
   %7 = getelementptr i8, ptr %5, i64 16
@@ -1705,7 +1719,7 @@ if.then12.i:                                      ; preds = %sw.bb10.i
   br i1 %cmp14.i, label %land.lhs.true.i, label %if.end41.i
 
 land.lhs.true.i:                                  ; preds = %if.then12.i
-  %b_array15.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %5, i64 0, i32 2
+  %b_array15.i = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load ptr, ptr %b_array15.i, align 8
   %cmp17.not.i = icmp eq ptr %9, null
   br i1 %cmp17.not.i, label %if.end41.i, label %if.then18.i
@@ -1733,34 +1747,35 @@ if.then1.i95.i:                                   ; preds = %if.end.i92.i
 
 if.end22.i:                                       ; preds = %if.then18.i
   %12 = load ptr, ptr %b_array15.i, align 8
-  %arrayidx27.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %5, i64 1
+  %arrayidx27.i = getelementptr i8, ptr %5, i64 40
   %13 = load ptr, ptr %arrayidx27.i, align 8
-  %arrayidx30.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call19.i, i64 0, i32 2, i64 %idxprom.i
+  %b_array28.i = getelementptr inbounds i8, ptr %call19.i, i64 32
+  %arrayidx30.i = getelementptr [1 x ptr], ptr %b_array28.i, i64 0, i64 %idxprom.i
   %14 = load ptr, ptr %arrayidx30.i, align 8
   %15 = load i32, ptr %12, align 8
-  %add.i.i110 = add i32 %15, 1
-  %cmp.i.i111 = icmp eq i32 %add.i.i110, 0
-  br i1 %cmp.i.i111, label %_Py_NewRef.exit113, label %if.end.i.i112
+  %add.i.i116 = add i32 %15, 1
+  %cmp.i.i117 = icmp eq i32 %add.i.i116, 0
+  br i1 %cmp.i.i117, label %_Py_NewRef.exit119, label %if.end.i.i118
 
-if.end.i.i112:                                    ; preds = %if.end22.i
-  store i32 %add.i.i110, ptr %12, align 8
-  br label %_Py_NewRef.exit113
+if.end.i.i118:                                    ; preds = %if.end22.i
+  store i32 %add.i.i116, ptr %12, align 8
+  br label %_Py_NewRef.exit119
 
-_Py_NewRef.exit113:                               ; preds = %if.end22.i, %if.end.i.i112
+_Py_NewRef.exit119:                               ; preds = %if.end22.i, %if.end.i.i118
   store ptr %12, ptr %arrayidx30.i, align 8
   tail call fastcc void @Py_XDECREF(ptr noundef %14)
-  %arrayidx36.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call19.i, i64 0, i32 2, i64 %idxprom4.i
+  %arrayidx36.i = getelementptr [1 x ptr], ptr %b_array28.i, i64 0, i64 %idxprom4.i
   %16 = load ptr, ptr %arrayidx36.i, align 8
   %17 = load i32, ptr %13, align 8
-  %add.i.i107 = add i32 %17, 1
-  %cmp.i.i108 = icmp eq i32 %add.i.i107, 0
-  br i1 %cmp.i.i108, label %_Py_NewRef.exit, label %if.end.i.i109
+  %add.i.i113 = add i32 %17, 1
+  %cmp.i.i114 = icmp eq i32 %add.i.i113, 0
+  br i1 %cmp.i.i114, label %_Py_NewRef.exit, label %if.end.i.i115
 
-if.end.i.i109:                                    ; preds = %_Py_NewRef.exit113
-  store i32 %add.i.i107, ptr %13, align 8
+if.end.i.i115:                                    ; preds = %_Py_NewRef.exit119
+  store i32 %add.i.i113, ptr %13, align 8
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit113, %if.end.i.i109
+_Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit119, %if.end.i.i115
   store ptr %13, ptr %arrayidx36.i, align 8
   %18 = load i64, ptr %16, align 8
   %19 = and i64 %18, 2147483648
@@ -1800,84 +1815,89 @@ Py_DECREF.exit79.i:                               ; preds = %if.then1.i77.i, %if
 if.end41.i:                                       ; preds = %land.lhs.true.i, %if.then12.i, %sw.bb10.i
   %22 = getelementptr i8, ptr %node, i64 16
   %node.val.i = load i64, ptr %22, align 8
-  %cmp.i.i78 = icmp eq i64 %node.val.i, 0
-  br i1 %cmp.i.i78, label %do.body47.i, label %if.end.i.i79
+  %cmp.i.i81 = icmp eq i64 %node.val.i, 0
+  br i1 %cmp.i.i81, label %do.body47.i, label %if.end.i.i82
 
-if.end.i.i79:                                     ; preds = %if.end41.i
-  %call.i.i80 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %node.val.i) #11
-  %cmp1.i.i81 = icmp eq ptr %call.i.i80, null
-  br i1 %cmp1.i.i81, label %hamt_node_bitmap_without.exit, label %if.end3.i.i82
+if.end.i.i82:                                     ; preds = %if.end41.i
+  %call.i.i83 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %node.val.i) #11
+  %cmp1.i.i84 = icmp eq ptr %call.i.i83, null
+  br i1 %cmp1.i.i84, label %hamt_node_bitmap_without.exit, label %if.end3.i.i85
 
-if.end3.i.i82:                                    ; preds = %if.end.i.i79
-  %ob_size.i.i.i83 = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i80, i64 0, i32 1
-  store i64 %node.val.i, ptr %ob_size.i.i.i83, align 8
-  %cmp411.i.i84 = icmp sgt i64 %node.val.i, 0
-  br i1 %cmp411.i.i84, label %for.body.preheader.i.i105, label %hamt_node_bitmap_new.exit.i
+if.end3.i.i85:                                    ; preds = %if.end.i.i82
+  %ob_size.i.i.i86 = getelementptr inbounds i8, ptr %call.i.i83, i64 16
+  store i64 %node.val.i, ptr %ob_size.i.i.i86, align 8
+  %cmp411.i.i87 = icmp sgt i64 %node.val.i, 0
+  br i1 %cmp411.i.i87, label %for.body.lr.ph.i.i111, label %hamt_node_bitmap_new.exit.i
 
-for.body.preheader.i.i105:                        ; preds = %if.end3.i.i82
-  %scevgep.i.i106 = getelementptr i8, ptr %call.i.i80, i64 32
+for.body.lr.ph.i.i111:                            ; preds = %if.end3.i.i85
+  %b_array.i.i112 = getelementptr inbounds i8, ptr %call.i.i83, i64 32
   %23 = shl nuw i64 %node.val.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i106, i8 0, i64 %23, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i112, i8 0, i64 %23, i1 false)
   br label %hamt_node_bitmap_new.exit.i
 
-hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.preheader.i.i105, %if.end3.i.i82
-  %b_bitmap.i.i85 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i.i80, i64 0, i32 1
-  store i32 0, ptr %b_bitmap.i.i85, align 8
-  %add.ptr.i.i.i.i86 = getelementptr i8, ptr %call.i.i80, i64 -16
+hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.lr.ph.i.i111, %if.end3.i.i85
+  %b_bitmap.i.i88 = getelementptr inbounds i8, ptr %call.i.i83, i64 24
+  store i32 0, ptr %b_bitmap.i.i88, align 8
+  %add.ptr.i.i.i.i89 = getelementptr i8, ptr %call.i.i83, i64 -16
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %25 = load ptr, ptr %24, align 8
-  %interp.i.i.i.i87 = getelementptr inbounds %struct._ts, ptr %25, i64 0, i32 2
-  %26 = load ptr, ptr %interp.i.i.i.i87, align 8
-  %generation03.i.i.i88 = getelementptr inbounds %struct._is, ptr %26, i64 0, i32 13, i32 5
-  %27 = load ptr, ptr %generation03.i.i.i88, align 8
-  %_gc_prev.i.i.i89 = getelementptr inbounds %struct.PyGC_Head, ptr %27, i64 0, i32 1
-  %28 = load i64, ptr %_gc_prev.i.i.i89, align 8
+  %interp.i.i.i.i90 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = load ptr, ptr %interp.i.i.i.i90, align 8
+  %generation03.i.i.i91 = getelementptr inbounds i8, ptr %26, i64 1096
+  %27 = load ptr, ptr %generation03.i.i.i91, align 8
+  %_gc_prev.i.i.i92 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = load i64, ptr %_gc_prev.i.i.i92, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = ptrtoint ptr %add.ptr.i.i.i.i86 to i64
+  %30 = ptrtoint ptr %add.ptr.i.i.i.i89 to i64
   store i64 %30, ptr %29, align 8
-  %_gc_prev.i.i.i.i90 = getelementptr i8, ptr %call.i.i80, i64 -8
-  %31 = load i64, ptr %_gc_prev.i.i.i.i90, align 8
-  %and.i.i.i.i91 = and i64 %31, 3
-  %or.i.i.i.i92 = or i64 %and.i.i.i.i91, %28
-  store i64 %or.i.i.i.i92, ptr %_gc_prev.i.i.i.i90, align 8
+  %_gc_prev.i.i.i.i93 = getelementptr i8, ptr %call.i.i83, i64 -8
+  %31 = load i64, ptr %_gc_prev.i.i.i.i93, align 8
+  %and.i.i.i.i94 = and i64 %31, 3
+  %or.i.i.i.i95 = or i64 %and.i.i.i.i94, %28
+  store i64 %or.i.i.i.i95, ptr %_gc_prev.i.i.i.i93, align 8
   %32 = ptrtoint ptr %27 to i64
-  store i64 %32, ptr %add.ptr.i.i.i.i86, align 8
-  store i64 %30, ptr %_gc_prev.i.i.i89, align 8
+  store i64 %32, ptr %add.ptr.i.i.i.i89, align 8
+  store i64 %30, ptr %_gc_prev.i.i.i92, align 8
   %node.val1013.pre.i = load i64, ptr %22, align 8
   %33 = icmp sgt i64 %node.val1013.pre.i, 0
-  br i1 %33, label %for.body.i96, label %do.body47.i
+  br i1 %33, label %for.body.lr.ph.i99, label %do.body47.i
 
-for.body.i96:                                     ; preds = %hamt_node_bitmap_new.exit.i, %_Py_XNewRef.exit.i103
-  %i.015.i = phi i64 [ %inc.i104, %_Py_XNewRef.exit.i103 ], [ 0, %hamt_node_bitmap_new.exit.i ]
-  %arrayidx.i97 = getelementptr %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 2, i64 %i.015.i
-  %34 = load ptr, ptr %arrayidx.i97, align 8
-  %cmp.not.i.i.i98 = icmp eq ptr %34, null
-  br i1 %cmp.not.i.i.i98, label %_Py_XNewRef.exit.i103, label %if.then.i.i.i99
+for.body.lr.ph.i99:                               ; preds = %hamt_node_bitmap_new.exit.i
+  %b_array5.i101 = getelementptr inbounds i8, ptr %call.i.i83, i64 32
+  br label %for.body.i102
 
-if.then.i.i.i99:                                  ; preds = %for.body.i96
+for.body.i102:                                    ; preds = %_Py_XNewRef.exit.i109, %for.body.lr.ph.i99
+  %i.015.i = phi i64 [ 0, %for.body.lr.ph.i99 ], [ %inc.i110, %_Py_XNewRef.exit.i109 ]
+  %arrayidx.i103 = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %i.015.i
+  %34 = load ptr, ptr %arrayidx.i103, align 8
+  %cmp.not.i.i.i104 = icmp eq ptr %34, null
+  br i1 %cmp.not.i.i.i104, label %_Py_XNewRef.exit.i109, label %if.then.i.i.i105
+
+if.then.i.i.i105:                                 ; preds = %for.body.i102
   %35 = load i32, ptr %34, align 8
-  %add.i.i.i.i100 = add i32 %35, 1
-  %cmp.i.i.i.i101 = icmp eq i32 %add.i.i.i.i100, 0
-  br i1 %cmp.i.i.i.i101, label %_Py_XNewRef.exit.i103, label %if.end.i.i.i.i102
+  %add.i.i.i.i106 = add i32 %35, 1
+  %cmp.i.i.i.i107 = icmp eq i32 %add.i.i.i.i106, 0
+  br i1 %cmp.i.i.i.i107, label %_Py_XNewRef.exit.i109, label %if.end.i.i.i.i108
 
-if.end.i.i.i.i102:                                ; preds = %if.then.i.i.i99
-  store i32 %add.i.i.i.i100, ptr %34, align 8
-  br label %_Py_XNewRef.exit.i103
+if.end.i.i.i.i108:                                ; preds = %if.then.i.i.i105
+  store i32 %add.i.i.i.i106, ptr %34, align 8
+  br label %_Py_XNewRef.exit.i109
 
-_Py_XNewRef.exit.i103:                            ; preds = %if.end.i.i.i.i102, %if.then.i.i.i99, %for.body.i96
-  %arrayidx6.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i.i80, i64 0, i32 2, i64 %i.015.i
+_Py_XNewRef.exit.i109:                            ; preds = %if.end.i.i.i.i108, %if.then.i.i.i105, %for.body.i102
+  %arrayidx6.i = getelementptr [1 x ptr], ptr %b_array5.i101, i64 0, i64 %i.015.i
   store ptr %34, ptr %arrayidx6.i, align 8
-  %inc.i104 = add nuw nsw i64 %i.015.i, 1
+  %inc.i110 = add nuw nsw i64 %i.015.i, 1
   %node.val10.i = load i64, ptr %22, align 8
-  %cmp3.i = icmp slt i64 %inc.i104, %node.val10.i
-  br i1 %cmp3.i, label %for.body.i96, label %do.body47.i, !llvm.loop !12
+  %cmp3.i = icmp slt i64 %inc.i110, %node.val10.i
+  br i1 %cmp3.i, label %for.body.i102, label %do.body47.i, !llvm.loop !12
 
-do.body47.i:                                      ; preds = %_Py_XNewRef.exit.i103, %hamt_node_bitmap_new.exit.i, %if.end41.i
-  %retval.0.i19.i = phi ptr [ %call.i.i80, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end41.i ], [ %call.i.i80, %_Py_XNewRef.exit.i103 ]
+do.body47.i:                                      ; preds = %_Py_XNewRef.exit.i109, %hamt_node_bitmap_new.exit.i, %if.end41.i
+  %retval.0.i19.i = phi ptr [ %call.i.i83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end41.i ], [ %call.i.i83, %_Py_XNewRef.exit.i109 ]
   %36 = load i32, ptr %b_bitmap.i, align 8
-  %b_bitmap7.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i, i64 0, i32 1
+  %b_bitmap7.i = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 24
   store i32 %36, ptr %b_bitmap7.i, align 8
-  %arrayidx51.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i, i64 0, i32 2, i64 %idxprom4.i
+  %b_array49.i = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 32
+  %arrayidx51.i = getelementptr [1 x ptr], ptr %b_array49.i, i64 0, i64 %idxprom4.i
   %37 = load ptr, ptr %arrayidx51.i, align 8
   store ptr %5, ptr %arrayidx51.i, align 8
   %38 = load i64, ptr %37, align 8
@@ -1916,74 +1936,75 @@ if.end62.i:                                       ; preds = %if.end59.i
   br i1 %cmp64.i, label %hamt_node_bitmap_without.exit, label %if.end66.i
 
 if.end66.i:                                       ; preds = %if.end62.i
-  %sub.i52 = add i64 %self.val.i, -2
-  %cmp.i.i53 = icmp eq i64 %sub.i52, 0
-  br i1 %cmp.i.i53, label %if.end.i66, label %if.end.i.i54
+  %sub.i53 = add i64 %self.val.i, -2
+  %cmp.i.i54 = icmp eq i64 %sub.i53, 0
+  br i1 %cmp.i.i54, label %if.end.i67, label %if.end.i.i55
 
-if.end.i.i54:                                     ; preds = %if.end66.i
-  %call.i.i55 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %sub.i52) #11
-  %cmp1.i.i56 = icmp eq ptr %call.i.i55, null
-  br i1 %cmp1.i.i56, label %hamt_node_bitmap_clone_without.exit, label %if.end3.i.i
+if.end.i.i55:                                     ; preds = %if.end66.i
+  %call.i.i56 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %sub.i53) #11
+  %cmp1.i.i57 = icmp eq ptr %call.i.i56, null
+  br i1 %cmp1.i.i57, label %hamt_node_bitmap_clone_without.exit, label %if.end3.i.i
 
-if.end3.i.i:                                      ; preds = %if.end.i.i54
-  %ob_size.i.i.i57 = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i55, i64 0, i32 1
-  store i64 %sub.i52, ptr %ob_size.i.i.i57, align 8
-  %cmp411.i.i = icmp sgt i64 %sub.i52, 0
-  br i1 %cmp411.i.i, label %for.body.preheader.i.i76, label %for.end.i.i
+if.end3.i.i:                                      ; preds = %if.end.i.i55
+  %ob_size.i.i.i58 = getelementptr inbounds i8, ptr %call.i.i56, i64 16
+  store i64 %sub.i53, ptr %ob_size.i.i.i58, align 8
+  %cmp411.i.i = icmp sgt i64 %sub.i53, 0
+  br i1 %cmp411.i.i, label %for.body.lr.ph.i.i79, label %for.end.i.i
 
-for.body.preheader.i.i76:                         ; preds = %if.end3.i.i
-  %scevgep.i.i77 = getelementptr i8, ptr %call.i.i55, i64 32
-  %42 = shl nuw i64 %sub.i52, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i77, i8 0, i64 %42, i1 false)
+for.body.lr.ph.i.i79:                             ; preds = %if.end3.i.i
+  %b_array.i.i80 = getelementptr inbounds i8, ptr %call.i.i56, i64 32
+  %42 = shl nuw i64 %sub.i53, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i80, i8 0, i64 %42, i1 false)
   br label %for.end.i.i
 
-for.end.i.i:                                      ; preds = %for.body.preheader.i.i76, %if.end3.i.i
-  %b_bitmap.i.i58 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i.i55, i64 0, i32 1
-  store i32 0, ptr %b_bitmap.i.i58, align 8
-  %add.ptr.i.i.i.i59 = getelementptr i8, ptr %call.i.i55, i64 -16
+for.end.i.i:                                      ; preds = %for.body.lr.ph.i.i79, %if.end3.i.i
+  %b_bitmap.i.i59 = getelementptr inbounds i8, ptr %call.i.i56, i64 24
+  store i32 0, ptr %b_bitmap.i.i59, align 8
+  %add.ptr.i.i.i.i60 = getelementptr i8, ptr %call.i.i56, i64 -16
   %43 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %44 = load ptr, ptr %43, align 8
-  %interp.i.i.i.i60 = getelementptr inbounds %struct._ts, ptr %44, i64 0, i32 2
-  %45 = load ptr, ptr %interp.i.i.i.i60, align 8
-  %generation03.i.i.i61 = getelementptr inbounds %struct._is, ptr %45, i64 0, i32 13, i32 5
-  %46 = load ptr, ptr %generation03.i.i.i61, align 8
-  %_gc_prev.i.i.i62 = getelementptr inbounds %struct.PyGC_Head, ptr %46, i64 0, i32 1
-  %47 = load i64, ptr %_gc_prev.i.i.i62, align 8
+  %interp.i.i.i.i61 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = load ptr, ptr %interp.i.i.i.i61, align 8
+  %generation03.i.i.i62 = getelementptr inbounds i8, ptr %45, i64 1096
+  %46 = load ptr, ptr %generation03.i.i.i62, align 8
+  %_gc_prev.i.i.i63 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load i64, ptr %_gc_prev.i.i.i63, align 8
   %48 = inttoptr i64 %47 to ptr
-  %49 = ptrtoint ptr %add.ptr.i.i.i.i59 to i64
+  %49 = ptrtoint ptr %add.ptr.i.i.i.i60 to i64
   store i64 %49, ptr %48, align 8
-  %_gc_prev.i.i.i.i63 = getelementptr i8, ptr %call.i.i55, i64 -8
-  %50 = load i64, ptr %_gc_prev.i.i.i.i63, align 8
-  %and.i.i.i.i64 = and i64 %50, 3
-  %or.i.i.i.i65 = or i64 %and.i.i.i.i64, %47
-  store i64 %or.i.i.i.i65, ptr %_gc_prev.i.i.i.i63, align 8
+  %_gc_prev.i.i.i.i64 = getelementptr i8, ptr %call.i.i56, i64 -8
+  %50 = load i64, ptr %_gc_prev.i.i.i.i64, align 8
+  %and.i.i.i.i65 = and i64 %50, 3
+  %or.i.i.i.i66 = or i64 %and.i.i.i.i65, %47
+  store i64 %or.i.i.i.i66, ptr %_gc_prev.i.i.i.i64, align 8
   %51 = ptrtoint ptr %46 to i64
-  store i64 %51, ptr %add.ptr.i.i.i.i59, align 8
-  store i64 %49, ptr %_gc_prev.i.i.i62, align 8
-  br label %if.end.i66
+  store i64 %51, ptr %add.ptr.i.i.i.i60, align 8
+  store i64 %49, ptr %_gc_prev.i.i.i63, align 8
+  br label %if.end.i67
 
-if.end.i66:                                       ; preds = %for.end.i.i, %if.end66.i
-  %retval.0.i.ph.i = phi ptr [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end66.i ], [ %call.i.i55, %for.end.i.i ]
+if.end.i67:                                       ; preds = %for.end.i.i, %if.end66.i
+  %retval.0.i.ph.i = phi ptr [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end66.i ], [ %call.i.i56, %for.end.i.i ]
   %52 = load i32, ptr %b_bitmap.i, align 8
-  %and.i.i = and i32 %52, %sub.i117
+  %and.i.i = and i32 %52, %sub.i123
   %53 = tail call i32 @llvm.ctpop.i32(i32 %and.i.i), !range !11
-  %mul.i68 = shl nuw nsw i32 %53, 1
+  %mul.i69 = shl nuw nsw i32 %53, 1
   %cmp329.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp329.not.i, label %for.end.i71, label %for.body.preheader.i
+  br i1 %cmp329.not.i, label %for.end.i74, label %for.body.lr.ph.i70
 
-for.body.preheader.i:                             ; preds = %if.end.i66
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %mul.i68, i32 1)
+for.body.lr.ph.i70:                               ; preds = %if.end.i67
+  %b_array5.i = getelementptr i8, ptr %retval.0.i.ph.i, i64 32
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %mul.i69, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
-  br label %for.body.i69
+  br label %for.body.i72
 
-for.body.i69:                                     ; preds = %_Py_XNewRef.exit.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %_Py_XNewRef.exit.i ]
-  %arrayidx.i70 = getelementptr %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 2, i64 %indvars.iv.i
-  %54 = load ptr, ptr %arrayidx.i70, align 8
+for.body.i72:                                     ; preds = %_Py_XNewRef.exit.i, %for.body.lr.ph.i70
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i70 ], [ %indvars.iv.next.i, %_Py_XNewRef.exit.i ]
+  %arrayidx.i73 = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %indvars.iv.i
+  %54 = load ptr, ptr %arrayidx.i73, align 8
   %cmp.not.i.i.i = icmp eq ptr %54, null
   br i1 %cmp.not.i.i.i, label %_Py_XNewRef.exit.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %for.body.i69
+if.then.i.i.i:                                    ; preds = %for.body.i72
   %55 = load i32, ptr %54, align 8
   %add.i.i.i.i = add i32 %55, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
@@ -1993,27 +2014,28 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   store i32 %add.i.i.i.i, ptr %54, align 8
   br label %_Py_XNewRef.exit.i
 
-_Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %for.body.i69
-  %arrayidx7.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i.ph.i, i64 0, i32 2, i64 %indvars.iv.i
+_Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %for.body.i72
+  %arrayidx7.i = getelementptr [1 x ptr], ptr %b_array5.i, i64 0, i64 %indvars.iv.i
   store ptr %54, ptr %arrayidx7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i71, label %for.body.i69, !llvm.loop !13
+  br i1 %exitcond.not.i, label %for.end.i74, label %for.body.i72, !llvm.loop !13
 
-for.end.i71:                                      ; preds = %_Py_XNewRef.exit.i, %if.end.i66
-  %add8.i72 = add nuw nsw i32 %mul.i68, 2
+for.end.i74:                                      ; preds = %_Py_XNewRef.exit.i, %if.end.i67
+  %add8.i75 = add nuw nsw i32 %mul.i69, 2
   %o.val31.i = load i64, ptr %40, align 8
   %conv32.i = trunc i64 %o.val31.i to i32
-  %cmp1133.i = icmp ult i32 %add8.i72, %conv32.i
-  br i1 %cmp1133.i, label %for.body13.preheader.i, label %for.end24.i
+  %cmp1133.i = icmp ult i32 %add8.i75, %conv32.i
+  br i1 %cmp1133.i, label %for.body13.lr.ph.i, label %for.end24.i
 
-for.body13.preheader.i:                           ; preds = %for.end.i71
-  %56 = zext nneg i32 %add8.i72 to i64
+for.body13.lr.ph.i:                               ; preds = %for.end.i74
+  %b_array18.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 32
+  %56 = zext nneg i32 %add8.i75 to i64
   br label %for.body13.i
 
-for.body13.i:                                     ; preds = %_Py_XNewRef.exit25.i, %for.body13.preheader.i
-  %indvars.iv36.i = phi i64 [ %56, %for.body13.preheader.i ], [ %indvars.iv.next37.i, %_Py_XNewRef.exit25.i ]
-  %arrayidx16.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 2, i64 %indvars.iv36.i
+for.body13.i:                                     ; preds = %_Py_XNewRef.exit25.i, %for.body13.lr.ph.i
+  %indvars.iv36.i = phi i64 [ %56, %for.body13.lr.ph.i ], [ %indvars.iv.next37.i, %_Py_XNewRef.exit25.i ]
+  %arrayidx16.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %indvars.iv36.i
   %57 = load ptr, ptr %arrayidx16.i, align 8
   %cmp.not.i.i20.i = icmp eq ptr %57, null
   br i1 %cmp.not.i.i20.i, label %_Py_XNewRef.exit25.i, label %if.then.i.i21.i
@@ -2030,31 +2052,31 @@ if.end.i.i.i24.i:                                 ; preds = %if.then.i.i21.i
 
 _Py_XNewRef.exit25.i:                             ; preds = %if.end.i.i.i24.i, %if.then.i.i21.i, %for.body13.i
   %59 = add nsw i64 %indvars.iv36.i, -2
-  %arrayidx21.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i.ph.i, i64 0, i32 2, i64 %59
+  %arrayidx21.i = getelementptr [1 x ptr], ptr %b_array18.i, i64 0, i64 %59
   store ptr %57, ptr %arrayidx21.i, align 8
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %o.val.i = load i64, ptr %40, align 8
   %60 = and i64 %o.val.i, 4294967295
-  %cmp11.i75 = icmp ult i64 %indvars.iv.next37.i, %60
-  br i1 %cmp11.i75, label %for.body13.i, label %for.end24.i, !llvm.loop !14
+  %cmp11.i78 = icmp ult i64 %indvars.iv.next37.i, %60
+  br i1 %cmp11.i78, label %for.body13.i, label %for.end24.i, !llvm.loop !14
 
-for.end24.i:                                      ; preds = %_Py_XNewRef.exit25.i, %for.end.i71
+for.end24.i:                                      ; preds = %_Py_XNewRef.exit25.i, %for.end.i74
   %61 = load i32, ptr %b_bitmap.i, align 8
-  %not.i = xor i32 %shl.i120, -1
-  %and.i73 = and i32 %61, %not.i
-  %b_bitmap26.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %retval.0.i.ph.i, i64 0, i32 1
-  store i32 %and.i73, ptr %b_bitmap26.i, align 8
+  %not.i = xor i32 %shl.i126, -1
+  %and.i76 = and i32 %61, %not.i
+  %b_bitmap26.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 24
+  store i32 %and.i76, ptr %b_bitmap26.i, align 8
   br label %hamt_node_bitmap_clone_without.exit
 
-hamt_node_bitmap_clone_without.exit:              ; preds = %if.end.i.i54, %for.end24.i
-  %retval.0.i74 = phi ptr [ %retval.0.i.ph.i, %for.end24.i ], [ null, %if.end.i.i54 ]
-  store ptr %retval.0.i74, ptr %new_node, align 8
-  %cmp68.i = icmp eq ptr %retval.0.i74, null
+hamt_node_bitmap_clone_without.exit:              ; preds = %if.end.i.i55, %for.end24.i
+  %retval.0.i77 = phi ptr [ %retval.0.i.ph.i, %for.end24.i ], [ null, %if.end.i.i55 ]
+  store ptr %retval.0.i77, ptr %new_node, align 8
+  %cmp68.i = icmp eq ptr %retval.0.i77, null
   %..i = select i1 %cmp68.i, i32 0, i32 3
   br label %hamt_node_bitmap_without.exit
 
-hamt_node_bitmap_without.exit:                    ; preds = %if.end.i.i79, %if.then, %if.then7.i, %if.then21.i, %if.end.i92.i, %if.then1.i95.i, %Py_DECREF.exit79.i, %do.end53.i, %if.else.i, %if.end59.i, %if.end62.i, %hamt_node_bitmap_clone_without.exit
-  %retval.0.i = phi i32 [ 3, %Py_DECREF.exit79.i ], [ 3, %do.end53.i ], [ 1, %if.then ], [ 0, %if.then21.i ], [ 0, %if.then1.i95.i ], [ 0, %if.end.i92.i ], [ %call9.i, %if.then7.i ], [ 0, %if.else.i ], [ 1, %if.end59.i ], [ 2, %if.end62.i ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ 0, %if.end.i.i79 ]
+hamt_node_bitmap_without.exit:                    ; preds = %if.end.i.i82, %if.then, %if.then7.i, %if.then21.i, %if.end.i92.i, %if.then1.i95.i, %Py_DECREF.exit79.i, %do.end53.i, %if.else.i, %if.end59.i, %if.end62.i, %hamt_node_bitmap_clone_without.exit
+  %retval.0.i = phi i32 [ 3, %Py_DECREF.exit79.i ], [ 3, %do.end53.i ], [ 1, %if.then ], [ 0, %if.then21.i ], [ 0, %if.then1.i95.i ], [ 0, %if.end.i92.i ], [ %call9.i, %if.then7.i ], [ 0, %if.else.i ], [ 1, %if.end59.i ], [ 2, %if.end62.i ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ 0, %if.end.i.i82 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sub_node.i)
   br label %return
 
@@ -2065,9 +2087,10 @@ if.else:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sub_node.i17)
   %shr.i = lshr i32 %hash, %shift
-  %and.i161 = and i32 %shr.i, 31
-  %idxprom.i19 = zext nneg i32 %and.i161 to i64
-  %arrayidx.i20 = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %idxprom.i19
+  %and.i167 = and i32 %shr.i, 31
+  %a_array.i = getelementptr inbounds i8, ptr %node, i64 16
+  %idxprom.i19 = zext nneg i32 %and.i167 to i64
+  %arrayidx.i20 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %idxprom.i19
   %62 = load ptr, ptr %arrayidx.i20, align 8
   %cmp.i21 = icmp eq ptr %62, null
   br i1 %cmp.i21, label %hamt_node_array_without.exit, label %if.end.i22
@@ -2084,62 +2107,62 @@ if.end.i22:                                       ; preds = %if.then4
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i22
-  %a_count.i140 = getelementptr inbounds %struct.PyHamtNode_Array, ptr %node, i64 0, i32 2
-  %63 = load i64, ptr %a_count.i140, align 8
-  %call.i.i141 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
-  %cmp.i.i142 = icmp eq ptr %call.i.i141, null
-  br i1 %cmp.i.i142, label %if.then5.i, label %hamt_node_array_new.exit.i
+  %a_count.i146 = getelementptr inbounds i8, ptr %node, i64 272
+  %63 = load i64, ptr %a_count.i146, align 8
+  %call.i.i147 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
+  %cmp.i.i148 = icmp eq ptr %call.i.i147, null
+  br i1 %cmp.i.i148, label %if.then5.i, label %hamt_node_array_new.exit.i
 
 hamt_node_array_new.exit.i:                       ; preds = %sw.bb2.i
-  %scevgep.i.i143 = getelementptr i8, ptr %call.i.i141, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i.i143, i8 0, i64 256, i1 false)
-  %a_count.i.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %call.i.i141, i64 0, i32 2
+  %a_array.i.i = getelementptr i8, ptr %call.i.i147, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i.i, i8 0, i64 256, i1 false)
+  %a_count.i.i = getelementptr inbounds i8, ptr %call.i.i147, i64 272
   store i64 %63, ptr %a_count.i.i, align 8
-  %add.ptr.i.i.i.i144 = getelementptr i8, ptr %call.i.i141, i64 -16
+  %add.ptr.i.i.i.i149 = getelementptr i8, ptr %call.i.i147, i64 -16
   %64 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %65 = load ptr, ptr %64, align 8
-  %interp.i.i.i.i145 = getelementptr inbounds %struct._ts, ptr %65, i64 0, i32 2
-  %66 = load ptr, ptr %interp.i.i.i.i145, align 8
-  %generation03.i.i.i146 = getelementptr inbounds %struct._is, ptr %66, i64 0, i32 13, i32 5
-  %67 = load ptr, ptr %generation03.i.i.i146, align 8
-  %_gc_prev.i.i.i147 = getelementptr inbounds %struct.PyGC_Head, ptr %67, i64 0, i32 1
-  %68 = load i64, ptr %_gc_prev.i.i.i147, align 8
+  %interp.i.i.i.i150 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = load ptr, ptr %interp.i.i.i.i150, align 8
+  %generation03.i.i.i151 = getelementptr inbounds i8, ptr %66, i64 1096
+  %67 = load ptr, ptr %generation03.i.i.i151, align 8
+  %_gc_prev.i.i.i152 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = load i64, ptr %_gc_prev.i.i.i152, align 8
   %69 = inttoptr i64 %68 to ptr
-  %70 = ptrtoint ptr %add.ptr.i.i.i.i144 to i64
+  %70 = ptrtoint ptr %add.ptr.i.i.i.i149 to i64
   store i64 %70, ptr %69, align 8
-  %_gc_prev.i.i.i.i148 = getelementptr i8, ptr %call.i.i141, i64 -8
-  %71 = load i64, ptr %_gc_prev.i.i.i.i148, align 8
-  %and.i.i.i.i149 = and i64 %71, 3
-  %or.i.i.i.i150 = or i64 %and.i.i.i.i149, %68
-  store i64 %or.i.i.i.i150, ptr %_gc_prev.i.i.i.i148, align 8
+  %_gc_prev.i.i.i.i153 = getelementptr i8, ptr %call.i.i147, i64 -8
+  %71 = load i64, ptr %_gc_prev.i.i.i.i153, align 8
+  %and.i.i.i.i154 = and i64 %71, 3
+  %or.i.i.i.i155 = or i64 %and.i.i.i.i154, %68
+  store i64 %or.i.i.i.i155, ptr %_gc_prev.i.i.i.i153, align 8
   %72 = ptrtoint ptr %67 to i64
-  store i64 %72, ptr %add.ptr.i.i.i.i144, align 8
-  store i64 %70, ptr %_gc_prev.i.i.i147, align 8
-  br label %for.body.i151
+  store i64 %72, ptr %add.ptr.i.i.i.i149, align 8
+  store i64 %70, ptr %_gc_prev.i.i.i152, align 8
+  br label %for.body.i157
 
-for.body.i151:                                    ; preds = %_Py_XNewRef.exit.i158, %hamt_node_array_new.exit.i
-  %i.07.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %inc.i159, %_Py_XNewRef.exit.i158 ]
-  %arrayidx.i152 = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %i.07.i
-  %73 = load ptr, ptr %arrayidx.i152, align 8
-  %cmp.not.i.i.i153 = icmp eq ptr %73, null
-  br i1 %cmp.not.i.i.i153, label %_Py_XNewRef.exit.i158, label %if.then.i.i.i154
+for.body.i157:                                    ; preds = %_Py_XNewRef.exit.i164, %hamt_node_array_new.exit.i
+  %i.07.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %inc.i165, %_Py_XNewRef.exit.i164 ]
+  %arrayidx.i158 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.07.i
+  %73 = load ptr, ptr %arrayidx.i158, align 8
+  %cmp.not.i.i.i159 = icmp eq ptr %73, null
+  br i1 %cmp.not.i.i.i159, label %_Py_XNewRef.exit.i164, label %if.then.i.i.i160
 
-if.then.i.i.i154:                                 ; preds = %for.body.i151
+if.then.i.i.i160:                                 ; preds = %for.body.i157
   %74 = load i32, ptr %73, align 8
-  %add.i.i.i.i155 = add i32 %74, 1
-  %cmp.i.i.i.i156 = icmp eq i32 %add.i.i.i.i155, 0
-  br i1 %cmp.i.i.i.i156, label %_Py_XNewRef.exit.i158, label %if.end.i.i.i.i157
+  %add.i.i.i.i161 = add i32 %74, 1
+  %cmp.i.i.i.i162 = icmp eq i32 %add.i.i.i.i161, 0
+  br i1 %cmp.i.i.i.i162, label %_Py_XNewRef.exit.i164, label %if.end.i.i.i.i163
 
-if.end.i.i.i.i157:                                ; preds = %if.then.i.i.i154
-  store i32 %add.i.i.i.i155, ptr %73, align 8
-  br label %_Py_XNewRef.exit.i158
+if.end.i.i.i.i163:                                ; preds = %if.then.i.i.i160
+  store i32 %add.i.i.i.i161, ptr %73, align 8
+  br label %_Py_XNewRef.exit.i164
 
-_Py_XNewRef.exit.i158:                            ; preds = %if.end.i.i.i.i157, %if.then.i.i.i154, %for.body.i151
-  %arrayidx4.i = getelementptr %struct.PyHamtNode_Array, ptr %call.i.i141, i64 0, i32 1, i64 %i.07.i
+_Py_XNewRef.exit.i164:                            ; preds = %if.end.i.i.i.i163, %if.then.i.i.i160, %for.body.i157
+  %arrayidx4.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %i.07.i
   store ptr %73, ptr %arrayidx4.i, align 8
-  %inc.i159 = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i160 = icmp eq i64 %inc.i159, 32
-  br i1 %exitcond.not.i160, label %do.body.i, label %for.body.i151, !llvm.loop !7
+  %inc.i165 = add nuw nsw i64 %i.07.i, 1
+  %exitcond.not.i166 = icmp eq i64 %inc.i165, 32
+  br i1 %exitcond.not.i166, label %do.body.i, label %for.body.i157, !llvm.loop !7
 
 if.then5.i:                                       ; preds = %sw.bb2.i
   %75 = load ptr, ptr %sub_node.i17, align 8
@@ -2158,8 +2181,8 @@ if.then1.i96.i:                                   ; preds = %if.end.i93.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %75) #11
   br label %hamt_node_array_without.exit
 
-do.body.i:                                        ; preds = %_Py_XNewRef.exit.i158
-  %arrayidx9.i = getelementptr %struct.PyHamtNode_Array, ptr %call.i.i141, i64 0, i32 1, i64 %idxprom.i19
+do.body.i:                                        ; preds = %_Py_XNewRef.exit.i164
+  %arrayidx9.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %idxprom.i19
   %78 = load ptr, ptr %arrayidx9.i, align 8
   %79 = load ptr, ptr %sub_node.i17, align 8
   store ptr %79, ptr %arrayidx9.i, align 8
@@ -2179,11 +2202,11 @@ if.then1.i87.i:                                   ; preds = %if.end.i84.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i87.i, %if.end.i84.i, %do.body.i
-  store ptr %call.i.i141, ptr %new_node, align 8
+  store ptr %call.i.i147, ptr %new_node, align 8
   br label %hamt_node_array_without.exit
 
 sw.bb10.i24:                                      ; preds = %if.end.i22
-  %a_count.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %node, i64 0, i32 2
+  %a_count.i = getelementptr inbounds i8, ptr %node, i64 272
   %82 = load i64, ptr %a_count.i, align 8
   %sub.i = add i64 %82, -1
   %cmp11.i = icmp eq i64 %sub.i, 0
@@ -2199,9 +2222,10 @@ if.then15.i:                                      ; preds = %if.end13.i
   br i1 %cmp17.i, label %hamt_node_array_without.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then15.i
-  %a_count20.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %call16.i, i64 0, i32 2
+  %a_count20.i = getelementptr inbounds i8, ptr %call16.i, i64 272
   store i64 %sub.i, ptr %a_count20.i, align 8
-  %arrayidx24.i = getelementptr %struct.PyHamtNode_Array, ptr %call16.i, i64 0, i32 1, i64 %idxprom.i19
+  %a_array22.i = getelementptr inbounds i8, ptr %call16.i, i64 16
+  %arrayidx24.i = getelementptr [32 x ptr], ptr %a_array22.i, i64 0, i64 %idxprom.i19
   %83 = load ptr, ptr %arrayidx24.i, align 8
   %cmp25.not.i = icmp eq ptr %83, null
   br i1 %cmp25.not.i, label %do.end28.i, label %if.then26.i
@@ -2211,19 +2235,19 @@ if.then26.i:                                      ; preds = %if.end19.i
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %84, 2147483648
   %cmp.i107.not.i = icmp eq i64 %85, 0
-  br i1 %cmp.i107.not.i, label %if.end.i.i35, label %do.end28.i
+  br i1 %cmp.i107.not.i, label %if.end.i.i36, label %do.end28.i
 
-if.end.i.i35:                                     ; preds = %if.then26.i
-  %dec.i.i36 = add i64 %84, -1
-  store i64 %dec.i.i36, ptr %83, align 8
-  %cmp.i.i37 = icmp eq i64 %dec.i.i36, 0
-  br i1 %cmp.i.i37, label %if.then1.i.i38, label %do.end28.i
+if.end.i.i36:                                     ; preds = %if.then26.i
+  %dec.i.i37 = add i64 %84, -1
+  store i64 %dec.i.i37, ptr %83, align 8
+  %cmp.i.i38 = icmp eq i64 %dec.i.i37, 0
+  br i1 %cmp.i.i38, label %if.then1.i.i39, label %do.end28.i
 
-if.then1.i.i38:                                   ; preds = %if.end.i.i35
+if.then1.i.i39:                                   ; preds = %if.end.i.i36
   tail call void @_Py_Dealloc(ptr noundef nonnull %83) #11
   br label %do.end28.i
 
-do.end28.i:                                       ; preds = %if.then1.i.i38, %if.end.i.i35, %if.then26.i, %if.end19.i
+do.end28.i:                                       ; preds = %if.then1.i.i39, %if.end.i.i36, %if.then26.i, %if.end19.i
   store ptr %call16.i, ptr %new_node, align 8
   br label %hamt_node_array_without.exit
 
@@ -2231,17 +2255,21 @@ if.end29.i:                                       ; preds = %if.end13.i
   %mul.i26 = shl i64 %sub.i, 1
   %call31.i27 = tail call fastcc ptr @hamt_node_bitmap_new(i64 noundef %mul.i26)
   %cmp32.i = icmp eq ptr %call31.i27, null
-  br i1 %cmp32.i, label %hamt_node_array_without.exit, label %for.body.i
+  br i1 %cmp32.i, label %hamt_node_array_without.exit, label %for.cond.i.preheader
 
-for.body.i:                                       ; preds = %if.end29.i, %for.inc.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %if.end29.i ]
-  %bitmap.0.i168 = phi i32 [ %bitmap.1.i, %for.inc.i ], [ 0, %if.end29.i ]
-  %new_i.0.i166 = phi i64 [ %new_i.1.i, %for.inc.i ], [ 0, %if.end29.i ]
+for.cond.i.preheader:                             ; preds = %if.end29.i
+  %b_array73.i = getelementptr inbounds i8, ptr %call31.i27, i64 32
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
+  %indvars.iv = phi i64 [ 0, %for.cond.i.preheader ], [ %indvars.iv.next, %for.inc.i ]
+  %bitmap.0.i174 = phi i32 [ 0, %for.cond.i.preheader ], [ %bitmap.1.i, %for.inc.i ]
+  %new_i.0.i172 = phi i64 [ 0, %for.cond.i.preheader ], [ %new_i.1.i, %for.inc.i ]
   %cmp36.i = icmp eq i64 %indvars.iv, %idxprom.i19
   br i1 %cmp36.i, label %for.inc.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.body.i
-  %arrayidx42.i = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx42.i = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %indvars.iv
   %86 = load ptr, ptr %arrayidx42.i, align 8
   %cmp43.i = icmp eq ptr %86, null
   br i1 %cmp43.i, label %for.inc.i, label %if.end45.i
@@ -2249,11 +2277,11 @@ if.end38.i:                                       ; preds = %for.body.i
 if.end45.i:                                       ; preds = %if.end38.i
   %87 = trunc i64 %indvars.iv to i32
   %shl.i = shl nuw i32 1, %87
-  %or.i = or i32 %bitmap.0.i168, %shl.i
+  %or.i = or i32 %bitmap.0.i174, %shl.i
   %88 = getelementptr i8, ptr %86, i64 8
   %.val.i30 = load ptr, ptr %88, align 8
-  %cmp.i138.not = icmp eq ptr %.val.i30, @_PyHamt_BitmapNode_Type
-  br i1 %cmp.i138.not, label %if.then47.i, label %if.else72.i
+  %cmp.i144.not = icmp eq ptr %.val.i30, @_PyHamt_BitmapNode_Type
+  br i1 %cmp.i144.not, label %if.then47.i, label %if.else72.i
 
 if.then47.i:                                      ; preds = %if.end45.i
   %89 = getelementptr i8, ptr %86, i64 16
@@ -2263,76 +2291,76 @@ if.then47.i:                                      ; preds = %if.end45.i
   br i1 %cmp49.i, label %land.lhs.true.i34, label %if.else.i32
 
 land.lhs.true.i34:                                ; preds = %if.then47.i
-  %b_array.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %86, i64 0, i32 2
-  %91 = load ptr, ptr %b_array.i, align 8
+  %b_array.i35 = getelementptr inbounds i8, ptr %86, i64 32
+  %91 = load ptr, ptr %b_array.i35, align 8
   %cmp51.not.i = icmp eq ptr %91, null
   br i1 %cmp51.not.i, label %if.else.i32, label %if.then52.i
 
 if.then52.i:                                      ; preds = %land.lhs.true.i34
-  %arrayidx57.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %86, i64 1
+  %arrayidx57.i = getelementptr i8, ptr %86, i64 40
   %92 = load ptr, ptr %arrayidx57.i, align 8
   %93 = load i32, ptr %91, align 8
-  %add.i.i133 = add i32 %93, 1
-  %cmp.i.i134 = icmp eq i32 %add.i.i133, 0
-  br i1 %cmp.i.i134, label %_Py_NewRef.exit136, label %if.end.i.i135
+  %add.i.i139 = add i32 %93, 1
+  %cmp.i.i140 = icmp eq i32 %add.i.i139, 0
+  br i1 %cmp.i.i140, label %_Py_NewRef.exit142, label %if.end.i.i141
 
-if.end.i.i135:                                    ; preds = %if.then52.i
-  store i32 %add.i.i133, ptr %91, align 8
-  br label %_Py_NewRef.exit136
+if.end.i.i141:                                    ; preds = %if.then52.i
+  store i32 %add.i.i139, ptr %91, align 8
+  br label %_Py_NewRef.exit142
 
-_Py_NewRef.exit136:                               ; preds = %if.then52.i, %if.end.i.i135
-  %arrayidx60.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call31.i27, i64 0, i32 2, i64 %new_i.0.i166
+_Py_NewRef.exit142:                               ; preds = %if.then52.i, %if.end.i.i141
+  %arrayidx60.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i172
   store ptr %91, ptr %arrayidx60.i, align 8
   %94 = load i32, ptr %92, align 8
-  %add.i.i129 = add i32 %94, 1
-  %cmp.i.i130 = icmp eq i32 %add.i.i129, 0
-  br i1 %cmp.i.i130, label %if.end79.i, label %if.end.i.i131
+  %add.i.i135 = add i32 %94, 1
+  %cmp.i.i136 = icmp eq i32 %add.i.i135, 0
+  br i1 %cmp.i.i136, label %if.end79.i, label %if.end.i.i137
 
-if.end.i.i131:                                    ; preds = %_Py_NewRef.exit136
-  store i32 %add.i.i129, ptr %92, align 8
+if.end.i.i137:                                    ; preds = %_Py_NewRef.exit142
+  store i32 %add.i.i135, ptr %92, align 8
   br label %if.end79.i
 
 if.else.i32:                                      ; preds = %land.lhs.true.i34, %if.then47.i
-  %arrayidx66.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call31.i27, i64 0, i32 2, i64 %new_i.0.i166
+  %arrayidx66.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i172
   store ptr null, ptr %arrayidx66.i, align 8
   %95 = load i32, ptr %86, align 8
-  %add.i.i125 = add i32 %95, 1
-  %cmp.i.i126 = icmp eq i32 %add.i.i125, 0
-  br i1 %cmp.i.i126, label %if.end79.i, label %if.end.i.i127
+  %add.i.i131 = add i32 %95, 1
+  %cmp.i.i132 = icmp eq i32 %add.i.i131, 0
+  br i1 %cmp.i.i132, label %if.end79.i, label %if.end.i.i133
 
-if.end.i.i127:                                    ; preds = %if.else.i32
-  store i32 %add.i.i125, ptr %86, align 8
+if.end.i.i133:                                    ; preds = %if.else.i32
+  store i32 %add.i.i131, ptr %86, align 8
   br label %if.end79.i
 
 if.else72.i:                                      ; preds = %if.end45.i
-  %arrayidx74.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call31.i27, i64 0, i32 2, i64 %new_i.0.i166
+  %arrayidx74.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i172
   store ptr null, ptr %arrayidx74.i, align 8
   %96 = load i32, ptr %86, align 8
-  %add.i.i121 = add i32 %96, 1
-  %cmp.i.i122 = icmp eq i32 %add.i.i121, 0
-  br i1 %cmp.i.i122, label %if.end79.i, label %if.end.i.i123
+  %add.i.i127 = add i32 %96, 1
+  %cmp.i.i128 = icmp eq i32 %add.i.i127, 0
+  br i1 %cmp.i.i128, label %if.end79.i, label %if.end.i.i129
 
-if.end.i.i123:                                    ; preds = %if.else72.i
-  store i32 %add.i.i121, ptr %86, align 8
+if.end.i.i129:                                    ; preds = %if.else72.i
+  store i32 %add.i.i127, ptr %86, align 8
   br label %if.end79.i
 
-if.end79.i:                                       ; preds = %if.end.i.i123, %if.else72.i, %if.end.i.i127, %if.else.i32, %if.end.i.i131, %_Py_NewRef.exit136
-  %.sink = phi ptr [ %92, %_Py_NewRef.exit136 ], [ %92, %if.end.i.i131 ], [ %86, %if.else.i32 ], [ %86, %if.end.i.i127 ], [ %86, %if.else72.i ], [ %86, %if.end.i.i123 ]
-  %add77.i = add i64 %new_i.0.i166, 1
-  %arrayidx78.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call31.i27, i64 0, i32 2, i64 %add77.i
+if.end79.i:                                       ; preds = %if.end.i.i129, %if.else72.i, %if.end.i.i133, %if.else.i32, %if.end.i.i137, %_Py_NewRef.exit142
+  %.sink = phi ptr [ %92, %_Py_NewRef.exit142 ], [ %92, %if.end.i.i137 ], [ %86, %if.else.i32 ], [ %86, %if.end.i.i133 ], [ %86, %if.else72.i ], [ %86, %if.end.i.i129 ]
+  %add77.i = add i64 %new_i.0.i172, 1
+  %arrayidx78.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %add77.i
   store ptr %.sink, ptr %arrayidx78.i, align 8
-  %add80.i = add i64 %new_i.0.i166, 2
+  %add80.i = add i64 %new_i.0.i172, 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end79.i, %if.end38.i, %for.body.i
-  %new_i.1.i = phi i64 [ %new_i.0.i166, %for.body.i ], [ %new_i.0.i166, %if.end38.i ], [ %add80.i, %if.end79.i ]
-  %bitmap.1.i = phi i32 [ %bitmap.0.i168, %for.body.i ], [ %bitmap.0.i168, %if.end38.i ], [ %or.i, %if.end79.i ]
+  %new_i.1.i = phi i64 [ %new_i.0.i172, %for.body.i ], [ %new_i.0.i172, %if.end38.i ], [ %add80.i, %if.end79.i ]
+  %bitmap.1.i = phi i32 [ %bitmap.0.i174, %for.body.i ], [ %bitmap.0.i174, %if.end38.i ], [ %or.i, %if.end79.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.inc.i
-  %b_bitmap.i28 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call31.i27, i64 0, i32 1
+  %b_bitmap.i28 = getelementptr inbounds i8, ptr %call31.i27, i64 24
   store i32 %bitmap.1.i, ptr %b_bitmap.i28, align 8
   store ptr %call31.i27, ptr %new_node, align 8
   br label %hamt_node_array_without.exit
@@ -2346,36 +2374,40 @@ hamt_node_array_without.exit:                     ; preds = %if.then4, %if.end.i
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %c_hash.i = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 1
+  %c_hash.i = getelementptr inbounds i8, ptr %node, i64 24
   %97 = load i32, ptr %c_hash.i, align 8
   %cmp.not.i = icmp eq i32 %97, %hash
-  br i1 %cmp.not.i, label %if.end.i40, label %return
+  br i1 %cmp.not.i, label %if.end.i41, label %return
 
-if.end.i40:                                       ; preds = %if.else6
+if.end.i41:                                       ; preds = %if.else6
   %98 = getelementptr i8, ptr %node, i64 16
   %self.val7.i.i = load i64, ptr %98, align 8
   %cmp8.i.i = icmp sgt i64 %self.val7.i.i, 0
-  br i1 %cmp8.i.i, label %for.body.i.i, label %return
+  br i1 %cmp8.i.i, label %for.body.lr.ph.i.i, label %return
 
-for.body.i.i:                                     ; preds = %if.end.i40, %for.inc.i.i
-  %i.09.i.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %if.end.i40 ]
-  %arrayidx.i.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %i.09.i.i
+for.body.lr.ph.i.i:                               ; preds = %if.end.i41
+  %c_array.i.i = getelementptr inbounds i8, ptr %node, i64 32
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
+  %i.09.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %c_array.i.i, i64 0, i64 %i.09.i.i
   %99 = load ptr, ptr %arrayidx.i.i, align 8
   %call2.i.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %key, ptr noundef %99, i32 noundef 2) #11
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %return, label %if.end.i.i41
+  br i1 %cmp3.i.i, label %return, label %if.end.i.i42
 
-if.end.i.i41:                                     ; preds = %for.body.i.i
+if.end.i.i42:                                     ; preds = %for.body.i.i
   %cmp4.i.i = icmp eq i32 %call2.i.i, 1
-  br i1 %cmp4.i.i, label %sw.bb2.i43, label %for.inc.i.i
+  br i1 %cmp4.i.i, label %sw.bb2.i44, label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.end.i.i41
+for.inc.i.i:                                      ; preds = %if.end.i.i42
   %add.i.i = add i64 %i.09.i.i, 2
   %self.val.i.i = load i64, ptr %98, align 8
-  %cmp.i.i42 = icmp slt i64 %add.i.i, %self.val.i.i
-  br i1 %cmp.i.i42, label %for.body.i.i, label %return, !llvm.loop !8
+  %cmp.i.i43 = icmp slt i64 %add.i.i, %self.val.i.i
+  br i1 %cmp.i.i43, label %for.body.i.i, label %return, !llvm.loop !8
 
-sw.bb2.i43:                                       ; preds = %if.end.i.i41
+sw.bb2.i44:                                       ; preds = %if.end.i.i42
   %self.val32.i = load i64, ptr %98, align 8
   %div.i.i = sdiv i64 %self.val32.i, 2
   switch i64 %div.i.i, label %if.end34.i [
@@ -2383,26 +2415,26 @@ sw.bb2.i43:                                       ; preds = %if.end.i.i41
     i64 2, label %if.then8.i
   ]
 
-if.then8.i:                                       ; preds = %sw.bb2.i43
+if.then8.i:                                       ; preds = %sw.bb2.i44
   %call.i.i = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #11
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then8.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 2, ptr %ob_size.i.i.i, align 8
-  %scevgep.i.i = getelementptr i8, ptr %call.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep.i.i, i8 0, i64 16, i1 false)
-  %b_bitmap.i.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i.i, i64 0, i32 1
+  %b_array.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b_array.i.i, i8 0, i64 16, i1 false)
+  %b_bitmap.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i32 0, ptr %b_bitmap.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -16
   %100 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %101 = load ptr, ptr %100, align 8
-  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %101, i64 0, i32 2
+  %interp.i.i.i.i = getelementptr inbounds i8, ptr %101, i64 16
   %102 = load ptr, ptr %interp.i.i.i.i, align 8
-  %generation03.i.i.i = getelementptr inbounds %struct._is, ptr %102, i64 0, i32 13, i32 5
+  %generation03.i.i.i = getelementptr inbounds i8, ptr %102, i64 1096
   %103 = load ptr, ptr %generation03.i.i.i, align 8
-  %_gc_prev.i.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %103, i64 0, i32 1
+  %_gc_prev.i.i.i = getelementptr inbounds i8, ptr %103, i64 8
   %104 = load i64, ptr %_gc_prev.i.i.i, align 8
   %105 = inttoptr i64 %104 to ptr
   %106 = ptrtoint ptr %add.ptr.i.i.i.i to i64
@@ -2416,11 +2448,11 @@ if.end12.i:                                       ; preds = %if.then8.i
   store i64 %108, ptr %add.ptr.i.i.i.i, align 8
   store i64 %106, ptr %_gc_prev.i.i.i, align 8
   %cmp13.i = icmp eq i64 %i.09.i.i, 0
-  br i1 %cmp13.i, label %if.then14.i, label %if.else.i44
+  br i1 %cmp13.i, label %if.then14.i, label %if.else.i45
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %arrayidx.i45 = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 1, i32 0, i32 0, i32 1
-  %109 = load ptr, ptr %arrayidx.i45, align 8
+  %arrayidx.i46 = getelementptr i8, ptr %node, i64 48
+  %109 = load ptr, ptr %arrayidx.i46, align 8
   %110 = load i32, ptr %109, align 8
   %add.i.i.i = add i32 %110, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -2431,46 +2463,45 @@ if.end.i.i.i:                                     ; preds = %if.then14.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.then14.i
-  store ptr %109, ptr %scevgep.i.i, align 8
-  %arrayidx18.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 1, i32 0, i32 1
+  store ptr %109, ptr %b_array.i.i, align 8
+  %arrayidx18.i = getelementptr i8, ptr %node, i64 56
   %111 = load ptr, ptr %arrayidx18.i, align 8
   %112 = load i32, ptr %111, align 8
-  %add.i.i35.i = add i32 %112, 1
-  %cmp.i.i36.i = icmp eq i32 %add.i.i35.i, 0
-  br i1 %cmp.i.i36.i, label %if.end32.i, label %if.end.i.i37.i
+  %add.i.i36.i = add i32 %112, 1
+  %cmp.i.i37.i = icmp eq i32 %add.i.i36.i, 0
+  br i1 %cmp.i.i37.i, label %if.end32.i, label %if.end.i.i38.i
 
-if.end.i.i37.i:                                   ; preds = %_Py_NewRef.exit.i
-  store i32 %add.i.i35.i, ptr %111, align 8
+if.end.i.i38.i:                                   ; preds = %_Py_NewRef.exit.i
+  store i32 %add.i.i36.i, ptr %111, align 8
   br label %if.end32.i
 
-if.else.i44:                                      ; preds = %if.end12.i
-  %c_array22.i = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2
-  %113 = load ptr, ptr %c_array22.i, align 8
+if.else.i45:                                      ; preds = %if.end12.i
+  %113 = load ptr, ptr %c_array.i.i, align 8
   %114 = load i32, ptr %113, align 8
-  %add.i.i39.i = add i32 %114, 1
-  %cmp.i.i40.i = icmp eq i32 %add.i.i39.i, 0
-  br i1 %cmp.i.i40.i, label %_Py_NewRef.exit42.i, label %if.end.i.i41.i
+  %add.i.i40.i = add i32 %114, 1
+  %cmp.i.i41.i = icmp eq i32 %add.i.i40.i, 0
+  br i1 %cmp.i.i41.i, label %_Py_NewRef.exit43.i, label %if.end.i.i42.i
 
-if.end.i.i41.i:                                   ; preds = %if.else.i44
-  store i32 %add.i.i39.i, ptr %113, align 8
-  br label %_Py_NewRef.exit42.i
+if.end.i.i42.i:                                   ; preds = %if.else.i45
+  store i32 %add.i.i40.i, ptr %113, align 8
+  br label %_Py_NewRef.exit43.i
 
-_Py_NewRef.exit42.i:                              ; preds = %if.end.i.i41.i, %if.else.i44
-  store ptr %113, ptr %scevgep.i.i, align 8
-  %arrayidx28.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 1
+_Py_NewRef.exit43.i:                              ; preds = %if.end.i.i42.i, %if.else.i45
+  store ptr %113, ptr %b_array.i.i, align 8
+  %arrayidx28.i = getelementptr i8, ptr %node, i64 40
   %115 = load ptr, ptr %arrayidx28.i, align 8
   %116 = load i32, ptr %115, align 8
-  %add.i.i43.i = add i32 %116, 1
-  %cmp.i.i44.i = icmp eq i32 %add.i.i43.i, 0
-  br i1 %cmp.i.i44.i, label %if.end32.i, label %if.end.i.i45.i
+  %add.i.i44.i = add i32 %116, 1
+  %cmp.i.i45.i = icmp eq i32 %add.i.i44.i, 0
+  br i1 %cmp.i.i45.i, label %if.end32.i, label %if.end.i.i46.i
 
-if.end.i.i45.i:                                   ; preds = %_Py_NewRef.exit42.i
-  store i32 %add.i.i43.i, ptr %115, align 8
+if.end.i.i46.i:                                   ; preds = %_Py_NewRef.exit43.i
+  store i32 %add.i.i44.i, ptr %115, align 8
   br label %if.end32.i
 
-if.end32.i:                                       ; preds = %if.end.i.i45.i, %_Py_NewRef.exit42.i, %if.end.i.i37.i, %_Py_NewRef.exit.i
-  %.sink.i = phi ptr [ %111, %_Py_NewRef.exit.i ], [ %111, %if.end.i.i37.i ], [ %115, %_Py_NewRef.exit42.i ], [ %115, %if.end.i.i45.i ]
-  %arrayidx31.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i.i, i64 1
+if.end32.i:                                       ; preds = %if.end.i.i46.i, %_Py_NewRef.exit43.i, %if.end.i.i38.i, %_Py_NewRef.exit.i
+  %.sink.i = phi ptr [ %111, %_Py_NewRef.exit.i ], [ %111, %if.end.i.i38.i ], [ %115, %_Py_NewRef.exit43.i ], [ %115, %if.end.i.i46.i ]
+  %arrayidx31.i = getelementptr i8, ptr %call.i.i, i64 40
   store ptr %.sink.i, ptr %arrayidx31.i, align 8
   %shr.i.i.i = lshr i32 %hash, %shift
   %and.i.i.i = and i32 %shr.i.i.i, 31
@@ -2478,106 +2509,114 @@ if.end32.i:                                       ; preds = %if.end.i.i45.i, %_P
   store i32 %shl.i.i, ptr %b_bitmap.i.i, align 8
   br label %return.sink.split.i
 
-if.end34.i:                                       ; preds = %sw.bb2.i43
+if.end34.i:                                       ; preds = %sw.bb2.i44
   %117 = load i32, ptr %c_hash.i, align 8
   %sub37.i = add i64 %self.val32.i, -2
-  %call.i47.i = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %sub37.i) #11
-  %cmp.i48.i = icmp eq ptr %call.i47.i, null
-  br i1 %cmp.i48.i, label %return, label %for.cond.preheader.i.i
+  %call.i48.i = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %sub37.i) #11
+  %cmp.i49.i = icmp eq ptr %call.i48.i, null
+  br i1 %cmp.i49.i, label %return, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end34.i
   %cmp110.i.i = icmp sgt i64 %sub37.i, 0
-  br i1 %cmp110.i.i, label %for.body.preheader.i.i, label %hamt_node_collision_new.exit.i
+  br i1 %cmp110.i.i, label %for.body.lr.ph.i58.i, label %hamt_node_collision_new.exit.i
 
-for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %scevgep.i57.i = getelementptr i8, ptr %call.i47.i, i64 32
+for.body.lr.ph.i58.i:                             ; preds = %for.cond.preheader.i.i
+  %c_array.i59.i = getelementptr inbounds i8, ptr %call.i48.i, i64 32
   %118 = shl nuw i64 %sub37.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i57.i, i8 0, i64 %118, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %c_array.i59.i, i8 0, i64 %118, i1 false)
   br label %hamt_node_collision_new.exit.i
 
-hamt_node_collision_new.exit.i:                   ; preds = %for.body.preheader.i.i, %for.cond.preheader.i.i
-  %ob_size.i.i49.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i47.i, i64 0, i32 1
-  store i64 %sub37.i, ptr %ob_size.i.i49.i, align 8
-  %c_hash.i.i = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %call.i47.i, i64 0, i32 1
+hamt_node_collision_new.exit.i:                   ; preds = %for.body.lr.ph.i58.i, %for.cond.preheader.i.i
+  %ob_size.i.i50.i = getelementptr inbounds i8, ptr %call.i48.i, i64 16
+  store i64 %sub37.i, ptr %ob_size.i.i50.i, align 8
+  %c_hash.i.i = getelementptr inbounds i8, ptr %call.i48.i, i64 24
   store i32 %117, ptr %c_hash.i.i, align 8
-  %add.ptr.i.i.i50.i = getelementptr i8, ptr %call.i47.i, i64 -16
+  %add.ptr.i.i.i51.i = getelementptr i8, ptr %call.i48.i, i64 -16
   %119 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %120 = load ptr, ptr %119, align 8
-  %interp.i.i.i51.i = getelementptr inbounds %struct._ts, ptr %120, i64 0, i32 2
-  %121 = load ptr, ptr %interp.i.i.i51.i, align 8
-  %generation03.i.i52.i = getelementptr inbounds %struct._is, ptr %121, i64 0, i32 13, i32 5
-  %122 = load ptr, ptr %generation03.i.i52.i, align 8
-  %_gc_prev.i.i53.i = getelementptr inbounds %struct.PyGC_Head, ptr %122, i64 0, i32 1
-  %123 = load i64, ptr %_gc_prev.i.i53.i, align 8
+  %interp.i.i.i52.i = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = load ptr, ptr %interp.i.i.i52.i, align 8
+  %generation03.i.i53.i = getelementptr inbounds i8, ptr %121, i64 1096
+  %122 = load ptr, ptr %generation03.i.i53.i, align 8
+  %_gc_prev.i.i54.i = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = load i64, ptr %_gc_prev.i.i54.i, align 8
   %124 = inttoptr i64 %123 to ptr
-  %125 = ptrtoint ptr %add.ptr.i.i.i50.i to i64
+  %125 = ptrtoint ptr %add.ptr.i.i.i51.i to i64
   store i64 %125, ptr %124, align 8
-  %_gc_prev.i.i.i54.i = getelementptr i8, ptr %call.i47.i, i64 -8
-  %126 = load i64, ptr %_gc_prev.i.i.i54.i, align 8
-  %and.i.i.i55.i = and i64 %126, 3
-  %or.i.i.i56.i = or i64 %and.i.i.i55.i, %123
-  store i64 %or.i.i.i56.i, ptr %_gc_prev.i.i.i54.i, align 8
+  %_gc_prev.i.i.i55.i = getelementptr i8, ptr %call.i48.i, i64 -8
+  %126 = load i64, ptr %_gc_prev.i.i.i55.i, align 8
+  %and.i.i.i56.i = and i64 %126, 3
+  %or.i.i.i57.i = or i64 %and.i.i.i56.i, %123
+  store i64 %or.i.i.i57.i, ptr %_gc_prev.i.i.i55.i, align 8
   %127 = ptrtoint ptr %122 to i64
-  store i64 %127, ptr %add.ptr.i.i.i50.i, align 8
-  store i64 %125, ptr %_gc_prev.i.i53.i, align 8
-  %cmp4275.i = icmp sgt i64 %i.09.i.i, 0
-  br i1 %cmp4275.i, label %for.body.i50, label %for.end.i46
+  store i64 %127, ptr %add.ptr.i.i.i51.i, align 8
+  store i64 %125, ptr %_gc_prev.i.i54.i, align 8
+  %cmp4277.i = icmp sgt i64 %i.09.i.i, 0
+  br i1 %cmp4277.i, label %for.body.lr.ph.i, label %for.end.i47
 
-for.body.i50:                                     ; preds = %hamt_node_collision_new.exit.i, %_Py_NewRef.exit61.i
-  %i.076.i = phi i64 [ %inc.i51, %_Py_NewRef.exit61.i ], [ 0, %hamt_node_collision_new.exit.i ]
-  %arrayidx44.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %i.076.i
+for.body.lr.ph.i:                                 ; preds = %hamt_node_collision_new.exit.i
+  %c_array46.i = getelementptr i8, ptr %call.i48.i, i64 32
+  br label %for.body.i51
+
+for.body.i51:                                     ; preds = %_Py_NewRef.exit63.i, %for.body.lr.ph.i
+  %i.078.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i52, %_Py_NewRef.exit63.i ]
+  %arrayidx44.i = getelementptr [1 x ptr], ptr %c_array.i.i, i64 0, i64 %i.078.i
   %128 = load ptr, ptr %arrayidx44.i, align 8
   %129 = load i32, ptr %128, align 8
-  %add.i.i58.i = add i32 %129, 1
-  %cmp.i.i59.i = icmp eq i32 %add.i.i58.i, 0
-  br i1 %cmp.i.i59.i, label %_Py_NewRef.exit61.i, label %if.end.i.i60.i
+  %add.i.i60.i = add i32 %129, 1
+  %cmp.i.i61.i = icmp eq i32 %add.i.i60.i, 0
+  br i1 %cmp.i.i61.i, label %_Py_NewRef.exit63.i, label %if.end.i.i62.i
 
-if.end.i.i60.i:                                   ; preds = %for.body.i50
-  store i32 %add.i.i58.i, ptr %128, align 8
-  br label %_Py_NewRef.exit61.i
+if.end.i.i62.i:                                   ; preds = %for.body.i51
+  store i32 %add.i.i60.i, ptr %128, align 8
+  br label %_Py_NewRef.exit63.i
 
-_Py_NewRef.exit61.i:                              ; preds = %if.end.i.i60.i, %for.body.i50
-  %arrayidx47.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i47.i, i64 0, i32 2, i64 %i.076.i
+_Py_NewRef.exit63.i:                              ; preds = %if.end.i.i62.i, %for.body.i51
+  %arrayidx47.i = getelementptr [1 x ptr], ptr %c_array46.i, i64 0, i64 %i.078.i
   store ptr %128, ptr %arrayidx47.i, align 8
-  %inc.i51 = add nuw nsw i64 %i.076.i, 1
-  %cmp42.i = icmp slt i64 %inc.i51, %i.09.i.i
-  br i1 %cmp42.i, label %for.body.i50, label %for.end.i46, !llvm.loop !16
+  %inc.i52 = add nuw nsw i64 %i.078.i, 1
+  %cmp42.i = icmp slt i64 %inc.i52, %i.09.i.i
+  br i1 %cmp42.i, label %for.body.i51, label %for.end.i47, !llvm.loop !16
 
-for.end.i46:                                      ; preds = %_Py_NewRef.exit61.i, %hamt_node_collision_new.exit.i
-  %add.i47 = add i64 %i.09.i.i, 2
-  %self.val77.i = load i64, ptr %98, align 8
-  %cmp5078.i = icmp slt i64 %add.i47, %self.val77.i
-  br i1 %cmp5078.i, label %for.body51.i, label %return.sink.split.i
+for.end.i47:                                      ; preds = %_Py_NewRef.exit63.i, %hamt_node_collision_new.exit.i
+  %add.i48 = add i64 %i.09.i.i, 2
+  %self.val79.i = load i64, ptr %98, align 8
+  %cmp5080.i = icmp slt i64 %add.i48, %self.val79.i
+  br i1 %cmp5080.i, label %for.body51.lr.ph.i, label %return.sink.split.i
 
-for.body51.i:                                     ; preds = %for.end.i46, %_Py_NewRef.exit65.i
-  %i.179.i = phi i64 [ %inc59.i, %_Py_NewRef.exit65.i ], [ %add.i47, %for.end.i46 ]
-  %arrayidx53.i = getelementptr %struct.PyHamtNode_Collision, ptr %node, i64 0, i32 2, i64 %i.179.i
+for.body51.lr.ph.i:                               ; preds = %for.end.i47
+  %c_array55.i = getelementptr inbounds i8, ptr %call.i48.i, i64 32
+  br label %for.body51.i
+
+for.body51.i:                                     ; preds = %_Py_NewRef.exit67.i, %for.body51.lr.ph.i
+  %i.181.i = phi i64 [ %add.i48, %for.body51.lr.ph.i ], [ %inc59.i, %_Py_NewRef.exit67.i ]
+  %arrayidx53.i = getelementptr [1 x ptr], ptr %c_array.i.i, i64 0, i64 %i.181.i
   %130 = load ptr, ptr %arrayidx53.i, align 8
   %131 = load i32, ptr %130, align 8
-  %add.i.i62.i = add i32 %131, 1
-  %cmp.i.i63.i = icmp eq i32 %add.i.i62.i, 0
-  br i1 %cmp.i.i63.i, label %_Py_NewRef.exit65.i, label %if.end.i.i64.i
+  %add.i.i64.i = add i32 %131, 1
+  %cmp.i.i65.i = icmp eq i32 %add.i.i64.i, 0
+  br i1 %cmp.i.i65.i, label %_Py_NewRef.exit67.i, label %if.end.i.i66.i
 
-if.end.i.i64.i:                                   ; preds = %for.body51.i
-  store i32 %add.i.i62.i, ptr %130, align 8
-  br label %_Py_NewRef.exit65.i
+if.end.i.i66.i:                                   ; preds = %for.body51.i
+  store i32 %add.i.i64.i, ptr %130, align 8
+  br label %_Py_NewRef.exit67.i
 
-_Py_NewRef.exit65.i:                              ; preds = %if.end.i.i64.i, %for.body51.i
-  %sub56.i = add i64 %i.179.i, -2
-  %arrayidx57.i48 = getelementptr %struct.PyHamtNode_Collision, ptr %call.i47.i, i64 0, i32 2, i64 %sub56.i
-  store ptr %130, ptr %arrayidx57.i48, align 8
-  %inc59.i = add nsw i64 %i.179.i, 1
-  %self.val.i49 = load i64, ptr %98, align 8
-  %cmp50.i = icmp slt i64 %inc59.i, %self.val.i49
+_Py_NewRef.exit67.i:                              ; preds = %if.end.i.i66.i, %for.body51.i
+  %sub56.i = add i64 %i.181.i, -2
+  %arrayidx57.i49 = getelementptr [1 x ptr], ptr %c_array55.i, i64 0, i64 %sub56.i
+  store ptr %130, ptr %arrayidx57.i49, align 8
+  %inc59.i = add nsw i64 %i.181.i, 1
+  %self.val.i50 = load i64, ptr %98, align 8
+  %cmp50.i = icmp slt i64 %inc59.i, %self.val.i50
   br i1 %cmp50.i, label %for.body51.i, label %return.sink.split.i, !llvm.loop !17
 
-return.sink.split.i:                              ; preds = %_Py_NewRef.exit65.i, %for.end.i46, %if.end32.i
-  %call.i47.sink.i = phi ptr [ %call.i.i, %if.end32.i ], [ %call.i47.i, %for.end.i46 ], [ %call.i47.i, %_Py_NewRef.exit65.i ]
-  store ptr %call.i47.sink.i, ptr %new_node, align 8
+return.sink.split.i:                              ; preds = %_Py_NewRef.exit67.i, %for.end.i47, %if.end32.i
+  %call.i48.sink.i = phi ptr [ %call.i.i, %if.end32.i ], [ %call.i48.i, %for.end.i47 ], [ %call.i48.i, %_Py_NewRef.exit67.i ]
+  store ptr %call.i48.sink.i, ptr %new_node, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i.i, %for.body.i.i, %return.sink.split.i, %if.end34.i, %if.then8.i, %sw.bb2.i43, %if.end.i40, %if.else6, %hamt_node_array_without.exit, %hamt_node_bitmap_without.exit
-  %retval.0 = phi i32 [ %retval.0.i, %hamt_node_bitmap_without.exit ], [ %retval.0.i29, %hamt_node_array_without.exit ], [ 1, %if.else6 ], [ 2, %sw.bb2.i43 ], [ 1, %if.end.i40 ], [ 0, %if.then8.i ], [ 0, %if.end34.i ], [ 3, %return.sink.split.i ], [ 1, %for.inc.i.i ], [ 0, %for.body.i.i ]
+return:                                           ; preds = %for.inc.i.i, %for.body.i.i, %return.sink.split.i, %if.end34.i, %if.then8.i, %sw.bb2.i44, %if.end.i41, %if.else6, %hamt_node_array_without.exit, %hamt_node_bitmap_without.exit
+  %retval.0 = phi i32 [ %retval.0.i, %hamt_node_bitmap_without.exit ], [ %retval.0.i29, %hamt_node_array_without.exit ], [ 1, %if.else6 ], [ 2, %sw.bb2.i44 ], [ 1, %if.end.i41 ], [ 0, %if.then8.i ], [ 0, %if.end34.i ], [ 3, %return.sink.split.i ], [ 1, %for.inc.i.i ], [ 0, %for.body.i.i ]
   ret i32 %retval.0
 }
 
@@ -2586,9 +2625,9 @@ define hidden nonnull ptr @_PyHamt_New() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %hamt_empty = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 72, i32 0, i32 2
+  %hamt_empty = getelementptr inbounds i8, ptr %2, i64 416320
   %3 = load i32, ptr %hamt_empty, align 8
   %add.i.i = add i32 %3, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
@@ -2613,7 +2652,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @hamt_find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) unnamed_addr #0 {
 entry:
-  %h_count = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 3
+  %h_count = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i64, ptr %h_count, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -2628,7 +2667,7 @@ hamt_hash.exit:                                   ; preds = %if.end
   %xor4.i = xor i64 %shr.i, %call.i
   %xor.i = trunc i64 %xor4.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %xor.i, i32 -2)
-  %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 1
+  %h_root = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root, align 8
   br label %tailrecurse.i
 
@@ -2644,7 +2683,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
   %shr.i.i.i = lshr i32 %cond.i, %shift.tr.i
   %and.i.i.i = and i32 %shr.i.i.i, 31
   %shl.i.i = shl nuw i32 1, %and.i.i.i
-  %b_bitmap.i.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %node.tr.i, i64 0, i32 1
+  %b_bitmap.i.i = getelementptr inbounds i8, ptr %node.tr.i, i64 24
   %3 = load i32, ptr %b_bitmap.i.i, align 8
   %and.i.i = and i32 %3, %shl.i.i
   %cmp.i14.i = icmp eq i32 %and.i.i, 0
@@ -2656,11 +2695,12 @@ if.end.i.i:                                       ; preds = %if.then.i
   %4 = tail call i32 @llvm.ctpop.i32(i32 %and.i28.i), !range !11
   %mul.i.i = shl nuw nsw i32 %4, 1
   %add.i.i = or disjoint i32 %mul.i.i, 1
+  %b_array.i.i = getelementptr inbounds i8, ptr %node.tr.i, i64 32
   %idxprom.i.i = zext nneg i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %node.tr.i, i64 0, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %b_array.i.i, i64 0, i64 %idxprom.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %idxprom4.i.i = zext nneg i32 %add.i.i to i64
-  %arrayidx5.i.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %node.tr.i, i64 0, i32 2, i64 %idxprom4.i.i
+  %arrayidx5.i.i = getelementptr [1 x ptr], ptr %b_array.i.i, i64 0, i64 %idxprom4.i.i
   %6 = load ptr, ptr %arrayidx5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %5, null
   br i1 %cmp6.i.i, label %tailrecurse.backedge.i, label %if.end10.i.i
@@ -2686,8 +2726,9 @@ if.else.i:                                        ; preds = %tailrecurse.i
 if.then4.i:                                       ; preds = %if.else.i
   %shr.i.i = lshr i32 %cond.i, %shift.tr.i
   %and.i29.i = and i32 %shr.i.i, 31
+  %a_array.i.i = getelementptr inbounds i8, ptr %node.tr.i, i64 16
   %idxprom.i18.i = zext nneg i32 %and.i29.i to i64
-  %arrayidx.i19.i = getelementptr %struct.PyHamtNode_Array, ptr %node.tr.i, i64 0, i32 1, i64 %idxprom.i18.i
+  %arrayidx.i19.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %idxprom.i18.i
   %7 = load ptr, ptr %arrayidx.i19.i, align 8
   %cmp.i20.i = icmp eq ptr %7, null
   br i1 %cmp.i20.i, label %return, label %tailrecurse.backedge.i
@@ -2696,11 +2737,15 @@ if.else6.i:                                       ; preds = %if.else.i
   %8 = getelementptr i8, ptr %node.tr.i, i64 16
   %self.val7.i.i.i = load i64, ptr %8, align 8
   %cmp8.i.i.i = icmp sgt i64 %self.val7.i.i.i, 0
-  br i1 %cmp8.i.i.i, label %for.body.i.i.i, label %return
+  br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %return
 
-for.body.i.i.i:                                   ; preds = %if.else6.i, %for.inc.i.i.i
-  %i.09.i.i.i = phi i64 [ %add.i.i.i, %for.inc.i.i.i ], [ 0, %if.else6.i ]
-  %arrayidx.i.i.i = getelementptr %struct.PyHamtNode_Collision, ptr %node.tr.i, i64 0, i32 2, i64 %i.09.i.i.i
+for.body.lr.ph.i.i.i:                             ; preds = %if.else6.i
+  %c_array.i.i.i = getelementptr inbounds i8, ptr %node.tr.i, i64 32
+  br label %for.body.i.i.i
+
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
+  %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.inc.i.i.i ]
+  %arrayidx.i.i.i = getelementptr [1 x ptr], ptr %c_array.i.i.i, i64 0, i64 %i.09.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i, align 8
   %call2.i.i.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %key, ptr noundef %9, i32 noundef 2) #11
   %cmp3.i.i.i = icmp slt i32 %call2.i.i.i, 0
@@ -2718,7 +2763,7 @@ for.inc.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.end.i25.i:                                     ; preds = %if.end.i.i.i
   %add.i26.i = or disjoint i64 %i.09.i.i.i, 1
-  %arrayidx.i27.i = getelementptr %struct.PyHamtNode_Collision, ptr %node.tr.i, i64 0, i32 2, i64 %add.i26.i
+  %arrayidx.i27.i = getelementptr [1 x ptr], ptr %c_array.i.i.i, i64 0, i64 %add.i26.i
   %10 = load ptr, ptr %arrayidx.i27.i, align 8
   br label %return.sink.split.i
 
@@ -2743,15 +2788,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %h_count = getelementptr inbounds %struct.PyHamtObject, ptr %v, i64 0, i32 3
+  %h_count = getelementptr inbounds i8, ptr %v, i64 32
   %0 = load i64, ptr %h_count, align 8
-  %h_count1 = getelementptr inbounds %struct.PyHamtObject, ptr %w, i64 0, i32 3
+  %h_count1 = getelementptr inbounds i8, ptr %w, i64 32
   %1 = load i64, ptr %h_count1, align 8
   %cmp2.not = icmp eq i64 %0, %1
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %v, i64 0, i32 1
+  %h_root = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load ptr, ptr %h_root, align 8
   %3 = getelementptr inbounds i8, ptr %iter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %3, i8 0, i64 121, i1 false)
@@ -2796,13 +2841,17 @@ return:                                           ; preds = %sw.bb9, %if.end14, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @hamt_iterator_next(ptr nocapture noundef %iter, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %val) unnamed_addr #2 {
 entry:
-  %i_level = getelementptr inbounds %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 2
+  %i_level = getelementptr inbounds i8, ptr %iter, i64 128
   %0 = load i8, ptr %i_level, align 8
-  %cmp47 = icmp slt i8 %0, 0
-  br i1 %cmp47, label %return, label %if.end
+  %cmp48 = icmp slt i8 %0, 0
+  br i1 %cmp48, label %return, label %if.end.lr.ph
 
-if.end:                                           ; preds = %entry, %tailrecurse.backedge
-  %1 = phi i8 [ %6, %tailrecurse.backedge ], [ %0, %entry ]
+if.end.lr.ph:                                     ; preds = %entry
+  %i_pos.i31 = getelementptr inbounds i8, ptr %iter, i64 64
+  br label %if.end
+
+if.end:                                           ; preds = %if.end.lr.ph, %tailrecurse.backedge
+  %1 = phi i8 [ %0, %if.end.lr.ph ], [ %6, %tailrecurse.backedge ]
   %idxprom = zext nneg i8 %1 to i64
   %arrayidx = getelementptr [8 x ptr], ptr %iter, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
@@ -2812,7 +2861,7 @@ if.end:                                           ; preds = %entry, %tailrecurse
   br i1 %cmp.i.not, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %arrayidx2.i = getelementptr %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 1, i64 %idxprom
+  %arrayidx2.i = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx2.i, align 8
   %add.i = add i64 %4, 1
   %5 = getelementptr i8, ptr %2, i64 16
@@ -2825,13 +2874,14 @@ if.then.i:                                        ; preds = %if.then3
   store i8 %dec.i, ptr %i_level, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %if.then.i, %if.then7.i, %if.then.i24, %if.then7.i21, %for.end.i, %if.then.i35
-  %6 = phi i8 [ %dec.i, %if.then.i ], [ %.pre, %if.then7.i ], [ %dec.i25, %if.then.i24 ], [ %add11.i, %if.then7.i21 ], [ %dec25.i, %for.end.i ], [ %dec.i36, %if.then.i35 ]
+tailrecurse.backedge:                             ; preds = %if.then.i, %if.then7.i, %if.then.i25, %if.then7.i22, %for.end.i, %if.then.i37
+  %6 = phi i8 [ %dec.i, %if.then.i ], [ %.pre, %if.then7.i ], [ %dec.i26, %if.then.i25 ], [ %add11.i, %if.then7.i22 ], [ %dec25.i, %for.end.i ], [ %dec.i38, %if.then.i37 ]
   %cmp = icmp slt i8 %6, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end.i:                                         ; preds = %if.then3
-  %arrayidx5.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %2, i64 0, i32 2, i64 %4
+  %b_array.i = getelementptr inbounds i8, ptr %2, i64 32
+  %arrayidx5.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %4
   %7 = load ptr, ptr %arrayidx5.i, align 8
   %cmp6.i = icmp eq ptr %7, null
   br i1 %cmp6.i, label %if.then7.i, label %if.end25.i
@@ -2842,9 +2892,9 @@ if.then7.i:                                       ; preds = %if.end.i
   %add12.i = add nuw i8 %1, 1
   store i8 %add12.i, ptr %i_level, align 8
   %idxprom16.i = sext i8 %add12.i to i64
-  %arrayidx17.i = getelementptr %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 1, i64 %idxprom16.i
+  %arrayidx17.i = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom16.i
   store i64 0, ptr %arrayidx17.i, align 8
-  %arrayidx20.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %2, i64 0, i32 2, i64 %add.i
+  %arrayidx20.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %add.i
   %8 = load ptr, ptr %arrayidx20.i, align 8
   %arrayidx23.i = getelementptr [8 x ptr], ptr %iter, i64 0, i64 %idxprom16.i
   store ptr %8, ptr %arrayidx23.i, align 8
@@ -2853,47 +2903,51 @@ if.then7.i:                                       ; preds = %if.end.i
 
 if.end25.i:                                       ; preds = %if.end.i
   store ptr %7, ptr %key, align 8
-  %arrayidx30.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %2, i64 0, i32 2, i64 %add.i
+  %arrayidx30.i = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %add.i
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.end
   %cmp.i12.not = icmp eq ptr %.val, @_PyHamt_ArrayNode_Type
-  %arrayidx2.i17 = getelementptr %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 1, i64 %idxprom
-  %9 = load i64, ptr %arrayidx2.i17, align 8
+  %arrayidx2.i18 = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom
+  %9 = load i64, ptr %arrayidx2.i18, align 8
   br i1 %cmp.i12.not, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else
-  %cmp.i18 = icmp sgt i64 %9, 31
-  br i1 %cmp.i18, label %if.then.i24, label %for.body.i
+  %cmp.i19 = icmp sgt i64 %9, 31
+  br i1 %cmp.i19, label %if.then.i25, label %for.cond.i.preheader
 
-if.then.i24:                                      ; preds = %if.then7
-  %dec.i25 = add nsw i8 %1, -1
-  store i8 %dec.i25, ptr %i_level, align 8
+for.cond.i.preheader:                             ; preds = %if.then7
+  %a_array.i = getelementptr inbounds i8, ptr %2, i64 16
+  br label %for.body.i
+
+if.then.i25:                                      ; preds = %if.then7
+  %dec.i26 = add nsw i8 %1, -1
+  store i8 %dec.i26, ptr %i_level, align 8
   br label %tailrecurse.backedge
 
-for.body.i:                                       ; preds = %if.then7, %for.inc.i
-  %i.0.i46 = phi i64 [ %inc.i, %for.inc.i ], [ %9, %if.then7 ]
-  %arrayidx5.i20 = getelementptr %struct.PyHamtNode_Array, ptr %2, i64 0, i32 1, i64 %i.0.i46
-  %10 = load ptr, ptr %arrayidx5.i20, align 8
+for.body.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
+  %i.0.i47 = phi i64 [ %9, %for.cond.i.preheader ], [ %inc.i, %for.inc.i ]
+  %arrayidx5.i21 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0.i47
+  %10 = load ptr, ptr %arrayidx5.i21, align 8
   %cmp6.not.i = icmp eq ptr %10, null
-  br i1 %cmp6.not.i, label %for.inc.i, label %if.then7.i21
+  br i1 %cmp6.not.i, label %for.inc.i, label %if.then7.i22
 
-if.then7.i21:                                     ; preds = %for.body.i
-  %arrayidx5.i20.le = getelementptr %struct.PyHamtNode_Array, ptr %2, i64 0, i32 1, i64 %i.0.i46
-  %add.i22 = add nsw i64 %i.0.i46, 1
-  store i64 %add.i22, ptr %arrayidx2.i17, align 8
+if.then7.i22:                                     ; preds = %for.body.i
+  %arrayidx5.i21.le = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0.i47
+  %add.i23 = add nsw i64 %i.0.i47, 1
+  store i64 %add.i23, ptr %arrayidx2.i18, align 8
   %add11.i = add nuw i8 %1, 1
   %idxprom14.i = sext i8 %add11.i to i64
-  %arrayidx15.i = getelementptr %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 1, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom14.i
   store i64 0, ptr %arrayidx15.i, align 8
-  %11 = load ptr, ptr %arrayidx5.i20.le, align 8
-  %arrayidx20.i23 = getelementptr [8 x ptr], ptr %iter, i64 0, i64 %idxprom14.i
-  store ptr %11, ptr %arrayidx20.i23, align 8
+  %11 = load ptr, ptr %arrayidx5.i21.le, align 8
+  %arrayidx20.i24 = getelementptr [8 x ptr], ptr %iter, i64 0, i64 %idxprom14.i
+  store ptr %11, ptr %arrayidx20.i24, align 8
   store i8 %add11.i, ptr %i_level, align 8
   br label %tailrecurse.backedge
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add i64 %i.0.i46, 1
+  %inc.i = add i64 %i.0.i47, 1
   %exitcond.not = icmp eq i64 %inc.i, 32
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !21
 
@@ -2903,33 +2957,34 @@ for.end.i:                                        ; preds = %for.inc.i
   br label %tailrecurse.backedge
 
 if.else9:                                         ; preds = %if.else
-  %add.i31 = add i64 %9, 1
+  %add.i33 = add i64 %9, 1
   %12 = getelementptr i8, ptr %2, i64 16
-  %.val.i32 = load i64, ptr %12, align 8
-  %cmp.not.i34 = icmp slt i64 %add.i31, %.val.i32
-  br i1 %cmp.not.i34, label %if.end.i39, label %if.then.i35
+  %.val.i34 = load i64, ptr %12, align 8
+  %cmp.not.i36 = icmp slt i64 %add.i33, %.val.i34
+  br i1 %cmp.not.i36, label %if.end.i41, label %if.then.i37
 
-if.then.i35:                                      ; preds = %if.else9
-  %dec.i36 = add nsw i8 %1, -1
-  store i8 %dec.i36, ptr %i_level, align 8
+if.then.i37:                                      ; preds = %if.else9
+  %dec.i38 = add nsw i8 %1, -1
+  store i8 %dec.i38, ptr %i_level, align 8
   br label %tailrecurse.backedge
 
-if.end.i39:                                       ; preds = %if.else9
-  %arrayidx2.i30.le = getelementptr %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 1, i64 %idxprom
-  %arrayidx5.i40 = getelementptr %struct.PyHamtNode_Collision, ptr %2, i64 0, i32 2, i64 %9
-  %13 = load ptr, ptr %arrayidx5.i40, align 8
+if.end.i41:                                       ; preds = %if.else9
+  %arrayidx2.i32.le = getelementptr [8 x i64], ptr %i_pos.i31, i64 0, i64 %idxprom
+  %c_array.i = getelementptr inbounds i8, ptr %2, i64 32
+  %arrayidx5.i42 = getelementptr [1 x ptr], ptr %c_array.i, i64 0, i64 %9
+  %13 = load ptr, ptr %arrayidx5.i42, align 8
   store ptr %13, ptr %key, align 8
-  %arrayidx8.i = getelementptr %struct.PyHamtNode_Collision, ptr %2, i64 0, i32 2, i64 %add.i31
+  %arrayidx8.i = getelementptr [1 x ptr], ptr %c_array.i, i64 0, i64 %add.i33
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end25.i, %if.end.i39
-  %arrayidx8.i.sink = phi ptr [ %arrayidx8.i, %if.end.i39 ], [ %arrayidx30.i, %if.end25.i ]
-  %.lcssa.sink = phi i64 [ %9, %if.end.i39 ], [ %4, %if.end25.i ]
-  %arrayidx2.i30.le.sink = phi ptr [ %arrayidx2.i30.le, %if.end.i39 ], [ %arrayidx2.i, %if.end25.i ]
+return.sink.split:                                ; preds = %if.end25.i, %if.end.i41
+  %arrayidx8.i.sink = phi ptr [ %arrayidx8.i, %if.end.i41 ], [ %arrayidx30.i, %if.end25.i ]
+  %.lcssa.sink = phi i64 [ %9, %if.end.i41 ], [ %4, %if.end25.i ]
+  %arrayidx2.i32.le.sink = phi ptr [ %arrayidx2.i32.le, %if.end.i41 ], [ %arrayidx2.i, %if.end25.i ]
   %14 = load ptr, ptr %arrayidx8.i.sink, align 8
   store ptr %14, ptr %val, align 8
   %add9.i = add i64 %.lcssa.sink, 2
-  store i64 %add9.i, ptr %arrayidx2.i30.le.sink, align 8
+  store i64 %add9.i, ptr %arrayidx2.i32.le.sink, align 8
   br label %return
 
 return:                                           ; preds = %tailrecurse.backedge, %return.sink.split, %entry
@@ -2942,7 +2997,7 @@ declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_PyHamt_Len(ptr nocapture noundef readonly %o) local_unnamed_addr #4 {
 entry:
-  %h_count = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 3
+  %h_count = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i64, ptr %h_count, align 8
   ret i64 %0
 }
@@ -2951,7 +3006,7 @@ entry:
 define internal void @hamt_baseiter_tp_dealloc(ptr noundef %it) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %it) #11
-  %hi_obj.i = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 1
+  %hi_obj.i = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %hamt_baseiter_tp_clear.exit, label %if.then.i
@@ -2983,7 +3038,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_baseiter_tp_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %hi_obj = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 1
+  %hi_obj = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3004,7 +3059,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_baseiter_tp_clear(ptr nocapture noundef %it) #0 {
 entry:
-  %hi_obj = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 1
+  %hi_obj = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -3037,7 +3092,7 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr nocapture noundef %it) #0 {
 entry:
   %key = alloca ptr, align 8
   %val = alloca ptr, align 8
-  %hi_iter = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 2
+  %hi_iter = getelementptr inbounds i8, ptr %it, i64 24
   %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %hi_iter, ptr noundef nonnull %key, ptr noundef nonnull %val), !range !19
   %trunc.not.not = icmp eq i32 %call, 0
   br i1 %trunc.not.not, label %sw.bb1, label %sw.bb
@@ -3048,7 +3103,7 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %hi_yield = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 3
+  %hi_yield = getelementptr inbounds i8, ptr %it, i64 160
   %1 = load ptr, ptr %hi_yield, align 8
   %2 = load ptr, ptr %key, align 8
   %3 = load ptr, ptr %val, align 8
@@ -3078,14 +3133,14 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i
-  %hi_obj.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 1
+  %hi_obj.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %o, ptr %hi_obj.i, align 8
-  %hi_yield.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 3
+  %hi_yield.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @hamt_iter_yield_items, ptr %hi_yield.i, align 8
-  %hi_iter.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 2
-  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 1
+  %hi_iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %h_root.i = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i, align 8
   br label %hamt_baseiter_new.exit
@@ -3119,14 +3174,14 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i
-  %hi_obj.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 1
+  %hi_obj.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %o, ptr %hi_obj.i, align 8
-  %hi_yield.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 3
+  %hi_yield.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @hamt_iter_yield_keys, ptr %hi_yield.i, align 8
-  %hi_iter.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 2
-  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 1
+  %hi_iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %h_root.i = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i, align 8
   br label %hamt_baseiter_new.exit
@@ -3169,14 +3224,14 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i
-  %hi_obj.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 1
+  %hi_obj.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %o, ptr %hi_obj.i, align 8
-  %hi_yield.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 3
+  %hi_yield.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @hamt_iter_yield_values, ptr %hi_yield.i, align 8
-  %hi_iter.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 2
-  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 1
+  %hi_iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %h_root.i = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i, align 8
   br label %hamt_baseiter_new.exit
@@ -3206,15 +3261,15 @@ define internal void @hamt_tp_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %hamt_empty = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 72, i32 0, i32 2
+  %hamt_empty = getelementptr inbounds i8, ptr %2, i64 416320
   %cmp = icmp eq ptr %hamt_empty, %self
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #11
-  %h_weakreflist = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 2
+  %h_weakreflist = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %h_weakreflist, align 8
   %cmp1.not = icmp eq ptr %3, null
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -3224,7 +3279,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %h_root.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %h_root.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %hamt_tp_clear.exit, label %if.then.i
@@ -3249,7 +3304,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 hamt_tp_clear.exit:                               ; preds = %if.end3, %if.then.i, %if.end.i.i, %if.then1.i.i
   %7 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %7, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %8 = load ptr, ptr %tp_free, align 8
   tail call void %8(ptr noundef nonnull %self) #11
   br label %return
@@ -3263,7 +3318,7 @@ declare i64 @PyObject_HashNotImplemented(ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_tp_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %h_root = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %h_root, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3284,7 +3339,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_tp_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %h_root = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %h_root, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -3364,14 +3419,14 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
-  %hi_obj.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 1
+  %hi_obj.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %self, ptr %hi_obj.i.i, align 8
-  %hi_yield.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 3
+  %hi_yield.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store ptr @hamt_iter_yield_keys, ptr %hi_yield.i.i, align 8
-  %hi_iter.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2
-  %h_root.i.i = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %hi_iter.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterKeys.exit
@@ -3385,9 +3440,9 @@ define internal nonnull ptr @hamt_tp_new(ptr nocapture readnone %type, ptr nocap
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %hamt_empty.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 72, i32 0, i32 2
+  %hamt_empty.i = getelementptr inbounds i8, ptr %2, i64 416320
   %3 = load i32, ptr %hamt_empty.i, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
@@ -3417,11 +3472,12 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.then, %entry
   %_tstate.0 = phi ptr [ %call1, %if.then ], [ null, %entry ]
+  %a_array = getelementptr inbounds i8, ptr %self, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end5, %Py_XDECREF.exit
   %i.010 = phi i64 [ 0, %if.end5 ], [ %inc, %Py_XDECREF.exit ]
-  %arrayidx = getelementptr %struct.PyHamtNode_Array, ptr %self, i64 0, i32 1, i64 %i.010
+  %arrayidx = getelementptr [32 x ptr], ptr %a_array, i64 0, i64 %i.010
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3450,7 +3506,7 @@ Py_XDECREF.exit:                                  ; preds = %for.body, %if.then.
 for.end:                                          ; preds = %Py_XDECREF.exit
   %3 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %3, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
   tail call void %4(ptr noundef nonnull %self) #11
   %tobool7.not = icmp eq ptr %_tstate.0, null
@@ -3467,11 +3523,12 @@ do.end:                                           ; preds = %for.end, %if.then8,
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_node_array_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
+  %a_array = getelementptr inbounds i8, ptr %self, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %entry, %for.inc
   %i.06 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr %struct.PyHamtNode_Array, ptr %self, i64 0, i32 1, i64 %i.06
+  %arrayidx = getelementptr [32 x ptr], ptr %a_array, i64 0, i64 %i.06
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -3516,12 +3573,16 @@ if.then3:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.then3, %if.end
   %_tstate.0 = phi ptr [ %call4, %if.then3 ], [ null, %if.end ]
   %cmp10 = icmp sgt i64 %self.val12, 0
-  br i1 %cmp10, label %while.body, label %if.end13
+  br i1 %cmp10, label %while.cond.preheader, label %if.end13
 
-while.body:                                       ; preds = %if.end9, %Py_XDECREF.exit
-  %i.014 = phi i64 [ %dec, %Py_XDECREF.exit ], [ %self.val12, %if.end9 ]
+while.cond.preheader:                             ; preds = %if.end9
+  %b_array = getelementptr inbounds i8, ptr %self, i64 32
+  br label %while.body
+
+while.body:                                       ; preds = %while.cond.preheader, %Py_XDECREF.exit
+  %i.014 = phi i64 [ %self.val12, %while.cond.preheader ], [ %dec, %Py_XDECREF.exit ]
   %dec = add nsw i64 %i.014, -1
-  %arrayidx = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %dec
+  %arrayidx = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %dec
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3549,7 +3610,7 @@ Py_XDECREF.exit:                                  ; preds = %while.body, %if.the
 if.end13:                                         ; preds = %Py_XDECREF.exit, %if.end9
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #11
   %tobool15.not = icmp eq ptr %_tstate.0, null
@@ -3570,11 +3631,15 @@ entry:
   %self.val = load i64, ptr %0, align 8
   %dec6 = add i64 %self.val, -1
   %cmp7 = icmp sgt i64 %dec6, -1
-  br i1 %cmp7, label %do.body, label %return
+  br i1 %cmp7, label %do.body.lr.ph, label %return
 
-do.body:                                          ; preds = %entry, %do.end
-  %dec8 = phi i64 [ %dec, %do.end ], [ %dec6, %entry ]
-  %arrayidx = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %dec8
+do.body.lr.ph:                                    ; preds = %entry
+  %b_array = getelementptr inbounds i8, ptr %self, i64 32
+  br label %do.body
+
+do.body:                                          ; preds = %do.body.lr.ph, %do.end
+  %dec8 = phi i64 [ %dec6, %do.body.lr.ph ], [ %dec, %do.end ]
+  %arrayidx = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %dec8
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3613,12 +3678,16 @@ if.then:                                          ; preds = %entry
 if.end6:                                          ; preds = %if.then, %entry
   %_tstate.0 = phi ptr [ %call2, %if.then ], [ null, %entry ]
   %cmp = icmp sgt i64 %self.val11, 0
-  br i1 %cmp, label %while.body, label %if.end9
+  br i1 %cmp, label %while.cond.preheader, label %if.end9
 
-while.body:                                       ; preds = %if.end6, %Py_XDECREF.exit
-  %len.012 = phi i64 [ %dec, %Py_XDECREF.exit ], [ %self.val11, %if.end6 ]
+while.cond.preheader:                             ; preds = %if.end6
+  %c_array = getelementptr inbounds i8, ptr %self, i64 32
+  br label %while.body
+
+while.body:                                       ; preds = %while.cond.preheader, %Py_XDECREF.exit
+  %len.012 = phi i64 [ %self.val11, %while.cond.preheader ], [ %dec, %Py_XDECREF.exit ]
   %dec = add nsw i64 %len.012, -1
-  %arrayidx = getelementptr %struct.PyHamtNode_Collision, ptr %self, i64 0, i32 2, i64 %dec
+  %arrayidx = getelementptr [1 x ptr], ptr %c_array, i64 0, i64 %dec
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3646,7 +3715,7 @@ Py_XDECREF.exit:                                  ; preds = %while.body, %if.the
 if.end9:                                          ; preds = %Py_XDECREF.exit, %if.end6
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #11
   %tobool11.not = icmp eq ptr %_tstate.0, null
@@ -3667,11 +3736,15 @@ entry:
   %self.val = load i64, ptr %0, align 8
   %dec6 = add i64 %self.val, -1
   %cmp7 = icmp sgt i64 %dec6, -1
-  br i1 %cmp7, label %do.body, label %return
+  br i1 %cmp7, label %do.body.lr.ph, label %return
 
-do.body:                                          ; preds = %entry, %do.end
-  %dec8 = phi i64 [ %dec, %do.end ], [ %dec6, %entry ]
-  %arrayidx = getelementptr %struct.PyHamtNode_Collision, ptr %self, i64 0, i32 2, i64 %dec8
+do.body.lr.ph:                                    ; preds = %entry
+  %c_array = getelementptr inbounds i8, ptr %self, i64 32
+  br label %do.body
+
+do.body:                                          ; preds = %do.body.lr.ph, %do.end
+  %dec8 = phi i64 [ %dec6, %do.body.lr.ph ], [ %dec, %do.end ]
+  %arrayidx = getelementptr [1 x ptr], ptr %c_array, i64 0, i64 %dec8
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3700,7 +3773,7 @@ entry:
   %shr.i.i = lshr i32 %hash, %shift
   %and.i.i = and i32 %shr.i.i, 31
   %shl.i = shl nuw i32 1, %and.i.i
-  %b_bitmap = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 1
+  %b_bitmap = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %b_bitmap, align 8
   %sub.i = add i32 %shl.i, -1
   %and.i = and i32 %0, %sub.i
@@ -3712,11 +3785,12 @@ entry:
 if.then:                                          ; preds = %entry
   %mul = shl nuw nsw i32 %1, 1
   %add = or disjoint i32 %mul, 1
+  %b_array = getelementptr inbounds i8, ptr %self, i64 32
   %idxprom = zext nneg i32 %mul to i64
-  %arrayidx = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %idxprom4 = zext nneg i32 %add to i64
-  %arrayidx5 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %idxprom4
+  %arrayidx5 = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %idxprom4
   %3 = load ptr, ptr %arrayidx5, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then6, label %if.end22
@@ -3769,28 +3843,28 @@ if.end.i.i127:                                    ; preds = %if.end14
   br i1 %cmp1.i.i, label %return, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i127
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %node.val.i, ptr %ob_size.i.i.i, align 8
   %cmp411.i.i = icmp sgt i64 %node.val.i, 0
-  br i1 %cmp411.i.i, label %for.body.preheader.i.i, label %hamt_node_bitmap_new.exit.i
+  br i1 %cmp411.i.i, label %for.body.lr.ph.i.i, label %hamt_node_bitmap_new.exit.i
 
-for.body.preheader.i.i:                           ; preds = %if.end3.i.i
-  %scevgep.i.i = getelementptr i8, ptr %call.i.i, i64 32
+for.body.lr.ph.i.i:                               ; preds = %if.end3.i.i
+  %b_array.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %8 = shl nuw i64 %node.val.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i, i8 0, i64 %8, i1 false)
   br label %hamt_node_bitmap_new.exit.i
 
-hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.preheader.i.i, %if.end3.i.i
-  %b_bitmap.i.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i.i, i64 0, i32 1
+hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.lr.ph.i.i, %if.end3.i.i
+  %b_bitmap.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i32 0, ptr %b_bitmap.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -16
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %10 = load ptr, ptr %9, align 8
-  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %10, i64 0, i32 2
+  %interp.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %interp.i.i.i.i, align 8
-  %generation03.i.i.i = getelementptr inbounds %struct._is, ptr %11, i64 0, i32 13, i32 5
+  %generation03.i.i.i = getelementptr inbounds i8, ptr %11, i64 1096
   %12 = load ptr, ptr %generation03.i.i.i, align 8
-  %_gc_prev.i.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %12, i64 0, i32 1
+  %_gc_prev.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %_gc_prev.i.i.i, align 8
   %14 = inttoptr i64 %13 to ptr
   %15 = ptrtoint ptr %add.ptr.i.i.i.i to i64
@@ -3805,11 +3879,15 @@ hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.preheader.
   store i64 %15, ptr %_gc_prev.i.i.i, align 8
   %node.val1013.pre.i = load i64, ptr %7, align 8
   %18 = icmp sgt i64 %node.val1013.pre.i, 0
-  br i1 %18, label %for.body.i, label %do.body
+  br i1 %18, label %for.body.lr.ph.i, label %do.body
 
-for.body.i:                                       ; preds = %hamt_node_bitmap_new.exit.i, %_Py_XNewRef.exit.i
-  %i.015.i = phi i64 [ %inc.i, %_Py_XNewRef.exit.i ], [ 0, %hamt_node_bitmap_new.exit.i ]
-  %arrayidx.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %i.015.i
+for.body.lr.ph.i:                                 ; preds = %hamt_node_bitmap_new.exit.i
+  %b_array5.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %_Py_XNewRef.exit.i, %for.body.lr.ph.i
+  %i.015.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_Py_XNewRef.exit.i ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %i.015.i
   %19 = load ptr, ptr %arrayidx.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %_Py_XNewRef.exit.i, label %if.then.i.i.i
@@ -3825,7 +3903,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %for.body.i
-  %arrayidx6.i = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i.i, i64 0, i32 2, i64 %i.015.i
+  %arrayidx6.i = getelementptr [1 x ptr], ptr %b_array5.i, i64 0, i64 %i.015.i
   store ptr %19, ptr %arrayidx6.i, align 8
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %node.val10.i = load i64, ptr %7, align 8
@@ -3835,9 +3913,10 @@ _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if
 do.body:                                          ; preds = %_Py_XNewRef.exit.i, %hamt_node_bitmap_new.exit.i, %if.end14
   %retval.0.i19.i = phi ptr [ %call.i.i, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end14 ], [ %call.i.i, %_Py_XNewRef.exit.i ]
   %21 = load i32, ptr %b_bitmap, align 8
-  %b_bitmap7.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i, i64 0, i32 1
+  %b_bitmap7.i = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 24
   store i32 %21, ptr %b_bitmap7.i, align 8
-  %arrayidx21 = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i, i64 0, i32 2, i64 %idxprom4
+  %b_array19 = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 32
+  %arrayidx21 = getelementptr [1 x ptr], ptr %b_array19, i64 0, i64 %idxprom4
   %22 = load ptr, ptr %arrayidx21, align 8
   store ptr %call8, ptr %arrayidx21, align 8
   %23 = load i64, ptr %22, align 8
@@ -3890,28 +3969,28 @@ if.end.i.i134:                                    ; preds = %if.end32
   br i1 %cmp1.i.i136, label %return, label %if.end3.i.i137
 
 if.end3.i.i137:                                   ; preds = %if.end.i.i134
-  %ob_size.i.i.i138 = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i135, i64 0, i32 1
+  %ob_size.i.i.i138 = getelementptr inbounds i8, ptr %call.i.i135, i64 16
   store i64 %node.val.i132, ptr %ob_size.i.i.i138, align 8
   %cmp411.i.i139 = icmp sgt i64 %node.val.i132, 0
-  br i1 %cmp411.i.i139, label %for.body.preheader.i.i168, label %hamt_node_bitmap_new.exit.i140
+  br i1 %cmp411.i.i139, label %for.body.lr.ph.i.i171, label %hamt_node_bitmap_new.exit.i140
 
-for.body.preheader.i.i168:                        ; preds = %if.end3.i.i137
-  %scevgep.i.i169 = getelementptr i8, ptr %call.i.i135, i64 32
+for.body.lr.ph.i.i171:                            ; preds = %if.end3.i.i137
+  %b_array.i.i172 = getelementptr inbounds i8, ptr %call.i.i135, i64 32
   %27 = shl nuw i64 %node.val.i132, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i169, i8 0, i64 %27, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i172, i8 0, i64 %27, i1 false)
   br label %hamt_node_bitmap_new.exit.i140
 
-hamt_node_bitmap_new.exit.i140:                   ; preds = %for.body.preheader.i.i168, %if.end3.i.i137
-  %b_bitmap.i.i141 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i.i135, i64 0, i32 1
+hamt_node_bitmap_new.exit.i140:                   ; preds = %for.body.lr.ph.i.i171, %if.end3.i.i137
+  %b_bitmap.i.i141 = getelementptr inbounds i8, ptr %call.i.i135, i64 24
   store i32 0, ptr %b_bitmap.i.i141, align 8
   %add.ptr.i.i.i.i142 = getelementptr i8, ptr %call.i.i135, i64 -16
   %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %29 = load ptr, ptr %28, align 8
-  %interp.i.i.i.i143 = getelementptr inbounds %struct._ts, ptr %29, i64 0, i32 2
+  %interp.i.i.i.i143 = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load ptr, ptr %interp.i.i.i.i143, align 8
-  %generation03.i.i.i144 = getelementptr inbounds %struct._is, ptr %30, i64 0, i32 13, i32 5
+  %generation03.i.i.i144 = getelementptr inbounds i8, ptr %30, i64 1096
   %31 = load ptr, ptr %generation03.i.i.i144, align 8
-  %_gc_prev.i.i.i145 = getelementptr inbounds %struct.PyGC_Head, ptr %31, i64 0, i32 1
+  %_gc_prev.i.i.i145 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load i64, ptr %_gc_prev.i.i.i145, align 8
   %33 = inttoptr i64 %32 to ptr
   %34 = ptrtoint ptr %add.ptr.i.i.i.i142 to i64
@@ -3926,57 +4005,62 @@ hamt_node_bitmap_new.exit.i140:                   ; preds = %for.body.preheader.
   store i64 %34, ptr %_gc_prev.i.i.i145, align 8
   %node.val1013.pre.i149 = load i64, ptr %26, align 8
   %37 = icmp sgt i64 %node.val1013.pre.i149, 0
-  br i1 %37, label %for.body.i155, label %do.body38
+  br i1 %37, label %for.body.lr.ph.i155, label %do.body38
 
-for.body.i155:                                    ; preds = %hamt_node_bitmap_new.exit.i140, %_Py_XNewRef.exit.i163
-  %i.015.i156 = phi i64 [ %inc.i165, %_Py_XNewRef.exit.i163 ], [ 0, %hamt_node_bitmap_new.exit.i140 ]
-  %arrayidx.i157 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %i.015.i156
-  %38 = load ptr, ptr %arrayidx.i157, align 8
-  %cmp.not.i.i.i158 = icmp eq ptr %38, null
-  br i1 %cmp.not.i.i.i158, label %_Py_XNewRef.exit.i163, label %if.then.i.i.i159
+for.body.lr.ph.i155:                              ; preds = %hamt_node_bitmap_new.exit.i140
+  %b_array5.i157 = getelementptr inbounds i8, ptr %call.i.i135, i64 32
+  br label %for.body.i158
 
-if.then.i.i.i159:                                 ; preds = %for.body.i155
+for.body.i158:                                    ; preds = %_Py_XNewRef.exit.i166, %for.body.lr.ph.i155
+  %i.015.i159 = phi i64 [ 0, %for.body.lr.ph.i155 ], [ %inc.i168, %_Py_XNewRef.exit.i166 ]
+  %arrayidx.i160 = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %i.015.i159
+  %38 = load ptr, ptr %arrayidx.i160, align 8
+  %cmp.not.i.i.i161 = icmp eq ptr %38, null
+  br i1 %cmp.not.i.i.i161, label %_Py_XNewRef.exit.i166, label %if.then.i.i.i162
+
+if.then.i.i.i162:                                 ; preds = %for.body.i158
   %39 = load i32, ptr %38, align 8
-  %add.i.i.i.i160 = add i32 %39, 1
-  %cmp.i.i.i.i161 = icmp eq i32 %add.i.i.i.i160, 0
-  br i1 %cmp.i.i.i.i161, label %_Py_XNewRef.exit.i163, label %if.end.i.i.i.i162
+  %add.i.i.i.i163 = add i32 %39, 1
+  %cmp.i.i.i.i164 = icmp eq i32 %add.i.i.i.i163, 0
+  br i1 %cmp.i.i.i.i164, label %_Py_XNewRef.exit.i166, label %if.end.i.i.i.i165
 
-if.end.i.i.i.i162:                                ; preds = %if.then.i.i.i159
-  store i32 %add.i.i.i.i160, ptr %38, align 8
-  br label %_Py_XNewRef.exit.i163
+if.end.i.i.i.i165:                                ; preds = %if.then.i.i.i162
+  store i32 %add.i.i.i.i163, ptr %38, align 8
+  br label %_Py_XNewRef.exit.i166
 
-_Py_XNewRef.exit.i163:                            ; preds = %if.end.i.i.i.i162, %if.then.i.i.i159, %for.body.i155
-  %arrayidx6.i164 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i.i135, i64 0, i32 2, i64 %i.015.i156
-  store ptr %38, ptr %arrayidx6.i164, align 8
-  %inc.i165 = add nuw nsw i64 %i.015.i156, 1
-  %node.val10.i166 = load i64, ptr %26, align 8
-  %cmp3.i167 = icmp slt i64 %inc.i165, %node.val10.i166
-  br i1 %cmp3.i167, label %for.body.i155, label %do.body38, !llvm.loop !12
+_Py_XNewRef.exit.i166:                            ; preds = %if.end.i.i.i.i165, %if.then.i.i.i162, %for.body.i158
+  %arrayidx6.i167 = getelementptr [1 x ptr], ptr %b_array5.i157, i64 0, i64 %i.015.i159
+  store ptr %38, ptr %arrayidx6.i167, align 8
+  %inc.i168 = add nuw nsw i64 %i.015.i159, 1
+  %node.val10.i169 = load i64, ptr %26, align 8
+  %cmp3.i170 = icmp slt i64 %inc.i168, %node.val10.i169
+  br i1 %cmp3.i170, label %for.body.i158, label %do.body38, !llvm.loop !12
 
-do.body38:                                        ; preds = %_Py_XNewRef.exit.i163, %hamt_node_bitmap_new.exit.i140, %if.end32
-  %retval.0.i19.i151 = phi ptr [ %call.i.i135, %hamt_node_bitmap_new.exit.i140 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end32 ], [ %call.i.i135, %_Py_XNewRef.exit.i163 ]
+do.body38:                                        ; preds = %_Py_XNewRef.exit.i166, %hamt_node_bitmap_new.exit.i140, %if.end32
+  %retval.0.i19.i151 = phi ptr [ %call.i.i135, %hamt_node_bitmap_new.exit.i140 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end32 ], [ %call.i.i135, %_Py_XNewRef.exit.i166 ]
   %40 = load i32, ptr %b_bitmap, align 8
-  %b_bitmap7.i153 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i151, i64 0, i32 1
+  %b_bitmap7.i153 = getelementptr inbounds i8, ptr %retval.0.i19.i151, i64 24
   store i32 %40, ptr %b_bitmap7.i153, align 8
-  %arrayidx42 = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i151, i64 0, i32 2, i64 %idxprom4
+  %b_array40 = getelementptr inbounds i8, ptr %retval.0.i19.i151, i64 32
+  %arrayidx42 = getelementptr [1 x ptr], ptr %b_array40, i64 0, i64 %idxprom4
   %41 = load ptr, ptr %arrayidx42, align 8
   %42 = load i32, ptr %val, align 8
-  %add.i.i171 = add i32 %42, 1
-  %cmp.i.i172 = icmp eq i32 %add.i.i171, 0
-  br i1 %cmp.i.i172, label %_Py_NewRef.exit174, label %if.end.i.i173
+  %add.i.i174 = add i32 %42, 1
+  %cmp.i.i175 = icmp eq i32 %add.i.i174, 0
+  br i1 %cmp.i.i175, label %_Py_NewRef.exit177, label %if.end.i.i176
 
-if.end.i.i173:                                    ; preds = %do.body38
-  store i32 %add.i.i171, ptr %val, align 8
-  br label %_Py_NewRef.exit174
+if.end.i.i176:                                    ; preds = %do.body38
+  store i32 %add.i.i174, ptr %val, align 8
+  br label %_Py_NewRef.exit177
 
-_Py_NewRef.exit174:                               ; preds = %do.body38, %if.end.i.i173
+_Py_NewRef.exit177:                               ; preds = %do.body38, %if.end.i.i176
   store ptr %val, ptr %arrayidx42, align 8
   %43 = load i64, ptr %41, align 8
   %44 = and i64 %43, 2147483648
   %cmp.i256.not = icmp eq i64 %44, 0
   br i1 %cmp.i256.not, label %if.end.i224, label %return
 
-if.end.i224:                                      ; preds = %_Py_NewRef.exit174
+if.end.i224:                                      ; preds = %_Py_NewRef.exit177
   %dec.i225 = add i64 %43, -1
   store i64 %dec.i225, ptr %41, align 8
   %cmp.i226 = icmp eq i64 %dec.i225, 0
@@ -3989,102 +4073,102 @@ if.then1.i227:                                    ; preds = %if.end.i224
 if.end46:                                         ; preds = %if.end26
   %add48 = add i32 %shift, 5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %added_leaf.i)
-  %call.i308 = tail call i64 @PyObject_Hash(ptr noundef nonnull %2) #11
-  %cmp.i309 = icmp eq i64 %call.i308, -1
-  br i1 %cmp.i309, label %hamt_node_new_bitmap_or_collision.exit.thread, label %hamt_hash.exit316
+  %call.i314 = tail call i64 @PyObject_Hash(ptr noundef nonnull %2) #11
+  %cmp.i315 = icmp eq i64 %call.i314, -1
+  br i1 %cmp.i315, label %hamt_node_new_bitmap_or_collision.exit.thread, label %hamt_hash.exit322
 
-hamt_hash.exit316:                                ; preds = %if.end46
-  %shr.i311 = lshr i64 %call.i308, 32
-  %xor4.i312 = xor i64 %shr.i311, %call.i308
-  %xor.i313 = trunc i64 %xor4.i312 to i32
-  %cond.i314 = tail call i32 @llvm.umin.i32(i32 %xor.i313, i32 -2)
-  %cmp1.i = icmp eq i32 %cond.i314, %hash
+hamt_hash.exit322:                                ; preds = %if.end46
+  %shr.i317 = lshr i64 %call.i314, 32
+  %xor4.i318 = xor i64 %shr.i317, %call.i314
+  %xor.i319 = trunc i64 %xor4.i318 to i32
+  %cond.i320 = tail call i32 @llvm.umin.i32(i32 %xor.i319, i32 -2)
+  %cmp1.i = icmp eq i32 %cond.i320, %hash
   br i1 %cmp1.i, label %if.then2.i, label %if.end21.i
 
-if.then2.i:                                       ; preds = %hamt_hash.exit316
-  %call.i295 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef 4) #11
-  %cmp.i296 = icmp eq ptr %call.i295, null
-  br i1 %cmp.i296, label %hamt_node_new_bitmap_or_collision.exit.thread, label %if.end6.i
+if.then2.i:                                       ; preds = %hamt_hash.exit322
+  %call.i300 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef 4) #11
+  %cmp.i301 = icmp eq ptr %call.i300, null
+  br i1 %cmp.i301, label %hamt_node_new_bitmap_or_collision.exit.thread, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i
-  %scevgep.i298 = getelementptr i8, ptr %call.i295, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i298, i8 0, i64 32, i1 false)
-  %ob_size.i.i300 = getelementptr inbounds %struct.PyVarObject, ptr %call.i295, i64 0, i32 1
-  store i64 4, ptr %ob_size.i.i300, align 8
-  %c_hash.i = getelementptr inbounds %struct.PyHamtNode_Collision, ptr %call.i295, i64 0, i32 1
+  %c_array.i304 = getelementptr inbounds i8, ptr %call.i300, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c_array.i304, i8 0, i64 32, i1 false)
+  %ob_size.i.i306 = getelementptr inbounds i8, ptr %call.i300, i64 16
+  store i64 4, ptr %ob_size.i.i306, align 8
+  %c_hash.i = getelementptr inbounds i8, ptr %call.i300, i64 24
   store i32 %hash, ptr %c_hash.i, align 8
-  %add.ptr.i.i.i301 = getelementptr i8, ptr %call.i295, i64 -16
+  %add.ptr.i.i.i307 = getelementptr i8, ptr %call.i300, i64 -16
   %45 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %46 = load ptr, ptr %45, align 8
-  %interp.i.i.i302 = getelementptr inbounds %struct._ts, ptr %46, i64 0, i32 2
-  %47 = load ptr, ptr %interp.i.i.i302, align 8
-  %generation03.i.i303 = getelementptr inbounds %struct._is, ptr %47, i64 0, i32 13, i32 5
-  %48 = load ptr, ptr %generation03.i.i303, align 8
-  %_gc_prev.i.i304 = getelementptr inbounds %struct.PyGC_Head, ptr %48, i64 0, i32 1
-  %49 = load i64, ptr %_gc_prev.i.i304, align 8
+  %interp.i.i.i308 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = load ptr, ptr %interp.i.i.i308, align 8
+  %generation03.i.i309 = getelementptr inbounds i8, ptr %47, i64 1096
+  %48 = load ptr, ptr %generation03.i.i309, align 8
+  %_gc_prev.i.i310 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = load i64, ptr %_gc_prev.i.i310, align 8
   %50 = inttoptr i64 %49 to ptr
-  %51 = ptrtoint ptr %add.ptr.i.i.i301 to i64
+  %51 = ptrtoint ptr %add.ptr.i.i.i307 to i64
   store i64 %51, ptr %50, align 8
-  %_gc_prev.i.i.i305 = getelementptr i8, ptr %call.i295, i64 -8
-  %52 = load i64, ptr %_gc_prev.i.i.i305, align 8
-  %and.i.i.i306 = and i64 %52, 3
-  %or.i.i.i307 = or i64 %and.i.i.i306, %49
-  store i64 %or.i.i.i307, ptr %_gc_prev.i.i.i305, align 8
+  %_gc_prev.i.i.i311 = getelementptr i8, ptr %call.i300, i64 -8
+  %52 = load i64, ptr %_gc_prev.i.i.i311, align 8
+  %and.i.i.i312 = and i64 %52, 3
+  %or.i.i.i313 = or i64 %and.i.i.i312, %49
+  store i64 %or.i.i.i313, ptr %_gc_prev.i.i.i311, align 8
   %53 = ptrtoint ptr %48 to i64
-  store i64 %53, ptr %add.ptr.i.i.i301, align 8
-  store i64 %51, ptr %_gc_prev.i.i304, align 8
+  store i64 %53, ptr %add.ptr.i.i.i307, align 8
+  store i64 %51, ptr %_gc_prev.i.i310, align 8
   %54 = load i32, ptr %2, align 8
-  %add.i.i291 = add i32 %54, 1
-  %cmp.i.i292 = icmp eq i32 %add.i.i291, 0
-  br i1 %cmp.i.i292, label %_Py_NewRef.exit294, label %if.end.i.i293
+  %add.i.i296 = add i32 %54, 1
+  %cmp.i.i297 = icmp eq i32 %add.i.i296, 0
+  br i1 %cmp.i.i297, label %_Py_NewRef.exit299, label %if.end.i.i298
 
-if.end.i.i293:                                    ; preds = %if.end6.i
-  store i32 %add.i.i291, ptr %2, align 8
-  br label %_Py_NewRef.exit294
+if.end.i.i298:                                    ; preds = %if.end6.i
+  store i32 %add.i.i296, ptr %2, align 8
+  br label %_Py_NewRef.exit299
 
-_Py_NewRef.exit294:                               ; preds = %if.end6.i, %if.end.i.i293
-  store ptr %2, ptr %scevgep.i298, align 8
+_Py_NewRef.exit299:                               ; preds = %if.end6.i, %if.end.i.i298
+  store ptr %2, ptr %c_array.i304, align 8
   %55 = load i32, ptr %3, align 8
-  %add.i.i287 = add i32 %55, 1
-  %cmp.i.i288 = icmp eq i32 %add.i.i287, 0
-  br i1 %cmp.i.i288, label %_Py_NewRef.exit290, label %if.end.i.i289
+  %add.i.i292 = add i32 %55, 1
+  %cmp.i.i293 = icmp eq i32 %add.i.i292, 0
+  br i1 %cmp.i.i293, label %_Py_NewRef.exit295, label %if.end.i.i294
 
-if.end.i.i289:                                    ; preds = %_Py_NewRef.exit294
-  store i32 %add.i.i287, ptr %3, align 8
-  br label %_Py_NewRef.exit290
+if.end.i.i294:                                    ; preds = %_Py_NewRef.exit299
+  store i32 %add.i.i292, ptr %3, align 8
+  br label %_Py_NewRef.exit295
 
-_Py_NewRef.exit290:                               ; preds = %_Py_NewRef.exit294, %if.end.i.i289
-  %arrayidx10.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i295, i64 1
+_Py_NewRef.exit295:                               ; preds = %_Py_NewRef.exit299, %if.end.i.i294
+  %arrayidx10.i = getelementptr i8, ptr %call.i300, i64 40
   store ptr %3, ptr %arrayidx10.i, align 8
   %56 = load i32, ptr %key, align 8
-  %add.i.i283 = add i32 %56, 1
-  %cmp.i.i284 = icmp eq i32 %add.i.i283, 0
-  br i1 %cmp.i.i284, label %_Py_NewRef.exit286, label %if.end.i.i285
+  %add.i.i288 = add i32 %56, 1
+  %cmp.i.i289 = icmp eq i32 %add.i.i288, 0
+  br i1 %cmp.i.i289, label %_Py_NewRef.exit291, label %if.end.i.i290
 
-if.end.i.i285:                                    ; preds = %_Py_NewRef.exit290
-  store i32 %add.i.i283, ptr %key, align 8
-  br label %_Py_NewRef.exit286
+if.end.i.i290:                                    ; preds = %_Py_NewRef.exit295
+  store i32 %add.i.i288, ptr %key, align 8
+  br label %_Py_NewRef.exit291
 
-_Py_NewRef.exit286:                               ; preds = %_Py_NewRef.exit290, %if.end.i.i285
-  %arrayidx13.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i295, i64 1, i32 0, i32 0, i32 1
+_Py_NewRef.exit291:                               ; preds = %_Py_NewRef.exit295, %if.end.i.i290
+  %arrayidx13.i = getelementptr i8, ptr %call.i300, i64 48
   store ptr %key, ptr %arrayidx13.i, align 8
   %57 = load i32, ptr %val, align 8
-  %add.i.i279 = add i32 %57, 1
-  %cmp.i.i280 = icmp eq i32 %add.i.i279, 0
-  br i1 %cmp.i.i280, label %hamt_node_new_bitmap_or_collision.exit.thread325, label %if.end.i.i281
+  %add.i.i284 = add i32 %57, 1
+  %cmp.i.i285 = icmp eq i32 %add.i.i284, 0
+  br i1 %cmp.i.i285, label %hamt_node_new_bitmap_or_collision.exit.thread331, label %if.end.i.i286
 
-if.end.i.i281:                                    ; preds = %_Py_NewRef.exit286
-  store i32 %add.i.i279, ptr %val, align 8
-  br label %hamt_node_new_bitmap_or_collision.exit.thread325
+if.end.i.i286:                                    ; preds = %_Py_NewRef.exit291
+  store i32 %add.i.i284, ptr %val, align 8
+  br label %hamt_node_new_bitmap_or_collision.exit.thread331
 
-hamt_node_new_bitmap_or_collision.exit.thread325: ; preds = %if.end.i.i281, %_Py_NewRef.exit286
-  %arrayidx16.i = getelementptr %struct.PyHamtNode_Collision, ptr %call.i295, i64 1, i32 0, i32 1
+hamt_node_new_bitmap_or_collision.exit.thread331: ; preds = %if.end.i.i286, %_Py_NewRef.exit291
+  %arrayidx16.i = getelementptr i8, ptr %call.i300, i64 56
   store ptr %val, ptr %arrayidx16.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %added_leaf.i)
   br label %if.end52
 
-if.end21.i:                                       ; preds = %hamt_hash.exit316
-  %call22.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add48, i32 noundef %cond.i314, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %added_leaf.i)
+if.end21.i:                                       ; preds = %hamt_hash.exit322
+  %call22.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add48, i32 noundef %cond.i320, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %added_leaf.i)
   %58 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
   %59 = and i64 %58, 2147483648
   %cmp.i40.not.i = icmp eq i64 %59, 0
@@ -4109,15 +4193,15 @@ if.end25.i:                                       ; preds = %Py_DECREF.exit38.i
   %60 = load i64, ptr %call22.i, align 8
   %61 = and i64 %60, 2147483648
   %cmp.i43.not.i = icmp eq i64 %61, 0
-  br i1 %cmp.i43.not.i, label %if.end.i.i178, label %hamt_node_new_bitmap_or_collision.exit
+  br i1 %cmp.i43.not.i, label %if.end.i.i181, label %hamt_node_new_bitmap_or_collision.exit
 
-if.end.i.i178:                                    ; preds = %if.end25.i
+if.end.i.i181:                                    ; preds = %if.end25.i
   %dec.i.i = add i64 %60, -1
   store i64 %dec.i.i, ptr %call22.i, align 8
-  %cmp.i.i179 = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i179, label %if.then1.i.i, label %hamt_node_new_bitmap_or_collision.exit
+  %cmp.i.i182 = icmp eq i64 %dec.i.i, 0
+  br i1 %cmp.i.i182, label %if.then1.i.i, label %hamt_node_new_bitmap_or_collision.exit
 
-if.then1.i.i:                                     ; preds = %if.end.i.i178
+if.then1.i.i:                                     ; preds = %if.end.i.i181
   tail call void @_Py_Dealloc(ptr noundef nonnull %call22.i) #11
   br label %hamt_node_new_bitmap_or_collision.exit
 
@@ -4125,109 +4209,114 @@ hamt_node_new_bitmap_or_collision.exit.thread:    ; preds = %Py_DECREF.exit38.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %added_leaf.i)
   br label %return
 
-hamt_node_new_bitmap_or_collision.exit:           ; preds = %if.end25.i, %if.end.i.i178, %if.then1.i.i
+hamt_node_new_bitmap_or_collision.exit:           ; preds = %if.end25.i, %if.end.i.i181, %if.then1.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %added_leaf.i)
   %cmp50 = icmp eq ptr %call26.i, null
   br i1 %cmp50, label %return, label %if.end52
 
-if.end52:                                         ; preds = %hamt_node_new_bitmap_or_collision.exit.thread325, %hamt_node_new_bitmap_or_collision.exit
-  %retval.0.i177328 = phi ptr [ %call.i295, %hamt_node_new_bitmap_or_collision.exit.thread325 ], [ %call26.i, %hamt_node_new_bitmap_or_collision.exit ]
+if.end52:                                         ; preds = %hamt_node_new_bitmap_or_collision.exit.thread331, %hamt_node_new_bitmap_or_collision.exit
+  %retval.0.i180334 = phi ptr [ %call.i300, %hamt_node_new_bitmap_or_collision.exit.thread331 ], [ %call26.i, %hamt_node_new_bitmap_or_collision.exit ]
   %62 = getelementptr i8, ptr %self, i64 16
-  %node.val.i180 = load i64, ptr %62, align 8
-  %cmp.i.i181 = icmp eq i64 %node.val.i180, 0
-  br i1 %cmp.i.i181, label %do.body58, label %if.end.i.i182
+  %node.val.i183 = load i64, ptr %62, align 8
+  %cmp.i.i184 = icmp eq i64 %node.val.i183, 0
+  br i1 %cmp.i.i184, label %do.body58, label %if.end.i.i185
 
-if.end.i.i182:                                    ; preds = %if.end52
-  %call.i.i183 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %node.val.i180) #11
-  %cmp1.i.i184 = icmp eq ptr %call.i.i183, null
-  br i1 %cmp1.i.i184, label %if.then56, label %if.end3.i.i185
+if.end.i.i185:                                    ; preds = %if.end52
+  %call.i.i186 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %node.val.i183) #11
+  %cmp1.i.i187 = icmp eq ptr %call.i.i186, null
+  br i1 %cmp1.i.i187, label %if.then56, label %if.end3.i.i188
 
-if.end3.i.i185:                                   ; preds = %if.end.i.i182
-  %ob_size.i.i.i186 = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i183, i64 0, i32 1
-  store i64 %node.val.i180, ptr %ob_size.i.i.i186, align 8
-  %cmp411.i.i187 = icmp sgt i64 %node.val.i180, 0
-  br i1 %cmp411.i.i187, label %for.body.preheader.i.i216, label %hamt_node_bitmap_new.exit.i188
+if.end3.i.i188:                                   ; preds = %if.end.i.i185
+  %ob_size.i.i.i189 = getelementptr inbounds i8, ptr %call.i.i186, i64 16
+  store i64 %node.val.i183, ptr %ob_size.i.i.i189, align 8
+  %cmp411.i.i190 = icmp sgt i64 %node.val.i183, 0
+  br i1 %cmp411.i.i190, label %for.body.lr.ph.i.i222, label %hamt_node_bitmap_new.exit.i191
 
-for.body.preheader.i.i216:                        ; preds = %if.end3.i.i185
-  %scevgep.i.i217 = getelementptr i8, ptr %call.i.i183, i64 32
-  %63 = shl nuw i64 %node.val.i180, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i217, i8 0, i64 %63, i1 false)
-  br label %hamt_node_bitmap_new.exit.i188
+for.body.lr.ph.i.i222:                            ; preds = %if.end3.i.i188
+  %b_array.i.i223 = getelementptr inbounds i8, ptr %call.i.i186, i64 32
+  %63 = shl nuw i64 %node.val.i183, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i223, i8 0, i64 %63, i1 false)
+  br label %hamt_node_bitmap_new.exit.i191
 
-hamt_node_bitmap_new.exit.i188:                   ; preds = %for.body.preheader.i.i216, %if.end3.i.i185
-  %b_bitmap.i.i189 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i.i183, i64 0, i32 1
-  store i32 0, ptr %b_bitmap.i.i189, align 8
-  %add.ptr.i.i.i.i190 = getelementptr i8, ptr %call.i.i183, i64 -16
+hamt_node_bitmap_new.exit.i191:                   ; preds = %for.body.lr.ph.i.i222, %if.end3.i.i188
+  %b_bitmap.i.i192 = getelementptr inbounds i8, ptr %call.i.i186, i64 24
+  store i32 0, ptr %b_bitmap.i.i192, align 8
+  %add.ptr.i.i.i.i193 = getelementptr i8, ptr %call.i.i186, i64 -16
   %64 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %65 = load ptr, ptr %64, align 8
-  %interp.i.i.i.i191 = getelementptr inbounds %struct._ts, ptr %65, i64 0, i32 2
-  %66 = load ptr, ptr %interp.i.i.i.i191, align 8
-  %generation03.i.i.i192 = getelementptr inbounds %struct._is, ptr %66, i64 0, i32 13, i32 5
-  %67 = load ptr, ptr %generation03.i.i.i192, align 8
-  %_gc_prev.i.i.i193 = getelementptr inbounds %struct.PyGC_Head, ptr %67, i64 0, i32 1
-  %68 = load i64, ptr %_gc_prev.i.i.i193, align 8
+  %interp.i.i.i.i194 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = load ptr, ptr %interp.i.i.i.i194, align 8
+  %generation03.i.i.i195 = getelementptr inbounds i8, ptr %66, i64 1096
+  %67 = load ptr, ptr %generation03.i.i.i195, align 8
+  %_gc_prev.i.i.i196 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = load i64, ptr %_gc_prev.i.i.i196, align 8
   %69 = inttoptr i64 %68 to ptr
-  %70 = ptrtoint ptr %add.ptr.i.i.i.i190 to i64
+  %70 = ptrtoint ptr %add.ptr.i.i.i.i193 to i64
   store i64 %70, ptr %69, align 8
-  %_gc_prev.i.i.i.i194 = getelementptr i8, ptr %call.i.i183, i64 -8
-  %71 = load i64, ptr %_gc_prev.i.i.i.i194, align 8
-  %and.i.i.i.i195 = and i64 %71, 3
-  %or.i.i.i.i196 = or i64 %and.i.i.i.i195, %68
-  store i64 %or.i.i.i.i196, ptr %_gc_prev.i.i.i.i194, align 8
+  %_gc_prev.i.i.i.i197 = getelementptr i8, ptr %call.i.i186, i64 -8
+  %71 = load i64, ptr %_gc_prev.i.i.i.i197, align 8
+  %and.i.i.i.i198 = and i64 %71, 3
+  %or.i.i.i.i199 = or i64 %and.i.i.i.i198, %68
+  store i64 %or.i.i.i.i199, ptr %_gc_prev.i.i.i.i197, align 8
   %72 = ptrtoint ptr %67 to i64
-  store i64 %72, ptr %add.ptr.i.i.i.i190, align 8
-  store i64 %70, ptr %_gc_prev.i.i.i193, align 8
-  %node.val1013.pre.i197 = load i64, ptr %62, align 8
-  %73 = icmp sgt i64 %node.val1013.pre.i197, 0
-  br i1 %73, label %for.body.i203, label %do.body58
+  store i64 %72, ptr %add.ptr.i.i.i.i193, align 8
+  store i64 %70, ptr %_gc_prev.i.i.i196, align 8
+  %node.val1013.pre.i200 = load i64, ptr %62, align 8
+  %73 = icmp sgt i64 %node.val1013.pre.i200, 0
+  br i1 %73, label %for.body.lr.ph.i206, label %do.body58
 
-for.body.i203:                                    ; preds = %hamt_node_bitmap_new.exit.i188, %_Py_XNewRef.exit.i211
-  %i.015.i204 = phi i64 [ %inc.i213, %_Py_XNewRef.exit.i211 ], [ 0, %hamt_node_bitmap_new.exit.i188 ]
-  %arrayidx.i205 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %i.015.i204
-  %74 = load ptr, ptr %arrayidx.i205, align 8
-  %cmp.not.i.i.i206 = icmp eq ptr %74, null
-  br i1 %cmp.not.i.i.i206, label %_Py_XNewRef.exit.i211, label %if.then.i.i.i207
+for.body.lr.ph.i206:                              ; preds = %hamt_node_bitmap_new.exit.i191
+  %b_array5.i208 = getelementptr inbounds i8, ptr %call.i.i186, i64 32
+  br label %for.body.i209
 
-if.then.i.i.i207:                                 ; preds = %for.body.i203
+for.body.i209:                                    ; preds = %_Py_XNewRef.exit.i217, %for.body.lr.ph.i206
+  %i.015.i210 = phi i64 [ 0, %for.body.lr.ph.i206 ], [ %inc.i219, %_Py_XNewRef.exit.i217 ]
+  %arrayidx.i211 = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %i.015.i210
+  %74 = load ptr, ptr %arrayidx.i211, align 8
+  %cmp.not.i.i.i212 = icmp eq ptr %74, null
+  br i1 %cmp.not.i.i.i212, label %_Py_XNewRef.exit.i217, label %if.then.i.i.i213
+
+if.then.i.i.i213:                                 ; preds = %for.body.i209
   %75 = load i32, ptr %74, align 8
-  %add.i.i.i.i208 = add i32 %75, 1
-  %cmp.i.i.i.i209 = icmp eq i32 %add.i.i.i.i208, 0
-  br i1 %cmp.i.i.i.i209, label %_Py_XNewRef.exit.i211, label %if.end.i.i.i.i210
+  %add.i.i.i.i214 = add i32 %75, 1
+  %cmp.i.i.i.i215 = icmp eq i32 %add.i.i.i.i214, 0
+  br i1 %cmp.i.i.i.i215, label %_Py_XNewRef.exit.i217, label %if.end.i.i.i.i216
 
-if.end.i.i.i.i210:                                ; preds = %if.then.i.i.i207
-  store i32 %add.i.i.i.i208, ptr %74, align 8
-  br label %_Py_XNewRef.exit.i211
+if.end.i.i.i.i216:                                ; preds = %if.then.i.i.i213
+  store i32 %add.i.i.i.i214, ptr %74, align 8
+  br label %_Py_XNewRef.exit.i217
 
-_Py_XNewRef.exit.i211:                            ; preds = %if.end.i.i.i.i210, %if.then.i.i.i207, %for.body.i203
-  %arrayidx6.i212 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i.i183, i64 0, i32 2, i64 %i.015.i204
-  store ptr %74, ptr %arrayidx6.i212, align 8
-  %inc.i213 = add nuw nsw i64 %i.015.i204, 1
-  %node.val10.i214 = load i64, ptr %62, align 8
-  %cmp3.i215 = icmp slt i64 %inc.i213, %node.val10.i214
-  br i1 %cmp3.i215, label %for.body.i203, label %do.body58, !llvm.loop !12
+_Py_XNewRef.exit.i217:                            ; preds = %if.end.i.i.i.i216, %if.then.i.i.i213, %for.body.i209
+  %arrayidx6.i218 = getelementptr [1 x ptr], ptr %b_array5.i208, i64 0, i64 %i.015.i210
+  store ptr %74, ptr %arrayidx6.i218, align 8
+  %inc.i219 = add nuw nsw i64 %i.015.i210, 1
+  %node.val10.i220 = load i64, ptr %62, align 8
+  %cmp3.i221 = icmp slt i64 %inc.i219, %node.val10.i220
+  br i1 %cmp3.i221, label %for.body.i209, label %do.body58, !llvm.loop !12
 
-if.then56:                                        ; preds = %if.end.i.i182
-  %76 = load i64, ptr %retval.0.i177328, align 8
+if.then56:                                        ; preds = %if.end.i.i185
+  %76 = load i64, ptr %retval.0.i180334, align 8
   %77 = and i64 %76, 2147483648
   %cmp.i260.not = icmp eq i64 %77, 0
   br i1 %cmp.i260.not, label %if.end.i215, label %return
 
 if.end.i215:                                      ; preds = %if.then56
   %dec.i216 = add i64 %76, -1
-  store i64 %dec.i216, ptr %retval.0.i177328, align 8
+  store i64 %dec.i216, ptr %retval.0.i180334, align 8
   %cmp.i217 = icmp eq i64 %dec.i216, 0
   br i1 %cmp.i217, label %if.then1.i218, label %return
 
 if.then1.i218:                                    ; preds = %if.end.i215
-  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i177328) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i180334) #11
   br label %return
 
-do.body58:                                        ; preds = %_Py_XNewRef.exit.i211, %hamt_node_bitmap_new.exit.i188, %if.end52
-  %retval.0.i19.i199 = phi ptr [ %call.i.i183, %hamt_node_bitmap_new.exit.i188 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end52 ], [ %call.i.i183, %_Py_XNewRef.exit.i211 ]
+do.body58:                                        ; preds = %_Py_XNewRef.exit.i217, %hamt_node_bitmap_new.exit.i191, %if.end52
+  %retval.0.i19.i202 = phi ptr [ %call.i.i186, %hamt_node_bitmap_new.exit.i191 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %if.end52 ], [ %call.i.i186, %_Py_XNewRef.exit.i217 ]
   %78 = load i32, ptr %b_bitmap, align 8
-  %b_bitmap7.i201 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i199, i64 0, i32 1
-  store i32 %78, ptr %b_bitmap7.i201, align 8
-  %arrayidx62 = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i199, i64 0, i32 2, i64 %idxprom
+  %b_bitmap7.i204 = getelementptr inbounds i8, ptr %retval.0.i19.i202, i64 24
+  store i32 %78, ptr %b_bitmap7.i204, align 8
+  %b_array60 = getelementptr inbounds i8, ptr %retval.0.i19.i202, i64 32
+  %arrayidx62 = getelementptr [1 x ptr], ptr %b_array60, i64 0, i64 %idxprom
   %79 = load ptr, ptr %arrayidx62, align 8
   store ptr null, ptr %arrayidx62, align 8
   %80 = load i64, ptr %79, align 8
@@ -4246,9 +4335,9 @@ if.then1.i209:                                    ; preds = %if.end.i206
   br label %do.body65
 
 do.body65:                                        ; preds = %do.body58, %if.then1.i209, %if.end.i206
-  %arrayidx69 = getelementptr %struct.PyHamtNode_Bitmap, ptr %retval.0.i19.i199, i64 0, i32 2, i64 %idxprom4
+  %arrayidx69 = getelementptr [1 x ptr], ptr %b_array60, i64 0, i64 %idxprom4
   %82 = load ptr, ptr %arrayidx69, align 8
-  store ptr %retval.0.i177328, ptr %arrayidx69, align 8
+  store ptr %retval.0.i180334, ptr %arrayidx69, align 8
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %83, 2147483648
   %cmp.i268.not = icmp eq i64 %84, 0
@@ -4274,144 +4363,148 @@ if.else:                                          ; preds = %entry
   br i1 %cmp74, label %if.then75, label %if.else147
 
 if.then75:                                        ; preds = %if.else
-  %call.i220 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
-  %cmp.i221 = icmp eq ptr %call.i220, null
-  br i1 %cmp.i221, label %return, label %if.end87
+  %call.i226 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
+  %cmp.i227 = icmp eq ptr %call.i226, null
+  br i1 %cmp.i227, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.then75
   %add77 = add nuw nsw i32 %85, 1
   %conv = zext nneg i32 %add77 to i64
-  %scevgep.i = getelementptr i8, ptr %call.i220, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i, i8 0, i64 256, i1 false)
-  %a_count.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %call.i220, i64 0, i32 2
+  %a_array.i = getelementptr inbounds i8, ptr %call.i226, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i, i8 0, i64 256, i1 false)
+  %a_count.i = getelementptr inbounds i8, ptr %call.i226, i64 272
   store i64 %conv, ptr %a_count.i, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %call.i220, i64 -16
+  %add.ptr.i.i.i = getelementptr i8, ptr %call.i226, i64 -16
   %86 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %87 = load ptr, ptr %86, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %87, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %87, i64 16
   %88 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %88, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %88, i64 1096
   %89 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %89, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %89, i64 8
   %90 = load i64, ptr %_gc_prev.i.i, align 8
   %91 = inttoptr i64 %90 to ptr
   %92 = ptrtoint ptr %add.ptr.i.i.i to i64
   store i64 %92, ptr %91, align 8
-  %_gc_prev.i.i.i222 = getelementptr i8, ptr %call.i220, i64 -8
-  %93 = load i64, ptr %_gc_prev.i.i.i222, align 8
+  %_gc_prev.i.i.i228 = getelementptr i8, ptr %call.i226, i64 -8
+  %93 = load i64, ptr %_gc_prev.i.i.i228, align 8
   %and.i.i.i = and i64 %93, 3
   %or.i.i.i = or i64 %and.i.i.i, %90
-  store i64 %or.i.i.i, ptr %_gc_prev.i.i.i222, align 8
+  store i64 %or.i.i.i, ptr %_gc_prev.i.i.i228, align 8
   %94 = ptrtoint ptr %89 to i64
   store i64 %94, ptr %add.ptr.i.i.i, align 8
   store i64 %92, ptr %_gc_prev.i.i, align 8
   %add88 = add i32 %shift, 5
   %call89 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add88, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
   %idxprom90 = zext nneg i32 %and.i.i to i64
-  %arrayidx91 = getelementptr %struct.PyHamtNode_Array, ptr %call.i220, i64 0, i32 1, i64 %idxprom90
+  %arrayidx91 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %idxprom90
   store ptr %call89, ptr %arrayidx91, align 8
   %cmp95 = icmp eq ptr %call89, null
-  br i1 %cmp95, label %if.then.i, label %for.body
+  br i1 %cmp95, label %if.then.i, label %for.cond.preheader
 
-for.body:                                         ; preds = %if.end87, %for.inc
-  %j.0354 = phi i64 [ %j.1, %for.inc ], [ 0, %if.end87 ]
-  %i.0352 = phi i64 [ %inc, %for.inc ], [ 0, %if.end87 ]
+for.cond.preheader:                               ; preds = %if.end87
+  %b_array106 = getelementptr inbounds i8, ptr %self, i64 32
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %j.0360 = phi i64 [ 0, %for.cond.preheader ], [ %j.1, %for.inc ]
+  %i.0358 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
   %95 = load i32, ptr %b_bitmap, align 8
-  %sh_prom = trunc i64 %i.0352 to i32
+  %sh_prom = trunc i64 %i.0358 to i32
   %96 = shl nuw i32 1, %sh_prom
   %97 = and i32 %95, %96
   %cmp103.not = icmp eq i32 %97, 0
   br i1 %cmp103.not, label %for.inc, label %if.then105
 
 if.then105:                                       ; preds = %for.body
-  %arrayidx107 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %j.0354
+  %arrayidx107 = getelementptr [1 x ptr], ptr %b_array106, i64 0, i64 %j.0360
   %98 = load ptr, ptr %arrayidx107, align 8
   %cmp108 = icmp eq ptr %98, null
   br i1 %cmp108, label %if.then110, label %if.else117
 
 if.then110:                                       ; preds = %if.then105
-  %add112 = add i64 %j.0354, 1
-  %arrayidx113 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %add112
+  %add112 = add i64 %j.0360, 1
+  %arrayidx113 = getelementptr [1 x ptr], ptr %b_array106, i64 0, i64 %add112
   %99 = load ptr, ptr %arrayidx113, align 8
   %100 = load i32, ptr %99, align 8
-  %add.i.i224 = add i32 %100, 1
-  %cmp.i.i225 = icmp eq i32 %add.i.i224, 0
-  br i1 %cmp.i.i225, label %_Py_NewRef.exit227, label %if.end.i.i226
+  %add.i.i230 = add i32 %100, 1
+  %cmp.i.i231 = icmp eq i32 %add.i.i230, 0
+  br i1 %cmp.i.i231, label %_Py_NewRef.exit233, label %if.end.i.i232
 
-if.end.i.i226:                                    ; preds = %if.then110
-  store i32 %add.i.i224, ptr %99, align 8
-  br label %_Py_NewRef.exit227
+if.end.i.i232:                                    ; preds = %if.then110
+  store i32 %add.i.i230, ptr %99, align 8
+  br label %_Py_NewRef.exit233
 
-_Py_NewRef.exit227:                               ; preds = %if.then110, %if.end.i.i226
-  %arrayidx116 = getelementptr %struct.PyHamtNode_Array, ptr %call.i220, i64 0, i32 1, i64 %i.0352
+_Py_NewRef.exit233:                               ; preds = %if.then110, %if.end.i.i232
+  %arrayidx116 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0358
   store ptr %99, ptr %arrayidx116, align 8
   br label %if.end140
 
 if.else117:                                       ; preds = %if.then105
-  %call.i228 = tail call i64 @PyObject_Hash(ptr noundef nonnull %98) #11
-  %cmp.i229 = icmp eq i64 %call.i228, -1
-  br i1 %cmp.i229, label %if.then.i, label %hamt_hash.exit
+  %call.i234 = tail call i64 @PyObject_Hash(ptr noundef nonnull %98) #11
+  %cmp.i236 = icmp eq i64 %call.i234, -1
+  br i1 %cmp.i236, label %if.then.i, label %hamt_hash.exit
 
 hamt_hash.exit:                                   ; preds = %if.else117
-  %shr.i231 = lshr i64 %call.i228, 32
-  %xor4.i = xor i64 %shr.i231, %call.i228
+  %shr.i238 = lshr i64 %call.i234, 32
+  %xor4.i = xor i64 %shr.i238, %call.i234
   %xor.i = trunc i64 %xor4.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %xor.i, i32 -2)
   %101 = load ptr, ptr %arrayidx107, align 8
-  %add129 = add i64 %j.0354, 1
-  %arrayidx130 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %add129
+  %add129 = add i64 %j.0360, 1
+  %arrayidx130 = getelementptr [1 x ptr], ptr %b_array106, i64 0, i64 %add129
   %102 = load ptr, ptr %arrayidx130, align 8
   %call131 = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), i32 noundef %add88, i32 noundef %cond.i, ptr noundef %101, ptr noundef %102, ptr noundef %added_leaf)
-  %arrayidx133 = getelementptr %struct.PyHamtNode_Array, ptr %call.i220, i64 0, i32 1, i64 %i.0352
+  %arrayidx133 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.0358
   store ptr %call131, ptr %arrayidx133, align 8
   %cmp136 = icmp eq ptr %call131, null
   br i1 %cmp136, label %if.then.i, label %if.end140
 
-if.end140:                                        ; preds = %hamt_hash.exit, %_Py_NewRef.exit227
-  %add141 = add i64 %j.0354, 2
+if.end140:                                        ; preds = %hamt_hash.exit, %_Py_NewRef.exit233
+  %add141 = add i64 %j.0360, 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end140
-  %j.1 = phi i64 [ %add141, %if.end140 ], [ %j.0354, %for.body ]
-  %inc = add nuw nsw i64 %i.0352, 1
-  %exitcond359.not = icmp eq i64 %inc, 32
-  br i1 %exitcond359.not, label %if.then.i, label %for.body, !llvm.loop !29
+  %j.1 = phi i64 [ %add141, %if.end140 ], [ %j.0360, %for.body ]
+  %inc = add nuw nsw i64 %i.0358, 1
+  %exitcond365.not = icmp eq i64 %inc, 32
+  br i1 %exitcond365.not, label %if.then.i, label %for.body, !llvm.loop !29
 
 if.then.i:                                        ; preds = %if.else117, %hamt_hash.exit, %for.inc, %if.end87
-  %res.0.ph = phi ptr [ null, %if.end87 ], [ null, %if.else117 ], [ null, %hamt_hash.exit ], [ %call.i220, %for.inc ]
+  %res.0.ph = phi ptr [ null, %if.end87 ], [ null, %if.else117 ], [ null, %hamt_hash.exit ], [ %call.i226, %for.inc ]
   %103 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
   %104 = and i64 %103, 2147483648
   %cmp.i2.not.i = icmp eq i64 %104, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i235, label %Py_XDECREF.exit
+  br i1 %cmp.i2.not.i, label %if.end.i.i241, label %Py_XDECREF.exit
 
-if.end.i.i235:                                    ; preds = %if.then.i
-  %dec.i.i236 = add i64 %103, -1
-  store i64 %dec.i.i236, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
-  %cmp.i.i237 = icmp eq i64 %dec.i.i236, 0
-  br i1 %cmp.i.i237, label %if.then1.i.i238, label %Py_XDECREF.exit
+if.end.i.i241:                                    ; preds = %if.then.i
+  %dec.i.i242 = add i64 %103, -1
+  store i64 %dec.i.i242, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), align 8
+  %cmp.i.i243 = icmp eq i64 %dec.i.i242, 0
+  br i1 %cmp.i.i243, label %if.then1.i.i244, label %Py_XDECREF.exit
 
-if.then1.i.i238:                                  ; preds = %if.end.i.i235
+if.then1.i.i244:                                  ; preds = %if.end.i.i241
   tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7)) #11
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %if.then.i, %if.end.i.i235, %if.then1.i.i238
+Py_XDECREF.exit:                                  ; preds = %if.then.i, %if.end.i.i241, %if.then1.i.i244
   %cmp143.not = icmp eq ptr %res.0.ph, null
-  br i1 %cmp143.not, label %if.then.i240, label %return
+  br i1 %cmp143.not, label %if.then.i246, label %return
 
-if.then.i240:                                     ; preds = %Py_XDECREF.exit
-  %105 = load i64, ptr %call.i220, align 8
+if.then.i246:                                     ; preds = %Py_XDECREF.exit
+  %105 = load i64, ptr %call.i226, align 8
   %106 = and i64 %105, 2147483648
-  %cmp.i2.not.i241 = icmp eq i64 %106, 0
-  br i1 %cmp.i2.not.i241, label %if.end.i.i244, label %return
+  %cmp.i2.not.i247 = icmp eq i64 %106, 0
+  br i1 %cmp.i2.not.i247, label %if.end.i.i249, label %return
 
-if.end.i.i244:                                    ; preds = %if.then.i240
-  %dec.i.i245 = add i64 %105, -1
-  store i64 %dec.i.i245, ptr %call.i220, align 8
-  %cmp.i.i246 = icmp eq i64 %dec.i.i245, 0
-  br i1 %cmp.i.i246, label %if.then1.i.i247, label %return
+if.end.i.i249:                                    ; preds = %if.then.i246
+  %dec.i.i250 = add i64 %105, -1
+  store i64 %dec.i.i250, ptr %call.i226, align 8
+  %cmp.i.i251 = icmp eq i64 %dec.i.i250, 0
+  br i1 %cmp.i.i251, label %if.then1.i.i252, label %return
 
-if.then1.i.i247:                                  ; preds = %if.end.i.i244
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i220) #11
+if.then1.i.i252:                                  ; preds = %if.end.i.i249
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i226) #11
   br label %return
 
 if.else147:                                       ; preds = %if.else
@@ -4421,49 +4514,50 @@ if.else147:                                       ; preds = %if.else
   %add154 = shl nuw nsw i32 %85, 1
   %mul155 = add nuw nsw i32 %add154, 2
   %conv156 = zext nneg i32 %mul155 to i64
-  %call.i250 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %conv156) #11
-  %cmp1.i251 = icmp eq ptr %call.i250, null
-  br i1 %cmp1.i251, label %return, label %hamt_node_bitmap_new.exit
+  %call.i255 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %conv156) #11
+  %cmp1.i256 = icmp eq ptr %call.i255, null
+  br i1 %cmp1.i256, label %return, label %hamt_node_bitmap_new.exit
 
 hamt_node_bitmap_new.exit:                        ; preds = %if.else147
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i250, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %call.i255, i64 16
   store i64 %conv156, ptr %ob_size.i.i, align 8
-  %scevgep.i253 = getelementptr i8, ptr %call.i250, i64 32
+  %b_array.i258 = getelementptr i8, ptr %call.i255, i64 32
   %107 = shl nuw nsw i64 %conv156, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i253, i8 0, i64 %107, i1 false)
-  %b_bitmap.i255 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i250, i64 0, i32 1
-  store i32 0, ptr %b_bitmap.i255, align 8
-  %add.ptr.i.i.i256 = getelementptr i8, ptr %call.i250, i64 -16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %b_array.i258, i8 0, i64 %107, i1 false)
+  %b_bitmap.i260 = getelementptr inbounds i8, ptr %call.i255, i64 24
+  store i32 0, ptr %b_bitmap.i260, align 8
+  %add.ptr.i.i.i261 = getelementptr i8, ptr %call.i255, i64 -16
   %108 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %109 = load ptr, ptr %108, align 8
-  %interp.i.i.i257 = getelementptr inbounds %struct._ts, ptr %109, i64 0, i32 2
-  %110 = load ptr, ptr %interp.i.i.i257, align 8
-  %generation03.i.i258 = getelementptr inbounds %struct._is, ptr %110, i64 0, i32 13, i32 5
-  %111 = load ptr, ptr %generation03.i.i258, align 8
-  %_gc_prev.i.i259 = getelementptr inbounds %struct.PyGC_Head, ptr %111, i64 0, i32 1
-  %112 = load i64, ptr %_gc_prev.i.i259, align 8
+  %interp.i.i.i262 = getelementptr inbounds i8, ptr %109, i64 16
+  %110 = load ptr, ptr %interp.i.i.i262, align 8
+  %generation03.i.i263 = getelementptr inbounds i8, ptr %110, i64 1096
+  %111 = load ptr, ptr %generation03.i.i263, align 8
+  %_gc_prev.i.i264 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = load i64, ptr %_gc_prev.i.i264, align 8
   %113 = inttoptr i64 %112 to ptr
-  %114 = ptrtoint ptr %add.ptr.i.i.i256 to i64
+  %114 = ptrtoint ptr %add.ptr.i.i.i261 to i64
   store i64 %114, ptr %113, align 8
-  %_gc_prev.i.i.i260 = getelementptr i8, ptr %call.i250, i64 -8
-  %115 = load i64, ptr %_gc_prev.i.i.i260, align 8
-  %and.i.i.i261 = and i64 %115, 3
-  %or.i.i.i262 = or i64 %and.i.i.i261, %112
-  store i64 %or.i.i.i262, ptr %_gc_prev.i.i.i260, align 8
+  %_gc_prev.i.i.i265 = getelementptr i8, ptr %call.i255, i64 -8
+  %115 = load i64, ptr %_gc_prev.i.i.i265, align 8
+  %and.i.i.i266 = and i64 %115, 3
+  %or.i.i.i267 = or i64 %and.i.i.i266, %112
+  store i64 %or.i.i.i267, ptr %_gc_prev.i.i.i265, align 8
   %116 = ptrtoint ptr %111 to i64
-  store i64 %116, ptr %add.ptr.i.i.i256, align 8
-  store i64 %114, ptr %_gc_prev.i.i259, align 8
-  %cmp163346.not = icmp eq i32 %and.i, 0
-  br i1 %cmp163346.not, label %for.end175, label %for.body165.preheader
+  store i64 %116, ptr %add.ptr.i.i.i261, align 8
+  store i64 %114, ptr %_gc_prev.i.i264, align 8
+  %cmp163352.not = icmp eq i32 %and.i, 0
+  br i1 %cmp163352.not, label %for.end175, label %for.body165.lr.ph
 
-for.body165.preheader:                            ; preds = %hamt_node_bitmap_new.exit
+for.body165.lr.ph:                                ; preds = %hamt_node_bitmap_new.exit
+  %b_array166 = getelementptr inbounds i8, ptr %self, i64 32
   %umax = tail call i32 @llvm.umax.i32(i32 %mul149, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %for.body165
 
-for.body165:                                      ; preds = %for.body165.preheader, %_Py_XNewRef.exit
-  %indvars.iv = phi i64 [ 0, %for.body165.preheader ], [ %indvars.iv.next, %_Py_XNewRef.exit ]
-  %arrayidx168 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %indvars.iv
+for.body165:                                      ; preds = %for.body165.lr.ph, %_Py_XNewRef.exit
+  %indvars.iv = phi i64 [ 0, %for.body165.lr.ph ], [ %indvars.iv.next, %_Py_XNewRef.exit ]
+  %arrayidx168 = getelementptr [1 x ptr], ptr %b_array166, i64 0, i64 %indvars.iv
   %117 = load ptr, ptr %arrayidx168, align 8
   %cmp.not.i.i = icmp eq ptr %117, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -4479,7 +4573,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %for.body165, %if.then.i.i, %if.end.i.i.i
-  %arrayidx172 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i250, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx172 = getelementptr [1 x ptr], ptr %b_array.i258, i64 0, i64 %indvars.iv
   store ptr %117, ptr %arrayidx172, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4487,78 +4581,79 @@ _Py_XNewRef.exit:                                 ; preds = %for.body165, %if.th
 
 for.end175:                                       ; preds = %_Py_XNewRef.exit, %hamt_node_bitmap_new.exit
   %119 = load i32, ptr %key, align 8
-  %add.i.i264 = add i32 %119, 1
-  %cmp.i.i265 = icmp eq i32 %add.i.i264, 0
-  br i1 %cmp.i.i265, label %_Py_NewRef.exit267, label %if.end.i.i266
+  %add.i.i269 = add i32 %119, 1
+  %cmp.i.i270 = icmp eq i32 %add.i.i269, 0
+  br i1 %cmp.i.i270, label %_Py_NewRef.exit272, label %if.end.i.i271
 
-if.end.i.i266:                                    ; preds = %for.end175
-  store i32 %add.i.i264, ptr %key, align 8
-  br label %_Py_NewRef.exit267
+if.end.i.i271:                                    ; preds = %for.end175
+  store i32 %add.i.i269, ptr %key, align 8
+  br label %_Py_NewRef.exit272
 
-_Py_NewRef.exit267:                               ; preds = %for.end175, %if.end.i.i266
+_Py_NewRef.exit272:                               ; preds = %for.end175, %if.end.i.i271
   %idxprom178 = zext nneg i32 %mul149 to i64
-  %arrayidx179 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i250, i64 0, i32 2, i64 %idxprom178
+  %arrayidx179 = getelementptr [1 x ptr], ptr %b_array.i258, i64 0, i64 %idxprom178
   store ptr %key, ptr %arrayidx179, align 8
   %120 = load i32, ptr %val, align 8
-  %add.i.i268 = add i32 %120, 1
-  %cmp.i.i269 = icmp eq i32 %add.i.i268, 0
-  br i1 %cmp.i.i269, label %_Py_NewRef.exit271, label %if.end.i.i270
+  %add.i.i273 = add i32 %120, 1
+  %cmp.i.i274 = icmp eq i32 %add.i.i273, 0
+  br i1 %cmp.i.i274, label %_Py_NewRef.exit276, label %if.end.i.i275
 
-if.end.i.i270:                                    ; preds = %_Py_NewRef.exit267
-  store i32 %add.i.i268, ptr %val, align 8
-  br label %_Py_NewRef.exit271
+if.end.i.i275:                                    ; preds = %_Py_NewRef.exit272
+  store i32 %add.i.i273, ptr %val, align 8
+  br label %_Py_NewRef.exit276
 
-_Py_NewRef.exit271:                               ; preds = %_Py_NewRef.exit267, %if.end.i.i270
+_Py_NewRef.exit276:                               ; preds = %_Py_NewRef.exit272, %if.end.i.i275
   %idxprom182 = zext nneg i32 %add151 to i64
-  %arrayidx183 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i250, i64 0, i32 2, i64 %idxprom182
+  %arrayidx183 = getelementptr [1 x ptr], ptr %b_array.i258, i64 0, i64 %idxprom182
   store ptr %val, ptr %arrayidx183, align 8
   %121 = getelementptr i8, ptr %self, i64 16
-  %self.val348 = load i64, ptr %121, align 8
-  %conv186349 = trunc i64 %self.val348 to i32
-  %cmp187350 = icmp ult i32 %mul149, %conv186349
-  br i1 %cmp187350, label %for.body189.preheader, label %for.end200
+  %self.val354 = load i64, ptr %121, align 8
+  %conv186355 = trunc i64 %self.val354 to i32
+  %cmp187356 = icmp ult i32 %mul149, %conv186355
+  br i1 %cmp187356, label %for.body189.lr.ph, label %for.end200
 
-for.body189.preheader:                            ; preds = %_Py_NewRef.exit271
+for.body189.lr.ph:                                ; preds = %_Py_NewRef.exit276
+  %b_array190 = getelementptr inbounds i8, ptr %self, i64 32
   %122 = shl nuw nsw i32 %1, 1
   %123 = zext nneg i32 %122 to i64
   br label %for.body189
 
-for.body189:                                      ; preds = %for.body189.preheader, %_Py_XNewRef.exit277
-  %indvars.iv356 = phi i64 [ %123, %for.body189.preheader ], [ %indvars.iv.next357, %_Py_XNewRef.exit277 ]
-  %arrayidx192 = getelementptr %struct.PyHamtNode_Bitmap, ptr %self, i64 0, i32 2, i64 %indvars.iv356
+for.body189:                                      ; preds = %for.body189.lr.ph, %_Py_XNewRef.exit282
+  %indvars.iv362 = phi i64 [ %123, %for.body189.lr.ph ], [ %indvars.iv.next363, %_Py_XNewRef.exit282 ]
+  %arrayidx192 = getelementptr [1 x ptr], ptr %b_array190, i64 0, i64 %indvars.iv362
   %124 = load ptr, ptr %arrayidx192, align 8
-  %cmp.not.i.i272 = icmp eq ptr %124, null
-  br i1 %cmp.not.i.i272, label %_Py_XNewRef.exit277, label %if.then.i.i273
+  %cmp.not.i.i277 = icmp eq ptr %124, null
+  br i1 %cmp.not.i.i277, label %_Py_XNewRef.exit282, label %if.then.i.i278
 
-if.then.i.i273:                                   ; preds = %for.body189
+if.then.i.i278:                                   ; preds = %for.body189
   %125 = load i32, ptr %124, align 8
-  %add.i.i.i274 = add i32 %125, 1
-  %cmp.i.i.i275 = icmp eq i32 %add.i.i.i274, 0
-  br i1 %cmp.i.i.i275, label %_Py_XNewRef.exit277, label %if.end.i.i.i276
+  %add.i.i.i279 = add i32 %125, 1
+  %cmp.i.i.i280 = icmp eq i32 %add.i.i.i279, 0
+  br i1 %cmp.i.i.i280, label %_Py_XNewRef.exit282, label %if.end.i.i.i281
 
-if.end.i.i.i276:                                  ; preds = %if.then.i.i273
-  store i32 %add.i.i.i274, ptr %124, align 8
-  br label %_Py_XNewRef.exit277
+if.end.i.i.i281:                                  ; preds = %if.then.i.i278
+  store i32 %add.i.i.i279, ptr %124, align 8
+  br label %_Py_XNewRef.exit282
 
-_Py_XNewRef.exit277:                              ; preds = %for.body189, %if.then.i.i273, %if.end.i.i.i276
-  %add195 = add nuw i64 %indvars.iv356, 2
+_Py_XNewRef.exit282:                              ; preds = %for.body189, %if.then.i.i278, %if.end.i.i.i281
+  %add195 = add nuw i64 %indvars.iv362, 2
   %idxprom196 = and i64 %add195, 4294967295
-  %arrayidx197 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i250, i64 0, i32 2, i64 %idxprom196
+  %arrayidx197 = getelementptr [1 x ptr], ptr %b_array.i258, i64 0, i64 %idxprom196
   store ptr %124, ptr %arrayidx197, align 8
-  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
+  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %self.val = load i64, ptr %121, align 8
   %126 = and i64 %self.val, 4294967295
-  %cmp187 = icmp ult i64 %indvars.iv.next357, %126
+  %cmp187 = icmp ult i64 %indvars.iv.next363, %126
   br i1 %cmp187, label %for.body189, label %for.end200, !llvm.loop !31
 
-for.end200:                                       ; preds = %_Py_XNewRef.exit277, %_Py_NewRef.exit271
+for.end200:                                       ; preds = %_Py_XNewRef.exit282, %_Py_NewRef.exit276
   %127 = load i32, ptr %b_bitmap, align 8
   %or = or i32 %127, %shl.i
-  store i32 %or, ptr %b_bitmap.i255, align 8
+  store i32 %or, ptr %b_bitmap.i260, align 8
   br label %return
 
-return:                                           ; preds = %Py_XDECREF.exit, %if.else147, %if.then75, %if.end.i.i134, %if.end.i.i127, %if.then1.i.i247, %if.end.i.i244, %if.then.i240, %hamt_node_new_bitmap_or_collision.exit.thread, %if.end.i.i130, %if.then30, %if.end.i.i, %Py_DECREF.exit247, %if.end.i215, %if.then1.i218, %if.then56, %hamt_node_new_bitmap_or_collision.exit, %_Py_NewRef.exit174, %if.then1.i227, %if.end.i224, %if.end22, %do.body, %if.then1.i236, %if.end.i233, %if.then6, %for.end200, %do.end71
-  %retval.0 = phi ptr [ %retval.0.i19.i199, %do.end71 ], [ %call.i250, %for.end200 ], [ null, %if.then6 ], [ %retval.0.i19.i, %if.end.i233 ], [ %retval.0.i19.i, %if.then1.i236 ], [ %retval.0.i19.i, %do.body ], [ null, %if.end22 ], [ %retval.0.i19.i151, %if.end.i224 ], [ %retval.0.i19.i151, %if.then1.i227 ], [ %retval.0.i19.i151, %_Py_NewRef.exit174 ], [ null, %hamt_node_new_bitmap_or_collision.exit ], [ null, %if.then56 ], [ null, %if.then1.i218 ], [ null, %if.end.i215 ], [ %res.0.ph, %Py_XDECREF.exit ], [ %self, %Py_DECREF.exit247 ], [ %self, %if.end.i.i ], [ %self, %if.then30 ], [ %self, %if.end.i.i130 ], [ null, %hamt_node_new_bitmap_or_collision.exit.thread ], [ null, %if.then.i240 ], [ null, %if.end.i.i244 ], [ null, %if.then1.i.i247 ], [ null, %if.end.i.i127 ], [ null, %if.end.i.i134 ], [ null, %if.then75 ], [ null, %if.else147 ]
+return:                                           ; preds = %Py_XDECREF.exit, %if.else147, %if.then75, %if.end.i.i134, %if.end.i.i127, %if.then1.i.i252, %if.end.i.i249, %if.then.i246, %hamt_node_new_bitmap_or_collision.exit.thread, %if.end.i.i130, %if.then30, %if.end.i.i, %Py_DECREF.exit247, %if.end.i215, %if.then1.i218, %if.then56, %hamt_node_new_bitmap_or_collision.exit, %_Py_NewRef.exit177, %if.then1.i227, %if.end.i224, %if.end22, %do.body, %if.then1.i236, %if.end.i233, %if.then6, %for.end200, %do.end71
+  %retval.0 = phi ptr [ %retval.0.i19.i202, %do.end71 ], [ %call.i255, %for.end200 ], [ null, %if.then6 ], [ %retval.0.i19.i, %if.end.i233 ], [ %retval.0.i19.i, %if.then1.i236 ], [ %retval.0.i19.i, %do.body ], [ null, %if.end22 ], [ %retval.0.i19.i151, %if.end.i224 ], [ %retval.0.i19.i151, %if.then1.i227 ], [ %retval.0.i19.i151, %_Py_NewRef.exit177 ], [ null, %hamt_node_new_bitmap_or_collision.exit ], [ null, %if.then56 ], [ null, %if.then1.i218 ], [ null, %if.end.i215 ], [ %res.0.ph, %Py_XDECREF.exit ], [ %self, %Py_DECREF.exit247 ], [ %self, %if.end.i.i ], [ %self, %if.then30 ], [ %self, %if.end.i.i130 ], [ null, %hamt_node_new_bitmap_or_collision.exit.thread ], [ null, %if.then.i246 ], [ null, %if.end.i.i249 ], [ null, %if.then1.i.i252 ], [ null, %if.end.i.i127 ], [ null, %if.end.i.i134 ], [ null, %if.then75 ], [ null, %if.else147 ]
   ret ptr %retval.0
 }
 
@@ -4576,28 +4671,28 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %node.val, ptr %ob_size.i.i, align 8
   %cmp411.i = icmp sgt i64 %node.val, 0
-  br i1 %cmp411.i, label %for.body.preheader.i, label %hamt_node_bitmap_new.exit
+  br i1 %cmp411.i, label %for.body.lr.ph.i, label %hamt_node_bitmap_new.exit
 
-for.body.preheader.i:                             ; preds = %if.end3.i
-  %scevgep.i = getelementptr i8, ptr %call.i, i64 32
+for.body.lr.ph.i:                                 ; preds = %if.end3.i
+  %b_array.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %1 = shl nuw i64 %node.val, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i, i8 0, i64 %1, i1 false)
   br label %hamt_node_bitmap_new.exit
 
-hamt_node_bitmap_new.exit:                        ; preds = %if.end3.i, %for.body.preheader.i
-  %b_bitmap.i = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call.i, i64 0, i32 1
+hamt_node_bitmap_new.exit:                        ; preds = %if.end3.i, %for.body.lr.ph.i
+  %b_bitmap.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %b_bitmap.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %4, i64 1096
   %5 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -4612,11 +4707,16 @@ hamt_node_bitmap_new.exit:                        ; preds = %if.end3.i, %for.bod
   store i64 %8, ptr %_gc_prev.i.i, align 8
   %node.val1013.pre = load i64, ptr %0, align 8
   %11 = icmp sgt i64 %node.val1013.pre, 0
-  br i1 %11, label %for.body, label %for.end
+  br i1 %11, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %hamt_node_bitmap_new.exit, %_Py_XNewRef.exit
-  %i.015 = phi i64 [ %inc, %_Py_XNewRef.exit ], [ 0, %hamt_node_bitmap_new.exit ]
-  %arrayidx = getelementptr %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 2, i64 %i.015
+for.body.lr.ph:                                   ; preds = %hamt_node_bitmap_new.exit
+  %b_array = getelementptr inbounds i8, ptr %node, i64 32
+  %b_array5 = getelementptr inbounds i8, ptr %call.i, i64 32
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_Py_XNewRef.exit
+  %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_Py_XNewRef.exit ]
+  %arrayidx = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %i.015
   %12 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -4632,7 +4732,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %for.body, %if.then.i.i, %if.end.i.i.i
-  %arrayidx6 = getelementptr %struct.PyHamtNode_Bitmap, ptr %call.i, i64 0, i32 2, i64 %i.015
+  %arrayidx6 = getelementptr [1 x ptr], ptr %b_array5, i64 0, i64 %i.015
   store ptr %12, ptr %arrayidx6, align 8
   %inc = add nuw nsw i64 %i.015, 1
   %node.val10 = load i64, ptr %0, align 8
@@ -4641,9 +4741,9 @@ _Py_XNewRef.exit:                                 ; preds = %for.body, %if.then.
 
 for.end:                                          ; preds = %_Py_XNewRef.exit, %entry, %hamt_node_bitmap_new.exit
   %retval.0.i19 = phi ptr [ %call.i, %hamt_node_bitmap_new.exit ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 7), %entry ], [ %call.i, %_Py_XNewRef.exit ]
-  %b_bitmap = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %node, i64 0, i32 1
+  %b_bitmap = getelementptr inbounds i8, ptr %node, i64 24
   %14 = load i32, ptr %b_bitmap, align 8
-  %b_bitmap7 = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %retval.0.i19, i64 0, i32 1
+  %b_bitmap7 = getelementptr inbounds i8, ptr %retval.0.i19, i64 24
   store i32 %14, ptr %b_bitmap7, align 8
   br label %return
 
@@ -4664,28 +4764,28 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %call, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %size, ptr %ob_size.i, align 8
   %cmp411 = icmp sgt i64 %size, 0
-  br i1 %cmp411, label %for.body.preheader, label %for.end
+  br i1 %cmp411, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %if.end3
-  %scevgep = getelementptr i8, ptr %call, i64 32
+for.body.lr.ph:                                   ; preds = %if.end3
+  %b_array = getelementptr inbounds i8, ptr %call, i64 32
   %0 = shl nuw i64 %size, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %0, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array, i8 0, i64 %0, i1 false)
   br label %for.end
 
-for.end:                                          ; preds = %for.body.preheader, %if.end3
-  %b_bitmap = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %call, i64 0, i32 1
+for.end:                                          ; preds = %for.body.lr.ph, %if.end3
+  %b_bitmap = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %b_bitmap, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %3, i64 1096
   %4 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_gc_prev.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %add.ptr.i.i to i64
@@ -4741,25 +4841,25 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hamt_node_array_clone(ptr nocapture noundef readonly %node) unnamed_addr #0 {
 entry:
-  %a_count = getelementptr inbounds %struct.PyHamtNode_Array, ptr %node, i64 0, i32 2
+  %a_count = getelementptr inbounds i8, ptr %node, i64 272
   %0 = load i64, ptr %a_count, align 8
   %call.i = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %hamt_node_array_new.exit
 
 hamt_node_array_new.exit:                         ; preds = %entry
-  %scevgep.i = getelementptr i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i, i8 0, i64 256, i1 false)
-  %a_count.i = getelementptr inbounds %struct.PyHamtNode_Array, ptr %call.i, i64 0, i32 2
+  %a_array.i = getelementptr i8, ptr %call.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i, i8 0, i64 256, i1 false)
+  %a_count.i = getelementptr inbounds i8, ptr %call.i, i64 272
   store i64 %0, ptr %a_count.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %3, i64 1096
   %4 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_gc_prev.i.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -4772,11 +4872,12 @@ hamt_node_array_new.exit:                         ; preds = %entry
   %9 = ptrtoint ptr %4 to i64
   store i64 %9, ptr %add.ptr.i.i.i, align 8
   store i64 %7, ptr %_gc_prev.i.i, align 8
+  %a_array = getelementptr inbounds i8, ptr %node, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %hamt_node_array_new.exit, %_Py_XNewRef.exit
   %i.07 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %inc, %_Py_XNewRef.exit ]
-  %arrayidx = getelementptr %struct.PyHamtNode_Array, ptr %node, i64 0, i32 1, i64 %i.07
+  %arrayidx = getelementptr [32 x ptr], ptr %a_array, i64 0, i64 %i.07
   %10 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -4792,7 +4893,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %for.body, %if.then.i.i, %if.end.i.i.i
-  %arrayidx4 = getelementptr %struct.PyHamtNode_Array, ptr %call.i, i64 0, i32 1, i64 %i.07
+  %arrayidx4 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.07
   store ptr %10, ptr %arrayidx4, align 8
   %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, 32
@@ -4814,9 +4915,9 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @hamt_baseiter_tp_len(ptr nocapture noundef readonly %it) #7 {
 entry:
-  %hi_obj = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 1
+  %hi_obj = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj, align 8
-  %h_count = getelementptr inbounds %struct.PyHamtObject, ptr %0, i64 0, i32 3
+  %h_count = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %h_count, align 8
   ret i64 %1
 }
@@ -4839,7 +4940,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @hamt_tp_len(ptr nocapture noundef readonly %self) #4 {
 entry:
-  %h_count.i = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 3
+  %h_count.i = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %h_count.i, align 8
   ret i64 %0
 }
@@ -4981,14 +5082,14 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
-  %hi_obj.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 1
+  %hi_obj.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %self, ptr %hi_obj.i.i, align 8
-  %hi_yield.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 3
+  %hi_yield.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store ptr @hamt_iter_yield_items, ptr %hi_yield.i.i, align 8
-  %hi_iter.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2
-  %h_root.i.i = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %hi_iter.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterItems.exit
@@ -5015,14 +5116,14 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
-  %hi_obj.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 1
+  %hi_obj.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %self, ptr %hi_obj.i.i, align 8
-  %hi_yield.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 3
+  %hi_yield.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store ptr @hamt_iter_yield_keys, ptr %hi_yield.i.i, align 8
-  %hi_iter.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2
-  %h_root.i.i = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %hi_iter.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterKeys.exit
@@ -5049,14 +5150,14 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
-  %hi_obj.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 1
+  %hi_obj.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %self, ptr %hi_obj.i.i, align 8
-  %hi_yield.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 3
+  %hi_yield.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store ptr @hamt_iter_yield_values, ptr %hi_yield.i.i, align 8
-  %hi_iter.i.i = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2
-  %h_root.i.i = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
+  %hi_iter.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
-  %2 = getelementptr inbounds %struct.PyHamtIterator, ptr %call.i.i, i64 0, i32 2, i32 0, i64 1
+  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterValues.exit

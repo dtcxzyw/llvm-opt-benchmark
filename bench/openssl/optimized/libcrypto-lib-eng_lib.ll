@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-eng_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @engine_lock_init = global i32 0, align 4
 @do_engine_lock_init_ossl_ret_ = local_unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/engine/eng_lib.c\00", align 1
@@ -50,9 +46,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %struct_ref = getelementptr inbounds %struct.engine_st, ptr %call2, i64 0, i32 20
+  %struct_ref = getelementptr inbounds i8, ptr %call2, i64 156
   store atomic i32 1, ptr %struct_ref seq_cst, align 4
-  %ex_data = getelementptr inbounds %struct.engine_st, ptr %call2, i64 0, i32 22
+  %ex_data = getelementptr inbounds i8, ptr %call2, i64 168
   %call9 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 10, ptr noundef nonnull %call2, ptr noundef nonnull %ex_data) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %return
@@ -83,13 +79,13 @@ declare i32 @CRYPTO_new_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @engine_set_all_null(ptr nocapture noundef writeonly %e) local_unnamed_addr #2 {
 entry:
-  %rand_meth = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 6
-  %destroy = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 11
-  %cmd_defns = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 18
+  %rand_meth = getelementptr inbounds i8, ptr %e, i64 48
+  %destroy = getelementptr inbounds i8, ptr %e, i64 88
+  %cmd_defns = getelementptr inbounds i8, ptr %e, i64 144
   store ptr null, ptr %cmd_defns, align 8
-  %flags = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 19
+  %flags = getelementptr inbounds i8, ptr %e, i64 152
   store i32 0, ptr %flags, align 8
-  %dynamic_id = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 27
+  %dynamic_id = getelementptr inbounds i8, ptr %e, i64 216
   store ptr null, ptr %dynamic_id, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rand_meth, i8 0, i64 24, i1 false)
@@ -104,7 +100,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %struct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 20
+  %struct_ref = getelementptr inbounds i8, ptr %e, i64 156
   %0 = atomicrmw sub ptr %struct_ref, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -120,7 +116,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   tail call void @engine_pkey_meths_free(ptr noundef nonnull %e) #7
   tail call void @engine_pkey_asn1_meths_free(ptr noundef nonnull %e) #7
-  %destroy = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 11
+  %destroy = getelementptr inbounds i8, ptr %e, i64 88
   %1 = load ptr, ptr %destroy, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end7, label %if.then4
@@ -131,7 +127,7 @@ if.then4:                                         ; preds = %if.end3
 
 if.end7:                                          ; preds = %if.then4, %if.end3
   tail call void @engine_remove_dynamic_id(ptr noundef nonnull %e, i32 noundef %not_locked) #7
-  %ex_data = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 22
+  %ex_data = getelementptr inbounds i8, ptr %e, i64 168
   tail call void @CRYPTO_free_ex_data(i32 noundef 10, ptr noundef nonnull %e, ptr noundef nonnull %ex_data) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %e, ptr noundef nonnull @.str, i32 noundef 100) #7
   br label %return
@@ -155,7 +151,7 @@ entry:
   br i1 %cmp.i, label %engine_free_util.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %struct_ref.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 20
+  %struct_ref.i = getelementptr inbounds i8, ptr %e, i64 156
   %0 = atomicrmw sub ptr %struct_ref.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -171,7 +167,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   tail call void @engine_pkey_meths_free(ptr noundef nonnull %e) #7
   tail call void @engine_pkey_asn1_meths_free(ptr noundef nonnull %e) #7
-  %destroy.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 11
+  %destroy.i = getelementptr inbounds i8, ptr %e, i64 88
   %1 = load ptr, ptr %destroy.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end7.i, label %if.then4.i
@@ -182,7 +178,7 @@ if.then4.i:                                       ; preds = %if.end3.i
 
 if.end7.i:                                        ; preds = %if.then4.i, %if.end3.i
   tail call void @engine_remove_dynamic_id(ptr noundef nonnull %e, i32 noundef 1) #7
-  %ex_data.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 22
+  %ex_data.i = getelementptr inbounds i8, ptr %e, i64 168
   tail call void @CRYPTO_free_ex_data(i32 noundef 10, ptr noundef nonnull %e, ptr noundef nonnull %ex_data.i) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %e, ptr noundef nonnull @.str, i32 noundef 100) #7
   br label %engine_free_util.exit
@@ -292,7 +288,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ENGINE_set_ex_data(ptr noundef %e, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 22
+  %ex_data = getelementptr inbounds i8, ptr %e, i64 168
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #7
   ret i32 %call
 }
@@ -302,7 +298,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @ENGINE_get_ex_data(ptr noundef %e, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 22
+  %ex_data = getelementptr inbounds i8, ptr %e, i64 168
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #7
   ret ptr %call
 }
@@ -343,7 +339,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %name1 = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 1
+  %name1 = getelementptr inbounds i8, ptr %e, i64 8
   store ptr %name, ptr %name1, align 8
   br label %return
 
@@ -355,7 +351,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_destroy_function(ptr nocapture noundef writeonly %e, ptr noundef %destroy_f) local_unnamed_addr #3 {
 entry:
-  %destroy = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 11
+  %destroy = getelementptr inbounds i8, ptr %e, i64 88
   store ptr %destroy_f, ptr %destroy, align 8
   ret i32 1
 }
@@ -363,7 +359,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_init_function(ptr nocapture noundef writeonly %e, ptr noundef %init_f) local_unnamed_addr #3 {
 entry:
-  %init = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 12
+  %init = getelementptr inbounds i8, ptr %e, i64 96
   store ptr %init_f, ptr %init, align 8
   ret i32 1
 }
@@ -371,7 +367,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_finish_function(ptr nocapture noundef writeonly %e, ptr noundef %finish_f) local_unnamed_addr #3 {
 entry:
-  %finish = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 13
+  %finish = getelementptr inbounds i8, ptr %e, i64 104
   store ptr %finish_f, ptr %finish, align 8
   ret i32 1
 }
@@ -379,7 +375,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_ctrl_function(ptr nocapture noundef writeonly %e, ptr noundef %ctrl_f) local_unnamed_addr #3 {
 entry:
-  %ctrl = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 14
+  %ctrl = getelementptr inbounds i8, ptr %e, i64 112
   store ptr %ctrl_f, ptr %ctrl, align 8
   ret i32 1
 }
@@ -387,7 +383,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_flags(ptr nocapture noundef writeonly %e, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %flags1 = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 19
+  %flags1 = getelementptr inbounds i8, ptr %e, i64 152
   store i32 %flags, ptr %flags1, align 8
   ret i32 1
 }
@@ -395,7 +391,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_cmd_defns(ptr nocapture noundef writeonly %e, ptr noundef %defns) local_unnamed_addr #3 {
 entry:
-  %cmd_defns = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 18
+  %cmd_defns = getelementptr inbounds i8, ptr %e, i64 144
   store ptr %defns, ptr %cmd_defns, align 8
   ret i32 1
 }
@@ -410,7 +406,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_name(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %name = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -418,7 +414,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_destroy_function(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %destroy = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 11
+  %destroy = getelementptr inbounds i8, ptr %e, i64 88
   %0 = load ptr, ptr %destroy, align 8
   ret ptr %0
 }
@@ -426,7 +422,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_init_function(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %init = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 12
+  %init = getelementptr inbounds i8, ptr %e, i64 96
   %0 = load ptr, ptr %init, align 8
   ret ptr %0
 }
@@ -434,7 +430,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_finish_function(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %finish = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 13
+  %finish = getelementptr inbounds i8, ptr %e, i64 104
   %0 = load ptr, ptr %finish, align 8
   ret ptr %0
 }
@@ -442,7 +438,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_ctrl_function(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %ctrl = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 14
+  %ctrl = getelementptr inbounds i8, ptr %e, i64 112
   %0 = load ptr, ptr %ctrl, align 8
   ret ptr %0
 }
@@ -450,7 +446,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ENGINE_get_flags(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %flags = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 19
+  %flags = getelementptr inbounds i8, ptr %e, i64 152
   %0 = load i32, ptr %flags, align 8
   ret i32 %0
 }
@@ -458,7 +454,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_cmd_defns(ptr nocapture noundef readonly %e) local_unnamed_addr #4 {
 entry:
-  %cmd_defns = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 18
+  %cmd_defns = getelementptr inbounds i8, ptr %e, i64 144
   %0 = load ptr, ptr %cmd_defns, align 8
   ret ptr %0
 }

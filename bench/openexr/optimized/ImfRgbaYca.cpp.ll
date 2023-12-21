@@ -28,11 +28,11 @@ define void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr noalias no
 entry:
   %m = alloca %"class.Imath_3_2::Matrix44", align 4
   call void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr nonnull sret(%"class.Imath_3_2::Matrix44") align 4 %m, ptr noundef nonnull align 4 dereferenceable(32) %cr, float noundef 1.000000e+00)
-  %arrayidx = getelementptr inbounds float, ptr %m, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %m, i64 4
   %0 = load float, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr inbounds [4 x [4 x float]], ptr %m, i64 0, i64 1, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %m, i64 20
   %1 = load float, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds [4 x [4 x float]], ptr %m, i64 0, i64 2, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %m, i64 36
   %2 = load float, ptr %arrayidx4, align 4
   %add = fadd float %0, %1
   %add11 = fadd float %add, %2
@@ -43,7 +43,7 @@ entry:
   %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
   %7 = fdiv <2 x float> %4, %6
   store <2 x float> %7, ptr %agg.result, align 4, !alias.scope !4
-  %z.i.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %agg.result, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float %div3.i, ptr %z.i.i, align 4, !alias.scope !4
   ret void
 }
@@ -57,8 +57,8 @@ entry:
   br i1 %cmp176, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %yw, i64 0, i32 1
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %yw, i64 0, i32 2
+  %y = getelementptr inbounds i8, ptr %yw, i64 4
+  %z = getelementptr inbounds i8, ptr %yw, i64 8
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -137,9 +137,9 @@ if.end25:                                         ; preds = %if.then22, %lor.lhs
 
 if.then36:                                        ; preds = %if.end25
   store i16 0, ptr %arrayidx2, align 2
-  %g40 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %g40 = getelementptr inbounds i8, ptr %arrayidx2, i64 2
   store i16 %in.sroa.8.0, ptr %g40, align 2
-  %b41 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b41 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   store i16 0, ptr %b41, align 2
   br label %if.end88
 
@@ -150,7 +150,7 @@ if.else:                                          ; preds = %if.end25
   %12 = tail call float @llvm.fmuladd.f32(float %7, float %10, float %mul47)
   %13 = load float, ptr %z, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %9, float %13, float %12)
-  %g50 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %g50 = getelementptr inbounds i8, ptr %arrayidx2, i64 2
   %15 = bitcast float %14 to i32
   %16 = tail call float @llvm.fabs.f32(float %14)
   %and.i.i.i = bitcast float %16 to i32
@@ -336,7 +336,7 @@ if.end68:                                         ; preds = %_ZN9Imath_3_24halfa
 
 if.then77:                                        ; preds = %if.end68
   %div81 = fdiv float %sub71, %22
-  %b82 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b82 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   %34 = bitcast float %div81 to i32
   %35 = tail call float @llvm.fabs.f32(float %div81)
   %and.i.i.i105 = bitcast float %35 to i32
@@ -419,13 +419,13 @@ _ZN9Imath_3_24halfaSEf.exit154:                   ; preds = %if.then4.i.i.i146, 
   br label %if.end88
 
 if.else84:                                        ; preds = %if.end68
-  %b85 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b85 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   store i16 0, ptr %b85, align 2
   br label %if.end88
 
 if.end88:                                         ; preds = %_ZN9Imath_3_24halfaSEf.exit154, %if.else84, %if.then36
   %spec.select = select i1 %aIsValid, i16 %in.sroa.22.0.extract.trunc, i16 15360
-  %40 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 3
+  %40 = getelementptr inbounds i8, ptr %arrayidx2, i64 6
   store i16 %spec.select, ptr %40, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -464,44 +464,44 @@ for.body.if.end_crit_edge:                        ; preds = %for.body
 
 if.then:                                          ; preds = %for.body
   %2 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
-  %arrayidx = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -13
+  %arrayidx = getelementptr i8, ptr %2, i64 -104
   %3 = load i16, ptr %arrayidx, align 2
   %4 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i = zext i16 %3 to i64
   %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i
   %5 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx4 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -11
+  %arrayidx4 = getelementptr i8, ptr %2, i64 -88
   %6 = load i16, ptr %arrayidx4, align 2
   %idxprom.i.i74 = zext i16 %6 to i64
   %arrayidx.i.i75 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i74
   %7 = load float, ptr %arrayidx.i.i75, align 4
   %mul7 = fmul float %7, 0xBF6EE45C40000000
   %8 = tail call float @llvm.fmuladd.f32(float %5, float 0x3F516EBD40000000, float %mul7)
-  %arrayidx10 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -9
+  %arrayidx10 = getelementptr i8, ptr %2, i64 -72
   %9 = load i16, ptr %arrayidx10, align 2
   %idxprom.i.i76 = zext i16 %9 to i64
   %arrayidx.i.i77 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i76
   %10 = load float, ptr %arrayidx.i.i77, align 4
   %11 = tail call float @llvm.fmuladd.f32(float %10, float 0x3F84128C00000000, float %8)
-  %arrayidx15 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -7
+  %arrayidx15 = getelementptr i8, ptr %2, i64 -56
   %12 = load i16, ptr %arrayidx15, align 2
   %idxprom.i.i78 = zext i16 %12 to i64
   %arrayidx.i.i79 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i78
   %13 = load float, ptr %arrayidx.i.i79, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float 0xBF961AA400000000, float %11)
-  %arrayidx20 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -5
+  %arrayidx20 = getelementptr i8, ptr %2, i64 -40
   %15 = load i16, ptr %arrayidx20, align 2
   %idxprom.i.i80 = zext i16 %15 to i64
   %arrayidx.i.i81 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i80
   %16 = load float, ptr %arrayidx.i.i81, align 4
   %17 = tail call float @llvm.fmuladd.f32(float %16, float 0x3FA68448C0000000, float %14)
-  %arrayidx25 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -3
+  %arrayidx25 = getelementptr i8, ptr %2, i64 -24
   %18 = load i16, ptr %arrayidx25, align 2
   %idxprom.i.i82 = zext i16 %18 to i64
   %arrayidx.i.i83 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i82
   %19 = load float, ptr %arrayidx.i.i83, align 4
   %20 = tail call float @llvm.fmuladd.f32(float %19, float 0xBFB7D33D20000000, float %17)
-  %arrayidx30 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -1
+  %arrayidx30 = getelementptr i8, ptr %2, i64 -8
   %21 = load i16, ptr %arrayidx30, align 2
   %idxprom.i.i84 = zext i16 %21 to i64
   %arrayidx.i.i85 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i84
@@ -519,43 +519,43 @@ if.then:                                          ; preds = %for.body
   %arrayidx.i.i89 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i88
   %29 = load float, ptr %arrayidx.i.i89, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float 0x3FD412FD40000000, float %26)
-  %31 = add nuw nsw i64 %indvars.iv185, 3
-  %arrayidx44 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %31
+  %31 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx44 = getelementptr i8, ptr %31, i64 24
   %32 = load i16, ptr %arrayidx44, align 2
   %idxprom.i.i90 = zext i16 %32 to i64
   %arrayidx.i.i91 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i90
   %33 = load float, ptr %arrayidx.i.i91, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %33, float 0xBFB7D33D20000000, float %30)
-  %35 = add nuw nsw i64 %indvars.iv185, 5
-  %arrayidx49 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %35
+  %35 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx49 = getelementptr i8, ptr %35, i64 40
   %36 = load i16, ptr %arrayidx49, align 2
   %idxprom.i.i92 = zext i16 %36 to i64
   %arrayidx.i.i93 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i92
   %37 = load float, ptr %arrayidx.i.i93, align 4
   %38 = tail call float @llvm.fmuladd.f32(float %37, float 0x3FA68448C0000000, float %34)
-  %39 = add nuw nsw i64 %indvars.iv185, 7
-  %arrayidx54 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %39
+  %39 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx54 = getelementptr i8, ptr %39, i64 56
   %40 = load i16, ptr %arrayidx54, align 2
   %idxprom.i.i94 = zext i16 %40 to i64
   %arrayidx.i.i95 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i94
   %41 = load float, ptr %arrayidx.i.i95, align 4
   %42 = tail call float @llvm.fmuladd.f32(float %41, float 0xBF961AA400000000, float %38)
-  %43 = add nuw nsw i64 %indvars.iv185, 9
-  %arrayidx59 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %43
+  %43 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx59 = getelementptr i8, ptr %43, i64 72
   %44 = load i16, ptr %arrayidx59, align 2
   %idxprom.i.i96 = zext i16 %44 to i64
   %arrayidx.i.i97 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i96
   %45 = load float, ptr %arrayidx.i.i97, align 4
   %46 = tail call float @llvm.fmuladd.f32(float %45, float 0x3F84128C00000000, float %42)
-  %47 = add nuw nsw i64 %indvars.iv185, 11
-  %arrayidx64 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %47
+  %47 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx64 = getelementptr i8, ptr %47, i64 88
   %48 = load i16, ptr %arrayidx64, align 2
   %idxprom.i.i98 = zext i16 %48 to i64
   %arrayidx.i.i99 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i98
   %49 = load float, ptr %arrayidx.i.i99, align 4
   %50 = tail call float @llvm.fmuladd.f32(float %49, float 0xBF6EE45C40000000, float %46)
-  %51 = add nuw nsw i64 %indvars.iv185, 13
-  %arrayidx69 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %51
+  %51 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx69 = getelementptr i8, ptr %51, i64 104
   %52 = load i16, ptr %arrayidx69, align 2
   %idxprom.i.i100 = zext i16 %52 to i64
   %arrayidx.i.i101 = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i100
@@ -641,98 +641,98 @@ if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
   %retval.0.i.i.i = phi i16 [ %conv19.i.i.i, %if.end.i.i.i ], [ %conv26.i.i.i, %if.then23.i.i.i ], [ %conv36.i.i.i, %if.end27.i.i.i ], [ %conv6.i.i.i, %if.then4.i.i.i ], [ %conv.i.i.i, %if.end37.i.i.i ], [ %inc.i.i.i, %if.then55.i.i.i ], [ %conv49.i.i.i, %lor.lhs.false.i.i.i ]
   store i16 %retval.0.i.i.i, ptr %arrayidx73, align 2
-  %b = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -13, i32 2
+  %b = getelementptr i8, ptr %2, i64 -100
   %61 = load i16, ptr %b, align 2
   %62 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i102 = zext i16 %61 to i64
   %arrayidx.i.i103 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i102
   %63 = load float, ptr %arrayidx.i.i103, align 4
-  %b83 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -11, i32 2
+  %b83 = getelementptr i8, ptr %2, i64 -84
   %64 = load i16, ptr %b83, align 2
   %idxprom.i.i104 = zext i16 %64 to i64
   %arrayidx.i.i105 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i104
   %65 = load float, ptr %arrayidx.i.i105, align 4
   %mul85 = fmul float %65, 0xBF6EE45C40000000
   %66 = tail call float @llvm.fmuladd.f32(float %63, float 0x3F516EBD40000000, float %mul85)
-  %b89 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -9, i32 2
+  %b89 = getelementptr i8, ptr %2, i64 -68
   %67 = load i16, ptr %b89, align 2
   %idxprom.i.i106 = zext i16 %67 to i64
   %arrayidx.i.i107 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i106
   %68 = load float, ptr %arrayidx.i.i107, align 4
   %69 = tail call float @llvm.fmuladd.f32(float %68, float 0x3F84128C00000000, float %66)
-  %b94 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -7, i32 2
+  %b94 = getelementptr i8, ptr %2, i64 -52
   %70 = load i16, ptr %b94, align 2
   %idxprom.i.i108 = zext i16 %70 to i64
   %arrayidx.i.i109 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i108
   %71 = load float, ptr %arrayidx.i.i109, align 4
   %72 = tail call float @llvm.fmuladd.f32(float %71, float 0xBF961AA400000000, float %69)
-  %b99 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -5, i32 2
+  %b99 = getelementptr i8, ptr %2, i64 -36
   %73 = load i16, ptr %b99, align 2
   %idxprom.i.i110 = zext i16 %73 to i64
   %arrayidx.i.i111 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i110
   %74 = load float, ptr %arrayidx.i.i111, align 4
   %75 = tail call float @llvm.fmuladd.f32(float %74, float 0x3FA68448C0000000, float %72)
-  %b104 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -3, i32 2
+  %b104 = getelementptr i8, ptr %2, i64 -20
   %76 = load i16, ptr %b104, align 2
   %idxprom.i.i112 = zext i16 %76 to i64
   %arrayidx.i.i113 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i112
   %77 = load float, ptr %arrayidx.i.i113, align 4
   %78 = tail call float @llvm.fmuladd.f32(float %77, float 0xBFB7D33D20000000, float %75)
-  %b109 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 -1, i32 2
+  %b109 = getelementptr i8, ptr %2, i64 -4
   %79 = load i16, ptr %b109, align 2
   %idxprom.i.i114 = zext i16 %79 to i64
   %arrayidx.i.i115 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i114
   %80 = load float, ptr %arrayidx.i.i115, align 4
   %81 = tail call float @llvm.fmuladd.f32(float %80, float 0x3FD412FD40000000, float %78)
-  %b113 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185, i32 2
+  %b113 = getelementptr inbounds i8, ptr %2, i64 4
   %82 = load i16, ptr %b113, align 2
   %idxprom.i.i116 = zext i16 %82 to i64
   %arrayidx.i.i117 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i116
   %83 = load float, ptr %arrayidx.i.i117, align 4
   %84 = tail call float @llvm.fmuladd.f32(float %83, float 0x3FDFFD7A20000000, float %81)
-  %b118 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %27, i32 2
+  %b118 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
   %85 = load i16, ptr %b118, align 2
   %idxprom.i.i118 = zext i16 %85 to i64
   %arrayidx.i.i119 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i118
   %86 = load float, ptr %arrayidx.i.i119, align 4
   %87 = tail call float @llvm.fmuladd.f32(float %86, float 0x3FD412FD40000000, float %84)
-  %b123 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %31, i32 2
+  %b123 = getelementptr i8, ptr %31, i64 28
   %88 = load i16, ptr %b123, align 2
   %idxprom.i.i120 = zext i16 %88 to i64
   %arrayidx.i.i121 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i120
   %89 = load float, ptr %arrayidx.i.i121, align 4
   %90 = tail call float @llvm.fmuladd.f32(float %89, float 0xBFB7D33D20000000, float %87)
-  %b128 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %35, i32 2
+  %b128 = getelementptr i8, ptr %35, i64 44
   %91 = load i16, ptr %b128, align 2
   %idxprom.i.i122 = zext i16 %91 to i64
   %arrayidx.i.i123 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i122
   %92 = load float, ptr %arrayidx.i.i123, align 4
   %93 = tail call float @llvm.fmuladd.f32(float %92, float 0x3FA68448C0000000, float %90)
-  %b133 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %39, i32 2
+  %b133 = getelementptr i8, ptr %39, i64 60
   %94 = load i16, ptr %b133, align 2
   %idxprom.i.i124 = zext i16 %94 to i64
   %arrayidx.i.i125 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i124
   %95 = load float, ptr %arrayidx.i.i125, align 4
   %96 = tail call float @llvm.fmuladd.f32(float %95, float 0xBF961AA400000000, float %93)
-  %b138 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %43, i32 2
+  %b138 = getelementptr i8, ptr %43, i64 76
   %97 = load i16, ptr %b138, align 2
   %idxprom.i.i126 = zext i16 %97 to i64
   %arrayidx.i.i127 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i126
   %98 = load float, ptr %arrayidx.i.i127, align 4
   %99 = tail call float @llvm.fmuladd.f32(float %98, float 0x3F84128C00000000, float %96)
-  %b143 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %47, i32 2
+  %b143 = getelementptr i8, ptr %47, i64 92
   %100 = load i16, ptr %b143, align 2
   %idxprom.i.i128 = zext i16 %100 to i64
   %arrayidx.i.i129 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i128
   %101 = load float, ptr %arrayidx.i.i129, align 4
   %102 = tail call float @llvm.fmuladd.f32(float %101, float 0xBF6EE45C40000000, float %99)
-  %b148 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %51, i32 2
+  %b148 = getelementptr i8, ptr %51, i64 108
   %103 = load i16, ptr %b148, align 2
   %idxprom.i.i130 = zext i16 %103 to i64
   %arrayidx.i.i131 = getelementptr inbounds %union.imath_half_uif, ptr %62, i64 %idxprom.i.i130
   %104 = load float, ptr %arrayidx.i.i131, align 4
   %105 = tail call float @llvm.fmuladd.f32(float %104, float 0x3F516EBD40000000, float %102)
-  %b152 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b152 = getelementptr inbounds i8, ptr %arrayidx73, i64 4
   %106 = bitcast float %105 to i32
   %107 = tail call float @llvm.fabs.f32(float %105)
   %and.i.i.i132 = bitcast float %107 to i32
@@ -816,12 +816,14 @@ _ZN9Imath_3_24halfaSEf.exit181:                   ; preds = %if.then4.i.i.i173, 
 
 if.end:                                           ; preds = %for.body.if.end_crit_edge, %_ZN9Imath_3_24halfaSEf.exit181
   %indvars.iv.next186.pre-phi = phi i64 [ %.pre, %for.body.if.end_crit_edge ], [ %27, %_ZN9Imath_3_24halfaSEf.exit181 ]
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185, i32 1
-  %g158 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %arrayidx155 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %g = getelementptr inbounds i8, ptr %arrayidx155, i64 2
+  %arrayidx157 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
+  %g158 = getelementptr inbounds i8, ptr %arrayidx157, i64 2
   %112 = load i16, ptr %g, align 2
   store i16 %112, ptr %g158, align 2
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185, i32 3
-  %a163 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 3
+  %a = getelementptr inbounds i8, ptr %arrayidx155, i64 6
+  %a163 = getelementptr inbounds i8, ptr %arrayidx157, i64 6
   %113 = load i16, ptr %a, align 2
   store i16 %113, ptr %a163, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -839,20 +841,20 @@ entry:
   br i1 %cmp181, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx3 = getelementptr inbounds ptr, ptr %ycaIn, i64 2
-  %arrayidx9 = getelementptr inbounds ptr, ptr %ycaIn, i64 4
-  %arrayidx14 = getelementptr inbounds ptr, ptr %ycaIn, i64 6
-  %arrayidx19 = getelementptr inbounds ptr, ptr %ycaIn, i64 8
-  %arrayidx24 = getelementptr inbounds ptr, ptr %ycaIn, i64 10
-  %arrayidx29 = getelementptr inbounds ptr, ptr %ycaIn, i64 12
-  %arrayidx34 = getelementptr inbounds ptr, ptr %ycaIn, i64 13
-  %arrayidx39 = getelementptr inbounds ptr, ptr %ycaIn, i64 14
-  %arrayidx44 = getelementptr inbounds ptr, ptr %ycaIn, i64 16
-  %arrayidx49 = getelementptr inbounds ptr, ptr %ycaIn, i64 18
-  %arrayidx54 = getelementptr inbounds ptr, ptr %ycaIn, i64 20
-  %arrayidx59 = getelementptr inbounds ptr, ptr %ycaIn, i64 22
-  %arrayidx64 = getelementptr inbounds ptr, ptr %ycaIn, i64 24
-  %arrayidx69 = getelementptr inbounds ptr, ptr %ycaIn, i64 26
+  %arrayidx3 = getelementptr inbounds i8, ptr %ycaIn, i64 16
+  %arrayidx9 = getelementptr inbounds i8, ptr %ycaIn, i64 32
+  %arrayidx14 = getelementptr inbounds i8, ptr %ycaIn, i64 48
+  %arrayidx19 = getelementptr inbounds i8, ptr %ycaIn, i64 64
+  %arrayidx24 = getelementptr inbounds i8, ptr %ycaIn, i64 80
+  %arrayidx29 = getelementptr inbounds i8, ptr %ycaIn, i64 96
+  %arrayidx34 = getelementptr inbounds i8, ptr %ycaIn, i64 104
+  %arrayidx39 = getelementptr inbounds i8, ptr %ycaIn, i64 112
+  %arrayidx44 = getelementptr inbounds i8, ptr %ycaIn, i64 128
+  %arrayidx49 = getelementptr inbounds i8, ptr %ycaIn, i64 144
+  %arrayidx54 = getelementptr inbounds i8, ptr %ycaIn, i64 160
+  %arrayidx59 = getelementptr inbounds i8, ptr %ycaIn, i64 176
+  %arrayidx64 = getelementptr inbounds i8, ptr %ycaIn, i64 192
+  %arrayidx69 = getelementptr inbounds i8, ptr %ycaIn, i64 208
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -1155,7 +1157,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %arrayidx.i.i130 = getelementptr inbounds %union.imath_half_uif, ptr %68, i64 %idxprom.i.i129
   %124 = load float, ptr %arrayidx.i.i130, align 4
   %125 = tail call float @llvm.fmuladd.f32(float %124, float 0x3F516EBD40000000, float %121)
-  %b155 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b155 = getelementptr inbounds i8, ptr %arrayidx75, i64 4
   %126 = bitcast float %125 to i32
   %127 = tail call float @llvm.fabs.f32(float %125)
   %and.i.i.i131 = bitcast float %127 to i32
@@ -1240,12 +1242,13 @@ _ZN9Imath_3_24halfaSEf.exit180:                   ; preds = %if.then4.i.i.i172, 
 if.end:                                           ; preds = %_ZN9Imath_3_24halfaSEf.exit180, %for.body
   %132 = load ptr, ptr %arrayidx34, align 8
   %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %132, i64 %indvars.iv, i32 1
-  %g162 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %arrayidx161 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
+  %g162 = getelementptr inbounds i8, ptr %arrayidx161, i64 2
   %133 = load i16, ptr %g, align 2
   store i16 %133, ptr %g162, align 2
   %134 = load ptr, ptr %arrayidx34, align 8
   %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %134, i64 %indvars.iv, i32 3
-  %a168 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 3
+  %a168 = getelementptr inbounds i8, ptr %arrayidx161, i64 6
   %135 = load i16, ptr %a, align 2
   store i16 %135, ptr %a168, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1281,12 +1284,14 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc.us.us
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %g.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv92, i32 1
+  %arrayidx.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv92
+  %g.us.us = getelementptr inbounds i8, ptr %arrayidx.us.us, i64 2
   %4 = load i16, ptr %g.us.us, align 2
-  %g3.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv92, i32 1
+  %arrayidx2.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv92
+  %g3.us.us = getelementptr inbounds i8, ptr %arrayidx2.us.us, i64 2
   store i16 %4, ptr %g3.us.us, align 2
-  %a.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv92, i32 3
-  %a8.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv92, i32 3
+  %a.us.us = getelementptr inbounds i8, ptr %arrayidx.us.us, i64 6
+  %a8.us.us = getelementptr inbounds i8, ptr %arrayidx2.us.us, i64 6
   %5 = load i16, ptr %a.us.us, align 2
   store i16 %5, ptr %a8.us.us, align 2
   %and.us.us100 = and i64 %indvars.iv92, 1
@@ -1294,13 +1299,11 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   br i1 %cmp9.us.us, label %if.then.us.us, label %for.inc.us.us
 
 if.then.us.us:                                    ; preds = %for.body.us.us
-  %arrayidx2.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv92
-  %arrayidx.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv92
   %6 = load i16, ptr %arrayidx.us.us, align 2
   store i16 %6, ptr %arrayidx2.us.us, align 2
-  %b57.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv92, i32 2
+  %b57.us.us = getelementptr inbounds i8, ptr %arrayidx.us.us, i64 4
   %7 = load i16, ptr %b57.us.us, align 2
-  %b25.us.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv92, i32 2
+  %b25.us.us = getelementptr inbounds i8, ptr %arrayidx2.us.us, i64 4
   store i16 %7, ptr %b25.us.us, align 2
   br label %for.inc.us.us
 
@@ -1311,7 +1314,8 @@ for.inc.us.us:                                    ; preds = %if.then.us.us, %for
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
-  %g.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv87, i32 1
+  %arrayidx.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv87
+  %g.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 2
   %8 = load i16, ptr %g.us, align 2
   %and.i.us = and i16 %8, -32768
   %and5.i.us = and i16 %8, 32767
@@ -1326,10 +1330,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %conv27.i.us = and i16 %8, %1
   %e.0.i.us = select i1 %cmp17.i.us, i16 %conv27.i.us, i16 %conv15.i.us
   %or12.i.us = or i16 %e.0.i.us, %and.i.us
-  %g3.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv87, i32 1
+  %arrayidx2.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv87
+  %g3.us = getelementptr inbounds i8, ptr %arrayidx2.us, i64 2
   store i16 %or12.i.us, ptr %g3.us, align 2
-  %a.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv87, i32 3
-  %a8.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv87, i32 3
+  %a.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 6
+  %a8.us = getelementptr inbounds i8, ptr %arrayidx2.us, i64 6
   %9 = load i16, ptr %a.us, align 2
   store i16 %9, ptr %a8.us, align 2
   %and.us99 = and i64 %indvars.iv87, 1
@@ -1337,13 +1342,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   br i1 %cmp9.us, label %if.then.us, label %for.inc.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %arrayidx2.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv87
-  %arrayidx.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv87
   %10 = load i16, ptr %arrayidx.us, align 2
   store i16 %10, ptr %arrayidx2.us, align 2
-  %b57.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv87, i32 2
+  %b57.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 4
   %11 = load i16, ptr %b57.us, align 2
-  %b25.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv87, i32 2
+  %b25.us = getelementptr inbounds i8, ptr %arrayidx2.us, i64 4
   store i16 %11, ptr %b25.us, align 2
   br label %for.inc.us
 
@@ -1357,22 +1360,22 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
 
 for.body.us60:                                    ; preds = %for.body.lr.ph.split, %for.inc.us75
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %for.inc.us75 ], [ 0, %for.body.lr.ph.split ]
-  %g.us63 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv82, i32 1
-  %12 = load i16, ptr %g.us63, align 2
-  %g3.us66 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv82, i32 1
-  store i16 %12, ptr %g3.us66, align 2
-  %a.us67 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv82, i32 3
-  %a8.us68 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv82, i32 3
-  %13 = load i16, ptr %a.us67, align 2
-  store i16 %13, ptr %a8.us68, align 2
-  %and.us6998 = and i64 %indvars.iv82, 1
-  %cmp9.us70 = icmp eq i64 %and.us6998, 0
-  br i1 %cmp9.us70, label %if.then.us71, label %for.inc.us75
+  %arrayidx.us63 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv82
+  %g.us64 = getelementptr inbounds i8, ptr %arrayidx.us63, i64 2
+  %12 = load i16, ptr %g.us64, align 2
+  %arrayidx2.us67 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv82
+  %g3.us68 = getelementptr inbounds i8, ptr %arrayidx2.us67, i64 2
+  store i16 %12, ptr %g3.us68, align 2
+  %a.us69 = getelementptr inbounds i8, ptr %arrayidx.us63, i64 6
+  %a8.us70 = getelementptr inbounds i8, ptr %arrayidx2.us67, i64 6
+  %13 = load i16, ptr %a.us69, align 2
+  store i16 %13, ptr %a8.us70, align 2
+  %and.us7198 = and i64 %indvars.iv82, 1
+  %cmp9.us72 = icmp eq i64 %and.us7198, 0
+  br i1 %cmp9.us72, label %if.then.us73, label %for.inc.us75
 
-if.then.us71:                                     ; preds = %for.body.us60
-  %arrayidx2.us72 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv82
-  %arrayidx.us73 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv82
-  %14 = load i16, ptr %arrayidx.us73, align 2
+if.then.us73:                                     ; preds = %for.body.us60
+  %14 = load i16, ptr %arrayidx.us63, align 2
   %and.i20.us = and i16 %14, -32768
   %and5.i21.us = and i16 %14, 32767
   %conv7.i23.us = zext nneg i16 %and5.i21.us to i32
@@ -1386,8 +1389,8 @@ if.then.us71:                                     ; preds = %for.body.us60
   %conv27.i32.us = and i16 %14, %3
   %e.0.i33.us = select i1 %cmp17.i30.us, i16 %conv27.i32.us, i16 %conv15.i28.us
   %or12.i34.us = or i16 %e.0.i33.us, %and.i20.us
-  store i16 %or12.i34.us, ptr %arrayidx2.us72, align 2
-  %b.us = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv82, i32 2
+  store i16 %or12.i34.us, ptr %arrayidx2.us67, align 2
+  %b.us = getelementptr inbounds i8, ptr %arrayidx.us63, i64 4
   %15 = load i16, ptr %b.us, align 2
   %and.i39.us = and i16 %15, -32768
   %and5.i40.us = and i16 %15, 32767
@@ -1402,18 +1405,19 @@ if.then.us71:                                     ; preds = %for.body.us60
   %conv27.i51.us = and i16 %15, %3
   %e.0.i52.us = select i1 %cmp17.i49.us, i16 %conv27.i51.us, i16 %conv15.i47.us
   %or12.i53.us = or i16 %e.0.i52.us, %and.i39.us
-  %b25.us74 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv82, i32 2
+  %b25.us74 = getelementptr inbounds i8, ptr %arrayidx2.us67, i64 4
   store i16 %or12.i53.us, ptr %b25.us74, align 2
   br label %for.inc.us75
 
-for.inc.us75:                                     ; preds = %if.then.us71, %for.body.us60
+for.inc.us75:                                     ; preds = %if.then.us73, %for.body.us60
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count95
   br i1 %exitcond86.not, label %for.end, label %for.body.us60, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph.split ]
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv
+  %g = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %16 = load i16, ptr %g, align 2
   %and.i = and i16 %16, -32768
   %and5.i = and i16 %16, 32767
@@ -1428,10 +1432,11 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %conv27.i = and i16 %16, %1
   %e.0.i = select i1 %cmp17.i, i16 %conv27.i, i16 %conv15.i
   %or12.i = or i16 %e.0.i, %and.i
-  %g3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
+  %g3 = getelementptr inbounds i8, ptr %arrayidx2, i64 2
   store i16 %or12.i, ptr %g3, align 2
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv, i32 3
-  %a8 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 3
+  %a = getelementptr inbounds i8, ptr %arrayidx, i64 6
+  %a8 = getelementptr inbounds i8, ptr %arrayidx2, i64 6
   %17 = load i16, ptr %a, align 2
   store i16 %17, ptr %a8, align 2
   %and97 = and i64 %indvars.iv, 1
@@ -1439,8 +1444,6 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp9, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv
   %18 = load i16, ptr %arrayidx, align 2
   %and.i20 = and i16 %18, -32768
   %and5.i21 = and i16 %18, 32767
@@ -1456,7 +1459,7 @@ if.then:                                          ; preds = %for.body
   %e.0.i33 = select i1 %cmp17.i30, i16 %conv27.i32, i16 %conv15.i28
   %or12.i34 = or i16 %e.0.i33, %and.i20
   store i16 %or12.i34, ptr %arrayidx2, align 2
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv, i32 2
+  %b = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %19 = load i16, ptr %b, align 2
   %and.i39 = and i16 %19, -32768
   %and5.i40 = and i16 %19, 32767
@@ -1471,7 +1474,7 @@ if.then:                                          ; preds = %for.body
   %conv27.i51 = and i16 %19, %3
   %e.0.i52 = select i1 %cmp17.i49, i16 %conv27.i51, i16 %conv15.i47
   %or12.i53 = or i16 %e.0.i52, %and.i39
-  %b25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b25 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   store i16 %or12.i53, ptr %b25, align 2
   br label %for.inc
 
@@ -1506,44 +1509,44 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -13
+  %arrayidx = getelementptr i8, ptr %arrayidx146, i64 -104
   %2 = load i16, ptr %arrayidx, align 2
   %3 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i = zext i16 %2 to i64
   %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i
   %4 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx3 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -11
+  %arrayidx3 = getelementptr i8, ptr %arrayidx146, i64 -88
   %5 = load i16, ptr %arrayidx3, align 2
   %idxprom.i.i78 = zext i16 %5 to i64
   %arrayidx.i.i79 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i78
   %6 = load float, ptr %arrayidx.i.i79, align 4
   %mul6 = fmul float %6, 0xBF7EE24360000000
   %7 = tail call float @llvm.fmuladd.f32(float %4, float 0x3F616EBD40000000, float %mul6)
-  %arrayidx9 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -9
+  %arrayidx9 = getelementptr i8, ptr %arrayidx146, i64 -72
   %8 = load i16, ptr %arrayidx9, align 2
   %idxprom.i.i80 = zext i16 %8 to i64
   %arrayidx.i.i81 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i80
   %9 = load float, ptr %arrayidx.i.i81, align 4
   %10 = tail call float @llvm.fmuladd.f32(float %9, float 0x3F94113C60000000, float %7)
-  %arrayidx14 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -7
+  %arrayidx14 = getelementptr i8, ptr %arrayidx146, i64 -56
   %11 = load i16, ptr %arrayidx14, align 2
   %idxprom.i.i82 = zext i16 %11 to i64
   %arrayidx.i.i83 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i82
   %12 = load float, ptr %arrayidx.i.i83, align 4
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 0xBFA618EFC0000000, float %10)
-  %arrayidx19 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -5
+  %arrayidx19 = getelementptr i8, ptr %arrayidx146, i64 -40
   %14 = load i16, ptr %arrayidx19, align 2
   %idxprom.i.i84 = zext i16 %14 to i64
   %arrayidx.i.i85 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i84
   %15 = load float, ptr %arrayidx.i.i85, align 4
   %16 = tail call float @llvm.fmuladd.f32(float %15, float 0x3FB68283E0000000, float %13)
-  %arrayidx24 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -3
+  %arrayidx24 = getelementptr i8, ptr %arrayidx146, i64 -24
   %17 = load i16, ptr %arrayidx24, align 2
   %idxprom.i.i86 = zext i16 %17 to i64
   %arrayidx.i.i87 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i86
   %18 = load float, ptr %arrayidx.i.i87, align 4
   %19 = tail call float @llvm.fmuladd.f32(float %18, float 0xBFC7D15F00000000, float %16)
-  %arrayidx29 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -1
+  %arrayidx29 = getelementptr i8, ptr %arrayidx146, i64 -8
   %20 = load i16, ptr %arrayidx29, align 2
   %idxprom.i.i88 = zext i16 %20 to i64
   %arrayidx.i.i89 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i88
@@ -1556,43 +1559,43 @@ if.then:                                          ; preds = %for.body
   %arrayidx.i.i91 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i90
   %25 = load float, ptr %arrayidx.i.i91, align 4
   %26 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FE4116440000000, float %22)
-  %27 = add nuw nsw i64 %indvars.iv185, 3
-  %arrayidx39 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %27
+  %27 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx39 = getelementptr i8, ptr %27, i64 24
   %28 = load i16, ptr %arrayidx39, align 2
   %idxprom.i.i92 = zext i16 %28 to i64
   %arrayidx.i.i93 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i92
   %29 = load float, ptr %arrayidx.i.i93, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float 0xBFC7D15F00000000, float %26)
-  %31 = add nuw nsw i64 %indvars.iv185, 5
-  %arrayidx44 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %31
+  %31 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx44 = getelementptr i8, ptr %31, i64 40
   %32 = load i16, ptr %arrayidx44, align 2
   %idxprom.i.i94 = zext i16 %32 to i64
   %arrayidx.i.i95 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i94
   %33 = load float, ptr %arrayidx.i.i95, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %33, float 0x3FB68283E0000000, float %30)
-  %35 = add nuw nsw i64 %indvars.iv185, 7
-  %arrayidx49 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %35
+  %35 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx49 = getelementptr i8, ptr %35, i64 56
   %36 = load i16, ptr %arrayidx49, align 2
   %idxprom.i.i96 = zext i16 %36 to i64
   %arrayidx.i.i97 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i96
   %37 = load float, ptr %arrayidx.i.i97, align 4
   %38 = tail call float @llvm.fmuladd.f32(float %37, float 0xBFA618EFC0000000, float %34)
-  %39 = add nuw nsw i64 %indvars.iv185, 9
-  %arrayidx54 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %39
+  %39 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx54 = getelementptr i8, ptr %39, i64 72
   %40 = load i16, ptr %arrayidx54, align 2
   %idxprom.i.i98 = zext i16 %40 to i64
   %arrayidx.i.i99 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i98
   %41 = load float, ptr %arrayidx.i.i99, align 4
   %42 = tail call float @llvm.fmuladd.f32(float %41, float 0x3F94113C60000000, float %38)
-  %43 = add nuw nsw i64 %indvars.iv185, 11
-  %arrayidx59 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %43
+  %43 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx59 = getelementptr i8, ptr %43, i64 88
   %44 = load i16, ptr %arrayidx59, align 2
   %idxprom.i.i100 = zext i16 %44 to i64
   %arrayidx.i.i101 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i100
   %45 = load float, ptr %arrayidx.i.i101, align 4
   %46 = tail call float @llvm.fmuladd.f32(float %45, float 0xBF7EE24360000000, float %42)
-  %47 = add nuw nsw i64 %indvars.iv185, 13
-  %arrayidx64 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %47
+  %47 = getelementptr %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %arrayidx64 = getelementptr i8, ptr %47, i64 104
   %48 = load i16, ptr %arrayidx64, align 2
   %idxprom.i.i102 = zext i16 %48 to i64
   %arrayidx.i.i103 = getelementptr inbounds %union.imath_half_uif, ptr %3, i64 %idxprom.i.i102
@@ -1678,92 +1681,92 @@ if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
   %retval.0.i.i.i = phi i16 [ %conv19.i.i.i, %if.end.i.i.i ], [ %conv26.i.i.i, %if.then23.i.i.i ], [ %conv36.i.i.i, %if.end27.i.i.i ], [ %conv6.i.i.i, %if.then4.i.i.i ], [ %conv.i.i.i, %if.end37.i.i.i ], [ %inc.i.i.i, %if.then55.i.i.i ], [ %conv49.i.i.i, %lor.lhs.false.i.i.i ]
   store i16 %retval.0.i.i.i, ptr %arrayidx68, align 2
-  %b = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -13, i32 2
+  %b = getelementptr i8, ptr %arrayidx146, i64 -100
   %57 = load i16, ptr %b, align 2
   %58 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i104 = zext i16 %57 to i64
   %arrayidx.i.i105 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i104
   %59 = load float, ptr %arrayidx.i.i105, align 4
-  %b78 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -11, i32 2
+  %b78 = getelementptr i8, ptr %arrayidx146, i64 -84
   %60 = load i16, ptr %b78, align 2
   %idxprom.i.i106 = zext i16 %60 to i64
   %arrayidx.i.i107 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i106
   %61 = load float, ptr %arrayidx.i.i107, align 4
   %mul80 = fmul float %61, 0xBF7EE24360000000
   %62 = tail call float @llvm.fmuladd.f32(float %59, float 0x3F616EBD40000000, float %mul80)
-  %b84 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -9, i32 2
+  %b84 = getelementptr i8, ptr %arrayidx146, i64 -68
   %63 = load i16, ptr %b84, align 2
   %idxprom.i.i108 = zext i16 %63 to i64
   %arrayidx.i.i109 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i108
   %64 = load float, ptr %arrayidx.i.i109, align 4
   %65 = tail call float @llvm.fmuladd.f32(float %64, float 0x3F94113C60000000, float %62)
-  %b89 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -7, i32 2
+  %b89 = getelementptr i8, ptr %arrayidx146, i64 -52
   %66 = load i16, ptr %b89, align 2
   %idxprom.i.i110 = zext i16 %66 to i64
   %arrayidx.i.i111 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i110
   %67 = load float, ptr %arrayidx.i.i111, align 4
   %68 = tail call float @llvm.fmuladd.f32(float %67, float 0xBFA618EFC0000000, float %65)
-  %b94 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -5, i32 2
+  %b94 = getelementptr i8, ptr %arrayidx146, i64 -36
   %69 = load i16, ptr %b94, align 2
   %idxprom.i.i112 = zext i16 %69 to i64
   %arrayidx.i.i113 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i112
   %70 = load float, ptr %arrayidx.i.i113, align 4
   %71 = tail call float @llvm.fmuladd.f32(float %70, float 0x3FB68283E0000000, float %68)
-  %b99 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -3, i32 2
+  %b99 = getelementptr i8, ptr %arrayidx146, i64 -20
   %72 = load i16, ptr %b99, align 2
   %idxprom.i.i114 = zext i16 %72 to i64
   %arrayidx.i.i115 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i114
   %73 = load float, ptr %arrayidx.i.i115, align 4
   %74 = tail call float @llvm.fmuladd.f32(float %73, float 0xBFC7D15F00000000, float %71)
-  %b104 = getelementptr %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i64 -1, i32 2
+  %b104 = getelementptr i8, ptr %arrayidx146, i64 -4
   %75 = load i16, ptr %b104, align 2
   %idxprom.i.i116 = zext i16 %75 to i64
   %arrayidx.i.i117 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i116
   %76 = load float, ptr %arrayidx.i.i117, align 4
   %77 = tail call float @llvm.fmuladd.f32(float %76, float 0x3FE4116440000000, float %74)
-  %b109 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %23, i32 2
+  %b109 = getelementptr inbounds i8, ptr %arrayidx34, i64 4
   %78 = load i16, ptr %b109, align 2
   %idxprom.i.i118 = zext i16 %78 to i64
   %arrayidx.i.i119 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i118
   %79 = load float, ptr %arrayidx.i.i119, align 4
   %80 = tail call float @llvm.fmuladd.f32(float %79, float 0x3FE4116440000000, float %77)
-  %b114 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %27, i32 2
+  %b114 = getelementptr i8, ptr %27, i64 28
   %81 = load i16, ptr %b114, align 2
   %idxprom.i.i120 = zext i16 %81 to i64
   %arrayidx.i.i121 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i120
   %82 = load float, ptr %arrayidx.i.i121, align 4
   %83 = tail call float @llvm.fmuladd.f32(float %82, float 0xBFC7D15F00000000, float %80)
-  %b119 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %31, i32 2
+  %b119 = getelementptr i8, ptr %31, i64 44
   %84 = load i16, ptr %b119, align 2
   %idxprom.i.i122 = zext i16 %84 to i64
   %arrayidx.i.i123 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i122
   %85 = load float, ptr %arrayidx.i.i123, align 4
   %86 = tail call float @llvm.fmuladd.f32(float %85, float 0x3FB68283E0000000, float %83)
-  %b124 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %35, i32 2
+  %b124 = getelementptr i8, ptr %35, i64 60
   %87 = load i16, ptr %b124, align 2
   %idxprom.i.i124 = zext i16 %87 to i64
   %arrayidx.i.i125 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i124
   %88 = load float, ptr %arrayidx.i.i125, align 4
   %89 = tail call float @llvm.fmuladd.f32(float %88, float 0xBFA618EFC0000000, float %86)
-  %b129 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %39, i32 2
+  %b129 = getelementptr i8, ptr %39, i64 76
   %90 = load i16, ptr %b129, align 2
   %idxprom.i.i126 = zext i16 %90 to i64
   %arrayidx.i.i127 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i126
   %91 = load float, ptr %arrayidx.i.i127, align 4
   %92 = tail call float @llvm.fmuladd.f32(float %91, float 0x3F94113C60000000, float %89)
-  %b134 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %43, i32 2
+  %b134 = getelementptr i8, ptr %43, i64 92
   %93 = load i16, ptr %b134, align 2
   %idxprom.i.i128 = zext i16 %93 to i64
   %arrayidx.i.i129 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i128
   %94 = load float, ptr %arrayidx.i.i129, align 4
   %95 = tail call float @llvm.fmuladd.f32(float %94, float 0xBF7EE24360000000, float %92)
-  %b139 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %47, i32 2
+  %b139 = getelementptr i8, ptr %47, i64 108
   %96 = load i16, ptr %b139, align 2
   %idxprom.i.i130 = zext i16 %96 to i64
   %arrayidx.i.i131 = getelementptr inbounds %union.imath_half_uif, ptr %58, i64 %idxprom.i.i130
   %97 = load float, ptr %arrayidx.i.i131, align 4
   %98 = tail call float @llvm.fmuladd.f32(float %97, float 0x3F616EBD40000000, float %95)
-  %b143 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b143 = getelementptr inbounds i8, ptr %arrayidx68, i64 4
   %99 = bitcast float %98 to i32
   %100 = tail call float @llvm.fabs.f32(float %98)
   %and.i.i.i132 = bitcast float %100 to i32
@@ -1849,8 +1852,8 @@ if.else:                                          ; preds = %for.body
   %arrayidx149 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
   %105 = load i16, ptr %arrayidx146, align 2
   store i16 %105, ptr %arrayidx149, align 2
-  %b153 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185, i32 2
-  %b156 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b153 = getelementptr inbounds i8, ptr %arrayidx146, i64 4
+  %b156 = getelementptr inbounds i8, ptr %arrayidx149, i64 4
   %106 = load i16, ptr %b153, align 2
   store i16 %106, ptr %b156, align 2
   %.pre = add nuw nsw i64 %indvars.iv185, 1
@@ -1858,12 +1861,14 @@ if.else:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.else, %_ZN9Imath_3_24halfaSEf.exit181
   %indvars.iv.next186.pre-phi = phi i64 [ %.pre, %if.else ], [ %23, %_ZN9Imath_3_24halfaSEf.exit181 ]
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185, i32 1
-  %g161 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %arrayidx158 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185
+  %g = getelementptr inbounds i8, ptr %arrayidx158, i64 2
+  %arrayidx160 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
+  %g161 = getelementptr inbounds i8, ptr %arrayidx160, i64 2
   %107 = load i16, ptr %g, align 2
   store i16 %107, ptr %g161, align 2
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv185, i32 3
-  %a166 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 3
+  %a = getelementptr inbounds i8, ptr %arrayidx158, i64 6
+  %a166 = getelementptr inbounds i8, ptr %arrayidx160, i64 6
   %108 = load i16, ptr %a, align 2
   store i16 %108, ptr %a166, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1881,20 +1886,20 @@ entry:
   br i1 %cmp172, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx2 = getelementptr inbounds ptr, ptr %ycaIn, i64 2
-  %arrayidx8 = getelementptr inbounds ptr, ptr %ycaIn, i64 4
-  %arrayidx13 = getelementptr inbounds ptr, ptr %ycaIn, i64 6
-  %arrayidx18 = getelementptr inbounds ptr, ptr %ycaIn, i64 8
-  %arrayidx23 = getelementptr inbounds ptr, ptr %ycaIn, i64 10
-  %arrayidx28 = getelementptr inbounds ptr, ptr %ycaIn, i64 12
-  %arrayidx33 = getelementptr inbounds ptr, ptr %ycaIn, i64 14
-  %arrayidx38 = getelementptr inbounds ptr, ptr %ycaIn, i64 16
-  %arrayidx43 = getelementptr inbounds ptr, ptr %ycaIn, i64 18
-  %arrayidx48 = getelementptr inbounds ptr, ptr %ycaIn, i64 20
-  %arrayidx53 = getelementptr inbounds ptr, ptr %ycaIn, i64 22
-  %arrayidx58 = getelementptr inbounds ptr, ptr %ycaIn, i64 24
-  %arrayidx63 = getelementptr inbounds ptr, ptr %ycaIn, i64 26
-  %arrayidx146 = getelementptr inbounds ptr, ptr %ycaIn, i64 13
+  %arrayidx2 = getelementptr inbounds i8, ptr %ycaIn, i64 16
+  %arrayidx8 = getelementptr inbounds i8, ptr %ycaIn, i64 32
+  %arrayidx13 = getelementptr inbounds i8, ptr %ycaIn, i64 48
+  %arrayidx18 = getelementptr inbounds i8, ptr %ycaIn, i64 64
+  %arrayidx23 = getelementptr inbounds i8, ptr %ycaIn, i64 80
+  %arrayidx28 = getelementptr inbounds i8, ptr %ycaIn, i64 96
+  %arrayidx33 = getelementptr inbounds i8, ptr %ycaIn, i64 112
+  %arrayidx38 = getelementptr inbounds i8, ptr %ycaIn, i64 128
+  %arrayidx43 = getelementptr inbounds i8, ptr %ycaIn, i64 144
+  %arrayidx48 = getelementptr inbounds i8, ptr %ycaIn, i64 160
+  %arrayidx53 = getelementptr inbounds i8, ptr %ycaIn, i64 176
+  %arrayidx58 = getelementptr inbounds i8, ptr %ycaIn, i64 192
+  %arrayidx63 = getelementptr inbounds i8, ptr %ycaIn, i64 208
+  %arrayidx146 = getelementptr inbounds i8, ptr %ycaIn, i64 104
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -2178,7 +2183,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %arrayidx.i.i121 = getelementptr inbounds %union.imath_half_uif, ptr %64, i64 %idxprom.i.i120
   %116 = load float, ptr %arrayidx.i.i121, align 4
   %117 = tail call float @llvm.fmuladd.f32(float %116, float 0x3F616EBD40000000, float %113)
-  %b144 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 2
+  %b144 = getelementptr inbounds i8, ptr %arrayidx69, i64 4
   %118 = bitcast float %117 to i32
   %119 = tail call float @llvm.fabs.f32(float %117)
   %and.i.i.i122 = bitcast float %119 to i32
@@ -2260,12 +2265,12 @@ _ZN9Imath_3_24halfaSEf.exit171:                   ; preds = %if.then4.i.i.i163, 
   store i16 %retval.0.i.i.i147, ptr %b144, align 2
   %124 = load ptr, ptr %arrayidx146, align 8
   %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %124, i64 %indvars.iv, i32 1
-  %g151 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 1
+  %g151 = getelementptr inbounds i8, ptr %arrayidx69, i64 2
   %125 = load i16, ptr %g, align 2
   store i16 %125, ptr %g151, align 2
   %126 = load ptr, ptr %arrayidx146, align 8
   %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %126, i64 %indvars.iv, i32 3
-  %a157 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv, i32 3
+  %a157 = getelementptr inbounds i8, ptr %arrayidx69, i64 6
   %127 = load i16, ptr %a, align 2
   store i16 %127, ptr %a157, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2283,8 +2288,8 @@ entry:
   br i1 %cmp134, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %yw, i64 0, i32 2
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %yw, i64 0, i32 1
+  %z = getelementptr inbounds i8, ptr %yw, i64 8
+  %y = getelementptr inbounds i8, ptr %yw, i64 4
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -2298,22 +2303,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %1, i64 %idxprom.i.i
   %2 = load float, ptr %arrayidx.i.i, align 4
   %cmp3 = fcmp oeq float %2, 0.000000e+00
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv, i32 2
+  %b = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %3 = load i16, ptr %b, align 2
   %idxprom.i.i26 = zext i16 %3 to i64
   %arrayidx.i.i27 = getelementptr inbounds %union.imath_half_uif, ptr %1, i64 %idxprom.i.i26
   %4 = load float, ptr %arrayidx.i.i27, align 4
   %cmp5 = fcmp oeq float %4, 0.000000e+00
   %or.cond = select i1 %cmp3, i1 %cmp5, i1 false
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv, i32 1
+  %g = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %5 = load i16, ptr %g, align 2
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
   store i16 %5, ptr %arrayidx2, align 2
-  %g8 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 1
+  %g8 = getelementptr inbounds i8, ptr %arrayidx2, i64 2
   store i16 %5, ptr %g8, align 2
-  %b10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 2
+  %b10 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   %6 = load i16, ptr %g, align 2
   store i16 %6, ptr %b10, align 2
   br label %for.inc
@@ -2413,7 +2418,7 @@ if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
   %retval.0.i.i.i = phi i16 [ %conv19.i.i.i, %if.end.i.i.i ], [ %conv26.i.i.i, %if.then23.i.i.i ], [ %conv36.i.i.i, %if.end27.i.i.i ], [ %conv6.i.i.i, %if.then4.i.i.i ], [ %conv.i.i.i, %if.end37.i.i.i ], [ %inc.i.i.i, %if.then55.i.i.i ], [ %conv49.i.i.i, %lor.lhs.false.i.i.i ]
   store i16 %retval.0.i.i.i, ptr %arrayidx2, align 2
-  %g28 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 1
+  %g28 = getelementptr inbounds i8, ptr %arrayidx2, i64 2
   %19 = bitcast float %div to i32
   %20 = tail call float @llvm.fabs.f32(float %div)
   %and.i.i.i34 = bitcast float %20 to i32
@@ -2493,7 +2498,7 @@ if.then55.i.i.i57:                                ; preds = %lor.lhs.false.i.i.i
 _ZN9Imath_3_24halfaSEf.exit83:                    ; preds = %if.then4.i.i.i75, %if.end.i.i.i78, %if.then23.i.i.i73, %if.end27.i.i.i64, %if.end37.i.i.i38, %lor.lhs.false.i.i.i52, %if.then55.i.i.i57
   %retval.0.i.i.i59 = phi i16 [ %conv19.i.i.i82, %if.end.i.i.i78 ], [ %conv26.i.i.i74, %if.then23.i.i.i73 ], [ %conv36.i.i.i72, %if.end27.i.i.i64 ], [ %conv6.i.i.i76, %if.then4.i.i.i75 ], [ %conv.i.i.i36, %if.end37.i.i.i38 ], [ %inc.i.i.i58, %if.then55.i.i.i57 ], [ %conv49.i.i.i50, %lor.lhs.false.i.i.i52 ]
   store i16 %retval.0.i.i.i59, ptr %g28, align 2
-  %b30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 2
+  %b30 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   %25 = bitcast float %mul21 to i32
   %26 = tail call float @llvm.fabs.f32(float %mul21)
   %and.i.i.i84 = bitcast float %26 to i32
@@ -2576,8 +2581,8 @@ _ZN9Imath_3_24halfaSEf.exit133:                   ; preds = %if.then4.i.i.i125, 
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %_ZN9Imath_3_24halfaSEf.exit133
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaIn, i64 %indvars.iv, i32 3
-  %a11 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 3
+  %a = getelementptr inbounds i8, ptr %arrayidx, i64 6
+  %a11 = getelementptr inbounds i8, ptr %arrayidx2, i64 6
   %31 = load i16, ptr %a, align 2
   store i16 %31, ptr %a11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2591,7 +2596,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7Imf_3_27RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4RgbaEPS6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %yw, i32 noundef %n, ptr nocapture noundef readonly %rgbaIn, ptr nocapture noundef writeonly %rgbaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx2 = getelementptr inbounds ptr, ptr %rgbaIn, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %rgbaIn, i64 16
   %cmp136 = icmp sgt i32 %n, 0
   br i1 %cmp136, label %for.body.lr.ph, label %for.end
 
@@ -2602,12 +2607,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %idxprom.i.i.i7.i31 = zext i16 %2 to i64
   %arrayidx.i.i.i8.i32 = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i.i7.i31
   %3 = load float, ptr %arrayidx.i.i.i8.i32, align 4
-  %g.i24 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %1, i64 0, i32 1
+  %g.i24 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %g.i24, align 2
   %idxprom.i.i.i.i26 = zext i16 %4 to i64
   %arrayidx.i.i.i.i27 = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i.i.i26
   %5 = load float, ptr %arrayidx.i.i.i.i27, align 4
-  %b.i25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %1, i64 0, i32 2
+  %b.i25 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i16, ptr %b.i25, align 2
   %idxprom.i.i3.i.i28 = zext i16 %6 to i64
   %arrayidx.i.i4.i.i29 = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i3.i.i28
@@ -2637,12 +2642,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %idxprom.i.i.i7.i = zext i16 %17 to i64
   %arrayidx.i.i.i8.i = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i.i7.i
   %18 = load float, ptr %arrayidx.i.i.i8.i, align 4
-  %g.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %16, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %16, i64 2
   %19 = load i16, ptr %g.i, align 2
   %idxprom.i.i.i.i = zext i16 %19 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i.i.i
   %20 = load float, ptr %arrayidx.i.i.i.i, align 4
-  %b.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %16, i64 0, i32 2
+  %b.i = getelementptr inbounds i8, ptr %16, i64 4
   %21 = load i16, ptr %b.i, align 2
   %idxprom.i.i3.i.i = zext i16 %21 to i64
   %arrayidx.i.i4.i.i = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i3.i.i
@@ -2676,9 +2681,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %37 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %36
   %38 = select <2 x i1> %33, <2 x float> %37, <2 x float> zeroinitializer
   %sub = add nsw i32 %n, -1
-  %arrayidx19 = getelementptr inbounds ptr, ptr %rgbaIn, i64 1
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %yw, i64 0, i32 1
-  %z.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %yw, i64 0, i32 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %rgbaIn, i64 8
+  %y.i = getelementptr inbounds i8, ptr %yw, i64 4
+  %z.i = getelementptr inbounds i8, ptr %yw, i64 8
   %39 = zext nneg i32 %sub to i64
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
@@ -2695,8 +2700,8 @@ if.then:                                          ; preds = %for.body
   %42 = load ptr, ptr %rgbaIn, align 8
   %43 = add nuw nsw i64 %indvars.iv, 1
   %arrayidx7 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %42, i64 %43
-  %g.i48 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %42, i64 %43, i32 1
-  %b.i49 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %42, i64 %43, i32 2
+  %g.i48 = getelementptr inbounds i8, ptr %arrayidx7, i64 2
+  %b.i49 = getelementptr inbounds i8, ptr %arrayidx7, i64 4
   %44 = load i16, ptr %g.i48, align 2
   %idxprom.i.i.i.i50 = zext i16 %44 to i64
   %arrayidx.i.i.i.i51 = getelementptr inbounds %union.imath_half_uif, ptr %.pre, i64 %idxprom.i.i.i.i50
@@ -2731,8 +2736,8 @@ if.then:                                          ; preds = %for.body
   %57 = load float, ptr %arrayidx.i.i26.i67, align 4
   %58 = load ptr, ptr %arrayidx2, align 8
   %arrayidx12 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %58, i64 %43
-  %g.i72 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %58, i64 %43, i32 1
-  %b.i73 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %58, i64 %43, i32 2
+  %g.i72 = getelementptr inbounds i8, ptr %arrayidx12, i64 2
+  %b.i73 = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   %59 = load i16, ptr %g.i72, align 2
   %idxprom.i.i.i.i74 = zext i16 %59 to i64
   %arrayidx.i.i.i.i75 = getelementptr inbounds %union.imath_half_uif, ptr %.pre, i64 %idxprom.i.i.i.i74
@@ -2788,8 +2793,8 @@ if.end:                                           ; preds = %if.then, %for.body
   %85 = load ptr, ptr %arrayidx19, align 8
   %arrayidx21 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %85, i64 %indvars.iv
   %arrayidx23 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv
-  %g.i97 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %85, i64 %indvars.iv, i32 1
-  %b.i98 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %85, i64 %indvars.iv, i32 2
+  %g.i97 = getelementptr inbounds i8, ptr %arrayidx21, i64 2
+  %b.i98 = getelementptr inbounds i8, ptr %arrayidx21, i64 4
   %86 = load i16, ptr %g.i97, align 2
   %idxprom.i.i.i.i99 = zext i16 %86 to i64
   %arrayidx.i.i.i.i100 = getelementptr inbounds %union.imath_half_uif, ptr %.pre, i64 %idxprom.i.i.i.i99
@@ -2934,7 +2939,7 @@ _ZN9Imath_3_24halfaSEf.exit.i:                    ; preds = %if.then55.i.i.i.i, 
   %111 = tail call float @llvm.fmuladd.f32(float %neg13.i, float %div, float %95)
   %cmp.i48.i = fcmp olt float %111, 0.000000e+00
   %.sroa.speculated323.i = select i1 %cmp.i48.i, float 0.000000e+00, float %111
-  %g16.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 1
+  %g16.i = getelementptr inbounds i8, ptr %arrayidx23, i64 2
   %112 = bitcast float %.sroa.speculated323.i to i32
   %113 = tail call float @llvm.fabs.f32(float %.sroa.speculated323.i)
   %and.i.i.i50.i = bitcast float %113 to i32
@@ -3024,7 +3029,7 @@ _ZN9Imath_3_24halfaSEf.exit99.i:                  ; preds = %if.then55.i.i.i73.i
   %121 = tail call float @llvm.fmuladd.f32(float %neg22.i, float %div, float %95)
   %cmp.i102.i = fcmp olt float %121, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i102.i, float 0.000000e+00, float %121
-  %b25.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 2
+  %b25.i = getelementptr inbounds i8, ptr %arrayidx23, i64 4
   %122 = bitcast float %.sroa.speculated.i to i32
   %123 = tail call float @llvm.fabs.f32(float %.sroa.speculated.i)
   %and.i.i.i104.i = bitcast float %123 to i32
@@ -3104,8 +3109,8 @@ if.then55.i.i.i127.i:                             ; preds = %lor.lhs.false.i.i.i
 _ZN9Imath_3_24halfaSEf.exit153.i:                 ; preds = %if.then55.i.i.i127.i, %lor.lhs.false.i.i.i122.i, %if.end37.i.i.i108.i, %if.end27.i.i.i134.i, %if.then23.i.i.i143.i, %if.end.i.i.i148.i, %if.then4.i.i.i145.i
   %retval.0.i.i.i129.i = phi i16 [ %conv19.i.i.i152.i, %if.end.i.i.i148.i ], [ %conv26.i.i.i144.i, %if.then23.i.i.i143.i ], [ %conv36.i.i.i142.i, %if.end27.i.i.i134.i ], [ %conv6.i.i.i146.i, %if.then4.i.i.i145.i ], [ %conv.i.i.i106.i, %if.end37.i.i.i108.i ], [ %inc.i.i.i128.i, %if.then55.i.i.i127.i ], [ %conv49.i.i.i120.i, %lor.lhs.false.i.i.i122.i ]
   store i16 %retval.0.i.i.i129.i, ptr %b25.i, align 2
-  %a.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %85, i64 %indvars.iv, i32 3
-  %a27.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %rgbaOut, i64 %indvars.iv, i32 3
+  %a.i = getelementptr inbounds i8, ptr %arrayidx21, i64 6
+  %a27.i = getelementptr inbounds i8, ptr %arrayidx23, i64 6
   %128 = load i16, ptr %a.i, align 2
   store i16 %128, ptr %a27.i, align 2
   %129 = load ptr, ptr @imath_half_to_float_table, align 8

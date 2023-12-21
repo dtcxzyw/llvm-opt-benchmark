@@ -18,37 +18,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.4 = type { [4 x ptr] }
 %struct.anon.5 = type { ptr, ptr, ptr, i32 }
 %struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv_passwd_s = type { ptr, i64, i64, ptr, ptr }
-%struct.uv_group_s = type { ptr, i64, ptr }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.uv_tcp_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon.0 = type { [4 x ptr] }
-%struct.uv_udp_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.1, ptr, i32, i64, i64, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue }
-%union.anon.1 = type { [4 x ptr] }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_handle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.6, ptr, i32 }
-%union.anon.6 = type { [4 x ptr] }
 %struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_fs_event_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.7, ptr, i32, ptr, ptr, %struct.uv__queue, i32 }
-%union.anon.7 = type { [4 x ptr] }
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
-%struct.uv_timespec_t = type { i64, i64 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %struct.uv_dirent_s = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.uv_stream_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.8, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon.8 = type { [4 x ptr] }
 %struct.uv_env_item_s = type { ptr, ptr }
-%struct.uv__loop_internal_fields_s = type { i32, %struct.uv__loop_metrics_s, i32, %struct.uv__iou, %struct.uv__iou, ptr }
-%struct.uv__loop_metrics_s = type { %struct.uv_metrics_s, i64, i64, %union.pthread_mutex_t }
-%struct.uv_metrics_s = type { i64, i64, i64, [13 x ptr] }
-%struct.uv__iou = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, i32 }
 
 @uv__allocator.0 = internal unnamed_addr global ptr @malloc, align 8
 @uv__allocator.1 = internal unnamed_addr global ptr @realloc, align 8
@@ -434,7 +408,7 @@ if.end:                                           ; preds = %entry
   tail call void %2(ptr noundef %0) #25
   store i32 %1, ptr %call.i, align 4
   store ptr null, ptr %pwd, align 8
-  %shell = getelementptr inbounds %struct.uv_passwd_s, ptr %pwd, i64 0, i32 3
+  %shell = getelementptr inbounds i8, ptr %pwd, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shell, i8 0, i64 16, i1 false)
   br label %return
 
@@ -449,7 +423,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %members = getelementptr inbounds %struct.uv_group_s, ptr %grp, i64 0, i32 2
+  %members = getelementptr inbounds i8, ptr %grp, i64 16
   %0 = load ptr, ptr %members, align 8
   %call.i = tail call ptr @__errno_location() #26
   %1 = load i32, ptr %call.i, align 4
@@ -2119,9 +2093,9 @@ entry:
   store i16 2, ptr %addr, align 4
   %conv = trunc i32 %port to i16
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #26
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %addr, i64 2
   store i16 %call, ptr %sin_port, align 2
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %addr, i64 4
   %call1 = tail call i32 @uv_inet_pton(i32 noundef 2, ptr noundef %ip, ptr noundef nonnull %sin_addr) #25
   ret i32 %call1
 }
@@ -2143,7 +2117,7 @@ entry:
   store i16 10, ptr %addr, align 4
   %conv = trunc i32 %port to i16
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #26
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 1
+  %sin6_port = getelementptr inbounds i8, ptr %addr, i64 2
   store i16 %call, ptr %sin6_port, align 2
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ip, i32 noundef 37) #24
   %cmp.not = icmp eq ptr %call1, null
@@ -2159,13 +2133,13 @@ if.then:                                          ; preds = %entry
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %call1, i64 1
   %call7 = tail call i32 @if_nametoindex(ptr noundef nonnull %incdec.ptr) #25
-  %sin6_scope_id = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 4
+  %sin6_scope_id = getelementptr inbounds i8, ptr %addr, i64 24
   store i32 %call7, ptr %sin6_scope_id, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %entry
   %ip.addr.0 = phi ptr [ %address_part, %if.then ], [ %ip, %entry ]
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %addr, i64 8
   %call9 = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef %ip.addr.0, ptr noundef nonnull %sin6_addr) #25
   ret i32 %call9
 }
@@ -2179,7 +2153,7 @@ declare i32 @if_nametoindex(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define i32 @uv_ip4_name(ptr noundef %src, ptr noundef %dst, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %src, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %src, i64 4
   %call = tail call i32 @uv_inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef %dst, i64 noundef %size) #25
   ret i32 %call
 }
@@ -2189,7 +2163,7 @@ declare i32 @uv_inet_ntop(i32 noundef, ptr noundef, ptr noundef, i64 noundef) lo
 ; Function Attrs: nounwind uwtable
 define i32 @uv_ip6_name(ptr noundef %src, ptr noundef %dst, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %src, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %src, i64 8
   %call = tail call i32 @uv_inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #25
   ret i32 %call
 }
@@ -2199,35 +2173,35 @@ define i32 @uv_ip_name(ptr noundef %src, ptr noundef %dst, i64 noundef %size) lo
 entry:
   %0 = load i16, ptr %src, align 2
   switch i16 %0, label %return [
-    i16 2, label %sw.bb
+    i16 2, label %return.sink.split
     i16 10, label %sw.bb1
   ]
 
-sw.bb:                                            ; preds = %entry
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %src, i64 0, i32 2
-  %call = tail call i32 @uv_inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef %dst, i64 noundef %size) #25
-  br label %return
-
 sw.bb1:                                           ; preds = %entry
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %src, i64 0, i32 3
-  %call2 = tail call i32 @uv_inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #25
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %entry, %sw.bb1
+  %.sink5 = phi i64 [ 8, %sw.bb1 ], [ 4, %entry ]
+  %.sink = phi i32 [ 10, %sw.bb1 ], [ 2, %entry ]
+  %sin6_addr = getelementptr inbounds i8, ptr %src, i64 %.sink5
+  %call2 = tail call i32 @uv_inet_ntop(i32 noundef %.sink, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #25
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ %call2, %sw.bb1 ], [ %call, %sw.bb ], [ -97, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi i32 [ -97, %entry ], [ %call2, %return.sink.split ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @uv_tcp_bind(ptr noundef %handle, ptr noundef %addr, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_tcp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 12
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %flags1 = getelementptr inbounds %struct.uv_tcp_s, ptr %handle, i64 0, i32 7
+  %flags1 = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags1, align 8
   %and = and i32 %1, 3
   %cmp2.not = icmp eq i32 %and, 0
@@ -2275,7 +2249,7 @@ if.end7:                                          ; preds = %entry
   br i1 %or.cond10, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.end7
-  %flags13 = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags13 = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags13, align 8
   %or = or i32 %1, 67108864
   store i32 %or, ptr %flags13, align 8
@@ -2298,7 +2272,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @uv_udp_bind(ptr noundef %handle, ptr noundef %addr, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
@@ -2328,7 +2302,7 @@ declare i32 @uv__udp_bind(ptr noundef, ptr noundef, i32 noundef, i32 noundef) lo
 ; Function Attrs: nounwind uwtable
 define i32 @uv_tcp_connect(ptr noundef %req, ptr noundef %handle, ptr noundef %addr, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_tcp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 12
   br i1 %cmp.not, label %if.end, label %return
@@ -2358,7 +2332,7 @@ declare i32 @uv__tcp_connect(ptr noundef, ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define i32 @uv_udp_connect(ptr noundef %handle, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
@@ -2368,7 +2342,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 33554432
   %tobool.not = icmp eq i32 %and, 0
@@ -2390,7 +2364,7 @@ if.then13:                                        ; preds = %if.end5
 
 if.end16:                                         ; preds = %if.end5, %if.then13
   %addrlen.0 = phi i32 [ 28, %if.then13 ], [ 16, %if.end5 ]
-  %flags17 = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags17 = getelementptr inbounds i8, ptr %handle, i64 88
   %3 = load i32, ptr %flags17, align 8
   %and18 = and i32 %3, 33554432
   %tobool19.not = icmp eq i32 %and18, 0
@@ -2414,7 +2388,7 @@ define hidden i32 @uv__udp_is_connected(ptr noundef %handle) local_unnamed_addr 
 entry:
   %addr = alloca %struct.sockaddr_storage, align 8
   %addrlen = alloca i32, align 4
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
@@ -2441,14 +2415,14 @@ declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @uv__udp_check_before_send(ptr nocapture noundef readonly %handle, ptr noundef readonly %addr) local_unnamed_addr #11 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %cond = icmp eq ptr %addr, null
-  %flags6 = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags6 = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags6, align 8
   %and7 = and i32 %1, 33554432
   %tobool8.not = icmp eq i32 %and7, 0
@@ -2486,14 +2460,14 @@ return:                                           ; preds = %land.lhs.true5, %if
 ; Function Attrs: nounwind uwtable
 define i32 @uv_udp_send(ptr noundef %req, ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, ptr noundef %send_cb) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 15
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %cond.i = icmp eq ptr %addr, null
-  %flags6.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags6.i = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags6.i, align 8
   %and7.i = and i32 %1, 33554432
   %tobool8.not.i = icmp eq i32 %and7.i, 0
@@ -2534,14 +2508,14 @@ declare i32 @uv__udp_send(ptr noundef, ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind uwtable
 define i32 @uv_udp_try_send(ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 15
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %cond.i = icmp eq ptr %addr, null
-  %flags6.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags6.i = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags6.i, align 8
   %and7.i = and i32 %1, 33554432
   %tobool8.not.i = icmp eq i32 %and7.i, 0
@@ -2582,7 +2556,7 @@ declare i32 @uv__udp_try_send(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define i32 @uv_udp_recv_start(ptr noundef %handle, ptr noundef %alloc_cb, ptr noundef %recv_cb) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp = icmp ne i32 %0, 15
   %cmp1 = icmp eq ptr %alloc_cb, null
@@ -2605,7 +2579,7 @@ declare i32 @uv__udp_recv_start(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define i32 @uv_udp_recv_stop(ptr noundef %handle) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.else, label %return
@@ -2625,19 +2599,19 @@ declare i32 @uv__udp_recv_stop(ptr noundef) local_unnamed_addr #6
 define void @uv_walk(ptr noundef %loop, ptr nocapture noundef readonly %walk_cb, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %queue = alloca %struct.uv__queue, align 8
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
+  %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
   %0 = load ptr, ptr %handle_queue, align 8
   %cmp.i.not.i = icmp eq ptr %0, %handle_queue
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %entry
-  %prev.i4.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2, i32 1
+  %prev.i4.i = getelementptr inbounds i8, ptr %loop, i64 24
   %1 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds %struct.uv__queue, ptr %queue, i64 0, i32 1
+  %prev1.i.i = getelementptr inbounds i8, ptr %queue, i64 8
   store ptr %1, ptr %prev1.i.i, align 8
   store ptr %queue, ptr %1, align 8
   store ptr %0, ptr %queue, align 8
-  %prev4.i.i = getelementptr inbounds %struct.uv__queue, ptr %0, i64 0, i32 1
+  %prev4.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %prev4.i.i, align 8
   store ptr %2, ptr %prev.i4.i, align 8
   store ptr %handle_queue, ptr %2, align 8
@@ -2647,17 +2621,17 @@ uv__queue_move.exit:                              ; preds = %entry
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
-  %prev.i5 = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2, i32 1
+  %prev.i5 = getelementptr inbounds i8, ptr %loop, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %3 = phi ptr [ %.pre, %while.body.lr.ph ], [ %9, %while.cond.backedge ]
   %4 = load ptr, ptr %3, align 8
-  %prev.i = getelementptr inbounds %struct.uv__queue, ptr %3, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %prev.i, align 8
   store ptr %4, ptr %5, align 8
   %6 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds %struct.uv__queue, ptr %4, i64 0, i32 1
+  %prev4.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %6, ptr %prev4.i, align 8
   store ptr %handle_queue, ptr %3, align 8
   %7 = load ptr, ptr %prev.i5, align 8
@@ -2716,7 +2690,7 @@ if.end:                                           ; preds = %if.end2.i, %if.end.
   %cmp1 = icmp eq ptr %stream, null
   %1 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %cmp1, ptr %1, ptr %stream
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop.addr.0, i64 0, i32 2
+  %handle_queue = getelementptr inbounds i8, ptr %loop.addr.0, i64 16
   %q.011 = load ptr, ptr %handle_queue, align 8
   %cmp5.not12 = icmp eq ptr %q.011, %handle_queue
   br i1 %cmp5.not12, label %for.end, label %for.body.lr.ph
@@ -2830,7 +2804,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @uv_ref(ptr nocapture noundef %handle) local_unnamed_addr #12 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8
   %cmp.not = icmp eq i32 %and, 0
@@ -2844,9 +2818,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.not, label %do.body11, label %do.end13
 
 do.body11:                                        ; preds = %if.end
-  %loop = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds %struct.uv_loop_s, ptr %2, i64 0, i32 1
+  %active_handles = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %active_handles, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %active_handles, align 8
@@ -2859,7 +2833,7 @@ do.end13:                                         ; preds = %do.body11, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @uv_unref(ptr nocapture noundef %handle) local_unnamed_addr #12 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8
   %cmp = icmp eq i32 %and, 0
@@ -2873,9 +2847,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.not, label %do.body12, label %do.end14
 
 do.body12:                                        ; preds = %if.end
-  %loop = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds %struct.uv_loop_s, ptr %2, i64 0, i32 1
+  %active_handles = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %active_handles, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %active_handles, align 8
@@ -2888,7 +2862,7 @@ do.end14:                                         ; preds = %do.body12, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uv_has_ref(ptr nocapture noundef readonly %handle) local_unnamed_addr #11 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 3
   %and.lobit = and i32 %and, 1
@@ -2898,7 +2872,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @uv_stop(ptr nocapture noundef writeonly %loop) local_unnamed_addr #13 {
 entry:
-  %stop_flag = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 5
+  %stop_flag = getelementptr inbounds i8, ptr %loop, i64 48
   store i32 1, ptr %stop_flag, align 8
   ret void
 }
@@ -2906,7 +2880,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @uv_now(ptr nocapture noundef readonly %loop) local_unnamed_addr #11 {
 entry:
-  %time = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 28
+  %time = getelementptr inbounds i8, ptr %loop, i64 544
   %0 = load i64, ptr %time, align 8
   ret i64 %0
 }
@@ -2955,7 +2929,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @uv_fs_event_getpath(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #15 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_fs_event_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 4
   %cmp.not = icmp eq i32 %and, 0
@@ -2966,7 +2940,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %path = getelementptr inbounds %struct.uv_fs_event_s, ptr %handle, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %handle, i64 96
   %1 = load ptr, ptr %path, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %2 = load i64, ptr %size, align 8
@@ -2993,15 +2967,15 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__fs_scandir_cleanup(ptr nocapture noundef %req) local_unnamed_addr #0 {
 entry:
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   %cmp = icmp sgt i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %1 = load ptr, ptr %ptr, align 8
-  %nbufs.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 14
+  %nbufs.i = getelementptr inbounds i8, ptr %req, i64 292
   %2 = load i32, ptr %nbufs.i, align 4
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %conv = trunc i64 %0 to i32
@@ -3023,7 +2997,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp4, label %for.body, label %if.end6
 
 if.end6:                                          ; preds = %for.body, %if.then, %entry
-  %ptr7 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr7 = getelementptr inbounds i8, ptr %req, i64 96
   %6 = load ptr, ptr %ptr7, align 8
   tail call void @free(ptr noundef %6) #25
   store ptr null, ptr %ptr7, align 8
@@ -3036,7 +3010,7 @@ declare void @free(ptr allocptr nocapture noundef) #16
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define i32 @uv_fs_scandir_next(ptr nocapture noundef %req, ptr nocapture noundef writeonly %ent) local_unnamed_addr #17 {
 entry:
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   %cmp = icmp slt i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -3046,13 +3020,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %1 = load ptr, ptr %ptr, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %nbufs.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 14
+  %nbufs.i = getelementptr inbounds i8, ptr %req, i64 292
   %2 = load i32, ptr %nbufs.i, align 4
   %cmp5.not = icmp eq i32 %2, 0
   br i1 %cmp5.not, label %if.end8, label %if.then7
@@ -3085,9 +3059,9 @@ if.end15:                                         ; preds = %if.end8
   %idxprom16 = zext i32 %5 to i64
   %arrayidx17 = getelementptr inbounds ptr, ptr %1, i64 %idxprom16
   %6 = load ptr, ptr %arrayidx17, align 8
-  %d_name = getelementptr inbounds %struct.dirent, ptr %6, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %6, i64 19
   store ptr %d_name, ptr %ent, align 8
-  %d_type.i = getelementptr inbounds %struct.dirent, ptr %6, i64 0, i32 3
+  %d_type.i = getelementptr inbounds i8, ptr %6, i64 18
   %7 = load i8, ptr %d_type.i, align 2
   %switch.tableidx = add i8 %7, -1
   %8 = icmp ult i8 %switch.tableidx, 12
@@ -3101,7 +3075,7 @@ switch.lookup:                                    ; preds = %if.end15
 
 uv__fs_get_dirent_type.exit:                      ; preds = %if.end15, %switch.lookup
   %type.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end15 ]
-  %type = getelementptr inbounds %struct.uv_dirent_s, ptr %ent, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ent, i64 8
   store i32 %type.0.i, ptr %type, align 8
   br label %return
 
@@ -3113,7 +3087,7 @@ return:                                           ; preds = %if.end, %uv__fs_get
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @uv__fs_get_dirent_type(ptr nocapture noundef readonly %dent) local_unnamed_addr #11 {
 entry:
-  %d_type = getelementptr inbounds %struct.dirent, ptr %dent, i64 0, i32 3
+  %d_type = getelementptr inbounds i8, ptr %dent, i64 18
   %0 = load i8, ptr %d_type, align 2
   %switch.tableidx = add i8 %0, -1
   %1 = icmp ult i8 %switch.tableidx, 12
@@ -3133,7 +3107,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__fs_readdir_cleanup(ptr nocapture noundef %req) local_unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %for.end, label %if.end
@@ -3145,7 +3119,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %2 = load i64, ptr %result, align 8
   %cmp710 = icmp sgt i64 %2, 0
   br i1 %cmp710, label %for.body.lr.ph, label %for.end
@@ -3242,13 +3216,13 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define i32 @uv_loop_close(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
+  %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.end
@@ -3285,13 +3259,13 @@ declare void @uv__loop_close(ptr noundef) local_unnamed_addr #6
 define void @uv_loop_delete(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @default_loop_ptr, align 8
-  %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs.i = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %uv_loop_close.exit
 
 if.end.i:                                         ; preds = %entry
-  %handle_queue.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
+  %handle_queue.i = getelementptr inbounds i8, ptr %loop, i64 16
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end.i
@@ -3344,7 +3318,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.uv_stream_s, ptr %stream, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %stream, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3439,7 +3413,7 @@ declare void @uv__threadpool_cleanup() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__metrics_update_idle_time(ptr nocapture noundef readonly %loop) local_unnamed_addr #0 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
@@ -3447,19 +3421,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %provider_entry_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 1
+  %provider_entry_time = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i64, ptr %provider_entry_time, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call = tail call i64 @uv_hrtime() #25
-  %lock = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 3
+  %lock = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #25
   %3 = load i64, ptr %provider_entry_time, align 8
   store i64 0, ptr %provider_entry_time, align 8
   %sub = sub i64 %call, %3
-  %provider_idle_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 2
+  %provider_idle_time = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i64, ptr %provider_idle_time, align 8
   %add = add i64 %sub, %4
   store i64 %add, ptr %provider_idle_time, align 8
@@ -3479,7 +3453,7 @@ declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__metrics_set_provider_entry_time(ptr nocapture noundef readonly %loop) local_unnamed_addr #0 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
@@ -3489,9 +3463,9 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i64 @uv_hrtime() #25
   %2 = load ptr, ptr %internal_fields, align 8
-  %lock = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %2, i64 0, i32 1, i32 3
+  %lock = getelementptr inbounds i8, ptr %2, i64 152
   tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #25
-  %provider_entry_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %2, i64 0, i32 1, i32 1
+  %provider_entry_time = getelementptr inbounds i8, ptr %2, i64 136
   store i64 %call, ptr %provider_entry_time, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #25
   br label %return
@@ -3503,9 +3477,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @uv_metrics_info(ptr nocapture noundef readonly %loop, ptr nocapture noundef writeonly %metrics) local_unnamed_addr #19 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
-  %loop_metrics = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1
+  %loop_metrics = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %metrics, ptr noundef nonnull align 8 dereferenceable(128) %loop_metrics, i64 128, i1 false)
   ret i32 0
 }
@@ -3513,13 +3487,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @uv_metrics_idle_time(ptr nocapture noundef readonly %loop) local_unnamed_addr #0 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
-  %lock = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 3
+  %lock = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #25
-  %provider_idle_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 2
+  %provider_idle_time = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i64, ptr %provider_idle_time, align 8
-  %provider_entry_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 1
+  %provider_entry_time = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i64, ptr %provider_entry_time, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #25
   %cmp.not = icmp eq i64 %2, 0

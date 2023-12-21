@@ -58,7 +58,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp4.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.else
-  %arrayidx6 = getelementptr i32, ptr %3, i64 1
+  %arrayidx6 = getelementptr i8, ptr %3, i64 4
   %5 = load i32, ptr %arrayidx6, align 4
   %cmp7 = icmp eq i32 %5, 0
   br i1 %cmp7, label %return, label %if.else9
@@ -92,14 +92,14 @@ if.else19:                                        ; preds = %if.else13
 
 if.end28:                                         ; preds = %if.else19
   %6 = load ptr, ptr %arrayidx, align 8
-  %arrayidx31 = getelementptr i32, ptr %6, i64 1
+  %arrayidx31 = getelementptr i8, ptr %6, i64 4
   %.pre = load i32, ptr %arrayidx31, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end28, %entry
   %7 = phi i32 [ %.pre, %if.end28 ], [ %1, %entry ]
   %8 = phi ptr [ %arrayidx31, %if.end28 ], [ %0, %entry ]
-  %incdec.ptr = getelementptr i32, ptr %8, i64 1
+  %incdec.ptr = getelementptr i8, ptr %8, i64 4
   store ptr %incdec.ptr, ptr @opt_ptr, align 8
   switch i32 %7, label %if.end85 [
     i32 0, label %return
@@ -152,7 +152,7 @@ if.then58:                                        ; preds = %if.then56
   %16 = load ptr, ptr @stderr, align 8
   %17 = load i64, ptr @_PyOS_optind, align 8
   %18 = getelementptr ptr, ptr %argv, i64 %17
-  %arrayidx59 = getelementptr ptr, ptr %18, i64 -1
+  %arrayidx59 = getelementptr i8, ptr %18, i64 -8
   %19 = load ptr, ptr %arrayidx59, align 8
   %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, ptr noundef %19) #6
   br label %return
@@ -160,13 +160,13 @@ if.then58:                                        ; preds = %if.then56
 if.end62:                                         ; preds = %for.body, %if.end43
   %opt.030.lcssa = phi ptr [ @longopts, %if.end43 ], [ %arrayidx53, %for.body ]
   store ptr @.str, ptr @opt_ptr, align 8
-  %has_arg = getelementptr inbounds %struct._PyOS_LongOption, ptr %opt.030.lcssa, i64 0, i32 1
+  %has_arg = getelementptr inbounds i8, ptr %opt.030.lcssa, i64 8
   %20 = load i32, ptr %has_arg, align 8
   %tobool63.not = icmp eq i32 %20, 0
   br i1 %tobool63.not, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %if.end62
-  %val = getelementptr inbounds %struct._PyOS_LongOption, ptr %opt.030.lcssa, i64 0, i32 2
+  %val = getelementptr inbounds i8, ptr %opt.030.lcssa, i64 12
   %21 = load i32, ptr %val, align 4
   br label %return
 
@@ -183,7 +183,7 @@ if.then67:                                        ; preds = %if.end65
 if.then69:                                        ; preds = %if.then67
   %24 = load ptr, ptr @stderr, align 8
   %25 = getelementptr ptr, ptr %argv, i64 %22
-  %arrayidx71 = getelementptr ptr, ptr %25, i64 -1
+  %arrayidx71 = getelementptr i8, ptr %25, i64 -8
   %26 = load ptr, ptr %arrayidx71, align 8
   %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.6, ptr noundef %26) #6
   br label %return
@@ -194,7 +194,7 @@ if.end74:                                         ; preds = %if.end65
   %arrayidx76 = getelementptr ptr, ptr %argv, i64 %22
   %27 = load ptr, ptr %arrayidx76, align 8
   store ptr %27, ptr @_PyOS_optarg, align 8
-  %val77 = getelementptr inbounds %struct._PyOS_LongOption, ptr %opt.030.lcssa, i64 0, i32 2
+  %val77 = getelementptr inbounds i8, ptr %opt.030.lcssa, i64 12
   %28 = load i32, ptr %val77, align 4
   br label %return
 
@@ -226,7 +226,7 @@ if.then90:                                        ; preds = %if.then88
   br label %return
 
 if.end94:                                         ; preds = %if.end85
-  %add.ptr = getelementptr i32, ptr %call86, i64 1
+  %add.ptr = getelementptr i8, ptr %call86, i64 4
   %34 = load i32, ptr %add.ptr, align 4
   %cmp95 = icmp eq i32 %34, 58
   br i1 %cmp95, label %if.then97, label %return

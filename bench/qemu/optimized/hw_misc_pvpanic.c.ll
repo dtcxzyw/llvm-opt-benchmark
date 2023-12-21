@@ -6,13 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon, %struct.anon.2 }
 %struct.anon = type { i32, i32, i8, ptr }
 %struct.anon.2 = type { i32, i32, i8 }
-%struct.PVPanicState = type { %struct.MemoryRegion, i8 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @pvpanic_ops = internal constant %struct.MemoryRegionOps { ptr @pvpanic_read, ptr @pvpanic_write, ptr null, ptr null, i32 0, %struct.anon zeroinitializer, %struct.anon.2 { i32 1, i32 1, i8 0 } }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"pvpanic\00", align 1
@@ -33,7 +26,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i64 @pvpanic_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %size) #2 {
 entry:
-  %events = getelementptr inbounds %struct.PVPanicState, ptr %opaque, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %opaque, i64 272
   %0 = load i8, ptr %events, align 16
   %conv = zext i8 %0 to i64
   ret i64 %conv

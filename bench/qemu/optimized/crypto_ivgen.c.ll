@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QCryptoIVGenDriver = type { ptr, ptr, ptr }
-%struct.QCryptoIVGen = type { ptr, ptr, i32, i32, i32 }
 
 @qcrypto_ivgen_plain = external global %struct.QCryptoIVGenDriver, align 8
 @qcrypto_ivgen_plain64 = external global %struct.QCryptoIVGenDriver, align 8
@@ -18,11 +17,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @qcrypto_ivgen_new(i32 noundef %alg, i32 noundef %cipheralg, i32 noundef %hash, ptr noundef %key, i64 noundef %nkey, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #4
-  %algorithm = getelementptr inbounds %struct.QCryptoIVGen, ptr %call, i64 0, i32 2
+  %algorithm = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %alg, ptr %algorithm, align 8
-  %cipher = getelementptr inbounds %struct.QCryptoIVGen, ptr %call, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %cipheralg, ptr %cipher, align 4
-  %hash1 = getelementptr inbounds %struct.QCryptoIVGen, ptr %call, i64 0, i32 4
+  %hash1 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %hash, ptr %hash1, align 8
   %0 = icmp ult i32 %alg, 3
   br i1 %0, label %switch.lookup, label %sw.default
@@ -61,7 +60,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @qcrypto_ivgen_calculate(ptr noundef %ivgen, i64 noundef %sector, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ivgen, align 8
-  %calculate = getelementptr inbounds %struct.QCryptoIVGenDriver, ptr %0, i64 0, i32 1
+  %calculate = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %calculate, align 8
   %call = tail call i32 %1(ptr noundef nonnull %ivgen, i64 noundef %sector, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #5
   ret i32 %call
@@ -70,7 +69,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_ivgen_get_algorithm(ptr nocapture noundef readonly %ivgen) local_unnamed_addr #3 {
 entry:
-  %algorithm = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 2
+  %algorithm = getelementptr inbounds i8, ptr %ivgen, i64 16
   %0 = load i32, ptr %algorithm, align 8
   ret i32 %0
 }
@@ -78,7 +77,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_ivgen_get_cipher(ptr nocapture noundef readonly %ivgen) local_unnamed_addr #3 {
 entry:
-  %cipher = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %ivgen, i64 20
   %0 = load i32, ptr %cipher, align 4
   ret i32 %0
 }
@@ -86,7 +85,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_ivgen_get_hash(ptr nocapture noundef readonly %ivgen) local_unnamed_addr #3 {
 entry:
-  %hash = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 4
+  %hash = getelementptr inbounds i8, ptr %ivgen, i64 24
   %0 = load i32, ptr %hash, align 8
   ret i32 %0
 }
@@ -99,7 +98,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ivgen, align 8
-  %cleanup = getelementptr inbounds %struct.QCryptoIVGenDriver, ptr %0, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup, align 8
   tail call void %1(ptr noundef nonnull %ivgen) #5
   tail call void @g_free(ptr noundef nonnull %ivgen) #5

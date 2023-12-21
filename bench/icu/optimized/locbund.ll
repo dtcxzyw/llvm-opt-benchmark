@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%struct.ULocaleBundle = type { ptr, [5 x ptr], i8 }
 
 $__clang_call_terminate = comdat any
 
@@ -45,7 +44,7 @@ if.end10:                                         ; preds = %if.end3
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call6, ptr noundef nonnull dereferenceable(12) @.str) #8
   %cmp15 = icmp eq i32 %call14, 0
   %conv16 = zext i1 %cmp15 to i8
-  %isInvariantLocale = getelementptr inbounds %struct.ULocaleBundle, ptr %result, i64 0, i32 2
+  %isInvariantLocale = getelementptr inbounds i8, ptr %result, i64 48
   store i8 %conv16, ptr %isInvariantLocale, align 8
   br label %return
 
@@ -76,11 +75,12 @@ define void @u_locbund_close_75(ptr nocapture noundef %bundle) local_unnamed_add
 entry:
   %0 = load ptr, ptr %bundle, align 8
   tail call void @uprv_free_75(ptr noundef %0)
+  %fNumberFormat = getelementptr inbounds i8, ptr %bundle, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.ULocaleBundle, ptr %bundle, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [5 x ptr], ptr %fNumberFormat, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -113,15 +113,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
+  %fNumberFormat = getelementptr inbounds i8, ptr %bundle, i64 8
   %sub = add nsw i32 %style, -1
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds %struct.ULocaleBundle, ptr %bundle, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x ptr], ptr %fNumberFormat, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %if.end15
 
 if.then2:                                         ; preds = %if.then
-  %isInvariantLocale = getelementptr inbounds %struct.ULocaleBundle, ptr %bundle, i64 0, i32 2
+  %isInvariantLocale = getelementptr inbounds i8, ptr %bundle, i64 48
   %1 = load i8, ptr %isInvariantLocale, align 8
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then3

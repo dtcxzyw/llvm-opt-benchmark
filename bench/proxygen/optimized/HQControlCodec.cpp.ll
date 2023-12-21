@@ -10,14 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Optional" = type { %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible" = type <{ %union.anon, i8, [7 x i8] }>
 %union.anon = type { i64 }
-%"class.proxygen::hq::HQUnidirectionalCodec" = type <{ ptr, i64, i8, [7 x i8] }>
-%"class.proxygen::hq::HQControlCodec" = type { %"class.proxygen::hq::HQUnidirectionalCodec.base", [15 x i8], %"class.proxygen::hq::HQFramedCodec", i8, i8, i8, i8, i8, i64, i64, i64, ptr, [8 x i8] }
-%"class.proxygen::hq::HQUnidirectionalCodec.base" = type <{ ptr, i64, i8 }>
-%"class.proxygen::hq::HQFramedCodec" = type { %"class.proxygen::HTTPCodec", i64, i8, ptr, %"struct.proxygen::hq::FrameHeader", i8, i8, i64, i8, [7 x i8], %"class.folly::Optional", i64, %"class.folly::Function" }
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"struct.proxygen::hq::FrameHeader" = type { i64, i64 }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
@@ -34,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Optional.5" = type { %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible" = type <{ %union.anon.6, i8, [7 x i8] }>
 %union.anon.6 = type { i64 }
-%"struct.std::pair" = type { i64, i64 }
 %"struct.proxygen::HTTPSetting" = type { i64, i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -59,7 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::IOBufQueue::Options" = type { i8 }
 %"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair.9", i8, [7 x i8] }>
 %"struct.std::pair.9" = type { ptr, ptr }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
 %"class.proxygen::HTTPException" = type { %"class.proxygen::Exception", i32, i32, %"class.folly::Optional", %"class.folly::Optional.25", i32, %"class.std::unique_ptr", %"class.std::unique_ptr.27" }
 %"class.proxygen::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string", i32, i32 }
 %"class.std::exception" = type { ptr }
@@ -74,6 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.34" = type { ptr }
 %"struct.proxygen::CompressionInfo" = type { %"struct.proxygen::CompressionInfoPart", %"struct.proxygen::CompressionInfoPart" }
 %"struct.proxygen::CompressionInfoPart" = type { i32, i32, i32, i32, i32, i32, i32 }
+%"struct.std::pair" = type { i64, i64 }
 %"class.folly::OptionalEmptyException" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"struct.std::__cow_string" = type { %union.anon.24 }
@@ -542,19 +533,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %streamType_.i = getelementptr inbounds %"class.proxygen::hq::HQUnidirectionalCodec", ptr %this, i64 0, i32 1
+  %streamType_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %streamType_.i, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end31
 
 if.then:                                          ; preds = %sw.epilog
-  %receivedSettings_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 6
+  %receivedSettings_ = getelementptr inbounds i8, ptr %this, i64 195
   %1 = load i8, ptr %receivedSettings_, align 1
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
@@ -563,7 +554,7 @@ if.then:                                          ; preds = %sw.epilog
   br i1 %or.cond.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %hasValue.i.i13 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i13 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 266, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i13, align 8
   br label %return
@@ -573,7 +564,7 @@ if.end:                                           ; preds = %if.then
   br i1 %or.cond1, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
-  %hasValue.i.i14 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i14, align 8
   br label %return
@@ -587,7 +578,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %or.cond2, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end11
-  %hasValue.i.i15 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i15, align 8
   br label %return
@@ -604,14 +595,14 @@ land.lhs.true21:                                  ; preds = %if.end17
   ]
 
 if.then28:                                        ; preds = %land.lhs.true21, %land.lhs.true21, %land.lhs.true21, %land.lhs.true21
-  %hasValue.i.i16 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i16, align 8
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true21, %if.end17, %sw.epilog
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i17 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i17, align 8
   br label %return
 
@@ -631,7 +622,7 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry, %entry, %entry, %entry
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8, !alias.scope !4
   store i8 1, ptr %hasValue.i.i.i, align 8, !alias.scope !4
   br label %_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE.exit
@@ -652,7 +643,7 @@ if.then.i:                                        ; preds = %sw.epilog.i
   br i1 %or.cond.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %hasValue.i.i13.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i13.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 266, ptr %agg.result, align 8, !alias.scope !4
   store i8 1, ptr %hasValue.i.i13.i, align 8, !alias.scope !4
   br label %_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE.exit
@@ -662,7 +653,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %or.cond1.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %hasValue.i.i14.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i14.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8, !alias.scope !4
   store i8 1, ptr %hasValue.i.i14.i, align 8, !alias.scope !4
   br label %_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE.exit
@@ -676,7 +667,7 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %or.cond2.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.end11.i
-  %hasValue.i.i15.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8, !alias.scope !4
   store i8 1, ptr %hasValue.i.i15.i, align 8, !alias.scope !4
   br label %_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE.exit
@@ -693,14 +684,14 @@ land.lhs.true21.i:                                ; preds = %if.end17.i
   ]
 
 if.then28.i:                                      ; preds = %land.lhs.true21.i, %land.lhs.true21.i, %land.lhs.true21.i, %land.lhs.true21.i
-  %hasValue.i.i16.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i16.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 261, ptr %agg.result, align 8, !alias.scope !4
   store i8 1, ptr %hasValue.i.i16.i, align 8, !alias.scope !4
   br label %_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE.exit
 
 if.end31.i:                                       ; preds = %land.lhs.true21.i, %if.end17.i, %sw.epilog.i
   store i8 0, ptr %agg.result, align 8, !alias.scope !4
-  %hasValue.i.i17.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i17.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i17.i, align 8, !alias.scope !4
   br label %_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE.exit
 
@@ -763,7 +754,7 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %length = getelementptr inbounds %"struct.proxygen::hq::FrameHeader", ptr %header, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %header, i64 8
   %2 = load i64, ptr %length, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call8, i64 noundef %2)
           to label %cleanup.action unwind label %lpad
@@ -773,7 +764,7 @@ cleanup.action:                                   ; preds = %invoke.cont7
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %streamDir_.i = getelementptr inbounds %"class.proxygen::hq::HQUnidirectionalCodec", ptr %this, i64 0, i32 2
+  %streamDir_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i8, ptr %streamDir_.i, align 16
   %cmp.i = icmp eq i8 %3, 0
   br i1 %cmp.i, label %cleanup.done31, label %cond.false18
@@ -806,7 +797,7 @@ lpad22:                                           ; preds = %invoke.cont23, %con
 cleanup.done31:                                   ; preds = %cleanup.done
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %outSettings, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %outSettings, i64 noundef 0)
-  %receivedSettings_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 6
+  %receivedSettings_ = getelementptr inbounds i8, ptr %this, i64 195
   store i8 1, ptr %receivedSettings_, align 1
   call void @_ZN8proxygen2hq13parseSettingsERN5folly2io6CursorERKNS0_11FrameHeaderERSt5dequeISt4pairINS0_9SettingIdEmESaISB_EE(ptr nonnull sret(%"class.folly::Optional") align 8 %res, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(80) %outSettings) #25
   %6 = load ptr, ptr @_ZZN8proxygen2hq14HQControlCodec13parseSettingsERN5folly2io6CursorERKNS0_11FrameHeaderEE8vlocal___0, align 8
@@ -838,11 +829,11 @@ invoke.cont56:                                    ; preds = %invoke.cont53
           to label %invoke.cont58 unwind label %lpad55
 
 invoke.cont58:                                    ; preds = %invoke.cont56
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %outSettings, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %outSettings, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %outSettings, i64 72
   %8 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %outSettings, i64 40
   %9 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -853,14 +844,14 @@ invoke.cont58:                                    ; preds = %invoke.cont56
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 5
   %10 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %outSettings, i64 56
   %11 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %outSettings, i64 32
   %12 = load ptr, ptr %_M_last.i.i, align 8
   %13 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %12 to i64
@@ -880,14 +871,14 @@ cleanup.action68:                                 ; preds = %invoke.cont61
   br label %cleanup.done69
 
 cleanup.done69:                                   ; preds = %cond.false42, %cond.end44, %cleanup.action68
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %res, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %14 = load i8, ptr %hasValue.i.i, align 8
   %15 = and i8 %14, 1
   %tobool.i.i13.not = icmp eq i8 %15, 0
   br i1 %tobool.i.i13.not, label %if.end, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2EOS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2EOS4_.exit: ; preds = %cleanup.done69
-  %hasValue.i.i14 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %16 = load i64, ptr %res, align 8
   store i64 %16, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i14, align 8
@@ -933,24 +924,24 @@ lpad84:                                           ; preds = %invoke.cont85, %inv
   unreachable
 
 cleanup.done93:                                   ; preds = %if.end
-  %settings_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 11
+  %settings_ = getelementptr inbounds i8, ptr %this, i64 224
   %21 = load ptr, ptr %settings_, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %settingsList, i8 0, i64 24, i1 false)
-  %_M_start.i17 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2
+  %_M_start.i17 = getelementptr inbounds i8, ptr %outSettings, i64 16
   %22 = load ptr, ptr %_M_start.i17, align 8, !noalias !7
-  %_M_finish.i21 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 3
+  %_M_finish.i21 = getelementptr inbounds i8, ptr %outSettings, i64 48
   %23 = load ptr, ptr %_M_finish.i21, align 8, !noalias !10
   %cmp.i.i.not57 = icmp eq ptr %22, %23
   br i1 %cmp.i.i.not57, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cleanup.done93
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %outSettings, i64 40
   %24 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !7
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %outSettings, i64 32
   %25 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !7
-  %hasValue.i.i.i29 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %httpSettingId, i64 0, i32 1
-  %_M_finish.i35 = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %settingsList, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %settingsList, i64 0, i32 2
+  %hasValue.i.i.i29 = getelementptr inbounds i8, ptr %httpSettingId, i64 8
+  %_M_finish.i35 = getelementptr inbounds i8, ptr %settingsList, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %settingsList, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERS4_PS4_EppEv.exit
@@ -972,13 +963,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   ]
 
 sw.bb99:                                          ; preds = %for.body, %for.body, %for.body, %for.body, %for.body
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.058, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.058, i64 8
   %28 = load i64, ptr %second, align 8
   %cmp100 = icmp ugt i64 %28, 1
   br i1 %cmp100, label %if.then101, label %sw.epilog
 
 if.then101:                                       ; preds = %sw.bb99
-  %hasValue.i.i28 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i28 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 265, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i28, align 8
   br label %cleanup
@@ -1002,7 +993,7 @@ if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invok
 
 invoke.cont107:                                   ; preds = %invoke.cont106
   %31 = load i64, ptr %httpSettingId, align 8
-  %second109 = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.058, i64 0, i32 1
+  %second109 = getelementptr inbounds i8, ptr %__begin2.sroa.0.058, i64 8
   %32 = load i64, ptr %second109, align 8
   invoke void @_ZN8proxygen12HTTPSettings10setSettingENS_10SettingsIdEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %31, i64 noundef %32)
           to label %invoke.cont110 unwind label %lpad105.loopexit
@@ -1026,7 +1017,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
 if.then.i:                                        ; preds = %invoke.cont113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %call114, i64 16, i1 false)
   %37 = load ptr, ptr %_M_finish.i35, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %37, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i35, align 8
   br label %for.inc
 
@@ -1072,14 +1063,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN8proxygen11HTTPSettingESaIS1_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %38, %_ZNSt12_Vector_baseIN8proxygen11HTTPSettingESaIS1_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !13
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %26
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN8proxygen11HTTPSettingESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN8proxygen11HTTPSettingESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.proxygen::HTTPSetting", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i36 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i36, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -1096,14 +1087,14 @@ _ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__g
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i, %for.body
   %39 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %26, %for.body ]
-  %incdec.ptr.i40 = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.058, i64 1
+  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %__begin2.sroa.0.058, i64 16
   %cmp.i41 = icmp eq ptr %incdec.ptr.i40, %__begin2.sroa.8.059
   br i1 %cmp.i41, label %if.then.i42, label %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERS4_PS4_EppEv.exit
 
 if.then.i42:                                      ; preds = %for.inc
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.11.060, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.060, i64 8
   %40 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i44 = getelementptr inbounds %"struct.std::pair", ptr %40, i64 32
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %40, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERS4_PS4_EppEv.exit
 
 _ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERS4_PS4_EppEv.exit: ; preds = %for.inc, %if.then.i42
@@ -1141,14 +1132,14 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 
 if.then118:                                       ; preds = %for.end
   %vtable = load ptr, ptr %42, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %43 = load ptr, ptr %vfn, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(24) %settingsList)
           to label %if.end122 unwind label %lpad105.loopexit.split-lp
 
 if.end122:                                        ; preds = %if.then118, %for.end
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i47 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i47 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i47, align 8
   br label %cleanup
 
@@ -1167,11 +1158,11 @@ cleanup123:                                       ; preds = %if.then.i.i.i49, %c
   br i1 %tobool.not.i.i, label %_ZNSt5dequeISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup123
-  %_M_node5.i.i6.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 3, i32 3
-  %_M_node5.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %outSettings, i64 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %outSettings, i64 72
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %outSettings, i64 40
   %46 = load ptr, ptr %_M_node5.i.i.i, align 8
   %47 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i51 = getelementptr inbounds ptr, ptr %47, i64 1
+  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %47, i64 8
   %cmp3.i.i.i = icmp ult ptr %46, %add.ptr.i.i51
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
 
@@ -1179,7 +1170,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %46, %if.then.i.i ]
   %48 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %48) #30
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i52 = icmp ult ptr %__n.04.i.i.i, %47
   br i1 %cmp.i.i.i52, label %for.body.i.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i, !llvm.loop !19
 
@@ -1242,11 +1233,11 @@ entry:
   br i1 %tobool.not.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node5.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
@@ -1254,7 +1245,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %if.then.i ]
   %3 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #30
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i, !llvm.loop !19
 
@@ -1285,7 +1276,7 @@ entry:
   %outStreamId = alloca i64, align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   call void @_ZN8proxygen2hq11parseGoawayERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %outStreamId) #25
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -1301,7 +1292,7 @@ if.then:                                          ; preds = %land.lhs.true
   %3 = load i64, ptr %outStreamId, align 8
   store ptr null, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, i8 noundef zeroext 0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1355,7 +1346,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %outStreamId.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @_ZN8proxygen2hq11parseGoawayERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %outStreamId.i) #25
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !alias.scope !20
   %1 = and i8 %0, 1
   %tobool.i.i.not.i = icmp eq i8 %1, 0
@@ -1371,7 +1362,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %3 = load i64, ptr %outStreamId.i, align 8, !noalias !20
   store ptr null, ptr %agg.tmp.i, align 8, !noalias !20
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 12
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, i8 noundef zeroext 0, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1425,10 +1416,10 @@ entry:
   %prioritizedElement = alloca i64, align 8
   %priorityUpdate = alloca %"struct.proxygen::HTTPPriority", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 0, inrange i32 0, i64 2), ptr %priorityUpdate, align 8
-  %urgency.i = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %priorityUpdate, i64 0, i32 1
+  %urgency.i = getelementptr inbounds i8, ptr %priorityUpdate, i64 8
   store i64 11, ptr %urgency.i, align 8
   call void @_ZN8proxygen2hq19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERmRNS_12HTTPPriorityE(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %prioritizedElement, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate) #25
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -1439,7 +1430,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %callback_, align 8
   %3 = load i64, ptr %prioritizedElement, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate)
   br label %if.end
@@ -1466,10 +1457,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prioritizedElement.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %priorityUpdate.i)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 0, inrange i32 0, i64 2), ptr %priorityUpdate.i, align 8, !noalias !23
-  %urgency.i.i = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %priorityUpdate.i, i64 0, i32 1
+  %urgency.i.i = getelementptr inbounds i8, ptr %priorityUpdate.i, i64 8
   store i64 11, ptr %urgency.i.i, align 8, !noalias !23
   call void @_ZN8proxygen2hq19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERmRNS_12HTTPPriorityE(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %prioritizedElement.i, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate.i) #25
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !alias.scope !23
   %1 = and i8 %0, 1
   %tobool.i.i.not.i = icmp eq i8 %1, 0
@@ -1480,7 +1471,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %callback_.i, align 8, !noalias !23
   %3 = load i64, ptr %prioritizedElement.i, align 8, !noalias !23
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %4 = load ptr, ptr %vfn.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate.i)
   br label %_ZN8proxygen2hq14HQControlCodec19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderE.exit
@@ -1497,10 +1488,10 @@ entry:
   %prioritizedElement = alloca i64, align 8
   %priorityUpdate = alloca %"struct.proxygen::HTTPPriority", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 0, inrange i32 0, i64 2), ptr %priorityUpdate, align 8
-  %urgency.i = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %priorityUpdate, i64 0, i32 1
+  %urgency.i = getelementptr inbounds i8, ptr %priorityUpdate, i64 8
   store i64 11, ptr %urgency.i, align 8
   call void @_ZN8proxygen2hq19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERmRNS_12HTTPPriorityE(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %prioritizedElement, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate) #25
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -1511,7 +1502,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %callback_, align 8
   %3 = load i64, ptr %prioritizedElement, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate)
   br label %if.end
@@ -1529,10 +1520,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prioritizedElement.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %priorityUpdate.i)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 0, inrange i32 0, i64 2), ptr %priorityUpdate.i, align 8, !noalias !26
-  %urgency.i.i = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %priorityUpdate.i, i64 0, i32 1
+  %urgency.i.i = getelementptr inbounds i8, ptr %priorityUpdate.i, i64 8
   store i64 11, ptr %urgency.i.i, align 8, !noalias !26
   call void @_ZN8proxygen2hq19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERmRNS_12HTTPPriorityE(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %prioritizedElement.i, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate.i) #25
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !alias.scope !26
   %1 = and i8 %0, 1
   %tobool.i.i.not.i = icmp eq i8 %1, 0
@@ -1543,7 +1534,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %callback_.i, align 8, !noalias !26
   %3 = load i64, ptr %prioritizedElement.i, align 8, !noalias !26
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 21
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 168
   %4 = load ptr, ptr %vfn.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %priorityUpdate.i)
   br label %_ZN8proxygen2hq14HQControlCodec23parsePushPriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderE.exit
@@ -1557,7 +1548,7 @@ _ZN8proxygen2hq14HQControlCodec23parsePushPriorityUpdateERN5folly2io6CursorERKNS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(232) %this) unnamed_addr #10 align 2 {
 entry:
-  %doubleGoaway_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 3
+  %doubleGoaway_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load <2 x i8>, ptr %doubleGoaway_, align 16
   %1 = and <2 x i8> %0, <i8 1, i8 1>
   %2 = icmp eq <2 x i8> %1, zeroinitializer
@@ -1568,7 +1559,7 @@ entry:
   br i1 %brmerge, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %sentFinalGoaway_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 5
+  %sentFinalGoaway_ = getelementptr inbounds i8, ptr %this, i64 194
   %5 = load i8, ptr %sentFinalGoaway_, align 2
   %6 = and i8 %5, 1
   %tobool8.not = icmp eq i8 %6, 0
@@ -1610,11 +1601,9 @@ entry:
   %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %transportDirection_, align 16
   %cmp = icmp eq i8 %0, 0
-  %minUnseenStreamID_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 9
-  %minUnseenPushID_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 10
-  %minUnseenStreamID_.val = load i64, ptr %minUnseenStreamID_, align 16
-  %minUnseenPushID_.val = load i64, ptr %minUnseenPushID_, align 8
-  %retval.0 = select i1 %cmp, i64 %minUnseenStreamID_.val, i64 %minUnseenPushID_.val
+  %retval.0.in.v = select i1 %cmp, i64 208, i64 216
+  %retval.0.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.v
+  %retval.0 = load i64, ptr %retval.0.in, align 8
   ret i64 %retval.0
 }
 
@@ -1624,7 +1613,7 @@ entry:
   %ref.tmp18 = alloca %"class.google::LogMessage", align 8
   %writeRes = alloca %"class.folly::Expected", align 8
   %ref.tmp49 = alloca %"class.google::LogMessageFatal", align 8
-  %sentFinalGoaway_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 5
+  %sentFinalGoaway_ = getelementptr inbounds i8, ptr %this, i64 194
   %1 = load i8, ptr %sentFinalGoaway_, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1640,7 +1629,7 @@ if.then2:                                         ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.then2
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 16 dereferenceable(232) %this)
   br i1 %call, label %if.then4, label %if.else
@@ -1649,11 +1638,9 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
   %transportDirection_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i8, ptr %transportDirection_.i, align 16
   %cmp.i = icmp eq i8 %4, 0
-  %minUnseenStreamID_.i = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 9
-  %minUnseenPushID_.i = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 10
-  %minUnseenStreamID_.val.i = load i64, ptr %minUnseenStreamID_.i, align 16
-  %minUnseenPushID_.val.i = load i64, ptr %minUnseenPushID_.i, align 8
-  %retval.0.i = select i1 %cmp.i, i64 %minUnseenStreamID_.val.i, i64 %minUnseenPushID_.val.i
+  %retval.0.in.v.i = select i1 %cmp.i, i64 208, i64 216
+  %retval.0.in.i = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.v.i
+  %retval.0.i = load i64, ptr %retval.0.in.i, align 8
   store i8 1, ptr %sentFinalGoaway_, align 2
   br label %if.end11
 
@@ -1716,7 +1703,7 @@ lpad:                                             ; preds = %invoke.cont24, %inv
   resume { ptr, i32 } %8
 
 while.end45:                                      ; preds = %cond.true, %cond.end, %cleanup.action
-  %egressGoawayAck_46 = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 8
+  %egressGoawayAck_46 = getelementptr inbounds i8, ptr %this, i64 200
   store i64 %minUnseenId.addr.0, ptr %egressGoawayAck_46, align 8
   call void @_ZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEm(ptr nonnull sret(%"class.folly::Expected") align 8 %writeRes, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %minUnseenId.addr.0) #25
   %9 = load i8, ptr %writeRes, align 8
@@ -1747,7 +1734,7 @@ lpad50:                                           ; preds = %invoke.cont53, %inv
   unreachable
 
 if.end57:                                         ; preds = %while.end45
-  %sentGoaway_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 4
+  %sentGoaway_ = getelementptr inbounds i8, ptr %this, i64 193
   store i8 1, ptr %sentGoaway_, align 1
   %cond = icmp eq i8 %9, 1
   br i1 %cond, label %_ZNR5folly8ExpectedImN4quic18TransportErrorCodeEEdeEv.exit, label %if.end.i.i.i
@@ -1757,7 +1744,7 @@ if.end.i.i.i:                                     ; preds = %if.end57
   unreachable
 
 _ZNR5folly8ExpectedImN4quic18TransportErrorCodeEEdeEv.exit: ; preds = %if.end57
-  %value_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage", ptr %writeRes, i64 0, i32 2
+  %value_.i.i.i = getelementptr inbounds i8, ptr %writeRes, i64 16
   %11 = load i64, ptr %value_.i.i.i, align 8
   br label %return
 
@@ -1792,7 +1779,7 @@ entry:
   %ref.tmp39 = alloca i64, align 8
   %writeRes = alloca %"class.folly::Expected", align 8
   %ref.tmp45 = alloca %"class.google::LogMessageFatal", align 8
-  %sentSettings_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 7
+  %sentSettings_ = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i8, ptr %sentSettings_, align 4
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
@@ -1822,22 +1809,22 @@ cleanup.done:                                     ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %settings, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %settings, i64 noundef 0)
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %3 = load ptr, ptr %vfn, align 8
   %call13 = invoke noundef ptr %3(ptr noundef nonnull align 16 dereferenceable(232) %this)
           to label %invoke.cont12 unwind label %lpad11.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %cleanup.done
   %4 = load ptr, ptr %call13, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %call13, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %call13, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not42 = icmp eq ptr %4, %5
   br i1 %cmp.i.not42, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont12
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %id, i64 0, i32 1
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %settings, i64 0, i32 3
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %settings, i64 0, i32 3, i32 2
+  %hasValue.i.i = getelementptr inbounds i8, ptr %id, i64 8
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %settings, i64 48
+  %_M_last.i = getelementptr inbounds i8, ptr %settings, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1868,23 +1855,23 @@ lpad11:                                           ; preds = %lpad11.loopexit.spl
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont26:                                    ; preds = %invoke.cont22
-  %value = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__begin2.sroa.0.043, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 8
   %9 = load i64, ptr %value, align 8
   store i64 %9, ptr %ref.tmp28, align 8
   %10 = load ptr, ptr %_M_finish.i8, align 8
   %11 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 -16
   %cmp.not.i = icmp eq ptr %10, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont26
   %12 = load i64, ptr %id, align 8
   store i64 %12, ptr %10, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %10, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i64, ptr %ref.tmp28, align 8
   store i64 %13, ptr %second.i.i.i.i, align 8
   %14 = load ptr, ptr %_M_finish.i8, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i8, align 8
   br label %for.inc
 
@@ -1893,7 +1880,7 @@ if.else.i:                                        ; preds = %invoke.cont26
           to label %for.inc unwind label %lpad11.loopexit
 
 for.inc:                                          ; preds = %if.else.i, %if.then.i, %invoke.cont22
-  %incdec.ptr.i11 = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__begin2.sroa.0.043, i64 1
+  %incdec.ptr.i11 = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i11, %5
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1910,7 +1897,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %for.end
           to label %invoke.cont36 unwind label %lpad11.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %call.i.i.i.i.i.noexc
-  %hasValue.i.i.i13 = getelementptr inbounds %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible", ptr %ref.tmp33, i64 0, i32 1
+  %hasValue.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   %16 = load i8, ptr %hasValue.i.i.i13, align 8
   %17 = and i8 %16, 1
   %tobool.not.i.i.i14 = icmp eq i8 %17, 0
@@ -1927,20 +1914,20 @@ invoke.cont37:                                    ; preds = %invoke.cont36
   %18 = load i64, ptr %ref.tmp33, align 8
   store i64 %18, ptr %ref.tmp32, align 8
   store i64 4207849484, ptr %ref.tmp39, align 8
-  %_M_finish.i17 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %settings, i64 0, i32 3
+  %_M_finish.i17 = getelementptr inbounds i8, ptr %settings, i64 48
   %19 = load ptr, ptr %_M_finish.i17, align 8
-  %_M_last.i18 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %settings, i64 0, i32 3, i32 2
+  %_M_last.i18 = getelementptr inbounds i8, ptr %settings, i64 64
   %20 = load ptr, ptr %_M_last.i18, align 8
-  %add.ptr.i19 = getelementptr inbounds %"struct.std::pair", ptr %20, i64 -1
+  %add.ptr.i19 = getelementptr inbounds i8, ptr %20, i64 -16
   %cmp.not.i20 = icmp eq ptr %19, %add.ptr.i19
   br i1 %cmp.not.i20, label %if.else.i32, label %if.then.i21
 
 if.then.i21:                                      ; preds = %invoke.cont37
   store i64 %18, ptr %19, align 8
-  %second.i.i.i.i22 = getelementptr inbounds %"struct.std::pair", ptr %19, i64 0, i32 1
+  %second.i.i.i.i22 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 4207849484, ptr %second.i.i.i.i22, align 8
   %21 = load ptr, ptr %_M_finish.i17, align 8
-  %incdec.ptr.i23 = getelementptr inbounds %"struct.std::pair", ptr %21, i64 1
+  %incdec.ptr.i23 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i23, ptr %_M_finish.i17, align 8
   br label %if.end.i24
 
@@ -1989,18 +1976,18 @@ if.end.i.i.i:                                     ; preds = %invoke.cont42
   unreachable
 
 invoke.cont53:                                    ; preds = %invoke.cont42
-  %value_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage", ptr %writeRes, i64 0, i32 2
+  %value_.i.i.i = getelementptr inbounds i8, ptr %writeRes, i64 16
   %24 = load i64, ptr %value_.i.i.i, align 8
   %25 = load ptr, ptr %settings, align 8
   %tobool.not.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i, label %_ZNSt5dequeISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont53
-  %_M_node5.i.i6.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %settings, i64 0, i32 3, i32 3
-  %_M_node5.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %settings, i64 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %settings, i64 72
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %settings, i64 40
   %26 = load ptr, ptr %_M_node5.i.i.i, align 8
   %27 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %27, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %cmp3.i.i.i = icmp ult ptr %26, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
 
@@ -2008,7 +1995,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i38, %for.body.i.i.i ], [ %26, %if.then.i.i ]
   %28 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %28) #30
-  %incdec.ptr.i.i.i38 = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i39 = icmp ult ptr %__n.04.i.i.i, %27
   br i1 %cmp.i.i.i39, label %for.body.i.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i, !llvm.loop !19
 
@@ -2111,7 +2098,7 @@ entry:
   %ref.tmp16 = alloca ptr, align 8
   %writeRet = alloca %"class.folly::Expected", align 8
   %ref.tmp24 = alloca %"class.google::LogMessage", align 8
-  %urgency = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %priority, i64 0, i32 1
+  %urgency = getelementptr inbounds i8, ptr %priority, i64 8
   %bf.load = load i64, ptr %urgency, align 8
   %0 = trunc i64 %bf.load to i8
   %bf.cast = and i8 %0, 7
@@ -2195,7 +2182,7 @@ if.end.i.i.i:                                     ; preds = %_ZN5folly2toINSt7__
   unreachable
 
 invoke.cont38:                                    ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA3_chPKcEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISB_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSE_EEEE5valueESB_E4typeEDpRKSD_.exit
-  %value_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage", ptr %writeRet, i64 0, i32 2
+  %value_.i.i.i = getelementptr inbounds i8, ptr %writeRet, i64 16
   %6 = load i64, ptr %value_.i.i.i, align 8
   br label %cleanup
 
@@ -2231,7 +2218,7 @@ entry:
   %ref.tmp16 = alloca ptr, align 8
   %writeRet = alloca %"class.folly::Expected", align 8
   %ref.tmp24 = alloca %"class.google::LogMessage", align 8
-  %urgency = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %priority, i64 0, i32 1
+  %urgency = getelementptr inbounds i8, ptr %priority, i64 8
   %bf.load = load i64, ptr %urgency, align 8
   %0 = trunc i64 %bf.load to i8
   %bf.cast = and i8 %0, 7
@@ -2315,7 +2302,7 @@ if.end.i.i.i:                                     ; preds = %_ZN5folly2toINSt7__
   unreachable
 
 invoke.cont38:                                    ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA3_chPKcEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISB_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSE_EEEE5valueESB_E4typeEDpRKSD_.exit
-  %value_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage", ptr %writeRet, i64 0, i32 2
+  %value_.i.i.i = getelementptr inbounds i8, ptr %writeRet, i64 16
   %6 = load i64, ptr %value_.i.i.i, align 8
   br label %cleanup
 
@@ -2504,18 +2491,18 @@ invoke.cont13:                                    ; preds = %cleanup.done
 
 invoke.cont14:                                    ; preds = %invoke.cont13
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %tailStart_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %q, i64 0, i32 3
+  %tailStart_.i.i.i = getelementptr inbounds i8, ptr %q, i64 24
   %2 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !38
-  %cachePtr_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %q, i64 0, i32 4
+  %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %3 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !35
   %4 = load ptr, ptr %3, align 8, !noalias !38
   %cmp.not.i.i.i = icmp eq ptr %2, %4
   br i1 %cmp.not.i.i.i, label %invoke.cont15, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont14
-  %head_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %q, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %q, i64 16
   %5 = load ptr, ptr %head_.i.i.i, align 8, !noalias !38
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %5, i64 0, i32 5
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %prev_.i.i.i.i, align 8, !noalias !38
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -2528,11 +2515,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont14
 
 invoke.cont15:                                    ; preds = %if.then.i.i.i, %invoke.cont14
   %8 = phi ptr [ %3, %invoke.cont14 ], [ %.pre.i, %if.then.i.i.i ]
-  %head_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %q, i64 0, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %q, i64 16
   %9 = load i64, ptr %head_.i, align 8, !noalias !35
   store i64 %9, ptr %agg.result, align 8, !alias.scope !35
-  %chainLength_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %q, i64 0, i32 1
-  %reusableTail_5.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %q, i64 0, i32 6
+  %chainLength_.i = getelementptr inbounds i8, ptr %q, i64 8
+  %reusableTail_5.i.i.i.i.i = getelementptr inbounds i8, ptr %q, i64 64
   store ptr null, ptr %reusableTail_5.i.i.i.i.i, align 8, !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i, i8 0, i64 24, i1 false), !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !35
@@ -2568,7 +2555,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont2
   call void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionEPKc(ptr noundef nonnull align 8 dereferenceable(96) %ex, i32 noundef 2, ptr noundef nonnull @.str.42)
-  %hasValue.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 3, i32 0, i32 1
+  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 64
   %1 = load i8, ptr %hasValue.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not.i.i.i = icmp eq i8 %2, 0
@@ -2579,20 +2566,20 @@ if.else.i.i.i:                                    ; preds = %if.then
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.else.i.i.i, %if.then
-  %http3ErrorCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 3
+  %http3ErrorCode_.i = getelementptr inbounds i8, ptr %ex, i64 56
   store i64 260, ptr %http3ErrorCode_.i, align 8
   %3 = load ptr, ptr %callback_, align 8
   %streamId_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %streamId_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(96) %ex, i1 noundef zeroext false)
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %invoke.cont5
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %6 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -2604,7 +2591,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont9
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %7 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %7, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -2617,7 +2604,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #25
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #25
   br label %if.end
@@ -2724,7 +2711,7 @@ entry:
 define linkonce_odr noundef ptr @_ZNK8proxygen2hq14HQControlCodec18getIngressSettingsEv(ptr noundef nonnull align 16 dereferenceable(232) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %streamDir_.i = getelementptr inbounds %"class.proxygen::hq::HQUnidirectionalCodec", ptr %this, i64 0, i32 2
+  %streamDir_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %streamDir_.i, align 16
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %cleanup.done, label %cond.false
@@ -2749,7 +2736,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %settings_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 11
+  %settings_ = getelementptr inbounds i8, ptr %this, i64 224
   %2 = load ptr, ptr %settings_, align 16
   ret ptr %2
 }
@@ -2758,7 +2745,7 @@ cleanup.done:                                     ; preds = %entry
 define linkonce_odr noundef ptr @_ZN8proxygen2hq14HQControlCodec17getEgressSettingsEv(ptr noundef nonnull align 16 dereferenceable(232) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %streamDir_.i = getelementptr inbounds %"class.proxygen::hq::HQUnidirectionalCodec", ptr %this, i64 0, i32 2
+  %streamDir_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %streamDir_.i, align 16
   %cmp.i = icmp eq i8 %0, 1
   br i1 %cmp.i, label %cleanup.done, label %cond.false
@@ -2783,7 +2770,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %settings_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 11
+  %settings_ = getelementptr inbounds i8, ptr %this, i64 224
   %2 = load ptr, ptr %settings_, align 16
   ret ptr %2
 }
@@ -2791,7 +2778,7 @@ cleanup.done:                                     ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen2hq14HQControlCodec23enableDoubleGoawayDrainEv(ptr noundef nonnull align 16 dereferenceable(232) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %doubleGoaway_ = getelementptr inbounds %"class.proxygen::hq::HQControlCodec", ptr %this, i64 0, i32 3
+  %doubleGoaway_ = getelementptr inbounds i8, ptr %this, i64 192
   store i8 1, ptr %doubleGoaway_, align 16
   ret void
 }
@@ -2995,7 +2982,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK8proxygen2hq13HQFramedCodec21getTransportDirectionEv(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %transportDirection_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 2
+  %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %transportDirection_, align 16
   ret i8 %0
 }
@@ -3042,7 +3029,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen2hq13HQFramedCodec11setCallbackEPNS_9HTTPCodec8CallbackE(ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef %callback) unnamed_addr #5 comdat align 2 {
 entry:
-  %callback_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 3
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %callback, ptr %callback_, align 8
   ret void
 }
@@ -3057,7 +3044,7 @@ entry:
 define linkonce_odr void @_ZN8proxygen2hq13HQFramedCodec15setParserPausedEb(ptr noundef nonnull align 16 dereferenceable(160) %this, i1 noundef zeroext %paused) unnamed_addr #7 comdat align 2 {
 entry:
   %frombool = zext i1 %paused to i8
-  %parserPaused_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 5
+  %parserPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %parserPaused_, align 16
   %1 = and i8 %0, 1
   %tobool = icmp eq i8 %1, 0
@@ -3066,7 +3053,7 @@ entry:
   br i1 %paused, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %deferredEOF_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 6
+  %deferredEOF_ = getelementptr inbounds i8, ptr %this, i64 49
   %2 = load i8, ptr %deferredEOF_, align 1
   %3 = and i8 %2, 1
   %tobool8.not = icmp eq i8 %3, 0
@@ -3075,21 +3062,21 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   store i8 0, ptr %deferredEOF_, align 1
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
   br label %if.end14
 
 if.else:                                          ; preds = %land.lhs.true
-  %exec_.i = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 12, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %this, i64 152
   %5 = load ptr, ptr %exec_.i, align 8
   %cmp.i.not = icmp eq ptr %5, null
   %or.cond = select i1 %.not, i1 true, i1 %cmp.i.not
   br i1 %or.cond, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.else
-  %resumeHook_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 12
-  %call_.i = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 12, i32 1
+  %resumeHook_ = getelementptr inbounds i8, ptr %this, i64 96
+  %call_.i = getelementptr inbounds i8, ptr %this, i64 144
   %6 = load ptr, ptr %call_.i, align 16
   tail call void %6(ptr noundef nonnull align 16 dereferenceable(48) %resumeHook_)
   br label %if.end14
@@ -3101,7 +3088,7 @@ if.end14:                                         ; preds = %entry, %if.else, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen2hq13HQFramedCodec14isParserPausedEv(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %parserPaused_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 5
+  %parserPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %parserPaused_, align 16
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -3480,14 +3467,14 @@ define linkonce_odr noundef i64 @_ZN8proxygen9HTTPCodec23generateImmediateGoaway
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %1 = load i64, ptr %debugData, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %debugData, align 8
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 33
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 264
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %call, i8 noundef zeroext %code, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -3887,7 +3874,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #29
@@ -3905,7 +3892,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !41
 
@@ -3921,7 +3908,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #30
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i, !llvm.loop !19
 
@@ -3961,24 +3948,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %12, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.std::pair", ptr %13, i64 32
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 31
@@ -4114,7 +4101,7 @@ declare void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionEPKc(ptr noundef nonnu
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %partialMsg_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 7
+  %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
@@ -4126,7 +4113,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   store ptr null, ptr %partialMsg_, align 8
-  %currentIngressBuf_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 6
+  %currentIngressBuf_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4139,7 +4126,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_p
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %currentIngressBuf_, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   ret void
@@ -4149,7 +4136,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -4161,7 +4148,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %ent
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -4174,7 +4161,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
@@ -4194,13 +4181,13 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define linkonce_odr void @_ZN8proxygen2hq13HQFramedCodecD2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN8proxygen2hq13HQFramedCodecE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %exec_.i.i = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 12, i32 2
+  %exec_.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %exec_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %resumeHook_ = getelementptr inbounds %"class.proxygen::hq::HQFramedCodec", ptr %this, i64 0, i32 12
+  %resumeHook_ = getelementptr inbounds i8, ptr %this, i64 96
   %call.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %resumeHook_, ptr noundef null) #25
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
@@ -4769,11 +4756,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_push_back_auxIJRS3_mEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4784,14 +4771,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 5
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -4807,7 +4794,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -4825,21 +4812,21 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #29
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
   store i64 %10, ptr %9, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %__args1, align 8
   store i64 %11, ptr %second.i.i.i, align 8
   %12 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr14 = getelementptr inbounds ptr, ptr %12, i64 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %add.ptr14, ptr %_M_node.i.i, align 8
   %13 = load ptr, ptr %add.ptr14, align 8
   store ptr %13, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %13, ptr %_M_finish.i, align 8
   ret void
@@ -4848,9 +4835,9 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -4858,7 +4845,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -4872,7 +4859,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -4925,7 +4912,7 @@ _ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE15_M_allocate_mapEm
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit32, label %if.then.i.i.i.i.i29
 
@@ -4946,19 +4933,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 32
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }
@@ -4969,11 +4956,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_push_back_auxIJS3_mEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4984,14 +4971,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 5
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -5007,7 +4994,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -5025,21 +5012,21 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #29
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
   store i64 %10, ptr %9, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %__args1, align 8
   store i64 %11, ptr %second.i.i.i, align 8
   %12 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr14 = getelementptr inbounds ptr, ptr %12, i64 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %add.ptr14, ptr %_M_node.i.i, align 8
   %13 = load ptr, ptr %add.ptr14, align 8
   store ptr %13, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 32
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<proxygen::hq::SettingId, unsigned long>, std::allocator<std::pair<proxygen::hq::SettingId, unsigned long>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %13, ptr %_M_finish.i, align 8
   ret void
@@ -5056,7 +5043,7 @@ entry:
   %0 = load ptr, ptr %vs5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sizes.i.i)
   store i64 3, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i8, ptr %vs1, align 1
   %conv.i.i.i = zext i8 %1 to i64
   br label %for.body.i.i.i.i.i.i.i
@@ -5082,7 +5069,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element9.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element9.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   %3 = load ptr, ptr %vs3, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i, label %cond.true.i.i.i
@@ -5094,7 +5081,7 @@ cond.true.i.i.i:                                  ; preds = %_ZN5folly19estimate
 _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i: ; preds = %cond.true.i.i.i, %_ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i
   %cond.i.i.i = phi i64 [ %call.i.i.i, %cond.true.i.i.i ], [ 0, %_ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i ]
   store i64 %cond.i.i.i, ptr %arrayinit.element9.i.i, align 16
-  %arrayinit.element12.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 3
+  %arrayinit.element12.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 24
   store i64 0, ptr %arrayinit.element12.i.i, align 8
   br label %for.body.i.i
 

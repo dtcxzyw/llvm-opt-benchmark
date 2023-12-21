@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.PBE2PARAM_st = type { ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.PBKDF2PARAM_st = type { ptr, ptr, ptr, ptr }
 
 @PBE2PARAM_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @PBE2PARAM_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @PBE2PARAM_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.3, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.4, ptr @X509_ALGOR_it }], align 16
@@ -132,12 +126,12 @@ if.then3:                                         ; preds = %if.end
   br label %err
 
 if.end4:                                          ; preds = %if.end
-  %encryption = getelementptr inbounds %struct.PBE2PARAM_st, ptr %call1.i, i64 0, i32 1
+  %encryption = getelementptr inbounds i8, ptr %call1.i, i64 8
   %0 = load ptr, ptr %encryption, align 8
   %call5 = tail call ptr @OBJ_nid2obj(i32 noundef %call) #4
   store ptr %call5, ptr %0, align 8
   %call6 = tail call ptr @ASN1_TYPE_new() #4
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %0, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %call6, ptr %parameter, align 8
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -249,7 +243,7 @@ if.then64:                                        ; preds = %if.end60
 if.end65:                                         ; preds = %if.end60
   %call66 = call ptr @OBJ_nid2obj(i32 noundef 161) #4
   store ptr %call66, ptr %call61, align 8
-  %parameter69 = getelementptr inbounds %struct.X509_algor_st, ptr %call61, i64 0, i32 1
+  %parameter69 = getelementptr inbounds i8, ptr %call61, i64 8
   %call70 = call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @PBE2PARAM_it.local_it, ptr noundef nonnull %call1.i, ptr noundef nonnull %parameter69) #4
   %tobool71.not = icmp eq ptr %call70, null
   br i1 %tobool71.not, label %if.then72, label %if.end73
@@ -329,7 +323,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %0 = load ptr, ptr %call1.i, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %call1, ptr %value, align 8
   %1 = load ptr, ptr %call1.i, align 8
   store i32 4, ptr %1, align 8
@@ -341,7 +335,7 @@ if.end9:                                          ; preds = %if.end4
   %spec.store.select = select i1 %cmp10, i32 16, i32 %saltlen
   %conv = zext nneg i32 %spec.store.select to i64
   %call13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str.2, i32 noundef 201) #4
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call13, ptr %data, align 8
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %err, label %if.end17
@@ -363,7 +357,7 @@ if.else:                                          ; preds = %if.end17
 if.end28:                                         ; preds = %if.else, %if.then18
   %cmp29 = icmp slt i32 %iter, 1
   %spec.store.select1 = select i1 %cmp29, i32 2048, i32 %iter
-  %iter33 = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call1.i, i64 0, i32 1
+  %iter33 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %iter33, align 8
   %conv34 = zext nneg i32 %spec.store.select1 to i64
   %call35 = tail call i32 @ASN1_INTEGER_set(ptr noundef %2, i64 noundef %conv34) #4
@@ -376,7 +370,7 @@ if.end38:                                         ; preds = %if.end28
 
 if.then41:                                        ; preds = %if.end38
   %call42 = tail call ptr @ASN1_INTEGER_new() #4
-  %keylength = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call1.i, i64 0, i32 2
+  %keylength = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call42, ptr %keylength, align 8
   %cmp43 = icmp eq ptr %call42, null
   br i1 %cmp43, label %err.sink.split, label %if.end46
@@ -395,7 +389,7 @@ if.end53:                                         ; preds = %if.end46, %if.end38
 
 if.then58:                                        ; preds = %if.end53
   %call59 = tail call ptr @ossl_X509_ALGOR_from_nid(i32 noundef %prf_nid, i32 noundef 5, ptr noundef null) #4
-  %prf = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call1.i, i64 0, i32 3
+  %prf = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %call59, ptr %prf, align 8
   %cmp61 = icmp eq ptr %call59, null
   br i1 %cmp61, label %err.sink.split, label %if.end65
@@ -408,7 +402,7 @@ if.end65:                                         ; preds = %if.then58, %if.end5
 if.end70:                                         ; preds = %if.end65
   %call71 = tail call ptr @OBJ_nid2obj(i32 noundef 69) #4
   store ptr %call71, ptr %call66, align 8
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %call66, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %call66, i64 8
   %call73 = tail call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @PBKDF2PARAM_it.local_it, ptr noundef nonnull %call1.i, ptr noundef nonnull %parameter) #4
   %tobool74.not = icmp eq ptr %call73, null
   br i1 %tobool74.not, label %err.sink.split, label %if.end76

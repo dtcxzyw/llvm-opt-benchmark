@@ -13,27 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SiFiveUARTState = type { %struct.SysBusDevice, ptr, %struct.MemoryRegion, %struct.CharBackend, [8 x i8], i8, i32, i32, i32, i32, i32 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ResettableClass = type { %struct.InterfaceClass, %struct.ResettablePhases, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ResettablePhases = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"riscv.sifive.uart\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"chardev\00", align 1
@@ -121,10 +100,10 @@ define internal void @sifive_uart_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.17, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 56, ptr noundef nonnull @__func__.SIFIVE_UART) #8
-  %mmio = getelementptr inbounds %struct.SiFiveUARTState, ptr %call.i7, i64 0, i32 2
+  %mmio = getelementptr inbounds i8, ptr %call.i7, i64 832
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %call.i7, ptr noundef nonnull @sifive_uart_ops, ptr noundef %call.i7, ptr noundef nonnull @.str, i64 noundef 32) #8
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #8
-  %irq = getelementptr inbounds %struct.SiFiveUARTState, ptr %call.i7, i64 0, i32 1
+  %irq = getelementptr inbounds i8, ptr %call.i7, i64 816
   tail call void @sysbus_init_irq(ptr noundef %call.i, ptr noundef nonnull %irq) #8
   ret void
 }
@@ -134,16 +113,16 @@ define internal void @sifive_uart_class_init(ptr noundef %oc, ptr nocapture read
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_uart_realize, ptr %realize, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_sifive_uart, ptr %vmsd, align 8
-  %phases = getelementptr inbounds %struct.ResettableClass, ptr %call.i6, i64 0, i32 1
+  %phases = getelementptr inbounds i8, ptr %call.i6, i64 112
   store ptr @sifive_uart_reset_enter, ptr %phases, align 8
-  %hold = getelementptr inbounds %struct.ResettableClass, ptr %call.i6, i64 0, i32 1, i32 1
+  %hold = getelementptr inbounds i8, ptr %call.i6, i64 120
   store ptr @sifive_uart_reset_hold, ptr %hold, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_uart_properties) #8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
@@ -171,15 +150,15 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %rx_fifo_len = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 5
+  %rx_fifo_len = getelementptr inbounds i8, ptr %opaque, i64 1168
   %1 = load i8, ptr %rx_fifo_len, align 16
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %rx_fifo = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 4
+  %rx_fifo = getelementptr inbounds i8, ptr %opaque, i64 1160
   %2 = load i8, ptr %rx_fifo, align 8
-  %add.ptr = getelementptr %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 4, i64 1
+  %add.ptr = getelementptr i8, ptr %opaque, i64 1161
   %conv = zext i8 %1 to i64
   %sub = add nuw nsw i64 %conv, 4294967295
   %conv5 = and i64 %sub, 4294967295
@@ -187,9 +166,9 @@ if.then:                                          ; preds = %sw.bb
   %3 = load i8, ptr %rx_fifo_len, align 16
   %dec = add i8 %3, -1
   store i8 %dec, ptr %rx_fifo_len, align 16
-  %chr = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 3
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 1104
   tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %chr) #8
-  %ie.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 6
+  %ie.i = getelementptr inbounds i8, ptr %opaque, i64 1172
   %4 = load i32, ptr %ie.i, align 4
   %and.i = and i32 %4, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -210,29 +189,29 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %l
 
 sifive_uart_update_irq.exit:                      ; preds = %if.then, %land.lhs.true.i, %if.else.i
   %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %if.then ]
-  %irq7.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 1
+  %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %6 = load ptr, ptr %irq7.i, align 16
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %.sink5.i) #8
   %conv7 = zext i8 %2 to i64
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %ie = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 6
+  %ie = getelementptr inbounds i8, ptr %opaque, i64 1172
   %7 = load i32, ptr %ie, align 4
   %conv10 = zext i32 %7 to i64
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %txctrl.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 8
+  %txctrl.i = getelementptr inbounds i8, ptr %opaque, i64 1180
   %8 = load i32, ptr %txctrl.i, align 4
-  %rxctrl.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 9
+  %rxctrl.i = getelementptr inbounds i8, ptr %opaque, i64 1184
   %9 = load i32, ptr %rxctrl.i, align 16
   %shr1.i = lshr i32 %9, 16
   %and2.i14 = and i32 %shr1.i, 7
   %10 = and i32 %8, 458752
   %cmp.not.i = icmp ne i32 %10, 0
   %spec.select.i = zext i1 %cmp.not.i to i64
-  %rx_fifo_len.i15 = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 5
+  %rx_fifo_len.i15 = getelementptr inbounds i8, ptr %opaque, i64 1168
   %11 = load i8, ptr %rx_fifo_len.i15, align 16
   %12 = zext i8 %11 to i32
   %cmp6.i = icmp ult i32 %and2.i14, %12
@@ -241,19 +220,19 @@ sw.bb11:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %txctrl = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 8
+  %txctrl = getelementptr inbounds i8, ptr %opaque, i64 1180
   %13 = load i32, ptr %txctrl, align 4
   %conv13 = zext i32 %13 to i64
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %rxctrl = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 9
+  %rxctrl = getelementptr inbounds i8, ptr %opaque, i64 1184
   %14 = load i32, ptr %rxctrl, align 16
   %conv15 = zext i32 %14 to i64
   br label %return
 
 sw.bb16:                                          ; preds = %entry
-  %div = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 10
+  %div = getelementptr inbounds i8, ptr %opaque, i64 1188
   %15 = load i32, ptr %div, align 4
   %conv17 = zext i32 %15 to i64
   br label %return
@@ -291,9 +270,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %chr = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 3
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 1104
   %call = call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr, ptr noundef nonnull %ch, i32 noundef 1) #8
-  %ie.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 6
+  %ie.i = getelementptr inbounds i8, ptr %opaque, i64 1172
   %1 = load i32, ptr %ie.i, align 4
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -305,7 +284,7 @@ lor.lhs.false.i:                                  ; preds = %sw.bb
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %rx_fifo_len.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 5
+  %rx_fifo_len.i = getelementptr inbounds i8, ptr %opaque, i64 1168
   %2 = load i8, ptr %rx_fifo_len.i, align 16
   %tobool4.not.i = icmp eq i8 %2, 0
   br i1 %tobool4.not.i, label %if.else.i, label %sifive_uart_update_irq.exit
@@ -315,13 +294,13 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %l
 
 sifive_uart_update_irq.exit:                      ; preds = %sw.bb, %land.lhs.true.i, %if.else.i
   %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %sw.bb ]
-  %irq7.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 1
+  %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %3 = load ptr, ptr %irq7.i, align 16
   call void @qemu_set_irq(ptr noundef %3, i32 noundef %.sink5.i) #8
   br label %do.end
 
 sw.bb2:                                           ; preds = %entry
-  %ie = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 6
+  %ie = getelementptr inbounds i8, ptr %opaque, i64 1172
   store i32 %conv, ptr %ie, align 4
   %and.i14 = and i32 %conv, 1
   %tobool.not.i15 = icmp eq i32 %and.i14, 0
@@ -333,7 +312,7 @@ lor.lhs.false.i18:                                ; preds = %sw.bb2
   br i1 %tobool3.not.i20, label %if.else.i24, label %land.lhs.true.i21
 
 land.lhs.true.i21:                                ; preds = %lor.lhs.false.i18
-  %rx_fifo_len.i22 = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 5
+  %rx_fifo_len.i22 = getelementptr inbounds i8, ptr %opaque, i64 1168
   %4 = load i8, ptr %rx_fifo_len.i22, align 16
   %tobool4.not.i23 = icmp eq i8 %4, 0
   br i1 %tobool4.not.i23, label %if.else.i24, label %sifive_uart_update_irq.exit25
@@ -343,23 +322,23 @@ if.else.i24:                                      ; preds = %land.lhs.true.i21, 
 
 sifive_uart_update_irq.exit25:                    ; preds = %sw.bb2, %land.lhs.true.i21, %if.else.i24
   %.sink5.i16 = phi i32 [ 0, %if.else.i24 ], [ 1, %land.lhs.true.i21 ], [ 1, %sw.bb2 ]
-  %irq7.i17 = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 1
+  %irq7.i17 = getelementptr inbounds i8, ptr %opaque, i64 816
   %5 = load ptr, ptr %irq7.i17, align 16
   tail call void @qemu_set_irq(ptr noundef %5, i32 noundef %.sink5.i16) #8
   br label %do.end
 
 sw.bb4:                                           ; preds = %entry
-  %txctrl = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 8
+  %txctrl = getelementptr inbounds i8, ptr %opaque, i64 1180
   store i32 %conv, ptr %txctrl, align 4
   br label %do.end
 
 sw.bb6:                                           ; preds = %entry
-  %rxctrl = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 9
+  %rxctrl = getelementptr inbounds i8, ptr %opaque, i64 1184
   store i32 %conv, ptr %rxctrl, align 16
   br label %do.end
 
 sw.bb8:                                           ; preds = %entry
-  %div = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 10
+  %div = getelementptr inbounds i8, ptr %opaque, i64 1188
   store i32 %conv, ptr %div, align 4
   br label %do.end
 
@@ -393,7 +372,7 @@ declare i32 @qemu_chr_fe_write(ptr noundef, ptr noundef, i32 noundef) local_unna
 define internal void @sifive_uart_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 56, ptr noundef nonnull @__func__.SIFIVE_UART) #8
-  %chr = getelementptr inbounds %struct.SiFiveUARTState, ptr %call.i, i64 0, i32 3
+  %chr = getelementptr inbounds i8, ptr %call.i, i64 1104
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @sifive_uart_can_rx, ptr noundef nonnull @sifive_uart_rx, ptr noundef nonnull @sifive_uart_event, ptr noundef nonnull @sifive_uart_be_change, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #8
   ret void
 }
@@ -402,8 +381,8 @@ entry:
 define internal void @sifive_uart_reset_enter(ptr noundef %obj, i32 %type) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 56, ptr noundef nonnull @__func__.SIFIVE_UART) #8
-  %ie = getelementptr inbounds %struct.SiFiveUARTState, ptr %call.i, i64 0, i32 6
-  %rx_fifo_len = getelementptr inbounds %struct.SiFiveUARTState, ptr %call.i, i64 0, i32 5
+  %ie = getelementptr inbounds i8, ptr %call.i, i64 1172
+  %rx_fifo_len = getelementptr inbounds i8, ptr %call.i, i64 1168
   store i8 0, ptr %rx_fifo_len, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ie, i8 0, i64 20, i1 false)
   ret void
@@ -413,7 +392,7 @@ entry:
 define internal void @sifive_uart_reset_hold(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 56, ptr noundef nonnull @__func__.SIFIVE_UART) #8
-  %irq = getelementptr inbounds %struct.SiFiveUARTState, ptr %call.i, i64 0, i32 1
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 816
   %0 = load ptr, ptr %irq, align 16
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #8
   ret void
@@ -428,7 +407,7 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @sifive_uart_can_rx(ptr nocapture noundef readonly %opaque) #3 {
 entry:
-  %rx_fifo_len = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 5
+  %rx_fifo_len = getelementptr inbounds i8, ptr %opaque, i64 1168
   %0 = load i8, ptr %rx_fifo_len, align 16
   %cmp = icmp ult i8 %0, 8
   %conv1 = zext i1 %cmp to i32
@@ -438,7 +417,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sifive_uart_rx(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %buf, i32 %size) #0 {
 entry:
-  %rx_fifo_len = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 5
+  %rx_fifo_len = getelementptr inbounds i8, ptr %opaque, i64 1168
   %0 = load i8, ptr %rx_fifo_len, align 16
   %cmp = icmp ugt i8 %0, 7
   br i1 %cmp, label %if.then, label %if.end
@@ -450,11 +429,12 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %conv = zext nneg i8 %0 to i64
   %1 = load i8, ptr %buf, align 1
+  %rx_fifo = getelementptr inbounds i8, ptr %opaque, i64 1160
   %inc = add nuw nsw i8 %0, 1
   store i8 %inc, ptr %rx_fifo_len, align 16
-  %arrayidx = getelementptr %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 4, i64 %conv
+  %arrayidx = getelementptr [8 x i8], ptr %rx_fifo, i64 0, i64 %conv
   store i8 %1, ptr %arrayidx, align 1
-  %ie.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 6
+  %ie.i = getelementptr inbounds i8, ptr %opaque, i64 1172
   %2 = load i32, ptr %ie.i, align 4
   %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -475,7 +455,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %l
 
 sifive_uart_update_irq.exit:                      ; preds = %if.end, %land.lhs.true.i, %if.else.i
   %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %if.end ]
-  %irq7.i = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 1
+  %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %4 = load ptr, ptr %irq7.i, align 16
   tail call void @qemu_set_irq(ptr noundef %4, i32 noundef %.sink5.i) #8
   br label %return
@@ -493,7 +473,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @sifive_uart_be_change(ptr noundef %opaque) #0 {
 entry:
-  %chr = getelementptr inbounds %struct.SiFiveUARTState, ptr %opaque, i64 0, i32 3
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 1104
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @sifive_uart_can_rx, ptr noundef nonnull @sifive_uart_rx, ptr noundef nonnull @sifive_uart_event, ptr noundef nonnull @sifive_uart_be_change, ptr noundef %opaque, ptr noundef null, i1 noundef zeroext true) #8
   ret i32 0
 }

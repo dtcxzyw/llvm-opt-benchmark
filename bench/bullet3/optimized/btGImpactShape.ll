@@ -6,41 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %class.btVector3 = type { [4 x float] }
-%class.btGImpactShapeInterface = type { %class.btConcaveShape.base, %class.btAABB, i8, %class.btVector3, %class.btGImpactQuantizedBvh }
-%class.btConcaveShape.base = type <{ %class.btCollisionShape, float }>
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%class.btAABB = type { %class.btVector3, %class.btVector3 }
-%class.btGImpactQuantizedBvh = type { %class.btQuantizedBvhTree, ptr }
-%class.btQuantizedBvhTree = type { i32, [4 x i8], %class.GIM_QUANTIZED_BVH_NODE_ARRAY, %class.btAABB, %class.btVector3 }
-%class.GIM_QUANTIZED_BVH_NODE_ARRAY = type { %class.btAlignedObjectArray.base, [7 x i8] }
-%class.btAlignedObjectArray.base = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8 }>
-%class.btAlignedAllocator = type { i8 }
-%class.btGImpactMeshShapePart = type { %class.btGImpactShapeInterface, %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager" }
-%"class.btGImpactMeshShapePart::TrimeshPrimitiveManager" = type <{ %class.btPrimitiveManagerBase, float, [4 x i8], ptr, %class.btVector3, i32, i32, ptr, i32, i32, i32, [4 x i8], ptr, i32, i32, i32, [4 x i8] }>
-%class.btPrimitiveManagerBase = type { ptr }
-%class.btGImpactCompoundShape = type { %class.btGImpactShapeInterface, %"class.btGImpactCompoundShape::CompoundPrimitiveManager", %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4 }
-%"class.btGImpactCompoundShape::CompoundPrimitiveManager" = type { %class.btPrimitiveManagerBase, ptr }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btGImpactMeshShape = type { %class.btGImpactShapeInterface, ptr, %class.btAlignedObjectArray.8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
 %class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.13 = type { i8 }
 %class.btPrimitiveTriangle = type { [3 x %class.btVector3], %class.btVector4, float, float }
 %class.btVector4 = type { %class.btVector3 }
-%struct.btGImpactMeshShapeData = type { %struct.btCollisionShapeData, %struct.btStridingMeshInterfaceData, %struct.btVector3FloatData, float, i32 }
-%struct.btCollisionShapeData = type { ptr, i32, [4 x i8] }
-%struct.btStridingMeshInterfaceData = type { ptr, %struct.btVector3FloatData, i32, [4 x i8] }
-%struct.btVector3FloatData = type { [4 x float] }
-%class.btConcaveShape = type <{ %class.btCollisionShape, float, [4 x i8] }>
-%struct.BT_QUANTIZED_BVH_NODE = type { [3 x i16], [3 x i16], i32 }
-%class.btTriangleShape = type { %class.btPolyhedralConvexShape, [3 x %class.btVector3] }
-%class.btPolyhedralConvexShape = type { %class.btConvexInternalShape, ptr }
-%class.btConvexInternalShape = type { %class.btConvexShape, %class.btVector3, %class.btVector3, float, float }
-%class.btConvexShape = type { %class.btCollisionShape }
+%class.btAABB = type { %class.btVector3, %class.btVector3 }
 
 $_ZN22btGImpactMeshShapePart23TrimeshPrimitiveManagerD2Ev = comdat any
 
@@ -273,40 +243,40 @@ $_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix = comdat any
 define dso_local void @_ZN22btGImpactMeshShapePartC2EP23btStridingMeshInterfacei(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %meshInterface, i32 noundef %part) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %m_localAABB.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1
-  %localScaling.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 3
-  %m_box_set.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4
-  %m_ownsMemory.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_localAABB.i = getelementptr inbounds i8, ptr %this, i64 36
+  %localScaling.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_box_set.i = getelementptr inbounds i8, ptr %this, i64 88
+  %m_ownsMemory.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i.i.i.i.i.i, align 8
-  %m_data.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %m_data.i.i.i.i.i.i, align 8
-  %m_size.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 2
+  %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %m_size.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 3
+  %m_capacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_box_set.i, align 8
-  %m_primitive_manager.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 1
-  %m_shapeType.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_primitive_manager.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 25, ptr %m_shapeType.i, align 8
   store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0.000000e+00>, ptr %m_localAABB.i, align 4
-  %m_max.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1
+  %m_max.i.i = getelementptr inbounds i8, ptr %this, i64 52
   store <4 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0.000000e+00>, ptr %m_max.i.i, align 4
-  %m_needs_update.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 2
+  %m_needs_update.i = getelementptr inbounds i8, ptr %this, i64 68
   store i8 1, ptr %m_needs_update.i, align 4
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %localScaling.i, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV22btGImpactMeshShapePart, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_primitive_manager = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1
+  %m_primitive_manager = getelementptr inbounds i8, ptr %this, i64 184
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN22btGImpactMeshShapePart23TrimeshPrimitiveManagerE, i64 0, inrange i32 0, i64 2), ptr %m_primitive_manager, align 8
-  %m_scale.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 4
-  %m_meshInterface.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 3
-  %m_part.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 5
-  %m_margin.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 1
+  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 208
+  %m_meshInterface.i = getelementptr inbounds i8, ptr %this, i64 200
+  %m_part.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_margin.i = getelementptr inbounds i8, ptr %this, i64 192
   store float 0x3F847AE140000000, ptr %m_margin.i, align 8
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_scale.i, align 8
-  %m_lock_count.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 6
-  %stride.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 10
+  %m_lock_count.i = getelementptr inbounds i8, ptr %this, i64 228
+  %stride.i = getelementptr inbounds i8, ptr %this, i64 248
   store i32 0, ptr %stride.i, align 8
-  %indexbase.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 12
+  %indexbase.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_lock_count.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %indexbase.i, i8 0, i64 16, i1 false)
   store ptr %meshInterface, ptr %m_meshInterface.i, align 8
@@ -327,13 +297,13 @@ entry:
 define dso_local void @_ZN22btGImpactMeshShapePartD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN23btGImpactShapeInterfaceD2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
@@ -351,12 +321,12 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.
   unreachable
 
 _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %entry, %if.then.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
-  %m_size.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 2
-  %m_ownsMemory.i1.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 3
+  %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i, align 8
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
   ret void
@@ -366,13 +336,13 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %entry, %if.then.i.i
 define dso_local void @_ZN22btGImpactMeshShapePartD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN22btGImpactMeshShapePartD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %entry
-  %m_ownsMemory.i.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_ownsMemory.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
@@ -390,12 +360,12 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then3.i.i.i.i.i.
   unreachable
 
 _ZN22btGImpactMeshShapePartD2Ev.exit:             ; preds = %entry, %if.then.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i
-  %m_size.i.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 2
-  %m_ownsMemory.i1.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 3
+  %m_capacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -415,9 +385,9 @@ _ZN14btConcaveShapedlEPv.exit:                    ; preds = %_ZN22btGImpactMeshS
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK22btGImpactMeshShapePart15lockChildShapesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_primitive_manager.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 1
+  %m_primitive_manager.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_primitive_manager.i, align 8
-  %m_lock_count.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 6
+  %m_lock_count.i = getelementptr inbounds i8, ptr %0, i64 44
   %1 = load i32, ptr %m_lock_count.i, align 4
   %cmp.i = icmp sgt i32 %1, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -427,20 +397,20 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN22btGImpactMeshShapePart23TrimeshPrimitiveManager4lockEv.exit
 
 if.end.i:                                         ; preds = %entry
-  %m_meshInterface.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 3
+  %m_meshInterface.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %m_meshInterface.i, align 8
-  %vertexbase.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 7
-  %numverts.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 8
-  %type.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 9
-  %stride.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 10
-  %indexbase.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 12
-  %indexstride.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 13
-  %numfaces.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 14
-  %indicestype.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 15
-  %m_part.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 5
+  %vertexbase.i = getelementptr inbounds i8, ptr %0, i64 48
+  %numverts.i = getelementptr inbounds i8, ptr %0, i64 56
+  %type.i = getelementptr inbounds i8, ptr %0, i64 60
+  %stride.i = getelementptr inbounds i8, ptr %0, i64 64
+  %indexbase.i = getelementptr inbounds i8, ptr %0, i64 72
+  %indexstride.i = getelementptr inbounds i8, ptr %0, i64 80
+  %numfaces.i = getelementptr inbounds i8, ptr %0, i64 84
+  %indicestype.i = getelementptr inbounds i8, ptr %0, i64 88
+  %m_part.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %m_part.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %vertexbase.i, ptr noundef nonnull align 4 dereferenceable(4) %numverts.i, ptr noundef nonnull align 4 dereferenceable(4) %type.i, ptr noundef nonnull align 4 dereferenceable(4) %stride.i, ptr noundef nonnull %indexbase.i, ptr noundef nonnull align 4 dereferenceable(4) %indexstride.i, ptr noundef nonnull align 4 dereferenceable(4) %numfaces.i, ptr noundef nonnull align 4 dereferenceable(4) %indicestype.i, i32 noundef %3)
   br label %_ZN22btGImpactMeshShapePart23TrimeshPrimitiveManager4lockEv.exit
@@ -454,9 +424,9 @@ _ZN22btGImpactMeshShapePart23TrimeshPrimitiveManager4lockEv.exit: ; preds = %if.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK22btGImpactMeshShapePart17unlockChildShapesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_primitive_manager.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 1
+  %m_primitive_manager.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_primitive_manager.i, align 8
-  %m_lock_count.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 6
+  %m_lock_count.i = getelementptr inbounds i8, ptr %0, i64 44
   %1 = load i32, ptr %m_lock_count.i, align 4
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %_ZN22btGImpactMeshShapePart23TrimeshPrimitiveManager6unlockEv.exit, label %if.end.i
@@ -470,15 +440,15 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %return.sink.split.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %m_meshInterface.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 3
+  %m_meshInterface.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %m_meshInterface.i, align 8
-  %m_part.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 5
+  %m_part.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %m_part.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3)
-  %vertexbase.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %0, i64 0, i32 7
+  %vertexbase.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr null, ptr %vertexbase.i, align 8
   br label %return.sink.split.i
 
@@ -496,13 +466,13 @@ define dso_local void @_ZNK22btGImpactCompoundShape21calculateLocalInertiaEfR9bt
 entry:
   %temp_inertia = alloca %class.btVector3, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %inertia, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %inertia, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %inertia, i8 0, i64 16, i1 false)
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 22
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 176
   %1 = load ptr, ptr %vfn5, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(264) %this)
   %conv = sitofp i32 %call to float
@@ -511,10 +481,10 @@ entry:
   br i1 %tobool.not47, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 5
-  %arrayidx.i9.i.i13 = getelementptr inbounds [4 x float], ptr %temp_inertia, i64 0, i64 1
-  %arrayidx.i11.i.i15 = getelementptr inbounds [4 x float], ptr %temp_inertia, i64 0, i64 2
-  %m_data.i8 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 248
+  %arrayidx.i9.i.i13 = getelementptr inbounds i8, ptr %temp_inertia, i64 4
+  %arrayidx.i11.i.i15 = getelementptr inbounds i8, ptr %temp_inertia, i64 8
+  %m_data.i8 = getelementptr inbounds i8, ptr %this, i64 216
   %2 = sext i32 %call to i64
   br label %while.body
 
@@ -525,11 +495,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.next
   %4 = load ptr, ptr %arrayidx.i, align 8
   %vtable7 = load ptr, ptr %4, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 8
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 64
   %5 = load ptr, ptr %vfn8, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4, float noundef %div, ptr noundef nonnull align 4 dereferenceable(16) %temp_inertia)
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 23
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 184
   %6 = load ptr, ptr %vfn10, align 8
   %call11 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(264) %this)
   br i1 %call11, label %if.then, label %if.else
@@ -540,33 +510,33 @@ if.then:                                          ; preds = %while.body
   %8 = load float, ptr %arrayidx.i10, align 4, !noalias !5
   %9 = load float, ptr %temp_inertia, align 4, !noalias !6
   %mul.i.i = fmul float %8, %9
-  %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i10, i64 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 4
   %10 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !5
   %11 = load float, ptr %arrayidx.i9.i.i13, align 4, !noalias !6
   %mul8.i.i = fmul float %10, %11
-  %arrayidx.i10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i10, i64 0, i64 2
+  %arrayidx.i10.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 8
   %12 = load float, ptr %arrayidx.i10.i.i, align 4, !noalias !5
   %13 = load float, ptr %arrayidx.i11.i.i15, align 4, !noalias !6
   %mul14.i.i = fmul float %12, %13
-  %arrayidx17.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i10, i64 0, i64 1
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 16
   %14 = load float, ptr %arrayidx17.i.i, align 4, !noalias !5
-  %arrayidx.i12.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i10, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 20
   %15 = load float, ptr %arrayidx.i12.i.i, align 4, !noalias !5
-  %arrayidx.i14.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i10, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i14.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 24
   %16 = load float, ptr %arrayidx.i14.i.i, align 4, !noalias !5
-  %arrayidx35.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i10, i64 0, i64 2
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 32
   %17 = load float, ptr %arrayidx35.i.i, align 4, !noalias !5
-  %arrayidx.i16.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i10, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 36
   %18 = load float, ptr %arrayidx.i16.i.i, align 4, !noalias !5
-  %arrayidx.i18.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i10, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i18.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 40
   %19 = load float, ptr %arrayidx.i18.i.i, align 4, !noalias !5
   %mul7.i.i.i = fmul float %10, %mul8.i.i
   %20 = call float @llvm.fmuladd.f32(float %8, float %mul.i.i, float %mul7.i.i.i)
   %21 = call noundef float @llvm.fmuladd.f32(float %12, float %mul14.i.i, float %20)
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %7, i64 %indvars.iv.next, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 48
   %22 = load float, ptr %m_origin.i.i, align 4
   %mul.i = fmul float %22, %22
-  %arrayidx7.i11 = getelementptr inbounds %class.btTransform, ptr %7, i64 %indvars.iv.next, i32 1, i32 0, i64 1
+  %arrayidx7.i11 = getelementptr inbounds i8, ptr %arrayidx.i10, i64 52
   %23 = insertelement <2 x float> poison, float %9, i64 0
   %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
   %25 = insertelement <2 x float> poison, float %17, i64 0
@@ -613,11 +583,11 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont5.i:                                   ; preds = %init.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
-  %arrayidx6.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call.i, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
-  %arrayidx10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call.i, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #16
   br label %_ZN11btTransform11getIdentityEv.exit
 
@@ -637,10 +607,10 @@ _ZN11btTransform11getIdentityEv.exit:             ; preds = %if.else, %init.chec
   %55 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 0, i32 0, i64 2), align 4, !noalias !5
   %56 = load float, ptr %arrayidx.i11.i.i15, align 4, !noalias !10
   %mul14.i.i16 = fmul float %55, %56
-  %57 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1), align 4, !noalias !5
+  %57 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), align 4, !noalias !5
   %58 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 1), align 4, !noalias !5
   %59 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 2), align 4, !noalias !5
-  %60 = load <4 x float>, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), align 4
+  %60 = load <4 x float>, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), align 4
   %61 = shufflevector <4 x float> %60, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %62 = load <4 x float>, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 1), align 4
   %63 = shufflevector <4 x float> %62, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -649,7 +619,7 @@ _ZN11btTransform11getIdentityEv.exit:             ; preds = %if.else, %init.chec
   %mul7.i.i.i23 = fmul float %53, %mul8.i.i14
   %66 = call float @llvm.fmuladd.f32(float %51, float %mul.i.i12, float %mul7.i.i.i23)
   %67 = call noundef float @llvm.fmuladd.f32(float %55, float %mul14.i.i16, float %66)
-  %68 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), align 4
+  %68 = load float, ptr getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), align 4
   %mul.i26 = fmul float %68, %68
   %69 = insertelement <2 x float> poison, float %52, i64 0
   %70 = shufflevector <2 x float> %69, <2 x float> poison, <2 x i32> zeroinitializer
@@ -696,7 +666,7 @@ if.end:                                           ; preds = %_ZN11btTransform11g
 
 while.end:                                        ; preds = %if.end, %entry
   %vtable19 = load ptr, ptr %this, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 29
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 232
   %98 = load ptr, ptr %vfn20, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
@@ -709,11 +679,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZNK22btGImpactMeshShapePart21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(280) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(280) %this)
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %inertia, i64 0, i64 2
-  %numverts.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %inertia, i64 8
+  %numverts.i.i = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %inertia, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %numverts.i.i, align 8
   %conv = sitofp i32 %1 to float
@@ -722,12 +692,12 @@ entry:
   br i1 %tobool.not21, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %type.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 9
-  %vertexbase.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 7
-  %stride.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 10
-  %m_scale.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 4
-  %arrayidx40.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 4, i32 0, i64 1
-  %arrayidx47.i.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 4, i32 0, i64 2
+  %type.i.i = getelementptr inbounds i8, ptr %this, i64 244
+  %vertexbase.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %stride.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %m_scale.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx40.i.i = getelementptr inbounds i8, ptr %this, i64 212
+  %arrayidx47.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %2 = insertelement <2 x float> poison, float %div, i64 0
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
   br label %while.body
@@ -755,7 +725,7 @@ if.then.i.i:                                      ; preds = %while.body
   %14 = fpext <2 x float> %13 to <2 x double>
   %15 = fmul <2 x double> %11, %14
   %16 = fptrunc <2 x double> %15 to <2 x float>
-  %arrayidx16.i.i = getelementptr inbounds double, ptr %add.ptr.i.i, i64 2
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %17 = load double, ptr %arrayidx16.i.i, align 8
   %18 = load float, ptr %arrayidx47.i.i, align 8
   %conv20.i.i = fpext float %18 to double
@@ -769,7 +739,7 @@ if.else.i.i:                                      ; preds = %while.body
   %21 = insertelement <2 x float> poison, float %9, i64 0
   %22 = insertelement <2 x float> %21, float %19, i64 1
   %23 = fmul <2 x float> %22, %20
-  %arrayidx44.i.i = getelementptr inbounds float, ptr %add.ptr.i.i, i64 2
+  %arrayidx44.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %24 = load float, ptr %arrayidx44.i.i, align 4
   %25 = load float, ptr %arrayidx47.i.i, align 8
   %mul48.i.i = fmul float %24, %25
@@ -798,7 +768,7 @@ _ZNK22btGImpactMeshShapePart9getVertexEiR9btVector3.exit: ; preds = %if.then.i.i
 
 while.end:                                        ; preds = %_ZNK22btGImpactMeshShapePart9getVertexEiR9btVector3.exit, %entry
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 29
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 232
   %34 = load ptr, ptr %vfn8, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(280) %this)
   ret void
@@ -808,8 +778,8 @@ while.end:                                        ; preds = %_ZNK22btGImpactMesh
 define dso_local void @_ZNK18btGImpactMeshShape21calculateLocalInertiaEfR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %mass, ptr nocapture noundef nonnull align 4 dereferenceable(16) %inertia) unnamed_addr #0 align 2 {
 entry:
   %partinertia = alloca %class.btVector3, align 8
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %inertia, i64 0, i64 2
-  %m_size.i.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %inertia, i64 8
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 196
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %inertia, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %m_size.i.i, align 4
   %conv = sitofp i32 %0 to float
@@ -818,8 +788,8 @@ entry:
   br i1 %tobool.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
-  %arrayidx10.i = getelementptr inbounds [4 x float], ptr %partinertia, i64 0, i64 2
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx10.i = getelementptr inbounds i8, ptr %partinertia, i64 8
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -830,7 +800,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, float noundef %div, ptr noundef nonnull align 4 dereferenceable(16) %partinertia)
   %5 = load <2 x float>, ptr %partinertia, align 8
@@ -862,24 +832,24 @@ invoke.cont2:
   %rayDir = alloca %class.btVector3, align 8
   %triangle = alloca %class.btPrimitiveTriangle, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(280) %this)
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %collided, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %collided, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %collided, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %collided, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %rayTo, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %rayTo, i64 8
   %1 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %rayFrom, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %rayFrom, i64 8
   %2 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %1, %2
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %rayDir, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %rayDir, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %3, align 8
   %4 = load <2 x float>, ptr %rayTo, align 4
   %5 = load <2 x float>, ptr %rayFrom, align 4
@@ -897,7 +867,7 @@ invoke.cont2:
   store <2 x float> %13, ptr %rayDir, align 8
   %mul7.i.i.i = fmul float %sub14.i, %div.i.i
   store float %mul7.i.i.i, ptr %3, align 8
-  %m_box_set = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4
+  %m_box_set = getelementptr inbounds i8, ptr %this, i64 88
   %call5 = invoke noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8rayQueryERK9btVector3S2_R20btAlignedObjectArrayIiE(ptr noundef nonnull align 8 dereferenceable(96) %m_box_set, ptr noundef nonnull align 4 dereferenceable(16) %rayDir, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 8 dereferenceable(25) %collided)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
@@ -908,7 +878,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 
 if.then.invoke:                                   ; preds = %while.cond, %invoke.cont4
   %vtable24 = load ptr, ptr %this, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 29
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 232
   %15 = load ptr, ptr %vfn25, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(280) %this)
           to label %cleanup unwind label %lpad.loopexit.split-lp
@@ -929,9 +899,9 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont13:                                    ; preds = %invoke.cont4
-  %m_part.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 5
+  %m_part.i = getelementptr inbounds i8, ptr %this, i64 224
   %16 = load i32, ptr %m_part.i, align 8
-  %m_margin.i = getelementptr inbounds %class.btPrimitiveTriangle, ptr %triangle, i64 0, i32 2
+  %m_margin.i = getelementptr inbounds i8, ptr %triangle, i64 64
   store float 0x3F847AE140000000, ptr %m_margin.i, align 4
   %17 = sext i32 %14 to i64
   br label %while.cond
@@ -947,14 +917,14 @@ while.body:                                       ; preds = %while.cond
   %arrayidx.i = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next
   %20 = load i32, ptr %arrayidx.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 21
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 168
   %21 = load ptr, ptr %vfn.i, align 8
   %call.i5 = invoke noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %call.i.noexc unwind label %lpad.loopexit
 
 call.i.noexc:                                     ; preds = %while.body
   %vtable2.i = load ptr, ptr %call.i5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %22 = load ptr, ptr %vfn3.i, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %call.i5, i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(72) %triangle)
           to label %invoke.cont18 unwind label %lpad.loopexit
@@ -964,7 +934,7 @@ invoke.cont18:                                    ; preds = %call.i.noexc
   %arrayidx.i8 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next
   %24 = load i32, ptr %arrayidx.i8, align 4
   %vtable21 = load ptr, ptr %callback, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 2
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
   %25 = load ptr, ptr %vfn22, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %16, i32 noundef %24)
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !17
@@ -1000,13 +970,13 @@ declare noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8rayQueryERK9btVector3S2_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -1017,12 +987,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -1041,21 +1011,21 @@ entry:
   %collided = alloca %class.btAlignedObjectArray.12, align 8
   %triangle = alloca %class.btPrimitiveTriangle, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(280) %this)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %box, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %m_max = getelementptr inbounds %class.btAABB, ptr %box, i64 0, i32 1
+  %m_max = getelementptr inbounds i8, ptr %box, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_max, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %collided, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %collided, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %collided, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %collided, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %collided, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_box_set = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4
+  %m_box_set = getelementptr inbounds i8, ptr %this, i64 88
   %call = invoke noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8boxQueryERK6btAABBR20btAlignedObjectArrayIiE(ptr noundef nonnull align 8 dereferenceable(96) %m_box_set, ptr noundef nonnull align 4 dereferenceable(32) %box, ptr noundef nonnull align 8 dereferenceable(25) %collided)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -1066,7 +1036,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then.invoke:                                   ; preds = %while.cond, %invoke.cont
   %vtable20 = load ptr, ptr %this, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 29
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 232
   %2 = load ptr, ptr %vfn21, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(280) %this)
           to label %cleanup unwind label %lpad.loopexit.split-lp
@@ -1087,9 +1057,9 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  %m_part.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 5
+  %m_part.i = getelementptr inbounds i8, ptr %this, i64 224
   %3 = load i32, ptr %m_part.i, align 8
-  %m_margin.i = getelementptr inbounds %class.btPrimitiveTriangle, ptr %triangle, i64 0, i32 2
+  %m_margin.i = getelementptr inbounds i8, ptr %triangle, i64 64
   store float 0x3F847AE140000000, ptr %m_margin.i, align 4
   %4 = sext i32 %1 to i64
   br label %while.cond
@@ -1105,14 +1075,14 @@ while.body:                                       ; preds = %while.cond
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 21
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 168
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i4 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %call.i.noexc unwind label %lpad.loopexit
 
 call.i.noexc:                                     ; preds = %while.body
   %vtable2.i = load ptr, ptr %call.i4, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %9 = load ptr, ptr %vfn3.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %call.i4, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(72) %triangle)
           to label %invoke.cont14 unwind label %lpad.loopexit
@@ -1122,7 +1092,7 @@ invoke.cont14:                                    ; preds = %call.i.noexc
   %arrayidx.i7 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next
   %11 = load i32, ptr %arrayidx.i7, align 4
   %vtable17 = load ptr, ptr %callback, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 2
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16
   %12 = load ptr, ptr %vfn18, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %3, i32 noundef %11)
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !18
@@ -1158,13 +1128,13 @@ declare noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8boxQueryERK6btAABBR20btA
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK18btGImpactMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not2 = icmp eq i32 %0, 0
   br i1 %tobool.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -1175,7 +1145,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   %5 = and i64 %indvars.iv.next, 4294967295
@@ -1189,13 +1159,13 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK18btGImpactMeshShape22processAllTrianglesRayEP18btTriangleCallbackRK9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo) unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not2 = icmp eq i32 %0, 0
   br i1 %tobool.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -1206,7 +1176,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 36
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo)
   %5 = and i64 %indvars.iv.next, 4294967295
@@ -1221,19 +1191,19 @@ while.end:                                        ; preds = %while.body, %entry
 define dso_local noundef ptr @_ZNK18btGImpactMeshShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_meshInterface = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 1
+  %m_meshInterface = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_meshInterface, align 8
-  %m_meshInterface2 = getelementptr inbounds %struct.btGImpactMeshShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_meshInterface2 = getelementptr inbounds i8, ptr %dataBuffer, i64 16
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %m_meshInterface2, ptr noundef %serializer)
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load float, ptr %m_collisionMargin, align 8
-  %m_collisionMargin4 = getelementptr inbounds %struct.btGImpactMeshShapeData, ptr %dataBuffer, i64 0, i32 3
+  %m_collisionMargin4 = getelementptr inbounds i8, ptr %dataBuffer, i64 64
   store float %2, ptr %m_collisionMargin4, align 8
-  %localScaling = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 3
-  %m_localScaling = getelementptr inbounds %struct.btGImpactMeshShapeData, ptr %dataBuffer, i64 0, i32 2
+  %localScaling = getelementptr inbounds i8, ptr %this, i64 72
+  %m_localScaling = getelementptr inbounds i8, ptr %dataBuffer, i64 48
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -1248,10 +1218,10 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 20
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 160
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(224) %this)
-  %m_gimpactSubType = getelementptr inbounds %struct.btGImpactMeshShapeData, ptr %dataBuffer, i64 0, i32 4
+  %m_gimpactSubType = getelementptr inbounds i8, ptr %dataBuffer, i64 68
   store i32 %call7, ptr %m_gimpactSubType, align 4
   ret ptr @.str
 }
@@ -1262,13 +1232,13 @@ declare noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noun
 define linkonce_odr dso_local void @_ZN22btGImpactCompoundShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV22btGImpactCompoundShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -1286,20 +1256,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 236
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20btAlignedObjectArrayI11btTransformED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 224
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -1317,21 +1287,21 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20btAlignedObjectArrayI11btTransformED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 204
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 224
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 208
   store i32 0, ptr %m_capacity.i.i.i10, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %10 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN23btGImpactShapeInterfaceD2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN20btAlignedObjectArrayI11btTransformED2Ev.exit
-  %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %11 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i.i, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
@@ -1349,12 +1319,12 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.
   unreachable
 
 _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI11btTransformED2Ev.exit, %if.then.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
-  %m_size.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 2
-  %m_ownsMemory.i1.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 3
+  %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i, align 8
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
   ret void
@@ -1381,13 +1351,13 @@ _ZN14btConcaveShapedlEPv.exit:                    ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK23btGImpactShapeInterface7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_localAABB = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1
+  %m_localAABB = getelementptr inbounds i8, ptr %this, i64 36
   %transformedbox.sroa.0.0.copyload2 = load <2 x float>, ptr %m_localAABB, align 4
-  %transformedbox.sroa.5.0.m_localAABB.sroa_idx = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 2
+  %transformedbox.sroa.5.0.m_localAABB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 44
   %transformedbox.sroa.5.0.copyload3 = load <2 x float>, ptr %transformedbox.sroa.5.0.m_localAABB.sroa_idx, align 4
-  %m_max3.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1
+  %m_max3.i = getelementptr inbounds i8, ptr %this, i64 52
   %transformedbox.sroa.7.16.copyload4 = load <2 x float>, ptr %m_max3.i, align 4
-  %transformedbox.sroa.12.16.m_max3.i.sroa_idx = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1, i32 0, i64 2
+  %transformedbox.sroa.12.16.m_max3.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 60
   %transformedbox.sroa.12.16.copyload5 = load <2 x float>, ptr %transformedbox.sroa.12.16.m_max3.i.sroa_idx, align 4
   %transformedbox.sroa.7.16.vec.extract = extractelement <2 x float> %transformedbox.sroa.7.16.copyload4, i64 0
   %0 = fadd <2 x float> %transformedbox.sroa.0.0.copyload2, %transformedbox.sroa.7.16.copyload4
@@ -1405,31 +1375,31 @@ entry:
   %sub.i.i = fsub float %transformedbox.sroa.7.16.vec.extract, %mul.i.i
   %sub8.i.i = fsub float %transformedbox.sroa.7.20.vec.extract, %mul4.i.i
   %sub14.i.i = fsub float %transformedbox.sroa.12.24.vec.extract, %mul8.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load <4 x float>, ptr %t, align 4
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 4
   %6 = load <4 x float>, ptr %arrayidx7.i.i.i.i, align 4
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx12.i.i.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %8 = load <4 x float>, ptr %arrayidx12.i.i.i.i, align 4
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %10 = load float, ptr %arrayidx.i.i.i, align 4
-  %arrayidx7.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i.i = getelementptr inbounds i8, ptr %t, i64 20
   %11 = load float, ptr %arrayidx7.i2.i.i.i, align 4
-  %arrayidx12.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %12 = load float, ptr %arrayidx12.i5.i.i.i, align 4
   %13 = load float, ptr %arrayidx.i1.i.i, align 4
-  %arrayidx7.i7.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i.i = getelementptr inbounds i8, ptr %t, i64 36
   %14 = load float, ptr %arrayidx7.i7.i.i.i, align 4
   %mul8.i8.i.i.i = fmul float %mul4.i.i, %14
   %15 = tail call float @llvm.fmuladd.f32(float %mul.i.i, float %13, float %mul8.i8.i.i.i)
-  %arrayidx12.i10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i.i = getelementptr inbounds i8, ptr %t, i64 40
   %16 = load float, ptr %arrayidx12.i10.i.i.i, align 4
   %17 = tail call noundef float @llvm.fmuladd.f32(float %mul8.i.i, float %16, float %15)
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1
-  %arrayidx13.i.i.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1, i32 0, i64 2
+  %m_origin.i.i = getelementptr inbounds i8, ptr %t, i64 48
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %t, i64 56
   %18 = load float, ptr %arrayidx13.i.i.i, align 4
   %add14.i.i.i = fadd float %17, %18
   %19 = tail call noundef float @llvm.fabs.f32(float %13)
@@ -1488,10 +1458,10 @@ declare noundef float @_ZNK16btCollisionShape27getContactBreakingThresholdEf(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23btGImpactShapeInterface15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling) unnamed_addr #0 comdat align 2 {
 entry:
-  %localScaling = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 3
+  %localScaling = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
@@ -1500,7 +1470,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK23btGImpactShapeInterface15getLocalScalingEv(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %localScaling = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 3
+  %localScaling = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %localScaling
 }
 
@@ -1519,10 +1489,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23btGImpactShapeInterface9setMarginEf(ptr noundef nonnull align 8 dereferenceable(184) %this, float noundef %margin) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float %margin, ptr %m_collisionMargin, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %tobool.not3 = icmp eq i32 %call, 0
@@ -1532,18 +1502,18 @@ while.body:                                       ; preds = %entry, %while.body
   %i.04 = phi i32 [ %dec, %while.body ], [ %call, %entry ]
   %dec = add nsw i32 %i.04, -1
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 31
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 248
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %dec)
   %vtable5 = load ptr, ptr %call4, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 11
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 88
   %2 = load ptr, ptr %vfn6, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %call4, float noundef %margin)
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %while.body, %entry
-  %m_needs_update = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 2
+  %m_needs_update = getelementptr inbounds i8, ptr %this, i64 68
   store i8 1, ptr %m_needs_update, align 4
   ret void
 }
@@ -1551,7 +1521,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -1574,10 +1544,10 @@ entry:
 define linkonce_odr dso_local void @_ZN23btGImpactShapeInterface13calcLocalAABBEv(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #2 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %m_box_set = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4
+  %m_box_set = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %m_box_set, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -1592,25 +1562,25 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 29
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 232
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %m_data.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %m_data.i.i.i.i, align 8, !noalias !23
-  %m_global_bound.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 3
-  %m_bvhQuantization.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 4
-  %arrayidx7.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 2
+  %m_global_bound.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %m_bvhQuantization.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i16, ptr %arrayidx7.i.i.i.i, align 2, !noalias !23
   %conv8.i.i.i.i = uitofp i16 %4 to float
-  %arrayidx.i5.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 4, i32 0, i64 2
+  %arrayidx.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %5 = load float, ptr %arrayidx.i5.i.i.i.i, align 8, !noalias !23
   %div10.i.i.i.i = fdiv float %conv8.i.i.i.i, %5
-  %arrayidx10.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 3, i32 0, i32 0, i64 2
+  %arrayidx10.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %6 = load float, ptr %arrayidx10.i.i.i.i.i, align 8, !noalias !23
   %add13.i.i.i.i.i = fadd float %div10.i.i.i.i, %6
   %retval.sroa.7.8.vec.insert18.i.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add13.i.i.i.i.i, i64 0
-  %m_quantizedAabbMax.i.i.i = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %3, i64 0, i32 1
-  %arrayidx7.i12.i.i.i = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %3, i64 0, i32 1, i64 2
+  %m_quantizedAabbMax.i.i.i = getelementptr inbounds i8, ptr %3, i64 6
+  %arrayidx7.i12.i.i.i = getelementptr inbounds i8, ptr %3, i64 10
   %7 = load i16, ptr %arrayidx7.i12.i.i.i, align 2, !noalias !23
   %conv8.i13.i.i.i = uitofp i16 %7 to float
   %div10.i15.i.i.i = fdiv float %conv8.i13.i.i.i, %5
@@ -1626,13 +1596,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %17 = fadd <2 x float> %9, %16
   %add13.i.i21.i.i.i = fadd float %6, %div10.i15.i.i.i
   %retval.sroa.7.8.vec.insert18.i22.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add13.i.i21.i.i.i, i64 0
-  %m_localAABB = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1
+  %m_localAABB = getelementptr inbounds i8, ptr %this, i64 36
   store <2 x float> %13, ptr %m_localAABB, align 4
-  %ref.tmp.sroa.2.0.m_localAABB.sroa_idx = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_localAABB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 44
   store <2 x float> %retval.sroa.7.8.vec.insert18.i.i.i.i, ptr %ref.tmp.sroa.2.0.m_localAABB.sroa_idx, align 4
-  %ref.tmp.sroa.3.0.m_localAABB.sroa_idx = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.3.0.m_localAABB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 52
   store <2 x float> %17, ptr %ref.tmp.sroa.3.0.m_localAABB.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.m_localAABB.sroa_idx = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1, i32 0, i64 2
+  %ref.tmp.sroa.4.0.m_localAABB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 60
   store <2 x float> %retval.sroa.7.8.vec.insert18.i22.i.i.i, ptr %ref.tmp.sroa.4.0.m_localAABB.sroa_idx, align 4
   ret void
 }
@@ -1640,7 +1610,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btGImpactShapeInterface10postUpdateEv(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_needs_update = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 2
+  %m_needs_update = getelementptr inbounds i8, ptr %this, i64 68
   store i8 1, ptr %m_needs_update, align 4
   ret void
 }
@@ -1660,14 +1630,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK22btGImpactCompoundShape19getPrimitiveManagerEv(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_primitive_manager = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 1
+  %m_primitive_manager = getelementptr inbounds i8, ptr %this, i64 184
   ret ptr %m_primitive_manager
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK22btGImpactCompoundShape17getNumChildShapesEv(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 236
   %0 = load i32, ptr %m_size.i, align 4
   ret i32 %0
 }
@@ -1675,7 +1645,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK22btGImpactCompoundShape20childrenHasTransformEv(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 204
   %0 = load i32, ptr %m_size.i, align 4
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -1722,10 +1692,10 @@ define linkonce_odr dso_local void @_ZNK22btGImpactCompoundShape12getChildAabbEi
 entry:
   %ref.tmp = alloca %class.btTransform, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(264) %this)
-  %m_data.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %child_index to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
@@ -1733,54 +1703,54 @@ entry:
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_data.i6 = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i6 = getelementptr inbounds i8, ptr %this, i64 216
   %3 = load ptr, ptr %m_data.i6, align 8
   %arrayidx.i8 = getelementptr inbounds %class.btTransform, ptr %3, i64 %idxprom.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %4 = load float, ptr %t, align 4, !noalias !26
-  %arrayidx4.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i8, i64 0, i64 1
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 16
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 4
   %5 = load float, ptr %arrayidx.i.i.i.i, align 4, !noalias !26
-  %arrayidx9.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i8, i64 0, i64 2
-  %arrayidx.i3.i.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 32
+  %arrayidx.i3.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %6 = load float, ptr %arrayidx.i3.i.i.i, align 4, !noalias !26
-  %arrayidx.i.i20.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i8, i64 0, i64 2
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 8
   %7 = load float, ptr %arrayidx.i.i20.i.i, align 4, !noalias !29
-  %arrayidx.i3.i21.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i8, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 24
   %8 = load float, ptr %arrayidx.i3.i21.i.i, align 4, !noalias !29
   %mul7.i23.i.i = fmul float %5, %8
   %9 = tail call float @llvm.fmuladd.f32(float %7, float %4, float %mul7.i23.i.i)
-  %arrayidx.i5.i24.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i8, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 40
   %10 = load float, ptr %arrayidx.i5.i24.i.i, align 4, !noalias !29
   %11 = tail call noundef float @llvm.fmuladd.f32(float %10, float %6, float %9)
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %12 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !26
-  %arrayidx.i.i27.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i.i27.i.i = getelementptr inbounds i8, ptr %t, i64 20
   %13 = load float, ptr %arrayidx.i.i27.i.i, align 4, !noalias !26
-  %arrayidx.i3.i30.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i30.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %14 = load float, ptr %arrayidx.i3.i30.i.i, align 4, !noalias !26
   %mul7.i42.i.i = fmul float %8, %13
   %15 = tail call float @llvm.fmuladd.f32(float %7, float %12, float %mul7.i42.i.i)
   %16 = tail call noundef float @llvm.fmuladd.f32(float %10, float %14, float %15)
-  %arrayidx.i45.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2
+  %arrayidx.i45.i.i = getelementptr inbounds i8, ptr %t, i64 32
   %17 = load float, ptr %arrayidx.i45.i.i, align 4, !noalias !26
-  %arrayidx.i.i47.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i.i47.i.i = getelementptr inbounds i8, ptr %t, i64 36
   %18 = load float, ptr %arrayidx.i.i47.i.i, align 4, !noalias !26
-  %arrayidx.i3.i50.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i3.i50.i.i = getelementptr inbounds i8, ptr %t, i64 40
   %19 = load float, ptr %arrayidx.i3.i50.i.i, align 4, !noalias !26
   %mul7.i62.i.i = fmul float %8, %18
   %20 = tail call float @llvm.fmuladd.f32(float %7, float %17, float %mul7.i62.i.i)
   %21 = tail call noundef float @llvm.fmuladd.f32(float %10, float %19, float %20)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %3, i64 %idxprom.i, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 48
   %22 = load float, ptr %m_origin.i, align 4, !noalias !26
-  %arrayidx5.i.i.i3.i = getelementptr inbounds %class.btTransform, ptr %3, i64 %idxprom.i, i32 1, i32 0, i64 1
+  %arrayidx5.i.i.i3.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 52
   %23 = load float, ptr %arrayidx5.i.i.i3.i, align 4, !noalias !26
-  %arrayidx10.i.i.i.i = getelementptr inbounds %class.btTransform, ptr %3, i64 %idxprom.i, i32 1, i32 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i8, i64 56
   %24 = load float, ptr %arrayidx10.i.i.i.i, align 4, !noalias !26
   %mul8.i8.i.i.i = fmul float %18, %23
   %25 = tail call float @llvm.fmuladd.f32(float %22, float %17, float %mul8.i8.i.i.i)
   %26 = tail call noundef float @llvm.fmuladd.f32(float %24, float %19, float %25)
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %t, i64 48
   %27 = insertelement <2 x float> poison, float %5, i64 0
   %28 = insertelement <2 x float> %27, float %13, i64 1
   %29 = insertelement <2 x float> poison, float %23, i64 0
@@ -1798,7 +1768,7 @@ if.then:                                          ; preds = %entry
   %41 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %40, <2 x float> %36)
   %42 = load <2 x float>, ptr %m_origin.i.i, align 4, !noalias !26
   %43 = fadd <2 x float> %42, %41
-  %arrayidx13.i.i.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %t, i64 56
   %44 = load float, ptr %arrayidx13.i.i.i, align 4, !noalias !26
   %add14.i.i.i = fadd float %26, %44
   %retval.sroa.3.12.vec.insert.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i.i, i64 0
@@ -1816,7 +1786,7 @@ if.then:                                          ; preds = %entry
   store float %11, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i, align 8, !alias.scope !26
   %ref.tmp.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i, align 4, !alias.scope !26
-  %arrayidx8.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp, i64 0, i64 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %54 = insertelement <2 x float> poison, float %13, i64 0
   %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
   %56 = fmul <2 x float> %46, %55
@@ -1827,11 +1797,11 @@ if.then:                                          ; preds = %entry
   %61 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> zeroinitializer
   %62 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %51, <2 x float> %61, <2 x float> %59)
   store <2 x float> %62, ptr %arrayidx8.i.i.i, align 8, !alias.scope !26
-  %ref.tmp.sroa.8.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store float %16, ptr %ref.tmp.sroa.8.16.arrayidx8.i.i.sroa_idx.i, align 8, !alias.scope !26
-  %ref.tmp.sroa.9.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp, i64 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 28
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx8.i.i.sroa_idx.i, align 4, !alias.scope !26
-  %arrayidx12.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %63 = insertelement <2 x float> poison, float %18, i64 0
   %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
   %65 = fmul <2 x float> %46, %64
@@ -1842,23 +1812,23 @@ if.then:                                          ; preds = %entry
   %70 = shufflevector <2 x float> %69, <2 x float> poison, <2 x i32> zeroinitializer
   %71 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %51, <2 x float> %70, <2 x float> %68)
   store <2 x float> %71, ptr %arrayidx12.i.i.i, align 8, !alias.scope !26
-  %ref.tmp.sroa.13.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store float %21, ptr %ref.tmp.sroa.13.32.arrayidx12.i.i.sroa_idx.i, align 8, !alias.scope !26
-  %ref.tmp.sroa.14.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp, i64 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx12.i.i.sroa_idx.i, align 4, !alias.scope !26
-  %m_origin.i4.i = getelementptr inbounds %class.btTransform, ptr %ref.tmp, i64 0, i32 1
+  %m_origin.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store <2 x float> %43, ptr %m_origin.i4.i, align 8, !alias.scope !26
-  %ref.tmp3.sroa.2.0.m_origin.i4.sroa_idx.i = getelementptr inbounds %class.btTransform, ptr %ref.tmp, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp3.sroa.2.0.m_origin.i4.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i, ptr %ref.tmp3.sroa.2.0.m_origin.i4.sroa_idx.i, align 8, !alias.scope !26
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %72 = load ptr, ptr %vfn5, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable8 = load ptr, ptr %2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %73 = load ptr, ptr %vfn9, align 8
   tail call void %73(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   br label %if.end
@@ -1870,7 +1840,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN22btGImpactCompoundShape13getChildShapeEi(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %index) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
@@ -1881,7 +1851,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK22btGImpactCompoundShape13getChildShapeEi(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %index) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
@@ -1892,19 +1862,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK22btGImpactCompoundShape17getChildTransformEi(ptr noalias sret(%class.btTransform) align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %index) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds %class.btTransform, ptr %0, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.result, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
-  %arrayidx6.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i, i64 0, i64 1
-  %arrayidx8.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 1
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
-  %arrayidx10.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i, i64 0, i64 2
-  %arrayidx12.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i, i64 16, i1 false)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %agg.result, i64 0, i32 1
-  %m_origin3.i = getelementptr inbounds %class.btTransform, ptr %0, i64 %idxprom.i, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %m_origin3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   ret void
 }
@@ -1912,22 +1882,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN22btGImpactCompoundShape17setChildTransformEiRK11btTransform(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %index, ptr noundef nonnull align 4 dereferenceable(64) %transform) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds %class.btTransform, ptr %0, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(16) %transform, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transform, i64 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %transform, i64 16
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transform, i64 0, i64 2
-  %arrayidx11.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %transform, i64 32
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %transform, i64 0, i32 1
-  %m_origin3.i = getelementptr inbounds %class.btTransform, ptr %0, i64 %idxprom.i, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %transform, i64 48
+  %m_origin3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
@@ -1948,10 +1918,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN22btGImpactMeshShapePart15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_scale = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 4
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
@@ -1960,7 +1930,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK22btGImpactMeshShapePart15getLocalScalingEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_scale = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 4
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 208
   ret ptr %m_scale
 }
 
@@ -1973,10 +1943,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN22btGImpactMeshShapePart9setMarginEf(ptr noundef nonnull align 8 dereferenceable(280) %this, float noundef %margin) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_margin = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 1
+  %m_margin = getelementptr inbounds i8, ptr %this, i64 192
   store float %margin, ptr %m_margin, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
@@ -1985,7 +1955,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK22btGImpactMeshShapePart9getMarginEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_margin = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 1
+  %m_margin = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load float, ptr %m_margin, align 8
   ret float %0
 }
@@ -1999,14 +1969,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK22btGImpactMeshShapePart19getPrimitiveManagerEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_primitive_manager = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1
+  %m_primitive_manager = getelementptr inbounds i8, ptr %this, i64 184
   ret ptr %m_primitive_manager
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK22btGImpactMeshShapePart17getNumChildShapesEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %numfaces.i = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1, i32 14
+  %numfaces.i = getelementptr inbounds i8, ptr %this, i64 268
   %0 = load i32, ptr %numfaces.i, align 4
   ret i32 %0
 }
@@ -2032,7 +2002,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart17getBulletTriangleEiR17btTriangleShapeEx(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %prim_index, ptr noundef nonnull align 8 dereferenceable(128) %triangle) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_primitive_manager = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this, i64 0, i32 1
+  %m_primitive_manager = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager19get_bullet_triangleEiR17btTriangleShapeEx(ptr noundef nonnull align 8 dereferenceable(92) %m_primitive_manager, i32 noundef %prim_index, ptr noundef nonnull align 8 dereferenceable(128) %triangle)
   ret void
 }
@@ -2048,25 +2018,25 @@ define linkonce_odr dso_local void @_ZNK23btGImpactShapeInterface12getChildAabbE
 entry:
   %child_aabb = alloca %class.btAABB, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn3, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %child_index, ptr noundef nonnull align 4 dereferenceable(32) %child_aabb)
-  %m_max.i = getelementptr inbounds %class.btAABB, ptr %child_aabb, i64 0, i32 1
+  %m_max.i = getelementptr inbounds i8, ptr %child_aabb, i64 16
   %2 = load float, ptr %m_max.i, align 8
   %3 = load float, ptr %child_aabb, align 8
   %add.i.i = fadd float %2, %3
-  %arrayidx5.i.i = getelementptr inbounds %class.btAABB, ptr %child_aabb, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %child_aabb, i64 20
   %4 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %child_aabb, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %child_aabb, i64 4
   %5 = load float, ptr %arrayidx7.i.i, align 4
   %add8.i.i = fadd float %4, %5
-  %arrayidx11.i.i = getelementptr inbounds %class.btAABB, ptr %child_aabb, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %child_aabb, i64 24
   %6 = load float, ptr %arrayidx11.i.i, align 8
-  %arrayidx13.i.i = getelementptr inbounds [4 x float], ptr %child_aabb, i64 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %child_aabb, i64 8
   %7 = load float, ptr %arrayidx13.i.i, align 8
   %add14.i.i = fadd float %6, %7
   %mul.i.i = fmul float %add.i.i, 5.000000e-01
@@ -2075,31 +2045,31 @@ entry:
   %sub.i.i = fsub float %2, %mul.i.i
   %sub8.i.i = fsub float %4, %mul4.i.i
   %sub14.i.i = fsub float %6, %mul8.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %t, i64 32
   %8 = load <4 x float>, ptr %t, align 4
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 4
   %10 = load <4 x float>, ptr %arrayidx7.i.i.i.i, align 4
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx12.i.i.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %12 = load <4 x float>, ptr %arrayidx12.i.i.i.i, align 4
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %14 = load float, ptr %arrayidx.i.i.i, align 4
-  %arrayidx7.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i.i = getelementptr inbounds i8, ptr %t, i64 20
   %15 = load float, ptr %arrayidx7.i2.i.i.i, align 4
-  %arrayidx12.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %16 = load float, ptr %arrayidx12.i5.i.i.i, align 4
   %17 = load float, ptr %arrayidx.i1.i.i, align 4
-  %arrayidx7.i7.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i.i = getelementptr inbounds i8, ptr %t, i64 36
   %18 = load float, ptr %arrayidx7.i7.i.i.i, align 4
   %mul8.i8.i.i.i = fmul float %mul4.i.i, %18
   %19 = call float @llvm.fmuladd.f32(float %mul.i.i, float %17, float %mul8.i8.i.i.i)
-  %arrayidx12.i10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i.i = getelementptr inbounds i8, ptr %t, i64 40
   %20 = load float, ptr %arrayidx12.i10.i.i.i, align 4
   %21 = call noundef float @llvm.fmuladd.f32(float %mul8.i.i, float %20, float %19)
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1
-  %arrayidx13.i.i.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1, i32 0, i64 2
+  %m_origin.i.i = getelementptr inbounds i8, ptr %t, i64 48
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %t, i64 56
   %22 = load float, ptr %arrayidx13.i.i.i, align 4
   %add14.i.i.i = fadd float %21, %22
   %23 = call noundef float @llvm.fabs.f32(float %17)
@@ -2177,13 +2147,13 @@ entry:
 define linkonce_odr dso_local void @_ZN18btGImpactMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV18btGImpactMeshShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not3 = icmp eq i32 %0, 0
   br i1 %tobool.not3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -2198,7 +2168,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 delete.notnull:                                   ; preds = %while.body
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3) #16
   br label %delete.end
@@ -2209,13 +2179,13 @@ delete.end:                                       ; preds = %delete.notnull, %wh
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %delete.end, %entry
-  %m_data.i.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %6 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %7 = load i8, ptr %m_ownsMemory.i.i, align 8
   %8 = and i8 %7, 1
   %tobool2.not.i.i = icmp eq i8 %8, 0
@@ -2226,20 +2196,20 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit unwind label %terminate.lpad
 
 _ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit: ; preds = %if.then3.i.i, %while.end, %if.then.i.i
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 6
-  %m_capacity.i.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 3
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 216
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %9 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN23btGImpactShapeInterfaceD2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit
-  %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %10 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i.i, align 8
   %11 = and i8 %10, 1
   %tobool2.not.i.i.i.i.i.i.i = icmp eq i8 %11, 0
@@ -2257,12 +2227,12 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.
   unreachable
 
 _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit, %if.then.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
-  %m_size.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 2
-  %m_ownsMemory.i1.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 3
+  %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i, align 8
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
   ret void
@@ -2296,15 +2266,15 @@ _ZN14btConcaveShapedlEPv.exit:                    ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18btGImpactMeshShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling) unnamed_addr #0 comdat align 2 {
 entry:
-  %localScaling = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 3
+  %localScaling = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not3 = icmp eq i32 %0, 0
   br i1 %tobool.not3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -2315,7 +2285,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef nonnull align 4 dereferenceable(16) %scaling)
   %5 = and i64 %indvars.iv.next, 4294967295
@@ -2323,7 +2293,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %while.body, %entry
-  %m_needs_update = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 2
+  %m_needs_update = getelementptr inbounds i8, ptr %this, i64 68
   store i8 1, ptr %m_needs_update, align 4
   ret void
 }
@@ -2337,15 +2307,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18btGImpactMeshShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(224) %this, float noundef %margin) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float %margin, ptr %m_collisionMargin, align 8
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not3 = icmp eq i32 %0, 0
   br i1 %tobool.not3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -2356,7 +2326,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, float noundef %margin)
   %5 = and i64 %indvars.iv.next, 4294967295
@@ -2364,7 +2334,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !34
 
 while.end:                                        ; preds = %while.body, %entry
-  %m_needs_update = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 2
+  %m_needs_update = getelementptr inbounds i8, ptr %this, i64 68
   store i8 1, ptr %m_needs_update, align 4
   ret void
 }
@@ -2378,21 +2348,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18btGImpactMeshShape13calcLocalAABBEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_localAABB = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1
-  %arrayidx4.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 2
+  %m_localAABB = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 44
   store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0.000000e+00>, ptr %m_localAABB, align 4
-  %m_max.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1
-  %arrayidx15.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1, i32 0, i64 1
-  %arrayidx18.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 1, i32 1, i32 0, i64 2
+  %m_max.i = getelementptr inbounds i8, ptr %this, i64 52
+  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 60
   store <4 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0.000000e+00>, ptr %m_max.i, align 4
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not7 = icmp eq i32 %0, 0
   br i1 %tobool.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   %.pre = load ptr, ptr %m_data.i, align 8
   br label %while.body
@@ -2409,7 +2379,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
   %9 = load ptr, ptr %arrayidx.i, align 8
-  %m_needs_update.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %9, i64 0, i32 2
+  %m_needs_update.i = getelementptr inbounds i8, ptr %9, i64 68
   %10 = load i8, ptr %m_needs_update.i, align 4
   %11 = and i8 %10, 1
   %tobool.not.i = icmp eq i8 %11, 0
@@ -2417,7 +2387,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end.i:                                         ; preds = %while.body
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 17
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
   %12 = load ptr, ptr %vfn.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(184) %9)
   store i8 0, ptr %m_needs_update.i, align 4
@@ -2441,42 +2411,42 @@ _ZN23btGImpactShapeInterface11updateBoundEv.exit: ; preds = %while.body, %if.end
   %18 = phi float [ %6, %while.body ], [ %.pre12, %if.end.i ]
   %19 = phi float [ %7, %while.body ], [ %.pre11, %if.end.i ]
   %20 = phi ptr [ %8, %while.body ], [ %.pre10, %if.end.i ]
-  %m_localAABB.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %13, i64 0, i32 1
+  %m_localAABB.i = getelementptr inbounds i8, ptr %13, i64 36
   %21 = load float, ptr %m_localAABB.i, align 4
   %cmp.i = fcmp ogt float %19, %21
   %cond.i = select i1 %cmp.i, float %21, float %19
   store float %cond.i, ptr %m_localAABB, align 4
-  %arrayidx19.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %13, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx19.i = getelementptr inbounds i8, ptr %13, i64 40
   %22 = load float, ptr %arrayidx19.i, align 4
   %cmp20.i = fcmp ogt float %18, %22
   %call23.pn.i = select i1 %cmp20.i, ptr %m_localAABB.i, ptr %m_localAABB
-  %cond30.in.i = getelementptr inbounds float, ptr %call23.pn.i, i64 1
+  %cond30.in.i = getelementptr inbounds i8, ptr %call23.pn.i, i64 4
   %cond30.i = load float, ptr %cond30.in.i, align 4
   store float %cond30.i, ptr %arrayidx4.i, align 8
-  %arrayidx39.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %13, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx39.i = getelementptr inbounds i8, ptr %13, i64 44
   %23 = load float, ptr %arrayidx39.i, align 4
   %cmp40.i = fcmp ogt float %17, %23
   %call43.pn.i = select i1 %cmp40.i, ptr %m_localAABB.i, ptr %m_localAABB
-  %cond50.in.i = getelementptr inbounds float, ptr %call43.pn.i, i64 2
+  %cond50.in.i = getelementptr inbounds i8, ptr %call43.pn.i, i64 8
   %cond50.i = load float, ptr %cond50.in.i, align 4
   store float %cond50.i, ptr %arrayidx7.i, align 4
-  %m_max56.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %13, i64 0, i32 1, i32 1
+  %m_max56.i = getelementptr inbounds i8, ptr %13, i64 52
   %24 = load float, ptr %m_max56.i, align 4
   %cmp59.i = fcmp olt float %16, %24
   %cond69.i = select i1 %cmp59.i, float %24, float %16
   store float %cond69.i, ptr %m_max.i, align 4
-  %arrayidx78.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %13, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx78.i = getelementptr inbounds i8, ptr %13, i64 56
   %25 = load float, ptr %arrayidx78.i, align 4
   %cmp79.i = fcmp olt float %15, %25
   %call82.pn.i = select i1 %cmp79.i, ptr %m_max56.i, ptr %m_max.i
-  %cond89.in.i = getelementptr inbounds float, ptr %call82.pn.i, i64 1
+  %cond89.in.i = getelementptr inbounds i8, ptr %call82.pn.i, i64 4
   %cond89.i = load float, ptr %cond89.in.i, align 4
   store float %cond89.i, ptr %arrayidx15.i, align 8
-  %arrayidx98.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %13, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx98.i = getelementptr inbounds i8, ptr %13, i64 60
   %26 = load float, ptr %arrayidx98.i, align 4
   %cmp99.i = fcmp olt float %14, %26
   %call102.pn.i = select i1 %cmp99.i, ptr %m_max56.i, ptr %m_max.i
-  %cond109.in.i = getelementptr inbounds float, ptr %call102.pn.i, i64 2
+  %cond109.in.i = getelementptr inbounds i8, ptr %call102.pn.i, i64 8
   %cond109.i = load float, ptr %cond109.in.i, align 4
   store float %cond109.i, ptr %arrayidx18.i, align 4
   %27 = and i64 %indvars.iv.next, 4294967295
@@ -2490,13 +2460,13 @@ while.end:                                        ; preds = %_ZN23btGImpactShape
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18btGImpactMeshShape10postUpdateEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not2 = icmp eq i32 %0, 0
   br i1 %tobool.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btGImpactMeshShape, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = sext i32 %0 to i64
   br label %while.body
 
@@ -2507,7 +2477,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(184) %3)
   %5 = and i64 %indvars.iv.next, 4294967295
@@ -2515,7 +2485,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %while.body, %entry
-  %m_needs_update = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 2
+  %m_needs_update = getelementptr inbounds i8, ptr %this, i64 68
   store i8 1, ptr %m_needs_update, align 4
   ret void
 }
@@ -2619,13 +2589,13 @@ declare void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr dso_local void @_ZN23btGImpactShapeInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 5
+  %m_data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN21btGImpactQuantizedBvhD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %m_ownsMemory.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_ownsMemory.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i.i.i.i = icmp eq i8 %2, 0
@@ -2643,12 +2613,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   unreachable
 
 _ZN21btGImpactQuantizedBvhD2Ev.exit:              ; preds = %entry, %if.then.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i
-  %m_size.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 2
-  %m_ownsMemory.i1.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 6
+  %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this, i64 0, i32 4, i32 0, i32 2, i32 0, i32 3
+  %m_capacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i, align 8
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
   ret void
@@ -2695,7 +2665,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager19get_primitive_countEv(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %numfaces = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 14
+  %numfaces = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %numfaces, align 4
   ret i32 %0
 }
@@ -2704,14 +2674,14 @@ entry:
 define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager17get_primitive_boxEiR6btAABB(ptr noundef nonnull align 8 dereferenceable(92) %this, i32 noundef %prim_index, ptr noundef nonnull align 4 dereferenceable(32) %primbox) unnamed_addr #0 comdat align 2 {
 entry:
   %triangle = alloca %class.btPrimitiveTriangle, align 4
-  %m_margin.i = getelementptr inbounds %class.btPrimitiveTriangle, ptr %triangle, i64 0, i32 2
+  %m_margin.i = getelementptr inbounds i8, ptr %triangle, i64 64
   store float 0x3F847AE140000000, ptr %m_margin.i, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(92) %this, i32 noundef %prim_index, ptr noundef nonnull align 4 dereferenceable(72) %triangle)
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %triangle, i64 16
+  %arrayidx5 = getelementptr inbounds i8, ptr %triangle, i64 32
   %1 = load float, ptr %m_margin.i, align 4
   call void @_ZN6btAABB25calc_from_triangle_marginI9btVector3EEvRKT_S4_S4_f(ptr noundef nonnull align 4 dereferenceable(32) %primbox, ptr noundef nonnull align 4 dereferenceable(16) %triangle, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, float noundef %1)
   ret void
@@ -2720,11 +2690,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager22get_primitive_triangleEiR19btPrimitiveTriangle(ptr noundef nonnull align 8 dereferenceable(92) %this, i32 noundef %prim_index, ptr noundef nonnull align 4 dereferenceable(72) %triangle) unnamed_addr #0 comdat align 2 {
 entry:
-  %indicestype.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 15
+  %indicestype.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %indicestype.i, align 8
-  %indexbase19.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 12
+  %indexbase19.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %indexbase19.i, align 8
-  %indexstride20.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 13
+  %indexstride20.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %indexstride20.i, align 8
   %mul21.i = mul nsw i32 %2, %prim_index
   %idx.ext22.i = sext i32 %mul21.i to i64
@@ -2737,19 +2707,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load i16, ptr %add.ptr23.i, align 2
   %conv.i = zext i16 %3 to i32
-  %arrayidx2.i = getelementptr inbounds i16, ptr %add.ptr23.i, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 2
   %4 = load i16, ptr %arrayidx2.i, align 2
   %conv3.i = zext i16 %4 to i32
-  %arrayidx4.i = getelementptr inbounds i16, ptr %add.ptr23.i, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 4
   %5 = load i16, ptr %arrayidx4.i, align 2
   %conv5.i = zext i16 %5 to i32
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 if.then8.i:                                       ; preds = %entry
   %6 = load i32, ptr %add.ptr23.i, align 4
-  %arrayidx15.i = getelementptr inbounds i32, ptr %add.ptr23.i, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 4
   %7 = load i32, ptr %arrayidx15.i, align 4
-  %arrayidx16.i = getelementptr inbounds i32, ptr %add.ptr23.i, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 8
   %8 = load i32, ptr %arrayidx16.i, align 4
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
@@ -2768,17 +2738,17 @@ _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exi
   %indices.sroa.4.0 = phi i32 [ %conv27.i, %if.else17.i ], [ %7, %if.then8.i ], [ %conv3.i, %if.then.i ]
   %indices.sroa.0.0 = phi i32 [ %conv25.i, %if.else17.i ], [ %6, %if.then8.i ], [ %conv.i, %if.then.i ]
   %.sink.i = phi i32 [ %conv29.i, %if.else17.i ], [ %8, %if.then8.i ], [ %conv5.i, %if.then.i ]
-  %type.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 9
+  %type.i = getelementptr inbounds i8, ptr %this, i64 60
   %12 = load i32, ptr %type.i, align 4
   %cmp.i = icmp eq i32 %12, 1
-  %vertexbase.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 7
+  %vertexbase.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load ptr, ptr %vertexbase.i, align 8
-  %stride.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 10
+  %stride.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load i32, ptr %stride.i, align 8
   %mul.i = mul i32 %14, %indices.sroa.0.0
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
-  %m_scale.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4
+  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load float, ptr %m_scale.i, align 8
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
@@ -2788,18 +2758,18 @@ if.then.i4:                                       ; preds = %_ZNK22btGImpactMesh
   %mul3.i = fmul double %16, %conv.i5
   %conv4.i = fptrunc double %mul3.i to float
   store float %conv4.i, ptr %triangle, align 4
-  %arrayidx7.i = getelementptr inbounds double, ptr %add.ptr.i, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %17 = load double, ptr %arrayidx7.i, align 8
-  %arrayidx10.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 28
   %18 = load float, ptr %arrayidx10.i, align 4
   %conv11.i = fpext float %18 to double
   %mul12.i = fmul double %17, %conv11.i
   %conv13.i = fptrunc double %mul12.i to float
-  %arrayidx15.i6 = getelementptr inbounds float, ptr %triangle, i64 1
+  %arrayidx15.i6 = getelementptr inbounds i8, ptr %triangle, i64 4
   store float %conv13.i, ptr %arrayidx15.i6, align 4
-  %arrayidx16.i7 = getelementptr inbounds double, ptr %add.ptr.i, i64 2
+  %arrayidx16.i7 = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %19 = load double, ptr %arrayidx16.i7, align 8
-  %arrayidx19.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx19.i = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load float, ptr %arrayidx19.i, align 8
   %conv20.i = fpext float %20 to double
   %mul21.i8 = fmul double %19, %conv20.i
@@ -2810,25 +2780,25 @@ if.else.i:                                        ; preds = %_ZNK22btGImpactMesh
   %21 = load float, ptr %add.ptr.i, align 4
   %mul34.i = fmul float %15, %21
   store float %mul34.i, ptr %triangle, align 4
-  %arrayidx37.i = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx37.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %22 = load float, ptr %arrayidx37.i, align 4
-  %arrayidx40.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx40.i = getelementptr inbounds i8, ptr %this, i64 28
   %23 = load float, ptr %arrayidx40.i, align 4
   %mul41.i = fmul float %22, %23
-  %arrayidx43.i = getelementptr inbounds float, ptr %triangle, i64 1
+  %arrayidx43.i = getelementptr inbounds i8, ptr %triangle, i64 4
   store float %mul41.i, ptr %arrayidx43.i, align 4
-  %arrayidx44.i = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx44.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %24 = load float, ptr %arrayidx44.i, align 4
-  %arrayidx47.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx47.i = getelementptr inbounds i8, ptr %this, i64 32
   %25 = load float, ptr %arrayidx47.i, align 8
   %mul48.i = fmul float %24, %25
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit: ; preds = %if.then.i4, %if.else.i
   %mul48.sink.i = phi float [ %conv22.i, %if.then.i4 ], [ %mul48.i, %if.else.i ]
-  %26 = getelementptr inbounds float, ptr %triangle, i64 2
+  %26 = getelementptr inbounds i8, ptr %triangle, i64 8
   store float %mul48.sink.i, ptr %26, align 4
-  %arrayidx8 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %triangle, i64 16
   %27 = load i32, ptr %type.i, align 4
   %cmp.i10 = icmp eq i32 %27, 1
   %28 = load ptr, ptr %vertexbase.i, align 8
@@ -2845,18 +2815,18 @@ if.then.i27:                                      ; preds = %_ZNK22btGImpactMesh
   %mul3.i29 = fmul double %31, %conv.i28
   %conv4.i30 = fptrunc double %mul3.i29 to float
   store float %conv4.i30, ptr %arrayidx8, align 4
-  %arrayidx7.i31 = getelementptr inbounds double, ptr %add.ptr.i15, i64 1
+  %arrayidx7.i31 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 8
   %32 = load double, ptr %arrayidx7.i31, align 8
-  %arrayidx10.i32 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx10.i32 = getelementptr inbounds i8, ptr %this, i64 28
   %33 = load float, ptr %arrayidx10.i32, align 4
   %conv11.i33 = fpext float %33 to double
   %mul12.i34 = fmul double %32, %conv11.i33
   %conv13.i35 = fptrunc double %mul12.i34 to float
-  %arrayidx15.i36 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1, i32 0, i64 1
+  %arrayidx15.i36 = getelementptr inbounds i8, ptr %triangle, i64 20
   store float %conv13.i35, ptr %arrayidx15.i36, align 4
-  %arrayidx16.i37 = getelementptr inbounds double, ptr %add.ptr.i15, i64 2
+  %arrayidx16.i37 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 16
   %34 = load double, ptr %arrayidx16.i37, align 8
-  %arrayidx19.i38 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx19.i38 = getelementptr inbounds i8, ptr %this, i64 32
   %35 = load float, ptr %arrayidx19.i38, align 8
   %conv20.i39 = fpext float %35 to double
   %mul21.i40 = fmul double %34, %conv20.i39
@@ -2867,25 +2837,25 @@ if.else.i17:                                      ; preds = %_ZNK22btGImpactMesh
   %36 = load float, ptr %add.ptr.i15, align 4
   %mul34.i18 = fmul float %30, %36
   store float %mul34.i18, ptr %arrayidx8, align 4
-  %arrayidx37.i19 = getelementptr inbounds float, ptr %add.ptr.i15, i64 1
+  %arrayidx37.i19 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 4
   %37 = load float, ptr %arrayidx37.i19, align 4
-  %arrayidx40.i20 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx40.i20 = getelementptr inbounds i8, ptr %this, i64 28
   %38 = load float, ptr %arrayidx40.i20, align 4
   %mul41.i21 = fmul float %37, %38
-  %arrayidx43.i22 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1, i32 0, i64 1
+  %arrayidx43.i22 = getelementptr inbounds i8, ptr %triangle, i64 20
   store float %mul41.i21, ptr %arrayidx43.i22, align 4
-  %arrayidx44.i23 = getelementptr inbounds float, ptr %add.ptr.i15, i64 2
+  %arrayidx44.i23 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 8
   %39 = load float, ptr %arrayidx44.i23, align 4
-  %arrayidx47.i24 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx47.i24 = getelementptr inbounds i8, ptr %this, i64 32
   %40 = load float, ptr %arrayidx47.i24, align 8
   %mul48.i25 = fmul float %39, %40
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit42
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit42: ; preds = %if.then.i27, %if.else.i17
   %mul48.sink.i26 = phi float [ %conv22.i41, %if.then.i27 ], [ %mul48.i25, %if.else.i17 ]
-  %41 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1, i32 0, i64 2
+  %41 = getelementptr inbounds i8, ptr %triangle, i64 24
   store float %mul48.sink.i26, ptr %41, align 4
-  %arrayidx11 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %triangle, i64 32
   %42 = load i32, ptr %type.i, align 4
   %cmp.i44 = icmp eq i32 %42, 1
   %43 = load ptr, ptr %vertexbase.i, align 8
@@ -2902,18 +2872,18 @@ if.then.i61:                                      ; preds = %_ZNK22btGImpactMesh
   %mul3.i63 = fmul double %46, %conv.i62
   %conv4.i64 = fptrunc double %mul3.i63 to float
   store float %conv4.i64, ptr %arrayidx11, align 4
-  %arrayidx7.i65 = getelementptr inbounds double, ptr %add.ptr.i49, i64 1
+  %arrayidx7.i65 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
   %47 = load double, ptr %arrayidx7.i65, align 8
-  %arrayidx10.i66 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx10.i66 = getelementptr inbounds i8, ptr %this, i64 28
   %48 = load float, ptr %arrayidx10.i66, align 4
   %conv11.i67 = fpext float %48 to double
   %mul12.i68 = fmul double %47, %conv11.i67
   %conv13.i69 = fptrunc double %mul12.i68 to float
-  %arrayidx15.i70 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2, i32 0, i64 1
+  %arrayidx15.i70 = getelementptr inbounds i8, ptr %triangle, i64 36
   store float %conv13.i69, ptr %arrayidx15.i70, align 4
-  %arrayidx16.i71 = getelementptr inbounds double, ptr %add.ptr.i49, i64 2
+  %arrayidx16.i71 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 16
   %49 = load double, ptr %arrayidx16.i71, align 8
-  %arrayidx19.i72 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx19.i72 = getelementptr inbounds i8, ptr %this, i64 32
   %50 = load float, ptr %arrayidx19.i72, align 8
   %conv20.i73 = fpext float %50 to double
   %mul21.i74 = fmul double %49, %conv20.i73
@@ -2924,27 +2894,27 @@ if.else.i51:                                      ; preds = %_ZNK22btGImpactMesh
   %51 = load float, ptr %add.ptr.i49, align 4
   %mul34.i52 = fmul float %45, %51
   store float %mul34.i52, ptr %arrayidx11, align 4
-  %arrayidx37.i53 = getelementptr inbounds float, ptr %add.ptr.i49, i64 1
+  %arrayidx37.i53 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 4
   %52 = load float, ptr %arrayidx37.i53, align 4
-  %arrayidx40.i54 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx40.i54 = getelementptr inbounds i8, ptr %this, i64 28
   %53 = load float, ptr %arrayidx40.i54, align 4
   %mul41.i55 = fmul float %52, %53
-  %arrayidx43.i56 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2, i32 0, i64 1
+  %arrayidx43.i56 = getelementptr inbounds i8, ptr %triangle, i64 36
   store float %mul41.i55, ptr %arrayidx43.i56, align 4
-  %arrayidx44.i57 = getelementptr inbounds float, ptr %add.ptr.i49, i64 2
+  %arrayidx44.i57 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
   %54 = load float, ptr %arrayidx44.i57, align 4
-  %arrayidx47.i58 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx47.i58 = getelementptr inbounds i8, ptr %this, i64 32
   %55 = load float, ptr %arrayidx47.i58, align 8
   %mul48.i59 = fmul float %54, %55
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit76
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit76: ; preds = %if.then.i61, %if.else.i51
   %mul48.sink.i60 = phi float [ %conv22.i75, %if.then.i61 ], [ %mul48.i59, %if.else.i51 ]
-  %56 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2, i32 0, i64 2
+  %56 = getelementptr inbounds i8, ptr %triangle, i64 40
   store float %mul48.sink.i60, ptr %56, align 4
-  %m_margin = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 1
+  %m_margin = getelementptr inbounds i8, ptr %this, i64 8
   %57 = load float, ptr %m_margin, align 8
-  %m_margin12 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %triangle, i64 0, i32 2
+  %m_margin12 = getelementptr inbounds i8, ptr %triangle, i64 64
   store float %57, ptr %m_margin12, align 4
   ret void
 }
@@ -2976,11 +2946,11 @@ cond.end28:                                       ; preds = %cond.end.thread, %c
   %cond29.in = phi ptr [ %V1, %cond.false25 ], [ %V3, %cond.end ], [ %V2, %cond.end.thread ]
   %cond29 = load float, ptr %cond29.in, align 4
   store float %cond29, ptr %this, align 4
-  %arrayidx33 = getelementptr inbounds float, ptr %V1, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %V1, i64 4
   %3 = load float, ptr %arrayidx33, align 4
-  %arrayidx35 = getelementptr inbounds float, ptr %V2, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %V2, i64 4
   %4 = load float, ptr %arrayidx35, align 4
-  %arrayidx37 = getelementptr inbounds float, ptr %V3, i64 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %V3, i64 4
   %5 = load float, ptr %arrayidx37, align 4
   %cmp38 = fcmp ogt float %4, %5
   br i1 %cmp38, label %cond.end45, label %cond.end45.thread
@@ -2999,13 +2969,13 @@ cond.false62:                                     ; preds = %cond.end45.thread, 
 cond.end65:                                       ; preds = %cond.end45.thread, %cond.end45, %cond.false62
   %cond66.in = phi ptr [ %arrayidx33, %cond.false62 ], [ %arrayidx37, %cond.end45 ], [ %arrayidx35, %cond.end45.thread ]
   %cond66 = load float, ptr %cond66.in, align 4
-  %arrayidx69 = getelementptr inbounds float, ptr %this, i64 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %this, i64 4
   store float %cond66, ptr %arrayidx69, align 4
-  %arrayidx71 = getelementptr inbounds float, ptr %V1, i64 2
+  %arrayidx71 = getelementptr inbounds i8, ptr %V1, i64 8
   %6 = load float, ptr %arrayidx71, align 4
-  %arrayidx73 = getelementptr inbounds float, ptr %V2, i64 2
+  %arrayidx73 = getelementptr inbounds i8, ptr %V2, i64 8
   %7 = load float, ptr %arrayidx73, align 4
-  %arrayidx75 = getelementptr inbounds float, ptr %V3, i64 2
+  %arrayidx75 = getelementptr inbounds i8, ptr %V3, i64 8
   %8 = load float, ptr %arrayidx75, align 4
   %cmp76 = fcmp ogt float %7, %8
   br i1 %cmp76, label %cond.end83, label %cond.end83.thread
@@ -3024,9 +2994,9 @@ cond.false100:                                    ; preds = %cond.end83.thread, 
 cond.end103:                                      ; preds = %cond.end83.thread, %cond.end83, %cond.false100
   %cond104.in = phi ptr [ %arrayidx71, %cond.false100 ], [ %arrayidx75, %cond.end83 ], [ %arrayidx73, %cond.end83.thread ]
   %cond104 = load float, ptr %cond104.in, align 4
-  %arrayidx107 = getelementptr inbounds float, ptr %this, i64 2
+  %arrayidx107 = getelementptr inbounds i8, ptr %this, i64 8
   store float %cond104, ptr %arrayidx107, align 4
-  %arrayidx110 = getelementptr inbounds float, ptr %this, i64 3
+  %arrayidx110 = getelementptr inbounds i8, ptr %this, i64 12
   store float 0.000000e+00, ptr %arrayidx110, align 4
   %9 = load float, ptr %V1, align 4
   %10 = load float, ptr %V2, align 4
@@ -3048,7 +3018,7 @@ cond.false141:                                    ; preds = %cond.end124.thread,
 cond.end144:                                      ; preds = %cond.end124.thread, %cond.end124, %cond.false141
   %cond145.in = phi ptr [ %V1, %cond.false141 ], [ %V3, %cond.end124 ], [ %V2, %cond.end124.thread ]
   %cond145 = load float, ptr %cond145.in, align 4
-  %m_max = getelementptr inbounds %class.btAABB, ptr %this, i64 0, i32 1
+  %m_max = getelementptr inbounds i8, ptr %this, i64 16
   store float %cond145, ptr %m_max, align 4
   %12 = load float, ptr %arrayidx33, align 4
   %13 = load float, ptr %arrayidx35, align 4
@@ -3070,7 +3040,7 @@ cond.false178:                                    ; preds = %cond.end161.thread,
 cond.end181:                                      ; preds = %cond.end161.thread, %cond.end161, %cond.false178
   %cond182.in = phi ptr [ %arrayidx33, %cond.false178 ], [ %arrayidx37, %cond.end161 ], [ %arrayidx35, %cond.end161.thread ]
   %cond182 = load float, ptr %cond182.in, align 4
-  %arrayidx185 = getelementptr inbounds %class.btAABB, ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx185 = getelementptr inbounds i8, ptr %this, i64 20
   store float %cond182, ptr %arrayidx185, align 4
   %15 = load float, ptr %arrayidx71, align 4
   %16 = load float, ptr %arrayidx73, align 4
@@ -3092,8 +3062,8 @@ cond.false216:                                    ; preds = %cond.end199.thread,
 cond.end219:                                      ; preds = %cond.end199.thread, %cond.end199, %cond.false216
   %cond220.in = phi ptr [ %arrayidx71, %cond.false216 ], [ %arrayidx75, %cond.end199 ], [ %arrayidx73, %cond.end199.thread ]
   %cond220 = load float, ptr %cond220.in, align 4
-  %arrayidx223 = getelementptr inbounds %class.btAABB, ptr %this, i64 0, i32 1, i32 0, i64 2
-  %arrayidx226 = getelementptr inbounds %class.btAABB, ptr %this, i64 0, i32 1, i32 0, i64 3
+  %arrayidx223 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx226 = getelementptr inbounds i8, ptr %this, i64 28
   store float 0.000000e+00, ptr %arrayidx226, align 4
   %18 = insertelement <2 x float> poison, float %cond29, i64 0
   %19 = insertelement <2 x float> %18, float %cond66, i64 1
@@ -3159,11 +3129,11 @@ declare void @_ZN21btGImpactQuantizedBvh5refitEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager19get_bullet_triangleEiR17btTriangleShapeEx(ptr noundef nonnull align 8 dereferenceable(92) %this, i32 noundef %prim_index, ptr noundef nonnull align 8 dereferenceable(128) %triangle) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %indicestype.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 15
+  %indicestype.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %indicestype.i, align 8
-  %indexbase19.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 12
+  %indexbase19.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %indexbase19.i, align 8
-  %indexstride20.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 13
+  %indexstride20.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %indexstride20.i, align 8
   %mul21.i = mul nsw i32 %2, %prim_index
   %idx.ext22.i = sext i32 %mul21.i to i64
@@ -3176,19 +3146,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load i16, ptr %add.ptr23.i, align 2
   %conv.i = zext i16 %3 to i32
-  %arrayidx2.i = getelementptr inbounds i16, ptr %add.ptr23.i, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 2
   %4 = load i16, ptr %arrayidx2.i, align 2
   %conv3.i = zext i16 %4 to i32
-  %arrayidx4.i = getelementptr inbounds i16, ptr %add.ptr23.i, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 4
   %5 = load i16, ptr %arrayidx4.i, align 2
   %conv5.i = zext i16 %5 to i32
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 if.then8.i:                                       ; preds = %entry
   %6 = load i32, ptr %add.ptr23.i, align 4
-  %arrayidx15.i = getelementptr inbounds i32, ptr %add.ptr23.i, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 4
   %7 = load i32, ptr %arrayidx15.i, align 4
-  %arrayidx16.i = getelementptr inbounds i32, ptr %add.ptr23.i, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 8
   %8 = load i32, ptr %arrayidx16.i, align 4
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
@@ -3207,18 +3177,18 @@ _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exi
   %indices.sroa.4.0 = phi i32 [ %conv27.i, %if.else17.i ], [ %7, %if.then8.i ], [ %conv3.i, %if.then.i ]
   %indices.sroa.0.0 = phi i32 [ %conv25.i, %if.else17.i ], [ %6, %if.then8.i ], [ %conv.i, %if.then.i ]
   %.sink.i = phi i32 [ %conv29.i, %if.else17.i ], [ %8, %if.then8.i ], [ %conv5.i, %if.then.i ]
-  %m_vertices1 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1
-  %type.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 9
+  %m_vertices1 = getelementptr inbounds i8, ptr %triangle, i64 80
+  %type.i = getelementptr inbounds i8, ptr %this, i64 60
   %12 = load i32, ptr %type.i, align 4
   %cmp.i = icmp eq i32 %12, 1
-  %vertexbase.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 7
+  %vertexbase.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load ptr, ptr %vertexbase.i, align 8
-  %stride.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 10
+  %stride.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load i32, ptr %stride.i, align 8
   %mul.i = mul i32 %14, %indices.sroa.0.0
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
-  %m_scale.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4
+  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load float, ptr %m_scale.i, align 8
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
@@ -3228,18 +3198,18 @@ if.then.i4:                                       ; preds = %_ZNK22btGImpactMesh
   %mul3.i = fmul double %16, %conv.i5
   %conv4.i = fptrunc double %mul3.i to float
   store float %conv4.i, ptr %m_vertices1, align 8
-  %arrayidx7.i = getelementptr inbounds double, ptr %add.ptr.i, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %17 = load double, ptr %arrayidx7.i, align 8
-  %arrayidx10.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 28
   %18 = load float, ptr %arrayidx10.i, align 4
   %conv11.i = fpext float %18 to double
   %mul12.i = fmul double %17, %conv11.i
   %conv13.i = fptrunc double %mul12.i to float
-  %arrayidx15.i6 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 0, i32 0, i64 1
+  %arrayidx15.i6 = getelementptr inbounds i8, ptr %triangle, i64 84
   store float %conv13.i, ptr %arrayidx15.i6, align 4
-  %arrayidx16.i7 = getelementptr inbounds double, ptr %add.ptr.i, i64 2
+  %arrayidx16.i7 = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %19 = load double, ptr %arrayidx16.i7, align 8
-  %arrayidx19.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx19.i = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load float, ptr %arrayidx19.i, align 8
   %conv20.i = fpext float %20 to double
   %mul21.i8 = fmul double %19, %conv20.i
@@ -3250,25 +3220,25 @@ if.else.i:                                        ; preds = %_ZNK22btGImpactMesh
   %21 = load float, ptr %add.ptr.i, align 4
   %mul34.i = fmul float %15, %21
   store float %mul34.i, ptr %m_vertices1, align 8
-  %arrayidx37.i = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx37.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %22 = load float, ptr %arrayidx37.i, align 4
-  %arrayidx40.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx40.i = getelementptr inbounds i8, ptr %this, i64 28
   %23 = load float, ptr %arrayidx40.i, align 4
   %mul41.i = fmul float %22, %23
-  %arrayidx43.i = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 0, i32 0, i64 1
+  %arrayidx43.i = getelementptr inbounds i8, ptr %triangle, i64 84
   store float %mul41.i, ptr %arrayidx43.i, align 4
-  %arrayidx44.i = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx44.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %24 = load float, ptr %arrayidx44.i, align 4
-  %arrayidx47.i = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx47.i = getelementptr inbounds i8, ptr %this, i64 32
   %25 = load float, ptr %arrayidx47.i, align 8
   %mul48.i = fmul float %24, %25
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit: ; preds = %if.then.i4, %if.else.i
   %mul48.sink.i = phi float [ %conv22.i, %if.then.i4 ], [ %mul48.i, %if.else.i ]
-  %26 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 0, i32 0, i64 2
+  %26 = getelementptr inbounds i8, ptr %triangle, i64 88
   store float %mul48.sink.i, ptr %26, align 8
-  %arrayidx8 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %triangle, i64 96
   %27 = load i32, ptr %type.i, align 4
   %cmp.i10 = icmp eq i32 %27, 1
   %28 = load ptr, ptr %vertexbase.i, align 8
@@ -3285,18 +3255,18 @@ if.then.i27:                                      ; preds = %_ZNK22btGImpactMesh
   %mul3.i29 = fmul double %31, %conv.i28
   %conv4.i30 = fptrunc double %mul3.i29 to float
   store float %conv4.i30, ptr %arrayidx8, align 8
-  %arrayidx7.i31 = getelementptr inbounds double, ptr %add.ptr.i15, i64 1
+  %arrayidx7.i31 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 8
   %32 = load double, ptr %arrayidx7.i31, align 8
-  %arrayidx10.i32 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx10.i32 = getelementptr inbounds i8, ptr %this, i64 28
   %33 = load float, ptr %arrayidx10.i32, align 4
   %conv11.i33 = fpext float %33 to double
   %mul12.i34 = fmul double %32, %conv11.i33
   %conv13.i35 = fptrunc double %mul12.i34 to float
-  %arrayidx15.i36 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 1, i32 0, i64 1
+  %arrayidx15.i36 = getelementptr inbounds i8, ptr %triangle, i64 100
   store float %conv13.i35, ptr %arrayidx15.i36, align 4
-  %arrayidx16.i37 = getelementptr inbounds double, ptr %add.ptr.i15, i64 2
+  %arrayidx16.i37 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 16
   %34 = load double, ptr %arrayidx16.i37, align 8
-  %arrayidx19.i38 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx19.i38 = getelementptr inbounds i8, ptr %this, i64 32
   %35 = load float, ptr %arrayidx19.i38, align 8
   %conv20.i39 = fpext float %35 to double
   %mul21.i40 = fmul double %34, %conv20.i39
@@ -3307,25 +3277,25 @@ if.else.i17:                                      ; preds = %_ZNK22btGImpactMesh
   %36 = load float, ptr %add.ptr.i15, align 4
   %mul34.i18 = fmul float %30, %36
   store float %mul34.i18, ptr %arrayidx8, align 8
-  %arrayidx37.i19 = getelementptr inbounds float, ptr %add.ptr.i15, i64 1
+  %arrayidx37.i19 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 4
   %37 = load float, ptr %arrayidx37.i19, align 4
-  %arrayidx40.i20 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx40.i20 = getelementptr inbounds i8, ptr %this, i64 28
   %38 = load float, ptr %arrayidx40.i20, align 4
   %mul41.i21 = fmul float %37, %38
-  %arrayidx43.i22 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 1, i32 0, i64 1
+  %arrayidx43.i22 = getelementptr inbounds i8, ptr %triangle, i64 100
   store float %mul41.i21, ptr %arrayidx43.i22, align 4
-  %arrayidx44.i23 = getelementptr inbounds float, ptr %add.ptr.i15, i64 2
+  %arrayidx44.i23 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 8
   %39 = load float, ptr %arrayidx44.i23, align 4
-  %arrayidx47.i24 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx47.i24 = getelementptr inbounds i8, ptr %this, i64 32
   %40 = load float, ptr %arrayidx47.i24, align 8
   %mul48.i25 = fmul float %39, %40
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit42
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit42: ; preds = %if.then.i27, %if.else.i17
   %mul48.sink.i26 = phi float [ %conv22.i41, %if.then.i27 ], [ %mul48.i25, %if.else.i17 ]
-  %41 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 1, i32 0, i64 2
+  %41 = getelementptr inbounds i8, ptr %triangle, i64 104
   store float %mul48.sink.i26, ptr %41, align 8
-  %arrayidx11 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %triangle, i64 112
   %42 = load i32, ptr %type.i, align 4
   %cmp.i44 = icmp eq i32 %42, 1
   %43 = load ptr, ptr %vertexbase.i, align 8
@@ -3342,18 +3312,18 @@ if.then.i61:                                      ; preds = %_ZNK22btGImpactMesh
   %mul3.i63 = fmul double %46, %conv.i62
   %conv4.i64 = fptrunc double %mul3.i63 to float
   store float %conv4.i64, ptr %arrayidx11, align 8
-  %arrayidx7.i65 = getelementptr inbounds double, ptr %add.ptr.i49, i64 1
+  %arrayidx7.i65 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
   %47 = load double, ptr %arrayidx7.i65, align 8
-  %arrayidx10.i66 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx10.i66 = getelementptr inbounds i8, ptr %this, i64 28
   %48 = load float, ptr %arrayidx10.i66, align 4
   %conv11.i67 = fpext float %48 to double
   %mul12.i68 = fmul double %47, %conv11.i67
   %conv13.i69 = fptrunc double %mul12.i68 to float
-  %arrayidx15.i70 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 2, i32 0, i64 1
+  %arrayidx15.i70 = getelementptr inbounds i8, ptr %triangle, i64 116
   store float %conv13.i69, ptr %arrayidx15.i70, align 4
-  %arrayidx16.i71 = getelementptr inbounds double, ptr %add.ptr.i49, i64 2
+  %arrayidx16.i71 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 16
   %49 = load double, ptr %arrayidx16.i71, align 8
-  %arrayidx19.i72 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx19.i72 = getelementptr inbounds i8, ptr %this, i64 32
   %50 = load float, ptr %arrayidx19.i72, align 8
   %conv20.i73 = fpext float %50 to double
   %mul21.i74 = fmul double %49, %conv20.i73
@@ -3364,28 +3334,28 @@ if.else.i51:                                      ; preds = %_ZNK22btGImpactMesh
   %51 = load float, ptr %add.ptr.i49, align 4
   %mul34.i52 = fmul float %45, %51
   store float %mul34.i52, ptr %arrayidx11, align 8
-  %arrayidx37.i53 = getelementptr inbounds float, ptr %add.ptr.i49, i64 1
+  %arrayidx37.i53 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 4
   %52 = load float, ptr %arrayidx37.i53, align 4
-  %arrayidx40.i54 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 1
+  %arrayidx40.i54 = getelementptr inbounds i8, ptr %this, i64 28
   %53 = load float, ptr %arrayidx40.i54, align 4
   %mul41.i55 = fmul float %52, %53
-  %arrayidx43.i56 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 2, i32 0, i64 1
+  %arrayidx43.i56 = getelementptr inbounds i8, ptr %triangle, i64 116
   store float %mul41.i55, ptr %arrayidx43.i56, align 4
-  %arrayidx44.i57 = getelementptr inbounds float, ptr %add.ptr.i49, i64 2
+  %arrayidx44.i57 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
   %54 = load float, ptr %arrayidx44.i57, align 4
-  %arrayidx47.i58 = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx47.i58 = getelementptr inbounds i8, ptr %this, i64 32
   %55 = load float, ptr %arrayidx47.i58, align 8
   %mul48.i59 = fmul float %54, %55
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit76
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.exit76: ; preds = %if.then.i61, %if.else.i51
   %mul48.sink.i60 = phi float [ %conv22.i75, %if.then.i61 ], [ %mul48.i59, %if.else.i51 ]
-  %56 = getelementptr inbounds %class.btTriangleShape, ptr %triangle, i64 0, i32 1, i64 2, i32 0, i64 2
+  %56 = getelementptr inbounds i8, ptr %triangle, i64 120
   store float %mul48.sink.i60, ptr %56, align 8
-  %m_margin = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this, i64 0, i32 1
+  %m_margin = getelementptr inbounds i8, ptr %this, i64 8
   %57 = load float, ptr %m_margin, align 8
   %vtable = load ptr, ptr %triangle, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %58 = load ptr, ptr %vfn, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(72) %triangle, float noundef %57)
   ret void

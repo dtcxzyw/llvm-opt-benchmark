@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::atomic" = type { i8 }
-%"class.hermes::vm::CardTable::Boundary" = type { i64, ptr }
-%"class.hermes::vm::CardTable" = type { %"struct.std::array", [8192 x i8] }
-%"struct.std::array" = type { [8192 x %"struct.std::atomic"] }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes2vm9CardTable25dirtyCardsForAddressRangeEPKvS3_(ptr noundef nonnull align 1 dereferenceable(16384) %this, ptr noundef %low, ptr noundef %high) local_unnamed_addr #0 align 2 {
@@ -172,15 +169,16 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(16384) %this, ptr nocapture noundef %boundary, ptr noundef %start, ptr noundef readnone %end) local_unnamed_addr #1 align 2 {
 entry:
-  %address_.i = getelementptr inbounds %"class.hermes::vm::CardTable::Boundary", ptr %boundary, i64 0, i32 1
+  %address_.i = getelementptr inbounds i8, ptr %boundary, i64 8
   %0 = load ptr, ptr %address_.i, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %start to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %shr = lshr i64 %sub.ptr.sub, 3
   %conv = trunc i64 %shr to i8
+  %boundaries_ = getelementptr inbounds i8, ptr %this, i64 8192
   %1 = load i64, ptr %boundary, align 8
-  %arrayidx = getelementptr inbounds %"class.hermes::vm::CardTable", ptr %this, i64 0, i32 1, i64 %1
+  %arrayidx = getelementptr inbounds [8192 x i8], ptr %boundaries_, i64 0, i64 %1
   store i8 %conv, ptr %arrayidx, align 1
   %storemerge14.in15 = load i64, ptr %boundary, align 8
   %storemerge1416 = add i64 %storemerge14.in15, 1
@@ -197,7 +195,7 @@ while.body:                                       ; preds = %entry, %while.body
   %currentIndexDelta.021 = phi i32 [ %currentIndexDelta.1, %while.body ], [ 1, %entry ]
   %currentExp.020 = phi i8 [ %currentExp.1, %while.body ], [ 0, %entry ]
   %3 = xor i8 %currentExp.020, -1
-  %arrayidx7 = getelementptr inbounds %"class.hermes::vm::CardTable", ptr %this, i64 0, i32 1, i64 %2
+  %arrayidx7 = getelementptr inbounds [8192 x i8], ptr %boundaries_, i64 0, i64 %2
   store i8 %3, ptr %arrayidx7, align 1
   %inc = add i32 %numWithCurrentExp.022, 1
   %cmp8 = icmp eq i32 %inc, %currentIndexDelta.021
@@ -222,8 +220,9 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @_ZNK6hermes2vm9CardTable15firstObjForCardEj(ptr noundef nonnull readonly align 1 dereferenceable(16384) %this, i32 noundef %index) local_unnamed_addr #2 align 2 {
 entry:
+  %boundaries_ = getelementptr inbounds i8, ptr %this, i64 8192
   %idxprom.pn7 = zext i32 %index to i64
-  %val.0.in8 = getelementptr inbounds %"class.hermes::vm::CardTable", ptr %this, i64 0, i32 1, i64 %idxprom.pn7
+  %val.0.in8 = getelementptr inbounds [8192 x i8], ptr %boundaries_, i64 0, i64 %idxprom.pn7
   %val.09 = load i8, ptr %val.0.in8, align 1
   %cmp10 = icmp slt i8 %val.09, 0
   br i1 %cmp10, label %while.body, label %while.end
@@ -236,7 +235,7 @@ while.body:                                       ; preds = %entry, %while.body
   %shl.neg = shl nsw i32 -1, %conv26
   %sub = add i32 %shl.neg, %index.addr.011
   %idxprom.pn = zext i32 %sub to i64
-  %val.0.in = getelementptr inbounds %"class.hermes::vm::CardTable", ptr %this, i64 0, i32 1, i64 %idxprom.pn
+  %val.0.in = getelementptr inbounds [8192 x i8], ptr %boundaries_, i64 0, i64 %idxprom.pn
   %val.0 = load i8, ptr %val.0.in, align 1
   %cmp = icmp slt i8 %val.0, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
@@ -255,7 +254,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm9CardTable20protectBoundaryTableEv(ptr noundef nonnull align 1 dereferenceable(16384) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %boundaries_ = getelementptr inbounds %"class.hermes::vm::CardTable", ptr %this, i64 0, i32 1
+  %boundaries_ = getelementptr inbounds i8, ptr %this, i64 8192
   %call.i = tail call noundef zeroext i1 @_ZN6hermes8oscompat10vm_protectEPvmNS0_11ProtectModeE(ptr noundef nonnull %boundaries_, i64 noundef 8192, i32 noundef 1) #5
   ret void
 }
@@ -263,7 +262,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm9CardTable22unprotectBoundaryTableEv(ptr noundef nonnull align 1 dereferenceable(16384) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %boundaries_ = getelementptr inbounds %"class.hermes::vm::CardTable", ptr %this, i64 0, i32 1
+  %boundaries_ = getelementptr inbounds i8, ptr %this, i64 8192
   %call.i = tail call noundef zeroext i1 @_ZN6hermes8oscompat10vm_protectEPvmNS0_11ProtectModeE(ptr noundef nonnull %boundaries_, i64 noundef 8192, i32 noundef 0) #5
   ret void
 }

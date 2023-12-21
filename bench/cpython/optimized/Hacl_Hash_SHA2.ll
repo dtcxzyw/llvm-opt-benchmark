@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @Hacl_SHA2_Scalar32_sha256_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %hash, align 4
-  %arrayidx29 = getelementptr i32, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29, align 4
   ret void
 }
@@ -2386,7 +2386,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha256_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %h) local_unnamed_addr #2 {
 entry:
-  %arrayidx30 = getelementptr i32, ptr %st, i64 4
+  %arrayidx30 = getelementptr i8, ptr %st, i64 16
   %0 = load <4 x i32>, ptr %st, align 4
   %1 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %0)
   %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 16
@@ -2401,7 +2401,7 @@ entry:
 define hidden void @Hacl_SHA2_Scalar32_sha224_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %hash, align 4
-  %arrayidx29 = getelementptr i32, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29, align 4
   ret void
 }
@@ -2443,13 +2443,13 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha224_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %h) local_unnamed_addr #2 {
 entry:
-  %arrayidx30 = getelementptr i32, ptr %st, i64 4
+  %arrayidx30 = getelementptr i8, ptr %st, i64 16
   %0 = load i32, ptr %arrayidx30, align 4
   %or7.i34 = tail call i32 @llvm.bswap.i32(i32 %0)
-  %arrayidx38 = getelementptr i32, ptr %st, i64 5
+  %arrayidx38 = getelementptr i8, ptr %st, i64 20
   %1 = load i32, ptr %arrayidx38, align 4
   %or7.i35 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %arrayidx46 = getelementptr i32, ptr %st, i64 6
+  %arrayidx46 = getelementptr i8, ptr %st, i64 24
   %2 = load i32, ptr %arrayidx46, align 4
   %or7.i36 = tail call i32 @llvm.bswap.i32(i32 %2)
   %3 = load <4 x i32>, ptr %st, align 4
@@ -2468,19 +2468,19 @@ entry:
 define hidden void @python_hashlib_Hacl_SHA2_Scalar32_sha512_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %hash, align 8
-  %arrayidx8 = getelementptr i64, ptr %hash, i64 1
+  %arrayidx8 = getelementptr i8, ptr %hash, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8, align 8
-  %arrayidx15 = getelementptr i64, ptr %hash, i64 2
+  %arrayidx15 = getelementptr i8, ptr %hash, i64 16
   store i64 4354685564936845355, ptr %arrayidx15, align 8
-  %arrayidx22 = getelementptr i64, ptr %hash, i64 3
+  %arrayidx22 = getelementptr i8, ptr %hash, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22, align 8
-  %arrayidx29 = getelementptr i64, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 32
   store i64 5840696475078001361, ptr %arrayidx29, align 8
-  %arrayidx36 = getelementptr i64, ptr %hash, i64 5
+  %arrayidx36 = getelementptr i8, ptr %hash, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36, align 8
-  %arrayidx43 = getelementptr i64, ptr %hash, i64 6
+  %arrayidx43 = getelementptr i8, ptr %hash, i64 48
   store i64 2270897969802886507, ptr %arrayidx43, align 8
-  %arrayidx50 = getelementptr i64, ptr %hash, i64 7
+  %arrayidx50 = getelementptr i8, ptr %hash, i64 56
   store i64 6620516959819538809, ptr %arrayidx50, align 8
   ret void
 }
@@ -5467,25 +5467,25 @@ define hidden void @Hacl_SHA2_Scalar32_sha512_finish(ptr nocapture noundef reado
 entry:
   %0 = load i64, ptr %st, align 8
   %or19.i = tail call i64 @llvm.bswap.i64(i64 %0)
-  %arrayidx6 = getelementptr i64, ptr %st, i64 1
+  %arrayidx6 = getelementptr i8, ptr %st, i64 8
   %1 = load i64, ptr %arrayidx6, align 8
   %or19.i31 = tail call i64 @llvm.bswap.i64(i64 %1)
-  %arrayidx14 = getelementptr i64, ptr %st, i64 2
+  %arrayidx14 = getelementptr i8, ptr %st, i64 16
   %2 = load i64, ptr %arrayidx14, align 8
   %or19.i32 = tail call i64 @llvm.bswap.i64(i64 %2)
-  %arrayidx22 = getelementptr i64, ptr %st, i64 3
+  %arrayidx22 = getelementptr i8, ptr %st, i64 24
   %3 = load i64, ptr %arrayidx22, align 8
   %or19.i33 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx30 = getelementptr i64, ptr %st, i64 4
+  %arrayidx30 = getelementptr i8, ptr %st, i64 32
   %4 = load i64, ptr %arrayidx30, align 8
   %or19.i34 = tail call i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx38 = getelementptr i64, ptr %st, i64 5
+  %arrayidx38 = getelementptr i8, ptr %st, i64 40
   %5 = load i64, ptr %arrayidx38, align 8
   %or19.i35 = tail call i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx46 = getelementptr i64, ptr %st, i64 6
+  %arrayidx46 = getelementptr i8, ptr %st, i64 48
   %6 = load i64, ptr %arrayidx46, align 8
   %or19.i36 = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx54 = getelementptr i64, ptr %st, i64 7
+  %arrayidx54 = getelementptr i8, ptr %st, i64 56
   %7 = load i64, ptr %arrayidx54, align 8
   %or19.i37 = tail call i64 @llvm.bswap.i64(i64 %7)
   store i64 %or19.i, ptr %h, align 1
@@ -5510,19 +5510,19 @@ entry:
 define hidden void @Hacl_SHA2_Scalar32_sha384_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %hash, align 8
-  %arrayidx8 = getelementptr i64, ptr %hash, i64 1
+  %arrayidx8 = getelementptr i8, ptr %hash, i64 8
   store i64 7105036623409894663, ptr %arrayidx8, align 8
-  %arrayidx15 = getelementptr i64, ptr %hash, i64 2
+  %arrayidx15 = getelementptr i8, ptr %hash, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15, align 8
-  %arrayidx22 = getelementptr i64, ptr %hash, i64 3
+  %arrayidx22 = getelementptr i8, ptr %hash, i64 24
   store i64 1526699215303891257, ptr %arrayidx22, align 8
-  %arrayidx29 = getelementptr i64, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 32
   store i64 7436329637833083697, ptr %arrayidx29, align 8
-  %arrayidx36 = getelementptr i64, ptr %hash, i64 5
+  %arrayidx36 = getelementptr i8, ptr %hash, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36, align 8
-  %arrayidx43 = getelementptr i64, ptr %hash, i64 6
+  %arrayidx43 = getelementptr i8, ptr %hash, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43, align 8
-  %arrayidx50 = getelementptr i64, ptr %hash, i64 7
+  %arrayidx50 = getelementptr i8, ptr %hash, i64 56
   store i64 5167115440072839076, ptr %arrayidx50, align 8
   ret void
 }
@@ -5594,19 +5594,19 @@ define hidden void @Hacl_SHA2_Scalar32_sha384_finish(ptr nocapture noundef reado
 entry:
   %0 = load i64, ptr %st, align 8
   %or19.i = tail call i64 @llvm.bswap.i64(i64 %0)
-  %arrayidx6 = getelementptr i64, ptr %st, i64 1
+  %arrayidx6 = getelementptr i8, ptr %st, i64 8
   %1 = load i64, ptr %arrayidx6, align 8
   %or19.i31 = tail call i64 @llvm.bswap.i64(i64 %1)
-  %arrayidx14 = getelementptr i64, ptr %st, i64 2
+  %arrayidx14 = getelementptr i8, ptr %st, i64 16
   %2 = load i64, ptr %arrayidx14, align 8
   %or19.i32 = tail call i64 @llvm.bswap.i64(i64 %2)
-  %arrayidx22 = getelementptr i64, ptr %st, i64 3
+  %arrayidx22 = getelementptr i8, ptr %st, i64 24
   %3 = load i64, ptr %arrayidx22, align 8
   %or19.i33 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx30 = getelementptr i64, ptr %st, i64 4
+  %arrayidx30 = getelementptr i8, ptr %st, i64 32
   %4 = load i64, ptr %arrayidx30, align 8
   %or19.i34 = tail call i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx38 = getelementptr i64, ptr %st, i64 5
+  %arrayidx38 = getelementptr i8, ptr %st, i64 40
   %5 = load i64, ptr %arrayidx38, align 8
   %or19.i35 = tail call i64 @llvm.bswap.i64(i64 %5)
   store i64 %or19.i, ptr %h, align 1
@@ -5635,7 +5635,7 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %call1, align 4
-  %arrayidx29.i = getelementptr i32, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 4
   ret ptr %call4
 }
@@ -5675,7 +5675,7 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx29.i = getelementptr i32, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 4
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -5891,7 +5891,7 @@ if.then12.i:                                      ; preds = %entry
 
 Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
-  %arrayidx30.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 4
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %4 = load <4 x i32>, ptr %tmp_block_state, align 16
   %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
   store <4 x i32> %5, ptr %dst, align 1
@@ -5923,7 +5923,7 @@ entry:
   %last.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %st, align 16
-  %arrayidx29.i = getelementptr inbounds i32, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 16
   %rem1 = and i32 %input_len, 63
   %conv = zext i32 %input_len to i64
@@ -5995,7 +5995,7 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %call1, align 4
-  %arrayidx29.i = getelementptr i32, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 4
   ret ptr %call4
 }
@@ -6008,7 +6008,7 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx29.i = getelementptr i32, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 4
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -6074,13 +6074,13 @@ if.then12.i.i:                                    ; preds = %entry
 
 Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
-  %arrayidx30.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 4
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %4 = load i32, ptr %arrayidx30.i, align 16
   %or7.i34.i = tail call i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx38.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 5
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 20
   %5 = load i32, ptr %arrayidx38.i, align 4
   %or7.i35.i = tail call i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx46.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 6
+  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
   %6 = load i32, ptr %arrayidx46.i, align 8
   %or7.i36.i = tail call i32 @llvm.bswap.i32(i32 %6)
   %7 = load <4 x i32>, ptr %tmp_block_state, align 16
@@ -6113,7 +6113,7 @@ entry:
   %last.i.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %st, align 16
-  %arrayidx29.i = getelementptr inbounds i32, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 16
   %rem1 = and i32 %input_len, 63
   %conv = zext i32 %input_len to i64
@@ -6162,8 +6162,8 @@ if.then12.i.i:                                    ; preds = %sha224_update_nbloc
   br label %Hacl_SHA2_Scalar32_sha224_update_last.exit
 
 Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %sha224_update_nblocks.exit, %if.then12.i.i
-  %arrayidx43.i = getelementptr inbounds i32, ptr %st, i64 6
-  %arrayidx36.i = getelementptr inbounds i32, ptr %st, i64 5
+  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 24
+  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
   %4 = load i32, ptr %arrayidx29.i, align 16
   %or7.i34.i = tail call i32 @llvm.bswap.i32(i32 %4)
@@ -6195,19 +6195,19 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i64 7640891576956012808, ptr %call1, align 8
-  %arrayidx8.i = getelementptr i64, ptr %call1, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %call1, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %call1, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %call1, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %call1, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %call1, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %call1, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %call1, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %call1, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %call1, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %call1, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   ret ptr %call4
 }
@@ -6241,19 +6241,19 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store i64 7640891576956012808, ptr %scrut.sroa.0.0.copyload, align 8
-  %arrayidx8.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -6479,25 +6479,25 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
   %5 = load i64, ptr %tmp_block_state, align 16
   %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx6.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
   %6 = load i64, ptr %arrayidx6.i, align 8
   %or19.i31.i = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx14.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 2
+  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %7 = load i64, ptr %arrayidx14.i, align 16
   %or19.i32.i = tail call i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx22.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 3
+  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
   %8 = load i64, ptr %arrayidx22.i, align 8
   %or19.i33.i = tail call i64 @llvm.bswap.i64(i64 %8)
-  %arrayidx30.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 4
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
   %9 = load i64, ptr %arrayidx30.i, align 16
   %or19.i34.i = tail call i64 @llvm.bswap.i64(i64 %9)
-  %arrayidx38.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 5
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
   %10 = load i64, ptr %arrayidx38.i, align 8
   %or19.i35.i = tail call i64 @llvm.bswap.i64(i64 %10)
-  %arrayidx46.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 6
+  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 48
   %11 = load i64, ptr %arrayidx46.i, align 16
   %or19.i36.i = tail call i64 @llvm.bswap.i64(i64 %11)
-  %arrayidx54.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 7
+  %arrayidx54.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 56
   %12 = load i64, ptr %arrayidx54.i, align 8
   %or19.i37.i = tail call i64 @llvm.bswap.i64(i64 %12)
   store i64 %or19.i.i, ptr %dst, align 1
@@ -6536,19 +6536,19 @@ entry:
   %last.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
   store i64 7640891576956012808, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i64, ptr %st, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds i64, ptr %st, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds i64, ptr %st, i64 3
+  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds i64, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i64, ptr %st, i64 5
+  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds i64, ptr %st, i64 6
+  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds i64, ptr %st, i64 7
+  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   %rem1 = and i32 %input_len, 127
   %conv = zext i32 %input_len to i64
@@ -6646,19 +6646,19 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i64 -3766243637369397544, ptr %call1, align 8
-  %arrayidx8.i = getelementptr i64, ptr %call1, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %call1, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %call1, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %call1, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %call1, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %call1, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %call1, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %call1, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %call1, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %call1, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %call1, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   ret ptr %call4
 }
@@ -6671,19 +6671,19 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store i64 -3766243637369397544, ptr %scrut.sroa.0.0.copyload, align 8
-  %arrayidx8.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -6759,19 +6759,19 @@ Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
   %5 = load i64, ptr %tmp_block_state, align 16
   %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx6.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
   %6 = load i64, ptr %arrayidx6.i, align 8
   %or19.i31.i = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx14.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 2
+  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %7 = load i64, ptr %arrayidx14.i, align 16
   %or19.i32.i = tail call i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx22.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 3
+  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
   %8 = load i64, ptr %arrayidx22.i, align 8
   %or19.i33.i = tail call i64 @llvm.bswap.i64(i64 %8)
-  %arrayidx30.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 4
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
   %9 = load i64, ptr %arrayidx30.i, align 16
   %or19.i34.i = tail call i64 @llvm.bswap.i64(i64 %9)
-  %arrayidx38.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 5
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
   %10 = load i64, ptr %arrayidx38.i, align 8
   %or19.i35.i = tail call i64 @llvm.bswap.i64(i64 %10)
   store i64 %or19.i.i, ptr %dst, align 1
@@ -6806,19 +6806,19 @@ entry:
   %last.i.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
   store i64 -3766243637369397544, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i64, ptr %st, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds i64, ptr %st, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds i64, ptr %st, i64 3
+  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds i64, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i64, ptr %st, i64 5
+  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds i64, ptr %st, i64 6
+  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds i64, ptr %st, i64 7
+  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   %rem1 = and i32 %input_len, 127
   %conv = zext i32 %input_len to i64

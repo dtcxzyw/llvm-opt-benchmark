@@ -868,13 +868,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.769 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyByteArrayObject = type { %struct.PyVarObject, i64, ptr, ptr, i64 }
-%struct.PyUnicodeObject = type { %struct.PyCompactUnicodeObject, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.PyFloatObject = type { %struct._object, double }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.PyDictObject = type { %struct._object, i64, i64, ptr, ptr }
 
 @_testclinic_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 0, ptr @tester_methods, ptr null, ptr null, ptr null, ptr null }, align 8
 @DeprStarNew = internal global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr null }, i64 0 }, ptr @.str.180, i64 16, i64 0, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr @depr_star_new_methods, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr @depr_star_new, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
@@ -1402,7 +1397,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp2, label %skip_optional, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %arrayidx5 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx5 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx5, align 8
   br label %skip_optional
 
@@ -1532,7 +1527,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx12, align 8
   %call13 = tail call i32 @PyObject_IsTrue(ptr noundef %1) #9
   %cmp14 = icmp slt i32 %call13, 0
@@ -1543,7 +1538,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx20, align 8
   %call21 = tail call i32 @PyLong_AsInt(ptr noundef %2) #9
   %cmp22 = icmp eq i32 %call21, -1
@@ -1623,13 +1618,13 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyBytes_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %0, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %cmp11 = icmp eq i64 %3, 1
   br i1 %cmp11, label %PyBytes_AS_STRING.exit, label %if.else
 
 PyBytes_AS_STRING.exit:                           ; preds = %PyBytes_GET_SIZE.exit
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %0, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %0, i64 32
   br label %if.end30
 
 if.else:                                          ; preds = %PyBytes_GET_SIZE.exit, %if.end4
@@ -1682,7 +1677,7 @@ cond.false4.i.i152:                               ; preds = %cond.end.i.i149
 PyByteArray_GET_SIZE.exit:                        ; preds = %if.else, %cond.end.i.i149.PyByteArray_GET_SIZE.exit_crit_edge, %land.lhs.true19
   %5 = phi ptr [ %.pre483, %cond.end.i.i149.PyByteArray_GET_SIZE.exit_crit_edge ], [ %.pre483, %land.lhs.true19 ], [ %0, %if.else ]
   %.pre482 = phi ptr [ %.pre482.pre, %cond.end.i.i149.PyByteArray_GET_SIZE.exit_crit_edge ], [ %.pre483, %land.lhs.true19 ], [ %0, %if.else ]
-  %ob_size.i.i151 = getelementptr inbounds %struct.PyVarObject, ptr %5, i64 0, i32 1
+  %ob_size.i.i151 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %ob_size.i.i151, align 8
   %cmp22 = icmp eq i64 %6, 1
   br i1 %cmp22, label %if.then23, label %if.else27
@@ -1720,13 +1715,13 @@ cond.false4.i.i166:                               ; preds = %cond.end.i.i163
   unreachable
 
 Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i163, %if.then23
-  %ob_size.i.i165 = getelementptr inbounds %struct.PyVarObject, ptr %.pre482, i64 0, i32 1
+  %ob_size.i.i165 = getelementptr inbounds i8, ptr %.pre482, i64 16
   %8 = load i64, ptr %ob_size.i.i165, align 8
   %tobool2.not.i = icmp eq i64 %8, 0
   br i1 %tobool2.not.i, label %if.end30, label %if.then.i
 
 if.then.i:                                        ; preds = %Py_SIZE.exit.i
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %.pre482, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %.pre482, i64 40
   %9 = load ptr, ptr %ob_start.i, align 8
   br label %if.end30
 
@@ -1742,7 +1737,7 @@ if.end30:                                         ; preds = %if.then.i, %Py_SIZE
   br i1 %cmp31, label %skip_optional, label %if.end33
 
 if.end33:                                         ; preds = %if.end30
-  %arrayidx34 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx34 = getelementptr i8, ptr %args, i64 8
   %11 = load ptr, ptr %arrayidx34, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %.val114 = load ptr, ptr %12, align 8
@@ -1769,13 +1764,13 @@ cond.false4.i.i181:                               ; preds = %cond.end.i.i177
   unreachable
 
 PyBytes_GET_SIZE.exit184:                         ; preds = %cond.end.i.i177
-  %ob_size.i.i180 = getelementptr inbounds %struct.PyVarObject, ptr %11, i64 0, i32 1
+  %ob_size.i.i180 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %ob_size.i.i180, align 8
   %cmp41 = icmp eq i64 %14, 1
   br i1 %cmp41, label %PyBytes_AS_STRING.exit191, label %if.else46
 
 PyBytes_AS_STRING.exit191:                        ; preds = %PyBytes_GET_SIZE.exit184
-  %ob_sval.i189 = getelementptr inbounds %struct.PyBytesObject, ptr %11, i64 0, i32 2
+  %ob_sval.i189 = getelementptr inbounds i8, ptr %11, i64 32
   br label %if.end61
 
 if.else46:                                        ; preds = %PyBytes_GET_SIZE.exit184, %if.end33
@@ -1828,7 +1823,7 @@ cond.false4.i.i210:                               ; preds = %cond.end.i.i206
 PyByteArray_GET_SIZE.exit213:                     ; preds = %if.else46, %cond.end.i.i206.PyByteArray_GET_SIZE.exit213_crit_edge, %land.lhs.true50
   %16 = phi ptr [ %.pre487, %cond.end.i.i206.PyByteArray_GET_SIZE.exit213_crit_edge ], [ %.pre487, %land.lhs.true50 ], [ %11, %if.else46 ]
   %.pre486 = phi ptr [ %.pre486.pre, %cond.end.i.i206.PyByteArray_GET_SIZE.exit213_crit_edge ], [ %.pre487, %land.lhs.true50 ], [ %11, %if.else46 ]
-  %ob_size.i.i209 = getelementptr inbounds %struct.PyVarObject, ptr %16, i64 0, i32 1
+  %ob_size.i.i209 = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load i64, ptr %ob_size.i.i209, align 8
   %cmp53 = icmp eq i64 %17, 1
   br i1 %cmp53, label %if.then54, label %if.else58
@@ -1866,13 +1861,13 @@ cond.false4.i.i230:                               ; preds = %cond.end.i.i222
   unreachable
 
 Py_SIZE.exit.i224:                                ; preds = %cond.end.i.i222, %if.then54
-  %ob_size.i.i225 = getelementptr inbounds %struct.PyVarObject, ptr %.pre486, i64 0, i32 1
+  %ob_size.i.i225 = getelementptr inbounds i8, ptr %.pre486, i64 16
   %19 = load i64, ptr %ob_size.i.i225, align 8
   %tobool2.not.i226 = icmp eq i64 %19, 0
   br i1 %tobool2.not.i226, label %if.end61, label %if.then.i227
 
 if.then.i227:                                     ; preds = %Py_SIZE.exit.i224
-  %ob_start.i228 = getelementptr inbounds %struct.PyByteArrayObject, ptr %.pre486, i64 0, i32 3
+  %ob_start.i228 = getelementptr inbounds i8, ptr %.pre486, i64 40
   %20 = load ptr, ptr %ob_start.i228, align 8
   br label %if.end61
 
@@ -1888,7 +1883,7 @@ if.end61:                                         ; preds = %if.then.i227, %Py_S
   br i1 %cmp62, label %skip_optional, label %if.end64
 
 if.end64:                                         ; preds = %if.end61
-  %arrayidx65 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx65 = getelementptr i8, ptr %args, i64 16
   %22 = load ptr, ptr %arrayidx65, align 8
   %23 = getelementptr i8, ptr %22, i64 8
   %.val115 = load ptr, ptr %23, align 8
@@ -1915,13 +1910,13 @@ cond.false4.i.i246:                               ; preds = %cond.end.i.i242
   unreachable
 
 PyBytes_GET_SIZE.exit249:                         ; preds = %cond.end.i.i242
-  %ob_size.i.i245 = getelementptr inbounds %struct.PyVarObject, ptr %22, i64 0, i32 1
+  %ob_size.i.i245 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load i64, ptr %ob_size.i.i245, align 8
   %cmp72 = icmp eq i64 %25, 1
   br i1 %cmp72, label %PyBytes_AS_STRING.exit256, label %if.else77
 
 PyBytes_AS_STRING.exit256:                        ; preds = %PyBytes_GET_SIZE.exit249
-  %ob_sval.i254 = getelementptr inbounds %struct.PyBytesObject, ptr %22, i64 0, i32 2
+  %ob_sval.i254 = getelementptr inbounds i8, ptr %22, i64 32
   br label %if.end92
 
 if.else77:                                        ; preds = %PyBytes_GET_SIZE.exit249, %if.end64
@@ -1960,7 +1955,7 @@ if.end92:                                         ; preds = %if.then85, %PyBytes
   br i1 %cmp93, label %skip_optional, label %if.end95
 
 if.end95:                                         ; preds = %if.end92
-  %arrayidx96 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx96 = getelementptr i8, ptr %args, i64 24
   %29 = load ptr, ptr %arrayidx96, align 8
   %30 = getelementptr i8, ptr %29, i64 8
   %.val116 = load ptr, ptr %30, align 8
@@ -1990,7 +1985,7 @@ cond.false.i271:                                  ; preds = %if.then104
   unreachable
 
 PyBytes_AS_STRING.exit272:                        ; preds = %if.then104
-  %ob_sval.i270 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre488, i64 0, i32 2
+  %ob_sval.i270 = getelementptr inbounds i8, ptr %.pre488, i64 32
   br label %if.end123
 
 if.else108:                                       ; preds = %land.lhs.true100, %if.end95
@@ -2031,7 +2026,7 @@ if.end123:                                        ; preds = %if.then116, %PyByte
   br i1 %cmp124, label %skip_optional, label %if.end126
 
 if.end126:                                        ; preds = %if.end123
-  %arrayidx127 = getelementptr ptr, ptr %args, i64 4
+  %arrayidx127 = getelementptr i8, ptr %args, i64 32
   %40 = load ptr, ptr %arrayidx127, align 8
   %41 = getelementptr i8, ptr %40, i64 8
   %.val117 = load ptr, ptr %41, align 8
@@ -2061,7 +2056,7 @@ cond.false.i287:                                  ; preds = %if.then135
   unreachable
 
 PyBytes_AS_STRING.exit288:                        ; preds = %if.then135
-  %ob_sval.i286 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre492, i64 0, i32 2
+  %ob_sval.i286 = getelementptr inbounds i8, ptr %.pre492, i64 32
   br label %if.end154
 
 if.else139:                                       ; preds = %land.lhs.true131, %if.end126
@@ -2102,7 +2097,7 @@ if.end154:                                        ; preds = %if.then147, %PyByte
   br i1 %cmp155, label %skip_optional, label %if.end157
 
 if.end157:                                        ; preds = %if.end154
-  %arrayidx158 = getelementptr ptr, ptr %args, i64 5
+  %arrayidx158 = getelementptr i8, ptr %args, i64 40
   %51 = load ptr, ptr %arrayidx158, align 8
   %52 = getelementptr i8, ptr %51, i64 8
   %.val118 = load ptr, ptr %52, align 8
@@ -2132,7 +2127,7 @@ cond.false.i303:                                  ; preds = %if.then166
   unreachable
 
 PyBytes_AS_STRING.exit304:                        ; preds = %if.then166
-  %ob_sval.i302 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre496, i64 0, i32 2
+  %ob_sval.i302 = getelementptr inbounds i8, ptr %.pre496, i64 32
   br label %if.end185
 
 if.else170:                                       ; preds = %land.lhs.true162, %if.end157
@@ -2173,7 +2168,7 @@ if.end185:                                        ; preds = %if.then178, %PyByte
   br i1 %cmp186, label %skip_optional, label %if.end188
 
 if.end188:                                        ; preds = %if.end185
-  %arrayidx189 = getelementptr ptr, ptr %args, i64 6
+  %arrayidx189 = getelementptr i8, ptr %args, i64 48
   %62 = load ptr, ptr %arrayidx189, align 8
   %63 = getelementptr i8, ptr %62, i64 8
   %.val119 = load ptr, ptr %63, align 8
@@ -2203,7 +2198,7 @@ cond.false.i319:                                  ; preds = %if.then197
   unreachable
 
 PyBytes_AS_STRING.exit320:                        ; preds = %if.then197
-  %ob_sval.i318 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre500, i64 0, i32 2
+  %ob_sval.i318 = getelementptr inbounds i8, ptr %.pre500, i64 32
   br label %if.end216
 
 if.else201:                                       ; preds = %land.lhs.true193, %if.end188
@@ -2244,7 +2239,7 @@ if.end216:                                        ; preds = %if.then209, %PyByte
   br i1 %cmp217, label %skip_optional, label %if.end219
 
 if.end219:                                        ; preds = %if.end216
-  %arrayidx220 = getelementptr ptr, ptr %args, i64 7
+  %arrayidx220 = getelementptr i8, ptr %args, i64 56
   %73 = load ptr, ptr %arrayidx220, align 8
   %74 = getelementptr i8, ptr %73, i64 8
   %.val120 = load ptr, ptr %74, align 8
@@ -2274,7 +2269,7 @@ cond.false.i335:                                  ; preds = %if.then228
   unreachable
 
 PyBytes_AS_STRING.exit336:                        ; preds = %if.then228
-  %ob_sval.i334 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre504, i64 0, i32 2
+  %ob_sval.i334 = getelementptr inbounds i8, ptr %.pre504, i64 32
   br label %if.end247
 
 if.else232:                                       ; preds = %land.lhs.true224, %if.end219
@@ -2315,7 +2310,7 @@ if.end247:                                        ; preds = %if.then240, %PyByte
   br i1 %cmp248, label %skip_optional, label %if.end250
 
 if.end250:                                        ; preds = %if.end247
-  %arrayidx251 = getelementptr ptr, ptr %args, i64 8
+  %arrayidx251 = getelementptr i8, ptr %args, i64 64
   %84 = load ptr, ptr %arrayidx251, align 8
   %85 = getelementptr i8, ptr %84, i64 8
   %.val121 = load ptr, ptr %85, align 8
@@ -2345,7 +2340,7 @@ cond.false.i351:                                  ; preds = %if.then259
   unreachable
 
 PyBytes_AS_STRING.exit352:                        ; preds = %if.then259
-  %ob_sval.i350 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre508, i64 0, i32 2
+  %ob_sval.i350 = getelementptr inbounds i8, ptr %.pre508, i64 32
   br label %if.end278
 
 if.else263:                                       ; preds = %land.lhs.true255, %if.end250
@@ -2386,7 +2381,7 @@ if.end278:                                        ; preds = %if.then271, %PyByte
   br i1 %cmp279, label %skip_optional, label %if.end281
 
 if.end281:                                        ; preds = %if.end278
-  %arrayidx282 = getelementptr ptr, ptr %args, i64 9
+  %arrayidx282 = getelementptr i8, ptr %args, i64 72
   %95 = load ptr, ptr %arrayidx282, align 8
   %96 = getelementptr i8, ptr %95, i64 8
   %.val122 = load ptr, ptr %96, align 8
@@ -2416,7 +2411,7 @@ cond.false.i367:                                  ; preds = %if.then290
   unreachable
 
 PyBytes_AS_STRING.exit368:                        ; preds = %if.then290
-  %ob_sval.i366 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre512, i64 0, i32 2
+  %ob_sval.i366 = getelementptr inbounds i8, ptr %.pre512, i64 32
   br label %if.end309
 
 if.else294:                                       ; preds = %land.lhs.true286, %if.end281
@@ -2457,7 +2452,7 @@ if.end309:                                        ; preds = %if.then302, %PyByte
   br i1 %cmp310, label %skip_optional, label %if.end312
 
 if.end312:                                        ; preds = %if.end309
-  %arrayidx313 = getelementptr ptr, ptr %args, i64 10
+  %arrayidx313 = getelementptr i8, ptr %args, i64 80
   %106 = load ptr, ptr %arrayidx313, align 8
   %107 = getelementptr i8, ptr %106, i64 8
   %.val123 = load ptr, ptr %107, align 8
@@ -2487,7 +2482,7 @@ cond.false.i383:                                  ; preds = %if.then321
   unreachable
 
 PyBytes_AS_STRING.exit384:                        ; preds = %if.then321
-  %ob_sval.i382 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre516, i64 0, i32 2
+  %ob_sval.i382 = getelementptr inbounds i8, ptr %.pre516, i64 32
   br label %if.end340
 
 if.else325:                                       ; preds = %land.lhs.true317, %if.end312
@@ -2528,7 +2523,7 @@ if.end340:                                        ; preds = %if.then333, %PyByte
   br i1 %cmp341, label %skip_optional, label %if.end343
 
 if.end343:                                        ; preds = %if.end340
-  %arrayidx344 = getelementptr ptr, ptr %args, i64 11
+  %arrayidx344 = getelementptr i8, ptr %args, i64 88
   %117 = load ptr, ptr %arrayidx344, align 8
   %118 = getelementptr i8, ptr %117, i64 8
   %.val124 = load ptr, ptr %118, align 8
@@ -2558,7 +2553,7 @@ cond.false.i399:                                  ; preds = %if.then352
   unreachable
 
 PyBytes_AS_STRING.exit400:                        ; preds = %if.then352
-  %ob_sval.i398 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre520, i64 0, i32 2
+  %ob_sval.i398 = getelementptr inbounds i8, ptr %.pre520, i64 32
   br label %if.end371
 
 if.else356:                                       ; preds = %land.lhs.true348, %if.end343
@@ -2599,7 +2594,7 @@ if.end371:                                        ; preds = %if.then364, %PyByte
   br i1 %cmp372, label %skip_optional, label %if.end374
 
 if.end374:                                        ; preds = %if.end371
-  %arrayidx375 = getelementptr ptr, ptr %args, i64 12
+  %arrayidx375 = getelementptr i8, ptr %args, i64 96
   %128 = load ptr, ptr %arrayidx375, align 8
   %129 = getelementptr i8, ptr %128, i64 8
   %.val125 = load ptr, ptr %129, align 8
@@ -2629,7 +2624,7 @@ cond.false.i415:                                  ; preds = %if.then383
   unreachable
 
 PyBytes_AS_STRING.exit416:                        ; preds = %if.then383
-  %ob_sval.i414 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre524, i64 0, i32 2
+  %ob_sval.i414 = getelementptr inbounds i8, ptr %.pre524, i64 32
   br label %if.end402
 
 if.else387:                                       ; preds = %land.lhs.true379, %if.end374
@@ -2670,7 +2665,7 @@ if.end402:                                        ; preds = %if.then395, %PyByte
   br i1 %cmp403, label %skip_optional, label %if.end405
 
 if.end405:                                        ; preds = %if.end402
-  %arrayidx406 = getelementptr ptr, ptr %args, i64 13
+  %arrayidx406 = getelementptr i8, ptr %args, i64 104
   %139 = load ptr, ptr %arrayidx406, align 8
   %140 = getelementptr i8, ptr %139, i64 8
   %.val126 = load ptr, ptr %140, align 8
@@ -2700,7 +2695,7 @@ cond.false.i431:                                  ; preds = %if.then414
   unreachable
 
 PyBytes_AS_STRING.exit432:                        ; preds = %if.then414
-  %ob_sval.i430 = getelementptr inbounds %struct.PyBytesObject, ptr %.pre528, i64 0, i32 2
+  %ob_sval.i430 = getelementptr inbounds i8, ptr %.pre528, i64 32
   br label %skip_optional.sink.split
 
 if.else418:                                       ; preds = %land.lhs.true410, %if.end405
@@ -2954,7 +2949,7 @@ if.else16:                                        ; preds = %if.else13
   br i1 %cmp20, label %skip_optional, label %if.end23
 
 if.end23:                                         ; preds = %if.else16
-  %arrayidx25 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx25 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx25, align 8
   %call26 = tail call i64 @PyLong_AsLong(ptr noundef %3) #9
   %cmp27 = icmp eq i64 %call26, -1
@@ -2989,7 +2984,7 @@ if.else41:                                        ; preds = %if.else37
   br i1 %cmp46, label %skip_optional, label %if.end49
 
 if.end49:                                         ; preds = %if.else41
-  %arrayidx51 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx51 = getelementptr i8, ptr %args, i64 16
   %6 = load ptr, ptr %arrayidx51, align 8
   %call52 = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %6) #9
   %cmp53 = icmp eq i64 %call52, -1
@@ -3253,7 +3248,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call25.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call25.i, i64 16
   %8 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %8, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -3263,8 +3258,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call25.i, i64 0, i32 1, i64 0
-  store ptr %call2.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call25.i, i64 24
+  store ptr %call2.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body32.i, %lor.lhs.false.i, %land.lhs.true7, %lor.lhs.false, %if.then15, %if.then12
@@ -3304,7 +3299,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx12, align 8
   %call13 = call i32 @_PyLong_UnsignedShort_Converter(ptr noundef %1, ptr noundef nonnull %b) #9
   %tobool14.not = icmp eq i32 %call13, 0
@@ -3315,7 +3310,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx20, align 8
   %call21 = call i64 @PyLong_AsUnsignedLongMask(ptr noundef %2) #9
   %conv229 = and i64 %call21, 65535
@@ -3344,10 +3339,10 @@ cond.false.i:                                     ; preds = %skip_optional
 cond.end.i:                                       ; preds = %skip_optional
   %conv.i = zext i16 %3 to i64
   store i64 %conv.i, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   %conv1.i = zext i16 %4 to i64
   store i64 %conv1.i, ptr %arrayinit.element.i, align 8
-  %arrayinit.element2.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %in.i, i64 16
   %conv3.i = and i64 %c.0, 65535
   store i64 %conv3.i, ptr %arrayinit.element2.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
@@ -3492,7 +3487,7 @@ if.end11:                                         ; preds = %land.lhs.true7, %if
   br i1 %cmp12, label %skip_optional, label %if.end14
 
 if.end14:                                         ; preds = %if.end11
-  %arrayidx15 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx15 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx15, align 8
   %call16 = tail call i32 @PyLong_AsInt(ptr noundef %1) #9
   %cmp17 = icmp eq i32 %call16, -1
@@ -3508,7 +3503,7 @@ if.end22:                                         ; preds = %land.lhs.true18, %i
   br i1 %cmp23, label %skip_optional, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
-  %arrayidx26 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx26 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx26, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %3, align 8
@@ -3523,7 +3518,7 @@ if.then30:                                        ; preds = %if.end25
   br label %exit
 
 PyUnicode_GET_LENGTH.exit:                        ; preds = %if.end25
-  %length.i = getelementptr inbounds %struct.PyASCIIObject, ptr %2, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %length.i, align 8
   %cmp35.not = icmp eq i64 %5, 1
   br i1 %cmp35.not, label %cond.end9.i, label %if.then36
@@ -3533,14 +3528,14 @@ if.then36:                                        ; preds = %PyUnicode_GET_LENGT
   br label %exit
 
 cond.end9.i:                                      ; preds = %PyUnicode_GET_LENGTH.exit
-  %state.i = getelementptr inbounds %struct.PyASCIIObject, ptr %2, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %2, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   switch i32 %bf.clear.i, label %cond.false22.i [
     i32 1, label %PyUnicode_IS_COMPACT.exit.i.i
     i32 2, label %PyUnicode_IS_COMPACT.exit.i16.i
-    i32 4, label %PyUnicode_IS_COMPACT.exit.i35.i
+    i32 4, label %PyUnicode_IS_COMPACT.exit.i34.i
   ]
 
 PyUnicode_IS_COMPACT.exit.i.i:                    ; preds = %cond.end9.i
@@ -3551,13 +3546,12 @@ PyUnicode_IS_COMPACT.exit.i.i:                    ; preds = %cond.end9.i
 _PyUnicode_COMPACT_DATA.exit.i.i:                 ; preds = %PyUnicode_IS_COMPACT.exit.i.i
   %7 = and i32 %bf.load.i, 64
   %tobool.not.i3.i.i = icmp eq i32 %7, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr10.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i3.i.i, ptr %add.ptr10.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i3.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 cond.end6.i.i.i:                                  ; preds = %PyUnicode_IS_COMPACT.exit.i.i
-  %data7.i.i.i = getelementptr inbounds %struct.PyUnicodeObject, ptr %2, i64 0, i32 1
+  %data7.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
   %8 = load ptr, ptr %data7.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i, label %cond.false9.i.i.i, label %PyUnicode_DATA.exit.i
@@ -3575,29 +3569,28 @@ PyUnicode_DATA.exit.i:                            ; preds = %cond.end6.i.i.i, %_
 PyUnicode_IS_COMPACT.exit.i16.i:                  ; preds = %cond.end9.i
   %10 = and i32 %bf.load.i, 32
   %tobool.not.i19.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i19.i, label %cond.end6.i.i26.i, label %_PyUnicode_COMPACT_DATA.exit.i20.i
+  br i1 %tobool.not.i19.i, label %cond.end6.i.i25.i, label %_PyUnicode_COMPACT_DATA.exit.i20.i
 
 _PyUnicode_COMPACT_DATA.exit.i20.i:               ; preds = %PyUnicode_IS_COMPACT.exit.i16.i
   %11 = and i32 %bf.load.i, 64
   %tobool.not.i3.i21.i = icmp eq i32 %11, 0
-  %add.ptr.i.i22.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr10.i.i23.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i24.i = select i1 %tobool.not.i3.i21.i, ptr %add.ptr10.i.i23.i, ptr %add.ptr.i.i22.i
-  br label %PyUnicode_DATA.exit31.i
+  %retval.0.v.i.i22.i = select i1 %tobool.not.i3.i21.i, i64 56, i64 40
+  %retval.0.i.i23.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i22.i
+  br label %PyUnicode_DATA.exit30.i
 
-cond.end6.i.i26.i:                                ; preds = %PyUnicode_IS_COMPACT.exit.i16.i
-  %data7.i.i27.i = getelementptr inbounds %struct.PyUnicodeObject, ptr %2, i64 0, i32 1
-  %12 = load ptr, ptr %data7.i.i27.i, align 8
-  %cmp.not.i.i28.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i28.i, label %cond.false9.i.i29.i, label %PyUnicode_DATA.exit31.i
+cond.end6.i.i25.i:                                ; preds = %PyUnicode_IS_COMPACT.exit.i16.i
+  %data7.i.i26.i = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = load ptr, ptr %data7.i.i26.i, align 8
+  %cmp.not.i.i27.i = icmp eq ptr %12, null
+  br i1 %cmp.not.i.i27.i, label %cond.false9.i.i28.i, label %PyUnicode_DATA.exit30.i
 
-cond.false9.i.i29.i:                              ; preds = %cond.end6.i.i26.i
+cond.false9.i.i28.i:                              ; preds = %cond.end6.i.i25.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.119, i32 noundef 257, ptr noundef nonnull @__PRETTY_FUNCTION__._PyUnicode_NONCOMPACT_DATA) #10
   unreachable
 
-PyUnicode_DATA.exit31.i:                          ; preds = %cond.end6.i.i26.i, %_PyUnicode_COMPACT_DATA.exit.i20.i
-  %retval.0.i25.i = phi ptr [ %retval.0.i.i24.i, %_PyUnicode_COMPACT_DATA.exit.i20.i ], [ %12, %cond.end6.i.i26.i ]
-  %13 = load i16, ptr %retval.0.i25.i, align 2
+PyUnicode_DATA.exit30.i:                          ; preds = %cond.end6.i.i25.i, %_PyUnicode_COMPACT_DATA.exit.i20.i
+  %retval.0.i24.i = phi ptr [ %retval.0.i.i23.i, %_PyUnicode_COMPACT_DATA.exit.i20.i ], [ %12, %cond.end6.i.i25.i ]
+  %13 = load i16, ptr %retval.0.i24.i, align 2
   %conv17.i = zext i16 %13 to i32
   br label %skip_optional
 
@@ -3605,38 +3598,37 @@ cond.false22.i:                                   ; preds = %cond.end9.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.119, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__.PyUnicode_READ_CHAR) #10
   unreachable
 
-PyUnicode_IS_COMPACT.exit.i35.i:                  ; preds = %cond.end9.i
+PyUnicode_IS_COMPACT.exit.i34.i:                  ; preds = %cond.end9.i
   %14 = and i32 %bf.load.i, 32
-  %tobool.not.i38.i = icmp eq i32 %14, 0
-  br i1 %tobool.not.i38.i, label %cond.end6.i.i45.i, label %_PyUnicode_COMPACT_DATA.exit.i39.i
+  %tobool.not.i37.i = icmp eq i32 %14, 0
+  br i1 %tobool.not.i37.i, label %cond.end6.i.i43.i, label %_PyUnicode_COMPACT_DATA.exit.i38.i
 
-_PyUnicode_COMPACT_DATA.exit.i39.i:               ; preds = %PyUnicode_IS_COMPACT.exit.i35.i
+_PyUnicode_COMPACT_DATA.exit.i38.i:               ; preds = %PyUnicode_IS_COMPACT.exit.i34.i
   %15 = and i32 %bf.load.i, 64
-  %tobool.not.i3.i40.i = icmp eq i32 %15, 0
-  %add.ptr.i.i41.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr10.i.i42.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i43.i = select i1 %tobool.not.i3.i40.i, ptr %add.ptr10.i.i42.i, ptr %add.ptr.i.i41.i
-  br label %PyUnicode_DATA.exit50.i
+  %tobool.not.i3.i39.i = icmp eq i32 %15, 0
+  %retval.0.v.i.i40.i = select i1 %tobool.not.i3.i39.i, i64 56, i64 40
+  %retval.0.i.i41.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i40.i
+  br label %PyUnicode_DATA.exit48.i
 
-cond.end6.i.i45.i:                                ; preds = %PyUnicode_IS_COMPACT.exit.i35.i
-  %data7.i.i46.i = getelementptr inbounds %struct.PyUnicodeObject, ptr %2, i64 0, i32 1
-  %16 = load ptr, ptr %data7.i.i46.i, align 8
-  %cmp.not.i.i47.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i47.i, label %cond.false9.i.i48.i, label %PyUnicode_DATA.exit50.i
+cond.end6.i.i43.i:                                ; preds = %PyUnicode_IS_COMPACT.exit.i34.i
+  %data7.i.i44.i = getelementptr inbounds i8, ptr %2, i64 56
+  %16 = load ptr, ptr %data7.i.i44.i, align 8
+  %cmp.not.i.i45.i = icmp eq ptr %16, null
+  br i1 %cmp.not.i.i45.i, label %cond.false9.i.i46.i, label %PyUnicode_DATA.exit48.i
 
-cond.false9.i.i48.i:                              ; preds = %cond.end6.i.i45.i
+cond.false9.i.i46.i:                              ; preds = %cond.end6.i.i43.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.119, i32 noundef 257, ptr noundef nonnull @__PRETTY_FUNCTION__._PyUnicode_NONCOMPACT_DATA) #10
   unreachable
 
-PyUnicode_DATA.exit50.i:                          ; preds = %cond.end6.i.i45.i, %_PyUnicode_COMPACT_DATA.exit.i39.i
-  %retval.0.i44.i = phi ptr [ %retval.0.i.i43.i, %_PyUnicode_COMPACT_DATA.exit.i39.i ], [ %16, %cond.end6.i.i45.i ]
-  %17 = load i32, ptr %retval.0.i44.i, align 4
+PyUnicode_DATA.exit48.i:                          ; preds = %cond.end6.i.i43.i, %_PyUnicode_COMPACT_DATA.exit.i38.i
+  %retval.0.i42.i = phi ptr [ %retval.0.i.i41.i, %_PyUnicode_COMPACT_DATA.exit.i38.i ], [ %16, %cond.end6.i.i43.i ]
+  %17 = load i32, ptr %retval.0.i42.i, align 4
   br label %skip_optional
 
-skip_optional:                                    ; preds = %PyUnicode_DATA.exit50.i, %PyUnicode_DATA.exit31.i, %PyUnicode_DATA.exit.i, %if.end22, %if.end11, %if.end
-  %a.0 = phi i32 [ 12, %if.end ], [ %call5, %if.end11 ], [ %call5, %if.end22 ], [ %call5, %PyUnicode_DATA.exit.i ], [ %call5, %PyUnicode_DATA.exit31.i ], [ %call5, %PyUnicode_DATA.exit50.i ]
-  %b.0 = phi i32 [ 34, %if.end ], [ 34, %if.end11 ], [ %call16, %if.end22 ], [ %call16, %PyUnicode_DATA.exit.i ], [ %call16, %PyUnicode_DATA.exit31.i ], [ %call16, %PyUnicode_DATA.exit50.i ]
-  %c.0 = phi i32 [ 45, %if.end ], [ 45, %if.end11 ], [ 45, %if.end22 ], [ %conv.i14, %PyUnicode_DATA.exit.i ], [ %conv17.i, %PyUnicode_DATA.exit31.i ], [ %17, %PyUnicode_DATA.exit50.i ]
+skip_optional:                                    ; preds = %PyUnicode_DATA.exit48.i, %PyUnicode_DATA.exit30.i, %PyUnicode_DATA.exit.i, %if.end22, %if.end11, %if.end
+  %a.0 = phi i32 [ 12, %if.end ], [ %call5, %if.end11 ], [ %call5, %if.end22 ], [ %call5, %PyUnicode_DATA.exit.i ], [ %call5, %PyUnicode_DATA.exit30.i ], [ %call5, %PyUnicode_DATA.exit48.i ]
+  %b.0 = phi i32 [ 34, %if.end ], [ 34, %if.end11 ], [ %call16, %if.end22 ], [ %call16, %PyUnicode_DATA.exit.i ], [ %call16, %PyUnicode_DATA.exit30.i ], [ %call16, %PyUnicode_DATA.exit48.i ]
+  %c.0 = phi i32 [ 45, %if.end ], [ 45, %if.end11 ], [ 45, %if.end22 ], [ %conv.i14, %PyUnicode_DATA.exit.i ], [ %conv17.i, %PyUnicode_DATA.exit30.i ], [ %17, %PyUnicode_DATA.exit48.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %out.i)
   %call.i = tail call ptr @PyErr_Occurred() #9
@@ -3650,10 +3642,10 @@ cond.false.i16:                                   ; preds = %skip_optional
 cond.end.i:                                       ; preds = %skip_optional
   %conv.i17 = sext i32 %a.0 to i64
   store i64 %conv.i17, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   %conv1.i = sext i32 %b.0 to i64
   store i64 %conv1.i, ptr %arrayinit.element.i, align 8
-  %arrayinit.element2.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %in.i, i64 16
   %conv3.i = sext i32 %c.0 to i64
   store i64 %conv3.i, ptr %arrayinit.element2.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
@@ -3797,7 +3789,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx12, align 8
   %call13 = call i32 @_PyLong_UnsignedInt_Converter(ptr noundef %1, ptr noundef nonnull %b) #9
   %tobool14.not = icmp eq i32 %call13, 0
@@ -3808,7 +3800,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx20, align 8
   %call21 = call i64 @PyLong_AsUnsignedLongMask(ptr noundef %2) #9
   %3 = and i64 %call21, 4294967295
@@ -3837,10 +3829,10 @@ cond.false.i:                                     ; preds = %skip_optional
 cond.end.i:                                       ; preds = %skip_optional
   %conv.i = zext i32 %4 to i64
   store i64 %conv.i, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   %conv1.i = zext i32 %5 to i64
   store i64 %conv1.i, ptr %arrayinit.element.i, align 8
-  %arrayinit.element2.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %in.i, i64 16
   %conv3.i = and i64 %c.0, 4294967295
   store i64 %conv3.i, ptr %arrayinit.element2.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
@@ -4053,7 +4045,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call23.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call23.i, i64 16
   %6 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %6, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -4063,8 +4055,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call23.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call23.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body29.i, %lor.lhs.false.i, %land.lhs.true7, %lor.lhs.false
@@ -4104,7 +4096,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx12, align 8
   %call13 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef %1, ptr noundef nonnull %b) #9
   %tobool14.not = icmp eq i32 %call13, 0
@@ -4115,7 +4107,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx20, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %3, align 8
@@ -4149,9 +4141,9 @@ cond.false.i:                                     ; preds = %skip_optional
 
 cond.end.i:                                       ; preds = %skip_optional
   store i64 %6, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store i64 %7, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i64 %c.0, ptr %arrayinit.element1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
   br label %for.body.i
@@ -4363,7 +4355,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call23.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call23.i, i64 16
   %6 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %6, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -4373,8 +4365,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call23.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call23.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body29.i, %lor.lhs.false.i, %land.lhs.true7, %lor.lhs.false
@@ -4414,7 +4406,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx12, align 8
   %call13 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef %1, ptr noundef nonnull %b) #9
   %tobool14.not = icmp eq i32 %call13, 0
@@ -4425,7 +4417,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx20, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %3, align 8
@@ -4459,9 +4451,9 @@ cond.false.i:                                     ; preds = %skip_optional
 
 cond.end.i:                                       ; preds = %skip_optional
   store i64 %6, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store i64 %7, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i64 %c.0, ptr %arrayinit.element1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
   br label %for.body.i
@@ -4629,7 +4621,7 @@ if.end15:                                         ; preds = %land.lhs.true11, %i
   br i1 %cmp16, label %skip_optional, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %arrayidx21 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx21 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx21, align 8
   %call22 = tail call ptr @_PyNumber_Index(ptr noundef %3) #9
   %cmp23.not = icmp eq ptr %call22, null
@@ -4667,7 +4659,7 @@ if.end32:                                         ; preds = %land.lhs.true28, %i
   br i1 %cmp33, label %skip_optional, label %if.end35
 
 if.end35:                                         ; preds = %if.end32
-  %arrayidx36 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx36 = getelementptr i8, ptr %args, i64 16
   %6 = load ptr, ptr %arrayidx36, align 8
   %call37 = call i32 @_Py_convert_optional_to_ssize_t(ptr noundef %6, ptr noundef nonnull %c) #9
   %tobool38.not = icmp eq i32 %call37, 0
@@ -4693,9 +4685,9 @@ cond.false.i:                                     ; preds = %skip_optional
 
 cond.end.i:                                       ; preds = %skip_optional
   store i64 %a.0, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store i64 %b.0, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i64 %7, ptr %arrayinit.element1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
   br label %for.body.i
@@ -4840,7 +4832,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx12, align 8
   %call13 = call i32 @_PyEval_SliceIndexNotNone(ptr noundef %1, ptr noundef nonnull %b) #9
   %tobool14.not = icmp eq i32 %call13, 0
@@ -4851,7 +4843,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx20, align 8
   %call21 = call i32 @_PyEval_SliceIndex(ptr noundef %2, ptr noundef nonnull %c) #9
   %tobool22.not = icmp eq i32 %call21, 0
@@ -4877,9 +4869,9 @@ cond.false.i:                                     ; preds = %skip_optional
 
 cond.end.i:                                       ; preds = %skip_optional
   store i64 %4, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store i64 %5, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i64, ptr %in.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i64 %3, ptr %arrayinit.element1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
   br label %for.body.i
@@ -5092,7 +5084,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call23.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call23.i, i64 16
   %7 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %7, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -5102,8 +5094,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call23.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call23.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body29.i, %lor.lhs.false.i, %if.end4, %lor.lhs.false
@@ -5134,7 +5126,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %PyFloat_AS_DOUBLE.exit, label %if.else
 
 PyFloat_AS_DOUBLE.exit:                           ; preds = %if.end4
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %0, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load double, ptr %ob_fval.i, align 8
   %conv = fptrunc double %2 to float
   br label %skip_optional
@@ -5226,7 +5218,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call25.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call25.i, i64 16
   %8 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %8, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -5236,8 +5228,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call25.i, i64 0, i32 1, i64 0
-  store ptr %call2.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call25.i, i64 24
+  store ptr %call2.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body32.i, %lor.lhs.false.i, %land.lhs.true16, %lor.lhs.false
@@ -5268,7 +5260,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %PyFloat_AS_DOUBLE.exit, label %if.else
 
 PyFloat_AS_DOUBLE.exit:                           ; preds = %if.end4
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %0, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load double, ptr %ob_fval.i, align 8
   br label %skip_optional
 
@@ -5357,7 +5349,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call23.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call23.i, i64 16
   %8 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %8, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -5367,8 +5359,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call23.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call23.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body29.i, %lor.lhs.false.i, %land.lhs.true13, %lor.lhs.false
@@ -5460,7 +5452,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i.i
   unreachable
 
 Py_SIZE.exit.i.i:                                 ; preds = %cond.end.i.i.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call23.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call23.i, i64 16
   %7 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp6.i.i = icmp sgt i64 %7, 0
   br i1 %cmp6.i.i, label %PyTuple_SET_ITEM.exit.i, label %cond.false8.i.i
@@ -5470,8 +5462,8 @@ cond.false8.i.i:                                  ; preds = %Py_SIZE.exit.i.i
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call23.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call23.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %PyTuple_SET_ITEM.exit.i, %if.then1.i.i, %if.end.i.i, %for.body29.i, %lor.lhs.false.i, %entry
@@ -5539,7 +5531,7 @@ cond.false15.i:                                   ; preds = %lor.lhs.false11.i
   unreachable
 
 if.end19.i:                                       ; preds = %if.end.i
-  %arrayidx22.i = getelementptr inbounds [3 x ptr], ptr %out.i, i64 0, i64 1
+  %arrayidx22.i = getelementptr inbounds i8, ptr %out.i, i64 8
   store ptr %call9.i, ptr %arrayidx22.i, align 8
   %call23.i = call ptr @PyUnicode_FromStringAndSize(ptr noundef %2, i64 noundef %3) #9
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -5555,7 +5547,7 @@ cond.false29.i:                                   ; preds = %lor.lhs.false25.i
   unreachable
 
 if.end33.i:                                       ; preds = %if.end19.i
-  %arrayidx36.i = getelementptr inbounds [3 x ptr], ptr %out.i, i64 0, i64 2
+  %arrayidx36.i = getelementptr inbounds i8, ptr %out.i, i64 16
   store ptr %call23.i, ptr %arrayidx36.i, align 16
   %call37.i = call ptr @PyTuple_New(i64 noundef 3) #9
   %tobool38.not.i = icmp eq ptr %call37.i, null
@@ -5668,7 +5660,7 @@ cond.false15.i:                                   ; preds = %lor.lhs.false11.i
   unreachable
 
 if.end19.i:                                       ; preds = %if.end.i
-  %arrayidx22.i = getelementptr inbounds [3 x ptr], ptr %out.i, i64 0, i64 1
+  %arrayidx22.i = getelementptr inbounds i8, ptr %out.i, i64 8
   store ptr %call9.i, ptr %arrayidx22.i, align 8
   %call23.i = call ptr @PyUnicode_FromStringAndSize(ptr noundef %2, i64 noundef %3) #9
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -5684,7 +5676,7 @@ cond.false29.i:                                   ; preds = %lor.lhs.false25.i
   unreachable
 
 if.end33.i:                                       ; preds = %if.end19.i
-  %arrayidx36.i = getelementptr inbounds [3 x ptr], ptr %out.i, i64 0, i64 2
+  %arrayidx36.i = getelementptr inbounds i8, ptr %out.i, i64 16
   store ptr %call23.i, ptr %arrayidx36.i, align 16
   %call37.i = call ptr @PyTuple_New(i64 noundef 3) #9
   %tobool38.not.i = icmp eq ptr %call37.i, null
@@ -5769,7 +5761,7 @@ cond.false.i:                                     ; preds = %if.end
 
 cond.end.i:                                       ; preds = %if.end
   store ptr %a, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %in.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store ptr %b, ptr %arrayinit.element.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %out.i, i8 0, i64 16, i1 false)
   br label %for.body.i
@@ -5779,14 +5771,14 @@ for.body.i:                                       ; preds = %for.inc20.i, %cond.
   %indvars.iv.i = phi i64 [ 0, %cond.end.i ], [ 1, %for.inc20.i ]
   %arrayidx.i = getelementptr [2 x ptr], ptr %in.i, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %len.i.i = getelementptr inbounds %struct.Py_buffer, ptr %0, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %len.i.i, align 8
   %call.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %1) #9
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %lor.lhs.false.i, label %if.end.i20.i
 
 if.end.i20.i:                                     ; preds = %for.body.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %2 = load i64, ptr %len.i.i, align 8
   %call2.i.i = call i32 @PyBuffer_ToContiguous(ptr noundef nonnull %ob_sval.i.i, ptr noundef nonnull %0, i64 noundef %2, i8 noundef signext 67) #9
   %cmp.i21.i = icmp slt i32 %call2.i.i, 0
@@ -5875,7 +5867,7 @@ for.inc32.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body39.i:                                     ; preds = %for.end22.i
   %11 = load ptr, ptr %out.i, align 16
   call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 0, ptr noundef %11)
-  %arrayidx41.i.c = getelementptr inbounds [2 x ptr], ptr %out.i, i64 0, i64 1
+  %arrayidx41.i.c = getelementptr inbounds i8, ptr %out.i, i64 8
   %12 = load ptr, ptr %arrayidx41.i.c, align 8
   call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 1, ptr noundef %12)
   br label %py_buffer_converter_impl.exit
@@ -5888,7 +5880,7 @@ py_buffer_converter_impl.exit:                    ; preds = %for.inc32.i, %for.b
 
 exit:                                             ; preds = %entry, %py_buffer_converter_impl.exit
   %return_value.0 = phi ptr [ %retval.0.i, %py_buffer_converter_impl.exit ], [ null, %entry ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %a, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %a, i64 8
   %13 = load ptr, ptr %obj, align 8
   %tobool2.not = icmp eq ptr %13, null
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -5898,7 +5890,7 @@ if.then3:                                         ; preds = %exit
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %exit
-  %obj5 = getelementptr inbounds %struct.Py_buffer, ptr %b, i64 0, i32 1
+  %obj5 = getelementptr inbounds i8, ptr %b, i64 8
   %14 = load ptr, ptr %obj5, align 8
   %tobool6.not = icmp eq ptr %14, null
   br i1 %tobool6.not, label %if.end8, label %if.then7
@@ -5930,7 +5922,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond13 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond13, align 8
-  %arrayidx6 = getelementptr ptr, ptr %cond13, i64 1
+  %arrayidx6 = getelementptr i8, ptr %cond13, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 2, ptr noundef %1, ptr noundef %2)
   br label %exit
@@ -5950,7 +5942,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %arrayidx1 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx1 = getelementptr i8, ptr %call, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 2, ptr noundef %0, ptr noundef %1)
   br label %exit
@@ -5997,7 +5989,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 cond.end.thread:                                  ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %add18 = add i64 %3, %nargs
   br label %cond.end9
@@ -6023,7 +6015,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1028, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1028, i64 8
   %8 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %8, null
   br i1 %tobool16.not, label %if.end22, label %if.then17
@@ -6034,7 +6026,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.end22:                                         ; preds = %if.then17, %if.end14
   %b.0 = phi ptr [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
-  %arrayidx23 = getelementptr ptr, ptr %cond1028, i64 2
+  %arrayidx23 = getelementptr i8, ptr %cond1028, i64 16
   %9 = load ptr, ptr %arrayidx23, align 8
   br label %skip_optional_pos
 
@@ -6086,7 +6078,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6113,7 +6105,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1025, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1025, i64 8
   %8 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %8, null
   br i1 %tobool16.not, label %if.end25, label %skip_optional_pos
@@ -6126,7 +6118,7 @@ skip_optional_pos:                                ; preds = %if.end14
 if.end25:                                         ; preds = %if.end14, %skip_optional_pos
   %b.035 = phi ptr [ %8, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end14 ]
   %noptargs.034 = phi i64 [ %dec, %skip_optional_pos ], [ %sub, %if.end14 ]
-  %arrayidx26 = getelementptr ptr, ptr %cond1025, i64 2
+  %arrayidx26 = getelementptr i8, ptr %cond1025, i64 16
   %9 = load ptr, ptr %arrayidx26, align 8
   %tobool27.not = icmp eq ptr %9, null
   br i1 %tobool27.not, label %if.end34, label %if.then28
@@ -6137,7 +6129,7 @@ if.then28:                                        ; preds = %if.end25
 
 if.end34:                                         ; preds = %if.then28, %if.end25
   %c.0 = phi ptr [ %9, %if.then28 ], [ @_Py_NoneStruct, %if.end25 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1025, i64 3
+  %arrayidx35 = getelementptr i8, ptr %cond1025, i64 24
   %10 = load ptr, ptr %arrayidx35, align 8
   br label %skip_optional_kwonly
 
@@ -6190,7 +6182,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 cond.end.thread:                                  ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %add18 = add i64 %3, %nargs
   br label %cond.end9
@@ -6217,7 +6209,7 @@ if.end:                                           ; preds = %cond.end9
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %call8, i64 1
+  %arrayidx15 = getelementptr i8, ptr %call8, i64 8
   %8 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %8, null
   br i1 %tobool16.not, label %if.end22, label %if.then17
@@ -6228,7 +6220,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.end22:                                         ; preds = %if.then17, %if.end14
   %b.0 = phi ptr [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
-  %arrayidx23 = getelementptr ptr, ptr %call8, i64 2
+  %arrayidx23 = getelementptr i8, ptr %call8, i64 16
   %9 = load ptr, ptr %arrayidx23, align 8
   br label %skip_optional_kwonly
 
@@ -6263,7 +6255,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond13 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond13, align 8
-  %arrayidx6 = getelementptr ptr, ptr %cond13, i64 1
+  %arrayidx6 = getelementptr i8, ptr %cond13, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 2, ptr noundef %1, ptr noundef %2)
   br label %exit
@@ -6283,7 +6275,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %arrayidx1 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx1 = getelementptr i8, ptr %call, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 2, ptr noundef %0, ptr noundef %1)
   br label %exit
@@ -6303,9 +6295,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %arrayidx1 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx1 = getelementptr i8, ptr %call, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
-  %arrayidx2 = getelementptr ptr, ptr %call, i64 2
+  %arrayidx2 = getelementptr i8, ptr %call, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %exit
@@ -6352,7 +6344,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 cond.end.thread:                                  ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %add19 = add i64 %3, %nargs
   br label %cond.end9
@@ -6374,13 +6366,13 @@ if.end:                                           ; preds = %cond.end, %cond.end
   %cond1029 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2428 = phi i64 [ %add23, %cond.end9 ], [ %nargs, %cond.end ]
   %7 = load ptr, ptr %cond1029, align 8
-  %arrayidx12 = getelementptr ptr, ptr %cond1029, i64 1
+  %arrayidx12 = getelementptr i8, ptr %cond1029, i64 8
   %8 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq i64 %add2428, 2
   br i1 %tobool13.not, label %skip_optional_pos, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr ptr, ptr %cond1029, i64 2
+  %arrayidx16 = getelementptr i8, ptr %cond1029, i64 16
   %9 = load ptr, ptr %arrayidx16, align 8
   %tobool17.not = icmp eq ptr %9, null
   br i1 %tobool17.not, label %if.end23, label %if.then18
@@ -6391,7 +6383,7 @@ if.then18:                                        ; preds = %if.end15
 
 if.end23:                                         ; preds = %if.then18, %if.end15
   %c.0 = phi ptr [ %9, %if.then18 ], [ @_Py_NoneStruct, %if.end15 ]
-  %arrayidx24 = getelementptr ptr, ptr %cond1029, i64 3
+  %arrayidx24 = getelementptr i8, ptr %cond1029, i64 24
   %10 = load ptr, ptr %arrayidx24, align 8
   br label %skip_optional_pos
 
@@ -6443,7 +6435,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6471,7 +6463,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %dec = add i64 %add, -2
-  %arrayidx15 = getelementptr ptr, ptr %cond1022, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1022, i64 8
   %8 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_posonly
 
@@ -6482,7 +6474,7 @@ skip_optional_posonly:                            ; preds = %if.end, %if.end14
   br i1 %tobool16.not, label %skip_optional_pos, label %if.end18
 
 if.end18:                                         ; preds = %skip_optional_posonly
-  %arrayidx19 = getelementptr ptr, ptr %cond1022, i64 2
+  %arrayidx19 = getelementptr i8, ptr %cond1022, i64 16
   %9 = load ptr, ptr %arrayidx19, align 8
   %tobool20.not = icmp eq ptr %9, null
   br i1 %tobool20.not, label %if.end27, label %if.then21
@@ -6493,7 +6485,7 @@ if.then21:                                        ; preds = %if.end18
 
 if.end27:                                         ; preds = %if.then21, %if.end18
   %c.0 = phi ptr [ %9, %if.then21 ], [ @_Py_NoneStruct, %if.end18 ]
-  %arrayidx28 = getelementptr ptr, ptr %cond1022, i64 3
+  %arrayidx28 = getelementptr i8, ptr %cond1022, i64 24
   %10 = load ptr, ptr %arrayidx28, align 8
   br label %skip_optional_pos
 
@@ -6545,7 +6537,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6558,13 +6550,13 @@ cond.end:                                         ; preds = %entry, %PyTuple_GET
 
 if.end:                                           ; preds = %cond.end
   %4 = load ptr, ptr %call1, align 8
-  %arrayidx3 = getelementptr ptr, ptr %call1, i64 1
+  %arrayidx3 = getelementptr i8, ptr %call1, i64 8
   %5 = load ptr, ptr %arrayidx3, align 8
   %tobool4.not = icmp eq i64 %add, 2
   br i1 %tobool4.not, label %skip_optional_kwonly, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %arrayidx7 = getelementptr ptr, ptr %call1, i64 2
+  %arrayidx7 = getelementptr i8, ptr %call1, i64 16
   %6 = load ptr, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq ptr %6, null
   br i1 %tobool8.not, label %if.end14, label %if.then9
@@ -6575,7 +6567,7 @@ if.then9:                                         ; preds = %if.end6
 
 if.end14:                                         ; preds = %if.then9, %if.end6
   %c.0 = phi ptr [ %6, %if.then9 ], [ @_Py_NoneStruct, %if.end6 ]
-  %arrayidx15 = getelementptr ptr, ptr %call1, i64 3
+  %arrayidx15 = getelementptr i8, ptr %call1, i64 24
   %7 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_kwonly
 
@@ -6627,7 +6619,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6655,7 +6647,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %dec = add i64 %add, -2
-  %arrayidx15 = getelementptr ptr, ptr %cond1022, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1022, i64 8
   %8 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_posonly
 
@@ -6666,7 +6658,7 @@ skip_optional_posonly:                            ; preds = %if.end, %if.end14
   br i1 %tobool16.not, label %skip_optional_kwonly, label %if.end18
 
 if.end18:                                         ; preds = %skip_optional_posonly
-  %arrayidx19 = getelementptr ptr, ptr %cond1022, i64 2
+  %arrayidx19 = getelementptr i8, ptr %cond1022, i64 16
   %9 = load ptr, ptr %arrayidx19, align 8
   %tobool20.not = icmp eq ptr %9, null
   br i1 %tobool20.not, label %if.end27, label %if.then21
@@ -6677,7 +6669,7 @@ if.then21:                                        ; preds = %if.end18
 
 if.end27:                                         ; preds = %if.then21, %if.end18
   %c.0 = phi ptr [ %9, %if.then21 ], [ @_Py_NoneStruct, %if.end18 ]
-  %arrayidx28 = getelementptr ptr, ptr %cond1022, i64 3
+  %arrayidx28 = getelementptr i8, ptr %cond1022, i64 24
   %10 = load ptr, ptr %arrayidx28, align 8
   br label %skip_optional_kwonly
 
@@ -6729,7 +6721,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6742,15 +6734,15 @@ cond.end:                                         ; preds = %entry, %PyTuple_GET
 
 if.end:                                           ; preds = %cond.end
   %4 = load ptr, ptr %call1, align 8
-  %arrayidx3 = getelementptr ptr, ptr %call1, i64 1
+  %arrayidx3 = getelementptr i8, ptr %call1, i64 8
   %5 = load ptr, ptr %arrayidx3, align 8
-  %arrayidx4 = getelementptr ptr, ptr %call1, i64 2
+  %arrayidx4 = getelementptr i8, ptr %call1, i64 16
   %6 = load ptr, ptr %arrayidx4, align 8
   %tobool5.not = icmp eq i64 %add, 3
   br i1 %tobool5.not, label %skip_optional_kwonly, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx8 = getelementptr ptr, ptr %call1, i64 3
+  %arrayidx8 = getelementptr i8, ptr %call1, i64 24
   %7 = load ptr, ptr %arrayidx8, align 8
   %tobool9.not = icmp eq ptr %7, null
   br i1 %tobool9.not, label %if.end15, label %if.then10
@@ -6761,7 +6753,7 @@ if.then10:                                        ; preds = %if.end7
 
 if.end15:                                         ; preds = %if.then10, %if.end7
   %d.0 = phi ptr [ %7, %if.then10 ], [ @_Py_NoneStruct, %if.end7 ]
-  %arrayidx16 = getelementptr ptr, ptr %call1, i64 4
+  %arrayidx16 = getelementptr i8, ptr %call1, i64 32
   %8 = load ptr, ptr %arrayidx16, align 8
   br label %skip_optional_kwonly
 
@@ -6813,7 +6805,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6836,13 +6828,13 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1026 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %7 = load ptr, ptr %cond1026, align 8
-  %arrayidx12 = getelementptr ptr, ptr %cond1026, i64 1
+  %arrayidx12 = getelementptr i8, ptr %cond1026, i64 8
   %8 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq i64 %sub, 0
   br i1 %tobool13.not, label %skip_optional_kwonly, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr ptr, ptr %cond1026, i64 2
+  %arrayidx16 = getelementptr i8, ptr %cond1026, i64 16
   %9 = load ptr, ptr %arrayidx16, align 8
   %tobool17.not = icmp eq ptr %9, null
   br i1 %tobool17.not, label %if.end26, label %skip_optional_pos
@@ -6855,7 +6847,7 @@ skip_optional_pos:                                ; preds = %if.end15
 if.end26:                                         ; preds = %if.end15, %skip_optional_pos
   %c.036 = phi ptr [ %9, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end15 ]
   %noptargs.035 = phi i64 [ %dec, %skip_optional_pos ], [ %sub, %if.end15 ]
-  %arrayidx27 = getelementptr ptr, ptr %cond1026, i64 3
+  %arrayidx27 = getelementptr i8, ptr %cond1026, i64 24
   %10 = load ptr, ptr %arrayidx27, align 8
   %tobool28.not = icmp eq ptr %10, null
   br i1 %tobool28.not, label %if.end35, label %if.then29
@@ -6866,7 +6858,7 @@ if.then29:                                        ; preds = %if.end26
 
 if.end35:                                         ; preds = %if.then29, %if.end26
   %d.0 = phi ptr [ %10, %if.then29 ], [ @_Py_NoneStruct, %if.end26 ]
-  %arrayidx36 = getelementptr ptr, ptr %cond1026, i64 4
+  %arrayidx36 = getelementptr i8, ptr %cond1026, i64 32
   %11 = load ptr, ptr %arrayidx36, align 8
   br label %skip_optional_kwonly
 
@@ -6919,7 +6911,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end
 
@@ -6947,7 +6939,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %dec = add i64 %add, -2
-  %arrayidx15 = getelementptr ptr, ptr %cond1024, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1024, i64 8
   %8 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_posonly
 
@@ -6958,7 +6950,7 @@ skip_optional_posonly:                            ; preds = %if.end, %if.end14
   br i1 %tobool16.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %skip_optional_posonly
-  %arrayidx19 = getelementptr ptr, ptr %cond1024, i64 2
+  %arrayidx19 = getelementptr i8, ptr %cond1024, i64 16
   %9 = load ptr, ptr %arrayidx19, align 8
   %tobool20.not = icmp ne ptr %9, null
   %10 = icmp eq i64 %noptargs.0, 1
@@ -6967,7 +6959,7 @@ skip_optional_pos:                                ; preds = %skip_optional_poson
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end30
 
 if.end30:                                         ; preds = %skip_optional_pos
-  %arrayidx31 = getelementptr ptr, ptr %cond1024, i64 3
+  %arrayidx31 = getelementptr i8, ptr %cond1024, i64 24
   %11 = load ptr, ptr %arrayidx31, align 8
   br label %skip_optional_kwonly
 
@@ -7010,9 +7002,9 @@ entry:
 
 exit:                                             ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %arrayidx1 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx1 = getelementptr i8, ptr %call, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
-  %arrayidx2 = getelementptr ptr, ptr %call, i64 2
+  %arrayidx2 = getelementptr i8, ptr %call, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %cmp.not.i = icmp eq ptr %2, null
@@ -7108,7 +7100,7 @@ entry:
 
 exit:                                             ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %arrayidx1 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx1 = getelementptr i8, ptr %call, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
   %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 2, ptr noundef %0, ptr noundef %1)
   %cmp.not.i = icmp eq ptr %1, null
@@ -7173,7 +7165,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end3
 
@@ -7186,13 +7178,13 @@ cond.end3:                                        ; preds = %entry, %PyTuple_GET
 if.end:                                           ; preds = %cond.end3
   %add = add i64 %cond4, %cond
   %4 = load ptr, ptr %call5, align 8
-  %arrayidx7 = getelementptr ptr, ptr %call5, i64 1
+  %arrayidx7 = getelementptr i8, ptr %call5, i64 8
   %5 = load ptr, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq i64 %add, 1
   br i1 %tobool8.not, label %skip_optional_kwonly.thread, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %arrayidx11 = getelementptr ptr, ptr %call5, i64 2
+  %arrayidx11 = getelementptr i8, ptr %call5, i64 16
   %6 = load ptr, ptr %arrayidx11, align 8
   %call12 = call i32 @PyObject_IsTrue(ptr noundef %6) #9
   %call12.fr = freeze i32 %call12
@@ -7274,7 +7266,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 cond.end:                                         ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %call1 = call ptr @_PyArg_UnpackKeywordsWithVararg(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef nonnull %kwnames, ptr noundef nonnull @vararg_with_only_defaults._parser, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool2.not = icmp eq ptr %call1, null
@@ -7295,7 +7287,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %5, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %call1, i64 1
+  %arrayidx6 = getelementptr i8, ptr %call1, i64 8
   %7 = load ptr, ptr %arrayidx6, align 8
   br label %exit
 
@@ -7369,7 +7361,7 @@ cond.end3:                                        ; preds = %cond.end.i.i, %entr
   br i1 %tobool6.not, label %Py_XDECREF.exit, label %if.end
 
 if.end:                                           ; preds = %cond.end3
-  %arrayidx8 = getelementptr ptr, ptr %call5, i64 2
+  %arrayidx8 = getelementptr i8, ptr %call5, i64 16
   %3 = load ptr, ptr %arrayidx8, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -7437,7 +7429,7 @@ cond.end3:                                        ; preds = %cond.end.i.i, %entr
   br i1 %tobool6.not, label %Py_XDECREF.exit, label %if.end
 
 if.end:                                           ; preds = %cond.end3
-  %arrayidx7 = getelementptr ptr, ptr %call5, i64 1
+  %arrayidx7 = getelementptr i8, ptr %call5, i64 8
   %3 = load ptr, ptr %arrayidx7, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -7580,7 +7572,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   br label %cond.end3
 
@@ -7593,13 +7585,13 @@ cond.end3:                                        ; preds = %entry, %PyTuple_GET
 if.end:                                           ; preds = %cond.end3
   %add = add i64 %cond4, %cond
   %4 = load ptr, ptr %call5, align 8
-  %arrayidx7 = getelementptr ptr, ptr %call5, i64 1
+  %arrayidx7 = getelementptr i8, ptr %call5, i64 8
   %5 = load ptr, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq i64 %add, 1
   br i1 %tobool8.not, label %skip_optional_kwonly, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %arrayidx11 = getelementptr ptr, ptr %call5, i64 2
+  %arrayidx11 = getelementptr i8, ptr %call5, i64 16
   %6 = load ptr, ptr %arrayidx11, align 8
   %call12 = call i32 @PyObject_IsTrue(ptr noundef %6) #9
   %cmp13 = icmp slt i32 %call12, 0
@@ -8386,7 +8378,7 @@ cond.false4.i.i27:                                ; preds = %cond.end.i.i24
   unreachable
 
 PyTuple_GET_SIZE.exit30:                          ; preds = %cond.end.i.i24
-  %ob_size.i.i26 = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i26 = getelementptr inbounds i8, ptr %kwnames, i64 16
   %8 = load i64, ptr %ob_size.i.i26, align 8
   %tobool15 = icmp ne i64 %8, 0
   %cmp17 = icmp slt i64 %nargs, 2
@@ -8394,7 +8386,7 @@ PyTuple_GET_SIZE.exit30:                          ; preds = %cond.end.i.i24
   br i1 %or.cond3, label %land.lhs.true18, label %if.end25
 
 land.lhs.true18:                                  ; preds = %PyTuple_GET_SIZE.exit30
-  %arrayidx = getelementptr ptr, ptr %call848, i64 1
+  %arrayidx = getelementptr i8, ptr %call848, i64 8
   %9 = load ptr, ptr %arrayidx, align 8
   %tobool19.not = icmp eq ptr %9, null
   br i1 %tobool19.not, label %if.end25, label %if.then20
@@ -8495,7 +8487,7 @@ cond.false4.i.i31:                                ; preds = %cond.end.i.i28
   unreachable
 
 PyTuple_GET_SIZE.exit34:                          ; preds = %cond.end.i.i28
-  %ob_size.i.i30 = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i30 = getelementptr inbounds i8, ptr %kwnames, i64 16
   %8 = load i64, ptr %ob_size.i.i30, align 8
   %tobool15.not = icmp eq i64 %8, 0
   br i1 %tobool15.not, label %if.end29, label %land.lhs.true16
@@ -8505,7 +8497,7 @@ land.lhs.true16:                                  ; preds = %PyTuple_GET_SIZE.ex
   br i1 %cmp17, label %land.lhs.true18, label %lor.lhs.false
 
 land.lhs.true18:                                  ; preds = %land.lhs.true16
-  %arrayidx = getelementptr ptr, ptr %call853, i64 1
+  %arrayidx = getelementptr i8, ptr %call853, i64 8
   %9 = load ptr, ptr %arrayidx, align 8
   %tobool19.not = icmp eq ptr %9, null
   br i1 %tobool19.not, label %land.lhs.true21, label %if.then24
@@ -8515,7 +8507,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true16
   br i1 %cmp20, label %land.lhs.true21, label %if.end29
 
 land.lhs.true21:                                  ; preds = %land.lhs.true18, %lor.lhs.false
-  %arrayidx22 = getelementptr ptr, ptr %call853, i64 2
+  %arrayidx22 = getelementptr i8, ptr %call853, i64 16
   %10 = load ptr, ptr %arrayidx22, align 8
   %tobool23.not = icmp eq ptr %10, null
   br i1 %tobool23.not, label %if.end29, label %if.then24
@@ -8615,7 +8607,7 @@ cond.false4.i.i36:                                ; preds = %cond.end.i.i33
   unreachable
 
 PyTuple_GET_SIZE.exit39:                          ; preds = %cond.end.i.i33
-  %ob_size.i.i35 = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i35 = getelementptr inbounds i8, ptr %kwnames, i64 16
   %7 = load i64, ptr %ob_size.i.i35, align 8
   %tobool15.not = icmp eq i64 %7, 0
   br i1 %tobool15.not, label %if.end34, label %land.lhs.true16
@@ -8634,7 +8626,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true16
   br i1 %cmp20, label %land.lhs.true21, label %lor.lhs.false24
 
 land.lhs.true21:                                  ; preds = %land.lhs.true18, %lor.lhs.false
-  %arrayidx22 = getelementptr ptr, ptr %call858, i64 1
+  %arrayidx22 = getelementptr i8, ptr %call858, i64 8
   %9 = load ptr, ptr %arrayidx22, align 8
   %tobool23.not = icmp eq ptr %9, null
   br i1 %tobool23.not, label %land.lhs.true26, label %if.then29
@@ -8644,7 +8636,7 @@ lor.lhs.false24:                                  ; preds = %lor.lhs.false
   br i1 %cmp25, label %land.lhs.true26, label %if.end34
 
 land.lhs.true26:                                  ; preds = %land.lhs.true21, %lor.lhs.false24
-  %arrayidx27 = getelementptr ptr, ptr %call858, i64 2
+  %arrayidx27 = getelementptr i8, ptr %call858, i64 16
   %10 = load ptr, ptr %arrayidx27, align 8
   %tobool28.not = icmp eq ptr %10, null
   br i1 %tobool28.not, label %if.end34, label %if.then29
@@ -8745,7 +8737,7 @@ cond.false4.i.i28:                                ; preds = %cond.end.i.i25
   unreachable
 
 PyTuple_GET_SIZE.exit31:                          ; preds = %cond.end.i.i25
-  %ob_size.i.i27 = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i27 = getelementptr inbounds i8, ptr %kwnames, i64 16
   %8 = load i64, ptr %ob_size.i.i27, align 8
   %tobool15.not = icmp eq i64 %8, 0
   br i1 %tobool15.not, label %if.end26, label %land.lhs.true16
@@ -8759,7 +8751,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true16
   br i1 %cmp18, label %land.lhs.true19, label %if.end26
 
 land.lhs.true19:                                  ; preds = %lor.lhs.false
-  %arrayidx = getelementptr ptr, ptr %call849, i64 2
+  %arrayidx = getelementptr i8, ptr %call849, i64 16
   %9 = load ptr, ptr %arrayidx, align 8
   %tobool20.not = icmp eq ptr %9, null
   br i1 %tobool20.not, label %if.end26, label %if.then21
@@ -8826,7 +8818,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %kwnames, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %tobool3.not = icmp eq i64 %3, 0
   br i1 %tobool3.not, label %if.end18, label %land.lhs.true4
@@ -8960,8 +8952,8 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %vargs, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %vargs, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %vargs, i64 8
+  %0 = getelementptr inbounds i8, ptr %vargs, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_Py_NewRef.exit
@@ -9098,7 +9090,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SIZE.exit:                                     ; preds = %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %op, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %op, i64 16
   %3 = load i64, ptr %ob_size.i, align 8
   %cmp6 = icmp sgt i64 %3, %index
   br i1 %cmp6, label %cond.end9, label %cond.false8
@@ -9108,7 +9100,8 @@ cond.false8:                                      ; preds = %Py_SIZE.exit
   unreachable
 
 cond.end9:                                        ; preds = %Py_SIZE.exit
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %op, i64 0, i32 1, i64 %index
+  %ob_item = getelementptr inbounds i8, ptr %op, i64 24
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %index
   store ptr %value, ptr %arrayidx, align 8
   ret void
 }
@@ -9155,7 +9148,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SIZE.exit:                                     ; preds = %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %op, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %op, i64 16
   %3 = load i64, ptr %ob_size.i, align 8
   ret i64 %3
 }
@@ -9195,7 +9188,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SIZE.exit:                                     ; preds = %entry, %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %op, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load i64, ptr %ob_size.i, align 8
   ret i64 %1
 }
@@ -9235,13 +9228,13 @@ cond.false4.i:                                    ; preds = %cond.end.i
   unreachable
 
 Py_SIZE.exit:                                     ; preds = %entry, %cond.end.i
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %op, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load i64, ptr %ob_size.i, align 8
   %tobool2.not = icmp eq i64 %1, 0
   br i1 %tobool2.not, label %return, label %if.then
 
 if.then:                                          ; preds = %Py_SIZE.exit
-  %ob_start = getelementptr inbounds %struct.PyByteArrayObject, ptr %op, i64 0, i32 3
+  %ob_start = getelementptr inbounds i8, ptr %op, i64 40
   %2 = load ptr, ptr %ob_start, align 8
   br label %return
 
@@ -9363,7 +9356,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %tobool.not = icmp eq ptr %kwargs, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -9418,13 +9411,13 @@ cond.false32:                                     ; preds = %cond.false27
   unreachable
 
 cond.end38:                                       ; preds = %cond.false27
-  %ob_item34 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item34 = getelementptr inbounds i8, ptr %args, i64 24
   %call37 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item34, i64 noundef %3, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @depr_star_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool40.not = icmp eq ptr %call37, null
   br i1 %tobool40.not, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %cond.end38, %land.lhs.true10
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %10 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = call ptr %10(ptr noundef %type, i64 noundef 0) #9
   br label %exit
@@ -9533,7 +9526,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %tobool.not = icmp eq ptr %kwargs, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -9588,7 +9581,7 @@ cond.false32:                                     ; preds = %cond.false27
   unreachable
 
 cond.end38:                                       ; preds = %cond.false27
-  %ob_item34 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item34 = getelementptr inbounds i8, ptr %args, i64 24
   %call37 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item34, i64 noundef %3, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @depr_star_init._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool40.not = icmp eq ptr %call37, null
   br i1 %tobool40.not, label %exit, label %if.end42
@@ -9706,7 +9699,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   store ptr @_Py_NoneStruct, ptr %c, align 8
   store ptr @.str.138, ptr %d, align 8
@@ -9766,7 +9759,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %tobool.not = icmp eq ptr %kwargs, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -9789,13 +9782,13 @@ cond.end:                                         ; preds = %PyTuple_GET_SIZE.ex
   br i1 %or.cond1, label %skip_optional_pos, label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end
-  %ob_item29 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item29 = getelementptr inbounds i8, ptr %args, i64 24
   %call32 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item29, i64 noundef %3, ptr noundef null, ptr noundef null, ptr noundef nonnull @depr_kwd_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool35.not = icmp eq ptr %call32, null
   br i1 %tobool35.not, label %exit, label %skip_optional_pos
 
 cond.end33.thread55:                              ; preds = %cond.true
-  %ob_item2957 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item2957 = getelementptr inbounds i8, ptr %args, i64 24
   %call3258 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item2957, i64 noundef %3, ptr noundef nonnull %kwargs, ptr noundef null, ptr noundef nonnull @depr_kwd_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool35.not59 = icmp eq ptr %call3258, null
   br i1 %tobool35.not59, label %exit, label %land.lhs.true37
@@ -9813,7 +9806,7 @@ cond.false.i38:                                   ; preds = %land.lhs.true37
   unreachable
 
 PyDict_GET_SIZE.exit39:                           ; preds = %land.lhs.true37
-  %ma_used.i37 = getelementptr inbounds %struct.PyDictObject, ptr %kwargs, i64 0, i32 1
+  %ma_used.i37 = getelementptr inbounds i8, ptr %kwargs, i64 16
   %9 = load i64, ptr %ma_used.i37, align 8
   %tobool39 = icmp ne i64 %9, 0
   %cmp41 = icmp slt i64 %3, 1
@@ -9832,7 +9825,7 @@ if.then44:                                        ; preds = %land.lhs.true42
   br i1 %tobool46.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %PyDict_GET_SIZE.exit39, %land.lhs.true42, %if.then44, %cond.end33, %cond.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %12 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = call ptr %12(ptr noundef %type, i64 noundef 0) #9
   br label %exit
@@ -9875,7 +9868,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %tobool.not = icmp eq ptr %kwargs, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -9898,13 +9891,13 @@ cond.end:                                         ; preds = %PyTuple_GET_SIZE.ex
   br i1 %or.cond1, label %if.end49, label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end
-  %ob_item29 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item29 = getelementptr inbounds i8, ptr %args, i64 24
   %call32 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item29, i64 noundef %3, ptr noundef null, ptr noundef null, ptr noundef nonnull @depr_kwd_init._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool35.not = icmp eq ptr %call32, null
   br i1 %tobool35.not, label %exit, label %if.end49
 
 cond.end33.thread55:                              ; preds = %cond.true
-  %ob_item2957 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item2957 = getelementptr inbounds i8, ptr %args, i64 24
   %call3258 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item2957, i64 noundef %3, ptr noundef nonnull %kwargs, ptr noundef null, ptr noundef nonnull @depr_kwd_init._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool35.not59 = icmp eq ptr %call3258, null
   br i1 %tobool35.not59, label %exit, label %land.lhs.true37
@@ -9922,7 +9915,7 @@ cond.false.i38:                                   ; preds = %land.lhs.true37
   unreachable
 
 PyDict_GET_SIZE.exit39:                           ; preds = %land.lhs.true37
-  %ma_used.i37 = getelementptr inbounds %struct.PyDictObject, ptr %kwargs, i64 0, i32 1
+  %ma_used.i37 = getelementptr inbounds i8, ptr %kwargs, i64 16
   %9 = load i64, ptr %ma_used.i37, align 8
   %tobool39 = icmp ne i64 %9, 0
   %cmp41 = icmp slt i64 %3, 1
@@ -9985,7 +9978,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %args, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   store ptr @_Py_NoneStruct, ptr %c, align 8
   store ptr @.str.138, ptr %d, align 8
@@ -10011,7 +10004,7 @@ cond.false.i10:                                   ; preds = %land.lhs.true
   unreachable
 
 PyDict_GET_SIZE.exit:                             ; preds = %land.lhs.true
-  %ma_used.i = getelementptr inbounds %struct.PyDictObject, ptr %kwargs, i64 0, i32 1
+  %ma_used.i = getelementptr inbounds i8, ptr %kwargs, i64 16
   %7 = load i64, ptr %ma_used.i, align 8
   %tobool4.not = icmp eq i64 %7, 0
   br i1 %tobool4.not, label %if.end19, label %land.lhs.true5

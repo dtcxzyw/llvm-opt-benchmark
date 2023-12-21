@@ -19,11 +19,11 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @BrotliTransformDictionaryWord(ptr nocapture noundef %dst, ptr nocapture noundef readonly %word, i32 noundef %len, ptr nocapture noundef readonly %transforms, i32 noundef %transform_idx) local_unnamed_addr #1 {
 entry:
-  %prefix_suffix = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 1
+  %prefix_suffix = getelementptr inbounds i8, ptr %transforms, i64 8
   %0 = load ptr, ptr %prefix_suffix, align 8
-  %prefix_suffix_map = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 2
+  %prefix_suffix_map = getelementptr inbounds i8, ptr %transforms, i64 16
   %1 = load ptr, ptr %prefix_suffix_map, align 8
-  %transforms1 = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 4
+  %transforms1 = getelementptr inbounds i8, ptr %transforms, i64 32
   %2 = load ptr, ptr %transforms1, align 8
   %mul = mul nsw i32 %transform_idx, 3
   %idxprom = sext i32 %mul to i64
@@ -215,7 +215,7 @@ ToUpperCase.exit70:                               ; preds = %if.then.i67, %if.th
   br i1 %cmp60, label %while.body62, label %if.end123, !llvm.loop !7
 
 if.then71:                                        ; preds = %while.end45
-  %params = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 5
+  %params = getelementptr inbounds i8, ptr %transforms, i64 40
   %29 = load ptr, ptr %params, align 8
   %mul72 = shl nsw i32 %transform_idx, 1
   %idxprom73 = sext i32 %mul72 to i64
@@ -236,7 +236,7 @@ if.then71:                                        ; preds = %while.end45
   br label %if.end123
 
 if.then91:                                        ; preds = %while.end45
-  %params93 = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 5
+  %params93 = getelementptr inbounds i8, ptr %transforms, i64 40
   %32 = load ptr, ptr %params93, align 8
   %mul94 = shl nsw i32 %transform_idx, 1
   %idxprom95 = sext i32 %mul94 to i64

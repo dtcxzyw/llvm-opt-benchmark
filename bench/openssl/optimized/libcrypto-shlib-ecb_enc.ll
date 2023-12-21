@@ -28,7 +28,7 @@ declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unname
 define void @DES_ecb_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output, ptr noundef %ks, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %ll = alloca [2 x i32], align 8
-  %arrayidx27 = getelementptr inbounds [2 x i32], ptr %ll, i64 0, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %ll, i64 4
   %0 = load <2 x i32>, ptr %input, align 1
   store <2 x i32> %0, ptr %ll, align 8
   call void @DES_encrypt1(ptr noundef nonnull %ll, ptr noundef %ks, i32 noundef %enc) #2

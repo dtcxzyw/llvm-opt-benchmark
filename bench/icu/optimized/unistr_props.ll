@@ -3,16 +3,10 @@ source_filename = "bench/icu/original/unistr_props.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
-
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString4trimEv(ptr noundef nonnull returned align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv2.i44 = and i16 %0, 1
   %tobool.not = icmp eq i16 %conv2.i44, 0
@@ -22,13 +16,13 @@ if.end:                                           ; preds = %entry
   %1 = and i16 %0, 2
   %tobool.not.i = icmp eq i16 %1, 0
   %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 10
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %fArray.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %2, ptr %fBuffer.i
   %cmp.i.i = icmp slt i16 %0, 0
   %3 = ashr i16 %0, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i29 = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %cmp45 = icmp slt i32 %cond.i29, 1

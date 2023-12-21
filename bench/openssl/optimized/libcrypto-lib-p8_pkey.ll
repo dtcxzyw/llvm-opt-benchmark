@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.pkcs8_priv_key_info_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @PKCS8_PRIV_KEY_INFO_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @PKCS8_PRIV_KEY_INFO_seq_tt, i64 4, ptr @PKCS8_PRIV_KEY_INFO_aux, i64 32, ptr @.str }, align 8
 @PKCS8_PRIV_KEY_INFO_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.1, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.2, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.3, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 139, i64 0, i64 24, ptr @.str.4, ptr @X509_ATTRIBUTE_it }], align 16
@@ -74,7 +72,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.then, %entry
-  %pkeyalg = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %priv, i64 0, i32 1
+  %pkeyalg = getelementptr inbounds i8, ptr %priv, i64 8
   %1 = load ptr, ptr %pkeyalg, align 8
   %call4 = tail call i32 @X509_ALGOR_set0(ptr noundef %1, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) #4
   %tobool5.not = icmp eq i32 %call4, 0
@@ -85,7 +83,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %tobool8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %pkey = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %priv, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %priv, i64 16
   %2 = load ptr, ptr %pkey, align 8
   tail call void @ASN1_STRING_set0(ptr noundef %2, ptr noundef nonnull %penc, i32 noundef %penclen) #4
   br label %return
@@ -108,7 +106,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pkeyalg = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 1
+  %pkeyalg = getelementptr inbounds i8, ptr %p8, i64 8
   %0 = load ptr, ptr %pkeyalg, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %ppkalg, align 8
@@ -119,7 +117,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %pkey = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %p8, i64 16
   %2 = load ptr, ptr %pkey, align 8
   %call = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   store ptr %call, ptr %pk, align 8
@@ -133,7 +131,7 @@ if.end5:                                          ; preds = %if.then2, %if.end
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %pkeyalg8 = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 1
+  %pkeyalg8 = getelementptr inbounds i8, ptr %p8, i64 8
   %4 = load ptr, ptr %pkeyalg8, align 8
   store ptr %4, ptr %pa, align 8
   br label %if.end9
@@ -149,7 +147,7 @@ declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @PKCS8_pkey_get0_attrs(ptr nocapture noundef readonly %p8) local_unnamed_addr #3 {
 entry:
-  %attributes = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 3
+  %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %0 = load ptr, ptr %attributes, align 8
   ret ptr %0
 }
@@ -157,7 +155,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS8_pkey_add1_attr_by_NID(ptr noundef %p8, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
 entry:
-  %attributes = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 3
+  %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attributes, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #4
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -169,7 +167,7 @@ declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS8_pkey_add1_attr_by_OBJ(ptr noundef %p8, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
 entry:
-  %attributes = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 3
+  %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %attributes, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #4
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
@@ -181,7 +179,7 @@ declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS8_pkey_add1_attr(ptr noundef %p8, ptr noundef %attr) local_unnamed_addr #1 {
 entry:
-  %attributes = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 3
+  %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %attributes, ptr noundef %attr) #4
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
@@ -206,13 +204,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %0, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %pkey, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end4, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %1, align 8
   %conv = sext i32 %3 to i64

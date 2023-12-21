@@ -3,20 +3,6 @@ source_filename = "bench/icu/original/wrtjava.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SResource = type { ptr, i8, i8, i32, i32, i32, i32, i32, ptr, %struct.UString }
-%struct.UString = type { ptr, i32, i32 }
-%class.StringBaseResource = type { %struct.SResource, %"class.icu_75::UnicodeString" }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
-%class.IntVectorResource = type { %struct.SResource, i64, i64, ptr }
-%class.BinaryResource = type { %struct.SResource, i32, ptr, ptr }
-%class.IntResource = type <{ %struct.SResource, i32, [4 x i8] }>
-%class.ContainerResource = type { %struct.SResource, i32, ptr }
-%struct.SRBRoot = type { ptr, ptr, i32, i32, i8, i8, i8, ptr, ptr, i32, i32, i32, i32, i32, %"class.icu_75::UnicodeString", i32, ptr, i32, i32, i32, ptr }
-
 @.str = private unnamed_addr constant [51 x i8] c"Encountered unsupported resource type %d of alias\0A\00", align 1
 @_ZL5start = internal unnamed_addr global i1 false, align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"LocaleElements\00", align 1
@@ -80,7 +66,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end11, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %fType = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 1
+  %fType = getelementptr inbounds i8, ptr %res, i64 8
   %1 = load i8, ptr %fType, align 8
   %conv = sext i8 %1 to i32
   switch i32 %conv, label %if.end11 [
@@ -96,7 +82,7 @@ if.then1:                                         ; preds = %if.end
 sw.bb:                                            ; preds = %if.then1
   %2 = load ptr, ptr @_ZL8srBundle, align 8
   %call.i = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %res, ptr noundef %2)
-  %fUnion.i.i.i = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %res, i64 64
   %3 = load i16, ptr %fUnion.i.i.i, align 8
   %conv1.i.i.i = zext i16 %3 to i32
   %and.i.i.i = and i32 %conv1.i.i.i, 17
@@ -113,7 +99,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
 if.else9.i.i.i:                                   ; preds = %if.else.i.i.i
-  %fArray.i.i.i = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %res, i64 80
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
@@ -124,7 +110,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %if.else9.i.i.i, %if
   %cmp.i.i.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i.i = sext i16 %6 to i32
-  %fLength.i.i.i = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %res, i64 68
   %7 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %7, i32 %shr.i.i.i.i
   %mul.i.i = shl nsw i32 %cond.i.i.i, 3
@@ -188,7 +174,7 @@ if.then12.i.i.i:                                  ; preds = %if.then9.i.i.i
   br label %if.end174.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %while.body.i.i.i
-  %arrayidx23.i.i.i = getelementptr i16, ptr %arrayidx.i.i.i, i64 -1
+  %arrayidx23.i.i.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 -2
   %10 = load i16, ptr %arrayidx23.i.i.i, align 2
   switch i16 %10, label %if.then45.i.i.i [
     i16 39, label %if.then26.i.i.i
@@ -597,13 +583,13 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %45 = load i32, ptr @_ZL8tabCount, align 4
   %inc.i = add nsw i32 %45, 1
   store i32 %inc.i, ptr @_ZL8tabCount, align 4
-  %fCount.i = getelementptr inbounds %class.IntVectorResource, ptr %res, i64 0, i32 1
+  %fCount.i = getelementptr inbounds i8, ptr %res, i64 56
   %46 = load i64, ptr %fCount.i, align 8
   %cmp62.not.i = icmp eq i64 %46, 0
   br i1 %cmp62.not.i, label %if.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
-  %fArray.i = getelementptr inbounds %class.IntVectorResource, ptr %res, i64 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %res, i64 72
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZL10write_tabsP11_FileStream.exit20.i, %for.body.lr.ph.i
@@ -647,13 +633,13 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %_
   %58 = load i32, ptr @_ZL8tabCount, align 4
   %inc18.i = add nsw i32 %58, 1
   store i32 %inc18.i, ptr @_ZL8tabCount, align 4
-  %fCount21.i = getelementptr inbounds %class.IntVectorResource, ptr %res, i64 0, i32 1
+  %fCount21.i = getelementptr inbounds i8, ptr %res, i64 56
   %59 = load i64, ptr %fCount21.i, align 8
   %cmp225.not.i = icmp eq i64 %59, 0
   br i1 %cmp225.not.i, label %if.end.i, label %for.body23.lr.ph.i
 
 for.body23.lr.ph.i:                               ; preds = %if.else.i
-  %fArray25.i = getelementptr inbounds %class.IntVectorResource, ptr %res, i64 0, i32 3
+  %fArray25.i = getelementptr inbounds i8, ptr %res, i64 72
   br label %for.body23.i
 
 for.body23.i:                                     ; preds = %_ZL10write_tabsP11_FileStream.exit27.i, %for.body23.lr.ph.i
@@ -720,13 +706,13 @@ _ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit: ; preds = %if.
 sw.bb7:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %byteBuffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %byteBuffer.i, i8 0, i64 100, i1 false)
-  %fLength.i = getelementptr inbounds %class.BinaryResource, ptr %res, i64 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %res, i64 56
   %72 = load i32, ptr %fLength.i, align 8
   %cmp.i18 = icmp sgt i32 %72, 0
   br i1 %cmp.i18, label %if.then.i20, label %if.else37.i
 
 if.then.i20:                                      ; preds = %sw.bb7
-  %fData.i = getelementptr inbounds %class.BinaryResource, ptr %res, i64 0, i32 2
+  %fData.i = getelementptr inbounds i8, ptr %res, i64 64
   %73 = load ptr, ptr %fData.i, align 8
   %74 = load ptr, ptr @_ZL3out, align 8
   %75 = load i32, ptr @_ZL8tabCount, align 4
@@ -891,7 +877,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i40:  ; preds = %for.body.i.i35
 _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %sw.bb8, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40
   %100 = phi ptr [ %.pre.i41, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40 ], [ %97, %sw.bb8 ]
   %call1.i43 = tail call i32 @T_FileStream_write(ptr noundef %100, ptr noundef nonnull @.str.29, i32 noundef 12)
-  %fValue.i = getelementptr inbounds %class.IntResource, ptr %res, i64 0, i32 1
+  %fValue.i = getelementptr inbounds i8, ptr %res, i64 56
   %101 = load i32, ptr %fValue.i, align 8
   %call2.i44 = call i32 @itostr(ptr noundef nonnull %buf.i33, i32 noundef %101, i32 noundef 10, i32 noundef 0)
   %102 = load ptr, ptr @_ZL3out, align 8
@@ -902,26 +888,26 @@ _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %sw.bb8, %_ZL10w
   br label %return
 
 if.end.i47:                                       ; preds = %if.then1
-  %fCount.i48 = getelementptr inbounds %class.ContainerResource, ptr %res, i64 0, i32 1
+  %fCount.i48 = getelementptr inbounds i8, ptr %res, i64 56
   %104 = load i32, ptr %fCount.i48, align 8
   %cmp.not.i49 = icmp eq i32 %104, 0
   br i1 %cmp.not.i49, label %if.else29.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i47
-  %fFirst.i = getelementptr inbounds %class.ContainerResource, ptr %res, i64 0, i32 2
+  %fFirst.i = getelementptr inbounds i8, ptr %res, i64 64
   %current.0.i114 = load ptr, ptr %fFirst.i, align 8
   %cmp2.not.not.i115 = icmp eq ptr %current.0.i114, null
   br i1 %cmp2.not.not.i115, label %if.else.i55, label %while.body.i
 
 while.cond.i:                                     ; preds = %while.body.i
-  %fNext.i = getelementptr inbounds %struct.SResource, ptr %current.0.i116, i64 0, i32 8
+  %fNext.i = getelementptr inbounds i8, ptr %current.0.i116, i64 32
   %current.0.i = load ptr, ptr %fNext.i, align 8
   %cmp2.not.not.i = icmp eq ptr %current.0.i, null
   br i1 %cmp2.not.not.i, label %if.else.i55, label %while.body.i, !llvm.loop !16
 
 while.body.i:                                     ; preds = %if.then1.i, %while.cond.i
   %current.0.i116 = phi ptr [ %current.0.i, %while.cond.i ], [ %current.0.i114, %if.then1.i ]
-  %fType.i = getelementptr inbounds %struct.SResource, ptr %current.0.i116, i64 0, i32 1
+  %fType.i = getelementptr inbounds i8, ptr %current.0.i116, i64 8
   %105 = load i8, ptr %fType.i, align 8
   %cmp.i82.not = icmp eq i8 %105, 0
   br i1 %cmp.i82.not, label %while.cond.i, label %if.then9.i
@@ -954,7 +940,7 @@ while.body20.i:                                   ; preds = %if.end17.i, %if.end
   br i1 %cmp.i80, label %if.end24.i, label %return
 
 if.end24.i:                                       ; preds = %while.body20.i
-  %fNext25.i = getelementptr inbounds %struct.SResource, ptr %current.1.i118, i64 0, i32 8
+  %fNext25.i = getelementptr inbounds i8, ptr %current.1.i118, i64 32
   %111 = load ptr, ptr %fNext25.i, align 8
   %cmp19.not.i = icmp eq ptr %111, null
   br i1 %cmp19.not.i, label %while.end26.i, label %while.body20.i, !llvm.loop !17
@@ -983,7 +969,7 @@ if.else29.i:                                      ; preds = %if.end.i47
   br label %return
 
 if.end.i58:                                       ; preds = %if.then1
-  %fCount.i59 = getelementptr inbounds %class.ContainerResource, ptr %res, i64 0, i32 1
+  %fCount.i59 = getelementptr inbounds i8, ptr %res, i64 56
   %120 = load i32, ptr %fCount.i59, align 8
   %cmp.not.i60 = icmp eq i32 %120, 0
   br i1 %cmp.not.i60, label %if.else.i77, label %if.then1.i61
@@ -1004,7 +990,7 @@ if.then3.i:                                       ; preds = %if.then1.i61
 
 if.end7.i:                                        ; preds = %if.then3.i, %if.then1.i61
   store i1 true, ptr @_ZL5start, align 1
-  %fFirst.i62 = getelementptr inbounds %class.ContainerResource, ptr %res, i64 0, i32 2
+  %fFirst.i62 = getelementptr inbounds i8, ptr %res, i64 64
   %124 = load ptr, ptr %fFirst.i62, align 8
   %cmp8.not.i112 = icmp eq ptr %124, null
   br i1 %cmp8.not.i112, label %while.end.i74, label %while.body.i65
@@ -1072,7 +1058,7 @@ if.end20.i:                                       ; preds = %if.then13.i, %_ZL10
   br i1 %cmp.i90, label %if.end24.i71, label %return
 
 if.end24.i71:                                     ; preds = %if.end20.i
-  %fNext.i72 = getelementptr inbounds %struct.SResource, ptr %current.0.i64113, i64 0, i32 8
+  %fNext.i72 = getelementptr inbounds i8, ptr %current.0.i64113, i64 32
   %138 = load ptr, ptr %fNext.i72, align 8
   %139 = load i32, ptr @_ZL8tabCount, align 4
   %dec.i73 = add nsw i32 %139, -1
@@ -1151,7 +1137,7 @@ entry:
   store ptr %cond5, ptr @_ZL5pName, align 8
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %className, ptr noundef nonnull dereferenceable(1) %cond) #10
   store ptr %bundle, ptr @_ZL8srBundle, align 8
-  %fLocale = getelementptr inbounds %struct.SRBRoot, ptr %bundle, i64 0, i32 1
+  %fLocale = getelementptr inbounds i8, ptr %bundle, i64 8
   %0 = load ptr, ptr %fLocale, align 8
   %call6 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.3) #11
   %cmp7.not = icmp eq i32 %call6, 0

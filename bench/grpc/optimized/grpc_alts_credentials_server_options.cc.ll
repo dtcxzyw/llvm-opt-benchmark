@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.grpc_alts_credentials_options_vtable = type { ptr, ptr }
-%struct.grpc_alts_credentials_options = type { ptr, %struct._grpc_gcp_RpcProtocolVersions }
-%struct._grpc_gcp_RpcProtocolVersions = type { %struct._grpc_gcp_RpcProtocolVersions_Version, %struct._grpc_gcp_RpcProtocolVersions_Version }
-%struct._grpc_gcp_RpcProtocolVersions_Version = type { i32, i32 }
 
 @_ZL6vtable = internal constant %struct.grpc_alts_credentials_options_vtable { ptr @_ZL24alts_server_options_copyPK29grpc_alts_credentials_options, ptr @_ZL27alts_server_options_destroyP29grpc_alts_credentials_options }, align 8
 
@@ -29,8 +26,8 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 24)
   store ptr @_ZL6vtable, ptr %call.i, align 8
-  %rpc_versions = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %options, i64 0, i32 1
-  %rpc_versions1 = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %call.i, i64 0, i32 1
+  %rpc_versions = getelementptr inbounds i8, ptr %options, i64 8
+  %rpc_versions1 = getelementptr inbounds i8, ptr %call.i, i64 8
   %call2 = tail call noundef zeroext i1 @_Z35grpc_gcp_rpc_protocol_versions_copyPK29_grpc_gcp_RpcProtocolVersionsPS_(ptr noundef nonnull %rpc_versions, ptr noundef nonnull %rpc_versions1)
   br label %return
 

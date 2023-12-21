@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.iovec = type { ptr, i64 }
-%struct.gsec_aead_crypter_vtable = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @_ZL16vtable_error_msg = internal unnamed_addr constant [61 x i8] c"crypter or crypter->vtable has not been initialized properly\00", align 16
 
@@ -29,10 +28,10 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   store ptr %aad, ptr %aad_vec, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %aad_vec, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %aad_vec, i64 8
   store i64 %aad_length, ptr %iov_len, align 8
   store ptr %plaintext, ptr %plaintext_vec, align 8
-  %iov_len6 = getelementptr inbounds %struct.iovec, ptr %plaintext_vec, i64 0, i32 1
+  %iov_len6 = getelementptr inbounds i8, ptr %plaintext_vec, i64 8
   store i64 %plaintext_length, ptr %iov_len6, align 8
   store ptr %ciphertext_and_tag, ptr %agg.tmp, align 8
   %ciphertext_vec.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -108,17 +107,17 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %decrypt_iovec = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 1
+  %decrypt_iovec = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %decrypt_iovec, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
   store ptr %aad, ptr %aad_vec, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %aad_vec, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %aad_vec, i64 8
   store i64 %aad_length, ptr %iov_len, align 8
   store ptr %ciphertext_and_tag, ptr %ciphertext_vec, align 8
-  %iov_len6 = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 0, i32 1
+  %iov_len6 = getelementptr inbounds i8, ptr %ciphertext_vec, i64 8
   store i64 %ciphertext_and_tag_length, ptr %iov_len6, align 8
   store ptr %plaintext, ptr %agg.tmp, align 8
   %plaintext_vec.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -158,7 +157,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
-  %decrypt_iovec = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 1
+  %decrypt_iovec = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %decrypt_iovec, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef %aad_vec, i64 noundef %aad_vec_length, ptr noundef %ciphertext_vec, i64 noundef %ciphertext_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %plaintext_vec, ptr noundef %plaintext_bytes_written, ptr noundef %error_details)
   br label %return
@@ -190,7 +189,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %max_ciphertext_and_tag_length = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 2
+  %max_ciphertext_and_tag_length = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %max_ciphertext_and_tag_length, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -226,7 +225,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %max_plaintext_length = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 3
+  %max_plaintext_length = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %max_plaintext_length, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -262,7 +261,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %nonce_length = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 4
+  %nonce_length = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %nonce_length, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -298,7 +297,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %key_length = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 5
+  %key_length = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %key_length, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -334,7 +333,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %tag_length = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 6
+  %tag_length = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %tag_length, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -370,7 +369,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %destruct = getelementptr inbounds %struct.gsec_aead_crypter_vtable, ptr %0, i64 0, i32 7
+  %destruct = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %destruct, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end, label %if.then4

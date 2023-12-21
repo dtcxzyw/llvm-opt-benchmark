@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-crmf_pbm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_crmf_pbmparameter_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/crmf/crmf_pbm.c\00", align 1
 @__func__.OSSL_CRMF_pbmp_new = private unnamed_addr constant [19 x i8] c"OSSL_CRMF_pbmp_new\00", align 1
 @__func__.OSSL_CRMF_pbm_new = private unnamed_addr constant [18 x i8] c"OSSL_CRMF_pbm_new\00", align 1
@@ -36,7 +33,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %tobool.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %owf = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %call, i64 0, i32 1
+  %owf = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %owf, align 8
   %call13 = tail call ptr @OBJ_nid2obj(i32 noundef %owfnid) #2
   %call14 = tail call i32 @X509_ALGOR_set0(ptr noundef %1, ptr noundef %call13, i32 noundef -1, ptr noundef null) #2
@@ -52,14 +49,14 @@ if.end21:                                         ; preds = %if.end17
   br i1 %cmp22, label %err.sink.split, label %if.end25
 
 if.end25:                                         ; preds = %if.end21
-  %iterationCount = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %call, i64 0, i32 2
+  %iterationCount = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %iterationCount, align 8
   %call26 = tail call i32 @ASN1_INTEGER_set(ptr noundef %2, i64 noundef %itercnt) #2
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err.sink.split, label %if.end29
 
 if.end29:                                         ; preds = %if.end25
-  %mac = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %call, i64 0, i32 3
+  %mac = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load ptr, ptr %mac, align 8
   %call30 = tail call ptr @OBJ_nid2obj(i32 noundef %macnid) #2
   %call31 = tail call i32 @X509_ALGOR_set0(ptr noundef %3, ptr noundef %call30, i32 noundef -1, ptr noundef null) #2
@@ -131,7 +128,7 @@ entry:
   br i1 %or.cond, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %entry
-  %mac = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %pbmp, i64 0, i32 3
+  %mac = getelementptr inbounds i8, ptr %pbmp, i64 24
   %0 = load ptr, ptr %mac, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
@@ -157,7 +154,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   br i1 %cmp11, label %err, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %owf14 = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %pbmp, i64 0, i32 1
+  %owf14 = getelementptr inbounds i8, ptr %pbmp, i64 8
   %2 = load ptr, ptr %owf14, align 8
   %3 = load ptr, ptr %2, align 8
   %call16 = call i32 @OBJ_obj2txt(ptr noundef nonnull %mdname, i32 noundef 50, ptr noundef %3, i32 noundef 0) #2
@@ -188,7 +185,7 @@ if.end28:                                         ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.end28
   %4 = load ptr, ptr %pbmp, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data, align 8
   %6 = load i32, ptr %4, align 8
   %conv = sext i32 %6 to i64
@@ -202,7 +199,7 @@ if.end37:                                         ; preds = %if.end32
   br i1 %tobool40.not, label %err, label %if.end42
 
 if.end42:                                         ; preds = %if.end37
-  %iterationCount = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %pbmp, i64 0, i32 2
+  %iterationCount = getelementptr inbounds i8, ptr %pbmp, i64 16
   %7 = load ptr, ptr %iterationCount, align 8
   %call43 = call i32 @ASN1_INTEGER_get_int64(ptr noundef nonnull %iterations, ptr noundef %7) #2
   %tobool44 = icmp eq i32 %call43, 0
@@ -297,7 +294,7 @@ if.end96:                                         ; preds = %err
   br i1 %cmp1, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end96
-  %mac99 = getelementptr inbounds %struct.ossl_crmf_pbmparameter_st, ptr %pbmp, i64 0, i32 3
+  %mac99 = getelementptr inbounds i8, ptr %pbmp, i64 24
   %15 = load ptr, ptr %mac99, align 8
   %cmp100.not = icmp eq ptr %15, null
   br i1 %cmp100.not, label %return, label %if.then102

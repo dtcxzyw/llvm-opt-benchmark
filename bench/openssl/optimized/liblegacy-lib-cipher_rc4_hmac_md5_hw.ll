@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_rc4_hmac_md5_st = type { %struct.prov_cipher_hw_st, ptr, ptr }
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_rc4_hmac_md5_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, %struct.MD5state_st, %struct.MD5state_st, %struct.MD5state_st, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [1024 x i8] }
-%struct.MD5state_st = type { i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
 
 @rc4_hmac_md5_hw = internal constant %struct.prov_cipher_hw_rc4_hmac_md5_st { %struct.prov_cipher_hw_st { ptr @cipher_hw_rc4_hmac_md5_initkey, ptr @cipher_hw_rc4_hmac_md5_cipher, ptr null }, ptr @cipher_hw_rc4_hmac_md5_tls_init, ptr @cipher_hw_rc4_hmac_md5_init_mackey }, align 8
 @OPENSSL_ia32cap_P = external local_unnamed_addr global [0 x i32], align 4
@@ -23,18 +18,18 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_rc4_hmac_md5_initkey(ptr noundef %bctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %bctx, i64 192
   %conv = trunc i64 %keylen to i32
   tail call void @RC4_set_key(ptr noundef nonnull %ks, i32 noundef %conv, ptr noundef %key) #5
-  %head = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %bctx, i64 1224
   %call = tail call i32 @MD5_Init(ptr noundef nonnull %head) #5
-  %tail = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 3
+  %tail = getelementptr inbounds i8, ptr %bctx, i64 1316
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %tail, ptr noundef nonnull align 8 dereferenceable(92) %head, i64 92, i1 false)
-  %md = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4
+  %md = getelementptr inbounds i8, ptr %bctx, i64 1408
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 8 dereferenceable(92) %head, i64 92, i1 false)
-  %payload_length = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 5
+  %payload_length = getelementptr inbounds i8, ptr %bctx, i64 1504
   store i64 -1, ptr %payload_length, align 8
-  %removetlsfixed = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 17
+  %removetlsfixed = getelementptr inbounds i8, ptr %bctx, i64 152
   store i64 16, ptr %removetlsfixed, align 8
   ret i32 1
 }
@@ -43,17 +38,17 @@ entry:
 define internal i32 @cipher_hw_rc4_hmac_md5_cipher(ptr noundef %bctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %mac = alloca [16 x i8], align 16
-  %ks1 = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 1
+  %ks1 = getelementptr inbounds i8, ptr %bctx, i64 192
   %0 = load i32, ptr %ks1, align 4
   %and = and i32 %0, 31
   %sub = xor i32 %and, 31
   %conv = zext nneg i32 %sub to i64
-  %md = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4
-  %num = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4, i32 7
+  %md = getelementptr inbounds i8, ptr %bctx, i64 1408
+  %num = getelementptr inbounds i8, ptr %bctx, i64 1496
   %1 = load i32, ptr %num, align 8
   %sub2 = sub i32 64, %1
   %conv3 = zext i32 %sub2 to i64
-  %payload_length = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 5
+  %payload_length = getelementptr inbounds i8, ptr %bctx, i64 1504
   %2 = load i64, ptr %payload_length, align 8
   %cmp.not = icmp eq i64 %2, -1
   %add = add i64 %2, 16
@@ -62,7 +57,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %3 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -99,12 +94,12 @@ if.then26:                                        ; preds = %land.lhs.true22
   %add31 = or disjoint i64 %mul, %conv
   %add32 = add i64 %mul, %md5_off.0
   %shr = lshr i64 %sub20, 29
-  %Nh = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4, i32 5
+  %Nh = getelementptr inbounds i8, ptr %bctx, i64 1428
   %5 = load i32, ptr %Nh, align 4
   %6 = trunc i64 %shr to i32
   %conv36 = add i32 %5, %6
   store i32 %conv36, ptr %Nh, align 4
-  %Nl = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4, i32 4
+  %Nl = getelementptr inbounds i8, ptr %bctx, i64 1424
   %7 = load i32, ptr %Nl, align 8
   %mul.tr = trunc i64 %mul to i32
   %8 = shl i32 %mul.tr, 3
@@ -141,7 +136,7 @@ if.then60:                                        ; preds = %if.then57
 if.end64:                                         ; preds = %if.then60, %if.then57
   %add.ptr65 = getelementptr inbounds i8, ptr %out, i64 %spec.select
   %call67 = tail call i32 @MD5_Final(ptr noundef %add.ptr65, ptr noundef nonnull %md) #5
-  %tail = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 3
+  %tail = getelementptr inbounds i8, ptr %bctx, i64 1316
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 4 dereferenceable(92) %tail, i64 92, i1 false)
   %call71 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef %add.ptr65, i64 noundef 16) #5
   %call74 = tail call i32 @MD5_Final(ptr noundef %add.ptr65, ptr noundef nonnull %md) #5
@@ -186,19 +181,19 @@ if.then101:                                       ; preds = %land.lhs.true97
   %mul108 = and i64 %sub94, -64
   %add109 = add i64 %mul108, %rc4_off.1
   %add110 = add i64 %mul108, %conv3
-  %Nl112 = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4, i32 4
+  %Nl112 = getelementptr inbounds i8, ptr %bctx, i64 1424
   %10 = load i32, ptr %Nl112, align 8
   %mul108.tr = trunc i64 %mul108 to i32
   %shl114.tr = shl i32 %mul108.tr, 3
   %add115.narrow = add i32 %10, %shl114.tr
   %cmp120 = icmp ult i32 %add115.narrow, %10
-  %Nh124 = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4, i32 5
+  %Nh124 = getelementptr inbounds i8, ptr %bctx, i64 1428
   %11 = load i32, ptr %Nh124, align 4
   %inc125 = zext i1 %cmp120 to i32
   %12 = add i32 %11, %inc125
   store i32 %add115.narrow, ptr %Nl112, align 8
   %shr129 = lshr i64 %sub94, 29
-  %Nh131 = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4, i32 5
+  %Nh131 = getelementptr inbounds i8, ptr %bctx, i64 1428
   %13 = trunc i64 %shr129 to i32
   %conv134 = add i32 %12, %13
   store i32 %conv134, ptr %Nh131, align 4
@@ -218,7 +213,7 @@ if.then142:                                       ; preds = %if.end136
   %sub145 = sub i64 %2, %md5_off.2
   %call146 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef %add.ptr165, i64 noundef %sub145) #5
   %call148 = call i32 @MD5_Final(ptr noundef nonnull %mac, ptr noundef nonnull %md) #5
-  %tail150 = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 3
+  %tail150 = getelementptr inbounds i8, ptr %bctx, i64 1316
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 4 dereferenceable(92) %tail150, i64 92, i1 false)
   %call153 = call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef nonnull %mac, i64 noundef 16) #5
   %call156 = call i32 @MD5_Final(ptr noundef nonnull %mac, ptr noundef nonnull %md) #5
@@ -256,7 +251,7 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %2 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %2, 0
@@ -278,10 +273,10 @@ if.end8:                                          ; preds = %if.then4
 if.end16:                                         ; preds = %if.end8, %if.end
   %len.0 = phi i32 [ %or, %if.end ], [ %sub9, %if.end8 ]
   %conv17 = zext nneg i32 %len.0 to i64
-  %payload_length = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 5
+  %payload_length = getelementptr inbounds i8, ptr %bctx, i64 1504
   store i64 %conv17, ptr %payload_length, align 8
-  %md = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 4
-  %head = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 2
+  %md = getelementptr inbounds i8, ptr %bctx, i64 1408
+  %head = getelementptr inbounds i8, ptr %bctx, i64 1224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 8 dereferenceable(92) %head, i64 92, i1 false)
   %call = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef nonnull %aad, i64 noundef 13) #5
   br label %return
@@ -300,7 +295,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %head = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %bctx, i64 1224
   %call = tail call i32 @MD5_Init(ptr noundef nonnull %head) #5
   %call2 = tail call i32 @MD5_Update(ptr noundef nonnull %head, ptr noundef %key, i64 noundef %len) #5
   %call5 = call i32 @MD5_Final(ptr noundef nonnull %hmac_key, ptr noundef nonnull %head) #5
@@ -324,7 +319,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %head11 = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 2
+  %head11 = getelementptr inbounds i8, ptr %bctx, i64 1224
   %call12 = call i32 @MD5_Init(ptr noundef nonnull %head11) #5
   %call15 = call i32 @MD5_Update(ptr noundef nonnull %head11, ptr noundef nonnull %hmac_key, i64 noundef 64) #5
   br label %for.body20
@@ -340,7 +335,7 @@ for.body20:                                       ; preds = %for.end, %for.body2
   br i1 %exitcond21.not, label %for.end28, label %for.body20, !llvm.loop !6
 
 for.end28:                                        ; preds = %for.body20
-  %tail = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %bctx, i64 0, i32 3
+  %tail = getelementptr inbounds i8, ptr %bctx, i64 1316
   %call29 = call i32 @MD5_Init(ptr noundef nonnull %tail) #5
   %call32 = call i32 @MD5_Update(ptr noundef nonnull %tail, ptr noundef nonnull %hmac_key, i64 noundef 64) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %hmac_key, i64 noundef 64) #5

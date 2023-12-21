@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.google::SiteFlag" = type { ptr, ptr, i64, ptr }
-%"class.proxygen::CodecErrorResponseHandler" = type { %"class.proxygen::HTTPTransactionHandler", ptr }
-%"class.proxygen::HTTPTransactionHandler" = type { %"struct.proxygen::TraceEventObserver" }
-%"struct.proxygen::TraceEventObserver" = type { ptr }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
@@ -98,7 +95,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen25CodecErrorResponseHandlerC2ENS_9ErrorCodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 zeroext %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::CodecErrorResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %txn_, align 8
   ret void
 }
@@ -123,7 +120,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen25CodecErrorResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %txn) unnamed_addr #3 align 2 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::CodecErrorResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %txn, ptr %txn_, align 8
   ret void
 }
@@ -132,7 +129,7 @@ entry:
 define void @_ZN8proxygen25CodecErrorResponseHandler17detachTransactionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
   ret void
@@ -356,10 +353,10 @@ cleanup.action:                                   ; preds = %invoke.cont10
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %txn_ = getelementptr inbounds %"class.proxygen::CodecErrorResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %txn_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(912) %2)
           to label %invoke.cont16 unwind label %terminate.lpad
@@ -397,7 +394,7 @@ entry:
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp) #10
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -438,7 +435,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %error, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call3 = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(48) %error) #10
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call3)

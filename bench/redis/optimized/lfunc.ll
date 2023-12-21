@@ -3,21 +3,7 @@ source_filename = "bench/redis/original/lfunc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CClosure = type { ptr, i8, i8, i8, i8, ptr, ptr, ptr, [1 x %struct.lua_TValue] }
-%struct.lua_TValue = type { %union.Value, i32 }
-%union.Value = type { ptr }
-%struct.LClosure = type { ptr, i8, i8, i8, i8, ptr, ptr, ptr, [1 x ptr] }
-%struct.UpVal = type { ptr, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.lua_TValue }
-%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
-%struct.GCheader = type { ptr, i8, i8 }
-%struct.global_State = type { %struct.stringtable, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Mbuffer, i64, i64, i64, i64, i32, i32, ptr, %struct.lua_TValue, ptr, %struct.UpVal, [9 x ptr], [17 x ptr] }
-%struct.stringtable = type { ptr, i32, i32 }
-%struct.Mbuffer = type { ptr, i64, i64 }
-%struct.Proto = type { ptr, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8 }
 %struct.LocVar = type { ptr, i32, i32 }
-%union.TString = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, i8, i8, i8, i32, i64 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaF_newCclosure(ptr noundef %L, i32 noundef %nelems, ptr noundef %e) local_unnamed_addr #0 {
@@ -27,12 +13,12 @@ entry:
   %conv2 = sext i32 %add to i64
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %conv2) #4
   tail call void @luaC_link(ptr noundef %L, ptr noundef %call, i8 noundef zeroext 6) #4
-  %isC = getelementptr inbounds %struct.CClosure, ptr %call, i64 0, i32 3
+  %isC = getelementptr inbounds i8, ptr %call, i64 10
   store i8 1, ptr %isC, align 2, !tbaa !4
-  %env = getelementptr inbounds %struct.CClosure, ptr %call, i64 0, i32 6
+  %env = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %e, ptr %env, align 8, !tbaa !4
   %conv3 = trunc i32 %nelems to i8
-  %nupvalues = getelementptr inbounds %struct.CClosure, ptr %call, i64 0, i32 4
+  %nupvalues = getelementptr inbounds i8, ptr %call, i64 11
   store i8 %conv3, ptr %nupvalues, align 1, !tbaa !4
   ret ptr %call
 }
@@ -49,12 +35,12 @@ entry:
   %conv2 = sext i32 %add to i64
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %conv2) #4
   tail call void @luaC_link(ptr noundef %L, ptr noundef %call, i8 noundef zeroext 6) #4
-  %isC = getelementptr inbounds %struct.LClosure, ptr %call, i64 0, i32 3
+  %isC = getelementptr inbounds i8, ptr %call, i64 10
   store i8 0, ptr %isC, align 2, !tbaa !4
-  %env = getelementptr inbounds %struct.LClosure, ptr %call, i64 0, i32 6
+  %env = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %e, ptr %env, align 8, !tbaa !4
   %conv3 = trunc i32 %nelems to i8
-  %nupvalues = getelementptr inbounds %struct.LClosure, ptr %call, i64 0, i32 4
+  %nupvalues = getelementptr inbounds i8, ptr %call, i64 11
   store i8 %conv3, ptr %nupvalues, align 1, !tbaa !4
   %tobool.not13 = icmp eq i32 %nelems, 0
   br i1 %tobool.not13, label %while.end, label %while.body.preheader
@@ -82,10 +68,10 @@ define hidden ptr @luaF_newupval(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 40) #4
   tail call void @luaC_link(ptr noundef %L, ptr noundef %call, i8 noundef zeroext 10) #4
-  %u = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 4
-  %v = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %call, i64 24
+  %v = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %u, ptr %v, align 8, !tbaa !7
-  %tt = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 4, i32 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %tt, align 8, !tbaa !10
   ret ptr %call
 }
@@ -93,9 +79,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaF_findupval(ptr noundef %L, ptr noundef %level) local_unnamed_addr #0 {
 entry:
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !13
-  %openupval = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 24
+  %openupval = getelementptr inbounds i8, ptr %L, i64 152
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -105,7 +91,7 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %v = getelementptr inbounds %struct.UpVal, ptr %1, i64 0, i32 3
+  %v = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %v, align 8, !tbaa !7
   %cmp1.not = icmp ult ptr %2, %level
   br i1 %cmp1.not, label %while.end, label %while.body
@@ -115,9 +101,9 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp3, label %if.then, label %while.cond, !llvm.loop !18
 
 if.then:                                          ; preds = %while.body
-  %marked = getelementptr inbounds %struct.GCheader, ptr %1, i64 0, i32 2
+  %marked = getelementptr inbounds i8, ptr %1, i64 9
   %3 = load i8, ptr %marked, align 1, !tbaa !4
-  %currentwhite = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 3
+  %currentwhite = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i8, ptr %currentwhite, align 8, !tbaa !20
   %5 = xor i8 %4, -1
   %and60 = and i8 %3, 3
@@ -132,26 +118,26 @@ if.then6:                                         ; preds = %if.then
 
 while.end:                                        ; preds = %land.rhs, %while.cond
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 40) #4
-  %tt = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %call, i64 8
   store i8 10, ptr %tt, align 8, !tbaa !24
-  %currentwhite12 = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 3
+  %currentwhite12 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i8, ptr %currentwhite12, align 8, !tbaa !20
   %9 = and i8 %8, 3
-  %marked16 = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 2
+  %marked16 = getelementptr inbounds i8, ptr %call, i64 9
   store i8 %9, ptr %marked16, align 1, !tbaa !25
-  %v17 = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 3
+  %v17 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %level, ptr %v17, align 8, !tbaa !7
   %10 = load ptr, ptr %pp.0, align 8, !tbaa !17
   store ptr %10, ptr %call, align 8, !tbaa !26
   store ptr %call, ptr %pp.0, align 8, !tbaa !17
-  %uvhead = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 22
-  %u = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 4
+  %uvhead = getelementptr inbounds i8, ptr %0, i64 184
+  %u = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %uvhead, ptr %u, align 8, !tbaa !4
-  %next21 = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 22, i32 4, i32 0, i32 1
+  %next21 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = load ptr, ptr %next21, align 8, !tbaa !4
-  %next23 = getelementptr inbounds %struct.UpVal, ptr %call, i64 0, i32 4, i32 0, i32 1
+  %next23 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %11, ptr %next23, align 8, !tbaa !4
-  %u26 = getelementptr inbounds %struct.UpVal, ptr %11, i64 0, i32 4
+  %u26 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %call, ptr %u26, align 8, !tbaa !4
   store ptr %call, ptr %next21, align 8, !tbaa !4
   br label %cleanup
@@ -164,20 +150,20 @@ cleanup:                                          ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden void @luaF_freeupval(ptr noundef %L, ptr noundef %uv) local_unnamed_addr #0 {
 entry:
-  %v = getelementptr inbounds %struct.UpVal, ptr %uv, i64 0, i32 3
+  %v = getelementptr inbounds i8, ptr %uv, i64 16
   %0 = load ptr, ptr %v, align 8, !tbaa !7
-  %u = getelementptr inbounds %struct.UpVal, ptr %uv, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %uv, i64 24
   %cmp.not = icmp eq ptr %0, %u
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %u, align 8, !tbaa !4
-  %next.i = getelementptr inbounds %struct.UpVal, ptr %uv, i64 0, i32 4, i32 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %uv, i64 32
   %2 = load ptr, ptr %next.i, align 8, !tbaa !4
-  %u2.i = getelementptr inbounds %struct.UpVal, ptr %2, i64 0, i32 4
+  %u2.i = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %1, ptr %u2.i, align 8, !tbaa !4
   %3 = load ptr, ptr %next.i, align 8, !tbaa !4
-  %next9.i = getelementptr inbounds %struct.UpVal, ptr %1, i64 0, i32 4, i32 0, i32 1
+  %next9.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %3, ptr %next9.i, align 8, !tbaa !4
   br label %if.end
 
@@ -189,20 +175,20 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @luaF_close(ptr noundef %L, ptr noundef readnone %level) local_unnamed_addr #0 {
 entry:
-  %openupval = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 24
+  %openupval = getelementptr inbounds i8, ptr %L, i64 152
   %0 = load ptr, ptr %openupval, align 8, !tbaa !27
   %cmp.not28 = icmp eq ptr %0, null
   br i1 %cmp.not28, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %1 = load ptr, ptr %l_G, align 8, !tbaa !13
-  %currentwhite = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 3
+  %currentwhite = getelementptr inbounds i8, ptr %1, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end, %land.rhs.lr.ph
   %2 = phi ptr [ %0, %land.rhs.lr.ph ], [ %18, %if.end ]
-  %v = getelementptr inbounds %struct.UpVal, ptr %2, i64 0, i32 3
+  %v = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %v, align 8, !tbaa !7
   %cmp2.not = icmp ult ptr %3, %level
   br i1 %cmp2.not, label %while.end, label %while.body
@@ -210,14 +196,14 @@ land.rhs:                                         ; preds = %if.end, %land.rhs.l
 while.body:                                       ; preds = %land.rhs
   %4 = load ptr, ptr %2, align 8, !tbaa !26
   store ptr %4, ptr %openupval, align 8, !tbaa !27
-  %marked = getelementptr inbounds %struct.GCheader, ptr %2, i64 0, i32 2
+  %marked = getelementptr inbounds i8, ptr %2, i64 9
   %5 = load i8, ptr %marked, align 1, !tbaa !4
   %6 = load i8, ptr %currentwhite, align 8, !tbaa !20
   %7 = xor i8 %6, -1
   %and26 = and i8 %5, 3
   %8 = and i8 %and26, %7
   %tobool.not = icmp eq i8 %8, 0
-  %u.i27 = getelementptr inbounds %struct.UpVal, ptr %2, i64 0, i32 4
+  %u.i27 = getelementptr inbounds i8, ptr %2, i64 24
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -226,12 +212,12 @@ if.then:                                          ; preds = %while.body
 
 if.then.i:                                        ; preds = %if.then
   %9 = load ptr, ptr %u.i27, align 8, !tbaa !4
-  %next.i.i = getelementptr inbounds %struct.UpVal, ptr %2, i64 0, i32 4, i32 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load ptr, ptr %next.i.i, align 8, !tbaa !4
-  %u2.i.i = getelementptr inbounds %struct.UpVal, ptr %10, i64 0, i32 4
+  %u2.i.i = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %9, ptr %u2.i.i, align 8, !tbaa !4
   %11 = load ptr, ptr %next.i.i, align 8, !tbaa !4
-  %next9.i.i = getelementptr inbounds %struct.UpVal, ptr %9, i64 0, i32 4, i32 0, i32 1
+  %next9.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %11, ptr %next9.i.i, align 8, !tbaa !4
   br label %luaF_freeupval.exit
 
@@ -241,17 +227,17 @@ luaF_freeupval.exit:                              ; preds = %if.then.i, %if.then
 
 if.else:                                          ; preds = %while.body
   %12 = load ptr, ptr %u.i27, align 8, !tbaa !4
-  %next.i = getelementptr inbounds %struct.UpVal, ptr %2, i64 0, i32 4, i32 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %2, i64 32
   %13 = load ptr, ptr %next.i, align 8, !tbaa !4
-  %u2.i = getelementptr inbounds %struct.UpVal, ptr %13, i64 0, i32 4
+  %u2.i = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %12, ptr %u2.i, align 8, !tbaa !4
   %14 = load ptr, ptr %next.i, align 8, !tbaa !4
-  %next9.i = getelementptr inbounds %struct.UpVal, ptr %12, i64 0, i32 4, i32 0, i32 1
+  %next9.i = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %14, ptr %next9.i, align 8, !tbaa !4
   %15 = load ptr, ptr %v, align 8, !tbaa !7
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %u.i27, align 8
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %15, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %tt, align 8, !tbaa !10
   store i32 %17, ptr %next.i, align 8, !tbaa !10
   store ptr %u.i27, ptr %v, align 8, !tbaa !7
@@ -274,8 +260,8 @@ define hidden ptr @luaF_newproto(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 120) #4
   tail call void @luaC_link(ptr noundef %L, ptr noundef %call, i8 noundef zeroext 9) #4
-  %k = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 3
-  %nups = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 19
+  %k = getelementptr inbounds i8, ptr %call, i64 16
+  %nups = getelementptr inbounds i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %k, i8 0, i64 88, i1 false)
   store i32 0, ptr %nups, align 8
   ret ptr %call
@@ -284,44 +270,44 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @luaF_freeproto(ptr noundef %L, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %code = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 4
+  %code = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %code, align 8, !tbaa !29
-  %sizecode = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 12
+  %sizecode = getelementptr inbounds i8, ptr %f, i64 80
   %1 = load i32, ptr %sizecode, align 8, !tbaa !31
   %conv = sext i32 %1 to i64
   %mul = shl nsw i64 %conv, 2
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %0, i64 noundef %mul, i64 noundef 0) #4
-  %p = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 5
+  %p = getelementptr inbounds i8, ptr %f, i64 32
   %2 = load ptr, ptr %p, align 8, !tbaa !32
-  %sizep = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 14
+  %sizep = getelementptr inbounds i8, ptr %f, i64 88
   %3 = load i32, ptr %sizep, align 8, !tbaa !33
   %conv1 = sext i32 %3 to i64
   %mul2 = shl nsw i64 %conv1, 3
   %call3 = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %2, i64 noundef %mul2, i64 noundef 0) #4
-  %k = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 3
+  %k = getelementptr inbounds i8, ptr %f, i64 16
   %4 = load ptr, ptr %k, align 8, !tbaa !34
-  %sizek = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 11
+  %sizek = getelementptr inbounds i8, ptr %f, i64 76
   %5 = load i32, ptr %sizek, align 4, !tbaa !35
   %conv4 = sext i32 %5 to i64
   %mul5 = shl nsw i64 %conv4, 4
   %call6 = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %4, i64 noundef %mul5, i64 noundef 0) #4
-  %lineinfo = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 6
+  %lineinfo = getelementptr inbounds i8, ptr %f, i64 40
   %6 = load ptr, ptr %lineinfo, align 8, !tbaa !36
-  %sizelineinfo = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 13
+  %sizelineinfo = getelementptr inbounds i8, ptr %f, i64 84
   %7 = load i32, ptr %sizelineinfo, align 4, !tbaa !37
   %conv7 = sext i32 %7 to i64
   %mul8 = shl nsw i64 %conv7, 2
   %call9 = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %6, i64 noundef %mul8, i64 noundef 0) #4
-  %locvars = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 7
+  %locvars = getelementptr inbounds i8, ptr %f, i64 48
   %8 = load ptr, ptr %locvars, align 8, !tbaa !38
-  %sizelocvars = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 15
+  %sizelocvars = getelementptr inbounds i8, ptr %f, i64 92
   %9 = load i32, ptr %sizelocvars, align 4, !tbaa !39
   %conv10 = sext i32 %9 to i64
   %mul11 = shl nsw i64 %conv10, 4
   %call12 = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %8, i64 noundef %mul11, i64 noundef 0) #4
-  %upvalues = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 8
+  %upvalues = getelementptr inbounds i8, ptr %f, i64 56
   %10 = load ptr, ptr %upvalues, align 8, !tbaa !40
-  %sizeupvalues = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 10
+  %sizeupvalues = getelementptr inbounds i8, ptr %f, i64 72
   %11 = load i32, ptr %sizeupvalues, align 8, !tbaa !41
   %conv13 = sext i32 %11 to i64
   %mul14 = shl nsw i64 %conv13, 3
@@ -333,10 +319,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @luaF_freeclosure(ptr noundef %L, ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %isC = getelementptr inbounds %struct.CClosure, ptr %c, i64 0, i32 3
+  %isC = getelementptr inbounds i8, ptr %c, i64 10
   %0 = load i8, ptr %isC, align 2, !tbaa !4
   %tobool.not = icmp eq i8 %0, 0
-  %nupvalues4 = getelementptr inbounds %struct.LClosure, ptr %c, i64 0, i32 4
+  %nupvalues4 = getelementptr inbounds i8, ptr %c, i64 11
   %.sink = select i1 %tobool.not, i64 3, i64 4
   %1 = load i8, ptr %nupvalues4, align 1, !tbaa !4
   %conv5 = zext i8 %1 to i64
@@ -350,13 +336,13 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @luaF_getlocalname(ptr nocapture noundef readonly %f, i32 noundef %local_number, i32 noundef %pc) local_unnamed_addr #2 {
 entry:
-  %sizelocvars = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 15
+  %sizelocvars = getelementptr inbounds i8, ptr %f, i64 92
   %0 = load i32, ptr %sizelocvars, align 4, !tbaa !39
   %cmp21 = icmp sgt i32 %0, 0
   br i1 %cmp21, label %land.rhs.lr.ph, label %cleanup
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %locvars = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 7
+  %locvars = getelementptr inbounds i8, ptr %f, i64 48
   %1 = load ptr, ptr %locvars, align 8, !tbaa !38
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %land.rhs
@@ -383,7 +369,7 @@ if.then:                                          ; preds = %for.body
 if.then7:                                         ; preds = %if.then
   %arrayidx.le = getelementptr inbounds %struct.LocVar, ptr %1, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.le, align 8, !tbaa !45
-  %add.ptr = getelementptr inbounds %union.TString, ptr %4, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 24
   br label %cleanup
 
 for.inc:                                          ; preds = %if.then, %for.body

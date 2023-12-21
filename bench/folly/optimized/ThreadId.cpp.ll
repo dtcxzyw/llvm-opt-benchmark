@@ -128,14 +128,14 @@ entry:
   br i1 %cmp.not, label %entry.if.end_crit_edge, label %if.then, !prof !12
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %second.phi.trans.insert = getelementptr inbounds %"struct.std::pair", ptr %1, i64 0, i32 1
+  %second.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i64, ptr %second.phi.trans.insert, align 8, !tbaa !13
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #14
   store i64 %0, ptr %1, align 8, !tbaa !7
-  %second3.i = getelementptr inbounds %"struct.std::pair", ptr %1, i64 0, i32 1
+  %second3.i = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %call.i, ptr %second3.i, align 8, !tbaa !13
   br label %if.end
 
@@ -157,18 +157,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp3.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp5.i.i)
   store ptr null, ptr %agg.tmp.i.i, align 16, !tbaa !14
-  %call_.i.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i.i, i64 0, i32 1
-  %exec_.i.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i.i, i64 0, i32 2
+  %call_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 48
+  %exec_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 56
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE_EEbRNS1_4DataE, ptr %call_.i.i.i, align 16, !tbaa !15
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i.i.i, align 8, !tbaa !18
   store ptr null, ptr %agg.tmp3.i.i, align 16, !tbaa !14
-  %call_.i8.i.i = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp3.i.i, i64 0, i32 1
-  %exec_.i9.i.i = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp3.i.i, i64 0, i32 2
+  %call_.i8.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 48
+  %exec_.i9.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 56
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE0_EEvRNS1_4DataE, ptr %call_.i8.i.i, align 16, !tbaa !19
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i9.i.i, align 8, !tbaa !21
   store ptr null, ptr %agg.tmp5.i.i, align 16, !tbaa !14
-  %call_.i10.i.i = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp5.i.i, i64 0, i32 1
-  %exec_.i11.i.i = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp5.i.i, i64 0, i32 2
+  %call_.i10.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i, i64 48
+  %exec_.i11.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i, i64 56
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE1_EEvRNS1_4DataE, ptr %call_.i10.i.i, align 16, !tbaa !19
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i11.i.i, align 8, !tbaa !21
   invoke void @_ZN5folly6AtFork15registerHandlerEPKvNS_8FunctionIFbvEEENS3_IFvvEEES7_(ptr noundef nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef nonnull %agg.tmp5.i.i)

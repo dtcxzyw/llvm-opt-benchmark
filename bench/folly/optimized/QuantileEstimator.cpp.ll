@@ -8,11 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<double, double>, std::allocator<std::pair<double, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::TDigest" = type { %"class.std::vector.0", i64, double, double, double, double }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl" }
-%"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair" = type { double, double }
 
 @.str = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
@@ -21,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6detail19estimatesFromDigestERKNS_7TDigestENS_5RangeIPKdEE(ptr noalias nocapture sret(%"struct.folly::QuantileEstimates") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %digest, ptr %quantiles.coerce0, ptr %quantiles.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %quantiles.i = getelementptr inbounds %"struct.folly::QuantileEstimates", ptr %agg.result, i64 0, i32 2
+  %quantiles.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %quantiles.i, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %quantiles.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %quantiles.coerce0 to i64
@@ -38,12 +33,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.folly::QuantileEstimates", ptr %agg.result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %cmp3.i.not = icmp eq ptr %quantiles.coerce1, %quantiles.coerce0
   br i1 %cmp3.i.not, label %invoke.cont2.thread, label %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i
 
 invoke.cont2.thread:                              ; preds = %if.end.i
-  %sum_.i6 = getelementptr inbounds %"class.folly::TDigest", ptr %digest, i64 0, i32 2
+  %sum_.i6 = getelementptr inbounds i8, ptr %digest, i64 32
   %0 = load <2 x double>, ptr %sum_.i6, align 8, !tbaa !7
   store <2 x double> %0, ptr %agg.result, align 8, !tbaa !7
   br label %nrvo.skipdtor
@@ -54,12 +49,12 @@ _ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i: ; preds = %if.end
           to label %for.body.lr.ph unwind label %lpad
 
 for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.folly::QuantileEstimates", ptr %agg.result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %call5.i.i.i.i32, ptr %quantiles.i, align 8, !tbaa !11
   store ptr %call5.i.i.i.i32, ptr %_M_finish.i.i, align 8, !tbaa !14
   %add.ptr21.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i32, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !15
-  %sum_.i = getelementptr inbounds %"class.folly::TDigest", ptr %digest, i64 0, i32 2
+  %sum_.i = getelementptr inbounds i8, ptr %digest, i64 32
   %1 = load <2 x double>, ptr %sum_.i, align 8, !tbaa !7
   store <2 x double> %1, ptr %agg.result, align 8, !tbaa !7
   br label %for.body
@@ -87,7 +82,7 @@ if.then.i.i36:                                    ; preds = %invoke.cont18
   store double %6, ptr %3, align 8
   %ref.tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store double %call17, ptr %ref.tmp.sroa.6.0..sroa_idx, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !14
   br label %invoke.cont20
 
@@ -134,14 +129,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i31.i.i.i, %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.08.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i31.i.i.i, %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i41.i.i.i
 
@@ -160,7 +155,7 @@ invoke.cont20:                                    ; preds = %_ZNSt6vectorISt4pai
   %7 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i36 ]
   %8 = phi ptr [ %cond.i31.i.i.i, %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %4, %if.then.i.i36 ]
   %add.ptr19.i.i.i47 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %add.ptr19.i.i.i4850, %if.then.i.i36 ]
-  %incdec.ptr = getelementptr inbounds double, ptr %__begin2.051, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.051, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %quantiles.coerce1
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 

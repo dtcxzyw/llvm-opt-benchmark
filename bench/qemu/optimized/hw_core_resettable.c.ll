@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.ResettableClass = type { %struct.InterfaceClass, %struct.ResettablePhases, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ResettablePhases = type { ptr, ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
 
 @.str = private unnamed_addr constant [24 x i8] c"type == RESET_TYPE_COLD\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"../qemu/hw/core/resettable.c\00", align 1
@@ -112,7 +107,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %obj, i32 noundef %type) #7
   br label %trace_resettable_reset.exit
@@ -165,7 +160,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %obj, i32 noundef 0) #7
   br label %trace_resettable_reset_assert_begin.exit
@@ -212,7 +207,7 @@ if.then8.i.i17:                                   ; preds = %if.then.i.i15
   %call9.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8, ptr noundef null) #7
   %call10.i.i19 = tail call i32 @qemu_get_thread_id() #7
   %12 = load i64, ptr %_now.i.i8, align 8
-  %tv_usec.i.i20 = getelementptr inbounds %struct.timeval, ptr %_now.i.i8, i64 0, i32 1
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i8, i64 8
   %13 = load i64, ptr %tv_usec.i.i20, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i19, i64 noundef %12, i64 noundef %13, ptr noundef %obj) #7
   br label %trace_resettable_reset_assert_end.exit
@@ -263,7 +258,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %obj, i32 noundef 0) #7
   br label %trace_resettable_reset_release_begin.exit
@@ -313,7 +308,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #7
   %call10.i.i17 = tail call i32 @qemu_get_thread_id() #7
   %14 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %15 = load i64, ptr %tv_usec.i.i18, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i17, i64 noundef %14, i64 noundef %15, ptr noundef %obj) #7
   br label %trace_resettable_reset_release_end.exit
@@ -338,11 +333,11 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 2
+  %get_state = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %get_state, align 8
   %call1 = tail call ptr %0(ptr noundef %obj) #7
   %call2 = tail call ptr @object_get_typename(ptr noundef %obj) #7
-  %exit_phase_in_progress = getelementptr inbounds %struct.ResettableState, ptr %call1, i64 0, i32 2
+  %exit_phase_in_progress = getelementptr inbounds i8, ptr %call1, i64 5
   %1 = load i8, ptr %exit_phase_in_progress, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -378,7 +373,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %obj, ptr noundef %call2, i32 noundef %3, i32 noundef %type) #7
   br label %trace_resettable_phase_enter_begin.exit
@@ -415,7 +410,7 @@ resettable_child_foreach.exit:                    ; preds = %if.end10, %if.then.
   br i1 %cmp, label %if.then12, label %if.end24
 
 if.then12:                                        ; preds = %resettable_child_foreach.exit
-  %phases = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 1
+  %phases = getelementptr inbounds i8, ptr %call1.i, i64 112
   %13 = load ptr, ptr %phases, align 8
   %tobool13 = icmp ne ptr %13, null
   %lnot.ext = zext i1 %tobool13 to i32
@@ -442,7 +437,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #7
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #7
   %18 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %19 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i36, i64 noundef %18, i64 noundef %19, ptr noundef %obj, ptr noundef %call2, i32 noundef %type, i32 noundef %lnot.ext) #7
   br label %trace_resettable_phase_enter_exec.exit
@@ -478,7 +473,7 @@ if.then20:                                        ; preds = %resettable_get_tr_f
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %resettable_get_tr_func.exit, %trace_resettable_phase_enter_exec.exit
-  %hold_phase_pending = getelementptr inbounds %struct.ResettableState, ptr %call1, i64 0, i32 1
+  %hold_phase_pending = getelementptr inbounds i8, ptr %call1, i64 4
   store i8 1, ptr %hold_phase_pending, align 4
   %.pre58 = load i32, ptr @trace_events_enabled_count, align 4
   br label %if.end24
@@ -509,7 +504,7 @@ if.then8.i.i51:                                   ; preds = %if.then.i.i49
   %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i42, ptr noundef null) #7
   %call10.i.i53 = tail call i32 @qemu_get_thread_id() #7
   %29 = load i64, ptr %_now.i.i42, align 8
-  %tv_usec.i.i54 = getelementptr inbounds %struct.timeval, ptr %_now.i.i42, i64 0, i32 1
+  %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i42, i64 8
   %30 = load i64, ptr %tv_usec.i.i54, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i53, i64 noundef %29, i64 noundef %30, ptr noundef %obj, ptr noundef %call2, i32 noundef %24) #7
   br label %trace_resettable_phase_enter_end.exit
@@ -532,11 +527,11 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 2
+  %get_state = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %get_state, align 8
   %call1 = tail call ptr %0(ptr noundef %obj) #7
   %call2 = tail call ptr @object_get_typename(ptr noundef %obj) #7
-  %exit_phase_in_progress = getelementptr inbounds %struct.ResettableState, ptr %call1, i64 0, i32 2
+  %exit_phase_in_progress = getelementptr inbounds i8, ptr %call1, i64 5
   %1 = load i8, ptr %exit_phase_in_progress, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -572,7 +567,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %obj, ptr noundef %call2, i32 noundef %3, i32 noundef %type) #7
   br label %trace_resettable_phase_hold_begin.exit
@@ -593,7 +588,7 @@ if.then.i:                                        ; preds = %trace_resettable_ph
   br label %resettable_child_foreach.exit
 
 resettable_child_foreach.exit:                    ; preds = %trace_resettable_phase_hold_begin.exit, %if.then.i
-  %hold_phase_pending = getelementptr inbounds %struct.ResettableState, ptr %call1, i64 0, i32 1
+  %hold_phase_pending = getelementptr inbounds i8, ptr %call1, i64 4
   %12 = load i8, ptr %hold_phase_pending, align 4
   %13 = and i8 %12, 1
   %tobool3.not = icmp eq i8 %13, 0
@@ -612,7 +607,7 @@ if.then.i27:                                      ; preds = %if.then4
 
 resettable_get_tr_func.exit:                      ; preds = %if.then4, %if.then.i27
   %tr_func.0.i = phi ptr [ %call.i28, %if.then.i27 ], [ null, %if.then4 ]
-  %hold = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 1, i32 1
+  %hold = getelementptr inbounds i8, ptr %call1.i, i64 120
   %15 = load ptr, ptr %hold, align 8
   %tobool7 = icmp ne ptr %15, null
   %lnot.ext = zext i1 %tobool7 to i32
@@ -640,7 +635,7 @@ if.then8.i.i38:                                   ; preds = %if.then.i.i36
   %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #7
   %call10.i.i40 = tail call i32 @qemu_get_thread_id() #7
   %21 = load i64, ptr %_now.i.i29, align 8
-  %tv_usec.i.i41 = getelementptr inbounds %struct.timeval, ptr %_now.i.i29, i64 0, i32 1
+  %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i29, i64 8
   %22 = load i64, ptr %tv_usec.i.i41, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i40, i64 noundef %21, i64 noundef %22, ptr noundef %obj, ptr noundef %call2, i32 noundef %lnot.ext) #7
   br label %trace_resettable_phase_hold_exec.exit
@@ -679,7 +674,7 @@ if.then8.i.i52:                                   ; preds = %if.then.i.i50
   %call9.i.i53 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43, ptr noundef null) #7
   %call10.i.i54 = tail call i32 @qemu_get_thread_id() #7
   %28 = load i64, ptr %_now.i.i43, align 8
-  %tv_usec.i.i55 = getelementptr inbounds %struct.timeval, ptr %_now.i.i43, i64 0, i32 1
+  %tv_usec.i.i55 = getelementptr inbounds i8, ptr %_now.i.i43, i64 8
   %29 = load i64, ptr %tv_usec.i.i55, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i54, i64 noundef %28, i64 noundef %29, ptr noundef %obj, ptr noundef %call2) #7
   br label %trace_resettable_transitional_function.exit
@@ -728,7 +723,7 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i64
   %call9.i.i67 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i57, ptr noundef null) #7
   %call10.i.i68 = tail call i32 @qemu_get_thread_id() #7
   %37 = load i64, ptr %_now.i.i57, align 8
-  %tv_usec.i.i69 = getelementptr inbounds %struct.timeval, ptr %_now.i.i57, i64 0, i32 1
+  %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i57, i64 8
   %38 = load i64, ptr %tv_usec.i.i69, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i68, i64 noundef %37, i64 noundef %38, ptr noundef %obj, ptr noundef %call2, i32 noundef %31) #7
   br label %trace_resettable_phase_hold_end.exit
@@ -750,11 +745,11 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 2
+  %get_state = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %get_state, align 8
   %call1 = tail call ptr %0(ptr noundef %obj) #7
   %call2 = tail call ptr @object_get_typename(ptr noundef %obj) #7
-  %exit_phase_in_progress = getelementptr inbounds %struct.ResettableState, ptr %call1, i64 0, i32 2
+  %exit_phase_in_progress = getelementptr inbounds i8, ptr %call1, i64 5
   %1 = load i8, ptr %exit_phase_in_progress, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -790,7 +785,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %obj, ptr noundef %call2, i32 noundef %3, i32 noundef %type) #7
   br label %trace_resettable_phase_exit_begin.exit
@@ -827,7 +822,7 @@ if.end7:                                          ; preds = %resettable_child_fo
   br i1 %cmp9, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.end7
-  %exit = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 1, i32 2
+  %exit = getelementptr inbounds i8, ptr %call1.i, i64 128
   %13 = load ptr, ptr %exit, align 8
   %tobool11 = icmp ne ptr %13, null
   %lnot.ext = zext i1 %tobool11 to i32
@@ -855,7 +850,7 @@ if.then8.i.i33:                                   ; preds = %if.then.i.i31
   %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #7
   %call10.i.i35 = tail call i32 @qemu_get_thread_id() #7
   %19 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i36 = getelementptr inbounds %struct.timeval, ptr %_now.i.i24, i64 0, i32 1
+  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   %20 = load i64, ptr %tv_usec.i.i36, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i35, i64 noundef %19, i64 noundef %20, ptr noundef %obj, ptr noundef %call2, i32 noundef %lnot.ext) #7
   br label %trace_resettable_phase_exit_exec.exit
@@ -917,7 +912,7 @@ if.then8.i.i50:                                   ; preds = %if.then.i.i48
   %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #7
   %call10.i.i52 = tail call i32 @qemu_get_thread_id() #7
   %30 = load i64, ptr %_now.i.i41, align 8
-  %tv_usec.i.i53 = getelementptr inbounds %struct.timeval, ptr %_now.i.i41, i64 0, i32 1
+  %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %31 = load i64, ptr %tv_usec.i.i53, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i52, i64 noundef %30, i64 noundef %31, ptr noundef %obj, ptr noundef %call2, i32 noundef %24) #7
   br label %trace_resettable_phase_exit_end.exit
@@ -936,7 +931,7 @@ define dso_local zeroext i1 @resettable_is_in_reset(ptr noundef %obj) local_unna
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 2
+  %get_state = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %get_state, align 8
   %call1 = tail call ptr %0(ptr noundef %obj) #7
   %1 = load i32, ptr %call1, align 4
@@ -950,7 +945,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state = getelementptr inbounds %struct.ResettableClass, ptr %call1.i, i64 0, i32 2
+  %get_state = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %get_state, align 8
   %call1 = tail call ptr %0(ptr noundef %obj) #7
   %tobool.not.i = icmp eq ptr %newp, null
@@ -959,7 +954,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %newp) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state.i = getelementptr inbounds %struct.ResettableClass, ptr %call1.i.i, i64 0, i32 2
+  %get_state.i = getelementptr inbounds i8, ptr %call1.i.i, i64 136
   %1 = load ptr, ptr %get_state.i, align 8
   %call1.i16 = tail call ptr %1(ptr noundef nonnull %newp) #7
   %2 = load i32, ptr %call1.i16, align 4
@@ -973,7 +968,7 @@ resettable_get_count.exit:                        ; preds = %entry, %if.then.i
 if.then.i18:                                      ; preds = %resettable_get_count.exit
   %call.i.i19 = tail call ptr @object_get_class(ptr noundef nonnull %oldp) #7
   %call1.i.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i19, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #7
-  %get_state.i21 = getelementptr inbounds %struct.ResettableClass, ptr %call1.i.i20, i64 0, i32 2
+  %get_state.i21 = getelementptr inbounds i8, ptr %call1.i.i20, i64 136
   %3 = load ptr, ptr %get_state.i21, align 8
   %call1.i22 = tail call ptr %3(ptr noundef nonnull %oldp) #7
   %4 = load i32, ptr %call1.i22, align 4
@@ -1016,7 +1011,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %obj, ptr noundef %oldp, i32 noundef %retval.0.i23, ptr noundef %newp, i32 noundef %retval.0.i) #7
   br label %trace_resettable_change_parent.exit
@@ -1042,7 +1037,7 @@ for.end:                                          ; preds = %for.body, %trace_re
   br i1 %tobool5.not, label %if.end9, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %for.end
-  %hold_phase_pending = getelementptr inbounds %struct.ResettableState, ptr %call1, i64 0, i32 1
+  %hold_phase_pending = getelementptr inbounds i8, ptr %call1, i64 4
   %13 = load i8, ptr %hold_phase_pending, align 4
   %14 = and i8 %13, 1
   %tobool7.not = icmp eq i8 %14, 0
@@ -1077,7 +1072,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @resettable_class_set_parent_phases(ptr nocapture noundef %rc, ptr noundef %enter, ptr noundef %hold, ptr noundef %exit, ptr nocapture noundef writeonly %parent_phases) local_unnamed_addr #2 {
 entry:
-  %phases = getelementptr inbounds %struct.ResettableClass, ptr %rc, i64 0, i32 1
+  %phases = getelementptr inbounds i8, ptr %rc, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parent_phases, ptr noundef nonnull align 8 dereferenceable(24) %phases, i64 24, i1 false)
   %tobool.not = icmp eq ptr %enter, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1091,7 +1086,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %hold6 = getelementptr inbounds %struct.ResettableClass, ptr %rc, i64 0, i32 1, i32 1
+  %hold6 = getelementptr inbounds i8, ptr %rc, i64 120
   store ptr %hold, ptr %hold6, align 8
   br label %if.end7
 
@@ -1100,7 +1095,7 @@ if.end7:                                          ; preds = %if.then4, %if.end
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %exit11 = getelementptr inbounds %struct.ResettableClass, ptr %rc, i64 0, i32 1, i32 2
+  %exit11 = getelementptr inbounds i8, ptr %rc, i64 128
   store ptr %exit, ptr %exit11, align 8
   br label %if.end12
 

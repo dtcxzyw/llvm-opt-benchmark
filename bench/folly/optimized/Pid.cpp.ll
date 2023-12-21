@@ -58,17 +58,17 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store ptr null, ptr %agg.tmp, align 16, !tbaa !14
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE9callSmallIZNS_12_GLOBAL__N_18PidCache4initEvEUlvE_EEbRNS1_4DataE, ptr %call_.i, align 16, !tbaa !15
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8, !tbaa !18
   store ptr null, ptr %agg.tmp6, align 16, !tbaa !14
-  %call_.i13 = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp6, i64 0, i32 1
-  %exec_.i14 = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp6, i64 0, i32 2
+  %call_.i13 = getelementptr inbounds i8, ptr %agg.tmp6, i64 48
+  %exec_.i14 = getelementptr inbounds i8, ptr %agg.tmp6, i64 56
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_18PidCache4initEvEUlvE0_EEvRNS1_4DataE, ptr %call_.i13, align 16, !tbaa !19
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i14, align 8, !tbaa !21
-  %call_.i15 = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp8, i64 0, i32 1
-  %exec_.i16 = getelementptr inbounds %"class.folly::Function.0", ptr %agg.tmp8, i64 0, i32 2
+  %call_.i15 = getelementptr inbounds i8, ptr %agg.tmp8, i64 48
+  %exec_.i16 = getelementptr inbounds i8, ptr %agg.tmp8, i64 56
   store ptr @_ZN5folly12_GLOBAL__N_16cache_E, ptr %agg.tmp8, align 16, !tbaa.struct !22
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_18PidCache4initEvEUlvE1_EEvRNS1_4DataE, ptr %call_.i15, align 16, !tbaa !19
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i16, align 8, !tbaa !21
@@ -179,7 +179,7 @@ define internal void @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallI
 entry:
   %p.val = load ptr, ptr %p, align 16, !tbaa !24
   %call.i = tail call i32 @getpid() #8
-  %pid_.i = getelementptr inbounds %"class.folly::(anonymous namespace)::PidCache", ptr %p.val, i64 0, i32 1
+  %pid_.i = getelementptr inbounds i8, ptr %p.val, i64 4
   store i32 %call.i, ptr %pid_.i, align 4, !tbaa !7
   ret void
 }

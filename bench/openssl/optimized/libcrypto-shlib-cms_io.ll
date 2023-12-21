@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cms_io.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.CMS_ContentInfo_st = type { ptr, %union.anon, %struct.CMS_CTX_st }
-%union.anon = type { ptr }
-%struct.CMS_CTX_st = type { ptr, ptr }
-%struct.CMS_SignedData_st = type { i32, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/cms/cms_io.c\00", align 1
 @__func__.CMS_stream = private unnamed_addr constant [11 x i8] c"CMS_stream\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"CMS\00", align 1
@@ -33,17 +27,17 @@ if.end4:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end, %if.end4
   %1 = phi ptr [ %call3, %if.end4 ], [ %0, %if.end ]
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %flags, align 8
   %or = or i64 %2, 16
   store i64 %or, ptr %flags, align 8
   %3 = load ptr, ptr %call, align 8
-  %flags7 = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 3
+  %flags7 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %flags7, align 8
   %and = and i64 %4, -33
   store i64 %and, ptr %flags7, align 8
   %5 = load ptr, ptr %call, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %data, ptr %boundary, align 8
   br label %return
 
@@ -206,9 +200,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d, align 8
-  %digestAlgorithms = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 1
+  %digestAlgorithms = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %digestAlgorithms, align 8
   br label %if.end
 

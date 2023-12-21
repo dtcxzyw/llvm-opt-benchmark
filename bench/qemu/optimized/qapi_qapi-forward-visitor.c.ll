@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/qapi_qapi-forward-visitor.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Visitor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CompatPolicy, ptr, ptr }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.ForwardFieldVisitor = type { %struct.Visitor, ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [64 x i8] c"target->type == VISITOR_OUTPUT || target->type == VISITOR_INPUT\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"../qemu/qapi/qapi-forward-visitor.c\00", align 1
 @__PRETTY_FUNCTION__.visitor_forward_field = private unnamed_addr constant [70 x i8] c"Visitor *visitor_forward_field(Visitor *, const char *, const char *)\00", align 1
@@ -22,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noalias ptr @visitor_forward_field(ptr noundef %target, ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 248) #5
-  %type = getelementptr inbounds %struct.Visitor, ptr %target, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %target, i64 160
   %0 = load i32, ptr %type, align 8
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 2
@@ -33,58 +29,58 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %type4 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 20
+  %type4 = getelementptr inbounds i8, ptr %call, i64 160
   store i32 %0, ptr %type4, align 8
   store ptr @forward_field_start_struct, ptr %call, align 8
-  %check_struct = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 1
+  %check_struct = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @forward_field_check_struct, ptr %check_struct, align 8
-  %end_struct = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 2
+  %end_struct = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @forward_field_end_struct, ptr %end_struct, align 8
-  %start_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 3
+  %start_list = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @forward_field_start_list, ptr %start_list, align 8
-  %next_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 4
+  %next_list = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @forward_field_next_list, ptr %next_list, align 8
-  %check_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 5
+  %check_list = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @forward_field_check_list, ptr %check_list, align 8
-  %end_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 6
+  %end_list = getelementptr inbounds i8, ptr %call, i64 48
   store ptr @forward_field_end_list, ptr %end_list, align 8
-  %start_alternate = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 7
+  %start_alternate = getelementptr inbounds i8, ptr %call, i64 56
   store ptr @forward_field_start_alternate, ptr %start_alternate, align 8
-  %end_alternate = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 8
+  %end_alternate = getelementptr inbounds i8, ptr %call, i64 64
   store ptr @forward_field_end_alternate, ptr %end_alternate, align 8
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr @forward_field_type_int64, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %call, i64 80
   store ptr @forward_field_type_uint64, ptr %type_uint64, align 8
-  %type_size = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 11
+  %type_size = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @forward_field_type_size, ptr %type_size, align 8
-  %type_bool = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 12
+  %type_bool = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @forward_field_type_bool, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 13
+  %type_str = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @forward_field_type_str, ptr %type_str, align 8
-  %type_number = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 14
+  %type_number = getelementptr inbounds i8, ptr %call, i64 112
   store ptr @forward_field_type_number, ptr %type_number, align 8
-  %type_any = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 15
+  %type_any = getelementptr inbounds i8, ptr %call, i64 120
   store ptr @forward_field_type_any, ptr %type_any, align 8
-  %type_null = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 16
+  %type_null = getelementptr inbounds i8, ptr %call, i64 128
   store ptr @forward_field_type_null, ptr %type_null, align 8
-  %optional = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 17
+  %optional = getelementptr inbounds i8, ptr %call, i64 136
   store ptr @forward_field_optional, ptr %optional, align 8
-  %policy_reject = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 18
+  %policy_reject = getelementptr inbounds i8, ptr %call, i64 144
   store ptr @forward_field_policy_reject, ptr %policy_reject, align 8
-  %policy_skip = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 19
+  %policy_skip = getelementptr inbounds i8, ptr %call, i64 152
   store ptr @forward_field_policy_skip, ptr %policy_skip, align 8
-  %complete = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 22
+  %complete = getelementptr inbounds i8, ptr %call, i64 200
   store ptr @forward_field_complete, ptr %complete, align 8
-  %free = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 23
+  %free = getelementptr inbounds i8, ptr %call, i64 208
   store ptr @forward_field_free, ptr %free, align 8
-  %target27 = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %call, i64 0, i32 1
+  %target27 = getelementptr inbounds i8, ptr %call, i64 216
   store ptr %target, ptr %target27, align 8
   %call28 = tail call noalias ptr @g_strdup(ptr noundef %from) #7
-  %from29 = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %call, i64 0, i32 2
+  %from29 = getelementptr inbounds i8, ptr %call, i64 224
   store ptr %call28, ptr %from29, align 8
   %call30 = tail call noalias ptr @g_strdup(ptr noundef %to) #7
-  %to31 = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %call, i64 0, i32 3
+  %to31 = getelementptr inbounds i8, ptr %call, i64 232
   store ptr %call30, ptr %to31, align 8
   ret ptr %call
 }
@@ -98,20 +94,20 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_start_struct(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -121,7 +117,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_start_struct(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, i64 noundef %size, ptr noundef %errp) #7
   br i1 %call2, label %if.end4, label %return
@@ -140,7 +136,7 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_check_struct(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
 entry:
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load ptr, ptr %target, align 8
   %call1 = tail call zeroext i1 @visit_check_struct(ptr noundef %0, ptr noundef %errp) #7
   ret i1 %call1
@@ -149,7 +145,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @forward_field_end_struct(ptr nocapture noundef %v, ptr noundef %obj) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -161,7 +157,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %dec = add i32 %0, -1
   store i32 %dec, ptr %depth, align 8
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %target, align 8
   tail call void @visit_end_struct(ptr noundef %1, ptr noundef %obj) #7
   ret void
@@ -170,20 +166,20 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_start_list(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %list, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   %.pre = load i32, ptr %depth.i, align 8
   br label %if.end
@@ -197,7 +193,7 @@ if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
   %inc = add i32 %3, 1
   store i32 %inc, ptr %depth.i, align 8
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %4 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_start_list(ptr noundef %4, ptr noundef %name.addr.0.ph, ptr noundef %list, i64 noundef %size, ptr noundef %errp) #7
   br label %return
@@ -210,7 +206,7 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @forward_field_next_list(ptr nocapture noundef readonly %v, ptr noundef %tail, i64 noundef %size) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -220,7 +216,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %target, align 8
   %call1 = tail call ptr @visit_next_list(ptr noundef %1, ptr noundef %tail, i64 noundef %size) #7
   ret ptr %call1
@@ -229,7 +225,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_check_list(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -239,7 +235,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %target, align 8
   %call1 = tail call zeroext i1 @visit_check_list(ptr noundef %1, ptr noundef %errp) #7
   ret i1 %call1
@@ -248,7 +244,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @forward_field_end_list(ptr nocapture noundef %v, ptr noundef %obj) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -260,7 +256,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %dec = add i32 %0, -1
   store i32 %dec, ptr %depth, align 8
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %target, align 8
   tail call void @visit_end_list(ptr noundef %1, ptr noundef %obj) #7
   ret void
@@ -269,20 +265,20 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_start_alternate(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -292,7 +288,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_start_alternate(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, i64 noundef %size, ptr noundef %errp) #7
   br label %return
@@ -305,7 +301,7 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @forward_field_end_alternate(ptr nocapture noundef readonly %v, ptr noundef %obj) #0 {
 entry:
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load ptr, ptr %target, align 8
   tail call void @visit_end_alternate(ptr noundef %0, ptr noundef %obj) #7
   ret void
@@ -314,20 +310,20 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_int64(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -337,7 +333,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_int64(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -350,20 +346,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_uint64(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -373,7 +369,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_uint64(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -386,20 +382,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_size(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -409,7 +405,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_size(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -422,20 +418,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_bool(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -445,7 +441,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_bool(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -458,20 +454,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_str(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -481,7 +477,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -494,20 +490,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_number(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -517,7 +513,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_number(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -530,20 +526,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_any(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -553,7 +549,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_any(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -566,20 +562,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_type_null(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -589,7 +585,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_type_null(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %obj, ptr noundef %errp) #7
   br label %return
@@ -602,20 +598,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @forward_field_optional(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %present) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.then, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -626,7 +622,7 @@ if.then:                                          ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_optional(ptr noundef %3, ptr noundef %name.addr.0.ph, ptr noundef %present) #7
   br label %return
@@ -638,20 +634,20 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_policy_reject(ptr nocapture noundef readonly %v, ptr noundef %name, i32 noundef %special_features, ptr noundef %errp) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -661,7 +657,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_policy_reject(ptr noundef %3, ptr noundef %name.addr.0.ph, i32 noundef %special_features, ptr noundef %errp) #7
   br label %return
@@ -674,20 +670,20 @@ return:                                           ; preds = %forward_field_trans
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @forward_field_policy_skip(ptr nocapture noundef readonly %v, ptr noundef %name, i32 noundef %special_features) #0 {
 entry:
-  %depth.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 4
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load i32, ptr %depth.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %from.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from.i = getelementptr inbounds i8, ptr %v, i64 224
   %1 = load ptr, ptr %from.i, align 8
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef %1) #7
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %forward_field_translate_name.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %to.i = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %to.i, align 8
   br label %if.end
 
@@ -697,7 +693,7 @@ forward_field_translate_name.exit:                ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then2.i, %entry
   %name.addr.0.ph = phi ptr [ %name, %entry ], [ %2, %if.then2.i ]
-  %target = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %v, i64 216
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call zeroext i1 @visit_policy_skip(ptr noundef %3, ptr noundef %name.addr.0.ph, i32 noundef %special_features) #7
   br label %return
@@ -716,10 +712,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @forward_field_free(ptr noundef %v) #0 {
 entry:
-  %from = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 2
+  %from = getelementptr inbounds i8, ptr %v, i64 224
   %0 = load ptr, ptr %from, align 8
   tail call void @g_free(ptr noundef %0) #7
-  %to = getelementptr inbounds %struct.ForwardFieldVisitor, ptr %v, i64 0, i32 3
+  %to = getelementptr inbounds i8, ptr %v, i64 232
   %1 = load ptr, ptr %to, align 8
   tail call void @g_free(ptr noundef %1) #7
   tail call void @g_free(ptr noundef %v) #7

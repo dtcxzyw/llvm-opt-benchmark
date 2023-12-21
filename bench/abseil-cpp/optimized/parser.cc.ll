@@ -8,17 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.absl::str_format_internal::ParsedFormatBase" = type { i8, %"class.std::unique_ptr", %"class.std::vector" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::str_format_internal::ParsedFormatBase::ConversionItem, std::allocator<absl::str_format_internal::ParsedFormatBase::ConversionItem>>::_Vector_impl" }
-%"struct.std::_Vector_base<absl::str_format_internal::ParsedFormatBase::ConversionItem, std::allocator<absl::str_format_internal::ParsedFormatBase::ConversionItem>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::str_format_internal::ParsedFormatBase::ConversionItem, std::allocator<absl::str_format_internal::ParsedFormatBase::ConversionItem>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<absl::str_format_internal::ParsedFormatBase::ConversionItem, std::allocator<absl::str_format_internal::ParsedFormatBase::ConversionItem>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.absl::str_format_internal::ParsedFormatBase::ParsedFormatConsumer" = type { ptr, ptr }
 %"struct.absl::str_format_internal::UnboundConversion" = type <{ i32, %"class.absl::str_format_internal::UnboundConversion::InputValue", %"class.absl::str_format_internal::UnboundConversion::InputValue", i8, i8, i8, i8 }>
 %"class.absl::str_format_internal::UnboundConversion::InputValue" = type { i32 }
@@ -27,8 +16,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem" = type { i8, i64, %"struct.absl::str_format_internal::UnboundConversion" }
 %struct._Guard = type { ptr }
+%"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem" = type { i8, i64, %"struct.absl::str_format_internal::UnboundConversion" }
 
 $_ZN4absl19str_format_internal17ParseFormatStringINS0_16ParsedFormatBase20ParsedFormatConsumerEEEbSt17basic_string_viewIcSt11char_traitsIcEET_ = comdat any
 
@@ -409,7 +398,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl19str_format_internal16ParsedFormatBaseC2ESt17basic_string_viewIcSt11char_traitsIcEEbSt16initializer_listINS_23FormatConversionCharSetEE(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 %format.coerce0, ptr %format.coerce1, i1 noundef zeroext %allow_ignored, ptr nocapture readonly %convs.coerce0, i64 %convs.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_ = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i = icmp eq i64 %format.coerce0, 0
   br i1 %cmp.i, label %cond.end, label %cond.false
 
@@ -420,7 +409,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call3, %cond.false ], [ null, %entry ]
   store ptr %cond, ptr %data_, align 8
-  %items_ = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %this, i64 0, i32 2
+  %items_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items_, i8 0, i64 24, i1 false)
   %call7 = invoke noundef zeroext i1 @_ZN4absl19str_format_internal17ParseFormatStringINS0_16ParsedFormatBase20ParsedFormatConsumerEEEbSt17basic_string_viewIcSt11char_traitsIcEET_(i64 %format.coerce0, ptr %format.coerce1, ptr nonnull %this, ptr %cond)
           to label %invoke.cont6 unwind label %lpad
@@ -478,7 +467,7 @@ entry:
   %conv = alloca %"struct.absl::str_format_internal::UnboundConversion", align 4
   %conv38 = alloca %"struct.absl::str_format_internal::UnboundConversion", align 4
   store ptr %consumer.coerce0, ptr %consumer, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %consumer, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %consumer, i64 8
   store ptr %consumer.coerce1, ptr %0, align 8
   store i32 0, ptr %next_arg, align 4
   %add.ptr = getelementptr inbounds i8, ptr %src.coerce1, i64 %src.coerce0
@@ -487,16 +476,16 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %width.i27 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv38, i64 0, i32 1
-  %precision.i28 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv38, i64 0, i32 2
-  %flags.i29 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv38, i64 0, i32 3
-  %length_mod.i30 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv38, i64 0, i32 4
-  %conv.i31 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv38, i64 0, i32 5
-  %width.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
-  %precision.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
-  %flags.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
-  %length_mod.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
-  %conv.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 5
+  %width.i27 = getelementptr inbounds i8, ptr %conv38, i64 4
+  %precision.i28 = getelementptr inbounds i8, ptr %conv38, i64 8
+  %flags.i29 = getelementptr inbounds i8, ptr %conv38, i64 12
+  %length_mod.i30 = getelementptr inbounds i8, ptr %conv38, i64 13
+  %conv.i31 = getelementptr inbounds i8, ptr %conv38, i64 14
+  %width.i = getelementptr inbounds i8, ptr %conv, i64 4
+  %precision.i = getelementptr inbounds i8, ptr %conv, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %conv, i64 12
+  %length_mod.i = getelementptr inbounds i8, ptr %conv, i64 13
+  %conv.i = getelementptr inbounds i8, ptr %conv, i64 14
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -613,21 +602,21 @@ entry:
   %__node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %pos.addr.i = alloca i32, align 4
   %used = alloca %"class.std::unordered_set", align 8
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %used, i64 0, i32 5
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %used, i64 48
   store ptr %_M_single_bucket.i.i, ptr %used, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %used, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %used, i64 8
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %used, i64 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %used, i64 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %used, i64 16
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %used, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %used, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %used, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %items_ = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %this, i64 0, i32 2
+  %items_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %items_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %invariant.gep = getelementptr i64, ptr %convs.coerce0, i64 -1
+  %invariant.gep = getelementptr i8, ptr %convs.coerce0, i64 -8
   %cmp.i.not65 = icmp eq ptr %0, %1
   br i1 %cmp.i.not65, label %for.end, label %for.body
 
@@ -639,8 +628,8 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %conv6 = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__begin2.sroa.0.066, i64 0, i32 2
-  %precision = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__begin2.sroa.0.066, i64 0, i32 2, i32 2
+  %conv6 = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 16
+  %precision = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 24
   %4 = load i32, ptr %precision, align 4
   %cmp.i8 = icmp slt i32 %4, -1
   br i1 %cmp.i8, label %land.lhs.true, label %if.end14
@@ -682,7 +671,7 @@ lpad:                                             ; preds = %if.end.i40, %lor.lh
   resume { ptr, i32 } %6
 
 if.end14:                                         ; preds = %invoke.cont11, %if.end
-  %width = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__begin2.sroa.0.066, i64 0, i32 2, i32 1
+  %width = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 20
   %7 = load i32, ptr %width, align 4
   %cmp.i12 = icmp slt i32 %7, -1
   br i1 %cmp.i12, label %land.lhs.true17, label %if.end24
@@ -719,7 +708,7 @@ invoke.cont21:                                    ; preds = %if.end.i23
 
 if.end24:                                         ; preds = %invoke.cont21, %if.end14
   %9 = load i32, ptr %conv6, align 4
-  %conv25 = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__begin2.sroa.0.066, i64 0, i32 2, i32 5
+  %conv25 = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 30
   %10 = load i8, ptr %conv25, align 2
   %11 = icmp ult i8 %10, 19
   br i1 %11, label %switch.lookup, label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
@@ -765,12 +754,12 @@ invoke.cont28:                                    ; preds = %if.end.i40
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont28, %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__begin2.sroa.0.066, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %_M_element_count.i.i.phi.trans.insert = getelementptr inbounds %"class.std::_Hashtable", ptr %used, i64 0, i32 3
+  %_M_element_count.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %used, i64 24
   %.pre = load i64, ptr %_M_element_count.i.i.phi.trans.insert, align 8
   br label %for.end
 
@@ -814,7 +803,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %tobool.not3.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
@@ -828,13 +817,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i, align 8
   %mul.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
@@ -912,7 +901,7 @@ while.cond.preheader:                             ; preds = %if.end18
   br i1 %cmp25231, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %flags = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %conv, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
@@ -993,11 +982,11 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit71: ; preds = %if.end.i
   %c.2 = phi i8 [ %c.1224, %if.then45 ], [ %13, %if.end10.i65 ], [ %13, %if.end7.i62 ], [ %13, %if.end.i56 ]
   %pos.addr.2 = phi ptr [ %end, %if.then45 ], [ %incdec.ptr.i59, %if.end.i56 ], [ %scevgep261, %if.end7.i62 ], [ %scevgep, %if.end10.i65 ]
   %digits.0.lcssa.i70 = phi i32 [ %digits.08.i54, %if.then45 ], [ %digits.011.i57, %if.end.i56 ], [ %digits.011.i57, %if.end7.i62 ], [ %digits.0.i68, %if.end10.i65 ]
-  %flags47 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags47 = getelementptr inbounds i8, ptr %conv, i64 12
   %15 = load i8, ptr %flags47, align 4
   %or1.i72 = or i8 %15, 32
   store i8 %or1.i72, ptr %flags47, align 4
-  %width = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %conv, i64 4
   store i32 %digits.0.lcssa.i70, ptr %width, align 4
   br label %if.end89
 
@@ -1016,7 +1005,7 @@ if.end61:                                         ; preds = %if.then53
 
 if.end72:                                         ; preds = %if.end61
   %incdec.ptr62 = getelementptr inbounds i8, ptr %pos.addr.1233, i64 1
-  %width73 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width73 = getelementptr inbounds i8, ptr %conv, i64 4
   %conv.i74 = zext nneg i8 %17 to i32
   %digits.08.i75 = add nsw i32 %conv.i74, -48
   %cmp9.i76 = icmp eq ptr %incdec.ptr62, %end
@@ -1072,7 +1061,7 @@ if.end89:                                         ; preds = %if.then42, %_ZN4abs
   br i1 %cmp91, label %if.then92, label %if.end147
 
 if.then92:                                        ; preds = %if.end89
-  %flags93 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags93 = getelementptr inbounds i8, ptr %conv, i64 12
   %24 = load i8, ptr %flags93, align 4
   %or1.i93 = or i8 %24, 32
   store i8 %or1.i93, ptr %flags93, align 4
@@ -1087,7 +1076,7 @@ if.end100:                                        ; preds = %if.then92
   br i1 %or.cond, label %if.then107, label %if.else109
 
 if.then107:                                       ; preds = %if.end100
-  %precision = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision = getelementptr inbounds i8, ptr %conv, i64 8
   %conv.i94 = zext nneg i8 %25 to i32
   %digits.08.i95 = add nsw i32 %conv.i94, -48
   %cmp9.i96 = icmp eq ptr %incdec.ptr101, %end
@@ -1145,7 +1134,7 @@ if.end117:                                        ; preds = %do.body113
 
 if.end128:                                        ; preds = %if.end117
   %incdec.ptr118 = getelementptr inbounds i8, ptr %pos.addr.4, i64 2
-  %precision129 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision129 = getelementptr inbounds i8, ptr %conv, i64 8
   %conv.i113 = zext nneg i8 %31 to i32
   %digits.08.i114 = add nsw i32 %conv.i113, -48
   %cmp9.i115 = icmp eq ptr %incdec.ptr118, %end
@@ -1194,7 +1183,7 @@ if.end139:                                        ; preds = %_ZN4absl19str_forma
   br label %if.end147
 
 if.else142:                                       ; preds = %if.else109
-  %precision143 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision143 = getelementptr inbounds i8, ptr %conv, i64 8
   store i32 0, ptr %precision143, align 4
   br label %if.end147
 
@@ -1208,7 +1197,7 @@ if.end147:                                        ; preds = %while.end, %if.end8
   br i1 %cmp152, label %land.rhs, label %if.end157
 
 land.rhs:                                         ; preds = %if.end147
-  %flags153 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags153 = getelementptr inbounds i8, ptr %conv, i64 12
   %38 = load i8, ptr %flags153, align 4
   %cmp154.not = icmp eq i8 %38, 0
   br i1 %cmp154.not, label %if.end157, label %return
@@ -1236,7 +1225,7 @@ if.end171:                                        ; preds = %if.end165
   br i1 %or.cond1, label %if.then178, label %if.else187
 
 if.then178:                                       ; preds = %if.end171
-  %length_mod179 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod179 = getelementptr inbounds i8, ptr %conv, i64 13
   store i8 1, ptr %length_mod179, align 1
   %cmp181 = icmp eq ptr %incdec.ptr172, %end
   br i1 %cmp181, label %return, label %if.end184
@@ -1250,7 +1239,7 @@ if.else187:                                       ; preds = %if.end171
   %cmp189 = icmp eq i8 %41, 108
   %cmp191 = icmp eq i8 %40, 2
   %or.cond2 = and i1 %cmp191, %cmp189
-  %length_mod193 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod193 = getelementptr inbounds i8, ptr %conv, i64 13
   br i1 %or.cond2, label %if.then192, label %if.else201
 
 if.then192:                                       ; preds = %if.else187
@@ -1286,7 +1275,7 @@ if.end216:                                        ; preds = %if.end204
   br i1 %or.cond3, label %if.then222, label %if.end227
 
 if.then222:                                       ; preds = %if.end216
-  %flags223 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags223 = getelementptr inbounds i8, ptr %conv, i64 12
   %45 = load i8, ptr %flags223, align 4
   %or1.i142 = or i8 %45, 32
   store i8 %or1.i142, ptr %flags223, align 4
@@ -1295,7 +1284,7 @@ if.then222:                                       ; preds = %if.end216
 if.end227:                                        ; preds = %if.end216, %if.then222, %if.end157
   %pos.addr.9 = phi ptr [ %pos.addr.7, %if.end157 ], [ %pos.addr.8, %if.then222 ], [ %pos.addr.8, %if.end216 ]
   %tag148.sroa.0.0 = phi i8 [ %retval.sroa.0.0.copyload.i135, %if.end157 ], [ %retval.sroa.0.0.copyload.i140, %if.then222 ], [ %retval.sroa.0.0.copyload.i140, %if.end216 ]
-  %conv229 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 5
+  %conv229 = getelementptr inbounds i8, ptr %conv, i64 14
   store i8 %tag148.sroa.0.0, ptr %conv229, align 2
   br label %return
 
@@ -1322,7 +1311,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp6133, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %flags = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %conv, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -1417,11 +1406,11 @@ if.end35:                                         ; preds = %if.end10.i, %if.end
   %digits.0.lcssa.i118 = phi i32 [ %digits.011.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %digits.08.i, %if.then25 ], [ %digits.0.i, %if.end10.i ], [ %digits.011.i, %if.end7.i ]
   %pos.addr.1117 = phi ptr [ %incdec.ptr.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %end, %if.then25 ], [ %scevgep148, %if.end10.i ], [ %scevgep, %if.end7.i ]
   %c.1116 = phi i8 [ %7, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %c.0132, %if.then25 ], [ %7, %if.end7.i ], [ %7, %if.end10.i ]
-  %flags36 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags36 = getelementptr inbounds i8, ptr %conv, i64 12
   %10 = load i8, ptr %flags36, align 4
   %or1.i51 = or i8 %10, 32
   store i8 %or1.i51, ptr %flags36, align 4
-  %width = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %conv, i64 4
   store i32 %digits.0.lcssa.i118, ptr %width, align 4
   br label %if.end56
 
@@ -1435,7 +1424,7 @@ if.then42:                                        ; preds = %if.then22
 if.end50:                                         ; preds = %if.then42
   %incdec.ptr51 = getelementptr inbounds i8, ptr %pos.addr.0135, i64 1
   %12 = load i8, ptr %pos.addr.0135, align 1
-  %width53 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width53 = getelementptr inbounds i8, ptr %conv, i64 4
   %13 = load i32, ptr %next_arg, align 4
   %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %next_arg, align 4
@@ -1451,7 +1440,7 @@ if.end56:                                         ; preds = %if.then22, %if.end3
   br i1 %cmp58, label %if.then59, label %if.end94
 
 if.then59:                                        ; preds = %if.end56
-  %flags60 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags60 = getelementptr inbounds i8, ptr %conv, i64 12
   %14 = load i8, ptr %flags60, align 4
   %or1.i53 = or i8 %14, 32
   store i8 %or1.i53, ptr %flags60, align 4
@@ -1466,7 +1455,7 @@ if.end67:                                         ; preds = %if.then59
   br i1 %or.cond, label %if.then74, label %if.else76
 
 if.then74:                                        ; preds = %if.end67
-  %precision = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision = getelementptr inbounds i8, ptr %conv, i64 8
   %conv.i54 = zext nneg i8 %15 to i32
   %digits.08.i55 = add nsw i32 %conv.i54, -48
   %cmp9.i56 = icmp eq ptr %incdec.ptr68, %end
@@ -1519,7 +1508,7 @@ do.body80:                                        ; preds = %if.else76
 if.end84:                                         ; preds = %do.body80
   %incdec.ptr85 = getelementptr inbounds i8, ptr %pos.addr.2, i64 2
   %21 = load i8, ptr %incdec.ptr68, align 1
-  %precision87 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision87 = getelementptr inbounds i8, ptr %conv, i64 8
   %22 = load i32, ptr %next_arg, align 4
   %inc88 = add nsw i32 %22, 1
   store i32 %inc88, ptr %next_arg, align 4
@@ -1528,7 +1517,7 @@ if.end84:                                         ; preds = %do.body80
   br label %if.end94
 
 if.else89:                                        ; preds = %if.else76
-  %precision90 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision90 = getelementptr inbounds i8, ptr %conv, i64 8
   store i32 0, ptr %precision90, align 4
   br label %if.end94
 
@@ -1542,7 +1531,7 @@ if.end94:                                         ; preds = %while.end, %if.end5
   br i1 %cmp99, label %land.rhs, label %if.end104
 
 land.rhs:                                         ; preds = %if.end94
-  %flags100 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags100 = getelementptr inbounds i8, ptr %conv, i64 12
   %23 = load i8, ptr %flags100, align 4
   %cmp101.not = icmp eq i8 %23, 0
   br i1 %cmp101.not, label %if.end104, label %return
@@ -1570,7 +1559,7 @@ if.end118:                                        ; preds = %if.end112
   br i1 %or.cond1, label %if.then125, label %if.else134
 
 if.then125:                                       ; preds = %if.end118
-  %length_mod126 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod126 = getelementptr inbounds i8, ptr %conv, i64 13
   store i8 1, ptr %length_mod126, align 1
   %cmp128 = icmp eq ptr %incdec.ptr119, %end
   br i1 %cmp128, label %return, label %if.end131
@@ -1584,7 +1573,7 @@ if.else134:                                       ; preds = %if.end118
   %cmp136 = icmp eq i8 %26, 108
   %cmp138 = icmp eq i8 %25, 2
   %or.cond2 = and i1 %cmp138, %cmp136
-  %length_mod140 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod140 = getelementptr inbounds i8, ptr %conv, i64 13
   br i1 %or.cond2, label %if.then139, label %if.else148
 
 if.then139:                                       ; preds = %if.else134
@@ -1620,7 +1609,7 @@ if.end163:                                        ; preds = %if.end151
   br i1 %or.cond3, label %if.then169, label %if.end174
 
 if.then169:                                       ; preds = %if.end163
-  %flags170 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags170 = getelementptr inbounds i8, ptr %conv, i64 12
   %30 = load i8, ptr %flags170, align 4
   %or1.i83 = or i8 %30, 32
   store i8 %or1.i83, ptr %flags170, align 4
@@ -1629,7 +1618,7 @@ if.then169:                                       ; preds = %if.end163
 if.end174:                                        ; preds = %if.end163, %if.then169, %if.end104
   %pos.addr.6 = phi ptr [ %pos.addr.4, %if.end104 ], [ %pos.addr.5, %if.then169 ], [ %pos.addr.5, %if.end163 ]
   %tag95.sroa.0.0 = phi i8 [ %retval.sroa.0.0.copyload.i76, %if.end104 ], [ %retval.sroa.0.0.copyload.i81, %if.then169 ], [ %retval.sroa.0.0.copyload.i81, %if.end163 ]
-  %conv176 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 5
+  %conv176 = getelementptr inbounds i8, ptr %conv, i64 14
   store i8 %tag95.sroa.0.0, ptr %conv176, align 2
   %31 = load i32, ptr %next_arg, align 4
   %inc177 = add nsw i32 %31, 1
@@ -1734,7 +1723,7 @@ cond.end149:                                      ; preds = %entry, %cond.true6,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %__k, ptr noundef nonnull align 4 dereferenceable(4) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end13.thread
@@ -1742,7 +1731,7 @@ entry:
 if.end13.thread:                                  ; preds = %entry
   %1 = load i32, ptr %__k, align 4
   %conv.i.i20 = sext i32 %1 to i64
-  %_M_bucket_count.i21 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i21 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i21, align 8
   %rem.i.i.i22 = urem i64 %conv.i.i20, %2
   %3 = load ptr, ptr %this, align 8
@@ -1752,7 +1741,7 @@ if.end13.thread:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %__k, align 4
   br label %for.cond
 
@@ -1770,7 +1759,7 @@ for.body:                                         ; preds = %for.cond
 
 if.end13:                                         ; preds = %for.cond
   %conv.i.i = sext i32 %5 to i64
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %conv.i.i, %7
   br label %if.end25
@@ -1828,12 +1817,12 @@ return:                                           ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -1897,7 +1886,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -1965,7 +1954,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1993,7 +1982,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucke
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -2044,7 +2033,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -2053,7 +2042,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -2171,39 +2160,39 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data_pos.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ParsedFormatConsumer", ptr %this, i64 0, i32 1
+  %data_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_pos.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %s.coerce1, i64 %s.coerce0, i1 false)
   %1 = load ptr, ptr %data_pos.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %s.coerce0
   store ptr %add.ptr.i, ptr %data_pos.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %data_.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %items_ = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 2
+  %items_ = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %items_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %add.ptr.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %5, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -32
   %6 = load i8, ptr %add.ptr.i.i, align 8
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %land.lhs.true
-  %text_end11 = getelementptr %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %5, i64 -1, i32 1
+  %text_end11 = getelementptr inbounds i8, ptr %5, i64 -24
   store i64 %sub.ptr.sub.i, ptr %text_end11, align 8
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, %8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2223,7 +2212,7 @@ if.then.i.i:                                      ; preds = %if.else
   %ref.tmp.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 30
   store i8 19, ptr %ref.tmp.sroa.8.0..sroa_idx, align 2
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %9, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %return
 
@@ -2276,14 +2265,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !14
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -2306,23 +2295,23 @@ return:                                           ; preds = %_ZNSt6vectorIN4absl
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal16ParsedFormatBase20ParsedFormatConsumer10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(15) %conv, i64 %s.coerce0, ptr %s.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.sroa.4 = alloca <{ i32, %"class.absl::str_format_internal::UnboundConversion::InputValue", %"class.absl::str_format_internal::UnboundConversion::InputValue", i8, i8, i8 }>, align 8
-  %data_pos.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ParsedFormatConsumer", ptr %this, i64 0, i32 1
+  %data_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_pos.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %s.coerce1, i64 %s.coerce0, i1 false)
   %1 = load ptr, ptr %data_pos.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %s.coerce0
   store ptr %add.ptr.i, ptr %data_pos.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %data_.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %items_ = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 2
+  %items_ = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp.sroa.4, ptr noundef nonnull align 4 dereferenceable(15) %conv, i64 15, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.absl::str_format_internal::ParsedFormatBase", ptr %2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2334,7 +2323,7 @@ if.then.i.i:                                      ; preds = %entry
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp.sroa.4, i64 15, i1 false)
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %6, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE9push_backEOS3_.exit
 
@@ -2381,14 +2370,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %7, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !19
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 

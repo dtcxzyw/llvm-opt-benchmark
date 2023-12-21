@@ -12,10 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.utf8::invalid_utf16" = type <{ %"class.utf8::exception", i16, [6 x i8] }>
-%"class.utf8::exception" = type { %"class.std::exception" }
-%"class.std::exception" = type { ptr }
-%"class.pmx::PmxSetting" = type { i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -25,12 +21,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pmx::PmxVertexSkinningBDEF1" = type <{ %"class.pmx::PmxVertexSkinning", i32, [4 x i8] }>
-%"class.pmx::PmxVertexSkinning" = type { ptr }
-%"class.pmx::PmxVertexSkinningBDEF2" = type <{ %"class.pmx::PmxVertexSkinning", i32, i32, float, [4 x i8] }>
-%"class.pmx::PmxVertexSkinningBDEF4" = type { %"class.pmx::PmxVertexSkinning", i32, i32, i32, i32, float, float, float, float }
-%"class.pmx::PmxVertexSkinningSDEF" = type { %"class.pmx::PmxVertexSkinning", i32, i32, float, [3 x float], [3 x float], [3 x float] }
-%"class.pmx::PmxVertexSkinningQDEF" = type { %"class.pmx::PmxVertexSkinning", i32, i32, i32, i32, float, float, float, float }
+%"class.pmx::PmxIkLink" = type { i32, i8, [3 x float], [3 x float] }
+%"class.pmx::PmxMorphGroupOffset" = type { %"class.pmx::PmxMorphOffset", i32, float }
+%"class.pmx::PmxMorphOffset" = type { ptr }
+%"class.pmx::PmxMorphVertexOffset" = type { %"class.pmx::PmxMorphOffset", i32, [3 x float] }
+%"class.pmx::PmxMorphBoneOffset" = type { %"class.pmx::PmxMorphOffset", i32, [3 x float], [4 x float] }
+%"class.pmx::PmxMorphMaterialOffset" = type { %"class.pmx::PmxMorphOffset", i32, i8, [4 x float], [3 x float], float, [3 x float], [4 x float], float, [4 x float], [4 x float], [4 x float] }
+%"class.pmx::PmxMorphUVOffset" = type <{ %"class.pmx::PmxMorphOffset", i32, [4 x float], [4 x i8] }>
+%"class.pmx::PmxFrameElement" = type { i8, i32 }
 %"class.pmx::PmxVertex" = type <{ [3 x float], [3 x float], [2 x float], [4 x [4 x float]], i8, [7 x i8], %"class.std::unique_ptr", float, [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -39,7 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
 %"struct.std::_Head_base.2" = type { ptr }
 %"class.pmx::PmxMaterial" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [4 x float], [3 x float], float, [3 x float], i8, [3 x i8], [4 x float], float, i32, i32, i8, i8, [2 x i8], i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.pmx::PmxIkLink" = type { i32, i8, [3 x float], [3 x float] }
 %"class.pmx::PmxBone" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [3 x float], i32, i32, i16, [3 x float], i32, i32, float, [3 x float], [3 x float], [3 x float], i32, i32, i32, float, i32, %"class.std::unique_ptr.43" }
 %"class.std::unique_ptr.43" = type { %"struct.std::__uniq_ptr_data.44" }
 %"struct.std::__uniq_ptr_data.44" = type { %"class.std::__uniq_ptr_impl.45" }
@@ -47,14 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
 %"struct.std::_Tuple_impl.47" = type { %"struct.std::_Head_base.50" }
 %"struct.std::_Head_base.50" = type { ptr }
-%"class.pmx::PmxMorphVertexOffset" = type { %"class.pmx::PmxMorphOffset", i32, [3 x float] }
-%"class.pmx::PmxMorphOffset" = type { ptr }
-%"class.pmx::PmxMorphUVOffset" = type <{ %"class.pmx::PmxMorphOffset", i32, [4 x float], [4 x i8] }>
-%"class.pmx::PmxMorphBoneOffset" = type { %"class.pmx::PmxMorphOffset", i32, [3 x float], [4 x float] }
-%"class.pmx::PmxMorphMaterialOffset" = type { %"class.pmx::PmxMorphOffset", i32, i8, [4 x float], [3 x float], float, [3 x float], [4 x float], float, [4 x float], [4 x float], [4 x float] }
-%"class.pmx::PmxMorphGroupOffset" = type { %"class.pmx::PmxMorphOffset", i32, float }
-%"class.pmx::PmxMorphFlipOffset" = type { %"class.pmx::PmxMorphOffset", i32, float }
-%"class.pmx::PmxMorphImplusOffset" = type { %"class.pmx::PmxMorphOffset", i32, i8, [3 x float], [3 x float] }
 %"class.pmx::PmxMorph" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i32, %"class.std::unique_ptr.51", %"class.std::unique_ptr.59", %"class.std::unique_ptr.67", %"class.std::unique_ptr.75", %"class.std::unique_ptr.83", %"class.std::unique_ptr.91", %"class.std::unique_ptr.99" }
 %"class.std::unique_ptr.51" = type { %"struct.std::__uniq_ptr_data.52" }
 %"struct.std::__uniq_ptr_data.52" = type { %"class.std::__uniq_ptr_impl.53" }
@@ -98,7 +87,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.102" = type { %"struct.std::_Tuple_impl.103" }
 %"struct.std::_Tuple_impl.103" = type { %"struct.std::_Head_base.106" }
 %"struct.std::_Head_base.106" = type { ptr }
-%"class.pmx::PmxFrameElement" = type { i8, i32 }
 %"class.pmx::PmxFrame" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i32, %"class.std::unique_ptr.107" }
 %"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
 %"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
@@ -107,70 +95,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.114" }
 %"struct.std::_Head_base.114" = type { ptr }
 %"class.pmx::PmxRigidBody" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i8, i8, i16, i8, [3 x i8], [3 x float], [3 x float], [3 x float], float, float, float, float, float, i8, [3 x i8] }>
-%"class.pmx::PmxJointParam" = type { i32, i32, [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float] }
 %"class.pmx::PmxJoint" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [3 x i8], %"class.pmx::PmxJointParam", [4 x i8] }>
-%"class.pmx::PmxAncherRigidBody" = type <{ i32, i32, i8, [3 x i8] }>
-%"class.pmx::PmxModel" = type { float, %"class.pmx::PmxSetting", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, %"class.std::unique_ptr.115", i32, %"class.std::unique_ptr.123", i32, %"class.std::unique_ptr.131", i32, %"class.std::unique_ptr.139", i32, %"class.std::unique_ptr.147", i32, %"class.std::unique_ptr.155", i32, %"class.std::unique_ptr.163", i32, %"class.std::unique_ptr.171", i32, %"class.std::unique_ptr.179", i32, %"class.std::unique_ptr.187" }
-%"class.std::unique_ptr.115" = type { %"struct.std::__uniq_ptr_data.116" }
-%"struct.std::__uniq_ptr_data.116" = type { %"class.std::__uniq_ptr_impl.117" }
-%"class.std::__uniq_ptr_impl.117" = type { %"class.std::tuple.118" }
-%"class.std::tuple.118" = type { %"struct.std::_Tuple_impl.119" }
-%"struct.std::_Tuple_impl.119" = type { %"struct.std::_Head_base.122" }
-%"struct.std::_Head_base.122" = type { ptr }
-%"class.std::unique_ptr.123" = type { %"struct.std::__uniq_ptr_data.124" }
-%"struct.std::__uniq_ptr_data.124" = type { %"class.std::__uniq_ptr_impl.125" }
-%"class.std::__uniq_ptr_impl.125" = type { %"class.std::tuple.126" }
-%"class.std::tuple.126" = type { %"struct.std::_Tuple_impl.127" }
-%"struct.std::_Tuple_impl.127" = type { %"struct.std::_Head_base.130" }
-%"struct.std::_Head_base.130" = type { ptr }
-%"class.std::unique_ptr.131" = type { %"struct.std::__uniq_ptr_data.132" }
-%"struct.std::__uniq_ptr_data.132" = type { %"class.std::__uniq_ptr_impl.133" }
-%"class.std::__uniq_ptr_impl.133" = type { %"class.std::tuple.134" }
-%"class.std::tuple.134" = type { %"struct.std::_Tuple_impl.135" }
-%"struct.std::_Tuple_impl.135" = type { %"struct.std::_Head_base.138" }
-%"struct.std::_Head_base.138" = type { ptr }
-%"class.std::unique_ptr.139" = type { %"struct.std::__uniq_ptr_data.140" }
-%"struct.std::__uniq_ptr_data.140" = type { %"class.std::__uniq_ptr_impl.141" }
-%"class.std::__uniq_ptr_impl.141" = type { %"class.std::tuple.142" }
-%"class.std::tuple.142" = type { %"struct.std::_Tuple_impl.143" }
-%"struct.std::_Tuple_impl.143" = type { %"struct.std::_Head_base.146" }
-%"struct.std::_Head_base.146" = type { ptr }
-%"class.std::unique_ptr.147" = type { %"struct.std::__uniq_ptr_data.148" }
-%"struct.std::__uniq_ptr_data.148" = type { %"class.std::__uniq_ptr_impl.149" }
-%"class.std::__uniq_ptr_impl.149" = type { %"class.std::tuple.150" }
-%"class.std::tuple.150" = type { %"struct.std::_Tuple_impl.151" }
-%"struct.std::_Tuple_impl.151" = type { %"struct.std::_Head_base.154" }
-%"struct.std::_Head_base.154" = type { ptr }
-%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
-%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
-%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
-%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
-%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
-%"struct.std::_Head_base.162" = type { ptr }
-%"class.std::unique_ptr.163" = type { %"struct.std::__uniq_ptr_data.164" }
-%"struct.std::__uniq_ptr_data.164" = type { %"class.std::__uniq_ptr_impl.165" }
-%"class.std::__uniq_ptr_impl.165" = type { %"class.std::tuple.166" }
-%"class.std::tuple.166" = type { %"struct.std::_Tuple_impl.167" }
-%"struct.std::_Tuple_impl.167" = type { %"struct.std::_Head_base.170" }
-%"struct.std::_Head_base.170" = type { ptr }
-%"class.std::unique_ptr.171" = type { %"struct.std::__uniq_ptr_data.172" }
-%"struct.std::__uniq_ptr_data.172" = type { %"class.std::__uniq_ptr_impl.173" }
-%"class.std::__uniq_ptr_impl.173" = type { %"class.std::tuple.174" }
-%"class.std::tuple.174" = type { %"struct.std::_Tuple_impl.175" }
-%"struct.std::_Tuple_impl.175" = type { %"struct.std::_Head_base.178" }
-%"struct.std::_Head_base.178" = type { ptr }
-%"class.std::unique_ptr.179" = type { %"struct.std::__uniq_ptr_data.180" }
-%"struct.std::__uniq_ptr_data.180" = type { %"class.std::__uniq_ptr_impl.181" }
-%"class.std::__uniq_ptr_impl.181" = type { %"class.std::tuple.182" }
-%"class.std::tuple.182" = type { %"struct.std::_Tuple_impl.183" }
-%"struct.std::_Tuple_impl.183" = type { %"struct.std::_Head_base.186" }
-%"struct.std::_Head_base.186" = type { ptr }
-%"class.std::unique_ptr.187" = type { %"struct.std::__uniq_ptr_data.188" }
-%"struct.std::__uniq_ptr_data.188" = type { %"class.std::__uniq_ptr_impl.189" }
-%"class.std::__uniq_ptr_impl.189" = type { %"class.std::tuple.190" }
-%"class.std::tuple.190" = type { %"struct.std::_Tuple_impl.191" }
-%"struct.std::_Tuple_impl.191" = type { %"struct.std::_Head_base.194" }
-%"struct.std::_Head_base.194" = type { ptr }
+%"class.pmx::PmxJointParam" = type { i32, i32, [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float] }
 %"class.pmx::PmxSoftBody" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i32, i8, i16, i8, i32, i32, float, float, i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, float, float, float, i32, %"class.std::unique_ptr.243", i32, %"class.std::unique_ptr.123" }
 %"class.std::unique_ptr.243" = type { %"struct.std::__uniq_ptr_data.244" }
 %"struct.std::__uniq_ptr_data.244" = type { %"class.std::__uniq_ptr_impl.245" }
@@ -178,7 +104,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.246" = type { %"struct.std::_Tuple_impl.247" }
 %"struct.std::_Tuple_impl.247" = type { %"struct.std::_Head_base.250" }
 %"struct.std::_Head_base.250" = type { ptr }
-%"class.utf8::invalid_code_point" = type <{ %"class.utf8::exception", i32, [4 x i8] }>
+%"class.std::unique_ptr.123" = type { %"struct.std::__uniq_ptr_data.124" }
+%"struct.std::__uniq_ptr_data.124" = type { %"class.std::__uniq_ptr_impl.125" }
+%"class.std::__uniq_ptr_impl.125" = type { %"class.std::tuple.126" }
+%"class.std::tuple.126" = type { %"struct.std::_Tuple_impl.127" }
+%"struct.std::_Tuple_impl.127" = type { %"struct.std::_Head_base.130" }
+%"struct.std::_Head_base.130" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN4utf88utf16to8IPKtPcEET0_T_S5_S4_ = comdat any
@@ -444,8 +375,8 @@ if.then:                                          ; preds = %entry
 
 if.else.i18:                                      ; preds = %entry
   %conv = sext i32 %0 to i64
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %cmp.i.i = icmp slt i32 %0, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i
 
@@ -596,7 +527,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end25
   %start.addr.023 = phi ptr [ %start.addr.1, %if.end25 ], [ %start, %entry ]
   %result.addr.022 = phi ptr [ %call26, %if.end25 ], [ %result, %entry ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %start.addr.023, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %start.addr.023, i64 2
   %0 = load i16, ptr %start.addr.023, align 2
   %conv = zext i16 %0 to i32
   %trunc = and i16 %0, -1024
@@ -617,7 +548,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %3, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then3
-  %incdec.ptr4 = getelementptr inbounds i16, ptr %start.addr.023, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %start.addr.023, i64 4
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
   %add9 = add nsw i32 %add, %conv6
@@ -626,7 +557,7 @@ if.then8:                                         ; preds = %if.then3
 if.else:                                          ; preds = %if.then3
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %u16.i = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %exception, i64 0, i32 1
+  %u16.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i16 %1, ptr %u16.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #16
   unreachable
@@ -634,7 +565,7 @@ if.else:                                          ; preds = %if.then3
 if.else11:                                        ; preds = %if.then
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception12, align 8
-  %u16.i13 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %exception12, i64 0, i32 1
+  %u16.i13 = getelementptr inbounds i8, ptr %exception12, i64 8
   store i16 %0, ptr %u16.i13, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #16
   unreachable
@@ -642,7 +573,7 @@ if.else11:                                        ; preds = %if.then
 if.then19:                                        ; preds = %while.body
   %exception20 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception20, align 8
-  %u16.i14 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %exception20, i64 0, i32 1
+  %u16.i14 = getelementptr inbounds i8, ptr %exception20, i64 8
   store i16 %0, ptr %u16.i14, align 8
   tail call void @__cxa_throw(ptr nonnull %exception20, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #16
   unreachable
@@ -716,19 +647,19 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %this, i64 noundef 1)
-  %uv = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 1
+  %uv = getelementptr inbounds i8, ptr %this, i64 1
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %uv, i64 noundef 1)
-  %vertex_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 2
+  %vertex_index_size = getelementptr inbounds i8, ptr %this, i64 2
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %vertex_index_size, i64 noundef 1)
-  %texture_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 3
+  %texture_index_size = getelementptr inbounds i8, ptr %this, i64 3
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_index_size, i64 noundef 1)
-  %material_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 4
+  %material_index_size = getelementptr inbounds i8, ptr %this, i64 4
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %material_index_size, i64 noundef 1)
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %this, i64 5
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_index_size, i64 noundef 1)
-  %morph_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 6
+  %morph_index_size = getelementptr inbounds i8, ptr %this, i64 6
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_index_size, i64 noundef 1)
-  %rigidbody_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %this, i64 0, i32 7
+  %rigidbody_index_size = getelementptr inbounds i8, ptr %this, i64 7
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rigidbody_index_size, i64 noundef 1)
   %2 = load i8, ptr %count, align 1
   %cmp1112 = icmp ugt i8 %2, 8
@@ -788,7 +719,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -825,7 +756,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF1", ptr %this, i64 0, i32 1
+  %bone_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index, align 8
   ret void
 }
@@ -839,7 +770,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -876,7 +807,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this, i64 0, i32 1
+  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i4)
@@ -914,9 +845,9 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i6)
-  %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this, i64 0, i32 2
+  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %retval.0.i9, ptr %bone_index2, align 4
-  %bone_weight = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this, i64 0, i32 3
+  %bone_weight = getelementptr inbounds i8, ptr %this, i64 16
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight, i64 noundef 4)
   ret void
 }
@@ -936,7 +867,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -973,7 +904,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 1
+  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i11)
@@ -1011,7 +942,7 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i13)
-  %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 2
+  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %retval.0.i16, ptr %bone_index2, align 4
   %8 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i28)
@@ -1049,7 +980,7 @@ _ZN3pmx9ReadIndexEPSii.exit44:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i28)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i30)
-  %bone_index3 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 3
+  %bone_index3 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %retval.0.i33, ptr %bone_index3, align 8
   %12 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i45)
@@ -1087,15 +1018,15 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i45)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i47)
-  %bone_index4 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 4
+  %bone_index4 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %retval.0.i50, ptr %bone_index4, align 4
-  %bone_weight1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 5
+  %bone_weight1 = getelementptr inbounds i8, ptr %this, i64 24
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight1, i64 noundef 4)
-  %bone_weight2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 6
+  %bone_weight2 = getelementptr inbounds i8, ptr %this, i64 28
   %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight2, i64 noundef 4)
-  %bone_weight3 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 7
+  %bone_weight3 = getelementptr inbounds i8, ptr %this, i64 32
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight3, i64 noundef 4)
-  %bone_weight4 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this, i64 0, i32 8
+  %bone_weight4 = getelementptr inbounds i8, ptr %this, i64 36
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight4, i64 noundef 4)
   ret void
 }
@@ -1109,7 +1040,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1146,7 +1077,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this, i64 0, i32 1
+  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i7)
@@ -1184,15 +1115,15 @@ _ZN3pmx9ReadIndexEPSii.exit23:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i7)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i9)
-  %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this, i64 0, i32 2
+  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %retval.0.i12, ptr %bone_index2, align 4
-  %bone_weight = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this, i64 0, i32 3
+  %bone_weight = getelementptr inbounds i8, ptr %this, i64 16
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight, i64 noundef 4)
-  %sdef_c = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this, i64 0, i32 4
+  %sdef_c = getelementptr inbounds i8, ptr %this, i64 20
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sdef_c, i64 noundef 12)
-  %sdef_r0 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this, i64 0, i32 5
+  %sdef_r0 = getelementptr inbounds i8, ptr %this, i64 32
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sdef_r0, i64 noundef 12)
-  %sdef_r1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this, i64 0, i32 6
+  %sdef_r1 = getelementptr inbounds i8, ptr %this, i64 44
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sdef_r1, i64 noundef 12)
   ret void
 }
@@ -1212,7 +1143,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1249,7 +1180,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 1
+  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i11)
@@ -1287,7 +1218,7 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i13)
-  %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 2
+  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %retval.0.i16, ptr %bone_index2, align 4
   %8 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i28)
@@ -1325,7 +1256,7 @@ _ZN3pmx9ReadIndexEPSii.exit44:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i28)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i30)
-  %bone_index3 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 3
+  %bone_index3 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %retval.0.i33, ptr %bone_index3, align 8
   %12 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i45)
@@ -1363,15 +1294,15 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i45)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i47)
-  %bone_index4 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 4
+  %bone_index4 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %retval.0.i50, ptr %bone_index4, align 4
-  %bone_weight1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 5
+  %bone_weight1 = getelementptr inbounds i8, ptr %this, i64 24
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight1, i64 noundef 4)
-  %bone_weight2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 6
+  %bone_weight2 = getelementptr inbounds i8, ptr %this, i64 28
   %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight2, i64 noundef 4)
-  %bone_weight3 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 7
+  %bone_weight3 = getelementptr inbounds i8, ptr %this, i64 32
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight3, i64 noundef 4)
-  %bone_weight4 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this, i64 0, i32 8
+  %bone_weight4 = getelementptr inbounds i8, ptr %this, i64 36
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight4, i64 noundef 4)
   ret void
 }
@@ -1380,18 +1311,22 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
 define hidden void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull %stream, ptr noundef %setting) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %this, i64 noundef 12)
-  %normal = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 1
+  %normal = getelementptr inbounds i8, ptr %this, i64 12
   %call3 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %normal, i64 noundef 12)
-  %uv = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 2
+  %uv = getelementptr inbounds i8, ptr %this, i64 24
   %call5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %uv, i64 noundef 8)
-  %uv6 = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 1
+  %uv6 = getelementptr inbounds i8, ptr %setting, i64 1
   %0 = load i8, ptr %uv6, align 1
   %cmp51.not = icmp eq i8 %0, 0
-  br i1 %cmp51.not, label %for.end, label %for.body
+  br i1 %cmp51.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 3, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %entry
+  %uva = getelementptr inbounds i8, ptr %this, i64 32
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [4 x [4 x float]], ptr %uva, i64 0, i64 %indvars.iv
   %call8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %arrayidx, i64 noundef 16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i8, ptr %uv6, align 1
@@ -1400,7 +1335,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
-  %skinning_type = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 4
+  %skinning_type = getelementptr inbounds i8, ptr %this, i64 96
   %call9 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %skinning_type, i64 noundef 1)
   %3 = load i8, ptr %skinning_type, align 8
   switch i8 %3, label %sw.default [
@@ -1414,9 +1349,9 @@ for.end:                                          ; preds = %for.body, %entry
 sw.bb:                                            ; preds = %for.end
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17, !noalias !8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !8
-  %bone_index.i.i = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF1", ptr %call.i, i64 0, i32 1
+  %bone_index.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %bone_index.i.i, align 8, !noalias !8
-  %skinning = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 6
+  %skinning = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %skinning, align 8
   store ptr %call.i, ptr %skinning, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -1425,13 +1360,13 @@ sw.bb:                                            ; preds = %for.end
 sw.bb12:                                          ; preds = %for.end
   %call.i10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i64 0, inrange i32 0, i64 2), ptr %call.i10, align 8, !noalias !11
-  %bone_index1.i.i = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %call.i10, i64 0, i32 1
+  %bone_index1.i.i = getelementptr inbounds i8, ptr %call.i10, i64 8
   store i32 0, ptr %bone_index1.i.i, align 8, !noalias !11
-  %bone_index2.i.i = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %call.i10, i64 0, i32 2
+  %bone_index2.i.i = getelementptr inbounds i8, ptr %call.i10, i64 12
   store i32 0, ptr %bone_index2.i.i, align 4, !noalias !11
-  %bone_weight.i.i = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %call.i10, i64 0, i32 3
+  %bone_weight.i.i = getelementptr inbounds i8, ptr %call.i10, i64 16
   store float 0.000000e+00, ptr %bone_weight.i.i, align 8, !noalias !11
-  %skinning14 = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 6
+  %skinning14 = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load ptr, ptr %skinning14, align 8
   store ptr %call.i10, ptr %skinning14, align 8
   %tobool.not.i.i.i11 = icmp eq ptr %5, null
@@ -1440,9 +1375,9 @@ sw.bb12:                                          ; preds = %for.end
 sw.bb16:                                          ; preds = %for.end
   %call.i18 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17, !noalias !14
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i64 0, inrange i32 0, i64 2), ptr %call.i18, align 8, !noalias !14
-  %bone_index1.i.i19 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %call.i18, i64 0, i32 1
+  %bone_index1.i.i19 = getelementptr inbounds i8, ptr %call.i18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index1.i.i19, i8 0, i64 32, i1 false), !noalias !14
-  %skinning18 = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 6
+  %skinning18 = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %skinning18, align 8
   store ptr %call.i18, ptr %skinning18, align 8
   %tobool.not.i.i.i20 = icmp eq ptr %6, null
@@ -1451,9 +1386,9 @@ sw.bb16:                                          ; preds = %for.end
 sw.bb20:                                          ; preds = %for.end
   %call.i27 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !17
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i64 0, inrange i32 0, i64 2), ptr %call.i27, align 8, !noalias !17
-  %bone_index1.i.i28 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %call.i27, i64 0, i32 1
+  %bone_index1.i.i28 = getelementptr inbounds i8, ptr %call.i27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bone_index1.i.i28, i8 0, i64 48, i1 false), !noalias !17
-  %skinning22 = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 6
+  %skinning22 = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load ptr, ptr %skinning22, align 8
   store ptr %call.i27, ptr %skinning22, align 8
   %tobool.not.i.i.i29 = icmp eq ptr %7, null
@@ -1462,9 +1397,9 @@ sw.bb20:                                          ; preds = %for.end
 sw.bb24:                                          ; preds = %for.end
   %call.i36 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17, !noalias !20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i64 0, inrange i32 0, i64 2), ptr %call.i36, align 8, !noalias !20
-  %bone_index1.i.i37 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %call.i36, i64 0, i32 1
+  %bone_index1.i.i37 = getelementptr inbounds i8, ptr %call.i36, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index1.i.i37, i8 0, i64 32, i1 false), !noalias !20
-  %skinning26 = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 6
+  %skinning26 = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load ptr, ptr %skinning26, align 8
   store ptr %call.i36, ptr %skinning26, align 8
   %tobool.not.i.i.i38 = icmp eq ptr %8, null
@@ -1479,18 +1414,18 @@ sw.default:                                       ; preds = %for.end
 sw.epilog.sink.split:                             ; preds = %sw.bb24, %sw.bb20, %sw.bb16, %sw.bb12, %sw.bb
   %.sink55 = phi ptr [ %4, %sw.bb ], [ %5, %sw.bb12 ], [ %6, %sw.bb16 ], [ %7, %sw.bb20 ], [ %8, %sw.bb24 ]
   %vtable.i.i.i.i40 = load ptr, ptr %.sink55, align 8
-  %vfn.i.i.i.i41 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i40, i64 2
+  %vfn.i.i.i.i41 = getelementptr inbounds i8, ptr %vtable.i.i.i.i40, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i41, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %.sink55) #15
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb24, %sw.bb20, %sw.bb16, %sw.bb12, %sw.bb
-  %skinning28 = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 6
+  %skinning28 = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load ptr, ptr %skinning28, align 8
   %vtable = load ptr, ptr %10, align 8
   %11 = load ptr, ptr %vtable, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %edge = getelementptr inbounds %"class.pmx::PmxVertex", ptr %this, i64 0, i32 7
+  %edge = getelementptr inbounds i8, ptr %this, i64 112
   %call30 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge, i64 noundef 4)
   ret void
 }
@@ -1516,24 +1451,24 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %material_english_name = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 1
+  %material_english_name = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
-  %diffuse = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 2
+  %diffuse = getelementptr inbounds i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %diffuse, i64 noundef 16)
-  %specular = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 3
+  %specular = getelementptr inbounds i8, ptr %this, i64 80
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specular, i64 noundef 12)
-  %specularlity = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 4
+  %specularlity = getelementptr inbounds i8, ptr %this, i64 92
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specularlity, i64 noundef 4)
-  %ambient = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 5
+  %ambient = getelementptr inbounds i8, ptr %this, i64 96
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ambient, i64 noundef 12)
-  %flag = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 6
+  %flag = getelementptr inbounds i8, ptr %this, i64 108
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %flag, i64 noundef 1)
-  %edge_color = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 8
+  %edge_color = getelementptr inbounds i8, ptr %this, i64 112
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_color, i64 noundef 16)
-  %edge_size = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 9
+  %edge_size = getelementptr inbounds i8, ptr %this, i64 128
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_size, i64 noundef 4)
-  %texture_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 3
+  %texture_index_size = getelementptr inbounds i8, ptr %setting, i64 3
   %2 = load i8, ptr %texture_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1570,7 +1505,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %diffuse_texture_index = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 10
+  %diffuse_texture_index = getelementptr inbounds i8, ptr %this, i64 132
   store i32 %retval.0.i, ptr %diffuse_texture_index, align 4
   %6 = load i8, ptr %texture_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i22)
@@ -1608,18 +1543,18 @@ _ZN3pmx9ReadIndexEPSii.exit38:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i22)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i24)
-  %sphere_texture_index = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 11
+  %sphere_texture_index = getelementptr inbounds i8, ptr %this, i64 136
   store i32 %retval.0.i27, ptr %sphere_texture_index, align 8
-  %sphere_op_mode = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 12
+  %sphere_op_mode = getelementptr inbounds i8, ptr %this, i64 140
   %call19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sphere_op_mode, i64 noundef 1)
-  %common_toon_flag = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 13
+  %common_toon_flag = getelementptr inbounds i8, ptr %this, i64 141
   %call20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %common_toon_flag, i64 noundef 1)
   %10 = load i8, ptr %common_toon_flag, align 1
   %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN3pmx9ReadIndexEPSii.exit38
-  %toon_texture_index = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 15
+  %toon_texture_index = getelementptr inbounds i8, ptr %this, i64 144
   %call22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %toon_texture_index, i64 noundef 1)
   br label %if.end
 
@@ -1660,17 +1595,17 @@ _ZN3pmx9ReadIndexEPSii.exit55:                    ; preds = %if.else, %sw.bb.i50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i39)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i40)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i41)
-  %toon_texture_index26 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 15
+  %toon_texture_index26 = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %retval.0.i44, ptr %toon_texture_index26, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3pmx9ReadIndexEPSii.exit55, %if.then
   %15 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull %stream, i8 noundef zeroext %15)
-  %memo = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 17
+  %memo = getelementptr inbounds i8, ptr %this, i64 152
   %call29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %memo, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #15
-  %index_count = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %this, i64 0, i32 18
+  %index_count = getelementptr inbounds i8, ptr %this, i64 184
   %call30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %index_count, i64 noundef 4)
   ret void
 }
@@ -1684,7 +1619,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1722,16 +1657,16 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
   store i32 %retval.0.i, ptr %this, align 4
-  %angle_lock = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %this, i64 0, i32 1
+  %angle_lock = getelementptr inbounds i8, ptr %this, i64 4
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %angle_lock, i64 noundef 1)
   %4 = load i8, ptr %angle_lock, align 4
   %cmp = icmp eq i8 %4, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN3pmx9ReadIndexEPSii.exit
-  %max_radian = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %this, i64 0, i32 2
+  %max_radian = getelementptr inbounds i8, ptr %this, i64 8
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %max_radian, i64 noundef 12)
-  %min_radian = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %this, i64 0, i32 3
+  %min_radian = getelementptr inbounds i8, ptr %this, i64 20
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %min_radian, i64 noundef 12)
   br label %if.end
 
@@ -1762,12 +1697,12 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %bone_english_name = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 1
+  %bone_english_name = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
-  %position = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 2
+  %position = getelementptr inbounds i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position, i64 noundef 12)
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %2 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1804,11 +1739,11 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %parent_index = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 3
+  %parent_index = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %retval.0.i, ptr %parent_index, align 4
-  %level = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 4
+  %level = getelementptr inbounds i8, ptr %this, i64 80
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %level, i64 noundef 4)
-  %bone_flag = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 5
+  %bone_flag = getelementptr inbounds i8, ptr %this, i64 84
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_flag, i64 noundef 2)
   %6 = load i16, ptr %bone_flag, align 4
   %7 = and i16 %6, 1
@@ -1852,12 +1787,12 @@ _ZN3pmx9ReadIndexEPSii.exit43:                    ; preds = %if.then, %sw.bb.i38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i27)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i29)
-  %target_index = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 7
+  %target_index = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %retval.0.i32, ptr %target_index, align 4
   br label %if.end
 
 if.else:                                          ; preds = %_ZN3pmx9ReadIndexEPSii.exit
-  %offset = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 6
+  %offset = getelementptr inbounds i8, ptr %this, i64 88
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %offset, i64 noundef 12)
   br label %if.end
 
@@ -1904,9 +1839,9 @@ _ZN3pmx9ReadIndexEPSii.exit60:                    ; preds = %if.then20, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i44)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i45)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i46)
-  %grant_parent_index = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 8
+  %grant_parent_index = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %retval.0.i49, ptr %grant_parent_index, align 8
-  %grant_weight = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 9
+  %grant_weight = getelementptr inbounds i8, ptr %this, i64 108
   %call24 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %grant_weight, i64 noundef 4)
   %.pre = load i16, ptr %bone_flag, align 4
   br label %if.end25
@@ -1918,7 +1853,7 @@ if.end25:                                         ; preds = %_ZN3pmx9ReadIndexEP
   br i1 %tobool29.not, label %if.end33, label %if.then30
 
 if.then30:                                        ; preds = %if.end25
-  %lock_axis_orientation = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 10
+  %lock_axis_orientation = getelementptr inbounds i8, ptr %this, i64 112
   %call32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %lock_axis_orientation, i64 noundef 12)
   %.pre83 = load i16, ptr %bone_flag, align 4
   br label %if.end33
@@ -1930,9 +1865,9 @@ if.end33:                                         ; preds = %if.then30, %if.end2
   br i1 %tobool37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end33
-  %local_axis_x_orientation = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 11
+  %local_axis_x_orientation = getelementptr inbounds i8, ptr %this, i64 124
   %call40 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %local_axis_x_orientation, i64 noundef 12)
-  %local_axis_y_orientation = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 12
+  %local_axis_y_orientation = getelementptr inbounds i8, ptr %this, i64 136
   %call42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %local_axis_y_orientation, i64 noundef 12)
   %.pre84 = load i16, ptr %bone_flag, align 4
   br label %if.end43
@@ -1944,7 +1879,7 @@ if.end43:                                         ; preds = %if.then38, %if.end3
   br i1 %tobool47.not, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %if.end43
-  %key = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 13
+  %key = getelementptr inbounds i8, ptr %this, i64 148
   %call49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %key, i64 noundef 4)
   %.pre85 = load i16, ptr %bone_flag, align 4
   br label %if.end50
@@ -1992,13 +1927,13 @@ _ZN3pmx9ReadIndexEPSii.exit77:                    ; preds = %if.then55, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i61)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i62)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i63)
-  %ik_target_bone_index = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 14
+  %ik_target_bone_index = getelementptr inbounds i8, ptr %this, i64 152
   store i32 %retval.0.i66, ptr %ik_target_bone_index, align 8
-  %ik_loop = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 15
+  %ik_loop = getelementptr inbounds i8, ptr %this, i64 156
   %call59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ik_loop, i64 noundef 4)
-  %ik_loop_angle_limit = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 16
+  %ik_loop_angle_limit = getelementptr inbounds i8, ptr %this, i64 160
   %call60 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ik_loop_angle_limit, i64 noundef 4)
-  %ik_link_count = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 17
+  %ik_link_count = getelementptr inbounds i8, ptr %this, i64 164
   %call61 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ik_link_count, i64 noundef 4)
   %30 = load i32, ptr %ik_link_count, align 4
   %conv64 = sext i32 %30 to i64
@@ -2016,16 +1951,16 @@ new.ctorloop.i:                                   ; preds = %_ZN3pmx9ReadIndexEP
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %call.i78, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   store i32 0, ptr %arrayctor.cur.i, align 4, !noalias !23
-  %angle_lock.i.i = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %arrayctor.cur.i, i64 0, i32 1
+  %angle_lock.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 4
   store i8 0, ptr %angle_lock.i.i, align 4, !noalias !23
-  %scevgep.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !noalias !23
-  %arrayctor.next.i = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %arrayctor.cur.i, i64 1
+  %max_radian.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %max_radian.i.i, i8 0, i64 24, i1 false), !noalias !23
+  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 32
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxIkLinkEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx9PmxIkLinkEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %_ZN3pmx9ReadIndexEPSii.exit77
-  %ik_links = getelementptr inbounds %"class.pmx::PmxBone", ptr %this, i64 0, i32 18
+  %ik_links = getelementptr inbounds i8, ptr %this, i64 168
   %34 = load ptr, ptr %ik_links, align 8
   store ptr %call.i78, ptr %ik_links, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %34, null
@@ -2062,7 +1997,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %vertex_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 2
+  %vertex_index_size = getelementptr inbounds i8, ptr %setting, i64 2
   %0 = load i8, ptr %vertex_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2099,9 +2034,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %vertex_index = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %this, i64 0, i32 1
+  %vertex_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %vertex_index, align 8
-  %position_offset = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %this, i64 0, i32 2
+  %position_offset = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position_offset, i64 noundef 12)
   ret void
 }
@@ -2112,7 +2047,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %vertex_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 2
+  %vertex_index_size = getelementptr inbounds i8, ptr %setting, i64 2
   %0 = load i8, ptr %vertex_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2149,9 +2084,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %vertex_index = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %this, i64 0, i32 1
+  %vertex_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %vertex_index, align 8
-  %uv_offset = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %this, i64 0, i32 2
+  %uv_offset = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %uv_offset, i64 noundef 16)
   ret void
 }
@@ -2162,7 +2097,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2199,11 +2134,11 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this, i64 0, i32 1
+  %bone_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index, align 8
-  %translation = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this, i64 0, i32 2
+  %translation = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %translation, i64 noundef 12)
-  %rotation = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this, i64 0, i32 3
+  %rotation = getelementptr inbounds i8, ptr %this, i64 24
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation, i64 noundef 16)
   ret void
 }
@@ -2214,7 +2149,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %material_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 4
+  %material_index_size = getelementptr inbounds i8, ptr %setting, i64 4
   %0 = load i8, ptr %material_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2251,27 +2186,27 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %material_index = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 1
+  %material_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %material_index, align 8
-  %offset_operation = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 2
+  %offset_operation = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %offset_operation, i64 noundef 1)
-  %diffuse = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 3
+  %diffuse = getelementptr inbounds i8, ptr %this, i64 16
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %diffuse, i64 noundef 16)
-  %specular = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 4
+  %specular = getelementptr inbounds i8, ptr %this, i64 32
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specular, i64 noundef 12)
-  %specularity = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 5
+  %specularity = getelementptr inbounds i8, ptr %this, i64 44
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specularity, i64 noundef 4)
-  %ambient = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 6
+  %ambient = getelementptr inbounds i8, ptr %this, i64 48
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ambient, i64 noundef 12)
-  %edge_color = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 7
+  %edge_color = getelementptr inbounds i8, ptr %this, i64 60
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_color, i64 noundef 16)
-  %edge_size = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 8
+  %edge_size = getelementptr inbounds i8, ptr %this, i64 76
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_size, i64 noundef 4)
-  %texture_argb = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 9
+  %texture_argb = getelementptr inbounds i8, ptr %this, i64 80
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_argb, i64 noundef 16)
-  %sphere_texture_argb = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 10
+  %sphere_texture_argb = getelementptr inbounds i8, ptr %this, i64 96
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sphere_texture_argb, i64 noundef 16)
-  %toon_texture_argb = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this, i64 0, i32 11
+  %toon_texture_argb = getelementptr inbounds i8, ptr %this, i64 112
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %toon_texture_argb, i64 noundef 16)
   ret void
 }
@@ -2282,7 +2217,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %morph_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 6
+  %morph_index_size = getelementptr inbounds i8, ptr %setting, i64 6
   %0 = load i8, ptr %morph_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2319,9 +2254,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %morph_index = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %this, i64 0, i32 1
+  %morph_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %morph_index, align 8
-  %morph_weight = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %this, i64 0, i32 2
+  %morph_weight = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_weight, i64 noundef 4)
   ret void
 }
@@ -2332,7 +2267,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %morph_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 6
+  %morph_index_size = getelementptr inbounds i8, ptr %setting, i64 6
   %0 = load i8, ptr %morph_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2369,9 +2304,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %morph_index = getelementptr inbounds %"class.pmx::PmxMorphFlipOffset", ptr %this, i64 0, i32 1
+  %morph_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %morph_index, align 8
-  %morph_value = getelementptr inbounds %"class.pmx::PmxMorphFlipOffset", ptr %this, i64 0, i32 2
+  %morph_value = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_value, i64 noundef 4)
   ret void
 }
@@ -2382,7 +2317,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %rigidbody_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 7
+  %rigidbody_index_size = getelementptr inbounds i8, ptr %setting, i64 7
   %0 = load i8, ptr %rigidbody_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2419,13 +2354,13 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %rigid_body_index = getelementptr inbounds %"class.pmx::PmxMorphImplusOffset", ptr %this, i64 0, i32 1
+  %rigid_body_index = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %rigid_body_index, align 8
-  %is_local = getelementptr inbounds %"class.pmx::PmxMorphImplusOffset", ptr %this, i64 0, i32 2
+  %is_local = getelementptr inbounds i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %is_local, i64 noundef 1)
-  %velocity = getelementptr inbounds %"class.pmx::PmxMorphImplusOffset", ptr %this, i64 0, i32 3
+  %velocity = getelementptr inbounds i8, ptr %this, i64 16
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %velocity, i64 noundef 12)
-  %angular_torque = getelementptr inbounds %"class.pmx::PmxMorphImplusOffset", ptr %this, i64 0, i32 4
+  %angular_torque = getelementptr inbounds i8, ptr %this, i64 28
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %angular_torque, i64 noundef 12)
   ret void
 }
@@ -2441,14 +2376,14 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %morph_english_name = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 1
+  %morph_english_name = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
-  %category = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 2
+  %category = getelementptr inbounds i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %category, i64 noundef 1)
-  %morph_type = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 3
+  %morph_type = getelementptr inbounds i8, ptr %this, i64 65
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_type, i64 noundef 1)
-  %offset_count = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 4
+  %offset_count = getelementptr inbounds i8, ptr %this, i64 68
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %offset_count, i64 noundef 4)
   %2 = load i8, ptr %morph_type, align 1
   switch i8 %2, label %sw.default [
@@ -2483,16 +2418,16 @@ new.ctorloop.i:                                   ; preds = %sw.bb
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %8, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.i, align 8, !noalias !27
-  %morph_index.i.i = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %arrayctor.cur.i, i64 0, i32 1
+  %morph_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
   store i32 0, ptr %morph_index.i.i, align 8, !noalias !27
-  %morph_weight.i.i = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %arrayctor.cur.i, i64 0, i32 2
+  %morph_weight.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 12
   store float 0.000000e+00, ptr %morph_weight.i.i, align 4, !noalias !27
-  %arrayctor.next.i = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %arrayctor.cur.i, i64 1
+  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 16
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx19PmxMorphGroupOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx19PmxMorphGroupOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %sw.bb
-  %group_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 9
+  %group_offsets = getelementptr inbounds i8, ptr %this, i64 104
   %9 = load ptr, ptr %group_offsets, align 8
   store ptr %8, ptr %group_offsets, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
@@ -2546,14 +2481,14 @@ new.ctorloop.i28:                                 ; preds = %sw.bb16
 arrayctor.loop.i30:                               ; preds = %arrayctor.loop.i30, %new.ctorloop.i28
   %arrayctor.cur.i31 = phi ptr [ %25, %new.ctorloop.i28 ], [ %arrayctor.next.i32, %arrayctor.loop.i30 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.i31, align 8, !noalias !31
-  %vertex_index.i.i = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %arrayctor.cur.i31, i64 0, i32 1
+  %vertex_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i31, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertex_index.i.i, i8 0, i64 16, i1 false), !noalias !31
-  %arrayctor.next.i32 = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %arrayctor.cur.i31, i64 1
+  %arrayctor.next.i32 = getelementptr inbounds i8, ptr %arrayctor.cur.i31, i64 24
   %arrayctor.done.i33 = icmp eq ptr %arrayctor.next.i32, %arrayctor.end.i29
   br i1 %arrayctor.done.i33, label %_ZN3mmd11make_uniqueIA_N3pmx20PmxMorphVertexOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i30
 
 _ZN3mmd11make_uniqueIA_N3pmx20PmxMorphVertexOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i30, %sw.bb16
-  %vertex_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 5
+  %vertex_offsets = getelementptr inbounds i8, ptr %this, i64 72
   %26 = load ptr, ptr %vertex_offsets, align 8
   store ptr %25, ptr %vertex_offsets, align 8
   %tobool.not.i.i.i.i34 = icmp eq ptr %26, null
@@ -2607,14 +2542,14 @@ new.ctorloop.i39:                                 ; preds = %sw.bb34
 arrayctor.loop.i41:                               ; preds = %arrayctor.loop.i41, %new.ctorloop.i39
   %arrayctor.cur.i42 = phi ptr [ %42, %new.ctorloop.i39 ], [ %arrayctor.next.i43, %arrayctor.loop.i41 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.i42, align 8, !noalias !35
-  %bone_index.i.i = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %arrayctor.cur.i42, i64 0, i32 1
+  %bone_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i42, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index.i.i, i8 0, i64 32, i1 false), !noalias !35
-  %arrayctor.next.i43 = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %arrayctor.cur.i42, i64 1
+  %arrayctor.next.i43 = getelementptr inbounds i8, ptr %arrayctor.cur.i42, i64 40
   %arrayctor.done.i44 = icmp eq ptr %arrayctor.next.i43, %arrayctor.end.i40
   br i1 %arrayctor.done.i44, label %_ZN3mmd11make_uniqueIA_N3pmx18PmxMorphBoneOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i41
 
 _ZN3mmd11make_uniqueIA_N3pmx18PmxMorphBoneOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i41, %sw.bb34
-  %bone_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 7
+  %bone_offsets = getelementptr inbounds i8, ptr %this, i64 88
   %43 = load ptr, ptr %bone_offsets, align 8
   store ptr %42, ptr %bone_offsets, align 8
   %tobool.not.i.i.i.i45 = icmp eq ptr %43, null
@@ -2664,14 +2599,14 @@ new.ctorloop.i50:                                 ; preds = %sw.bb52
 arrayctor.loop.i52:                               ; preds = %arrayctor.loop.i52, %new.ctorloop.i50
   %arrayctor.cur.i53 = phi ptr [ %55, %new.ctorloop.i50 ], [ %arrayctor.next.i54, %arrayctor.loop.i52 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.i53, align 8, !noalias !39
-  %scevgep14.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i53, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %scevgep14.i.i, i8 0, i64 112, i1 false), !noalias !39
-  %arrayctor.next.i54 = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %arrayctor.cur.i53, i64 1
+  %diffuse.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i53, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %diffuse.i.i, i8 0, i64 112, i1 false), !noalias !39
+  %arrayctor.next.i54 = getelementptr inbounds i8, ptr %arrayctor.cur.i53, i64 128
   %arrayctor.done.i55 = icmp eq ptr %arrayctor.next.i54, %arrayctor.end.i51
   br i1 %arrayctor.done.i55, label %_ZN3mmd11make_uniqueIA_N3pmx22PmxMorphMaterialOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i52
 
 _ZN3mmd11make_uniqueIA_N3pmx22PmxMorphMaterialOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i52, %sw.bb52
-  %material_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 8
+  %material_offsets = getelementptr inbounds i8, ptr %this, i64 96
   %56 = load ptr, ptr %material_offsets, align 8
   store ptr %55, ptr %material_offsets, align 8
   %tobool.not.i.i.i.i56 = icmp eq ptr %56, null
@@ -2721,14 +2656,14 @@ new.ctorloop.i61:                                 ; preds = %sw.bb70
 arrayctor.loop.i63:                               ; preds = %arrayctor.loop.i63, %new.ctorloop.i61
   %arrayctor.cur.i64 = phi ptr [ %68, %new.ctorloop.i61 ], [ %arrayctor.next.i66, %arrayctor.loop.i63 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.i64, align 8, !noalias !43
-  %vertex_index.i.i65 = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %arrayctor.cur.i64, i64 0, i32 1
+  %vertex_index.i.i65 = getelementptr inbounds i8, ptr %arrayctor.cur.i64, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %vertex_index.i.i65, i8 0, i64 20, i1 false), !noalias !43
-  %arrayctor.next.i66 = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %arrayctor.cur.i64, i64 1
+  %arrayctor.next.i66 = getelementptr inbounds i8, ptr %arrayctor.cur.i64, i64 32
   %arrayctor.done.i67 = icmp eq ptr %arrayctor.next.i66, %arrayctor.end.i62
   br i1 %arrayctor.done.i67, label %_ZN3mmd11make_uniqueIA_N3pmx16PmxMorphUVOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i63
 
 _ZN3mmd11make_uniqueIA_N3pmx16PmxMorphUVOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i63, %sw.bb70
-  %uv_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 6
+  %uv_offsets = getelementptr inbounds i8, ptr %this, i64 80
   %69 = load ptr, ptr %uv_offsets, align 8
   store ptr %68, ptr %uv_offsets, align 8
   %tobool.not.i.i.i.i68 = icmp eq ptr %69, null
@@ -2792,7 +2727,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %1 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2832,7 +2767,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %if.then, %sw.bb.i, 
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %morph_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 6
+  %morph_index_size = getelementptr inbounds i8, ptr %setting, i64 6
   %5 = load i8, ptr %morph_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i5)
@@ -2873,7 +2808,7 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %if.else, %sw.bb.i15
 
 if.end:                                           ; preds = %_ZN3pmx9ReadIndexEPSii.exit20, %_ZN3pmx9ReadIndexEPSii.exit
   %retval.0.i9.sink = phi i32 [ %retval.0.i9, %_ZN3pmx9ReadIndexEPSii.exit20 ], [ %retval.0.i, %_ZN3pmx9ReadIndexEPSii.exit ]
-  %index7 = getelementptr inbounds %"class.pmx::PmxFrameElement", ptr %this, i64 0, i32 1
+  %index7 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %retval.0.i9.sink, ptr %index7, align 4
   ret void
 }
@@ -2889,12 +2824,12 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %frame_english_name = getelementptr inbounds %"class.pmx::PmxFrame", ptr %this, i64 0, i32 1
+  %frame_english_name = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
-  %frame_flag = getelementptr inbounds %"class.pmx::PmxFrame", ptr %this, i64 0, i32 2
+  %frame_flag = getelementptr inbounds i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %frame_flag, i64 noundef 1)
-  %element_count = getelementptr inbounds %"class.pmx::PmxFrame", ptr %this, i64 0, i32 3
+  %element_count = getelementptr inbounds i8, ptr %this, i64 68
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %element_count, i64 noundef 4)
   %2 = load i32, ptr %element_count, align 4
   %conv = sext i32 %2 to i64
@@ -2912,14 +2847,14 @@ new.ctorloop.i:                                   ; preds = %entry
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %call.i, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   store i8 0, ptr %arrayctor.cur.i, align 4, !noalias !47
-  %index.i.i = getelementptr inbounds %"class.pmx::PmxFrameElement", ptr %arrayctor.cur.i, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 4
   store i32 0, ptr %index.i.i, align 4, !noalias !47
-  %arrayctor.next.i = getelementptr inbounds %"class.pmx::PmxFrameElement", ptr %arrayctor.cur.i, i64 1
+  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx15PmxFrameElementEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx15PmxFrameElementEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %entry
-  %elements = getelementptr inbounds %"class.pmx::PmxFrame", ptr %this, i64 0, i32 4
+  %elements = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %elements, align 8
   store ptr %call.i, ptr %elements, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -2964,10 +2899,10 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %girid_body_english_name = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 1
+  %girid_body_english_name = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
-  %bone_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 5
+  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
   %2 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -3004,31 +2939,31 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %target_bone = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 2
+  %target_bone = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %retval.0.i, ptr %target_bone, align 8
-  %group = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %this, i64 68
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %group, i64 noundef 1)
-  %mask = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 5
+  %mask = getelementptr inbounds i8, ptr %this, i64 70
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %mask, i64 noundef 2)
-  %shape = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 6
+  %shape = getelementptr inbounds i8, ptr %this, i64 72
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %shape, i64 noundef 1)
-  %size = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 8
+  %size = getelementptr inbounds i8, ptr %this, i64 76
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %size, i64 noundef 12)
-  %position = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 9
+  %position = getelementptr inbounds i8, ptr %this, i64 88
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position, i64 noundef 12)
-  %orientation = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 10
+  %orientation = getelementptr inbounds i8, ptr %this, i64 100
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %orientation, i64 noundef 12)
-  %mass = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 11
+  %mass = getelementptr inbounds i8, ptr %this, i64 112
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %mass, i64 noundef 4)
-  %move_attenuation = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 12
+  %move_attenuation = getelementptr inbounds i8, ptr %this, i64 116
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %move_attenuation, i64 noundef 4)
-  %rotation_attenuation = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 13
+  %rotation_attenuation = getelementptr inbounds i8, ptr %this, i64 120
   %call16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation_attenuation, i64 noundef 4)
-  %repulsion = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 14
+  %repulsion = getelementptr inbounds i8, ptr %this, i64 124
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %repulsion, i64 noundef 4)
-  %friction = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 15
+  %friction = getelementptr inbounds i8, ptr %this, i64 128
   %call18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %friction, i64 noundef 4)
-  %physics_calc_type = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %this, i64 0, i32 16
+  %physics_calc_type = getelementptr inbounds i8, ptr %this, i64 132
   %call19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %physics_calc_type, i64 noundef 1)
   ret void
 }
@@ -3042,7 +2977,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %rigidbody_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 7
+  %rigidbody_index_size = getelementptr inbounds i8, ptr %setting, i64 7
   %0 = load i8, ptr %rigidbody_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -3116,23 +3051,23 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i13)
-  %rigid_body2 = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 1
+  %rigid_body2 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %retval.0.i16, ptr %rigid_body2, align 4
-  %position = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 2
+  %position = getelementptr inbounds i8, ptr %this, i64 8
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position, i64 noundef 12)
-  %orientaiton = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 3
+  %orientaiton = getelementptr inbounds i8, ptr %this, i64 20
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %orientaiton, i64 noundef 12)
-  %move_limitation_min = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 4
+  %move_limitation_min = getelementptr inbounds i8, ptr %this, i64 32
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %move_limitation_min, i64 noundef 12)
-  %move_limitation_max = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 5
+  %move_limitation_max = getelementptr inbounds i8, ptr %this, i64 44
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %move_limitation_max, i64 noundef 12)
-  %rotation_limitation_min = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 6
+  %rotation_limitation_min = getelementptr inbounds i8, ptr %this, i64 56
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation_limitation_min, i64 noundef 12)
-  %rotation_limitation_max = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 7
+  %rotation_limitation_max = getelementptr inbounds i8, ptr %this, i64 68
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation_limitation_max, i64 noundef 12)
-  %spring_move_coefficient = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 8
+  %spring_move_coefficient = getelementptr inbounds i8, ptr %this, i64 80
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %spring_move_coefficient, i64 noundef 12)
-  %spring_rotation_coefficient = getelementptr inbounds %"class.pmx::PmxJointParam", ptr %this, i64 0, i32 9
+  %spring_rotation_coefficient = getelementptr inbounds i8, ptr %this, i64 92
   %call19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %spring_rotation_coefficient, i64 noundef 12)
   ret void
 }
@@ -3148,12 +3083,12 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %joint_english_name = getelementptr inbounds %"class.pmx::PmxJoint", ptr %this, i64 0, i32 1
+  %joint_english_name = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
-  %joint_type = getelementptr inbounds %"class.pmx::PmxJoint", ptr %this, i64 0, i32 2
+  %joint_type = getelementptr inbounds i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_type, i64 noundef 1)
-  %param = getelementptr inbounds %"class.pmx::PmxJoint", ptr %this, i64 0, i32 4
+  %param = getelementptr inbounds i8, ptr %this, i64 68
   call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   ret void
 }
@@ -3167,7 +3102,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %rigidbody_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 7
+  %rigidbody_index_size = getelementptr inbounds i8, ptr %setting, i64 7
   %0 = load i8, ptr %rigidbody_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -3205,7 +3140,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
   store i32 %retval.0.i, ptr %this, align 4
-  %vertex_index_size = getelementptr inbounds %"class.pmx::PmxSetting", ptr %setting, i64 0, i32 2
+  %vertex_index_size = getelementptr inbounds i8, ptr %setting, i64 2
   %4 = load i8, ptr %vertex_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i5)
@@ -3242,9 +3177,9 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i6)
-  %related_vertex = getelementptr inbounds %"class.pmx::PmxAncherRigidBody", ptr %this, i64 0, i32 1
+  %related_vertex = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %retval.0.i9, ptr %related_vertex, align 4
-  %is_near = getelementptr inbounds %"class.pmx::PmxAncherRigidBody", ptr %this, i64 0, i32 2
+  %is_near = getelementptr inbounds i8, ptr %this, i64 8
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %is_near, i64 noundef 1)
   ret void
 }
@@ -3271,17 +3206,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3pmx8PmxModel4InitEv(ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store float 0.000000e+00, ptr %this, align 8
-  %model_name = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 2
+  %model_name = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_name) #15
-  %model_english_name = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 3
+  %model_english_name = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_english_name) #15
-  %model_comment = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 4
+  %model_comment = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_comment) #15
-  %model_english_comment = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 5
+  %model_english_comment = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_english_comment) #15
-  %vertex_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 6
+  %vertex_count = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %vertex_count, align 8
-  %vertices = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 7
+  %vertices = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %vertices, align 8
   store ptr null, ptr %vertices, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3299,15 +3234,15 @@ arraydestroy.body.preheader.i.i.i.i.i:            ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i:                      ; preds = %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i
   %arraydestroy.elementPast.i.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i.i, %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i ]
-  %arraydestroy.element.i.i.i.i.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -1
-  %skinning.i.i.i.i.i.i = getelementptr %"class.pmx::PmxVertex", ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -1, i32 6
+  %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -120
+  %skinning.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
   %3 = load ptr, ptr %skinning.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i
@@ -3322,9 +3257,9 @@ _ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_converti
   br label %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EEaSEDn.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %index_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 8
+  %index_count = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %index_count, align 8
-  %indices = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 9
+  %indices = getelementptr inbounds i8, ptr %this, i64 168
   %5 = load ptr, ptr %indices, align 8
   store ptr null, ptr %indices, align 8
   %tobool.not.i.i.i.i1 = icmp eq ptr %5, null
@@ -3335,9 +3270,9 @@ _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
-  %texture_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 10
+  %texture_count = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %texture_count, align 8
-  %textures = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 11
+  %textures = getelementptr inbounds i8, ptr %this, i64 184
   %6 = load ptr, ptr %textures, align 8
   store ptr null, ptr %textures, align 8
   %tobool.not.i.i.i.i2 = icmp eq ptr %6, null
@@ -3355,7 +3290,7 @@ arraydestroy.body.preheader.i.i.i.i.i5:           ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i7:                     ; preds = %arraydestroy.body.i.i.i.i.i7, %arraydestroy.body.preheader.i.i.i.i.i5
   %arraydestroy.elementPast.i.i.i.i.i8 = phi ptr [ %arraydestroy.element.i.i.i.i.i9, %arraydestroy.body.i.i.i.i.i7 ], [ %delete.end.i.i.i.i.i6, %arraydestroy.body.preheader.i.i.i.i.i5 ]
-  %arraydestroy.element.i.i.i.i.i9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast.i.i.i.i.i8, i64 -1
+  %arraydestroy.element.i.i.i.i.i9 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i8, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i9) #15
   %arraydestroy.done.i.i.i.i.i10 = icmp eq ptr %arraydestroy.element.i.i.i.i.i9, %6
   br i1 %arraydestroy.done.i.i.i.i.i10, label %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i7
@@ -3365,9 +3300,9 @@ _ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcl
   br label %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EEaSEDn.exit, %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i
-  %material_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 12
+  %material_count = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %material_count, align 8
-  %materials = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 13
+  %materials = getelementptr inbounds i8, ptr %this, i64 200
   %9 = load ptr, ptr %materials, align 8
   store ptr null, ptr %materials, align 8
   %tobool.not.i.i.i.i11 = icmp eq ptr %9, null
@@ -3385,10 +3320,10 @@ arraydestroy.body.preheader.i.i.i.i.i14:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i16:                    ; preds = %arraydestroy.body.i.i.i.i.i16, %arraydestroy.body.preheader.i.i.i.i.i14
   %arraydestroy.elementPast.i.i.i.i.i17 = phi ptr [ %arraydestroy.element.i.i.i.i.i18, %arraydestroy.body.i.i.i.i.i16 ], [ %delete.end.i.i.i.i.i15, %arraydestroy.body.preheader.i.i.i.i.i14 ]
-  %arraydestroy.element.i.i.i.i.i18 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arraydestroy.elementPast.i.i.i.i.i17, i64 -1
-  %memo.i.i.i.i.i.i = getelementptr %"class.pmx::PmxMaterial", ptr %arraydestroy.elementPast.i.i.i.i.i17, i64 -1, i32 17
+  %arraydestroy.element.i.i.i.i.i18 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i17, i64 -192
+  %memo.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i17, i64 -40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %memo.i.i.i.i.i.i) #15
-  %material_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxMaterial", ptr %arraydestroy.elementPast.i.i.i.i.i17, i64 -1, i32 1
+  %material_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i17, i64 -160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name.i.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i18) #15
   %arraydestroy.done.i.i.i.i.i19 = icmp eq ptr %arraydestroy.element.i.i.i.i.i18, %9
@@ -3399,9 +3334,9 @@ _ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_conve
   br label %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %bone_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 14
+  %bone_count = getelementptr inbounds i8, ptr %this, i64 208
   store i32 0, ptr %bone_count, align 8
-  %bones = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 15
+  %bones = getelementptr inbounds i8, ptr %this, i64 216
   %12 = load ptr, ptr %bones, align 8
   store ptr null, ptr %bones, align 8
   %tobool.not.i.i.i.i20 = icmp eq ptr %12, null
@@ -3419,8 +3354,8 @@ arraydestroy.body.preheader.i.i.i.i.i23:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i25:                    ; preds = %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i23
   %arraydestroy.elementPast.i.i.i.i.i26 = phi ptr [ %arraydestroy.element.i.i.i.i.i27, %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i24, %arraydestroy.body.preheader.i.i.i.i.i23 ]
-  %arraydestroy.element.i.i.i.i.i27 = getelementptr inbounds %"class.pmx::PmxBone", ptr %arraydestroy.elementPast.i.i.i.i.i26, i64 -1
-  %ik_links.i.i.i.i.i.i = getelementptr %"class.pmx::PmxBone", ptr %arraydestroy.elementPast.i.i.i.i.i26, i64 -1, i32 18
+  %arraydestroy.element.i.i.i.i.i27 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i26, i64 -176
+  %ik_links.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i26, i64 -8
   %15 = load ptr, ptr %ik_links.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i28 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i.i28, label %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
@@ -3431,7 +3366,7 @@ _ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_converti
 
 _ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i:               ; preds = %_ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i25
   store ptr null, ptr %ik_links.i.i.i.i.i.i, align 8
-  %bone_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxBone", ptr %arraydestroy.elementPast.i.i.i.i.i26, i64 -1, i32 1
+  %bone_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i26, i64 -144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name.i.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i27) #15
   %arraydestroy.done.i.i.i.i.i29 = icmp eq ptr %arraydestroy.element.i.i.i.i.i27, %12
@@ -3442,9 +3377,9 @@ _ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibl
   br label %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %morph_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 16
+  %morph_count = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %morph_count, align 8
-  %morphs = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 17
+  %morphs = getelementptr inbounds i8, ptr %this, i64 232
   %16 = load ptr, ptr %morphs, align 8
   store ptr null, ptr %morphs, align 8
   %tobool.not.i.i.i.i30 = icmp eq ptr %16, null
@@ -3462,7 +3397,7 @@ arraydestroy.body.preheader.i.i.i.i.i33:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i35:                    ; preds = %arraydestroy.body.i.i.i.i.i35, %arraydestroy.body.preheader.i.i.i.i.i33
   %arraydestroy.elementPast.i.i.i.i.i36 = phi ptr [ %arraydestroy.element.i.i.i.i.i37, %arraydestroy.body.i.i.i.i.i35 ], [ %delete.end.i.i.i.i.i34, %arraydestroy.body.preheader.i.i.i.i.i33 ]
-  %arraydestroy.element.i.i.i.i.i37 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %arraydestroy.elementPast.i.i.i.i.i36, i64 -1
+  %arraydestroy.element.i.i.i.i.i37 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i36, i64 -128
   tail call void @_ZN3pmx8PmxMorphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %arraydestroy.element.i.i.i.i.i37) #15
   %arraydestroy.done.i.i.i.i.i38 = icmp eq ptr %arraydestroy.element.i.i.i.i.i37, %16
   br i1 %arraydestroy.done.i.i.i.i.i38, label %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i35
@@ -3472,9 +3407,9 @@ _ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %frame_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 18
+  %frame_count = getelementptr inbounds i8, ptr %this, i64 240
   store i32 0, ptr %frame_count, align 8
-  %frames = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 19
+  %frames = getelementptr inbounds i8, ptr %this, i64 248
   %19 = load ptr, ptr %frames, align 8
   store ptr null, ptr %frames, align 8
   %tobool.not.i.i.i.i39 = icmp eq ptr %19, null
@@ -3492,8 +3427,8 @@ arraydestroy.body.preheader.i.i.i.i.i42:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i44:                    ; preds = %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i42
   %arraydestroy.elementPast.i.i.i.i.i45 = phi ptr [ %arraydestroy.element.i.i.i.i.i46, %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i43, %arraydestroy.body.preheader.i.i.i.i.i42 ]
-  %arraydestroy.element.i.i.i.i.i46 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arraydestroy.elementPast.i.i.i.i.i45, i64 -1
-  %elements.i.i.i.i.i.i = getelementptr %"class.pmx::PmxFrame", ptr %arraydestroy.elementPast.i.i.i.i.i45, i64 -1, i32 4
+  %arraydestroy.element.i.i.i.i.i46 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i45, i64 -80
+  %elements.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i45, i64 -8
   %22 = load ptr, ptr %elements.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i47 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i.i.i.i47, label %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
@@ -3504,7 +3439,7 @@ _ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_c
 
 _ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i:              ; preds = %_ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i44
   store ptr null, ptr %elements.i.i.i.i.i.i, align 8
-  %frame_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxFrame", ptr %arraydestroy.elementPast.i.i.i.i.i45, i64 -1, i32 1
+  %frame_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i45, i64 -48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name.i.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i46) #15
   %arraydestroy.done.i.i.i.i.i48 = icmp eq ptr %arraydestroy.element.i.i.i.i.i46, %19
@@ -3515,9 +3450,9 @@ _ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %rigid_body_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 20
+  %rigid_body_count = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %rigid_body_count, align 8
-  %rigid_bodies = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 21
+  %rigid_bodies = getelementptr inbounds i8, ptr %this, i64 264
   %23 = load ptr, ptr %rigid_bodies, align 8
   store ptr null, ptr %rigid_bodies, align 8
   %tobool.not.i.i.i.i49 = icmp eq ptr %23, null
@@ -3535,8 +3470,8 @@ arraydestroy.body.preheader.i.i.i.i.i52:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i54:                    ; preds = %arraydestroy.body.i.i.i.i.i54, %arraydestroy.body.preheader.i.i.i.i.i52
   %arraydestroy.elementPast.i.i.i.i.i55 = phi ptr [ %arraydestroy.element.i.i.i.i.i56, %arraydestroy.body.i.i.i.i.i54 ], [ %delete.end.i.i.i.i.i53, %arraydestroy.body.preheader.i.i.i.i.i52 ]
-  %arraydestroy.element.i.i.i.i.i56 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arraydestroy.elementPast.i.i.i.i.i55, i64 -1
-  %girid_body_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxRigidBody", ptr %arraydestroy.elementPast.i.i.i.i.i55, i64 -1, i32 1
+  %arraydestroy.element.i.i.i.i.i56 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i55, i64 -136
+  %girid_body_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i55, i64 -104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name.i.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i56) #15
   %arraydestroy.done.i.i.i.i.i57 = icmp eq ptr %arraydestroy.element.i.i.i.i.i56, %23
@@ -3547,9 +3482,9 @@ _ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_conv
   br label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %joint_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 22
+  %joint_count = getelementptr inbounds i8, ptr %this, i64 272
   store i32 0, ptr %joint_count, align 8
-  %joints = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 23
+  %joints = getelementptr inbounds i8, ptr %this, i64 280
   %26 = load ptr, ptr %joints, align 8
   store ptr null, ptr %joints, align 8
   %tobool.not.i.i.i.i58 = icmp eq ptr %26, null
@@ -3567,8 +3502,8 @@ arraydestroy.body.preheader.i.i.i.i.i61:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i63:                    ; preds = %arraydestroy.body.i.i.i.i.i63, %arraydestroy.body.preheader.i.i.i.i.i61
   %arraydestroy.elementPast.i.i.i.i.i64 = phi ptr [ %arraydestroy.element.i.i.i.i.i65, %arraydestroy.body.i.i.i.i.i63 ], [ %delete.end.i.i.i.i.i62, %arraydestroy.body.preheader.i.i.i.i.i61 ]
-  %arraydestroy.element.i.i.i.i.i65 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %arraydestroy.elementPast.i.i.i.i.i64, i64 -1
-  %joint_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxJoint", ptr %arraydestroy.elementPast.i.i.i.i.i64, i64 -1, i32 1
+  %arraydestroy.element.i.i.i.i.i65 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i64, i64 -176
+  %joint_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i64, i64 -144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i65) #15
   %arraydestroy.done.i.i.i.i.i66 = icmp eq ptr %arraydestroy.element.i.i.i.i.i65, %26
@@ -3579,9 +3514,9 @@ _ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %soft_body_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 24
+  %soft_body_count = getelementptr inbounds i8, ptr %this, i64 288
   store i32 0, ptr %soft_body_count, align 8
-  %soft_bodies = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 25
+  %soft_bodies = getelementptr inbounds i8, ptr %this, i64 296
   %29 = load ptr, ptr %soft_bodies, align 8
   store ptr null, ptr %soft_bodies, align 8
   %tobool.not.i.i.i.i67 = icmp eq ptr %29, null
@@ -3599,8 +3534,8 @@ arraydestroy.body.preheader.i.i.i.i.i70:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i72:                    ; preds = %_ZN3pmx11PmxSoftBodyD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i70
   %arraydestroy.elementPast.i.i.i.i.i73 = phi ptr [ %arraydestroy.element.i.i.i.i.i74, %_ZN3pmx11PmxSoftBodyD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i71, %arraydestroy.body.preheader.i.i.i.i.i70 ]
-  %arraydestroy.element.i.i.i.i.i74 = getelementptr inbounds %"class.pmx::PmxSoftBody", ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -1
-  %pin_vertices.i.i.i.i.i.i = getelementptr %"class.pmx::PmxSoftBody", ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -1, i32 40
+  %arraydestroy.element.i.i.i.i.i74 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -232
+  %pin_vertices.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -8
   %32 = load ptr, ptr %pin_vertices.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i75 = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i.i.i.i.i75, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i
@@ -3611,7 +3546,7 @@ _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i72
   store ptr null, ptr %pin_vertices.i.i.i.i.i.i, align 8
-  %anchers.i.i.i.i.i.i = getelementptr %"class.pmx::PmxSoftBody", ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -1, i32 38
+  %anchers.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -24
   %33 = load ptr, ptr %anchers.i.i.i.i.i.i, align 8
   %cmp.not.i1.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.not.i1.i.i.i.i.i.i, label %_ZN3pmx11PmxSoftBodyD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx18PmxAncherRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
@@ -3622,7 +3557,7 @@ _ZNKSt14default_deleteIA_N3pmx18PmxAncherRigidBodyEEclIS1_EENSt9enable_ifIXsr14i
 
 _ZN3pmx11PmxSoftBodyD2Ev.exit.i.i.i.i.i:          ; preds = %_ZNKSt14default_deleteIA_N3pmx18PmxAncherRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i
   store ptr null, ptr %anchers.i.i.i.i.i.i, align 8
-  %soft_body_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxSoftBody", ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -1, i32 1
+  %soft_body_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i73, i64 -200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %soft_body_english_name.i.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i74) #15
   %arraydestroy.done.i.i.i.i.i76 = icmp eq ptr %arraydestroy.element.i.i.i.i.i74, %29
@@ -3692,9 +3627,9 @@ if.then18:                                        ; preds = %if.end
 
 invoke.cont22:                                    ; preds = %if.then18
   invoke void @_ZN17DeadlyImportErrorC2IJRA48_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception19, ptr noundef nonnull align 1 dereferenceable(48) @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %invoke.cont24 unwind label %ehcleanup.thread258
+          to label %invoke.cont24 unwind label %ehcleanup.thread257
 
-ehcleanup.thread258:                              ; preds = %invoke.cont22
+ehcleanup.thread257:                              ; preds = %invoke.cont22
   %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
@@ -3715,35 +3650,35 @@ ehcleanup:                                        ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %eh.resume
 
-cleanup.action:                                   ; preds = %ehcleanup.thread258, %ehcleanup.thread
-  %.pn257 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %4, %ehcleanup.thread258 ]
+cleanup.action:                                   ; preds = %ehcleanup.thread257, %ehcleanup.thread
+  %.pn256 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %4, %ehcleanup.thread257 ]
   call void @__cxa_free_exception(ptr %exception19) #15
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.end
-  %setting = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 1
+  %setting = getelementptr inbounds i8, ptr %this, i64 4
   call void @_ZN3pmx10PmxSetting4ReadEPSi(ptr noundef nonnull align 1 dereferenceable(8) %setting, ptr noundef nonnull %stream)
   %7 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp26, ptr noundef nonnull %stream, i8 noundef zeroext %7)
-  %model_name = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 2
+  %model_name = getelementptr inbounds i8, ptr %this, i64 16
   %call28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #15
   %8 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp29, ptr noundef nonnull %stream, i8 noundef zeroext %8)
-  %model_english_name = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 3
+  %model_english_name = getelementptr inbounds i8, ptr %this, i64 48
   %call32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #15
   %9 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull %stream, i8 noundef zeroext %9)
-  %model_comment = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 4
+  %model_comment = getelementptr inbounds i8, ptr %this, i64 80
   %call36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #15
   %10 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, ptr noundef nonnull %stream, i8 noundef zeroext %10)
-  %model_english_comment = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 5
+  %model_english_comment = getelementptr inbounds i8, ptr %this, i64 112
   %call40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_english_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
-  %vertex_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 6
+  %vertex_count = getelementptr inbounds i8, ptr %this, i64 144
   %call41 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %vertex_count, i64 noundef 4)
   %11 = load i32, ptr %vertex_count, align 8
   %conv44 = sext i32 %11 to i64
@@ -3767,17 +3702,17 @@ new.ctorloop.i:                                   ; preds = %if.end25
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %20, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
-  %skinning.i.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %arrayctor.cur.i, i64 0, i32 6
+  %skinning.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 104
   store ptr null, ptr %skinning.i.i, align 8, !noalias !51
-  %edge.i.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %arrayctor.cur.i, i64 0, i32 7
+  %edge.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 112
   store float 0.000000e+00, ptr %edge.i.i, align 8, !noalias !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayctor.cur.i, i8 0, i64 96, i1 false), !noalias !51
-  %arrayctor.next.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %arrayctor.cur.i, i64 1
+  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 120
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %if.end25
-  %vertices = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 7
+  %vertices = getelementptr inbounds i8, ptr %this, i64 152
   %21 = load ptr, ptr %vertices, align 8
   store ptr %20, ptr %vertices, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %21, null
@@ -3795,15 +3730,15 @@ arraydestroy.body.preheader.i.i.i.i.i:            ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i:                      ; preds = %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i
   %arraydestroy.elementPast.i.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i.i, %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i ]
-  %arraydestroy.element.i.i.i.i.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -1
-  %skinning.i.i.i.i.i.i = getelementptr %"class.pmx::PmxVertex", ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -1, i32 6
+  %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -120
+  %skinning.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
   %24 = load ptr, ptr %skinning.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24) #15
   br label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i
@@ -3820,8 +3755,8 @@ _ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_converti
 
 _ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %26 = phi i32 [ %.pre, %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i ], [ %11, %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit ]
-  %cmp47260 = icmp sgt i32 %26, 0
-  br i1 %cmp47260, label %for.body, label %for.end
+  %cmp47259 = icmp sgt i32 %26, 0
+  br i1 %cmp47259, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit ]
@@ -3835,7 +3770,7 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp47, label %for.body, label %for.end, !llvm.loop !54
 
 for.end:                                          ; preds = %for.body, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit
-  %index_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 8
+  %index_count = getelementptr inbounds i8, ptr %this, i64 160
   %call52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %index_count, i64 noundef 4)
   %30 = load i32, ptr %index_count, align 8
   %conv55 = sext i32 %30 to i64
@@ -3844,7 +3779,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt10u
   %33 = select i1 %31, i64 -1, i64 %32
   %call.i49 = call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #17, !noalias !55
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i49, i8 0, i64 %33, i1 false), !noalias !55
-  %indices = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 9
+  %indices = getelementptr inbounds i8, ptr %this, i64 168
   %34 = load ptr, ptr %indices, align 8
   store ptr %call.i49, ptr %indices, align 8
   %tobool.not.i.i.i.i50 = icmp eq ptr %34, null
@@ -3852,20 +3787,20 @@ for.end:                                          ; preds = %for.body, %_ZNSt10u
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %for.end
   call void @_ZdaPv(ptr noundef nonnull %34) #18
-  %.pre303 = load i32, ptr %index_count, align 8
+  %.pre302 = load i32, ptr %index_count, align 8
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %for.end
-  %35 = phi i32 [ %.pre303, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ], [ %30, %for.end ]
-  %cmp60262 = icmp sgt i32 %35, 0
-  br i1 %cmp60262, label %for.body61.lr.ph, label %for.end70
+  %35 = phi i32 [ %.pre302, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ], [ %30, %for.end ]
+  %cmp60261 = icmp sgt i32 %35, 0
+  br i1 %cmp60261, label %for.body61.lr.ph, label %for.end70
 
 for.body61.lr.ph:                                 ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
-  %vertex_index_size = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 1, i32 2
+  %vertex_index_size = getelementptr inbounds i8, ptr %this, i64 6
   br label %for.body61
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %_ZN3pmx9ReadIndexEPSii.exit
-  %indvars.iv279 = phi i64 [ 0, %for.body61.lr.ph ], [ %indvars.iv.next280, %_ZN3pmx9ReadIndexEPSii.exit ]
+  %indvars.iv278 = phi i64 [ 0, %for.body61.lr.ph ], [ %indvars.iv.next279, %_ZN3pmx9ReadIndexEPSii.exit ]
   %36 = load i8, ptr %vertex_index_size, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -3903,16 +3838,16 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %for.body61, %sw.bb.
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
   %40 = load ptr, ptr %indices, align 8
-  %arrayidx.i53 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv279
+  %arrayidx.i53 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv278
   store i32 %retval.0.i, ptr %arrayidx.i53, align 4
-  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
+  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %41 = load i32, ptr %index_count, align 8
   %42 = sext i32 %41 to i64
-  %cmp60 = icmp slt i64 %indvars.iv.next280, %42
+  %cmp60 = icmp slt i64 %indvars.iv.next279, %42
   br i1 %cmp60, label %for.body61, label %for.end70, !llvm.loop !58
 
 for.end70:                                        ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
-  %texture_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 10
+  %texture_count = getelementptr inbounds i8, ptr %this, i64 176
   %call71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_count, i64 noundef 4)
   %43 = load i32, ptr %texture_count, align 8
   %conv74 = sext i32 %43 to i64
@@ -3933,12 +3868,12 @@ new.ctorloop.i56:                                 ; preds = %for.end70
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %new.ctorloop.i56
   %arrayctor.cur.i59 = phi ptr [ %48, %new.ctorloop.i56 ], [ %arrayctor.next.i60, %arrayctor.loop.i58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i59) #15, !noalias !59
-  %arrayctor.next.i60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arrayctor.cur.i59, i64 1
+  %arrayctor.next.i60 = getelementptr inbounds i8, ptr %arrayctor.cur.i59, i64 32
   %arrayctor.done.i61 = icmp eq ptr %arrayctor.next.i60, %arrayctor.end.i57
   br i1 %arrayctor.done.i61, label %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i58
 
 _ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i58, %for.end70
-  %textures = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 11
+  %textures = getelementptr inbounds i8, ptr %this, i64 184
   %49 = load ptr, ptr %textures, align 8
   store ptr %48, ptr %textures, align 8
   %tobool.not.i.i.i.i62 = icmp eq ptr %49, null
@@ -3956,7 +3891,7 @@ arraydestroy.body.preheader.i.i.i.i.i65:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i67:                    ; preds = %arraydestroy.body.i.i.i.i.i67, %arraydestroy.body.preheader.i.i.i.i.i65
   %arraydestroy.elementPast.i.i.i.i.i68 = phi ptr [ %arraydestroy.element.i.i.i.i.i69, %arraydestroy.body.i.i.i.i.i67 ], [ %delete.end.i.i.i.i.i66, %arraydestroy.body.preheader.i.i.i.i.i65 ]
-  %arraydestroy.element.i.i.i.i.i69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast.i.i.i.i.i68, i64 -1
+  %arraydestroy.element.i.i.i.i.i69 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i68, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i69) #15
   %arraydestroy.done.i.i.i.i.i70 = icmp eq ptr %arraydestroy.element.i.i.i.i.i69, %49
   br i1 %arraydestroy.done.i.i.i.i.i70, label %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i67
@@ -3967,25 +3902,25 @@ _ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcl
 
 _ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %52 = load i32, ptr %texture_count, align 8
-  %cmp79264 = icmp sgt i32 %52, 0
-  br i1 %cmp79264, label %for.body80, label %for.end93
+  %cmp79263 = icmp sgt i32 %52, 0
+  br i1 %cmp79263, label %for.body80, label %for.end93
 
 for.body80:                                       ; preds = %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit, %for.body80
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %for.body80 ], [ 0, %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit ]
+  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %for.body80 ], [ 0, %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit ]
   %53 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp81, ptr noundef nonnull %stream, i8 noundef zeroext %53)
   %54 = load ptr, ptr %textures, align 8
-  %arrayidx.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %indvars.iv282
+  %arrayidx.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %indvars.iv281
   %call89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i80, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #15
-  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
+  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %55 = load i32, ptr %texture_count, align 8
   %56 = sext i32 %55 to i64
-  %cmp79 = icmp slt i64 %indvars.iv.next283, %56
+  %cmp79 = icmp slt i64 %indvars.iv.next282, %56
   br i1 %cmp79, label %for.body80, label %for.end93, !llvm.loop !62
 
 for.end93:                                        ; preds = %for.body80, %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit
-  %material_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 12
+  %material_count = getelementptr inbounds i8, ptr %this, i64 192
   %call94 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %material_count, i64 noundef 4)
   %57 = load i32, ptr %material_count, align 8
   %conv97 = sext i32 %57 to i64
@@ -4007,32 +3942,32 @@ new.ctorloop.i83:                                 ; preds = %for.end93
 arrayctor.loop.i85:                               ; preds = %arrayctor.loop.i85, %new.ctorloop.i83
   %arrayctor.cur.i86 = phi ptr [ %63, %new.ctorloop.i83 ], [ %arrayctor.next.i87, %arrayctor.loop.i85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i86) #15, !noalias !63
-  %material_english_name.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 1
+  %material_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name.i.i) #15, !noalias !63
-  %specularlity.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 4
+  %specularlity.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 92
   store float 0.000000e+00, ptr %specularlity.i.i, align 4, !noalias !63
-  %flag.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 6
+  %flag.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 108
   store i8 0, ptr %flag.i.i, align 4, !noalias !63
-  %edge_size.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 9
-  %toon_texture_index.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 15
+  %edge_size.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 128
+  %toon_texture_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 144
   store i32 0, ptr %toon_texture_index.i.i, align 8, !noalias !63
-  %memo.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 17
+  %memo.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %edge_size.i.i, i8 0, i64 14, i1 false), !noalias !63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %memo.i.i) #15, !noalias !63
-  %index_count.i.i = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 0, i32 18
+  %index_count.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 184
   store i32 0, ptr %index_count.i.i, align 8, !noalias !63
-  %scevgep9.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep9.i.i, i8 0, i64 12, i1 false), !noalias !63
-  %scevgep10.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep10.i.i, i8 0, i64 12, i1 false), !noalias !63
-  %scevgep12.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %scevgep12.i.i, i8 0, i64 28, i1 false), !noalias !63
-  %arrayctor.next.i87 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arrayctor.cur.i86, i64 1
+  %ambient.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 96
+  %edge_color.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ambient.i.i, i8 0, i64 12, i1 false), !noalias !63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %edge_color.i.i, i8 0, i64 12, i1 false), !noalias !63
+  %diffuse.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %diffuse.i.i, i8 0, i64 28, i1 false), !noalias !63
+  %arrayctor.next.i87 = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 192
   %arrayctor.done.i88 = icmp eq ptr %arrayctor.next.i87, %arrayctor.end.i84
   br i1 %arrayctor.done.i88, label %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i85
 
 _ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i85, %for.end93
-  %materials = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 13
+  %materials = getelementptr inbounds i8, ptr %this, i64 200
   %64 = load ptr, ptr %materials, align 8
   store ptr %63, ptr %materials, align 8
   %tobool.not.i.i.i.i89 = icmp eq ptr %64, null
@@ -4050,10 +3985,10 @@ arraydestroy.body.preheader.i.i.i.i.i92:          ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i94:                    ; preds = %arraydestroy.body.i.i.i.i.i94, %arraydestroy.body.preheader.i.i.i.i.i92
   %arraydestroy.elementPast.i.i.i.i.i95 = phi ptr [ %arraydestroy.element.i.i.i.i.i96, %arraydestroy.body.i.i.i.i.i94 ], [ %delete.end.i.i.i.i.i93, %arraydestroy.body.preheader.i.i.i.i.i92 ]
-  %arraydestroy.element.i.i.i.i.i96 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -1
-  %memo.i.i.i.i.i.i = getelementptr %"class.pmx::PmxMaterial", ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -1, i32 17
+  %arraydestroy.element.i.i.i.i.i96 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -192
+  %memo.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %memo.i.i.i.i.i.i) #15
-  %material_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxMaterial", ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -1, i32 1
+  %material_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i96) #15
   %arraydestroy.done.i.i.i.i.i97 = icmp eq ptr %arraydestroy.element.i.i.i.i.i96, %64
@@ -4065,22 +4000,22 @@ _ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_conve
 
 _ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %67 = load i32, ptr %material_count, align 8
-  %cmp102266 = icmp sgt i32 %67, 0
-  br i1 %cmp102266, label %for.body103, label %for.end110
+  %cmp102265 = icmp sgt i32 %67, 0
+  br i1 %cmp102265, label %for.body103, label %for.end110
 
 for.body103:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit, %for.body103
-  %indvars.iv285 = phi i64 [ %indvars.iv.next286, %for.body103 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit ]
+  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %for.body103 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit ]
   %68 = load ptr, ptr %materials, align 8
-  %arrayidx.i107 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %68, i64 %indvars.iv285
+  %arrayidx.i107 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %68, i64 %indvars.iv284
   call void @_ZN3pmx11PmxMaterial4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(188) %arrayidx.i107, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %69 = load i32, ptr %material_count, align 8
   %70 = sext i32 %69 to i64
-  %cmp102 = icmp slt i64 %indvars.iv.next286, %70
+  %cmp102 = icmp slt i64 %indvars.iv.next285, %70
   br i1 %cmp102, label %for.body103, label %for.end110, !llvm.loop !66
 
 for.end110:                                       ; preds = %for.body103, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit
-  %bone_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 14
+  %bone_count = getelementptr inbounds i8, ptr %this, i64 208
   %call111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_count, i64 noundef 4)
   %71 = load i32, ptr %bone_count, align 8
   %conv114 = sext i32 %71 to i64
@@ -4102,18 +4037,18 @@ new.ctorloop.i110:                                ; preds = %for.end110
 arrayctor.loop.i112:                              ; preds = %arrayctor.loop.i112, %new.ctorloop.i110
   %arrayctor.cur.i113 = phi ptr [ %77, %new.ctorloop.i110 ], [ %arrayctor.next.i114, %arrayctor.loop.i112 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i113) #15, !noalias !67
-  %bone_english_name.i.i = getelementptr inbounds %"class.pmx::PmxBone", ptr %arrayctor.cur.i113, i64 0, i32 1
+  %bone_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name.i.i) #15, !noalias !67
-  %scevgep.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 64
-  %scevgep8.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %scevgep.i.i, i8 0, i64 22, i1 false), !noalias !67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %scevgep8.i.i, i8 0, i64 88, i1 false), !noalias !67
-  %arrayctor.next.i114 = getelementptr inbounds %"class.pmx::PmxBone", ptr %arrayctor.cur.i113, i64 1
+  %position.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 64
+  %offset.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %position.i.i, i8 0, i64 22, i1 false), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %offset.i.i, i8 0, i64 88, i1 false), !noalias !67
+  %arrayctor.next.i114 = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 176
   %arrayctor.done.i115 = icmp eq ptr %arrayctor.next.i114, %arrayctor.end.i111
   br i1 %arrayctor.done.i115, label %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i112
 
 _ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i112, %for.end110
-  %bones = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 15
+  %bones = getelementptr inbounds i8, ptr %this, i64 216
   %78 = load ptr, ptr %bones, align 8
   store ptr %77, ptr %bones, align 8
   %tobool.not.i.i.i.i116 = icmp eq ptr %78, null
@@ -4131,8 +4066,8 @@ arraydestroy.body.preheader.i.i.i.i.i119:         ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i121:                   ; preds = %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i119
   %arraydestroy.elementPast.i.i.i.i.i122 = phi ptr [ %arraydestroy.element.i.i.i.i.i123, %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i120, %arraydestroy.body.preheader.i.i.i.i.i119 ]
-  %arraydestroy.element.i.i.i.i.i123 = getelementptr inbounds %"class.pmx::PmxBone", ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -1
-  %ik_links.i.i.i.i.i.i = getelementptr %"class.pmx::PmxBone", ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -1, i32 18
+  %arraydestroy.element.i.i.i.i.i123 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -176
+  %ik_links.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -8
   %81 = load ptr, ptr %ik_links.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i124 = icmp eq ptr %81, null
   br i1 %cmp.not.i.i.i.i.i.i.i124, label %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
@@ -4143,7 +4078,7 @@ _ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_converti
 
 _ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i:               ; preds = %_ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i121
   store ptr null, ptr %ik_links.i.i.i.i.i.i, align 8
-  %bone_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxBone", ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -1, i32 1
+  %bone_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i123) #15
   %arraydestroy.done.i.i.i.i.i125 = icmp eq ptr %arraydestroy.element.i.i.i.i.i123, %78
@@ -4155,22 +4090,22 @@ _ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibl
 
 _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %82 = load i32, ptr %bone_count, align 8
-  %cmp119268 = icmp sgt i32 %82, 0
-  br i1 %cmp119268, label %for.body120, label %for.end127
+  %cmp119267 = icmp sgt i32 %82, 0
+  br i1 %cmp119267, label %for.body120, label %for.end127
 
 for.body120:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit, %for.body120
-  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %for.body120 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit ]
+  %indvars.iv287 = phi i64 [ %indvars.iv.next288, %for.body120 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit ]
   %83 = load ptr, ptr %bones, align 8
-  %arrayidx.i136 = getelementptr inbounds %"class.pmx::PmxBone", ptr %83, i64 %indvars.iv288
+  %arrayidx.i136 = getelementptr inbounds %"class.pmx::PmxBone", ptr %83, i64 %indvars.iv287
   call void @_ZN3pmx7PmxBone4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(176) %arrayidx.i136, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
+  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %84 = load i32, ptr %bone_count, align 8
   %85 = sext i32 %84 to i64
-  %cmp119 = icmp slt i64 %indvars.iv.next289, %85
+  %cmp119 = icmp slt i64 %indvars.iv.next288, %85
   br i1 %cmp119, label %for.body120, label %for.end127, !llvm.loop !70
 
 for.end127:                                       ; preds = %for.body120, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit
-  %morph_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 16
+  %morph_count = getelementptr inbounds i8, ptr %this, i64 224
   %call128 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_count, i64 noundef 4)
   %86 = load i32, ptr %morph_count, align 8
   %conv131 = sext i32 %86 to i64
@@ -4191,16 +4126,16 @@ new.ctorloop.i139:                                ; preds = %for.end127
 arrayctor.loop.i141:                              ; preds = %arrayctor.loop.i141, %new.ctorloop.i139
   %arrayctor.cur.i142 = phi ptr [ %91, %new.ctorloop.i139 ], [ %arrayctor.next.i143, %arrayctor.loop.i141 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i142) #15, !noalias !71
-  %morph_english_name.i.i = getelementptr inbounds %"class.pmx::PmxMorph", ptr %arrayctor.cur.i142, i64 0, i32 1
+  %morph_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name.i.i) #15, !noalias !71
-  %offset_count.i.i = getelementptr inbounds %"class.pmx::PmxMorph", ptr %arrayctor.cur.i142, i64 0, i32 4
+  %offset_count.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %offset_count.i.i, i8 0, i64 60, i1 false), !noalias !71
-  %arrayctor.next.i143 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %arrayctor.cur.i142, i64 1
+  %arrayctor.next.i143 = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 128
   %arrayctor.done.i144 = icmp eq ptr %arrayctor.next.i143, %arrayctor.end.i140
   br i1 %arrayctor.done.i144, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i141
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i141, %for.end127
-  %morphs = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 17
+  %morphs = getelementptr inbounds i8, ptr %this, i64 232
   %92 = load ptr, ptr %morphs, align 8
   store ptr %91, ptr %morphs, align 8
   %tobool.not.i.i.i.i145 = icmp eq ptr %92, null
@@ -4218,7 +4153,7 @@ arraydestroy.body.preheader.i.i.i.i.i148:         ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i150:                   ; preds = %arraydestroy.body.i.i.i.i.i150, %arraydestroy.body.preheader.i.i.i.i.i148
   %arraydestroy.elementPast.i.i.i.i.i151 = phi ptr [ %arraydestroy.element.i.i.i.i.i152, %arraydestroy.body.i.i.i.i.i150 ], [ %delete.end.i.i.i.i.i149, %arraydestroy.body.preheader.i.i.i.i.i148 ]
-  %arraydestroy.element.i.i.i.i.i152 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %arraydestroy.elementPast.i.i.i.i.i151, i64 -1
+  %arraydestroy.element.i.i.i.i.i152 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i151, i64 -128
   call void @_ZN3pmx8PmxMorphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %arraydestroy.element.i.i.i.i.i152) #15
   %arraydestroy.done.i.i.i.i.i153 = icmp eq ptr %arraydestroy.element.i.i.i.i.i152, %92
   br i1 %arraydestroy.done.i.i.i.i.i153, label %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i150
@@ -4229,22 +4164,22 @@ _ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertib
 
 _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %95 = load i32, ptr %morph_count, align 8
-  %cmp136270 = icmp sgt i32 %95, 0
-  br i1 %cmp136270, label %for.body137, label %for.end144
+  %cmp136269 = icmp sgt i32 %95, 0
+  br i1 %cmp136269, label %for.body137, label %for.end144
 
 for.body137:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit, %for.body137
-  %indvars.iv291 = phi i64 [ %indvars.iv.next292, %for.body137 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit ]
+  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %for.body137 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit ]
   %96 = load ptr, ptr %morphs, align 8
-  %arrayidx.i163 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %96, i64 %indvars.iv291
+  %arrayidx.i163 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %96, i64 %indvars.iv290
   call void @_ZN3pmx8PmxMorph4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i163, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %97 = load i32, ptr %morph_count, align 8
   %98 = sext i32 %97 to i64
-  %cmp136 = icmp slt i64 %indvars.iv.next292, %98
+  %cmp136 = icmp slt i64 %indvars.iv.next291, %98
   br i1 %cmp136, label %for.body137, label %for.end144, !llvm.loop !74
 
 for.end144:                                       ; preds = %for.body137, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit
-  %frame_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 18
+  %frame_count = getelementptr inbounds i8, ptr %this, i64 240
   %call145 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %frame_count, i64 noundef 4)
   %99 = load i32, ptr %frame_count, align 8
   %conv148 = sext i32 %99 to i64
@@ -4266,20 +4201,20 @@ new.ctorloop.i166:                                ; preds = %for.end144
 arrayctor.loop.i168:                              ; preds = %arrayctor.loop.i168, %new.ctorloop.i166
   %arrayctor.cur.i169 = phi ptr [ %105, %new.ctorloop.i166 ], [ %arrayctor.next.i170, %arrayctor.loop.i168 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i169) #15, !noalias !75
-  %frame_english_name.i.i = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arrayctor.cur.i169, i64 0, i32 1
+  %frame_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name.i.i) #15, !noalias !75
-  %frame_flag.i.i = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arrayctor.cur.i169, i64 0, i32 2
+  %frame_flag.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 64
   store i8 0, ptr %frame_flag.i.i, align 8, !noalias !75
-  %element_count.i.i = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arrayctor.cur.i169, i64 0, i32 3
+  %element_count.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 68
   store i32 0, ptr %element_count.i.i, align 4, !noalias !75
-  %elements.i.i = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arrayctor.cur.i169, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 72
   store ptr null, ptr %elements.i.i, align 8, !noalias !75
-  %arrayctor.next.i170 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arrayctor.cur.i169, i64 1
+  %arrayctor.next.i170 = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 80
   %arrayctor.done.i171 = icmp eq ptr %arrayctor.next.i170, %arrayctor.end.i167
   br i1 %arrayctor.done.i171, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i168
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i168, %for.end144
-  %frames = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 19
+  %frames = getelementptr inbounds i8, ptr %this, i64 248
   %106 = load ptr, ptr %frames, align 8
   store ptr %105, ptr %frames, align 8
   %tobool.not.i.i.i.i172 = icmp eq ptr %106, null
@@ -4297,8 +4232,8 @@ arraydestroy.body.preheader.i.i.i.i.i175:         ; preds = %delete.notnull.i.i.
 
 arraydestroy.body.i.i.i.i.i177:                   ; preds = %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i175
   %arraydestroy.elementPast.i.i.i.i.i178 = phi ptr [ %arraydestroy.element.i.i.i.i.i179, %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i176, %arraydestroy.body.preheader.i.i.i.i.i175 ]
-  %arraydestroy.element.i.i.i.i.i179 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -1
-  %elements.i.i.i.i.i.i = getelementptr %"class.pmx::PmxFrame", ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -1, i32 4
+  %arraydestroy.element.i.i.i.i.i179 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -80
+  %elements.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -8
   %109 = load ptr, ptr %elements.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i180 = icmp eq ptr %109, null
   br i1 %cmp.not.i.i.i.i.i.i.i180, label %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
@@ -4309,7 +4244,7 @@ _ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_c
 
 _ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i:              ; preds = %_ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i177
   store ptr null, ptr %elements.i.i.i.i.i.i, align 8
-  %frame_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxFrame", ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -1, i32 1
+  %frame_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i179) #15
   %arraydestroy.done.i.i.i.i.i181 = icmp eq ptr %arraydestroy.element.i.i.i.i.i179, %106
@@ -4321,22 +4256,22 @@ _ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertib
 
 _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %110 = load i32, ptr %frame_count, align 8
-  %cmp153272 = icmp sgt i32 %110, 0
-  br i1 %cmp153272, label %for.body154, label %for.end161
+  %cmp153271 = icmp sgt i32 %110, 0
+  br i1 %cmp153271, label %for.body154, label %for.end161
 
 for.body154:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit, %for.body154
-  %indvars.iv294 = phi i64 [ %indvars.iv.next295, %for.body154 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit ]
+  %indvars.iv293 = phi i64 [ %indvars.iv.next294, %for.body154 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit ]
   %111 = load ptr, ptr %frames, align 8
-  %arrayidx.i192 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %111, i64 %indvars.iv294
+  %arrayidx.i192 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %111, i64 %indvars.iv293
   call void @_ZN3pmx8PmxFrame4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(80) %arrayidx.i192, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
+  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %112 = load i32, ptr %frame_count, align 8
   %113 = sext i32 %112 to i64
-  %cmp153 = icmp slt i64 %indvars.iv.next295, %113
+  %cmp153 = icmp slt i64 %indvars.iv.next294, %113
   br i1 %cmp153, label %for.body154, label %for.end161, !llvm.loop !78
 
 for.end161:                                       ; preds = %for.body154, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit
-  %rigid_body_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 20
+  %rigid_body_count = getelementptr inbounds i8, ptr %this, i64 256
   %call162 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rigid_body_count, i64 noundef 4)
   %114 = load i32, ptr %rigid_body_count, align 8
   %conv165 = sext i32 %114 to i64
@@ -4359,72 +4294,72 @@ new.ctorloop.i195:                                ; preds = %for.end161
   br label %arrayctor.loop.i197
 
 arrayctor.loop.i197:                              ; preds = %arrayctor.loop.i197, %new.ctorloop.i195
-  %arrayctor.cur.i198 = phi ptr [ %123, %new.ctorloop.i195 ], [ %arrayctor.next.i200, %arrayctor.loop.i197 ]
+  %arrayctor.cur.i198 = phi ptr [ %123, %new.ctorloop.i195 ], [ %arrayctor.next.i199, %arrayctor.loop.i197 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i198) #15, !noalias !79
-  %girid_body_english_name.i.i = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arrayctor.cur.i198, i64 0, i32 1
+  %girid_body_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name.i.i) #15, !noalias !79
-  %target_bone.i.i = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arrayctor.cur.i198, i64 0, i32 2
+  %target_bone.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 64
   store i32 0, ptr %target_bone.i.i, align 8, !noalias !79
-  %group.i.i = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arrayctor.cur.i198, i64 0, i32 3
+  %group.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 68
   store i8 0, ptr %group.i.i, align 4, !noalias !79
-  %mask.i.i = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arrayctor.cur.i198, i64 0, i32 5
+  %mask.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 70
   store i16 0, ptr %mask.i.i, align 2, !noalias !79
-  %shape.i.i = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arrayctor.cur.i198, i64 0, i32 6
+  %shape.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 72
   store i8 0, ptr %shape.i.i, align 8, !noalias !79
-  %scevgep.i.i199 = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(57) %scevgep.i.i199, i8 0, i64 57, i1 false), !noalias !79
-  %arrayctor.next.i200 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arrayctor.cur.i198, i64 1
-  %arrayctor.done.i201 = icmp eq ptr %arrayctor.next.i200, %arrayctor.end.i196
-  br i1 %arrayctor.done.i201, label %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i197
+  %size.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(57) %size.i.i, i8 0, i64 57, i1 false), !noalias !79
+  %arrayctor.next.i199 = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 136
+  %arrayctor.done.i200 = icmp eq ptr %arrayctor.next.i199, %arrayctor.end.i196
+  br i1 %arrayctor.done.i200, label %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i197
 
 _ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i197, %for.end161
-  %rigid_bodies = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 21
+  %rigid_bodies = getelementptr inbounds i8, ptr %this, i64 264
   %124 = load ptr, ptr %rigid_bodies, align 8
   store ptr %123, ptr %rigid_bodies, align 8
-  %tobool.not.i.i.i.i202 = icmp eq ptr %124, null
-  br i1 %tobool.not.i.i.i.i202, label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i203
+  %tobool.not.i.i.i.i201 = icmp eq ptr %124, null
+  br i1 %tobool.not.i.i.i.i201, label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i202
 
-delete.notnull.i.i.i.i.i203:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
+delete.notnull.i.i.i.i.i202:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %125 = getelementptr inbounds i8, ptr %124, i64 -8
   %126 = load i64, ptr %125, align 8
-  %arraydestroy.isempty.i.i.i.i.i204 = icmp eq i64 %126, 0
-  br i1 %arraydestroy.isempty.i.i.i.i.i204, label %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i205
+  %arraydestroy.isempty.i.i.i.i.i203 = icmp eq i64 %126, 0
+  br i1 %arraydestroy.isempty.i.i.i.i.i203, label %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i204
 
-arraydestroy.body.preheader.i.i.i.i.i205:         ; preds = %delete.notnull.i.i.i.i.i203
-  %delete.end.i.i.i.i.i206 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %124, i64 %126
-  br label %arraydestroy.body.i.i.i.i.i207
+arraydestroy.body.preheader.i.i.i.i.i204:         ; preds = %delete.notnull.i.i.i.i.i202
+  %delete.end.i.i.i.i.i205 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %124, i64 %126
+  br label %arraydestroy.body.i.i.i.i.i206
 
-arraydestroy.body.i.i.i.i.i207:                   ; preds = %arraydestroy.body.i.i.i.i.i207, %arraydestroy.body.preheader.i.i.i.i.i205
-  %arraydestroy.elementPast.i.i.i.i.i208 = phi ptr [ %arraydestroy.element.i.i.i.i.i209, %arraydestroy.body.i.i.i.i.i207 ], [ %delete.end.i.i.i.i.i206, %arraydestroy.body.preheader.i.i.i.i.i205 ]
-  %arraydestroy.element.i.i.i.i.i209 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %arraydestroy.elementPast.i.i.i.i.i208, i64 -1
-  %girid_body_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxRigidBody", ptr %arraydestroy.elementPast.i.i.i.i.i208, i64 -1, i32 1
+arraydestroy.body.i.i.i.i.i206:                   ; preds = %arraydestroy.body.i.i.i.i.i206, %arraydestroy.body.preheader.i.i.i.i.i204
+  %arraydestroy.elementPast.i.i.i.i.i207 = phi ptr [ %arraydestroy.element.i.i.i.i.i208, %arraydestroy.body.i.i.i.i.i206 ], [ %delete.end.i.i.i.i.i205, %arraydestroy.body.preheader.i.i.i.i.i204 ]
+  %arraydestroy.element.i.i.i.i.i208 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i207, i64 -136
+  %girid_body_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i207, i64 -104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name.i.i.i.i.i.i) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i209) #15
-  %arraydestroy.done.i.i.i.i.i210 = icmp eq ptr %arraydestroy.element.i.i.i.i.i209, %124
-  br i1 %arraydestroy.done.i.i.i.i.i210, label %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i207
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i208) #15
+  %arraydestroy.done.i.i.i.i.i209 = icmp eq ptr %arraydestroy.element.i.i.i.i.i208, %124
+  br i1 %arraydestroy.done.i.i.i.i.i209, label %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i206
 
-_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i207, %delete.notnull.i.i.i.i.i203
+_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i206, %delete.notnull.i.i.i.i.i202
   call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %127 = load i32, ptr %rigid_body_count, align 8
-  %cmp170274 = icmp sgt i32 %127, 0
-  br i1 %cmp170274, label %for.body171, label %for.end178
+  %cmp170273 = icmp sgt i32 %127, 0
+  br i1 %cmp170273, label %for.body171, label %for.end178
 
 for.body171:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, %for.body171
-  %indvars.iv297 = phi i64 [ %indvars.iv.next298, %for.body171 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit ]
+  %indvars.iv296 = phi i64 [ %indvars.iv.next297, %for.body171 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit ]
   %128 = load ptr, ptr %rigid_bodies, align 8
-  %arrayidx.i220 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %128, i64 %indvars.iv297
-  call void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %arrayidx.i220, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %arrayidx.i219 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %128, i64 %indvars.iv296
+  call void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %arrayidx.i219, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
+  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %129 = load i32, ptr %rigid_body_count, align 8
   %130 = sext i32 %129 to i64
-  %cmp170 = icmp slt i64 %indvars.iv.next298, %130
+  %cmp170 = icmp slt i64 %indvars.iv.next297, %130
   br i1 %cmp170, label %for.body171, label %for.end178, !llvm.loop !82
 
 for.end178:                                       ; preds = %for.body171, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit
-  %joint_count = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 22
+  %joint_count = getelementptr inbounds i8, ptr %this, i64 272
   %call179 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_count, i64 noundef 4)
   %131 = load i32, ptr %joint_count, align 8
   %conv182 = sext i32 %131 to i64
@@ -4433,97 +4368,97 @@ for.end178:                                       ; preds = %for.body171, %_ZNSt
   %134 = extractvalue { i64, i1 } %132, 0
   %135 = or disjoint i64 %134, 8
   %136 = select i1 %133, i64 -1, i64 %135
-  %call.i221 = call noalias noundef nonnull ptr @_Znam(i64 noundef %136) #17, !noalias !83
-  store i64 %conv182, ptr %call.i221, align 16, !noalias !83
-  %.ptr.i = getelementptr inbounds i8, ptr %call.i221, i64 8
-  %isempty.i222 = icmp eq i32 %131, 0
-  br i1 %isempty.i222, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i223
+  %call.i220 = call noalias noundef nonnull ptr @_Znam(i64 noundef %136) #17, !noalias !83
+  store i64 %conv182, ptr %call.i220, align 16, !noalias !83
+  %.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 8
+  %isempty.i221 = icmp eq i32 %131, 0
+  br i1 %isempty.i221, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i222
 
-new.ctorloop.i223:                                ; preds = %for.end178
-  %arrayctor.end.i224 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %.ptr.i, i64 %conv182
+new.ctorloop.i222:                                ; preds = %for.end178
+  %arrayctor.end.i223 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %.ptr.i, i64 %conv182
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.ctorloop.i223
-  %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i223 ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
-  %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i221, i64 %arrayctor.cur.idx.i
+invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.ctorloop.i222
+  %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i222 ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
+  %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 %arrayctor.cur.idx.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %arrayctor.cur.ptr.ptr.i, i8 0, i64 176, i1 false), !noalias !83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.ptr.ptr.i) #15, !noalias !83
-  %joint_english_name.i.i = getelementptr inbounds %"class.pmx::PmxJoint", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %joint_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i.i) #15, !noalias !83
-  %param.i.i = getelementptr inbounds %"class.pmx::PmxJoint", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 4
+  %param.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %param.i.i, i8 0, i64 104, i1 false), !noalias !83
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 176
-  %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i221, i64 %arrayctor.cur.add.i
-  %arrayctor.done.i225 = icmp eq ptr %arrayctor.next.ptr.i, %arrayctor.end.i224
-  br i1 %arrayctor.done.i225, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %invoke.cont.i
+  %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 %arrayctor.cur.add.i
+  %arrayctor.done.i224 = icmp eq ptr %arrayctor.next.ptr.i, %arrayctor.end.i223
+  br i1 %arrayctor.done.i224, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %invoke.cont.i
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %invoke.cont.i, %for.end178
-  %joints = getelementptr inbounds %"class.pmx::PmxModel", ptr %this, i64 0, i32 23
+  %joints = getelementptr inbounds i8, ptr %this, i64 280
   %137 = load ptr, ptr %joints, align 8
   store ptr %.ptr.i, ptr %joints, align 8
-  %tobool.not.i.i.i.i226 = icmp eq ptr %137, null
-  br i1 %tobool.not.i.i.i.i226, label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i227
+  %tobool.not.i.i.i.i225 = icmp eq ptr %137, null
+  br i1 %tobool.not.i.i.i.i225, label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i226
 
-delete.notnull.i.i.i.i.i227:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
+delete.notnull.i.i.i.i.i226:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %138 = getelementptr inbounds i8, ptr %137, i64 -8
   %139 = load i64, ptr %138, align 8
-  %arraydestroy.isempty.i.i.i.i.i228 = icmp eq i64 %139, 0
-  br i1 %arraydestroy.isempty.i.i.i.i.i228, label %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i229
+  %arraydestroy.isempty.i.i.i.i.i227 = icmp eq i64 %139, 0
+  br i1 %arraydestroy.isempty.i.i.i.i.i227, label %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i228
 
-arraydestroy.body.preheader.i.i.i.i.i229:         ; preds = %delete.notnull.i.i.i.i.i227
-  %delete.end.i.i.i.i.i230 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %137, i64 %139
-  br label %arraydestroy.body.i.i.i.i.i231
+arraydestroy.body.preheader.i.i.i.i.i228:         ; preds = %delete.notnull.i.i.i.i.i226
+  %delete.end.i.i.i.i.i229 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %137, i64 %139
+  br label %arraydestroy.body.i.i.i.i.i230
 
-arraydestroy.body.i.i.i.i.i231:                   ; preds = %arraydestroy.body.i.i.i.i.i231, %arraydestroy.body.preheader.i.i.i.i.i229
-  %arraydestroy.elementPast.i.i.i.i.i232 = phi ptr [ %arraydestroy.element.i.i.i.i.i233, %arraydestroy.body.i.i.i.i.i231 ], [ %delete.end.i.i.i.i.i230, %arraydestroy.body.preheader.i.i.i.i.i229 ]
-  %arraydestroy.element.i.i.i.i.i233 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %arraydestroy.elementPast.i.i.i.i.i232, i64 -1
-  %joint_english_name.i.i.i.i.i.i = getelementptr %"class.pmx::PmxJoint", ptr %arraydestroy.elementPast.i.i.i.i.i232, i64 -1, i32 1
+arraydestroy.body.i.i.i.i.i230:                   ; preds = %arraydestroy.body.i.i.i.i.i230, %arraydestroy.body.preheader.i.i.i.i.i228
+  %arraydestroy.elementPast.i.i.i.i.i231 = phi ptr [ %arraydestroy.element.i.i.i.i.i232, %arraydestroy.body.i.i.i.i.i230 ], [ %delete.end.i.i.i.i.i229, %arraydestroy.body.preheader.i.i.i.i.i228 ]
+  %arraydestroy.element.i.i.i.i.i232 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i231, i64 -176
+  %joint_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i231, i64 -144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i.i.i.i.i.i) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i233) #15
-  %arraydestroy.done.i.i.i.i.i234 = icmp eq ptr %arraydestroy.element.i.i.i.i.i233, %137
-  br i1 %arraydestroy.done.i.i.i.i.i234, label %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i231
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i232) #15
+  %arraydestroy.done.i.i.i.i.i233 = icmp eq ptr %arraydestroy.element.i.i.i.i.i232, %137
+  br i1 %arraydestroy.done.i.i.i.i.i233, label %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i230
 
-_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i231, %delete.notnull.i.i.i.i.i227
+_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i230, %delete.notnull.i.i.i.i.i226
   call void @_ZdaPv(ptr noundef nonnull %138) #18
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
   %140 = load i32, ptr %joint_count, align 8
-  %cmp187276 = icmp sgt i32 %140, 0
-  br i1 %cmp187276, label %for.body188, label %for.end195
+  %cmp187275 = icmp sgt i32 %140, 0
+  br i1 %cmp187275, label %for.body188, label %for.end195
 
 for.body188:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, %for.body188
-  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %for.body188 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit ]
+  %indvars.iv299 = phi i64 [ %indvars.iv.next300, %for.body188 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit ]
   %141 = load ptr, ptr %joints, align 8
-  %arrayidx.i244 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %141, i64 %indvars.iv300
+  %arrayidx.i243 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %141, i64 %indvars.iv299
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
   %142 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef %stream, i8 noundef zeroext %142)
-  %call.i245 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i244, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
+  %call.i244 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i243, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   %143 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef %stream, i8 noundef zeroext %143)
-  %joint_english_name.i = getelementptr inbounds %"class.pmx::PmxJoint", ptr %141, i64 %indvars.iv300, i32 1
+  %joint_english_name.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 32
   %call4.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #15
-  %joint_type.i = getelementptr inbounds %"class.pmx::PmxJoint", ptr %141, i64 %indvars.iv300, i32 2
+  %joint_type.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 64
   %call5.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_type.i, i64 noundef 1)
-  %param.i = getelementptr inbounds %"class.pmx::PmxJoint", ptr %141, i64 %indvars.iv300, i32 4
+  %param.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 68
   call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
+  %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %144 = load i32, ptr %joint_count, align 8
   %145 = sext i32 %144 to i64
-  %cmp187 = icmp slt i64 %indvars.iv.next301, %145
+  %cmp187 = icmp slt i64 %indvars.iv.next300, %145
   br i1 %cmp187, label %for.body188, label %for.end195, !llvm.loop !86
 
 for.end195:                                       ; preds = %for.body188, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %lpad
-  %.pn46 = phi { ptr, i32 } [ %1, %lpad ], [ %.pn257, %cleanup.action ], [ %6, %ehcleanup ]
+  %.pn46 = phi { ptr, i32 } [ %1, %lpad ], [ %.pn256, %cleanup.action ], [ %6, %ehcleanup ]
   resume { ptr, i32 } %.pn46
 
 unreachable:                                      ; preds = %invoke.cont24
@@ -4824,7 +4759,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3pmx8PmxMorphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %implus_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 11
+  %implus_offsets = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %implus_offsets, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N3pmx20PmxMorphImplusOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx20PmxMorphImplusOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4836,7 +4771,7 @@ _ZNKSt14default_deleteIA_N3pmx20PmxMorphImplusOffsetEEclIS1_EENSt9enable_ifIXsr1
 
 _ZNSt10unique_ptrIA_N3pmx20PmxMorphImplusOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N3pmx20PmxMorphImplusOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %implus_offsets, align 8
-  %flip_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 10
+  %flip_offsets = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %flip_offsets, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIA_N3pmx18PmxMorphFlipOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx18PmxMorphFlipOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4848,7 +4783,7 @@ _ZNKSt14default_deleteIA_N3pmx18PmxMorphFlipOffsetEEclIS1_EENSt9enable_ifIXsr14i
 
 _ZNSt10unique_ptrIA_N3pmx18PmxMorphFlipOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx20PmxMorphImplusOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx18PmxMorphFlipOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %flip_offsets, align 8
-  %group_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 9
+  %group_offsets = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %group_offsets, align 8
   %cmp.not.i2 = icmp eq ptr %4, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx19PmxMorphGroupOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4860,7 +4795,7 @@ _ZNKSt14default_deleteIA_N3pmx19PmxMorphGroupOffsetEEclIS1_EENSt9enable_ifIXsr14
 
 _ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx18PmxMorphFlipOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx19PmxMorphGroupOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %group_offsets, align 8
-  %material_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 8
+  %material_offsets = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load ptr, ptr %material_offsets, align 8
   %cmp.not.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx22PmxMorphMaterialOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4872,7 +4807,7 @@ _ZNKSt14default_deleteIA_N3pmx22PmxMorphMaterialOffsetEEclIS1_EENSt9enable_ifIXs
 
 _ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx22PmxMorphMaterialOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %material_offsets, align 8
-  %bone_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 7
+  %bone_offsets = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load ptr, ptr %bone_offsets, align 8
   %cmp.not.i4 = icmp eq ptr %8, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx18PmxMorphBoneOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4884,7 +4819,7 @@ _ZNKSt14default_deleteIA_N3pmx18PmxMorphBoneOffsetEEclIS1_EENSt9enable_ifIXsr14i
 
 _ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx18PmxMorphBoneOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %bone_offsets, align 8
-  %uv_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 6
+  %uv_offsets = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load ptr, ptr %uv_offsets, align 8
   %cmp.not.i5 = icmp eq ptr %10, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx16PmxMorphUVOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4896,7 +4831,7 @@ _ZNKSt14default_deleteIA_N3pmx16PmxMorphUVOffsetEEclIS1_EENSt9enable_ifIXsr14is_
 
 _ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx16PmxMorphUVOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %uv_offsets, align 8
-  %vertex_offsets = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 5
+  %vertex_offsets = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %vertex_offsets, align 8
   %cmp.not.i6 = icmp eq ptr %12, null
   br i1 %cmp.not.i6, label %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx20PmxMorphVertexOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4908,7 +4843,7 @@ _ZNKSt14default_deleteIA_N3pmx20PmxMorphVertexOffsetEEclIS1_EENSt9enable_ifIXsr1
 
 _ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx20PmxMorphVertexOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %vertex_offsets, align 8
-  %morph_english_name = getelementptr inbounds %"class.pmx::PmxMorph", ptr %this, i64 0, i32 1
+  %morph_english_name = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   ret void
@@ -4942,7 +4877,7 @@ entry:
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %cp.i = getelementptr inbounds %"class.utf8::invalid_code_point", ptr %exception, i64 0, i32 1
+  %cp.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i32 %cp, ptr %cp.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #16
   unreachable

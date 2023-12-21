@@ -7,34 +7,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pugi::xpath_node" = type { %"class.pugi::xml_node", %"class.pugi::xml_attribute" }
 %"class.pugi::xml_node" = type { ptr }
 %"class.pugi::xml_attribute" = type { ptr }
-%"struct.pugi::xml_node_struct" = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.Assimp::AMFImporter" = type { %"class.Assimp::BaseImporter", ptr, %"class.std::__cxx11::list", ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::list.6", %"class.std::__cxx11::list.11" }
-%"class.Assimp::BaseImporter" = type { ptr, double, double, %"class.std::__cxx11::basic_string", %"class.std::__exception_ptr::exception_ptr", ptr }
-%"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<AMFNodeElementBase *, std::allocator<AMFNodeElementBase *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<AMFNodeElementBase *, std::allocator<AMFNodeElementBase *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
+%"class.pugi::xml_node_iterator" = type { %"class.pugi::xml_node", %"class.pugi::xml_node" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::__cxx11::list.6" = type { %"class.std::__cxx11::_List_base.7" }
-%"class.std::__cxx11::_List_base.7" = type { %"struct.std::__cxx11::_List_base<Assimp::AMFImporter::SPP_Material, std::allocator<Assimp::AMFImporter::SPP_Material>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<Assimp::AMFImporter::SPP_Material, std::allocator<Assimp::AMFImporter::SPP_Material>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.11" = type { %"class.std::__cxx11::_List_base.12" }
-%"class.std::__cxx11::_List_base.12" = type { %"struct.std::__cxx11::_List_base<Assimp::AMFImporter::SPP_Texture, std::allocator<Assimp::AMFImporter::SPP_Texture>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<Assimp::AMFImporter::SPP_Texture, std::allocator<Assimp::AMFImporter::SPP_Texture>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%class.AMFNodeElementBase = type { ptr, i32, %"class.std::__cxx11::basic_string", ptr, %"class.std::__cxx11::list" }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
-%"class.pugi::xml_node_iterator" = type { %"class.pugi::xml_node", %"class.pugi::xml_node" }
 %"class.std::allocator" = type { i8 }
-%struct.AMFVolume = type { %class.AMFNodeElementBase, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.pugi::xml_attribute_struct" = type { i64, ptr, ptr, ptr, ptr }
-%struct.AMFCoordinates = type <{ %class.AMFNodeElementBase, %class.aiVector3t, [4 x i8] }>
-%class.aiVector3t = type { float, float, float }
-%struct.AMFTriangle = type { %class.AMFNodeElementBase, [3 x i64] }
 %struct._Guard = type { ptr }
 
 $_ZN4pugi14xpath_node_setD2Ev = comdat any
@@ -175,9 +152,9 @@ $_ZTI11AMFTriangle = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_begin = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 2
+  %_begin = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
-  %_storage = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 1
+  %_storage = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %_storage
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -210,7 +187,7 @@ entry:
   br i1 %tobool.not.i, label %do.body.i.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %name3.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 1
+  %name3.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %1, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.10, ptr %1
@@ -244,20 +221,20 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
 
 invoke.cont:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
   %call3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  %mNodeElement_Cur = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %mNodeElement_Cur, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
-  %Type.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call3, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %call3, i64 8
   store i32 7, ptr %Type.i.i, align 8
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call3, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %call3, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
-  %Parent.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call3, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call3, i64 48
   store ptr %6, ptr %Parent.i.i, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call3, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call3, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i = getelementptr inbounds i8, ptr %call3, i64 56
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 64
   store ptr %Child.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %Child.i.i, ptr %Child.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call3, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7AMFMesh, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
   %7 = load ptr, ptr %node, align 8
@@ -271,14 +248,14 @@ if.then5:                                         ; preds = %invoke.cont
   br i1 %tobool.not.i5, label %if.end9, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.then5
-  %first_child.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %8, i64 0, i32 4
+  %first_child.i = getelementptr inbounds i8, ptr %8, i64 32
   %i.06.i = load ptr, ptr %first_child.i, align 8
   %tobool3.not7.i = icmp eq ptr %i.06.i, null
   br i1 %tobool3.not7.i, label %if.end9, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i6, %for.inc.i
   %i.08.i = phi ptr [ %i.0.i, %for.inc.i ], [ %i.06.i, %if.end.i6 ]
-  %name.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %i.08.i, i64 8
   %9 = load ptr, ptr %name.i, align 8
   %tobool4.not.i7 = icmp eq ptr %9, null
   br i1 %tobool4.not.i7, label %for.inc.i, label %land.lhs.true.i
@@ -289,7 +266,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp.i.i, label %if.then8, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i, i64 0, i32 6
+  %next_sibling.i = getelementptr inbounds i8, ptr %i.08.i, i64 48
   %i.0.i = load ptr, ptr %next_sibling.i, align 8
   %tobool3.not.i = icmp eq ptr %i.0.i, null
   br i1 %tobool3.not.i, label %if.end9, label %for.body.i, !llvm.loop !6
@@ -307,14 +284,14 @@ if.end9:                                          ; preds = %for.inc.i, %if.end.
   br i1 %tobool.not.i9, label %if.end14, label %if.end.i10
 
 if.end.i10:                                       ; preds = %if.end9
-  %first_child.i11 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %10, i64 0, i32 4
+  %first_child.i11 = getelementptr inbounds i8, ptr %10, i64 32
   %i.06.i12 = load ptr, ptr %first_child.i11, align 8
   %tobool3.not7.i13 = icmp eq ptr %i.06.i12, null
   br i1 %tobool3.not7.i13, label %if.end14, label %for.body.i14
 
 for.body.i14:                                     ; preds = %if.end.i10, %for.inc.i21
   %i.08.i15 = phi ptr [ %i.0.i23, %for.inc.i21 ], [ %i.06.i12, %if.end.i10 ]
-  %name.i16 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i15, i64 0, i32 1
+  %name.i16 = getelementptr inbounds i8, ptr %i.08.i15, i64 8
   %11 = load ptr, ptr %name.i16, align 8
   %tobool4.not.i17 = icmp eq ptr %11, null
   br i1 %tobool4.not.i17, label %for.inc.i21, label %land.lhs.true.i18
@@ -325,7 +302,7 @@ land.lhs.true.i18:                                ; preds = %for.body.i14
   br i1 %cmp.i.i20, label %if.end14.thread, label %for.inc.i21
 
 for.inc.i21:                                      ; preds = %land.lhs.true.i18, %for.body.i14
-  %next_sibling.i22 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i15, i64 0, i32 6
+  %next_sibling.i22 = getelementptr inbounds i8, ptr %i.08.i15, i64 48
   %i.0.i23 = load ptr, ptr %next_sibling.i22, align 8
   %tobool3.not.i24 = icmp eq ptr %i.0.i23, null
   br i1 %tobool3.not.i24, label %if.end14, label %for.body.i14, !llvm.loop !6
@@ -342,24 +319,24 @@ if.end14:                                         ; preds = %for.inc.i21, %if.en
 
 if.then17:                                        ; preds = %invoke.cont, %if.end14
   %12 = load ptr, ptr %mNodeElement_Cur, align 8
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %12, i64 0, i32 4
+  %Child = getelementptr inbounds i8, ptr %12, i64 56
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call3, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %Child) #18
-  %_M_size.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %12, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %12, i64 72
   %13 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %13, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end14.thread, %if.end14, %if.then17
-  %mNodeElement_List = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2
+  %mNodeElement_List = getelementptr inbounds i8, ptr %this, i64 80
   %call5.i.i.i.i.i.i28 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i29 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i28, i64 0, i32 1
+  %_M_storage.i.i.i.i29 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i28, i64 16
   store ptr %call3, ptr %_M_storage.i.i.i.i29, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i28, ptr noundef nonnull %mNodeElement_List) #18
-  %_M_size.i.i.i30 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load i64, ptr %_M_size.i.i.i30, align 8
   %add.i.i.i31 = add i64 %14, 1
   store i64 %add.i.i.i31, ptr %_M_size.i.i.i30, align 8
@@ -386,20 +363,20 @@ entry:
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  %mNodeElement_Cur = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %Type.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 14, ptr %Type.i.i, align 8
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
-  %Parent.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %0, ptr %Parent.i.i, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i = getelementptr inbounds i8, ptr %call, i64 56
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %Child.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %Child.i.i, ptr %Child.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11AMFVertices, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %1 = load ptr, ptr %node, align 8
@@ -408,12 +385,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %mNodeElement_Cur, align 8
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %2, i64 0, i32 4
+  %Child = getelementptr inbounds i8, ptr %2, i64 56
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %Child) #18
-  %_M_size.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %2, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -423,10 +400,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node8childrenEv.exit
 
 _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %if.end
-  %first_child.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %3, i64 0, i32 4
+  %first_child.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %first_child.i.i, align 8, !noalias !7
   store ptr %4, ptr %__begin1, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %__begin1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %__begin1, i64 8
   store ptr %3, ptr %5, align 8
   %cmp.not.i18.not = icmp eq ptr %4, null
   br i1 %cmp.not.i18.not, label %for.end, label %for.body
@@ -437,7 +414,7 @@ for.body:                                         ; preds = %_ZNK4pugi8xml_node8
   br i1 %tobool.not.i9, label %_ZNK4pugi8xml_node4nameEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %name3.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %6, i64 0, i32 1
+  %name3.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %7, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.10, ptr %7
@@ -494,7 +471,7 @@ lpad13:                                           ; preds = %if.then16
 if.end18:                                         ; preds = %if.then16, %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #18
   %11 = load ptr, ptr %__begin1, align 8
-  %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %11, i64 0, i32 6
+  %next_sibling.i = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %next_sibling.i, align 8
   store ptr %12, ptr %__begin1, align 8
   %cmp.not.i = icmp ne ptr %12, null
@@ -505,12 +482,12 @@ if.end18:                                         ; preds = %if.then16, %invoke.
 
 for.end:                                          ; preds = %if.end18, %if.end, %_ZNK4pugi8xml_node8childrenEv.exit
   call void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
-  %mNodeElement_List = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2
+  %mNodeElement_List = getelementptr inbounds i8, ptr %this, i64 80
   %call5.i.i.i.i.i.i12 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i13 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i12, i64 0, i32 1
+  %_M_storage.i.i.i.i13 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i12, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i13, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i12, ptr noundef nonnull %mNodeElement_List) #18
-  %_M_size.i.i.i14 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 96
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -543,39 +520,39 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mNodeElement_Cur = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %Type.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 15, ptr %Type.i.i, align 8
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
-  %Parent.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %0, ptr %Parent.i.i, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i = getelementptr inbounds i8, ptr %call, i64 56
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %Child.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %Child.i.i, ptr %Child.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9AMFVolume, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %MaterialID.i = getelementptr inbounds %struct.AMFVolume, ptr %call, i64 0, i32 1
+  %MaterialID.i = getelementptr inbounds i8, ptr %call, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MaterialID.i) #18
-  %Type.i = getelementptr inbounds %struct.AMFVolume, ptr %call, i64 0, i32 2
+  %Type.i = getelementptr inbounds i8, ptr %call, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Type.i) #18
   %1 = load ptr, ptr %node, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont
-  %first_attribute.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %1, i64 0, i32 7
+  %first_attribute.i = getelementptr inbounds i8, ptr %1, i64 56
   %i.06.i = load ptr, ptr %first_attribute.i, align 8
   %tobool3.not7.i = icmp eq ptr %i.06.i, null
   br i1 %tobool3.not7.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %i.08.i = phi ptr [ %i.0.i, %for.inc.i ], [ %i.06.i, %if.end.i ]
-  %name.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %i.08.i, i64 8
   %2 = load ptr, ptr %name.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -586,13 +563,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp.i.i, label %if.end.i14, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %next_attribute.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i, i64 0, i32 4
+  %next_attribute.i = getelementptr inbounds i8, ptr %i.08.i, i64 32
   %i.0.i = load ptr, ptr %next_attribute.i, align 8
   %tobool3.not.i = icmp eq ptr %i.0.i, null
   br i1 %tobool3.not.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %for.body.i, !llvm.loop !10
 
 if.end.i14:                                       ; preds = %land.lhs.true.i
-  %value3.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i, i64 0, i32 2
+  %value3.i = getelementptr inbounds i8, ptr %i.08.i, i64 16
   %3 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i15 = icmp eq ptr %3, null
   %cond.i = select i1 %tobool4.not.i15, ptr @.str.10, ptr %3
@@ -623,15 +600,15 @@ invoke.cont14:                                    ; preds = %if.then
 
 invoke.cont16.thread:                             ; preds = %invoke.cont14
   store ptr null, ptr %__begin2, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %__begin2, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %__begin2, i64 8
   store ptr %5, ptr %6, align 8
   br label %for.end
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  %first_child.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %5, i64 0, i32 4
+  %first_child.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %first_child.i.i, align 8, !noalias !11
   store ptr %7, ptr %__begin2, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %__begin2, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %__begin2, i64 8
   store ptr %5, ptr %8, align 8
   %cmp.not.i48.not = icmp eq ptr %7, null
   br i1 %cmp.not.i48.not, label %for.end, label %for.body
@@ -643,7 +620,7 @@ for.body:                                         ; preds = %invoke.cont16, %if.
   br i1 %tobool.not.i21, label %_ZNK4pugi8xml_node4nameEv.exit, label %if.end.i22
 
 if.end.i22:                                       ; preds = %for.body
-  %name3.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %9, i64 0, i32 1
+  %name3.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i23 = icmp eq ptr %10, null
   %cond.i24 = select i1 %tobool4.not.i23, ptr @.str.10, ptr %10
@@ -777,7 +754,7 @@ if.end65:                                         ; preds = %if.then60.invoke, %
   %col_read.1 = phi i8 [ %col_read.050, %if.then50 ], [ %col_read.050, %if.else57 ], [ 1, %if.end ], [ %col_read.050, %if.then60.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %currentName) #18
   %19 = load ptr, ptr %__begin2, align 8
-  %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %19, i64 0, i32 6
+  %next_sibling.i = getelementptr inbounds i8, ptr %19, i64 48
   %20 = load ptr, ptr %next_sibling.i, align 8
   store ptr %20, ptr %__begin2, align 8
   %cmp.not.i = icmp ne ptr %20, null
@@ -801,11 +778,11 @@ if.else70:                                        ; preds = %invoke.cont10
           to label %_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EE9push_backERKS2_.exit unwind label %lpad
 
 _ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EE9push_backERKS2_.exit: ; preds = %if.else70
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %23, i64 0, i32 4
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i35, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %23, i64 56
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i35, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i35, ptr noundef nonnull %Child) #18
-  %_M_size.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %23, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %23, i64 72
   %24 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %24, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -816,11 +793,11 @@ if.end73:                                         ; preds = %_ZNSt7__cxx114listI
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %if.end73
-  %mNodeElement_List = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2
-  %_M_storage.i.i.i.i36 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i39, i64 0, i32 1
+  %mNodeElement_List = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_storage.i.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i39, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i36, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i39, ptr noundef nonnull %mNodeElement_List) #18
-  %_M_size.i.i.i37 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load i64, ptr %_M_size.i.i.i37, align 8
   %add.i.i.i38 = add i64 %25, 1
   store i64 %add.i.i.i38, ptr %_M_size.i.i.i37, align 8
@@ -880,20 +857,20 @@ entry:
   %colorNode = alloca %"class.pugi::xml_node", align 8
   %coordNode = alloca %"class.pugi::xml_node", align 8
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  %mNodeElement_Cur = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %Type.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 13, ptr %Type.i.i, align 8
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
-  %Parent.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %0, ptr %Parent.i.i, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i = getelementptr inbounds i8, ptr %call, i64 56
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %Child.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %Child.i.i, ptr %Child.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9AMFVertex, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %1 = load ptr, ptr %node, align 8
@@ -905,14 +882,14 @@ if.end11.thread:                                  ; preds = %entry
   br label %if.then13
 
 if.end.i:                                         ; preds = %entry
-  %first_child.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %1, i64 0, i32 4
+  %first_child.i = getelementptr inbounds i8, ptr %1, i64 32
   %i.06.i = load ptr, ptr %first_child.i, align 8
   %tobool3.not7.i = icmp eq ptr %i.06.i, null
   br i1 %tobool3.not7.i, label %if.then.thread, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %i.08.i = phi ptr [ %i.0.i, %for.inc.i ], [ %i.06.i, %if.end.i ]
-  %name.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %i.08.i, i64 8
   %2 = load ptr, ptr %name.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -923,7 +900,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp.i.i, label %if.then5, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i, i64 0, i32 6
+  %next_sibling.i = getelementptr inbounds i8, ptr %i.08.i, i64 48
   %i.0.i = load ptr, ptr %next_sibling.i, align 8
   %tobool3.not.i = icmp eq ptr %i.0.i, null
   br i1 %tobool3.not.i, label %if.then.thread, label %for.body.i, !llvm.loop !6
@@ -946,14 +923,14 @@ if.end:                                           ; preds = %if.then.thread, %if
   br i1 %tobool.not.i5, label %if.end11, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.end
-  %first_child.i7 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %3, i64 0, i32 4
+  %first_child.i7 = getelementptr inbounds i8, ptr %3, i64 32
   %i.06.i8 = load ptr, ptr %first_child.i7, align 8
   %tobool3.not7.i9 = icmp eq ptr %i.06.i8, null
   br i1 %tobool3.not7.i9, label %if.end11, label %for.body.i10
 
 for.body.i10:                                     ; preds = %if.end.i6, %for.inc.i17
   %i.08.i11 = phi ptr [ %i.0.i19, %for.inc.i17 ], [ %i.06.i8, %if.end.i6 ]
-  %name.i12 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i11, i64 0, i32 1
+  %name.i12 = getelementptr inbounds i8, ptr %i.08.i11, i64 8
   %4 = load ptr, ptr %name.i12, align 8
   %tobool4.not.i13 = icmp eq ptr %4, null
   br i1 %tobool4.not.i13, label %for.inc.i17, label %land.lhs.true.i14
@@ -964,7 +941,7 @@ land.lhs.true.i14:                                ; preds = %for.body.i10
   br i1 %cmp.i.i16, label %if.end11.thread42, label %for.inc.i17
 
 for.inc.i17:                                      ; preds = %land.lhs.true.i14, %for.body.i10
-  %next_sibling.i18 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %i.08.i11, i64 0, i32 6
+  %next_sibling.i18 = getelementptr inbounds i8, ptr %i.08.i11, i64 48
   %i.0.i19 = load ptr, ptr %next_sibling.i18, align 8
   %tobool3.not.i20 = icmp eq ptr %i.0.i19, null
   br i1 %tobool3.not.i20, label %if.end11, label %for.body.i10, !llvm.loop !6
@@ -981,24 +958,24 @@ if.end11:                                         ; preds = %for.inc.i17, %if.en
 
 if.then13:                                        ; preds = %if.end11.thread, %if.end11
   %5 = load ptr, ptr %mNodeElement_Cur, align 8
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %5, i64 0, i32 4
+  %Child = getelementptr inbounds i8, ptr %5, i64 56
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %Child) #18
-  %_M_size.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %5, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %5, i64 72
   %6 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %6, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end11.thread42, %if.end11, %if.then13
-  %mNodeElement_List = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2
+  %mNodeElement_List = getelementptr inbounds i8, ptr %this, i64 80
   %call5.i.i.i.i.i.i24 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i25 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i24, i64 0, i32 1
+  %_M_storage.i.i.i.i25 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i24, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i25, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i24, ptr noundef nonnull %mNodeElement_List) #18
-  %_M_size.i.i.i26 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load i64, ptr %_M_size.i.i.i26, align 8
   %add.i.i.i27 = add i64 %7, 1
   store i64 %add.i.i.i27, ptr %_M_size.i.i.i26, align 8
@@ -1021,26 +998,26 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #17
-  %mNodeElement_Cur = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %mNodeElement_Cur, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
-  %Type.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call2, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store i32 2, ptr %Type.i.i, align 8
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call2, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
-  %Parent.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call2, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call2, i64 48
   store ptr %1, ptr %Parent.i.i, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call2, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call2, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i = getelementptr inbounds i8, ptr %call2, i64 56
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 64
   store ptr %Child.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %Child.i.i, ptr %Child.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call2, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14AMFCoordinates, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
-  %Coordinate.i = getelementptr inbounds %struct.AMFCoordinates, ptr %call2, i64 0, i32 1
-  %y.i.i = getelementptr inbounds %struct.AMFCoordinates, ptr %call2, i64 0, i32 1, i32 1
+  %Coordinate.i = getelementptr inbounds i8, ptr %call2, i64 80
+  %y.i.i = getelementptr inbounds i8, ptr %call2, i64 84
   store <2 x float> zeroinitializer, ptr %Coordinate.i, align 4
-  %z.i.i = getelementptr inbounds %struct.AMFCoordinates, ptr %call2, i64 0, i32 1, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %call2, i64 88
   store float 0.000000e+00, ptr %z.i.i, align 4
   tail call void @_ZN6Assimp11AMFImporter22ParseHelper_Node_EnterEP18AMFNodeElementBase(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull %call2)
   %2 = load ptr, ptr %node, align 8, !noalias !14
@@ -1048,14 +1025,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node8childrenEv.exit
 
 _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %if.then
-  %first_child.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %2, i64 0, i32 4
+  %first_child.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %first_child.i.i, align 8, !noalias !14
   %cmp.not.i.not108 = icmp eq ptr %3, null
   br i1 %cmp.not.i.not108, label %for.end, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK4pugi8xml_node8childrenEv.exit, %if.end33
   %__begin2.sroa.0.0109 = phi ptr [ %37, %if.end33 ], [ %3, %_ZNK4pugi8xml_node8childrenEv.exit ]
-  %name3.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 1
+  %name3.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 8
   %4 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %4, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.10, ptr %4
@@ -1104,13 +1081,13 @@ if.end.i.i.i:                                     ; preds = %if.then16
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %if.end9.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
-  %value.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 2
+  %value.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 16
   %10 = load ptr, ptr %value.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool6.not.i.i.i, label %if.end9.i.i.i, label %if.end.i.i
 
 if.end9.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i
-  %first_child.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 4
+  %first_child.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 32
   %node.06.i.i.i = load ptr, ptr %first_child.i.i.i, align 8
   %tobool11.not7.i.i.i = icmp eq ptr %node.06.i.i.i, null
   br i1 %tobool11.not7.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %for.body.i.i.i
@@ -1125,14 +1102,14 @@ for.body.i.i.i:                                   ; preds = %if.end9.i.i.i, %for
   br i1 %14, label %if.end.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %next_sibling.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %node.08.i.i.i, i64 0, i32 6
+  %next_sibling.i.i.i = getelementptr inbounds i8, ptr %node.08.i.i.i, i64 48
   %node.0.i.i.i = load ptr, ptr %next_sibling.i.i.i, align 8
   %tobool11.not.i.i.i = icmp eq ptr %node.0.i.i.i, null
   br i1 %tobool11.not.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %for.body.i.i.i, !llvm.loop !17
 
 if.end.i.i:                                       ; preds = %for.body.i.i.i, %land.lhs.true.i.i.i, %if.then16
   %retval.0.i.i.i = phi ptr [ %__begin2.sroa.0.0109, %land.lhs.true.i.i.i ], [ %__begin2.sroa.0.0109, %if.then16 ], [ %node.08.i.i.i, %for.body.i.i.i ]
-  %value2.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.i, i64 0, i32 2
+  %value2.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   %15 = load ptr, ptr %value2.i.i, align 8
   %tobool3.not.i.i = icmp eq ptr %15, null
   br i1 %tobool3.not.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %cond.true.i.i21
@@ -1176,13 +1153,13 @@ if.end.i.i.i27:                                   ; preds = %if.then21
   br i1 %cmp.i.i.i29, label %land.lhs.true.i.i.i50, label %if.end9.i.i.i30
 
 land.lhs.true.i.i.i50:                            ; preds = %if.end.i.i.i27
-  %value.i.i.i51 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 2
+  %value.i.i.i51 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 16
   %21 = load ptr, ptr %value.i.i.i51, align 8
   %tobool6.not.i.i.i52 = icmp eq ptr %21, null
   br i1 %tobool6.not.i.i.i52, label %if.end9.i.i.i30, label %if.end.i.i43
 
 if.end9.i.i.i30:                                  ; preds = %land.lhs.true.i.i.i50, %if.end.i.i.i27
-  %first_child.i.i.i31 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 4
+  %first_child.i.i.i31 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 32
   %node.06.i.i.i32 = load ptr, ptr %first_child.i.i.i31, align 8
   %tobool11.not7.i.i.i33 = icmp eq ptr %node.06.i.i.i32, null
   br i1 %tobool11.not7.i.i.i33, label %_ZNK4pugi8xml_text8as_floatEf.exit.i41, label %for.body.i.i.i34
@@ -1197,14 +1174,14 @@ for.body.i.i.i34:                                 ; preds = %if.end9.i.i.i30, %f
   br i1 %25, label %if.end.i.i43, label %for.inc.i.i.i37
 
 for.inc.i.i.i37:                                  ; preds = %for.body.i.i.i34
-  %next_sibling.i.i.i38 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %node.08.i.i.i35, i64 0, i32 6
+  %next_sibling.i.i.i38 = getelementptr inbounds i8, ptr %node.08.i.i.i35, i64 48
   %node.0.i.i.i39 = load ptr, ptr %next_sibling.i.i.i38, align 8
   %tobool11.not.i.i.i40 = icmp eq ptr %node.0.i.i.i39, null
   br i1 %tobool11.not.i.i.i40, label %_ZNK4pugi8xml_text8as_floatEf.exit.i41, label %for.body.i.i.i34, !llvm.loop !17
 
 if.end.i.i43:                                     ; preds = %for.body.i.i.i34, %land.lhs.true.i.i.i50, %if.then21
   %retval.0.i.i.i44 = phi ptr [ %__begin2.sroa.0.0109, %land.lhs.true.i.i.i50 ], [ %__begin2.sroa.0.0109, %if.then21 ], [ %node.08.i.i.i35, %for.body.i.i.i34 ]
-  %value2.i.i45 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.i44, i64 0, i32 2
+  %value2.i.i45 = getelementptr inbounds i8, ptr %retval.0.i.i.i44, i64 16
   %26 = load ptr, ptr %value2.i.i45, align 8
   %tobool3.not.i.i46 = icmp eq ptr %26, null
   br i1 %tobool3.not.i.i46, label %_ZNK4pugi8xml_text8as_floatEf.exit.i41, label %cond.true.i.i47
@@ -1238,13 +1215,13 @@ if.end.i.i.i59:                                   ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i61, label %land.lhs.true.i.i.i82, label %if.end9.i.i.i62
 
 land.lhs.true.i.i.i82:                            ; preds = %if.end.i.i.i59
-  %value.i.i.i83 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 2
+  %value.i.i.i83 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 16
   %31 = load ptr, ptr %value.i.i.i83, align 8
   %tobool6.not.i.i.i84 = icmp eq ptr %31, null
   br i1 %tobool6.not.i.i.i84, label %if.end9.i.i.i62, label %if.end.i.i75
 
 if.end9.i.i.i62:                                  ; preds = %land.lhs.true.i.i.i82, %if.end.i.i.i59
-  %first_child.i.i.i63 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 4
+  %first_child.i.i.i63 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 32
   %node.06.i.i.i64 = load ptr, ptr %first_child.i.i.i63, align 8
   %tobool11.not7.i.i.i65 = icmp eq ptr %node.06.i.i.i64, null
   br i1 %tobool11.not7.i.i.i65, label %_ZNK4pugi8xml_text8as_floatEf.exit.i73, label %for.body.i.i.i66
@@ -1259,14 +1236,14 @@ for.body.i.i.i66:                                 ; preds = %if.end9.i.i.i62, %f
   br i1 %35, label %if.end.i.i75, label %for.inc.i.i.i69
 
 for.inc.i.i.i69:                                  ; preds = %for.body.i.i.i66
-  %next_sibling.i.i.i70 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %node.08.i.i.i67, i64 0, i32 6
+  %next_sibling.i.i.i70 = getelementptr inbounds i8, ptr %node.08.i.i.i67, i64 48
   %node.0.i.i.i71 = load ptr, ptr %next_sibling.i.i.i70, align 8
   %tobool11.not.i.i.i72 = icmp eq ptr %node.0.i.i.i71, null
   br i1 %tobool11.not.i.i.i72, label %_ZNK4pugi8xml_text8as_floatEf.exit.i73, label %for.body.i.i.i66, !llvm.loop !17
 
 if.end.i.i75:                                     ; preds = %for.body.i.i.i66, %land.lhs.true.i.i.i82, %lor.lhs.false.i.i.i57
   %retval.0.i.i.i76 = phi ptr [ %__begin2.sroa.0.0109, %land.lhs.true.i.i.i82 ], [ %__begin2.sroa.0.0109, %lor.lhs.false.i.i.i57 ], [ %node.08.i.i.i67, %for.body.i.i.i66 ]
-  %value2.i.i77 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.i76, i64 0, i32 2
+  %value2.i.i77 = getelementptr inbounds i8, ptr %retval.0.i.i.i76, i64 16
   %36 = load ptr, ptr %value2.i.i77, align 8
   %tobool3.not.i.i78 = icmp eq ptr %36, null
   br i1 %tobool3.not.i.i78, label %_ZNK4pugi8xml_text8as_floatEf.exit.i73, label %cond.true.i.i79
@@ -1283,7 +1260,7 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i73:           ; preds = %for.inc.i.i.i69, %c
 
 if.end33:                                         ; preds = %_ZNK4pugi8xml_text8as_floatEf.exit.i73, %_ZNK4pugi8xml_text8as_floatEf.exit.i41, %_ZNK4pugi8xml_text8as_floatEf.exit.i, %if.else25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #18
-  %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin2.sroa.0.0109, i64 0, i32 6
+  %next_sibling.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0109, i64 48
   %37 = load ptr, ptr %next_sibling.i, align 8
   %cmp.not.i.not = icmp eq ptr %37, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -1293,33 +1270,33 @@ for.end:                                          ; preds = %if.end33, %if.then,
   br label %if.end42
 
 if.else35:                                        ; preds = %entry
-  %mNodeElement_Cur36 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur36 = getelementptr inbounds i8, ptr %this, i64 72
   %38 = load ptr, ptr %mNodeElement_Cur36, align 8
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %38, i64 0, i32 4
+  %Child = getelementptr inbounds i8, ptr %38, i64 56
   %call38 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #17
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call38, align 8
-  %Type.i.i86 = getelementptr inbounds %class.AMFNodeElementBase, ptr %call38, i64 0, i32 1
+  %Type.i.i86 = getelementptr inbounds i8, ptr %call38, i64 8
   store i32 2, ptr %Type.i.i86, align 8
-  %ID.i.i87 = getelementptr inbounds %class.AMFNodeElementBase, ptr %call38, i64 0, i32 2
+  %ID.i.i87 = getelementptr inbounds i8, ptr %call38, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i87) #18
-  %Parent.i.i88 = getelementptr inbounds %class.AMFNodeElementBase, ptr %call38, i64 0, i32 3
+  %Parent.i.i88 = getelementptr inbounds i8, ptr %call38, i64 48
   store ptr %38, ptr %Parent.i.i88, align 8
-  %Child.i.i89 = getelementptr inbounds %class.AMFNodeElementBase, ptr %call38, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i90 = getelementptr inbounds %class.AMFNodeElementBase, ptr %call38, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i89 = getelementptr inbounds i8, ptr %call38, i64 56
+  %_M_prev.i.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %call38, i64 64
   store ptr %Child.i.i89, ptr %_M_prev.i.i.i.i.i.i.i90, align 8
   store ptr %Child.i.i89, ptr %Child.i.i89, align 8
-  %_M_size.i.i.i.i.i.i.i91 = getelementptr inbounds %class.AMFNodeElementBase, ptr %call38, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i91 = getelementptr inbounds i8, ptr %call38, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i91, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14AMFCoordinates, i64 0, inrange i32 0, i64 2), ptr %call38, align 8
-  %Coordinate.i92 = getelementptr inbounds %struct.AMFCoordinates, ptr %call38, i64 0, i32 1
+  %Coordinate.i92 = getelementptr inbounds i8, ptr %call38, i64 80
   store <2 x float> zeroinitializer, ptr %Coordinate.i92, align 4
-  %z.i.i94 = getelementptr inbounds %struct.AMFCoordinates, ptr %call38, i64 0, i32 1, i32 2
+  %z.i.i94 = getelementptr inbounds i8, ptr %call38, i64 88
   store float 0.000000e+00, ptr %z.i.i94, align 4
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call38, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %Child) #18
-  %_M_size.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %38, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %38, i64 72
   %39 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %39, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -1327,12 +1304,12 @@ if.else35:                                        ; preds = %entry
 
 if.end42:                                         ; preds = %if.else35, %for.end
   %ne.0 = phi ptr [ null, %if.else35 ], [ %call2, %for.end ]
-  %mNodeElement_List = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2
+  %mNodeElement_List = getelementptr inbounds i8, ptr %this, i64 80
   %call5.i.i.i.i.i.i95 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i96 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i95, i64 0, i32 1
+  %_M_storage.i.i.i.i96 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i95, i64 16
   store ptr %ne.0, ptr %_M_storage.i.i.i.i96, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i95, ptr noundef nonnull %mNodeElement_List) #18
-  %_M_size.i.i.i97 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i97 = getelementptr inbounds i8, ptr %this, i64 96
   %40 = load i64, ptr %_M_size.i.i.i97, align 8
   %add.i.i.i98 = add i64 %40, 1
   store i64 %add.i.i.i98, ptr %_M_size.i.i.i97, align 8
@@ -1361,20 +1338,20 @@ entry:
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp28 = alloca %"class.std::allocator", align 1
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17
-  %mNodeElement_Cur = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 1
+  %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %Type.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 10, ptr %Type.i.i, align 8
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
-  %Parent.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %0, ptr %Parent.i.i, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Child.i.i = getelementptr inbounds i8, ptr %call, i64 56
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %Child.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %Child.i.i, ptr %Child.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11AMFTriangle, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %1 = load ptr, ptr %node, align 8
@@ -1390,23 +1367,23 @@ if.then:                                          ; preds = %entry
 
 invoke.cont4.thread:                              ; preds = %if.then
   store ptr null, ptr %__begin2, align 8
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %__begin2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %__begin2, i64 8
   store ptr %2, ptr %3, align 8
   br label %for.end
 
 invoke.cont4:                                     ; preds = %if.then
-  %first_child.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %2, i64 0, i32 4
+  %first_child.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %first_child.i.i, align 8, !noalias !18
   store ptr %4, ptr %__begin2, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %__begin2, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %__begin2, i64 8
   store ptr %2, ptr %5, align 8
   %cmp.not.i38.not = icmp eq ptr %4, null
   br i1 %cmp.not.i38.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont4
-  %arrayidx74 = getelementptr inbounds %struct.AMFTriangle, ptr %call, i64 0, i32 1, i64 2
-  %arrayidx63 = getelementptr inbounds %struct.AMFTriangle, ptr %call, i64 0, i32 1, i64 1
-  %V = getelementptr inbounds %struct.AMFTriangle, ptr %call, i64 0, i32 1
+  %arrayidx74 = getelementptr inbounds i8, ptr %call, i64 96
+  %arrayidx63 = getelementptr inbounds i8, ptr %call, i64 88
+  %V = getelementptr inbounds i8, ptr %call, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end80
@@ -1416,7 +1393,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool.not.i19, label %_ZNK4pugi8xml_node4nameEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %name3.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %6, i64 0, i32 1
+  %name3.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %7, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.10, ptr %7
@@ -1576,7 +1553,7 @@ if.end80:                                         ; preds = %if.end80.sink.split
   %col_read.1 = phi i8 [ %col_read.040, %if.else64 ], [ 1, %if.end ], [ %col_read.040, %if.then43.invoke ], [ %col_read.040, %if.end80.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %currentName) #18
   %16 = load ptr, ptr %__begin2, align 8
-  %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %16, i64 0, i32 6
+  %next_sibling.i = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load ptr, ptr %next_sibling.i, align 8
   store ptr %17, ptr %__begin2, align 8
   %cmp.not.i = icmp ne ptr %17, null
@@ -1605,24 +1582,24 @@ ehcleanup85:                                      ; preds = %ehcleanup81, %lpad1
 
 if.else86:                                        ; preds = %entry
   %20 = load ptr, ptr %mNodeElement_Cur, align 8
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %20, i64 0, i32 4
+  %Child = getelementptr inbounds i8, ptr %20, i64 56
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %Child) #18
-  %_M_size.i.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %20, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %20, i64 72
   %21 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %21, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end88
 
 if.end88:                                         ; preds = %if.else86, %invoke.cont84
-  %mNodeElement_List = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2
+  %mNodeElement_List = getelementptr inbounds i8, ptr %this, i64 80
   %call5.i.i.i.i.i.i32 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i33 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i32, i64 0, i32 1
+  %_M_storage.i.i.i.i33 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i32, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i33, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i32, ptr noundef nonnull %mNodeElement_List) #18
-  %_M_size.i.i.i34 = getelementptr inbounds %"class.Assimp::AMFImporter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 96
   %22 = load i64, ptr %_M_size.i.i.i34, align 8
   %add.i.i.i35 = add i64 %22, 1
   store i64 %add.i.i.i35, ptr %_M_size.i.i.i34, align 8
@@ -1658,13 +1635,13 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end9.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %value.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %value.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %5, null
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.end.i
 
 if.end9.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %first_child.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 4
+  %first_child.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %node.06.i.i = load ptr, ptr %first_child.i.i, align 8
   %tobool11.not7.i.i = icmp eq ptr %node.06.i.i, null
   br i1 %tobool11.not7.i.i, label %_ZNK4pugi8xml_text9as_stringEPKc.exit, label %for.body.i.i
@@ -1679,14 +1656,14 @@ for.body.i.i:                                     ; preds = %if.end9.i.i, %for.i
   br i1 %9, label %if.end.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next_sibling.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %node.08.i.i, i64 0, i32 6
+  %next_sibling.i.i = getelementptr inbounds i8, ptr %node.08.i.i, i64 48
   %node.0.i.i = load ptr, ptr %next_sibling.i.i, align 8
   %tobool11.not.i.i = icmp eq ptr %node.0.i.i, null
   br i1 %tobool11.not.i.i, label %_ZNK4pugi8xml_text9as_stringEPKc.exit, label %for.body.i.i, !llvm.loop !17
 
 if.end.i:                                         ; preds = %for.body.i.i, %land.lhs.true.i.i, %lor.lhs.false.i.i
   %retval.0.i.i = phi ptr [ %0, %land.lhs.true.i.i ], [ %0, %lor.lhs.false.i.i ], [ %node.08.i.i, %for.body.i.i ]
-  %value2.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i, i64 0, i32 2
+  %value2.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %10 = load ptr, ptr %value2.i, align 8
   %tobool3.not.i = icmp eq ptr %10, null
   %cond.i = select i1 %tobool3.not.i, ptr @.str.10, ptr %10
@@ -1735,7 +1712,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #8
 define linkonce_odr hidden void @_ZN7AMFMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -1748,7 +1725,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   ret void
 }
@@ -1757,7 +1734,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 define linkonce_odr hidden void @_ZN7AMFMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN7AMFMeshD2Ev.exit, label %while.body.i.i.i.i.i
@@ -1770,7 +1747,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7AMFMeshD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !21
 
 _ZN7AMFMeshD2Ev.exit:                             ; preds = %while.body.i.i.i.i.i, %entry
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -1780,7 +1757,7 @@ _ZN7AMFMeshD2Ev.exit:                             ; preds = %while.body.i.i.i.i.
 define linkonce_odr hidden void @_ZN18AMFNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %Child
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit, label %while.body.i.i.i
@@ -1793,7 +1770,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !21
 
 _ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry
-  %ID = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID) #18
   ret void
 }
@@ -1802,7 +1779,7 @@ _ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body
 define linkonce_odr hidden void @_ZN18AMFNodeElementBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -1815,7 +1792,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -1828,7 +1805,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define linkonce_odr hidden void @_ZN11AMFVerticesD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -1841,7 +1818,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   ret void
 }
@@ -1850,7 +1827,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 define linkonce_odr hidden void @_ZN11AMFVerticesD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN11AMFVerticesD2Ev.exit, label %while.body.i.i.i.i.i
@@ -1863,7 +1840,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i.i, label %_ZN11AMFVerticesD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !21
 
 _ZN11AMFVerticesD2Ev.exit:                        ; preds = %while.body.i.i.i.i.i, %entry
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -1873,7 +1850,7 @@ _ZN11AMFVerticesD2Ev.exit:                        ; preds = %while.body.i.i.i.i.
 define linkonce_odr hidden void @_ZN9AMFVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -1886,7 +1863,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   ret void
 }
@@ -1895,7 +1872,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 define linkonce_odr hidden void @_ZN9AMFVertexD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN9AMFVertexD2Ev.exit, label %while.body.i.i.i.i.i
@@ -1908,7 +1885,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i.i, label %_ZN9AMFVertexD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !21
 
 _ZN9AMFVertexD2Ev.exit:                           ; preds = %while.body.i.i.i.i.i, %entry
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -1918,7 +1895,7 @@ _ZN9AMFVertexD2Ev.exit:                           ; preds = %while.body.i.i.i.i.
 define linkonce_odr hidden void @_ZN14AMFCoordinatesD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -1931,7 +1908,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   ret void
 }
@@ -1940,7 +1917,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 define linkonce_odr hidden void @_ZN14AMFCoordinatesD0Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN14AMFCoordinatesD2Ev.exit, label %while.body.i.i.i.i.i
@@ -1953,7 +1930,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i.i, label %_ZN14AMFCoordinatesD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !21
 
 _ZN14AMFCoordinatesD2Ev.exit:                     ; preds = %while.body.i.i.i.i.i, %entry
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -1963,12 +1940,12 @@ _ZN14AMFCoordinatesD2Ev.exit:                     ; preds = %while.body.i.i.i.i.
 define linkonce_odr hidden void @_ZN9AMFVolumeD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9AMFVolume, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Type = getelementptr inbounds %struct.AMFVolume, ptr %this, i64 0, i32 2
+  %Type = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Type) #18
-  %MaterialID = getelementptr inbounds %struct.AMFVolume, ptr %this, i64 0, i32 1
+  %MaterialID = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MaterialID) #18
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -1981,7 +1958,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   ret void
 }
@@ -1990,12 +1967,12 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 define linkonce_odr hidden void @_ZN9AMFVolumeD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9AMFVolume, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Type.i = getelementptr inbounds %struct.AMFVolume, ptr %this, i64 0, i32 2
+  %Type.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Type.i) #18
-  %MaterialID.i = getelementptr inbounds %struct.AMFVolume, ptr %this, i64 0, i32 1
+  %MaterialID.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MaterialID.i) #18
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN9AMFVolumeD2Ev.exit, label %while.body.i.i.i.i.i
@@ -2008,7 +1985,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i.i, label %_ZN9AMFVolumeD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !21
 
 _ZN9AMFVolumeD2Ev.exit:                           ; preds = %while.body.i.i.i.i.i, %entry
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -2018,7 +1995,7 @@ _ZN9AMFVolumeD2Ev.exit:                           ; preds = %while.body.i.i.i.i.
 define linkonce_odr hidden void @_ZN11AMFTriangleD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
   br i1 %cmp.not4.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i
@@ -2031,7 +2008,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !21
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
-  %ID.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i) #18
   ret void
 }
@@ -2040,7 +2017,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 define linkonce_odr hidden void @_ZN11AMFTriangleD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Child.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 4
+  %Child.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN11AMFTriangleD2Ev.exit, label %while.body.i.i.i.i.i
@@ -2053,7 +2030,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i.i, label %_ZN11AMFTriangleD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !21
 
 _ZN11AMFTriangleD2Ev.exit:                        ; preds = %while.body.i.i.i.i.i, %entry
-  %ID.i.i = getelementptr inbounds %class.AMFNodeElementBase, ptr %this, i64 0, i32 2
+  %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void

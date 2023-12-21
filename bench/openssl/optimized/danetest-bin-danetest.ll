@@ -311,7 +311,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   %len.015.i.i = phi i64 [ %call.i30.i, %for.inc.i.i ], [ 0, %for.body.i ]
   %cp.014.i.i = phi ptr [ %add.ptr.i.i, %for.inc.i.i ], [ %call30.i, %for.body.i ]
   %f.013.i.i = phi ptr [ %incdec.ptr.i31.i, %for.inc.i.i ], [ @tlsa_import_rr.tlsa_fields, %for.body.i ]
-  %parser.i.i = getelementptr inbounds %struct.tlsa_field, ptr %f.013.i.i, i64 0, i32 2
+  %parser.i.i = getelementptr inbounds i8, ptr %f.013.i.i, i64 16
   %13 = load ptr, ptr %parser.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cp.014.i.i, i64 %len.015.i.i
   %call.i30.i = call i64 %13(ptr noundef %add.ptr.i.i, ptr noundef nonnull %12) #9
@@ -319,13 +319,13 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %name.i.i = getelementptr inbounds %struct.tlsa_field, ptr %f.013.i.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %f.013.i.i, i64 8
   %14 = load ptr, ptr %name.i.i, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.48, ptr noundef %14, ptr noundef nonnull %call30.i) #9
   br label %if.then36.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i31.i = getelementptr inbounds %struct.tlsa_field, ptr %f.013.i.i, i64 1
+  %incdec.ptr.i31.i = getelementptr inbounds i8, ptr %f.013.i.i, i64 24
   %15 = load ptr, ptr %incdec.ptr.i31.i, align 8
   %tobool.not.i32.i = icmp eq ptr %15, null
   br i1 %tobool.not.i32.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8

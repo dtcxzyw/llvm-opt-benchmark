@@ -866,7 +866,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct.PyStdPrinter_Object = type { %struct._object, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"_io\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"open\00", align 1
@@ -1035,7 +1034,7 @@ land.lhs.true17:                                  ; preds = %if.end13
   br i1 %tobool20.not, label %if.end50, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true17
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %storemerge, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %storemerge, i64 32
   %9 = getelementptr i8, ptr %storemerge, i64 16
   %.val32 = load i64, ptr %9, align 8
   %cmp24 = icmp eq i64 %.val32, 0
@@ -1144,26 +1143,25 @@ do.end69:                                         ; preds = %if.end.i89, %if.the
 
 if.else70:                                        ; preds = %if.then60
   %sub71 = add i64 %.val34, -1
-  %state.i = getelementptr inbounds %struct.PyASCIIObject, ptr %17, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %17, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %25 = and i32 %bf.load.i, 32
-  %tobool.not.i19.i = icmp eq i32 %25, 0
+  %tobool.not.i18.i = icmp eq i32 %25, 0
   switch i32 %bf.clear.i, label %if.end7.i [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
   ]
 
 if.then.i:                                        ; preds = %if.else70
-  br i1 %tobool.not.i19.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %26 = and i32 %bf.load.i, 64
   %tobool.not.i.i.i = icmp eq i32 %26, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %17, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %17, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %17, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -1179,52 +1177,50 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %PyUnicode_READ_CHAR.exit
 
 if.then3.i:                                       ; preds = %if.else70
-  br i1 %tobool.not.i19.i, label %if.end.i15.i, label %if.then.i9.i
+  br i1 %tobool.not.i18.i, label %if.end.i14.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then3.i
   %29 = and i32 %bf.load.i, 64
   %tobool.not.i.i10.i = icmp eq i32 %29, 0
-  %add.ptr.i.i11.i = getelementptr %struct.PyASCIIObject, ptr %17, i64 1
-  %add.ptr1.i.i12.i = getelementptr %struct.PyCompactUnicodeObject, ptr %17, i64 1
-  %retval.0.i.i13.i = select i1 %tobool.not.i.i10.i, ptr %add.ptr1.i.i12.i, ptr %add.ptr.i.i11.i
-  br label %PyUnicode_DATA.exit17.i
+  %retval.0.v.i.i11.i = select i1 %tobool.not.i.i10.i, i64 56, i64 40
+  %retval.0.i.i12.i = getelementptr i8, ptr %17, i64 %retval.0.v.i.i11.i
+  br label %PyUnicode_DATA.exit16.i
 
-if.end.i15.i:                                     ; preds = %if.then3.i
+if.end.i14.i:                                     ; preds = %if.then3.i
   %30 = getelementptr i8, ptr %17, i64 56
-  %op.val3.i16.i = load ptr, ptr %30, align 8
-  br label %PyUnicode_DATA.exit17.i
+  %op.val3.i15.i = load ptr, ptr %30, align 8
+  br label %PyUnicode_DATA.exit16.i
 
-PyUnicode_DATA.exit17.i:                          ; preds = %if.end.i15.i, %if.then.i9.i
-  %retval.0.i14.i = phi ptr [ %retval.0.i.i13.i, %if.then.i9.i ], [ %op.val3.i16.i, %if.end.i15.i ]
-  %arrayidx5.i = getelementptr i16, ptr %retval.0.i14.i, i64 %sub71
+PyUnicode_DATA.exit16.i:                          ; preds = %if.end.i14.i, %if.then.i9.i
+  %retval.0.i13.i = phi ptr [ %retval.0.i.i12.i, %if.then.i9.i ], [ %op.val3.i15.i, %if.end.i14.i ]
+  %arrayidx5.i = getelementptr i16, ptr %retval.0.i13.i, i64 %sub71
   %31 = load i16, ptr %arrayidx5.i, align 2
   %conv6.i = zext i16 %31 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.end7.i:                                        ; preds = %if.else70
-  br i1 %tobool.not.i19.i, label %if.end.i26.i, label %if.then.i20.i
+  br i1 %tobool.not.i18.i, label %if.end.i24.i, label %if.then.i19.i
 
-if.then.i20.i:                                    ; preds = %if.end7.i
+if.then.i19.i:                                    ; preds = %if.end7.i
   %32 = and i32 %bf.load.i, 64
-  %tobool.not.i.i21.i = icmp eq i32 %32, 0
-  %add.ptr.i.i22.i = getelementptr %struct.PyASCIIObject, ptr %17, i64 1
-  %add.ptr1.i.i23.i = getelementptr %struct.PyCompactUnicodeObject, ptr %17, i64 1
-  %retval.0.i.i24.i = select i1 %tobool.not.i.i21.i, ptr %add.ptr1.i.i23.i, ptr %add.ptr.i.i22.i
-  br label %PyUnicode_DATA.exit28.i
+  %tobool.not.i.i20.i = icmp eq i32 %32, 0
+  %retval.0.v.i.i21.i = select i1 %tobool.not.i.i20.i, i64 56, i64 40
+  %retval.0.i.i22.i = getelementptr i8, ptr %17, i64 %retval.0.v.i.i21.i
+  br label %PyUnicode_DATA.exit26.i
 
-if.end.i26.i:                                     ; preds = %if.end7.i
+if.end.i24.i:                                     ; preds = %if.end7.i
   %33 = getelementptr i8, ptr %17, i64 56
-  %op.val3.i27.i = load ptr, ptr %33, align 8
-  br label %PyUnicode_DATA.exit28.i
+  %op.val3.i25.i = load ptr, ptr %33, align 8
+  br label %PyUnicode_DATA.exit26.i
 
-PyUnicode_DATA.exit28.i:                          ; preds = %if.end.i26.i, %if.then.i20.i
-  %retval.0.i25.i = phi ptr [ %retval.0.i.i24.i, %if.then.i20.i ], [ %op.val3.i27.i, %if.end.i26.i ]
-  %arrayidx9.i = getelementptr i32, ptr %retval.0.i25.i, i64 %sub71
+PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.then.i19.i
+  %retval.0.i23.i = phi ptr [ %retval.0.i.i22.i, %if.then.i19.i ], [ %op.val3.i25.i, %if.end.i24.i ]
+  %arrayidx9.i = getelementptr i32, ptr %retval.0.i23.i, i64 %sub71
   %34 = load i32, ptr %arrayidx9.i, align 4
   br label %PyUnicode_READ_CHAR.exit
 
-PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit17.i, %PyUnicode_DATA.exit28.i
-  %retval.0.i = phi i32 [ %conv.i45, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit17.i ], [ %34, %PyUnicode_DATA.exit28.i ]
+PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
+  %retval.0.i = phi i32 [ %conv.i45, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %34, %PyUnicode_DATA.exit26.i ]
   %cmp73 = icmp eq i32 %retval.0.i, 10
   br i1 %cmp73, label %if.then75, label %if.end85
 
@@ -1472,7 +1468,7 @@ if.then7:                                         ; preds = %if.else5
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then7
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %9 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %9
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1717,7 +1713,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %fd6 = getelementptr inbounds %struct.PyStdPrinter_Object, ptr %call3, i64 0, i32 1
+  %fd6 = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 %fd, ptr %fd6, align 8
   br label %return
 
@@ -1734,7 +1730,7 @@ declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @stdprinter_repr(ptr noundef %self) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.PyStdPrinter_Object, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.18, i32 noundef %0, ptr noundef %self) #9
   ret ptr %call
@@ -1800,7 +1796,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %path.val9, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %path.val9, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef %4) #9
   br label %return
@@ -1925,7 +1921,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @stdprinter_fileno(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.PyStdPrinter_Object, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9
@@ -1935,7 +1931,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @stdprinter_isatty(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.PyStdPrinter_Object, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1959,7 +1955,7 @@ define internal ptr @stdprinter_write(ptr nocapture noundef readonly %self, ptr 
 entry:
   %unicode = alloca ptr, align 8
   %n = alloca i64, align 8
-  %fd = getelementptr inbounds %struct.PyStdPrinter_Object, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1987,7 +1983,7 @@ if.then5:                                         ; preds = %if.end2
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call6, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call6, i64 32
   %3 = getelementptr i8, ptr %call6, i64 16
   %call6.val = load i64, ptr %3, align 8
   store i64 %call6.val, ptr %n, align 8

@@ -3,32 +3,6 @@ source_filename = "bench/assimp/original/sweep.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.p2t::Point" = type { double, double, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.p2t::SweepContext" = type { %"class.std::vector", %"struct.p2t::SweepContext::Basin", %"struct.p2t::SweepContext::EdgeEvent", %"class.std::vector.0", %"class.std::__cxx11::list", %"class.std::vector.8", ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.p2t::SweepContext::Basin" = type <{ ptr, ptr, ptr, double, i8, [7 x i8] }>
-%"struct.p2t::SweepContext::EdgeEvent" = type <{ ptr, i8, [7 x i8] }>
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.p2t::Node" = type { ptr, ptr, ptr, ptr, double }
-%"struct.p2t::Edge" = type { ptr, ptr }
-%"class.p2t::Triangle" = type <{ [3 x i8], [3 x i8], [2 x i8], [3 x ptr], [3 x ptr], i8, [7 x i8] }>
-%"struct.std::_Vector_base<p2t::Node *, std::allocator<p2t::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [43 x i8] c"EdgeEvent - collinear points not supported\00", align 1
 @_ZTISt13runtime_error = external constant ptr
 @.str.1 = private unnamed_addr constant [49 x i8] c"[Unsupported] Opposing point on constrained edge\00", align 1
@@ -64,14 +38,14 @@ entry:
   %0 = load double, ptr %pa, align 8
   %1 = load double, ptr %pb, align 8
   %sub = fsub double %0, %1
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %pd, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %pd, i64 8
   %2 = load double, ptr %y, align 8
-  %y2 = getelementptr inbounds %"struct.p2t::Point", ptr %pb, i64 0, i32 1
+  %y2 = getelementptr inbounds i8, ptr %pb, i64 8
   %3 = load double, ptr %y2, align 8
   %sub3 = fsub double %2, %3
   %4 = load double, ptr %pd, align 8
   %sub6 = fsub double %4, %1
-  %y7 = getelementptr inbounds %"struct.p2t::Point", ptr %pa, i64 0, i32 1
+  %y7 = getelementptr inbounds i8, ptr %pa, i64 8
   %5 = load double, ptr %y7, align 8
   %sub9 = fsub double %5, %3
   %6 = fneg double %sub6
@@ -83,7 +57,7 @@ entry:
 if.end:                                           ; preds = %entry
   %8 = load double, ptr %pc, align 8
   %sub13 = fsub double %0, %8
-  %y15 = getelementptr inbounds %"struct.p2t::Point", ptr %pc, i64 0, i32 1
+  %y15 = getelementptr inbounds i8, ptr %pc, i64 8
   %9 = load double, ptr %y15, align 8
   %sub16 = fsub double %2, %9
   %sub19 = fsub double %4, %8
@@ -108,12 +82,12 @@ entry:
   tail call void @_ZN3p2t12SweepContext17InitTriangulationEv(ptr noundef nonnull align 8 dereferenceable(200) %tcx)
   tail call void @_ZN3p2t12SweepContext20CreateAdvancingFrontERKSt6vectorIPNS_4NodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(24) %this)
   tail call void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx)
-  %front_.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 6
+  %front_.i.i = getelementptr inbounds i8, ptr %tcx, i64 152
   %0 = load ptr, ptr %front_.i.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %next.i = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %next.i, align 8
-  %triangle.i = getelementptr inbounds %"struct.p2t::Node", ptr %2, i64 0, i32 1
+  %triangle.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %triangle.i, align 8
   %4 = load ptr, ptr %2, align 8
   %call67.i = tail call noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -138,8 +112,8 @@ declare void @_ZN3p2t12SweepContext20CreateAdvancingFrontERKSt6vectorIPNS_4NodeE
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %points_.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 5
-  %_M_finish.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %points_.i = getelementptr inbounds i8, ptr %tcx, i64 128
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %tcx, i64 136
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %points_.i, align 8
   %sub.ptr.lhs.cast.i.i287 = ptrtoint ptr %0 to i64
@@ -149,8 +123,8 @@ entry:
   br i1 %cmp291, label %for.body.lr.ph, label %for.end13
 
 for.body.lr.ph:                                   ; preds = %entry
-  %edge_event.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
-  %right.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2, i32 1
+  %edge_event.i = getelementptr inbounds i8, ptr %tcx, i64 64
+  %right.i = getelementptr inbounds i8, ptr %tcx, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc11
@@ -171,17 +145,17 @@ if.then.i:                                        ; preds = %for.body
 
 _ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit: ; preds = %for.body, %if.then.i
   tail call void @_ZN3p2t5Sweep18FillAdvancingFrontERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %call2.i)
-  %edge_list = getelementptr inbounds %"struct.p2t::Point", ptr %call2, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.p2t::Point", ptr %call2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %edge_list = getelementptr inbounds i8, ptr %call2, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %call2, i64 24
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %edge_list, align 8
   %cmp6284.not = icmp eq ptr %5, %6
   br i1 %cmp6284.not, label %for.inc11, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit
-  %triangle.i = getelementptr inbounds %"struct.p2t::Node", ptr %call2.i, i64 0, i32 1
-  %next7.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %call2.i, i64 0, i32 2
-  %prev8.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %call2.i, i64 0, i32 3
+  %triangle.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %next7.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %prev8.i.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
@@ -193,7 +167,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %_
   store ptr %8, ptr %edge_event.i, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load double, ptr %9, align 8
-  %q.i = getelementptr inbounds %"struct.p2t::Edge", ptr %8, i64 0, i32 1
+  %q.i = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load ptr, ptr %q.i, align 8
   %12 = load double, ptr %11, align 8
   %cmp.i10 = fcmp ogt double %10, %12
@@ -208,8 +182,9 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %_
 
 if.then.i.i:                                      ; preds = %for.body7
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %13, i32 noundef %call.i.i)
+  %neighbors_.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
   %idxprom.i.i.i = sext i32 %call.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %13, i64 0, i32 4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i.i.i, i64 0, i64 %idxprom.i.i.i
   %16 = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, label %if.then3.i.i
@@ -244,11 +219,11 @@ while.body.i.i:                                   ; preds = %if.then.i12, %if.en
   %node.addr.09.i.i = phi ptr [ %node.addr.1.i.i, %if.end.i.i ], [ %call2.i, %if.then.i12 ]
   %29 = load ptr, ptr %q.i, align 8
   %30 = load double, ptr %29, align 8
-  %y.i.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %27, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load double, ptr %y.i.i.i, align 8
-  %y2.i.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %25, i64 0, i32 1
+  %y2.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %32 = load double, ptr %y2.i.i.i, align 8
-  %y4.i.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %29, i64 0, i32 1
+  %y4.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %33 = load double, ptr %y4.i.i.i, align 8
   %34 = insertelement <2 x double> poison, double %31, i64 0
   %35 = insertelement <2 x double> %34, double %33, i64 1
@@ -278,7 +253,7 @@ if.then.i.i14:                                    ; preds = %while.body.i.i
   br i1 %cmp13.i, label %if.then.lr.ph.i36, label %if.end.i.i
 
 if.then.lr.ph.i36:                                ; preds = %if.then.i.i14
-  %next.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.09.i.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %node.addr.09.i.i, i64 16
   br label %if.then.i37
 
 if.then.i37:                                      ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i36
@@ -290,11 +265,11 @@ if.then.i37:                                      ; preds = %_ZN3p2t5Sweep24Fill
   %51 = phi ptr [ %46, %if.then.lr.ph.i36 ], [ %172, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %52 = load ptr, ptr %next.i, align 8
   %53 = load ptr, ptr %52, align 8
-  %next6.i = getelementptr inbounds %"struct.p2t::Node", ptr %52, i64 0, i32 2
+  %next6.i = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %next6.i, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = load <2 x double>, ptr %55, align 8
-  %y4.i.i43 = getelementptr inbounds %"struct.p2t::Point", ptr %51, i64 0, i32 1
+  %y4.i.i43 = getelementptr inbounds i8, ptr %51, i64 8
   %57 = load double, ptr %y4.i.i43, align 8
   %58 = insertelement <2 x double> poison, double %50, i64 0
   %59 = insertelement <2 x double> %58, double %57, i64 1
@@ -314,7 +289,7 @@ if.then.i37:                                      ; preds = %_ZN3p2t5Sweep24Fill
   br i1 %cmp8.i52, label %tailrecurse.i.i57, label %tailrecurse.i154.preheader
 
 tailrecurse.i154.preheader:                       ; preds = %if.then.i37
-  %y2.i12.i171 = getelementptr inbounds %"struct.p2t::Point", ptr %49, i64 0, i32 1
+  %y2.i12.i171 = getelementptr inbounds i8, ptr %49, i64 8
   %66 = extractelement <2 x double> %62, i64 0
   %67 = insertelement <2 x double> poison, double %48, i64 0
   br label %tailrecurse.i154
@@ -322,11 +297,11 @@ tailrecurse.i154.preheader:                       ; preds = %if.then.i37
 tailrecurse.i.i57:                                ; preds = %if.then.i37, %if.then7.i.i75
   %68 = phi ptr [ %81, %if.then7.i.i75 ], [ %52, %if.then.i37 ]
   %call.i219 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i220 = getelementptr inbounds %"struct.p2t::Node", ptr %68, i64 0, i32 3
+  %prev.i220 = getelementptr inbounds i8, ptr %68, i64 24
   %69 = load ptr, ptr %prev.i220, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %68, align 8
-  %next.i221 = getelementptr inbounds %"struct.p2t::Node", ptr %68, i64 0, i32 2
+  %next.i221 = getelementptr inbounds i8, ptr %68, i64 16
   %72 = load ptr, ptr %next.i221, align 8
   %73 = load ptr, ptr %72, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i219, ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %73)
@@ -334,19 +309,19 @@ tailrecurse.i.i57:                                ; preds = %if.then.i37, %if.th
 
 invoke.cont.i223:                                 ; preds = %tailrecurse.i.i57
   %74 = load ptr, ptr %prev.i220, align 8
-  %triangle5.i224 = getelementptr inbounds %"struct.p2t::Node", ptr %74, i64 0, i32 1
+  %triangle5.i224 = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load ptr, ptr %triangle5.i224, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i219, ptr noundef nonnull align 8 dereferenceable(57) %75)
-  %triangle6.i225 = getelementptr inbounds %"struct.p2t::Node", ptr %68, i64 0, i32 1
+  %triangle6.i225 = getelementptr inbounds i8, ptr %68, i64 8
   %76 = load ptr, ptr %triangle6.i225, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i219, ptr noundef nonnull align 8 dereferenceable(57) %76)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i219)
   %77 = load ptr, ptr %next.i221, align 8
   %78 = load ptr, ptr %prev.i220, align 8
-  %next9.i226 = getelementptr inbounds %"struct.p2t::Node", ptr %78, i64 0, i32 2
+  %next9.i226 = getelementptr inbounds i8, ptr %78, i64 16
   store ptr %77, ptr %next9.i226, align 8
   %79 = load ptr, ptr %prev.i220, align 8
-  %prev12.i227 = getelementptr inbounds %"struct.p2t::Node", ptr %77, i64 0, i32 3
+  %prev12.i227 = getelementptr inbounds i8, ptr %77, i64 24
   store ptr %79, ptr %prev12.i227, align 8
   %call13.i228 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i219)
   br i1 %call13.i228, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231, label %if.then.i229
@@ -376,7 +351,7 @@ _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231: ; preds = %invoke.cont
 
 if.then.i.i59:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231
   %84 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i62 = getelementptr inbounds %"struct.p2t::Point", ptr %83, i64 0, i32 1
+  %y2.i.i.i62 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load double, ptr %y2.i.i.i62, align 8
   %86 = load <2 x double>, ptr %82, align 8
   %87 = load <2 x double>, ptr %84, align 8
@@ -398,7 +373,7 @@ if.then.i.i59:                                    ; preds = %_ZN3p2t5Sweep4FillE
 
 if.then7.i.i75:                                   ; preds = %if.then.i.i59
   %95 = load ptr, ptr %node.addr.09.i.i, align 8
-  %next12.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %81, i64 0, i32 2
+  %next12.i.i = getelementptr inbounds i8, ptr %81, i64 16
   %96 = load ptr, ptr %next12.i.i, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = load <2 x double>, ptr %97, align 8
@@ -424,11 +399,11 @@ tailrecurse.i154:                                 ; preds = %tailrecurse.i154.pr
   %108 = phi ptr [ %106, %if.else.i169 ], [ %53, %tailrecurse.i154.preheader ]
   %109 = phi ptr [ %107, %if.else.i169 ], [ %52, %tailrecurse.i154.preheader ]
   %110 = phi <2 x double> [ %113, %if.else.i169 ], [ %56, %tailrecurse.i154.preheader ]
-  %next7.i = getelementptr inbounds %"struct.p2t::Node", ptr %107, i64 0, i32 2
+  %next7.i = getelementptr inbounds i8, ptr %107, i64 16
   %111 = load ptr, ptr %next7.i, align 8
   %112 = load ptr, ptr %111, align 8
   %113 = load <2 x double>, ptr %112, align 8
-  %y4.i.i159 = getelementptr inbounds %"struct.p2t::Point", ptr %108, i64 0, i32 1
+  %y4.i.i159 = getelementptr inbounds i8, ptr %108, i64 8
   %114 = load double, ptr %y4.i.i159, align 8
   %115 = insertelement <2 x double> poison, double %105, i64 0
   %116 = insertelement <2 x double> %115, double %114, i64 1
@@ -447,17 +422,17 @@ tailrecurse.i154:                                 ; preds = %tailrecurse.i154.pr
   br i1 %cmp.i168, label %if.then.i184, label %if.else.i169
 
 if.then.i184:                                     ; preds = %tailrecurse.i154
-  %next3.le.i = getelementptr inbounds %"struct.p2t::Node", ptr %109, i64 0, i32 2
+  %next3.le.i = getelementptr inbounds i8, ptr %109, i64 16
   br label %tailrecurse.i.i185
 
 tailrecurse.i.i185:                               ; preds = %if.then7.i.i203, %if.then.i184
   %122 = phi ptr [ %135, %if.then7.i.i203 ], [ %107, %if.then.i184 ]
   %call.i245 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i246 = getelementptr inbounds %"struct.p2t::Node", ptr %122, i64 0, i32 3
+  %prev.i246 = getelementptr inbounds i8, ptr %122, i64 24
   %123 = load ptr, ptr %prev.i246, align 8
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %122, align 8
-  %next.i247 = getelementptr inbounds %"struct.p2t::Node", ptr %122, i64 0, i32 2
+  %next.i247 = getelementptr inbounds i8, ptr %122, i64 16
   %126 = load ptr, ptr %next.i247, align 8
   %127 = load ptr, ptr %126, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i245, ptr noundef nonnull align 8 dereferenceable(40) %124, ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(40) %127)
@@ -465,19 +440,19 @@ tailrecurse.i.i185:                               ; preds = %if.then7.i.i203, %i
 
 invoke.cont.i249:                                 ; preds = %tailrecurse.i.i185
   %128 = load ptr, ptr %prev.i246, align 8
-  %triangle5.i250 = getelementptr inbounds %"struct.p2t::Node", ptr %128, i64 0, i32 1
+  %triangle5.i250 = getelementptr inbounds i8, ptr %128, i64 8
   %129 = load ptr, ptr %triangle5.i250, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i245, ptr noundef nonnull align 8 dereferenceable(57) %129)
-  %triangle6.i251 = getelementptr inbounds %"struct.p2t::Node", ptr %122, i64 0, i32 1
+  %triangle6.i251 = getelementptr inbounds i8, ptr %122, i64 8
   %130 = load ptr, ptr %triangle6.i251, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i245, ptr noundef nonnull align 8 dereferenceable(57) %130)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i245)
   %131 = load ptr, ptr %next.i247, align 8
   %132 = load ptr, ptr %prev.i246, align 8
-  %next9.i252 = getelementptr inbounds %"struct.p2t::Node", ptr %132, i64 0, i32 2
+  %next9.i252 = getelementptr inbounds i8, ptr %132, i64 16
   store ptr %131, ptr %next9.i252, align 8
   %133 = load ptr, ptr %prev.i246, align 8
-  %prev12.i253 = getelementptr inbounds %"struct.p2t::Node", ptr %131, i64 0, i32 3
+  %prev12.i253 = getelementptr inbounds i8, ptr %131, i64 24
   store ptr %133, ptr %prev12.i253, align 8
   %call13.i254 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i245)
   br i1 %call13.i254, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257, label %if.then.i255
@@ -501,7 +476,7 @@ _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257: ; preds = %invoke.cont
 
 if.then.i.i187:                                   ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257
   %138 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i190 = getelementptr inbounds %"struct.p2t::Point", ptr %137, i64 0, i32 1
+  %y2.i.i.i190 = getelementptr inbounds i8, ptr %137, i64 8
   %139 = load double, ptr %y2.i.i.i190, align 8
   %140 = load <2 x double>, ptr %136, align 8
   %141 = load <2 x double>, ptr %138, align 8
@@ -523,7 +498,7 @@ if.then.i.i187:                                   ; preds = %_ZN3p2t5Sweep4FillE
 
 if.then7.i.i203:                                  ; preds = %if.then.i.i187
   %149 = load ptr, ptr %109, align 8
-  %next12.i.i204 = getelementptr inbounds %"struct.p2t::Node", ptr %135, i64 0, i32 2
+  %next12.i.i204 = getelementptr inbounds i8, ptr %135, i64 16
   %150 = load ptr, ptr %next12.i.i204, align 8
   %151 = load ptr, ptr %150, align 8
   %152 = load <2 x double>, ptr %151, align 8
@@ -583,7 +558,7 @@ if.end.i.i:                                       ; preds = %_ZN3p2t5Sweep24Fill
   %173 = phi double [ %24, %while.body.i.i ], [ %.pre10.i.i324, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %.pre10.i.i.pre.pre, %if.then.i.i59 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i75 ], [ %.pre10.i.i322, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %174 = phi ptr [ %25, %while.body.i.i ], [ %.pre.i.i321, %if.then.i.i14 ], [ %83, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %83, %if.then.i.i59 ], [ %83, %if.then7.i.i75 ], [ %.pre.i.i319, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %node.addr.1.i.i = phi ptr [ %28, %while.body.i.i ], [ %node.addr.09.i.i, %if.then.i.i14 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %node.addr.09.i.i, %if.then.i.i59 ], [ %node.addr.09.i.i, %if.then7.i.i75 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %next.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i.i, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %node.addr.1.i.i, i64 16
   %175 = load ptr, ptr %next.i.i, align 8
   %176 = load ptr, ptr %175, align 8
   %177 = load double, ptr %176, align 8
@@ -608,11 +583,11 @@ while.body.i7.i:                                  ; preds = %if.else.i, %if.end.
   %node.addr.010.i.i = phi ptr [ %node.addr.1.i24.i, %if.end.i23.i ], [ %call2.i, %if.else.i ]
   %186 = load ptr, ptr %q.i, align 8
   %187 = load double, ptr %186, align 8
-  %y.i.i9.i = getelementptr inbounds %"struct.p2t::Point", ptr %184, i64 0, i32 1
+  %y.i.i9.i = getelementptr inbounds i8, ptr %184, i64 8
   %188 = load double, ptr %y.i.i9.i, align 8
-  %y2.i.i10.i = getelementptr inbounds %"struct.p2t::Point", ptr %182, i64 0, i32 1
+  %y2.i.i10.i = getelementptr inbounds i8, ptr %182, i64 8
   %189 = load double, ptr %y2.i.i10.i, align 8
-  %y4.i.i13.i = getelementptr inbounds %"struct.p2t::Point", ptr %186, i64 0, i32 1
+  %y4.i.i13.i = getelementptr inbounds i8, ptr %186, i64 8
   %190 = load double, ptr %y4.i.i13.i, align 8
   %191 = insertelement <2 x double> poison, double %188, i64 0
   %192 = insertelement <2 x double> %191, double %190, i64 1
@@ -642,7 +617,7 @@ if.then.i26.i:                                    ; preds = %while.body.i7.i
   br i1 %cmp14.i, label %if.then.lr.ph.i, label %if.end.i23.i
 
 if.then.lr.ph.i:                                  ; preds = %if.then.i26.i
-  %prev.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.010.i.i, i64 0, i32 3
+  %prev.i = getelementptr inbounds i8, ptr %node.addr.010.i.i, i64 24
   br label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i
@@ -654,11 +629,11 @@ if.then.i15:                                      ; preds = %_ZN3p2t5Sweep23Fill
   %208 = phi ptr [ %203, %if.then.lr.ph.i ], [ %329, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %209 = load ptr, ptr %prev.i, align 8
   %210 = load ptr, ptr %209, align 8
-  %prev6.i = getelementptr inbounds %"struct.p2t::Node", ptr %209, i64 0, i32 3
+  %prev6.i = getelementptr inbounds i8, ptr %209, i64 24
   %211 = load ptr, ptr %prev6.i, align 8
   %212 = load ptr, ptr %211, align 8
   %213 = load <2 x double>, ptr %212, align 8
-  %y4.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %208, i64 0, i32 1
+  %y4.i.i = getelementptr inbounds i8, ptr %208, i64 8
   %214 = load double, ptr %y4.i.i, align 8
   %215 = insertelement <2 x double> poison, double %207, i64 0
   %216 = insertelement <2 x double> %215, double %214, i64 1
@@ -678,7 +653,7 @@ if.then.i15:                                      ; preds = %_ZN3p2t5Sweep23Fill
   br i1 %cmp8.i, label %tailrecurse.i.i, label %tailrecurse.i.preheader
 
 tailrecurse.i.preheader:                          ; preds = %if.then.i15
-  %y2.i12.i = getelementptr inbounds %"struct.p2t::Point", ptr %206, i64 0, i32 1
+  %y2.i12.i = getelementptr inbounds i8, ptr %206, i64 8
   %223 = extractelement <2 x double> %219, i64 0
   %224 = insertelement <2 x double> poison, double %205, i64 0
   br label %tailrecurse.i
@@ -686,11 +661,11 @@ tailrecurse.i.preheader:                          ; preds = %if.then.i15
 tailrecurse.i.i:                                  ; preds = %if.then.i15, %if.then7.i.i
   %225 = phi ptr [ %238, %if.then7.i.i ], [ %209, %if.then.i15 ]
   %call.i142 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i143 = getelementptr inbounds %"struct.p2t::Node", ptr %225, i64 0, i32 3
+  %prev.i143 = getelementptr inbounds i8, ptr %225, i64 24
   %226 = load ptr, ptr %prev.i143, align 8
   %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %225, align 8
-  %next.i144 = getelementptr inbounds %"struct.p2t::Node", ptr %225, i64 0, i32 2
+  %next.i144 = getelementptr inbounds i8, ptr %225, i64 16
   %229 = load ptr, ptr %next.i144, align 8
   %230 = load ptr, ptr %229, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i142, ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %228, ptr noundef nonnull align 8 dereferenceable(40) %230)
@@ -698,19 +673,19 @@ tailrecurse.i.i:                                  ; preds = %if.then.i15, %if.th
 
 invoke.cont.i:                                    ; preds = %tailrecurse.i.i
   %231 = load ptr, ptr %prev.i143, align 8
-  %triangle5.i = getelementptr inbounds %"struct.p2t::Node", ptr %231, i64 0, i32 1
+  %triangle5.i = getelementptr inbounds i8, ptr %231, i64 8
   %232 = load ptr, ptr %triangle5.i, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i142, ptr noundef nonnull align 8 dereferenceable(57) %232)
-  %triangle6.i = getelementptr inbounds %"struct.p2t::Node", ptr %225, i64 0, i32 1
+  %triangle6.i = getelementptr inbounds i8, ptr %225, i64 8
   %233 = load ptr, ptr %triangle6.i, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i142, ptr noundef nonnull align 8 dereferenceable(57) %233)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i142)
   %234 = load ptr, ptr %next.i144, align 8
   %235 = load ptr, ptr %prev.i143, align 8
-  %next9.i = getelementptr inbounds %"struct.p2t::Node", ptr %235, i64 0, i32 2
+  %next9.i = getelementptr inbounds i8, ptr %235, i64 16
   store ptr %234, ptr %next9.i, align 8
   %236 = load ptr, ptr %prev.i143, align 8
-  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %234, i64 0, i32 3
+  %prev12.i = getelementptr inbounds i8, ptr %234, i64 24
   store ptr %236, ptr %prev12.i, align 8
   %call13.i = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i142)
   br i1 %call13.i, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, label %if.then.i145
@@ -734,7 +709,7 @@ _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit: ; preds = %invoke.cont.i,
 
 if.then.i.i20:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit
   %241 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i23 = getelementptr inbounds %"struct.p2t::Point", ptr %240, i64 0, i32 1
+  %y2.i.i.i23 = getelementptr inbounds i8, ptr %240, i64 8
   %242 = load double, ptr %y2.i.i.i23, align 8
   %243 = load <2 x double>, ptr %239, align 8
   %244 = load <2 x double>, ptr %241, align 8
@@ -756,7 +731,7 @@ if.then.i.i20:                                    ; preds = %_ZN3p2t5Sweep4FillE
 
 if.then7.i.i:                                     ; preds = %if.then.i.i20
   %252 = load ptr, ptr %node.addr.010.i.i, align 8
-  %prev12.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %238, i64 0, i32 3
+  %prev12.i.i = getelementptr inbounds i8, ptr %238, i64 24
   %253 = load ptr, ptr %prev12.i.i, align 8
   %254 = load ptr, ptr %253, align 8
   %255 = load <2 x double>, ptr %254, align 8
@@ -782,11 +757,11 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %265 = phi ptr [ %263, %if.else.i105 ], [ %210, %tailrecurse.i.preheader ]
   %266 = phi ptr [ %264, %if.else.i105 ], [ %209, %tailrecurse.i.preheader ]
   %267 = phi <2 x double> [ %270, %if.else.i105 ], [ %213, %tailrecurse.i.preheader ]
-  %prev7.i = getelementptr inbounds %"struct.p2t::Node", ptr %264, i64 0, i32 3
+  %prev7.i = getelementptr inbounds i8, ptr %264, i64 24
   %268 = load ptr, ptr %prev7.i, align 8
   %269 = load ptr, ptr %268, align 8
   %270 = load <2 x double>, ptr %269, align 8
-  %y4.i.i95 = getelementptr inbounds %"struct.p2t::Point", ptr %265, i64 0, i32 1
+  %y4.i.i95 = getelementptr inbounds i8, ptr %265, i64 8
   %271 = load double, ptr %y4.i.i95, align 8
   %272 = insertelement <2 x double> poison, double %262, i64 0
   %273 = insertelement <2 x double> %272, double %271, i64 1
@@ -805,17 +780,17 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br i1 %cmp.i104, label %if.then.i107, label %if.else.i105
 
 if.then.i107:                                     ; preds = %tailrecurse.i
-  %prev3.le.i = getelementptr inbounds %"struct.p2t::Node", ptr %266, i64 0, i32 3
+  %prev3.le.i = getelementptr inbounds i8, ptr %266, i64 24
   br label %tailrecurse.i.i108
 
 tailrecurse.i.i108:                               ; preds = %if.then7.i.i126, %if.then.i107
   %279 = phi ptr [ %292, %if.then7.i.i126 ], [ %264, %if.then.i107 ]
   %call.i232 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i233 = getelementptr inbounds %"struct.p2t::Node", ptr %279, i64 0, i32 3
+  %prev.i233 = getelementptr inbounds i8, ptr %279, i64 24
   %280 = load ptr, ptr %prev.i233, align 8
   %281 = load ptr, ptr %280, align 8
   %282 = load ptr, ptr %279, align 8
-  %next.i234 = getelementptr inbounds %"struct.p2t::Node", ptr %279, i64 0, i32 2
+  %next.i234 = getelementptr inbounds i8, ptr %279, i64 16
   %283 = load ptr, ptr %next.i234, align 8
   %284 = load ptr, ptr %283, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i232, ptr noundef nonnull align 8 dereferenceable(40) %281, ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull align 8 dereferenceable(40) %284)
@@ -823,19 +798,19 @@ tailrecurse.i.i108:                               ; preds = %if.then7.i.i126, %i
 
 invoke.cont.i236:                                 ; preds = %tailrecurse.i.i108
   %285 = load ptr, ptr %prev.i233, align 8
-  %triangle5.i237 = getelementptr inbounds %"struct.p2t::Node", ptr %285, i64 0, i32 1
+  %triangle5.i237 = getelementptr inbounds i8, ptr %285, i64 8
   %286 = load ptr, ptr %triangle5.i237, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i232, ptr noundef nonnull align 8 dereferenceable(57) %286)
-  %triangle6.i238 = getelementptr inbounds %"struct.p2t::Node", ptr %279, i64 0, i32 1
+  %triangle6.i238 = getelementptr inbounds i8, ptr %279, i64 8
   %287 = load ptr, ptr %triangle6.i238, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i232, ptr noundef nonnull align 8 dereferenceable(57) %287)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i232)
   %288 = load ptr, ptr %next.i234, align 8
   %289 = load ptr, ptr %prev.i233, align 8
-  %next9.i239 = getelementptr inbounds %"struct.p2t::Node", ptr %289, i64 0, i32 2
+  %next9.i239 = getelementptr inbounds i8, ptr %289, i64 16
   store ptr %288, ptr %next9.i239, align 8
   %290 = load ptr, ptr %prev.i233, align 8
-  %prev12.i240 = getelementptr inbounds %"struct.p2t::Node", ptr %288, i64 0, i32 3
+  %prev12.i240 = getelementptr inbounds i8, ptr %288, i64 24
   store ptr %290, ptr %prev12.i240, align 8
   %call13.i241 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i232)
   br i1 %call13.i241, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244, label %if.then.i242
@@ -859,7 +834,7 @@ _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244: ; preds = %invoke.cont
 
 if.then.i.i110:                                   ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244
   %295 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i113 = getelementptr inbounds %"struct.p2t::Point", ptr %294, i64 0, i32 1
+  %y2.i.i.i113 = getelementptr inbounds i8, ptr %294, i64 8
   %296 = load double, ptr %y2.i.i.i113, align 8
   %297 = load <2 x double>, ptr %293, align 8
   %298 = load <2 x double>, ptr %295, align 8
@@ -881,7 +856,7 @@ if.then.i.i110:                                   ; preds = %_ZN3p2t5Sweep4FillE
 
 if.then7.i.i126:                                  ; preds = %if.then.i.i110
   %306 = load ptr, ptr %266, align 8
-  %prev12.i.i127 = getelementptr inbounds %"struct.p2t::Node", ptr %292, i64 0, i32 3
+  %prev12.i.i127 = getelementptr inbounds i8, ptr %292, i64 24
   %307 = load ptr, ptr %prev12.i.i127, align 8
   %308 = load ptr, ptr %307, align 8
   %309 = load <2 x double>, ptr %308, align 8
@@ -941,7 +916,7 @@ if.end.i23.i:                                     ; preds = %_ZN3p2t5Sweep23Fill
   %330 = phi double [ %181, %while.body.i7.i ], [ %.pre11.i.i337, %if.then.i26.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i20 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i335, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %331 = phi ptr [ %182, %while.body.i7.i ], [ %.pre.i27.i334, %if.then.i26.i ], [ %240, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %240, %if.then.i.i20 ], [ %240, %if.then7.i.i ], [ %.pre.i27.i332, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %node.addr.1.i24.i = phi ptr [ %185, %while.body.i7.i ], [ %node.addr.010.i.i, %if.then.i26.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %node.addr.010.i.i, %if.then.i.i20 ], [ %node.addr.010.i.i, %if.then7.i.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %prev.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i24.i, i64 0, i32 3
+  %prev.i.i = getelementptr inbounds i8, ptr %node.addr.1.i24.i, i64 24
   %332 = load ptr, ptr %prev.i.i, align 8
   %333 = load ptr, ptr %332, align 8
   %334 = load double, ptr %333, align 8
@@ -985,12 +960,12 @@ for.end13:                                        ; preds = %for.inc11, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep19FinalizationPolygonERNS_12SweepContextE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #3 align 2 {
 entry:
-  %front_.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 6
+  %front_.i = getelementptr inbounds i8, ptr %tcx, i64 152
   %0 = load ptr, ptr %front_.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %next, align 8
-  %triangle = getelementptr inbounds %"struct.p2t::Node", ptr %2, i64 0, i32 1
+  %triangle = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %triangle, align 8
   %4 = load ptr, ptr %2, align 8
   %call67 = tail call noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -1034,18 +1009,18 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
 entry:
-  %edge_event = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
+  %edge_event = getelementptr inbounds i8, ptr %tcx, i64 64
   store ptr %edge, ptr %edge_event, align 8
   %0 = load ptr, ptr %edge, align 8
   %1 = load double, ptr %0, align 8
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
   %2 = load ptr, ptr %q, align 8
   %3 = load double, ptr %2, align 8
   %cmp = fcmp ogt double %1, %3
-  %right = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2, i32 1
+  %right = getelementptr inbounds i8, ptr %tcx, i64 72
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %right, align 8
-  %triangle = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 1
+  %triangle = getelementptr inbounds i8, ptr %node, i64 8
   %4 = load ptr, ptr %triangle, align 8
   %5 = load ptr, ptr %edge, align 8
   %6 = load ptr, ptr %q, align 8
@@ -1055,8 +1030,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %4, i32 noundef %call.i)
+  %neighbors_.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %idxprom.i.i = sext i32 %call.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %4, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i.i, i64 0, i64 %idxprom.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %return, label %if.then3.i
@@ -1090,27 +1066,27 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep16Ne
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
   %0 = load ptr, ptr %node, align 8
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   %1 = load ptr, ptr %next, align 8
   %2 = load ptr, ptr %1, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(40) %point, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %triangle4 = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 1
+  %triangle4 = getelementptr inbounds i8, ptr %node, i64 8
   %3 = load ptr, ptr %triangle4, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(57) %3)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call)
   %call5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   store ptr %point, ptr %call5, align 8
-  %triangle.i = getelementptr inbounds %"struct.p2t::Node", ptr %call5, i64 0, i32 1
-  %value.i = getelementptr inbounds %"struct.p2t::Node", ptr %call5, i64 0, i32 4
+  %triangle.i = getelementptr inbounds i8, ptr %call5, i64 8
+  %value.i = getelementptr inbounds i8, ptr %call5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle.i, i8 0, i64 24, i1 false)
   %4 = load double, ptr %point, align 8
   store double %4, ptr %value.i, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Node *, std::allocator<p2t::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Node *, std::allocator<p2t::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1118,7 +1094,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call5, ptr %5, align 8
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit
 
@@ -1162,7 +1138,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN3p2t4NodeESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1179,11 +1155,11 @@ _ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__no
 
 _ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %9 = load ptr, ptr %next, align 8
-  %next9 = getelementptr inbounds %"struct.p2t::Node", ptr %call5, i64 0, i32 2
+  %next9 = getelementptr inbounds i8, ptr %call5, i64 16
   store ptr %9, ptr %next9, align 8
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %call5, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %call5, i64 24
   store ptr %node, ptr %prev, align 8
-  %prev11 = getelementptr inbounds %"struct.p2t::Node", ptr %9, i64 0, i32 3
+  %prev11 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %call5, ptr %prev11, align 8
   store ptr %call5, ptr %next, align 8
   %call13 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call)
@@ -1207,11 +1183,11 @@ if.end:                                           ; preds = %if.then, %_ZNSt6vec
 define hidden void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %node, i64 24
   %0 = load ptr, ptr %prev, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %node, align 8
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   %3 = load ptr, ptr %next, align 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -1219,19 +1195,19 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %5 = load ptr, ptr %prev, align 8
-  %triangle5 = getelementptr inbounds %"struct.p2t::Node", ptr %5, i64 0, i32 1
+  %triangle5 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %triangle5, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(57) %6)
-  %triangle6 = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 1
+  %triangle6 = getelementptr inbounds i8, ptr %node, i64 8
   %7 = load ptr, ptr %triangle6, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(57) %7)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call)
   %8 = load ptr, ptr %next, align 8
   %9 = load ptr, ptr %prev, align 8
-  %next9 = getelementptr inbounds %"struct.p2t::Node", ptr %9, i64 0, i32 2
+  %next9 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %8, ptr %next9, align 8
   %10 = load ptr, ptr %prev, align 8
-  %prev12 = getelementptr inbounds %"struct.p2t::Node", ptr %8, i64 0, i32 3
+  %prev12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %10, ptr %prev12, align 8
   %call13 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call)
   br i1 %call13, label %if.end, label %if.then
@@ -1253,9 +1229,9 @@ if.end:                                           ; preds = %if.then, %invoke.co
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep18FillAdvancingFrontERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %n) local_unnamed_addr #3 align 2 {
 entry:
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %n, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %n, i64 16
   %node.015 = load ptr, ptr %next, align 8
-  %next216 = getelementptr inbounds %"struct.p2t::Node", ptr %node.015, i64 0, i32 2
+  %next216 = getelementptr inbounds i8, ptr %node.015, i64 16
   %0 = load ptr, ptr %next216, align 8
   %tobool.not17 = icmp eq ptr %0, null
   br i1 %tobool.not17, label %while.end, label %while.body
@@ -1269,15 +1245,15 @@ while.body:                                       ; preds = %entry, %if.end
 if.end:                                           ; preds = %while.body
   tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.018)
   %node.0 = load ptr, ptr %next219, align 8
-  %next2 = getelementptr inbounds %"struct.p2t::Node", ptr %node.0, i64 0, i32 2
+  %next2 = getelementptr inbounds i8, ptr %node.0, i64 16
   %1 = load ptr, ptr %next2, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end, %while.body, %entry
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %n, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %n, i64 24
   %node.120 = load ptr, ptr %prev, align 8
-  %prev521 = getelementptr inbounds %"struct.p2t::Node", ptr %node.120, i64 0, i32 3
+  %prev521 = getelementptr inbounds i8, ptr %node.120, i64 24
   %2 = load ptr, ptr %prev521, align 8
   %tobool6.not22 = icmp eq ptr %2, null
   br i1 %tobool6.not22, label %while.end12, label %while.body7
@@ -1291,7 +1267,7 @@ while.body7:                                      ; preds = %while.end, %if.end1
 if.end10:                                         ; preds = %while.body7
   tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.123)
   %node.1 = load ptr, ptr %prev524, align 8
-  %prev5 = getelementptr inbounds %"struct.p2t::Node", ptr %node.1, i64 0, i32 3
+  %prev5 = getelementptr inbounds i8, ptr %node.1, i64 24
   %3 = load ptr, ptr %prev5, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %while.end12, label %while.body7, !llvm.loop !11
@@ -1302,7 +1278,7 @@ while.end12:                                      ; preds = %if.end10, %while.bo
   br i1 %tobool14.not, label %if.end22, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.end12
-  %next16 = getelementptr inbounds %"struct.p2t::Node", ptr %4, i64 0, i32 2
+  %next16 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %next16, align 8
   %tobool17.not = icmp eq ptr %5, null
   br i1 %tobool17.not, label %if.end22, label %if.then18
@@ -1313,9 +1289,9 @@ if.then18:                                        ; preds = %land.lhs.true
   %8 = load ptr, ptr %5, align 8
   %9 = load double, ptr %8, align 8
   %sub.i = fsub double %7, %9
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %6, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load double, ptr %y.i, align 8
-  %y9.i = getelementptr inbounds %"struct.p2t::Point", ptr %8, i64 0, i32 1
+  %y9.i = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load double, ptr %y9.i, align 8
   %sub10.i = fsub double %10, %11
   %call.i = tail call noundef double @atan2(double noundef %sub10.i, double noundef %sub.i) #20
@@ -1339,8 +1315,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %triangle, i32 noundef %call)
+  %neighbors_.i = getelementptr inbounds i8, ptr %triangle, i64 32
   %idxprom.i = sext i32 %call to i64
-  %arrayidx.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i, i64 0, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then3
@@ -1356,7 +1333,7 @@ return:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
 entry:
-  %right = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2, i32 1
+  %right = getelementptr inbounds i8, ptr %tcx, i64 72
   %0 = load i8, ptr %right, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1365,7 +1342,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next7.i = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next7.i = getelementptr inbounds i8, ptr %node, i64 16
   %4 = load ptr, ptr %next7.i, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
@@ -1373,7 +1350,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.i, label %while.body.lr.ph.i, label %if.end
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %q.i = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q.i = getelementptr inbounds i8, ptr %edge, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -1385,11 +1362,11 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %node.addr.09.i = phi ptr [ %node, %while.body.lr.ph.i ], [ %node.addr.1.i, %if.end.i ]
   %12 = load ptr, ptr %q.i, align 8
   %13 = load double, ptr %12, align 8
-  %y.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %10, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load double, ptr %y.i.i, align 8
-  %y2.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %8, i64 0, i32 1
+  %y2.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %15 = load double, ptr %y2.i.i, align 8
-  %y4.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %12, i64 0, i32 1
+  %y4.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load double, ptr %y4.i.i, align 8
   %17 = insertelement <2 x double> poison, double %14, i64 0
   %18 = insertelement <2 x double> %17, double %16, i64 1
@@ -1422,7 +1399,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %29 = phi double [ %.pre10.i, %if.then.i ], [ %7, %while.body.i ]
   %30 = phi ptr [ %.pre.i, %if.then.i ], [ %8, %while.body.i ]
   %node.addr.1.i = phi ptr [ %node.addr.09.i, %if.then.i ], [ %11, %while.body.i ]
-  %next.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %node.addr.1.i, i64 16
   %31 = load ptr, ptr %next.i, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load double, ptr %32, align 8
@@ -1430,7 +1407,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp.i, label %while.body.i, label %if.end, !llvm.loop !6
 
 if.else:                                          ; preds = %entry
-  %prev8.i = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %prev8.i = getelementptr inbounds i8, ptr %node, i64 24
   %34 = load ptr, ptr %prev8.i, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = load double, ptr %35, align 8
@@ -1438,7 +1415,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp9.i, label %while.body.lr.ph.i5, label %if.end
 
 while.body.lr.ph.i5:                              ; preds = %if.else
-  %q.i6 = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q.i6 = getelementptr inbounds i8, ptr %edge, i64 8
   br label %while.body.i7
 
 while.body.i7:                                    ; preds = %if.end.i23, %while.body.lr.ph.i5
@@ -1450,11 +1427,11 @@ while.body.i7:                                    ; preds = %if.end.i23, %while.
   %node.addr.010.i = phi ptr [ %node, %while.body.lr.ph.i5 ], [ %node.addr.1.i24, %if.end.i23 ]
   %42 = load ptr, ptr %q.i6, align 8
   %43 = load double, ptr %42, align 8
-  %y.i.i9 = getelementptr inbounds %"struct.p2t::Point", ptr %40, i64 0, i32 1
+  %y.i.i9 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load double, ptr %y.i.i9, align 8
-  %y2.i.i10 = getelementptr inbounds %"struct.p2t::Point", ptr %38, i64 0, i32 1
+  %y2.i.i10 = getelementptr inbounds i8, ptr %38, i64 8
   %45 = load double, ptr %y2.i.i10, align 8
-  %y4.i.i13 = getelementptr inbounds %"struct.p2t::Point", ptr %42, i64 0, i32 1
+  %y4.i.i13 = getelementptr inbounds i8, ptr %42, i64 8
   %46 = load double, ptr %y4.i.i13, align 8
   %47 = insertelement <2 x double> poison, double %44, i64 0
   %48 = insertelement <2 x double> %47, double %46, i64 1
@@ -1487,7 +1464,7 @@ if.end.i23:                                       ; preds = %if.then.i26, %while
   %59 = phi double [ %.pre11.i, %if.then.i26 ], [ %37, %while.body.i7 ]
   %60 = phi ptr [ %.pre.i27, %if.then.i26 ], [ %38, %while.body.i7 ]
   %node.addr.1.i24 = phi ptr [ %node.addr.010.i, %if.then.i26 ], [ %41, %while.body.i7 ]
-  %prev.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i24, i64 0, i32 3
+  %prev.i = getelementptr inbounds i8, ptr %node.addr.1.i24, i64 24
   %61 = load ptr, ptr %prev.i, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = load double, ptr %62, align 8
@@ -1506,7 +1483,7 @@ entry:
   br i1 %cmp.not.i.not103111, label %if.end.lr.ph.lr.ph, label %if.then.i
 
 if.end.lr.ph.lr.ph:                               ; preds = %entry
-  %edge_event16 = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
+  %edge_event16 = getelementptr inbounds i8, ptr %tcx, i64 64
   br label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %if.end.lr.ph.lr.ph, %tailrecurse.outer.backedge
@@ -1520,8 +1497,9 @@ if.then.i:                                        ; preds = %tailrecurse.outer.b
   %triangle.tr.lcssa = phi ptr [ %triangle, %entry ], [ %triangle.addr.0, %if.end33 ], [ %call7, %tailrecurse.outer.backedge ]
   %call.i.lcssa = phi i32 [ %call.i102110, %entry ], [ %call.i, %if.end33 ], [ %call.i102, %tailrecurse.outer.backedge ]
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr.lcssa, i32 noundef %call.i.lcssa)
+  %neighbors_.i.i = getelementptr inbounds i8, ptr %triangle.tr.lcssa, i64 32
   %idxprom.i.i = sext i32 %call.i.lcssa to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr.lcssa, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i.i, i64 0, i64 %idxprom.i.i
   %0 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end35, label %if.then3.i
@@ -1550,14 +1528,14 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %or.cond.i, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
-  %points_.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3
+  %points_.i.i = getelementptr inbounds i8, ptr %triangle.tr104, i64 8
   %9 = load ptr, ptr %points_.i.i, align 8
   %cmp.i.i = icmp eq ptr %9, %eq.tr.ph112
-  %arrayidx3.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %triangle.tr104, i64 16
   %10 = load ptr, ptr %arrayidx3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %10, %eq.tr.ph112
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
-  %arrayidx6.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %triangle.tr104, i64 24
   %11 = load ptr, ptr %arrayidx6.i.i, align 8
   %cmp7.i.i = icmp eq ptr %11, %eq.tr.ph112
   %or.cond.i55 = select i1 %or.cond.i.i, i1 true, i1 %cmp7.i.i
@@ -1575,7 +1553,7 @@ tailrecurse.outer.backedge:                       ; preds = %_ZN3p2t8Triangle8Co
   %call2.sink = phi ptr [ %call10, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit86 ], [ %call2, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit ]
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull %eq.tr.ph112, ptr noundef nonnull %call2.sink)
   %12 = load ptr, ptr %edge_event16, align 8
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %12, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %call2.sink, ptr %q, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
   %call.i102 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %call7, ptr noundef nonnull %ep, ptr noundef nonnull %call2.sink)
@@ -1614,14 +1592,14 @@ if.end9:                                          ; preds = %if.end
   br i1 %or.cond.i68, label %if.then13, label %if.end25
 
 if.then13:                                        ; preds = %if.end9
-  %points_.i.i72 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3
+  %points_.i.i72 = getelementptr inbounds i8, ptr %triangle.tr104, i64 8
   %22 = load ptr, ptr %points_.i.i72, align 8
   %cmp.i.i73 = icmp eq ptr %22, %eq.tr.ph112
-  %arrayidx3.i.i74 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 1
+  %arrayidx3.i.i74 = getelementptr inbounds i8, ptr %triangle.tr104, i64 16
   %23 = load ptr, ptr %arrayidx3.i.i74, align 8
   %cmp4.i.i75 = icmp eq ptr %23, %eq.tr.ph112
   %or.cond.i.i76 = select i1 %cmp.i.i73, i1 true, i1 %cmp4.i.i75
-  %arrayidx6.i.i77 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 2
+  %arrayidx6.i.i77 = getelementptr inbounds i8, ptr %triangle.tr104, i64 24
   %24 = load ptr, ptr %arrayidx6.i.i77, align 8
   %cmp7.i.i78 = icmp eq ptr %24, %eq.tr.ph112
   %or.cond.i79 = select i1 %or.cond.i.i76, i1 true, i1 %cmp7.i.i78
@@ -1711,7 +1689,7 @@ declare noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep13FlipEdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #3 align 2 {
 entry:
-  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %p, i64 0, i32 1
+  %y7.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.else18, %entry
@@ -1723,9 +1701,9 @@ tailrecurse:                                      ; preds = %if.else18, %entry
   %0 = load double, ptr %p, align 8
   %1 = load double, ptr %call3, align 8
   %sub.i = fsub double %0, %1
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %call2, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load double, ptr %y.i, align 8
-  %y2.i = getelementptr inbounds %"struct.p2t::Point", ptr %call3, i64 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %call3, i64 8
   %3 = load double, ptr %y2.i, align 8
   %sub3.i = fsub double %2, %3
   %4 = load double, ptr %call2, align 8
@@ -1741,7 +1719,7 @@ tailrecurse:                                      ; preds = %if.else18, %entry
 _ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_.exit:   ; preds = %tailrecurse
   %8 = load double, ptr %call4, align 8
   %sub13.i = fsub double %0, %8
-  %y15.i = getelementptr inbounds %"struct.p2t::Point", ptr %call4, i64 0, i32 1
+  %y15.i = getelementptr inbounds i8, ptr %call4, i64 8
   %9 = load double, ptr %y15.i, align 8
   %sub16.i = fsub double %2, %9
   %sub19.i = fsub double %4, %8
@@ -1779,13 +1757,13 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %24, label %if.then8, label %if.else18
 
 if.then8:                                         ; preds = %land.lhs.true
-  %edge_event = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
+  %edge_event = getelementptr inbounds i8, ptr %tcx, i64 64
   %25 = load ptr, ptr %edge_event, align 8
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %25, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %q, align 8
   %27 = load double, ptr %26, align 8
   %cmp.i65 = fcmp oeq double %15, %27
-  %y2.i67 = getelementptr inbounds %"struct.p2t::Point", ptr %26, i64 0, i32 1
+  %y2.i67 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load double, ptr %y2.i67, align 8
   %cmp3.i68 = fcmp oeq double %16, %28
   %29 = select i1 %cmp.i65, i1 %cmp3.i68, i1 false
@@ -1795,7 +1773,7 @@ land.lhs.true10:                                  ; preds = %if.then8
   %30 = load ptr, ptr %25, align 8
   %31 = load double, ptr %30, align 8
   %cmp.i69 = fcmp oeq double %20, %31
-  %y2.i71 = getelementptr inbounds %"struct.p2t::Point", ptr %30, i64 0, i32 1
+  %y2.i71 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load double, ptr %y2.i71, align 8
   %cmp3.i72 = fcmp oeq double %22, %32
   %33 = select i1 %cmp.i69, i1 %cmp3.i72, i1 false
@@ -1824,8 +1802,9 @@ if.else18:                                        ; preds = %land.lhs.true, %if.
   %ot.t.i = select i1 %cmp.i81, ptr %call, ptr %t.tr
   %t.ot.i = select i1 %cmp.i81, ptr %t.tr, ptr %call
   %call4.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %ot.t.i, ptr noundef nonnull %p, ptr noundef nonnull %call2)
+  %delaunay_edge5.i = getelementptr inbounds i8, ptr %ot.t.i, i64 3
   %idxprom6.i = sext i32 %call4.i to i64
-  %arrayidx7.i = getelementptr inbounds %"class.p2t::Triangle", ptr %ot.t.i, i64 0, i32 1, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [3 x i8], ptr %delaunay_edge5.i, i64 0, i64 %idxprom6.i
   store i8 1, ptr %arrayidx7.i, align 1
   %call8.i = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %ot.t.i)
   tail call void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull align 8 dereferenceable(57) %ot.t.i)
@@ -1860,25 +1839,28 @@ declare void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %t) local_unnamed_addr #3 align 2 {
 entry:
+  %delaunay_edge = getelementptr inbounds i8, ptr %t, i64 3
+  %neighbors_.i = getelementptr inbounds i8, ptr %t, i64 32
+  %points_.i = getelementptr inbounds i8, ptr %t, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %cmp51 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
-  %arrayidx = getelementptr inbounds %"class.p2t::Triangle", ptr %t, i64 0, i32 1, i64 %indvars.iv
+  %cmp50 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
+  %arrayidx = getelementptr inbounds [3 x i8], ptr %delaunay_edge, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %arrayidx.i = getelementptr inbounds %"class.p2t::Triangle", ptr %t, i64 0, i32 4, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %arrayidx.i44 = getelementptr inbounds %"class.p2t::Triangle", ptr %t, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx.i44 = getelementptr inbounds [3 x ptr], ptr %points_.i, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i44, align 8
   %call5 = tail call noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %3)
   %call6 = tail call noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef %call5)
@@ -1890,7 +1872,8 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool9.not, label %lor.lhs.false, label %if.then14
 
 lor.lhs.false:                                    ; preds = %if.then3
-  %arrayidx12 = getelementptr inbounds %"class.p2t::Triangle", ptr %2, i64 0, i32 1, i64 %idxprom7
+  %delaunay_edge10 = getelementptr inbounds i8, ptr %2, i64 3
+  %arrayidx12 = getelementptr inbounds [3 x i8], ptr %delaunay_edge10, i64 0, i64 %idxprom7
   %6 = load i8, ptr %arrayidx12, align 1
   %7 = and i8 %6, 1
   %tobool13.not = icmp eq i8 %7, 0
@@ -1922,8 +1905,8 @@ if.end.i:                                         ; preds = %if.end22
   %17 = fsub <2 x double> %16, %8
   %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %19 = fmul <2 x double> %10, %18
-  %shift62 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %20 = fsub <2 x double> %shift62, %19
+  %shift60 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %20 = fsub <2 x double> %shift60, %19
   %sub21.i = extractelement <2 x double> %20, i64 0
   %cmp22.i = fcmp ugt double %sub21.i, 0.000000e+00
   br i1 %cmp22.i, label %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit, label %for.inc
@@ -1942,8 +1925,8 @@ _ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit: ; preds = %if.end.i
   %mul32.i = extractelement <2 x double> %28, i64 1
   %29 = extractelement <2 x double> %17, i64 0
   %30 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %mul32.i)
-  %shift63 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %31 = fsub <2 x double> %21, %shift63
+  %shift61 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %31 = fsub <2 x double> %21, %shift61
   %sub33.i = extractelement <2 x double> %31, i64 0
   %mul35.i = fmul double %27, %sub21.i
   %32 = tail call double @llvm.fmuladd.f64(double %24, double %sub33.i, double %mul35.i)
@@ -1952,8 +1935,8 @@ _ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit: ; preds = %if.end.i
   br i1 %cmp37.i, label %if.then28, label %for.inc
 
 if.then28:                                        ; preds = %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit
-  %arrayidx.le = getelementptr inbounds %"class.p2t::Triangle", ptr %t, i64 0, i32 1, i64 %indvars.iv
-  %arrayidx12.le = getelementptr inbounds %"class.p2t::Triangle", ptr %2, i64 0, i32 1, i64 %idxprom7
+  %arrayidx.le = getelementptr inbounds [3 x i8], ptr %delaunay_edge, i64 0, i64 %indvars.iv
+  %arrayidx12.le = getelementptr inbounds [3 x i8], ptr %delaunay_edge10, i64 0, i64 %idxprom7
   store i8 1, ptr %arrayidx.le, align 1
   store i8 1, ptr %arrayidx12.le, align 1
   tail call void @_ZNK3p2t5Sweep18RotateTrianglePairERNS_8TriangleERNS_5PointES2_S4_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(40) %call5)
@@ -1984,7 +1967,7 @@ for.inc:                                          ; preds = %if.end.i, %if.end22
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
 return:                                           ; preds = %for.inc, %if.end45
-  %cmp47 = phi i1 [ %cmp51, %if.end45 ], [ %cmp, %for.inc ]
+  %cmp47 = phi i1 [ %cmp50, %if.end45 ], [ %cmp, %for.inc ]
   ret i1 %cmp47
 }
 
@@ -1993,24 +1976,24 @@ declare void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr nound
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %node) local_unnamed_addr #8 align 2 {
 entry:
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load ptr, ptr %next, align 8
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %node, i64 24
   %1 = load ptr, ptr %prev, align 8
   %2 = load ptr, ptr %node, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load double, ptr %2, align 8
-  %y.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %2, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load double, ptr %y.i.i, align 8
   %7 = load double, ptr %3, align 8
   %sub.i.i = fsub double %7, %5
-  %y3.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %3, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load double, ptr %y3.i.i, align 8
   %sub4.i.i = fsub double %8, %6
   %9 = load double, ptr %4, align 8
   %sub6.i.i = fsub double %9, %5
-  %y7.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %4, i64 0, i32 1
+  %y7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load double, ptr %y7.i.i, align 8
   %sub8.i.i = fsub double %10, %6
   %11 = fneg double %sub4.i.i
@@ -2025,7 +2008,7 @@ entry:
   br i1 %14, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %next4 = getelementptr inbounds %"struct.p2t::Node", ptr %0, i64 0, i32 2
+  %next4 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %next4, align 8
   %cmp.not = icmp eq ptr %15, null
   br i1 %cmp.not, label %if.end10, label %land.lhs.true
@@ -2035,16 +2018,16 @@ land.lhs.true:                                    ; preds = %if.end
   %17 = load ptr, ptr %15, align 8
   %18 = load ptr, ptr %1, align 8
   %19 = load double, ptr %16, align 8
-  %y.i.i12 = getelementptr inbounds %"struct.p2t::Point", ptr %16, i64 0, i32 1
+  %y.i.i12 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load double, ptr %y.i.i12, align 8
   %21 = load double, ptr %17, align 8
   %sub.i.i13 = fsub double %21, %19
-  %y3.i.i14 = getelementptr inbounds %"struct.p2t::Point", ptr %17, i64 0, i32 1
+  %y3.i.i14 = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load double, ptr %y3.i.i14, align 8
   %sub4.i.i15 = fsub double %22, %20
   %23 = load double, ptr %18, align 8
   %sub6.i.i16 = fsub double %23, %19
-  %y7.i.i17 = getelementptr inbounds %"struct.p2t::Point", ptr %18, i64 0, i32 1
+  %y7.i.i17 = getelementptr inbounds i8, ptr %18, i64 8
   %24 = load double, ptr %y7.i.i17, align 8
   %sub8.i.i18 = fsub double %24, %20
   %25 = fneg double %sub4.i.i15
@@ -2059,7 +2042,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %28, label %if.end10, label %return
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
-  %prev11 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 3
+  %prev11 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load ptr, ptr %prev11, align 8
   %cmp12.not = icmp eq ptr %29, null
   br i1 %cmp12.not, label %if.end19, label %land.lhs.true13
@@ -2069,16 +2052,16 @@ land.lhs.true13:                                  ; preds = %if.end10
   %31 = load ptr, ptr %0, align 8
   %32 = load ptr, ptr %29, align 8
   %33 = load double, ptr %30, align 8
-  %y.i.i24 = getelementptr inbounds %"struct.p2t::Point", ptr %30, i64 0, i32 1
+  %y.i.i24 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load double, ptr %y.i.i24, align 8
   %35 = load double, ptr %31, align 8
   %sub.i.i25 = fsub double %35, %33
-  %y3.i.i26 = getelementptr inbounds %"struct.p2t::Point", ptr %31, i64 0, i32 1
+  %y3.i.i26 = getelementptr inbounds i8, ptr %31, i64 8
   %36 = load double, ptr %y3.i.i26, align 8
   %sub4.i.i27 = fsub double %36, %34
   %37 = load double, ptr %32, align 8
   %sub6.i.i28 = fsub double %37, %33
-  %y7.i.i29 = getelementptr inbounds %"struct.p2t::Point", ptr %32, i64 0, i32 1
+  %y7.i.i29 = getelementptr inbounds i8, ptr %32, i64 8
   %38 = load double, ptr %y7.i.i29, align 8
   %sub8.i.i30 = fsub double %38, %34
   %39 = fneg double %sub4.i.i27
@@ -2105,16 +2088,16 @@ define hidden noundef double @_ZNK3p2t5Sweep10BasinAngleERKNS_4NodeE(ptr nocaptu
 entry:
   %0 = load ptr, ptr %node, align 8
   %1 = load double, ptr %0, align 8
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   %2 = load ptr, ptr %next, align 8
-  %next2 = getelementptr inbounds %"struct.p2t::Node", ptr %2, i64 0, i32 2
+  %next2 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %next2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load double, ptr %4, align 8
   %sub = fsub double %1, %5
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %0, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load double, ptr %y, align 8
-  %y9 = getelementptr inbounds %"struct.p2t::Point", ptr %4, i64 0, i32 1
+  %y9 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load double, ptr %y9, align 8
   %sub10 = fsub double %6, %7
   %call = tail call double @atan2(double noundef %sub10, double noundef %sub) #20
@@ -2125,10 +2108,10 @@ entry:
 define hidden void @_ZN3p2t5Sweep9FillBasinERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %node, align 8
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   %1 = load ptr, ptr %next, align 8
   %2 = load ptr, ptr %1, align 8
-  %next4 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 2
+  %next4 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %next4, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load <2 x double>, ptr %4, align 8
@@ -2147,25 +2130,25 @@ entry:
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
   %cmp = and i1 %cmp13.i, %or.cond.i.not
   %spec.select = select i1 %cmp, ptr %3, ptr %1
-  %13 = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %tcx, i64 24
   store ptr %spec.select, ptr %13, align 8
-  %bottom_node = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 1
+  %bottom_node = getelementptr inbounds i8, ptr %tcx, i64 32
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %entry
   %storemerge = phi ptr [ %spec.select, %entry ], [ %14, %land.rhs ]
   store ptr %storemerge, ptr %bottom_node, align 8
-  %next16 = getelementptr inbounds %"struct.p2t::Node", ptr %storemerge, i64 0, i32 2
+  %next16 = getelementptr inbounds i8, ptr %storemerge, i64 16
   %14 = load ptr, ptr %next16, align 8
   %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
   %15 = load ptr, ptr %storemerge, align 8
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %15, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load double, ptr %y, align 8
   %17 = load ptr, ptr %14, align 8
-  %y24 = getelementptr inbounds %"struct.p2t::Point", ptr %17, i64 0, i32 1
+  %y24 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load double, ptr %y24, align 8
   %cmp25 = fcmp ult double %16, %18
   br i1 %cmp25, label %while.end, label %while.cond, !llvm.loop !13
@@ -2175,23 +2158,23 @@ while.end:                                        ; preds = %while.cond, %land.r
   br i1 %cmp35, label %return, label %if.end37
 
 if.end37:                                         ; preds = %while.end
-  %right_node = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 2
+  %right_node = getelementptr inbounds i8, ptr %tcx, i64 40
   br label %while.cond41
 
 while.cond41:                                     ; preds = %land.rhs46, %if.end37
   %storemerge35 = phi ptr [ %storemerge, %if.end37 ], [ %19, %land.rhs46 ]
   store ptr %storemerge35, ptr %right_node, align 8
-  %next44 = getelementptr inbounds %"struct.p2t::Node", ptr %storemerge35, i64 0, i32 2
+  %next44 = getelementptr inbounds i8, ptr %storemerge35, i64 16
   %19 = load ptr, ptr %next44, align 8
   %tobool45.not = icmp eq ptr %19, null
   br i1 %tobool45.not, label %while.end64, label %land.rhs46
 
 land.rhs46:                                       ; preds = %while.cond41
   %20 = load ptr, ptr %storemerge35, align 8
-  %y50 = getelementptr inbounds %"struct.p2t::Point", ptr %20, i64 0, i32 1
+  %y50 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load double, ptr %y50, align 8
   %22 = load ptr, ptr %19, align 8
-  %y55 = getelementptr inbounds %"struct.p2t::Point", ptr %22, i64 0, i32 1
+  %y55 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load double, ptr %y55, align 8
   %cmp56 = fcmp olt double %21, %23
   br i1 %cmp56, label %while.cond41, label %while.end64, !llvm.loop !14
@@ -2206,16 +2189,16 @@ if.end71:                                         ; preds = %while.end64
   %26 = load ptr, ptr %spec.select, align 8
   %27 = load double, ptr %26, align 8
   %sub = fsub double %25, %27
-  %width = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 3
+  %width = getelementptr inbounds i8, ptr %tcx, i64 48
   store double %sub, ptr %width, align 8
   %28 = load ptr, ptr %spec.select, align 8
-  %y83 = getelementptr inbounds %"struct.p2t::Point", ptr %28, i64 0, i32 1
+  %y83 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load double, ptr %y83, align 8
   %30 = load ptr, ptr %storemerge35, align 8
-  %y87 = getelementptr inbounds %"struct.p2t::Point", ptr %30, i64 0, i32 1
+  %y87 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load double, ptr %y87, align 8
   %cmp88 = fcmp ogt double %29, %31
-  %left_highest = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 4
+  %left_highest = getelementptr inbounds i8, ptr %tcx, i64 56
   %frombool = zext i1 %cmp88 to i8
   store i8 %frombool, ptr %left_highest, align 8
   tail call void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef %storemerge)
@@ -2229,16 +2212,16 @@ return:                                           ; preds = %while.end64, %while
 define hidden noundef zeroext i1 @_ZNK3p2t5Sweep21AngleExceeds90DegreesEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load double, ptr %origin, align 8
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %origin, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %origin, i64 8
   %1 = load double, ptr %y.i, align 8
   %2 = load double, ptr %pa, align 8
   %sub.i = fsub double %2, %0
-  %y3.i = getelementptr inbounds %"struct.p2t::Point", ptr %pa, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %pa, i64 8
   %3 = load double, ptr %y3.i, align 8
   %sub4.i = fsub double %3, %1
   %4 = load double, ptr %pb, align 8
   %sub6.i = fsub double %4, %0
-  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %pb, i64 0, i32 1
+  %y7.i = getelementptr inbounds i8, ptr %pb, i64 8
   %5 = load double, ptr %y7.i, align 8
   %sub8.i = fsub double %5, %1
   %6 = fneg double %sub4.i
@@ -2257,16 +2240,16 @@ entry:
 define hidden noundef zeroext i1 @_ZNK3p2t5Sweep37AngleExceedsPlus90DegreesOrIsNegativeEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load double, ptr %origin, align 8
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %origin, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %origin, i64 8
   %1 = load double, ptr %y.i, align 8
   %2 = load double, ptr %pa, align 8
   %sub.i = fsub double %2, %0
-  %y3.i = getelementptr inbounds %"struct.p2t::Point", ptr %pa, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %pa, i64 8
   %3 = load double, ptr %y3.i, align 8
   %sub4.i = fsub double %3, %1
   %4 = load double, ptr %pb, align 8
   %sub6.i = fsub double %4, %0
-  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %pb, i64 0, i32 1
+  %y7.i = getelementptr inbounds i8, ptr %pb, i64 8
   %5 = load double, ptr %y7.i, align 8
   %sub8.i = fsub double %5, %1
   %6 = fneg double %sub4.i
@@ -2285,16 +2268,16 @@ entry:
 define hidden noundef double @_ZNK3p2t5Sweep5AngleEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load double, ptr %origin, align 8
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %origin, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %origin, i64 8
   %1 = load double, ptr %y, align 8
   %2 = load double, ptr %pa, align 8
   %sub = fsub double %2, %0
-  %y3 = getelementptr inbounds %"struct.p2t::Point", ptr %pa, i64 0, i32 1
+  %y3 = getelementptr inbounds i8, ptr %pa, i64 8
   %3 = load double, ptr %y3, align 8
   %sub4 = fsub double %3, %1
   %4 = load double, ptr %pb, align 8
   %sub6 = fsub double %4, %0
-  %y7 = getelementptr inbounds %"struct.p2t::Point", ptr %pb, i64 0, i32 1
+  %y7 = getelementptr inbounds i8, ptr %pb, i64 8
   %5 = load double, ptr %y7, align 8
   %sub8 = fsub double %5, %1
   %6 = fneg double %sub4
@@ -2312,24 +2295,24 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef double @_ZNK3p2t5Sweep9HoleAngleERKNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #8 align 2 {
 entry:
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load ptr, ptr %next, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load double, ptr %1, align 8
   %3 = load ptr, ptr %node, align 8
   %4 = load double, ptr %3, align 8
   %sub = fsub double %2, %4
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %1, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load double, ptr %y, align 8
-  %y7 = getelementptr inbounds %"struct.p2t::Point", ptr %3, i64 0, i32 1
+  %y7 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load double, ptr %y7, align 8
   %sub8 = fsub double %5, %6
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %node, i64 24
   %7 = load ptr, ptr %prev, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load double, ptr %8, align 8
   %sub13 = fsub double %9, %4
-  %y16 = getelementptr inbounds %"struct.p2t::Point", ptr %8, i64 0, i32 1
+  %y16 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load double, ptr %y16, align 8
   %sub19 = fsub double %10, %6
   %11 = fneg double %sub8
@@ -2484,37 +2467,40 @@ declare void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
 entry:
-  %left_highest.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 4
-  %right_node.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 2
-  %basin.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1
-  %width.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 3
+  %left_highest.i = getelementptr inbounds i8, ptr %tcx, i64 56
+  %width.i = getelementptr inbounds i8, ptr %tcx, i64 48
   %0 = load i8, ptr %left_highest.i, align 8
   %1 = and i8 %0, 1
-  %tobool.not.i44 = icmp eq i8 %1, 0
+  %tobool.not.i45 = icmp eq i8 %1, 0
   %2 = load ptr, ptr %node, align 8
-  %y9.i45 = getelementptr inbounds %"struct.p2t::Point", ptr %2, i64 0, i32 1
-  %3 = load double, ptr %y9.i45, align 8
-  %right_node.val.i46 = load ptr, ptr %right_node.i, align 8
-  %basin.val.i47 = load ptr, ptr %basin.i, align 8
-  %4 = select i1 %tobool.not.i44, ptr %right_node.val.i46, ptr %basin.val.i47
+  %y9.i46 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load double, ptr %y9.i46, align 8
+  %..i47 = select i1 %tobool.not.i45, i64 40, i64 24
+  %right_node.i48 = getelementptr inbounds i8, ptr %tcx, i64 %..i47
+  %4 = load ptr, ptr %right_node.i48, align 8
   %5 = load ptr, ptr %4, align 8
-  %y7.i48 = getelementptr inbounds %"struct.p2t::Point", ptr %5, i64 0, i32 1
-  %6 = load double, ptr %y7.i48, align 8
-  %sub10.i49 = fsub double %6, %3
+  %y7.i49 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load double, ptr %y7.i49, align 8
+  %sub10.i50 = fsub double %6, %3
   %7 = load double, ptr %width.i, align 8
-  %cmp.i50 = fcmp ogt double %7, %sub10.i49
-  br i1 %cmp.i50, label %return, label %if.end
+  %cmp.i51 = fcmp ogt double %7, %sub10.i50
+  br i1 %cmp.i51, label %return, label %if.end.lr.ph
 
-if.end:                                           ; preds = %entry, %if.end52
-  %node.tr51 = phi ptr [ %node.addr.0, %if.end52 ], [ %node, %entry ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.tr51)
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node.tr51, i64 0, i32 3
+if.end.lr.ph:                                     ; preds = %entry
+  %basin = getelementptr inbounds i8, ptr %tcx, i64 24
+  %right_node23 = getelementptr inbounds i8, ptr %tcx, i64 40
+  br label %if.end
+
+if.end:                                           ; preds = %if.end.lr.ph, %if.end52
+  %node.tr52 = phi ptr [ %node, %if.end.lr.ph ], [ %node.addr.0, %if.end52 ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.tr52)
+  %prev = getelementptr inbounds i8, ptr %node.tr52, i64 24
   %8 = load ptr, ptr %prev, align 8
-  %9 = load ptr, ptr %basin.i, align 8
+  %9 = load ptr, ptr %basin, align 8
   %cmp = icmp eq ptr %8, %9
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node.tr51, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node.tr52, i64 16
   %10 = load ptr, ptr %next, align 8
-  %11 = load ptr, ptr %right_node.i, align 8
+  %11 = load ptr, ptr %right_node23, align 8
   %cmp3 = icmp eq ptr %10, %11
   br i1 %cmp, label %land.lhs.true, label %if.else20
 
@@ -2522,9 +2508,9 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %return, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %node.tr51, align 8
+  %12 = load ptr, ptr %node.tr52, align 8
   %13 = load ptr, ptr %10, align 8
-  %next13 = getelementptr inbounds %"struct.p2t::Node", ptr %10, i64 0, i32 2
+  %next13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load ptr, ptr %next13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load <2 x double>, ptr %15, align 8
@@ -2549,9 +2535,9 @@ if.else20:                                        ; preds = %if.end
   br i1 %cmp3, label %if.then25, label %if.else38
 
 if.then25:                                        ; preds = %if.else20
-  %25 = load ptr, ptr %node.tr51, align 8
+  %25 = load ptr, ptr %node.tr52, align 8
   %26 = load ptr, ptr %8, align 8
-  %prev31 = getelementptr inbounds %"struct.p2t::Node", ptr %8, i64 0, i32 3
+  %prev31 = getelementptr inbounds i8, ptr %8, i64 24
   %27 = load ptr, ptr %prev31, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load <2 x double>, ptr %28, align 8
@@ -2563,39 +2549,40 @@ if.then25:                                        ; preds = %if.else20
   %35 = fmul <2 x double> %31, %34
   %shift53 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %36 = fsub <2 x double> %35, %shift53
-  %sub11.i36 = extractelement <2 x double> %36, i64 0
-  %cmp.i37 = fcmp ule double %sub11.i36, 0xBD719799812DEA11
-  %cmp12.i38 = fcmp uge double %sub11.i36, 0x3D719799812DEA11
-  %or.cond.i39.not = or i1 %cmp.i37, %cmp12.i38
-  %cmp13.i40 = fcmp ogt double %sub11.i36, 0.000000e+00
-  %cmp34 = and i1 %cmp13.i40, %or.cond.i39.not
+  %sub11.i37 = extractelement <2 x double> %36, i64 0
+  %cmp.i38 = fcmp ule double %sub11.i37, 0xBD719799812DEA11
+  %cmp12.i39 = fcmp uge double %sub11.i37, 0x3D719799812DEA11
+  %or.cond.i40.not = or i1 %cmp.i38, %cmp12.i39
+  %cmp13.i41 = fcmp ogt double %sub11.i37, 0.000000e+00
+  %cmp34 = and i1 %cmp13.i41, %or.cond.i40.not
   %37 = extractelement <2 x double> %32, i64 1
   br i1 %cmp34, label %return, label %if.end52
 
 if.else38:                                        ; preds = %if.else20
   %38 = load ptr, ptr %8, align 8
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %38, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load double, ptr %y, align 8
   %40 = load ptr, ptr %10, align 8
-  %y43 = getelementptr inbounds %"struct.p2t::Point", ptr %40, i64 0, i32 1
+  %y43 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load double, ptr %y43, align 8
   %cmp44 = fcmp olt double %39, %41
   %42 = select i1 %cmp44, ptr %38, ptr %40
   %. = select i1 %cmp44, ptr %8, ptr %10
-  %y9.i.phi.trans.insert = getelementptr inbounds %"struct.p2t::Point", ptr %42, i64 0, i32 1
+  %y9.i.phi.trans.insert = getelementptr inbounds i8, ptr %42, i64 8
   %.pre = load double, ptr %y9.i.phi.trans.insert, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then25, %if.then9, %if.else38
-  %right_node.val.i = phi ptr [ %11, %if.else38 ], [ %11, %if.then9 ], [ %10, %if.then25 ]
   %43 = phi double [ %.pre, %if.else38 ], [ %24, %if.then9 ], [ %37, %if.then25 ]
   %node.addr.0 = phi ptr [ %., %if.else38 ], [ %10, %if.then9 ], [ %8, %if.then25 ]
   %44 = load i8, ptr %left_highest.i, align 8
   %45 = and i8 %44, 1
   %tobool.not.i = icmp eq i8 %45, 0
-  %46 = select i1 %tobool.not.i, ptr %right_node.val.i, ptr %9
+  %..i = select i1 %tobool.not.i, i64 40, i64 24
+  %right_node.i = getelementptr inbounds i8, ptr %tcx, i64 %..i
+  %46 = load ptr, ptr %right_node.i, align 8
   %47 = load ptr, ptr %46, align 8
-  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %47, i64 0, i32 1
+  %y7.i = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load double, ptr %y7.i, align 8
   %sub10.i = fsub double %48, %43
   %49 = load double, ptr %width.i, align 8
@@ -2609,23 +2596,21 @@ return:                                           ; preds = %if.end52, %land.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN3p2t5Sweep9IsShallowERNS_12SweepContextERNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #11 align 2 {
 entry:
-  %left_highest = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 4
+  %left_highest = getelementptr inbounds i8, ptr %tcx, i64 56
   %0 = load i8, ptr %left_highest, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %2 = load ptr, ptr %node, align 8
-  %y9 = getelementptr inbounds %"struct.p2t::Point", ptr %2, i64 0, i32 1
+  %y9 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load double, ptr %y9, align 8
-  %right_node = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 2
-  %basin = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1
-  %right_node.val = load ptr, ptr %right_node, align 8
-  %basin.val = load ptr, ptr %basin, align 8
-  %4 = select i1 %tobool.not, ptr %right_node.val, ptr %basin.val
+  %. = select i1 %tobool.not, i64 40, i64 24
+  %right_node = getelementptr inbounds i8, ptr %tcx, i64 %.
+  %4 = load ptr, ptr %right_node, align 8
   %5 = load ptr, ptr %4, align 8
-  %y7 = getelementptr inbounds %"struct.p2t::Point", ptr %5, i64 0, i32 1
+  %y7 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load double, ptr %y7, align 8
   %sub10 = fsub double %6, %3
-  %width = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 3
+  %width = getelementptr inbounds i8, ptr %tcx, i64 48
   %7 = load double, ptr %width, align 8
   %cmp = fcmp ogt double %7, %sub10
   ret i1 %cmp
@@ -2634,7 +2619,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
 entry:
-  %next7 = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next7 = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load ptr, ptr %next7, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load double, ptr %1, align 8
@@ -2644,7 +2629,7 @@ entry:
   br i1 %cmp8, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -2656,11 +2641,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %node.addr.09 = phi ptr [ %node, %while.body.lr.ph ], [ %node.addr.1, %if.end ]
   %10 = load ptr, ptr %q, align 8
   %11 = load double, ptr %10, align 8
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %8, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load double, ptr %y.i, align 8
-  %y2.i = getelementptr inbounds %"struct.p2t::Point", ptr %6, i64 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %6, i64 8
   %13 = load double, ptr %y2.i, align 8
-  %y4.i = getelementptr inbounds %"struct.p2t::Point", ptr %10, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load double, ptr %y4.i, align 8
   %15 = insertelement <2 x double> poison, double %12, i64 0
   %16 = insertelement <2 x double> %15, double %14, i64 1
@@ -2693,7 +2678,7 @@ if.end:                                           ; preds = %while.body, %if.the
   %27 = phi double [ %.pre10, %if.then ], [ %5, %while.body ]
   %28 = phi ptr [ %.pre, %if.then ], [ %6, %while.body ]
   %node.addr.1 = phi ptr [ %node.addr.09, %if.then ], [ %9, %while.body ]
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node.addr.1, i64 16
   %29 = load ptr, ptr %next, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = load double, ptr %30, align 8
@@ -2707,7 +2692,7 @@ while.end:                                        ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep22FillLeftAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
 entry:
-  %prev8 = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %prev8 = getelementptr inbounds i8, ptr %node, i64 24
   %0 = load ptr, ptr %prev8, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load double, ptr %1, align 8
@@ -2717,7 +2702,7 @@ entry:
   br i1 %cmp9, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -2729,11 +2714,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %node.addr.010 = phi ptr [ %node, %while.body.lr.ph ], [ %node.addr.1, %if.end ]
   %10 = load ptr, ptr %q, align 8
   %11 = load double, ptr %10, align 8
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %8, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load double, ptr %y.i, align 8
-  %y2.i = getelementptr inbounds %"struct.p2t::Point", ptr %6, i64 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %6, i64 8
   %13 = load double, ptr %y2.i, align 8
-  %y4.i = getelementptr inbounds %"struct.p2t::Point", ptr %10, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load double, ptr %y4.i, align 8
   %15 = insertelement <2 x double> poison, double %12, i64 0
   %16 = insertelement <2 x double> %15, double %14, i64 1
@@ -2766,7 +2751,7 @@ if.end:                                           ; preds = %while.body, %if.the
   %27 = phi double [ %.pre11, %if.then ], [ %5, %while.body ]
   %28 = phi ptr [ %.pre, %if.then ], [ %6, %while.body ]
   %node.addr.1 = phi ptr [ %node.addr.010, %if.then ], [ %9, %while.body ]
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %node.addr.1, i64 24
   %29 = load ptr, ptr %prev, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = load double, ptr %30, align 8
@@ -2788,7 +2773,7 @@ entry:
   br i1 %cmp13, label %if.then.lr.ph, label %if.end10
 
 if.then.lr.ph:                                    ; preds = %entry
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %node, i64 16
   br label %if.then
 
 if.then:                                          ; preds = %if.then.lr.ph, %if.else
@@ -2796,10 +2781,10 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %5 = phi ptr [ %0, %if.then.lr.ph ], [ %43, %if.else ]
   %6 = load ptr, ptr %next, align 8
   %7 = load ptr, ptr %6, align 8
-  %next6 = getelementptr inbounds %"struct.p2t::Node", ptr %6, i64 0, i32 2
+  %next6 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %next6, align 8
   %9 = load ptr, ptr %8, align 8
-  %y4.i = getelementptr inbounds %"struct.p2t::Point", ptr %5, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load double, ptr %y4.i, align 8
   %11 = load <2 x double>, ptr %9, align 8
   %12 = insertelement <2 x double> poison, double %4, i64 0
@@ -2820,7 +2805,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
-  %q.i = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q.i = getelementptr inbounds i8, ptr %edge, i64 8
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then9
@@ -2853,7 +2838,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
 
 if.then7.i:                                       ; preds = %if.then.i
   %33 = load ptr, ptr %node, align 8
-  %next12.i = getelementptr inbounds %"struct.p2t::Node", ptr %21, i64 0, i32 2
+  %next12.i = getelementptr inbounds i8, ptr %21, i64 16
   %34 = load ptr, ptr %next12.i, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = load <2 x double>, ptr %35, align 8
@@ -2888,8 +2873,8 @@ if.end10:                                         ; preds = %if.else, %if.then7.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep25FillRightConcaveEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
 entry:
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %node, i64 16
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
   %.pre = load ptr, ptr %next, align 8
   br label %tailrecurse
 
@@ -2923,7 +2908,7 @@ if.then:                                          ; preds = %tailrecurse
 
 if.then7:                                         ; preds = %if.then
   %13 = load ptr, ptr %node, align 8
-  %next12 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 2
+  %next12 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load ptr, ptr %next12, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load <2 x double>, ptr %15, align 8
@@ -2949,11 +2934,11 @@ if.end18:                                         ; preds = %if.then, %if.then7,
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
 entry:
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
-  %next.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
+  %next.phi.trans.insert = getelementptr inbounds i8, ptr %node, i64 16
   %.pre = load ptr, ptr %next.phi.trans.insert, align 8
   %.pre36 = load ptr, ptr %.pre, align 8
-  %next3.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %.pre, i64 0, i32 2
+  %next3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre37 = load ptr, ptr %next3.phi.trans.insert, align 8
   %.pre38 = load ptr, ptr %.pre37, align 8
   %.pre39 = load double, ptr %.pre36, align 8
@@ -2967,11 +2952,11 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %4 = phi ptr [ %.pre36, %entry ], [ %2, %if.else ]
   %5 = phi ptr [ %.pre, %entry ], [ %3, %if.else ]
   %6 = phi <2 x double> [ %0, %entry ], [ %9, %if.else ]
-  %next7 = getelementptr inbounds %"struct.p2t::Node", ptr %3, i64 0, i32 2
+  %next7 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %next7, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load <2 x double>, ptr %8, align 8
-  %y4.i = getelementptr inbounds %"struct.p2t::Point", ptr %4, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load double, ptr %y4.i, align 8
   %11 = insertelement <2 x double> poison, double %1, i64 0
   %12 = insertelement <2 x double> %11, double %10, i64 1
@@ -2990,7 +2975,7 @@ tailrecurse:                                      ; preds = %if.else, %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %tailrecurse
-  %next3.le = getelementptr inbounds %"struct.p2t::Node", ptr %5, i64 0, i32 2
+  %next3.le = getelementptr inbounds i8, ptr %5, i64 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then
@@ -3023,7 +3008,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
 
 if.then7.i:                                       ; preds = %if.then.i
   %31 = load ptr, ptr %5, align 8
-  %next12.i = getelementptr inbounds %"struct.p2t::Node", ptr %19, i64 0, i32 2
+  %next12.i = getelementptr inbounds i8, ptr %19, i64 16
   %32 = load ptr, ptr %next12.i, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load <2 x double>, ptr %33, align 8
@@ -3077,7 +3062,7 @@ entry:
   br i1 %cmp14, label %if.then.lr.ph, label %if.end10
 
 if.then.lr.ph:                                    ; preds = %entry
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %node, i64 24
   br label %if.then
 
 if.then:                                          ; preds = %if.then.lr.ph, %if.else
@@ -3085,10 +3070,10 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %5 = phi ptr [ %0, %if.then.lr.ph ], [ %43, %if.else ]
   %6 = load ptr, ptr %prev, align 8
   %7 = load ptr, ptr %6, align 8
-  %prev6 = getelementptr inbounds %"struct.p2t::Node", ptr %6, i64 0, i32 3
+  %prev6 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %prev6, align 8
   %9 = load ptr, ptr %8, align 8
-  %y4.i = getelementptr inbounds %"struct.p2t::Point", ptr %5, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load double, ptr %y4.i, align 8
   %11 = load <2 x double>, ptr %9, align 8
   %12 = insertelement <2 x double> poison, double %4, i64 0
@@ -3109,7 +3094,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
-  %q.i = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %q.i = getelementptr inbounds i8, ptr %edge, i64 8
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then9
@@ -3142,7 +3127,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
 
 if.then7.i:                                       ; preds = %if.then.i
   %33 = load ptr, ptr %node, align 8
-  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %21, i64 0, i32 3
+  %prev12.i = getelementptr inbounds i8, ptr %21, i64 24
   %34 = load ptr, ptr %prev12.i, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = load <2 x double>, ptr %35, align 8
@@ -3177,8 +3162,8 @@ if.end10:                                         ; preds = %if.else, %if.then7.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep24FillLeftConcaveEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
 entry:
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %node, i64 24
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
   %.pre = load ptr, ptr %prev, align 8
   br label %tailrecurse
 
@@ -3212,7 +3197,7 @@ if.then:                                          ; preds = %tailrecurse
 
 if.then7:                                         ; preds = %if.then
   %13 = load ptr, ptr %node, align 8
-  %prev12 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 3
+  %prev12 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load ptr, ptr %prev12, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load <2 x double>, ptr %15, align 8
@@ -3238,11 +3223,11 @@ if.end18:                                         ; preds = %if.then, %if.then7,
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
 entry:
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
-  %prev.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
+  %q = getelementptr inbounds i8, ptr %edge, i64 8
+  %prev.phi.trans.insert = getelementptr inbounds i8, ptr %node, i64 24
   %.pre = load ptr, ptr %prev.phi.trans.insert, align 8
   %.pre38 = load ptr, ptr %.pre, align 8
-  %prev3.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %.pre, i64 0, i32 3
+  %prev3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre39 = load ptr, ptr %prev3.phi.trans.insert, align 8
   %.pre40 = load ptr, ptr %.pre39, align 8
   %.pre41 = load double, ptr %.pre38, align 8
@@ -3256,11 +3241,11 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %4 = phi ptr [ %.pre38, %entry ], [ %2, %if.else ]
   %5 = phi ptr [ %.pre, %entry ], [ %3, %if.else ]
   %6 = phi <2 x double> [ %0, %entry ], [ %9, %if.else ]
-  %prev7 = getelementptr inbounds %"struct.p2t::Node", ptr %3, i64 0, i32 3
+  %prev7 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %prev7, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load <2 x double>, ptr %8, align 8
-  %y4.i = getelementptr inbounds %"struct.p2t::Point", ptr %4, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load double, ptr %y4.i, align 8
   %11 = insertelement <2 x double> poison, double %1, i64 0
   %12 = insertelement <2 x double> %11, double %10, i64 1
@@ -3279,7 +3264,7 @@ tailrecurse:                                      ; preds = %if.else, %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %tailrecurse
-  %prev3.le = getelementptr inbounds %"struct.p2t::Node", ptr %5, i64 0, i32 3
+  %prev3.le = getelementptr inbounds i8, ptr %5, i64 24
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then
@@ -3312,7 +3297,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
 
 if.then7.i:                                       ; preds = %if.then.i
   %31 = load ptr, ptr %5, align 8
-  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %19, i64 0, i32 3
+  %prev12.i = getelementptr inbounds i8, ptr %19, i64 24
   %32 = load ptr, ptr %prev12.i, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load <2 x double>, ptr %33, align 8
@@ -3362,8 +3347,9 @@ entry:
   %ot.t = select i1 %cmp, ptr %ot, ptr %t
   %t.ot = select i1 %cmp, ptr %t, ptr %ot
   %call4 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %ot.t, ptr noundef nonnull %p, ptr noundef nonnull %op)
+  %delaunay_edge5 = getelementptr inbounds i8, ptr %ot.t, i64 3
   %idxprom6 = sext i32 %call4 to i64
-  %arrayidx7 = getelementptr inbounds %"class.p2t::Triangle", ptr %ot.t, i64 0, i32 1, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x i8], ptr %delaunay_edge5, i64 0, i64 %idxprom6
   store i8 1, ptr %arrayidx7, align 1
   %call8 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %ot.t)
   tail call void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull align 8 dereferenceable(57) %ot.t)
@@ -3425,7 +3411,7 @@ return:                                           ; preds = %if.then4, %if.then
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep17FlipScanEdgeEventERNS_12SweepContextERNS_5PointES4_RNS_8TriangleES6_S4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull align 8 dereferenceable(57) %flip_triangle, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #3 align 2 {
 entry:
-  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %eq, i64 0, i32 1
+  %y7.i = getelementptr inbounds i8, ptr %eq, i64 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.else, %entry
@@ -3438,9 +3424,9 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %0 = load double, ptr %eq, align 8
   %1 = load double, ptr %call3, align 8
   %sub.i = fsub double %0, %1
-  %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %call2, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load double, ptr %y.i, align 8
-  %y2.i = getelementptr inbounds %"struct.p2t::Point", ptr %call3, i64 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %call3, i64 8
   %3 = load double, ptr %y2.i, align 8
   %sub3.i = fsub double %2, %3
   %4 = load double, ptr %call2, align 8
@@ -3456,7 +3442,7 @@ tailrecurse:                                      ; preds = %if.else, %entry
 _ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_.exit:   ; preds = %tailrecurse
   %8 = load double, ptr %call4, align 8
   %sub13.i = fsub double %0, %8
-  %y15.i = getelementptr inbounds %"struct.p2t::Point", ptr %call4, i64 0, i32 1
+  %y15.i = getelementptr inbounds i8, ptr %call4, i64 8
   %9 = load double, ptr %y15.i, align 8
   %sub16.i = fsub double %2, %9
   %sub19.i = fsub double %4, %8
@@ -3481,7 +3467,7 @@ declare void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3p2t5SweepD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Node *, std::allocator<p2t::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp7.not = icmp eq ptr %0, %1

@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QPCIAddress = type { i32, i16, i16 }
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.QVhostUserSCMIDevice = type { %struct.QOSGraphObject, %struct.QVhostUserSCMI }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVhostUserSCMI = type { ptr, ptr }
-%struct.QVhostUserSCMIPCI = type { %struct.QVirtioPCIDevice, %struct.QVhostUserSCMI }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
 
 @.str = private unnamed_addr constant [75 x i8] c"id=scmi,chardev=chr-vhost-user-test -global virtio-mmio.force-legacy=false\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"vhost-user-scmi-device\00", align 1
@@ -43,7 +36,7 @@ entry:
   %edge_opts = alloca %struct.QOSGraphEdgeOptions, align 8
   store i64 32, ptr %addr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %edge_opts, i8 0, i64 48, i1 false)
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %edge_opts, i64 0, i32 2
+  %extra_device_opts = getelementptr inbounds i8, ptr %edge_opts, i64 16
   store ptr @.str, ptr %extra_device_opts, align 8
   tail call void @qos_node_create_driver(ptr noundef nonnull @.str.1, ptr noundef nonnull @virtio_scmi_device_create) #5
   call void @qos_node_consumes(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %edge_opts) #5
@@ -65,13 +58,13 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal noalias ptr @virtio_scmi_device_create(ptr noundef %virtio_dev, ptr noundef %t_alloc, ptr nocapture readnone %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #6
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIDevice, ptr %call, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %virtio_dev, ptr %scmi, align 8
   store ptr %t_alloc, ptr @alloc, align 8
   store ptr @qvirtio_scmi_device_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qvirtio_scmi_device_start_hw, ptr %start_hw, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qvirtio_scmi_device_destructor, ptr %destructor, align 8
   ret ptr %call
 }
@@ -86,15 +79,15 @@ declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal ptr @virtio_scmi_pci_create(ptr noundef %pci_bus, ptr noundef %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #6
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIPCI, ptr %call, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #5
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %scmi, align 8
   store ptr %t_alloc, ptr @alloc, align 8
   store ptr @qvirtio_scmi_pci_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qvirtio_scmi_pci_start_hw, ptr %start_hw, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qvirtio_scmi_pci_destructor, ptr %destructor, align 8
   ret ptr %call
 }
@@ -105,7 +98,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qvirtio_scmi_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
 entry:
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIDevice, ptr %object, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.3) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %qvirtio_scmi_get_driver.exit, label %if.end.i
@@ -131,13 +124,13 @@ qvirtio_scmi_get_driver.exit:                     ; preds = %entry, %if.then3.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_scmi_device_start_hw(ptr nocapture noundef %obj) #0 {
 entry:
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIDevice, ptr %obj, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %scmi, align 8
   %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #5
   %and.i = and i64 %call.i, -1073741825
   tail call void @qvirtio_set_features(ptr noundef %0, i64 noundef %and.i) #5
   %call2.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 2, i64 noundef 8) #6
-  %queues.i = getelementptr inbounds %struct.QVhostUserSCMIDevice, ptr %obj, i64 0, i32 1, i32 1
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 48
   store ptr %call2.i, ptr %queues.i, align 8
   %1 = load ptr, ptr @alloc, align 8
   %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %0, ptr noundef %1, i16 noundef zeroext 0) #5
@@ -146,7 +139,7 @@ entry:
   %3 = load ptr, ptr @alloc, align 8
   %call3.i.c = tail call ptr @qvirtqueue_setup(ptr noundef %0, ptr noundef %3, i16 noundef zeroext 1) #5
   %4 = load ptr, ptr %queues.i, align 8
-  %arrayidx.i.c = getelementptr ptr, ptr %4, i64 1
+  %arrayidx.i.c = getelementptr i8, ptr %4, i64 8
   store ptr %call3.i.c, ptr %arrayidx.i.c, align 8
   tail call void @qvirtio_set_driver_ok(ptr noundef %0) #5
   ret void
@@ -155,9 +148,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_scmi_device_destructor(ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIDevice, ptr %obj, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %scmi, align 8
-  %queues.i = getelementptr inbounds %struct.QVhostUserSCMIDevice, ptr %obj, i64 0, i32 1, i32 1
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 48
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %queues.i, align 8
   %3 = load ptr, ptr %2, align 8
@@ -165,7 +158,7 @@ entry:
   tail call void @qvirtqueue_cleanup(ptr noundef %1, ptr noundef %3, ptr noundef %4) #5
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %queues.i, align 8
-  %arrayidx.i.c = getelementptr ptr, ptr %6, i64 1
+  %arrayidx.i.c = getelementptr i8, ptr %6, i64 8
   %7 = load ptr, ptr %arrayidx.i.c, align 8
   %8 = load ptr, ptr @alloc, align 8
   tail call void @qvirtqueue_cleanup(ptr noundef %5, ptr noundef %7, ptr noundef %8) #5
@@ -204,11 +197,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIPCI, ptr %object, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.3) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
@@ -236,13 +229,13 @@ return:                                           ; preds = %return.sink.split, 
 define internal void @qvirtio_scmi_pci_start_hw(ptr noundef %obj) #0 {
 entry:
   tail call void @qvirtio_pci_start_hw(ptr noundef %obj) #5
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIPCI, ptr %obj, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %obj, i64 152
   %0 = load ptr, ptr %scmi, align 8
   %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #5
   %and.i = and i64 %call.i, -1073741825
   tail call void @qvirtio_set_features(ptr noundef %0, i64 noundef %and.i) #5
   %call2.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 2, i64 noundef 8) #6
-  %queues.i = getelementptr inbounds %struct.QVhostUserSCMIPCI, ptr %obj, i64 0, i32 1, i32 1
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 160
   store ptr %call2.i, ptr %queues.i, align 8
   %1 = load ptr, ptr @alloc, align 8
   %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %0, ptr noundef %1, i16 noundef zeroext 0) #5
@@ -251,7 +244,7 @@ entry:
   %3 = load ptr, ptr @alloc, align 8
   %call3.i.c = tail call ptr @qvirtqueue_setup(ptr noundef %0, ptr noundef %3, i16 noundef zeroext 1) #5
   %4 = load ptr, ptr %queues.i, align 8
-  %arrayidx.i.c = getelementptr ptr, ptr %4, i64 1
+  %arrayidx.i.c = getelementptr i8, ptr %4, i64 8
   store ptr %call3.i.c, ptr %arrayidx.i.c, align 8
   tail call void @qvirtio_set_driver_ok(ptr noundef %0) #5
   ret void
@@ -260,9 +253,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_scmi_pci_destructor(ptr noundef %obj) #0 {
 entry:
-  %scmi = getelementptr inbounds %struct.QVhostUserSCMIPCI, ptr %obj, i64 0, i32 1
+  %scmi = getelementptr inbounds i8, ptr %obj, i64 152
   %0 = load ptr, ptr %scmi, align 8
-  %queues.i = getelementptr inbounds %struct.QVhostUserSCMIPCI, ptr %obj, i64 0, i32 1, i32 1
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 160
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %queues.i, align 8
   %3 = load ptr, ptr %2, align 8
@@ -270,7 +263,7 @@ entry:
   tail call void @qvirtqueue_cleanup(ptr noundef %1, ptr noundef %3, ptr noundef %4) #5
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %queues.i, align 8
-  %arrayidx.i.c = getelementptr ptr, ptr %6, i64 1
+  %arrayidx.i.c = getelementptr i8, ptr %6, i64 8
   %7 = load ptr, ptr %arrayidx.i.c, align 8
   %8 = load ptr, ptr @alloc, align 8
   tail call void @qvirtqueue_cleanup(ptr noundef %5, ptr noundef %7, ptr noundef %8) #5

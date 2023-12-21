@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_vcrypto_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %union.AESState = type { <16 x i8> }
 
 @AES_sbox = external local_unnamed_addr constant [256 x i8], align 16
@@ -488,14 +486,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -575,14 +573,14 @@ declare void @vext_set_elems_1s(ptr noundef, i32 noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp24 = icmp ult i32 %conv5, %conv
@@ -691,14 +689,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -806,14 +804,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -921,14 +919,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -1004,14 +1002,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -1092,14 +1090,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1179,14 +1177,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1437,14 +1435,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -1522,14 +1520,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -1610,14 +1608,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1697,14 +1695,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1784,14 +1782,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -1869,14 +1867,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -1957,14 +1955,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2044,14 +2042,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2131,14 +2129,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -2216,14 +2214,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -2304,14 +2302,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2391,14 +2389,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2478,14 +2476,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -2563,14 +2561,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -2651,14 +2649,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2738,14 +2736,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2962,7 +2960,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_egs_check(i32 noundef %egs, ptr noundef %env) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %rem = urem i32 %conv, %egs
@@ -2970,7 +2968,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %vstart2 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart2 = getelementptr inbounds i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart2, align 8
   %conv3 = trunc i64 %1 to i32
   %rem5 = urem i32 %conv3, %egs
@@ -2998,11 +2996,11 @@ define dso_local void @helper_vaesef_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3012,8 +3010,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr %round_key, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_AK.exit
@@ -3086,11 +3084,11 @@ define dso_local void @helper_vaesef_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3100,7 +3098,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
-  %arrayidx16 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_AK.exit
@@ -3169,11 +3167,11 @@ define dso_local void @helper_vaesdf_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3183,8 +3181,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr %round_key, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK.exit
@@ -3257,11 +3255,11 @@ define dso_local void @helper_vaesdf_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3271,7 +3269,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
-  %arrayidx16 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK.exit
@@ -3340,11 +3338,11 @@ define dso_local void @helper_vaesem_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3354,8 +3352,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr %round_key, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_MC_AK.exit
@@ -3428,11 +3426,11 @@ define dso_local void @helper_vaesem_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3442,7 +3440,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
-  %arrayidx16 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_MC_AK.exit
@@ -3511,11 +3509,11 @@ define dso_local void @helper_vaesdm_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3525,8 +3523,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr %round_key, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK_IMC.exit
@@ -3599,11 +3597,11 @@ define dso_local void @helper_vaesdm_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3613,7 +3611,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
-  %arrayidx16 = getelementptr inbounds [2 x i64], ptr %round_state, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK_IMC.exit
@@ -3680,11 +3678,11 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaesz_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #7 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv425 = and i64 %div16, 4294967295
@@ -3746,11 +3744,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaeskf1_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div33 = lshr i64 %2, 2
   %conv736 = and i64 %div33, 4294967295
@@ -3863,7 +3861,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaeskf2_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
@@ -3880,7 +3878,7 @@ if.then:                                          ; preds = %entry, %entry, %ent
 
 if.end:                                           ; preds = %entry, %if.then
   %uimm.addr.0 = phi i32 [ %xor, %if.then ], [ %and, %entry ]
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div46 = lshr i64 %2, 2
   %conv6 = trunc i64 %div46 to i32
@@ -4055,14 +4053,14 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2ms_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vtype = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 7
+  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
   %1 = and i64 %0, 56
   %cmp = icmp eq i64 %1, 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div21 = lshr i64 %2, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv485 = and i64 %div21, 4294967295
   %3 = load i64, ptr %vl, align 16
   %div52286 = lshr i64 %3, 2
@@ -4080,17 +4078,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %add.ptr.us = getelementptr i32, ptr %vd, i64 %idx.ext.us
   %add.ptr12.us = getelementptr i32, ptr %vs1, i64 %idx.ext.us
   %add.ptr15.us = getelementptr i32, ptr %vs2, i64 %idx.ext.us
-  %arrayidx.i.us = getelementptr i32, ptr %add.ptr12.us, i64 2
+  %arrayidx.i.us = getelementptr i8, ptr %add.ptr12.us, i64 8
   %4 = load i32, ptr %arrayidx.i.us, align 4
   %or.i.i.i.us = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 15)
   %or.i3.i.i.us = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 13)
   %xor.i.i.us = xor i32 %or.i.i.i.us, %or.i3.i.i.us
   %shr.i.i.us = lshr i32 %4, 10
   %xor2.i.i.us = xor i32 %xor.i.i.us, %shr.i.i.us
-  %arrayidx1.i.us = getelementptr i32, ptr %add.ptr15.us, i64 1
+  %arrayidx1.i.us = getelementptr i8, ptr %add.ptr15.us, i64 4
   %5 = load i32, ptr %arrayidx1.i.us, align 4
   %add.i.us = add i32 %xor2.i.i.us, %5
-  %arrayidx2.i.us = getelementptr i32, ptr %add.ptr.us, i64 1
+  %arrayidx2.i.us = getelementptr i8, ptr %add.ptr.us, i64 4
   %6 = load i32, ptr %arrayidx2.i.us, align 4
   %or.i.i18.i.us = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 25)
   %or.i3.i19.i.us = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 14)
@@ -4100,16 +4098,16 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %add.ptr.us, align 4
   %add4.i.us = add i32 %add.i.us, %7
   %add6.i.us = add i32 %add4.i.us, %xor2.i22.i.us
-  %arrayidx8.i.us = getelementptr i32, ptr %add.ptr12.us, i64 3
+  %arrayidx8.i.us = getelementptr i8, ptr %add.ptr12.us, i64 12
   %8 = load i32, ptr %arrayidx8.i.us, align 4
   %or.i.i23.i.us = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 15)
   %or.i3.i24.i.us = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 13)
   %xor.i25.i.us = xor i32 %or.i.i23.i.us, %or.i3.i24.i.us
   %shr.i26.i.us = lshr i32 %8, 10
   %xor2.i27.i.us = xor i32 %xor.i25.i.us, %shr.i26.i.us
-  %arrayidx10.i.us = getelementptr i32, ptr %add.ptr15.us, i64 2
+  %arrayidx10.i.us = getelementptr i8, ptr %add.ptr15.us, i64 8
   %9 = load i32, ptr %arrayidx10.i.us, align 4
-  %arrayidx12.i.us = getelementptr i32, ptr %add.ptr.us, i64 2
+  %arrayidx12.i.us = getelementptr i8, ptr %add.ptr.us, i64 8
   %10 = load i32, ptr %arrayidx12.i.us, align 4
   %or.i.i28.i.us = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 25)
   %or.i3.i29.i.us = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 14)
@@ -4124,9 +4122,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %xor.i35.i.us = xor i32 %or.i.i33.i.us, %or.i3.i34.i.us
   %shr.i36.i.us = lshr i32 %add6.i.us, 10
   %xor2.i37.i.us = xor i32 %xor.i35.i.us, %shr.i36.i.us
-  %arrayidx20.i.us = getelementptr i32, ptr %add.ptr15.us, i64 3
+  %arrayidx20.i.us = getelementptr i8, ptr %add.ptr15.us, i64 12
   %11 = load i32, ptr %arrayidx20.i.us, align 4
-  %arrayidx22.i.us = getelementptr i32, ptr %add.ptr.us, i64 3
+  %arrayidx22.i.us = getelementptr i8, ptr %add.ptr.us, i64 12
   %12 = load i32, ptr %arrayidx22.i.us, align 4
   %or.i.i38.i.us = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 25)
   %or.i3.i39.i.us = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 14)
@@ -4169,17 +4167,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr18 = getelementptr i64, ptr %vd, i64 %idx.ext17
   %add.ptr21 = getelementptr i64, ptr %vs1, i64 %idx.ext17
   %add.ptr24 = getelementptr i64, ptr %vs2, i64 %idx.ext17
-  %arrayidx.i23 = getelementptr i64, ptr %add.ptr21, i64 2
+  %arrayidx.i23 = getelementptr i8, ptr %add.ptr21, i64 16
   %16 = load i64, ptr %arrayidx.i23, align 8
   %or.i.i.i24 = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 45)
   %or.i3.i.i25 = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 3)
   %xor.i.i26 = xor i64 %or.i.i.i24, %or.i3.i.i25
   %shr.i.i27 = lshr i64 %16, 6
   %xor2.i.i28 = xor i64 %xor.i.i26, %shr.i.i27
-  %arrayidx1.i29 = getelementptr i64, ptr %add.ptr24, i64 1
+  %arrayidx1.i29 = getelementptr i8, ptr %add.ptr24, i64 8
   %17 = load i64, ptr %arrayidx1.i29, align 8
   %add.i30 = add i64 %xor2.i.i28, %17
-  %arrayidx2.i31 = getelementptr i64, ptr %add.ptr18, i64 1
+  %arrayidx2.i31 = getelementptr i8, ptr %add.ptr18, i64 8
   %18 = load i64, ptr %arrayidx2.i31, align 8
   %or.i.i18.i32 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 63)
   %or.i3.i19.i33 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 56)
@@ -4189,16 +4187,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %19 = load i64, ptr %add.ptr18, align 8
   %add4.i37 = add i64 %add.i30, %19
   %add6.i38 = add i64 %add4.i37, %xor2.i22.i36
-  %arrayidx8.i39 = getelementptr i64, ptr %add.ptr21, i64 3
+  %arrayidx8.i39 = getelementptr i8, ptr %add.ptr21, i64 24
   %20 = load i64, ptr %arrayidx8.i39, align 8
   %or.i.i23.i40 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 45)
   %or.i3.i24.i41 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 3)
   %xor.i25.i42 = xor i64 %or.i.i23.i40, %or.i3.i24.i41
   %shr.i26.i43 = lshr i64 %20, 6
   %xor2.i27.i44 = xor i64 %xor.i25.i42, %shr.i26.i43
-  %arrayidx10.i45 = getelementptr i64, ptr %add.ptr24, i64 2
+  %arrayidx10.i45 = getelementptr i8, ptr %add.ptr24, i64 16
   %21 = load i64, ptr %arrayidx10.i45, align 8
-  %arrayidx12.i46 = getelementptr i64, ptr %add.ptr18, i64 2
+  %arrayidx12.i46 = getelementptr i8, ptr %add.ptr18, i64 16
   %22 = load i64, ptr %arrayidx12.i46, align 8
   %or.i.i28.i47 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 63)
   %or.i3.i29.i48 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 56)
@@ -4213,9 +4211,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %xor.i35.i57 = xor i64 %or.i.i33.i55, %or.i3.i34.i56
   %shr.i36.i58 = lshr i64 %add6.i38, 6
   %xor2.i37.i59 = xor i64 %xor.i35.i57, %shr.i36.i58
-  %arrayidx20.i60 = getelementptr i64, ptr %add.ptr24, i64 3
+  %arrayidx20.i60 = getelementptr i8, ptr %add.ptr24, i64 24
   %23 = load i64, ptr %arrayidx20.i60, align 8
-  %arrayidx22.i61 = getelementptr i64, ptr %add.ptr18, i64 3
+  %arrayidx22.i61 = getelementptr i8, ptr %add.ptr18, i64 24
   %24 = load i64, ptr %arrayidx22.i61, align 8
   %or.i.i38.i62 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 63)
   %or.i3.i39.i63 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 56)
@@ -4280,10 +4278,10 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2ch32_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div11 = lshr i64 %0, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
@@ -4301,22 +4299,22 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
   %add.ptr6 = getelementptr i32, ptr %vd, i64 %idx.ext
   %add.ptr9 = getelementptr i32, ptr %vs1, i64 %idx.ext
-  %add.ptr10 = getelementptr i32, ptr %add.ptr9, i64 2
+  %add.ptr10 = getelementptr i8, ptr %add.ptr9, i64 8
   %add.ptr10.val = load i32, ptr %add.ptr10, align 4
-  %2 = getelementptr i32, ptr %add.ptr9, i64 3
+  %2 = getelementptr i8, ptr %add.ptr9, i64 12
   %add.ptr10.val13 = load i32, ptr %2, align 4
-  %arrayidx.i = getelementptr i32, ptr %add.ptr, i64 3
+  %arrayidx.i = getelementptr i8, ptr %add.ptr, i64 12
   %3 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx1.i = getelementptr i32, ptr %add.ptr, i64 2
+  %arrayidx1.i = getelementptr i8, ptr %add.ptr, i64 8
   %4 = load i32, ptr %arrayidx1.i, align 4
-  %arrayidx2.i = getelementptr i32, ptr %add.ptr, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %add.ptr, i64 4
   %5 = load i32, ptr %arrayidx2.i, align 4
   %6 = load i32, ptr %add.ptr, align 4
-  %arrayidx4.i = getelementptr i32, ptr %add.ptr6, i64 3
+  %arrayidx4.i = getelementptr i8, ptr %add.ptr6, i64 12
   %7 = load i32, ptr %arrayidx4.i, align 4
-  %arrayidx5.i = getelementptr i32, ptr %add.ptr6, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %add.ptr6, i64 8
   %8 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx6.i = getelementptr i32, ptr %add.ptr6, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %add.ptr6, i64 4
   %9 = load i32, ptr %arrayidx6.i, align 4
   %10 = load i32, ptr %add.ptr6, align 4
   %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 26)
@@ -4406,10 +4404,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2ch64_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div11 = lshr i64 %0, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
@@ -4427,22 +4425,22 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
   %add.ptr6 = getelementptr i64, ptr %vd, i64 %idx.ext
   %add.ptr9 = getelementptr i64, ptr %vs1, i64 %idx.ext
-  %add.ptr10 = getelementptr i64, ptr %add.ptr9, i64 2
+  %add.ptr10 = getelementptr i8, ptr %add.ptr9, i64 16
   %add.ptr10.val = load i64, ptr %add.ptr10, align 8
-  %2 = getelementptr i64, ptr %add.ptr9, i64 3
+  %2 = getelementptr i8, ptr %add.ptr9, i64 24
   %add.ptr10.val13 = load i64, ptr %2, align 8
-  %arrayidx.i = getelementptr i64, ptr %add.ptr, i64 3
+  %arrayidx.i = getelementptr i8, ptr %add.ptr, i64 24
   %3 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx1.i = getelementptr i64, ptr %add.ptr, i64 2
+  %arrayidx1.i = getelementptr i8, ptr %add.ptr, i64 16
   %4 = load i64, ptr %arrayidx1.i, align 8
-  %arrayidx2.i = getelementptr i64, ptr %add.ptr, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %add.ptr, i64 8
   %5 = load i64, ptr %arrayidx2.i, align 8
   %6 = load i64, ptr %add.ptr, align 8
-  %arrayidx4.i = getelementptr i64, ptr %add.ptr6, i64 3
+  %arrayidx4.i = getelementptr i8, ptr %add.ptr6, i64 24
   %7 = load i64, ptr %arrayidx4.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %add.ptr6, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %add.ptr6, i64 16
   %8 = load i64, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr i64, ptr %add.ptr6, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %add.ptr6, i64 8
   %9 = load i64, ptr %arrayidx6.i, align 8
   %10 = load i64, ptr %add.ptr6, align 8
   %or.i.i.i = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 50)
@@ -4532,10 +4530,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2cl32_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div11 = lshr i64 %0, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
@@ -4556,18 +4554,18 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr9.val = load i32, ptr %add.ptr9, align 4
   %2 = getelementptr i8, ptr %add.ptr9, i64 4
   %add.ptr9.val13 = load i32, ptr %2, align 4
-  %arrayidx.i = getelementptr i32, ptr %add.ptr, i64 3
+  %arrayidx.i = getelementptr i8, ptr %add.ptr, i64 12
   %3 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx1.i = getelementptr i32, ptr %add.ptr, i64 2
+  %arrayidx1.i = getelementptr i8, ptr %add.ptr, i64 8
   %4 = load i32, ptr %arrayidx1.i, align 4
-  %arrayidx2.i = getelementptr i32, ptr %add.ptr, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %add.ptr, i64 4
   %5 = load i32, ptr %arrayidx2.i, align 4
   %6 = load i32, ptr %add.ptr, align 4
-  %arrayidx4.i = getelementptr i32, ptr %add.ptr6, i64 3
+  %arrayidx4.i = getelementptr i8, ptr %add.ptr6, i64 12
   %7 = load i32, ptr %arrayidx4.i, align 4
-  %arrayidx5.i = getelementptr i32, ptr %add.ptr6, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %add.ptr6, i64 8
   %8 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx6.i = getelementptr i32, ptr %add.ptr6, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %add.ptr6, i64 4
   %9 = load i32, ptr %arrayidx6.i, align 4
   %10 = load i32, ptr %add.ptr6, align 4
   %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 26)
@@ -4657,10 +4655,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2cl64_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div13 = lshr i64 %0, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv118 = and i64 %div13, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21419 = lshr i64 %1, 2
@@ -4681,18 +4679,18 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr9.val = load i64, ptr %add.ptr9, align 8
   %2 = getelementptr i8, ptr %add.ptr9, i64 8
   %add.ptr9.val15 = load i64, ptr %2, align 8
-  %arrayidx.i = getelementptr i64, ptr %add.ptr, i64 3
+  %arrayidx.i = getelementptr i8, ptr %add.ptr, i64 24
   %3 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx1.i = getelementptr i64, ptr %add.ptr, i64 2
+  %arrayidx1.i = getelementptr i8, ptr %add.ptr, i64 16
   %4 = load i64, ptr %arrayidx1.i, align 8
-  %arrayidx2.i = getelementptr i64, ptr %add.ptr, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %add.ptr, i64 8
   %5 = load i64, ptr %arrayidx2.i, align 8
   %6 = load i64, ptr %add.ptr, align 8
-  %arrayidx4.i = getelementptr i64, ptr %add.ptr6, i64 3
+  %arrayidx4.i = getelementptr i8, ptr %add.ptr6, i64 24
   %7 = load i64, ptr %arrayidx4.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %add.ptr6, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %add.ptr6, i64 16
   %8 = load i64, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr i64, ptr %add.ptr6, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %add.ptr6, i64 8
   %9 = load i64, ptr %arrayidx6.i, align 8
   %10 = load i64, ptr %add.ptr6, align 8
   %or.i.i.i = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 50)
@@ -4783,12 +4781,12 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local void @helper_vsm3me_vv(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs1_vptr, ptr nocapture noundef readonly %vs2_vptr, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %w = alloca [24 x i32], align 16
-  %vtype = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 7
+  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div29 = lshr i64 %1, 3
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %sext = shl i64 %div29, 32
   %conv538 = ashr exact i64 %sext, 32
   %2 = load i64, ptr %vl, align 16
@@ -4913,12 +4911,12 @@ entry:
   %v1 = alloca [8 x i32], align 16
   %v2 = alloca [8 x i32], align 16
   %v3 = alloca [8 x i32], align 16
-  %vtype = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 7
+  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div23 = lshr i64 %1, 3
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %sext = shl i64 %div23, 32
   %conv533 = ashr exact i64 %sext, 32
   %2 = load i64, ptr %vl, align 16
@@ -4928,29 +4926,29 @@ entry:
 
 for.cond8.preheader.lr.ph:                        ; preds = %entry
   %conv4 = trunc i64 %div23 to i32
-  %arrayidx1.i = getelementptr inbounds i32, ptr %v3, i64 4
-  %arrayidx2.i = getelementptr inbounds i32, ptr %v3, i64 1
-  %arrayidx3.i = getelementptr inbounds i32, ptr %v3, i64 5
+  %arrayidx1.i = getelementptr inbounds i8, ptr %v3, i64 16
+  %arrayidx2.i = getelementptr inbounds i8, ptr %v3, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %v3, i64 20
   %mul.i = shl i32 %uimm, 1
-  %arrayidx6.i = getelementptr inbounds i32, ptr %v2, i64 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %v2, i64 16
   %cmp.i.i = icmp ult i32 %mul.i, 16
   %cond.i.i = select i1 %cmp.i.i, i32 2043430169, i32 2055708042
   %or.i60.i = tail call i32 @llvm.fshl.i32(i32 %cond.i.i, i32 %cond.i.i, i32 %mul.i)
-  %arrayidx15.i = getelementptr inbounds i32, ptr %v2, i64 1
-  %arrayidx16.i = getelementptr inbounds i32, ptr %v2, i64 2
-  %arrayidx18.i = getelementptr inbounds i32, ptr %v2, i64 3
-  %arrayidx23.i = getelementptr inbounds i32, ptr %v2, i64 5
-  %arrayidx24.i = getelementptr inbounds i32, ptr %v2, i64 6
-  %arrayidx26.i = getelementptr inbounds i32, ptr %v2, i64 7
-  %arrayidx35.i = getelementptr inbounds i32, ptr %v1, i64 3
-  %arrayidx38.i = getelementptr inbounds i32, ptr %v1, i64 1
-  %arrayidx43.i = getelementptr inbounds i32, ptr %v1, i64 7
-  %arrayidx47.i = getelementptr inbounds i32, ptr %v1, i64 5
+  %arrayidx15.i = getelementptr inbounds i8, ptr %v2, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %v2, i64 8
+  %arrayidx18.i = getelementptr inbounds i8, ptr %v2, i64 12
+  %arrayidx23.i = getelementptr inbounds i8, ptr %v2, i64 20
+  %arrayidx24.i = getelementptr inbounds i8, ptr %v2, i64 24
+  %arrayidx26.i = getelementptr inbounds i8, ptr %v2, i64 28
+  %arrayidx35.i = getelementptr inbounds i8, ptr %v1, i64 12
+  %arrayidx38.i = getelementptr inbounds i8, ptr %v1, i64 4
+  %arrayidx43.i = getelementptr inbounds i8, ptr %v1, i64 28
+  %arrayidx47.i = getelementptr inbounds i8, ptr %v1, i64 20
   %add49.i = or disjoint i32 %mul.i, 1
   %cmp.i76.i = icmp ult i32 %add49.i, 16
-  %arrayidx81.i = getelementptr inbounds i32, ptr %v1, i64 2
-  %arrayidx85.i = getelementptr inbounds i32, ptr %v1, i64 6
-  %arrayidx87.i = getelementptr inbounds i32, ptr %v1, i64 4
+  %arrayidx81.i = getelementptr inbounds i8, ptr %v1, i64 8
+  %arrayidx85.i = getelementptr inbounds i8, ptr %v1, i64 24
+  %arrayidx87.i = getelementptr inbounds i8, ptr %v1, i64 16
   br label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %for.cond8.preheader.lr.ph, %for.inc36
@@ -5142,10 +5140,10 @@ entry:
   %S = alloca [2 x i64], align 16
   %0 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %0, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div32 = lshr i64 %1, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv2117 = and i64 %div32, 4294967295
   %2 = load i64, ptr %vl, align 16
   %div333118 = lshr i64 %2, 2
@@ -5317,10 +5315,10 @@ entry:
   %Y = alloca [2 x i64], align 16
   %0 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %0, align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div29 = lshr i64 %1, 2
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %conv2114 = and i64 %div29, 4294967295
   %2 = load i64, ptr %vl, align 16
   %div330115 = lshr i64 %2, 2
@@ -5481,11 +5479,11 @@ define dso_local void @helper_vsm4k_vi(ptr noundef %vd, ptr nocapture noundef re
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div34 = lshr i64 %0, 2
   %conv = trunc i64 %div34 to i32
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %1 = load i64, ptr %vl, align 16
   %div135 = lshr i64 %1, 2
   %conv2 = trunc i64 %div135 to i32
@@ -5635,11 +5633,11 @@ define dso_local void @helper_vsm4r_vv(ptr noundef %vd, ptr nocapture noundef re
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div29 = lshr i64 %0, 2
   %conv = trunc i64 %div29 to i32
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %1 = load i64, ptr %vl, align 16
   %div130 = lshr i64 %1, 2
   %conv2 = trunc i64 %div130 to i32
@@ -5649,9 +5647,9 @@ entry:
   br i1 %cmp39, label %for.body.lr.ph, label %for.end40
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.phi.trans.insert.i = getelementptr inbounds i32, ptr %tmp, i64 1
-  %arrayidx3.phi.trans.insert.i = getelementptr inbounds i32, ptr %tmp, i64 2
-  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i32, ptr %tmp, i64 3
+  %arrayidx.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 4
+  %arrayidx3.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 8
+  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 12
   %3 = shl i32 %conv, 2
   %scevgep52 = getelementptr inbounds i8, ptr %tmp, i64 16
   %4 = sub i32 %conv2, %conv
@@ -5792,11 +5790,11 @@ define dso_local void @helper_vsm4r_vs(ptr noundef %vd, ptr nocapture noundef re
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div26 = lshr i64 %0, 2
   %conv = trunc i64 %div26 to i32
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %1 = load i64, ptr %vl, align 16
   %div127 = lshr i64 %1, 2
   %conv2 = trunc i64 %div127 to i32
@@ -5806,9 +5804,9 @@ entry:
   br i1 %cmp35, label %for.body.lr.ph, label %for.end39
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.phi.trans.insert.i = getelementptr inbounds i32, ptr %tmp, i64 1
-  %arrayidx3.phi.trans.insert.i = getelementptr inbounds i32, ptr %tmp, i64 2
-  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i32, ptr %tmp, i64 3
+  %arrayidx.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 4
+  %arrayidx3.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 8
+  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 12
   %3 = shl i32 %conv, 2
   %scevgep44 = getelementptr inbounds i8, ptr %tmp, i64 16
   %4 = sub i32 %conv2, %conv

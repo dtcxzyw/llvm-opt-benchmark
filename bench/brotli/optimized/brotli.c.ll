@@ -108,45 +108,45 @@ define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_a
 entry:
   %context = alloca %struct.Context, align 8
   store i32 11, ptr %context, align 8
-  %lgwin = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 1
+  %lgwin = getelementptr inbounds i8, ptr %context, i64 4
   store i32 -1, ptr %lgwin, align 4
-  %verbosity = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 2
-  %force_overwrite = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 3
-  %junk_source = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 4
-  %reject_uncompressible = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 5
-  %copy_stat = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 6
+  %verbosity = getelementptr inbounds i8, ptr %context, i64 8
+  %force_overwrite = getelementptr inbounds i8, ptr %context, i64 12
+  %junk_source = getelementptr inbounds i8, ptr %context, i64 16
+  %reject_uncompressible = getelementptr inbounds i8, ptr %context, i64 20
+  %copy_stat = getelementptr inbounds i8, ptr %context, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %verbosity, i8 0, i64 16, i1 false)
   store i32 1, ptr %copy_stat, align 8
-  %test_integrity = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 8
-  %write_to_stdout = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 7
-  %decompress = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 9
-  %output_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 11
-  %dictionary_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 12
-  %suffix = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 13
+  %test_integrity = getelementptr inbounds i8, ptr %context, i64 32
+  %write_to_stdout = getelementptr inbounds i8, ptr %context, i64 28
+  %decompress = getelementptr inbounds i8, ptr %context, i64 36
+  %output_path = getelementptr inbounds i8, ptr %context, i64 48
+  %dictionary_path = getelementptr inbounds i8, ptr %context, i64 56
+  %suffix = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %write_to_stdout, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %output_path, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %suffix, align 8
-  %scevgep = getelementptr inbounds i8, ptr %context, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %scevgep, i8 0, i64 80, i1 false)
-  %longest_path_len = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 15
+  %not_input_indices = getelementptr inbounds i8, ptr %context, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %not_input_indices, i8 0, i64 80, i1 false)
+  %longest_path_len = getelementptr inbounds i8, ptr %context, i64 152
   store i64 1, ptr %longest_path_len, align 8
-  %input_count = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 16
+  %input_count = getelementptr inbounds i8, ptr %context, i64 160
   store i64 0, ptr %input_count, align 8
-  %argc1 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 17
+  %argc1 = getelementptr inbounds i8, ptr %context, i64 168
   store i32 %argc, ptr %argc1, align 8
-  %argv2 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 18
+  %argv2 = getelementptr inbounds i8, ptr %context, i64 176
   store ptr %argv, ptr %argv2, align 8
-  %dictionary = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 19
-  %dictionary_size = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 20
-  %prepared_dictionary = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 21
-  %modified_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 22
-  %iterator_error = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 25
-  %buffer = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 26
+  %dictionary = getelementptr inbounds i8, ptr %context, i64 184
+  %dictionary_size = getelementptr inbounds i8, ptr %context, i64 192
+  %prepared_dictionary = getelementptr inbounds i8, ptr %context, i64 200
+  %modified_path = getelementptr inbounds i8, ptr %context, i64 208
+  %iterator_error = getelementptr inbounds i8, ptr %context, i64 224
+  %buffer = getelementptr inbounds i8, ptr %context, i64 232
   store ptr null, ptr %buffer, align 8
-  %current_input_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
-  %current_output_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
-  %fin = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 32
-  %fout = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 33
+  %current_input_path = getelementptr inbounds i8, ptr %context, i64 256
+  %current_output_path = getelementptr inbounds i8, ptr %context, i64 264
+  %fin = getelementptr inbounds i8, ptr %context, i64 280
+  %fout = getelementptr inbounds i8, ptr %context, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %dictionary, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_input_path, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fin, i8 0, i64 16, i1 false)
@@ -205,7 +205,7 @@ cond.end.i:                                       ; preds = %for.body.i
 if.then.i:                                        ; preds = %cond.end.i, %for.body.i
   %inc.i = add nsw i32 %next_option_index.0807.i, 1
   %idxprom6.i = sext i32 %next_option_index.0807.i to i64
-  %arrayidx7.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 14, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %idxprom6.i
   store i32 %i.0808.i, ptr %arrayidx7.i, align 4
   br label %for.inc557.i
 
@@ -237,7 +237,7 @@ if.then19.i:                                      ; preds = %lor.lhs.false.i, %i
 if.end25.i:                                       ; preds = %lor.lhs.false.i
   %inc27.i = add nsw i32 %next_option_index.0807.i, 1
   %idxprom28.i = sext i32 %next_option_index.0807.i to i64
-  %arrayidx29.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 14, i64 %idxprom28.i
+  %arrayidx29.i = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %idxprom28.i
   store i32 %i.0808.i, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i64 %call4.i, 2
   %arrayidx32.i = getelementptr inbounds i8, ptr %3, i64 1
@@ -469,7 +469,7 @@ if.then220.i:                                     ; preds = %lor.lhs.false213.i,
 if.end223.i:                                      ; preds = %lor.lhs.false213.i
   %inc225.i = add nsw i32 %next_option_index.1783.i, 1
   %idxprom226.i = sext i32 %next_option_index.1783.i to i64
-  %arrayidx227.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 14, i64 %idxprom226.i
+  %arrayidx227.i = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %idxprom226.i
   store i32 %inc206.i, ptr %arrayidx227.i, align 4
   switch i8 %8, label %for.inc.i [
     i8 111, label %if.then231.i
@@ -1225,10 +1225,10 @@ if.then24:                                        ; preds = %if.then10
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.then10
-  %input = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 27
+  %input = getelementptr inbounds i8, ptr %context, i64 240
   store ptr %call17, ptr %input, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call17, i64 524288
-  %output = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 28
+  %output = getelementptr inbounds i8, ptr %context, i64 248
   store ptr %add.ptr, ptr %output, align 8
   switch i32 %command.0.lcssa.i, label %sw.default [
     i32 4, label %sw.bb37
@@ -1242,15 +1242,15 @@ sw.bb34:                                          ; preds = %if.else423.i, %if.e
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.else
-  %input_file_length.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 31
-  %available_in.i.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 34
-  %available_out.i.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 36
-  %next_out.i.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 37
-  %total_in.i.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 38
-  %start_time.i.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 40
-  %next_in.i.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 35
-  %total_out.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 39
-  %end_time.i.i = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 41
+  %input_file_length.i = getelementptr inbounds i8, ptr %context, i64 272
+  %available_in.i.i.i = getelementptr inbounds i8, ptr %context, i64 296
+  %available_out.i.i.i = getelementptr inbounds i8, ptr %context, i64 312
+  %next_out.i.i.i = getelementptr inbounds i8, ptr %context, i64 320
+  %total_in.i.i.i = getelementptr inbounds i8, ptr %context, i64 328
+  %start_time.i.i.i = getelementptr inbounds i8, ptr %context, i64 344
+  %next_in.i.i.i = getelementptr inbounds i8, ptr %context, i64 304
+  %total_out.i.i = getelementptr inbounds i8, ptr %context, i64 336
+  %end_time.i.i = getelementptr inbounds i8, ptr %context, i64 352
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.end.i, %sw.bb35
@@ -1578,14 +1578,14 @@ land.end.i:                                       ; preds = %land.rhs.split.i, %
   br i1 %tobool74.not.i47, label %sw.epilog, label %while.cond.i, !llvm.loop !11
 
 sw.bb37:                                          ; preds = %if.else, %if.else
-  %available_in.i.i.i69 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 34
-  %available_out.i.i.i70 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 36
-  %next_out.i.i.i72 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 37
-  %total_in.i.i.i73 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 38
-  %start_time.i.i.i75 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 40
-  %next_in.i.i.i77 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 35
-  %total_out.i.i78 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 39
-  %end_time.i.i81 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 41
+  %available_in.i.i.i69 = getelementptr inbounds i8, ptr %context, i64 296
+  %available_out.i.i.i70 = getelementptr inbounds i8, ptr %context, i64 312
+  %next_out.i.i.i72 = getelementptr inbounds i8, ptr %context, i64 320
+  %total_in.i.i.i73 = getelementptr inbounds i8, ptr %context, i64 328
+  %start_time.i.i.i75 = getelementptr inbounds i8, ptr %context, i64 344
+  %next_in.i.i.i77 = getelementptr inbounds i8, ptr %context, i64 304
+  %total_out.i.i78 = getelementptr inbounds i8, ptr %context, i64 336
+  %end_time.i.i81 = getelementptr inbounds i8, ptr %context, i64 352
   br label %while.cond.i83
 
 while.cond.i83:                                   ; preds = %land.end.i98, %sw.bb37
@@ -2043,87 +2043,88 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc i32 @NextFile(ptr nocapture noundef %context) unnamed_addr #10 {
 entry:
-  %iterator = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 23
+  %iterator = getelementptr inbounds i8, ptr %context, i64 216
   %0 = load i32, ptr %iterator, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %iterator, align 8
-  %input_file_length = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 31
+  %input_file_length = getelementptr inbounds i8, ptr %context, i64 272
   store i64 -1, ptr %input_file_length, align 8
-  %input_count = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 16
+  %input_count = getelementptr inbounds i8, ptr %context, i64 160
   %1 = load i64, ptr %input_count, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %ignore = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 24
+  %not_input_indices = getelementptr inbounds i8, ptr %context, i64 72
+  %ignore = getelementptr inbounds i8, ptr %context, i64 220
   %ignore.promoted = load i32, ptr %ignore, align 4
-  %idxprom53 = sext i32 %ignore.promoted to i64
-  %arrayidx54 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 14, i64 %idxprom53
-  %2 = load i32, ptr %arrayidx54, align 4
-  %cmp655 = icmp eq i32 %inc, %2
-  br i1 %cmp655, label %while.body, label %while.end
+  %idxprom51 = sext i32 %ignore.promoted to i64
+  %arrayidx52 = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %idxprom51
+  %2 = load i32, ptr %arrayidx52, align 4
+  %cmp653 = icmp eq i32 %inc, %2
+  br i1 %cmp653, label %while.body, label %while.end
 
 if.then:                                          ; preds = %entry
   %cmp2 = icmp sgt i32 %0, 0
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %current_input_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path = getelementptr inbounds i8, ptr %context, i64 256
   store ptr null, ptr %current_input_path, align 8
-  %output_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 11
+  %output_path = getelementptr inbounds i8, ptr %context, i64 48
   %3 = load ptr, ptr %output_path, align 8
-  %current_output_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
+  %current_output_path = getelementptr inbounds i8, ptr %context, i64 264
   store ptr %3, ptr %current_output_path, align 8
   br label %return
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ %idxprom53, %while.cond.preheader ]
-  %inc85157 = phi i32 [ %inc8, %while.body ], [ %inc, %while.cond.preheader ]
-  %inc8 = add nsw i32 %inc85157, 1
+  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ %idxprom51, %while.cond.preheader ]
+  %4 = phi i32 [ %inc8, %while.body ], [ %inc, %while.cond.preheader ]
+  %inc8 = add nsw i32 %4, 1
   store i32 %inc8, ptr %iterator, align 8
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %4 = trunc i64 %indvars.iv.next to i32
-  store i32 %4, ptr %ignore, align 4
-  %arrayidx = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 14, i64 %indvars.iv.next
-  %5 = load i32, ptr %arrayidx, align 4
-  %cmp6 = icmp eq i32 %inc8, %5
+  %5 = trunc i64 %indvars.iv.next to i32
+  store i32 %5, ptr %ignore, align 4
+  %arrayidx = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %indvars.iv.next
+  %6 = load i32, ptr %arrayidx, align 4
+  %cmp6 = icmp eq i32 %inc8, %6
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %.lcssa = phi i32 [ %inc, %while.cond.preheader ], [ %inc8, %while.body ]
-  %argc = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 17
-  %6 = load i32, ptr %argc, align 8
-  %cmp12.not = icmp slt i32 %.lcssa, %6
+  %argc = getelementptr inbounds i8, ptr %context, i64 168
+  %7 = load i32, ptr %argc, align 8
+  %cmp12.not = icmp slt i32 %.lcssa, %7
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %while.end
-  %argv = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 18
-  %7 = load ptr, ptr %argv, align 8
+  %argv = getelementptr inbounds i8, ptr %context, i64 176
+  %8 = load ptr, ptr %argv, align 8
   %idxprom16 = sext i32 %.lcssa to i64
-  %arrayidx17 = getelementptr inbounds ptr, ptr %7, i64 %idxprom16
-  %8 = load ptr, ptr %arrayidx17, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
+  %arrayidx17 = getelementptr inbounds ptr, ptr %8, i64 %idxprom16
+  %9 = load ptr, ptr %arrayidx17, align 8
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %cmp18 = icmp eq i64 %call, 1
   br i1 %cmp18, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end14
-  %9 = load i8, ptr %8, align 1
-  %cmp20 = icmp eq i8 %9, 45
+  %10 = load i8, ptr %9, align 1
+  %cmp20 = icmp eq i8 %10, 45
   br i1 %cmp20, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %land.lhs.true
-  %current_input_path23 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path23 = getelementptr inbounds i8, ptr %context, i64 256
   store ptr null, ptr %current_input_path23, align 8
-  %output_path24 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 11
-  %10 = load ptr, ptr %output_path24, align 8
-  %current_output_path25 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
-  store ptr %10, ptr %current_output_path25, align 8
+  %output_path24 = getelementptr inbounds i8, ptr %context, i64 48
+  %11 = load ptr, ptr %output_path24, align 8
+  %current_output_path25 = getelementptr inbounds i8, ptr %context, i64 264
+  store ptr %11, ptr %current_output_path25, align 8
   br label %return
 
 if.end26:                                         ; preds = %land.lhs.true, %if.end14
-  %current_input_path27 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
-  store ptr %8, ptr %current_input_path27, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %8, ptr noundef nonnull @.str.45)
+  %current_input_path27 = getelementptr inbounds i8, ptr %context, i64 256
+  store ptr %9, ptr %current_input_path27, align 8
+  %call.i = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.45)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %FileSize.exit, label %if.end.i
 
@@ -2146,38 +2147,38 @@ if.end6.i:                                        ; preds = %if.end.i
 FileSize.exit:                                    ; preds = %if.end26, %if.then4.i, %if.end6.i
   %retval.0.i = phi i64 [ -1, %if.then4.i ], [ -1, %if.end26 ], [ %call7..i, %if.end6.i ]
   store i64 %retval.0.i, ptr %input_file_length, align 8
-  %output_path30 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 11
-  %11 = load ptr, ptr %output_path30, align 8
-  %current_output_path31 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
-  store ptr %11, ptr %current_output_path31, align 8
-  %tobool.not = icmp eq ptr %11, null
+  %output_path30 = getelementptr inbounds i8, ptr %context, i64 48
+  %12 = load ptr, ptr %output_path30, align 8
+  %current_output_path31 = getelementptr inbounds i8, ptr %context, i64 264
+  store ptr %12, ptr %current_output_path31, align 8
+  %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %if.end34, label %return
 
 if.end34:                                         ; preds = %FileSize.exit
-  %write_to_stdout = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 7
-  %12 = load i32, ptr %write_to_stdout, align 4
-  %tobool35.not = icmp eq i32 %12, 0
+  %write_to_stdout = getelementptr inbounds i8, ptr %context, i64 28
+  %13 = load i32, ptr %write_to_stdout, align 4
+  %tobool35.not = icmp eq i32 %13, 0
   br i1 %tobool35.not, label %if.end37, label %return
 
 if.end37:                                         ; preds = %if.end34
-  %modified_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 22
-  %13 = load ptr, ptr %modified_path, align 8
-  %call38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %8) #21
+  %modified_path = getelementptr inbounds i8, ptr %context, i64 208
   %14 = load ptr, ptr %modified_path, align 8
-  store ptr %14, ptr %current_output_path31, align 8
-  %decompress = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 9
-  %15 = load i32, ptr %decompress, align 4
-  %tobool41.not = icmp eq i32 %15, 0
+  %call38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %9) #21
+  %15 = load ptr, ptr %modified_path, align 8
+  store ptr %15, ptr %current_output_path31, align 8
+  %decompress = getelementptr inbounds i8, ptr %context, i64 36
+  %16 = load i32, ptr %decompress, align 4
+  %tobool41.not = icmp eq i32 %16, 0
   br i1 %tobool41.not, label %if.else, label %if.then42
 
 if.then42:                                        ; preds = %if.end37
-  %suffix = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 13
-  %16 = load ptr, ptr %suffix, align 8
-  %call43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #18
-  %call.i47 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 47) #18
+  %suffix = getelementptr inbounds i8, ptr %context, i64 64
+  %17 = load ptr, ptr %suffix, align 8
+  %call43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
+  %call.i47 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #18
   %tobool.not.i = icmp eq ptr %call.i47, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i47, i64 1
-  %spec.select.i = select i1 %tobool.not.i, ptr %14, ptr %add.ptr.i
+  %spec.select.i = select i1 %tobool.not.i, ptr %15, ptr %add.ptr.i
   %call1.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #18
   %tobool2.not.i = icmp eq ptr %call1.i, null
   %add.ptr4.i = getelementptr inbounds i8, ptr %call1.i, i64 1
@@ -2188,11 +2189,11 @@ if.then42:                                        ; preds = %if.end37
   br i1 %cmp47, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.then42
-  %17 = load ptr, ptr @stderr, align 8
-  %tobool.not.i48 = icmp eq ptr %8, null
-  %cond.i = select i1 %tobool.not.i48, ptr @.str.52, ptr %8
-  %call51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.56, ptr noundef nonnull %cond.i) #19
-  %iterator_error = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 25
+  %18 = load ptr, ptr @stderr, align 8
+  %tobool.not.i48 = icmp eq ptr %9, null
+  %cond.i = select i1 %tobool.not.i48, ptr @.str.52, ptr %9
+  %call51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.56, ptr noundef nonnull %cond.i) #19
+  %iterator_error = getelementptr inbounds i8, ptr %context, i64 224
   store i32 1, ptr %iterator_error, align 8
   br label %return
 
@@ -2200,16 +2201,16 @@ if.end52:                                         ; preds = %if.then42
   %add.ptr = getelementptr inbounds i8, ptr %path.addr.1.i, i64 %call46
   %idx.neg = sub i64 0, %call43
   %add.ptr53 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %add.ptr53) #18
+  %call55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %add.ptr53) #18
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.end62, label %if.then58
 
 if.then58:                                        ; preds = %if.end52
-  %18 = load ptr, ptr @stderr, align 8
-  %tobool.not.i49 = icmp eq ptr %8, null
-  %cond.i50 = select i1 %tobool.not.i49, ptr @.str.52, ptr %8
-  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.57, ptr noundef nonnull %cond.i50) #19
-  %iterator_error61 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 25
+  %19 = load ptr, ptr @stderr, align 8
+  %tobool.not.i49 = icmp eq ptr %9, null
+  %cond.i50 = select i1 %tobool.not.i49, ptr @.str.52, ptr %9
+  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.57, ptr noundef nonnull %cond.i50) #19
+  %iterator_error61 = getelementptr inbounds i8, ptr %context, i64 224
   store i32 1, ptr %iterator_error61, align 8
   br label %return
 
@@ -2218,10 +2219,10 @@ if.end62:                                         ; preds = %if.end52
   br label %return
 
 if.else:                                          ; preds = %if.end37
-  %add.ptr65 = getelementptr inbounds i8, ptr %14, i64 %call
-  %suffix66 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 13
-  %19 = load ptr, ptr %suffix66, align 8
-  %call67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr65, ptr noundef nonnull dereferenceable(1) %19) #21
+  %add.ptr65 = getelementptr inbounds i8, ptr %15, i64 %call
+  %suffix66 = getelementptr inbounds i8, ptr %context, i64 64
+  %20 = load ptr, ptr %suffix66, align 8
+  %call67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr65, ptr noundef nonnull dereferenceable(1) %20) #21
   br label %return
 
 return:                                           ; preds = %if.end34, %FileSize.exit, %while.end, %if.then, %if.else, %if.end62, %if.then58, %if.then49, %if.then22, %if.end
@@ -2238,9 +2239,9 @@ declare i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @OpenFiles(ptr nocapture noundef %context) unnamed_addr #0 {
 entry:
-  %current_input_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path = getelementptr inbounds i8, ptr %context, i64 256
   %0 = load ptr, ptr %current_input_path, align 8
-  %fin = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 32
+  %fin = getelementptr inbounds i8, ptr %context, i64 280
   store ptr null, ptr %fin, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -2265,16 +2266,16 @@ OpenInputFile.exit.thread:                        ; preds = %if.end.i
   br label %if.end
 
 OpenInputFile.exit:                               ; preds = %if.then.i, %if.end.i
-  %test_integrity = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 8
+  %test_integrity = getelementptr inbounds i8, ptr %context, i64 32
   %3 = load i32, ptr %test_integrity, align 8
   %tobool = icmp eq i32 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %OpenInputFile.exit
-  %current_output_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
+  %current_output_path = getelementptr inbounds i8, ptr %context, i64 264
   %4 = load ptr, ptr %current_output_path, align 8
-  %fout = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 33
-  %force_overwrite = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 3
+  %fout = getelementptr inbounds i8, ptr %context, i64 288
+  %force_overwrite = getelementptr inbounds i8, ptr %context, i64 12
   %5 = load i32, ptr %force_overwrite, align 4
   store ptr null, ptr %fout, align 8
   %tobool.not.i7 = icmp eq ptr %4, null
@@ -2329,13 +2330,13 @@ define internal fastcc i32 @CloseFiles(ptr nocapture noundef %context, i32 nound
 entry:
   %times.i.i = alloca [2 x %struct.timespec], align 16
   %statbuf.i = alloca %struct.stat, align 8
-  %test_integrity = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 8
+  %test_integrity = getelementptr inbounds i8, ptr %context, i64 32
   %0 = load i32, ptr %test_integrity, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %entry
-  %fout = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 33
+  %fout = getelementptr inbounds i8, ptr %context, i64 288
   %1 = load ptr, ptr %fout, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end27, label %if.then
@@ -2347,7 +2348,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then5:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
-  %current_output_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
+  %current_output_path = getelementptr inbounds i8, ptr %context, i64 264
   %3 = load ptr, ptr %current_output_path, align 8
   %tobool.not.i = icmp eq ptr %3, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.52, ptr %3
@@ -2363,7 +2364,7 @@ if.end10:                                         ; preds = %if.then5, %if.then
   br i1 %tobool11.not, label %if.end18, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end10
-  %current_output_path13 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
+  %current_output_path13 = getelementptr inbounds i8, ptr %context, i64 264
   %5 = load ptr, ptr %current_output_path13, align 8
   %tobool14.not = icmp eq ptr %5, null
   br i1 %tobool14.not, label %if.end18, label %if.then15
@@ -2378,15 +2379,15 @@ if.end18:                                         ; preds = %if.then15, %land.lh
   br i1 %or.cond, label %land.lhs.true22, label %if.end27
 
 land.lhs.true22:                                  ; preds = %if.end18
-  %copy_stat = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 6
+  %copy_stat = getelementptr inbounds i8, ptr %context, i64 24
   %7 = load i32, ptr %copy_stat, align 8
   %tobool23.not = icmp eq i32 %7, 0
   br i1 %tobool23.not, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true22
-  %current_input_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path = getelementptr inbounds i8, ptr %context, i64 256
   %8 = load ptr, ptr %current_input_path, align 8
-  %current_output_path25 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 30
+  %current_output_path25 = getelementptr inbounds i8, ptr %context, i64 264
   %9 = load ptr, ptr %current_output_path25, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %statbuf.i)
   %cmp.i = icmp eq ptr %8, null
@@ -2401,16 +2402,16 @@ if.end.i:                                         ; preds = %if.then24
 
 if.end4.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %times.i.i)
-  %st_atim.i.i = getelementptr inbounds %struct.stat, ptr %statbuf.i, i64 0, i32 11
+  %st_atim.i.i = getelementptr inbounds i8, ptr %statbuf.i, i64 72
   %10 = load <2 x i64>, ptr %st_atim.i.i, align 8
   store <2 x i64> %10, ptr %times.i.i, align 16
-  %st_mtim.i.i = getelementptr inbounds %struct.stat, ptr %statbuf.i, i64 0, i32 12
-  %arrayidx6.i.i = getelementptr inbounds [2 x %struct.timespec], ptr %times.i.i, i64 0, i64 1
+  %st_mtim.i.i = getelementptr inbounds i8, ptr %statbuf.i, i64 88
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %times.i.i, i64 16
   %11 = load <2 x i64>, ptr %st_mtim.i.i, align 8
   store <2 x i64> %11, ptr %arrayidx6.i.i, align 16
   %call.i.i = call i32 @utimensat(i32 noundef -100, ptr noundef nonnull %9, ptr noundef nonnull %times.i.i, i32 noundef 256) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %times.i.i)
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %statbuf.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %statbuf.i, i64 24
   %12 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %12, 511
   %call6.i = call i32 @chmod(ptr noundef nonnull %9, i32 noundef %and.i) #21
@@ -2426,7 +2427,7 @@ if.then8.i:                                       ; preds = %if.end4.i
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then8.i, %if.end4.i
-  %st_gid.i = getelementptr inbounds %struct.stat, ptr %statbuf.i, i64 0, i32 5
+  %st_gid.i = getelementptr inbounds i8, ptr %statbuf.i, i64 32
   %15 = load i32, ptr %st_gid.i, align 8
   %call14.i = call i32 @chown(ptr noundef nonnull %9, i32 noundef -1, i32 noundef %15) #21
   %cmp15.not.i = icmp eq i32 %call14.i, 0
@@ -2441,7 +2442,7 @@ if.then16.i:                                      ; preds = %if.end13.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then16.i, %if.end13.i
-  %st_uid.i = getelementptr inbounds %struct.stat, ptr %statbuf.i, i64 0, i32 4
+  %st_uid.i = getelementptr inbounds i8, ptr %statbuf.i, i64 28
   %18 = load i32, ptr %st_uid.i, align 4
   %call22.i = call i32 @chown(ptr noundef nonnull %9, i32 noundef %18, i32 noundef -1) #21
   %cmp23.not.i = icmp eq i32 %call22.i, 0
@@ -2461,7 +2462,7 @@ CopyStat.exit:                                    ; preds = %if.then24, %if.end.
 
 if.end27:                                         ; preds = %if.end18, %land.lhs.true22, %CopyStat.exit, %land.lhs.true, %entry
   %is_ok.1 = phi i32 [ 1, %entry ], [ 1, %CopyStat.exit ], [ 1, %land.lhs.true22 ], [ %is_ok.0, %if.end18 ], [ 1, %land.lhs.true ]
-  %fin = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 32
+  %fin = getelementptr inbounds i8, ptr %context, i64 280
   %21 = load ptr, ptr %fin, align 8
   %tobool28.not = icmp eq ptr %21, null
   br i1 %tobool28.not, label %if.end43, label %if.then29
@@ -2477,7 +2478,7 @@ if.then33:                                        ; preds = %if.then29
 
 if.then35:                                        ; preds = %if.then33
   %22 = load ptr, ptr @stderr, align 8
-  %current_input_path36 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path36 = getelementptr inbounds i8, ptr %context, i64 256
   %23 = load ptr, ptr %current_input_path36, align 8
   %tobool.not.i23 = icmp eq ptr %23, null
   %cond.i24 = select i1 %tobool.not.i23, ptr @.str.52, ptr %23
@@ -2493,7 +2494,7 @@ if.end43:                                         ; preds = %if.then33, %if.then
   br i1 %tobool44.not, label %if.end51, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %if.end43
-  %current_input_path46 = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path46 = getelementptr inbounds i8, ptr %context, i64 256
   %25 = load ptr, ptr %current_input_path46, align 8
   %tobool47.not = icmp eq ptr %25, null
   br i1 %tobool47.not, label %if.end51, label %if.then48
@@ -2527,12 +2528,12 @@ declare i64 @clock() local_unnamed_addr #8
 define internal fastcc void @PrintFileProcessingProgress(ptr nocapture noundef readonly %context) unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %current_input_path = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 29
+  %current_input_path = getelementptr inbounds i8, ptr %context, i64 256
   %1 = load ptr, ptr %current_input_path, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.52, ptr %1
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull %cond.i) #19
-  %total_in = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 38
+  %total_in = getelementptr inbounds i8, ptr %context, i64 328
   %2 = load i64, ptr %total_in, align 8
   %cmp.i = icmp ult i64 %2, 1024
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2573,7 +2574,7 @@ if.else13.i:                                      ; preds = %if.else6.i
 PrintBytes.exit:                                  ; preds = %if.then.i, %if.then3.i, %if.then9.i, %if.else13.i
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 4, i64 1, ptr %6) #19
-  %total_out = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 39
+  %total_out = getelementptr inbounds i8, ptr %context, i64 336
   %8 = load i64, ptr %total_out, align 8
   %cmp.i5 = icmp ult i64 %8, 1024
   br i1 %cmp.i5, label %if.then.i21, label %if.else.i6
@@ -2613,9 +2614,9 @@ if.else13.i11:                                    ; preds = %if.else6.i8
 
 PrintBytes.exit24:                                ; preds = %if.then.i21, %if.then3.i17, %if.then9.i14, %if.else13.i11
   %12 = load ptr, ptr @stderr, align 8
-  %end_time = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 41
+  %end_time = getelementptr inbounds i8, ptr %context, i64 352
   %13 = load i64, ptr %end_time, align 8
-  %start_time = getelementptr inbounds %struct.Context, ptr %context, i64 0, i32 40
+  %start_time = getelementptr inbounds i8, ptr %context, i64 344
   %14 = load i64, ptr %start_time, align 8
   %sub = sub nsw i64 %13, %14
   %conv = sitofp i64 %sub to double

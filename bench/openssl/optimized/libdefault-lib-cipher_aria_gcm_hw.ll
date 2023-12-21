@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_gcm_hw_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.prov_aria_gcm_ctx_st = type { %struct.prov_gcm_ctx_st, %union.anon.0 }
-%struct.prov_gcm_ctx_st = type { i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i8, [128 x i8], [16 x i8], ptr, ptr, %struct.gcm128_context, ptr }
-%struct.gcm128_context = type { %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, [16 x %struct.u128], %struct.gcm_funcs_st, i32, i32, ptr, ptr, [48 x i8] }
-%union.anon = type { [2 x i64] }
-%struct.u128 = type { i64, i64 }
-%struct.gcm_funcs_st = type { ptr, ptr, ptr }
-%union.anon.0 = type { double, [272 x i8] }
 
 @aria_gcm = internal constant %struct.prov_gcm_hw_st { ptr @aria_gcm_initkey, ptr @ossl_gcm_setiv, ptr @ossl_gcm_aad_update, ptr @ossl_gcm_cipher_update, ptr @ossl_gcm_cipher_final, ptr @ossl_gcm_one_shot }, align 8
 
@@ -23,15 +16,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @aria_gcm_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks1 = getelementptr inbounds %struct.prov_aria_gcm_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 704
   %keylen.tr = trunc i64 %keylen to i32
   %conv = shl i32 %keylen.tr, 3
   %call = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ks1) #3
-  %gcm = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %gcm, ptr noundef nonnull %ks1, ptr noundef nonnull @ossl_aria_encrypt) #3
-  %ctr = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 17
+  %ctr = getelementptr inbounds i8, ptr %ctx, i64 696
   store ptr null, ptr %ctr, align 8
-  %key_set = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %key_set, align 4

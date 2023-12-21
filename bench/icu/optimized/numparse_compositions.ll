@@ -13,11 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.1, [32 x i8] }
 %struct.anon.1 = type { i16, i32, i32, ptr }
-%"class.icu_75::numparse::impl::ArraySeriesMatcher" = type <{ %"class.icu_75::numparse::impl::SeriesMatcher", %"class.icu_75::MaybeStackArray", i32, [4 x i8] }>
-%"class.icu_75::numparse::impl::SeriesMatcher" = type { %"class.icu_75::numparse::impl::CompositionMatcher" }
-%"class.icu_75::numparse::impl::CompositionMatcher" = type { %"class.icu_75::numparse::impl::NumberParseMatcher" }
-%"class.icu_75::numparse::impl::NumberParseMatcher" = type { ptr }
-%"class.icu_75::MaybeStackArray" = type { ptr, i32, i8, [3 x ptr] }
 
 $_ZN6icu_758numparse4impl12ParsedNumberD2Ev = comdat any
 
@@ -57,18 +52,18 @@ define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SeriesMatcher5matchERNS_13
 entry:
   %backup = alloca %"class.icu_75::numparse::impl::ParsedNumber", align 8
   call void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %backup, ptr noundef nonnull align 8 dereferenceable(66) %result)
-  %charEnd.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %backup, i64 0, i32 1
-  %charEnd3.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 1
+  %charEnd.i = getelementptr inbounds i8, ptr %backup, i64 72
+  %charEnd3.i = getelementptr inbounds i8, ptr %result, i64 72
   %0 = load i64, ptr %charEnd3.i, align 8
   store i64 %0, ptr %charEnd.i, align 8
-  %prefix.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %backup, i64 0, i32 3
-  %prefix4.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3
+  %prefix.i = getelementptr inbounds i8, ptr %backup, i64 80
+  %prefix4.i = getelementptr inbounds i8, ptr %result, i64 80
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %prefix.i, ptr noundef nonnull align 8 dereferenceable(64) %prefix4.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %suffix.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %backup, i64 0, i32 4
-  %suffix5.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 4
+  %suffix.i = getelementptr inbounds i8, ptr %backup, i64 144
+  %suffix5.i = getelementptr inbounds i8, ptr %result, i64 144
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i, ptr noundef nonnull align 8 dereferenceable(64) %suffix5.i)
           to label %_ZN6icu_758numparse4impl12ParsedNumberC2ERKS2_.exit unwind label %lpad6.i
 
@@ -93,8 +88,8 @@ ehcleanup.i:                                      ; preds = %lpad6.i, %lpad.i
   br label %common.resume
 
 _ZN6icu_758numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %invoke.cont.i
-  %currencyCode.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %backup, i64 0, i32 5
-  %currencyCode8.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 5
+  %currencyCode.i = getelementptr inbounds i8, ptr %backup, i64 208
+  %currencyCode8.i = getelementptr inbounds i8, ptr %result, i64 208
   %3 = load i64, ptr %currencyCode8.i, align 8
   store i64 %3, ptr %currencyCode.i, align 8
   %call = invoke noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
@@ -102,7 +97,7 @@ _ZN6icu_758numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %invoke.cont.i
 
 invoke.cont:                                      ; preds = %_ZN6icu_758numparse4impl12ParsedNumberC2ERKS2_.exit
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   %call3 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %for.cond.outer unwind label %lpad.loopexit.split-lp
@@ -115,7 +110,7 @@ for.cond.outer:                                   ; preds = %invoke.cont, %for.c
 for.cond:                                         ; preds = %for.cond.outer, %invoke.cont23
   %maybeMore.0 = phi i8 [ %maybeMore.1, %invoke.cont23 ], [ %maybeMore.0.ph, %for.cond.outer ]
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 8
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 64
   %5 = load ptr, ptr %vfn5, align 8
   %call7 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %invoke.cont6 unwind label %lpad.loopexit.loopexit
@@ -139,7 +134,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 if.then:                                          ; preds = %invoke.cont10
   %vtable13 = load ptr, ptr %6, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 3
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
   %7 = load ptr, ptr %vfn14, align 8
   %call16 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont15 unwind label %lpad.loopexit.loopexit
@@ -175,7 +170,7 @@ if.end:                                           ; preds = %invoke.cont10, %inv
 
 invoke.cont17:                                    ; preds = %if.end
   %vtable21 = load ptr, ptr %6, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 2
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
   %8 = load ptr, ptr %vfn22, align 8
   %call24 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %invoke.cont23 unwind label %lpad.loopexit.loopexit
@@ -189,9 +184,9 @@ if.else28:                                        ; preds = %invoke.cont23
   br i1 %cmp19.not, label %if.then30, label %if.else47
 
 if.then30:                                        ; preds = %if.else28
-  %incdec.ptr = getelementptr inbounds ptr, ptr %it.0.ph, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.0.ph, i64 8
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 8
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 64
   %9 = load ptr, ptr %vfn32, align 8
   %call34 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %invoke.cont33 unwind label %lpad.loopexit.loopexit.split-lp
@@ -223,7 +218,7 @@ if.else47:                                        ; preds = %if.else28
   br i1 %call24, label %if.then49, label %if.else51
 
 if.then49:                                        ; preds = %if.else47
-  %incdec.ptr50 = getelementptr inbounds ptr, ptr %it.0.ph, i64 1
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %it.0.ph, i64 8
   br label %for.cond.outer.backedge
 
 if.else51:                                        ; preds = %if.else47
@@ -269,9 +264,9 @@ declare void @_ZN6icu_7513StringSegment9setOffsetEi(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl12ParsedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %suffix = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %this, i64 0, i32 4
+  %suffix = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix) #11
-  %prefix = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %this, i64 0, i32 3
+  %prefix = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix) #11
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %this) #11
   ret void
@@ -281,11 +276,11 @@ entry:
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SeriesMatcher9smokeTestERKNS_13StringSegmentE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 8
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 64
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp.not = icmp eq ptr %call, %call4
@@ -294,7 +289,7 @@ entry:
 for.body:                                         ; preds = %entry
   %2 = load ptr, ptr %call, align 8
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 4
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
   %3 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(17) %segment)
   br label %return
@@ -308,11 +303,11 @@ return:                                           ; preds = %entry, %for.body
 define void @_ZNK6icu_758numparse4impl13SeriesMatcher11postProcessERNS1_12ParsedNumberE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 8
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 64
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp.not4 = icmp eq ptr %call, %call4
@@ -322,10 +317,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin1.05 = phi ptr [ %incdec.ptr, %for.body ], [ %call, %entry ]
   %2 = load ptr, ptr %__begin1.05, align 8
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 5
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 40
   %3 = load ptr, ptr %vfn6, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(216) %result)
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin1.05, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.05, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %call4
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -337,14 +332,14 @@ for.end:                                          ; preds = %for.body, %entry
 define void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
-  %stackArray.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 3
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 8
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %stackArray.i, ptr %fMatchers, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 20
   store i8 0, ptr %needToRelease.i, align 4
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 2
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %fMatchersLen, align 8
   ret void
 }
@@ -353,24 +348,24 @@ entry:
 define void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEi(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(40) %matchers, i32 noundef %matchersLen) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %matchers, align 8
   store ptr %0, ptr %fMatchers, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 1
-  %capacity3.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %matchers, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
+  %capacity3.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %1 = load i32, ptr %capacity3.i, align 8
   store i32 %1, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
-  %needToRelease4.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %matchers, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 20
+  %needToRelease4.i = getelementptr inbounds i8, ptr %matchers, i64 12
   %2 = load i8, ptr %needToRelease4.i, align 4
   store i8 %2, ptr %needToRelease.i, align 4
   %3 = load ptr, ptr %matchers, align 8
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %matchers, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %matchers, i64 16
   %cmp.i = icmp eq ptr %3, %stackArray.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %stackArray6.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 3
+  %stackArray6.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %stackArray6.i, ptr %fMatchers, align 8
   %4 = load i32, ptr %capacity3.i, align 8
   %conv.i = sext i32 %4 to i64
@@ -385,7 +380,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_.exit
 
 _ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_.exit: ; preds = %if.then.i, %if.else.i
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 2
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %matchersLen, ptr %fMatchersLen, align 8
   ret void
 }
@@ -393,7 +388,7 @@ _ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758numparse4impl18ArraySeriesMatcher6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 2
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fMatchersLen, align 8
   ret i32 %0
 }
@@ -401,7 +396,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_758numparse4impl18ArraySeriesMatcher5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatchers, align 8
   ret ptr %0
 }
@@ -409,9 +404,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_758numparse4impl18ArraySeriesMatcher3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatchers, align 8
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 2
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %fMatchersLen, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
@@ -453,13 +448,13 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fMatchers, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit unwind label %terminate.lpad.i
@@ -480,13 +475,13 @@ _ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.ex
 define linkonce_odr void @_ZN6icu_758numparse4impl18ArraySeriesMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %fMatchers.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fMatchers.i, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev.exit unwind label %terminate.lpad.i.i

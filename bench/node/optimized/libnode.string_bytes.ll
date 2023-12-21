@@ -11,11 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.v8::String::ExternalOneByteStringResource" = type { %"class.v8::String::ExternalStringResourceBase", ptr }
-%"class.v8::String::ExternalStringResourceBase" = type { ptr }
-%"class.node::(anonymous namespace)::ExternString" = type { %"class.v8::String::ExternalOneByteStringResource", ptr, ptr, i64 }
-%"class.v8::String::ExternalStringResource" = type { %"class.v8::String::ExternalStringResourceBase", ptr }
-%"class.node::(anonymous namespace)::ExternString.10" = type { %"class.v8::String::ExternalStringResource", ptr, ptr, i64 }
 
 $_ZN4node15UncheckedMallocEm = comdat any
 
@@ -260,12 +255,12 @@ sw.bb:                                            ; preds = %do.end9, %do.end9
 if.then16:                                        ; preds = %sw.bb
   %call18 = call noundef ptr @_ZNK2v86String32GetExternalOneByteStringResourceEv(ptr noundef nonnull align 1 dereferenceable(1) %val.coerce) #19
   %vtable = load ptr, ptr %call18, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %5 = load ptr, ptr %vfn, align 8
   %call19 = call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(16) %call18) #19
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %call19, i64 %buflen)
   %vtable21 = load ptr, ptr %call18, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 6
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 48
   %6 = load ptr, ptr %vfn22, align 8
   %call23 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %call18) #19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %call23, i64 %.sroa.speculated, i1 false)
@@ -294,11 +289,11 @@ sw.bb42:                                          ; preds = %do.end9, %do.end9
 if.then45:                                        ; preds = %sw.bb42
   %call48 = call noundef ptr @_ZNK2v86String32GetExternalOneByteStringResourceEv(ptr noundef nonnull align 1 dereferenceable(1) %val.coerce) #19
   %vtable49 = load ptr, ptr %call48, align 8
-  %vfn50 = getelementptr inbounds ptr, ptr %vtable49, i64 6
+  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 48
   %7 = load ptr, ptr %vfn50, align 8
   %call51 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %call48) #19
   %vtable52 = load ptr, ptr %call48, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 7
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 56
   %8 = load ptr, ptr %vfn53, align 8
   %call54 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(16) %call48) #19
   %cmp.i.i = icmp ult i64 %call54, 2
@@ -338,7 +333,7 @@ _ZN4node13base64_decodeIcEEmPcmPKT_m.exit:        ; preds = %if.then45, %if.end1
 if.else56:                                        ; preds = %sw.bb42
   call void @_ZN2v86String5ValueC1EPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(12) %value, ptr noundef %isolate, ptr nonnull %val.coerce) #19
   %12 = load ptr, ptr %value, align 8
-  %length_.i = getelementptr inbounds %"class.v8::String::Value", ptr %value, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %value, i64 8
   %13 = load i32, ptr %length_.i, align 8
   %conv67 = sext i32 %13 to i64
   %cmp.i.i30 = icmp ult i32 %13, 2
@@ -346,13 +341,13 @@ if.else56:                                        ; preds = %sw.bb42
 
 if.end.i.i31:                                     ; preds = %if.else56
   %14 = getelementptr i16, ptr %12, i64 %conv67
-  %arrayidx.i.i32 = getelementptr i16, ptr %14, i64 -1
+  %arrayidx.i.i32 = getelementptr i8, ptr %14, i64 -2
   %15 = load i16, ptr %arrayidx.i.i32, align 2
   %cmp1.i.i33 = icmp eq i16 %15, 61
   br i1 %cmp1.i.i33, label %if.end10.i.i44, label %cond.true.i.i.i34
 
 if.end10.i.i44:                                   ; preds = %if.end.i.i31
-  %arrayidx4.i.i45 = getelementptr i16, ptr %14, i64 -2
+  %arrayidx4.i.i45 = getelementptr i8, ptr %14, i64 -4
   %16 = load i16, ptr %arrayidx4.i.i45, align 2
   %cmp6.i.i46 = icmp eq i16 %16, 61
   %spec.select.v.i.i47 = select i1 %cmp6.i.i46, i64 -2, i64 -1
@@ -383,11 +378,11 @@ sw.bb70:                                          ; preds = %do.end9
 if.then73:                                        ; preds = %sw.bb70
   %call76 = call noundef ptr @_ZNK2v86String32GetExternalOneByteStringResourceEv(ptr noundef nonnull align 1 dereferenceable(1) %val.coerce) #19
   %vtable77 = load ptr, ptr %call76, align 8
-  %vfn78 = getelementptr inbounds ptr, ptr %vtable77, i64 6
+  %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 48
   %17 = load ptr, ptr %vfn78, align 8
   %call79 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %call76) #19
   %vtable80 = load ptr, ptr %call76, align 8
-  %vfn81 = getelementptr inbounds ptr, ptr %vtable80, i64 7
+  %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 56
   %18 = load ptr, ptr %vfn81, align 8
   %call82 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(16) %call76) #19
   %cmp14.not.i = icmp eq i64 %buflen, 0
@@ -428,7 +423,7 @@ if.end.i54:                                       ; preds = %for.body.i51
 if.else84:                                        ; preds = %sw.bb70
   call void @_ZN2v86String5ValueC1EPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(12) %value85, ptr noundef %isolate, ptr nonnull %val.coerce) #19
   %23 = load ptr, ptr %value85, align 8
-  %length_.i56 = getelementptr inbounds %"class.v8::String::Value", ptr %value85, i64 0, i32 1
+  %length_.i56 = getelementptr inbounds i8, ptr %value85, i64 8
   %24 = load i32, ptr %length_.i56, align 8
   %conv96 = sext i32 %24 to i64
   %cmp14.not.i57 = icmp eq i64 %buflen, 0
@@ -665,7 +660,7 @@ sw.bb42:                                          ; preds = %if.end31
 
 sw.bb48:                                          ; preds = %if.end31, %if.end31
   call void @_ZN2v86String5ValueC1EPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(12) %value, ptr noundef nonnull %isolate, ptr nonnull %call23) #19
-  %length_.i = getelementptr inbounds %"class.v8::String::Value", ptr %value, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i32, ptr %length_.i, align 8
   %conv60 = sext i32 %1 to i64
   %cmp.i14 = icmp ult i32 %1, 2
@@ -674,13 +669,13 @@ sw.bb48:                                          ; preds = %if.end31, %if.end31
 if.end.i:                                         ; preds = %sw.bb48
   %2 = load ptr, ptr %value, align 8
   %3 = getelementptr i16, ptr %2, i64 %conv60
-  %arrayidx.i = getelementptr i16, ptr %3, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %3, i64 -2
   %4 = load i16, ptr %arrayidx.i, align 2
   %cmp1.i = icmp eq i16 %4, 61
   br i1 %cmp1.i, label %if.end10.i, label %cond.true.i.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %arrayidx4.i = getelementptr i16, ptr %3, i64 -2
+  %arrayidx4.i = getelementptr i8, ptr %3, i64 -4
   %5 = load i16, ptr %arrayidx4.i, align 2
   %cmp6.i = icmp eq i16 %5, 61
   %spec.select.v.i = select i1 %cmp6.i, i64 -2, i64 -1
@@ -1248,18 +1243,18 @@ _ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceE
 
 if.end13:                                         ; preds = %if.end
   %call14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
-  %cached_data_.i.i = getelementptr inbounds %"class.v8::String::ExternalOneByteStringResource", ptr %call14, i64 0, i32 1
+  %cached_data_.i.i = getelementptr inbounds i8, ptr %call14, i64 8
   store ptr null, ptr %cached_data_.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
-  %isolate_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %call14, i64 0, i32 1
+  %isolate_.i = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr %isolate, ptr %isolate_.i, align 8
-  %data_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %call14, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %call14, i64 24
   store ptr %data, ptr %data_.i, align 8
-  %length_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %call14, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %call14, i64 32
   store i64 %length, ptr %length_.i, align 8
   %call.i17 = tail call ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef %isolate, ptr noundef nonnull %call14) #19
   %vtable.i = load ptr, ptr %call14, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i18 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(40) %call14) #19
   %call21 = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %isolate, i64 noundef %call.i18) #19
@@ -1268,7 +1263,7 @@ if.end13:                                         ; preds = %if.end
 
 delete.notnull:                                   ; preds = %if.end13
   %vtable = load ptr, ptr %call14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %call14) #19
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
@@ -1567,18 +1562,18 @@ _ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE17New
 
 if.end13:                                         ; preds = %if.end
   %call14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
-  %cached_data_.i.i = getelementptr inbounds %"class.v8::String::ExternalStringResource", ptr %call14, i64 0, i32 1
+  %cached_data_.i.i = getelementptr inbounds i8, ptr %call14, i64 8
   store ptr null, ptr %cached_data_.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
-  %isolate_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %call14, i64 0, i32 1
+  %isolate_.i = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr %isolate, ptr %isolate_.i, align 8
-  %data_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %call14, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %call14, i64 24
   store ptr %data, ptr %data_.i, align 8
-  %length_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %call14, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %call14, i64 32
   store i64 %length, ptr %length_.i, align 8
   %call.i17 = tail call ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef %isolate, ptr noundef nonnull %call14) #19
   %vtable.i = load ptr, ptr %call14, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i18 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(40) %call14) #19
   %mul.i = shl i64 %call.i18, 1
@@ -1588,7 +1583,7 @@ if.end13:                                         ; preds = %if.end
 
 delete.notnull:                                   ; preds = %if.end13
   %vtable = load ptr, ptr %call14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %call14) #19
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
@@ -1835,7 +1830,7 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #19
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #19
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp11, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 2
@@ -2366,19 +2361,19 @@ while.body:                                       ; preds = %entry, %if.end49
   %idxprom.i = zext nneg i16 %5 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN4node14unbase64_tableE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx6 = getelementptr i16, ptr %arrayidx, i64 1
+  %arrayidx6 = getelementptr i8, ptr %arrayidx, i64 2
   %7 = load i16, ptr %arrayidx6, align 2
   %8 = and i16 %7, 255
   %idxprom.i27 = zext nneg i16 %8 to i64
   %arrayidx.i28 = getelementptr inbounds [256 x i8], ptr @_ZN4node14unbase64_tableE, i64 0, i64 %idxprom.i27
   %9 = load i8, ptr %arrayidx.i28, align 1
-  %arrayidx11 = getelementptr i16, ptr %arrayidx, i64 2
+  %arrayidx11 = getelementptr i8, ptr %arrayidx, i64 4
   %10 = load i16, ptr %arrayidx11, align 2
   %11 = and i16 %10, 255
   %idxprom.i29 = zext nneg i16 %11 to i64
   %arrayidx.i30 = getelementptr inbounds [256 x i8], ptr @_ZN4node14unbase64_tableE, i64 0, i64 %idxprom.i29
   %12 = load i8, ptr %arrayidx.i30, align 1
-  %arrayidx16 = getelementptr i16, ptr %arrayidx, i64 3
+  %arrayidx16 = getelementptr i8, ptr %arrayidx, i64 6
   %13 = load i16, ptr %arrayidx16, align 2
   %14 = and i16 %13, 255
   %idxprom.i31 = zext nneg i16 %14 to i64
@@ -2618,13 +2613,13 @@ declare noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr
 define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_, align 8
   tail call void @free(ptr noundef %0) #19
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val = load ptr, ptr %1, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %sub = sub nsw i64 0, %call.i
@@ -2636,13 +2631,13 @@ entry:
 define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_.i, align 8
   tail call void @free(ptr noundef %0) #19
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val.i = load ptr, ptr %1, align 8
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %sub.i = sub nsw i64 0, %call.i.i
@@ -2661,7 +2656,7 @@ entry:
 define linkonce_odr dso_local void @_ZN2v86String26ExternalStringResourceBase7DisposeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   ret void
@@ -2682,7 +2677,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef ptr @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_, align 8
   ret ptr %0
 }
@@ -2690,7 +2685,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 {
 entry:
-  %length_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this, i64 0, i32 3
+  %length_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %length_, align 8
   ret i64 %0
 }
@@ -2706,13 +2701,13 @@ declare ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(
 define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_, align 8
   tail call void @free(ptr noundef %0) #19
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val = load ptr, ptr %1, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %mul.i.neg = mul i64 %call.i, -2
@@ -2724,13 +2719,13 @@ entry:
 define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_.i = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_.i, align 8
   tail call void @free(ptr noundef %0) #19
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val.i = load ptr, ptr %1, align 8
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %mul.i.neg.i = mul i64 %call.i.i, -2
@@ -2742,7 +2737,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef ptr @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_, align 8
   ret ptr %0
 }
@@ -2750,7 +2745,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 {
 entry:
-  %length_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this, i64 0, i32 3
+  %length_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %length_, align 8
   ret i64 %0
 }

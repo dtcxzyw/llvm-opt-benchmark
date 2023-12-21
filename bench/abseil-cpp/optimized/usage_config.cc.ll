@@ -146,41 +146,41 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_122ContainsHelpshortFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %agg.result, align 8
   %__tmp.sroa.0.i.i.i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %__tmp.sroa.0.i.i.i.sroa.4.0.agg.result.sroa_idx, align 8
-  %_M_manager3.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.result, i64 0, i32 1
+  %_M_manager3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
-  %_M_invoker4.i.i = getelementptr inbounds %"class.std::function", ptr %agg.result, i64 0, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker4.i.i, align 8
-  %contains_help_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 1
+  %contains_help_flags = getelementptr inbounds i8, ptr %agg.result, i64 32
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_124ContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %contains_help_flags, align 8
-  %__tmp.sroa.0.i.i.i1.sroa.4.0.contains_help_flags.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %__tmp.sroa.0.i.i.i1.sroa.4.0.contains_help_flags.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i64 0, ptr %__tmp.sroa.0.i.i.i1.sroa.4.0.contains_help_flags.sroa_idx, align 8
-  %_M_manager3.i.i7 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %_M_manager3.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 48
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager3.i.i7, align 8
-  %_M_invoker4.i.i9 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 1, i32 1
+  %_M_invoker4.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 56
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker4.i.i9, align 8
-  %contains_helppackage_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 2
+  %contains_helppackage_flags = getelementptr inbounds i8, ptr %agg.result, i64 64
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_124ContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %contains_helppackage_flags, align 8
-  %__tmp.sroa.0.i.i.i15.sroa.4.0.contains_helppackage_flags.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %__tmp.sroa.0.i.i.i15.sroa.4.0.contains_helppackage_flags.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 72
   store i64 0, ptr %__tmp.sroa.0.i.i.i15.sroa.4.0.contains_helppackage_flags.sroa_idx, align 8
-  %_M_manager3.i.i21 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 2, i32 0, i32 1
+  %_M_manager3.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 80
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager3.i.i21, align 8
-  %_M_invoker4.i.i23 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 2, i32 1
+  %_M_invoker4.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker4.i.i23, align 8
-  %version_string = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 3
+  %version_string = getelementptr inbounds i8, ptr %agg.result, i64 96
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_113VersionStringB5cxx11Ev, ptr %version_string, align 8
-  %__tmp.sroa.0.i.i.i29.sroa.4.0.version_string.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %__tmp.sroa.0.i.i.i29.sroa.4.0.version_string.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 104
   store i64 0, ptr %__tmp.sroa.0.i.i.i29.sroa.4.0.version_string.sroa_idx, align 8
-  %_M_manager3.i.i34 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 3, i32 0, i32 1
+  %_M_manager3.i.i34 = getelementptr inbounds i8, ptr %agg.result, i64 112
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager3.i.i34, align 8
-  %_M_invoker4.i.i36 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 3, i32 1
+  %_M_invoker4.i.i36 = getelementptr inbounds i8, ptr %agg.result, i64 120
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker4.i.i36, align 8
-  %normalize_filename = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 4
+  %normalize_filename = getelementptr inbounds i8, ptr %agg.result, i64 128
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_117NormalizeFilenameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr %normalize_filename, align 8
-  %__tmp.sroa.0.i.i.i41.sroa.4.0.normalize_filename.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %__tmp.sroa.0.i.i.i41.sroa.4.0.normalize_filename.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 136
   store i64 0, ptr %__tmp.sroa.0.i.i.i41.sroa.4.0.normalize_filename.sroa_idx, align 8
-  %_M_manager3.i.i46 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 4, i32 0, i32 1
+  %_M_manager3.i.i46 = getelementptr inbounds i8, ptr %agg.result, i64 144
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager3.i.i46, align 8
-  %_M_invoker4.i.i48 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %agg.result, i64 0, i32 4, i32 1
+  %_M_invoker4.i.i48 = getelementptr inbounds i8, ptr %agg.result, i64 152
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E9_M_invokeERKSt9_Any_dataOS7_, ptr %_M_invoker4.i.i48, align 8
   br label %cleanup
 
@@ -202,9 +202,9 @@ _ZN4absl9MutexLockD2Ev.exit54:                    ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl16FlagsUsageConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %0, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -215,7 +215,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.std::function", ptr %0, i64 0, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %2, ptr %_M_invoker.i, align 8
   %3 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -245,22 +245,22 @@ common.resume:                                    ; preds = %if.then.i.i90, %ehc
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit: ; preds = %entry, %invoke.cont.i
-  %contains_help_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 1
-  %_M_manager.i.i8 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i9 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 1, i32 1
-  %_M_manager.i.i.i10 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %contains_help_flags = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_manager.i.i8 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_invoker.i9 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_manager.i.i.i10 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %contains_help_flags, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %_M_manager.i.i.i10, align 8
   %tobool.not.i.i.not.i11 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i11, label %invoke.cont, label %if.then.i12
 
 if.then.i12:                                      ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit
-  %contains_help_flags3 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 1
+  %contains_help_flags3 = getelementptr inbounds i8, ptr %0, i64 32
   %call3.i13 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %contains_help_flags, ptr noundef nonnull align 8 dereferenceable(16) %contains_help_flags3, i32 noundef 2)
           to label %invoke.cont.i20 unwind label %lpad.i14
 
 invoke.cont.i20:                                  ; preds = %if.then.i12
-  %_M_invoker4.i21 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 1, i32 1
+  %_M_invoker4.i21 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %_M_invoker4.i21, align 8
   store ptr %9, ptr %_M_invoker.i9, align 8
   %10 = load ptr, ptr %_M_manager.i.i.i10, align 8
@@ -286,22 +286,22 @@ terminate.lpad.i.i18:                             ; preds = %if.then.i.i16
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i20, %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit
-  %contains_helppackage_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 2
-  %_M_manager.i.i23 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 2, i32 0, i32 1
-  %_M_invoker.i24 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 2, i32 1
-  %_M_manager.i.i.i25 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %contains_helppackage_flags = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_manager.i.i23 = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_invoker.i24 = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_manager.i.i.i25 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %contains_helppackage_flags, i8 0, i64 32, i1 false)
   %15 = load ptr, ptr %_M_manager.i.i.i25, align 8
   %tobool.not.i.i.not.i26 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.not.i26, label %invoke.cont6, label %if.then.i27
 
 if.then.i27:                                      ; preds = %invoke.cont
-  %contains_helppackage_flags4 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 2
+  %contains_helppackage_flags4 = getelementptr inbounds i8, ptr %0, i64 64
   %call3.i28 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %contains_helppackage_flags, ptr noundef nonnull align 8 dereferenceable(16) %contains_helppackage_flags4, i32 noundef 2)
           to label %invoke.cont.i35 unwind label %lpad.i29
 
 invoke.cont.i35:                                  ; preds = %if.then.i27
-  %_M_invoker4.i36 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 2, i32 1
+  %_M_invoker4.i36 = getelementptr inbounds i8, ptr %0, i64 88
   %16 = load ptr, ptr %_M_invoker4.i36, align 8
   store ptr %16, ptr %_M_invoker.i24, align 8
   %17 = load ptr, ptr %_M_manager.i.i.i25, align 8
@@ -327,22 +327,22 @@ terminate.lpad.i.i33:                             ; preds = %if.then.i.i31
   unreachable
 
 invoke.cont6:                                     ; preds = %invoke.cont.i35, %invoke.cont
-  %version_string = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 3
-  %_M_manager.i.i39 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_invoker.i40 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 3, i32 1
-  %_M_manager.i.i.i41 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 3, i32 0, i32 1
+  %version_string = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_manager.i.i39 = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_invoker.i40 = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_manager.i.i.i41 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %version_string, i8 0, i64 32, i1 false)
   %22 = load ptr, ptr %_M_manager.i.i.i41, align 8
   %tobool.not.i.i.not.i42 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.not.i42, label %invoke.cont9, label %if.then.i43
 
 if.then.i43:                                      ; preds = %invoke.cont6
-  %version_string7 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 3
+  %version_string7 = getelementptr inbounds i8, ptr %0, i64 96
   %call3.i44 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %version_string, ptr noundef nonnull align 8 dereferenceable(16) %version_string7, i32 noundef 2)
           to label %invoke.cont.i51 unwind label %lpad.i45
 
 invoke.cont.i51:                                  ; preds = %if.then.i43
-  %_M_invoker4.i52 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 3, i32 1
+  %_M_invoker4.i52 = getelementptr inbounds i8, ptr %0, i64 120
   %23 = load ptr, ptr %_M_invoker4.i52, align 8
   store ptr %23, ptr %_M_invoker.i40, align 8
   %24 = load ptr, ptr %_M_manager.i.i.i41, align 8
@@ -368,22 +368,22 @@ terminate.lpad.i.i49:                             ; preds = %if.then.i.i47
   unreachable
 
 invoke.cont9:                                     ; preds = %invoke.cont.i51, %invoke.cont6
-  %normalize_filename = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 4
-  %_M_manager.i.i54 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_invoker.i55 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 4, i32 1
-  %_M_manager.i.i.i56 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 4, i32 0, i32 1
+  %normalize_filename = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_manager.i.i54 = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_invoker.i55 = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_manager.i.i.i56 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %normalize_filename, i8 0, i64 32, i1 false)
   %29 = load ptr, ptr %_M_manager.i.i.i56, align 8
   %tobool.not.i.i.not.i57 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.not.i57, label %invoke.cont12, label %if.then.i58
 
 if.then.i58:                                      ; preds = %invoke.cont9
-  %normalize_filename10 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 4
+  %normalize_filename10 = getelementptr inbounds i8, ptr %0, i64 128
   %call3.i59 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %normalize_filename, ptr noundef nonnull align 8 dereferenceable(16) %normalize_filename10, i32 noundef 2)
           to label %invoke.cont.i66 unwind label %lpad.i60
 
 invoke.cont.i66:                                  ; preds = %if.then.i58
-  %_M_invoker4.i67 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 4, i32 1
+  %_M_invoker4.i67 = getelementptr inbounds i8, ptr %0, i64 152
   %30 = load ptr, ptr %_M_invoker4.i67, align 8
   store ptr %30, ptr %_M_invoker.i55, align 8
   %31 = load ptr, ptr %_M_manager.i.i.i56, align 8
@@ -650,7 +650,7 @@ if.end:                                           ; preds = %_ZNKSt17basic_strin
   %4 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %3, ptr %4) #16
   %5 = load i64, ptr %agg.tmp.i, align 8
-  %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 %5, ptr %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont3 unwind label %lpad2
@@ -705,7 +705,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 define dso_local void @_ZN4absl19SetFlagsUsageConfigENS_16FlagsUsageConfigE(ptr noundef %usage_config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4absl14flags_internal12_GLOBAL__N_125custom_usage_config_guardE)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %usage_config, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %usage_config, i64 16
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.not, label %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit, label %if.end
@@ -715,71 +715,71 @@ _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_122ContainsHelpshortFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %usage_config, align 8
   store i64 0, ptr %ref.tmp.i.sroa.5.0.usage_config.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %_M_invoker4.i.i = getelementptr inbounds %"class.std::function", ptr %usage_config, i64 0, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %usage_config, i64 24
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker4.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit, %entry
-  %_M_manager.i.i2 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %usage_config, i64 48
   %1 = load ptr, ptr %_M_manager.i.i2, align 8
   %tobool.not.i.i3.not = icmp eq ptr %1, null
   br i1 %tobool.not.i.i3.not, label %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit14, label %if.end7
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit14: ; preds = %if.end
-  %contains_help_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 1
-  %ref.tmp.i5.sroa.5.0.contains_help_flags.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %contains_help_flags = getelementptr inbounds i8, ptr %usage_config, i64 32
+  %ref.tmp.i5.sroa.5.0.contains_help_flags.sroa_idx = getelementptr inbounds i8, ptr %usage_config, i64 40
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_124ContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %contains_help_flags, align 8
   store i64 0, ptr %ref.tmp.i5.sroa.5.0.contains_help_flags.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i2, align 8
-  %_M_invoker4.i.i9 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 1, i32 1
+  %_M_invoker4.i.i9 = getelementptr inbounds i8, ptr %usage_config, i64 56
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker4.i.i9, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit14, %if.end
-  %_M_manager.i.i15 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i15 = getelementptr inbounds i8, ptr %usage_config, i64 80
   %2 = load ptr, ptr %_M_manager.i.i15, align 8
   %tobool.not.i.i16.not = icmp eq ptr %2, null
   br i1 %tobool.not.i.i16.not, label %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit27, label %if.end12
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit27: ; preds = %if.end7
-  %contains_helppackage_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 2
-  %ref.tmp.i18.sroa.5.0.contains_helppackage_flags.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %contains_helppackage_flags = getelementptr inbounds i8, ptr %usage_config, i64 64
+  %ref.tmp.i18.sroa.5.0.contains_helppackage_flags.sroa_idx = getelementptr inbounds i8, ptr %usage_config, i64 72
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_124ContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %contains_helppackage_flags, align 8
   store i64 0, ptr %ref.tmp.i18.sroa.5.0.contains_helppackage_flags.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i15, align 8
-  %_M_invoker4.i.i22 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 2, i32 1
+  %_M_invoker4.i.i22 = getelementptr inbounds i8, ptr %usage_config, i64 88
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker4.i.i22, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSIRS4_EENSt9enable_ifIXsrNS5_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES5_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS3_EEEE5valueERS5_E4typeEOSA_.exit27, %if.end7
-  %_M_manager.i.i28 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i28 = getelementptr inbounds i8, ptr %usage_config, i64 112
   %3 = load ptr, ptr %_M_manager.i.i28, align 8
   %tobool.not.i.i29.not = icmp eq ptr %3, null
   br i1 %tobool.not.i.i29.not, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEaSIRS6_EENSt9enable_ifIXsrNS7_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES7_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JEEEE5valueERS7_E4typeEOSC_.exit, label %if.end17
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEaSIRS6_EENSt9enable_ifIXsrNS7_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES7_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JEEEE5valueERS7_E4typeEOSC_.exit: ; preds = %if.end12
-  %version_string = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 3
-  %ref.tmp.i31.sroa.5.0.version_string.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %version_string = getelementptr inbounds i8, ptr %usage_config, i64 96
+  %ref.tmp.i31.sroa.5.0.version_string.sroa_idx = getelementptr inbounds i8, ptr %usage_config, i64 104
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_113VersionStringB5cxx11Ev, ptr %version_string, align 8
   store i64 0, ptr %ref.tmp.i31.sroa.5.0.version_string.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i28, align 8
-  %_M_invoker4.i.i35 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 3, i32 1
+  %_M_invoker4.i.i35 = getelementptr inbounds i8, ptr %usage_config, i64 120
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker4.i.i35, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEaSIRS6_EENSt9enable_ifIXsrNS7_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES7_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JEEEE5valueERS7_E4typeEOSC_.exit, %if.end12
-  %_M_manager.i.i40 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i40 = getelementptr inbounds i8, ptr %usage_config, i64 144
   %4 = load ptr, ptr %_M_manager.i.i40, align 8
   %tobool.not.i.i41.not = icmp eq ptr %4, null
   br i1 %tobool.not.i.i41.not, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS7_EEEE5valueERS9_E4typeEOSE_.exit, label %if.end22
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS7_EEEE5valueERS9_E4typeEOSE_.exit: ; preds = %if.end17
-  %normalize_filename = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 4
-  %ref.tmp.i43.sroa.5.0.normalize_filename.sroa_idx = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %normalize_filename = getelementptr inbounds i8, ptr %usage_config, i64 128
+  %ref.tmp.i43.sroa.5.0.normalize_filename.sroa_idx = getelementptr inbounds i8, ptr %usage_config, i64 136
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_117NormalizeFilenameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr %normalize_filename, align 8
   store i64 0, ptr %ref.tmp.i43.sroa.5.0.normalize_filename.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i40, align 8
-  %_M_invoker4.i.i47 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %usage_config, i64 0, i32 4, i32 1
+  %_M_invoker4.i.i47 = getelementptr inbounds i8, ptr %usage_config, i64 152
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E9_M_invokeERKSt9_Any_dataOS7_, ptr %_M_invoker4.i.i47, align 8
   br label %if.end22
 
@@ -859,9 +859,9 @@ entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %0, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
@@ -904,10 +904,10 @@ _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %_M_manager3.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %8, ptr %_M_manager.i.i.i, align 8
-  %_M_invoker4.i2.i = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
+  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %_M_invoker4.i2.i, align 8
   store ptr %9, ptr %_M_invoker.i.i, align 8
   store <2 x ptr> %7, ptr %_M_manager3.i.i, align 8
@@ -927,18 +927,18 @@ terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSERKS5_.exit: ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i, %if.then.i.i5.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %contains_help_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 1
+  %contains_help_flags = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i6)
-  %_M_manager.i.i.i7 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i6, i64 0, i32 1
-  %_M_invoker.i.i8 = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i6, i64 0, i32 1
-  %_M_manager.i.i.i.i9 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 16
+  %_M_invoker.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 24
+  %_M_manager.i.i.i.i9 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i6, i8 0, i64 32, i1 false)
   %12 = load ptr, ptr %_M_manager.i.i.i.i9, align 8
   %tobool.not.i.i.not.i.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.not.i.i10, label %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i21, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSERKS5_.exit
-  %contains_help_flags3 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 1
+  %contains_help_flags3 = getelementptr inbounds i8, ptr %0, i64 32
   %call3.i.i12 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(16) %contains_help_flags3, i32 noundef 2)
           to label %invoke.cont.i.i19 unwind label %lpad.i.i13
 
@@ -971,10 +971,10 @@ _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i21: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(16) %contains_help_flags, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %contains_help_flags, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i5)
-  %_M_manager3.i.i22 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager3.i.i22 = getelementptr inbounds i8, ptr %this, i64 48
   %19 = load ptr, ptr %_M_manager3.i.i22, align 8
   store ptr %19, ptr %_M_manager.i.i.i7, align 8
-  %_M_invoker4.i2.i23 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 1, i32 1
+  %_M_invoker4.i2.i23 = getelementptr inbounds i8, ptr %this, i64 56
   %20 = load ptr, ptr %_M_invoker4.i2.i23, align 8
   store ptr %20, ptr %_M_invoker.i.i8, align 8
   store <2 x ptr> %18, ptr %_M_manager3.i.i22, align 8
@@ -994,18 +994,18 @@ terminate.lpad.i.i7.i27:                          ; preds = %if.then.i.i5.i25
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSERKS5_.exit28: ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i21, %if.then.i.i5.i25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i6)
-  %contains_helppackage_flags = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 2
+  %contains_helppackage_flags = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30)
-  %_M_manager.i.i.i31 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i30, i64 0, i32 1
-  %_M_invoker.i.i32 = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i30, i64 0, i32 1
-  %_M_manager.i.i.i.i33 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 16
+  %_M_invoker.i.i32 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 24
+  %_M_manager.i.i.i.i33 = getelementptr inbounds i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i30, i8 0, i64 32, i1 false)
   %23 = load ptr, ptr %_M_manager.i.i.i.i33, align 8
   %tobool.not.i.i.not.i.i34 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.not.i.i34, label %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i45, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSERKS5_.exit28
-  %contains_helppackage_flags5 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 2
+  %contains_helppackage_flags5 = getelementptr inbounds i8, ptr %0, i64 64
   %call3.i.i36 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, ptr noundef nonnull align 8 dereferenceable(16) %contains_helppackage_flags5, i32 noundef 2)
           to label %invoke.cont.i.i43 unwind label %lpad.i.i37
 
@@ -1038,10 +1038,10 @@ _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i45: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, ptr noundef nonnull align 8 dereferenceable(16) %contains_helppackage_flags, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %contains_helppackage_flags, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i29, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i29)
-  %_M_manager3.i.i46 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager3.i.i46 = getelementptr inbounds i8, ptr %this, i64 80
   %30 = load ptr, ptr %_M_manager3.i.i46, align 8
   store ptr %30, ptr %_M_manager.i.i.i31, align 8
-  %_M_invoker4.i2.i47 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 2, i32 1
+  %_M_invoker4.i2.i47 = getelementptr inbounds i8, ptr %this, i64 88
   %31 = load ptr, ptr %_M_invoker4.i2.i47, align 8
   store ptr %31, ptr %_M_invoker.i.i32, align 8
   store <2 x ptr> %29, ptr %_M_manager3.i.i46, align 8
@@ -1061,18 +1061,18 @@ terminate.lpad.i.i7.i51:                          ; preds = %if.then.i.i5.i49
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSERKS5_.exit52: ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i45, %if.then.i.i5.i49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i30)
-  %version_string = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 3
+  %version_string = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i54)
-  %_M_manager.i.i.i55 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i54, i64 0, i32 1
-  %_M_invoker.i.i56 = getelementptr inbounds %"class.std::function.0", ptr %ref.tmp.i54, i64 0, i32 1
-  %_M_manager.i.i.i.i57 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 16
+  %_M_invoker.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 24
+  %_M_manager.i.i.i.i57 = getelementptr inbounds i8, ptr %0, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i54, i8 0, i64 32, i1 false)
   %34 = load ptr, ptr %_M_manager.i.i.i.i57, align 8
   %tobool.not.i.i.not.i.i58 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.not.i.i58, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2ERKS7_.exit.i, label %if.then.i.i59
 
 if.then.i.i59:                                    ; preds = %_ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEaSERKS5_.exit52
-  %version_string7 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 3
+  %version_string7 = getelementptr inbounds i8, ptr %0, i64 96
   %call3.i.i60 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %version_string7, i32 noundef 2)
           to label %invoke.cont.i.i67 unwind label %lpad.i.i61
 
@@ -1105,10 +1105,10 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2ERKS7_.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %version_string, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %version_string, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i53, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i53)
-  %_M_manager3.i.i69 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager3.i.i69 = getelementptr inbounds i8, ptr %this, i64 112
   %41 = load ptr, ptr %_M_manager3.i.i69, align 8
   store ptr %41, ptr %_M_manager.i.i.i55, align 8
-  %_M_invoker4.i2.i70 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 3, i32 1
+  %_M_invoker4.i2.i70 = getelementptr inbounds i8, ptr %this, i64 120
   %42 = load ptr, ptr %_M_invoker4.i2.i70, align 8
   store ptr %42, ptr %_M_invoker.i.i56, align 8
   store <2 x ptr> %40, ptr %_M_manager3.i.i69, align 8
@@ -1128,18 +1128,18 @@ terminate.lpad.i.i7.i74:                          ; preds = %if.then.i.i5.i72
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEaSERKS7_.exit: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2ERKS7_.exit.i, %if.then.i.i5.i72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i54)
-  %normalize_filename = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 4
+  %normalize_filename = getelementptr inbounds i8, ptr %this, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i76)
-  %_M_manager.i.i.i77 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i76, i64 0, i32 1
-  %_M_invoker.i.i78 = getelementptr inbounds %"class.std::function.2", ptr %ref.tmp.i76, i64 0, i32 1
-  %_M_manager.i.i.i.i79 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i.i77 = getelementptr inbounds i8, ptr %ref.tmp.i76, i64 16
+  %_M_invoker.i.i78 = getelementptr inbounds i8, ptr %ref.tmp.i76, i64 24
+  %_M_manager.i.i.i.i79 = getelementptr inbounds i8, ptr %0, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i76, i8 0, i64 32, i1 false)
   %45 = load ptr, ptr %_M_manager.i.i.i.i79, align 8
   %tobool.not.i.i.not.i.i80 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.not.i.i80, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEEC2ERKS9_.exit.i, label %if.then.i.i81
 
 if.then.i.i81:                                    ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEaSERKS7_.exit
-  %normalize_filename9 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %0, i64 0, i32 4
+  %normalize_filename9 = getelementptr inbounds i8, ptr %0, i64 128
   %call3.i.i82 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i76, ptr noundef nonnull align 8 dereferenceable(16) %normalize_filename9, i32 noundef 2)
           to label %invoke.cont.i.i89 unwind label %lpad.i.i83
 
@@ -1172,10 +1172,10 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i76, ptr noundef nonnull align 8 dereferenceable(16) %normalize_filename, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %normalize_filename, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i75, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i75)
-  %_M_manager3.i.i91 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_manager3.i.i91 = getelementptr inbounds i8, ptr %this, i64 144
   %52 = load ptr, ptr %_M_manager3.i.i91, align 8
   store ptr %52, ptr %_M_manager.i.i.i77, align 8
-  %_M_invoker4.i2.i92 = getelementptr inbounds %"struct.absl::FlagsUsageConfig", ptr %this, i64 0, i32 4, i32 1
+  %_M_invoker4.i2.i92 = getelementptr inbounds i8, ptr %this, i64 152
   %53 = load ptr, ptr %_M_invoker4.i2.i92, align 8
   store ptr %53, ptr %_M_invoker.i.i78, align 8
   store <2 x ptr> %51, ptr %_M_manager3.i.i91, align 8

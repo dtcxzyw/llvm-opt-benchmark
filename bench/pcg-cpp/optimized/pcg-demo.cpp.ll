@@ -95,7 +95,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end10.sink.split
 
 land.lhs.true:                                    ; preds = %entry
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %incdec.ptr, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #12
   %cmp1 = icmp eq i32 %call, 0
@@ -106,7 +106,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %cmp4.not, label %if.then9, label %if.end8.thread275
 
 if.end8.thread275:                                ; preds = %if.end
-  %incdec.ptr2 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %argv, i64 16
   %.pre = load ptr, ptr %incdec.ptr2, align 8
   %call7276 = tail call i32 @atoi(ptr nocapture noundef %.pre) #12
   br label %if.then9
@@ -117,7 +117,7 @@ if.end8:                                          ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %if.end, %if.end8.thread275
   %rounds.0251 = phi i32 [ %call7276, %if.end8.thread275 ], [ 5, %if.end ]
-  %state_.i277 = getelementptr inbounds %"class.pcg_detail::engine", ptr %rng, i64 0, i32 1
+  %state_.i277 = getelementptr inbounds i8, ptr %rng, i64 8
   store i64 1753877967969059832, ptr %state_.i277, align 8
   call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %seeddata.i.i)
@@ -147,7 +147,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %shift.08.i.i.i.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %value.07.i.i.i.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i.i.i.i ], [ %or.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %src_first.addr.16.i.i.i.i.i.i = phi ptr [ %src_first.addr.012.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %src_first.addr.16.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src_first.addr.16.i.i.i.i.i.i, i64 4
   %1 = load i32, ptr %src_first.addr.16.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %1 to i64
   %sh_prom.i.i.i.i.i.i = and i64 %shift.08.i.i.i.i.i.i, 4294967295
@@ -166,7 +166,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
 
 invoke.cont:                                      ; preds = %for.end.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i)
-  %arrayidx.i.i = getelementptr inbounds [2 x i64], ptr %seeddata.i.i, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %seeddata.i.i, i64 8
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %3 = load i64, ptr %seeddata.i.i, align 16
   %shl.i.i.i.i.i = shl i64 %3, 1
@@ -206,7 +206,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit26: ; preds = %lpad
 if.end10.sink.split:                              ; preds = %entry, %if.end8
   %rounds.0250.ph = phi i32 [ %call7, %if.end8 ], [ 5, %entry ]
   store i64 109, ptr %rng, align 8
-  %state_.i257 = getelementptr inbounds %"class.pcg_detail::engine", ptr %rng, i64 0, i32 1
+  %state_.i257 = getelementptr inbounds i8, ptr %rng, i64 8
   store i64 1753877967969059832, ptr %state_.i257, align 8
   br label %if.end10
 
@@ -232,8 +232,8 @@ if.end10:                                         ; preds = %if.end10.sink.split
 for.body.lr.ph:                                   ; preds = %if.end10
   %add.ptr.i = getelementptr inbounds i8, ptr %cards, i64 52
   %add.ptr.i73 = getelementptr inbounds i8, ptr %cards, i64 1
-  %_M_b.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %__d.i, i64 0, i32 1
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_b.i.i.i = getelementptr inbounds i8, ptr %__d.i, i64 8
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end163
@@ -811,7 +811,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #7 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -828,7 +828,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #7 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 2
@@ -1013,7 +1013,7 @@ declare noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 
 define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclIN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__urng, ptr noundef nonnull align 8 dereferenceable(16) %__param) local_unnamed_addr #7 comdat align 2 {
 entry:
   %ref.tmp = alloca %"struct.std::uniform_int_distribution<unsigned long>::param_type", align 8
-  %_M_b.i = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %__param, i64 0, i32 1
+  %_M_b.i = getelementptr inbounds i8, ptr %__param, i64 8
   %0 = load i64, ptr %_M_b.i, align 8
   %1 = load i64, ptr %__param, align 8
   %sub = sub i64 %0, %1
@@ -1023,7 +1023,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = trunc i64 %sub to i32
   %conv = add nuw i32 %2, 1
-  %state_.i.i.i = getelementptr inbounds %"class.pcg_detail::engine", ptr %__urng, i64 0, i32 1
+  %state_.i.i.i = getelementptr inbounds i8, ptr %__urng, i64 8
   %3 = load i64, ptr %state_.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %3, 6364136223846793005
   %4 = load i64, ptr %__urng, align 8
@@ -1089,8 +1089,8 @@ if.else:                                          ; preds = %entry
 
 do.body.preheader:                                ; preds = %if.else
   %div13 = lshr i64 %sub, 32
-  %_M_b.i14 = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %ref.tmp, i64 0, i32 1
-  %state_.i.i = getelementptr inbounds %"class.pcg_detail::engine", ptr %__urng, i64 0, i32 1
+  %_M_b.i14 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %state_.i.i = getelementptr inbounds i8, ptr %__urng, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -1120,7 +1120,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp12, label %do.body, label %if.end18, !llvm.loop !21
 
 if.else14:                                        ; preds = %if.else
-  %state_.i.i16 = getelementptr inbounds %"class.pcg_detail::engine", ptr %__urng, i64 0, i32 1
+  %state_.i.i16 = getelementptr inbounds i8, ptr %__urng, i64 8
   %14 = load i64, ptr %state_.i.i16, align 8
   %mul.i.i.i17 = mul i64 %14, 6364136223846793005
   %15 = load i64, ptr %__urng, align 8

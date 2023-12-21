@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-sparse_array.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sparse_array_st = type { i32, i64, i64, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/sparse_array.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -28,7 +26,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %nodes.i)
   store i32 0, ptr %i.i, align 16
-  %nodes1.i = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes1.i = getelementptr inbounds i8, ptr %sa, i64 24
   %0 = load ptr, ptr %nodes1.i, align 8
   store ptr %0, ptr %nodes.i, align 16
   br label %while.body.us.i
@@ -108,7 +106,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %nodes.i)
   store i32 0, ptr %i.i, align 16
-  %nodes1.i = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes1.i = getelementptr inbounds i8, ptr %sa, i64 24
   %0 = load ptr, ptr %nodes1.i, align 8
   store ptr %0, ptr %nodes.i, align 16
   br label %while.body.i
@@ -191,7 +189,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %nodes.i)
   store i32 0, ptr %i.i, align 16
-  %nodes1.i = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes1.i = getelementptr inbounds i8, ptr %sa, i64 24
   %0 = load ptr, ptr %nodes1.i, align 8
   store ptr %0, ptr %nodes.i, align 16
   br label %while.body.us28.i
@@ -274,7 +272,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %nodes.i)
   store i32 0, ptr %i.i, align 16
-  %nodes1.i = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes1.i = getelementptr inbounds i8, ptr %sa, i64 24
   %0 = load ptr, ptr %nodes1.i, align 8
   store ptr %0, ptr %nodes.i, align 16
   %cmp28.not.i = icmp eq ptr %leaf, null
@@ -400,7 +398,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %nelem = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 2
+  %nelem = getelementptr inbounds i8, ptr %sa, i64 16
   %0 = load i64, ptr %nelem, align 8
   br label %cond.end
 
@@ -416,19 +414,19 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %nelem = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 2
+  %nelem = getelementptr inbounds i8, ptr %sa, i64 16
   %0 = load i64, ptr %nelem, align 8
   %cmp1 = icmp eq i64 %0, 0
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %top = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %sa, i64 8
   %1 = load i64, ptr %top, align 8
   %cmp2.not = icmp ult i64 %1, %n
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %nodes = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes = getelementptr inbounds i8, ptr %sa, i64 24
   %2 = load i32, ptr %sa, align 8
   %p.012 = load ptr, ptr %nodes, align 8
   %cmp413 = icmp ne ptr %p.012, null
@@ -488,7 +486,7 @@ for.cond5.preheader:                              ; preds = %for.inc, %for.cond.
   br i1 %cmp641, label %for.body7.lr.ph, label %for.end15
 
 for.body7.lr.ph:                                  ; preds = %for.cond5.preheader
-  %nodes = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes = getelementptr inbounds i8, ptr %sa, i64 24
   br label %for.body7
 
 for.inc:                                          ; preds = %for.cond.preheader, %for.inc
@@ -518,7 +516,7 @@ if.end10:                                         ; preds = %for.body7
 
 for.end15:                                        ; preds = %if.end10, %for.cond5.preheader
   %.lcssa = phi i32 [ %0, %for.cond5.preheader ], [ %inc14, %if.end10 ]
-  %top = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %sa, i64 8
   %3 = load i64, ptr %top, align 8
   %cmp16 = icmp ult i64 %3, %posn
   br i1 %cmp16, label %if.then17, label %if.end19
@@ -528,7 +526,7 @@ if.then17:                                        ; preds = %for.end15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %for.end15
-  %nodes20 = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 3
+  %nodes20 = getelementptr inbounds i8, ptr %sa, i64 24
   %p.043 = load ptr, ptr %nodes20, align 8
   %cmp2345 = icmp sgt i32 %.lcssa, 1
   br i1 %cmp2345, label %for.body24.preheader, label %for.end39
@@ -578,7 +576,7 @@ land.lhs.true50:                                  ; preds = %for.end39
 
 if.end57.sink.split:                              ; preds = %land.lhs.true50, %land.lhs.true43
   %.sink55 = phi i64 [ -1, %land.lhs.true43 ], [ 1, %land.lhs.true50 ]
-  %nelem = getelementptr inbounds %struct.sparse_array_st, ptr %sa, i64 0, i32 2
+  %nelem = getelementptr inbounds i8, ptr %sa, i64 16
   %7 = load i64, ptr %nelem, align 8
   %inc55 = add i64 %7, %.sink55
   store i64 %inc55, ptr %nelem, align 8

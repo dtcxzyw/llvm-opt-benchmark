@@ -11,8 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.GVecGen4 = type { ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8 }
 %struct.TCGHelperInfo = type { ptr, ptr, i64, i64, [14 x %struct.TCGCallArgumentLoc] }
 %struct.TCGCallArgumentLoc = type { i32 }
-%struct.GVecGen3i = type { ptr, ptr, ptr, ptr, ptr, i8, i8, i8 }
-%struct.GVecGen4i = type { ptr, ptr, ptr, ptr, ptr, i8, i8 }
 
 @tcg_env = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/tcg/tcg-op-gvec.c\00", align 1
@@ -1040,7 +1038,7 @@ declare void @tcg_gen_mov_i64(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_2(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
 entry:
-  %opt_opc = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 4
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
   switch i32 %oprsz, label %do.body1.i [
     i32 8, label %do.body.i
@@ -1082,17 +1080,17 @@ lor.lhs.false2.i:                                 ; preds = %check_size_align.ex
   br label %check_overlap_2.exit
 
 check_overlap_2.exit:                             ; preds = %check_size_align.exit, %lor.lhs.false2.i
-  %fniv = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %sw.bb26, label %if.end
 
 if.end:                                           ; preds = %check_overlap_2.exit
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 6
+  %vece = getelementptr inbounds i8, ptr %g, i64 44
   %2 = load i8, ptr %vece, align 4
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 7
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool3 = icmp ne i8 %4, 0
@@ -1108,7 +1106,7 @@ sw.bb:                                            ; preds = %if.end
   %div65 = and i32 %oprsz, -32
   %5 = load i8, ptr %vece, align 4
   %conv6 = zext i8 %5 to i32
-  %load_dest = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 8
+  %load_dest = getelementptr inbounds i8, ptr %g, i64 46
   %6 = load i8, ptr %load_dest, align 2
   %7 = and i8 %6, 1
   %tobool7 = icmp ne i8 %7, 0
@@ -1131,7 +1129,7 @@ sw.bb14:                                          ; preds = %if.end11, %if.end
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end11 ]
   %9 = load i8, ptr %vece, align 4
   %conv16 = zext i8 %9 to i32
-  %load_dest17 = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 8
+  %load_dest17 = getelementptr inbounds i8, ptr %g, i64 46
   %10 = load i8, ptr %load_dest17, align 2
   %11 = and i8 %10, 1
   %tobool18 = icmp ne i8 %11, 0
@@ -1142,7 +1140,7 @@ sw.bb14:                                          ; preds = %if.end11, %if.end
 sw.bb20:                                          ; preds = %if.end
   %13 = load i8, ptr %vece, align 4
   %conv22 = zext i8 %13 to i32
-  %load_dest23 = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 8
+  %load_dest23 = getelementptr inbounds i8, ptr %g, i64 46
   %14 = load i8, ptr %load_dest23, align 2
   %15 = and i8 %14, 1
   %tobool24 = icmp ne i8 %15, 0
@@ -1165,7 +1163,7 @@ if.end.i:                                         ; preds = %sw.bb26
   br i1 %cmp10.i, label %for.body.lr.ph.i, label %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %load_dest31 = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 8
+  %load_dest31 = getelementptr inbounds i8, ptr %g, i64 46
   %18 = load i8, ptr %load_dest31, align 2
   %19 = and i8 %18, 1
   %tobool32.not = icmp eq i8 %19, 0
@@ -1211,7 +1209,7 @@ expand_2_i64.exit:                                ; preds = %for.body.us.i, %for
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end.i, %sw.bb26
-  %fni4 = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %25 = load ptr, ptr %fni4, align 8
   %tobool34.not = icmp eq ptr %25, null
   %cmp.i71 = icmp ult i32 %oprsz, 4
@@ -1226,7 +1224,7 @@ if.end.i72:                                       ; preds = %if.else
   br i1 %cmp10.i80, label %for.body.lr.ph.i85, label %if.else42
 
 for.body.lr.ph.i85:                               ; preds = %if.end.i72
-  %load_dest39 = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 8
+  %load_dest39 = getelementptr inbounds i8, ptr %g, i64 46
   %26 = load i8, ptr %load_dest39, align 2
   %27 = and i8 %26, 1
   %tobool40.not = icmp eq i8 %27, 0
@@ -1272,7 +1270,7 @@ expand_2_i32.exit:                                ; preds = %for.body.us.i94, %f
   br label %sw.epilog
 
 if.else42:                                        ; preds = %if.end.i72, %if.else
-  %fno = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %33 = load ptr, ptr %fno, align 8
   %cmp43.not = icmp eq ptr %33, null
   br i1 %cmp43.not, label %if.else46, label %sw.epilog.thread
@@ -1282,7 +1280,7 @@ if.else46:                                        ; preds = %if.else42
   unreachable
 
 sw.epilog.thread:                                 ; preds = %if.else42
-  %data = getelementptr inbounds %struct.GVecGen2, ptr %g, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %g, i64 40
   %34 = load i32, ptr %data, align 8
   tail call void @tcg_gen_gvec_2_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %34, ptr noundef nonnull %33)
   br label %if.end57
@@ -1484,7 +1482,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_2i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
 entry:
-  %opt_opc = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 5
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 40
   %or = or i32 %aofs, %dofs
   switch i32 %oprsz, label %do.body1.i [
     i32 8, label %do.body.i
@@ -1526,17 +1524,17 @@ lor.lhs.false2.i:                                 ; preds = %check_size_align.ex
   br label %check_overlap_2.exit
 
 check_overlap_2.exit:                             ; preds = %check_size_align.exit, %lor.lhs.false2.i
-  %fniv = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %sw.bb26, label %if.end
 
 if.end:                                           ; preds = %check_overlap_2.exit
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 6
+  %vece = getelementptr inbounds i8, ptr %g, i64 48
   %2 = load i8, ptr %vece, align 8
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 7
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 49
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool3 = icmp ne i8 %4, 0
@@ -1552,7 +1550,7 @@ sw.bb:                                            ; preds = %if.end
   %div76 = and i32 %oprsz, -32
   %5 = load i8, ptr %vece, align 8
   %conv6 = zext i8 %5 to i32
-  %load_dest = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 8
+  %load_dest = getelementptr inbounds i8, ptr %g, i64 50
   %6 = load i8, ptr %load_dest, align 2
   %7 = and i8 %6, 1
   %tobool7 = icmp ne i8 %7, 0
@@ -1575,7 +1573,7 @@ sw.bb14:                                          ; preds = %if.end11, %if.end
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end11 ]
   %9 = load i8, ptr %vece, align 8
   %conv16 = zext i8 %9 to i32
-  %load_dest17 = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 8
+  %load_dest17 = getelementptr inbounds i8, ptr %g, i64 50
   %10 = load i8, ptr %load_dest17, align 2
   %11 = and i8 %10, 1
   %tobool18 = icmp ne i8 %11, 0
@@ -1586,7 +1584,7 @@ sw.bb14:                                          ; preds = %if.end11, %if.end
 sw.bb20:                                          ; preds = %if.end
   %13 = load i8, ptr %vece, align 8
   %conv22 = zext i8 %13 to i32
-  %load_dest23 = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 8
+  %load_dest23 = getelementptr inbounds i8, ptr %g, i64 50
   %14 = load i8, ptr %load_dest23, align 2
   %15 = and i8 %14, 1
   %tobool24 = icmp ne i8 %15, 0
@@ -1609,7 +1607,7 @@ if.end.i:                                         ; preds = %sw.bb26
   br i1 %cmp10.i, label %for.body.lr.ph.i, label %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %load_dest31 = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 8
+  %load_dest31 = getelementptr inbounds i8, ptr %g, i64 50
   %18 = load i8, ptr %load_dest31, align 2
   %19 = and i8 %18, 1
   %tobool32.not = icmp eq i8 %19, 0
@@ -1655,7 +1653,7 @@ expand_2i_i64.exit:                               ; preds = %for.body.us.i, %for
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end.i, %sw.bb26
-  %fni4 = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %25 = load ptr, ptr %fni4, align 8
   %tobool34.not = icmp eq ptr %25, null
   %cmp.i82 = icmp ult i32 %oprsz, 4
@@ -1671,7 +1669,7 @@ if.end.i83:                                       ; preds = %if.else
 
 for.body.lr.ph.i96:                               ; preds = %if.end.i83
   %conv39 = trunc i64 %c to i32
-  %load_dest40 = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 8
+  %load_dest40 = getelementptr inbounds i8, ptr %g, i64 50
   %26 = load i8, ptr %load_dest40, align 2
   %27 = and i8 %26, 1
   %tobool41.not = icmp eq i8 %27, 0
@@ -1717,7 +1715,7 @@ expand_2i_i32.exit:                               ; preds = %for.body.us.i105, %
   br label %sw.epilog
 
 if.else43:                                        ; preds = %if.end.i83, %if.else
-  %fno = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %33 = load ptr, ptr %fno, align 8
   %tobool44.not = icmp eq ptr %33, null
   br i1 %tobool44.not, label %if.else48, label %if.then45
@@ -1730,7 +1728,7 @@ if.then45:                                        ; preds = %if.else43
 if.else48:                                        ; preds = %if.else43
   %call49 = tail call ptr @tcg_constant_i64(i64 noundef %c) #7
   %conv50 = trunc i64 %c to i32
-  %fnoi = getelementptr inbounds %struct.GVecGen2i, ptr %g, i64 0, i32 4
+  %fnoi = getelementptr inbounds i8, ptr %g, i64 32
   %34 = load ptr, ptr %fnoi, align 8
   tail call void @tcg_gen_gvec_2i_ool(i32 noundef %dofs, i32 noundef %aofs, ptr noundef %call49, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %conv50, ptr noundef %34)
   br label %if.end60
@@ -1851,18 +1849,18 @@ lor.lhs.false2.i:                                 ; preds = %check_size_align.ex
   br label %check_overlap_2.exit
 
 check_overlap_2.exit:                             ; preds = %check_size_align.exit, %lor.lhs.false2.i
-  %fniv = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.end:                                           ; preds = %check_overlap_2.exit
-  %opt_opc = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 4
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 32
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 6
+  %vece = getelementptr inbounds i8, ptr %g, i64 44
   %2 = load i8, ptr %vece, align 4
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 7
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool1 = icmp ne i8 %4, 0
@@ -1885,7 +1883,7 @@ sw.bb:                                            ; preds = %if.then3
   %div80 = and i32 %oprsz, -32
   %6 = load i8, ptr %vece, align 4
   %conv11 = zext i8 %6 to i32
-  %scalar_first = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 8
+  %scalar_first = getelementptr inbounds i8, ptr %g, i64 46
   %7 = load i8, ptr %scalar_first, align 2
   %8 = and i8 %7, 1
   %tobool12 = icmp ne i8 %8, 0
@@ -1908,7 +1906,7 @@ sw.bb20:                                          ; preds = %if.end17, %if.then3
   %dofs.addr.0 = phi i32 [ %dofs, %if.then3 ], [ %add, %if.end17 ]
   %10 = load i8, ptr %vece, align 4
   %conv22 = zext i8 %10 to i32
-  %scalar_first23 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 8
+  %scalar_first23 = getelementptr inbounds i8, ptr %g, i64 46
   %11 = load i8, ptr %scalar_first23, align 2
   %12 = and i8 %11, 1
   %tobool24 = icmp ne i8 %12, 0
@@ -1919,7 +1917,7 @@ sw.bb20:                                          ; preds = %if.end17, %if.then3
 sw.bb26:                                          ; preds = %if.then3
   %14 = load i8, ptr %vece, align 4
   %conv28 = zext i8 %14 to i32
-  %scalar_first29 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 8
+  %scalar_first29 = getelementptr inbounds i8, ptr %g, i64 46
   %15 = load i8, ptr %scalar_first29, align 2
   %16 = and i8 %15, 1
   %tobool30 = icmp ne i8 %16, 0
@@ -1954,11 +1952,11 @@ if.end.i:                                         ; preds = %if.else
 
 if.then36:                                        ; preds = %if.end.i
   %call37 = tail call ptr @tcg_temp_new_i64() #7
-  %vece38 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 6
+  %vece38 = getelementptr inbounds i8, ptr %g, i64 44
   %19 = load i8, ptr %vece38, align 4
   %conv39 = zext i8 %19 to i32
   tail call void @tcg_gen_dup_i64(i32 noundef %conv39, ptr noundef %call37, ptr noundef %c)
-  %scalar_first40 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 8
+  %scalar_first40 = getelementptr inbounds i8, ptr %g, i64 46
   %20 = load i8, ptr %scalar_first40, align 2
   %21 = and i8 %20, 1
   %tobool41 = icmp ne i8 %21, 0
@@ -1968,7 +1966,7 @@ if.then36:                                        ; preds = %if.end.i
   br label %if.end58
 
 if.else43:                                        ; preds = %if.end.i, %if.else
-  %fni4 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %23 = load ptr, ptr %fni4, align 8
   %tobool44.not = icmp eq ptr %23, null
   %cmp.i84 = icmp ult i32 %oprsz, 4
@@ -1985,7 +1983,7 @@ if.end.i85:                                       ; preds = %if.else43
 if.then48:                                        ; preds = %if.end.i85
   %call49 = tail call ptr @tcg_temp_new_i32() #7
   tail call void @tcg_gen_extrl_i64_i32(ptr noundef %call49, ptr noundef %c) #7
-  %vece50 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 6
+  %vece50 = getelementptr inbounds i8, ptr %g, i64 44
   %24 = load i8, ptr %vece50, align 4
   switch i8 %24, label %do.body.i95 [
     i8 0, label %sw.bb.i
@@ -2011,7 +2009,7 @@ do.body.i95:                                      ; preds = %if.then48
   unreachable
 
 tcg_gen_dup_i32.exit:                             ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb2.i
-  %scalar_first52 = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 8
+  %scalar_first52 = getelementptr inbounds i8, ptr %g, i64 46
   %25 = load i8, ptr %scalar_first52, align 2
   %26 = and i8 %25, 1
   %tobool53 = icmp ne i8 %26, 0
@@ -2021,7 +2019,7 @@ tcg_gen_dup_i32.exit:                             ; preds = %sw.bb.i, %sw.bb1.i,
   br label %if.end58
 
 if.else55:                                        ; preds = %if.end.i85, %if.else43
-  %fno = getelementptr inbounds %struct.GVecGen2s, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %28 = load ptr, ptr %fno, align 8
   tail call void @tcg_gen_gvec_2i_ool(i32 noundef %dofs, i32 noundef %aofs, ptr noundef %c, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef 0, ptr noundef %28)
   br label %if.end64
@@ -2203,7 +2201,7 @@ declare void @tcg_temp_free_i32(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_3(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
 entry:
-  %opt_opc = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 4
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
   %or1 = or i32 %or, %bofs
   switch i32 %oprsz, label %do.body1.i [
@@ -2271,17 +2269,17 @@ lor.lhs.false2.i18.i:                             ; preds = %check_overlap_2.exi
   br label %check_overlap_3.exit
 
 check_overlap_3.exit:                             ; preds = %check_overlap_2.exit13.i, %lor.lhs.false2.i18.i
-  %fniv = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %sw.bb28, label %if.end
 
 if.end:                                           ; preds = %check_overlap_3.exit
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 6
+  %vece = getelementptr inbounds i8, ptr %g, i64 44
   %2 = load i8, ptr %vece, align 4
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 7
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool4 = icmp ne i8 %4, 0
@@ -2297,7 +2295,7 @@ sw.bb:                                            ; preds = %if.end
   %div74 = and i32 %oprsz, -32
   %5 = load i8, ptr %vece, align 4
   %conv7 = zext i8 %5 to i32
-  %load_dest = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 8
+  %load_dest = getelementptr inbounds i8, ptr %g, i64 46
   %6 = load i8, ptr %load_dest, align 2
   %7 = and i8 %6, 1
   %tobool8 = icmp ne i8 %7, 0
@@ -2322,7 +2320,7 @@ sw.bb16:                                          ; preds = %if.end12, %if.end
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end12 ]
   %9 = load i8, ptr %vece, align 4
   %conv18 = zext i8 %9 to i32
-  %load_dest19 = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 8
+  %load_dest19 = getelementptr inbounds i8, ptr %g, i64 46
   %10 = load i8, ptr %load_dest19, align 2
   %11 = and i8 %10, 1
   %tobool20 = icmp ne i8 %11, 0
@@ -2333,7 +2331,7 @@ sw.bb16:                                          ; preds = %if.end12, %if.end
 sw.bb22:                                          ; preds = %if.end
   %13 = load i8, ptr %vece, align 4
   %conv24 = zext i8 %13 to i32
-  %load_dest25 = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 8
+  %load_dest25 = getelementptr inbounds i8, ptr %g, i64 46
   %14 = load i8, ptr %load_dest25, align 2
   %15 = and i8 %14, 1
   %tobool26 = icmp ne i8 %15, 0
@@ -2356,7 +2354,7 @@ if.end.i:                                         ; preds = %sw.bb28
   br i1 %cmp10.i, label %for.body.lr.ph.i, label %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %load_dest33 = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 8
+  %load_dest33 = getelementptr inbounds i8, ptr %g, i64 46
   %18 = load i8, ptr %load_dest33, align 2
   %19 = and i8 %18, 1
   %tobool34.not = icmp eq i8 %19, 0
@@ -2412,7 +2410,7 @@ expand_3_i64.exit:                                ; preds = %for.body.us.i, %for
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end.i, %sw.bb28
-  %fni4 = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %27 = load ptr, ptr %fni4, align 8
   %tobool36.not = icmp eq ptr %27, null
   %cmp.i78 = icmp ult i32 %oprsz, 4
@@ -2427,7 +2425,7 @@ if.end.i79:                                       ; preds = %if.else
   br i1 %cmp10.i87, label %for.body.lr.ph.i93, label %if.else44
 
 for.body.lr.ph.i93:                               ; preds = %if.end.i79
-  %load_dest41 = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 8
+  %load_dest41 = getelementptr inbounds i8, ptr %g, i64 46
   %28 = load i8, ptr %load_dest41, align 2
   %29 = and i8 %28, 1
   %tobool42.not = icmp eq i8 %29, 0
@@ -2483,7 +2481,7 @@ expand_3_i32.exit:                                ; preds = %for.body.us.i104, %
   br label %sw.epilog
 
 if.else44:                                        ; preds = %if.end.i79, %if.else
-  %fno = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %37 = load ptr, ptr %fno, align 8
   %cmp45.not = icmp eq ptr %37, null
   br i1 %cmp45.not, label %if.else48, label %sw.epilog.thread
@@ -2493,7 +2491,7 @@ if.else48:                                        ; preds = %if.else44
   unreachable
 
 sw.epilog.thread:                                 ; preds = %if.else44
-  %data = getelementptr inbounds %struct.GVecGen3, ptr %g, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %g, i64 40
   %38 = load i32, ptr %data, align 8
   tail call void @tcg_gen_gvec_3_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %38, ptr noundef nonnull %37)
   br label %if.end59
@@ -2581,7 +2579,7 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_3i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
 entry:
-  %opt_opc = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 4
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
   %or1 = or i32 %or, %bofs
   switch i32 %oprsz, label %do.body1.i [
@@ -2649,17 +2647,17 @@ lor.lhs.false2.i18.i:                             ; preds = %check_overlap_2.exi
   br label %check_overlap_3.exit
 
 check_overlap_3.exit:                             ; preds = %check_overlap_2.exit13.i, %lor.lhs.false2.i18.i
-  %fniv = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %sw.bb28, label %if.end
 
 if.end:                                           ; preds = %check_overlap_3.exit
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 5
+  %vece = getelementptr inbounds i8, ptr %g, i64 40
   %2 = load i8, ptr %vece, align 8
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 6
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 41
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool4 = icmp ne i8 %4, 0
@@ -2675,7 +2673,7 @@ sw.bb:                                            ; preds = %if.end
   %div78 = and i32 %oprsz, -32
   %5 = load i8, ptr %vece, align 8
   %conv7 = zext i8 %5 to i32
-  %load_dest = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 7
+  %load_dest = getelementptr inbounds i8, ptr %g, i64 42
   %6 = load i8, ptr %load_dest, align 2
   %7 = and i8 %6, 1
   %tobool8 = icmp ne i8 %7, 0
@@ -2700,7 +2698,7 @@ sw.bb16:                                          ; preds = %if.end12, %if.end
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end12 ]
   %9 = load i8, ptr %vece, align 8
   %conv18 = zext i8 %9 to i32
-  %load_dest19 = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 7
+  %load_dest19 = getelementptr inbounds i8, ptr %g, i64 42
   %10 = load i8, ptr %load_dest19, align 2
   %11 = and i8 %10, 1
   %tobool20 = icmp ne i8 %11, 0
@@ -2711,7 +2709,7 @@ sw.bb16:                                          ; preds = %if.end12, %if.end
 sw.bb22:                                          ; preds = %if.end
   %13 = load i8, ptr %vece, align 8
   %conv24 = zext i8 %13 to i32
-  %load_dest25 = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 7
+  %load_dest25 = getelementptr inbounds i8, ptr %g, i64 42
   %14 = load i8, ptr %load_dest25, align 2
   %15 = and i8 %14, 1
   %tobool26 = icmp ne i8 %15, 0
@@ -2734,7 +2732,7 @@ if.end.i:                                         ; preds = %sw.bb28
   br i1 %cmp10.i, label %for.body.lr.ph.i, label %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %load_dest33 = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 7
+  %load_dest33 = getelementptr inbounds i8, ptr %g, i64 42
   %18 = load i8, ptr %load_dest33, align 2
   %19 = and i8 %18, 1
   %tobool34.not = icmp eq i8 %19, 0
@@ -2790,7 +2788,7 @@ expand_3i_i64.exit:                               ; preds = %for.body.us.i, %for
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end.i, %sw.bb28
-  %fni4 = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %27 = load ptr, ptr %fni4, align 8
   %tobool36.not = icmp eq ptr %27, null
   %cmp.i82 = icmp ult i32 %oprsz, 4
@@ -2806,7 +2804,7 @@ if.end.i83:                                       ; preds = %if.else
 
 for.body.lr.ph.i97:                               ; preds = %if.end.i83
   %conv41 = trunc i64 %c to i32
-  %load_dest42 = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 7
+  %load_dest42 = getelementptr inbounds i8, ptr %g, i64 42
   %28 = load i8, ptr %load_dest42, align 2
   %29 = and i8 %28, 1
   %tobool43.not = icmp eq i8 %29, 0
@@ -2862,7 +2860,7 @@ expand_3i_i32.exit:                               ; preds = %for.body.us.i108, %
   br label %sw.epilog
 
 if.else45:                                        ; preds = %if.end.i83, %if.else
-  %fno = getelementptr inbounds %struct.GVecGen3i, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %37 = load ptr, ptr %fno, align 8
   %cmp46.not = icmp eq ptr %37, null
   br i1 %cmp46.not, label %if.else49, label %sw.epilog.thread
@@ -2959,7 +2957,7 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_4(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
 entry:
-  %opt_opc = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 4
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
   %or1 = or i32 %or, %bofs
   %or2 = or i32 %or1, %cofs
@@ -3065,17 +3063,17 @@ lor.lhs.false2.i50.i:                             ; preds = %check_overlap_2.exi
   br label %check_overlap_4.exit
 
 check_overlap_4.exit:                             ; preds = %check_overlap_2.exit45.i, %lor.lhs.false2.i50.i
-  %fniv = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %sw.bb30, label %if.end
 
 if.end:                                           ; preds = %check_overlap_4.exit
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 6
+  %vece = getelementptr inbounds i8, ptr %g, i64 44
   %2 = load i8, ptr %vece, align 4
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 7
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool5 = icmp ne i8 %4, 0
@@ -3091,7 +3089,7 @@ sw.bb:                                            ; preds = %if.end
   %div83 = and i32 %oprsz, -32
   %5 = load i8, ptr %vece, align 4
   %conv8 = zext i8 %5 to i32
-  %write_aofs = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 8
+  %write_aofs = getelementptr inbounds i8, ptr %g, i64 46
   %6 = load i8, ptr %write_aofs, align 2
   %7 = and i8 %6, 1
   %tobool9 = icmp ne i8 %7, 0
@@ -3118,7 +3116,7 @@ sw.bb18:                                          ; preds = %if.end13, %if.end
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end13 ]
   %9 = load i8, ptr %vece, align 4
   %conv20 = zext i8 %9 to i32
-  %write_aofs21 = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 8
+  %write_aofs21 = getelementptr inbounds i8, ptr %g, i64 46
   %10 = load i8, ptr %write_aofs21, align 2
   %11 = and i8 %10, 1
   %tobool22 = icmp ne i8 %11, 0
@@ -3129,7 +3127,7 @@ sw.bb18:                                          ; preds = %if.end13, %if.end
 sw.bb24:                                          ; preds = %if.end
   %13 = load i8, ptr %vece, align 4
   %conv26 = zext i8 %13 to i32
-  %write_aofs27 = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 8
+  %write_aofs27 = getelementptr inbounds i8, ptr %g, i64 46
   %14 = load i8, ptr %write_aofs27, align 2
   %15 = and i8 %14, 1
   %tobool28 = icmp ne i8 %15, 0
@@ -3152,7 +3150,7 @@ if.end.i:                                         ; preds = %sw.bb30
   br i1 %cmp10.i, label %for.body.lr.ph.i, label %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %write_aofs35 = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 8
+  %write_aofs35 = getelementptr inbounds i8, ptr %g, i64 46
   %18 = load i8, ptr %write_aofs35, align 2
   %19 = and i8 %18, 1
   %tobool36.not = icmp eq i8 %19, 0
@@ -3218,7 +3216,7 @@ expand_4_i64.exit:                                ; preds = %for.body.us.i, %for
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end.i, %sw.bb30
-  %fni4 = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %29 = load ptr, ptr %fni4, align 8
   %tobool38.not = icmp eq ptr %29, null
   %cmp.i87 = icmp ult i32 %oprsz, 4
@@ -3233,7 +3231,7 @@ if.end.i88:                                       ; preds = %if.else
   br i1 %cmp10.i96, label %for.body.lr.ph.i103, label %if.else46
 
 for.body.lr.ph.i103:                              ; preds = %if.end.i88
-  %write_aofs43 = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 8
+  %write_aofs43 = getelementptr inbounds i8, ptr %g, i64 46
   %30 = load i8, ptr %write_aofs43, align 2
   %31 = and i8 %30, 1
   %tobool44.not = icmp eq i8 %31, 0
@@ -3299,7 +3297,7 @@ expand_4_i32.exit:                                ; preds = %for.body.us.i116, %
   br label %sw.epilog
 
 if.else46:                                        ; preds = %if.end.i88, %if.else
-  %fno = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %41 = load ptr, ptr %fno, align 8
   %cmp47.not = icmp eq ptr %41, null
   br i1 %cmp47.not, label %if.else50, label %sw.epilog.thread
@@ -3309,7 +3307,7 @@ if.else50:                                        ; preds = %if.else46
   unreachable
 
 sw.epilog.thread:                                 ; preds = %if.else46
-  %data = getelementptr inbounds %struct.GVecGen4, ptr %g, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %g, i64 40
   %42 = load i32, ptr %data, align 8
   tail call void @tcg_gen_gvec_4_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %42, ptr noundef nonnull %41)
   br label %if.end61
@@ -3407,7 +3405,7 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_4i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
 entry:
-  %opt_opc = getelementptr inbounds %struct.GVecGen4i, ptr %g, i64 0, i32 4
+  %opt_opc = getelementptr inbounds i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
   %or1 = or i32 %or, %bofs
   %or2 = or i32 %or1, %cofs
@@ -3513,17 +3511,17 @@ lor.lhs.false2.i50.i:                             ; preds = %check_overlap_2.exi
   br label %check_overlap_4.exit
 
 check_overlap_4.exit:                             ; preds = %check_overlap_2.exit45.i, %lor.lhs.false2.i50.i
-  %fniv = getelementptr inbounds %struct.GVecGen4i, ptr %g, i64 0, i32 2
+  %fniv = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %sw.bb25, label %if.end
 
 if.end:                                           ; preds = %check_overlap_4.exit
   %1 = load ptr, ptr %opt_opc, align 8
-  %vece = getelementptr inbounds %struct.GVecGen4i, ptr %g, i64 0, i32 5
+  %vece = getelementptr inbounds i8, ptr %g, i64 40
   %2 = load i8, ptr %vece, align 8
   %conv = zext i8 %2 to i32
-  %prefer_i64 = getelementptr inbounds %struct.GVecGen4i, ptr %g, i64 0, i32 6
+  %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 41
   %3 = load i8, ptr %prefer_i64, align 1
   %4 = and i8 %3, 1
   %tobool5 = icmp ne i8 %4, 0
@@ -3625,7 +3623,7 @@ expand_4i_i64.exit:                               ; preds = %for.body.i
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end.i, %sw.bb25
-  %fni4 = getelementptr inbounds %struct.GVecGen4i, ptr %g, i64 0, i32 1
+  %fni4 = getelementptr inbounds i8, ptr %g, i64 8
   %16 = load ptr, ptr %fni4, align 8
   %tobool31.not = icmp eq ptr %16, null
   %cmp.i86 = icmp ult i32 %oprsz, 4
@@ -3678,7 +3676,7 @@ expand_4i_i32.exit:                               ; preds = %for.body.i102
   br label %sw.epilog
 
 if.else38:                                        ; preds = %if.end.i87, %if.else
-  %fno = getelementptr inbounds %struct.GVecGen4i, ptr %g, i64 0, i32 3
+  %fno = getelementptr inbounds i8, ptr %g, i64 24
   %21 = load ptr, ptr %fno, align 8
   %cmp39.not = icmp eq ptr %21, null
   br i1 %cmp39.not, label %if.else42, label %sw.epilog.thread
@@ -7938,7 +7936,7 @@ lor.lhs.false2.i:                                 ; preds = %check_size_align.ex
   br label %check_overlap_2.exit
 
 check_overlap_2.exit:                             ; preds = %check_size_align.exit, %lor.lhs.false2.i
-  %s_list = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 5
+  %s_list = getelementptr inbounds i8, ptr %g, i64 64
   %cmp = icmp eq i32 %vece, 3
   %call = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull %s_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp), !range !5
   switch i32 %call, label %do.body [
@@ -7950,7 +7948,7 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
 
 sw.bb:                                            ; preds = %check_overlap_2.exit
   %div116 = and i32 %oprsz, -32
-  %fniv_s = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 2
+  %fniv_s = getelementptr inbounds i8, ptr %g, i64 16
   %0 = load ptr, ptr %fniv_s, align 8
   %cmp7.not.i = icmp eq i32 %div116, 0
   br i1 %cmp7.not.i, label %expand_2sh_vec.exit, label %for.body.i.preheader
@@ -7993,7 +7991,7 @@ sw.bb6:                                           ; preds = %check_overlap_2.exi
   %oprsz.addr.0 = phi i32 [ %sub, %if.end ], [ %oprsz, %check_overlap_2.exit ]
   %aofs.addr.0 = phi i32 [ %add4, %if.end ], [ %aofs, %check_overlap_2.exit ]
   %dofs.addr.0 = phi i32 [ %add, %if.end ], [ %dofs, %check_overlap_2.exit ]
-  %fniv_s7 = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 2
+  %fniv_s7 = getelementptr inbounds i8, ptr %g, i64 16
   %5 = load ptr, ptr %fniv_s7, align 8
   %cmp7.not.i120 = icmp eq i32 %oprsz.addr.0, 0
   br i1 %cmp7.not.i120, label %clear_tail, label %for.body.i121
@@ -8016,7 +8014,7 @@ for.body.i121:                                    ; preds = %sw.bb6, %for.body.i
   br i1 %cmp.i130, label %for.body.i121, label %clear_tail, !llvm.loop !42
 
 sw.bb8:                                           ; preds = %check_overlap_2.exit
-  %fniv_s9 = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 2
+  %fniv_s9 = getelementptr inbounds i8, ptr %g, i64 16
   %8 = load ptr, ptr %fniv_s9, align 8
   %cmp7.not.i132 = icmp eq i32 %oprsz, 0
   br i1 %cmp7.not.i132, label %clear_tail, label %for.body.i133
@@ -8043,7 +8041,7 @@ do.body:                                          ; preds = %check_overlap_2.exi
   unreachable
 
 if.end11:                                         ; preds = %check_overlap_2.exit
-  %v_list = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 6
+  %v_list = getelementptr inbounds i8, ptr %g, i64 72
   %call14 = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull %v_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp), !range !5
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end43, label %if.then16
@@ -8072,7 +8070,7 @@ if.end23:                                         ; preds = %if.else, %if.then21
 
 sw.bb24:                                          ; preds = %if.end23
   %div25115 = and i32 %oprsz, -32
-  %fniv_v = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 3
+  %fniv_v = getelementptr inbounds i8, ptr %g, i64 24
   %11 = load ptr, ptr %fniv_v, align 8
   %cmp12.not.i = icmp eq i32 %div25115, 0
   br i1 %cmp12.not.i, label %expand_2s_vec.exit, label %for.body.i144.preheader
@@ -8115,7 +8113,7 @@ sw.bb34:                                          ; preds = %if.end29, %if.end23
   %oprsz.addr.2 = phi i32 [ %oprsz, %if.end23 ], [ %sub32, %if.end29 ]
   %aofs.addr.1 = phi i32 [ %aofs, %if.end23 ], [ %add31, %if.end29 ]
   %dofs.addr.2 = phi i32 [ %dofs, %if.end23 ], [ %add30, %if.end29 ]
-  %fniv_v35 = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 3
+  %fniv_v35 = getelementptr inbounds i8, ptr %g, i64 24
   %16 = load ptr, ptr %fniv_v35, align 8
   %cmp12.not.i153 = icmp eq i32 %oprsz.addr.2, 0
   br i1 %cmp12.not.i153, label %sw.epilog41, label %for.body.i155
@@ -8138,7 +8136,7 @@ for.body.i155:                                    ; preds = %sw.bb34, %for.body.
   br i1 %cmp.i164, label %for.body.i155, label %sw.epilog41, !llvm.loop !14
 
 sw.bb36:                                          ; preds = %if.end23
-  %fniv_v37 = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 3
+  %fniv_v37 = getelementptr inbounds i8, ptr %g, i64 24
   %19 = load ptr, ptr %fniv_v37, align 8
   %cmp12.not.i166 = icmp eq i32 %oprsz, 0
   br i1 %cmp12.not.i166, label %sw.epilog41, label %for.body.i168
@@ -8227,7 +8225,7 @@ if.end.i194:                                      ; preds = %if.else47
 for.body.lr.ph.i207:                              ; preds = %if.end.i194
   %call53 = tail call ptr @tcg_temp_ebb_new_i64() #7
   tail call void @tcg_gen_extu_i32_i64(ptr noundef %call53, ptr noundef %shift) #7
-  %fni8 = getelementptr inbounds %struct.GVecGen2sh, ptr %g, i64 0, i32 1
+  %fni8 = getelementptr inbounds i8, ptr %g, i64 8
   %25 = load ptr, ptr %fni8, align 8
   %call.i204 = tail call ptr @tcg_temp_new_i64() #7
   %call1.i205 = tail call ptr @tcg_temp_new_i64() #7
@@ -8293,8 +8291,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %31 = load ptr, ptr @tcg_env, align 8
   %conv59 = zext i32 %aofs to i64
   tail call void @tcg_gen_addi_i64(ptr noundef %call56, ptr noundef %31, i64 noundef %conv59) #7
+  %fno = getelementptr inbounds i8, ptr %g, i64 32
   %idxprom = zext nneg i32 %vece to i64
-  %arrayidx = getelementptr %struct.GVecGen2sh, ptr %g, i64 0, i32 4, i64 %idxprom
+  %arrayidx = getelementptr [4 x ptr], ptr %fno, i64 0, i64 %idxprom
   %32 = load ptr, ptr %arrayidx, align 8
   tail call void %32(ptr noundef %call55, ptr noundef %call56, ptr noundef %call57) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call55) #7

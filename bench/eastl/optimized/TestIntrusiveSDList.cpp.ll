@@ -4,8 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.eastl::IntrusiveSDListIterator" = type { ptr }
-%"struct.eastl::intrusive_sdlist_node" = type { ptr, ptr }
 %"struct.TestSDListLocal::IntNode" = type <{ %"struct.eastl::intrusive_sdlist_node", i32, [4 x i8] }>
+%"struct.eastl::intrusive_sdlist_node" = type { ptr, ptr }
 %"class.eastl::intrusive_sdlist" = type { %"class.eastl::intrusive_sdlist_base" }
 %"class.eastl::intrusive_sdlist_base" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
 
 $_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEEC5Ev = comdat any
 
@@ -195,14 +193,14 @@ define weak_odr dso_local void @_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7I
 entry:
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %value, align 8
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %value, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %value, i64 8
   store ptr %this, ptr %mppPrevNext, align 8
   %1 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mppPrevNext7 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %1, i64 0, i32 1
+  %mppPrevNext7 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %value, ptr %mppPrevNext7, align 8
   br label %if.end
 
@@ -224,7 +222,7 @@ while.cond:                                       ; preds = %while.cond, %entry
 
 while.end:                                        ; preds = %while.cond
   store ptr %value, ptr %ppPrevNext.0, align 8
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %value, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %value, i64 8
   store ptr %ppPrevNext.0, ptr %mppPrevNext, align 8
   store ptr null, ptr %value, align 8
   ret void
@@ -243,7 +241,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %pCurrent.0, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %pCurrent.0, i64 8
   %2 = load ptr, ptr %mppPrevNext, align 8
   store ptr null, ptr %2, align 8
   ret void
@@ -308,15 +306,15 @@ for.end:                                          ; preds = %for.cond
 define weak_odr dso_local void @_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6insertENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES6_(ptr noalias sret(%"struct.eastl::IntrusiveSDListIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %position, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %0, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mppPrevNext, align 8
-  %mppPrevNext2 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %value, i64 0, i32 1
+  %mppPrevNext2 = getelementptr inbounds i8, ptr %value, i64 8
   store ptr %1, ptr %mppPrevNext2, align 8
   %2 = load ptr, ptr %position, align 8
   store ptr %2, ptr %value, align 8
   store ptr %value, ptr %1, align 8
   %3 = load ptr, ptr %position, align 8
-  %mppPrevNext7 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %3, i64 0, i32 1
+  %mppPrevNext7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %value, ptr %mppPrevNext7, align 8
   store ptr %value, ptr %agg.result, align 8
   ret void
@@ -327,14 +325,14 @@ define weak_odr dso_local void @_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7I
 entry:
   %0 = load ptr, ptr %position, align 8
   %1 = load ptr, ptr %0, align 8
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %0, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %mppPrevNext, align 8
   store ptr %1, ptr %2, align 8
   %3 = load ptr, ptr %position, align 8
-  %mppPrevNext4 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %3, i64 0, i32 1
+  %mppPrevNext4 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mppPrevNext4, align 8
   %5 = load ptr, ptr %3, align 8
-  %mppPrevNext7 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %5, i64 0, i32 1
+  %mppPrevNext7 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mppPrevNext7, align 8
   %6 = load ptr, ptr %position, align 8
   store ptr %6, ptr %agg.result, align 8
@@ -350,7 +348,7 @@ entry:
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %0, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mppPrevNext, align 8
   store ptr %.pre2, ptr %1, align 8
   %tobool5.not = icmp eq ptr %.pre2, null
@@ -358,9 +356,9 @@ if.then:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.then
   %2 = load ptr, ptr %first, align 8
-  %mppPrevNext8 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %2, i64 0, i32 1
+  %mppPrevNext8 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mppPrevNext8, align 8
-  %mppPrevNext10 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %.pre2, i64 0, i32 1
+  %mppPrevNext10 = getelementptr inbounds i8, ptr %.pre2, i64 8
   store ptr %3, ptr %mppPrevNext10, align 8
   %.pre = load ptr, ptr %last, align 8
   br label %if.end11
@@ -382,7 +380,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %0, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %this, ptr %mppPrevNext, align 8
   br label %if.end
 
@@ -392,7 +390,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %mppPrevNext13 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %2, i64 0, i32 1
+  %mppPrevNext13 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %x, ptr %mppPrevNext13, align 8
   br label %if.end14
 
@@ -404,7 +402,7 @@ if.end14:                                         ; preds = %if.then10, %if.end
 define weak_odr dso_local void @_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_(ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load ptr, ptr %value, align 8
-  %mppPrevNext = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %value, i64 0, i32 1
+  %mppPrevNext = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %mppPrevNext, align 8
   store ptr %0, ptr %1, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -412,7 +410,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %mppPrevNext, align 8
-  %mppPrevNext4 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %0, i64 0, i32 1
+  %mppPrevNext4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %mppPrevNext4, align 8
   br label %if.end
 
@@ -489,13 +487,13 @@ entry:
   store ptr null, ptr %l, align 8
   %call1 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull @.str, i32 noundef -1)
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call1, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 172, ptr noundef nonnull @.str.2)
-  %mX.i = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 0, i32 1
+  %mX.i = getelementptr inbounds i8, ptr %nodes, i64 16
   store i32 0, ptr %mX.i, align 16
   store ptr %nodes, ptr %l, align 8
-  %mppPrevNext.i.i = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %nodes, i64 0, i32 1
+  %mppPrevNext.i.i = getelementptr inbounds i8, ptr %nodes, i64 8
   store ptr %l, ptr %mppPrevNext.i.i, align 8
   store ptr null, ptr %nodes, align 16
-  %mX.i6 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 1, i32 1
+  %mX.i6 = getelementptr inbounds i8, ptr %nodes, i64 40
   store i32 1, ptr %mX.i6, align 8
   br label %while.cond.i.i8
 
@@ -506,12 +504,12 @@ while.cond.i.i8:                                  ; preds = %while.cond.i.i8, %e
   br i1 %tobool.not.i.i11, label %_ZN15TestSDListLocal8ListInitcmEi.exit, label %while.cond.i.i8, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit:           ; preds = %while.cond.i.i8
-  %incdec.ptr.i = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %nodes, i64 24
   store ptr %incdec.ptr.i, ptr %ppPrevNext.0.i.i9, align 8
-  %mppPrevNext.i.i12 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 1, i32 0, i32 1
+  %mppPrevNext.i.i12 = getelementptr inbounds i8, ptr %nodes, i64 32
   store ptr %ppPrevNext.0.i.i9, ptr %mppPrevNext.i.i12, align 16
   store ptr null, ptr %incdec.ptr.i, align 8
-  %mX.i14 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 2, i32 1
+  %mX.i14 = getelementptr inbounds i8, ptr %nodes, i64 64
   store i32 2, ptr %mX.i14, align 16
   br label %while.cond.i.i16
 
@@ -522,12 +520,12 @@ while.cond.i.i16:                                 ; preds = %while.cond.i.i16, %
   br i1 %tobool.not.i.i19, label %_ZN15TestSDListLocal8ListInitcmEi.exit21, label %while.cond.i.i16, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit21:         ; preds = %while.cond.i.i16
-  %incdec.ptr.i7 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 2
+  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %nodes, i64 48
   store ptr %incdec.ptr.i7, ptr %ppPrevNext.0.i.i17, align 8
-  %mppPrevNext.i.i20 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 2, i32 0, i32 1
+  %mppPrevNext.i.i20 = getelementptr inbounds i8, ptr %nodes, i64 56
   store ptr %ppPrevNext.0.i.i17, ptr %mppPrevNext.i.i20, align 8
   store ptr null, ptr %incdec.ptr.i7, align 16
-  %mX.i23 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 3, i32 1
+  %mX.i23 = getelementptr inbounds i8, ptr %nodes, i64 88
   store i32 3, ptr %mX.i23, align 8
   br label %while.cond.i.i25
 
@@ -538,12 +536,12 @@ while.cond.i.i25:                                 ; preds = %while.cond.i.i25, %
   br i1 %tobool.not.i.i28, label %_ZN15TestSDListLocal8ListInitcmEi.exit30, label %while.cond.i.i25, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit30:         ; preds = %while.cond.i.i25
-  %incdec.ptr.i15 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 3
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %nodes, i64 72
   store ptr %incdec.ptr.i15, ptr %ppPrevNext.0.i.i26, align 8
-  %mppPrevNext.i.i29 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 3, i32 0, i32 1
+  %mppPrevNext.i.i29 = getelementptr inbounds i8, ptr %nodes, i64 80
   store ptr %ppPrevNext.0.i.i26, ptr %mppPrevNext.i.i29, align 16
   store ptr null, ptr %incdec.ptr.i15, align 8
-  %mX.i32 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 4, i32 1
+  %mX.i32 = getelementptr inbounds i8, ptr %nodes, i64 112
   store i32 4, ptr %mX.i32, align 16
   br label %while.cond.i.i34
 
@@ -554,12 +552,12 @@ while.cond.i.i34:                                 ; preds = %while.cond.i.i34, %
   br i1 %tobool.not.i.i37, label %_ZN15TestSDListLocal8ListInitcmEi.exit39, label %while.cond.i.i34, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit39:         ; preds = %while.cond.i.i34
-  %incdec.ptr.i24 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 4
+  %incdec.ptr.i24 = getelementptr inbounds i8, ptr %nodes, i64 96
   store ptr %incdec.ptr.i24, ptr %ppPrevNext.0.i.i35, align 8
-  %mppPrevNext.i.i38 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 4, i32 0, i32 1
+  %mppPrevNext.i.i38 = getelementptr inbounds i8, ptr %nodes, i64 104
   store ptr %ppPrevNext.0.i.i35, ptr %mppPrevNext.i.i38, align 8
   store ptr null, ptr %incdec.ptr.i24, align 16
-  %mX.i41 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 5, i32 1
+  %mX.i41 = getelementptr inbounds i8, ptr %nodes, i64 136
   store i32 5, ptr %mX.i41, align 8
   br label %while.cond.i.i43
 
@@ -570,12 +568,12 @@ while.cond.i.i43:                                 ; preds = %while.cond.i.i43, %
   br i1 %tobool.not.i.i46, label %_ZN15TestSDListLocal8ListInitcmEi.exit48, label %while.cond.i.i43, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit48:         ; preds = %while.cond.i.i43
-  %incdec.ptr.i33 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 5
+  %incdec.ptr.i33 = getelementptr inbounds i8, ptr %nodes, i64 120
   store ptr %incdec.ptr.i33, ptr %ppPrevNext.0.i.i44, align 8
-  %mppPrevNext.i.i47 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 5, i32 0, i32 1
+  %mppPrevNext.i.i47 = getelementptr inbounds i8, ptr %nodes, i64 128
   store ptr %ppPrevNext.0.i.i44, ptr %mppPrevNext.i.i47, align 16
   store ptr null, ptr %incdec.ptr.i33, align 8
-  %mX.i50 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 6, i32 1
+  %mX.i50 = getelementptr inbounds i8, ptr %nodes, i64 160
   store i32 6, ptr %mX.i50, align 16
   br label %while.cond.i.i52
 
@@ -586,12 +584,12 @@ while.cond.i.i52:                                 ; preds = %while.cond.i.i52, %
   br i1 %tobool.not.i.i55, label %_ZN15TestSDListLocal8ListInitcmEi.exit57, label %while.cond.i.i52, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit57:         ; preds = %while.cond.i.i52
-  %incdec.ptr.i42 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 6
+  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %nodes, i64 144
   store ptr %incdec.ptr.i42, ptr %ppPrevNext.0.i.i53, align 8
-  %mppPrevNext.i.i56 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 6, i32 0, i32 1
+  %mppPrevNext.i.i56 = getelementptr inbounds i8, ptr %nodes, i64 152
   store ptr %ppPrevNext.0.i.i53, ptr %mppPrevNext.i.i56, align 8
   store ptr null, ptr %incdec.ptr.i42, align 16
-  %mX.i59 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 7, i32 1
+  %mX.i59 = getelementptr inbounds i8, ptr %nodes, i64 184
   store i32 7, ptr %mX.i59, align 8
   br label %while.cond.i.i61
 
@@ -602,12 +600,12 @@ while.cond.i.i61:                                 ; preds = %while.cond.i.i61, %
   br i1 %tobool.not.i.i64, label %_ZN15TestSDListLocal8ListInitcmEi.exit66, label %while.cond.i.i61, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit66:         ; preds = %while.cond.i.i61
-  %incdec.ptr.i51 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 7
+  %incdec.ptr.i51 = getelementptr inbounds i8, ptr %nodes, i64 168
   store ptr %incdec.ptr.i51, ptr %ppPrevNext.0.i.i62, align 8
-  %mppPrevNext.i.i65 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 7, i32 0, i32 1
+  %mppPrevNext.i.i65 = getelementptr inbounds i8, ptr %nodes, i64 176
   store ptr %ppPrevNext.0.i.i62, ptr %mppPrevNext.i.i65, align 16
   store ptr null, ptr %incdec.ptr.i51, align 8
-  %mX.i68 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 8, i32 1
+  %mX.i68 = getelementptr inbounds i8, ptr %nodes, i64 208
   store i32 8, ptr %mX.i68, align 16
   br label %while.cond.i.i70
 
@@ -618,12 +616,12 @@ while.cond.i.i70:                                 ; preds = %while.cond.i.i70, %
   br i1 %tobool.not.i.i73, label %_ZN15TestSDListLocal8ListInitcmEi.exit75, label %while.cond.i.i70, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit75:         ; preds = %while.cond.i.i70
-  %incdec.ptr.i60 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 8
+  %incdec.ptr.i60 = getelementptr inbounds i8, ptr %nodes, i64 192
   store ptr %incdec.ptr.i60, ptr %ppPrevNext.0.i.i71, align 8
-  %mppPrevNext.i.i74 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 8, i32 0, i32 1
+  %mppPrevNext.i.i74 = getelementptr inbounds i8, ptr %nodes, i64 200
   store ptr %ppPrevNext.0.i.i71, ptr %mppPrevNext.i.i74, align 8
   store ptr null, ptr %incdec.ptr.i60, align 16
-  %mX.i77 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 9, i32 1
+  %mX.i77 = getelementptr inbounds i8, ptr %nodes, i64 232
   store i32 9, ptr %mX.i77, align 8
   br label %while.cond.i.i79
 
@@ -634,9 +632,9 @@ while.cond.i.i79:                                 ; preds = %while.cond.i.i79, %
   br i1 %tobool.not.i.i82, label %if.end, label %while.cond.i.i79, !llvm.loop !5
 
 if.end:                                           ; preds = %while.cond.i.i79
-  %incdec.ptr.i69 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 9
+  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %nodes, i64 216
   store ptr %incdec.ptr.i69, ptr %ppPrevNext.0.i.i80, align 8
-  %mppPrevNext.i.i83 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 9, i32 0, i32 1
+  %mppPrevNext.i.i83 = getelementptr inbounds i8, ptr %nodes, i64 224
   store ptr %ppPrevNext.0.i.i80, ptr %mppPrevNext.i.i83, align 16
   store ptr null, ptr %incdec.ptr.i69, align 8
   %call13 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
@@ -655,7 +653,7 @@ if.end:                                           ; preds = %while.cond.i.i79
   br i1 %tobool.not.i, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %mppPrevNext.i = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %2, i64 0, i32 1
+  %mppPrevNext.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mppPrevNext.i, align 8, !noalias !12
   store ptr null, ptr %3, align 8, !noalias !12
   %.pre = load ptr, ptr %l, align 8
@@ -673,13 +671,13 @@ for.body:                                         ; preds = %_ZN5eastl16intrusiv
   %arrayidx32374375 = phi ptr [ null, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx32, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
   %arrayidx = getelementptr inbounds [20 x %"struct.TestSDListLocal::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv
   store ptr %arrayidx373376, ptr %arrayidx, align 8
-  %mppPrevNext.i89 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %arrayidx, i64 0, i32 1
+  %mppPrevNext.i89 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %l, ptr %mppPrevNext.i89, align 8
   %tobool.not.i90 = icmp eq ptr %arrayidx373376, null
   br i1 %tobool.not.i90, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit, label %if.then.i91
 
 if.then.i91:                                      ; preds = %for.body
-  %mppPrevNext7.i = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %arrayidx373376, i64 0, i32 1
+  %mppPrevNext7.i = getelementptr inbounds i8, ptr %arrayidx373376, i64 8
   store ptr %arrayidx, ptr %mppPrevNext7.i, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit
 
@@ -687,13 +685,13 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit: 
   %5 = add nuw nsw i64 %indvars.iv, 5
   %arrayidx32 = getelementptr inbounds [20 x %"struct.TestSDListLocal::IntNode"], ptr %nodes, i64 0, i64 %5
   store ptr %arrayidx32374375, ptr %arrayidx32, align 8
-  %mppPrevNext.i92 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %arrayidx32, i64 0, i32 1
+  %mppPrevNext.i92 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
   store ptr %l2, ptr %mppPrevNext.i92, align 8
   %tobool.not.i93 = icmp eq ptr %arrayidx32374375, null
   br i1 %tobool.not.i93, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96, label %if.then.i94
 
 if.then.i94:                                      ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit
-  %mppPrevNext7.i95 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %arrayidx32374375, i64 0, i32 1
+  %mppPrevNext7.i95 = getelementptr inbounds i8, ptr %arrayidx32374375, i64 8
   store ptr %arrayidx32, ptr %mppPrevNext7.i95, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96
 
@@ -717,7 +715,7 @@ for.end:                                          ; preds = %_ZN5eastl16intrusiv
   br i1 %tobool.not.i97, label %if.end.i, label %if.then.i98
 
 if.then.i98:                                      ; preds = %for.end
-  %mppPrevNext.i99 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %6, i64 0, i32 1
+  %mppPrevNext.i99 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %l, ptr %mppPrevNext.i99, align 8
   br label %if.end.i
 
@@ -726,7 +724,7 @@ if.end.i:                                         ; preds = %if.then.i98, %for.e
   br i1 %tobool9.not.i, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE4swapERS3_.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %mppPrevNext13.i = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %7, i64 0, i32 1
+  %mppPrevNext13.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %l2, ptr %mppPrevNext13.i, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE4swapERS3_.exit
 
@@ -851,11 +849,11 @@ _ZN15TestSDListLocal8ListInitcmEi.exit191:        ; preds = %while.cond.i.i186
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8, !noalias !19
-  %mppPrevNext.i192 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %10, i64 0, i32 1
+  %mppPrevNext.i192 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %mppPrevNext.i192, align 8, !noalias !19
   store ptr %11, ptr %12, align 8, !noalias !19
   %13 = load ptr, ptr %mppPrevNext.i192, align 8, !noalias !19
-  %mppPrevNext7.i193 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %11, i64 0, i32 1
+  %mppPrevNext7.i193 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %13, ptr %mppPrevNext7.i193, align 8, !noalias !19
   %call60 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull @.str.17, i32 noundef 5, i32 noundef 6, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call61 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call60, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 260, ptr noundef nonnull @.str.18)
@@ -864,7 +862,7 @@ _ZN15TestSDListLocal8ListInitcmEi.exit191:        ; preds = %while.cond.i.i186
   br i1 %tobool.not.i194, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203, label %if.then.i196
 
 if.then.i196:                                     ; preds = %_ZN15TestSDListLocal8ListInitcmEi.exit191
-  %mppPrevNext.i197 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %14, i64 0, i32 1
+  %mppPrevNext.i197 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %mppPrevNext.i197, align 8, !noalias !25
   store ptr null, ptr %15, align 8, !noalias !25
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203
@@ -918,7 +916,7 @@ _ZNK5eastl21intrusive_sdlist_base4sizeEv.exit:    ; preds = %for.cond.i
   %16 = load ptr, ptr %l2, align 8
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %l2, align 8
-  %mppPrevNext.i233 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %17, i64 0, i32 1
+  %mppPrevNext.i233 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %l2, ptr %mppPrevNext.i233, align 8
   %call75 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l2, ptr noundef nonnull @.str.22, i32 noundef 1, i32 noundef 2, i32 noundef -1)
   %call76 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call75, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @.str.23)
@@ -932,25 +930,25 @@ while.cond.i:                                     ; preds = %while.cond.i, %_ZNK
   br i1 %tobool.not.i235, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit, label %while.cond.i, !llvm.loop !7
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit: ; preds = %while.cond.i
-  %mppPrevNext.i236 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %pCurrent.0.i234, i64 0, i32 1
+  %mppPrevNext.i236 = getelementptr inbounds i8, ptr %pCurrent.0.i234, i64 8
   %20 = load ptr, ptr %mppPrevNext.i236, align 8
   store ptr null, ptr %20, align 8
   %call77 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l2, ptr noundef nonnull @.str.24, i32 noundef 1, i32 noundef -1)
   %call78 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call77, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @.str.25)
-  %mX.i237 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %i1, i64 0, i32 1
+  %mX.i237 = getelementptr inbounds i8, ptr %i1, i64 16
   store i32 1, ptr %mX.i237, align 8
-  %mX.i238 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %i2, i64 0, i32 1
+  %mX.i238 = getelementptr inbounds i8, ptr %i2, i64 16
   store i32 2, ptr %mX.i238, align 8
-  %mX.i239 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %i3, i64 0, i32 1
+  %mX.i239 = getelementptr inbounds i8, ptr %i3, i64 16
   store i32 3, ptr %mX.i239, align 8
-  %mppPrevNext.i240 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %i1, i64 0, i32 1
+  %mppPrevNext.i240 = getelementptr inbounds i8, ptr %i1, i64 8
   store ptr null, ptr %l, align 8
   %call79 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull @.str.26, i32 noundef -1)
   %call80 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call79, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 280, ptr noundef nonnull @.str.27)
   %21 = load ptr, ptr %l, align 8
   store ptr %21, ptr %i1, align 8
   %tobool.not.i252 = icmp eq ptr %21, null
-  %mppPrevNext.i257387 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %i2, i64 0, i32 1
+  %mppPrevNext.i257387 = getelementptr inbounds i8, ptr %i2, i64 8
   store ptr %l, ptr %mppPrevNext.i257387, align 8
   store ptr %i2, ptr %mppPrevNext.i240, align 8
   store ptr %i2, ptr %l, align 8
@@ -958,7 +956,7 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit: ; pre
   br i1 %tobool.not.i252, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit268, label %if.then.i265
 
 if.then.i265:                                     ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit
-  %mppPrevNext4.i266 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %21, i64 0, i32 1
+  %mppPrevNext4.i266 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %i2, ptr %mppPrevNext4.i266, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit268
 
@@ -972,7 +970,7 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit268: ; 
   br i1 %tobool.not.i270, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit274, label %if.then.i271
 
 if.then.i271:                                     ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit268
-  %mppPrevNext7.i272 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %22, i64 0, i32 1
+  %mppPrevNext7.i272 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %i1, ptr %mppPrevNext7.i272, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit274
 
@@ -986,7 +984,7 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit27
 
 if.then.i277:                                     ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit274
   %25 = load ptr, ptr %mppPrevNext.i257387, align 8
-  %mppPrevNext4.i278 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %23, i64 0, i32 1
+  %mppPrevNext4.i278 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %25, ptr %mppPrevNext4.i278, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit280
 
@@ -1015,7 +1013,7 @@ while.cond.i284:                                  ; preds = %while.cond.i284, %_
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE9push_backERS2_.exit289: ; preds = %while.cond.i284
   store ptr %i3, ptr %ppPrevNext.0.i285, align 8
-  %mppPrevNext.i288 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %i3, i64 0, i32 1
+  %mppPrevNext.i288 = getelementptr inbounds i8, ptr %i3, i64 8
   store ptr %ppPrevNext.0.i285, ptr %mppPrevNext.i288, align 8
   store ptr null, ptr %i3, align 8
   %26 = load ptr, ptr %i2, align 8
@@ -1026,7 +1024,7 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE9push_backERS2_.exit289:
 
 if.then.i292:                                     ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE9push_backERS2_.exit289
   %28 = load ptr, ptr %mppPrevNext.i257387, align 8
-  %mppPrevNext4.i293 = getelementptr inbounds %"struct.eastl::intrusive_sdlist_node", ptr %26, i64 0, i32 1
+  %mppPrevNext4.i293 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %28, ptr %mppPrevNext4.i293, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit295
 
@@ -1056,14 +1054,14 @@ entry:
   br i1 %cmp.i.not66, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %val, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %val, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %val, i64 8
+  %1 = getelementptr inbounds i8, ptr %val, i64 16
   %reg_save_area = load ptr, ptr %1, align 16
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %overflow_arg_area.next71 = phi ptr [ %overflow_arg_area_p.promoted, %while.body.lr.ph ], [ %overflow_arg_area.next70, %if.end ]
+  %overflow_arg_area71 = phi ptr [ %overflow_arg_area_p.promoted, %while.body.lr.ph ], [ %overflow_arg_area70, %if.end ]
   %index.069 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end ]
   %it.sroa.0.068 = phi ptr [ %0, %while.body.lr.ph ], [ %12, %if.end ]
   %gp_offset6567 = phi i32 [ %gp_offset15.pre, %while.body.lr.ph ], [ %gp_offset64, %if.end ]
@@ -1078,17 +1076,17 @@ vaarg.in_reg:                                     ; preds = %while.body
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %while.body
-  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area.next71, i64 8
+  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area71, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %overflow_arg_area.next70 = phi ptr [ %overflow_arg_area.next71, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
+  %overflow_arg_area70 = phi ptr [ %overflow_arg_area71, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
   %gp_offset64 = phi i32 [ %4, %vaarg.in_reg ], [ %gp_offset6567, %vaarg.in_mem ]
-  %vaarg.addr = phi ptr [ %3, %vaarg.in_reg ], [ %overflow_arg_area.next71, %vaarg.in_mem ]
+  %vaarg.addr = phi ptr [ %3, %vaarg.in_reg ], [ %overflow_arg_area71, %vaarg.in_mem ]
   %5 = load i32, ptr %vaarg.addr, align 4
   %cmp = icmp ne i32 %5, -1
-  %mX.i11.phi.trans.insert = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %it.sroa.0.068, i64 0, i32 1
+  %mX.i11.phi.trans.insert = getelementptr inbounds i8, ptr %it.sroa.0.068, i64 16
   %.pre = load i32, ptr %mX.i11.phi.trans.insert, align 8
   %cmp7.not = icmp eq i32 %5, %.pre
   %or.cond106 = select i1 %cmp, i1 %cmp7.not, i1 false
@@ -1097,7 +1095,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 if.then:                                          ; preds = %vaarg.end
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
-  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   store i8 22, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1, !alias.scope !29
   store i8 60, ptr %ref.tmp, align 8, !alias.scope !29
   %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
@@ -1116,7 +1114,7 @@ while.cond.i.i.i10.preheader.i:                   ; preds = %for.cond.i
           to label %_ZN15TestSDListLocal16IntListToString8IN5eastl16intrusive_sdlistINS_7IntNodeEEEEENS1_12basic_stringIcNS1_9allocatorEEERKT_.exit unwind label %lpad.loopexit.split-lp.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %mX.i.i = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %it.sroa.0.0.i, i64 0, i32 1
+  %mX.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0.i, i64 16
   %6 = load i32, ptr %mX.i.i, align 8
   %call8.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %6) #10
   br label %while.cond.i.i.i2.i
@@ -1195,7 +1193,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %fits_in_gp16, label %vaarg.in_reg17, label %vaarg.in_mem19
 
 vaarg.in_reg17:                                   ; preds = %while.end
-  %13 = getelementptr inbounds %struct.__va_list_tag, ptr %val, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %val, i64 16
   %reg_save_area18 = load ptr, ptr %13, align 16
   %14 = zext nneg i32 %gp_offset15 to i64
   %15 = getelementptr i8, ptr %reg_save_area18, i64 %14
@@ -1204,7 +1202,7 @@ vaarg.in_reg17:                                   ; preds = %while.end
   br label %vaarg.end23
 
 vaarg.in_mem19:                                   ; preds = %while.end
-  %overflow_arg_area_p20 = getelementptr inbounds %struct.__va_list_tag, ptr %val, i64 0, i32 2
+  %overflow_arg_area_p20 = getelementptr inbounds i8, ptr %val, i64 8
   %overflow_arg_area21 = load ptr, ptr %overflow_arg_area_p20, align 8
   %overflow_arg_area.next22 = getelementptr i8, ptr %overflow_arg_area21, i64 8
   store ptr %overflow_arg_area.next22, ptr %overflow_arg_area_p20, align 8
@@ -1218,14 +1216,14 @@ vaarg.end23:                                      ; preds = %vaarg.in_mem19, %va
   br i1 %cmp25.not, label %return, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end23
-  %overflow_arg_area_p35 = getelementptr inbounds %struct.__va_list_tag, ptr %val, i64 0, i32 2
-  %18 = getelementptr inbounds %struct.__va_list_tag, ptr %val, i64 0, i32 3
+  %overflow_arg_area_p35 = getelementptr inbounds i8, ptr %val, i64 8
+  %18 = getelementptr inbounds i8, ptr %val, i64 16
   %reg_save_area33 = load ptr, ptr %18, align 16
   %overflow_arg_area_p35.promoted = load ptr, ptr %overflow_arg_area_p35, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end38
-  %overflow_arg_area.next3776 = phi ptr [ %overflow_arg_area.next3775, %vaarg.end38 ], [ %overflow_arg_area_p35.promoted, %do.body.preheader ]
+  %overflow_arg_area3676 = phi ptr [ %overflow_arg_area3675, %vaarg.end38 ], [ %overflow_arg_area_p35.promoted, %do.body.preheader ]
   %gp_offset3074 = phi i32 [ %gp_offset3073, %vaarg.end38 ], [ %val.promoted72, %do.body.preheader ]
   %index.1 = phi i32 [ %inc27, %vaarg.end38 ], [ %index.0.lcssa, %do.body.preheader ]
   %inc27 = add nuw nsw i32 %index.1, 1
@@ -1240,14 +1238,14 @@ vaarg.in_reg32:                                   ; preds = %do.body
   br label %vaarg.end38
 
 vaarg.in_mem34:                                   ; preds = %do.body
-  %overflow_arg_area.next37 = getelementptr i8, ptr %overflow_arg_area.next3776, i64 8
+  %overflow_arg_area.next37 = getelementptr i8, ptr %overflow_arg_area3676, i64 8
   store ptr %overflow_arg_area.next37, ptr %overflow_arg_area_p35, align 8
   br label %vaarg.end38
 
 vaarg.end38:                                      ; preds = %vaarg.in_mem34, %vaarg.in_reg32
-  %overflow_arg_area.next3775 = phi ptr [ %overflow_arg_area.next3776, %vaarg.in_reg32 ], [ %overflow_arg_area.next37, %vaarg.in_mem34 ]
+  %overflow_arg_area3675 = phi ptr [ %overflow_arg_area3676, %vaarg.in_reg32 ], [ %overflow_arg_area.next37, %vaarg.in_mem34 ]
   %gp_offset3073 = phi i32 [ %21, %vaarg.in_reg32 ], [ %gp_offset3074, %vaarg.in_mem34 ]
-  %vaarg.addr39 = phi ptr [ %20, %vaarg.in_reg32 ], [ %overflow_arg_area.next3776, %vaarg.in_mem34 ]
+  %vaarg.addr39 = phi ptr [ %20, %vaarg.in_reg32 ], [ %overflow_arg_area3676, %vaarg.in_mem34 ]
   %22 = load i32, ptr %vaarg.addr39, align 4
   %cmp40.not = icmp eq i32 %22, -1
   br i1 %cmp40.not, label %for.cond.i14, label %do.body, !llvm.loop !35
@@ -1263,7 +1261,7 @@ for.cond.i14:                                     ; preds = %vaarg.end38, %for.c
 _ZNK5eastl21intrusive_sdlist_base4sizeEv.exit:    ; preds = %for.cond.i14
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i15)
-  %mRemainingSizeField.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp43, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp43, i64 23
   store i8 22, ptr %mRemainingSizeField.i.i.i.i.i.i.i16, align 1, !alias.scope !36
   store i8 60, ptr %ref.tmp43, align 8, !alias.scope !36
   %add.ptr.i1.i.i.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp43, i64 1
@@ -1282,7 +1280,7 @@ while.cond.i.i.i10.preheader.i44:                 ; preds = %for.cond.i19
           to label %_ZN15TestSDListLocal16IntListToString8IN5eastl16intrusive_sdlistINS_7IntNodeEEEEENS1_12basic_stringIcNS1_9allocatorEEERKT_.exit48 unwind label %lpad.loopexit.split-lp.i46
 
 for.body.i23:                                     ; preds = %for.cond.i19
-  %mX.i.i24 = getelementptr inbounds %"struct.TestSDListLocal::IntNode", ptr %it.sroa.0.0.i21, i64 0, i32 1
+  %mX.i.i24 = getelementptr inbounds i8, ptr %it.sroa.0.0.i21, i64 16
   %23 = load i32, ptr %mX.i.i24, align 8
   %call8.i25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf.i15, ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %23) #10
   br label %while.cond.i.i.i2.i26
@@ -1367,10 +1365,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mRemainingSizeField.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %this, i64 0, i32 1
+  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -1378,7 +1376,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %pEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23

@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-p12_decr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_decr.c\00", align 1
 @__func__.PKCS12_pbe_crypt_ex = private unnamed_addr constant [20 x i8] c"PKCS12_pbe_crypt_ex\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"empty password\00", align 1
@@ -31,7 +28,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %algor, align 8
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %algor, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %algor, i64 8
   %1 = load ptr, ptr %parameter, align 8
   %call1 = tail call i32 @EVP_PBE_CipherInit_ex(ptr noundef %0, ptr noundef %pass, i32 noundef %passlen, ptr noundef %1, ptr noundef nonnull %call, i32 noundef %en_de, ptr noundef %libctx, ptr noundef %propq) #2
   %tobool.not = icmp eq i32 %call1, 0
@@ -230,7 +227,7 @@ entry:
   %outlen = alloca i32, align 4
   store ptr null, ptr %out, align 8
   store i32 0, ptr %outlen, align 4
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %oct, align 8
   %call = call ptr @PKCS12_pbe_crypt_ex(ptr noundef %algor, ptr noundef %pass, i32 noundef %passlen, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %out, ptr noundef nonnull %outlen, i32 noundef 0, ptr noundef %libctx, ptr noundef %propq)
@@ -312,7 +309,7 @@ if.then2:                                         ; preds = %if.end
   br label %err
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %call4 = call ptr @PKCS12_pbe_crypt_ex(ptr noundef %algor, ptr noundef %pass, i32 noundef %passlen, ptr noundef nonnull %0, i32 noundef %call1, ptr noundef nonnull %data, ptr noundef nonnull %call, i32 noundef 1, ptr noundef %ctx, ptr noundef %propq)
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %if.then6, label %if.end7

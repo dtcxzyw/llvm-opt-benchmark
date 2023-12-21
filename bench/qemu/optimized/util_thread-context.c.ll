@@ -6,22 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
 %struct.ThreadContextCmdNew = type { ptr, ptr, ptr, ptr, i32 }
-%struct.ThreadContext = type { %struct.Object, i32, %struct.QemuThread, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuMutex, i32, ptr, ptr, i32 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuThread = type { i64 }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.uint16List = type { ptr, i16 }
 
 @.str = private unnamed_addr constant [30 x i8] c"../qemu/util/thread-context.c\00", align 1
 @qemu_mutex_lock_func = external local_unnamed_addr global ptr, align 8
@@ -74,30 +58,30 @@ define dso_local void @thread_context_create_thread(ptr noundef %tc, ptr noundef
 entry:
   %data = alloca %struct.ThreadContextCmdNew, align 8
   store ptr %thread, ptr %data, align 8
-  %name2 = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %data, i64 0, i32 1
+  %name2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %name, ptr %name2, align 8
-  %start_routine3 = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %data, i64 0, i32 2
+  %start_routine3 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %start_routine, ptr %start_routine3, align 8
-  %arg4 = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %data, i64 0, i32 3
+  %arg4 = getelementptr inbounds i8, ptr %data, i64 24
   store ptr %arg, ptr %arg4, align 8
-  %mode5 = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %data, i64 0, i32 4
+  %mode5 = getelementptr inbounds i8, ptr %data, i64 32
   store i32 %mode, ptr %mode5, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex = getelementptr inbounds %struct.ThreadContext, ptr %tc, i64 0, i32 5
+  %mutex = getelementptr inbounds i8, ptr %tc, i64 280
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 347) #8
-  %thread_cmd = getelementptr inbounds %struct.ThreadContext, ptr %tc, i64 0, i32 6
+  %thread_cmd = getelementptr inbounds i8, ptr %tc, i64 328
   store i32 2, ptr %thread_cmd, align 8
-  %thread_cmd_data = getelementptr inbounds %struct.ThreadContext, ptr %tc, i64 0, i32 7
+  %thread_cmd_data = getelementptr inbounds i8, ptr %tc, i64 336
   store ptr %data, ptr %thread_cmd_data, align 8
-  %sem_thread = getelementptr inbounds %struct.ThreadContext, ptr %tc, i64 0, i32 4
+  %sem_thread = getelementptr inbounds i8, ptr %tc, i64 168
   call void @qemu_sem_post(ptr noundef nonnull %sem_thread) #8
   %2 = load i32, ptr %thread_cmd, align 8
   %cmp.not7 = icmp eq i32 %2, 0
   br i1 %cmp.not7, label %while.end9, label %while.body8.lr.ph
 
 while.body8.lr.ph:                                ; preds = %entry
-  %sem = getelementptr inbounds %struct.ThreadContext, ptr %tc, i64 0, i32 3
+  %sem = getelementptr inbounds i8, ptr %tc, i64 56
   br label %while.body8
 
 while.body8:                                      ; preds = %while.body8.lr.ph, %while.body8
@@ -126,13 +110,13 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @thread_context_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 -1, ptr %thread_id, align 8
-  %sem = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 3
+  %sem = getelementptr inbounds i8, ptr %call.i, i64 56
   tail call void @qemu_sem_init(ptr noundef nonnull %sem, i32 noundef 0) #8
-  %sem_thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 4
+  %sem_thread = getelementptr inbounds i8, ptr %call.i, i64 168
   tail call void @qemu_sem_init(ptr noundef nonnull %sem_thread, i32 noundef 0) #8
-  %mutex = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 5
+  %mutex = getelementptr inbounds i8, ptr %call.i, i64 280
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #8
   ret void
 }
@@ -141,26 +125,26 @@ entry:
 define internal void @thread_context_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %thread_id, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %thread_cmd = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 6
+  %thread_cmd = getelementptr inbounds i8, ptr %call.i, i64 328
   store i32 1, ptr %thread_cmd, align 8
-  %sem_thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 4
+  %sem_thread = getelementptr inbounds i8, ptr %call.i, i64 168
   tail call void @qemu_sem_post(ptr noundef nonnull %sem_thread) #8
-  %thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 48
   %call1 = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %sem = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 3
+  %sem = getelementptr inbounds i8, ptr %call.i, i64 56
   tail call void @qemu_sem_destroy(ptr noundef nonnull %sem) #8
-  %sem_thread2 = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 4
+  %sem_thread2 = getelementptr inbounds i8, ptr %call.i, i64 168
   tail call void @qemu_sem_destroy(ptr noundef nonnull %sem_thread2) #8
-  %mutex = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 5
+  %mutex = getelementptr inbounds i8, ptr %call.i, i64 280
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %mutex) #8
   ret void
 }
@@ -169,7 +153,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @thread_context_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @thread_context_instance_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @thread_context_get_thread_id, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %call2 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef nonnull @thread_context_get_cpu_affinity, ptr noundef nonnull @thread_context_set_cpu_affinity, ptr noundef null, ptr noundef null) #8
@@ -195,16 +179,16 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
   %call1 = tail call ptr @object_get_canonical_path_component(ptr noundef %uc) #8
   %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %call1) #8
-  %thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef %call2, ptr noundef nonnull @thread_context_run, ptr noundef %call.i, i32 noundef 0) #8
   tail call void @g_free(ptr noundef %call2) #8
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %thread_id, align 8
   %cmp13 = icmp eq i32 %0, -1
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %sem = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 3
+  %sem = getelementptr inbounds i8, ptr %call.i, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -214,13 +198,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
-  %init_cpu_bitmap = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 8
+  %init_cpu_bitmap = getelementptr inbounds i8, ptr %call.i, i64 344
   %2 = load ptr, ptr %init_cpu_bitmap, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %init_cpu_nbits = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 9
+  %init_cpu_nbits = getelementptr inbounds i8, ptr %call.i, i64 352
   %3 = load i32, ptr %init_cpu_nbits, align 8
   %conv = sext i32 %3 to i64
   %call5 = tail call i32 @qemu_thread_set_affinity(ptr noundef nonnull %thread, ptr noundef nonnull %2, i64 noundef %conv) #8
@@ -249,7 +233,7 @@ define internal void @thread_context_get_thread_id(ptr noundef %obj, ptr noundef
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %thread_id, align 8
   %conv = zext i32 %0 to i64
   store i64 %conv, ptr %value, align 8
@@ -265,7 +249,7 @@ entry:
   %host_cpus = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
   store ptr null, ptr %host_cpus, align 8
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %thread_id, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -275,7 +259,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 48
   %call1 = call i32 @qemu_thread_get_affinity(ptr noundef nonnull %thread, ptr noundef nonnull %bitmap, ptr noundef nonnull %nbits) #8
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end4, label %if.then2
@@ -305,7 +289,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %find_first_bit.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr i64, ptr %addr.addr.011.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %addr.addr.011.i, i64 8
   %add3.i = add i64 %result.012.i, 64
   %cmp.i = icmp ult i64 %add3.i, %2
   br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !9
@@ -321,7 +305,7 @@ do.body:                                          ; preds = %find_first_bit.exit
   %call7 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #9
   store ptr %call7, ptr %tail.012, align 8
   %conv = trunc i64 %value.013 to i16
-  %value8 = getelementptr inbounds %struct.uint16List, ptr %call7, i64 0, i32 1
+  %value8 = getelementptr inbounds i8, ptr %call7, i64 8
   store i16 %conv, ptr %value8, align 8
   %5 = load ptr, ptr %tail.012, align 8
   %6 = load ptr, ptr %bitmap, align 8
@@ -354,7 +338,7 @@ entry:
   %host_cpus = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
   store ptr null, ptr %host_cpus, align 8
-  %init_cpu_bitmap = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 8
+  %init_cpu_bitmap = getelementptr inbounds i8, ptr %call.i, i64 344
   %0 = load ptr, ptr %init_cpu_bitmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -379,7 +363,7 @@ if.then5:                                         ; preds = %if.end3
 for.body:                                         ; preds = %if.end3, %for.body
   %l.023 = phi ptr [ %3, %for.body ], [ %1, %if.end3 ]
   %nbits.022 = phi i32 [ %cond, %for.body ], [ 0, %if.end3 ]
-  %value = getelementptr inbounds %struct.uint16List, ptr %l.023, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %l.023, i64 8
   %2 = load i16, ptr %value, align 8
   %conv = zext i16 %2 to i32
   %add = add nuw nsw i32 %conv, 1
@@ -408,7 +392,7 @@ if.then.i:                                        ; preds = %for.end
 
 for.body13:                                       ; preds = %for.cond11.preheader, %for.body13
   %l.126 = phi ptr [ %l.1, %for.body13 ], [ %l.124, %for.cond11.preheader ]
-  %value14 = getelementptr inbounds %struct.uint16List, ptr %l.126, i64 0, i32 1
+  %value14 = getelementptr inbounds i8, ptr %l.126, i64 8
   %5 = load i16, ptr %value14, align 8
   %conv15 = zext i16 %5 to i64
   %rem.i = and i64 %conv15, 63
@@ -423,13 +407,13 @@ for.body13:                                       ; preds = %for.cond11.preheade
   br i1 %tobool12.not, label %for.end18, label %for.body13, !llvm.loop !12
 
 for.end18:                                        ; preds = %for.body13, %for.cond11.preheader
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %7 = load i32, ptr %thread_id, align 8
   %cmp19.not = icmp eq i32 %7, -1
   br i1 %cmp19.not, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %for.end18
-  %thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 48
   %call23 = call i32 @qemu_thread_set_affinity(ptr noundef nonnull %thread, ptr noundef nonnull %call.i.i, i64 noundef %conv9) #8
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %out, label %if.then25
@@ -441,7 +425,7 @@ if.then25:                                        ; preds = %if.then21
 
 if.else:                                          ; preds = %for.end18
   store ptr %call.i.i, ptr %init_cpu_bitmap, align 8
-  %init_cpu_nbits = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 9
+  %init_cpu_nbits = getelementptr inbounds i8, ptr %call.i, i64 352
   store i32 %cond, ptr %init_cpu_nbits, align 8
   br label %out
 
@@ -464,7 +448,7 @@ entry:
   %call.fr = freeze i32 %call
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
   store ptr null, ptr %host_nodes, align 8
-  %init_cpu_bitmap = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 8
+  %init_cpu_bitmap = getelementptr inbounds i8, ptr %call.i, i64 344
   %0 = load ptr, ptr %init_cpu_bitmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -516,7 +500,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc25.us
   %l.034.us = phi ptr [ %l.0.us, %for.inc25.us ], [ %l.032, %for.body.us.preheader ]
   %call11.us = call ptr @numa_bitmask_clearall(ptr noundef %call9) #8
-  %value.us = getelementptr inbounds %struct.uint16List, ptr %l.034.us, i64 0, i32 1
+  %value.us = getelementptr inbounds i8, ptr %l.034.us, i64 8
   %3 = load i16, ptr %value.us, align 8
   %conv12.us = zext i16 %3 to i32
   %call13.us = call i32 @numa_node_to_cpus(i32 noundef %conv12.us, ptr noundef %call9) #8
@@ -553,7 +537,7 @@ for.inc.us:                                       ; preds = %if.then22.us, %for.
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %l.034 = phi ptr [ %l.0, %for.body ], [ %l.032, %for.body.lr.ph ]
   %call11 = call ptr @numa_bitmask_clearall(ptr noundef %call9) #8
-  %value = getelementptr inbounds %struct.uint16List, ptr %l.034, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %l.034, i64 8
   %6 = load i16, ptr %value, align 8
   %conv12 = zext i16 %6 to i32
   %call13 = call i32 @numa_node_to_cpus(i32 noundef %conv12, ptr noundef %call9) #8
@@ -590,13 +574,13 @@ if.then30:                                        ; preds = %bitmap_empty.exit
   br label %out
 
 if.end31:                                         ; preds = %bitmap_empty.exit
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %8 = load i32, ptr %thread_id, align 8
   %cmp32.not = icmp eq i32 %8, -1
   br i1 %cmp32.not, label %if.else, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  %thread = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 48
   %call36 = call i32 @qemu_thread_set_affinity(ptr noundef nonnull %thread, ptr noundef nonnull %call.i.i, i64 noundef %conv) #8
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %out, label %if.then38
@@ -608,7 +592,7 @@ if.then38:                                        ; preds = %if.then34
 
 if.else:                                          ; preds = %if.end31
   store ptr %call.i.i, ptr %init_cpu_bitmap, align 8
-  %init_cpu_nbits = getelementptr inbounds %struct.ThreadContext, ptr %call.i, i64 0, i32 9
+  %init_cpu_nbits = getelementptr inbounds i8, ptr %call.i, i64 352
   store i32 %call.fr, ptr %init_cpu_nbits, align 8
   br label %out
 
@@ -635,13 +619,13 @@ declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noalias ptr @thread_context_run(ptr noundef %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_get_thread_id() #8
-  %thread_id = getelementptr inbounds %struct.ThreadContext, ptr %opaque, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %opaque, i64 40
   store i32 %call, ptr %thread_id, align 8
-  %sem = getelementptr inbounds %struct.ThreadContext, ptr %opaque, i64 0, i32 3
+  %sem = getelementptr inbounds i8, ptr %opaque, i64 56
   tail call void @qemu_sem_post(ptr noundef nonnull %sem) #8
-  %thread_cmd = getelementptr inbounds %struct.ThreadContext, ptr %opaque, i64 0, i32 6
-  %thread_cmd_data = getelementptr inbounds %struct.ThreadContext, ptr %opaque, i64 0, i32 7
-  %sem_thread = getelementptr inbounds %struct.ThreadContext, ptr %opaque, i64 0, i32 4
+  %thread_cmd = getelementptr inbounds i8, ptr %opaque, i64 328
+  %thread_cmd_data = getelementptr inbounds i8, ptr %opaque, i64 336
+  %sem_thread = getelementptr inbounds i8, ptr %opaque, i64 168
   br label %while.body
 
 while.body:                                       ; preds = %sw.epilog, %entry
@@ -660,13 +644,13 @@ sw.bb1:                                           ; preds = %while.body
 sw.bb4:                                           ; preds = %while.body
   %1 = load ptr, ptr %thread_cmd_data, align 8
   %2 = load ptr, ptr %1, align 8
-  %name = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %name, align 8
-  %start_routine = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %1, i64 0, i32 2
+  %start_routine = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %start_routine, align 8
-  %arg = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %1, i64 0, i32 3
+  %arg = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arg, align 8
-  %mode = getelementptr inbounds %struct.ThreadContextCmdNew, ptr %1, i64 0, i32 4
+  %mode = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i32, ptr %mode, align 8
   tail call void @qemu_thread_create(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #8
   store i32 0, ptr %thread_cmd, align 8

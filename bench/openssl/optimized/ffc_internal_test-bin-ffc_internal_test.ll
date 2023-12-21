@@ -333,7 +333,7 @@ entry:
   %params = alloca %struct.ffc_params_st, align 8
   store i32 -1, ptr %res, align 4
   call void @ossl_ffc_params_init(ptr noundef nonnull %params) #2
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %params, i64 56
   store i32 1, ptr %gindex, align 8
   %call = call i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef null, ptr noundef nonnull %params, i32 noundef 1, i64 noundef 2048, i64 noundef 256, ptr noundef nonnull %res, ptr noundef null) #2
   %cmp = icmp ne i32 %call, 0
@@ -693,7 +693,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end6
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef 1) #2
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %call7, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %call7, i64 8
   %0 = load ptr, ptr %q, align 8
   %call13 = call i32 @ossl_ffc_validate_private_key(ptr noundef %0, ptr noundef %call, ptr noundef nonnull %res) #2
   %cmp14 = icmp ne i32 %call13, 0
@@ -845,7 +845,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end6
   %call12 = tail call ptr @ossl_dh_get0_params(ptr noundef %call7) #2
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %call12, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %call12, i64 8
   %0 = load ptr, ptr %q, align 8
   %call13 = tail call i32 @BN_num_bits(ptr noundef %0) #2
   %call14 = tail call i32 @ossl_ffc_generate_private_key(ptr noundef %call, ptr noundef %call12, i32 noundef 220, i32 noundef 112, ptr noundef %call2) #2
@@ -957,7 +957,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call ptr @ossl_dh_get0_params(ptr noundef %call) #2
-  %keylength = getelementptr inbounds %struct.ffc_params_st, ptr %call2, i64 0, i32 13
+  %keylength = getelementptr inbounds i8, ptr %call2, i64 88
   %0 = load i32, ptr %keylength, align 8
   %call3 = call i32 @test_int_eq(ptr noundef nonnull @.str.9, i32 noundef 675, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef %0, i32 noundef 275) #2
   %tobool4.not = icmp eq i32 %call3, 0
@@ -972,7 +972,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool9.not, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %keylength12 = getelementptr inbounds %struct.ffc_params_st, ptr %copy, i64 0, i32 13
+  %keylength12 = getelementptr inbounds i8, ptr %copy, i64 88
   %1 = load i32, ptr %keylength12, align 8
   %call13 = call i32 @test_int_eq(ptr noundef nonnull @.str.9, i32 noundef 681, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.68, i32 noundef %1, i32 noundef 275) #2
   %tobool14.not = icmp eq i32 %call13, 0

@@ -3,11 +3,6 @@ source_filename = "bench/bullet3/original/btMultimaterialTriangleMeshShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btTriangleMeshShape = type { %class.btConcaveShape.base, %class.btVector3, %class.btVector3, ptr }
-%class.btConcaveShape.base = type <{ %class.btCollisionShape, float }>
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%class.btVector3 = type { [4 x float] }
-
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
@@ -23,10 +18,10 @@ entry:
   %triangleType = alloca i32, align 4
   store ptr null, ptr %materialBase, align 8
   store ptr null, ptr %triangleMaterialBase, align 8
-  %m_meshInterface = getelementptr inbounds %class.btTriangleMeshShape, ptr %this, i64 0, i32 3
+  %m_meshInterface = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_meshInterface, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %materialBase, ptr noundef nonnull align 4 dereferenceable(4) %numMaterials, ptr noundef nonnull align 4 dereferenceable(4) %materialType, ptr noundef nonnull align 4 dereferenceable(4) %materialStride, ptr noundef nonnull %triangleMaterialBase, ptr noundef nonnull align 4 dereferenceable(4) %numTriangles, ptr noundef nonnull align 4 dereferenceable(4) %triangleMaterialStride, ptr noundef nonnull align 4 dereferenceable(4) %triangleType, i32 noundef %partID)
   %2 = load ptr, ptr %triangleMaterialBase, align 8

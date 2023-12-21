@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.PRManagerInfo = type { ptr, i8 }
-%struct.PRManagerInfoList = type { ptr, ptr }
-%struct.q_obj_eject_arg = type { ptr, ptr, i8, i8 }
-%struct.q_obj_blockdev_open_tray_arg = type { ptr, ptr, i8, i8 }
-%struct.q_obj_blockdev_close_tray_arg = type { ptr, ptr }
-%struct.q_obj_blockdev_insert_medium_arg = type { ptr, ptr }
-%struct.q_obj_blockdev_change_medium_arg = type { ptr, ptr, ptr, ptr, i8, i8, i8, i32 }
-%struct.q_obj_DEVICE_TRAY_MOVED_arg = type { ptr, ptr, i8 }
-%struct.q_obj_PR_MANAGER_STATUS_CHANGED_arg = type { ptr, i8 }
-%struct.q_obj_block_latency_histogram_set_arg = type { ptr, i8, ptr, i8, ptr, i8, ptr, i8, ptr, i8, ptr }
 
 @BiosAtaTranslation_lookup = external constant %struct.QEnumLookup, align 8
 @FloppyDriveType_lookup = external constant %struct.QEnumLookup, align 8
@@ -70,7 +60,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %connected = getelementptr inbounds %struct.PRManagerInfo, ptr %obj, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %connected, ptr noundef %errp) #4
   br label %return
 
@@ -111,7 +101,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_PRManagerInfo_members.exit, label %out_obj.thread
 
 visit_type_PRManagerInfo_members.exit:            ; preds = %if.end5
-  %connected.i = getelementptr inbounds %struct.PRManagerInfo, ptr %0, i64 0, i32 1
+  %connected.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %connected.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -167,7 +157,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.PRManagerInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_PRManagerInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -219,7 +209,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %id = getelementptr inbounds %struct.q_obj_eject_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -248,12 +238,12 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17, %if.end15
-  %has_force = getelementptr inbounds %struct.q_obj_eject_arg, ptr %obj, i64 0, i32 2
+  %has_force = getelementptr inbounds i8, ptr %obj, i64 16
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_force) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %force = getelementptr inbounds %struct.q_obj_eject_arg, ptr %obj, i64 0, i32 3
+  %force = getelementptr inbounds i8, ptr %obj, i64 17
   %call25 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %force, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
@@ -280,7 +270,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %id = getelementptr inbounds %struct.q_obj_blockdev_open_tray_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -309,12 +299,12 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17, %if.end15
-  %has_force = getelementptr inbounds %struct.q_obj_blockdev_open_tray_arg, ptr %obj, i64 0, i32 2
+  %has_force = getelementptr inbounds i8, ptr %obj, i64 16
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_force) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %force = getelementptr inbounds %struct.q_obj_blockdev_open_tray_arg, ptr %obj, i64 0, i32 3
+  %force = getelementptr inbounds i8, ptr %obj, i64 17
   %call25 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %force, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
@@ -335,7 +325,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %id = getelementptr inbounds %struct.q_obj_blockdev_close_tray_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -385,7 +375,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %node_name = getelementptr inbounds %struct.q_obj_blockdev_insert_medium_arg, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %node_name, ptr noundef %errp) #4
   br label %return
 
@@ -417,12 +407,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %id = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_id, align 1
-  %format = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %format, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -451,7 +441,7 @@ if.then21:                                        ; preds = %if.end19
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then21, %if.end19
-  %filename = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %obj, i64 16
   %call27 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %filename, ptr noundef %errp) #4
   br i1 %call27, label %if.end29, label %return
 
@@ -464,22 +454,22 @@ if.then31:                                        ; preds = %if.end29
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then31, %if.end29
-  %has_force = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 4
+  %has_force = getelementptr inbounds i8, ptr %obj, i64 32
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_force) #4
   br i1 %call37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end36
-  %force = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 5
+  %force = getelementptr inbounds i8, ptr %obj, i64 33
   %call39 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %force, ptr noundef %errp) #4
   br i1 %call39, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then38, %if.end36
-  %has_read_only_mode = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 6
+  %has_read_only_mode = getelementptr inbounds i8, ptr %obj, i64 34
   %call43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_read_only_mode) #4
   br i1 %call43, label %if.then44, label %if.end48
 
 if.then44:                                        ; preds = %if.end42
-  %read_only_mode = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %obj, i64 0, i32 7
+  %read_only_mode = getelementptr inbounds i8, ptr %obj, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %read_only_mode, align 4
   store i32 %3, ptr %value.i, align 4
@@ -504,12 +494,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.q_obj_DEVICE_TRAY_MOVED_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %id, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %tray_open = getelementptr inbounds %struct.q_obj_DEVICE_TRAY_MOVED_arg, ptr %obj, i64 0, i32 2
+  %tray_open = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %tray_open, ptr noundef %errp) #4
   br label %return
 
@@ -525,7 +515,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %connected = getelementptr inbounds %struct.q_obj_PR_MANAGER_STATUS_CHANGED_arg, ptr %obj, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %connected, ptr noundef %errp) #4
   br label %return
 
@@ -541,52 +531,52 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_boundaries = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 1
+  %has_boundaries = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_boundaries) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %boundaries = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 2
+  %boundaries = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %boundaries, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_boundaries_read = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 3
+  %has_boundaries_read = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_boundaries_read) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %boundaries_read = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 4
+  %boundaries_read = getelementptr inbounds i8, ptr %obj, i64 32
   %call9 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %boundaries_read, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_boundaries_write = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 5
+  %has_boundaries_write = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_boundaries_write) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %boundaries_write = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 6
+  %boundaries_write = getelementptr inbounds i8, ptr %obj, i64 48
   %call15 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %boundaries_write, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_boundaries_zap = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 7
+  %has_boundaries_zap = getelementptr inbounds i8, ptr %obj, i64 56
   %call19 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_boundaries_zap) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %boundaries_zap = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 8
+  %boundaries_zap = getelementptr inbounds i8, ptr %obj, i64 64
   %call21 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %boundaries_zap, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_boundaries_flush = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 9
+  %has_boundaries_flush = getelementptr inbounds i8, ptr %obj, i64 72
   %call25 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_boundaries_flush) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %boundaries_flush = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %obj, i64 0, i32 10
+  %boundaries_flush = getelementptr inbounds i8, ptr %obj, i64 80
   %call27 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %boundaries_flush, ptr noundef %errp) #4
   br i1 %call27, label %if.end30, label %return
 

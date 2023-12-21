@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.icu_75::DisplayOptions::Builder" = type { i32, i32, i32, i32, i32, i32, i32 }
-%"class.icu_75::DisplayOptions" = type { i32, i32, i32, i32, i32, i32, i32 }
 
 @_ZN12_GLOBAL__N_118grammaticalCaseIdsE = internal unnamed_addr constant [15 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 16
 @_ZN12_GLOBAL__N_117pluralCategoryIdsE = internal unnamed_addr constant [7 x ptr] [ptr @.str, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 16
@@ -61,29 +60,29 @@ define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr nocapture noundef 
 entry:
   %0 = load i32, ptr %builder, align 4
   store i32 %0, ptr %this, align 4
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 1
+  %nounClass = getelementptr inbounds i8, ptr %builder, i64 4
   %1 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 1
+  %nounClass3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %1, ptr %nounClass3, align 4
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 2
+  %pluralCategory = getelementptr inbounds i8, ptr %builder, i64 8
   %2 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 2
+  %pluralCategory4 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %pluralCategory4, align 4
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 3
+  %capitalization = getelementptr inbounds i8, ptr %builder, i64 12
   %3 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 3
+  %capitalization5 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %capitalization5, align 4
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 4
+  %nameStyle = getelementptr inbounds i8, ptr %builder, i64 16
   %4 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 4
+  %nameStyle6 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %nameStyle6, align 4
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 5
+  %displayLength = getelementptr inbounds i8, ptr %builder, i64 20
   %5 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 5
+  %displayLength7 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %5, ptr %displayLength7, align 4
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 6
+  %substituteHandling = getelementptr inbounds i8, ptr %builder, i64 24
   %6 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 6
+  %substituteHandling8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %6, ptr %substituteHandling8, align 4
   ret void
 }
@@ -100,29 +99,29 @@ define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr nocapture noundef no
 entry:
   %0 = load i32, ptr %displayOptions, align 4
   store i32 %0, ptr %this, align 4
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 1
+  %nounClass = getelementptr inbounds i8, ptr %displayOptions, i64 4
   %1 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 1
+  %nounClass3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %1, ptr %nounClass3, align 4
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 2
+  %pluralCategory = getelementptr inbounds i8, ptr %displayOptions, i64 8
   %2 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 2
+  %pluralCategory4 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %pluralCategory4, align 4
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 3
+  %capitalization = getelementptr inbounds i8, ptr %displayOptions, i64 12
   %3 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 3
+  %capitalization5 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %capitalization5, align 4
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 4
+  %nameStyle = getelementptr inbounds i8, ptr %displayOptions, i64 16
   %4 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 4
+  %nameStyle6 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %nameStyle6, align 4
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 5
+  %displayLength = getelementptr inbounds i8, ptr %displayOptions, i64 20
   %5 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 5
+  %displayLength7 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %5, ptr %displayLength7, align 4
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 6
+  %substituteHandling = getelementptr inbounds i8, ptr %displayOptions, i64 24
   %6 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 6
+  %substituteHandling8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %6, ptr %substituteHandling8, align 4
   ret void
 }

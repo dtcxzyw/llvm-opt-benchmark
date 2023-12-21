@@ -22,34 +22,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" = type { i64 }
 %"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { ptr, %"class.std::__cxx11::basic_string" }
-%"class.google::protobuf::FileDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%"class.google::protobuf::FileOptions" = type { %"class.google::protobuf::Message", %union.anon.10 }
-%"class.google::protobuf::Message" = type { %"class.google::protobuf::MessageLite" }
-%"class.google::protobuf::MessageLite" = type { ptr, %"class.google::protobuf::internal::InternalMetadata" }
-%"class.google::protobuf::internal::InternalMetadata" = type { i64 }
-%union.anon.10 = type { %"struct.google::protobuf::FileOptions::Impl_" }
-%"struct.google::protobuf::FileOptions::Impl_" = type <{ %"class.google::protobuf::internal::ExtensionSet", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"class.google::protobuf::RepeatedPtrField", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8] }>
-%"class.google::protobuf::internal::ExtensionSet" = type { ptr, i16, i16, %"union.google::protobuf::internal::ExtensionSet::AllocatedData" }
-%"union.google::protobuf::internal::ExtensionSet::AllocatedData" = type { ptr }
-%"class.google::protobuf::internal::HasBits" = type { [1 x i32] }
-%"class.google::protobuf::internal::CachedSize" = type { i32 }
-%"class.google::protobuf::RepeatedPtrField" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.google::protobuf::internal::RepeatedPtrFieldBase" = type { ptr, i32, i32, ptr }
-%"struct.google::protobuf::internal::ArenaStringPtr" = type { %"class.google::protobuf::internal::TaggedStringPtr" }
-%"class.google::protobuf::internal::TaggedStringPtr" = type { ptr }
 %"struct.absl::lts_20230802::container_internal::StringHash" = type { i8 }
 %"struct.absl::lts_20230802::container_internal::StringEq" = type { i8 }
 %"class.std::allocator.25" = type { i8 }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.google::protobuf::Descriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i16, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.16, %union.anon.17, ptr, ptr, ptr, %union.anon.18 }
-%union.anon.16 = type { ptr }
-%union.anon.17 = type { ptr }
-%union.anon.18 = type { i64 }
-%"class.google::protobuf::MethodDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, ptr, ptr, %"class.google::protobuf::internal::LazyDescriptor", %"class.google::protobuf::internal::LazyDescriptor", ptr, ptr, ptr }
-%"class.google::protobuf::internal::LazyDescriptor" = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
 
 $_ZN6google8protobuf8compiler4java17ClassNameResolverD2Ev = comdat any
@@ -165,24 +142,24 @@ define hidden void @_ZN6google8protobuf8compiler4java9ClassNameB5cxx11EPKNS0_10D
 entry:
   %name_resolver = alloca %"class.google::protobuf::compiler::java::ClassNameResolver", align 8
   %ref.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
-  %opensource_runtime.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 4
+  %opensource_runtime.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 0, ptr %ref.tmp, align 8
   store i8 1, ptr %opensource_runtime.i, align 4
-  %annotate_code.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 5
+  %annotate_code.i = getelementptr inbounds i8, ptr %ref.tmp, i64 5
   store i8 0, ptr %annotate_code.i, align 1
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
-  %strip_nonfunctional_codegen.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 9
+  %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
-  %annotation_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 7
+  %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %output_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 8
+  %output_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i)
           to label %invoke.cont unwind label %lpad.i.i
 
@@ -193,13 +170,13 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  %strip_nonfunctional_codegen.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 9
+  %strip_nonfunctional_codegen.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 72
   %1 = load i8, ptr %strip_nonfunctional_codegen.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %strip_nonfunctional_codegen.i.i, align 8
-  %file_immutable_outer_class_names_.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1
+  %file_immutable_outer_class_names_.i = getelementptr inbounds i8, ptr %name_resolver, i64 80
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
-  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
@@ -207,7 +184,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %capacity_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 96
   %3 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6google8protobuf8compiler4java17ClassNameResolverD2Ev.exit, label %if.end.i.i.i.i
@@ -274,15 +251,15 @@ declare void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassName
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %file_immutable_outer_class_names_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %this, i64 0, i32 1
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %file_immutable_outer_class_names_ = getelementptr inbounds i8, ptr %this, i64 80
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf14FileDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_18container_internal6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %1 = load ptr, ptr %file_immutable_outer_class_names_, align 8
-  %slots_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i
 
@@ -310,9 +287,9 @@ invoke.cont15.i.i.i:                              ; preds = %for.inc.i.i.i.i
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf14FileDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_18container_internal6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEED2Ev.exit
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf14FileDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_18container_internal6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEED2Ev.exit: ; preds = %entry, %invoke.cont15.i.i.i
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %this, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %this, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
   ret void
 }
@@ -322,24 +299,24 @@ define hidden void @_ZN6google8protobuf8compiler4java9ClassNameB5cxx11EPKNS0_14E
 entry:
   %name_resolver = alloca %"class.google::protobuf::compiler::java::ClassNameResolver", align 8
   %ref.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
-  %opensource_runtime.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 4
+  %opensource_runtime.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 0, ptr %ref.tmp, align 8
   store i8 1, ptr %opensource_runtime.i, align 4
-  %annotate_code.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 5
+  %annotate_code.i = getelementptr inbounds i8, ptr %ref.tmp, i64 5
   store i8 0, ptr %annotate_code.i, align 1
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
-  %strip_nonfunctional_codegen.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 9
+  %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
-  %annotation_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 7
+  %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %output_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 8
+  %output_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i)
           to label %invoke.cont unwind label %lpad.i.i
 
@@ -350,13 +327,13 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  %strip_nonfunctional_codegen.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 9
+  %strip_nonfunctional_codegen.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 72
   %1 = load i8, ptr %strip_nonfunctional_codegen.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %strip_nonfunctional_codegen.i.i, align 8
-  %file_immutable_outer_class_names_.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1
+  %file_immutable_outer_class_names_.i = getelementptr inbounds i8, ptr %name_resolver, i64 80
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
-  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
@@ -364,7 +341,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %capacity_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 96
   %3 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6google8protobuf8compiler4java17ClassNameResolverD2Ev.exit, label %if.end.i.i.i.i
@@ -431,24 +408,24 @@ define hidden void @_ZN6google8protobuf8compiler4java9ClassNameB5cxx11EPKNS0_17S
 entry:
   %name_resolver = alloca %"class.google::protobuf::compiler::java::ClassNameResolver", align 8
   %ref.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
-  %opensource_runtime.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 4
+  %opensource_runtime.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 0, ptr %ref.tmp, align 8
   store i8 1, ptr %opensource_runtime.i, align 4
-  %annotate_code.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 5
+  %annotate_code.i = getelementptr inbounds i8, ptr %ref.tmp, i64 5
   store i8 0, ptr %annotate_code.i, align 1
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
-  %strip_nonfunctional_codegen.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 9
+  %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
-  %annotation_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 7
+  %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %output_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 8
+  %output_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i)
           to label %invoke.cont unwind label %lpad.i.i
 
@@ -459,13 +436,13 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  %strip_nonfunctional_codegen.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 9
+  %strip_nonfunctional_codegen.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 72
   %1 = load i8, ptr %strip_nonfunctional_codegen.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %strip_nonfunctional_codegen.i.i, align 8
-  %file_immutable_outer_class_names_.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1
+  %file_immutable_outer_class_names_.i = getelementptr inbounds i8, ptr %name_resolver, i64 80
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
-  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
@@ -473,7 +450,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %capacity_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 96
   %3 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6google8protobuf8compiler4java17ClassNameResolverD2Ev.exit, label %if.end.i.i.i.i
@@ -540,24 +517,24 @@ define hidden void @_ZN6google8protobuf8compiler4java9ClassNameB5cxx11EPKNS0_14F
 entry:
   %name_resolver = alloca %"class.google::protobuf::compiler::java::ClassNameResolver", align 8
   %ref.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
-  %opensource_runtime.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 4
+  %opensource_runtime.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 0, ptr %ref.tmp, align 8
   store i8 1, ptr %opensource_runtime.i, align 4
-  %annotate_code.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 5
+  %annotate_code.i = getelementptr inbounds i8, ptr %ref.tmp, i64 5
   store i8 0, ptr %annotate_code.i, align 1
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
-  %strip_nonfunctional_codegen.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %ref.tmp, i64 0, i32 9
+  %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
-  %annotation_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 7
+  %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %output_list_file.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 8
+  %output_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i)
           to label %invoke.cont unwind label %lpad.i.i
 
@@ -568,13 +545,13 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  %strip_nonfunctional_codegen.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %name_resolver, i64 0, i32 9
+  %strip_nonfunctional_codegen.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 72
   %1 = load i8, ptr %strip_nonfunctional_codegen.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %strip_nonfunctional_codegen.i.i, align 8
-  %file_immutable_outer_class_names_.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1
+  %file_immutable_outer_class_names_.i = getelementptr inbounds i8, ptr %name_resolver, i64 80
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %file_immutable_outer_class_names_.i, align 8
-  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
@@ -582,7 +559,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %capacity_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::compiler::java::ClassNameResolver", ptr %name_resolver, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 96
   %3 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6google8protobuf8compiler4java17ClassNameResolverD2Ev.exit, label %if.end.i.i.i.i
@@ -649,16 +626,16 @@ define hidden void @_ZN6google8protobuf8compiler4java15FileJavaPackageB5cxx11EPK
 invoke.cont1:
   %agg.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
-  %options_.i = getelementptr inbounds %"class.google::protobuf::FileDescriptor", ptr %file, i64 0, i32 22
+  %options_.i = getelementptr inbounds i8, ptr %file, i64 128
   %0 = load ptr, ptr %options_.i, align 8
-  %_has_bits_.i = getelementptr inbounds %"class.google::protobuf::FileOptions", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %_has_bits_.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %_has_bits_.i, align 4
   %and.i = and i32 %1, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.else, label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont1
-  %java_package_.i.i = getelementptr inbounds %"class.google::protobuf::FileOptions", ptr %0, i64 0, i32 1, i32 0, i32 4
+  %java_package_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %java_package_.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %and.i.i.i = and i64 %3, -4
@@ -673,14 +650,14 @@ lpad:                                             ; preds = %if.else, %if.end, %
 
 if.else:                                          ; preds = %invoke.cont1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %options, i64 6, i1 false)
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %agg.tmp, i64 0, i32 7
-  %annotation_list_file3.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %options, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %annotation_list_file3.i = getelementptr inbounds i8, ptr %options, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.else
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %agg.tmp, i64 0, i32 8
-  %output_list_file4.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %options, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  %output_list_file4.i = getelementptr inbounds i8, ptr %options, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %output_list_file4.i)
           to label %invoke.cont9 unwind label %lpad.i
 
@@ -691,8 +668,8 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont9:                                     ; preds = %.noexc
-  %strip_nonfunctional_codegen.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %agg.tmp, i64 0, i32 9
-  %strip_nonfunctional_codegen5.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %options, i64 0, i32 9
+  %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
+  %strip_nonfunctional_codegen5.i = getelementptr inbounds i8, ptr %options, i64 72
   %7 = load i8, ptr %strip_nonfunctional_codegen5.i, align 8
   %8 = and i8 %7, 1
   store i8 %8, ptr %strip_nonfunctional_codegen.i, align 8
@@ -707,7 +684,7 @@ invoke.cont9:                                     ; preds = %.noexc
 invoke.cont13:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #18
-  %package_.i = getelementptr inbounds %"class.google::protobuf::FileDescriptor", ptr %file, i64 0, i32 5
+  %package_.i = getelementptr inbounds i8, ptr %file, i64 16
   %11 = load ptr, ptr %package_.i, align 8
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   br i1 %call17, label %nrvo.skipdtor, label %if.then18
@@ -763,11 +740,11 @@ define hidden void @_ZN6google8protobuf8compiler4java15FileJavaPackageB5cxx11EPK
 entry:
   %agg.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %options, i64 6, i1 false)
-  %annotation_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %agg.tmp, i64 0, i32 7
-  %annotation_list_file3.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %options, i64 0, i32 7
+  %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %annotation_list_file3.i = getelementptr inbounds i8, ptr %options, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
-  %output_list_file.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %agg.tmp, i64 0, i32 8
-  %output_list_file4.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %options, i64 0, i32 8
+  %output_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  %output_list_file4.i = getelementptr inbounds i8, ptr %options, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %output_list_file4.i)
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
@@ -782,8 +759,8 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit: ; preds = %entry
-  %strip_nonfunctional_codegen.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %agg.tmp, i64 0, i32 9
-  %strip_nonfunctional_codegen5.i = getelementptr inbounds %"struct.google::protobuf::compiler::java::Options", ptr %options, i64 0, i32 9
+  %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
+  %strip_nonfunctional_codegen5.i = getelementptr inbounds i8, ptr %options, i64 72
   %1 = load i8, ptr %strip_nonfunctional_codegen5.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %strip_nonfunctional_codegen.i, align 8
@@ -841,15 +818,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %cmp = icmp eq i32 %call, 10
-  br i1 %cmp, label %if.then, label %if.else
+  br i1 %cmp, label %if.then, label %if.else.invoke
 
 if.then:                                          ; preds = %invoke.cont
   %call2 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %field)
-          to label %invoke.cont1 unwind label %lpad
-
-invoke.cont1:                                     ; preds = %if.then
-  %all_names_.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %call2, i64 0, i32 4
-  br label %if.else.invoke
+          to label %if.else.invoke unwind label %lpad
 
 lpad:                                             ; preds = %if.else.invoke, %init.end.i, %invoke.cont15, %if.then, %entry
   %0 = landingpad { ptr, i32 }
@@ -861,13 +834,10 @@ lpad.body:                                        ; preds = %ehcleanup.i, %lpad8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   resume { ptr, i32 } %eh.lpad-body
 
-if.else:                                          ; preds = %invoke.cont
-  %all_names_.i3 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 5
-  br label %if.else.invoke
-
-if.else.invoke:                                   ; preds = %invoke.cont1, %if.else
-  %all_names_.i.sink = phi ptr [ %all_names_.i, %invoke.cont1 ], [ %all_names_.i3, %if.else ]
-  %1 = load ptr, ptr %all_names_.i.sink, align 8
+if.else.invoke:                                   ; preds = %invoke.cont, %if.then
+  %call2.sink = phi ptr [ %call2, %if.then ], [ %field, %invoke.cont ]
+  %all_names_.i = getelementptr inbounds i8, ptr %call2.sink, i64 8
+  %1 = load ptr, ptr %all_names_.i, align 8
   %2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %if.end unwind label %lpad
 
@@ -895,7 +865,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %ref.tmp.i, i64 9
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EEC2IPKPKcEET_SI_mRKS9_RKSA_RKSB_(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
           to label %invoke.cont5.i unwind label %lpad4.i
 
@@ -948,7 +918,7 @@ invoke.cont12:                                    ; preds = %.noexc
 
 invoke.cont15:                                    ; preds = %invoke.cont12
   store i64 1, ptr %ref.tmp, align 8
-  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.3, ptr %12, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %nrvo.skipdtor unwind label %lpad
@@ -1007,7 +977,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8compiler4java22UnderscoresToCamelCaseB5cxx11EPKNS0_16MethodDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %method) local_unnamed_addr #3 {
 entry:
-  %all_names_.i = getelementptr inbounds %"class.google::protobuf::MethodDescriptor", ptr %method, i64 0, i32 3
+  %all_names_.i = getelementptr inbounds i8, ptr %method, i64 8
   %0 = load ptr, ptr %all_names_.i, align 8
   %call1 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   %1 = extractvalue { i64, ptr } %call1, 0
@@ -1057,7 +1027,7 @@ _ZN6google8protobuf8compiler4java22UnderscoresToCamelCaseB5cxx11EPKNS0_15FieldDe
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
   store i64 %3, ptr %name.i, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %name.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %name.i, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load atomic i8, ptr @_ZGVZN6google8protobuf8compiler4java12_GLOBAL__N_114IsReservedNameESt17basic_string_viewIcSt11char_traitsIcEEE14kReservedNames acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %6, 0
@@ -1074,7 +1044,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i1, ptr noundef nonnull align 8 dereferenceable(400) @constinit.63, i64 400, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %ref.tmp.i1, i64 50
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 400
   invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EEC2IPKPKcEET_SI_mRKS9_RKSA_RKSB_(ptr noundef nonnull align 8 dereferenceable(32) %call.i2, ptr noundef nonnull %ref.tmp.i1, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
           to label %invoke.cont5.i unwind label %lpad4.i
 
@@ -1130,7 +1100,7 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.i.
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store i64 1, ptr %ref.tmp, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str, ptr %13, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %nrvo.skipdtor unwind label %lpad
@@ -1182,7 +1152,7 @@ entry:
 
 _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit.thread: ; preds = %entry
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %this, align 8
-  %slots_.i.i.i.i.i10 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i10, i8 0, i64 24, i1 false)
   br label %invoke.cont.i
 
@@ -1195,7 +1165,7 @@ _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcE
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add nsw i64 %div.i.i, %sub.ptr.div.i.i.i
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %this, align 8
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not.i = icmp eq i64 %add.i.i, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EEC2EmRKS9_RKSA_RKSB_.exit, label %invoke.cont.i
@@ -1203,7 +1173,7 @@ _ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcE
 invoke.cont.i:                                    ; preds = %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit.thread, %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit
   %slots_.i.i.i.i.i13 = phi ptr [ %slots_.i.i.i.i.i10, %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit.thread ], [ %slots_.i.i.i.i.i, %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit ]
   %retval.0.i12 = phi i64 [ %bucket_count, %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit.thread ], [ %add.i.i, %_ZN4absl12lts_2023080218container_internal29SelectBucketCountForIterRangeIPKPKcEEmT_S7_m.exit ]
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = tail call i64 @llvm.ctlz.i64(i64 %retval.0.i12, i1 true), !range !10
   %shr.i.i = lshr i64 -1, %0
   store i64 %shr.i.i, ptr %capacity_.i.i.i.i.i, align 8
@@ -1276,12 +1246,12 @@ if.then.i.i.i.i.i.i4:                             ; preds = %call.i.i.i.i.i.i.no
   %6 = load ptr, ptr %first.addr.04.i, align 8, !noalias !11
   %call.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18, !noalias !11
   store i64 %call.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !11
-  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %5, i64 %4, i32 1
+  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   store ptr %6, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE7emplaceIJRKPKcETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbEDpOSJ_.exit.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE7emplaceIJRKPKcETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbEDpOSJ_.exit.i: ; preds = %if.then.i.i.i.i.i.i4, %call.i.i.i.i.i.i.noexc
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 8
   %cmp.not.i5 = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp.not.i5, label %invoke.cont, label %for.body.i, !llvm.loop !22
 
@@ -1291,7 +1261,7 @@ invoke.cont:                                      ; preds = %_ZN4absl12lts_20230
 lpad:                                             ; preds = %for.body.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %capacity_.i.i.i, align 8
   %tobool.not.i8 = icmp eq i64 %8, 0
   br i1 %tobool.not.i8, label %common.resume, label %invoke.cont13.i
@@ -1327,7 +1297,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
   %2 = load ptr, ptr %this, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %capacity_.i.i, align 8, !noalias !23
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
   %4 = ptrtoint ptr %2 to i64
@@ -1337,7 +1307,7 @@ entry:
   %conv.i = and i8 %5, 127
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %slots_.i.i, align 8
   %7 = load ptr, ptr %key, align 8
   br label %while.body
@@ -1428,13 +1398,13 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %land.rhs
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i10 = icmp ugt i64 %4, 16
   br i1 %cmp.i10, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.then13
-  %compressed_tuple_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %mul.i11 = shl i64 %5, 5
   %mul3.i = mul i64 %4, 25
@@ -1462,7 +1432,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
   %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
   %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
-  %compressed_tuple_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
   store i64 %add, ptr %compressed_tuple_.i, align 8
@@ -1476,7 +1446,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
   store i64 %sub, ptr %add.ptr.i.i.i13, align 8
   %11 = trunc i64 %hash to i8
   %conv.i = and i8 %11, 127
-  %capacity_.i.i.i16 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %capacity_.i.i.i16, align 8
   %13 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %target.sroa.0.0
@@ -1605,9 +1575,9 @@ define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw
 entry:
   %agg.tmp.i = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %slots_.i.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
@@ -1646,7 +1616,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %new_capacity
   store i8 -1, ptr %arrayidx.i.i.i, align 1
   %div2.i.i.i.i.i = lshr i64 %new_capacity, 3
-  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %compressed_tuple_.i.i.i.i.i, align 8
   %5 = add i64 %div2.i.i.i.i.i, %4
   %sub.i.i20.i.i = sub i64 %new_capacity, %5
@@ -1769,13 +1739,13 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
   %3 = load ptr, ptr %this, align 8
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !29
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
   %5 = ptrtoint ptr %3 to i64
   %shr.i.i.i.i.i.i = lshr i64 %5, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %slots_.i.i.i.i, align 8
   %7 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %7, 127
@@ -1858,13 +1828,13 @@ _ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolic
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE4findIS7_EENSC_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !34
   %shr.i.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i = lshr i64 %2, 12
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i.i, %shr.i.i.i.i
-  %slots_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %slots_.i.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i.i = and i8 %4, 127

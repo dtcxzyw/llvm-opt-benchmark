@@ -12,40 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.5, %struct.anon.6 }
 %struct.anon.5 = type { i32, i32, i8, ptr }
 %struct.anon.6 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.ATIVGAState = type { %struct.PCIDevice, %struct.VGACommonState, ptr, i16, i8, i8, i8, i16, i32, ptr, %struct.QEMUTimer, %struct.bitbang_i2c_interface, %struct.MemoryRegion, %struct.MemoryRegion, %struct.ATIVGARegs }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.VGACommonState = type { ptr, ptr, %struct.MemoryRegion, i32, i32, i32, i32, i32, i8, %struct.MemoryRegion, i8, [256 x i8], [256 x i8], i8, [256 x i8], i8, [21 x i8], i32, i8, [256 x i8], i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, [768 x i8], i32, ptr, ptr, ptr, %struct.PortioList, %struct.PortioList, i16, [10 x i16], i32, i32, i32, ptr, [2 x i32], i32, i8, i8, i32, i32, i32, i32, i32, i8, i8, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i64, i32, ptr, i8, i8, i8, i8, i8, [64 x i32], i32, i32, ptr, ptr, [256 x i32], [16000 x i32], ptr, ptr, %union.vga_retrace, i8 }
-%struct.PortioList = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i8 }
-%union.vga_retrace = type { %struct.vga_precise_retrace }
-%struct.vga_precise_retrace = type { i64, i64, i32, i32, i32, i32, i32, i32 }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.bitbang_i2c_interface = type { ptr, i32, i32, i32, i32, i8, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.ATIVGARegs = type { i32, [8 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, [256 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
 
 @ati_vga_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 72624, i64 0, ptr @ati_vga_init, ptr null, ptr null, i8 0, i64 0, ptr @ati_vga_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
@@ -145,26 +111,26 @@ define internal void @ati_vga_class_init(ptr noundef %klass, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #9
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @ati_vga_reset, ptr %reset, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ati_vga_properties) #9
-  %hotpluggable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 6
+  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
   store i8 0, ptr %hotpluggable, align 1
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 32
   store i64 %or.i, ptr %categories, align 8
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i10, i64 214
   store i16 768, ptr %class_id, align 2
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i10, i64 208
   store i16 4098, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i10, i64 210
   store i16 20550, ptr %device_id, align 2
-  %romfile = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 11
+  %romfile = getelementptr inbounds i8, ptr %call.i10, i64 224
   store ptr @.str.5, ptr %romfile, align 8
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @ati_vga_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i10, i64 184
   store ptr @ati_vga_exit, ptr %exit, align 8
   ret void
 }
@@ -175,19 +141,19 @@ declare void @object_property_set_description(ptr noundef, ptr noundef, ptr noun
 define internal void @ati_vga_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__func__.ATI_VGA) #9
-  %vblank_timer = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 10
+  %vblank_timer = getelementptr inbounds i8, ptr %call.i, i64 70752
   tail call void @timer_del(ptr noundef nonnull %vblank_timer) #9
-  %gen_int_status.i = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 14, i32 3
+  %gen_int_status.i = getelementptr inbounds i8, ptr %call.i, i64 71416
   %0 = load i32, ptr %gen_int_status.i, align 8
-  %gen_int_cntl.i = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 14, i32 2
+  %gen_int_cntl.i = getelementptr inbounds i8, ptr %call.i, i64 71412
   %1 = load i32, ptr %gen_int_cntl.i, align 4
   %and.i = and i32 %1, %0
   %tobool.i = icmp ne i32 %and.i, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @pci_set_irq(ptr noundef %call.i, i32 noundef %lnot.ext.i) #9
-  %vga = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1
+  %vga = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @vga_common_reset(ptr noundef nonnull %vga) #9
-  %mode = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 4
+  %mode = getelementptr inbounds i8, ptr %call.i, i64 70730
   store i8 0, ptr %mode, align 2
   ret void
 }
@@ -198,8 +164,8 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @ati_vga_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__func__.ATI_VGA) #9
-  %vga1 = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1
-  %model = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 2
+  %vga1 = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %model = getelementptr inbounds i8, ptr %call.i, i64 70720
   %0 = load ptr, ptr %model, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end15, label %for.body
@@ -217,9 +183,9 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %tobool5.not, label %for.end, label %for.cond
 
 for.end:                                          ; preds = %for.body
-  %dev_id = getelementptr [2 x %struct.anon], ptr @ati_model_aliases, i64 0, i64 %indvars.iv, i32 1
+  %dev_id = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i16, ptr %dev_id, align 8
-  %dev_id9 = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 3
+  %dev_id9 = getelementptr inbounds i8, ptr %call.i, i64 70728
   store i16 %2, ptr %dev_id9, align 8
   br label %if.end15
 
@@ -228,7 +194,7 @@ if.then13:                                        ; preds = %for.cond
   br label %if.end15
 
 if.end15:                                         ; preds = %for.end, %if.then13, %entry
-  %dev_id16 = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 3
+  %dev_id16 = getelementptr inbounds i8, ptr %call.i, i64 70728
   %3 = load i16, ptr %dev_id16, align 8
   switch i16 %3, label %if.then24 [
     i16 20550, label %if.end25
@@ -240,7 +206,7 @@ if.then24:                                        ; preds = %if.end15
   br label %return
 
 if.end25:                                         ; preds = %if.end15, %if.end15
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %4 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %4, i64 2
   store i16 %3, ptr %add.ptr, align 1
@@ -249,7 +215,7 @@ if.end25:                                         ; preds = %if.end15, %if.end15
   br i1 %cmp29, label %land.lhs.true31, label %if.end38
 
 land.lhs.true31:                                  ; preds = %if.end25
-  %vram_size_mb = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 4
+  %vram_size_mb = getelementptr inbounds i8, ptr %call.i, i64 2900
   %6 = load i32, ptr %vram_size_mb, align 4
   %cmp33 = icmp ult i32 %6, 16
   br i1 %cmp33, label %if.then35, label %if.end38
@@ -268,28 +234,28 @@ if.end41:                                         ; preds = %if.end38
   %call43 = tail call ptr @pci_address_space_io(ptr noundef nonnull %dev) #9
   tail call void @vga_init(ptr noundef nonnull %vga1, ptr noundef nonnull %call.i, ptr noundef %call42, ptr noundef %call43, i1 noundef zeroext true) #9
   %call.i47 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
-  %hw_ops = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 66
+  %hw_ops = getelementptr inbounds i8, ptr %call.i, i64 5328
   %7 = load ptr, ptr %hw_ops, align 16
   %call47 = tail call ptr @graphic_console_init(ptr noundef %call.i47, i32 noundef 0, ptr noundef %7, ptr noundef nonnull %vga1) #9
-  %con = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 42
+  %con = getelementptr inbounds i8, ptr %call.i, i64 5232
   store ptr %call47, ptr %con, align 16
-  %cursor_guest_mode = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 6
+  %cursor_guest_mode = getelementptr inbounds i8, ptr %call.i, i64 70732
   %8 = load i8, ptr %cursor_guest_mode, align 4
   %9 = and i8 %8, 1
   %tobool48.not = icmp eq i8 %9, 0
   br i1 %tobool48.not, label %if.end50, label %if.then49
 
 if.then49:                                        ; preds = %if.end41
-  %cursor_invalidate = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 75
+  %cursor_invalidate = getelementptr inbounds i8, ptr %call.i, i64 5608
   store ptr @ati_cursor_invalidate, ptr %cursor_invalidate, align 8
-  %cursor_draw_line = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 76
+  %cursor_draw_line = getelementptr inbounds i8, ptr %call.i, i64 5616
   store ptr @ati_cursor_draw_line, ptr %cursor_draw_line, align 16
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then49, %if.end41
   %call.i48 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call52 = tail call ptr @i2c_init_bus(ptr noundef %call.i48, ptr noundef nonnull @.str.18) #9
-  %bbi2c = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 11
+  %bbi2c = getelementptr inbounds i8, ptr %call.i, i64 70800
   tail call void @bitbang_i2c_init(ptr noundef nonnull %bbi2c, ptr noundef %call52) #9
   %call53 = tail call ptr @qdev_new(ptr noundef nonnull @.str.19) #9
   %call.i49 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call53, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE) #9
@@ -297,18 +263,18 @@ if.end50:                                         ; preds = %if.then49, %if.end4
   %call.i50 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i49, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call.i51 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call52, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.7, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #9
   %call57 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i50, ptr noundef %call.i51, ptr noundef nonnull @error_abort) #9
-  %mm = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 13
+  %mm = getelementptr inbounds i8, ptr %call.i, i64 71104
   tail call void @memory_region_init_io(ptr noundef nonnull %mm, ptr noundef nonnull %call.i, ptr noundef nonnull @ati_mm_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.20, i64 noundef 16384) #9
-  %io = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 12
+  %io = getelementptr inbounds i8, ptr %call.i, i64 70832
   tail call void @memory_region_init_alias(ptr noundef nonnull %io, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %mm, i64 noundef 0, i64 noundef 256) #9
-  %vram = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 2
+  %vram = getelementptr inbounds i8, ptr %call.i, i64 2624
   tail call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %vram) #9
   tail call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io) #9
   tail call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef 2, i8 noundef zeroext 0, ptr noundef nonnull %mm) #9
   %10 = load ptr, ptr %config, align 8
   %arrayidx62 = getelementptr i8, ptr %10, i64 61
   store i8 1, ptr %arrayidx62, align 1
-  %vblank_timer = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 10
+  %vblank_timer = getelementptr inbounds i8, ptr %call.i, i64 70752
   tail call void @timer_init_full(ptr noundef nonnull %vblank_timer, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @ati_vga_vblank_irq, ptr noundef nonnull %call.i) #9
   br label %return
 
@@ -320,9 +286,9 @@ return:                                           ; preds = %if.end38, %if.end50
 define internal void @ati_vga_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__func__.ATI_VGA) #9
-  %vblank_timer = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 10
+  %vblank_timer = getelementptr inbounds i8, ptr %call.i, i64 70752
   tail call void @timer_del(ptr noundef nonnull %vblank_timer) #9
-  %con = getelementptr inbounds %struct.ATIVGAState, ptr %call.i, i64 0, i32 1, i32 42
+  %con = getelementptr inbounds i8, ptr %call.i, i64 5232
   %0 = load ptr, ptr %con, align 16
   tail call void @graphic_console_close(ptr noundef %0) #9
   ret void
@@ -376,7 +342,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %lor.lhs.false, label %if.then26
 
 lor.lhs.false:                                    ; preds = %if.end
-  %hw_cursor_x = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 73
+  %hw_cursor_x = getelementptr inbounds i8, ptr %vga, i64 2992
   %3 = load i32, ptr %hw_cursor_x, align 16
   %cur_hv_pos = getelementptr i8, ptr %vga, i64 69896
   %4 = load i32, ptr %cur_hv_pos, align 8
@@ -385,7 +351,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp7.not, label %lor.lhs.false9, label %if.then26
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %hw_cursor_y = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 74
+  %hw_cursor_y = getelementptr inbounds i8, ptr %vga, i64 2996
   %5 = load i32, ptr %hw_cursor_y, align 4
   %and12 = and i32 %4, 65535
   %cmp13.not = icmp eq i32 %5, %and12
@@ -405,14 +371,14 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false9
   br i1 %cmp24.not, label %if.end57, label %if.then26
 
 if.then26:                                        ; preds = %lor.lhs.false15, %lor.lhs.false9, %lor.lhs.false, %if.end
-  %hw_cursor_y27 = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 74
+  %hw_cursor_y27 = getelementptr inbounds i8, ptr %vga, i64 2996
   %9 = load i32, ptr %hw_cursor_y27, align 4
   %add = add i32 %9, 63
   tail call void @vga_invalidate_scanlines(ptr noundef nonnull %vga, i32 noundef %9, i32 noundef %add) #9
   %cur_hv_pos30 = getelementptr i8, ptr %vga, i64 69896
   %10 = load i32, ptr %cur_hv_pos30, align 8
   %shr31 = lshr i32 %10, 16
-  %hw_cursor_x32 = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 73
+  %hw_cursor_x32 = getelementptr inbounds i8, ptr %vga, i64 2992
   store i32 %shr31, ptr %hw_cursor_x32, align 16
   %and35 = and i32 %10, 65535
   store i32 %and35, ptr %hw_cursor_y27, align 4
@@ -449,7 +415,7 @@ entry:
   br i1 %tobool.not, label %for.end59, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %hw_cursor_y = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 74
+  %hw_cursor_y = getelementptr inbounds i8, ptr %vga, i64 2996
   %1 = load i32, ptr %hw_cursor_y, align 4
   %cmp = icmp ule i32 %1, %scr_y
   %add = add i32 %1, 64
@@ -470,7 +436,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %sub = sub i32 %scr_y, %1
   %mul = shl i32 %sub, 4
   %add8 = add i32 %3, %mul
-  %hw_cursor_x = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 73
+  %hw_cursor_x = getelementptr inbounds i8, ptr %vga, i64 2992
   %4 = load i32, ptr %hw_cursor_x, align 16
   %idxprom = zext i32 %4 to i64
   %arrayidx = getelementptr i32, ptr %d, i64 %idxprom
@@ -579,15 +545,15 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ati_vga_vblank_irq(ptr noundef %opaque) #0 {
 entry:
-  %vblank_timer = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 10
+  %vblank_timer = getelementptr inbounds i8, ptr %opaque, i64 70752
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #9
   %add = add i64 %call, 16666666
   tail call void @timer_mod(ptr noundef nonnull %vblank_timer, i64 noundef %add) #9
-  %gen_int_status = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 3
+  %gen_int_status = getelementptr inbounds i8, ptr %opaque, i64 71416
   %0 = load i32, ptr %gen_int_status, align 8
   %or = or i32 %0, 1
   store i32 %or, ptr %gen_int_status, align 8
-  %gen_int_cntl.i = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 2
+  %gen_int_cntl.i = getelementptr inbounds i8, ptr %opaque, i64 71412
   %1 = load i32, ptr %gen_int_cntl.i, align 4
   %and.i = and i32 %1, %or
   %tobool.i = icmp ne i32 %and.i, 0
@@ -730,13 +696,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %regs = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14
+  %regs = getelementptr inbounds i8, ptr %opaque, i64 71376
   %0 = load i32, ptr %regs, align 16
   %conv = zext i32 %0 to i64
   br label %if.then326
 
 sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry
-  %regs2 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14
+  %regs2 = getelementptr inbounds i8, ptr %opaque, i64 71376
   %1 = load i32, ptr %regs2, align 16
   %conv4 = zext i32 %1 to i64
   %tobool.not = icmp sgt i32 %1, -1
@@ -744,14 +710,14 @@ sw.bb1:                                           ; preds = %entry, %entry, %ent
 
 if.then:                                          ; preds = %sw.bb1
   %and8 = and i32 %1, 2147483647
-  %vram_size = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %opaque, i64 2896
   %2 = load i32, ptr %vram_size, align 16
   %sub = sub i32 %2, %size
   %cmp.not = icmp ugt i32 %and8, %sub
   br i1 %cmp.not, label %if.then326, label %if.then11
 
 if.then11:                                        ; preds = %if.then
-  %vram_ptr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 1
+  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 2616
   %3 = load ptr, ptr %vram_ptr, align 8
   %idx.ext = zext nneg i32 %and8 to i64
   %add.ptr = getelementptr i8, ptr %3, i64 %idx.ext
@@ -780,7 +746,7 @@ if.then28:                                        ; preds = %do.body
 
 sw.bb34:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   %sub35 = add nuw nsw i64 %addr, 17179869168
-  %dev_id = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id = getelementptr inbounds i8, ptr %opaque, i64 70728
   %5 = load i16, ptr %dev_id, align 8
   %cmp38 = icmp eq i16 %5, 20550
   %6 = and i64 %sub35, 17179869168
@@ -789,9 +755,10 @@ sw.bb34:                                          ; preds = %entry, %entry, %ent
   br i1 %or.cond, label %if.then326, label %if.end43
 
 if.end43:                                         ; preds = %sw.bb34
+  %bios_scratch = getelementptr inbounds i8, ptr %opaque, i64 71380
   %7 = lshr i64 %sub35, 2
   %idxprom = and i64 %7, 4294967295
-  %arrayidx = getelementptr %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [8 x i32], ptr %bios_scratch, i64 0, i64 %idxprom
   %8 = load i32, ptr %arrayidx, align 4
   %9 = trunc i64 %addr to i32
   %conv48 = and i32 %9, 3
@@ -826,19 +793,19 @@ ati_reg_read_offs.exit:                           ; preds = %if.end43, %extract3
   br label %if.then326
 
 sw.bb50:                                          ; preds = %entry
-  %gen_int_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 2
+  %gen_int_cntl = getelementptr inbounds i8, ptr %opaque, i64 71412
   %10 = load i32, ptr %gen_int_cntl, align 4
   %conv52 = zext i32 %10 to i64
   br label %if.then326
 
 sw.bb53:                                          ; preds = %entry
-  %gen_int_status = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 3
+  %gen_int_status = getelementptr inbounds i8, ptr %opaque, i64 71416
   %11 = load i32, ptr %gen_int_status, align 8
   %conv55 = zext i32 %11 to i64
   br label %if.then326
 
 sw.bb56:                                          ; preds = %entry, %entry, %entry, %entry
-  %crtc_gen_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 4
+  %crtc_gen_cntl = getelementptr inbounds i8, ptr %opaque, i64 71420
   %12 = load i32, ptr %crtc_gen_cntl, align 4
   %13 = trunc i64 %addr to i32
   %conv59 = add nsw i32 %13, -80
@@ -873,7 +840,7 @@ ati_reg_read_offs.exit157:                        ; preds = %sw.bb56, %extract32
   br label %if.then326
 
 sw.bb61:                                          ; preds = %entry, %entry, %entry, %entry
-  %crtc_ext_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 5
+  %crtc_ext_cntl = getelementptr inbounds i8, ptr %opaque, i64 71424
   %14 = load i32, ptr %crtc_ext_cntl, align 16
   %15 = trunc i64 %addr to i32
   %conv64 = add nsw i32 %15, -84
@@ -908,13 +875,13 @@ ati_reg_read_offs.exit178:                        ; preds = %sw.bb61, %extract32
   br label %if.then326
 
 sw.bb66:                                          ; preds = %entry
-  %dac_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 6
+  %dac_cntl = getelementptr inbounds i8, ptr %opaque, i64 71428
   %16 = load i32, ptr %dac_cntl, align 4
   %conv68 = zext i32 %16 to i64
   br label %if.then326
 
 sw.bb69:                                          ; preds = %entry, %entry, %entry, %entry
-  %gpio_vga_ddc = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 7
+  %gpio_vga_ddc = getelementptr inbounds i8, ptr %opaque, i64 71432
   %17 = load i32, ptr %gpio_vga_ddc, align 8
   %18 = trunc i64 %addr to i32
   %conv72 = add nsw i32 %18, -96
@@ -949,7 +916,7 @@ ati_reg_read_offs.exit199:                        ; preds = %sw.bb69, %extract32
   br label %if.then326
 
 sw.bb74:                                          ; preds = %entry, %entry, %entry, %entry
-  %gpio_dvi_ddc = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 8
+  %gpio_dvi_ddc = getelementptr inbounds i8, ptr %opaque, i64 71436
   %19 = load i32, ptr %gpio_dvi_ddc, align 4
   %20 = trunc i64 %addr to i32
   %conv77 = add nsw i32 %20, -100
@@ -984,7 +951,7 @@ ati_reg_read_offs.exit220:                        ; preds = %sw.bb74, %extract32
   br label %if.then326
 
 sw.bb79:                                          ; preds = %entry, %entry, %entry, %entry
-  %gpio_monid = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 9
+  %gpio_monid = getelementptr inbounds i8, ptr %opaque, i64 71440
   %21 = load i32, ptr %gpio_monid, align 16
   %22 = trunc i64 %addr to i32
   %conv82 = add nsw i32 %22, -104
@@ -1019,7 +986,7 @@ ati_reg_read_offs.exit241:                        ; preds = %sw.bb79, %extract32
   br label %if.then326
 
 sw.bb84:                                          ; preds = %entry
-  %vga85 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %vga85 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call86 = tail call i32 @vga_ioport_read(ptr noundef nonnull %vga85, i32 noundef 967) #9
   %shl = shl i32 %call86, 16
   %call89 = tail call i32 @vga_ioport_read(ptr noundef nonnull %vga85, i32 noundef 968) #9
@@ -1029,28 +996,29 @@ sw.bb84:                                          ; preds = %entry
   br label %if.then326
 
 sw.bb92:                                          ; preds = %entry
-  %vga93 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %vga93 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call94 = tail call i32 @vga_ioport_read(ptr noundef nonnull %vga93, i32 noundef 969) #9
   %conv95 = zext i32 %call94 to i64
   br label %if.then326
 
 sw.bb96:                                          ; preds = %entry
-  %vga98 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %palette = getelementptr inbounds i8, ptr %opaque, i64 71448
+  %vga98 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call99 = tail call i32 @vga_ioport_read(ptr noundef nonnull %vga98, i32 noundef 967) #9
   %idxprom100 = zext i32 %call99 to i64
-  %arrayidx101 = getelementptr %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 11, i64 %idxprom100
+  %arrayidx101 = getelementptr [256 x i32], ptr %palette, i64 0, i64 %idxprom100
   %23 = load i32, ptr %arrayidx101, align 4
   %conv102 = zext i32 %23 to i64
   br label %if.then326
 
 sw.bb103:                                         ; preds = %entry
-  %config_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 10
+  %config_cntl = getelementptr inbounds i8, ptr %opaque, i64 71444
   %24 = load i32, ptr %config_cntl, align 4
   %conv105 = zext i32 %24 to i64
   br label %if.then326
 
 sw.bb106:                                         ; preds = %entry
-  %vram_size108 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 3
+  %vram_size108 = getelementptr inbounds i8, ptr %opaque, i64 2896
   %25 = load i32, ptr %vram_size108, align 16
   %conv109 = zext i32 %25 to i64
   br label %if.then326
@@ -1062,7 +1030,7 @@ sw.bb110:                                         ; preds = %entry, %entry
   br label %if.then326
 
 sw.bb114:                                         ; preds = %entry
-  %vram_size116 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 3
+  %vram_size116 = getelementptr inbounds i8, ptr %opaque, i64 2896
   %26 = load i32, ptr %vram_size116, align 16
   %div117135 = lshr i32 %26, 1
   %conv118 = zext nneg i32 %div117135 to i64
@@ -1075,7 +1043,7 @@ sw.bb119:                                         ; preds = %entry
   br label %if.then326
 
 sw.bb124:                                         ; preds = %entry
-  %mm = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 13
+  %mm = getelementptr inbounds i8, ptr %opaque, i64 71104
   %call125 = tail call i64 @memory_region_size(ptr noundef nonnull %mm) #9
   %div126134 = lshr i64 %call125, 1
   br label %if.then326
@@ -1084,7 +1052,7 @@ sw.bb128:                                         ; preds = %entry
   br label %if.then326
 
 sw.bb129:                                         ; preds = %entry
-  %dev_id130 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id130 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %27 = load i16, ptr %dev_id130, align 8
   %cmp132.not = icmp eq i16 %27, 20550
   %spec.select = select i1 %cmp132.not, i64 0, i64 269484032
@@ -1094,43 +1062,43 @@ sw.bb136:                                         ; preds = %entry, %entry
   br label %if.then326
 
 sw.bb137:                                         ; preds = %entry
-  %crtc_h_total_disp = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 12
+  %crtc_h_total_disp = getelementptr inbounds i8, ptr %opaque, i64 72472
   %28 = load i32, ptr %crtc_h_total_disp, align 8
   %conv139 = zext i32 %28 to i64
   br label %if.then326
 
 sw.bb140:                                         ; preds = %entry
-  %crtc_h_sync_strt_wid = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 13
+  %crtc_h_sync_strt_wid = getelementptr inbounds i8, ptr %opaque, i64 72476
   %29 = load i32, ptr %crtc_h_sync_strt_wid, align 4
   %conv142 = zext i32 %29 to i64
   br label %if.then326
 
 sw.bb143:                                         ; preds = %entry
-  %crtc_v_total_disp = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 14
+  %crtc_v_total_disp = getelementptr inbounds i8, ptr %opaque, i64 72480
   %30 = load i32, ptr %crtc_v_total_disp, align 16
   %conv145 = zext i32 %30 to i64
   br label %if.then326
 
 sw.bb146:                                         ; preds = %entry
-  %crtc_v_sync_strt_wid = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 15
+  %crtc_v_sync_strt_wid = getelementptr inbounds i8, ptr %opaque, i64 72484
   %31 = load i32, ptr %crtc_v_sync_strt_wid, align 4
   %conv148 = zext i32 %31 to i64
   br label %if.then326
 
 sw.bb149:                                         ; preds = %entry
-  %crtc_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 16
+  %crtc_offset = getelementptr inbounds i8, ptr %opaque, i64 72488
   %32 = load i32, ptr %crtc_offset, align 8
   %conv151 = zext i32 %32 to i64
   br label %if.then326
 
 sw.bb152:                                         ; preds = %entry
-  %crtc_offset_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 17
+  %crtc_offset_cntl = getelementptr inbounds i8, ptr %opaque, i64 72492
   %33 = load i32, ptr %crtc_offset_cntl, align 4
   %conv154 = zext i32 %33 to i64
   br label %if.then326
 
 sw.bb155:                                         ; preds = %entry
-  %crtc_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 18
+  %crtc_pitch = getelementptr inbounds i8, ptr %opaque, i64 72496
   %34 = load i32, ptr %crtc_pitch, align 16
   %conv157 = zext i32 %34 to i64
   br label %if.then326
@@ -1147,7 +1115,7 @@ sw.caserange:                                     ; preds = %entry
   br i1 %inbounds, label %sw.bb158, label %sw.epilog
 
 sw.bb164:                                         ; preds = %entry, %entry, %entry, %entry
-  %cur_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 19
+  %cur_offset = getelementptr inbounds i8, ptr %opaque, i64 72500
   %36 = load i32, ptr %cur_offset, align 4
   %37 = trunc i64 %addr to i32
   %conv167 = add nsw i32 %37, -608
@@ -1182,7 +1150,7 @@ ati_reg_read_offs.exit262:                        ; preds = %sw.bb164, %extract3
   br label %if.end330
 
 sw.bb169:                                         ; preds = %entry, %entry, %entry, %entry
-  %cur_hv_pos = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 20
+  %cur_hv_pos = getelementptr inbounds i8, ptr %opaque, i64 72504
   %38 = load i32, ptr %cur_hv_pos, align 8
   %39 = trunc i64 %addr to i32
   %conv172 = add nsw i32 %39, -612
@@ -1220,7 +1188,7 @@ ati_reg_read_offs.exit283:                        ; preds = %sw.bb169, %extract3
   br i1 %cmp176, label %if.then178, label %if.end330
 
 if.then178:                                       ; preds = %ati_reg_read_offs.exit283
-  %cur_offset180 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 19
+  %cur_offset180 = getelementptr inbounds i8, ptr %opaque, i64 72500
   %40 = load i32, ptr %cur_offset180, align 4
   %41 = and i32 %40, -2147483648
   %and182 = zext i32 %41 to i64
@@ -1231,7 +1199,7 @@ if.then178:                                       ; preds = %ati_reg_read_offs.e
   br label %if.end330
 
 sw.bb186:                                         ; preds = %entry, %entry, %entry, %entry
-  %cur_hv_offs = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 21
+  %cur_hv_offs = getelementptr inbounds i8, ptr %opaque, i64 72508
   %42 = load i32, ptr %cur_hv_offs, align 4
   %43 = trunc i64 %addr to i32
   %conv189 = add nsw i32 %43, -616
@@ -1269,7 +1237,7 @@ ati_reg_read_offs.exit304:                        ; preds = %sw.bb186, %extract3
   br i1 %cmp193, label %if.then195, label %if.end330
 
 if.then195:                                       ; preds = %ati_reg_read_offs.exit304
-  %cur_offset197 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 19
+  %cur_offset197 = getelementptr inbounds i8, ptr %opaque, i64 72500
   %44 = load i32, ptr %cur_offset197, align 4
   %45 = and i32 %44, -2147483648
   %and199 = zext i32 %45 to i64
@@ -1280,7 +1248,7 @@ if.then195:                                       ; preds = %ati_reg_read_offs.e
   br label %if.end330
 
 sw.bb205:                                         ; preds = %entry, %entry, %entry, %entry
-  %cur_color0 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 22
+  %cur_color0 = getelementptr inbounds i8, ptr %opaque, i64 72512
   %46 = load i32, ptr %cur_color0, align 16
   %47 = trunc i64 %addr to i32
   %conv208 = add nsw i32 %47, -620
@@ -1315,7 +1283,7 @@ ati_reg_read_offs.exit325:                        ; preds = %sw.bb205, %extract3
   br label %if.end330
 
 sw.bb210:                                         ; preds = %entry, %entry, %entry, %entry
-  %cur_color1 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 23
+  %cur_color1 = getelementptr inbounds i8, ptr %opaque, i64 72516
   %48 = load i32, ptr %cur_color1, align 4
   %49 = trunc i64 %addr to i32
   %conv213 = add nsw i32 %49, -624
@@ -1350,22 +1318,22 @@ ati_reg_read_offs.exit346:                        ; preds = %sw.bb210, %extract3
   br label %sw.epilog
 
 sw.bb215:                                         ; preds = %entry
-  %dst_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 24
+  %dst_offset = getelementptr inbounds i8, ptr %opaque, i64 72520
   %50 = load i32, ptr %dst_offset, align 8
   %conv217 = zext i32 %50 to i64
   br label %if.then326
 
 sw.bb218:                                         ; preds = %entry
-  %dst_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 25
+  %dst_pitch = getelementptr inbounds i8, ptr %opaque, i64 72524
   %51 = load i32, ptr %dst_pitch, align 4
   %conv220 = zext i32 %51 to i64
-  %dev_id221 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id221 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %52 = load i16, ptr %dev_id221, align 8
   %cmp223 = icmp eq i16 %52, 20550
   br i1 %cmp223, label %if.then225, label %if.then326
 
 if.then225:                                       ; preds = %sw.bb218
-  %dst_tile = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 26
+  %dst_tile = getelementptr inbounds i8, ptr %opaque, i64 72528
   %53 = load i32, ptr %dst_tile, align 16
   %shl227 = shl i32 %53, 16
   %and229133 = and i32 %shl227, %51
@@ -1373,64 +1341,64 @@ if.then225:                                       ; preds = %sw.bb218
   br label %if.then326
 
 sw.bb231:                                         ; preds = %entry
-  %dst_width = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 27
+  %dst_width = getelementptr inbounds i8, ptr %opaque, i64 72532
   %54 = load i32, ptr %dst_width, align 4
   %conv233 = zext i32 %54 to i64
   br label %if.then326
 
 sw.bb234:                                         ; preds = %entry
-  %dst_height = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 28
+  %dst_height = getelementptr inbounds i8, ptr %opaque, i64 72536
   %55 = load i32, ptr %dst_height, align 8
   %conv236 = zext i32 %55 to i64
   br label %if.then326
 
 sw.bb237:                                         ; preds = %entry
-  %src_x = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 32
+  %src_x = getelementptr inbounds i8, ptr %opaque, i64 72552
   %56 = load i32, ptr %src_x, align 8
   %conv239 = zext i32 %56 to i64
   br label %if.then326
 
 sw.bb240:                                         ; preds = %entry
-  %src_y = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 33
+  %src_y = getelementptr inbounds i8, ptr %opaque, i64 72556
   %57 = load i32, ptr %src_y, align 4
   %conv242 = zext i32 %57 to i64
   br label %if.then326
 
 sw.bb243:                                         ; preds = %entry
-  %dst_x = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 34
+  %dst_x = getelementptr inbounds i8, ptr %opaque, i64 72560
   %58 = load i32, ptr %dst_x, align 16
   %conv245 = zext i32 %58 to i64
   br label %if.then326
 
 sw.bb246:                                         ; preds = %entry
-  %dst_y = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 35
+  %dst_y = getelementptr inbounds i8, ptr %opaque, i64 72564
   %59 = load i32, ptr %dst_y, align 4
   %conv248 = zext i32 %59 to i64
   br label %if.then326
 
 sw.bb249:                                         ; preds = %entry
-  %dp_gui_master_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 36
+  %dp_gui_master_cntl = getelementptr inbounds i8, ptr %opaque, i64 72568
   %60 = load i32, ptr %dp_gui_master_cntl, align 8
   %conv251 = zext i32 %60 to i64
   br label %if.then326
 
 sw.bb252:                                         ; preds = %entry
-  %src_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 29
+  %src_offset = getelementptr inbounds i8, ptr %opaque, i64 72540
   %61 = load i32, ptr %src_offset, align 4
   %conv254 = zext i32 %61 to i64
   br label %if.then326
 
 sw.bb255:                                         ; preds = %entry
-  %src_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 30
+  %src_pitch = getelementptr inbounds i8, ptr %opaque, i64 72544
   %62 = load i32, ptr %src_pitch, align 16
   %conv257 = zext i32 %62 to i64
-  %dev_id258 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id258 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %63 = load i16, ptr %dev_id258, align 8
   %cmp260 = icmp eq i16 %63, 20550
   br i1 %cmp260, label %if.then262, label %if.then326
 
 if.then262:                                       ; preds = %sw.bb255
-  %src_tile = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 31
+  %src_tile = getelementptr inbounds i8, ptr %opaque, i64 72548
   %64 = load i32, ptr %src_tile, align 4
   %shl264 = shl i32 %64, 16
   %and266132 = and i32 %shl264, %62
@@ -1438,70 +1406,70 @@ if.then262:                                       ; preds = %sw.bb255
   br label %if.then326
 
 sw.bb268:                                         ; preds = %entry
-  %dp_brush_bkgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 37
+  %dp_brush_bkgd_clr = getelementptr inbounds i8, ptr %opaque, i64 72572
   %65 = load i32, ptr %dp_brush_bkgd_clr, align 4
   %conv270 = zext i32 %65 to i64
   br label %if.then326
 
 sw.bb271:                                         ; preds = %entry
-  %dp_brush_frgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 38
+  %dp_brush_frgd_clr = getelementptr inbounds i8, ptr %opaque, i64 72576
   %66 = load i32, ptr %dp_brush_frgd_clr, align 16
   %conv273 = zext i32 %66 to i64
   br label %if.then326
 
 sw.bb274:                                         ; preds = %entry
-  %dp_src_frgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 39
+  %dp_src_frgd_clr = getelementptr inbounds i8, ptr %opaque, i64 72580
   %67 = load i32, ptr %dp_src_frgd_clr, align 4
   %conv276 = zext i32 %67 to i64
   br label %if.then326
 
 sw.bb277:                                         ; preds = %entry
-  %dp_src_bkgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 40
+  %dp_src_bkgd_clr = getelementptr inbounds i8, ptr %opaque, i64 72584
   %68 = load i32, ptr %dp_src_bkgd_clr, align 8
   %conv279 = zext i32 %68 to i64
   br label %if.then326
 
 sw.bb280:                                         ; preds = %entry
-  %dp_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 41
+  %dp_cntl = getelementptr inbounds i8, ptr %opaque, i64 72588
   %69 = load i32, ptr %dp_cntl, align 4
   %conv282 = zext i32 %69 to i64
   br label %if.then326
 
 sw.bb283:                                         ; preds = %entry
-  %dp_datatype = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 42
+  %dp_datatype = getelementptr inbounds i8, ptr %opaque, i64 72592
   %70 = load i32, ptr %dp_datatype, align 16
   %conv285 = zext i32 %70 to i64
   br label %if.then326
 
 sw.bb286:                                         ; preds = %entry
-  %dp_mix = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 43
+  %dp_mix = getelementptr inbounds i8, ptr %opaque, i64 72596
   %71 = load i32, ptr %dp_mix, align 4
   %conv288 = zext i32 %71 to i64
   br label %if.then326
 
 sw.bb289:                                         ; preds = %entry
-  %dp_write_mask = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 44
+  %dp_write_mask = getelementptr inbounds i8, ptr %opaque, i64 72600
   %72 = load i32, ptr %dp_write_mask, align 8
   %conv291 = zext i32 %72 to i64
   br label %if.then326
 
 sw.bb292:                                         ; preds = %entry
-  %default_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 45
+  %default_offset = getelementptr inbounds i8, ptr %opaque, i64 72604
   %73 = load i32, ptr %default_offset, align 4
   %conv294 = zext i32 %73 to i64
-  %dev_id295 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id295 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %74 = load i16, ptr %dev_id295, align 8
   %cmp297.not = icmp eq i16 %74, 20550
   br i1 %cmp297.not, label %if.then326, label %if.then299
 
 if.then299:                                       ; preds = %sw.bb292
   %shr300 = lshr i64 %conv294, 10
-  %default_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 46
+  %default_pitch = getelementptr inbounds i8, ptr %opaque, i64 72608
   %75 = load i32, ptr %default_pitch, align 16
   %shl302 = shl i32 %75, 16
   %conv303 = zext i32 %shl302 to i64
   %or304 = or i64 %shr300, %conv303
-  %default_tile = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 47
+  %default_tile = getelementptr inbounds i8, ptr %opaque, i64 72612
   %76 = load i32, ptr %default_tile, align 4
   %shl306 = shl i32 %76, 30
   %conv307 = zext i32 %shl306 to i64
@@ -1509,9 +1477,9 @@ if.then299:                                       ; preds = %sw.bb292
   br label %if.then326
 
 sw.bb310:                                         ; preds = %entry
-  %default_pitch312 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 46
+  %default_pitch312 = getelementptr inbounds i8, ptr %opaque, i64 72608
   %77 = load i32, ptr %default_pitch312, align 16
-  %default_tile315 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 47
+  %default_tile315 = getelementptr inbounds i8, ptr %opaque, i64 72612
   %78 = load i32, ptr %default_tile315, align 4
   %shl316 = shl i32 %78, 16
   %or318131 = or i32 %shl316, %77
@@ -1519,7 +1487,7 @@ sw.bb310:                                         ; preds = %entry
   br label %if.then326
 
 sw.bb319:                                         ; preds = %entry
-  %default_sc_bottom_right = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 48
+  %default_sc_bottom_right = getelementptr inbounds i8, ptr %opaque, i64 72616
   %79 = load i32, ptr %default_sc_bottom_right, align 8
   %conv321 = zext i32 %79 to i64
   br label %if.then326
@@ -1559,7 +1527,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %87 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %88 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %87, i64 noundef %88, i32 noundef %size, i64 noundef %addr, ptr noundef %call329, i64 noundef %val.0351) #9
   br label %trace_ati_mm_read.exit
@@ -1582,8 +1550,8 @@ define internal void @ati_mm_write(ptr noundef %opaque, i64 noundef %addr, i64 n
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %t417 = alloca i32, align 4
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %regs5 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %regs5 = getelementptr inbounds i8, ptr %opaque, i64 71376
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.then24, %entry
@@ -1771,14 +1739,14 @@ sw.bb4:                                           ; preds = %if.end, %if.end, %i
 
 if.then9:                                         ; preds = %sw.bb4
   %and13 = and i32 %10, 2147483647
-  %vram_size = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %opaque, i64 2896
   %11 = load i32, ptr %vram_size, align 16
   %sub = sub i32 %11, %size
   %cmp15.not = icmp ugt i32 %and13, %sub
   br i1 %cmp15.not, label %sw.epilog, label %if.then17
 
 if.then17:                                        ; preds = %if.then9
-  %vram_ptr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 1
+  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 2616
   %12 = load ptr, ptr %vram_ptr, align 8
   %idx.ext = zext nneg i32 %and13 to i64
   %add.ptr = getelementptr i8, ptr %12, i64 %idx.ext
@@ -1806,7 +1774,7 @@ if.then34:                                        ; preds = %do.body
 
 sw.bb40:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %sub41 = add nuw nsw i64 %addr.tr, 17179869168
-  %dev_id = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id = getelementptr inbounds i8, ptr %opaque, i64 70728
   %14 = load i16, ptr %dev_id, align 8
   %cmp44 = icmp eq i16 %14, 20550
   %15 = and i64 %sub41, 17179869168
@@ -1815,9 +1783,10 @@ sw.bb40:                                          ; preds = %if.end, %if.end, %i
   br i1 %or.cond1, label %sw.epilog, label %if.end49
 
 if.end49:                                         ; preds = %sw.bb40
+  %bios_scratch = getelementptr inbounds i8, ptr %opaque, i64 71380
   %16 = lshr i64 %sub41, 2
   %idxprom = and i64 %16, 4294967295
-  %arrayidx = getelementptr %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [8 x i32], ptr %bios_scratch, i64 0, i64 %idxprom
   %17 = trunc i64 %addr.tr to i32
   %conv54 = and i32 %17, 3
   %cmp.i341 = icmp eq i32 %conv54, 0
@@ -1862,7 +1831,7 @@ ati_reg_write_offs.exit:                          ; preds = %if.then.i, %deposit
 
 sw.bb55:                                          ; preds = %if.end
   %conv56 = trunc i64 %data to i32
-  %gen_int_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 2
+  %gen_int_cntl = getelementptr inbounds i8, ptr %opaque, i64 71412
   store i32 %conv56, ptr %gen_int_cntl, align 4
   %and58 = and i64 %data, 1
   %tobool59.not = icmp eq i64 %and58, 0
@@ -1873,9 +1842,9 @@ if.then60:                                        ; preds = %sw.bb55
   br label %sw.epilog
 
 if.else61:                                        ; preds = %sw.bb55
-  %vblank_timer = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 10
+  %vblank_timer = getelementptr inbounds i8, ptr %opaque, i64 70752
   tail call void @timer_del(ptr noundef nonnull %vblank_timer) #9
-  %gen_int_status.i = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 3
+  %gen_int_status.i = getelementptr inbounds i8, ptr %opaque, i64 71416
   %19 = load i32, ptr %gen_int_status.i, align 8
   %20 = load i32, ptr %gen_int_cntl, align 4
   %and.i343 = and i32 %20, %19
@@ -1885,18 +1854,18 @@ if.else61:                                        ; preds = %sw.bb55
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %if.end
-  %dev_id64 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id64 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %21 = load i16, ptr %dev_id64, align 8
   %cmp66 = icmp eq i16 %21, 20550
   %cond = select i1 %cmp66, i64 984079, i64 4228386559
   %and68 = and i64 %cond, %data
-  %gen_int_status = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 3
+  %gen_int_status = getelementptr inbounds i8, ptr %opaque, i64 71416
   %22 = load i32, ptr %gen_int_status, align 8
   %23 = trunc i64 %and68 to i32
   %24 = xor i32 %23, -1
   %conv72 = and i32 %22, %24
   store i32 %conv72, ptr %gen_int_status, align 8
-  %gen_int_cntl.i345 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 2
+  %gen_int_cntl.i345 = getelementptr inbounds i8, ptr %opaque, i64 71412
   %25 = load i32, ptr %gen_int_cntl.i345, align 4
   %and.i346 = and i32 %conv72, %25
   %tobool.i347 = icmp ne i32 %and.i346, 0
@@ -1905,7 +1874,7 @@ sw.bb63:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.bb73:                                          ; preds = %if.end, %if.end, %if.end, %if.end
-  %crtc_gen_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 4
+  %crtc_gen_cntl = getelementptr inbounds i8, ptr %opaque, i64 71420
   %26 = load i32, ptr %crtc_gen_cntl, align 4
   %27 = trunc i64 %addr.tr to i32
   %conv78 = add nsw i32 %27, -80
@@ -1952,14 +1921,14 @@ ati_reg_write_offs.exit373:                       ; preds = %if.then.i371, %depo
   br i1 %cmp83.not, label %if.end115, label %if.then85
 
 if.then85:                                        ; preds = %ati_reg_write_offs.exit373
-  %cursor_guest_mode = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 6
+  %cursor_guest_mode = getelementptr inbounds i8, ptr %opaque, i64 70732
   %28 = load i8, ptr %cursor_guest_mode, align 4
   %29 = and i8 %28, 1
   %tobool86.not = icmp eq i8 %29, 0
   br i1 %tobool86.not, label %if.else97, label %if.then87
 
 if.then87:                                        ; preds = %if.then85
-  %force_shadow = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 60
+  %force_shadow = getelementptr inbounds i8, ptr %opaque, i64 5301
   %and82.lobit = lshr exact i32 %and82, 16
   %frombool = trunc i32 %and82.lobit to i8
   store i8 %frombool, ptr %force_shadow, align 1
@@ -1976,9 +1945,9 @@ if.then102:                                       ; preds = %if.else97
 
 if.end103:                                        ; preds = %if.then102, %if.else97
   %30 = phi i32 [ %.pre634, %if.then102 ], [ %storemerge.i369, %if.else97 ]
-  %con = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 42
+  %con = getelementptr inbounds i8, ptr %opaque, i64 5232
   %31 = load ptr, ptr %con, align 16
-  %cur_hv_pos = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 20
+  %cur_hv_pos = getelementptr inbounds i8, ptr %opaque, i64 72504
   %32 = load i32, ptr %cur_hv_pos, align 8
   %shr = lshr i32 %32, 16
   %and108 = and i32 %32, 65535
@@ -2000,7 +1969,7 @@ if.then122:                                       ; preds = %if.end115
   br label %sw.epilog
 
 sw.bb124:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %crtc_ext_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 5
+  %crtc_ext_cntl = getelementptr inbounds i8, ptr %opaque, i64 71424
   %36 = load i32, ptr %crtc_ext_cntl, align 16
   %37 = trunc i64 %addr.tr to i32
   %conv130 = add nsw i32 %37, -84
@@ -2043,7 +2012,7 @@ ati_reg_write_offs.exit400:                       ; preds = %if.then.i398, %depo
   store i32 %storemerge.i396, ptr %crtc_ext_cntl, align 4
   %and133 = and i32 %storemerge.i396, 1024
   %tobool134.not = icmp eq i32 %and133, 0
-  %ar_index146 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 15
+  %ar_index146 = getelementptr inbounds i8, ptr %opaque, i64 3970
   %38 = load i8, ptr %ar_index146, align 2
   br i1 %tobool134.not, label %do.end144, label %do.end137
 
@@ -2073,22 +2042,22 @@ if.then156:                                       ; preds = %if.end149
 sw.bb158:                                         ; preds = %if.end
   %44 = trunc i64 %data to i32
   %conv160 = and i32 %44, -7169
-  %dac_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 6
+  %dac_cntl = getelementptr inbounds i8, ptr %opaque, i64 71428
   store i32 %conv160, ptr %dac_cntl, align 4
   %45 = lshr i32 %44, 8
   %lnot.ext167 = and i32 %45, 1
-  %dac_8bit = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 29
+  %dac_8bit = getelementptr inbounds i8, ptr %opaque, i64 4264
   store i32 %lnot.ext167, ptr %dac_8bit, align 8
   br label %sw.epilog
 
 sw.bb176:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %dev_id177 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id177 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %46 = load i16, ptr %dev_id177, align 8
   %cmp179.not = icmp eq i16 %46, 20550
   br i1 %cmp179.not, label %sw.epilog, label %if.then181
 
 if.then181:                                       ; preds = %sw.bb176
-  %gpio_dvi_ddc = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 8
+  %gpio_dvi_ddc = getelementptr inbounds i8, ptr %opaque, i64 71436
   %47 = trunc i64 %addr.tr to i32
   %conv184 = add nsw i32 %47, -100
   tail call fastcc void @ati_reg_write_offs(ptr noundef nonnull %gpio_dvi_ddc, i32 noundef %conv184, i64 noundef %data, i32 noundef %size)
@@ -2115,7 +2084,7 @@ land.lhs.true195:                                 ; preds = %lor.lhs.false192
 
 if.then200:                                       ; preds = %if.then181.if.then200_crit_edge, %land.lhs.true195
   %49 = phi i32 [ %.pre, %if.then181.if.then200_crit_edge ], [ %48, %land.lhs.true195 ]
-  %bbi2c = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 11
+  %bbi2c = getelementptr inbounds i8, ptr %opaque, i64 70800
   %conv203 = zext i32 %49 to i64
   %call204 = tail call fastcc i64 @ati_i2c(ptr noundef nonnull %bbi2c, i64 noundef %conv203, i32 noundef 0)
   %conv205 = trunc i64 %call204 to i32
@@ -2123,13 +2092,13 @@ if.then200:                                       ; preds = %if.then181.if.then2
   br label %sw.epilog
 
 sw.bb210:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %dev_id211 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id211 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %50 = load i16, ptr %dev_id211, align 8
   %cmp213 = icmp eq i16 %50, 20550
   br i1 %cmp213, label %if.then215, label %sw.epilog
 
 if.then215:                                       ; preds = %sw.bb210
-  %gpio_monid = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 9
+  %gpio_monid = getelementptr inbounds i8, ptr %opaque, i64 71440
   %51 = trunc i64 %addr.tr to i32
   %conv218 = add nsw i32 %51, -104
   tail call fastcc void @ati_reg_write_offs(ptr noundef nonnull %gpio_monid, i32 noundef %conv218, i64 noundef %data, i32 noundef %size)
@@ -2154,7 +2123,7 @@ lor.lhs.false232:                                 ; preds = %land.lhs.true224
   br i1 %or.cond513, label %sw.epilog, label %if.then240
 
 if.then240:                                       ; preds = %lor.lhs.false232, %land.lhs.true224
-  %bbi2c241 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 11
+  %bbi2c241 = getelementptr inbounds i8, ptr %opaque, i64 70800
   %conv244 = zext i32 %52 to i64
   %call245 = tail call fastcc i64 @ati_i2c(ptr noundef nonnull %bbi2c241, i64 noundef %conv244, i32 noundef 1)
   %conv246 = trunc i64 %call245 to i32
@@ -2166,7 +2135,7 @@ sw.bb251:                                         ; preds = %if.end, %if.end, %i
   br i1 %cmp252, label %if.then254, label %if.else262
 
 if.then254:                                       ; preds = %sw.bb251
-  %vga255 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %vga255 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %54 = trunc i64 %data to i32
   %55 = lshr i32 %54, 16
   %conv258 = and i32 %55, 255
@@ -2177,7 +2146,7 @@ if.then254:                                       ; preds = %sw.bb251
 
 if.else262:                                       ; preds = %sw.bb251
   %cmp263 = icmp eq i64 %addr.tr, 176
-  %vga266 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %vga266 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %56 = trunc i64 %data to i32
   %conv268 = and i32 %56, 255
   br i1 %cmp263, label %if.then265, label %if.else269
@@ -2196,7 +2165,7 @@ sw.bb275:                                         ; preds = %if.end, %if.end, %i
   %conv277 = trunc i64 %shl to i32
   %57 = tail call i32 @llvm.bswap.i32(i32 %conv277)
   %shr278 = lshr i32 %57, 8
-  %vga280 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %vga280 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %and281 = and i32 %shr278, 255
   tail call void @vga_ioport_write(ptr noundef nonnull %vga280, i32 noundef 969, i32 noundef %and281) #9
   %58 = lshr i32 %57, 16
@@ -2208,10 +2177,11 @@ sw.bb275:                                         ; preds = %if.end, %if.end, %i
 
 sw.bb291:                                         ; preds = %if.end
   %conv292 = trunc i64 %data to i32
-  %vga294 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1
+  %palette = getelementptr inbounds i8, ptr %opaque, i64 71448
+  %vga294 = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call295 = tail call i32 @vga_ioport_read(ptr noundef nonnull %vga294, i32 noundef 968) #9
   %idxprom296 = zext i32 %call295 to i64
-  %arrayidx297 = getelementptr %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 11, i64 %idxprom296
+  %arrayidx297 = getelementptr [256 x i32], ptr %palette, i64 0, i64 %idxprom296
   store i32 %conv292, ptr %arrayidx297, align 4
   %60 = lshr i32 %conv292, 22
   %conv301 = and i32 %60, 255
@@ -2226,60 +2196,60 @@ sw.bb291:                                         ; preds = %if.end
 
 sw.bb310:                                         ; preds = %if.end
   %conv311 = trunc i64 %data to i32
-  %config_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 10
+  %config_cntl = getelementptr inbounds i8, ptr %opaque, i64 71444
   store i32 %conv311, ptr %config_cntl, align 4
   br label %sw.epilog
 
 sw.bb313:                                         ; preds = %if.end
   %63 = trunc i64 %data to i32
   %conv315 = and i32 %63, 134154239
-  %crtc_h_total_disp = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 12
+  %crtc_h_total_disp = getelementptr inbounds i8, ptr %opaque, i64 72472
   store i32 %conv315, ptr %crtc_h_total_disp, align 8
   br label %sw.epilog
 
 sw.bb317:                                         ; preds = %if.end
   %64 = trunc i64 %data to i32
   %conv319 = and i32 %64, 398401535
-  %crtc_h_sync_strt_wid = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 13
+  %crtc_h_sync_strt_wid = getelementptr inbounds i8, ptr %opaque, i64 72476
   store i32 %conv319, ptr %crtc_h_sync_strt_wid, align 4
   br label %sw.epilog
 
 sw.bb321:                                         ; preds = %if.end
   %65 = trunc i64 %data to i32
   %conv323 = and i32 %65, 268374015
-  %crtc_v_total_disp = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 14
+  %crtc_v_total_disp = getelementptr inbounds i8, ptr %opaque, i64 72480
   store i32 %conv323, ptr %crtc_v_total_disp, align 16
   br label %sw.epilog
 
 sw.bb325:                                         ; preds = %if.end
   %66 = trunc i64 %data to i32
   %conv327 = and i32 %66, 10424319
-  %crtc_v_sync_strt_wid = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 15
+  %crtc_v_sync_strt_wid = getelementptr inbounds i8, ptr %opaque, i64 72484
   store i32 %conv327, ptr %crtc_v_sync_strt_wid, align 4
   br label %sw.epilog
 
 sw.bb329:                                         ; preds = %if.end
   %67 = trunc i64 %data to i32
   %conv331 = and i32 %67, -939524097
-  %crtc_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 16
+  %crtc_offset = getelementptr inbounds i8, ptr %opaque, i64 72488
   store i32 %conv331, ptr %crtc_offset, align 8
   br label %sw.epilog
 
 sw.bb333:                                         ; preds = %if.end
   %conv334 = trunc i64 %data to i32
-  %crtc_offset_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 17
+  %crtc_offset_cntl = getelementptr inbounds i8, ptr %opaque, i64 72492
   store i32 %conv334, ptr %crtc_offset_cntl, align 4
   br label %sw.epilog
 
 sw.bb336:                                         ; preds = %if.end
   %68 = trunc i64 %data to i32
   %conv338 = and i32 %68, 134154239
-  %crtc_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 18
+  %crtc_pitch = getelementptr inbounds i8, ptr %opaque, i64 72496
   store i32 %conv338, ptr %crtc_pitch, align 16
   br label %sw.epilog
 
 sw.bb341:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %cur_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 19
+  %cur_offset = getelementptr inbounds i8, ptr %opaque, i64 72500
   %69 = load i32, ptr %cur_offset, align 4
   %70 = trunc i64 %addr.tr to i32
   %conv344 = add nsw i32 %70, -608
@@ -2329,9 +2299,9 @@ if.then350:                                       ; preds = %ati_reg_write_offs.
   br label %sw.epilog
 
 sw.bb354:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %cur_hv_pos357 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 20
+  %cur_hv_pos357 = getelementptr inbounds i8, ptr %opaque, i64 72504
   %71 = load i32, ptr %cur_hv_pos357, align 8
-  %cur_offset360 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 19
+  %cur_offset360 = getelementptr inbounds i8, ptr %opaque, i64 72500
   %72 = load i32, ptr %cur_offset360, align 4
   %73 = and i32 %72, -2147483648
   %or363336 = or i32 %73, %71
@@ -2394,14 +2364,14 @@ if.then387:                                       ; preds = %if.else381
   br label %if.end394
 
 if.end394:                                        ; preds = %if.else381, %if.then387, %if.then373
-  %cursor_guest_mode395 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 6
+  %cursor_guest_mode395 = getelementptr inbounds i8, ptr %opaque, i64 70732
   %77 = load i8, ptr %cursor_guest_mode395, align 4
   %78 = and i8 %77, 1
   %tobool396.not = icmp eq i8 %78, 0
   br i1 %tobool396.not, label %land.lhs.true397, label %sw.epilog
 
 land.lhs.true397:                                 ; preds = %if.end394
-  %crtc_gen_cntl399 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 4
+  %crtc_gen_cntl399 = getelementptr inbounds i8, ptr %opaque, i64 71420
   %79 = load i32, ptr %crtc_gen_cntl399, align 4
   %and400 = and i32 %79, 65536
   %tobool401.not = icmp ne i32 %and400, 0
@@ -2409,7 +2379,7 @@ land.lhs.true397:                                 ; preds = %if.end394
   br i1 %or.cond340, label %if.then406, label %sw.epilog
 
 if.then406:                                       ; preds = %land.lhs.true397
-  %con408 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 1, i32 42
+  %con408 = getelementptr inbounds i8, ptr %opaque, i64 5232
   %80 = load ptr, ptr %con408, align 16
   %81 = load i32, ptr %cur_hv_pos357, align 8
   %shr411 = lshr i32 %81, 16
@@ -2418,9 +2388,9 @@ if.then406:                                       ; preds = %land.lhs.true397
   br label %sw.epilog
 
 sw.bb416:                                         ; preds = %if.end
-  %cur_hv_offs = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 21
+  %cur_hv_offs = getelementptr inbounds i8, ptr %opaque, i64 72508
   %82 = load i32, ptr %cur_hv_offs, align 4
-  %cur_offset421 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 19
+  %cur_offset421 = getelementptr inbounds i8, ptr %opaque, i64 72500
   %83 = load i32, ptr %cur_offset421, align 4
   %84 = and i32 %83, -2147483648
   %or424335 = or i32 %84, %82
@@ -2449,7 +2419,7 @@ if.then448:                                       ; preds = %if.else442
   br label %sw.epilog
 
 sw.bb456:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %cur_color0 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 22
+  %cur_color0 = getelementptr inbounds i8, ptr %opaque, i64 72512
   %89 = load i32, ptr %cur_color0, align 16
   %90 = trunc i64 %addr.tr to i32
   %conv460 = add nsw i32 %90, -620
@@ -2499,7 +2469,7 @@ if.then466:                                       ; preds = %ati_reg_write_offs.
   br label %sw.epilog
 
 sw.bb470:                                         ; preds = %if.end, %if.end, %if.end, %if.end
-  %cur_color1 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 23
+  %cur_color1 = getelementptr inbounds i8, ptr %opaque, i64 72516
   %91 = trunc i64 %addr.tr to i32
   %conv473 = add nsw i32 %91, -624
   %cmp.i482 = icmp eq i32 %conv473, 0
@@ -2545,11 +2515,11 @@ ati_reg_write_offs.exit508:                       ; preds = %if.then.i506, %depo
   br label %sw.epilog
 
 sw.bb477:                                         ; preds = %if.end
-  %dev_id478 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id478 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %93 = load i16, ptr %dev_id478, align 8
   %cmp480 = icmp eq i16 %93, 20550
   %94 = trunc i64 %data to i32
-  %dst_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 24
+  %dst_offset = getelementptr inbounds i8, ptr %opaque, i64 72520
   br i1 %cmp480, label %if.then482, label %if.else486
 
 if.then482:                                       ; preds = %sw.bb477
@@ -2563,11 +2533,11 @@ if.else486:                                       ; preds = %sw.bb477
   br label %sw.epilog
 
 sw.bb492:                                         ; preds = %if.end
-  %dev_id493 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id493 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %95 = load i16, ptr %dev_id493, align 8
   %cmp495 = icmp eq i16 %95, 20550
   %96 = trunc i64 %data to i32
-  %dst_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 25
+  %dst_pitch = getelementptr inbounds i8, ptr %opaque, i64 72524
   br i1 %cmp495, label %if.then497, label %if.else505
 
 if.then497:                                       ; preds = %sw.bb492
@@ -2575,7 +2545,7 @@ if.then497:                                       ; preds = %sw.bb492
   store i32 %conv499, ptr %dst_pitch, align 4
   %97 = lshr i32 %96, 16
   %conv503 = and i32 %97, 1
-  %dst_tile = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 26
+  %dst_tile = getelementptr inbounds i8, ptr %opaque, i64 72528
   store i32 %conv503, ptr %dst_tile, align 16
   br label %sw.epilog
 
@@ -2585,7 +2555,7 @@ if.else505:                                       ; preds = %sw.bb492
   br label %sw.epilog
 
 sw.bb511:                                         ; preds = %if.end
-  %dev_id512 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id512 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %98 = load i16, ptr %dev_id512, align 8
   %cmp514 = icmp eq i16 %98, 20825
   br i1 %cmp514, label %if.then516, label %sw.epilog
@@ -2593,14 +2563,14 @@ sw.bb511:                                         ; preds = %if.end
 if.then516:                                       ; preds = %sw.bb511
   %99 = trunc i64 %data to i32
   %conv518 = and i32 %99, 3
-  %dst_tile520 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 26
+  %dst_tile520 = getelementptr inbounds i8, ptr %opaque, i64 72528
   store i32 %conv518, ptr %dst_tile520, align 16
   br label %sw.epilog
 
 sw.bb522:                                         ; preds = %if.end
   %100 = trunc i64 %data to i32
   %conv524 = and i32 %100, 16383
-  %dst_width = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 27
+  %dst_width = getelementptr inbounds i8, ptr %opaque, i64 72532
   store i32 %conv524, ptr %dst_width, align 4
   tail call void @ati_2d_blt(ptr noundef %opaque) #9
   br label %sw.epilog
@@ -2608,40 +2578,40 @@ sw.bb522:                                         ; preds = %if.end
 sw.bb526:                                         ; preds = %if.end
   %101 = trunc i64 %data to i32
   %conv528 = and i32 %101, 16383
-  %dst_height = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 28
+  %dst_height = getelementptr inbounds i8, ptr %opaque, i64 72536
   store i32 %conv528, ptr %dst_height, align 8
   br label %sw.epilog
 
 sw.bb530:                                         ; preds = %if.end
   %102 = trunc i64 %data to i32
   %conv532 = and i32 %102, 16383
-  %src_x = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 32
+  %src_x = getelementptr inbounds i8, ptr %opaque, i64 72552
   store i32 %conv532, ptr %src_x, align 8
   br label %sw.epilog
 
 sw.bb534:                                         ; preds = %if.end
   %103 = trunc i64 %data to i32
   %conv536 = and i32 %103, 16383
-  %src_y = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 33
+  %src_y = getelementptr inbounds i8, ptr %opaque, i64 72556
   store i32 %conv536, ptr %src_y, align 4
   br label %sw.epilog
 
 sw.bb538:                                         ; preds = %if.end
   %104 = trunc i64 %data to i32
   %conv540 = and i32 %104, 16383
-  %dst_x = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 34
+  %dst_x = getelementptr inbounds i8, ptr %opaque, i64 72560
   store i32 %conv540, ptr %dst_x, align 16
   br label %sw.epilog
 
 sw.bb542:                                         ; preds = %if.end
   %105 = trunc i64 %data to i32
   %conv544 = and i32 %105, 16383
-  %dst_y = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 35
+  %dst_y = getelementptr inbounds i8, ptr %opaque, i64 72564
   store i32 %conv544, ptr %dst_y, align 4
   br label %sw.epilog
 
 sw.bb546:                                         ; preds = %if.end
-  %dev_id547 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id547 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %106 = load i16, ptr %dev_id547, align 8
   %cmp549 = icmp eq i16 %106, 20550
   %data.tr334 = trunc i64 %data to i32
@@ -2650,34 +2620,34 @@ sw.bb546:                                         ; preds = %if.end
 if.then551:                                       ; preds = %sw.bb546
   %107 = shl i32 %data.tr334, 5
   %conv554 = and i32 %107, 67108832
-  %src_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 29
+  %src_offset = getelementptr inbounds i8, ptr %opaque, i64 72540
   store i32 %conv554, ptr %src_offset, align 4
   %108 = lshr i32 %data.tr334, 21
   %conv558 = and i32 %108, 1023
-  %src_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 30
+  %src_pitch = getelementptr inbounds i8, ptr %opaque, i64 72544
   store i32 %conv558, ptr %src_pitch, align 16
   %shr560 = lshr i64 %data, 31
   %conv561 = trunc i64 %shr560 to i32
-  %src_tile = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 31
+  %src_tile = getelementptr inbounds i8, ptr %opaque, i64 72548
   store i32 %conv561, ptr %src_tile, align 4
   br label %sw.epilog
 
 if.else563:                                       ; preds = %sw.bb546
   %conv566 = shl i32 %data.tr334, 10
-  %src_offset568 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 29
+  %src_offset568 = getelementptr inbounds i8, ptr %opaque, i64 72540
   store i32 %conv566, ptr %src_offset568, align 4
   %109 = lshr i32 %data.tr334, 16
   %conv571 = and i32 %109, 16320
-  %src_pitch573 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 30
+  %src_pitch573 = getelementptr inbounds i8, ptr %opaque, i64 72544
   store i32 %conv571, ptr %src_pitch573, align 16
   %110 = lshr i32 %data.tr334, 30
   %conv576 = and i32 %110, 1
-  %src_tile578 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 31
+  %src_tile578 = getelementptr inbounds i8, ptr %opaque, i64 72548
   store i32 %conv576, ptr %src_tile578, align 4
   br label %sw.epilog
 
 sw.bb580:                                         ; preds = %if.end
-  %dev_id581 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id581 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %111 = load i16, ptr %dev_id581, align 8
   %cmp583 = icmp eq i16 %111, 20550
   %data.tr332 = trunc i64 %data to i32
@@ -2686,62 +2656,62 @@ sw.bb580:                                         ; preds = %if.end
 if.then585:                                       ; preds = %sw.bb580
   %112 = shl i32 %data.tr332, 5
   %conv588 = and i32 %112, 67108832
-  %dst_offset590 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 24
+  %dst_offset590 = getelementptr inbounds i8, ptr %opaque, i64 72520
   store i32 %conv588, ptr %dst_offset590, align 8
   %113 = lshr i32 %data.tr332, 21
   %conv593 = and i32 %113, 1023
-  %dst_pitch595 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 25
+  %dst_pitch595 = getelementptr inbounds i8, ptr %opaque, i64 72524
   store i32 %conv593, ptr %dst_pitch595, align 4
   %shr596 = lshr i64 %data, 31
   %conv597 = trunc i64 %shr596 to i32
-  %dst_tile599 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 26
+  %dst_tile599 = getelementptr inbounds i8, ptr %opaque, i64 72528
   store i32 %conv597, ptr %dst_tile599, align 16
   br label %sw.epilog
 
 if.else600:                                       ; preds = %sw.bb580
   %conv603 = shl i32 %data.tr332, 10
-  %dst_offset605 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 24
+  %dst_offset605 = getelementptr inbounds i8, ptr %opaque, i64 72520
   store i32 %conv603, ptr %dst_offset605, align 8
   %114 = lshr i32 %data.tr332, 16
   %conv608 = and i32 %114, 16320
-  %dst_pitch610 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 25
+  %dst_pitch610 = getelementptr inbounds i8, ptr %opaque, i64 72524
   store i32 %conv608, ptr %dst_pitch610, align 4
   %shr611 = lshr i64 %data, 30
   %conv612 = trunc i64 %shr611 to i32
-  %dst_tile614 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 26
+  %dst_tile614 = getelementptr inbounds i8, ptr %opaque, i64 72528
   store i32 %conv612, ptr %dst_tile614, align 16
   br label %sw.epilog
 
 sw.bb616:                                         ; preds = %if.end
   %115 = trunc i64 %data to i32
   %conv618 = and i32 %115, 16383
-  %src_x620 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 32
+  %src_x620 = getelementptr inbounds i8, ptr %opaque, i64 72552
   store i32 %conv618, ptr %src_x620, align 8
   %116 = lshr i32 %115, 16
   %conv623 = and i32 %116, 16383
-  %src_y625 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 33
+  %src_y625 = getelementptr inbounds i8, ptr %opaque, i64 72556
   store i32 %conv623, ptr %src_y625, align 4
   br label %sw.epilog
 
 sw.bb626:                                         ; preds = %if.end
   %117 = trunc i64 %data to i32
   %conv628 = and i32 %117, 16383
-  %dst_x630 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 34
+  %dst_x630 = getelementptr inbounds i8, ptr %opaque, i64 72560
   store i32 %conv628, ptr %dst_x630, align 16
   %118 = lshr i32 %117, 16
   %conv633 = and i32 %118, 16383
-  %dst_y635 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 35
+  %dst_y635 = getelementptr inbounds i8, ptr %opaque, i64 72564
   store i32 %conv633, ptr %dst_y635, align 4
   br label %sw.epilog
 
 sw.bb636:                                         ; preds = %if.end
   %119 = trunc i64 %data to i32
   %conv638 = and i32 %119, 16383
-  %dst_width640 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 27
+  %dst_width640 = getelementptr inbounds i8, ptr %opaque, i64 72532
   store i32 %conv638, ptr %dst_width640, align 4
   %120 = lshr i32 %119, 16
   %conv643 = and i32 %120, 16383
-  %dst_height645 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 28
+  %dst_height645 = getelementptr inbounds i8, ptr %opaque, i64 72536
   store i32 %conv643, ptr %dst_height645, align 8
   tail call void @ati_2d_blt(ptr noundef %opaque) #9
   br label %sw.epilog
@@ -2749,7 +2719,7 @@ sw.bb636:                                         ; preds = %if.end
 sw.bb646:                                         ; preds = %if.end
   %121 = trunc i64 %data to i32
   %conv648 = and i32 %121, -134217713
-  %dp_gui_master_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 36
+  %dp_gui_master_cntl = getelementptr inbounds i8, ptr %opaque, i64 72568
   store i32 %conv648, ptr %dp_gui_master_cntl, align 8
   %and650 = lshr i64 %data, 8
   %shr651 = and i64 %and650, 15
@@ -2760,25 +2730,25 @@ sw.bb646:                                         ; preds = %if.end
   %shl656 = and i64 %and655, 1073741824
   %or657 = or disjoint i64 %or654, %shl656
   %conv658 = trunc i64 %or657 to i32
-  %dp_datatype = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 42
+  %dp_datatype = getelementptr inbounds i8, ptr %opaque, i64 72592
   store i32 %conv658, ptr %dp_datatype, align 16
   %and660 = and i64 %data, 16711680
   %and661 = lshr i64 %data, 16
   %shr662 = and i64 %and661, 1792
   %or663 = or disjoint i64 %shr662, %and660
   %conv664 = trunc i64 %or663 to i32
-  %dp_mix = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 43
+  %dp_mix = getelementptr inbounds i8, ptr %opaque, i64 72596
   store i32 %conv664, ptr %dp_mix, align 4
   br label %sw.epilog
 
 sw.bb666:                                         ; preds = %if.end
   %122 = trunc i64 %data to i32
   %conv668 = and i32 %122, 16383
-  %dst_x670 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 34
+  %dst_x670 = getelementptr inbounds i8, ptr %opaque, i64 72560
   store i32 %conv668, ptr %dst_x670, align 16
   %123 = lshr i32 %122, 16
   %conv673 = and i32 %123, 16383
-  %dst_width675 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 27
+  %dst_width675 = getelementptr inbounds i8, ptr %opaque, i64 72532
   store i32 %conv673, ptr %dst_width675, align 4
   tail call void @ati_2d_blt(ptr noundef %opaque) #9
   br label %sw.epilog
@@ -2786,33 +2756,33 @@ sw.bb666:                                         ; preds = %if.end
 sw.bb676:                                         ; preds = %if.end
   %124 = trunc i64 %data to i32
   %conv678 = and i32 %124, 16383
-  %src_y680 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 33
+  %src_y680 = getelementptr inbounds i8, ptr %opaque, i64 72556
   store i32 %conv678, ptr %src_y680, align 4
   %125 = lshr i32 %124, 16
   %conv683 = and i32 %125, 16383
-  %src_x685 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 32
+  %src_x685 = getelementptr inbounds i8, ptr %opaque, i64 72552
   store i32 %conv683, ptr %src_x685, align 8
   br label %sw.epilog
 
 sw.bb686:                                         ; preds = %if.end
   %126 = trunc i64 %data to i32
   %conv688 = and i32 %126, 16383
-  %dst_y690 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 35
+  %dst_y690 = getelementptr inbounds i8, ptr %opaque, i64 72564
   store i32 %conv688, ptr %dst_y690, align 4
   %127 = lshr i32 %126, 16
   %conv693 = and i32 %127, 16383
-  %dst_x695 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 34
+  %dst_x695 = getelementptr inbounds i8, ptr %opaque, i64 72560
   store i32 %conv693, ptr %dst_x695, align 16
   br label %sw.epilog
 
 sw.bb696:                                         ; preds = %if.end
   %128 = trunc i64 %data to i32
   %conv698 = and i32 %128, 16383
-  %dst_height700 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 28
+  %dst_height700 = getelementptr inbounds i8, ptr %opaque, i64 72536
   store i32 %conv698, ptr %dst_height700, align 8
   %129 = lshr i32 %128, 16
   %conv703 = and i32 %129, 16383
-  %dst_width705 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 27
+  %dst_width705 = getelementptr inbounds i8, ptr %opaque, i64 72532
   store i32 %conv703, ptr %dst_width705, align 4
   tail call void @ati_2d_blt(ptr noundef %opaque) #9
   br label %sw.epilog
@@ -2820,20 +2790,20 @@ sw.bb696:                                         ; preds = %if.end
 sw.bb706:                                         ; preds = %if.end
   %130 = trunc i64 %data to i32
   %conv708 = and i32 %130, 16383
-  %dst_y710 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 35
+  %dst_y710 = getelementptr inbounds i8, ptr %opaque, i64 72564
   store i32 %conv708, ptr %dst_y710, align 4
   %131 = lshr i32 %130, 16
   %conv713 = and i32 %131, 16383
-  %dst_height715 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 28
+  %dst_height715 = getelementptr inbounds i8, ptr %opaque, i64 72536
   store i32 %conv713, ptr %dst_height715, align 8
   br label %sw.epilog
 
 sw.bb716:                                         ; preds = %if.end
-  %dev_id717 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id717 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %132 = load i16, ptr %dev_id717, align 8
   %cmp719 = icmp eq i16 %132, 20550
   %133 = trunc i64 %data to i32
-  %src_offset725 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 29
+  %src_offset725 = getelementptr inbounds i8, ptr %opaque, i64 72540
   br i1 %cmp719, label %if.then721, label %if.else726
 
 if.then721:                                       ; preds = %sw.bb716
@@ -2847,11 +2817,11 @@ if.else726:                                       ; preds = %sw.bb716
   br label %sw.epilog
 
 sw.bb732:                                         ; preds = %if.end
-  %dev_id733 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id733 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %134 = load i16, ptr %dev_id733, align 8
   %cmp735 = icmp eq i16 %134, 20550
   %135 = trunc i64 %data to i32
-  %src_pitch741 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 30
+  %src_pitch741 = getelementptr inbounds i8, ptr %opaque, i64 72544
   br i1 %cmp735, label %if.then737, label %if.else747
 
 if.then737:                                       ; preds = %sw.bb732
@@ -2859,7 +2829,7 @@ if.then737:                                       ; preds = %sw.bb732
   store i32 %conv739, ptr %src_pitch741, align 16
   %136 = lshr i32 %135, 16
   %conv744 = and i32 %136, 1
-  %src_tile746 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 31
+  %src_tile746 = getelementptr inbounds i8, ptr %opaque, i64 72548
   store i32 %conv744, ptr %src_tile746, align 4
   br label %sw.epilog
 
@@ -2870,48 +2840,48 @@ if.else747:                                       ; preds = %sw.bb732
 
 sw.bb753:                                         ; preds = %if.end
   %conv754 = trunc i64 %data to i32
-  %dp_brush_bkgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 37
+  %dp_brush_bkgd_clr = getelementptr inbounds i8, ptr %opaque, i64 72572
   store i32 %conv754, ptr %dp_brush_bkgd_clr, align 4
   br label %sw.epilog
 
 sw.bb756:                                         ; preds = %if.end
   %conv757 = trunc i64 %data to i32
-  %dp_brush_frgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 38
+  %dp_brush_frgd_clr = getelementptr inbounds i8, ptr %opaque, i64 72576
   store i32 %conv757, ptr %dp_brush_frgd_clr, align 16
   br label %sw.epilog
 
 sw.bb759:                                         ; preds = %if.end
   %conv760 = trunc i64 %data to i32
-  %dp_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 41
+  %dp_cntl = getelementptr inbounds i8, ptr %opaque, i64 72588
   store i32 %conv760, ptr %dp_cntl, align 4
   br label %sw.epilog
 
 sw.bb762:                                         ; preds = %if.end
   %137 = trunc i64 %data to i32
   %conv764 = and i32 %137, -536408305
-  %dp_datatype766 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 42
+  %dp_datatype766 = getelementptr inbounds i8, ptr %opaque, i64 72592
   store i32 %conv764, ptr %dp_datatype766, align 16
   br label %sw.epilog
 
 sw.bb767:                                         ; preds = %if.end
   %138 = trunc i64 %data to i32
   %conv769 = and i32 %138, 16713472
-  %dp_mix771 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 43
+  %dp_mix771 = getelementptr inbounds i8, ptr %opaque, i64 72596
   store i32 %conv769, ptr %dp_mix771, align 4
   br label %sw.epilog
 
 sw.bb772:                                         ; preds = %if.end
   %conv773 = trunc i64 %data to i32
-  %dp_write_mask = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 44
+  %dp_write_mask = getelementptr inbounds i8, ptr %opaque, i64 72600
   store i32 %conv773, ptr %dp_write_mask, align 8
   br label %sw.epilog
 
 sw.bb775:                                         ; preds = %if.end
-  %dev_id776 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id776 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %139 = load i16, ptr %dev_id776, align 8
   %cmp778 = icmp eq i16 %139, 20550
   %140 = trunc i64 %data to i32
-  %default_offset = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 45
+  %default_offset = getelementptr inbounds i8, ptr %opaque, i64 72604
   br i1 %cmp778, label %if.then780, label %if.else784
 
 if.then780:                                       ; preds = %sw.bb775
@@ -2924,16 +2894,16 @@ if.else784:                                       ; preds = %sw.bb775
   store i32 %conv787, ptr %default_offset, align 4
   %141 = lshr i32 %140, 16
   %conv792 = and i32 %141, 16320
-  %default_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 46
+  %default_pitch = getelementptr inbounds i8, ptr %opaque, i64 72608
   store i32 %conv792, ptr %default_pitch, align 16
   %shr794 = lshr i64 %data, 30
   %conv795 = trunc i64 %shr794 to i32
-  %default_tile = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 47
+  %default_tile = getelementptr inbounds i8, ptr %opaque, i64 72612
   store i32 %conv795, ptr %default_tile, align 4
   br label %sw.epilog
 
 sw.bb798:                                         ; preds = %if.end
-  %dev_id799 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 3
+  %dev_id799 = getelementptr inbounds i8, ptr %opaque, i64 70728
   %142 = load i16, ptr %dev_id799, align 8
   %cmp801 = icmp eq i16 %142, 20550
   br i1 %cmp801, label %if.then803, label %sw.epilog
@@ -2941,18 +2911,18 @@ sw.bb798:                                         ; preds = %if.end
 if.then803:                                       ; preds = %sw.bb798
   %143 = trunc i64 %data to i32
   %conv805 = and i32 %143, 16383
-  %default_pitch807 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 46
+  %default_pitch807 = getelementptr inbounds i8, ptr %opaque, i64 72608
   store i32 %conv805, ptr %default_pitch807, align 16
   %144 = lshr i32 %143, 16
   %conv810 = and i32 %144, 1
-  %default_tile812 = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 47
+  %default_tile812 = getelementptr inbounds i8, ptr %opaque, i64 72612
   store i32 %conv810, ptr %default_tile812, align 4
   br label %sw.epilog
 
 sw.bb814:                                         ; preds = %if.end
   %145 = trunc i64 %data to i32
   %conv816 = and i32 %145, 1073692671
-  %default_sc_bottom_right = getelementptr inbounds %struct.ATIVGAState, ptr %opaque, i64 0, i32 14, i32 48
+  %default_sc_bottom_right = getelementptr inbounds i8, ptr %opaque, i64 72616
   store i32 %conv816, ptr %default_sc_bottom_right, align 8
   br label %sw.epilog
 
@@ -3106,29 +3076,29 @@ if.end:                                           ; preds = %deposit32.exit, %if
 define internal fastcc void @ati_cursor_define(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %data = alloca [1024 x i8], align 16
-  %cur_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 19
+  %cur_offset = getelementptr inbounds i8, ptr %s, i64 72500
   %0 = load i32, ptr %cur_offset, align 4
   %tobool.not = icmp sgt i32 %0, -1
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %cursor_guest_mode = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 6
+  %cursor_guest_mode = getelementptr inbounds i8, ptr %s, i64 70732
   %1 = load i8, ptr %cursor_guest_mode, align 4
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cur_hv_offs = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 21
+  %cur_hv_offs = getelementptr inbounds i8, ptr %s, i64 72508
   %3 = load i32, ptr %cur_hv_offs, align 4
   %shr = lshr i32 %3, 16
   %and8 = shl i32 %3, 4
   %mul = and i32 %and8, 1048560
   %4 = add nuw nsw i32 %shr, %mul
   %sub9 = sub nsw i32 %0, %4
-  %5 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 1
+  %5 = getelementptr i8, ptr %s, i64 2616
   %vga.val24 = load ptr, ptr %5, align 8
-  %6 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 6
+  %6 = getelementptr i8, ptr %s, i64 2908
   %vga.val25 = load i32, ptr %6, align 4
   br label %for.cond11.preheader
 
@@ -3170,7 +3140,7 @@ for.inc27:                                        ; preds = %for.body14
   br i1 %exitcond33.not, label %for.end29, label %for.cond11.preheader, !llvm.loop !10
 
 for.end29:                                        ; preds = %for.inc27
-  %cursor = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 9
+  %cursor = getelementptr inbounds i8, ptr %s, i64 70744
   %9 = load ptr, ptr %cursor, align 8
   %tobool30.not = icmp eq ptr %9, null
   br i1 %tobool30.not, label %if.then31, label %if.end34
@@ -3182,13 +3152,13 @@ if.then31:                                        ; preds = %for.end29
 
 if.end34:                                         ; preds = %if.then31, %for.end29
   %10 = phi ptr [ %call32, %if.then31 ], [ %9, %for.end29 ]
-  %cur_color1 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 23
+  %cur_color1 = getelementptr inbounds i8, ptr %s, i64 72516
   %11 = load i32, ptr %cur_color1, align 4
-  %cur_color0 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 22
+  %cur_color0 = getelementptr inbounds i8, ptr %s, i64 72512
   %12 = load i32, ptr %cur_color0, align 16
-  %arrayidx38 = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 512
+  %arrayidx38 = getelementptr inbounds i8, ptr %data, i64 512
   call void @cursor_set_mono(ptr noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %arrayidx38, i32 noundef 1, ptr noundef nonnull %data) #9
-  %con = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 42
+  %con = getelementptr inbounds i8, ptr %s, i64 5232
   %13 = load ptr, ptr %con, align 16
   %14 = load ptr, ptr %cursor, align 8
   call void @dpy_cursor_define(ptr noundef %13, ptr noundef %14) #9
@@ -3203,11 +3173,11 @@ declare void @dpy_mouse_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ati_vga_switch_mode(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %crtc_gen_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 4
+  %crtc_gen_cntl = getelementptr inbounds i8, ptr %s, i64 71420
   %0 = load i32, ptr %crtc_gen_cntl, align 4
   %and = and i32 %0, 16777216
   %tobool.not = icmp eq i32 %and, 0
-  %mode91 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 4
+  %mode91 = getelementptr inbounds i8, ptr %s, i64 70730
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3217,14 +3187,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool4.not, label %if.end94, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %crtc_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 16
+  %crtc_offset = getelementptr inbounds i8, ptr %s, i64 72488
   %1 = load i32, ptr %crtc_offset, align 8
   %and7 = and i32 %1, 134217727
-  %crtc_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 18
+  %crtc_pitch = getelementptr inbounds i8, ptr %s, i64 72496
   %2 = load i32, ptr %crtc_pitch, align 16
   %and9 = shl i32 %2, 3
   %mul = and i32 %and9, 16376
-  %crtc_h_total_disp = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 12
+  %crtc_h_total_disp = getelementptr inbounds i8, ptr %s, i64 72472
   %3 = load i32, ptr %crtc_h_total_disp, align 8
   %cmp = icmp eq i32 %3, 0
   br i1 %cmp, label %if.then11, label %if.end
@@ -3235,7 +3205,7 @@ if.then11:                                        ; preds = %if.then5
 
 if.end:                                           ; preds = %if.then11, %if.then5
   %4 = phi i32 [ 5177344, %if.then11 ], [ %3, %if.then5 ]
-  %crtc_v_total_disp = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 14
+  %crtc_v_total_disp = getelementptr inbounds i8, ptr %s, i64 72480
   %5 = load i32, ptr %crtc_v_total_disp, align 16
   %cmp15 = icmp eq i32 %5, 0
   br i1 %cmp15, label %if.then16, label %if.end19
@@ -3268,30 +3238,30 @@ switch.lookup:                                    ; preds = %if.end19
   %12 = zext nneg i32 %10 to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.ati_vga_switch_mode, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  %vga = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1
+  %vga = getelementptr inbounds i8, ptr %s, i64 2608
   tail call void @vbe_ioport_write_index(ptr noundef nonnull %vga, i32 noundef 0, i32 noundef 4) #9
   tail call void @vbe_ioport_write_data(ptr noundef nonnull %vga, i32 noundef 0, i32 noundef 0) #9
-  %config_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 10
+  %config_cntl = getelementptr inbounds i8, ptr %s, i64 71444
   %13 = load i32, ptr %config_cntl, align 4
   %14 = and i32 %13, 15
   %narrow = icmp ne i32 %14, 0
   %frombool = zext i1 %narrow to i8
-  %big_endian_fb = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 69
+  %big_endian_fb = getelementptr inbounds i8, ptr %s, i64 5338
   store i8 %frombool, ptr %big_endian_fb, align 2
   %15 = trunc i32 %11 to i16
   %16 = and i16 %15, -8
   %conv53 = add i16 %16, 8
-  %arrayidx = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 38, i64 1
+  %arrayidx = getelementptr i8, ptr %s, i64 5196
   store i16 %conv53, ptr %arrayidx, align 2
   %17 = trunc i32 %shr25 to i16
   %conv55 = add i16 %17, 1
-  %arrayidx58 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 38, i64 2
+  %arrayidx58 = getelementptr i8, ptr %s, i64 5198
   store i16 %conv55, ptr %arrayidx58, align 2
   %conv59 = trunc i32 %switch.load to i16
-  %arrayidx62 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 38, i64 3
+  %arrayidx62 = getelementptr i8, ptr %s, i64 5200
   store i16 %conv59, ptr %arrayidx62, align 2
   tail call void @vbe_ioport_write_index(ptr noundef nonnull %vga, i32 noundef 0, i32 noundef 4) #9
-  %dac_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 6
+  %dac_cntl = getelementptr inbounds i8, ptr %s, i64 71428
   %18 = load i32, ptr %dac_cntl, align 4
   %and66 = lshr i32 %18, 3
   %cond68 = and i32 %and66, 32
@@ -3327,7 +3297,7 @@ if.end83:                                         ; preds = %do.end78, %if.then7
 
 if.else:                                          ; preds = %entry
   store i8 0, ptr %mode91, align 2
-  %vga92 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1
+  %vga92 = getelementptr inbounds i8, ptr %s, i64 2608
   tail call void @vbe_ioport_write_index(ptr noundef nonnull %vga92, i32 noundef 0, i32 noundef 4) #9
   tail call void @vbe_ioport_write_data(ptr noundef nonnull %vga92, i32 noundef 0, i32 noundef 0) #9
   br label %if.end94

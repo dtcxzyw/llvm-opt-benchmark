@@ -3,31 +3,6 @@ source_filename = "bench/arrow/original/compare_internal_avx2.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.arrow::compute::KeyColumnArray" = type { [3 x ptr], [3 x ptr], %"struct.arrow::compute::KeyColumnMetadata", i64, [2 x i32] }
-%"struct.arrow::compute::KeyColumnMetadata" = type { i8, i8, i32 }
-%"class.arrow::compute::RowTableImpl" = type <{ ptr, %"struct.arrow::compute::RowTableMetadata", %"class.std::unique_ptr", %"class.std::unique_ptr", %"class.std::unique_ptr", [3 x ptr], i64, i64, i64, i64, i8, [7 x i8] }>
-%"struct.arrow::compute::RowTableMetadata" = type { i8, i32, i32, i32, i32, i32, %"class.std::vector", %"class.std::vector.0", %"class.std::vector.0", %"class.std::vector.0" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<arrow::compute::KeyColumnMetadata, std::allocator<arrow::compute::KeyColumnMetadata>>::_Vector_impl" }
-%"struct.std::_Vector_base<arrow::compute::KeyColumnMetadata, std::allocator<arrow::compute::KeyColumnMetadata>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::compute::KeyColumnMetadata, std::allocator<arrow::compute::KeyColumnMetadata>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<arrow::compute::KeyColumnMetadata, std::allocator<arrow::compute::KeyColumnMetadata>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.arrow::Buffer" = type { ptr, i8, i8, ptr, i64, i64, i8, %"class.std::shared_ptr", %"class.std::shared_ptr.7" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.7" = type { %"class.std::__shared_ptr.8" }
-%"class.std::__shared_ptr.8" = type { ptr, %"class.std::__shared_count" }
-
 $_ZN5arrow7compute10KeyCompare29NullUpdateColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh = comdat any
 
 $_ZN5arrow7compute10KeyCompare29NullUpdateColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh = comdat any
@@ -71,10 +46,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5arrow7compute10KeyCompare26NullUpdateColumnToRow_avx2EbjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i1 noundef zeroext %use_selection, i32 noundef %id_col, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector) local_unnamed_addr #1 align 2 {
 entry:
-  %length_.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %col, i64 56
   %0 = load i64, ptr %length_.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 0
-  %1 = load i32, ptr %arrayidx.i, align 8
+  %bit_offset_.i = getelementptr inbounds i8, ptr %col, i64 64
+  %1 = load i32, ptr %bit_offset_.i, align 8
   %conv.i = sext i32 %1 to i64
   %add.i = add nsw i64 %0, %conv.i
   %shr.i.i = ashr i64 %add.i, 3
@@ -105,10 +80,10 @@ while.cond.i:                                     ; preds = %land.rhs.i, %if.the
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %5 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i15 = getelementptr inbounds i16, ptr %sel_left_maybe_null, i64 %5
-  %6 = load i16, ptr %arrayidx.i15, align 2
-  %conv.i16 = zext i16 %6 to i64
-  %cmp1.not.i = icmp sgt i64 %.sroa.speculated9.i, %conv.i16
+  %arrayidx.i = getelementptr inbounds i16, ptr %sel_left_maybe_null, i64 %5
+  %6 = load i16, ptr %arrayidx.i, align 2
+  %conv.i15 = zext i16 %6 to i64
+  %cmp1.not.i = icmp sgt i64 %.sroa.speculated9.i, %conv.i15
   br i1 %cmp1.not.i, label %if.end, label %while.cond.i, !llvm.loop !6
 
 if.else:                                          ; preds = %entry
@@ -144,7 +119,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end.thread
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %inverse_column_order.i226 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 8
+  %inverse_column_order.i226 = getelementptr inbounds i8, ptr %rows, i64 80
   %conv.i216227 = zext i32 %id_col to i64
   %0 = load ptr, ptr %inverse_column_order.i226, align 8
   %add.ptr.i.i228 = getelementptr inbounds i32, ptr %0, i64 %conv.i216227
@@ -152,7 +127,7 @@ if.end.thread:                                    ; preds = %land.lhs.true
   br label %if.else
 
 if.end:                                           ; preds = %entry
-  %inverse_column_order.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 8
+  %inverse_column_order.i = getelementptr inbounds i8, ptr %rows, i64 80
   %conv.i216 = zext i32 %id_col to i64
   %2 = load ptr, ptr %inverse_column_order.i, align 8
   %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %conv.i216
@@ -161,13 +136,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  %null_masks_.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 2
+  %null_masks_.i = getelementptr inbounds i8, ptr %rows, i64 128
   %4 = load ptr, ptr %null_masks_.i, align 8
-  %is_cpu_.i.i = getelementptr inbounds %"class.arrow::Buffer", ptr %4, i64 0, i32 2
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %4, i64 9
   %5 = load i8, ptr %is_cpu_.i.i, align 1
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
-  %data_.i.i = getelementptr inbounds %"class.arrow::Buffer", ptr %4, i64 0, i32 3
+  %data_.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %data_.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr %7
   %cmp235.not = icmp ult i32 %num_rows_to_compare, 8
@@ -175,7 +150,7 @@ if.then6:                                         ; preds = %if.end
 
 for.body.lr.ph:                                   ; preds = %if.then6
   %div213 = lshr i32 %num_rows_to_compare, 3
-  %null_masks_bytes_per_row = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 3
+  %null_masks_bytes_per_row = getelementptr inbounds i8, ptr %rows, i64 20
   %8 = load i32, ptr %null_masks_bytes_per_row, align 4
   %mul = shl i32 %8, 3
   %vecinit.i335 = insertelement <8 x i32> poison, i32 %mul, i64 0
@@ -238,7 +213,7 @@ if.then37:                                        ; preds = %if.else
 
 for.body48.lr.ph:                                 ; preds = %if.then37
   %div46214 = lshr i32 %num_rows_to_compare, 3
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 0
+  %bit_offset_.i = getelementptr inbounds i8, ptr %col, i64 64
   %wide.trip.count = zext nneg i32 %div46214 to i64
   br label %for.body48
 
@@ -247,7 +222,7 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   %add.ptr52 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv
   %27 = load <8 x i16>, ptr %add.ptr52, align 1
   %conv.i203 = zext <8 x i16> %27 to <8 x i32>
-  %28 = load i32, ptr %arrayidx.i, align 8
+  %28 = load i32, ptr %bit_offset_.i, align 8
   %vecinit.i420 = insertelement <8 x i32> poison, i32 %28, i64 0
   %vecinit7.i427 = shufflevector <8 x i32> %vecinit.i420, <8 x i32> poison, <8 x i32> zeroinitializer
   %add.i262 = add <8 x i32> %vecinit7.i427, %conv.i203
@@ -280,13 +255,13 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   br i1 %exitcond.not, label %for.cond45.return.loopexit_crit_edge, label %for.body48, !llvm.loop !8
 
 if.else88:                                        ; preds = %if.else
-  %null_masks_.i218 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 2
+  %null_masks_.i218 = getelementptr inbounds i8, ptr %rows, i64 128
   %43 = load ptr, ptr %null_masks_.i218, align 8
-  %is_cpu_.i.i219 = getelementptr inbounds %"class.arrow::Buffer", ptr %43, i64 0, i32 2
+  %is_cpu_.i.i219 = getelementptr inbounds i8, ptr %43, i64 9
   %44 = load i8, ptr %is_cpu_.i.i219, align 1
   %45 = and i8 %44, 1
   %tobool.not.i.i220 = icmp eq i8 %45, 0
-  %data_.i.i221 = getelementptr inbounds %"class.arrow::Buffer", ptr %43, i64 0, i32 3
+  %data_.i.i221 = getelementptr inbounds i8, ptr %43, i64 16
   %46 = load ptr, ptr %data_.i.i221, align 8
   %cond.i.i222 = select i1 %tobool.not.i.i220, ptr null, ptr %46
   %47 = load ptr, ptr %col, align 8
@@ -295,9 +270,9 @@ if.else88:                                        ; preds = %if.else
 
 for.body109.lr.ph:                                ; preds = %if.else88
   %div107215 = lshr i32 %num_rows_to_compare, 3
-  %null_masks_bytes_per_row93 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 3
+  %null_masks_bytes_per_row93 = getelementptr inbounds i8, ptr %rows, i64 20
   %48 = load i32, ptr %null_masks_bytes_per_row93, align 4
-  %arrayidx.i224 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 0
+  %bit_offset_.i224 = getelementptr inbounds i8, ptr %col, i64 64
   %mul133 = shl i32 %48, 3
   %vecinit.i590 = insertelement <8 x i32> poison, i32 %mul133, i64 0
   %vecinit7.i597 = shufflevector <8 x i32> %vecinit.i590, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -313,7 +288,7 @@ for.body109:                                      ; preds = %for.body109.lr.ph, 
   %50 = load <8 x i16>, ptr %add.ptr113, align 1
   %conv.i = zext <8 x i16> %50 to <8 x i32>
   %51 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
-  %52 = load i32, ptr %arrayidx.i224, align 8
+  %52 = load i32, ptr %bit_offset_.i224, align 8
   %vecinit.i522 = insertelement <8 x i32> poison, i32 %52, i64 0
   %vecinit7.i529 = shufflevector <8 x i32> %vecinit.i522, <8 x i32> poison, <8 x i32> zeroinitializer
   %add.i259 = add <8 x i32> %vecinit7.i529, %conv.i
@@ -396,7 +371,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end.thread
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %inverse_column_order.i174 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 8
+  %inverse_column_order.i174 = getelementptr inbounds i8, ptr %rows, i64 80
   %conv.i164175 = zext i32 %id_col to i64
   %0 = load ptr, ptr %inverse_column_order.i174, align 8
   %add.ptr.i.i176 = getelementptr inbounds i32, ptr %0, i64 %conv.i164175
@@ -404,7 +379,7 @@ if.end.thread:                                    ; preds = %land.lhs.true
   br label %if.else
 
 if.end:                                           ; preds = %entry
-  %inverse_column_order.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 8
+  %inverse_column_order.i = getelementptr inbounds i8, ptr %rows, i64 80
   %conv.i164 = zext i32 %id_col to i64
   %2 = load ptr, ptr %inverse_column_order.i, align 8
   %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %conv.i164
@@ -413,13 +388,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  %null_masks_.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 2
+  %null_masks_.i = getelementptr inbounds i8, ptr %rows, i64 128
   %4 = load ptr, ptr %null_masks_.i, align 8
-  %is_cpu_.i.i = getelementptr inbounds %"class.arrow::Buffer", ptr %4, i64 0, i32 2
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %4, i64 9
   %5 = load i8, ptr %is_cpu_.i.i, align 1
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
-  %data_.i.i = getelementptr inbounds %"class.arrow::Buffer", ptr %4, i64 0, i32 3
+  %data_.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %data_.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr %7
   %cmp183.not = icmp ult i32 %num_rows_to_compare, 8
@@ -427,7 +402,7 @@ if.then6:                                         ; preds = %if.end
 
 for.body.lr.ph:                                   ; preds = %if.then6
   %div161 = lshr i32 %num_rows_to_compare, 3
-  %null_masks_bytes_per_row = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 3
+  %null_masks_bytes_per_row = getelementptr inbounds i8, ptr %rows, i64 20
   %8 = load i32, ptr %null_masks_bytes_per_row, align 4
   %mul = shl i32 %8, 3
   %vecinit.i = insertelement <8 x i32> poison, i32 %mul, i64 0
@@ -488,7 +463,7 @@ if.then34:                                        ; preds = %if.else
 
 for.body45.lr.ph:                                 ; preds = %if.then34
   %div43162 = lshr i32 %num_rows_to_compare, 3
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 0
+  %bit_offset_.i = getelementptr inbounds i8, ptr %col, i64 64
   %wide.trip.count = zext nneg i32 %div43162 to i64
   br label %for.body45
 
@@ -497,7 +472,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %add.ptr48 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   %26 = load i16, ptr %add.ptr48, align 2
   %conv50 = zext i16 %26 to i32
-  %27 = load i32, ptr %arrayidx.i, align 8
+  %27 = load i32, ptr %bit_offset_.i, align 8
   %shr = lshr i32 %conv50, %27
   %conv52 = trunc i32 %shr to i8
   %vecinit.i477 = insertelement <16 x i8> poison, i8 %conv52, i64 0
@@ -528,13 +503,13 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   br i1 %exitcond.not, label %for.cond42.return.loopexit_crit_edge, label %for.body45, !llvm.loop !11
 
 if.else78:                                        ; preds = %if.else
-  %null_masks_.i166 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 2
+  %null_masks_.i166 = getelementptr inbounds i8, ptr %rows, i64 128
   %38 = load ptr, ptr %null_masks_.i166, align 8
-  %is_cpu_.i.i167 = getelementptr inbounds %"class.arrow::Buffer", ptr %38, i64 0, i32 2
+  %is_cpu_.i.i167 = getelementptr inbounds i8, ptr %38, i64 9
   %39 = load i8, ptr %is_cpu_.i.i167, align 1
   %40 = and i8 %39, 1
   %tobool.not.i.i168 = icmp eq i8 %40, 0
-  %data_.i.i169 = getelementptr inbounds %"class.arrow::Buffer", ptr %38, i64 0, i32 3
+  %data_.i.i169 = getelementptr inbounds i8, ptr %38, i64 16
   %41 = load ptr, ptr %data_.i.i169, align 8
   %cond.i.i170 = select i1 %tobool.not.i.i168, ptr null, ptr %41
   %42 = load ptr, ptr %col, align 8
@@ -543,9 +518,9 @@ if.else78:                                        ; preds = %if.else
 
 for.body99.lr.ph:                                 ; preds = %if.else78
   %div97163 = lshr i32 %num_rows_to_compare, 3
-  %null_masks_bytes_per_row83 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 3
+  %null_masks_bytes_per_row83 = getelementptr inbounds i8, ptr %rows, i64 20
   %43 = load i32, ptr %null_masks_bytes_per_row83, align 4
-  %arrayidx.i172 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 0
+  %bit_offset_.i172 = getelementptr inbounds i8, ptr %col, i64 64
   %mul120 = shl i32 %43, 3
   %vecinit.i341 = insertelement <8 x i32> poison, i32 %mul120, i64 0
   %vecinit7.i348 = shufflevector <8 x i32> %vecinit.i341, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -562,7 +537,7 @@ for.body99:                                       ; preds = %for.body99.lr.ph, %
   %add.ptr106 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv186
   %46 = load i16, ptr %add.ptr106, align 2
   %conv108 = zext i16 %46 to i32
-  %47 = load i32, ptr %arrayidx.i172, align 8
+  %47 = load i32, ptr %bit_offset_.i172, align 8
   %shr110 = lshr i32 %conv108, %47
   %conv111 = trunc i32 %shr110 to i8
   %vecinit.i502 = insertelement <16 x i8> poison, i8 %conv111, i64 0
@@ -633,15 +608,15 @@ return:                                           ; preds = %if.then34, %for.con
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5arrow7compute10KeyCompare29CompareBinaryColumnToRow_avx2EbjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i1 noundef zeroext %use_selection, i32 noundef %offset_within_row, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector) local_unnamed_addr #1 align 2 {
 entry:
-  %fixed_length = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 2, i32 2
+  %fixed_length = getelementptr inbounds i8, ptr %col, i64 52
   %0 = load i32, ptr %fixed_length, align 4
-  %length_.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %col, i64 56
   %1 = load i64, ptr %length_.i, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %col, i64 68
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv.i = sext i32 %2 to i64
   %add.i = add nsw i64 %1, %conv.i
@@ -732,7 +707,7 @@ return:                                           ; preds = %if.else29, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i32 noundef %offset_within_row, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %fixed_length = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 2, i32 2
+  %fixed_length = getelementptr inbounds i8, ptr %col, i64 52
   %0 = load i32, ptr %fixed_length, align 4
   switch i32 %0, label %if.else22 [
     i32 0, label %if.then
@@ -743,25 +718,25 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %col, i64 68
   %1 = load i32, ptr %arrayidx.i, align 4
-  %metadata_.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i = getelementptr inbounds i8, ptr %rows, i64 8
   %2 = load i8, ptr %metadata_.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  %arrayidx.i73.i = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i73.i = getelementptr inbounds i8, ptr %col, i64 8
   %4 = load ptr, ptr %arrayidx.i73.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %rows, i64 160
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %cmp92.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp92.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i
+  %cmp93.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp93.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
   %div70.i = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i78.i = load <8 x i32>, ptr %fixed_length4.i, align 4
   %vecinit7.i85.i = shufflevector <8 x i32> %vecinit.i78.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i95.i = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -812,82 +787,82 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i, !llvm.loop !13
 
 if.else.i:                                        ; preds = %if.then
-  %arrayidx.i74.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %23 = load ptr, ptr %arrayidx.i74.i, align 8
-  %cmp2894.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2894.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i
+  %arrayidx.i75.i = getelementptr inbounds i8, ptr %rows, i64 168
+  %23 = load ptr, ptr %arrayidx.i75.i, align 8
+  %cmp2895.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2895.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i
 
 for.body29.lr.ph.i:                               ; preds = %if.else.i
   %div2769.i = lshr i32 %num_rows_to_compare, 3
   %vecinit.i146.i = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i153.i = shufflevector <8 x i32> %vecinit.i146.i, <8 x i32> poison, <8 x i32> zeroinitializer
-  %vecinit.i.i.i75.i = insertelement <8 x i32> poison, i32 %1, i64 0
-  %vecinit7.i.i.i76.i = shufflevector <8 x i32> %vecinit.i.i.i75.i, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count101.i = zext nneg i32 %div2769.i to i64
+  %vecinit.i.i.i76.i = insertelement <8 x i32> poison, i32 %1, i64 0
+  %vecinit7.i.i.i77.i = shufflevector <8 x i32> %vecinit.i.i.i76.i, <8 x i32> poison, <8 x i32> zeroinitializer
+  %wide.trip.count102.i = zext nneg i32 %div2769.i to i64
   br label %for.body29.i
 
 for.body29.i:                                     ; preds = %for.body29.i, %for.body29.lr.ph.i
-  %indvars.iv98.i = phi i64 [ 0, %for.body29.lr.ph.i ], [ %indvars.iv.next99.i, %for.body29.i ]
-  %add.ptr31.i = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv98.i
+  %indvars.iv99.i = phi i64 [ 0, %for.body29.lr.ph.i ], [ %indvars.iv.next100.i, %for.body29.i ]
+  %add.ptr31.i = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv99.i
   %24 = load <8 x i16>, ptr %add.ptr31.i, align 1
   %conv.i.i = zext <8 x i16> %24 to <8 x i32>
   %25 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i.i, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %26 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5, <8 x i32> %25, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i.i = add <8 x i32> %26, %vecinit7.i153.i
-  %add.i.i.i77.i = add <8 x i32> %vecinit7.i.i.i76.i, %conv.i.i
-  %27 = lshr <8 x i32> %add.i.i.i77.i, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
+  %add.i.i.i78.i = add <8 x i32> %vecinit7.i.i.i77.i, %conv.i.i
+  %27 = lshr <8 x i32> %add.i.i.i78.i, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
   %28 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4, <8 x i32> %27, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
-  %29 = and <8 x i32> %add.i.i.i77.i, <i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31>
+  %29 = and <8 x i32> %add.i.i.i78.i, <i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31>
   %30 = shl nuw <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>, %29
-  %and.i2958.i.i78.i = and <8 x i32> %30, %28
-  %cmp.i52.not.i.i79.i = icmp eq <8 x i32> %and.i2958.i.i78.i, zeroinitializer
+  %and.i2958.i.i79.i = and <8 x i32> %30, %28
+  %cmp.i52.not.i.i80.i = icmp eq <8 x i32> %and.i2958.i.i79.i, zeroinitializer
   %31 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %23, <8 x i32> %add.i.i, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
-  %32 = select <8 x i1> %cmp.i52.not.i.i79.i, <8 x i32> zeroinitializer, <8 x i32> <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
+  %32 = select <8 x i1> %cmp.i52.not.i.i80.i, <8 x i32> zeroinitializer, <8 x i32> <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
   %33 = and <8 x i32> %31, <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
-  %cmp.i.i.i80.i = icmp eq <8 x i32> %32, %33
-  %sext.i.i.i81.i = sext <8 x i1> %cmp.i.i.i80.i to <8 x i32>
-  %34 = shufflevector <8 x i32> %sext.i.i.i81.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i57.i.i83.i = sext <4 x i32> %34 to <4 x i64>
-  %35 = bitcast <4 x i64> %conv.i57.i.i83.i to <32 x i8>
+  %cmp.i.i.i81.i = icmp eq <8 x i32> %32, %33
+  %sext.i.i.i82.i = sext <8 x i1> %cmp.i.i.i81.i to <8 x i32>
+  %34 = shufflevector <8 x i32> %sext.i.i.i82.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i57.i.i84.i = sext <4 x i32> %34 to <4 x i64>
+  %35 = bitcast <4 x i64> %conv.i57.i.i84.i to <32 x i8>
   %36 = icmp slt <32 x i8> %35, zeroinitializer
   %37 = bitcast <32 x i1> %36 to i32
-  %38 = shufflevector <8 x i32> %sext.i.i.i81.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i85.i = sext <4 x i32> %38 to <4 x i64>
-  %39 = bitcast <4 x i64> %conv.i.i.i85.i to <32 x i8>
+  %38 = shufflevector <8 x i32> %sext.i.i.i82.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i86.i = sext <4 x i32> %38 to <4 x i64>
+  %39 = bitcast <4 x i64> %conv.i.i.i86.i to <32 x i8>
   %40 = icmp slt <32 x i8> %39, zeroinitializer
   %41 = bitcast <32 x i1> %40 to i32
-  %conv.i.i86.i = zext i32 %37 to i64
-  %conv23.i.i87.i = zext i32 %41 to i64
-  %shl.i.i88.i = shl nuw i64 %conv23.i.i87.i, 32
-  %or.i.i89.i = or disjoint i64 %shl.i.i88.i, %conv.i.i86.i
-  %arrayidx45.i = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv98.i
-  store i64 %or.i.i89.i, ptr %arrayidx45.i, align 8
-  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
-  %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count101.i
-  br i1 %exitcond102.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i, !llvm.loop !14
+  %conv.i.i87.i = zext i32 %37 to i64
+  %conv23.i.i88.i = zext i32 %41 to i64
+  %shl.i.i89.i = shl nuw i64 %conv23.i.i88.i, 32
+  %or.i.i90.i = or disjoint i64 %shl.i.i89.i, %conv.i.i87.i
+  %arrayidx45.i = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv99.i
+  store i64 %or.i.i90.i, ptr %arrayidx45.i, align 8
+  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
+  %exitcond103.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count102.i
+  br i1 %exitcond103.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i, !llvm.loop !14
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i, %for.body29.i, %if.then.i, %if.else.i
   %retval.0.i = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then4:                                         ; preds = %entry
-  %metadata_.i.i49 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i49 = getelementptr inbounds i8, ptr %rows, i64 8
   %42 = load i8, ptr %metadata_.i.i49, align 8
   %43 = and i8 %42, 1
   %tobool.not.i50 = icmp eq i8 %43, 0
-  %arrayidx.i73.i51 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i73.i51 = getelementptr inbounds i8, ptr %col, i64 8
   %44 = load ptr, ptr %arrayidx.i73.i51, align 8
-  %arrayidx.i.i.i52 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i52 = getelementptr inbounds i8, ptr %rows, i64 160
   %45 = load ptr, ptr %arrayidx.i.i.i52, align 8
   br i1 %tobool.not.i50, label %if.else.i80, label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.then4
-  %cmp86.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp86.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i54
+  %cmp87.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp87.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i54
 
 for.body.lr.ph.i54:                               ; preds = %if.then.i53
   %div70.i55 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i56 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i56 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i78.i57 = load <8 x i32>, ptr %fixed_length4.i56, align 4
   %vecinit7.i85.i58 = shufflevector <8 x i32> %vecinit.i78.i57, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i95.i59 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -930,21 +905,21 @@ for.body.i62:                                     ; preds = %for.body.i62, %for.
   br i1 %exitcond.not.i78, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i62, !llvm.loop !15
 
 if.else.i80:                                      ; preds = %if.then4
-  %arrayidx.i74.i81 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %60 = load ptr, ptr %arrayidx.i74.i81, align 8
-  %cmp2888.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2888.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i82
+  %arrayidx.i75.i81 = getelementptr inbounds i8, ptr %rows, i64 168
+  %60 = load ptr, ptr %arrayidx.i75.i81, align 8
+  %cmp2889.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2889.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i82
 
 for.body29.lr.ph.i82:                             ; preds = %if.else.i80
   %div2769.i83 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i146.i84 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i153.i85 = shufflevector <8 x i32> %vecinit.i146.i84, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count95.i = zext nneg i32 %div2769.i83 to i64
+  %wide.trip.count96.i = zext nneg i32 %div2769.i83 to i64
   br label %for.body29.i86
 
 for.body29.i86:                                   ; preds = %for.body29.i86, %for.body29.lr.ph.i82
-  %indvars.iv92.i = phi i64 [ 0, %for.body29.lr.ph.i82 ], [ %indvars.iv.next93.i, %for.body29.i86 ]
-  %add.ptr31.i87 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv92.i
+  %indvars.iv93.i = phi i64 [ 0, %for.body29.lr.ph.i82 ], [ %indvars.iv.next94.i, %for.body29.i86 ]
+  %add.ptr31.i87 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv93.i
   %61 = load <8 x i16>, ptr %add.ptr31.i87, align 1
   %conv.i.i88 = zext <8 x i16> %61 to <8 x i32>
   %62 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i.i88, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
@@ -954,50 +929,50 @@ for.body29.i86:                                   ; preds = %for.body29.i86, %fo
   %65 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %60, <8 x i32> %add.i.i89, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
   %66 = xor <8 x i32> %65, %64
   %67 = and <8 x i32> %66, <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
-  %cmp.i.i.i75.i = icmp eq <8 x i32> %67, zeroinitializer
-  %sext.i.i.i76.i = sext <8 x i1> %cmp.i.i.i75.i to <8 x i32>
-  %68 = shufflevector <8 x i32> %sext.i.i.i76.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i29.i.i78.i = sext <4 x i32> %68 to <4 x i64>
-  %69 = bitcast <4 x i64> %conv.i29.i.i78.i to <32 x i8>
+  %cmp.i.i.i76.i = icmp eq <8 x i32> %67, zeroinitializer
+  %sext.i.i.i77.i = sext <8 x i1> %cmp.i.i.i76.i to <8 x i32>
+  %68 = shufflevector <8 x i32> %sext.i.i.i77.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i29.i.i79.i = sext <4 x i32> %68 to <4 x i64>
+  %69 = bitcast <4 x i64> %conv.i29.i.i79.i to <32 x i8>
   %70 = icmp slt <32 x i8> %69, zeroinitializer
   %71 = bitcast <32 x i1> %70 to i32
-  %72 = shufflevector <8 x i32> %sext.i.i.i76.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i80.i = sext <4 x i32> %72 to <4 x i64>
-  %73 = bitcast <4 x i64> %conv.i.i.i80.i to <32 x i8>
+  %72 = shufflevector <8 x i32> %sext.i.i.i77.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i81.i = sext <4 x i32> %72 to <4 x i64>
+  %73 = bitcast <4 x i64> %conv.i.i.i81.i to <32 x i8>
   %74 = icmp slt <32 x i8> %73, zeroinitializer
   %75 = bitcast <32 x i1> %74 to i32
-  %conv.i.i81.i = zext i32 %71 to i64
-  %conv14.i.i82.i = zext i32 %75 to i64
-  %shl.i.i83.i = shl nuw i64 %conv14.i.i82.i, 32
-  %or.i.i84.i = or disjoint i64 %shl.i.i83.i, %conv.i.i81.i
-  %arrayidx45.i90 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv92.i
-  store i64 %or.i.i84.i, ptr %arrayidx45.i90, align 8
-  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
-  %exitcond96.not.i = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count95.i
-  br i1 %exitcond96.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i86, !llvm.loop !16
+  %conv.i.i82.i = zext i32 %71 to i64
+  %conv14.i.i83.i = zext i32 %75 to i64
+  %shl.i.i84.i = shl nuw i64 %conv14.i.i83.i, 32
+  %or.i.i85.i = or disjoint i64 %shl.i.i84.i, %conv.i.i82.i
+  %arrayidx45.i90 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv93.i
+  store i64 %or.i.i85.i, ptr %arrayidx45.i90, align 8
+  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
+  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %wide.trip.count96.i
+  br i1 %exitcond97.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i86, !llvm.loop !16
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i62, %for.body29.i86, %if.then.i53, %if.else.i80
   %retval.0.i79 = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then9:                                         ; preds = %entry
-  %metadata_.i.i91 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i91 = getelementptr inbounds i8, ptr %rows, i64 8
   %76 = load i8, ptr %metadata_.i.i91, align 8
   %77 = and i8 %76, 1
   %tobool.not.i92 = icmp eq i8 %77, 0
-  %arrayidx.i73.i93 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i73.i93 = getelementptr inbounds i8, ptr %col, i64 8
   %78 = load ptr, ptr %arrayidx.i73.i93, align 8
-  %arrayidx.i.i.i94 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i94 = getelementptr inbounds i8, ptr %rows, i64 160
   %79 = load ptr, ptr %arrayidx.i.i.i94, align 8
   br i1 %tobool.not.i92, label %if.else.i125, label %if.then.i95
 
 if.then.i95:                                      ; preds = %if.then9
-  %cmp86.not.i96 = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp86.not.i96, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i97
+  %cmp87.not.i96 = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp87.not.i96, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i97
 
 for.body.lr.ph.i97:                               ; preds = %if.then.i95
   %div70.i98 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i99 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i99 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i78.i100 = load <8 x i32>, ptr %fixed_length4.i99, align 4
   %vecinit7.i85.i101 = shufflevector <8 x i32> %vecinit.i78.i100, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i95.i102 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1040,21 +1015,21 @@ for.body.i105:                                    ; preds = %for.body.i105, %for
   br i1 %exitcond.not.i123, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i105, !llvm.loop !17
 
 if.else.i125:                                     ; preds = %if.then9
-  %arrayidx.i74.i126 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %94 = load ptr, ptr %arrayidx.i74.i126, align 8
-  %cmp2888.not.i127 = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2888.not.i127, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i128
+  %arrayidx.i75.i126 = getelementptr inbounds i8, ptr %rows, i64 168
+  %94 = load ptr, ptr %arrayidx.i75.i126, align 8
+  %cmp2889.not.i127 = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2889.not.i127, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i128
 
 for.body29.lr.ph.i128:                            ; preds = %if.else.i125
   %div2769.i129 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i146.i130 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i153.i131 = shufflevector <8 x i32> %vecinit.i146.i130, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count95.i132 = zext nneg i32 %div2769.i129 to i64
+  %wide.trip.count96.i132 = zext nneg i32 %div2769.i129 to i64
   br label %for.body29.i133
 
 for.body29.i133:                                  ; preds = %for.body29.i133, %for.body29.lr.ph.i128
-  %indvars.iv92.i134 = phi i64 [ 0, %for.body29.lr.ph.i128 ], [ %indvars.iv.next93.i149, %for.body29.i133 ]
-  %add.ptr31.i135 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv92.i134
+  %indvars.iv93.i134 = phi i64 [ 0, %for.body29.lr.ph.i128 ], [ %indvars.iv.next94.i149, %for.body29.i133 ]
+  %add.ptr31.i135 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv93.i134
   %95 = load <8 x i16>, ptr %add.ptr31.i135, align 1
   %conv.i.i136 = zext <8 x i16> %95 to <8 x i32>
   %96 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i.i136, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
@@ -1064,50 +1039,50 @@ for.body29.i133:                                  ; preds = %for.body29.i133, %f
   %99 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %94, <8 x i32> %add.i.i137, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
   %100 = xor <8 x i32> %99, %98
   %101 = and <8 x i32> %100, <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>
-  %cmp.i.i.i75.i138 = icmp eq <8 x i32> %101, zeroinitializer
-  %sext.i.i.i76.i139 = sext <8 x i1> %cmp.i.i.i75.i138 to <8 x i32>
-  %102 = shufflevector <8 x i32> %sext.i.i.i76.i139, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i29.i.i78.i141 = sext <4 x i32> %102 to <4 x i64>
-  %103 = bitcast <4 x i64> %conv.i29.i.i78.i141 to <32 x i8>
+  %cmp.i.i.i76.i138 = icmp eq <8 x i32> %101, zeroinitializer
+  %sext.i.i.i77.i139 = sext <8 x i1> %cmp.i.i.i76.i138 to <8 x i32>
+  %102 = shufflevector <8 x i32> %sext.i.i.i77.i139, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i29.i.i79.i141 = sext <4 x i32> %102 to <4 x i64>
+  %103 = bitcast <4 x i64> %conv.i29.i.i79.i141 to <32 x i8>
   %104 = icmp slt <32 x i8> %103, zeroinitializer
   %105 = bitcast <32 x i1> %104 to i32
-  %106 = shufflevector <8 x i32> %sext.i.i.i76.i139, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i80.i143 = sext <4 x i32> %106 to <4 x i64>
-  %107 = bitcast <4 x i64> %conv.i.i.i80.i143 to <32 x i8>
+  %106 = shufflevector <8 x i32> %sext.i.i.i77.i139, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i81.i143 = sext <4 x i32> %106 to <4 x i64>
+  %107 = bitcast <4 x i64> %conv.i.i.i81.i143 to <32 x i8>
   %108 = icmp slt <32 x i8> %107, zeroinitializer
   %109 = bitcast <32 x i1> %108 to i32
-  %conv.i.i81.i144 = zext i32 %105 to i64
-  %conv14.i.i82.i145 = zext i32 %109 to i64
-  %shl.i.i83.i146 = shl nuw i64 %conv14.i.i82.i145, 32
-  %or.i.i84.i147 = or disjoint i64 %shl.i.i83.i146, %conv.i.i81.i144
-  %arrayidx45.i148 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv92.i134
-  store i64 %or.i.i84.i147, ptr %arrayidx45.i148, align 8
-  %indvars.iv.next93.i149 = add nuw nsw i64 %indvars.iv92.i134, 1
-  %exitcond96.not.i150 = icmp eq i64 %indvars.iv.next93.i149, %wide.trip.count95.i132
-  br i1 %exitcond96.not.i150, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i133, !llvm.loop !18
+  %conv.i.i82.i144 = zext i32 %105 to i64
+  %conv14.i.i83.i145 = zext i32 %109 to i64
+  %shl.i.i84.i146 = shl nuw i64 %conv14.i.i83.i145, 32
+  %or.i.i85.i147 = or disjoint i64 %shl.i.i84.i146, %conv.i.i82.i144
+  %arrayidx45.i148 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv93.i134
+  store i64 %or.i.i85.i147, ptr %arrayidx45.i148, align 8
+  %indvars.iv.next94.i149 = add nuw nsw i64 %indvars.iv93.i134, 1
+  %exitcond97.not.i150 = icmp eq i64 %indvars.iv.next94.i149, %wide.trip.count96.i132
+  br i1 %exitcond97.not.i150, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i133, !llvm.loop !18
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i105, %for.body29.i133, %if.then.i95, %if.else.i125
   %retval.0.i124 = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then14:                                        ; preds = %entry
-  %metadata_.i.i151 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i151 = getelementptr inbounds i8, ptr %rows, i64 8
   %110 = load i8, ptr %metadata_.i.i151, align 8
   %111 = and i8 %110, 1
   %tobool.not.i152 = icmp eq i8 %111, 0
-  %arrayidx.i73.i153 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i73.i153 = getelementptr inbounds i8, ptr %col, i64 8
   %112 = load ptr, ptr %arrayidx.i73.i153, align 8
-  %arrayidx.i.i.i154 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i154 = getelementptr inbounds i8, ptr %rows, i64 160
   %113 = load ptr, ptr %arrayidx.i.i.i154, align 8
   br i1 %tobool.not.i152, label %if.else.i183, label %if.then.i155
 
 if.then.i155:                                     ; preds = %if.then14
-  %cmp86.not.i156 = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp86.not.i156, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i157
+  %cmp87.not.i156 = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp87.not.i156, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i157
 
 for.body.lr.ph.i157:                              ; preds = %if.then.i155
   %div70.i158 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i159 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i159 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i78.i160 = load <8 x i32>, ptr %fixed_length4.i159, align 4
   %vecinit7.i85.i161 = shufflevector <8 x i32> %vecinit.i78.i160, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i95.i162 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1148,21 +1123,21 @@ for.body.i165:                                    ; preds = %for.body.i165, %for
   br i1 %exitcond.not.i181, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i165, !llvm.loop !19
 
 if.else.i183:                                     ; preds = %if.then14
-  %arrayidx.i74.i184 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %126 = load ptr, ptr %arrayidx.i74.i184, align 8
-  %cmp2888.not.i185 = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2888.not.i185, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i186
+  %arrayidx.i75.i184 = getelementptr inbounds i8, ptr %rows, i64 168
+  %126 = load ptr, ptr %arrayidx.i75.i184, align 8
+  %cmp2889.not.i185 = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2889.not.i185, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i186
 
 for.body29.lr.ph.i186:                            ; preds = %if.else.i183
   %div2769.i187 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i146.i188 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i153.i189 = shufflevector <8 x i32> %vecinit.i146.i188, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count95.i190 = zext nneg i32 %div2769.i187 to i64
+  %wide.trip.count96.i190 = zext nneg i32 %div2769.i187 to i64
   br label %for.body29.i191
 
 for.body29.i191:                                  ; preds = %for.body29.i191, %for.body29.lr.ph.i186
-  %indvars.iv92.i192 = phi i64 [ 0, %for.body29.lr.ph.i186 ], [ %indvars.iv.next93.i205, %for.body29.i191 ]
-  %add.ptr31.i193 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv92.i192
+  %indvars.iv93.i192 = phi i64 [ 0, %for.body29.lr.ph.i186 ], [ %indvars.iv.next94.i205, %for.body29.i191 ]
+  %add.ptr31.i193 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv93.i192
   %127 = load <8 x i16>, ptr %add.ptr31.i193, align 1
   %conv.i.i194 = zext <8 x i16> %127 to <8 x i32>
   %128 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i.i194, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
@@ -1170,50 +1145,50 @@ for.body29.i191:                                  ; preds = %for.body29.i191, %f
   %add.i.i195 = add <8 x i32> %129, %vecinit7.i153.i189
   %130 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %112, <8 x i32> %conv.i.i194, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %131 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %126, <8 x i32> %add.i.i195, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
-  %cmp.i.i.i75.i196 = icmp eq <8 x i32> %130, %131
-  %sext.i.i.i76.i197 = sext <8 x i1> %cmp.i.i.i75.i196 to <8 x i32>
-  %132 = shufflevector <8 x i32> %sext.i.i.i76.i197, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i16.i.i78.i = sext <4 x i32> %132 to <4 x i64>
-  %133 = bitcast <4 x i64> %conv.i16.i.i78.i to <32 x i8>
+  %cmp.i.i.i76.i196 = icmp eq <8 x i32> %130, %131
+  %sext.i.i.i77.i197 = sext <8 x i1> %cmp.i.i.i76.i196 to <8 x i32>
+  %132 = shufflevector <8 x i32> %sext.i.i.i77.i197, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i16.i.i79.i = sext <4 x i32> %132 to <4 x i64>
+  %133 = bitcast <4 x i64> %conv.i16.i.i79.i to <32 x i8>
   %134 = icmp slt <32 x i8> %133, zeroinitializer
   %135 = bitcast <32 x i1> %134 to i32
-  %136 = shufflevector <8 x i32> %sext.i.i.i76.i197, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i80.i200 = sext <4 x i32> %136 to <4 x i64>
-  %137 = bitcast <4 x i64> %conv.i.i.i80.i200 to <32 x i8>
+  %136 = shufflevector <8 x i32> %sext.i.i.i77.i197, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i81.i200 = sext <4 x i32> %136 to <4 x i64>
+  %137 = bitcast <4 x i64> %conv.i.i.i81.i200 to <32 x i8>
   %138 = icmp slt <32 x i8> %137, zeroinitializer
   %139 = bitcast <32 x i1> %138 to i32
-  %conv.i.i81.i201 = zext i32 %135 to i64
-  %conv10.i.i82.i = zext i32 %139 to i64
-  %shl.i.i83.i202 = shl nuw i64 %conv10.i.i82.i, 32
-  %or.i.i84.i203 = or disjoint i64 %shl.i.i83.i202, %conv.i.i81.i201
-  %arrayidx45.i204 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv92.i192
-  store i64 %or.i.i84.i203, ptr %arrayidx45.i204, align 8
-  %indvars.iv.next93.i205 = add nuw nsw i64 %indvars.iv92.i192, 1
-  %exitcond96.not.i206 = icmp eq i64 %indvars.iv.next93.i205, %wide.trip.count95.i190
-  br i1 %exitcond96.not.i206, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i191, !llvm.loop !20
+  %conv.i.i82.i201 = zext i32 %135 to i64
+  %conv10.i.i83.i = zext i32 %139 to i64
+  %shl.i.i84.i202 = shl nuw i64 %conv10.i.i83.i, 32
+  %or.i.i85.i203 = or disjoint i64 %shl.i.i84.i202, %conv.i.i82.i201
+  %arrayidx45.i204 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv93.i192
+  store i64 %or.i.i85.i203, ptr %arrayidx45.i204, align 8
+  %indvars.iv.next94.i205 = add nuw nsw i64 %indvars.iv93.i192, 1
+  %exitcond97.not.i206 = icmp eq i64 %indvars.iv.next94.i205, %wide.trip.count96.i190
+  br i1 %exitcond97.not.i206, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i191, !llvm.loop !20
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i165, %for.body29.i191, %if.then.i155, %if.else.i183
   %retval.0.i182 = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then19:                                        ; preds = %entry
-  %metadata_.i.i207 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i207 = getelementptr inbounds i8, ptr %rows, i64 8
   %140 = load i8, ptr %metadata_.i.i207, align 8
   %141 = and i8 %140, 1
   %tobool.not.i208 = icmp eq i8 %141, 0
-  %arrayidx.i73.i209 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i73.i209 = getelementptr inbounds i8, ptr %col, i64 8
   %142 = load ptr, ptr %arrayidx.i73.i209, align 8
-  %arrayidx.i.i.i210 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i210 = getelementptr inbounds i8, ptr %rows, i64 160
   %143 = load ptr, ptr %arrayidx.i.i.i210, align 8
   br i1 %tobool.not.i208, label %if.else.i237, label %if.then.i211
 
 if.then.i211:                                     ; preds = %if.then19
-  %cmp88.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp88.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i212
+  %cmp89.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp89.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i212
 
 for.body.lr.ph.i212:                              ; preds = %if.then.i211
   %div70.i213 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i214 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i214 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i78.i215 = load <8 x i32>, ptr %fixed_length4.i214, align 4
   %vecinit7.i85.i216 = shufflevector <8 x i32> %vecinit.i78.i215, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i95.i217 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1258,21 +1233,21 @@ for.body.i220:                                    ; preds = %for.body.i220, %for
   br i1 %exitcond.not.i235, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i220, !llvm.loop !21
 
 if.else.i237:                                     ; preds = %if.then19
-  %arrayidx.i74.i238 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %160 = load ptr, ptr %arrayidx.i74.i238, align 8
-  %cmp2890.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2890.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i239
+  %arrayidx.i75.i238 = getelementptr inbounds i8, ptr %rows, i64 168
+  %160 = load ptr, ptr %arrayidx.i75.i238, align 8
+  %cmp2891.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2891.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.lr.ph.i239
 
 for.body29.lr.ph.i239:                            ; preds = %if.else.i237
   %div2769.i240 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i146.i241 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i153.i242 = shufflevector <8 x i32> %vecinit.i146.i241, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count97.i = zext nneg i32 %div2769.i240 to i64
+  %wide.trip.count98.i = zext nneg i32 %div2769.i240 to i64
   br label %for.body29.i243
 
 for.body29.i243:                                  ; preds = %for.body29.i243, %for.body29.lr.ph.i239
-  %indvars.iv94.i = phi i64 [ 0, %for.body29.lr.ph.i239 ], [ %indvars.iv.next95.i, %for.body29.i243 ]
-  %add.ptr31.i244 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv94.i
+  %indvars.iv95.i = phi i64 [ 0, %for.body29.lr.ph.i239 ], [ %indvars.iv.next96.i, %for.body29.i243 ]
+  %add.ptr31.i244 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv95.i
   %161 = load <8 x i16>, ptr %add.ptr31.i244, align 1
   %conv.i.i245 = zext <8 x i16> %161 to <8 x i32>
   %162 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i.i245, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
@@ -1286,25 +1261,25 @@ for.body29.i243:                                  ; preds = %for.body29.i243, %f
   %169 = tail call <4 x i64> @llvm.x86.avx2.gather.d.q.256(<4 x i64> zeroinitializer, ptr %160, <4 x i32> %168, <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, i8 1)
   %170 = shufflevector <8 x i32> %add.i.i246, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %171 = tail call <4 x i64> @llvm.x86.avx2.gather.d.q.256(<4 x i64> zeroinitializer, ptr %160, <4 x i32> %170, <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, i8 1)
-  %cmp.i29.i.i79.i = icmp eq <4 x i64> %165, %169
-  %sext.i30.i.i80.i = sext <4 x i1> %cmp.i29.i.i79.i to <4 x i64>
-  %172 = bitcast <4 x i64> %sext.i30.i.i80.i to <32 x i8>
+  %cmp.i29.i.i80.i = icmp eq <4 x i64> %165, %169
+  %sext.i30.i.i81.i = sext <4 x i1> %cmp.i29.i.i80.i to <4 x i64>
+  %172 = bitcast <4 x i64> %sext.i30.i.i81.i to <32 x i8>
   %173 = icmp slt <32 x i8> %172, zeroinitializer
   %174 = bitcast <32 x i1> %173 to i32
-  %cmp.i.i.i81.i = icmp eq <4 x i64> %167, %171
-  %sext.i.i.i82.i = sext <4 x i1> %cmp.i.i.i81.i to <4 x i64>
-  %175 = bitcast <4 x i64> %sext.i.i.i82.i to <32 x i8>
+  %cmp.i.i.i82.i = icmp eq <4 x i64> %167, %171
+  %sext.i.i.i83.i = sext <4 x i1> %cmp.i.i.i82.i to <4 x i64>
+  %175 = bitcast <4 x i64> %sext.i.i.i83.i to <32 x i8>
   %176 = icmp slt <32 x i8> %175, zeroinitializer
   %177 = bitcast <32 x i1> %176 to i32
-  %conv.i.i83.i = zext i32 %174 to i64
-  %conv15.i.i84.i = zext i32 %177 to i64
-  %shl.i.i85.i = shl nuw i64 %conv15.i.i84.i, 32
-  %or.i.i86.i = or disjoint i64 %shl.i.i85.i, %conv.i.i83.i
-  %arrayidx45.i248 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv94.i
-  store i64 %or.i.i86.i, ptr %arrayidx45.i248, align 8
-  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count97.i
-  br i1 %exitcond98.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i243, !llvm.loop !22
+  %conv.i.i84.i = zext i32 %174 to i64
+  %conv15.i.i85.i = zext i32 %177 to i64
+  %shl.i.i86.i = shl nuw i64 %conv15.i.i85.i, 32
+  %or.i.i87.i = or disjoint i64 %shl.i.i86.i, %conv.i.i84.i
+  %arrayidx45.i248 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv95.i
+  store i64 %or.i.i87.i, ptr %arrayidx45.i248, align 8
+  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
+  %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
+  br i1 %exitcond99.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body29.i243, !llvm.loop !22
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i220, %for.body29.i243, %if.then.i211, %if.else.i237
   %retval.0.i236 = and i32 %num_rows_to_compare, -8
@@ -1323,7 +1298,7 @@ return:                                           ; preds = %if.else22, %_ZN5arr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i32 noundef %offset_within_row, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %fixed_length = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 2, i32 2
+  %fixed_length = getelementptr inbounds i8, ptr %col, i64 52
   %0 = load i32, ptr %fixed_length, align 4
   switch i32 %0, label %if.else22 [
     i32 0, label %if.then
@@ -1334,25 +1309,25 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %col, i64 68
   %1 = load i32, ptr %arrayidx.i, align 4
-  %metadata_.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i = getelementptr inbounds i8, ptr %rows, i64 8
   %2 = load i8, ptr %metadata_.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  %arrayidx.i72.i = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i72.i = getelementptr inbounds i8, ptr %col, i64 8
   %4 = load ptr, ptr %arrayidx.i72.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %rows, i64 160
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %cmp97.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp97.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i
+  %cmp98.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp98.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
   %div69.i = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i.i = load <8 x i32>, ptr %fixed_length4.i, align 4
   %vecinit7.i.i = shufflevector <8 x i32> %vecinit.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i80.i = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1408,87 +1383,87 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i, !llvm.loop !23
 
 if.else.i:                                        ; preds = %if.then
-  %arrayidx.i73.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %24 = load ptr, ptr %arrayidx.i73.i, align 8
-  %cmp2799.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2799.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i
+  %arrayidx.i74.i = getelementptr inbounds i8, ptr %rows, i64 168
+  %24 = load ptr, ptr %arrayidx.i74.i, align 8
+  %cmp27100.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp27100.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i
 
 for.body28.lr.ph.i:                               ; preds = %if.else.i
   %div2668.i = lshr i32 %num_rows_to_compare, 3
   %vecinit.i131.i = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i138.i = shufflevector <8 x i32> %vecinit.i131.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %25 = lshr i32 %1, 3
-  %rem.i.i79.i = and i32 %1, 7
-  %wide.trip.count106.i = zext nneg i32 %div2668.i to i64
+  %rem.i.i80.i = and i32 %1, 7
+  %wide.trip.count107.i = zext nneg i32 %div2668.i to i64
   br label %for.body28.i
 
 for.body28.i:                                     ; preds = %for.body28.i, %for.body28.lr.ph.i
-  %indvars.iv103.i = phi i64 [ 0, %for.body28.lr.ph.i ], [ %indvars.iv.next104.i, %for.body28.i ]
-  %add.ptr31.i = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv103.i
+  %indvars.iv104.i = phi i64 [ 0, %for.body28.lr.ph.i ], [ %indvars.iv.next105.i, %for.body28.i ]
+  %add.ptr31.i = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv104.i
   %26 = load <8 x i32>, ptr %add.ptr31.i, align 1
   %27 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5, <8 x i32> %26, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i64.i = add <8 x i32> %27, %vecinit7.i138.i
-  %28 = trunc i64 %indvars.iv103.i to i32
+  %28 = trunc i64 %indvars.iv104.i to i32
   %29 = add i32 %25, %28
-  %div59.i.i75.i = and i32 %29, 536870911
-  %idx.ext.i.i76.i = zext nneg i32 %div59.i.i75.i to i64
-  %add.ptr.i.i77.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i76.i
-  %30 = load i16, ptr %add.ptr.i.i77.i, align 2
-  %conv.i.i78.i = zext i16 %30 to i32
-  %shr.i.i80.i = lshr i32 %conv.i.i78.i, %rem.i.i79.i
-  %conv1.i.i81.i = trunc i32 %shr.i.i80.i to i8
-  %vecinit.i84.i.i82.i = insertelement <32 x i8> poison, i8 %conv1.i.i81.i, i64 0
-  %vecinit31.i.i.i83.i = shufflevector <32 x i8> %vecinit.i84.i.i82.i, <32 x i8> poison, <32 x i32> zeroinitializer
-  %31 = bitcast <32 x i8> %vecinit31.i.i.i83.i to <8 x i32>
+  %div59.i.i76.i = and i32 %29, 536870911
+  %idx.ext.i.i77.i = zext nneg i32 %div59.i.i76.i to i64
+  %add.ptr.i.i78.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i77.i
+  %30 = load i16, ptr %add.ptr.i.i78.i, align 2
+  %conv.i.i79.i = zext i16 %30 to i32
+  %shr.i.i81.i = lshr i32 %conv.i.i79.i, %rem.i.i80.i
+  %conv1.i.i82.i = trunc i32 %shr.i.i81.i to i8
+  %vecinit.i84.i.i83.i = insertelement <32 x i8> poison, i8 %conv1.i.i82.i, i64 0
+  %vecinit31.i.i.i84.i = shufflevector <32 x i8> %vecinit.i84.i.i83.i, <32 x i8> poison, <32 x i32> zeroinitializer
+  %31 = bitcast <32 x i8> %vecinit31.i.i.i84.i to <8 x i32>
   %32 = and <8 x i32> %31, <i32 1, i32 2, i32 4, i32 8, i32 16, i32 32, i32 64, i32 128>
-  %cmp.i33.not.i.i84.i = icmp eq <8 x i32> %32, zeroinitializer
+  %cmp.i33.not.i.i85.i = icmp eq <8 x i32> %32, zeroinitializer
   %33 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %24, <8 x i32> %add.i64.i, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
-  %34 = select <8 x i1> %cmp.i33.not.i.i84.i, <8 x i32> zeroinitializer, <8 x i32> <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
+  %34 = select <8 x i1> %cmp.i33.not.i.i85.i, <8 x i32> zeroinitializer, <8 x i32> <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
   %35 = and <8 x i32> %33, <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>
-  %cmp.i.i.i85.i = icmp eq <8 x i32> %34, %35
-  %sext.i.i.i86.i = sext <8 x i1> %cmp.i.i.i85.i to <8 x i32>
-  %36 = shufflevector <8 x i32> %sext.i.i.i86.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i38.i.i88.i = sext <4 x i32> %36 to <4 x i64>
-  %37 = bitcast <4 x i64> %conv.i38.i.i88.i to <32 x i8>
+  %cmp.i.i.i86.i = icmp eq <8 x i32> %34, %35
+  %sext.i.i.i87.i = sext <8 x i1> %cmp.i.i.i86.i to <8 x i32>
+  %36 = shufflevector <8 x i32> %sext.i.i.i87.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i38.i.i89.i = sext <4 x i32> %36 to <4 x i64>
+  %37 = bitcast <4 x i64> %conv.i38.i.i89.i to <32 x i8>
   %38 = icmp slt <32 x i8> %37, zeroinitializer
   %39 = bitcast <32 x i1> %38 to i32
-  %40 = shufflevector <8 x i32> %sext.i.i.i86.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i90.i = sext <4 x i32> %40 to <4 x i64>
-  %41 = bitcast <4 x i64> %conv.i.i.i90.i to <32 x i8>
+  %40 = shufflevector <8 x i32> %sext.i.i.i87.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i91.i = sext <4 x i32> %40 to <4 x i64>
+  %41 = bitcast <4 x i64> %conv.i.i.i91.i to <32 x i8>
   %42 = icmp slt <32 x i8> %41, zeroinitializer
   %43 = bitcast <32 x i1> %42 to i32
-  %conv17.i.i91.i = zext i32 %39 to i64
-  %conv18.i.i92.i = zext i32 %43 to i64
-  %shl.i.i93.i = shl nuw i64 %conv18.i.i92.i, 32
-  %or.i.i94.i = or disjoint i64 %shl.i.i93.i, %conv17.i.i91.i
-  %arrayidx41.i = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv103.i
-  store i64 %or.i.i94.i, ptr %arrayidx41.i, align 8
-  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
-  %exitcond107.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count106.i
-  br i1 %exitcond107.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i, !llvm.loop !24
+  %conv17.i.i92.i = zext i32 %39 to i64
+  %conv18.i.i93.i = zext i32 %43 to i64
+  %shl.i.i94.i = shl nuw i64 %conv18.i.i93.i, 32
+  %or.i.i95.i = or disjoint i64 %shl.i.i94.i, %conv17.i.i92.i
+  %arrayidx41.i = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv104.i
+  store i64 %or.i.i95.i, ptr %arrayidx41.i, align 8
+  %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
+  %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i
+  br i1 %exitcond108.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i, !llvm.loop !24
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i, %for.body28.i, %if.then.i, %if.else.i
   %retval.0.i = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then4:                                         ; preds = %entry
-  %metadata_.i.i49 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i49 = getelementptr inbounds i8, ptr %rows, i64 8
   %44 = load i8, ptr %metadata_.i.i49, align 8
   %45 = and i8 %44, 1
   %tobool.not.i50 = icmp eq i8 %45, 0
-  %arrayidx.i72.i51 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i72.i51 = getelementptr inbounds i8, ptr %col, i64 8
   %46 = load ptr, ptr %arrayidx.i72.i51, align 8
-  %arrayidx.i.i.i52 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i52 = getelementptr inbounds i8, ptr %rows, i64 160
   %47 = load ptr, ptr %arrayidx.i.i.i52, align 8
   br i1 %tobool.not.i50, label %if.else.i80, label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.then4
-  %cmp87.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp87.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i54
+  %cmp88.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp88.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i54
 
 for.body.lr.ph.i54:                               ; preds = %if.then.i53
   %div69.i55 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i56 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i56 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i.i57 = load <8 x i32>, ptr %fixed_length4.i56, align 4
   %vecinit7.i.i58 = shufflevector <8 x i32> %vecinit.i.i57, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i80.i59 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1530,73 +1505,73 @@ for.body.i62:                                     ; preds = %for.body.i62, %for.
   br i1 %exitcond.not.i78, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i62, !llvm.loop !25
 
 if.else.i80:                                      ; preds = %if.then4
-  %arrayidx.i73.i81 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %61 = load ptr, ptr %arrayidx.i73.i81, align 8
-  %cmp2789.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2789.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i82
+  %arrayidx.i74.i81 = getelementptr inbounds i8, ptr %rows, i64 168
+  %61 = load ptr, ptr %arrayidx.i74.i81, align 8
+  %cmp2790.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2790.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i82
 
 for.body28.lr.ph.i82:                             ; preds = %if.else.i80
   %div2668.i83 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i131.i84 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i138.i85 = shufflevector <8 x i32> %vecinit.i131.i84, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count98.i = zext nneg i32 %div2668.i83 to i64
+  %wide.trip.count99.i = zext nneg i32 %div2668.i83 to i64
   br label %for.body28.i86
 
 for.body28.i86:                                   ; preds = %for.body28.i86, %for.body28.lr.ph.i82
-  %indvars.iv94.i = phi i64 [ 0, %for.body28.lr.ph.i82 ], [ %indvars.iv.next95.i, %for.body28.i86 ]
-  %add.ptr31.i87 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv94.i
+  %indvars.iv95.i = phi i64 [ 0, %for.body28.lr.ph.i82 ], [ %indvars.iv.next96.i, %for.body28.i86 ]
+  %add.ptr31.i87 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv95.i
   %62 = load <8 x i32>, ptr %add.ptr31.i87, align 1
   %63 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %47, <8 x i32> %62, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i64.i88 = add <8 x i32> %63, %vecinit7.i138.i85
-  %64 = shl nuw i64 %indvars.iv94.i, 3
-  %add.ptr.i.i75.i = getelementptr inbounds i8, ptr %46, i64 %64
-  %65 = load <8 x i8>, ptr %add.ptr.i.i75.i, align 8
+  %64 = shl nuw i64 %indvars.iv95.i, 3
+  %add.ptr.i.i76.i = getelementptr inbounds i8, ptr %46, i64 %64
+  %65 = load <8 x i8>, ptr %add.ptr.i.i76.i, align 8
   %66 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %61, <8 x i32> %add.i64.i88, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
   %67 = trunc <8 x i32> %66 to <8 x i8>
-  %cmp.i.i.i76.i = icmp eq <8 x i8> %65, %67
-  %sext.i.i.i77.i = sext <8 x i1> %cmp.i.i.i76.i to <8 x i32>
-  %68 = shufflevector <8 x i32> %sext.i.i.i77.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i20.i.i79.i = sext <4 x i32> %68 to <4 x i64>
-  %69 = bitcast <4 x i64> %conv.i20.i.i79.i to <32 x i8>
+  %cmp.i.i.i77.i = icmp eq <8 x i8> %65, %67
+  %sext.i.i.i78.i = sext <8 x i1> %cmp.i.i.i77.i to <8 x i32>
+  %68 = shufflevector <8 x i32> %sext.i.i.i78.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i20.i.i80.i = sext <4 x i32> %68 to <4 x i64>
+  %69 = bitcast <4 x i64> %conv.i20.i.i80.i to <32 x i8>
   %70 = icmp slt <32 x i8> %69, zeroinitializer
   %71 = bitcast <32 x i1> %70 to i32
-  %72 = shufflevector <8 x i32> %sext.i.i.i77.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i81.i = sext <4 x i32> %72 to <4 x i64>
-  %73 = bitcast <4 x i64> %conv.i.i.i81.i to <32 x i8>
+  %72 = shufflevector <8 x i32> %sext.i.i.i78.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i82.i = sext <4 x i32> %72 to <4 x i64>
+  %73 = bitcast <4 x i64> %conv.i.i.i82.i to <32 x i8>
   %74 = icmp slt <32 x i8> %73, zeroinitializer
   %75 = bitcast <32 x i1> %74 to i32
-  %conv.i.i82.i = zext i32 %71 to i64
-  %conv12.i.i83.i = zext i32 %75 to i64
-  %shl.i.i84.i = shl nuw i64 %conv12.i.i83.i, 32
-  %or.i.i85.i = or disjoint i64 %shl.i.i84.i, %conv.i.i82.i
-  %arrayidx41.i89 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv94.i
-  store i64 %or.i.i85.i, ptr %arrayidx41.i89, align 8
-  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %exitcond99.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count98.i
-  br i1 %exitcond99.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i86, !llvm.loop !26
+  %conv.i.i83.i = zext i32 %71 to i64
+  %conv12.i.i84.i = zext i32 %75 to i64
+  %shl.i.i85.i = shl nuw i64 %conv12.i.i84.i, 32
+  %or.i.i86.i = or disjoint i64 %shl.i.i85.i, %conv.i.i83.i
+  %arrayidx41.i89 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv95.i
+  store i64 %or.i.i86.i, ptr %arrayidx41.i89, align 8
+  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count99.i
+  br i1 %exitcond100.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i86, !llvm.loop !26
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E0_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i62, %for.body28.i86, %if.then.i53, %if.else.i80
   %retval.0.i79 = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then9:                                         ; preds = %entry
-  %metadata_.i.i90 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i90 = getelementptr inbounds i8, ptr %rows, i64 8
   %76 = load i8, ptr %metadata_.i.i90, align 8
   %77 = and i8 %76, 1
   %tobool.not.i91 = icmp eq i8 %77, 0
-  %arrayidx.i72.i92 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i72.i92 = getelementptr inbounds i8, ptr %col, i64 8
   %78 = load ptr, ptr %arrayidx.i72.i92, align 8
-  %arrayidx.i.i.i93 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i93 = getelementptr inbounds i8, ptr %rows, i64 160
   %79 = load ptr, ptr %arrayidx.i.i.i93, align 8
   br i1 %tobool.not.i91, label %if.else.i123, label %if.then.i94
 
 if.then.i94:                                      ; preds = %if.then9
-  %cmp88.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp88.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i95
+  %cmp89.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp89.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i95
 
 for.body.lr.ph.i95:                               ; preds = %if.then.i94
   %div69.i96 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i97 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i97 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i.i98 = load <8 x i32>, ptr %fixed_length4.i97, align 4
   %vecinit7.i.i99 = shufflevector <8 x i32> %vecinit.i.i98, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i80.i100 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1639,74 +1614,74 @@ for.body.i103:                                    ; preds = %for.body.i103, %for
   br i1 %exitcond.not.i121, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i103, !llvm.loop !27
 
 if.else.i123:                                     ; preds = %if.then9
-  %arrayidx.i73.i124 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %92 = load ptr, ptr %arrayidx.i73.i124, align 8
-  %cmp2790.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2790.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i125
+  %arrayidx.i74.i124 = getelementptr inbounds i8, ptr %rows, i64 168
+  %92 = load ptr, ptr %arrayidx.i74.i124, align 8
+  %cmp2791.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2791.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i125
 
 for.body28.lr.ph.i125:                            ; preds = %if.else.i123
   %div2668.i126 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i131.i127 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i138.i128 = shufflevector <8 x i32> %vecinit.i131.i127, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count97.i = zext nneg i32 %div2668.i126 to i64
+  %wide.trip.count98.i = zext nneg i32 %div2668.i126 to i64
   br label %for.body28.i129
 
 for.body28.i129:                                  ; preds = %for.body28.i129, %for.body28.lr.ph.i125
-  %indvars.iv94.i130 = phi i64 [ 0, %for.body28.lr.ph.i125 ], [ %indvars.iv.next95.i134, %for.body28.i129 ]
-  %add.ptr31.i131 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv94.i130
+  %indvars.iv95.i130 = phi i64 [ 0, %for.body28.lr.ph.i125 ], [ %indvars.iv.next96.i134, %for.body28.i129 ]
+  %add.ptr31.i131 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv95.i130
   %93 = load <8 x i32>, ptr %add.ptr31.i131, align 1
   %94 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %79, <8 x i32> %93, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i64.i132 = add <8 x i32> %94, %vecinit7.i138.i128
-  %mul38.i = shl i64 %indvars.iv94.i130, 4
-  %idx.ext.i.i75.i = and i64 %mul38.i, 4294967280
-  %add.ptr.i.i76.i = getelementptr inbounds i8, ptr %78, i64 %idx.ext.i.i75.i
-  %95 = load <8 x i16>, ptr %add.ptr.i.i76.i, align 1
+  %mul38.i = shl i64 %indvars.iv95.i130, 4
+  %idx.ext.i.i76.i = and i64 %mul38.i, 4294967280
+  %add.ptr.i.i77.i = getelementptr inbounds i8, ptr %78, i64 %idx.ext.i.i76.i
+  %95 = load <8 x i16>, ptr %add.ptr.i.i77.i, align 1
   %96 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %92, <8 x i32> %add.i64.i132, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
   %97 = trunc <8 x i32> %96 to <8 x i16>
-  %cmp.i.i.i77.i = icmp eq <8 x i16> %95, %97
-  %sext.i.i.i78.i = sext <8 x i1> %cmp.i.i.i77.i to <8 x i32>
-  %98 = shufflevector <8 x i32> %sext.i.i.i78.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i22.i.i80.i = sext <4 x i32> %98 to <4 x i64>
-  %99 = bitcast <4 x i64> %conv.i22.i.i80.i to <32 x i8>
+  %cmp.i.i.i78.i = icmp eq <8 x i16> %95, %97
+  %sext.i.i.i79.i = sext <8 x i1> %cmp.i.i.i78.i to <8 x i32>
+  %98 = shufflevector <8 x i32> %sext.i.i.i79.i, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i22.i.i81.i = sext <4 x i32> %98 to <4 x i64>
+  %99 = bitcast <4 x i64> %conv.i22.i.i81.i to <32 x i8>
   %100 = icmp slt <32 x i8> %99, zeroinitializer
   %101 = bitcast <32 x i1> %100 to i32
-  %102 = shufflevector <8 x i32> %sext.i.i.i78.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i20.i.i82.i = sext <4 x i32> %102 to <4 x i64>
-  %103 = bitcast <4 x i64> %conv.i20.i.i82.i to <32 x i8>
+  %102 = shufflevector <8 x i32> %sext.i.i.i79.i, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i20.i.i83.i = sext <4 x i32> %102 to <4 x i64>
+  %103 = bitcast <4 x i64> %conv.i20.i.i83.i to <32 x i8>
   %104 = icmp slt <32 x i8> %103, zeroinitializer
   %105 = bitcast <32 x i1> %104 to i32
-  %conv.i.i83.i = zext i32 %101 to i64
-  %conv12.i.i84.i = zext i32 %105 to i64
-  %shl.i.i85.i = shl nuw i64 %conv12.i.i84.i, 32
-  %or.i.i86.i = or disjoint i64 %shl.i.i85.i, %conv.i.i83.i
-  %arrayidx41.i133 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv94.i130
-  store i64 %or.i.i86.i, ptr %arrayidx41.i133, align 8
-  %indvars.iv.next95.i134 = add nuw nsw i64 %indvars.iv94.i130, 1
-  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i134, %wide.trip.count97.i
-  br i1 %exitcond98.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i129, !llvm.loop !28
+  %conv.i.i84.i = zext i32 %101 to i64
+  %conv12.i.i85.i = zext i32 %105 to i64
+  %shl.i.i86.i = shl nuw i64 %conv12.i.i85.i, 32
+  %or.i.i87.i = or disjoint i64 %shl.i.i86.i, %conv.i.i84.i
+  %arrayidx41.i133 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv95.i130
+  store i64 %or.i.i87.i, ptr %arrayidx41.i133, align 8
+  %indvars.iv.next96.i134 = add nuw nsw i64 %indvars.iv95.i130, 1
+  %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i134, %wide.trip.count98.i
+  br i1 %exitcond99.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i129, !llvm.loop !28
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E1_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i103, %for.body28.i129, %if.then.i94, %if.else.i123
   %retval.0.i122 = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then14:                                        ; preds = %entry
-  %metadata_.i.i135 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i135 = getelementptr inbounds i8, ptr %rows, i64 8
   %106 = load i8, ptr %metadata_.i.i135, align 8
   %107 = and i8 %106, 1
   %tobool.not.i136 = icmp eq i8 %107, 0
-  %arrayidx.i72.i137 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i72.i137 = getelementptr inbounds i8, ptr %col, i64 8
   %108 = load ptr, ptr %arrayidx.i72.i137, align 8
-  %arrayidx.i.i.i138 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i138 = getelementptr inbounds i8, ptr %rows, i64 160
   %109 = load ptr, ptr %arrayidx.i.i.i138, align 8
   br i1 %tobool.not.i136, label %if.else.i169, label %if.then.i139
 
 if.then.i139:                                     ; preds = %if.then14
-  %cmp88.not.i140 = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp88.not.i140, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i141
+  %cmp89.not.i140 = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp89.not.i140, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i141
 
 for.body.lr.ph.i141:                              ; preds = %if.then.i139
   %div69.i142 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i143 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i143 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i.i144 = load <8 x i32>, ptr %fixed_length4.i143, align 4
   %vecinit7.i.i145 = shufflevector <8 x i32> %vecinit.i.i144, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i80.i146 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1748,73 +1723,73 @@ for.body.i149:                                    ; preds = %for.body.i149, %for
   br i1 %exitcond.not.i167, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i149, !llvm.loop !29
 
 if.else.i169:                                     ; preds = %if.then14
-  %arrayidx.i73.i170 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %121 = load ptr, ptr %arrayidx.i73.i170, align 8
-  %cmp2790.not.i171 = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2790.not.i171, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i172
+  %arrayidx.i74.i170 = getelementptr inbounds i8, ptr %rows, i64 168
+  %121 = load ptr, ptr %arrayidx.i74.i170, align 8
+  %cmp2791.not.i171 = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2791.not.i171, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i172
 
 for.body28.lr.ph.i172:                            ; preds = %if.else.i169
   %div2668.i173 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i131.i174 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i138.i175 = shufflevector <8 x i32> %vecinit.i131.i174, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count97.i176 = zext nneg i32 %div2668.i173 to i64
+  %wide.trip.count98.i176 = zext nneg i32 %div2668.i173 to i64
   br label %for.body28.i177
 
 for.body28.i177:                                  ; preds = %for.body28.i177, %for.body28.lr.ph.i172
-  %indvars.iv94.i178 = phi i64 [ 0, %for.body28.lr.ph.i172 ], [ %indvars.iv.next95.i192, %for.body28.i177 ]
-  %add.ptr31.i179 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv94.i178
+  %indvars.iv95.i178 = phi i64 [ 0, %for.body28.lr.ph.i172 ], [ %indvars.iv.next96.i192, %for.body28.i177 ]
+  %add.ptr31.i179 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv95.i178
   %122 = load <8 x i32>, ptr %add.ptr31.i179, align 1
   %123 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %109, <8 x i32> %122, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i64.i180 = add <8 x i32> %123, %vecinit7.i138.i175
-  %mul38.i181 = shl i64 %indvars.iv94.i178, 5
-  %idx.ext.i.i75.i182 = and i64 %mul38.i181, 4294967264
-  %add.ptr.i.i76.i183 = getelementptr inbounds i8, ptr %108, i64 %idx.ext.i.i75.i182
-  %124 = load <8 x i32>, ptr %add.ptr.i.i76.i183, align 1
+  %mul38.i181 = shl i64 %indvars.iv95.i178, 5
+  %idx.ext.i.i76.i182 = and i64 %mul38.i181, 4294967264
+  %add.ptr.i.i77.i183 = getelementptr inbounds i8, ptr %108, i64 %idx.ext.i.i76.i182
+  %124 = load <8 x i32>, ptr %add.ptr.i.i77.i183, align 1
   %125 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %121, <8 x i32> %add.i64.i180, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
-  %cmp.i.i.i77.i184 = icmp eq <8 x i32> %124, %125
-  %sext.i.i.i78.i185 = sext <8 x i1> %cmp.i.i.i77.i184 to <8 x i32>
-  %126 = shufflevector <8 x i32> %sext.i.i.i78.i185, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %conv.i13.i.i80.i = sext <4 x i32> %126 to <4 x i64>
-  %127 = bitcast <4 x i64> %conv.i13.i.i80.i to <32 x i8>
+  %cmp.i.i.i78.i184 = icmp eq <8 x i32> %124, %125
+  %sext.i.i.i79.i185 = sext <8 x i1> %cmp.i.i.i78.i184 to <8 x i32>
+  %126 = shufflevector <8 x i32> %sext.i.i.i79.i185, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %conv.i13.i.i81.i = sext <4 x i32> %126 to <4 x i64>
+  %127 = bitcast <4 x i64> %conv.i13.i.i81.i to <32 x i8>
   %128 = icmp slt <32 x i8> %127, zeroinitializer
   %129 = bitcast <32 x i1> %128 to i32
-  %130 = shufflevector <8 x i32> %sext.i.i.i78.i185, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i82.i = sext <4 x i32> %130 to <4 x i64>
-  %131 = bitcast <4 x i64> %conv.i.i.i82.i to <32 x i8>
+  %130 = shufflevector <8 x i32> %sext.i.i.i79.i185, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i83.i = sext <4 x i32> %130 to <4 x i64>
+  %131 = bitcast <4 x i64> %conv.i.i.i83.i to <32 x i8>
   %132 = icmp slt <32 x i8> %131, zeroinitializer
   %133 = bitcast <32 x i1> %132 to i32
-  %conv.i.i83.i188 = zext i32 %129 to i64
-  %conv9.i.i84.i = zext i32 %133 to i64
-  %shl.i.i85.i189 = shl nuw i64 %conv9.i.i84.i, 32
-  %or.i.i86.i190 = or disjoint i64 %shl.i.i85.i189, %conv.i.i83.i188
-  %arrayidx41.i191 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv94.i178
-  store i64 %or.i.i86.i190, ptr %arrayidx41.i191, align 8
-  %indvars.iv.next95.i192 = add nuw nsw i64 %indvars.iv94.i178, 1
-  %exitcond98.not.i193 = icmp eq i64 %indvars.iv.next95.i192, %wide.trip.count97.i176
-  br i1 %exitcond98.not.i193, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i177, !llvm.loop !30
+  %conv.i.i84.i188 = zext i32 %129 to i64
+  %conv9.i.i85.i = zext i32 %133 to i64
+  %shl.i.i86.i189 = shl nuw i64 %conv9.i.i85.i, 32
+  %or.i.i87.i190 = or disjoint i64 %shl.i.i86.i189, %conv.i.i84.i188
+  %arrayidx41.i191 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv95.i178
+  store i64 %or.i.i87.i190, ptr %arrayidx41.i191, align 8
+  %indvars.iv.next96.i192 = add nuw nsw i64 %indvars.iv95.i178, 1
+  %exitcond99.not.i193 = icmp eq i64 %indvars.iv.next96.i192, %wide.trip.count98.i176
+  br i1 %exitcond99.not.i193, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i177, !llvm.loop !30
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E2_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i149, %for.body28.i177, %if.then.i139, %if.else.i169
   %retval.0.i168 = and i32 %num_rows_to_compare, -8
   br label %return
 
 if.then19:                                        ; preds = %entry
-  %metadata_.i.i194 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i.i194 = getelementptr inbounds i8, ptr %rows, i64 8
   %134 = load i8, ptr %metadata_.i.i194, align 8
   %135 = and i8 %134, 1
   %tobool.not.i195 = icmp eq i8 %135, 0
-  %arrayidx.i72.i196 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i72.i196 = getelementptr inbounds i8, ptr %col, i64 8
   %136 = load ptr, ptr %arrayidx.i72.i196, align 8
-  %arrayidx.i.i.i197 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i.i197 = getelementptr inbounds i8, ptr %rows, i64 160
   %137 = load ptr, ptr %arrayidx.i.i.i197, align 8
   br i1 %tobool.not.i195, label %if.else.i223, label %if.then.i198
 
 if.then.i198:                                     ; preds = %if.then19
-  %cmp89.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp89.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i199
+  %cmp90.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp90.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.lr.ph.i199
 
 for.body.lr.ph.i199:                              ; preds = %if.then.i198
   %div69.i200 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4.i201 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4.i201 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i.i202 = load <8 x i32>, ptr %fixed_length4.i201, align 4
   %vecinit7.i.i203 = shufflevector <8 x i32> %vecinit.i.i202, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i80.i204 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
@@ -1831,7 +1806,7 @@ for.body.i207:                                    ; preds = %for.body.i207, %for
   %139 = shl i64 %indvars.iv.i208, 6
   %add.ptr.i.i.i212 = getelementptr inbounds i8, ptr %136, i64 %139
   %140 = load <4 x i64>, ptr %add.ptr.i.i.i212, align 1
-  %add.ptr4.i.i.i = getelementptr inbounds <4 x i64>, ptr %add.ptr.i.i.i212, i64 1
+  %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i212, i64 32
   %141 = load <4 x i64>, ptr %add.ptr4.i.i.i, align 1
   %142 = shufflevector <8 x i32> %add.i70.i211, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %143 = tail call <4 x i64> @llvm.x86.avx2.gather.d.q.256(<4 x i64> zeroinitializer, ptr %137, <4 x i32> %142, <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, i8 1)
@@ -1858,52 +1833,52 @@ for.body.i207:                                    ; preds = %for.body.i207, %for
   br i1 %exitcond.not.i221, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body.i207, !llvm.loop !31
 
 if.else.i223:                                     ; preds = %if.then19
-  %arrayidx.i73.i224 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %152 = load ptr, ptr %arrayidx.i73.i224, align 8
-  %cmp2791.not.i = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp2791.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i225
+  %arrayidx.i74.i224 = getelementptr inbounds i8, ptr %rows, i64 168
+  %152 = load ptr, ptr %arrayidx.i74.i224, align 8
+  %cmp2792.not.i = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp2792.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.lr.ph.i225
 
 for.body28.lr.ph.i225:                            ; preds = %if.else.i223
   %div2668.i226 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i131.i227 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i138.i228 = shufflevector <8 x i32> %vecinit.i131.i227, <8 x i32> poison, <8 x i32> zeroinitializer
-  %wide.trip.count100.i = zext nneg i32 %div2668.i226 to i64
+  %wide.trip.count101.i = zext nneg i32 %div2668.i226 to i64
   br label %for.body28.i229
 
 for.body28.i229:                                  ; preds = %for.body28.i229, %for.body28.lr.ph.i225
-  %indvars.iv96.i = phi i64 [ 0, %for.body28.lr.ph.i225 ], [ %indvars.iv.next97.i, %for.body28.i229 ]
-  %add.ptr31.i230 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv96.i
+  %indvars.iv97.i = phi i64 [ 0, %for.body28.lr.ph.i225 ], [ %indvars.iv.next98.i, %for.body28.i229 ]
+  %add.ptr31.i230 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv97.i
   %153 = load <8 x i32>, ptr %add.ptr31.i230, align 1
   %154 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %137, <8 x i32> %153, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i64.i231 = add <8 x i32> %154, %vecinit7.i138.i228
-  %155 = shl i64 %indvars.iv96.i, 6
-  %add.ptr.i.i76.i232 = getelementptr inbounds i8, ptr %136, i64 %155
-  %156 = load <4 x i64>, ptr %add.ptr.i.i76.i232, align 1
-  %add.ptr4.i.i77.i = getelementptr inbounds <4 x i64>, ptr %add.ptr.i.i76.i232, i64 1
-  %157 = load <4 x i64>, ptr %add.ptr4.i.i77.i, align 1
+  %155 = shl i64 %indvars.iv97.i, 6
+  %add.ptr.i.i77.i232 = getelementptr inbounds i8, ptr %136, i64 %155
+  %156 = load <4 x i64>, ptr %add.ptr.i.i77.i232, align 1
+  %add.ptr4.i.i78.i = getelementptr inbounds i8, ptr %add.ptr.i.i77.i232, i64 32
+  %157 = load <4 x i64>, ptr %add.ptr4.i.i78.i, align 1
   %158 = shufflevector <8 x i32> %add.i64.i231, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %159 = tail call <4 x i64> @llvm.x86.avx2.gather.d.q.256(<4 x i64> zeroinitializer, ptr %152, <4 x i32> %158, <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, i8 1)
   %160 = shufflevector <8 x i32> %add.i64.i231, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %161 = tail call <4 x i64> @llvm.x86.avx2.gather.d.q.256(<4 x i64> zeroinitializer, ptr %152, <4 x i32> %160, <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, i8 1)
-  %cmp.i25.i.i80.i = icmp eq <4 x i64> %156, %159
-  %sext.i26.i.i81.i = sext <4 x i1> %cmp.i25.i.i80.i to <4 x i64>
-  %162 = bitcast <4 x i64> %sext.i26.i.i81.i to <32 x i8>
+  %cmp.i25.i.i81.i = icmp eq <4 x i64> %156, %159
+  %sext.i26.i.i82.i = sext <4 x i1> %cmp.i25.i.i81.i to <4 x i64>
+  %162 = bitcast <4 x i64> %sext.i26.i.i82.i to <32 x i8>
   %163 = icmp slt <32 x i8> %162, zeroinitializer
   %164 = bitcast <32 x i1> %163 to i32
-  %cmp.i.i.i82.i = icmp eq <4 x i64> %157, %161
-  %sext.i.i.i83.i = sext <4 x i1> %cmp.i.i.i82.i to <4 x i64>
-  %165 = bitcast <4 x i64> %sext.i.i.i83.i to <32 x i8>
+  %cmp.i.i.i83.i = icmp eq <4 x i64> %157, %161
+  %sext.i.i.i84.i = sext <4 x i1> %cmp.i.i.i83.i to <4 x i64>
+  %165 = bitcast <4 x i64> %sext.i.i.i84.i to <32 x i8>
   %166 = icmp slt <32 x i8> %165, zeroinitializer
   %167 = bitcast <32 x i1> %166 to i32
-  %conv15.i.i84.i = zext i32 %164 to i64
-  %conv16.i.i85.i = zext i32 %167 to i64
-  %shl.i.i86.i = shl nuw i64 %conv16.i.i85.i, 32
-  %or.i.i87.i = or disjoint i64 %shl.i.i86.i, %conv15.i.i84.i
-  %arrayidx41.i234 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv96.i
-  store i64 %or.i.i87.i, ptr %arrayidx41.i234, align 8
-  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
-  %exitcond101.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count100.i
-  br i1 %exitcond101.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i229, !llvm.loop !32
+  %conv15.i.i85.i = zext i32 %164 to i64
+  %conv16.i.i86.i = zext i32 %167 to i64
+  %shl.i.i87.i = shl nuw i64 %conv16.i.i86.i, 32
+  %or.i.i88.i = or disjoint i64 %shl.i.i87.i, %conv15.i.i85.i
+  %arrayidx41.i234 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv97.i
+  store i64 %or.i.i88.i, ptr %arrayidx41.i234, align 8
+  %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
+  %exitcond102.not.i = icmp eq i64 %indvars.iv.next98.i, %wide.trip.count101.i
+  br i1 %exitcond102.not.i, label %_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit, label %for.body28.i229, !llvm.loop !32
 
 _ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E3_EEjjjS5_S7_S9_SC_SF_SG_T0_.exit: ; preds = %for.body.i207, %for.body28.i229, %if.then.i198, %if.else.i223
   %retval.0.i222 = and i32 %num_rows_to_compare, -8
@@ -1922,9 +1897,9 @@ return:                                           ; preds = %if.else22, %_ZN5arr
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN5arrow7compute10KeyCompare32CompareVarBinaryColumnToRow_avx2EbbjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i1 noundef zeroext %use_selection, i1 noundef zeroext %is_first_varbinary_col, i32 noundef %id_varlen_col, i32 noundef %num_rows_to_compare, ptr nocapture noundef readonly %sel_left_maybe_null, ptr nocapture noundef readonly %left_to_right_map, ptr nocapture noundef readnone %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %col, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef writeonly %match_bytevector) local_unnamed_addr #3 align 2 {
 entry:
-  %length_.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %col, i64 56
   %0 = load i64, ptr %length_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %col, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp6.i = icmp sgt i64 %0, 0
   br i1 %cmp6.i, label %land.rhs.lr.ph.i, label %_ZN5arrow7compute15TailSkipForSIMD18FixVarBinaryAccessEilPKj.exit
@@ -1972,11 +1947,11 @@ land.rhs.i34:                                     ; preds = %while.cond.i
 
 if.then6:                                         ; preds = %while.cond.i, %land.rhs.i34
   %num_rows_to_compare.addr.0 = phi i32 [ %smin.i, %while.cond.i ], [ %5, %land.rhs.i34 ]
-  %arrayidx.i.i28.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i28.i = getelementptr inbounds i8, ptr %rows, i64 160
   %8 = load ptr, ptr %arrayidx.i.i28.i, align 8
-  %arrayidx.i.i36 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 2
+  %arrayidx.i.i36 = getelementptr inbounds i8, ptr %col, i64 16
   %9 = load ptr, ptr %arrayidx.i.i36, align 8
-  %arrayidx.i29.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
+  %arrayidx.i29.i = getelementptr inbounds i8, ptr %rows, i64 168
   %10 = load ptr, ptr %arrayidx.i29.i, align 8
   %cmp39.not.i = icmp eq i32 %num_rows_to_compare.addr.0, 0
   br i1 %is_first_varbinary_col, label %if.then8, label %if.else9
@@ -1985,8 +1960,8 @@ if.then8:                                         ; preds = %if.then6
   br i1 %cmp39.not.i, label %if.end16, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then8
-  %fixed_length.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
-  %varbinary_end_array_offset.i.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 2
+  %fixed_length.i.i = getelementptr inbounds i8, ptr %rows, i64 12
+  %varbinary_end_array_offset.i.i.i = getelementptr inbounds i8, ptr %rows, i64 16
   %wide.trip.count45.i = zext i32 %num_rows_to_compare.addr.0 to i64
   br label %for.body.i
 
@@ -1999,7 +1974,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %12 = load i32, ptr %arrayidx5.i, align 4
   %arrayidx7.i = getelementptr inbounds i32, ptr %1, i64 %conv.i38
   %13 = load i32, ptr %arrayidx7.i, align 4
-  %arrayidx9.i = getelementptr i32, ptr %arrayidx7.i, i64 1
+  %arrayidx9.i = getelementptr i8, ptr %arrayidx7.i, i64 4
   %14 = load i32, ptr %arrayidx9.i, align 4
   %sub.i = sub i32 %14, %13
   %idxprom10.i = zext i32 %12 to i64
@@ -2084,9 +2059,9 @@ if.else9:                                         ; preds = %if.then6
   br i1 %cmp39.not.i, label %if.end16, label %for.body.lr.ph.i44
 
 for.body.lr.ph.i44:                               ; preds = %if.else9
-  %varbinary_end_array_offset.i.i.i45 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 2
+  %varbinary_end_array_offset.i.i.i45 = getelementptr inbounds i8, ptr %rows, i64 16
   %27 = sext i32 %id_varlen_col to i64
-  %string_alignment.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 5
+  %string_alignment.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %wide.trip.count46.i = zext i32 %num_rows_to_compare.addr.0 to i64
   br label %for.body.i46
 
@@ -2099,7 +2074,7 @@ for.body.i46:                                     ; preds = %if.end.i83, %for.bo
   %29 = load i32, ptr %arrayidx5.i49, align 4
   %arrayidx7.i50 = getelementptr inbounds i32, ptr %1, i64 %conv.i48
   %30 = load i32, ptr %arrayidx7.i50, align 4
-  %arrayidx9.i51 = getelementptr i32, ptr %arrayidx7.i50, i64 1
+  %arrayidx9.i51 = getelementptr i8, ptr %arrayidx7.i50, i64 4
   %31 = load i32, ptr %arrayidx9.i51, align 4
   %sub.i52 = sub i32 %31, %30
   %idxprom10.i53 = zext i32 %29 to i64
@@ -2111,7 +2086,7 @@ for.body.i46:                                     ; preds = %if.end.i83, %for.bo
   %idx.ext.i.i.i57 = zext i32 %33 to i64
   %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %idx.ext.i.i.i57
   %34 = getelementptr i32, ptr %add.ptr.i.i.i58, i64 %27
-  %arrayidx.i30.i = getelementptr i32, ptr %34, i64 -1
+  %arrayidx.i30.i = getelementptr i8, ptr %34, i64 -4
   %35 = load i32, ptr %arrayidx.i30.i, align 4
   %36 = load i32, ptr %string_alignment.i.i, align 4
   %sub.i.i.i = sub nsw i32 0, %35
@@ -2189,11 +2164,11 @@ if.end.i83:                                       ; preds = %for.end.i67, %for.b
 
 if.else11:                                        ; preds = %_ZN5arrow7compute15TailSkipForSIMD18FixVarBinaryAccessEilPKj.exit
   %conv = trunc i64 %num_rows_safe.0.lcssa.i to i32
-  %arrayidx.i.i28.i102 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i28.i102 = getelementptr inbounds i8, ptr %rows, i64 160
   %46 = load ptr, ptr %arrayidx.i.i28.i102, align 8
-  %arrayidx.i.i103 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 2
+  %arrayidx.i.i103 = getelementptr inbounds i8, ptr %col, i64 16
   %47 = load ptr, ptr %arrayidx.i.i103, align 8
-  %arrayidx.i29.i104 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
+  %arrayidx.i29.i104 = getelementptr inbounds i8, ptr %rows, i64 168
   %48 = load ptr, ptr %arrayidx.i29.i104, align 8
   %cmp39.not.i105 = icmp eq i32 %conv, 0
   br i1 %is_first_varbinary_col, label %if.then13, label %if.else14
@@ -2202,8 +2177,8 @@ if.then13:                                        ; preds = %if.else11
   br i1 %cmp39.not.i105, label %if.end16, label %for.body.lr.ph.i106
 
 for.body.lr.ph.i106:                              ; preds = %if.then13
-  %fixed_length.i.i107 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
-  %varbinary_end_array_offset.i.i.i108 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 2
+  %fixed_length.i.i107 = getelementptr inbounds i8, ptr %rows, i64 12
+  %varbinary_end_array_offset.i.i.i108 = getelementptr inbounds i8, ptr %rows, i64 16
   %wide.trip.count45.i109 = and i64 %num_rows_safe.0.lcssa.i, 4294967295
   br label %for.body.i110
 
@@ -2298,9 +2273,9 @@ if.else14:                                        ; preds = %if.else11
   br i1 %cmp39.not.i105, label %if.end16, label %for.body.lr.ph.i156
 
 for.body.lr.ph.i156:                              ; preds = %if.else14
-  %varbinary_end_array_offset.i.i.i157 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 2
+  %varbinary_end_array_offset.i.i.i157 = getelementptr inbounds i8, ptr %rows, i64 16
   %64 = sext i32 %id_varlen_col to i64
-  %string_alignment.i.i158 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 5
+  %string_alignment.i.i158 = getelementptr inbounds i8, ptr %rows, i64 28
   %wide.trip.count46.i159 = and i64 %num_rows_safe.0.lcssa.i, 4294967295
   br label %for.body.i160
 
@@ -2323,7 +2298,7 @@ for.body.i160:                                    ; preds = %if.end.i203, %for.b
   %idx.ext.i.i.i171 = zext i32 %69 to i64
   %add.ptr.i.i.i172 = getelementptr inbounds i8, ptr %add.ptr.i170, i64 %idx.ext.i.i.i171
   %70 = getelementptr i32, ptr %add.ptr.i.i.i172, i64 %64
-  %arrayidx.i30.i173 = getelementptr i32, ptr %70, i64 -1
+  %arrayidx.i30.i173 = getelementptr i8, ptr %70, i64 -4
   %71 = load i32, ptr %arrayidx.i30.i173, align 4
   %72 = load i32, ptr %string_alignment.i.i158, align 4
   %sub.i.i.i174 = sub nsw i32 0, %71
@@ -2411,33 +2386,33 @@ declare <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32>, ptr, <8 x i32>, <8 x 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E4_EEjjjS5_S7_S9_SC_SF_SG_T0_(i32 noundef %offset_within_row, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector, i64 %compare8_fn.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %irow_left_array.i.i76 = alloca [8 x i32], align 16
-  %offset_right_array.i.i77 = alloca [8 x i32], align 16
+  %irow_left_array.i.i77 = alloca [8 x i32], align 16
+  %offset_right_array.i.i78 = alloca [8 x i32], align 16
   %irow_left_array.i.i = alloca [8 x i32], align 16
   %offset_right_array.i.i = alloca [8 x i32], align 16
   %coerce.val.ip = inttoptr i64 %compare8_fn.coerce to ptr
-  %metadata_.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i = getelementptr inbounds i8, ptr %rows, i64 8
   %0 = load i8, ptr %metadata_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %arrayidx.i73 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %col, i64 8
   %2 = load ptr, ptr %arrayidx.i73, align 8
-  %arrayidx.i.i74 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i74 = getelementptr inbounds i8, ptr %rows, i64 160
   %3 = load ptr, ptr %arrayidx.i.i74, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp148.not = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp148.not, label %return, label %for.body.lr.ph
+  %cmp149.not = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp149.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
   %div70 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i78 = load <8 x i32>, ptr %fixed_length4, align 4
   %vecinit7.i85 = shufflevector <8 x i32> %vecinit.i78, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i95 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i102 = shufflevector <8 x i32> %vecinit.i95, <8 x i32> poison, <8 x i32> zeroinitializer
-  %fixed_length.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %coerce.val.ip, i64 0, i32 2, i32 2
+  %fixed_length.i = getelementptr inbounds i8, ptr %coerce.val.ip, i64 52
   %wide.trip.count = zext nneg i32 %div70 to i64
   br label %for.body
 
@@ -2555,133 +2530,133 @@ _ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKj
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !44
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i75 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %22 = load ptr, ptr %arrayidx.i75, align 8
-  %cmp28150.not = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp28150.not, label %return, label %for.body29.lr.ph
+  %arrayidx.i76 = getelementptr inbounds i8, ptr %rows, i64 168
+  %22 = load ptr, ptr %arrayidx.i76, align 8
+  %cmp28151.not = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp28151.not, label %return, label %for.body29.lr.ph
 
 for.body29.lr.ph:                                 ; preds = %if.else
   %div2769 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i146 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i153 = shufflevector <8 x i32> %vecinit.i146, <8 x i32> poison, <8 x i32> zeroinitializer
-  %fixed_length.i78 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %coerce.val.ip, i64 0, i32 2, i32 2
-  %wide.trip.count159 = zext nneg i32 %div2769 to i64
+  %fixed_length.i79 = getelementptr inbounds i8, ptr %coerce.val.ip, i64 52
+  %wide.trip.count160 = zext nneg i32 %div2769 to i64
   br label %for.body29
 
-for.body29:                                       ; preds = %for.body29.lr.ph, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit143
-  %indvars.iv156 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next157, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit143 ]
-  %add.ptr31 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv156
+for.body29:                                       ; preds = %for.body29.lr.ph, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit144
+  %indvars.iv157 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next158, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit144 ]
+  %add.ptr31 = getelementptr inbounds <2 x i64>, ptr %sel_left_maybe_null, i64 %indvars.iv157
   %23 = load <8 x i16>, ptr %add.ptr31, align 1
   %conv.i = zext <8 x i16> %23 to <8 x i32>
   %24 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %left_to_right_map, <8 x i32> %conv.i, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %25 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3, <8 x i32> %24, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i = add <8 x i32> %25, %vecinit7.i153
-  %26 = load i32, ptr %fixed_length.i78, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %irow_left_array.i.i76)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %offset_right_array.i.i77)
-  store <8 x i32> %conv.i, ptr %irow_left_array.i.i76, align 16
-  store <8 x i32> %add.i, ptr %offset_right_array.i.i77, align 16
-  %add.i.i79 = add nsw i32 %26, 31
-  %div.i.i80 = sdiv i32 %add.i.i79, 32
-  %sub.i.i81 = add nsw i32 %div.i.i80, -1
-  %mul.i.i82 = shl nsw i32 %sub.i.i81, 5
-  %sub2.i.i83 = sub i32 %26, %mul.i.i82
-  %conv.i.i.i84 = trunc i32 %sub2.i.i83 to i8
-  %vecinit.i.i.i.i85 = insertelement <32 x i8> poison, i8 %conv.i.i.i84, i64 0
-  %vecinit31.i.i.i.i86 = shufflevector <32 x i8> %vecinit.i.i.i.i85, <32 x i8> poison, <32 x i32> zeroinitializer
-  %cmp.i.i.i.i87 = icmp sgt <32 x i8> %vecinit31.i.i.i.i86, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31>
-  %sext.i.i.i.i88 = sext <32 x i1> %cmp.i.i.i.i87 to <32 x i8>
-  %27 = bitcast <32 x i8> %sext.i.i.i.i88 to <4 x i64>
-  %cmp1019.i.i89 = icmp sgt i32 %26, 32
-  br i1 %cmp1019.i.i89, label %for.body.us.preheader.i.i109, label %for.body.i.i90
+  %26 = load i32, ptr %fixed_length.i79, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %irow_left_array.i.i77)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %offset_right_array.i.i78)
+  store <8 x i32> %conv.i, ptr %irow_left_array.i.i77, align 16
+  store <8 x i32> %add.i, ptr %offset_right_array.i.i78, align 16
+  %add.i.i80 = add nsw i32 %26, 31
+  %div.i.i81 = sdiv i32 %add.i.i80, 32
+  %sub.i.i82 = add nsw i32 %div.i.i81, -1
+  %mul.i.i83 = shl nsw i32 %sub.i.i82, 5
+  %sub2.i.i84 = sub i32 %26, %mul.i.i83
+  %conv.i.i.i85 = trunc i32 %sub2.i.i84 to i8
+  %vecinit.i.i.i.i86 = insertelement <32 x i8> poison, i8 %conv.i.i.i85, i64 0
+  %vecinit31.i.i.i.i87 = shufflevector <32 x i8> %vecinit.i.i.i.i86, <32 x i8> poison, <32 x i32> zeroinitializer
+  %cmp.i.i.i.i88 = icmp sgt <32 x i8> %vecinit31.i.i.i.i87, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31>
+  %sext.i.i.i.i89 = sext <32 x i1> %cmp.i.i.i.i88 to <32 x i8>
+  %27 = bitcast <32 x i8> %sext.i.i.i.i89 to <4 x i64>
+  %cmp1019.i.i90 = icmp sgt i32 %26, 32
+  br i1 %cmp1019.i.i90, label %for.body.us.preheader.i.i110, label %for.body.i.i91
 
-for.body.us.preheader.i.i109:                     ; preds = %for.body29
-  %smax.i.i110 = tail call i32 @llvm.smax.i32(i32 %sub.i.i81, i32 1)
-  %idx.ext21.us.i.i111 = zext nneg i32 %smax.i.i110 to i64
-  br label %for.body.us.i.i112
+for.body.us.preheader.i.i110:                     ; preds = %for.body29
+  %smax.i.i111 = tail call i32 @llvm.smax.i32(i32 %sub.i.i82, i32 1)
+  %idx.ext21.us.i.i112 = zext nneg i32 %smax.i.i111 to i64
+  br label %for.body.us.i.i113
 
-for.body.us.i.i112:                               ; preds = %for.cond9.for.end_crit_edge.us.i.i131, %for.body.us.preheader.i.i109
-  %indvars.iv32.i.i113 = phi i64 [ 0, %for.body.us.preheader.i.i109 ], [ %indvars.iv.next33.i.i141, %for.cond9.for.end_crit_edge.us.i.i131 ]
-  %result.024.us.i.i114 = phi i64 [ 0, %for.body.us.preheader.i.i109 ], [ %or.us.i.i140, %for.cond9.for.end_crit_edge.us.i.i131 ]
-  %arrayidx.us.i.i115 = getelementptr inbounds [8 x i32], ptr %irow_left_array.i.i76, i64 0, i64 %indvars.iv32.i.i113
-  %28 = load i32, ptr %arrayidx.us.i.i115, align 4
-  %mul3.us.i.i116 = mul i32 %28, %26
-  %idx.ext.us.i.i117 = zext i32 %mul3.us.i.i116 to i64
-  %add.ptr.us.i.i118 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.us.i.i117
-  %arrayidx5.us.i.i119 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i77, i64 0, i64 %indvars.iv32.i.i113
-  %29 = load i32, ptr %arrayidx5.us.i.i119, align 4
-  %idx.ext6.us.i.i120 = zext i32 %29 to i64
-  %add.ptr7.us.i.i121 = getelementptr inbounds i8, ptr %22, i64 %idx.ext6.us.i.i120
-  br label %for.body11.us.i.i122
+for.body.us.i.i113:                               ; preds = %for.cond9.for.end_crit_edge.us.i.i132, %for.body.us.preheader.i.i110
+  %indvars.iv32.i.i114 = phi i64 [ 0, %for.body.us.preheader.i.i110 ], [ %indvars.iv.next33.i.i142, %for.cond9.for.end_crit_edge.us.i.i132 ]
+  %result.024.us.i.i115 = phi i64 [ 0, %for.body.us.preheader.i.i110 ], [ %or.us.i.i141, %for.cond9.for.end_crit_edge.us.i.i132 ]
+  %arrayidx.us.i.i116 = getelementptr inbounds [8 x i32], ptr %irow_left_array.i.i77, i64 0, i64 %indvars.iv32.i.i114
+  %28 = load i32, ptr %arrayidx.us.i.i116, align 4
+  %mul3.us.i.i117 = mul i32 %28, %26
+  %idx.ext.us.i.i118 = zext i32 %mul3.us.i.i117 to i64
+  %add.ptr.us.i.i119 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.us.i.i118
+  %arrayidx5.us.i.i120 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i78, i64 0, i64 %indvars.iv32.i.i114
+  %29 = load i32, ptr %arrayidx5.us.i.i120, align 4
+  %idx.ext6.us.i.i121 = zext i32 %29 to i64
+  %add.ptr7.us.i.i122 = getelementptr inbounds i8, ptr %22, i64 %idx.ext6.us.i.i121
+  br label %for.body11.us.i.i123
 
-for.body11.us.i.i122:                             ; preds = %for.body11.us.i.i122, %for.body.us.i.i112
-  %indvars.iv28.i.i123 = phi i64 [ 0, %for.body.us.i.i112 ], [ %indvars.iv.next29.i.i129, %for.body11.us.i.i122 ]
-  %result_or.021.us.i.i124 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i112 ], [ %or.i48.us.i.i128, %for.body11.us.i.i122 ]
-  %add.ptr13.us.i.i125 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i118, i64 %indvars.iv28.i.i123
-  %30 = load <4 x i64>, ptr %add.ptr13.us.i.i125, align 1
-  %add.ptr16.us.i.i126 = getelementptr inbounds <4 x i64>, ptr %add.ptr7.us.i.i121, i64 %indvars.iv28.i.i123
-  %31 = load <4 x i64>, ptr %add.ptr16.us.i.i126, align 1
-  %xor.i53.us.i.i127 = xor <4 x i64> %31, %30
-  %or.i48.us.i.i128 = or <4 x i64> %xor.i53.us.i.i127, %result_or.021.us.i.i124
-  %indvars.iv.next29.i.i129 = add nuw nsw i64 %indvars.iv28.i.i123, 1
-  %exitcond31.not.i.i130 = icmp eq i64 %indvars.iv.next29.i.i129, %idx.ext21.us.i.i111
-  br i1 %exitcond31.not.i.i130, label %for.cond9.for.end_crit_edge.us.i.i131, label %for.body11.us.i.i122, !llvm.loop !42
+for.body11.us.i.i123:                             ; preds = %for.body11.us.i.i123, %for.body.us.i.i113
+  %indvars.iv28.i.i124 = phi i64 [ 0, %for.body.us.i.i113 ], [ %indvars.iv.next29.i.i130, %for.body11.us.i.i123 ]
+  %result_or.021.us.i.i125 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i113 ], [ %or.i48.us.i.i129, %for.body11.us.i.i123 ]
+  %add.ptr13.us.i.i126 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i119, i64 %indvars.iv28.i.i124
+  %30 = load <4 x i64>, ptr %add.ptr13.us.i.i126, align 1
+  %add.ptr16.us.i.i127 = getelementptr inbounds <4 x i64>, ptr %add.ptr7.us.i.i122, i64 %indvars.iv28.i.i124
+  %31 = load <4 x i64>, ptr %add.ptr16.us.i.i127, align 1
+  %xor.i53.us.i.i128 = xor <4 x i64> %31, %30
+  %or.i48.us.i.i129 = or <4 x i64> %xor.i53.us.i.i128, %result_or.021.us.i.i125
+  %indvars.iv.next29.i.i130 = add nuw nsw i64 %indvars.iv28.i.i124, 1
+  %exitcond31.not.i.i131 = icmp eq i64 %indvars.iv.next29.i.i130, %idx.ext21.us.i.i112
+  br i1 %exitcond31.not.i.i131, label %for.cond9.for.end_crit_edge.us.i.i132, label %for.body11.us.i.i123, !llvm.loop !42
 
-for.cond9.for.end_crit_edge.us.i.i131:            ; preds = %for.body11.us.i.i122
-  %add.ptr22.us.i.i132 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i118, i64 %idx.ext21.us.i.i111
-  %32 = load <4 x i64>, ptr %add.ptr22.us.i.i132, align 1
-  %add.ptr26.us.i.i133 = getelementptr inbounds <4 x i64>, ptr %add.ptr7.us.i.i121, i64 %idx.ext21.us.i.i111
-  %33 = load <4 x i64>, ptr %add.ptr26.us.i.i133, align 1
-  %xor.i.us.i.i134 = xor <4 x i64> %33, %32
-  %and.i.us.i.i135 = and <4 x i64> %xor.i.us.i.i134, %27
-  %or.i.us.i.i136 = or <4 x i64> %and.i.us.i.i135, %or.i48.us.i.i128
-  %34 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.us.i.i136, <4 x i64> %or.i.us.i.i136)
-  %mul32.us.i.i137 = mul nsw i32 %34, 255
-  %conv.us.i.i138 = sext i32 %mul32.us.i.i137 to i64
-  %35 = shl nuw nsw i64 %indvars.iv32.i.i113, 3
-  %shl.us.i.i139 = shl i64 %conv.us.i.i138, %35
-  %or.us.i.i140 = or i64 %shl.us.i.i139, %result.024.us.i.i114
-  %indvars.iv.next33.i.i141 = add nuw nsw i64 %indvars.iv32.i.i113, 1
-  %exitcond36.not.i.i142 = icmp eq i64 %indvars.iv.next33.i.i141, 8
-  br i1 %exitcond36.not.i.i142, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit143, label %for.body.us.i.i112, !llvm.loop !43
+for.cond9.for.end_crit_edge.us.i.i132:            ; preds = %for.body11.us.i.i123
+  %add.ptr22.us.i.i133 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i119, i64 %idx.ext21.us.i.i112
+  %32 = load <4 x i64>, ptr %add.ptr22.us.i.i133, align 1
+  %add.ptr26.us.i.i134 = getelementptr inbounds <4 x i64>, ptr %add.ptr7.us.i.i122, i64 %idx.ext21.us.i.i112
+  %33 = load <4 x i64>, ptr %add.ptr26.us.i.i134, align 1
+  %xor.i.us.i.i135 = xor <4 x i64> %33, %32
+  %and.i.us.i.i136 = and <4 x i64> %xor.i.us.i.i135, %27
+  %or.i.us.i.i137 = or <4 x i64> %and.i.us.i.i136, %or.i48.us.i.i129
+  %34 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.us.i.i137, <4 x i64> %or.i.us.i.i137)
+  %mul32.us.i.i138 = mul nsw i32 %34, 255
+  %conv.us.i.i139 = sext i32 %mul32.us.i.i138 to i64
+  %35 = shl nuw nsw i64 %indvars.iv32.i.i114, 3
+  %shl.us.i.i140 = shl i64 %conv.us.i.i139, %35
+  %or.us.i.i141 = or i64 %shl.us.i.i140, %result.024.us.i.i115
+  %indvars.iv.next33.i.i142 = add nuw nsw i64 %indvars.iv32.i.i114, 1
+  %exitcond36.not.i.i143 = icmp eq i64 %indvars.iv.next33.i.i142, 8
+  br i1 %exitcond36.not.i.i143, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit144, label %for.body.us.i.i113, !llvm.loop !43
 
-for.body.i.i90:                                   ; preds = %for.body29, %for.body.i.i90
-  %indvars.iv.i.i91 = phi i64 [ %indvars.iv.next.i.i106, %for.body.i.i90 ], [ 0, %for.body29 ]
-  %result.024.i.i92 = phi i64 [ %or.i.i105, %for.body.i.i90 ], [ 0, %for.body29 ]
-  %arrayidx.i.i93 = getelementptr inbounds [8 x i32], ptr %irow_left_array.i.i76, i64 0, i64 %indvars.iv.i.i91
-  %36 = load i32, ptr %arrayidx.i.i93, align 4
-  %mul3.i.i94 = mul i32 %36, %26
-  %idx.ext.i.i95 = zext i32 %mul3.i.i94 to i64
-  %add.ptr.i.i96 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i95
-  %arrayidx5.i.i97 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i77, i64 0, i64 %indvars.iv.i.i91
-  %37 = load i32, ptr %arrayidx5.i.i97, align 4
-  %idx.ext6.i.i98 = zext i32 %37 to i64
-  %add.ptr7.i.i99 = getelementptr inbounds i8, ptr %22, i64 %idx.ext6.i.i98
-  %38 = load <4 x i64>, ptr %add.ptr.i.i96, align 1
-  %39 = load <4 x i64>, ptr %add.ptr7.i.i99, align 1
-  %xor.i.i.i100 = xor <4 x i64> %39, %38
-  %and.i.i.i101 = and <4 x i64> %xor.i.i.i100, %27
-  %40 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %and.i.i.i101, <4 x i64> %and.i.i.i101)
-  %mul32.i.i102 = mul nsw i32 %40, 255
-  %conv.i.i103 = sext i32 %mul32.i.i102 to i64
-  %41 = shl nuw nsw i64 %indvars.iv.i.i91, 3
-  %shl.i.i104 = shl i64 %conv.i.i103, %41
-  %or.i.i105 = or i64 %shl.i.i104, %result.024.i.i92
-  %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i91, 1
-  %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 8
-  br i1 %exitcond.not.i.i107, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit143, label %for.body.i.i90, !llvm.loop !43
+for.body.i.i91:                                   ; preds = %for.body29, %for.body.i.i91
+  %indvars.iv.i.i92 = phi i64 [ %indvars.iv.next.i.i107, %for.body.i.i91 ], [ 0, %for.body29 ]
+  %result.024.i.i93 = phi i64 [ %or.i.i106, %for.body.i.i91 ], [ 0, %for.body29 ]
+  %arrayidx.i.i94 = getelementptr inbounds [8 x i32], ptr %irow_left_array.i.i77, i64 0, i64 %indvars.iv.i.i92
+  %36 = load i32, ptr %arrayidx.i.i94, align 4
+  %mul3.i.i95 = mul i32 %36, %26
+  %idx.ext.i.i96 = zext i32 %mul3.i.i95 to i64
+  %add.ptr.i.i97 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i96
+  %arrayidx5.i.i98 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i78, i64 0, i64 %indvars.iv.i.i92
+  %37 = load i32, ptr %arrayidx5.i.i98, align 4
+  %idx.ext6.i.i99 = zext i32 %37 to i64
+  %add.ptr7.i.i100 = getelementptr inbounds i8, ptr %22, i64 %idx.ext6.i.i99
+  %38 = load <4 x i64>, ptr %add.ptr.i.i97, align 1
+  %39 = load <4 x i64>, ptr %add.ptr7.i.i100, align 1
+  %xor.i.i.i101 = xor <4 x i64> %39, %38
+  %and.i.i.i102 = and <4 x i64> %xor.i.i.i101, %27
+  %40 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %and.i.i.i102, <4 x i64> %and.i.i.i102)
+  %mul32.i.i103 = mul nsw i32 %40, 255
+  %conv.i.i104 = sext i32 %mul32.i.i103 to i64
+  %41 = shl nuw nsw i64 %indvars.iv.i.i92, 3
+  %shl.i.i105 = shl i64 %conv.i.i104, %41
+  %or.i.i106 = or i64 %shl.i.i105, %result.024.i.i93
+  %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i92, 1
+  %exitcond.not.i.i108 = icmp eq i64 %indvars.iv.next.i.i107, 8
+  br i1 %exitcond.not.i.i108, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit144, label %for.body.i.i91, !llvm.loop !43
 
-_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit143: ; preds = %for.body.i.i90, %for.cond9.for.end_crit_edge.us.i.i131
-  %.us-phi.i.i108 = phi i64 [ %or.us.i.i140, %for.cond9.for.end_crit_edge.us.i.i131 ], [ %or.i.i105, %for.body.i.i90 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %irow_left_array.i.i76)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %offset_right_array.i.i77)
-  %arrayidx45 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv156
-  store i64 %.us-phi.i.i108, ptr %arrayidx45, align 8
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %return, label %for.body29, !llvm.loop !45
+_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit144: ; preds = %for.body.i.i91, %for.cond9.for.end_crit_edge.us.i.i132
+  %.us-phi.i.i109 = phi i64 [ %or.us.i.i141, %for.cond9.for.end_crit_edge.us.i.i132 ], [ %or.i.i106, %for.body.i.i91 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %irow_left_array.i.i77)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %offset_right_array.i.i78)
+  %arrayidx45 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv157
+  store i64 %.us-phi.i.i109, ptr %arrayidx45, align 8
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
+  br i1 %exitcond161.not, label %return, label %for.body29, !llvm.loop !45
 
-return:                                           ; preds = %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit143, %if.then, %if.else
+return:                                           ; preds = %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb1EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit144, %if.then, %if.else
   %retval.0 = and i32 %num_rows_to_compare, -8
   ret i32 %retval.0
 }
@@ -2695,31 +2670,31 @@ declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E4_EEjjjS5_S7_S9_SC_SF_SG_T0_(i32 noundef %offset_within_row, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector, i64 %compare8_fn.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %offset_right_array.i.i75 = alloca [8 x i32], align 16
+  %offset_right_array.i.i76 = alloca [8 x i32], align 16
   %offset_right_array.i.i = alloca [8 x i32], align 16
   %coerce.val.ip = inttoptr i64 %compare8_fn.coerce to ptr
-  %metadata_.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1
+  %metadata_.i = getelementptr inbounds i8, ptr %rows, i64 8
   %0 = load i8, ptr %metadata_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %arrayidx.i72 = getelementptr inbounds [3 x ptr], ptr %col, i64 0, i64 1
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %col, i64 8
   %2 = load ptr, ptr %arrayidx.i72, align 8
-  %arrayidx.i.i73 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
+  %arrayidx.i.i73 = getelementptr inbounds i8, ptr %rows, i64 160
   %3 = load ptr, ptr %arrayidx.i.i73, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp146.not = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp146.not, label %return, label %for.body.lr.ph
+  %cmp147.not = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp147.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
   %div69 = lshr i32 %num_rows_to_compare, 3
-  %fixed_length4 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 1, i32 1
+  %fixed_length4 = getelementptr inbounds i8, ptr %rows, i64 12
   %vecinit.i = load <8 x i32>, ptr %fixed_length4, align 4
   %vecinit7.i = shufflevector <8 x i32> %vecinit.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %vecinit.i80 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i87 = shufflevector <8 x i32> %vecinit.i80, <8 x i32> poison, <8 x i32> zeroinitializer
-  %fixed_length.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %coerce.val.ip, i64 0, i32 2, i32 2
+  %fixed_length.i = getelementptr inbounds i8, ptr %coerce.val.ip, i64 52
   %wide.trip.count = zext nneg i32 %div69 to i64
   br label %for.body
 
@@ -2838,134 +2813,134 @@ _ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKj
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !48
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i74 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 2
-  %24 = load ptr, ptr %arrayidx.i74, align 8
-  %cmp27148.not = icmp ult i32 %num_rows_to_compare, 8
-  br i1 %cmp27148.not, label %return, label %for.body28.lr.ph
+  %arrayidx.i75 = getelementptr inbounds i8, ptr %rows, i64 168
+  %24 = load ptr, ptr %arrayidx.i75, align 8
+  %cmp27149.not = icmp ult i32 %num_rows_to_compare, 8
+  br i1 %cmp27149.not, label %return, label %for.body28.lr.ph
 
 for.body28.lr.ph:                                 ; preds = %if.else
   %div2668 = lshr i32 %num_rows_to_compare, 3
   %vecinit.i131 = insertelement <8 x i32> poison, i32 %offset_within_row, i64 0
   %vecinit7.i138 = shufflevector <8 x i32> %vecinit.i131, <8 x i32> poison, <8 x i32> zeroinitializer
-  %fixed_length.i76 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %coerce.val.ip, i64 0, i32 2, i32 2
-  %wide.trip.count159 = zext nneg i32 %div2668 to i64
+  %fixed_length.i77 = getelementptr inbounds i8, ptr %coerce.val.ip, i64 52
+  %wide.trip.count160 = zext nneg i32 %div2668 to i64
   br label %for.body28
 
-for.body28:                                       ; preds = %for.body28.lr.ph, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit141
-  %indvars.iv155 = phi i64 [ 0, %for.body28.lr.ph ], [ %indvars.iv.next156, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit141 ]
-  %add.ptr31 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv155
+for.body28:                                       ; preds = %for.body28.lr.ph, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit142
+  %indvars.iv156 = phi i64 [ 0, %for.body28.lr.ph ], [ %indvars.iv.next157, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit142 ]
+  %add.ptr31 = getelementptr inbounds <4 x i64>, ptr %left_to_right_map, i64 %indvars.iv156
   %25 = load <8 x i32>, ptr %add.ptr31, align 1
   %26 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3, <8 x i32> %25, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
   %add.i64 = add <8 x i32> %26, %vecinit7.i138
-  %27 = shl nuw i64 %indvars.iv155, 3
-  %28 = load i32, ptr %fixed_length.i76, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %offset_right_array.i.i75)
-  store <8 x i32> %add.i64, ptr %offset_right_array.i.i75, align 16
-  %add.i.i77 = add nsw i32 %28, 31
-  %div.i.i78 = sdiv i32 %add.i.i77, 32
-  %sub.i.i79 = add nsw i32 %div.i.i78, -1
-  %mul.i.i80 = shl nsw i32 %sub.i.i79, 5
-  %sub1.i.i81 = sub i32 %28, %mul.i.i80
-  %conv.i.i.i82 = trunc i32 %sub1.i.i81 to i8
-  %vecinit.i.i.i.i83 = insertelement <32 x i8> poison, i8 %conv.i.i.i82, i64 0
-  %vecinit31.i.i.i.i84 = shufflevector <32 x i8> %vecinit.i.i.i.i83, <32 x i8> poison, <32 x i32> zeroinitializer
-  %cmp.i.i.i.i85 = icmp sgt <32 x i8> %vecinit31.i.i.i.i84, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31>
-  %sext.i.i.i.i86 = sext <32 x i1> %cmp.i.i.i.i85 to <32 x i8>
-  %29 = bitcast <32 x i8> %sext.i.i.i.i86 to <4 x i64>
-  %cmp819.i.i87 = icmp sgt i32 %28, 32
-  br i1 %cmp819.i.i87, label %for.body.us.preheader.i.i107, label %for.body.i.i88.preheader
+  %27 = shl nuw i64 %indvars.iv156, 3
+  %28 = load i32, ptr %fixed_length.i77, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %offset_right_array.i.i76)
+  store <8 x i32> %add.i64, ptr %offset_right_array.i.i76, align 16
+  %add.i.i78 = add nsw i32 %28, 31
+  %div.i.i79 = sdiv i32 %add.i.i78, 32
+  %sub.i.i80 = add nsw i32 %div.i.i79, -1
+  %mul.i.i81 = shl nsw i32 %sub.i.i80, 5
+  %sub1.i.i82 = sub i32 %28, %mul.i.i81
+  %conv.i.i.i83 = trunc i32 %sub1.i.i82 to i8
+  %vecinit.i.i.i.i84 = insertelement <32 x i8> poison, i8 %conv.i.i.i83, i64 0
+  %vecinit31.i.i.i.i85 = shufflevector <32 x i8> %vecinit.i.i.i.i84, <32 x i8> poison, <32 x i32> zeroinitializer
+  %cmp.i.i.i.i86 = icmp sgt <32 x i8> %vecinit31.i.i.i.i85, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31>
+  %sext.i.i.i.i87 = sext <32 x i1> %cmp.i.i.i.i86 to <32 x i8>
+  %29 = bitcast <32 x i8> %sext.i.i.i.i87 to <4 x i64>
+  %cmp819.i.i88 = icmp sgt i32 %28, 32
+  br i1 %cmp819.i.i88, label %for.body.us.preheader.i.i108, label %for.body.i.i89.preheader
 
-for.body.i.i88.preheader:                         ; preds = %for.body28
+for.body.i.i89.preheader:                         ; preds = %for.body28
   %30 = trunc i64 %27 to i32
-  br label %for.body.i.i88
+  br label %for.body.i.i89
 
-for.body.us.preheader.i.i107:                     ; preds = %for.body28
-  %smax.i.i108 = tail call i32 @llvm.smax.i32(i32 %sub.i.i79, i32 1)
-  %idx.ext19.us.i.i109 = zext nneg i32 %smax.i.i108 to i64
+for.body.us.preheader.i.i108:                     ; preds = %for.body28
+  %smax.i.i109 = tail call i32 @llvm.smax.i32(i32 %sub.i.i80, i32 1)
+  %idx.ext19.us.i.i110 = zext nneg i32 %smax.i.i109 to i64
   %31 = trunc i64 %27 to i32
-  br label %for.body.us.i.i110
+  br label %for.body.us.i.i111
 
-for.body.us.i.i110:                               ; preds = %for.cond7.for.end_crit_edge.us.i.i129, %for.body.us.preheader.i.i107
-  %indvars.iv32.i.i111 = phi i64 [ 0, %for.body.us.preheader.i.i107 ], [ %indvars.iv.next33.i.i139, %for.cond7.for.end_crit_edge.us.i.i129 ]
-  %result.024.us.i.i112 = phi i64 [ 0, %for.body.us.preheader.i.i107 ], [ %or.us.i.i138, %for.cond7.for.end_crit_edge.us.i.i129 ]
-  %32 = trunc i64 %indvars.iv32.i.i111 to i32
-  %add2.us.i.i113 = add nuw nsw i32 %31, %32
-  %mul3.us.i.i114 = mul i32 %add2.us.i.i113, %28
-  %idx.ext.us.i.i115 = zext i32 %mul3.us.i.i114 to i64
-  %add.ptr.us.i.i116 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.us.i.i115
-  %arrayidx.us.i.i117 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i75, i64 0, i64 %indvars.iv32.i.i111
-  %33 = load i32, ptr %arrayidx.us.i.i117, align 4
-  %idx.ext4.us.i.i118 = zext i32 %33 to i64
-  %add.ptr5.us.i.i119 = getelementptr inbounds i8, ptr %24, i64 %idx.ext4.us.i.i118
-  br label %for.body9.us.i.i120
+for.body.us.i.i111:                               ; preds = %for.cond7.for.end_crit_edge.us.i.i130, %for.body.us.preheader.i.i108
+  %indvars.iv32.i.i112 = phi i64 [ 0, %for.body.us.preheader.i.i108 ], [ %indvars.iv.next33.i.i140, %for.cond7.for.end_crit_edge.us.i.i130 ]
+  %result.024.us.i.i113 = phi i64 [ 0, %for.body.us.preheader.i.i108 ], [ %or.us.i.i139, %for.cond7.for.end_crit_edge.us.i.i130 ]
+  %32 = trunc i64 %indvars.iv32.i.i112 to i32
+  %add2.us.i.i114 = add nuw nsw i32 %31, %32
+  %mul3.us.i.i115 = mul i32 %add2.us.i.i114, %28
+  %idx.ext.us.i.i116 = zext i32 %mul3.us.i.i115 to i64
+  %add.ptr.us.i.i117 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.us.i.i116
+  %arrayidx.us.i.i118 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i76, i64 0, i64 %indvars.iv32.i.i112
+  %33 = load i32, ptr %arrayidx.us.i.i118, align 4
+  %idx.ext4.us.i.i119 = zext i32 %33 to i64
+  %add.ptr5.us.i.i120 = getelementptr inbounds i8, ptr %24, i64 %idx.ext4.us.i.i119
+  br label %for.body9.us.i.i121
 
-for.body9.us.i.i120:                              ; preds = %for.body9.us.i.i120, %for.body.us.i.i110
-  %indvars.iv28.i.i121 = phi i64 [ 0, %for.body.us.i.i110 ], [ %indvars.iv.next29.i.i127, %for.body9.us.i.i120 ]
-  %result_or.021.us.i.i122 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i110 ], [ %or.i44.us.i.i126, %for.body9.us.i.i120 ]
-  %add.ptr11.us.i.i123 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i116, i64 %indvars.iv28.i.i121
-  %34 = load <4 x i64>, ptr %add.ptr11.us.i.i123, align 1
-  %add.ptr14.us.i.i124 = getelementptr inbounds <4 x i64>, ptr %add.ptr5.us.i.i119, i64 %indvars.iv28.i.i121
-  %35 = load <4 x i64>, ptr %add.ptr14.us.i.i124, align 1
-  %xor.i49.us.i.i125 = xor <4 x i64> %35, %34
-  %or.i44.us.i.i126 = or <4 x i64> %xor.i49.us.i.i125, %result_or.021.us.i.i122
-  %indvars.iv.next29.i.i127 = add nuw nsw i64 %indvars.iv28.i.i121, 1
-  %exitcond31.not.i.i128 = icmp eq i64 %indvars.iv.next29.i.i127, %idx.ext19.us.i.i109
-  br i1 %exitcond31.not.i.i128, label %for.cond7.for.end_crit_edge.us.i.i129, label %for.body9.us.i.i120, !llvm.loop !46
+for.body9.us.i.i121:                              ; preds = %for.body9.us.i.i121, %for.body.us.i.i111
+  %indvars.iv28.i.i122 = phi i64 [ 0, %for.body.us.i.i111 ], [ %indvars.iv.next29.i.i128, %for.body9.us.i.i121 ]
+  %result_or.021.us.i.i123 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i111 ], [ %or.i44.us.i.i127, %for.body9.us.i.i121 ]
+  %add.ptr11.us.i.i124 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i117, i64 %indvars.iv28.i.i122
+  %34 = load <4 x i64>, ptr %add.ptr11.us.i.i124, align 1
+  %add.ptr14.us.i.i125 = getelementptr inbounds <4 x i64>, ptr %add.ptr5.us.i.i120, i64 %indvars.iv28.i.i122
+  %35 = load <4 x i64>, ptr %add.ptr14.us.i.i125, align 1
+  %xor.i49.us.i.i126 = xor <4 x i64> %35, %34
+  %or.i44.us.i.i127 = or <4 x i64> %xor.i49.us.i.i126, %result_or.021.us.i.i123
+  %indvars.iv.next29.i.i128 = add nuw nsw i64 %indvars.iv28.i.i122, 1
+  %exitcond31.not.i.i129 = icmp eq i64 %indvars.iv.next29.i.i128, %idx.ext19.us.i.i110
+  br i1 %exitcond31.not.i.i129, label %for.cond7.for.end_crit_edge.us.i.i130, label %for.body9.us.i.i121, !llvm.loop !46
 
-for.cond7.for.end_crit_edge.us.i.i129:            ; preds = %for.body9.us.i.i120
-  %add.ptr20.us.i.i130 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i116, i64 %idx.ext19.us.i.i109
-  %36 = load <4 x i64>, ptr %add.ptr20.us.i.i130, align 1
-  %add.ptr24.us.i.i131 = getelementptr inbounds <4 x i64>, ptr %add.ptr5.us.i.i119, i64 %idx.ext19.us.i.i109
-  %37 = load <4 x i64>, ptr %add.ptr24.us.i.i131, align 1
-  %xor.i.us.i.i132 = xor <4 x i64> %37, %36
-  %and.i.us.i.i133 = and <4 x i64> %xor.i.us.i.i132, %29
-  %or.i.us.i.i134 = or <4 x i64> %and.i.us.i.i133, %or.i44.us.i.i126
-  %38 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.us.i.i134, <4 x i64> %or.i.us.i.i134)
-  %mul30.us.i.i135 = mul nsw i32 %38, 255
-  %conv.us.i.i136 = sext i32 %mul30.us.i.i135 to i64
-  %39 = shl nuw nsw i64 %indvars.iv32.i.i111, 3
-  %shl.us.i.i137 = shl i64 %conv.us.i.i136, %39
-  %or.us.i.i138 = or i64 %shl.us.i.i137, %result.024.us.i.i112
-  %indvars.iv.next33.i.i139 = add nuw nsw i64 %indvars.iv32.i.i111, 1
-  %exitcond36.not.i.i140 = icmp eq i64 %indvars.iv.next33.i.i139, 8
-  br i1 %exitcond36.not.i.i140, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit141, label %for.body.us.i.i110, !llvm.loop !47
+for.cond7.for.end_crit_edge.us.i.i130:            ; preds = %for.body9.us.i.i121
+  %add.ptr20.us.i.i131 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i117, i64 %idx.ext19.us.i.i110
+  %36 = load <4 x i64>, ptr %add.ptr20.us.i.i131, align 1
+  %add.ptr24.us.i.i132 = getelementptr inbounds <4 x i64>, ptr %add.ptr5.us.i.i120, i64 %idx.ext19.us.i.i110
+  %37 = load <4 x i64>, ptr %add.ptr24.us.i.i132, align 1
+  %xor.i.us.i.i133 = xor <4 x i64> %37, %36
+  %and.i.us.i.i134 = and <4 x i64> %xor.i.us.i.i133, %29
+  %or.i.us.i.i135 = or <4 x i64> %and.i.us.i.i134, %or.i44.us.i.i127
+  %38 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.us.i.i135, <4 x i64> %or.i.us.i.i135)
+  %mul30.us.i.i136 = mul nsw i32 %38, 255
+  %conv.us.i.i137 = sext i32 %mul30.us.i.i136 to i64
+  %39 = shl nuw nsw i64 %indvars.iv32.i.i112, 3
+  %shl.us.i.i138 = shl i64 %conv.us.i.i137, %39
+  %or.us.i.i139 = or i64 %shl.us.i.i138, %result.024.us.i.i113
+  %indvars.iv.next33.i.i140 = add nuw nsw i64 %indvars.iv32.i.i112, 1
+  %exitcond36.not.i.i141 = icmp eq i64 %indvars.iv.next33.i.i140, 8
+  br i1 %exitcond36.not.i.i141, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit142, label %for.body.us.i.i111, !llvm.loop !47
 
-for.body.i.i88:                                   ; preds = %for.body.i.i88.preheader, %for.body.i.i88
-  %indvars.iv.i.i89 = phi i64 [ %indvars.iv.next.i.i104, %for.body.i.i88 ], [ 0, %for.body.i.i88.preheader ]
-  %result.024.i.i90 = phi i64 [ %or.i.i103, %for.body.i.i88 ], [ 0, %for.body.i.i88.preheader ]
-  %40 = trunc i64 %indvars.iv.i.i89 to i32
-  %add2.i.i91 = add nuw nsw i32 %30, %40
-  %mul3.i.i92 = mul i32 %add2.i.i91, %28
-  %idx.ext.i.i93 = zext i32 %mul3.i.i92 to i64
-  %add.ptr.i.i94 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i93
-  %arrayidx.i.i95 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i75, i64 0, i64 %indvars.iv.i.i89
-  %41 = load i32, ptr %arrayidx.i.i95, align 4
-  %idx.ext4.i.i96 = zext i32 %41 to i64
-  %add.ptr5.i.i97 = getelementptr inbounds i8, ptr %24, i64 %idx.ext4.i.i96
-  %42 = load <4 x i64>, ptr %add.ptr.i.i94, align 1
-  %43 = load <4 x i64>, ptr %add.ptr5.i.i97, align 1
-  %xor.i.i.i98 = xor <4 x i64> %43, %42
-  %and.i.i.i99 = and <4 x i64> %xor.i.i.i98, %29
-  %44 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %and.i.i.i99, <4 x i64> %and.i.i.i99)
-  %mul30.i.i100 = mul nsw i32 %44, 255
-  %conv.i.i101 = sext i32 %mul30.i.i100 to i64
-  %45 = shl nuw nsw i64 %indvars.iv.i.i89, 3
-  %shl.i.i102 = shl i64 %conv.i.i101, %45
-  %or.i.i103 = or i64 %shl.i.i102, %result.024.i.i90
-  %indvars.iv.next.i.i104 = add nuw nsw i64 %indvars.iv.i.i89, 1
-  %exitcond.not.i.i105 = icmp eq i64 %indvars.iv.next.i.i104, 8
-  br i1 %exitcond.not.i.i105, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit141, label %for.body.i.i88, !llvm.loop !47
+for.body.i.i89:                                   ; preds = %for.body.i.i89.preheader, %for.body.i.i89
+  %indvars.iv.i.i90 = phi i64 [ %indvars.iv.next.i.i105, %for.body.i.i89 ], [ 0, %for.body.i.i89.preheader ]
+  %result.024.i.i91 = phi i64 [ %or.i.i104, %for.body.i.i89 ], [ 0, %for.body.i.i89.preheader ]
+  %40 = trunc i64 %indvars.iv.i.i90 to i32
+  %add2.i.i92 = add nuw nsw i32 %30, %40
+  %mul3.i.i93 = mul i32 %add2.i.i92, %28
+  %idx.ext.i.i94 = zext i32 %mul3.i.i93 to i64
+  %add.ptr.i.i95 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i94
+  %arrayidx.i.i96 = getelementptr inbounds [8 x i32], ptr %offset_right_array.i.i76, i64 0, i64 %indvars.iv.i.i90
+  %41 = load i32, ptr %arrayidx.i.i96, align 4
+  %idx.ext4.i.i97 = zext i32 %41 to i64
+  %add.ptr5.i.i98 = getelementptr inbounds i8, ptr %24, i64 %idx.ext4.i.i97
+  %42 = load <4 x i64>, ptr %add.ptr.i.i95, align 1
+  %43 = load <4 x i64>, ptr %add.ptr5.i.i98, align 1
+  %xor.i.i.i99 = xor <4 x i64> %43, %42
+  %and.i.i.i100 = and <4 x i64> %xor.i.i.i99, %29
+  %44 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %and.i.i.i100, <4 x i64> %and.i.i.i100)
+  %mul30.i.i101 = mul nsw i32 %44, 255
+  %conv.i.i102 = sext i32 %mul30.i.i101 to i64
+  %45 = shl nuw nsw i64 %indvars.iv.i.i90, 3
+  %shl.i.i103 = shl i64 %conv.i.i102, %45
+  %or.i.i104 = or i64 %shl.i.i103, %result.024.i.i91
+  %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i90, 1
+  %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
+  br i1 %exitcond.not.i.i106, label %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit142, label %for.body.i.i89, !llvm.loop !47
 
-_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit141: ; preds = %for.body.i.i88, %for.cond7.for.end_crit_edge.us.i.i129
-  %.us-phi.i.i106 = phi i64 [ %or.us.i.i138, %for.cond7.for.end_crit_edge.us.i.i129 ], [ %or.i.i103, %for.body.i.i88 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %offset_right_array.i.i75)
-  %arrayidx41 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv155
-  store i64 %.us-phi.i.i106, ptr %arrayidx41, align 8
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count159
-  br i1 %exitcond160.not, label %return, label %for.body28, !llvm.loop !49
+_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit142: ; preds = %for.body.i.i89, %for.cond7.for.end_crit_edge.us.i.i130
+  %.us-phi.i.i107 = phi i64 [ %or.us.i.i139, %for.cond7.for.end_crit_edge.us.i.i130 ], [ %or.i.i104, %for.body.i.i89 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %offset_right_array.i.i76)
+  %arrayidx41 = getelementptr inbounds i64, ptr %match_bytevector, i64 %indvars.iv156
+  store i64 %.us-phi.i.i107, ptr %arrayidx41, align 8
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %exitcond161.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count160
+  br i1 %exitcond161.not, label %return, label %for.body28, !llvm.loop !49
 
-return:                                           ; preds = %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit141, %if.then, %if.else
+return:                                           ; preds = %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit, %_ZZN5arrow7compute10KeyCompare32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhENKUlPKhSH_jDv4_xSI_E4_clESH_SH_jSI_SI_.exit142, %if.then, %if.else
   %retval.0 = and i32 %num_rows_to_compare, -8
   ret i32 %retval.0
 }

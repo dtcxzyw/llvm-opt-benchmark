@@ -10,42 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.VhostVdpaDevice = type { %struct.VirtIODevice, ptr, i32, i32, i32, i32, %struct.vhost_dev, %struct.vhost_vdpa, ptr, ptr, i32, i16, i8, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.vhost_vdpa = type { i32, i32, i32, i8, i32, %struct.MemoryListener, %struct.vhost_vdpa_iova_range, i64, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, [1024 x %struct.VhostVDPAHostNotifier], %struct.anon.7, %struct.IOMMUNotifier }
 %struct.vhost_vdpa_iova_range = type { i64, i64 }
-%struct.VhostVDPAHostNotifier = type { %struct.MemoryRegion, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.4, %union.anon.5, %union.anon.6, ptr, i32, ptr, ptr, i8 }
-%union.anon.4 = type { %struct.QTailQLink }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
-%struct.anon.7 = type { ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
 
 @vhost_vdpa_device_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 296496, i64 0, ptr @vhost_vdpa_device_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @vhost_vdpa_device_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [18 x i8] c"vhost-vdpa-device\00", align 1
@@ -117,7 +82,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @vhost_vdpa_device_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
-  %bootindex = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 3
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 532
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef %call.i3) #9
   ret void
@@ -129,25 +94,25 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #9
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vhost_vdpa_device_properties) #9
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.6, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_vhost_vdpa_device, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @vhost_vdpa_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i10, i64 184
   store ptr @vhost_vdpa_device_unrealize, ptr %unrealize, align 8
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call.i10, i64 224
   store ptr @vhost_vdpa_device_get_config, ptr %get_config, align 8
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call.i10, i64 232
   store ptr @vhost_vdpa_device_set_config, ptr %set_config, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i10, i64 192
   store ptr @vhost_vdpa_device_get_features, ptr %get_features, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i10, i64 248
   store ptr @vhost_vdpa_device_set_status, ptr %set_status, align 8
   ret void
 }
@@ -166,7 +131,7 @@ entry:
   %iova_range = alloca %struct.vhost_vdpa_iova_range, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #9
   %call.i79 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
-  %vhostdev = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 1
+  %vhostdev = getelementptr inbounds i8, ptr %call.i79, i64 520
   %0 = load ptr, ptr %vhostdev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -177,14 +142,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call3 = tail call i32 @qemu_open(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %errp) #9
-  %vhostfd = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 2
+  %vhostfd = getelementptr inbounds i8, ptr %call.i79, i64 528
   store i32 %call3, ptr %vhostfd, align 16
   %1 = load ptr, ptr %errp, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %vdpa = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 7
+  %vdpa = getelementptr inbounds i8, ptr %call.i79, i64 1184
   store i32 %call3, ptr %vdpa, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
   store i32 -1, ptr %val.i, align 4
@@ -202,7 +167,7 @@ if.then.i:                                        ; preds = %if.end6
 vhost_vdpa_device_get_u32.exit:                   ; preds = %if.end6, %if.then.i
   %3 = load i32, ptr %val.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  %vdev_id = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 4
+  %vdev_id = getelementptr inbounds i8, ptr %call.i79, i64 536
   store i32 %3, ptr %vdev_id, align 8
   %4 = load ptr, ptr %errp, align 8
   %tobool10.not = icmp eq ptr %4, null
@@ -232,7 +197,7 @@ vhost_vdpa_device_get_u32.exit87:                 ; preds = %if.end12, %if.then.
   br i1 %tobool15.not, label %if.end17, label %out
 
 if.end17:                                         ; preds = %vhost_vdpa_device_get_u32.exit87
-  %queue_size = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 11
+  %queue_size = getelementptr inbounds i8, ptr %call.i79, i64 296484
   %9 = load i16, ptr %queue_size, align 4
   %conv18 = zext i16 %9 to i32
   %conv19 = and i32 %7, 65535
@@ -254,7 +219,7 @@ if.then27:                                        ; preds = %if.else
 if.end30:                                         ; preds = %if.else, %if.then27
   %10 = load i32, ptr %vhostfd, align 16
   %call32 = call fastcc i32 @vhost_vdpa_device_get_u32(i32 noundef %10, i64 noundef 2147790720, ptr noundef nonnull %errp)
-  %num_queues = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 5
+  %num_queues = getelementptr inbounds i8, ptr %call.i79, i64 540
   store i32 %call32, ptr %num_queues, align 4
   %11 = load ptr, ptr %errp, align 8
   %tobool33.not = icmp eq ptr %11, null
@@ -270,21 +235,21 @@ if.then41:                                        ; preds = %if.end35
   br label %out
 
 if.end43:                                         ; preds = %if.end35
-  %dev45 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 6
-  %nvqs = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 6, i32 9
+  %dev45 = getelementptr inbounds i8, ptr %call.i79, i64 544
+  %nvqs = getelementptr inbounds i8, ptr %call.i79, i64 984
   store i32 %call32, ptr %nvqs, align 8
   %conv48 = zext nneg i32 %call32 to i64
   %call49 = call noalias ptr @g_malloc0_n(i64 noundef %conv48, i64 noundef 128) #11
-  %vqs51 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 6, i32 8
+  %vqs51 = getelementptr inbounds i8, ptr %call.i79, i64 976
   store ptr %call49, ptr %vqs51, align 16
-  %vq_index = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 6, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %call.i79, i64 988
   store i32 0, ptr %vq_index, align 4
   %13 = load i32, ptr %nvqs, align 8
-  %vq_index_end = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 6, i32 11
+  %vq_index_end = getelementptr inbounds i8, ptr %call.i79, i64 992
   store i32 %13, ptr %vq_index_end, align 16
-  %backend_features = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 6, i32 15
+  %backend_features = getelementptr inbounds i8, ptr %call.i79, i64 1016
   store i64 0, ptr %backend_features, align 8
-  %started = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 12
+  %started = getelementptr inbounds i8, ptr %call.i79, i64 296486
   store i8 0, ptr %started, align 2
   %14 = load i32, ptr %vhostfd, align 16
   %call58 = call i32 @vhost_vdpa_get_iova_range(i32 noundef %14, ptr noundef nonnull %iova_range) #9
@@ -298,7 +263,7 @@ if.then61:                                        ; preds = %if.end43
   br label %free_vqs
 
 if.end63:                                         ; preds = %if.end43
-  %iova_range65 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 7, i32 6
+  %iova_range65 = getelementptr inbounds i8, ptr %call.i79, i64 1400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iova_range65, ptr noundef nonnull align 8 dereferenceable(16) %iova_range, i64 16, i1 false)
   %call68 = call i32 @vhost_dev_init(ptr noundef nonnull %dev45, ptr noundef nonnull %vdpa, i32 noundef 3, i32 noundef 0, ptr noundef null) #9
   %cmp69 = icmp slt i32 %call68, 0
@@ -313,14 +278,14 @@ if.then71:                                        ; preds = %if.end63
 if.end74:                                         ; preds = %if.end63
   %15 = load i32, ptr %vhostfd, align 16
   %call76 = call fastcc i32 @vhost_vdpa_device_get_u32(i32 noundef %15, i64 noundef 2147790713, ptr noundef nonnull %errp)
-  %config_size = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 10
+  %config_size = getelementptr inbounds i8, ptr %call.i79, i64 296480
   store i32 %call76, ptr %config_size, align 16
   %16 = load ptr, ptr %errp, align 8
   %tobool77.not = icmp eq ptr %16, null
   br i1 %tobool77.not, label %if.end79, label %vhost_cleanup
 
 if.end79:                                         ; preds = %if.end74
-  %post_init = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 13
+  %post_init = getelementptr inbounds i8, ptr %call.i79, i64 296488
   %17 = load ptr, ptr %post_init, align 8
   %tobool80.not = icmp eq ptr %17, null
   br i1 %tobool80.not, label %if.end86, label %land.lhs.true
@@ -338,7 +303,7 @@ if.end86:                                         ; preds = %land.lhs.true.if.en
   %18 = phi i32 [ %.pre, %land.lhs.true.if.end86_crit_edge ], [ %call76, %if.end79 ]
   %conv88 = sext i32 %18 to i64
   %call89 = call noalias ptr @g_malloc0(i64 noundef %conv88) #12
-  %config = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %call.i79, i64 296472
   store ptr %call89, ptr %config, align 8
   %19 = load i32, ptr %config_size, align 16
   %call93 = call i32 @vhost_dev_get_config(ptr noundef nonnull %dev45, ptr noundef %call89, i32 noundef %19, ptr noundef null) #9
@@ -360,7 +325,7 @@ if.end97:                                         ; preds = %if.end86
   %23 = load i32, ptr %nvqs, align 8
   %conv104 = zext i32 %23 to i64
   %call105 = call noalias ptr @g_malloc0_n(i64 noundef %conv104, i64 noundef 8) #11
-  %virtqs = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i79, i64 0, i32 8
+  %virtqs = getelementptr inbounds i8, ptr %call.i79, i64 296464
   store ptr %call105, ptr %virtqs, align 16
   %24 = load i32, ptr %nvqs, align 8
   %cmp10888.not = icmp eq i32 %24, 0
@@ -404,13 +369,13 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #9
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
   %call2 = tail call i32 @virtio_set_status(ptr noundef %call.i, i8 noundef zeroext 0) #9
-  %num_queues = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 5
+  %num_queues = getelementptr inbounds i8, ptr %call.i12, i64 540
   %0 = load i32, ptr %num_queues, align 4
   %cmp13.not = icmp eq i32 %0, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %virtqs = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 8
+  %virtqs = getelementptr inbounds i8, ptr %call.i12, i64 296464
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -426,19 +391,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
-  %virtqs3 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 8
+  %virtqs3 = getelementptr inbounds i8, ptr %call.i12, i64 296464
   %4 = load ptr, ptr %virtqs3, align 16
   tail call void @g_free(ptr noundef %4) #9
   tail call void @virtio_cleanup(ptr noundef %call.i) #9
-  %config = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %call.i12, i64 296472
   %5 = load ptr, ptr %config, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %dev4 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 6
-  %vqs = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 6, i32 8
+  %dev4 = getelementptr inbounds i8, ptr %call.i12, i64 544
+  %vqs = getelementptr inbounds i8, ptr %call.i12, i64 976
   %6 = load ptr, ptr %vqs, align 16
   tail call void @g_free(ptr noundef %6) #9
   tail call void @vhost_dev_cleanup(ptr noundef nonnull %dev4) #9
-  %vhostfd = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i12, i64 0, i32 2
+  %vhostfd = getelementptr inbounds i8, ptr %call.i12, i64 528
   %7 = load i32, ptr %vhostfd, align 16
   %call6 = tail call i32 @qemu_close(i32 noundef %7) #9
   store i32 -1, ptr %vhostfd, align 16
@@ -449,9 +414,9 @@ for.end:                                          ; preds = %for.body, %entry
 define internal void @vhost_vdpa_device_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
-  %config1 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 9
+  %config1 = getelementptr inbounds i8, ptr %call.i, i64 296472
   %0 = load ptr, ptr %config1, align 8
-  %config_size = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 10
+  %config_size = getelementptr inbounds i8, ptr %call.i, i64 296480
   %1 = load i32, ptr %config_size, align 16
   %conv = sext i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr align 1 %0, i64 %conv, i1 false)
@@ -462,10 +427,10 @@ entry:
 define internal void @vhost_vdpa_device_set_config(ptr noundef %vdev, ptr nocapture readnone %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
-  %dev = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 6
-  %config1 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 9
+  %dev = getelementptr inbounds i8, ptr %call.i, i64 544
+  %config1 = getelementptr inbounds i8, ptr %call.i, i64 296472
   %0 = load ptr, ptr %config1, align 8
-  %config_size = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 10
+  %config_size = getelementptr inbounds i8, ptr %call.i, i64 296480
   %1 = load i32, ptr %config_size, align 16
   %call2 = tail call i32 @vhost_dev_set_config(ptr noundef nonnull %dev, ptr noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef 0) #9
   %tobool.not = icmp eq i32 %call2, 0
@@ -483,7 +448,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i64 @vhost_vdpa_device_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
-  %features1 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 6, i32 13
+  %features1 = getelementptr inbounds i8, ptr %call.i, i64 1000
   %0 = load i64, ptr %features1, align 8
   %and.i = and i64 %features, 8589934592
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -497,14 +462,14 @@ define internal void @vhost_vdpa_device_set_status(ptr noundef %vdev, i8 noundef
 entry:
   %local_err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_VDPA_DEVICE) #9
-  %use_started.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 20
+  %use_started.i = getelementptr inbounds i8, ptr %vdev, i64 438
   %0 = load i8, ptr %use_started.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %started.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 21
+  %started.i = getelementptr inbounds i8, ptr %vdev, i64 439
   %2 = load i8, ptr %started.i, align 1
   %3 = and i8 %2, 1
   br label %virtio_device_started.exit
@@ -517,12 +482,12 @@ virtio_device_started.exit:                       ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i8 [ %3, %if.then.i ], [ %4, %if.end.i ]
   %retval.0.i = icmp ne i8 %retval.0.in.i, 0
   store ptr null, ptr %local_err, align 8
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %5 = load i8, ptr %vm_running, align 2
   %6 = and i8 %5, 1
   %tobool.not = icmp ne i8 %6, 0
   %spec.select = select i1 %tobool.not, i1 %retval.0.i, i1 false
-  %started = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i, i64 0, i32 12
+  %started = getelementptr inbounds i8, ptr %call.i, i64 296486
   %7 = load i8, ptr %started, align 2
   %8 = and i8 %7, 1
   %9 = icmp eq i8 %8, 0
@@ -539,7 +504,7 @@ if.end7:                                          ; preds = %virtio_device_start
   br i1 %spec.select, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
-  %set_guest_notifiers.i = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i.i, i64 0, i32 11
+  %set_guest_notifiers.i = getelementptr inbounds i8, ptr %call1.i.i, i64 240
   %10 = load ptr, ptr %set_guest_notifiers.i, align 8
   %tobool.not.i6 = icmp eq ptr %10, null
   br i1 %tobool.not.i6, label %if.then.i10, label %if.end.i7
@@ -549,7 +514,7 @@ if.then.i10:                                      ; preds = %if.then9
   br label %if.then13
 
 if.end.i7:                                        ; preds = %if.then9
-  %dev.i = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 6
+  %dev.i = getelementptr inbounds i8, ptr %call.i.i, i64 544
   %call5.i = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %dev.i, ptr noundef nonnull %vdev) #9
   %cmp.i = icmp slt i32 %call5.i, 0
   br i1 %cmp.i, label %if.then6.i, label %if.end7.i
@@ -561,9 +526,9 @@ if.then6.i:                                       ; preds = %if.end.i7
 
 if.end7.i:                                        ; preds = %if.end.i7
   %11 = load ptr, ptr %set_guest_notifiers.i, align 8
-  %parent.i = getelementptr inbounds %struct.BusState, ptr %call.i38.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i38.i, i64 40
   %12 = load ptr, ptr %parent.i, align 8
-  %nvqs.i = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 6, i32 9
+  %nvqs.i = getelementptr inbounds i8, ptr %call.i.i, i64 984
   %13 = load i32, ptr %nvqs.i, align 8
   %call10.i = tail call i32 %11(ptr noundef %12, i32 noundef %13, i1 noundef zeroext true) #9
   %cmp11.i = icmp slt i32 %call10.i, 0
@@ -575,9 +540,9 @@ if.then12.i:                                      ; preds = %if.end7.i
   br label %err_host_notifiers.i
 
 if.end14.i:                                       ; preds = %if.end7.i
-  %guest_features.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 6
+  %guest_features.i = getelementptr inbounds i8, ptr %vdev, i64 184
   %14 = load i64, ptr %guest_features.i, align 8
-  %acked_features.i = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 6, i32 14
+  %acked_features.i = getelementptr inbounds i8, ptr %call.i.i, i64 1008
   store i64 %14, ptr %acked_features.i, align 16
   %call17.i = tail call i32 @vhost_dev_start(ptr noundef nonnull %dev.i, ptr noundef nonnull %vdev, i1 noundef zeroext false) #9
   %cmp18.i = icmp slt i32 %call17.i, 0
@@ -589,12 +554,12 @@ for.cond.preheader.i:                             ; preds = %if.end14.i
   br i1 %cmp2440.not.i, label %vhost_vdpa_device_start.exit.thread25, label %for.body.lr.ph.i
 
 vhost_vdpa_device_start.exit.thread25:            ; preds = %for.cond.preheader.i
-  %started45.i = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 12
+  %started45.i = getelementptr inbounds i8, ptr %call.i.i, i64 296486
   store i8 1, ptr %started45.i, align 2
   br label %if.end15
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %vdpa.i = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 7
+  %vdpa.i = getelementptr inbounds i8, ptr %call.i.i, i64 1184
   br label %for.body.i
 
 if.then19.i:                                      ; preds = %if.end14.i
@@ -616,7 +581,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.end.i:                                        ; preds = %for.body.i
   %20 = icmp eq i32 %19, 0
-  %started.i8 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 12
+  %started.i8 = getelementptr inbounds i8, ptr %call.i.i, i64 296486
   store i8 1, ptr %started.i8, align 2
   br i1 %20, label %if.end15, label %for.body30.i
 
@@ -638,7 +603,7 @@ if.then13:                                        ; preds = %if.then.i10, %err_h
   br label %if.end15
 
 if.else:                                          ; preds = %if.end7
-  %started.i14 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 12
+  %started.i14 = getelementptr inbounds i8, ptr %call.i.i, i64 296486
   %23 = load i8, ptr %started.i14, align 2
   %24 = and i8 %23, 1
   %tobool.not.i15 = icmp eq i8 %24, 0
@@ -646,18 +611,18 @@ if.else:                                          ; preds = %if.end7
 
 if.end.i16:                                       ; preds = %if.else
   store i8 0, ptr %started.i14, align 2
-  %set_guest_notifiers.i17 = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i.i, i64 0, i32 11
+  %set_guest_notifiers.i17 = getelementptr inbounds i8, ptr %call1.i.i, i64 240
   %25 = load ptr, ptr %set_guest_notifiers.i17, align 8
   %tobool6.not.i = icmp eq ptr %25, null
   br i1 %tobool6.not.i, label %if.end15, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i16
-  %dev.i18 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 6
+  %dev.i18 = getelementptr inbounds i8, ptr %call.i.i, i64 544
   tail call void @vhost_dev_stop(ptr noundef nonnull %dev.i18, ptr noundef nonnull %vdev, i1 noundef zeroext false) #9
   %26 = load ptr, ptr %set_guest_notifiers.i17, align 8
-  %parent.i19 = getelementptr inbounds %struct.BusState, ptr %call.i38.i, i64 0, i32 1
+  %parent.i19 = getelementptr inbounds i8, ptr %call.i38.i, i64 40
   %27 = load ptr, ptr %parent.i19, align 8
-  %nvqs.i20 = getelementptr inbounds %struct.VhostVdpaDevice, ptr %call.i.i, i64 0, i32 6, i32 9
+  %nvqs.i20 = getelementptr inbounds i8, ptr %call.i.i, i64 984
   %28 = load i32, ptr %nvqs.i20, align 8
   %call11.i = tail call i32 %26(ptr noundef %27, i32 noundef %28, i1 noundef zeroext false) #9
   %cmp.i21 = icmp slt i32 %call11.i, 0

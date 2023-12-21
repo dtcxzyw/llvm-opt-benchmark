@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.DecoderInstance = type { i32, i32, i32, i32 }
-%struct.FLAC__FrameHeader = type { i32, i32, i32, i32, i32, i32, %union.anon.0, i8 }
-%union.anon.0 = type { i64 }
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
-%union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
@@ -73,7 +68,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %while.cond31, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then
-  %arrayidx14 = getelementptr inbounds ptr, ptr %input, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %input, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %for.end
@@ -179,7 +174,7 @@ cond.end81:                                       ; preds = %cond.false77, %cond
   br i1 %tobool83.not, label %while.cond152, label %while.cond85.preheader
 
 while.cond85.preheader:                           ; preds = %cond.end81
-  %arrayidx119 = getelementptr inbounds ptr, ptr %input, i64 1
+  %arrayidx119 = getelementptr inbounds i8, ptr %input, i64 8
   br label %while.cond85
 
 while.cond85:                                     ; preds = %while.cond85.preheader, %for.end142
@@ -345,7 +340,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %instance, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %instance, i64 12
   store i32 0, ptr %error, align 4
   %call1 = tail call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef nonnull %call, i32 noundef 0) #15
   %call2 = tail call i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef nonnull %call) #15
@@ -394,14 +389,14 @@ declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef %client_data) #0 {
 entry:
-  %bits_per_sample1 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 4
+  %bits_per_sample1 = getelementptr inbounds i8, ptr %frame, i64 16
   %0 = load i32, ptr %bits_per_sample1, align 8
-  %channels3 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 2
+  %channels3 = getelementptr inbounds i8, ptr %frame, i64 8
   %1 = load i32, ptr %channels3, align 8
-  %sample_rate5 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 1
+  %sample_rate5 = getelementptr inbounds i8, ptr %frame, i64 4
   %2 = load i32, ptr %sample_rate5, align 4
   %3 = load i32, ptr %frame, align 8
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %client_data, i64 12
   %4 = load i32, ptr %error, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end.thread
@@ -413,7 +408,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %land.lhs.true8, label %if.end.thread
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %bits_per_sample9 = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 1
+  %bits_per_sample9 = getelementptr inbounds i8, ptr %client_data, i64 4
   %6 = load i32, ptr %bits_per_sample9, align 4
   %cmp10 = icmp eq i32 %0, %6
   br i1 %cmp10, label %land.lhs.true11, label %if.end.thread
@@ -424,7 +419,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true8
   br i1 %cmp13, label %land.lhs.true14, label %if.end.thread
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %sample_rate15 = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 2
+  %sample_rate15 = getelementptr inbounds i8, ptr %client_data, i64 8
   %8 = load i32, ptr %sample_rate15, align 4
   %cmp16 = icmp eq i32 %2, %8
   br i1 %cmp16, label %if.end, label %if.end.thread
@@ -456,16 +451,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample = getelementptr inbounds i8, ptr %metadata, i64 40
   %1 = load i32, ptr %bits_per_sample, align 8
-  %bits_per_sample1 = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 1
+  %bits_per_sample1 = getelementptr inbounds i8, ptr %client_data, i64 4
   store i32 %1, ptr %bits_per_sample1, align 4
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels = getelementptr inbounds i8, ptr %metadata, i64 36
   %2 = load i32, ptr %channels, align 4
   store i32 %2, ptr %client_data, align 4
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate = getelementptr inbounds i8, ptr %metadata, i64 32
   %3 = load i32, ptr %sample_rate, align 8
-  %sample_rate5 = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 2
+  %sample_rate5 = getelementptr inbounds i8, ptr %client_data, i64 8
   store i32 %3, ptr %sample_rate5, align 4
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 2
@@ -478,7 +473,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not, label %if.end15.sink.split, label %if.end15
 
 if.end15.sink.split:                              ; preds = %if.end, %if.then
-  %error13 = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 3
+  %error13 = getelementptr inbounds i8, ptr %client_data, i64 12
   store i32 1, ptr %error13, align 4
   br label %if.end15
 
@@ -489,7 +484,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @error_callback_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef writeonly %client_data) #3 {
 entry:
-  %error = getelementptr inbounds %struct.DecoderInstance, ptr %client_data, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %client_data, i64 12
   store i32 1, ptr %error, align 4
   ret void
 }
@@ -638,7 +633,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr nou
 define internal fastcc i32 @append_tag_(ptr noundef %block, ptr noundef %format, ptr noundef %name, float noundef %value) unnamed_addr #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 255
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 255
   store i8 0, ptr %arrayidx, align 1
   %call = tail call ptr @setlocale(i32 noundef 6, ptr noundef null) #15
   %call2 = tail call noalias ptr @strdup(ptr noundef %call) #15
@@ -973,19 +968,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %comments = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments = getelementptr inbounds i8, ptr %block, i64 40
   %1 = load ptr, ptr %comments, align 8
   %idx.ext = zext nneg i32 %call4 to i64
+  %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idx.ext
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
-  %entry2.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idx.ext, i32 1
+  %entry2.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %2 = load ptr, ptr %entry2.i, align 8
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 61) #16
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %parse_double_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idx.ext
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
   %3 = load i32, ptr %add.ptr, align 8
   %conv.i = zext i32 %3 to i64
@@ -1031,19 +1026,19 @@ if.end9:                                          ; preds = %parse_double_.exit,
   br i1 %narrow.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end9
-  %comments24 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments24 = getelementptr inbounds i8, ptr %block, i64 40
   %5 = load ptr, ptr %comments24, align 8
   %idx.ext25 = zext nneg i32 %call10 to i64
+  %add.ptr26 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %5, i64 %idx.ext25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i23)
-  %entry2.i24 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %5, i64 %idx.ext25, i32 1
+  %entry2.i24 = getelementptr inbounds i8, ptr %add.ptr26, i64 8
   %6 = load ptr, ptr %entry2.i24, align 8
   %call.i25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 61) #16
   %cmp.i26 = icmp eq ptr %call.i25, null
   br i1 %cmp.i26, label %parse_double_.exit45.thread, label %if.end.i27
 
 if.end.i27:                                       ; preds = %land.lhs.true
-  %add.ptr26 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %5, i64 %idx.ext25
   %incdec.ptr.i28 = getelementptr inbounds i8, ptr %call.i25, i64 1
   %7 = load i32, ptr %add.ptr26, align 8
   %conv.i29 = zext i32 %7 to i64
@@ -1079,16 +1074,16 @@ land.lhs.true32:                                  ; preds = %safe_strncpy.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i23)
   %9 = load ptr, ptr %comments24, align 8
   %idx.ext35 = zext nneg i32 %call17 to i64
+  %add.ptr36 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %idx.ext35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i46)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i47)
-  %entry2.i48 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %idx.ext35, i32 1
+  %entry2.i48 = getelementptr inbounds i8, ptr %add.ptr36, i64 8
   %10 = load ptr, ptr %entry2.i48, align 8
   %call.i49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #16
   %cmp.i50 = icmp eq ptr %call.i49, null
   br i1 %cmp.i50, label %parse_double_.exit69.thread, label %if.end.i51
 
 if.end.i51:                                       ; preds = %land.lhs.true32
-  %add.ptr36 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %idx.ext35
   %incdec.ptr.i52 = getelementptr inbounds i8, ptr %call.i49, i64 1
   %11 = load i32, ptr %add.ptr36, align 8
   %conv.i53 = zext i32 %11 to i64

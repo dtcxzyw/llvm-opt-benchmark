@@ -77,9 +77,9 @@ entry:
   br i1 %cmp63, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx9 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 1
-  %arrayidx17 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 2
-  %arrayidx21 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %buf, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %buf, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %buf, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -145,7 +145,7 @@ sw.bb:                                            ; preds = %while.end
   %or36 = or disjoint i64 %shr35, %shl33
   %add.ptr.i37 = getelementptr inbounds i8, ptr @.str.3, i64 %or36
   %10 = load i8, ptr %add.ptr.i37, align 1
-  %arrayidx38 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 1
+  %arrayidx38 = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %10, ptr %arrayidx38, align 1
   %and40 = shl nuw nsw i64 %conv.i35, 2
   %shl41 = and i64 %and40, 60
@@ -164,15 +164,15 @@ sw.bb46:                                          ; preds = %while.end
   %shl53 = and i64 %and52, 48
   %add.ptr.i47 = getelementptr inbounds i8, ptr @.str.3, i64 %shl53
   %14 = load i8, ptr %add.ptr.i47, align 1
-  %arrayidx55 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %14, ptr %arrayidx55, align 1
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb46
   %.sink = phi i8 [ 61, %sw.bb46 ], [ %11, %sw.bb ]
-  %arrayidx56 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 2
+  %arrayidx56 = getelementptr inbounds i8, ptr %buf, i64 2
   store i8 %.sink, ptr %arrayidx56, align 1
-  %arrayidx57 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 3
+  %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 3
   store i8 61, ptr %arrayidx57, align 1
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %buf, i64 noundef 4)
   br label %sw.epilog
@@ -195,9 +195,9 @@ entry:
   br i1 %cmp.i93, label %while.end, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph: ; preds = %entry
-  %dispatcher_.i.i.i.i7 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i4, i64 0, i32 1
-  %dispatcher_.i.i.i.i13 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i10, i64 0, i32 1
-  %dispatcher_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i.i4, i64 8
+  %dispatcher_.i.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp.i.i10, i64 8
+  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.lr.ph, %while.cond.backedge
@@ -461,7 +461,7 @@ entry:
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i16 %val to i64
   %0 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %0, ptr %ref.tmp.i, align 8
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchItEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8
   %call3.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)

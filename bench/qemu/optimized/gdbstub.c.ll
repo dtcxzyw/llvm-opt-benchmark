@@ -8,52 +8,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %struct.GDBFeature = type { ptr, ptr, i32 }
 %struct.GdbCmdParseEntry = type { ptr, ptr, i8, ptr, i8 }
-%struct._GString = type { ptr, i64, i64 }
 %struct.timeval = type { i64, i64 }
-%struct._GByteArray = type { ptr, i32 }
 %struct.GDBProcess = type { i32, i8, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.GDBFeatureBuilder = type { ptr, ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct._GPtrArray = type { ptr, i32 }
-%struct._GArray = type { ptr, i32 }
 %struct.GDBRegisterState = type { i32, i32, ptr, ptr, ptr }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %union.GdbCmdVariant = type { ptr, [8 x i8] }
-%struct.anon.6 = type { i32, i32, i32 }
 
 @gdbserver_state = dso_local global %struct.GDBState zeroinitializer, align 8
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/gdbstub/gdbstub.c\00", align 1
@@ -279,8 +238,8 @@ entry:
   br i1 %cmp30, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %len.i = getelementptr inbounds %struct._GString, ptr %buf, i64 0, i32 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %buf, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %allocated_len.i = getelementptr inbounds i8, ptr %buf, i64 16
   %wide.trip.count = zext nneg i32 %len to i64
   br label %for.body
 
@@ -345,10 +304,10 @@ g_string_append_c_inline.exit19:                  ; preds = %if.then.i16, %if.el
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %g_string_append_c_inline.exit19, %entry
-  %len.i20 = getelementptr inbounds %struct._GString, ptr %buf, i64 0, i32 1
+  %len.i20 = getelementptr inbounds i8, ptr %buf, i64 8
   %12 = load i64, ptr %len.i20, align 8
   %add.i21 = add i64 %12, 1
-  %allocated_len.i22 = getelementptr inbounds %struct._GString, ptr %buf, i64 0, i32 2
+  %allocated_len.i22 = getelementptr inbounds i8, ptr %buf, i64 16
   %13 = load i64, ptr %allocated_len.i22, align 8
   %cmp.i23 = icmp ult i64 %add.i21, %13
   br i1 %cmp.i23, label %if.then.i26, label %if.else.i24
@@ -470,8 +429,8 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp1.not.i, label %hexdump.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %arrayidx.i = getelementptr inbounds [69 x i8], ptr %line_buffer.i, i64 0, i64 68
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %line_buffer.i, i64 68
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -573,8 +532,8 @@ hexdump.exit:                                     ; preds = %for.inc.i, %if.then
 
 if.end:                                           ; preds = %hexdump.exit, %land.lhs.true, %entry
   %cmp13 = icmp sgt i32 %len, 0
-  %arrayidx15 = getelementptr inbounds [3 x i8], ptr %footer, i64 0, i64 1
-  %arrayidx19 = getelementptr inbounds [3 x i8], ptr %footer, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %footer, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %footer, i64 2
   br i1 %cmp13, label %for.cond.us.preheader, label %for.cond
 
 for.cond.us.preheader:                            ; preds = %if.end
@@ -620,7 +579,7 @@ for.cond9.for.end_crit_edge.us:                   ; preds = %for.body.us
   %call20.us = call ptr @g_byte_array_append(ptr noundef %17, ptr noundef nonnull %footer, i32 noundef 3) #17
   %18 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
   %19 = load ptr, ptr %18, align 8
-  %len21.us = getelementptr inbounds %struct._GByteArray, ptr %18, i64 0, i32 1
+  %len21.us = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %len21.us, align 8
   call void @gdb_put_buffer(ptr noundef %19, i32 noundef %20) #17
   %call22.us = call zeroext i1 @gdb_got_immediate_ack() #17
@@ -640,7 +599,7 @@ for.cond:                                         ; preds = %if.end, %for.cond
   %call20 = call ptr @g_byte_array_append(ptr noundef %24, ptr noundef nonnull %footer, i32 noundef 3) #17
   %25 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
   %26 = load ptr, ptr %25, align 8
-  %len21 = getelementptr inbounds %struct._GByteArray, ptr %25, i64 0, i32 1
+  %len21 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %len21, align 8
   call void @gdb_put_buffer(ptr noundef %26, i32 noundef %27) #17
   %call22 = call zeroext i1 @gdb_got_immediate_ack() #17
@@ -684,7 +643,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %buf) #17
   br label %trace_gdbstub_io_reply.exit
@@ -720,8 +679,8 @@ entry:
   br i1 %tobool.not26, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %len.i = getelementptr inbounds %struct._GString, ptr %buf, i64 0, i32 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %buf, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %allocated_len.i = getelementptr inbounds i8, ptr %buf, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -867,7 +826,7 @@ for.body:                                         ; preds = %entry, %while.end5
   br i1 %cmp, label %return, label %while.end5
 
 while.end5:                                       ; preds = %for.body
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not = icmp eq i64 %2, 0
@@ -914,14 +873,14 @@ for.cond.i.i:                                     ; preds = %for.cond.preheader.
 
 gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %5, %if.then.i.i ], [ %3, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.cond.i.i ]
-  %attached = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i, i64 0, i32 1
+  %attached = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %7 = load i8, ptr %attached, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %gdb_get_cpu_process.exit
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %1, i64 568
   %9 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
   %cpu.addr.07.i = inttoptr i64 %9 to ptr
@@ -960,14 +919,14 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
 
 gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %13, %if.then.i.i.i ], [ %11, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
-  %attached.i = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i.i, i64 0, i32 1
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %15 = load i8, ptr %attached.i, align 4
   %16 = and i8 %15, 1
   %tobool3.not.i = icmp eq i8 %16, 0
   br i1 %tobool3.not.i, label %while.end8.i, label %return
 
 while.end8.i:                                     ; preds = %gdb_get_cpu_process.exit.i
-  %node9.i = getelementptr inbounds %struct.CPUState, ptr %cpu.addr.09.i, i64 0, i32 35
+  %node9.i = getelementptr inbounds i8, ptr %cpu.addr.09.i, i64 568
   %17 = load atomic i64, ptr %node9.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   %cpu.addr.0.i = inttoptr i64 %17 to ptr
@@ -985,13 +944,13 @@ entry:
   %call = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.3, ptr noundef %name) #17
   store ptr %feature, ptr %builder, align 8
   %call2 = tail call ptr @g_ptr_array_new() #17
-  %xml = getelementptr inbounds %struct.GDBFeatureBuilder, ptr %builder, i64 0, i32 1
+  %xml = getelementptr inbounds i8, ptr %builder, i64 8
   store ptr %call2, ptr %xml, align 8
   tail call void @g_ptr_array_add(ptr noundef %call2, ptr noundef %call) #17
-  %base_reg4 = getelementptr inbounds %struct.GDBFeatureBuilder, ptr %builder, i64 0, i32 2
+  %base_reg4 = getelementptr inbounds i8, ptr %builder, i64 16
   store i32 %base_reg, ptr %base_reg4, align 8
   store ptr %xmlname, ptr %feature, align 8
-  %num_regs = getelementptr inbounds %struct.GDBFeature, ptr %feature, i64 0, i32 2
+  %num_regs = getelementptr inbounds i8, ptr %feature, i64 16
   store i32 0, ptr %num_regs, align 8
   ret void
 }
@@ -1007,7 +966,7 @@ define dso_local void @gdb_feature_builder_append_tag(ptr nocapture noundef read
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %xml = getelementptr inbounds %struct.GDBFeatureBuilder, ptr %builder, i64 0, i32 1
+  %xml = getelementptr inbounds i8, ptr %builder, i64 8
   %0 = load ptr, ptr %xml, align 8
   %call = call ptr @g_markup_vprintf_escaped(ptr noundef %format, ptr noundef nonnull %ap) #17
   call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call) #17
@@ -1027,7 +986,7 @@ declare void @llvm.va_end(ptr) #6
 define dso_local void @gdb_feature_builder_append_reg(ptr nocapture noundef readonly %builder, ptr noundef %name, i32 noundef %bitsize, i32 noundef %regnum, ptr noundef %type, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %builder, align 8
-  %num_regs = getelementptr inbounds %struct.GDBFeature, ptr %0, i64 0, i32 2
+  %num_regs = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %num_regs, align 8
   %cmp = icmp slt i32 %1, %regnum
   br i1 %cmp, label %if.then, label %if.end
@@ -1038,7 +997,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %tobool.not = icmp eq ptr %group, null
-  %base_reg4 = getelementptr inbounds %struct.GDBFeatureBuilder, ptr %builder, i64 0, i32 2
+  %base_reg4 = getelementptr inbounds i8, ptr %builder, i64 16
   %2 = load i32, ptr %base_reg4, align 8
   %add5 = add i32 %2, %regnum
   br i1 %tobool.not, label %if.else, label %if.then3
@@ -1058,7 +1017,7 @@ if.end6:                                          ; preds = %if.else, %if.then3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_feature_builder_end(ptr nocapture noundef readonly %builder) local_unnamed_addr #0 {
 entry:
-  %xml = getelementptr inbounds %struct.GDBFeatureBuilder, ptr %builder, i64 0, i32 1
+  %xml = getelementptr inbounds i8, ptr %builder, i64 8
   %0 = load ptr, ptr %xml, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef nonnull @.str.6) #17
   %1 = load ptr, ptr %xml, align 8
@@ -1067,10 +1026,10 @@ entry:
   %3 = load ptr, ptr %2, align 8
   %call = tail call noalias ptr @g_strjoinv(ptr noundef null, ptr noundef %3) #17
   %4 = load ptr, ptr %builder, align 8
-  %xml3 = getelementptr inbounds %struct.GDBFeature, ptr %4, i64 0, i32 1
+  %xml3 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %call, ptr %xml3, align 8
   %5 = load ptr, ptr %xml, align 8
-  %len9 = getelementptr inbounds %struct._GPtrArray, ptr %5, i64 0, i32 1
+  %len9 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len9, align 8
   %cmp11.not = icmp eq i32 %6, 2
   br i1 %cmp11.not, label %for.end, label %for.body
@@ -1084,7 +1043,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @g_free(ptr noundef %9) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load ptr, ptr %xml, align 8
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %10, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %len, align 8
   %sub = add i32 %11, -2
   %12 = zext i32 %sub to i64
@@ -1121,7 +1080,7 @@ if.then:                                          ; preds = %for.body
   ret ptr %feature.06
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr %struct.GDBFeature, ptr %feature.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %feature.06, i64 24
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.body, label %for.body, !llvm.loop !20
@@ -1137,13 +1096,13 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_register_coprocessor(ptr nocapture noundef %cpu, ptr noundef %get_reg, ptr noundef %set_reg, i32 noundef %num_regs, ptr noundef %xml, i32 noundef %g_pos) local_unnamed_addr #0 {
 entry:
-  %gdb_regs = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 32
+  %gdb_regs = getelementptr inbounds i8, ptr %cpu, i64 552
   %0 = load ptr, ptr %gdb_regs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %len = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %cmp27.not = icmp eq i32 %1, 0
   br i1 %cmp27.not, label %if.end8, label %for.body.lr.ph
@@ -1180,16 +1139,16 @@ if.end8:                                          ; preds = %for.inc, %for.cond.
   %6 = load ptr, ptr %5, align 8
   %idxprom13 = zext i32 %i.1 to i64
   %arrayidx14 = getelementptr %struct.GDBRegisterState, ptr %6, i64 %idxprom13
-  %gdb_num_regs = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 33
+  %gdb_num_regs = getelementptr inbounds i8, ptr %cpu, i64 560
   %7 = load i32, ptr %gdb_num_regs, align 16
   store i32 %7, ptr %arrayidx14, align 8
-  %num_regs15 = getelementptr %struct.GDBRegisterState, ptr %6, i64 %idxprom13, i32 1
+  %num_regs15 = getelementptr inbounds i8, ptr %arrayidx14, i64 4
   store i32 %num_regs, ptr %num_regs15, align 4
-  %get_reg16 = getelementptr %struct.GDBRegisterState, ptr %6, i64 %idxprom13, i32 2
+  %get_reg16 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   store ptr %get_reg, ptr %get_reg16, align 8
-  %set_reg17 = getelementptr %struct.GDBRegisterState, ptr %6, i64 %idxprom13, i32 3
+  %set_reg17 = getelementptr inbounds i8, ptr %arrayidx14, i64 16
   store ptr %set_reg, ptr %set_reg17, align 8
-  %xml18 = getelementptr %struct.GDBRegisterState, ptr %6, i64 %idxprom13, i32 4
+  %xml18 = getelementptr inbounds i8, ptr %arrayidx14, i64 24
   store ptr %xml, ptr %xml18, align 8
   %8 = load i32, ptr %gdb_num_regs, align 16
   %add20 = add i32 %8, %num_regs
@@ -1207,7 +1166,7 @@ if.then25:                                        ; preds = %if.then22
   br label %if.end30
 
 if.else27:                                        ; preds = %if.then22
-  %gdb_num_g_regs = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 34
+  %gdb_num_g_regs = getelementptr inbounds i8, ptr %cpu, i64 564
   store i32 %add20, ptr %gdb_num_g_regs, align 4
   br label %if.end30
 
@@ -1281,7 +1240,7 @@ for.cond.i.i:                                     ; preds = %for.cond.preheader.
 
 gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %3, %if.then.i.i ], [ %1, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.cond.i.i ]
-  %attached = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i, i64 0, i32 1
+  %attached = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %5 = load i8, ptr %attached, align 4
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -1357,7 +1316,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %ch to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i) #17
@@ -1428,7 +1387,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #17
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #17
   %16 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %17 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i41, i64 noundef %16, i64 noundef %17) #17
   br label %trace_gdbstub_err_overrun.exit
@@ -1492,7 +1451,7 @@ if.then8.i.i53:                                   ; preds = %if.then.i.i51
   %call9.i.i54 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #17
   %call10.i.i55 = tail call i32 @qemu_get_thread_id() #17
   %25 = load i64, ptr %_now.i.i44, align 8
-  %tv_usec.i.i56 = getelementptr inbounds %struct.timeval, ptr %_now.i.i44, i64 0, i32 1
+  %tv_usec.i.i56 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
   %26 = load i64, ptr %tv_usec.i.i56, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i55, i64 noundef %25, i64 noundef %26) #17
   br label %trace_gdbstub_err_overrun.exit58
@@ -1553,7 +1512,7 @@ if.then8.i.i68:                                   ; preds = %if.then.i.i66
   %call9.i.i69 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59, ptr noundef null) #17
   %call10.i.i70 = tail call i32 @qemu_get_thread_id() #17
   %37 = load i64, ptr %_now.i.i59, align 8
-  %tv_usec.i.i71 = getelementptr inbounds %struct.timeval, ptr %_now.i.i59, i64 0, i32 1
+  %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i59, i64 8
   %38 = load i64, ptr %tv_usec.i.i71, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i70, i64 noundef %37, i64 noundef %38, i32 noundef %conv59) #17
   br label %trace_gdbstub_err_invalid_repeat.exit
@@ -1599,7 +1558,7 @@ if.then8.i.i84:                                   ; preds = %if.then.i.i82
   %call9.i.i85 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75, ptr noundef null) #17
   %call10.i.i86 = tail call i32 @qemu_get_thread_id() #17
   %45 = load i64, ptr %_now.i.i75, align 8
-  %tv_usec.i.i87 = getelementptr inbounds %struct.timeval, ptr %_now.i.i75, i64 0, i32 1
+  %tv_usec.i.i87 = getelementptr inbounds i8, ptr %_now.i.i75, i64 8
   %46 = load i64, ptr %tv_usec.i.i87, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i86, i64 noundef %45, i64 noundef %46) #17
   br label %trace_gdbstub_err_overrun.exit89
@@ -1675,7 +1634,7 @@ if.then8.i.i99:                                   ; preds = %if.then.i.i97
   %call9.i.i100 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i90, ptr noundef null) #17
   %call10.i.i101 = tail call i32 @qemu_get_thread_id() #17
   %58 = load i64, ptr %_now.i.i90, align 8
-  %tv_usec.i.i102 = getelementptr inbounds %struct.timeval, ptr %_now.i.i90, i64 0, i32 1
+  %tv_usec.i.i102 = getelementptr inbounds i8, ptr %_now.i.i90, i64 8
   %59 = load i64, ptr %tv_usec.i.i102, align 8
   %conv11.i.i103 = zext i8 %ch to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i101, i64 noundef %58, i64 noundef %59, i32 noundef %conv11.i.i103) #17
@@ -1759,7 +1718,7 @@ if.then8.i.i115:                                  ; preds = %if.then.i.i113
   %call9.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i106, ptr noundef null) #17
   %call10.i.i117 = tail call i32 @qemu_get_thread_id() #17
   %72 = load i64, ptr %_now.i.i106, align 8
-  %tv_usec.i.i118 = getelementptr inbounds %struct.timeval, ptr %_now.i.i106, i64 0, i32 1
+  %tv_usec.i.i118 = getelementptr inbounds i8, ptr %_now.i.i106, i64 8
   %73 = load i64, ptr %tv_usec.i.i118, align 8
   %conv11.i.i119 = zext i8 %ch to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i117, i64 noundef %72, i64 noundef %73, i32 noundef %conv11.i.i119) #17
@@ -1832,7 +1791,7 @@ if.then8.i.i143:                                  ; preds = %if.then.i.i141
   %call9.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i134, ptr noundef null) #17
   %call10.i.i145 = tail call i32 @qemu_get_thread_id() #17
   %84 = load i64, ptr %_now.i.i134, align 8
-  %tv_usec.i.i146 = getelementptr inbounds %struct.timeval, ptr %_now.i.i134, i64 0, i32 1
+  %tv_usec.i.i146 = getelementptr inbounds i8, ptr %_now.i.i134, i64 8
   %85 = load i64, ptr %tv_usec.i.i146, align 8
   %conv12.i.i148 = and i32 %or, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i145, i64 noundef %84, i64 noundef %85, i32 noundef %and121, i32 noundef %conv12.i.i148) #17
@@ -1877,7 +1836,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = call i32 @qemu_get_thread_id() #17
   %91 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %92 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i, i64 noundef %91, i64 noundef %92, ptr noundef nonnull getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5)) #17
   br label %trace_gdbstub_io_command.exit.i
@@ -2040,7 +1999,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #17
   br label %_nocheck__trace_gdbstub_err_invalid_rle.exit
@@ -2073,9 +2032,9 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @getpid() #17
-  %processes = getelementptr inbounds %struct.GDBState, ptr %s, i64 0, i32 12
+  %processes = getelementptr inbounds i8, ptr %s, i64 4160
   %1 = load ptr, ptr %processes, align 8
-  %process_num = getelementptr inbounds %struct.GDBState, ptr %s, i64 0, i32 13
+  %process_num = getelementptr inbounds i8, ptr %s, i64 4168
   %2 = load i32, ptr %process_num, align 8
   %inc = add i32 %2, 1
   store i32 %inc, ptr %process_num, align 8
@@ -2087,9 +2046,9 @@ if.end:                                           ; preds = %entry
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr %struct.GDBProcess, ptr %call1, i64 %idxprom
   store i32 %call, ptr %arrayidx, align 8
-  %attached = getelementptr %struct.GDBProcess, ptr %call1, i64 %idxprom, i32 1
+  %attached = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i8 0, ptr %attached, align 4
-  %target_xml = getelementptr %struct.GDBProcess, ptr %call1, i64 %idxprom, i32 2
+  %target_xml = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr null, ptr %target_xml, align 8
   ret void
 }
@@ -2142,10 +2101,10 @@ if.else.i:                                        ; preds = %if.then
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
   %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %len.i, align 8
   %add.i = add i64 %8, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %9
   br i1 %cmp.i, label %if.then.i2, label %if.else.i1
@@ -2181,7 +2140,7 @@ if.end:                                           ; preds = %g_string_append_c_i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_continue(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2193,7 +2152,7 @@ if.then:                                          ; preds = %entry
   tail call void @cpu_synchronize_state(ptr noundef %3) #17
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef %3) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %set_pc.i.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i.i, i64 0, i32 8
+  %set_pc.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 232
   %4 = load ptr, ptr %set_pc.i.i, align 8
   tail call void %4(ptr noundef %3, i64 noundef %2) #17
   br label %if.end
@@ -2207,7 +2166,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_cont_with_sig(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2231,7 +2190,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_v_commands(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.end
@@ -2264,7 +2223,7 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader.i, label %if.then
 
 if.then:                                          ; preds = %entry
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %2 = load i32, ptr %len, align 8
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %return, label %if.end3
@@ -2320,7 +2279,7 @@ for.body.i.i:                                     ; preds = %gdb_get_process.exi
   br i1 %cmp.i.i, label %while.body.i, label %while.end5.i.i
 
 while.end5.i.i:                                   ; preds = %for.body.i.i
-  %node.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i.i, i64 0, i32 35
+  %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %11 = load atomic i64, ptr %node.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not.i.i = icmp eq i64 %11, 0
@@ -2330,7 +2289,7 @@ while.body.i:                                     ; preds = %for.body.i.i, %gdb_
   %cpu.08.i = phi ptr [ %cpu.addr.0.lcssa.i.i, %gdb_next_cpu_in_process.exit.i ], [ %cpu.06.i.i, %for.body.i.i ]
   tail call void @gdb_breakpoint_remove_all(ptr noundef nonnull %cpu.08.i) #17
   %call.i.i3.i = tail call i32 @getpid() #17
-  %node.i4.i = getelementptr inbounds %struct.CPUState, ptr %cpu.08.i, i64 0, i32 35
+  %node.i4.i = getelementptr inbounds i8, ptr %cpu.08.i, i64 568
   %12 = load atomic i64, ptr %node.i4.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
   %cpu.addr.07.i.i = inttoptr i64 %12 to ptr
@@ -2344,7 +2303,7 @@ while.body2.i.i:                                  ; preds = %while.body.i, %whil
   br i1 %cmp.i5.i, label %gdb_next_cpu_in_process.exit.i, label %while.end8.i.i
 
 while.end8.i.i:                                   ; preds = %while.body2.i.i
-  %node9.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.addr.09.i.i, i64 0, i32 35
+  %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
   %13 = load atomic i64, ptr %node9.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
   %cpu.addr.0.i.i = inttoptr i64 %13 to ptr
@@ -2357,7 +2316,7 @@ gdb_next_cpu_in_process.exit.i:                   ; preds = %while.end8.i.i, %wh
   br i1 %tobool.not.i5, label %gdb_process_breakpoint_remove_all.exit, label %while.body.i, !llvm.loop !26
 
 gdb_process_breakpoint_remove_all.exit:           ; preds = %while.end5.i.i, %gdb_next_cpu_in_process.exit.i, %gdb_get_process.exit
-  %attached = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i, i64 0, i32 1
+  %attached = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   store i8 0, ptr %attached, align 4
   %call.i = tail call i32 @getpid() #17
   %cmp = icmp eq i32 %pid.09, %call.i
@@ -2397,7 +2356,7 @@ return:                                           ; preds = %if.end15, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_step(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2409,7 +2368,7 @@ if.then:                                          ; preds = %entry
   tail call void @cpu_synchronize_state(ptr noundef %3) #17
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef %3) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %set_pc.i.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i.i, i64 0, i32 8
+  %set_pc.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 232
   %4 = load ptr, ptr %set_pc.i.i, align 8
   tail call void %4(ptr noundef %3, i64 noundef %2) #17
   br label %if.end
@@ -2433,7 +2392,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then2, label %if.end13
@@ -2488,7 +2447,7 @@ entry:
   %1 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
   %call = tail call ptr @g_byte_array_set_size(ptr noundef %1, i32 noundef 0) #17
   %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
-  %gdb_num_g_regs7 = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 34
+  %gdb_num_g_regs7 = getelementptr inbounds i8, ptr %2, i64 564
   %3 = load i32, ptr %gdb_num_g_regs7, align 4
   %cmp8 = icmp sgt i32 %3, 0
   br i1 %cmp8, label %for.body, label %do.body
@@ -2500,29 +2459,29 @@ for.body:                                         ; preds = %entry, %gdb_read_re
   %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %4) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %add.ptr.i.i = getelementptr %struct.CPUState, ptr %4, i64 1
-  %gdb_num_core_regs.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 23
+  %add.ptr.i.i = getelementptr i8, ptr %4, i64 10176
+  %gdb_num_core_regs.i = getelementptr inbounds i8, ptr %call1.i.i, i64 348
   %6 = load i32, ptr %gdb_num_core_regs.i, align 4
   %cmp.i = icmp sgt i32 %6, %reg_id.09
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
-  %gdb_read_register.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 10
+  %gdb_read_register.i = getelementptr inbounds i8, ptr %call1.i.i, i64 248
   %7 = load ptr, ptr %gdb_read_register.i, align 8
   %call2.i = tail call i32 %7(ptr noundef nonnull %4, ptr noundef %5, i32 noundef %reg_id.09) #17
   br label %gdb_read_register.exit
 
 if.end.i:                                         ; preds = %for.body
-  %gdb_regs.i = getelementptr inbounds %struct.CPUState, ptr %4, i64 0, i32 32
+  %gdb_regs.i = getelementptr inbounds i8, ptr %4, i64 552
   %8 = load ptr, ptr %gdb_regs.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %gdb_read_register.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %len.i = getelementptr inbounds %struct._GArray, ptr %8, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i32, ptr %len.i, align 8
-  %cmp519.not.i = icmp eq i32 %9, 0
-  br i1 %cmp519.not.i, label %gdb_read_register.exit, label %for.body.lr.ph.i
+  %cmp518.not.i = icmp eq i32 %9, 0
+  br i1 %cmp518.not.i, label %gdb_read_register.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %10 = load ptr, ptr %8, align 8
@@ -2537,14 +2496,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %num_regs.i = getelementptr %struct.GDBRegisterState, ptr %10, i64 %indvars.iv.i, i32 1
+  %num_regs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %num_regs.i, align 4
   %add.i = add i32 %12, %11
   %cmp9.i = icmp sgt i32 %add.i, %reg_id.09
   br i1 %cmp9.i, label %if.then10.i, label %for.inc.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %get_reg.i = getelementptr %struct.GDBRegisterState, ptr %10, i64 %indvars.iv.i, i32 2
+  %get_reg.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %13 = load ptr, ptr %get_reg.i, align 8
   %sub.i = sub i32 %reg_id.09, %11
   %call12.i = tail call i32 %13(ptr noundef %add.ptr.i.i, ptr noundef %5, i32 noundef %sub.i) #17
@@ -2561,7 +2520,7 @@ gdb_read_register.exit:                           ; preds = %for.inc.i, %if.then
   %add = add i64 %len.010, %conv
   %inc = add nuw nsw i32 %reg_id.09, 1
   %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
-  %gdb_num_g_regs = getelementptr inbounds %struct.CPUState, ptr %14, i64 0, i32 34
+  %gdb_num_g_regs = getelementptr inbounds i8, ptr %14, i64 564
   %15 = load i32, ptr %gdb_num_g_regs, align 4
   %cmp = icmp slt i32 %inc, %15
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !28
@@ -2569,7 +2528,7 @@ gdb_read_register.exit:                           ; preds = %for.inc.i, %if.then
 do.body:                                          ; preds = %gdb_read_register.exit, %entry
   %len.0.lcssa = phi i64 [ 0, %entry ], [ %add, %gdb_read_register.exit ]
   %16 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
-  %len2 = getelementptr inbounds %struct._GByteArray, ptr %16, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i32, ptr %len2, align 8
   %conv3 = zext i32 %17 to i64
   %cmp4 = icmp eq i64 %len.0.lcssa, %conv3
@@ -2594,7 +2553,7 @@ do.end:                                           ; preds = %do.body
 define internal void @handle_write_all_regs(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
   %byte.i = alloca i8, align 1
-  %len1 = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2682,7 +2641,7 @@ gdb_hextomem.exit:                                ; preds = %gdb_hextomem.exit.l
   %13 = phi ptr [ %.pre, %gdb_hextomem.exit.loopexit ], [ %4, %if.end ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.i)
   %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
-  %gdb_num_g_regs14 = getelementptr inbounds %struct.CPUState, ptr %14, i64 0, i32 34
+  %gdb_num_g_regs14 = getelementptr inbounds i8, ptr %14, i64 564
   %15 = load i32, ptr %gdb_num_g_regs14, align 4
   %cmp15 = icmp sgt i32 %15, 0
   %cmp616 = icmp ugt i64 %call, 1
@@ -2700,29 +2659,29 @@ for.body:                                         ; preds = %for.body.preheader,
   %len.017 = phi i64 [ %sub, %gdb_write_register.exit ], [ %div9, %for.body.preheader ]
   %call.i.i = call ptr @object_get_class(ptr noundef nonnull %18) #17
   %call1.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %add.ptr.i.i = getelementptr %struct.CPUState, ptr %18, i64 1
-  %gdb_num_core_regs.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 23
+  %add.ptr.i.i = getelementptr i8, ptr %18, i64 10176
+  %gdb_num_core_regs.i = getelementptr inbounds i8, ptr %call1.i.i, i64 348
   %19 = load i32, ptr %gdb_num_core_regs.i, align 4
   %cmp.i = icmp sgt i32 %19, %reg_id.019
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
-  %gdb_write_register.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 11
+  %gdb_write_register.i = getelementptr inbounds i8, ptr %call1.i.i, i64 256
   %20 = load ptr, ptr %gdb_write_register.i, align 8
   %call2.i = call i32 %20(ptr noundef nonnull %18, ptr noundef %registers.018, i32 noundef %reg_id.019) #17
   br label %gdb_write_register.exit
 
 if.end.i:                                         ; preds = %for.body
-  %gdb_regs.i = getelementptr inbounds %struct.CPUState, ptr %18, i64 0, i32 32
+  %gdb_regs.i = getelementptr inbounds i8, ptr %18, i64 552
   %21 = load ptr, ptr %gdb_regs.i, align 8
   %tobool.not.i = icmp eq ptr %21, null
   br i1 %tobool.not.i, label %gdb_write_register.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %len.i = getelementptr inbounds %struct._GArray, ptr %21, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i32, ptr %len.i, align 8
-  %cmp519.not.i = icmp eq i32 %22, 0
-  br i1 %cmp519.not.i, label %gdb_write_register.exit, label %for.body.lr.ph.i
+  %cmp518.not.i = icmp eq i32 %22, 0
+  br i1 %cmp518.not.i, label %gdb_write_register.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %23 = load ptr, ptr %21, align 8
@@ -2737,14 +2696,14 @@ for.body.i10:                                     ; preds = %for.inc.i, %for.bod
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i10
-  %num_regs.i = getelementptr %struct.GDBRegisterState, ptr %23, i64 %indvars.iv.i, i32 1
+  %num_regs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %25 = load i32, ptr %num_regs.i, align 4
   %add.i = add i32 %25, %24
   %cmp9.i = icmp sgt i32 %add.i, %reg_id.019
   br i1 %cmp9.i, label %if.then10.i, label %for.inc.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %set_reg.i = getelementptr %struct.GDBRegisterState, ptr %23, i64 %indvars.iv.i, i32 3
+  %set_reg.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %26 = load ptr, ptr %set_reg.i, align 8
   %sub.i = sub i32 %reg_id.019, %24
   %call12.i = call i32 %26(ptr noundef %add.ptr.i.i, ptr noundef %registers.018, i32 noundef %sub.i) #17
@@ -2762,7 +2721,7 @@ gdb_write_register.exit:                          ; preds = %for.inc.i, %if.then
   %add.ptr = getelementptr i8, ptr %registers.018, i64 %conv9
   %inc = add nuw nsw i32 %reg_id.019, 1
   %27 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
-  %gdb_num_g_regs = getelementptr inbounds %struct.CPUState, ptr %27, i64 0, i32 34
+  %gdb_num_g_regs = getelementptr inbounds i8, ptr %27, i64 564
   %28 = load i32, ptr %gdb_num_g_regs, align 4
   %cmp = icmp slt i32 %inc, %28
   %cmp6 = icmp ne i64 %sub, 0
@@ -2780,7 +2739,7 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_read_mem(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2791,7 +2750,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
-  %arrayidx = getelementptr %union.GdbCmdVariant, ptr %1, i64 1
+  %arrayidx = getelementptr i8, ptr %1, i64 16
   %2 = load i64, ptr %arrayidx, align 8
   %cmp1 = icmp ugt i64 %2, 2048
   br i1 %cmp1, label %if.then2, label %if.end4
@@ -2809,7 +2768,7 @@ if.end4:                                          ; preds = %if.end
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
   %8 = load ptr, ptr %7, align 8
-  %len11 = getelementptr inbounds %struct._GByteArray, ptr %7, i64 0, i32 1
+  %len11 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %len11, align 8
   %call12 = tail call i32 @gdb_target_memory_rw_debug(ptr noundef %4, i64 noundef %6, ptr noundef %8, i32 noundef %9, i1 noundef zeroext false) #17
   %tobool.not = icmp eq i32 %call12, 0
@@ -2823,7 +2782,7 @@ if.end15:                                         ; preds = %if.end4
   %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
   %12 = load ptr, ptr %11, align 8
-  %len17 = getelementptr inbounds %struct._GByteArray, ptr %11, i64 0, i32 1
+  %len17 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %len17, align 8
   tail call void @gdb_memtohex(ptr noundef %10, ptr noundef %12, i32 noundef %13)
   %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
@@ -2839,7 +2798,7 @@ return:                                           ; preds = %if.end15, %if.then1
 define internal void @handle_write_mem(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
   %byte.i = alloca i8, align 1
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2850,9 +2809,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
-  %arrayidx = getelementptr %union.GdbCmdVariant, ptr %1, i64 1
+  %arrayidx = getelementptr i8, ptr %1, i64 16
   %2 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %1, i64 2
+  %arrayidx2 = getelementptr i8, ptr %1, i64 32
   %3 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
   %div6 = lshr i64 %call3, 1
@@ -2944,7 +2903,7 @@ gdb_hextomem.exit:                                ; preds = %gdb_hextomem.exit.l
   %15 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
   %16 = load i64, ptr %14, align 8
   %17 = load ptr, ptr %13, align 8
-  %len15 = getelementptr inbounds %struct._GByteArray, ptr %13, i64 0, i32 1
+  %len15 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load i32, ptr %len15, align 8
   %call16 = call i32 @gdb_target_memory_rw_debug(ptr noundef %15, i64 noundef %16, ptr noundef %17, i32 noundef %18, i1 noundef zeroext true) #17
   %tobool.not = icmp eq i32 %call16, 0
@@ -2965,7 +2924,7 @@ return:                                           ; preds = %if.end19, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_get_reg(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2982,29 +2941,29 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %4 to i32
   %call.i.i = tail call ptr @object_get_class(ptr noundef %1) #17
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %add.ptr.i.i = getelementptr %struct.CPUState, ptr %1, i64 1
-  %gdb_num_core_regs.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 23
+  %add.ptr.i.i = getelementptr i8, ptr %1, i64 10176
+  %gdb_num_core_regs.i = getelementptr inbounds i8, ptr %call1.i.i, i64 348
   %5 = load i32, ptr %gdb_num_core_regs.i, align 4
   %cmp.i = icmp sgt i32 %5, %conv
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %gdb_read_register.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 10
+  %gdb_read_register.i = getelementptr inbounds i8, ptr %call1.i.i, i64 248
   %6 = load ptr, ptr %gdb_read_register.i, align 8
   %call2.i = tail call i32 %6(ptr noundef %1, ptr noundef %2, i32 noundef %conv) #17
   br label %gdb_read_register.exit
 
 if.end.i:                                         ; preds = %if.end
-  %gdb_regs.i = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 32
+  %gdb_regs.i = getelementptr inbounds i8, ptr %1, i64 552
   %7 = load ptr, ptr %gdb_regs.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.then3, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %len.i = getelementptr inbounds %struct._GArray, ptr %7, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %len.i, align 8
-  %cmp519.not.i = icmp eq i32 %8, 0
-  br i1 %cmp519.not.i, label %if.then3, label %for.body.lr.ph.i
+  %cmp518.not.i = icmp eq i32 %8, 0
+  br i1 %cmp518.not.i, label %if.then3, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %9 = load ptr, ptr %7, align 8
@@ -3019,14 +2978,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %num_regs.i = getelementptr %struct.GDBRegisterState, ptr %9, i64 %indvars.iv.i, i32 1
+  %num_regs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %11 = load i32, ptr %num_regs.i, align 4
   %add.i = add i32 %11, %10
   %cmp9.i = icmp sgt i32 %add.i, %conv
   br i1 %cmp9.i, label %if.then10.i, label %for.inc.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %get_reg.i = getelementptr %struct.GDBRegisterState, ptr %9, i64 %indvars.iv.i, i32 2
+  %get_reg.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %12 = load ptr, ptr %get_reg.i, align 8
   %sub.i = sub i32 %conv, %10
   %call12.i = tail call i32 %12(ptr noundef %add.ptr.i.i, ptr noundef %2, i32 noundef %sub.i) #17
@@ -3066,7 +3025,7 @@ return:                                           ; preds = %if.else, %if.then3,
 define internal void @handle_set_reg(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
   %byte.i = alloca i8, align 1
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3077,7 +3036,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
-  %arrayidx = getelementptr %union.GdbCmdVariant, ptr %1, i64 1
+  %arrayidx = getelementptr i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %div4 = lshr i64 %call1, 1
@@ -3164,29 +3123,29 @@ gdb_hextomem.exit:                                ; preds = %gdb_hextomem.exit.l
   %conv7 = trunc i64 %16 to i32
   %call.i.i = call ptr @object_get_class(ptr noundef %14) #17
   %call1.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %add.ptr.i.i = getelementptr %struct.CPUState, ptr %14, i64 1
-  %gdb_num_core_regs.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 23
+  %add.ptr.i.i = getelementptr i8, ptr %14, i64 10176
+  %gdb_num_core_regs.i = getelementptr inbounds i8, ptr %call1.i.i, i64 348
   %17 = load i32, ptr %gdb_num_core_regs.i, align 4
   %cmp.i = icmp sgt i32 %17, %conv7
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %gdb_hextomem.exit
-  %gdb_write_register.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 11
+  %gdb_write_register.i = getelementptr inbounds i8, ptr %call1.i.i, i64 256
   %18 = load ptr, ptr %gdb_write_register.i, align 8
   %call2.i = call i32 %18(ptr noundef %14, ptr noundef %15, i32 noundef %conv7) #17
   br label %gdb_write_register.exit
 
 if.end.i:                                         ; preds = %gdb_hextomem.exit
-  %gdb_regs.i = getelementptr inbounds %struct.CPUState, ptr %14, i64 0, i32 32
+  %gdb_regs.i = getelementptr inbounds i8, ptr %14, i64 552
   %19 = load ptr, ptr %gdb_regs.i, align 8
   %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %gdb_write_register.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %len.i = getelementptr inbounds %struct._GArray, ptr %19, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i32, ptr %len.i, align 8
-  %cmp519.not.i = icmp eq i32 %20, 0
-  br i1 %cmp519.not.i, label %gdb_write_register.exit, label %for.body.lr.ph.i
+  %cmp518.not.i = icmp eq i32 %20, 0
+  br i1 %cmp518.not.i, label %gdb_write_register.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %21 = load ptr, ptr %19, align 8
@@ -3201,14 +3160,14 @@ for.body.i5:                                      ; preds = %for.inc.i, %for.bod
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i5
-  %num_regs.i = getelementptr %struct.GDBRegisterState, ptr %21, i64 %indvars.iv.i, i32 1
+  %num_regs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %23 = load i32, ptr %num_regs.i, align 4
   %add.i = add i32 %23, %22
   %cmp9.i = icmp sgt i32 %add.i, %conv7
   br i1 %cmp9.i, label %if.then10.i, label %for.inc.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %set_reg.i = getelementptr %struct.GDBRegisterState, ptr %21, i64 %indvars.iv.i, i32 3
+  %set_reg.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %24 = load ptr, ptr %set_reg.i, align 8
   %sub.i = sub i32 %conv7, %22
   %call12.i = call i32 %24(ptr noundef %add.ptr.i.i, ptr noundef %15, i32 noundef %sub.i) #17
@@ -3230,7 +3189,7 @@ return:                                           ; preds = %gdb_write_register.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_insert_bp(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %return
@@ -3240,9 +3199,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %params, align 8
   %3 = load i64, ptr %2, align 8
   %conv = trunc i64 %3 to i32
-  %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %2, i64 1
+  %arrayidx2 = getelementptr i8, ptr %2, i64 16
   %4 = load i64, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr %union.GdbCmdVariant, ptr %2, i64 2
+  %arrayidx4 = getelementptr i8, ptr %2, i64 32
   %5 = load i64, ptr %arrayidx4, align 8
   %call5 = tail call i32 @gdb_breakpoint_insert(ptr noundef %1, i32 noundef %conv, i64 noundef %4, i64 noundef %5) #17
   %cmp6 = icmp sgt i32 %call5, -1
@@ -3262,7 +3221,7 @@ return:                                           ; preds = %if.else, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_remove_bp(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %return
@@ -3272,9 +3231,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %params, align 8
   %3 = load i64, ptr %2, align 8
   %conv = trunc i64 %3 to i32
-  %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %2, i64 1
+  %arrayidx2 = getelementptr i8, ptr %2, i64 16
   %4 = load i64, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr %union.GdbCmdVariant, ptr %2, i64 2
+  %arrayidx4 = getelementptr i8, ptr %2, i64 32
   %5 = load i64, ptr %arrayidx4, align 8
   %call5 = tail call i32 @gdb_breakpoint_remove(ptr noundef %1, i32 noundef %conv, i64 noundef %4, i64 noundef %5) #17
   %cmp6 = icmp sgt i32 %call5, -1
@@ -3294,14 +3253,14 @@ return:                                           ; preds = %if.else, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_set_thread(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
-  %arrayidx = getelementptr %union.GdbCmdVariant, ptr %1, i64 1
+  %arrayidx = getelementptr i8, ptr %1, i64 16
   %2 = load i32, ptr %arrayidx, align 8
   switch i32 %2, label %if.then9 [
     i32 3, label %sw.epilog
@@ -3314,7 +3273,7 @@ if.then9:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.end
   %pid = getelementptr i8, ptr %1, i64 20
   %3 = load i32, ptr %pid, align 4
-  %tid = getelementptr %union.GdbCmdVariant, ptr %1, i64 1, i32 1
+  %tid = getelementptr i8, ptr %1, i64 24
   %4 = load i32, ptr %tid, align 8
   %call16 = tail call fastcc ptr @gdb_get_cpu(i32 noundef %3, i32 noundef %4)
   %tobool.not = icmp eq ptr %call16, null
@@ -3345,7 +3304,7 @@ sw.epilog:                                        ; preds = %if.end19, %if.end11
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_thread_alive(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -3357,9 +3316,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %pid = getelementptr inbounds %struct.anon.6, ptr %1, i64 0, i32 1
+  %pid = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %pid, align 4
-  %tid = getelementptr inbounds %struct.anon.6, ptr %1, i64 0, i32 2
+  %tid = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %tid, align 8
   %call8 = tail call fastcc ptr @gdb_get_cpu(i32 noundef %3, i32 noundef %4)
   %tobool9.not = icmp eq ptr %call8, null
@@ -3375,7 +3334,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_gen_query(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end10, label %if.end
@@ -3405,7 +3364,7 @@ if.end10:                                         ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_gen_set(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end10, label %if.end
@@ -3462,8 +3421,8 @@ entry:
   %this_param.i = alloca %union.GdbCmdVariant, align 8
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 16) #17
   %tobool.not = icmp ne ptr %cmds, null
-  %cmp25 = icmp sgt i32 %num_cmds, 0
-  %or.cond = and i1 %tobool.not, %cmp25
+  %cmp24 = icmp sgt i32 %num_cmds, 0
+  %or.cond = and i1 %tobool.not, %cmp24
   br i1 %or.cond, label %for.body.preheader, label %cleanup
 
 for.body.preheader:                               ; preds = %entry
@@ -3478,7 +3437,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %cmd2 = getelementptr %struct.GdbCmdParseEntry, ptr %cmds, i64 %indvars.iv, i32 1
+  %cmd2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %cmd2, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.else, label %do.end
@@ -3488,7 +3447,7 @@ if.else:                                          ; preds = %land.lhs.true, %for
   unreachable
 
 do.end:                                           ; preds = %land.lhs.true
-  %cmd_startswith = getelementptr %struct.GdbCmdParseEntry, ptr %cmds, i64 %indvars.iv, i32 2
+  %cmd_startswith = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i8, ptr %cmd_startswith, align 8
   %3 = and i8 %2, 1
   %tobool6.not = icmp eq i8 %3, 0
@@ -3506,7 +3465,7 @@ land.lhs.true13:                                  ; preds = %do.end
   br i1 %tobool16.not, label %if.end18, label %for.inc
 
 if.end18:                                         ; preds = %land.lhs.true7, %land.lhs.true13
-  %schema = getelementptr %struct.GdbCmdParseEntry, ptr %cmds, i64 %indvars.iv, i32 3
+  %schema = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load ptr, ptr %schema, align 8
   %tobool19.not = icmp eq ptr %4, null
   br i1 %tobool19.not, label %if.end29, label %if.then20
@@ -3515,7 +3474,7 @@ if.then20:                                        ; preds = %if.end18
   %call22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curr_data.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %this_param.i)
-  %len.i = getelementptr inbounds %struct._GArray, ptr %call, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load i32, ptr %len.i, align 8
   %cmp.i = icmp eq i32 %5, 0
   br i1 %cmp.i, label %do.end5.i, label %if.else3.i
@@ -3532,8 +3491,8 @@ do.end5.i:                                        ; preds = %if.then20
   br i1 %tobool6.not109.i, label %cmd_parse_params.exit.thread, label %land.lhs.true.lr.ph.i
 
 land.lhs.true.lr.ph.i:                            ; preds = %do.end5.i
-  %pid.i = getelementptr inbounds %struct.anon.6, ptr %this_param.i, i64 0, i32 1
-  %tid.i = getelementptr inbounds %struct.anon.6, ptr %this_param.i, i64 0, i32 2
+  %pid.i = getelementptr inbounds i8, ptr %this_param.i, i64 4
+  %tid.i = getelementptr inbounds i8, ptr %this_param.i, i64 8
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i, %land.lhs.true.lr.ph.i
@@ -3910,7 +3869,7 @@ cmd_parse_params.exit:                            ; preds = %while.body.i, %sw.b
   br label %cleanup
 
 if.end29:                                         ; preds = %cmd_parse_params.exit.thread, %if.end18
-  %allow_stop_reply = getelementptr %struct.GdbCmdParseEntry, ptr %cmds, i64 %indvars.iv, i32 4
+  %allow_stop_reply = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %34 = load i8, ptr %allow_stop_reply, align 8
   %35 = and i8 %34, 1
   store i8 %35, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
@@ -3968,7 +3927,7 @@ entry:
   %t.i.i = alloca i64, align 8
   %p.addr.i = alloca ptr, align 8
   %tmp.i = alloca i64, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end8, label %if.end
@@ -3995,12 +3954,12 @@ while.cond10.preheader.i:                         ; preds = %for.body.i, %if.end
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %cpu.0.in87.i = phi i64 [ %6, %for.body.i ], [ %3, %if.end ]
   %cpu.0.i = inttoptr i64 %cpu.0.in87.i to ptr
-  %cpu_index.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i, i64 0, i32 51
+  %cpu_index.i = getelementptr inbounds i8, ptr %cpu.0.i, i64 712
   %5 = load i32, ptr %cpu_index.i, align 8
   %idxprom.i = sext i32 %5 to i64
   %arrayidx.i = getelementptr i8, ptr %call1.i, i64 %idxprom.i
   store i8 1, ptr %arrayidx.i, align 1
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %cpu.0.i, i64 568
   %6 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
   %tobool.not.i = icmp eq i64 %6, 0
@@ -4125,7 +4084,7 @@ while.body63.i:                                   ; preds = %sw.bb59.i, %gdb_nex
   %last_target.196.i = phi ptr [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.0103.i, %sw.bb59.i ]
   %target_count.195.i = phi i32 [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.0102.i, %sw.bb59.i ]
   %cpu.194.i = phi ptr [ %cpu.addr.0.lcssa.i.i, %gdb_next_attached_cpu.exit.i ], [ %call60.i, %sw.bb59.i ]
-  %cpu_index64.i = getelementptr inbounds %struct.CPUState, ptr %cpu.194.i, i64 0, i32 51
+  %cpu_index64.i = getelementptr inbounds i8, ptr %cpu.194.i, i64 712
   %21 = load i32, ptr %cpu_index64.i, align 8
   %idxprom65.i = sext i32 %21 to i64
   %arrayidx66.i = getelementptr i8, ptr %call1.i, i64 %idxprom65.i
@@ -4141,7 +4100,7 @@ if.then70.i:                                      ; preds = %while.body63.i
 if.end74.i:                                       ; preds = %if.then70.i, %while.body63.i
   %target_count.2.i = phi i32 [ %inc.i, %if.then70.i ], [ %target_count.195.i, %while.body63.i ]
   %last_target.2.i = phi ptr [ %cpu.194.i, %if.then70.i ], [ %last_target.196.i, %while.body63.i ]
-  %node.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.194.i, i64 0, i32 35
+  %node.i.i = getelementptr inbounds i8, ptr %cpu.194.i, i64 568
   %23 = load atomic i64, ptr %node.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
   %cpu.addr.07.i.i = inttoptr i64 %23 to ptr
@@ -4180,14 +4139,14 @@ for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.
 
 gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %27, %if.then.i.i.i.i ], [ %25, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
-  %attached.i.i = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
   %29 = load i8, ptr %attached.i.i, align 4
   %30 = and i8 %29, 1
   %tobool3.not.i.i = icmp eq i8 %30, 0
   br i1 %tobool3.not.i.i, label %while.end8.i.i, label %gdb_next_attached_cpu.exit.i
 
 while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i.i
-  %node9.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.addr.09.i.i, i64 0, i32 35
+  %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
   %31 = load atomic i64, ptr %node9.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   %cpu.addr.0.i.i = inttoptr i64 %31 to ptr
@@ -4234,7 +4193,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 gdb_get_process.exit.i:                           ; preds = %for.body.i.i, %for.cond.i.i, %if.then.i34.i, %for.cond.preheader.i.i
   %retval.0.i33.i = phi ptr [ %34, %if.then.i34.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
-  %attached.i = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i33.i, i64 0, i32 1
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i33.i, i64 4
   %36 = load i8, ptr %attached.i, align 4
   %37 = and i8 %36, 1
   %tobool79.not.i = icmp eq i8 %37, 0
@@ -4255,7 +4214,7 @@ for.body.i35.i:                                   ; preds = %if.end81.i, %while.
   br i1 %cmp.i36.i, label %while.body85.i, label %while.end5.i.i
 
 while.end5.i.i:                                   ; preds = %for.body.i35.i
-  %node.i37.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i.i, i64 0, i32 35
+  %node.i37.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %40 = load atomic i64, ptr %node.i37.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not.i38.i = icmp eq i64 %40, 0
@@ -4265,7 +4224,7 @@ while.body85.i:                                   ; preds = %for.body.i35.i, %gd
   %last_target.391.i = phi ptr [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0103.i, %for.body.i35.i ]
   %target_count.390.i = phi i32 [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0102.i, %for.body.i35.i ]
   %cpu.289.i = phi ptr [ %cpu.addr.0.lcssa.i51.i, %gdb_next_cpu_in_process.exit.i ], [ %cpu.06.i.i, %for.body.i35.i ]
-  %cpu_index86.i = getelementptr inbounds %struct.CPUState, ptr %cpu.289.i, i64 0, i32 51
+  %cpu_index86.i = getelementptr inbounds i8, ptr %cpu.289.i, i64 712
   %41 = load i32, ptr %cpu_index86.i, align 8
   %idxprom87.i = sext i32 %41 to i64
   %arrayidx88.i = getelementptr i8, ptr %call1.i, i64 %idxprom87.i
@@ -4282,7 +4241,7 @@ if.end97.i:                                       ; preds = %if.then92.i, %while
   %target_count.4.i = phi i32 [ %inc96.i, %if.then92.i ], [ %target_count.390.i, %while.body85.i ]
   %last_target.4.i = phi ptr [ %cpu.289.i, %if.then92.i ], [ %last_target.391.i, %while.body85.i ]
   %call.i.i40.i = call i32 @getpid() #17
-  %node.i41.i = getelementptr inbounds %struct.CPUState, ptr %cpu.289.i, i64 0, i32 35
+  %node.i41.i = getelementptr inbounds i8, ptr %cpu.289.i, i64 568
   %43 = load atomic i64, ptr %node.i41.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
   %cpu.addr.07.i42.i = inttoptr i64 %43 to ptr
@@ -4296,7 +4255,7 @@ while.body2.i44.i:                                ; preds = %if.end97.i, %while.
   br i1 %cmp.i46.i, label %gdb_next_cpu_in_process.exit.i, label %while.end8.i47.i
 
 while.end8.i47.i:                                 ; preds = %while.body2.i44.i
-  %node9.i48.i = getelementptr inbounds %struct.CPUState, ptr %cpu.addr.09.i45.i, i64 0, i32 35
+  %node9.i48.i = getelementptr inbounds i8, ptr %cpu.addr.09.i45.i, i64 568
   %44 = load atomic i64, ptr %node9.i48.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
   %cpu.addr.0.i49.i = inttoptr i64 %44 to ptr
@@ -4318,7 +4277,7 @@ sw.bb100.i:                                       ; preds = %if.end12.i.i
   br i1 %tobool102.not.i, label %gdb_handle_vcont.exit.thread6, label %if.end104.i
 
 if.end104.i:                                      ; preds = %sw.bb100.i
-  %cpu_index105.i = getelementptr inbounds %struct.CPUState, ptr %call101.i, i64 0, i32 51
+  %cpu_index105.i = getelementptr inbounds i8, ptr %call101.i, i64 712
   %45 = load i32, ptr %cpu_index105.i, align 8
   %idxprom106.i = sext i32 %45 to i64
   %arrayidx107.i = getelementptr i8, ptr %call1.i, i64 %idxprom106.i
@@ -4394,7 +4353,7 @@ define internal void @handle_v_attach(ptr nocapture noundef readonly %params, pt
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %call = tail call ptr @g_string_assign(ptr noundef %0, ptr noundef nonnull @.str.81) #17
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %cleanup, label %if.end
@@ -4452,14 +4411,14 @@ for.body.i7:                                      ; preds = %if.end4, %while.end
   br i1 %cmp.i, label %if.end8, label %while.end5.i
 
 while.end5.i:                                     ; preds = %for.body.i7
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %10 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not.i8 = icmp eq i64 %10, 0
   br i1 %tobool.not.i8, label %cleanup, label %for.body.i7, !llvm.loop !14
 
 if.end8:                                          ; preds = %for.body.i7
-  %attached = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i, i64 0, i32 1
+  %attached = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   store i8 1, ptr %attached, align 4
   store ptr %cpu.06.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
   store ptr %cpu.06.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
@@ -4490,10 +4449,10 @@ if.else.i:                                        ; preds = %if.then10
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i11, %if.else.i
   %17 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %17, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %len.i, align 8
   %add.i = add i64 %18, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %17, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %allocated_len.i, align 8
   %cmp.i13 = icmp ult i64 %add.i, %19
   br i1 %cmp.i13, label %if.then.i15, label %if.else.i14
@@ -4593,7 +4552,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp3.i, label %if.end, label %for.cond.i
 
 if.end:                                           ; preds = %for.body.i
-  %attached = getelementptr %struct.GDBProcess, ptr %2, i64 %indvars.iv.i, i32 1
+  %attached = getelementptr inbounds i8, ptr %arrayidx1.i, i64 4
   %4 = load i8, ptr %attached, align 4
   %5 = and i8 %4, 1
   %tobool8.not = icmp eq i8 %5, 0
@@ -4614,7 +4573,7 @@ for.body.i14:                                     ; preds = %if.end10, %while.en
   br i1 %cmp.i, label %return, label %while.end5.i
 
 while.end5.i:                                     ; preds = %for.body.i14
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %8 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not.i15 = icmp eq i64 %8, 0
@@ -4634,7 +4593,7 @@ for.body.i18:                                     ; preds = %if.else12, %while.e
   br i1 %cmp.i21, label %if.end16, label %while.end5.i22
 
 while.end5.i22:                                   ; preds = %for.body.i18
-  %node.i23 = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i20, i64 0, i32 35
+  %node.i23 = getelementptr inbounds i8, ptr %cpu.06.i20, i64 568
   %10 = load atomic i64, ptr %node.i23 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
   %tobool.not.i24 = icmp eq i64 %10, 0
@@ -4681,7 +4640,7 @@ land.lhs.true19:                                  ; preds = %gdb_get_cpu_process
   br i1 %cmp21.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %land.lhs.true19, %gdb_get_cpu_process.exit
-  %attached24 = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i, i64 0, i32 1
+  %attached24 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %16 = load i8, ptr %attached24, align 4
   %17 = and i8 %16, 1
   %tobool25.not = icmp eq i8 %17, 0
@@ -4762,7 +4721,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_set_qemu_sstep(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -4839,7 +4798,7 @@ for.body.i:                                       ; preds = %gdb_get_cpu_process
   br i1 %cmp.i, label %gdb_get_first_cpu_in_process.exit, label %while.end5.i
 
 while.end5.i:                                     ; preds = %for.body.i
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %6 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not.i = icmp eq i64 %6, 0
@@ -4910,7 +4869,7 @@ gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else
   %7 = load ptr, ptr %6, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %7)
   %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 3), align 8
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %8, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %8, i64 568
   %9 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
   %cpu.addr.07.i = inttoptr i64 %9 to ptr
@@ -4949,14 +4908,14 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
 
 gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %13, %if.then.i.i.i ], [ %11, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
-  %attached.i = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i.i, i64 0, i32 1
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %15 = load i8, ptr %attached.i, align 4
   %16 = and i8 %15, 1
   %tobool3.not.i = icmp eq i8 %16, 0
   br i1 %tobool3.not.i, label %while.end8.i, label %gdb_next_attached_cpu.exit
 
 while.end8.i:                                     ; preds = %gdb_get_cpu_process.exit.i
-  %node9.i = getelementptr inbounds %struct.CPUState, ptr %cpu.addr.09.i, i64 0, i32 35
+  %node9.i = getelementptr inbounds i8, ptr %cpu.addr.09.i, i64 568
   %17 = load atomic i64, ptr %node9.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   %cpu.addr.0.i = inttoptr i64 %17 to ptr
@@ -4986,7 +4945,7 @@ define internal void @handle_query_thread_extra(ptr nocapture noundef readonly %
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #17
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -5002,9 +4961,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %cleanup
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pid = getelementptr inbounds %struct.anon.6, ptr %1, i64 0, i32 1
+  %pid = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %pid, align 4
-  %tid = getelementptr inbounds %struct.anon.6, ptr %1, i64 0, i32 2
+  %tid = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %tid, align 8
   %call6 = tail call fastcc ptr @gdb_get_cpu(i32 noundef %3, i32 noundef %4)
   %tobool7.not = icmp eq ptr %call6, null
@@ -5024,7 +4983,7 @@ if.then12:                                        ; preds = %if.end9
   %call13 = tail call ptr @object_get_class(ptr noundef nonnull %call6) #17
   %call14 = tail call ptr @object_class_get_name(ptr noundef %call13) #17
   %call15 = tail call ptr @object_get_canonical_path_component(ptr noundef nonnull %call6) #17
-  %halted = getelementptr inbounds %struct.CPUState, ptr %call6, i64 0, i32 54
+  %halted = getelementptr inbounds i8, ptr %call6, i64 724
   %8 = load i32, ptr %halted, align 4
   %tobool16.not = icmp eq i32 %8, 0
   %cond = select i1 %tobool16.not, ptr @.str.110, ptr @.str.109
@@ -5032,9 +4991,9 @@ if.then12:                                        ; preds = %if.end9
   br label %if.end20
 
 if.else:                                          ; preds = %if.end9
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %call6, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %call6, i64 712
   %9 = load i32, ptr %cpu_index, align 8
-  %halted17 = getelementptr inbounds %struct.CPUState, ptr %call6, i64 0, i32 54
+  %halted17 = getelementptr inbounds i8, ptr %call6, i64 724
   %10 = load i32, ptr %halted17, align 4
   %tobool18.not = icmp eq i32 %10, 0
   %cond19 = select i1 %tobool18.not, ptr @.str.110, ptr @.str.109
@@ -5067,7 +5026,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %11) #17
   br label %cleanup.thread
@@ -5080,7 +5039,7 @@ cleanup.thread:                                   ; preds = %if.else.i.i, %if.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %19 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %20 = load ptr, ptr %call, align 8
-  %len22 = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 1
+  %len22 = getelementptr inbounds i8, ptr %call, i64 8
   %21 = load i64, ptr %len22, align 8
   %conv = trunc i64 %21 to i32
   tail call void @gdb_memtohex(ptr noundef %19, ptr noundef %20, i32 noundef %conv)
@@ -5113,7 +5072,7 @@ entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
   %call.i = tail call ptr @object_get_class(ptr noundef %2) #17
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %gdb_core_xml_file = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 13
+  %gdb_core_xml_file = getelementptr inbounds i8, ptr %call1.i, i64 272
   %3 = load ptr, ptr %gdb_core_xml_file, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5134,7 +5093,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then3, %if.end
   %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %6, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %6, i64 624
   %7 = load ptr, ptr %opaque, align 16
   %tobool6.not = icmp eq ptr %7, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -5147,7 +5106,7 @@ if.then7:                                         ; preds = %if.end5
 if.end9:                                          ; preds = %if.then7, %if.end5
   %9 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %call10 = tail call ptr @g_string_append(ptr noundef %9, ptr noundef nonnull @.str.118) #17
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %10 = load i32, ptr %len, align 8
   %tobool11.not = icmp eq i32 %10, 0
   br i1 %tobool11.not, label %if.end15, label %land.lhs.true
@@ -5175,7 +5134,7 @@ if.end15:                                         ; preds = %if.then14, %land.lh
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_xfer_features(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %len1 = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
   %cmp = icmp ult i32 %0, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -5220,7 +5179,7 @@ gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.
   %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %5) #17
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %gdb_core_xml_file = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 13
+  %gdb_core_xml_file = getelementptr inbounds i8, ptr %call1.i, i64 272
   %6 = load ptr, ptr %gdb_core_xml_file, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.then4, label %if.end6
@@ -5246,7 +5205,7 @@ for.body.i.i15:                                   ; preds = %if.end6, %while.end
   br i1 %cmp.i.i, label %gdb_get_first_cpu_in_process.exit.i, label %while.end5.i.i
 
 while.end5.i.i:                                   ; preds = %for.body.i.i15
-  %node.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i.i, i64 0, i32 35
+  %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %11 = load atomic i64, ptr %node.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %tobool.not.i.i16 = icmp eq i64 %11, 0
@@ -5265,7 +5224,7 @@ gdb_get_first_cpu_in_process.exit.i:              ; preds = %while.end5.i.i, %fo
   br i1 %cmp.i, label %if.then.i, label %if.end27.i
 
 if.then.i:                                        ; preds = %gdb_get_first_cpu_in_process.exit.i
-  %target_xml.i = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i.i, i64 0, i32 2
+  %target_xml.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %12 = load ptr, ptr %target_xml.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.then4.i, label %if.end11
@@ -5274,7 +5233,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %call5.i = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @g_free) #17
   %call6.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.123) #17
   tail call void @g_ptr_array_add(ptr noundef %call5.i, ptr noundef %call6.i) #17
-  %gdb_arch_name.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 14
+  %gdb_arch_name.i = getelementptr inbounds i8, ptr %call1.i.i, i64 280
   %13 = load ptr, ptr %gdb_arch_name.i, align 8
   %tobool7.not.i = icmp eq ptr %13, null
   br i1 %tobool7.not.i, label %if.end.i, label %if.then8.i
@@ -5286,17 +5245,17 @@ if.then8.i:                                       ; preds = %if.then4.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then8.i, %if.then4.i
-  %gdb_core_xml_file.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 13
+  %gdb_core_xml_file.i = getelementptr inbounds i8, ptr %call1.i.i, i64 272
   %14 = load ptr, ptr %gdb_core_xml_file.i, align 8
   %call12.i = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.125, ptr noundef %14) #17
   tail call void @g_ptr_array_add(ptr noundef %call5.i, ptr noundef %call12.i) #17
-  %gdb_regs.i = getelementptr inbounds %struct.CPUState, ptr %retval.0.i.i17, i64 0, i32 32
+  %gdb_regs.i = getelementptr inbounds i8, ptr %retval.0.i.i17, i64 552
   %15 = load ptr, ptr %gdb_regs.i, align 8
   %tobool13.not.i = icmp eq ptr %15, null
   br i1 %tobool13.not.i, label %glib_autoptr_cleanup_GPtrArray.exit.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %len1638.i = getelementptr inbounds %struct._GArray, ptr %15, i64 0, i32 1
+  %len1638.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %len1638.i, align 8
   %cmp1739.not.i = icmp eq i32 %16, 0
   br i1 %cmp1739.not.i, label %glib_autoptr_cleanup_GPtrArray.exit.i, label %for.body.i
@@ -5311,7 +5270,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   tail call void @g_ptr_array_add(ptr noundef %call5.i, ptr noundef %call20.i) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = load ptr, ptr %gdb_regs.i, align 8
-  %len16.i = getelementptr inbounds %struct._GArray, ptr %20, i64 0, i32 1
+  %len16.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %len16.i, align 8
   %22 = zext i32 %21 to i64
   %cmp17.i = icmp ult i64 %indvars.iv.next.i, %22
@@ -5328,7 +5287,7 @@ glib_autoptr_cleanup_GPtrArray.exit.i:            ; preds = %for.body.i, %for.co
   br label %get_feature_xml.exit
 
 if.end27.i:                                       ; preds = %gdb_get_first_cpu_in_process.exit.i
-  %gdb_get_dynamic_xml.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 15
+  %gdb_get_dynamic_xml.i = getelementptr inbounds i8, ptr %call1.i.i, i64 288
   %24 = load ptr, ptr %gdb_get_dynamic_xml.i, align 8
   %tobool28.not.i = icmp eq ptr %24, null
   br i1 %tobool28.not.i, label %if.end37.i, label %if.then29.i
@@ -5348,7 +5307,7 @@ if.end37.i:                                       ; preds = %if.then29.i, %if.en
 
 for.body44.i:                                     ; preds = %if.end37.i, %for.inc57.i
   %27 = phi ptr [ %28, %for.inc57.i ], [ %26, %if.end37.i ]
-  %idxprom4037.i = phi i64 [ %idxprom40.i, %for.inc57.i ], [ 0, %if.end37.i ]
+  %arrayidx4137.i = phi ptr [ %arrayidx41.i, %for.inc57.i ], [ @gdb_static_features, %if.end37.i ]
   %i38.036.i = phi i32 [ %inc58.i, %for.inc57.i ], [ 0, %if.end37.i ]
   %call48.i = tail call i32 @strncmp(ptr noundef nonnull %27, ptr noundef %8, i64 noundef %sub.ptr.sub.i) #18
   %cmp49.i = icmp eq i32 %call48.i, 0
@@ -5360,7 +5319,7 @@ land.lhs.true.i:                                  ; preds = %for.body44.i
   br i1 %cmp51.i, label %if.then52.i, label %for.inc57.i
 
 if.then52.i:                                      ; preds = %land.lhs.true.i
-  %xml55.i = getelementptr [0 x %struct.GDBFeature], ptr @gdb_static_features, i64 0, i64 %idxprom4037.i, i32 1
+  %xml55.i = getelementptr inbounds i8, ptr %arrayidx4137.i, i64 8
   br label %get_feature_xml.exit
 
 for.inc57.i:                                      ; preds = %land.lhs.true.i, %for.body44.i
@@ -5384,7 +5343,7 @@ if.then9:                                         ; preds = %for.inc57.i, %if.en
 if.end11:                                         ; preds = %if.then.i, %if.then29.i, %get_feature_xml.exit
   %retval.1.i25 = phi ptr [ %.pre.i, %get_feature_xml.exit ], [ %12, %if.then.i ], [ %call33.i, %if.then29.i ]
   %29 = load ptr, ptr %params, align 8
-  %arrayidx13 = getelementptr %union.GdbCmdVariant, ptr %29, i64 1
+  %arrayidx13 = getelementptr i8, ptr %29, i64 16
   %30 = load i64, ptr %arrayidx13, align 8
   %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.1.i25) #18
   %cmp17 = icmp ugt i64 %30, %call16
@@ -5395,7 +5354,7 @@ if.then18:                                        ; preds = %if.end11
   br label %return
 
 if.end20:                                         ; preds = %if.end11
-  %arrayidx15 = getelementptr %union.GdbCmdVariant, ptr %29, i64 2
+  %arrayidx15 = getelementptr i8, ptr %29, i64 32
   %31 = load i64, ptr %arrayidx15, align 8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %31, i64 2045)
   %sub = sub i64 %call16, %30
@@ -5410,7 +5369,7 @@ if.end20:                                         ; preds = %if.end11
   tail call void @gdb_memtox(ptr noundef %33, ptr noundef %add.ptr, i32 noundef %conv30)
   %34 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %35 = load ptr, ptr %34, align 8
-  %len32 = getelementptr inbounds %struct._GString, ptr %34, i64 0, i32 1
+  %len32 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i64, ptr %len32, align 8
   %conv33 = trunc i64 %36 to i32
   %call34 = tail call i32 @gdb_put_packet_binary(ptr noundef %35, i32 noundef %conv33, i1 noundef zeroext true)

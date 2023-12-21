@@ -4,20 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.ParallelChardev = type { %struct.Chardev, i32, i32 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevHostdev = type { ptr, i8, i8, ptr }
-%struct.ParallelIOArg = type { ptr, i32 }
 
 @char_parallel_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 160, i64 0, ptr null, ptr null, ptr @char_parallel_finalize, i8 0, i64 0, ptr @char_parallel_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [17 x i8] c"chardev-parallel\00", align 1
@@ -59,10 +45,10 @@ entry:
   %m.i = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #7
   %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 284, ptr noundef nonnull @__func__.char_parallel_finalize) #7
-  %fd2 = getelementptr inbounds %struct.ParallelChardev, ptr %call1, i64 0, i32 1
+  %fd2 = getelementptr inbounds i8, ptr %call1, i64 152
   %0 = load i32, ptr %fd2, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i)
-  %mode1.i = getelementptr inbounds %struct.ParallelChardev, ptr %call1, i64 0, i32 2
+  %mode1.i = getelementptr inbounds i8, ptr %call1, i64 156
   %1 = load i32, ptr %mode1.i, align 4
   %cmp.not.i = icmp eq i32 %1, 256
   br i1 %cmp.not.i, label %pp_hw_mode.exit, label %if.then.i
@@ -89,11 +75,11 @@ pp_hw_mode.exit:                                  ; preds = %entry, %if.then.i, 
 define internal void @char_parallel_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #7
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_parallel, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qmp_chardev_open_parallel, ptr %open, align 8
-  %chr_ioctl = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 9
+  %chr_ioctl = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @pp_ioctl, ptr %chr_ioctl, align 8
   ret void
 }
@@ -121,11 +107,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 2, ptr %backend, align 8
   %call1 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #8
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call1, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call1) #7
   %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #7
-  %device4 = getelementptr inbounds %struct.ChardevHostdev, ptr %call1, i64 0, i32 3
+  %device4 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call3, ptr %device4, align 8
   br label %return
 
@@ -136,9 +122,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qmp_chardev_open_parallel(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
-  %device = getelementptr inbounds %struct.ChardevHostdev, ptr %0, i64 0, i32 3
+  %device = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %device, align 8
   %call = tail call i32 @qmp_chardev_open_file_source(ptr noundef %1, i32 noundef 2, ptr noundef %errp) #7
   %cmp = icmp slt i32 %call, 0
@@ -158,9 +144,9 @@ if.then.i:                                        ; preds = %if.end
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %fd4.i = getelementptr inbounds %struct.ParallelChardev, ptr %call.i, i64 0, i32 1
+  %fd4.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store i32 %call, ptr %fd4.i, align 8
-  %mode.i = getelementptr inbounds %struct.ParallelChardev, ptr %call.i, i64 0, i32 2
+  %mode.i = getelementptr inbounds i8, ptr %call.i, i64 156
   store i32 256, ptr %mode.i, align 4
   br label %return
 
@@ -177,7 +163,7 @@ entry:
   %m.i = alloca i32, align 4
   %b = alloca i8, align 1
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 75, ptr noundef nonnull @__func__.pp_ioctl) #7
-  %fd1 = getelementptr inbounds %struct.ParallelChardev, ptr %call, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %call, i64 152
   %0 = load i32, ptr %fd1, align 8
   switch i32 %cmd, label %return [
     i32 3, label %sw.bb
@@ -244,7 +230,7 @@ sw.bb26:                                          ; preds = %entry
 
 sw.bb32:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i)
-  %mode1.i = getelementptr inbounds %struct.ParallelChardev, ptr %call, i64 0, i32 2
+  %mode1.i = getelementptr inbounds i8, ptr %call, i64 156
   %7 = load i32, ptr %mode1.i, align 4
   %cmp.not.i = icmp eq i32 %7, 8256
   br i1 %cmp.not.i, label %if.then34, label %if.then.i
@@ -266,7 +252,7 @@ pp_hw_mode.exit:                                  ; preds = %if.then.i
 if.then34:                                        ; preds = %if.end.i, %sw.bb32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i)
   %8 = load ptr, ptr %arg, align 8
-  %count = getelementptr inbounds %struct.ParallelIOArg, ptr %arg, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %arg, i64 8
   %9 = load i32, ptr %count, align 8
   %conv35 = sext i32 %9 to i64
   %call36 = call i64 @read(i32 noundef %0, ptr noundef %8, i64 noundef %conv35) #7
@@ -277,7 +263,7 @@ if.then34:                                        ; preds = %if.end.i, %sw.bb32
 
 sw.bb44:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i31)
-  %mode1.i32 = getelementptr inbounds %struct.ParallelChardev, ptr %call, i64 0, i32 2
+  %mode1.i32 = getelementptr inbounds i8, ptr %call, i64 156
   %11 = load i32, ptr %mode1.i32, align 4
   %cmp.not.i33 = icmp eq i32 %11, 64
   br i1 %cmp.not.i33, label %if.then47, label %if.then.i34
@@ -299,7 +285,7 @@ pp_hw_mode.exit40:                                ; preds = %if.then.i34
 if.then47:                                        ; preds = %if.end.i38, %sw.bb44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i31)
   %12 = load ptr, ptr %arg, align 8
-  %count51 = getelementptr inbounds %struct.ParallelIOArg, ptr %arg, i64 0, i32 1
+  %count51 = getelementptr inbounds i8, ptr %arg, i64 8
   %13 = load i32, ptr %count51, align 8
   %conv52 = sext i32 %13 to i64
   %call53 = call i64 @read(i32 noundef %0, ptr noundef %12, i64 noundef %conv52) #7
@@ -310,7 +296,7 @@ if.then47:                                        ; preds = %if.end.i38, %sw.bb4
 
 sw.bb61:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i41)
-  %mode1.i42 = getelementptr inbounds %struct.ParallelChardev, ptr %call, i64 0, i32 2
+  %mode1.i42 = getelementptr inbounds i8, ptr %call, i64 156
   %15 = load i32, ptr %mode1.i42, align 4
   %cmp.not.i43 = icmp eq i32 %15, 8256
   br i1 %cmp.not.i43, label %if.then64, label %if.then.i44
@@ -332,7 +318,7 @@ pp_hw_mode.exit50:                                ; preds = %if.then.i44
 if.then64:                                        ; preds = %if.end.i48, %sw.bb61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i41)
   %16 = load ptr, ptr %arg, align 8
-  %count68 = getelementptr inbounds %struct.ParallelIOArg, ptr %arg, i64 0, i32 1
+  %count68 = getelementptr inbounds i8, ptr %arg, i64 8
   %17 = load i32, ptr %count68, align 8
   %conv69 = sext i32 %17 to i64
   %call70 = call i64 @write(i32 noundef %0, ptr noundef %16, i64 noundef %conv69) #7
@@ -343,7 +329,7 @@ if.then64:                                        ; preds = %if.end.i48, %sw.bb6
 
 sw.bb78:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i51)
-  %mode1.i52 = getelementptr inbounds %struct.ParallelChardev, ptr %call, i64 0, i32 2
+  %mode1.i52 = getelementptr inbounds i8, ptr %call, i64 156
   %19 = load i32, ptr %mode1.i52, align 4
   %cmp.not.i53 = icmp eq i32 %19, 64
   br i1 %cmp.not.i53, label %if.then81, label %if.then.i54
@@ -365,7 +351,7 @@ pp_hw_mode.exit60:                                ; preds = %if.then.i54
 if.then81:                                        ; preds = %if.end.i58, %sw.bb78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i51)
   %20 = load ptr, ptr %arg, align 8
-  %count85 = getelementptr inbounds %struct.ParallelIOArg, ptr %arg, i64 0, i32 1
+  %count85 = getelementptr inbounds i8, ptr %arg, i64 8
   %21 = load i32, ptr %count85, align 8
   %conv86 = sext i32 %21 to i64
   %call87 = call i64 @write(i32 noundef %0, ptr noundef %20, i64 noundef %conv86) #7

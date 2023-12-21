@@ -10,235 +10,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.31 = type { i64 }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.std::chrono::duration" = type { i64 }
-%"class.proxygen::HTTPSessionBase" = type <{ %"class.wangle::ManagedConnection", ptr, ptr, %"struct.wangle::TransportInfo", %"class.proxygen::FilterChain", %"class.proxygen::HTTP2PriorityQueue", %"class.folly::SocketAddress", %"class.folly::SocketAddress", %"class.folly::Optional.34", i8, [7 x i8], %"class.std::unique_ptr", %"struct.std::array.38", ptr, %"class.std::chrono::time_point", %"class.std::chrono::duration.39", i32, i32, i32, i32, i32, i32, i64, i64, i32, i8, i8, [2 x i8] }>
-%"class.wangle::ManagedConnection" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestruction.base", i32, ptr, %"class.wangle::ConnectionAgeTimeout", %"class.folly::Optional", %"class.std::chrono::time_point", %"class.boost::intrusive::list_member_hook" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.wangle::ConnectionAgeTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" = type <{ %union.anon, i8, [7 x i8] }>
-%union.anon = type { %"class.std::chrono::time_point" }
-%"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook.0" }
-%"class.boost::intrusive::generic_hook.0" = type { %"struct.boost::intrusive::list_node" }
-%"struct.wangle::TransportInfo" = type { %"class.std::chrono::time_point", %"class.std::chrono::time_point", %"class.std::chrono::duration.2", i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", i32, %struct.tcp_info, %"class.std::chrono::duration.4", %"class.std::chrono::duration.4", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.8", i64, i64, i64, %"class.std::shared_ptr.11", %"class.std::shared_ptr.11", %"class.std::shared_ptr.11", i32, i32, i32, %"class.std::__cxx11::basic_string", i16, %"class.std::shared_ptr.5", i16, i8, i32, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr.14", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", i8, %"class.folly::Optional.17", %"class.std::__cxx11::basic_string" }
-%"class.std::chrono::duration.2" = type { i64 }
-%struct.tcp_info = type { i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.std::chrono::duration.4" = type { i64 }
-%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.11" = type { %"class.std::__shared_ptr.12" }
-%"class.std::__shared_ptr.12" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.14" = type { %"class.std::__shared_ptr.15" }
-%"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.folly::Optional.17" = type { %"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" = type { %union.anon.18, i8 }
-%union.anon.18 = type { i8 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.3 = type { i64, [8 x i8] }
-%"class.proxygen::FilterChain" = type { %"class.proxygen::PassThroughHTTPCodecFilter", ptr }
-%"class.proxygen::PassThroughHTTPCodecFilter" = type { %"class.proxygen::GenericFilter" }
-%"class.proxygen::GenericFilter" = type { %"class.proxygen::HTTPCodec", %"class.proxygen::HTTPCodec::Callback", i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"class.proxygen::HTTPCodec::Callback" = type { ptr }
-%"class.proxygen::HTTP2PriorityQueue" = type { %"class.proxygen::HTTP2PriorityQueueBase", %"class.folly::F14FastMap", %"class.proxygen::HTTP2PriorityQueue::Node", i32, i64, i32, i32, %"class.folly::Optional.30", i8, %"class.proxygen::WheelTimerInstance", ptr }
-%"class.proxygen::HTTP2PriorityQueueBase" = type { %"class.proxygen::HTTPCodec::PriorityQueue", i64 }
-%"class.proxygen::HTTPCodec::PriorityQueue" = type { ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::F14ValueMap" }
-%"class.folly::F14ValueMap" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.proxygen::HTTP2PriorityQueue::Node" = type { %"class.proxygen::HTTP2PriorityQueueBase::BaseNode", %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr, ptr, i64, i16, ptr, i8, i8, i64, i64, %"class.std::__cxx11::list", %"struct.std::_List_iterator", %"class.boost::intrusive::list_member_hook.27", %"class.boost::intrusive::list" }
-%"class.proxygen::HTTP2PriorityQueueBase::BaseNode" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_iterator" = type { ptr }
-%"class.boost::intrusive::list_member_hook.27" = type { %"class.boost::intrusive::generic_hook.28" }
-%"class.boost::intrusive::generic_hook.28" = type { %"struct.boost::intrusive::list_node" }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"class.proxygen::WheelTimerInstance" = type { ptr, %"class.std::chrono::duration.4" }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"class.folly::Optional.34" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.35, i8, [7 x i8] }>
-%union.anon.35 = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.37" }
-%"struct.std::_Head_base.37" = type { ptr }
-%"struct.std::array.38" = type { [4 x ptr] }
-%"class.std::chrono::duration.39" = type { i64 }
-%"class.proxygen::HTTPSession" = type { %"class.proxygen::HTTPSessionBase.base", %"class.proxygen::HTTPTransaction::Transport", %"class.proxygen::ByteEventTracker::Callback", %"class.folly::AsyncTransport::BufferCallback", %"class.proxygen::HTTPPriorityMapFactoryProvider", %"class.proxygen::FlowControlFilter::Callback", %"class.proxygen::HTTPCodec::Callback", %"class.folly::EventBase::LoopCallback", %"class.folly::AsyncReader::ReadCallback.base", %"class.folly::AsyncTransport::ReplaySafetyCallback", %"class.folly::AsyncWriter::WriteCallback", %"class.proxygen::HTTPSession::WriteTimeout", %"class.folly::IOBufQueue", %"class.folly::IOBufQueue", %"class.folly::F14NodeMap", %"class.folly::F14FastSet", %"class.folly::F14FastSet", i32, %"class.std::unique_ptr.66", %"class.proxygen::WheelTimerInstance", i32, i8, %"class.std::__cxx11::list.74", %"class.folly::Optional.79", ptr, i32, i32, i32, i32, i64, i64, i64, %"class.std::vector", %"class.std::shared_ptr.86", %"class.std::unique_ptr", ptr, i64, i64, i64, i64, %"class.std::unique_ptr.89", %"class.proxygen::HTTPSession::FlowControlTimeout", %"class.proxygen::HTTPSession::DrainTimeout", %"class.std::unique_ptr.97", %"class.std::unique_ptr.105", i8, i8, i8, i8, %"class.proxygen::HTTPSession::ObserverAccessor", %"class.proxygen::HTTPSessionObserverContainer" }
-%"class.proxygen::HTTPSessionBase.base" = type <{ %"class.wangle::ManagedConnection", ptr, ptr, %"struct.wangle::TransportInfo", %"class.proxygen::FilterChain", %"class.proxygen::HTTP2PriorityQueue", %"class.folly::SocketAddress", %"class.folly::SocketAddress", %"class.folly::Optional.34", i8, [7 x i8], %"class.std::unique_ptr", %"struct.std::array.38", ptr, %"class.std::chrono::time_point", %"class.std::chrono::duration.39", i32, i32, i32, i32, i32, i32, i64, i64, i32, i8, i8 }>
-%"class.proxygen::HTTPTransaction::Transport" = type { ptr }
-%"class.proxygen::ByteEventTracker::Callback" = type { ptr }
-%"class.folly::AsyncTransport::BufferCallback" = type { ptr }
-%"class.proxygen::HTTPPriorityMapFactoryProvider" = type { ptr }
-%"class.proxygen::FlowControlFilter::Callback" = type { ptr }
-%"class.folly::EventBase::LoopCallback" = type { ptr, %"class.boost::intrusive::list_base_hook", %"class.std::shared_ptr" }
-%"class.folly::AsyncReader::ReadCallback.base" = type <{ ptr, i8 }>
-%"class.folly::AsyncTransport::ReplaySafetyCallback" = type { ptr }
-%"class.folly::AsyncWriter::WriteCallback" = type { ptr }
-%"class.proxygen::HTTPSession::WriteTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr.40", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::Options" = type { i8 }
-%"class.std::unique_ptr.40" = type { %"struct.std::__uniq_ptr_data.41" }
-%"struct.std::__uniq_ptr_data.41" = type { %"class.std::__uniq_ptr_impl.42" }
-%"class.std::__uniq_ptr_impl.42" = type { %"class.std::tuple.43" }
-%"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.44" }
-%"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.47" }
-%"struct.std::_Head_base.47" = type { ptr }
-%"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
-%"struct.std::pair" = type { ptr, ptr }
-%"class.folly::F14NodeMap" = type { %"class.folly::f14::detail::F14BasicMap.48" }
-%"class.folly::f14::detail::F14BasicMap.48" = type { %"class.folly::f14::detail::F14Table.49" }
-%"class.folly::f14::detail::F14Table.49" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.55" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.55" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr.56" }
-%"class.folly::f14::detail::PackedChunkItemPtr.56" = type { i64 }
-%"class.folly::F14FastSet" = type { %"class.folly::F14ValueSet" }
-%"class.folly::F14ValueSet" = type { %"class.folly::f14::detail::F14BasicSet" }
-%"class.folly::f14::detail::F14BasicSet" = type { %"class.folly::f14::detail::F14Table.57" }
-%"class.folly::f14::detail::F14Table.57" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.64" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.64" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr.65" }
-%"class.folly::f14::detail::PackedChunkItemPtr.65" = type { i64 }
-%"class.std::unique_ptr.66" = type { %"struct.std::__uniq_ptr_data.67" }
-%"struct.std::__uniq_ptr_data.67" = type { %"class.std::__uniq_ptr_impl.68" }
-%"class.std::__uniq_ptr_impl.68" = type { %"class.std::tuple.69" }
-%"class.std::tuple.69" = type { %"struct.std::_Tuple_impl.70" }
-%"struct.std::_Tuple_impl.70" = type { %"struct.std::_Head_base.73" }
-%"struct.std::_Head_base.73" = type { ptr }
-%"class.std::__cxx11::list.74" = type { %"class.std::__cxx11::_List_base.75" }
-%"class.std::__cxx11::_List_base.75" = type { %"struct.std::__cxx11::_List_base<folly::AsyncTransport::ReplaySafetyCallback *, std::allocator<folly::AsyncTransport::ReplaySafetyCallback *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<folly::AsyncTransport::ReplaySafetyCallback *, std::allocator<folly::AsyncTransport::ReplaySafetyCallback *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.folly::Optional.79" = type { %"struct.folly::Optional<std::pair<unsigned long, folly::DelayedDestructionBase::DestructorGuard>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<std::pair<unsigned long, folly::DelayedDestructionBase::DestructorGuard>>::StorageNonTriviallyDestructible" = type <{ %union.anon.80, i8, [7 x i8] }>
-%union.anon.80 = type { %"struct.std::pair.81" }
-%"struct.std::pair.81" = type { i64, %"class.folly::DelayedDestructionBase::DestructorGuard" }
-%"class.folly::DelayedDestructionBase::DestructorGuard" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<proxygen::HTTPTransaction *, double>, std::allocator<std::pair<proxygen::HTTPTransaction *, double>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<proxygen::HTTPTransaction *, double>, std::allocator<std::pair<proxygen::HTTPTransaction *, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<proxygen::HTTPTransaction *, double>, std::allocator<std::pair<proxygen::HTTPTransaction *, double>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<proxygen::HTTPTransaction *, double>, std::allocator<std::pair<proxygen::HTTPTransaction *, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.86" = type { %"class.std::__shared_ptr.87" }
-%"class.std::__shared_ptr.87" = type { ptr, %"class.std::__shared_count" }
-%"class.std::unique_ptr.89" = type { %"struct.std::__uniq_ptr_data.90" }
-%"struct.std::__uniq_ptr_data.90" = type { %"class.std::__uniq_ptr_impl.91" }
-%"class.std::__uniq_ptr_impl.91" = type { %"class.std::tuple.92" }
-%"class.std::tuple.92" = type { %"struct.std::_Tuple_impl.93" }
-%"struct.std::_Tuple_impl.93" = type { %"struct.std::_Head_base.96" }
-%"struct.std::_Head_base.96" = type { ptr }
-%"class.proxygen::HTTPSession::FlowControlTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr, %"class.std::chrono::duration.4" }
-%"class.proxygen::HTTPSession::DrainTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.std::unique_ptr.97" = type { %"struct.std::__uniq_ptr_data.98" }
-%"struct.std::__uniq_ptr_data.98" = type { %"class.std::__uniq_ptr_impl.99" }
-%"class.std::__uniq_ptr_impl.99" = type { %"class.std::tuple.100" }
-%"class.std::tuple.100" = type { %"struct.std::_Tuple_impl.101" }
-%"struct.std::_Tuple_impl.101" = type { %"struct.std::_Head_base.104" }
-%"struct.std::_Head_base.104" = type { ptr }
-%"class.std::unique_ptr.105" = type { %"struct.std::__uniq_ptr_data.106" }
-%"struct.std::__uniq_ptr_data.106" = type { %"class.std::__uniq_ptr_impl.107" }
-%"class.std::__uniq_ptr_impl.107" = type { %"class.std::tuple.108" }
-%"class.std::tuple.108" = type { %"struct.std::_Tuple_impl.109" }
-%"struct.std::_Tuple_impl.109" = type { %"struct.std::_Head_base.112" }
-%"struct.std::_Head_base.112" = type { ptr }
-%"class.proxygen::HTTPSession::ObserverAccessor" = type { %"class.proxygen::HTTPSessionObserverAccessor", ptr }
-%"class.proxygen::HTTPSessionObserverAccessor" = type { ptr }
-%"class.proxygen::HTTPSessionObserverContainer" = type { %"class.folly::ObserverContainer.base", [7 x i8] }
-%"class.folly::ObserverContainer.base" = type <{ %"class.folly::ObserverContainerBase", ptr, %"class.folly::ObserverContainerStore", %"class.folly::ConstructorCallbackList" }>
-%"class.folly::ObserverContainerBase" = type { ptr }
-%"class.folly::ObserverContainerStore" = type <{ %"class.folly::ObserverContainerStoreBase", %"class.folly::small_vector", i8, [3 x i8], %"class.folly::Optional.113", i8, [3 x i8] }>
-%"class.folly::ObserverContainerStoreBase" = type { ptr }
-%"class.folly::small_vector" = type { %"struct.boost::operators_impl::totally_ordered1", %"union.folly::small_vector<std::shared_ptr<folly::ObserverContainerBase<proxygen::HTTPSessionObserverInterface, proxygen::HTTPSessionObserverAccessor, folly::ObserverContainerBasePolicyDefault<proxygen::HTTPSessionObserverInterface::Events, 32>>::Observer>, 2>::Data" }
-%"struct.boost::operators_impl::totally_ordered1" = type { %"struct.boost::operators_impl::less_than_comparable1" }
-%"struct.boost::operators_impl::less_than_comparable1" = type { %"struct.boost::operators_impl::equality_comparable1" }
-%"struct.boost::operators_impl::equality_comparable1" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"struct.folly::detail::IntegralSizePolicy" = type { %"struct.folly::detail::IntegralSizePolicyBase" }
-%"struct.folly::detail::IntegralSizePolicyBase" = type { i64 }
-%"union.folly::small_vector<std::shared_ptr<folly::ObserverContainerBase<proxygen::HTTPSessionObserverInterface, proxygen::HTTPSessionObserverAccessor, folly::ObserverContainerBasePolicyDefault<proxygen::HTTPSessionObserverInterface::Events, 32>>::Observer>, 2>::Data" = type { %"struct.folly::small_vector<std::shared_ptr<folly::ObserverContainerBase<proxygen::HTTPSessionObserverInterface, proxygen::HTTPSessionObserverAccessor, folly::ObserverContainerBasePolicyDefault<proxygen::HTTPSessionObserverInterface::Events, 32>>::Observer>, 2>::HeapPtrWithCapacity", [16 x i8] }
-%"struct.folly::small_vector<std::shared_ptr<folly::ObserverContainerBase<proxygen::HTTPSessionObserverInterface, proxygen::HTTPSessionObserverAccessor, folly::ObserverContainerBasePolicyDefault<proxygen::HTTPSessionObserverInterface::Events, 32>>::Observer>, 2>::HeapPtrWithCapacity" = type { ptr, i64 }
-%"class.folly::Optional.113" = type { %"struct.folly::Optional<folly::ObserverContainerStoreBase<folly::ObserverContainerBase<proxygen::HTTPSessionObserverInterface, proxygen::HTTPSessionObserverAccessor, folly::ObserverContainerBasePolicyDefault<proxygen::HTTPSessionObserverInterface::Events, 32>>::Observer>::InvokeWhileIteratingPolicy>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<folly::ObserverContainerStoreBase<folly::ObserverContainerBase<proxygen::HTTPSessionObserverInterface, proxygen::HTTPSessionObserverAccessor, folly::ObserverContainerBasePolicyDefault<proxygen::HTTPSessionObserverInterface::Events, 32>>::Observer>::InvokeWhileIteratingPolicy>::StorageTriviallyDestructible" = type <{ %union.anon.114, i8, [3 x i8] }>
-%union.anon.114 = type { i32 }
-%"class.folly::ConstructorCallbackList" = type { i8 }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
-%"class.proxygen::HTTPTransaction" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestructionBase.base", %"class.proxygen::HTTPTransaction::RateLimitCallback", %"class.std::unique_ptr.115", %"class.folly::IOBufQueue", %"struct.proxygen::HTTPTransaction::BufferMeta", i8, i8, i8, i32, i64, i32, i32, ptr, ptr, ptr, %"struct.proxygen::CompressionInfo", %"class.proxygen::Window", %"class.proxygen::Window", ptr, %"class.std::unique_ptr.123", %"class.std::__cxx11::list.131", ptr, ptr, %"class.folly::Optional.30", %"class.folly::Optional.136", %"class.std::set", %"class.std::set", %"struct.proxygen::http2::PriorityUpdate", i64, i64, double, i64, i64, %"class.folly::Optional.30", %"class.folly::Optional.30", %"class.folly::Optional.30", %"class.folly::Optional.30", i64, %"class.std::map", i24, i16, i64, %"class.std::chrono::time_point", i64, %"class.folly::Optional.145", ptr, i64, i8, %"class.std::map.147", %"class.std::map.152", %"class.proxygen::HTTPTransaction::TxnWebTransport" }
-%"class.proxygen::HTTPTransaction::RateLimitCallback" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.std::unique_ptr.115" = type { %"struct.std::__uniq_ptr_data.116" }
-%"struct.std::__uniq_ptr_data.116" = type { %"class.std::__uniq_ptr_impl.117" }
-%"class.std::__uniq_ptr_impl.117" = type { %"class.std::tuple.118" }
-%"class.std::tuple.118" = type { %"struct.std::_Tuple_impl.119" }
-%"struct.std::_Tuple_impl.119" = type { %"struct.std::_Head_base.122" }
-%"struct.std::_Head_base.122" = type { ptr }
-%"struct.proxygen::HTTPTransaction::BufferMeta" = type { i64 }
-%"struct.proxygen::CompressionInfo" = type { %"struct.proxygen::CompressionInfoPart", %"struct.proxygen::CompressionInfoPart" }
-%"struct.proxygen::CompressionInfoPart" = type { i32, i32, i32, i32, i32, i32, i32 }
-%"class.proxygen::Window" = type { i32, i32 }
-%"class.std::unique_ptr.123" = type { %"struct.std::__uniq_ptr_data.124" }
-%"struct.std::__uniq_ptr_data.124" = type { %"class.std::__uniq_ptr_impl.125" }
-%"class.std::__uniq_ptr_impl.125" = type { %"class.std::tuple.126" }
-%"class.std::tuple.126" = type { %"struct.std::_Tuple_impl.127" }
-%"struct.std::_Tuple_impl.127" = type { %"struct.std::_Head_base.130" }
-%"struct.std::_Head_base.130" = type { ptr }
-%"class.std::__cxx11::list.131" = type { %"class.std::__cxx11::_List_base.132" }
-%"class.std::__cxx11::_List_base.132" = type { %"struct.std::__cxx11::_List_base<proxygen::HTTPTransaction::Chunk, std::allocator<proxygen::HTTPTransaction::Chunk>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<proxygen::HTTPTransaction::Chunk, std::allocator<proxygen::HTTPTransaction::Chunk>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.folly::Optional.136" = type { %"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible" = type { %union.anon.137, i8, [7 x i8] }
-%union.anon.137 = type { %"struct.proxygen::HTTPCodec::ExAttributes" }
-%"struct.proxygen::HTTPCodec::ExAttributes" = type <{ i64, i8, [7 x i8] }>
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.proxygen::http2::PriorityUpdate" = type { i64, i8, i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.141" }
-%"class.std::_Rb_tree.141" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>, std::_Select1st<std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>, std::_Select1st<std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.folly::Optional.145" = type { %"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" = type <{ %union.anon.146, i8, [7 x i8] }>
-%union.anon.146 = type { %"class.std::chrono::duration.4" }
-%"class.std::map.147" = type { %"class.std::_Rb_tree.148" }
-%"class.std::_Rb_tree.148" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.152" = type { %"class.std::_Rb_tree.153" }
-%"class.std::_Rb_tree.153" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.proxygen::HTTPTransaction::TxnWebTransport" = type { %"class.proxygen::WebTransport", ptr }
-%"class.proxygen::WebTransport" = type { ptr }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
-%"struct.std::pair.207" = type { i64, %"class.proxygen::HTTPTransaction" }
-%"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array.368", i8, i8, %"struct.std::array.369" }
-%"struct.std::array.368" = type { [14 x i8] }
-%"struct.std::array.369" = type { [14 x %"union.std::aligned_storage<8, 8>::type"] }
+%"class.folly::DelayedDestructionBase::DestructorGuard" = type { ptr }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.std::unique_ptr.209" = type { %"struct.std::__uniq_ptr_data.210" }
 %"struct.std::__uniq_ptr_data.210" = type { %"class.std::__uniq_ptr_impl.211" }
@@ -247,6 +23,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.213" = type { %"struct.std::_Head_base.216" }
 %"struct.std::_Head_base.216" = type { ptr }
 %"class.proxygen::HTTPMessage" = type { %"class.std::chrono::time_point", %"class.folly::SocketAddress", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.proxygen::HTTPMessage::Fields", %"class.std::map.172", %"class.std::map.180", %"class.proxygen::HTTPHeaders", %"class.std::unique_ptr.123", %"struct.proxygen::HTTPHeaderSize", i32, %"class.std::unique_ptr.123", i32, i32, ptr, ptr, %"class.std::unique_ptr.164", i8, [7 x i8], %"class.folly::Optional.196", %"struct.std::pair.205", i8, i32 }
+%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
+%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
+%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.3 = type { i64, [8 x i8] }
 %"struct.proxygen::HTTPMessage::Fields" = type { i8, %"union.proxygen::HTTPMessage::Fields::Data" }
 %"union.proxygen::HTTPMessage::Fields::Data" = type { %"struct.proxygen::HTTPMessage::Response", [136 x i8] }
 %"struct.proxygen::HTTPMessage::Response" = type { i16, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
@@ -255,6 +37,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.177", %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_key_compare.177" = type { %"struct.std::less.178" }
 %"struct.std::less.178" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::map.180" = type { %"class.std::_Rb_tree.181" }
 %"class.std::_Rb_tree.181" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.185", %"struct.std::_Rb_tree_header" }
@@ -268,6 +52,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.192" = type { %"struct.std::_Head_base.195" }
 %"struct.std::_Head_base.195" = type { ptr }
 %"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
+%"class.std::unique_ptr.123" = type { %"struct.std::__uniq_ptr_data.124" }
+%"struct.std::__uniq_ptr_data.124" = type { %"class.std::__uniq_ptr_impl.125" }
+%"class.std::__uniq_ptr_impl.125" = type { %"class.std::tuple.126" }
+%"class.std::tuple.126" = type { %"struct.std::_Tuple_impl.127" }
+%"struct.std::_Tuple_impl.127" = type { %"struct.std::_Head_base.130" }
+%"struct.std::_Head_base.130" = type { ptr }
 %"class.std::unique_ptr.164" = type { %"struct.std::__uniq_ptr_data.165" }
 %"struct.std::__uniq_ptr_data.165" = type { %"class.std::__uniq_ptr_impl.166" }
 %"class.std::__uniq_ptr_impl.166" = type { %"class.std::tuple.167" }
@@ -286,25 +76,30 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.204" = type { i64 }
 %"struct.std::pair.205" = type { i8, i8 }
 %"class.std::allocator" = type { i8 }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<proxygen::ByteEventTracker, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<proxygen::ByteEventTracker, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<48, 8>::type" }
-%"union.std::aligned_storage<48, 8>::type" = type { [48 x i8] }
+%"class.folly::Optional.145" = type { %"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" = type <{ %union.anon.146, i8, [7 x i8] }>
+%union.anon.146 = type { %"class.std::chrono::duration.4" }
+%"class.std::chrono::duration.4" = type { i64 }
+%"class.std::shared_ptr.86" = type { %"class.std::__shared_ptr.87" }
+%"class.std::__shared_ptr.87" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.folly::Optional.225" = type { %"struct.folly::Optional<const std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<const std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" = type <{ %union.anon.226, i8, [7 x i8] }>
 %union.anon.226 = type { %"class.std::tuple.198" }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
+%"class.folly::Optional.34" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
+%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.35, i8, [7 x i8] }>
+%union.anon.35 = type { %"class.std::__cxx11::basic_string" }
+%"class.std::__cxx11::list.74" = type { %"class.std::__cxx11::_List_base.75" }
+%"class.std::__cxx11::_List_base.75" = type { %"struct.std::__cxx11::_List_base<folly::AsyncTransport::ReplaySafetyCallback *, std::allocator<folly::AsyncTransport::ReplaySafetyCallback *>>::_List_impl" }
+%"struct.std::__cxx11::_List_base<folly::AsyncTransport::ReplaySafetyCallback *, std::allocator<folly::AsyncTransport::ReplaySafetyCallback *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.folly::Optional.243" = type { %"struct.folly::Optional<proxygen::HTTPPriority>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::HTTPPriority>::StorageNonTriviallyDestructible" = type <{ %union.anon.244, i8, [7 x i8] }>
 %union.anon.244 = type { %"struct.proxygen::HTTPPriority" }
 %"struct.proxygen::HTTPPriority" = type { ptr, i64 }
-%"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.std::type_info" = type { ptr, ptr }
 %struct._Guard = type { ptr }
 
 $_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev = comdat any
@@ -851,12 +646,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen21HTTPDownstreamSession8startNowEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
-  %txnEgressQueue_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5
-  %writeBuf_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 12
+  %txnEgressQueue_ = getelementptr inbounds i8, ptr %this, i64 1048
+  %writeBuf_ = getelementptr inbounds i8, ptr %this, i64 1776
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 51
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 408
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %txnEgressQueue_, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf_, i8 noundef zeroext 0)
   tail call void @_ZN8proxygen11HTTPSession8startNowEv(ptr noundef nonnull align 8 dereferenceable(2504) %this)
@@ -904,7 +699,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %id_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 10
+  %id_.i = getelementptr inbounds i8, ptr %txn, i64 248
   %2 = load i64, ptr %id_.i, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call12, i64 noundef %2)
           to label %invoke.cont15 unwind label %lpad
@@ -914,7 +709,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %handler_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 13
+  %handler_.i = getelementptr inbounds i8, ptr %txn, i64 264
   %3 = load ptr, ptr %handler_.i, align 8
   %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef %3)
           to label %invoke.cont21 unwind label %lpad
@@ -932,16 +727,16 @@ cleanup.action:                                   ; preds = %invoke.cont23
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %handler_.i12 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 13
+  %handler_.i12 = getelementptr inbounds i8, ptr %txn, i64 264
   %4 = load ptr, ptr %handler_.i12, align 8
   %tobool33.not = icmp eq ptr %4, null
   br i1 %tobool33.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %5 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 46
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
   %6 = load ptr, ptr %vfn, align 8
   %call35 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %tobool36.not = icmp eq ptr %call35, null
@@ -978,7 +773,7 @@ lpad44:                                           ; preds = %invoke.cont45, %con
   unreachable
 
 cleanup.done53:                                   ; preds = %land.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 25, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %txn, i64 448
   %9 = load i8, ptr %hasValue.i.i.i, align 8, !noalias !4
   %10 = and i8 %9, 1
   %tobool.i.i.not.i = icmp eq i8 %10, 0
@@ -1010,10 +805,10 @@ lpad65:                                           ; preds = %invoke.cont66, %con
   unreachable
 
 if.end:                                           ; preds = %cleanup.done
-  %controller_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_.i = getelementptr inbounds i8, ptr %this, i64 1512
   %14 = load ptr, ptr %controller_.i, align 8
   %vtable79 = load ptr, ptr %14, align 8
-  %vfn80 = getelementptr inbounds ptr, ptr %vtable79, i64 2
+  %vfn80 = getelementptr inbounds i8, ptr %vtable79, i64 16
   %15 = load ptr, ptr %vfn80, align 8
   %call81 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg)
   %tobool82.not = icmp eq ptr %call81, null
@@ -1046,7 +841,7 @@ cleanup.done98:                                   ; preds = %if.end
   %inc.i = add i32 %17, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
   %vtable102 = load ptr, ptr %txn, align 8
-  %vfn103 = getelementptr inbounds ptr, ptr %vtable102, i64 4
+  %vfn103 = getelementptr inbounds i8, ptr %vtable102, i64 32
   %18 = load ptr, ptr %vfn103, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef nonnull %call81)
           to label %if.then.i unwind label %lpad104
@@ -1061,7 +856,7 @@ if.then.i:                                        ; preds = %cleanup.done98
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %20 = load ptr, ptr %vfn.i, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %return unwind label %terminate.lpad.i
@@ -1119,19 +914,19 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %guardCount_ = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %0, i64 0, i32 1
+  %guardCount_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %guardCount_, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %guardCount_, align 8
   %2 = load ptr, ptr %this, align 8
-  %guardCount_4 = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %2, i64 0, i32 1
+  %guardCount_4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %guardCount_4, align 8
   %cmp5 = icmp eq i32 %3, 0
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext true)
           to label %if.end8 unwind label %terminate.lpad
@@ -1150,11 +945,11 @@ terminate.lpad:                                   ; preds = %if.then6
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8proxygen21HTTPDownstreamSession28getTransactionTimeoutHandlerEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef %txn) unnamed_addr #6 align 2 {
 entry:
-  %controller_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_.i = getelementptr inbounds i8, ptr %this, i64 1512
   %0 = load ptr, ptr %controller_.i, align 8
-  %localAddr_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6
+  %localAddr_.i.i = getelementptr inbounds i8, ptr %this, i64 1360
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(27) %localAddr_.i.i)
   ret ptr %call3
@@ -1163,17 +958,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(27) ptr @_ZNK8proxygen11HTTPSession15getLocalAddressEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %localAddr_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6
+  %localAddr_.i = getelementptr inbounds i8, ptr %this, i64 1360
   ret ptr %localAddr_.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen21HTTPDownstreamSession13onHeadersSentERKNS_11HTTPMessageEb(ptr nocapture noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef nonnull align 8 dereferenceable(616) %headers, i1 noundef zeroext %codecWasReusable) unnamed_addr #6 align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call2, label %if.end12, label %if.then
@@ -1187,7 +982,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then3
-  %closeReason_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 17
+  %closeReason_.i = getelementptr inbounds i8, ptr %this, i64 1540
   %2 = load i32, ptr %closeReason_.i, align 4
   %cmp.i = icmp eq i32 %2, 13
   br i1 %cmp.i, label %if.then.i, label %if.end12
@@ -1198,7 +993,7 @@ if.then.i:                                        ; preds = %if.then5
 
 if.else:                                          ; preds = %if.then3
   %cmp6 = icmp ugt i16 %call4, 399
-  %closeReason_.i2 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 17
+  %closeReason_.i2 = getelementptr inbounds i8, ptr %this, i64 1540
   %3 = load i32, ptr %closeReason_.i2, align 4
   %cmp.i3 = icmp eq i32 %3, 13
   br i1 %cmp6, label %if.then7, label %if.else8
@@ -1218,7 +1013,7 @@ if.then.i8:                                       ; preds = %if.else8
   br label %if.end12
 
 if.else10:                                        ; preds = %if.then
-  %closeReason_.i10 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 17
+  %closeReason_.i10 = getelementptr inbounds i8, ptr %this, i64 1540
   %4 = load i32, ptr %closeReason_.i10, align 4
   %cmp.i11 = icmp eq i32 %4, 13
   br i1 %cmp.i11, label %if.then.i12, label %if.end12
@@ -1236,7 +1031,7 @@ declare noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr nou
 ; Function Attrs: mustprogress nofree nosync nounwind uwtable
 define noundef zeroext i1 @_ZNK8proxygen21HTTPDownstreamSession22allTransactionsStartedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2504) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %packedBegin_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 1, i32 1
+  %packedBegin_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1936
   %0 = load i64, ptr %packedBegin_.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %0, -8
   %cmp.i.i.i.not9 = icmp eq i64 %and.i.i.i.i.i, 0
@@ -1251,18 +1046,18 @@ for.body.preheader:                               ; preds = %entry
   %1 = inttoptr i64 %and.i.i.i.i.i to ptr
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit
-  %__begin1.sroa.6.011 = phi i64 [ %__begin1.sroa.6.3, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit ], [ %or.i.i.i.i.i, %for.body.preheader ]
-  %__begin1.sroa.0.010 = phi ptr [ %__begin1.sroa.0.1, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit ], [ %1, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
+  %__begin1.sroa.6.011 = phi i64 [ %or.i.i.i.i.i, %for.body.preheader ], [ %__begin1.sroa.6.011.be, %for.body.backedge ]
+  %__begin1.sroa.0.010 = phi ptr [ %1, %for.body.preheader ], [ %__begin1.sroa.0.010.be, %for.body.backedge ]
   %2 = load ptr, ptr %__begin1.sroa.0.010, align 8
-  %hasValue.i.i = getelementptr inbounds %"struct.std::pair.207", ptr %2, i64 0, i32 1, i32 24, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %2, i64 432
   %3 = load i8, ptr %hasValue.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %egressState_.i = getelementptr inbounds %"struct.std::pair.207", ptr %2, i64 0, i32 1, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %2, i64 249
   %5 = load i8, ptr %egressState_.i, align 1
   %cmp.i.not = icmp eq i8 %5, 0
   br i1 %cmp.i.not, label %return, label %for.inc
@@ -1285,27 +1080,27 @@ while.body.i.i:                                   ; preds = %for.inc, %while.con
   %6 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.011, %for.inc ]
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin1.sroa.0.010, %for.inc ]
   %dec.i.i = add i64 %6, -1
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i1618.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -8
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.not14.i = icmp eq i8 %7, 0
-  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit, !llvm.loop !7
+  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !7
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end15.i.i
   %c.i.0.i = phi ptr [ %incdec.ptr16.i.i, %if.end15.i.i ], [ %add.ptr1.i.i.i, %for.cond.i.i.preheader ]
-  %control_.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 0, i32 1
+  %control_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 14
   %8 = load i8, ptr %control_.i.i.i, align 2
   %9 = and i8 %8, 15
   %cmp.i10.not.i = icmp eq i8 %9, 0
   br i1 %cmp.i10.not.i, label %if.end15.i.i, label %return
 
 if.end15.i.i:                                     ; preds = %for.cond.i.i
-  %incdec.ptr16.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 -1
+  %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -128
   %10 = load <16 x i8>, ptr %incdec.ptr16.i.i, align 16
   %11 = icmp slt <16 x i8> %10, zeroinitializer
   %12 = bitcast <16 x i1> %11 to i16
   %13 = and i16 %12, 16383
-  %add.ptr.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr.i.i, i32 0, i32 3, i32 1)
   %cmp.i11.not.i = icmp eq i16 %13, 0
   br i1 %cmp.i11.not.i, label %for.cond.i.i, label %if.then23.i.i, !llvm.loop !9
@@ -1315,18 +1110,17 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %14 = tail call i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true), !range !10
   %sub.i.i = xor i32 %14, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %rawItems_.i.i.i = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 -1, i32 3
+  %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i
-  br label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit
+  br label %for.body.backedge
 
-_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit: ; preds = %while.body.i.i, %if.then23.i.i
-  %__begin1.sroa.0.1 = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %__begin1.sroa.6.3 = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
-  %cmp.i.i.i.not = icmp eq ptr %__begin1.sroa.0.1, null
-  br i1 %cmp.i.i.i.not, label %return, label %for.body
+for.body.backedge:                                ; preds = %while.body.i.i, %if.then23.i.i
+  %__begin1.sroa.6.011.be = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
+  %__begin1.sroa.0.010.be = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  br label %for.body
 
-return:                                           ; preds = %land.lhs.true, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit, %for.cond.i.i, %entry
-  %cmp.i.i.i.not.lcssa = phi i1 [ true, %entry ], [ true, %for.cond.i.i ], [ true, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKmN8proxygen15HTTPTransactionEEEppEv.exit ], [ false, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %for.cond.i.i, %entry
+  %cmp.i.i.i.not.lcssa = phi i1 [ true, %entry ], [ true, %for.cond.i.i ], [ false, %land.lhs.true ]
   ret i1 %cmp.i.i.i.not.lcssa
 }
 
@@ -1417,7 +1211,7 @@ lpad29:                                           ; preds = %invoke.cont30, %con
 
 cleanup.done38:                                   ; preds = %cleanup.done
   %vtable = load ptr, ptr %call22, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %4 = load ptr, ptr %vfn, align 8
   %call42 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(912) %call22)
   br i1 %call42, label %if.then, label %if.else
@@ -1457,7 +1251,7 @@ lpad53:                                           ; preds = %invoke.cont54, %inv
 
 cleanup.done62:                                   ; preds = %if.then
   %vtable67 = load ptr, ptr %5, align 8
-  %vfn68 = getelementptr inbounds ptr, ptr %vtable67, i64 15
+  %vfn68 = getelementptr inbounds i8, ptr %vtable67, i64 120
   %8 = load ptr, ptr %vfn68, align 8
   %call70 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(616) %msg)
           to label %invoke.cont69 unwind label %lpad48
@@ -1525,7 +1319,7 @@ invoke.cont109:                                   ; preds = %invoke.cont108
           to label %invoke.cont110 unwind label %lpad107
 
 invoke.cont110:                                   ; preds = %invoke.cont109
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %switchingProtos, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %switchingProtos, i64 480
   %call.i18 = invoke noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeENS_14HTTPHeaderCodeE(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 63)
           to label %call.i.noexc unwind label %lpad107
 
@@ -1564,7 +1358,7 @@ invoke.cont121:                                   ; preds = %call.i.noexc22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117) #21
   %vtable122 = load ptr, ptr %call22, align 8
-  %vfn123 = getelementptr inbounds ptr, ptr %vtable122, i64 10
+  %vfn123 = getelementptr inbounds i8, ptr %vtable122, i64 80
   %13 = load ptr, ptr %vfn123, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(912) %call22, ptr noundef nonnull align 8 dereferenceable(616) %switchingProtos)
           to label %invoke.cont124 unwind label %lpad107
@@ -1583,7 +1377,7 @@ invoke.cont126:                                   ; preds = %invoke.cont124
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i: ; preds = %invoke.cont126
   %vtable.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %16 = load ptr, ptr %vfn.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
   br label %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit
@@ -1593,12 +1387,12 @@ _ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit: ; pred
   br i1 %call127, label %invoke.cont132, label %if.end138
 
 invoke.cont132:                                   ; preds = %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %17 = load ptr, ptr %call_.i.i, align 8
-  %txnEgressQueue_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5
-  %writeBuf_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 12
+  %txnEgressQueue_ = getelementptr inbounds i8, ptr %this, i64 1048
+  %writeBuf_ = getelementptr inbounds i8, ptr %this, i64 1776
   %vtable134 = load ptr, ptr %17, align 8
-  %vfn135 = getelementptr inbounds ptr, ptr %vtable134, i64 51
+  %vfn135 = getelementptr inbounds i8, ptr %vtable134, i64 408
   %18 = load ptr, ptr %vfn135, align 8
   %call137 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %txnEgressQueue_, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf_, i8 noundef zeroext 0)
           to label %if.end138 unwind label %lpad107
@@ -1633,7 +1427,7 @@ lpad125:                                          ; preds = %invoke.cont124
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i27: ; preds = %lpad125
   %vtable.i.i28 = load ptr, ptr %23, align 8
-  %vfn.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i28, i64 1
+  %vfn.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i28, i64 8
   %24 = load ptr, ptr %vfn.i.i29, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #21
   br label %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit30
@@ -1659,7 +1453,7 @@ cleanup:                                          ; preds = %cond.false78, %clea
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i32: ; preds = %cleanup
   %vtable.i.i33 = load ptr, ptr %25, align 8
-  %vfn.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i33, i64 1
+  %vfn.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i33, i64 8
   %26 = load ptr, ptr %vfn.i.i34, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25) #21
   br label %return
@@ -1672,7 +1466,7 @@ ehcleanup141:                                     ; preds = %lpad91, %ehcleanup1
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i37: ; preds = %ehcleanup141
   %vtable.i.i38 = load ptr, ptr %27, align 8
-  %vfn.i.i39 = getelementptr inbounds ptr, ptr %vtable.i.i38, i64 1
+  %vfn.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i38, i64 8
   %28 = load ptr, ptr %vfn.i.i39, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %27) #21
   br label %eh.resume
@@ -1740,7 +1534,7 @@ declare void @_ZN8proxygen11HTTPMessage13setStatusCodeEt(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIRA20_KcEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 1 dereferenceable(20) %msg) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_15.i, align 8
   switch i8 %0, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i
@@ -1749,11 +1543,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #21
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #21
   br label %_ZN8proxygen11HTTPMessage8responseEv.exit
 
@@ -1773,7 +1567,7 @@ lpad25.i:                                         ; preds = %if.then24.i
   resume { ptr, i32 } %1
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef nonnull %msg)
   ret void
 }
@@ -1817,14 +1611,14 @@ declare noundef zeroext i1 @_ZNK8proxygen11HTTPSession6isBusyEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(27) ptr @_ZNK8proxygen11HTTPSession14getPeerAddressEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %peerAddr_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7
+  %peerAddr_.i = getelementptr inbounds i8, ptr %this, i64 1392
   ret ptr %peerAddr_.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZNK8proxygen15HTTPSessionBase11getIdleTimeEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %latestActive_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 14
+  %latestActive_ = getelementptr inbounds i8, ptr %this, i64 1520
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZZN8proxygen20timePointInitializedINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEbRKT_E5epoch, align 8
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %latestActive_, align 8
   %cmp.i.i.i.i = icmp slt i64 %retval.sroa.0.0.copyload.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
@@ -1861,30 +1655,30 @@ declare void @_ZNK6wangle17ManagedConnection26getLastActivityElapsedTimeEv(ptr s
 define linkonce_odr void @_ZN8proxygen11HTTPSession29setHTTPSessionActivityTrackerESt10unique_ptrINS_26HTTPSessionActivityTrackerESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef %httpSessionActivityTracker) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.86", align 8
-  %byteEventTracker_.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 33
+  %byteEventTracker_.i = getelementptr inbounds i8, ptr %this, i64 2152
   %0 = load ptr, ptr %byteEventTracker_.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.87", ptr %agg.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25, !noalias !11
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !11
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !11
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16ByteEventTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !11
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1592
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !11
-  %bytesWritten_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_header.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %bytesWritten_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %m_header.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesWritten_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !11
   store ptr %m_header.i1.i.i.i.i.i.i.i.i.i, ptr %m_header.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  %prev_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %prev_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
   store ptr %m_header.i1.i.i.i.i.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  %callback_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %callback_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %callback_.i.i.i.i.i.i.i.i, align 8, !noalias !11
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !11
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8, !alias.scope !11
@@ -1897,7 +1691,7 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %cmp.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -1905,10 +1699,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
   br label %if.end8.sink.split.i.i.i.i
@@ -1934,10 +1728,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
-  %_M_weak_count.i.i.i.i.i.i1 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i1 = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1959,7 +1753,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
   br label %if.end
@@ -1974,7 +1768,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
   %13 = load i64, ptr %httpSessionActivityTracker, align 8
   %14 = inttoptr i64 %13 to ptr
   store ptr null, ptr %httpSessionActivityTracker, align 8
-  %httpSessionActivityTracker_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 11
+  %httpSessionActivityTracker_.i = getelementptr inbounds i8, ptr %this, i64 1472
   %15 = load ptr, ptr %httpSessionActivityTracker_.i, align 8
   store ptr %14, ptr %httpSessionActivityTracker_.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
@@ -1982,7 +1776,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
 
 _ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i.i.i.i.i: ; preds = %if.end
   %vtable.i.i.i.i.i.i2 = load ptr, ptr %15, align 8
-  %vfn.i.i.i.i.i.i3 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i2, i64 2
+  %vfn.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i2, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i3, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(48) %15) #21
   br label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
@@ -2004,7 +1798,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN8proxygen11HTTPSession12getTransportEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %sock_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 18
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 2000
   %0 = load ptr, ptr %sock_, align 8
   ret ptr %0
 }
@@ -2012,7 +1806,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK8proxygen11HTTPSession12getTransportEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %sock_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 18
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 2000
   %0 = load ptr, ptr %sock_, align 8
   ret ptr %0
 }
@@ -2020,7 +1814,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK8proxygen11HTTPSession12getEventBaseEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %sock_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 18
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 2000
   %0 = load ptr, ptr %sock_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %return, label %if.then
@@ -2040,7 +1834,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen11HTTPSession21hasActiveTransactionsEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1928
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i, align 8
   %cmp.i.i = icmp ugt i64 %0, 255
   ret i1 %cmp.i.i
@@ -2050,12 +1844,12 @@ entry:
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPSessionBase24supportsMoreTransactionsEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(1582) %this)
-  %maxConcurrentOutgoingStreamsConfig_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 19
+  %maxConcurrentOutgoingStreamsConfig_.i = getelementptr inbounds i8, ptr %this, i64 1548
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(1582) %this)
   %2 = load i32, ptr %maxConcurrentOutgoingStreamsConfig_.i, align 4
@@ -2067,7 +1861,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8proxygen11HTTPSession13getNumStreamsEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sizeAndChunkShiftAndPackedBegin_.i.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i = getelementptr inbounds i8, ptr %this, i64 1928
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
   %shr.i.i.i.i = lshr i64 %0, 8
   %conv = trunc i64 %shr.i.i.i.i to i32
@@ -2077,7 +1871,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8proxygen11HTTPSession21getNumOutgoingStreamsEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %outgoingStreams_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 27
+  %outgoingStreams_ = getelementptr inbounds i8, ptr %this, i64 2096
   %0 = load i32, ptr %outgoingStreams_, align 8
   ret i32 %0
 }
@@ -2085,7 +1879,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8proxygen11HTTPSession21getNumIncomingStreamsEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %incomingStreams_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 28
+  %incomingStreams_ = getelementptr inbounds i8, ptr %this, i64 2100
   %0 = load i32, ptr %incomingStreams_, align 4
   ret i32 %0
 }
@@ -2093,7 +1887,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8proxygen11HTTPSession37getMaxConcurrentOutgoingStreamsRemoteEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %maxConcurrentOutgoingStreamsRemote_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 25
+  %maxConcurrentOutgoingStreamsRemote_ = getelementptr inbounds i8, ptr %this, i64 2088
   %0 = load i32, ptr %maxConcurrentOutgoingStreamsRemote_, align 8
   ret i32 %0
 }
@@ -2101,10 +1895,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK8proxygen15HTTPSessionBase16getCodecProtocolEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i8 %call2
@@ -2117,7 +1911,7 @@ declare void @_ZN8proxygen11HTTPSession17setEgressSettingsERKSt6vectorINS_11HTTP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen11HTTPSession25getHTTP2PrioritiesEnabledEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %h2PrioritiesEnabled_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 25
+  %h2PrioritiesEnabled_.i = getelementptr inbounds i8, ptr %this, i64 1580
   %bf.load.i = load i8, ptr %h2PrioritiesEnabled_.i, align 4
   %0 = and i8 %bf.load.i, 1
   %bf.cast.i = icmp ne i8 %0, 0
@@ -2145,10 +1939,10 @@ declare noundef zeroext i1 @_ZNK8proxygen11HTTPSession36getCurrentTransportInfoW
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPSession19setHeaderCodecStatsEPNS_11HeaderCodec5StatsE(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef %stats) unnamed_addr #6 comdat align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %stats)
   ret void
@@ -2157,10 +1951,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPSession23enableDoubleGoawayDrainEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 47
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -2170,7 +1964,7 @@ entry:
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen11HTTPSession17connCloseByRemoteEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(2504) %this)
   br label %dynamic_cast.notnull.i.i
@@ -2183,7 +1977,7 @@ dynamic_cast.notnull.i.i:                         ; preds = %if.end.i.i, %entry
 
 if.end.i.i:                                       ; preds = %dynamic_cast.notnull.i.i
   %vtable.i.i = load ptr, ptr %current.04.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 41
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 328
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %current.04.i.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -2191,7 +1985,7 @@ if.end.i.i:                                       ; preds = %dynamic_cast.notnul
 
 if.then:                                          ; preds = %dynamic_cast.notnull.i.i
   %vtable3 = load ptr, ptr %1, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 76
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 608
   %3 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(1113) %1)
   br label %return
@@ -2396,7 +2190,7 @@ declare void @_ZN8proxygen11HTTPSession5drainEv(ptr noundef nonnull align 8 dere
 define linkonce_odr void @_ZN8proxygen11HTTPSession15getHTTPPriorityEh(ptr noalias sret(%"class.folly::Optional.225") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2504) %this, i8 noundef zeroext %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<const std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %hasValue.i.i, align 8
   ret void
 }
@@ -2406,7 +2200,7 @@ declare void @_ZN8proxygen11HTTPSession16enablePingProbesENSt6chrono8durationIlS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK8proxygen11HTTPSession31getHTTPSessionObserverContainerEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %sessionObserverContainer_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 50
+  %sessionObserverContainer_ = getelementptr inbounds i8, ptr %this, i64 2416
   ret ptr %sessionObserverContainer_
 }
 
@@ -2420,7 +2214,7 @@ entry:
 define linkonce_odr void @_ZN8proxygen11HTTPSession25setHTTP2PrioritiesEnabledEb(ptr noundef nonnull align 8 dereferenceable(2504) %this, i1 noundef zeroext %enabled) unnamed_addr #6 comdat align 2 {
 entry:
   %frombool.i = zext i1 %enabled to i8
-  %h2PrioritiesEnabled_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 25
+  %h2PrioritiesEnabled_.i = getelementptr inbounds i8, ptr %this, i64 1580
   %bf.load.i = load i8, ptr %h2PrioritiesEnabled_.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
   %bf.set.i = or disjoint i8 %bf.clear.i, %frombool.i
@@ -2431,16 +2225,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev(ptr noalias sret(%"class.folly::Optional.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 8, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 1456
   %0 = load i8, ptr %hasValue.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %connectionToken_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 8
+  %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectionToken_)
           to label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i unwind label %lpad.i
 
@@ -2473,14 +2267,14 @@ terminate.lpad.body:                              ; preds = %lpad.i, %if.then.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(744) ptr @_ZNK8proxygen11HTTPSession21getSetupTransportInfoEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %transportInfo_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 3
+  %transportInfo_.i = getelementptr inbounds i8, ptr %this, i64 224
   ret ptr %transportInfo_.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZNK8proxygen11HTTPSession17getLatestIdleTimeEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %latestIdleDuration_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 15
+  %latestIdleDuration_.i = getelementptr inbounds i8, ptr %this, i64 1528
   %retval.sroa.0.0.copyload.i = load i64, ptr %latestIdleDuration_.i, align 8
   ret i64 %retval.sroa.0.0.copyload.i
 }
@@ -2493,7 +2287,7 @@ declare noundef zeroext i8 @_ZNK8proxygen11HTTPSession14getSessionTypeEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen11HTTPSession10isDrainingEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %draining_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 21
+  %draining_ = getelementptr inbounds i8, ptr %this, i64 2028
   %bf.load = load i8, ptr %draining_, align 4
   %0 = and i8 %bf.load, 1
   %bf.cast = icmp ne i8 %0, 0
@@ -2520,10 +2314,10 @@ declare void @_ZN8proxygen11HTTPSession7readErrERKN5folly20AsyncSocketExceptionE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8proxygen11HTTPSession19getSecurityProtocolB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %sock_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 18
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 2000
   %0 = load ptr, ptr %sock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
@@ -2574,7 +2368,7 @@ declare void @_ZN8proxygen11HTTPSession13onCertificateEtSt10unique_ptrIN5folly5I
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8proxygen11HTTPSession18numOutgoingStreamsEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %outgoingStreams_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 27
+  %outgoingStreams_ = getelementptr inbounds i8, ptr %this, i64 2096
   %0 = load i32, ptr %outgoingStreams_, align 8
   ret i32 %0
 }
@@ -2582,7 +2376,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8proxygen11HTTPSession18numIncomingStreamsEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %incomingStreams_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 28
+  %incomingStreams_ = getelementptr inbounds i8, ptr %this, i64 2100
   %0 = load i32, ptr %incomingStreams_, align 4
   ret i32 %0
 }
@@ -2650,7 +2444,7 @@ declare noundef ptr @_ZN8proxygen11HTTPSession16newExTransactionEPNS_22HTTPTrans
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8proxygen11HTTPSession8getCodecEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %chainEnd_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 1
+  %chainEnd_.i = getelementptr inbounds i8, ptr %this, i64 1040
   %0 = load ptr, ptr %chainEnd_.i, align 8
   ret ptr %0
 }
@@ -2658,7 +2452,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK8proxygen11HTTPSession22getUnderlyingTransportEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %sock_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 18
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 2000
   %0 = load ptr, ptr %sock_, align 8
   ret ptr %0
 }
@@ -2692,10 +2486,10 @@ declare void @_ZN8proxygen11HTTPSession20onDeleteTxnByteEventEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPSession25addWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef %callback) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sock_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 18
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 2000
   %0 = load ptr, ptr %sock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 39
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
   %1 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2705,7 +2499,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   %vtable3 = load ptr, ptr %callback, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 2
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
   %2 = load ptr, ptr %vfn4, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %callback)
           to label %if.end unwind label %terminate.lpad
@@ -2715,11 +2509,11 @@ if.else:                                          ; preds = %invoke.cont
           to label %_ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE9push_backERKS4_.exit unwind label %terminate.lpad
 
 _ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE9push_backERKS4_.exit: ; preds = %if.else
-  %waitingForReplaySafety_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 22
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i1, i64 0, i32 1
+  %waitingForReplaySafety_ = getelementptr inbounds i8, ptr %this, i64 2032
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 16
   store ptr %callback, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1, ptr noundef nonnull %waitingForReplaySafety_) #21
-  %_M_size.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 2048
   %3 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %3, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -2740,25 +2534,25 @@ terminate.lpad:                                   ; preds = %if.else, %if.then, 
 define linkonce_odr void @_ZN8proxygen11HTTPSession28removeWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef %callback) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list.74", align 8
-  %waitingForReplaySafety_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 22
+  %waitingForReplaySafety_ = getelementptr inbounds i8, ptr %this, i64 2032
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__to_destroy.i)
-  %_M_prev.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %__to_destroy.i, i64 0, i32 1
+  %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__to_destroy.i, i64 8
   store ptr %__to_destroy.i, ptr %_M_prev.i.i.i.i.i.i, align 8
   store ptr %__to_destroy.i, ptr %__to_destroy.i, align 8
-  %_M_size.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %__to_destroy.i, i64 0, i32 1
+  %_M_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__to_destroy.i, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i.i, align 8
   %0 = load ptr, ptr %waitingForReplaySafety_, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %waitingForReplaySafety_
   br i1 %cmp.i.not3.i, label %_ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE6removeERKS4_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %_M_size.i4.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 2048
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
   %__first.sroa.0.04.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %1, %if.end.i ]
   %1 = load ptr, ptr %__first.sroa.0.04.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__first.sroa.0.04.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i, i64 16
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8
   %cmp.i = icmp eq ptr %2, %callback
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2804,7 +2598,7 @@ _ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE6remov
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen11HTTPSession26needToBlockForReplaySafetyEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %waitingForReplaySafety_ = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 22
+  %waitingForReplaySafety_ = getelementptr inbounds i8, ptr %this, i64 2032
   %0 = load ptr, ptr %waitingForReplaySafety_, align 8
   %cmp.i = icmp ne ptr %0, %waitingForReplaySafety_
   ret i1 %cmp.i
@@ -2819,17 +2613,17 @@ entry:
   br i1 %delayed, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
   %1 = and i8 %0, 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %delete.end, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %destroyPending_3 = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_3 = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %destroyPending_3, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %this) #21
   br label %delete.end
@@ -2841,19 +2635,19 @@ delete.end:                                       ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this, i64 0, i32 1
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -2992,7 +2786,7 @@ entry:
   %sock_.i = getelementptr inbounds i8, ptr %this, i64 416
   %0 = load ptr, ptr %sock_.i, align 8, !noalias !17
   %vtable.i = load ptr, ptr %0, align 8, !noalias !17
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !17
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
@@ -3004,7 +2798,7 @@ entry:
   %sock_.i = getelementptr inbounds i8, ptr %this, i64 416
   %0 = load ptr, ptr %sock_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 39
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 312
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -3014,7 +2808,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable3.i = load ptr, ptr %callback, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 2
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %2 = load ptr, ptr %vfn4.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %callback)
           to label %_ZN8proxygen11HTTPSession25addWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE.exit unwind label %terminate.lpad.i
@@ -3025,7 +2819,7 @@ if.else.i:                                        ; preds = %invoke.cont.i
 
 _ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE9push_backERKS4_.exit.i: ; preds = %if.else.i
   %waitingForReplaySafety_.i = getelementptr inbounds i8, ptr %this, i64 448
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i1.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1.i, i64 16
   store ptr %callback, ptr %_M_storage.i.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1.i, ptr noundef nonnull %waitingForReplaySafety_.i) #21
   %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
@@ -3051,10 +2845,10 @@ entry:
   %__to_destroy.i.i = alloca %"class.std::__cxx11::list.74", align 8
   %waitingForReplaySafety_.i = getelementptr inbounds i8, ptr %this, i64 448
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__to_destroy.i.i)
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %__to_destroy.i.i, i64 0, i32 1
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__to_destroy.i.i, i64 8
   store ptr %__to_destroy.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %__to_destroy.i.i, ptr %__to_destroy.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %__to_destroy.i.i, i64 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__to_destroy.i.i, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   %0 = load ptr, ptr %waitingForReplaySafety_.i, align 8
   %cmp.i.not3.i.i = icmp eq ptr %0, %waitingForReplaySafety_.i
@@ -3067,7 +2861,7 @@ while.body.lr.ph.i.i:                             ; preds = %entry
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
   %__first.sroa.0.04.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %if.end.i.i ]
   %1 = load ptr, ptr %__first.sroa.0.04.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__first.sroa.0.04.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 16
   %2 = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %callback
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -3188,7 +2982,7 @@ entry:
 define linkonce_odr void @_ZThn1584_N8proxygen11HTTPSession15getHTTPPriorityEh(ptr noalias sret(%"class.folly::Optional.225") align 8 %agg.result, ptr noundef %this, i8 noundef zeroext %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8, !alias.scope !20
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<const std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !20
   ret void
 }
@@ -3196,7 +2990,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction9Transport15getHTTPPriorityEv(ptr noalias sret(%"class.folly::Optional.243") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPPriority>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %hasValue.i.i, align 8
   ret void
 }
@@ -3460,7 +3254,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 define linkonce_odr void @_ZThn1584_NK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev(ptr noalias sret(%"class.folly::Optional.34") align 8 %agg.result, ptr noundef %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !23
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -128
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8, !noalias !23
@@ -3609,7 +3403,7 @@ declare void @_ZThn1672_N8proxygen11HTTPSession13getReadBufferEPPvPm(ptr noundef
 define linkonce_odr void @_ZN5folly11AsyncReader12ReadCallback14getReadBuffersERSt6vectorI5iovecSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(24) %iovs) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %iovs, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %iovs, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %iovs, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorI5iovecSaIS0_EE5clearEv.exit, label %invoke.cont.i.i
@@ -3750,9 +3544,9 @@ entry:
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %savedValue.i)
   %0 = load ptr, ptr %this, align 8
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
   %cmp2.not.i = icmp ule ptr %0, %value
@@ -3795,10 +3589,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -3908,7 +3702,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #21
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -3930,10 +3724,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIRKNSt7__c
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -4043,7 +3837,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #21
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -4104,13 +3898,13 @@ declare void @_ZN8proxygen11HTTPSession19setByteEventTrackerESt10shared_ptrINS_1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN8proxygen16ByteEventTrackerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.87", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8proxygen16ByteEventTrackerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4118,10 +3912,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
@@ -4147,10 +3941,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4172,7 +3966,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrIN8proxygen16ByteEventTrackerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4200,7 +3994,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN8proxygen16ByteEventTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %_M_impl.i) #21
@@ -4217,12 +4011,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8proxygen16ByteEventTrack
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8proxygen16ByteEventTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UOption = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
-%class.UPerfTest = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, i32, ptr, i32, i8, ptr, i32, i8, i8, i32, i32, i32, ptr, ptr, ptr }
 %struct.ULine = type { ptr, i32 }
 %struct.UTimer = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
@@ -91,37 +90,37 @@ declare void @llvm.trap() #2
 define void @_ZN9UPerfTestC2EiPPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_argc = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 1
+  %_argc = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %argc, ptr %_argc, align 8
-  %_argv = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 2
+  %_argv = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %argv, ptr %_argv, align 8
-  %_addUsage = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 3
+  %_addUsage = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_addUsage, align 8
-  %ucharBuf = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 5
+  %ucharBuf = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %ucharBuf, align 8
-  %encoding = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 6
+  %encoding = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @.str, ptr %encoding, align 8
-  %uselen = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 7
+  %uselen = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %uselen, align 8
-  %fileName = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 8
+  %fileName = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fileName, align 8
-  %sourceDir = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 9
+  %sourceDir = getelementptr inbounds i8, ptr %this, i64 72
   store ptr @.str.1, ptr %sourceDir, align 8
-  %lines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 11
+  %lines = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %lines, align 8
-  %numLines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 12
+  %numLines = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %numLines, align 8
-  %line_mode = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 13
+  %line_mode = getelementptr inbounds i8, ptr %this, i64 100
   store i8 1, ptr %line_mode, align 4
-  %buffer = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 14
-  %passes = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 18
+  %buffer = getelementptr inbounds i8, ptr %this, i64 104
+  %passes = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %buffer, i8 0, i64 14, i1 false)
   store i32 1, ptr %passes, align 8
-  %iterations = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 19
+  %iterations = getelementptr inbounds i8, ptr %this, i64 124
   store i32 0, ptr %iterations, align 4
-  %time = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 20
+  %time = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %time, align 8
-  %locale = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 21
+  %locale = getelementptr inbounds i8, ptr %this, i64 136
   store ptr null, ptr %locale, align 8
   tail call void @_ZN9UPerfTest4initEP7UOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -131,7 +130,7 @@ entry:
 define void @_ZN9UPerfTest4initEP7UOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %len = alloca i32, align 4
-  %resolvedFileName = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 4
+  %resolvedFileName = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %resolvedFileName, align 8
   %cmp = icmp sgt i32 %addOptionsCount, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -145,12 +144,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %optionsCount.0 = phi i32 [ %add, %if.then ], [ 13, %entry ]
-  %_argc = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 1
+  %_argc = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_argc, align 8
-  %_argv = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 2
+  %_argv = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_argv, align 8
   %call = tail call i32 @u_parseArgs(i32 noundef %0, ptr noundef %1, i32 noundef %optionsCount.0, ptr noundef nonnull @_ZL7options)
-  %_remainingArgc = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 10
+  %_remainingArgc = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %call, ptr %_remainingArgc, align 8
   br i1 %cmp, label %if.then3, label %if.end6
 
@@ -181,7 +180,7 @@ if.end12:                                         ; preds = %if.end6
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %verbose = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 16
+  %verbose = getelementptr inbounds i8, ptr %this, i64 116
   store i8 1, ptr %verbose, align 4
   br label %if.end15
 
@@ -192,7 +191,7 @@ if.end15:                                         ; preds = %if.then14, %if.end1
 
 if.then17:                                        ; preds = %if.end15
   %7 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 3, i32 1), align 16
-  %sourceDir = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 9
+  %sourceDir = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %7, ptr %sourceDir, align 8
   br label %if.end18
 
@@ -203,7 +202,7 @@ if.end18:                                         ; preds = %if.then17, %if.end1
 
 if.then20:                                        ; preds = %if.end18
   %9 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 4, i32 1), align 8
-  %encoding = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 6
+  %encoding = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %9, ptr %encoding, align 8
   br label %if.end21
 
@@ -213,7 +212,7 @@ if.end21:                                         ; preds = %if.then20, %if.end1
   br i1 %tobool22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %uselen = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 7
+  %uselen = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %uselen, align 8
   br label %if.end24
 
@@ -224,7 +223,7 @@ if.end24:                                         ; preds = %if.then23, %if.end2
 
 if.then26:                                        ; preds = %if.end24
   %12 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 6, i32 1), align 8
-  %fileName = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 8
+  %fileName = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %12, ptr %fileName, align 8
   br label %if.end27
 
@@ -236,7 +235,7 @@ if.end27:                                         ; preds = %if.then26, %if.end2
 if.then29:                                        ; preds = %if.end27
   %14 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 7, i32 1), align 16
   %call30 = tail call i32 @atoi(ptr nocapture noundef %14) #21
-  %passes = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 18
+  %passes = getelementptr inbounds i8, ptr %this, i64 120
   store i32 %call30, ptr %passes, align 8
   br label %if.end31
 
@@ -248,7 +247,7 @@ if.end31:                                         ; preds = %if.then29, %if.end2
 if.then33:                                        ; preds = %if.end31
   %16 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 8, i32 1), align 8
   %call34 = tail call i32 @atoi(ptr nocapture noundef %16) #21
-  %iterations = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 19
+  %iterations = getelementptr inbounds i8, ptr %this, i64 124
   store i32 %call34, ptr %iterations, align 4
   %17 = load i8, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 9, i32 6), align 2
   %tobool35.not = icmp eq i8 %17, 0
@@ -266,12 +265,12 @@ if.else:                                          ; preds = %if.end31
 if.then39:                                        ; preds = %if.else
   %19 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 9, i32 1), align 16
   %call40 = tail call i32 @atoi(ptr nocapture noundef %19) #21
-  %time = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 20
+  %time = getelementptr inbounds i8, ptr %this, i64 128
   store i32 %call40, ptr %time, align 8
   br label %if.end44
 
 if.else41:                                        ; preds = %if.else
-  %iterations42 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 19
+  %iterations42 = getelementptr inbounds i8, ptr %this, i64 124
   store i32 1000, ptr %iterations42, align 4
   br label %if.end44
 
@@ -281,9 +280,9 @@ if.end44:                                         ; preds = %if.then39, %if.else
   br i1 %tobool45.not, label %if.end47, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
-  %line_mode = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 13
+  %line_mode = getelementptr inbounds i8, ptr %this, i64 100
   store i8 1, ptr %line_mode, align 4
-  %bulk_mode = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 17
+  %bulk_mode = getelementptr inbounds i8, ptr %this, i64 117
   store i8 0, ptr %bulk_mode, align 1
   br label %if.end47
 
@@ -293,9 +292,9 @@ if.end47:                                         ; preds = %if.then46, %if.end4
   br i1 %tobool48.not, label %if.end52, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  %bulk_mode50 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 17
+  %bulk_mode50 = getelementptr inbounds i8, ptr %this, i64 117
   store i8 1, ptr %bulk_mode50, align 1
-  %line_mode51 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 13
+  %line_mode51 = getelementptr inbounds i8, ptr %this, i64 100
   store i8 0, ptr %line_mode51, align 4
   br label %if.end52
 
@@ -306,19 +305,19 @@ if.end52:                                         ; preds = %if.then49, %if.end4
 
 if.then54:                                        ; preds = %if.end52
   %23 = load ptr, ptr getelementptr inbounds (<{ [13 x %struct.UOption], [20 x %struct.UOption] }>, ptr @_ZL7options, i64 0, i32 0, i64 12, i32 1), align 8
-  %locale = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 21
+  %locale = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %23, ptr %locale, align 8
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then54, %if.end52
   store i32 0, ptr %len, align 4
-  %fileName56 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 8
+  %fileName56 = getelementptr inbounds i8, ptr %this, i64 64
   %24 = load ptr, ptr %fileName56, align 8
   %cmp57.not = icmp eq ptr %24, null
   br i1 %cmp57.not, label %if.end86, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %sourceDir59 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 9
+  %sourceDir59 = getelementptr inbounds i8, ptr %this, i64 72
   %25 = load ptr, ptr %sourceDir59, align 8
   %call61 = call ptr @ucbuf_resolveFileName(ptr noundef %25, ptr noundef nonnull %24, ptr noundef null, ptr noundef nonnull %len, ptr noundef nonnull %status)
   %26 = load i32, ptr %len, align 4
@@ -348,9 +347,9 @@ if.end71:                                         ; preds = %if.then70, %if.end6
   %30 = load ptr, ptr %fileName56, align 8
   %call75 = call ptr @ucbuf_resolveFileName(ptr noundef %29, ptr noundef %30, ptr noundef %28, ptr noundef nonnull %len, ptr noundef nonnull %status)
   %31 = load ptr, ptr %resolvedFileName, align 8
-  %encoding77 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 6
+  %encoding77 = getelementptr inbounds i8, ptr %this, i64 48
   %call78 = call ptr @ucbuf_open(ptr noundef %31, ptr noundef nonnull %encoding77, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull %status)
-  %ucharBuf = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 5
+  %ucharBuf = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call78, ptr %ucharBuf, align 8
   %32 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %32, 1
@@ -370,37 +369,37 @@ if.end86:                                         ; preds = %if.end71, %if.then8
 define void @_ZN9UPerfTestC2EiPPKcP7UOptioniS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef %addUsage, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_argc = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 1
+  %_argc = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %argc, ptr %_argc, align 8
-  %_argv = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 2
+  %_argv = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %argv, ptr %_argv, align 8
-  %_addUsage = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 3
+  %_addUsage = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %addUsage, ptr %_addUsage, align 8
-  %ucharBuf = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 5
+  %ucharBuf = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %ucharBuf, align 8
-  %encoding = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 6
+  %encoding = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @.str, ptr %encoding, align 8
-  %uselen = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 7
+  %uselen = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %uselen, align 8
-  %fileName = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 8
+  %fileName = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fileName, align 8
-  %sourceDir = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 9
+  %sourceDir = getelementptr inbounds i8, ptr %this, i64 72
   store ptr @.str.1, ptr %sourceDir, align 8
-  %lines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 11
+  %lines = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %lines, align 8
-  %numLines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 12
+  %numLines = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %numLines, align 8
-  %line_mode = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 13
+  %line_mode = getelementptr inbounds i8, ptr %this, i64 100
   store i8 1, ptr %line_mode, align 4
-  %buffer = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 14
-  %passes = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 18
+  %buffer = getelementptr inbounds i8, ptr %this, i64 104
+  %passes = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %buffer, i8 0, i64 14, i1 false)
   store i32 1, ptr %passes, align 8
-  %iterations = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 19
+  %iterations = getelementptr inbounds i8, ptr %this, i64 124
   store i32 0, ptr %iterations, align 4
-  %time = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 20
+  %time = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %time, align 8
-  %locale = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 21
+  %locale = getelementptr inbounds i8, ptr %this, i64 136
   store ptr null, ptr %locale, align 8
   tail call void @_ZN9UPerfTest4initEP7UOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -435,7 +434,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %lines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 11
+  %lines = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %lines, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end4, label %return
@@ -443,10 +442,10 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %call5 = tail call noalias noundef nonnull dereferenceable(640000) ptr @_Znam(i64 noundef 640000) #23
   store ptr %call5, ptr %lines, align 8
-  %numLines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 12
+  %numLines = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %numLines, align 8
   store i32 0, ptr %len, align 4
-  %ucharBuf = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 5
+  %ucharBuf = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %ucharBuf, align 8
   %call713 = call ptr @ucbuf_readline(ptr noundef %2, ptr noundef nonnull %len, ptr noundef nonnull %status)
   %cmp814 = icmp ne ptr %call713, null
@@ -549,7 +548,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ucharBuf = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 5
+  %ucharBuf = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %ucharBuf, align 8
   %call2 = tail call i32 @ucbuf_size(ptr noundef %1)
   store i32 %call2, ptr %len, align 4
@@ -557,10 +556,10 @@ if.end:                                           ; preds = %entry
   %mul = add i32 %add, 2
   %conv = sext i32 %mul to i64
   %call3 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #22
-  %buffer = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 14
+  %buffer = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %call3, ptr %buffer, align 8
   %2 = load ptr, ptr %ucharBuf, align 8
-  %bufferLen = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 15
+  %bufferLen = getelementptr inbounds i8, ptr %this, i64 112
   %call6 = tail call ptr @ucbuf_getBuffer(ptr noundef %2, ptr noundef nonnull %bufferLen, ptr noundef nonnull %status)
   %3 = load i32, ptr %len, align 4
   %call7 = tail call ptr @u_strncpy_75(ptr noundef %call3, ptr noundef %call6, i32 noundef %3)
@@ -588,7 +587,7 @@ declare ptr @ucbuf_getBuffer(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN9UPerfTest3runEv(ptr noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_remainingArgc = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 10
+  %_remainingArgc = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %_remainingArgc, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -598,15 +597,15 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp315, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %_argv = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 2
-  %path.i = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %_argv = getelementptr inbounds i8, ptr %this, i64 16
+  %path.i = getelementptr inbounds i8, ptr %this, i64 152
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %path428.i = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %path428.i = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %path428.i, align 8
   %vtable34.i = load ptr, ptr %this, align 8
-  %vfn35.i = getelementptr inbounds ptr, ptr %vtable34.i, i64 4
+  %vfn35.i = getelementptr inbounds i8, ptr %vtable34.i, i64 32
   %1 = load ptr, ptr %vfn35.i, align 8
   %call1136.i = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
   br label %return
@@ -661,7 +660,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
 
 if.then10.i:                                      ; preds = %lor.lhs.false7.i, %lor.lhs.false.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8
   %call11.i = tail call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
   br i1 %tobool2.not.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %if.then25.i
@@ -678,7 +677,7 @@ if.then15.i:                                      ; preds = %if.else12.i
   br i1 %tobool2.not.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %if.then25.i
 
 if.end23.i:                                       ; preds = %if.else12.i
-  %vfn20.i = getelementptr inbounds ptr, ptr %vtable16.i, i64 4
+  %vfn20.i = getelementptr inbounds i8, ptr %vtable16.i, i64 32
   %9 = load ptr, ptr %vfn20.i, align 8
   %call21.i = tail call noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %4, ptr noundef %parameter.0)
   br i1 %tobool2.not.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %if.then25.i
@@ -725,10 +724,10 @@ entry:
   br i1 %tobool.not, label %if.then10.thread, label %if.end
 
 if.then10.thread:                                 ; preds = %entry
-  %path428 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %path428 = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %path428, align 8
   %vtable34 = load ptr, ptr %this, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 4
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 32
   %0 = load ptr, ptr %vfn35, align 8
   %call1136 = tail call noundef signext i8 %0(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
   br label %if.end26
@@ -740,13 +739,13 @@ if.end:                                           ; preds = %entry
 
 if.end5.thread:                                   ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
-  %path = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %path = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %add.ptr, ptr %path, align 8
   store i8 0, ptr %call, align 1
   br label %lor.lhs.false
 
 if.end5:                                          ; preds = %if.end
-  %path4 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %path4 = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %path4, align 8
   br label %lor.lhs.false
 
@@ -762,7 +761,7 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false
 
 if.then10:                                        ; preds = %lor.lhs.false7, %lor.lhs.false
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
   br i1 %tobool2.not, label %if.end26, label %if.then25
@@ -779,7 +778,7 @@ if.then15:                                        ; preds = %if.else12
   br i1 %tobool2.not, label %if.end26, label %if.then25
 
 if.end23:                                         ; preds = %if.else12
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable16, i64 4
+  %vfn20 = getelementptr inbounds i8, ptr %vtable16, i64 32
   %4 = load ptr, ptr %vfn20, align 8
   %call21 = tail call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %name, ptr noundef %par)
   br i1 %tobool2.not, label %if.end26, label %if.then25
@@ -803,7 +802,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9UPerfTest7setPathEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef %pathVal) local_unnamed_addr #12 align 2 {
 entry:
-  %path = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %path = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %pathVal, ptr %path, align 8
   ret void
 }
@@ -825,10 +824,10 @@ entry:
   %0 = load ptr, ptr @_ZN9UPerfTest5gTestE, align 8
   store ptr %this, ptr @_ZN9UPerfTest5gTestE, align 8
   %tobool2.not = icmp eq ptr %testname, null
-  %iterations = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 19
-  %time = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 20
-  %verbose = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 16
-  %passes = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 18
+  %iterations = getelementptr inbounds i8, ptr %this, i64 124
+  %time = getelementptr inbounds i8, ptr %this, i64 128
+  %verbose = getelementptr inbounds i8, ptr %this, i64 116
+  %passes = getelementptr inbounds i8, ptr %this, i64 120
   br label %do.body
 
 do.body:                                          ; preds = %if.end170, %entry
@@ -837,7 +836,7 @@ do.body:                                          ; preds = %if.end170, %entry
   %n.0 = phi i32 [ 1, %entry ], [ %n.2, %if.end170 ]
   %index.0 = phi i32 [ 0, %entry ], [ %inc171, %if.end170 ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %index.0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef null)
   %2 = load ptr, ptr %name, align 8
@@ -859,7 +858,7 @@ if.end7:                                          ; preds = %if.end
 
 if.then9:                                         ; preds = %if.end, %if.end7
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 3
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 24
   %4 = load ptr, ptr %vfn11, align 8
   %call12 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %index.0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef %par)
   %5 = load i32, ptr @_ZL9execCount, align 4
@@ -876,7 +875,7 @@ if.then14:                                        ; preds = %if.then9
 
 if.end16:                                         ; preds = %if.then9
   %vtable17 = load ptr, ptr %call12, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 3
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 24
   %8 = load ptr, ptr %vfn18, align 8
   %call19 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %call12)
   %cmp20 = icmp slt i64 %call19, 1
@@ -946,7 +945,7 @@ if.end49:                                         ; preds = %if.else40, %if.then
   %loops.2 = phi i32 [ %failsafe.0, %if.then38 ], [ %conv44, %if.else40 ]
   %failsafe.1 = phi i32 [ %mul39, %if.then38 ], [ %failsafe.0, %if.else40 ]
   %vtable50 = load ptr, ptr %call12, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 5
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 40
   %19 = load ptr, ptr %vfn51, align 8
   %call52 = call noundef double %19(ptr noundef nonnull align 8 dereferenceable(8) %call12, i32 noundef %loops.2, ptr noundef nonnull %status)
   %20 = load i32, ptr %status, align 4
@@ -987,7 +986,7 @@ if.then66:                                        ; preds = %for.body
 
 if.end75:                                         ; preds = %if.then66, %for.body
   %vtable76 = load ptr, ptr %call12, align 8
-  %vfn77 = getelementptr inbounds ptr, ptr %vtable76, i64 5
+  %vfn77 = getelementptr inbounds i8, ptr %vtable76, i64 40
   %27 = load ptr, ptr %vfn77, align 8
   %call78 = call noundef double %27(ptr noundef nonnull align 8 dereferenceable(8) %call12, i32 noundef %loops.3, ptr noundef nonnull %status)
   %28 = load i32, ptr %status, align 4
@@ -1004,7 +1003,7 @@ if.end84:                                         ; preds = %if.end75
   %cmp85 = fcmp olt double %call78, %min_t.087
   %min_t.1 = select i1 %cmp85, double %call78, double %min_t.087
   %vtable88 = load ptr, ptr %call12, align 8
-  %vfn89 = getelementptr inbounds ptr, ptr %vtable88, i64 4
+  %vfn89 = getelementptr inbounds i8, ptr %vtable88, i64 32
   %29 = load ptr, ptr %vfn89, align 8
   %call90 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %call12)
   %30 = load i8, ptr %verbose, align 4
@@ -1104,7 +1103,7 @@ if.then159:                                       ; preds = %if.else156
 
 delete.notnull:                                   ; preds = %if.then118, %if.else131, %if.then114, %if.then159, %if.else156
   %vtable168 = load ptr, ptr %call12, align 8
-  %vfn169 = getelementptr inbounds ptr, ptr %vtable168, i64 1
+  %vfn169 = getelementptr inbounds i8, ptr %vtable168, i64 8
   %47 = load ptr, ptr %vfn169, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %call12) #26
   %.pre = load ptr, ptr %name, align 8
@@ -1137,7 +1136,7 @@ define void @_ZN9UPerfTest5usageEv(ptr noundef nonnull align 8 dereferenceable(1
 entry:
   %name = alloca ptr, align 8
   %call = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @_ZN9UPerfTest12gUsageStringE)
-  %_addUsage = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 3
+  %_addUsage = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_addUsage, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1147,7 +1146,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %verbose = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 16
+  %verbose = getelementptr inbounds i8, ptr %this, i64 116
   %1 = load i8, ptr %verbose, align 4
   store i8 1, ptr %verbose, align 4
   %2 = load ptr, ptr @stdout, align 8
@@ -1160,7 +1159,7 @@ if.end:                                           ; preds = %if.then, %entry
 do.body:                                          ; preds = %land.rhs, %if.end
   %index.0 = phi i32 [ 0, %if.end ], [ %inc, %land.rhs ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   %call7 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %index.0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef null)
   %7 = load ptr, ptr %name, align 8
@@ -1191,15 +1190,15 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9UPerfTest9setCallerEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef %callingTest) local_unnamed_addr #15 align 2 {
 entry:
-  %caller = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 22
+  %caller = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %callingTest, ptr %caller, align 8
   %tobool.not = icmp eq ptr %callingTest, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %verbose = getelementptr inbounds %class.UPerfTest, ptr %callingTest, i64 0, i32 16
+  %verbose = getelementptr inbounds i8, ptr %callingTest, i64 116
   %0 = load i8, ptr %verbose, align 4
-  %verbose4 = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 16
+  %verbose4 = getelementptr inbounds i8, ptr %this, i64 116
   store i8 %0, ptr %verbose4, align 4
   br label %if.end
 
@@ -1213,13 +1212,13 @@ entry:
   %0 = load i32, ptr @_ZL9execCount, align 4
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr @_ZL9execCount, align 4
-  %caller.i = getelementptr inbounds %class.UPerfTest, ptr %testToBeCalled, i64 0, i32 22
+  %caller.i = getelementptr inbounds i8, ptr %testToBeCalled, i64 144
   store ptr %this, ptr %caller.i, align 8
-  %verbose.i = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 16
+  %verbose.i = getelementptr inbounds i8, ptr %this, i64 116
   %1 = load i8, ptr %verbose.i, align 4
-  %verbose4.i = getelementptr inbounds %class.UPerfTest, ptr %testToBeCalled, i64 0, i32 16
+  %verbose4.i = getelementptr inbounds i8, ptr %testToBeCalled, i64 116
   store i8 %1, ptr %verbose4.i, align 4
-  %path = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 23
+  %path = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load ptr, ptr %path, align 8
   %call = tail call noundef signext i8 @_ZN9UPerfTest7runTestEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) %testToBeCalled, ptr noundef %2, ptr noundef %par)
   ret i8 %call
@@ -1229,7 +1228,7 @@ entry:
 define void @_ZN9UPerfTestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lines = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 11
+  %lines = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %lines, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
@@ -1239,7 +1238,7 @@ delete.notnull:                                   ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
-  %buffer = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 14
+  %buffer = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %buffer, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end6, label %if.then4
@@ -1249,7 +1248,7 @@ if.then4:                                         ; preds = %if.end
           to label %if.end6 unwind label %terminate.lpad
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %resolvedFileName = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 4
+  %resolvedFileName = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %resolvedFileName, align 8
   %cmp7.not = icmp eq ptr %2, null
   br i1 %cmp7.not, label %if.end11, label %if.then8
@@ -1259,7 +1258,7 @@ if.then8:                                         ; preds = %if.end6
           to label %if.end11 unwind label %terminate.lpad
 
 if.end11:                                         ; preds = %if.then8, %if.end6
-  %ucharBuf = getelementptr inbounds %class.UPerfTest, ptr %this, i64 0, i32 5
+  %ucharBuf = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %ucharBuf, align 8
   invoke void @ucbuf_close(ptr noundef %3)
           to label %invoke.cont12 unwind label %terminate.lpad
@@ -1324,7 +1323,7 @@ while.body:                                       ; preds = %entry, %while.body
   %n.addr.05 = phi i32 [ %dec, %while.body ], [ %n, %entry ]
   %dec = add nsw i32 %n.addr.05, -1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %status)
   %cmp = icmp ugt i32 %n.addr.05, 1

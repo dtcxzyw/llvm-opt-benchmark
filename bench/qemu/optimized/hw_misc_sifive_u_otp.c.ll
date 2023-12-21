@@ -10,23 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.3, %struct.anon.4 }
 %struct.anon.3 = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SiFiveUOTPState = type { %struct.SysBusDevice, %struct.MemoryRegion, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [4096 x i32], [4096 x i32], i32, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
 
 @sifive_u_otp_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 33936, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @sifive_u_otp_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"riscv.sifive.u.otp\00", align 1
@@ -86,7 +69,7 @@ define internal void @sifive_u_otp_class_init(ptr noundef %klass, ptr nocapture 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_u_otp_properties) #4
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_u_otp_realize, ptr %realize, align 8
   ret void
 }
@@ -98,7 +81,7 @@ define internal void @sifive_u_otp_realize(ptr noundef %dev, ptr noundef %errp) 
 entry:
   %serial_data = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 59, ptr noundef nonnull @__func__.SIFIVE_U_OTP) #4
-  %mmio = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @sifive_u_otp_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 4096) #4
   %call.i33 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_init_mmio(ptr noundef %call.i33, ptr noundef nonnull %mmio) #4
@@ -118,7 +101,7 @@ if.then7:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %call8 = tail call zeroext i1 @qdev_prop_set_drive_err(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef %call4, ptr noundef %errp) #4
-  %blk9 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 19
+  %blk9 = getelementptr inbounds i8, ptr %call.i, i64 33920
   %0 = load ptr, ptr %blk9, align 16
   %tobool10.not = icmp eq ptr %0, null
   br i1 %tobool10.not, label %if.end30, label %if.then11
@@ -133,7 +116,7 @@ if.then11:                                        ; preds = %if.end
 
 if.end21:                                         ; preds = %if.then11
   %2 = load ptr, ptr %blk9, align 16
-  %fuse = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 16
+  %fuse = getelementptr inbounds i8, ptr %call.i, i64 1144
   %call24 = tail call i32 @blk_pread(ptr noundef %2, i64 noundef 0, i64 noundef 16384, ptr noundef nonnull %fuse, i32 noundef 0) #4
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then27, label %if.end30
@@ -143,16 +126,16 @@ if.then27:                                        ; preds = %if.end21
   br label %return
 
 if.end30:                                         ; preds = %if.end, %if.end21, %entry
-  %fuse31 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 16
+  %fuse31 = getelementptr inbounds i8, ptr %call.i, i64 1144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %fuse31, i8 -1, i64 16384, i1 false)
-  %serial = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 18
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 33912
   %3 = load i32, ptr %serial, align 8
-  %arrayidx = getelementptr %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 16, i64 252
+  %arrayidx = getelementptr i8, ptr %call.i, i64 2152
   store i32 %3, ptr %arrayidx, align 8
   %not = xor i32 %3, -1
-  %arrayidx36 = getelementptr %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 16, i64 253
+  %arrayidx36 = getelementptr i8, ptr %call.i, i64 2156
   store i32 %not, ptr %arrayidx36, align 4
-  %blk37 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 19
+  %blk37 = getelementptr inbounds i8, ptr %call.i, i64 33920
   %4 = load ptr, ptr %blk37, align 16
   %tobool38.not = icmp eq ptr %4, null
   br i1 %tobool38.not, label %if.end59, label %if.then39
@@ -181,7 +164,7 @@ if.then56:                                        ; preds = %if.end47
   br label %return
 
 if.end59:                                         ; preds = %if.end47, %if.end30
-  %fuse_wo = getelementptr inbounds %struct.SiFiveUOTPState, ptr %call.i, i64 0, i32 17
+  %fuse_wo = getelementptr inbounds i8, ptr %call.i, i64 17528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %fuse_wo, i8 0, i64 16384, i1 false)
   br label %return
 
@@ -242,71 +225,71 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %pa = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 2
+  %pa = getelementptr inbounds i8, ptr %opaque, i64 1088
   %1 = load i32, ptr %pa, align 16
   %conv = zext i32 %1 to i64
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %paio = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 3
+  %paio = getelementptr inbounds i8, ptr %opaque, i64 1092
   %2 = load i32, ptr %paio, align 4
   %conv2 = zext i32 %2 to i64
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %pas = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 4
+  %pas = getelementptr inbounds i8, ptr %opaque, i64 1096
   %3 = load i32, ptr %pas, align 8
   %conv4 = zext i32 %3 to i64
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %pce = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 5
+  %pce = getelementptr inbounds i8, ptr %opaque, i64 1100
   %4 = load i32, ptr %pce, align 4
   %conv6 = zext i32 %4 to i64
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %pclk = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 6
+  %pclk = getelementptr inbounds i8, ptr %opaque, i64 1104
   %5 = load i32, ptr %pclk, align 16
   %conv8 = zext i32 %5 to i64
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %pdin = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 7
+  %pdin = getelementptr inbounds i8, ptr %opaque, i64 1108
   %6 = load i32, ptr %pdin, align 4
   %conv10 = zext i32 %6 to i64
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %pce12 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 5
+  %pce12 = getelementptr inbounds i8, ptr %opaque, i64 1100
   %7 = load i32, ptr %pce12, align 4
   %and = and i32 %7, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb11
-  %pdstb = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 8
+  %pdstb = getelementptr inbounds i8, ptr %opaque, i64 1112
   %8 = load i32, ptr %pdstb, align 8
   %and13 = and i32 %8, 1
   %tobool14.not = icmp eq i32 %and13, 0
   br i1 %tobool14.not, label %return, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %land.lhs.true
-  %ptrim = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 14
+  %ptrim = getelementptr inbounds i8, ptr %opaque, i64 1136
   %9 = load i32, ptr %ptrim, align 16
   %and16 = and i32 %9, 1
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true15
-  %blk = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 19
+  %blk = getelementptr inbounds i8, ptr %opaque, i64 33920
   %10 = load ptr, ptr %blk, align 16
   %tobool18.not = icmp eq ptr %10, null
-  %pa28 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 2
-  %11 = load i32, ptr %pa28, align 16
   br i1 %tobool18.not, label %if.end27, label %if.then19
 
 if.then19:                                        ; preds = %if.then
+  %pa21 = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %11 = load i32, ptr %pa21, align 16
   %mul = shl i32 %11, 2
   %conv22 = zext i32 %mul to i64
   %call = call i32 @blk_pread(ptr noundef nonnull %10, i64 noundef %conv22, i64 noundef 4, ptr noundef nonnull %buf, i32 noundef 0) #4
@@ -314,7 +297,7 @@ if.then19:                                        ; preds = %if.then
   br i1 %cmp, label %if.then24, label %if.end
 
 if.then24:                                        ; preds = %if.then19
-  %12 = load i32, ptr %pa28, align 16
+  %12 = load i32, ptr %pa21, align 16
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11, i32 noundef %12) #4
   br label %return
 
@@ -324,64 +307,67 @@ if.end:                                           ; preds = %if.then19
   br label %return
 
 if.end27:                                         ; preds = %if.then
-  %and29 = and i32 %11, 4095
+  %fuse = getelementptr inbounds i8, ptr %opaque, i64 1144
+  %pa28 = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %14 = load i32, ptr %pa28, align 16
+  %and29 = and i32 %14, 4095
   %idxprom = zext nneg i32 %and29 to i64
-  %arrayidx = getelementptr %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 16, i64 %idxprom
-  %14 = load i32, ptr %arrayidx, align 4
-  %conv30 = zext i32 %14 to i64
+  %arrayidx = getelementptr [4096 x i32], ptr %fuse, i64 0, i64 %idxprom
+  %15 = load i32, ptr %arrayidx, align 4
+  %conv30 = zext i32 %15 to i64
   br label %return
 
 sw.bb31:                                          ; preds = %entry
-  %pdstb32 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 8
-  %15 = load i32, ptr %pdstb32, align 8
-  %conv33 = zext i32 %15 to i64
+  %pdstb32 = getelementptr inbounds i8, ptr %opaque, i64 1112
+  %16 = load i32, ptr %pdstb32, align 8
+  %conv33 = zext i32 %16 to i64
   br label %return
 
 sw.bb34:                                          ; preds = %entry
-  %pprog = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 9
-  %16 = load i32, ptr %pprog, align 4
-  %conv35 = zext i32 %16 to i64
+  %pprog = getelementptr inbounds i8, ptr %opaque, i64 1116
+  %17 = load i32, ptr %pprog, align 4
+  %conv35 = zext i32 %17 to i64
   br label %return
 
 sw.bb36:                                          ; preds = %entry
-  %ptc = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 10
-  %17 = load i32, ptr %ptc, align 16
-  %conv37 = zext i32 %17 to i64
+  %ptc = getelementptr inbounds i8, ptr %opaque, i64 1120
+  %18 = load i32, ptr %ptc, align 16
+  %conv37 = zext i32 %18 to i64
   br label %return
 
 sw.bb38:                                          ; preds = %entry
-  %ptm = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 11
-  %18 = load i32, ptr %ptm, align 4
-  %conv39 = zext i32 %18 to i64
+  %ptm = getelementptr inbounds i8, ptr %opaque, i64 1124
+  %19 = load i32, ptr %ptm, align 4
+  %conv39 = zext i32 %19 to i64
   br label %return
 
 sw.bb40:                                          ; preds = %entry
-  %ptm_rep = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 12
-  %19 = load i32, ptr %ptm_rep, align 8
-  %conv41 = zext i32 %19 to i64
+  %ptm_rep = getelementptr inbounds i8, ptr %opaque, i64 1128
+  %20 = load i32, ptr %ptm_rep, align 8
+  %conv41 = zext i32 %20 to i64
   br label %return
 
 sw.bb42:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 13
-  %20 = load i32, ptr %ptr, align 4
-  %conv43 = zext i32 %20 to i64
+  %ptr = getelementptr inbounds i8, ptr %opaque, i64 1132
+  %21 = load i32, ptr %ptr, align 4
+  %conv43 = zext i32 %21 to i64
   br label %return
 
 sw.bb44:                                          ; preds = %entry
-  %ptrim45 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 14
-  %21 = load i32, ptr %ptrim45, align 16
-  %conv46 = zext i32 %21 to i64
+  %ptrim45 = getelementptr inbounds i8, ptr %opaque, i64 1136
+  %22 = load i32, ptr %ptrim45, align 16
+  %conv46 = zext i32 %22 to i64
   br label %return
 
 sw.bb47:                                          ; preds = %entry
-  %pwe = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 15
-  %22 = load i32, ptr %pwe, align 4
-  %conv48 = zext i32 %22 to i64
+  %pwe = getelementptr inbounds i8, ptr %opaque, i64 1140
+  %23 = load i32, ptr %pwe, align 4
+  %conv48 = zext i32 %23 to i64
   br label %return
 
 do.body:                                          ; preds = %entry
-  %23 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %23, 2048
+  %24 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %24, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then53
 
@@ -419,90 +405,91 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %and = and i32 %conv, 4095
-  %pa = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 2
+  %pa = getelementptr inbounds i8, ptr %opaque, i64 1088
   store i32 %and, ptr %pa, align 16
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %paio = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 3
+  %paio = getelementptr inbounds i8, ptr %opaque, i64 1092
   store i32 %conv, ptr %paio, align 4
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %pas = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 4
+  %pas = getelementptr inbounds i8, ptr %opaque, i64 1096
   store i32 %conv, ptr %pas, align 8
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %pce = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 5
+  %pce = getelementptr inbounds i8, ptr %opaque, i64 1100
   store i32 %conv, ptr %pce, align 4
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %pclk = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 6
+  %pclk = getelementptr inbounds i8, ptr %opaque, i64 1104
   store i32 %conv, ptr %pclk, align 16
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %pdin = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 7
+  %pdin = getelementptr inbounds i8, ptr %opaque, i64 1108
   store i32 %conv, ptr %pdin, align 4
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %pdstb = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 8
+  %pdstb = getelementptr inbounds i8, ptr %opaque, i64 1112
   store i32 %conv, ptr %pdstb, align 8
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %pprog = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 9
+  %pprog = getelementptr inbounds i8, ptr %opaque, i64 1116
   store i32 %conv, ptr %pprog, align 4
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %ptc = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 10
+  %ptc = getelementptr inbounds i8, ptr %opaque, i64 1120
   store i32 %conv, ptr %ptc, align 16
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %ptm = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 11
+  %ptm = getelementptr inbounds i8, ptr %opaque, i64 1124
   store i32 %conv, ptr %ptm, align 4
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %ptm_rep = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 12
+  %ptm_rep = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 %conv, ptr %ptm_rep, align 8
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 13
+  %ptr = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 %conv, ptr %ptr, align 4
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %ptrim = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 14
+  %ptrim = getelementptr inbounds i8, ptr %opaque, i64 1136
   store i32 %conv, ptr %ptrim, align 16
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
   %and15 = and i32 %conv, 1
-  %pwe = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 15
+  %pwe = getelementptr inbounds i8, ptr %opaque, i64 1140
   store i32 %and15, ptr %pwe, align 4
   %tobool.not = icmp eq i32 %and15, 0
   br i1 %tobool.not, label %sw.epilog, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb14
-  %pas17 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 4
+  %pas17 = getelementptr inbounds i8, ptr %opaque, i64 1096
   %1 = load i32, ptr %pas17, align 8
   %tobool18.not = icmp eq i32 %1, 0
   br i1 %tobool18.not, label %if.then, label %sw.epilog
 
 if.then:                                          ; preds = %land.lhs.true
-  %pa19 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 2
+  %fuse_wo = getelementptr inbounds i8, ptr %opaque, i64 17528
+  %pa19 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %2 = load i32, ptr %pa19, align 16
   %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 17, i64 %idxprom
+  %arrayidx = getelementptr [4096 x i32], ptr %fuse_wo, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
-  %paio20 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 3
+  %paio20 = getelementptr inbounds i8, ptr %opaque, i64 1092
   %4 = load i32, ptr %paio20, align 4
   %5 = shl nuw i32 1, %4
   %6 = and i32 %5, %3
@@ -520,19 +507,21 @@ if.then27:                                        ; preds = %do.body
   br label %sw.epilog
 
 if.end30:                                         ; preds = %if.then
-  %pdin31 = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 7
+  %pdin31 = getelementptr inbounds i8, ptr %opaque, i64 1108
   %8 = load i32, ptr %pdin31, align 4
   %tobool32.not = icmp eq i32 %8, 0
-  %arrayidx41 = getelementptr %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 16, i64 %idxprom
+  %fuse38 = getelementptr inbounds i8, ptr %opaque, i64 1144
+  %arrayidx41 = getelementptr [4096 x i32], ptr %fuse38, i64 0, i64 %idxprom
   %9 = load i32, ptr %arrayidx41, align 4
   %shl = shl i32 %8, %4
   %or = or i32 %9, %shl
   %not = xor i32 %5, -1
   %and44 = and i32 %9, %not
   %cond = select i1 %tobool32.not, i32 %and44, i32 %or
-  %arrayidx48 = getelementptr %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 16, i64 %idxprom
+  %fuse45 = getelementptr inbounds i8, ptr %opaque, i64 1144
+  %arrayidx48 = getelementptr [4096 x i32], ptr %fuse45, i64 0, i64 %idxprom
   store i32 %cond, ptr %arrayidx48, align 4
-  %blk = getelementptr inbounds %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 19
+  %blk = getelementptr inbounds i8, ptr %opaque, i64 33920
   %10 = load ptr, ptr %blk, align 16
   %tobool49.not = icmp eq ptr %10, null
   br i1 %tobool49.not, label %if.end63, label %if.then50
@@ -553,7 +542,7 @@ if.then60:                                        ; preds = %if.then50
 if.end63:                                         ; preds = %if.then50, %if.then60, %if.end30
   %11 = phi i32 [ %.pre60, %if.then50 ], [ %.pre, %if.then60 ], [ %2, %if.end30 ]
   %idxprom66 = zext i32 %11 to i64
-  %arrayidx67 = getelementptr %struct.SiFiveUOTPState, ptr %opaque, i64 0, i32 17, i64 %idxprom66
+  %arrayidx67 = getelementptr [4096 x i32], ptr %fuse_wo, i64 0, i64 %idxprom66
   %12 = load i32, ptr %arrayidx67, align 4
   %13 = load i32, ptr %paio20, align 4
   %shl69 = shl nuw i32 1, %13

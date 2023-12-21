@@ -13,41 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.6 = type { i32, i32, i8, ptr }
 %struct.anon.7 = type { i32, i32, i8 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.GPEXHost = type { %struct.PCIExpressHost, %struct.GPEXRootState, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, [4 x ptr], [4 x i32], i8 }
-%struct.PCIExpressHost = type { %struct.PCIHostState, i64, i64, %struct.MemoryRegion }
-%struct.PCIHostState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, i32, i8, ptr, i8, %struct.anon.2 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.GPEXRootState = type { %struct.PCIDevice }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.3, %union.anon.4 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.PCIHostBridgeClass = type { %struct.SysBusDeviceClass, ptr }
-%struct.SysBusDeviceClass = type { %struct.DeviceClass, ptr, ptr }
 
 @gpex_root_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 2608, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @gpex_root_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @gpex_host_info = internal constant %struct.TypeInfo { ptr @.str.10, ptr @.str.11, i64 5728, i64 0, ptr @gpex_host_initfn, ptr null, ptr null, i8 0, i64 0, ptr @gpex_host_class_init, ptr null, ptr null, ptr null }, align 8
@@ -106,8 +71,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %irq_num = getelementptr inbounds i8, ptr %s, i64 5696
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.GPEXHost, ptr %s, i64 0, i32 7, i64 %idxprom
+  %arrayidx = getelementptr [4 x i32], ptr %irq_num, i64 0, i64 %idxprom
   store i32 %gsi, ptr %arrayidx, align 4
   br label %return
 
@@ -140,23 +106,23 @@ define internal void @gpex_root_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #5
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i8, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i8, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i8, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i8, i64 112
   store ptr @.str.3, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i8, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i8, i64 160
   store ptr @vmstate_gpex_root, ptr %vmsd, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i, i64 210
   store i16 8, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i, i64 212
   store i8 0, ptr %revision, align 4
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i, i64 214
   store i16 1536, ptr %class_id, align 2
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i8, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i8, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
 }
@@ -167,7 +133,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 define internal void @gpex_host_initfn(ptr noundef %obj) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.14, i32 noundef 30, ptr noundef nonnull @__func__.GPEX_HOST) #5
-  %gpex_root = getelementptr inbounds %struct.GPEXHost, ptr %call.i, i64 0, i32 1
+  %gpex_root = getelementptr inbounds i8, ptr %call.i, i64 1968
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull %gpex_root, i64 noundef 2608, ptr noundef nonnull @.str) #5
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gpex_root, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   tail call void @qdev_prop_set_int32(ptr noundef %call.i4, ptr noundef nonnull @.str.12, i32 noundef 0) #5
@@ -181,15 +147,15 @@ define internal void @gpex_host_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE_CLASS) #5
-  %root_bus_path = getelementptr inbounds %struct.PCIHostBridgeClass, ptr %call.i5, i64 0, i32 1
+  %root_bus_path = getelementptr inbounds i8, ptr %call.i5, i64 192
   store ptr @gpex_host_root_bus_path, ptr %root_bus_path, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @gpex_host_realize, ptr %realize, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %categories, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.15, ptr %fw_name, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @gpex_host_properties) #5
   ret void
@@ -217,22 +183,22 @@ entry:
   %call.i41 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
   %call.i42 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.27, i32 noundef 29, ptr noundef nonnull @__func__.PCIE_HOST_BRIDGE) #5
   tail call void @pcie_host_mmcfg_init(ptr noundef %call.i42, i32 noundef 268435456) #5
-  %mmio = getelementptr inbounds %struct.PCIExpressHost, ptr %call.i42, i64 0, i32 3
+  %mmio = getelementptr inbounds i8, ptr %call.i42, i64 1696
   tail call void @sysbus_init_mmio(ptr noundef %call.i41, ptr noundef nonnull %mmio) #5
-  %io_mmio = getelementptr inbounds %struct.GPEXHost, ptr %call.i40, i64 0, i32 3
+  %io_mmio = getelementptr inbounds i8, ptr %call.i40, i64 4848
   tail call void @memory_region_init(ptr noundef nonnull %io_mmio, ptr noundef %call.i40, ptr noundef nonnull @.str.19, i64 noundef -1) #5
-  %io_ioport = getelementptr inbounds %struct.GPEXHost, ptr %call.i40, i64 0, i32 2
+  %io_ioport = getelementptr inbounds i8, ptr %call.i40, i64 4576
   tail call void @memory_region_init(ptr noundef nonnull %io_ioport, ptr noundef %call.i40, ptr noundef nonnull @.str.20, i64 noundef 65536) #5
-  %allow_unmapped_accesses = getelementptr inbounds %struct.GPEXHost, ptr %call.i40, i64 0, i32 8
+  %allow_unmapped_accesses = getelementptr inbounds i8, ptr %call.i40, i64 5712
   %0 = load i8, ptr %allow_unmapped_accesses, align 16
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %io_mmio_window = getelementptr inbounds %struct.GPEXHost, ptr %call.i40, i64 0, i32 5
+  %io_mmio_window = getelementptr inbounds i8, ptr %call.i40, i64 5392
   tail call void @memory_region_init_io(ptr noundef nonnull %io_mmio_window, ptr noundef nonnull %call.i40, ptr noundef nonnull @unassigned_io_ops, ptr noundef nonnull %call.i40, ptr noundef nonnull @.str.21, i64 noundef -1) #5
-  %io_ioport_window = getelementptr inbounds %struct.GPEXHost, ptr %call.i40, i64 0, i32 4
+  %io_ioport_window = getelementptr inbounds i8, ptr %call.i40, i64 5120
   tail call void @memory_region_init_io(ptr noundef nonnull %io_ioport_window, ptr noundef nonnull %call.i40, ptr noundef nonnull @unassigned_io_ops, ptr noundef nonnull %call.i40, ptr noundef nonnull @.str.22, i64 noundef 65536) #5
   tail call void @memory_region_add_subregion(ptr noundef nonnull %io_mmio_window, i64 noundef 0, ptr noundef nonnull %io_mmio) #5
   tail call void @memory_region_add_subregion(ptr noundef nonnull %io_ioport_window, i64 noundef 0, ptr noundef nonnull %io_ioport) #5
@@ -243,13 +209,15 @@ if.end:                                           ; preds = %entry, %if.then
   %io_ioport.sink = phi ptr [ %io_ioport_window, %if.then ], [ %io_ioport, %entry ]
   tail call void @sysbus_init_mmio(ptr noundef %call.i41, ptr noundef nonnull %io_mmio.sink) #5
   tail call void @sysbus_init_mmio(ptr noundef %call.i41, ptr noundef nonnull %io_ioport.sink) #5
+  %irq = getelementptr inbounds i8, ptr %call.i40, i64 5664
+  %irq_num = getelementptr inbounds i8, ptr %call.i40, i64 5696
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.GPEXHost, ptr %call.i40, i64 0, i32 6, i64 %indvars.iv
+  %arrayidx = getelementptr [4 x ptr], ptr %irq, i64 0, i64 %indvars.iv
   tail call void @sysbus_init_irq(ptr noundef %call.i41, ptr noundef %arrayidx) #5
-  %arrayidx13 = getelementptr %struct.GPEXHost, ptr %call.i40, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx13 = getelementptr [4 x i32], ptr %irq_num, i64 0, i64 %indvars.iv
   store i32 -1, ptr %arrayidx13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -257,10 +225,10 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body
   %call16 = tail call ptr @pci_register_root_bus(ptr noundef %dev, ptr noundef nonnull @.str.23, ptr noundef nonnull @gpex_set_irq, ptr noundef nonnull @pci_swizzle_map_irq_fn, ptr noundef nonnull %call.i40, ptr noundef nonnull %io_mmio, ptr noundef nonnull %io_ioport, i8 noundef zeroext 0, i32 noundef 4, ptr noundef nonnull @.str.24) #5
-  %bus = getelementptr inbounds %struct.PCIHostState, ptr %call.i, i64 0, i32 6
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 1640
   store ptr %call16, ptr %bus, align 8
   tail call void @pci_bus_set_route_irq_fn(ptr noundef %call16, ptr noundef nonnull @gpex_route_intx_pin_to_irq) #5
-  %gpex_root = getelementptr inbounds %struct.GPEXHost, ptr %call.i40, i64 0, i32 1
+  %gpex_root = getelementptr inbounds i8, ptr %call.i40, i64 1968
   %call.i43 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gpex_root, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   %2 = load ptr, ptr %bus, align 8
   %call.i44 = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
@@ -287,8 +255,9 @@ declare ptr @pci_register_root_bus(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gpex_set_irq(ptr nocapture noundef readonly %opaque, i32 noundef %irq_num, i32 noundef %level) #1 {
 entry:
+  %irq = getelementptr inbounds i8, ptr %opaque, i64 5664
   %idxprom = sext i32 %irq_num to i64
-  %arrayidx = getelementptr %struct.GPEXHost, ptr %opaque, i64 0, i32 6, i64 %idxprom
+  %arrayidx = getelementptr [4 x ptr], ptr %irq, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef %level) #5
   ret void
@@ -301,8 +270,9 @@ declare void @pci_bus_set_route_irq_fn(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i64 @gpex_route_intx_pin_to_irq(ptr nocapture noundef readonly %opaque, i32 noundef %pin) #4 {
 entry:
+  %irq_num = getelementptr inbounds i8, ptr %opaque, i64 5696
   %idxprom = sext i32 %pin to i64
-  %arrayidx = getelementptr %struct.GPEXHost, ptr %opaque, i64 0, i32 7, i64 %idxprom
+  %arrayidx = getelementptr [4 x i32], ptr %irq_num, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %1 = lshr i32 %0, 30
   %2 = and i32 %1, 2

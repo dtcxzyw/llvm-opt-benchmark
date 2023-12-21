@@ -24,80 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__shared_ptr.35" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.37" = type { %"class.std::__shared_ptr.38" }
 %"class.std::__shared_ptr.38" = type { ptr, %"class.std::__shared_count" }
-%"class.OpenColorIO_v2_4dev::GammaOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8" }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace.109" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicOpCPUSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicOpCPUSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.110" }
-%"struct.__gnu_cxx::__aligned_buffer.110" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"union.std::aligned_storage<24, 8>::type" = type { [24 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.117" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.118" }
-%"struct.__gnu_cxx::__aligned_buffer.118" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.123" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicMirrorOpCPUSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicMirrorOpCPUSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.124" }
-%"struct.__gnu_cxx::__aligned_buffer.124" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.129" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicMirrorOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicMirrorOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.130" }
-%"struct.__gnu_cxx::__aligned_buffer.130" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.135" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicPassThruOpCPUSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicPassThruOpCPUSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.136" }
-%"struct.__gnu_cxx::__aligned_buffer.136" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.141" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicPassThruOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaBasicPassThruOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.142" }
-%"struct.__gnu_cxx::__aligned_buffer.142" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.OpenColorIO_v2_4dev::GammaBasicOpCPU" = type { %"class.OpenColorIO_v2_4dev::OpCPU", float, float, float, float }
-%"class.OpenColorIO_v2_4dev::OpCPU" = type { ptr }
-%"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU" = type { %"class.OpenColorIO_v2_4dev::OpCPU", %"struct.OpenColorIO_v2_4dev::RendererParams", %"struct.OpenColorIO_v2_4dev::RendererParams", %"struct.OpenColorIO_v2_4dev::RendererParams", %"struct.OpenColorIO_v2_4dev::RendererParams" }
-%"struct.OpenColorIO_v2_4dev::RendererParams" = type { float, float, float, float, float }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPUFwdSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPUFwdSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"union.std::aligned_storage<88, 8>::type" = type { [88 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.std::_Sp_counted_ptr_inplace.67" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPUFwd, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPUFwd, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.68" }
-%"struct.__gnu_cxx::__aligned_buffer.68" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.73" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPURevSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPURevSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.74" }
-%"struct.__gnu_cxx::__aligned_buffer.74" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.79" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPURev, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveOpCPURev, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.80" }
-%"struct.__gnu_cxx::__aligned_buffer.80" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.85" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPUFwdSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPUFwdSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.86" }
-%"struct.__gnu_cxx::__aligned_buffer.86" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.91" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPUFwd, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPUFwd, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.92" }
-%"struct.__gnu_cxx::__aligned_buffer.92" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.97" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPURevSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPURevSSE, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.98" }
-%"struct.__gnu_cxx::__aligned_buffer.98" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.103" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPURev, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GammaMoncurveMirrorOpCPURev, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.104" }
-%"struct.__gnu_cxx::__aligned_buffer.104" = type { %"union.std::aligned_storage<88, 8>::type" }
 
 $_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUD2Ev = comdat any
 
@@ -567,7 +493,7 @@ entry:
   %ref.tmp18 = alloca %"class.std::shared_ptr.34", align 16
   %ref.tmp20 = alloca %"class.std::shared_ptr.37", align 16
   %0 = load ptr, ptr %gamma, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i, align 8
   switch i32 %1, label %sw.epilog [
     i32 6, label %sw.bb
@@ -588,7 +514,7 @@ sw.bb:                                            ; preds = %entry
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEEED2Ev.exit: ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp, align 16, !alias.scope !4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
@@ -598,7 +524,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEEED2Ev.exit: ;
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdEED2Ev.exit: ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i22)
   store ptr null, ptr %ref.tmp2, align 16, !alias.scope !7
-  %_M_refcount.i.i.i23 = getelementptr inbounds %"class.std::__shared_ptr.20", ptr %ref.tmp2, i64 0, i32 1
+  %_M_refcount.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr nonnull %__a.i22, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i22)
   %3 = load <2 x ptr>, ptr %ref.tmp2, align 16
@@ -611,7 +537,7 @@ sw.bb3:                                           ; preds = %entry
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEEED2Ev.exit: ; preds = %sw.bb3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i57)
   store ptr null, ptr %ref.tmp6, align 16, !alias.scope !10
-  %_M_refcount.i.i.i58 = getelementptr inbounds %"class.std::__shared_ptr.23", ptr %ref.tmp6, i64 0, i32 1
+  %_M_refcount.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i58, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr nonnull %__a.i57, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i57)
   %4 = load <2 x ptr>, ptr %ref.tmp6, align 16
@@ -621,7 +547,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEEED2Ev.exit: ;
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevEED2Ev.exit: ; preds = %sw.bb3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i92)
   store ptr null, ptr %ref.tmp8, align 16, !alias.scope !13
-  %_M_refcount.i.i.i93 = getelementptr inbounds %"class.std::__shared_ptr.26", ptr %ref.tmp8, i64 0, i32 1
+  %_M_refcount.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i93, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr nonnull %__a.i92, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i92)
   %5 = load <2 x ptr>, ptr %ref.tmp8, align 16
@@ -634,7 +560,7 @@ sw.bb9:                                           ; preds = %entry
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEEED2Ev.exit: ; preds = %sw.bb9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i127)
   store ptr null, ptr %ref.tmp12, align 16, !alias.scope !16
-  %_M_refcount.i.i.i128 = getelementptr inbounds %"class.std::__shared_ptr.29", ptr %ref.tmp12, i64 0, i32 1
+  %_M_refcount.i.i.i128 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i128, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr nonnull %__a.i127, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i127)
   %6 = load <2 x ptr>, ptr %ref.tmp12, align 16
@@ -644,7 +570,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEEED2Ev.e
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdEED2Ev.exit: ; preds = %sw.bb9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i162)
   store ptr null, ptr %ref.tmp14, align 16, !alias.scope !19
-  %_M_refcount.i.i.i163 = getelementptr inbounds %"class.std::__shared_ptr.32", ptr %ref.tmp14, i64 0, i32 1
+  %_M_refcount.i.i.i163 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i163, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr nonnull %__a.i162, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i162)
   %7 = load <2 x ptr>, ptr %ref.tmp14, align 16
@@ -657,7 +583,7 @@ sw.bb15:                                          ; preds = %entry
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEEED2Ev.exit: ; preds = %sw.bb15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i197)
   store ptr null, ptr %ref.tmp18, align 16, !alias.scope !22
-  %_M_refcount.i.i.i198 = getelementptr inbounds %"class.std::__shared_ptr.35", ptr %ref.tmp18, i64 0, i32 1
+  %_M_refcount.i.i.i198 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i198, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr nonnull %__a.i197, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i197)
   %8 = load <2 x ptr>, ptr %ref.tmp18, align 16
@@ -667,7 +593,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEEED2Ev.e
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevEED2Ev.exit: ; preds = %sw.bb15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i232)
   store ptr null, ptr %ref.tmp20, align 16, !alias.scope !25
-  %_M_refcount.i.i.i233 = getelementptr inbounds %"class.std::__shared_ptr.38", ptr %ref.tmp20, i64 0, i32 1
+  %_M_refcount.i.i.i233 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i233, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr nonnull %__a.i232, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i232)
   %9 = load <2 x ptr>, ptr %ref.tmp20, align 16
@@ -676,19 +602,19 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevEED2Ev.exit
 
 sw.bb21:                                          ; preds = %entry, %entry
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !28
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !28
-  %_M_weak_count.i.i.i.i.i.i267 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i267 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i267, align 4, !noalias !28
   br i1 %fastPower, label %if.then23, label %if.else25
 
 if.then23:                                        ; preds = %sw.bb21
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !29
-  %m_redGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_grnGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
-  %m_bluGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %m_redGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   %cond = icmp eq i32 %1, 0
-  %m_redParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %10 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %11 = load double, ptr %10, align 8, !noalias !29
   br i1 %cond, label %cond.end.i.i.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i.i.i.i.thread
@@ -697,19 +623,19 @@ cond.end.i.i.i.i.i.i.i.i.i.i.thread:              ; preds = %if.then23
   %div.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %11
   %conv.i.i.i.i.i.i.i.i.i.i607 = fptrunc double %div.i.i.i.i.i.i.i.i.i.i to float
   store float %conv.i.i.i.i.i.i.i.i.i.i607, ptr %m_redGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %12 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %13 = load double, ptr %12, align 8, !noalias !29
   %div20.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %13
   %conv23.i.i.i.i.i.i.i.i.i.i609 = fptrunc double %div20.i.i.i.i.i.i.i.i.i.i to float
   store float %conv23.i.i.i.i.i.i.i.i.i.i609, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i, align 4, !noalias !29
-  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %14 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %15 = load double, ptr %14, align 8, !noalias !29
   %div33.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %15
   %conv36.i.i.i.i.i.i.i.i.i.i611 = fptrunc double %div33.i.i.i.i.i.i.i.i.i.i to float
   store float %conv36.i.i.i.i.i.i.i.i.i.i611, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %16 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %17 = load double, ptr %16, align 8, !noalias !29
   %div46.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %17
@@ -718,42 +644,42 @@ cond.end.i.i.i.i.i.i.i.i.i.i.thread:              ; preds = %if.then23
 cond.end.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then23
   %conv.i.i.i.i.i.i.i.i.i.i = fptrunc double %11 to float
   store float %conv.i.i.i.i.i.i.i.i.i.i, ptr %m_redGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %18 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %19 = load double, ptr %18, align 8, !noalias !29
   %conv23.i.i.i.i.i.i.i.i.i.i = fptrunc double %19 to float
   store float %conv23.i.i.i.i.i.i.i.i.i.i, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i, align 4, !noalias !29
-  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %20 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %21 = load double, ptr %20, align 8, !noalias !29
   %conv36.i.i.i.i.i.i.i.i.i.i = fptrunc double %21 to float
   store float %conv36.i.i.i.i.i.i.i.i.i.i, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %22 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   %23 = load double, ptr %22, align 8, !noalias !29
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.i.thread, %cond.end.i.i.i.i.i.i.i.i.i.i
   %cond48.i.i.i.i.i.i.i.i.i.i = phi double [ %23, %cond.end.i.i.i.i.i.i.i.i.i.i ], [ %div46.i.i.i.i.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i.i.i.i.i.thread ]
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
-  %m_alpGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 36
   %conv49.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i to float
   store float %conv49.i.i.i.i.i.i.i.i.i.i, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i, align 4, !noalias !29
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !29
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i269 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i269 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i269, align 8
   br label %return
 
 if.else25:                                        ; preds = %sw.bb21
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15GammaBasicOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !32
-  %_M_impl.i.i.i.i.i.i305 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i305 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i305, align 8, !noalias !32
-  %m_redGamma.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_grnGamma.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
-  %m_bluGamma.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %m_redGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   %cond631 = icmp eq i32 %1, 0
-  %m_redParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %24 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %25 = load double, ptr %24, align 8, !noalias !32
   br i1 %cond631, label %cond.end.i.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i.i.i.thread
@@ -762,19 +688,19 @@ cond.end.i.i.i.i.i.i.i.i.i.thread:                ; preds = %if.else25
   %div.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %25
   %conv.i.i.i.i.i.i.i.i.i613 = fptrunc double %div.i.i.i.i.i.i.i.i.i to float
   store float %conv.i.i.i.i.i.i.i.i.i613, ptr %m_redGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
-  %m_greenParams.i15.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %26 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %27 = load double, ptr %26, align 8, !noalias !32
   %div20.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %27
   %conv23.i.i.i.i.i.i.i.i.i615 = fptrunc double %div20.i.i.i.i.i.i.i.i.i to float
   store float %conv23.i.i.i.i.i.i.i.i.i615, ptr %m_grnGamma.i.i.i.i.i.i.i.i, align 4, !noalias !32
-  %m_blueParams.i16.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %28 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %29 = load double, ptr %28, align 8, !noalias !32
   %div33.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %29
   %conv36.i.i.i.i.i.i.i.i.i617 = fptrunc double %div33.i.i.i.i.i.i.i.i.i to float
   store float %conv36.i.i.i.i.i.i.i.i.i617, ptr %m_bluGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
-  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %30 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %31 = load double, ptr %30, align 8, !noalias !32
   %div46.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %31
@@ -783,50 +709,52 @@ cond.end.i.i.i.i.i.i.i.i.i.thread:                ; preds = %if.else25
 cond.end.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else25
   %conv.i.i.i.i.i.i.i.i.i = fptrunc double %25 to float
   store float %conv.i.i.i.i.i.i.i.i.i, ptr %m_redGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
-  %m_greenParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %32 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %33 = load double, ptr %32, align 8, !noalias !32
   %conv23.i.i.i.i.i.i.i.i.i = fptrunc double %33 to float
   store float %conv23.i.i.i.i.i.i.i.i.i, ptr %m_grnGamma.i.i.i.i.i.i.i.i, align 4, !noalias !32
-  %m_blueParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %34 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %35 = load double, ptr %34, align 8, !noalias !32
   %conv36.i.i.i.i.i.i.i.i.i = fptrunc double %35 to float
   store float %conv36.i.i.i.i.i.i.i.i.i, ptr %m_bluGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
-  %m_alphaParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %36 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
   %37 = load double, ptr %36, align 8, !noalias !32
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.thread, %cond.end.i.i.i.i.i.i.i.i.i
   %cond48.i.i.i.i.i.i.i.i.i = phi double [ %37, %cond.end.i.i.i.i.i.i.i.i.i ], [ %div46.i.i.i.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i.i.i.i.thread ]
-  %m_alpGamma.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %m_alpGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 36
   %conv49.i.i.i.i.i.i.i.i.i = fptrunc double %cond48.i.i.i.i.i.i.i.i.i to float
   store float %conv49.i.i.i.i.i.i.i.i.i, ptr %m_alpGamma.i.i.i.i.i.i.i.i, align 4, !noalias !32
   store ptr %_M_impl.i.i.i.i.i.i305, ptr %agg.result, align 8
-  %_M_refcount.i.i307 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i307 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i307, align 8
   br label %return
 
 sw.bb27:                                          ; preds = %entry, %entry
   %call5.i.i.i3.i.i.i.i340 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !28
-  %_M_use_count.i.i.i.i.i.i341 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i341 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i341, align 8, !noalias !28
-  %_M_weak_count.i.i.i.i.i.i342 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i342, align 4, !noalias !28
+  %m_redGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 32
   %cond633 = icmp eq i32 %1, 2
-  %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %cond634 = icmp eq i32 %1, 2
-  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %cond635 = icmp eq i32 %1, 2
-  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %cond636 = icmp eq i32 %1, 2
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
   br i1 %fastPower, label %if.then29, label %if.else31
 
 if.then29:                                        ; preds = %sw.bb27
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i340, align 8, !noalias !35
-  %m_redGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_grnGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
-  %m_bluGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %38 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
   %39 = load double, ptr %38, align 8, !noalias !35
   %div.i.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %39
@@ -845,76 +773,69 @@ if.then29:                                        ; preds = %sw.bb27
   %cond35.i.i.i.i.i.i.i.i.i.i.i = select i1 %cond635, double %43, double %div33.i.i.i.i.i.i.i.i.i.i.i
   %conv36.i.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond35.i.i.i.i.i.i.i.i.i.i.i to float
   store float %conv36.i.i.i.i.i.i.i.i.i.i.i, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  %cond636 = icmp eq i32 %1, 2
-  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
   %44 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
   %45 = load double, ptr %44, align 8, !noalias !35
   %div46.i.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %45
   %cond48.i.i.i.i.i.i.i.i.i.i.i = select i1 %cond636, double %45, double %div46.i.i.i.i.i.i.i.i.i.i.i
-  %_M_impl.i.i.i.i.i.i344 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1
-  %m_alpGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %_M_impl.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 36
   %conv49.i.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i.i to float
   store float %conv49.i.i.i.i.i.i.i.i.i.i.i, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !35
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i344, align 8, !noalias !35
   store ptr %_M_impl.i.i.i.i.i.i344, ptr %agg.result, align 8
-  %_M_refcount.i.i345 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i340, ptr %_M_refcount.i.i345, align 8
   br label %return
 
 if.else31:                                        ; preds = %sw.bb27
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i340, align 8, !noalias !38
-  %m_redGamma.i.i.i.i.i.i.i.i.i381 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_grnGamma.i.i.i.i.i.i.i.i.i382 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
-  %m_bluGamma.i.i.i.i.i.i.i.i.i383 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %46 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %47 = load double, ptr %46, align 8, !noalias !38
   %div.i.i.i.i.i.i.i.i.i.i418 = fdiv double 1.000000e+00, %47
   %cond.i.i.i.i.i.i.i.i.i.i388 = select i1 %cond633, double %47, double %div.i.i.i.i.i.i.i.i.i.i418
   %conv.i.i.i.i.i.i.i.i.i.i389 = fptrunc double %cond.i.i.i.i.i.i.i.i.i.i388 to float
-  store float %conv.i.i.i.i.i.i.i.i.i.i389, ptr %m_redGamma.i.i.i.i.i.i.i.i.i381, align 8, !noalias !38
+  store float %conv.i.i.i.i.i.i.i.i.i.i389, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %48 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %49 = load double, ptr %48, align 8, !noalias !38
   %div20.i.i.i.i.i.i.i.i.i.i415 = fdiv double 1.000000e+00, %49
   %cond22.i.i.i.i.i.i.i.i.i.i393 = select i1 %cond634, double %49, double %div20.i.i.i.i.i.i.i.i.i.i415
   %conv23.i.i.i.i.i.i.i.i.i.i394 = fptrunc double %cond22.i.i.i.i.i.i.i.i.i.i393 to float
-  store float %conv23.i.i.i.i.i.i.i.i.i.i394, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i382, align 4, !noalias !38
+  store float %conv23.i.i.i.i.i.i.i.i.i.i394, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !38
   %50 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %51 = load double, ptr %50, align 8, !noalias !38
   %div33.i.i.i.i.i.i.i.i.i.i412 = fdiv double 1.000000e+00, %51
   %cond35.i.i.i.i.i.i.i.i.i.i398 = select i1 %cond635, double %51, double %div33.i.i.i.i.i.i.i.i.i.i412
   %conv36.i.i.i.i.i.i.i.i.i.i399 = fptrunc double %cond35.i.i.i.i.i.i.i.i.i.i398 to float
-  store float %conv36.i.i.i.i.i.i.i.i.i.i399, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i383, align 8, !noalias !38
-  %cond640 = icmp eq i32 %1, 2
-  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i401 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
-  %52 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i401, align 8, !noalias !38
+  store float %conv36.i.i.i.i.i.i.i.i.i.i399, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %52 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %53 = load double, ptr %52, align 8, !noalias !38
   %div46.i.i.i.i.i.i.i.i.i.i409 = fdiv double 1.000000e+00, %53
-  %cond48.i.i.i.i.i.i.i.i.i.i402 = select i1 %cond640, double %53, double %div46.i.i.i.i.i.i.i.i.i.i409
-  %_M_impl.i.i.i.i.i.i404 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1
-  %m_alpGamma.i.i.i.i.i.i.i.i.i405 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %call5.i.i.i3.i.i.i.i340, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %cond48.i.i.i.i.i.i.i.i.i.i402 = select i1 %cond636, double %53, double %div46.i.i.i.i.i.i.i.i.i.i409
+  %_M_impl.i.i.i.i.i.i404 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i405 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 36
   %conv49.i.i.i.i.i.i.i.i.i.i406 = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i402 to float
   store float %conv49.i.i.i.i.i.i.i.i.i.i406, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i405, align 4, !noalias !38
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i404, align 8, !noalias !38
   store ptr %_M_impl.i.i.i.i.i.i404, ptr %agg.result, align 8
-  %_M_refcount.i.i419 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i419 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i340, ptr %_M_refcount.i.i419, align 8
   br label %return
 
 sw.bb33:                                          ; preds = %entry, %entry
   %call5.i.i.i3.i.i.i.i452 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !28
-  %_M_use_count.i.i.i.i.i.i453 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i453 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i453, align 8, !noalias !28
-  %_M_weak_count.i.i.i.i.i.i454 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i454 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i454, align 4, !noalias !28
+  %m_redGamma.i.i.i.i.i.i.i.i.i.i455 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i.i.i456 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i.i.i457 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 32
   %cond641 = icmp eq i32 %1, 4
-  %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460 = getelementptr inbounds i8, ptr %0, i64 176
   br i1 %fastPower, label %if.then35, label %if.else37
 
 if.then35:                                        ; preds = %sw.bb33
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i452, align 8, !noalias !41
-  %m_redGamma.i.i.i.i.i.i.i.i.i.i455 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_grnGamma.i.i.i.i.i.i.i.i.i.i456 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
-  %m_bluGamma.i.i.i.i.i.i.i.i.i.i457 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %54 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460, align 8, !noalias !41
   %55 = load double, ptr %54, align 8, !noalias !41
   br i1 %cond641, label %cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread, label %cond.end.i.i.i.i.i.i.i.i.i.i.i461
@@ -922,17 +843,17 @@ if.then35:                                        ; preds = %sw.bb33
 cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread:         ; preds = %if.then35
   %conv.i.i.i.i.i.i.i.i.i.i.i463619 = fptrunc double %55 to float
   store float %conv.i.i.i.i.i.i.i.i.i.i.i463619, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !41
-  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i465 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i465 = getelementptr inbounds i8, ptr %0, i64 200
   %56 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i465, align 8, !noalias !41
   %57 = load double, ptr %56, align 8, !noalias !41
   %conv23.i.i.i.i.i.i.i.i.i.i.i468621 = fptrunc double %57 to float
   store float %conv23.i.i.i.i.i.i.i.i.i.i.i468621, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !41
-  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i470 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i470 = getelementptr inbounds i8, ptr %0, i64 224
   %58 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i470, align 8, !noalias !41
   %59 = load double, ptr %58, align 8, !noalias !41
   %conv36.i.i.i.i.i.i.i.i.i.i.i473623 = fptrunc double %59 to float
   store float %conv36.i.i.i.i.i.i.i.i.i.i.i473623, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !41
-  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i475 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i475 = getelementptr inbounds i8, ptr %0, i64 248
   %60 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i475, align 8, !noalias !41
   %61 = load double, ptr %60, align 8, !noalias !41
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit
@@ -941,19 +862,19 @@ cond.end.i.i.i.i.i.i.i.i.i.i.i461:                ; preds = %if.then35
   %div.i.i.i.i.i.i.i.i.i.i.i492 = fdiv double 1.000000e+00, %55
   %conv.i.i.i.i.i.i.i.i.i.i.i463 = fptrunc double %div.i.i.i.i.i.i.i.i.i.i.i492 to float
   store float %conv.i.i.i.i.i.i.i.i.i.i.i463, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !41
-  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i.i488 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i.i488 = getelementptr inbounds i8, ptr %0, i64 200
   %62 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i.i488, align 8, !noalias !41
   %63 = load double, ptr %62, align 8, !noalias !41
   %div20.i.i.i.i.i.i.i.i.i.i.i489 = fdiv double 1.000000e+00, %63
   %conv23.i.i.i.i.i.i.i.i.i.i.i468 = fptrunc double %div20.i.i.i.i.i.i.i.i.i.i.i489 to float
   store float %conv23.i.i.i.i.i.i.i.i.i.i.i468, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !41
-  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i.i485 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i.i485 = getelementptr inbounds i8, ptr %0, i64 224
   %64 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i.i485, align 8, !noalias !41
   %65 = load double, ptr %64, align 8, !noalias !41
   %div33.i.i.i.i.i.i.i.i.i.i.i486 = fdiv double 1.000000e+00, %65
   %conv36.i.i.i.i.i.i.i.i.i.i.i473 = fptrunc double %div33.i.i.i.i.i.i.i.i.i.i.i486 to float
   store float %conv36.i.i.i.i.i.i.i.i.i.i.i473, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !41
-  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i.i482 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i.i482 = getelementptr inbounds i8, ptr %0, i64 248
   %66 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i.i482, align 8, !noalias !41
   %67 = load double, ptr %66, align 8, !noalias !41
   %div46.i.i.i.i.i.i.i.i.i.i.i483 = fdiv double 1.000000e+00, %67
@@ -961,39 +882,36 @@ cond.end.i.i.i.i.i.i.i.i.i.i.i461:                ; preds = %if.then35
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.i.i461, %cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread
   %cond48.i.i.i.i.i.i.i.i.i.i.i476 = phi double [ %61, %cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread ], [ %div46.i.i.i.i.i.i.i.i.i.i.i483, %cond.end.i.i.i.i.i.i.i.i.i.i.i461 ]
-  %_M_impl.i.i.i.i.i.i478 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1
-  %m_alpGamma.i.i.i.i.i.i.i.i.i.i479 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %_M_impl.i.i.i.i.i.i478 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i.i479 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 36
   %conv49.i.i.i.i.i.i.i.i.i.i.i480 = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i.i476 to float
   store float %conv49.i.i.i.i.i.i.i.i.i.i.i480, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i.i479, align 4, !noalias !41
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i478, align 8, !noalias !41
   store ptr %_M_impl.i.i.i.i.i.i478, ptr %agg.result, align 8
-  %_M_refcount.i.i493 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i493 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i452, ptr %_M_refcount.i.i493, align 8
   br label %return
 
 if.else37:                                        ; preds = %sw.bb33
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i452, align 8, !noalias !44
-  %m_redGamma.i.i.i.i.i.i.i.i.i529 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_grnGamma.i.i.i.i.i.i.i.i.i530 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
-  %m_bluGamma.i.i.i.i.i.i.i.i.i531 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %68 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460, align 8, !noalias !44
   %69 = load double, ptr %68, align 8, !noalias !44
   br i1 %cond641, label %cond.end.i.i.i.i.i.i.i.i.i.i535.thread, label %cond.end.i.i.i.i.i.i.i.i.i.i535
 
 cond.end.i.i.i.i.i.i.i.i.i.i535.thread:           ; preds = %if.else37
   %conv.i.i.i.i.i.i.i.i.i.i537625 = fptrunc double %69 to float
-  store float %conv.i.i.i.i.i.i.i.i.i.i537625, ptr %m_redGamma.i.i.i.i.i.i.i.i.i529, align 8, !noalias !44
-  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i539 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  store float %conv.i.i.i.i.i.i.i.i.i.i537625, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !44
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i539 = getelementptr inbounds i8, ptr %0, i64 200
   %70 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i539, align 8, !noalias !44
   %71 = load double, ptr %70, align 8, !noalias !44
   %conv23.i.i.i.i.i.i.i.i.i.i542627 = fptrunc double %71 to float
-  store float %conv23.i.i.i.i.i.i.i.i.i.i542627, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i530, align 4, !noalias !44
-  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i544 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  store float %conv23.i.i.i.i.i.i.i.i.i.i542627, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !44
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %0, i64 224
   %72 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i544, align 8, !noalias !44
   %73 = load double, ptr %72, align 8, !noalias !44
   %conv36.i.i.i.i.i.i.i.i.i.i547629 = fptrunc double %73 to float
-  store float %conv36.i.i.i.i.i.i.i.i.i.i547629, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i531, align 8, !noalias !44
-  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i549 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  store float %conv36.i.i.i.i.i.i.i.i.i.i547629, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !44
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i549 = getelementptr inbounds i8, ptr %0, i64 248
   %74 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i549, align 8, !noalias !44
   %75 = load double, ptr %74, align 8, !noalias !44
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit
@@ -1001,20 +919,20 @@ cond.end.i.i.i.i.i.i.i.i.i.i535.thread:           ; preds = %if.else37
 cond.end.i.i.i.i.i.i.i.i.i.i535:                  ; preds = %if.else37
   %div.i.i.i.i.i.i.i.i.i.i566 = fdiv double 1.000000e+00, %69
   %conv.i.i.i.i.i.i.i.i.i.i537 = fptrunc double %div.i.i.i.i.i.i.i.i.i.i566 to float
-  store float %conv.i.i.i.i.i.i.i.i.i.i537, ptr %m_redGamma.i.i.i.i.i.i.i.i.i529, align 8, !noalias !44
-  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i562 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 3
+  store float %conv.i.i.i.i.i.i.i.i.i.i537, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !44
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i562 = getelementptr inbounds i8, ptr %0, i64 200
   %76 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i562, align 8, !noalias !44
   %77 = load double, ptr %76, align 8, !noalias !44
   %div20.i.i.i.i.i.i.i.i.i.i563 = fdiv double 1.000000e+00, %77
   %conv23.i.i.i.i.i.i.i.i.i.i542 = fptrunc double %div20.i.i.i.i.i.i.i.i.i.i563 to float
-  store float %conv23.i.i.i.i.i.i.i.i.i.i542, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i530, align 4, !noalias !44
-  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i559 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 4
+  store float %conv23.i.i.i.i.i.i.i.i.i.i542, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !44
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i559 = getelementptr inbounds i8, ptr %0, i64 224
   %78 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i559, align 8, !noalias !44
   %79 = load double, ptr %78, align 8, !noalias !44
   %div33.i.i.i.i.i.i.i.i.i.i560 = fdiv double 1.000000e+00, %79
   %conv36.i.i.i.i.i.i.i.i.i.i547 = fptrunc double %div33.i.i.i.i.i.i.i.i.i.i560 to float
-  store float %conv36.i.i.i.i.i.i.i.i.i.i547, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i531, align 8, !noalias !44
-  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i556 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 5
+  store float %conv36.i.i.i.i.i.i.i.i.i.i547, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !44
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %0, i64 248
   %80 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i556, align 8, !noalias !44
   %81 = load double, ptr %80, align 8, !noalias !44
   %div46.i.i.i.i.i.i.i.i.i.i557 = fdiv double 1.000000e+00, %81
@@ -1022,13 +940,13 @@ cond.end.i.i.i.i.i.i.i.i.i.i535:                  ; preds = %if.else37
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.i535, %cond.end.i.i.i.i.i.i.i.i.i.i535.thread
   %cond48.i.i.i.i.i.i.i.i.i.i550 = phi double [ %75, %cond.end.i.i.i.i.i.i.i.i.i.i535.thread ], [ %div46.i.i.i.i.i.i.i.i.i.i557, %cond.end.i.i.i.i.i.i.i.i.i.i535 ]
-  %_M_impl.i.i.i.i.i.i552 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1
-  %m_alpGamma.i.i.i.i.i.i.i.i.i553 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %call5.i.i.i3.i.i.i.i452, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %_M_impl.i.i.i.i.i.i552 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i553 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 36
   %conv49.i.i.i.i.i.i.i.i.i.i554 = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i550 to float
   store float %conv49.i.i.i.i.i.i.i.i.i.i554, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i553, align 4, !noalias !44
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i552, align 8, !noalias !44
   store ptr %_M_impl.i.i.i.i.i.i552, ptr %agg.result, align 8
-  %_M_refcount.i.i567 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i567 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i452, ptr %_M_refcount.i.i567, align 8
   br label %return
 
@@ -1068,12 +986,12 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 define hidden void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_redGamma, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %gamma, align 8
-  %m_style.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 1
+  %m_style.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i.i, align 8
   switch i32 %1, label %cond.false.i [
     i32 4, label %cond.true.i
@@ -1082,13 +1000,13 @@ entry:
   ]
 
 cond.true.i:                                      ; preds = %entry, %entry, %entry
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load ptr, ptr %m_redParams.i.i, align 8
   %3 = load double, ptr %2, align 8
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %entry
-  %m_redParams.i14.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i14.i = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %m_redParams.i14.i, align 8
   %5 = load double, ptr %4, align 8
   %div.i = fdiv double 1.000000e+00, %5
@@ -1106,14 +1024,14 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 cond.true12.i:                                    ; preds = %cond.end.i, %cond.end.i, %cond.end.i
   %6 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %6, i64 0, i32 3
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %6, i64 200
   %7 = load ptr, ptr %m_greenParams.i.i, align 8
   %8 = load double, ptr %7, align 8
   br label %cond.end21.i
 
 cond.false16.i:                                   ; preds = %cond.end.i
   %9 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i15.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %9, i64 0, i32 3
+  %m_greenParams.i15.i = getelementptr inbounds i8, ptr %9, i64 200
   %10 = load ptr, ptr %m_greenParams.i15.i, align 8
   %11 = load double, ptr %10, align 8
   %div20.i = fdiv double 1.000000e+00, %11
@@ -1131,14 +1049,14 @@ cond.end21.i:                                     ; preds = %cond.false16.i, %co
 
 cond.true25.i:                                    ; preds = %cond.end21.i, %cond.end21.i, %cond.end21.i
   %12 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %12, i64 0, i32 4
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %12, i64 224
   %13 = load ptr, ptr %m_blueParams.i.i, align 8
   %14 = load double, ptr %13, align 8
   br label %cond.end34.i
 
 cond.false29.i:                                   ; preds = %cond.end21.i
   %15 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i16.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 4
+  %m_blueParams.i16.i = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %m_blueParams.i16.i, align 8
   %17 = load double, ptr %16, align 8
   %div33.i = fdiv double 1.000000e+00, %17
@@ -1156,14 +1074,14 @@ cond.end34.i:                                     ; preds = %cond.false29.i, %co
 
 cond.true38.i:                                    ; preds = %cond.end34.i, %cond.end34.i, %cond.end34.i
   %18 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %18, i64 0, i32 5
+  %m_alphaParams.i.i = getelementptr inbounds i8, ptr %18, i64 248
   %19 = load ptr, ptr %m_alphaParams.i.i, align 8
   %20 = load double, ptr %19, align 8
   br label %invoke.cont
 
 cond.false42.i:                                   ; preds = %cond.end34.i
   %21 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i17.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %21, i64 0, i32 5
+  %m_alphaParams.i17.i = getelementptr inbounds i8, ptr %21, i64 248
   %22 = load ptr, ptr %m_alphaParams.i17.i, align 8
   %23 = load double, ptr %22, align 8
   %div46.i = fdiv double 1.000000e+00, %23
@@ -1171,7 +1089,7 @@ cond.false42.i:                                   ; preds = %cond.end34.i
 
 invoke.cont:                                      ; preds = %cond.false42.i, %cond.true38.i
   %cond48.i = phi double [ %20, %cond.true38.i ], [ %div46.i, %cond.false42.i ]
-  %m_alpGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_alpGamma = getelementptr inbounds i8, ptr %this, i64 20
   %conv49.i = fptrunc double %cond48.i to float
   store float %conv49.i, ptr %m_alpGamma, align 4
   ret void
@@ -1184,7 +1102,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define hidden void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPU6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %gamma, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i, align 8
   switch i32 %1, label %cond.false [
     i32 4, label %cond.true
@@ -1193,13 +1111,13 @@ entry:
   ]
 
 cond.true:                                        ; preds = %entry, %entry, %entry
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load ptr, ptr %m_redParams.i, align 8
   %3 = load double, ptr %2, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %m_redParams.i14 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i14 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %m_redParams.i14, align 8
   %5 = load double, ptr %4, align 8
   %div = fdiv double 1.000000e+00, %5
@@ -1208,7 +1126,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi double [ %3, %cond.true ], [ %div, %cond.false ]
   %conv = fptrunc double %cond to float
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
   store float %conv, ptr %m_redGamma, align 8
   switch i32 %1, label %cond.false16 [
     i32 4, label %cond.true12
@@ -1218,14 +1136,14 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 cond.true12:                                      ; preds = %cond.end, %cond.end, %cond.end
   %6 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %6, i64 0, i32 3
+  %m_greenParams.i = getelementptr inbounds i8, ptr %6, i64 200
   %7 = load ptr, ptr %m_greenParams.i, align 8
   %8 = load double, ptr %7, align 8
   br label %cond.end21
 
 cond.false16:                                     ; preds = %cond.end
   %9 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %9, i64 0, i32 3
+  %m_greenParams.i15 = getelementptr inbounds i8, ptr %9, i64 200
   %10 = load ptr, ptr %m_greenParams.i15, align 8
   %11 = load double, ptr %10, align 8
   %div20 = fdiv double 1.000000e+00, %11
@@ -1234,7 +1152,7 @@ cond.false16:                                     ; preds = %cond.end
 cond.end21:                                       ; preds = %cond.false16, %cond.true12
   %cond22 = phi double [ %8, %cond.true12 ], [ %div20, %cond.false16 ]
   %conv23 = fptrunc double %cond22 to float
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
   store float %conv23, ptr %m_grnGamma, align 4
   switch i32 %1, label %cond.false29 [
     i32 4, label %cond.true25
@@ -1244,14 +1162,14 @@ cond.end21:                                       ; preds = %cond.false16, %cond
 
 cond.true25:                                      ; preds = %cond.end21, %cond.end21, %cond.end21
   %12 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %12, i64 0, i32 4
+  %m_blueParams.i = getelementptr inbounds i8, ptr %12, i64 224
   %13 = load ptr, ptr %m_blueParams.i, align 8
   %14 = load double, ptr %13, align 8
   br label %cond.end34
 
 cond.false29:                                     ; preds = %cond.end21
   %15 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 4
+  %m_blueParams.i16 = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %m_blueParams.i16, align 8
   %17 = load double, ptr %16, align 8
   %div33 = fdiv double 1.000000e+00, %17
@@ -1260,7 +1178,7 @@ cond.false29:                                     ; preds = %cond.end21
 cond.end34:                                       ; preds = %cond.false29, %cond.true25
   %cond35 = phi double [ %14, %cond.true25 ], [ %div33, %cond.false29 ]
   %conv36 = fptrunc double %cond35 to float
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
   store float %conv36, ptr %m_bluGamma, align 8
   switch i32 %1, label %cond.false42 [
     i32 4, label %cond.true38
@@ -1270,14 +1188,14 @@ cond.end34:                                       ; preds = %cond.false29, %cond
 
 cond.true38:                                      ; preds = %cond.end34, %cond.end34, %cond.end34
   %18 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %18, i64 0, i32 5
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %18, i64 248
   %19 = load ptr, ptr %m_alphaParams.i, align 8
   %20 = load double, ptr %19, align 8
   br label %cond.end47
 
 cond.false42:                                     ; preds = %cond.end34
   %21 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i17 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %21, i64 0, i32 5
+  %m_alphaParams.i17 = getelementptr inbounds i8, ptr %21, i64 248
   %22 = load ptr, ptr %m_alphaParams.i17, align 8
   %23 = load double, ptr %22, align 8
   %div46 = fdiv double 1.000000e+00, %23
@@ -1286,7 +1204,7 @@ cond.false42:                                     ; preds = %cond.end34
 cond.end47:                                       ; preds = %cond.false42, %cond.true38
   %cond48 = phi double [ %20, %cond.true38 ], [ %div46, %cond.false42 ]
   %conv49 = fptrunc double %cond48 to float
-  %m_alpGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_alpGamma = getelementptr inbounds i8, ptr %this, i64 20
   store float %conv49, ptr %m_alpGamma, align 4
   ret void
 }
@@ -1294,11 +1212,11 @@ cond.end47:                                       ; preds = %cond.false42, %cond
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev18GammaBasicOpCPUSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x float>, ptr %m_bluGamma, align 8
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_grnGamma, align 4
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load <4 x float>, ptr %m_redGamma, align 8
   %vecinit1.i14 = insertelement <4 x float> %2, float %1, i64 1
   %3 = shufflevector <2 x float> %0, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -1380,8 +1298,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %37 = fcmp ogt <4 x float> %22, zeroinitializer
   %38 = select <4 x i1> %37, <4 x float> %36, <4 x float> zeroinitializer
   store <4 x float> %38, ptr %out.09, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.011, i64 4
-  %add.ptr7 = getelementptr inbounds float, ptr %out.09, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.011, i64 16
+  %add.ptr7 = getelementptr inbounds i8, ptr %out.09, i64 16
   %inc = add nuw nsw i64 %idx.010, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !47
@@ -1397,10 +1315,10 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
-  %m_alpGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
+  %m_alpGamma = getelementptr inbounds i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1410,15 +1328,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load float, ptr %in.028, align 4
   %cmp.i = fcmp ogt float %0, 0.000000e+00
   %.sroa.speculated24 = select i1 %cmp.i, float %0, float 0.000000e+00
-  %arrayidx3 = getelementptr inbounds float, ptr %in.028, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.028, i64 4
   %1 = load float, ptr %arrayidx3, align 4
   %cmp.i10 = fcmp ogt float %1, 0.000000e+00
   %.sroa.speculated22 = select i1 %cmp.i10, float %1, float 0.000000e+00
-  %arrayidx7 = getelementptr inbounds float, ptr %in.028, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %in.028, i64 8
   %2 = load float, ptr %arrayidx7, align 4
   %cmp.i12 = fcmp ogt float %2, 0.000000e+00
   %.sroa.speculated20 = select i1 %cmp.i12, float %2, float 0.000000e+00
-  %arrayidx11 = getelementptr inbounds float, ptr %in.028, i64 3
+  %arrayidx11 = getelementptr inbounds i8, ptr %in.028, i64 12
   %3 = load float, ptr %arrayidx11, align 4
   %cmp.i14 = fcmp ogt float %3, 0.000000e+00
   %.sroa.speculated = select i1 %cmp.i14, float %3, float 0.000000e+00
@@ -1427,18 +1345,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store float %call.i, ptr %out.027, align 4
   %5 = load float, ptr %m_grnGamma, align 4
   %call.i16 = tail call noundef float @powf(float noundef %.sroa.speculated22, float noundef %5) #20
-  %arrayidx18 = getelementptr inbounds float, ptr %out.027, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %out.027, i64 4
   store float %call.i16, ptr %arrayidx18, align 4
   %6 = load float, ptr %m_bluGamma, align 8
   %call.i17 = tail call noundef float @powf(float noundef %.sroa.speculated20, float noundef %6) #20
-  %arrayidx21 = getelementptr inbounds float, ptr %out.027, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %out.027, i64 8
   store float %call.i17, ptr %arrayidx21, align 4
   %7 = load float, ptr %m_alpGamma, align 4
   %call.i18 = tail call noundef float @powf(float noundef %.sroa.speculated, float noundef %7) #20
-  %arrayidx24 = getelementptr inbounds float, ptr %out.027, i64 3
+  %arrayidx24 = getelementptr inbounds i8, ptr %out.027, i64 12
   store float %call.i18, ptr %arrayidx24, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.028, i64 4
-  %add.ptr25 = getelementptr inbounds float, ptr %out.027, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.028, i64 16
+  %add.ptr25 = getelementptr inbounds i8, ptr %out.027, i64 16
   %inc = add nuw nsw i64 %idx.026, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
@@ -1451,12 +1369,12 @@ for.end:                                          ; preds = %for.body, %entry
 define hidden void @_ZN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_redGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
-  %m_grnGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
-  %m_bluGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %gamma, align 8
-  %m_style.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 1
+  %m_style.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i.i.i, align 8
   switch i32 %1, label %cond.false.i.i [
     i32 4, label %cond.true.i.i
@@ -1465,13 +1383,13 @@ entry:
   ]
 
 cond.true.i.i:                                    ; preds = %entry, %entry, %entry
-  %m_redParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load ptr, ptr %m_redParams.i.i.i, align 8
   %3 = load double, ptr %2, align 8
   br label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %entry
-  %m_redParams.i14.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i14.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %m_redParams.i14.i.i, align 8
   %5 = load double, ptr %4, align 8
   %div.i.i = fdiv double 1.000000e+00, %5
@@ -1489,14 +1407,14 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 
 cond.true12.i.i:                                  ; preds = %cond.end.i.i, %cond.end.i.i, %cond.end.i.i
   %6 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %6, i64 0, i32 3
+  %m_greenParams.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
   %7 = load ptr, ptr %m_greenParams.i.i.i, align 8
   %8 = load double, ptr %7, align 8
   br label %cond.end21.i.i
 
 cond.false16.i.i:                                 ; preds = %cond.end.i.i
   %9 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i15.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %9, i64 0, i32 3
+  %m_greenParams.i15.i.i = getelementptr inbounds i8, ptr %9, i64 200
   %10 = load ptr, ptr %m_greenParams.i15.i.i, align 8
   %11 = load double, ptr %10, align 8
   %div20.i.i = fdiv double 1.000000e+00, %11
@@ -1514,14 +1432,14 @@ cond.end21.i.i:                                   ; preds = %cond.false16.i.i, %
 
 cond.true25.i.i:                                  ; preds = %cond.end21.i.i, %cond.end21.i.i, %cond.end21.i.i
   %12 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %12, i64 0, i32 4
+  %m_blueParams.i.i.i = getelementptr inbounds i8, ptr %12, i64 224
   %13 = load ptr, ptr %m_blueParams.i.i.i, align 8
   %14 = load double, ptr %13, align 8
   br label %cond.end34.i.i
 
 cond.false29.i.i:                                 ; preds = %cond.end21.i.i
   %15 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i16.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 4
+  %m_blueParams.i16.i.i = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %m_blueParams.i16.i.i, align 8
   %17 = load double, ptr %16, align 8
   %div33.i.i = fdiv double 1.000000e+00, %17
@@ -1539,14 +1457,14 @@ cond.end34.i.i:                                   ; preds = %cond.false29.i.i, %
 
 cond.true38.i.i:                                  ; preds = %cond.end34.i.i, %cond.end34.i.i, %cond.end34.i.i
   %18 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %18, i64 0, i32 5
+  %m_alphaParams.i.i.i = getelementptr inbounds i8, ptr %18, i64 248
   %19 = load ptr, ptr %m_alphaParams.i.i.i, align 8
   %20 = load double, ptr %19, align 8
   br label %_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
 
 cond.false42.i.i:                                 ; preds = %cond.end34.i.i
   %21 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i17.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %21, i64 0, i32 5
+  %m_alphaParams.i17.i.i = getelementptr inbounds i8, ptr %21, i64 248
   %22 = load ptr, ptr %m_alphaParams.i17.i.i, align 8
   %23 = load double, ptr %22, align 8
   %div46.i.i = fdiv double 1.000000e+00, %23
@@ -1554,7 +1472,7 @@ cond.false42.i.i:                                 ; preds = %cond.end34.i.i
 
 _ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %cond.true38.i.i, %cond.false42.i.i
   %cond48.i.i = phi double [ %20, %cond.true38.i.i ], [ %div46.i.i, %cond.false42.i.i ]
-  %m_alpGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_alpGamma.i = getelementptr inbounds i8, ptr %this, i64 20
   %conv49.i.i = fptrunc double %cond48.i.i to float
   store float %conv49.i.i, ptr %m_alpGamma.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -1564,11 +1482,11 @@ _ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x float>, ptr %m_bluGamma, align 8
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_grnGamma, align 4
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load <4 x float>, ptr %m_redGamma, align 8
   %vecinit1.i17 = insertelement <4 x float> %2, float %1, i64 1
   %3 = shufflevector <2 x float> %0, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -1653,8 +1571,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %39 = bitcast <4 x float> %38 to <4 x i32>
   %or.i = or <4 x i32> %and.i23, %39
   store <4 x i32> %or.i, ptr %out.012, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.013, i64 4
-  %add.ptr10 = getelementptr inbounds float, ptr %out.012, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.013, i64 16
+  %add.ptr10 = getelementptr inbounds i8, ptr %out.012, i64 16
   %inc = add nuw nsw i64 %idx.011, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !50
@@ -1670,10 +1588,10 @@ entry:
   br i1 %cmp17, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
-  %m_alpGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
+  %m_alpGamma = getelementptr inbounds i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1682,13 +1600,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %0 = load float, ptr %in.020, align 4
   %1 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %0)
-  %arrayidx2 = getelementptr inbounds float, ptr %in.020, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.020, i64 4
   %2 = load float, ptr %arrayidx2, align 4
   %3 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %2)
-  %arrayidx5 = getelementptr inbounds float, ptr %in.020, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.020, i64 8
   %4 = load float, ptr %arrayidx5, align 4
   %5 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %4)
-  %arrayidx8 = getelementptr inbounds float, ptr %in.020, i64 3
+  %arrayidx8 = getelementptr inbounds i8, ptr %in.020, i64 12
   %6 = load float, ptr %arrayidx8, align 4
   %7 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %6)
   %8 = tail call noundef float @llvm.fabs.f32(float %0)
@@ -1702,20 +1620,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = load float, ptr %m_grnGamma, align 4
   %call.i14 = tail call noundef float @powf(float noundef %9, float noundef %13) #20
   %mul29 = fmul float %3, %call.i14
-  %arrayidx30 = getelementptr inbounds float, ptr %out.019, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %out.019, i64 4
   store float %mul29, ptr %arrayidx30, align 4
   %14 = load float, ptr %m_bluGamma, align 8
   %call.i15 = tail call noundef float @powf(float noundef %10, float noundef %14) #20
   %mul34 = fmul float %5, %call.i15
-  %arrayidx35 = getelementptr inbounds float, ptr %out.019, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %out.019, i64 8
   store float %mul34, ptr %arrayidx35, align 4
   %15 = load float, ptr %m_alpGamma, align 4
   %call.i16 = tail call noundef float @powf(float noundef %11, float noundef %15) #20
   %mul39 = fmul float %7, %call.i16
-  %arrayidx40 = getelementptr inbounds float, ptr %out.019, i64 3
+  %arrayidx40 = getelementptr inbounds i8, ptr %out.019, i64 12
   store float %mul39, ptr %arrayidx40, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.020, i64 4
-  %add.ptr41 = getelementptr inbounds float, ptr %out.019, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.020, i64 16
+  %add.ptr41 = getelementptr inbounds i8, ptr %out.019, i64 16
   %inc = add nuw nsw i64 %idx.018, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !51
@@ -1728,12 +1646,12 @@ for.end:                                          ; preds = %for.body, %entry
 define hidden void @_ZN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_redGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
-  %m_grnGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
-  %m_bluGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %gamma, align 8
-  %m_style.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 1
+  %m_style.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i.i.i, align 8
   switch i32 %1, label %cond.false.i.i [
     i32 4, label %cond.true.i.i
@@ -1742,13 +1660,13 @@ entry:
   ]
 
 cond.true.i.i:                                    ; preds = %entry, %entry, %entry
-  %m_redParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load ptr, ptr %m_redParams.i.i.i, align 8
   %3 = load double, ptr %2, align 8
   br label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %entry
-  %m_redParams.i14.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i14.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %m_redParams.i14.i.i, align 8
   %5 = load double, ptr %4, align 8
   %div.i.i = fdiv double 1.000000e+00, %5
@@ -1766,14 +1684,14 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 
 cond.true12.i.i:                                  ; preds = %cond.end.i.i, %cond.end.i.i, %cond.end.i.i
   %6 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %6, i64 0, i32 3
+  %m_greenParams.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
   %7 = load ptr, ptr %m_greenParams.i.i.i, align 8
   %8 = load double, ptr %7, align 8
   br label %cond.end21.i.i
 
 cond.false16.i.i:                                 ; preds = %cond.end.i.i
   %9 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i15.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %9, i64 0, i32 3
+  %m_greenParams.i15.i.i = getelementptr inbounds i8, ptr %9, i64 200
   %10 = load ptr, ptr %m_greenParams.i15.i.i, align 8
   %11 = load double, ptr %10, align 8
   %div20.i.i = fdiv double 1.000000e+00, %11
@@ -1791,14 +1709,14 @@ cond.end21.i.i:                                   ; preds = %cond.false16.i.i, %
 
 cond.true25.i.i:                                  ; preds = %cond.end21.i.i, %cond.end21.i.i, %cond.end21.i.i
   %12 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %12, i64 0, i32 4
+  %m_blueParams.i.i.i = getelementptr inbounds i8, ptr %12, i64 224
   %13 = load ptr, ptr %m_blueParams.i.i.i, align 8
   %14 = load double, ptr %13, align 8
   br label %cond.end34.i.i
 
 cond.false29.i.i:                                 ; preds = %cond.end21.i.i
   %15 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i16.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 4
+  %m_blueParams.i16.i.i = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %m_blueParams.i16.i.i, align 8
   %17 = load double, ptr %16, align 8
   %div33.i.i = fdiv double 1.000000e+00, %17
@@ -1816,14 +1734,14 @@ cond.end34.i.i:                                   ; preds = %cond.false29.i.i, %
 
 cond.true38.i.i:                                  ; preds = %cond.end34.i.i, %cond.end34.i.i, %cond.end34.i.i
   %18 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %18, i64 0, i32 5
+  %m_alphaParams.i.i.i = getelementptr inbounds i8, ptr %18, i64 248
   %19 = load ptr, ptr %m_alphaParams.i.i.i, align 8
   %20 = load double, ptr %19, align 8
   br label %_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
 
 cond.false42.i.i:                                 ; preds = %cond.end34.i.i
   %21 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i17.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %21, i64 0, i32 5
+  %m_alphaParams.i17.i.i = getelementptr inbounds i8, ptr %21, i64 248
   %22 = load ptr, ptr %m_alphaParams.i17.i.i, align 8
   %23 = load double, ptr %22, align 8
   %div46.i.i = fdiv double 1.000000e+00, %23
@@ -1831,7 +1749,7 @@ cond.false42.i.i:                                 ; preds = %cond.end34.i.i
 
 _ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %cond.true38.i.i, %cond.false42.i.i
   %cond48.i.i = phi double [ %20, %cond.true38.i.i ], [ %div46.i.i, %cond.false42.i.i ]
-  %m_alpGamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_alpGamma.i = getelementptr inbounds i8, ptr %this, i64 20
   %conv49.i.i = fptrunc double %cond48.i.i to float
   store float %conv49.i.i, ptr %m_alpGamma.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -1841,11 +1759,11 @@ _ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x float>, ptr %m_bluGamma, align 8
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_grnGamma, align 4
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load <4 x float>, ptr %m_redGamma, align 8
   %vecinit1.i28 = insertelement <4 x float> %2, float %1, i64 1
   %3 = shufflevector <2 x float> %0, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -1927,8 +1845,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %37 = fcmp ogt <4 x float> %22, zeroinitializer
   %or.i.v = select <4 x i1> %37, <4 x float> %36, <4 x float> %22
   store <4 x float> %or.i.v, ptr %out.014, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.015, i64 4
-  %add.ptr12 = getelementptr inbounds float, ptr %out.014, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 16
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.014, i64 16
   %inc = add nuw nsw i64 %idx.013, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
@@ -1944,10 +1862,10 @@ entry:
   br i1 %cmp27, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_redGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 1
-  %m_grnGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 2
-  %m_bluGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 3
-  %m_alpGamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaBasicOpCPU", ptr %this, i64 0, i32 4
+  %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma = getelementptr inbounds i8, ptr %this, i64 16
+  %m_alpGamma = getelementptr inbounds i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end39
@@ -1955,11 +1873,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %out.029 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr42, %cond.end39 ]
   %idx.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end39 ]
   %0 = load float, ptr %in.030, align 4
-  %arrayidx2 = getelementptr inbounds float, ptr %in.030, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.030, i64 4
   %1 = load float, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds float, ptr %in.030, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %in.030, i64 8
   %2 = load float, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds float, ptr %in.030, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.030, i64 12
   %3 = load float, ptr %arrayidx6, align 4
   %cmp8 = fcmp ogt float %0, 0.000000e+00
   br i1 %cmp8, label %cond.true, label %cond.end
@@ -1982,7 +1900,7 @@ cond.true14:                                      ; preds = %cond.end
 
 cond.end19:                                       ; preds = %cond.end, %cond.true14
   %cond20 = phi float [ %call.i24, %cond.true14 ], [ %1, %cond.end ]
-  %arrayidx21 = getelementptr inbounds float, ptr %out.029, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %out.029, i64 4
   store float %cond20, ptr %arrayidx21, align 4
   %cmp23 = fcmp ogt float %2, 0.000000e+00
   br i1 %cmp23, label %cond.true24, label %cond.end29
@@ -1994,7 +1912,7 @@ cond.true24:                                      ; preds = %cond.end19
 
 cond.end29:                                       ; preds = %cond.end19, %cond.true24
   %cond30 = phi float [ %call.i25, %cond.true24 ], [ %2, %cond.end19 ]
-  %arrayidx31 = getelementptr inbounds float, ptr %out.029, i64 2
+  %arrayidx31 = getelementptr inbounds i8, ptr %out.029, i64 8
   store float %cond30, ptr %arrayidx31, align 4
   %cmp33 = fcmp ogt float %3, 0.000000e+00
   br i1 %cmp33, label %cond.true34, label %cond.end39
@@ -2006,10 +1924,10 @@ cond.true34:                                      ; preds = %cond.end29
 
 cond.end39:                                       ; preds = %cond.end29, %cond.true34
   %cond40 = phi float [ %call.i26, %cond.true34 ], [ %3, %cond.end29 ]
-  %arrayidx41 = getelementptr inbounds float, ptr %out.029, i64 3
+  %arrayidx41 = getelementptr inbounds i8, ptr %out.029, i64 12
   store float %cond40, ptr %arrayidx41, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.030, i64 4
-  %add.ptr42 = getelementptr inbounds float, ptr %out.029, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.030, i64 16
+  %add.ptr42 = getelementptr inbounds i8, ptr %out.029, i64 16
   %inc = add nuw nsw i64 %idx.028, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
@@ -2021,31 +1939,31 @@ for.end:                                          ; preds = %cond.end39, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_red.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i, align 8
-  %scale.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
-  %m_green.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %scale.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_green.i = getelementptr inbounds i8, ptr %this, i64 28
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i, align 8
-  %slope.i3.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
-  %m_blue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %slope.i3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_blue.i = getelementptr inbounds i8, ptr %this, i64 48
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i, align 8
-  %breakPnt.i6.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
-  %m_alpha.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %breakPnt.i6.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_alpha.i = getelementptr inbounds i8, ptr %this, i64 68
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i, align 8
-  %offset.i9.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset.i9.i = getelementptr inbounds i8, ptr %this, i64 72
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %1, i64 200
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %2, i64 224
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i = getelementptr inbounds i8, ptr %3, i64 248
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i)
   ret void
 }
@@ -2054,20 +1972,20 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwd6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_redParams.i = getelementptr inbounds i8, ptr %0, i64 176
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %m_greenParams.i = getelementptr inbounds i8, ptr %1, i64 200
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %m_blueParams.i = getelementptr inbounds i8, ptr %2, i64 224
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %3, i64 248
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha)
   ret void
 }
@@ -2077,26 +1995,26 @@ declare void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
-  %scale2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
+  %scale2 = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load float, ptr %scale2, align 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
-  %scale3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
+  %scale3 = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load float, ptr %scale3, align 8
-  %scale4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %scale4 = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load float, ptr %scale4, align 4
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
-  %scale5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
+  %scale5 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load <4 x float>, ptr %scale5, align 8
   %vecinit1.i97 = insertelement <4 x float> %3, float %2, i64 1
   %vecinit2.i98 = insertelement <4 x float> %vecinit1.i97, float %1, i64 2
   %vecinit3.i99 = insertelement <4 x float> %vecinit2.i98, float %0, i64 3
-  %offset7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset7 = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load float, ptr %offset7, align 8
-  %offset9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset9 = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load float, ptr %offset9, align 4
   %6 = extractelement <4 x float> %3, i64 2
-  %offset13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load <4 x float>, ptr %offset13, align 4
   %vecinit1.i88 = insertelement <4 x float> %7, float %6, i64 1
   %vecinit2.i89 = insertelement <4 x float> %vecinit1.i88, float %5, i64 2
@@ -2108,23 +2026,23 @@ entry:
   %vecinit1.i79 = insertelement <4 x float> %11, float %10, i64 1
   %vecinit2.i80 = insertelement <4 x float> %vecinit1.i79, float %9, i64 2
   %vecinit3.i81 = insertelement <4 x float> %vecinit2.i80, float %8, i64 3
-  %breakPnt25 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt25 = getelementptr inbounds i8, ptr %this, i64 76
   %12 = load float, ptr %breakPnt25, align 4
-  %breakPnt27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt27 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load float, ptr %breakPnt27, align 8
   %14 = extractelement <4 x float> %3, i64 3
-  %breakPnt31 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt31 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load <4 x float>, ptr %breakPnt31, align 8
   %vecinit1.i70 = insertelement <4 x float> %15, float %14, i64 1
   %vecinit2.i71 = insertelement <4 x float> %vecinit1.i70, float %13, i64 2
   %vecinit3.i72 = insertelement <4 x float> %vecinit2.i71, float %12, i64 3
-  %slope34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope34 = getelementptr inbounds i8, ptr %this, i64 80
   %16 = load float, ptr %slope34, align 8
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %17 = load float, ptr %slope36, align 4
-  %slope38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope38 = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load float, ptr %slope38, align 8
-  %slope40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope40 = getelementptr inbounds i8, ptr %this, i64 20
   %19 = load <4 x float>, ptr %slope40, align 4
   %vecinit1.i61 = insertelement <4 x float> %19, float %18, i64 1
   %vecinit2.i62 = insertelement <4 x float> %vecinit1.i61, float %17, i64 2
@@ -2211,8 +2129,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i = fmul <4 x float> %vecinit3.i63, %38
   %or.i.v = select <4 x i1> %55, <4 x float> %54, <4 x float> %mul.i
   store <4 x float> %or.i.v, ptr %out.014, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.015, i64 4
-  %add.ptr54 = getelementptr inbounds float, ptr %out.014, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 16
+  %add.ptr54 = getelementptr inbounds i8, ptr %out.014, i64 16
   %inc = add nuw nsw i64 %idx.013, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !54
@@ -2224,45 +2142,45 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #8 align 2 {
 entry:
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
-  %scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
+  %scale = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %scale, align 8
-  %offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %offset, align 4
   %2 = load float, ptr %m_red, align 8
-  %breakPnt = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load <4 x float>, ptr %breakPnt, align 8
-  %slope = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load <4 x float>, ptr %slope, align 4
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
-  %scale10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
+  %scale10 = getelementptr inbounds i8, ptr %this, i64 44
   %5 = load float, ptr %scale10, align 4
-  %offset13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load float, ptr %offset13, align 8
   %7 = load float, ptr %m_green, align 4
-  %breakPnt19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 2
+  %breakPnt19 = getelementptr inbounds i8, ptr %this, i64 36
   %8 = load float, ptr %breakPnt19, align 4
-  %slope22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope22 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load float, ptr %slope22, align 8
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
-  %scale24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
+  %scale24 = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load float, ptr %scale24, align 8
-  %offset27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset27 = getelementptr inbounds i8, ptr %this, i64 52
   %11 = load float, ptr %offset27, align 4
   %12 = load float, ptr %m_blue, align 8
-  %breakPnt33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt33 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load float, ptr %breakPnt33, align 8
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %14 = load float, ptr %slope36, align 4
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
-  %scale38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
+  %scale38 = getelementptr inbounds i8, ptr %this, i64 84
   %15 = load float, ptr %scale38, align 4
-  %offset41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset41 = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load float, ptr %offset41, align 8
   %17 = load float, ptr %m_alpha, align 4
-  %breakPnt47 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt47 = getelementptr inbounds i8, ptr %this, i64 76
   %18 = load float, ptr %breakPnt47, align 4
-  %slope50 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope50 = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load float, ptr %slope50, align 8
   %cmp21 = icmp sgt i64 %numPixels, 0
   br i1 %cmp21, label %for.body.preheader, label %for.end
@@ -2301,8 +2219,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %40 = insertelement <4 x float> %39, float %call.i20, i64 3
   %41 = select <4 x i1> %35, <4 x float> %36, <4 x float> %40
   store <4 x float> %41, ptr %out.023, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.024, i64 4
-  %add.ptr124 = getelementptr inbounds float, ptr %out.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.024, i64 16
+  %add.ptr124 = getelementptr inbounds i8, ptr %out.023, i64 16
   %inc = add nuw nsw i64 %idx.022, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !55
@@ -2317,31 +2235,31 @@ declare float @llvm.fmuladd.f32(float, float, float) #9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_red.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i, align 8
-  %scale.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
-  %m_green.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %scale.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_green.i = getelementptr inbounds i8, ptr %this, i64 28
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i, align 8
-  %slope.i3.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
-  %m_blue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %slope.i3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_blue.i = getelementptr inbounds i8, ptr %this, i64 48
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i, align 8
-  %breakPnt.i6.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
-  %m_alpha.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %breakPnt.i6.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_alpha.i = getelementptr inbounds i8, ptr %this, i64 68
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i, align 8
-  %offset.i9.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset.i9.i = getelementptr inbounds i8, ptr %this, i64 72
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %1, i64 200
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %2, i64 224
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i = getelementptr inbounds i8, ptr %3, i64 248
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i)
   ret void
 }
@@ -2350,20 +2268,20 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURev6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_redParams.i = getelementptr inbounds i8, ptr %0, i64 176
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %m_greenParams.i = getelementptr inbounds i8, ptr %1, i64 200
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %m_blueParams.i = getelementptr inbounds i8, ptr %2, i64 224
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %3, i64 248
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha)
   ret void
 }
@@ -2373,26 +2291,26 @@ declare void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
-  %scale2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
+  %scale2 = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load float, ptr %scale2, align 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
-  %scale3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
+  %scale3 = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load float, ptr %scale3, align 8
-  %scale4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %scale4 = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load float, ptr %scale4, align 4
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
-  %scale5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
+  %scale5 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load <4 x float>, ptr %scale5, align 8
   %vecinit1.i97 = insertelement <4 x float> %3, float %2, i64 1
   %vecinit2.i98 = insertelement <4 x float> %vecinit1.i97, float %1, i64 2
   %vecinit3.i99 = insertelement <4 x float> %vecinit2.i98, float %0, i64 3
-  %offset7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset7 = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load float, ptr %offset7, align 8
-  %offset9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset9 = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load float, ptr %offset9, align 4
   %6 = extractelement <4 x float> %3, i64 2
-  %offset13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load <4 x float>, ptr %offset13, align 4
   %vecinit1.i88 = insertelement <4 x float> %7, float %6, i64 1
   %vecinit2.i89 = insertelement <4 x float> %vecinit1.i88, float %5, i64 2
@@ -2404,23 +2322,23 @@ entry:
   %vecinit1.i79 = insertelement <4 x float> %11, float %10, i64 1
   %vecinit2.i80 = insertelement <4 x float> %vecinit1.i79, float %9, i64 2
   %vecinit3.i81 = insertelement <4 x float> %vecinit2.i80, float %8, i64 3
-  %breakPnt25 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt25 = getelementptr inbounds i8, ptr %this, i64 76
   %12 = load float, ptr %breakPnt25, align 4
-  %breakPnt27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt27 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load float, ptr %breakPnt27, align 8
   %14 = extractelement <4 x float> %3, i64 3
-  %breakPnt31 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt31 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load <4 x float>, ptr %breakPnt31, align 8
   %vecinit1.i70 = insertelement <4 x float> %15, float %14, i64 1
   %vecinit2.i71 = insertelement <4 x float> %vecinit1.i70, float %13, i64 2
   %vecinit3.i72 = insertelement <4 x float> %vecinit2.i71, float %12, i64 3
-  %slope34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope34 = getelementptr inbounds i8, ptr %this, i64 80
   %16 = load float, ptr %slope34, align 8
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %17 = load float, ptr %slope36, align 4
-  %slope38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope38 = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load float, ptr %slope38, align 8
-  %slope40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope40 = getelementptr inbounds i8, ptr %this, i64 20
   %19 = load <4 x float>, ptr %slope40, align 4
   %vecinit1.i61 = insertelement <4 x float> %19, float %18, i64 1
   %vecinit2.i62 = insertelement <4 x float> %vecinit1.i61, float %17, i64 2
@@ -2507,8 +2425,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i = fmul <4 x float> %vecinit3.i63, %38
   %or.i.v = select <4 x i1> %55, <4 x float> %sub.i, <4 x float> %mul.i
   store <4 x float> %or.i.v, ptr %out.014, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.015, i64 4
-  %add.ptr54 = getelementptr inbounds float, ptr %out.014, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 16
+  %add.ptr54 = getelementptr inbounds i8, ptr %out.014, i64 16
   %inc = add nuw nsw i64 %idx.013, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
@@ -2520,49 +2438,49 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev21GammaMoncurveOpCPURev5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #8 align 2 {
 entry:
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load float, ptr %m_red, align 8
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load float, ptr %m_green, align 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load float, ptr %m_blue, align 8
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
   %3 = load float, ptr %m_alpha, align 4
   %cmp21 = icmp sgt i64 %numPixels, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %slope50 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope50 = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load float, ptr %slope50, align 8
-  %breakPnt47 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt47 = getelementptr inbounds i8, ptr %this, i64 76
   %5 = load float, ptr %breakPnt47, align 4
-  %scale41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %scale41 = getelementptr inbounds i8, ptr %this, i64 84
   %6 = load float, ptr %scale41, align 4
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %7 = load float, ptr %slope36, align 4
-  %breakPnt33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt33 = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load float, ptr %breakPnt33, align 8
-  %scale27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %scale27 = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load float, ptr %scale27, align 8
-  %slope22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope22 = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load float, ptr %slope22, align 8
-  %breakPnt19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 2
+  %breakPnt19 = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load float, ptr %breakPnt19, align 4
-  %scale13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %scale13 = getelementptr inbounds i8, ptr %this, i64 44
   %12 = load float, ptr %scale13, align 4
-  %slope = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope = getelementptr inbounds i8, ptr %this, i64 20
   %13 = load <4 x float>, ptr %slope, align 4
-  %breakPnt = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load <4 x float>, ptr %breakPnt, align 8
-  %scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %scale = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load <4 x float>, ptr %scale, align 8
-  %offset44 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset44 = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load float, ptr %offset44, align 8
-  %offset30 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset30 = getelementptr inbounds i8, ptr %this, i64 52
   %17 = load float, ptr %offset30, align 4
-  %offset16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 1
+  %offset16 = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load float, ptr %offset16, align 8
-  %offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %19 = load <4 x float>, ptr %offset, align 4
   %20 = insertelement <4 x float> %19, float %18, i64 1
   %21 = insertelement <4 x float> %20, float %17, i64 2
@@ -2601,8 +2519,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %44 = fmul <4 x float> %29, %33
   %45 = select <4 x i1> %43, <4 x float> %44, <4 x float> %42
   store <4 x float> %45, ptr %out.023, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.024, i64 4
-  %add.ptr127 = getelementptr inbounds float, ptr %out.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.024, i64 16
+  %add.ptr127 = getelementptr inbounds i8, ptr %out.023, i64 16
   %inc = add nuw nsw i64 %idx.022, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
@@ -2614,31 +2532,31 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_red.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i, align 8
-  %scale.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
-  %m_green.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %scale.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_green.i = getelementptr inbounds i8, ptr %this, i64 28
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i, align 8
-  %slope.i3.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
-  %m_blue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %slope.i3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_blue.i = getelementptr inbounds i8, ptr %this, i64 48
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i, align 8
-  %breakPnt.i6.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
-  %m_alpha.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %breakPnt.i6.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_alpha.i = getelementptr inbounds i8, ptr %this, i64 68
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i, align 8
-  %offset.i9.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset.i9.i = getelementptr inbounds i8, ptr %this, i64 72
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %1, i64 200
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %2, i64 224
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i = getelementptr inbounds i8, ptr %3, i64 248
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i)
   ret void
 }
@@ -2647,20 +2565,20 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwd6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_redParams.i = getelementptr inbounds i8, ptr %0, i64 176
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %m_greenParams.i = getelementptr inbounds i8, ptr %1, i64 200
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %m_blueParams.i = getelementptr inbounds i8, ptr %2, i64 224
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %3, i64 248
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha)
   ret void
 }
@@ -2668,26 +2586,26 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
-  %scale2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
+  %scale2 = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load float, ptr %scale2, align 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
-  %scale3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
+  %scale3 = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load float, ptr %scale3, align 8
-  %scale4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %scale4 = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load float, ptr %scale4, align 4
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
-  %scale5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
+  %scale5 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load <4 x float>, ptr %scale5, align 8
   %vecinit1.i100 = insertelement <4 x float> %3, float %2, i64 1
   %vecinit2.i101 = insertelement <4 x float> %vecinit1.i100, float %1, i64 2
   %vecinit3.i102 = insertelement <4 x float> %vecinit2.i101, float %0, i64 3
-  %offset7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset7 = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load float, ptr %offset7, align 8
-  %offset9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset9 = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load float, ptr %offset9, align 4
   %6 = extractelement <4 x float> %3, i64 2
-  %offset13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load <4 x float>, ptr %offset13, align 4
   %vecinit1.i91 = insertelement <4 x float> %7, float %6, i64 1
   %vecinit2.i92 = insertelement <4 x float> %vecinit1.i91, float %5, i64 2
@@ -2699,23 +2617,23 @@ entry:
   %vecinit1.i82 = insertelement <4 x float> %11, float %10, i64 1
   %vecinit2.i83 = insertelement <4 x float> %vecinit1.i82, float %9, i64 2
   %vecinit3.i84 = insertelement <4 x float> %vecinit2.i83, float %8, i64 3
-  %breakPnt25 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt25 = getelementptr inbounds i8, ptr %this, i64 76
   %12 = load float, ptr %breakPnt25, align 4
-  %breakPnt27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt27 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load float, ptr %breakPnt27, align 8
   %14 = extractelement <4 x float> %3, i64 3
-  %breakPnt31 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt31 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load <4 x float>, ptr %breakPnt31, align 8
   %vecinit1.i73 = insertelement <4 x float> %15, float %14, i64 1
   %vecinit2.i74 = insertelement <4 x float> %vecinit1.i73, float %13, i64 2
   %vecinit3.i75 = insertelement <4 x float> %vecinit2.i74, float %12, i64 3
-  %slope34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope34 = getelementptr inbounds i8, ptr %this, i64 80
   %16 = load float, ptr %slope34, align 8
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %17 = load float, ptr %slope36, align 4
-  %slope38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope38 = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load float, ptr %slope38, align 8
-  %slope40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope40 = getelementptr inbounds i8, ptr %this, i64 20
   %19 = load <4 x float>, ptr %slope40, align 4
   %vecinit1.i64 = insertelement <4 x float> %19, float %18, i64 1
   %vecinit2.i65 = insertelement <4 x float> %vecinit1.i64, float %17, i64 2
@@ -2809,8 +2727,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %or.i114 = bitcast <4 x float> %or.i114.v to <4 x i32>
   %or.i = or <4 x i32> %and.i109, %or.i114
   store <4 x i32> %or.i, ptr %out.016, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.017, i64 4
-  %add.ptr57 = getelementptr inbounds float, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.017, i64 16
+  %add.ptr57 = getelementptr inbounds i8, ptr %out.016, i64 16
   %inc = add nuw nsw i64 %idx.015, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
@@ -2822,45 +2740,45 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #8 align 2 {
 entry:
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
-  %scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
+  %scale = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %scale, align 8
-  %offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %offset, align 4
   %2 = load float, ptr %m_red, align 8
-  %breakPnt = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load <4 x float>, ptr %breakPnt, align 8
-  %slope = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load <4 x float>, ptr %slope, align 4
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
-  %scale10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
+  %scale10 = getelementptr inbounds i8, ptr %this, i64 44
   %5 = load float, ptr %scale10, align 4
-  %offset13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load float, ptr %offset13, align 8
   %7 = load float, ptr %m_green, align 4
-  %breakPnt19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 2
+  %breakPnt19 = getelementptr inbounds i8, ptr %this, i64 36
   %8 = load float, ptr %breakPnt19, align 4
-  %slope22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope22 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load float, ptr %slope22, align 8
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
-  %scale24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
+  %scale24 = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load float, ptr %scale24, align 8
-  %offset27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset27 = getelementptr inbounds i8, ptr %this, i64 52
   %11 = load float, ptr %offset27, align 4
   %12 = load float, ptr %m_blue, align 8
-  %breakPnt33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt33 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load float, ptr %breakPnt33, align 8
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %14 = load float, ptr %slope36, align 4
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
-  %scale38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
+  %scale38 = getelementptr inbounds i8, ptr %this, i64 84
   %15 = load float, ptr %scale38, align 4
-  %offset41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset41 = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load float, ptr %offset41, align 8
   %17 = load float, ptr %m_alpha, align 4
-  %breakPnt47 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt47 = getelementptr inbounds i8, ptr %this, i64 76
   %18 = load float, ptr %breakPnt47, align 4
-  %slope50 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope50 = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load float, ptr %slope50, align 8
   %cmp25 = icmp sgt i64 %numPixels, 0
   br i1 %cmp25, label %for.body.preheader, label %for.end
@@ -2902,8 +2820,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %43 = select <4 x i1> %37, <4 x float> %38, <4 x float> %42
   %44 = fmul <4 x float> %27, %43
   store <4 x float> %44, ptr %out.027, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.028, i64 4
-  %add.ptr148 = getelementptr inbounds float, ptr %out.027, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.028, i64 16
+  %add.ptr148 = getelementptr inbounds i8, ptr %out.027, i64 16
   %inc = add nuw nsw i64 %idx.026, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
@@ -2915,31 +2833,31 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_red.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i, align 8
-  %scale.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
-  %m_green.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %scale.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_green.i = getelementptr inbounds i8, ptr %this, i64 28
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i, align 8
-  %slope.i3.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
-  %m_blue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %slope.i3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_blue.i = getelementptr inbounds i8, ptr %this, i64 48
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i, align 8
-  %breakPnt.i6.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
-  %m_alpha.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %breakPnt.i6.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_alpha.i = getelementptr inbounds i8, ptr %this, i64 68
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i, align 8
-  %offset.i9.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset.i9.i = getelementptr inbounds i8, ptr %this, i64 72
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %1, i64 200
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %2, i64 224
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i = getelementptr inbounds i8, ptr %3, i64 248
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i)
   ret void
 }
@@ -2948,20 +2866,20 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURev6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %gamma, align 8
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_redParams.i = getelementptr inbounds i8, ptr %0, i64 176
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red)
   %1 = load ptr, ptr %gamma, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %m_greenParams.i = getelementptr inbounds i8, ptr %1, i64 200
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green)
   %2 = load ptr, ptr %gamma, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %m_blueParams.i = getelementptr inbounds i8, ptr %2, i64 224
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue)
   %3 = load ptr, ptr %gamma, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %3, i64 248
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha)
   ret void
 }
@@ -2969,26 +2887,26 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #7 align 2 {
 entry:
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
-  %scale2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
+  %scale2 = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load float, ptr %scale2, align 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
-  %scale3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
+  %scale3 = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load float, ptr %scale3, align 8
-  %scale4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %scale4 = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load float, ptr %scale4, align 4
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
-  %scale5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
+  %scale5 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load <4 x float>, ptr %scale5, align 8
   %vecinit1.i100 = insertelement <4 x float> %3, float %2, i64 1
   %vecinit2.i101 = insertelement <4 x float> %vecinit1.i100, float %1, i64 2
   %vecinit3.i102 = insertelement <4 x float> %vecinit2.i101, float %0, i64 3
-  %offset7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset7 = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load float, ptr %offset7, align 8
-  %offset9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset9 = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load float, ptr %offset9, align 4
   %6 = extractelement <4 x float> %3, i64 2
-  %offset13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load <4 x float>, ptr %offset13, align 4
   %vecinit1.i91 = insertelement <4 x float> %7, float %6, i64 1
   %vecinit2.i92 = insertelement <4 x float> %vecinit1.i91, float %5, i64 2
@@ -3000,23 +2918,23 @@ entry:
   %vecinit1.i82 = insertelement <4 x float> %11, float %10, i64 1
   %vecinit2.i83 = insertelement <4 x float> %vecinit1.i82, float %9, i64 2
   %vecinit3.i84 = insertelement <4 x float> %vecinit2.i83, float %8, i64 3
-  %breakPnt25 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt25 = getelementptr inbounds i8, ptr %this, i64 76
   %12 = load float, ptr %breakPnt25, align 4
-  %breakPnt27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt27 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load float, ptr %breakPnt27, align 8
   %14 = extractelement <4 x float> %3, i64 3
-  %breakPnt31 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt31 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load <4 x float>, ptr %breakPnt31, align 8
   %vecinit1.i73 = insertelement <4 x float> %15, float %14, i64 1
   %vecinit2.i74 = insertelement <4 x float> %vecinit1.i73, float %13, i64 2
   %vecinit3.i75 = insertelement <4 x float> %vecinit2.i74, float %12, i64 3
-  %slope34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope34 = getelementptr inbounds i8, ptr %this, i64 80
   %16 = load float, ptr %slope34, align 8
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %17 = load float, ptr %slope36, align 4
-  %slope38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope38 = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load float, ptr %slope38, align 8
-  %slope40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope40 = getelementptr inbounds i8, ptr %this, i64 20
   %19 = load <4 x float>, ptr %slope40, align 4
   %vecinit1.i64 = insertelement <4 x float> %19, float %18, i64 1
   %vecinit2.i65 = insertelement <4 x float> %vecinit1.i64, float %17, i64 2
@@ -3106,8 +3024,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %or.i114 = bitcast <4 x float> %or.i114.v to <4 x i32>
   %or.i = or <4 x i32> %and.i109, %or.i114
   store <4 x i32> %or.i, ptr %out.016, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.017, i64 4
-  %add.ptr57 = getelementptr inbounds float, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.017, i64 16
+  %add.ptr57 = getelementptr inbounds i8, ptr %out.016, i64 16
   %inc = add nuw nsw i64 %idx.015, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !60
@@ -3119,49 +3037,49 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURev5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #8 align 2 {
 entry:
-  %m_red = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1
+  %m_red = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load float, ptr %m_red, align 8
-  %m_green = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2
+  %m_green = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load float, ptr %m_green, align 4
-  %m_blue = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load float, ptr %m_blue, align 8
-  %m_alpha = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4
+  %m_alpha = getelementptr inbounds i8, ptr %this, i64 68
   %3 = load float, ptr %m_alpha, align 4
   %cmp25 = icmp sgt i64 %numPixels, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %slope50 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 3
+  %slope50 = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load float, ptr %slope50, align 8
-  %breakPnt47 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 2
+  %breakPnt47 = getelementptr inbounds i8, ptr %this, i64 76
   %5 = load float, ptr %breakPnt47, align 4
-  %scale41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 4
+  %scale41 = getelementptr inbounds i8, ptr %this, i64 84
   %6 = load float, ptr %scale41, align 4
-  %slope36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 3
+  %slope36 = getelementptr inbounds i8, ptr %this, i64 60
   %7 = load float, ptr %slope36, align 4
-  %breakPnt33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 2
+  %breakPnt33 = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load float, ptr %breakPnt33, align 8
-  %scale27 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 4
+  %scale27 = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load float, ptr %scale27, align 8
-  %slope22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 3
+  %slope22 = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load float, ptr %slope22, align 8
-  %breakPnt19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 2
+  %breakPnt19 = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load float, ptr %breakPnt19, align 4
-  %scale13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 4
+  %scale13 = getelementptr inbounds i8, ptr %this, i64 44
   %12 = load float, ptr %scale13, align 4
-  %slope = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %slope = getelementptr inbounds i8, ptr %this, i64 20
   %13 = load <4 x float>, ptr %slope, align 4
-  %breakPnt = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %breakPnt = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load <4 x float>, ptr %breakPnt, align 8
-  %scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %scale = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load <4 x float>, ptr %scale, align 8
-  %offset44 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 4, i32 1
+  %offset44 = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load float, ptr %offset44, align 8
-  %offset30 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 3, i32 1
+  %offset30 = getelementptr inbounds i8, ptr %this, i64 52
   %17 = load float, ptr %offset30, align 4
-  %offset16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 2, i32 1
+  %offset16 = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load float, ptr %offset16, align 8
-  %offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaMoncurveOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %19 = load <4 x float>, ptr %offset, align 4
   %20 = insertelement <4 x float> %19, float %18, i64 1
   %21 = insertelement <4 x float> %20, float %17, i64 2
@@ -3203,8 +3121,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %47 = select <4 x i1> %45, <4 x float> %46, <4 x float> %44
   %48 = fmul <4 x float> %34, %47
   store <4 x float> %48, ptr %out.027, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.028, i64 4
-  %add.ptr151 = getelementptr inbounds float, ptr %out.027, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.028, i64 16
+  %add.ptr151 = getelementptr inbounds i8, ptr %out.027, i64 16
   %inc = add nuw nsw i64 %idx.026, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !61
@@ -3420,46 +3338,46 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -3495,7 +3413,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -3512,12 +3430,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3548,46 +3466,46 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -3619,7 +3537,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -3636,12 +3554,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3669,46 +3587,46 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -3741,7 +3659,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -3758,12 +3676,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.73", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3791,46 +3709,46 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -3862,7 +3780,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -3879,12 +3797,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.79", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3912,46 +3830,46 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -3984,7 +3902,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -4001,12 +3919,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.85", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4034,46 +3952,46 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -4105,7 +4023,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -4122,12 +4040,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.91", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4155,46 +4073,46 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -4227,7 +4145,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -4244,12 +4162,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4277,46 +4195,46 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1
-  %m_red.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
+  %m_red.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_red.i.i.i.i.i, align 4
-  %scale.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %scale.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %scale.i.i.i.i.i.i, align 4
-  %slope.i3.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %m_blue.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %slope.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
+  %m_blue.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %slope.i3.i.i.i.i.i, align 4
-  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  %m_alpha.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %breakPnt.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 72
+  %m_alpha.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 84
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %breakPnt.i6.i.i.i.i.i, align 4
-  %offset.i9.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %offset.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 88
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %offset.i9.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
   %0 = load ptr, ptr %__args, align 8
-  %m_redParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %0, i64 0, i32 2
+  %m_redParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_red.i.i.i.i.i)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %entry
-  %m_green.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %m_green.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 44
   %1 = load ptr, ptr %__args, align 8
-  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 3
+  %m_greenParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_green.i.i.i.i.i)
           to label %.noexc4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc4:                                          ; preds = %.noexc
   %2 = load ptr, ptr %__args, align 8
-  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %2, i64 0, i32 4
+  %m_blueParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_blue.i.i.i.i.i)
           to label %.noexc5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc5:                                          ; preds = %.noexc4
   %3 = load ptr, ptr %__args, align 8
-  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 5
+  %m_alphaParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %m_alpha.i.i.i.i.i)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
@@ -4348,7 +4266,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #20
@@ -4365,12 +4283,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4410,7 +4328,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #20
@@ -4427,12 +4345,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.109", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4472,7 +4390,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15GammaBasicOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #20
@@ -4489,12 +4407,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15GammaBasicOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.117", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4534,7 +4452,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #20
@@ -4551,12 +4469,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.123", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4596,7 +4514,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #20
@@ -4613,12 +4531,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.129", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4658,7 +4576,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #20
@@ -4675,12 +4593,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.135", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4720,7 +4638,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #20
@@ -4737,12 +4655,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23Ga
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.141", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i

@@ -5,20 +5,19 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i64 }
-%"struct.folly::parking_lot_detail::Bucket" = type { %"class.std::mutex", ptr, ptr, %"struct.std::atomic" }
+%struct.timespec = type { i64, i64 }
+%"struct.folly::ParkingLot<unsigned int>::WaitNode" = type <{ %"struct.folly::parking_lot_detail::WaitNodeBase", i32, [4 x i8] }>
+%"struct.folly::parking_lot_detail::WaitNodeBase" = type { i64, i64, ptr, ptr, i8, %"class.std::mutex", %"class.std::condition_variable" }
 %"class.std::mutex" = type { %"class.std::__mutex_base" }
 %"class.std::__mutex_base" = type { %union.pthread_mutex_t }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.folly::parking_lot_detail::WaitNodeBase" = type { i64, i64, ptr, ptr, i8, %"class.std::mutex", %"class.std::condition_variable" }
 %"class.std::condition_variable" = type { %"class.std::__condvar" }
 %"class.std::__condvar" = type { %union.pthread_cond_t }
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%"struct.folly::ParkingLot<unsigned int>::WaitNode" = type <{ %"struct.folly::parking_lot_detail::WaitNodeBase", i32, [4 x i8] }>
-%struct.timespec = type { i64, i64 }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 
 $_ZN5folly18parking_lot_detail12WaitNodeBase4waitINSt6chrono3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusNS3_10time_pointIT_T0_EE = comdat any
@@ -66,7 +65,7 @@ entry:
   %add14.i.i.i = mul i64 %xor12.i.i.i, 2147483649
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5folly18parking_lot_detail6Bucket9bucketForEm(i64 noundef %add14.i.i.i)
   fence seq_cst
-  %count_.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call2.i.i, i64 0, i32 3
+  %count_.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 56
   %1 = load atomic i64, ptr %count_.i.i seq_cst, align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %_ZN5folly6detail12_GLOBAL__N_117emulatedFutexWakeEPKvij.exit, label %if.end.i.i
@@ -81,13 +80,13 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i:      ; preds = %if.end.i.i
-  %head_.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call2.i.i, i64 0, i32 1
+  %head_.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 40
   %2 = load ptr, ptr %head_.i.i, align 8, !tbaa !7
   %cmp4.not7.i.i = icmp eq ptr %2, null
   br i1 %cmp4.not7.i.i, label %cleanup25.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i
-  %tail_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call2.i.i, i64 0, i32 2
+  %tail_.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 48
   br label %for.body.i.i.outer
 
 for.body.i.i.outer:                               ; preds = %_ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i, %for.body.lr.ph.i.i
@@ -99,20 +98,20 @@ for.body.i.i.outer:                               ; preds = %_ZN5folly18parking_
 
 for.body.i.i:                                     ; preds = %if.end21.i.i, %for.body.i.i.outer
   %iter.08.i.i = phi ptr [ %4, %if.end21.i.i ], [ %iter.08.i.i.ph, %for.body.i.i.outer ]
-  %next_.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.08.i.i, i64 0, i32 2
+  %next_.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 16
   %4 = load ptr, ptr %next_.i.i, align 8, !tbaa !17
   %5 = load i64, ptr %iter.08.i.i, align 8, !tbaa !22
   %cmp5.i.i = icmp eq i64 %5, %add14.i.i.i
   br i1 %cmp5.i.i, label %land.lhs.true.i.i, label %if.end21.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %lotid_.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.08.i.i, i64 0, i32 1
+  %lotid_.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 8
   %6 = load i64, ptr %lotid_.i.i, align 8, !tbaa !23
   %cmp7.i.i = icmp eq i64 %6, %3
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end21.i.i
 
 if.then8.i.i:                                     ; preds = %land.lhs.true.i.i
-  %data_.i.i = getelementptr inbounds %"struct.folly::ParkingLot<unsigned int>::WaitNode", ptr %iter.08.i.i, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 128
   %data_.val.i.i = load i32, ptr %data_.i.i, align 4, !tbaa !24
   %and.i.i.i = and i32 %data_.val.i.i, %wakeMask
   %cmp.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -137,31 +136,31 @@ do.end6.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 do.end15.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   store ptr %4, ptr %head_.i.i, align 8, !tbaa !7
-  %prev_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %4, i64 0, i32 3
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr null, ptr %prev_.i.i.i, align 8, !tbaa !27
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit.i.i
 
 if.else18.i.i.i:                                  ; preds = %"_ZZN5folly6detail12_GLOBAL__N_117emulatedFutexWakeEPKvijENK3$_0clERKj.exit.i.i"
-  %prev_26.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.08.i.i, i64 0, i32 3
+  %prev_26.i.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 24
   %9 = load ptr, ptr %prev_26.i.i.i, align 8, !tbaa !27
   br i1 %cmp2.i.i.i, label %do.end25.i.i.i, label %do.end34.i.i.i
 
 do.end25.i.i.i:                                   ; preds = %if.else18.i.i.i
   store ptr %9, ptr %tail_.i.i.i, align 8, !tbaa !26
-  %next_29.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %9, i64 0, i32 2
+  %next_29.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr null, ptr %next_29.i.i.i, align 8, !tbaa !17
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit.i.i
 
 do.end34.i.i.i:                                   ; preds = %if.else18.i.i.i
-  %prev_37.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %4, i64 0, i32 3
+  %prev_37.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %9, ptr %prev_37.i.i.i, align 8, !tbaa !27
-  %next_40.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %9, i64 0, i32 2
+  %next_40.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %4, ptr %next_40.i.i.i, align 8, !tbaa !17
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit.i.i
 
 _ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit.i.i: ; preds = %do.end34.i.i.i, %do.end25.i.i.i, %do.end15.i.i.i, %do.end6.i.i.i
   %10 = atomicrmw sub ptr %count_.i.i, i64 1 monotonic, align 8
-  %mutex_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.08.i.i, i64 0, i32 5
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 40
   %call1.i.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_.i.i.i) #10
   %tobool.not.i.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i, label %if.then.i.i.i.i.i
@@ -174,9 +173,9 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly18parking_
   unreachable
 
 _ZN5folly18parking_lot_detail12WaitNodeBase4wakeEv.exit.i.i: ; preds = %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit.i.i
-  %signaled_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.08.i.i, i64 0, i32 4
+  %signaled_.i.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 32
   store i8 1, ptr %signaled_.i.i.i, align 8, !tbaa !28
-  %cond_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.08.i.i, i64 0, i32 6
+  %cond_.i.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 80
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i) #10
   %call1.i.i.i2.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_.i.i.i) #10
   %cmp4.not.i.i = icmp eq ptr %4, null
@@ -307,17 +306,17 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %node.i.i) #10
   %1 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
   store i64 %add14.i.i.i, ptr %node.i.i, align 8, !tbaa !22
-  %lotid_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 1
+  %lotid_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 8
   store i64 %1, ptr %lotid_.i.i.i.i, align 8, !tbaa !23
-  %next_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 2
-  %mutex_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 5
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 16
+  %mutex_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i, i8 0, i64 40, i1 false)
-  %cond_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 6
+  %cond_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %next_.i.i.i.i, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i.i) #10
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::ParkingLot<unsigned int>::WaitNode", ptr %node.i.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 128
   store i32 %waitMask, ptr %data_.i.i.i, align 8, !tbaa !35
-  %count_.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i, i64 0, i32 3
+  %count_.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 56
   %2 = atomicrmw add ptr %count_.i.i, i64 1 seq_cst, align 8
   %call1.i.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call3.i.i) #10
   %tobool.not.i.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i.i, 0
@@ -336,19 +335,19 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit73.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont.i.i
-  %tail_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i, i64 0, i32 2
+  %tail_.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 48
   %4 = load ptr, ptr %tail_.i.i.i, align 8, !tbaa !26
   %tobool.not.i65.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i65.i.i, label %if.else.i66.i.i, label %do.end.i.i.i
 
 do.end.i.i.i:                                     ; preds = %if.end.i.i
-  %prev_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 3
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 24
   store ptr %4, ptr %prev_.i.i.i, align 8, !tbaa !27
-  %next_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %4, i64 0, i32 2
+  %next_.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   br label %cleanup.cont.i.i
 
 if.else.i66.i.i:                                  ; preds = %if.end.i.i
-  %head_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i, i64 0, i32 1
+  %head_.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 40
   br label %cleanup.cont.i.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit73.i.i:      ; preds = %invoke.cont.i.i
@@ -381,7 +380,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then20.i.i
   unreachable
 
 invoke.cont24.i.i:                                ; preds = %if.then20.i.i
-  %signaled_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 4
+  %signaled_.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 32
   %6 = load i8, ptr %signaled_.i.i.i, align 8, !tbaa !28, !range !38, !noundef !39
   %tobool.i.not.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i, label %if.then28.i.i, label %cleanup30.thread.i.i
@@ -391,7 +390,7 @@ cleanup30.thread.i.i:                             ; preds = %invoke.cont24.i.i
   br label %_ZN5folly10ParkingLotIjE10park_untilIPKNS_6detail19EmulatedFutexAtomicIjEERjZNS3_12_GLOBAL__N_121emulatedFutexWaitImplIS6_EENS3_11FutexResultEPT_jPKNSt6chrono10time_pointINSE_3_V212system_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNSF_INSG_12steady_clockESL_EEjEUlvE_ZNSA_IS6_EESB_SD_jSO_SS_jEUlvE0_SH_SL_EENS_10ParkResultESC_OT0_OT1_OT2_NSF_IT3_T4_EE.exit.i
 
 if.then28.i.i:                                    ; preds = %invoke.cont24.i.i
-  %head_.i76.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i, i64 0, i32 1
+  %head_.i76.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 40
   %7 = load ptr, ptr %head_.i76.i.i, align 8, !tbaa !7
   %cmp.i77.i.i = icmp eq ptr %7, %node.i.i
   %8 = load ptr, ptr %tail_.i.i.i, align 8, !tbaa !26
@@ -408,26 +407,26 @@ do.end6.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 do.end15.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %9 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !17
   store ptr %9, ptr %head_.i76.i.i, align 8, !tbaa !7
-  %prev_.i80.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %9, i64 0, i32 3
+  %prev_.i80.i.i = getelementptr inbounds i8, ptr %9, i64 24
   store ptr null, ptr %prev_.i80.i.i, align 8, !tbaa !27
   br label %cleanup30.i.i
 
 if.else18.i.i.i:                                  ; preds = %if.then28.i.i
-  %prev_26.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i, i64 0, i32 3
+  %prev_26.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 24
   %10 = load ptr, ptr %prev_26.i.i.i, align 8, !tbaa !27
   br i1 %cmp2.i.i.i, label %do.end25.i.i.i, label %do.end34.i.i.i
 
 do.end25.i.i.i:                                   ; preds = %if.else18.i.i.i
   store ptr %10, ptr %tail_.i.i.i, align 8, !tbaa !26
-  %next_29.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %10, i64 0, i32 2
+  %next_29.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   store ptr null, ptr %next_29.i.i.i, align 8, !tbaa !17
   br label %cleanup30.i.i
 
 do.end34.i.i.i:                                   ; preds = %if.else18.i.i.i
   %11 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !17
-  %prev_37.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %11, i64 0, i32 3
+  %prev_37.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %10, ptr %prev_37.i.i.i, align 8, !tbaa !27
-  %next_40.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %10, i64 0, i32 2
+  %next_40.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %11, ptr %next_40.i.i.i, align 8, !tbaa !17
   br label %cleanup30.i.i
 
@@ -490,17 +489,17 @@ if.then4.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %node.i20.i) #10
   %17 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
   store i64 %add14.i.i32.i, ptr %node.i20.i, align 8, !tbaa !22
-  %lotid_.i.i.i34.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 1
+  %lotid_.i.i.i34.i = getelementptr inbounds i8, ptr %node.i20.i, i64 8
   store i64 %17, ptr %lotid_.i.i.i34.i, align 8, !tbaa !23
-  %next_.i.i.i35.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 2
-  %mutex_.i.i.i36.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 5
+  %next_.i.i.i35.i = getelementptr inbounds i8, ptr %node.i20.i, i64 16
+  %mutex_.i.i.i36.i = getelementptr inbounds i8, ptr %node.i20.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i36.i, i8 0, i64 40, i1 false)
-  %cond_.i.i.i37.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 6
+  %cond_.i.i.i37.i = getelementptr inbounds i8, ptr %node.i20.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %next_.i.i.i35.i, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i37.i) #10
-  %data_.i.i38.i = getelementptr inbounds %"struct.folly::ParkingLot<unsigned int>::WaitNode", ptr %node.i20.i, i64 0, i32 1
+  %data_.i.i38.i = getelementptr inbounds i8, ptr %node.i20.i, i64 128
   store i32 %waitMask, ptr %data_.i.i38.i, align 8, !tbaa !35
-  %count_.i39.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i33.i, i64 0, i32 3
+  %count_.i39.i = getelementptr inbounds i8, ptr %call3.i33.i, i64 56
   %18 = atomicrmw add ptr %count_.i39.i, i64 1 seq_cst, align 8
   %call1.i.i.i.i.i40.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call3.i33.i) #10
   %tobool.not.i.i.i.i41.i = icmp eq i32 %call1.i.i.i.i.i40.i, 0
@@ -519,19 +518,19 @@ invoke.cont.i45.i:                                ; preds = %if.then4.i
   br i1 %cmp.i.i46.i, label %if.end.i49.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit69.i.i
 
 if.end.i49.i:                                     ; preds = %invoke.cont.i45.i
-  %tail_.i.i50.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i33.i, i64 0, i32 2
+  %tail_.i.i50.i = getelementptr inbounds i8, ptr %call3.i33.i, i64 48
   %20 = load ptr, ptr %tail_.i.i50.i, align 8, !tbaa !26
   %tobool.not.i61.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i61.i.i, label %if.else.i62.i.i, label %do.end.i.i51.i
 
 do.end.i.i51.i:                                   ; preds = %if.end.i49.i
-  %prev_.i.i52.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 3
+  %prev_.i.i52.i = getelementptr inbounds i8, ptr %node.i20.i, i64 24
   store ptr %20, ptr %prev_.i.i52.i, align 8, !tbaa !27
-  %next_.i.i53.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %20, i64 0, i32 2
+  %next_.i.i53.i = getelementptr inbounds i8, ptr %20, i64 16
   br label %cleanup.cont.i54.i
 
 if.else.i62.i.i:                                  ; preds = %if.end.i49.i
-  %head_.i.i72.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i33.i, i64 0, i32 1
+  %head_.i.i72.i = getelementptr inbounds i8, ptr %call3.i33.i, i64 40
   br label %cleanup.cont.i54.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit69.i.i:      ; preds = %invoke.cont.i45.i
@@ -564,7 +563,7 @@ if.then.i.i.i58.i:                                ; preds = %if.then19.i.i
   unreachable
 
 invoke.cont23.i.i:                                ; preds = %if.then19.i.i
-  %signaled_.i.i59.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 4
+  %signaled_.i.i59.i = getelementptr inbounds i8, ptr %node.i20.i, i64 32
   %22 = load i8, ptr %signaled_.i.i59.i, align 8, !tbaa !28, !range !38, !noundef !39
   %tobool.i.not.i60.i = icmp eq i8 %22, 0
   br i1 %tobool.i.not.i60.i, label %if.then25.i.i, label %cleanup27.thread.i.i
@@ -574,7 +573,7 @@ cleanup27.thread.i.i:                             ; preds = %invoke.cont23.i.i
   br label %_ZN5folly10ParkingLotIjE10park_untilIPKNS_6detail19EmulatedFutexAtomicIjEERjZNS3_12_GLOBAL__N_121emulatedFutexWaitImplIS6_EENS3_11FutexResultEPT_jPKNSt6chrono10time_pointINSE_3_V212system_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNSF_INSG_12steady_clockESL_EEjEUlvE1_ZNSA_IS6_EESB_SD_jSO_SS_jEUlvE2_SP_SL_EENS_10ParkResultESC_OT0_OT1_OT2_NSF_IT3_T4_EE.exit.i
 
 if.then25.i.i:                                    ; preds = %invoke.cont23.i.i
-  %head_.i72.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i33.i, i64 0, i32 1
+  %head_.i72.i.i = getelementptr inbounds i8, ptr %call3.i33.i, i64 40
   %23 = load ptr, ptr %head_.i72.i.i, align 8, !tbaa !7
   %cmp.i73.i.i = icmp eq ptr %23, %node.i20.i
   %24 = load ptr, ptr %tail_.i.i50.i, align 8, !tbaa !26
@@ -591,26 +590,26 @@ do.end6.i.i71.i:                                  ; preds = %land.lhs.true.i.i69
 do.end15.i.i70.i:                                 ; preds = %land.lhs.true.i.i69.i
   %25 = load ptr, ptr %next_.i.i.i35.i, align 8, !tbaa !17
   store ptr %25, ptr %head_.i72.i.i, align 8, !tbaa !7
-  %prev_.i76.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %25, i64 0, i32 3
+  %prev_.i76.i.i = getelementptr inbounds i8, ptr %25, i64 24
   store ptr null, ptr %prev_.i76.i.i, align 8, !tbaa !27
   br label %cleanup27.i.i
 
 if.else18.i.i62.i:                                ; preds = %if.then25.i.i
-  %prev_26.i.i63.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i20.i, i64 0, i32 3
+  %prev_26.i.i63.i = getelementptr inbounds i8, ptr %node.i20.i, i64 24
   %26 = load ptr, ptr %prev_26.i.i63.i, align 8, !tbaa !27
   br i1 %cmp2.i.i61.i, label %do.end25.i.i67.i, label %do.end34.i.i64.i
 
 do.end25.i.i67.i:                                 ; preds = %if.else18.i.i62.i
   store ptr %26, ptr %tail_.i.i50.i, align 8, !tbaa !26
-  %next_29.i.i68.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %26, i64 0, i32 2
+  %next_29.i.i68.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr null, ptr %next_29.i.i68.i, align 8, !tbaa !17
   br label %cleanup27.i.i
 
 do.end34.i.i64.i:                                 ; preds = %if.else18.i.i62.i
   %27 = load ptr, ptr %next_.i.i.i35.i, align 8, !tbaa !17
-  %prev_37.i.i65.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %27, i64 0, i32 3
+  %prev_37.i.i65.i = getelementptr inbounds i8, ptr %27, i64 24
   store ptr %26, ptr %prev_37.i.i65.i, align 8, !tbaa !27
-  %next_40.i.i66.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %26, i64 0, i32 2
+  %next_40.i.i66.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %27, ptr %next_40.i.i66.i, align 8, !tbaa !17
   br label %cleanup27.i.i
 
@@ -664,17 +663,17 @@ if.else11.i:                                      ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %node.i.i.i) #10
   %33 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
   store i64 %add14.i.i.i.i, ptr %node.i.i.i, align 8, !tbaa !22
-  %lotid_.i.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 1
+  %lotid_.i.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 8
   store i64 %33, ptr %lotid_.i.i.i.i.i, align 8, !tbaa !23
-  %next_.i.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 2
-  %mutex_.i.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 5
+  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 16
+  %mutex_.i.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i, i8 0, i64 40, i1 false)
-  %cond_.i.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 6
+  %cond_.i.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %next_.i.i.i.i.i, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i.i.i) #10
-  %data_.i.i.i.i = getelementptr inbounds %"struct.folly::ParkingLot<unsigned int>::WaitNode", ptr %node.i.i.i, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 128
   store i32 %waitMask, ptr %data_.i.i.i.i, align 8, !tbaa !35
-  %count_.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i.i, i64 0, i32 3
+  %count_.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 56
   %34 = atomicrmw add ptr %count_.i.i.i, i64 1 seq_cst, align 8
   %call1.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call3.i.i.i) #10
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i.i.i, 0
@@ -693,19 +692,19 @@ invoke.cont.i.i.i:                                ; preds = %if.else11.i
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit69.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont.i.i.i
-  %tail_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i.i, i64 0, i32 2
+  %tail_.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 48
   %36 = load ptr, ptr %tail_.i.i.i.i, align 8, !tbaa !26
   %tobool.not.i61.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i61.i.i.i, label %if.else.i62.i.i.i, label %do.end.i.i.i.i
 
 do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 3
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 24
   store ptr %36, ptr %prev_.i.i.i.i, align 8, !tbaa !27
-  %next_.i.i.i74.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %36, i64 0, i32 2
+  %next_.i.i.i74.i = getelementptr inbounds i8, ptr %36, i64 16
   br label %cleanup.cont.i.i.i
 
 if.else.i62.i.i.i:                                ; preds = %if.end.i.i.i
-  %head_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i.i, i64 0, i32 1
+  %head_.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 40
   br label %cleanup.cont.i.i.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit69.i.i.i:    ; preds = %invoke.cont.i.i.i
@@ -738,7 +737,7 @@ if.then.i.i.i.i77.i:                              ; preds = %if.then19.i.i.i
   unreachable
 
 invoke.cont23.i.i.i:                              ; preds = %if.then19.i.i.i
-  %signaled_.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 4
+  %signaled_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 32
   %38 = load i8, ptr %signaled_.i.i.i.i, align 8, !tbaa !28, !range !38, !noundef !39
   %tobool.i.not.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool.i.not.i.i.i, label %if.then25.i.i.i, label %cleanup27.thread.i.i.i
@@ -748,7 +747,7 @@ cleanup27.thread.i.i.i:                           ; preds = %invoke.cont23.i.i.i
   br label %_ZN5folly10ParkingLotIjE4parkIPKNS_6detail19EmulatedFutexAtomicIjEERjZNS3_12_GLOBAL__N_121emulatedFutexWaitImplIS6_EENS3_11FutexResultEPT_jPKNSt6chrono10time_pointINSE_3_V212system_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNSF_INSG_12steady_clockESL_EEjEUlvE3_ZNSA_IS6_EESB_SD_jSO_SS_jEUlvE4_EENS_10ParkResultESC_OT0_OT1_OT2_.exit.i
 
 if.then25.i.i.i:                                  ; preds = %invoke.cont23.i.i.i
-  %head_.i72.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call3.i.i.i, i64 0, i32 1
+  %head_.i72.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 40
   %39 = load ptr, ptr %head_.i72.i.i.i, align 8, !tbaa !7
   %cmp.i73.i.i.i = icmp eq ptr %39, %node.i.i.i
   %40 = load ptr, ptr %tail_.i.i.i.i, align 8, !tbaa !26
@@ -765,26 +764,26 @@ do.end6.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
 do.end15.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
   %41 = load ptr, ptr %next_.i.i.i.i.i, align 8, !tbaa !17
   store ptr %41, ptr %head_.i72.i.i.i, align 8, !tbaa !7
-  %prev_.i76.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %41, i64 0, i32 3
+  %prev_.i76.i.i.i = getelementptr inbounds i8, ptr %41, i64 24
   store ptr null, ptr %prev_.i76.i.i.i, align 8, !tbaa !27
   br label %cleanup27.i.i.i
 
 if.else18.i.i.i.i:                                ; preds = %if.then25.i.i.i
-  %prev_26.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %node.i.i.i, i64 0, i32 3
+  %prev_26.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 24
   %42 = load ptr, ptr %prev_26.i.i.i.i, align 8, !tbaa !27
   br i1 %cmp2.i.i.i.i, label %do.end25.i.i.i.i, label %do.end34.i.i.i.i
 
 do.end25.i.i.i.i:                                 ; preds = %if.else18.i.i.i.i
   store ptr %42, ptr %tail_.i.i.i.i, align 8, !tbaa !26
-  %next_29.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %42, i64 0, i32 2
+  %next_29.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 16
   store ptr null, ptr %next_29.i.i.i.i, align 8, !tbaa !17
   br label %cleanup27.i.i.i
 
 do.end34.i.i.i.i:                                 ; preds = %if.else18.i.i.i.i
   %43 = load ptr, ptr %next_.i.i.i.i.i, align 8, !tbaa !17
-  %prev_37.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %43, i64 0, i32 3
+  %prev_37.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 24
   store ptr %42, ptr %prev_37.i.i.i.i, align 8, !tbaa !27
-  %next_40.i.i.i.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %42, i64 0, i32 2
+  %next_40.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %43, ptr %next_40.i.i.i.i, align 8, !tbaa !17
   br label %cleanup27.i.i.i
 
@@ -833,9 +832,9 @@ entry:
   %__ts.i.i = alloca %struct.timespec, align 8
   %nodeLock = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nodeLock) #10
-  %mutex_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %this, i64 0, i32 5
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %mutex_, ptr %nodeLock, align 8, !tbaa !40
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %nodeLock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %nodeLock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -846,18 +845,18 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8, !tbaa !42
-  %signaled_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %this, i64 0, i32 4
+  %signaled_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
   %tobool.not29 = icmp eq i8 %0, 0
   br i1 %tobool.not29, label %invoke.cont.lr.ph, label %if.then3.i.i
 
 invoke.cont.lr.ph:                                ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %cmp.i.i.i.not = icmp eq i64 %deadline.coerce, 9223372036854775807
-  %cond_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %this, i64 0, i32 6
+  %cond_ = getelementptr inbounds i8, ptr %this, i64 80
   %div.i.i.i.i.i = sdiv i64 %deadline.coerce, 1000000000
   %mul.i.i.i.neg.i.i.i.i = mul nsw i64 %div.i.i.i.i.i, -1000000000
   %sub.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i, %deadline.coerce
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br i1 %cmp.i.i.i.not, label %invoke.cont.us, label %invoke.cont
 
 invoke.cont.us:                                   ; preds = %invoke.cont.lr.ph, %if.end.us
@@ -957,9 +956,9 @@ entry:
   %__ts.i.i = alloca %struct.timespec, align 8
   %nodeLock = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nodeLock) #10
-  %mutex_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %this, i64 0, i32 5
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %mutex_, ptr %nodeLock, align 8, !tbaa !40
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %nodeLock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %nodeLock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -970,18 +969,18 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8, !tbaa !42
-  %signaled_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %this, i64 0, i32 4
+  %signaled_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
   %tobool.not29 = icmp eq i8 %0, 0
   br i1 %tobool.not29, label %invoke.cont.lr.ph, label %if.then3.i.i
 
 invoke.cont.lr.ph:                                ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %cmp.i.i.i.not = icmp eq i64 %deadline.coerce, 9223372036854775807
-  %cond_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %this, i64 0, i32 6
+  %cond_ = getelementptr inbounds i8, ptr %this, i64 80
   %div.i.i.i.i.i = sdiv i64 %deadline.coerce, 1000000000
   %mul.i.i.i.neg.i.i.i.i = mul nsw i64 %div.i.i.i.i.i, -1000000000
   %sub.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i, %deadline.coerce
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br i1 %cmp.i.i.i.not, label %invoke.cont.us, label %invoke.cont
 
 invoke.cont.us:                                   ; preds = %invoke.cont.lr.ph, %if.end.us

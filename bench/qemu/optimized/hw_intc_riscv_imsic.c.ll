@@ -13,57 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.4 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.RISCVIMSICState = type { %struct.SysBusDevice, ptr, %struct.MemoryRegion, i32, ptr, ptr, ptr, i8, i32, i32, i32 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.5, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.6, %union.anon.7, %union.anon.8, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%union.anon.8 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.9 }
-%struct.anon.9 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.10 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.10 = type { %struct.anon.11 }
-%struct.anon.11 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
 
 @.str = private unnamed_addr constant [12 x i8] c"riscv.imsic\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"!(addr & (IMSIC_MMIO_PAGE_SZ - 1))\00", align 1
@@ -247,9 +196,9 @@ define internal void @riscv_imsic_class_init(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_imsic_properties) #6
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @riscv_imsic_realize, ptr %realize, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_riscv_imsic, ptr %vmsd, align 8
   ret void
 }
@@ -260,7 +209,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @riscv_imsic_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 28, ptr noundef nonnull @__func__.RISCV_IMSIC) #6
-  %hartid = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 8
+  %hartid = getelementptr inbounds i8, ptr %call.i, i64 1140
   %0 = load i32, ptr %hartid, align 4
   %conv = zext i32 %0 to i64
   %call1 = tail call ptr @cpu_by_arch_id(i64 noundef %conv) #6
@@ -269,37 +218,37 @@ entry:
   %conv4 = zext i32 %1 to i64
   %call5 = tail call ptr @cpu_by_arch_id(i64 noundef %conv4) #6
   %tobool.not = icmp eq ptr %call5, null
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %call5, i64 1
+  %add.ptr.i = getelementptr i8, ptr %call5, i64 10176
   %spec.select = select i1 %tobool.not, ptr null, ptr %add.ptr.i
-  %num_pages = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 9
+  %num_pages = getelementptr inbounds i8, ptr %call.i, i64 1144
   %2 = load i32, ptr %num_pages, align 8
-  %num_irqs = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 10
+  %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 1148
   %3 = load i32, ptr %num_irqs, align 4
   %mul = mul i32 %3, %2
-  %num_eistate = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 3
+  %num_eistate = getelementptr inbounds i8, ptr %call.i, i64 1104
   store i32 %mul, ptr %num_eistate, align 16
   %conv8 = zext i32 %2 to i64
   %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv8, i64 noundef 4) #8
-  %eidelivery = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 4
+  %eidelivery = getelementptr inbounds i8, ptr %call.i, i64 1112
   store ptr %call9, ptr %eidelivery, align 8
   %4 = load i32, ptr %num_pages, align 8
   %conv11 = zext i32 %4 to i64
   %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 4) #8
-  %eithreshold = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 5
+  %eithreshold = getelementptr inbounds i8, ptr %call.i, i64 1120
   store ptr %call12, ptr %eithreshold, align 16
   %5 = load i32, ptr %num_eistate, align 16
   %conv14 = zext i32 %5 to i64
   %call15 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv14, i64 noundef 4) #8
-  %eistate = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 6
+  %eistate = getelementptr inbounds i8, ptr %call.i, i64 1128
   store ptr %call15, ptr %eistate, align 8
-  %mmio = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 2
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 832
   %6 = load i32, ptr %num_pages, align 8
   %conv17 = zext i32 %6 to i64
   %mul18 = shl nuw nsw i64 %conv17, 12
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_imsic_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef %mul18) #6
   %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.28, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
   tail call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %mmio) #6
-  %mmode = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 7
+  %mmode = getelementptr inbounds i8, ptr %call.i, i64 1136
   %7 = load i8, ptr %mmode, align 16
   %8 = and i8 %7, 1
   %tobool21.not = icmp eq i8 %8, 0
@@ -321,7 +270,7 @@ if.end:                                           ; preds = %entry
   %conv32 = zext i32 %11 to i64
   %mul33 = shl nuw nsw i64 %conv32, 3
   %call34 = tail call noalias ptr @g_malloc(i64 noundef %mul33) #9
-  %external_irqs = getelementptr inbounds %struct.RISCVIMSICState, ptr %call.i, i64 0, i32 1
+  %external_irqs = getelementptr inbounds i8, ptr %call.i, i64 816
   store ptr %call34, ptr %external_irqs, align 16
   %12 = load i32, ptr %num_pages, align 8
   tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call34, i32 noundef %12) #6
@@ -335,7 +284,7 @@ if.then38:                                        ; preds = %if.end
   br i1 %tobool40.not, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %if.then38
-  %ext_ssaia = getelementptr inbounds %struct.ArchCPU, ptr %call.i33, i64 0, i32 4, i32 73
+  %ext_ssaia = getelementptr inbounds i8, ptr %call.i33, i64 19065
   store i8 1, ptr %ext_ssaia, align 1
   %15 = load i32, ptr %num_pages, align 8
   %sub = add i32 %15, -1
@@ -344,7 +293,7 @@ if.then41:                                        ; preds = %if.then38
   br label %if.end45
 
 if.else:                                          ; preds = %if.then38
-  %ext_smaia = getelementptr inbounds %struct.ArchCPU, ptr %call.i33, i64 0, i32 4, i32 72
+  %ext_smaia = getelementptr inbounds i8, ptr %call.i33, i64 19064
   store i8 1, ptr %ext_smaia, align 8
   br label %if.end45
 
@@ -398,7 +347,7 @@ entry:
   %3 = lshr i32 %0, 20
   %conv8 = and i32 %3, 63
   %4 = lshr i32 %0, 24
-  %mmode = getelementptr inbounds %struct.RISCVIMSICState, ptr %arg, i64 0, i32 7
+  %mmode = getelementptr inbounds i8, ptr %arg, i64 1136
   %5 = load i8, ptr %mmode, align 16
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -423,7 +372,7 @@ if.then20:                                        ; preds = %if.then18
   br i1 %tobool21.not, label %do.body, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.then20
-  %num_pages = getelementptr inbounds %struct.RISCVIMSICState, ptr %arg, i64 0, i32 9
+  %num_pages = getelementptr inbounds i8, ptr %arg, i64 1144
   %7 = load i32, ptr %num_pages, align 8
   %cmp23 = icmp ult i32 %conv8, %7
   br i1 %cmp23, label %if.end32, label %do.body
@@ -612,7 +561,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %do.body
 
 if.end:                                           ; preds = %entry
-  %num_pages = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 9
+  %num_pages = getelementptr inbounds i8, ptr %opaque, i64 1144
   %0 = load i32, ptr %num_pages, align 8
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 12
@@ -641,7 +590,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %do.body
 
 if.end:                                           ; preds = %entry
-  %num_pages = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 9
+  %num_pages = getelementptr inbounds i8, ptr %opaque, i64 1144
   %0 = load i32, ptr %num_pages, align 8
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 12
@@ -658,14 +607,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %if.end4
-  %num_irqs = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 10
+  %num_irqs = getelementptr inbounds i8, ptr %opaque, i64 1148
   %1 = load i32, ptr %num_irqs, align 4
   %conv10 = zext i32 %1 to i64
   %cmp11 = icmp ugt i64 %conv10, %value
   br i1 %cmp11, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %land.lhs.true
-  %eistate = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 6
+  %eistate = getelementptr inbounds i8, ptr %opaque, i64 1128
   %2 = load ptr, ptr %eistate, align 8
   %mul15 = mul i32 %1, %conv5
   %conv16 = zext i32 %mul15 to i64
@@ -677,7 +626,7 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %if.end18
 
 if.end18:                                         ; preds = %land.lhs.true, %if.then13, %if.end4
-  %eidelivery.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 4
+  %eidelivery.i = getelementptr inbounds i8, ptr %opaque, i64 1112
   %5 = load ptr, ptr %eidelivery.i, align 8
   %idxprom.i = and i64 %shr, 4294967295
   %arrayidx.i = getelementptr i32, ptr %5, i64 %idxprom.i
@@ -686,11 +635,11 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end18
-  %num_irqs.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 10
+  %num_irqs.i.i = getelementptr inbounds i8, ptr %opaque, i64 1148
   %7 = load i32, ptr %num_irqs.i.i, align 4
   %8 = freeze i32 %7
   %mul.i.i = mul i32 %8, %conv5
-  %eithreshold.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 5
+  %eithreshold.i.i = getelementptr inbounds i8, ptr %opaque, i64 1120
   %9 = load ptr, ptr %eithreshold.i.i, align 16
   %arrayidx.i.i = getelementptr i32, ptr %9, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i.i, align 4
@@ -701,7 +650,7 @@ land.lhs.true.i:                                  ; preds = %if.end18
   br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
-  %eistate.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 6
+  %eistate.i.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   %12 = load ptr, ptr %eistate.i.i, align 8
   %wide.trip.count.i.i = zext i32 %spec.select.i.i to i64
   br label %for.body.i.i
@@ -733,7 +682,7 @@ if.else.i:                                        ; preds = %for.inc.i.i, %riscv
 
 riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
   %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
-  %external_irqs4.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %opaque, i64 0, i32 1
+  %external_irqs4.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %15 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %15, i64 %idxprom.i
   %16 = load ptr, ptr %arrayidx6.i, align 8
@@ -761,7 +710,7 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_imsic_eidelivery_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
-  %eidelivery = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 4
+  %eidelivery = getelementptr inbounds i8, ptr %imsic, i64 1112
   %0 = load ptr, ptr %eidelivery, align 8
   %idxprom = zext nneg i32 %page to i64
   %arrayidx = getelementptr i32, ptr %0, i64 %idxprom
@@ -792,11 +741,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %num_irqs.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 10
+  %num_irqs.i.i = getelementptr inbounds i8, ptr %imsic, i64 1148
   %5 = load i32, ptr %num_irqs.i.i, align 4
   %6 = freeze i32 %5
   %mul.i.i = mul i32 %6, %page
-  %eithreshold.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 5
+  %eithreshold.i.i = getelementptr inbounds i8, ptr %imsic, i64 1120
   %7 = load ptr, ptr %eithreshold.i.i, align 16
   %arrayidx.i.i = getelementptr i32, ptr %7, i64 %idxprom
   %8 = load i32, ptr %arrayidx.i.i, align 4
@@ -807,7 +756,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
-  %eistate.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate.i.i = getelementptr inbounds i8, ptr %imsic, i64 1128
   %10 = load ptr, ptr %eistate.i.i, align 8
   %wide.trip.count.i.i = zext i32 %spec.select.i.i to i64
   br label %for.body.i.i
@@ -839,7 +788,7 @@ if.else.i:                                        ; preds = %for.inc.i.i, %riscv
 
 riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
   %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
-  %external_irqs4.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 1
+  %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %13 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %13, i64 %idxprom
   %14 = load ptr, ptr %arrayidx6.i, align 8
@@ -850,7 +799,7 @@ riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_imsic_eithreshold_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
-  %eithreshold = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 5
+  %eithreshold = getelementptr inbounds i8, ptr %imsic, i64 1120
   %0 = load ptr, ptr %eithreshold, align 16
   %idxprom = zext nneg i32 %page to i64
   %arrayidx = getelementptr i32, ptr %0, i64 %idxprom
@@ -874,7 +823,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv3 = trunc i64 %or to i32
   %arrayidx6 = getelementptr i32, ptr %2, i64 %idxprom
   store i32 %conv3, ptr %arrayidx6, align 4
-  %eidelivery.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 4
+  %eidelivery.i = getelementptr inbounds i8, ptr %imsic, i64 1112
   %3 = load ptr, ptr %eidelivery.i, align 8
   %arrayidx.i = getelementptr i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx.i, align 4
@@ -882,7 +831,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %num_irqs.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 10
+  %num_irqs.i.i = getelementptr inbounds i8, ptr %imsic, i64 1148
   %5 = load i32, ptr %num_irqs.i.i, align 4
   %6 = freeze i32 %5
   %mul.i.i = mul i32 %6, %page
@@ -896,7 +845,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
-  %eistate.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate.i.i = getelementptr inbounds i8, ptr %imsic, i64 1128
   %10 = load ptr, ptr %eistate.i.i, align 8
   %wide.trip.count.i.i = zext i32 %spec.select.i.i to i64
   br label %for.body.i.i
@@ -928,7 +877,7 @@ if.else.i:                                        ; preds = %for.inc.i.i, %riscv
 
 riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
   %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
-  %external_irqs4.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 1
+  %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %13 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %13, i64 %idxprom
   %14 = load ptr, ptr %arrayidx6.i, align 8
@@ -939,11 +888,11 @@ riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_imsic_topei_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
-  %num_irqs.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 10
+  %num_irqs.i = getelementptr inbounds i8, ptr %imsic, i64 1148
   %0 = load i32, ptr %num_irqs.i, align 4
   %1 = freeze i32 %0
   %mul.i = mul i32 %1, %page
-  %eithreshold.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 5
+  %eithreshold.i = getelementptr inbounds i8, ptr %imsic, i64 1120
   %2 = load ptr, ptr %eithreshold.i, align 16
   %idxprom.i = zext i32 %page to i64
   %arrayidx.i = getelementptr i32, ptr %2, i64 %idxprom.i
@@ -955,7 +904,7 @@ entry:
   br i1 %cmp915.i, label %for.body.lr.ph.i, label %riscv_imsic_topei.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %eistate.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate.i = getelementptr inbounds i8, ptr %imsic, i64 1128
   %5 = load ptr, ptr %eistate.i, align 8
   %wide.trip.count.i = zext i32 %spec.select.i to i64
   br label %for.body.i
@@ -1005,7 +954,7 @@ if.then5:                                         ; preds = %if.then3
   %shr = lshr i32 %retval.0.i, 16
   %8 = load i32, ptr %num_irqs.i, align 4
   %mul = mul i32 %8, %page
-  %eistate = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate = getelementptr inbounds i8, ptr %imsic, i64 1128
   %9 = load ptr, ptr %eistate, align 8
   %add = add i32 %mul, %shr
   %idxprom = zext i32 %add to i64
@@ -1016,7 +965,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.then3
-  %eidelivery.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 4
+  %eidelivery.i = getelementptr inbounds i8, ptr %imsic, i64 1112
   %11 = load ptr, ptr %eidelivery.i, align 8
   %arrayidx.i12 = getelementptr i32, ptr %11, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i12, align 4
@@ -1037,7 +986,7 @@ land.lhs.true.i:                                  ; preds = %if.end6
   br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
-  %eistate.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate.i.i = getelementptr inbounds i8, ptr %imsic, i64 1128
   %18 = load ptr, ptr %eistate.i.i, align 8
   %wide.trip.count.i.i = zext i32 %spec.select.i.i to i64
   br label %for.body.i.i
@@ -1069,7 +1018,7 @@ if.else.i:                                        ; preds = %for.inc.i.i, %riscv
 
 riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
   %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
-  %external_irqs4.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 1
+  %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %21 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %21, i64 %idxprom.i
   %22 = load ptr, ptr %arrayidx6.i, align 8
@@ -1098,7 +1047,7 @@ if.end:                                           ; preds = %if.then
 
 if.end3:                                          ; preds = %if.end, %entry
   %num.addr.0 = phi i32 [ %shr, %if.end ], [ %num, %entry ]
-  %num_irqs = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 10
+  %num_irqs = getelementptr inbounds i8, ptr %imsic, i64 1148
   %0 = load i32, ptr %num_irqs, align 4
   %div = udiv i32 %0, %xlen
   %cmp4.not = icmp ult i32 %num.addr.0, %div
@@ -1118,7 +1067,7 @@ if.end6.if.end16_crit_edge:                       ; preds = %if.end6
 
 if.then10:                                        ; preds = %if.end6
   store i64 0, ptr %val, align 8
-  %eistate = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate = getelementptr inbounds i8, ptr %imsic, i64 1128
   %umax = tail call i32 @llvm.umax.i32(i32 %xlen, i32 1)
   %wide.trip.count = zext i32 %umax to i64
   br label %for.body
@@ -1144,7 +1093,7 @@ for.body:                                         ; preds = %if.then10, %for.bod
 
 if.end16:                                         ; preds = %for.body, %if.end6.if.end16_crit_edge
   %wide.trip.count41.pre-phi = phi i64 [ %.pre43, %if.end6.if.end16_crit_edge ], [ %wide.trip.count, %for.body ]
-  %eistate32 = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 6
+  %eistate32 = getelementptr inbounds i8, ptr %imsic, i64 1128
   %not = xor i32 %cond, -1
   br label %for.body19
 
@@ -1181,7 +1130,7 @@ for.inc44:                                        ; preds = %if.then28, %if.end2
   br i1 %exitcond42.not, label %for.end46, label %for.body19, !llvm.loop !10
 
 for.end46:                                        ; preds = %for.inc44
-  %eidelivery.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 4
+  %eidelivery.i = getelementptr inbounds i8, ptr %imsic, i64 1112
   %9 = load ptr, ptr %eidelivery.i, align 8
   %idxprom.i = zext i32 %page to i64
   %arrayidx.i = getelementptr i32, ptr %9, i64 %idxprom.i
@@ -1193,7 +1142,7 @@ land.lhs.true.i:                                  ; preds = %for.end46
   %11 = load i32, ptr %num_irqs, align 4
   %12 = freeze i32 %11
   %mul.i.i = mul i32 %12, %page
-  %eithreshold.i.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 5
+  %eithreshold.i.i = getelementptr inbounds i8, ptr %imsic, i64 1120
   %13 = load ptr, ptr %eithreshold.i.i, align 16
   %arrayidx.i.i = getelementptr i32, ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i.i, align 4
@@ -1235,7 +1184,7 @@ if.else.i:                                        ; preds = %for.inc.i.i, %riscv
 
 riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
   %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
-  %external_irqs4.i = getelementptr inbounds %struct.RISCVIMSICState, ptr %imsic, i64 0, i32 1
+  %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %19 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %19, i64 %idxprom.i
   %20 = load ptr, ptr %arrayidx6.i, align 8

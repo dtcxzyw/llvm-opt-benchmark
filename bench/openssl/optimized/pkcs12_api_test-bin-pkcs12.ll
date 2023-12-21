@@ -3,16 +3,6 @@ source_filename = "bench/openssl/original/pkcs12_api_test-bin-pkcs12.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pkcs12_builder = type { ptr, i32, ptr, ptr, i32, ptr, i32 }
-%struct.pkcs12_enc = type { i32, ptr, i32 }
-%struct.pkcs12_attr = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon.0, %struct.PKCS7_CTX_st }
-%union.anon.0 = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-
 @write_files = internal unnamed_addr global i32 0, align 4
 @legacy = internal unnamed_addr global i32 0, align 4
 @test_ctx = internal unnamed_addr global ptr null, align 8
@@ -111,7 +101,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %filename, ptr %call, align 8
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %call, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %success, align 8
   br label %return
 
@@ -127,7 +117,7 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @end_pkcs12_builder(ptr noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   tail call void @CRYPTO_free(ptr noundef %pb, ptr noundef nonnull @.str, i32 noundef 118) #6
   ret i32 %0
@@ -138,7 +128,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @start_pkcs12(ptr nocapture noundef writeonly %pb) local_unnamed_addr #3 {
 entry:
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   store ptr null, ptr %safes, align 8
   ret void
 }
@@ -146,7 +136,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_pkcs12(ptr nocapture noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -162,7 +152,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @generate_p12(ptr nocapture noundef %pb, ptr noundef readonly %mac) unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -170,7 +160,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @BIO_s_mem() #6
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #6
-  %p12bio = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 2
+  %p12bio = getelementptr inbounds i8, ptr %pb, i64 16
   store ptr %call1, ptr %p12bio, align 8
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @.str.31, ptr noundef %call1) #6
   %tobool4.not = icmp eq i32 %call3, 0
@@ -183,7 +173,7 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   %1 = load i32, ptr @legacy, align 4
   %tobool8.not = icmp eq i32 %1, 0
-  %safes11 = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes11 = getelementptr inbounds i8, ptr %pb, i64 24
   %2 = load ptr, ptr %safes11, align 8
   br i1 %tobool8.not, label %if.else, label %if.then9
 
@@ -208,7 +198,7 @@ err.thread:                                       ; preds = %if.end13
   br label %if.end53
 
 if.end18:                                         ; preds = %if.end13
-  %safes19 = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes19 = getelementptr inbounds i8, ptr %pb, i64 24
   %5 = load ptr, ptr %safes19, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @PKCS7_free) #6
   %cmp.not = icmp eq ptr %mac, null
@@ -235,11 +225,11 @@ if.else27:                                        ; preds = %if.then22
 
 if.end31:                                         ; preds = %if.else27, %if.then24
   %md.0 = phi ptr [ %call26, %if.then24 ], [ %call30, %if.else27 ]
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %mac, i64 8
   %11 = load ptr, ptr %pass, align 8
   %call33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #7
   %conv = trunc i64 %call33 to i32
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %mac, i64 16
   %12 = load i32, ptr %iter, align 8
   %call34 = tail call i32 @PKCS12_set_mac(ptr noundef %p12.0, ptr noundef %11, i32 noundef %conv, ptr noundef null, i32 noundef 0, i32 noundef %12, ptr noundef %md.0) #6
   %cmp35 = icmp ne i32 %call34, 0
@@ -298,7 +288,7 @@ return:                                           ; preds = %entry, %if.end53, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_pkcs12_with_mac(ptr nocapture noundef %pb, ptr noundef %mac) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -314,7 +304,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @start_contentinfo(ptr nocapture noundef writeonly %pb) local_unnamed_addr #3 {
 entry:
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   store ptr null, ptr %bags, align 8
   ret void
 }
@@ -322,19 +312,19 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_contentinfo(ptr noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %1 = load ptr, ptr %bags, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   %call = tail call i32 @PKCS12_add_safe(ptr noundef nonnull %safes, ptr noundef nonnull %1, i32 noundef -1, i32 noundef 0, ptr noundef null) #6
   %cmp2 = icmp ne i32 %call, 0
   %conv = zext i1 %cmp2 to i32
@@ -347,7 +337,7 @@ if.then5:                                         ; preds = %if.then
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then5, %land.lhs.true, %entry
-  %bags8 = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags8 = getelementptr inbounds i8, ptr %pb, i64 40
   %2 = load ptr, ptr %bags8, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @PKCS12_SAFEBAG_free) #6
   store ptr null, ptr %bags8, align 8
@@ -365,13 +355,13 @@ declare void @PKCS12_SAFEBAG_free(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_contentinfo_encrypted(ptr noundef %pb, ptr nocapture noundef readonly %enc) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end23, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %1 = load ptr, ptr %bags, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end23, label %if.then
@@ -379,11 +369,11 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %2 = load i32, ptr @legacy, align 4
   %tobool1.not = icmp eq i32 %2, 0
-  %safes9 = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes9 = getelementptr inbounds i8, ptr %pb, i64 24
   %3 = load i32, ptr %enc, align 8
-  %iter12 = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %iter12 = getelementptr inbounds i8, ptr %enc, i64 16
   %4 = load i32, ptr %iter12, align 8
-  %pass13 = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass13 = getelementptr inbounds i8, ptr %enc, i64 8
   %5 = load ptr, ptr %pass13, align 8
   br i1 %tobool1.not, label %if.else, label %if.then2
 
@@ -410,7 +400,7 @@ if.end23.sink.split:                              ; preds = %if.else, %if.then2
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end23.sink.split, %if.then2, %if.else, %land.lhs.true, %entry
-  %bags24 = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags24 = getelementptr inbounds i8, ptr %pb, i64 40
   %8 = load ptr, ptr %bags24, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %8, ptr noundef nonnull @PKCS12_SAFEBAG_free) #6
   store ptr null, ptr %bags24, align 8
@@ -423,7 +413,7 @@ declare i32 @PKCS12_add_safe_ex(ptr noundef, ptr noundef, i32 noundef, i32 nound
 define dso_local void @add_certbag(ptr noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr noundef %attrs) local_unnamed_addr #1 {
 entry:
   %bytes.addr.i = alloca ptr, align 8
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -448,7 +438,7 @@ if.end5:                                          ; preds = %if.end
   %call7 = call ptr @X509_NAME_oneline(ptr noundef %call6, ptr noundef null, i32 noundef 0) #6
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 400, ptr noundef nonnull @.str.6, ptr noundef %call7) #6
   call void @CRYPTO_free(ptr noundef %call7, ptr noundef nonnull @.str, i32 noundef 401) #6
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %call8 = call ptr @PKCS12_add_cert(ptr noundef nonnull %bags, ptr noundef %call.i) #6
   %call9 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 404, ptr noundef nonnull @.str.7, ptr noundef %call8) #6
   %tobool10.not = icmp eq i32 %call9, 0
@@ -496,7 +486,7 @@ while.cond.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.cond.preheader, %if.end50
   %1 = phi ptr [ %10, %if.end50 ], [ %0, %while.cond.preheader ]
   %p_attr.022 = phi ptr [ %incdec.ptr, %if.end50 ], [ %attr, %while.cond.preheader ]
-  %value = getelementptr inbounds %struct.pkcs12_attr, ptr %p_attr.022, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %p_attr.022, i64 8
   %2 = load ptr, ptr %value, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @.str.36, ptr noundef nonnull %1, ptr noundef %2) #6
   %3 = load ptr, ptr %p_attr.022, align 8
@@ -552,7 +542,7 @@ if.else35:                                        ; preds = %while.body
   br i1 %tobool45.not, label %return, label %if.end50
 
 if.end50:                                         ; preds = %if.then14, %if.else35, %if.then29, %if.then5
-  %incdec.ptr = getelementptr inbounds %struct.pkcs12_attr, ptr %p_attr.022, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p_attr.022, i64 16
   %10 = load ptr, ptr %incdec.ptr, align 8
   %cmp1.not = icmp eq ptr %10, null
   br i1 %cmp1.not, label %return, label %while.body, !llvm.loop !6
@@ -568,7 +558,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @add_keybag(ptr noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr noundef %attrs, ptr nocapture noundef readonly %enc) local_unnamed_addr #1 {
 entry:
   %bytes.addr.i = alloca ptr, align 8
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -592,11 +582,11 @@ if.then3:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %1 = load i32, ptr @legacy, align 4
   %tobool6.not = icmp eq i32 %1, 0
-  %bags9 = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
-  %iter10 = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %bags9 = getelementptr inbounds i8, ptr %pb, i64 40
+  %iter10 = getelementptr inbounds i8, ptr %enc, i64 16
   %2 = load i32, ptr %iter10, align 8
   %3 = load i32, ptr %enc, align 8
-  %pass12 = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass12 = getelementptr inbounds i8, ptr %enc, i64 8
   %4 = load ptr, ptr %pass12, align 8
   br i1 %tobool6.not, label %if.else, label %if.then7
 
@@ -642,14 +632,14 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_secretbag(ptr noundef %pb, i32 noundef %secret_nid, ptr noundef %secret, ptr noundef %attrs) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end11, label %if.end
 
 if.end:                                           ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 457, ptr noundef nonnull @.str.11, ptr noundef %secret) #6
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %secret) #7
   %conv = trunc i64 %call to i32
   %call1 = tail call ptr @PKCS12_add_secret(ptr noundef nonnull %bags, i32 noundef %secret_nid, ptr noundef %secret, i32 noundef %conv) #6
@@ -679,15 +669,15 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 define dso_local void @check_certbag(ptr nocapture noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr nocapture noundef readonly %attrs) local_unnamed_addr #1 {
 entry:
   %bytes.addr.i = alloca ptr, align 8
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %1 = load ptr, ptr %bags, align 8
-  %bag_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 6
+  %bag_idx = getelementptr inbounds i8, ptr %pb, i64 48
   %2 = load i32, ptr %bag_idx, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %bag_idx, align 8
@@ -795,7 +785,7 @@ for.cond14.preheader:                             ; preds = %if.then
   br i1 %cmp1618, label %for.body17.lr.ph, label %for.inc26
 
 for.body17.lr.ph:                                 ; preds = %for.cond14.preheader
-  %value = getelementptr inbounds %struct.pkcs12_attr, ptr %p_attr.016, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %p_attr.016, i64 8
   br label %for.body17
 
 for.cond14:                                       ; preds = %for.body17
@@ -814,7 +804,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   br i1 %tobool22.not, label %err, label %for.cond14
 
 if.end25:                                         ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %struct.pkcs12_attr, ptr %p_attr.016, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p_attr.016, i64 16
   %3 = load ptr, ptr %incdec.ptr, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %for.inc26, label %while.body, !llvm.loop !9
@@ -848,15 +838,15 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @check_keybag(ptr nocapture noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr nocapture noundef readonly %attrs, ptr nocapture noundef readonly %enc) local_unnamed_addr #1 {
 entry:
   %bytes.addr.i = alloca ptr, align 8
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %1 = load ptr, ptr %bags, align 8
-  %bag_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 6
+  %bag_idx = getelementptr inbounds i8, ptr %pb, i64 48
   %2 = load i32, ptr %bag_idx, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %bag_idx, align 8
@@ -896,7 +886,7 @@ sw.bb:                                            ; preds = %if.end12
 sw.bb21:                                          ; preds = %if.end12
   %3 = load i32, ptr @legacy, align 4
   %tobool22.not = icmp eq i32 %3, 0
-  %pass27 = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass27 = getelementptr inbounds i8, ptr %enc, i64 8
   %4 = load ptr, ptr %pass27, align 8
   %call29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %conv30 = trunc i64 %call29 to i32
@@ -972,15 +962,15 @@ declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @check_secretbag(ptr nocapture noundef %pb, i32 noundef %secret_nid, ptr noundef %secret, ptr nocapture noundef readonly %attrs) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end24, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %1 = load ptr, ptr %bags, align 8
-  %bag_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 6
+  %bag_idx = getelementptr inbounds i8, ptr %pb, i64 48
   %2 = load i32, ptr %bag_idx, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %bag_idx, align 8
@@ -1038,9 +1028,9 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %value1 = getelementptr inbounds %struct.asn1_type_st, ptr %av, i64 0, i32 1
+  %value1 = getelementptr inbounds i8, ptr %av, i64 8
   %1 = load ptr, ptr %value1, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %1, align 8
   %call3 = tail call ptr @OPENSSL_uni2asc(ptr noundef %2, i32 noundef %3) #6
@@ -1050,9 +1040,9 @@ sw.bb:                                            ; preds = %if.end
 
 sw.bb8:                                           ; preds = %if.end
   %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %txt) #7
-  %value10 = getelementptr inbounds %struct.asn1_type_st, ptr %av, i64 0, i32 1
+  %value10 = getelementptr inbounds i8, ptr %av, i64 8
   %4 = load ptr, ptr %value10, align 8
-  %data11 = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data11 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data11, align 8
   %6 = load i32, ptr %4, align 8
   %conv = sext i32 %6 to i64
@@ -1062,9 +1052,9 @@ sw.bb8:                                           ; preds = %if.end
 
 sw.bb18:                                          ; preds = %if.end
   %call19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %txt) #7
-  %value20 = getelementptr inbounds %struct.asn1_type_st, ptr %av, i64 0, i32 1
+  %value20 = getelementptr inbounds i8, ptr %av, i64 8
   %7 = load ptr, ptr %value20, align 8
-  %data21 = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 2
+  %data21 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data21, align 8
   %9 = load i32, ptr %7, align 8
   %conv24 = sext i32 %9 to i64
@@ -1088,13 +1078,13 @@ declare ptr @PKCS12_SAFEBAG_get0_bag_obj(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_check_pkcs12(ptr nocapture noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %p12bio = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 2
+  %p12bio = getelementptr inbounds i8, ptr %pb, i64 16
   %1 = load ptr, ptr %p12bio, align 8
   %call = tail call fastcc ptr @from_bio_p12(ptr noundef %1, ptr noundef null)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 676, ptr noundef nonnull @.str.25, ptr noundef %call) #6
@@ -1107,7 +1097,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @PKCS12_unpack_authsafes(ptr noundef %call) #6
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   store ptr %call6, ptr %safes, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 681, ptr noundef nonnull @.str.26, ptr noundef %call6) #6
   %tobool9.not = icmp eq i32 %call8, 0
@@ -1118,7 +1108,7 @@ if.then10:                                        ; preds = %if.end5
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end5
-  %safe_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 4
+  %safe_idx = getelementptr inbounds i8, ptr %pb, i64 32
   store i32 0, ptr %safe_idx, align 8
   tail call void @PKCS12_free(ptr noundef %call) #6
   br label %return
@@ -1173,7 +1163,7 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool.not.i, label %err, label %check_p12_mac.exit
 
 check_p12_mac.exit:                               ; preds = %if.else
-  %pass.i = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 1
+  %pass.i = getelementptr inbounds i8, ptr %mac, i64 8
   %5 = load ptr, ptr %pass.i, align 8
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #7
   %conv4.i = trunc i64 %call3.i to i32
@@ -1205,13 +1195,13 @@ declare void @PKCS12_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_check_pkcs12_with_mac(ptr nocapture noundef %pb, ptr noundef %mac) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %p12bio = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 2
+  %p12bio = getelementptr inbounds i8, ptr %pb, i64 16
   %1 = load ptr, ptr %p12bio, align 8
   %call = tail call fastcc ptr @from_bio_p12(ptr noundef %1, ptr noundef %mac)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 696, ptr noundef nonnull @.str.25, ptr noundef %call) #6
@@ -1224,7 +1214,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @PKCS12_unpack_authsafes(ptr noundef %call) #6
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   store ptr %call6, ptr %safes, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 701, ptr noundef nonnull @.str.26, ptr noundef %call6) #6
   %tobool9.not = icmp eq i32 %call8, 0
@@ -1235,7 +1225,7 @@ if.then10:                                        ; preds = %if.end5
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end5
-  %safe_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 4
+  %safe_idx = getelementptr inbounds i8, ptr %pb, i64 32
   store i32 0, ptr %safe_idx, align 8
   tail call void @PKCS12_free(ptr noundef %call) #6
   br label %return
@@ -1247,7 +1237,7 @@ return:                                           ; preds = %entry, %if.end12, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_check_pkcs12_file(ptr nocapture noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1265,7 +1255,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @PKCS12_unpack_authsafes(ptr noundef %call) #6
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   store ptr %call6, ptr %safes, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 721, ptr noundef nonnull @.str.26, ptr noundef %call6) #6
   %tobool9.not = icmp eq i32 %call8, 0
@@ -1276,7 +1266,7 @@ if.then10:                                        ; preds = %if.end5
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end5
-  %safe_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 4
+  %safe_idx = getelementptr inbounds i8, ptr %pb, i64 32
   store i32 0, ptr %safe_idx, align 8
   tail call void @PKCS12_free(ptr noundef %call) #6
   br label %return
@@ -1317,7 +1307,7 @@ if.else:                                          ; preds = %if.end5
   br i1 %tobool.not.i, label %err, label %check_p12_mac.exit
 
 check_p12_mac.exit:                               ; preds = %if.else
-  %pass.i = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 1
+  %pass.i = getelementptr inbounds i8, ptr %mac, i64 8
   %0 = load ptr, ptr %pass.i, align 8
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %conv4.i = trunc i64 %call3.i to i32
@@ -1341,7 +1331,7 @@ return:                                           ; preds = %if.then7, %check_p1
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_check_pkcs12_file_with_mac(ptr nocapture noundef %pb, ptr noundef %mac) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1359,7 +1349,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @PKCS12_unpack_authsafes(ptr noundef %call) #6
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   store ptr %call6, ptr %safes, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 741, ptr noundef nonnull @.str.26, ptr noundef %call6) #6
   %tobool9.not = icmp eq i32 %call8, 0
@@ -1370,7 +1360,7 @@ if.then10:                                        ; preds = %if.end5
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end5
-  %safe_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 4
+  %safe_idx = getelementptr inbounds i8, ptr %pb, i64 32
   store i32 0, ptr %safe_idx, align 8
   tail call void @PKCS12_free(ptr noundef %call) #6
   br label %return
@@ -1382,13 +1372,13 @@ return:                                           ; preds = %entry, %if.end12, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_check_pkcs12(ptr nocapture noundef readonly %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   %1 = load ptr, ptr %safes, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @PKCS7_free) #6
   br label %return
@@ -1402,22 +1392,22 @@ declare void @PKCS7_free(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_check_contentinfo(ptr nocapture noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bag_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 6
+  %bag_idx = getelementptr inbounds i8, ptr %pb, i64 48
   store i32 0, ptr %bag_idx, align 8
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   %1 = load ptr, ptr %safes, align 8
-  %safe_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 4
+  %safe_idx = getelementptr inbounds i8, ptr %pb, i64 32
   %2 = load i32, ptr %safe_idx, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %safe_idx, align 8
   %call = tail call fastcc ptr @decode_contentinfo(ptr noundef %1, i32 noundef %2, ptr noundef null)
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   store ptr %call, ptr %bags, align 8
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 764, ptr noundef nonnull @.str.27, ptr noundef %call) #6
   %tobool3.not = icmp eq i32 %call2, 0
@@ -1446,7 +1436,7 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %call1, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %call1, i64 24
   %0 = load ptr, ptr %type, align 8
   %call3 = tail call i32 @OBJ_obj2nid(ptr noundef %0) #6
   %tobool4.not = icmp eq ptr %enc, null
@@ -1458,7 +1448,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool7.not, label %err, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %enc, i64 8
   %1 = load ptr, ptr %pass, align 8
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %conv = trunc i64 %call11 to i32
@@ -1493,22 +1483,22 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_check_contentinfo_encrypted(ptr nocapture noundef %pb, ptr noundef %enc) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bag_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 6
+  %bag_idx = getelementptr inbounds i8, ptr %pb, i64 48
   store i32 0, ptr %bag_idx, align 8
-  %safes = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 3
+  %safes = getelementptr inbounds i8, ptr %pb, i64 24
   %1 = load ptr, ptr %safes, align 8
-  %safe_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 4
+  %safe_idx = getelementptr inbounds i8, ptr %pb, i64 32
   %2 = load i32, ptr %safe_idx, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %safe_idx, align 8
   %call = tail call fastcc ptr @decode_contentinfo(ptr noundef %1, i32 noundef %2, ptr noundef %enc)
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   store ptr %call, ptr %bags, align 8
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 778, ptr noundef nonnull @.str.27, ptr noundef %call) #6
   %tobool3.not = icmp eq i32 %call2, 0
@@ -1531,16 +1521,16 @@ return:                                           ; preds = %entry, %if.end6, %i
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_check_contentinfo(ptr nocapture noundef %pb) local_unnamed_addr #1 {
 entry:
-  %success = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 1
+  %success = getelementptr inbounds i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %pb, i64 40
   %1 = load ptr, ptr %bags, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
-  %bag_idx = getelementptr inbounds %struct.pkcs12_builder, ptr %pb, i64 0, i32 6
+  %bag_idx = getelementptr inbounds i8, ptr %pb, i64 48
   %2 = load i32, ptr %bag_idx, align 8
   %call2 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 791, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef %call1, i32 noundef %2) #6
   %tobool3.not = icmp eq i32 %call2, 0

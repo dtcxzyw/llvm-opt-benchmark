@@ -19,61 +19,32 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct._socket_state = type { ptr, ptr, ptr, i64, i32, i32 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
 %union.sock_addr = type { %struct.sockaddr_storage }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.hostent = type { ptr, ptr, i32, i32, ptr }
+%struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
+%struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct.if_nameindex = type { i32, ptr }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.0 }
 %union.anon.0 = type { [4 x i32] }
-%struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.servent = type { ptr, ptr, i32, ptr }
-%struct.protoent = type { ptr, ptr, i32 }
-%struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.if_nameindex = type { i32, ptr }
-%struct.PySocketSockObject = type { %struct._object, i32, i32, i32, i32, ptr, i64, ptr }
 %struct.ifreq = type { %union.anon.5, %union.anon.6 }
 %union.anon.5 = type { [16 x i8] }
 %union.anon.6 = type { %struct.ifmap }
 %struct.ifmap = type { i64, i64, i16, i8, i8, i8 }
-%struct.sockaddr_un = type { i16, [108 x i8] }
-%struct.sockaddr_nl = type { i16, i16, i32, i32 }
-%struct.sockaddr_qrtr = type { i16, i32, i32 }
-%struct.sockaddr_vm = type { i16, i16, i32, i32, i8, [3 x i8] }
-%struct.sockaddr_l2 = type { i16, i16, %struct.bdaddr_t, i16, i8 }
-%struct.bdaddr_t = type { [6 x i8] }
-%struct.sockaddr_rc = type { i16, %struct.bdaddr_t, i8 }
-%struct.sockaddr_hci = type { i16, i16, i16 }
-%struct.sockaddr_sco = type { i16, %struct.bdaddr_t }
-%struct.sockaddr_ll = type { i16, i16, i32, i16, i8, i8, [8 x i8] }
-%struct.sockaddr_tipc = type { i16, i8, i8, %union.anon.3 }
-%union.anon.3 = type { %struct.tipc_service_range }
-%struct.tipc_service_range = type { i32, i32, i32 }
-%struct.sockaddr_can = type { i16, i32, %union.anon.1 }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i32, i8 }
-%struct.sockaddr_alg = type { i16, [14 x i8], i32, i32, [64 x i8] }
-%struct.sockaddr = type { i16, [14 x i8] }
-%struct.PySocketModule_APIObject = type { ptr, ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 %struct.sock_accept = type { ptr, ptr, i32 }
 %struct.sock_recv = type { ptr, i64, i32, i64 }
 %struct.sock_recvfrom = type { ptr, i64, i32, ptr, ptr, i64 }
 %struct.sock_send = type { ptr, i64, i32, i64 }
 %struct.sock_sendto = type { ptr, i64, i32, i32, ptr, i64 }
 %struct.iovec = type { ptr, i64 }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %struct.sock_sendmsg = type { ptr, i32, i64 }
 %struct.cmsginfo = type { i32, i32, %struct.Py_buffer }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.maybe_idna = type { ptr, ptr }
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon.7 }
-%struct.anon.7 = type { i32 }
 %struct.sock_recvmsg = type { ptr, i32, i64 }
 
 @socketmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @socket_doc, i64 40, ptr @socket_methods, ptr @socket_slots, ptr @socket_traverse, ptr @socket_clear, ptr @socket_free }, align 8
@@ -846,7 +817,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %socket_herror = getelementptr inbounds %struct._socket_state, ptr %mod.val, i64 0, i32 1
+  %socket_herror = getelementptr inbounds i8, ptr %mod.val, i64 8
   %2 = load ptr, ptr %socket_herror, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -857,7 +828,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %socket_gaierror = getelementptr inbounds %struct._socket_state, ptr %mod.val, i64 0, i32 2
+  %socket_gaierror = getelementptr inbounds i8, ptr %mod.val, i64 16
   %3 = load ptr, ptr %socket_gaierror, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -902,7 +873,7 @@ if.then1.i30:                                     ; preds = %if.end.i27
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i27, %if.then1.i30, %if.then, %entry
-  %socket_herror = getelementptr inbounds %struct._socket_state, ptr %mod.val, i64 0, i32 1
+  %socket_herror = getelementptr inbounds i8, ptr %mod.val, i64 8
   %4 = load ptr, ptr %socket_herror, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -925,7 +896,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i18, %if.then1.i21, %if.then5, %do.body1
-  %socket_gaierror = getelementptr inbounds %struct._socket_state, ptr %mod.val, i64 0, i32 2
+  %socket_gaierror = getelementptr inbounds i8, ptr %mod.val, i64 16
   %7 = load ptr, ptr %socket_gaierror, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.end14, label %if.then12
@@ -983,7 +954,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrbuf, i64 0, i32 2
+  %sin_addr.i = getelementptr inbounds i8, ptr %addrbuf, i64 4
   %call.i = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr.i, ptr noundef nonnull %buf.i, i32 noundef 16) #12
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1091,16 +1062,11 @@ if.end8:                                          ; preds = %if.end3
   %2 = load i16, ptr %addr, align 8
   %conv = zext i16 %2 to i32
   switch i16 %2, label %sw.default [
-    i16 2, label %sw.bb
+    i16 2, label %sw.epilog
     i16 10, label %sw.bb9
   ]
 
-sw.bb:                                            ; preds = %if.end8
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 2
-  br label %sw.epilog
-
 sw.bb9:                                           ; preds = %if.end8
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end8
@@ -1108,11 +1074,12 @@ sw.default:                                       ; preds = %if.end8
   call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.34) #12
   br label %finally
 
-sw.epilog:                                        ; preds = %sw.bb9, %sw.bb
-  %ap.0 = phi ptr [ %sin6_addr, %sw.bb9 ], [ %sin_addr, %sw.bb ]
-  %al.0 = phi i32 [ 16, %sw.bb9 ], [ 4, %sw.bb ]
+sw.epilog:                                        ; preds = %if.end8, %sw.bb9
+  %.sink = phi i64 [ 8, %sw.bb9 ], [ 4, %if.end8 ]
+  %al.0 = phi i32 [ 16, %sw.bb9 ], [ 4, %if.end8 ]
+  %sin6_addr = getelementptr inbounds i8, ptr %addr, i64 %.sink
   %call10 = call ptr @PyEval_SaveThread() #12
-  %call12 = call i32 @gethostbyaddr_r(ptr noundef nonnull %ap.0, i32 noundef %al.0, i32 noundef %conv, ptr noundef nonnull %hp_allocated, ptr noundef nonnull %buf, i64 noundef 16383, ptr noundef nonnull %h, ptr noundef nonnull %errnop) #12
+  %call12 = call i32 @gethostbyaddr_r(ptr noundef nonnull %sin6_addr, i32 noundef %al.0, i32 noundef %conv, ptr noundef nonnull %hp_allocated, ptr noundef nonnull %buf, i64 noundef 16383, ptr noundef nonnull %h, ptr noundef nonnull %errnop) #12
   call void @PyEval_RestoreThread(ptr noundef %call10) #12
   %4 = load ptr, ptr %h, align 8
   %call13 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %4, ptr noundef nonnull %addr, i32 noundef %conv)
@@ -1150,7 +1117,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 1023
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 1023
   store i8 0, ptr %arrayidx, align 1
   %call8 = call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %buf) #12
   br label %return
@@ -1189,7 +1156,7 @@ if.end7:                                          ; preds = %if.end4
 
 if.then10:                                        ; preds = %if.end7
   %2 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %buf, i64 16
   %3 = load i64, ptr %len, align 8
   %call12 = call i32 @sethostname(ptr noundef %2, i64 noundef %3) #12
   call void @PyBuffer_Release(ptr noundef nonnull %buf) #12
@@ -1262,7 +1229,7 @@ if.then7:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %s_port = getelementptr inbounds %struct.servent, ptr %call5, i64 0, i32 2
+  %s_port = getelementptr inbounds i8, ptr %call5, i64 16
   %5 = load i32, ptr %s_port, align 8
   %conv = trunc i32 %5 to i16
   %call9 = call zeroext i16 @ntohs(i16 noundef zeroext %conv) #13
@@ -1350,7 +1317,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %p_proto = getelementptr inbounds %struct.protoent, ptr %call2, i64 0, i32 2
+  %p_proto = getelementptr inbounds i8, ptr %call2, i64 16
   %2 = load i32, ptr %p_proto, align 8
   %conv = sext i32 %2 to i64
   %call5 = call ptr @PyLong_FromLong(i64 noundef %conv) #12
@@ -1441,7 +1408,7 @@ entry:
   store i32 0, ptr %proto, align 4
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
-  %sock_cloexec_works = getelementptr inbounds %struct._socket_state, ptr %self.val, i64 0, i32 5
+  %sock_cloexec_works = getelementptr inbounds i8, ptr %self.val, i64 36
   store i32 1, ptr %family, align 4
   %call1 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.61, ptr noundef nonnull %family, ptr noundef nonnull %type, ptr noundef nonnull %proto) #12
   %tobool.not = icmp eq i32 %call1, 0
@@ -1513,7 +1480,7 @@ if.end28:                                         ; preds = %if.end24.thread26, 
   br i1 %cmp30, label %Py_XDECREF.exit.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %arrayidx33 = getelementptr inbounds [2 x i32], ptr %sv, i64 0, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %sv, i64 4
   %13 = load i32, ptr %arrayidx33, align 4
   %call34 = call i32 @_Py_set_inheritable(i32 noundef %13, i32 noundef 0, ptr noundef nonnull %sock_cloexec_works) #12
   %cmp35 = icmp slt i32 %call34, 0
@@ -1544,7 +1511,7 @@ finally:                                          ; preds = %if.end42
 Py_XDECREF.exit.thread:                           ; preds = %if.end37, %if.end32, %if.end28
   %22 = load i32, ptr %sv, align 4
   %call54 = call i32 @close(i32 noundef %22) #12
-  %arrayidx5868 = getelementptr inbounds [2 x i32], ptr %sv, i64 0, i64 1
+  %arrayidx5868 = getelementptr inbounds i8, ptr %sv, i64 4
   %23 = load i32, ptr %arrayidx5868, align 4
   %call5969 = call i32 @close(i32 noundef %23) #12
   br label %return
@@ -1681,7 +1648,7 @@ if.end9:                                          ; preds = %if.end
 
 if.else:                                          ; preds = %entry
   %4 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %arg.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %arg.val, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef %5) #12
   br label %return
@@ -1777,7 +1744,7 @@ if.end9:                                          ; preds = %if.end
 
 if.else:                                          ; preds = %entry
   %4 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %arg.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %arg.val, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef %5) #12
   br label %return
@@ -1855,7 +1822,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %exit
 
 if.end:                                           ; preds = %entry
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %packed_ip, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %packed_ip, i64 16
   %0 = load i64, ptr %len.i, align 8
   %cmp.not.i = icmp eq i64 %0, 4
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1876,7 +1843,7 @@ if.end.i:                                         ; preds = %if.end
 
 exit:                                             ; preds = %if.end.i, %if.then.i, %entry
   %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then.i ], [ %call2.i, %if.end.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %packed_ip, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %packed_ip, i64 8
   %4 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -1963,7 +1930,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then2:                                         ; preds = %if.end
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %packed_ip, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %packed_ip, i64 16
   %1 = load i64, ptr %len, align 8
   %cmp3.not = icmp eq i64 %1, 4
   br i1 %cmp3.not, label %if.end15, label %if.then4
@@ -1975,7 +1942,7 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 if.then7:                                         ; preds = %if.end
-  %len8 = getelementptr inbounds %struct.Py_buffer, ptr %packed_ip, i64 0, i32 2
+  %len8 = getelementptr inbounds i8, ptr %packed_ip, i64 16
   %3 = load i64, ptr %len8, align 8
   %cmp9.not = icmp eq i64 %3, 16
   br i1 %cmp9.not, label %if.end15, label %if.then10
@@ -2056,7 +2023,7 @@ if.then5:                                         ; preds = %if.else
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call6, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call6, i64 32
   br label %if.end20
 
 if.else11:                                        ; preds = %if.else
@@ -2110,7 +2077,7 @@ if.else41:                                        ; preds = %if.else32
   br i1 %tobool44.not, label %if.else47, label %if.then45
 
 if.then45:                                        ; preds = %if.else41
-  %ob_sval.i51 = getelementptr inbounds %struct.PyBytesObject, ptr %6, i64 0, i32 2
+  %ob_sval.i51 = getelementptr inbounds i8, ptr %6, i64 32
   br label %if.end54
 
 if.else47:                                        ; preds = %if.else41
@@ -2138,13 +2105,13 @@ if.end58:                                         ; preds = %if.end54
   %17 = getelementptr inbounds i8, ptr %hints, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 32, i1 false)
   %18 = load i32, ptr %family, align 4
-  %ai_family = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %hints, i64 4
   store i32 %18, ptr %ai_family, align 4
   %19 = load i32, ptr %socktype, align 4
-  %ai_socktype = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %hints, i64 8
   store i32 %19, ptr %ai_socktype, align 8
   %20 = load i32, ptr %protocol, align 4
-  %ai_protocol = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 3
+  %ai_protocol = getelementptr inbounds i8, ptr %hints, i64 12
   store i32 %20, ptr %ai_protocol, align 4
   %21 = load i32, ptr %flags, align 4
   store i32 %21, ptr %hints, align 8
@@ -2173,7 +2140,7 @@ if.end.i53:                                       ; preds = %if.then62
   br i1 %cmp3.not.i, label %Py_XDECREF.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i53
-  %socket_gaierror.i = getelementptr inbounds %struct._socket_state, ptr %self.val, i64 0, i32 2
+  %socket_gaierror.i = getelementptr inbounds i8, ptr %self.val, i64 16
   %24 = load ptr, ptr %socket_gaierror.i, align 8
   call void @PyErr_SetObject(ptr noundef %24, ptr noundef nonnull %call2.i) #12
   %25 = load i64, ptr %call2.i, align 8
@@ -2203,9 +2170,9 @@ for.cond.preheader:                               ; preds = %if.end65
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %res.084 = phi ptr [ %res.0, %for.inc ], [ %res.082, %for.cond.preheader ]
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %res.084, i64 24
   %27 = load ptr, ptr %ai_addr, align 8
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %res.084, i64 16
   %28 = load i32, ptr %ai_addrlen, align 8
   %conv = zext i32 %28 to i64
   %29 = load i32, ptr %protocol, align 4
@@ -2214,13 +2181,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp72, label %if.then.i54, label %if.end75
 
 if.end75:                                         ; preds = %for.body
-  %ai_family76 = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 1
+  %ai_family76 = getelementptr inbounds i8, ptr %res.084, i64 4
   %30 = load i32, ptr %ai_family76, align 4
-  %ai_socktype77 = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 2
+  %ai_socktype77 = getelementptr inbounds i8, ptr %res.084, i64 8
   %31 = load i32, ptr %ai_socktype77, align 8
-  %ai_protocol78 = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 3
+  %ai_protocol78 = getelementptr inbounds i8, ptr %res.084, i64 12
   %32 = load i32, ptr %ai_protocol78, align 4
-  %ai_canonname = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 6
+  %ai_canonname = getelementptr inbounds i8, ptr %res.084, i64 32
   %33 = load ptr, ptr %ai_canonname, align 8
   %tobool79.not = icmp eq ptr %33, null
   %spec.select = select i1 %tobool79.not, ptr @.str.90, ptr %33
@@ -2279,7 +2246,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end89
-  %ai_next = getelementptr inbounds %struct.addrinfo, ptr %res.084, i64 0, i32 7
+  %ai_next = getelementptr inbounds i8, ptr %res.084, i64 40
   %res.0 = load ptr, ptr %ai_next, align 8
   %tobool70.not = icmp eq ptr %res.0, null
   br i1 %tobool70.not, label %for.end, label %for.body, !llvm.loop !5
@@ -2427,7 +2394,7 @@ if.end11:                                         ; preds = %if.end9
 if.end15:                                         ; preds = %if.end11
   %8 = load i32, ptr %port, align 4
   %call16 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %pbuf, i64 noundef 32, ptr noundef nonnull @.str.110, i32 noundef %8) #12
-  %ai_socktype = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %hints, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
   store i32 2, ptr %ai_socktype, align 8
   store i32 4, ptr %hints, align 8
@@ -2457,7 +2424,7 @@ if.end.i:                                         ; preds = %if.then21
   br i1 %cmp3.not.i, label %fail, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %socket_gaierror.i = getelementptr inbounds %struct._socket_state, ptr %self.val, i64 0, i32 2
+  %socket_gaierror.i = getelementptr inbounds i8, ptr %self.val, i64 16
   %12 = load ptr, ptr %socket_gaierror.i, align 8
   call void @PyErr_SetObject(ptr noundef %12, ptr noundef nonnull %call2.i) #12
   %13 = load i64, ptr %call2.i, align 8
@@ -2477,7 +2444,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end24:                                         ; preds = %if.end15
   %15 = load ptr, ptr %res, align 8
-  %ai_next = getelementptr inbounds %struct.addrinfo, ptr %15, i64 0, i32 7
+  %ai_next = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %ai_next, align 8
   %tobool25.not = icmp eq ptr %16, null
   br i1 %tobool25.not, label %if.end27, label %if.then26
@@ -2488,7 +2455,7 @@ if.then26:                                        ; preds = %if.end24
   br label %fail
 
 if.end27:                                         ; preds = %if.end24
-  %ai_family28 = getelementptr inbounds %struct.addrinfo, ptr %15, i64 0, i32 1
+  %ai_family28 = getelementptr inbounds i8, ptr %15, i64 4
   %18 = load i32, ptr %ai_family28, align 4
   switch i32 %18, label %sw.epilog [
     i32 2, label %sw.bb
@@ -2508,23 +2475,23 @@ if.then31:                                        ; preds = %sw.bb
   br label %fail
 
 sw.bb33:                                          ; preds = %if.end27
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %15, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %15, i64 24
   %22 = load ptr, ptr %ai_addr, align 8
   %23 = load i32, ptr %flowinfo, align 4
   %call34 = call i32 @htonl(i32 noundef %23) #13
-  %sin6_flowinfo = getelementptr inbounds %struct.sockaddr_in6, ptr %22, i64 0, i32 2
+  %sin6_flowinfo = getelementptr inbounds i8, ptr %22, i64 4
   store i32 %call34, ptr %sin6_flowinfo, align 4
   %24 = load i32, ptr %scope_id, align 4
-  %sin6_scope_id = getelementptr inbounds %struct.sockaddr_in6, ptr %22, i64 0, i32 4
+  %sin6_scope_id = getelementptr inbounds i8, ptr %22, i64 24
   store i32 %24, ptr %sin6_scope_id, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb, %sw.bb33, %if.end27
   %call36 = call ptr @PyEval_SaveThread() #12
   %25 = load ptr, ptr %res, align 8
-  %ai_addr37 = getelementptr inbounds %struct.addrinfo, ptr %25, i64 0, i32 5
+  %ai_addr37 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %ai_addr37, align 8
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %25, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load i32, ptr %ai_addrlen, align 8
   %28 = load i32, ptr %flags, align 4
   %call40 = call i32 @getnameinfo(ptr noundef %26, i32 noundef %27, ptr noundef nonnull %hbuf, i32 noundef 1025, ptr noundef nonnull %pbuf, i32 noundef 32, i32 noundef %28) #12
@@ -2567,7 +2534,7 @@ define internal ptr @socket_getdefaulttimeout(ptr nocapture noundef readonly %se
 entry:
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
-  %defaulttimeout = getelementptr inbounds %struct._socket_state, ptr %self.val, i64 0, i32 3
+  %defaulttimeout = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load i64, ptr %defaulttimeout, align 8
   %cmp = icmp slt i64 %1, 0
   br i1 %cmp, label %return, label %if.else
@@ -2612,7 +2579,7 @@ if.end:                                           ; preds = %if.end4.i, %if.then
   %2 = phi i64 [ %0, %if.end4.i ], [ %call.i, %if.then.i ]
   %3 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %3, align 8
-  %defaulttimeout = getelementptr inbounds %struct._socket_state, ptr %self.val, i64 0, i32 3
+  %defaulttimeout = getelementptr inbounds i8, ptr %self.val, i64 24
   store i64 %2, ptr %defaulttimeout, align 8
   br label %return
 
@@ -2659,7 +2626,8 @@ if.then1.i34:                                     ; preds = %if.end.i31
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %4 = phi i32 [ %10, %for.inc ], [ %0, %for.cond.preheader ]
-  %if_name = getelementptr %struct.if_nameindex, ptr %call1, i64 %indvars.iv, i32 1
+  %arrayidx28 = phi ptr [ %arrayidx, %for.inc ], [ %call1, %for.cond.preheader ]
+  %if_name = getelementptr inbounds i8, ptr %arrayidx28, i64 8
   %5 = load ptr, ptr %if_name, align 8
   %call13 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.116, i32 noundef %4, ptr noundef nonnull @PyUnicode_DecodeFSDefault, ptr noundef %5) #12
   %cmp14 = icmp eq ptr %call13, null
@@ -2747,7 +2715,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %oname, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %0, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %call1.i = call i32 @if_nametoindex(ptr noundef nonnull %ob_sval.i.i) #12
   %conv.i = zext i32 %call1.i to i64
   %1 = load i64, ptr %0, align 8
@@ -2904,9 +2872,9 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %hints, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 40, i1 false)
-  %ai_family = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %hints, i64 4
   store i32 %af, ptr %ai_family, align 4
-  %ai_socktype = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %hints, i64 8
   store i32 2, ptr %ai_socktype, align 8
   store i32 1, ptr %hints, align 8
   %call = tail call ptr @PyEval_SaveThread() #12
@@ -2932,7 +2900,7 @@ if.end.i:                                         ; preds = %if.then3
   br i1 %cmp3.not.i, label %return, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %socket_gaierror.i = getelementptr inbounds %struct._socket_state, ptr %state, i64 0, i32 2
+  %socket_gaierror.i = getelementptr inbounds i8, ptr %state, i64 16
   %3 = load ptr, ptr %socket_gaierror.i, align 8
   call void @PyErr_SetObject(ptr noundef %3, ptr noundef nonnull %call2.i) #12
   %4 = load i64, ptr %call2.i, align 8
@@ -2952,7 +2920,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end:                                           ; preds = %if.then
   %6 = load ptr, ptr %res, align 8
-  %ai_family5 = getelementptr inbounds %struct.addrinfo, ptr %6, i64 0, i32 1
+  %ai_family5 = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %ai_family5, align 4
   switch i32 %7, label %sw.default [
     i32 2, label %sw.epilog
@@ -2970,7 +2938,7 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb6
   %siz.0 = phi i32 [ 16, %sw.bb6 ], [ 4, %if.end ]
-  %ai_next = getelementptr inbounds %struct.addrinfo, ptr %6, i64 0, i32 7
+  %ai_next = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %ai_next, align 8
   %tobool7.not = icmp eq ptr %9, null
   br i1 %tobool7.not, label %if.end9, label %if.then8
@@ -2982,11 +2950,11 @@ if.then8:                                         ; preds = %sw.epilog
   br label %return
 
 if.end9:                                          ; preds = %sw.epilog
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %6, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i32, ptr %ai_addrlen, align 8
   %conv10 = zext i32 %11 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %conv10, i64 %addr_ret_size)
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %6, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load ptr, ptr %ai_addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %addr_ret, ptr align 2 %12, i64 %spec.select, i1 false)
   call void @freeaddrinfo(ptr noundef nonnull %6) #12
@@ -3016,7 +2984,7 @@ if.end30:                                         ; preds = %if.then24
   %15 = getelementptr inbounds i8, ptr %addr_ret, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, i8 0, i64 14, i1 false)
   store i16 2, ptr %addr_ret, align 4
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %addr_ret, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %addr_ret, i64 4
   store i32 -1, ptr %sin_addr, align 4
   br label %return
 
@@ -3029,7 +2997,7 @@ if.end31:                                         ; preds = %lor.lhs.false
 
 if.then37:                                        ; preds = %if.end31, %if.end31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr_ret, i8 0, i64 16, i1 false)
-  %sin_addr39 = getelementptr inbounds %struct.sockaddr_in, ptr %addr_ret, i64 0, i32 2
+  %sin_addr39 = getelementptr inbounds i8, ptr %addr_ret, i64 4
   %call40 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %name, ptr noundef nonnull %sin_addr39) #12
   %cmp41 = icmp sgt i32 %call40, 0
   br i1 %cmp41, label %if.then43, label %if.end46
@@ -3049,7 +3017,7 @@ land.lhs.true52:                                  ; preds = %if.end46, %if.end31
 
 if.then55:                                        ; preds = %land.lhs.true52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %addr_ret, i8 0, i64 28, i1 false)
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %addr_ret, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %addr_ret, i64 8
   %call57 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %name, ptr noundef nonnull %sin6_addr) #12
   %cmp58 = icmp sgt i32 %call57, 0
   br i1 %cmp58, label %if.then60, label %if.end62
@@ -3060,7 +3028,7 @@ if.then60:                                        ; preds = %if.then55
 
 if.end62:                                         ; preds = %if.end46, %if.end31, %if.then55, %land.lhs.true52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
-  %ai_family63 = getelementptr inbounds %struct.addrinfo, ptr %hints, i64 0, i32 1
+  %ai_family63 = getelementptr inbounds i8, ptr %hints, i64 4
   store i32 %af, ptr %ai_family63, align 4
   %call65 = tail call ptr @PyEval_SaveThread() #12
   %call66 = call i32 @getaddrinfo(ptr noundef nonnull %name, ptr noundef null, ptr noundef nonnull %hints, ptr noundef nonnull %res) #12
@@ -3085,7 +3053,7 @@ if.end.i37:                                       ; preds = %if.then68
   br i1 %cmp3.not.i40, label %return, label %if.then4.i41
 
 if.then4.i41:                                     ; preds = %if.end.i37
-  %socket_gaierror.i42 = getelementptr inbounds %struct._socket_state, ptr %state, i64 0, i32 2
+  %socket_gaierror.i42 = getelementptr inbounds i8, ptr %state, i64 16
   %17 = load ptr, ptr %socket_gaierror.i42, align 8
   call void @PyErr_SetObject(ptr noundef %17, ptr noundef nonnull %call2.i39) #12
   %18 = load i64, ptr %call2.i39, align 8
@@ -3105,11 +3073,11 @@ if.then1.i.i48:                                   ; preds = %if.end.i.i45
 
 if.end70:                                         ; preds = %if.end62
   %20 = load ptr, ptr %res, align 8
-  %ai_addrlen71 = getelementptr inbounds %struct.addrinfo, ptr %20, i64 0, i32 4
+  %ai_addrlen71 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i32, ptr %ai_addrlen71, align 8
   %conv72 = zext i32 %21 to i64
   %spec.select35 = call i64 @llvm.umin.i64(i64 %conv72, i64 %addr_ret_size)
-  %ai_addr79 = getelementptr inbounds %struct.addrinfo, ptr %20, i64 0, i32 5
+  %ai_addr79 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %ai_addr79, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %addr_ret, ptr align 2 %22, i64 %spec.select35, i1 false)
   call void @freeaddrinfo(ptr noundef %20) #12
@@ -3161,7 +3129,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %socket_gaierror = getelementptr inbounds %struct._socket_state, ptr %state, i64 0, i32 2
+  %socket_gaierror = getelementptr inbounds i8, ptr %state, i64 16
   %1 = load ptr, ptr %socket_gaierror, align 8
   tail call void @PyErr_SetObject(ptr noundef %1, ptr noundef nonnull %call2) #12
   %2 = load i64, ptr %call2, align 8
@@ -3245,7 +3213,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %socket_herror.i = getelementptr inbounds %struct._socket_state, ptr %state, i64 0, i32 1
+  %socket_herror.i = getelementptr inbounds i8, ptr %state, i64 8
   %1 = load ptr, ptr %socket_herror.i, align 8
   tail call void @PyErr_SetObject(ptr noundef %1, ptr noundef nonnull %call1.i) #12
   %2 = load i64, ptr %call1.i, align 8
@@ -3264,7 +3232,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %h_addrtype = getelementptr inbounds %struct.hostent, ptr %h, i64 0, i32 2
+  %h_addrtype = getelementptr inbounds i8, ptr %h, i64 16
   %4 = load i32, ptr %h_addrtype, align 8
   %cmp2.not = icmp eq i32 %4, %af
   br i1 %cmp2.not, label %if.end6, label %if.then3
@@ -3287,7 +3255,7 @@ if.end17:                                         ; preds = %if.end6
   br i1 %cmp19, label %if.then.i55, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
-  %h_aliases = getelementptr inbounds %struct.hostent, ptr %h, i64 0, i32 1
+  %h_aliases = getelementptr inbounds i8, ptr %h, i64 8
   %6 = load ptr, ptr %h_aliases, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end35, label %for.cond.preheader
@@ -3298,7 +3266,7 @@ for.cond.preheader:                               ; preds = %if.end21
   br i1 %cmp2485, label %if.end35, label %if.end26
 
 for.cond:                                         ; preds = %Py_DECREF.exit87
-  %incdec.ptr = getelementptr ptr, ptr %pch.086, i64 1
+  %incdec.ptr = getelementptr i8, ptr %pch.086, i64 8
   %host_alias.0.copyload = load ptr, ptr %incdec.ptr, align 8
   %cmp24 = icmp eq ptr %host_alias.0.copyload, null
   br i1 %cmp24, label %if.end35, label %if.end26
@@ -3332,7 +3300,7 @@ Py_DECREF.exit87:                                 ; preds = %if.end30, %if.then1
   br i1 %tobool32.not, label %for.cond, label %if.then.i55
 
 if.end35:                                         ; preds = %for.cond, %for.cond.preheader, %if.end21
-  %h_addr_list = getelementptr inbounds %struct.hostent, ptr %h, i64 0, i32 4
+  %h_addr_list = getelementptr inbounds i8, ptr %h, i64 24
   %9 = load ptr, ptr %h_addr_list, align 8
   %host_address.0.copyload88 = load ptr, ptr %9, align 8
   %cmp3889 = icmp eq ptr %host_address.0.copyload88, null
@@ -3340,8 +3308,8 @@ if.end35:                                         ; preds = %for.cond, %for.cond
 
 if.end40.lr.ph:                                   ; preds = %if.end35
   %conv51 = trunc i32 %af to i16
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %sin6, i64 0, i32 3
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %sin, i64 0, i32 2
+  %sin6_addr = getelementptr inbounds i8, ptr %sin6, i64 8
+  %sin_addr = getelementptr inbounds i8, ptr %sin, i64 4
   switch i32 %af, label %sw.default [
     i32 2, label %if.end40.us
     i32 10, label %if.end40
@@ -3360,7 +3328,7 @@ if.end40.us:                                      ; preds = %if.end40.lr.ph, %fo
   br i1 %cmp.i41.us, label %if.then.i43.us, label %if.end.i42.us
 
 for.cond36.us:                                    ; preds = %Py_DECREF.exit.us
-  %incdec.ptr71.us = getelementptr ptr, ptr %pch.190.us, i64 1
+  %incdec.ptr71.us = getelementptr i8, ptr %pch.190.us, i64 8
   %host_address.0.copyload.us = load ptr, ptr %incdec.ptr71.us, align 8
   %cmp38.us = icmp eq ptr %host_address.0.copyload.us, null
   br i1 %cmp38.us, label %for.end72, label %if.end40.us
@@ -3411,7 +3379,7 @@ Py_DECREF.exit.us:                                ; preds = %if.then1.i.us, %if.
   br i1 %tobool67.not.us, label %for.cond36.us, label %if.then.i55
 
 for.cond36:                                       ; preds = %Py_DECREF.exit
-  %incdec.ptr71 = getelementptr ptr, ptr %pch.190, i64 1
+  %incdec.ptr71 = getelementptr i8, ptr %pch.190, i64 8
   %host_address.0.copyload = load ptr, ptr %incdec.ptr71, align 8
   %cmp38 = icmp eq ptr %host_address.0.copyload, null
   br i1 %cmp38, label %for.end72, label %if.end40
@@ -3618,37 +3586,37 @@ define internal fastcc ptr @new_sockobject(ptr noundef %state, i32 noundef %fd, 
 entry:
   %block.addr.i.i = alloca i32, align 4
   %0 = load ptr, ptr %state, align 8
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %0, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %1(ptr noundef %0, i64 noundef 0) #12
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sock_fd.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 1
+  %sock_fd.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %fd, ptr %sock_fd.i, align 8
-  %sock_family.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 2
+  %sock_family.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %family, ptr %sock_family.i, align 4
-  %sock_type.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 3
+  %sock_type.i = getelementptr inbounds i8, ptr %call, i64 24
   %and4.i = and i32 %type, -526337
   store i32 %and4.i, ptr %sock_type.i, align 8
-  %sock_proto.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 4
+  %sock_proto.i = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %proto, ptr %sock_proto.i, align 4
-  %errorhandler.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 5
+  %errorhandler.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @set_error, ptr %errorhandler.i, align 8
   %and6.i = and i32 %type, 2048
   %tobool.not.i = icmp eq i32 %and6.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 0, ptr %sock_timeout.i, align 8
   br label %init_sockobject.exit
 
 if.else.i:                                        ; preds = %if.end
-  %defaulttimeout.i = getelementptr inbounds %struct._socket_state, ptr %state, i64 0, i32 3
+  %defaulttimeout.i = getelementptr inbounds i8, ptr %state, i64 24
   %2 = load i64, ptr %defaulttimeout.i, align 8
-  %sock_timeout7.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 6
+  %sock_timeout7.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %2, ptr %sock_timeout7.i, align 8
   %cmp.i8 = icmp sgt i64 %2, -1
   br i1 %cmp.i8, label %if.then9.i, label %init_sockobject.exit
@@ -3668,7 +3636,7 @@ internal_setblocking.exit.i:                      ; preds = %if.then9.i
   br label %init_sockobject.exit
 
 init_sockobject.exit:                             ; preds = %if.then.i, %if.else.i, %internal_setblocking.exit.i
-  %state14.i = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 7
+  %state14.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %state, ptr %state14.i, align 8
   br label %return
 
@@ -3768,7 +3736,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 2
+  %sin_addr.i = getelementptr inbounds i8, ptr %addr, i64 4
   %call.i = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr.i, ptr noundef nonnull %buf.i, i32 noundef 16) #12
   %cmp.i85 = icmp eq ptr %call.i, null
   br i1 %cmp.i85, label %make_ipv4_addr.exit.thread, label %make_ipv4_addr.exit
@@ -3786,7 +3754,7 @@ make_ipv4_addr.exit:                              ; preds = %sw.bb
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %make_ipv4_addr.exit
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %addr, i64 2
   %2 = load i16, ptr %sin_port, align 2
   %call2 = call zeroext i16 @ntohs(i16 noundef zeroext %2) #13
   %conv3 = zext i16 %call2 to i32
@@ -3812,7 +3780,7 @@ sw.bb6:                                           ; preds = %if.end
   br i1 %cmp8.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb6
-  %sun_path = getelementptr inbounds %struct.sockaddr_un, ptr %addr, i64 0, i32 1
+  %sun_path = getelementptr inbounds i8, ptr %addr, i64 2
   %5 = load i8, ptr %sun_path, align 2
   %cmp11 = icmp eq i8 %5, 0
   br i1 %cmp11, label %if.then13, label %if.else
@@ -3822,37 +3790,37 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %sw.bb6
-  %sun_path16 = getelementptr inbounds %struct.sockaddr_un, ptr %addr, i64 0, i32 1
+  %sun_path16 = getelementptr inbounds i8, ptr %addr, i64 2
   %call18 = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %sun_path16) #12
   br label %return
 
 sw.bb19:                                          ; preds = %if.end
-  %nl_pid = getelementptr inbounds %struct.sockaddr_nl, ptr %addr, i64 0, i32 2
+  %nl_pid = getelementptr inbounds i8, ptr %addr, i64 4
   %6 = load i32, ptr %nl_pid, align 4
-  %nl_groups = getelementptr inbounds %struct.sockaddr_nl, ptr %addr, i64 0, i32 3
+  %nl_groups = getelementptr inbounds i8, ptr %addr, i64 8
   %7 = load i32, ptr %nl_groups, align 4
   %call21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, i32 noundef %6, i32 noundef %7) #12
   br label %return
 
 sw.bb22:                                          ; preds = %if.end
-  %sq_node = getelementptr inbounds %struct.sockaddr_qrtr, ptr %addr, i64 0, i32 1
+  %sq_node = getelementptr inbounds i8, ptr %addr, i64 4
   %8 = load i32, ptr %sq_node, align 4
-  %sq_port = getelementptr inbounds %struct.sockaddr_qrtr, ptr %addr, i64 0, i32 2
+  %sq_port = getelementptr inbounds i8, ptr %addr, i64 8
   %9 = load i32, ptr %sq_port, align 4
   %call24 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, i32 noundef %8, i32 noundef %9) #12
   br label %return
 
 sw.bb25:                                          ; preds = %if.end
-  %svm_cid = getelementptr inbounds %struct.sockaddr_vm, ptr %addr, i64 0, i32 3
+  %svm_cid = getelementptr inbounds i8, ptr %addr, i64 8
   %10 = load i32, ptr %svm_cid, align 4
-  %svm_port = getelementptr inbounds %struct.sockaddr_vm, ptr %addr, i64 0, i32 2
+  %svm_port = getelementptr inbounds i8, ptr %addr, i64 4
   %11 = load i32, ptr %svm_port, align 4
   %call27 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, i32 noundef %10, i32 noundef %11) #12
   br label %return
 
 sw.bb28:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %buf.i87)
-  %sin6_addr.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
+  %sin6_addr.i = getelementptr inbounds i8, ptr %addr, i64 8
   %call.i88 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr.i, ptr noundef nonnull %buf.i87, i32 noundef 46) #12
   %cmp.i89 = icmp eq ptr %call.i88, null
   br i1 %cmp.i89, label %make_ipv6_addr.exit.thread, label %make_ipv6_addr.exit
@@ -3870,14 +3838,14 @@ make_ipv6_addr.exit:                              ; preds = %sw.bb28
   br i1 %tobool33.not, label %return, label %if.then34
 
 if.then34:                                        ; preds = %make_ipv6_addr.exit
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 1
+  %sin6_port = getelementptr inbounds i8, ptr %addr, i64 2
   %13 = load i16, ptr %sin6_port, align 2
   %call35 = call zeroext i16 @ntohs(i16 noundef zeroext %13) #13
   %conv36 = zext i16 %call35 to i32
-  %sin6_flowinfo = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 2
+  %sin6_flowinfo = getelementptr inbounds i8, ptr %addr, i64 4
   %14 = load i32, ptr %sin6_flowinfo, align 4
   %call37 = call i32 @ntohl(i32 noundef %14) #13
-  %sin6_scope_id = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 4
+  %sin6_scope_id = getelementptr inbounds i8, ptr %addr, i64 24
   %15 = load i32, ptr %sin6_scope_id, align 4
   %call38 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, ptr noundef nonnull %call3.i91, i32 noundef %conv36, i32 noundef %call37, i32 noundef %15) #12
   %16 = load i64, ptr %call3.i91, align 8
@@ -3904,13 +3872,13 @@ sw.bb40:                                          ; preds = %if.end
   ]
 
 sw.bb41:                                          ; preds = %sw.bb40
-  %l2_bdaddr = getelementptr inbounds %struct.sockaddr_l2, ptr %addr, i64 0, i32 2
+  %l2_bdaddr = getelementptr inbounds i8, ptr %addr, i64 4
   %call44 = tail call fastcc ptr @makebdaddr(ptr noundef nonnull %l2_bdaddr)
   %tobool46.not = icmp eq ptr %call44, null
   br i1 %tobool46.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %sw.bb41
-  %l2_psm = getelementptr inbounds %struct.sockaddr_l2, ptr %addr, i64 0, i32 1
+  %l2_psm = getelementptr inbounds i8, ptr %addr, i64 2
   %18 = load i16, ptr %l2_psm, align 2
   %conv48 = zext i16 %18 to i32
   %call49 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.91, ptr noundef nonnull %call44, i32 noundef %conv48) #12
@@ -3930,13 +3898,13 @@ if.then1.i184:                                    ; preds = %if.end.i181
   br label %return
 
 sw.bb51:                                          ; preds = %sw.bb40
-  %rc_bdaddr = getelementptr inbounds %struct.sockaddr_rc, ptr %addr, i64 0, i32 1
+  %rc_bdaddr = getelementptr inbounds i8, ptr %addr, i64 2
   %call54 = tail call fastcc ptr @makebdaddr(ptr noundef nonnull %rc_bdaddr)
   %tobool56.not = icmp eq ptr %call54, null
   br i1 %tobool56.not, label %return, label %if.then57
 
 if.then57:                                        ; preds = %sw.bb51
-  %rc_channel = getelementptr inbounds %struct.sockaddr_rc, ptr %addr, i64 0, i32 2
+  %rc_channel = getelementptr inbounds i8, ptr %addr, i64 8
   %21 = load i8, ptr %rc_channel, align 2
   %conv58 = zext i8 %21 to i32
   %call59 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.91, ptr noundef nonnull %call54, i32 noundef %conv58) #12
@@ -3956,14 +3924,14 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 sw.bb61:                                          ; preds = %sw.bb40
-  %hci_dev = getelementptr inbounds %struct.sockaddr_hci, ptr %addr, i64 0, i32 1
+  %hci_dev = getelementptr inbounds i8, ptr %addr, i64 2
   %24 = load i16, ptr %hci_dev, align 2
   %conv64 = zext i16 %24 to i32
   %call65 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.94, i32 noundef %conv64) #12
   br label %return
 
 sw.bb66:                                          ; preds = %sw.bb40
-  %sco_bdaddr = getelementptr inbounds %struct.sockaddr_sco, ptr %addr, i64 0, i32 1
+  %sco_bdaddr = getelementptr inbounds i8, ptr %addr, i64 2
   %call68 = tail call fastcc ptr @makebdaddr(ptr noundef nonnull %sco_bdaddr)
   br label %return
 
@@ -3973,13 +3941,13 @@ sw.default:                                       ; preds = %sw.bb40
   br label %return
 
 sw.bb69:                                          ; preds = %if.end
-  %sll_ifindex = getelementptr inbounds %struct.sockaddr_ll, ptr %addr, i64 0, i32 2
+  %sll_ifindex = getelementptr inbounds i8, ptr %addr, i64 4
   %26 = load i32, ptr %sll_ifindex, align 4
   %tobool71.not = icmp eq i32 %26, 0
   br i1 %tobool71.not, label %if.end80, label %if.then72
 
 if.then72:                                        ; preds = %sw.bb69
-  %ifr_ifru = getelementptr inbounds %struct.ifreq, ptr %ifr, i64 0, i32 1
+  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
   store i32 %26, ptr %ifr_ifru, align 8
   %call74 = call i32 (i32, i64, ...) @ioctl(i32 noundef %sockfd, i64 noundef 35088, ptr noundef nonnull %ifr) #12
   %cmp75 = icmp eq i32 %call74, 0
@@ -3988,25 +3956,25 @@ if.then72:                                        ; preds = %sw.bb69
 
 if.end80:                                         ; preds = %if.then72, %sw.bb69
   %ifname.0 = phi ptr [ @.str.90, %sw.bb69 ], [ %spec.select, %if.then72 ]
-  %sll_protocol = getelementptr inbounds %struct.sockaddr_ll, ptr %addr, i64 0, i32 1
+  %sll_protocol = getelementptr inbounds i8, ptr %addr, i64 2
   %27 = load i16, ptr %sll_protocol, align 2
   %call81 = call zeroext i16 @ntohs(i16 noundef zeroext %27) #13
   %conv82 = zext i16 %call81 to i32
-  %sll_pkttype = getelementptr inbounds %struct.sockaddr_ll, ptr %addr, i64 0, i32 4
+  %sll_pkttype = getelementptr inbounds i8, ptr %addr, i64 10
   %28 = load i8, ptr %sll_pkttype, align 2
   %conv83 = zext i8 %28 to i32
-  %sll_hatype = getelementptr inbounds %struct.sockaddr_ll, ptr %addr, i64 0, i32 3
+  %sll_hatype = getelementptr inbounds i8, ptr %addr, i64 8
   %29 = load i16, ptr %sll_hatype, align 4
   %conv84 = zext i16 %29 to i32
-  %sll_addr = getelementptr inbounds %struct.sockaddr_ll, ptr %addr, i64 0, i32 6
-  %sll_halen = getelementptr inbounds %struct.sockaddr_ll, ptr %addr, i64 0, i32 5
+  %sll_addr = getelementptr inbounds i8, ptr %addr, i64 12
+  %sll_halen = getelementptr inbounds i8, ptr %addr, i64 11
   %30 = load i8, ptr %sll_halen, align 1
   %conv86 = zext i8 %30 to i64
   %call87 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.96, ptr noundef nonnull %ifname.0, i32 noundef %conv82, i32 noundef %conv83, i32 noundef %conv84, ptr noundef nonnull %sll_addr, i64 noundef %conv86) #12
   br label %return
 
 sw.bb88:                                          ; preds = %if.end
-  %addrtype = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 1
+  %addrtype = getelementptr inbounds i8, ptr %addr, i64 2
   %31 = load i8, ptr %addrtype, align 2
   switch i8 %31, label %if.else132 [
     i8 1, label %if.then93
@@ -4015,35 +3983,35 @@ sw.bb88:                                          ; preds = %if.end
   ]
 
 if.then93:                                        ; preds = %sw.bb88
-  %addr96 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3
+  %addr96 = getelementptr inbounds i8, ptr %addr, i64 4
   %32 = load i32, ptr %addr96, align 4
-  %lower = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3, i32 0, i32 1
+  %lower = getelementptr inbounds i8, ptr %addr, i64 8
   %33 = load i32, ptr %lower, align 4
-  %upper = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3, i32 0, i32 2
+  %upper = getelementptr inbounds i8, ptr %addr, i64 12
   %34 = load i32, ptr %upper, align 4
-  %scope = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 2
+  %scope = getelementptr inbounds i8, ptr %addr, i64 3
   %35 = load i8, ptr %scope, align 1
   %conv99 = sext i8 %35 to i32
   %call100 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.97, i32 noundef 1, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %conv99) #12
   br label %return
 
 if.then106:                                       ; preds = %sw.bb88
-  %addr109 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3
+  %addr109 = getelementptr inbounds i8, ptr %addr, i64 4
   %36 = load i32, ptr %addr109, align 4
-  %instance = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3, i32 0, i32 1
+  %instance = getelementptr inbounds i8, ptr %addr, i64 8
   %37 = load i32, ptr %instance, align 4
-  %scope116 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 2
+  %scope116 = getelementptr inbounds i8, ptr %addr, i64 3
   %38 = load i8, ptr %scope116, align 1
   %conv117 = sext i8 %38 to i32
   %call118 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.97, i32 noundef 2, i32 noundef %36, i32 noundef %37, i32 noundef %37, i32 noundef %conv117) #12
   br label %return
 
 if.then124:                                       ; preds = %sw.bb88
-  %addr127 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3
-  %node = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 3, i32 0, i32 1
+  %addr127 = getelementptr inbounds i8, ptr %addr, i64 4
+  %node = getelementptr inbounds i8, ptr %addr, i64 8
   %39 = load i32, ptr %node, align 4
   %40 = load i32, ptr %addr127, align 4
-  %scope129 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addr, i64 0, i32 2
+  %scope129 = getelementptr inbounds i8, ptr %addr, i64 3
   %41 = load i8, ptr %scope129, align 1
   %conv130 = sext i8 %41 to i32
   %call131 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.97, i32 noundef 3, i32 noundef %39, i32 noundef %40, i32 noundef 0, i32 noundef %conv130) #12
@@ -4055,13 +4023,13 @@ if.else132:                                       ; preds = %sw.bb88
   br label %return
 
 sw.bb133:                                         ; preds = %if.end
-  %can_ifindex = getelementptr inbounds %struct.sockaddr_can, ptr %addr, i64 0, i32 1
+  %can_ifindex = getelementptr inbounds i8, ptr %addr, i64 4
   %43 = load i32, ptr %can_ifindex, align 4
   %tobool137.not = icmp eq i32 %43, 0
   br i1 %tobool137.not, label %if.end148, label %if.then138
 
 if.then138:                                       ; preds = %sw.bb133
-  %ifr_ifru140 = getelementptr inbounds %struct.ifreq, ptr %ifr136, i64 0, i32 1
+  %ifr_ifru140 = getelementptr inbounds i8, ptr %ifr136, i64 16
   store i32 %43, ptr %ifr_ifru140, align 8
   %call141 = call i32 (i32, i64, ...) @ioctl(i32 noundef %sockfd, i64 noundef 35088, ptr noundef nonnull %ifr136) #12
   %cmp142 = icmp eq i32 %call141, 0
@@ -4076,7 +4044,7 @@ if.end148:                                        ; preds = %if.then138, %sw.bb1
   ]
 
 sw.bb149:                                         ; preds = %if.end148
-  %can_addr = getelementptr inbounds %struct.sockaddr_can, ptr %addr, i64 0, i32 2
+  %can_addr = getelementptr inbounds i8, ptr %addr, i64 8
   %44 = load i32, ptr %can_addr, align 8
   %tx_id = getelementptr inbounds i8, ptr %addr, i64 12
   %45 = load i32, ptr %tx_id, align 4
@@ -4084,11 +4052,11 @@ sw.bb149:                                         ; preds = %if.end148
   br label %return
 
 sw.bb152:                                         ; preds = %if.end148
-  %can_addr153 = getelementptr inbounds %struct.sockaddr_can, ptr %addr, i64 0, i32 2
+  %can_addr153 = getelementptr inbounds i8, ptr %addr, i64 8
   %46 = load i64, ptr %can_addr153, align 8
-  %pgn = getelementptr inbounds %struct.sockaddr_can, ptr %addr, i64 0, i32 2, i32 0, i32 1
+  %pgn = getelementptr inbounds i8, ptr %addr, i64 16
   %47 = load i32, ptr %pgn, align 8
-  %addr157 = getelementptr inbounds %struct.sockaddr_can, ptr %addr, i64 0, i32 2, i32 0, i32 2
+  %addr157 = getelementptr inbounds i8, ptr %addr, i64 20
   %48 = load i8, ptr %addr157, align 4
   %conv158 = zext i8 %48 to i32
   %call159 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.100, ptr noundef nonnull @PyUnicode_DecodeFSDefault, ptr noundef nonnull %ifname135.0, i64 noundef %46, i32 noundef %47, i32 noundef %conv158) #12
@@ -4099,20 +4067,20 @@ sw.default160:                                    ; preds = %if.end148
   br label %return
 
 sw.bb162:                                         ; preds = %if.end
-  %salg_type = getelementptr inbounds %struct.sockaddr_alg, ptr %addr, i64 0, i32 1
+  %salg_type = getelementptr inbounds i8, ptr %addr, i64 2
   %call167 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %salg_type, i64 noundef 14) #14
-  %salg_name = getelementptr inbounds %struct.sockaddr_alg, ptr %addr, i64 0, i32 4
+  %salg_name = getelementptr inbounds i8, ptr %addr, i64 24
   %call171 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %salg_name, i64 noundef 64) #14
-  %salg_feat = getelementptr inbounds %struct.sockaddr_alg, ptr %addr, i64 0, i32 2
+  %salg_feat = getelementptr inbounds i8, ptr %addr, i64 16
   %49 = load i32, ptr %salg_feat, align 4
-  %salg_mask = getelementptr inbounds %struct.sockaddr_alg, ptr %addr, i64 0, i32 3
+  %salg_mask = getelementptr inbounds i8, ptr %addr, i64 20
   %50 = load i32, ptr %salg_mask, align 4
   %call172 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.102, ptr noundef nonnull %salg_type, i64 noundef %call167, ptr noundef nonnull %salg_name, i64 noundef %call171, i32 noundef %49, i32 noundef %50) #12
   br label %return
 
 sw.default173:                                    ; preds = %if.end
   %conv = zext i16 %0 to i32
-  %sa_data = getelementptr inbounds %struct.sockaddr, ptr %addr, i64 0, i32 1
+  %sa_data = getelementptr inbounds i8, ptr %addr, i64 2
   %call177 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.103, i32 noundef %conv, ptr noundef nonnull %sa_data, i64 noundef 14) #12
   br label %return
 
@@ -4124,19 +4092,19 @@ return:                                           ; preds = %make_ipv6_addr.exit
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @makebdaddr(ptr nocapture noundef readonly %bdaddr) unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 5
+  %arrayidx = getelementptr i8, ptr %bdaddr, i64 5
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
-  %arrayidx2 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 4
+  %arrayidx2 = getelementptr i8, ptr %bdaddr, i64 4
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
-  %arrayidx5 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 3
+  %arrayidx5 = getelementptr i8, ptr %bdaddr, i64 3
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
-  %arrayidx8 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 2
+  %arrayidx8 = getelementptr i8, ptr %bdaddr, i64 2
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
-  %arrayidx11 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 1
+  %arrayidx11 = getelementptr i8, ptr %bdaddr, i64 1
   %4 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %4 to i32
   %5 = load i8, ptr %bdaddr, align 1
@@ -4181,15 +4149,15 @@ define internal i32 @socket_exec(ptr noundef %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
-  %defaulttimeout = getelementptr inbounds %struct._socket_state, ptr %m.val, i64 0, i32 3
+  %defaulttimeout = getelementptr inbounds i8, ptr %m.val, i64 24
   store i64 -1000000000, ptr %defaulttimeout, align 8
-  %accept4_works = getelementptr inbounds %struct._socket_state, ptr %m.val, i64 0, i32 4
+  %accept4_works = getelementptr inbounds i8, ptr %m.val, i64 32
   store i32 -1, ptr %accept4_works, align 8
-  %sock_cloexec_works = getelementptr inbounds %struct._socket_state, ptr %m.val, i64 0, i32 5
+  %sock_cloexec_works = getelementptr inbounds i8, ptr %m.val, i64 36
   store i32 -1, ptr %sock_cloexec_works, align 4
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call2 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.123, ptr noundef %1, ptr noundef null) #12
-  %socket_herror = getelementptr inbounds %struct._socket_state, ptr %m.val, i64 0, i32 1
+  %socket_herror = getelementptr inbounds i8, ptr %m.val, i64 8
   store ptr %call2, ptr %socket_herror, align 8
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %error, label %if.end5
@@ -4202,7 +4170,7 @@ if.end5:                                          ; preds = %entry
 do.body11:                                        ; preds = %if.end5
   %2 = load ptr, ptr @PyExc_OSError, align 8
   %call12 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.125, ptr noundef %2, ptr noundef null) #12
-  %socket_gaierror = getelementptr inbounds %struct._socket_state, ptr %m.val, i64 0, i32 2
+  %socket_gaierror = getelementptr inbounds i8, ptr %m.val, i64 16
   store ptr %call12, ptr %socket_gaierror, align 8
   %cmp14 = icmp eq ptr %call12, null
   br i1 %cmp14, label %error, label %if.end16
@@ -6231,7 +6199,7 @@ if.end.i.i7:                                      ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit8
 
 _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %if.end.i.i7
-  %error = getelementptr inbounds %struct.PySocketModule_APIObject, ptr %call, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %error, align 8
   %4 = load ptr, ptr @PyExc_TimeoutError, align 8
   %5 = load i32, ptr %4, align 8
@@ -6244,7 +6212,7 @@ if.end.i.i11:                                     ; preds = %_Py_NewRef.exit8
   br label %_Py_NewRef.exit12
 
 _Py_NewRef.exit12:                                ; preds = %_Py_NewRef.exit8, %if.end.i.i11
-  %timeout_error = getelementptr inbounds %struct.PySocketModule_APIObject, ptr %call, i64 0, i32 2
+  %timeout_error = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %4, ptr %timeout_error, align 8
   br label %return
 
@@ -6286,7 +6254,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %error = getelementptr inbounds %struct.PySocketModule_APIObject, ptr %capi, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %capi, i64 8
   %3 = load ptr, ptr %error, align 8
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2147483648
@@ -6304,7 +6272,7 @@ if.then1.i7:                                      ; preds = %if.end.i4
   br label %Py_DECREF.exit9
 
 Py_DECREF.exit9:                                  ; preds = %Py_XDECREF.exit, %if.then1.i7, %if.end.i4
-  %timeout_error = getelementptr inbounds %struct.PySocketModule_APIObject, ptr %capi, i64 0, i32 2
+  %timeout_error = getelementptr inbounds i8, ptr %capi, i64 16
   %6 = load ptr, ptr %timeout_error, align 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 2147483648
@@ -6395,7 +6363,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %s) #12
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %s.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %s.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %s) #12
   %2 = load i64, ptr %s.val, align 8
@@ -6441,14 +6409,14 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_repr(ptr nocapture noundef readonly %s) #0 {
 entry:
-  %sock_fd1 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd1 = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd1, align 8
   %conv = sext i32 %0 to i64
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %1 = load i32, ptr %sock_family, align 4
-  %sock_type = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 3
+  %sock_type = getelementptr inbounds i8, ptr %s, i64 24
   %2 = load i32, ptr %sock_type, align 8
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %3 = load i32, ptr %sock_proto, align 4
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.518, i64 noundef %conv, i32 noundef %1, i32 noundef %2, i32 noundef %3) #12
   ret ptr %call
@@ -6474,12 +6442,12 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add28 = add i64 %kwargs.val, %args.val
-  %ob_item33 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item33 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %or.cond1 = icmp ult i64 %args.val, 5
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -6518,7 +6486,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 if.end34:                                         ; preds = %if.end30, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %add3540, %if.end20 ]
   %family.0 = phi i32 [ %call24, %if.end30 ], [ -1, %if.end20 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1641, i64 1
+  %arrayidx35 = getelementptr i8, ptr %cond1641, i64 8
   %3 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %3, null
   br i1 %tobool36.not, label %if.end50, label %if.then37
@@ -6541,7 +6509,7 @@ if.end45:                                         ; preds = %land.lhs.true41, %i
 if.end50:                                         ; preds = %if.end45, %if.end34
   %noptargs.1 = phi i64 [ %dec46, %if.end45 ], [ %noptargs.0, %if.end34 ]
   %type.0 = phi i32 [ %call39, %if.end45 ], [ -1, %if.end34 ]
-  %arrayidx51 = getelementptr ptr, ptr %cond1641, i64 2
+  %arrayidx51 = getelementptr i8, ptr %cond1641, i64 16
   %4 = load ptr, ptr %arrayidx51, align 8
   %tobool52.not = icmp eq ptr %4, null
   br i1 %tobool52.not, label %if.end66, label %if.then53
@@ -6562,7 +6530,7 @@ if.end61:                                         ; preds = %land.lhs.true57, %i
 
 if.end66:                                         ; preds = %if.end61, %if.end50
   %proto.0 = phi i32 [ %call55, %if.end61 ], [ -1, %if.end50 ]
-  %arrayidx67 = getelementptr ptr, ptr %cond1641, i64 3
+  %arrayidx67 = getelementptr i8, ptr %cond1641, i64 24
   %5 = load ptr, ptr %arrayidx67, align 8
   br label %skip_optional_pos
 
@@ -6582,7 +6550,7 @@ skip_optional_pos:                                ; preds = %if.end61, %if.end45
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @socketmodule) #12
   %7 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %7, align 8
-  %sock_cloexec_works.i = getelementptr inbounds %struct._socket_state, ptr %call.val.i.i, i64 0, i32 5
+  %sock_cloexec_works.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 36
   %call2.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.657, ptr noundef nonnull @.str.658, ptr noundef %self, i32 noundef %family.1, i32 noundef %type.1, i32 noundef %proto.1) #12
   %cmp.i = icmp slt i32 %call2.i, 0
   br i1 %cmp.i, label %sock_initobj_impl.exit, label %if.end.i
@@ -6753,30 +6721,30 @@ if.end115.i:                                      ; preds = %if.end108.i, %if.th
   %proto.addr.0.i = phi i32 [ %14, %if.then59.i ], [ %proto.1, %if.end50.i ], [ %spec.store.select1.i, %if.end108.i ]
   %type.addr.1.i = phi i32 [ %type.addr.0.i, %if.then59.i ], [ %type.addr.0.i, %if.end50.i ], [ %spec.store.select2.i, %if.end108.i ]
   %family.addr.1.i = phi i32 [ %family.addr.0.i, %if.then59.i ], [ %family.addr.0.i, %if.end50.i ], [ %spec.store.select.i, %if.end108.i ]
-  %sock_fd.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 1
+  %sock_fd.i.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %fd.1.i, ptr %sock_fd.i.i, align 8
-  %sock_family.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 2
+  %sock_family.i.i = getelementptr inbounds i8, ptr %self, i64 20
   store i32 %family.addr.1.i, ptr %sock_family.i.i, align 4
-  %sock_type.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 3
+  %sock_type.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %and4.i.i = and i32 %type.addr.1.i, -526337
   store i32 %and4.i.i, ptr %sock_type.i.i, align 8
-  %sock_proto.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 4
+  %sock_proto.i.i = getelementptr inbounds i8, ptr %self, i64 28
   store i32 %proto.addr.0.i, ptr %sock_proto.i.i, align 4
-  %errorhandler.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 5
+  %errorhandler.i.i = getelementptr inbounds i8, ptr %self, i64 32
   store ptr @set_error, ptr %errorhandler.i.i, align 8
   %and6.i.i = and i32 %type.addr.1.i, 2048
   %tobool.not.i.i = icmp eq i32 %and6.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end115.i
-  %sock_timeout.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 6
+  %sock_timeout.i.i = getelementptr inbounds i8, ptr %self, i64 40
   store i64 0, ptr %sock_timeout.i.i, align 8
   br label %init_sockobject.exit.i
 
 if.else.i.i:                                      ; preds = %if.end115.i
-  %defaulttimeout.i.i = getelementptr inbounds %struct._socket_state, ptr %call.val.i.i, i64 0, i32 3
+  %defaulttimeout.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %20 = load i64, ptr %defaulttimeout.i.i, align 8
-  %sock_timeout7.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 6
+  %sock_timeout7.i.i = getelementptr inbounds i8, ptr %self, i64 40
   store i64 %20, ptr %sock_timeout7.i.i, align 8
   %cmp.i.i = icmp sgt i64 %20, -1
   br i1 %cmp.i.i, label %if.then9.i.i, label %init_sockobject.exit.i
@@ -6796,7 +6764,7 @@ internal_setblocking.exit.i.i:                    ; preds = %if.then9.i.i
   br label %init_sockobject.exit.i
 
 init_sockobject.exit.i:                           ; preds = %internal_setblocking.exit.i.i, %if.else.i.i, %if.then.i.i
-  %state14.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 7
+  %state14.i.i = getelementptr inbounds i8, ptr %self, i64 48
   store ptr %call.val.i.i, ptr %state14.i.i, align 8
   br label %sock_initobj_impl.exit
 
@@ -6825,19 +6793,19 @@ exit:                                             ; preds = %land.lhs.true57, %l
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
 entry:
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #12
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %call, i64 16
   store i32 -1, ptr %sock_fd, align 8
   %call1 = tail call i64 @_PyTime_FromSeconds(i32 noundef -1) #12
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %call1, ptr %sock_timeout, align 8
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %call, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @set_error, ptr %errorhandler, align 8
   br label %if.end
 
@@ -6849,7 +6817,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @sock_finalize(ptr noundef %s) #0 {
 entry:
   %call = tail call ptr @PyErr_GetRaisedException() #12
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -6901,20 +6869,20 @@ if.end:                                           ; preds = %entry
   %conv = zext i32 %0 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %addrbuf, i8 0, i64 %conv, i1 false)
   store ptr %addrlen, ptr %ctx, align 8
-  %addrbuf2 = getelementptr inbounds %struct.sock_accept, ptr %ctx, i64 0, i32 1
+  %addrbuf2 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %addrbuf, ptr %addrbuf2, align 8
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %1 = load i64, ptr %sock_timeout.i, align 8
   %call.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_accept_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %1), !range !9
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %result = getelementptr inbounds %struct.sock_accept, ptr %ctx, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load i32, ptr %result, align 8
-  %state7 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 7
+  %state7 = getelementptr inbounds i8, ptr %s, i64 48
   %3 = load ptr, ptr %state7, align 8
-  %accept4_works = getelementptr inbounds %struct._socket_state, ptr %3, i64 0, i32 4
+  %accept4_works = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i32, ptr %accept4_works, align 8
   %tobool8.not = icmp eq i32 %4, 0
   br i1 %tobool8.not, label %if.then9, label %if.end16
@@ -6939,11 +6907,11 @@ if.then21:                                        ; preds = %if.end16
   br label %return
 
 if.end23:                                         ; preds = %if.end16
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %5 = load i32, ptr %sock_fd, align 8
   %6 = load i32, ptr %addrlen, align 4
   %conv24 = zext i32 %6 to i64
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %7 = load i32, ptr %sock_proto, align 4
   %call25 = call fastcc ptr @makesockaddr(i32 noundef %5, ptr noundef nonnull %addrbuf, i64 noundef %conv24, i32 noundef %7)
   %cmp26 = icmp eq ptr %call25, null
@@ -7010,7 +6978,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %call4 = call ptr @PyEval_SaveThread() #12
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %1 = load i32, ptr %addrlen, align 4
   %call5 = call i32 @bind(i32 noundef %0, ptr nonnull %addrbuf, i32 noundef %1) #12
@@ -7019,7 +6987,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end3
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %2 = load ptr, ptr %errorhandler, align 8
   %call8 = call ptr %2() #12
   br label %return
@@ -7032,7 +7000,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_close(ptr nocapture noundef %s, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %return, label %if.then
@@ -7052,7 +7020,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %2 = load ptr, ptr %errorhandler, align 8
   %call7 = tail call ptr %2() #12
   br label %return
@@ -7121,7 +7089,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_detach(ptr nocapture noundef %s, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   store i32 -1, ptr %sock_fd, align 8
   %conv = sext i32 %0 to i64
@@ -7132,7 +7100,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_fileno(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #12
@@ -7153,7 +7121,7 @@ if.end:                                           ; preds = %entry
   %conv = zext i32 %0 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %addrbuf, i8 0, i64 %conv, i1 false)
   %call1 = tail call ptr @PyEval_SaveThread() #12
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %1 = load i32, ptr %sock_fd, align 8
   %call2 = call i32 @getpeername(i32 noundef %1, ptr nonnull %addrbuf, ptr noundef nonnull %addrlen) #12
   call void @PyEval_RestoreThread(ptr noundef %call1) #12
@@ -7161,7 +7129,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %2 = load ptr, ptr %errorhandler, align 8
   %call5 = call ptr %2() #12
   br label %return
@@ -7170,7 +7138,7 @@ if.end6:                                          ; preds = %if.end
   %3 = load i32, ptr %sock_fd, align 8
   %4 = load i32, ptr %addrlen, align 4
   %conv8 = zext i32 %4 to i64
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %5 = load i32, ptr %sock_proto, align 4
   %call9 = call fastcc ptr @makesockaddr(i32 noundef %3, ptr noundef nonnull %addrbuf, i64 noundef %conv8, i32 noundef %5)
   br label %return
@@ -7194,7 +7162,7 @@ if.end:                                           ; preds = %entry
   %conv = zext i32 %0 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %addrbuf, i8 0, i64 %conv, i1 false)
   %call1 = tail call ptr @PyEval_SaveThread() #12
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %1 = load i32, ptr %sock_fd, align 8
   %call2 = call i32 @getsockname(i32 noundef %1, ptr nonnull %addrbuf, ptr noundef nonnull %addrlen) #12
   call void @PyEval_RestoreThread(ptr noundef %call1) #12
@@ -7202,7 +7170,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %2 = load ptr, ptr %errorhandler, align 8
   %call5 = call ptr %2() #12
   br label %return
@@ -7211,7 +7179,7 @@ if.end6:                                          ; preds = %if.end
   %3 = load i32, ptr %sock_fd, align 8
   %4 = load i32, ptr %addrlen, align 4
   %conv8 = zext i32 %4 to i64
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %5 = load i32, ptr %sock_proto, align 4
   %call9 = call fastcc ptr @makesockaddr(i32 noundef %3, ptr noundef nonnull %addrbuf, i64 noundef %conv8, i32 noundef %5)
   br label %return
@@ -7240,7 +7208,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %buflen, align 4
   %cmp = icmp eq i32 %0, 0
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %1 = load i32, ptr %sock_family, align 4
   %cmp2 = icmp eq i32 %1, 40
   br i1 %cmp, label %if.then1, label %if.end19
@@ -7251,7 +7219,7 @@ if.then1:                                         ; preds = %if.end
 if.then3:                                         ; preds = %if.then1
   store i64 0, ptr %vflag, align 8
   store i32 8, ptr %flagsize, align 4
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i32, ptr %sock_fd, align 8
   %3 = load i32, ptr %level, align 4
   %4 = load i32, ptr %optname, align 4
@@ -7260,7 +7228,7 @@ if.then3:                                         ; preds = %if.then1
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then3
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %5 = load ptr, ptr %errorhandler, align 8
   %call7 = call ptr %5() #12
   br label %return
@@ -7272,7 +7240,7 @@ if.end8:                                          ; preds = %if.then3
 
 if.end10:                                         ; preds = %if.then1
   store i32 4, ptr %flagsize, align 4
-  %sock_fd11 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd11 = getelementptr inbounds i8, ptr %s, i64 16
   %7 = load i32, ptr %sock_fd11, align 8
   %8 = load i32, ptr %level, align 4
   %9 = load i32, ptr %optname, align 4
@@ -7281,7 +7249,7 @@ if.end10:                                         ; preds = %if.then1
   br i1 %cmp13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %if.end10
-  %errorhandler15 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler15 = getelementptr inbounds i8, ptr %s, i64 32
   %10 = load ptr, ptr %errorhandler15, align 8
   %call16 = call ptr %10() #12
   br label %return
@@ -7317,11 +7285,11 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end30
-  %sock_fd37 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd37 = getelementptr inbounds i8, ptr %s, i64 16
   %14 = load i32, ptr %sock_fd37, align 8
   %15 = load i32, ptr %level, align 4
   %16 = load i32, ptr %optname, align 4
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call32, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call32, i64 32
   %call39 = call i32 @getsockopt(i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %ob_sval.i, ptr noundef nonnull %buflen) #12
   %cmp40 = icmp slt i32 %call39, 0
   br i1 %cmp40, label %if.then42, label %if.end45
@@ -7343,7 +7311,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then42, %if.then1.i, %if.end.i
-  %errorhandler43 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler43 = getelementptr inbounds i8, ptr %s, i64 32
   %19 = load ptr, ptr %errorhandler43, align 8
   %call44 = call ptr %19() #12
   br label %return
@@ -7381,7 +7349,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then2, %if.end
   %1 = phi i32 [ 0, %if.then2 ], [ %0, %if.end ]
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i32, ptr %sock_fd, align 8
   %call4 = call i32 @listen(i32 noundef %2, i32 noundef %1) #12
   call void @PyEval_RestoreThread(ptr noundef %call1) #12
@@ -7389,7 +7357,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end3
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %3 = load ptr, ptr %errorhandler, align 8
   %call7 = call ptr %3() #12
   br label %return
@@ -7439,13 +7407,13 @@ if.end11.thread:                                  ; preds = %if.end6
   br label %return
 
 if.end.i6:                                        ; preds = %if.end6
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call3, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call3, i64 32
   store ptr %ob_sval.i, ptr %ctx.i, align 8
-  %len2.i = getelementptr inbounds %struct.sock_recv, ptr %ctx.i, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store i64 %2, ptr %len2.i, align 8
-  %flags3.i = getelementptr inbounds %struct.sock_recv, ptr %ctx.i, i64 0, i32 2
+  %flags3.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 %3, ptr %flags3.i, align 8
-  %sock_timeout.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load i64, ptr %sock_timeout.i.i, align 8
   %call.i.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recv_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %4), !range !9
   %cmp4.i = icmp slt i32 %call.i.i, 0
@@ -7456,7 +7424,7 @@ sock_recv_guts.exit.thread:                       ; preds = %if.end.i6
   br label %if.then10
 
 sock_recv_guts.exit:                              ; preds = %if.end.i6
-  %result.i = getelementptr inbounds %struct.sock_recv, ptr %ctx.i, i64 0, i32 3
+  %result.i = getelementptr inbounds i8, ptr %ctx.i, i64 24
   %5 = load i64, ptr %result.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ctx.i)
   %cmp9 = icmp slt i64 %5, 0
@@ -7508,7 +7476,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pbuf, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %pbuf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %pbuf, i64 16
   %1 = load i64, ptr %len, align 8
   %2 = load i64, ptr %recvlen, align 8
   %cmp = icmp slt i64 %2, 0
@@ -7554,11 +7522,11 @@ if.end.i:                                         ; preds = %if.end9.thread, %if
   %7 = phi i32 [ %4, %if.end9.thread ], [ %6, %if.end9 ]
   %8 = phi i64 [ %2, %if.end9.thread ], [ %1, %if.end9 ]
   store ptr %0, ptr %ctx.i, align 8
-  %len2.i = getelementptr inbounds %struct.sock_recv, ptr %ctx.i, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store i64 %8, ptr %len2.i, align 8
-  %flags3.i = getelementptr inbounds %struct.sock_recv, ptr %ctx.i, i64 0, i32 2
+  %flags3.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 %7, ptr %flags3.i, align 8
-  %sock_timeout.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %9 = load i64, ptr %sock_timeout.i.i, align 8
   %call.i.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recv_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %9), !range !9
   %cmp4.i = icmp slt i32 %call.i.i, 0
@@ -7569,7 +7537,7 @@ sock_recv_guts.exit.thread:                       ; preds = %if.end.i
   br label %if.then12
 
 sock_recv_guts.exit:                              ; preds = %if.end.i
-  %result.i = getelementptr inbounds %struct.sock_recv, ptr %ctx.i, i64 0, i32 3
+  %result.i = getelementptr inbounds i8, ptr %ctx.i, i64 24
   %10 = load i64, ptr %result.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ctx.i)
   %cmp11 = icmp slt i64 %10, 0
@@ -7631,28 +7599,28 @@ if.end6:                                          ; preds = %if.end2
   br i1 %tobool.not.i, label %sock_recvfrom_guts.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call3, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call3, i64 32
   store ptr %ob_sval.i, ptr %ctx.i, align 8
-  %len2.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store i64 %2, ptr %len2.i, align 8
-  %flags3.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 2
+  %flags3.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 %3, ptr %flags3.i, align 8
-  %addrbuf4.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 4
+  %addrbuf4.i = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %addrbuf.i, ptr %addrbuf4.i, align 8
-  %addrlen5.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 3
+  %addrlen5.i = getelementptr inbounds i8, ptr %ctx.i, i64 24
   store ptr %addrlen.i, ptr %addrlen5.i, align 8
-  %sock_timeout.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load i64, ptr %sock_timeout.i.i, align 8
   %call.i.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recvfrom_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %4), !range !9
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %sock_recvfrom_guts.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %sock_fd.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd.i = getelementptr inbounds i8, ptr %s, i64 16
   %5 = load i32, ptr %sock_fd.i, align 8
   %6 = load i32, ptr %addrlen.i, align 4
   %conv.i = zext i32 %6 to i64
-  %sock_proto.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto.i = getelementptr inbounds i8, ptr %s, i64 28
   %7 = load i32, ptr %sock_proto.i, align 4
   %call9.i = call fastcc ptr @makesockaddr(i32 noundef %5, ptr noundef nonnull %addrbuf.i, i64 noundef %conv.i, i32 noundef %7)
   %cmp10.i = icmp eq ptr %call9.i, null
@@ -7665,7 +7633,7 @@ sock_recvfrom_guts.exit.thread:                   ; preds = %if.end6, %if.end.i,
   br label %if.then.i
 
 sock_recvfrom_guts.exit:                          ; preds = %if.end8.i
-  %result.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 5
+  %result.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
   %8 = load i64, ptr %result.i, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %addrbuf.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i)
@@ -7759,7 +7727,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pbuf, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %pbuf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %pbuf, i64 16
   %1 = load i64, ptr %len, align 8
   %2 = load i64, ptr %recvlen, align 8
   %cmp = icmp slt i64 %2, 0
@@ -7801,26 +7769,26 @@ if.end9:                                          ; preds = %if.else, %if.then5
 
 if.end.i:                                         ; preds = %if.end9
   store ptr %0, ptr %ctx.i, align 8
-  %len2.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store i64 %5, ptr %len2.i, align 8
-  %flags3.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 2
+  %flags3.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 %6, ptr %flags3.i, align 8
-  %addrbuf4.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 4
+  %addrbuf4.i = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %addrbuf.i, ptr %addrbuf4.i, align 8
-  %addrlen5.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 3
+  %addrlen5.i = getelementptr inbounds i8, ptr %ctx.i, i64 24
   store ptr %addrlen.i, ptr %addrlen5.i, align 8
-  %sock_timeout.i.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %7 = load i64, ptr %sock_timeout.i.i, align 8
   %call.i.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recvfrom_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %7), !range !9
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %if.then12.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %sock_fd.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd.i = getelementptr inbounds i8, ptr %s, i64 16
   %8 = load i32, ptr %sock_fd.i, align 8
   %9 = load i32, ptr %addrlen.i, align 4
   %conv.i = zext i32 %9 to i64
-  %sock_proto.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto.i = getelementptr inbounds i8, ptr %s, i64 28
   %10 = load i32, ptr %sock_proto.i, align 4
   %call9.i = call fastcc ptr @makesockaddr(i32 noundef %8, ptr noundef nonnull %addrbuf.i, i64 noundef %conv.i, i32 noundef %10)
   %cmp10.i = icmp eq ptr %call9.i, null
@@ -7834,7 +7802,7 @@ if.then12.thread:                                 ; preds = %if.end8.i, %if.end.
   br label %return
 
 sock_recvfrom_guts.exit:                          ; preds = %if.end8.i
-  %result.i = getelementptr inbounds %struct.sock_recvfrom, ptr %ctx.i, i64 0, i32 5
+  %result.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
   %11 = load i64, ptr %result.i, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %addrbuf.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i)
@@ -7882,14 +7850,14 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pbuf, align 8
   store ptr %0, ptr %ctx, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %pbuf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %pbuf, i64 16
   %1 = load i64, ptr %len, align 8
-  %len2 = getelementptr inbounds %struct.sock_send, ptr %ctx, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 %1, ptr %len2, align 8
   %2 = load i32, ptr %flags, align 4
-  %flags3 = getelementptr inbounds %struct.sock_send, ptr %ctx, i64 0, i32 2
+  %flags3 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %2, ptr %flags3, align 8
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %3 = load i64, ptr %sock_timeout.i, align 8
   %call.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull @sock_send_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %3), !range !9
   %cmp = icmp slt i32 %call.i, 0
@@ -7897,7 +7865,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %result = getelementptr inbounds %struct.sock_send, ptr %ctx, i64 0, i32 3
+  %result = getelementptr inbounds i8, ptr %ctx, i64 24
   %4 = load i64, ptr %result, align 8
   %call7 = call ptr @PyLong_FromSsize_t(i64 noundef %4) #12
   br label %return
@@ -7914,7 +7882,7 @@ entry:
   %pbuf = alloca %struct.Py_buffer, align 8
   %ctx = alloca %struct.sock_send, align 8
   store i32 0, ptr %flags, align 4
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load i64, ptr %sock_timeout, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.607, ptr noundef nonnull %pbuf, ptr noundef nonnull %flags) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -7923,11 +7891,11 @@ entry:
 if.end:                                           ; preds = %entry
   %cmp = icmp sgt i64 %0, 0
   %1 = load ptr, ptr %pbuf, align 8
-  %len3 = getelementptr inbounds %struct.Py_buffer, ptr %pbuf, i64 0, i32 2
+  %len3 = getelementptr inbounds i8, ptr %pbuf, i64 16
   %2 = load i64, ptr %len3, align 8
-  %len17 = getelementptr inbounds %struct.sock_send, ptr %ctx, i64 0, i32 1
-  %flags18 = getelementptr inbounds %struct.sock_send, ptr %ctx, i64 0, i32 2
-  %result = getelementptr inbounds %struct.sock_send, ptr %ctx, i64 0, i32 3
+  %len17 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %flags18 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %result = getelementptr inbounds i8, ptr %ctx, i64 24
   br i1 %cmp, label %do.body.us, label %do.body
 
 do.body.us:                                       ; preds = %if.end, %do.cond.us
@@ -8069,19 +8037,19 @@ if.end11:                                         ; preds = %sw.epilog
 if.end14:                                         ; preds = %if.end11
   %3 = load ptr, ptr %pbuf, align 8
   store ptr %3, ptr %ctx, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %pbuf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %pbuf, i64 16
   %4 = load i64, ptr %len, align 8
-  %len16 = getelementptr inbounds %struct.sock_sendto, ptr %ctx, i64 0, i32 1
+  %len16 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 %4, ptr %len16, align 8
   %5 = load i32, ptr %flags, align 4
-  %flags17 = getelementptr inbounds %struct.sock_sendto, ptr %ctx, i64 0, i32 2
+  %flags17 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %5, ptr %flags17, align 8
   %6 = load i32, ptr %addrlen, align 4
-  %addrlen18 = getelementptr inbounds %struct.sock_sendto, ptr %ctx, i64 0, i32 3
+  %addrlen18 = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 %6, ptr %addrlen18, align 4
-  %addrbuf19 = getelementptr inbounds %struct.sock_sendto, ptr %ctx, i64 0, i32 4
+  %addrbuf19 = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %addrbuf, ptr %addrbuf19, align 8
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %7 = load i64, ptr %sock_timeout.i, align 8
   %call.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull @sock_sendto_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %7), !range !9
   %cmp21 = icmp slt i32 %call.i, 0
@@ -8089,7 +8057,7 @@ if.end14:                                         ; preds = %if.end11
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end14
-  %result = getelementptr inbounds %struct.sock_sendto, ptr %ctx, i64 0, i32 5
+  %result = getelementptr inbounds i8, ptr %ctx, i64 32
   %8 = load i64, ptr %result, align 8
   %call24 = call ptr @PyLong_FromSsize_t(i64 noundef %8) #12
   br label %return
@@ -8111,14 +8079,14 @@ if.end:                                           ; preds = %entry
   %tobool.not = icmp ne i32 %call, 0
   %cond = sext i1 %tobool.not to i32
   %call2 = tail call i64 @_PyTime_FromSeconds(i32 noundef %cond) #12
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   store i64 %call2, ptr %sock_timeout, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %block.addr.i)
   %call.i = tail call ptr @PyEval_SaveThread() #12
   %tobool.not.i = icmp eq i32 %call, 0
   %lnot.ext.i = zext i1 %tobool.not.i to i32
   store i32 %lnot.ext.i, ptr %block.addr.i, align 4
-  %sock_fd.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd.i = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd.i, align 8
   %call1.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 21537, ptr noundef nonnull %block.addr.i) #12
   %cmp.not.i = icmp eq i32 %call1.i, -1
@@ -8143,7 +8111,7 @@ return:                                           ; preds = %internal_setblockin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @sock_getblocking(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #7 {
 entry:
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load i64, ptr %sock_timeout, align 8
   %tobool.not = icmp eq i64 %0, 0
   %_Py_FalseStruct._Py_TrueStruct = select i1 %tobool.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -8180,14 +8148,14 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.end:                                           ; preds = %if.end4.i, %if.then.i
   %2 = phi i64 [ %0, %if.end4.i ], [ %call.i, %if.then.i ]
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   store i64 %2, ptr %sock_timeout, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %block.addr.i)
   %call.i2 = call ptr @PyEval_SaveThread() #12
   %tobool.not.i = icmp sgt i64 %2, -1
   %lnot.ext.i = zext i1 %tobool.not.i to i32
   store i32 %lnot.ext.i, ptr %block.addr.i, align 4
-  %sock_fd.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd.i = getelementptr inbounds i8, ptr %s, i64 16
   %3 = load i32, ptr %sock_fd.i, align 8
   %call1.i3 = call i32 (i32, i64, ...) @ioctl(i32 noundef %3, i64 noundef 21537, ptr noundef nonnull %block.addr.i) #12
   %cmp.not.i = icmp eq i32 %call1.i3, -1
@@ -8212,7 +8180,7 @@ return:                                           ; preds = %if.end.i, %if.then6
 ; Function Attrs: nounwind uwtable
 define internal ptr @sock_gettimeout(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load i64, ptr %sock_timeout, align 8
   %cmp = icmp slt i64 %0, 0
   br i1 %cmp, label %return, label %if.else
@@ -8237,7 +8205,7 @@ entry:
   %optlen = alloca i32, align 4
   %none = alloca ptr, align 8
   %vflag = alloca i64, align 8
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i32, ptr %sock_family, align 4
   %cmp = icmp eq i32 %0, 40
   br i1 %cmp, label %if.then, label %if.end3
@@ -8248,7 +8216,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %1 = load i32, ptr %sock_fd, align 8
   %2 = load i32, ptr %level, align 4
   %3 = load i32, ptr %optname, align 4
@@ -8261,7 +8229,7 @@ if.end3:                                          ; preds = %entry
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  %sock_fd7 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd7 = getelementptr inbounds i8, ptr %s, i64 16
   %4 = load i32, ptr %sock_fd7, align 8
   %5 = load i32, ptr %level, align 4
   %6 = load i32, ptr %optname, align 4
@@ -8276,7 +8244,7 @@ if.end9:                                          ; preds = %if.end3
   br i1 %tobool12.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  %sock_fd14 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd14 = getelementptr inbounds i8, ptr %s, i64 16
   %7 = load i32, ptr %sock_fd14, align 8
   %8 = load i32, ptr %level, align 4
   %9 = load i32, ptr %optname, align 4
@@ -8291,12 +8259,12 @@ if.end16:                                         ; preds = %if.end9
   br i1 %tobool18.not, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %sock_fd21 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd21 = getelementptr inbounds i8, ptr %s, i64 16
   %11 = load i32, ptr %sock_fd21, align 8
   %12 = load i32, ptr %level, align 4
   %13 = load i32, ptr %optname, align 4
   %14 = load ptr, ptr %optval, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %optval, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %optval, i64 16
   %15 = load i64, ptr %len, align 8
   %conv = trunc i64 %15 to i32
   %call22 = call i32 @setsockopt(i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %conv) #12
@@ -8309,7 +8277,7 @@ done:                                             ; preds = %if.end20, %if.then1
   br i1 %cmp23, label %if.then25, label %return
 
 if.then25:                                        ; preds = %done
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %16 = load ptr, ptr %errorhandler, align 8
   %call26 = call ptr %16() #12
   br label %return
@@ -8333,7 +8301,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call2 = tail call ptr @PyEval_SaveThread() #12
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %call3 = tail call i32 @shutdown(i32 noundef %0, i32 noundef %call) #12
   tail call void @PyEval_RestoreThread(ptr noundef %call2) #12
@@ -8341,7 +8309,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %1 = load ptr, ptr %errorhandler, align 8
   %call6 = tail call ptr %1() #12
   br label %return
@@ -8382,10 +8350,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call4, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call4, i64 32
   store ptr %ob_sval.i, ptr %iov, align 8
   %2 = load i64, ptr %bufsize, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %2, ptr %iov_len, align 8
   %3 = load i32, ptr %flags, align 4
   %4 = load i64, ptr %ancbufsize, align 8
@@ -8466,7 +8434,7 @@ if.then29:                                        ; preds = %cond.false23, %cond
   br label %for.end59
 
 for.body.lr.ph:                                   ; preds = %cond.false23
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %call2, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %call2, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end46
@@ -8484,7 +8452,7 @@ cond.true36:                                      ; preds = %for.body
   br label %cond.end40
 
 cond.false37:                                     ; preds = %for.body
-  %arrayidx39 = getelementptr %struct.PyTupleObject, ptr %call2, i64 0, i32 1, i64 %nbufs.043
+  %arrayidx39 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %nbufs.043
   br label %cond.end40
 
 cond.end40:                                       ; preds = %cond.false37, %cond.true36
@@ -8499,9 +8467,9 @@ if.end46:                                         ; preds = %cond.end40
   %6 = load ptr, ptr %arrayidx42, align 8
   %arrayidx48 = getelementptr %struct.iovec, ptr %call17, i64 %nbufs.043
   store ptr %6, ptr %arrayidx48, align 8
-  %len = getelementptr %struct.Py_buffer, ptr %call25, i64 %nbufs.043, i32 2
+  %len = getelementptr inbounds i8, ptr %arrayidx42, i64 16
   %7 = load i64, ptr %len, align 8
-  %iov_len = getelementptr %struct.iovec, ptr %call17, i64 %nbufs.043, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx48, i64 8
   store i64 %7, ptr %iov_len, align 8
   %inc = add nuw nsw i64 %nbufs.043, 1
   %exitcond.not = icmp eq i64 %inc, %cond
@@ -8603,7 +8571,7 @@ if.end7:                                          ; preds = %if.then3
 if.end11:                                         ; preds = %if.end7
   store ptr %addrbuf, ptr %msg, align 8
   %2 = load i32, ptr %addrlen, align 4
-  %msg_namelen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 1
+  %msg_namelen = getelementptr inbounds i8, ptr %msg, i64 8
   store i32 %2, ptr %msg_namelen, align 8
   br label %if.end16
 
@@ -8653,7 +8621,7 @@ if.end45:                                         ; preds = %if.end20, %cond.end
   %ncmsgs.091 = phi i64 [ %ncmsgs.0, %cond.end40 ], [ %ncmsgs.0, %if.end33 ], [ 0, %if.end20 ]
   %cmsgs.0 = phi ptr [ %call39, %cond.end40 ], [ null, %if.end33 ], [ null, %if.end20 ]
   %5 = getelementptr i8, ptr %cmsg_fast.092, i64 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %cmsg_fast.092, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %cmsg_fast.092, i64 24
   %smax = call i64 @llvm.smax.i64(i64 %ncmsgs.091, i64 0)
   br label %while.cond
 
@@ -8677,22 +8645,22 @@ cond.true50:                                      ; preds = %while.body
   br label %cond.end54
 
 cond.false51:                                     ; preds = %while.body
-  %arrayidx53 = getelementptr %struct.PyTupleObject, ptr %cmsg_fast.092, i64 0, i32 1, i64 %ncmsgbufs.0
+  %arrayidx53 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %ncmsgbufs.0
   br label %cond.end54
 
 cond.end54:                                       ; preds = %cond.false51, %cond.true50
   %cond55.in = phi ptr [ %arrayidx, %cond.true50 ], [ %arrayidx53, %cond.false51 ]
   %cond55 = load ptr, ptr %cond55.in, align 8
   %arrayidx56 = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %ncmsgbufs.0
-  %type = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %ncmsgbufs.0, i32 1
-  %data = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %ncmsgbufs.0, i32 2
-  %call59 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %cond55, ptr noundef nonnull @.str.630, ptr noundef %arrayidx56, ptr noundef %type, ptr noundef %data) #12
+  %type = getelementptr inbounds i8, ptr %arrayidx56, i64 4
+  %data = getelementptr inbounds i8, ptr %arrayidx56, i64 8
+  %call59 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %cond55, ptr noundef nonnull @.str.630, ptr noundef %arrayidx56, ptr noundef nonnull %type, ptr noundef nonnull %data) #12
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %finally, label %if.end62
 
 if.end62:                                         ; preds = %cond.end54
   %inc = add nuw i64 %ncmsgbufs.0, 1
-  %len = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %ncmsgbufs.0, i32 2, i32 2
+  %len = getelementptr inbounds i8, ptr %arrayidx56, i64 24
   %9 = load i64, ptr %len, align 8
   %cmp.i71 = icmp ugt i64 %9, 2147483623
   br i1 %cmp.i71, label %if.then67, label %if.end.i
@@ -8733,9 +8701,9 @@ if.then77:                                        ; preds = %if.then74
   br label %finally
 
 if.end79:                                         ; preds = %if.then74
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
   store ptr %call75, ptr %msg_control, align 8
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   store i64 %controllen_last.0, ptr %msg_controllen, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call75, i8 0, i64 %controllen_last.0, i1 false)
   br label %for.body
@@ -8744,8 +8712,8 @@ for.body:                                         ; preds = %if.end79, %if.end11
   %cmsgh.0122 = phi ptr [ null, %if.end79 ], [ %cond96, %if.end119 ]
   %i.0121 = phi i64 [ 0, %if.end79 ], [ %inc126, %if.end119 ]
   %arrayidx81 = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %i.0121
-  %data82 = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %i.0121, i32 2
-  %len83 = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %i.0121, i32 2, i32 2
+  %data82 = getelementptr inbounds i8, ptr %arrayidx81, i64 8
+  %len83 = getelementptr inbounds i8, ptr %arrayidx81, i64 24
   %12 = load i64, ptr %len83, align 8
   %cmp84 = icmp eq i64 %i.0121, 0
   br i1 %cmp84, label %cond.true85, label %cond.false93
@@ -8806,7 +8774,7 @@ if.then109:                                       ; preds = %cmsg_min_space.exit
   store i64 %add.i, ptr %cond96, align 8
   %msg.val = load ptr, ptr %msg_control, align 8
   %msg.val67 = load i64, ptr %msg_controllen, align 8
-  %__cmsg_data.i = getelementptr inbounds %struct.cmsghdr, ptr %cond96, i64 0, i32 3
+  %__cmsg_data.i = getelementptr inbounds i8, ptr %cond96, i64 16
   %sub.ptr.lhs.cast.i80 = ptrtoint ptr %__cmsg_data.i to i64
   %sub.ptr.rhs.cast.i81 = ptrtoint ptr %msg.val to i64
   %sub.ptr.sub.i82 = sub i64 %sub.ptr.lhs.cast.i80, %sub.ptr.rhs.cast.i81
@@ -8823,11 +8791,11 @@ if.then118:                                       ; preds = %if.then109, %if.end
 
 if.end119:                                        ; preds = %if.then109
   %21 = load i32, ptr %arrayidx81, align 8
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %cond96, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %cond96, i64 8
   store i32 %21, ptr %cmsg_level, align 8
-  %type123 = getelementptr %struct.cmsginfo, ptr %cmsgs.0, i64 %i.0121, i32 1
+  %type123 = getelementptr inbounds i8, ptr %arrayidx81, i64 4
   %22 = load i32, ptr %type123, align 4
-  %cmsg_type = getelementptr inbounds %struct.cmsghdr, ptr %cond96, i64 0, i32 2
+  %cmsg_type = getelementptr inbounds i8, ptr %cond96, i64 12
   store i32 %22, ptr %cmsg_type, align 4
   %23 = load ptr, ptr %data82, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %__cmsg_data.i, ptr align 1 %23, i64 %12, i1 false)
@@ -8839,16 +8807,16 @@ if.end127:                                        ; preds = %if.end119, %while.e
   %controlbuf.0 = phi ptr [ null, %while.end ], [ %call75, %if.end119 ]
   store ptr %msg, ptr %ctx, align 8
   %24 = load i32, ptr %flags, align 4
-  %flags129 = getelementptr inbounds %struct.sock_sendmsg, ptr %ctx, i64 0, i32 1
+  %flags129 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %24, ptr %flags129, align 8
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %25 = load i64, ptr %sock_timeout.i, align 8
   %call.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull @sock_sendmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %25), !range !9
   %cmp131 = icmp slt i32 %call.i, 0
   br i1 %cmp131, label %finally, label %if.end134
 
 if.end134:                                        ; preds = %if.end127
-  %result = getelementptr inbounds %struct.sock_sendmsg, ptr %ctx, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %ctx, i64 16
   %26 = load i64, ptr %result, align 8
   %call135 = call ptr @PyLong_FromSsize_t(i64 noundef %26) #12
   br label %finally
@@ -8899,7 +8867,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %for.end144, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   %29 = load ptr, ptr %msg_iov, align 8
   call void @PyMem_Free(ptr noundef %29) #12
   %30 = load i64, ptr %ndatabufs, align 8
@@ -8943,7 +8911,7 @@ entry:
   store ptr null, ptr %opobj, align 8
   store ptr null, ptr %assoclenobj, align 8
   store i32 0, ptr %flags, align 4
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i32, ptr %sock_family, align 4
   %cmp.not = icmp eq i32 %0, 38
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9002,7 +8970,7 @@ if.end22:                                         ; preds = %if.end18, %if.end10
   %assoclen.0 = phi i32 [ %call13, %if.end18 ], [ -1, %if.end10 ]
   %6 = load ptr, ptr %iv, align 8
   %cmp23.not = icmp eq ptr %6, null
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %iv, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %iv, i64 16
   %7 = load i64, ptr %len, align 8
   %sub = add i64 %7, 11
   %and = and i64 %sub, -8
@@ -9021,9 +8989,9 @@ if.then35:                                        ; preds = %if.end22
 
 if.end37:                                         ; preds = %if.end22
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call33, i8 0, i64 %controllen.1, i1 false)
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   store i64 %controllen.1, ptr %msg_controllen, align 8
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
   store ptr %call33, ptr %msg_control, align 8
   %8 = load ptr, ptr %data_arg, align 8
   %cmp38.not = icmp eq ptr %8, null
@@ -9053,12 +9021,12 @@ if.then49:                                        ; preds = %if.end44
   br label %finally
 
 if.end50:                                         ; preds = %if.end44
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %9, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %9, i64 8
   store i32 279, ptr %cmsg_level, align 8
-  %cmsg_type = getelementptr inbounds %struct.cmsghdr, ptr %9, i64 0, i32 2
+  %cmsg_type = getelementptr inbounds i8, ptr %9, i64 12
   store i32 3, ptr %cmsg_type, align 4
   store i64 20, ptr %9, align 8
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %9, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %call6, ptr %__cmsg_data, align 4
   %12 = load ptr, ptr %iv, align 8
   %cmp52.not = icmp eq ptr %12, null
@@ -9075,16 +9043,16 @@ if.then56:                                        ; preds = %if.then53
   br label %finally
 
 if.end57:                                         ; preds = %if.then53
-  %cmsg_level58 = getelementptr inbounds %struct.cmsghdr, ptr %call54, i64 0, i32 1
+  %cmsg_level58 = getelementptr inbounds i8, ptr %call54, i64 8
   store i32 279, ptr %cmsg_level58, align 8
-  %cmsg_type59 = getelementptr inbounds %struct.cmsghdr, ptr %call54, i64 0, i32 2
+  %cmsg_type59 = getelementptr inbounds i8, ptr %call54, i64 12
   store i32 2, ptr %cmsg_type59, align 4
   %14 = load i64, ptr %len, align 8
   %sub63 = add i64 %14, 11
   %and64 = and i64 %sub63, -8
   %add65 = add i64 %and64, 16
   store i64 %add65, ptr %call54, align 8
-  %__cmsg_data67 = getelementptr inbounds %struct.cmsghdr, ptr %call54, i64 0, i32 3
+  %__cmsg_data67 = getelementptr inbounds i8, ptr %call54, i64 16
   %15 = load i64, ptr %len, align 8
   %conv = trunc i64 %15 to i32
   store i32 %conv, ptr %__cmsg_data67, align 4
@@ -9109,28 +9077,28 @@ if.then81:                                        ; preds = %if.then77
   br label %finally
 
 if.end82:                                         ; preds = %if.then77
-  %cmsg_level83 = getelementptr inbounds %struct.cmsghdr, ptr %call78, i64 0, i32 1
+  %cmsg_level83 = getelementptr inbounds i8, ptr %call78, i64 8
   store i32 279, ptr %cmsg_level83, align 8
-  %cmsg_type84 = getelementptr inbounds %struct.cmsghdr, ptr %call78, i64 0, i32 2
+  %cmsg_type84 = getelementptr inbounds i8, ptr %call78, i64 12
   store i32 4, ptr %cmsg_type84, align 4
   store i64 20, ptr %call78, align 8
-  %__cmsg_data86 = getelementptr inbounds %struct.cmsghdr, ptr %call78, i64 0, i32 3
+  %__cmsg_data86 = getelementptr inbounds i8, ptr %call78, i64 16
   store i32 %assoclen.0, ptr %__cmsg_data86, align 4
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end82, %if.end74
   store ptr %msg, ptr %ctx, align 8
   %19 = load i32, ptr %flags, align 4
-  %flags90 = getelementptr inbounds %struct.sock_sendmsg, ptr %ctx, i64 0, i32 1
+  %flags90 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %19, ptr %flags90, align 8
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %self, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %self, i64 40
   %20 = load i64, ptr %sock_timeout.i, align 8
   %call.i = call fastcc i32 @sock_call_ex(ptr noundef nonnull %self, i32 noundef 1, ptr noundef nonnull @sock_sendmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %20), !range !9
   %cmp92 = icmp slt i32 %call.i, 0
   br i1 %cmp92, label %finally, label %if.end95
 
 if.end95:                                         ; preds = %if.end88
-  %result = getelementptr inbounds %struct.sock_sendmsg, ptr %ctx, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %ctx, i64 16
   %21 = load i64, ptr %result, align 8
   %call96 = call ptr @PyLong_FromSsize_t(i64 noundef %21) #12
   br label %finally
@@ -9148,7 +9116,7 @@ if.then100:                                       ; preds = %finally
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then100, %finally
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   %23 = load ptr, ptr %msg_iov, align 8
   call void @PyMem_Free(ptr noundef %23) #12
   %24 = load i64, ptr %ndatabufs, align 8
@@ -9176,7 +9144,7 @@ return:                                           ; preds = %if.end, %for.end, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @getsockaddrlen(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %len_ret) unnamed_addr #0 {
 entry:
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i32, ptr %sock_family, align 4
   switch i32 %0, label %sw.default15 [
     i32 1, label %sw.bb
@@ -9218,7 +9186,7 @@ sw.bb5:                                           ; preds = %entry
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %1 = load i32, ptr %sock_proto, align 4
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb7
@@ -9277,10 +9245,10 @@ return:                                           ; preds = %sw.default15, %sw.b
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_accept_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %addrbuf = getelementptr inbounds %struct.sock_accept, ptr %data, i64 0, i32 1
+  %addrbuf = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %addrbuf, align 8
   %1 = load ptr, ptr %data, align 8
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %2 = load i32, ptr %sock_family, align 4
   %cmp = icmp eq i32 %2, 38
   br i1 %cmp, label %if.then, label %if.end
@@ -9292,18 +9260,18 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %paddrlen.0 = phi ptr [ null, %if.then ], [ %1, %entry ]
   %addr.0 = phi ptr [ null, %if.then ], [ %0, %entry ]
-  %state2 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 7
+  %state2 = getelementptr inbounds i8, ptr %s, i64 48
   %3 = load ptr, ptr %state2, align 8
-  %accept4_works = getelementptr inbounds %struct._socket_state, ptr %3, i64 0, i32 4
+  %accept4_works = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i32, ptr %accept4_works, align 8
   %cmp3.not = icmp eq i32 %4, 0
   br i1 %cmp3.not, label %if.then18, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %5 = load i32, ptr %sock_fd, align 8
   %call = tail call i32 @accept4(i32 noundef %5, ptr %addr.0, ptr noundef %paddrlen.0, i32 noundef 524288) #12
-  %result = getelementptr inbounds %struct.sock_accept, ptr %data, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %data, i64 16
   store i32 %call, ptr %result, align 8
   %cmp6 = icmp eq i32 %call, -1
   %6 = load i32, ptr %accept4_works, align 8
@@ -9329,10 +9297,10 @@ if.end14.if.end24_crit_edge:                      ; preds = %if.end14
   br label %if.end24
 
 if.then18:                                        ; preds = %if.end, %if.end14
-  %sock_fd19 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd19 = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i32, ptr %sock_fd19, align 8
   %call22 = tail call i32 @accept(i32 noundef %9, ptr %addr.0, ptr noundef %paddrlen.0) #12
-  %result23 = getelementptr inbounds %struct.sock_accept, ptr %data, i64 0, i32 2
+  %result23 = getelementptr inbounds i8, ptr %data, i64 16
   store i32 %call22, ptr %result23, align 8
   br label %if.end24
 
@@ -9354,13 +9322,13 @@ entry:
   %0 = getelementptr i8, ptr %s, i64 16
   %tobool.not.i33 = icmp eq i32 %writing, 0
   %conv.i34 = select i1 %tobool.not.i33, i16 1, i16 4
-  %events.i35 = getelementptr inbounds %struct.pollfd, ptr %pollfd.i30, i64 0, i32 1
+  %events.i35 = getelementptr inbounds i8, ptr %pollfd.i30, i64 4
   %tobool2.not.i36 = icmp eq i32 %connect, 0
   %1 = or disjoint i16 %conv.i34, 8
   %spec.select.i37 = select i1 %tobool2.not.i36, i16 %conv.i34, i16 %1
-  %events.i = getelementptr inbounds %struct.pollfd, ptr %pollfd.i, i64 0, i32 1
+  %events.i = getelementptr inbounds i8, ptr %pollfd.i, i64 4
   %tobool19.not = icmp eq ptr %err, null
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   br i1 %or.cond, label %while.body.us, label %entry.split
 
 while.body.us:                                    ; preds = %entry, %while.body.us.backedge
@@ -9557,7 +9525,7 @@ if.then31:                                        ; preds = %if.then29
   br label %return
 
 if.end34:                                         ; preds = %if.end22.us
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %9 = load ptr, ptr %errorhandler, align 8
   %call35 = call ptr %9() #12
   br label %return
@@ -9618,7 +9586,7 @@ if.end82:                                         ; preds = %while.end.us
   br i1 %tobool19.not, label %if.then84, label %return
 
 if.then84:                                        ; preds = %while.end.split.us.us98, %if.end82
-  %errorhandler85 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler85 = getelementptr inbounds i8, ptr %s, i64 32
   %13 = load ptr, ptr %errorhandler85, align 8
   %call86 = call ptr %13() #12
   br label %return
@@ -9684,7 +9652,7 @@ entry:
   %j1939_addr = alloca i8, align 1
   %type449 = alloca ptr, align 8
   %name450 = alloca ptr, align 8
-  %sock_family = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 2
+  %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i32, ptr %sock_family, align 4
   switch i32 %0, label %sw.default477 [
     i32 1, label %sw.bb
@@ -9748,7 +9716,7 @@ if.then1.i566:                                    ; preds = %if.end.i563
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %path, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %path, i64 16
   %7 = load i64, ptr %len, align 8
   %cmp10 = icmp eq i64 %7, 0
   %.pre261.pre = load ptr, ptr %path, align 8
@@ -9778,7 +9746,8 @@ if.then25:                                        ; preds = %if.else21
   br label %unix_out
 
 if.end26:                                         ; preds = %if.else21
-  %arrayidx = getelementptr %struct.sockaddr_un, ptr %addrbuf, i64 0, i32 1, i64 %7
+  %sun_path = getelementptr inbounds i8, ptr %addrbuf, i64 2
+  %arrayidx = getelementptr [108 x i8], ptr %sun_path, i64 0, i64 %7
   store i8 0, ptr %arrayidx, align 1
   br label %if.end32
 
@@ -9790,7 +9759,7 @@ if.end32:                                         ; preds = %if.then13, %if.end9
   %12 = load i32, ptr %sock_family, align 4
   %conv34 = trunc i32 %12 to i16
   store i16 %conv34, ptr %addrbuf, align 2
-  %sun_path35 = getelementptr inbounds %struct.sockaddr_un, ptr %addrbuf, i64 0, i32 1
+  %sun_path35 = getelementptr inbounds i8, ptr %addrbuf, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path35, ptr align 1 %.pre261.pre, i64 %7, i1 false)
   br label %unix_out
 
@@ -9823,7 +9792,7 @@ sw.bb38:                                          ; preds = %entry
 
 if.then43:                                        ; preds = %sw.bb38
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %args.val209, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %args.val209, i64 24
   %19 = load ptr, ptr %tp_name, align 8
   %call45 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.553, ptr noundef %caller, ptr noundef %19) #12
   br label %return
@@ -9836,10 +9805,10 @@ if.end46:                                         ; preds = %sw.bb38
 if.end50:                                         ; preds = %if.end46
   store i16 16, ptr %addrbuf, align 4
   %20 = load i32, ptr %pid, align 4
-  %nl_pid = getelementptr inbounds %struct.sockaddr_nl, ptr %addrbuf, i64 0, i32 2
+  %nl_pid = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %20, ptr %nl_pid, align 4
   %21 = load i32, ptr %groups, align 4
-  %nl_groups = getelementptr inbounds %struct.sockaddr_nl, ptr %addrbuf, i64 0, i32 3
+  %nl_groups = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %21, ptr %nl_groups, align 4
   store i32 12, ptr %len_ret, align 4
   br label %return
@@ -9855,7 +9824,7 @@ sw.bb51:                                          ; preds = %entry
 
 if.then56:                                        ; preds = %sw.bb51
   %25 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name58 = getelementptr inbounds %struct._typeobject, ptr %args.val207, i64 0, i32 1
+  %tp_name58 = getelementptr inbounds i8, ptr %args.val207, i64 24
   %26 = load ptr, ptr %tp_name58, align 8
   %call59 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.555, ptr noundef %26) #12
   br label %return
@@ -9868,10 +9837,10 @@ if.end60:                                         ; preds = %sw.bb51
 if.end64:                                         ; preds = %if.end60
   store i16 42, ptr %addrbuf, align 4
   %27 = load i32, ptr %node, align 4
-  %sq_node = getelementptr inbounds %struct.sockaddr_qrtr, ptr %addrbuf, i64 0, i32 1
+  %sq_node = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %27, ptr %sq_node, align 4
   %28 = load i32, ptr %port, align 4
-  %sq_port = getelementptr inbounds %struct.sockaddr_qrtr, ptr %addrbuf, i64 0, i32 2
+  %sq_port = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %28, ptr %sq_port, align 4
   store i32 12, ptr %len_ret, align 4
   br label %return
@@ -9888,7 +9857,7 @@ sw.bb65:                                          ; preds = %entry
 
 if.then71:                                        ; preds = %sw.bb65
   %32 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name73 = getelementptr inbounds %struct._typeobject, ptr %args.val205, i64 0, i32 1
+  %tp_name73 = getelementptr inbounds i8, ptr %args.val205, i64 24
   %33 = load ptr, ptr %tp_name73, align 8
   %call74 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.557, ptr noundef %33) #12
   br label %return
@@ -9903,10 +9872,10 @@ if.end79:                                         ; preds = %if.end75
   %conv81 = trunc i32 %34 to i16
   store i16 %conv81, ptr %addrbuf, align 4
   %35 = load i32, ptr %port67, align 4
-  %svm_port = getelementptr inbounds %struct.sockaddr_vm, ptr %addrbuf, i64 0, i32 2
+  %svm_port = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %35, ptr %svm_port, align 4
   %36 = load i32, ptr %cid, align 4
-  %svm_cid = getelementptr inbounds %struct.sockaddr_vm, ptr %addrbuf, i64 0, i32 3
+  %svm_cid = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %36, ptr %svm_cid, align 4
   store i32 16, ptr %len_ret, align 4
   br label %return
@@ -9923,7 +9892,7 @@ sw.bb82:                                          ; preds = %entry, %entry
 
 if.then87:                                        ; preds = %sw.bb82
   %40 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name89 = getelementptr inbounds %struct._typeobject, ptr %args.val203, i64 0, i32 1
+  %tp_name89 = getelementptr inbounds i8, ptr %args.val203, i64 24
   %41 = load ptr, ptr %tp_name89, align 8
   %call90 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %40, ptr noundef nonnull @.str.558, ptr noundef %caller, ptr noundef %41) #12
   br label %return
@@ -9945,9 +9914,9 @@ if.then97:                                        ; preds = %if.then94
   br label %return
 
 if.end100:                                        ; preds = %if.end91
-  %state = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %s, i64 48
   %44 = load ptr, ptr %state, align 8
-  %buf102 = getelementptr inbounds %struct.maybe_idna, ptr %host, i64 0, i32 1
+  %buf102 = getelementptr inbounds i8, ptr %host, i64 8
   %45 = load ptr, ptr %buf102, align 8
   %call103 = call fastcc i32 @setipaddr(ptr noundef %44, ptr noundef %45, ptr noundef %addrbuf, i64 noundef 16, i32 noundef 2), !range !4
   %46 = load ptr, ptr %host, align 8
@@ -9989,7 +9958,7 @@ if.end115:                                        ; preds = %if.end107
   store i16 2, ptr %addrbuf, align 4
   %conv116 = trunc i32 %49 to i16
   %call117 = call zeroext i16 @htons(i16 noundef zeroext %conv116) #13
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %addrbuf, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i16 %call117, ptr %sin_port, align 2
   store i32 16, ptr %len_ret, align 4
   br label %return
@@ -10008,7 +9977,7 @@ sw.bb118:                                         ; preds = %entry
 
 if.then125:                                       ; preds = %sw.bb118
   %54 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name127 = getelementptr inbounds %struct._typeobject, ptr %args.val201, i64 0, i32 1
+  %tp_name127 = getelementptr inbounds i8, ptr %args.val201, i64 24
   %55 = load ptr, ptr %tp_name127, align 8
   %call128 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %54, ptr noundef nonnull @.str.561, ptr noundef %caller, ptr noundef %55) #12
   br label %return
@@ -10030,9 +9999,9 @@ if.then135:                                       ; preds = %if.then132
   br label %return
 
 if.end138:                                        ; preds = %if.end129
-  %state140 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 7
+  %state140 = getelementptr inbounds i8, ptr %s, i64 48
   %58 = load ptr, ptr %state140, align 8
-  %buf141 = getelementptr inbounds %struct.maybe_idna, ptr %host119, i64 0, i32 1
+  %buf141 = getelementptr inbounds i8, ptr %host119, i64 8
   %59 = load ptr, ptr %buf141, align 8
   %call142 = call fastcc i32 @setipaddr(ptr noundef %58, ptr noundef %59, ptr noundef %addrbuf, i64 noundef 28, i32 noundef 10), !range !4
   %60 = load ptr, ptr %host119, align 8
@@ -10086,19 +10055,19 @@ if.end159:                                        ; preds = %if.end154
   store i16 %conv161, ptr %addrbuf, align 4
   %conv162 = trunc i32 %63 to i16
   %call163 = call zeroext i16 @htons(i16 noundef zeroext %conv162) #13
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %addrbuf, i64 0, i32 1
+  %sin6_port = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i16 %call163, ptr %sin6_port, align 2
   %call164 = call i32 @htonl(i32 noundef %65) #13
-  %sin6_flowinfo = getelementptr inbounds %struct.sockaddr_in6, ptr %addrbuf, i64 0, i32 2
+  %sin6_flowinfo = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %call164, ptr %sin6_flowinfo, align 4
   %68 = load i32, ptr %scope_id, align 4
-  %sin6_scope_id = getelementptr inbounds %struct.sockaddr_in6, ptr %addrbuf, i64 0, i32 4
+  %sin6_scope_id = getelementptr inbounds i8, ptr %addrbuf, i64 24
   store i32 %68, ptr %sin6_scope_id, align 4
   store i32 28, ptr %len_ret, align 4
   br label %return
 
 sw.bb165:                                         ; preds = %entry
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %69 = load i32, ptr %sock_proto, align 4
   switch i32 %69, label %sw.default [
     i32 0, label %sw.bb166
@@ -10111,7 +10080,7 @@ sw.bb166:                                         ; preds = %sw.bb165
   %70 = getelementptr inbounds i8, ptr %addrbuf, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %70, i8 0, i64 12, i1 false)
   store i16 31, ptr %addrbuf, align 2
-  %l2_psm = getelementptr inbounds %struct.sockaddr_l2, ptr %addrbuf, i64 0, i32 1
+  %l2_psm = getelementptr inbounds i8, ptr %addrbuf, i64 2
   %call168 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.564, ptr noundef nonnull %straddr, ptr noundef nonnull %l2_psm) #12
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %if.then170, label %if.end172
@@ -10123,7 +10092,7 @@ if.then170:                                       ; preds = %sw.bb166
 
 if.end172:                                        ; preds = %sw.bb166
   %72 = load ptr, ptr %straddr, align 8
-  %l2_bdaddr = getelementptr inbounds %struct.sockaddr_l2, ptr %addrbuf, i64 0, i32 2
+  %l2_bdaddr = getelementptr inbounds i8, ptr %addrbuf, i64 4
   %call173 = call fastcc i32 @setbdaddr(ptr noundef %72, ptr noundef nonnull %l2_bdaddr), !range !18
   %cmp174 = icmp slt i32 %call173, 0
   br i1 %cmp174, label %return, label %if.end177
@@ -10134,7 +10103,7 @@ if.end177:                                        ; preds = %if.end172
 
 sw.bb178:                                         ; preds = %sw.bb165
   store i16 31, ptr %addrbuf, align 2
-  %rc_channel = getelementptr inbounds %struct.sockaddr_rc, ptr %addrbuf, i64 0, i32 2
+  %rc_channel = getelementptr inbounds i8, ptr %addrbuf, i64 8
   %call181 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.564, ptr noundef nonnull %straddr179, ptr noundef nonnull %rc_channel) #12
   %tobool182.not = icmp eq i32 %call181, 0
   br i1 %tobool182.not, label %if.then183, label %if.end185
@@ -10146,7 +10115,7 @@ if.then183:                                       ; preds = %sw.bb178
 
 if.end185:                                        ; preds = %sw.bb178
   %74 = load ptr, ptr %straddr179, align 8
-  %rc_bdaddr = getelementptr inbounds %struct.sockaddr_rc, ptr %addrbuf, i64 0, i32 1
+  %rc_bdaddr = getelementptr inbounds i8, ptr %addrbuf, i64 2
   %call186 = call fastcc i32 @setbdaddr(ptr noundef %74, ptr noundef nonnull %rc_bdaddr), !range !18
   %cmp187 = icmp slt i32 %call186, 0
   br i1 %cmp187, label %return, label %if.end190
@@ -10157,7 +10126,7 @@ if.end190:                                        ; preds = %if.end185
 
 sw.bb191:                                         ; preds = %sw.bb165
   store i16 31, ptr %addrbuf, align 2
-  %hci_dev = getelementptr inbounds %struct.sockaddr_hci, ptr %addrbuf, i64 0, i32 1
+  %hci_dev = getelementptr inbounds i8, ptr %addrbuf, i64 2
   %call193 = tail call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.94, ptr noundef nonnull %hci_dev) #12
   %tobool194.not = icmp eq i32 %call193, 0
   br i1 %tobool194.not, label %if.then195, label %if.end197
@@ -10187,8 +10156,8 @@ if.then204:                                       ; preds = %sw.bb198
   br label %return
 
 if.end206:                                        ; preds = %sw.bb198
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %args, i64 0, i32 2
-  %sco_bdaddr = getelementptr inbounds %struct.sockaddr_sco, ptr %addrbuf, i64 0, i32 1
+  %ob_sval.i = getelementptr inbounds i8, ptr %args, i64 32
+  %sco_bdaddr = getelementptr inbounds i8, ptr %addrbuf, i64 2
   %call208 = tail call fastcc i32 @setbdaddr(ptr noundef nonnull %ob_sval.i, ptr noundef nonnull %sco_bdaddr), !range !18
   %cmp209 = icmp slt i32 %call208, 0
   br i1 %cmp209, label %return, label %if.end212
@@ -10216,7 +10185,7 @@ sw.bb214:                                         ; preds = %entry
 
 if.then218:                                       ; preds = %sw.bb214
   %84 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name220 = getelementptr inbounds %struct._typeobject, ptr %args.val198, i64 0, i32 1
+  %tp_name220 = getelementptr inbounds i8, ptr %args.val198, i64 24
   %85 = load ptr, ptr %tp_name220, align 8
   %call221 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %84, ptr noundef nonnull @.str.567, ptr noundef %caller, ptr noundef %85) #12
   br label %return
@@ -10240,16 +10209,16 @@ if.then228:                                       ; preds = %if.then225
 if.end231:                                        ; preds = %if.end222
   %88 = load ptr, ptr %interfaceName, align 8
   %call233 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ifr, ptr noundef nonnull dereferenceable(1) %88, i64 noundef 16) #12
-  %arrayidx235 = getelementptr inbounds [16 x i8], ptr %ifr, i64 0, i64 15
+  %arrayidx235 = getelementptr inbounds i8, ptr %ifr, i64 15
   store i8 0, ptr %arrayidx235, align 1
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %89 = load i32, ptr %sock_fd, align 8
   %call236 = call i32 (i32, i64, ...) @ioctl(i32 noundef %89, i64 noundef 35123, ptr noundef nonnull %ifr) #12
   %cmp237 = icmp slt i32 %call236, 0
   br i1 %cmp237, label %if.then239, label %if.end241
 
 if.then239:                                       ; preds = %if.end231
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %90 = load ptr, ptr %errorhandler, align 8
   %call240 = call ptr %90() #12
   call void @PyBuffer_Release(ptr noundef nonnull %haddr) #12
@@ -10258,7 +10227,7 @@ if.then239:                                       ; preds = %if.end231
 if.end241:                                        ; preds = %if.end231
   %91 = load ptr, ptr %haddr, align 8
   %tobool243 = icmp ne ptr %91, null
-  %len244 = getelementptr inbounds %struct.Py_buffer, ptr %haddr, i64 0, i32 2
+  %len244 = getelementptr inbounds i8, ptr %haddr, i64 16
   %92 = load i64, ptr %len244, align 8
   %cmp245 = icmp sgt i64 %92, 8
   %or.cond2 = select i1 %tobool243, i1 %cmp245, i1 false
@@ -10285,32 +10254,32 @@ if.end256:                                        ; preds = %if.end248
   store i16 17, ptr %addrbuf, align 4
   %conv258 = trunc i32 %94 to i16
   %call259 = call zeroext i16 @htons(i16 noundef zeroext %conv258) #13
-  %sll_protocol = getelementptr inbounds %struct.sockaddr_ll, ptr %addrbuf, i64 0, i32 1
+  %sll_protocol = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i16 %call259, ptr %sll_protocol, align 2
-  %ifr_ifru = getelementptr inbounds %struct.ifreq, ptr %ifr, i64 0, i32 1
+  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
   %96 = load i32, ptr %ifr_ifru, align 8
-  %sll_ifindex = getelementptr inbounds %struct.sockaddr_ll, ptr %addrbuf, i64 0, i32 2
+  %sll_ifindex = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %96, ptr %sll_ifindex, align 4
   %97 = load i32, ptr %pkttype, align 4
   %conv260 = trunc i32 %97 to i8
-  %sll_pkttype = getelementptr inbounds %struct.sockaddr_ll, ptr %addrbuf, i64 0, i32 4
+  %sll_pkttype = getelementptr inbounds i8, ptr %addrbuf, i64 10
   store i8 %conv260, ptr %sll_pkttype, align 2
   %98 = load i32, ptr %hatype, align 4
   %conv261 = trunc i32 %98 to i16
-  %sll_hatype = getelementptr inbounds %struct.sockaddr_ll, ptr %addrbuf, i64 0, i32 3
+  %sll_hatype = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i16 %conv261, ptr %sll_hatype, align 4
   %tobool263.not = icmp eq ptr %91, null
   br i1 %tobool263.not, label %if.end271, label %if.then264
 
 if.then264:                                       ; preds = %if.end256
-  %sll_addr = getelementptr inbounds %struct.sockaddr_ll, ptr %addrbuf, i64 0, i32 6
+  %sll_addr = getelementptr inbounds i8, ptr %addrbuf, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sll_addr, ptr nonnull align 1 %91, i64 %92, i1 false)
   %conv268 = trunc i64 %92 to i8
   br label %if.end271
 
 if.end271:                                        ; preds = %if.end256, %if.then264
   %conv268.sink = phi i8 [ %conv268, %if.then264 ], [ 0, %if.end256 ]
-  %99 = getelementptr inbounds %struct.sockaddr_ll, ptr %addrbuf, i64 0, i32 5
+  %99 = getelementptr inbounds i8, ptr %addrbuf, i64 11
   store i8 %conv268.sink, ptr %99, align 1
   store i32 20, ptr %len_ret, align 4
   call void @PyBuffer_Release(ptr noundef nonnull %haddr) #12
@@ -10328,7 +10297,7 @@ sw.bb272:                                         ; preds = %entry
 
 if.then276:                                       ; preds = %sw.bb272
   %103 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name278 = getelementptr inbounds %struct._typeobject, ptr %args.val196, i64 0, i32 1
+  %tp_name278 = getelementptr inbounds i8, ptr %args.val196, i64 24
   %104 = load ptr, ptr %tp_name278, align 8
   %call279 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %103, ptr noundef nonnull @.str.572, ptr noundef %caller, ptr noundef %104) #12
   br label %return
@@ -10344,11 +10313,11 @@ if.end284:                                        ; preds = %if.end280
   store i16 30, ptr %addrbuf, align 4
   %106 = load i32, ptr %scope, align 4
   %conv286 = trunc i32 %106 to i8
-  %scope287 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 2
+  %scope287 = getelementptr inbounds i8, ptr %addrbuf, i64 3
   store i8 %conv286, ptr %scope287, align 1
   %107 = load i32, ptr %atype, align 4
   %conv288 = trunc i32 %107 to i8
-  %addrtype = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 1
+  %addrtype = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i8 %conv288, ptr %addrtype, align 2
   switch i32 %107, label %if.else310 [
     i32 1, label %if.then291
@@ -10358,29 +10327,29 @@ if.end284:                                        ; preds = %if.end280
 
 if.then291:                                       ; preds = %if.end284
   %108 = load i32, ptr %v1, align 4
-  %addr292 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3
+  %addr292 = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %108, ptr %addr292, align 4
   %109 = load i32, ptr %v2, align 4
-  %lower = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3, i32 0, i32 1
+  %lower = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %109, ptr %lower, align 4
   %110 = load i32, ptr %v3, align 4
-  %upper = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3, i32 0, i32 2
+  %upper = getelementptr inbounds i8, ptr %addrbuf, i64 12
   store i32 %110, ptr %upper, align 4
   br label %if.end313
 
 if.then298:                                       ; preds = %if.end284
   %111 = load i32, ptr %v1, align 4
-  %addr299 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3
+  %addr299 = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %111, ptr %addr299, align 4
   %112 = load i32, ptr %v2, align 4
-  %instance = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3, i32 0, i32 1
+  %instance = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %112, ptr %instance, align 4
   br label %if.end313
 
 if.then306:                                       ; preds = %if.end284
   %113 = load i32, ptr %v1, align 4
-  %addr307 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3
-  %node308 = getelementptr inbounds %struct.sockaddr_tipc, ptr %addrbuf, i64 0, i32 3, i32 0, i32 1
+  %addr307 = getelementptr inbounds i8, ptr %addrbuf, i64 4
+  %node308 = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %113, ptr %node308, align 4
   %114 = load i32, ptr %v2, align 4
   store i32 %114, ptr %addr307, align 4
@@ -10396,7 +10365,7 @@ if.end313:                                        ; preds = %if.then298, %if.the
   br label %return
 
 sw.bb314:                                         ; preds = %entry
-  %sock_proto315 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto315 = getelementptr inbounds i8, ptr %s, i64 28
   %116 = load i32, ptr %sock_proto315, align 4
   switch i32 %116, label %sw.default446 [
     i32 1, label %sw.bb316
@@ -10416,7 +10385,7 @@ sw.bb316:                                         ; preds = %sw.bb314, %sw.bb314
 
 if.then324:                                       ; preds = %sw.bb316
   %120 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name326 = getelementptr inbounds %struct._typeobject, ptr %args.val194, i64 0, i32 1
+  %tp_name326 = getelementptr inbounds i8, ptr %args.val194, i64 24
   %121 = load ptr, ptr %tp_name326, align 8
   %call327 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %120, ptr noundef nonnull @.str.574, ptr noundef %caller, ptr noundef %121) #12
   br label %return
@@ -10434,7 +10403,7 @@ if.end332:                                        ; preds = %if.end328
   br i1 %cmp334, label %if.then336, label %if.else338
 
 if.then336:                                       ; preds = %if.end332
-  %ifr_ifru337 = getelementptr inbounds %struct.ifreq, ptr %ifr318, i64 0, i32 1
+  %ifr_ifru337 = getelementptr inbounds i8, ptr %ifr318, i64 16
   store i32 0, ptr %ifr_ifru337, align 8
   br label %if.end358
 
@@ -10443,24 +10412,24 @@ if.else338:                                       ; preds = %if.end332
   br i1 %cmp339, label %if.then341, label %if.else356
 
 if.then341:                                       ; preds = %if.else338
-  %ob_sval.i249 = getelementptr inbounds %struct.PyBytesObject, ptr %122, i64 0, i32 2
+  %ob_sval.i249 = getelementptr inbounds i8, ptr %122, i64 32
   %call345 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ifr318, ptr noundef nonnull dereferenceable(1) %ob_sval.i249, i64 noundef 16) #12
-  %arrayidx347 = getelementptr inbounds [16 x i8], ptr %ifr318, i64 0, i64 15
+  %arrayidx347 = getelementptr inbounds i8, ptr %ifr318, i64 15
   store i8 0, ptr %arrayidx347, align 1
-  %sock_fd348 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd348 = getelementptr inbounds i8, ptr %s, i64 16
   %124 = load i32, ptr %sock_fd348, align 8
   %call349 = call i32 (i32, i64, ...) @ioctl(i32 noundef %124, i64 noundef 35123, ptr noundef nonnull %ifr318) #12
   %cmp350 = icmp slt i32 %call349, 0
   br i1 %cmp350, label %if.then352, label %if.then341.if.end358_crit_edge
 
 if.then341.if.end358_crit_edge:                   ; preds = %if.then341
-  %ifr_ifru359.phi.trans.insert = getelementptr inbounds %struct.ifreq, ptr %ifr318, i64 0, i32 1
+  %ifr_ifru359.phi.trans.insert = getelementptr inbounds i8, ptr %ifr318, i64 16
   %.pre259 = load i32, ptr %ifr_ifru359.phi.trans.insert, align 8
   %.pre260 = load ptr, ptr %interfaceName317, align 8
   br label %if.end358
 
 if.then352:                                       ; preds = %if.then341
-  %errorhandler353 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler353 = getelementptr inbounds i8, ptr %s, i64 32
   %125 = load ptr, ptr %errorhandler353, align 8
   %call354 = call ptr %125() #12
   %126 = load ptr, ptr %interfaceName317, align 8
@@ -10502,7 +10471,7 @@ if.end358:                                        ; preds = %if.then341.if.end35
   %133 = phi ptr [ %.pre260, %if.then341.if.end358_crit_edge ], [ %122, %if.then336 ]
   %134 = phi i32 [ %.pre259, %if.then341.if.end358_crit_edge ], [ 0, %if.then336 ]
   store i16 29, ptr %addrbuf, align 8
-  %can_ifindex = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 1
+  %can_ifindex = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %134, ptr %can_ifindex, align 4
   store i32 24, ptr %len_ret, align 4
   %135 = load i64, ptr %133, align 8
@@ -10533,7 +10502,7 @@ if.end368:                                        ; preds = %sw.bb360
   br i1 %cmp370, label %if.then372, label %if.else374
 
 if.then372:                                       ; preds = %if.end368
-  %ifr_ifru373 = getelementptr inbounds %struct.ifreq, ptr %ifr362, i64 0, i32 1
+  %ifr_ifru373 = getelementptr inbounds i8, ptr %ifr362, i64 16
   store i32 0, ptr %ifr_ifru373, align 8
   br label %if.end394
 
@@ -10542,24 +10511,24 @@ if.else374:                                       ; preds = %if.end368
   br i1 %cmp375, label %if.then377, label %if.else392
 
 if.then377:                                       ; preds = %if.else374
-  %ob_sval.i250 = getelementptr inbounds %struct.PyBytesObject, ptr %137, i64 0, i32 2
+  %ob_sval.i250 = getelementptr inbounds i8, ptr %137, i64 32
   %call381 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ifr362, ptr noundef nonnull dereferenceable(1) %ob_sval.i250, i64 noundef 16) #12
-  %arrayidx383 = getelementptr inbounds [16 x i8], ptr %ifr362, i64 0, i64 15
+  %arrayidx383 = getelementptr inbounds i8, ptr %ifr362, i64 15
   store i8 0, ptr %arrayidx383, align 1
-  %sock_fd384 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd384 = getelementptr inbounds i8, ptr %s, i64 16
   %139 = load i32, ptr %sock_fd384, align 8
   %call385 = call i32 (i32, i64, ...) @ioctl(i32 noundef %139, i64 noundef 35123, ptr noundef nonnull %ifr362) #12
   %cmp386 = icmp slt i32 %call385, 0
   br i1 %cmp386, label %if.then388, label %if.then377.if.end394_crit_edge
 
 if.then377.if.end394_crit_edge:                   ; preds = %if.then377
-  %ifr_ifru396.phi.trans.insert = getelementptr inbounds %struct.ifreq, ptr %ifr362, i64 0, i32 1
+  %ifr_ifru396.phi.trans.insert = getelementptr inbounds i8, ptr %ifr362, i64 16
   %.pre257 = load i32, ptr %ifr_ifru396.phi.trans.insert, align 8
   %.pre258 = load ptr, ptr %interfaceName361, align 8
   br label %if.end394
 
 if.then388:                                       ; preds = %if.then377
-  %errorhandler389 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler389 = getelementptr inbounds i8, ptr %s, i64 32
   %140 = load ptr, ptr %errorhandler389, align 8
   %call390 = call ptr %140() #12
   %141 = load ptr, ptr %interfaceName361, align 8
@@ -10601,11 +10570,11 @@ if.end394:                                        ; preds = %if.then377.if.end39
   %148 = phi ptr [ %.pre258, %if.then377.if.end394_crit_edge ], [ %137, %if.then372 ]
   %149 = phi i32 [ %.pre257, %if.then377.if.end394_crit_edge ], [ 0, %if.then372 ]
   store i16 29, ptr %addrbuf, align 8
-  %can_ifindex397 = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 1
+  %can_ifindex397 = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %149, ptr %can_ifindex397, align 4
   %150 = load i64, ptr %rx_id, align 8
   %conv398 = trunc i64 %150 to i32
-  %can_addr = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 2
+  %can_addr = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i32 %conv398, ptr %can_addr, align 8
   %151 = load i64, ptr %tx_id, align 8
   %conv400 = trunc i64 %151 to i32
@@ -10640,7 +10609,7 @@ if.end411:                                        ; preds = %sw.bb403
   br i1 %cmp413, label %if.then415, label %if.else417
 
 if.then415:                                       ; preds = %if.end411
-  %ifr_ifru416 = getelementptr inbounds %struct.ifreq, ptr %ifr405, i64 0, i32 1
+  %ifr_ifru416 = getelementptr inbounds i8, ptr %ifr405, i64 16
   store i32 0, ptr %ifr_ifru416, align 8
   br label %if.end437
 
@@ -10649,24 +10618,24 @@ if.else417:                                       ; preds = %if.end411
   br i1 %cmp418, label %if.then420, label %if.else435
 
 if.then420:                                       ; preds = %if.else417
-  %ob_sval.i251 = getelementptr inbounds %struct.PyBytesObject, ptr %154, i64 0, i32 2
+  %ob_sval.i251 = getelementptr inbounds i8, ptr %154, i64 32
   %call424 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ifr405, ptr noundef nonnull dereferenceable(1) %ob_sval.i251, i64 noundef 16) #12
-  %arrayidx426 = getelementptr inbounds [16 x i8], ptr %ifr405, i64 0, i64 15
+  %arrayidx426 = getelementptr inbounds i8, ptr %ifr405, i64 15
   store i8 0, ptr %arrayidx426, align 1
-  %sock_fd427 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd427 = getelementptr inbounds i8, ptr %s, i64 16
   %156 = load i32, ptr %sock_fd427, align 8
   %call428 = call i32 (i32, i64, ...) @ioctl(i32 noundef %156, i64 noundef 35123, ptr noundef nonnull %ifr405) #12
   %cmp429 = icmp slt i32 %call428, 0
   br i1 %cmp429, label %if.then431, label %if.then420.if.end437_crit_edge
 
 if.then420.if.end437_crit_edge:                   ; preds = %if.then420
-  %ifr_ifru439.phi.trans.insert = getelementptr inbounds %struct.ifreq, ptr %ifr405, i64 0, i32 1
+  %ifr_ifru439.phi.trans.insert = getelementptr inbounds i8, ptr %ifr405, i64 16
   %.pre = load i32, ptr %ifr_ifru439.phi.trans.insert, align 8
   %.pre256 = load ptr, ptr %interfaceName404, align 8
   br label %if.end437
 
 if.then431:                                       ; preds = %if.then420
-  %errorhandler432 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler432 = getelementptr inbounds i8, ptr %s, i64 32
   %157 = load ptr, ptr %errorhandler432, align 8
   %call433 = call ptr %157() #12
   %158 = load ptr, ptr %interfaceName404, align 8
@@ -10708,16 +10677,16 @@ if.end437:                                        ; preds = %if.then420.if.end43
   %165 = phi ptr [ %.pre256, %if.then420.if.end437_crit_edge ], [ %154, %if.then415 ]
   %166 = phi i32 [ %.pre, %if.then420.if.end437_crit_edge ], [ 0, %if.then415 ]
   store i16 29, ptr %addrbuf, align 8
-  %can_ifindex440 = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 1
+  %can_ifindex440 = getelementptr inbounds i8, ptr %addrbuf, i64 4
   store i32 %166, ptr %can_ifindex440, align 4
   %167 = load i64, ptr %j1939_name, align 8
-  %can_addr441 = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 2
+  %can_addr441 = getelementptr inbounds i8, ptr %addrbuf, i64 8
   store i64 %167, ptr %can_addr441, align 8
   %168 = load i32, ptr %j1939_pgn, align 4
-  %pgn = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 2, i32 0, i32 1
+  %pgn = getelementptr inbounds i8, ptr %addrbuf, i64 16
   store i32 %168, ptr %pgn, align 8
   %169 = load i8, ptr %j1939_addr, align 1
-  %addr445 = getelementptr inbounds %struct.sockaddr_can, ptr %addrbuf, i64 0, i32 2, i32 0, i32 2
+  %addr445 = getelementptr inbounds i8, ptr %addrbuf, i64 20
   store i8 %169, ptr %addr445, align 4
   store i32 24, ptr %len_ret, align 4
   %170 = load i64, ptr %165, align 8
@@ -10753,14 +10722,14 @@ sw.bb448:                                         ; preds = %entry
 
 if.then454:                                       ; preds = %sw.bb448
   %176 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name456 = getelementptr inbounds %struct._typeobject, ptr %args.val192, i64 0, i32 1
+  %tp_name456 = getelementptr inbounds i8, ptr %args.val192, i64 24
   %177 = load ptr, ptr %tp_name456, align 8
   %call457 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %176, ptr noundef nonnull @.str.578, ptr noundef %caller, ptr noundef %177) #12
   br label %return
 
 if.end458:                                        ; preds = %sw.bb448
-  %salg_feat = getelementptr inbounds %struct.sockaddr_alg, ptr %addrbuf, i64 0, i32 2
-  %salg_mask = getelementptr inbounds %struct.sockaddr_alg, ptr %addrbuf, i64 0, i32 3
+  %salg_feat = getelementptr inbounds i8, ptr %addrbuf, i64 16
+  %salg_mask = getelementptr inbounds i8, ptr %addrbuf, i64 20
   %call459 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.579, ptr noundef nonnull %type449, ptr noundef nonnull %name450, ptr noundef nonnull %salg_feat, ptr noundef nonnull %salg_mask) #12
   %tobool460.not = icmp eq i32 %call459, 0
   br i1 %tobool460.not, label %return, label %if.end462
@@ -10777,7 +10746,7 @@ if.then466:                                       ; preds = %if.end462
   br label %return
 
 if.end467:                                        ; preds = %if.end462
-  %salg_type = getelementptr inbounds %struct.sockaddr_alg, ptr %addrbuf, i64 0, i32 1
+  %salg_type = getelementptr inbounds i8, ptr %addrbuf, i64 2
   %call469 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %salg_type, ptr noundef nonnull dereferenceable(1) %178, i64 noundef 14) #12
   %180 = load ptr, ptr %name450, align 8
   %call470 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %180) #14
@@ -10790,7 +10759,7 @@ if.then473:                                       ; preds = %if.end467
   br label %return
 
 if.end474:                                        ; preds = %if.end467
-  %salg_name = getelementptr inbounds %struct.sockaddr_alg, ptr %addrbuf, i64 0, i32 4
+  %salg_name = getelementptr inbounds i8, ptr %addrbuf, i64 24
   %call476 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %salg_name, ptr noundef nonnull dereferenceable(1) %180, i64 noundef 64) #12
   store i32 88, ptr %len_ret, align 4
   br label %return
@@ -10852,7 +10821,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call ptr @PyBytes_AsString(ptr noundef nonnull %obj) #12
-  %buf = getelementptr inbounds %struct.maybe_idna, ptr %data, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call4, ptr %buf, align 8
   %call5 = tail call i64 @PyBytes_Size(ptr noundef nonnull %obj) #12
   br label %if.end38
@@ -10868,7 +10837,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else, %PyObject_TypeCheck.exit
   %call9 = tail call ptr @PyByteArray_AsString(ptr noundef nonnull %obj) #12
-  %buf10 = getelementptr inbounds %struct.maybe_idna, ptr %data, i64 0, i32 1
+  %buf10 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call9, ptr %buf10, align 8
   %call11 = tail call i64 @PyByteArray_Size(ptr noundef nonnull %obj) #12
   br label %if.end38
@@ -10889,9 +10858,9 @@ if.then16:                                        ; preds = %if.else12
   br i1 %tobool18.not.not, label %if.then.i38, label %if.else23
 
 if.then.i38:                                      ; preds = %if.then16
-  %add.ptr.i.i = getelementptr %struct.PyASCIIObject, ptr %obj, i64 1
-  %buf21 = getelementptr inbounds %struct.maybe_idna, ptr %data, i64 0, i32 1
-  store ptr %add.ptr.i.i, ptr %buf21, align 8
+  %retval.0.i.i = getelementptr i8, ptr %obj, i64 40
+  %buf21 = getelementptr inbounds i8, ptr %data, i64 8
+  store ptr %retval.0.i.i, ptr %buf21, align 8
   %10 = getelementptr i8, ptr %obj, i64 16
   %obj.val32 = load i64, ptr %10, align 8
   br label %if.end38
@@ -10908,8 +10877,8 @@ if.then26:                                        ; preds = %if.else23
 
 if.end27:                                         ; preds = %if.else23
   store ptr %call24, ptr %data, align 8
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call24, i64 0, i32 2
-  %buf30 = getelementptr inbounds %struct.maybe_idna, ptr %data, i64 0, i32 1
+  %ob_sval.i = getelementptr inbounds i8, ptr %call24, i64 32
+  %buf30 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %ob_sval.i, ptr %buf30, align 8
   %12 = getelementptr i8, ptr %call24, i64 16
   %call24.val = load i64, ptr %12, align 8
@@ -10917,14 +10886,14 @@ if.end27:                                         ; preds = %if.else23
 
 if.else33:                                        ; preds = %if.else12
   %13 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %obj.val28, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %obj.val28, i64 24
   %14 = load ptr, ptr %tp_name, align 8
   %call35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.584, ptr noundef %14) #12
   br label %return
 
 if.end38:                                         ; preds = %if.then8, %if.then.i38, %if.end27, %if.then3
   %len.0 = phi i64 [ %call5, %if.then3 ], [ %call11, %if.then8 ], [ %obj.val32, %if.then.i38 ], [ %call24.val, %if.end27 ]
-  %buf39 = getelementptr inbounds %struct.maybe_idna, ptr %data, i64 0, i32 1
+  %buf39 = getelementptr inbounds i8, ptr %data, i64 8
   %15 = load ptr, ptr %buf39, align 8
   %call40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #14
   %cmp41.not = icmp eq i64 %call40, %len.0
@@ -10997,19 +10966,19 @@ if.then:                                          ; preds = %land.lhs.true
   %conv = trunc i32 %0 to i8
   store i8 %conv, ptr %bdaddr, align 1
   %conv6 = trunc i32 %1 to i8
-  %arrayidx8 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 1
+  %arrayidx8 = getelementptr i8, ptr %bdaddr, i64 1
   store i8 %conv6, ptr %arrayidx8, align 1
   %conv9 = trunc i32 %2 to i8
-  %arrayidx11 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 2
+  %arrayidx11 = getelementptr i8, ptr %bdaddr, i64 2
   store i8 %conv9, ptr %arrayidx11, align 1
   %conv12 = trunc i32 %3 to i8
-  %arrayidx14 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 3
+  %arrayidx14 = getelementptr i8, ptr %bdaddr, i64 3
   store i8 %conv12, ptr %arrayidx14, align 1
   %conv15 = trunc i32 %4 to i8
-  %arrayidx17 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 4
+  %arrayidx17 = getelementptr i8, ptr %bdaddr, i64 4
   store i8 %conv15, ptr %arrayidx17, align 1
   %conv18 = trunc i32 %5 to i8
-  %arrayidx20 = getelementptr [6 x i8], ptr %bdaddr, i64 0, i64 5
+  %arrayidx20 = getelementptr i8, ptr %bdaddr, i64 5
   store i8 %conv18, ptr %arrayidx20, align 1
   br label %return
 
@@ -11042,7 +11011,7 @@ define internal fastcc i32 @internal_connect(ptr noundef %s, ptr noundef %addr, 
 entry:
   %err = alloca i32, align 4
   %call = tail call ptr @PyEval_SaveThread() #12
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %call1 = tail call i32 @connect(i32 noundef %0, ptr %addr, i32 noundef %addrlen) #12
   tail call void @PyEval_RestoreThread(ptr noundef %call) #12
@@ -11062,13 +11031,13 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then4
-  %sock_timeout = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout = getelementptr inbounds i8, ptr %s, i64 40
   %2 = load i64, ptr %sock_timeout, align 8
   %cmp9.not = icmp eq i64 %2, 0
   br i1 %cmp9.not, label %if.then18, label %if.end24
 
 if.end16:                                         ; preds = %if.end
-  %sock_timeout10 = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout10 = getelementptr inbounds i8, ptr %s, i64 40
   %3 = load i64, ptr %sock_timeout10, align 8
   %cmp11 = icmp sgt i64 %3, 0
   %cmp12 = icmp eq i32 %1, 115
@@ -11081,7 +11050,7 @@ if.then18:                                        ; preds = %if.end8, %if.end16
 
 do.body:                                          ; preds = %if.then18
   store i32 %1, ptr %call2, align 4
-  %errorhandler = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 5
+  %errorhandler = getelementptr inbounds i8, ptr %s, i64 32
   %4 = load ptr, ptr %errorhandler, align 8
   %call22 = tail call ptr %4() #12
   br label %return
@@ -11121,7 +11090,7 @@ entry:
   %err = alloca i32, align 4
   %size = alloca i32, align 4
   store i32 4, ptr %size, align 4
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %call = call i32 @getsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %err, ptr noundef nonnull %size) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -11161,15 +11130,15 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_recv_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %1 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.sock_recv, ptr %data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load i64, ptr %len, align 8
-  %flags = getelementptr inbounds %struct.sock_recv, ptr %data, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i32, ptr %flags, align 8
   %call = tail call i64 @recv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #12
-  %result = getelementptr inbounds %struct.sock_recv, ptr %data, i64 0, i32 3
+  %result = getelementptr inbounds i8, ptr %data, i64 24
   store i64 %call, ptr %result, align 8
   %cmp = icmp sgt i64 %call, -1
   %conv = zext i1 %cmp to i32
@@ -11183,24 +11152,24 @@ declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_recvfrom_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %addrbuf = getelementptr inbounds %struct.sock_recvfrom, ptr %data, i64 0, i32 4
+  %addrbuf = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %addrbuf, align 8
-  %addrlen = getelementptr inbounds %struct.sock_recvfrom, ptr %data, i64 0, i32 3
+  %addrlen = getelementptr inbounds i8, ptr %data, i64 24
   %1 = load ptr, ptr %addrlen, align 8
   %2 = load i32, ptr %1, align 4
   %conv = zext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %conv, i1 false)
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %3 = load i32, ptr %sock_fd, align 8
   %4 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.sock_recvfrom, ptr %data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %data, i64 8
   %5 = load i64, ptr %len, align 8
-  %flags = getelementptr inbounds %struct.sock_recvfrom, ptr %data, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %data, i64 16
   %6 = load i32, ptr %flags, align 8
   %7 = load ptr, ptr %addrbuf, align 8
   %8 = load ptr, ptr %addrlen, align 8
   %call = tail call i64 @recvfrom(i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr %7, ptr noundef %8) #12
-  %result = getelementptr inbounds %struct.sock_recvfrom, ptr %data, i64 0, i32 5
+  %result = getelementptr inbounds i8, ptr %data, i64 40
   store i64 %call, ptr %result, align 8
   %cmp = icmp sgt i64 %call, -1
   %conv4 = zext i1 %cmp to i32
@@ -11212,15 +11181,15 @@ declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_send_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %1 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.sock_send, ptr %data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load i64, ptr %len, align 8
-  %flags = getelementptr inbounds %struct.sock_send, ptr %data, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i32, ptr %flags, align 8
   %call = tail call i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #12
-  %result = getelementptr inbounds %struct.sock_send, ptr %data, i64 0, i32 3
+  %result = getelementptr inbounds i8, ptr %data, i64 24
   store i64 %call, ptr %result, align 8
   %cmp = icmp sgt i64 %call, -1
   %conv = zext i1 %cmp to i32
@@ -11234,19 +11203,19 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_sendto_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %1 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.sock_sendto, ptr %data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load i64, ptr %len, align 8
-  %flags = getelementptr inbounds %struct.sock_sendto, ptr %data, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load i32, ptr %flags, align 8
-  %addrbuf = getelementptr inbounds %struct.sock_sendto, ptr %data, i64 0, i32 4
+  %addrbuf = getelementptr inbounds i8, ptr %data, i64 24
   %4 = load ptr, ptr %addrbuf, align 8
-  %addrlen = getelementptr inbounds %struct.sock_sendto, ptr %data, i64 0, i32 3
+  %addrlen = getelementptr inbounds i8, ptr %data, i64 20
   %5 = load i32, ptr %addrlen, align 4
   %call = tail call i64 @sendto(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr %4, i32 noundef %5) #12
-  %result = getelementptr inbounds %struct.sock_sendto, ptr %data, i64 0, i32 5
+  %result = getelementptr inbounds i8, ptr %data, i64 32
   store i64 %call, ptr %result, align 8
   %cmp = icmp sgt i64 %call, -1
   %conv = zext i1 %cmp to i32
@@ -11305,21 +11274,21 @@ if.then12:                                        ; preds = %land.lhs.true
 if.end14:                                         ; preds = %land.lhs.true, %if.end6
   %controlbuf.0 = phi ptr [ %call9, %land.lhs.true ], [ null, %if.end6 ]
   store ptr %addrbuf, ptr %msg, align 8
-  %msg_namelen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 1
+  %msg_namelen = getelementptr inbounds i8, ptr %msg, i64 8
   store i32 %1, ptr %msg_namelen, align 8
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   store ptr %iov, ptr %msg_iov, align 8
   %conv15 = sext i32 %iovlen to i64
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
   store i64 %conv15, ptr %msg_iovlen, align 8
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
   store ptr %controlbuf.0, ptr %msg_control, align 8
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   store i64 %controllen, ptr %msg_controllen, align 8
   store ptr %msg, ptr %ctx, align 8
-  %flags17 = getelementptr inbounds %struct.sock_recvmsg, ptr %ctx, i64 0, i32 1
+  %flags17 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %flags, ptr %flags17, align 8
-  %sock_timeout.i = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 6
+  %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %3 = load i64, ptr %sock_timeout.i, align 8
   %call.i = call fastcc i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recvmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %3), !range !9
   %cmp19 = icmp slt i32 %call.i, 0
@@ -11367,7 +11336,7 @@ lor.lhs.false.i:                                  ; preds = %cmsg_min_space.exit
   br i1 %cmp.i35, label %if.then44, label %if.end.i36
 
 if.end.i36:                                       ; preds = %lor.lhs.false.i
-  %__cmsg_data.i.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.089111, i64 0, i32 3
+  %__cmsg_data.i.i = getelementptr inbounds i8, ptr %cmsgh.089111, i64 16
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %__cmsg_data.i.i to i64
   %sub.ptr.sub.i11.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.rhs.cast.i.i
   %cmp1.i12.i = icmp ugt i64 %sub.ptr.sub.i11.i, %msg.val32112
@@ -11402,11 +11371,11 @@ if.then57:                                        ; preds = %if.end54
   br label %err_closefds
 
 if.end58:                                         ; preds = %if.end54
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.089111, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %cmsgh.089111, i64 16
   %call59 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %__cmsg_data, i64 noundef %sub.i.sub.i) #12
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.089111, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %cmsgh.089111, i64 8
   %10 = load i32, ptr %cmsg_level, align 8
-  %cmsg_type = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.089111, i64 0, i32 2
+  %cmsg_type = getelementptr inbounds i8, ptr %cmsgh.089111, i64 12
   %11 = load i32, ptr %cmsg_type, align 4
   %call60 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.621, i32 noundef %10, i32 noundef %11, ptr noundef %call59) #12
   %cmp61 = icmp eq ptr %call60, null
@@ -11447,17 +11416,17 @@ for.end.loopexit:                                 ; preds = %if.end69, %for.inc,
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end27
   %14 = phi i32 [ %.pre, %for.end.loopexit ], [ %1, %if.end27 ]
-  %result = getelementptr inbounds %struct.sock_recvmsg, ptr %ctx, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %ctx, i64 16
   %15 = load i64, ptr %result, align 8
   %call75 = call ptr %makeval(i64 noundef %15, ptr noundef %makeval_data) #12, !callees !20
-  %msg_flags = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 6
+  %msg_flags = getelementptr inbounds i8, ptr %msg, i64 48
   %16 = load i32, ptr %msg_flags, align 8
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %17 = load i32, ptr %sock_fd, align 8
   %18 = load i32, ptr %msg_namelen, align 8
   %cond83 = call i32 @llvm.umin.i32(i32 %18, i32 %14)
   %conv84 = zext i32 %cond83 to i64
-  %sock_proto = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 4
+  %sock_proto = getelementptr inbounds i8, ptr %s, i64 28
   %19 = load i32, ptr %sock_proto, align 4
   %call85 = call fastcc ptr @makesockaddr(i32 noundef %17, ptr noundef nonnull %addrbuf, i64 noundef %conv84, i32 noundef %19)
   %call86 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.622, ptr noundef %call75, ptr noundef nonnull %call23, i32 noundef %16, ptr noundef %call85) #12
@@ -11526,7 +11495,7 @@ lor.lhs.false.i47:                                ; preds = %cmsg_min_space.exit
   br i1 %cmp.i48, label %finally, label %if.end.i49
 
 if.end.i49:                                       ; preds = %lor.lhs.false.i47
-  %__cmsg_data.i.i50 = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.195115, i64 0, i32 3
+  %__cmsg_data.i.i50 = getelementptr inbounds i8, ptr %cmsgh.195115, i64 16
   %sub.ptr.lhs.cast.i9.i51 = ptrtoint ptr %__cmsg_data.i.i50 to i64
   %sub.ptr.sub.i11.i52 = sub i64 %sub.ptr.lhs.cast.i9.i51, %sub.ptr.rhs.cast.i.i41
   %cmp1.i12.i53 = icmp ugt i64 %sub.ptr.sub.i11.i52, %msg.val34116
@@ -11536,14 +11505,14 @@ get_cmsg_data_len.exit61:                         ; preds = %if.end.i49
   %sub.i55 = add i64 %24, -16
   %sub.i.i56 = sub i64 %msg.val34116, %sub.ptr.sub.i11.i52
   %cmp6.not.i57.not = icmp ult i64 %sub.i.i56, %sub.i55
-  %cmsg_level115 = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.195115, i64 0, i32 1
+  %cmsg_level115 = getelementptr inbounds i8, ptr %cmsgh.195115, i64 8
   %25 = load i32, ptr %cmsg_level115, align 8
   %cmp116 = icmp eq i32 %25, 1
   br i1 %cmp116, label %land.lhs.true118, label %if.end128
 
 land.lhs.true118:                                 ; preds = %get_cmsg_data_len.exit61
   %sub.i.sub.i58 = call i64 @llvm.umin.i64(i64 %sub.i.i56, i64 %sub.i55)
-  %cmsg_type119 = getelementptr inbounds %struct.cmsghdr, ptr %cmsgh.195115, i64 0, i32 2
+  %cmsg_type119 = getelementptr inbounds i8, ptr %cmsgh.195115, i64 12
   %26 = load i32, ptr %cmsg_type119, align 4
   %cmp120 = icmp ne i32 %26, 1
   %cmp125.not91 = icmp ult i64 %sub.i.sub.i58, 4
@@ -11558,7 +11527,7 @@ while.body:                                       ; preds = %while.body.preheade
   %fdp.093 = phi ptr [ %incdec.ptr, %while.body ], [ %__cmsg_data.i.i50, %while.body.preheader ]
   %numfds.092 = phi i64 [ %dec, %while.body ], [ %div31, %while.body.preheader ]
   %dec = add nsw i64 %numfds.092, -1
-  %incdec.ptr = getelementptr i32, ptr %fdp.093, i64 1
+  %incdec.ptr = getelementptr i8, ptr %fdp.093, i64 4
   %27 = load i32, ptr %fdp.093, align 4
   %call127 = call i32 @close(i32 noundef %27) #12
   %cmp125.not = icmp eq i64 %dec, 0
@@ -11615,13 +11584,13 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_recvmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %1 = load ptr, ptr %data, align 8
-  %flags = getelementptr inbounds %struct.sock_recvmsg, ptr %data, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load i32, ptr %flags, align 8
   %call = tail call i64 @recvmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2) #12
-  %result = getelementptr inbounds %struct.sock_recvmsg, ptr %data, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %data, i64 16
   store i64 %call, ptr %result, align 8
   %cmp = icmp sgt i64 %call, -1
   %conv = zext i1 %cmp to i32
@@ -11664,7 +11633,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.then.i
 
 if.end7:                                          ; preds = %if.end
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
   store i64 %cond, ptr %msg_iovlen, align 8
   %cmp8 = icmp sgt i64 %cond, 0
   br i1 %cmp8, label %cond.false12, label %if.then.i
@@ -11680,7 +11649,7 @@ if.then17:                                        ; preds = %cond.false12
   br label %if.then.i
 
 if.end19:                                         ; preds = %cond.false12
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   store ptr %call13, ptr %msg_iov, align 8
   %mul23 = mul nuw nsw i64 %cond, 80
   %call24 = tail call ptr @PyMem_Malloc(i64 noundef %mul23) #12
@@ -11692,7 +11661,7 @@ if.then28:                                        ; preds = %if.end19
   br label %if.then.i
 
 for.body.lr.ph:                                   ; preds = %if.end19
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %call, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %call, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end46
@@ -11710,7 +11679,7 @@ cond.true36:                                      ; preds = %for.body
   br label %cond.end40
 
 cond.false37:                                     ; preds = %for.body
-  %arrayidx39 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 %ndatabufs.07
+  %arrayidx39 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %ndatabufs.07
   br label %cond.end40
 
 cond.end40:                                       ; preds = %cond.false37, %cond.true36
@@ -11725,9 +11694,9 @@ if.end46:                                         ; preds = %cond.end40
   %5 = load ptr, ptr %arrayidx42, align 8
   %arrayidx48 = getelementptr %struct.iovec, ptr %call13, i64 %ndatabufs.07
   store ptr %5, ptr %arrayidx48, align 8
-  %len = getelementptr %struct.Py_buffer, ptr %call24, i64 %ndatabufs.07, i32 2
+  %len = getelementptr inbounds i8, ptr %arrayidx42, i64 16
   %6 = load i64, ptr %len, align 8
-  %iov_len = getelementptr %struct.iovec, ptr %call13, i64 %ndatabufs.07, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx48, i64 8
   store i64 %6, ptr %iov_len, align 8
   %inc = add nuw nsw i64 %ndatabufs.07, 1
   %exitcond.not = icmp eq i64 %inc, %cond
@@ -11767,13 +11736,13 @@ Py_XDECREF.exit:                                  ; preds = %finally, %if.then.i
 ; Function Attrs: nounwind uwtable
 define internal i32 @sock_sendmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
 entry:
-  %sock_fd = getelementptr inbounds %struct.PySocketSockObject, ptr %s, i64 0, i32 1
+  %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
   %1 = load ptr, ptr %data, align 8
-  %flags = getelementptr inbounds %struct.sock_sendmsg, ptr %data, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load i32, ptr %flags, align 8
   %call = tail call i64 @sendmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2) #12
-  %result = getelementptr inbounds %struct.sock_sendmsg, ptr %data, i64 0, i32 2
+  %result = getelementptr inbounds i8, ptr %data, i64 16
   store i64 %call, ptr %result, align 8
   %cmp = icmp sgt i64 %call, -1
   %conv = zext i1 %cmp to i32

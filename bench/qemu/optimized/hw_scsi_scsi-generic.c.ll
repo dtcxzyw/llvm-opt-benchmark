@@ -12,27 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.sg_io_hdr = type { i32, i32, i8, i8, i16, i32, ptr, ptr, ptr, i32, i32, i32, ptr, i8, i8, i8, i8, i16, i16, i32, i32, i32 }
-%struct.SCSIDevice = type { %struct.DeviceState, ptr, ptr, i32, %struct.BlockConf, %struct.SCSISense, i8, [252 x i8], i32, %union.anon, i32, i32, i32, i32, i64, i64, i64, i32, i32, i32, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.SCSIGenericReq = type { %struct.SCSIRequest, ptr, i32, i32, %struct.sg_io_hdr }
-%struct.SCSIRequest = type { ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, i64, %struct.SCSICommand, %struct.NotifierList, [252 x i8], i32, i8, i8, i8, i8, ptr, ptr, %union.anon.0 }
-%struct.SCSICommand = type { [16 x i8], i32, i64, i64, i32 }
-%struct.NotifierList = type { %struct.anon }
-%struct.anon = type { ptr }
-%union.anon.0 = type { %struct.QTailQLink }
 %struct.SCSIBlockLimits = type { i8, i16, i32, i32, i32, i32, i32 }
-%struct.SCSIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.sg_scsi_id = type { i32, i32, i32, i32, i32, i16, i16, [2 x i32] }
 
 @scsi_generic_req_ops = dso_local constant %struct.SCSIReqOps { i64 512, ptr null, ptr @scsi_free_request, ptr @scsi_send_command, ptr @scsi_read_data, ptr @scsi_write_data, ptr @scsi_get_buf, ptr @scsi_generic_save_request, ptr @scsi_generic_load_request }, align 8
@@ -136,23 +116,23 @@ entry:
   %0 = getelementptr inbounds i8, ptr %io_header, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 80, i1 false)
   store i32 83, ptr %io_header, align 8
-  %dxfer_direction = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 1
+  %dxfer_direction = getelementptr inbounds i8, ptr %io_header, i64 4
   store i32 -3, ptr %dxfer_direction, align 4
   %conv = zext i8 %buf_size to i32
-  %dxfer_len = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 5
+  %dxfer_len = getelementptr inbounds i8, ptr %io_header, i64 12
   store i32 %conv, ptr %dxfer_len, align 4
-  %dxferp = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 6
+  %dxferp = getelementptr inbounds i8, ptr %io_header, i64 16
   store ptr %buf, ptr %dxferp, align 8
-  %cmdp = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 7
+  %cmdp = getelementptr inbounds i8, ptr %io_header, i64 24
   store ptr %cmd, ptr %cmdp, align 8
-  %cmd_len = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 2
+  %cmd_len = getelementptr inbounds i8, ptr %io_header, i64 8
   store i8 %cmd_size, ptr %cmd_len, align 8
-  %mx_sb_len = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 3
+  %mx_sb_len = getelementptr inbounds i8, ptr %io_header, i64 9
   store i8 8, ptr %mx_sb_len, align 1
-  %sbp = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 8
+  %sbp = getelementptr inbounds i8, ptr %io_header, i64 32
   store ptr %sensebuf, ptr %sbp, align 8
   %mul = mul i32 %timeout, 1000
-  %timeout1 = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 9
+  %timeout1 = getelementptr inbounds i8, ptr %io_header, i64 40
   store i32 %mul, ptr %timeout1, align 8
   %1 = load i8, ptr %cmd, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -179,7 +159,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %1 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, i32 noundef %mul) #14
@@ -194,15 +174,15 @@ trace_scsi_generic_ioctl_sgio_command.exit:       ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = call i32 @blk_ioctl(ptr noundef %blk, i64 noundef 8837, ptr noundef nonnull %io_header) #14
   %cmp = icmp slt i32 %call, 0
-  %status = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 13
+  %status = getelementptr inbounds i8, ptr %io_header, i64 64
   %9 = load i8, ptr %status, align 8
   %tobool = icmp ne i8 %9, 0
   %or.cond = select i1 %cmp, i1 true, i1 %tobool
-  %driver_status = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 18
+  %driver_status = getelementptr inbounds i8, ptr %io_header, i64 70
   %10 = load i16, ptr %driver_status, align 2
   %tobool7 = icmp ne i16 %10, 0
   %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool7
-  %host_status = getelementptr inbounds %struct.sg_io_hdr, ptr %io_header, i64 0, i32 17
+  %host_status = getelementptr inbounds i8, ptr %io_header, i64 68
   %11 = load i16, ptr %host_status, align 4
   %tobool10 = icmp ne i16 %11, 0
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %tobool10
@@ -234,7 +214,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #14
   %call10.i.i17 = call i32 @qemu_get_thread_id() #14
   %18 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %19 = load i64, ptr %tv_usec.i.i18, align 8
   %conv11.i.i19 = zext i8 %12 to i32
   %conv12.i.i20 = zext i8 %9 to i32
@@ -278,26 +258,26 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %0, i8 0, i64 3, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(250) %buf.i, i8 0, i64 250, i1 false)
   store i8 18, ptr %cmd.i, align 1
-  %arrayidx2.i = getelementptr inbounds [6 x i8], ptr %cmd.i, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %cmd.i, i64 1
   store i8 1, ptr %arrayidx2.i, align 1
-  %arrayidx3.i = getelementptr inbounds [6 x i8], ptr %cmd.i, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %cmd.i, i64 2
   store i8 -125, ptr %arrayidx3.i, align 1
-  %arrayidx4.i = getelementptr inbounds [6 x i8], ptr %cmd.i, i64 0, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %cmd.i, i64 4
   store i8 -6, ptr %arrayidx4.i, align 1
-  %conf.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 4
+  %conf.i = getelementptr inbounds i8, ptr %s, i64 184
   %1 = load ptr, ptr %conf.i, align 8
-  %io_timeout.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 19
+  %io_timeout.i = getelementptr inbounds i8, ptr %s, i64 600
   %2 = load i32, ptr %io_timeout.i, align 8
   %call.i = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %1, ptr noundef nonnull %cmd.i, i8 noundef zeroext 6, ptr noundef nonnull %buf.i, i8 noundef zeroext -6, i32 noundef %2), !range !5
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %scsi_generic_read_device_identification.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx7.i = getelementptr inbounds [250 x i8], ptr %buf.i, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %buf.i, i64 2
   %3 = load i8, ptr %arrayidx7.i, align 2
   %conv.i = zext i8 %3 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 8
-  %arrayidx8.i = getelementptr inbounds [250 x i8], ptr %buf.i, i64 0, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %buf.i, i64 3
   %4 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %4 to i64
   %or.i = or disjoint i64 %shl.i, %conv9.i
@@ -307,8 +287,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp14.not60.i, label %scsi_generic_read_device_identification.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %port_wwn.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 16
-  %wwn35.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 15
+  %port_wwn.i = getelementptr inbounds i8, ptr %s, i64 584
+  %wwn35.i = getelementptr inbounds i8, ptr %s, i64 576
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end49.i, %for.body.lr.ph.i
@@ -471,7 +451,7 @@ if.end49.i:                                       ; preds = %if.then46.i, %land.
 scsi_generic_read_device_identification.exit:     ; preds = %for.body.i, %if.end49.i, %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %cmd.i)
   call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %buf.i)
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %s, i64 564
   %21 = load i32, ptr %type, align 4
   switch i32 %21, label %if.else [
     i32 0, label %if.then
@@ -485,11 +465,11 @@ if.then:                                          ; preds = %scsi_generic_read_d
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, i8 0, i64 3, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(250) %buf.i6, i8 0, i64 250, i1 false)
   store i8 18, ptr %cmd.i5, align 1
-  %arrayidx2.i7 = getelementptr inbounds [6 x i8], ptr %cmd.i5, i64 0, i64 1
+  %arrayidx2.i7 = getelementptr inbounds i8, ptr %cmd.i5, i64 1
   store i8 1, ptr %arrayidx2.i7, align 1
-  %arrayidx3.i8 = getelementptr inbounds [6 x i8], ptr %cmd.i5, i64 0, i64 2
+  %arrayidx3.i8 = getelementptr inbounds i8, ptr %cmd.i5, i64 2
   store i8 0, ptr %arrayidx3.i8, align 1
-  %arrayidx4.i9 = getelementptr inbounds [6 x i8], ptr %cmd.i5, i64 0, i64 4
+  %arrayidx4.i9 = getelementptr inbounds i8, ptr %cmd.i5, i64 4
   store i8 -6, ptr %arrayidx4.i9, align 1
   %23 = load ptr, ptr %conf.i, align 8
   %24 = load i32, ptr %io_timeout.i, align 8
@@ -498,7 +478,7 @@ if.then:                                          ; preds = %scsi_generic_read_d
   br i1 %cmp.i13, label %scsi_generic_set_vpd_bl_emulation.exit, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then
-  %arrayidx7.i15 = getelementptr inbounds [250 x i8], ptr %buf.i6, i64 0, i64 3
+  %arrayidx7.i15 = getelementptr inbounds i8, ptr %buf.i6, i64 3
   %25 = load i8, ptr %arrayidx7.i15, align 1
   %cmp129.not.i = icmp eq i8 %25, 0
   br i1 %cmp129.not.i, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.body.preheader.i
@@ -523,14 +503,14 @@ for.body.i16:                                     ; preds = %for.cond.i, %for.bo
 
 scsi_generic_set_vpd_bl_emulation.exit:           ; preds = %for.cond.i, %for.body.i16, %if.then, %if.end.i14
   %.sink.i = phi i8 [ 0, %if.then ], [ 1, %if.end.i14 ], [ 1, %for.cond.i ], [ 0, %for.body.i16 ]
-  %needs_vpd_bl_emulation21.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 20
+  %needs_vpd_bl_emulation21.i = getelementptr inbounds i8, ptr %s, i64 604
   store i8 %.sink.i, ptr %needs_vpd_bl_emulation21.i, align 4
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %cmd.i5)
   call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %buf.i6)
   br label %if.end
 
 if.else:                                          ; preds = %scsi_generic_read_device_identification.exit
-  %needs_vpd_bl_emulation = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 20
+  %needs_vpd_bl_emulation = getelementptr inbounds i8, ptr %s, i64 604
   store i8 0, ptr %needs_vpd_bl_emulation, align 4
   br label %if.end
 
@@ -541,7 +521,7 @@ if.end:                                           ; preds = %if.else, %scsi_gene
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @scsi_free_request(ptr nocapture noundef readonly %req) #0 {
 entry:
-  %buf = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %req, i64 408
   %0 = load ptr, ptr %buf, align 8
   tail call void @g_free(ptr noundef %0) #14
   ret void
@@ -551,7 +531,7 @@ entry:
 define internal i32 @scsi_send_command(ptr noundef %req, ptr nocapture noundef readonly %cmd) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %dev, align 8
   %1 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool = icmp ne i32 %1, 0
@@ -561,7 +541,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %len = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 1
+  %len = getelementptr inbounds i8, ptr %req, i64 72
   %3 = load i32, ptr %len, align 8
   %mul.i = mul i32 %3, 5
   %add.i = add i32 %mul.i, 1
@@ -612,7 +592,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %call.i) #14
   br label %scsi_generic_command_dump.exit
@@ -627,20 +607,20 @@ scsi_generic_command_dump.exit:                   ; preds = %for.end.i, %land.lh
   br label %if.end
 
 if.end:                                           ; preds = %scsi_generic_command_dump.exit, %entry
-  %xfer = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 2
+  %xfer = getelementptr inbounds i8, ptr %req, i64 80
   %12 = load i64, ptr %xfer, align 8
   %cmp = icmp eq i64 %12, 0
   br i1 %cmp, label %if.then12, label %if.end20
 
 if.then12:                                        ; preds = %if.end
-  %buf = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %req, i64 408
   %13 = load ptr, ptr %buf, align 8
   tail call void @g_free(ptr noundef %13) #14
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %req, i64 416
   store i32 0, ptr %buflen, align 8
   store ptr null, ptr %buf, align 8
   %call = tail call ptr @scsi_req_ref(ptr noundef nonnull %req) #14
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 184
   %14 = load ptr, ptr %conf, align 8
   %call15 = tail call fastcc i32 @execute_command(ptr noundef %14, ptr noundef nonnull %req, i32 noundef -1, ptr noundef nonnull @scsi_command_complete), !range !11
   %cmp16 = icmp slt i32 %call15, 0
@@ -651,11 +631,11 @@ if.then18:                                        ; preds = %if.then12
   br label %return
 
 if.end20:                                         ; preds = %if.end
-  %buflen21 = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 2
+  %buflen21 = getelementptr inbounds i8, ptr %req, i64 416
   %15 = load i32, ptr %buflen21, align 8
   %conv22 = sext i32 %15 to i64
   %cmp26.not = icmp eq i64 %12, %conv22
-  %buf41.phi.trans.insert = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 1
+  %buf41.phi.trans.insert = getelementptr inbounds i8, ptr %req, i64 408
   %.pre = load ptr, ptr %buf41.phi.trans.insert, align 8
   br i1 %cmp26.not, label %if.end40, label %if.then28
 
@@ -677,9 +657,9 @@ if.end40:                                         ; preds = %if.end20, %if.then2
   tail call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %conv43.pre-phi, i1 false)
   %19 = load i64, ptr %xfer, align 8
   %conv47 = trunc i64 %19 to i32
-  %len48 = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 3
+  %len48 = getelementptr inbounds i8, ptr %req, i64 420
   store i32 %conv47, ptr %len48, align 4
-  %mode = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 4
+  %mode = getelementptr inbounds i8, ptr %req, i64 96
   %20 = load i32, ptr %mode, align 8
   %cmp51 = icmp eq i32 %20, 2
   br i1 %cmp51, label %if.then53, label %return
@@ -698,9 +678,9 @@ return:                                           ; preds = %if.end40, %if.then1
 define internal void @scsi_read_data(ptr noundef %req) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %dev, align 8
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %req, i64 28
   %1 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -726,7 +706,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1) #14
   br label %trace_scsi_generic_read_data.exit
@@ -738,13 +718,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_scsi_generic_read_data.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = tail call ptr @scsi_req_ref(ptr noundef nonnull %req) #14
-  %len = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %req, i64 420
   %9 = load i32, ptr %len, align 4
   %cmp = icmp eq i32 %9, -1
   br i1 %cmp, label %if.end7.sink.split, label %if.end
 
 if.end:                                           ; preds = %trace_scsi_generic_read_data.exit
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 184
   %10 = load ptr, ptr %conf, align 8
   %call4 = tail call fastcc i32 @execute_command(ptr noundef %10, ptr noundef nonnull %req, i32 noundef -3, ptr noundef nonnull @scsi_read_complete), !range !11
   %cmp5 = icmp slt i32 %call4, 0
@@ -763,9 +743,9 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 define internal void @scsi_write_data(ptr noundef %req) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %dev, align 8
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %req, i64 28
   %1 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -791,7 +771,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1) #14
   br label %trace_scsi_generic_write_data.exit
@@ -802,13 +782,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_scsi_generic_write_data.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %len = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %req, i64 420
   %9 = load i32, ptr %len, align 4
   %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_scsi_generic_write_data.exit
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %req, i64 416
   %10 = load i32, ptr %buflen, align 8
   store i32 %10, ptr %len, align 4
   tail call void @scsi_req_data(ptr noundef nonnull %req, i32 noundef %10) #14
@@ -816,7 +796,7 @@ if.then:                                          ; preds = %trace_scsi_generic_
 
 if.end:                                           ; preds = %trace_scsi_generic_write_data.exit
   %call = tail call ptr @scsi_req_ref(ptr noundef nonnull %req) #14
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 184
   %11 = load ptr, ptr %conf, align 8
   %call7 = tail call fastcc i32 @execute_command(ptr noundef %11, ptr noundef nonnull %req, i32 noundef -2, ptr noundef nonnull @scsi_write_complete), !range !11
   %cmp8 = icmp slt i32 %call7, 0
@@ -833,7 +813,7 @@ if.end10:                                         ; preds = %if.then9, %if.end, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal ptr @scsi_get_buf(ptr nocapture noundef readonly %req) #3 {
 entry:
-  %buf = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %req, i64 408
   %0 = load ptr, ptr %buf, align 8
   ret ptr %0
 }
@@ -841,7 +821,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @scsi_generic_save_request(ptr noundef %f, ptr nocapture noundef readonly %req) #0 {
 entry:
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %req, i64 416
   %buflen.val = load i32, ptr %buflen, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %buflen.val) #14
   %0 = load i32, ptr %buflen, align 8
@@ -849,13 +829,13 @@ entry:
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %mode = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 4
+  %mode = getelementptr inbounds i8, ptr %req, i64 96
   %1 = load i32, ptr %mode, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %land.lhs.true
-  %sg = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 19
+  %sg = getelementptr inbounds i8, ptr %req, i64 384
   %2 = load ptr, ptr %sg, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end, label %if.else
@@ -865,9 +845,9 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %buf = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %req, i64 408
   %3 = load ptr, ptr %buf, align 8
-  %xfer = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 2
+  %xfer = getelementptr inbounds i8, ptr %req, i64 80
   %4 = load i64, ptr %xfer, align 8
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %3, i64 noundef %4) #14
   br label %if.end9
@@ -879,20 +859,20 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @scsi_generic_load_request(ptr noundef %f, ptr nocapture noundef %req) #0 {
 entry:
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %req, i64 416
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #14
   store i32 %call.i.i, ptr %buflen, align 4
   %tobool.not = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %mode = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 4
+  %mode = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load i32, ptr %mode, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %land.lhs.true
-  %sg = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 19
+  %sg = getelementptr inbounds i8, ptr %req, i64 384
   %1 = load ptr, ptr %sg, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end, label %if.else
@@ -902,9 +882,9 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %buf = getelementptr inbounds %struct.SCSIGenericReq, ptr %req, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %req, i64 408
   %2 = load ptr, ptr %buf, align 8
-  %xfer = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 2
+  %xfer = getelementptr inbounds i8, ptr %req, i64 80
   %3 = load i64, ptr %xfer, align 8
   %call = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %3) #14
   br label %if.end9
@@ -953,45 +933,45 @@ declare ptr @scsi_req_ref(ptr noundef) local_unnamed_addr #2
 define internal fastcc i32 @execute_command(ptr noundef %blk, ptr noundef %r, i32 noundef %direction, ptr noundef %complete) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load ptr, ptr %dev, align 8
-  %io_header = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4
+  %io_header = getelementptr inbounds i8, ptr %r, i64 424
   store i32 83, ptr %io_header, align 8
-  %dxfer_direction = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 1
+  %dxfer_direction = getelementptr inbounds i8, ptr %r, i64 428
   store i32 %direction, ptr %dxfer_direction, align 4
-  %buf = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %r, i64 408
   %1 = load ptr, ptr %buf, align 8
-  %dxferp = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 6
+  %dxferp = getelementptr inbounds i8, ptr %r, i64 440
   store ptr %1, ptr %dxferp, align 8
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %r, i64 416
   %2 = load i32, ptr %buflen, align 8
-  %dxfer_len = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 5
+  %dxfer_len = getelementptr inbounds i8, ptr %r, i64 436
   store i32 %2, ptr %dxfer_len, align 4
-  %cmd = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 10
-  %cmdp = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 7
+  %cmd = getelementptr inbounds i8, ptr %r, i64 56
+  %cmdp = getelementptr inbounds i8, ptr %r, i64 448
   store ptr %cmd, ptr %cmdp, align 8
-  %len = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 10, i32 1
+  %len = getelementptr inbounds i8, ptr %r, i64 72
   %3 = load i32, ptr %len, align 8
   %conv = trunc i32 %3 to i8
-  %cmd_len = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 2
+  %cmd_len = getelementptr inbounds i8, ptr %r, i64 432
   store i8 %conv, ptr %cmd_len, align 8
-  %mx_sb_len = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 3
+  %mx_sb_len = getelementptr inbounds i8, ptr %r, i64 433
   store i8 -4, ptr %mx_sb_len, align 1
-  %sense = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 12
-  %sbp = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 8
+  %sense = getelementptr inbounds i8, ptr %r, i64 112
+  %sbp = getelementptr inbounds i8, ptr %r, i64 456
   store ptr %sense, ptr %sbp, align 8
-  %io_timeout = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 19
+  %io_timeout = getelementptr inbounds i8, ptr %0, i64 600
   %4 = load i32, ptr %io_timeout, align 8
   %mul = mul i32 %4, 1000
-  %timeout = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 9
+  %timeout = getelementptr inbounds i8, ptr %r, i64 464
   store i32 %mul, ptr %timeout, align 8
-  %usr_ptr = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 12
+  %usr_ptr = getelementptr inbounds i8, ptr %r, i64 480
   store ptr %r, ptr %usr_ptr, align 8
-  %flags = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 10
+  %flags = getelementptr inbounds i8, ptr %r, i64 468
   %5 = load i32, ptr %flags, align 4
   %or = or i32 %5, 1
   store i32 %or, ptr %flags, align 4
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %r, i64 28
   %6 = load i32, ptr %tag, align 4
   %7 = load i8, ptr %cmd, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1018,7 +998,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %7 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %6, i32 noundef %conv11.i.i, i32 noundef %mul) #14
@@ -1032,7 +1012,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_scsi_generic_aio_sgio_command.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = tail call ptr @blk_aio_ioctl(ptr noundef %blk, i64 noundef 8837, ptr noundef nonnull %io_header, ptr noundef %complete, ptr noundef nonnull %r) #14
-  %aiocb = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 18
+  %aiocb = getelementptr inbounds i8, ptr %r, i64 376
   store ptr %call, ptr %aiocb, align 8
   %cmp = icmp eq ptr %call, null
   %. = select i1 %cmp, i32 -5, i32 0
@@ -1042,13 +1022,13 @@ trace_scsi_generic_aio_sgio_command.exit:         ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @scsi_command_complete(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %dev, align 8
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %conf, align 8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %1) #14
   tail call void @aio_context_acquire(ptr noundef %call) #14
-  %aiocb = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 18
+  %aiocb = getelementptr inbounds i8, ptr %opaque, i64 376
   %2 = load ptr, ptr %aiocb, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1071,7 +1051,7 @@ define internal fastcc void @scsi_command_complete_noio(ptr noundef %r, i32 noun
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %sense = alloca %struct.SCSISense, align 4
-  %aiocb = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 18
+  %aiocb = getelementptr inbounds i8, ptr %r, i64 376
   %0 = load ptr, ptr %aiocb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end, label %if.else
@@ -1081,7 +1061,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %io_canceled = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 15
+  %io_canceled = getelementptr inbounds i8, ptr %r, i64 369
   %1 = load i8, ptr %io_canceled, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1107,7 +1087,7 @@ if.then8:                                         ; preds = %if.then6
   br label %if.end35
 
 if.else11:                                        ; preds = %if.end4
-  %host_status = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 17
+  %host_status = getelementptr inbounds i8, ptr %r, i64 492
   %3 = load i16, ptr %host_status, align 4
   %cmp12.not = icmp eq i16 %3, 0
   br i1 %cmp12.not, label %if.else18, label %if.then14
@@ -1118,7 +1098,7 @@ if.then14:                                        ; preds = %if.else11
   br label %done
 
 if.else18:                                        ; preds = %if.else11
-  %driver_status = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 18
+  %driver_status = getelementptr inbounds i8, ptr %r, i64 494
   %4 = load i16, ptr %driver_status, align 2
   %conv19 = zext i16 %4 to i32
   %and = and i32 %conv19, 6
@@ -1126,7 +1106,7 @@ if.else18:                                        ; preds = %if.else11
   br i1 %tobool20.not, label %if.else22, label %if.end35
 
 if.else22:                                        ; preds = %if.else18
-  %status23 = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 13
+  %status23 = getelementptr inbounds i8, ptr %r, i64 488
   %5 = load i8, ptr %status23, align 8
   %conv24 = zext i8 %5 to i32
   %and27 = and i32 %conv19, 8
@@ -1134,16 +1114,16 @@ if.else22:                                        ; preds = %if.else18
   br i1 %tobool28.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %if.else22
-  %sb_len_wr = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 16
+  %sb_len_wr = getelementptr inbounds i8, ptr %r, i64 491
   %6 = load i8, ptr %sb_len_wr, align 1
   %conv30 = zext i8 %6 to i32
-  %sense_len = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 13
+  %sense_len = getelementptr inbounds i8, ptr %r, i64 364
   store i32 %conv30, ptr %sense_len, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else18, %if.else22, %if.then29, %if.then6, %if.then8
   %status.0 = phi i32 [ 2, %if.then8 ], [ %call, %if.then6 ], [ %conv24, %if.then29 ], [ %conv24, %if.else22 ], [ 8, %if.else18 ]
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %r, i64 28
   %7 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1169,7 +1149,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %r, i32 noundef %7, i32 noundef %status.0) #14
   br label %trace_scsi_generic_command_complete_noio.exit
@@ -1221,13 +1201,13 @@ declare void @scsi_req_unref(ptr noundef) local_unnamed_addr #2
 define internal void @scsi_read_complete(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %dev, align 8
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %conf, align 8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %1) #14
   tail call void @aio_context_acquire(ptr noundef %call) #14
-  %aiocb = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 18
+  %aiocb = getelementptr inbounds i8, ptr %opaque, i64 376
   %2 = load ptr, ptr %aiocb, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1246,7 +1226,7 @@ if.end.split:                                     ; preds = %if.end
   br label %done
 
 lor.lhs.false:                                    ; preds = %if.end
-  %io_canceled = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 15
+  %io_canceled = getelementptr inbounds i8, ptr %opaque, i64 369
   %3 = load i8, ptr %io_canceled, align 1
   %4 = and i8 %3, 1
   %tobool5.not = icmp eq i8 %4, 0
@@ -1257,12 +1237,12 @@ lor.lhs.false.split:                              ; preds = %lor.lhs.false
   br label %done
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %dxfer_len = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 4, i32 5
+  %dxfer_len = getelementptr inbounds i8, ptr %opaque, i64 436
   %5 = load i32, ptr %dxfer_len, align 4
-  %resid = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 4, i32 19
+  %resid = getelementptr inbounds i8, ptr %opaque, i64 496
   %6 = load i32, ptr %resid, align 8
   %sub = sub i32 %5, %6
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %opaque, i64 28
   %7 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1288,7 +1268,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %7, i32 noundef %sub) #14
   br label %trace_scsi_generic_read_complete.exit
@@ -1299,17 +1279,17 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_scsi_generic_read_complete.exit:            ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %len10 = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 3
+  %len10 = getelementptr inbounds i8, ptr %opaque, i64 420
   store i32 -1, ptr %len10, align 4
-  %driver_status = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 4, i32 18
+  %driver_status = getelementptr inbounds i8, ptr %opaque, i64 494
   %15 = load i16, ptr %driver_status, align 2
   %16 = and i16 %15, 8
   %tobool12.not = icmp eq i16 %16, 0
   br i1 %tobool12.not, label %if.end52, label %if.then13
 
 if.then13:                                        ; preds = %trace_scsi_generic_read_complete.exit
-  %sense15 = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 12
-  %sb_len_wr = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 4, i32 16
+  %sense15 = getelementptr inbounds i8, ptr %opaque, i64 112
+  %sb_len_wr = getelementptr inbounds i8, ptr %opaque, i64 491
   %17 = load i8, ptr %sb_len_wr, align 1
   %conv17 = zext i8 %17 to i32
   %call18 = tail call i24 @scsi_parse_sense_buf(ptr noundef nonnull %sense15, i32 noundef %conv17) #14
@@ -1319,27 +1299,27 @@ if.then13:                                        ; preds = %trace_scsi_generic_
   br i1 %cmp20, label %land.lhs.true, label %if.end47
 
 land.lhs.true:                                    ; preds = %if.then13
-  %needs_vpd_bl_emulation = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 20
+  %needs_vpd_bl_emulation = getelementptr inbounds i8, ptr %0, i64 604
   %18 = load i8, ptr %needs_vpd_bl_emulation, align 4
   %19 = and i8 %18, 1
   %tobool22.not = icmp eq i8 %19, 0
   br i1 %tobool22.not, label %if.end47, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true
-  %cmd = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 10
+  %cmd = getelementptr inbounds i8, ptr %opaque, i64 56
   %20 = load i8, ptr %cmd, align 8
   %cmp27 = icmp eq i8 %20, 18
   br i1 %cmp27, label %land.lhs.true29, label %if.end47
 
 land.lhs.true29:                                  ; preds = %land.lhs.true24
-  %arrayidx33 = getelementptr %struct.SCSIRequest, ptr %opaque, i64 0, i32 10, i32 0, i64 1
+  %arrayidx33 = getelementptr i8, ptr %opaque, i64 57
   %21 = load i8, ptr %arrayidx33, align 1
   %22 = and i8 %21, 1
   %tobool36.not = icmp eq i8 %22, 0
   br i1 %tobool36.not, label %if.end47, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true29
-  %arrayidx41 = getelementptr %struct.SCSIRequest, ptr %opaque, i64 0, i32 10, i32 0, i64 2
+  %arrayidx41 = getelementptr i8, ptr %opaque, i64 58
   %23 = load i8, ptr %arrayidx41, align 2
   %cmp43 = icmp eq i8 %23, -80
   br i1 %cmp43, label %if.then45, label %if.end47
@@ -1355,7 +1335,7 @@ if.end47:                                         ; preds = %if.then45, %land.lh
 
 if.end52:                                         ; preds = %if.end47, %trace_scsi_generic_read_complete.exit
   %len.1 = phi i32 [ %len.0, %if.end47 ], [ %sub, %trace_scsi_generic_read_complete.exit ]
-  %host_status = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 4, i32 17
+  %host_status = getelementptr inbounds i8, ptr %opaque, i64 492
   %24 = load i16, ptr %host_status, align 4
   %cmp55.not = icmp eq i16 %24, 0
   br i1 %cmp55.not, label %lor.lhs.false57, label %if.then71
@@ -1367,7 +1347,7 @@ lor.lhs.false57:                                  ; preds = %if.end52
   br i1 %tobool62.not, label %lor.lhs.false63, label %if.then71
 
 lor.lhs.false63:                                  ; preds = %lor.lhs.false57
-  %status = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 4, i32 13
+  %status = getelementptr inbounds i8, ptr %opaque, i64 488
   %27 = load i8, ptr %status, align 8
   %cmp66 = icmp ne i8 %27, 0
   %cmp69 = icmp eq i32 %len.1, 0
@@ -1379,7 +1359,7 @@ if.then71:                                        ; preds = %lor.lhs.false63, %l
   br label %done
 
 if.end72:                                         ; preds = %lor.lhs.false63
-  %cmd74 = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 10
+  %cmd74 = getelementptr inbounds i8, ptr %opaque, i64 56
   %28 = load i8, ptr %cmd74, align 8
   switch i8 %28, label %if.end126 [
     i8 37, label %land.lhs.true80
@@ -1387,14 +1367,14 @@ if.end72:                                         ; preds = %lor.lhs.false63
   ]
 
 land.lhs.true80:                                  ; preds = %if.end72
-  %buf81 = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 1
+  %buf81 = getelementptr inbounds i8, ptr %opaque, i64 408
   %29 = load ptr, ptr %buf81, align 8
   %.val56 = load i32, ptr %29, align 1
   %cmp84.not = icmp eq i32 %.val56, -1
   br i1 %cmp84.not, label %lor.lhs.false86, label %if.then89
 
 lor.lhs.false86:                                  ; preds = %land.lhs.true80
-  %max_lba = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 14
+  %max_lba = getelementptr inbounds i8, ptr %0, i64 568
   %30 = load i64, ptr %max_lba, align 8
   %cmp87 = icmp eq i64 %30, 0
   br i1 %cmp87, label %if.then89, label %if.end126
@@ -1403,7 +1383,7 @@ if.then89:                                        ; preds = %lor.lhs.false86, %l
   %arrayidx91 = getelementptr i8, ptr %29, i64 4
   %arrayidx91.val = load i32, ptr %arrayidx91, align 1
   %31 = tail call i32 @llvm.bswap.i32(i32 %arrayidx91.val)
-  %blocksize = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 12
+  %blocksize = getelementptr inbounds i8, ptr %0, i64 560
   store i32 %31, ptr %blocksize, align 8
   %32 = load ptr, ptr %buf81, align 8
   %.val57 = load i32, ptr %32, align 1
@@ -1412,19 +1392,19 @@ if.then89:                                        ; preds = %lor.lhs.false86, %l
   br label %if.end126.sink.split
 
 land.lhs.true107:                                 ; preds = %if.end72
-  %arrayidx111 = getelementptr %struct.SCSIRequest, ptr %opaque, i64 0, i32 10, i32 0, i64 1
+  %arrayidx111 = getelementptr i8, ptr %opaque, i64 57
   %34 = load i8, ptr %arrayidx111, align 1
   %35 = and i8 %34, 31
   %cmp114 = icmp eq i8 %35, 16
   br i1 %cmp114, label %if.then116, label %if.end126
 
 if.then116:                                       ; preds = %land.lhs.true107
-  %buf117 = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 1
+  %buf117 = getelementptr inbounds i8, ptr %opaque, i64 408
   %36 = load ptr, ptr %buf117, align 8
   %arrayidx118 = getelementptr i8, ptr %36, i64 8
   %arrayidx118.val = load i32, ptr %arrayidx118, align 1
   %37 = tail call i32 @llvm.bswap.i32(i32 %arrayidx118.val)
-  %blocksize120 = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 12
+  %blocksize120 = getelementptr inbounds i8, ptr %0, i64 560
   store i32 %37, ptr %blocksize120, align 8
   %38 = load ptr, ptr %buf117, align 8
   %.val = load i64, ptr %38, align 1
@@ -1433,12 +1413,12 @@ if.then116:                                       ; preds = %land.lhs.true107
 
 if.end126.sink.split:                             ; preds = %if.then89, %if.then116
   %.sink = phi i64 [ %39, %if.then116 ], [ %conv96, %if.then89 ]
-  %max_lba124 = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 14
+  %max_lba124 = getelementptr inbounds i8, ptr %0, i64 568
   store i64 %.sink, ptr %max_lba124, align 8
   br label %if.end126
 
 if.end126:                                        ; preds = %if.end126.sink.split, %if.end72, %lor.lhs.false86, %land.lhs.true107
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %0, i64 564
   %40 = load i32, ptr %type, align 4
   switch i32 %40, label %if.end186thread-pre-split [
     i32 0, label %land.lhs.true137
@@ -1459,7 +1439,7 @@ land.lhs.true141:                                 ; preds = %land.lhs.true137
   ]
 
 land.lhs.true157:                                 ; preds = %land.lhs.true141, %land.lhs.true141
-  %arrayidx161 = getelementptr %struct.SCSIRequest, ptr %opaque, i64 0, i32 10, i32 0, i64 1
+  %arrayidx161 = getelementptr i8, ptr %opaque, i64 57
   %43 = load i8, ptr %arrayidx161, align 1
   %44 = and i8 %43, 8
   %cmp164 = icmp eq i8 %44, 0
@@ -1467,7 +1447,7 @@ land.lhs.true157:                                 ; preds = %land.lhs.true141, %
 
 if.then166:                                       ; preds = %land.lhs.true157
   %cmp172 = icmp eq i8 %42, 26
-  %buf175 = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 1
+  %buf175 = getelementptr inbounds i8, ptr %opaque, i64 408
   %45 = load ptr, ptr %buf175, align 8
   %. = select i1 %cmp172, i64 2, i64 3
   %arrayidx176 = getelementptr i8, ptr %45, i64 %.
@@ -1510,7 +1490,7 @@ entry:
   %buf = alloca [64 x i8], align 16
   %bl = alloca %struct.SCSIBlockLimits, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %bl, i8 0, i64 20, i1 false)
-  %conf.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 4
+  %conf.i = getelementptr inbounds i8, ptr %s, i64 184
   %0 = load ptr, ptr %conf.i, align 8
   %call.i = tail call i64 @blk_get_max_hw_transfer(ptr noundef %0) #14
   %1 = freeze i64 %call.i
@@ -1524,7 +1504,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 calculate_max_transfer.exit:                      ; preds = %entry
-  %max_io_sectors = getelementptr inbounds %struct.SCSIBlockLimits, ptr %bl, i64 0, i32 6
+  %max_io_sectors = getelementptr inbounds i8, ptr %bl, i64 20
   %conv.i = zext i32 %call3.i to i64
   %call.i.i = tail call i32 @getpagesize() #18
   %conv.i.i = sext i32 %call.i.i to i64
@@ -1532,19 +1512,19 @@ calculate_max_transfer.exit:                      ; preds = %entry
   %3 = add nsw i64 %mul.i, -1
   %or.cond.not.i = icmp ult i64 %3, %1
   %cond13.i = select i1 %or.cond.not.i, i64 %mul.i, i64 %1
-  %blocksize.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 12
+  %blocksize.i = getelementptr inbounds i8, ptr %s, i64 560
   %4 = load i32, ptr %blocksize.i, align 8
   %conv14.i = sext i32 %4 to i64
   %div.i = udiv i64 %cond13.i, %conv14.i
   %conv = trunc i64 %div.i to i32
   store i32 %conv, ptr %max_io_sectors, align 4
-  %buf1 = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 1
+  %buf1 = getelementptr inbounds i8, ptr %r, i64 408
   %5 = load ptr, ptr %buf1, align 8
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %r, i64 416
   %6 = load i32, ptr %buflen, align 8
   %conv2 = sext i32 %6 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %conv2, i1 false)
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %s, i64 564
   %7 = load i32, ptr %type, align 4
   %conv3 = trunc i32 %7 to i8
   store i8 %conv3, ptr %buf, align 16
@@ -1570,11 +1550,11 @@ if.end:                                           ; preds = %calculate_max_trans
   %cond = call i32 @llvm.smin.i32(i32 %10, i32 %add)
   %conv18 = sext i32 %cond to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 16 %buf, i64 %conv18, i1 false)
-  %sb_len_wr = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 16
+  %sb_len_wr = getelementptr inbounds i8, ptr %r, i64 491
   store i8 0, ptr %sb_len_wr, align 1
-  %driver_status = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 18
+  %driver_status = getelementptr inbounds i8, ptr %r, i64 494
   store i16 0, ptr %driver_status, align 2
-  %status = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 4, i32 13
+  %status = getelementptr inbounds i8, ptr %r, i64 488
   store i8 0, ptr %status, align 8
   %11 = load i32, ptr %buflen, align 8
   ret i32 %11
@@ -1586,20 +1566,20 @@ declare zeroext i1 @blk_is_writable(ptr noundef) local_unnamed_addr #2
 define internal fastcc i32 @scsi_handle_inquiry_reply(ptr nocapture noundef readonly %r, ptr nocapture noundef %s, i32 noundef %len) unnamed_addr #0 {
 entry:
   %buf40 = alloca [16 x i8], align 16
-  %scsi_version = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 17
+  %scsi_version = getelementptr inbounds i8, ptr %s, i64 592
   %0 = load i32, ptr %scsi_version, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr %struct.SCSIRequest, ptr %r, i64 0, i32 10, i32 0, i64 1
+  %arrayidx = getelementptr i8, ptr %r, i64 57
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %land.lhs.true
-  %buf1 = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 1
+  %buf1 = getelementptr inbounds i8, ptr %r, i64 408
   %3 = load ptr, ptr %buf1, align 8
   %arrayidx2 = getelementptr i8, ptr %3, i64 2
   %4 = load i8, ptr %arrayidx2, align 1
@@ -1618,7 +1598,7 @@ if.then9:                                         ; preds = %if.then
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then, %if.then9, %land.lhs.true, %entry
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %s, i64 564
   %8 = load i32, ptr %type, align 4
   switch i32 %8, label %if.end147 [
     i32 0, label %land.lhs.true20
@@ -1626,27 +1606,27 @@ if.end14:                                         ; preds = %if.then, %if.then9,
   ]
 
 land.lhs.true20:                                  ; preds = %if.end14, %if.end14
-  %arrayidx24 = getelementptr %struct.SCSIRequest, ptr %r, i64 0, i32 10, i32 0, i64 1
+  %arrayidx24 = getelementptr i8, ptr %r, i64 57
   %9 = load i8, ptr %arrayidx24, align 1
   %10 = and i8 %9, 1
   %tobool27.not = icmp eq i8 %10, 0
   br i1 %tobool27.not, label %if.end147, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true20
-  %arrayidx32 = getelementptr %struct.SCSIRequest, ptr %r, i64 0, i32 10, i32 0, i64 2
+  %arrayidx32 = getelementptr i8, ptr %r, i64 58
   %11 = load i8, ptr %arrayidx32, align 2
   %cmp34 = icmp eq i8 %11, -80
   br i1 %cmp34, label %land.lhs.true36, label %if.else
 
 land.lhs.true36:                                  ; preds = %if.then28
-  %buflen = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 2
+  %buflen = getelementptr inbounds i8, ptr %r, i64 416
   %12 = load i32, ptr %buflen, align 8
   %cmp37 = icmp sgt i32 %12, 7
   br i1 %cmp37, label %if.then39, label %if.end147
 
 if.then39:                                        ; preds = %land.lhs.true36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf40, i8 0, i64 16, i1 false)
-  %conf.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 4
+  %conf.i = getelementptr inbounds i8, ptr %s, i64 184
   %13 = load ptr, ptr %conf.i, align 8
   %call.i = tail call i64 @blk_get_max_hw_transfer(ptr noundef %13) #14
   %14 = freeze i64 %call.i
@@ -1668,11 +1648,11 @@ calculate_max_transfer.exit:                      ; preds = %if.then39
   %16 = add nsw i64 %mul.i, -1
   %or.cond.not.i = icmp ult i64 %16, %14
   %cond13.i = select i1 %or.cond.not.i, i64 %mul.i, i64 %14
-  %blocksize.i = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 12
+  %blocksize.i = getelementptr inbounds i8, ptr %s, i64 560
   %17 = load i32, ptr %blocksize.i, align 8
   %conv14.i = sext i32 %17 to i64
   %div.i = udiv i64 %cond13.i, %conv14.i
-  %buf45 = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 1
+  %buf45 = getelementptr inbounds i8, ptr %r, i64 408
   %18 = load ptr, ptr %buf45, align 8
   %conv46 = zext nneg i32 %cond to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf40, ptr align 1 %18, i64 %conv46, i1 false)
@@ -1701,7 +1681,7 @@ calculate_max_transfer.exit:                      ; preds = %if.then39
   br label %if.end147
 
 if.else:                                          ; preds = %if.then28
-  %needs_vpd_bl_emulation = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 20
+  %needs_vpd_bl_emulation = getelementptr inbounds i8, ptr %s, i64 604
   %22 = load i8, ptr %needs_vpd_bl_emulation, align 4
   %23 = and i8 %22, 1
   %tobool75 = icmp ne i8 %23, 0
@@ -1710,13 +1690,13 @@ if.else:                                          ; preds = %if.then28
   br i1 %or.cond, label %land.lhs.true81, label %if.end147
 
 land.lhs.true81:                                  ; preds = %if.else
-  %buflen82 = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 2
+  %buflen82 = getelementptr inbounds i8, ptr %r, i64 416
   %24 = load i32, ptr %buflen82, align 8
   %cmp83 = icmp sgt i32 %24, 3
   br i1 %cmp83, label %if.then85, label %if.end147
 
 if.then85:                                        ; preds = %land.lhs.true81
-  %buf86 = getelementptr inbounds %struct.SCSIGenericReq, ptr %r, i64 0, i32 1
+  %buf86 = getelementptr inbounds i8, ptr %r, i64 408
   %25 = load ptr, ptr %buf86, align 8
   %add.ptr87 = getelementptr i8, ptr %25, i64 2
   %add.ptr87.val = load i16, ptr %add.ptr87, align 1
@@ -1827,7 +1807,7 @@ define internal void @scsi_write_complete(ptr noundef %opaque, i32 noundef %ret)
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %dev, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1853,7 +1833,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %ret) #14
   br label %trace_scsi_generic_write_complete.exit
@@ -1864,11 +1844,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_scsi_generic_write_complete.exit:           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 184
   %8 = load ptr, ptr %conf, align 8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %8) #14
   tail call void @aio_context_acquire(ptr noundef %call) #14
-  %aiocb = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 18
+  %aiocb = getelementptr inbounds i8, ptr %opaque, i64 376
   %9 = load ptr, ptr %aiocb, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1883,32 +1863,32 @@ if.end:                                           ; preds = %trace_scsi_generic_
   br i1 %tobool.not, label %lor.lhs.false, label %done
 
 lor.lhs.false:                                    ; preds = %if.end
-  %io_canceled = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 15
+  %io_canceled = getelementptr inbounds i8, ptr %opaque, i64 369
   %10 = load i8, ptr %io_canceled, align 1
   %11 = and i8 %10, 1
   %tobool5.not = icmp eq i8 %11, 0
   br i1 %tobool5.not, label %if.end7, label %done
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %cmd = getelementptr inbounds %struct.SCSIRequest, ptr %opaque, i64 0, i32 10
+  %cmd = getelementptr inbounds i8, ptr %opaque, i64 56
   %12 = load i8, ptr %cmd, align 8
   %cmp9 = icmp eq i8 %12, 21
   br i1 %cmp9, label %land.lhs.true, label %done
 
 land.lhs.true:                                    ; preds = %if.end7
-  %arrayidx14 = getelementptr %struct.SCSIRequest, ptr %opaque, i64 0, i32 10, i32 0, i64 4
+  %arrayidx14 = getelementptr i8, ptr %opaque, i64 60
   %13 = load i8, ptr %arrayidx14, align 4
   %cmp16 = icmp eq i8 %13, 12
   br i1 %cmp16, label %land.lhs.true18, label %done
 
 land.lhs.true18:                                  ; preds = %land.lhs.true
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %0, i64 564
   %14 = load i32, ptr %type, align 4
   %cmp19 = icmp eq i32 %14, 1
   br i1 %cmp19, label %if.then21, label %done
 
 if.then21:                                        ; preds = %land.lhs.true18
-  %buf22 = getelementptr inbounds %struct.SCSIGenericReq, ptr %opaque, i64 0, i32 1
+  %buf22 = getelementptr inbounds i8, ptr %opaque, i64 408
   %15 = load ptr, ptr %buf22, align 8
   %arrayidx23 = getelementptr i8, ptr %15, i64 9
   %16 = load i8, ptr %arrayidx23, align 1
@@ -1923,7 +1903,7 @@ if.then21:                                        ; preds = %land.lhs.true18
   %18 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %18 to i32
   %or32 = or disjoint i32 %or, %conv31
-  %blocksize = getelementptr inbounds %struct.SCSIDevice, ptr %0, i64 0, i32 12
+  %blocksize = getelementptr inbounds i8, ptr %0, i64 560
   store i32 %or32, ptr %blocksize, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
   %19 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1949,7 +1929,7 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i25
   %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #14
   %call10.i.i29 = tail call i32 @qemu_get_thread_id() #14
   %24 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %25 = load i64, ptr %tv_usec.i.i30, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i29, i64 noundef %24, i64 noundef %25, i32 noundef %or32) #14
   br label %trace_scsi_generic_write_complete_blocksize.exit
@@ -1986,20 +1966,20 @@ define internal void @scsi_generic_class_initfn(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE_CLASS) #14
-  %realize = getelementptr inbounds %struct.SCSIDeviceClass, ptr %call.i8, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i8, i64 176
   store ptr @scsi_generic_realize, ptr %realize, align 8
-  %alloc_req = getelementptr inbounds %struct.SCSIDeviceClass, ptr %call.i8, i64 0, i32 4
+  %alloc_req = getelementptr inbounds i8, ptr %call.i8, i64 200
   store ptr @scsi_new_request, ptr %alloc_req, align 8
-  %parse_cdb = getelementptr inbounds %struct.SCSIDeviceClass, ptr %call.i8, i64 0, i32 3
+  %parse_cdb = getelementptr inbounds i8, ptr %call.i8, i64 192
   store ptr @scsi_generic_parse_cdb, ptr %parse_cdb, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.30, ptr %fw_name, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.31, ptr %desc, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @scsi_generic_reset, ptr %reset, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @scsi_generic_properties) #14
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_scsi_device, ptr %vmsd, align 8
   ret void
 }
@@ -2009,7 +1989,7 @@ define internal void @scsi_generic_realize(ptr noundef %s, ptr noundef %errp) #0
 entry:
   %sg_version = alloca i32, align 4
   %scsiid = alloca %struct.sg_scsi_id, align 4
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %s, i64 184
   %0 = load ptr, ptr %conf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2086,9 +2066,9 @@ if.end32:                                         ; preds = %if.end26
   br i1 %call37, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end32
-  %scsi_type = getelementptr inbounds %struct.sg_scsi_id, ptr %scsiid, i64 0, i32 4
+  %scsi_type = getelementptr inbounds i8, ptr %scsiid, i64 16
   %7 = load i32, ptr %scsi_type, align 4
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %s, i64 564
   store i32 %7, ptr %type, align 4
   call fastcc void @trace_scsi_generic_realize_type(i32 noundef %7)
   %8 = load i32, ptr %type, align 4
@@ -2101,28 +2081,28 @@ if.end39:                                         ; preds = %if.end32
 sw.bb:                                            ; preds = %if.end39
   %9 = load ptr, ptr %conf, align 8
   %call44 = call fastcc i32 @get_stream_blocksize(ptr noundef %9), !range !13
-  %blocksize = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 12
+  %blocksize = getelementptr inbounds i8, ptr %s, i64 560
   %cmp46 = icmp eq i32 %call44, -1
   %spec.store.select = select i1 %cmp46, i32 0, i32 %call44
   store i32 %spec.store.select, ptr %blocksize, align 8
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end39, %if.end39
-  %blocksize51 = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 12
+  %blocksize51 = getelementptr inbounds i8, ptr %s, i64 560
   store i32 2048, ptr %blocksize51, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end39
-  %blocksize52 = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 12
+  %blocksize52 = getelementptr inbounds i8, ptr %s, i64 560
   store i32 512, ptr %blocksize52, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb, %sw.default, %sw.bb50
   %10 = phi i32 [ %spec.store.select, %sw.bb ], [ 512, %sw.default ], [ 2048, %sw.bb50 ]
   call fastcc void @trace_scsi_generic_realize_blocksize(i32 noundef %10)
-  %default_scsi_version = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 18
+  %default_scsi_version = getelementptr inbounds i8, ptr %s, i64 596
   store i32 -1, ptr %default_scsi_version, align 4
-  %io_timeout = getelementptr inbounds %struct.SCSIDevice, ptr %s, i64 0, i32 19
+  %io_timeout = getelementptr inbounds i8, ptr %s, i64 600
   store i32 30, ptr %io_timeout, align 8
   call void @scsi_generic_read_device_inquiry(ptr noundef nonnull %s)
   br label %return
@@ -2149,9 +2129,9 @@ entry:
 define internal void @scsi_generic_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
-  %default_scsi_version = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 18
+  %default_scsi_version = getelementptr inbounds i8, ptr %call.i, i64 596
   %0 = load i32, ptr %default_scsi_version, align 4
-  %scsi_version = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 17
+  %scsi_version = getelementptr inbounds i8, ptr %call.i, i64 592
   store i32 %0, ptr %scsi_version, align 8
   %sense_code_RESET.coerce.0.copyload = load i24, ptr @sense_code_RESET, align 1
   tail call void @scsi_device_purge_requests(ptr noundef %call.i, i24 %sense_code_RESET.coerce.0.copyload) #14
@@ -2202,7 +2182,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %type) #14
   br label %_nocheck__trace_scsi_generic_realize_type.exit
@@ -2225,23 +2205,23 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %0, i8 0, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf, i8 0, i64 12, i1 false)
   store i8 26, ptr %cmd, align 1
-  %arrayidx2 = getelementptr inbounds [6 x i8], ptr %cmd, i64 0, i64 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %cmd, i64 4
   store i8 12, ptr %arrayidx2, align 1
   %call = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %blk, ptr noundef nonnull %cmd, i8 noundef zeroext 6, ptr noundef nonnull %buf, i8 noundef zeroext 12, i32 noundef 6), !range !5
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx5 = getelementptr inbounds [12 x i8], ptr %buf, i64 0, i64 9
+  %arrayidx5 = getelementptr inbounds i8, ptr %buf, i64 9
   %1 = load i8, ptr %arrayidx5, align 1
   %conv = zext i8 %1 to i32
   %shl = shl nuw nsw i32 %conv, 16
-  %arrayidx6 = getelementptr inbounds [12 x i8], ptr %buf, i64 0, i64 10
+  %arrayidx6 = getelementptr inbounds i8, ptr %buf, i64 10
   %2 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %2 to i32
   %shl8 = shl nuw nsw i32 %conv7, 8
   %or = or disjoint i32 %shl8, %shl
-  %arrayidx9 = getelementptr inbounds [12 x i8], ptr %buf, i64 0, i64 11
+  %arrayidx9 = getelementptr inbounds i8, ptr %buf, i64 11
   %3 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %3 to i32
   %or11 = or disjoint i32 %or, %conv10
@@ -2280,7 +2260,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %blocksize) #14
   br label %_nocheck__trace_scsi_generic_realize_blocksize.exit

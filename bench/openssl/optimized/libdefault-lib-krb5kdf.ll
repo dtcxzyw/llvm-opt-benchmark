@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KRB5KDF_CTX = type { ptr, %struct.PROV_CIPHER, ptr, i64, ptr, i64 }
-%struct.PROV_CIPHER = type { ptr, ptr, ptr }
 
 @ossl_kdf_krb5kdf_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @krb5kdf_new }, %struct.ossl_dispatch_st { i32 2, ptr @krb5kdf_dup }, %struct.ossl_dispatch_st { i32 3, ptr @krb5kdf_free }, %struct.ossl_dispatch_st { i32 4, ptr @krb5kdf_reset }, %struct.ossl_dispatch_st { i32 5, ptr @krb5kdf_derive }, %struct.ossl_dispatch_st { i32 8, ptr @krb5kdf_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @krb5kdf_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @krb5kdf_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @krb5kdf_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [52 x i8] c"../openssl/providers/implementations/kdfs/krb5kdf.c\00", align 1
@@ -56,44 +54,44 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %0, ptr %call1.i, align 8
-  %key = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %key, align 8
-  %key_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 3
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load i64, ptr %key_len, align 8
-  %key1 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 2
-  %key_len2 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 3
+  %key1 = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %key_len2 = getelementptr inbounds i8, ptr %call1.i, i64 40
   %call3 = tail call i32 @ossl_prov_memdup(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %key1, ptr noundef nonnull %key_len2) #7
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %krb5kdf_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %constant = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 4
+  %constant = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load ptr, ptr %constant, align 8
-  %constant_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 5
+  %constant_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load i64, ptr %constant_len, align 8
-  %constant4 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 4
-  %constant_len5 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 5
+  %constant4 = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %constant_len5 = getelementptr inbounds i8, ptr %call1.i, i64 56
   %call6 = tail call i32 @ossl_prov_memdup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %constant4, ptr noundef nonnull %constant_len5) #7
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %krb5kdf_free.exit, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %cipher = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 1
-  %cipher9 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %cipher9 = getelementptr inbounds i8, ptr %vctx, i64 8
   %call10 = tail call i32 @ossl_prov_cipher_copy(ptr noundef nonnull %cipher, ptr noundef nonnull %cipher9) #7
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %krb5kdf_free.exit, label %return
 
 krb5kdf_free.exit:                                ; preds = %if.then, %lor.lhs.false, %lor.lhs.false8
   %5 = load ptr, ptr %call1.i, align 8
-  %cipher.i.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 1
+  %cipher.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher.i.i) #7
   %6 = load ptr, ptr %key1, align 8
   %7 = load i64, ptr %key_len2, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %6, i64 noundef %7, ptr noundef nonnull @.str, i32 noundef 89) #7
-  %constant.i.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 4
+  %constant.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %8 = load ptr, ptr %constant.i.i, align 8
-  %constant_len.i.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %call1.i, i64 0, i32 5
+  %constant_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   %9 = load i64, ptr %constant_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @.str, i32 noundef 90) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cipher.i.i, i8 0, i64 56, i1 false)
@@ -114,16 +112,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %vctx, align 8
-  %cipher.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 1
+  %cipher.i = getelementptr inbounds i8, ptr %vctx, i64 8
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher.i) #7
-  %key.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %key.i, align 8
-  %key_len.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 3
+  %key_len.i = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load i64, ptr %key_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 89) #7
-  %constant.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 4
+  %constant.i = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load ptr, ptr %constant.i, align 8
-  %constant_len.i = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 5
+  %constant_len.i = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load i64, ptr %constant_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 90) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cipher.i, i8 0, i64 56, i1 false)
@@ -139,16 +137,16 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @krb5kdf_reset(ptr noundef %vctx) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
-  %cipher = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %vctx, i64 8
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher) #7
-  %key = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %key, align 8
-  %key_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 3
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load i64, ptr %key_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 89) #7
-  %constant = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 4
+  %constant = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load ptr, ptr %constant, align 8
-  %constant_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 5
+  %constant_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load i64, ptr %constant_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 90) #7
   %5 = getelementptr inbounds i8, ptr %vctx, i64 8
@@ -172,7 +170,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cipher3 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 1
+  %cipher3 = getelementptr inbounds i8, ptr %vctx, i64 8
   %call4 = tail call ptr @ossl_prov_cipher_cipher(ptr noundef nonnull %cipher3) #7
   %cmp = icmp eq ptr %call4, null
   br i1 %cmp, label %if.then5, label %if.end6
@@ -184,7 +182,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %key7 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 2
+  %key7 = getelementptr inbounds i8, ptr %vctx, i64 32
   %0 = load ptr, ptr %key7, align 8
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -196,7 +194,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %constant = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 4
+  %constant = getelementptr inbounds i8, ptr %vctx, i64 48
   %1 = load ptr, ptr %constant, align 8
   %cmp11 = icmp eq ptr %1, null
   br i1 %cmp11, label %if.then12, label %if.end13
@@ -210,10 +208,10 @@ if.then12:                                        ; preds = %if.end10
 if.end13:                                         ; preds = %if.end10
   %call15 = tail call ptr @ossl_prov_cipher_engine(ptr noundef nonnull %cipher3) #7
   %2 = load ptr, ptr %key7, align 8
-  %key_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 3
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %3 = load i64, ptr %key_len, align 8
   %4 = load ptr, ptr %constant, align 8
-  %constant_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 5
+  %constant_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %5 = load i64, ptr %constant_len, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %olen.i)
@@ -496,7 +494,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cipher = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %vctx, i64 8
   %call2 = tail call i32 @ossl_prov_cipher_load_from_params(ptr noundef nonnull %cipher, ptr noundef nonnull %params, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -507,8 +505,8 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %key = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 2
-  %key_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %vctx, i64 32
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %1 = load ptr, ptr %key, align 8
   %2 = load i64, ptr %key_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 98) #7
@@ -523,8 +521,8 @@ if.end12:                                         ; preds = %if.then7, %if.end4
   br i1 %cmp14.not, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %constant = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 4
-  %constant_len = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 5
+  %constant = getelementptr inbounds i8, ptr %vctx, i64 48
+  %constant_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %3 = load ptr, ptr %constant, align 8
   %4 = load i64, ptr %constant_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 98) #7
@@ -550,7 +548,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @krb5kdf_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
-  %cipher1 = getelementptr inbounds %struct.KRB5KDF_CTX, ptr %vctx, i64 0, i32 1
+  %cipher1 = getelementptr inbounds i8, ptr %vctx, i64 8
   %call = tail call ptr @ossl_prov_cipher_cipher(ptr noundef nonnull %cipher1) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %if.then

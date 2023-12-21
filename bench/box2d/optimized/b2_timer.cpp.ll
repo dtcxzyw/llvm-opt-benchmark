@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%class.b2Timer = type { i64, i64 }
 
 @_ZN7b2TimerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7b2TimerC2Ev
 
@@ -39,9 +38,9 @@ entry:
   %t = alloca %struct.timeval, align 8
   %call = call i32 @gettimeofday(ptr noundef nonnull %t, ptr noundef null) #4
   %0 = load i64, ptr %this, align 8
-  %m_start_usec = getelementptr inbounds %class.b2Timer, ptr %this, i64 0, i32 1
+  %m_start_usec = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %m_start_usec, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %t, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %t, i64 8
   %2 = load i64, ptr %tv_usec, align 8
   %cmp = icmp slt i64 %2, %1
   br i1 %cmp, label %if.then, label %if.end

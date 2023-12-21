@@ -2750,11 +2750,11 @@ lor.lhs.false844:                                 ; preds = %lor.lhs.false838
 if.end851:                                        ; preds = %lor.lhs.false844
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.245) #5
   store ptr %call43, ptr %points, align 16
-  %arrayidx853 = getelementptr inbounds [4 x ptr], ptr %points, i64 0, i64 1
+  %arrayidx853 = getelementptr inbounds i8, ptr %points, i64 8
   store ptr %call43, ptr %arrayidx853, align 8
-  %arrayidx854 = getelementptr inbounds [4 x ptr], ptr %points, i64 0, i64 2
+  %arrayidx854 = getelementptr inbounds i8, ptr %points, i64 16
   store ptr %call43, ptr %arrayidx854, align 16
-  %arrayidx855 = getelementptr inbounds [4 x ptr], ptr %points, i64 0, i64 3
+  %arrayidx855 = getelementptr inbounds i8, ptr %points, i64 24
   store ptr %call43, ptr %arrayidx855, align 8
   %105 = load ptr, ptr %z, align 8
   %call856 = call i32 @EC_GROUP_get_order(ptr noundef %call30, ptr noundef %105, ptr noundef %call) #5
@@ -2793,7 +2793,7 @@ lor.lhs.false871:                                 ; preds = %lor.lhs.false868
 if.end878:                                        ; preds = %lor.lhs.false871
   %110 = load ptr, ptr %y, align 8
   store ptr %110, ptr %scalars, align 16
-  %arrayidx880 = getelementptr inbounds [4 x ptr], ptr %scalars, i64 0, i64 1
+  %arrayidx880 = getelementptr inbounds i8, ptr %scalars, i64 8
   store ptr %110, ptr %arrayidx880, align 8
   %call883 = call i32 @EC_POINTs_mul(ptr noundef %call30, ptr noundef %call39, ptr noundef null, i64 noundef 2, ptr noundef nonnull %points, ptr noundef nonnull %scalars, ptr noundef %call) #5
   %cmp884 = icmp ne i32 %call883, 0
@@ -2896,7 +2896,7 @@ if.end948:                                        ; preds = %lor.lhs.false941
   %125 = load ptr, ptr %y, align 8
   store ptr %125, ptr %arrayidx880, align 8
   %126 = load ptr, ptr %z, align 8
-  %arrayidx951 = getelementptr inbounds [4 x ptr], ptr %scalars, i64 0, i64 2
+  %arrayidx951 = getelementptr inbounds i8, ptr %scalars, i64 16
   store ptr %126, ptr %arrayidx951, align 16
   %call952 = call ptr @BN_new() #5
   %call953 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 579, ptr noundef nonnull @.str.256, ptr noundef %call952) #5
@@ -2905,7 +2905,7 @@ if.end948:                                        ; preds = %lor.lhs.false941
 
 if.end956:                                        ; preds = %if.end948
   call void @BN_zero_ex(ptr noundef %call952) #5
-  %arrayidx957 = getelementptr inbounds [4 x ptr], ptr %scalars, i64 0, i64 3
+  %arrayidx957 = getelementptr inbounds i8, ptr %scalars, i64 24
   store ptr %call952, ptr %arrayidx957, align 8
   %call960 = call i32 @EC_POINTs_mul(ptr noundef %call30, ptr noundef %call39, ptr noundef null, i64 noundef 4, ptr noundef nonnull %points, ptr noundef nonnull %scalars, ptr noundef %call) #5
   %cmp961 = icmp ne i32 %call960, 0
@@ -3492,7 +3492,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false21
   br i1 %tobool28.not, label %err, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false25
-  %p30 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 1
+  %p30 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %0 = load ptr, ptr %p30, align 8
   %call31 = call i32 @BN_hex2bn(ptr noundef nonnull %p, ptr noundef %0) #5
   %cmp = icmp ne i32 %call31, 0
@@ -3502,7 +3502,7 @@ lor.lhs.false29:                                  ; preds = %lor.lhs.false25
   br i1 %tobool33.not, label %err, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false29
-  %a35 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 2
+  %a35 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %1 = load ptr, ptr %a35, align 16
   %call36 = call i32 @BN_hex2bn(ptr noundef nonnull %a, ptr noundef %1) #5
   %cmp37 = icmp ne i32 %call36, 0
@@ -3512,7 +3512,7 @@ lor.lhs.false34:                                  ; preds = %lor.lhs.false29
   br i1 %tobool40.not, label %err, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false34
-  %b42 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 3
+  %b42 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %2 = load ptr, ptr %b42, align 8
   %call43 = call i32 @BN_hex2bn(ptr noundef nonnull %b, ptr noundef %2) #5
   %cmp44 = icmp ne i32 %call43, 0
@@ -3551,7 +3551,7 @@ lor.lhs.false62:                                  ; preds = %lor.lhs.false58
   br i1 %tobool65.not, label %err, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %lor.lhs.false62
-  %x67 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 4
+  %x67 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %6 = load ptr, ptr %x67, align 16
   %call68 = call i32 @BN_hex2bn(ptr noundef nonnull %x, ptr noundef %6) #5
   %cmp69 = icmp ne i32 %call68, 0
@@ -3561,7 +3561,7 @@ lor.lhs.false66:                                  ; preds = %lor.lhs.false62
   br i1 %tobool72.not, label %err, label %lor.lhs.false73
 
 lor.lhs.false73:                                  ; preds = %lor.lhs.false66
-  %y74 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 5
+  %y74 = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %7 = load ptr, ptr %y74, align 8
   %call75 = call i32 @BN_hex2bn(ptr noundef nonnull %y, ptr noundef %7) #5
   %cmp76 = icmp ne i32 %call75, 0
@@ -3606,7 +3606,7 @@ lor.lhs.false98:                                  ; preds = %lor.lhs.false92
   br i1 %tobool101.not, label %err, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false98
-  %order = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 7
+  %order = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %12 = load ptr, ptr %order, align 8
   %call103 = call i32 @BN_hex2bn(ptr noundef nonnull %z, ptr noundef %12) #5
   %cmp104 = icmp ne i32 %call103, 0
@@ -3616,7 +3616,7 @@ lor.lhs.false102:                                 ; preds = %lor.lhs.false98
   br i1 %tobool107.not, label %err, label %lor.lhs.false108
 
 lor.lhs.false108:                                 ; preds = %lor.lhs.false102
-  %cof109 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 8
+  %cof109 = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %13 = load ptr, ptr %cof109, align 16
   %call110 = call i32 @BN_hex2bn(ptr noundef nonnull %cof, ptr noundef %13) #5
   %cmp111 = icmp ne i32 %call110, 0
@@ -3643,7 +3643,7 @@ if.end122:                                        ; preds = %lor.lhs.false115
   %18 = load ptr, ptr %y, align 8
   call void @test_output_bignum(ptr noundef nonnull @.str.127, ptr noundef %18) #5
   %call123 = call i32 @EC_GROUP_get_degree(ptr noundef %call49) #5
-  %degree = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext, i32 9
+  %degree = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %19 = load i32, ptr %degree, align 8
   %call124 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 853, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.318, i32 noundef %call123, i32 noundef %19) #5
   %tobool125.not = icmp eq i32 %call124, 0
@@ -3741,9 +3741,9 @@ lor.lhs.false186:                                 ; preds = %lor.lhs.false180
 if.end193:                                        ; preds = %lor.lhs.false186
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.245) #5
   store ptr %call59, ptr %points, align 16
-  %arrayidx194 = getelementptr inbounds [3 x ptr], ptr %points, i64 0, i64 1
+  %arrayidx194 = getelementptr inbounds i8, ptr %points, i64 8
   store ptr %call59, ptr %arrayidx194, align 8
-  %arrayidx195 = getelementptr inbounds [3 x ptr], ptr %points, i64 0, i64 2
+  %arrayidx195 = getelementptr inbounds i8, ptr %points, i64 16
   store ptr %call59, ptr %arrayidx195, align 16
   %22 = load ptr, ptr %y, align 8
   %23 = load ptr, ptr %z, align 8
@@ -3773,7 +3773,7 @@ lor.lhs.false205:                                 ; preds = %lor.lhs.false202
 if.end212:                                        ; preds = %lor.lhs.false205
   %26 = load ptr, ptr %y, align 8
   store ptr %26, ptr %scalars, align 16
-  %arrayidx214 = getelementptr inbounds [3 x ptr], ptr %scalars, i64 0, i64 1
+  %arrayidx214 = getelementptr inbounds i8, ptr %scalars, i64 8
   store ptr %26, ptr %arrayidx214, align 8
   %call216 = call i32 @EC_POINTs_mul(ptr noundef %call49, ptr noundef %call55, ptr noundef null, i64 noundef 2, ptr noundef nonnull %points, ptr noundef nonnull %scalars, ptr noundef %call) #5
   %cmp217 = icmp ne i32 %call216, 0
@@ -3876,7 +3876,7 @@ if.end283:                                        ; preds = %lor.lhs.false276
   %41 = load ptr, ptr %y, align 8
   store ptr %41, ptr %arrayidx214, align 8
   %42 = load ptr, ptr %z, align 8
-  %arrayidx286 = getelementptr inbounds [3 x ptr], ptr %scalars, i64 0, i64 2
+  %arrayidx286 = getelementptr inbounds i8, ptr %scalars, i64 16
   store ptr %42, ptr %arrayidx286, align 16
   %call289 = call i32 @EC_POINTs_mul(ptr noundef %call49, ptr noundef %call55, ptr noundef null, i64 noundef 3, ptr noundef nonnull %points, ptr noundef nonnull %scalars, ptr noundef %call) #5
   %cmp290 = icmp ne i32 %call289, 0
@@ -3945,7 +3945,7 @@ entry:
   store ptr null, ptr %y, align 8
   store ptr null, ptr %n, align 8
   store ptr null, ptr %order, align 8
-  %degree = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 1
+  %degree = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %0 = load i32, ptr %degree, align 4
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.376, i32 noundef %0) #5
   %call = tail call ptr @BN_CTX_new() #5
@@ -4022,7 +4022,7 @@ lor.lhs.false37:                                  ; preds = %lor.lhs.false33
   br i1 %tobool40.not, label %err, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false37
-  %p42 = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 2
+  %p42 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %2 = load ptr, ptr %p42, align 8
   %call43 = call i32 @BN_hex2bn(ptr noundef nonnull %p, ptr noundef %2) #5
   %cmp = icmp ne i32 %call43, 0
@@ -4039,7 +4039,7 @@ lor.lhs.false46:                                  ; preds = %lor.lhs.false41
   br i1 %tobool49.not, label %err, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %lor.lhs.false46
-  %a51 = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 3
+  %a51 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %4 = load ptr, ptr %a51, align 16
   %call52 = call i32 @BN_hex2bn(ptr noundef nonnull %a, ptr noundef %4) #5
   %cmp53 = icmp ne i32 %call52, 0
@@ -4049,7 +4049,7 @@ lor.lhs.false50:                                  ; preds = %lor.lhs.false46
   br i1 %tobool56.not, label %err, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %lor.lhs.false50
-  %b58 = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 4
+  %b58 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %5 = load ptr, ptr %b58, align 8
   %call59 = call i32 @BN_hex2bn(ptr noundef nonnull %b, ptr noundef %5) #5
   %cmp60 = icmp ne i32 %call59, 0
@@ -4094,7 +4094,7 @@ lor.lhs.false82:                                  ; preds = %lor.lhs.false78
   br i1 %tobool85.not, label %err, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %lor.lhs.false82
-  %Qx = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 5
+  %Qx = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %9 = load ptr, ptr %Qx, align 16
   %call87 = call i32 @BN_hex2bn(ptr noundef nonnull %x, ptr noundef %9) #5
   %cmp88 = icmp ne i32 %call87, 0
@@ -4104,7 +4104,7 @@ lor.lhs.false86:                                  ; preds = %lor.lhs.false82
   br i1 %tobool91.not, label %err, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %lor.lhs.false86
-  %Qy = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 6
+  %Qy = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %10 = load ptr, ptr %Qy, align 8
   %call93 = call i32 @BN_hex2bn(ptr noundef nonnull %y, ptr noundef %10) #5
   %cmp94 = icmp ne i32 %call93, 0
@@ -4143,7 +4143,7 @@ lor.lhs.false111:                                 ; preds = %lor.lhs.false105
   br i1 %tobool116.not, label %err, label %lor.lhs.false117
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false111
-  %Gx = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 7
+  %Gx = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %15 = load ptr, ptr %Gx, align 16
   %call118 = call i32 @BN_hex2bn(ptr noundef nonnull %x, ptr noundef %15) #5
   %cmp119 = icmp ne i32 %call118, 0
@@ -4153,7 +4153,7 @@ lor.lhs.false117:                                 ; preds = %lor.lhs.false111
   br i1 %tobool122.not, label %err, label %lor.lhs.false123
 
 lor.lhs.false123:                                 ; preds = %lor.lhs.false117
-  %Gy = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 8
+  %Gy = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %16 = load ptr, ptr %Gy, align 8
   %call124 = call i32 @BN_hex2bn(ptr noundef nonnull %y, ptr noundef %16) #5
   %cmp125 = icmp ne i32 %call124, 0
@@ -4173,7 +4173,7 @@ lor.lhs.false129:                                 ; preds = %lor.lhs.false123
   br i1 %tobool134.not, label %err, label %lor.lhs.false135
 
 lor.lhs.false135:                                 ; preds = %lor.lhs.false129
-  %order136 = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 9
+  %order136 = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %19 = load ptr, ptr %order136, align 16
   %call137 = call i32 @BN_hex2bn(ptr noundef nonnull %order, ptr noundef %19) #5
   %cmp138 = icmp ne i32 %call137, 0
@@ -4200,7 +4200,7 @@ lor.lhs.false149:                                 ; preds = %lor.lhs.false142
 
 if.end:                                           ; preds = %lor.lhs.false149
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.395) #5
-  %d = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext, i32 10
+  %d = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %21 = load ptr, ptr %d, align 8
   %call154 = call i32 @BN_hex2bn(ptr noundef nonnull %n, ptr noundef %21) #5
   %cmp155 = icmp ne i32 %call154, 0
@@ -5283,7 +5283,7 @@ lor.lhs.false93:                                  ; preds = %if.end89
 
 if.end100:                                        ; preds = %lor.lhs.false93
   %call101 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call29) #5
-  %incdec.ptr = getelementptr inbounds ptr, ptr %g_ary, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %g_ary, i64 8
   store ptr %call101, ptr %g_ary, align 16
   %call102 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1890, ptr noundef nonnull @.str.504, ptr noundef %call101) #5
   %tobool103.not = icmp eq i32 %call102, 0
@@ -5322,7 +5322,7 @@ if.end123:                                        ; preds = %if.end118
 
 lor.lhs.false129:                                 ; preds = %if.end123
   %call130 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %call45, ptr noundef null) #5
-  %incdec.ptr131 = getelementptr inbounds ptr, ptr %p_ary, i64 1
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %p_ary, i64 8
   store ptr %call130, ptr %p_ary, align 16
   %call132 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1912, ptr noundef nonnull @.str.512, ptr noundef %call130) #5
   %tobool133.not = icmp eq i32 %call132, 0
@@ -5330,7 +5330,7 @@ lor.lhs.false129:                                 ; preds = %if.end123
 
 lor.lhs.false134:                                 ; preds = %lor.lhs.false129
   %call135 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call130) #5
-  %incdec.ptr136 = getelementptr inbounds ptr, ptr %g_ary, i64 2
+  %incdec.ptr136 = getelementptr inbounds i8, ptr %g_ary, i64 16
   store ptr %call135, ptr %incdec.ptr, align 8
   %call137 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1914, ptr noundef nonnull @.str.513, ptr noundef %call135) #5
   %tobool138.not = icmp eq i32 %call137, 0
@@ -5370,7 +5370,7 @@ if.end156:                                        ; preds = %lor.lhs.false149
 
 lor.lhs.false161:                                 ; preds = %if.end156
   %call162 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %call45, ptr noundef null) #5
-  %incdec.ptr163 = getelementptr inbounds ptr, ptr %p_ary, i64 2
+  %incdec.ptr163 = getelementptr inbounds i8, ptr %p_ary, i64 16
   store ptr %call162, ptr %incdec.ptr131, align 8
   %call164 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1929, ptr noundef nonnull @.str.512, ptr noundef %call162) #5
   %tobool165.not = icmp eq i32 %call164, 0
@@ -5378,7 +5378,7 @@ lor.lhs.false161:                                 ; preds = %if.end156
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false161
   %call167 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call162) #5
-  %incdec.ptr168 = getelementptr inbounds ptr, ptr %g_ary, i64 3
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %g_ary, i64 24
   store ptr %call167, ptr %incdec.ptr136, align 16
   %call169 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1931, ptr noundef nonnull @.str.513, ptr noundef %call167) #5
   %tobool170.not = icmp eq i32 %call169, 0
@@ -5419,7 +5419,7 @@ if.end188:                                        ; preds = %lor.lhs.false181
 
 lor.lhs.false194:                                 ; preds = %if.end188
   %call195 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %call45, ptr noundef null) #5
-  %incdec.ptr196 = getelementptr inbounds ptr, ptr %p_ary, i64 3
+  %incdec.ptr196 = getelementptr inbounds i8, ptr %p_ary, i64 24
   store ptr %call195, ptr %incdec.ptr163, align 16
   %call197 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1948, ptr noundef nonnull @.str.512, ptr noundef %call195) #5
   %tobool198.not = icmp eq i32 %call197, 0
@@ -5427,7 +5427,7 @@ lor.lhs.false194:                                 ; preds = %if.end188
 
 lor.lhs.false199:                                 ; preds = %lor.lhs.false194
   %call200 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call195) #5
-  %incdec.ptr201 = getelementptr inbounds ptr, ptr %g_ary, i64 4
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %g_ary, i64 32
   store ptr %call200, ptr %incdec.ptr168, align 8
   %call202 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1950, ptr noundef nonnull @.str.513, ptr noundef %call200) #5
   %tobool203.not = icmp eq i32 %call202, 0
@@ -5449,7 +5449,7 @@ lor.lhs.false208:                                 ; preds = %lor.lhs.false204
 
 lor.lhs.false214:                                 ; preds = %lor.lhs.false208
   %call215 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %call45, ptr noundef null) #5
-  %incdec.ptr216 = getelementptr inbounds ptr, ptr %p_ary, i64 4
+  %incdec.ptr216 = getelementptr inbounds i8, ptr %p_ary, i64 32
   store ptr %call215, ptr %incdec.ptr196, align 8
   %call217 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1956, ptr noundef nonnull @.str.512, ptr noundef %call215) #5
   %tobool218.not = icmp eq i32 %call217, 0
@@ -5457,7 +5457,7 @@ lor.lhs.false214:                                 ; preds = %lor.lhs.false208
 
 lor.lhs.false219:                                 ; preds = %lor.lhs.false214
   %call220 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call215) #5
-  %incdec.ptr221 = getelementptr inbounds ptr, ptr %g_ary, i64 5
+  %incdec.ptr221 = getelementptr inbounds i8, ptr %g_ary, i64 40
   store ptr %call220, ptr %incdec.ptr201, align 16
   %call222 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1958, ptr noundef nonnull @.str.513, ptr noundef %call220) #5
   %tobool223.not = icmp eq i32 %call222, 0
@@ -5487,7 +5487,7 @@ lor.lhs.false234:                                 ; preds = %lor.lhs.false228
 
 lor.lhs.false240:                                 ; preds = %lor.lhs.false234
   %call241 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %call45, ptr noundef null) #5
-  %incdec.ptr242 = getelementptr inbounds ptr, ptr %p_ary, i64 5
+  %incdec.ptr242 = getelementptr inbounds i8, ptr %p_ary, i64 40
   store ptr %call241, ptr %incdec.ptr216, align 16
   %call243 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1967, ptr noundef nonnull @.str.512, ptr noundef %call241) #5
   %tobool244.not = icmp eq i32 %call243, 0
@@ -5495,7 +5495,7 @@ lor.lhs.false240:                                 ; preds = %lor.lhs.false234
 
 lor.lhs.false245:                                 ; preds = %lor.lhs.false240
   %call246 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call241) #5
-  %incdec.ptr247 = getelementptr inbounds ptr, ptr %g_ary, i64 6
+  %incdec.ptr247 = getelementptr inbounds i8, ptr %g_ary, i64 48
   store ptr %call246, ptr %incdec.ptr221, align 8
   %call248 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1969, ptr noundef nonnull @.str.513, ptr noundef %call246) #5
   %tobool249.not = icmp eq i32 %call248, 0
@@ -5529,7 +5529,7 @@ lor.lhs.false264:                                 ; preds = %lor.lhs.false260
 
 lor.lhs.false270:                                 ; preds = %lor.lhs.false264
   %call271 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %call45, ptr noundef null) #5
-  %incdec.ptr272 = getelementptr inbounds ptr, ptr %p_ary, i64 6
+  %incdec.ptr272 = getelementptr inbounds i8, ptr %p_ary, i64 48
   store ptr %call271, ptr %incdec.ptr242, align 8
   %call273 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1978, ptr noundef nonnull @.str.512, ptr noundef %call271) #5
   %tobool274.not = icmp eq i32 %call273, 0
@@ -5537,7 +5537,7 @@ lor.lhs.false270:                                 ; preds = %lor.lhs.false264
 
 lor.lhs.false275:                                 ; preds = %lor.lhs.false270
   %call276 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %call271) #5
-  %incdec.ptr277 = getelementptr inbounds ptr, ptr %g_ary, i64 7
+  %incdec.ptr277 = getelementptr inbounds i8, ptr %g_ary, i64 56
   store ptr %call276, ptr %incdec.ptr247, align 16
   %call278 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1980, ptr noundef nonnull @.str.513, ptr noundef %call276) #5
   %tobool279.not = icmp eq i32 %call278, 0
@@ -6605,7 +6605,7 @@ if.end:                                           ; preds = %entry
 if.end7:                                          ; preds = %if.end
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.569, ptr noundef nonnull @.str.691, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx8 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(40) %tmp9, i64 40, i1 false)
   %call10 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.565, ptr noundef null) #5
@@ -6990,16 +6990,16 @@ lor.lhs.false106:                                 ; preds = %lor.lhs.false100
   br i1 %tobool109.not, label %if.end272, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false106
-  %arrayidx = getelementptr inbounds [6 x ptr], ptr %scalars, i64 0, i64 1
-  %arrayidx216 = getelementptr inbounds [6 x ptr], ptr %points, i64 0, i64 1
-  %arrayidx241 = getelementptr inbounds [6 x ptr], ptr %scalars, i64 0, i64 2
-  %arrayidx242 = getelementptr inbounds [6 x ptr], ptr %points, i64 0, i64 2
-  %arrayidx243 = getelementptr inbounds [6 x ptr], ptr %scalars, i64 0, i64 3
-  %arrayidx244 = getelementptr inbounds [6 x ptr], ptr %points, i64 0, i64 3
-  %arrayidx245 = getelementptr inbounds [6 x ptr], ptr %scalars, i64 0, i64 4
-  %arrayidx246 = getelementptr inbounds [6 x ptr], ptr %points, i64 0, i64 4
-  %arrayidx247 = getelementptr inbounds [6 x ptr], ptr %scalars, i64 0, i64 5
-  %arrayidx248 = getelementptr inbounds [6 x ptr], ptr %points, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %scalars, i64 8
+  %arrayidx216 = getelementptr inbounds i8, ptr %points, i64 8
+  %arrayidx241 = getelementptr inbounds i8, ptr %scalars, i64 16
+  %arrayidx242 = getelementptr inbounds i8, ptr %points, i64 16
+  %arrayidx243 = getelementptr inbounds i8, ptr %scalars, i64 24
+  %arrayidx244 = getelementptr inbounds i8, ptr %points, i64 24
+  %arrayidx245 = getelementptr inbounds i8, ptr %scalars, i64 32
+  %arrayidx246 = getelementptr inbounds i8, ptr %points, i64 32
+  %arrayidx247 = getelementptr inbounds i8, ptr %scalars, i64 40
+  %arrayidx248 = getelementptr inbounds i8, ptr %points, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc

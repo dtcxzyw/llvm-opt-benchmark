@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.ufmt_args = type { i64 }
 %struct.u_scanf_spec = type { %struct.u_scanf_spec_info, i32 }
 %struct.u_scanf_spec_info = type { i32, i16, i16, i8, i8, i8, i8, i8, i8 }
-%struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.UFILE = type { ptr, ptr, ptr, %struct.u_localized_string, [1024 x i16], i8, i32 }
-%struct.u_localized_string = type { ptr, ptr, ptr, %struct.ULocaleBundle }
-%struct.ULocaleBundle = type { ptr, [5 x ptr], i8 }
 
 @_ZL15g_u_scanf_infos = internal unnamed_addr constant <{ [89 x %struct.u_scanf_info], [19 x %struct.u_scanf_info] }> <{ [89 x %struct.u_scanf_info] [%struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 1, ptr @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 9, ptr @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 10, ptr @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 3, ptr @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 2, ptr @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 3, ptr @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 6, ptr @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL24u_scanf_uinteger_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }], [19 x %struct.u_scanf_info] zeroinitializer }>, align 16
 
@@ -22,17 +18,17 @@ entry:
   %args = alloca %union.ufmt_args, align 8
   %spec = alloca %struct.u_scanf_spec, align 4
   store i32 0, ptr %argConsumed, align 4
-  %fArgPos.i = getelementptr inbounds %struct.u_scanf_spec, ptr %spec, i64 0, i32 1
-  %fSpec.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 1
-  %fPadChar.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 2
-  %fSkipArg.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 3
-  %fIsLongDouble.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 4
-  %fIsShort.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 5
-  %fIsLong.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 6
-  %fIsLongLong.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 7
-  %fIsString.i = getelementptr inbounds %struct.u_scanf_spec_info, ptr %spec, i64 0, i32 8
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %fArgPos.i = getelementptr inbounds i8, ptr %spec, i64 16
+  %fSpec.i = getelementptr inbounds i8, ptr %spec, i64 4
+  %fPadChar.i = getelementptr inbounds i8, ptr %spec, i64 6
+  %fSkipArg.i = getelementptr inbounds i8, ptr %spec, i64 8
+  %fIsLongDouble.i = getelementptr inbounds i8, ptr %spec, i64 9
+  %fIsShort.i = getelementptr inbounds i8, ptr %spec, i64 10
+  %fIsLong.i = getelementptr inbounds i8, ptr %spec, i64 11
+  %fIsLongLong.i = getelementptr inbounds i8, ptr %spec, i64 12
+  %fIsString.i = getelementptr inbounds i8, ptr %spec, i64 13
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds i8, ptr %ap, i64 16
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end38, %entry
@@ -60,7 +56,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp5, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i16, ptr %alias.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %alias.1, i64 2
   br label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond, %while.cond, %land.rhs
@@ -75,14 +71,14 @@ if.end:                                           ; preds = %while.end
   store i16 32, ptr %fPadChar.i, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %fSkipArg.i, i8 0, i64 5, i1 false)
   store i8 1, ptr %fIsString.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %alias.1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %alias.1, i64 2
   %4 = load i16, ptr %incdec.ptr.i, align 2
   %.off.i = add i16 %4, -48
   %switch.i = icmp ult i16 %.off.i, 10
   br i1 %switch.i, label %if.then56.i, label %while.cond100.i.preheader
 
 if.then56.i:                                      ; preds = %if.end
-  %incdec.ptr57.i = getelementptr inbounds i16, ptr %alias.1, i64 2
+  %incdec.ptr57.i = getelementptr inbounds i8, ptr %alias.1, i64 4
   %conv58.i = zext nneg i16 %4 to i32
   %sub.i = add nsw i32 %conv58.i, -48
   store i32 %sub.i, ptr %fArgPos.i, align 4
@@ -96,7 +92,7 @@ while.body.i:                                     ; preds = %if.then56.i, %while
   %storemerge117.i = phi i32 [ %add.i, %while.body.i ], [ %sub.i, %if.then56.i ]
   %mul.i = mul nsw i32 %storemerge117.i, 10
   store i32 %mul.i, ptr %fArgPos.i, align 4
-  %incdec.ptr89.i = getelementptr inbounds i16, ptr %s.0118.i, i64 1
+  %incdec.ptr89.i = getelementptr inbounds i8, ptr %s.0118.i, i64 2
   %6 = load i16, ptr %s.0118.i, align 2
   %conv90.i = zext i16 %6 to i32
   %sub91.i = add i32 %mul.i, -48
@@ -118,7 +114,7 @@ if.then95.i:                                      ; preds = %if.end.i
   br label %while.cond100.i.preheader
 
 if.else.i:                                        ; preds = %if.end.i
-  %incdec.ptr97.i = getelementptr inbounds i16, ptr %s.0.lcssa.i, i64 1
+  %incdec.ptr97.i = getelementptr inbounds i8, ptr %s.0.lcssa.i, i64 2
   br label %while.cond100.i.preheader
 
 while.cond100.i.preheader:                        ; preds = %if.else.i, %if.then95.i, %if.end
@@ -144,7 +140,7 @@ while.cond100.i:                                  ; preds = %while.cond100.i.bac
   ]
 
 while.body107.i:                                  ; preds = %while.cond100.i, %while.cond100.i
-  %incdec.ptr108.i = getelementptr inbounds i16, ptr %s.3.i, i64 1
+  %incdec.ptr108.i = getelementptr inbounds i8, ptr %s.3.i, i64 2
   switch i16 %9, label %while.cond100.i.backedge [
     i16 42, label %sw.bb.i
     i16 40, label %sw.bb111.i
@@ -155,20 +151,20 @@ sw.bb.i:                                          ; preds = %while.body107.i
   br label %while.cond100.i.backedge
 
 sw.bb111.i:                                       ; preds = %while.body107.i
-  %incdec.ptr112.i = getelementptr inbounds i16, ptr %s.3.i, i64 2
+  %incdec.ptr112.i = getelementptr inbounds i8, ptr %s.3.i, i64 4
   %10 = load i16, ptr %incdec.ptr108.i, align 2
   %call.i = call noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %10)
   %conv113.i = trunc i32 %call.i to i16
   store i16 %conv113.i, ptr %fPadChar.i, align 2
   %conv116.i = shl i32 %call.i, 4
-  %incdec.ptr118.i = getelementptr inbounds i16, ptr %s.3.i, i64 3
+  %incdec.ptr118.i = getelementptr inbounds i8, ptr %s.3.i, i64 6
   %11 = load i16, ptr %incdec.ptr112.i, align 2
   %call119.i = call noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %11)
   %add120.i = add i32 %call119.i, %conv116.i
   %conv121.i = trunc i32 %add120.i to i16
   store i16 %conv121.i, ptr %fPadChar.i, align 2
   %conv124.i = shl i32 %add120.i, 4
-  %incdec.ptr126.i = getelementptr inbounds i16, ptr %s.3.i, i64 4
+  %incdec.ptr126.i = getelementptr inbounds i8, ptr %s.3.i, i64 8
   %12 = load i16, ptr %incdec.ptr118.i, align 2
   %call127.i = call noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %12)
   %add128.i = add i32 %call127.i, %conv124.i
@@ -180,7 +176,7 @@ sw.bb111.i:                                       ; preds = %while.body107.i
   %add136.i = add i32 %call135.i, %conv132.i
   %conv137.i = trunc i32 %add136.i to i16
   store i16 %conv137.i, ptr %fPadChar.i, align 2
-  %incdec.ptr139.i = getelementptr inbounds i16, ptr %s.3.i, i64 6
+  %incdec.ptr139.i = getelementptr inbounds i8, ptr %s.3.i, i64 12
   br label %while.cond100.i.backedge
 
 while.cond100.i.backedge:                         ; preds = %sw.bb111.i, %sw.bb.i, %while.body107.i
@@ -190,7 +186,7 @@ while.cond100.i.backedge:                         ; preds = %sw.bb111.i, %sw.bb.
 if.then170.i:                                     ; preds = %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i, %while.cond100.i
   %conv172.i = zext nneg i16 %9 to i32
   %sub173.i = add nsw i32 %conv172.i, -48
-  %s.5119.i = getelementptr inbounds i16, ptr %s.3.i, i64 1
+  %s.5119.i = getelementptr inbounds i8, ptr %s.3.i, i64 2
   store i32 %sub173.i, ptr %spec, align 4
   %14 = load i16, ptr %s.5119.i, align 2
   %.off109120.i = add i16 %14, -48
@@ -206,7 +202,7 @@ while.body206.i:                                  ; preds = %if.then170.i, %whil
   %conv210.i = zext i16 %15 to i32
   %sub211.i = add i32 %mul208.i, -48
   %add213.i = add i32 %sub211.i, %conv210.i
-  %s.5.i = getelementptr inbounds i16, ptr %s.5123.i, i64 1
+  %s.5.i = getelementptr inbounds i8, ptr %s.5123.i, i64 2
   store i32 %add213.i, ptr %spec, align 4
   %16 = load i16, ptr %s.5.i, align 2
   %.off109.i = add i16 %16, -48
@@ -223,7 +219,7 @@ if.end215.i:                                      ; preds = %while.cond100.i, %w
   ]
 
 if.then224.i:                                     ; preds = %if.end215.i, %if.end215.i, %if.end215.i
-  %incdec.ptr225.i = getelementptr inbounds i16, ptr %s.6.i, i64 1
+  %incdec.ptr225.i = getelementptr inbounds i8, ptr %s.6.i, i64 2
   switch i16 %17, label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit [
     i16 104, label %sw.bb227.i
     i16 108, label %sw.bb229.i
@@ -241,7 +237,7 @@ sw.bb229.i:                                       ; preds = %if.then224.i
 
 if.then232.i:                                     ; preds = %sw.bb229.i
   store i8 1, ptr %fIsLongLong.i, align 4
-  %incdec.ptr234.i = getelementptr inbounds i16, ptr %s.6.i, i64 2
+  %incdec.ptr234.i = getelementptr inbounds i8, ptr %s.6.i, i64 4
   br label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
 
 if.else235.i:                                     ; preds = %sw.bb229.i
@@ -254,7 +250,7 @@ sw.bb238.i:                                       ; preds = %if.then224.i
 
 _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %if.end215.i, %if.then224.i, %sw.bb227.i, %if.then232.i, %if.else235.i, %sw.bb238.i
   %s.7.i = phi ptr [ %incdec.ptr225.i, %if.then224.i ], [ %incdec.ptr225.i, %sw.bb238.i ], [ %incdec.ptr234.i, %if.then232.i ], [ %incdec.ptr225.i, %if.else235.i ], [ %incdec.ptr225.i, %sw.bb227.i ], [ %s.6.i, %if.end215.i ]
-  %incdec.ptr242.i = getelementptr inbounds i16, ptr %s.7.i, i64 1
+  %incdec.ptr242.i = getelementptr inbounds i8, ptr %s.7.i, i64 2
   %19 = load i16, ptr %s.7.i, align 2
   store i16 %19, ptr %fSpec.i, align 4
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr242.i to i64
@@ -338,7 +334,7 @@ sw.default:                                       ; preds = %if.else24
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then23, %sw.default, %vaarg.end
-  %handler31 = getelementptr inbounds [108 x %struct.u_scanf_info], ptr @_ZL15g_u_scanf_infos, i64 0, i64 %idxprom, i32 1
+  %handler31 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %26 = load ptr, ptr %handler31, align 8
   %cmp32.not = icmp eq ptr %26, null
   br i1 %cmp32.not, label %for.cond.backedge, label %if.then33
@@ -359,7 +355,7 @@ if.end38:                                         ; preds = %if.then33
   %28 = load i32, ptr %count, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i16, ptr %add.ptr, i64 %29
-  %add.ptr42 = getelementptr i16, ptr %30, i64 -1
+  %add.ptr42 = getelementptr i8, ptr %30, i64 -2
   br label %for.cond.outer, !llvm.loop !9
 
 for.end:                                          ; preds = %if.then33, %land.lhs.true18, %while.end
@@ -401,7 +397,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fIsString = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 8
+  %fIsString = getelementptr inbounds i8, ptr %info, i64 13
   store i8 0, ptr %fIsString, align 1
   %call = tail call noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef nonnull %info, ptr noundef %args, ptr poison, ptr poison, ptr noundef %argConverted)
   ret i32 %call
@@ -417,7 +413,7 @@ entry:
   %expBuf = alloca [8 x i16], align 16
   store i32 0, ptr %parsePos, align 4
   store i32 0, ptr %status, align 4
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %0 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -454,8 +450,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %3 = load ptr, ptr %fLimit, align 8
   %4 = load ptr, ptr %str, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
@@ -467,14 +463,14 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.t
   %cmp.not = icmp eq i32 %5, -1
   %conv. = call i32 @llvm.smin.i32(i32 %5, i32 %conv)
   %len.0 = select i1 %cmp.not, i32 %conv, i32 %conv.
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %input, i64 48
   %call6 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 4)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
   %call10 = call i32 @unum_getSymbol_75(ptr noundef nonnull %call6, i32 noundef 11, ptr noundef nonnull %srcExpBuf, i32 noundef 16, ptr noundef nonnull %status)
-  %fSpec = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 1
+  %fSpec = getelementptr inbounds i8, ptr %info, i64 4
   %6 = load i16, ptr %fSpec, align 4
   %cmp12 = icmp eq i16 %6, 101
   %7 = load ptr, ptr %fBundle, align 8
@@ -496,13 +492,13 @@ if.end25:                                         ; preds = %if.else, %if.then13
   %add = add nsw i32 %call27, %count.0.i
   %8 = load ptr, ptr %str, align 8
   %call30 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %8, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %9 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %if.then31, label %if.end44
 
 if.then31:                                        ; preds = %if.end25
-  %fIsLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 6
+  %fIsLong = getelementptr inbounds i8, ptr %info, i64 11
   %10 = load i8, ptr %fIsLong, align 1
   %tobool32.not = icmp eq i8 %10, 0
   br i1 %tobool32.not, label %if.else34, label %if.then33
@@ -513,7 +509,7 @@ if.then33:                                        ; preds = %if.then31
   br label %if.end44
 
 if.else34:                                        ; preds = %if.then31
-  %fIsLongDouble = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 4
+  %fIsLongDouble = getelementptr inbounds i8, ptr %info, i64 9
   %12 = load i8, ptr %fIsLongDouble, align 1
   %tobool35.not = icmp eq i8 %12, 0
   %13 = load ptr, ptr %args, align 8
@@ -559,7 +555,7 @@ entry:
   store i32 0, ptr %genericParsePos, align 4
   store i32 0, ptr %scientificStatus, align 4
   store i32 0, ptr %genericStatus, align 4
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %0 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -596,12 +592,12 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %3 = load ptr, ptr %fLimit, align 8
   %4 = load ptr, ptr %str, align 8
   %5 = load i32, ptr %info, align 4
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %input, i64 48
   %call6 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 4)
   %call9 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 1)
   %cmp10 = icmp eq ptr %call6, null
@@ -633,13 +629,13 @@ if.end13:                                         ; preds = %_ZL23u_scanf_skip_l
   %idx.ext = sext i32 %. to i64
   %add.ptr = getelementptr inbounds i16, ptr %10, i64 %idx.ext
   store ptr %add.ptr, ptr %str, align 8
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %11 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.then28, label %if.end41
 
 if.then28:                                        ; preds = %if.end13
-  %fIsLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 6
+  %fIsLong = getelementptr inbounds i8, ptr %info, i64 11
   %12 = load i8, ptr %fIsLong, align 1
   %tobool29.not = icmp eq i8 %12, 0
   br i1 %tobool29.not, label %if.else31, label %if.then30
@@ -650,7 +646,7 @@ if.then30:                                        ; preds = %if.then28
   br label %if.end41
 
 if.else31:                                        ; preds = %if.then28
-  %fIsLongDouble = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 4
+  %fIsLongDouble = getelementptr inbounds i8, ptr %info, i64 9
   %14 = load i8, ptr %fIsLongDouble, align 1
   %tobool32.not = icmp eq i8 %14, 0
   %15 = load ptr, ptr %args, align 8
@@ -687,7 +683,7 @@ entry:
   %status = alloca i32, align 4
   store i32 0, ptr %parsePos, align 4
   store i32 0, ptr %status, align 4
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %0 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -722,12 +718,12 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %3 = load ptr, ptr %fLimit, align 8
   %4 = load ptr, ptr %str, align 8
   %5 = load i32, ptr %info, align 4
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %input, i64 48
   %call6 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 3)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
@@ -744,7 +740,7 @@ if.end9:                                          ; preds = %_ZL23u_scanf_skip_l
   %6 = call fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef nonnull %input, ptr noundef nonnull %call6, i32 0)
   %7 = load ptr, ptr %str, align 8
   %call13 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %7, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %8 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.then14, label %if.end15
@@ -777,13 +773,13 @@ entry:
   %c.i = alloca i16, align 2
   %c = alloca i16, align 2
   %0 = load ptr, ptr %args, align 8
-  %fIsString = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 8
+  %fIsString = getelementptr inbounds i8, ptr %info, i64 13
   %1 = load i8, ptr %fIsString, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %2 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -830,8 +826,8 @@ if.end:                                           ; preds = %_ZL23u_scanf_skip_l
   br i1 %or.cond2026, label %land.lhs.true.lr.ph, label %while.end
 
 land.lhs.true.lr.ph:                              ; preds = %if.end
-  %fPadChar8 = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fPadChar8 = getelementptr inbounds i8, ptr %info, i64 6
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %if.end18
@@ -865,7 +861,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
 
 if.then17:                                        ; preds = %while.body
   %10 = load i16, ptr %c, align 2
-  %incdec.ptr = getelementptr inbounds i16, ptr %alias.027, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %alias.027, i64 2
   store i16 %10, ptr %alias.027, align 2
   br label %if.end18
 
@@ -882,7 +878,7 @@ while.end:                                        ; preds = %land.rhs11, %lor.rh
   %alias.0.lcssa = phi ptr [ %0, %if.end ], [ %alias.1, %if.end18 ], [ %alias.027, %land.lhs.true ], [ %alias.027, %lor.rhs ], [ %alias.027, %land.rhs11 ]
   %count.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %if.end18 ], [ %count.028, %land.lhs.true ], [ %count.028, %lor.rhs ], [ %count.028, %land.rhs11 ]
   %isNotEOF.1 = phi i8 [ 0, %if.end ], [ 1, %if.end18 ], [ %call3, %land.lhs.true ], [ 1, %lor.rhs ], [ 1, %land.rhs11 ]
-  %fSkipArg19 = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg19 = getelementptr inbounds i8, ptr %info, i64 8
   %12 = load i8, ptr %fSkipArg19, align 4
   %tobool20.not = icmp eq i8 %12, 0
   br i1 %tobool20.not, label %if.then21, label %if.end37
@@ -934,7 +930,7 @@ entry:
   %status = alloca i32, align 4
   store i32 0, ptr %parsePos, align 4
   store i32 0, ptr %status, align 4
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %0 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -971,12 +967,12 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %3 = load ptr, ptr %fLimit, align 8
   %4 = load ptr, ptr %str, align 8
   %5 = load i32, ptr %info, align 4
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %input, i64 48
   %call6 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 5)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
@@ -992,7 +988,7 @@ if.end9:                                          ; preds = %_ZL23u_scanf_skip_l
   %len.0 = select i1 %cmp.not, i32 %conv, i32 %conv.
   %6 = load ptr, ptr %str, align 8
   %call12 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %6, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.then13, label %if.end14
@@ -1026,7 +1022,7 @@ entry:
   %c.i = alloca i16, align 2
   %len = alloca i32, align 4
   %0 = load ptr, ptr %args, align 8
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %1 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -1063,8 +1059,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %4 = load ptr, ptr %fLimit, align 8
   %5 = load ptr, ptr %str, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
@@ -1089,7 +1085,7 @@ if.end:                                           ; preds = %if.then, %_ZL23u_sc
   br i1 %cmp8, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %if.end
-  %add.ptr = getelementptr inbounds i16, ptr %5, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 2
   %9 = load i16, ptr %add.ptr, align 2
   switch i16 %9, label %if.end22 [
     i16 120, label %if.then18
@@ -1097,7 +1093,7 @@ land.lhs.true:                                    ; preds = %if.end
   ]
 
 if.then18:                                        ; preds = %land.lhs.true, %land.lhs.true
-  %add.ptr21 = getelementptr inbounds i16, ptr %5, i64 2
+  %add.ptr21 = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %add.ptr21, ptr %str, align 8
   %sub = add nsw i32 %7, -2
   store i32 %sub, ptr %len, align 4
@@ -1111,13 +1107,13 @@ if.end22:                                         ; preds = %land.lhs.true, %if.
   %idx.ext = sext i32 %11 to i64
   %add.ptr28 = getelementptr inbounds i16, ptr %12, i64 %idx.ext
   store ptr %add.ptr28, ptr %str, align 8
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %13 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %13, 0
   br i1 %tobool.not, label %if.then29, label %if.end40
 
 if.then29:                                        ; preds = %if.end22
-  %fIsShort = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 5
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 10
   %14 = load i8, ptr %fIsShort, align 2
   %tobool30.not = icmp eq i8 %14, 0
   br i1 %tobool30.not, label %if.else, label %if.then31
@@ -1128,7 +1124,7 @@ if.then31:                                        ; preds = %if.then29
   br label %if.end40
 
 if.else:                                          ; preds = %if.then29
-  %fIsLongLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 7
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 12
   %15 = load i8, ptr %fIsLongLong, align 4
   %tobool33.not = icmp eq i8 %15, 0
   br i1 %tobool33.not, label %if.else35, label %if.then34
@@ -1159,7 +1155,7 @@ entry:
   store i32 0, ptr %status, align 4
   %0 = load ptr, ptr %args, align 8
   %call = tail call ptr @uset_open_75(i32 noundef 0, i32 noundef -1)
-  %incdec.ptr = getelementptr inbounds i16, ptr %fmt, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fmt, i64 -2
   %1 = load i32, ptr %info, align 4
   %call2 = call i32 @uset_applyPattern_75(ptr noundef %call, ptr noundef nonnull %incdec.ptr, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %status)
   store i32 %call2, ptr %fmtConsumed, align 4
@@ -1183,7 +1179,7 @@ if.end49.thread57:                                ; preds = %if.then4
   br label %return
 
 while.body.lr.ph:                                 ; preds = %if.then4
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
@@ -1232,7 +1228,7 @@ if.then20:                                        ; preds = %if.else
   %8 = trunc i32 %7 to i16
   %9 = and i16 %8, 1023
   %conv26 = or disjoint i16 %9, -9216
-  %arrayidx29 = getelementptr inbounds i16, ptr %alias.046, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %alias.046, i64 2
   store i16 %conv26, ptr %arrayidx29, align 2
   br label %if.end35
 
@@ -1270,7 +1266,7 @@ if.end49:                                         ; preds = %while.body, %if.the
 if.else52:                                        ; preds = %if.end49.thread62, %if.end49
   %alias.04068 = phi ptr [ %alias.1, %if.end49.thread62 ], [ %alias.046, %if.end49 ]
   %chLeft.14267 = phi i32 [ %sub40, %if.end49.thread62 ], [ %chLeft.144, %if.end49 ]
-  %fSkipArg53 = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg53 = getelementptr inbounds i8, ptr %info, i64 8
   %12 = load i8, ptr %fSkipArg53, align 4
   %tobool54.not = icmp eq i8 %12, 0
   br i1 %tobool54.not, label %if.then55, label %if.end57
@@ -1308,7 +1304,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fIsString = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 8
+  %fIsString = getelementptr inbounds i8, ptr %info, i64 13
   store i8 0, ptr %fIsString, align 1
   %call = tail call noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef nonnull %info, ptr noundef %args, ptr poison, ptr poison, ptr noundef %argConverted)
   ret i32 %call
@@ -1323,7 +1319,7 @@ entry:
   %0 = load ptr, ptr %args, align 8
   store i32 0, ptr %parsePos, align 4
   store i32 0, ptr %status, align 4
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %1 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -1360,8 +1356,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %4 = load ptr, ptr %fLimit, align 8
   %5 = load ptr, ptr %str, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
@@ -1373,7 +1369,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.t
   %cmp.not = icmp eq i32 %6, -1
   %conv. = call i32 @llvm.smin.i32(i32 %6, i32 %conv)
   %len.0 = select i1 %cmp.not, i32 %conv, i32 %conv.
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %input, i64 48
   %call6 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 1)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
@@ -1385,7 +1381,7 @@ if.end9:                                          ; preds = %_ZL23u_scanf_skip_l
   br i1 %cmp.i, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end9
-  %fSpec = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 1
+  %fSpec = getelementptr inbounds i8, ptr %info, i64 4
   %8 = load i16, ptr %fSpec, align 4
   switch i16 %8, label %if.end24 [
     i16 100, label %if.then23
@@ -1404,13 +1400,13 @@ if.end24:                                         ; preds = %if.end13, %if.then2
   %add = add nsw i32 %call25, %count.0.i
   %9 = load ptr, ptr %str, align 8
   %call28 = call i64 @unum_parseInt64_75(ptr noundef %call10, ptr noundef %9, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %10 = load i8, ptr %fSkipArg, align 4
   %tobool29.not = icmp eq i8 %10, 0
   br i1 %tobool29.not, label %if.then30, label %if.end41
 
 if.then30:                                        ; preds = %if.end24
-  %fIsShort = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 5
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 10
   %11 = load i8, ptr %fIsShort, align 2
   %tobool31.not = icmp eq i8 %11, 0
   br i1 %tobool31.not, label %if.else, label %if.then32
@@ -1421,7 +1417,7 @@ if.then32:                                        ; preds = %if.then30
   br label %if.end41
 
 if.else:                                          ; preds = %if.then30
-  %fIsLongLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 7
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 12
   %12 = load i8, ptr %fIsLongLong, align 4
   %tobool34.not = icmp eq i8 %12, 0
   br i1 %tobool34.not, label %if.else36, label %if.then35
@@ -1463,7 +1459,7 @@ entry:
   %status = alloca i32, align 4
   store i32 0, ptr %parsePos, align 4
   store i32 0, ptr %status, align 4
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %0 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -1500,12 +1496,12 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %3 = load ptr, ptr %fLimit, align 8
   %4 = load ptr, ptr %str, align 8
   %5 = load i32, ptr %info, align 4
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %input, i64 48
   %call6 = call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 1)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
@@ -1523,13 +1519,13 @@ if.end9:                                          ; preds = %_ZL23u_scanf_skip_l
   %add = add nsw i32 %call10, %count.0.i
   %6 = load ptr, ptr %str, align 8
   %call13 = call double @unum_parseDouble_75(ptr noundef nonnull %call6, ptr noundef %6, i32 noundef %len.0, ptr noundef nonnull %parsePos, ptr noundef nonnull %status)
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.then14, label %if.end26
 
 if.then14:                                        ; preds = %if.end9
-  %fIsLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 6
+  %fIsLong = getelementptr inbounds i8, ptr %info, i64 11
   %8 = load i8, ptr %fIsLong, align 1
   %tobool15.not = icmp eq i8 %8, 0
   br i1 %tobool15.not, label %if.else, label %if.then16
@@ -1540,7 +1536,7 @@ if.then16:                                        ; preds = %if.then14
   br label %if.end26
 
 if.else:                                          ; preds = %if.then14
-  %fIsLongDouble = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 4
+  %fIsLongDouble = getelementptr inbounds i8, ptr %info, i64 9
   %10 = load i8, ptr %fIsLongDouble, align 1
   %tobool17.not = icmp eq i8 %10, 0
   %11 = load ptr, ptr %args, align 8
@@ -1577,13 +1573,13 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr nocapture readnone %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #2 {
 entry:
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
-  %fIsShort = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 5
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 10
   %1 = load i8, ptr %fIsShort, align 2
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %if.else, label %if.then2
@@ -1596,7 +1592,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end13
 
 if.else:                                          ; preds = %if.then
-  %fIsLongLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 7
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 12
   %4 = load i8, ptr %fIsLongLong, align 4
   %tobool3.not = icmp eq i8 %4, 0
   %5 = load i32, ptr %info, align 4
@@ -1624,7 +1620,7 @@ entry:
   %c.i = alloca i16, align 2
   %len = alloca i32, align 4
   %0 = load ptr, ptr %args, align 8
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %1 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -1661,8 +1657,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %4 = load ptr, ptr %fLimit, align 8
   %5 = load ptr, ptr %str, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
@@ -1687,13 +1683,13 @@ if.end:                                           ; preds = %if.then, %_ZL23u_sc
   %idx.ext = sext i32 %7 to i64
   %add.ptr = getelementptr inbounds i16, ptr %8, i64 %idx.ext
   store ptr %add.ptr, ptr %str, align 8
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %9 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %if.then10, label %if.end21
 
 if.then10:                                        ; preds = %if.end
-  %fIsShort = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 5
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 10
   %10 = load i8, ptr %fIsShort, align 2
   %tobool11.not = icmp eq i8 %10, 0
   br i1 %tobool11.not, label %if.else, label %if.then12
@@ -1704,7 +1700,7 @@ if.then12:                                        ; preds = %if.then10
   br label %if.end21
 
 if.else:                                          ; preds = %if.then10
-  %fIsLongLong = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 7
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 12
   %11 = load i8, ptr %fIsLongLong, align 4
   %tobool14.not = icmp eq i8 %11, 0
   br i1 %tobool14.not, label %if.else16, label %if.then15
@@ -1733,7 +1729,7 @@ entry:
   %c.i = alloca i16, align 2
   %len = alloca i32, align 4
   %0 = load ptr, ptr %args, align 8
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %1 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -1770,8 +1766,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %while.c
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %while.cond.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %c.i)
   call void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %input)
-  %str = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %input, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %input, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %input, i64 32
   %4 = load ptr, ptr %fLimit, align 8
   %5 = load ptr, ptr %str, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
@@ -1800,7 +1796,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then6, %if.end
   %call10 = call noundef ptr @_Z12ufmt_utop_75PKDsPi(ptr noundef %5, ptr noundef nonnull %len)
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %8 = load i8, ptr %fSkipArg, align 4
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.then11, label %if.end12
@@ -1834,13 +1830,13 @@ entry:
   %0 = load ptr, ptr %args, align 8
   store ptr %0, ptr %alias, align 8
   store i32 0, ptr %status, align 4
-  %fIsString = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 8
+  %fIsString = getelementptr inbounds i8, ptr %info, i64 13
   %1 = load i8, ptr %fIsString, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fPadChar = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 6
   %2 = load i16, ptr %fPadChar, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %c.i)
   br label %while.cond.i
@@ -1893,8 +1889,8 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %or.cond2636, label %land.lhs.true.lr.ph, label %while.end
 
 land.lhs.true.lr.ph:                              ; preds = %while.cond.preheader
-  %fPadChar14 = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 2
-  %fSkipArg = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fPadChar14 = getelementptr inbounds i8, ptr %info, i64 6
+  %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %if.end40
@@ -1949,7 +1945,7 @@ if.else:                                          ; preds = %if.then23
 if.end34:                                         ; preds = %if.else, %if.then26
   %limit.0 = phi ptr [ %add.ptr29, %if.then26 ], [ %add.ptr33, %if.else ]
   %c.pn = phi ptr [ %c, %if.then26 ], [ %.pre, %if.else ]
-  %.sroa.phi = getelementptr inbounds i16, ptr %c.pn, i64 1
+  %.sroa.phi = getelementptr inbounds i8, ptr %c.pn, i64 2
   call void @ucnv_fromUnicode_75(ptr noundef %call1, ptr noundef nonnull %alias, ptr noundef %limit.0, ptr noundef nonnull %source, ptr noundef nonnull %.sroa.phi, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %status)
   %13 = load i32, ptr %status, align 4
   %cmp.i27 = icmp slt i32 %13, 1
@@ -1983,7 +1979,7 @@ while.end.loopexit.split.loop.exit57:             ; preds = %land.rhs17
 while.end:                                        ; preds = %if.end40, %while.end.loopexit.split.loop.exit51, %while.end.loopexit.split.loop.exit54, %while.end.loopexit.split.loop.exit57, %while.cond.preheader
   %count.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %15, %while.end.loopexit.split.loop.exit51 ], [ %16, %while.end.loopexit.split.loop.exit54 ], [ %17, %while.end.loopexit.split.loop.exit57 ], [ %indvars, %if.end40 ]
   %isNotEOF.1 = phi i8 [ 0, %while.cond.preheader ], [ %call8, %while.end.loopexit.split.loop.exit51 ], [ 1, %while.end.loopexit.split.loop.exit54 ], [ 1, %while.end.loopexit.split.loop.exit57 ], [ 1, %if.end40 ]
-  %fSkipArg41 = getelementptr inbounds %struct.u_scanf_spec_info, ptr %info, i64 0, i32 3
+  %fSkipArg41 = getelementptr inbounds i8, ptr %info, i64 8
   %18 = load i8, ptr %fSkipArg41, align 4
   %tobool42.not = icmp eq i8 %18, 0
   br i1 %tobool42.not, label %if.then43, label %if.end59

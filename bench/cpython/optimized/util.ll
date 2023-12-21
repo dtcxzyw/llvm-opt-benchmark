@@ -3,8 +3,6 @@ source_filename = "bench/cpython/original/util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @PyExc_OverflowError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [50 x i8] c"Python int too large to convert to SQLite INTEGER\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"sqlite_errorcode\00", align 1
@@ -47,7 +45,7 @@ get_exception_class.exit.thread:                  ; preds = %entry
   br label %return
 
 sw.bb1.i:                                         ; preds = %entry, %entry
-  %InternalError.i = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 5
+  %InternalError.i = getelementptr inbounds i8, ptr %state, i64 40
   %0 = load ptr, ptr %InternalError.i, align 8
   br label %get_exception_class.exit
 
@@ -56,12 +54,12 @@ sw.bb2.i:                                         ; preds = %entry
   br label %get_exception_class.exit
 
 sw.bb3.i:                                         ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %OperationalError.i = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 7
+  %OperationalError.i = getelementptr inbounds i8, ptr %state, i64 56
   %1 = load ptr, ptr %OperationalError.i, align 8
   br label %get_exception_class.exit
 
 sw.bb4.i:                                         ; preds = %entry
-  %DatabaseError.i = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 1
+  %DatabaseError.i = getelementptr inbounds i8, ptr %state, i64 8
   %2 = load ptr, ptr %DatabaseError.i, align 8
   br label %get_exception_class.exit
 
@@ -70,17 +68,17 @@ sw.bb5.i:                                         ; preds = %entry
   br label %get_exception_class.exit
 
 sw.bb6.i:                                         ; preds = %entry, %entry
-  %IntegrityError.i = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 3
+  %IntegrityError.i = getelementptr inbounds i8, ptr %state, i64 24
   %4 = load ptr, ptr %IntegrityError.i, align 8
   br label %get_exception_class.exit
 
 sw.bb7.i:                                         ; preds = %entry, %entry
-  %InterfaceError.i = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 4
+  %InterfaceError.i = getelementptr inbounds i8, ptr %state, i64 32
   %5 = load ptr, ptr %InterfaceError.i, align 8
   br label %get_exception_class.exit
 
 sw.default.i:                                     ; preds = %entry
-  %DatabaseError8.i = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 1
+  %DatabaseError8.i = getelementptr inbounds i8, ptr %state, i64 8
   %6 = load ptr, ptr %DatabaseError8.i, align 8
   br label %get_exception_class.exit
 

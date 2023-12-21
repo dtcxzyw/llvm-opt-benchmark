@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.mmap_object = type { %struct._object, ptr, i64, i64, i64, i64, i32, ptr, i32 }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 
 @mmapmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 0, ptr null, ptr @mmap_slots, ptr null, ptr null, ptr null }, align 8
@@ -506,7 +505,7 @@ if.end35:                                         ; preds = %if.end30
   br i1 %or.cond1, label %land.lhs.true39, label %if.end68
 
 land.lhs.true39:                                  ; preds = %if.end35
-  %st_mode = getelementptr inbounds %struct.stat, ptr %status, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %status, i64 24
   %17 = load i32, ptr %st_mode, align 8
   %and40 = and i32 %17, 61440
   %cmp41 = icmp eq i32 %and40, 32768
@@ -518,7 +517,7 @@ if.then42:                                        ; preds = %land.lhs.true39
   br i1 %cmp43, label %if.then44, label %if.else58
 
 if.then44:                                        ; preds = %if.then42
-  %st_size = getelementptr inbounds %struct.stat, ptr %status, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %status, i64 48
   %19 = load i64, ptr %st_size, align 8
   %cmp45 = icmp eq i64 %19, 0
   br i1 %cmp45, label %if.then46, label %if.end47
@@ -545,7 +544,7 @@ if.end55:                                         ; preds = %if.end47
 
 if.else58:                                        ; preds = %if.then42
   %23 = load i64, ptr %offset, align 8
-  %st_size59 = getelementptr inbounds %struct.stat, ptr %status, i64 0, i32 8
+  %st_size59 = getelementptr inbounds i8, ptr %status, i64 48
   %24 = load i64, ptr %st_size59, align 8
   %cmp60 = icmp sgt i64 %23, %24
   %sub63 = sub i64 %24, %23
@@ -559,33 +558,33 @@ if.then65:                                        ; preds = %if.else58
   br label %return
 
 if.end68:                                         ; preds = %if.end30, %if.else58, %if.end55, %land.lhs.true39, %if.end35
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %26 = load ptr, ptr %tp_alloc, align 8
   %call69 = call ptr %26(ptr noundef %type, i64 noundef 0) #8
   %cmp70 = icmp eq ptr %call69, null
   br i1 %cmp70, label %return, label %if.end72
 
 if.end72:                                         ; preds = %if.end68
-  %data = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call69, i64 16
   store ptr null, ptr %data, align 8
   %27 = load i64, ptr %map_size, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %call69, i64 24
   store i64 %27, ptr %size, align 8
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %call69, i64 32
   store i64 0, ptr %pos, align 8
-  %weakreflist = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 7
+  %weakreflist = getelementptr inbounds i8, ptr %call69, i64 64
   store ptr null, ptr %weakreflist, align 8
-  %exports = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 5
+  %exports = getelementptr inbounds i8, ptr %call69, i64 48
   store i64 0, ptr %exports, align 8
   %28 = load i64, ptr %offset, align 8
-  %offset73 = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 4
+  %offset73 = getelementptr inbounds i8, ptr %call69, i64 40
   store i64 %28, ptr %offset73, align 8
   %29 = load i32, ptr %fd, align 4
   %cmp74 = icmp eq i32 %29, -1
   br i1 %cmp74, label %if.then75, label %if.else77
 
 if.then75:                                        ; preds = %if.end72
-  %fd76 = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 6
+  %fd76 = getelementptr inbounds i8, ptr %call69, i64 56
   store i32 -1, ptr %fd76, align 8
   %30 = load i32, ptr %flags, align 4
   %or = or i32 %30, 32
@@ -594,7 +593,7 @@ if.then75:                                        ; preds = %if.end72
 
 if.else77:                                        ; preds = %if.end72
   %call78 = call i32 @_Py_dup(i32 noundef %29) #8
-  %fd79 = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 6
+  %fd79 = getelementptr inbounds i8, ptr %call69, i64 56
   store i32 %call78, ptr %fd79, align 8
   %cmp81 = icmp eq i32 %call78, -1
   br i1 %cmp81, label %if.then82, label %if.end84
@@ -656,7 +655,7 @@ Py_DECREF.exit:                                   ; preds = %if.then96, %if.then
 
 if.end100:                                        ; preds = %if.end84
   %43 = load i32, ptr %access, align 4
-  %access101 = getelementptr inbounds %struct.mmap_object, ptr %call69, i64 0, i32 8
+  %access101 = getelementptr inbounds i8, ptr %call69, i64 72
   store i32 %43, ptr %access101, align 8
   br label %return
 
@@ -672,7 +671,7 @@ entry:
   %m_obj.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %m_obj) #8
   %call1 = tail call ptr @PyEval_SaveThread() #8
-  %fd = getelementptr inbounds %struct.mmap_object, ptr %m_obj, i64 0, i32 6
+  %fd = getelementptr inbounds i8, ptr %m_obj, i64 56
   %1 = load i32, ptr %fd, align 8
   %cmp = icmp sgt i32 %1, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -682,20 +681,20 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %data = getelementptr inbounds %struct.mmap_object, ptr %m_obj, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %m_obj, i64 16
   %2 = load ptr, ptr %data, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %size = getelementptr inbounds %struct.mmap_object, ptr %m_obj, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %m_obj, i64 24
   %3 = load i64, ptr %size, align 8
   %call7 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %3) #8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
   tail call void @PyEval_RestoreThread(ptr noundef %call1) #8
-  %weakreflist = getelementptr inbounds %struct.mmap_object, ptr %m_obj, i64 0, i32 7
+  %weakreflist = getelementptr inbounds i8, ptr %m_obj, i64 64
   %4 = load ptr, ptr %weakreflist, align 8
   %cmp9.not = icmp eq ptr %4, null
   br i1 %cmp9.not, label %if.end11, label %if.then10
@@ -705,7 +704,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %m_obj.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %m_obj.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %m_obj) #8
   %6 = load i64, ptr %m_obj.val, align 8
@@ -730,7 +729,7 @@ Py_DECREF.exit:                                   ; preds = %if.end11, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap__repr__method(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -738,26 +737,26 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call1 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.53, ptr noundef %2) #8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %access = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 8
+  %access = getelementptr inbounds i8, ptr %self, i64 72
   %3 = load i32, ptr %access, align 8
   %4 = sext i32 %3 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.mmap__repr__method, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr i8, ptr %self, i64 8
   %self.val7 = load ptr, ptr %5, align 8
-  %tp_name6 = getelementptr inbounds %struct._typeobject, ptr %self.val7, i64 0, i32 1
+  %tp_name6 = getelementptr inbounds i8, ptr %self.val7, i64 24
   %6 = load ptr, ptr %tp_name6, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i64, ptr %size, align 8
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %8 = load i64, ptr %pos, align 8
-  %offset = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %self, i64 40
   %9 = load i64, ptr %offset, align 8
   %call7 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.54, ptr noundef %6, ptr noundef nonnull %switch.load, i64 noundef %7, i64 noundef %8, i64 noundef %9) #8
   br label %return
@@ -793,7 +792,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal i64 @mmap_length(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -804,7 +803,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
   br label %return
 
@@ -816,7 +815,7 @@ return:                                           ; preds = %do.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap_item(ptr nocapture noundef readonly %self, i64 noundef %i) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -831,7 +830,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
   %cmp2.not = icmp sgt i64 %2, %i
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -854,7 +853,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 ; Function Attrs: nounwind uwtable
 define internal i32 @mmap_ass_item(ptr nocapture noundef readonly %self, i64 noundef %i, ptr noundef %v) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -869,7 +868,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
   %cmp2.not = icmp sgt i64 %2, %i
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -937,7 +936,7 @@ entry:
   %start = alloca i64, align 8
   %stop = alloca i64, align 8
   %step = alloca i64, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -968,12 +967,12 @@ if.end7:                                          ; preds = %if.then1
   br i1 %cmp8, label %if.end10, label %if.end7.lor.lhs.false_crit_edge
 
 if.end7.lor.lhs.false_crit_edge:                  ; preds = %if.end7
-  %size12.phi.trans.insert = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size12.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 24
   %.pre = load i64, ptr %size12.phi.trans.insert, align 8
   br label %lor.lhs.false
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end7
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i64, ptr %size, align 8
   %add = add i64 %3, %call2
   %cmp11 = icmp slt i64 %add, 0
@@ -1019,7 +1018,7 @@ if.then28:                                        ; preds = %if.else
   br i1 %cmp30, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.then28
-  %size34 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size34 = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load i64, ptr %size34, align 8
   %11 = load i64, ptr %step, align 8
   %call35 = call i64 @PySlice_AdjustIndices(i64 noundef %10, ptr noundef nonnull %start, ptr noundef nonnull %stop, i64 noundef %11) #8
@@ -1100,7 +1099,7 @@ entry:
   %stop = alloca i64, align 8
   %step = alloca i64, align 8
   %vbuf = alloca %struct.Py_buffer, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1142,12 +1141,12 @@ if.end11:                                         ; preds = %if.then5
   br i1 %cmp12, label %if.end14, label %if.end11.lor.lhs.false_crit_edge
 
 if.end11.lor.lhs.false_crit_edge:                 ; preds = %if.end11
-  %size16.phi.trans.insert = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size16.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 24
   %.pre = load i64, ptr %size16.phi.trans.insert, align 8
   br label %lor.lhs.false
 
 if.end14:                                         ; preds = %land.lhs.true, %if.end11
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %5 = load i64, ptr %size, align 8
   %add = add i64 %5, %call6
   %cmp15 = icmp slt i64 %add, 0
@@ -1230,7 +1229,7 @@ if.then48:                                        ; preds = %if.else
   br i1 %cmp50, label %return, label %if.end53
 
 if.end53:                                         ; preds = %if.then48
-  %size54 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size54 = getelementptr inbounds i8, ptr %self, i64 24
   %14 = load i64, ptr %size54, align 8
   %15 = load i64, ptr %step, align 8
   %call55 = call i64 @PySlice_AdjustIndices(i64 noundef %14, ptr noundef nonnull %start, ptr noundef nonnull %stop, i64 noundef %15) #8
@@ -1248,7 +1247,7 @@ if.end59:                                         ; preds = %if.end53
   br i1 %cmp61, label %return, label %if.end64
 
 if.end64:                                         ; preds = %if.end59
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %vbuf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %vbuf, i64 16
   %17 = load i64, ptr %len, align 8
   %cmp65.not = icmp eq i64 %17, %call55
   br i1 %cmp65.not, label %do.body69, label %if.then67
@@ -1326,7 +1325,7 @@ return:                                           ; preds = %is_writable.exit.th
 ; Function Attrs: nounwind uwtable
 define internal i32 @mmap_buffer_getbuf(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1337,9 +1336,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
-  %access = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 8
+  %access = getelementptr inbounds i8, ptr %self, i64 72
   %3 = load i32, ptr %access, align 8
   %cmp2 = icmp eq i32 %3, 1
   %conv = zext i1 %cmp2 to i32
@@ -1348,7 +1347,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %do.end
-  %exports = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 5
+  %exports = getelementptr inbounds i8, ptr %self, i64 48
   %4 = load i64, ptr %exports, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %exports, align 8
@@ -1362,7 +1361,7 @@ return:                                           ; preds = %do.end, %if.end6, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @mmap_buffer_releasebuf(ptr nocapture noundef %self, ptr nocapture readnone %view) #2 {
 entry:
-  %exports = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 5
+  %exports = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i64, ptr %exports, align 8
   %dec = add i64 %0, -1
   store i64 %dec, ptr %exports, align 8
@@ -1407,7 +1406,7 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap_close_method(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %exports = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 5
+  %exports = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i64, ptr %exports, align 8
   %cmp = icmp sgt i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1418,9 +1417,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fd1 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 6
+  %fd1 = getelementptr inbounds i8, ptr %self, i64 56
   %2 = load i32, ptr %fd1, align 8
-  %data2 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data2 = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %data2, align 8
   store i32 -1, ptr %fd1, align 8
   store ptr null, ptr %data2, align 8
@@ -1437,7 +1436,7 @@ if.end8:                                          ; preds = %if.then6, %if.end
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load i64, ptr %size, align 8
   %call11 = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef %4) #8
   br label %if.end12
@@ -1471,10 +1470,10 @@ entry:
   %offset = alloca i64, align 8
   %size = alloca i64, align 8
   store i64 0, ptr %offset, align 8
-  %size1 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size1 = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %size1, align 8
   store i64 %0, ptr %size, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1509,7 +1508,7 @@ if.then9:                                         ; preds = %lor.lhs.false6, %if
   br label %return
 
 if.end10:                                         ; preds = %lor.lhs.false6
-  %access = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 8
+  %access = getelementptr inbounds i8, ptr %self, i64 72
   %7 = load i32, ptr %access, align 8
   switch i32 %7, label %if.end16 [
     i32 1, label %return
@@ -1540,7 +1539,7 @@ entry:
   %start = alloca i64, align 8
   %length = alloca i64, align 8
   store i64 0, ptr %start, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1551,7 +1550,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
   store i64 %2, ptr %length, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.79, ptr noundef nonnull %option, ptr noundef nonnull %start, ptr noundef nonnull %length) #8
@@ -1637,7 +1636,7 @@ entry:
   %dest = alloca i64, align 8
   %src = alloca i64, align 8
   %cnt = alloca i64, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1675,7 +1674,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %or.cond1, label %bounds, label %if.end10
 
 if.end10:                                         ; preds = %if.else
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i64, ptr %size, align 8
   %sub = sub i64 %7, %4
   %cmp11 = icmp slt i64 %sub, %6
@@ -1715,7 +1714,7 @@ define internal ptr @mmap_read_method(ptr nocapture noundef %self, ptr noundef %
 entry:
   %num_bytes = alloca i64, align 8
   store i64 9223372036854775807, ptr %num_bytes, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1741,9 +1740,9 @@ if.then6:                                         ; preds = %do.body3
   br label %return
 
 do.end8:                                          ; preds = %do.body3
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %4 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %5 = load i64, ptr %size, align 8
   %cmp9 = icmp slt i64 %4, %5
   %sub = sub i64 %5, %4
@@ -1776,7 +1775,7 @@ return:                                           ; preds = %do.end, %if.end15, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap_read_byte_method(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1787,9 +1786,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i64, ptr %size, align 8
   %cmp1.not = icmp slt i64 %2, %3
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -1816,7 +1815,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap_read_line_method(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1827,9 +1826,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i64, ptr %size, align 8
   %cmp1.not = icmp slt i64 %2, %3
   br i1 %cmp1.not, label %if.end5, label %if.then4
@@ -1864,7 +1863,7 @@ return:                                           ; preds = %if.end5, %if.then4,
 define internal ptr @mmap_resize_method(ptr nocapture noundef %self, ptr noundef %args) #0 {
 entry:
   %new_size = alloca i64, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -1880,7 +1879,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
-  %exports.i = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 5
+  %exports.i = getelementptr inbounds i8, ptr %self, i64 48
   %2 = load i64, ptr %exports.i, align 8
   %cmp.i = icmp sgt i64 %2, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1891,7 +1890,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %access.i = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 8
+  %access.i = getelementptr inbounds i8, ptr %self, i64 72
   %4 = load i32, ptr %access.i, align 8
   switch i32 %4, label %if.end5.i [
     i32 2, label %if.end4
@@ -1910,7 +1909,7 @@ if.end4:                                          ; preds = %if.end.i, %if.end.i
 
 lor.lhs.false6:                                   ; preds = %if.end4
   %sub = xor i64 %6, 9223372036854775807
-  %offset = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load i64, ptr %offset, align 8
   %cmp7 = icmp slt i64 %sub, %7
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -1921,7 +1920,7 @@ if.then8:                                         ; preds = %lor.lhs.false6, %if
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false6
-  %fd = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 6
+  %fd = getelementptr inbounds i8, ptr %self, i64 56
   %9 = load i32, ptr %fd, align 8
   %cmp10.not = icmp eq i32 %9, -1
   br i1 %cmp10.not, label %if.end17, label %land.lhs.true
@@ -1944,7 +1943,7 @@ if.then15:                                        ; preds = %land.lhs.true
 if.end17:                                         ; preds = %land.lhs.true.if.end17_crit_edge, %if.end9
   %11 = phi i64 [ %.pre, %land.lhs.true.if.end17_crit_edge ], [ %6, %if.end9 ]
   %12 = load ptr, ptr %data, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %13 = load i64, ptr %size, align 8
   %call19 = call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %12, i64 noundef %13, i64 noundef %11, i32 noundef 1) #8
   %cmp20 = icmp eq ptr %call19, inttoptr (i64 -1 to ptr)
@@ -1972,7 +1971,7 @@ entry:
   %dist = alloca i64, align 8
   %how = alloca i32, align 4
   store i32 0, ptr %how, align 4
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2000,7 +1999,7 @@ sw.bb:                                            ; preds = %if.else
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.else
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %4 = load i64, ptr %pos, align 8
   %sub = sub i64 9223372036854775807, %4
   %5 = load i64, ptr %dist, align 8
@@ -2012,7 +2011,7 @@ if.end5:                                          ; preds = %sw.bb2
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.else
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %6 = load i64, ptr %size, align 8
   %sub8 = sub i64 9223372036854775807, %6
   %7 = load i64, ptr %dist, align 8
@@ -2030,7 +2029,7 @@ sw.default:                                       ; preds = %if.else
 
 sw.epilog:                                        ; preds = %if.end11, %if.end5, %sw.bb
   %where.0 = phi i64 [ %add13, %if.end11 ], [ %add, %if.end5 ], [ %3, %sw.bb ]
-  %size14 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size14 = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load i64, ptr %size14, align 8
   %cmp15 = icmp sgt i64 %where.0, %9
   %cmp16 = icmp slt i64 %where.0, 0
@@ -2038,7 +2037,7 @@ sw.epilog:                                        ; preds = %if.end11, %if.end5,
   br i1 %or.cond, label %onoutofrange, label %if.end18
 
 if.end18:                                         ; preds = %sw.epilog
-  %pos19 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos19 = getelementptr inbounds i8, ptr %self, i64 32
   store i64 %where.0, ptr %pos19, align 8
   %call21 = call ptr @PyLong_FromSsize_t(i64 noundef %where.0) #8
   br label %return
@@ -2063,7 +2062,7 @@ entry:
 define internal ptr @mmap_size_method(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %status = alloca %struct.stat, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2074,14 +2073,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 6
+  %fd = getelementptr inbounds i8, ptr %self, i64 56
   %2 = load i32, ptr %fd, align 8
   %call = call i32 @_Py_fstat(i32 noundef %2, ptr noundef nonnull %status) #8
   %cmp1 = icmp eq i32 %call, -1
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %do.end
-  %st_size = getelementptr inbounds %struct.stat, ptr %status, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %status, i64 48
   %3 = load i64, ptr %st_size, align 8
   %call4 = call ptr @PyLong_FromLong(i64 noundef %3) #8
   br label %return
@@ -2094,7 +2093,7 @@ return:                                           ; preds = %do.end, %if.end3, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap_tell_method(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2105,7 +2104,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i64, ptr %pos, align 8
   %call = tail call ptr @PyLong_FromSize_t(i64 noundef %2) #8
   br label %return
@@ -2119,7 +2118,7 @@ return:                                           ; preds = %do.end, %if.then
 define internal ptr @mmap_write_method(ptr nocapture noundef %self, ptr noundef %args) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
-  %data1 = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data1 = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2147,16 +2146,16 @@ if.then6:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %4 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %5 = load i64, ptr %size, align 8
   %cmp8 = icmp sgt i64 %4, %5
   br i1 %cmp8, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7
   %sub = sub i64 %5, %4
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %data, i64 16
   %6 = load i64, ptr %len, align 8
   %cmp11 = icmp slt i64 %sub, %6
   br i1 %cmp11, label %if.then12, label %do.body14
@@ -2200,7 +2199,7 @@ return:                                           ; preds = %do.end, %do.end19, 
 define internal ptr @mmap_write_byte_method(ptr nocapture noundef %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i8, align 1
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2237,9 +2236,9 @@ if.then10:                                        ; preds = %do.body7
   br label %return
 
 do.end12:                                         ; preds = %do.body7
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i64, ptr %size, align 8
   %cmp13 = icmp slt i64 %6, %7
   br i1 %cmp13, label %if.then14, label %if.else
@@ -2265,7 +2264,7 @@ return:                                           ; preds = %is_writable.exit.th
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap__enter__method(ptr noundef %self, ptr nocapture readnone %args) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2293,7 +2292,7 @@ return:                                           ; preds = %if.end.i.i, %do.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap__exit__method(ptr nocapture noundef %self, ptr nocapture readnone %args) #0 {
 entry:
-  %exports.i = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 5
+  %exports.i = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i64, ptr %exports.i, align 8
   %cmp.i = icmp sgt i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2304,9 +2303,9 @@ if.then.i:                                        ; preds = %entry
   br label %mmap_close_method.exit
 
 if.end.i:                                         ; preds = %entry
-  %fd1.i = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 6
+  %fd1.i = getelementptr inbounds i8, ptr %self, i64 56
   %2 = load i32, ptr %fd1.i, align 8
-  %data2.i = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data2.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %data2.i, align 8
   store i32 -1, ptr %fd1.i, align 8
   store ptr null, ptr %data2.i, align 8
@@ -2323,7 +2322,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.end
   br i1 %cmp9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %size.i = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load i64, ptr %size.i, align 8
   %call11.i = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef %4) #8
   br label %if.end12.i
@@ -2343,13 +2342,13 @@ entry:
   %start = alloca i64, align 8
   %end = alloca i64, align 8
   %view = alloca %struct.Py_buffer, align 8
-  %pos = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %pos, align 8
   store i64 %0, ptr %start, align 8
-  %size = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %size, align 8
   store i64 %1, ptr %end, align 8
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %do.end
@@ -2436,7 +2435,7 @@ if.else38:                                        ; preds = %do.end35
   %add.ptr45 = getelementptr i8, ptr %10, i64 %6
   %sub46 = sub i64 %9, %6
   %12 = load ptr, ptr %view, align 8
-  %len48 = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len48 = getelementptr inbounds i8, ptr %view, i64 16
   %13 = load i64, ptr %len48, align 8
   br i1 %tobool.not, label %if.else43, label %if.then40
 
@@ -2504,7 +2503,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal ptr @mmap_closed_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.mmap_object, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   %conv = zext i1 %cmp to i64

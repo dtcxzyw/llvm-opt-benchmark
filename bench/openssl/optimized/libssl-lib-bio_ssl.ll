@@ -4,26 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.0, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-%struct.bio_ssl_st = type { ptr, i32, i64, i64, i64, i64 }
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon.1, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.3, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon.1 = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.2, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.2 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.3 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.4, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.4 = type { ptr, ptr, ptr, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-%struct.ssl_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @methods_sslp = internal constant %struct.bio_method_st { i32 519, ptr @.str, ptr @ssl_write, ptr null, ptr @ssl_read, ptr null, ptr @ssl_puts, ptr null, ptr @ssl_ctrl, ptr @ssl_new, ptr @ssl_free, ptr @ssl_callback_ctrl, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [4 x i8] c"ssl\00", align 1
@@ -42,7 +22,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %method = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 1
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %call = tail call ptr @OSSL_QUIC_client_method() #5
   %cmp1 = icmp eq ptr %0, %call
@@ -101,7 +81,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %method = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 1
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %call3 = tail call ptr @OSSL_QUIC_client_method() #5
   %cmp4 = icmp eq ptr %0, %call3
@@ -306,14 +286,14 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %renegotiate_count = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 2
+  %renegotiate_count = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i64, ptr %renegotiate_count, align 8
   %cmp4.not = icmp eq i64 %1, 0
   br i1 %cmp4.not, label %if.end13, label %if.then5
 
 if.then5:                                         ; preds = %sw.bb
   %2 = load i64, ptr %written, align 8
-  %byte_count = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 3
+  %byte_count = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i64, ptr %byte_count, align 8
   %add = add i64 %3, %2
   store i64 %add, ptr %byte_count, align 8
@@ -322,7 +302,7 @@ if.then5:                                         ; preds = %sw.bb
 
 if.end13.thread:                                  ; preds = %if.then5
   store i64 0, ptr %byte_count, align 8
-  %num_renegotiates = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 1
+  %num_renegotiates = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i32, ptr %num_renegotiates, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %num_renegotiates, align 8
@@ -330,14 +310,14 @@ if.end13.thread:                                  ; preds = %if.then5
   br label %sw.epilog
 
 if.end13:                                         ; preds = %if.then5, %sw.bb
-  %renegotiate_timeout = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 4
+  %renegotiate_timeout = getelementptr inbounds i8, ptr %call, i64 32
   %5 = load i64, ptr %renegotiate_timeout, align 8
   %cmp14 = icmp eq i64 %5, 0
   br i1 %cmp14, label %sw.epilog, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
   %call16 = tail call i64 @time(ptr noundef null) #5
-  %last_time = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 5
+  %last_time = getelementptr inbounds i8, ptr %call, i64 40
   %6 = load i64, ptr %last_time, align 8
   %7 = load i64, ptr %renegotiate_timeout, align 8
   %add18 = add i64 %7, %6
@@ -346,7 +326,7 @@ if.then15:                                        ; preds = %if.end13
 
 if.then20:                                        ; preds = %if.then15
   store i64 %call16, ptr %last_time, align 8
-  %num_renegotiates22 = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 1
+  %num_renegotiates22 = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load i32, ptr %num_renegotiates22, align 8
   %inc23 = add nsw i32 %8, 1
   store i32 %inc23, ptr %num_renegotiates22, align 8
@@ -401,14 +381,14 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %renegotiate_count = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 2
+  %renegotiate_count = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i64, ptr %renegotiate_count, align 8
   %cmp4.not = icmp eq i64 %1, 0
   br i1 %cmp4.not, label %if.end13, label %if.then5
 
 if.then5:                                         ; preds = %sw.bb
   %2 = load i64, ptr %readbytes, align 8
-  %byte_count = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 3
+  %byte_count = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i64, ptr %byte_count, align 8
   %add = add i64 %3, %2
   store i64 %add, ptr %byte_count, align 8
@@ -417,7 +397,7 @@ if.then5:                                         ; preds = %sw.bb
 
 if.end13.thread:                                  ; preds = %if.then5
   store i64 0, ptr %byte_count, align 8
-  %num_renegotiates = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 1
+  %num_renegotiates = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i32, ptr %num_renegotiates, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %num_renegotiates, align 8
@@ -425,14 +405,14 @@ if.end13.thread:                                  ; preds = %if.then5
   br label %sw.epilog
 
 if.end13:                                         ; preds = %if.then5, %sw.bb
-  %renegotiate_timeout = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 4
+  %renegotiate_timeout = getelementptr inbounds i8, ptr %call, i64 32
   %5 = load i64, ptr %renegotiate_timeout, align 8
   %cmp14 = icmp eq i64 %5, 0
   br i1 %cmp14, label %sw.epilog, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
   %call16 = tail call i64 @time(ptr noundef null) #5
-  %last_time = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 5
+  %last_time = getelementptr inbounds i8, ptr %call, i64 40
   %6 = load i64, ptr %last_time, align 8
   %7 = load i64, ptr %renegotiate_timeout, align 8
   %add18 = add i64 %7, %6
@@ -441,7 +421,7 @@ if.then15:                                        ; preds = %if.end13
 
 if.then20:                                        ; preds = %if.then15
   store i64 %call16, ptr %last_time, align 8
-  %num_renegotiates22 = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 1
+  %num_renegotiates22 = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load i32, ptr %num_renegotiates22, align 8
   %inc23 = add nsw i32 %8, 1
   store i32 %inc23, ptr %num_renegotiates22, align 8
@@ -533,11 +513,11 @@ cond.false:                                       ; preds = %sw.bb
 
 if.end12:                                         ; preds = %cond.false
   %call13 = tail call i32 @SSL_shutdown(ptr noundef nonnull %0) #5
-  %handshake_func = getelementptr inbounds %struct.ssl_connection_st, ptr %0, i64 0, i32 6
+  %handshake_func = getelementptr inbounds i8, ptr %0, i64 104
   %2 = load ptr, ptr %handshake_func, align 8
-  %method = getelementptr inbounds %struct.ssl_st, ptr %0, i64 0, i32 3
+  %method = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %method, align 8
-  %ssl_connect = getelementptr inbounds %struct.ssl_method_st, ptr %3, i64 0, i32 10
+  %ssl_connect = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load ptr, ptr %ssl_connect, align 8
   %cmp14 = icmp eq ptr %2, %4
   br i1 %cmp14, label %if.then15, label %if.else
@@ -547,7 +527,7 @@ if.then15:                                        ; preds = %if.end12
   br label %if.end21
 
 if.else:                                          ; preds = %if.end12
-  %ssl_accept = getelementptr inbounds %struct.ssl_method_st, ptr %3, i64 0, i32 9
+  %ssl_accept = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load ptr, ptr %ssl_accept, align 8
   %cmp18 = icmp eq ptr %2, %5
   br i1 %cmp18, label %if.then19, label %if.end21
@@ -570,7 +550,7 @@ if.then26:                                        ; preds = %if.end24
   br label %return
 
 if.else28:                                        ; preds = %if.end24
-  %rbio = getelementptr inbounds %struct.ssl_connection_st, ptr %0, i64 0, i32 2
+  %rbio = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %rbio, align 8
   %cmp29.not = icmp eq ptr %6, null
   br i1 %cmp29.not, label %return, label %if.then30
@@ -592,18 +572,18 @@ if.else40:                                        ; preds = %sw.bb37
   br label %return
 
 sw.bb42:                                          ; preds = %if.end
-  %renegotiate_timeout = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 4
+  %renegotiate_timeout = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load i64, ptr %renegotiate_timeout, align 8
   %cmp43 = icmp slt i64 %num, 60
   %spec.store.select = select i1 %cmp43, i64 5, i64 %num
   store i64 %spec.store.select, ptr %renegotiate_timeout, align 8
   %call47 = tail call i64 @time(ptr noundef null) #5
-  %last_time = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 5
+  %last_time = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %call47, ptr %last_time, align 8
   br label %return
 
 sw.bb48:                                          ; preds = %if.end
-  %renegotiate_count = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 2
+  %renegotiate_count = getelementptr inbounds i8, ptr %call, i64 16
   %8 = load i64, ptr %renegotiate_count, align 8
   %cmp49 = icmp sgt i64 %num, 511
   br i1 %cmp49, label %if.then50, label %return
@@ -613,7 +593,7 @@ if.then50:                                        ; preds = %sw.bb48
   br label %return
 
 sw.bb53:                                          ; preds = %if.end
-  %num_renegotiates = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 1
+  %num_renegotiates = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load i32, ptr %num_renegotiates, align 8
   %conv = sext i32 %9 to i64
   br label %return
@@ -760,25 +740,25 @@ sw.bb131:                                         ; preds = %if.end
   tail call void @SSL_free(ptr noundef %10) #5
   %call134 = tail call ptr @SSL_dup(ptr noundef %0) #5
   store ptr %call134, ptr %call132, align 8
-  %num_renegotiates136 = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 1
+  %num_renegotiates136 = getelementptr inbounds i8, ptr %call, i64 8
   %11 = load i32, ptr %num_renegotiates136, align 8
-  %num_renegotiates137 = getelementptr inbounds %struct.bio_ssl_st, ptr %call132, i64 0, i32 1
+  %num_renegotiates137 = getelementptr inbounds i8, ptr %call132, i64 8
   store i32 %11, ptr %num_renegotiates137, align 8
-  %renegotiate_count138 = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 2
+  %renegotiate_count138 = getelementptr inbounds i8, ptr %call, i64 16
   %12 = load i64, ptr %renegotiate_count138, align 8
-  %renegotiate_count139 = getelementptr inbounds %struct.bio_ssl_st, ptr %call132, i64 0, i32 2
+  %renegotiate_count139 = getelementptr inbounds i8, ptr %call132, i64 16
   store i64 %12, ptr %renegotiate_count139, align 8
-  %byte_count = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 3
+  %byte_count = getelementptr inbounds i8, ptr %call, i64 24
   %13 = load i64, ptr %byte_count, align 8
-  %byte_count140 = getelementptr inbounds %struct.bio_ssl_st, ptr %call132, i64 0, i32 3
+  %byte_count140 = getelementptr inbounds i8, ptr %call132, i64 24
   store i64 %13, ptr %byte_count140, align 8
-  %renegotiate_timeout141 = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 4
+  %renegotiate_timeout141 = getelementptr inbounds i8, ptr %call, i64 32
   %14 = load i64, ptr %renegotiate_timeout141, align 8
-  %renegotiate_timeout142 = getelementptr inbounds %struct.bio_ssl_st, ptr %call132, i64 0, i32 4
+  %renegotiate_timeout142 = getelementptr inbounds i8, ptr %call132, i64 32
   store i64 %14, ptr %renegotiate_timeout142, align 8
-  %last_time143 = getelementptr inbounds %struct.bio_ssl_st, ptr %call, i64 0, i32 5
+  %last_time143 = getelementptr inbounds i8, ptr %call, i64 40
   %15 = load i64, ptr %last_time143, align 8
-  %last_time144 = getelementptr inbounds %struct.bio_ssl_st, ptr %call132, i64 0, i32 5
+  %last_time144 = getelementptr inbounds i8, ptr %call132, i64 40
   store i64 %15, ptr %last_time144, align 8
   %cmp146 = icmp ne ptr %call134, null
   %conv148 = zext i1 %cmp146 to i64

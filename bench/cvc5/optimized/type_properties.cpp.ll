@@ -382,7 +382,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -493,7 +493,7 @@ entry:
   %agg.tmp69 = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp73 = alloca %"class.cvc5::internal::FatalStream", align 1
   %0 = load ptr, ptr %typeNode, align 8
-  %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
+  %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
@@ -743,7 +743,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit80:        ; preds = %if.then.i.i75, %if.
 invoke.cont14:                                    ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit80
   %21 = load ptr, ptr %ref.tmp, align 8, !noalias !7
   %vtable.i = load ptr, ptr %21, align 8, !noalias !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %22 = load ptr, ptr %vfn.i, align 8, !noalias !7
   invoke void %22(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %invoke.cont16 unwind label %lpad15
@@ -755,7 +755,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
 
 delete.notnull.i:                                 ; preds = %invoke.cont16
   %vtable.i81 = load ptr, ptr %23, align 8
-  %vfn.i82 = getelementptr inbounds ptr, ptr %vtable.i81, i64 1
+  %vfn.i82 = getelementptr inbounds i8, ptr %vtable.i81, i64 8
   %24 = load ptr, ptr %vfn.i82, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit
@@ -801,7 +801,7 @@ lpad15:                                           ; preds = %invoke.cont14
 
 delete.notnull.i95:                               ; preds = %lpad15
   %vtable.i96 = load ptr, ptr %31, align 8
-  %vfn.i97 = getelementptr inbounds ptr, ptr %vtable.i96, i64 1
+  %vfn.i97 = getelementptr inbounds i8, ptr %vtable.i96, i64 8
   %32 = load ptr, ptr %vfn.i97, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %31) #13
   br label %eh.resume
@@ -840,7 +840,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit112:       ; preds = %if.then.i.i107, %if
 invoke.cont21:                                    ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit112
   %34 = load ptr, ptr %ref.tmp18, align 8, !noalias !10
   %vtable.i113 = load ptr, ptr %34, align 8, !noalias !10
-  %vfn.i114 = getelementptr inbounds ptr, ptr %vtable.i113, i64 3
+  %vfn.i114 = getelementptr inbounds i8, ptr %vtable.i113, i64 24
   %35 = load ptr, ptr %vfn.i114, align 8, !noalias !10
   invoke void %35(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %invoke.cont23 unwind label %lpad22
@@ -852,7 +852,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 delete.notnull.i117:                              ; preds = %invoke.cont23
   %vtable.i118 = load ptr, ptr %36, align 8
-  %vfn.i119 = getelementptr inbounds ptr, ptr %vtable.i118, i64 1
+  %vfn.i119 = getelementptr inbounds i8, ptr %vtable.i118, i64 8
   %37 = load ptr, ptr %vfn.i119, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit120
@@ -898,7 +898,7 @@ lpad22:                                           ; preds = %invoke.cont21
 
 delete.notnull.i133:                              ; preds = %lpad22
   %vtable.i134 = load ptr, ptr %44, align 8
-  %vfn.i135 = getelementptr inbounds ptr, ptr %vtable.i134, i64 1
+  %vfn.i135 = getelementptr inbounds i8, ptr %vtable.i134, i64 8
   %45 = load ptr, ptr %vfn.i135, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %44) #13
   br label %eh.resume
@@ -937,7 +937,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit150:       ; preds = %if.then.i.i145, %if
 invoke.cont30:                                    ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit150
   %47 = load ptr, ptr %ref.tmp27, align 8, !noalias !13
   %vtable.i151 = load ptr, ptr %47, align 8, !noalias !13
-  %vfn.i152 = getelementptr inbounds ptr, ptr %vtable.i151, i64 3
+  %vfn.i152 = getelementptr inbounds i8, ptr %vtable.i151, i64 24
   %48 = load ptr, ptr %vfn.i152, align 8, !noalias !13
   invoke void %48(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %47)
           to label %invoke.cont32 unwind label %lpad31
@@ -949,7 +949,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
 
 delete.notnull.i155:                              ; preds = %invoke.cont32
   %vtable.i156 = load ptr, ptr %49, align 8
-  %vfn.i157 = getelementptr inbounds ptr, ptr %vtable.i156, i64 1
+  %vfn.i157 = getelementptr inbounds i8, ptr %vtable.i156, i64 8
   %50 = load ptr, ptr %vfn.i157, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %49) #13
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit158
@@ -995,7 +995,7 @@ lpad31:                                           ; preds = %invoke.cont30
 
 delete.notnull.i171:                              ; preds = %lpad31
   %vtable.i172 = load ptr, ptr %57, align 8
-  %vfn.i173 = getelementptr inbounds ptr, ptr %vtable.i172, i64 1
+  %vfn.i173 = getelementptr inbounds i8, ptr %vtable.i172, i64 8
   %58 = load ptr, ptr %vfn.i173, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %57) #13
   br label %eh.resume

@@ -181,8 +181,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %test, ptr noundef nonnull align 16 dereferenceable(80) %arrayidx, i64 80, i1 false)
   %0 = load i32, ptr %test, align 8
   %conv = sext i32 %0 to i64
-  %expected2 = getelementptr inbounds %struct.TESTDATA, ptr %test, i64 0, i32 1
-  %data = getelementptr inbounds %struct.TESTDATA, ptr %test, i64 0, i32 1, i32 1
+  %expected2 = getelementptr inbounds i8, ptr %test, i64 8
+  %data = getelementptr inbounds i8, ptr %test, i64 16
   %1 = load i64, ptr %expected2, align 8
   switch i64 %1, label %if.then [
     i64 16, label %if.end

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.q_obj_JOB_STATUS_CHANGE_arg = type { ptr, i32 }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [18 x i8] c"JOB_STATUS_CHANGE\00", align 1
 @error_abort = external global ptr, align 8
@@ -22,7 +21,7 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_JOB_STATUS_CHANGE_arg, align 8
   store ptr %id, ptr %param, align 8
-  %status2 = getelementptr inbounds %struct.q_obj_JOB_STATUS_CHANGE_arg, ptr %param, i64 0, i32 1
+  %status2 = getelementptr inbounds i8, ptr %param, i64 8
   store i32 %status, ptr %status2, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str) #3
   %call3 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -68,7 +67,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool9.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -94,7 +93,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool12.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17

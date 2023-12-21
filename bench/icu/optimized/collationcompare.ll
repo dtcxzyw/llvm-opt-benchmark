@@ -3,17 +3,6 @@ source_filename = "bench/icu/original/collationcompare.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::CollationSettings" = type <{ %"class.icu_75::SharedObject", i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, i32, i32, [384 x i16], [4 x i8] }>
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.icu_75::CollationIterator" = type <{ %"class.icu_75::UObject", ptr, ptr, %"class.icu_75::CollationIterator::CEBuffer", i32, [4 x i8], ptr, i32, i8, [3 x i8] }>
-%"class.icu_75::CollationIterator::CEBuffer" = type { i32, %"class.icu_75::MaybeStackArray" }
-%"class.icu_75::MaybeStackArray" = type { ptr, i32, i8, [40 x i64] }
-%"struct.icu_75::CollationData" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
-%struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
-
 $_ZN6icu_7517CollationIterator6nextCEER10UErrorCode = comdat any
 
 $_ZNK6icu_7517CollationSettings7reorderEj = comdat any
@@ -26,18 +15,18 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %options1 = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %settings, i64 0, i32 1
+  %options1 = getelementptr inbounds i8, ptr %settings, i64 24
   %1 = load i32, ptr %options1, align 8
   %and = and i32 %1, 12
   %cmp = icmp eq i32 %and, 0
-  %variableTop3 = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %settings, i64 0, i32 2
+  %variableTop3 = getelementptr inbounds i8, ptr %settings, i64 28
   %2 = load i32, ptr %variableTop3, align 4
   %add = add i32 %2, 1
   %variableTop.0 = select i1 %cmp, i32 0, i32 %add
-  %cesIndex.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %left, i64 0, i32 4
-  %buffer.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %left, i64 0, i32 3, i32 1
-  %cesIndex.i145 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %right, i64 0, i32 4
-  %buffer.i.i146 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %right, i64 0, i32 3, i32 1
+  %cesIndex.i = getelementptr inbounds i8, ptr %left, i64 368
+  %buffer.i.i = getelementptr inbounds i8, ptr %left, i64 32
+  %cesIndex.i145 = getelementptr inbounds i8, ptr %right, i64 368
+  %buffer.i.i146 = getelementptr inbounds i8, ptr %right, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end64, %if.end
@@ -60,7 +49,7 @@ do.body9:                                         ; preds = %do.body, %do.cond
   %4 = load ptr, ptr %buffer.i.i, align 8
   %5 = sext i32 %3 to i64
   %6 = getelementptr i64, ptr %4, i64 %5
-  %arrayidx.i.i.i = getelementptr i64, ptr %6, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %6, i64 -8
   store i64 %and10, ptr %arrayidx.i.i.i, align 8
   %call12256 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr13257 = lshr i64 %call12256, 32
@@ -73,7 +62,7 @@ if.then16:                                        ; preds = %do.body9, %if.then1
   %8 = load ptr, ptr %buffer.i.i, align 8
   %9 = sext i32 %7 to i64
   %10 = getelementptr i64, ptr %8, i64 %9
-  %arrayidx.i.i.i144 = getelementptr i64, ptr %10, i64 -1
+  %arrayidx.i.i.i144 = getelementptr i8, ptr %10, i64 -8
   store i64 0, ptr %arrayidx.i.i.i144, align 8
   %call12 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr13 = lshr i64 %call12, 32
@@ -114,7 +103,7 @@ do.body34:                                        ; preds = %do.body25, %do.cond
   %13 = load ptr, ptr %buffer.i.i146, align 8
   %14 = sext i32 %12 to i64
   %15 = getelementptr i64, ptr %13, i64 %14
-  %arrayidx.i.i.i147 = getelementptr i64, ptr %15, i64 -1
+  %arrayidx.i.i.i147 = getelementptr i8, ptr %15, i64 -8
   store i64 %and35, ptr %arrayidx.i.i.i147, align 8
   %call37261 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr38262 = lshr i64 %call37261, 32
@@ -127,7 +116,7 @@ if.then41:                                        ; preds = %do.body34, %if.then
   %17 = load ptr, ptr %buffer.i.i146, align 8
   %18 = sext i32 %16 to i64
   %19 = getelementptr i64, ptr %17, i64 %18
-  %arrayidx.i.i.i150 = getelementptr i64, ptr %19, i64 -1
+  %arrayidx.i.i.i150 = getelementptr i8, ptr %19, i64 -8
   store i64 0, ptr %arrayidx.i.i.i150, align 8
   %call37 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr38 = lshr i64 %call37, 32
@@ -154,7 +143,7 @@ do.end54:                                         ; preds = %do.cond52, %do.cond
   br i1 %cmp55.not, label %if.end64, label %if.then56
 
 if.then56:                                        ; preds = %do.end54
-  %reorderTable.i = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %settings, i64 0, i32 3
+  %reorderTable.i = getelementptr inbounds i8, ptr %settings, i64 32
   %21 = load ptr, ptr %reorderTable.i, align 8
   %cmp.i151.not = icmp eq ptr %21, null
   br i1 %cmp.i151.not, label %if.end62, label %if.then59
@@ -663,7 +652,7 @@ do.end335:                                        ; preds = %do.body320
   br i1 %cmp336.not, label %if.end346, label %if.then337
 
 if.then337:                                       ; preds = %do.end335
-  %reorderTable.i222 = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %settings, i64 0, i32 3
+  %reorderTable.i222 = getelementptr inbounds i8, ptr %settings, i64 32
   %72 = load ptr, ptr %reorderTable.i222, align 8
   %cmp.i223.not = icmp eq ptr %72, null
   br i1 %cmp.i223.not, label %if.end343, label %if.then340
@@ -693,9 +682,9 @@ return:                                           ; preds = %if.end346, %if.end2
 define linkonce_odr noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 comdat align 2 {
 entry:
   %c = alloca i32, align 4
-  %cesIndex = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 4
+  %cesIndex = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i32, ptr %cesIndex, align 8
-  %ceBuffer = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3
+  %ceBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %ceBuffer, align 8
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -703,7 +692,7 @@ entry:
 if.then:                                          ; preds = %entry
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %cesIndex, align 8
-  %buffer.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i = sext i32 %0 to i64
   %2 = load ptr, ptr %buffer.i, align 8
   %arrayidx.i.i = getelementptr inbounds i64, ptr %2, i64 %conv.i
@@ -728,7 +717,7 @@ if.end7:                                          ; preds = %lor.lhs.false.if.th
   %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %ceBuffer, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
   %call8 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %and = and i32 %call8, 255
@@ -749,7 +738,7 @@ if.then10:                                        ; preds = %if.end7
   %shl18 = shl nuw nsw i32 %and, 8
   %conv19 = zext nneg i32 %shl18 to i64
   %or20 = or disjoint i64 %or, %conv19
-  %buffer.i18 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
+  %buffer.i18 = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i19 = sext i32 %6 to i64
   %7 = load ptr, ptr %buffer.i18, align 8
   %arrayidx.i.i20 = getelementptr inbounds i64, ptr %7, i64 %conv.i19
@@ -769,7 +758,7 @@ if.then26:                                        ; preds = %if.then24
   %9 = load i32, ptr %cesIndex, align 8
   %inc29 = add nsw i32 %9, 1
   store i32 %inc29, ptr %cesIndex, align 8
-  %buffer.i21 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
+  %buffer.i21 = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i22 = sext i32 %9 to i64
   %10 = load ptr, ptr %buffer.i21, align 8
   %arrayidx.i.i23 = getelementptr inbounds i64, ptr %10, i64 %conv.i22
@@ -777,12 +766,12 @@ if.then26:                                        ; preds = %if.then24
   br label %return
 
 if.end31:                                         ; preds = %if.then24
-  %data = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load ptr, ptr %data, align 8
-  %base = getelementptr inbounds %"struct.icu_75::CollationData", ptr %11, i64 0, i32 4
+  %base = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %base, align 8
   %13 = load ptr, ptr %12, align 8
-  %data32.i = getelementptr inbounds %struct.UTrie2, ptr %13, i64 0, i32 2
+  %data32.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %data32.i, align 8
   %cmp.i24 = icmp ult i32 %8, 55296
   br i1 %cmp.i24, label %cond.true.i, label %cond.false.i
@@ -823,13 +812,13 @@ cond.false17.i:                                   ; preds = %cond.false.i
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
-  %highStart.i = getelementptr inbounds %struct.UTrie2, ptr %13, i64 0, i32 9
+  %highStart.i = getelementptr inbounds i8, ptr %13, i64 44
   %19 = load i32, ptr %highStart.i, align 4
   %cmp22.not.i = icmp sgt i32 %19, %8
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
-  %highValueIndex.i = getelementptr inbounds %struct.UTrie2, ptr %13, i64 0, i32 10
+  %highValueIndex.i = getelementptr inbounds i8, ptr %13, i64 48
   %20 = load i32, ptr %highValueIndex.i, align 8
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
@@ -876,7 +865,7 @@ if.then35:                                        ; preds = %_ZNK6icu_7513Collat
   %shl46 = shl nuw nsw i32 %and33, 8
   %conv47 = zext nneg i32 %shl46 to i64
   %or48 = or disjoint i64 %or45, %conv47
-  %buffer.i26 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
+  %buffer.i26 = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i27 = sext i32 %25 to i64
   %26 = load ptr, ptr %buffer.i26, align 8
   %arrayidx.i.i28 = getelementptr inbounds i64, ptr %26, i64 %conv.i27
@@ -884,7 +873,7 @@ if.then35:                                        ; preds = %_ZNK6icu_7513Collat
   br label %return
 
 if.else:                                          ; preds = %if.end22
-  %data51 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 2
+  %data51 = getelementptr inbounds i8, ptr %this, i64 16
   %27 = load ptr, ptr %data51, align 8
   br label %if.end52
 
@@ -903,7 +892,7 @@ if.then54:                                        ; preds = %if.end52
   %conv58 = zext i32 %sub to i64
   %shl59 = shl nuw i64 %conv58, 32
   %or60 = or disjoint i64 %shl59, 83887360
-  %buffer.i29 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this, i64 0, i32 3, i32 1
+  %buffer.i29 = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i30 = sext i32 %28 to i64
   %29 = load ptr, ptr %buffer.i29, align 8
   %arrayidx.i.i31 = getelementptr inbounds i64, ptr %29, i64 %conv.i30
@@ -923,7 +912,7 @@ return:                                           ; preds = %lor.lhs.false.i, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK6icu_7517CollationSettings7reorderEj(ptr noundef nonnull align 8 dereferenceable(852) %this, i32 noundef %p) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %reorderTable = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %this, i64 0, i32 3
+  %reorderTable = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %reorderTable, align 8
   %shr = lshr i32 %p, 24
   %idxprom = zext nneg i32 %shr to i64

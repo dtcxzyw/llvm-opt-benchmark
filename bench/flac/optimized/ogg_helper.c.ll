@@ -3,8 +3,6 @@ source_filename = "bench/flac/original/ogg_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ogg_page = type { ptr, i64, ptr, i64 }
-
 @.str = private unnamed_addr constant [5 x i8] c"OggS\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] zeroinitializer, align 1
 
@@ -27,7 +25,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %body = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 2
+  %body = getelementptr inbounds i8, ptr %page, i64 16
   %1 = load ptr, ptr %body, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -123,7 +121,7 @@ if.end16:                                         ; preds = %sw.epilog.i
   %6 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %6 to i64
   %add = add nuw nsw i64 %conv, 27
-  %header_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 1
+  %header_len = getelementptr inbounds i8, ptr %page, i64 8
   store i64 %add, ptr %header_len, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %5, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %tobool21.not = icmp eq i32 %bcmp, 0
@@ -202,11 +200,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %conv68 = zext i8 %16 to i32
   %add69 = add nsw i32 %mul, %conv68
   %conv70 = zext i32 %add69 to i64
-  %body_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 3
+  %body_len = getelementptr inbounds i8, ptr %page, i64 24
   store i64 %conv70, ptr %body_len, align 8
   %spec.select.i = call i64 @llvm.umax.i64(i64 %conv70, i64 1)
   %call.i43 = call noalias ptr @malloc(i64 noundef %spec.select.i) #11
-  %body = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 2
+  %body = getelementptr inbounds i8, ptr %page, i64 16
   store ptr %call.i43, ptr %body, align 8
   %cmp73 = icmp eq ptr %call.i43, null
   br i1 %cmp73, label %if.then75, label %if.end78
@@ -306,16 +304,16 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   tail call void @ogg_page_checksum_set(ptr noundef %page) #10
   %0 = load ptr, ptr %page, align 8
-  %header_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 1
+  %header_len = getelementptr inbounds i8, ptr %page, i64 8
   %1 = load i64, ptr %header_len, align 8
   %call7 = tail call i32 %write_callback(ptr noundef %encoder, ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %client_data) #10
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end12, label %return.sink.split
 
 if.end12:                                         ; preds = %if.end6
-  %body = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 2
+  %body = getelementptr inbounds i8, ptr %page, i64 16
   %2 = load ptr, ptr %body, align 8
-  %body_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 3
+  %body_len = getelementptr inbounds i8, ptr %page, i64 24
   %3 = load i64, ptr %body_len, align 8
   %call13 = tail call i32 %write_callback(ptr noundef %encoder, ptr noundef %2, i64 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %client_data) #10
   %cmp14.not = icmp eq i32 %call13, 0

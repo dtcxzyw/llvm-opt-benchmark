@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.QCryptoSecretCommonClass = type { %struct.ObjectClass, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.QCryptoSecretKeyring = type { %struct.QCryptoSecretCommon, i32 }
-%struct.QCryptoSecretCommon = type { %struct.Object, ptr, i64, i32, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 
 @qcrypto_secret_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 88, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @qcrypto_secret_keyring_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [15 x i8] c"secret_keyring\00", align 1
@@ -49,7 +44,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qcrypto_secret_keyring_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON_CLASS) #5
-  %load_data = getelementptr inbounds %struct.QCryptoSecretCommonClass, ptr %call.i, i64 0, i32 1
+  %load_data = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qcrypto_secret_keyring_load_data, ptr %load_data, align 8
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @qcrypto_secret_prop_get_key, ptr noundef nonnull @qcrypto_secret_prop_set_key, ptr noundef null, ptr noundef null) #5
   ret void
@@ -61,7 +56,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sec_common, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_SECRET_KEYRING) #5
   store ptr null, ptr %output, align 8
   store i64 0, ptr %outputlen, align 8
-  %serial = getelementptr inbounds %struct.QCryptoSecretKeyring, ptr %call.i, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load i32, ptr %serial, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -109,7 +104,7 @@ define internal void @qcrypto_secret_prop_get_key(ptr noundef %obj, ptr noundef 
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_SECRET_KEYRING) #5
-  %serial = getelementptr inbounds %struct.QCryptoSecretKeyring, ptr %call.i, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load i32, ptr %serial, align 8
   store i32 %0, ptr %value, align 4
   %call1 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #5
@@ -133,7 +128,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
-  %serial = getelementptr inbounds %struct.QCryptoSecretKeyring, ptr %call.i, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 %1, ptr %serial, align 8
   ret void
 }

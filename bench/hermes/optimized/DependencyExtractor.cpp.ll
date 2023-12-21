@@ -38,61 +38,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<std::pair<llvh::SmallVector<char16_t, 5>, hermes::regex::BackRefNode *>, std::allocator<std::pair<llvh::SmallVector<char16_t, 5>, hermes::regex::BackRefNode *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<llvh::SmallVector<char16_t, 5>, hermes::regex::BackRefNode *>, std::allocator<std::pair<llvh::SmallVector<char16_t, 5>, hermes::regex::BackRefNode *>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<llvh::SmallVector<char16_t, 5>, hermes::regex::BackRefNode *>, std::allocator<std::pair<llvh::SmallVector<char16_t, 5>, hermes::regex::BackRefNode *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.hermes::(anonymous namespace)::DependencyExtractor" = type <{ %"class.std::vector", ptr, ptr, ptr, ptr, ptr, [6 x ptr], ptr, %"class.std::vector.0", i8, [7 x i8] }>
-%"class.hermes::Context" = type { %"class.hermes::BacktrackingBumpPtrAllocator", %"class.hermes::BacktrackingBumpPtrAllocator", %"class.std::unique_ptr", %"class.hermes::StringTable", %"class.std::map", %"class.std::unique_ptr.15", ptr, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i32, i8, i8, %"class.std::unique_ptr.23", %"class.std::vector.31", i32, i8, %"struct.hermes::CodeGenerationSettings", %"struct.hermes::OptimizationSettings", %"class.std::shared_ptr" }
-%"class.hermes::BacktrackingBumpPtrAllocator" = type { %"class.std::vector.5", ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.11" }
-%"struct.std::_Head_base.11" = type { ptr }
-%"class.hermes::StringTable" = type { ptr, %"class.llvh::DenseMap" }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.15" = type { %"struct.std::__uniq_ptr_data.16" }
-%"struct.std::__uniq_ptr_data.16" = type { %"class.std::__uniq_ptr_impl.17" }
-%"class.std::__uniq_ptr_impl.17" = type { %"class.std::tuple.18" }
-%"class.std::tuple.18" = type { %"struct.std::_Tuple_impl.19" }
-%"struct.std::_Tuple_impl.19" = type { %"struct.std::_Head_base.22" }
-%"struct.std::_Head_base.22" = type { ptr }
-%"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
-%"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
-%"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
-%"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
-%"struct.std::_Head_base.30" = type { ptr }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::CodeGenerationSettings" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8], %"struct.hermes::CodeGenerationSettings_DumpSettings", %"struct.hermes::CodeGenerationSettings_DumpSettings", %"class.llvh::SmallDenseSet" }
-%"struct.hermes::CodeGenerationSettings_DumpSettings" = type { i8, [7 x i8], %"class.llvh::SmallDenseSet", %"class.llvh::SmallDenseSet" }
-%"class.llvh::SmallDenseSet" = type { %"class.llvh::detail::DenseSetImpl" }
-%"class.llvh::detail::DenseSetImpl" = type { %"class.llvh::SmallDenseMap" }
-%"class.llvh::SmallDenseMap" = type { i32, i32, %"struct.llvh::AlignedCharArrayUnion" }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [64 x i8] }
-%"struct.hermes::OptimizationSettings" = type { i8, i8, i8, i8, i8, i8 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"struct.hermes::(anonymous namespace)::ResourceCallee" = type <{ %"class.llvh::StringLiteral", i32, [4 x i8] }>
 %"class.llvh::StringLiteral" = type { %"class.llvh::StringRef" }
 %"class.llvh::StringRef" = type { ptr, i64 }
-%"struct.hermes::Dependency" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"struct.std::pair" = type { %"class.llvh::StringRef", ptr }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"class.std::unique_ptr.76" = type { %"struct.std::__uniq_ptr_data.77" }
@@ -101,36 +49,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.79" = type { %"struct.std::_Tuple_impl.80" }
 %"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.83" }
 %"struct.std::_Head_base.83" = type { ptr }
-%"class.hermes::BacktrackingBumpPtrAllocator::State" = type { i32, i64, %"class.llvh::SmallVector", ptr }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.std::pair.193" = type { %"class.llvh::SmallVector.117", ptr }
-%"class.llvh::SmallVector.117" = type <{ %"class.llvh::SmallVectorImpl.118", %"struct.llvh::SmallVectorStorage.121", [6 x i8] }>
-%"class.llvh::SmallVectorImpl.118" = type { %"class.llvh::SmallVectorTemplateBase.119" }
-%"class.llvh::SmallVectorTemplateBase.119" = type { %"class.llvh::SmallVectorTemplateCommon.120" }
-%"class.llvh::SmallVectorTemplateCommon.120" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.121" = type { [5 x %"struct.llvh::AlignedCharArrayUnion.122"] }
-%"struct.llvh::AlignedCharArrayUnion.122" = type { %"struct.llvh::AlignedCharArray.123" }
-%"struct.llvh::AlignedCharArray.123" = type { [2 x i8] }
+%"struct.llvh::detail::DenseMapPair.127" = type { %"struct.std::pair.base.130", [4 x i8] }
+%"struct.std::pair.base.130" = type <{ %"class.llvh::ArrayRef", i32 }>
+%"class.llvh::ArrayRef" = type { ptr, i64 }
 %"class.std::unique_ptr.131" = type { %"struct.std::__uniq_ptr_data.132" }
 %"struct.std::__uniq_ptr_data.132" = type { %"class.std::__uniq_ptr_impl.133" }
 %"class.std::__uniq_ptr_impl.133" = type { %"class.std::tuple.134" }
 %"class.std::tuple.134" = type { %"struct.std::_Tuple_impl.135" }
 %"struct.std::_Tuple_impl.135" = type { %"struct.std::_Head_base.138" }
 %"struct.std::_Head_base.138" = type { ptr }
-%"struct.llvh::detail::DenseMapPair.127" = type { %"struct.std::pair.base.130", [4 x i8] }
-%"struct.std::pair.base.130" = type <{ %"class.llvh::ArrayRef", i32 }>
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-%"struct.std::pair.128" = type <{ %"class.llvh::ArrayRef", i32, [4 x i8] }>
-%"class.hermes::regex::BackRefNode" = type <{ %"class.hermes::regex::Node", i16, [6 x i8] }>
-%"class.hermes::regex::Node" = type { ptr }
 %"class.llvh::SmallVector.139" = type { %"class.llvh::SmallVectorImpl.140", %"struct.llvh::SmallVectorStorage.143" }
 %"class.llvh::SmallVectorImpl.140" = type { %"class.llvh::SmallVectorTemplateBase.141" }
 %"class.llvh::SmallVectorTemplateBase.141" = type { %"class.llvh::SmallVectorTemplateCommon.142" }
 %"class.llvh::SmallVectorTemplateCommon.142" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage.143" = type { [1 x %"struct.llvh::AlignedCharArrayUnion.144"] }
 %"struct.llvh::AlignedCharArrayUnion.144" = type { %"struct.llvh::AlignedCharArray.145" }
 %"struct.llvh::AlignedCharArray.145" = type { [8 x i8] }
@@ -141,238 +73,21 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.169" = type { [5 x %"struct.llvh::AlignedCharArrayUnion.170"] }
 %"struct.llvh::AlignedCharArrayUnion.170" = type { %"struct.llvh::AlignedCharArray.171" }
 %"struct.llvh::AlignedCharArray.171" = type { [4 x i8] }
-%"class.hermes::regex::MatchCharNode" = type <{ %"class.hermes::regex::Node", %"class.llvh::SmallVector.165", i8, i8, [6 x i8] }>
-%"struct.hermes::regex::MatchNCharICase8Insn" = type { %"struct.hermes::regex::Insn", i8 }
-%"struct.hermes::regex::Insn" = type { i8 }
-%"struct.hermes::regex::MatchNChar8Insn" = type { %"struct.hermes::regex::Insn", i8 }
-%"struct.hermes::regex::MatchCharICase8Insn" = type { %"struct.hermes::regex::Insn", i8 }
-%"struct.hermes::regex::MatchChar8Insn" = type { %"struct.hermes::regex::Insn", i8 }
-%"struct.hermes::regex::U16MatchCharICase32Insn" = type <{ %"struct.hermes::regex::Insn", i32 }>
-%"struct.hermes::regex::U16MatchChar32Insn" = type <{ %"struct.hermes::regex::Insn", i32 }>
-%"struct.hermes::regex::MatchCharICase16Insn" = type <{ %"struct.hermes::regex::Insn", i16 }>
-%"struct.hermes::regex::MatchChar16Insn" = type <{ %"struct.hermes::regex::Insn", i16 }>
 %"class.std::reverse_iterator.197" = type { %"class.__gnu_cxx::__normal_iterator.146" }
 %"class.__gnu_cxx::__normal_iterator.146" = type { ptr }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator.173" }
 %"class.__gnu_cxx::__normal_iterator.173" = type { ptr }
-%"class.hermes::ESTree::Node" = type { %"class.llvh::ilist_node", i32, i32, %"class.llvh::SMRange", %"class.llvh::SMLoc" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::ESTree::StringLiteralNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ProgramNode" = type { %"class.hermes::ESTree::FunctionLikeNode.base", %"class.hermes::ESTree::ProgramDecoration", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::FunctionLikeNode.base" = type <{ %"class.hermes::ESTree::Node", %"class.hermes::ESTree::FunctionLikeDecoration.base" }>
-%"class.hermes::ESTree::FunctionLikeDecoration.base" = type <{ ptr, i32, i32, i8 }>
-%"class.hermes::ESTree::ProgramDecoration" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.hermes::ESTree::BlockStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::BlockStatementDecoration.base", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::StatementNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::BlockStatementDecoration.base" = type <{ i32, i8, i8, i8 }>
-%"class.hermes::ESTree::BreakStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::BreakStatementDecoration", ptr }
-%"class.hermes::ESTree::BreakStatementDecoration" = type { %"class.hermes::ESTree::GotoDecorationBase" }
-%"class.hermes::ESTree::GotoDecorationBase" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::LabelDecorationBase" = type { i32 }
-%"class.hermes::ESTree::ContinueStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::ContinueStatementDecoration", ptr }
-%"class.hermes::ESTree::ContinueStatementDecoration" = type { %"class.hermes::ESTree::GotoDecorationBase" }
-%"class.hermes::ESTree::ThrowStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr }
-%"class.hermes::ESTree::ReturnStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr }
-%"class.hermes::ESTree::ExpressionStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr }
-%"class.hermes::ESTree::SequenceExpressionNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ObjectExpressionNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ArrayExpressionNode" = type <{ %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::SpreadElementNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::YieldExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::AwaitExpressionNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::UnaryExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::UpdateExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::DirectiveNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::IdentifierNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::PrivateNameNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::VariableDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ClassBodyNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ImportDefaultSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ImportNamespaceSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ExportNamespaceSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ExportDefaultDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ExportAllDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::RestElementNode" = type { %"class.hermes::ESTree::PatternNode", ptr }
-%"class.hermes::ESTree::PatternNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::JSXExpressionContainerNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::JSXSpreadChildNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXClosingElementNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXSpreadAttributeNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::NullableTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::FlowNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::TypeofTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::KeyofTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::TypeOperatorNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TupleTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ArrayTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::InferTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::UnionTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::IntersectionTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::DeclareVariableNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclareExportAllDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::DeclareModuleExportsNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::TypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::ObjectTypeSpreadPropertyNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::ObjectTypeCallPropertyNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TypeParameterDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TypeParameterInstantiationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::DeclaredPredicateNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::EnumStringBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::EnumNumberBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::EnumBooleanBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::EnumSymbolBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::EnumDefaultedMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::TSTypeAnnotationNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::TSLiteralTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSArrayTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSTupleTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSParameterPropertyNode" = type <{ %"class.hermes::ESTree::TSNode", ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::TSInterfaceBodyNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSModuleBlockNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSTypeParameterDeclarationNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSTypeParameterInstantiationNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSUnionTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSIntersectionTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSTypeQueryNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSTypeLiteralNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::CoverInitializerNode" = type { %"class.hermes::ESTree::CoverNode", ptr }
-%"class.hermes::ESTree::CoverNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::CoverRestElementNode" = type { %"class.hermes::ESTree::CoverNode", ptr }
-%"class.hermes::ESTree::FunctionExpressionNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ArrowFunctionExpressionNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::FunctionDeclarationNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ComponentDeclarationNode" = type { %"class.hermes::ESTree::FunctionLikeNode.base", ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr }
-%"class.hermes::ESTree::WhileStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr }
-%"class.hermes::ESTree::LoopStatementNode.base" = type <{ %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::LoopStatementDecoration" }>
-%"class.hermes::ESTree::LoopStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::DoWhileStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr }
-%"class.hermes::ESTree::ForInStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr, ptr }
-%"class.hermes::ESTree::ForOfStatementNode" = type <{ %"class.hermes::ESTree::LoopStatementNode.base", [4 x i8], ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ForStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::WithStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr }
-%"class.hermes::ESTree::SwitchStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::SwitchStatementDecoration", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::SwitchStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::LabeledStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::LabeledStatementDecoration", ptr, ptr }
-%"class.hermes::ESTree::LabeledStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::TryStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::IfStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::NewExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ImportExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::CallExpressionNode" = type { %"class.hermes::ESTree::CallExpressionLikeNode", ptr, ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::CallExpressionLikeNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::OptionalCallExpressionNode" = type <{ %"class.hermes::ESTree::CallExpressionLikeNode", ptr, ptr, %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::AssignmentExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::MemberExpressionNode" = type <{ %"class.hermes::ESTree::MemberExpressionLikeNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::MemberExpressionLikeNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::OptionalMemberExpressionNode" = type <{ %"class.hermes::ESTree::MemberExpressionLikeNode", ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::LogicalExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::ConditionalExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::BinaryExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::MetaPropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::SwitchCaseNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::CatchClauseNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::VariableDeclaratorNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::TemplateLiteralNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TaggedTemplateExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::PropertyNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::ClassDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ClassExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ClassPropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, i8, i8, i8, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::ClassPrivatePropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, i8, i8, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::MethodDefinitionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ImportDeclarationNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ImportSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::ImportAttributeNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::ExportNamedDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist", ptr, ptr }
-%"class.hermes::ESTree::ExportSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::ObjectPatternNode" = type { %"class.hermes::ESTree::PatternNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ArrayPatternNode" = type { %"class.hermes::ESTree::PatternNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::AssignmentPatternNode" = type { %"class.hermes::ESTree::PatternNode", ptr, ptr }
-%"class.hermes::ESTree::JSXMemberExpressionNode" = type { %"class.hermes::ESTree::JSXNode", ptr, ptr }
-%"class.hermes::ESTree::JSXNamespacedNameNode" = type { %"class.hermes::ESTree::JSXNode", ptr, ptr }
-%"class.hermes::ESTree::JSXOpeningElementNode" = type { %"class.hermes::ESTree::JSXNode", ptr, %"class.llvh::simple_ilist", i8, ptr }
-%"class.hermes::ESTree::JSXAttributeNode" = type { %"class.hermes::ESTree::JSXNode", ptr, ptr }
-%"class.hermes::ESTree::JSXElementNode" = type { %"class.hermes::ESTree::JSXNode", ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::JSXFragmentNode" = type { %"class.hermes::ESTree::JSXNode", ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::FunctionTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::FunctionTypeParamNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ComponentTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", ptr, ptr, ptr }
-%"class.hermes::ESTree::ComponentTypeParameterNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::QualifiedTypeIdentifierNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::QualifiedTypeofIdentifierNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TupleTypeSpreadElementNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TupleTypeLabeledElementNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, ptr }
-%"class.hermes::ESTree::GenericTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::IndexedAccessTypeNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::OptionalIndexedAccessTypeNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ConditionalTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::TypePredicateNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::InterfaceTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::TypeAliasNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::OpaqueTypeNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::InterfaceDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::DeclareTypeAliasNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareOpaqueTypeNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareInterfaceNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::DeclareClassNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::DeclareFunctionNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclareComponentNode" = type { %"class.hermes::ESTree::FlowNode", ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareEnumNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclareExportDeclarationNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, %"class.llvh::simple_ilist", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::DeclareModuleNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::InterfaceExtendsNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::ClassImplementsNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::ObjectTypeAnnotationNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ObjectTypePropertyNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, i8, i8, i8, ptr, ptr }
-%"class.hermes::ESTree::ObjectTypeInternalSlotNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::ObjectTypeIndexerNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, i8, ptr }
-%"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::TypeParameterNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TypeCastExpressionNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::AsExpressionNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumStringMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumNumberMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumBooleanMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::ComponentParameterNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TSIndexedAccessTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSTypeReferenceNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSQualifiedNameNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSFunctionTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr, ptr }
-%"class.hermes::ESTree::TSConstructorTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr, ptr }
-%"class.hermes::ESTree::TSTypePredicateNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSTypeAssertionNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSAsExpressionNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSTypeAliasDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::TSInterfaceDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::TSInterfaceHeritageNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSEnumDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSEnumMemberNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSModuleDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSModuleMemberNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSTypeParameterNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::TSConditionalTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::TSPropertySignatureNode" = type <{ %"class.hermes::ESTree::TSNode", ptr, ptr, ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.hermes::ESTree::TSMethodSignatureNode" = type <{ %"class.hermes::ESTree::TSNode", ptr, %"class.llvh::simple_ilist", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TSIndexSignatureNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::TSCallSignatureDeclarationNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::CoverTypedIdentifierNode" = type <{ %"class.hermes::ESTree::CoverNode", ptr, ptr, i8, [7 x i8] }>
 %"class.std::allocator.207" = type { i8 }
+%"struct.hermes::Dependency" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 %"class.std::vector.211" = type { %"struct.std::_Vector_base.212" }
 %"struct.std::_Vector_base.212" = type { %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl" }
 %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::regex::CapturedRange" = type { i32, i32 }
 
 $_ZN6hermes11StringTable9getStringEN4llvh9StringRefE = comdat any
 
@@ -510,69 +225,70 @@ entry:
   %bcs.i.i.i = alloca %"class.hermes::regex::RegexBytecodeStream", align 16
   %graphqlQueryRegex.i.i = alloca %"class.hermes::regex::Regex", align 8
   %extract = alloca %"class.hermes::(anonymous namespace)::DependencyExtractor", align 16
-  %sm_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 1
-  %sm_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %astContext, i64 0, i32 6
+  %sm_.i = getelementptr inbounds i8, ptr %extract, i64 24
+  %sm_.i.i = getelementptr inbounds i8, ptr %astContext, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %extract, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %sm_.i.i, align 8
   store ptr %0, ptr %sm_.i, align 8
-  %requireIdent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 2
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %astContext, i64 0, i32 3
+  %requireIdent_.i = getelementptr inbounds i8, ptr %extract, i64 32
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %astContext, i64 72
   %call3.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str, i64 7)
   store ptr %call3.i, ptr %requireIdent_.i, align 16
-  %jestIdent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 3
+  %jestIdent_.i = getelementptr inbounds i8, ptr %extract, i64 40
   %call6.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.1, i64 4)
   store ptr %call6.i, ptr %jestIdent_.i, align 8
-  %requireActualIdent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 4
+  %requireActualIdent_.i = getelementptr inbounds i8, ptr %extract, i64 48
   %call9.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.2, i64 13)
   store ptr %call9.i, ptr %requireActualIdent_.i, align 16
-  %requireMockIdent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 5
+  %requireMockIdent_.i = getelementptr inbounds i8, ptr %extract, i64 56
   %call12.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.3, i64 11)
   store ptr %call12.i, ptr %requireMockIdent_.i, align 8
-  %graphqlIdent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 7
+  %graphqlIdent_.i = getelementptr inbounds i8, ptr %extract, i64 112
   %call15.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.4, i64 7)
   store ptr %call15.i, ptr %graphqlIdent_.i, align 16
-  %graphqlQueryRegexBytecode_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 8
+  %graphqlQueryRegexBytecode_.i = getelementptr inbounds i8, ptr %extract, i64 120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %graphqlQueryRegex.i.i)
   call void @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEEC2EN4llvh8ArrayRefIDsEES6_(ptr noundef nonnull align 8 dereferenceable(336) %graphqlQueryRegex.i.i, ptr nonnull @.str.6, i64 56, ptr nonnull @.str.7, i64 1), !noalias !4
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %header.i.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bcs.i.i.i), !noalias !4
-  %markedCount_.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %graphqlQueryRegex.i.i, i64 0, i32 2
+  %markedCount_.i.i.i = getelementptr inbounds i8, ptr %graphqlQueryRegex.i.i, i64 138
   %1 = load i16, ptr %markedCount_.i.i.i, align 2, !noalias !10
   store i16 %1, ptr %header.i.i.i, align 2, !noalias !10
-  %loopCount.i.i.i = getelementptr inbounds %"struct.hermes::regex::RegexBytecodeHeader", ptr %header.i.i.i, i64 0, i32 1
-  %loopCount_.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %graphqlQueryRegex.i.i, i64 0, i32 3
+  %loopCount.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 2
+  %loopCount_.i.i.i = getelementptr inbounds i8, ptr %graphqlQueryRegex.i.i, i64 140
   %2 = load i32, ptr %loopCount_.i.i.i, align 4, !noalias !10
   %conv.i.i.i = trunc i32 %2 to i16
   store i16 %conv.i.i.i, ptr %loopCount.i.i.i, align 2, !noalias !10
-  %syntaxFlags.i.i.i = getelementptr inbounds %"struct.hermes::regex::RegexBytecodeHeader", ptr %header.i.i.i, i64 0, i32 2
-  %flags_.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %graphqlQueryRegex.i.i, i64 0, i32 1
+  %syntaxFlags.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 4
+  %flags_.i.i.i = getelementptr inbounds i8, ptr %graphqlQueryRegex.i.i, i64 136
   %bf.load.i.i.i.i = load i8, ptr %flags_.i.i.i, align 8, !noalias !10
   %ret.6.i.i.i.i = and i8 %bf.load.i.i.i.i, 127
   store i8 %ret.6.i.i.i.i, ptr %syntaxFlags.i.i.i, align 2, !noalias !10
-  %constraints.i.i.i = getelementptr inbounds %"struct.hermes::regex::RegexBytecodeHeader", ptr %header.i.i.i, i64 0, i32 3
-  %matchConstraints_.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %graphqlQueryRegex.i.i, i64 0, i32 7
+  %constraints.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 5
+  %matchConstraints_.i.i.i = getelementptr inbounds i8, ptr %graphqlQueryRegex.i.i, i64 196
   %3 = load i8, ptr %matchConstraints_.i.i.i, align 4, !noalias !10
   store i8 %3, ptr %constraints.i.i.i, align 1, !noalias !10
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %bcs.i.i.i, i8 0, i64 25, i1 false), !noalias !10
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bcs.i.i.i, ptr null, ptr noundef nonnull %header.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i), !noalias !10
-  %nodes_.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %graphqlQueryRegex.i.i, i64 0, i32 4
+  %nodes_.i.i.i = getelementptr inbounds i8, ptr %graphqlQueryRegex.i.i, i64 144
   call void @_ZN6hermes5regex4Node7compileERKSt6vectorIPS1_SaIS3_EERNS0_19RegexBytecodeStreamE(ptr noundef nonnull align 8 dereferenceable(24) %nodes_.i.i.i, ptr noundef nonnull align 8 dereferenceable(25) %bcs.i.i.i), !noalias !10
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %4 = load <2 x ptr>, ptr %bcs.i.i.i, align 16, !noalias !14
   store <2 x ptr> %4, ptr %graphqlQueryRegexBytecode_.i, align 8, !alias.scope !14
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bcs.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %extract, i64 136
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bcs.i.i.i, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 16, !noalias !14
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !alias.scope !14
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %header.i.i.i), !noalias !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %bcs.i.i.i), !noalias !4
   call void @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %graphqlQueryRegex.i.i) #15, !noalias !4
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %graphqlQueryRegex.i.i)
-  %foundJSX_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 9
+  %foundJSX_.i = getelementptr inbounds i8, ptr %extract, i64 144
   store i8 0, ptr %foundJSX_.i, align 16
+  %resourceIdents_.i = getelementptr inbounds i8, ptr %extract, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -582,7 +298,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %callee.sroa.2.0.callee16.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %callee.sroa.2.0.copyload.i = load i64, ptr %callee.sroa.2.0.callee16.sroa_idx.i, align 8
   %call19.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr %callee.sroa.0.0.copyload.i, i64 %callee.sroa.2.0.copyload.i)
-  %arrayidx21.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %extract, i64 0, i32 6, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds [6 x ptr], ptr %resourceIdents_.i, i64 0, i64 %indvars.iv.i
   store ptr %call19.i, ptr %arrayidx21.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -592,8 +308,8 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractorC2ERNS_7ContextE.exit: ; preds = %f
   call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %extract, ptr noundef %node)
   %6 = load <2 x ptr>, ptr %extract, align 16
   store <2 x ptr> %6, ptr %agg.result, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %extract, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %extract, i64 16
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 16
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %extract, i8 0, i64 24, i1 false)
@@ -602,7 +318,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractorC2ERNS_7ContextE.exit: ; preds = %f
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractorD2Ev.exit, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractorC2ERNS_7ContextE.exit
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %extract, i64 0, i32 1
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %extract, i64 8
   call void @_ZdlPv(ptr noundef nonnull %8) #16
   %.pre = load ptr, ptr %extract, align 16
   %.pre2 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
@@ -612,7 +328,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZN6hermes12_GLOBAL
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %.pre, %_ZNSt6vectorIhSaIhEED2Ev.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre2
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !17
 
@@ -644,15 +360,15 @@ entry:
   %name = alloca %"class.llvh::StringRef", align 8
   %ref.tmp11 = alloca %"struct.std::pair", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
-  %strMap_ = getelementptr inbounds %"class.hermes::StringTable", ptr %this, i64 0, i32 1
+  %strMap_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %name, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i)
   %1 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   %2 = load ptr, ptr %strMap_, align 8
-  %NumBuckets.i.i.i.i = getelementptr inbounds %"class.hermes::StringTable", ptr %this, i64 0, i32 1, i32 3
+  %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %NumBuckets.i.i.i.i, align 8
   %idx.ext.i.i = zext i32 %3 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
@@ -661,13 +377,13 @@ entry:
   br i1 %cmp.i.i.not.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %second = getelementptr inbounds %"struct.std::pair", ptr %1, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %1, i64 16
   %retval.0.in.sroa.speculate.load.if.then = load ptr, ptr %second, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %this, align 8
-  %state_.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %4, i64 0, i32 1
+  %state_.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %state_.i.i, align 8
   %6 = load i32, ptr %5, align 8
   %conv.i.i = zext i32 %6 to i64
@@ -675,7 +391,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.76", ptr %7, i64 %conv.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
   %9 = ptrtoint ptr %8 to i64
-  %offset.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %5, i64 0, i32 1
+  %offset.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %offset.i.i, align 8
   %add.i.i.i.i = add i64 %9, 7
   %sub1.i.i.i.i = add i64 %add.i.i.i.i, %10
@@ -684,7 +400,7 @@ if.end:                                           ; preds = %entry
   %sub.i.i.i = sub i64 %.neg9, %11
   store i64 %sub.i.i.i, ptr %offset.i.i, align 8
   %12 = load ptr, ptr %state_.i.i, align 8
-  %offset8.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %12, i64 0, i32 1
+  %offset8.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %offset8.i.i, align 8
   %add.i.i = add i64 %13, 16
   %cmp9.i.i = icmp ugt i64 %add.i.i, 262144
@@ -706,7 +422,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %agg.tmp8.sroa.0.0.copyload = load ptr, ptr %name, align 8
   %agg.tmp8.sroa.2.0.copyload = load i64, ptr %0, align 8
   %add.i = add i64 %agg.tmp8.sroa.2.0.copyload, 1
-  %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %15, i64 0, i32 1
+  %state_.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %state_.i.i.i, align 8
   %17 = load i32, ptr %16, align 8
   %conv.i.i.i = zext i32 %17 to i64
@@ -714,7 +430,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.76", ptr %18, i64 %conv.i.i.i
   %19 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %20 = ptrtoint ptr %19 to i64
-  %offset.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %16, i64 0, i32 1
+  %offset.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load i64, ptr %offset.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %21, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %20
@@ -726,7 +442,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
 
 lor.rhs.i.i.i:                                    ; preds = %_ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %23 = load ptr, ptr %state_.i.i.i, align 8
-  %offset8.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %23, i64 0, i32 1
+  %offset8.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %offset8.i.i.i, align 8
   %add.i.i.i = add i64 %24, %add.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 262144
@@ -758,7 +474,7 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
   %str.sroa.2.0.str_.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 %agg.tmp8.sroa.2.0.copyload, ptr %str.sroa.2.0.str_.sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp11, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   store ptr %retval.0.i.i, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !18
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !18
@@ -769,7 +485,7 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
 if.end.i.i4:                                      ; preds = %_ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefERT_S3_.exit
   %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef %26), !noalias !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i64 16, i1 false), !noalias !18
-  %second.i.i3.i.i = getelementptr inbounds %"struct.std::pair", ptr %call.i2.i.i, i64 0, i32 1
+  %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %27 = load ptr, ptr %second.i, align 8, !noalias !18
   store ptr %27, ptr %second.i.i3.i.i, align 8, !noalias !18
   br label %return
@@ -786,7 +502,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -1028,9 +744,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9
 entry:
   %ConstFoundBucket.i9 = alloca ptr, align 8
   %ConstFoundBucket.i = alloca ptr, align 8
-  %NumEntries.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -1048,7 +764,7 @@ if.then:                                          ; preds = %entry
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -1075,7 +791,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.else, 
   br i1 %cmp7.i, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %6, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -1089,7 +805,7 @@ if.end18:                                         ; preds = %if.then17, %_ZN4llv
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit:
   %ConstFoundBucket.i.i = alloca ptr, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -1116,9 +832,9 @@ _ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EEN
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
@@ -1131,16 +847,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !24
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
@@ -1153,7 +869,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !24
 
@@ -1173,8 +889,8 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, i64 16, i1 false)
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 0, i32 1
-  %second.i22.i = getelementptr inbounds %"struct.std::pair", ptr %B.027.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %second.i22.i = getelementptr inbounds i8, ptr %B.027.i, i64 16
   %6 = load ptr, ptr %second.i22.i, align 8
   store ptr %6, ptr %second.i.i, align 8
   %7 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -1183,7 +899,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   br label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
-  %incdec.ptr.i6 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.027.i, i64 1
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.027.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !25
 
@@ -1206,9 +922,9 @@ define linkonce_odr hidden void @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.103", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.103", align 16
-  %unresolvedNamedBackRefs_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 11
+  %unresolvedNamedBackRefs_ = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %unresolvedNamedBackRefs_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 320
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEES8_EvT_SA_RSaIT0_E.exit.i, label %for.body.i.i.i.i
@@ -1225,7 +941,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   br label %_ZSt8_DestroyISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair.193", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !26
 
@@ -1243,24 +959,24 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPSt4p
   br label %_ZNSt6vectorISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEESaIS8_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEES8_EvT_SA_RSaIT0_E.exit.i, %if.then.i.i.i
-  %nameMapping_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9
+  %nameMapping_ = getelementptr inbounds i8, ptr %this, i64 280
   %4 = load ptr, ptr %nameMapping_, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %orderedGroupNames_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8
-  %_M_start.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
-  %_M_last4.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3
-  %_M_last4.i.i4.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 2
+  %orderedGroupNames_ = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %_M_last4.i.i4.i = getelementptr inbounds i8, ptr %this, i64 264
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   %5 = load <2 x ptr>, ptr %_M_start.i.i, align 8, !noalias !27
   store <2 x ptr> %5, ptr %agg.tmp.i.i, align 16
-  %_M_last.i.i9.i = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %agg.tmp.i.i, i64 0, i32 2
+  %_M_last.i.i9.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %6 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !27
   store <2 x ptr> %6, ptr %_M_last.i.i9.i, align 16
   %7 = load <2 x ptr>, ptr %_M_finish.i.i, align 8, !noalias !30
   store <2 x ptr> %7, ptr %agg.tmp2.i.i, align 16
-  %_M_last.i3.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %agg.tmp2.i.i, i64 0, i32 2
+  %_M_last.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 16
   %8 = load <2 x ptr>, ptr %_M_last4.i.i4.i, align 8, !noalias !30
   store <2 x ptr> %8, ptr %_M_last.i3.i.i, align 16
   call void @_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE19_M_destroy_data_auxESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr noundef nonnull align 8 dereferenceable(80) %orderedGroupNames_, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
@@ -1271,11 +987,11 @@ _ZNSt6vectorISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEES
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEESaIS8_EED2Ev.exit
-  %_M_node5.i.i6.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 272
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %10 = load ptr, ptr %_M_node5.i.i.i, align 8
   %11 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %cmp3.i.i.i = icmp ult ptr %10, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN4llvh11SmallVectorIDsLj5EEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
 
@@ -1283,7 +999,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %10, %if.then.i.i ]
   %12 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %12) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %11
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN4llvh11SmallVectorIDsLj5EEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !33
 
@@ -1297,9 +1013,9 @@ _ZNSt11_Deque_baseIN4llvh11SmallVectorIDsLj5EEESaIS2_EE16_M_destroy_nodesEPPS2_S
   br label %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EED2Ev.exit
 
 _ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEESaIS8_EED2Ev.exit, %_ZNSt11_Deque_baseIN4llvh11SmallVectorIDsLj5EEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
-  %nodeHolder_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5
+  %nodeHolder_ = getelementptr inbounds i8, ptr %this, i64 168
   %14 = load ptr, ptr %nodeHolder_, align 8
-  %_M_finish.i1 = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 176
   %15 = load ptr, ptr %_M_finish.i1, align 8
   %cmp.not3.i.i.i.i2 = icmp eq ptr %14, %15
   br i1 %cmp.not3.i.i.i.i2, label %_ZSt8_DestroyIPSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %for.body.i.i.i.i3
@@ -1312,14 +1028,14 @@ for.body.i.i.i.i3:                                ; preds = %_ZNSt5dequeIN4llvh1
 
 _ZNKSt14default_deleteIN6hermes5regex4NodeEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i3
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
   br label %_ZSt8_DestroyISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6hermes5regex4NodeEEclEPS2_.exit.i.i.i.i.i.i, %for.body.i.i.i.i3
   store ptr null, ptr %__first.addr.04.i.i.i.i4, align 8
-  %incdec.ptr.i.i.i.i5 = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__first.addr.04.i.i.i.i4, i64 1
+  %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %15
   br i1 %cmp.not.i.i.i.i6, label %_ZSt8_DestroyIPSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i3, !llvm.loop !34
 
@@ -1337,7 +1053,7 @@ if.then.i.i.i9:                                   ; preds = %_ZSt8_DestroyIPSt10
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %if.then.i.i.i9
-  %nodes_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4
+  %nodes_ = getelementptr inbounds i8, ptr %this, i64 144
   %19 = load ptr, ptr %nodes_, align 8
   %tobool.not.i.i.i10 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i10, label %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EED2Ev.exit, label %if.then.i.i.i11
@@ -1353,7 +1069,7 @@ _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt1
   br i1 %tobool.not.i.i.i12, label %if.end.i.i.i, label %_ZN6hermes5regex16UTF16RegexTraitsD2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EED2Ev.exit
-  %storage.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.84", ptr %this, i64 0, i32 2
+  %storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load ptr, ptr %storage.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %20) #15
   br label %_ZN6hermes5regex16UTF16RegexTraitsD2Ev.exit
@@ -1366,7 +1082,7 @@ _ZN6hermes5regex16UTF16RegexTraitsD2Ev.exit:      ; preds = %_ZNSt6vectorIPN6her
 define linkonce_odr hidden void @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEEC2EN4llvh8ArrayRefIDsEES6_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr %flags.coerce0, i64 %flags.coerce1) unnamed_addr #0 comdat align 2 {
 entry:
   store i32 1, ptr %this, align 8
-  %0 = getelementptr inbounds %"class.llvh::SmallDenseMap.84", ptr %this, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %0, align 4
   br label %for.body.i.i.i.i
 
@@ -1379,13 +1095,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes5regex16UTF16RegexTraitsC2Ev.exit, label %for.body.i.i.i.i, !llvm.loop !35
 
 _ZN6hermes5regex16UTF16RegexTraitsC2Ev.exit:      ; preds = %for.body.i.i.i.i
-  %flags_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 136
   %bf.load = load i8, ptr %flags_, align 8
   %bf.clear18 = and i8 %bf.load, -128
   store i8 %bf.clear18, ptr %flags_, align 8
-  %markedCount_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 2
-  %orderedGroupNames_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8
-  %_M_map_size.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %markedCount_ = getelementptr inbounds i8, ptr %this, i64 138
+  %orderedGroupNames_ = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_map_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(59) %markedCount_, i8 0, i64 59, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
@@ -1393,28 +1109,28 @@ _ZN6hermes5regex16UTF16RegexTraitsC2Ev.exit:      ; preds = %for.body.i.i.i.i
   %__cur.04.i.i.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #18
   store ptr %call5.i.i.i.i.i.i.i, ptr %__cur.04.i.i.ptr.i.i, align 8
-  %_M_start.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   store ptr %__cur.04.i.i.ptr.i.i, ptr %_M_node.i.i.i.i, align 8
-  %_M_first.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_first.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVector.117", ptr %call5.i.i.i.i.i.i.i, i64 16
-  %_M_last.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 2
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 512
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3
-  %_M_node.i9.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %_M_node.i9.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %__cur.04.i.i.ptr.i.i, ptr %_M_node.i9.i.i.i, align 8
-  %_M_first.i10.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i10.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_first.i10.i.i.i, align 8
-  %_M_last.i12.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i12.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i12.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_start.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %nameMapping_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9
+  %nameMapping_ = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %nameMapping_, i8 0, i64 20, i1 false)
-  %sawNamedBackrefBeforeGroup_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 10
+  %sawNamedBackrefBeforeGroup_ = getelementptr inbounds i8, ptr %this, i64 304
   store i8 0, ptr %sawNamedBackrefBeforeGroup_, align 8
-  %unresolvedNamedBackRefs_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 11
+  %unresolvedNamedBackRefs_ = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unresolvedNamedBackRefs_, i8 0, i64 24, i1 false)
   %add.ptr.i.i = getelementptr inbounds i16, ptr %flags.coerce0, i64 %flags.coerce1
   %cmp.not27.i = icmp eq i64 %flags.coerce1, 0
@@ -1472,7 +1188,7 @@ sw.bb53.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %sw.bb53.i, %sw.bb43.i, %sw.bb33.i, %sw.bb23.i, %sw.bb13.i, %sw.bb4.i, %sw.bb.i
   %.sink.i = phi i8 [ 1, %sw.bb.i ], [ 4, %sw.bb4.i ], [ 2, %sw.bb13.i ], [ 8, %sw.bb23.i ], [ 32, %sw.bb33.i ], [ 16, %sw.bb43.i ], [ 64, %sw.bb53.i ]
   %bf.set.i = or disjoint i8 %.sink.i, %ret.sroa.0.028.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %__begin2.029.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.029.i, i64 2
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %if.end, label %for.body.i
 
@@ -1485,7 +1201,7 @@ if.end:                                           ; preds = %for.inc.i, %_ZN6her
 
 return:                                           ; preds = %for.body.i, %sw.bb53.i, %sw.bb43.i, %sw.bb33.i, %sw.bb23.i, %sw.bb13.i, %sw.bb4.i, %sw.bb.i, %if.end
   %storemerge = phi i32 [ %call26, %if.end ], [ 11, %sw.bb.i ], [ 11, %sw.bb4.i ], [ 11, %sw.bb13.i ], [ 11, %sw.bb23.i ], [ 11, %sw.bb33.i ], [ 11, %sw.bb43.i ], [ 11, %sw.bb53.i ], [ 11, %for.body.i ]
-  %error_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 6
+  %error_ = getelementptr inbounds i8, ptr %this, i64 192
   store i32 %storemerge, ptr %error_, align 8
   ret void
 }
@@ -1498,12 +1214,12 @@ entry:
   %maxBackRef = alloca i32, align 4
   %reparsedMaxBackRef = alloca i32, align 4
   store i32 0, ptr %maxBackRef, align 4
-  %flags_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 136
   %bf.load = load i8, ptr %flags_, align 8
   %0 = and i8 %bf.load, 8
   %tobool = icmp ne i8 %0, 0
   %call = call noundef i32 @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE21parseWithBackRefLimitIPKDsEENS0_9constants9ErrorTypeET_S9_jbPj(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %first, ptr noundef %last, i32 noundef 65535, i1 noundef zeroext %tobool, ptr noundef nonnull %maxBackRef)
-  %loopCount_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 3
+  %loopCount_ = getelementptr inbounds i8, ptr %this, i64 140
   %1 = load i32, ptr %loopCount_, align 4
   %cmp = icmp ugt i32 %1, 65535
   br i1 %cmp, label %return, label %if.end
@@ -1511,7 +1227,7 @@ entry:
 if.end:                                           ; preds = %entry
   %cmp3 = icmp eq i32 %call, 0
   %2 = load i32, ptr %maxBackRef, align 4
-  %markedCount_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 2
+  %markedCount_ = getelementptr inbounds i8, ptr %this, i64 138
   %3 = load i16, ptr %markedCount_, align 2
   %conv = zext i16 %3 to i32
   %cmp4 = icmp ugt i32 %2, %conv
@@ -1522,10 +1238,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool10.not, label %land.lhs.true, label %if.end16.thread
 
 land.lhs.true:                                    ; preds = %if.end
-  %NumEntries.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
   %6 = load i32, ptr %NumEntries.i.i.i, align 8
   %cmp12.not = icmp ne i32 %6, 0
-  %sawNamedBackrefBeforeGroup_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 10
+  %sawNamedBackrefBeforeGroup_ = getelementptr inbounds i8, ptr %this, i64 304
   %7 = load i8, ptr %sawNamedBackrefBeforeGroup_, align 8
   %8 = and i8 %7, 1
   %tobool14.not = icmp ne i8 %8, 0
@@ -1541,11 +1257,11 @@ if.end26:                                         ; preds = %land.lhs.true
   store i32 0, ptr %reparsedMaxBackRef, align 4
   store i32 0, ptr %loopCount_, align 4
   store i16 0, ptr %markedCount_, align 2
-  %matchConstraints_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 7
+  %matchConstraints_ = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %matchConstraints_, align 4
-  %nameMapping_31 = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9
+  %nameMapping_31 = getelementptr inbounds i8, ptr %this, i64 280
   %cmp.i = icmp eq i32 %6, 0
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 292
   %10 = load i32, ptr %NumTombstones.i.i.i, align 4
   %cmp3.i = icmp eq i32 %10, 0
   %or.cond = select i1 %cmp.i, i1 %cmp3.i, i1 false
@@ -1553,7 +1269,7 @@ if.end26:                                         ; preds = %land.lhs.true
 
 if.end.i:                                         ; preds = %if.end26
   %mul.i = shl i32 %6, 2
-  %NumBuckets.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9, i32 3
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   %11 = load i32, ptr %NumBuckets.i.i.i, align 8
   %cmp6.i = icmp ult i32 %mul.i, %11
   %cmp9.i = icmp ugt i32 %11, 64
@@ -1576,7 +1292,7 @@ for.body.i:                                       ; preds = %if.end11.i, %for.bo
   store ptr inttoptr (i64 -1 to ptr), ptr %P.08.i, align 8
   %EmptyKey.sroa.2.0.call17.sroa_idx.i = getelementptr inbounds i8, ptr %P.08.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call17.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.127", ptr %P.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %P.08.i, i64 24
   %cmp16.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp16.not.i, label %for.end.i, label %for.body.i, !llvm.loop !36
 
@@ -1586,31 +1302,31 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit: ; preds = %if.end26, %if.then10.i, %for.end.i
-  %orderedGroupNames_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8
-  %_M_start.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %orderedGroupNames_ = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %13 = load ptr, ptr %_M_start.i.i, align 8, !noalias !37
-  %_M_first3.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %14 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !37
-  %_M_last4.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %15 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !37
-  %_M_node5.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %16 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !37
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last4.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 2
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_last4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
   store ptr %13, ptr %agg.tmp.i.i.i, align 8
-  %_M_first.i.i1.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %14, ptr %_M_first.i.i1.i.i, align 8
-  %_M_last.i.i3.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %15, ptr %_M_last.i.i3.i.i, align 8
-  %_M_node.i.i5.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %16, ptr %_M_node.i.i5.i.i, align 8
   %17 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8, !noalias !40
   store <2 x ptr> %17, ptr %agg.tmp2.i.i.i, align 16
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   %18 = load <2 x ptr>, ptr %_M_last4.i.i.i.i, align 8, !noalias !40
   store <2 x ptr> %18, ptr %_M_last.i3.i.i.i, align 16
   call void @_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE19_M_destroy_data_auxESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr noundef nonnull align 8 dereferenceable(80) %orderedGroupNames_, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
@@ -1622,7 +1338,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_
 
 for.body.i.i.i:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit, %for.body.i.i.i
   %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %16, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5clearEv.exit ]
-  %__n.04.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i.i, i64 1
+  %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
   %20 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %20) #16
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %19
@@ -1647,9 +1363,9 @@ define linkonce_odr hidden noundef i32 @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %ConstFoundBucket.i.i.i = alloca ptr, align 8
   %ref.tmp.i = alloca %"class.llvh::ArrayRef", align 8
-  %nodes_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4
+  %nodes_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %nodes_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5clearEv.exit, label %if.then.i.i
@@ -1660,7 +1376,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5clearEv.exit: ; preds = %entry, %if.then.i.i
   %call = tail call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_4NodeEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this)
-  %flags_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 136
   %agg.tmp.sroa.0.0.copyload = load i8, ptr %flags_, align 8
   %call2 = tail call noundef i32 @_ZN6hermes5regex10parseRegexINS0_5RegexINS0_16UTF16RegexTraitsEEEEENS0_9constants9ErrorTypeEPKDsS8_PT_NS0_11SyntaxFlagsEjbPj(ptr noundef %first, ptr noundef %last, ptr noundef nonnull %this, i8 %agg.tmp.sroa.0.0.copyload, i32 noundef %backRefLimit, i1 noundef zeroext %hasNamedGroups, ptr noundef %outMaxBackRef) #15
   %cmp = icmp eq i32 %call2, 0
@@ -1669,27 +1385,27 @@ _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5clearEv.exit: ; preds = %entry, %if.t
 if.then:                                          ; preds = %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5clearEv.exit
   %call3 = tail call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_8GoalNodeEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this)
   %agg.tmp5.sroa.0.0.copyload = load i8, ptr %flags_, align 8
-  %nodeHolder_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5
+  %nodeHolder_ = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZN6hermes5regex4Node16optimizeNodeListERSt6vectorIPS1_SaIS3_EENS0_11SyntaxFlagsERS2_ISt10unique_ptrIS1_St14default_deleteIS1_EESaISB_EE(ptr noundef nonnull align 8 dereferenceable(24) %nodes_, i8 %agg.tmp5.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %nodeHolder_)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %unresolvedNamedBackRefs_.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 11
+  %unresolvedNamedBackRefs_.i = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load ptr, ptr %unresolvedNamedBackRefs_.i, align 8
-  %_M_finish.i.i2 = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i2 = getelementptr inbounds i8, ptr %this, i64 320
   %3 = load ptr, ptr %_M_finish.i.i2, align 8
   %cmp.i.not11.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not11.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE20resolveNamedBackRefsEv.exit.thread, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %nameMapping_.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9
-  %Length.i.i = getelementptr inbounds %"class.llvh::ArrayRef", ptr %ref.tmp.i, i64 0, i32 1
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 9, i32 3
+  %nameMapping_.i = getelementptr inbounds i8, ptr %this, i64 280
+  %Length.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
   %__begin2.sroa.0.012.i = phi ptr [ %2, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %if.end.i ]
   %4 = load ptr, ptr %__begin2.sroa.0.012.i, align 8
   store ptr %4, ptr %ref.tmp.i, align 8
-  %Size.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %__begin2.sroa.0.012.i, i64 0, i32 1
+  %Size.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 8
   %5 = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i = zext i32 %5 to i64
   store i64 %conv.i.i.i, ptr %Length.i.i, align 8
@@ -1706,15 +1422,15 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp.i6.not.i, label %if.end.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE20resolveNamedBackRefsEv.exit
 
 if.end.i:                                         ; preds = %for.body.i
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair.193", ptr %__begin2.sroa.0.012.i, i64 0, i32 1
-  %second.i = getelementptr inbounds %"struct.std::pair.128", ptr %6, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 32
+  %second.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i32, ptr %second.i, align 8
   %10 = load ptr, ptr %second.i.i.i, align 8
   %11 = trunc i32 %9 to i16
   %conv.i.i = add i16 %11, -1
-  %mexp_.i.i = getelementptr inbounds %"class.hermes::regex::BackRefNode", ptr %10, i64 0, i32 1
+  %mexp_.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store i16 %conv.i.i, ptr %mexp_.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair.193", ptr %__begin2.sroa.0.012.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 40
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.not.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE20resolveNamedBackRefsEv.exit.thread, label %for.body.i
 
@@ -1737,17 +1453,17 @@ for.body.i4:                                      ; preds = %if.end10, %for.body
   %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i5, %for.body.i4 ], [ %12, %if.end10 ]
   %14 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
   %vtable.i = load ptr, ptr %14, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %15 = load ptr, ptr %vfn.i, align 8
   %call5.i = call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
   %or3.i = or i8 %call5.i, %result.08.i
-  %incdec.ptr.i.i5 = getelementptr inbounds ptr, ptr %__begin2.sroa.0.07.i, i64 1
+  %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i, i64 8
   %cmp.i.not.i6 = icmp eq ptr %incdec.ptr.i.i5, %13
   br i1 %cmp.i.not.i6, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit, label %for.body.i4
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %for.body.i4, %if.end10
   %result.0.lcssa.i = phi i8 [ 0, %if.end10 ], [ %or3.i, %for.body.i4 ]
-  %matchConstraints_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 7
+  %matchConstraints_ = getelementptr inbounds i8, ptr %this, i64 196
   store i8 %result.0.lcssa.i, ptr %matchConstraints_, align 4
   br label %return
 
@@ -1761,10 +1477,10 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !43
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !43
-  %nodeHolder_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %nodeHolder_ = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -1773,7 +1489,7 @@ if.then.i.i:                                      ; preds = %entry
   %2 = ptrtoint ptr %call.i to i64
   store i64 %2, ptr %0, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
@@ -1821,14 +1537,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !49, !noalias !46
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !46, !noalias !49
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !49, !noalias !46
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !51
 
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i4 = getelementptr %"class.std::unique_ptr.131", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i4 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %if.then.i20.i
 
@@ -1844,10 +1560,10 @@ _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit
-  %nodes_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4
-  %_M_finish.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %nodes_ = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 160
   %8 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1855,7 +1571,7 @@ _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE
 if.then.i:                                        ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
   store ptr %call.i, ptr %7, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -1899,7 +1615,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN6hermes5regex4NodeESaIS3_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i1 = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i1 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1925,10 +1641,10 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !52
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !52
-  %nodeHolder_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %nodeHolder_ = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -1937,7 +1653,7 @@ if.then.i.i:                                      ; preds = %entry
   %2 = ptrtoint ptr %call.i to i64
   store i64 %2, ptr %0, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -1985,14 +1701,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !58, !noalias !55
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !55, !noalias !58
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !58, !noalias !55
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i10 = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i10, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !51
 
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"class.std::unique_ptr.131", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %if.then.i20.i
 
@@ -2008,10 +1724,10 @@ _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE
   br label %_ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, %if.then.i.i
-  %nodes_ = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4
-  %_M_finish.i.i2 = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %nodes_ = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i.i2 = getelementptr inbounds i8, ptr %this, i64 152
   %7 = load ptr, ptr %_M_finish.i.i2, align 8
-  %_M_end_of_storage.i.i3 = getelementptr inbounds %"class.hermes::regex::Regex", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i3 = getelementptr inbounds i8, ptr %this, i64 160
   %8 = load ptr, ptr %_M_end_of_storage.i.i3, align 8
   %cmp.not.i.i4 = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i4, label %if.else.i.i7, label %if.then.i.i5
@@ -2019,7 +1735,7 @@ _ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds
 if.then.i.i5:                                     ; preds = %_ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit
   store ptr %call.i, ptr %7, align 8
   %9 = load ptr, ptr %_M_finish.i.i2, align 8
-  %incdec.ptr.i.i6 = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i.i6 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i6, ptr %_M_finish.i.i2, align 8
   br label %_ZNSt10unique_ptrIN6hermes5regex8GoalNodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -2063,7 +1779,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
 
 _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN6hermes5regex4NodeESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -2090,58 +1806,58 @@ _ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit:
   %agg.tmp22 = alloca %"class.llvh::SmallVector.165", align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
   store ptr %rootNodes, ptr %call5.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i.i, i64 1
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %childNodes, i64 0, i32 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
+  %Size.i = getelementptr inbounds i8, ptr %childNodes, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %chars, i64 16
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %chars, i64 0, i32 1
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %chars, i64 0, i32 2
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %chars, i64 8
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %chars, i64 12
   %add.ptr.i.i.i.i.i29 = getelementptr inbounds i8, ptr %agg.tmp22, i64 16
-  %Size.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp22, i64 0, i32 1
-  %Capacity2.i.i.i.i.i31 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp22, i64 0, i32 2
+  %Size.i.i.i.i.i30 = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
+  %Capacity2.i.i.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp22, i64 12
   %bf.clear.i = and i8 %flags.coerce, 1
   %0 = lshr i8 %flags.coerce, 3
   %.lobit.i = and i8 %0, 1
-  %_M_finish.i33 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::regex::Node>, std::allocator<std::unique_ptr<hermes::regex::Node>>>::_Vector_impl_data", ptr %nodeHolder, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::regex::Node>, std::allocator<std::unique_ptr<hermes::regex::Node>>>::_Vector_impl_data", ptr %nodeHolder, i64 0, i32 2
+  %_M_finish.i33 = getelementptr inbounds i8, ptr %nodeHolder, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %nodeHolder, i64 16
   %add.ptr.i.i.i.i47 = getelementptr inbounds i8, ptr %childNodes, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit
-  %stack.sroa.0.1219 = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %stack.sroa.0.2.lcssa, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ]
-  %stack.sroa.9.1218 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %stack.sroa.9.2.lcssa, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ]
-  %stack.sroa.26.1217 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %stack.sroa.26.2.lcssa, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %stack.sroa.9.1218, i64 -1
+  %stack.sroa.0.1221 = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %stack.sroa.0.2.lcssa, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ]
+  %stack.sroa.9.1220 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %stack.sroa.9.2.lcssa, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ]
+  %stack.sroa.26.1219 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %stack.sroa.26.2.lcssa, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %stack.sroa.9.1220, i64 -8
   %1 = load ptr, ptr %add.ptr.i.i, align 8
-  %_M_finish.i24 = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %1, i64 0, i32 1
+  %_M_finish.i24 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %_M_finish.i24, align 8
   %3 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp201.not = icmp eq ptr %2, %3
-  br i1 %cmp201.not, label %for.end, label %for.body
+  %cmp203.not = icmp eq ptr %2, %3
+  br i1 %cmp203.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %while.body, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit
-  %idx.0205 = phi i64 [ %inc44, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ 0, %while.body ]
-  %stack.sroa.0.2204 = phi ptr [ %stack.sroa.0.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %stack.sroa.0.1219, %while.body ]
-  %stack.sroa.9.2203 = phi ptr [ %stack.sroa.9.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %add.ptr.i.i, %while.body ]
-  %stack.sroa.26.2202 = phi ptr [ %stack.sroa.26.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %stack.sroa.26.1217, %while.body ]
+  %idx.0207 = phi i64 [ %inc44, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ 0, %while.body ]
+  %stack.sroa.0.2206 = phi ptr [ %stack.sroa.0.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %stack.sroa.0.1221, %while.body ]
+  %stack.sroa.9.2205 = phi ptr [ %stack.sroa.9.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %add.ptr.i.i, %while.body ]
+  %stack.sroa.26.2204 = phi ptr [ %stack.sroa.26.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %stack.sroa.26.1219, %while.body ]
   %4 = load ptr, ptr %1, align 8
-  %add.ptr.i25 = getelementptr inbounds ptr, ptr %4, i64 %idx.0205
+  %add.ptr.i25 = getelementptr inbounds ptr, ptr %4, i64 %idx.0207
   %5 = load ptr, ptr %add.ptr.i25, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %6 = load ptr, ptr %vfn, align 8
   call void %6(ptr nonnull sret(%"class.llvh::SmallVector.139") align 8 %childNodes, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   %7 = load ptr, ptr %childNodes, align 8
   %8 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %8 to i64
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %stack.sroa.9.2203 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %stack.sroa.0.2204 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %stack.sroa.9.2205 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %stack.sroa.0.2206 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %add.ptr.i.i27 = getelementptr inbounds ptr, ptr %stack.sroa.0.2204, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i27 = getelementptr inbounds ptr, ptr %stack.sroa.0.2206, i64 %sub.ptr.div.i.i
   %cmp.not.i68 = icmp eq i32 %8, 0
   br i1 %cmp.not.i68, label %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit, label %if.then.i69
 
@@ -2149,7 +1865,7 @@ if.then.i69:                                      ; preds = %for.body
   %add.ptr.i = getelementptr inbounds ptr, ptr %7, i64 %conv.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
-  %sub.ptr.lhs.cast.i74 = ptrtoint ptr %stack.sroa.26.2202 to i64
+  %sub.ptr.lhs.cast.i74 = ptrtoint ptr %stack.sroa.26.2204 to i64
   %sub.ptr.sub.i76 = sub i64 %sub.ptr.lhs.cast.i74, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.i77 = ashr exact i64 %sub.ptr.sub.i76, 3
   %cmp3.not.i = icmp ult i64 %sub.ptr.div.i77, %conv.i
@@ -2160,53 +1876,53 @@ if.then4.i:                                       ; preds = %if.then.i69
   %sub.ptr.sub.i.i79 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i78
   %sub.ptr.div.i.i80 = ashr exact i64 %sub.ptr.sub.i.i79, 3
   %cmp10.i = icmp ugt i64 %sub.ptr.div.i.i80, %conv.i
-  br i1 %cmp10.i, label %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit.i, label %_ZSt7advanceIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEmEvRT_T0_.exit.i
+  br i1 %cmp10.i, label %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit.i, label %if.else5.i.i.i
 
 _ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit.i: ; preds = %if.then4.i
   %idx.neg.i = sub nsw i64 0, %conv.i
-  %add.ptr.i85 = getelementptr inbounds ptr, ptr %stack.sroa.9.2203, i64 %idx.neg.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %stack.sroa.9.2203, ptr nonnull align 8 %add.ptr.i85, i64 %add.ptr.i.idx, i1 false)
-  %add.ptr22.i = getelementptr inbounds ptr, ptr %stack.sroa.9.2203, i64 %conv.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i85, %add.ptr.i.i27
+  %add.ptr.i87 = getelementptr inbounds ptr, ptr %stack.sroa.9.2205, i64 %idx.neg.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %stack.sroa.9.2205, ptr nonnull align 8 %add.ptr.i87, i64 %add.ptr.i.idx, i1 false)
+  %add.ptr22.i = getelementptr inbounds ptr, ptr %stack.sroa.9.2205, i64 %conv.i
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i87, %add.ptr.i.i27
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i85 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i87 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i78
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i86 = getelementptr inbounds ptr, ptr %stack.sroa.9.2203, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i86, ptr align 8 %add.ptr.i.i27, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i88 = getelementptr inbounds ptr, ptr %stack.sroa.9.2205, i64 %.pre.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i88, ptr align 8 %add.ptr.i.i27, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i
 
 _ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i27, ptr align 8 %7, i64 %add.ptr.i.idx, i1 false)
   br label %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit
 
-_ZSt7advanceIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEmEvRT_T0_.exit.i: ; preds = %if.then4.i
+if.else5.i.i.i:                                   ; preds = %if.then4.i
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i.i80, %conv.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt7advanceIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEmEvRT_T0_.exit.i
-  %incdec.ptr.i.i.i83 = getelementptr inbounds ptr, ptr %7, i64 %sub.ptr.div.i.i80
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i83 to i64
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.else5.i.i.i
+  %add.ptr.i.i.i83 = getelementptr inbounds ptr, ptr %7, i64 %sub.ptr.div.i.i80
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i83 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %stack.sroa.9.2203, ptr align 8 %incdec.ptr.i.i.i83, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %stack.sroa.9.2205, ptr align 8 %add.ptr.i.i.i83, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i
 
-_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEmEvRT_T0_.exit.i
-  %tobool.not.i.i.i.i.i.i.i.i.i41.i = icmp eq ptr %stack.sroa.9.2203, %add.ptr.i.i27
+_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.else5.i.i.i
+  %tobool.not.i.i.i.i.i.i.i.i.i41.i = icmp eq ptr %stack.sroa.9.2205, %add.ptr.i.i27
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i41.i, label %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i, label %if.then.i.i.i.i.i.i.i.i.i42.i
 
 if.then.i.i.i.i.i.i.i.i.i42.i:                    ; preds = %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i
   %sub.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i80
-  %add.ptr36.i = getelementptr inbounds ptr, ptr %stack.sroa.9.2203, i64 %sub.i
+  %add.ptr36.i = getelementptr inbounds ptr, ptr %stack.sroa.9.2205, i64 %sub.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr36.i, ptr align 8 %add.ptr.i.i27, i64 %sub.ptr.sub.i.i79, i1 false)
   br label %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i
 
 _ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i42.i, %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i
-  %add.ptr44.i = getelementptr inbounds ptr, ptr %stack.sroa.9.2203, i64 %conv.i
-  %tobool.not.i.i.i.i.i49.i = icmp eq ptr %stack.sroa.9.2203, %add.ptr.i.i27
+  %add.ptr44.i = getelementptr inbounds ptr, ptr %stack.sroa.9.2205, i64 %conv.i
+  %tobool.not.i.i.i.i.i49.i = icmp eq ptr %stack.sroa.9.2205, %add.ptr.i.i27
   br i1 %tobool.not.i.i.i.i.i49.i, label %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit, label %if.then.i.i.i.i.i50.i
 
 if.then.i.i.i.i.i50.i:                            ; preds = %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i
@@ -2215,10 +1931,10 @@ if.then.i.i.i.i.i50.i:                            ; preds = %_ZSt22__uninitializ
 
 if.else50.i:                                      ; preds = %if.then.i69
   %sub.i.i = sub nsw i64 1152921504606846975, %sub.ptr.div.i.i
-  %cmp.i.i87 = icmp ult i64 %sub.i.i, %conv.i
-  br i1 %cmp.i.i87, label %if.then.i.i91, label %_ZNKSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+  %cmp.i.i89 = icmp ult i64 %sub.i.i, %conv.i
+  br i1 %cmp.i.i89, label %if.then.i.i93, label %_ZNKSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
 
-if.then.i.i91:                                    ; preds = %if.else50.i
+if.then.i.i93:                                    ; preds = %if.else50.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #19
   unreachable
 
@@ -2227,10 +1943,10 @@ _ZNKSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i
   %cmp9.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
-  %or.cond.i.i88 = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i88, i64 1152921504606846975, i64 %add.i.i
-  %cmp.not.i.i89 = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i89, label %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIPSt6vectorIPN6hermes5regex4NodeESaIS4_EEEE8allocateERS8_m.exit.i.i
+  %or.cond.i.i90 = or i1 %cmp7.i.i, %cmp9.i.i
+  %cond.i.i = select i1 %or.cond.i.i90, i64 1152921504606846975, i64 %add.i.i
+  %cmp.not.i.i91 = icmp eq i64 %cond.i.i, 0
+  br i1 %cmp.not.i.i91, label %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIPSt6vectorIPN6hermes5regex4NodeESaIS4_EEEE8allocateERS8_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIPSt6vectorIPN6hermes5regex4NodeESaIS4_EEEE8allocateERS8_m.exit.i.i: ; preds = %_ZNKSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
@@ -2240,11 +1956,11 @@ _ZNSt16allocator_traitsISaIPSt6vectorIPN6hermes5regex4NodeESaIS4_EEEE8allocateER
 _ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPSt6vectorIPN6hermes5regex4NodeESaIS4_EEEE8allocateERS8_m.exit.i.i, %_ZNKSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %cond.i58.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaIPSt6vectorIPN6hermes5regex4NodeESaIS4_EEEE8allocateERS8_m.exit.i.i ], [ null, %_ZNKSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59.i = ptrtoint ptr %add.ptr.i.i27 to i64
-  %tobool.not.i.i.i.i.i.i.i.i.i62.i = icmp eq ptr %stack.sroa.9.2203, %stack.sroa.0.2204
+  %tobool.not.i.i.i.i.i.i.i.i.i62.i = icmp eq ptr %stack.sroa.9.2205, %stack.sroa.0.2206
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i62.i, label %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit73.i, label %if.then.i.i.i.i.i.i.i.i.i63.i
 
 if.then.i.i.i.i.i.i.i.i.i63.i:                    ; preds = %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE11_M_allocateEm.exit.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i58.i, ptr align 8 %stack.sroa.0.2204, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i58.i, ptr align 8 %stack.sroa.0.2206, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit73.i
 
 _ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit73.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i63.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE11_M_allocateEm.exit.i
@@ -2252,7 +1968,7 @@ _ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i.i.i.i65.i, ptr align 8 %7, i64 %add.ptr.i.idx, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i72.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i65.i, i64 %conv.i
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i76.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59.i
-  %tobool.not.i.i.i.i.i.i.i.i.i77.i = icmp eq ptr %stack.sroa.9.2203, %add.ptr.i.i27
+  %tobool.not.i.i.i.i.i.i.i.i.i77.i = icmp eq ptr %stack.sroa.9.2205, %add.ptr.i.i27
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i77.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit81.i, label %if.then.i.i.i.i.i.i.i.i.i78.i
 
 if.then.i.i.i.i.i.i.i.i.i78.i:                    ; preds = %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit73.i
@@ -2262,11 +1978,11 @@ if.then.i.i.i.i.i.i.i.i.i78.i:                    ; preds = %_ZSt22__uninitializ
 _ZSt34__uninitialized_move_if_noexcept_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit81.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i78.i, %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit73.i
   %sub.ptr.div.i.i.i.i.i.i.i.i.i79.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i76.i, 3
   %add.ptr.i.i.i.i.i.i.i.i.i80.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i.i.i72.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i79.i
-  %tobool.not.i.i90 = icmp eq ptr %stack.sroa.0.2204, null
-  br i1 %tobool.not.i.i90, label %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i, label %if.then.i82.i
+  %tobool.not.i.i92 = icmp eq ptr %stack.sroa.0.2206, null
+  br i1 %tobool.not.i.i92, label %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i, label %if.then.i82.i
 
 if.then.i82.i:                                    ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit81.i
-  call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.2204) #16
+  call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.2206) #16
   br label %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i
 
 _ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i: ; preds = %if.then.i82.i, %_ZSt34__uninitialized_move_if_noexcept_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit81.i
@@ -2274,34 +1990,34 @@ _ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_dealloc
   br label %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit: ; preds = %for.body, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i, %if.then.i.i.i.i.i50.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i
-  %stack.sroa.26.3 = phi ptr [ %stack.sroa.26.2202, %for.body ], [ %add.ptr76.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i ], [ %stack.sroa.26.2202, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i ], [ %stack.sroa.26.2202, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i ], [ %stack.sroa.26.2202, %if.then.i.i.i.i.i50.i ]
-  %stack.sroa.9.3 = phi ptr [ %stack.sroa.9.2203, %for.body ], [ %add.ptr.i.i.i.i.i.i.i.i.i80.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i ], [ %add.ptr22.i, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i ], [ %add.ptr44.i, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i ], [ %add.ptr44.i, %if.then.i.i.i.i.i50.i ]
-  %stack.sroa.0.3 = phi ptr [ %stack.sroa.0.2204, %for.body ], [ %cond.i58.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i ], [ %stack.sroa.0.2204, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i ], [ %stack.sroa.0.2204, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i ], [ %stack.sroa.0.2204, %if.then.i.i.i.i.i50.i ]
+  %stack.sroa.26.3 = phi ptr [ %stack.sroa.26.2204, %for.body ], [ %add.ptr76.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i ], [ %stack.sroa.26.2204, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i ], [ %stack.sroa.26.2204, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i ], [ %stack.sroa.26.2204, %if.then.i.i.i.i.i50.i ]
+  %stack.sroa.9.3 = phi ptr [ %stack.sroa.9.2205, %for.body ], [ %add.ptr.i.i.i.i.i.i.i.i.i80.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i ], [ %add.ptr22.i, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i ], [ %add.ptr44.i, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i ], [ %add.ptr44.i, %if.then.i.i.i.i.i50.i ]
+  %stack.sroa.0.3 = phi ptr [ %stack.sroa.0.2206, %for.body ], [ %cond.i58.i, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i ], [ %stack.sroa.0.2206, %_ZSt4copyIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EEN9__gnu_cxx17__normal_iteratorIS8_S0_IS7_SaIS7_EEEEET0_T_SF_SE_.exit.i ], [ %stack.sroa.0.2206, %_ZSt22__uninitialized_move_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_SaIS7_EET0_T_SB_SA_RT1_.exit45.i ], [ %stack.sroa.0.2206, %if.then.i.i.i.i.i50.i ]
   store ptr %add.ptr.i.i.i.i.i, ptr %chars, align 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   store i32 5, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp13198 = icmp ult i64 %idx.0205, %sub.ptr.div.i
-  br i1 %cmp13198, label %land.rhs, label %while.end
+  %cmp13200 = icmp ult i64 %idx.0207, %sub.ptr.div.i
+  br i1 %cmp13200, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit, %while.body18
-  %idx.1199 = phi i64 [ %inc, %while.body18 ], [ %idx.0205, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit ]
+  %idx.1201 = phi i64 [ %inc, %while.body18 ], [ %idx.0207, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit ]
   %9 = load ptr, ptr %1, align 8
-  %add.ptr.i28 = getelementptr inbounds ptr, ptr %9, i64 %idx.1199
+  %add.ptr.i28 = getelementptr inbounds ptr, ptr %9, i64 %idx.1201
   %10 = load ptr, ptr %add.ptr.i28, align 8
   %vtable15 = load ptr, ptr %10, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 3
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 24
   %11 = load ptr, ptr %vfn16, align 8
   %call17 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %chars) #15
   br i1 %call17, label %while.body18, label %while.end
 
 while.body18:                                     ; preds = %land.rhs
-  %inc = add i64 %idx.1199, 1
+  %inc = add i64 %idx.1201, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !60
 
 while.end:                                        ; preds = %land.rhs, %while.body18, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit
-  %idx.1.lcssa = phi i64 [ %idx.0205, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit ], [ %sub.ptr.div.i, %while.body18 ], [ %idx.1199, %land.rhs ]
-  %sub = sub i64 %idx.1.lcssa, %idx.0205
+  %idx.1.lcssa = phi i64 [ %idx.0207, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit ], [ %sub.ptr.div.i, %while.body18 ], [ %idx.1201, %land.rhs ]
+  %sub = sub i64 %idx.1.lcssa, %idx.0207
   %cmp19 = icmp ugt i64 %sub, 1
   br i1 %cmp19, label %if.then, label %if.end
 
@@ -2316,19 +2032,19 @@ if.then:                                          ; preds = %while.end
 
 _ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread:  ; preds = %if.then
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
-  %chars_.i240 = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1
-  %add.ptr.i.i.i.i.i.i241 = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1, i32 1
-  store ptr %add.ptr.i.i.i.i.i.i241, ptr %chars_.i240, align 8
-  %Size.i.i.i.i.i.i242 = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i32 0, ptr %Size.i.i.i.i.i.i242, align 8
-  %Capacity2.i.i.i.i.i.i243 = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
-  store i32 5, ptr %Capacity2.i.i.i.i.i.i243, align 4
+  %chars_.i242 = getelementptr inbounds i8, ptr %call21, i64 8
+  %add.ptr.i.i.i.i.i.i243 = getelementptr inbounds i8, ptr %call21, i64 24
+  store ptr %add.ptr.i.i.i.i.i.i243, ptr %chars_.i242, align 8
+  %Size.i.i.i.i.i.i244 = getelementptr inbounds i8, ptr %call21, i64 16
+  store i32 0, ptr %Size.i.i.i.i.i.i244, align 8
+  %Capacity2.i.i.i.i.i.i245 = getelementptr inbounds i8, ptr %call21, i64 20
+  store i32 5, ptr %Capacity2.i.i.i.i.i.i245, align 4
   br label %_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit
 
 if.then.i:                                        ; preds = %if.then
   %13 = load ptr, ptr %chars, align 8
-  %cmp.i.i93 = icmp eq ptr %13, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i93, label %if.end24.i, label %if.end8.i
+  %cmp.i.i95 = icmp eq ptr %13, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.i95, label %if.end24.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then.i
   store ptr %13, ptr %agg.tmp22, align 8
@@ -2341,83 +2057,83 @@ if.end8.i:                                        ; preds = %if.then.i
 
 if.end24.i:                                       ; preds = %if.then.i
   %cmp26.i = icmp ugt i32 %12, 5
-  br i1 %cmp26.i, label %if.end37.i, label %if.then.i.i.i99
+  br i1 %cmp26.i, label %if.end37.i, label %if.then.i.i.i101
 
 if.end37.i:                                       ; preds = %if.end24.i
   %conv.i30.i = zext i32 %12 to i64
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, ptr noundef nonnull %add.ptr.i.i.i.i.i29, i64 noundef %conv.i30.i, i64 noundef 4) #15
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre, 0
-  br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i, label %if.then.i.i.i99
+  br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i, label %if.then.i.i.i101
 
-if.then.i.i.i99:                                  ; preds = %if.end24.i, %if.end37.i
+if.then.i.i.i101:                                 ; preds = %if.end24.i, %if.end37.i
   %15 = phi i32 [ %.pre, %if.end37.i ], [ %12, %if.end24.i ]
   %conv.i51.i = zext i32 %15 to i64
   %16 = load ptr, ptr %chars, align 8
   %17 = load ptr, ptr %agg.tmp22, align 8
-  %add.ptr.i.i100.idx = shl nuw nsw i64 %conv.i51.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 4 %16, i64 %add.ptr.i.i100.idx, i1 false)
+  %add.ptr.i.i102.idx = shl nuw nsw i64 %conv.i51.i, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 4 %16, i64 %add.ptr.i.i102.idx, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i
 
-_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i: ; preds = %if.then.i.i.i99, %if.end37.i
+_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i: ; preds = %if.then.i.i.i101, %if.end37.i
   store i32 %12, ptr %Size.i.i.i.i.i30, align 8
   br label %if.then.i.i32
 
 if.then.i.i32:                                    ; preds = %if.end8.i, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
-  %chars_.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1, i32 1
+  %chars_.i = getelementptr inbounds i8, ptr %call21, i64 8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr %add.ptr.i.i.i.i.i.i, ptr %chars_.i, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call21, i64 16
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call21, i64 20
   store i32 5, ptr %Capacity2.i.i.i.i.i.i, align 4
   %18 = load ptr, ptr %agg.tmp22, align 8
-  %cmp.i.i106 = icmp eq ptr %18, %add.ptr.i.i.i.i.i29
-  br i1 %cmp.i.i106, label %if.end24.i129, label %if.end8.i113
+  %cmp.i.i108 = icmp eq ptr %18, %add.ptr.i.i.i.i.i29
+  br i1 %cmp.i.i108, label %if.end24.i131, label %if.end8.i115
 
-if.end8.i113:                                     ; preds = %if.then.i.i32
+if.end8.i115:                                     ; preds = %if.then.i.i32
   store ptr %18, ptr %chars_.i, align 8
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
   %19 = load i32, ptr %Capacity2.i.i.i.i.i31, align 4
   store i32 %19, ptr %Capacity2.i.i.i.i.i.i, align 4
   store ptr %add.ptr.i.i.i.i.i29, ptr %agg.tmp22, align 8
   store i32 0, ptr %Capacity2.i.i.i.i.i31, align 4
-  br label %_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit150
+  br label %_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit152
 
-if.end24.i129:                                    ; preds = %if.then.i.i32
-  %conv.i30.i120 = zext i32 %12 to i64
-  %cmp26.i131 = icmp ugt i32 %12, 5
-  br i1 %cmp26.i131, label %if.end37.i136, label %if.then.i.i.i140
+if.end24.i131:                                    ; preds = %if.then.i.i32
+  %conv.i30.i122 = zext i32 %12 to i64
+  %cmp26.i133 = icmp ugt i32 %12, 5
+  br i1 %cmp26.i133, label %if.end37.i138, label %if.then.i.i.i142
 
-if.end37.i136:                                    ; preds = %if.end24.i129
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chars_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i120, i64 noundef 4) #15
-  %.pre227 = load i32, ptr %Size.i.i.i.i.i30, align 8
-  %.pre238 = zext i32 %.pre227 to i64
-  %cmp.not.i.i.i139 = icmp eq i32 %.pre227, 0
-  br i1 %cmp.not.i.i.i139, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i147, label %if.then.i.i.i140
+if.end37.i138:                                    ; preds = %if.end24.i131
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chars_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i122, i64 noundef 4) #15
+  %.pre229 = load i32, ptr %Size.i.i.i.i.i30, align 8
+  %.pre240 = zext i32 %.pre229 to i64
+  %cmp.not.i.i.i141 = icmp eq i32 %.pre229, 0
+  br i1 %cmp.not.i.i.i141, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i149, label %if.then.i.i.i142
 
-if.then.i.i.i140:                                 ; preds = %if.end24.i129, %if.end37.i136
-  %conv.i51.i138.pre-phi247 = phi i64 [ %.pre238, %if.end37.i136 ], [ %conv.i30.i120, %if.end24.i129 ]
+if.then.i.i.i142:                                 ; preds = %if.end24.i131, %if.end37.i138
+  %conv.i51.i140.pre-phi249 = phi i64 [ %.pre240, %if.end37.i138 ], [ %conv.i30.i122, %if.end24.i131 ]
   %20 = load ptr, ptr %agg.tmp22, align 8
   %21 = load ptr, ptr %chars_.i, align 8
-  %add.ptr.i.i141.idx = shl nuw nsw i64 %conv.i51.i138.pre-phi247, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 4 %20, i64 %add.ptr.i.i141.idx, i1 false)
-  br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i147
+  %add.ptr.i.i143.idx = shl nuw nsw i64 %conv.i51.i140.pre-phi249, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 4 %20, i64 %add.ptr.i.i143.idx, i1 false)
+  br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i149
 
-_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i147: ; preds = %if.then.i.i.i140, %if.end37.i136
+_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i149: ; preds = %if.then.i.i.i142, %if.end37.i138
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
-  br label %_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit150
+  br label %_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit152
 
-_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit150:      ; preds = %if.end8.i113, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i147
+_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit152:      ; preds = %if.end8.i115, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i149
   store i32 0, ptr %Size.i.i.i.i.i30, align 8
   br label %_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit
 
-_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit: ; preds = %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread, %_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit150
-  %icase_.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 2
+_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit: ; preds = %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread, %_ZN4llvh15SmallVectorImplIjEaSEOS1_.exit152
+  %icase_.i = getelementptr inbounds i8, ptr %call21, i64 48
   store i8 %bf.clear.i, ptr %icase_.i, align 8
-  %unicode_.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %call21, i64 0, i32 3
+  %unicode_.i = getelementptr inbounds i8, ptr %call21, i64 49
   store i8 %.lobit.i, ptr %unicode_.i, align 1
   %22 = load ptr, ptr %_M_finish.i33, align 8
   %23 = load ptr, ptr %_M_end_of_storage.i, align 8
@@ -2427,63 +2143,63 @@ _ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.
 if.then.i34:                                      ; preds = %_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit
   store ptr %call21, ptr %22, align 8
   %24 = load ptr, ptr %_M_finish.i33, align 8
-  %incdec.ptr.i35 = getelementptr inbounds %"class.std::unique_ptr.131", ptr %24, i64 1
+  %incdec.ptr.i35 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %incdec.ptr.i35, ptr %_M_finish.i33, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit
 
 if.else.i:                                        ; preds = %_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit
   %25 = load ptr, ptr %nodeHolder, align 8
-  %sub.ptr.lhs.cast.i.i.i152 = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i.i.i153 = ptrtoint ptr %25 to i64
-  %sub.ptr.sub.i.i.i154 = sub i64 %sub.ptr.lhs.cast.i.i.i152, %sub.ptr.rhs.cast.i.i.i153
-  %cmp.i.i155 = icmp eq i64 %sub.ptr.sub.i.i.i154, 9223372036854775800
-  br i1 %cmp.i.i155, label %if.then.i.i175, label %_ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+  %sub.ptr.lhs.cast.i.i.i154 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i.i.i155 = ptrtoint ptr %25 to i64
+  %sub.ptr.sub.i.i.i156 = sub i64 %sub.ptr.lhs.cast.i.i.i154, %sub.ptr.rhs.cast.i.i.i155
+  %cmp.i.i157 = icmp eq i64 %sub.ptr.sub.i.i.i156, 9223372036854775800
+  br i1 %cmp.i.i157, label %if.then.i.i177, label %_ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
 
-if.then.i.i175:                                   ; preds = %if.else.i
+if.then.i.i177:                                   ; preds = %if.else.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #19
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
-  %sub.ptr.div.i.i.i156 = ashr exact i64 %sub.ptr.sub.i.i.i154, 3
-  %.sroa.speculated.i.i157 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i156, i64 1)
-  %add.i.i158 = add i64 %.sroa.speculated.i.i157, %sub.ptr.div.i.i.i156
-  %cmp7.i.i159 = icmp ult i64 %add.i.i158, %sub.ptr.div.i.i.i156
-  %cmp9.i.i160 = icmp ugt i64 %add.i.i158, 1152921504606846975
-  %or.cond.i.i161 = or i1 %cmp7.i.i159, %cmp9.i.i160
-  %cond.i.i162 = select i1 %or.cond.i.i161, i64 1152921504606846975, i64 %add.i.i158
-  %cmp.not.i.i166 = icmp eq i64 %cond.i.i162, 0
-  br i1 %cmp.not.i.i166, label %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i
+  %sub.ptr.div.i.i.i158 = ashr exact i64 %sub.ptr.sub.i.i.i156, 3
+  %.sroa.speculated.i.i159 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i158, i64 1)
+  %add.i.i160 = add i64 %.sroa.speculated.i.i159, %sub.ptr.div.i.i.i158
+  %cmp7.i.i161 = icmp ult i64 %add.i.i160, %sub.ptr.div.i.i.i158
+  %cmp9.i.i162 = icmp ugt i64 %add.i.i160, 1152921504606846975
+  %or.cond.i.i163 = or i1 %cmp7.i.i161, %cmp9.i.i162
+  %cond.i.i164 = select i1 %or.cond.i.i163, i64 1152921504606846975, i64 %add.i.i160
+  %cmp.not.i.i168 = icmp eq i64 %cond.i.i164, 0
+  br i1 %cmp.not.i.i168, label %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %mul.i.i.i.i167 = shl nuw nsw i64 %cond.i.i162, 3
-  %call5.i.i.i.i168 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i167) #18
+  %mul.i.i.i.i169 = shl nuw nsw i64 %cond.i.i164, 3
+  %call5.i.i.i.i170 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i169) #18
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ %call5.i.i.i.i168, %_ZNSt16allocator_traitsISaISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ]
-  %add.ptr.i169 = getelementptr inbounds %"class.std::unique_ptr.131", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i156
-  store ptr %call21, ptr %add.ptr.i169, align 8
+  %cond.i10.i = phi ptr [ %call5.i.i.i.i170, %_ZNSt16allocator_traitsISaISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ]
+  %add.ptr.i171 = getelementptr inbounds %"class.std::unique_ptr.131", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i158
+  store ptr %call21, ptr %add.ptr.i171, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %25, %22
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i170
+  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i172
 
-for.body.i.i.i.i170:                              ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i170
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i170 ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i170 ], [ %25, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
+for.body.i.i.i.i172:                              ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i172
+  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i172 ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i172 ], [ %25, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %26 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !64, !noalias !61
   store i64 %26, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !61, !noalias !64
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !64, !noalias !61
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i171 = icmp eq ptr %incdec.ptr.i.i.i.i, %22
-  br i1 %cmp.not.i.i.i.i171, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i170, !llvm.loop !51
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
+  %cmp.not.i.i.i.i173 = icmp eq ptr %incdec.ptr.i.i.i.i, %22
+  br i1 %cmp.not.i.i.i.i173, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i172, !llvm.loop !51
 
-_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i170, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i170 ]
-  %incdec.ptr.i172 = getelementptr %"class.std::unique_ptr.131", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i173 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i173, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %if.then.i20.i
+_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i172, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
+  %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i172 ]
+  %incdec.ptr.i174 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %tobool.not.i.i175 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i175, label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i
   call void @_ZdlPv(ptr noundef nonnull %25) #16
@@ -2491,32 +2207,32 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, %if.then.i20.i
   store ptr %cond.i10.i, ptr %nodeHolder, align 8
-  store ptr %incdec.ptr.i172, ptr %_M_finish.i33, align 8
-  %add.ptr19.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %cond.i10.i, i64 %cond.i.i162
+  store ptr %incdec.ptr.i174, ptr %_M_finish.i33, align 8
+  %add.ptr19.i = getelementptr inbounds %"class.std::unique_ptr.131", ptr %cond.i10.i, i64 %cond.i.i164
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit: ; preds = %if.then.i34, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit
-  %27 = phi ptr [ %incdec.ptr.i35, %if.then.i34 ], [ %incdec.ptr.i172, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit ]
+  %27 = phi ptr [ %incdec.ptr.i35, %if.then.i34 ], [ %incdec.ptr.i174, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit ]
   %28 = load ptr, ptr %agg.tmp22, align 8
   %cmp.i.i.i = icmp eq ptr %28, %add.ptr.i.i.i.i.i29
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIjLj5EED2Ev.exit, label %if.then.i.i37
 
 if.then.i.i37:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit
   call void @free(ptr noundef %28) #15
-  %.pre228 = load ptr, ptr %_M_finish.i33, align 8
+  %.pre230 = load ptr, ptr %_M_finish.i33, align 8
   br label %_ZN4llvh11SmallVectorIjLj5EED2Ev.exit
 
 _ZN4llvh11SmallVectorIjLj5EED2Ev.exit:            ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit, %if.then.i.i37
-  %29 = phi ptr [ %27, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit ], [ %.pre228, %if.then.i.i37 ]
-  %add.ptr.i.i39 = getelementptr inbounds %"class.std::unique_ptr.131", ptr %29, i64 -1
+  %29 = phi ptr [ %27, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit ], [ %.pre230, %if.then.i.i37 ]
+  %add.ptr.i.i39 = getelementptr inbounds i8, ptr %29, i64 -8
   %30 = load ptr, ptr %add.ptr.i.i39, align 8
   %31 = load ptr, ptr %1, align 8
-  %add.ptr.i40 = getelementptr inbounds ptr, ptr %31, i64 %idx.0205
+  %add.ptr.i40 = getelementptr inbounds ptr, ptr %31, i64 %idx.0207
   store ptr %30, ptr %add.ptr.i40, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr ptr, ptr %32, i64 %idx.0205
-  %add.ptr.i41 = getelementptr ptr, ptr %33, i64 1
+  %33 = getelementptr ptr, ptr %32, i64 %idx.0207
+  %add.ptr.i41 = getelementptr i8, ptr %33, i64 8
   %add.ptr.i42 = getelementptr inbounds ptr, ptr %32, i64 %idx.1.lcssa
   %cmp.not3.i.i.i.i = icmp eq ptr %add.ptr.i41, %add.ptr.i42
   br i1 %cmp.not3.i.i.i.i, label %if.end, label %for.body.preheader.i.i.i.i
@@ -2553,20 +2269,20 @@ _ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit: ; 
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !66
 
 for.end.loopexit:                                 ; preds = %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit
-  %.pre229 = load ptr, ptr %1, align 8
-  %.pre230 = load ptr, ptr %_M_finish.i24, align 8
-  %.pre233 = ptrtoint ptr %.pre230 to i64
-  %.pre234 = ptrtoint ptr %.pre229 to i64
+  %.pre231 = load ptr, ptr %1, align 8
+  %.pre232 = load ptr, ptr %_M_finish.i24, align 8
+  %.pre235 = ptrtoint ptr %.pre232 to i64
+  %.pre236 = ptrtoint ptr %.pre231 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %while.body
-  %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi = phi i64 [ %.pre234, %for.end.loopexit ], [ %sub.ptr.lhs.cast.i, %while.body ]
-  %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi = phi i64 [ %.pre233, %for.end.loopexit ], [ %sub.ptr.lhs.cast.i, %while.body ]
-  %37 = phi ptr [ %.pre230, %for.end.loopexit ], [ %2, %while.body ]
-  %38 = phi ptr [ %.pre229, %for.end.loopexit ], [ %2, %while.body ]
-  %stack.sroa.26.2.lcssa = phi ptr [ %stack.sroa.26.3, %for.end.loopexit ], [ %stack.sroa.26.1217, %while.body ]
+  %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi = phi i64 [ %.pre236, %for.end.loopexit ], [ %sub.ptr.lhs.cast.i, %while.body ]
+  %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi = phi i64 [ %.pre235, %for.end.loopexit ], [ %sub.ptr.lhs.cast.i, %while.body ]
+  %37 = phi ptr [ %.pre232, %for.end.loopexit ], [ %2, %while.body ]
+  %38 = phi ptr [ %.pre231, %for.end.loopexit ], [ %2, %while.body ]
+  %stack.sroa.26.2.lcssa = phi ptr [ %stack.sroa.26.3, %for.end.loopexit ], [ %stack.sroa.26.1219, %while.body ]
   %stack.sroa.9.2.lcssa = phi ptr [ %stack.sroa.9.3, %for.end.loopexit ], [ %add.ptr.i.i, %while.body ]
-  %stack.sroa.0.2.lcssa = phi ptr [ %stack.sroa.0.3, %for.end.loopexit ], [ %stack.sroa.0.1219, %while.body ]
+  %stack.sroa.0.2.lcssa = phi ptr [ %stack.sroa.0.3, %for.end.loopexit ], [ %stack.sroa.0.1221, %while.body ]
   %sub.ptr.sub.i.i.i.i.i53 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi
   %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i53, 5
   %cmp44.i.i.i.i = icmp sgt i64 %shr.i.i.i.i, 0
@@ -2585,25 +2301,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end22.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 8
   %41 = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i9.i.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.i9.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit, label %if.end10.i.i.i.i
 
 if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i10.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 16
   %42 = load ptr, ptr %incdec.ptr.i10.i.i.i.i, align 8
   %cmp.i11.i.i.i.i = icmp eq ptr %42, null
-  br i1 %cmp.i11.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit251, label %if.end16.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253, label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
-  %incdec.ptr.i12.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 24
   %43 = load ptr, ptr %incdec.ptr.i12.i.i.i.i, align 8
   %cmp.i13.i.i.i.i = icmp eq ptr %43, null
-  br i1 %cmp.i13.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253, label %if.end22.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit255, label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
-  %incdec.ptr.i14.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 4
+  %incdec.ptr.i14.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 32
   %dec.i.i.i.i = add nsw i64 %__trip_count.046.i.i.i.i, -1
   %cmp.i.i.i.i56 = icmp sgt i64 %__trip_count.046.i.i.i.i, 1
   br i1 %cmp.i.i.i.i56, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !67
@@ -2629,7 +2345,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i19.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i, label %if.end29.i.i.i.i
 
 if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 8
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
@@ -2639,7 +2355,7 @@ sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %
   br i1 %cmp.i21.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i, label %if.end36.i.i.i.i
 
 if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
-  %incdec.ptr.i22.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i22.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 8
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
@@ -2650,21 +2366,21 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 8
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit251: ; preds = %if.end10.i.i.i.i
-  %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 2
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253: ; preds = %if.end10.i.i.i.i
+  %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253: ; preds = %if.end16.i.i.i.i
-  %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.sroa.0.045.i.i.i.i, i64 3
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit255: ; preds = %if.end16.i.i.i.i
+  %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.045.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i: ; preds = %for.body.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit251, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit251 ], [ %incdec.ptr.i12.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253 ], [ %__first.sroa.0.045.i.i.i.i, %for.body.i.i.i.i ]
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i: ; preds = %for.body.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit255, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit253 ], [ %incdec.ptr.i12.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i.loopexit.split.loop.exit255 ], [ %__first.sroa.0.045.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i.i54 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %37
-  %__first.sroa.0.024.i.i = getelementptr inbounds ptr, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 1
+  %__first.sroa.0.024.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 8
   %cmp.i1.not25.i.i = icmp eq ptr %__first.sroa.0.024.i.i, %37
   %or.cond.i.i = select i1 %cmp.i.i.i54, i1 true, i1 %cmp.i1.not25.i.i
   br i1 %or.cond.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit, label %for.body.i.i
@@ -2678,29 +2394,29 @@ for.body.i.i:                                     ; preds = %_ZSt9__find_ifIN9__
 
 if.then15.i.i:                                    ; preds = %for.body.i.i
   store ptr %47, ptr %retval.sroa.0.026.i.i, align 8
-  %incdec.ptr.i3.i.i = getelementptr inbounds ptr, ptr %retval.sroa.0.026.i.i, i64 1
+  %incdec.ptr.i3.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.026.i.i, i64 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then15.i.i, %for.body.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.026.i.i, %for.body.i.i ], [ %incdec.ptr.i3.i.i, %if.then15.i.i ]
-  %__first.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.027.i.i, i64 1
+  %__first.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.027.i.i, i64 8
   %cmp.i1.not.i.i = icmp eq ptr %__first.sroa.0.0.i.i, %37
   br i1 %cmp.i1.not.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit, label %for.body.i.i, !llvm.loop !68
 
 _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit: ; preds = %for.inc.i.i
-  %.pre231 = load ptr, ptr %_M_finish.i24, align 8
-  %.pre232 = load ptr, ptr %1, align 8
-  %.pre235 = ptrtoint ptr %.pre232 to i64
-  %.pre236 = ptrtoint ptr %.pre231 to i64
-  %.pre237 = sub i64 %.pre236, %.pre235
+  %.pre233 = load ptr, ptr %_M_finish.i24, align 8
+  %.pre234 = load ptr, ptr %1, align 8
+  %.pre237 = ptrtoint ptr %.pre234 to i64
+  %.pre238 = ptrtoint ptr %.pre233 to i64
+  %.pre239 = sub i64 %.pre238, %.pre237
   br label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit
 
 _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit: ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit, %for.end.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i
-  %sub.ptr.sub.i3.i.pre-phi = phi i64 [ %.pre237, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %sub.ptr.sub.i.i.i.i.i53, %for.end.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i53, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
-  %sub.ptr.lhs.cast.i1.i.pre-phi = phi i64 [ %.pre236, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi, %for.end.i.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
-  %sub.ptr.rhs.cast.i.i59.pre-phi = phi i64 [ %.pre235, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi, %for.end.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
-  %48 = phi ptr [ %.pre232, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %38, %for.end.i.i.i.i ], [ %38, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
-  %49 = phi ptr [ %.pre231, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %37, %for.end.i.i.i.i ], [ %37, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
+  %sub.ptr.sub.i3.i.pre-phi = phi i64 [ %.pre239, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %sub.ptr.sub.i.i.i.i.i53, %for.end.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i53, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
+  %sub.ptr.lhs.cast.i1.i.pre-phi = phi i64 [ %.pre238, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi, %for.end.i.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i51.pre-phi, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
+  %sub.ptr.rhs.cast.i.i59.pre-phi = phi i64 [ %.pre237, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi, %for.end.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i52.pre-phi, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
+  %48 = phi ptr [ %.pre234, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %38, %for.end.i.i.i.i ], [ %38, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
+  %49 = phi ptr [ %.pre233, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %37, %for.end.i.i.i.i ], [ %37, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
   %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.1.i.i, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEEDnET_SB_SB_RKT0_.exit.loopexit ], [ %37, %for.end.i.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i ]
   %sub.ptr.lhs.cast.i.i58 = ptrtoint ptr %retval.sroa.0.2.i.i to i64
   %sub.ptr.sub.i.i60 = sub i64 %sub.ptr.lhs.cast.i.i58, %sub.ptr.rhs.cast.i.i59.pre-phi
@@ -2795,9 +2511,9 @@ define linkonce_odr hidden void @_ZN6hermes5regex4Node11getChildrenEv(ptr noalia
 entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %agg.result, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1, ptr %Capacity2.i.i.i.i.i, align 4
   ret void
 }
@@ -2841,7 +2557,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex8GoalNode8emitStepERNS0_
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bcs, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bcs, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %bcs, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2879,9 +2595,9 @@ entry:
   br i1 %cmp.not, label %if.end70, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -3025,9 +2741,9 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex13MatchCharNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chars_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIjLj5EED2Ev.exit, label %if.then.i.i
 
@@ -3042,9 +2758,9 @@ _ZN4llvh11SmallVectorIjLj5EED2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex13MatchCharNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %chars_.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chars_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes5regex13MatchCharNodeD2Ev.exit, label %if.then.i.i.i
 
@@ -3060,20 +2776,20 @@ _ZN6hermes5regex13MatchCharNodeD2Ev.exit:         ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6hermes5regex13MatchCharNode26matchesExactlyOneCharacterEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %Size.i, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %chars_, align 8
   %2 = load i32, ptr %1, align 4
   %cmp.i.i = icmp ult i32 %2, 65536
   br i1 %cmp.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %land.rhs
-  %unicode_.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 3
+  %unicode_.i = getelementptr inbounds i8, ptr %this, i64 49
   %3 = load i8, ptr %unicode_.i, align 1
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
@@ -3092,16 +2808,16 @@ land.end:                                         ; preds = %land.lhs.true.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6hermes5regex13MatchCharNode21tryCoalesceCharactersEPN4llvh11SmallVectorIjLj5EEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %output) unnamed_addr #0 comdat align 2 {
 entry:
-  %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chars_, align 8
-  %Size.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %output, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %output, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %output, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %3 = load i32, ptr %Size.i.i, align 8
   %conv.i5.i = zext i32 %3 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
@@ -3138,9 +2854,9 @@ _ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %if.end.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i8 @_ZNK6hermes5regex13MatchCharNode16matchConstraintsEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chars_, align 8
-  %Size.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %conv.i
@@ -3160,25 +2876,25 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   br i1 %cmp.i8, label %if.end.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 4
   %3 = load i32, ptr %incdec.ptr.i.i.i.i, align 4
   %cmp.i7 = icmp ult i32 %3, 128
   br i1 %cmp.i7, label %if.end3.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %incdec.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 8
   %4 = load i32, ptr %incdec.ptr4.i.i.i.i, align 4
   %cmp.i6 = icmp ult i32 %4, 128
   br i1 %cmp.i6, label %if.end7.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit21
 
 if.end7.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
-  %incdec.ptr8.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 3
+  %incdec.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 12
   %5 = load i32, ptr %incdec.ptr8.i.i.i.i, align 4
   %cmp.i5 = icmp ult i32 %5, 128
   br i1 %cmp.i5, label %if.end11.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit23
 
 if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
-  %incdec.ptr12.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 4
+  %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 16
   %dec.i.i.i.i = add nsw i64 %__trip_count.056.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.056.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !70
@@ -3204,7 +2920,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i4, label %if.end19.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr20.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i, i64 4
   br label %sw.bb21.i.i.i.i
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %for.end.i.i.i.i
@@ -3214,7 +2930,7 @@ sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %
   br i1 %cmp.i3, label %if.end24.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
-  %incdec.ptr25.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.1.i.i.i.i, i64 1
+  %incdec.ptr25.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i, i64 4
   br label %sw.bb26.i.i.i.i
 
 sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %for.end.i.i.i.i
@@ -3227,15 +2943,15 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb26.i.i.i.i, %f
   br label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 4
   br label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit21: ; preds = %if.end3.i.i.i.i
-  %incdec.ptr4.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 8
   br label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit23: ; preds = %if.end7.i.i.i.i
-  %incdec.ptr8.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i, i64 3
+  %incdec.ptr8.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 12
   br label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit:              ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit21, %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit23, %sw.bb.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb26.i.i.i.i, %sw.default.i.i.i.i
@@ -3248,14 +2964,14 @@ _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit:              ; preds = %for.body.i.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex13MatchCharNode15reverseChildrenEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chars_, align 8
-  %Size.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %conv.i
   %cmp.i.i = icmp ne i32 %1, 0
-  %__last.addr.08.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 -1
+  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %0
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %_ZSt7reverseIPjEvT_S1_.exit
@@ -3267,8 +2983,8 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %3 = load i32, ptr %__last.addr.011.i.i, align 4
   store i32 %3, ptr %__first.addr.010.i.i, align 4
   store i32 %2, ptr %__last.addr.011.i.i, align 4
-  %incdec.ptr2.i.i = getelementptr inbounds i32, ptr %__first.addr.010.i.i, i64 1
-  %__last.addr.0.i.i = getelementptr inbounds i32, ptr %__last.addr.011.i.i, i64 -1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i, i64 4
+  %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -4
   %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
   br i1 %cmp1.i.i, label %while.body.i.i, label %_ZSt7reverseIPjEvT_S1_.exit, !llvm.loop !71
 
@@ -3279,14 +2995,14 @@ _ZSt7reverseIPjEvT_S1_.exit:                      ; preds = %while.body.i.i, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6hermes5regex13MatchCharNode8emitStepERNS0_19RegexBytecodeStreamE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(25) %bcs) unnamed_addr #0 comdat align 2 {
 entry:
-  %Size.i.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %Size.i.i, align 8
   %cmp.i91 = icmp eq i32 %0, 0
   br i1 %cmp.i91, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
   %conv.i.i = zext i32 %0 to i64
-  %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 1
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %chars_, align 8
   br label %while.body
 
@@ -3312,25 +3028,25 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i60, label %if.end.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 4
   %4 = load i32, ptr %incdec.ptr.i.i.i.i.i, align 4
   %cmp.i59 = icmp ult i32 %4, 128
   br i1 %cmp.i59, label %if.end3.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit
 
 if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
-  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 8
   %5 = load i32, ptr %incdec.ptr4.i.i.i.i.i, align 4
   %cmp.i58 = icmp ult i32 %5, 128
   br i1 %cmp.i58, label %if.end7.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit103
 
 if.end7.i.i.i.i.i:                                ; preds = %if.end3.i.i.i.i.i
-  %incdec.ptr8.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 3
+  %incdec.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 12
   %6 = load i32, ptr %incdec.ptr8.i.i.i.i.i, align 4
   %cmp.i57 = icmp ult i32 %6, 128
   br i1 %cmp.i57, label %if.end11.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit105
 
 if.end11.i.i.i.i.i:                               ; preds = %if.end7.i.i.i.i.i
-  %incdec.ptr12.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 4
+  %incdec.ptr12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i = add nsw i64 %__trip_count.056.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__trip_count.056.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i, !llvm.loop !70
@@ -3356,7 +3072,7 @@ sw.bb.i.i.i.i.i:                                  ; preds = %for.end.i.i.i.i.i
   br i1 %cmp.i56, label %if.end19.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 if.end19.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
-  %incdec.ptr20.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr20.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i.i, i64 4
   br label %sw.bb21.i.i.i.i.i
 
 sw.bb21.i.i.i.i.i:                                ; preds = %if.end19.i.i.i.i.i, %for.end.i.i.i.i.i
@@ -3366,7 +3082,7 @@ sw.bb21.i.i.i.i.i:                                ; preds = %if.end19.i.i.i.i.i,
   br i1 %cmp.i55, label %if.end24.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 if.end24.i.i.i.i.i:                               ; preds = %sw.bb21.i.i.i.i.i
-  %incdec.ptr25.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.1.i.i.i.i.i, i64 1
+  %incdec.ptr25.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.i, i64 4
   br label %sw.bb26.i.i.i.i.i
 
 sw.bb26.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i.i, %for.end.i.i.i.i.i
@@ -3379,15 +3095,15 @@ sw.default.i.i.i.i.i:                             ; preds = %sw.bb26.i.i.i.i.i, 
   br label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 4
   br label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit103: ; preds = %if.end3.i.i.i.i.i
-  %incdec.ptr4.i.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 8
   br label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit105: ; preds = %if.end7.i.i.i.i.i
-  %incdec.ptr8.i.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.addr.055.i.i.i.i.i, i64 3
+  %incdec.ptr8.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i, i64 12
   br label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit: ; preds = %for.body.i.i.i.i.i, %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit, %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit103, %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit.loopexit.split.loop.exit105, %sw.bb.i.i.i.i.i, %sw.bb21.i.i.i.i.i, %sw.bb26.i.i.i.i.i, %sw.default.i.i.i.i.i
@@ -3411,25 +3127,25 @@ for.body.i.i.i.i.i29:                             ; preds = %_ZNK4llvh8ArrayRefI
   br i1 %cmp.i67, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %if.end.i.i.i.i.i31
 
 if.end.i.i.i.i.i31:                               ; preds = %for.body.i.i.i.i.i29
-  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 4
   %12 = load i32, ptr %incdec.ptr.i.i.i.i.i32, align 4
   %cmp.i66 = icmp ult i32 %12, 128
   br i1 %cmp.i66, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit, label %if.end3.i.i.i.i.i34
 
 if.end3.i.i.i.i.i34:                              ; preds = %if.end.i.i.i.i.i31
-  %incdec.ptr4.i.i.i.i.i35 = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 8
   %13 = load i32, ptr %incdec.ptr4.i.i.i.i.i35, align 4
   %cmp.i65 = icmp ult i32 %13, 128
   br i1 %cmp.i65, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit111, label %if.end7.i.i.i.i.i36
 
 if.end7.i.i.i.i.i36:                              ; preds = %if.end3.i.i.i.i.i34
-  %incdec.ptr8.i.i.i.i.i37 = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 3
+  %incdec.ptr8.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 12
   %14 = load i32, ptr %incdec.ptr8.i.i.i.i.i37, align 4
   %cmp.i64 = icmp ult i32 %14, 128
   br i1 %cmp.i64, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit113, label %if.end11.i.i.i.i.i39
 
 if.end11.i.i.i.i.i39:                             ; preds = %if.end7.i.i.i.i.i36
-  %incdec.ptr12.i.i.i.i.i40 = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 4
+  %incdec.ptr12.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i41 = add nsw i64 %__trip_count.050.i.i.i.i.i, -1
   %cmp.i.i.i.i.i42 = icmp sgt i64 %__trip_count.050.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i42, label %for.body.i.i.i.i.i29, label %for.end.loopexit.i.i.i.i.i43, !llvm.loop !72
@@ -3455,7 +3171,7 @@ sw.bb.i.i.i.i.i26:                                ; preds = %for.end.i.i.i.i.i8
   br i1 %cmp.i63, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %if.end19.i.i.i.i.i27
 
 if.end19.i.i.i.i.i27:                             ; preds = %sw.bb.i.i.i.i.i26
-  %incdec.ptr20.i.i.i.i.i28 = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i.i.i.i.i10, i64 1
+  %incdec.ptr20.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i.i10, i64 4
   br label %sw.bb21.i.i.i.i.i21
 
 sw.bb21.i.i.i.i.i21:                              ; preds = %if.end19.i.i.i.i.i27, %for.end.i.i.i.i.i8
@@ -3465,7 +3181,7 @@ sw.bb21.i.i.i.i.i21:                              ; preds = %if.end19.i.i.i.i.i2
   br i1 %cmp.i62, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %if.end24.i.i.i.i.i24
 
 if.end24.i.i.i.i.i24:                             ; preds = %sw.bb21.i.i.i.i.i21
-  %incdec.ptr25.i.i.i.i.i25 = getelementptr inbounds i32, ptr %__first.addr.1.i.i.i.i.i22, i64 1
+  %incdec.ptr25.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.i22, i64 4
   br label %sw.bb26.i.i.i.i.i11
 
 sw.bb26.i.i.i.i.i11:                              ; preds = %if.end24.i.i.i.i.i24, %for.end.i.i.i.i.i8
@@ -3478,15 +3194,15 @@ sw.default.i.i.i.i.i13:                           ; preds = %sw.bb26.i.i.i.i.i11
   br label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i.i31
-  %incdec.ptr.i.i.i.i.i32.le = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i32.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 4
   br label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit111: ; preds = %if.end3.i.i.i.i.i34
-  %incdec.ptr4.i.i.i.i.i35.le = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i35.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 8
   br label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit113: ; preds = %if.end7.i.i.i.i.i36
-  %incdec.ptr8.i.i.i.i.i37.le = getelementptr inbounds i32, ptr %__first.addr.049.i.i.i.i.i, i64 3
+  %incdec.ptr8.i.i.i.i.i37.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 12
   br label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit
 
 _ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit: ; preds = %for.body.i.i.i.i.i29, %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit, %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit111, %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit.loopexit.split.loop.exit113, %sw.bb.i.i.i.i.i26, %sw.bb21.i.i.i.i.i21, %sw.bb26.i.i.i.i.i11, %sw.default.i.i.i.i.i13
@@ -3516,9 +3232,9 @@ entry:
   br i1 %cmp119, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %icase_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bcs, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bcs, i64 0, i32 2
+  %icase_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bcs, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %bcs, i64 16
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %_ZN6hermes5regex19RegexBytecodeStream9emitChar8Ec.exit
@@ -3583,7 +3299,6 @@ if.then.i.i.i21:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_20MatchNCharICase8InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_20MatchNCharICase8InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %conv.i20
-  %charCount = getelementptr inbounds %"struct.hermes::regex::MatchNCharICase8Insn", ptr %add.ptr.i.i.i, i64 0, i32 1
   br label %for.body.preheader
 
 if.else:                                          ; preds = %while.body
@@ -3632,12 +3347,12 @@ if.then.i.i.i45:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15MatchNChar8InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15MatchNChar8InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i46 = getelementptr inbounds i8, ptr %13, i64 %conv.i39
-  %charCount15 = getelementptr inbounds %"struct.hermes::regex::MatchNChar8Insn", ptr %add.ptr.i.i.i46, i64 0, i32 1
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_20MatchNCharICase8InsnEEptEv.exit, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15MatchNChar8InsnEEptEv.exit
-  %charCount.sink = phi ptr [ %charCount, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_20MatchNCharICase8InsnEEptEv.exit ], [ %charCount15, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15MatchNChar8InsnEEptEv.exit ]
-  store i8 %conv11, ptr %charCount.sink, align 1
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_20MatchNCharICase8InsnEEptEv.exit ], [ %add.ptr.i.i.i46, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15MatchNChar8InsnEEptEv.exit ]
+  %charCount = getelementptr inbounds i8, ptr %add.ptr.i.i.i.sink, i64 1
+  store i8 %conv11, ptr %charCount, align 1
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %for.body
 
@@ -3712,7 +3427,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 
 _ZN6hermes5regex19RegexBytecodeStream9emitChar8Ec.exit: ; preds = %if.then.i.i.i49, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
   %19 = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i49 ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %__begin3.0118, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0118, i64 4
   %cmp18.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp18.not, label %while.cond.loopexit, label %for.body
 
@@ -3724,8 +3439,8 @@ while.end:                                        ; preds = %while.cond.loopexit
   br i1 %cmp23.not123, label %for.end43, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %while.end
-  %icase_26 = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 2
-  %_M_finish.i.i53 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bcs, i64 0, i32 1
+  %icase_26 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i53 = getelementptr inbounds i8, ptr %bcs, i64 8
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc41
@@ -3783,7 +3498,6 @@ if.then.i.i.i75:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19MatchCharICase8InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_19MatchCharICase8InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %28, i64 %conv.i69
-  %c33 = getelementptr inbounds %"struct.hermes::regex::MatchCharICase8Insn", ptr %add.ptr.i.i.i76, i64 0, i32 1
   br label %for.inc41
 
 if.else34:                                        ; preds = %for.body24
@@ -3832,13 +3546,13 @@ if.then.i.i.i100:                                 ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14MatchChar8InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14MatchChar8InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i101 = getelementptr inbounds i8, ptr %34, i64 %conv.i94
-  %c39 = getelementptr inbounds %"struct.hermes::regex::MatchChar8Insn", ptr %add.ptr.i.i.i101, i64 0, i32 1
   br label %for.inc41
 
 for.inc41:                                        ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19MatchCharICase8InsnEEptEv.exit, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14MatchChar8InsnEEptEv.exit
-  %c33.sink = phi ptr [ %c33, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19MatchCharICase8InsnEEptEv.exit ], [ %c39, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14MatchChar8InsnEEptEv.exit ]
-  store i8 %conv35, ptr %c33.sink, align 1
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %__begin2.0124, i64 1
+  %add.ptr.i.i.i76.sink = phi ptr [ %add.ptr.i.i.i76, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19MatchCharICase8InsnEEptEv.exit ], [ %add.ptr.i.i.i101, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14MatchChar8InsnEEptEv.exit ]
+  %c33 = getelementptr inbounds i8, ptr %add.ptr.i.i.i76.sink, i64 1
+  store i8 %conv35, ptr %c33, align 1
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %__begin2.0124, i64 4
   %cmp23.not = icmp eq ptr %incdec.ptr42, %add.ptr.i51
   br i1 %cmp23.not, label %for.end43, label %for.body24
 
@@ -3858,9 +3572,9 @@ entry:
   br i1 %cmp.not93, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %unicode_.i = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 3
-  %icase_13 = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this, i64 0, i32 2
-  %_M_finish.i.i40 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bcs, i64 0, i32 1
+  %unicode_.i = getelementptr inbounds i8, ptr %this, i64 49
+  %icase_13 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i40 = getelementptr inbounds i8, ptr %bcs, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3930,7 +3644,7 @@ if.then.i.i.i13:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_23U16MatchCharICase32InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_23U16MatchCharICase32InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 %conv.i12
-  %c7 = getelementptr inbounds %"struct.hermes::regex::U16MatchCharICase32Insn", ptr %add.ptr.i.i.i, i64 0, i32 1
+  %c7 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
   store i32 %0, ptr %c7, align 1
   br label %for.inc
 
@@ -3980,7 +3694,7 @@ if.then.i.i.i37:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_18U16MatchChar32InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_18U16MatchChar32InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %17, i64 %conv.i31
-  %c11 = getelementptr inbounds %"struct.hermes::regex::U16MatchChar32Insn", ptr %add.ptr.i.i.i38, i64 0, i32 1
+  %c11 = getelementptr inbounds i8, ptr %add.ptr.i.i.i38, i64 1
   store i32 %0, ptr %c11, align 1
   br label %for.inc
 
@@ -4037,7 +3751,7 @@ if.then.i.i.i62:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_20MatchCharICase16InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_20MatchCharICase16InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i63 = getelementptr inbounds i8, ptr %25, i64 %conv.i56
-  %c19 = getelementptr inbounds %"struct.hermes::regex::MatchCharICase16Insn", ptr %add.ptr.i.i.i63, i64 0, i32 1
+  %c19 = getelementptr inbounds i8, ptr %add.ptr.i.i.i63, i64 1
   store i16 %conv21, ptr %c19, align 1
   br label %for.inc
 
@@ -4087,12 +3801,12 @@ if.then.i.i.i87:                                  ; preds = %_ZN6hermes5regex19R
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15MatchChar16InsnEEptEv.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15MatchChar16InsnEEENS1_18InstructionWrapperIT_EEv.exit
   %add.ptr.i.i.i88 = getelementptr inbounds i8, ptr %31, i64 %conv.i81
-  %c25 = getelementptr inbounds %"struct.hermes::regex::MatchChar16Insn", ptr %add.ptr.i.i.i88, i64 0, i32 1
+  %c25 = getelementptr inbounds i8, ptr %add.ptr.i.i.i88, i64 1
   store i16 %conv21, ptr %c25, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_18U16MatchChar32InsnEEptEv.exit, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_23U16MatchCharICase32InsnEEptEv.exit, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15MatchChar16InsnEEptEv.exit, %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_20MatchCharICase16InsnEEptEv.exit
-  %incdec.ptr = getelementptr inbounds i32, ptr %__begin2.094, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.094, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -4107,7 +3821,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap.104", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -4848,7 +4562,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %NumEntries = getelementptr inbounds %"class.llvh::DenseMap.104", ptr %this, i64 0, i32 1
+  %NumEntries = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4863,14 +4577,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %NewNumBuckets.0 = phi i32 [ %.sroa.speculated, %if.then ], [ 0, %entry ]
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap.104", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %NumBuckets, align 8
   %cmp = icmp eq i32 %NewNumBuckets.0, %2
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   store i32 0, ptr %NumEntries, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.104", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load ptr, ptr %this, align 8
   %idx.ext.i.i = zext nneg i32 %NewNumBuckets.0 to i64
@@ -4883,7 +4597,7 @@ for.body.i:                                       ; preds = %if.then4, %for.body
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.127", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !82
 
@@ -4916,7 +4630,7 @@ if.then.i:                                        ; preds = %if.end5
   %call.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i4.i) #17
   store ptr %call.i.i, ptr %this, align 8
   store i32 0, ptr %NumEntries, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.104", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %6 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %6 to i64
@@ -4929,7 +4643,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.127", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !82
 
@@ -4947,10 +4661,10 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE19_M_destroy_data_auxESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node2 = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %__last, i64 0, i32 3
-  %__node.034 = getelementptr inbounds ptr, ptr %0, i64 1
+  %_M_node2 = getelementptr inbounds i8, ptr %__last, i64 24
+  %__node.034 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_node2, align 8
   %cmp35 = icmp ult ptr %__node.034, %1
   br i1 %cmp35, label %for.body, label %for.end
@@ -4978,7 +4692,7 @@ _ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4llvh11SmallVectorIDsLj5EEES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !83
 
 _ZSt8_DestroyIPN4llvh11SmallVectorIDsLj5EEES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.036, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.036, i64 8
   %4 = load ptr, ptr %_M_node2, align 8
   %cmp = icmp ult ptr %__node.0, %4
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !84
@@ -4995,7 +4709,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp7.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %7 = load ptr, ptr %_M_last, align 8
   %cmp.not3.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN4llvh11SmallVectorIDsLj5EEES2_EvT_S4_RSaIT0_E.exit12, label %for.body.i.i.i4
@@ -5012,12 +4726,12 @@ if.then.i.i.i.i.i.i8:                             ; preds = %for.body.i.i.i4
   br label %_ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i9
 
 _ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i9: ; preds = %if.then.i.i.i.i.i.i8, %for.body.i.i.i4
-  %incdec.ptr.i.i.i10 = getelementptr inbounds %"class.llvh::SmallVector.117", ptr %__first.addr.04.i.i.i5, i64 1
+  %incdec.ptr.i.i.i10 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 32
   %cmp.not.i.i.i11 = icmp eq ptr %incdec.ptr.i.i.i10, %7
   br i1 %cmp.not.i.i.i11, label %_ZSt8_DestroyIPN4llvh11SmallVectorIDsLj5EEES2_EvT_S4_RSaIT0_E.exit12, label %for.body.i.i.i4, !llvm.loop !83
 
 _ZSt8_DestroyIPN4llvh11SmallVectorIDsLj5EEES2_EvT_S4_RSaIT0_E.exit12: ; preds = %_ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i9, %if.then
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.103", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %9 = load ptr, ptr %_M_first, align 8
   %10 = load ptr, ptr %__last, align 8
   %cmp.not3.i.i.i13 = icmp eq ptr %9, %10
@@ -5035,7 +4749,7 @@ if.then.i.i.i.i.i.i18:                            ; preds = %for.body.i.i.i14
   br label %_ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i19
 
 _ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i19: ; preds = %if.then.i.i.i.i.i.i18, %for.body.i.i.i14
-  %incdec.ptr.i.i.i20 = getelementptr inbounds %"class.llvh::SmallVector.117", ptr %__first.addr.04.i.i.i15, i64 1
+  %incdec.ptr.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i15, i64 32
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i20, %10
   br i1 %cmp.not.i.i.i21, label %if.end, label %for.body.i.i.i14, !llvm.loop !83
 
@@ -5056,7 +4770,7 @@ if.then.i.i.i.i.i.i28:                            ; preds = %for.body.i.i.i24
   br label %_ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i29
 
 _ZSt8_DestroyIN4llvh11SmallVectorIDsLj5EEEEvPT_.exit.i.i.i29: ; preds = %if.then.i.i.i.i.i.i28, %for.body.i.i.i24
-  %incdec.ptr.i.i.i30 = getelementptr inbounds %"class.llvh::SmallVector.117", ptr %__first.addr.04.i.i.i25, i64 1
+  %incdec.ptr.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i25, i64 32
   %cmp.not.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i30, %12
   br i1 %cmp.not.i.i.i31, label %if.end, label %for.body.i.i.i24, !llvm.loop !83
 
@@ -5073,8 +4787,8 @@ entry:
   %agg.tmp3.i.i = alloca %"class.std::reverse_iterator", align 8
   %stack = alloca %"class.std::vector.88", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %stack, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %nodes, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %stack, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %nodes, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !85
   %1 = load ptr, ptr %nodes, align 8, !noalias !88
   %2 = ptrtoint ptr %0 to i64
@@ -5093,10 +4807,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %6 = phi ptr [ %15, %if.end ], [ %5, %entry ]
-  %add.ptr.i.i6 = getelementptr inbounds ptr, ptr %6, i64 -1
+  %add.ptr.i.i6 = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load ptr, ptr %add.ptr.i.i6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %8 = load ptr, ptr %vfn, align 8
   %call8 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(25) %bcs) #15
   %tobool.not = icmp eq ptr %call8, null
@@ -5104,7 +4818,7 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %_M_finish.i.i8 = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %call8, i64 0, i32 1
+  %_M_finish.i.i8 = getelementptr inbounds i8, ptr %call8, i64 8
   %10 = load ptr, ptr %_M_finish.i.i8, align 8, !noalias !91
   %11 = load ptr, ptr %call8, align 8, !noalias !94
   %12 = load ptr, ptr %stack, align 8
@@ -5126,7 +4840,7 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %9, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
@@ -5159,9 +4873,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -5315,9 +5029,9 @@ if.then:                                          ; preds = %entry
   %1 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %1, %0
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
@@ -5331,7 +5045,7 @@ if.then5:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp11 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i
-  br i1 %cmp11, label %_ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit
+  br i1 %cmp11, label %_ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %if.else5.i.i
 
 _ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %if.then5
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i.i
@@ -5368,31 +5082,31 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %agg.tmp.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %for.body.i.i.i.i.preheader.i ]
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.preheader.i ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__position.coerce, %for.body.i.i.i.i.preheader.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 -8
   %7 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i, align 8
   store ptr %7, ptr %__result.addr.06.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end90, !llvm.loop !98
 
-_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit: ; preds = %if.then5
+if.else5.i.i:                                     ; preds = %if.then5
   %idx.neg.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
-  %8 = ptrtoint ptr %incdec.ptr.i.i.i.i to i64
+  %add.ptr.i.i.i.i22 = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
+  %8 = ptrtoint ptr %add.ptr.i.i.i.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i23 = sub i64 %8, %0
   %sub.ptr.div.i.i.i.i.i.i.i.i.i24 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i23, 3
   %cmp5.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i24, 0
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit
 
-for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit, %for.body.i.i.i.i.i.i.i.i
-  %agg.tmp.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
-  %__n.07.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i.i.i24, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
-  %__result.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %3, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
-  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i, i64 -1
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.else5.i.i, %for.body.i.i.i.i.i.i.i.i
+  %agg.tmp.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i22, %if.else5.i.i ]
+  %__n.07.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i.i.i24, %if.else5.i.i ]
+  %__result.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %3, %if.else5.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i, i64 -8
   %9 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, align 8
   store ptr %9, ptr %__result.addr.06.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, !llvm.loop !98
@@ -5401,8 +5115,8 @@ _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   %.pre = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit
-  %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %3, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
+_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %if.else5.i.i
+  %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %3, %if.else5.i.i ]
   %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
   %add.ptr42 = getelementptr inbounds ptr, ptr %10, i64 %sub
   store ptr %add.ptr42, ptr %_M_finish, align 8
@@ -5432,10 +5146,10 @@ for.body.i.i.i.i.i43:                             ; preds = %for.body.i.i.i.i.i4
   %agg.tmp.sroa.0.0.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i.i47, %for.body.i.i.i.i.i43 ], [ %13, %for.body.i.i.i.i.preheader.i42 ]
   %__n.07.i.i.i.i.i45 = phi i64 [ %dec.i.i.i.i.i49, %for.body.i.i.i.i.i43 ], [ %sub.ptr.div.i.i.i.i.i.i34, %for.body.i.i.i.i.preheader.i42 ]
   %__result.addr.06.i.i.i.i.i46 = phi ptr [ %incdec.ptr.i.i.i.i.i48, %for.body.i.i.i.i.i43 ], [ %__position.coerce, %for.body.i.i.i.i.preheader.i42 ]
-  %incdec.ptr.i.i.i.i.i.i47 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i44, i64 -1
+  %incdec.ptr.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i44, i64 -8
   %14 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i47, align 8
   store ptr %14, ptr %__result.addr.06.i.i.i.i.i46, align 8
-  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i46, i64 1
+  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i46, i64 8
   %dec.i.i.i.i.i49 = add nsw i64 %__n.07.i.i.i.i.i45, -1
   %cmp.i.i.i.i.i50 = icmp ugt i64 %__n.07.i.i.i.i.i45, 1
   br i1 %cmp.i.i.i.i.i50, label %for.body.i.i.i.i.i43, label %if.end90, !llvm.loop !98
@@ -5489,10 +5203,10 @@ for.body.i.i.i.i.i.i.i.i66:                       ; preds = %_ZSt34__uninitializ
   %agg.tmp.sroa.0.0.i.i.i.i.i.i.i67 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i70, %for.body.i.i.i.i.i.i.i.i66 ], [ %retval.sroa.0.0.copyload.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %__n.07.i.i.i.i.i.i.i.i68 = phi i64 [ %dec.i.i.i.i.i.i.i.i72, %for.body.i.i.i.i.i.i.i.i66 ], [ %sub.ptr.div.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %__result.addr.06.i.i.i.i.i.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i71, %for.body.i.i.i.i.i.i.i.i66 ], [ %add.ptr.i.i.i.i.i.i.i.i.i60, %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
-  %incdec.ptr.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i67, i64 -1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i67, i64 -8
   %16 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i70, align 8
   store ptr %16, ptr %__result.addr.06.i.i.i.i.i.i.i.i69, align 8
-  %incdec.ptr.i.i.i.i.i.i.i.i71 = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i.i.i.i69, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i69, i64 8
   %dec.i.i.i.i.i.i.i.i72 = add nsw i64 %__n.07.i.i.i.i.i.i.i.i68, -1
   %cmp.i.i.i.i.i.i.i.i73 = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i68, 1
   br i1 %cmp.i.i.i.i.i.i.i.i73, label %for.body.i.i.i.i.i.i.i.i66, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit74, !llvm.loop !98
@@ -5541,9 +5255,9 @@ if.then:                                          ; preds = %entry
   %1 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %1, %0
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::Node *, std::allocator<hermes::regex::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
@@ -5557,7 +5271,7 @@ if.then5:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp11 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i
-  br i1 %cmp11, label %_ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit
+  br i1 %cmp11, label %_ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %if.else5.i.i
 
 _ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %if.then5
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i.i
@@ -5594,31 +5308,31 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %agg.tmp.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %for.body.i.i.i.i.preheader.i ]
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.preheader.i ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__position.coerce, %for.body.i.i.i.i.preheader.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 -8
   %7 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i, align 8
   store ptr %7, ptr %__result.addr.06.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end90, !llvm.loop !99
 
-_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit: ; preds = %if.then5
+if.else5.i.i:                                     ; preds = %if.then5
   %idx.neg.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
-  %8 = ptrtoint ptr %incdec.ptr.i.i.i.i to i64
+  %add.ptr.i.i.i.i22 = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
+  %8 = ptrtoint ptr %add.ptr.i.i.i.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i23 = sub i64 %8, %0
   %sub.ptr.div.i.i.i.i.i.i.i.i.i24 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i23, 3
   %cmp5.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i24, 0
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit
 
-for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit, %for.body.i.i.i.i.i.i.i.i
-  %agg.tmp.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
-  %__n.07.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i.i.i24, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
-  %__result.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %3, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
-  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i, i64 -1
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.else5.i.i, %for.body.i.i.i.i.i.i.i.i
+  %agg.tmp.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i22, %if.else5.i.i ]
+  %__n.07.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i.i.i24, %if.else5.i.i ]
+  %__result.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %3, %if.else5.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i, i64 -8
   %9 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, align 8
   store ptr %9, ptr %__result.addr.06.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, !llvm.loop !99
@@ -5627,8 +5341,8 @@ _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   %.pre = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit
-  %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %3, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEmEvRT_T0_.exit ]
+_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %if.else5.i.i
+  %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %3, %if.else5.i.i ]
   %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
   %add.ptr42 = getelementptr inbounds ptr, ptr %10, i64 %sub
   store ptr %add.ptr42, ptr %_M_finish, align 8
@@ -5658,10 +5372,10 @@ for.body.i.i.i.i.i43:                             ; preds = %for.body.i.i.i.i.i4
   %agg.tmp.sroa.0.0.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i.i47, %for.body.i.i.i.i.i43 ], [ %13, %for.body.i.i.i.i.preheader.i42 ]
   %__n.07.i.i.i.i.i45 = phi i64 [ %dec.i.i.i.i.i49, %for.body.i.i.i.i.i43 ], [ %sub.ptr.div.i.i.i.i.i.i34, %for.body.i.i.i.i.preheader.i42 ]
   %__result.addr.06.i.i.i.i.i46 = phi ptr [ %incdec.ptr.i.i.i.i.i48, %for.body.i.i.i.i.i43 ], [ %__position.coerce, %for.body.i.i.i.i.preheader.i42 ]
-  %incdec.ptr.i.i.i.i.i.i47 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i44, i64 -1
+  %incdec.ptr.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i44, i64 -8
   %14 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i47, align 8
   store ptr %14, ptr %__result.addr.06.i.i.i.i.i46, align 8
-  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i46, i64 1
+  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i46, i64 8
   %dec.i.i.i.i.i49 = add nsw i64 %__n.07.i.i.i.i.i45, -1
   %cmp.i.i.i.i.i50 = icmp ugt i64 %__n.07.i.i.i.i.i45, 1
   br i1 %cmp.i.i.i.i.i50, label %for.body.i.i.i.i.i43, label %if.end90, !llvm.loop !99
@@ -5715,10 +5429,10 @@ for.body.i.i.i.i.i.i.i.i66:                       ; preds = %_ZSt34__uninitializ
   %agg.tmp.sroa.0.0.i.i.i.i.i.i.i67 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i70, %for.body.i.i.i.i.i.i.i.i66 ], [ %retval.sroa.0.0.copyload.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %__n.07.i.i.i.i.i.i.i.i68 = phi i64 [ %dec.i.i.i.i.i.i.i.i72, %for.body.i.i.i.i.i.i.i.i66 ], [ %sub.ptr.div.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %__result.addr.06.i.i.i.i.i.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i71, %for.body.i.i.i.i.i.i.i.i66 ], [ %add.ptr.i.i.i.i.i.i.i.i.i60, %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
-  %incdec.ptr.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i67, i64 -1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i67, i64 -8
   %16 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i70, align 8
   store ptr %16, ptr %__result.addr.06.i.i.i.i.i.i.i.i69, align 8
-  %incdec.ptr.i.i.i.i.i.i.i.i71 = getelementptr inbounds ptr, ptr %__result.addr.06.i.i.i.i.i.i.i.i69, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i69, i64 8
   %dec.i.i.i.i.i.i.i.i72 = add nsw i64 %__n.07.i.i.i.i.i.i.i.i68, -1
   %cmp.i.i.i.i.i.i.i.i73 = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i68, 1
   br i1 %cmp.i.i.i.i.i.i.i.i73, label %for.body.i.i.i.i.i.i.i.i66, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit74, !llvm.loop !99
@@ -5761,7 +5475,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit
@@ -6938,7 +6652,7 @@ return:                                           ; preds = %_ZNSt7variantIJN6he
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr readonly %node.48.val) unnamed_addr #0 align 2 {
 entry:
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node.48.val, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node.48.val, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %0, 33
   %tobool.not1.i = icmp eq ptr %node.48.val, null
@@ -6946,7 +6660,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_value.i = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %node.48.val, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %node.48.val, i64 48
   %1 = load ptr, ptr %_value.i, align 8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -6965,7 +6679,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %return
@@ -7206,8 +6920,8 @@ sw.default:                                       ; preds = %if.end
   unreachable
 
 sw.bb4:                                           ; preds = %if.end
-  %_body.i = getelementptr inbounds %"class.hermes::ESTree::ProgramNode", ptr %node, i64 0, i32 2
-  %__begin4.sroa.0.0.in3.i = getelementptr inbounds %"class.hermes::ESTree::ProgramNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_body.i = getelementptr inbounds i8, ptr %node, i64 88
+  %__begin4.sroa.0.0.in3.i = getelementptr inbounds i8, ptr %node, i64 96
   %__begin4.sroa.0.04.i = load ptr, ptr %__begin4.sroa.0.0.in3.i, align 8
   %cmp.i.not5.i = icmp eq ptr %__begin4.sroa.0.04.i, %_body.i
   br i1 %cmp.i.not5.i, label %return, label %for.body.i
@@ -7215,7 +6929,7 @@ sw.bb4:                                           ; preds = %if.end
 for.body.i:                                       ; preds = %sw.bb4, %for.body.i
   %__begin4.sroa.0.06.i = phi ptr [ %__begin4.sroa.0.0.i, %for.body.i ], [ %__begin4.sroa.0.04.i, %sw.bb4 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i)
-  %__begin4.sroa.0.0.in.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i, i64 8
   %__begin4.sroa.0.0.i = load ptr, ptr %__begin4.sroa.0.0.in.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.sroa.0.0.i, %_body.i
   br i1 %cmp.i.not.i, label %return, label %for.body.i
@@ -7257,8 +6971,8 @@ sw.bb22:                                          ; preds = %if.end
   br label %return
 
 sw.bb28:                                          ; preds = %if.end
-  %_body.i465 = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %node, i64 0, i32 2
-  %__begin4.sroa.0.0.in3.i534 = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_body.i465 = getelementptr inbounds i8, ptr %node, i64 56
+  %__begin4.sroa.0.0.in3.i534 = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.sroa.0.04.i535 = load ptr, ptr %__begin4.sroa.0.0.in3.i534, align 8
   %cmp.i.not5.i536 = icmp eq ptr %__begin4.sroa.0.04.i535, %_body.i465
   br i1 %cmp.i.not5.i536, label %return, label %for.body.i537
@@ -7266,31 +6980,31 @@ sw.bb28:                                          ; preds = %if.end
 for.body.i537:                                    ; preds = %sw.bb28, %for.body.i537
   %__begin4.sroa.0.06.i538 = phi ptr [ %__begin4.sroa.0.0.i540, %for.body.i537 ], [ %__begin4.sroa.0.04.i535, %sw.bb28 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i538)
-  %__begin4.sroa.0.0.in.i539 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i538, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i539 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i538, i64 8
   %__begin4.sroa.0.0.i540 = load ptr, ptr %__begin4.sroa.0.0.in.i539, align 8
   %cmp.i.not.i541 = icmp eq ptr %__begin4.sroa.0.0.i540, %_body.i465
   br i1 %cmp.i.not.i541, label %return, label %for.body.i537
 
 sw.bb30:                                          ; preds = %if.end
-  %_label.i = getelementptr inbounds %"class.hermes::ESTree::BreakStatementNode", ptr %node, i64 0, i32 2
+  %_label.i = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_label.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %_label.i466 = getelementptr inbounds %"class.hermes::ESTree::ContinueStatementNode", ptr %node, i64 0, i32 2
+  %_label.i466 = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_label.i466, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   br label %return
 
 sw.bb34:                                          ; preds = %if.end
-  %_argument.i = getelementptr inbounds %"class.hermes::ESTree::ThrowStatementNode", ptr %node, i64 0, i32 1
+  %_argument.i = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_argument.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   br label %return
 
 sw.bb36:                                          ; preds = %if.end
-  %_argument.i469 = getelementptr inbounds %"class.hermes::ESTree::ReturnStatementNode", ptr %node, i64 0, i32 1
+  %_argument.i469 = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_argument.i469, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   br label %return
@@ -7308,7 +7022,7 @@ sw.bb42:                                          ; preds = %if.end
   br label %return
 
 sw.bb44:                                          ; preds = %if.end
-  %_expression.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %node, i64 0, i32 1
+  %_expression.i = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load ptr, ptr %_expression.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %5)
   br label %return
@@ -7322,8 +7036,8 @@ sw.bb48:                                          ; preds = %if.end
   br label %return
 
 sw.bb66:                                          ; preds = %if.end
-  %_expressions.i = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i543 = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_expressions.i = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i543 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i544 = load ptr, ptr %__begin4.sroa.0.0.in3.i543, align 8
   %cmp.i.not5.i545 = icmp eq ptr %__begin4.sroa.0.04.i544, %_expressions.i
   br i1 %cmp.i.not5.i545, label %return, label %for.body.i546
@@ -7331,14 +7045,14 @@ sw.bb66:                                          ; preds = %if.end
 for.body.i546:                                    ; preds = %sw.bb66, %for.body.i546
   %__begin4.sroa.0.06.i547 = phi ptr [ %__begin4.sroa.0.0.i549, %for.body.i546 ], [ %__begin4.sroa.0.04.i544, %sw.bb66 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i547)
-  %__begin4.sroa.0.0.in.i548 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i547, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i548 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i547, i64 8
   %__begin4.sroa.0.0.i549 = load ptr, ptr %__begin4.sroa.0.0.in.i548, align 8
   %cmp.i.not.i550 = icmp eq ptr %__begin4.sroa.0.0.i549, %_expressions.i
   br i1 %cmp.i.not.i550, label %return, label %for.body.i546
 
 sw.bb68:                                          ; preds = %if.end
-  %_properties.i = getelementptr inbounds %"class.hermes::ESTree::ObjectExpressionNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i552 = getelementptr inbounds %"class.hermes::ESTree::ObjectExpressionNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_properties.i = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i552 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i553 = load ptr, ptr %__begin4.sroa.0.0.in3.i552, align 8
   %cmp.i.not5.i554 = icmp eq ptr %__begin4.sroa.0.04.i553, %_properties.i
   br i1 %cmp.i.not5.i554, label %return, label %for.body.i555
@@ -7346,14 +7060,14 @@ sw.bb68:                                          ; preds = %if.end
 for.body.i555:                                    ; preds = %sw.bb68, %for.body.i555
   %__begin4.sroa.0.06.i556 = phi ptr [ %__begin4.sroa.0.0.i558, %for.body.i555 ], [ %__begin4.sroa.0.04.i553, %sw.bb68 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i556)
-  %__begin4.sroa.0.0.in.i557 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i556, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i557 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i556, i64 8
   %__begin4.sroa.0.0.i558 = load ptr, ptr %__begin4.sroa.0.0.in.i557, align 8
   %cmp.i.not.i559 = icmp eq ptr %__begin4.sroa.0.0.i558, %_properties.i
   br i1 %cmp.i.not.i559, label %return, label %for.body.i555
 
 sw.bb70:                                          ; preds = %if.end
-  %_elements.i = getelementptr inbounds %"class.hermes::ESTree::ArrayExpressionNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrayExpressionNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_elements.i = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not8.i = icmp eq ptr %__begin4.i.sroa.0.07.i, %_elements.i
   br i1 %cmp.i.not8.i, label %return, label %for.body.i.i
@@ -7361,13 +7075,13 @@ sw.bb70:                                          ; preds = %if.end
 for.body.i.i:                                     ; preds = %sw.bb70, %for.body.i.i
   %__begin4.i.sroa.0.09.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.07.i, %sw.bb70 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i)
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i561 = icmp eq ptr %__begin4.i.sroa.0.0.i, %_elements.i
   br i1 %cmp.i.not.i561, label %return, label %for.body.i.i
 
 sw.bb72:                                          ; preds = %if.end
-  %_argument.i472 = getelementptr inbounds %"class.hermes::ESTree::SpreadElementNode", ptr %node, i64 0, i32 1
+  %_argument.i472 = getelementptr inbounds i8, ptr %node, i64 48
   %6 = load ptr, ptr %_argument.i472, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %6)
   br label %return
@@ -7377,13 +7091,13 @@ sw.bb74:                                          ; preds = %if.end
   br label %return
 
 sw.bb76:                                          ; preds = %if.end
-  %_argument.i562 = getelementptr inbounds %"class.hermes::ESTree::YieldExpressionNode", ptr %node, i64 0, i32 1
+  %_argument.i562 = getelementptr inbounds i8, ptr %node, i64 48
   %7 = load ptr, ptr %_argument.i562, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %7)
   br label %return
 
 sw.bb78:                                          ; preds = %if.end
-  %_argument.i474 = getelementptr inbounds %"class.hermes::ESTree::AwaitExpressionNode", ptr %node, i64 0, i32 1
+  %_argument.i474 = getelementptr inbounds i8, ptr %node, i64 48
   %8 = load ptr, ptr %_argument.i474, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %8)
   br label %return
@@ -7405,13 +7119,13 @@ sw.bb86:                                          ; preds = %if.end
   br label %return
 
 sw.bb88:                                          ; preds = %if.end
-  %_argument.i563 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %node, i64 0, i32 2
+  %_argument.i563 = getelementptr inbounds i8, ptr %node, i64 56
   %9 = load ptr, ptr %_argument.i563, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %9)
   br label %return
 
 sw.bb90:                                          ; preds = %if.end
-  %_argument.i564 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 2
+  %_argument.i564 = getelementptr inbounds i8, ptr %node, i64 56
   %10 = load ptr, ptr %_argument.i564, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %10)
   br label %return
@@ -7437,19 +7151,19 @@ sw.bb100:                                         ; preds = %if.end
   br label %return
 
 sw.bb102:                                         ; preds = %if.end
-  %_value.i = getelementptr inbounds %"class.hermes::ESTree::DirectiveNode", ptr %node, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %node, i64 48
   %11 = load ptr, ptr %_value.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %11)
   br label %return
 
 sw.bb106:                                         ; preds = %if.end
-  %_typeAnnotation.i565 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation.i565 = getelementptr inbounds i8, ptr %node, i64 56
   %12 = load ptr, ptr %_typeAnnotation.i565, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %12)
   br label %return
 
 sw.bb108:                                         ; preds = %if.end
-  %_id.i = getelementptr inbounds %"class.hermes::ESTree::PrivateNameNode", ptr %node, i64 0, i32 1
+  %_id.i = getelementptr inbounds i8, ptr %node, i64 48
   %13 = load ptr, ptr %_id.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %13)
   br label %return
@@ -7471,8 +7185,8 @@ sw.bb116:                                         ; preds = %if.end
   br label %return
 
 sw.bb118:                                         ; preds = %if.end
-  %_declarations.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %node, i64 0, i32 2
-  %__begin4.sroa.0.0.in3.i566 = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_declarations.i = getelementptr inbounds i8, ptr %node, i64 56
+  %__begin4.sroa.0.0.in3.i566 = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.sroa.0.04.i567 = load ptr, ptr %__begin4.sroa.0.0.in3.i566, align 8
   %cmp.i.not5.i568 = icmp eq ptr %__begin4.sroa.0.04.i567, %_declarations.i
   br i1 %cmp.i.not5.i568, label %return, label %for.body.i569
@@ -7480,7 +7194,7 @@ sw.bb118:                                         ; preds = %if.end
 for.body.i569:                                    ; preds = %sw.bb118, %for.body.i569
   %__begin4.sroa.0.06.i570 = phi ptr [ %__begin4.sroa.0.0.i572, %for.body.i569 ], [ %__begin4.sroa.0.04.i567, %sw.bb118 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i570)
-  %__begin4.sroa.0.0.in.i571 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i570, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i571 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i570, i64 8
   %__begin4.sroa.0.0.i572 = load ptr, ptr %__begin4.sroa.0.0.in.i571, align 8
   %cmp.i.not.i573 = icmp eq ptr %__begin4.sroa.0.0.i572, %_declarations.i
   br i1 %cmp.i.not.i573, label %return, label %for.body.i569
@@ -7506,8 +7220,8 @@ sw.bb130:                                         ; preds = %if.end
   br label %return
 
 sw.bb132:                                         ; preds = %if.end
-  %_body.i478 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i575 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_body.i478 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i575 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i576 = load ptr, ptr %__begin4.sroa.0.0.in3.i575, align 8
   %cmp.i.not5.i577 = icmp eq ptr %__begin4.sroa.0.04.i576, %_body.i478
   br i1 %cmp.i.not5.i577, label %return, label %for.body.i578
@@ -7515,7 +7229,7 @@ sw.bb132:                                         ; preds = %if.end
 for.body.i578:                                    ; preds = %sw.bb132, %for.body.i578
   %__begin4.sroa.0.06.i579 = phi ptr [ %__begin4.sroa.0.0.i581, %for.body.i578 ], [ %__begin4.sroa.0.04.i576, %sw.bb132 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i579)
-  %__begin4.sroa.0.0.in.i580 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i579, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i580 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i579, i64 8
   %__begin4.sroa.0.0.i581 = load ptr, ptr %__begin4.sroa.0.0.in.i580, align 8
   %cmp.i.not.i582 = icmp eq ptr %__begin4.sroa.0.0.i581, %_body.i478
   br i1 %cmp.i.not.i582, label %return, label %for.body.i578
@@ -7541,13 +7255,13 @@ sw.bb142:                                         ; preds = %if.end
   br label %return
 
 sw.bb144:                                         ; preds = %if.end
-  %_local.i = getelementptr inbounds %"class.hermes::ESTree::ImportDefaultSpecifierNode", ptr %node, i64 0, i32 1
+  %_local.i = getelementptr inbounds i8, ptr %node, i64 48
   %14 = load ptr, ptr %_local.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %14)
   br label %return
 
 sw.bb146:                                         ; preds = %if.end
-  %_local.i480 = getelementptr inbounds %"class.hermes::ESTree::ImportNamespaceSpecifierNode", ptr %node, i64 0, i32 1
+  %_local.i480 = getelementptr inbounds i8, ptr %node, i64 48
   %15 = load ptr, ptr %_local.i480, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %15)
   br label %return
@@ -7565,19 +7279,19 @@ sw.bb152:                                         ; preds = %if.end
   br label %return
 
 sw.bb154:                                         ; preds = %if.end
-  %_exported.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamespaceSpecifierNode", ptr %node, i64 0, i32 1
+  %_exported.i = getelementptr inbounds i8, ptr %node, i64 48
   %16 = load ptr, ptr %_exported.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %16)
   br label %return
 
 sw.bb156:                                         ; preds = %if.end
-  %_declaration.i = getelementptr inbounds %"class.hermes::ESTree::ExportDefaultDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration.i = getelementptr inbounds i8, ptr %node, i64 48
   %17 = load ptr, ptr %_declaration.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %17)
   br label %return
 
 sw.bb158:                                         ; preds = %if.end
-  %_source.i = getelementptr inbounds %"class.hermes::ESTree::ExportAllDeclarationNode", ptr %node, i64 0, i32 1
+  %_source.i = getelementptr inbounds i8, ptr %node, i64 48
   %18 = load ptr, ptr %_source.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %18)
   br label %return
@@ -7591,7 +7305,7 @@ sw.bb162:                                         ; preds = %if.end
   br label %return
 
 sw.bb164:                                         ; preds = %if.end
-  %_argument.i485 = getelementptr inbounds %"class.hermes::ESTree::RestElementNode", ptr %node, i64 0, i32 1
+  %_argument.i485 = getelementptr inbounds i8, ptr %node, i64 48
   %19 = load ptr, ptr %_argument.i485, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %19)
   br label %return
@@ -7609,13 +7323,13 @@ sw.bb172:                                         ; preds = %if.end
   br label %return
 
 sw.bb176:                                         ; preds = %if.end
-  %_expression.i487 = getelementptr inbounds %"class.hermes::ESTree::JSXExpressionContainerNode", ptr %node, i64 0, i32 1
+  %_expression.i487 = getelementptr inbounds i8, ptr %node, i64 48
   %20 = load ptr, ptr %_expression.i487, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %20)
   br label %return
 
 sw.bb178:                                         ; preds = %if.end
-  %_expression.i489 = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadChildNode", ptr %node, i64 0, i32 1
+  %_expression.i489 = getelementptr inbounds i8, ptr %node, i64 48
   %21 = load ptr, ptr %_expression.i489, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %21)
   br label %return
@@ -7625,7 +7339,7 @@ sw.bb180:                                         ; preds = %if.end
   br label %return
 
 sw.bb182:                                         ; preds = %if.end
-  %_name.i = getelementptr inbounds %"class.hermes::ESTree::JSXClosingElementNode", ptr %node, i64 0, i32 1
+  %_name.i = getelementptr inbounds i8, ptr %node, i64 48
   %22 = load ptr, ptr %_name.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %22)
   br label %return
@@ -7635,7 +7349,7 @@ sw.bb184:                                         ; preds = %if.end
   br label %return
 
 sw.bb186:                                         ; preds = %if.end
-  %_argument.i492 = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadAttributeNode", ptr %node, i64 0, i32 1
+  %_argument.i492 = getelementptr inbounds i8, ptr %node, i64 48
   %23 = load ptr, ptr %_argument.i492, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %23)
   br label %return
@@ -7665,7 +7379,7 @@ sw.bb236:                                         ; preds = %if.end
   br label %return
 
 sw.bb238:                                         ; preds = %if.end
-  %_typeAnnotation.i = getelementptr inbounds %"class.hermes::ESTree::NullableTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation.i = getelementptr inbounds i8, ptr %node, i64 48
   %24 = load ptr, ptr %_typeAnnotation.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %24)
   br label %return
@@ -7675,19 +7389,19 @@ sw.bb240:                                         ; preds = %if.end
   br label %return
 
 sw.bb242:                                         ; preds = %if.end
-  %_argument.i495 = getelementptr inbounds %"class.hermes::ESTree::TypeofTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_argument.i495 = getelementptr inbounds i8, ptr %node, i64 48
   %25 = load ptr, ptr %_argument.i495, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %25)
   br label %return
 
 sw.bb244:                                         ; preds = %if.end
-  %_argument.i497 = getelementptr inbounds %"class.hermes::ESTree::KeyofTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_argument.i497 = getelementptr inbounds i8, ptr %node, i64 48
   %26 = load ptr, ptr %_argument.i497, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %26)
   br label %return
 
 sw.bb246:                                         ; preds = %if.end
-  %_typeAnnotation.i499 = getelementptr inbounds %"class.hermes::ESTree::TypeOperatorNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation.i499 = getelementptr inbounds i8, ptr %node, i64 56
   %27 = load ptr, ptr %_typeAnnotation.i499, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %27)
   br label %return
@@ -7697,8 +7411,8 @@ sw.bb248:                                         ; preds = %if.end
   br label %return
 
 sw.bb250:                                         ; preds = %if.end
-  %_types.i = getelementptr inbounds %"class.hermes::ESTree::TupleTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i584 = getelementptr inbounds %"class.hermes::ESTree::TupleTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_types.i = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i584 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i585 = load ptr, ptr %__begin4.sroa.0.0.in3.i584, align 8
   %cmp.i.not5.i586 = icmp eq ptr %__begin4.sroa.0.04.i585, %_types.i
   br i1 %cmp.i.not5.i586, label %return, label %for.body.i587
@@ -7706,7 +7420,7 @@ sw.bb250:                                         ; preds = %if.end
 for.body.i587:                                    ; preds = %sw.bb250, %for.body.i587
   %__begin4.sroa.0.06.i588 = phi ptr [ %__begin4.sroa.0.0.i590, %for.body.i587 ], [ %__begin4.sroa.0.04.i585, %sw.bb250 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i588)
-  %__begin4.sroa.0.0.in.i589 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i588, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i589 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i588, i64 8
   %__begin4.sroa.0.0.i590 = load ptr, ptr %__begin4.sroa.0.0.in.i589, align 8
   %cmp.i.not.i591 = icmp eq ptr %__begin4.sroa.0.0.i590, %_types.i
   br i1 %cmp.i.not.i591, label %return, label %for.body.i587
@@ -7720,20 +7434,20 @@ sw.bb254:                                         ; preds = %if.end
   br label %return
 
 sw.bb256:                                         ; preds = %if.end
-  %_elementType.i = getelementptr inbounds %"class.hermes::ESTree::ArrayTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_elementType.i = getelementptr inbounds i8, ptr %node, i64 48
   %28 = load ptr, ptr %_elementType.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %28)
   br label %return
 
 sw.bb258:                                         ; preds = %if.end
-  %_typeParameter.i = getelementptr inbounds %"class.hermes::ESTree::InferTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeParameter.i = getelementptr inbounds i8, ptr %node, i64 48
   %29 = load ptr, ptr %_typeParameter.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %29)
   br label %return
 
 sw.bb260:                                         ; preds = %if.end
-  %_types.i503 = getelementptr inbounds %"class.hermes::ESTree::UnionTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i593 = getelementptr inbounds %"class.hermes::ESTree::UnionTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_types.i503 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i593 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i594 = load ptr, ptr %__begin4.sroa.0.0.in3.i593, align 8
   %cmp.i.not5.i595 = icmp eq ptr %__begin4.sroa.0.04.i594, %_types.i503
   br i1 %cmp.i.not5.i595, label %return, label %for.body.i596
@@ -7741,14 +7455,14 @@ sw.bb260:                                         ; preds = %if.end
 for.body.i596:                                    ; preds = %sw.bb260, %for.body.i596
   %__begin4.sroa.0.06.i597 = phi ptr [ %__begin4.sroa.0.0.i599, %for.body.i596 ], [ %__begin4.sroa.0.04.i594, %sw.bb260 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i597)
-  %__begin4.sroa.0.0.in.i598 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i597, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i598 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i597, i64 8
   %__begin4.sroa.0.0.i599 = load ptr, ptr %__begin4.sroa.0.0.in.i598, align 8
   %cmp.i.not.i600 = icmp eq ptr %__begin4.sroa.0.0.i599, %_types.i503
   br i1 %cmp.i.not.i600, label %return, label %for.body.i596
 
 sw.bb262:                                         ; preds = %if.end
-  %_types.i504 = getelementptr inbounds %"class.hermes::ESTree::IntersectionTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i602 = getelementptr inbounds %"class.hermes::ESTree::IntersectionTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_types.i504 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i602 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i603 = load ptr, ptr %__begin4.sroa.0.0.in3.i602, align 8
   %cmp.i.not5.i604 = icmp eq ptr %__begin4.sroa.0.04.i603, %_types.i504
   br i1 %cmp.i.not5.i604, label %return, label %for.body.i605
@@ -7756,7 +7470,7 @@ sw.bb262:                                         ; preds = %if.end
 for.body.i605:                                    ; preds = %sw.bb262, %for.body.i605
   %__begin4.sroa.0.06.i606 = phi ptr [ %__begin4.sroa.0.0.i608, %for.body.i605 ], [ %__begin4.sroa.0.04.i603, %sw.bb262 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i606)
-  %__begin4.sroa.0.0.in.i607 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i606, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i607 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i606, i64 8
   %__begin4.sroa.0.0.i608 = load ptr, ptr %__begin4.sroa.0.0.in.i607, align 8
   %cmp.i.not.i609 = icmp eq ptr %__begin4.sroa.0.0.i608, %_types.i504
   br i1 %cmp.i.not.i609, label %return, label %for.body.i605
@@ -7822,7 +7536,7 @@ sw.bb292:                                         ; preds = %if.end
   br label %return
 
 sw.bb294:                                         ; preds = %if.end
-  %_id.i505 = getelementptr inbounds %"class.hermes::ESTree::DeclareVariableNode", ptr %node, i64 0, i32 1
+  %_id.i505 = getelementptr inbounds i8, ptr %node, i64 48
   %30 = load ptr, ptr %_id.i505, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %30)
   br label %return
@@ -7836,7 +7550,7 @@ sw.bb298:                                         ; preds = %if.end
   br label %return
 
 sw.bb300:                                         ; preds = %if.end
-  %_source.i507 = getelementptr inbounds %"class.hermes::ESTree::DeclareExportAllDeclarationNode", ptr %node, i64 0, i32 1
+  %_source.i507 = getelementptr inbounds i8, ptr %node, i64 48
   %31 = load ptr, ptr %_source.i507, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %31)
   br label %return
@@ -7846,7 +7560,7 @@ sw.bb302:                                         ; preds = %if.end
   br label %return
 
 sw.bb304:                                         ; preds = %if.end
-  %_typeAnnotation.i509 = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleExportsNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation.i509 = getelementptr inbounds i8, ptr %node, i64 48
   %32 = load ptr, ptr %_typeAnnotation.i509, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %32)
   br label %return
@@ -7860,7 +7574,7 @@ sw.bb308:                                         ; preds = %if.end
   br label %return
 
 sw.bb310:                                         ; preds = %if.end
-  %_typeAnnotation.i511 = getelementptr inbounds %"class.hermes::ESTree::TypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation.i511 = getelementptr inbounds i8, ptr %node, i64 48
   %33 = load ptr, ptr %_typeAnnotation.i511, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %33)
   br label %return
@@ -7874,7 +7588,7 @@ sw.bb314:                                         ; preds = %if.end
   br label %return
 
 sw.bb316:                                         ; preds = %if.end
-  %_argument.i513 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeSpreadPropertyNode", ptr %node, i64 0, i32 1
+  %_argument.i513 = getelementptr inbounds i8, ptr %node, i64 48
   %34 = load ptr, ptr %_argument.i513, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %34)
   br label %return
@@ -7884,7 +7598,7 @@ sw.bb318:                                         ; preds = %if.end
   br label %return
 
 sw.bb320:                                         ; preds = %if.end
-  %_value.i611 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeCallPropertyNode", ptr %node, i64 0, i32 1
+  %_value.i611 = getelementptr inbounds i8, ptr %node, i64 48
   %35 = load ptr, ptr %_value.i611, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %35)
   br label %return
@@ -7898,8 +7612,8 @@ sw.bb324:                                         ; preds = %if.end
   br label %return
 
 sw.bb328:                                         ; preds = %if.end
-  %_params.i = getelementptr inbounds %"class.hermes::ESTree::TypeParameterDeclarationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i612 = getelementptr inbounds %"class.hermes::ESTree::TypeParameterDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params.i = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i612 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i613 = load ptr, ptr %__begin4.sroa.0.0.in3.i612, align 8
   %cmp.i.not5.i614 = icmp eq ptr %__begin4.sroa.0.04.i613, %_params.i
   br i1 %cmp.i.not5.i614, label %return, label %for.body.i615
@@ -7907,7 +7621,7 @@ sw.bb328:                                         ; preds = %if.end
 for.body.i615:                                    ; preds = %sw.bb328, %for.body.i615
   %__begin4.sroa.0.06.i616 = phi ptr [ %__begin4.sroa.0.0.i618, %for.body.i615 ], [ %__begin4.sroa.0.04.i613, %sw.bb328 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i616)
-  %__begin4.sroa.0.0.in.i617 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i616, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i617 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i616, i64 8
   %__begin4.sroa.0.0.i618 = load ptr, ptr %__begin4.sroa.0.0.in.i617, align 8
   %cmp.i.not.i619 = icmp eq ptr %__begin4.sroa.0.0.i618, %_params.i
   br i1 %cmp.i.not.i619, label %return, label %for.body.i615
@@ -7917,8 +7631,8 @@ sw.bb330:                                         ; preds = %if.end
   br label %return
 
 sw.bb332:                                         ; preds = %if.end
-  %_params.i515 = getelementptr inbounds %"class.hermes::ESTree::TypeParameterInstantiationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i621 = getelementptr inbounds %"class.hermes::ESTree::TypeParameterInstantiationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params.i515 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i621 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i622 = load ptr, ptr %__begin4.sroa.0.0.in3.i621, align 8
   %cmp.i.not5.i623 = icmp eq ptr %__begin4.sroa.0.04.i622, %_params.i515
   br i1 %cmp.i.not5.i623, label %return, label %for.body.i624
@@ -7926,7 +7640,7 @@ sw.bb332:                                         ; preds = %if.end
 for.body.i624:                                    ; preds = %sw.bb332, %for.body.i624
   %__begin4.sroa.0.06.i625 = phi ptr [ %__begin4.sroa.0.0.i627, %for.body.i624 ], [ %__begin4.sroa.0.04.i622, %sw.bb332 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i625)
-  %__begin4.sroa.0.0.in.i626 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i625, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i626 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i625, i64 8
   %__begin4.sroa.0.0.i627 = load ptr, ptr %__begin4.sroa.0.0.in.i626, align 8
   %cmp.i.not.i628 = icmp eq ptr %__begin4.sroa.0.0.i627, %_params.i515
   br i1 %cmp.i.not.i628, label %return, label %for.body.i624
@@ -7940,7 +7654,7 @@ sw.bb336:                                         ; preds = %if.end
   br label %return
 
 sw.bb340:                                         ; preds = %if.end
-  %_value.i516 = getelementptr inbounds %"class.hermes::ESTree::DeclaredPredicateNode", ptr %node, i64 0, i32 1
+  %_value.i516 = getelementptr inbounds i8, ptr %node, i64 48
   %36 = load ptr, ptr %_value.i516, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %36)
   br label %return
@@ -7950,8 +7664,8 @@ sw.bb342:                                         ; preds = %if.end
   br label %return
 
 sw.bb344:                                         ; preds = %if.end
-  %_members.i630 = getelementptr inbounds %"class.hermes::ESTree::EnumStringBodyNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i631 = getelementptr inbounds %"class.hermes::ESTree::EnumStringBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_members.i630 = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i631 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i631, align 8
   %cmp.i.not11.i = icmp eq ptr %__begin4.i.sroa.0.010.i, %_members.i630
   br i1 %cmp.i.not11.i, label %return, label %for.body.i.i632
@@ -7959,14 +7673,14 @@ sw.bb344:                                         ; preds = %if.end
 for.body.i.i632:                                  ; preds = %sw.bb344, %for.body.i.i632
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i634, %for.body.i.i632 ], [ %__begin4.i.sroa.0.010.i, %sw.bb344 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
-  %Next.i.i.i.i633 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012.i, i64 0, i32 1
+  %Next.i.i.i.i633 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i634 = load ptr, ptr %Next.i.i.i.i633, align 8
   %cmp.i.not.i635 = icmp eq ptr %__begin4.i.sroa.0.0.i634, %_members.i630
   br i1 %cmp.i.not.i635, label %return, label %for.body.i.i632
 
 sw.bb346:                                         ; preds = %if.end
-  %_members.i636 = getelementptr inbounds %"class.hermes::ESTree::EnumNumberBodyNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i637 = getelementptr inbounds %"class.hermes::ESTree::EnumNumberBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_members.i636 = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i637 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.010.i638 = load ptr, ptr %Next.i.i.i.i.i637, align 8
   %cmp.i.not11.i639 = icmp eq ptr %__begin4.i.sroa.0.010.i638, %_members.i636
   br i1 %cmp.i.not11.i639, label %return, label %for.body.i.i640
@@ -7974,14 +7688,14 @@ sw.bb346:                                         ; preds = %if.end
 for.body.i.i640:                                  ; preds = %sw.bb346, %for.body.i.i640
   %__begin4.i.sroa.0.012.i641 = phi ptr [ %__begin4.i.sroa.0.0.i643, %for.body.i.i640 ], [ %__begin4.i.sroa.0.010.i638, %sw.bb346 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i641)
-  %Next.i.i.i.i642 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012.i641, i64 0, i32 1
+  %Next.i.i.i.i642 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i641, i64 8
   %__begin4.i.sroa.0.0.i643 = load ptr, ptr %Next.i.i.i.i642, align 8
   %cmp.i.not.i644 = icmp eq ptr %__begin4.i.sroa.0.0.i643, %_members.i636
   br i1 %cmp.i.not.i644, label %return, label %for.body.i.i640
 
 sw.bb348:                                         ; preds = %if.end
-  %_members.i645 = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanBodyNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i646 = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_members.i645 = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i646 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.010.i647 = load ptr, ptr %Next.i.i.i.i.i646, align 8
   %cmp.i.not11.i648 = icmp eq ptr %__begin4.i.sroa.0.010.i647, %_members.i645
   br i1 %cmp.i.not11.i648, label %return, label %for.body.i.i649
@@ -7989,14 +7703,14 @@ sw.bb348:                                         ; preds = %if.end
 for.body.i.i649:                                  ; preds = %sw.bb348, %for.body.i.i649
   %__begin4.i.sroa.0.012.i650 = phi ptr [ %__begin4.i.sroa.0.0.i652, %for.body.i.i649 ], [ %__begin4.i.sroa.0.010.i647, %sw.bb348 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i650)
-  %Next.i.i.i.i651 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012.i650, i64 0, i32 1
+  %Next.i.i.i.i651 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i650, i64 8
   %__begin4.i.sroa.0.0.i652 = load ptr, ptr %Next.i.i.i.i651, align 8
   %cmp.i.not.i653 = icmp eq ptr %__begin4.i.sroa.0.0.i652, %_members.i645
   br i1 %cmp.i.not.i653, label %return, label %for.body.i.i649
 
 sw.bb350:                                         ; preds = %if.end
-  %_members.i654 = getelementptr inbounds %"class.hermes::ESTree::EnumSymbolBodyNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i655 = getelementptr inbounds %"class.hermes::ESTree::EnumSymbolBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_members.i654 = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i655 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07.i656 = load ptr, ptr %Next.i.i.i.i.i655, align 8
   %cmp.i.not8.i657 = icmp eq ptr %__begin4.i.sroa.0.07.i656, %_members.i654
   br i1 %cmp.i.not8.i657, label %return, label %for.body.i.i658
@@ -8004,13 +7718,13 @@ sw.bb350:                                         ; preds = %if.end
 for.body.i.i658:                                  ; preds = %sw.bb350, %for.body.i.i658
   %__begin4.i.sroa.0.09.i659 = phi ptr [ %__begin4.i.sroa.0.0.i661, %for.body.i.i658 ], [ %__begin4.i.sroa.0.07.i656, %sw.bb350 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i659)
-  %Next.i.i.i.i660 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09.i659, i64 0, i32 1
+  %Next.i.i.i.i660 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i659, i64 8
   %__begin4.i.sroa.0.0.i661 = load ptr, ptr %Next.i.i.i.i660, align 8
   %cmp.i.not.i662 = icmp eq ptr %__begin4.i.sroa.0.0.i661, %_members.i654
   br i1 %cmp.i.not.i662, label %return, label %for.body.i.i658
 
 sw.bb352:                                         ; preds = %if.end
-  %_id.i518 = getelementptr inbounds %"class.hermes::ESTree::EnumDefaultedMemberNode", ptr %node, i64 0, i32 1
+  %_id.i518 = getelementptr inbounds i8, ptr %node, i64 48
   %37 = load ptr, ptr %_id.i518, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %37)
   br label %return
@@ -8032,13 +7746,13 @@ sw.bb360:                                         ; preds = %if.end
   br label %return
 
 sw.bb362:                                         ; preds = %if.end
-  %_typeAnnotation.i520 = getelementptr inbounds %"class.hermes::ESTree::TSTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation.i520 = getelementptr inbounds i8, ptr %node, i64 48
   %38 = load ptr, ptr %_typeAnnotation.i520, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %38)
   br label %return
 
 sw.bb386:                                         ; preds = %if.end
-  %_literal.i = getelementptr inbounds %"class.hermes::ESTree::TSLiteralTypeNode", ptr %node, i64 0, i32 1
+  %_literal.i = getelementptr inbounds i8, ptr %node, i64 48
   %39 = load ptr, ptr %_literal.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %39)
   br label %return
@@ -8048,7 +7762,7 @@ sw.bb388:                                         ; preds = %if.end
   br label %return
 
 sw.bb390:                                         ; preds = %if.end
-  %_elementType.i523 = getelementptr inbounds %"class.hermes::ESTree::TSArrayTypeNode", ptr %node, i64 0, i32 1
+  %_elementType.i523 = getelementptr inbounds i8, ptr %node, i64 48
   %40 = load ptr, ptr %_elementType.i523, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %40)
   br label %return
@@ -8074,8 +7788,8 @@ sw.bb400:                                         ; preds = %if.end
   br label %return
 
 sw.bb402:                                         ; preds = %if.end
-  %_elementTypes.i = getelementptr inbounds %"class.hermes::ESTree::TSTupleTypeNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i663 = getelementptr inbounds %"class.hermes::ESTree::TSTupleTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_elementTypes.i = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i663 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i664 = load ptr, ptr %__begin4.sroa.0.0.in3.i663, align 8
   %cmp.i.not5.i665 = icmp eq ptr %__begin4.sroa.0.04.i664, %_elementTypes.i
   br i1 %cmp.i.not5.i665, label %return, label %for.body.i666
@@ -8083,7 +7797,7 @@ sw.bb402:                                         ; preds = %if.end
 for.body.i666:                                    ; preds = %sw.bb402, %for.body.i666
   %__begin4.sroa.0.06.i667 = phi ptr [ %__begin4.sroa.0.0.i669, %for.body.i666 ], [ %__begin4.sroa.0.04.i664, %sw.bb402 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i667)
-  %__begin4.sroa.0.0.in.i668 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i667, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i668 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i667, i64 8
   %__begin4.sroa.0.0.i669 = load ptr, ptr %__begin4.sroa.0.0.in.i668, align 8
   %cmp.i.not.i670 = icmp eq ptr %__begin4.sroa.0.0.i669, %_elementTypes.i
   br i1 %cmp.i.not.i670, label %return, label %for.body.i666
@@ -8097,7 +7811,7 @@ sw.bb406:                                         ; preds = %if.end
   br label %return
 
 sw.bb408:                                         ; preds = %if.end
-  %_parameter.i = getelementptr inbounds %"class.hermes::ESTree::TSParameterPropertyNode", ptr %node, i64 0, i32 1
+  %_parameter.i = getelementptr inbounds i8, ptr %node, i64 48
   %41 = load ptr, ptr %_parameter.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %41)
   br label %return
@@ -8115,8 +7829,8 @@ sw.bb414:                                         ; preds = %if.end
   br label %return
 
 sw.bb416:                                         ; preds = %if.end
-  %_body.i525 = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceBodyNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i672 = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_body.i525 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i672 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i673 = load ptr, ptr %__begin4.sroa.0.0.in3.i672, align 8
   %cmp.i.not5.i674 = icmp eq ptr %__begin4.sroa.0.04.i673, %_body.i525
   br i1 %cmp.i.not5.i674, label %return, label %for.body.i675
@@ -8124,7 +7838,7 @@ sw.bb416:                                         ; preds = %if.end
 for.body.i675:                                    ; preds = %sw.bb416, %for.body.i675
   %__begin4.sroa.0.06.i676 = phi ptr [ %__begin4.sroa.0.0.i678, %for.body.i675 ], [ %__begin4.sroa.0.04.i673, %sw.bb416 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i676)
-  %__begin4.sroa.0.0.in.i677 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i676, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i677 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i676, i64 8
   %__begin4.sroa.0.0.i678 = load ptr, ptr %__begin4.sroa.0.0.in.i677, align 8
   %cmp.i.not.i679 = icmp eq ptr %__begin4.sroa.0.0.i678, %_body.i525
   br i1 %cmp.i.not.i679, label %return, label %for.body.i675
@@ -8142,8 +7856,8 @@ sw.bb422:                                         ; preds = %if.end
   br label %return
 
 sw.bb424:                                         ; preds = %if.end
-  %_body.i526 = getelementptr inbounds %"class.hermes::ESTree::TSModuleBlockNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i681 = getelementptr inbounds %"class.hermes::ESTree::TSModuleBlockNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_body.i526 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i681 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i682 = load ptr, ptr %__begin4.sroa.0.0.in3.i681, align 8
   %cmp.i.not5.i683 = icmp eq ptr %__begin4.sroa.0.04.i682, %_body.i526
   br i1 %cmp.i.not5.i683, label %return, label %for.body.i684
@@ -8151,7 +7865,7 @@ sw.bb424:                                         ; preds = %if.end
 for.body.i684:                                    ; preds = %sw.bb424, %for.body.i684
   %__begin4.sroa.0.06.i685 = phi ptr [ %__begin4.sroa.0.0.i687, %for.body.i684 ], [ %__begin4.sroa.0.04.i682, %sw.bb424 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i685)
-  %__begin4.sroa.0.0.in.i686 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i685, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i686 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i685, i64 8
   %__begin4.sroa.0.0.i687 = load ptr, ptr %__begin4.sroa.0.0.in.i686, align 8
   %cmp.i.not.i688 = icmp eq ptr %__begin4.sroa.0.0.i687, %_body.i526
   br i1 %cmp.i.not.i688, label %return, label %for.body.i684
@@ -8161,8 +7875,8 @@ sw.bb426:                                         ; preds = %if.end
   br label %return
 
 sw.bb428:                                         ; preds = %if.end
-  %_params.i527 = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterDeclarationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i690 = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params.i527 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i690 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i691 = load ptr, ptr %__begin4.sroa.0.0.in3.i690, align 8
   %cmp.i.not5.i692 = icmp eq ptr %__begin4.sroa.0.04.i691, %_params.i527
   br i1 %cmp.i.not5.i692, label %return, label %for.body.i693
@@ -8170,7 +7884,7 @@ sw.bb428:                                         ; preds = %if.end
 for.body.i693:                                    ; preds = %sw.bb428, %for.body.i693
   %__begin4.sroa.0.06.i694 = phi ptr [ %__begin4.sroa.0.0.i696, %for.body.i693 ], [ %__begin4.sroa.0.04.i691, %sw.bb428 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i694)
-  %__begin4.sroa.0.0.in.i695 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i694, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i695 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i694, i64 8
   %__begin4.sroa.0.0.i696 = load ptr, ptr %__begin4.sroa.0.0.in.i695, align 8
   %cmp.i.not.i697 = icmp eq ptr %__begin4.sroa.0.0.i696, %_params.i527
   br i1 %cmp.i.not.i697, label %return, label %for.body.i693
@@ -8180,8 +7894,8 @@ sw.bb430:                                         ; preds = %if.end
   br label %return
 
 sw.bb432:                                         ; preds = %if.end
-  %_params.i528 = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterInstantiationNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i699 = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterInstantiationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params.i528 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i699 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i700 = load ptr, ptr %__begin4.sroa.0.0.in3.i699, align 8
   %cmp.i.not5.i701 = icmp eq ptr %__begin4.sroa.0.04.i700, %_params.i528
   br i1 %cmp.i.not5.i701, label %return, label %for.body.i702
@@ -8189,14 +7903,14 @@ sw.bb432:                                         ; preds = %if.end
 for.body.i702:                                    ; preds = %sw.bb432, %for.body.i702
   %__begin4.sroa.0.06.i703 = phi ptr [ %__begin4.sroa.0.0.i705, %for.body.i702 ], [ %__begin4.sroa.0.04.i700, %sw.bb432 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i703)
-  %__begin4.sroa.0.0.in.i704 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i703, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i704 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i703, i64 8
   %__begin4.sroa.0.0.i705 = load ptr, ptr %__begin4.sroa.0.0.in.i704, align 8
   %cmp.i.not.i706 = icmp eq ptr %__begin4.sroa.0.0.i705, %_params.i528
   br i1 %cmp.i.not.i706, label %return, label %for.body.i702
 
 sw.bb434:                                         ; preds = %if.end
-  %_types.i529 = getelementptr inbounds %"class.hermes::ESTree::TSUnionTypeNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i708 = getelementptr inbounds %"class.hermes::ESTree::TSUnionTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_types.i529 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i708 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i709 = load ptr, ptr %__begin4.sroa.0.0.in3.i708, align 8
   %cmp.i.not5.i710 = icmp eq ptr %__begin4.sroa.0.04.i709, %_types.i529
   br i1 %cmp.i.not5.i710, label %return, label %for.body.i711
@@ -8204,14 +7918,14 @@ sw.bb434:                                         ; preds = %if.end
 for.body.i711:                                    ; preds = %sw.bb434, %for.body.i711
   %__begin4.sroa.0.06.i712 = phi ptr [ %__begin4.sroa.0.0.i714, %for.body.i711 ], [ %__begin4.sroa.0.04.i709, %sw.bb434 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i712)
-  %__begin4.sroa.0.0.in.i713 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i712, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i713 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i712, i64 8
   %__begin4.sroa.0.0.i714 = load ptr, ptr %__begin4.sroa.0.0.in.i713, align 8
   %cmp.i.not.i715 = icmp eq ptr %__begin4.sroa.0.0.i714, %_types.i529
   br i1 %cmp.i.not.i715, label %return, label %for.body.i711
 
 sw.bb436:                                         ; preds = %if.end
-  %_types.i530 = getelementptr inbounds %"class.hermes::ESTree::TSIntersectionTypeNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i717 = getelementptr inbounds %"class.hermes::ESTree::TSIntersectionTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_types.i530 = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i717 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i718 = load ptr, ptr %__begin4.sroa.0.0.in3.i717, align 8
   %cmp.i.not5.i719 = icmp eq ptr %__begin4.sroa.0.04.i718, %_types.i530
   br i1 %cmp.i.not5.i719, label %return, label %for.body.i720
@@ -8219,13 +7933,13 @@ sw.bb436:                                         ; preds = %if.end
 for.body.i720:                                    ; preds = %sw.bb436, %for.body.i720
   %__begin4.sroa.0.06.i721 = phi ptr [ %__begin4.sroa.0.0.i723, %for.body.i720 ], [ %__begin4.sroa.0.04.i718, %sw.bb436 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i721)
-  %__begin4.sroa.0.0.in.i722 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i721, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i722 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i721, i64 8
   %__begin4.sroa.0.0.i723 = load ptr, ptr %__begin4.sroa.0.0.in.i722, align 8
   %cmp.i.not.i724 = icmp eq ptr %__begin4.sroa.0.0.i723, %_types.i530
   br i1 %cmp.i.not.i724, label %return, label %for.body.i720
 
 sw.bb438:                                         ; preds = %if.end
-  %_exprName.i = getelementptr inbounds %"class.hermes::ESTree::TSTypeQueryNode", ptr %node, i64 0, i32 1
+  %_exprName.i = getelementptr inbounds i8, ptr %node, i64 48
   %42 = load ptr, ptr %_exprName.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %42)
   br label %return
@@ -8235,8 +7949,8 @@ sw.bb440:                                         ; preds = %if.end
   br label %return
 
 sw.bb442:                                         ; preds = %if.end
-  %_members.i = getelementptr inbounds %"class.hermes::ESTree::TSTypeLiteralNode", ptr %node, i64 0, i32 1
-  %__begin4.sroa.0.0.in3.i726 = getelementptr inbounds %"class.hermes::ESTree::TSTypeLiteralNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_members.i = getelementptr inbounds i8, ptr %node, i64 48
+  %__begin4.sroa.0.0.in3.i726 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.sroa.0.04.i727 = load ptr, ptr %__begin4.sroa.0.0.in3.i726, align 8
   %cmp.i.not5.i728 = icmp eq ptr %__begin4.sroa.0.04.i727, %_members.i
   br i1 %cmp.i.not5.i728, label %return, label %for.body.i729
@@ -8244,7 +7958,7 @@ sw.bb442:                                         ; preds = %if.end
 for.body.i729:                                    ; preds = %sw.bb442, %for.body.i729
   %__begin4.sroa.0.06.i730 = phi ptr [ %__begin4.sroa.0.0.i732, %for.body.i729 ], [ %__begin4.sroa.0.04.i727, %sw.bb442 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i730)
-  %__begin4.sroa.0.0.in.i731 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.06.i730, i64 0, i32 1
+  %__begin4.sroa.0.0.in.i731 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i730, i64 8
   %__begin4.sroa.0.0.i732 = load ptr, ptr %__begin4.sroa.0.0.in.i731, align 8
   %cmp.i.not.i733 = icmp eq ptr %__begin4.sroa.0.0.i732, %_members.i
   br i1 %cmp.i.not.i733, label %return, label %for.body.i729
@@ -8266,13 +7980,13 @@ sw.bb450:                                         ; preds = %if.end
   br label %return
 
 sw.bb458:                                         ; preds = %if.end
-  %_init.i = getelementptr inbounds %"class.hermes::ESTree::CoverInitializerNode", ptr %node, i64 0, i32 1
+  %_init.i = getelementptr inbounds i8, ptr %node, i64 48
   %43 = load ptr, ptr %_init.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %43)
   br label %return
 
 sw.bb460:                                         ; preds = %if.end
-  %_rest.i = getelementptr inbounds %"class.hermes::ESTree::CoverRestElementNode", ptr %node, i64 0, i32 1
+  %_rest.i = getelementptr inbounds i8, ptr %node, i64 48
   %44 = load ptr, ptr %_rest.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %44)
   br label %return
@@ -8288,11 +8002,11 @@ return:                                           ; preds = %for.body.i729, %for
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22FunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.025 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not26 = icmp eq ptr %__begin4.i.sroa.0.025, %_params
   br i1 %cmp.i.not26, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8300,22 +8014,22 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.027, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 6
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 7
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -8324,11 +8038,11 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27ArrowFunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.025 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not26 = icmp eq ptr %__begin4.i.sroa.0.025, %_params
   br i1 %cmp.i.not26, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8336,22 +8050,22 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.027, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 6
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 7
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -8360,11 +8074,11 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23FunctionDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.025 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not26 = icmp eq ptr %__begin4.i.sroa.0.025, %_params
   br i1 %cmp.i.not26, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8372,22 +8086,22 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.027, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 6
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 7
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -8396,11 +8110,11 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ComponentDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.016 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not17 = icmp eq ptr %__begin4.i.sroa.0.016, %_params
   br i1 %cmp.i.not17, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8408,19 +8122,19 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.018, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 4
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_rendersType = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 5
+  %_rendersType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_rendersType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -8429,10 +8143,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18WhileStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_test = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8441,10 +8155,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DoWhileStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_test = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8453,13 +8167,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18ForInStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -8468,13 +8182,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18ForOfStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 2
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -8483,16 +8197,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16ForStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_init = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_test = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_update = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 3
+  %_update = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_update, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -8501,10 +8215,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17WithStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8513,11 +8227,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19SwitchStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_discriminant = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 2
+  %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_discriminant, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_cases = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_cases = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_cases
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8525,7 +8239,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_cases
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8537,10 +8251,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20LabeledStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8549,13 +8263,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16TryStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_block = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 1
+  %_block = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_block, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_handler = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 2
+  %_handler = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_handler, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_finalizer = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 3
+  %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_finalizer, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -8564,13 +8278,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15IfStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 2
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_consequent, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 3
+  %_alternate = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_alternate, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -8579,14 +8293,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17NewExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 2
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeArguments, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin4.i.sroa.0.010, %_arguments
   br i1 %cmp.i.not11, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8594,7 +8308,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8606,10 +8320,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20ImportExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ImportExpressionNode", ptr %node, i64 0, i32 1
+  %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_attributes = getelementptr inbounds %"class.hermes::ESTree::ImportExpressionNode", ptr %node, i64 0, i32 2
+  %_attributes = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_attributes, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8618,14 +8332,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18CallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 2
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeArguments, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin4.i.sroa.0.010, %_arguments
   br i1 %cmp.i.not11, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8633,7 +8347,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8645,14 +8359,14 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26OptionalCallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 2
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeArguments, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_arguments
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8660,7 +8374,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8672,10 +8386,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24AssignmentExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 2
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8684,10 +8398,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20MemberExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8696,10 +8410,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_28OptionalMemberExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::OptionalMemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_property = getelementptr inbounds %"class.hermes::ESTree::OptionalMemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8708,10 +8422,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21LogicalExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8720,13 +8434,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_25ConditionalExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 2
+  %_alternate = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_alternate, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 3
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_consequent, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -8735,10 +8449,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20BinaryExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8747,10 +8461,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16MetaPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_meta = getelementptr inbounds %"class.hermes::ESTree::MetaPropertyNode", ptr %node, i64 0, i32 1
+  %_meta = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_meta, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MetaPropertyNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8759,11 +8473,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14SwitchCaseNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_consequent
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8771,7 +8485,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_consequent
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8783,10 +8497,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15CatchClauseNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_param = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node, i64 0, i32 1
+  %_param = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_param, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8795,10 +8509,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22VariableDeclaratorNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_init = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_id = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8807,8 +8521,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TemplateLiteralNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_quasis = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_quasis = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.023 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not24 = icmp eq ptr %__begin4.i.sroa.0.023, %_quasis
   br i1 %cmp.i.not24, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8816,14 +8530,14 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.025 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.023, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.025)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.025, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.025, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_quasis
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_expressions = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i18 = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_expressions = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i18 = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i5.sroa.0.026 = load ptr, ptr %Next.i.i.i.i18, align 8
   %cmp.i17.not27 = icmp eq ptr %__begin4.i5.sroa.0.026, %_expressions
   br i1 %cmp.i17.not27, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit15, label %for.body.i11
@@ -8831,7 +8545,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i11:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i11
   %__begin4.i5.sroa.0.028 = phi ptr [ %__begin4.i5.sroa.0.0, %for.body.i11 ], [ %__begin4.i5.sroa.0.026, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i5.sroa.0.028)
-  %Next.i.i.i16 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i5.sroa.0.028, i64 0, i32 1
+  %Next.i.i.i16 = getelementptr inbounds i8, ptr %__begin4.i5.sroa.0.028, i64 8
   %__begin4.i5.sroa.0.0 = load ptr, ptr %Next.i.i.i16, align 8
   %cmp.i17.not = icmp eq ptr %__begin4.i5.sroa.0.0, %_expressions
   br i1 %cmp.i17.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit15, label %for.body.i11
@@ -8843,10 +8557,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_28TaggedTemplateExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_tag = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 1
+  %_tag = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_quasi = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 2
+  %_quasi = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_quasi, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8855,10 +8569,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_12PropertyNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -8867,20 +8581,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20ClassDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 3
+  %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_superClass, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_superTypeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 4
+  %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_superTypeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_implements = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 5
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.038 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not39 = icmp eq ptr %__begin4.i.sroa.0.038, %_implements
   br i1 %cmp.i.not39, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8888,14 +8602,14 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.040 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.038, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.040)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.040, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.040, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_implements
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_decorators = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 6
-  %Next.i.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_decorators = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i33 = getelementptr inbounds i8, ptr %node, i64 104
   %__begin4.i20.sroa.0.041 = load ptr, ptr %Next.i.i.i.i33, align 8
   %cmp.i32.not42 = icmp eq ptr %__begin4.i20.sroa.0.041, %_decorators
   br i1 %cmp.i32.not42, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30, label %for.body.i26
@@ -8903,13 +8617,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i26
   %__begin4.i20.sroa.0.043 = phi ptr [ %__begin4.i20.sroa.0.0, %for.body.i26 ], [ %__begin4.i20.sroa.0.041, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043)
-  %Next.i.i.i31 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i20.sroa.0.043, i64 0, i32 1
+  %Next.i.i.i31 = getelementptr inbounds i8, ptr %__begin4.i20.sroa.0.043, i64 8
   %__begin4.i20.sroa.0.0 = load ptr, ptr %Next.i.i.i31, align 8
   %cmp.i32.not = icmp eq ptr %__begin4.i20.sroa.0.0, %_decorators
   br i1 %cmp.i32.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30, label %for.body.i26
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30: ; preds = %for.body.i26, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 7
+  %_body = getelementptr inbounds i8, ptr %node, i64 112
   %4 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -8918,20 +8632,20 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ClassExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 3
+  %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_superClass, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_superTypeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 4
+  %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_superTypeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_implements = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 5
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.038 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not39 = icmp eq ptr %__begin4.i.sroa.0.038, %_implements
   br i1 %cmp.i.not39, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -8939,14 +8653,14 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.040 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.038, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.040)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.040, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.040, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_implements
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_decorators = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 6
-  %Next.i.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_decorators = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i33 = getelementptr inbounds i8, ptr %node, i64 104
   %__begin4.i20.sroa.0.041 = load ptr, ptr %Next.i.i.i.i33, align 8
   %cmp.i32.not42 = icmp eq ptr %__begin4.i20.sroa.0.041, %_decorators
   br i1 %cmp.i32.not42, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30, label %for.body.i26
@@ -8954,13 +8668,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i26
   %__begin4.i20.sroa.0.043 = phi ptr [ %__begin4.i20.sroa.0.0, %for.body.i26 ], [ %__begin4.i20.sroa.0.041, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043)
-  %Next.i.i.i31 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i20.sroa.0.043, i64 0, i32 1
+  %Next.i.i.i31 = getelementptr inbounds i8, ptr %__begin4.i20.sroa.0.043, i64 8
   %__begin4.i20.sroa.0.0 = load ptr, ptr %Next.i.i.i31, align 8
   %cmp.i32.not = icmp eq ptr %__begin4.i20.sroa.0.0, %_decorators
   br i1 %cmp.i32.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30, label %for.body.i26
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30: ; preds = %for.body.i26, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 7
+  %_body = getelementptr inbounds i8, ptr %node, i64 112
   %4 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -8969,19 +8683,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17ClassPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 7
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 8
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_tsModifiers = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 9
+  %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %_tsModifiers, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -8990,19 +8704,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ClassPrivatePropertyNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 6
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 7
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
-  %_tsModifiers = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 8
+  %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %_tsModifiers, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
@@ -9011,10 +8725,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20MethodDefinitionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9023,8 +8737,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.029 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not30 = icmp eq ptr %__begin4.i.sroa.0.029, %_specifiers
   br i1 %cmp.i.not30, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9032,17 +8746,17 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.031 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.029, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.031)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.031, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.031, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 2
+  %_source = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_source, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_assertions = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i24 = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_assertions = getelementptr inbounds i8, ptr %node, i64 72
+  %Next.i.i.i.i24 = getelementptr inbounds i8, ptr %node, i64 80
   %__begin4.i11.sroa.0.032 = load ptr, ptr %Next.i.i.i.i24, align 8
   %cmp.i23.not33 = icmp eq ptr %__begin4.i11.sroa.0.032, %_assertions
   br i1 %cmp.i23.not33, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit21, label %for.body.i17
@@ -9050,7 +8764,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i17:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i17
   %__begin4.i11.sroa.0.034 = phi ptr [ %__begin4.i11.sroa.0.0, %for.body.i17 ], [ %__begin4.i11.sroa.0.032, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i11.sroa.0.034)
-  %Next.i.i.i22 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i11.sroa.0.034, i64 0, i32 1
+  %Next.i.i.i22 = getelementptr inbounds i8, ptr %__begin4.i11.sroa.0.034, i64 8
   %__begin4.i11.sroa.0.0 = load ptr, ptr %Next.i.i.i22, align 8
   %cmp.i23.not = icmp eq ptr %__begin4.i11.sroa.0.0, %_assertions
   br i1 %cmp.i23.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit21, label %for.body.i17
@@ -9062,10 +8776,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ImportSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_imported = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %node, i64 0, i32 1
+  %_imported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_imported, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %node, i64 0, i32 2
+  %_local = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_local, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9074,10 +8788,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ImportAttributeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ImportAttributeNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ImportAttributeNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9086,11 +8800,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_declaration = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_specifiers
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9098,13 +8812,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 3
+  %_source = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_source, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9113,10 +8827,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ExportSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_exported = getelementptr inbounds %"class.hermes::ESTree::ExportSpecifierNode", ptr %node, i64 0, i32 1
+  %_exported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ExportSpecifierNode", ptr %node, i64 0, i32 2
+  %_local = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_local, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9125,8 +8839,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17ObjectPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_properties = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_properties
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9134,13 +8848,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_properties
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
@@ -9149,8 +8863,8 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16ArrayPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_elements = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_elements = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_elements
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9158,13 +8872,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_elements
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
@@ -9173,10 +8887,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21AssignmentPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9185,10 +8899,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23JSXMemberExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::JSXMemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_property = getelementptr inbounds %"class.hermes::ESTree::JSXMemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9197,10 +8911,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21JSXNamespacedNameNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_namespace = getelementptr inbounds %"class.hermes::ESTree::JSXNamespacedNameNode", ptr %node, i64 0, i32 1
+  %_namespace = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_namespace, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXNamespacedNameNode", ptr %node, i64 0, i32 2
+  %_name = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9209,11 +8923,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21JSXOpeningElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_attributes = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_attributes = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_attributes
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9221,13 +8935,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_attributes
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 4
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 80
   %1 = load ptr, ptr %_typeArguments, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9236,10 +8950,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16JSXAttributeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9248,11 +8962,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_openingElement = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 1
+  %_openingElement = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingElement, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_children = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_children = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin4.i.sroa.0.010, %_children
   br i1 %cmp.i.not11, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9260,13 +8974,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_children
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_closingElement = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 3
+  %_closingElement = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_closingElement, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9275,11 +8989,11 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_openingFragment = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 1
+  %_openingFragment = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingFragment, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_children = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_children = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin4.i.sroa.0.010, %_children
   br i1 %cmp.i.not11, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9287,13 +9001,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_children
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_closingFragment = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 3
+  %_closingFragment = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_closingFragment, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9302,8 +9016,8 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26FunctionTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.016 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not17 = icmp eq ptr %__begin4.i.sroa.0.016, %_params
   br i1 %cmp.i.not17, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9311,22 +9025,22 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.018, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_this = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_this = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_this, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 3
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 4
+  %_rest = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_rest, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 88
   %3 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9335,10 +9049,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21FunctionTypeParamNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeParamNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeParamNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9347,8 +9061,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27ComponentTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_params
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9356,19 +9070,19 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_rest = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_rest, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 3
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_rendersType = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 4
+  %_rendersType = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_rendersType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9377,10 +9091,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ComponentTypeParameterNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeParameterNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeParameterNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9389,10 +9103,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27QualifiedTypeIdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_qualification = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeIdentifierNode", ptr %node, i64 0, i32 1
+  %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_id = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeIdentifierNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9401,10 +9115,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_29QualifiedTypeofIdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_qualification = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeofIdentifierNode", ptr %node, i64 0, i32 1
+  %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_id = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeofIdentifierNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9413,10 +9127,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26TupleTypeSpreadElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::TupleTypeSpreadElementNode", ptr %node, i64 0, i32 1
+  %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TupleTypeSpreadElementNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9425,13 +9139,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27TupleTypeLabeledElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %node, i64 0, i32 1
+  %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_elementType = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %node, i64 0, i32 2
+  %_elementType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_elementType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %node, i64 0, i32 4
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9440,10 +9154,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_25GenericTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::GenericTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::GenericTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9452,10 +9166,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21IndexedAccessTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_objectType = getelementptr inbounds %"class.hermes::ESTree::IndexedAccessTypeNode", ptr %node, i64 0, i32 1
+  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_indexType = getelementptr inbounds %"class.hermes::ESTree::IndexedAccessTypeNode", ptr %node, i64 0, i32 2
+  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_indexType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9464,10 +9178,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_29OptionalIndexedAccessTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_objectType = getelementptr inbounds %"class.hermes::ESTree::OptionalIndexedAccessTypeNode", ptr %node, i64 0, i32 1
+  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_indexType = getelementptr inbounds %"class.hermes::ESTree::OptionalIndexedAccessTypeNode", ptr %node, i64 0, i32 2
+  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_indexType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9476,16 +9190,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_29ConditionalTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_checkType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_extendsType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_extendsType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_trueType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 3
+  %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_trueType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_falseType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 4
+  %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_falseType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9494,10 +9208,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17TypePredicateNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_parameterName = getelementptr inbounds %"class.hermes::ESTree::TypePredicateNode", ptr %node, i64 0, i32 1
+  %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypePredicateNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9506,8 +9220,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27InterfaceTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_extends
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9515,13 +9229,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
@@ -9530,13 +9244,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_13TypeAliasNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9545,16 +9259,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14OpaqueTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_impltype = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 3
+  %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_impltype, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_supertype = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 4
+  %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_supertype, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9563,14 +9277,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24InterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_extends
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9578,13 +9292,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9593,13 +9307,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareTypeAliasNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9608,16 +9322,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21DeclareOpaqueTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_impltype = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 3
+  %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_impltype, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_supertype = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 4
+  %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_supertype, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9626,14 +9340,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareInterfaceNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_extends
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9641,13 +9355,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9656,14 +9370,14 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16DeclareClassNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.051 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not52 = icmp eq ptr %__begin4.i.sroa.0.051, %_extends
   br i1 %cmp.i.not52, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9671,14 +9385,14 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.053 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.051, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.053)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.053, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.053, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_implements = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 4
-  %Next.i.i.i.i41 = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i41 = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i17.sroa.0.054 = load ptr, ptr %Next.i.i.i.i41, align 8
   %cmp.i40.not55 = icmp eq ptr %__begin4.i17.sroa.0.054, %_implements
   br i1 %cmp.i40.not55, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, label %for.body.i23
@@ -9686,14 +9400,14 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i23:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i23
   %__begin4.i17.sroa.0.056 = phi ptr [ %__begin4.i17.sroa.0.0, %for.body.i23 ], [ %__begin4.i17.sroa.0.054, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i17.sroa.0.056)
-  %Next.i.i.i39 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i17.sroa.0.056, i64 0, i32 1
+  %Next.i.i.i39 = getelementptr inbounds i8, ptr %__begin4.i17.sroa.0.056, i64 8
   %__begin4.i17.sroa.0.0 = load ptr, ptr %Next.i.i.i39, align 8
   %cmp.i40.not = icmp eq ptr %__begin4.i17.sroa.0.0, %_implements
   br i1 %cmp.i40.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, label %for.body.i23
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27: ; preds = %for.body.i23, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
-  %_mixins = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 5
-  %Next.i.i.i.i44 = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_mixins = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i44 = getelementptr inbounds i8, ptr %node, i64 104
   %__begin4.i28.sroa.0.057 = load ptr, ptr %Next.i.i.i.i44, align 8
   %cmp.i43.not58 = icmp eq ptr %__begin4.i28.sroa.0.057, %_mixins
   br i1 %cmp.i43.not58, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, label %for.body.i34
@@ -9701,13 +9415,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, %for.body.i34
   %__begin4.i28.sroa.0.059 = phi ptr [ %__begin4.i28.sroa.0.0, %for.body.i34 ], [ %__begin4.i28.sroa.0.057, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i28.sroa.0.059)
-  %Next.i.i.i42 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i28.sroa.0.059, i64 0, i32 1
+  %Next.i.i.i42 = getelementptr inbounds i8, ptr %__begin4.i28.sroa.0.059, i64 8
   %__begin4.i28.sroa.0.0 = load ptr, ptr %Next.i.i.i42, align 8
   %cmp.i43.not = icmp eq ptr %__begin4.i28.sroa.0.0, %_mixins
   br i1 %cmp.i43.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, label %for.body.i34
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38: ; preds = %for.body.i34, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 6
+  %_body = getelementptr inbounds i8, ptr %node, i64 112
   %2 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9716,10 +9430,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19DeclareFunctionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareFunctionNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::DeclareFunctionNode", ptr %node, i64 0, i32 2
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_predicate, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9728,11 +9442,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareComponentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_params = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.016 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not17 = icmp eq ptr %__begin4.i.sroa.0.016, %_params
   br i1 %cmp.i.not17, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9740,19 +9454,19 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.018, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 3
+  %_rest = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_rest, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 4
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_rendersType = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 5
+  %_rendersType = getelementptr inbounds i8, ptr %node, i64 88
   %3 = load ptr, ptr %_rendersType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9761,10 +9475,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15DeclareEnumNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareEnumNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareEnumNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9773,11 +9487,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_28DeclareExportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_declaration = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_specifiers
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9785,13 +9499,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_source = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 3
+  %_source = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_source, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9800,10 +9514,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17DeclareModuleNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9812,10 +9526,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20InterfaceExtendsNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::InterfaceExtendsNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::InterfaceExtendsNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9824,10 +9538,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ClassImplementsNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassImplementsNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassImplementsNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9836,8 +9550,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ObjectTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_properties = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.067 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not68 = icmp eq ptr %__begin4.i.sroa.0.067, %_properties
   br i1 %cmp.i.not68, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -9845,14 +9559,14 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.069 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.067, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.069)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.069, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.069, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_properties
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_indexers = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i52 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_indexers = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i52 = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i17.sroa.0.070 = load ptr, ptr %Next.i.i.i.i52, align 8
   %cmp.i51.not71 = icmp eq ptr %__begin4.i17.sroa.0.070, %_indexers
   br i1 %cmp.i51.not71, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, label %for.body.i23
@@ -9860,14 +9574,14 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i23:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i23
   %__begin4.i17.sroa.0.072 = phi ptr [ %__begin4.i17.sroa.0.0, %for.body.i23 ], [ %__begin4.i17.sroa.0.070, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i17.sroa.0.072)
-  %Next.i.i.i50 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i17.sroa.0.072, i64 0, i32 1
+  %Next.i.i.i50 = getelementptr inbounds i8, ptr %__begin4.i17.sroa.0.072, i64 8
   %__begin4.i17.sroa.0.0 = load ptr, ptr %Next.i.i.i50, align 8
   %cmp.i51.not = icmp eq ptr %__begin4.i17.sroa.0.0, %_indexers
   br i1 %cmp.i51.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, label %for.body.i23
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27: ; preds = %for.body.i23, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
-  %_callProperties = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i55 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_callProperties = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i55 = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i28.sroa.0.073 = load ptr, ptr %Next.i.i.i.i55, align 8
   %cmp.i54.not74 = icmp eq ptr %__begin4.i28.sroa.0.073, %_callProperties
   br i1 %cmp.i54.not74, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, label %for.body.i34
@@ -9875,14 +9589,14 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, %for.body.i34
   %__begin4.i28.sroa.0.075 = phi ptr [ %__begin4.i28.sroa.0.0, %for.body.i34 ], [ %__begin4.i28.sroa.0.073, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i28.sroa.0.075)
-  %Next.i.i.i53 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i28.sroa.0.075, i64 0, i32 1
+  %Next.i.i.i53 = getelementptr inbounds i8, ptr %__begin4.i28.sroa.0.075, i64 8
   %__begin4.i28.sroa.0.0 = load ptr, ptr %Next.i.i.i53, align 8
   %cmp.i54.not = icmp eq ptr %__begin4.i28.sroa.0.0, %_callProperties
   br i1 %cmp.i54.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, label %for.body.i34
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38: ; preds = %for.body.i34, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27
-  %_internalSlots = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 4
-  %Next.i.i.i.i58 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_internalSlots = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i58 = getelementptr inbounds i8, ptr %node, i64 104
   %__begin4.i39.sroa.0.076 = load ptr, ptr %Next.i.i.i.i58, align 8
   %cmp.i57.not77 = icmp eq ptr %__begin4.i39.sroa.0.076, %_internalSlots
   br i1 %cmp.i57.not77, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit49, label %for.body.i45
@@ -9890,7 +9604,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i45:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, %for.body.i45
   %__begin4.i39.sroa.0.078 = phi ptr [ %__begin4.i39.sroa.0.0, %for.body.i45 ], [ %__begin4.i39.sroa.0.076, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i39.sroa.0.078)
-  %Next.i.i.i56 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i39.sroa.0.078, i64 0, i32 1
+  %Next.i.i.i56 = getelementptr inbounds i8, ptr %__begin4.i39.sroa.0.078, i64 8
   %__begin4.i39.sroa.0.0 = load ptr, ptr %Next.i.i.i56, align 8
   %cmp.i57.not = icmp eq ptr %__begin4.i39.sroa.0.0, %_internalSlots
   br i1 %cmp.i57.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit49, label %for.body.i45
@@ -9902,13 +9616,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22ObjectTypePropertyNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %node, i64 0, i32 7
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9917,10 +9631,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ObjectTypeInternalSlotNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeInternalSlotNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeInternalSlotNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9929,16 +9643,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21ObjectTypeIndexerNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 2
+  %_key = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 3
+  %_value = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_value, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 5
+  %_variance = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9947,16 +9661,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_32ObjectTypeMappedTypePropertyNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_keyTparam = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 1
+  %_keyTparam = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_keyTparam, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_propType = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 2
+  %_propType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_propType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_sourceType = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 3
+  %_sourceType = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_sourceType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 4
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -9965,13 +9679,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17TypeParameterNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_bound = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %node, i64 0, i32 2
+  %_bound = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_bound, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %node, i64 0, i32 3
+  %_variance = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_variance, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_default = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %node, i64 0, i32 4
+  %_default = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_default, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -9980,10 +9694,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22TypeCastExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TypeCastExpressionNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeCastExpressionNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -9992,10 +9706,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16AsExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::AsExpressionNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::AsExpressionNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10004,10 +9718,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19EnumDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::EnumDeclarationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10016,10 +9730,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20EnumStringMemberNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumStringMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_init = getelementptr inbounds %"class.hermes::ESTree::EnumStringMemberNode", ptr %node, i64 0, i32 2
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_init, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10028,10 +9742,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20EnumNumberMemberNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumNumberMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_init = getelementptr inbounds %"class.hermes::ESTree::EnumNumberMemberNode", ptr %node, i64 0, i32 2
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_init, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10040,10 +9754,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21EnumBooleanMemberNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_init = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanMemberNode", ptr %node, i64 0, i32 2
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_init, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10052,10 +9766,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22ComponentParameterNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::ComponentParameterNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ComponentParameterNode", ptr %node, i64 0, i32 2
+  %_local = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_local, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10064,10 +9778,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23TSIndexedAccessTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_objectType = getelementptr inbounds %"class.hermes::ESTree::TSIndexedAccessTypeNode", ptr %node, i64 0, i32 1
+  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_indexType = getelementptr inbounds %"class.hermes::ESTree::TSIndexedAccessTypeNode", ptr %node, i64 0, i32 2
+  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_indexType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10076,10 +9790,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TSTypeReferenceNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_typeName = getelementptr inbounds %"class.hermes::ESTree::TSTypeReferenceNode", ptr %node, i64 0, i32 1
+  %_typeName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeName, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSTypeReferenceNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10088,10 +9802,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TSQualifiedNameNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::TSQualifiedNameNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::TSQualifiedNameNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10100,8 +9814,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18TSFunctionTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin4.i.sroa.0.010, %_params
   br i1 %cmp.i.not11, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10109,16 +9823,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 2
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 3
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10127,8 +9841,8 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSConstructorTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin4.i.sroa.0.010, %_params
   br i1 %cmp.i.not11, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10136,16 +9850,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 2
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 3
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10154,10 +9868,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TSTypePredicateNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_parameterName = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %node, i64 0, i32 1
+  %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10166,10 +9880,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TSTypeAssertionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAssertionNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TSTypeAssertionNode", ptr %node, i64 0, i32 2
+  %_expression = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_expression, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10178,10 +9892,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18TSAsExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TSAsExpressionNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSAsExpressionNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10190,13 +9904,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26TSTypeAliasDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %node, i64 0, i32 3
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -10205,14 +9919,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26TSInterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_extends
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10220,13 +9934,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 4
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -10235,10 +9949,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23TSInterfaceHeritageNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceHeritageNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceHeritageNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10247,11 +9961,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSEnumDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_members = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_members = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_members
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10259,7 +9973,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_members
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10271,10 +9985,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16TSEnumMemberNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSEnumMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSEnumMemberNode", ptr %node, i64 0, i32 2
+  %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_initializer, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10283,10 +9997,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23TSModuleDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSModuleDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_body = getelementptr inbounds %"class.hermes::ESTree::TSModuleDeclarationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10295,10 +10009,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18TSModuleMemberNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSModuleMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSModuleMemberNode", ptr %node, i64 0, i32 2
+  %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_initializer, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10307,13 +10021,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TSTypeParameterNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_constraint = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %node, i64 0, i32 2
+  %_constraint = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_constraint, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_default = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %node, i64 0, i32 3
+  %_default = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_default, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -10322,16 +10036,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSConditionalTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_checkType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 1
+  %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_extendsType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 2
+  %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_extendsType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_trueType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 3
+  %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_trueType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
-  %_falseType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 4
+  %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_falseType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
@@ -10340,13 +10054,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23TSPropertySignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
-  %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %node, i64 0, i32 3
+  %_initializer = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_initializer, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
@@ -10355,11 +10069,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSMethodSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin4.i.sroa.0.013, %_params
   br i1 %cmp.i.not14, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10367,13 +10081,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 3
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10382,8 +10096,8 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20TSIndexSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_parameters = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_parameters = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_parameters
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10391,13 +10105,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_parameters
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
@@ -10406,8 +10120,8 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_30TSCallSignatureDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin4.i.sroa.0.07, %_params
   br i1 %cmp.i.not8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
@@ -10415,13 +10129,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.09, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
   br i1 %cmp.i.not, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, label %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %node, i64 0, i32 2
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
@@ -10430,10 +10144,10 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24CoverTypedIdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::CoverTypedIdentifierNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
-  %_right = getelementptr inbounds %"class.hermes::ESTree::CoverTypedIdentifierNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
@@ -10448,7 +10162,7 @@ entry:
   %ref.tmp3 = alloca %"class.llvh::Twine", align 8
   %ref.tmp6 = alloca %"struct.hermes::Dependency", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   %cmp.i = icmp ugt i64 %name.coerce1, 1
   br i1 %cmp.i, label %if.end.i.i, label %_ZN4llvh9StringRef13consume_frontES0_.exit
@@ -10472,30 +10186,30 @@ _ZN4llvh9StringRef13consume_frontES0_.exit:       ; preds = %if.end.i.i, %entry,
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %_ZN4llvh9StringRef13consume_frontES0_.exit
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 3, ptr %RHSKind.i, align 1
   store ptr %name, ptr %ref.tmp3, align 8
-  %RHS5.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS5.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.22, ptr %RHS5.i, align 8
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3) #15
-  %kind4 = getelementptr inbounds %"struct.hermes::Dependency", ptr %ref.tmp, i64 0, i32 1
+  %kind4 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 6, ptr %kind4, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  %kind.i.i.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %4, i64 0, i32 1
+  %kind.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i32, ptr %kind4, align 8
   store i32 %6, ptr %kind.i.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %sw.epilog
 
@@ -10520,22 +10234,22 @@ if.end.i13:                                       ; preds = %sw.default
 
 _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.i13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %kind8 = getelementptr inbounds %"struct.hermes::Dependency", ptr %ref.tmp6, i64 0, i32 1
+  %kind8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 32
   store i32 %kind, ptr %kind8, align 8
-  %_M_finish.i.i14 = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i14 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_M_finish.i.i14, align 8
-  %_M_end_of_storage.i.i15 = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %_M_end_of_storage.i.i15, align 8
   %cmp.not.i.i16 = icmp eq ptr %8, %9
   br i1 %cmp.not.i.i16, label %if.else.i.i21, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #15
-  %kind.i.i.i.i.i18 = getelementptr inbounds %"struct.hermes::Dependency", ptr %8, i64 0, i32 1
+  %kind.i.i.i.i.i18 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i32, ptr %kind8, align 8
   store i32 %10, ptr %kind.i.i.i.i.i18, align 8
   %11 = load ptr, ptr %_M_finish.i.i14, align 8
-  %incdec.ptr.i.i20 = getelementptr inbounds %"struct.hermes::Dependency", ptr %11, i64 1
+  %incdec.ptr.i.i20 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %incdec.ptr.i.i20, ptr %_M_finish.i.i14, align 8
   br label %sw.epilog
 
@@ -10554,7 +10268,7 @@ declare void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6hermes10DependencyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(36) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -10590,8 +10304,8 @@ _ZNSt12_Vector_baseIN6hermes10DependencyESaIS1_EE11_M_allocateEm.exit: ; preds =
   %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6hermes10DependencyEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN6hermes10DependencyESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.hermes::Dependency", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #15
-  %kind.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  %kind3.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %__args, i64 0, i32 1
+  %kind.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %kind3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %2 = load i32, ptr %kind3.i.i.i, align 8
   store i32 %2, ptr %kind.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -10603,19 +10317,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
-  %kind.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %kind3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %kind.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %kind3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %3 = load i32, ptr %kind3.i.i.i.i.i.i.i, align 8, !alias.scope !106, !noalias !103
   store i32 %3, ptr %kind.i.i.i.i.i.i.i, align 8, !alias.scope !103, !noalias !106
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6hermes10DependencyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !108
 
 _ZNSt6vectorIN6hermes10DependencyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6hermes10DependencyESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6hermes10DependencyESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::Dependency", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes10DependencyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, label %for.body.i.i.i12
 
@@ -10625,13 +10339,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #15
-  %kind.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.hermes::Dependency", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %kind3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.hermes::Dependency", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %kind.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %kind3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %4 = load i32, ptr %kind3.i.i.i.i.i.i.i16, align 8, !alias.scope !112, !noalias !109
   store i32 %4, ptr %kind.i.i.i.i.i.i.i15, align 8, !alias.scope !109, !noalias !112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #15
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"struct.hermes::Dependency", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"struct.hermes::Dependency", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorIN6hermes10DependencyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, label %for.body.i.i.i12, !llvm.loop !108
 
@@ -10645,7 +10359,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN6herm
   br label %_ZNSt12_Vector_baseIN6hermes10DependencyESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN6hermes10DependencyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6hermes10DependencyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.hermes::Dependency", ptr %cond.i10, i64 %cond.i
@@ -10678,7 +10392,7 @@ entry:
   %ref.tmp.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp10.i = alloca %"class.llvh::Twine", align 8
   %call = tail call noundef ptr @_ZN6hermes6ESTree9getCalleeEPNS0_22CallExpressionLikeNodeE(ptr noundef %node) #15
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %0, 63
   %tobool.not64 = icmp eq ptr %call, null
@@ -10686,12 +10400,16 @@ entry:
   br i1 %tobool.not, label %if.else24, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_name = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %call, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load ptr, ptr %_name, align 8
-  %requireIdent_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 2
+  %requireIdent_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %requireIdent_, align 8
   %cmp = icmp eq ptr %1, %2
-  br i1 %cmp, label %if.then3, label %for.body
+  br i1 %cmp, label %if.then3, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %if.then
+  %resourceIdents_ = getelementptr inbounds i8, ptr %this, i64 64
+  br label %for.body
 
 if.then3:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -10702,14 +10420,14 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then3
-  %sm_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 1
+  %sm_.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %sm_.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+  %sourceRange_.i.i = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i, i64 0, i32 2
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i, i64 0, i32 3
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
@@ -10717,9 +10435,9 @@ if.then.i:                                        ; preds = %if.then3
   br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread
 
 if.end.i:                                         ; preds = %if.then3
-  %Next.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call.i, i64 0, i32 1
+  %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %5, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %6, 33
   %tobool.not13.i = icmp eq ptr %5, null
@@ -10727,14 +10445,14 @@ if.end.i:                                         ; preds = %if.then3
   br i1 %tobool.not.i, label %if.then6.i, label %if.then6
 
 if.then6.i:                                       ; preds = %if.end.i
-  %sm_7.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 1
+  %sm_7.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %sm_7.i, align 8
-  %sourceRange_.i5.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+  %sourceRange_.i5.i = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i6.i = load ptr, ptr %sourceRange_.i5.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i8.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i, align 8
-  %LHSKind.i11.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp10.i, i64 0, i32 2
-  %RHSKind.i12.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp10.i, i64 0, i32 3
+  %LHSKind.i11.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 16
+  %RHSKind.i12.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 17
   store i8 1, ptr %RHSKind.i12.i, align 1
   store ptr @.str.23, ptr %ref.tmp10.i, align 8
   store i8 3, ptr %LHSKind.i11.i, align 8
@@ -10749,7 +10467,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTr
 if.then6:                                         ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %5, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %5, i64 48
   %8 = load ptr, ptr %_value, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %8, align 8
   %agg.tmp.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -10762,9 +10480,9 @@ for.cond:                                         ; preds = %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %if.end58, label %for.body, !llvm.loop !114
 
-for.body:                                         ; preds = %if.then, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.then ]
-  %arrayidx = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 6, i64 %indvars.iv
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds [6 x ptr], ptr %resourceIdents_, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
   %cmp10 = icmp eq ptr %9, %1
   br i1 %cmp10, label %if.then11, label %for.cond
@@ -10778,14 +10496,14 @@ if.then11:                                        ; preds = %for.body
   br i1 %cmp.i.i.i26, label %if.then.i42, label %if.end.i27
 
 if.then.i42:                                      ; preds = %if.then11
-  %sm_.i43 = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 1
+  %sm_.i43 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %sm_.i43, align 8
-  %sourceRange_.i.i44 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+  %sourceRange_.i.i44 = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i.i45 = load ptr, ptr %sourceRange_.i.i44, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i46 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i46 = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i.i47 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i46, align 8
-  %LHSKind.i.i48 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i23, i64 0, i32 2
-  %RHSKind.i.i49 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i23, i64 0, i32 3
+  %LHSKind.i.i48 = getelementptr inbounds i8, ptr %ref.tmp.i23, i64 16
+  %RHSKind.i.i49 = getelementptr inbounds i8, ptr %ref.tmp.i23, i64 17
   store i8 1, ptr %RHSKind.i.i49, align 1
   store ptr @.str.23, ptr %ref.tmp.i23, align 8
   store i8 3, ptr %LHSKind.i.i48, align 8
@@ -10793,9 +10511,9 @@ if.then.i42:                                      ; preds = %if.then11
   br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit50.thread
 
 if.end.i27:                                       ; preds = %if.then11
-  %Next.i.i.i.i.i.i28 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call.i25, i64 0, i32 1
+  %Next.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call.i25, i64 8
   %12 = load ptr, ptr %Next.i.i.i.i.i.i28, align 8
-  %kind_.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %12, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i29, align 8
   %cmp.i.i.i.i.i.i.i.i30 = icmp ne i32 %13, 33
   %tobool.not13.i31 = icmp eq ptr %12, null
@@ -10803,14 +10521,14 @@ if.end.i27:                                       ; preds = %if.then11
   br i1 %tobool.not.i32, label %if.then6.i34, label %if.then15
 
 if.then6.i34:                                     ; preds = %if.end.i27
-  %sm_7.i35 = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 1
+  %sm_7.i35 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %sm_7.i35, align 8
-  %sourceRange_.i5.i36 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+  %sourceRange_.i5.i36 = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i6.i37 = load ptr, ptr %sourceRange_.i5.i36, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i38 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i38 = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i8.i39 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i38, align 8
-  %LHSKind.i11.i40 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp10.i24, i64 0, i32 2
-  %RHSKind.i12.i41 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp10.i24, i64 0, i32 3
+  %LHSKind.i11.i40 = getelementptr inbounds i8, ptr %ref.tmp10.i24, i64 16
+  %RHSKind.i12.i41 = getelementptr inbounds i8, ptr %ref.tmp10.i24, i64 17
   store i8 1, ptr %RHSKind.i12.i41, align 1
   store ptr @.str.23, ptr %ref.tmp10.i24, align 8
   store i8 3, ptr %LHSKind.i11.i40, align 8
@@ -10825,7 +10543,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTr
 if.then15:                                        ; preds = %if.end.i27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i24)
-  %_value17 = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %12, i64 0, i32 1
+  %_value17 = getelementptr inbounds i8, ptr %12, i64 48
   %15 = load ptr, ptr %_value17, align 8
   %agg.tmp16.sroa.0.0.copyload = load ptr, ptr %15, align 8
   %agg.tmp16.sroa.2.0.call18.sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
@@ -10841,9 +10559,9 @@ if.else24:                                        ; preds = %entry
   br i1 %tobool26.not, label %if.end58, label %if.then27
 
 if.then27:                                        ; preds = %if.else24
-  %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %call, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %call, i64 48
   %17 = load ptr, ptr %_object, align 8
-  %kind_.i.i.i.i.i.i.i.i54 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %17, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %kind_.i.i.i.i.i.i.i.i54, align 8
   %cmp.i.i.i.i.i.i.i55 = icmp ne i32 %18, 63
   %tobool29.not66 = icmp eq ptr %17, null
@@ -10851,28 +10569,28 @@ if.then27:                                        ; preds = %if.else24
   br i1 %tobool29.not, label %if.end58, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then27
-  %_computed = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %call, i64 0, i32 3
+  %_computed = getelementptr inbounds i8, ptr %call, i64 64
   %19 = load i8, ptr %_computed, align 8
   %20 = and i8 %19, 1
   %tobool30.not = icmp eq i8 %20, 0
   br i1 %tobool30.not, label %land.lhs.true31, label %if.end58
 
 land.lhs.true31:                                  ; preds = %land.lhs.true
-  %_name32 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %17, i64 0, i32 1
+  %_name32 = getelementptr inbounds i8, ptr %17, i64 48
   %21 = load ptr, ptr %_name32, align 8
-  %requireIdent_33 = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 2
+  %requireIdent_33 = getelementptr inbounds i8, ptr %this, i64 32
   %22 = load ptr, ptr %requireIdent_33, align 8
   %cmp34 = icmp eq ptr %21, %22
-  %jestIdent_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 3
+  %jestIdent_ = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load ptr, ptr %jestIdent_, align 8
   %cmp36 = icmp eq ptr %21, %23
   %or.cond = select i1 %cmp34, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end58
 
 if.then37:                                        ; preds = %land.lhs.true31
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %call, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %call, i64 56
   %24 = load ptr, ptr %_property, align 8
-  %kind_.i.i.i.i.i.i.i.i57 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %24, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load i32, ptr %kind_.i.i.i.i.i.i.i.i57, align 8
   %cmp.i.i.i.i.i.i.i58 = icmp ne i32 %25, 63
   %tobool39.not67 = icmp eq ptr %24, null
@@ -10880,12 +10598,12 @@ if.then37:                                        ; preds = %land.lhs.true31
   br i1 %tobool39.not, label %if.end58, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %if.then37
-  %_name41 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %24, i64 0, i32 1
+  %_name41 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load ptr, ptr %_name41, align 8
-  %requireActualIdent_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 4
+  %requireActualIdent_ = getelementptr inbounds i8, ptr %this, i64 48
   %27 = load ptr, ptr %requireActualIdent_, align 8
   %cmp42 = icmp eq ptr %26, %27
-  %requireMockIdent_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 5
+  %requireMockIdent_ = getelementptr inbounds i8, ptr %this, i64 56
   %28 = load ptr, ptr %requireMockIdent_, align 8
   %cmp45 = icmp eq ptr %26, %28
   %or.cond22 = select i1 %cmp42, i1 true, i1 %cmp45
@@ -10897,7 +10615,7 @@ if.then46:                                        ; preds = %land.lhs.true40
   br i1 %tobool49.not, label %if.end58, label %if.then50
 
 if.then50:                                        ; preds = %if.then46
-  %_value52 = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %call48, i64 0, i32 1
+  %_value52 = getelementptr inbounds i8, ptr %call48, i64 48
   %29 = load ptr, ptr %_value52, align 8
   %agg.tmp51.sroa.0.0.copyload = load ptr, ptr %29, align 8
   %agg.tmp51.sroa.2.0.call53.sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
@@ -10923,14 +10641,14 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sm_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 1
+  %sm_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %sm_, align 8
-  %sourceRange_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+  %sourceRange_.i = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %sourceRange_.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.23, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
@@ -10938,9 +10656,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call, i64 0, i32 1
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %2, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %3, 33
   %tobool.not13 = icmp eq ptr %2, null
@@ -10948,14 +10666,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
-  %sm_7 = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 1
+  %sm_7 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %sm_7, align 8
-  %sourceRange_.i5 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+  %sourceRange_.i5 = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i6 = load ptr, ptr %sourceRange_.i5, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i7 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i7 = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i8 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7, align 8
-  %LHSKind.i11 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp10, i64 0, i32 2
-  %RHSKind.i12 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp10, i64 0, i32 3
+  %LHSKind.i11 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
+  %RHSKind.i12 = getelementptr inbounds i8, ptr %ref.tmp10, i64 17
   store i8 1, ptr %RHSKind.i12, align 1
   store ptr @.str.23, ptr %ref.tmp10, align 8
   store i8 3, ptr %LHSKind.i11, align 8
@@ -10978,9 +10696,9 @@ entry:
   %ref.tmp.i = alloca %"struct.hermes::Dependency", align 8
   %ref.tmp3.i = alloca %"class.llvh::Twine", align 8
   %captures.i.i = alloca %"class.std::vector.211", align 8
-  %_tag = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 1
+  %_tag = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %0, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %1, 63
   %tobool.not8 = icmp eq ptr %0, null
@@ -10988,33 +10706,33 @@ entry:
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_name = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %0, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %_name, align 8
-  %graphqlIdent_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 7
+  %graphqlIdent_ = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %graphqlIdent_, align 8
   %cmp = icmp eq ptr %2, %3
   br i1 %cmp, label %if.then2, label %if.end11
 
 if.then2:                                         ; preds = %if.then
-  %_quasi = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 2
+  %_quasi = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_quasi, align 8
-  %_quasis = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %4, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_quasis = getelementptr inbounds i8, ptr %4, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   %__begin4.sroa.0.09 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not10 = icmp eq ptr %__begin4.sroa.0.09, %_quasis
   br i1 %cmp.i.not10, label %if.end11, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then2
-  %graphqlQueryRegexBytecode_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl_data", ptr %captures.i.i, i64 0, i32 1
-  %_M_finish.i.i1.i.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %name.i, i64 0, i32 1
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3.i, i64 0, i32 2
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3.i, i64 0, i32 3
-  %RHS5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3.i, i64 0, i32 1
-  %kind4.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::Dependency, std::allocator<hermes::Dependency>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %graphqlQueryRegexBytecode_.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %captures.i.i, i64 8
+  %_M_finish.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %5 = getelementptr inbounds i8, ptr %name.i, i64 8
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 17
+  %RHS5.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %kind4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit
@@ -11064,10 +10782,10 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
   br label %_ZN6hermes7graphql22getGraphQLDependenciesIZNS_12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeEEUlN4llvh9StringRefEE_EEvS8_RSt6vectorIhSaIhEET_.exit.i
 
 if.end.i.i:                                       ; preds = %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE5clearEv.exit.i.i
-  %add.ptr.i2.i.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %11, i64 1
+  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %add.ptr.i2.i.i, align 4
   %conv5.i.i = zext i32 %12 to i64
-  %end.i.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %11, i64 1, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %11, i64 12
   %13 = load i32, ptr %end.i.i, align 4
   %conv7.i.i = zext i32 %13 to i64
   %.sroa.speculated13.i.i = call i64 @llvm.umin.i64(i64 %conv5.i.i, i64 %string.sroa.2.0.copyload.i)
@@ -11109,11 +10827,11 @@ _ZN4llvh9StringRef13consume_frontES0_.exit.i:     ; preds = %if.end.i.i5, %if.en
 
 if.then.i.i.i:                                    ; preds = %_ZN4llvh9StringRef13consume_frontES0_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
-  %kind.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %15, i64 0, i32 1
+  %kind.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load i32, ptr %kind4.i, align 8
   store i32 %17, ptr %kind.i.i.i.i.i.i, align 8
   %18 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.hermes::Dependency", ptr %18, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE.exit
 
@@ -11127,7 +10845,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp3.i)
   %19 = load ptr, ptr %captures.i.i, align 8
-  %end10.i.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %19, i64 0, i32 1
+  %end10.i.i = getelementptr inbounds i8, ptr %19, i64 4
   %20 = load i32, ptr %end10.i.i, align 4
   %.pre.i.i = load ptr, ptr %_M_finish.i.i.i.i, align 8
   br label %for.cond.i.i, !llvm.loop !115
@@ -11137,7 +10855,7 @@ _ZN6hermes7graphql22getGraphQLDependenciesIZNS_12_GLOBAL__N_119DependencyExtract
   br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit
 
 _ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit: ; preds = %for.body, %_ZN6hermes7graphql22getGraphQLDependenciesIZNS_12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeEEUlN4llvh9StringRefEE_EEvS8_RSt6vectorIhSaIhEET_.exit.i
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.sroa.0.011, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.011, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.sroa.0.0, %_quasis
   br i1 %cmp.i.not, label %if.end11.loopexit, label %for.body
@@ -11149,7 +10867,7 @@ if.end11.loopexit:                                ; preds = %_ZN6hermes12_GLOBAL
 if.end11:                                         ; preds = %if.end11.loopexit, %if.then2, %if.then, %entry
   %21 = phi ptr [ %.pre, %if.end11.loopexit ], [ %0, %if.then2 ], [ %0, %if.then ], [ %0, %entry ]
   call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %21)
-  %_quasi.i = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 2
+  %_quasi.i = getelementptr inbounds i8, ptr %node, i64 56
   %22 = load ptr, ptr %_quasi.i, align 8
   call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %22)
   ret void
@@ -11160,9 +10878,9 @@ declare noundef i32 @_ZN6hermes5regex18searchWithBytecodeEN4llvh8ArrayRefIhEEPKc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 2
+  %_source = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_source, align 8
-  %_importKind = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 4
+  %_importKind = getelementptr inbounds i8, ptr %node, i64 88
   %1 = load ptr, ptr %_importKind, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx, align 8
@@ -11181,8 +10899,8 @@ if.else:                                          ; preds = %entry, %if.end.i71
 if.end:                                           ; preds = %if.end.i71, %if.else
   %hasType.0 = phi i8 [ 1, %if.else ], [ 0, %if.end.i71 ]
   %hasValue.0 = phi i8 [ 0, %if.else ], [ 1, %if.end.i71 ]
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.020 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i15.not21 = icmp eq ptr %__begin2.sroa.0.020, %_specifiers
   br i1 %cmp.i15.not21, label %for.end, label %for.body
@@ -11191,7 +10909,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %__begin2.sroa.0.024 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.020, %if.end ]
   %hasValue.123 = phi i8 [ %hasValue.2, %for.inc ], [ %hasValue.0, %if.end ]
   %hasType.122 = phi i8 [ %hasType.2, %for.inc ], [ %hasType.0, %if.end ]
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.024, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 16
   %3 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %3, 81
   %tobool.not18 = icmp eq ptr %__begin2.sroa.0.024, null
@@ -11199,7 +10917,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %_importKind13 = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %__begin2.sroa.0.024, i64 0, i32 3
+  %_importKind13 = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 64
   %4 = load ptr, ptr %_importKind13, align 8
   %agg.tmp12.sroa.2.0.call14.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %agg.tmp12.sroa.2.0.copyload = load i64, ptr %agg.tmp12.sroa.2.0.call14.sroa_idx, align 8
@@ -11218,7 +10936,7 @@ if.else18:                                        ; preds = %if.then11, %if.end.
 for.inc:                                          ; preds = %if.end.i, %for.body, %if.else18
   %hasType.2 = phi i8 [ 1, %if.else18 ], [ %hasType.122, %for.body ], [ %hasType.122, %if.end.i ]
   %hasValue.2 = phi i8 [ %hasValue.123, %if.else18 ], [ %hasValue.123, %for.body ], [ 1, %if.end.i ]
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.024, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i15.not = icmp eq ptr %__begin2.sroa.0.0, %_specifiers
   br i1 %cmp.i15.not, label %for.end, label %for.body
@@ -11231,7 +10949,7 @@ for.end:                                          ; preds = %for.inc, %if.end
   br i1 %tobool22.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %for.end
-  %_value = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %0, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %_value, align 8
   %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %6, align 8
   %agg.tmp24.sroa.2.0.call25.sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
@@ -11245,7 +10963,7 @@ if.end26:                                         ; preds = %if.then23, %for.end
   br i1 %tobool27.not, label %if.end32, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %_value30 = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %0, i64 0, i32 1
+  %_value30 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %_value30, align 8
   %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %8, align 8
   %agg.tmp29.sroa.2.0.call31.sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -11261,7 +10979,7 @@ if.end32:                                         ; preds = %if.then28, %if.end2
 for.body.i.i:                                     ; preds = %if.end32, %for.body.i.i
   %__begin4.i.sroa.0.031.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.029.i, %if.end32 ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.031.i)
-  %Next.i.i.i.i26 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.031.i, i64 0, i32 1
+  %Next.i.i.i.i26 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.031.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i26, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_specifiers
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i, label %for.body.i.i
@@ -11269,8 +10987,8 @@ for.body.i.i:                                     ; preds = %if.end32, %for.body
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i: ; preds = %for.body.i.i, %if.end32
   %9 = load ptr, ptr %_source, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %9)
-  %_assertions.i = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i24.i = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_assertions.i = getelementptr inbounds i8, ptr %node, i64 72
+  %Next.i.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 80
   %__begin4.i11.sroa.0.032.i = load ptr, ptr %Next.i.i.i.i24.i, align 8
   %cmp.i23.not33.i = icmp eq ptr %__begin4.i11.sroa.0.032.i, %_assertions.i
   br i1 %cmp.i23.not33.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21ImportDeclarationNodeE.exit, label %for.body.i17.i
@@ -11278,7 +10996,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 for.body.i17.i:                                   ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i, %for.body.i17.i
   %__begin4.i11.sroa.0.034.i = phi ptr [ %__begin4.i11.sroa.0.0.i, %for.body.i17.i ], [ %__begin4.i11.sroa.0.032.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i11.sroa.0.034.i)
-  %Next.i.i.i22.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i11.sroa.0.034.i, i64 0, i32 1
+  %Next.i.i.i22.i = getelementptr inbounds i8, ptr %__begin4.i11.sroa.0.034.i, i64 8
   %__begin4.i11.sroa.0.0.i = load ptr, ptr %Next.i.i.i22.i, align 8
   %cmp.i23.not.i = icmp eq ptr %__begin4.i11.sroa.0.0.i, %_assertions.i
   br i1 %cmp.i23.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21ImportDeclarationNodeE.exit, label %for.body.i17.i
@@ -11290,13 +11008,13 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 3
+  %_source = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_source, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_exportKind = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 4
+  %_exportKind = getelementptr inbounds i8, ptr %node, i64 80
   %1 = load ptr, ptr %_exportKind, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx, align 8
@@ -11312,7 +11030,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %if.then
   %not. = phi i32 [ 1, %if.then ], [ %3, %if.end.i ]
-  %_value = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %0, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %_value, align 8
   %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %4, align 8
   %agg.tmp5.sroa.2.0.call6.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -11321,11 +11039,11 @@ _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %if.then
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit, %entry
-  %_declaration.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration.i = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load ptr, ptr %_declaration.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %5)
-  %_specifiers.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_specifiers.i = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not14.i = icmp eq ptr %__begin4.i.sroa.0.013.i, %_specifiers.i
   br i1 %cmp.i.not14.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE.exit, label %for.body.i.i
@@ -11333,7 +11051,7 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %__begin4.i.sroa.0.015.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.013.i, %if.end ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.015.i)
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.015.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_specifiers.i
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE.exit, label %for.body.i.i
@@ -11347,9 +11065,9 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree24ExportAllDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ExportAllDeclarationNode", ptr %node, i64 0, i32 1
+  %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
-  %_exportKind = getelementptr inbounds %"class.hermes::ESTree::ExportAllDeclarationNode", ptr %node, i64 0, i32 2
+  %_exportKind = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_exportKind, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx, align 8
@@ -11365,7 +11083,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %entry
   %not. = phi i32 [ 1, %entry ], [ %3, %if.end.i ]
-  %_value = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %0, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %_value, align 8
   %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %4, align 8
   %agg.tmp5.sroa.2.0.call6.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -11379,7 +11097,7 @@ _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %foundJSX_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 9
+  %foundJSX_.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i8, ptr %foundJSX_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -11392,11 +11110,11 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit
 
 _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ; preds = %entry, %if.end.i
-  %_openingElement.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 1
+  %_openingElement.i = getelementptr inbounds i8, ptr %node, i64 48
   %2 = load ptr, ptr %_openingElement.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %2)
-  %_children.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_children.i = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not11.i = icmp eq ptr %__begin4.i.sroa.0.010.i, %_children.i
   br i1 %cmp.i.not11.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE.exit, label %for.body.i.i
@@ -11404,13 +11122,13 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ;
 for.body.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit, %for.body.i.i
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.010.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_children.i
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE.exit, label %for.body.i.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE.exit: ; preds = %for.body.i.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit
-  %_closingElement.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 3
+  %_closingElement.i = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_closingElement.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %3)
   ret void
@@ -11419,7 +11137,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %foundJSX_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::DependencyExtractor", ptr %this, i64 0, i32 9
+  %foundJSX_.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i8, ptr %foundJSX_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -11432,11 +11150,11 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit
 
 _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ; preds = %entry, %if.end.i
-  %_openingFragment.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 1
+  %_openingFragment.i = getelementptr inbounds i8, ptr %node, i64 48
   %2 = load ptr, ptr %_openingFragment.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %2)
-  %_children.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_children.i = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not11.i = icmp eq ptr %__begin4.i.sroa.0.010.i, %_children.i
   br i1 %cmp.i.not11.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE.exit, label %for.body.i.i
@@ -11444,13 +11162,13 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ;
 for.body.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit, %for.body.i.i
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.010.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit ]
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin4.i.sroa.0.012.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_children.i
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE.exit, label %for.body.i.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE.exit: ; preds = %for.body.i.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit
-  %_closingFragment.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 3
+  %_closingFragment.i = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_closingFragment.i, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %3)
   ret void

@@ -702,7 +702,7 @@ if.end:                                           ; preds = %entry
   %conv3 = trunc i16 %shr to i8
   store i8 %conv3, ptr %be_bitlen, align 1
   %conv6 = trunc i16 %bitlen to i8
-  %arrayidx7 = getelementptr inbounds [2 x i8], ptr %be_bitlen, i64 0, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %be_bitlen, i64 1
   store i8 %conv6, ptr %arrayidx7, align 1
   %call = tail call ptr @HMAC_CTX_new() #4
   %cmp8 = icmp eq ptr %call, null
@@ -735,7 +735,7 @@ for.cond.preheader:                               ; preds = %if.end16
   br i1 %cmp2225, label %for.body.lr.ph, label %err
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx37 = getelementptr inbounds [2 x i8], ptr %be_iter, i64 0, i64 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %be_iter, i64 1
   %conv43 = zext nneg i32 %llen to i64
   %0 = zext nneg i32 %tlen to i64
   br label %for.body

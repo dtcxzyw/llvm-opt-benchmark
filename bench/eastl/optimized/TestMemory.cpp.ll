@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::late_constructed.3" = type { %"struct.eastl::aligned_storage<64, 64>::type", ptr, [56 x i8] }
 %struct.foo = type { i8 }
 %struct.foo.7 = type { i8 }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.ValueInitOf = type { i32 }
 %struct.ValueInitOf.32 = type { i8 }
@@ -137,7 +136,7 @@ $_Z25TestValueInitOptimizationIPvEiv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EED2Ev(ptr noundef nonnull align 64 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %mpValue = getelementptr inbounds %"class.eastl::late_constructed", ptr %this, i64 0, i32 1
+  %mpValue = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %mpValue, align 64
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -161,7 +160,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16late_constructedI12LCTestObjectLb0ELb1EED2Ev(ptr noundef nonnull align 64 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %mpValue.i = getelementptr inbounds %"class.eastl::late_constructed", ptr %this, i64 0, i32 1
+  %mpValue.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %mpValue.i, align 64
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EED2Ev.exit, label %if.then.i
@@ -1159,14 +1158,14 @@ if.then.i256:                                     ; preds = %land.end341
 
 invoke.cont352:                                   ; preds = %land.end341, %if.then.i256
   store i64 0, ptr @_ZN12LCTestObject12sTODtorCountE, align 8
-  %mpValue.i = getelementptr inbounds %"class.eastl::late_constructed.3", ptr %lc, i64 0, i32 1
+  %mpValue.i = getelementptr inbounds i8, ptr %lc, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %lc, i8 0, i64 64, i1 false)
   store i64 1, ptr @_ZN12LCTestObject8sTOCountE, align 8
   store i64 1, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr %lc, ptr %mpValue.i, align 64
   %call349 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 363, ptr noundef nonnull @.str.10)
   store i64 0, ptr @_ZN12LCTestObject12sTODtorCountE, align 8
-  %mpValue.i265 = getelementptr inbounds %"class.eastl::late_constructed.3", ptr %lc350, i64 0, i32 1
+  %mpValue.i265 = getelementptr inbounds i8, ptr %lc350, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %lc350, i8 0, i64 64, i1 false)
   store i64 1, ptr @_ZN12LCTestObject8sTOCountE, align 8
   store i64 1, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
@@ -1178,14 +1177,14 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   %call371 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 408, ptr noundef nonnull @.str.37)
   %call374 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 418, ptr noundef nonnull @.str.37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray1, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray2.65, i64 24, i1 false)
-  %add.ptr380 = getelementptr inbounds i32, ptr %intArray1, i64 6
+  %add.ptr380 = getelementptr inbounds i8, ptr %intArray1, i64 24
   %call381 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray1, ptr noundef nonnull %add.ptr380, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef -1)
   %call382 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call381, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 424, ptr noundef nonnull @.str.39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray1, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray2.65, i64 24, i1 false)
   %call393 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray1, ptr noundef nonnull %add.ptr380, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef -1)
   %call394 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call393, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray1395, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray2.65, i64 24, i1 false)
-  %add.ptr402 = getelementptr inbounds i32, ptr %intArray1395, i64 6
+  %add.ptr402 = getelementptr inbounds i8, ptr %intArray1395, i64 24
   %call403 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray1395, ptr noundef nonnull %add.ptr402, i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef -1)
   %call404 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call403, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 436, ptr noundef nonnull @.str.43)
   %call407 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 444, ptr noundef nonnull @.str.37)
@@ -1194,7 +1193,7 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   %211 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i, i32 0, i64 0, ptr null) #11, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray.46, i64 24, i1 false)
-  %add.ptr411 = getelementptr inbounds i32, ptr %intArray, i64 6
+  %add.ptr411 = getelementptr inbounds i8, ptr %intArray, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i271)
   store ptr %intArray, ptr %first.addr.i.i.i271, align 8
   %212 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i271, i32 4, i64 6, ptr nonnull %intArray) #11, !srcloc !5
@@ -1210,7 +1209,7 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   store ptr %intArray420, ptr %first.addr.i.i.i273, align 8
   %214 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i273, i32 5, i64 6, ptr nonnull %intArray420) #11, !srcloc !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i273)
-  %add.ptr425 = getelementptr inbounds i32, ptr %intArray420, i64 6
+  %add.ptr425 = getelementptr inbounds i8, ptr %intArray420, i64 24
   %call426 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray420, ptr noundef nonnull %add.ptr425, i32 noundef 0, ptr noundef nonnull @.str.47, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef -1)
   %call427 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call426, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 473, ptr noundef nonnull @.str.48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i.i)
@@ -1255,7 +1254,7 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   store i64 10, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   store i64 10, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %call451 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 535, ptr noundef nonnull @.str.49)
-  %add.ptr455 = getelementptr inbounds i32, ptr %intArray452, i64 6
+  %add.ptr455 = getelementptr inbounds i8, ptr %intArray452, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray452, i8 0, i64 24, i1 false)
   %call459 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray452, ptr noundef nonnull %add.ptr455, i32 noundef 0, ptr noundef nonnull @.str.53, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef -1)
   %call460 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call459, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 539, ptr noundef nonnull @.str.54)
@@ -1272,7 +1271,7 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   %call467 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 549, ptr noundef nonnull @.str.50)
   %call470 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 550, ptr noundef nonnull @.str.51)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray471, i8 0, i64 24, i1 false)
-  %add.ptr476 = getelementptr inbounds i32, ptr %intArray471, i64 6
+  %add.ptr476 = getelementptr inbounds i8, ptr %intArray471, i64 24
   %call477 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray471, ptr noundef nonnull %add.ptr476, i32 noundef 0, ptr noundef nonnull @.str.56, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef -1)
   %call478 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call477, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 554, ptr noundef nonnull @.str.57)
   call void @_ZN2EA4StdC8Memfill8EPvhm(ptr noundef nonnull %testCharArray479, i8 noundef zeroext 42, i64 noundef 10)
@@ -1305,11 +1304,11 @@ for.body495:                                      ; preds = %for.end, %for.body4
 
 for.end504:                                       ; preds = %for.body495
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray1505, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray2.65, i64 24, i1 false)
-  %add.ptr514 = getelementptr inbounds i32, ptr %intArray1505, i64 6
+  %add.ptr514 = getelementptr inbounds i8, ptr %intArray1505, i64 24
   %call515 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray1505, ptr noundef nonnull %add.ptr514, i32 noundef 0, ptr noundef nonnull @.str.62, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef -1)
   %call516 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call515, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 617, ptr noundef nonnull @.str.63)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray1517, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray2.65, i64 24, i1 false)
-  %add.ptr524 = getelementptr inbounds i32, ptr %intArray1517, i64 6
+  %add.ptr524 = getelementptr inbounds i8, ptr %intArray1517, i64 24
   %call525 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray1517, ptr noundef nonnull %add.ptr524, i32 noundef 0, ptr noundef nonnull @.str.66, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef -1)
   %call526 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call525, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 627, ptr noundef nonnull @.str.67)
   store i64 0, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
@@ -1349,12 +1348,12 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %fo
   %arrayctor.cur.idx = phi i64 [ 0, %for.end504 ], [ %arrayctor.cur.add, %arrayctor.loop ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %testObjectMemory535, i64 %arrayctor.cur.idx
   store i32 0, ptr %arrayctor.cur.ptr, align 8
-  %mbThrowOnCopy.i340 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur.ptr, i64 0, i32 1
+  %mbThrowOnCopy.i340 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 4
   store i8 0, ptr %mbThrowOnCopy.i340, align 4
-  %mMagicValue.i341 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur.ptr, i64 0, i32 4
+  %mMagicValue.i341 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 32623592, ptr %mMagicValue.i341, align 8
   %inc3.i343 = add nuw nsw i64 %inc3.i343541, 1
-  %mId.i345 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur.ptr, i64 0, i32 3
+  %mId.i345 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i64 %inc3.i343, ptr %mId.i345, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 24
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 48
@@ -1363,7 +1362,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %fo
 for.body.i.i346.preheader:                        ; preds = %arrayctor.loop
   store i64 %inc3.i343, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   store i64 2, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %invariant.gep = getelementptr inbounds %struct.TestObject, ptr %testObjectMemory535, i64 0, i32 4
+  %invariant.gep = getelementptr inbounds i8, ptr %testObjectMemory535, i64 16
   br label %for.body.i.i346
 
 for.body.i.i346:                                  ; preds = %for.body.i.i346.preheader, %_ZN10TestObjectD2Ev.exit.i.i
@@ -1408,12 +1407,12 @@ arrayctor.loop548:                                ; preds = %arrayctor.loop548, 
   %arrayctor.cur549.idx = phi i64 [ 0, %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit ], [ %arrayctor.cur549.add, %arrayctor.loop548 ]
   %arrayctor.cur549.ptr = getelementptr inbounds i8, ptr %testObjectMemory544, i64 %arrayctor.cur549.idx
   store i32 0, ptr %arrayctor.cur549.ptr, align 8
-  %mbThrowOnCopy.i356 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur549.ptr, i64 0, i32 1
+  %mbThrowOnCopy.i356 = getelementptr inbounds i8, ptr %arrayctor.cur549.ptr, i64 4
   store i8 0, ptr %mbThrowOnCopy.i356, align 4
-  %mMagicValue.i357 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur549.ptr, i64 0, i32 4
+  %mMagicValue.i357 = getelementptr inbounds i8, ptr %arrayctor.cur549.ptr, i64 16
   store i32 32623592, ptr %mMagicValue.i357, align 8
   %inc3.i359 = add nuw nsw i64 %inc3.i359548, 1
-  %mId.i361 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur549.ptr, i64 0, i32 3
+  %mId.i361 = getelementptr inbounds i8, ptr %arrayctor.cur549.ptr, i64 8
   store i64 %inc3.i359, ptr %mId.i361, align 8
   %arrayctor.cur549.add = add nuw nsw i64 %arrayctor.cur549.idx, 24
   %arrayctor.done559 = icmp eq i64 %arrayctor.cur549.add, 48
@@ -1422,7 +1421,7 @@ arrayctor.loop548:                                ; preds = %arrayctor.loop548, 
 for.body.i362.preheader:                          ; preds = %arrayctor.loop548
   store i64 %inc3.i359, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   store i64 2, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %invariant.gep551 = getelementptr inbounds %struct.TestObject, ptr %testObjectMemory544, i64 0, i32 4
+  %invariant.gep551 = getelementptr inbounds i8, ptr %testObjectMemory544, i64 16
   br label %for.body.i362
 
 for.body.i362:                                    ; preds = %for.body.i362.preheader, %_ZN5eastl10destroy_atI10TestObjectEEvPT_.exit.i
@@ -1467,12 +1466,12 @@ arrayctor.loop568:                                ; preds = %arrayctor.loop568, 
   %arrayctor.cur569.idx = phi i64 [ 0, %_ZN5eastl7destroyIP10TestObjectEEvT_S3_.exit ], [ %arrayctor.cur569.add, %arrayctor.loop568 ]
   %arrayctor.cur569.ptr = getelementptr inbounds i8, ptr %testObjectMemory564, i64 %arrayctor.cur569.idx
   store i32 0, ptr %arrayctor.cur569.ptr, align 8
-  %mbThrowOnCopy.i377 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur569.ptr, i64 0, i32 1
+  %mbThrowOnCopy.i377 = getelementptr inbounds i8, ptr %arrayctor.cur569.ptr, i64 4
   store i8 0, ptr %mbThrowOnCopy.i377, align 4
-  %mMagicValue.i378 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur569.ptr, i64 0, i32 4
+  %mMagicValue.i378 = getelementptr inbounds i8, ptr %arrayctor.cur569.ptr, i64 16
   store i32 32623592, ptr %mMagicValue.i378, align 8
   %inc3.i380 = add nuw nsw i64 %inc3.i380557, 1
-  %mId.i382 = getelementptr inbounds %struct.TestObject, ptr %arrayctor.cur569.ptr, i64 0, i32 3
+  %mId.i382 = getelementptr inbounds i8, ptr %arrayctor.cur569.ptr, i64 8
   store i64 %inc3.i380, ptr %mId.i382, align 8
   %arrayctor.cur569.add = add nuw nsw i64 %arrayctor.cur569.idx, 24
   %arrayctor.done579 = icmp eq i64 %arrayctor.cur569.add, 48
@@ -1481,7 +1480,7 @@ arrayctor.loop568:                                ; preds = %arrayctor.loop568, 
 for.body.i386.preheader:                          ; preds = %arrayctor.loop568
   store i64 %inc3.i380, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   store i64 2, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mMagicValue.i.i.i387 = getelementptr inbounds %struct.TestObject, ptr %testObjectMemory564, i64 0, i32 4
+  %mMagicValue.i.i.i387 = getelementptr inbounds i8, ptr %testObjectMemory564, i64 16
   %225 = load i32, ptr %mMagicValue.i.i.i387, align 16
   %cmp.not.i.i.i388 = icmp eq i32 %225, 32623592
   br i1 %cmp.not.i.i.i388, label %_ZN5eastl10destroy_atI10TestObjectEEvPT_.exit.i391, label %if.then.i.i.i389
@@ -1492,7 +1491,7 @@ if.then.i.i.i389:                                 ; preds = %for.body.i386.prehe
 
 _ZN5eastl10destroy_atI10TestObjectEEvPT_.exit.i391: ; preds = %if.then.i.i.i389, %for.body.i386.preheader
   %_ZN10TestObject16sMagicErrorCountE.promoted.i398 = phi i32 [ 1, %if.then.i.i.i389 ], [ 0, %for.body.i386.preheader ]
-  %mMagicValue.i.i.i404 = getelementptr inbounds %struct.TestObject, ptr %testObjectMemory564, i64 1, i32 4
+  %mMagicValue.i.i.i404 = getelementptr inbounds i8, ptr %testObjectMemory564, i64 40
   %226 = load i32, ptr %mMagicValue.i.i.i404, align 8
   %cmp.not.i.i.i405 = icmp eq i32 %226, 32623592
   br i1 %cmp.not.i.i.i405, label %_ZN5eastl10destroy_atI10TestObjectEEvPT_.exit.i408, label %if.then.i.i.i406
@@ -1711,8 +1710,8 @@ entry:
   br i1 %cmp.not21, label %if.then15, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
+  %1 = getelementptr inbounds i8, ptr %args, i64 16
   %tobool.not = icmp eq ptr %pName, null
   br i1 %tobool.not, label %for.body.us, label %for.body
 
@@ -1755,7 +1754,7 @@ if.then.us:                                       ; preds = %lor.lhs.false.us, %
 
 for.inc.us:                                       ; preds = %if.then.us, %lor.lhs.false.us
   %bReturnValue.1.us = phi i8 [ %bReturnValue.025.us, %lor.lhs.false.us ], [ 0, %if.then.us ]
-  %incdec.ptr.us = getelementptr inbounds i32, ptr %first.addr.022.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %first.addr.022.us, i64 4
   %inc6.us = add nuw i32 %seqIndex.024.us, 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %last
   br i1 %cmp.not.us, label %for.end13, label %for.body.us, !llvm.loop !16
@@ -1799,7 +1798,7 @@ if.then:                                          ; preds = %lor.lhs.false, %vaa
 
 for.inc:                                          ; preds = %if.then, %lor.lhs.false
   %bReturnValue.1 = phi i8 [ %bReturnValue.025, %lor.lhs.false ], [ 0, %if.then ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %first.addr.022, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.022, i64 4
   %inc6 = add nuw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
   br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !16
@@ -1819,7 +1818,7 @@ if.then15:                                        ; preds = %entry, %for.end13
   br i1 %fits_in_gp19, label %vaarg.in_reg20, label %vaarg.in_mem22
 
 vaarg.in_reg20:                                   ; preds = %if.then15
-  %13 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area21 = load ptr, ptr %13, align 16
   %14 = zext nneg i32 %gp_offset18 to i64
   %15 = getelementptr i8, ptr %reg_save_area21, i64 %14
@@ -1828,7 +1827,7 @@ vaarg.in_reg20:                                   ; preds = %if.then15
   br label %vaarg.end26
 
 vaarg.in_mem22:                                   ; preds = %if.then15
-  %overflow_arg_area_p23 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
+  %overflow_arg_area_p23 = getelementptr inbounds i8, ptr %args, i64 8
   %overflow_arg_area24 = load ptr, ptr %overflow_arg_area_p23, align 8
   %overflow_arg_area.next25 = getelementptr i8, ptr %overflow_arg_area24, i64 8
   store ptr %overflow_arg_area.next25, ptr %overflow_arg_area_p23, align 8
@@ -1842,14 +1841,14 @@ vaarg.end26:                                      ; preds = %vaarg.in_mem22, %va
   br i1 %cmp28, label %if.end49, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end26
-  %overflow_arg_area_p38 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %18 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p38 = getelementptr inbounds i8, ptr %args, i64 8
+  %18 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area36 = load ptr, ptr %18, align 16
   %overflow_arg_area_p38.promoted = load ptr, ptr %overflow_arg_area_p38, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end41
-  %overflow_arg_area.next4039 = phi ptr [ %overflow_arg_area.next4038, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
+  %overflow_arg_area3939 = phi ptr [ %overflow_arg_area3938, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
   %gp_offset3337 = phi i32 [ %gp_offset3336, %vaarg.end41 ], [ %args.promoted, %do.body.preheader ]
   %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa47, %do.body.preheader ]
   %inc30 = add nuw nsw i32 %argIndex.1, 1
@@ -1864,14 +1863,14 @@ vaarg.in_reg35:                                   ; preds = %do.body
   br label %vaarg.end41
 
 vaarg.in_mem37:                                   ; preds = %do.body
-  %overflow_arg_area.next40 = getelementptr i8, ptr %overflow_arg_area.next4039, i64 8
+  %overflow_arg_area.next40 = getelementptr i8, ptr %overflow_arg_area3939, i64 8
   store ptr %overflow_arg_area.next40, ptr %overflow_arg_area_p38, align 8
   br label %vaarg.end41
 
 vaarg.end41:                                      ; preds = %vaarg.in_mem37, %vaarg.in_reg35
-  %overflow_arg_area.next4038 = phi ptr [ %overflow_arg_area.next4039, %vaarg.in_reg35 ], [ %overflow_arg_area.next40, %vaarg.in_mem37 ]
+  %overflow_arg_area3938 = phi ptr [ %overflow_arg_area3939, %vaarg.in_reg35 ], [ %overflow_arg_area.next40, %vaarg.in_mem37 ]
   %gp_offset3336 = phi i32 [ %21, %vaarg.in_reg35 ], [ %gp_offset3337, %vaarg.in_mem37 ]
-  %vaarg.addr42 = phi ptr [ %20, %vaarg.in_reg35 ], [ %overflow_arg_area.next4039, %vaarg.in_mem37 ]
+  %vaarg.addr42 = phi ptr [ %20, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
   %22 = load i32, ptr %vaarg.addr42, align 4
   %cmp43.not = icmp eq i32 %22, -1
   br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !17

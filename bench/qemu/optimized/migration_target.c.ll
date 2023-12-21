@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/migration_target.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MigrationInfo = type { i8, i32, ptr, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, ptr, i8, ptr, i8, i32, i8, ptr, ptr, i8, ptr, i8, i64, i8, i64 }
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @migration_populate_vfio_info(ptr nocapture noundef %info) local_unnamed_addr #0 {
 entry:
@@ -13,7 +11,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #4
-  %vfio = getelementptr inbounds %struct.MigrationInfo, ptr %info, i64 0, i32 4
+  %vfio = getelementptr inbounds i8, ptr %info, i64 24
   store ptr %call1, ptr %vfio, align 8
   %call2 = tail call i64 @vfio_mig_bytes_transferred() #3
   %0 = load ptr, ptr %vfio, align 8

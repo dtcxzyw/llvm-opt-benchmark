@@ -3,23 +3,16 @@ source_filename = "bench/openssl/original/libcrypto-shlib-dsa_sign.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dsa_st = type { i32, i32, %struct.ffc_params_st, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.dsa_method = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.DSA_SIG_st = type { ptr, ptr }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/dsa/dsa_sign.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define ptr @DSA_do_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %dsa, i64 160
   %0 = load ptr, ptr %meth, align 8
-  %dsa_do_sign = getelementptr inbounds %struct.dsa_method, ptr %0, i64 0, i32 1
+  %dsa_do_sign = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dsa_do_sign, align 8
   %call = tail call ptr %1(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %dsa) #6
   ret ptr %call
@@ -28,9 +21,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp) local_unnamed_addr #0 {
 entry:
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %dsa, i64 160
   %0 = load ptr, ptr %meth, align 8
-  %dsa_sign_setup = getelementptr inbounds %struct.dsa_method, ptr %0, i64 0, i32 2
+  %dsa_sign_setup = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %dsa_sign_setup, align 8
   %call = tail call i32 %1(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp) #6
   ret i32 %call
@@ -54,7 +47,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sig, align 8
   tail call void @BN_clear_free(ptr noundef %0) #6
-  %s = getelementptr inbounds %struct.DSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   tail call void @BN_clear_free(ptr noundef %1) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %sig, ptr noundef nonnull @.str, i32 noundef 47) #6
@@ -101,7 +94,7 @@ if.then9:                                         ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.then9, %if.end7
   %2 = phi ptr [ %call10, %if.then9 ], [ %1, %if.end7 ]
-  %s = getelementptr inbounds %struct.DSA_SIG_st, ptr %sig.0, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig.0, i64 8
   %3 = load ptr, ptr %s, align 8
   %cmp13 = icmp eq ptr %3, null
   br i1 %cmp13, label %if.then14, label %if.end17
@@ -202,7 +195,7 @@ if.else10:                                        ; preds = %if.else
 if.end16:                                         ; preds = %lor.lhs.false, %if.else10, %if.then
   %buf.0 = phi ptr [ null, %if.then ], [ %call4, %lor.lhs.false ], [ null, %if.else10 ]
   %1 = load ptr, ptr %sig, align 8
-  %s = getelementptr inbounds %struct.DSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %2 = load ptr, ptr %s, align 8
   %call17 = call i32 @ossl_encode_der_dsa_sig(ptr noundef nonnull %pkt, ptr noundef %1, ptr noundef %2) #6
   %tobool18.not = icmp eq i32 %call17, 0
@@ -232,7 +225,7 @@ if.then28:                                        ; preds = %if.end26
   br i1 %cmp29, label %if.then30, label %if.else32
 
 if.then30:                                        ; preds = %if.then28
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %buf.0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %buf.0, i64 8
   %4 = load ptr, ptr %data, align 8
   store ptr %4, ptr %ppout, align 8
   store ptr null, ptr %data, align 8
@@ -278,7 +271,7 @@ define i32 @DSA_size(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 
 entry:
   %encoded_len.i = alloca i64, align 8
   %pkt.i = alloca %struct.wpacket_st, align 8
-  %q = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %dsa, i64 16
   %0 = load ptr, ptr %q, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end5, label %if.then
@@ -343,7 +336,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %s = getelementptr inbounds %struct.DSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   store ptr %1, ptr %ps, align 8
   br label %if.end3
@@ -363,7 +356,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sig, align 8
   tail call void @BN_clear_free(ptr noundef %0) #6
-  %s3 = getelementptr inbounds %struct.DSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s3 = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s3, align 8
   tail call void @BN_clear_free(ptr noundef %1) #6
   store ptr %r, ptr %sig, align 8
@@ -380,22 +373,22 @@ define i32 @ossl_dsa_sign_int(i32 %type, ptr noundef %dgst, i32 noundef %dlen, p
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
-  %libctx1 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 12
+  %libctx1 = getelementptr inbounds i8, ptr %dsa, i64 184
   %0 = load ptr, ptr %libctx1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %dsa, i64 160
   %1 = load ptr, ptr %meth, align 8
   %call = tail call ptr @DSA_get_default_method() #6
   %cmp2.not = icmp eq ptr %1, %call
   br i1 %cmp2.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %meth.i = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 9
+  %meth.i = getelementptr inbounds i8, ptr %dsa, i64 160
   %2 = load ptr, ptr %meth.i, align 8
-  %dsa_do_sign.i = getelementptr inbounds %struct.dsa_method, ptr %2, i64 0, i32 1
+  %dsa_do_sign.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %dsa_do_sign.i, align 8
   %call.i = tail call ptr %3(ptr noundef %dgst, i32 noundef %dlen, ptr noundef nonnull %dsa) #6
   br label %if.end
@@ -420,7 +413,7 @@ DSA_SIG_free.exit:                                ; preds = %if.end
   store i32 %call9, ptr %siglen, align 4
   %4 = load ptr, ptr %s.0, align 8
   call void @BN_clear_free(ptr noundef %4) #6
-  %s.i = getelementptr inbounds %struct.DSA_SIG_st, ptr %s.0, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %s.0, i64 8
   %5 = load ptr, ptr %s.i, align 8
   call void @BN_clear_free(ptr noundef %5) #6
   call void @CRYPTO_free(ptr noundef nonnull %s.0, ptr noundef nonnull @.str, i32 noundef 47) #6
@@ -492,7 +485,7 @@ err:                                              ; preds = %if.end5, %lor.lhs.f
 if.end.i:                                         ; preds = %err
   %4 = load ptr, ptr %3, align 8
   call void @BN_clear_free(ptr noundef %4) #6
-  %s.i = getelementptr inbounds %struct.DSA_SIG_st, ptr %3, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %s.i, align 8
   call void @BN_clear_free(ptr noundef %5) #6
   call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 47) #6

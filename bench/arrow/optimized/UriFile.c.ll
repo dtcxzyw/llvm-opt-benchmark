@@ -350,7 +350,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @uriUnixFilenameToUriStringW(ptr noundef %filename, ptr noundef %uriString) local_unnamed_addr #0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %filename, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %filename, i64 -4
   %cmp.i = icmp eq ptr %filename, null
   %cmp1.i = icmp eq ptr %uriString, null
   %or.cond.i = or i1 %cmp.i, %cmp1.i
@@ -363,7 +363,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end24.i:                                       ; preds = %if.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %uriString, ptr noundef nonnull align 4 dereferenceable(28) @.str.4, i64 28, i1 false)
-  %add.ptr23.i = getelementptr inbounds i32, ptr %uriString, i64 7
+  %add.ptr23.i = getelementptr inbounds i8, ptr %uriString, i64 28
   br label %for.cond.us.i.preheader
 
 for.cond.us.i.preheader:                          ; preds = %if.end.i, %if.end24.i
@@ -381,7 +381,7 @@ for.cond.us.i:                                    ; preds = %for.cond.us.i.prehe
   ]
 
 if.then40.us.i:                                   ; preds = %for.cond.us.i, %for.cond.us.i
-  %add.ptr41.us.i = getelementptr inbounds i32, ptr %lastSep.0.us.i, i64 1
+  %add.ptr41.us.i = getelementptr inbounds i8, ptr %lastSep.0.us.i, i64 4
   %cmp42.us.i = icmp ult ptr %add.ptr41.us.i, %input.0.us.i
   br i1 %cmp42.us.i, label %if.then44.us.i, label %if.end62.us.i
 
@@ -400,13 +400,13 @@ if.end62.us.i:                                    ; preds = %if.then44.us.i, %if
 
 if.then74.us.i:                                   ; preds = %if.end62.us.i
   store i32 47, ptr %output.3.us.i, align 4
-  %incdec.ptr.us.i = getelementptr inbounds i32, ptr %output.3.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %output.3.us.i, i64 4
   br label %if.end87.us.i
 
 if.end87.us.i:                                    ; preds = %if.then74.us.i, %if.end62.us.i
   %output.4.us.i = phi ptr [ %incdec.ptr.us.i, %if.then74.us.i ], [ %output.3.us.i, %if.end62.us.i ]
   %lastSep.1.us.i = phi ptr [ %input.0.us.i, %if.then74.us.i ], [ %lastSep.0.us.i, %if.end62.us.i ]
-  %incdec.ptr88.us.i = getelementptr inbounds i32, ptr %input.0.us.i, i64 1
+  %incdec.ptr88.us.i = getelementptr inbounds i8, ptr %input.0.us.i, i64 4
   br label %for.cond.us.i
 
 if.then66.i:                                      ; preds = %if.end62.us.i
@@ -421,7 +421,7 @@ uriFilenameToUriStringW.exit:                     ; preds = %entry, %if.then66.i
 ; Function Attrs: nounwind uwtable
 define i32 @uriWindowsFilenameToUriStringW(ptr noundef %filename, ptr noundef %uriString) local_unnamed_addr #0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %filename, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %filename, i64 -4
   %cmp.i = icmp eq ptr %filename, null
   %cmp1.i = icmp eq ptr %uriString, null
   %or.cond.i = or i1 %cmp.i, %cmp1.i
@@ -435,13 +435,13 @@ if.end.i:                                         ; preds = %entry
   ]
 
 land.end.thread.i:                                ; preds = %if.end.i
-  %arrayidx3.i = getelementptr inbounds i32, ptr %filename, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %filename, i64 4
   %1 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.i = icmp eq i32 %1, 92
   br label %land.lhs.true.i
 
 cond.false.land.lhs.true_crit_edge.i:             ; preds = %if.end.i
-  %arrayidx10.phi.trans.insert.i = getelementptr inbounds i32, ptr %filename, i64 1
+  %arrayidx10.phi.trans.insert.i = getelementptr inbounds i8, ptr %filename, i64 4
   %.pre.i = load i32, ptr %arrayidx10.phi.trans.insert.i, align 4
   br label %land.lhs.true.i
 
@@ -477,7 +477,7 @@ for.cond.us.us.i:                                 ; preds = %for.cond.us.us.i.pr
   ]
 
 if.then40.us.us.i:                                ; preds = %for.cond.us.us.i, %for.cond.us.us.i
-  %add.ptr41.us.us.i = getelementptr inbounds i32, ptr %lastSep.0.us.us.i, i64 1
+  %add.ptr41.us.us.i = getelementptr inbounds i8, ptr %lastSep.0.us.us.i, i64 4
   %cmp42.us.us.i = icmp ult ptr %add.ptr41.us.us.i, %input.0.us.us.i
   br i1 %cmp42.us.us.i, label %if.then44.us.us.i, label %if.end62.us.us.i
 
@@ -496,13 +496,13 @@ if.end62.us.us.i:                                 ; preds = %if.then44.us.us.i, 
 
 if.then82.us.us.i:                                ; preds = %if.end62.us.us.i
   store i32 47, ptr %output.3.us.us.i, align 4
-  %incdec.ptr84.us.us.i = getelementptr inbounds i32, ptr %output.3.us.us.i, i64 1
+  %incdec.ptr84.us.us.i = getelementptr inbounds i8, ptr %output.3.us.us.i, i64 4
   br label %if.end87.us.us.i
 
 if.end87.us.us.i:                                 ; preds = %if.then82.us.us.i, %if.end62.us.us.i
   %output.4.us.us.i = phi ptr [ %incdec.ptr84.us.us.i, %if.then82.us.us.i ], [ %output.3.us.us.i, %if.end62.us.us.i ]
   %lastSep.1.us.us.i = phi ptr [ %input.0.us.us.i, %if.then82.us.us.i ], [ %lastSep.0.us.us.i, %if.end62.us.us.i ]
-  %incdec.ptr88.us.us.i = getelementptr inbounds i32, ptr %input.0.us.us.i, i64 1
+  %incdec.ptr88.us.us.i = getelementptr inbounds i8, ptr %input.0.us.us.i, i64 4
   %.pre = load i32, ptr %incdec.ptr88.us.us.i, align 4
   br label %for.cond.us.us.i
 
@@ -518,7 +518,7 @@ for.cond.us72.i:                                  ; preds = %if.then15.i, %if.en
   ]
 
 if.then40.us80.i:                                 ; preds = %for.cond.us72.i, %for.cond.us72.i
-  %add.ptr41.us81.i = getelementptr inbounds i32, ptr %lastSep.0.us75.i, i64 1
+  %add.ptr41.us81.i = getelementptr inbounds i8, ptr %lastSep.0.us75.i, i64 4
   %cmp42.us82.i = icmp ult ptr %add.ptr41.us81.i, %input.0.us76.i
   br i1 %cmp42.us82.i, label %if.then44.us83.i, label %if.end62.us86thread-pre-split.i
 
@@ -557,13 +557,13 @@ if.end62.us86.i:                                  ; preds = %if.end62.us86thread
 
 if.then82.us96.i:                                 ; preds = %if.end62.us86.i
   store i32 47, ptr %output.3.us87.i, align 4
-  %incdec.ptr84.us97.i = getelementptr inbounds i32, ptr %output.3.us87.i, i64 1
+  %incdec.ptr84.us97.i = getelementptr inbounds i8, ptr %output.3.us87.i, i64 4
   br label %if.end87.us98.i
 
 if.end87.us98.i:                                  ; preds = %if.then82.us96.i, %if.end62.us86.i
   %output.4.us99.i = phi ptr [ %incdec.ptr84.us97.i, %if.then82.us96.i ], [ %output.3.us87.i, %if.end62.us86.i ]
   %lastSep.1.us100.i = phi ptr [ %input.0.us76.i, %if.then82.us96.i ], [ %lastSep.0.us75.i, %if.end62.us86.i ]
-  %incdec.ptr88.us101.i = getelementptr inbounds i32, ptr %input.0.us76.i, i64 1
+  %incdec.ptr88.us101.i = getelementptr inbounds i8, ptr %input.0.us76.i, i64 4
   br label %for.cond.us72.i
 
 if.then66.i:                                      ; preds = %if.end62.us.us.i, %if.end62.us86.i
@@ -635,13 +635,13 @@ cond.end40:                                       ; preds = %cond.false29, %cond
   %cmp43 = icmp eq i32 %toUnix, 0
   %or.cond3 = and i1 %cmp43, %3
   %4 = select i1 %or.cond3, i1 %lnot49, i1 false
-  %cond57.idx = select i1 %4, i64 2, i64 0
-  %cond57 = getelementptr inbounds i32, ptr %filename, i64 %cond57.idx
+  %cond57.idx = select i1 %4, i64 8, i64 0
+  %cond57 = getelementptr inbounds i8, ptr %filename, i64 %cond57.idx
   br i1 %4, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %cond.end40
   store i32 92, ptr %filename, align 4
-  %arrayidx60 = getelementptr inbounds i32, ptr %filename, i64 1
+  %arrayidx60 = getelementptr inbounds i8, ptr %filename, i64 4
   store i32 92, ptr %arrayidx60, align 4
   br label %if.end61
 
@@ -665,7 +665,7 @@ if.then72:                                        ; preds = %while.cond
   br label %if.end74
 
 if.end74:                                         ; preds = %while.cond, %if.then72
-  %incdec.ptr = getelementptr inbounds i32, ptr %walker.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %walker.0, i64 4
   br label %while.cond, !llvm.loop !7
 
 return:                                           ; preds = %while.cond, %if.end61, %entry

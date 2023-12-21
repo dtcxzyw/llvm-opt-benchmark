@@ -211,7 +211,7 @@ if.end33.i:                                       ; preds = %if.then30.i, %if.th
 
 if.end37.i:                                       ; preds = %if.end33.i
   %10 = load i32, ptr %entry1.i, align 8
-  %11 = getelementptr inbounds { i32, ptr }, ptr %entry1.i, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %entry1.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %call38.i = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %10, ptr %12, i32 noundef 0) #9
   %tobool39.not.i = icmp eq i32 %call38.i, 0

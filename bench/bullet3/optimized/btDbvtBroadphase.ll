@@ -5,29 +5,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.13 = type { i8 }
-%struct.btDbvtBroadphase = type { %class.btBroadphaseInterface, [2 x %struct.btDbvt], [3 x ptr], ptr, float, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i32, i8, i8, i8, i8, %class.btAlignedObjectArray.0 }
-%class.btBroadphaseInterface = type { ptr }
-%struct.btDbvt = type { ptr, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray }
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
 %struct.btDbvtAabbMm = type { %class.btVector3, %class.btVector3 }
 %class.btVector3 = type { [4 x float] }
 %struct.btDbvtTreeCollider = type { %"struct.btDbvt::ICollide", ptr, ptr }
 %"struct.btDbvt::ICollide" = type { ptr }
-%struct.btBroadphaseProxy = type <{ ptr, i32, i32, i32, %class.btVector3, %class.btVector3, [4 x i8] }>
-%struct.btDbvtProxy = type <{ %struct.btBroadphaseProxy.base, [4 x i8], ptr, [2 x ptr], i32, [4 x i8] }>
-%struct.btBroadphaseProxy.base = type <{ ptr, i32, i32, i32, %class.btVector3, %class.btVector3 }>
-%struct.btDbvtNode = type { %struct.btDbvtAabbMm, ptr, %union.anon.16 }
-%union.anon.16 = type { [2 x ptr] }
 %struct.BroadphaseRayTester = type { %"struct.btDbvt::ICollide", ptr }
-%struct.btBroadphaseRayCallback = type { %struct.btBroadphaseAabbCallback, %class.btVector3, [3 x i32], float }
-%struct.btBroadphaseAabbCallback = type { ptr }
 %struct.BroadphaseAabbTester = type { %"struct.btDbvt::ICollide", ptr }
 %"struct.btDbvt::sStkNN" = type { ptr, ptr }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
 %struct.btBroadphasePair = type { ptr, ptr, ptr, %union.anon.17 }
 %union.anon.17 = type { ptr }
 %class.btBroadphasePairSortPredicate = type { i8 }
@@ -151,30 +135,30 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   br i1 %arrayctor.done, label %invoke.cont4, label %arrayctor.loop
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %m_rayTestStacks = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21
-  %m_ownsMemory.i.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21, i32 6
+  %m_rayTestStacks = getelementptr inbounds i8, ptr %this, i64 224
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 240
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 228
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 232
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 18
+  %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221
   store i8 0, ptr %m_deferedcollide, align 1
-  %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup = getelementptr inbounds i8, ptr %this, i64 222
   store i8 1, ptr %m_needcleanup, align 2
   %cmp.not = icmp eq ptr %paircache, null
-  %m_releasepaircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 17
+  %m_releasepaircache = getelementptr inbounds i8, ptr %this, i64 220
   %frombool = zext i1 %cmp.not to i8
   store i8 %frombool, ptr %m_releasepaircache, align 4
-  %m_prediction = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 4
+  %m_prediction = getelementptr inbounds i8, ptr %this, i64 168
   store float 0.000000e+00, ptr %m_prediction, align 8
-  %m_stageCurrent = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 5
+  %m_stageCurrent = getelementptr inbounds i8, ptr %this, i64 172
   store <4 x i32> <i32 0, i32 1, i32 0, i32 10>, ptr %m_stageCurrent, align 4
-  %m_newpairs = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 9
+  %m_newpairs = getelementptr inbounds i8, ptr %this, i64 188
   store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_newpairs, align 4
-  %m_updates_ratio = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 13
+  %m_updates_ratio = getelementptr inbounds i8, ptr %this, i64 204
   store float 0.000000e+00, ptr %m_updates_ratio, align 4
   br i1 %cmp.not, label %cond.false, label %cond.end
 
@@ -188,23 +172,23 @@ invoke.cont6:                                     ; preds = %cond.false
 
 cond.end:                                         ; preds = %invoke.cont4, %invoke.cont6
   %cond12 = phi ptr [ %call, %invoke.cont6 ], [ %paircache, %invoke.cont4 ]
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %cond12, ptr %m_paircache, align 8
-  %m_gid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 16
+  %m_gid = getelementptr inbounds i8, ptr %this, i64 216
   store i32 0, ptr %m_gid, align 8
-  %m_pid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 14
+  %m_pid = getelementptr inbounds i8, ptr %this, i64 208
   store i32 0, ptr %m_pid, align 8
-  %m_cid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 15
+  %m_cid = getelementptr inbounds i8, ptr %this, i64 212
   store i32 0, ptr %m_cid, align 4
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false)
-  %m_ownsMemory.i.i8 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 6
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_stageRoots, i8 0, i64 24, i1 false)
+  %m_ownsMemory.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i8 1, ptr %m_ownsMemory.i.i8, align 8
-  %m_data.i.i9 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 5
+  %m_data.i.i9 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr null, ptr %m_data.i.i9, align 8
-  %m_size.i.i10 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 2
+  %m_size.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 0, ptr %m_size.i.i10, align 4
-  %m_capacity.i.i11 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 3
+  %m_capacity.i.i11 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %m_capacity.i.i11, align 8
   invoke void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE6resizeEiRKS3_(ptr noundef nonnull align 8 dereferenceable(25) %m_rayTestStacks, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp)
           to label %invoke.cont17 unwind label %lpad16
@@ -296,26 +280,27 @@ declare void @_ZN28btHashedOverlappingPairCacheC1Ev(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE6resizeEiRKS3_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(25) %fillData) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp = icmp sgt i32 %0, %newsize
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %1 = sext i32 %newsize to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit
   %indvars.iv19 = phi i64 [ %1, %for.cond.preheader ], [ %indvars.iv.next20, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit ]
   %2 = load ptr, ptr %m_data, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 5
+  %arrayidx = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i.i.i = icmp eq i8 %5, 0
@@ -333,12 +318,12 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit: ; preds = %for.body, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, 1
   %lftr.wideiv22 = trunc i64 %indvars.iv.next20 to i32
@@ -351,22 +336,23 @@ if.else:                                          ; preds = %entry
 
 for.body8.lr.ph:                                  ; preds = %if.else
   tail call void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize)
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %fillData, i64 0, i32 2
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %fillData, i64 0, i32 5
+  %m_data9 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_size.i3.i = getelementptr inbounds i8, ptr %fillData, i64 4
+  %m_data.i4.i = getelementptr inbounds i8, ptr %fillData, i64 16
   %8 = sext i32 %0 to i64
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit
   %indvars.iv = phi i64 [ %8, %for.body8.lr.ph ], [ %indvars.iv.next, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit ]
   %9 = load ptr, ptr %m_data9, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 6
+  %arrayidx11 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %10 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %10, 0
@@ -459,13 +445,13 @@ if.end15:                                         ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -476,12 +462,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -496,26 +482,27 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %m_data.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 5
+  %arrayidx.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool2.not.i.i.i.i.i = icmp eq i8 %4, 0
@@ -533,25 +520,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i.i: ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 2
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 3
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %7 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %7, label %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !10
 
 _ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i = icmp eq i8 %10, 0
@@ -562,11 +549,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -582,14 +569,14 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 define dso_local void @_ZN16btDbvtBroadphaseD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_releasepaircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 17
+  %m_releasepaircache = getelementptr inbounds i8, ptr %this, i64 220
   %0 = load i8, ptr %m_releasepaircache, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load ptr, ptr %m_paircache, align 8
   %vtable = load ptr, ptr %2, align 8
   %3 = load ptr, ptr %vtable, align 8
@@ -599,7 +586,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_rayTestStacks = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21
+  %m_rayTestStacks = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rayTestStacks) #15
   br label %arraydestroy.body
 
@@ -639,14 +626,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local void @_ZN16btDbvtBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_releasepaircache.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 17
+  %m_releasepaircache.i = getelementptr inbounds i8, ptr %this, i64 220
   %0 = load i8, ptr %m_releasepaircache.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %m_paircache.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache.i = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load ptr, ptr %m_paircache.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
   %3 = load ptr, ptr %vtable.i, align 8
@@ -656,7 +643,7 @@ if.then.i:                                        ; preds = %entry
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %m_rayTestStacks.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21
+  %m_rayTestStacks.i = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rayTestStacks.i) #15
   br label %arraydestroy.body.i
 
@@ -690,51 +677,52 @@ invoke.cont:
   %collider = alloca %struct.btDbvtTreeCollider, align 8
   %call = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 88, i32 noundef 16)
   store ptr %userPtr, ptr %call, align 8
-  %m_collisionFilterGroup.i.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %call, i64 0, i32 1
+  %m_collisionFilterGroup.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %collisionFilterGroup, ptr %m_collisionFilterGroup.i.i, align 8
-  %m_collisionFilterMask.i.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %call, i64 0, i32 2
+  %m_collisionFilterMask.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %collisionFilterMask, ptr %m_collisionFilterMask.i.i, align 4
-  %m_aabbMin.i.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %call, i64 0, i32 4
+  %m_aabbMin.i.i = getelementptr inbounds i8, ptr %call, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin.i.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %m_aabbMax.i.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %call, i64 0, i32 5
+  %m_aabbMax.i.i = getelementptr inbounds i8, ptr %call, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax.i.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %links.i = getelementptr inbounds %struct.btDbvtProxy, ptr %call, i64 0, i32 3
+  %links.i = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %links.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabb, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %aabb, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %aabb, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mx2.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %m_stageCurrent = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 5
+  %m_stageCurrent = getelementptr inbounds i8, ptr %this, i64 172
   %2 = load i32, ptr %m_stageCurrent, align 4
-  %stage = getelementptr inbounds %struct.btDbvtProxy, ptr %call, i64 0, i32 4
+  %stage = getelementptr inbounds i8, ptr %call, i64 80
   store i32 %2, ptr %stage, align 8
-  %m_gid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 16
+  %m_gid = getelementptr inbounds i8, ptr %this, i64 216
   %3 = load i32, ptr %m_gid, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %m_gid, align 8
-  %m_uniqueId = getelementptr inbounds %struct.btBroadphaseProxy, ptr %call, i64 0, i32 3
+  %m_uniqueId = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %inc, ptr %m_uniqueId, align 8
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
   %call4 = call noundef ptr @_ZN6btDbvt6insertERK12btDbvtAabbMmPv(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef nonnull align 4 dereferenceable(32) %aabb, ptr noundef nonnull %call)
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %call, i64 0, i32 2
+  %leaf = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call4, ptr %leaf, align 8
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
   %4 = load i32, ptr %m_stageCurrent, align 4
   %idxprom = sext i32 %4 to i64
-  %arrayidx6 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom
   store ptr null, ptr %links.i, align 8
   %5 = load ptr, ptr %arrayidx6, align 8
-  %arrayidx2.i = getelementptr inbounds %struct.btDbvtProxy, ptr %call, i64 0, i32 3, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %5, ptr %arrayidx2.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %links3.i = getelementptr inbounds %struct.btDbvtProxy, ptr %5, i64 0, i32 3
+  %links3.i = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %call, ptr %links3.i, align 8
   br label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
 
 _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %invoke.cont, %if.then.i
   store ptr %call, ptr %arrayidx6, align 8
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 18
+  %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221
   %6 = load i8, ptr %m_deferedcollide, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -742,13 +730,13 @@ _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %invoke.cont, %if.th
 
 if.then:                                          ; preds = %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
-  %pbp.i = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %collider, i64 0, i32 1
+  %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
-  %proxy7 = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %collider, i64 0, i32 2
+  %proxy7 = getelementptr inbounds i8, ptr %collider, i64 16
   store ptr %call, ptr %proxy7, align 8
   %8 = load ptr, ptr %m_sets, align 8
   call void @_ZNK6btDbvt9collideTVEPK10btDbvtNodeRK12btDbvtAabbMmRNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(32) %aabb, ptr noundef nonnull align 8 dereferenceable(8) %collider)
-  %arrayidx15 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load ptr, ptr %arrayidx15, align 8
   call void @_ZNK6btDbvt9collideTVEPK10btDbvtNodeRK12btDbvtAabbMmRNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx15, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(32) %aabb, ptr noundef nonnull align 8 dereferenceable(8) %collider)
   br label %if.end
@@ -779,10 +767,10 @@ invoke.cont:                                      ; preds = %entry
   %volume.sroa.5.0.copyload = load float, ptr %volume.sroa.5.0.vol.sroa_idx, align 4
   %volume.sroa.6.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 24
   %volume.sroa.6.0.copyload = load float, ptr %volume.sroa.6.0.vol.sroa_idx, align 4
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 6
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 5
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 2
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 3
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %stack, i64 24
+  %m_data.i.i = getelementptr inbounds i8, ptr %stack, i64 16
+  %m_size.i.i = getelementptr inbounds i8, ptr %stack, i64 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %stack, i64 8
   store i8 0, ptr %m_ownsMemory.i.i, align 8
   store ptr %tempmemory, ptr %m_data.i.i, align 8
   store i32 64, ptr %m_capacity.i.i, align 8
@@ -805,43 +793,43 @@ do.body:                                          ; preds = %invoke.cont, %do.co
   br i1 %cmp.i45, label %do.cond, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %4, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load float, ptr %mx2.i, align 4
   %cmp6.i = fcmp ult float %6, %volume.sroa.0.0.copyload
   br i1 %cmp6.i, label %do.cond, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %7 = load float, ptr %arrayidx.i.i, align 4
   %cmp12.i = fcmp ugt float %7, %volume.sroa.5.0.copyload
   br i1 %cmp12.i, label %do.cond, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true7.i
-  %arrayidx.i12.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %4, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %4, i64 20
   %8 = load float, ptr %arrayidx.i12.i, align 4
   %cmp18.i = fcmp ult float %8, %volume.sroa.2.0.copyload
   br i1 %cmp18.i, label %do.cond, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true13.i
-  %arrayidx.i14.i = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 2
+  %arrayidx.i14.i = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load float, ptr %arrayidx.i14.i, align 4
   %cmp24.i = fcmp ugt float %9, %volume.sroa.6.0.copyload
   br i1 %cmp24.i, label %do.cond, label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %land.lhs.true19.i
-  %arrayidx.i16.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %4, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load float, ptr %arrayidx.i16.i, align 4
   %cmp29.i = fcmp ult float %10, %volume.sroa.3.0.copyload
   br i1 %cmp29.i, label %do.cond, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %invoke.cont9
-  %arrayidx.i.i46 = getelementptr inbounds %struct.btDbvtNode, ptr %4, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i46 = getelementptr inbounds i8, ptr %4, i64 48
   %11 = load ptr, ptr %arrayidx.i.i46, align 8
   %cmp.i.i47.not = icmp eq ptr %11, null
   br i1 %cmp.i.i47.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %invoke.cont12
-  %12 = getelementptr inbounds %struct.btDbvtNode, ptr %4, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %4, i64 40
   %cmp.i50 = icmp eq i32 %sub, %1
   br i1 %cmp.i50, label %if.then.i56, label %invoke.cont15
 
@@ -995,7 +983,7 @@ lpad:                                             ; preds = %if.then3.i.i.i121, 
 
 if.else:                                          ; preds = %invoke.cont12
   %vtable = load ptr, ptr %policy, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %28 = load ptr, ptr %vfn, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %policy, ptr noundef nonnull %4)
           to label %do.cond unwind label %lpad
@@ -1039,24 +1027,24 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16btDbvtBroadphase12destroyProxyEP17btBroadphaseProxyP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %absproxy, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
 entry:
-  %stage = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 4
+  %stage = getelementptr inbounds i8, ptr %absproxy, i64 80
   %0 = load i32, ptr %stage, align 8
   %cmp = icmp eq i32 %0, 2
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %leaf = getelementptr inbounds i8, ptr %absproxy, i64 56
   %1 = load ptr, ptr %leaf, align 8
-  %m_sets2 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
-  %m_sets2.sink = select i1 %cmp, ptr %arrayidx, ptr %m_sets2
-  tail call void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %m_sets2.sink, ptr noundef %1)
+  %. = select i1 %cmp, i64 72, i64 8
+  %m_sets2 = getelementptr inbounds i8, ptr %this, i64 %.
+  tail call void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %m_sets2, ptr noundef %1)
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load i32, ptr %stage, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx6 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom
-  %links.i = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 3
+  %arrayidx6 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom
+  %links.i = getelementptr inbounds i8, ptr %absproxy, i64 64
   %3 = load ptr, ptr %links.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  %arrayidx8.i = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 3, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %absproxy, i64 72
   %4 = load ptr, ptr %arrayidx8.i, align 8
-  %arrayidx6.i = getelementptr inbounds %struct.btDbvtProxy, ptr %3, i64 0, i32 3, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %3, i64 72
   %list.sink.i = select i1 %tobool.not.i, ptr %arrayidx6, ptr %arrayidx6.i
   store ptr %4, ptr %list.sink.i, align 8
   %tobool11.not.i = icmp eq ptr %4, null
@@ -1064,19 +1052,19 @@ entry:
 
 if.then12.i:                                      ; preds = %entry
   %5 = load ptr, ptr %links.i, align 8
-  %links17.i = getelementptr inbounds %struct.btDbvtProxy, ptr %4, i64 0, i32 3
+  %links17.i = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %5, ptr %links17.i, align 8
   br label %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
 
 _ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %entry, %if.then12.i
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   %6 = load ptr, ptr %m_paircache, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %absproxy, ptr noundef %dispatcher)
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %absproxy)
-  %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup = getelementptr inbounds i8, ptr %this, i64 222
   store i8 1, ptr %m_needcleanup, align 2
   ret void
 }
@@ -1086,9 +1074,9 @@ declare void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK16btDbvtBroadphase7getAabbEP17btBroadphaseProxyR9btVector3S3_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %absproxy, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #6 align 2 {
 entry:
-  %m_aabbMin = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 4
+  %m_aabbMin = getelementptr inbounds i8, ptr %absproxy, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, i64 16, i1 false)
-  %m_aabbMax = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 5
+  %m_aabbMax = getelementptr inbounds i8, ptr %absproxy, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax, i64 16, i1 false)
   ret void
 }
@@ -1101,18 +1089,18 @@ define dso_local void @_ZN16btDbvtBroadphase7rayTestERK9btVector3S2_R23btBroadph
 entry:
   %callback = alloca %struct.BroadphaseRayTester, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
-  %m_rayCallback.i = getelementptr inbounds %struct.BroadphaseRayTester, ptr %callback, i64 0, i32 1
+  %m_rayCallback.i = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %rayCallback, ptr %m_rayCallback.i, align 8
-  %m_data.i = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 21, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %m_data.i, align 8
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_sets, align 8
-  %m_rayDirectionInverse = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %rayCallback, i64 0, i32 1
-  %m_signs = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %rayCallback, i64 0, i32 2
-  %m_lambda_max = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %rayCallback, i64 0, i32 3
+  %m_rayDirectionInverse = getelementptr inbounds i8, ptr %rayCallback, i64 8
+  %m_signs = getelementptr inbounds i8, ptr %rayCallback, i64 24
+  %m_lambda_max = getelementptr inbounds i8, ptr %rayCallback, i64 36
   %2 = load float, ptr %m_lambda_max, align 4
   call void @_ZNK6btDbvt15rayTestInternalEPK10btDbvtNodeRK9btVector3S5_S5_PjfS5_S5_R20btAlignedObjectArrayIS2_ERNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse, ptr noundef nonnull %m_signs, float noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %callback)
-  %arrayidx6 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %arrayidx6, align 8
   %4 = load float, ptr %m_lambda_max, align 4
   call void @_ZNK6btDbvt15rayTestInternalEPK10btDbvtNodeRK9btVector3S5_S5_PjfS5_S5_R20btAlignedObjectArrayIS2_ERNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx6, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse, ptr noundef nonnull %m_signs, float noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %callback)
@@ -1127,13 +1115,13 @@ entry:
   br i1 %tobool.not, label %if.end29, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %stack, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %0, 128
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit
 
 if.then4.i:                                       ; preds = %if.then
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %stack, i64 8
   %1 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body8.lr.ph.i
@@ -1145,7 +1133,7 @@ if.then.i.i:                                      ; preds = %if.then4.i
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %stack, i64 16
   %wide.trip.count.i.i.i = zext nneg i32 %.pre.i to i64
   br label %for.body.i.i.i
 
@@ -1161,13 +1149,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i, label %for.body.i.i.i, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i: ; preds = %for.body.i.i.i, %if.then.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %stack, i64 16
   %4 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %stack, i64 24
   %5 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i.i.i = icmp eq i8 %6, 0
@@ -1178,14 +1166,14 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %stack, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %call.i.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 128, ptr %m_capacity.i.i.i, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 5
+  %m_data9.i = getelementptr inbounds i8, ptr %stack, i64 16
   %7 = sext i32 %0 to i64
   br label %for.body8.i
 
@@ -1200,20 +1188,20 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
 
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit: ; preds = %for.body8.i, %if.then
   store i32 128, ptr %m_size.i.i, align 4
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %stack, i64 16
   %9 = load ptr, ptr %m_data.i, align 8
   store ptr %root, ptr %9, align 8
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %aabbMax, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
   %ref.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %bounds, i64 8
-  %arrayidx13.i25 = getelementptr inbounds [4 x float], ptr %aabbMin, i64 0, i64 2
-  %arrayidx11 = getelementptr inbounds [2 x %class.btVector3], ptr %bounds, i64 0, i64 1
-  %ref.tmp6.sroa.2.0.arrayidx11.sroa_idx = getelementptr inbounds [2 x %class.btVector3], ptr %bounds, i64 0, i64 1, i32 0, i64 2
-  %arrayidx13.i35 = getelementptr inbounds i32, ptr %signs, i64 1
-  %arrayidx37.i = getelementptr inbounds i32, ptr %signs, i64 2
-  %arrayidx.i48.i = getelementptr inbounds [4 x float], ptr %rayFrom, i64 0, i64 2
-  %arrayidx.i49.i = getelementptr inbounds [4 x float], ptr %rayDirectionInverse, i64 0, i64 2
-  %m_capacity.i.i.i45 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 3
-  %m_ownsMemory.i.i.i63 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %stack, i64 0, i32 6
+  %arrayidx13.i25 = getelementptr inbounds i8, ptr %aabbMin, i64 8
+  %arrayidx11 = getelementptr inbounds i8, ptr %bounds, i64 16
+  %ref.tmp6.sroa.2.0.arrayidx11.sroa_idx = getelementptr inbounds i8, ptr %bounds, i64 24
+  %arrayidx13.i35 = getelementptr inbounds i8, ptr %signs, i64 4
+  %arrayidx37.i = getelementptr inbounds i8, ptr %signs, i64 8
+  %arrayidx.i48.i = getelementptr inbounds i8, ptr %rayFrom, i64 8
+  %arrayidx.i49.i = getelementptr inbounds i8, ptr %rayDirectionInverse, i64 8
+  %m_capacity.i.i.i45 = getelementptr inbounds i8, ptr %stack, i64 8
+  %m_ownsMemory.i.i.i63 = getelementptr inbounds i8, ptr %stack, i64 24
   br label %do.body
 
 do.body:                                          ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit, %do.cond
@@ -1227,18 +1215,18 @@ do.body:                                          ; preds = %_ZN20btAlignedObjec
   %12 = load <2 x float>, ptr %11, align 4
   %13 = load <2 x float>, ptr %aabbMax, align 4
   %14 = fsub <2 x float> %12, %13
-  %arrayidx11.i19 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 2
+  %arrayidx11.i19 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load float, ptr %arrayidx11.i19, align 4
   %16 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %15, %16
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
   store <2 x float> %14, ptr %bounds, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
-  %mx.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %11, i64 0, i32 1
+  %mx.i = getelementptr inbounds i8, ptr %11, i64 16
   %17 = load <2 x float>, ptr %mx.i, align 4
   %18 = load <2 x float>, ptr %aabbMin, align 4
   %19 = fsub <2 x float> %17, %18
-  %arrayidx11.i24 = getelementptr inbounds %struct.btDbvtAabbMm, ptr %11, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i24 = getelementptr inbounds i8, ptr %11, i64 24
   %20 = load float, ptr %arrayidx11.i24, align 4
   %21 = load float, ptr %arrayidx13.i25, align 4
   %sub14.i26 = fsub float %20, %21
@@ -1317,7 +1305,7 @@ if.end58.i:                                       ; preds = %if.end.i37
   br i1 %53, label %if.then14, label %do.cond
 
 if.then14:                                        ; preds = %if.end58.i
-  %arrayidx.i.i38 = getelementptr inbounds %struct.btDbvtNode, ptr %11, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i38 = getelementptr inbounds i8, ptr %11, i64 48
   %54 = load ptr, ptr %arrayidx.i.i38, align 8
   %cmp.i.i39.not = icmp eq ptr %54, null
   br i1 %cmp.i.i39.not, label %if.else, label %if.then16
@@ -1413,7 +1401,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit77: ; preds = %_ZN20
 if.end:                                           ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit77, %if.then16
   %64 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit77 ], [ %10, %if.then16 ]
   %treshold.1 = phi i32 [ %sub, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit77 ], [ %treshold.0, %if.then16 ]
-  %65 = getelementptr inbounds %struct.btDbvtNode, ptr %11, i64 0, i32 2
+  %65 = getelementptr inbounds i8, ptr %11, i64 40
   %66 = load ptr, ptr %65, align 8
   %arrayidx.i81 = getelementptr inbounds ptr, ptr %64, i64 %idxprom.i
   store ptr %66, ptr %arrayidx.i81, align 8
@@ -1427,7 +1415,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 
 if.else:                                          ; preds = %if.then14
   %vtable = load ptr, ptr %policy, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %69 = load ptr, ptr %vfn, align 8
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %policy, ptr noundef nonnull %11)
   br label %do.cond
@@ -1454,15 +1442,15 @@ invoke.cont:
   %callback = alloca %struct.BroadphaseAabbTester, align 8
   %bounds = alloca %struct.btDbvtAabbMm, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
-  %m_aabbCallback.i = getelementptr inbounds %struct.BroadphaseAabbTester, ptr %callback, i64 0, i32 1
+  %m_aabbCallback.i = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %aabbCallback, ptr %m_aabbCallback.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bounds, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %bounds, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %bounds, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mx2.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_sets, align 8
   call void @_ZNK6btDbvt9collideTVEPK10btDbvtNodeRK12btDbvtAabbMmRNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(32) %bounds, ptr noundef nonnull align 8 dereferenceable(8) %callback)
-  %arrayidx6 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %arrayidx6, align 8
   call void @_ZNK6btDbvt9collideTVEPK10btDbvtNodeRK12btDbvtAabbMmRNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx6, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(32) %bounds, ptr noundef nonnull align 8 dereferenceable(8) %callback)
   ret void
@@ -1481,17 +1469,17 @@ entry:
   %velocity = alloca %class.btVector3, align 8
   %collider = alloca %struct.btDbvtTreeCollider, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabb, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %aabb, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %aabb, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mx2.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %stage = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 4
+  %stage = getelementptr inbounds i8, ptr %absproxy, i64 80
   %1 = load i32, ptr %stage, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 72
+  %leaf = getelementptr inbounds i8, ptr %absproxy, i64 56
   %2 = load ptr, ptr %leaf, align 8
   tail call void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef %2)
   %call = call noundef ptr @_ZN6btDbvt6insertERK12btDbvtAabbMmPv(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef nonnull align 4 dereferenceable(32) %aabb, ptr noundef nonnull %absproxy)
@@ -1499,11 +1487,11 @@ if.then:                                          ; preds = %entry
   br label %if.end60
 
 if.else:                                          ; preds = %entry
-  %m_updates_call = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 11
+  %m_updates_call = getelementptr inbounds i8, ptr %this, i64 196
   %3 = load i32, ptr %m_updates_call, align 4
   %inc = add i32 %3, 1
   store i32 %inc, ptr %m_updates_call, align 4
-  %leaf5 = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %leaf5 = getelementptr inbounds i8, ptr %absproxy, i64 56
   %4 = load ptr, ptr %leaf5, align 8
   %5 = load float, ptr %4, align 4
   %6 = load float, ptr %mx2.i, align 4
@@ -1511,60 +1499,60 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.else53, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %mx2.i21 = getelementptr inbounds %struct.btDbvtAabbMm, ptr %4, i64 0, i32 1
+  %mx2.i21 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load float, ptr %mx2.i21, align 4
   %8 = load float, ptr %aabb, align 4
   %cmp6.i = fcmp ult float %7, %8
   br i1 %cmp6.i, label %if.else53, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %9 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx.i11.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %aabb, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i11.i = getelementptr inbounds i8, ptr %aabb, i64 20
   %10 = load float, ptr %arrayidx.i11.i, align 4
   %cmp12.i = fcmp ugt float %9, %10
   br i1 %cmp12.i, label %if.else53, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true7.i
-  %arrayidx.i12.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %4, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %4, i64 20
   %11 = load float, ptr %arrayidx.i12.i, align 4
-  %arrayidx.i13.i = getelementptr inbounds [4 x float], ptr %aabb, i64 0, i64 1
+  %arrayidx.i13.i = getelementptr inbounds i8, ptr %aabb, i64 4
   %12 = load float, ptr %arrayidx.i13.i, align 4
   %cmp18.i = fcmp ult float %11, %12
   br i1 %cmp18.i, label %if.else53, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true13.i
-  %arrayidx.i14.i = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 2
+  %arrayidx.i14.i = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load float, ptr %arrayidx.i14.i, align 4
-  %arrayidx.i15.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %aabb, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %aabb, i64 24
   %14 = load float, ptr %arrayidx.i15.i, align 4
   %cmp24.i = fcmp ugt float %13, %14
   br i1 %cmp24.i, label %if.else53, label %_Z9IntersectRK12btDbvtAabbMmS1_.exit
 
 _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %land.lhs.true19.i
-  %arrayidx.i16.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %4, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load float, ptr %arrayidx.i16.i, align 4
-  %arrayidx.i17.i = getelementptr inbounds [4 x float], ptr %aabb, i64 0, i64 2
+  %arrayidx.i17.i = getelementptr inbounds i8, ptr %aabb, i64 8
   %16 = load float, ptr %arrayidx.i17.i, align 4
   %cmp29.i = fcmp ult float %15, %16
   br i1 %cmp29.i, label %if.else53, label %if.then7
 
 if.then7:                                         ; preds = %_Z9IntersectRK12btDbvtAabbMmS1_.exit
-  %m_aabbMin = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 4
+  %m_aabbMin = getelementptr inbounds i8, ptr %absproxy, i64 20
   %17 = load float, ptr %aabbMin, align 4
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %aabbMin, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %aabbMin, i64 4
   %18 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %aabbMin, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
   %19 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 4, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %absproxy, i64 28
   %20 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %19, %20
-  %m_aabbMax = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 5
-  %arrayidx11.i26 = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 5, i32 0, i64 2
+  %m_aabbMax = getelementptr inbounds i8, ptr %absproxy, i64 36
+  %arrayidx11.i26 = getelementptr inbounds i8, ptr %absproxy, i64 44
   %21 = load float, ptr %arrayidx11.i26, align 4
   %sub14.i28 = fsub float %21, %20
   %mul8.i.i = fmul float %sub14.i28, 5.000000e-01
-  %m_prediction = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 4
+  %m_prediction = getelementptr inbounds i8, ptr %this, i64 168
   %22 = load float, ptr %m_prediction, align 8
   %23 = load <2 x float>, ptr %m_aabbMin, align 4
   %24 = extractelement <2 x float> %23, i64 0
@@ -1580,7 +1568,7 @@ if.then7:                                         ; preds = %_Z9IntersectRK12btD
   %mul8.i = fmul float %22, %mul8.i.i
   %retval.sroa.3.12.vec.insert.i37 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
   store <2 x float> %31, ptr %velocity, align 8
-  %32 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %velocity, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %velocity, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i37, ptr %32, align 8
   %cmp20 = fcmp olt float %sub.i, 0.000000e+00
   br i1 %cmp20, label %if.then21, label %if.end
@@ -1596,7 +1584,7 @@ if.end:                                           ; preds = %if.then21, %if.then
   br i1 %cmp28, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %if.end
-  %arrayidx31 = getelementptr inbounds float, ptr %velocity, i64 1
+  %arrayidx31 = getelementptr inbounds i8, ptr %velocity, i64 4
   %34 = extractelement <2 x float> %31, i64 1
   %fneg32 = fneg float %34
   store float %fneg32, ptr %arrayidx31, align 4
@@ -1612,22 +1600,22 @@ if.then39:                                        ; preds = %if.end35
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then39, %if.end35
-  %m_sets46 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets46 = getelementptr inbounds i8, ptr %this, i64 8
   %35 = load float, ptr @gDbvtMargin, align 4
   %call49 = call noundef zeroext i1 @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMmRK9btVector3f(ptr noundef nonnull align 8 dereferenceable(64) %m_sets46, ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(32) %aabb, ptr noundef nonnull align 4 dereferenceable(16) %velocity, float noundef %35)
   br i1 %call49, label %if.then50, label %if.end60
 
 if.then50:                                        ; preds = %if.end45
-  %m_updates_done = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 12
+  %m_updates_done = getelementptr inbounds i8, ptr %this, i64 200
   %36 = load i32, ptr %m_updates_done, align 8
   %inc51 = add i32 %36, 1
   store i32 %inc51, ptr %m_updates_done, align 8
   br label %if.end60
 
 if.else53:                                        ; preds = %if.else, %land.lhs.true.i, %land.lhs.true7.i, %land.lhs.true13.i, %land.lhs.true19.i, %_Z9IntersectRK12btDbvtAabbMmS1_.exit
-  %m_sets54 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets54 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64) %m_sets54, ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(32) %aabb)
-  %m_updates_done57 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 12
+  %m_updates_done57 = getelementptr inbounds i8, ptr %this, i64 200
   %37 = load i32, ptr %m_updates_done57, align 8
   %inc58 = add i32 %37, 1
   store i32 %inc58, ptr %m_updates_done57, align 8
@@ -1635,15 +1623,16 @@ if.else53:                                        ; preds = %if.else, %land.lhs.
 
 if.end60:                                         ; preds = %if.else53, %if.then50, %if.end45, %if.then
   %docollide.0 = phi i1 [ true, %if.then ], [ true, %if.then50 ], [ false, %if.end45 ], [ true, %if.else53 ]
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
   %38 = load i32, ptr %stage, align 8
   %idxprom = sext i32 %38 to i64
-  %arrayidx62 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom
-  %links.i = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 3
+  %arrayidx62 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom
+  %links.i = getelementptr inbounds i8, ptr %absproxy, i64 64
   %39 = load ptr, ptr %links.i, align 8
   %tobool.not.i = icmp eq ptr %39, null
-  %arrayidx8.i = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 3, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %absproxy, i64 72
   %40 = load ptr, ptr %arrayidx8.i, align 8
-  %arrayidx6.i = getelementptr inbounds %struct.btDbvtProxy, ptr %39, i64 0, i32 3, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %39, i64 72
   %list.sink.i = select i1 %tobool.not.i, ptr %arrayidx62, ptr %arrayidx6.i
   store ptr %40, ptr %list.sink.i, align 8
   %tobool11.not.i = icmp eq ptr %40, null
@@ -1651,20 +1640,20 @@ if.end60:                                         ; preds = %if.else53, %if.then
 
 if.then12.i:                                      ; preds = %if.end60
   %41 = load ptr, ptr %links.i, align 8
-  %links17.i = getelementptr inbounds %struct.btDbvtProxy, ptr %40, i64 0, i32 3
+  %links17.i = getelementptr inbounds i8, ptr %40, i64 64
   store ptr %41, ptr %links17.i, align 8
   br label %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
 
 _ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %if.end60, %if.then12.i
-  %m_aabbMin63 = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 4
+  %m_aabbMin63 = getelementptr inbounds i8, ptr %absproxy, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin63, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %m_aabbMax64 = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 5
+  %m_aabbMax64 = getelementptr inbounds i8, ptr %absproxy, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax64, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %m_stageCurrent = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 5
+  %m_stageCurrent = getelementptr inbounds i8, ptr %this, i64 172
   %42 = load i32, ptr %m_stageCurrent, align 4
   store i32 %42, ptr %stage, align 8
   %idxprom68 = sext i32 %42 to i64
-  %arrayidx69 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom68
+  %arrayidx69 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom68
   store ptr null, ptr %links.i, align 8
   %43 = load ptr, ptr %arrayidx69, align 8
   store ptr %43, ptr %arrayidx8.i, align 8
@@ -1672,7 +1661,7 @@ _ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %if.end60, %if.then1
   br i1 %tobool.not.i41, label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
-  %links3.i = getelementptr inbounds %struct.btDbvtProxy, ptr %43, i64 0, i32 3
+  %links3.i = getelementptr inbounds i8, ptr %43, i64 64
   store ptr %absproxy, ptr %links3.i, align 8
   br label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
 
@@ -1681,9 +1670,9 @@ _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %_ZL10listremoveI11b
   br i1 %docollide.0, label %if.then70, label %if.end86
 
 if.then70:                                        ; preds = %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
-  %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup = getelementptr inbounds i8, ptr %this, i64 222
   store i8 1, ptr %m_needcleanup, align 2
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 18
+  %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221
   %44 = load i8, ptr %m_deferedcollide, align 1
   %45 = and i8 %44, 1
   %tobool71.not = icmp eq i8 %45, 0
@@ -1691,14 +1680,14 @@ if.then70:                                        ; preds = %_ZL10listappendI11b
 
 if.then72:                                        ; preds = %if.then70
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
-  %pbp.i = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %collider, i64 0, i32 1
+  %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
-  %arrayidx74 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 72
   %46 = load ptr, ptr %arrayidx74, align 8
-  %leaf77 = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %leaf77 = getelementptr inbounds i8, ptr %absproxy, i64 56
   %47 = load ptr, ptr %leaf77, align 8
   call void @_ZN6btDbvt24collideTTpersistentStackEPK10btDbvtNodeS2_RNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx74, ptr noundef %46, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %collider)
-  %m_sets73 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets73 = getelementptr inbounds i8, ptr %this, i64 8
   %48 = load ptr, ptr %m_sets73, align 8
   %49 = load ptr, ptr %leaf77, align 8
   call void @_ZN6btDbvt24collideTTpersistentStackEPK10btDbvtNodeS2_RNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %m_sets73, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %collider)
@@ -1721,13 +1710,13 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end127
 
 if.then:                                          ; preds = %entry
-  %m_size.i.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %0, 128
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit
 
 if.then4.i:                                       ; preds = %if.then
-  %m_capacity.i.i.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit
@@ -1739,7 +1728,7 @@ if.then.i.i:                                      ; preds = %if.then4.i
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
-  %m_data.i.i.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count.i.i.i = zext nneg i32 %.pre.i to i64
   br label %for.body.i.i.i
 
@@ -1754,13 +1743,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %if.then.i.i
-  %m_data.i5.i.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i.i.i = icmp eq i8 %5, 0
@@ -1771,7 +1760,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %call.i.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 128, ptr %m_capacity.i.i.i, align 8
@@ -1779,13 +1768,13 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit: ; preds = %if.then4.i, %if.end.i, %if.then
   store i32 128, ptr %m_size.i.i, align 4
-  %m_data.i = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %m_data.i, align 8
   store ptr %root0, ptr %6, align 8
   %ref.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %root1, ptr %ref.tmp3.sroa.2.0..sroa_idx, align 8
-  %m_capacity.i.i.i52 = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 3
-  %m_ownsMemory.i.i.i69 = getelementptr inbounds %struct.btDbvt, ptr %this, i64 0, i32 6, i32 6
+  %m_capacity.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ownsMemory.i.i.i69 = getelementptr inbounds i8, ptr %this, i64 56
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit
@@ -1871,13 +1860,13 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end
-  %arrayidx.i.i = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.0.0.copyload, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 48
   %16 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.i.i85.not = icmp eq ptr %16, null
   br i1 %cmp.i.i85.not, label %do.cond, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
-  %17 = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.0.0.copyload, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 40
   %18 = load ptr, ptr %17, align 8
   %arrayidx.i89 = getelementptr inbounds %"struct.btDbvt::sStkNN", ptr %15, i64 %idxprom.i
   store ptr %18, ptr %arrayidx.i89, align 8
@@ -1893,73 +1882,73 @@ if.then18:                                        ; preds = %if.then15
   %inc39 = add nsw i32 %depth.0, 2
   %21 = load ptr, ptr %m_data.i, align 8
   %22 = getelementptr %"struct.btDbvt::sStkNN", ptr %21, i64 %idxprom.i92
-  %arrayidx.i97 = getelementptr %"struct.btDbvt::sStkNN", ptr %22, i64 1
+  %arrayidx.i97 = getelementptr i8, ptr %22, i64 16
   %23 = load <2 x ptr>, ptr %17, align 8
   store <2 x ptr> %23, ptr %arrayidx.i97, align 8
   br label %do.cond
 
 if.else:                                          ; preds = %if.end
   %24 = load float, ptr %p.sroa.0.0.copyload, align 4
-  %mx.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %p.sroa.20.0.copyload, i64 0, i32 1
+  %mx.i = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 16
   %25 = load float, ptr %mx.i, align 4
   %cmp.i98 = fcmp ugt float %24, %25
   br i1 %cmp.i98, label %do.cond, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %p.sroa.0.0.copyload, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 16
   %26 = load float, ptr %mx2.i, align 4
   %27 = load float, ptr %p.sroa.20.0.copyload, align 4
   %cmp6.i = fcmp ult float %26, %27
   br i1 %cmp6.i, label %do.cond, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx.i.i99 = getelementptr inbounds [4 x float], ptr %p.sroa.0.0.copyload, i64 0, i64 1
+  %arrayidx.i.i99 = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 4
   %28 = load float, ptr %arrayidx.i.i99, align 4
-  %arrayidx.i11.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %p.sroa.20.0.copyload, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i11.i = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 20
   %29 = load float, ptr %arrayidx.i11.i, align 4
   %cmp12.i = fcmp ugt float %28, %29
   br i1 %cmp12.i, label %do.cond, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true7.i
-  %arrayidx.i12.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %p.sroa.0.0.copyload, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 20
   %30 = load float, ptr %arrayidx.i12.i, align 4
-  %arrayidx.i13.i = getelementptr inbounds [4 x float], ptr %p.sroa.20.0.copyload, i64 0, i64 1
+  %arrayidx.i13.i = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 4
   %31 = load float, ptr %arrayidx.i13.i, align 4
   %cmp18.i = fcmp ult float %30, %31
   br i1 %cmp18.i, label %do.cond, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true13.i
-  %arrayidx.i14.i = getelementptr inbounds [4 x float], ptr %p.sroa.0.0.copyload, i64 0, i64 2
+  %arrayidx.i14.i = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 8
   %32 = load float, ptr %arrayidx.i14.i, align 4
-  %arrayidx.i15.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %p.sroa.20.0.copyload, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 24
   %33 = load float, ptr %arrayidx.i15.i, align 4
   %cmp24.i = fcmp ugt float %32, %33
   br i1 %cmp24.i, label %do.cond, label %_Z9IntersectRK12btDbvtAabbMmS1_.exit
 
 _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %land.lhs.true19.i
-  %arrayidx.i16.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %p.sroa.0.0.copyload, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 24
   %34 = load float, ptr %arrayidx.i16.i, align 4
-  %arrayidx.i17.i = getelementptr inbounds [4 x float], ptr %p.sroa.20.0.copyload, i64 0, i64 2
+  %arrayidx.i17.i = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 8
   %35 = load float, ptr %arrayidx.i17.i, align 4
   %cmp29.i = fcmp ult float %34, %35
   br i1 %cmp29.i, label %do.cond, label %if.then46
 
 if.then46:                                        ; preds = %_Z9IntersectRK12btDbvtAabbMmS1_.exit
-  %arrayidx.i.i100 = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.0.0.copyload, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i100 = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 48
   %36 = load ptr, ptr %arrayidx.i.i100, align 8
   %cmp.i.i101.not = icmp eq ptr %36, null
-  %arrayidx.i.i128 = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.20.0.copyload, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i128 = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 48
   %37 = load ptr, ptr %arrayidx.i.i128, align 8
   %cmp.i.i129.not = icmp eq ptr %37, null
   br i1 %cmp.i.i101.not, label %if.else101, label %if.then49
 
 if.then49:                                        ; preds = %if.then46
-  %38 = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.0.0.copyload, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %p.sroa.0.0.copyload, i64 40
   %39 = load ptr, ptr %38, align 8
   br i1 %cmp.i.i129.not, label %if.else85, label %if.then52
 
 if.then52:                                        ; preds = %if.then49
-  %40 = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.20.0.copyload, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 40
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i107 = getelementptr inbounds %"struct.btDbvt::sStkNN", ptr %15, i64 %idxprom.i
   store ptr %39, ptr %arrayidx.i107, align 8
@@ -1977,18 +1966,18 @@ if.then52:                                        ; preds = %if.then49
   %46 = load ptr, ptr %arrayidx.i.i128, align 8
   %47 = load ptr, ptr %m_data.i, align 8
   %48 = getelementptr %"struct.btDbvt::sStkNN", ptr %47, i64 %idxprom.i110
-  %arrayidx.i115 = getelementptr %"struct.btDbvt::sStkNN", ptr %48, i64 1
+  %arrayidx.i115 = getelementptr i8, ptr %48, i64 16
   store ptr %45, ptr %arrayidx.i115, align 8
-  %ref.tmp69.sroa.2.0.arrayidx.i115.sroa_idx = getelementptr %"struct.btDbvt::sStkNN", ptr %48, i64 1, i32 1
+  %ref.tmp69.sroa.2.0.arrayidx.i115.sroa_idx = getelementptr i8, ptr %48, i64 24
   store ptr %46, ptr %ref.tmp69.sroa.2.0.arrayidx.i115.sroa_idx, align 8
   %49 = load ptr, ptr %arrayidx.i.i100, align 8
   %50 = load ptr, ptr %arrayidx.i.i128, align 8
   %inc83 = add nsw i32 %depth.0, 3
   %51 = load ptr, ptr %m_data.i, align 8
   %52 = getelementptr %"struct.btDbvt::sStkNN", ptr %51, i64 %idxprom.i110
-  %arrayidx.i119 = getelementptr %"struct.btDbvt::sStkNN", ptr %52, i64 2
+  %arrayidx.i119 = getelementptr i8, ptr %52, i64 32
   store ptr %49, ptr %arrayidx.i119, align 8
-  %ref.tmp77.sroa.2.0.arrayidx.i119.sroa_idx = getelementptr %"struct.btDbvt::sStkNN", ptr %52, i64 2, i32 1
+  %ref.tmp77.sroa.2.0.arrayidx.i119.sroa_idx = getelementptr i8, ptr %52, i64 40
   store ptr %50, ptr %ref.tmp77.sroa.2.0.arrayidx.i119.sroa_idx, align 8
   br label %do.cond
 
@@ -2011,7 +2000,7 @@ if.else101:                                       ; preds = %if.then46
   br i1 %cmp.i.i129.not, label %if.else119, label %if.then104
 
 if.then104:                                       ; preds = %if.else101
-  %55 = getelementptr inbounds %struct.btDbvtNode, ptr %p.sroa.20.0.copyload, i64 0, i32 2
+  %55 = getelementptr inbounds i8, ptr %p.sroa.20.0.copyload, i64 40
   %56 = load ptr, ptr %55, align 8
   %arrayidx.i133 = getelementptr inbounds %"struct.btDbvt::sStkNN", ptr %15, i64 %idxprom.i
   store ptr %p.sroa.0.0.copyload, ptr %arrayidx.i133, align 8
@@ -2029,7 +2018,7 @@ if.then104:                                       ; preds = %if.else101
 
 if.else119:                                       ; preds = %if.else101
   %vtable = load ptr, ptr %policy, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %59 = load ptr, ptr %vfn, align 8
   tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %policy, ptr noundef nonnull %p.sroa.0.0.copyload, ptr noundef nonnull %p.sroa.20.0.copyload)
   br label %do.cond
@@ -2049,17 +2038,17 @@ entry:
   %aabb = alloca %struct.btDbvtAabbMm, align 4
   %collider = alloca %struct.btDbvtTreeCollider, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabb, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %aabb, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %aabb, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mx2.i, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %stage = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 4
+  %stage = getelementptr inbounds i8, ptr %absproxy, i64 80
   %1 = load i32, ptr %stage, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 72
+  %leaf = getelementptr inbounds i8, ptr %absproxy, i64 56
   %2 = load ptr, ptr %leaf, align 8
   tail call void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef %2)
   %call = call noundef ptr @_ZN6btDbvt6insertERK12btDbvtAabbMmPv(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef nonnull align 4 dereferenceable(32) %aabb, ptr noundef nonnull %absproxy)
@@ -2067,30 +2056,31 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_updates_call = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 11
+  %m_updates_call = getelementptr inbounds i8, ptr %this, i64 196
   %3 = load i32, ptr %m_updates_call, align 4
   %inc = add i32 %3, 1
   store i32 %inc, ptr %m_updates_call, align 4
-  %m_sets5 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
-  %leaf7 = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %m_sets5 = getelementptr inbounds i8, ptr %this, i64 8
+  %leaf7 = getelementptr inbounds i8, ptr %absproxy, i64 56
   %4 = load ptr, ptr %leaf7, align 8
   call void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64) %m_sets5, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(32) %aabb)
-  %m_updates_done = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 12
+  %m_updates_done = getelementptr inbounds i8, ptr %this, i64 200
   %5 = load i32, ptr %m_updates_done, align 8
   %inc8 = add i32 %5, 1
   store i32 %inc8, ptr %m_updates_done, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
   %6 = load i32, ptr %stage, align 8
   %idxprom = sext i32 %6 to i64
-  %arrayidx10 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom
-  %links.i = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 3
+  %arrayidx10 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom
+  %links.i = getelementptr inbounds i8, ptr %absproxy, i64 64
   %7 = load ptr, ptr %links.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
-  %arrayidx8.i = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 3, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %absproxy, i64 72
   %8 = load ptr, ptr %arrayidx8.i, align 8
-  %arrayidx6.i = getelementptr inbounds %struct.btDbvtProxy, ptr %7, i64 0, i32 3, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %7, i64 72
   %list.sink.i = select i1 %tobool.not.i, ptr %arrayidx10, ptr %arrayidx6.i
   store ptr %8, ptr %list.sink.i, align 8
   %tobool11.not.i = icmp eq ptr %8, null
@@ -2098,20 +2088,20 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then12.i:                                      ; preds = %if.end
   %9 = load ptr, ptr %links.i, align 8
-  %links17.i = getelementptr inbounds %struct.btDbvtProxy, ptr %8, i64 0, i32 3
+  %links17.i = getelementptr inbounds i8, ptr %8, i64 64
   store ptr %9, ptr %links17.i, align 8
   br label %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
 
 _ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %if.end, %if.then12.i
-  %m_aabbMin = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 4
+  %m_aabbMin = getelementptr inbounds i8, ptr %absproxy, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %m_aabbMax = getelementptr inbounds %struct.btBroadphaseProxy, ptr %absproxy, i64 0, i32 5
+  %m_aabbMax = getelementptr inbounds i8, ptr %absproxy, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %m_stageCurrent = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 5
+  %m_stageCurrent = getelementptr inbounds i8, ptr %this, i64 172
   %10 = load i32, ptr %m_stageCurrent, align 4
   store i32 %10, ptr %stage, align 8
   %idxprom14 = sext i32 %10 to i64
-  %arrayidx15 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom14
   store ptr null, ptr %links.i, align 8
   %11 = load ptr, ptr %arrayidx15, align 8
   store ptr %11, ptr %arrayidx8.i, align 8
@@ -2119,15 +2109,15 @@ _ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %if.end, %if.then12.
   br i1 %tobool.not.i16, label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
-  %links3.i = getelementptr inbounds %struct.btDbvtProxy, ptr %11, i64 0, i32 3
+  %links3.i = getelementptr inbounds i8, ptr %11, i64 64
   store ptr %absproxy, ptr %links3.i, align 8
   br label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
 
 _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit, %if.then.i
   store ptr %absproxy, ptr %arrayidx15, align 8
-  %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup = getelementptr inbounds i8, ptr %this, i64 222
   store i8 1, ptr %m_needcleanup, align 2
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 18
+  %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221
   %12 = load i8, ptr %m_deferedcollide, align 1
   %13 = and i8 %12, 1
   %tobool17.not = icmp eq i8 %13, 0
@@ -2135,14 +2125,14 @@ _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %_ZL10listremoveI11b
 
 if.then18:                                        ; preds = %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
-  %pbp.i = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %collider, i64 0, i32 1
+  %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
-  %arrayidx20 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 72
   %14 = load ptr, ptr %arrayidx20, align 8
-  %leaf23 = getelementptr inbounds %struct.btDbvtProxy, ptr %absproxy, i64 0, i32 2
+  %leaf23 = getelementptr inbounds i8, ptr %absproxy, i64 56
   %15 = load ptr, ptr %leaf23, align 8
   call void @_ZN6btDbvt24collideTTpersistentStackEPK10btDbvtNodeS2_RNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx20, ptr noundef %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %collider)
-  %m_sets19 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets19 = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load ptr, ptr %m_sets19, align 8
   %17 = load ptr, ptr %leaf23, align 8
   call void @_ZN6btDbvt24collideTTpersistentStackEPK10btDbvtNodeS2_RNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %m_sets19, ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(8) %collider)
@@ -2165,25 +2155,25 @@ define dso_local void @_ZN16btDbvtBroadphase7collideEP12btDispatcher(ptr noundef
 entry:
   %curAabb = alloca %struct.btDbvtAabbMm, align 4
   %collider = alloca %struct.btDbvtTreeCollider, align 8
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
-  %m_leaves = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 0, i32 3
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
+  %m_leaves = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_leaves, align 4
-  %m_dupdates = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 7
+  %m_dupdates = getelementptr inbounds i8, ptr %this, i64 180
   %1 = load i32, ptr %m_dupdates, align 4
   %mul = mul nsw i32 %1, %0
   %div = sdiv i32 %mul, 100
   %add = add nsw i32 %div, 1
   tail call void @_ZN6btDbvt19optimizeIncrementalEi(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, i32 noundef %add)
-  %m_fixedleft = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 10
+  %m_fixedleft = getelementptr inbounds i8, ptr %this, i64 192
   %2 = load i32, ptr %m_fixedleft, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
-  %m_leaves6 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1, i32 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_leaves6 = getelementptr inbounds i8, ptr %this, i64 92
   %3 = load i32, ptr %m_leaves6, align 4
-  %m_fupdates = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 6
+  %m_fupdates = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load i32, ptr %m_fupdates, align 8
   %mul7 = mul nsw i32 %4, %3
   %div8 = sdiv i32 %mul7, 100
@@ -2196,35 +2186,36 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_stageCurrent = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 5
+  %m_stageCurrent = getelementptr inbounds i8, ptr %this, i64 172
   %6 = load i32, ptr %m_stageCurrent, align 4
   %add22 = add nsw i32 %6, 1
   %rem = srem i32 %add22, 2
   store i32 %rem, ptr %m_stageCurrent, align 4
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
   %idxprom = sext i32 %rem to i64
-  %arrayidx25 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom
+  %arrayidx25 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom
   %7 = load ptr, ptr %arrayidx25, align 8
   %tobool26.not = icmp eq ptr %7, null
   br i1 %tobool26.not, label %if.end46, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %arrayidx33 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 2
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %curAabb, i64 0, i32 1
-  %arrayidx37 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 152
+  %mx2.i = getelementptr inbounds i8, ptr %curAabb, i64 16
+  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 72
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
   %current.0 = phi ptr [ %8, %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit ], [ %7, %do.body.preheader ]
-  %arrayidx28 = getelementptr inbounds %struct.btDbvtProxy, ptr %current.0, i64 0, i32 3, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %current.0, i64 72
   %8 = load ptr, ptr %arrayidx28, align 8
-  %stage = getelementptr inbounds %struct.btDbvtProxy, ptr %current.0, i64 0, i32 4
+  %stage = getelementptr inbounds i8, ptr %current.0, i64 80
   %9 = load i32, ptr %stage, align 8
   %idxprom30 = sext i32 %9 to i64
-  %arrayidx31 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 2, i64 %idxprom30
-  %links.i = getelementptr inbounds %struct.btDbvtProxy, ptr %current.0, i64 0, i32 3
+  %arrayidx31 = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom30
+  %links.i = getelementptr inbounds i8, ptr %current.0, i64 64
   %10 = load ptr, ptr %links.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
-  %arrayidx6.i = getelementptr inbounds %struct.btDbvtProxy, ptr %10, i64 0, i32 3, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %10, i64 72
   %list.sink.i = select i1 %tobool.not.i, ptr %arrayidx31, ptr %arrayidx6.i
   store ptr %8, ptr %list.sink.i, align 8
   %tobool11.not.i = icmp eq ptr %8, null
@@ -2232,7 +2223,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 if.then12.i:                                      ; preds = %do.body
   %11 = load ptr, ptr %links.i, align 8
-  %links17.i = getelementptr inbounds %struct.btDbvtProxy, ptr %8, i64 0, i32 3
+  %links17.i = getelementptr inbounds i8, ptr %8, i64 64
   store ptr %11, ptr %links17.i, align 8
   br label %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
 
@@ -2244,17 +2235,17 @@ _ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %do.body, %if.then12
   br i1 %tobool.not.i30, label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit
-  %links3.i = getelementptr inbounds %struct.btDbvtProxy, ptr %12, i64 0, i32 3
+  %links3.i = getelementptr inbounds i8, ptr %12, i64 64
   store ptr %current.0, ptr %links3.i, align 8
   br label %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
 
 _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %_ZL10listremoveI11btDbvtProxyEvPT_RS2_.exit, %if.then.i
   store ptr %current.0, ptr %arrayidx33, align 8
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %current.0, i64 0, i32 2
+  %leaf = getelementptr inbounds i8, ptr %current.0, i64 56
   %13 = load ptr, ptr %leaf, align 8
   call void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef %13)
-  %m_aabbMin = getelementptr inbounds %struct.btBroadphaseProxy, ptr %current.0, i64 0, i32 4
-  %m_aabbMax = getelementptr inbounds %struct.btBroadphaseProxy, ptr %current.0, i64 0, i32 5
+  %m_aabbMin = getelementptr inbounds i8, ptr %current.0, i64 20
+  %m_aabbMax = getelementptr inbounds i8, ptr %current.0, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %curAabb, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mx2.i, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax, i64 16, i1 false)
   %call38 = call noundef ptr @_ZN6btDbvt6insertERK12btDbvtAabbMmPv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx37, ptr noundef nonnull align 4 dereferenceable(32) %curAabb, ptr noundef nonnull %current.0)
@@ -2263,18 +2254,18 @@ _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %_ZL10listremoveI11b
   br i1 %tobool11.not.i, label %do.end, label %do.body, !llvm.loop !15
 
 do.end:                                           ; preds = %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
-  %m_leaves44 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1, i32 3
+  %m_leaves44 = getelementptr inbounds i8, ptr %this, i64 92
   %14 = load i32, ptr %m_leaves44, align 4
   store i32 %14, ptr %m_fixedleft, align 8
-  %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup = getelementptr inbounds i8, ptr %this, i64 222
   store i8 1, ptr %m_needcleanup, align 2
   br label %if.end46
 
 if.end46:                                         ; preds = %do.end, %if.end
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
-  %pbp.i = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %collider, i64 0, i32 1
+  %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 18
+  %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221
   %15 = load i8, ptr %m_deferedcollide, align 1
   %16 = and i8 %15, 1
   %tobool47.not = icmp eq i8 %16, 0
@@ -2282,7 +2273,7 @@ if.end46:                                         ; preds = %do.end, %if.end
 
 if.end56:                                         ; preds = %if.end46
   %17 = load ptr, ptr %m_sets, align 8
-  %arrayidx54 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 72
   %18 = load ptr, ptr %arrayidx54, align 8
   call void @_ZN6btDbvt24collideTTpersistentStackEPK10btDbvtNodeS2_RNS_8ICollideE(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %collider)
   %.pre = load i8, ptr %m_deferedcollide, align 1
@@ -2296,27 +2287,27 @@ if.then59:                                        ; preds = %if.end56
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end46, %if.then59, %if.end56
-  %m_needcleanup70 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup70 = getelementptr inbounds i8, ptr %this, i64 222
   %21 = load i8, ptr %m_needcleanup70, align 2
   %22 = and i8 %21, 1
   %tobool71.not = icmp eq i8 %22, 0
   br i1 %tobool71.not, label %if.end111, label %if.then72
 
 if.then72:                                        ; preds = %if.end69
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   %23 = load ptr, ptr %m_paircache, align 8
   %vtable = load ptr, ptr %23, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %24 = load ptr, ptr %vfn, align 8
   %call73 = call noundef nonnull align 8 dereferenceable(25) ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call73, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %call73, i64 4
   %25 = load i32, ptr %m_size.i, align 4
   %cmp = icmp sgt i32 %25, 0
   br i1 %cmp, label %if.then75, label %if.end111
 
 if.then75:                                        ; preds = %if.then72
-  %m_newpairs = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 9
-  %m_cupdates = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 8
+  %m_newpairs = getelementptr inbounds i8, ptr %this, i64 188
+  %m_cupdates = getelementptr inbounds i8, ptr %this, i64 184
   %26 = load i32, ptr %m_cupdates, align 8
   %mul80 = mul nsw i32 %26, %25
   %div81 = sdiv i32 %mul80, 100
@@ -2327,8 +2318,8 @@ if.then75:                                        ; preds = %if.then72
   br i1 %cmp8447, label %for.body.lr.ph, label %if.then102
 
 for.body.lr.ph:                                   ; preds = %if.then75
-  %m_cid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 15
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call73, i64 0, i32 5
+  %m_cid = getelementptr inbounds i8, ptr %this, i64 212
+  %m_data.i = getelementptr inbounds i8, ptr %call73, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2342,53 +2333,53 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom.i = sext i32 %rem87 to i64
   %arrayidx.i = getelementptr inbounds %struct.btBroadphasePair, ptr %31, i64 %idxprom.i
   %32 = load ptr, ptr %arrayidx.i, align 8
-  %m_pProxy1 = getelementptr inbounds %struct.btBroadphasePair, ptr %31, i64 %idxprom.i, i32 1
+  %m_pProxy1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %33 = load ptr, ptr %m_pProxy1, align 8
-  %leaf89 = getelementptr inbounds %struct.btDbvtProxy, ptr %32, i64 0, i32 2
+  %leaf89 = getelementptr inbounds i8, ptr %32, i64 56
   %34 = load ptr, ptr %leaf89, align 8
-  %leaf90 = getelementptr inbounds %struct.btDbvtProxy, ptr %33, i64 0, i32 2
+  %leaf90 = getelementptr inbounds i8, ptr %33, i64 56
   %35 = load ptr, ptr %leaf90, align 8
   %36 = load float, ptr %34, align 4
-  %mx.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %35, i64 0, i32 1
+  %mx.i = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load float, ptr %mx.i, align 4
   %cmp.i38 = fcmp ugt float %36, %37
   br i1 %cmp.i38, label %if.then93, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %mx2.i39 = getelementptr inbounds %struct.btDbvtAabbMm, ptr %34, i64 0, i32 1
+  %mx2.i39 = getelementptr inbounds i8, ptr %34, i64 16
   %38 = load float, ptr %mx2.i39, align 4
   %39 = load float, ptr %35, align 4
   %cmp6.i = fcmp ult float %38, %39
   br i1 %cmp6.i, label %if.then93, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %34, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %34, i64 4
   %40 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx.i11.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %35, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i11.i = getelementptr inbounds i8, ptr %35, i64 20
   %41 = load float, ptr %arrayidx.i11.i, align 4
   %cmp12.i = fcmp ugt float %40, %41
   br i1 %cmp12.i, label %if.then93, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true7.i
-  %arrayidx.i12.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %34, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %34, i64 20
   %42 = load float, ptr %arrayidx.i12.i, align 4
-  %arrayidx.i13.i = getelementptr inbounds [4 x float], ptr %35, i64 0, i64 1
+  %arrayidx.i13.i = getelementptr inbounds i8, ptr %35, i64 4
   %43 = load float, ptr %arrayidx.i13.i, align 4
   %cmp18.i = fcmp ult float %42, %43
   br i1 %cmp18.i, label %if.then93, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true13.i
-  %arrayidx.i14.i = getelementptr inbounds [4 x float], ptr %34, i64 0, i64 2
+  %arrayidx.i14.i = getelementptr inbounds i8, ptr %34, i64 8
   %44 = load float, ptr %arrayidx.i14.i, align 4
-  %arrayidx.i15.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %35, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %35, i64 24
   %45 = load float, ptr %arrayidx.i15.i, align 4
   %cmp24.i = fcmp ugt float %44, %45
   br i1 %cmp24.i, label %if.then93, label %_Z9IntersectRK12btDbvtAabbMmS1_.exit
 
 _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %land.lhs.true19.i
-  %arrayidx.i16.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %34, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %34, i64 24
   %46 = load float, ptr %arrayidx.i16.i, align 4
-  %arrayidx.i17.i = getelementptr inbounds [4 x float], ptr %35, i64 0, i64 2
+  %arrayidx.i17.i = getelementptr inbounds i8, ptr %35, i64 8
   %47 = load float, ptr %arrayidx.i17.i, align 4
   %cmp29.i = fcmp ult float %46, %47
   br i1 %cmp29.i, label %if.then93, label %for.inc
@@ -2396,7 +2387,7 @@ _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %land.lhs.true19.i
 if.then93:                                        ; preds = %for.body, %land.lhs.true.i, %land.lhs.true7.i, %land.lhs.true13.i, %land.lhs.true19.i, %_Z9IntersectRK12btDbvtAabbMmS1_.exit
   %48 = load ptr, ptr %m_paircache, align 8
   %vtable95 = load ptr, ptr %48, align 8
-  %vfn96 = getelementptr inbounds ptr, ptr %vtable95, i64 3
+  %vfn96 = getelementptr inbounds i8, ptr %vtable95, i64 24
   %49 = load ptr, ptr %vfn96, align 8
   %call97 = call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef %dispatcher)
   %dec = add nsw i32 %ni.049, -1
@@ -2418,7 +2409,7 @@ for.end:                                          ; preds = %for.inc
 if.then102:                                       ; preds = %if.then75, %for.end
   %ni.0.lcssa56 = phi i32 [ %ni.1, %for.end ], [ %.sroa.speculated, %if.then75 ]
   %50 = phi i32 [ %.pre50, %for.end ], [ %25, %if.then75 ]
-  %m_cid103 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 15
+  %m_cid103 = getelementptr inbounds i8, ptr %this, i64 212
   %51 = load i32, ptr %m_cid103, align 4
   %add104 = add nsw i32 %51, %ni.0.lcssa56
   %rem106 = srem i32 %add104, %50
@@ -2426,30 +2417,30 @@ if.then102:                                       ; preds = %if.then75, %for.end
   br label %if.end111
 
 if.else:                                          ; preds = %for.end
-  %m_cid108 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 15
+  %m_cid108 = getelementptr inbounds i8, ptr %this, i64 212
   store i32 0, ptr %m_cid108, align 4
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then72, %if.else, %if.then102, %if.end69
-  %m_pid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 14
+  %m_pid = getelementptr inbounds i8, ptr %this, i64 208
   %52 = load i32, ptr %m_pid, align 8
   %inc112 = add nsw i32 %52, 1
   store i32 %inc112, ptr %m_pid, align 8
-  %m_newpairs113 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 9
+  %m_newpairs113 = getelementptr inbounds i8, ptr %this, i64 188
   store i32 1, ptr %m_newpairs113, align 4
   store i8 0, ptr %m_needcleanup70, align 2
-  %m_updates_call = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 11
+  %m_updates_call = getelementptr inbounds i8, ptr %this, i64 196
   %53 = load i32, ptr %m_updates_call, align 4
   %cmp115.not = icmp eq i32 %53, 0
-  %m_updates_done123.phi.trans.insert = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 12
+  %m_updates_done123.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 200
   %.pre51 = load i32, ptr %m_updates_done123.phi.trans.insert, align 8
   %conv = uitofp i32 %.pre51 to float
   %conv118 = uitofp i32 %53 to float
   %div119 = fdiv float %conv, %conv118
   %div119.sink = select i1 %cmp115.not, float 0.000000e+00, float %div119
-  %54 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 13
+  %54 = getelementptr inbounds i8, ptr %this, i64 204
   store float %div119.sink, ptr %54, align 4
-  %m_updates_done123 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 12
+  %m_updates_done123 = getelementptr inbounds i8, ptr %this, i64 200
   %div12427 = lshr i32 %.pre51, 1
   store i32 %div12427, ptr %m_updates_done123, align 8
   %div12628 = lshr i32 %53, 1
@@ -2462,10 +2453,10 @@ define dso_local void @_ZN16btDbvtBroadphase22performDeferredRemovalEP12btDispat
 entry:
   %ref.tmp = alloca %class.btBroadphasePairSortPredicate, align 1
   %ref.tmp29 = alloca %class.btBroadphasePairSortPredicate, align 1
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_paircache, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call, label %if.then, label %if.end32
@@ -2473,10 +2464,10 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %m_paircache, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 7
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 56
   %3 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(25) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %call5, i64 4
   %4 = load i32, ptr %m_size.i.i, align 4
   %cmp.i = icmp sgt i32 %4, 1
   br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit
@@ -2493,7 +2484,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPr
   br i1 %cmp27, label %for.body.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %call5, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2506,58 +2497,58 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i = getelementptr inbounds %struct.btBroadphasePair, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i15 = icmp eq ptr %8, %previousPair.sroa.0.028
-  %m_pProxy1.i = getelementptr inbounds %struct.btBroadphasePair, ptr %7, i64 %indvars.iv, i32 1
+  %m_pProxy1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %9 = load ptr, ptr %m_pProxy1.i, align 8
   %cmp3.i = icmp eq ptr %9, %previousPair.sroa.4.029
   %10 = select i1 %cmp.i15, i1 %cmp3.i, i1 false
   br i1 %10, label %if.then21, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %8, i64 0, i32 2
+  %leaf = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %leaf, align 8
-  %leaf12 = getelementptr inbounds %struct.btDbvtProxy, ptr %9, i64 0, i32 2
+  %leaf12 = getelementptr inbounds i8, ptr %9, i64 56
   %12 = load ptr, ptr %leaf12, align 8
   %13 = load float, ptr %11, align 4
-  %mx.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %12, i64 0, i32 1
+  %mx.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load float, ptr %mx.i, align 4
   %cmp.i16 = fcmp ugt float %13, %14
   br i1 %cmp.i16, label %if.then21, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then9
-  %mx2.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %11, i64 0, i32 1
+  %mx2.i = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load float, ptr %mx2.i, align 4
   %16 = load float, ptr %12, align 4
   %cmp6.i = fcmp ult float %15, %16
   br i1 %cmp6.i, label %if.then21, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %11, i64 4
   %17 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx.i11.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %12, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i11.i = getelementptr inbounds i8, ptr %12, i64 20
   %18 = load float, ptr %arrayidx.i11.i, align 4
   %cmp12.i = fcmp ugt float %17, %18
   br i1 %cmp12.i, label %if.then21, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true7.i
-  %arrayidx.i12.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %11, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i12.i = getelementptr inbounds i8, ptr %11, i64 20
   %19 = load float, ptr %arrayidx.i12.i, align 4
-  %arrayidx.i13.i = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 1
+  %arrayidx.i13.i = getelementptr inbounds i8, ptr %12, i64 4
   %20 = load float, ptr %arrayidx.i13.i, align 4
   %cmp18.i = fcmp ult float %19, %20
   br i1 %cmp18.i, label %if.then21, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true13.i
-  %arrayidx.i14.i = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 2
+  %arrayidx.i14.i = getelementptr inbounds i8, ptr %11, i64 8
   %21 = load float, ptr %arrayidx.i14.i, align 4
-  %arrayidx.i15.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %12, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %12, i64 24
   %22 = load float, ptr %arrayidx.i15.i, align 4
   %cmp24.i = fcmp ugt float %21, %22
   br i1 %cmp24.i, label %if.then21, label %_Z9IntersectRK12btDbvtAabbMmS1_.exit
 
 _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %land.lhs.true19.i
-  %arrayidx.i16.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %11, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %11, i64 24
   %23 = load float, ptr %arrayidx.i16.i, align 4
-  %arrayidx.i17.i = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 2
+  %arrayidx.i17.i = getelementptr inbounds i8, ptr %12, i64 8
   %24 = load float, ptr %arrayidx.i17.i, align 4
   %cmp29.i = fcmp oge float %23, %24
   %cond.fr = freeze i1 %cmp29.i
@@ -2566,7 +2557,7 @@ _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %land.lhs.true19.i
 if.then21:                                        ; preds = %if.then9, %land.lhs.true.i, %land.lhs.true7.i, %land.lhs.true13.i, %land.lhs.true19.i, %_Z9IntersectRK12btDbvtAabbMmS1_.exit, %for.body
   %25 = load ptr, ptr %m_paircache, align 8
   %vtable23 = load ptr, ptr %25, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 8
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 64
   %26 = load ptr, ptr %vfn24, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, ptr noundef %dispatcher)
   %inc = add nsw i32 %invalidPair.031, 1
@@ -2599,7 +2590,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPr
   br i1 %cmp3.i25, label %if.then4.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit21
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call5, i64 8
   %30 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %30, %sub
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body8.lr.ph.i
@@ -2617,7 +2608,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %if
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %call5, i64 16
   %wide.trip.count.i.i.i = zext nneg i32 %.pre.i to i64
   br label %for.body.i.i.i
 
@@ -2633,13 +2624,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i: ; preds = %for.body.i.i.i, %if.then.i.i, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i
   %retval.0.i.i.i47 = phi ptr [ %call.i.i.i.i, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i ], [ null, %if.then.i.i ], [ %call.i.i.i.i, %for.body.i.i.i ]
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %call5, i64 16
   %32 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %call5, i64 24
   %33 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %34 = and i8 %33, 1
   %tobool2.not.i.i.i = icmp eq i8 %34, 0
@@ -2650,14 +2641,14 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %call5, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i47, ptr %m_data.i5.i.i, align 8
   store i32 %sub, ptr %m_capacity.i.i.i, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %call5, i64 0, i32 5
+  %m_data9.i = getelementptr inbounds i8, ptr %call5, i64 16
   %35 = sext i32 %29 to i64
   %wide.trip.count.i = sext i32 %sub to i64
   br label %for.body8.i
@@ -2685,9 +2676,9 @@ declare void @_ZN6btDbvt19optimizeIncrementalEi(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16btDbvtBroadphase8optimizeEv(ptr noundef nonnull align 8 dereferenceable(256) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6btDbvt15optimizeTopDownEi(ptr noundef nonnull align 8 dereferenceable(64) %m_sets, i32 noundef 128)
-  %arrayidx3 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6btDbvt15optimizeTopDownEi(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3, i32 noundef 128)
   ret void
 }
@@ -2697,7 +2688,7 @@ declare void @_ZN6btDbvt15optimizeTopDownEi(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN16btDbvtBroadphase23getOverlappingPairCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_paircache, align 8
   ret ptr %0
 }
@@ -2705,7 +2696,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZNK16btDbvtBroadphase23getOverlappingPairCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_paircache, align 8
   ret ptr %0
 }
@@ -2714,10 +2705,10 @@ entry:
 define dso_local void @_ZNK16btDbvtBroadphase17getBroadphaseAabbER9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #10 align 2 {
 entry:
   %bounds = alloca %struct.btDbvtAabbMm, align 4
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_sets, align 8
   %cmp.i = icmp eq ptr %0, null
-  %arrayidx18 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %arrayidx18, align 8
   %cmp.i2 = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.else16, label %if.then
@@ -2726,9 +2717,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i2, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %mx.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %0, i64 0, i32 1
-  %mx25.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %1, i64 0, i32 1
-  %mx44.i = getelementptr inbounds %struct.btDbvtAabbMm, ptr %bounds, i64 0, i32 1
+  %mx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mx25.i = getelementptr inbounds i8, ptr %1, i64 16
+  %mx44.i = getelementptr inbounds i8, ptr %bounds, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then5
@@ -2770,7 +2761,7 @@ if.else25:                                        ; preds = %if.else16
 
 if.end31:                                         ; preds = %for.body.i, %if.then20, %if.else25, %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %bounds, i64 16, i1 false)
-  %mx.i3 = getelementptr inbounds %struct.btDbvtAabbMm, ptr %bounds, i64 0, i32 1
+  %mx.i3 = getelementptr inbounds i8, ptr %bounds, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, ptr noundef nonnull align 4 dereferenceable(16) %mx.i3, i64 16, i1 false)
   ret void
 }
@@ -2778,32 +2769,32 @@ if.end31:                                         ; preds = %for.body.i, %if.the
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16btDbvtBroadphase9resetPoolEP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture readnone %dispatcher) unnamed_addr #0 align 2 {
 entry:
-  %m_leaves = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 0, i32 3
+  %m_leaves = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_leaves, align 4
-  %m_leaves4 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1, i32 3
+  %m_leaves4 = getelementptr inbounds i8, ptr %this, i64 92
   %1 = load i32, ptr %m_leaves4, align 4
   %add = sub i32 0, %1
   %tobool.not = icmp eq i32 %0, %add
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1, i64 1
-  %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_sets = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6btDbvt5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %m_sets)
   tail call void @_ZN6btDbvt5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3)
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 18
+  %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221
   store i8 0, ptr %m_deferedcollide, align 1
-  %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 19
+  %m_needcleanup = getelementptr inbounds i8, ptr %this, i64 222
   store i8 1, ptr %m_needcleanup, align 2
-  %m_stageCurrent = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 5
-  %m_fixedleft = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 10
+  %m_stageCurrent = getelementptr inbounds i8, ptr %this, i64 172
+  %m_fixedleft = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %m_fixedleft, align 8
   store <4 x i32> <i32 0, i32 1, i32 0, i32 10>, ptr %m_stageCurrent, align 4
-  %m_newpairs = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 9
+  %m_newpairs = getelementptr inbounds i8, ptr %this, i64 188
   store i32 1, ptr %m_newpairs, align 4
-  %m_updates_call = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this, i64 0, i32 11
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false)
+  %m_updates_call = getelementptr inbounds i8, ptr %this, i64 196
+  %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_stageRoots, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %m_updates_call, i8 0, i64 24, i1 false)
   br label %if.end
 
@@ -2839,20 +2830,20 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = getelementptr inbounds %struct.btDbvtNode, ptr %na, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %na, i64 40
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %struct.btDbvtNode, ptr %nb, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %nb, i64 40
   %3 = load ptr, ptr %2, align 8
-  %pbp = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %this, i64 0, i32 1
+  %pbp = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %pbp, align 8
-  %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %4, i64 0, i32 3
+  %m_paircache = getelementptr inbounds i8, ptr %4, i64 160
   %5 = load ptr, ptr %m_paircache, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, ptr noundef %3)
   %7 = load ptr, ptr %pbp, align 8
-  %m_newpairs = getelementptr inbounds %struct.btDbvtBroadphase, ptr %7, i64 0, i32 9
+  %m_newpairs = getelementptr inbounds i8, ptr %7, i64 188
   %8 = load i32, ptr %m_newpairs, align 4
   %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %m_newpairs, align 4
@@ -2865,12 +2856,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18btDbvtTreeCollider7ProcessEPK10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %n) unnamed_addr #0 comdat align 2 {
 entry:
-  %proxy = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %this, i64 0, i32 2
+  %proxy = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %proxy, align 8
-  %leaf = getelementptr inbounds %struct.btDbvtProxy, ptr %0, i64 0, i32 2
+  %leaf = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %leaf, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %n, ptr noundef %1)
   ret void
@@ -2880,7 +2871,7 @@ entry:
 define linkonce_odr dso_local void @_ZN6btDbvt8ICollide7ProcessEPK10btDbvtNodef(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %n, float noundef %0) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %n)
   ret void
@@ -2920,12 +2911,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19BroadphaseRayTester7ProcessEPK10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %leaf) unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %struct.btDbvtNode, ptr %leaf, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %leaf, i64 40
   %1 = load ptr, ptr %0, align 8
-  %m_rayCallback = getelementptr inbounds %struct.BroadphaseRayTester, ptr %this, i64 0, i32 1
+  %m_rayCallback = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_rayCallback, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %1)
   ret void
@@ -2941,12 +2932,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20BroadphaseAabbTester7ProcessEPK10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %leaf) unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %struct.btDbvtNode, ptr %leaf, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %leaf, i64 40
   %1 = load ptr, ptr %0, align 8
-  %m_aabbCallback = getelementptr inbounds %struct.BroadphaseAabbTester, ptr %this, i64 0, i32 1
+  %m_aabbCallback = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_aabbCallback, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %1)
   ret void
@@ -2955,7 +2946,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end
@@ -2972,7 +2963,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE8allocateEi.exit: ; preds = %if.then, %if.then.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ null, %if.then ]
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   tail call void @_ZNK20btAlignedObjectArrayIS_IPK10btDbvtNodeEE4copyEiiPS3_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef 0, i32 noundef %1, ptr noundef %retval.0.i)
   %2 = load i32, ptr %m_size.i, align 4
@@ -2980,20 +2971,21 @@ _ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE8allocateEi.exit: ; preds = %if.the
   br i1 %cmp3.i, label %for.body.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE8allocateEi.exit
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %zext = zext nneg i32 %2 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i ]
   %3 = load ptr, ptr %m_data.i, align 8
-  %m_data.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 5
+  %arrayidx.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %4 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %5 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %6, 0
@@ -3011,25 +3003,25 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %for.body.i
-  %m_size.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %9, label %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit, label %for.body.i, !llvm.loop !10
 
 _ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE8allocateEi.exit
-  %m_data.i5 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i5 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %m_data.i5, align 8
   %tobool.not.i6 = icmp eq ptr %10, null
   br i1 %tobool.not.i6, label %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE10deallocateEv.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit
-  %m_ownsMemory.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i8, ptr %m_ownsMemory.i, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i = icmp eq i8 %12, 0
@@ -3040,7 +3032,7 @@ if.then3.i:                                       ; preds = %if.then.i7
   br label %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE10deallocateEv.exit
 
 _ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE10deallocateEv.exit: ; preds = %if.then.i7, %if.then3.i, %_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEE7destroyEii.exit
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i, ptr %m_data.i5, align 8
   store i32 %_Count, ptr %m_capacity.i, align 8
@@ -3057,22 +3049,24 @@ entry:
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %0 = sext i32 %start to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit
   %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit ]
+  %arrayidx = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv
   %1 = load ptr, ptr %m_data, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 6
+  %arrayidx3 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv, i32 2
+  %m_size.i3.i = getelementptr inbounds i8, ptr %arrayidx3, i64 4
   %2 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %2, 0
   br i1 %or.cond.i, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit.thread.i
@@ -3137,7 +3131,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %2, ptr %m_size.i.i, align 4
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv, i32 5
+  %m_data.i4.i = getelementptr inbounds i8, ptr %arrayidx3, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -3165,7 +3159,7 @@ for.end:                                          ; preds = %_ZN20btAlignedObjec
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI16btBroadphasePairE17quickSortInternalI29btBroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc, i32 noundef %lo, i32 noundef %hi) local_unnamed_addr #0 comdat align 2 {
 entry:
   %temp.i = alloca %struct.btBroadphasePair, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.end17, %entry
@@ -3182,8 +3176,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   %x.sroa.5.0.copyload = load ptr, ptr %x.sroa.5.0.arrayidx.sroa_idx, align 8
   %tobool4.not.i = icmp eq ptr %x.sroa.0.0.copyload, null
   %tobool19.not.i = icmp eq ptr %x.sroa.3.0.copyload, null
-  %m_uniqueId7.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %x.sroa.0.0.copyload, i64 0, i32 3
-  %m_uniqueId22.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %x.sroa.3.0.copyload, i64 0, i32 3
+  %m_uniqueId7.i = getelementptr inbounds i8, ptr %x.sroa.0.0.copyload, i64 16
+  %m_uniqueId22.i = getelementptr inbounds i8, ptr %x.sroa.3.0.copyload, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
@@ -3201,7 +3195,7 @@ while.cond:                                       ; preds = %while.body, %do.bod
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %while.cond
-  %m_uniqueId.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %3, i64 0, i32 3
+  %m_uniqueId.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %m_uniqueId.i, align 8
   br label %cond.end.i
 
@@ -3215,13 +3209,13 @@ cond.true5.i:                                     ; preds = %cond.end.i
 
 cond.end9.i:                                      ; preds = %cond.true5.i, %cond.end.i
   %cond10.i = phi i32 [ %5, %cond.true5.i ], [ -1, %cond.end.i ]
-  %m_pProxy1.i = getelementptr inbounds %struct.btBroadphasePair, ptr %1, i64 %indvars.iv, i32 1
+  %m_pProxy1.i = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   %6 = load ptr, ptr %m_pProxy1.i, align 8
   %tobool11.not.i = icmp eq ptr %6, null
   br i1 %tobool11.not.i, label %cond.end16.i, label %cond.true12.i
 
 cond.true12.i:                                    ; preds = %cond.end9.i
-  %m_uniqueId14.i = getelementptr inbounds %struct.btBroadphaseProxy, ptr %6, i64 0, i32 3
+  %m_uniqueId14.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i32, ptr %m_uniqueId14.i, align 8
   br label %cond.end16.i
 
@@ -3256,7 +3250,7 @@ while.cond5.preheader:                            ; preds = %_ZNK29btBroadphaseP
   br label %while.cond5
 
 land.rhs.i:                                       ; preds = %land.lhs.true33.i
-  %m_algorithm.i = getelementptr inbounds %struct.btBroadphasePair, ptr %1, i64 %indvars.iv, i32 2
+  %m_algorithm.i = getelementptr inbounds i8, ptr %arrayidx4, i64 16
   %11 = load ptr, ptr %m_algorithm.i, align 8
   %cmp38.i = icmp ugt ptr %11, %x.sroa.5.0.copyload
   br i1 %cmp38.i, label %while.body, label %while.cond5.preheader
@@ -3284,7 +3278,7 @@ cond.end.i27:                                     ; preds = %cond.true.i25, %whi
   br i1 %tobool4.not.i29, label %cond.end9.i32, label %cond.true5.i30
 
 cond.true5.i30:                                   ; preds = %cond.end.i27
-  %m_uniqueId7.i31 = getelementptr inbounds %struct.btBroadphaseProxy, ptr %13, i64 0, i32 3
+  %m_uniqueId7.i31 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i32, ptr %m_uniqueId7.i31, align 8
   br label %cond.end9.i32
 
@@ -3298,13 +3292,13 @@ cond.true12.i36:                                  ; preds = %cond.end9.i32
 
 cond.end16.i38:                                   ; preds = %cond.true12.i36, %cond.end9.i32
   %cond17.i39 = phi i32 [ %15, %cond.true12.i36 ], [ -1, %cond.end9.i32 ]
-  %m_pProxy118.i40 = getelementptr inbounds %struct.btBroadphasePair, ptr %1, i64 %indvars.iv65, i32 1
+  %m_pProxy118.i40 = getelementptr inbounds i8, ptr %arrayidx8, i64 8
   %16 = load ptr, ptr %m_pProxy118.i40, align 8
   %tobool19.not.i41 = icmp eq ptr %16, null
   br i1 %tobool19.not.i41, label %cond.end24.i44, label %cond.true20.i42
 
 cond.true20.i42:                                  ; preds = %cond.end16.i38
-  %m_uniqueId22.i43 = getelementptr inbounds %struct.btBroadphaseProxy, ptr %16, i64 0, i32 3
+  %m_uniqueId22.i43 = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load i32, ptr %m_uniqueId22.i43, align 8
   br label %cond.end24.i44
 
@@ -3326,7 +3320,7 @@ land.lhs.true33.i53:                              ; preds = %lor.lhs.false.i47
   br i1 %cmp36.i54, label %land.rhs.i55, label %while.end11
 
 land.rhs.i55:                                     ; preds = %land.lhs.true33.i53
-  %m_algorithm37.i57 = getelementptr inbounds %struct.btBroadphasePair, ptr %1, i64 %indvars.iv65, i32 2
+  %m_algorithm37.i57 = getelementptr inbounds i8, ptr %arrayidx8, i64 16
   %18 = load ptr, ptr %m_algorithm37.i57, align 8
   %cmp38.i58 = icmp ugt ptr %x.sroa.5.0.copyload, %18
   br i1 %cmp38.i58, label %while.body10, label %while.end11

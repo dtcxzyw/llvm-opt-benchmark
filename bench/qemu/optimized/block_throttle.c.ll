@@ -8,30 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
-%struct.BDRVReopenState = type { ptr, i32, i32, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon.1, %union.anon.2, %union.anon.3, i32, [16 x %struct.anon.4], ptr, %struct.anon.5, ptr, ptr, %struct.anon.6, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.7, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.8, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.8 = type { ptr }
-%struct.CoQueue = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.10, %struct.anon.10, i32, i32, ptr }
-%struct.anon.10 = type { ptr }
-%struct.ThrottleGroupMember = type { ptr, %struct.CoMutex, [2 x %struct.CoQueue], i32, i32, ptr, %struct.ThrottleTimers, [2 x i32], %struct.anon.13 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.anon.13 = type { ptr, ptr }
 
 @bdrv_throttle = internal global %struct.BlockDriver { ptr @.str, i32 176, i8 1, i8 0, i8 0, i8 0, i8 0, i8 0, ptr null, ptr null, ptr null, ptr null, ptr @throttle_strong_runtime_opts, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @throttle_reopen_prepare, ptr @throttle_reopen_commit, ptr null, ptr @throttle_reopen_abort, ptr null, ptr @throttle_open, ptr null, ptr @throttle_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @throttle_detach_aio_context, ptr @throttle_attach_aio_context, ptr @throttle_drain_begin, ptr @throttle_drain_end, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_default_perms, ptr null, ptr null, %struct.anon zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @throttle_co_preadv, ptr null, ptr null, ptr @throttle_co_pwritev, ptr null, ptr @throttle_co_pwrite_zeroes, ptr @throttle_co_pdiscard, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @throttle_co_flush, ptr null, ptr null, ptr null, ptr null, ptr @throttle_co_getlength, ptr null, ptr null, ptr @throttle_co_pwritev_compressed, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [9 x i8] c"throttle\00", align 1
@@ -100,11 +76,11 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %options = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 6
+  %options = getelementptr inbounds i8, ptr %reopen_state, i64 40
   %1 = load ptr, ptr %options, align 8
   %call = call fastcc i32 @throttle_parse_options(ptr noundef %1, ptr noundef nonnull %group, ptr noundef %errp), !range !5
   %2 = load ptr, ptr %group, align 8
-  %opaque = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 8
+  %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
   store ptr %2, ptr %opaque, align 8
   ret i32 %call
 }
@@ -113,9 +89,9 @@ if.end4:                                          ; preds = %if.end
 define internal void @throttle_reopen_commit(ptr nocapture noundef %reopen_state) #0 {
 entry:
   %0 = load ptr, ptr %reopen_state, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %opaque2 = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 8
+  %opaque2 = getelementptr inbounds i8, ptr %reopen_state, i64 56
   %2 = load ptr, ptr %opaque2, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -146,7 +122,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_reopen_abort(ptr nocapture noundef %reopen_state) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BDRVReopenState, ptr %reopen_state, i64 0, i32 8
+  %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
   %0 = load ptr, ptr %opaque, align 8
   tail call void @g_free(ptr noundef %0) #4
   store ptr null, ptr %opaque, align 8
@@ -157,7 +133,7 @@ entry:
 define internal i32 @throttle_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %group = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.10, ptr noundef %bs, ptr noundef %errp) #4
   %cmp = icmp slt i32 %call, 0
@@ -165,19 +141,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %2, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %2, i64 16588
   %3 = load i32, ptr %supported_write_flags, align 4
   %or = or i32 %3, 64
-  %supported_write_flags3 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 19
+  %supported_write_flags3 = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags3, align 4
   %4 = load ptr, ptr %1, align 8
-  %supported_zero_flags = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 20
+  %supported_zero_flags = getelementptr inbounds i8, ptr %4, i64 16592
   %5 = load i32, ptr %supported_zero_flags, align 8
   %or6 = or i32 %5, 64
-  %supported_zero_flags7 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags7 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or6, ptr %supported_zero_flags7, align 8
   %call8 = call fastcc i32 @throttle_parse_options(ptr noundef %options, ptr noundef nonnull %group, ptr noundef %errp), !range !5
   %cmp9 = icmp eq i32 %call8, 0
@@ -202,7 +178,7 @@ return:                                           ; preds = %entry, %glib_autopt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_unregister_tgm(ptr noundef %0) #4
   ret void
@@ -211,7 +187,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_detach_aio_context(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_detach_aio_context(ptr noundef %0) #4
   ret void
@@ -220,7 +196,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_attach_aio_context(ptr nocapture noundef readonly %bs, ptr noundef %new_context) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_attach_aio_context(ptr noundef %0, ptr noundef %new_context) #4
   ret void
@@ -229,9 +205,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_drain_begin(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %io_limits_disabled = getelementptr inbounds %struct.ThrottleGroupMember, ptr %0, i64 0, i32 3
+  %io_limits_disabled = getelementptr inbounds i8, ptr %0, i64 88
   %1 = atomicrmw add ptr %io_limits_disabled, i32 1 seq_cst, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -247,9 +223,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_drain_end(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %io_limits_disabled = getelementptr inbounds %struct.ThrottleGroupMember, ptr %0, i64 0, i32 3
+  %io_limits_disabled = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %io_limits_disabled, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -268,10 +244,10 @@ declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 0) #4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #4
   ret i32 %call
@@ -280,10 +256,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwritev(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #4
   ret i32 %call
@@ -292,10 +268,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #4
   ret i32 %call
@@ -304,10 +280,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pdiscard(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #4
   ret i32 %call
@@ -316,7 +292,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_flush(ptr noundef %1) #4
@@ -326,7 +302,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @throttle_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %1) #4
@@ -336,10 +312,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pwritev_compressed(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
 entry:
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file.i, align 8
   %call.i = tail call i32 @bdrv_co_pwritev(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef 32) #4
   ret i32 %call.i

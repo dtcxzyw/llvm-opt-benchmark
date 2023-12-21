@@ -232,7 +232,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %init = getelementptr inbounds %struct.OSSL_PROVIDER_INFO, ptr %entry1, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %entry1, i64 16
   store ptr %init_fn, ptr %init, align 8
   %call8 = call i32 @ossl_provider_info_add_to_store(ptr noundef %libctx, ptr noundef nonnull %entry1) #3
   %tobool.not = icmp eq i32 %call8, 0

@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.proxygen::SignalHandler" = type { %"class.folly::AsyncSignalHandler", ptr }
-%"class.folly::AsyncSignalHandler" = type { ptr, ptr, %"class.std::map" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<int, std::pair<const int, std::unique_ptr<folly::EventBaseEvent>>, std::_Select1st<std::pair<const int, std::unique_ptr<folly::EventBaseEvent>>>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, std::pair<const int, std::unique_ptr<folly::EventBaseEvent>>, std::_Select1st<std::pair<const int, std::unique_ptr<folly::EventBaseEvent>>>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -47,7 +37,7 @@ entry:
   %call2 = tail call noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
   tail call void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %call2)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13SignalHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %server_ = getelementptr inbounds %"class.proxygen::SignalHandler", ptr %this, i64 0, i32 1
+  %server_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %server, ptr %server_, align 8
   ret void
 }
@@ -62,7 +52,7 @@ declare void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnul
 define void @_ZN8proxygen13SignalHandler7installERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signals) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %signals, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %signals, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %signals, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -71,7 +61,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load i32, ptr %__begin1.sroa.0.05, align 4
   tail call void @_ZN5folly18AsyncSignalHandler21registerSignalHandlerEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %2)
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin1.sroa.0.05, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -84,7 +74,7 @@ declare void @_ZN5folly18AsyncSignalHandler21registerSignalHandlerEi(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen13SignalHandler14signalReceivedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %server_ = getelementptr inbounds %"class.proxygen::SignalHandler", ptr %this, i64 0, i32 1
+  %server_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %server_, align 8
   invoke void @_ZN8proxygen10HTTPServer4stopEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
           to label %invoke.cont unwind label %terminate.lpad

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 
 @bio_type_init = internal global i32 0, align 4
 @do_bio_type_init_ossl_ret_ = internal unnamed_addr global i1 false, align 4
@@ -64,7 +61,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call1 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str, i32 noundef 40) #6
-  %name2 = getelementptr inbounds %struct.bio_method_st, ptr %call, i64 0, i32 1
+  %name2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %name2, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -95,7 +92,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %biom, i64 8
   %0 = load ptr, ptr %name, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 51) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %biom, ptr noundef nonnull @.str, i32 noundef 52) #6
@@ -108,7 +105,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_write(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bwrite_old = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 3
+  %bwrite_old = getelementptr inbounds i8, ptr %biom, i64 24
   %0 = load ptr, ptr %bwrite_old, align 8
   ret ptr %0
 }
@@ -116,7 +113,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_write_ex(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bwrite = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 2
+  %bwrite = getelementptr inbounds i8, ptr %biom, i64 16
   %0 = load ptr, ptr %bwrite, align 8
   ret ptr %0
 }
@@ -125,9 +122,9 @@ entry:
 define i32 @bwrite_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %written) #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %datal, i64 2147483647)
-  %method = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %method, align 8
-  %bwrite_old = getelementptr inbounds %struct.bio_method_st, ptr %0, i64 0, i32 3
+  %bwrite_old = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %bwrite_old, align 8
   %conv = trunc i64 %spec.store.select to i32
   %call = tail call i32 %1(ptr noundef %bio, ptr noundef %data, i32 noundef %conv) #6
@@ -141,9 +138,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_write(ptr nocapture noundef writeonly %biom, ptr noundef %bwrite) local_unnamed_addr #4 {
 entry:
-  %bwrite_old = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 3
+  %bwrite_old = getelementptr inbounds i8, ptr %biom, i64 24
   store ptr %bwrite, ptr %bwrite_old, align 8
-  %bwrite1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 2
+  %bwrite1 = getelementptr inbounds i8, ptr %biom, i64 16
   store ptr @bwrite_conv, ptr %bwrite1, align 8
   ret i32 1
 }
@@ -151,9 +148,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_write_ex(ptr nocapture noundef writeonly %biom, ptr noundef %bwrite) local_unnamed_addr #4 {
 entry:
-  %bwrite_old = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 3
+  %bwrite_old = getelementptr inbounds i8, ptr %biom, i64 24
   store ptr null, ptr %bwrite_old, align 8
-  %bwrite1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 2
+  %bwrite1 = getelementptr inbounds i8, ptr %biom, i64 16
   store ptr %bwrite, ptr %bwrite1, align 8
   ret i32 1
 }
@@ -161,7 +158,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_read(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bread_old = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 5
+  %bread_old = getelementptr inbounds i8, ptr %biom, i64 40
   %0 = load ptr, ptr %bread_old, align 8
   ret ptr %0
 }
@@ -169,7 +166,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_read_ex(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bread = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 4
+  %bread = getelementptr inbounds i8, ptr %biom, i64 32
   %0 = load ptr, ptr %bread, align 8
   ret ptr %0
 }
@@ -178,9 +175,9 @@ entry:
 define i32 @bread_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %readbytes) #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %datal, i64 2147483647)
-  %method = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %method, align 8
-  %bread_old = getelementptr inbounds %struct.bio_method_st, ptr %0, i64 0, i32 5
+  %bread_old = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %bread_old, align 8
   %conv = trunc i64 %spec.store.select to i32
   %call = tail call i32 %1(ptr noundef %bio, ptr noundef %data, i32 noundef %conv) #6
@@ -194,9 +191,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_read(ptr nocapture noundef writeonly %biom, ptr noundef %bread) local_unnamed_addr #4 {
 entry:
-  %bread_old = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 5
+  %bread_old = getelementptr inbounds i8, ptr %biom, i64 40
   store ptr %bread, ptr %bread_old, align 8
-  %bread1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 4
+  %bread1 = getelementptr inbounds i8, ptr %biom, i64 32
   store ptr @bread_conv, ptr %bread1, align 8
   ret i32 1
 }
@@ -204,9 +201,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_read_ex(ptr nocapture noundef writeonly %biom, ptr noundef %bread) local_unnamed_addr #4 {
 entry:
-  %bread_old = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 5
+  %bread_old = getelementptr inbounds i8, ptr %biom, i64 40
   store ptr null, ptr %bread_old, align 8
-  %bread1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 4
+  %bread1 = getelementptr inbounds i8, ptr %biom, i64 32
   store ptr %bread, ptr %bread1, align 8
   ret i32 1
 }
@@ -214,7 +211,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_puts(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bputs = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 6
+  %bputs = getelementptr inbounds i8, ptr %biom, i64 48
   %0 = load ptr, ptr %bputs, align 8
   ret ptr %0
 }
@@ -222,7 +219,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_puts(ptr nocapture noundef writeonly %biom, ptr noundef %bputs) local_unnamed_addr #4 {
 entry:
-  %bputs1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 6
+  %bputs1 = getelementptr inbounds i8, ptr %biom, i64 48
   store ptr %bputs, ptr %bputs1, align 8
   ret i32 1
 }
@@ -230,7 +227,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_gets(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bgets = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 7
+  %bgets = getelementptr inbounds i8, ptr %biom, i64 56
   %0 = load ptr, ptr %bgets, align 8
   ret ptr %0
 }
@@ -238,7 +235,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_gets(ptr nocapture noundef writeonly %biom, ptr noundef %bgets) local_unnamed_addr #4 {
 entry:
-  %bgets1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 7
+  %bgets1 = getelementptr inbounds i8, ptr %biom, i64 56
   store ptr %bgets, ptr %bgets1, align 8
   ret i32 1
 }
@@ -246,7 +243,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_ctrl(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %ctrl = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 8
+  %ctrl = getelementptr inbounds i8, ptr %biom, i64 64
   %0 = load ptr, ptr %ctrl, align 8
   ret ptr %0
 }
@@ -254,7 +251,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_ctrl(ptr nocapture noundef writeonly %biom, ptr noundef %ctrl) local_unnamed_addr #4 {
 entry:
-  %ctrl1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 8
+  %ctrl1 = getelementptr inbounds i8, ptr %biom, i64 64
   store ptr %ctrl, ptr %ctrl1, align 8
   ret i32 1
 }
@@ -262,7 +259,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_create(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %create = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 9
+  %create = getelementptr inbounds i8, ptr %biom, i64 72
   %0 = load ptr, ptr %create, align 8
   ret ptr %0
 }
@@ -270,7 +267,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_create(ptr nocapture noundef writeonly %biom, ptr noundef %create) local_unnamed_addr #4 {
 entry:
-  %create1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 9
+  %create1 = getelementptr inbounds i8, ptr %biom, i64 72
   store ptr %create, ptr %create1, align 8
   ret i32 1
 }
@@ -278,7 +275,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_destroy(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %destroy = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 10
+  %destroy = getelementptr inbounds i8, ptr %biom, i64 80
   %0 = load ptr, ptr %destroy, align 8
   ret ptr %0
 }
@@ -286,7 +283,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_destroy(ptr nocapture noundef writeonly %biom, ptr noundef %destroy) local_unnamed_addr #4 {
 entry:
-  %destroy1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 10
+  %destroy1 = getelementptr inbounds i8, ptr %biom, i64 80
   store ptr %destroy, ptr %destroy1, align 8
   ret i32 1
 }
@@ -294,7 +291,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_callback_ctrl(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %callback_ctrl = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 11
+  %callback_ctrl = getelementptr inbounds i8, ptr %biom, i64 88
   %0 = load ptr, ptr %callback_ctrl, align 8
   ret ptr %0
 }
@@ -302,7 +299,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_callback_ctrl(ptr nocapture noundef writeonly %biom, ptr noundef %callback_ctrl) local_unnamed_addr #4 {
 entry:
-  %callback_ctrl1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 11
+  %callback_ctrl1 = getelementptr inbounds i8, ptr %biom, i64 88
   store ptr %callback_ctrl, ptr %callback_ctrl1, align 8
   ret i32 1
 }
@@ -310,7 +307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_sendmmsg(ptr nocapture noundef writeonly %biom, ptr noundef %bsendmmsg) local_unnamed_addr #4 {
 entry:
-  %bsendmmsg1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 12
+  %bsendmmsg1 = getelementptr inbounds i8, ptr %biom, i64 96
   store ptr %bsendmmsg, ptr %bsendmmsg1, align 8
   ret i32 1
 }
@@ -318,7 +315,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_sendmmsg(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %bsendmmsg = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 12
+  %bsendmmsg = getelementptr inbounds i8, ptr %biom, i64 96
   %0 = load ptr, ptr %bsendmmsg, align 8
   ret ptr %0
 }
@@ -326,7 +323,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @BIO_meth_set_recvmmsg(ptr nocapture noundef writeonly %biom, ptr noundef %brecvmmsg) local_unnamed_addr #4 {
 entry:
-  %brecvmmsg1 = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 13
+  %brecvmmsg1 = getelementptr inbounds i8, ptr %biom, i64 104
   store ptr %brecvmmsg, ptr %brecvmmsg1, align 8
   ret i32 1
 }
@@ -334,7 +331,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @BIO_meth_get_recvmmsg(ptr nocapture noundef readonly %biom) local_unnamed_addr #3 {
 entry:
-  %brecvmmsg = getelementptr inbounds %struct.bio_method_st, ptr %biom, i64 0, i32 13
+  %brecvmmsg = getelementptr inbounds i8, ptr %biom, i64 104
   %0 = load ptr, ptr %brecvmmsg, align 8
   ret ptr %0
 }

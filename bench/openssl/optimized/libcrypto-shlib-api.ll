@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-api.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.openssl_threads_st = type { i64, i64, ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @OSSL_get_thread_support_flags() local_unnamed_addr #0 {
 entry:
@@ -19,7 +17,7 @@ entry:
   br i1 %cmp, label %fail, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %lock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %0) #3
   %1 = load i64, ptr %call, align 8
@@ -46,7 +44,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %lock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %0) #3
   store i64 %max_threads, ptr %call, align 8

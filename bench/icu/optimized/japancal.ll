@@ -3,12 +3,6 @@ source_filename = "bench/icu/original/japancal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::EraRules" = type { %"class.icu_75::LocalMemory", i32, i32 }
-%"class.icu_75::LocalMemory" = type { %"class.icu_75::LocalPointerBase" }
-%"class.icu_75::LocalPointerBase" = type { ptr }
-%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-
 @_ZZN6icu_7516JapaneseCalendar16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @.str = private unnamed_addr constant [5 x i8] c"true\00", align 1
 @_ZL11gCurrentEra = internal unnamed_addr global i32 0, align 4
@@ -133,7 +127,7 @@ _ZN6icu_7516JapaneseCalendar18enableTentativeEraEv.exit.i: ; preds = %land.lhs.t
   br i1 %cmp.i.i1, label %if.end.i2, label %_ZN6icu_75L14initializeErasER10UErrorCode.exit
 
 if.end.i2:                                        ; preds = %_ZN6icu_7516JapaneseCalendar18enableTentativeEraEv.exit.i
-  %currentEra.i.i = getelementptr inbounds %"class.icu_75::EraRules", ptr %call1.i, i64 0, i32 2
+  %currentEra.i.i = getelementptr inbounds i8, ptr %call1.i, i64 12
   %3 = load i32, ptr %currentEra.i.i, align 4
   store i32 %3, ptr @_ZL11gCurrentEra, align 4
   br label %_ZN6icu_75L14initializeErasER10UErrorCode.exit
@@ -251,7 +245,7 @@ entry:
   %eraStart = alloca [3 x i32], align 4
   %status = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 55
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(654) %this)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %eraStart, i8 0, i64 12, i1 false)
@@ -260,7 +254,7 @@ entry:
   call void @_ZNK6icu_758EraRules12getStartDateEiRA3_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %call, ptr noundef nonnull align 4 dereferenceable(12) %eraStart, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %eraStart, align 4
   %cmp = icmp eq i32 %2, %eyear
-  %arrayidx2 = getelementptr inbounds [3 x i32], ptr %eraStart, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %eraStart, i64 4
   %3 = load i32, ptr %arrayidx2, align 4
   %sub = add nsw i32 %3, -1
   %retval.0 = select i1 %cmp, i32 %sub, i32 0
@@ -278,7 +272,7 @@ entry:
   %eraStart = alloca [3 x i32], align 4
   %status = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 55
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(654) %this)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %eraStart, i8 0, i64 12, i1 false)
@@ -290,14 +284,14 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds [3 x i32], ptr %eraStart, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %eraStart, i64 4
   %3 = load i32, ptr %arrayidx2, align 4
   %sub = add nsw i32 %3, -1
   %cmp3 = icmp eq i32 %sub, %month
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then
-  %arrayidx5 = getelementptr inbounds [3 x i32], ptr %eraStart, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %eraStart, i64 8
   %4 = load i32, ptr %arrayidx5, align 4
   br label %return
 
@@ -310,11 +304,11 @@ return:                                           ; preds = %entry, %if.then, %i
 define noundef i32 @_ZNK6icu_7516JapaneseCalendar14internalGetEraEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr @_ZL11gCurrentEra, align 4
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  %1 = load i32, ptr %arrayidx.i, align 4
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %1 = load i32, ptr %fStamp.i, align 4
   %cmp.i = icmp sgt i32 %1, 0
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %2 = load i32, ptr %arrayidx3.i, align 4
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %2 = load i32, ptr %fFields.i, align 4
   %cond.i = select i1 %cmp.i, i32 %2, i32 %0
   ret i32 %cond.i
 }
@@ -333,13 +327,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx3.i, align 8
   br label %if.end
 
@@ -347,21 +341,21 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   store i32 0, ptr %status, align 4
   %2 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
   %3 = load i32, ptr @_ZL11gCurrentEra, align 4
-  %arrayidx.i1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  %4 = load i32, ptr %arrayidx.i1, align 4
+  %fStamp.i1 = getelementptr inbounds i8, ptr %this, i64 132
+  %4 = load i32, ptr %fStamp.i1, align 4
   %cmp.i2 = icmp sgt i32 %4, 0
-  %arrayidx3.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %5 = load i32, ptr %arrayidx3.i5, align 4
+  %fFields.i5 = getelementptr inbounds i8, ptr %this, i64 12
+  %5 = load i32, ptr %fFields.i5, align 4
   %cond.i3 = select i1 %cmp.i2, i32 %5, i32 %3
   %call6 = call noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %cond.i3, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i7 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  %6 = load i32, ptr %arrayidx.i7, align 8
-  %arrayidx3.i11 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %7 = load i32, ptr %arrayidx3.i11, align 8
-  %cmp.i8.inv = icmp slt i32 %6, 1
-  %cond.i9 = select i1 %cmp.i8.inv, i32 1, i32 %7
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 136
+  %6 = load i32, ptr %arrayidx.i8, align 8
+  %arrayidx3.i13 = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i32, ptr %arrayidx3.i13, align 8
+  %cmp.i9.inv = icmp slt i32 %6, 1
+  %cond.i10 = select i1 %cmp.i9.inv, i32 1, i32 %7
   %add = add i32 %call6, -1
-  %sub = add i32 %add, %cond.i9
+  %sub = add i32 %add, %cond.i10
   br label %if.end
 
 if.end:                                           ; preds = %cond.true.i, %if.then, %if.else
@@ -377,33 +371,33 @@ declare noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr nound
 define void @_ZN6icu_7516JapaneseCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %julianDay, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %julianDay, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %arrayidx.i, align 8
   %1 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 33
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %add = add nsw i32 %call2, 1
-  %arrayidx.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  %3 = load i32, ptr %arrayidx.i5, align 8
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 32
+  %3 = load i32, ptr %arrayidx.i6, align 8
   %call4 = tail call noundef i32 @_ZNK6icu_758EraRules11getEraIndexEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %0, i32 noundef %add, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  store i32 %call4, ptr %arrayidx.i6, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 0
-  store i8 1, ptr %arrayidx5.i, align 4
+  store i32 %call4, ptr %fFields.i, align 4
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  store i32 1, ptr %fStamp.i, align 4
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  store i8 1, ptr %fIsSet.i, align 4
   %4 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
   %call5 = tail call noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %call4, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %sub = add i32 %0, 1
   %add6 = sub i32 %sub, %call5
-  %arrayidx.i7 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  store i32 %add6, ptr %arrayidx.i7, align 8
-  %arrayidx3.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  store i32 1, ptr %arrayidx3.i8, align 8
-  %arrayidx5.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
-  store i8 1, ptr %arrayidx5.i9, align 1
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %add6, ptr %arrayidx.i9, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i, align 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i, align 1
   ret void
 }
 
@@ -444,7 +438,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb
   %0 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
-  %numEras.i = getelementptr inbounds %"class.icu_75::EraRules", ptr %0, i64 0, i32 1
+  %numEras.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %numEras.i, align 8
   %sub = add nsw i32 %1, -1
   br label %return
@@ -489,7 +483,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
-  %numEras.i = getelementptr inbounds %"class.icu_75::EraRules", ptr %1, i64 0, i32 1
+  %numEras.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %numEras.i, align 8
   %sub = add nsw i32 %2, -1
   %cmp5 = icmp eq i32 %call, %sub
@@ -497,7 +491,7 @@ if.end:                                           ; preds = %if.then
 
 if.then6:                                         ; preds = %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 36
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef 1, i32 noundef 3)
   br label %return
@@ -507,9 +501,9 @@ if.else:                                          ; preds = %if.end
   %add = add nsw i32 %call, 1
   call void @_ZNK6icu_758EraRules12getStartDateEiRA3_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(12) %nextEraStart, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %4 = load i32, ptr %nextEraStart, align 4
-  %arrayidx8 = getelementptr inbounds [3 x i32], ptr %nextEraStart, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %nextEraStart, i64 4
   %5 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds [3 x i32], ptr %nextEraStart, i64 0, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %nextEraStart, i64 8
   %6 = load i32, ptr %arrayidx9, align 4
   %7 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
   %call10 = call noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)

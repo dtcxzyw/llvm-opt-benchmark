@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::CacheKey" = type { i64, i64 }
 
 @_ZZN7rocksdb8CacheKey30CreateUniqueForProcessLifetimeEvE7counter = internal global { i64 } { i64 -1 }, align 8
 
@@ -21,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %cache) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %cache, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(56) %cache)
   %add = add i64 %call, 1
@@ -45,7 +44,7 @@ invoke.cont3:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN7rocksdb22GetSstInternalUniqueIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_mNS_11UniqueIdPtrEb(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, i64 noundef %file_number, ptr nonnull %internal_id, i8 0, i1 noundef zeroext true)
   %0 = load i64, ptr %internal_id, align 8
-  %arrayidx2.i = getelementptr inbounds i64, ptr %internal_id, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %internal_id, i64 8
   %1 = load i64, ptr %arrayidx2.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   %spec.select.i = select i1 %cmp.i, i64 %1, i64 %0
@@ -75,7 +74,7 @@ invoke.cont3:
   store i64 %spec.select10.i, ptr %this, align 8
   %ref.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %spec.select11.i, ptr %ref.tmp.sroa.2.0.this1.sroa_idx, align 8
-  %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -94,7 +93,7 @@ declare void @_ZN7rocksdb22GetSstInternalUniqueIdERKNSt7__cxx1112basic_stringIcS
 define { i64, i64 } @_ZN7rocksdb18OffsetableCacheKey20FromInternalUniqueIdENS_11UniqueIdPtrE(ptr nocapture readonly %id.coerce0, i8 %id.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %id.coerce0, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %id.coerce0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %id.coerce0, i64 8
   %1 = load i64, ptr %arrayidx2, align 8
   %cmp = icmp eq i64 %0, 0
   %spec.select = select i1 %cmp, i64 %1, i64 %0
@@ -132,7 +131,7 @@ declare i32 @__gxx_personality_v0(...)
 define { i64, i64 } @_ZN7rocksdb18OffsetableCacheKey18ToInternalUniqueIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
-  %offset_etc64_ = getelementptr inbounds %"class.rocksdb::CacheKey", ptr %this, i64 0, i32 1
+  %offset_etc64_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %offset_etc64_, align 8
   %cmp = icmp eq i64 %1, 0
   %spec.select = select i1 %cmp, i64 0, i64 %0

@@ -9,25 +9,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %union.QemuInputEventQueueHead = type { %struct.QTailQLink }
-%struct.QemuInputHandlerState = type { ptr, ptr, i32, i32, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.InputEventList = type { ptr, ptr }
-%struct.QemuInputHandler = type { ptr, i32, ptr, ptr }
+%struct.timeval = type { i64, i64 }
+%struct.InputBtnEvent = type { i32, i8 }
 %struct.InputEvent = type { i32, %union.anon.1 }
 %union.anon.1 = type { %struct.InputKeyEventWrapper }
 %struct.InputKeyEventWrapper = type { ptr }
-%struct.KeyValue = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.IntWrapper }
-%struct.IntWrapper = type { i64 }
-%struct.InputKeyEvent = type { ptr, i8 }
-%struct.timeval = type { i64, i64 }
-%struct.InputBtnEvent = type { i32, i8 }
 %struct.InputMoveEvent = type { i32, i64 }
 %struct.InputMultiTouchEvent = type { i32, i64, i64, i32, i64 }
-%struct.QemuInputEventQueue = type { i32, ptr, i32, ptr, ptr, %union.anon.3 }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.MouseInfo = type { ptr, i64, i8, i8 }
-%struct.MouseInfoList = type { ptr, ptr }
 
 @qemu_input_handler_register.id = internal unnamed_addr global i32 1, align 4
 @handlers = internal global %union.anon.0 { %struct.QTailQLink { ptr null, ptr @handlers } }, align 8
@@ -82,17 +70,17 @@ define dso_local ptr @qemu_input_handler_register(ptr noundef %dev, ptr noundef 
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
   store ptr %dev, ptr %call, align 8
-  %handler2 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %call, i64 0, i32 1
+  %handler2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %handler, ptr %handler2, align 8
   %0 = load i32, ptr @qemu_input_handler_register.id, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr @qemu_input_handler_register.id, align 4
-  %id = getelementptr inbounds %struct.QemuInputHandlerState, ptr %call, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %0, ptr %id, align 8
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %call, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %node, align 8
   %1 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @handlers, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QemuInputHandlerState, ptr %call, i64 0, i32 5, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %1, ptr %tql_prev, align 8
   store ptr %call, ptr %1, align 8
   store ptr %node, ptr getelementptr inbounds (%union.anon.0, ptr @handlers, i64 0, i32 0, i32 1), align 8
@@ -108,15 +96,15 @@ declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_input_handler_activate(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev6 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6 = getelementptr inbounds i8, ptr %s, i64 40
   %1 = load ptr, ptr %tql_prev6, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev4 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %tql_prev4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %tql_prev4, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -127,12 +115,12 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %2 = phi ptr [ null, %if.else ], [ %.pre, %if.then ]
-  %tql_prev9 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %2, ptr %1, align 8
   %3 = load ptr, ptr @handlers, align 8
   store ptr %3, ptr %node, align 8
   %cmp17.not = icmp eq ptr %3, null
-  %tql_prev21 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %3, i64 0, i32 5, i32 0, i32 1
+  %tql_prev21 = getelementptr inbounds i8, ptr %3, i64 40
   %.sink = select i1 %cmp17.not, ptr getelementptr inbounds (%union.anon.0, ptr @handlers, i64 0, i32 0, i32 1), ptr %tql_prev21
   store ptr %node, ptr %.sink, align 8
   store ptr %s, ptr @handlers, align 8
@@ -144,15 +132,15 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_input_handler_deactivate(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev6 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6 = getelementptr inbounds i8, ptr %s, i64 40
   %1 = load ptr, ptr %tql_prev6, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev4 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %tql_prev4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %tql_prev4, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -163,7 +151,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %2 = phi ptr [ null, %if.else ], [ %.pre, %if.then ]
-  %tql_prev9 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %2, ptr %1, align 8
   store i64 0, ptr %node, align 8
   %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @handlers, i64 0, i32 0, i32 1), align 8
@@ -177,15 +165,15 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_input_handler_unregister(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev6 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6 = getelementptr inbounds i8, ptr %s, i64 40
   %1 = load ptr, ptr %tql_prev6, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev4 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %tql_prev4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %tql_prev4, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -220,7 +208,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %con1 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s, i64 0, i32 4
+  %con1 = getelementptr inbounds i8, ptr %s, i64 24
   store ptr %call, ptr %con1, align 8
   br label %return
 
@@ -275,14 +263,14 @@ for.body.lr.ph:                                   ; preds = %if.end10
   br i1 %tobool.not15.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph
-  %value.us = getelementptr inbounds %struct.InputEventList, ptr %events, i64 0, i32 1
+  %value.us = getelementptr inbounds i8, ptr %events, i64 8
   %2 = load ptr, ptr %value.us, align 8
   %3 = load i32, ptr %2, align 8
   br label %if.then14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %e.029 = phi ptr [ %13, %for.inc ], [ %events, %for.body.lr.ph ]
-  %value = getelementptr inbounds %struct.InputEventList, ptr %e.029, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %e.029, i64 8
   %4 = load ptr, ptr %value, align 8
   %5 = load i32, ptr %4, align 8
   %shl = shl nuw i32 1, %5
@@ -290,7 +278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body.i:                                       ; preds = %for.body, %for.inc.i
   %s.016.i = phi ptr [ %s.0.i, %for.inc.i ], [ %s.014.i, %for.body ]
-  %con1.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 4
+  %con1.i = getelementptr inbounds i8, ptr %s.016.i, i64 24
   %6 = load ptr, ptr %con1.i, align 8
   %cmp.i = icmp ne ptr %6, null
   %cmp3.not.i = icmp eq ptr %6, %con.0
@@ -298,38 +286,38 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   br i1 %or.cond.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %handler.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 1
+  %handler.i = getelementptr inbounds i8, ptr %s.016.i, i64 8
   %7 = load ptr, ptr %handler.i, align 8
-  %mask4.i = getelementptr inbounds %struct.QemuInputHandler, ptr %7, i64 0, i32 1
+  %mask4.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %mask4.i, align 8
   %and.i = and i32 %8, %shl
   %tobool5.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool5.not.i, label %for.inc.i, label %for.inc
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %node.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 5
+  %node.i = getelementptr inbounds i8, ptr %s.016.i, i64 32
   %s.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i, label %for.body10.i, label %for.body.i, !llvm.loop !5
 
 for.body10.i:                                     ; preds = %for.inc.i, %for.inc21.i
   %s.119.i = phi ptr [ %s.1.i, %for.inc21.i ], [ %s.014.i, %for.inc.i ]
-  %con11.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 4
+  %con11.i = getelementptr inbounds i8, ptr %s.119.i, i64 24
   %9 = load ptr, ptr %con11.i, align 8
   %cmp12.not.i = icmp eq ptr %9, null
   br i1 %cmp12.not.i, label %if.end14.i, label %for.inc21.i
 
 if.end14.i:                                       ; preds = %for.body10.i
-  %handler15.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 1
+  %handler15.i = getelementptr inbounds i8, ptr %s.119.i, i64 8
   %10 = load ptr, ptr %handler15.i, align 8
-  %mask16.i = getelementptr inbounds %struct.QemuInputHandler, ptr %10, i64 0, i32 1
+  %mask16.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %mask16.i, align 8
   %and17.i = and i32 %11, %shl
   %tobool18.not.i = icmp eq i32 %and17.i, 0
   br i1 %tobool18.not.i, label %for.inc21.i, label %for.inc
 
 for.inc21.i:                                      ; preds = %if.end14.i, %for.body10.i
-  %node22.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 5
+  %node22.i = getelementptr inbounds i8, ptr %s.119.i, i64 32
   %s.1.i = load ptr, ptr %node22.i, align 8
   %tobool9.not.i = icmp eq ptr %s.1.i, null
   br i1 %tobool9.not.i, label %if.then14, label %for.body10.i, !llvm.loop !7
@@ -347,19 +335,19 @@ for.inc:                                          ; preds = %if.end.i, %if.end14
 
 for.body21:                                       ; preds = %for.inc, %for.inc43
   %e.131 = phi ptr [ %24, %for.inc43 ], [ %events, %for.inc ]
-  %value22 = getelementptr inbounds %struct.InputEventList, ptr %e.131, i64 0, i32 1
+  %value22 = getelementptr inbounds i8, ptr %e.131, i64 8
   %14 = load ptr, ptr %value22, align 8
   %15 = load i32, ptr %14, align 8
   %cmp24 = icmp eq i32 %15, 0
   br i1 %cmp24, label %land.lhs.true26, label %if.end18.i
 
 land.lhs.true26:                                  ; preds = %for.body21
-  %u = getelementptr inbounds %struct.InputEvent, ptr %14, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %u, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   %cmp28 = icmp eq i32 %18, 0
-  %u35 = getelementptr inbounds %struct.KeyValue, ptr %17, i64 0, i32 1
+  %u35 = getelementptr inbounds i8, ptr %17, i64 8
   br i1 %cmp28, label %if.then30, label %land.lhs.true5.i
 
 if.then30:                                        ; preds = %land.lhs.true26
@@ -367,13 +355,13 @@ if.then30:                                        ; preds = %land.lhs.true26
   %conv37 = trunc i64 %19 to i32
   %call38 = call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv37) #12
   %20 = load ptr, ptr %u, align 8
-  %down = getelementptr inbounds %struct.InputKeyEvent, ptr %20, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i8, ptr %down, align 8
   %22 = and i8 %21, 1
   %tobool41 = icmp ne i8 %22, 0
   %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   store i32 1, ptr %call.i, align 8
-  %u.i = getelementptr inbounds %struct.KeyValue, ptr %call.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %call38, ptr %u.i, align 8
   call void @qemu_input_event_send_key(ptr noundef %con.0, ptr noundef nonnull %call.i, i1 noundef zeroext %tobool41)
   br label %for.inc43
@@ -435,7 +423,7 @@ define dso_local void @qemu_input_event_send_key_qcode(ptr noundef %src, i32 nou
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   store i32 1, ptr %call, align 8
-  %u = getelementptr inbounds %struct.KeyValue, ptr %call, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %q, ptr %u, align 8
   tail call void @qemu_input_event_send_key(ptr noundef %src, ptr noundef nonnull %call, i1 noundef zeroext %down)
   ret void
@@ -449,7 +437,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %entry
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %1 = load ptr, ptr %u, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = load i32, ptr %2, align 8
@@ -461,7 +449,7 @@ if.else:                                          ; preds = %land.lhs.true
   unreachable
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %u9 = getelementptr inbounds %struct.KeyValue, ptr %2, i64 0, i32 1
+  %u9 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %u9, align 8
   %cmp11 = icmp eq i32 %4, 80
   br i1 %cmp11, label %if.then12, label %if.end18
@@ -532,7 +520,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %evt, i64 8
   %1 = load ptr, ptr %u.i, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = load i32, ptr %2, align 8
@@ -542,16 +530,16 @@ sw.bb.i:                                          ; preds = %if.end.i
   ]
 
 sw.bb3.i:                                         ; preds = %sw.bb.i
-  %u5.i = getelementptr inbounds %struct.KeyValue, ptr %2, i64 0, i32 1
+  %u5.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %u5.i, align 8
   %conv.i = trunc i64 %4 to i32
   %call7.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv.i) #12
   %call8.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QKeyCode_lookup, i32 noundef %call7.i) #12
   %5 = load ptr, ptr %1, align 8
-  %u10.i = getelementptr inbounds %struct.KeyValue, ptr %5, i64 0, i32 1
+  %u10.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %u10.i, align 8
   %conv12.i = trunc i64 %6 to i32
-  %down.i = getelementptr inbounds %struct.InputKeyEvent, ptr %1, i64 0, i32 1
+  %down.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %down.i, align 8
   %8 = and i8 %7, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -578,7 +566,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %14 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv12.i.i.i = zext nneg i8 %8 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %idx.0.i, i32 noundef %conv12.i, ptr noundef %call8.i, i32 noundef %conv12.i.i.i) #12
@@ -594,10 +582,10 @@ trace_input_event_key_number.exit.i:              ; preds = %if.else.i.i.i, %if.
   br label %qemu_input_event_trace.exit
 
 sw.bb14.i:                                        ; preds = %sw.bb.i
-  %u16.i = getelementptr inbounds %struct.KeyValue, ptr %2, i64 0, i32 1
+  %u16.i = getelementptr inbounds i8, ptr %2, i64 8
   %16 = load i32, ptr %u16.i, align 8
   %call18.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QKeyCode_lookup, i32 noundef %16) #12
-  %down19.i = getelementptr inbounds %struct.InputKeyEvent, ptr %1, i64 0, i32 1
+  %down19.i = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i8, ptr %down19.i, align 8
   %18 = and i8 %17, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27.i)
@@ -624,7 +612,7 @@ if.then8.i.i36.i:                                 ; preds = %if.then.i.i34.i
   %call9.i.i37.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27.i, ptr noundef null) #12
   %call10.i.i38.i = tail call i32 @qemu_get_thread_id() #12
   %24 = load i64, ptr %_now.i.i27.i, align 8
-  %tv_usec.i.i39.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i27.i, i64 0, i32 1
+  %tv_usec.i.i39.i = getelementptr inbounds i8, ptr %_now.i.i27.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i39.i, align 8
   %conv12.i.i40.i = zext nneg i8 %18 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i38.i, i64 noundef %24, i64 noundef %25, i32 noundef %idx.0.i, ptr noundef %call18.i, i32 noundef %conv12.i.i40.i) #12
@@ -640,11 +628,11 @@ trace_input_event_key_qcode.exit.i:               ; preds = %if.else.i.i41.i, %i
   br label %qemu_input_event_trace.exit
 
 sw.bb22.i:                                        ; preds = %if.end.i
-  %u23.i = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u23.i = getelementptr inbounds i8, ptr %evt, i64 8
   %26 = load ptr, ptr %u23.i, align 8
   %27 = load i32, ptr %26, align 4
   %call25.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @InputButton_lookup, i32 noundef %27) #12
-  %down26.i = getelementptr inbounds %struct.InputBtnEvent, ptr %26, i64 0, i32 1
+  %down26.i = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load i8, ptr %down26.i, align 4
   %29 = and i8 %28, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i43.i)
@@ -671,7 +659,7 @@ if.then8.i.i52.i:                                 ; preds = %if.then.i.i50.i
   %call9.i.i53.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43.i, ptr noundef null) #12
   %call10.i.i54.i = tail call i32 @qemu_get_thread_id() #12
   %35 = load i64, ptr %_now.i.i43.i, align 8
-  %tv_usec.i.i55.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i43.i, i64 0, i32 1
+  %tv_usec.i.i55.i = getelementptr inbounds i8, ptr %_now.i.i43.i, i64 8
   %36 = load i64, ptr %tv_usec.i.i55.i, align 8
   %conv12.i.i56.i = zext nneg i8 %29 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i54.i, i64 noundef %35, i64 noundef %36, i32 noundef %idx.0.i, ptr noundef %call25.i, i32 noundef %conv12.i.i56.i) #12
@@ -687,11 +675,11 @@ trace_input_event_btn.exit.i:                     ; preds = %if.else.i.i57.i, %i
   br label %qemu_input_event_trace.exit
 
 sw.bb28.i:                                        ; preds = %if.end.i
-  %u29.i = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u29.i = getelementptr inbounds i8, ptr %evt, i64 8
   %37 = load ptr, ptr %u29.i, align 8
   %38 = load i32, ptr %37, align 8
   %call31.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @InputAxis_lookup, i32 noundef %38) #12
-  %value.i = getelementptr inbounds %struct.InputMoveEvent, ptr %37, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i64, ptr %value.i, align 8
   %conv32.i = trunc i64 %39 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i59.i)
@@ -718,7 +706,7 @@ if.then8.i.i68.i:                                 ; preds = %if.then.i.i66.i
   %call9.i.i69.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59.i, ptr noundef null) #12
   %call10.i.i70.i = tail call i32 @qemu_get_thread_id() #12
   %45 = load i64, ptr %_now.i.i59.i, align 8
-  %tv_usec.i.i71.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i59.i, i64 0, i32 1
+  %tv_usec.i.i71.i = getelementptr inbounds i8, ptr %_now.i.i59.i, i64 8
   %46 = load i64, ptr %tv_usec.i.i71.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i70.i, i64 noundef %45, i64 noundef %46, i32 noundef %idx.0.i, ptr noundef %call31.i, i32 noundef %conv32.i) #12
   br label %trace_input_event_rel.exit.i
@@ -732,11 +720,11 @@ trace_input_event_rel.exit.i:                     ; preds = %if.else.i.i72.i, %i
   br label %qemu_input_event_trace.exit
 
 sw.bb33.i:                                        ; preds = %if.end.i
-  %u34.i = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u34.i = getelementptr inbounds i8, ptr %evt, i64 8
   %47 = load ptr, ptr %u34.i, align 8
   %48 = load i32, ptr %47, align 8
   %call37.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @InputAxis_lookup, i32 noundef %48) #12
-  %value38.i = getelementptr inbounds %struct.InputMoveEvent, ptr %47, i64 0, i32 1
+  %value38.i = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i64, ptr %value38.i, align 8
   %conv39.i = trunc i64 %49 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i73.i)
@@ -763,7 +751,7 @@ if.then8.i.i82.i:                                 ; preds = %if.then.i.i80.i
   %call9.i.i83.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i73.i, ptr noundef null) #12
   %call10.i.i84.i = tail call i32 @qemu_get_thread_id() #12
   %55 = load i64, ptr %_now.i.i73.i, align 8
-  %tv_usec.i.i85.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i73.i, i64 0, i32 1
+  %tv_usec.i.i85.i = getelementptr inbounds i8, ptr %_now.i.i73.i, i64 8
   %56 = load i64, ptr %tv_usec.i.i85.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i84.i, i64 noundef %55, i64 noundef %56, i32 noundef %idx.0.i, ptr noundef %call37.i, i32 noundef %conv39.i) #12
   br label %trace_input_event_abs.exit.i
@@ -777,12 +765,12 @@ trace_input_event_abs.exit.i:                     ; preds = %if.else.i.i86.i, %i
   br label %qemu_input_event_trace.exit
 
 sw.bb40.i:                                        ; preds = %if.end.i
-  %u41.i = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u41.i = getelementptr inbounds i8, ptr %evt, i64 8
   %57 = load ptr, ptr %u41.i, align 8
-  %axis43.i = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %57, i64 0, i32 3
+  %axis43.i = getelementptr inbounds i8, ptr %57, i64 24
   %58 = load i32, ptr %axis43.i, align 8
   %call44.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @InputAxis_lookup, i32 noundef %58) #12
-  %value45.i = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %57, i64 0, i32 4
+  %value45.i = getelementptr inbounds i8, ptr %57, i64 32
   %59 = load i64, ptr %value45.i, align 8
   %conv46.i = trunc i64 %59 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i87.i)
@@ -809,7 +797,7 @@ if.then8.i.i96.i:                                 ; preds = %if.then.i.i94.i
   %call9.i.i97.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i87.i, ptr noundef null) #12
   %call10.i.i98.i = tail call i32 @qemu_get_thread_id() #12
   %65 = load i64, ptr %_now.i.i87.i, align 8
-  %tv_usec.i.i99.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i87.i, i64 0, i32 1
+  %tv_usec.i.i99.i = getelementptr inbounds i8, ptr %_now.i.i87.i, i64 8
   %66 = load i64, ptr %tv_usec.i.i99.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i98.i, i64 noundef %65, i64 noundef %66, i32 noundef %idx.0.i, ptr noundef %call44.i, i32 noundef %conv46.i) #12
   br label %trace_input_event_mtt.exit.i
@@ -854,7 +842,7 @@ if.then.i12:                                      ; preds = %sw.bb.i10
 
 if.then4.i:                                       ; preds = %sw.bb.i10
   store i32 0, ptr %evt.val, align 8
-  %value.i11 = getelementptr inbounds %struct.InputMoveEvent, ptr %evt.val, i64 0, i32 1
+  %value.i11 = getelementptr inbounds i8, ptr %evt.val, i64 8
   %71 = load i64, ptr %value.i11, align 8
   %72 = shl i64 %71, 32
   %sext2.i = sub i64 140733193388032, %72
@@ -863,7 +851,7 @@ if.then4.i:                                       ; preds = %sw.bb.i10
   br label %if.end
 
 sw.bb9.i:                                         ; preds = %if.then
-  %value10.i = getelementptr inbounds %struct.InputMoveEvent, ptr %evt.val, i64 0, i32 1
+  %value10.i = getelementptr inbounds i8, ptr %evt.val, i64 8
   %73 = load i64, ptr %value10.i, align 8
   %74 = shl i64 %73, 32
   %sext1.i = sub i64 140733193388032, %74
@@ -880,7 +868,7 @@ sw.bb15.i:                                        ; preds = %if.then
 
 if.then19.i:                                      ; preds = %sw.bb15.i
   store i32 1, ptr %evt.val, align 8
-  %value21.i = getelementptr inbounds %struct.InputMoveEvent, ptr %evt.val, i64 0, i32 1
+  %value21.i = getelementptr inbounds i8, ptr %evt.val, i64 8
   %76 = load i64, ptr %value21.i, align 8
   %77 = shl i64 %76, 32
   %sext.i = sub i64 140733193388032, %77
@@ -901,7 +889,7 @@ if.end:                                           ; preds = %if.then30.i, %if.th
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %s.016.i = phi ptr [ %s.0.i, %for.inc.i ], [ %s.014.i, %if.end ]
-  %con1.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 4
+  %con1.i = getelementptr inbounds i8, ptr %s.016.i, i64 24
   %79 = load ptr, ptr %con1.i, align 8
   %cmp.i = icmp ne ptr %79, null
   %cmp3.not.i = icmp eq ptr %79, %src
@@ -909,38 +897,38 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %or.cond.i, label %if.end.i14, label %for.inc.i
 
 if.end.i14:                                       ; preds = %for.body.i
-  %handler.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 1
+  %handler.i = getelementptr inbounds i8, ptr %s.016.i, i64 8
   %80 = load ptr, ptr %handler.i, align 8
-  %mask4.i = getelementptr inbounds %struct.QemuInputHandler, ptr %80, i64 0, i32 1
+  %mask4.i = getelementptr inbounds i8, ptr %80, i64 8
   %81 = load i32, ptr %mask4.i, align 8
   %and.i = and i32 %81, %shl
   %tobool5.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool5.not.i, label %for.inc.i, label %if.end4
 
 for.inc.i:                                        ; preds = %if.end.i14, %for.body.i
-  %node.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 5
+  %node.i = getelementptr inbounds i8, ptr %s.016.i, i64 32
   %s.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i13 = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i13, label %for.body10.i, label %for.body.i, !llvm.loop !5
 
 for.body10.i:                                     ; preds = %for.inc.i, %for.inc21.i
   %s.119.i = phi ptr [ %s.1.i, %for.inc21.i ], [ %s.014.i, %for.inc.i ]
-  %con11.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 4
+  %con11.i = getelementptr inbounds i8, ptr %s.119.i, i64 24
   %82 = load ptr, ptr %con11.i, align 8
   %cmp12.not.i = icmp eq ptr %82, null
   br i1 %cmp12.not.i, label %if.end14.i, label %for.inc21.i
 
 if.end14.i:                                       ; preds = %for.body10.i
-  %handler15.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 1
+  %handler15.i = getelementptr inbounds i8, ptr %s.119.i, i64 8
   %83 = load ptr, ptr %handler15.i, align 8
-  %mask16.i = getelementptr inbounds %struct.QemuInputHandler, ptr %83, i64 0, i32 1
+  %mask16.i = getelementptr inbounds i8, ptr %83, i64 8
   %84 = load i32, ptr %mask16.i, align 8
   %and17.i = and i32 %84, %shl
   %tobool18.not.i = icmp eq i32 %and17.i, 0
   br i1 %tobool18.not.i, label %for.inc21.i, label %if.end4
 
 for.inc21.i:                                      ; preds = %if.end14.i, %for.body10.i
-  %node22.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 5
+  %node22.i = getelementptr inbounds i8, ptr %s.119.i, i64 32
   %s.1.i = load ptr, ptr %node22.i, align 8
   %tobool9.not.i = icmp eq ptr %s.1.i, null
   br i1 %tobool9.not.i, label %return, label %for.body10.i, !llvm.loop !7
@@ -948,11 +936,11 @@ for.inc21.i:                                      ; preds = %if.end14.i, %for.bo
 if.end4:                                          ; preds = %if.end.i14, %if.end14.i
   %85 = phi ptr [ %83, %if.end14.i ], [ %80, %if.end.i14 ]
   %retval.0.i = phi ptr [ %s.119.i, %if.end14.i ], [ %s.016.i, %if.end.i14 ]
-  %event = getelementptr inbounds %struct.QemuInputHandler, ptr %85, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %85, i64 16
   %86 = load ptr, ptr %event, align 8
   %87 = load ptr, ptr %retval.0.i, align 8
   tail call void %86(ptr noundef %87, ptr noundef %src, ptr noundef nonnull %evt) #12
-  %events = getelementptr inbounds %struct.QemuInputHandlerState, ptr %retval.0.i, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %88 = load i32, ptr %events, align 4
   %inc = add i32 %88, 1
   store i32 %inc, ptr %events, align 4
@@ -995,7 +983,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #12
   br label %trace_input_event_sync.exit
@@ -1012,15 +1000,15 @@ trace_input_event_sync.exit:                      ; preds = %entry, %land.lhs.tr
 
 for.body:                                         ; preds = %trace_input_event_sync.exit, %for.inc
   %s.09 = phi ptr [ %s.0, %for.inc ], [ %s.07, %trace_input_event_sync.exit ]
-  %events = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.09, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %s.09, i64 20
   %7 = load i32, ptr %events, align 4
   %tobool1.not = icmp eq i32 %7, 0
   br i1 %tobool1.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %handler = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.09, i64 0, i32 1
+  %handler = getelementptr inbounds i8, ptr %s.09, i64 8
   %8 = load ptr, ptr %handler, align 8
-  %sync = getelementptr inbounds %struct.QemuInputHandler, ptr %8, i64 0, i32 3
+  %sync = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %sync, align 8
   %tobool2.not = icmp eq ptr %9, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
@@ -1035,7 +1023,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end6
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.09, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %s.09, i64 32
   %s.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1052,11 +1040,11 @@ entry:
   %frombool.i = zext i1 %down to i8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
-  %u.i = getelementptr inbounds %struct.InputEvent, ptr %call.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %u.i, align 8
   store i32 0, ptr %call.i, align 8
   store ptr %key, ptr %call1.i, align 8
-  %down7.i = getelementptr inbounds %struct.InputKeyEvent, ptr %call1.i, i64 0, i32 1
+  %down7.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i8 %frombool.i, ptr %down7.i, align 8
   %0 = load ptr, ptr @kbd_queue, align 8
   %cmp = icmp eq ptr %0, null
@@ -1072,7 +1060,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %u9.i = getelementptr inbounds %struct.KeyValue, ptr %key, i64 0, i32 1
+  %u9.i = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load i32, ptr %u9.i, align 8
   %cmp11.i = icmp eq i32 %2, 80
   br i1 %cmp11.i, label %if.then12.i, label %if.end18.i
@@ -1117,14 +1105,14 @@ if.else:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.else
   %call.i10 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
   store i32 2, ptr %call.i10, align 8
-  %src1.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i10, i64 0, i32 3
+  %src1.i = getelementptr inbounds i8, ptr %call.i10, i64 24
   store ptr %src, ptr %src1.i, align 8
-  %evt2.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i10, i64 0, i32 4
+  %evt2.i = getelementptr inbounds i8, ptr %call.i10, i64 32
   store ptr %call.i, ptr %evt2.i, align 8
-  %node.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i10, i64 0, i32 5
+  %node.i = getelementptr inbounds i8, ptr %call.i10, i64 40
   store ptr null, ptr %node.i, align 8
   %4 = load ptr, ptr getelementptr inbounds (%union.QemuInputEventQueueHead, ptr @kbd_queue, i64 0, i32 0, i32 1), align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i10, i64 0, i32 5, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i10, i64 48
   store ptr %4, ptr %tql_prev4.i, align 8
   store ptr %call.i10, ptr %4, align 8
   store ptr %node.i, ptr getelementptr inbounds (%union.QemuInputEventQueueHead, ptr @kbd_queue, i64 0, i32 0, i32 1), align 8
@@ -1133,10 +1121,10 @@ if.then2:                                         ; preds = %if.else
   store i32 %inc.i, ptr @queue_count, align 4
   %call.i11 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
   store i32 3, ptr %call.i11, align 8
-  %node.i12 = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i11, i64 0, i32 5
+  %node.i12 = getelementptr inbounds i8, ptr %call.i11, i64 40
   store ptr null, ptr %node.i12, align 8
   %6 = load ptr, ptr getelementptr inbounds (%union.QemuInputEventQueueHead, ptr @kbd_queue, i64 0, i32 0, i32 1), align 8
-  %tql_prev2.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i11, i64 0, i32 5, i32 0, i32 1
+  %tql_prev2.i = getelementptr inbounds i8, ptr %call.i11, i64 48
   store ptr %6, ptr %tql_prev2.i, align 8
   store ptr %call.i11, ptr %6, align 8
   store ptr %node.i12, ptr getelementptr inbounds (%union.QemuInputEventQueueHead, ptr @kbd_queue, i64 0, i32 0, i32 1), align 8
@@ -1161,7 +1149,7 @@ entry:
   %call = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %num) #12
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   store i32 1, ptr %call.i, align 8
-  %u.i = getelementptr inbounds %struct.KeyValue, ptr %call.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %call, ptr %u.i, align 8
   tail call void @qemu_input_event_send_key(ptr noundef %src, ptr noundef nonnull %call.i, i1 noundef zeroext %down)
   ret void
@@ -1201,14 +1189,14 @@ if.then5:                                         ; preds = %if.end4
   %3 = load ptr, ptr @kbd_queue, align 8
   %cmp.i = icmp eq ptr %3, null
   store i32 1, ptr %call.i2, align 8
-  %delay_ms1.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i2, i64 0, i32 2
+  %delay_ms1.i = getelementptr inbounds i8, ptr %call.i2, i64 16
   store i32 %cond, ptr %delay_ms1.i, align 8
-  %timer2.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i2, i64 0, i32 1
+  %timer2.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store ptr %1, ptr %timer2.i, align 8
-  %node.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i2, i64 0, i32 5
+  %node.i = getelementptr inbounds i8, ptr %call.i2, i64 40
   store ptr null, ptr %node.i, align 8
   %4 = load ptr, ptr getelementptr inbounds (%union.QemuInputEventQueueHead, ptr @kbd_queue, i64 0, i32 0, i32 1), align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QemuInputEventQueue, ptr %call.i2, i64 0, i32 5, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i2, i64 48
   store ptr %4, ptr %tql_prev4.i, align 8
   store ptr %call.i2, ptr %4, align 8
   store ptr %node.i, ptr getelementptr inbounds (%union.QemuInputEventQueueHead, ptr @kbd_queue, i64 0, i32 0, i32 1), align 8
@@ -1251,13 +1239,13 @@ if.else4:                                         ; preds = %do.end
   unreachable
 
 do.body7:                                         ; preds = %do.end
-  %node = getelementptr inbounds %struct.QemuInputEventQueue, ptr %0, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %node, align 8
   %cmp8.not = icmp eq ptr %2, null
-  %tql_prev16 = getelementptr inbounds %struct.QemuInputEventQueue, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %tql_prev16 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %tql_prev16, align 8
-  %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %opaque, i64 0, i32 1
-  %tql_prev13 = getelementptr inbounds %struct.QemuInputEventQueue, ptr %2, i64 0, i32 5, i32 0, i32 1
+  %tql_prev17 = getelementptr inbounds i8, ptr %opaque, i64 8
+  %tql_prev13 = getelementptr inbounds i8, ptr %2, i64 48
   %tql_prev17.sink = select i1 %cmp8.not, ptr %tql_prev17, ptr %tql_prev13
   store ptr %3, ptr %tql_prev17.sink, align 8
   %4 = load ptr, ptr %node, align 8
@@ -1272,7 +1260,7 @@ do.body7:                                         ; preds = %do.end
   br i1 %cmp28.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.body7
-  %tql_prev46 = getelementptr inbounds %struct.QTailQLink, ptr %opaque, i64 0, i32 1
+  %tql_prev46 = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %do.body33
@@ -1285,11 +1273,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %timer = getelementptr inbounds %struct.QemuInputEventQueue, ptr %7, i64 0, i32 1
+  %timer = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %timer, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
   %div.i = sdiv i64 %call.i, 1000000
-  %delay_ms = getelementptr inbounds %struct.QemuInputEventQueue, ptr %7, i64 0, i32 2
+  %delay_ms = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i32, ptr %delay_ms, align 8
   %conv = zext i32 %10 to i64
   %add = add nsw i64 %div.i, %conv
@@ -1297,16 +1285,16 @@ sw.bb:                                            ; preds = %while.body
   br label %while.end
 
 sw.bb30:                                          ; preds = %while.body
-  %src = getelementptr inbounds %struct.QemuInputEventQueue, ptr %7, i64 0, i32 3
+  %src = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %src, align 8
-  %evt = getelementptr inbounds %struct.QemuInputEventQueue, ptr %7, i64 0, i32 4
+  %evt = getelementptr inbounds i8, ptr %7, i64 32
   %12 = load ptr, ptr %evt, align 8
   %13 = load i32, ptr %12, align 8
   %cmp.i = icmp eq i32 %13, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end18.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb30
-  %u.i = getelementptr inbounds %struct.InputEvent, ptr %12, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %u.i, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
@@ -1318,7 +1306,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %u9.i = getelementptr inbounds %struct.KeyValue, ptr %15, i64 0, i32 1
+  %u9.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %u9.i, align 8
   %cmp11.i = icmp eq i32 %17, 80
   br i1 %cmp11.i, label %if.then12.i, label %if.end18.i
@@ -1357,12 +1345,12 @@ if.end.i:                                         ; preds = %land.lhs.true.i36, 
   br label %do.body33
 
 do.body33:                                        ; preds = %if.end.i, %land.lhs.true.i36, %while.body, %qemu_input_event_send.exit
-  %node34 = getelementptr inbounds %struct.QemuInputEventQueue, ptr %7, i64 0, i32 5
+  %node34 = getelementptr inbounds i8, ptr %7, i64 40
   %19 = load ptr, ptr %node34, align 8
   %cmp35.not = icmp eq ptr %19, null
-  %tql_prev45 = getelementptr inbounds %struct.QemuInputEventQueue, ptr %7, i64 0, i32 5, i32 0, i32 1
+  %tql_prev45 = getelementptr inbounds i8, ptr %7, i64 48
   %20 = load ptr, ptr %tql_prev45, align 8
-  %tql_prev42 = getelementptr inbounds %struct.QemuInputEventQueue, ptr %19, i64 0, i32 5, i32 0, i32 1
+  %tql_prev42 = getelementptr inbounds i8, ptr %19, i64 48
   %tql_prev46.sink = select i1 %cmp35.not, ptr %tql_prev46, ptr %tql_prev42
   store ptr %20, ptr %tql_prev46.sink, align 8
   %21 = load ptr, ptr %node34, align 8
@@ -1387,10 +1375,10 @@ if.end18.i:
   %evt = alloca %struct.InputEvent, align 8
   %frombool = zext i1 %down to i8
   store i32 %btn, ptr %bevt, align 4
-  %down1 = getelementptr inbounds %struct.InputBtnEvent, ptr %bevt, i64 0, i32 1
+  %down1 = getelementptr inbounds i8, ptr %bevt, i64 4
   store i8 %frombool, ptr %down1, align 4
   store i32 1, ptr %evt, align 8
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   store ptr %bevt, ptr %u, align 8
   %call.i = call zeroext i1 @runstate_is_running() #12
   br i1 %call.i, label %if.end22.i, label %land.lhs.true19.i
@@ -1412,8 +1400,8 @@ define dso_local void @qemu_input_update_buttons(ptr noundef %src, ptr nocapture
 entry:
   %bevt.i = alloca %struct.InputBtnEvent, align 4
   %evt.i = alloca %struct.InputEvent, align 8
-  %down1.i = getelementptr inbounds %struct.InputBtnEvent, ptr %bevt.i, i64 0, i32 1
-  %u.i = getelementptr inbounds %struct.InputEvent, ptr %evt.i, i64 0, i32 1
+  %down1.i = getelementptr inbounds i8, ptr %bevt.i, i64 4
+  %u.i = getelementptr inbounds i8, ptr %evt.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1469,7 +1457,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %s.016.i = phi ptr [ %s.0.i, %for.inc.i ], [ %s.014.i, %entry ]
-  %con1.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 4
+  %con1.i = getelementptr inbounds i8, ptr %s.016.i, i64 24
   %0 = load ptr, ptr %con1.i, align 8
   %cmp.i = icmp ne ptr %0, null
   %cmp3.not.i = icmp eq ptr %0, %con
@@ -1477,38 +1465,38 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %or.cond.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %handler.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 1
+  %handler.i = getelementptr inbounds i8, ptr %s.016.i, i64 8
   %1 = load ptr, ptr %handler.i, align 8
-  %mask4.i = getelementptr inbounds %struct.QemuInputHandler, ptr %1, i64 0, i32 1
+  %mask4.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %mask4.i, align 8
   %and.i = and i32 %2, 12
   %tobool5.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool5.not.i, label %for.inc.i, label %land.rhs
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %node.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.016.i, i64 0, i32 5
+  %node.i = getelementptr inbounds i8, ptr %s.016.i, i64 32
   %s.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i, label %for.body10.i, label %for.body.i, !llvm.loop !5
 
 for.body10.i:                                     ; preds = %for.inc.i, %for.inc21.i
   %s.119.i = phi ptr [ %s.1.i, %for.inc21.i ], [ %s.014.i, %for.inc.i ]
-  %con11.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 4
+  %con11.i = getelementptr inbounds i8, ptr %s.119.i, i64 24
   %3 = load ptr, ptr %con11.i, align 8
   %cmp12.not.i = icmp eq ptr %3, null
   br i1 %cmp12.not.i, label %if.end14.i, label %for.inc21.i
 
 if.end14.i:                                       ; preds = %for.body10.i
-  %handler15.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 1
+  %handler15.i = getelementptr inbounds i8, ptr %s.119.i, i64 8
   %4 = load ptr, ptr %handler15.i, align 8
-  %mask16.i = getelementptr inbounds %struct.QemuInputHandler, ptr %4, i64 0, i32 1
+  %mask16.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %mask16.i, align 8
   %and17.i = and i32 %5, 12
   %tobool18.not.i = icmp eq i32 %and17.i, 0
   br i1 %tobool18.not.i, label %for.inc21.i, label %land.rhs
 
 for.inc21.i:                                      ; preds = %if.end14.i, %for.body10.i
-  %node22.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.119.i, i64 0, i32 5
+  %node22.i = getelementptr inbounds i8, ptr %s.119.i, i64 32
   %s.1.i = load ptr, ptr %node22.i, align 8
   %tobool9.not.i = icmp eq ptr %s.1.i, null
   br i1 %tobool9.not.i, label %land.end, label %for.body10.i, !llvm.loop !7
@@ -1560,11 +1548,11 @@ if.end18.i:
   %move = alloca %struct.InputMoveEvent, align 8
   %evt = alloca %struct.InputEvent, align 8
   store i32 %axis, ptr %move, align 8
-  %value2 = getelementptr inbounds %struct.InputMoveEvent, ptr %move, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %move, i64 8
   %conv = sext i32 %value to i64
   store i64 %conv, ptr %value2, align 8
   store i32 2, ptr %evt, align 8
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   store ptr %move, ptr %u, align 8
   %call.i = call zeroext i1 @runstate_is_running() #12
   br i1 %call.i, label %if.end22.i, label %land.lhs.true19.i
@@ -1587,7 +1575,7 @@ entry:
   %move = alloca %struct.InputMoveEvent, align 8
   %evt = alloca %struct.InputEvent, align 8
   store i32 %axis, ptr %move, align 8
-  %value2 = getelementptr inbounds %struct.InputMoveEvent, ptr %move, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %move, i64 8
   %conv.i = sext i32 %max_in to i64
   %conv1.i = sext i32 %min_in to i64
   %sub.i = sub nsw i64 %conv.i, %conv1.i
@@ -1607,7 +1595,7 @@ if.end18.i:                                       ; preds = %if.end.i, %entry
   %.pn.in.i = phi i64 [ %0, %if.end.i ], [ 16383, %entry ]
   store i64 %.pn.in.i, ptr %value2, align 8
   store i32 3, ptr %evt, align 8
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   store ptr %move, ptr %u, align 8
   %call.i = call zeroext i1 @runstate_is_running() #12
   br i1 %call.i, label %if.end22.i, label %land.lhs.true19.i
@@ -1630,18 +1618,18 @@ if.end18.i:
   %mtt = alloca %struct.InputMultiTouchEvent, align 8
   %evt = alloca %struct.InputEvent, align 8
   store i32 %type, ptr %mtt, align 8
-  %slot2 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 1
+  %slot2 = getelementptr inbounds i8, ptr %mtt, i64 8
   %conv = sext i32 %slot to i64
   store i64 %conv, ptr %slot2, align 8
-  %tracking_id3 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 2
+  %tracking_id3 = getelementptr inbounds i8, ptr %mtt, i64 16
   %conv4 = sext i32 %tracking_id to i64
   store i64 %conv4, ptr %tracking_id3, align 8
-  %axis = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 3
+  %axis = getelementptr inbounds i8, ptr %mtt, i64 24
   store i32 0, ptr %axis, align 8
-  %value = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %mtt, i64 32
   store i64 0, ptr %value, align 8
   store i32 4, ptr %evt, align 8
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   store ptr %mtt, ptr %u, align 8
   %call.i = call zeroext i1 @runstate_is_running() #12
   br i1 %call.i, label %if.end22.i, label %land.lhs.true19.i
@@ -1664,15 +1652,15 @@ entry:
   %mtt = alloca %struct.InputMultiTouchEvent, align 8
   %evt = alloca %struct.InputEvent, align 8
   store i32 4, ptr %mtt, align 8
-  %slot1 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 1
+  %slot1 = getelementptr inbounds i8, ptr %mtt, i64 8
   %conv = sext i32 %slot to i64
   store i64 %conv, ptr %slot1, align 8
-  %tracking_id2 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 2
+  %tracking_id2 = getelementptr inbounds i8, ptr %mtt, i64 16
   %conv3 = sext i32 %tracking_id to i64
   store i64 %conv3, ptr %tracking_id2, align 8
-  %axis4 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 3
+  %axis4 = getelementptr inbounds i8, ptr %mtt, i64 24
   store i32 %axis, ptr %axis4, align 8
-  %value5 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %mtt, i64 0, i32 4
+  %value5 = getelementptr inbounds i8, ptr %mtt, i64 32
   %conv.i = sext i32 %max_in to i64
   %conv1.i = sext i32 %min_in to i64
   %sub.i = sub nsw i64 %conv.i, %conv1.i
@@ -1692,7 +1680,7 @@ if.end18.i:                                       ; preds = %if.end.i, %entry
   %.pn.in.i = phi i64 [ %0, %if.end.i ], [ 16383, %entry ]
   store i64 %.pn.in.i, ptr %value5, align 8
   store i32 4, ptr %evt, align 8
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   store ptr %mtt, ptr %u, align 8
   %call.i = call zeroext i1 @runstate_is_running() #12
   br i1 %call.i, label %if.end22.i, label %land.lhs.true19.i
@@ -1738,9 +1726,9 @@ for.body:                                         ; preds = %entry, %for.inc
   %s.017 = phi ptr [ %s.0, %for.inc ], [ %s.013, %entry ]
   %mice_list.016 = phi ptr [ %mice_list.1, %for.inc ], [ null, %entry ]
   %current.015 = phi i8 [ %current.1, %for.inc ], [ 1, %entry ]
-  %handler = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.017, i64 0, i32 1
+  %handler = getelementptr inbounds i8, ptr %s.017, i64 8
   %0 = load ptr, ptr %handler, align 8
-  %mask = getelementptr inbounds %struct.QemuInputHandler, ptr %0, i64 0, i32 1
+  %mask = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %mask, align 8
   %and = and i32 %1, 12
   %tobool1.not = icmp eq i32 %and, 0
@@ -1748,28 +1736,28 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #11
-  %id = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.017, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %s.017, i64 16
   %2 = load i32, ptr %id, align 8
   %conv = sext i32 %2 to i64
-  %index = getelementptr inbounds %struct.MouseInfo, ptr %call, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %conv, ptr %index, align 8
   %3 = load ptr, ptr %handler, align 8
   %4 = load ptr, ptr %3, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %4) #12
   store ptr %call3, ptr %call, align 8
   %5 = load ptr, ptr %handler, align 8
-  %mask6 = getelementptr inbounds %struct.QemuInputHandler, ptr %5, i64 0, i32 1
+  %mask6 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %mask6, align 8
-  %absolute = getelementptr inbounds %struct.MouseInfo, ptr %call, i64 0, i32 3
+  %absolute = getelementptr inbounds i8, ptr %call, i64 17
   %7 = trunc i32 %6 to i8
   %8 = lshr i8 %7, 3
   %frombool = and i8 %8, 1
   store i8 %frombool, ptr %absolute, align 1
   %9 = and i8 %current.015, 1
-  %current10 = getelementptr inbounds %struct.MouseInfo, ptr %call, i64 0, i32 2
+  %current10 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %9, ptr %current10, align 8
   %call12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #14
-  %value = getelementptr inbounds %struct.MouseInfoList, ptr %call12, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call12, i64 8
   store ptr %call, ptr %value, align 8
   store ptr %mice_list.016, ptr %call12, align 8
   br label %for.inc
@@ -1777,7 +1765,7 @@ if.end:                                           ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.end
   %current.1 = phi i8 [ 0, %if.end ], [ %current.015, %for.body ]
   %mice_list.1 = phi ptr [ %call12, %if.end ], [ %mice_list.016, %for.body ]
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.017, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %s.017, i64 32
   %s.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
@@ -1801,13 +1789,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %s.012 = phi ptr [ %s.0, %for.inc ], [ %s.010, %entry ]
-  %id = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.012, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %s.012, i64 16
   %0 = load i32, ptr %id, align 8
   %cmp = icmp eq i32 %0, %index
   br i1 %cmp, label %if.end3, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.012, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %s.012, i64 32
   %s.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %if.then2, label %for.body, !llvm.loop !14
@@ -1817,9 +1805,9 @@ if.then2:                                         ; preds = %for.inc, %entry
   br label %return
 
 if.end3:                                          ; preds = %for.body
-  %handler = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.012, i64 0, i32 1
+  %handler = getelementptr inbounds i8, ptr %s.012, i64 8
   %1 = load ptr, ptr %handler, align 8
-  %mask = getelementptr inbounds %struct.QemuInputHandler, ptr %1, i64 0, i32 1
+  %mask = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %mask, align 8
   %and = and i32 %2, 12
   %tobool4.not = icmp eq i32 %and, 0
@@ -1831,15 +1819,15 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %node.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.012, i64 0, i32 5
+  %node.i = getelementptr inbounds i8, ptr %s.012, i64 32
   %4 = load ptr, ptr %node.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
-  %tql_prev6.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %s.012, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %s.012, i64 40
   %5 = load ptr, ptr %tql_prev6.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %tql_prev4.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %4, i64 0, i32 5, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %5, ptr %tql_prev4.i, align 8
   %.pre.i = load ptr, ptr %node.i, align 8
   br label %qemu_input_handler_activate.exit
@@ -1854,7 +1842,7 @@ qemu_input_handler_activate.exit:                 ; preds = %if.then.i, %if.else
   %7 = load ptr, ptr @handlers, align 8
   store ptr %7, ptr %node.i, align 8
   %cmp17.not.i = icmp eq ptr %7, null
-  %tql_prev21.i = getelementptr inbounds %struct.QemuInputHandlerState, ptr %7, i64 0, i32 5, i32 0, i32 1
+  %tql_prev21.i = getelementptr inbounds i8, ptr %7, i64 40
   %.sink.i = select i1 %cmp17.not.i, ptr getelementptr inbounds (%union.anon.0, ptr @handlers, i64 0, i32 0, i32 1), ptr %tql_prev21.i
   store ptr %node.i, ptr %.sink.i, align 8
   store ptr %s.012, ptr @handlers, align 8

@@ -9,32 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
 %"class.arrow::internal::BaseSetBitRunReader.25" = type <{ ptr, i64, i64, i64, i32, [4 x i8] }>
 %"class.arrow::internal::BaseSetBitRunReader" = type <{ ptr, i64, i64, i64, i32, [4 x i8] }>
-%"class.arrow::DataType" = type { %"class.arrow::detail::Fingerprintable", %"class.std::enable_shared_from_this", i32, %"class.std::vector" }
-%"class.arrow::detail::Fingerprintable" = type { ptr, %"struct.std::atomic", %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.arrow::ArraySpan" = type { ptr, i64, i64, i64, [3 x %"struct.arrow::BufferSpan"], %"class.std::vector.4" }
-%"struct.arrow::BufferSpan" = type { ptr, i64, ptr }
-%"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
-%"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl" }
-%"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.arrow::Status::State" = type { i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.std::allocator.14" = type { i8 }
 %"class.arrow::Result.9" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.12" }
 %"class.arrow::internal::AlignedStorage.12" = type { %"union.std::aligned_storage<8, 8>::type" }
@@ -88,7 +65,7 @@ entry:
   %reader.i.i = alloca %"class.arrow::internal::BaseSetBitRunReader", align 8
   %ref.tmp19 = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %input, align 8
-  %id_.i = getelementptr inbounds %"class.arrow::DataType", ptr %0, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %id_.i, align 8
   switch i32 %1, label %while.end18 [
     i32 25, label %sw.bb
@@ -99,15 +76,15 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %length.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load i64, ptr %length.i, align 8
   %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIiEESt4pairIllERKNS_9ArraySpanE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
-  %arrayidx.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %input, i64 56
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %offset.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %input, i64 24
   %4 = load i64, ptr %offset.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %3, i64 %4
   %5 = load i32, ptr %arrayidx6.i, align 4
@@ -122,22 +99,22 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIiEESt4pairIl
   %retval.sroa.0.0.i = phi i64 [ %conv.i, %if.end.i ], [ 0, %sw.bb ]
   %retval.sroa.3.0.i = phi i64 [ %sub.i, %if.end.i ], [ 0, %sw.bb ]
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %retval.sroa.0.0.i, ptr %storage_.i.i, align 8
-  %ref.tmp.sroa.2.0.storage_.i.i.sroa_idx = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 8
+  %ref.tmp.sroa.2.0.storage_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %retval.sroa.3.0.i, ptr %ref.tmp.sroa.2.0.storage_.i.i.sroa_idx, align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %length.i6 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i6 = getelementptr inbounds i8, ptr %input, i64 8
   %7 = load i64, ptr %length.i6, align 8
   %cmp.i7 = icmp eq i64 %7, 0
   br i1 %cmp.i7, label %_ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIiEESt4pairIllERKNS_9ArraySpanE.exit20, label %if.end.i8
 
 if.end.i8:                                        ; preds = %sw.bb2
-  %arrayidx.i9 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %input, i64 56
   %8 = load ptr, ptr %arrayidx.i9, align 8
-  %offset.i10 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i10 = getelementptr inbounds i8, ptr %input, i64 24
   %9 = load i64, ptr %offset.i10, align 8
   %arrayidx6.i11 = getelementptr inbounds i32, ptr %8, i64 %9
   %10 = load i32, ptr %arrayidx6.i11, align 4
@@ -152,22 +129,22 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIiEESt4pairIl
   %retval.sroa.0.0.i16 = phi i64 [ %conv.i12, %if.end.i8 ], [ 0, %sw.bb2 ]
   %retval.sroa.3.0.i17 = phi i64 [ %sub.i15, %if.end.i8 ], [ 0, %sw.bb2 ]
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i21 = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %retval.sroa.0.0.i16, ptr %storage_.i.i21, align 8
-  %ref.tmp3.sroa.2.0.storage_.i.i21.sroa_idx = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 8
+  %ref.tmp3.sroa.2.0.storage_.i.i21.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %retval.sroa.3.0.i17, ptr %ref.tmp3.sroa.2.0.storage_.i.i21.sroa_idx, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %length.i22 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i22 = getelementptr inbounds i8, ptr %input, i64 8
   %12 = load i64, ptr %length.i22, align 8
   %cmp.i23 = icmp eq i64 %12, 0
   br i1 %cmp.i23, label %_ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIllERKNS_9ArraySpanE.exit, label %if.end.i24
 
 if.end.i24:                                       ; preds = %sw.bb5
-  %arrayidx.i25 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %input, i64 56
   %13 = load ptr, ptr %arrayidx.i25, align 8
-  %offset.i26 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i26 = getelementptr inbounds i8, ptr %input, i64 24
   %14 = load i64, ptr %offset.i26, align 8
   %arrayidx6.i27 = getelementptr inbounds i64, ptr %13, i64 %14
   %15 = load i64, ptr %arrayidx6.i27, align 8
@@ -180,17 +157,17 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   %retval.sroa.0.0.i30 = phi i64 [ %15, %if.end.i24 ], [ 0, %sw.bb5 ]
   %retval.sroa.3.0.i31 = phi i64 [ %sub.i29, %if.end.i24 ], [ 0, %sw.bb5 ]
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i34 = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i34 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %retval.sroa.0.0.i30, ptr %storage_.i.i34, align 8
-  %ref.tmp6.sroa.2.0.storage_.i.i34.sroa_idx = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 8
+  %ref.tmp6.sroa.2.0.storage_.i.i34.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %retval.sroa.3.0.i31, ptr %ref.tmp6.sroa.2.0.storage_.i.i34.sroa_idx, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  %length.i35 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i35 = getelementptr inbounds i8, ptr %input, i64 8
   %17 = load i64, ptr %length.i35, align 8
   %cmp.i36 = icmp eq i64 %17, 0
-  %null_count.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 2
+  %null_count.i = getelementptr inbounds i8, ptr %input, i64 16
   %18 = load i64, ptr %null_count.i, align 8
   %cmp5.i = icmp eq i64 %18, %17
   %or.cond.i = select i1 %cmp.i36, i1 true, i1 %cmp5.i
@@ -198,39 +175,39 @@ sw.bb8:                                           ; preds = %entry
 
 if.end.i37:                                       ; preds = %sw.bb8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i.i)
-  %buffers.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4
+  %buffers.i.i = getelementptr inbounds i8, ptr %input, i64 32
   %19 = load ptr, ptr %buffers.i.i, align 8
-  %offset.i.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %20 = load i64, ptr %offset.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %input, i64 56
   %21 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %21, i64 %20
-  %arrayidx.i.i23.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 2
-  %22 = load ptr, ptr %arrayidx.i.i23.i.i, align 8
-  %add.ptr.i.i24.i.i = getelementptr inbounds i32, ptr %22, i64 %20
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %input, i64 80
+  %22 = load ptr, ptr %arrayidx.i.i24.i.i, align 8
+  %add.ptr.i.i25.i.i = getelementptr inbounds i32, ptr %22, i64 %20
   %cmp.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i, label %for.cond.preheader.i.i, label %if.else25.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end.i37
-  %cmp287.i.i = icmp sgt i64 %17, 0
-  br i1 %cmp287.i.i, label %for.body.i.i, label %if.then10.i
+  %cmp288.i.i = icmp sgt i64 %17, 0
+  br i1 %cmp288.i.i, label %for.body.i.i, label %if.then10.i
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.inc.i.i
-  %i.090.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %min_offset.sroa.7.089.i.i = phi i8 [ %min_offset.sroa.7.1.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %min_offset.sroa.0.088.i.i = phi i32 [ %min_offset.sroa.0.1.i.i, %for.inc.i.i ], [ undef, %for.cond.preheader.i.i ]
-  %arrayidx3.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %i.090.i.i
+  %i.091.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
+  %min_offset.sroa.7.090.i.i = phi i8 [ %min_offset.sroa.7.1.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
+  %min_offset.sroa.0.089.i.i = phi i32 [ %min_offset.sroa.0.1.i.i, %for.inc.i.i ], [ undef, %for.cond.preheader.i.i ]
+  %arrayidx3.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %i.091.i.i
   %23 = load i32, ptr %arrayidx3.i.i, align 4
-  %24 = and i8 %min_offset.sroa.7.089.i.i, 1
+  %24 = and i8 %min_offset.sroa.7.090.i.i, 1
   %tobool.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  %cmp7.i.i = icmp slt i32 %23, %min_offset.sroa.0.088.i.i
+  %cmp7.i.i = icmp slt i32 %23, %min_offset.sroa.0.089.i.i
   br i1 %cmp7.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then5.i.i
-  %arrayidx8.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i24.i.i, i64 %i.090.i.i
+  %arrayidx8.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i25.i.i, i64 %i.091.i.i
   %25 = load i32, ptr %arrayidx8.i.i, align 4
   %cmp9.i.i = icmp sgt i32 %25, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %for.inc.i.i
@@ -240,7 +217,7 @@ if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
   br i1 %cmp11.i.i, label %if.end13.i, label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %arrayidx15.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i24.i.i, i64 %i.090.i.i
+  %arrayidx15.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i25.i.i, i64 %i.091.i.i
   %26 = load i32, ptr %arrayidx15.i.i, align 4
   %cmp16.i.i = icmp sgt i32 %26, 0
   br i1 %cmp16.i.i, label %if.then17.i.i, label %for.inc.i.i
@@ -250,20 +227,20 @@ if.then17.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp18.i.i, label %if.end13.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then17.i.i, %if.else.i.i, %if.then10.i.i, %land.lhs.true.i.i, %if.then5.i.i
-  %min_offset.sroa.0.1.i.i = phi i32 [ %min_offset.sroa.0.088.i.i, %land.lhs.true.i.i ], [ %min_offset.sroa.0.088.i.i, %if.then5.i.i ], [ %min_offset.sroa.0.088.i.i, %if.else.i.i ], [ %23, %if.then10.i.i ], [ %23, %if.then17.i.i ]
-  %min_offset.sroa.7.1.i.i = phi i8 [ %min_offset.sroa.7.089.i.i, %land.lhs.true.i.i ], [ %min_offset.sroa.7.089.i.i, %if.then5.i.i ], [ %min_offset.sroa.7.089.i.i, %if.else.i.i ], [ 1, %if.then10.i.i ], [ 1, %if.then17.i.i ]
-  %inc.i.i = add nuw nsw i64 %i.090.i.i, 1
+  %min_offset.sroa.0.1.i.i = phi i32 [ %min_offset.sroa.0.089.i.i, %land.lhs.true.i.i ], [ %min_offset.sroa.0.089.i.i, %if.then5.i.i ], [ %min_offset.sroa.0.089.i.i, %if.else.i.i ], [ %23, %if.then10.i.i ], [ %23, %if.then17.i.i ]
+  %min_offset.sroa.7.1.i.i = phi i8 [ %min_offset.sroa.7.090.i.i, %land.lhs.true.i.i ], [ %min_offset.sroa.7.090.i.i, %if.then5.i.i ], [ %min_offset.sroa.7.090.i.i, %if.else.i.i ], [ 1, %if.then10.i.i ], [ 1, %if.then17.i.i ]
+  %inc.i.i = add nuw nsw i64 %i.091.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %17
   br i1 %exitcond.not.i.i, label %if.end69.i.i, label %for.body.i.i, !llvm.loop !4
 
 if.else25.i.i:                                    ; preds = %if.end.i37
-  %length_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 1
+  %length_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 8
   store i64 %17, ptr %length_.i.i.i, align 8
-  %remaining_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 2
+  %remaining_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 16
   store i64 %17, ptr %remaining_.i.i.i, align 8
-  %current_word_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 3
+  %current_word_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 24
   store i64 0, ptr %current_word_.i.i.i, align 8
-  %current_num_bits_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 4
+  %current_num_bits_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 32
   store i32 0, ptr %current_num_bits_.i.i.i, align 8
   %div.i.i.i = sdiv i64 %20, 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 %div.i.i.i
@@ -290,8 +267,8 @@ if.then.i.i.i:                                    ; preds = %if.else25.i.i
   %conv.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i64
   %add.i.i.i.i.i = add nsw i64 %shr.i.i.i.i.i, %conv.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i.i.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %add.i.i.i.i.i, i1 false)
-  %add.ptr.i.i30.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %add.i.i.i.i.i
-  store ptr %add.ptr.i.i30.i.i, ptr %reader.i.i, align 8
+  %add.ptr.i.i31.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %add.i.i.i.i.i
+  store ptr %add.ptr.i.i31.i.i, ptr %reader.i.i, align 8
   %word.i.i.i.i.0.word.i.i.i.i.0.word.i.i.i.i.0.word.i.i.i.0.word.i.i.i.0.word.i.i.0.word.i.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i.i.i = load i64, ptr %word.i.i.i.i, align 8
   %sh_prom.i.i.i.i = and i64 %rem.i.i.i, 4294967295
   %shr.i.i.i.i = lshr i64 %word.i.i.i.i.0.word.i.i.i.i.0.word.i.i.i.i.0.word.i.i.i.0.word.i.i.i.0.word.i.i.0.word.i.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i.i.i, %sh_prom.i.i.i.i
@@ -303,14 +280,14 @@ if.then.i.i.i:                                    ; preds = %if.else25.i.i
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i: ; preds = %if.then.i.i.i, %if.else25.i.i
-  %call2881.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i)
-  %28 = extractvalue { i64, i64 } %call2881.i.i, 1
-  %cmp3082.i.i = icmp eq i64 %28, 0
-  br i1 %cmp3082.i.i, label %if.then10.i, label %for.cond34.preheader.i.i
+  %call2882.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i)
+  %28 = extractvalue { i64, i64 } %call2882.i.i, 1
+  %cmp3083.i.i = icmp eq i64 %28, 0
+  br i1 %cmp3083.i.i, label %if.then10.i, label %for.cond34.preheader.i.i
 
 while.body.loopexit.i.i:                          ; preds = %for.inc66.i.i, %for.cond34.preheader.i.i
-  %min_offset.sroa.0.3.lcssa.i.i = phi i32 [ %min_offset.sroa.0.283.i.i, %for.cond34.preheader.i.i ], [ %min_offset.sroa.0.4.i.i, %for.inc66.i.i ]
-  %min_offset.sroa.7.3.lcssa.i.i = phi i8 [ %min_offset.sroa.7.284.i.i, %for.cond34.preheader.i.i ], [ %min_offset.sroa.7.4.i.i, %for.inc66.i.i ]
+  %min_offset.sroa.0.3.lcssa.i.i = phi i32 [ %min_offset.sroa.0.284.i.i, %for.cond34.preheader.i.i ], [ %min_offset.sroa.0.4.i.i, %for.inc66.i.i ]
+  %min_offset.sroa.7.3.lcssa.i.i = phi i8 [ %min_offset.sroa.7.285.i.i, %for.cond34.preheader.i.i ], [ %min_offset.sroa.7.4.i.i, %for.inc66.i.i ]
   %call28.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i)
   %29 = extractvalue { i64, i64 } %call28.i.i, 1
   %cmp30.i.i = icmp eq i64 %29, 0
@@ -318,30 +295,30 @@ while.body.loopexit.i.i:                          ; preds = %for.inc66.i.i, %for
 
 for.cond34.preheader.i.i:                         ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i, %while.body.loopexit.i.i
   %30 = phi i64 [ %29, %while.body.loopexit.i.i ], [ %28, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
-  %call28.pn.i.i = phi { i64, i64 } [ %call28.i.i, %while.body.loopexit.i.i ], [ %call2881.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
-  %min_offset.sroa.7.284.i.i = phi i8 [ %min_offset.sroa.7.3.lcssa.i.i, %while.body.loopexit.i.i ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
-  %min_offset.sroa.0.283.i.i = phi i32 [ %min_offset.sroa.0.3.lcssa.i.i, %while.body.loopexit.i.i ], [ undef, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
+  %call28.pn.i.i = phi { i64, i64 } [ %call28.i.i, %while.body.loopexit.i.i ], [ %call2882.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
+  %min_offset.sroa.7.285.i.i = phi i8 [ %min_offset.sroa.7.3.lcssa.i.i, %while.body.loopexit.i.i ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
+  %min_offset.sroa.0.284.i.i = phi i32 [ %min_offset.sroa.0.3.lcssa.i.i, %while.body.loopexit.i.i ], [ undef, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ]
   %31 = extractvalue { i64, i64 } %call28.pn.i.i, 0
   %add.i.i = add nsw i64 %31, %30
-  %cmp3776.i.i = icmp sgt i64 %30, 0
-  br i1 %cmp3776.i.i, label %for.body38.i.i, label %while.body.loopexit.i.i
+  %cmp3777.i.i = icmp sgt i64 %30, 0
+  br i1 %cmp3777.i.i, label %for.body38.i.i, label %while.body.loopexit.i.i
 
 for.body38.i.i:                                   ; preds = %for.cond34.preheader.i.i, %for.inc66.i.i
-  %i33.079.i.i = phi i64 [ %inc67.i.i, %for.inc66.i.i ], [ %31, %for.cond34.preheader.i.i ]
-  %min_offset.sroa.7.378.i.i = phi i8 [ %min_offset.sroa.7.4.i.i, %for.inc66.i.i ], [ %min_offset.sroa.7.284.i.i, %for.cond34.preheader.i.i ]
-  %min_offset.sroa.0.377.i.i = phi i32 [ %min_offset.sroa.0.4.i.i, %for.inc66.i.i ], [ %min_offset.sroa.0.283.i.i, %for.cond34.preheader.i.i ]
-  %arrayidx40.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %i33.079.i.i
+  %i33.080.i.i = phi i64 [ %inc67.i.i, %for.inc66.i.i ], [ %31, %for.cond34.preheader.i.i ]
+  %min_offset.sroa.7.379.i.i = phi i8 [ %min_offset.sroa.7.4.i.i, %for.inc66.i.i ], [ %min_offset.sroa.7.285.i.i, %for.cond34.preheader.i.i ]
+  %min_offset.sroa.0.378.i.i = phi i32 [ %min_offset.sroa.0.4.i.i, %for.inc66.i.i ], [ %min_offset.sroa.0.284.i.i, %for.cond34.preheader.i.i ]
+  %arrayidx40.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %i33.080.i.i
   %32 = load i32, ptr %arrayidx40.i.i, align 4
-  %33 = and i8 %min_offset.sroa.7.378.i.i, 1
-  %tobool.i.i32.not.i.i = icmp eq i8 %33, 0
-  br i1 %tobool.i.i32.not.i.i, label %if.else55.i.i, label %if.then42.i.i
+  %33 = and i8 %min_offset.sroa.7.379.i.i, 1
+  %tobool.i.i33.not.i.i = icmp eq i8 %33, 0
+  br i1 %tobool.i.i33.not.i.i, label %if.else55.i.i, label %if.then42.i.i
 
 if.then42.i.i:                                    ; preds = %for.body38.i.i
-  %cmp44.i.i = icmp slt i32 %32, %min_offset.sroa.0.377.i.i
+  %cmp44.i.i = icmp slt i32 %32, %min_offset.sroa.0.378.i.i
   br i1 %cmp44.i.i, label %land.lhs.true45.i.i, label %for.inc66.i.i
 
 land.lhs.true45.i.i:                              ; preds = %if.then42.i.i
-  %arrayidx46.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i24.i.i, i64 %i33.079.i.i
+  %arrayidx46.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i25.i.i, i64 %i33.080.i.i
   %34 = load i32, ptr %arrayidx46.i.i, align 4
   %cmp47.i.i = icmp sgt i32 %34, 0
   br i1 %cmp47.i.i, label %if.then48.i.i, label %for.inc66.i.i
@@ -351,7 +328,7 @@ if.then48.i.i:                                    ; preds = %land.lhs.true45.i.i
   br i1 %cmp49.i.i, label %if.end13.i, label %for.inc66.i.i
 
 if.else55.i.i:                                    ; preds = %for.body38.i.i
-  %arrayidx56.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i24.i.i, i64 %i33.079.i.i
+  %arrayidx56.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i25.i.i, i64 %i33.080.i.i
   %35 = load i32, ptr %arrayidx56.i.i, align 4
   %cmp57.i.i = icmp sgt i32 %35, 0
   br i1 %cmp57.i.i, label %if.then58.i.i, label %for.inc66.i.i
@@ -361,9 +338,9 @@ if.then58.i.i:                                    ; preds = %if.else55.i.i
   br i1 %cmp59.i.i, label %if.end13.i, label %for.inc66.i.i
 
 for.inc66.i.i:                                    ; preds = %if.then58.i.i, %if.else55.i.i, %if.then48.i.i, %land.lhs.true45.i.i, %if.then42.i.i
-  %min_offset.sroa.0.4.i.i = phi i32 [ %min_offset.sroa.0.377.i.i, %land.lhs.true45.i.i ], [ %min_offset.sroa.0.377.i.i, %if.then42.i.i ], [ %min_offset.sroa.0.377.i.i, %if.else55.i.i ], [ %32, %if.then48.i.i ], [ %32, %if.then58.i.i ]
-  %min_offset.sroa.7.4.i.i = phi i8 [ %min_offset.sroa.7.378.i.i, %land.lhs.true45.i.i ], [ %min_offset.sroa.7.378.i.i, %if.then42.i.i ], [ %min_offset.sroa.7.378.i.i, %if.else55.i.i ], [ 1, %if.then48.i.i ], [ 1, %if.then58.i.i ]
-  %inc67.i.i = add nsw i64 %i33.079.i.i, 1
+  %min_offset.sroa.0.4.i.i = phi i32 [ %min_offset.sroa.0.378.i.i, %land.lhs.true45.i.i ], [ %min_offset.sroa.0.378.i.i, %if.then42.i.i ], [ %min_offset.sroa.0.378.i.i, %if.else55.i.i ], [ %32, %if.then48.i.i ], [ %32, %if.then58.i.i ]
+  %min_offset.sroa.7.4.i.i = phi i8 [ %min_offset.sroa.7.379.i.i, %land.lhs.true45.i.i ], [ %min_offset.sroa.7.379.i.i, %if.then42.i.i ], [ %min_offset.sroa.7.379.i.i, %if.else55.i.i ], [ 1, %if.then48.i.i ], [ 1, %if.then58.i.i ]
+  %inc67.i.i = add nsw i64 %i33.080.i.i, 1
   %cmp37.i.i = icmp slt i64 %inc67.i.i, %add.i.i
   br i1 %cmp37.i.i, label %for.body38.i.i, label %while.body.loopexit.i.i, !llvm.loop !7
 
@@ -375,7 +352,7 @@ if.end69.i.i:                                     ; preds = %while.body.loopexit
   br i1 %tobool.i.i.not.i.i.i, label %if.then10.i, label %_ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i
 
 _ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i: ; preds = %if.end69.i.i
-  %conv.i.i.i.i.i40.i.i = sext i32 %min_offset.sroa.0.5.i.i to i64
+  %conv.i.i.i.i.i41.i.i = sext i32 %min_offset.sroa.0.5.i.i to i64
   br label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end69.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i, %for.cond.preheader.i.i
@@ -383,43 +360,43 @@ if.then10.i:                                      ; preds = %if.end69.i.i, %_ZN5
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pairIllERKNS_9ArraySpanE.exit
 
 if.end13.i:                                       ; preds = %if.then58.i.i, %if.then48.i.i, %if.then17.i.i, %if.then10.i.i, %_ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i
-  %retval.sroa.0.1.i.ph.i = phi i64 [ %conv.i.i.i.i.i40.i.i, %_ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i ], [ 0, %if.then10.i.i ], [ 0, %if.then17.i.i ], [ 0, %if.then48.i.i ], [ 0, %if.then58.i.i ]
+  %retval.sroa.0.1.i.ph.i = phi i64 [ %conv.i.i.i.i.i41.i.i, %_ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i ], [ 0, %if.then10.i.i ], [ 0, %if.then17.i.i ], [ 0, %if.then48.i.i ], [ 0, %if.then58.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i10.i)
-  %child_data.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 5
+  %child_data.i.i = getelementptr inbounds i8, ptr %input, i64 104
   %37 = load ptr, ptr %child_data.i.i, align 8
-  %length.i11.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %37, i64 0, i32 1
+  %length.i11.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %length.i11.i, align 8
   %39 = load ptr, ptr %buffers.i.i, align 8
   %40 = load i64, ptr %offset.i.i.i, align 8
   %41 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %add.ptr.i.i.i15.i = getelementptr inbounds i32, ptr %41, i64 %40
-  %42 = load ptr, ptr %arrayidx.i.i23.i.i, align 8
-  %add.ptr.i.i35.i.i = getelementptr inbounds i32, ptr %42, i64 %40
+  %42 = load ptr, ptr %arrayidx.i.i24.i.i, align 8
+  %add.ptr.i.i36.i.i = getelementptr inbounds i32, ptr %42, i64 %40
   %cmp.i16.i = icmp eq ptr %39, null
   %43 = load i64, ptr %length.i35, align 8
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else.i17.i
 
 if.then.i.i:                                      ; preds = %if.end13.i
-  %cmp450.i.i = icmp sgt i64 %43, 0
-  br i1 %cmp450.i.i, label %for.body.i40.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i
+  %cmp451.i.i = icmp sgt i64 %43, 0
+  br i1 %cmp451.i.i, label %for.body.i40.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i
 
 for.body.i40.i:                                   ; preds = %if.then.i.i, %for.inc.i42.i
-  %i.052.in.i.i = phi i64 [ %i.052.i.i, %for.inc.i42.i ], [ %43, %if.then.i.i ]
-  %max_end.051.i.i = phi i64 [ %max_end.1.i.i, %for.inc.i42.i ], [ 0, %if.then.i.i ]
-  %i.052.i.i = add nsw i64 %i.052.in.i.i, -1
-  %arrayidx6.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i35.i.i, i64 %i.052.i.i
+  %i.053.in.i.i = phi i64 [ %i.053.i.i, %for.inc.i42.i ], [ %43, %if.then.i.i ]
+  %max_end.052.i.i = phi i64 [ %max_end.1.i.i, %for.inc.i42.i ], [ 0, %if.then.i.i ]
+  %i.053.i.i = add nsw i64 %i.053.in.i.i, -1
+  %arrayidx6.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i36.i.i, i64 %i.053.i.i
   %44 = load i32, ptr %arrayidx6.i.i, align 4
   %cmp7.i41.i = icmp sgt i32 %44, 0
   br i1 %cmp7.i41.i, label %if.then8.i.i, label %for.inc.i42.i
 
 if.then8.i.i:                                     ; preds = %for.body.i40.i
-  %arrayidx5.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i15.i, i64 %i.052.i.i
+  %arrayidx5.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i15.i, i64 %i.053.i.i
   %45 = load i32, ptr %arrayidx5.i.i, align 4
   %conv.i43.i = sext i32 %45 to i64
   %conv9.i.i = zext nneg i32 %44 to i64
   %add.i44.i = add nsw i64 %conv.i43.i, %conv9.i.i
-  %cmp10.i.i = icmp sgt i64 %add.i44.i, %max_end.051.i.i
+  %cmp10.i.i = icmp sgt i64 %add.i44.i, %max_end.052.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %for.inc.i42.i
 
 if.then11.i.i:                                    ; preds = %if.then8.i.i
@@ -427,18 +404,18 @@ if.then11.i.i:                                    ; preds = %if.then8.i.i
   br i1 %cmp12.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i, label %for.inc.i42.i
 
 for.inc.i42.i:                                    ; preds = %if.then11.i.i, %if.then8.i.i, %for.body.i40.i
-  %max_end.1.i.i = phi i64 [ %max_end.051.i.i, %if.then8.i.i ], [ %max_end.051.i.i, %for.body.i40.i ], [ %add.i44.i, %if.then11.i.i ]
-  %cmp4.i.i = icmp ugt i64 %i.052.in.i.i, 1
+  %max_end.1.i.i = phi i64 [ %max_end.052.i.i, %if.then8.i.i ], [ %max_end.052.i.i, %for.body.i40.i ], [ %add.i44.i, %if.then11.i.i ]
+  %cmp4.i.i = icmp ugt i64 %i.053.in.i.i, 1
   br i1 %cmp4.i.i, label %for.body.i40.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i, !llvm.loop !8
 
 if.else.i17.i:                                    ; preds = %if.end13.i
-  %length_.i.i18.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i, i64 0, i32 1
+  %length_.i.i18.i = getelementptr inbounds i8, ptr %reader.i10.i, i64 8
   store i64 %43, ptr %length_.i.i18.i, align 8
-  %remaining_.i.i19.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i, i64 0, i32 2
+  %remaining_.i.i19.i = getelementptr inbounds i8, ptr %reader.i10.i, i64 16
   store i64 %43, ptr %remaining_.i.i19.i, align 8
-  %current_word_.i.i20.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i, i64 0, i32 3
+  %current_word_.i.i20.i = getelementptr inbounds i8, ptr %reader.i10.i, i64 24
   store i64 0, ptr %current_word_.i.i20.i, align 8
-  %current_num_bits_.i.i21.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i, i64 0, i32 4
+  %current_num_bits_.i.i21.i = getelementptr inbounds i8, ptr %reader.i10.i, i64 32
   store i32 0, ptr %current_num_bits_.i.i21.i, align 8
   %add.i.i.i = add nsw i64 %43, %40
   %div.i.i22.i = sdiv i64 %add.i.i.i, 8
@@ -467,11 +444,11 @@ if.then.i.i30.i:                                  ; preds = %if.else.i17.i
   %conv.i.i.i.i36.i = zext i1 %cmp.i.i.i.i35.i to i64
   %add.i.i.i.i37.i = add nsw i64 %shr.i.i.i.i33.i, %conv.i.i.i.i36.i
   %idx.neg.i.i.i.i = sub nsw i64 0, %add.i.i.i.i37.i
-  %add.ptr.i.i36.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %idx.neg.i.i.i.i
-  store ptr %add.ptr.i.i36.i.i, ptr %reader.i10.i, align 8
+  %add.ptr.i.i37.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %idx.neg.i.i.i.i
+  store ptr %add.ptr.i.i37.i.i, ptr %reader.i10.i, align 8
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %word.i.i.i9.i, i64 8
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i, i64 %idx.neg.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i.i.i.i, ptr nonnull align 1 %add.ptr.i.i36.i.i, i64 %add.i.i.i.i37.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i.i.i.i, ptr nonnull align 1 %add.ptr.i.i37.i.i, i64 %add.i.i.i.i37.i, i1 false)
   %47 = load i64, ptr %word.i.i.i9.i, align 8
   %shl.i.i.i.i = shl i64 %47, %conv12.i.i.i
   %sub.i.i.i.i = sub nsw i64 64, %conv14.i.i.i
@@ -482,13 +459,13 @@ if.then.i.i30.i:                                  ; preds = %if.else.i17.i
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i: ; preds = %if.then.i.i30.i, %if.else.i17.i
-  %call1845.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i10.i)
-  %48 = extractvalue { i64, i64 } %call1845.i.i, 1
-  %cmp2046.i.i = icmp eq i64 %48, 0
-  br i1 %cmp2046.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i, label %if.end22.i.i
+  %call1846.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i10.i)
+  %48 = extractvalue { i64, i64 } %call1846.i.i, 1
+  %cmp2047.i.i = icmp eq i64 %48, 0
+  br i1 %cmp2047.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i, label %if.end22.i.i
 
 while.body.loopexit.i28.i:                        ; preds = %for.inc48.i.i, %if.end22.i.i
-  %max_end.3.lcssa.i.i = phi i64 [ %max_end.247.i.i, %if.end22.i.i ], [ %max_end.4.i.i, %for.inc48.i.i ]
+  %max_end.3.lcssa.i.i = phi i64 [ %max_end.248.i.i, %if.end22.i.i ], [ %max_end.4.i.i, %for.inc48.i.i ]
   %call18.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i10.i)
   %49 = extractvalue { i64, i64 } %call18.i.i, 1
   %cmp20.i.i = icmp eq i64 %49, 0
@@ -496,32 +473,32 @@ while.body.loopexit.i28.i:                        ; preds = %for.inc48.i.i, %if.
 
 if.end22.i.i:                                     ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i, %while.body.loopexit.i28.i
   %50 = phi i64 [ %49, %while.body.loopexit.i28.i ], [ %48, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i ]
-  %call18.pn.i.i = phi { i64, i64 } [ %call18.i.i, %while.body.loopexit.i28.i ], [ %call1845.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i ]
-  %max_end.247.i.i = phi i64 [ %max_end.3.lcssa.i.i, %while.body.loopexit.i28.i ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i ]
+  %call18.pn.i.i = phi { i64, i64 } [ %call18.i.i, %while.body.loopexit.i28.i ], [ %call1846.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i ]
+  %max_end.248.i.i = phi i64 [ %max_end.3.lcssa.i.i, %while.body.loopexit.i28.i ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i ]
   %51 = extractvalue { i64, i64 } %call18.pn.i.i, 0
-  %cmp29.not.not42.i.i = icmp sgt i64 %50, 0
-  br i1 %cmp29.not.not42.i.i, label %for.body30.preheader.i.i, label %while.body.loopexit.i28.i
+  %cmp29.not.not43.i.i = icmp sgt i64 %50, 0
+  br i1 %cmp29.not.not43.i.i, label %for.body30.preheader.i.i, label %while.body.loopexit.i28.i
 
 for.body30.preheader.i.i:                         ; preds = %if.end22.i.i
   %add25.i.i = add nsw i64 %51, %50
   br label %for.body30.i.i
 
 for.body30.i.i:                                   ; preds = %for.inc48.i.i, %for.body30.preheader.i.i
-  %i23.044.in.i.i = phi i64 [ %i23.044.i.i, %for.inc48.i.i ], [ %add25.i.i, %for.body30.preheader.i.i ]
-  %max_end.343.i.i = phi i64 [ %max_end.4.i.i, %for.inc48.i.i ], [ %max_end.247.i.i, %for.body30.preheader.i.i ]
-  %i23.044.i.i = add nsw i64 %i23.044.in.i.i, -1
-  %arrayidx35.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i35.i.i, i64 %i23.044.i.i
+  %i23.045.in.i.i = phi i64 [ %i23.045.i.i, %for.inc48.i.i ], [ %add25.i.i, %for.body30.preheader.i.i ]
+  %max_end.344.i.i = phi i64 [ %max_end.4.i.i, %for.inc48.i.i ], [ %max_end.248.i.i, %for.body30.preheader.i.i ]
+  %i23.045.i.i = add nsw i64 %i23.045.in.i.i, -1
+  %arrayidx35.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i36.i.i, i64 %i23.045.i.i
   %52 = load i32, ptr %arrayidx35.i.i, align 4
   %cmp36.i.i = icmp sgt i32 %52, 0
   br i1 %cmp36.i.i, label %if.then37.i.i, label %for.inc48.i.i
 
 if.then37.i.i:                                    ; preds = %for.body30.i.i
-  %arrayidx32.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i15.i, i64 %i23.044.i.i
+  %arrayidx32.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i15.i, i64 %i23.045.i.i
   %53 = load i32, ptr %arrayidx32.i.i, align 4
   %conv33.i.i = sext i32 %53 to i64
   %conv39.i.i = zext nneg i32 %52 to i64
   %add40.i.i = add nsw i64 %conv33.i.i, %conv39.i.i
-  %cmp41.i.i = icmp sgt i64 %add40.i.i, %max_end.343.i.i
+  %cmp41.i.i = icmp sgt i64 %add40.i.i, %max_end.344.i.i
   br i1 %cmp41.i.i, label %if.then42.i29.i, label %for.inc48.i.i
 
 if.then42.i29.i:                                  ; preds = %if.then37.i.i
@@ -529,8 +506,8 @@ if.then42.i29.i:                                  ; preds = %if.then37.i.i
   br i1 %cmp43.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i, label %for.inc48.i.i
 
 for.inc48.i.i:                                    ; preds = %if.then42.i29.i, %if.then37.i.i, %for.body30.i.i
-  %max_end.4.i.i = phi i64 [ %max_end.343.i.i, %if.then37.i.i ], [ %max_end.343.i.i, %for.body30.i.i ], [ %add40.i.i, %if.then42.i29.i ]
-  %cmp29.not.not.i.i = icmp sgt i64 %i23.044.i.i, %51
+  %max_end.4.i.i = phi i64 [ %max_end.344.i.i, %if.then37.i.i ], [ %max_end.344.i.i, %for.body30.i.i ], [ %add40.i.i, %if.then42.i29.i ]
+  %cmp29.not.not.i.i = icmp sgt i64 %i23.045.i.i, %51
   br i1 %cmp29.not.not.i.i, label %for.body30.i.i, label %while.body.loopexit.i28.i, !llvm.loop !10
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i: ; preds = %while.body.loopexit.i28.i, %if.then42.i29.i, %for.inc.i42.i, %if.then11.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i, %if.then.i.i
@@ -543,17 +520,17 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   %retval.sroa.0.0.i39 = phi i64 [ %retval.sroa.0.1.i.ph.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i ], [ 0, %if.then10.i ], [ 0, %sw.bb8 ]
   %retval.sroa.4.0.i = phi i64 [ %sub.i38, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i ], [ 0, %if.then10.i ], [ 0, %sw.bb8 ]
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i42 = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i42 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %retval.sroa.0.0.i39, ptr %storage_.i.i42, align 8
-  %ref.tmp9.sroa.2.0.storage_.i.i42.sroa_idx = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 8
+  %ref.tmp9.sroa.2.0.storage_.i.i42.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %retval.sroa.4.0.i, ptr %ref.tmp9.sroa.2.0.storage_.i.i42.sroa_idx, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %length.i47 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i47 = getelementptr inbounds i8, ptr %input, i64 8
   %54 = load i64, ptr %length.i47, align 8
   %cmp.i48 = icmp eq i64 %54, 0
-  %null_count.i49 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 2
+  %null_count.i49 = getelementptr inbounds i8, ptr %input, i64 16
   %55 = load i64, ptr %null_count.i49, align 8
   %cmp5.i50 = icmp eq i64 %55, %54
   %or.cond.i51 = select i1 %cmp.i48, i1 true, i1 %cmp5.i50
@@ -561,39 +538,39 @@ sw.bb11:                                          ; preds = %entry
 
 if.end.i52:                                       ; preds = %sw.bb11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i.i46)
-  %buffers.i.i53 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4
+  %buffers.i.i53 = getelementptr inbounds i8, ptr %input, i64 32
   %56 = load ptr, ptr %buffers.i.i53, align 8
-  %offset.i.i.i54 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i.i.i54 = getelementptr inbounds i8, ptr %input, i64 24
   %57 = load i64, ptr %offset.i.i.i54, align 8
-  %arrayidx.i.i.i.i55 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i.i.i.i55 = getelementptr inbounds i8, ptr %input, i64 56
   %58 = load ptr, ptr %arrayidx.i.i.i.i55, align 8
   %add.ptr.i.i.i.i56 = getelementptr inbounds i64, ptr %58, i64 %57
-  %arrayidx.i.i23.i.i57 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 2
-  %59 = load ptr, ptr %arrayidx.i.i23.i.i57, align 8
-  %add.ptr.i.i24.i.i58 = getelementptr inbounds i64, ptr %59, i64 %57
+  %arrayidx.i.i24.i.i57 = getelementptr inbounds i8, ptr %input, i64 80
+  %59 = load ptr, ptr %arrayidx.i.i24.i.i57, align 8
+  %add.ptr.i.i25.i.i58 = getelementptr inbounds i64, ptr %59, i64 %57
   %cmp.i.i59 = icmp eq ptr %56, null
   br i1 %cmp.i.i59, label %for.cond.preheader.i.i168, label %if.else25.i.i60
 
 for.cond.preheader.i.i168:                        ; preds = %if.end.i52
-  %cmp266.i.i = icmp sgt i64 %54, 0
-  br i1 %cmp266.i.i, label %for.body.i.i169, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread55.i
+  %cmp267.i.i = icmp sgt i64 %54, 0
+  br i1 %cmp267.i.i, label %for.body.i.i169, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread55.i
 
 for.body.i.i169:                                  ; preds = %for.cond.preheader.i.i168, %for.inc.i.i174
-  %i.069.i.i = phi i64 [ %inc.i.i177, %for.inc.i.i174 ], [ 0, %for.cond.preheader.i.i168 ]
-  %min_offset.sroa.7.068.i.i = phi i8 [ %min_offset.sroa.7.1.i.i176, %for.inc.i.i174 ], [ 0, %for.cond.preheader.i.i168 ]
-  %min_offset.sroa.0.067.i.i = phi i64 [ %min_offset.sroa.0.1.i.i175, %for.inc.i.i174 ], [ undef, %for.cond.preheader.i.i168 ]
-  %arrayidx3.i.i170 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i56, i64 %i.069.i.i
+  %i.070.i.i = phi i64 [ %inc.i.i177, %for.inc.i.i174 ], [ 0, %for.cond.preheader.i.i168 ]
+  %min_offset.sroa.7.069.i.i = phi i8 [ %min_offset.sroa.7.1.i.i176, %for.inc.i.i174 ], [ 0, %for.cond.preheader.i.i168 ]
+  %min_offset.sroa.0.068.i.i = phi i64 [ %min_offset.sroa.0.1.i.i175, %for.inc.i.i174 ], [ undef, %for.cond.preheader.i.i168 ]
+  %arrayidx3.i.i170 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i56, i64 %i.070.i.i
   %60 = load i64, ptr %arrayidx3.i.i170, align 8
-  %61 = and i8 %min_offset.sroa.7.068.i.i, 1
+  %61 = and i8 %min_offset.sroa.7.069.i.i, 1
   %tobool.i.i.not.i.i171 = icmp eq i8 %61, 0
   br i1 %tobool.i.i.not.i.i171, label %if.else.i.i184, label %if.then5.i.i172
 
 if.then5.i.i172:                                  ; preds = %for.body.i.i169
-  %cmp7.i.i173 = icmp slt i64 %60, %min_offset.sroa.0.067.i.i
+  %cmp7.i.i173 = icmp slt i64 %60, %min_offset.sroa.0.068.i.i
   br i1 %cmp7.i.i173, label %land.lhs.true.i.i179, label %for.inc.i.i174
 
 land.lhs.true.i.i179:                             ; preds = %if.then5.i.i172
-  %arrayidx8.i.i180 = getelementptr inbounds i64, ptr %add.ptr.i.i24.i.i58, i64 %i.069.i.i
+  %arrayidx8.i.i180 = getelementptr inbounds i64, ptr %add.ptr.i.i25.i.i58, i64 %i.070.i.i
   %62 = load i64, ptr %arrayidx8.i.i180, align 8
   %cmp9.i.i181 = icmp sgt i64 %62, 0
   br i1 %cmp9.i.i181, label %if.then10.i.i182, label %for.inc.i.i174
@@ -603,7 +580,7 @@ if.then10.i.i182:                                 ; preds = %land.lhs.true.i.i17
   br i1 %cmp11.i.i183, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i, label %for.inc.i.i174
 
 if.else.i.i184:                                   ; preds = %for.body.i.i169
-  %arrayidx15.i.i185 = getelementptr inbounds i64, ptr %add.ptr.i.i24.i.i58, i64 %i.069.i.i
+  %arrayidx15.i.i185 = getelementptr inbounds i64, ptr %add.ptr.i.i25.i.i58, i64 %i.070.i.i
   %63 = load i64, ptr %arrayidx15.i.i185, align 8
   %cmp16.i.i186 = icmp sgt i64 %63, 0
   br i1 %cmp16.i.i186, label %if.then17.i.i187, label %for.inc.i.i174
@@ -613,20 +590,20 @@ if.then17.i.i187:                                 ; preds = %if.else.i.i184
   br i1 %cmp18.i.i188, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i, label %for.inc.i.i174
 
 for.inc.i.i174:                                   ; preds = %if.then17.i.i187, %if.else.i.i184, %if.then10.i.i182, %land.lhs.true.i.i179, %if.then5.i.i172
-  %min_offset.sroa.0.1.i.i175 = phi i64 [ %min_offset.sroa.0.067.i.i, %land.lhs.true.i.i179 ], [ %min_offset.sroa.0.067.i.i, %if.then5.i.i172 ], [ %min_offset.sroa.0.067.i.i, %if.else.i.i184 ], [ %60, %if.then10.i.i182 ], [ %60, %if.then17.i.i187 ]
-  %min_offset.sroa.7.1.i.i176 = phi i8 [ %min_offset.sroa.7.068.i.i, %land.lhs.true.i.i179 ], [ %min_offset.sroa.7.068.i.i, %if.then5.i.i172 ], [ %min_offset.sroa.7.068.i.i, %if.else.i.i184 ], [ 1, %if.then10.i.i182 ], [ 1, %if.then17.i.i187 ]
-  %inc.i.i177 = add nuw nsw i64 %i.069.i.i, 1
+  %min_offset.sroa.0.1.i.i175 = phi i64 [ %min_offset.sroa.0.068.i.i, %land.lhs.true.i.i179 ], [ %min_offset.sroa.0.068.i.i, %if.then5.i.i172 ], [ %min_offset.sroa.0.068.i.i, %if.else.i.i184 ], [ %60, %if.then10.i.i182 ], [ %60, %if.then17.i.i187 ]
+  %min_offset.sroa.7.1.i.i176 = phi i8 [ %min_offset.sroa.7.069.i.i, %land.lhs.true.i.i179 ], [ %min_offset.sroa.7.069.i.i, %if.then5.i.i172 ], [ %min_offset.sroa.7.069.i.i, %if.else.i.i184 ], [ 1, %if.then10.i.i182 ], [ 1, %if.then17.i.i187 ]
+  %inc.i.i177 = add nuw nsw i64 %i.070.i.i, 1
   %exitcond.not.i.i178 = icmp eq i64 %inc.i.i177, %54
   br i1 %exitcond.not.i.i178, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i, label %for.body.i.i169, !llvm.loop !11
 
 if.else25.i.i60:                                  ; preds = %if.end.i52
-  %length_.i.i.i61 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i46, i64 0, i32 1
+  %length_.i.i.i61 = getelementptr inbounds i8, ptr %reader.i.i46, i64 8
   store i64 %54, ptr %length_.i.i.i61, align 8
-  %remaining_.i.i.i62 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i46, i64 0, i32 2
+  %remaining_.i.i.i62 = getelementptr inbounds i8, ptr %reader.i.i46, i64 16
   store i64 %54, ptr %remaining_.i.i.i62, align 8
-  %current_word_.i.i.i63 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i46, i64 0, i32 3
+  %current_word_.i.i.i63 = getelementptr inbounds i8, ptr %reader.i.i46, i64 24
   store i64 0, ptr %current_word_.i.i.i63, align 8
-  %current_num_bits_.i.i.i64 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i46, i64 0, i32 4
+  %current_num_bits_.i.i.i64 = getelementptr inbounds i8, ptr %reader.i.i46, i64 32
   store i32 0, ptr %current_num_bits_.i.i.i64, align 8
   %div.i.i.i65 = sdiv i64 %57, 8
   %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %56, i64 %div.i.i.i65
@@ -653,8 +630,8 @@ if.then.i.i.i150:                                 ; preds = %if.else25.i.i60
   %conv.i.i.i.i.i159 = zext i1 %cmp.i.i.i.i.i158 to i64
   %add.i.i.i.i.i160 = add nsw i64 %shr.i.i.i.i.i156, %conv.i.i.i.i.i159
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i.i.i45, ptr nonnull align 1 %add.ptr.i.i.i66, i64 %add.i.i.i.i.i160, i1 false)
-  %add.ptr.i.i30.i.i161 = getelementptr inbounds i8, ptr %add.ptr.i.i.i66, i64 %add.i.i.i.i.i160
-  store ptr %add.ptr.i.i30.i.i161, ptr %reader.i.i46, align 8
+  %add.ptr.i.i31.i.i161 = getelementptr inbounds i8, ptr %add.ptr.i.i.i66, i64 %add.i.i.i.i.i160
+  store ptr %add.ptr.i.i31.i.i161, ptr %reader.i.i46, align 8
   %word.i.i.i.i45.0.word.i.i.i.i45.0.word.i.i.i.i45.0.word.i.i.i.0.word.i.i.i.0.word.i.i.0.word.i.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i.i.i162 = load i64, ptr %word.i.i.i.i45, align 8
   %sh_prom.i.i.i.i163 = and i64 %rem.i.i.i67, 4294967295
   %shr.i.i.i.i164 = lshr i64 %word.i.i.i.i45.0.word.i.i.i.i45.0.word.i.i.i.i45.0.word.i.i.i.0.word.i.i.i.0.word.i.i.0.word.i.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i.i.i162, %sh_prom.i.i.i.i163
@@ -666,14 +643,14 @@ if.then.i.i.i150:                                 ; preds = %if.else25.i.i60
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71: ; preds = %if.then.i.i.i150, %if.else25.i.i60
-  %call2860.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i46)
-  %65 = extractvalue { i64, i64 } %call2860.i.i, 1
-  %cmp3061.i.i = icmp eq i64 %65, 0
-  br i1 %cmp3061.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread55.i, label %for.cond34.preheader.i.i72
+  %call2861.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i46)
+  %65 = extractvalue { i64, i64 } %call2861.i.i, 1
+  %cmp3062.i.i = icmp eq i64 %65, 0
+  br i1 %cmp3062.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread55.i, label %for.cond34.preheader.i.i72
 
 while.body.loopexit.i.i75:                        ; preds = %for.inc66.i.i135, %for.cond34.preheader.i.i72
-  %min_offset.sroa.0.3.lcssa.i.i76 = phi i64 [ %min_offset.sroa.0.262.i.i, %for.cond34.preheader.i.i72 ], [ %min_offset.sroa.0.4.i.i136, %for.inc66.i.i135 ]
-  %min_offset.sroa.7.3.lcssa.i.i77 = phi i8 [ %min_offset.sroa.7.263.i.i, %for.cond34.preheader.i.i72 ], [ %min_offset.sroa.7.4.i.i137, %for.inc66.i.i135 ]
+  %min_offset.sroa.0.3.lcssa.i.i76 = phi i64 [ %min_offset.sroa.0.263.i.i, %for.cond34.preheader.i.i72 ], [ %min_offset.sroa.0.4.i.i136, %for.inc66.i.i135 ]
+  %min_offset.sroa.7.3.lcssa.i.i77 = phi i8 [ %min_offset.sroa.7.264.i.i, %for.cond34.preheader.i.i72 ], [ %min_offset.sroa.7.4.i.i137, %for.inc66.i.i135 ]
   %call28.i.i78 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i46)
   %66 = extractvalue { i64, i64 } %call28.i.i78, 1
   %cmp30.i.i79 = icmp eq i64 %66, 0
@@ -681,30 +658,30 @@ while.body.loopexit.i.i75:                        ; preds = %for.inc66.i.i135, %
 
 for.cond34.preheader.i.i72:                       ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71, %while.body.loopexit.i.i75
   %67 = phi i64 [ %66, %while.body.loopexit.i.i75 ], [ %65, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
-  %call28.pn.i.i73 = phi { i64, i64 } [ %call28.i.i78, %while.body.loopexit.i.i75 ], [ %call2860.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
-  %min_offset.sroa.7.263.i.i = phi i8 [ %min_offset.sroa.7.3.lcssa.i.i77, %while.body.loopexit.i.i75 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
-  %min_offset.sroa.0.262.i.i = phi i64 [ %min_offset.sroa.0.3.lcssa.i.i76, %while.body.loopexit.i.i75 ], [ undef, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
+  %call28.pn.i.i73 = phi { i64, i64 } [ %call28.i.i78, %while.body.loopexit.i.i75 ], [ %call2861.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
+  %min_offset.sroa.7.264.i.i = phi i8 [ %min_offset.sroa.7.3.lcssa.i.i77, %while.body.loopexit.i.i75 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
+  %min_offset.sroa.0.263.i.i = phi i64 [ %min_offset.sroa.0.3.lcssa.i.i76, %while.body.loopexit.i.i75 ], [ undef, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i71 ]
   %68 = extractvalue { i64, i64 } %call28.pn.i.i73, 0
   %add.i.i74 = add nsw i64 %68, %67
-  %cmp3755.i.i = icmp sgt i64 %67, 0
-  br i1 %cmp3755.i.i, label %for.body38.i.i130, label %while.body.loopexit.i.i75
+  %cmp3756.i.i = icmp sgt i64 %67, 0
+  br i1 %cmp3756.i.i, label %for.body38.i.i130, label %while.body.loopexit.i.i75
 
 for.body38.i.i130:                                ; preds = %for.cond34.preheader.i.i72, %for.inc66.i.i135
-  %i33.058.i.i = phi i64 [ %inc67.i.i138, %for.inc66.i.i135 ], [ %68, %for.cond34.preheader.i.i72 ]
-  %min_offset.sroa.7.357.i.i = phi i8 [ %min_offset.sroa.7.4.i.i137, %for.inc66.i.i135 ], [ %min_offset.sroa.7.263.i.i, %for.cond34.preheader.i.i72 ]
-  %min_offset.sroa.0.356.i.i = phi i64 [ %min_offset.sroa.0.4.i.i136, %for.inc66.i.i135 ], [ %min_offset.sroa.0.262.i.i, %for.cond34.preheader.i.i72 ]
-  %arrayidx40.i.i131 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i56, i64 %i33.058.i.i
+  %i33.059.i.i = phi i64 [ %inc67.i.i138, %for.inc66.i.i135 ], [ %68, %for.cond34.preheader.i.i72 ]
+  %min_offset.sroa.7.358.i.i = phi i8 [ %min_offset.sroa.7.4.i.i137, %for.inc66.i.i135 ], [ %min_offset.sroa.7.264.i.i, %for.cond34.preheader.i.i72 ]
+  %min_offset.sroa.0.357.i.i = phi i64 [ %min_offset.sroa.0.4.i.i136, %for.inc66.i.i135 ], [ %min_offset.sroa.0.263.i.i, %for.cond34.preheader.i.i72 ]
+  %arrayidx40.i.i131 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i56, i64 %i33.059.i.i
   %69 = load i64, ptr %arrayidx40.i.i131, align 8
-  %70 = and i8 %min_offset.sroa.7.357.i.i, 1
-  %tobool.i.i32.not.i.i132 = icmp eq i8 %70, 0
-  br i1 %tobool.i.i32.not.i.i132, label %if.else55.i.i145, label %if.then42.i.i133
+  %70 = and i8 %min_offset.sroa.7.358.i.i, 1
+  %tobool.i.i33.not.i.i132 = icmp eq i8 %70, 0
+  br i1 %tobool.i.i33.not.i.i132, label %if.else55.i.i145, label %if.then42.i.i133
 
 if.then42.i.i133:                                 ; preds = %for.body38.i.i130
-  %cmp44.i.i134 = icmp slt i64 %69, %min_offset.sroa.0.356.i.i
+  %cmp44.i.i134 = icmp slt i64 %69, %min_offset.sroa.0.357.i.i
   br i1 %cmp44.i.i134, label %land.lhs.true45.i.i140, label %for.inc66.i.i135
 
 land.lhs.true45.i.i140:                           ; preds = %if.then42.i.i133
-  %arrayidx46.i.i141 = getelementptr inbounds i64, ptr %add.ptr.i.i24.i.i58, i64 %i33.058.i.i
+  %arrayidx46.i.i141 = getelementptr inbounds i64, ptr %add.ptr.i.i25.i.i58, i64 %i33.059.i.i
   %71 = load i64, ptr %arrayidx46.i.i141, align 8
   %cmp47.i.i142 = icmp sgt i64 %71, 0
   br i1 %cmp47.i.i142, label %if.then48.i.i143, label %for.inc66.i.i135
@@ -714,7 +691,7 @@ if.then48.i.i143:                                 ; preds = %land.lhs.true45.i.i
   br i1 %cmp49.i.i144, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i, label %for.inc66.i.i135
 
 if.else55.i.i145:                                 ; preds = %for.body38.i.i130
-  %arrayidx56.i.i146 = getelementptr inbounds i64, ptr %add.ptr.i.i24.i.i58, i64 %i33.058.i.i
+  %arrayidx56.i.i146 = getelementptr inbounds i64, ptr %add.ptr.i.i25.i.i58, i64 %i33.059.i.i
   %72 = load i64, ptr %arrayidx56.i.i146, align 8
   %cmp57.i.i147 = icmp sgt i64 %72, 0
   br i1 %cmp57.i.i147, label %if.then58.i.i148, label %for.inc66.i.i135
@@ -724,9 +701,9 @@ if.then58.i.i148:                                 ; preds = %if.else55.i.i145
   br i1 %cmp59.i.i149, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i, label %for.inc66.i.i135
 
 for.inc66.i.i135:                                 ; preds = %if.then58.i.i148, %if.else55.i.i145, %if.then48.i.i143, %land.lhs.true45.i.i140, %if.then42.i.i133
-  %min_offset.sroa.0.4.i.i136 = phi i64 [ %min_offset.sroa.0.356.i.i, %land.lhs.true45.i.i140 ], [ %min_offset.sroa.0.356.i.i, %if.then42.i.i133 ], [ %min_offset.sroa.0.356.i.i, %if.else55.i.i145 ], [ %69, %if.then48.i.i143 ], [ %69, %if.then58.i.i148 ]
-  %min_offset.sroa.7.4.i.i137 = phi i8 [ %min_offset.sroa.7.357.i.i, %land.lhs.true45.i.i140 ], [ %min_offset.sroa.7.357.i.i, %if.then42.i.i133 ], [ %min_offset.sroa.7.357.i.i, %if.else55.i.i145 ], [ 1, %if.then48.i.i143 ], [ 1, %if.then58.i.i148 ]
-  %inc67.i.i138 = add nsw i64 %i33.058.i.i, 1
+  %min_offset.sroa.0.4.i.i136 = phi i64 [ %min_offset.sroa.0.357.i.i, %land.lhs.true45.i.i140 ], [ %min_offset.sroa.0.357.i.i, %if.then42.i.i133 ], [ %min_offset.sroa.0.357.i.i, %if.else55.i.i145 ], [ %69, %if.then48.i.i143 ], [ %69, %if.then58.i.i148 ]
+  %min_offset.sroa.7.4.i.i137 = phi i8 [ %min_offset.sroa.7.358.i.i, %land.lhs.true45.i.i140 ], [ %min_offset.sroa.7.358.i.i, %if.then42.i.i133 ], [ %min_offset.sroa.7.358.i.i, %if.else55.i.i145 ], [ 1, %if.then48.i.i143 ], [ 1, %if.then58.i.i148 ]
+  %inc67.i.i138 = add nsw i64 %i33.059.i.i, 1
   %cmp37.i.i139 = icmp slt i64 %inc67.i.i138, %add.i.i74
   br i1 %cmp37.i.i139, label %for.body38.i.i130, label %while.body.loopexit.i.i75, !llvm.loop !13
 
@@ -749,38 +726,38 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
 if.end13.i80:                                     ; preds = %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i
   %retval.sroa.0.0.i53.i = phi i64 [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i10.i44)
-  %child_data.i.i81 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 5
+  %child_data.i.i81 = getelementptr inbounds i8, ptr %input, i64 104
   %74 = load ptr, ptr %child_data.i.i81, align 8
-  %length.i11.i82 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %74, i64 0, i32 1
+  %length.i11.i82 = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load i64, ptr %length.i11.i82, align 8
   %76 = load ptr, ptr %buffers.i.i53, align 8
   %77 = load i64, ptr %offset.i.i.i54, align 8
   %78 = load ptr, ptr %arrayidx.i.i.i.i55, align 8
   %add.ptr.i.i.i15.i83 = getelementptr inbounds i64, ptr %78, i64 %77
-  %79 = load ptr, ptr %arrayidx.i.i23.i.i57, align 8
-  %add.ptr.i.i35.i.i84 = getelementptr inbounds i64, ptr %79, i64 %77
+  %79 = load ptr, ptr %arrayidx.i.i24.i.i57, align 8
+  %add.ptr.i.i36.i.i84 = getelementptr inbounds i64, ptr %79, i64 %77
   %cmp.i16.i85 = icmp eq ptr %76, null
   %80 = load i64, ptr %length.i47, align 8
   br i1 %cmp.i16.i85, label %if.then.i.i120, label %if.else.i17.i86
 
 if.then.i.i120:                                   ; preds = %if.end13.i80
-  %cmp450.i.i121 = icmp sgt i64 %80, 0
-  br i1 %cmp450.i.i121, label %for.body.i39.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i
+  %cmp451.i.i121 = icmp sgt i64 %80, 0
+  br i1 %cmp451.i.i121, label %for.body.i39.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i
 
 for.body.i39.i:                                   ; preds = %if.then.i.i120, %for.inc.i41.i
-  %i.052.in.i.i122 = phi i64 [ %i.052.i.i124, %for.inc.i41.i ], [ %80, %if.then.i.i120 ]
-  %max_end.051.i.i123 = phi i64 [ %max_end.1.i.i126, %for.inc.i41.i ], [ 0, %if.then.i.i120 ]
-  %i.052.i.i124 = add nsw i64 %i.052.in.i.i122, -1
-  %arrayidx6.i.i125 = getelementptr inbounds i64, ptr %add.ptr.i.i35.i.i84, i64 %i.052.i.i124
+  %i.053.in.i.i122 = phi i64 [ %i.053.i.i124, %for.inc.i41.i ], [ %80, %if.then.i.i120 ]
+  %max_end.052.i.i123 = phi i64 [ %max_end.1.i.i126, %for.inc.i41.i ], [ 0, %if.then.i.i120 ]
+  %i.053.i.i124 = add nsw i64 %i.053.in.i.i122, -1
+  %arrayidx6.i.i125 = getelementptr inbounds i64, ptr %add.ptr.i.i36.i.i84, i64 %i.053.i.i124
   %81 = load i64, ptr %arrayidx6.i.i125, align 8
   %cmp7.i40.i = icmp sgt i64 %81, 0
   br i1 %cmp7.i40.i, label %if.then8.i.i128, label %for.inc.i41.i
 
 if.then8.i.i128:                                  ; preds = %for.body.i39.i
-  %arrayidx5.i.i129 = getelementptr inbounds i64, ptr %add.ptr.i.i.i15.i83, i64 %i.052.i.i124
+  %arrayidx5.i.i129 = getelementptr inbounds i64, ptr %add.ptr.i.i.i15.i83, i64 %i.053.i.i124
   %82 = load i64, ptr %arrayidx5.i.i129, align 8
   %add.i42.i = add nsw i64 %82, %81
-  %cmp9.i43.i = icmp sgt i64 %add.i42.i, %max_end.051.i.i123
+  %cmp9.i43.i = icmp sgt i64 %add.i42.i, %max_end.052.i.i123
   br i1 %cmp9.i43.i, label %if.then10.i44.i, label %for.inc.i41.i
 
 if.then10.i44.i:                                  ; preds = %if.then8.i.i128
@@ -788,18 +765,18 @@ if.then10.i44.i:                                  ; preds = %if.then8.i.i128
   br i1 %cmp11.i45.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, label %for.inc.i41.i
 
 for.inc.i41.i:                                    ; preds = %if.then10.i44.i, %if.then8.i.i128, %for.body.i39.i
-  %max_end.1.i.i126 = phi i64 [ %max_end.051.i.i123, %if.then8.i.i128 ], [ %max_end.051.i.i123, %for.body.i39.i ], [ %add.i42.i, %if.then10.i44.i ]
-  %cmp4.i.i127 = icmp ugt i64 %i.052.in.i.i122, 1
+  %max_end.1.i.i126 = phi i64 [ %max_end.052.i.i123, %if.then8.i.i128 ], [ %max_end.052.i.i123, %for.body.i39.i ], [ %add.i42.i, %if.then10.i44.i ]
+  %cmp4.i.i127 = icmp ugt i64 %i.053.in.i.i122, 1
   br i1 %cmp4.i.i127, label %for.body.i39.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, !llvm.loop !14
 
 if.else.i17.i86:                                  ; preds = %if.end13.i80
-  %length_.i.i18.i87 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i44, i64 0, i32 1
+  %length_.i.i18.i87 = getelementptr inbounds i8, ptr %reader.i10.i44, i64 8
   store i64 %80, ptr %length_.i.i18.i87, align 8
-  %remaining_.i.i19.i88 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i44, i64 0, i32 2
+  %remaining_.i.i19.i88 = getelementptr inbounds i8, ptr %reader.i10.i44, i64 16
   store i64 %80, ptr %remaining_.i.i19.i88, align 8
-  %current_word_.i.i20.i89 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i44, i64 0, i32 3
+  %current_word_.i.i20.i89 = getelementptr inbounds i8, ptr %reader.i10.i44, i64 24
   store i64 0, ptr %current_word_.i.i20.i89, align 8
-  %current_num_bits_.i.i21.i90 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %reader.i10.i44, i64 0, i32 4
+  %current_num_bits_.i.i21.i90 = getelementptr inbounds i8, ptr %reader.i10.i44, i64 32
   store i32 0, ptr %current_num_bits_.i.i21.i90, align 8
   %add.i.i.i91 = add nsw i64 %80, %77
   %div.i.i22.i92 = sdiv i64 %add.i.i.i91, 8
@@ -828,11 +805,11 @@ if.then.i.i29.i:                                  ; preds = %if.else.i17.i86
   %conv.i.i.i.i35.i = zext i1 %cmp.i.i.i.i34.i to i64
   %add.i.i.i.i36.i = add nsw i64 %shr.i.i.i.i32.i, %conv.i.i.i.i35.i
   %idx.neg.i.i.i.i114 = sub nsw i64 0, %add.i.i.i.i36.i
-  %add.ptr.i.i36.i.i115 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i110, i64 %idx.neg.i.i.i.i114
-  store ptr %add.ptr.i.i36.i.i115, ptr %reader.i10.i44, align 8
+  %add.ptr.i.i37.i.i115 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i110, i64 %idx.neg.i.i.i.i114
+  store ptr %add.ptr.i.i37.i.i115, ptr %reader.i10.i44, align 8
   %add.ptr2.i.i.i.i116 = getelementptr inbounds i8, ptr %word.i.i.i9.i43, i64 8
   %add.ptr4.i.i.i.i117 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i116, i64 %idx.neg.i.i.i.i114
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i.i.i.i117, ptr nonnull align 1 %add.ptr.i.i36.i.i115, i64 %add.i.i.i.i36.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i.i.i.i117, ptr nonnull align 1 %add.ptr.i.i37.i.i115, i64 %add.i.i.i.i36.i, i1 false)
   %84 = load i64, ptr %word.i.i.i9.i43, align 8
   %shl.i.i.i.i118 = shl i64 %84, %conv12.i.i.i112
   %sub.i.i.i.i119 = sub nsw i64 64, %conv14.i.i.i113
@@ -843,13 +820,13 @@ if.then.i.i29.i:                                  ; preds = %if.else.i17.i86
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98: ; preds = %if.then.i.i29.i, %if.else.i17.i86
-  %call1745.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i10.i44)
-  %85 = extractvalue { i64, i64 } %call1745.i.i, 1
-  %cmp1946.i.i = icmp eq i64 %85, 0
-  br i1 %cmp1946.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, label %if.end21.i.i
+  %call1746.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i10.i44)
+  %85 = extractvalue { i64, i64 } %call1746.i.i, 1
+  %cmp1947.i.i = icmp eq i64 %85, 0
+  br i1 %cmp1947.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, label %if.end21.i.i
 
 while.body.loopexit.i28.i100:                     ; preds = %for.inc45.i.i, %if.end21.i.i
-  %max_end.3.lcssa.i.i101 = phi i64 [ %max_end.247.i.i99, %if.end21.i.i ], [ %max_end.4.i.i109, %for.inc45.i.i ]
+  %max_end.3.lcssa.i.i101 = phi i64 [ %max_end.248.i.i99, %if.end21.i.i ], [ %max_end.4.i.i109, %for.inc45.i.i ]
   %call17.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i10.i44)
   %86 = extractvalue { i64, i64 } %call17.i.i, 1
   %cmp19.i.i = icmp eq i64 %86, 0
@@ -857,30 +834,30 @@ while.body.loopexit.i28.i100:                     ; preds = %for.inc45.i.i, %if.
 
 if.end21.i.i:                                     ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98, %while.body.loopexit.i28.i100
   %87 = phi i64 [ %86, %while.body.loopexit.i28.i100 ], [ %85, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98 ]
-  %call17.pn.i.i = phi { i64, i64 } [ %call17.i.i, %while.body.loopexit.i28.i100 ], [ %call1745.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98 ]
-  %max_end.247.i.i99 = phi i64 [ %max_end.3.lcssa.i.i101, %while.body.loopexit.i28.i100 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98 ]
+  %call17.pn.i.i = phi { i64, i64 } [ %call17.i.i, %while.body.loopexit.i28.i100 ], [ %call1746.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98 ]
+  %max_end.248.i.i99 = phi i64 [ %max_end.3.lcssa.i.i101, %while.body.loopexit.i28.i100 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98 ]
   %88 = extractvalue { i64, i64 } %call17.pn.i.i, 0
-  %cmp28.not.not42.i.i = icmp sgt i64 %87, 0
-  br i1 %cmp28.not.not42.i.i, label %for.body29.preheader.i.i, label %while.body.loopexit.i28.i100
+  %cmp28.not.not43.i.i = icmp sgt i64 %87, 0
+  br i1 %cmp28.not.not43.i.i, label %for.body29.preheader.i.i, label %while.body.loopexit.i28.i100
 
 for.body29.preheader.i.i:                         ; preds = %if.end21.i.i
   %add24.i.i = add nsw i64 %88, %87
   br label %for.body29.i.i
 
 for.body29.i.i:                                   ; preds = %for.inc45.i.i, %for.body29.preheader.i.i
-  %i22.044.in.i.i = phi i64 [ %i22.044.i.i, %for.inc45.i.i ], [ %add24.i.i, %for.body29.preheader.i.i ]
-  %max_end.343.i.i108 = phi i64 [ %max_end.4.i.i109, %for.inc45.i.i ], [ %max_end.247.i.i99, %for.body29.preheader.i.i ]
-  %i22.044.i.i = add nsw i64 %i22.044.in.i.i, -1
-  %arrayidx33.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i35.i.i84, i64 %i22.044.i.i
+  %i22.045.in.i.i = phi i64 [ %i22.045.i.i, %for.inc45.i.i ], [ %add24.i.i, %for.body29.preheader.i.i ]
+  %max_end.344.i.i108 = phi i64 [ %max_end.4.i.i109, %for.inc45.i.i ], [ %max_end.248.i.i99, %for.body29.preheader.i.i ]
+  %i22.045.i.i = add nsw i64 %i22.045.in.i.i, -1
+  %arrayidx33.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i36.i.i84, i64 %i22.045.i.i
   %89 = load i64, ptr %arrayidx33.i.i, align 8
   %cmp34.i.i = icmp sgt i64 %89, 0
   br i1 %cmp34.i.i, label %if.then35.i.i, label %for.inc45.i.i
 
 if.then35.i.i:                                    ; preds = %for.body29.i.i
-  %arrayidx31.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i15.i83, i64 %i22.044.i.i
+  %arrayidx31.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i15.i83, i64 %i22.045.i.i
   %90 = load i64, ptr %arrayidx31.i.i, align 8
   %add37.i.i = add nsw i64 %90, %89
-  %cmp38.i.i = icmp sgt i64 %add37.i.i, %max_end.343.i.i108
+  %cmp38.i.i = icmp sgt i64 %add37.i.i, %max_end.344.i.i108
   br i1 %cmp38.i.i, label %if.then39.i.i, label %for.inc45.i.i
 
 if.then39.i.i:                                    ; preds = %if.then35.i.i
@@ -888,8 +865,8 @@ if.then39.i.i:                                    ; preds = %if.then35.i.i
   br i1 %cmp40.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, label %for.inc45.i.i
 
 for.inc45.i.i:                                    ; preds = %if.then39.i.i, %if.then35.i.i, %for.body29.i.i
-  %max_end.4.i.i109 = phi i64 [ %max_end.343.i.i108, %if.then35.i.i ], [ %max_end.343.i.i108, %for.body29.i.i ], [ %add37.i.i, %if.then39.i.i ]
-  %cmp28.not.not.i.i = icmp sgt i64 %i22.044.i.i, %88
+  %max_end.4.i.i109 = phi i64 [ %max_end.344.i.i108, %if.then35.i.i ], [ %max_end.344.i.i108, %for.body29.i.i ], [ %add37.i.i, %if.then39.i.i ]
+  %cmp28.not.not.i.i = icmp sgt i64 %i22.045.i.i, %88
   br i1 %cmp28.not.not.i.i, label %for.body29.i.i, label %while.body.loopexit.i28.i100, !llvm.loop !16
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i: ; preds = %while.body.loopexit.i28.i100, %if.then39.i.i, %for.inc.i41.i, %if.then10.i44.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll.exit.i.i98, %if.then.i.i120
@@ -902,9 +879,9 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIlEESt4pa
   %retval.sroa.0.0.i104 = phi i64 [ %retval.sroa.0.0.i53.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i ], [ 0, %sw.bb11 ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread55.i ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i ]
   %retval.sroa.4.0.i105 = phi i64 [ %sub.i103, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i ], [ 0, %sw.bb11 ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread55.i ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i ]
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i189 = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i189 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %retval.sroa.0.0.i104, ptr %storage_.i.i189, align 8
-  %ref.tmp12.sroa.2.0.storage_.i.i189.sroa_idx = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 8
+  %ref.tmp12.sroa.2.0.storage_.i.i189.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %retval.sroa.4.0.i105, ptr %ref.tmp12.sroa.2.0.storage_.i.i189.sroa_idx, align 8
   br label %return
 
@@ -916,13 +893,13 @@ while.end18:                                      ; preds = %entry
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.end18
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %91, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 48
   %92 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %92, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow6Status11DeleteStateEv.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %92, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 8
   %93 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %93, 4294967297
   %94 = trunc i64 %93 to i32
@@ -930,10 +907,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %92, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %92, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %95 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %95(ptr noundef nonnull align 8 dereferenceable(16) %92) #11
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -959,10 +936,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %92, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %98 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(16) %92) #11
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %92, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 12
   %99 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %99, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -984,13 +961,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %92, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %102 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %102(ptr noundef nonnull align 8 dereferenceable(16) %92) #11
   br label %_ZN5arrow6Status11DeleteStateEv.exit.i
 
 _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
-  %msg.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %91, i64 0, i32 1
+  %msg.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #11
   call void @_ZdlPv(ptr noundef nonnull %91) #12
   br label %return
@@ -1017,25 +994,25 @@ cond.false.i:                                     ; preds = %entry
 call.i.noexc:                                     ; preds = %cond.false.i
   %1 = load i8, ptr %0, align 8
   store i8 %1, ptr %call.i3, align 8
-  %msg.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %call.i3, i64 0, i32 1
-  %msg3.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 1
+  %msg.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
+  %msg3.i.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i)
           to label %.noexc.i unwind label %lpad4.i
 
 .noexc.i:                                         ; preds = %call.i.noexc
-  %detail.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %call.i3, i64 0, i32 2
-  %detail4.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 2
+  %detail.i.i = getelementptr inbounds i8, ptr %call.i3, i64 40
+  %detail4.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %detail4.i.i, align 8
   store ptr %2, ptr %detail.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %call.i3, i64 0, i32 2, i32 0, i32 1
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 48
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %3, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1146,7 +1123,7 @@ entry:
   %reader.i.i = alloca %"class.arrow::internal::BaseSetBitRunReader", align 8
   %ref.tmp19 = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %input, align 8
-  %id_.i = getelementptr inbounds %"class.arrow::DataType", ptr %0, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %id_.i, align 8
   switch i32 %1, label %while.end18 [
     i32 25, label %sw.bb
@@ -1159,26 +1136,26 @@ entry:
 sw.bb:                                            ; preds = %entry
   %call1 = tail call fastcc noundef i64 @_ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanE(ptr noundef nonnull align 8 dereferenceable(128) %input)
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i = getelementptr inbounds %"class.arrow::Result.9", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call1, ptr %storage_.i.i, align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %call4 = tail call fastcc noundef i64 @_ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanE(ptr noundef nonnull align 8 dereferenceable(128) %input)
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i6 = getelementptr inbounds %"class.arrow::Result.9", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call4, ptr %storage_.i.i6, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %buffers.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4
+  %buffers.i = getelementptr inbounds i8, ptr %input, i64 32
   %2 = load ptr, ptr %buffers.i, align 8
-  %offset.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %3 = load i64, ptr %offset.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %input, i64 56
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %4, i64 %3
-  %length.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %input, i64 8
   %5 = load i64, ptr %length.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i.i)
   %cmp.i.i = icmp eq ptr %2, null
@@ -1186,20 +1163,20 @@ sw.bb5:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %sw.bb5
   %6 = getelementptr i64, ptr %add.ptr.i.i.i, i64 %5
-  %arrayidx.i.i5.i = getelementptr i64, ptr %6, i64 1
+  %arrayidx.i.i5.i = getelementptr i8, ptr %6, i64 8
   %7 = load i64, ptr %arrayidx.i.i5.i, align 8
   %8 = load i64, ptr %add.ptr.i.i.i, align 8
   %sub.i.i.i = sub i64 %7, %8
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIlEElRKNS_9ArraySpanE.exit
 
 if.end.i.i:                                       ; preds = %sw.bb5
-  %length_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 1
+  %length_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 8
   store i64 %5, ptr %length_.i.i.i, align 8
-  %remaining_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 2
+  %remaining_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 16
   store i64 %5, ptr %remaining_.i.i.i, align 8
-  %current_word_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 3
+  %current_word_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 24
   store i64 0, ptr %current_word_.i.i.i, align 8
-  %current_num_bits_.i.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i, i64 0, i32 4
+  %current_num_bits_.i.i.i = getelementptr inbounds i8, ptr %reader.i.i, i64 32
   store i32 0, ptr %current_num_bits_.i.i.i, align 8
   %div.i.i.i = sdiv i64 %3, 8
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %2, i64 %div.i.i.i
@@ -1251,7 +1228,7 @@ if.end4.i.i:                                      ; preds = %_ZN5arrow8internal1
   %12 = extractvalue { i64, i64 } %call15.i.i, 0
   %13 = getelementptr i64, ptr %add.ptr.i.i.i, i64 %12
   %14 = getelementptr i64, ptr %13, i64 %11
-  %arrayidx.i9.i.i = getelementptr i64, ptr %14, i64 1
+  %arrayidx.i9.i.i = getelementptr i8, ptr %14, i64 8
   %15 = load i64, ptr %arrayidx.i9.i.i, align 8
   %16 = load i64, ptr %13, align 8
   %sub.i10.i.i = sub i64 %15, %16
@@ -1265,19 +1242,19 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_114SumOfListSizesIlEElRKNS_9ArraySpanE.
   %sum.1.i = phi i64 [ %sub.i.i.i, %if.then.i.i ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i ], [ %add4.i11.i.i, %if.end4.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i)
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i7 = getelementptr inbounds %"class.arrow::Result.9", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sum.1.i, ptr %storage_.i.i7, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  %buffers.i10 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4
+  %buffers.i10 = getelementptr inbounds i8, ptr %input, i64 32
   %18 = load ptr, ptr %buffers.i10, align 8
-  %offset.i.i11 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i.i11 = getelementptr inbounds i8, ptr %input, i64 24
   %19 = load i64, ptr %offset.i.i11, align 8
-  %arrayidx.i.i.i12 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 2
+  %arrayidx.i.i.i12 = getelementptr inbounds i8, ptr %input, i64 80
   %20 = load ptr, ptr %arrayidx.i.i.i12, align 8
   %add.ptr.i.i.i13 = getelementptr inbounds i32, ptr %20, i64 %19
-  %length.i14 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i14 = getelementptr inbounds i8, ptr %input, i64 8
   %21 = load i64, ptr %length.i14, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i.i9)
   %cmp.i.i15 = icmp eq ptr %18, null
@@ -1299,13 +1276,13 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i49, %for
   br i1 %exitcond.not.i.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySpanE.exit, label %for.body.i.i.i, !llvm.loop !21
 
 if.end.i.i16:                                     ; preds = %sw.bb8
-  %length_.i.i.i17 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i9, i64 0, i32 1
+  %length_.i.i.i17 = getelementptr inbounds i8, ptr %reader.i.i9, i64 8
   store i64 %21, ptr %length_.i.i.i17, align 8
-  %remaining_.i.i.i18 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i9, i64 0, i32 2
+  %remaining_.i.i.i18 = getelementptr inbounds i8, ptr %reader.i.i9, i64 16
   store i64 %21, ptr %remaining_.i.i.i18, align 8
-  %current_word_.i.i.i19 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i9, i64 0, i32 3
+  %current_word_.i.i.i19 = getelementptr inbounds i8, ptr %reader.i.i9, i64 24
   store i64 0, ptr %current_word_.i.i.i19, align 8
-  %current_num_bits_.i.i.i20 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i9, i64 0, i32 4
+  %current_num_bits_.i.i.i20 = getelementptr inbounds i8, ptr %reader.i.i9, i64 32
   store i32 0, ptr %current_num_bits_.i.i.i20, align 8
   %div.i.i.i21 = sdiv i64 %19, 8
   %add.ptr.i.i4.i22 = getelementptr inbounds i8, ptr %18, i64 %div.i.i.i21
@@ -1381,19 +1358,19 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySp
   %sum.4.i = phi i64 [ 0, %if.then.i.i49 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i26 ], [ %add2.i.i.i, %for.body.i.i.i ], [ %sum.3.i, %_ZZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySpanEENKUlllE_clEll.exit15.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i9)
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i52 = getelementptr inbounds %"class.arrow::Result.9", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i52 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sum.4.i, ptr %storage_.i.i52, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %buffers.i55 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4
+  %buffers.i55 = getelementptr inbounds i8, ptr %input, i64 32
   %29 = load ptr, ptr %buffers.i55, align 8
-  %offset.i.i56 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i.i56 = getelementptr inbounds i8, ptr %input, i64 24
   %30 = load i64, ptr %offset.i.i56, align 8
-  %arrayidx.i.i.i57 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 2
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %input, i64 80
   %31 = load ptr, ptr %arrayidx.i.i.i57, align 8
   %add.ptr.i.i.i58 = getelementptr inbounds i64, ptr %31, i64 %30
-  %length.i59 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length.i59 = getelementptr inbounds i8, ptr %input, i64 8
   %32 = load i64, ptr %length.i59, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i.i54)
   %cmp.i.i60 = icmp eq ptr %29, null
@@ -1414,13 +1391,13 @@ for.body.i.i.i105:                                ; preds = %if.then.i.i103, %fo
   br i1 %exitcond.not.i.i111, label %_ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySpanE.exit, label %for.body.i.i.i105, !llvm.loop !23
 
 if.end.i.i61:                                     ; preds = %sw.bb11
-  %length_.i.i.i62 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i54, i64 0, i32 1
+  %length_.i.i.i62 = getelementptr inbounds i8, ptr %reader.i.i54, i64 8
   store i64 %32, ptr %length_.i.i.i62, align 8
-  %remaining_.i.i.i63 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i54, i64 0, i32 2
+  %remaining_.i.i.i63 = getelementptr inbounds i8, ptr %reader.i.i54, i64 16
   store i64 %32, ptr %remaining_.i.i.i63, align 8
-  %current_word_.i.i.i64 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i54, i64 0, i32 3
+  %current_word_.i.i.i64 = getelementptr inbounds i8, ptr %reader.i.i54, i64 24
   store i64 0, ptr %current_word_.i.i.i64, align 8
-  %current_num_bits_.i.i.i65 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i.i54, i64 0, i32 4
+  %current_num_bits_.i.i.i65 = getelementptr inbounds i8, ptr %reader.i.i54, i64 32
   store i32 0, ptr %current_num_bits_.i.i.i65, align 8
   %div.i.i.i66 = sdiv i64 %30, 8
   %add.ptr.i.i4.i67 = getelementptr inbounds i8, ptr %29, i64 %div.i.i.i66
@@ -1495,7 +1472,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySp
   %sum.4.i80 = phi i64 [ 0, %if.then.i.i103 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i.i72 ], [ %add2.i.i.i109, %for.body.i.i.i105 ], [ %sum.3.i77, %_ZZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySpanEENKUlllE_clEll.exit14.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i54)
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i112 = getelementptr inbounds %"class.arrow::Result.9", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i112 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sum.4.i80, ptr %storage_.i.i112, align 8
   br label %return
 
@@ -1507,13 +1484,13 @@ while.end18:                                      ; preds = %entry
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.end18
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %40, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 48
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow6Status11DeleteStateEv.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %42, 4294967297
   %43 = trunc i64 %42 to i32
@@ -1521,10 +1498,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %41, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %44 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #11
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -1550,10 +1527,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %41, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #11
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1575,13 +1552,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %41, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %51 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #11
   br label %_ZN5arrow6Status11DeleteStateEv.exit.i
 
 _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
-  %msg.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %40, i64 0, i32 1
+  %msg.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #11
   call void @_ZdlPv(ptr noundef nonnull %40) #12
   br label %return
@@ -1595,14 +1572,14 @@ define internal fastcc noundef i64 @_ZN5arrow9list_util8internal12_GLOBAL__N_114
 entry:
   %word.i.i.i = alloca i64, align 8
   %reader.i = alloca %"class.arrow::internal::BaseSetBitRunReader", align 8
-  %buffers = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4
+  %buffers = getelementptr inbounds i8, ptr %input, i64 32
   %0 = load ptr, ptr %buffers, align 8
-  %offset.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %input, i64 24
   %1 = load i64, ptr %offset.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 4, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %input, i64 56
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %length = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %input, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %input, i64 8
   %3 = load i64, ptr %length, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i)
   %cmp.i = icmp eq ptr %0, null
@@ -1610,7 +1587,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr i32, ptr %add.ptr.i.i, i64 %3
-  %arrayidx.i.i5 = getelementptr i32, ptr %4, i64 1
+  %arrayidx.i.i5 = getelementptr i8, ptr %4, i64 4
   %5 = load i32, ptr %arrayidx.i.i5, align 4
   %6 = load i32, ptr %add.ptr.i.i, align 4
   %sub.i.i = sub nsw i32 %5, %6
@@ -1618,13 +1595,13 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow8internal19VisitSetBitRunsVoidIZNS_9list_util8internal12_GLOBAL__N_114SumOfListSizesIiEElRKNS_9ArraySpanEEUlllE_EEvPKhllOT_.exit
 
 if.end.i:                                         ; preds = %entry
-  %length_.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store i64 %3, ptr %length_.i.i, align 8
-  %remaining_.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i, i64 0, i32 2
+  %remaining_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 16
   store i64 %3, ptr %remaining_.i.i, align 8
-  %current_word_.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i, i64 0, i32 3
+  %current_word_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 24
   store i64 0, ptr %current_word_.i.i, align 8
-  %current_num_bits_.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %reader.i, i64 0, i32 4
+  %current_num_bits_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 32
   store i32 0, ptr %current_num_bits_.i.i, align 8
   %div.i.i = sdiv i64 %1, 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %0, i64 %div.i.i
@@ -1676,7 +1653,7 @@ if.end4.i:                                        ; preds = %_ZN5arrow8internal1
   %10 = extractvalue { i64, i64 } %call15.i, 0
   %11 = getelementptr i32, ptr %add.ptr.i.i, i64 %10
   %12 = getelementptr i32, ptr %11, i64 %9
-  %arrayidx.i9.i = getelementptr i32, ptr %12, i64 1
+  %arrayidx.i9.i = getelementptr i8, ptr %12, i64 4
   %13 = load i32, ptr %arrayidx.i9.i, align 4
   %14 = load i32, ptr %11, align 4
   %sub.i10.i = sub nsw i32 %13, %14
@@ -1711,25 +1688,25 @@ cond.false.i:                                     ; preds = %entry
 call.i.noexc:                                     ; preds = %cond.false.i
   %1 = load i8, ptr %0, align 8
   store i8 %1, ptr %call.i3, align 8
-  %msg.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %call.i3, i64 0, i32 1
-  %msg3.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 1
+  %msg.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
+  %msg3.i.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i)
           to label %.noexc.i unwind label %lpad4.i
 
 .noexc.i:                                         ; preds = %call.i.noexc
-  %detail.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %call.i3, i64 0, i32 2
-  %detail4.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 2
+  %detail.i.i = getelementptr inbounds i8, ptr %call.i3, i64 40
+  %detail4.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %detail4.i.i, align 8
   store ptr %2, ptr %detail.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %call.i3, i64 0, i32 2, i32 0, i32 1
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 48
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %3, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1856,23 +1833,23 @@ define linkonce_odr { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7
 entry:
   %word.i = alloca i64, align 8
   %word.i.i = alloca i64, align 8
-  %current_num_bits_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 4
+  %current_num_bits_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %current_num_bits_, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %entry.if.then10_crit_edge, label %if.then
 
 entry.if.then10_crit_edge:                        ; preds = %entry
-  %remaining_.i11.phi.trans.insert = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 2
+  %remaining_.i11.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %remaining_.promoted.i.pre = load i64, ptr %remaining_.i11.phi.trans.insert, align 8
   br label %if.then10
 
 if.then:                                          ; preds = %entry
-  %current_word_.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 3
+  %current_word_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %current_word_.i, align 8
   %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 false), !range !29
   %cast.i.i.i = trunc i64 %2 to i32
   %cmp.not.i = icmp sgt i32 %0, %cast.i.i.i
-  %remaining_11.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 2
+  %remaining_11.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %remaining_11.i, align 8
   br i1 %cmp.not.i, label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit.thread
 
@@ -1887,7 +1864,7 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit.thread: ; p
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = %if.then
   %shr.i.i = lshr i64 %1, %2
   %sub12.i = sub nsw i64 %3, %2
-  %length_.i.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %length_.i.i, align 8
   %sub.i.i = sub nsw i64 %4, %sub12.i
   %not.i = xor i64 %shr.i.i, -1
@@ -1910,39 +1887,39 @@ if.end8:                                          ; preds = %_ZN5arrow8internal1
 
 if.then10:                                        ; preds = %entry.if.then10_crit_edge, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit.thread, %if.end8
   %remaining_.promoted.i = phi i64 [ %remaining_.promoted.i.pre, %entry.if.then10_crit_edge ], [ %sub.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit.thread ], [ %sub23.i, %if.end8 ]
-  %remaining_.i11 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 2
-  %cmp16.i = icmp sgt i64 %remaining_.promoted.i, 63
-  br i1 %cmp16.i, label %while.body.lr.ph.i, label %while.end.i
+  %remaining_.i11 = getelementptr inbounds i8, ptr %this, i64 16
+  %cmp15.i = icmp sgt i64 %remaining_.promoted.i, 63
+  br i1 %cmp15.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.then10
   %this.promoted.i = load ptr, ptr %this, align 8
-  %current_word_.i14 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 3
+  %current_word_.i14 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i16, %while.body.lr.ph.i
-  %sub121418.i = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i17, %if.end.i16 ]
-  %add.ptr.i1517.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i16 ]
-  %word.0.copyload.i.i = load i64, ptr %add.ptr.i1517.i, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1517.i, i64 8
+  %7 = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i17, %if.end.i16 ]
+  %add.ptr.i1416.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i16 ]
+  %word.0.copyload.i.i = load i64, ptr %add.ptr.i1416.i, align 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1416.i, i64 8
   store ptr %add.ptr.i.i, ptr %this, align 8
   store i64 %word.0.copyload.i.i, ptr %current_word_.i14, align 8
-  %7 = tail call i64 @llvm.cttz.i64(i64 %word.0.copyload.i.i, i1 false), !range !29
-  %cast.i.i.i15 = trunc i64 %7 to i32
+  %8 = tail call i64 @llvm.cttz.i64(i64 %word.0.copyload.i.i, i1 false), !range !29
+  %cast.i.i.i15 = trunc i64 %8 to i32
   %cmp5.i = icmp ult i32 %cast.i.i.i15, 64
   br i1 %cmp5.i, label %if.then.i18, label %if.end.i16
 
 if.then.i18:                                      ; preds = %while.body.i
-  %shr.i.i19 = lshr i64 %word.0.copyload.i.i, %7
+  %shr.i.i19 = lshr i64 %word.0.copyload.i.i, %8
   store i64 %shr.i.i19, ptr %current_word_.i14, align 8
   %sub.i20 = sub nuw nsw i32 64, %cast.i.i.i15
   store i32 %sub.i20, ptr %current_num_bits_, align 8
-  %sub10.i = sub nuw nsw i64 %sub121418.i, %7
+  %sub10.i = sub nuw nsw i64 %7, %8
   br label %if.end35.sink.split.i
 
 if.end.i16:                                       ; preds = %while.body.i
-  %sub12.i17 = add nsw i64 %sub121418.i, -64
+  %sub12.i17 = add nsw i64 %7, -64
   store i64 %sub12.i17, ptr %remaining_.i11, align 8
-  %cmp.i = icmp sgt i64 %sub121418.i, 127
+  %cmp.i = icmp sgt i64 %7, 127
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !30
 
 while.end.i:                                      ; preds = %if.end.i16, %if.then10
@@ -1958,19 +1935,19 @@ if.then15.i:                                      ; preds = %while.end.i
   %cmp.i.i.i = icmp ne i64 %and.i.i.i, 0
   %conv.i.i.i = zext i1 %cmp.i.i.i to i64
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %conv.i.i.i
-  %8 = load ptr, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i, ptr align 1 %8, i64 %add.i.i.i, i1 false)
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %8, i64 %add.i.i.i
+  %9 = load ptr, ptr %this, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i, ptr align 1 %9, i64 %add.i.i.i, i1 false)
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %9, i64 %add.i.i.i
   store ptr %add.ptr.i6.i, ptr %this, align 8
   %word.i.i.0.word.i.i.0.word.i.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i = load i64, ptr %word.i.i, align 8
   %notmask.i.i.i = shl nsw i64 -1, %.pr
   %sub.i.i.i = xor i64 %notmask.i.i.i, -1
   %and.i.i = and i64 %word.i.i.0.word.i.i.0.word.i.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i, %sub.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i.i)
-  %current_word_18.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 3
+  %current_word_18.i = getelementptr inbounds i8, ptr %this, i64 24
   %conv20.i = trunc i64 %.pr to i32
-  %9 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 false), !range !29
-  %cast.i.i7.i12 = trunc i64 %9 to i32
+  %10 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 false), !range !29
+  %cast.i.i7.i12 = trunc i64 %10 to i32
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i7.i12, i32 %conv20.i)
   %sh_prom.i8.i = zext nneg i32 %.sroa.speculated.i to i64
   %shr.i9.i13 = lshr i64 %and.i.i, %sh_prom.i8.i
@@ -1986,14 +1963,14 @@ if.end35.sink.split.i:                            ; preds = %if.then15.i, %if.th
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit: ; preds = %while.end.i, %if.end35.sink.split.i
-  %10 = phi i64 [ %sub34.sink.i, %if.end35.sink.split.i ], [ %.pr, %while.end.i ]
-  %cmp = icmp eq i64 %10, 0
+  %11 = phi i64 [ %sub34.sink.i, %if.end35.sink.split.i ], [ %.pr, %while.end.i ]
+  %cmp = icmp eq i64 %11, 0
   br i1 %cmp, label %return, label %if.end14
 
 if.end14:                                         ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
-  %length_.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 1
-  %11 = load i64, ptr %length_.i, align 8
-  %sub.i23 = sub nsw i64 %11, %10
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %12 = load i64, ptr %length_.i, align 8
+  %sub.i23 = sub nsw i64 %12, %11
   br label %if.end50
 
 if.else:                                          ; preds = %if.end8
@@ -2005,9 +1982,9 @@ if.then18:                                        ; preds = %if.else
   br i1 %cmp20, label %if.then22, label %if.else25
 
 if.then22:                                        ; preds = %if.then18
-  %12 = load ptr, ptr %this, align 8
-  %word.0.copyload.i = load i64, ptr %12, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %this, align 8
+  %word.0.copyload.i = load i64, ptr %13, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr.i, ptr %this, align 8
   store i64 %word.0.copyload.i, ptr %current_word_.i, align 8
   br label %if.end40
@@ -2024,9 +2001,9 @@ if.then28:                                        ; preds = %if.else25
   %cmp.i.i = icmp ne i64 %and.i.i25, 0
   %conv.i.i = zext i1 %cmp.i.i to i64
   %add.i.i = add nuw nsw i64 %shr.i.i24, %conv.i.i
-  %13 = load ptr, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i, ptr align 1 %13, i64 %add.i.i, i1 false)
-  %add.ptr.i26 = getelementptr inbounds i8, ptr %13, i64 %add.i.i
+  %14 = load ptr, ptr %this, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i, ptr align 1 %14, i64 %add.i.i, i1 false)
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %14, i64 %add.i.i
   store ptr %add.ptr.i26, ptr %this, align 8
   %word.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i = load i64, ptr %word.i, align 8
   %notmask.i.i = shl nsw i64 -1, %sub23.i
@@ -2038,10 +2015,10 @@ if.then28:                                        ; preds = %if.else25
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then28, %if.then22
-  %14 = phi i64 [ %and.i, %if.then28 ], [ %word.0.copyload.i, %if.then22 ]
+  %15 = phi i64 [ %and.i, %if.then28 ], [ %word.0.copyload.i, %if.then22 ]
   %storemerge = phi i32 [ %conv, %if.then28 ], [ 64, %if.then22 ]
   store i32 %storemerge, ptr %current_num_bits_, align 8
-  %and = and i64 %14, 1
+  %and = and i64 %15, 1
   %tobool42.not = icmp eq i64 %and, 0
   br i1 %tobool42.not, label %return, label %if.end50
 
@@ -2064,7 +2041,7 @@ return:                                           ; preds = %if.end40, %if.else2
 define linkonce_odr noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %word.i = alloca i64, align 8
-  %current_word_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 3
+  %current_word_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %current_word_, align 8
   %tobool.not = icmp eq i64 %0, -1
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2073,13 +2050,13 @@ if.then:                                          ; preds = %entry
   %not = xor i64 %0, -1
   %1 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !29
   %cast.i.i = trunc i64 %1 to i32
-  %remaining_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 2
+  %remaining_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %remaining_, align 8
   %sub = sub nsw i64 %2, %1
   store i64 %sub, ptr %remaining_, align 8
   %shr.i = lshr i64 %0, %1
   store i64 %shr.i, ptr %current_word_, align 8
-  %current_num_bits_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 4
+  %current_num_bits_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %current_num_bits_, align 8
   %sub7 = sub nsw i32 %3, %cast.i.i
   store i32 %sub7, ptr %current_num_bits_, align 8
@@ -2087,26 +2064,26 @@ if.then:                                          ; preds = %entry
   br i1 %tobool9.not, label %if.end16, label %return
 
 if.else:                                          ; preds = %entry
-  %remaining_13 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 2
+  %remaining_13 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %remaining_13, align 8
   %sub14 = add nsw i64 %4, -64
   store i64 %sub14, ptr %remaining_13, align 8
-  %current_num_bits_15 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 4
+  %current_num_bits_15 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %current_num_bits_15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then, %if.else
   %remaining_17.promoted = phi i64 [ %sub14, %if.else ], [ %sub, %if.then ]
   %len.0 = phi i64 [ 64, %if.else ], [ %1, %if.then ]
-  %remaining_17 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 2
+  %remaining_17 = getelementptr inbounds i8, ptr %this, i64 16
   %this.promoted = load ptr, ptr %this, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end16
   %5 = phi ptr [ %this.promoted, %if.end16 ], [ %add.ptr.i, %while.body ]
-  %sub2926 = phi i64 [ %remaining_17.promoted, %if.end16 ], [ %sub29, %while.body ]
+  %6 = phi i64 [ %remaining_17.promoted, %if.end16 ], [ %sub29, %while.body ]
   %len.1 = phi i64 [ %len.0, %if.end16 ], [ %add, %while.body ]
-  %cmp = icmp sgt i64 %sub2926, 63
+  %cmp = icmp sgt i64 %6, 63
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -2115,31 +2092,31 @@ while.body:                                       ; preds = %while.cond
   store ptr %add.ptr.i, ptr %this, align 8
   store i64 %word.0.copyload.i, ptr %current_word_, align 8
   %not24 = xor i64 %word.0.copyload.i, -1
-  %6 = tail call i64 @llvm.cttz.i64(i64 %not24, i1 false), !range !29
-  %cast.i.i15 = trunc i64 %6 to i32
-  %add = add nuw nsw i64 %6, %len.1
-  %sub29 = sub nuw nsw i64 %sub2926, %6
+  %7 = tail call i64 @llvm.cttz.i64(i64 %not24, i1 false), !range !29
+  %cast.i.i15 = trunc i64 %7 to i32
+  %add = add nuw nsw i64 %7, %len.1
+  %sub29 = sub nuw nsw i64 %6, %7
   store i64 %sub29, ptr %remaining_17, align 8
   %cmp30 = icmp ult i32 %cast.i.i15, 64
   br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !31
 
 if.then31:                                        ; preds = %while.body
-  %shr.i17 = lshr i64 %word.0.copyload.i, %6
+  %shr.i17 = lshr i64 %word.0.copyload.i, %7
   store i64 %shr.i17, ptr %current_word_, align 8
   %sub35 = sub nuw nsw i32 64, %cast.i.i15
-  %current_num_bits_36 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 4
+  %current_num_bits_36 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %sub35, ptr %current_num_bits_36, align 8
   br label %return
 
 while.end:                                        ; preds = %while.cond
-  %cmp39 = icmp sgt i64 %sub2926, 0
+  %cmp39 = icmp sgt i64 %6, 0
   br i1 %cmp39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %word.i)
   store i64 0, ptr %word.i, align 8
-  %shr.i.i = lshr i64 %sub2926, 3
-  %and.i.i = and i64 %sub2926, 7
+  %shr.i.i = lshr i64 %6, 3
+  %and.i.i = and i64 %6, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0
   %conv.i.i = zext i1 %cmp.i.i to i64
   %add.i.i = add nuw nsw i64 %shr.i.i, %conv.i.i
@@ -2147,22 +2124,22 @@ if.then40:                                        ; preds = %while.end
   %add.ptr.i18 = getelementptr inbounds i8, ptr %5, i64 %add.i.i
   store ptr %add.ptr.i18, ptr %this, align 8
   %word.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i = load i64, ptr %word.i, align 8
-  %notmask.i.i = shl nsw i64 -1, %sub2926
+  %notmask.i.i = shl nsw i64 -1, %6
   %sub.i.i = xor i64 %notmask.i.i, -1
   %and.i = and i64 %word.i.0.word.i.0.word.i.0.word.0.word.0.word.0..i, %sub.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i)
-  %conv45 = trunc i64 %sub2926 to i32
-  %current_num_bits_46 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader", ptr %this, i64 0, i32 4
+  %conv45 = trunc i64 %6 to i32
+  %current_num_bits_46 = getelementptr inbounds i8, ptr %this, i64 32
   %not49 = xor i64 %and.i, -1
-  %7 = tail call i64 @llvm.cttz.i64(i64 %not49, i1 true), !range !29
-  %cast.i.i19 = trunc i64 %7 to i32
-  %shr.i21 = lshr i64 %and.i, %7
+  %8 = tail call i64 @llvm.cttz.i64(i64 %not49, i1 true), !range !29
+  %cast.i.i19 = trunc i64 %8 to i32
+  %shr.i21 = lshr i64 %and.i, %8
   store i64 %shr.i21, ptr %current_word_, align 8
   %sub55 = sub nsw i32 %conv45, %cast.i.i19
   store i32 %sub55, ptr %current_num_bits_46, align 8
-  %sub58 = sub nsw i64 %sub2926, %7
+  %sub58 = sub nsw i64 %6, %8
   store i64 %sub58, ptr %remaining_17, align 8
-  %add60 = add nuw nsw i64 %7, %len.1
+  %add60 = add nuw nsw i64 %8, %len.1
   br label %return
 
 return:                                           ; preds = %while.end, %if.then40, %if.then, %if.then31
@@ -2178,23 +2155,23 @@ define linkonce_odr { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE7
 entry:
   %word.i = alloca i64, align 8
   %word.i.i = alloca i64, align 8
-  %current_num_bits_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 4
+  %current_num_bits_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %current_num_bits_, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %entry.if.then10_crit_edge, label %if.then
 
 entry.if.then10_crit_edge:                        ; preds = %entry
-  %remaining_.i14.phi.trans.insert = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 2
+  %remaining_.i14.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %remaining_.promoted.i.pre = load i64, ptr %remaining_.i14.phi.trans.insert, align 8
   br label %if.then10
 
 if.then:                                          ; preds = %entry
-  %current_word_.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 3
+  %current_word_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %current_word_.i, align 8
   %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !29
   %cast.i.i.i = trunc i64 %2 to i32
   %cmp.not.i = icmp sgt i32 %0, %cast.i.i.i
-  %remaining_11.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 2
+  %remaining_11.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %remaining_11.i, align 8
   br i1 %cmp.not.i, label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit, label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit.thread
 
@@ -2229,39 +2206,39 @@ if.end8:                                          ; preds = %_ZN5arrow8internal1
 
 if.then10:                                        ; preds = %entry.if.then10_crit_edge, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit.thread, %if.end8
   %remaining_.promoted.i = phi i64 [ %remaining_.promoted.i.pre, %entry.if.then10_crit_edge ], [ %sub.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit.thread ], [ %sub23.i, %if.end8 ]
-  %remaining_.i14 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 2
-  %cmp16.i = icmp sgt i64 %remaining_.promoted.i, 63
-  br i1 %cmp16.i, label %while.body.lr.ph.i, label %while.end.i
+  %remaining_.i14 = getelementptr inbounds i8, ptr %this, i64 16
+  %cmp15.i = icmp sgt i64 %remaining_.promoted.i, 63
+  br i1 %cmp15.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.then10
   %this.promoted.i = load ptr, ptr %this, align 8
-  %current_word_.i17 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 3
+  %current_word_.i17 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i19, %while.body.lr.ph.i
-  %sub121418.i = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i20, %if.end.i19 ]
-  %add.ptr.i1517.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i19 ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1517.i, i64 -8
+  %6 = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i20, %if.end.i19 ]
+  %add.ptr.i1416.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i19 ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1416.i, i64 -8
   store ptr %add.ptr.i.i, ptr %this, align 8
   %word.0.copyload.i.i = load i64, ptr %add.ptr.i.i, align 1
   store i64 %word.0.copyload.i.i, ptr %current_word_.i17, align 8
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %word.0.copyload.i.i, i1 false), !range !29
-  %cast.i.i.i18 = trunc i64 %6 to i32
+  %7 = tail call i64 @llvm.ctlz.i64(i64 %word.0.copyload.i.i, i1 false), !range !29
+  %cast.i.i.i18 = trunc i64 %7 to i32
   %cmp5.i = icmp ult i32 %cast.i.i.i18, 64
   br i1 %cmp5.i, label %if.then.i21, label %if.end.i19
 
 if.then.i21:                                      ; preds = %while.body.i
-  %shl.i.i22 = shl i64 %word.0.copyload.i.i, %6
+  %shl.i.i22 = shl i64 %word.0.copyload.i.i, %7
   store i64 %shl.i.i22, ptr %current_word_.i17, align 8
   %sub.i23 = sub nuw nsw i32 64, %cast.i.i.i18
   store i32 %sub.i23, ptr %current_num_bits_, align 8
-  %sub10.i = sub nuw nsw i64 %sub121418.i, %6
+  %sub10.i = sub nuw nsw i64 %6, %7
   br label %if.end35.sink.split.i
 
 if.end.i19:                                       ; preds = %while.body.i
-  %sub12.i20 = add nsw i64 %sub121418.i, -64
+  %sub12.i20 = add nsw i64 %6, -64
   store i64 %sub12.i20, ptr %remaining_.i14, align 8
-  %cmp.i = icmp sgt i64 %sub121418.i, 127
+  %cmp.i = icmp sgt i64 %6, 127
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !32
 
 while.end.i:                                      ; preds = %if.end.i19, %if.then10
@@ -2277,22 +2254,22 @@ if.then15.i:                                      ; preds = %while.end.i
   %cmp.i.i.i = icmp ne i64 %and.i.i.i, 0
   %conv.i.i.i = zext i1 %cmp.i.i.i to i64
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %conv.i.i.i
-  %7 = load ptr, ptr %this, align 8
+  %8 = load ptr, ptr %this, align 8
   %idx.neg.i.i = sub nsw i64 0, %add.i.i.i
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %7, i64 %idx.neg.i.i
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %8, i64 %idx.neg.i.i
   store ptr %add.ptr.i6.i, ptr %this, align 8
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %word.i.i, i64 8
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %idx.neg.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i.i, ptr align 1 %add.ptr.i6.i, i64 %add.i.i.i, i1 false)
-  %8 = load i64, ptr %word.i.i, align 8
+  %9 = load i64, ptr %word.i.i, align 8
   %sub.i.i = sub nuw nsw i64 64, %.pr
   %notmask.i.i.i = shl nsw i64 -1, %sub.i.i
-  %and.i.i = and i64 %8, %notmask.i.i.i
+  %and.i.i = and i64 %9, %notmask.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i.i)
-  %current_word_18.i = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 3
+  %current_word_18.i = getelementptr inbounds i8, ptr %this, i64 24
   %conv20.i = trunc i64 %.pr to i32
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 false), !range !29
-  %cast.i.i7.i15 = trunc i64 %9 to i32
+  %10 = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 false), !range !29
+  %cast.i.i7.i15 = trunc i64 %10 to i32
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i7.i15, i32 %conv20.i)
   %sh_prom.i8.i = zext nneg i32 %.sroa.speculated.i to i64
   %shl.i9.i16 = shl i64 %and.i.i, %sh_prom.i8.i
@@ -2308,8 +2285,8 @@ if.end35.sink.split.i:                            ; preds = %if.then15.i, %if.th
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit: ; preds = %while.end.i, %if.end35.sink.split.i
-  %10 = phi i64 [ %sub34.sink.i, %if.end35.sink.split.i ], [ %.pr, %while.end.i ]
-  %cmp = icmp eq i64 %10, 0
+  %11 = phi i64 [ %sub34.sink.i, %if.end35.sink.split.i ], [ %.pr, %while.end.i ]
+  %cmp = icmp eq i64 %11, 0
   br i1 %cmp, label %return, label %if.end50
 
 if.else:                                          ; preds = %if.end8
@@ -2321,8 +2298,8 @@ if.then18:                                        ; preds = %if.else
   br i1 %cmp20, label %if.then22, label %if.else25
 
 if.then22:                                        ; preds = %if.then18
-  %11 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 -8
+  %12 = load ptr, ptr %this, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %add.ptr.i, ptr %this, align 8
   %word.0.copyload.i = load i64, ptr %add.ptr.i, align 1
   store i64 %word.0.copyload.i, ptr %current_word_.i, align 8
@@ -2340,32 +2317,32 @@ if.then28:                                        ; preds = %if.else25
   %cmp.i.i = icmp ne i64 %and.i.i26, 0
   %conv.i.i = zext i1 %cmp.i.i to i64
   %add.i.i = add nuw nsw i64 %shr.i.i, %conv.i.i
-  %12 = load ptr, ptr %this, align 8
+  %13 = load ptr, ptr %this, align 8
   %idx.neg.i = sub nsw i64 0, %add.i.i
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %12, i64 %idx.neg.i
+  %add.ptr.i27 = getelementptr inbounds i8, ptr %13, i64 %idx.neg.i
   store ptr %add.ptr.i27, ptr %this, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %word.i, i64 8
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.neg.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i, ptr align 1 %add.ptr.i27, i64 %add.i.i, i1 false)
-  %13 = load i64, ptr %word.i, align 8
+  %14 = load i64, ptr %word.i, align 8
   %sub.i28 = sub nuw nsw i64 64, %sub23.i
   %notmask.i.i = shl nsw i64 -1, %sub.i28
-  %and.i = and i64 %13, %notmask.i.i
+  %and.i = and i64 %14, %notmask.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i)
   store i64 %and.i, ptr %current_word_.i, align 8
   %conv = trunc i64 %sub23.i to i32
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then28, %if.then22
-  %14 = phi i64 [ %and.i, %if.then28 ], [ %word.0.copyload.i, %if.then22 ]
+  %15 = phi i64 [ %and.i, %if.then28 ], [ %word.0.copyload.i, %if.then22 ]
   %storemerge = phi i32 [ %conv, %if.then28 ], [ 64, %if.then22 ]
   store i32 %storemerge, ptr %current_num_bits_, align 8
-  %tobool42.not = icmp sgt i64 %14, -1
+  %tobool42.not = icmp sgt i64 %15, -1
   br i1 %tobool42.not, label %return, label %if.end50
 
 if.end50:                                         ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %if.else, %if.end40
   %len.048 = phi i64 [ %4, %if.else ], [ %4, %if.end40 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
-  %pos.1 = phi i64 [ %sub12.i, %if.else ], [ %sub12.i, %if.end40 ], [ %10, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
+  %pos.1 = phi i64 [ %sub12.i, %if.else ], [ %sub12.i, %if.end40 ], [ %11, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
   %call51 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %add = add nsw i64 %call51, %len.048
   %sub.i35 = sub nsw i64 %pos.1, %add
@@ -2383,7 +2360,7 @@ return:                                           ; preds = %if.end40, %if.else2
 define linkonce_odr noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %word.i = alloca i64, align 8
-  %current_word_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 3
+  %current_word_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %current_word_, align 8
   %tobool.not = icmp eq i64 %0, -1
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2392,13 +2369,13 @@ if.then:                                          ; preds = %entry
   %not = xor i64 %0, -1
   %1 = tail call i64 @llvm.ctlz.i64(i64 %not, i1 false), !range !29
   %cast.i.i = trunc i64 %1 to i32
-  %remaining_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 2
+  %remaining_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %remaining_, align 8
   %sub = sub nsw i64 %2, %1
   store i64 %sub, ptr %remaining_, align 8
   %shl.i = shl i64 %0, %1
   store i64 %shl.i, ptr %current_word_, align 8
-  %current_num_bits_ = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 4
+  %current_num_bits_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %current_num_bits_, align 8
   %sub7 = sub nsw i32 %3, %cast.i.i
   store i32 %sub7, ptr %current_num_bits_, align 8
@@ -2406,26 +2383,26 @@ if.then:                                          ; preds = %entry
   br i1 %tobool9.not, label %if.end16, label %return
 
 if.else:                                          ; preds = %entry
-  %remaining_13 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 2
+  %remaining_13 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %remaining_13, align 8
   %sub14 = add nsw i64 %4, -64
   store i64 %sub14, ptr %remaining_13, align 8
-  %current_num_bits_15 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 4
+  %current_num_bits_15 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %current_num_bits_15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then, %if.else
   %remaining_17.promoted = phi i64 [ %sub14, %if.else ], [ %sub, %if.then ]
   %len.0 = phi i64 [ 64, %if.else ], [ %1, %if.then ]
-  %remaining_17 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 2
+  %remaining_17 = getelementptr inbounds i8, ptr %this, i64 16
   %this.promoted = load ptr, ptr %this, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end16
   %5 = phi ptr [ %this.promoted, %if.end16 ], [ %add.ptr.i, %while.body ]
-  %sub2926 = phi i64 [ %remaining_17.promoted, %if.end16 ], [ %sub29, %while.body ]
+  %6 = phi i64 [ %remaining_17.promoted, %if.end16 ], [ %sub29, %while.body ]
   %len.1 = phi i64 [ %len.0, %if.end16 ], [ %add, %while.body ]
-  %cmp = icmp sgt i64 %sub2926, 63
+  %cmp = icmp sgt i64 %6, 63
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -2434,31 +2411,31 @@ while.body:                                       ; preds = %while.cond
   %word.0.copyload.i = load i64, ptr %add.ptr.i, align 1
   store i64 %word.0.copyload.i, ptr %current_word_, align 8
   %not24 = xor i64 %word.0.copyload.i, -1
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %not24, i1 false), !range !29
-  %cast.i.i15 = trunc i64 %6 to i32
-  %add = add nuw nsw i64 %6, %len.1
-  %sub29 = sub nuw nsw i64 %sub2926, %6
+  %7 = tail call i64 @llvm.ctlz.i64(i64 %not24, i1 false), !range !29
+  %cast.i.i15 = trunc i64 %7 to i32
+  %add = add nuw nsw i64 %7, %len.1
+  %sub29 = sub nuw nsw i64 %6, %7
   store i64 %sub29, ptr %remaining_17, align 8
   %cmp30 = icmp ult i32 %cast.i.i15, 64
   br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !33
 
 if.then31:                                        ; preds = %while.body
-  %shl.i17 = shl i64 %word.0.copyload.i, %6
+  %shl.i17 = shl i64 %word.0.copyload.i, %7
   store i64 %shl.i17, ptr %current_word_, align 8
   %sub35 = sub nuw nsw i32 64, %cast.i.i15
-  %current_num_bits_36 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 4
+  %current_num_bits_36 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %sub35, ptr %current_num_bits_36, align 8
   br label %return
 
 while.end:                                        ; preds = %while.cond
-  %cmp39 = icmp sgt i64 %sub2926, 0
+  %cmp39 = icmp sgt i64 %6, 0
   br i1 %cmp39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %word.i)
   store i64 0, ptr %word.i, align 8
-  %shr.i.i = lshr i64 %sub2926, 3
-  %and.i.i = and i64 %sub2926, 7
+  %shr.i.i = lshr i64 %6, 3
+  %and.i.i = and i64 %6, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0
   %conv.i.i = zext i1 %cmp.i.i to i64
   %add.i.i = add nuw nsw i64 %shr.i.i, %conv.i.i
@@ -2468,23 +2445,23 @@ if.then40:                                        ; preds = %while.end
   %add.ptr2.i = getelementptr inbounds i8, ptr %word.i, i64 8
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.neg.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i, ptr align 1 %add.ptr.i18, i64 %add.i.i, i1 false)
-  %7 = load i64, ptr %word.i, align 8
-  %sub.i = sub nuw nsw i64 64, %sub2926
+  %8 = load i64, ptr %word.i, align 8
+  %sub.i = sub nuw nsw i64 64, %6
   %notmask.i.i = shl nsw i64 -1, %sub.i
-  %and.i = and i64 %7, %notmask.i.i
+  %and.i = and i64 %8, %notmask.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i)
-  %conv45 = trunc i64 %sub2926 to i32
-  %current_num_bits_46 = getelementptr inbounds %"class.arrow::internal::BaseSetBitRunReader.25", ptr %this, i64 0, i32 4
+  %conv45 = trunc i64 %6 to i32
+  %current_num_bits_46 = getelementptr inbounds i8, ptr %this, i64 32
   %not49 = xor i64 %and.i, -1
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %not49, i1 false), !range !29
-  %cast.i.i19 = trunc i64 %8 to i32
-  %shl.i21 = shl i64 %and.i, %8
+  %9 = tail call i64 @llvm.ctlz.i64(i64 %not49, i1 false), !range !29
+  %cast.i.i19 = trunc i64 %9 to i32
+  %shl.i21 = shl i64 %and.i, %9
   store i64 %shl.i21, ptr %current_word_, align 8
   %sub55 = sub nsw i32 %conv45, %cast.i.i19
   store i32 %sub55, ptr %current_num_bits_46, align 8
-  %sub58 = sub nsw i64 %sub2926, %8
+  %sub58 = sub nsw i64 %6, %9
   store i64 %sub58, ptr %remaining_17, align 8
-  %add60 = add nuw nsw i64 %8, %len.1
+  %add60 = add nuw nsw i64 %9, %len.1
   br label %return
 
 return:                                           ; preds = %while.end, %if.then40, %if.then, %if.then31
@@ -2502,7 +2479,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !34
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !34
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !34
@@ -2680,7 +2657,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !37
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !37
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !37

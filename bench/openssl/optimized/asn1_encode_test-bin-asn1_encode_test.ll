@@ -188,26 +188,26 @@ entry:
   %encoding.i = alloca ptr, align 8
   %data.i.i = alloca ptr, align 8
   %expected.i = alloca ptr, align 8
-  %skip = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 2
+  %skip = getelementptr inbounds i8, ptr %package, i64 16
   %0 = load i32, ptr %skip, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %encode_expectations_size = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 4
+  %encode_expectations_size = getelementptr inbounds i8, ptr %package, i64 32
   %1 = load i64, ptr %encode_expectations_size, align 8
-  %encode_expectations_elem_size = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 5
+  %encode_expectations_elem_size = getelementptr inbounds i8, ptr %package, i64 40
   %2 = load i64, ptr %encode_expectations_elem_size, align 8
   %div = udiv i64 %1, %2
   %cmp = icmp eq i64 %div, 34
   br i1 %cmp, label %for.cond.preheader, label %cond.false
 
 for.cond.preheader:                               ; preds = %if.end
-  %encode_expectations = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 3
+  %encode_expectations = getelementptr inbounds i8, ptr %package, i64 24
   %3 = getelementptr i8, ptr %package, i64 72
-  %name10 = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 1
-  %d2i.i.i = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 10
-  %ifree.i.i = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 11
+  %name10 = getelementptr inbounds i8, ptr %package, i64 8
+  %d2i.i.i = getelementptr inbounds i8, ptr %package, i64 80
+  %ifree.i.i = getelementptr inbounds i8, ptr %package, i64 88
   br label %for.body
 
 cond.false:                                       ; preds = %if.end
@@ -393,16 +393,16 @@ for.inc:                                          ; preds = %do_decode_custom.ex
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc
-  %encdec_data_size = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 7
+  %encdec_data_size = getelementptr inbounds i8, ptr %package, i64 56
   %29 = load i64, ptr %encdec_data_size, align 8
-  %encdec_data_elem_size = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 8
+  %encdec_data_elem_size = getelementptr inbounds i8, ptr %package, i64 64
   %30 = load i64, ptr %encdec_data_elem_size, align 8
   %div31 = udiv i64 %29, %30
   %cmp34107.not = icmp ugt i64 %30, %29
   br i1 %cmp34107.not, label %for.end60, label %for.body36.lr.ph
 
 for.body36.lr.ph:                                 ; preds = %for.end
-  %encdec_data = getelementptr inbounds %struct.TEST_PACKAGE, ptr %package, i64 0, i32 6
+  %encdec_data = getelementptr inbounds i8, ptr %package, i64 48
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.inc58
@@ -558,7 +558,7 @@ declare void @test_openssl_errors() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @make_custom_der(ptr nocapture noundef readonly %custom_data, ptr nocapture noundef %encoding, i32 noundef %explicit_default) unnamed_addr #0 {
 entry:
-  %nbytes1 = getelementptr inbounds %struct.TEST_CUSTOM_DATA, ptr %custom_data, i64 0, i32 1
+  %nbytes1 = getelementptr inbounds i8, ptr %custom_data, i64 8
   %0 = load i64, ptr %nbytes1, align 8
   %cmp.i = icmp ult i64 %0, 32768
   br i1 %cmp.i, label %cond.end.i, label %cond.false.i
@@ -573,13 +573,13 @@ cond.end.i:                                       ; preds = %entry
   %1 = select i1 %cmp2.i, i64 2, i64 3
   %add = select i1 %cmp1.i, i64 4, i64 %1
   %add2 = add nuw nsw i64 %add, %0
-  %nbytes2 = getelementptr inbounds %struct.TEST_CUSTOM_DATA, ptr %custom_data, i64 0, i32 3
+  %nbytes2 = getelementptr inbounds i8, ptr %custom_data, i64 24
   %2 = load i64, ptr %nbytes2, align 8
   %cmp171.not = icmp eq i64 %2, 0
   br i1 %cmp171.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end.i
-  %bytes2 = getelementptr inbounds %struct.TEST_CUSTOM_DATA, ptr %custom_data, i64 0, i32 2
+  %bytes2 = getelementptr inbounds i8, ptr %custom_data, i64 16
   %3 = load ptr, ptr %bytes2, align 8
   %invariant.gep = getelementptr i8, ptr %3, i64 -1
   br label %for.body
@@ -835,7 +835,7 @@ if.else10.i121:                                   ; preds = %if.end5.i118
 
 der_encode_length.exit136:                        ; preds = %if.end5.thread.i129, %if.then9.i126, %if.else10.i121
   %p.3 = phi ptr [ %incdec.ptr23.i135, %if.end5.thread.i129 ], [ %incdec.ptr.i128, %if.then9.i126 ], [ %incdec.ptr17.i124, %if.else10.i121 ]
-  %bytes246 = getelementptr inbounds %struct.TEST_CUSTOM_DATA, ptr %custom_data, i64 0, i32 2
+  %bytes246 = getelementptr inbounds i8, ptr %custom_data, i64 16
   %19 = load ptr, ptr %bytes246, align 8
   %20 = load i64, ptr %nbytes2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %p.3, ptr align 1 %19, i64 %20, i1 false)

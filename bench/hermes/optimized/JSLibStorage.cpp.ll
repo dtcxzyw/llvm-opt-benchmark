@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.std::mersenne_twister_engine" = type { [312 x i64], i64 }
-%"struct.hermes::vm::JSLibStorage" = type <{ %"class.std::mersenne_twister_engine", i8, [7 x i8] }>
 
 @_ZN6hermes2vm12JSLibStorageC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm12JSLibStorageC2Ev
 @_ZN6hermes2vm12JSLibStorageD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm12JSLibStorageD2Ev
@@ -37,9 +35,9 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %exitcond.not.i.i.i.i.i, label %_ZSt11make_uniqueIN6hermes2vm12JSLibStorageEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 _ZSt11make_uniqueIN6hermes2vm12JSLibStorageEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %for.body.i.i.i.i.i
-  %_M_p.i.i.i.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %call.i, i64 0, i32 1
+  %_M_p.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i.i.i, align 8, !noalias !4
-  %randomEngineSeeded_.i.i = getelementptr inbounds %"struct.hermes::vm::JSLibStorage", ptr %call.i, i64 0, i32 1
+  %randomEngineSeeded_.i.i = getelementptr inbounds i8, ptr %call.i, i64 2504
   store i8 0, ptr %randomEngineSeeded_.i.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !4
   ret void
@@ -65,9 +63,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   br i1 %exitcond.not.i.i.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit, label %for.body.i.i.i, !llvm.loop !7
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit: ; preds = %for.body.i.i.i
-  %_M_p.i.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %this, i64 0, i32 1
+  %_M_p.i.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   store i64 312, ptr %_M_p.i.i.i, align 8
-  %randomEngineSeeded_ = getelementptr inbounds %"struct.hermes::vm::JSLibStorage", ptr %this, i64 0, i32 1
+  %randomEngineSeeded_ = getelementptr inbounds i8, ptr %this, i64 2504
   store i8 0, ptr %randomEngineSeeded_, align 8
   ret void
 }

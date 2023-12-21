@@ -291,13 +291,13 @@ for.body:                                         ; preds = %entry, %for.body
   %27 = and i32 %or138, 65535
   %or16781 = or disjoint i32 %shl163, %27
   %28 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 30, i32 %or16781) #6, !srcloc !8
-  %incdec.ptr173 = getelementptr inbounds i32, ptr %k.085, i64 1
+  %incdec.ptr173 = getelementptr inbounds i8, ptr %k.085, i64 4
   store i32 %28, ptr %k.085, align 4
   %shr174 = lshr i32 %or138, 16
   %29 = and i32 %or162, -65536
   %or17882 = or disjoint i32 %29, %shr174
   %30 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 26, i32 %or17882) #6, !srcloc !9
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %k.085, i64 2
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %k.085, i64 8
   store i32 %30, ptr %incdec.ptr173, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

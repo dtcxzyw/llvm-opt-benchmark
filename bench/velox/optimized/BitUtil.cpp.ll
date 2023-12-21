@@ -805,15 +805,15 @@ while.body:                                       ; preds = %if.end, %while.body
   %6 = load i64, ptr %words.0129, align 8
   %conv.i.i.i40 = and i64 %a0.0125, 4294967295
   %7 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i40, i64 %6)
-  %arrayidx17 = getelementptr inbounds i64, ptr %words.0129, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %words.0129, i64 8
   %8 = load i64, ptr %arrayidx17, align 8
   %conv.i.i.i42 = and i64 %a1.0126, 4294967295
   %9 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i42, i64 %8)
-  %arrayidx22 = getelementptr inbounds i64, ptr %words.0129, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %words.0129, i64 16
   %10 = load i64, ptr %arrayidx22, align 8
   %conv.i.i.i44 = and i64 %a2.0127, 4294967295
   %11 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i44, i64 %10)
-  %add.ptr = getelementptr inbounds i64, ptr %words.0129, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %words.0129, i64 24
   %sub = add nsw i32 %toGo.0128, -24
   %cmp11 = icmp ugt i32 %toGo.0128, 47
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !13
@@ -831,11 +831,11 @@ if.then27:                                        ; preds = %while.end
   %12 = load i64, ptr %words.0.lcssa, align 8
   %conv.i.i.i46 = and i64 %a0.0.lcssa, 4294967295
   %13 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i46, i64 %12)
-  %arrayidx34 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 8
   %14 = load i64, ptr %arrayidx34, align 8
   %conv.i.i.i48 = and i64 %a1.0.lcssa, 4294967295
   %15 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i48, i64 %14)
-  %add.ptr39 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 2
+  %add.ptr39 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 16
   %sub40 = add nsw i32 %toGo.0.lcssa, -16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i50)
   store volatile i64 0, ptr %result.i50, align 8
@@ -893,7 +893,7 @@ if.then46:                                        ; preds = %if.else
   %conv.i.i.i74 = and i64 %a0.0.lcssa, 4294967295
   %22 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i74, i64 %21)
   %cmp53 = icmp eq i32 %toGo.0.lcssa, 16
-  %arrayidx54 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 8
   br i1 %cmp53, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then46

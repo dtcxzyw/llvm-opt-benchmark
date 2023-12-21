@@ -514,7 +514,7 @@ for.body.preheader:                               ; preds = %if.end4
   %0 = load i64, ptr %arrayidx12, align 8
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx12, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   store i64 0, ptr %tv_usec, align 8
   %sub = sub nsw i64 %max_time, %call
   store i64 %sub, ptr %tv, align 8

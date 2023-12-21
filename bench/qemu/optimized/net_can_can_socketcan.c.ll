@@ -5,15 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.CanBusClientInfo = type { ptr, ptr }
-%struct.CanHostSocketCAN = type { %struct.CanHostState, ptr, ptr, i32, i32, [5 x %struct.qemu_can_frame], i32, i32, i32 }
-%struct.CanHostState = type { %struct.Object, ptr, %struct.CanBusClientState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.CanBusClientState = type { ptr, ptr, i32, %union.anon, ptr, ptr, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.qemu_can_frame = type { i32, i8, i8, [2 x i8], [64 x i8] }
-%struct.CanHostClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.sockaddr_can = type { i16, i32, %union.anon.2 }
 %union.anon.2 = type { %struct.anon.3 }
 %struct.anon.3 = type { i64, i32, i8 }
@@ -21,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { [16 x i8] }
 %union.anon.1 = type { %struct.ifmap }
 %struct.ifmap = type { i64, i64, i16, i8, i8, i8 }
-%struct.qemu_can_filter = type { i32, i32 }
 
 @can_host_socketcan_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 528, i64 0, ptr @can_host_socketcan_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @can_host_socketcan_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"can-host-socketcan\00", align 1
@@ -71,7 +61,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @can_host_socketcan_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.CAN_HOST_SOCKETCAN) #10
-  %fd = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 520
   store i32 -1, ptr %fd, align 8
   ret void
 }
@@ -81,9 +71,9 @@ define internal void @can_host_socketcan_class_init(ptr noundef %klass, ptr noca
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 35, ptr noundef nonnull @__func__.CAN_HOST_CLASS) #10
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @can_host_socketcan_get_if, ptr noundef nonnull @can_host_socketcan_set_if) #10
-  %connect = getelementptr inbounds %struct.CanHostClass, ptr %call.i, i64 0, i32 1
+  %connect = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @can_host_socketcan_connect, ptr %connect, align 8
-  %disconnect = getelementptr inbounds %struct.CanHostClass, ptr %call.i, i64 0, i32 2
+  %disconnect = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @can_host_socketcan_disconnect, ptr %disconnect, align 8
   ret void
 }
@@ -96,7 +86,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @can_host_socketcan_get_if(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.CAN_HOST_SOCKETCAN) #10
-  %ifname = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 1
+  %ifname = getelementptr inbounds i8, ptr %call.i, i64 128
   %0 = load ptr, ptr %ifname, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #10
   ret ptr %call1
@@ -115,7 +105,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 520
   %0 = load i32, ptr %fd, align 8
   %cmp2.not = icmp eq i32 %0, -1
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -125,7 +115,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %ifname = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 1
+  %ifname = getelementptr inbounds i8, ptr %call.i, i64 128
   %1 = load ptr, ptr %ifname, align 8
   tail call void @g_free(ptr noundef %1) #10
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %value) #10
@@ -144,7 +134,7 @@ entry:
   %ifr = alloca %struct.ifreq, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ch, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.CAN_HOST_SOCKETCAN) #10
   store i32 1, ptr %enable_canfd, align 4
-  %ifname = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 1
+  %ifname = getelementptr inbounds i8, ptr %call.i, i64 128
   %0 = load ptr, ptr %ifname, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -181,9 +171,9 @@ if.then10:                                        ; preds = %if.end4
   br label %fail
 
 if.end13:                                         ; preds = %if.end4
-  %ifr_ifru = getelementptr inbounds %struct.ifreq, ptr %ifr, i64 0, i32 1
+  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
   %5 = load i32, ptr %ifr_ifru, align 8
-  %can_ifindex = getelementptr inbounds %struct.sockaddr_can, ptr %addr, i64 0, i32 1
+  %can_ifindex = getelementptr inbounds i8, ptr %addr, i64 4
   store i32 %5, ptr %can_ifindex, align 4
   %call14 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call1, i64 noundef 35105, ptr noundef nonnull %ifr) #10
   %cmp15 = icmp slt i32 %call14, 0
@@ -212,21 +202,21 @@ if.then26:                                        ; preds = %if.then23
   br label %if.end29
 
 if.else:                                          ; preds = %if.then23
-  %fd_mode = getelementptr inbounds %struct.CanHostState, ptr %call.i, i64 0, i32 2, i32 8
+  %fd_mode = getelementptr inbounds i8, ptr %call.i, i64 120
   store i8 1, ptr %fd_mode, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then26, %if.else, %if.end19
-  %err_mask = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 4
+  %err_mask = getelementptr inbounds i8, ptr %call.i, i64 148
   store i32 -1, ptr %err_mask, align 4
   %call31 = call i32 @setsockopt(i32 noundef %call1, i32 noundef 101, i32 noundef 2, ptr noundef nonnull %err_mask, i32 noundef 4) #10
-  %rfilter_num = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 3
+  %rfilter_num = getelementptr inbounds i8, ptr %call.i, i64 144
   store i32 1, ptr %rfilter_num, align 8
   %call34 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #13
-  %rfilter = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 2
+  %rfilter = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr %call34, ptr %rfilter, align 8
   store i32 0, ptr %call34, align 4
-  %can_mask = getelementptr inbounds %struct.qemu_can_filter, ptr %call34, i64 0, i32 1
+  %can_mask = getelementptr inbounds i8, ptr %call34, i64 4
   store i32 0, ptr %can_mask, align 4
   %10 = load i32, ptr %rfilter_num, align 8
   %mul = shl i32 %10, 3
@@ -243,9 +233,9 @@ if.then49:                                        ; preds = %if.end29
   br label %fail
 
 if.end52:                                         ; preds = %if.end29
-  %fd = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 520
   store i32 %call1, ptr %fd, align 8
-  %bus_client53 = getelementptr inbounds %struct.CanHostState, ptr %ch, i64 0, i32 2
+  %bus_client53 = getelementptr inbounds i8, ptr %ch, i64 48
   store ptr @can_host_socketcan_bus_client_info, ptr %bus_client53, align 8
   %13 = load i32, ptr %fd, align 8
   call void @qemu_set_fd_handler(i32 noundef %13, ptr noundef nonnull @can_host_socketcan_read, ptr noundef null, ptr noundef nonnull %call.i) #10
@@ -253,11 +243,11 @@ if.end52:                                         ; preds = %if.end29
 
 fail:                                             ; preds = %if.then49, %if.then16, %if.then10
   %call55 = call i32 @close(i32 noundef %call1) #10
-  %rfilter56 = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 2
+  %rfilter56 = getelementptr inbounds i8, ptr %call.i, i64 136
   %14 = load ptr, ptr %rfilter56, align 8
   call void @g_free(ptr noundef %14) #10
   store ptr null, ptr %rfilter56, align 8
-  %rfilter_num58 = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 3
+  %rfilter_num58 = getelementptr inbounds i8, ptr %call.i, i64 144
   store i32 0, ptr %rfilter_num58, align 8
   br label %return
 
@@ -269,7 +259,7 @@ return:                                           ; preds = %fail, %if.end52, %i
 define internal void @can_host_socketcan_disconnect(ptr noundef %ch) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ch, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.CAN_HOST_SOCKETCAN) #10
-  %fd = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 520
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -282,11 +272,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %rfilter = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 2
+  %rfilter = getelementptr inbounds i8, ptr %call.i, i64 136
   %2 = load ptr, ptr %rfilter, align 8
   tail call void @g_free(ptr noundef %2) #10
   store ptr null, ptr %rfilter, align 8
-  %rfilter_num = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 3
+  %rfilter_num = getelementptr inbounds i8, ptr %call.i, i64 144
   store i32 0, ptr %rfilter_num, align 8
   ret void
 }
@@ -335,12 +325,12 @@ declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr nou
 define internal void @can_host_socketcan_read(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 35, ptr noundef nonnull @__func__.CAN_HOST) #10
-  %fd = getelementptr inbounds %struct.CanHostSocketCAN, ptr %opaque, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %opaque, i64 520
   %0 = load i32, ptr %fd, align 8
-  %buf = getelementptr inbounds %struct.CanHostSocketCAN, ptr %opaque, i64 0, i32 5
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 152
   %call1 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull %buf, i64 noundef 72) #10
   %conv = trunc i64 %call1 to i32
-  %bufcnt = getelementptr inbounds %struct.CanHostSocketCAN, ptr %opaque, i64 0, i32 6
+  %bufcnt = getelementptr inbounds i8, ptr %opaque, i64 512
   store i32 %conv, ptr %bufcnt, align 8
   %cmp = icmp slt i32 %conv, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -353,15 +343,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bus_client = getelementptr inbounds %struct.CanHostState, ptr %call.i, i64 0, i32 2
-  %fd_mode = getelementptr inbounds %struct.CanHostState, ptr %call.i, i64 0, i32 2, i32 8
+  %bus_client = getelementptr inbounds i8, ptr %call.i, i64 48
+  %fd_mode = getelementptr inbounds i8, ptr %call.i, i64 120
   %2 = load i8, ptr %fd_mode, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.CanHostSocketCAN, ptr %opaque, i64 0, i32 5, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %opaque, i64 157
   store i8 0, ptr %flags, align 1
   br label %if.end19
 
@@ -371,7 +361,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then12, label %if.end19
 
 if.then12:                                        ; preds = %if.else
-  %flags15 = getelementptr inbounds %struct.CanHostSocketCAN, ptr %opaque, i64 0, i32 5, i64 0, i32 2
+  %flags15 = getelementptr inbounds i8, ptr %opaque, i64 157
   %4 = load i8, ptr %flags15, align 1
   %5 = or i8 %4, 16
   store i8 %5, ptr %flags15, align 1
@@ -398,20 +388,20 @@ define internal i64 @can_host_socketcan_receive(ptr noundef %client, ptr nocaptu
 entry:
   %add.ptr = getelementptr i8, ptr %client, i64 -48
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.CAN_HOST_SOCKETCAN) #10
-  %fd = getelementptr inbounds %struct.CanHostSocketCAN, ptr %call.i, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 520
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.qemu_can_frame, ptr %frames, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %frames, i64 5
   %1 = load i8, ptr %flags, align 1
   %2 = and i8 %1, 16
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end5, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %fd_mode = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 8
+  %fd_mode = getelementptr inbounds i8, ptr %client, i64 72
   %3 = load i8, ptr %fd_mode, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0

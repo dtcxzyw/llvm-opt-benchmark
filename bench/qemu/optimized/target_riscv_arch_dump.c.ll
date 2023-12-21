@@ -9,52 +9,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.elf64_note = type { i32, i32, i32 }
 %struct.riscv64_elf_prstatus = type { [32 x i8], i32, [76 x i8], %struct.riscv64_user_regs, [8 x i8] }
 %struct.riscv64_user_regs = type { i64, [31 x i64] }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
 %struct.riscv32_note = type { %struct.elf32_note, [8 x i8], %struct.riscv32_elf_prstatus }
 %struct.elf32_note = type { i32, i32, i32 }
 %struct.riscv32_elf_prstatus = type { [24 x i8], i32, [44 x i8], %struct.riscv32_user_regs, [4 x i8] }
 %struct.riscv32_user_regs = type { i32, [31 x i32] }
-%struct.ArchDumpInfo = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr }
 
 @__const.riscv_cpu_write_elf32_note.name = private unnamed_addr constant [5 x i8] c"CORE\00", align 1
 @cpus_queue = external local_unnamed_addr global %union.CPUTailQ, align 8
@@ -67,27 +25,28 @@ define dso_local i32 @riscv_cpu_write_elf64_note(ptr nocapture noundef readonly 
 entry:
   %note = alloca %struct.riscv64_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1
+  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %0 = getelementptr inbounds i8, ptr %note, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(396) %0, i8 0, i64 379, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 376) #6
-  %n_descsz.i = getelementptr inbounds %struct.elf64_note, ptr %note, i64 0, i32 1
+  %n_descsz.i = getelementptr inbounds i8, ptr %note, i64 4
   store i32 %call1.i, ptr %n_descsz.i, align 4
   %call3.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 1) #6
-  %n_type.i = getelementptr inbounds %struct.elf64_note, ptr %note, i64 0, i32 2
+  %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
-  %name5.i = getelementptr inbounds %struct.riscv64_note, ptr %note, i64 0, i32 1
+  %name5.i = getelementptr inbounds i8, ptr %note, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
-  %pr_pid = getelementptr inbounds %struct.riscv64_note, ptr %note, i64 0, i32 2, i32 1
+  %pr_pid = getelementptr inbounds i8, ptr %note, i64 52
   store i32 %call2, ptr %pr_pid, align 4
-  %pc = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
   %1 = load i64, ptr %pc, align 16
   %call3 = tail call i64 @cpu_to_dump64(ptr noundef %s, i64 noundef %1) #6
-  %pr_reg = getelementptr inbounds %struct.riscv64_note, ptr %note, i64 0, i32 2, i32 3
+  %pr_reg = getelementptr inbounds i8, ptr %note, i64 132
   store i64 %call3, ptr %pr_reg, align 4
+  %regs = getelementptr inbounds i8, ptr %note, i64 140
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -96,7 +55,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr [32 x i64], ptr %env1, i64 0, i64 %indvars.iv.next
   %2 = load i64, ptr %arrayidx, align 8
   %call6 = tail call i64 @cpu_to_dump64(ptr noundef %s, i64 noundef %2) #6
-  %arrayidx10 = getelementptr %struct.riscv64_note, ptr %note, i64 0, i32 2, i32 3, i32 1, i64 %indvars.iv
+  %arrayidx10 = getelementptr [31 x i64], ptr %regs, i64 0, i64 %indvars.iv
   store i64 %call6, ptr %arrayidx10, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -119,28 +78,29 @@ define dso_local i32 @riscv_cpu_write_elf32_note(ptr nocapture noundef readonly 
 entry:
   %note = alloca %struct.riscv32_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1
+  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %0 = getelementptr inbounds i8, ptr %note, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %0, i8 0, i64 207, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 204) #6
-  %n_descsz.i = getelementptr inbounds %struct.elf32_note, ptr %note, i64 0, i32 1
+  %n_descsz.i = getelementptr inbounds i8, ptr %note, i64 4
   store i32 %call1.i, ptr %n_descsz.i, align 4
   %call3.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 1) #6
-  %n_type.i = getelementptr inbounds %struct.elf32_note, ptr %note, i64 0, i32 2
+  %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
-  %name5.i = getelementptr inbounds %struct.riscv32_note, ptr %note, i64 0, i32 1
+  %name5.i = getelementptr inbounds i8, ptr %note, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
-  %pr_pid = getelementptr inbounds %struct.riscv32_note, ptr %note, i64 0, i32 2, i32 1
+  %pr_pid = getelementptr inbounds i8, ptr %note, i64 44
   store i32 %call2, ptr %pr_pid, align 4
-  %pc = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
   %1 = load i64, ptr %pc, align 16
   %conv = trunc i64 %1 to i32
   %call3 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %conv) #6
-  %pr_reg = getelementptr inbounds %struct.riscv32_note, ptr %note, i64 0, i32 2, i32 3
+  %pr_reg = getelementptr inbounds i8, ptr %note, i64 92
   store i32 %call3, ptr %pr_reg, align 4
+  %regs = getelementptr inbounds i8, ptr %note, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -150,7 +110,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i64, ptr %arrayidx, align 8
   %conv7 = trunc i64 %2 to i32
   %call8 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %conv7) #6
-  %arrayidx12 = getelementptr %struct.riscv32_note, ptr %note, i64 0, i32 2, i32 3, i32 1, i64 %indvars.iv
+  %arrayidx12 = getelementptr [31 x i32], ptr %regs, i64 0, i64 %indvars.iv
   store i32 %call8, ptr %arrayidx12, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -175,14 +135,14 @@ while.end5:                                       ; preds = %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   store i32 243, ptr %info, align 8
-  %d_class = getelementptr inbounds %struct.ArchDumpInfo, ptr %info, i64 0, i32 2
+  %d_class = getelementptr inbounds i8, ptr %info, i64 8
   store i32 2, ptr %d_class, align 8
-  %mstatus = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 33
+  %mstatus = getelementptr inbounds i8, ptr %call.i, i64 15264
   %3 = load i64, ptr %mstatus, align 16
   %and = and i64 %3, 64
   %cmp8.not = icmp eq i64 %and, 0
   %cond = select i1 %cmp8.not, i32 1, i32 2
-  %d_endian = getelementptr inbounds %struct.ArchDumpInfo, ptr %info, i64 0, i32 1
+  %d_endian = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %cond, ptr %d_endian, align 4
   br label %return
 

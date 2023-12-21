@@ -31,10 +31,10 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %action.i, i8 0, i64 152, i1 false)
-  %sa_mask.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 1
+  %sa_mask.i = getelementptr inbounds i8, ptr %action.i, i64 8
   %call.i = call i32 @sigfillset(ptr noundef nonnull %sa_mask.i) #10
   store ptr @sigusr_print, ptr %action.i, align 8
-  %sa_flags.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 2
+  %sa_flags.i = getelementptr inbounds i8, ptr %action.i, i64 136
   store i32 0, ptr %sa_flags.i, align 8
   %call1.i = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %action.i, ptr noundef null) #10
   %call2.i = call i32 @sigemptyset(ptr noundef nonnull %set.i) #10

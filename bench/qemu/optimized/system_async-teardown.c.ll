@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
 %union.anon = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 
 @the_ppid = internal unnamed_addr global i32 0, align 4
 @__const.async_teardown_fn.sa = private unnamed_addr constant %struct.sigaction { %union.anon { ptr @hup_handler }, %struct.__sigset_t zeroinitializer, i32 0, ptr null }, align 8
@@ -75,7 +74,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %if.end4.i, %for.inc.i
   %de.08.i = phi ptr [ %call12.i, %for.inc.i ], [ %call6.i, %if.end4.i ]
-  %d_name.i = getelementptr inbounds %struct.dirent, ptr %de.08.i, i64 0, i32 4
+  %d_name.i = getelementptr inbounds i8, ptr %de.08.i, i64 19
   %call8.i = call i32 @atoi(ptr nocapture noundef nonnull %d_name.i) #10
   %cmp.not.i = icmp eq i32 %call8.i, %call5.i
   br i1 %cmp.not.i, label %for.inc.i, label %if.then9.i

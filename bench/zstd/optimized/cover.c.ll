@@ -8,6 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.COVER_ctx_t = type { ptr, ptr, ptr, i64, i64, i64, ptr, i64, ptr, ptr, i32 }
 %struct.COVER_map_s = type { ptr, i32, i32, i32 }
 %struct.COVER_map_pair_t_s = type { i32, i32 }
+%struct.COVER_dictSelection = type { ptr, i64, i64 }
 %struct.COVER_best_s = type { %union.pthread_mutex_t, %union.pthread_cond_t, i64, ptr, i64, %struct.ZDICT_cover_params_t, i64 }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
@@ -15,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.COVER_dictSelection = type { ptr, i64, i64 }
-%struct.COVER_tryParameters_data_s = type { ptr, ptr, i64, %struct.ZDICT_cover_params_t }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [280 x i8] c"WARNING: The maximum dictionary size %u is too large compared to the source size %u! size(source)/size(dictionary) = %f, but it should be >= 10! This may lead to a subpar dictionary! We recommend training on sources at least 10x, and preferably 100x the size of the dictionary! \0A\00", align 1
@@ -143,13 +142,13 @@ define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %di
 entry:
   %ctx = alloca %struct.COVER_ctx_t, align 8
   %activeDmers = alloca %struct.COVER_map_s, align 8
-  %splitPoint = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 4
+  %splitPoint = getelementptr inbounds i8, ptr %parameters, i64 16
   store double 1.000000e+00, ptr %splitPoint, align 8
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 7
-  %notificationLevel = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 7, i32 1
+  %zParams = getelementptr inbounds i8, ptr %parameters, i64 32
+  %notificationLevel = getelementptr inbounds i8, ptr %parameters, i64 36
   %0 = load i32, ptr %notificationLevel, align 4
   store i32 %0, ptr @g_displayLevel, align 4
-  %d.i = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %parameters, i64 4
   %1 = load i32, ptr %d.i, align 4
   %cmp.i = icmp eq i32 %1, 0
   %2 = load i32, ptr %parameters, align 8
@@ -209,7 +208,7 @@ if.end20:                                         ; preds = %if.end12
   br i1 %cmp.i17, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.end20
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 7
+  %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
   %11 = load i64, ptr %suffixSize, align 8
   %12 = load i32, ptr @g_displayLevel, align 4
   %conv.i19 = uitofp i64 %11 to double
@@ -235,13 +234,13 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %if.end26, %if.then5
   %15 = call i32 @llvm.ctlz.i32(i32 %add, i1 true), !range !7
   %sub.i.i = xor i32 %15, 31
   %add.i = sub nuw nsw i32 33, %15
-  %sizeLog.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 1
+  %sizeLog.i = getelementptr inbounds i8, ptr %activeDmers, i64 8
   store i32 %add.i, ptr %sizeLog.i, align 8
   %shl.i = shl i32 4, %sub.i.i
-  %size2.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 2
+  %size2.i = getelementptr inbounds i8, ptr %activeDmers, i64 12
   store i32 %shl.i, ptr %size2.i, align 4
   %sub.i = add i32 %shl.i, -1
-  %sizeMask.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 3
+  %sizeMask.i = getelementptr inbounds i8, ptr %activeDmers, i64 16
   store i32 %sub.i, ptr %sizeMask.i, align 8
   %conv.i23 = zext i32 %shl.i to i64
   %mul.i = shl nuw nsw i64 %conv.i23, 3
@@ -263,7 +262,7 @@ if.then32:                                        ; preds = %if.then30
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then32, %if.then30
-  %suffix.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 6
+  %suffix.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %20 = load ptr, ptr %suffix.i, align 8
   %tobool1.not.i = icmp eq ptr %20, null
   br i1 %tobool1.not.i, label %if.end5.i, label %if.then2.i
@@ -274,7 +273,7 @@ if.then2.i:                                       ; preds = %if.end35
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end35
-  %freqs.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 8
+  %freqs.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %21 = load ptr, ptr %freqs.i, align 8
   %tobool6.not.i = icmp eq ptr %21, null
   br i1 %tobool6.not.i, label %if.end10.i, label %if.then7.i
@@ -285,7 +284,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end5.i
-  %dmerAt.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 9
+  %dmerAt.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %22 = load ptr, ptr %dmerAt.i, align 8
   %tobool11.not.i = icmp eq ptr %22, null
   br i1 %tobool11.not.i, label %if.end15.i, label %if.then12.i
@@ -296,7 +295,7 @@ if.then12.i:                                      ; preds = %if.end10.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %if.end10.i
-  %offsets.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 1
+  %offsets.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %23 = load ptr, ptr %offsets.i, align 8
   %tobool16.not.i = icmp eq ptr %23, null
   br i1 %tobool16.not.i, label %return, label %if.then17.i
@@ -319,7 +318,7 @@ if.then38:                                        ; preds = %if.end36
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then38, %if.end36
-  %freqs = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 8
+  %freqs = getelementptr inbounds i8, ptr %ctx, i64 64
   %28 = load ptr, ptr %freqs, align 8
   %call42 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %ctx, ptr noundef %28, ptr noundef nonnull %activeDmers, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %2, i32 %1)
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %call42
@@ -340,7 +339,7 @@ if.then50:                                        ; preds = %if.end41
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then50, %if.end41
-  %suffix.i29 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 6
+  %suffix.i29 = getelementptr inbounds i8, ptr %ctx, i64 48
   %32 = load ptr, ptr %suffix.i29, align 8
   %tobool1.not.i30 = icmp eq ptr %32, null
   br i1 %tobool1.not.i30, label %if.end5.i32, label %if.then2.i31
@@ -361,7 +360,7 @@ if.then7.i35:                                     ; preds = %if.end5.i32
   br label %if.end10.i36
 
 if.end10.i36:                                     ; preds = %if.then7.i35, %if.end5.i32
-  %dmerAt.i37 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 9
+  %dmerAt.i37 = getelementptr inbounds i8, ptr %ctx, i64 72
   %34 = load ptr, ptr %dmerAt.i37, align 8
   %tobool11.not.i38 = icmp eq ptr %34, null
   br i1 %tobool11.not.i38, label %if.end15.i40, label %if.then12.i39
@@ -372,7 +371,7 @@ if.then12.i39:                                    ; preds = %if.end10.i36
   br label %if.end15.i40
 
 if.end15.i40:                                     ; preds = %if.then12.i39, %if.end10.i36
-  %offsets.i41 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 1
+  %offsets.i41 = getelementptr inbounds i8, ptr %ctx, i64 8
   %35 = load ptr, ptr %offsets.i41, align 8
   %tobool16.not.i42 = icmp eq ptr %35, null
   br i1 %tobool16.not.i42, label %COVER_map_destroy.exit, label %if.then17.i43
@@ -542,33 +541,33 @@ if.then70:                                        ; preds = %if.end67
 
 if.end74:                                         ; preds = %if.end60, %if.then70, %if.end67
   store ptr %samplesBuffer, ptr %ctx, align 8
-  %samplesSizes76 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 2
+  %samplesSizes76 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %samplesSizes, ptr %samplesSizes76, align 8
   %conv77 = zext i32 %nbSamples to i64
-  %nbSamples78 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 3
+  %nbSamples78 = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %conv77, ptr %nbSamples78, align 8
   %conv79 = zext i32 %cond to i64
-  %nbTrainSamples80 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 4
+  %nbTrainSamples80 = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 %conv79, ptr %nbTrainSamples80, align 8
   %conv81 = zext i32 %cond7 to i64
-  %nbTestSamples82 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 5
+  %nbTestSamples82 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %conv81, ptr %nbTestSamples82, align 8
   %sub91 = sub i64 %cond14102, %cond29
   %add = add i64 %sub91, 1
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 7
+  %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
   store i64 %add, ptr %suffixSize, align 8
   %mul93 = shl i64 %add, 2
   %call94 = tail call noalias ptr @malloc(i64 noundef %mul93) #22
-  %suffix = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 6
+  %suffix = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call94, ptr %suffix, align 8
   %call97 = tail call noalias ptr @malloc(i64 noundef %mul93) #22
-  %dmerAt = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 9
+  %dmerAt = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %call97, ptr %dmerAt, align 8
   %add98 = add i32 %nbSamples, 1
   %conv99 = zext i32 %add98 to i64
   %mul100 = shl nuw nsw i64 %conv99, 3
   %call101 = tail call noalias ptr @malloc(i64 noundef %mul100) #22
-  %offsets = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 1
+  %offsets = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call101, ptr %offsets, align 8
   %tobool.not = icmp eq ptr %call94, null
   br i1 %tobool.not, label %if.then109, label %lor.lhs.false103
@@ -603,7 +602,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %freqs.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 8
+  %freqs.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %23 = load ptr, ptr %freqs.i, align 8
   %tobool6.not.i = icmp eq ptr %23, null
   br i1 %tobool6.not.i, label %if.end10.i, label %if.then7.i
@@ -634,9 +633,9 @@ if.then17.i:                                      ; preds = %if.end15.i
   br label %return
 
 if.end116:                                        ; preds = %lor.lhs.false103
-  %freqs = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 8
+  %freqs = getelementptr inbounds i8, ptr %ctx, i64 64
   store ptr null, ptr %freqs, align 8
-  %d117 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 10
+  %d117 = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %d, ptr %d117, align 8
   store i64 0, ptr %call101, align 8
   br i1 %cmp4.not.i, label %for.end, label %for.body.preheader
@@ -771,8 +770,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %while
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %add.i.i = add i32 %freq.019.i.i, 1
-  %add.ptr8.i.i = getelementptr inbounds i32, ptr %grpPtr.021.i.i, i64 1
-  %cmp9.not.i.i = icmp eq ptr %add.ptr8.i.i, %grpEnd.0.i
+  %cmp9.not.i.i = icmp eq ptr %grpPtr.021.i.i, %ptr.0.pn.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
@@ -792,7 +790,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %first.addr.012.i.i.i, i64 %div9.i.i.i
   %55 = load i64, ptr %add.ptr.i.i.i, align 8
   %cmp1.i.i.i = icmp ult i64 %55, %conv5.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %add.neg.i.i.i = xor i64 %div9.i.i.i, -1
   %sub.i.i.i = add i64 %count.011.i.i.i, %add.neg.i.i.i
   %count.1.i.i.i = select i1 %cmp1.i.i.i, i64 %sub.i.i.i, i64 %div9.i.i.i
@@ -803,15 +801,15 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 COVER_lower_bound.exit.i.i:                       ; preds = %while.body.i.i.i, %if.then11.i.i
   %first.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i, %if.then11.i.i ], [ %first.addr.1.i.i.i, %while.body.i.i.i ]
   %56 = load i64, ptr %first.addr.0.lcssa.i.i.i, align 8
-  %add.ptr13.i.i = getelementptr inbounds i64, ptr %first.addr.0.lcssa.i.i.i, i64 1
+  %add.ptr13.i.i = getelementptr inbounds i8, ptr %first.addr.0.lcssa.i.i.i, i64 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %COVER_lower_bound.exit.i.i, %if.end.i.i, %for.body.i.i
   %curOffsetPtr.1.i.i = phi ptr [ %curOffsetPtr.018.i.i, %for.body.i.i ], [ %add.ptr13.i.i, %COVER_lower_bound.exit.i.i ], [ %curOffsetPtr.018.i.i, %if.end.i.i ]
   %freq.1.i.i = phi i32 [ %freq.019.i.i, %for.body.i.i ], [ %add.i.i, %COVER_lower_bound.exit.i.i ], [ %add.i.i, %if.end.i.i ]
   %curSampleEnd.1.i.i = phi i64 [ %curSampleEnd.020.i.i, %for.body.i.i ], [ %56, %COVER_lower_bound.exit.i.i ], [ %curSampleEnd.020.i.i, %if.end.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %grpPtr.021.i.i, i64 1
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %grpEnd.0.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %grpPtr.021.i.i, i64 4
+  %cmp.not.i.i = icmp eq ptr %grpPtr.021.i.i, %ptr.0.pn.i
   br i1 %cmp.not.i.i, label %COVER_group.exit.i, label %for.body.i.i, !llvm.loop !13
 
 COVER_group.exit.i:                               ; preds = %for.inc.i.i
@@ -841,7 +839,7 @@ return:                                           ; preds = %if.then17.i, %if.en
 define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef readonly %activeDmers, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 7
+  %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %suffixSize, align 8
   %conv1 = trunc i64 %0 to i32
   %mul.i = mul i32 %parameters.0.val, 10
@@ -879,14 +877,14 @@ if.then:                                          ; preds = %COVER_computeEpochs
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %COVER_computeEpochs.exit
-  %cmp27.not26 = icmp eq i64 %dictBufferCapacity, 0
-  br i1 %cmp27.not26, label %for.end, label %for.body.lr.ph
+  %cmp27.not15 = icmp eq i64 %dictBufferCapacity, 0
+  br i1 %cmp27.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %4 = getelementptr i8, ptr %activeDmers, i64 12
-  %dmerAt.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 9
+  %dmerAt.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %5 = getelementptr i8, ptr %activeDmers, i64 8
-  %sizeMask.i.i.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 3
+  %sizeMask.i.i.i = getelementptr inbounds i8, ptr %activeDmers, i64 16
   %sub.i = add i32 %parameters.0.val, 2
   %add18.i = sub i32 %sub.i, %parameters.4.val
   %sub = add i32 %parameters.4.val, -1
@@ -894,10 +892,10 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %tail.029 = phi i64 [ %dictBufferCapacity, %for.body.lr.ph ], [ %tail.1, %for.inc ]
-  %zeroScoreRun.028 = phi i64 [ 0, %for.body.lr.ph ], [ %zeroScoreRun.1, %for.inc ]
-  %epoch.027 = phi i64 [ 0, %for.body.lr.ph ], [ %rem, %for.inc ]
-  %6 = trunc i64 %epoch.027 to i32
+  %tail.018 = phi i64 [ %dictBufferCapacity, %for.body.lr.ph ], [ %tail.1, %for.inc ]
+  %zeroScoreRun.017 = phi i64 [ 0, %for.body.lr.ph ], [ %zeroScoreRun.1, %for.inc ]
+  %epoch.016 = phi i64 [ 0, %for.body.lr.ph ], [ %rem, %for.inc ]
+  %6 = trunc i64 %epoch.016 to i32
   %conv31 = mul i32 %retval.sroa.4.0.i, %6
   %add = add i32 %conv31, %retval.sroa.4.0.i
   %activeDmers.val.i = load ptr, ptr %activeDmers, align 8
@@ -937,209 +935,193 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %sub.i.i.i.i = sub i32 32, %map.val.i.i.i
   %shr.i.i.i.i = lshr i32 %mul.i.i.i.i, %sub.i.i.i.i
   %idxprom8.i.i.i = zext i32 %shr.i.i.i.i to i64
-  %value9.i.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom8.i.i.i, i32 1
-  %12 = load i32, ptr %value9.i.i.i, align 4
-  %cmp10.i.i.i = icmp eq i32 %12, -1
-  br i1 %cmp10.i.i.i, label %COVER_map_at.exit.thread.i, label %if.end.i.i.i.preheader
+  %arrayidx9.i.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom8.i.i.i
+  %value10.i.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i.i, i64 4
+  %12 = load i32, ptr %value10.i.i.i, align 4
+  %cmp11.i.i.i = icmp eq i32 %12, -1
+  br i1 %cmp11.i.i.i, label %COVER_map_at.exit.thread.i, label %if.end.i.i.i
 
-if.end.i.i.i.preheader:                           ; preds = %while.body.i
-  %arrayidx.i.i.i17 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom8.i.i.i
-  %13 = load i32, ptr %arrayidx.i.i.i17, align 4
-  %cmp2.i.not.i.i18 = icmp eq i32 %13, %10
-  br i1 %cmp2.i.not.i.i18, label %COVER_map_at.exit.i, label %for.inc.i.i.i.lr.ph
-
-for.inc.i.i.i.lr.ph:                              ; preds = %if.end.i.i.i.preheader
-  %14 = load i32, ptr %sizeMask.i.i.i, align 8
-  br label %for.inc.i.i.i
-
-if.end.i.i.i:                                     ; preds = %for.inc.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.i.i.i
-  %15 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp2.i.not.i.i = icmp eq i32 %15, %10
+if.end.i.i.i:                                     ; preds = %while.body.i, %for.inc.i.i.i
+  %arrayidx13.i.i.i = phi ptr [ %arrayidx.i.i.i, %for.inc.i.i.i ], [ %arrayidx9.i.i.i, %while.body.i ]
+  %i.012.i.i.i = phi i32 [ %and.i.i.i, %for.inc.i.i.i ], [ %shr.i.i.i.i, %while.body.i ]
+  %13 = load i32, ptr %arrayidx13.i.i.i, align 4
+  %cmp2.i.not.i.i = icmp eq i32 %13, %10
   br i1 %cmp2.i.not.i.i, label %COVER_map_at.exit.i, label %for.inc.i.i.i
 
-for.inc.i.i.i:                                    ; preds = %for.inc.i.i.i.lr.ph, %if.end.i.i.i
-  %i.011.i.i.i19 = phi i32 [ %shr.i.i.i.i, %for.inc.i.i.i.lr.ph ], [ %and.i.i.i, %if.end.i.i.i ]
-  %add.i.i.i = add i32 %i.011.i.i.i19, 1
+for.inc.i.i.i:                                    ; preds = %if.end.i.i.i
+  %add.i.i.i = add i32 %i.012.i.i.i, 1
+  %14 = load i32, ptr %sizeMask.i.i.i, align 8
   %and.i.i.i = and i32 %14, %add.i.i.i
   %idxprom.i.i.i = zext i32 %and.i.i.i to i64
-  %value.i.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.i.i.i, i32 1
-  %16 = load i32, ptr %value.i.i.i, align 4
-  %cmp.i.i.i = icmp eq i32 %16, -1
+  %arrayidx.i.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.i.i.i
+  %value.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
+  %15 = load i32, ptr %value.i.i.i, align 4
+  %cmp.i.i.i = icmp eq i32 %15, -1
   br i1 %cmp.i.i.i, label %COVER_map_at.exit.thread.i, label %if.end.i.i.i
 
 COVER_map_at.exit.thread.i:                       ; preds = %for.inc.i.i.i, %while.body.i
   %idxprom.pre-phi.ph.i.i = phi i64 [ %idxprom8.i.i.i, %while.body.i ], [ %idxprom.i.i.i, %for.inc.i.i.i ]
-  %value11.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.pre-phi.ph.i.i, i32 1
-  %arrayidx.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.pre-phi.ph.i.i
-  store i32 %10, ptr %arrayidx.i.i, align 4
+  %arrayidx10.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.pre-phi.ph.i.i
+  %value11.i.i = getelementptr inbounds i8, ptr %arrayidx10.i.i, i64 4
+  store i32 %10, ptr %arrayidx10.i.i, align 4
   store i32 0, ptr %value11.i.i, align 4
   br label %if.then.i
 
-COVER_map_at.exit.i:                              ; preds = %if.end.i.i.i, %if.end.i.i.i.preheader
-  %.pre.phi.trans.insert.i.i.pre-phi = phi i64 [ %idxprom8.i.i.i, %if.end.i.i.i.preheader ], [ %idxprom.i.i.i, %if.end.i.i.i ]
-  %.pr.i.lcssa = phi i32 [ %12, %if.end.i.i.i.preheader ], [ %16, %if.end.i.i.i ]
-  %value.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %.pre.phi.trans.insert.i.i.pre-phi, i32 1
-  %cmp7.i = icmp eq i32 %.pr.i.lcssa, 0
+COVER_map_at.exit.i:                              ; preds = %if.end.i.i.i
+  %idxprom.phi.trans.insert.phi.trans.insert.i.i = zext i32 %i.012.i.i.i to i64
+  %value.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom.phi.trans.insert.phi.trans.insert.i.i, i32 1
+  %.pr.i = load i32, ptr %value.i.i, align 4
+  %cmp7.i = icmp eq i32 %.pr.i, 0
   br i1 %cmp7.i, label %if.then.i, label %if.end.i27
 
 if.then.i:                                        ; preds = %COVER_map_at.exit.i, %COVER_map_at.exit.thread.i
-  %value14.i4.i = phi ptr [ %value11.i.i, %COVER_map_at.exit.thread.i ], [ %value.i.i, %COVER_map_at.exit.i ]
+  %value13.i4.i = phi ptr [ %value11.i.i, %COVER_map_at.exit.thread.i ], [ %value.i.i, %COVER_map_at.exit.i ]
   %idxprom8.i = zext i32 %10 to i64
   %arrayidx9.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom8.i
-  %17 = load i32, ptr %arrayidx9.i, align 4
-  %add11.i = add i32 %17, %activeSegment.sroa.12.011.i
+  %16 = load i32, ptr %arrayidx9.i, align 4
+  %add11.i = add i32 %16, %activeSegment.sroa.12.011.i
   br label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.then.i, %COVER_map_at.exit.i
-  %value14.i3.i = phi ptr [ %value14.i4.i, %if.then.i ], [ %value.i.i, %COVER_map_at.exit.i ]
-  %18 = phi i32 [ 0, %if.then.i ], [ %.pr.i.lcssa, %COVER_map_at.exit.i ]
+  %value13.i3.i = phi ptr [ %value13.i4.i, %if.then.i ], [ %value.i.i, %COVER_map_at.exit.i ]
+  %17 = phi i32 [ 0, %if.then.i ], [ %.pr.i, %COVER_map_at.exit.i ]
   %activeSegment.sroa.12.1.i = phi i32 [ %add11.i, %if.then.i ], [ %activeSegment.sroa.12.011.i, %COVER_map_at.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %add14.i = add nuw i32 %18, 1
-  store i32 %add14.i, ptr %value14.i3.i, align 4
+  %add14.i = add i32 %17, 1
+  store i32 %add14.i, ptr %value13.i3.i, align 4
   %sub17.i = sub i32 %indvars.i, %activeSegment.sroa.0.09.i
   %cmp19.i = icmp eq i32 %sub17.i, %add18.i
   br i1 %cmp19.i, label %if.then20.i, label %if.end36.i
 
 if.then20.i:                                      ; preds = %if.end.i27
-  %19 = load ptr, ptr %dmerAt.i, align 8
+  %18 = load ptr, ptr %dmerAt.i, align 8
   %idxprom23.i = zext i32 %activeSegment.sroa.0.09.i to i64
-  %arrayidx24.i = getelementptr inbounds i32, ptr %19, i64 %idxprom23.i
-  %20 = load i32, ptr %arrayidx24.i, align 4
-  %21 = load ptr, ptr %activeDmers, align 8
+  %arrayidx24.i = getelementptr inbounds i32, ptr %18, i64 %idxprom23.i
+  %19 = load i32, ptr %arrayidx24.i, align 4
+  %20 = load ptr, ptr %activeDmers, align 8
   %map.val.i.i44.i = load i32, ptr %5, align 8
-  %mul.i.i.i45.i = mul i32 %20, -1640531535
+  %mul.i.i.i45.i = mul i32 %19, -1640531535
   %sub.i.i.i46.i = sub i32 32, %map.val.i.i44.i
   %shr.i.i.i47.i = lshr i32 %mul.i.i.i45.i, %sub.i.i.i46.i
   %idxprom8.i.i48.i = zext i32 %shr.i.i.i47.i to i64
-  %value9.i.i49.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %idxprom8.i.i48.i, i32 1
-  %22 = load i32, ptr %value9.i.i49.i, align 4
-  %cmp10.i.i50.i = icmp eq i32 %22, -1
-  br i1 %cmp10.i.i50.i, label %COVER_map_at.exit72.thread.i, label %if.end.i.i53.i.preheader
+  %arrayidx9.i.i49.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %20, i64 %idxprom8.i.i48.i
+  %value10.i.i50.i = getelementptr inbounds i8, ptr %arrayidx9.i.i49.i, i64 4
+  %21 = load i32, ptr %value10.i.i50.i, align 4
+  %cmp11.i.i51.i = icmp eq i32 %21, -1
+  br i1 %cmp11.i.i51.i, label %COVER_map_at.exit73.thread.i, label %if.end.i.i54.i
 
-if.end.i.i53.i.preheader:                         ; preds = %if.then20.i
-  %arrayidx.i.i56.i21 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %idxprom8.i.i48.i
-  %23 = load i32, ptr %arrayidx.i.i56.i21, align 4
-  %cmp2.i.not.i57.i22 = icmp eq i32 %23, %20
-  br i1 %cmp2.i.not.i57.i22, label %COVER_map_at.exit72.i, label %for.inc.i.i58.i.lr.ph
+if.end.i.i54.i:                                   ; preds = %if.then20.i, %for.inc.i.i58.i
+  %arrayidx13.i.i55.i = phi ptr [ %arrayidx.i.i62.i, %for.inc.i.i58.i ], [ %arrayidx9.i.i49.i, %if.then20.i ]
+  %i.012.i.i56.i = phi i32 [ %and.i.i60.i, %for.inc.i.i58.i ], [ %shr.i.i.i47.i, %if.then20.i ]
+  %22 = load i32, ptr %arrayidx13.i.i55.i, align 4
+  %cmp2.i.not.i57.i = icmp eq i32 %22, %19
+  br i1 %cmp2.i.not.i57.i, label %COVER_map_at.exit73.i, label %for.inc.i.i58.i
 
-for.inc.i.i58.i.lr.ph:                            ; preds = %if.end.i.i53.i.preheader
-  %24 = load i32, ptr %sizeMask.i.i.i, align 8
-  br label %for.inc.i.i58.i
-
-if.end.i.i53.i:                                   ; preds = %for.inc.i.i58.i
-  %arrayidx.i.i56.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %idxprom.i.i61.i
-  %25 = load i32, ptr %arrayidx.i.i56.i, align 4
-  %cmp2.i.not.i57.i = icmp eq i32 %25, %20
-  br i1 %cmp2.i.not.i57.i, label %COVER_map_at.exit72.i, label %for.inc.i.i58.i
-
-for.inc.i.i58.i:                                  ; preds = %for.inc.i.i58.i.lr.ph, %if.end.i.i53.i
-  %i.011.i.i55.i23 = phi i32 [ %shr.i.i.i47.i, %for.inc.i.i58.i.lr.ph ], [ %and.i.i60.i, %if.end.i.i53.i ]
-  %add.i.i59.i = add i32 %i.011.i.i55.i23, 1
-  %and.i.i60.i = and i32 %24, %add.i.i59.i
+for.inc.i.i58.i:                                  ; preds = %if.end.i.i54.i
+  %add.i.i59.i = add i32 %i.012.i.i56.i, 1
+  %23 = load i32, ptr %sizeMask.i.i.i, align 8
+  %and.i.i60.i = and i32 %23, %add.i.i59.i
   %idxprom.i.i61.i = zext i32 %and.i.i60.i to i64
-  %value.i.i62.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %idxprom.i.i61.i, i32 1
-  %26 = load i32, ptr %value.i.i62.i, align 4
-  %cmp.i.i63.i = icmp eq i32 %26, -1
-  br i1 %cmp.i.i63.i, label %COVER_map_at.exit72.thread.i, label %if.end.i.i53.i
+  %arrayidx.i.i62.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %20, i64 %idxprom.i.i61.i
+  %value.i.i63.i = getelementptr inbounds i8, ptr %arrayidx.i.i62.i, i64 4
+  %24 = load i32, ptr %value.i.i63.i, align 4
+  %cmp.i.i64.i = icmp eq i32 %24, -1
+  br i1 %cmp.i.i64.i, label %COVER_map_at.exit73.thread.i, label %if.end.i.i54.i
 
-COVER_map_at.exit72.thread.i:                     ; preds = %for.inc.i.i58.i, %if.then20.i
-  %idxprom.pre-phi.ph.i65.i = phi i64 [ %idxprom8.i.i48.i, %if.then20.i ], [ %idxprom.i.i61.i, %for.inc.i.i58.i ]
-  %value11.i66.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %idxprom.pre-phi.ph.i65.i, i32 1
-  %arrayidx.i67.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %idxprom.pre-phi.ph.i65.i
-  store i32 %20, ptr %arrayidx.i67.i, align 4
-  %add2737.i = add i32 %activeSegment.sroa.0.09.i, 1
-  store i32 -1, ptr %value11.i66.i, align 4
+COVER_map_at.exit73.thread.i:                     ; preds = %for.inc.i.i58.i, %if.then20.i
+  %idxprom.pre-phi.ph.i66.i = phi i64 [ %idxprom8.i.i48.i, %if.then20.i ], [ %idxprom.i.i61.i, %for.inc.i.i58.i ]
+  %arrayidx10.i67.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %20, i64 %idxprom.pre-phi.ph.i66.i
+  %value11.i68.i = getelementptr inbounds i8, ptr %arrayidx10.i67.i, i64 4
+  store i32 %19, ptr %arrayidx10.i67.i, align 4
+  %add2736.i = add i32 %activeSegment.sroa.0.09.i, 1
+  store i32 -1, ptr %value11.i68.i, align 4
   br label %if.end36.i
 
-COVER_map_at.exit72.i:                            ; preds = %if.end.i.i53.i, %if.end.i.i53.i.preheader
-  %.pre.phi.trans.insert.i70.i.pre-phi = phi i64 [ %idxprom8.i.i48.i, %if.end.i.i53.i.preheader ], [ %idxprom.i.i61.i, %if.end.i.i53.i ]
-  %.lcssa = phi i32 [ %22, %if.end.i.i53.i.preheader ], [ %26, %if.end.i.i53.i ]
-  %value.i71.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %21, i64 %.pre.phi.trans.insert.i70.i.pre-phi, i32 1
+COVER_map_at.exit73.i:                            ; preds = %if.end.i.i54.i
+  %idxprom.phi.trans.insert.phi.trans.insert.i71.i = zext i32 %i.012.i.i56.i to i64
+  %value.i72.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %20, i64 %idxprom.phi.trans.insert.phi.trans.insert.i71.i, i32 1
+  %.pre.i = load i32, ptr %value.i72.i, align 4
   %add27.i = add i32 %activeSegment.sroa.0.09.i, 1
-  %sub28.i = add i32 %.lcssa, -1
-  store i32 %sub28.i, ptr %value.i71.i, align 4
+  %sub28.i = add i32 %.pre.i, -1
+  store i32 %sub28.i, ptr %value.i72.i, align 4
   %cmp29.i = icmp eq i32 %sub28.i, 0
   br i1 %cmp29.i, label %if.then30.i, label %if.end36.i
 
-if.then30.i:                                      ; preds = %COVER_map_at.exit72.i
-  %map.val.i.i73.i = load i32, ptr %5, align 8
-  %sub.i.i.i75.i = sub i32 32, %map.val.i.i73.i
-  %shr.i.i.i76.i = lshr i32 %mul.i.i.i45.i, %sub.i.i.i75.i
-  %27 = load ptr, ptr %activeDmers, align 8
-  %idxprom8.i.i77.i = zext i32 %shr.i.i.i76.i to i64
-  %value9.i.i78.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %27, i64 %idxprom8.i.i77.i, i32 1
-  %28 = load i32, ptr %value9.i.i78.i, align 4
-  %cmp10.i.i79.i = icmp eq i32 %28, -1
-  br i1 %cmp10.i.i79.i, label %COVER_map_remove.exit.i, label %if.end.i.i82.i
+if.then30.i:                                      ; preds = %COVER_map_at.exit73.i
+  %map.val.i.i74.i = load i32, ptr %5, align 8
+  %sub.i.i.i76.i = sub i32 32, %map.val.i.i74.i
+  %shr.i.i.i77.i = lshr i32 %mul.i.i.i45.i, %sub.i.i.i76.i
+  %25 = load ptr, ptr %activeDmers, align 8
+  %idxprom8.i.i78.i = zext i32 %shr.i.i.i77.i to i64
+  %arrayidx9.i.i79.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom8.i.i78.i
+  %value10.i.i80.i = getelementptr inbounds i8, ptr %arrayidx9.i.i79.i, i64 4
+  %26 = load i32, ptr %value10.i.i80.i, align 4
+  %cmp11.i.i81.i = icmp eq i32 %26, -1
+  br i1 %cmp11.i.i81.i, label %COVER_map_remove.exit.i, label %if.end.i.i84.i
 
-if.end.i.i82.i:                                   ; preds = %if.then30.i, %for.inc.i.i87.i
-  %idxprom12.i.i83.i = phi i64 [ %idxprom.i.i90.i, %for.inc.i.i87.i ], [ %idxprom8.i.i77.i, %if.then30.i ]
-  %i.011.i.i84.i = phi i32 [ %and.i.i89.i, %for.inc.i.i87.i ], [ %shr.i.i.i76.i, %if.then30.i ]
-  %arrayidx.i.i85.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %27, i64 %idxprom12.i.i83.i
-  %29 = load i32, ptr %arrayidx.i.i85.i, align 4
-  %cmp2.i.not.i86.i = icmp eq i32 %29, %20
-  br i1 %cmp2.i.not.i86.i, label %if.end.i.i, label %for.inc.i.i87.i
+if.end.i.i84.i:                                   ; preds = %if.then30.i, %for.inc.i.i88.i
+  %arrayidx13.i.i85.i = phi ptr [ %arrayidx.i.i92.i, %for.inc.i.i88.i ], [ %arrayidx9.i.i79.i, %if.then30.i ]
+  %i.012.i.i86.i = phi i32 [ %and.i.i90.i, %for.inc.i.i88.i ], [ %shr.i.i.i77.i, %if.then30.i ]
+  %27 = load i32, ptr %arrayidx13.i.i85.i, align 4
+  %cmp2.i.not.i87.i = icmp eq i32 %27, %19
+  br i1 %cmp2.i.not.i87.i, label %if.end.i.i, label %for.inc.i.i88.i
 
-for.inc.i.i87.i:                                  ; preds = %if.end.i.i82.i
-  %add.i.i88.i = add i32 %i.011.i.i84.i, 1
+for.inc.i.i88.i:                                  ; preds = %if.end.i.i84.i
+  %add.i.i89.i = add i32 %i.012.i.i86.i, 1
+  %28 = load i32, ptr %sizeMask.i.i.i, align 8
+  %and.i.i90.i = and i32 %28, %add.i.i89.i
+  %idxprom.i.i91.i = zext i32 %and.i.i90.i to i64
+  %arrayidx.i.i92.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom.i.i91.i
+  %value.i.i93.i = getelementptr inbounds i8, ptr %arrayidx.i.i92.i, i64 4
+  %29 = load i32, ptr %value.i.i93.i, align 4
+  %cmp.i.i94.i = icmp eq i32 %29, -1
+  br i1 %cmp.i.i94.i, label %COVER_map_remove.exit.i, label %if.end.i.i84.i
+
+if.end.i.i:                                       ; preds = %if.end.i.i84.i
+  %idxprom.phi.trans.insert.phi.trans.insert.i95.i = zext i32 %i.012.i.i86.i to i64
+  %arrayidx.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom.phi.trans.insert.phi.trans.insert.i95.i
+  %add.i.i = add i32 %i.012.i.i86.i, 1
   %30 = load i32, ptr %sizeMask.i.i.i, align 8
-  %and.i.i89.i = and i32 %30, %add.i.i88.i
-  %idxprom.i.i90.i = zext i32 %and.i.i89.i to i64
-  %value.i.i91.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %27, i64 %idxprom.i.i90.i, i32 1
-  %31 = load i32, ptr %value.i.i91.i, align 4
-  %cmp.i.i92.i = icmp eq i32 %31, -1
-  br i1 %cmp.i.i92.i, label %COVER_map_remove.exit.i, label %if.end.i.i82.i
-
-if.end.i.i:                                       ; preds = %if.end.i.i82.i
-  %.pre.phi.trans.insert.i93.i = zext i32 %i.011.i.i84.i to i64
-  %arrayidx.i94.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %27, i64 %.pre.phi.trans.insert.i93.i
-  %add.i.i = add i32 %i.011.i.i84.i, 1
-  %32 = load i32, ptr %sizeMask.i.i.i, align 8
-  %and.i.i = and i32 %32, %add.i.i
+  %and.i.i = and i32 %30, %add.i.i
   %idxprom219.i.i = zext i32 %and.i.i to i64
-  %value421.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %27, i64 %idxprom219.i.i, i32 1
-  %33 = load i32, ptr %value421.i.i, align 4
-  %cmp522.i.i = icmp eq i32 %33, -1
-  br i1 %cmp522.i.i, label %if.then6.i.i, label %if.end8.preheader.i.i
-
-if.end8.preheader.i.i:                            ; preds = %if.end.i.i
-  %arrayidx320.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %27, i64 %idxprom219.i.i
-  br label %if.end8.i.i
+  %arrayidx320.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom219.i.i
+  %value421.i.i = getelementptr inbounds i8, ptr %arrayidx320.i.i, i64 4
+  %31 = load i32, ptr %value421.i.i, align 4
+  %cmp522.i.i = icmp eq i32 %31, -1
+  br i1 %cmp522.i.i, label %if.then6.i.i, label %if.end8.i.i
 
 if.then6.i.i:                                     ; preds = %for.inc.i.i, %if.end.i.i
-  %del.0.lcssa.i.i = phi ptr [ %arrayidx.i94.i, %if.end.i.i ], [ %del.1.i.i, %for.inc.i.i ]
-  %value7.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %del.0.lcssa.i.i, i64 0, i32 1
+  %del.0.lcssa.i.i = phi ptr [ %arrayidx.i.i, %if.end.i.i ], [ %del.1.i.i, %for.inc.i.i ]
+  %value7.i.i = getelementptr inbounds i8, ptr %del.0.lcssa.i.i, i64 4
   store i32 -1, ptr %value7.i.i, align 4
   br label %COVER_map_remove.exit.i
 
-if.end8.i.i:                                      ; preds = %for.inc.i.i, %if.end8.preheader.i.i
-  %34 = phi ptr [ %38, %for.inc.i.i ], [ %27, %if.end8.preheader.i.i ]
-  %35 = phi i32 [ %39, %for.inc.i.i ], [ %32, %if.end8.preheader.i.i ]
-  %value427.i.i = phi ptr [ %value4.i.i, %for.inc.i.i ], [ %value421.i.i, %if.end8.preheader.i.i ]
-  %arrayidx326.i.i = phi ptr [ %arrayidx3.i.i, %for.inc.i.i ], [ %arrayidx320.i.i, %if.end8.preheader.i.i ]
-  %i.025.i.i = phi i32 [ %and22.i.i, %for.inc.i.i ], [ %and.i.i, %if.end8.preheader.i.i ]
-  %shift.024.i.i = phi i32 [ %shift.1.i.i, %for.inc.i.i ], [ 1, %if.end8.preheader.i.i ]
-  %del.023.i.i = phi ptr [ %del.1.i.i, %for.inc.i.i ], [ %arrayidx.i94.i, %if.end8.preheader.i.i ]
-  %36 = load i32, ptr %arrayidx326.i.i, align 4
+if.end8.i.i:                                      ; preds = %if.end.i.i, %for.inc.i.i
+  %32 = phi ptr [ %36, %for.inc.i.i ], [ %25, %if.end.i.i ]
+  %33 = phi i32 [ %37, %for.inc.i.i ], [ %30, %if.end.i.i ]
+  %value427.i.i = phi ptr [ %value4.i.i, %for.inc.i.i ], [ %value421.i.i, %if.end.i.i ]
+  %arrayidx326.i.i = phi ptr [ %arrayidx3.i.i, %for.inc.i.i ], [ %arrayidx320.i.i, %if.end.i.i ]
+  %i.025.i.i = phi i32 [ %and22.i.i, %for.inc.i.i ], [ %and.i.i, %if.end.i.i ]
+  %shift.024.i.i = phi i32 [ %shift.1.i.i, %for.inc.i.i ], [ 1, %if.end.i.i ]
+  %del.023.i.i = phi ptr [ %del.1.i.i, %for.inc.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
+  %34 = load i32, ptr %arrayidx326.i.i, align 4
   %map.val.i.i = load i32, ptr %5, align 8
-  %mul.i.i.i = mul i32 %36, -1640531535
+  %mul.i.i.i = mul i32 %34, -1640531535
   %sub.i.i.i = sub i32 32, %map.val.i.i
   %shr.i.i.i = lshr i32 %mul.i.i.i, %sub.i.i.i
   %sub.i.i = sub i32 %i.025.i.i, %shr.i.i.i
-  %and12.i.i = and i32 %sub.i.i, %35
+  %and12.i.i = and i32 %sub.i.i, %33
   %cmp13.not.i.i = icmp ult i32 %and12.i.i, %shift.024.i.i
   br i1 %cmp13.not.i.i, label %if.else.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end8.i.i
-  store i32 %36, ptr %del.023.i.i, align 4
-  %37 = load i32, ptr %value427.i.i, align 4
-  %value18.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %del.023.i.i, i64 0, i32 1
-  store i32 %37, ptr %value18.i.i, align 4
-  %.pre29.i.i = load i32, ptr %sizeMask.i.i.i, align 8
-  %.pre30.i.i = load ptr, ptr %activeDmers, align 8
+  store i32 %34, ptr %del.023.i.i, align 4
+  %35 = load i32, ptr %value427.i.i, align 4
+  %value18.i.i = getelementptr inbounds i8, ptr %del.023.i.i, i64 4
+  store i32 %35, ptr %value18.i.i, align 4
+  %.pre28.i.i = load i32, ptr %sizeMask.i.i.i, align 8
+  %.pre29.i.i = load ptr, ptr %activeDmers, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %if.end8.i.i
@@ -1147,29 +1129,29 @@ if.else.i.i:                                      ; preds = %if.end8.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then14.i.i
-  %38 = phi ptr [ %.pre30.i.i, %if.then14.i.i ], [ %34, %if.else.i.i ]
-  %39 = phi i32 [ %.pre29.i.i, %if.then14.i.i ], [ %35, %if.else.i.i ]
+  %36 = phi ptr [ %.pre29.i.i, %if.then14.i.i ], [ %32, %if.else.i.i ]
+  %37 = phi i32 [ %.pre28.i.i, %if.then14.i.i ], [ %33, %if.else.i.i ]
   %del.1.i.i = phi ptr [ %arrayidx326.i.i, %if.then14.i.i ], [ %del.023.i.i, %if.else.i.i ]
   %shift.1.i.i = phi i32 [ 1, %if.then14.i.i ], [ %inc.i.i, %if.else.i.i ]
   %add20.i.i = add i32 %i.025.i.i, 1
-  %and22.i.i = and i32 %39, %add20.i.i
+  %and22.i.i = and i32 %37, %add20.i.i
   %idxprom2.i.i = zext i32 %and22.i.i to i64
-  %arrayidx3.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %38, i64 %idxprom2.i.i
-  %value4.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %38, i64 %idxprom2.i.i, i32 1
-  %40 = load i32, ptr %value4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %40, -1
+  %arrayidx3.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %36, i64 %idxprom2.i.i
+  %value4.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 4
+  %38 = load i32, ptr %value4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %38, -1
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
-COVER_map_remove.exit.i:                          ; preds = %for.inc.i.i87.i, %if.then6.i.i, %if.then30.i
-  %idxprom31.i = zext i32 %20 to i64
+COVER_map_remove.exit.i:                          ; preds = %for.inc.i.i88.i, %if.then6.i.i, %if.then30.i
+  %idxprom31.i = zext i32 %19 to i64
   %arrayidx32.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom31.i
-  %41 = load i32, ptr %arrayidx32.i, align 4
-  %sub34.i = sub i32 %activeSegment.sroa.12.1.i, %41
+  %39 = load i32, ptr %arrayidx32.i, align 4
+  %sub34.i = sub i32 %activeSegment.sroa.12.1.i, %39
   br label %if.end36.i
 
-if.end36.i:                                       ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit72.i, %COVER_map_at.exit72.thread.i, %if.end.i27
-  %activeSegment.sroa.0.1.i = phi i32 [ %add27.i, %COVER_map_remove.exit.i ], [ %add27.i, %COVER_map_at.exit72.i ], [ %activeSegment.sroa.0.09.i, %if.end.i27 ], [ %add2737.i, %COVER_map_at.exit72.thread.i ]
-  %activeSegment.sroa.12.2.i = phi i32 [ %sub34.i, %COVER_map_remove.exit.i ], [ %activeSegment.sroa.12.1.i, %COVER_map_at.exit72.i ], [ %activeSegment.sroa.12.1.i, %if.end.i27 ], [ %activeSegment.sroa.12.1.i, %COVER_map_at.exit72.thread.i ]
+if.end36.i:                                       ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit73.i, %COVER_map_at.exit73.thread.i, %if.end.i27
+  %activeSegment.sroa.0.1.i = phi i32 [ %add27.i, %COVER_map_remove.exit.i ], [ %add27.i, %COVER_map_at.exit73.i ], [ %activeSegment.sroa.0.09.i, %if.end.i27 ], [ %add2736.i, %COVER_map_at.exit73.thread.i ]
+  %activeSegment.sroa.12.2.i = phi i32 [ %sub34.i, %COVER_map_remove.exit.i ], [ %activeSegment.sroa.12.1.i, %COVER_map_at.exit73.i ], [ %activeSegment.sroa.12.1.i, %if.end.i27 ], [ %activeSegment.sroa.12.1.i, %COVER_map_at.exit73.thread.i ]
   %cmp39.i = icmp ugt i32 %activeSegment.sroa.12.2.i, %retval.sroa.12.013.i
   %retval.sroa.12.1.i = tail call i32 @llvm.umax.i32(i32 %activeSegment.sroa.12.2.i, i32 %retval.sroa.12.013.i)
   %retval.sroa.0.sroa.7.1.i = select i1 %cmp39.i, i32 %indvars.i, i32 %retval.sroa.0.sroa.7.014.i
@@ -1187,11 +1169,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %newBegin.019.i = phi i32 [ %retval.sroa.0.sroa.7.1.i, %for.body.lr.ph.i ], [ %newBegin.1.i, %for.body.i ]
   %idxprom48.i = zext i32 %pos.021.i to i64
   %arrayidx49.i = getelementptr inbounds i32, ptr %8, i64 %idxprom48.i
-  %42 = load i32, ptr %arrayidx49.i, align 4
-  %idxprom50.i = zext i32 %42 to i64
+  %40 = load i32, ptr %arrayidx49.i, align 4
+  %idxprom50.i = zext i32 %40 to i64
   %arrayidx51.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom50.i
-  %43 = load i32, ptr %arrayidx51.i, align 4
-  %cmp52.not.i = icmp eq i32 %43, 0
+  %41 = load i32, ptr %arrayidx51.i, align 4
+  %cmp52.not.i = icmp eq i32 %41, 0
   %cond.i28 = tail call i32 @llvm.umin.i32(i32 %newBegin.019.i, i32 %pos.021.i)
   %add55.i = add i32 %pos.021.i, 1
   %newBegin.1.i = select i1 %cmp52.not.i, i32 %newBegin.019.i, i32 %cond.i28
@@ -1201,11 +1183,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.body64.i:                                     ; preds = %for.cond61.preheader.i, %for.body64.i
   %pos59.025.i = phi i32 [ %inc71.i, %for.body64.i ], [ %newBegin.1.i, %for.cond61.preheader.i ]
-  %44 = load ptr, ptr %dmerAt.i, align 8
+  %42 = load ptr, ptr %dmerAt.i, align 8
   %idxprom66.i = zext i32 %pos59.025.i to i64
-  %arrayidx67.i = getelementptr inbounds i32, ptr %44, i64 %idxprom66.i
-  %45 = load i32, ptr %arrayidx67.i, align 4
-  %idxprom68.i = zext i32 %45 to i64
+  %arrayidx67.i = getelementptr inbounds i32, ptr %42, i64 %idxprom66.i
+  %43 = load i32, ptr %arrayidx67.i, align 4
+  %idxprom68.i = zext i32 %43 to i64
   %arrayidx69.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom68.i
   store i32 0, ptr %arrayidx69.i, align 4
   %inc71.i = add i32 %pos59.025.i, 1
@@ -1213,77 +1195,77 @@ for.body64.i:                                     ; preds = %for.cond61.preheade
   br i1 %cmp63.not.i, label %COVER_selectSegment.exit, label %for.body64.i, !llvm.loop !17
 
 COVER_selectSegment.exit:                         ; preds = %for.body64.i, %for.cond.preheader.i, %for.cond61.preheader.i
-  %newEnd.0.lcssa46.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newEnd.1.i, %for.body64.i ]
-  %newBegin.0.lcssa45.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newBegin.1.i, %for.body64.i ]
-  %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %newBegin.0.lcssa45.i to i64
+  %newEnd.0.lcssa45.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newEnd.1.i, %for.body64.i ]
+  %newBegin.0.lcssa44.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newBegin.1.i, %for.body64.i ]
+  %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %newBegin.0.lcssa44.i to i64
   %cmp34 = icmp eq i32 %retval.sroa.12.1.i, 0
   br i1 %cmp34, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %for.body, %COVER_selectSegment.exit
-  %inc = add i64 %zeroScoreRun.028, 1
+  %inc = add i64 %zeroScoreRun.017, 1
   %cmp37.not = icmp ult i64 %inc, %cond20
   br i1 %cmp37.not, label %for.inc, label %for.end
 
 if.end41:                                         ; preds = %COVER_selectSegment.exit
-  %add42 = add i32 %sub, %newEnd.0.lcssa46.i
-  %sub43 = sub i32 %add42, %newBegin.0.lcssa45.i
+  %add42 = add i32 %sub, %newEnd.0.lcssa45.i
+  %sub43 = sub i32 %add42, %newBegin.0.lcssa44.i
   %conv44 = zext i32 %sub43 to i64
-  %conv44.tail.0 = tail call i64 @llvm.umin.i64(i64 %tail.029, i64 %conv44)
+  %conv44.tail.0 = tail call i64 @llvm.umin.i64(i64 %tail.018, i64 %conv44)
   %cmp60 = icmp ult i64 %conv44.tail.0, %conv59
   br i1 %cmp60, label %for.end, label %if.end63
 
 if.end63:                                         ; preds = %if.end41
-  %sub64 = sub i64 %tail.029, %conv44.tail.0
+  %sub64 = sub i64 %tail.018, %conv44.tail.0
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %sub64
-  %46 = load ptr, ptr %ctx, align 8
-  %add.ptr66 = getelementptr inbounds i8, ptr %46, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
+  %44 = load ptr, ptr %ctx, align 8
+  %add.ptr66 = getelementptr inbounds i8, ptr %44, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr66, i64 %conv44.tail.0, i1 false)
-  %47 = load i32, ptr @g_displayLevel, align 4
-  %cmp67 = icmp sgt i32 %47, 1
+  %45 = load i32, ptr @g_displayLevel, align 4
+  %cmp67 = icmp sgt i32 %45, 1
   br i1 %cmp67, label %if.then69, label %for.inc
 
 if.then69:                                        ; preds = %if.end63
   %call70 = tail call i64 @clock() #23
-  %48 = load i64, ptr @g_time, align 8
-  %sub71 = sub nsw i64 %call70, %48
+  %46 = load i64, ptr @g_time, align 8
+  %sub71 = sub nsw i64 %call70, %46
   %cmp72 = icmp sgt i64 %sub71, 150000
-  %49 = load i32, ptr @g_displayLevel, align 4
-  %cmp74 = icmp sgt i32 %49, 3
+  %47 = load i32, ptr @g_displayLevel, align 4
+  %cmp74 = icmp sgt i32 %47, 3
   %or.cond = select i1 %cmp72, i1 true, i1 %cmp74
   br i1 %or.cond, label %if.then76, label %for.inc
 
 if.then76:                                        ; preds = %if.then69
   %call77 = tail call i64 @clock() #23
   store i64 %call77, ptr @g_time, align 8
-  %50 = load ptr, ptr @stderr, align 8
+  %48 = load ptr, ptr @stderr, align 8
   %sub78 = sub i64 %dictBufferCapacity, %sub64
   %mul79 = mul i64 %sub78, 100
   %div = udiv i64 %mul79, %dictBufferCapacity
   %conv80 = trunc i64 %div to i32
-  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.13, i32 noundef %conv80) #21
-  %51 = load ptr, ptr @stderr, align 8
-  %call82 = tail call i32 @fflush(ptr noundef %51)
+  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.13, i32 noundef %conv80) #21
+  %49 = load ptr, ptr @stderr, align 8
+  %call82 = tail call i32 @fflush(ptr noundef %49)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end63, %if.then69, %if.then76, %if.then36
   %zeroScoreRun.1 = phi i64 [ %inc, %if.then36 ], [ 0, %if.then76 ], [ 0, %if.then69 ], [ 0, %if.end63 ]
-  %tail.1 = phi i64 [ %tail.029, %if.then36 ], [ %sub64, %if.then76 ], [ %sub64, %if.then69 ], [ %sub64, %if.end63 ]
-  %add85 = add nsw i64 %epoch.027, 1
+  %tail.1 = phi i64 [ %tail.018, %if.then36 ], [ %sub64, %if.then76 ], [ %sub64, %if.then69 ], [ %sub64, %if.end63 ]
+  %add85 = add nsw i64 %epoch.016, 1
   %rem = urem i64 %add85, %retval.sroa.0.0.insert.ext.i
   %cmp27.not = icmp eq i64 %tail.1, 0
   br i1 %cmp27.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %if.then36, %if.end41, %if.end
-  %tail.0.lcssa = phi i64 [ 0, %if.end ], [ %tail.029, %if.end41 ], [ %tail.029, %if.then36 ], [ 0, %for.inc ]
-  %52 = load i32, ptr @g_displayLevel, align 4
-  %cmp88 = icmp sgt i32 %52, 1
+  %tail.0.lcssa = phi i64 [ 0, %if.end ], [ %tail.018, %if.end41 ], [ %tail.018, %if.then36 ], [ 0, %for.inc ]
+  %50 = load i32, ptr @g_displayLevel, align 4
+  %cmp88 = icmp sgt i32 %50, 1
   br i1 %cmp88, label %if.then90, label %if.end93
 
 if.then90:                                        ; preds = %for.end
-  %53 = load ptr, ptr @stderr, align 8
-  %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #21
-  %54 = load ptr, ptr @stderr, align 8
-  %call92 = tail call i32 @fflush(ptr noundef %54)
+  %51 = load ptr, ptr @stderr, align 8
+  %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #21
+  %52 = load ptr, ptr @stderr, align 8
+  %call92 = tail call i32 @fflush(ptr noundef %52)
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then90, %for.end
@@ -1295,7 +1277,7 @@ declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64
 ; Function Attrs: nounwind uwtable
 define i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr nocapture noundef readonly %samplesSizes, ptr noundef %samples, ptr nocapture noundef readonly %offsets, i64 noundef %nbTrainSamples, i64 noundef %nbSamples, ptr noundef %dict, i64 noundef %dictBufferCapacity) local_unnamed_addr #4 {
 entry:
-  %splitPoint = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 4
+  %splitPoint = getelementptr inbounds i8, ptr %parameters, i64 16
   %0 = load double, ptr %splitPoint, align 8
   %cmp = fcmp olt double %0, 1.000000e+00
   %cond = select i1 %cmp, i64 %nbTrainSamples, i64 0
@@ -1317,7 +1299,7 @@ for.end:                                          ; preds = %for.body, %entry
   %call = tail call i64 @ZSTD_compressBound(i64 noundef %maxSampleSize.0.lcssa) #23
   %call8 = tail call noalias ptr @malloc(i64 noundef %call) #22
   %call9 = tail call ptr @ZSTD_createCCtx() #23
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 7
+  %zParams = getelementptr inbounds i8, ptr %parameters, i64 32
   %2 = load i32, ptr %zParams, align 8
   %call10 = tail call ptr @ZSTD_createCDict(ptr noundef %dict, i64 noundef %dictBufferCapacity, i32 noundef %2) #23
   %tobool = icmp eq ptr %call8, null
@@ -1387,13 +1369,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %best, ptr noundef null) #23
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %best, i64 40
   %call1 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond, ptr noundef null) #23
-  %liveJobs = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 2
-  %compressedSize = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 6
+  %liveJobs = getelementptr inbounds i8, ptr %best, i64 88
+  %compressedSize = getelementptr inbounds i8, ptr %best, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %liveJobs, i8 0, i64 24, i1 false)
   store i64 -1, ptr %compressedSize, align 8
-  %parameters = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 5
+  %parameters = getelementptr inbounds i8, ptr %best, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters, i8 0, i64 48, i1 false)
   br label %return
 
@@ -1418,13 +1400,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %best) #23
-  %liveJobs = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 2
+  %liveJobs = getelementptr inbounds i8, ptr %best, i64 88
   %0 = load i64, ptr %liveJobs, align 8
   %cmp.not6 = icmp eq i64 %0, 0
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %best, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1457,13 +1439,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %best) #23
-  %liveJobs.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 2
+  %liveJobs.i = getelementptr inbounds i8, ptr %best, i64 88
   %0 = load i64, ptr %liveJobs.i, align 8
   %cmp.not6.i = icmp eq i64 %0, 0
   br i1 %cmp.not6.i, label %COVER_best_wait.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %cond.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %best, i64 40
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -1474,7 +1456,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 COVER_best_wait.exit:                             ; preds = %while.body.i, %if.end.i
   %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %best) #23
-  %dict = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 3
+  %dict = getelementptr inbounds i8, ptr %best, i64 96
   %2 = load ptr, ptr %dict, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -1485,7 +1467,7 @@ if.then2:                                         ; preds = %COVER_best_wait.exi
 
 if.end4:                                          ; preds = %if.then2, %COVER_best_wait.exit
   %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %best) #23
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %best, i64 40
   %call5 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond) #23
   br label %return
 
@@ -1507,7 +1489,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %best) #23
-  %liveJobs = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 2
+  %liveJobs = getelementptr inbounds i8, ptr %best, i64 88
   %0 = load i64, ptr %liveJobs, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %liveJobs, align 8
@@ -1522,32 +1504,32 @@ return:                                           ; preds = %entry, %if.end
 define void @COVER_best_finish(ptr noundef %best, ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %selection, align 8
-  %totalCompressedSize = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i64 0, i32 2
+  %totalCompressedSize = getelementptr inbounds i8, ptr %selection, i64 16
   %1 = load i64, ptr %totalCompressedSize, align 8
-  %dictSize1 = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i64 0, i32 1
+  %dictSize1 = getelementptr inbounds i8, ptr %selection, i64 8
   %2 = load i64, ptr %dictSize1, align 8
   %tobool.not = icmp eq ptr %best, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %best) #23
-  %liveJobs2 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 2
+  %liveJobs2 = getelementptr inbounds i8, ptr %best, i64 88
   %3 = load i64, ptr %liveJobs2, align 8
   %dec = add i64 %3, -1
   store i64 %dec, ptr %liveJobs2, align 8
-  %compressedSize4 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 6
+  %compressedSize4 = getelementptr inbounds i8, ptr %best, i64 160
   %4 = load i64, ptr %compressedSize4, align 8
   %cmp = icmp ult i64 %1, %4
   br i1 %cmp, label %if.then5, label %if.end35
 
 if.then5:                                         ; preds = %if.end
-  %dict6 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 3
+  %dict6 = getelementptr inbounds i8, ptr %best, i64 96
   %5 = load ptr, ptr %dict6, align 8
   %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %if.end15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then5
-  %dictSize8 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 4
+  %dictSize8 = getelementptr inbounds i8, ptr %best, i64 104
   %6 = load i64, ptr %dictSize8, align 8
   %cmp9 = icmp ult i64 %6, %2
   br i1 %cmp9, label %if.then13, label %if.end27
@@ -1564,9 +1546,9 @@ if.end15:                                         ; preds = %if.then5, %if.then1
 
 if.then20:                                        ; preds = %if.end15
   store i64 -1, ptr %compressedSize4, align 8
-  %dictSize22 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 4
+  %dictSize22 = getelementptr inbounds i8, ptr %best, i64 104
   store i64 0, ptr %dictSize22, align 8
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %best, i64 40
   %call23 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #23
   br label %return.sink.split
 
@@ -1577,9 +1559,9 @@ if.end27:                                         ; preds = %if.end15, %lor.lhs.
 
 if.then29:                                        ; preds = %if.end27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %0, i64 %2, i1 false)
-  %dictSize31 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 4
+  %dictSize31 = getelementptr inbounds i8, ptr %best, i64 104
   store i64 %2, ptr %dictSize31, align 8
-  %parameters32 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 5
+  %parameters32 = getelementptr inbounds i8, ptr %best, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters32, ptr noundef nonnull align 8 dereferenceable(48) %parameters, i64 48, i1 false)
   store i64 %1, ptr %compressedSize4, align 8
   br label %if.end35
@@ -1589,7 +1571,7 @@ if.end35:                                         ; preds = %if.end27, %if.then2
   br i1 %cmp36, label %if.then37, label %return.sink.split
 
 if.then37:                                        ; preds = %if.end35
-  %cond38 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond38 = getelementptr inbounds i8, ptr %best, i64 40
   %call39 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond38) #23
   br label %return.sink.split
 
@@ -1613,7 +1595,7 @@ declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @COVER_dictSelectionError(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %error) local_unnamed_addr #11 {
 entry:
-  %totalCompressedSize.i = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store i64 %error, ptr %totalCompressedSize.i, align 8, !alias.scope !22
   ret void
@@ -1622,7 +1604,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #12 {
 entry:
-  %totalCompressedSize = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i64 0, i32 2
+  %totalCompressedSize = getelementptr inbounds i8, ptr %selection, i64 16
   %0 = load i64, ptr %totalCompressedSize, align 8
   %cmp.i = icmp ugt i64 %0, -120
   %1 = load ptr, ptr %selection, align 8
@@ -1646,7 +1628,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %customDictContent, i64 %dictContentSize
   %call = tail call noalias ptr @malloc(i64 noundef %dictBufferCapacity) #22
   %call1 = tail call noalias ptr @malloc(i64 noundef %dictBufferCapacity) #22
-  %shrinkDictMaxRegression = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i64 0, i32 6
+  %shrinkDictMaxRegression = getelementptr inbounds i8, ptr %params, i64 28
   %0 = load i32, ptr %shrinkDictMaxRegression, align 4
   %conv = uitofp i32 %0 to double
   %div = fdiv double %conv, 1.000000e+02
@@ -1659,14 +1641,14 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
-  %totalCompressedSize.i.i = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !25
   store i64 %dictContentSize, ptr %totalCompressedSize.i.i, align 8, !alias.scope !28
   br label %return
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %customDictContent, i64 %dictContentSize, i1 false)
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i64 0, i32 7
+  %zParams = getelementptr inbounds i8, ptr %params, i64 32
   %call3 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %call, i64 noundef %dictBufferCapacity, ptr noundef %customDictContent, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbFinalizeSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %zParams) #23
   %call4 = tail call i32 @ZDICT_isError(i64 noundef %call3) #23
   %tobool5.not = icmp eq i32 %call4, 0
@@ -1675,7 +1657,7 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   tail call void @free(ptr noundef nonnull %call) #23
   tail call void @free(ptr noundef nonnull %call1) #23
-  %totalCompressedSize.i.i67 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i.i67 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !31
   store i64 %call3, ptr %totalCompressedSize.i.i67, align 8, !alias.scope !34
   br label %return
@@ -1688,13 +1670,13 @@ if.end7:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end7
   tail call void @free(ptr noundef nonnull %call) #23
   tail call void @free(ptr noundef nonnull %call1) #23
-  %totalCompressedSize.i.i68 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i.i68 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !37
   store i64 %call8, ptr %totalCompressedSize.i.i68, align 8, !alias.scope !40
   br label %return
 
 if.end12:                                         ; preds = %if.end7
-  %shrinkDict = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i64 0, i32 5
+  %shrinkDict = getelementptr inbounds i8, ptr %params, i64 24
   %1 = load i32, ptr %shrinkDict, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then14, label %while.cond.preheader
@@ -1711,9 +1693,9 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 if.then14:                                        ; preds = %if.end12
   tail call void @free(ptr noundef nonnull %call1) #23
   store ptr %call, ptr %agg.result, align 8, !alias.scope !43
-  %dictSize.i = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 1
+  %dictSize.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call3, ptr %dictSize.i, align 8, !alias.scope !43
-  %totalCompressedSize.i = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %call8, ptr %totalCompressedSize.i, align 8, !alias.scope !43
   br label %return
 
@@ -1730,7 +1712,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then23:                                        ; preds = %while.body
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
-  %totalCompressedSize.i.i69 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !46
   store i64 %call20, ptr %totalCompressedSize.i.i69, align 8, !alias.scope !49
   br label %return
@@ -1743,7 +1725,7 @@ if.end24:                                         ; preds = %while.body
 if.then28:                                        ; preds = %if.end24
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
-  %totalCompressedSize.i.i72 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i.i72 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !52
   store i64 %call25, ptr %totalCompressedSize.i.i72, align 8, !alias.scope !55
   br label %return
@@ -1756,9 +1738,9 @@ if.end29:                                         ; preds = %if.end24
 if.then34:                                        ; preds = %if.end29
   tail call void @free(ptr noundef %call) #23
   store ptr %call1, ptr %agg.result, align 8, !alias.scope !58
-  %dictSize.i73 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 1
+  %dictSize.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call20, ptr %dictSize.i73, align 8, !alias.scope !58
-  %totalCompressedSize.i74 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i74 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %call25, ptr %totalCompressedSize.i74, align 8, !alias.scope !58
   br label %return
 
@@ -1770,9 +1752,9 @@ if.end35:                                         ; preds = %if.end29
 while.end:                                        ; preds = %if.end35, %while.cond.preheader
   tail call void @free(ptr noundef %call1) #23
   store ptr %call, ptr %agg.result, align 8, !alias.scope !62
-  %dictSize.i75 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 1
+  %dictSize.i75 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call3, ptr %dictSize.i75, align 8, !alias.scope !62
-  %totalCompressedSize.i76 = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i64 0, i32 2
+  %totalCompressedSize.i76 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %call8, ptr %totalCompressedSize.i76, align 8, !alias.scope !62
   br label %return
 
@@ -1787,13 +1769,13 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef writeonly 
 entry:
   %best = alloca %struct.COVER_best_s, align 8
   %ctx = alloca %struct.COVER_ctx_t, align 8
-  %nbThreads1 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 3
+  %nbThreads1 = getelementptr inbounds i8, ptr %parameters, i64 12
   %0 = load i32, ptr %nbThreads1, align 4
-  %splitPoint2 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 4
+  %splitPoint2 = getelementptr inbounds i8, ptr %parameters, i64 16
   %1 = load double, ptr %splitPoint2, align 8
   %cmp = fcmp ugt double %1, 0.000000e+00
   %cond = select i1 %cmp, double %1, double 1.000000e+00
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %parameters, i64 4
   %2 = load i32, ptr %d, align 4
   %cmp4 = icmp eq i32 %2, 0
   %cond9 = select i1 %cmp4, i32 6, i32 %2
@@ -1802,7 +1784,7 @@ entry:
   %cmp17 = icmp eq i32 %3, 0
   %cond22 = select i1 %cmp17, i32 50, i32 %3
   %cond29 = select i1 %cmp17, i32 2000, i32 %3
-  %steps = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 2
+  %steps = getelementptr inbounds i8, ptr %parameters, i64 8
   %4 = load i32, ptr %steps, align 8
   %cmp30 = icmp eq i32 %4, 0
   %cond35 = select i1 %cmp30, i32 40, i32 %4
@@ -1816,7 +1798,7 @@ entry:
   %add47 = zext nneg i16 %narrow to i32
   %5 = zext i1 %cmp4 to i32
   %mul = shl nuw nsw i32 %add47, %5
-  %notificationLevel = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 7, i32 1
+  %notificationLevel = getelementptr inbounds i8, ptr %parameters, i64 36
   %6 = load i32, ptr %notificationLevel, align 4
   %cmp51 = fcmp ogt double %cond, 1.000000e+00
   br i1 %cmp51, label %if.then, label %if.end55
@@ -1894,13 +1876,13 @@ if.then83:                                        ; preds = %if.end81
 if.end87:                                         ; preds = %if.then83, %if.end81
   %pool.0 = phi ptr [ %call84, %if.then83 ], [ null, %if.end81 ]
   %call.i = call i32 @pthread_mutex_init(ptr noundef nonnull %best, ptr noundef null) #23
-  %cond.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %best, i64 40
   %call1.i = call i32 @pthread_cond_init(ptr noundef nonnull %cond.i, ptr noundef null) #23
-  %liveJobs.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 2
-  %compressedSize.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 6
+  %liveJobs.i = getelementptr inbounds i8, ptr %best, i64 88
+  %compressedSize.i = getelementptr inbounds i8, ptr %best, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %liveJobs.i, i8 0, i64 24, i1 false)
   store i64 -1, ptr %compressedSize.i, align 8
-  %parameters.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 5
+  %parameters.i = getelementptr inbounds i8, ptr %best, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters.i, i8 0, i64 48, i1 false)
   %cond94 = call i32 @llvm.usub.sat.i32(i32 %6, i32 1)
   store i32 %cond94, ptr @g_displayLevel, align 4
@@ -1920,16 +1902,16 @@ if.end100:                                        ; preds = %if.then97, %if.end8
 
 for.body.lr.ph:                                   ; preds = %if.end100
   %cmp103 = icmp sgt i32 %6, 2
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 7
+  %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
   %conv1.i = uitofp i64 %dictBufferCapacity to double
   %cmp3.i = icmp sgt i32 %6, 0
   %conv6.i = trunc i64 %dictBufferCapacity to i32
   %tobool171.not = icmp eq ptr %pool.0, null
   %cmp182 = icmp ugt i32 %6, 3
-  %suffix.i110 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 6
-  %freqs.i114 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 8
-  %dmerAt.i118 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 9
-  %offsets.i122 = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 1
+  %suffix.i110 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %freqs.i114 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %dmerAt.i118 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %offsets.i122 = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %COVER_ctx_destroy.exit125
@@ -2029,7 +2011,7 @@ while.body.i.i:                                   ; preds = %if.end141, %while.b
 
 COVER_best_wait.exit.i:                           ; preds = %while.body.i.i, %if.end141
   %call4.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %best) #23
-  %dict.i = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 3
+  %dict.i = getelementptr inbounds i8, ptr %best, i64 96
   %37 = load ptr, ptr %dict.i, align 8
   %tobool1.not.i = icmp eq ptr %37, null
   br i1 %tobool1.not.i, label %COVER_best_destroy.exit, label %if.then2.i
@@ -2086,23 +2068,23 @@ COVER_ctx_destroy.exit:                           ; preds = %if.end15.i, %if.the
 
 if.end142:                                        ; preds = %if.end133
   store ptr %ctx, ptr %call127, align 8
-  %best144 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 1
+  %best144 = getelementptr inbounds i8, ptr %call127, i64 8
   store ptr %best, ptr %best144, align 8
-  %dictBufferCapacity145 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 2
+  %dictBufferCapacity145 = getelementptr inbounds i8, ptr %call127, i64 16
   store i64 %dictBufferCapacity, ptr %dictBufferCapacity145, align 8
-  %parameters146 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 3
+  %parameters146 = getelementptr inbounds i8, ptr %call127, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters146, ptr noundef nonnull align 8 dereferenceable(48) %parameters, i64 48, i1 false)
   store i32 %k49.0134, ptr %parameters146, align 8
-  %d150 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 3, i32 1
+  %d150 = getelementptr inbounds i8, ptr %call127, i64 28
   store i32 %d48.0138, ptr %d150, align 4
-  %splitPoint152 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 3, i32 4
+  %splitPoint152 = getelementptr inbounds i8, ptr %call127, i64 40
   store double %cond, ptr %splitPoint152, align 8
-  %steps154 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 3, i32 2
+  %steps154 = getelementptr inbounds i8, ptr %call127, i64 32
   store i32 %cond35, ptr %steps154, align 8
-  %shrinkDict156 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 3, i32 5
+  %shrinkDict156 = getelementptr inbounds i8, ptr %call127, i64 48
   store i32 0, ptr %shrinkDict156, align 8
   %42 = load i32, ptr @g_displayLevel, align 4
-  %notificationLevel159 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %call127, i64 0, i32 3, i32 7, i32 1
+  %notificationLevel159 = getelementptr inbounds i8, ptr %call127, i64 60
   store i32 %42, ptr %notificationLevel159, align 4
   %cmp1.i = icmp eq i32 %k49.0134, 0
   %or.cond.i101 = or i1 %cmp1.i, %cmp.i100
@@ -2255,10 +2237,10 @@ if.then205:                                       ; preds = %if.end201
   br label %return
 
 if.end208:                                        ; preds = %if.end201
-  %dictSize202 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 4
+  %dictSize202 = getelementptr inbounds i8, ptr %best, i64 104
   %59 = load i64, ptr %dictSize202, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters, ptr noundef nonnull align 8 dereferenceable(48) %parameters.i, i64 48, i1 false)
-  %dict = getelementptr inbounds %struct.COVER_best_s, ptr %best, i64 0, i32 3
+  %dict = getelementptr inbounds i8, ptr %best, i64 96
   %60 = load ptr, ptr %dict, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dictBuffer, ptr align 1 %60, i64 %59, i1 false)
   call void @COVER_best_destroy(ptr noundef nonnull %best)
@@ -2283,30 +2265,30 @@ entry:
   %activeDmers = alloca %struct.COVER_map_s, align 8
   %tmp = alloca %struct.COVER_dictSelection, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %parameters2 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %opaque, i64 0, i32 3
+  %parameters2 = getelementptr inbounds i8, ptr %opaque, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters, ptr noundef nonnull align 8 dereferenceable(48) %parameters2, i64 48, i1 false)
-  %dictBufferCapacity3 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %opaque, i64 0, i32 2
+  %dictBufferCapacity3 = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i64, ptr %dictBufferCapacity3, align 8
   %call = tail call noalias ptr @malloc(i64 noundef %1) #22
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 7
+  %suffixSize = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i64, ptr %suffixSize, align 8
   %mul = shl i64 %2, 2
   %call4 = tail call noalias ptr @malloc(i64 noundef %mul) #22
   %3 = load i32, ptr %parameters, align 8
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %parameters, i64 4
   %4 = load i32, ptr %d, align 4
   %sub = add i32 %3, 1
   %add = sub i32 %sub, %4
   %5 = tail call i32 @llvm.ctlz.i32(i32 %add, i1 true), !range !7
   %sub.i.i = xor i32 %5, 31
   %add.i = sub nuw nsw i32 33, %5
-  %sizeLog.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 1
+  %sizeLog.i = getelementptr inbounds i8, ptr %activeDmers, i64 8
   store i32 %add.i, ptr %sizeLog.i, align 8
   %shl.i = shl i32 4, %sub.i.i
-  %size2.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 2
+  %size2.i = getelementptr inbounds i8, ptr %activeDmers, i64 12
   store i32 %shl.i, ptr %size2.i, align 4
   %sub.i = add i32 %shl.i, -1
-  %sizeMask.i = getelementptr inbounds %struct.COVER_map_s, ptr %activeDmers, i64 0, i32 3
+  %sizeMask.i = getelementptr inbounds i8, ptr %activeDmers, i64 16
   store i32 %sub.i, ptr %sizeMask.i, align 8
   %conv.i = zext i32 %shl.i to i64
   %mul.i = shl nuw nsw i64 %conv.i, 3
@@ -2343,21 +2325,21 @@ if.then14:                                        ; preds = %if.then12
   br label %_cleanup.sink.split
 
 if.end18:                                         ; preds = %if.end9
-  %freqs19 = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 8
+  %freqs19 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %freqs19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call4, ptr align 4 %12, i64 %mul, i1 false)
   %call22 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %0, ptr noundef nonnull %call4, ptr noundef nonnull %activeDmers, ptr noundef nonnull %call, i64 noundef %1, i32 %3, i32 %4)
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %call22
   %sub23 = sub i64 %1, %call22
   %13 = load ptr, ptr %0, align 8
-  %samplesSizes = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 2
+  %samplesSizes = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %samplesSizes, align 8
-  %nbTrainSamples = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 4
+  %nbTrainSamples = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i64, ptr %nbTrainSamples, align 8
   %conv = trunc i64 %15 to i32
-  %nbSamples = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 3
+  %nbSamples = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i64, ptr %nbSamples, align 8
-  %offsets = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 1
+  %offsets = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %offsets, align 8
   call void @COVER_selectDict(ptr nonnull sret(%struct.COVER_dictSelection) align 8 %tmp, ptr noundef nonnull %add.ptr, i64 noundef %1, i64 noundef %sub23, ptr noundef %13, ptr noundef %14, i32 noundef %conv, i64 noundef %15, i64 noundef %16, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef %17, i64 poison)
   %selection.sroa.0.0.copyload = load ptr, ptr %tmp, align 8
@@ -2391,30 +2373,30 @@ _cleanup:                                         ; preds = %_cleanup.sink.split
   %selection.sroa.5.0 = phi i64 [ 0, %if.then ], [ %selection.sroa.5.0.copyload, %if.end18 ], [ 0, %if.then12 ], [ %selection.sroa.5.0.ph, %_cleanup.sink.split ]
   %selection.sroa.539.0 = phi i64 [ -1, %if.then ], [ %selection.sroa.539.0.copyload, %if.end18 ], [ -1, %if.then12 ], [ %selection.sroa.539.0.ph, %_cleanup.sink.split ]
   tail call void @free(ptr noundef %call) #23
-  %best = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %opaque, i64 0, i32 1
+  %best = getelementptr inbounds i8, ptr %opaque, i64 8
   %23 = load ptr, ptr %best, align 8
   %tobool.not.i29 = icmp eq ptr %23, null
   br i1 %tobool.not.i29, label %COVER_best_finish.exit, label %if.end.i30
 
 if.end.i30:                                       ; preds = %_cleanup
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #23
-  %liveJobs2.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 2
+  %liveJobs2.i = getelementptr inbounds i8, ptr %23, i64 88
   %24 = load i64, ptr %liveJobs2.i, align 8
   %dec.i = add i64 %24, -1
   store i64 %dec.i, ptr %liveJobs2.i, align 8
-  %compressedSize4.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 6
+  %compressedSize4.i = getelementptr inbounds i8, ptr %23, i64 160
   %25 = load i64, ptr %compressedSize4.i, align 8
   %cmp.i = icmp ult i64 %selection.sroa.539.0, %25
   br i1 %cmp.i, label %if.then5.i, label %if.end35.i
 
 if.then5.i:                                       ; preds = %if.end.i30
-  %dict6.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 3
+  %dict6.i = getelementptr inbounds i8, ptr %23, i64 96
   %26 = load ptr, ptr %dict6.i, align 8
   %tobool7.not.i = icmp eq ptr %26, null
   br i1 %tobool7.not.i, label %if.end15.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then5.i
-  %dictSize8.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 4
+  %dictSize8.i = getelementptr inbounds i8, ptr %23, i64 104
   %27 = load i64, ptr %dictSize8.i, align 8
   %cmp9.i = icmp ult i64 %27, %selection.sroa.5.0
   br i1 %cmp9.i, label %if.then13.i, label %if.end27.i
@@ -2431,9 +2413,9 @@ if.end15.i:                                       ; preds = %if.then13.i, %if.th
 
 if.then20.i:                                      ; preds = %if.end15.i
   store i64 -1, ptr %compressedSize4.i, align 8
-  %dictSize22.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 4
+  %dictSize22.i = getelementptr inbounds i8, ptr %23, i64 104
   store i64 0, ptr %dictSize22.i, align 8
-  %cond.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %23, i64 40
   %call23.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond.i) #23
   br label %return.sink.split.i
 
@@ -2444,9 +2426,9 @@ if.end27.i:                                       ; preds = %if.end15.i, %lor.lh
 
 if.then29.i:                                      ; preds = %if.end27.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %selection.sroa.0.0, i64 %selection.sroa.5.0, i1 false)
-  %dictSize31.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 4
+  %dictSize31.i = getelementptr inbounds i8, ptr %23, i64 104
   store i64 %selection.sroa.5.0, ptr %dictSize31.i, align 8
-  %parameters32.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 5
+  %parameters32.i = getelementptr inbounds i8, ptr %23, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters32.i, ptr noundef nonnull align 8 dereferenceable(48) %parameters, i64 48, i1 false)
   store i64 %selection.sroa.539.0, ptr %compressedSize4.i, align 8
   br label %if.end35.i
@@ -2456,7 +2438,7 @@ if.end35.i:                                       ; preds = %if.then29.i, %if.en
   br i1 %cmp36.i, label %if.then37.i, label %return.sink.split.i
 
 if.then37.i:                                      ; preds = %if.end35.i
-  %cond38.i = getelementptr inbounds %struct.COVER_best_s, ptr %23, i64 0, i32 1
+  %cond38.i = getelementptr inbounds i8, ptr %23, i64 40
   %call39.i = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond38.i) #23
   br label %return.sink.split.i
 
@@ -2488,7 +2470,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal i32 @COVER_strict_cmp8(ptr noundef readonly %lp, ptr noundef readonly %rp) #15 {
 entry:
   %0 = load ptr, ptr @g_coverCtx, align 8
-  %d.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 10
+  %d.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i32, ptr %d.i, align 8
   %cmp.i = icmp eq i32 %1, 8
   %mul.i = shl i32 %1, 3
@@ -2529,7 +2511,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i
   %idx.ext2.i = zext i32 %2 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext2.i
-  %d.i = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i64 0, i32 10
+  %d.i = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %d.i, align 8
   %conv.i = zext i32 %4 to i64
   %call.i = tail call i32 @memcmp(ptr noundef %add.ptr.i, ptr noundef %add.ptr3.i, i64 noundef %conv.i) #24
@@ -2543,7 +2525,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @COVER_cmp8(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %lp, ptr nocapture noundef readonly %rp) unnamed_addr #15 {
 entry:
-  %d = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 10
+  %d = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i32, ptr %d, align 8
   %cmp = icmp eq i32 %0, 8
   %mul = shl i32 %0, 3
@@ -2579,7 +2561,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
   %idx.ext2 = zext i32 %1 to i64
   %add.ptr3 = getelementptr inbounds i8, ptr %2, i64 %idx.ext2
-  %d = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i64 0, i32 10
+  %d = getelementptr inbounds i8, ptr %ctx, i64 80
   %3 = load i32, ptr %d, align 8
   %conv = zext i32 %3 to i64
   %call = tail call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr3, i64 noundef %conv) #24

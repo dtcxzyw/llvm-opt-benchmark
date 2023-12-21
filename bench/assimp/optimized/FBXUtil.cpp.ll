@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.Assimp::FBX::Token" = type <{ ptr, ptr, i32, [4 x i8], %union.anon.0, i32, [4 x i8] }>
-%union.anon.0 = type { i64 }
 %"class.std::allocator" = type { i8 }
 
 $_ZSt3hexRSt8ios_base = comdat any
@@ -97,7 +95,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #1 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -149,7 +147,7 @@ define hidden void @_ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE(ptr n
 entry:
   %ref.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %ref.tmp20 = alloca %"class.Assimp::Formatter::basic_formatter", align 8
-  %column.i = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %tok, i64 0, i32 5
+  %column.i = getelementptr inbounds i8, ptr %tok, i64 32
   %0 = load i32, ptr %column.i, align 8
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then, label %if.end
@@ -160,7 +158,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %type.i = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %tok, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %tok, i64 16
   %1 = load i32, ptr %type.i, align 8
   %2 = icmp ult i32 %1, 6
   br i1 %2, label %switch.lookup, label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit
@@ -185,7 +183,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %4 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %tok, i64 0, i32 4
+  %4 = getelementptr inbounds i8, ptr %tok, i64 24
   %5 = load i64, ptr %4, align 8
   %call.i11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i64 noundef %5)
           to label %invoke.cont15 unwind label %lpad
@@ -209,7 +207,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.end
-  %type.i16 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %tok, i64 0, i32 2
+  %type.i16 = getelementptr inbounds i8, ptr %tok, i64 16
   %7 = load i32, ptr %type.i16, align 8
   %8 = icmp ult i32 %7, 6
   br i1 %8, label %switch.lookup37, label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit24
@@ -230,7 +228,7 @@ invoke.cont28:                                    ; preds = %_ZN6Assimp3FBX4Util
           to label %invoke.cont30 unwind label %lpad21
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %10 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %tok, i64 0, i32 4
+  %10 = getelementptr inbounds i8, ptr %tok, i64 24
   %11 = load i64, ptr %10, align 8
   %conv.i = trunc i64 %11 to i32
   %call.i28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, i32 noundef %conv.i)

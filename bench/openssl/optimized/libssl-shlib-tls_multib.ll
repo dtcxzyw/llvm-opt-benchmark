@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libssl-shlib-tls_multib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_record_layer_st = type { ptr, ptr, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, ptr, i64, i32, [33 x %struct.tls_buffer_st], i64, i64, %struct.tls_buffer_st, [32 x %struct.tls_rl_record_st], i64, i64, i64, i32, ptr, i64, [8 x i8], i32, i32, i64, i32, ptr, i64, ptr, ptr, i32, i32, i32, i64, i64, [64 x i8], i32, i32, i32, [16 x i8], i32, i32, i64, %struct.record_pqueue_st, %struct.record_pqueue_st, %struct.dtls_bitmap_st, %struct.dtls_bitmap_st, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
-%struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
-%struct.record_pqueue_st = type { i16, ptr }
-%struct.dtls_bitmap_st = type { i64, [8 x i8] }
 %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM = type { ptr, ptr, i64, i32 }
 %struct.ossl_record_template_st = type { i8, i32, ptr, i64 }
 
@@ -25,38 +20,38 @@ entry:
   br i1 %or.cond.i, label %if.end5, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %entry
-  %compctx.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx.i = getelementptr inbounds i8, ptr %rl, i64 4152
   %1 = load ptr, ptr %compctx.i, align 8
   %cmp5.i = icmp eq ptr %1, null
   br i1 %cmp5.i, label %land.lhs.true7.i, label %if.end5
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %msg_callback.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 54
+  %msg_callback.i = getelementptr inbounds i8, ptr %rl, i64 4392
   %2 = load ptr, ptr %msg_callback.i, align 8
   %cmp8.i = icmp eq ptr %2, null
   br i1 %cmp8.i, label %land.lhs.true10.i, label %if.end5
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %use_etm.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 40
+  %use_etm.i = getelementptr inbounds i8, ptr %rl, i64 4256
   %3 = load i32, ptr %use_etm.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %land.lhs.true11.i, label %if.end5
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true10.i
-  %version.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version.i = getelementptr inbounds i8, ptr %rl, i64 20
   %4 = load i32, ptr %version.i, align 4
   %5 = and i32 %4, -2
   %switch.i = icmp eq i32 %5, 770
   br i1 %switch.i, label %land.lhs.true19.i, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %land.lhs.true11.i
-  %isdtls.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls.i = getelementptr inbounds i8, ptr %rl, i64 16
   %6 = load i32, ptr %isdtls.i, align 8
   %tobool18.not.i = icmp eq i32 %6, 0
   br i1 %tobool18.not.i, label %if.end5, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %lor.lhs.false17.i, %land.lhs.true11.i
-  %enc_ctx.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 30
+  %enc_ctx.i = getelementptr inbounds i8, ptr %rl, i64 4128
   %7 = load ptr, ptr %enc_ctx.i, align 8
   %call.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %7) #3
   %call20.i = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %call.i) #3
@@ -116,31 +111,31 @@ for.cond.i:                                       ; preds = %lor.lhs.false14.i
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
   %i.055.i = phi i64 [ %inc.i, %for.cond.i ], [ 1, %for.body.i.preheader ]
   %0 = getelementptr %struct.ossl_record_template_st, ptr %templates, i64 %i.055.i
-  %arrayidx.i = getelementptr %struct.ossl_record_template_st, ptr %0, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %0, i64 -24
   %1 = load i8, ptr %arrayidx.i, align 8
   %2 = load i8, ptr %0, align 8
   %cmp6.not.i = icmp eq i8 %1, %2
   br i1 %cmp6.not.i, label %lor.lhs.false.i, label %if.then2
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %buflen.i = getelementptr %struct.ossl_record_template_st, ptr %0, i64 -1, i32 3
+  %buflen.i = getelementptr i8, ptr %0, i64 -8
   %3 = load i64, ptr %buflen.i, align 8
-  %buflen11.i = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %i.055.i, i32 3
+  %buflen11.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %buflen11.i, align 8
   %cmp12.not.i = icmp eq i64 %3, %4
   br i1 %cmp12.not.i, label %lor.lhs.false14.i, label %if.then2
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false.i
-  %buf.i = getelementptr %struct.ossl_record_template_st, ptr %0, i64 -1, i32 2
+  %buf.i = getelementptr i8, ptr %0, i64 -16
   %5 = load ptr, ptr %buf.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %3
-  %buf21.i = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %i.055.i, i32 2
+  %buf21.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %buf21.i, align 8
   %cmp22.not.i = icmp eq ptr %add.ptr.i, %6
   br i1 %cmp22.not.i, label %for.cond.i, label %if.then2
 
 for.end.i:                                        ; preds = %for.cond.i
-  %buflen27.i = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 0, i32 3
+  %buflen27.i = getelementptr inbounds i8, ptr %templates, i64 16
   %7 = load i64, ptr %buflen27.i, align 8
   %mul.i = mul i64 %7, %numtempl
   %8 = load i8, ptr %templates, align 8
@@ -151,38 +146,38 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %or.cond.i.i, label %if.then2, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %for.end.i
-  %compctx.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx.i.i = getelementptr inbounds i8, ptr %rl, i64 4152
   %9 = load ptr, ptr %compctx.i.i, align 8
   %cmp5.i.i = icmp eq ptr %9, null
   br i1 %cmp5.i.i, label %land.lhs.true7.i.i, label %if.then2
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true4.i.i
-  %msg_callback.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 54
+  %msg_callback.i.i = getelementptr inbounds i8, ptr %rl, i64 4392
   %10 = load ptr, ptr %msg_callback.i.i, align 8
   %cmp8.i.i = icmp eq ptr %10, null
   br i1 %cmp8.i.i, label %land.lhs.true10.i.i, label %if.then2
 
 land.lhs.true10.i.i:                              ; preds = %land.lhs.true7.i.i
-  %use_etm.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 40
+  %use_etm.i.i = getelementptr inbounds i8, ptr %rl, i64 4256
   %11 = load i32, ptr %use_etm.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i.i, label %land.lhs.true11.i.i, label %if.then2
 
 land.lhs.true11.i.i:                              ; preds = %land.lhs.true10.i.i
-  %version.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version.i.i = getelementptr inbounds i8, ptr %rl, i64 20
   %12 = load i32, ptr %version.i.i, align 4
   %13 = and i32 %12, -2
   %switch.i.i = icmp eq i32 %13, 770
   br i1 %switch.i.i, label %land.lhs.true19.i.i, label %lor.lhs.false17.i.i
 
 lor.lhs.false17.i.i:                              ; preds = %land.lhs.true11.i.i
-  %isdtls.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls.i.i = getelementptr inbounds i8, ptr %rl, i64 16
   %14 = load i32, ptr %isdtls.i.i, align 8
   %tobool18.not.i.i = icmp eq i32 %14, 0
   br i1 %tobool18.not.i.i, label %if.then2, label %land.lhs.true19.i.i
 
 land.lhs.true19.i.i:                              ; preds = %lor.lhs.false17.i.i, %land.lhs.true11.i.i
-  %enc_ctx.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 30
+  %enc_ctx.i.i = getelementptr inbounds i8, ptr %rl, i64 4128
   %15 = load ptr, ptr %enc_ctx.i.i, align 8
   %call.i.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %15) #3
   %call20.i.i = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %call.i.i) #3
@@ -202,33 +197,33 @@ if.end33.i:                                       ; preds = %land.lhs.true19.i.i
   br i1 %tobool41.not.i, label %tls_write_records_multiblock_int.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end33.i
-  %wbuf.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14
+  %wbuf.i = getelementptr inbounds i8, ptr %rl, i64 96
   %conv45.i = trunc i64 %numtempl to i32
-  %interleave.i = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %mb_param.i, i64 0, i32 3
+  %interleave.i = getelementptr inbounds i8, ptr %mb_param.i, i64 24
   store i32 %conv45.i, ptr %interleave.i, align 8
-  %sequence.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25
+  %sequence.i = getelementptr inbounds i8, ptr %rl, i64 4096
   %18 = load i64, ptr %sequence.i, align 8
   store i64 %18, ptr %aad.i, align 8
   %19 = load i8, ptr %templates, align 8
-  %arrayidx49.i = getelementptr inbounds [13 x i8], ptr %aad.i, i64 0, i64 8
+  %arrayidx49.i = getelementptr inbounds i8, ptr %aad.i, i64 8
   store i8 %19, ptr %arrayidx49.i, align 8
-  %version.i = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %templates, i64 4
   %20 = load i32, ptr %version.i, align 4
   %shr.i = lshr i32 %20, 8
   %conv51.i = trunc i32 %shr.i to i8
-  %arrayidx52.i = getelementptr inbounds [13 x i8], ptr %aad.i, i64 0, i64 9
+  %arrayidx52.i = getelementptr inbounds i8, ptr %aad.i, i64 9
   store i8 %conv51.i, ptr %arrayidx52.i, align 1
   %conv55.i = trunc i32 %20 to i8
-  %arrayidx56.i = getelementptr inbounds [13 x i8], ptr %aad.i, i64 0, i64 10
+  %arrayidx56.i = getelementptr inbounds i8, ptr %aad.i, i64 10
   store i8 %conv55.i, ptr %arrayidx56.i, align 2
-  %arrayidx57.i = getelementptr inbounds [13 x i8], ptr %aad.i, i64 0, i64 11
+  %arrayidx57.i = getelementptr inbounds i8, ptr %aad.i, i64 11
   store i8 0, ptr %arrayidx57.i, align 1
-  %arrayidx58.i = getelementptr inbounds [13 x i8], ptr %aad.i, i64 0, i64 12
+  %arrayidx58.i = getelementptr inbounds i8, ptr %aad.i, i64 12
   store i8 0, ptr %arrayidx58.i, align 4
   store ptr null, ptr %mb_param.i, align 8
-  %inp.i = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %mb_param.i, i64 0, i32 1
+  %inp.i = getelementptr inbounds i8, ptr %mb_param.i, i64 8
   store ptr %aad.i, ptr %inp.i, align 8
-  %len.i = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %mb_param.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %mb_param.i, i64 16
   store i64 %mul.i, ptr %len.i, align 8
   %21 = load ptr, ptr %enc_ctx.i.i, align 8
   %call61.i = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %21, i32 noundef 25, i32 noundef 32, ptr noundef nonnull %mb_param.i) #3
@@ -237,7 +232,7 @@ if.end43.i:                                       ; preds = %if.end33.i
   br i1 %cmp63.i, label %tls_write_records_multiblock_int.exit.sink.split, label %lor.lhs.false65.i
 
 lor.lhs.false65.i:                                ; preds = %if.end43.i
-  %len66.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 0, i32 2
+  %len66.i = getelementptr inbounds i8, ptr %rl, i64 112
   %22 = load i64, ptr %len66.i, align 8
   %cmp67.i = icmp ult i64 %22, %conv62.i
   br i1 %cmp67.i, label %tls_write_records_multiblock_int.exit.sink.split, label %if.end70.i
@@ -245,7 +240,7 @@ lor.lhs.false65.i:                                ; preds = %if.end43.i
 if.end70.i:                                       ; preds = %lor.lhs.false65.i
   %23 = load ptr, ptr %wbuf.i, align 8
   store ptr %23, ptr %mb_param.i, align 8
-  %buf74.i = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 0, i32 2
+  %buf74.i = getelementptr inbounds i8, ptr %templates, i64 8
   %24 = load ptr, ptr %buf74.i, align 8
   store ptr %24, ptr %inp.i, align 8
   store i64 %mul.i, ptr %len.i, align 8
@@ -256,7 +251,7 @@ if.end70.i:                                       ; preds = %lor.lhs.false65.i
 
 if.end82.i:                                       ; preds = %if.end70.i
   %26 = load i32, ptr %interleave.i, align 8
-  %arrayidx85.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25, i64 7
+  %arrayidx85.i = getelementptr inbounds i8, ptr %rl, i64 4103
   %27 = load i8, ptr %arrayidx85.i, align 1
   %28 = trunc i32 %26 to i8
   %conv87.i = add i8 %27, %28
@@ -269,7 +264,7 @@ land.rhs.i:                                       ; preds = %if.end82.i, %land.r
   %j.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 6, %if.end82.i ]
   %dec.i = add nsw i32 %j.0.i, -1
   %idxprom.i = zext nneg i32 %j.0.i to i64
-  %arrayidx98.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25, i64 %idxprom.i
+  %arrayidx98.i = getelementptr inbounds [8 x i8], ptr %sequence.i, i64 0, i64 %idxprom.i
   %29 = load i8, ptr %arrayidx98.i, align 1
   %inc99.i = add i8 %29, 1
   store i8 %inc99.i, ptr %arrayidx98.i, align 1
@@ -291,9 +286,9 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
   br label %return
 
 if.end:                                           ; preds = %land.rhs.i, %if.end82.i
-  %offset.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %rl, i64 120
   store i64 0, ptr %offset.i, align 8
-  %left.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 0, i32 4
+  %left.i = getelementptr inbounds i8, ptr %rl, i64 128
   store i64 %conv62.i, ptr %left.i, align 8
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %aad.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %mb_param.i)

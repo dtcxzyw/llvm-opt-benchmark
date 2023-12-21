@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x509name.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_name_entry_st = type { ptr, ptr, i32, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/x509name.c\00", align 1
 @__func__.X509_NAME_add_entry = private unnamed_addr constant [20 x i8] c"X509_NAME_add_entry\00", align 1
 @__func__.X509_NAME_ENTRY_create_by_txt = private unnamed_addr constant [30 x i8] c"X509_NAME_ENTRY_create_by_txt\00", align 1
@@ -75,7 +71,7 @@ X509_NAME_get_entry.exit:                         ; preds = %lor.lhs.false.i
   br i1 %cmp.i17, label %X509_NAME_ENTRY_get_data.exit, label %if.end.i18
 
 if.end.i18:                                       ; preds = %X509_NAME_get_entry.exit
-  %value.i = getelementptr inbounds %struct.X509_name_entry_st, ptr %call7.i15, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call7.i15, i64 8
   %5 = load ptr, ptr %value.i, align 8
   br label %X509_NAME_ENTRY_get_data.exit
 
@@ -97,7 +93,7 @@ if.end8:                                          ; preds = %if.end5
   %cmp10.not = icmp slt i32 %7, %len
   %sub = add nsw i32 %len, -1
   %cond = select i1 %cmp10.not, i32 %7, i32 %sub
-  %data13 = getelementptr inbounds %struct.asn1_string_st, ptr %retval.0.i19, i64 0, i32 2
+  %data13 = getelementptr inbounds i8, ptr %retval.0.i19, i64 8
   %8 = load ptr, ptr %data13, align 8
   %conv = sext i32 %cond to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %8, i64 %conv, i1 false)
@@ -147,7 +143,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %ne, i64 8
   %0 = load ptr, ptr %value, align 8
   br label %return
 
@@ -259,7 +255,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %name, align 8
   %call7 = tail call ptr @OPENSSL_sk_delete(ptr noundef %1, i32 noundef %loc) #6
   %call9 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8
   %cmp10 = icmp eq i32 %call9, %loc
   br i1 %cmp10, label %return, label %if.end12
@@ -271,20 +267,20 @@ if.end12:                                         ; preds = %if.end
 if.then14:                                        ; preds = %if.end12
   %sub = add nsw i32 %loc, -1
   %call16 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %sub) #6
-  %set = getelementptr inbounds %struct.X509_name_entry_st, ptr %call16, i64 0, i32 2
+  %set = getelementptr inbounds i8, ptr %call16, i64 16
   %2 = load i32, ptr %set, align 8
   %3 = add nsw i32 %2, 1
   br label %if.end19
 
 if.else:                                          ; preds = %if.end12
-  %set17 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call7, i64 0, i32 2
+  %set17 = getelementptr inbounds i8, ptr %call7, i64 16
   %4 = load i32, ptr %set17, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then14
   %set_prev.0 = phi i32 [ %3, %if.then14 ], [ %4, %if.else ]
   %call21 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %loc) #6
-  %set22 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call21, i64 0, i32 2
+  %set22 = getelementptr inbounds i8, ptr %call21, i64 16
   %5 = load i32, ptr %set22, align 8
   %cmp23 = icmp slt i32 %set_prev.0, %5
   %cmp2520 = icmp sgt i32 %call9, %loc
@@ -294,7 +290,7 @@ if.end19:                                         ; preds = %if.else, %if.then14
 for.body:                                         ; preds = %if.end19, %for.body
   %i.021 = phi i32 [ %inc, %for.body ], [ %loc, %if.end19 ]
   %call27 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %i.021) #6
-  %set28 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call27, i64 0, i32 2
+  %set28 = getelementptr inbounds i8, ptr %call27, i64 16
   %6 = load i32, ptr %set28, align 8
   %dec = add nsw i32 %6, -1
   store i32 %dec, ptr %set28, align 8
@@ -409,7 +405,7 @@ if.end:                                           ; preds = %entry
   %1 = or i1 %cmp4, %cmp2
   %loc.addr.0 = select i1 %1, i32 %call1, i32 %loc
   %cmp8 = icmp eq i32 %set, 0
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8
   %cmp9 = icmp eq i32 %set, -1
   br i1 %cmp9, label %if.then11, label %if.else20
@@ -421,7 +417,7 @@ if.then11:                                        ; preds = %if.end
 if.else15:                                        ; preds = %if.then11
   %sub = add nsw i32 %loc.addr.0, -1
   %call17 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %sub) #6
-  %set18 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call17, i64 0, i32 2
+  %set18 = getelementptr inbounds i8, ptr %call17, i64 16
   %2 = load i32, ptr %set18, align 8
   br label %if.end38
 
@@ -436,14 +432,14 @@ if.then23:                                        ; preds = %if.else20
 if.then26:                                        ; preds = %if.then23
   %sub28 = add nsw i32 %loc.addr.0, -1
   %call29 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %sub28) #6
-  %set30 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call29, i64 0, i32 2
+  %set30 = getelementptr inbounds i8, ptr %call29, i64 16
   %3 = load i32, ptr %set30, align 8
   %add = add nsw i32 %3, 1
   br label %if.end38
 
 if.else33:                                        ; preds = %if.else20
   %call35 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %loc.addr.0) #6
-  %set36 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call35, i64 0, i32 2
+  %set36 = getelementptr inbounds i8, ptr %call35, i64 16
   %4 = load i32, ptr %set36, align 8
   br label %if.end38
 
@@ -455,7 +451,7 @@ if.end38:                                         ; preds = %if.then23, %if.then
   br i1 %cmp40, label %err, label %if.end43
 
 if.end43:                                         ; preds = %if.end38
-  %set44 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call39, i64 0, i32 2
+  %set44 = getelementptr inbounds i8, ptr %call39, i64 16
   store i32 %set.addr.0, ptr %set44, align 8
   %call47 = tail call i32 @OPENSSL_sk_insert(ptr noundef %0, ptr noundef nonnull %call39, i32 noundef %loc.addr.0) #6
   %tobool.not = icmp eq i32 %call47, 0
@@ -479,7 +475,7 @@ if.then51:                                        ; preds = %if.end49
 for.body:                                         ; preds = %if.then51, %for.body
   %i.030 = phi i32 [ %i.0, %for.body ], [ %i.028, %if.then51 ]
   %call58 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.030) #6
-  %set59 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call58, i64 0, i32 2
+  %set59 = getelementptr inbounds i8, ptr %call58, i64 16
   %5 = load i32, ptr %set59, align 8
   %add60 = add nsw i32 %5, 1
   store i32 %add60, ptr %set59, align 8
@@ -746,7 +742,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond19, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %ne, i64 8
   %0 = load ptr, ptr %ne, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #6
   %call6 = tail call ptr @ASN1_STRING_set_by_NID(ptr noundef nonnull %value, ptr noundef %bytes, i32 noundef %len, i32 noundef %type, i32 noundef %call) #6
@@ -765,7 +761,7 @@ if.then10:                                        ; preds = %if.end8
 
 if.end12:                                         ; preds = %if.then10, %if.end8
   %len.addr.0 = phi i32 [ %conv, %if.then10 ], [ %len, %if.end8 ]
-  %value13 = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 1
+  %value13 = getelementptr inbounds i8, ptr %ne, i64 8
   %1 = load ptr, ptr %value13, align 8
   %call14 = tail call i32 @ASN1_STRING_set(ptr noundef %1, ptr noundef %bytes, i32 noundef %len.addr.0) #6
   %tobool15.not = icmp eq i32 %call14, 0
@@ -780,13 +776,13 @@ if.end17:                                         ; preds = %if.end12
 if.then23:                                        ; preds = %if.end17
   %call24 = tail call i32 @ASN1_PRINTABLE_type(ptr noundef %bytes, i32 noundef %len.addr.0) #6
   %2 = load ptr, ptr %value13, align 8
-  %type26 = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 1
+  %type26 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %call24, ptr %type26, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end17
   %3 = load ptr, ptr %value13, align 8
-  %type28 = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 1
+  %type28 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %type, ptr %type28, align 4
   br label %return
 
@@ -826,7 +822,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_NAME_ENTRY_set(ptr nocapture noundef readonly %ne) local_unnamed_addr #2 {
 entry:
-  %set = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 2
+  %set = getelementptr inbounds i8, ptr %ne, i64 16
   %0 = load i32, ptr %set, align 8
   ret i32 %0
 }

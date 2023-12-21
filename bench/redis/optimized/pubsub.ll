@@ -15,13 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
 %struct.pubsubtype = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.dict = type { ptr, [2 x ptr], [2 x i64], i64, i16, [2 x i8], [0 x ptr] }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.redisObject = type { i32, i32, ptr }
 %struct.listIter = type { ptr, i32 }
 
 @server = external global %struct.redisServer, align 8
@@ -57,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @getClientPubSubChannels(ptr nocapture noundef readonly %c) #0 {
 entry:
-  %pubsub_channels = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels = getelementptr inbounds i8, ptr %c, i64 544
   %0 = load ptr, ptr %pubsub_channels, align 8
   ret ptr %0
 }
@@ -65,13 +58,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @clientSubscriptionsCount(ptr nocapture noundef readonly %c) #1 {
 entry:
-  %pubsub_channels = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels = getelementptr inbounds i8, ptr %c, i64 544
   %0 = load ptr, ptr %pubsub_channels, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load <2 x i64>, ptr %ht_used, align 8
-  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns = getelementptr inbounds i8, ptr %c, i64 552
   %2 = load ptr, ptr %pubsub_patterns, align 8
-  %ht_used4 = getelementptr inbounds %struct.dict, ptr %2, i64 0, i32 2
+  %ht_used4 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load <2 x i64>, ptr %ht_used4, align 8
   %4 = shufflevector <2 x i64> %3, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %5 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %4)
@@ -82,7 +75,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @getClientPubSubShardChannels(ptr nocapture noundef readonly %c) #0 {
 entry:
-  %pubsubshard_channels = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels = getelementptr inbounds i8, ptr %c, i64 560
   %0 = load ptr, ptr %pubsubshard_channels, align 8
   ret ptr %0
 }
@@ -90,11 +83,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @clientShardSubscriptionsCount(ptr nocapture noundef readonly %c) #1 {
 entry:
-  %pubsubshard_channels = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels = getelementptr inbounds i8, ptr %c, i64 560
   %0 = load ptr, ptr %pubsubshard_channels, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx3, align 8
   %add = add i64 %2, %1
   %conv = trunc i64 %add to i32
@@ -104,11 +97,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubMessage(ptr noundef %c, ptr noundef %channel, ptr noundef %msg, ptr noundef %message_bulk) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -156,11 +149,11 @@ declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubPatMessage(ptr noundef %c, ptr noundef %pat, ptr noundef %channel, ptr noundef %msg) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -197,11 +190,11 @@ if.end5:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubSubscribed(ptr noundef %c, ptr noundef %channel, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -216,12 +209,12 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %subscribeMsg = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 4
+  %subscribeMsg = getelementptr inbounds i8, ptr %type, i64 32
   %3 = load ptr, ptr %subscribeMsg, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %4) #10
   tail call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef %channel) #10
-  %subscriptionCount = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 2
+  %subscriptionCount = getelementptr inbounds i8, ptr %type, i64 16
   %5 = load ptr, ptr %subscriptionCount, align 8
   %call = tail call i32 %5(ptr noundef nonnull %c) #10
   %conv = sext i32 %call to i64
@@ -245,11 +238,11 @@ declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubUnsubscribed(ptr noundef %c, ptr noundef %channel, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -264,7 +257,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %unsubscribeMsg = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 5
+  %unsubscribeMsg = getelementptr inbounds i8, ptr %type, i64 40
   %3 = load ptr, ptr %unsubscribeMsg, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %4) #10
@@ -280,7 +273,7 @@ if.else3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else3, %if.then2
-  %subscriptionCount = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 2
+  %subscriptionCount = getelementptr inbounds i8, ptr %type, i64 16
   %5 = load ptr, ptr %subscriptionCount, align 8
   %call = tail call i32 %5(ptr noundef nonnull %c) #10
   %conv = sext i32 %call to i64
@@ -304,11 +297,11 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubPatSubscribed(ptr noundef %c, ptr noundef %pattern) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -326,13 +319,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 36), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %3) #10
   tail call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef %pattern) #10
-  %pubsub_channels.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels.i = getelementptr inbounds i8, ptr %c, i64 544
   %4 = load ptr, ptr %pubsub_channels.i, align 8
-  %ht_used.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 2
+  %ht_used.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load <2 x i64>, ptr %ht_used.i, align 8
-  %pubsub_patterns.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns.i = getelementptr inbounds i8, ptr %c, i64 552
   %6 = load ptr, ptr %pubsub_patterns.i, align 8
-  %ht_used4.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 2
+  %ht_used4.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load <2 x i64>, ptr %ht_used4.i, align 8
   %8 = shufflevector <2 x i64> %7, <2 x i64> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %9 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %8)
@@ -356,11 +349,11 @@ if.end5:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubPatUnsubscribed(ptr noundef %c, ptr noundef %pattern) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -389,13 +382,13 @@ if.else3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else3, %if.then2
-  %pubsub_channels.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels.i = getelementptr inbounds i8, ptr %c, i64 544
   %4 = load ptr, ptr %pubsub_channels.i, align 8
-  %ht_used.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 2
+  %ht_used.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load <2 x i64>, ptr %ht_used.i, align 8
-  %pubsub_patterns.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns.i = getelementptr inbounds i8, ptr %c, i64 552
   %6 = load ptr, ptr %pubsub_patterns.i, align 8
-  %ht_used4.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 2
+  %ht_used4.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load <2 x i64>, ptr %ht_used4.i, align 8
   %8 = shufflevector <2 x i64> %7, <2 x i64> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %9 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %8)
@@ -420,10 +413,10 @@ if.end9:                                          ; preds = %if.then6, %if.end4
 define dso_local i32 @serverPubsubSubscriptionCount() local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 357), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load <2 x i64>, ptr %ht_used, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 358), align 8
-  %ht_used3 = getelementptr inbounds %struct.dict, ptr %2, i64 0, i32 2
+  %ht_used3 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load <2 x i64>, ptr %ht_used3, align 8
   %4 = shufflevector <2 x i64> %3, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %5 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %4)
@@ -435,9 +428,9 @@ entry:
 define dso_local i32 @serverPubsubShardSubscriptionCount() local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 360), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %2, %1
   %conv = trunc i64 %add to i32
@@ -447,22 +440,22 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @clientTotalPubSubSubscriptionCount(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
 entry:
-  %pubsub_channels.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels.i = getelementptr inbounds i8, ptr %c, i64 544
   %0 = load ptr, ptr %pubsub_channels.i, align 8
-  %ht_used.i = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load <2 x i64>, ptr %ht_used.i, align 8
-  %pubsub_patterns.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns.i = getelementptr inbounds i8, ptr %c, i64 552
   %2 = load ptr, ptr %pubsub_patterns.i, align 8
-  %ht_used4.i = getelementptr inbounds %struct.dict, ptr %2, i64 0, i32 2
+  %ht_used4.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load <2 x i64>, ptr %ht_used4.i, align 8
   %4 = shufflevector <2 x i64> %3, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %5 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %4)
   %conv.i = trunc i64 %5 to i32
-  %pubsubshard_channels.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels.i = getelementptr inbounds i8, ptr %c, i64 560
   %6 = load ptr, ptr %pubsubshard_channels.i, align 8
-  %ht_used.i2 = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 2
+  %ht_used.i2 = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i64, ptr %ht_used.i2, align 8
-  %arrayidx3.i3 = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 2, i64 1
+  %arrayidx3.i3 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %arrayidx3.i3, align 8
   %add.i4 = add i64 %8, %7
   %conv.i5 = trunc i64 %add.i4 to i32
@@ -473,7 +466,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @markClientAsPubSub(ptr nocapture noundef %c) local_unnamed_addr #4 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 262144
   %tobool.not = icmp eq i64 %and, 0
@@ -494,7 +487,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @unmarkClientAsPubSub(ptr nocapture noundef %c) local_unnamed_addr #4 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 262144
   %tobool.not = icmp eq i64 %and, 0
@@ -515,7 +508,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubSubscribeChannel(ptr noundef %c, ptr noundef %channel, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
 entry:
-  %clientPubSubChannels = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 1
+  %clientPubSubChannels = getelementptr inbounds i8, ptr %type, i64 8
   %0 = load ptr, ptr %clientPubSubChannels, align 8
   %call = tail call ptr %0(ptr noundef %c) #10
   %call2 = tail call i32 @dictAdd(ptr noundef %call, ptr noundef %channel, ptr noundef null) #10
@@ -524,7 +517,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @incrRefCount(ptr noundef %channel) #10
-  %serverPubSubChannels = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 3
+  %serverPubSubChannels = getelementptr inbounds i8, ptr %type, i64 24
   %1 = load ptr, ptr %serverPubSubChannels, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @dictFind(ptr noundef %2, ptr noundef %channel) #10
@@ -553,11 +546,11 @@ if.end11:                                         ; preds = %if.end, %entry
   %type10.sroa.3.0.copyload = load ptr, ptr %type10.sroa.3.0.type.sroa_idx, align 8
   %type10.sroa.411.0.type.sroa_idx = getelementptr inbounds i8, ptr %type, i64 32
   %type10.sroa.411.0.copyload = load ptr, ptr %type10.sroa.411.0.type.sroa_idx, align 8
-  %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %4 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %4, 70368744177664
   store i64 %or.i, ptr %flags.i, align 8
-  %resp.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
   %5 = load i32, ptr %resp.i, align 8
   %cmp.i = icmp eq i32 %5, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -608,7 +601,7 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local i32 @pubsubUnsubscribeChannel(ptr noundef %c, ptr noundef %channel, i32 noundef %notify, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
 entry:
   tail call void @incrRefCount(ptr noundef %channel) #10
-  %clientPubSubChannels = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 1
+  %clientPubSubChannels = getelementptr inbounds i8, ptr %type, i64 8
   %0 = load ptr, ptr %clientPubSubChannels, align 8
   %call = tail call ptr %0(ptr noundef %c) #10
   %call2 = tail call i32 @dictDelete(ptr noundef %call, ptr noundef %channel) #10
@@ -616,7 +609,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %entry
-  %serverPubSubChannels = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 3
+  %serverPubSubChannels = getelementptr inbounds i8, ptr %type, i64 24
   %1 = load ptr, ptr %serverPubSubChannels, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @dictFind(ptr noundef %2, ptr noundef %channel) #10
@@ -641,7 +634,7 @@ cond.false17:                                     ; preds = %cond.end
 
 cond.end18:                                       ; preds = %cond.end
   tail call void @listDelNode(ptr noundef %call6, ptr noundef nonnull %call7) #10
-  %len = getelementptr inbounds %struct.list, ptr %call6, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %call6, i64 40
   %3 = load i64, ptr %len, align 8
   %cmp19 = icmp eq i64 %3, 0
   br i1 %cmp19, label %if.then21, label %if.end27
@@ -656,7 +649,7 @@ if.then21:                                        ; preds = %cond.end18
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.then21
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %channel, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %channel, i64 8
   %7 = load ptr, ptr %ptr, align 8
   tail call void @slotToChannelDel(ptr noundef %7) #10
   br label %if.end27
@@ -671,11 +664,11 @@ if.then29:                                        ; preds = %if.end27
   %type15.sroa.3.0.copyload = load ptr, ptr %type15.sroa.3.0.type.sroa_idx, align 8
   %type15.sroa.416.0.type.sroa_idx = getelementptr inbounds i8, ptr %type, i64 40
   %type15.sroa.416.0.copyload = load ptr, ptr %type15.sroa.416.0.type.sroa_idx, align 8
-  %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %8 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %8, 70368744177664
   store i64 %or.i, ptr %flags.i, align 8
-  %resp.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
   %9 = load i32, ptr %resp.i, align 8
   %cmp.i = icmp eq i32 %9, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -753,7 +746,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call) #10
-  %len = getelementptr inbounds %struct.list, ptr %call2, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp3.not = icmp eq i64 %1, 0
   br i1 %cmp3.not, label %if.end24, label %if.then
@@ -770,9 +763,9 @@ while.body.lr.ph:                                 ; preds = %if.then
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %call524 = phi ptr [ %call522, %while.body.lr.ph ], [ %call5, %if.end ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call524, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call524, i64 16
   %2 = load ptr, ptr %value, align 8
-  %pubsubshard_channels = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 60
+  %pubsubshard_channels = getelementptr inbounds i8, ptr %2, i64 560
   %3 = load ptr, ptr %pubsubshard_channels, align 8
   %call8 = call i32 @dictDelete(ptr noundef %3, ptr noundef %channel) #10
   %cmp9 = icmp eq i32 %call8, 0
@@ -786,11 +779,11 @@ cond.false18:                                     ; preds = %while.body
 cond.end19:                                       ; preds = %while.body
   %pubSubShardType.sroa.3.0.copyload = load ptr, ptr getelementptr inbounds (%struct.pubsubtype, ptr @pubSubShardType, i64 0, i32 2), align 8
   %pubSubShardType.sroa.421.0.copyload = load ptr, ptr getelementptr inbounds (%struct.pubsubtype, ptr @pubSubShardType, i64 0, i32 5), align 8
-  %flags.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %4, 70368744177664
   store i64 %or.i, ptr %flags.i, align 8
-  %resp.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 3
+  %resp.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i32, ptr %resp.i, align 8
   %cmp.i = icmp eq i32 %5, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -832,21 +825,21 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %addReplyPubsubUnsubscribed.exit
 
 addReplyPubsubUnsubscribed.exit:                  ; preds = %if.end4.i, %if.then6.i
-  %pubsub_channels.i.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 58
+  %pubsub_channels.i.i = getelementptr inbounds i8, ptr %2, i64 544
   %9 = load ptr, ptr %pubsub_channels.i.i, align 8
-  %ht_used.i.i = getelementptr inbounds %struct.dict, ptr %9, i64 0, i32 2
+  %ht_used.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load <2 x i64>, ptr %ht_used.i.i, align 8
-  %pubsub_patterns.i.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 59
+  %pubsub_patterns.i.i = getelementptr inbounds i8, ptr %2, i64 552
   %11 = load ptr, ptr %pubsub_patterns.i.i, align 8
-  %ht_used4.i.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2
+  %ht_used4.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load <2 x i64>, ptr %ht_used4.i.i, align 8
   %13 = shufflevector <2 x i64> %12, <2 x i64> %10, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %14 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %13)
   %conv.i.i = trunc i64 %14 to i32
   %15 = load ptr, ptr %pubsubshard_channels, align 8
-  %ht_used.i2.i = getelementptr inbounds %struct.dict, ptr %15, i64 0, i32 2
+  %ht_used.i2.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i64, ptr %ht_used.i2.i, align 8
-  %arrayidx3.i3.i = getelementptr inbounds %struct.dict, ptr %15, i64 0, i32 2, i64 1
+  %arrayidx3.i3.i = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load i64, ptr %arrayidx3.i3.i, align 8
   %add.i4.i = add i64 %17, %16
   %conv.i5.i = trunc i64 %add.i4.i to i32
@@ -876,7 +869,7 @@ if.end:                                           ; preds = %if.then.i19, %if.th
 if.end24:                                         ; preds = %if.end, %if.then, %cond.end
   %20 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 360), align 8
   %call25 = call i32 @dictDelete(ptr noundef %20, ptr noundef %channel) #10
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %channel, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %channel, i64 8
   %21 = load ptr, ptr %ptr, align 8
   call void @slotToChannelDel(ptr noundef %21) #10
   %cmp26 = icmp eq i32 %call25, 0
@@ -899,7 +892,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubSubscribePattern(ptr noundef %c, ptr noundef %pattern) local_unnamed_addr #2 {
 entry:
-  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns = getelementptr inbounds i8, ptr %c, i64 552
   %0 = load ptr, ptr %pubsub_patterns, align 8
   %call = tail call i32 @dictAdd(ptr noundef %0, ptr noundef %pattern, ptr noundef null) #10
   %cmp = icmp eq i32 %call, 0
@@ -938,7 +931,7 @@ if.end9:                                          ; preds = %if.end, %entry
 define dso_local i32 @pubsubUnsubscribePattern(ptr noundef %c, ptr noundef %pattern, i32 noundef %notify) local_unnamed_addr #2 {
 entry:
   tail call void @incrRefCount(ptr noundef %pattern) #10
-  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns = getelementptr inbounds i8, ptr %c, i64 552
   %0 = load ptr, ptr %pubsub_patterns, align 8
   %call = tail call i32 @dictDelete(ptr noundef %0, ptr noundef %pattern) #10
   %cmp = icmp eq i32 %call, 0
@@ -968,7 +961,7 @@ cond.false16:                                     ; preds = %cond.end
 
 cond.end17:                                       ; preds = %cond.end
   tail call void @listDelNode(ptr noundef %call5, ptr noundef nonnull %call6) #10
-  %len = getelementptr inbounds %struct.list, ptr %call5, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %call5, i64 40
   %2 = load i64, ptr %len, align 8
   %cmp18 = icmp eq i64 %2, 0
   br i1 %cmp18, label %if.then20, label %if.end22
@@ -995,13 +988,13 @@ if.end25:                                         ; preds = %if.then24, %if.end2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubUnsubscribeAllChannelsInternal(ptr noundef %c, i32 noundef %notify, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
 entry:
-  %clientPubSubChannels = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 1
+  %clientPubSubChannels = getelementptr inbounds i8, ptr %type, i64 8
   %0 = load ptr, ptr %clientPubSubChannels, align 8
   %call = tail call ptr %0(ptr noundef %c) #10
-  %ht_used = getelementptr inbounds %struct.dict, ptr %call, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %ht_used, align 8
   %call2 = tail call ptr %0(ptr noundef %c) #10
-  %arrayidx4 = getelementptr inbounds %struct.dict, ptr %call2, i64 0, i32 2, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %call2, i64 32
   %2 = load i64, ptr %arrayidx4, align 8
   %add = sub i64 0, %2
   %cmp.not = icmp eq i64 %1, %add
@@ -1041,11 +1034,11 @@ if.then14:                                        ; preds = %if.end
   %type9.sroa.3.0.copyload = load ptr, ptr %type9.sroa.3.0.type.sroa_idx, align 8
   %type9.sroa.410.0.type.sroa_idx = getelementptr inbounds i8, ptr %type, i64 40
   %type9.sroa.410.0.copyload = load ptr, ptr %type9.sroa.410.0.type.sroa_idx, align 8
-  %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %3 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %3, 70368744177664
   store i64 %or.i, ptr %flags.i, align 8
-  %resp.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
   %4 = load i32, ptr %resp.i, align 8
   %cmp.i = icmp eq i32 %4, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1128,11 +1121,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubUnsubscribeAllPatterns(ptr noundef %c, i32 noundef %notify) local_unnamed_addr #2 {
 entry:
-  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns = getelementptr inbounds i8, ptr %c, i64 552
   %0 = load ptr, ptr %pubsub_patterns, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx3, align 8
   %add = sub i64 0, %2
   %cmp.not = icmp eq i64 %1, %add
@@ -1179,7 +1172,7 @@ define dso_local i32 @pubsubPublishMessageInternal(ptr noundef %channel, ptr nou
 entry:
   %li = alloca %struct.listIter, align 8
   %li3 = alloca %struct.listIter, align 8
-  %serverPubSubChannels = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 3
+  %serverPubSubChannels = getelementptr inbounds i8, ptr %type, i64 24
   %0 = load ptr, ptr %serverPubSubChannels, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @dictFind(ptr noundef %1, ptr noundef %channel) #10
@@ -1194,7 +1187,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not51, label %if.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %messageBulk = getelementptr inbounds %struct.pubsubtype, ptr %type, i64 0, i32 6
+  %messageBulk = getelementptr inbounds i8, ptr %type, i64 48
   %2 = load ptr, ptr %messageBulk, align 8
   %tobool.not.i = icmp eq ptr %message, null
   br i1 %tobool.not.i, label %while.body.us, label %while.body
@@ -1202,14 +1195,14 @@ while.body.lr.ph:                                 ; preds = %if.then
 while.body.us:                                    ; preds = %while.body.lr.ph, %addReplyPubsubMessage.exit.us
   %call453.us = phi ptr [ %call4.us, %addReplyPubsubMessage.exit.us ], [ %call450, %while.body.lr.ph ]
   %receivers.052.us = phi i32 [ %inc.us, %addReplyPubsubMessage.exit.us ], [ 0, %while.body.lr.ph ]
-  %value.us = getelementptr inbounds %struct.listNode, ptr %call453.us, i64 0, i32 2
+  %value.us = getelementptr inbounds i8, ptr %call453.us, i64 16
   %3 = load ptr, ptr %value.us, align 8
   %4 = load ptr, ptr %2, align 8
-  %flags.i.us = getelementptr inbounds %struct.client, ptr %3, i64 0, i32 1
+  %flags.i.us = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %flags.i.us, align 8
   %or.i.us = or i64 %5, 70368744177664
   store i64 %or.i.us, ptr %flags.i.us, align 8
-  %resp.i.us = getelementptr inbounds %struct.client, ptr %3, i64 0, i32 3
+  %resp.i.us = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load i32, ptr %resp.i.us, align 8
   %cmp.i.us = icmp eq i32 %6, 2
   br i1 %cmp.i.us, label %if.then.i.us, label %if.else.i.us
@@ -1246,14 +1239,14 @@ addReplyPubsubMessage.exit.us:                    ; preds = %if.then5.i.us, %if.
 while.body:                                       ; preds = %while.body.lr.ph, %addReplyPubsubMessage.exit
   %call453 = phi ptr [ %call4, %addReplyPubsubMessage.exit ], [ %call450, %while.body.lr.ph ]
   %receivers.052 = phi i32 [ %inc, %addReplyPubsubMessage.exit ], [ 0, %while.body.lr.ph ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call453, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call453, i64 16
   %9 = load ptr, ptr %value, align 8
   %10 = load ptr, ptr %2, align 8
-  %flags.i = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %11, 70368744177664
   store i64 %or.i, ptr %flags.i, align 8
-  %resp.i = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 3
+  %resp.i = getelementptr inbounds i8, ptr %9, i64 24
   %12 = load i32, ptr %resp.i, align 8
   %cmp.i = icmp eq i32 %12, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1302,7 +1295,7 @@ if.end8:                                          ; preds = %if.end
 
 if.then11:                                        ; preds = %if.end8
   %call12 = call ptr @getDecodedObject(ptr noundef %channel) #10
-  %ptr21 = getelementptr inbounds %struct.redisObject, ptr %call12, i64 0, i32 2
+  %ptr21 = getelementptr inbounds i8, ptr %call12, i64 8
   br label %while.cond13.outer.outer
 
 while.cond13.outer.outer:                         ; preds = %addReplyPubsubPatMessage.exit, %if.then11
@@ -1320,7 +1313,7 @@ while.cond13:                                     ; preds = %while.cond13.outer,
 while.body16:                                     ; preds = %while.cond13
   %call17 = call ptr @dictGetKey(ptr noundef nonnull %call14) #10
   %call18 = call ptr @dictGetVal(ptr noundef nonnull %call14) #10
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call17, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call17, i64 8
   %17 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %17, i64 -1
   %18 = load i8, ptr %arrayidx.i, align 1
@@ -1422,13 +1415,13 @@ if.end28:                                         ; preds = %sdslen.exit39
 while.body33:                                     ; preds = %if.end28, %addReplyPubsubPatMessage.exit
   %call3057 = phi ptr [ %call30, %addReplyPubsubPatMessage.exit ], [ %call3054, %if.end28 ]
   %receivers.356 = phi i32 [ %inc37, %addReplyPubsubPatMessage.exit ], [ %receivers.2.ph.ph, %if.end28 ]
-  %value35 = getelementptr inbounds %struct.listNode, ptr %call3057, i64 0, i32 2
+  %value35 = getelementptr inbounds i8, ptr %call3057, i64 16
   %29 = load ptr, ptr %value35, align 8
-  %flags.i40 = getelementptr inbounds %struct.client, ptr %29, i64 0, i32 1
+  %flags.i40 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i64, ptr %flags.i40, align 8
   %or.i41 = or i64 %30, 70368744177664
   store i64 %or.i41, ptr %flags.i40, align 8
-  %resp.i42 = getelementptr inbounds %struct.client, ptr %29, i64 0, i32 3
+  %resp.i42 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load i32, ptr %resp.i42, align 8
   %cmp.i43 = icmp eq i32 %31, 2
   br i1 %cmp.i43, label %if.then.i49, label %if.else.i44
@@ -1509,20 +1502,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local void @subscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %1 = and i64 %0, 2199023255560
   %or.cond = icmp eq i64 %1, 2199023255552
   br i1 %or.cond, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %2 = load i32, ptr %argc, align 8
   %cmp9 = icmp sgt i32 %2, 1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -1568,7 +1561,7 @@ declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @unsubscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -1578,7 +1571,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp29, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -1598,22 +1591,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !15
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.then
-  %pubsub_channels.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels.i.i = getelementptr inbounds i8, ptr %c, i64 544
   %5 = load ptr, ptr %pubsub_channels.i.i, align 8
-  %ht_used.i.i = getelementptr inbounds %struct.dict, ptr %5, i64 0, i32 2
+  %ht_used.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load <2 x i64>, ptr %ht_used.i.i, align 8
-  %pubsub_patterns.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns.i.i = getelementptr inbounds i8, ptr %c, i64 552
   %7 = load ptr, ptr %pubsub_patterns.i.i, align 8
-  %ht_used4.i.i = getelementptr inbounds %struct.dict, ptr %7, i64 0, i32 2
+  %ht_used4.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load <2 x i64>, ptr %ht_used4.i.i, align 8
   %9 = shufflevector <2 x i64> %8, <2 x i64> %6, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %10 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %9)
   %conv.i.i = trunc i64 %10 to i32
-  %pubsubshard_channels.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels.i.i = getelementptr inbounds i8, ptr %c, i64 560
   %11 = load ptr, ptr %pubsubshard_channels.i.i, align 8
-  %ht_used.i2.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2
+  %ht_used.i2.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i64, ptr %ht_used.i2.i, align 8
-  %arrayidx3.i3.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2, i64 1
+  %arrayidx3.i3.i = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load i64, ptr %arrayidx3.i3.i, align 8
   %add.i4.i = add i64 %13, %12
   %conv.i5.i = trunc i64 %add.i4.i to i32
@@ -1622,7 +1615,7 @@ if.end:                                           ; preds = %for.body, %for.cond
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %14 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %14, 262144
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -1643,20 +1636,20 @@ if.end7:                                          ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @psubscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %1 = and i64 %0, 2199023255560
   %or.cond = icmp eq i64 %1, 2199023255552
   br i1 %or.cond, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %2 = load i32, ptr %argc, align 8
   %cmp9 = icmp sgt i32 %2, 1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -1700,7 +1693,7 @@ return:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @punsubscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -1710,7 +1703,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp29, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -1730,22 +1723,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !17
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.then
-  %pubsub_channels.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels.i.i = getelementptr inbounds i8, ptr %c, i64 544
   %5 = load ptr, ptr %pubsub_channels.i.i, align 8
-  %ht_used.i.i = getelementptr inbounds %struct.dict, ptr %5, i64 0, i32 2
+  %ht_used.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load <2 x i64>, ptr %ht_used.i.i, align 8
-  %pubsub_patterns.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns.i.i = getelementptr inbounds i8, ptr %c, i64 552
   %7 = load ptr, ptr %pubsub_patterns.i.i, align 8
-  %ht_used4.i.i = getelementptr inbounds %struct.dict, ptr %7, i64 0, i32 2
+  %ht_used4.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load <2 x i64>, ptr %ht_used4.i.i, align 8
   %9 = shufflevector <2 x i64> %8, <2 x i64> %6, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %10 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %9)
   %conv.i.i = trunc i64 %10 to i32
-  %pubsubshard_channels.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels.i.i = getelementptr inbounds i8, ptr %c, i64 560
   %11 = load ptr, ptr %pubsubshard_channels.i.i, align 8
-  %ht_used.i2.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2
+  %ht_used.i2.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i64, ptr %ht_used.i2.i, align 8
-  %arrayidx3.i3.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2, i64 1
+  %arrayidx3.i3.i = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load i64, ptr %arrayidx3.i3.i, align 8
   %add.i4.i = add i64 %13, %12
   %conv.i5.i = trunc i64 %add.i4.i to i32
@@ -1754,7 +1747,7 @@ if.end:                                           ; preds = %for.body, %for.cond
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %14 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %14, 262144
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -1817,11 +1810,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %1, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %arrayidx2, align 8
   %call.i.i = tail call i32 @pubsubPublishMessageInternal(ptr noundef %2, ptr noundef %3, ptr noundef nonnull byval(%struct.pubsubtype) align 8 @pubSubType)
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
@@ -1855,14 +1848,14 @@ declare void @forceCommandPropagation(ptr noundef, i32 noundef) local_unnamed_ad
 define dso_local void @pubsubCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %help = alloca [12 x ptr], align 16
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp ne i32 %0, 2
-  %argv1.phi.trans.insert = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv1.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 96
   %.pre = load ptr, ptr %argv1.phi.trans.insert, align 8
-  %arrayidx2.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 1
+  %arrayidx2.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre63 = load ptr, ptr %arrayidx2.phi.trans.insert, align 8
-  %ptr3.phi.trans.insert = getelementptr inbounds %struct.redisObject, ptr %.pre63, i64 0, i32 2
+  %ptr3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre63, i64 8
   %.pre64 = load ptr, ptr %ptr3.phi.trans.insert, align 8
   br i1 %cmp, label %if.else, label %land.lhs.true
 
@@ -1877,7 +1870,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end125
 
 if.else:                                          ; preds = %entry, %land.lhs.true
-  %argv1 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv1 = getelementptr inbounds i8, ptr %c, i64 96
   %call4 = tail call i32 @strcasecmp(ptr noundef %.pre64, ptr noundef nonnull @.str.18) #12
   %tobool5.not = icmp eq i32 %call4, 0
   %1 = and i32 %0, -2
@@ -1889,9 +1882,9 @@ if.then11:                                        ; preds = %if.else
   br i1 %cmp, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.then11
-  %arrayidx15 = getelementptr inbounds ptr, ptr %.pre, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %.pre, i64 16
   %2 = load ptr, ptr %arrayidx15, align 8
-  %ptr16 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr16 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr16, align 8
   br label %cond.end
 
@@ -1932,7 +1925,7 @@ for.body:                                         ; preds = %if.then26, %cond.en
   br i1 %tobool37.not, label %cond.end40, label %cond.true38
 
 cond.true38:                                      ; preds = %for.body
-  %len = getelementptr inbounds %struct.list, ptr %call33, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %call33, i64 40
   %11 = load i64, ptr %len, align 8
   br label %cond.end40
 
@@ -1953,9 +1946,9 @@ if.else42:                                        ; preds = %if.else17
 
 if.then52:                                        ; preds = %if.else42
   %14 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 358), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %14, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load i64, ptr %ht_used, align 8
-  %arrayidx55 = getelementptr inbounds %struct.dict, ptr %14, i64 0, i32 2, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %14, i64 32
   %16 = load i64, ptr %arrayidx55, align 8
   %add = add i64 %16, %15
   tail call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %add) #10
@@ -1971,9 +1964,9 @@ if.then70:                                        ; preds = %if.else56
   br i1 %cmp, label %cond.false76, label %cond.end80
 
 cond.false76:                                     ; preds = %if.then70
-  %arrayidx78 = getelementptr inbounds ptr, ptr %.pre, i64 2
+  %arrayidx78 = getelementptr inbounds i8, ptr %.pre, i64 16
   %17 = load ptr, ptr %arrayidx78, align 8
-  %ptr79 = getelementptr inbounds %struct.redisObject, ptr %17, i64 0, i32 2
+  %ptr79 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %ptr79, align 8
   br label %cond.end80
 
@@ -2013,7 +2006,7 @@ for.body102:                                      ; preds = %if.then92, %cond.en
   br i1 %tobool111.not, label %cond.end115, label %cond.true112
 
 cond.true112:                                     ; preds = %for.body102
-  %len113 = getelementptr inbounds %struct.list, ptr %call107, i64 0, i32 5
+  %len113 = getelementptr inbounds i8, ptr %call107, i64 40
   %26 = load i64, ptr %len113, align 8
   br label %cond.end115
 
@@ -2071,7 +2064,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call231 = phi ptr [ %call2, %if.end ], [ %call228, %while.body.lr.ph ]
   %mblen.030 = phi i64 [ %mblen.1, %if.end ], [ 0, %while.body.lr.ph ]
   %call3 = tail call ptr @dictGetKey(ptr noundef nonnull %call231) #10
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call3, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call3, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %1 to i32
@@ -2189,11 +2182,11 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @spublishCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   %call.i.i = tail call i32 @pubsubPublishMessageInternal(ptr noundef %1, ptr noundef %2, ptr noundef nonnull byval(%struct.pubsubtype) align 8 @pubSubShardType)
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
@@ -2219,20 +2212,20 @@ if.end:                                           ; preds = %if.then, %pubsubPub
 ; Function Attrs: nounwind uwtable
 define dso_local void @ssubscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 2199023255552
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %1 = load i32, ptr %argc, align 8
   %cmp13 = icmp sgt i32 %1, 1
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -2258,7 +2251,7 @@ if.then4:                                         ; preds = %for.body
   %8 = load ptr, ptr %argv, align 8
   %arrayidx7 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx7, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr, align 8
   tail call void @slotToChannelAdd(ptr noundef %10) #10
   br label %if.end8
@@ -2301,7 +2294,7 @@ declare void @slotToChannelAdd(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @sunsubscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -2311,7 +2304,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp29, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -2331,22 +2324,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !22
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.then
-  %pubsub_channels.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels.i.i = getelementptr inbounds i8, ptr %c, i64 544
   %5 = load ptr, ptr %pubsub_channels.i.i, align 8
-  %ht_used.i.i = getelementptr inbounds %struct.dict, ptr %5, i64 0, i32 2
+  %ht_used.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load <2 x i64>, ptr %ht_used.i.i, align 8
-  %pubsub_patterns.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns.i.i = getelementptr inbounds i8, ptr %c, i64 552
   %7 = load ptr, ptr %pubsub_patterns.i.i, align 8
-  %ht_used4.i.i = getelementptr inbounds %struct.dict, ptr %7, i64 0, i32 2
+  %ht_used4.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load <2 x i64>, ptr %ht_used4.i.i, align 8
   %9 = shufflevector <2 x i64> %8, <2 x i64> %6, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %10 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %9)
   %conv.i.i = trunc i64 %10 to i32
-  %pubsubshard_channels.i.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels.i.i = getelementptr inbounds i8, ptr %c, i64 560
   %11 = load ptr, ptr %pubsubshard_channels.i.i, align 8
-  %ht_used.i2.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2
+  %ht_used.i2.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i64, ptr %ht_used.i2.i, align 8
-  %arrayidx3.i3.i = getelementptr inbounds %struct.dict, ptr %11, i64 0, i32 2, i64 1
+  %arrayidx3.i3.i = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load i64, ptr %arrayidx3.i3.i, align 8
   %add.i4.i = add i64 %13, %12
   %conv.i5.i = trunc i64 %add.i4.i to i32
@@ -2355,7 +2348,7 @@ if.end:                                           ; preds = %for.body, %for.cond
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %14 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %14, 262144
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -2376,14 +2369,14 @@ if.end7:                                          ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pubsubMemOverhead(ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
 entry:
-  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 59
+  %pubsub_patterns = getelementptr inbounds i8, ptr %c, i64 552
   %0 = load ptr, ptr %pubsub_patterns, align 8
   %call = tail call i64 @dictMemUsage(ptr noundef %0) #10
-  %pubsub_channels = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 58
+  %pubsub_channels = getelementptr inbounds i8, ptr %c, i64 544
   %1 = load ptr, ptr %pubsub_channels, align 8
   %call1 = tail call i64 @dictMemUsage(ptr noundef %1) #10
   %add = add i64 %call1, %call
-  %pubsubshard_channels = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 60
+  %pubsubshard_channels = getelementptr inbounds i8, ptr %c, i64 560
   %2 = load ptr, ptr %pubsubshard_channels, align 8
   %call2 = tail call i64 @dictMemUsage(ptr noundef %2) #10
   %add3 = add i64 %add, %call2

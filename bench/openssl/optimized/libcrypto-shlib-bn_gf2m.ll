@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_gf2m.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_gf2m.c\00", align 1
 @__func__.BN_GF2m_mod = private unnamed_addr constant [12 x i8] c"BN_GF2m_mod\00", align 1
 @__func__.BN_GF2m_mod_mul = private unnamed_addr constant [16 x i8] c"BN_GF2m_mod_mul\00", align 1
@@ -17,21 +15,21 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @BN_GF2m_add(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
-  %top1 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top1, align 8
   %cmp = icmp slt i32 %0, %1
   %b.a = select i1 %cmp, ptr %b, ptr %a
   %a.b = select i1 %cmp, ptr %a, ptr %b
-  %top2 = getelementptr inbounds %struct.bignum_st, ptr %b.a, i64 0, i32 1
+  %top2 = getelementptr inbounds i8, ptr %b.a, i64 8
   %2 = load i32, ptr %top2, align 8
   %call = tail call ptr @bn_wexpand(ptr noundef %r, i32 noundef %2) #4
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %top6 = getelementptr inbounds %struct.bignum_st, ptr %a.b, i64 0, i32 1
+  %top6 = getelementptr inbounds i8, ptr %a.b, i64 8
   %3 = load i32, ptr %top6, align 8
   %cmp722 = icmp sgt i32 %3, 0
   br i1 %cmp722, label %for.body, label %for.cond14.preheader
@@ -84,7 +82,7 @@ for.body17:                                       ; preds = %for.body17.preheade
 
 for.end26:                                        ; preds = %for.body17, %for.cond14.preheader
   %.lcssa = phi i32 [ %5, %for.cond14.preheader ], [ %17, %for.body17 ]
-  %top28 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top28 = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %.lcssa, ptr %top28, align 8
   tail call void @bn_correct_top(ptr noundef %r) #4
   br label %return
@@ -111,7 +109,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp1.not = icmp eq ptr %a, %r
-  %top16.phi.trans.insert = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top16.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 8
   %.pre118 = load i32, ptr %top16.phi.trans.insert, align 8
   br i1 %cmp1.not, label %if.end13, label %if.then2
 
@@ -141,7 +139,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %.lcssa = phi i32 [ %1, %for.cond.preheader ], [ %5, %for.body ]
-  %top12 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top12 = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %.lcssa, ptr %top12, align 8
   %.pre = load i32, ptr %p, align 4
   br label %if.end13
@@ -156,7 +154,7 @@ if.end13:                                         ; preds = %if.end, %for.end
   br i1 %cmp1898, label %for.body19.lr.ph.lr.ph, label %while.cond.preheader
 
 for.body19.lr.ph.lr.ph:                           ; preds = %if.end13
-  %arrayidx3193 = getelementptr inbounds i32, ptr %p, i64 1
+  %arrayidx3193 = getelementptr inbounds i8, ptr %p, i64 4
   %10 = sext i32 %7 to i64
   %11 = add nsw i64 %10, -1
   %12 = sext i32 %div to i64
@@ -167,7 +165,7 @@ for.body19.lr.ph:                                 ; preds = %for.body19.lr.ph.lr
   %arrayidx21 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv112
   %13 = sub nsw i64 %indvars.iv112, %12
   %arrayidx62 = getelementptr inbounds i64, ptr %9, i64 %13
-  %arrayidx71 = getelementptr i64, ptr %arrayidx62, i64 -1
+  %arrayidx71 = getelementptr i8, ptr %arrayidx62, i64 -8
   %14 = trunc i64 %indvars.iv112 to i32
   %15 = load i64, ptr %arrayidx21, align 8
   %cmp24121 = icmp eq i64 %15, 0
@@ -185,7 +183,7 @@ while.cond.preheader:                             ; preds = %while.cond.preheade
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %idxprom78 = sext i32 %div to i64
   %arrayidx79 = getelementptr inbounds i64, ptr %9, i64 %idxprom78
-  %arrayidx103102 = getelementptr inbounds i32, ptr %p, i64 1
+  %arrayidx103102 = getelementptr inbounds i8, ptr %p, i64 4
   %17 = load i32, ptr %p, align 4
   %rem77122 = srem i32 %17, 64
   %18 = load i64, ptr %arrayidx79, align 8
@@ -228,7 +226,7 @@ if.then44:                                        ; preds = %for.body33
   %sub38 = sub nsw i32 64, %rem
   %sh_prom45 = zext nneg i32 %sub38 to i64
   %shl = shl i64 %19, %sh_prom45
-  %arrayidx49 = getelementptr i64, ptr %arrayidx42, i64 -1
+  %arrayidx49 = getelementptr i8, ptr %arrayidx42, i64 -8
   %24 = load i64, ptr %arrayidx49, align 8
   %xor50 = xor i64 %24, %shl
   store i64 %xor50, ptr %arrayidx49, align 8
@@ -316,7 +314,7 @@ land.lhs.true:                                    ; preds = %for.body105
   br i1 %tobool121.not, label %for.inc127, label %if.then122
 
 if.then122:                                       ; preds = %land.lhs.true
-  %arrayidx124 = getelementptr i64, ptr %arrayidx116, i64 1
+  %arrayidx124 = getelementptr i8, ptr %arrayidx116, i64 8
   %38 = load i64, ptr %arrayidx124, align 8
   %xor125 = xor i64 %38, %shr120
   store i64 %xor125, ptr %arrayidx124, align 8
@@ -349,7 +347,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then
 
 if.end.i:                                         ; preds = %entry
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top.i, align 8
   %cmp24.i = icmp sgt i32 %0, 0
   br i1 %cmp24.i, label %for.body.preheader.i, label %if.then22.i
@@ -450,7 +448,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp24 = icmp sgt i32 %0, 0
   br i1 %cmp24, label %for.body.preheader, label %for.end20
@@ -553,9 +551,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %err, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
-  %top5 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top5 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top5, align 8
   %add = add i32 %0, 4
   %add6 = add i32 %add, %1
@@ -564,7 +562,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %err, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %top10 = getelementptr inbounds %struct.bignum_st, ptr %call1, i64 0, i32 1
+  %top10 = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 %add6, ptr %top10, align 8
   %cmp1141 = icmp sgt i32 %add6, 0
   br i1 %cmp1141, label %for.body.preheader, label %for.cond12.preheader
@@ -687,7 +685,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %mul = shl nsw i32 %0, 1
   %call1 = tail call ptr @bn_wexpand(ptr noundef nonnull %call, i32 noundef %mul) #4
@@ -848,7 +846,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %if.end3
   %70 = phi i32 [ %.pre, %for.end.loopexit ], [ %1, %if.end3 ]
   %mul448 = shl nsw i32 %70, 1
-  %top449 = getelementptr inbounds %struct.bignum_st, ptr %call, i64 0, i32 1
+  %top449 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %mul448, ptr %top449, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %call) #4
   %call450 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef nonnull %call, ptr noundef %p), !range !13
@@ -885,7 +883,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
 if.end.i:                                         ; preds = %if.end
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top.i, align 8
   %cmp24.i = icmp sgt i32 %0, 0
   br i1 %cmp24.i, label %for.body.preheader.i, label %for.end20.i
@@ -1007,7 +1005,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
 if.end.i:                                         ; preds = %if.end
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top.i, align 8
   %cmp24.i = icmp sgt i32 %0, 0
   br i1 %cmp24.i, label %for.body.preheader.i, label %for.end20.i
@@ -1165,7 +1163,7 @@ if.end10.i:                                       ; preds = %if.end6.i
 if.end14.i:                                       ; preds = %if.end10.i
   %call15.i = tail call i32 @BN_num_bits(ptr noundef %call2.i) #4
   %call16.i = tail call i32 @BN_num_bits(ptr noundef nonnull %call3.i) #4
-  %top17.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top17.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top17.i, align 8
   %call18.i = tail call ptr @bn_wexpand(ptr noundef %call2.i, i32 noundef %0) #4
   %tobool19.not.i = icmp eq ptr %call18.i, null
@@ -1173,7 +1171,7 @@ if.end14.i:                                       ; preds = %if.end10.i
 
 if.end21.i:                                       ; preds = %if.end14.i
   %1 = load ptr, ptr %call2.i, align 8
-  %top22.i = getelementptr inbounds %struct.bignum_st, ptr %call2.i, i64 0, i32 1
+  %top22.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %2 = load i32, ptr %top22.i, align 8
   %cmp23109.i = icmp slt i32 %2, %0
   br i1 %cmp23109.i, label %for.body.preheader.i, label %for.end.i
@@ -1211,7 +1209,7 @@ for.body33.preheader.i:                           ; preds = %if.end28.i
   br label %for.end38.i
 
 for.end38.i:                                      ; preds = %for.body33.preheader.i, %if.end28.i
-  %top39.i = getelementptr inbounds %struct.bignum_st, ptr %call.i, i64 0, i32 1
+  %top39.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %0, ptr %top39.i, align 8
   %call40.i = tail call ptr @bn_wexpand(ptr noundef %call1.i, i32 noundef %0) #4
   %tobool41.not.i = icmp eq ptr %call40.i, null
@@ -1229,7 +1227,7 @@ for.body47.preheader.i:                           ; preds = %if.end43.i
   br label %for.end52.i
 
 for.end52.i:                                      ; preds = %if.end43.i, %for.body47.preheader.i
-  %top53.i = getelementptr inbounds %struct.bignum_st, ptr %call1.i, i64 0, i32 1
+  %top53.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i32 %0, ptr %top53.i, align 8
   %17 = load ptr, ptr %call3.i, align 8
   %sub67.i = add i32 %0, -1
@@ -1670,7 +1668,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
 if.end.i:                                         ; preds = %if.end
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top.i, align 8
   %cmp24.i = icmp sgt i32 %0, 0
   br i1 %cmp24.i, label %for.body.preheader.i, label %for.end20.i
@@ -1826,7 +1824,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
 if.end.i:                                         ; preds = %if.end
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top.i, align 8
   %cmp24.i = icmp sgt i32 %0, 0
   br i1 %cmp24.i, label %for.body.preheader.i, label %for.end20.i
@@ -2001,8 +1999,8 @@ for.cond.preheader:                               ; preds = %if.then15
   br i1 %cmp21.not151, label %if.end89, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %call1, i64 0, i32 1
-  %top1.i = getelementptr inbounds %struct.bignum_st, ptr %call, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %top1.i = getelementptr inbounds i8, ptr %call, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2022,14 +2020,14 @@ if.end29:                                         ; preds = %if.end25
   %cmp.i = icmp slt i32 %3, %4
   %b.a.i = select i1 %cmp.i, ptr %call, ptr %call1
   %a.b.i = select i1 %cmp.i, ptr %call1, ptr %call
-  %top2.i = getelementptr inbounds %struct.bignum_st, ptr %b.a.i, i64 0, i32 1
+  %top2.i = getelementptr inbounds i8, ptr %b.a.i, i64 8
   %5 = load i32, ptr %top2.i, align 8
   %call.i = tail call ptr @bn_wexpand(ptr noundef %call1, i32 noundef %5) #4
   %cmp3.i = icmp eq ptr %call.i, null
   br i1 %cmp3.i, label %err, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end29
-  %top6.i = getelementptr inbounds %struct.bignum_st, ptr %a.b.i, i64 0, i32 1
+  %top6.i = getelementptr inbounds i8, ptr %a.b.i, i64 8
   %6 = load i32, ptr %top6.i, align 8
   %cmp722.i = icmp sgt i32 %6, 0
   br i1 %cmp722.i, label %for.body.i, label %for.cond14.preheader.i
@@ -2099,11 +2097,11 @@ if.else:                                          ; preds = %if.end12
   br i1 %cmp37, label %err, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.else
-  %top.i69 = getelementptr inbounds %struct.bignum_st, ptr %call1, i64 0, i32 1
-  %top1.i70 = getelementptr inbounds %struct.bignum_st, ptr %call36, i64 0, i32 1
-  %top.i104 = getelementptr inbounds %struct.bignum_st, ptr %call35, i64 0, i32 1
-  %top1.i105 = getelementptr inbounds %struct.bignum_st, ptr %call34, i64 0, i32 1
-  %top28.i120 = getelementptr inbounds %struct.bignum_st, ptr %call2, i64 0, i32 1
+  %top.i69 = getelementptr inbounds i8, ptr %call1, i64 8
+  %top1.i70 = getelementptr inbounds i8, ptr %call36, i64 8
+  %top.i104 = getelementptr inbounds i8, ptr %call35, i64 8
+  %top1.i105 = getelementptr inbounds i8, ptr %call34, i64 8
+  %top28.i120 = getelementptr inbounds i8, ptr %call2, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %for.end80
@@ -2151,14 +2149,14 @@ if.end69:                                         ; preds = %if.end65
   %cmp.i71 = icmp slt i32 %25, %26
   %b.a.i72 = select i1 %cmp.i71, ptr %call36, ptr %call1
   %a.b.i73 = select i1 %cmp.i71, ptr %call1, ptr %call36
-  %top2.i74 = getelementptr inbounds %struct.bignum_st, ptr %b.a.i72, i64 0, i32 1
+  %top2.i74 = getelementptr inbounds i8, ptr %b.a.i72, i64 8
   %27 = load i32, ptr %top2.i74, align 8
   %call.i75 = tail call ptr @bn_wexpand(ptr noundef %call1, i32 noundef %27) #4
   %cmp3.i76 = icmp eq ptr %call.i75, null
   br i1 %cmp3.i76, label %err, label %for.cond.preheader.i77
 
 for.cond.preheader.i77:                           ; preds = %if.end69
-  %top6.i78 = getelementptr inbounds %struct.bignum_st, ptr %a.b.i73, i64 0, i32 1
+  %top6.i78 = getelementptr inbounds i8, ptr %a.b.i73, i64 8
   %28 = load i32, ptr %top6.i78, align 8
   %cmp722.i79 = icmp sgt i32 %28, 0
   br i1 %cmp722.i79, label %for.body.i94, label %for.cond14.preheader.i80
@@ -2218,14 +2216,14 @@ if.end73:                                         ; preds = %for.body17.i88, %fo
   %cmp.i106 = icmp slt i32 %44, %45
   %b.a.i107 = select i1 %cmp.i106, ptr %call34, ptr %call35
   %a.b.i108 = select i1 %cmp.i106, ptr %call35, ptr %call34
-  %top2.i109 = getelementptr inbounds %struct.bignum_st, ptr %b.a.i107, i64 0, i32 1
+  %top2.i109 = getelementptr inbounds i8, ptr %b.a.i107, i64 8
   %46 = load i32, ptr %top2.i109, align 8
   %call.i110 = tail call ptr @bn_wexpand(ptr noundef nonnull %call2, i32 noundef %46) #4
   %cmp3.i111 = icmp eq ptr %call.i110, null
   br i1 %cmp3.i111, label %err, label %for.cond.preheader.i112
 
 for.cond.preheader.i112:                          ; preds = %if.end73
-  %top6.i113 = getelementptr inbounds %struct.bignum_st, ptr %a.b.i108, i64 0, i32 1
+  %top6.i113 = getelementptr inbounds i8, ptr %a.b.i108, i64 8
   %47 = load i32, ptr %top6.i113, align 8
   %cmp722.i114 = icmp sgt i32 %47, 0
   br i1 %cmp722.i114, label %for.body.i129, label %for.cond14.preheader.i115
@@ -2360,7 +2358,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
 if.end.i:                                         ; preds = %if.end
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %top.i, align 8
   %cmp24.i = icmp sgt i32 %0, 0
   br i1 %cmp24.i, label %for.body.preheader.i, label %for.end20.i

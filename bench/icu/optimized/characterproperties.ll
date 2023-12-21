@@ -12,16 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.1" = type { ptr }
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
-%"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
-%"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
-%"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeMatcher" = type { ptr }
 %struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.icu_75::LocalUMutableCPTriePointer" = type { %"class.icu_75::LocalPointerBase.3" }
 %"class.icu_75::LocalPointerBase.3" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.2, [32 x i8] }
 %struct.anon.2 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
@@ -54,7 +50,7 @@ if.then2:                                         ; preds = %if.end
   %add = add nsw i32 %prop, -4078
   %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom
-  %fInitOnce = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom, i32 1
+  %fInitOnce = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load atomic i32, ptr %fInitOnce acquire, align 8
   %cmp.not.i = icmp eq i32 %2, 2
   br i1 %cmp.not.i, label %if.else.i, label %land.lhs.true.i
@@ -161,7 +157,7 @@ for.inc28.i:                                      ; preds = %for.inc.i, %for.con
   br i1 %exitcond32.not.i, label %for.end30.i, label %for.body.i, !llvm.loop !6
 
 for.end30.i:                                      ; preds = %for.inc28.i, %for.cond.preheader.i
-  %fFlags.i.i = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %call3.i, i64 0, i32 4
+  %fFlags.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   %5 = load i8, ptr %fFlags.i.i, align 8
   %6 = and i8 %5, 1
   %tobool35.not.i = icmp eq i8 %6, 0
@@ -190,13 +186,13 @@ eh.resume.i:                                      ; preds = %lpad4.i, %lpad.i
 _ZN12_GLOBAL__N_120initIntPropInclusionE9UPropertyR10UErrorCode.exit: ; preds = %if.then4.i, %cleanup.thread.i, %invoke.cont40.i, %delete.notnull.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %intPropIncl.i)
   %7 = load i32, ptr %errorCode, align 4
-  %fErrCode.i = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom, i32 1, i32 1
+  %fErrCode.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %7, ptr %fErrCode.i, align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %fInitOnce)
   br label %_ZN6icu_7513umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then2
-  %fErrCode5.i = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom, i32 1, i32 1
+  %fErrCode5.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %8 = load i32, ptr %fErrCode5.i, align 4
   %cmp.i9.i = icmp slt i32 %8, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, label %if.then8.i
@@ -241,7 +237,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %src to i64
   %arrayidx = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom
-  %fInitOnce = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom, i32 1
+  %fInitOnce = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load atomic i32, ptr %fInitOnce acquire, align 8
   %cmp.not.i = icmp eq i32 %1, 2
   br i1 %cmp.not.i, label %if.else.i, label %land.lhs.true.i
@@ -283,13 +279,13 @@ lpad.i:                                           ; preds = %new.notnull.i
 if.end3.i:                                        ; preds = %new.notnull.i
   store ptr %call.i, ptr %incl.i, align 8
   store ptr %call.i, ptr %sa.i, align 8
-  %add.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 1
+  %add.i = getelementptr inbounds i8, ptr %sa.i, i64 8
   store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %add.i, align 8
-  %addRange.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 2
+  %addRange.i = getelementptr inbounds i8, ptr %sa.i, i64 16
   store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %addRange.i, align 8
-  %addString.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 3
+  %addString.i = getelementptr inbounds i8, ptr %sa.i, i64 24
   store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %addString.i, align 8
-  %remove.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 4
+  %remove.i = getelementptr inbounds i8, ptr %sa.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remove.i, i8 0, i64 16, i1 false)
   switch i32 %src, label %delete.notnull.i.sink.split.i [
     i32 1, label %sw.bb.i
@@ -427,7 +423,7 @@ sw.epilog.i:                                      ; preds = %sw.bb85.invoke.i, %
   br i1 %cmp.i49.i, label %if.end90.i, label %delete.notnull.i.i
 
 if.end90.i:                                       ; preds = %sw.epilog.i
-  %fFlags.i.i = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %call.i, i64 0, i32 4
+  %fFlags.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %13 = load i8, ptr %fFlags.i.i, align 8
   %14 = and i8 %13, 1
   %tobool93.not.i = icmp eq i8 %14, 0
@@ -461,13 +457,13 @@ _ZN12_GLOBAL__N_113initInclusionE15UPropertySourceR10UErrorCode.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %incl.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sa.i)
   %15 = load i32, ptr %errorCode, align 4
-  %fErrCode.i = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom, i32 1, i32 1
+  %fErrCode.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %15, ptr %fErrCode.i, align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %fInitOnce)
   br label %_ZN6icu_7513umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end3
-  %fErrCode5.i = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom, i32 1, i32 1
+  %fErrCode5.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %16 = load i32, ptr %fErrCode5.i, align 4
   %cmp.i9.i = icmp slt i32 %16, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, label %if.then8.i
@@ -573,13 +569,13 @@ lpad8.i:                                          ; preds = %lpad8.loopexit.spli
 
 if.end14.i:                                       ; preds = %invoke.cont9.i
   store ptr %call1.i, ptr %sa.i, align 8
-  %add.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 1
+  %add.i = getelementptr inbounds i8, ptr %sa.i, i64 8
   store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %add.i, align 8
-  %addRange.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 2
+  %addRange.i = getelementptr inbounds i8, ptr %sa.i, i64 16
   store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %addRange.i, align 8
-  %addString.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 3
+  %addString.i = getelementptr inbounds i8, ptr %sa.i, i64 24
   store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %addString.i, align 8
-  %remove.i = getelementptr inbounds %struct.USetAdder, ptr %sa.i, i64 0, i32 4
+  %remove.i = getelementptr inbounds i8, ptr %sa.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remove.i, i8 0, i64 16, i1 false)
   invoke void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %call10.i, ptr noundef nonnull %sa.i, i32 noundef %property, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont17.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.i
@@ -976,7 +972,7 @@ delete.notnull:                                   ; preds = %for.body
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   store ptr null, ptr %__begin1.0.ptr13, align 8
-  %fInitOnce = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %__begin1.0.ptr13, i64 0, i32 1
+  %fInitOnce = getelementptr inbounds i8, ptr %__begin1.0.ptr13, i64 8
   store atomic i32 0, ptr %fInitOnce seq_cst, align 4
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx12, 16
   %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %__begin1.0.add

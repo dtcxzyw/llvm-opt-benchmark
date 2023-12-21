@@ -3,13 +3,10 @@ source_filename = "bench/openssl/original/libapps-lib-columns.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.function_st = type { i32, ptr, ptr, ptr, ptr, ptr }
-%struct.DISPLAY_COLUMNS = type { i32, i32 }
-
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @calculate_columns(ptr nocapture noundef readonly %functions, ptr nocapture noundef writeonly %dc) local_unnamed_addr #0 {
 entry:
-  %name9 = getelementptr inbounds %struct.function_st, ptr %functions, i64 0, i32 1
+  %name9 = getelementptr inbounds i8, ptr %functions, i64 8
   %0 = load ptr, ptr %name9, align 8
   %cmp.not10 = icmp eq ptr %0, null
   br i1 %cmp.not10, label %for.end, label %for.body
@@ -31,8 +28,8 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %if.then, %for.body
   %maxlen.1 = phi i32 [ %maxlen.012, %for.body ], [ %spec.select, %if.then ]
-  %incdec.ptr = getelementptr inbounds %struct.function_st, ptr %f.011, i64 1
-  %name = getelementptr inbounds %struct.function_st, ptr %f.011, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %f.011, i64 48
+  %name = getelementptr inbounds i8, ptr %f.011, i64 56
   %3 = load ptr, ptr %name, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
@@ -43,7 +40,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %maxlen.0.lcssa = phi i32 [ 2, %entry ], [ %4, %for.end.loopexit ]
-  %width = getelementptr inbounds %struct.DISPLAY_COLUMNS, ptr %dc, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %dc, i64 4
   store i32 %maxlen.0.lcssa, ptr %width, align 4
   %div = sdiv i32 79, %maxlen.0.lcssa
   store i32 %div, ptr %dc, align 4

@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
 
 @test_methods = internal global [19 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @list_check, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @list_check_exact, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @list_new, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @list_size, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @list_get_size, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.5, ptr @list_getitem, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.6, ptr @list_get_item, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.7, ptr @list_setitem, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.8, ptr @list_set_item, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.9, ptr @list_insert, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.10, ptr @list_append, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.11, ptr @list_getslice, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.12, ptr @list_setslice, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.13, ptr @list_sort, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.14, ptr @list_reverse, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.15, ptr @list_astuple, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.16, ptr @list_clear, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.17, ptr @list_extend, i32 1, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
 @.str = private unnamed_addr constant [11 x i8] c"list_check\00", align 1
@@ -178,7 +177,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyList_GET_SIZE.exit:                             ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %spec.store.select, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %spec.store.select, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %cmp2 = icmp eq i64 %3, -1
   %call4 = tail call ptr @PyErr_Occurred() #4
@@ -274,7 +273,7 @@ cond.false:                                       ; preds = %do.body
   unreachable
 
 cond.end:                                         ; preds = %do.body
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %ob_item, align 8
   %5 = load i64, ptr %i, align 8
   %arrayidx = getelementptr ptr, ptr %4, i64 %5
@@ -444,7 +443,7 @@ cond.false3.i:                                    ; preds = %cond.end.i
   unreachable
 
 cond.end4.i:                                      ; preds = %cond.end.i
-  %allocated.i = getelementptr inbounds %struct.PyListObject, ptr %1, i64 0, i32 2
+  %allocated.i = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %allocated.i, align 8
   %cmp5.i = icmp sgt i64 %11, %6
   br i1 %cmp5.i, label %PyList_SET_ITEM.exit, label %cond.false7.i
@@ -454,7 +453,7 @@ cond.false7.i:                                    ; preds = %cond.end4.i
   unreachable
 
 PyList_SET_ITEM.exit:                             ; preds = %cond.end4.i
-  %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %1, i64 0, i32 1
+  %ob_item.i = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %12, i64 %6
   store ptr %7, ptr %arrayidx.i, align 8

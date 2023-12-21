@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ecdh_ossl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_key_st = type { ptr, ptr, i32, ptr, ptr, ptr, i32, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, i64 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/ec/ecdh_ossl.c\00", align 1
 @__func__.ossl_ecdh_compute_key = private unnamed_addr constant [22 x i8] c"ossl_ecdh_compute_key\00", align 1
 @__func__.ossl_ecdh_simple_compute_key = private unnamed_addr constant [29 x i8] c"ossl_ecdh_simple_compute_key\00", align 1
@@ -15,10 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ecdh_compute_key(ptr noundef %psec, ptr noundef %pseclen, ptr noundef %pub_key, ptr noundef %ecdh) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %ecdh, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %ecdh, i64 24
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %0, align 8
-  %ecdh_compute_key = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 47
+  %ecdh_compute_key = getelementptr inbounds i8, ptr %1, i64 368
   %2 = load ptr, ptr %ecdh_compute_key, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -47,7 +42,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ecdh_simple_compute_key(ptr nocapture noundef writeonly %pout, ptr nocapture noundef writeonly %poutlen, ptr noundef %pub_key, ptr noundef %ecdh) local_unnamed_addr #0 {
 entry:
-  %libctx = getelementptr inbounds %struct.ec_key_st, ptr %ecdh, i64 0, i32 11
+  %libctx = getelementptr inbounds i8, ptr %ecdh, i64 80
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp = icmp eq ptr %call, null

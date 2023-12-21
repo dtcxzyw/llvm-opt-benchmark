@@ -3,20 +3,14 @@ source_filename = "bench/openssl/original/libcrypto-lib-dsa_gen.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dsa_st = type { i32, i32, %struct.ffc_params_st, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.dsa_method = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_generate_ffc_parameters(ptr noundef %dsa, i32 noundef %type, i32 noundef %pbits, i32 noundef %qbits, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %res = alloca i32, align 4
   %cmp = icmp eq i32 %type, 1
-  %libctx = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 12
+  %libctx = getelementptr inbounds i8, ptr %dsa, i64 184
   %0 = load ptr, ptr %libctx, align 8
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %conv = sext i32 %pbits to i64
   %conv1 = sext i32 %qbits to i64
   br i1 %cmp, label %if.then, label %if.else
@@ -35,7 +29,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %dsa, i64 192
   %1 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -54,9 +48,9 @@ define i32 @DSA_generate_parameters_ex(ptr noundef %dsa, i32 noundef %bits, ptr 
 entry:
   %res.i21 = alloca i32, align 4
   %res.i = alloca i32, align 4
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %dsa, i64 160
   %0 = load ptr, ptr %meth, align 8
-  %dsa_paramgen = getelementptr inbounds %struct.dsa_method, ptr %0, i64 0, i32 10
+  %dsa_paramgen = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %dsa_paramgen, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -70,7 +64,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %conv = sext i32 %seed_len to i64
   %call3 = tail call i32 @ossl_ffc_params_set_validate_params(ptr noundef nonnull %params, ptr noundef nonnull %seed_in, i64 noundef %conv, i32 noundef -1) #3
   %tobool4.not = icmp eq i32 %call3, 0
@@ -80,8 +74,8 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   %cmp7 = icmp slt i32 %bits, 2048
   %cmp10 = icmp slt i32 %seed_len, 21
   %or.cond = and i1 %cmp7, %cmp10
-  %libctx.i = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 12
-  %params.i = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %libctx.i = getelementptr inbounds i8, ptr %dsa, i64 184
+  %params.i = getelementptr inbounds i8, ptr %dsa, i64 8
   %conv.i = sext i32 %bits to i64
   br i1 %or.cond, label %if.then12, label %if.else
 
@@ -93,7 +87,7 @@ if.then12:                                        ; preds = %if.end6
   br i1 %cmp7.i, label %ossl_dsa_generate_ffc_parameters.exit.thread, label %ossl_dsa_generate_ffc_parameters.exit
 
 ossl_dsa_generate_ffc_parameters.exit.thread:     ; preds = %if.then12
-  %dirty_cnt.i = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 13
+  %dirty_cnt.i = getelementptr inbounds i8, ptr %dsa, i64 192
   %3 = load i64, ptr %dirty_cnt.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %dirty_cnt.i, align 8
@@ -113,7 +107,7 @@ if.else:                                          ; preds = %if.end6
   br i1 %cmp7.i25, label %ossl_dsa_generate_ffc_parameters.exit29.thread, label %ossl_dsa_generate_ffc_parameters.exit29
 
 ossl_dsa_generate_ffc_parameters.exit29.thread:   ; preds = %if.else
-  %dirty_cnt.i27 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 13
+  %dirty_cnt.i27 = getelementptr inbounds i8, ptr %dsa, i64 192
   %5 = load i64, ptr %dirty_cnt.i27, align 8
   %inc.i28 = add i64 %5, 1
   store i64 %inc.i28, ptr %dirty_cnt.i27, align 8
@@ -130,7 +124,7 @@ if.end21:                                         ; preds = %ossl_dsa_generate_f
   br i1 %cmp22.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
-  %pcounter = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %dsa, i64 56
   %6 = load i32, ptr %pcounter, align 8
   store i32 %6, ptr %counter_ret, align 4
   br label %if.end26
@@ -140,7 +134,7 @@ if.end26:                                         ; preds = %if.then24, %if.end2
   br i1 %cmp27.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %h = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2, i32 9
+  %h = getelementptr inbounds i8, ptr %dsa, i64 68
   %7 = load i32, ptr %h, align 4
   %conv31 = sext i32 %7 to i64
   store i64 %conv31, ptr %h_ret, align 8

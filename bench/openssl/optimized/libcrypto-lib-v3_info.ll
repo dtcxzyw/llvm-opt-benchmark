@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
 %struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ossl_v3_info = local_unnamed_addr constant %struct.v3_ext_method { i32 177, i32 4, ptr @AUTHORITY_INFO_ACCESS_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_AUTHORITY_INFO_ACCESS, ptr @v2i_AUTHORITY_INFO_ACCESS, ptr null, ptr null, ptr null }, align 8
@@ -44,7 +43,7 @@ for.body:                                         ; preds = %entry, %if.end20
   %tret.027 = phi ptr [ %call4, %if.end20 ], [ %ret, %entry ]
   %i.026 = phi i32 [ %inc, %if.end20 ], [ 0, %entry ]
   %call3 = call ptr @OPENSSL_sk_value(ptr noundef %ainfo, i32 noundef %i.026) #4
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call3, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call3, i64 8
   %0 = load ptr, ptr %location, align 8
   %call4 = call ptr @i2v_GENERAL_NAME(ptr noundef %method, ptr noundef %0, ptr noundef %tret.027) #4
   %cmp5 = icmp eq ptr %call4, null
@@ -62,7 +61,7 @@ if.end:                                           ; preds = %for.body
   %call9 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %objtmp, i32 noundef 80, ptr noundef %1) #4
   %call11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %objtmp) #5
   %add = add i64 %call11, 3
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call7, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call7, i64 8
   %2 = load ptr, ptr %name, align 8
   %call12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
   %add13 = add i64 %add, %call12
@@ -122,8 +121,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp418, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %name18 = getelementptr inbounds %struct.CONF_VALUE, ptr %ctmp, i64 0, i32 1
-  %value19 = getelementptr inbounds %struct.CONF_VALUE, ptr %ctmp, i64 0, i32 2
+  %name18 = getelementptr inbounds i8, ptr %ctmp, i64 8
+  %value19 = getelementptr inbounds i8, ptr %ctmp, i64 16
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -147,7 +146,7 @@ if.then9:                                         ; preds = %for.body
 
 if.end10:                                         ; preds = %for.body
   %call13 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call3, ptr noundef nonnull %call1.i) #4
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
   %0 = load ptr, ptr %name, align 8
   %call14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 59) #5
   %cmp15 = icmp eq ptr %call14, null
@@ -162,10 +161,10 @@ if.then16:                                        ; preds = %if.end10
 if.end17:                                         ; preds = %if.end10
   %add.ptr = getelementptr inbounds i8, ptr %call14, i64 1
   store ptr %add.ptr, ptr %name18, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %1 = load ptr, ptr %value, align 8
   store ptr %1, ptr %value19, align 8
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call1.i, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %location, align 8
   %call20 = call ptr @v2i_GENERAL_NAME_ex(ptr noundef %2, ptr noundef %method, ptr noundef %ctx, ptr noundef nonnull %ctmp, i32 noundef 0) #4
   %tobool.not = icmp eq ptr %call20, null

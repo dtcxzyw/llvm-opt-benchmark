@@ -3,18 +3,6 @@ source_filename = "bench/openexr/original/compression.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._internal_exr_context = type { i8, i8, i8, i8, i8, i8, i8, i8, %struct.exr_attr_string_t, %struct.exr_attr_string_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i32, %struct._internal_exr_part, ptr, ptr, %struct.exr_attribute_list, %union.pthread_mutex_t, i8, i8, [6 x i8] }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
-%struct._internal_exr_part = type { i32, i32, %struct.exr_attribute_list, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.exr_attr_box2i_t, %struct.exr_attr_box2i_t, i32, i32, i32, float, i32, i32, ptr, ptr, ptr, ptr, i64, i16, i16, i32, i64, i64 }
-%struct.exr_attr_box2i_t = type { %struct.exr_attr_v2i_t, %struct.exr_attr_v2i_t }
-%struct.exr_attr_v2i_t = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%struct.exr_attribute_list = type { i32, i32, ptr, ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i64 @exr_compress_max_buffer_size(i64 noundef %in_bytes) local_unnamed_addr #0 {
 entry:
@@ -49,9 +37,9 @@ entry:
   br i1 %tobool.not, label %cond.end4, label %cond.true2
 
 cond.true2:                                       ; preds = %entry
-  %alloc_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
   %0 = load ptr, ptr %alloc_fn, align 8
-  %free_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 17
+  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
   %1 = load ptr, ptr %free_fn, align 8
   br label %cond.end4
 
@@ -119,9 +107,9 @@ entry:
   br i1 %tobool.not, label %cond.end4, label %cond.true2
 
 cond.true2:                                       ; preds = %entry
-  %alloc_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
   %0 = load ptr, ptr %alloc_fn, align 8
-  %free_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 17
+  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
   %1 = load ptr, ptr %free_fn, align 8
   br label %cond.end4
 

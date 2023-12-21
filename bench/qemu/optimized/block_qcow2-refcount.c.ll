@@ -7,36 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.16 = type { %struct.anon.17 }
 %struct.anon.17 = type { i32, %struct.iovec }
 %struct.iovec = type { ptr, i64 }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.0, %union.anon.1, i32, [16 x %struct.anon.2], ptr, %struct.anon.3, ptr, ptr, %struct.anon.4, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.5, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.6, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
-%struct.CoQueue = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.8, %struct.anon.8, i32, i32, ptr }
-%struct.anon.8 = type { ptr }
-%struct.BDRVQcow2State = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, ptr, ptr, ptr, ptr, i32, %struct.anon.9, ptr, i64, i32, i32, i64, i64, %struct.CoMutex, %struct.Qcow2CryptoHeaderExtension, ptr, ptr, i8, i32, i64, i32, i32, ptr, i32, i64, i64, i32, i32, i8, i32, i32, i64, ptr, ptr, [5 x i8], i8, i32, i8, i64, i64, i64, i64, ptr, %struct.anon.10, %union.anon.11, i8, ptr, ptr, ptr, %struct.CoQueue, i32, ptr, i8, i8, i32 }
-%struct.anon.9 = type { ptr }
-%struct.Qcow2CryptoHeaderExtension = type { i64, i64 }
-%struct.anon.10 = type { ptr }
-%union.anon.11 = type { %struct.QTailQLink }
 %struct.anon.14 = type <{ i64, i32 }>
 %struct.timeval = type { i64, i64 }
-%struct.Qcow2DiscardRegion = type { ptr, i64, i64, %union.anon.15 }
-%union.anon.15 = type { %struct.QTailQLink }
 %struct.BdrvCheckResult = type { i32, i32, i32, i32, i32, i64, %struct.BlockFragInfo }
 %struct.BlockFragInfo = type { i64, i64, i64, i64 }
 %struct.QCowSnapshot = type { i64, i32, ptr, ptr, i64, i64, i32, i32, i64, i64, i32, ptr }
@@ -216,9 +188,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @qcow2_refcount_init(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %refcount_order = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 44
+  %refcount_order = getelementptr inbounds i8, ptr %0, i64 308
   %1 = load i32, ptr %refcount_order, align 4
   %or.cond = icmp ult i32 %1, 7
   br i1 %or.cond, label %if.end, label %if.else
@@ -231,13 +203,13 @@ if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %1 to i64
   %arrayidx = getelementptr [7 x ptr], ptr @get_refcount_funcs, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   store ptr %2, ptr %get_refcount, align 8
   %arrayidx6 = getelementptr [7 x ptr], ptr @set_refcount_funcs, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx6, align 8
-  %set_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
+  %set_refcount = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %3, ptr %set_refcount, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %refcount_table_size, align 8
   %cmp7 = icmp ult i32 %4, 268435456
   br i1 %cmp7, label %if.end11, label %if.else10
@@ -250,7 +222,7 @@ if.end11:                                         ; preds = %if.end
   %5 = shl nuw nsw i32 %4, 3
   %conv15 = zext nneg i32 %5 to i64
   %call = tail call noalias ptr @g_try_malloc(i64 noundef %conv15) #17
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %call, ptr %refcount_table, align 8
   %6 = load i32, ptr %refcount_table_size, align 8
   %cmp17.not = icmp eq i32 %6, 0
@@ -261,7 +233,7 @@ if.then19:                                        ; preds = %if.end11
   br i1 %cmp21, label %return, label %do.body
 
 do.body:                                          ; preds = %if.then19
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %7 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %do.end, label %if.then25
@@ -276,17 +248,17 @@ if.then25:                                        ; preds = %do.body
 do.end:                                           ; preds = %do.body, %if.then25
   %9 = phi ptr [ %call, %do.body ], [ %.pre28, %if.then25 ]
   %10 = phi ptr [ null, %do.body ], [ %.pre, %if.then25 ]
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
   %11 = load i64, ptr %refcount_table_offset, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %12 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %12, align 8
   store ptr %9, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %conv15, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #18
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %10, i64 noundef %11, i64 noundef %conv15, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
@@ -331,7 +303,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp1.i, label %while.cond.i, label %update_max_refcount_table_index.exit, !llvm.loop !7
 
 update_max_refcount_table_index.exit:             ; preds = %while.cond.i, %land.rhs.i
-  %max_refcount_table_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 25
+  %max_refcount_table_index.i = getelementptr inbounds i8, ptr %0, i64 140
   store i32 %i.0.i, ptr %max_refcount_table_index.i, align 4
   br label %return
 
@@ -352,14 +324,14 @@ declare void @bdrv_co_debug_event(ptr noundef, i32 noundef) #3
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #18
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #18
@@ -369,9 +341,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcow2_refcount_close(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %refcount_table, align 8
   tail call void @g_free(ptr noundef %1) #18
   ret void
@@ -383,13 +355,13 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 define dso_local i32 @qcow2_get_refcount(ptr noundef %bs, i64 noundef %cluster_index, ptr nocapture noundef writeonly %refcount) local_unnamed_addr #0 {
 entry:
   %refcount_block = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %refcount_block_bits = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 10
+  %refcount_block_bits = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %refcount_block_bits, align 8
   %sh_prom = zext nneg i32 %1 to i64
   %shr = ashr i64 %cluster_index, %sh_prom
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i32, ptr %refcount_table_size, align 8
   %conv = zext i32 %2 to i64
   %cmp.not = icmp ult i64 %shr, %conv
@@ -400,7 +372,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %refcount_table, align 8
   %arrayidx = getelementptr i64, ptr %3, i64 %shr
   %4 = load i64, ptr %arrayidx, align 8
@@ -426,19 +398,19 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %refcount_block_cache, align 8
   %call7 = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %6, i64 noundef %and, ptr noundef nonnull %refcount_block) #18
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %refcount_block_size, align 4
   %sub = add i32 %7, -1
   %conv12 = sext i32 %sub to i64
   %and13 = and i64 %conv12, %cluster_index
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load ptr, ptr %get_refcount, align 8
   %9 = load ptr, ptr %refcount_block, align 8
   %call14 = call i64 %8(ptr noundef %9, i64 noundef %and13) #18
@@ -464,9 +436,9 @@ entry:
   %total_refblock_count_u64 = alloca i64, align 8
   %refblock_data = alloca ptr, align 8
   %data = alloca %struct.anon.14, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %1 to i64
   %rem = urem i64 %start_offset, %conv
@@ -480,7 +452,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %add = add i64 %div, %additional_clusters
-  %refcount_order = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 44
+  %refcount_order = getelementptr inbounds i8, ptr %0, i64 308
   %2 = load i32, ptr %refcount_order, align 4
   %lnot = xor i1 %exact_size, true
   %call = call i64 @qcow2_refcount_metadata_size(i64 noundef %add, i64 noundef %conv, i32 noundef %2, i1 noundef zeroext %lnot, ptr noundef nonnull %total_refblock_count_u64) #18
@@ -493,7 +465,7 @@ if.end8:                                          ; preds = %if.end
   %4 = load i32, ptr %cluster_size, align 4
   %conv11 = sext i32 %4 to i64
   %div12 = udiv i64 %start_offset, %conv11
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %refcount_block_size, align 4
   %conv13 = sext i32 %5 to i64
   %div14 = udiv i64 %div12, %conv13
@@ -531,10 +503,10 @@ if.end50:                                         ; preds = %if.end43
   br i1 %cmp51, label %fail, label %if.end54
 
 if.end54:                                         ; preds = %if.end50
-  %max_refcount_table_index = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 25
+  %max_refcount_table_index = getelementptr inbounds i8, ptr %0, i64 140
   %6 = load i32, ptr %max_refcount_table_index, align 4
   %cmp55 = icmp ult i32 %6, %conv33
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load ptr, ptr %refcount_table, align 8
   br i1 %cmp55, label %if.then57, label %if.else62
 
@@ -603,9 +575,9 @@ for.body94.lr.ph:                                 ; preds = %for.body
   %mul88 = mul i32 %11, %conv38
   %conv89 = sext i32 %mul88 to i64
   %add90 = add i64 %add86, %conv89
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
-  %set_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
+  %set_refcount = getelementptr inbounds i8, ptr %0, i64 336
   br label %for.body94
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %if.end178
@@ -738,7 +710,7 @@ if.else186:                                       ; preds = %for.end182
 do.body:                                          ; preds = %for.end182.thread, %for.end182
   %add86185192 = phi i64 [ %start_offset, %for.end182.thread ], [ %add86, %for.end182 ]
   %add90186191 = phi i64 [ %add90184, %for.end182.thread ], [ %add90, %for.end182 ]
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %30 = load ptr, ptr %file, align 8
   %tobool188.not = icmp eq ptr %30, null
   br i1 %tobool188.not, label %do.end, label %if.then189
@@ -749,7 +721,7 @@ if.then189:                                       ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then189
-  %refcount_block_cache193 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache193 = getelementptr inbounds i8, ptr %0, i64 88
   %32 = load ptr, ptr %refcount_block_cache193, align 8
   %call194 = call i32 @qcow2_cache_flush(ptr noundef nonnull %bs, ptr noundef %32) #18
   %cmp195 = icmp slt i32 %call194, 0
@@ -803,7 +775,7 @@ for.end232:                                       ; preds = %for.body227, %for.c
   %40 = call i64 @llvm.bswap.i64(i64 %add86185192)
   store i64 %40, ptr %data, align 8
   %41 = call i32 @llvm.bswap.i32(i32 %conv38)
-  %d32 = getelementptr inbounds %struct.anon.14, ptr %data, i64 0, i32 1
+  %d32 = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %41, ptr %d32, align 8
   %42 = load ptr, ptr %file, align 8
   %tobool237.not = icmp eq ptr %42, null
@@ -822,9 +794,9 @@ do.end242:                                        ; preds = %for.end232, %if.the
   br i1 %cmp245, label %fail, label %if.end248
 
 if.end248:                                        ; preds = %do.end242
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
   %45 = load i64, ptr %refcount_table_offset, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %46 = load i32, ptr %refcount_table_size, align 8
   %conv249 = zext i32 %46 to i64
   %47 = load ptr, ptr %refcount_table, align 8
@@ -906,7 +878,7 @@ declare i32 @bdrv_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %offset, i64 noundef %size, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -936,37 +908,37 @@ if.end6:                                          ; preds = %if.then3, %do.end
 define dso_local void @qcow2_process_discards(ptr nocapture noundef readonly %bs, i32 noundef %ret) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %discards = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 59
+  %discards = getelementptr inbounds i8, ptr %0, i64 408
   %1 = load ptr, ptr %discards, align 8
   %tobool.not19 = icmp eq ptr %1, null
   br i1 %tobool.not19, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev10 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 59, i32 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 416
   %cmp19 = icmp sgt i32 %ret, -1
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br i1 %cmp19, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %if.end26.us
   %d.020.us = phi ptr [ %2, %if.end26.us ], [ %1, %land.rhs.lr.ph ]
-  %next1.us = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.020.us, i64 0, i32 3
+  %next1.us = getelementptr inbounds i8, ptr %d.020.us, i64 24
   %2 = load ptr, ptr %next1.us, align 8
   %cmp.not.us = icmp eq ptr %2, null
-  %tql_prev8.us = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.020.us, i64 0, i32 3, i32 0, i32 1
+  %tql_prev8.us = getelementptr inbounds i8, ptr %d.020.us, i64 32
   %3 = load ptr, ptr %tql_prev8.us, align 8
-  %tql_prev6.us = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %2, i64 0, i32 3, i32 0, i32 1
+  %tql_prev6.us = getelementptr inbounds i8, ptr %2, i64 32
   %tql_prev10.sink = select i1 %cmp.not.us, ptr %tql_prev10, ptr %tql_prev6.us
   store ptr %3, ptr %tql_prev10.sink, align 8
   %4 = load ptr, ptr %next1.us, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next1.us, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %file, align 8
-  %offset.us = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.020.us, i64 0, i32 1
+  %offset.us = getelementptr inbounds i8, ptr %d.020.us, i64 8
   %6 = load i64, ptr %offset.us, align 8
-  %bytes.us = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.020.us, i64 0, i32 2
+  %bytes.us = getelementptr inbounds i8, ptr %d.020.us, i64 16
   %7 = load i64, ptr %bytes.us, align 8
   %call.us = tail call i32 @bdrv_pdiscard(ptr noundef %5, i64 noundef %6, i64 noundef %7) #18
   %cmp21.us = icmp slt i32 %call.us, 0
@@ -1017,12 +989,12 @@ if.end26.us:                                      ; preds = %trace_qcow2_process
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
   %d.020 = phi ptr [ %17, %land.rhs ], [ %1, %land.rhs.lr.ph ]
-  %next1 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.020, i64 0, i32 3
+  %next1 = getelementptr inbounds i8, ptr %d.020, i64 24
   %17 = load ptr, ptr %next1, align 8
   %cmp.not = icmp eq ptr %17, null
-  %tql_prev8 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.020, i64 0, i32 3, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %d.020, i64 32
   %18 = load ptr, ptr %tql_prev8, align 8
-  %tql_prev6 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %17, i64 0, i32 3, i32 0, i32 1
+  %tql_prev6 = getelementptr inbounds i8, ptr %17, i64 32
   %tql_prev10.sink23 = select i1 %cmp.not, ptr %tql_prev10, ptr %tql_prev6
   store ptr %18, ptr %tql_prev10.sink23, align 8
   %19 = load ptr, ptr %next1, align 8
@@ -1040,7 +1012,7 @@ declare i32 @bdrv_pdiscard(ptr noundef, i64 noundef, i64 noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_update_cluster_refcount(ptr noundef %bs, i64 noundef %cluster_index, i64 noundef %addend, i1 noundef zeroext %decrease, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i32, ptr %0, align 8
   %sh_prom = zext nneg i32 %1 to i64
@@ -1055,7 +1027,7 @@ entry:
   %refcount.i = alloca i64, align 8
   %data64.i = alloca i64, align 8
   %refcount_block = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %refcount_block, align 8
   %cmp = icmp slt i64 %length, 0
@@ -1069,9 +1041,9 @@ if.end3:                                          ; preds = %if.else
   br i1 %decrease, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end3
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %refcount_block_cache, align 8
-  %l2_table_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %2 = load ptr, ptr %l2_table_cache, align 8
   %call = tail call i32 @qcow2_cache_set_dependency(ptr noundef nonnull %bs, ptr noundef %1, ptr noundef %2) #18
   br label %if.end5
@@ -1089,19 +1061,20 @@ if.end5:                                          ; preds = %if.then4, %if.end3
   br i1 %cmp8.not153, label %fail, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end5
-  %refcount_block_bits = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 10
-  %refcount_block_cache15 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
-  %refcount_max = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 46
+  %refcount_block_bits = getelementptr inbounds i8, ptr %0, i64 40
+  %refcount_block_cache15 = getelementptr inbounds i8, ptr %0, i64 88
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
+  %refcount_max = getelementptr inbounds i8, ptr %0, i64 320
   %4 = sub i64 0, %addend
   %refcount.0.p = select i1 %decrease, i64 %4, i64 %addend
-  %set_refcount.c = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
-  %free_cluster_index61 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 26
-  %l2_table_cache79 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %set_refcount.c = getelementptr inbounds i8, ptr %0, i64 336
+  %free_cluster_index61 = getelementptr inbounds i8, ptr %0, i64 144
+  %l2_table_cache79 = getelementptr inbounds i8, ptr %0, i64 80
+  %discard_passthrough = getelementptr inbounds i8, ptr %0, i64 344
   %idxprom = zext i32 %type to i64
-  %arrayidx = getelementptr %struct.BDRVQcow2State, ptr %0, i64 0, i32 49, i64 %idxprom
+  %arrayidx = getelementptr [5 x i8], ptr %discard_passthrough, i64 0, i64 %idxprom
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1139,18 +1112,18 @@ if.then.i:                                        ; preds = %if.end16
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %if.end16
-  %refcount_block_bits.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 10
+  %refcount_block_bits.i = getelementptr inbounds i8, ptr %8, i64 40
   %11 = load i32, ptr %refcount_block_bits.i, align 8
   %sh_prom.i = zext nneg i32 %11 to i64
   %shr.i = ashr i64 %shr, %sh_prom.i
   %conv.i80 = trunc i64 %shr.i to i32
-  %refcount_table_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 24
+  %refcount_table_size.i = getelementptr inbounds i8, ptr %8, i64 136
   %12 = load i32, ptr %refcount_table_size.i, align 8
   %cmp.i = icmp ugt i32 %12, %conv.i80
   br i1 %cmp.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %do.end.i
-  %refcount_table.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 22
+  %refcount_table.i = getelementptr inbounds i8, ptr %8, i64 120
   %13 = load ptr, ptr %refcount_table.i, align 8
   %idxprom.i = and i64 %shr.i, 4294967295
   %arrayidx.i = getelementptr i64, ptr %13, i64 %idxprom.i
@@ -1184,26 +1157,26 @@ if.then.i107:                                     ; preds = %if.end9.i
   br label %load_refcount_block.exit111
 
 load_refcount_block.exit111:                      ; preds = %if.end9.i, %if.then.i107
-  %refcount_block_cache.i109 = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 18
+  %refcount_block_cache.i109 = getelementptr inbounds i8, ptr %16, i64 88
   %19 = load ptr, ptr %refcount_block_cache.i109, align 8
   %call.i110 = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %19, i64 noundef %and.i81, ptr noundef nonnull %refcount_block) #18
   br label %alloc_refcount_block.exit
 
 if.end12.i:                                       ; preds = %if.then4.i, %do.end.i
   store ptr null, ptr %refcount_block, align 8
-  %l2_table_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 17
+  %l2_table_cache.i = getelementptr inbounds i8, ptr %8, i64 80
   %20 = load ptr, ptr %l2_table_cache.i, align 8
   %call13.i = call i32 @qcow2_cache_flush(ptr noundef nonnull %bs, ptr noundef %20) #18
   %cmp15.i = icmp slt i32 %call13.i, 0
   br i1 %cmp15.i, label %alloc_refcount_block.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end12.i
-  %cluster_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 1
+  %cluster_size.i = getelementptr inbounds i8, ptr %8, i64 4
   %21 = load i32, ptr %cluster_size.i, align 4
   %conv20.i = sext i32 %21 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refcount.i)
   %22 = load ptr, ptr %opaque, align 8
-  %cache_discards.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %22, i64 0, i32 60
+  %cache_discards.i = getelementptr inbounds i8, ptr %22, i64 424
   %23 = load i8, ptr %cache_discards.i, align 8
   %24 = and i8 %23, 1
   %tobool.not.i95 = icmp eq i8 %24, 0
@@ -1226,7 +1199,7 @@ if.end.i:                                         ; preds = %if.then.i96, %if.en
   br i1 %cmp15.not.i, label %for.end.i, label %for.body.lr.ph.lr.ph.i
 
 for.body.lr.ph.lr.ph.i:                           ; preds = %if.end.i
-  %free_cluster_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %22, i64 0, i32 26
+  %free_cluster_index.i = getelementptr inbounds i8, ptr %22, i64 144
   br label %for.body.us.i
 
 for.cond.us.i:                                    ; preds = %if.else.us.i
@@ -1262,7 +1235,7 @@ for.end.loopexit.i:                               ; preds = %for.cond.us.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
   %.pre.i = phi i32 [ %.pre.pre.i, %for.end.loopexit.i ], [ %.val.i97, %if.end.i ]
-  %free_cluster_index10.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %22, i64 0, i32 26
+  %free_cluster_index10.i = getelementptr inbounds i8, ptr %22, i64 144
   %28 = load i64, ptr %free_cluster_index10.i, align 8
   %cmp11.not.i = icmp eq i64 %28, 0
   br i1 %cmp11.not.i, label %for.end.if.end17_crit_edge.i, label %land.lhs.true.i
@@ -1326,7 +1299,7 @@ if.end35.i:                                       ; preds = %if.end31.i
   br i1 %cmp.i92.not, label %if.then39.i, label %if.else55.i
 
 if.then39.i:                                      ; preds = %if.end35.i
-  %refcount_block_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 18
+  %refcount_block_cache.i = getelementptr inbounds i8, ptr %8, i64 88
   %31 = load ptr, ptr %refcount_block_cache.i, align 8
   %call40.i = call i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %31, i64 noundef %shl.i101, ptr noundef nonnull %refcount_block) #18
   %cmp42.i = icmp slt i32 %call40.i, 0
@@ -1340,12 +1313,12 @@ if.end45.i:                                       ; preds = %if.then39.i
   %34 = load i32, ptr %8, align 8
   %sh_prom49.i = zext nneg i32 %34 to i64
   %shr50.i = lshr i64 %shl.i101, %sh_prom49.i
-  %refcount_block_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 11
+  %refcount_block_size.i = getelementptr inbounds i8, ptr %8, i64 44
   %35 = load i32, ptr %refcount_block_size.i, align 4
   %sub.i = add i32 %35, -1
   %36 = trunc i64 %shr50.i to i32
   %conv53.i = and i32 %sub.i, %36
-  %set_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 48
+  %set_refcount.i = getelementptr inbounds i8, ptr %8, i64 336
   %37 = load ptr, ptr %set_refcount.i, align 8
   %38 = load ptr, ptr %refcount_block, align 8
   %conv54.i = sext i32 %conv53.i to i64
@@ -1360,7 +1333,7 @@ if.else55.i:                                      ; preds = %if.end35.i
   br i1 %cmp60.i, label %fail.i, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.else55.i
-  %refcount_block_cache64.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 18
+  %refcount_block_cache64.i = getelementptr inbounds i8, ptr %8, i64 88
   %40 = load ptr, ptr %refcount_block_cache64.i, align 8
   %call65.i = call i32 @qcow2_cache_flush(ptr noundef %bs, ptr noundef %40) #18
   %cmp67.i = icmp slt i32 %call65.i, 0
@@ -1390,7 +1363,7 @@ if.then84.i:                                      ; preds = %do.body81.i
   br label %do.end88.i
 
 do.end88.i:                                       ; preds = %if.then84.i, %do.body81.i
-  %refcount_block_cache89.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 18
+  %refcount_block_cache89.i = getelementptr inbounds i8, ptr %8, i64 88
   %46 = load ptr, ptr %refcount_block_cache89.i, align 8
   %47 = load ptr, ptr %refcount_block, align 8
   call void @qcow2_cache_entry_mark_dirty(ptr noundef %46, ptr noundef %47) #18
@@ -1419,7 +1392,7 @@ if.then105.i:                                     ; preds = %if.then100.i
 
 do.end109.i:                                      ; preds = %if.then105.i, %if.then100.i
   %53 = phi ptr [ %.pre, %if.then105.i ], [ null, %if.then100.i ]
-  %refcount_table_offset.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 23
+  %refcount_table_offset.i = getelementptr inbounds i8, ptr %8, i64 128
   %54 = load i64, ptr %refcount_table_offset.i, align 8
   %conv111.i = and i64 %shr.i, 4294967295
   %mul.i = shl nuw nsw i64 %conv111.i, 3
@@ -1429,11 +1402,11 @@ do.end109.i:                                      ; preds = %if.then105.i, %if.t
   br i1 %cmp114.i, label %fail.i, label %if.end117.i
 
 if.end117.i:                                      ; preds = %do.end109.i
-  %refcount_table118.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 22
+  %refcount_table118.i = getelementptr inbounds i8, ptr %8, i64 120
   %55 = load ptr, ptr %refcount_table118.i, align 8
   %arrayidx120.i = getelementptr i64, ptr %55, i64 %conv111.i
   store i64 %shl.i101, ptr %arrayidx120.i, align 8
-  %max_refcount_table_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 25
+  %max_refcount_table_index.i = getelementptr inbounds i8, ptr %8, i64 140
   %56 = load i32, ptr %max_refcount_table_index.i, align 4
   %cond.i = call i32 @llvm.umax.i32(i32 %56, i32 %conv.i80)
   store i32 %cond.i, ptr %max_refcount_table_index.i, align 4
@@ -1458,7 +1431,7 @@ do.end133.i:                                      ; preds = %if.then129.i, %if.e
   %shr137.i = lshr i64 %shl.i101, %sh_prom136.i
   %add138.i = add nuw i64 %shr137.i, 1
   %cond145.i = call i64 @llvm.smax.i64(i64 %add134.i, i64 %add138.i)
-  %refcount_block_size146.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 11
+  %refcount_block_size146.i = getelementptr inbounds i8, ptr %8, i64 44
   %61 = load i32, ptr %refcount_block_size146.i, align 4
   %conv147.i = sext i32 %61 to i64
   %add148.i = add i64 %cond145.i, %conv147.i
@@ -1489,7 +1462,7 @@ if.then.i85:                                      ; preds = %if.end163.i
   br label %load_refcount_block.exit
 
 load_refcount_block.exit:                         ; preds = %if.end163.i, %if.then.i85
-  %refcount_block_cache.i87 = getelementptr inbounds %struct.BDRVQcow2State, ptr %64, i64 0, i32 18
+  %refcount_block_cache.i87 = getelementptr inbounds i8, ptr %64, i64 88
   %67 = load ptr, ptr %refcount_block_cache.i87, align 8
   %call.i88 = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %67, i64 noundef %shl.i101, ptr noundef nonnull %refcount_block) #18
   %cmp166.i = icmp slt i32 %call.i88, 0
@@ -1502,7 +1475,7 @@ fail.i:                                           ; preds = %do.end109.i, %do.en
   br i1 %cmp171.not.i, label %alloc_refcount_block.exit, label %if.then173.i
 
 if.then173.i:                                     ; preds = %fail.i
-  %refcount_block_cache174.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %8, i64 0, i32 18
+  %refcount_block_cache174.i = getelementptr inbounds i8, ptr %8, i64 88
   %69 = load ptr, ptr %refcount_block_cache174.i, align 8
   call void @qcow2_cache_put(ptr noundef %69, ptr noundef nonnull %refcount_block) #18
   br label %alloc_refcount_block.exit
@@ -1640,7 +1613,7 @@ for.inc:                                          ; preds = %for.inc.critedge, %
 fail:                                             ; preds = %if.end30, %lor.lhs.false, %cond.false, %cond.true, %for.inc, %if.end5, %alloc_refcount_block.exit.thread123, %if.then24, %if.then19
   %cluster_offset.0149 = phi i64 [ %cluster_offset.0155, %alloc_refcount_block.exit.thread123 ], [ %cluster_offset.0155, %if.then24 ], [ %cluster_offset.0155, %if.then19 ], [ %and.i, %if.end5 ], [ %cluster_offset.0155, %if.end30 ], [ %cluster_offset.0155, %lor.lhs.false ], [ %cluster_offset.0155, %cond.false ], [ %cluster_offset.0155, %cond.true ], [ %add93, %for.inc ]
   %ret.0 = phi i32 [ -5, %alloc_refcount_block.exit.thread123 ], [ -11, %if.then24 ], [ -11, %if.then19 ], [ 0, %if.end5 ], [ %retval.0.i, %if.end30 ], [ -22, %lor.lhs.false ], [ -22, %cond.false ], [ -22, %cond.true ], [ 0, %for.inc ]
-  %cache_discards = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 60
+  %cache_discards = getelementptr inbounds i8, ptr %0, i64 424
   %93 = load i8, ptr %cache_discards, align 8
   %94 = and i8 %93, 1
   %tobool94.not = icmp eq i8 %94, 0
@@ -1656,7 +1629,7 @@ if.end96:                                         ; preds = %if.then95, %fail
   br i1 %tobool97.not, label %if.end100, label %if.then98
 
 if.then98:                                        ; preds = %if.end96
-  %refcount_block_cache99 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache99 = getelementptr inbounds i8, ptr %0, i64 88
   %96 = load ptr, ptr %refcount_block_cache99, align 8
   call void @qcow2_cache_put(ptr noundef %96, ptr noundef nonnull %refcount_block) #18
   br label %if.end100
@@ -1680,7 +1653,7 @@ return:                                           ; preds = %if.end100, %if.then
 define dso_local i64 @qcow2_alloc_clusters(ptr noundef %bs, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %refcount_block.i = alloca ptr, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1691,12 +1664,12 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   br label %do.body3
 
 do.body3:                                         ; preds = %if.end5, %do.end
   %2 = load ptr, ptr %opaque.i, align 8
-  %cache_discards.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 60
+  %cache_discards.i = getelementptr inbounds i8, ptr %2, i64 424
   %3 = load i8, ptr %cache_discards.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
@@ -1719,7 +1692,7 @@ if.end.i:                                         ; preds = %if.then.i, %do.body
   br i1 %cmp15.not.i, label %for.end.i, label %for.body.lr.ph.lr.ph.i
 
 for.body.lr.ph.lr.ph.i:                           ; preds = %if.end.i
-  %free_cluster_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 26
+  %free_cluster_index.i = getelementptr inbounds i8, ptr %2, i64 144
   br label %for.body.us.i
 
 for.cond.us.i:                                    ; preds = %if.else.us.i.thread, %if.else.us.i
@@ -1738,18 +1711,18 @@ for.body.us.i:                                    ; preds = %for.body.us.i.backe
   store i64 %inc.us.i, ptr %free_cluster_index.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refcount_block.i)
   %7 = load ptr, ptr %opaque.i, align 8
-  %refcount_block_bits.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %7, i64 0, i32 10
+  %refcount_block_bits.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load i32, ptr %refcount_block_bits.i, align 8
   %sh_prom.i11 = zext nneg i32 %8 to i64
   %shr.i12 = ashr i64 %6, %sh_prom.i11
-  %refcount_table_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %7, i64 0, i32 24
+  %refcount_table_size.i = getelementptr inbounds i8, ptr %7, i64 136
   %9 = load i32, ptr %refcount_table_size.i, align 8
   %conv.i13 = zext i32 %9 to i64
   %cmp.not.i = icmp ult i64 %shr.i12, %conv.i13
   br i1 %cmp.not.i, label %if.end.i16, label %if.else.us.i.thread
 
 if.end.i16:                                       ; preds = %for.body.us.i
-  %refcount_table.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %7, i64 0, i32 22
+  %refcount_table.i = getelementptr inbounds i8, ptr %7, i64 120
   %10 = load ptr, ptr %refcount_table.i, align 8
   %arrayidx.i = getelementptr i64, ptr %10, i64 %shr.i12
   %11 = load i64, ptr %arrayidx.i, align 8
@@ -1771,7 +1744,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %if.then3.i
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %refcount_block_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %7, i64 0, i32 18
+  %refcount_block_cache.i = getelementptr inbounds i8, ptr %7, i64 88
   %13 = load ptr, ptr %refcount_block_cache.i, align 8
   %call7.i = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %13, i64 noundef %and.i, ptr noundef nonnull %refcount_block.i) #18
   %cmp8.i = icmp slt i32 %call7.i, 0
@@ -1782,12 +1755,12 @@ if.else.us.i.thread:                              ; preds = %if.end.i16, %for.bo
   br label %for.cond.us.i
 
 if.else.us.i:                                     ; preds = %if.end6.i
-  %refcount_block_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %7, i64 0, i32 11
+  %refcount_block_size.i = getelementptr inbounds i8, ptr %7, i64 44
   %14 = load i32, ptr %refcount_block_size.i, align 4
   %sub.i21 = add i32 %14, -1
   %conv12.i = sext i32 %sub.i21 to i64
   %and13.i = and i64 %6, %conv12.i
-  %get_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %7, i64 0, i32 47
+  %get_refcount.i = getelementptr inbounds i8, ptr %7, i64 328
   %15 = load ptr, ptr %get_refcount.i, align 8
   %16 = load ptr, ptr %refcount_block.i, align 8
   %call14.i = call i64 %15(ptr noundef %16, i64 noundef %and13.i) #18
@@ -1812,7 +1785,7 @@ for.end.loopexit.i:                               ; preds = %for.cond.us.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
   %.pre.i = phi i32 [ %.pre.pre.i, %for.end.loopexit.i ], [ %.val.i, %if.end.i ]
-  %free_cluster_index10.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 26
+  %free_cluster_index10.i = getelementptr inbounds i8, ptr %2, i64 144
   %19 = load i64, ptr %free_cluster_index10.i, align 8
   %cmp11.not.i = icmp eq i64 %19, 0
   br i1 %cmp11.not.i, label %for.end.if.end17_crit_edge.i, label %land.lhs.true.i
@@ -1855,7 +1828,7 @@ return:                                           ; preds = %land.lhs.true.i, %a
 define dso_local i64 @qcow2_alloc_clusters_at(ptr noundef %bs, i64 noundef %offset, i64 noundef %nb_clusters) #0 {
 entry:
   %refcount = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp = icmp sgt i64 %nb_clusters, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -1921,9 +1894,9 @@ define dso_local i64 @qcow2_alloc_bytes(ptr noundef %bs, i32 noundef %size) #0 {
 entry:
   %refcount_block.i = alloca ptr, align 8
   %refcount = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1938,7 +1911,7 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.end
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %cluster_size, align 4
   %cmp3.not = icmp slt i32 %3, %size
   br i1 %cmp3.not, label %if.else, label %if.end5
@@ -1948,7 +1921,7 @@ if.else:                                          ; preds = %land.lhs.true, %do.
   unreachable
 
 if.end5:                                          ; preds = %land.lhs.true
-  %free_byte_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 27
+  %free_byte_offset = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load i64, ptr %free_byte_offset, align 8
   %tobool6.not = icmp eq i64 %4, 0
   br i1 %tobool6.not, label %if.end23, label %lor.lhs.false
@@ -1978,7 +1951,7 @@ if.then17:                                        ; preds = %if.then14
 
 if.end18:                                         ; preds = %if.then14
   %6 = load i64, ptr %refcount, align 8
-  %refcount_max = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 46
+  %refcount_max = getelementptr inbounds i8, ptr %0, i64 320
   %7 = load i64, ptr %refcount_max, align 8
   %cmp19 = icmp eq i64 %6, %7
   %spec.select = select i1 %cmp19, i64 0, i64 %4
@@ -1994,7 +1967,7 @@ if.end23:                                         ; preds = %if.end5, %if.end18
   %and.i60 = and i64 %offset.0, %conv.i59
   %sub = sub i64 %conv25, %and.i60
   %conv30 = zext nneg i32 %size to i64
-  %cluster_offset_mask = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 14
+  %cluster_offset_mask = getelementptr inbounds i8, ptr %0, i64 56
   br label %do.body27
 
 do.body27:                                        ; preds = %if.end69, %if.end23
@@ -2011,7 +1984,7 @@ if.then33:                                        ; preds = %do.body27
   %10 = load i64, ptr %cluster_offset_mask, align 8
   %cond = call i64 @llvm.umin.i64(i64 %10, i64 72057594037927935)
   %11 = load ptr, ptr %opaque, align 8
-  %cache_discards.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %11, i64 0, i32 60
+  %cache_discards.i = getelementptr inbounds i8, ptr %11, i64 424
   %12 = load i8, ptr %cache_discards.i, align 8
   %13 = and i8 %12, 1
   %tobool.not.i = icmp eq i8 %13, 0
@@ -2034,7 +2007,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp15.not.i, label %for.end.i, label %for.body.lr.ph.lr.ph.i
 
 for.body.lr.ph.lr.ph.i:                           ; preds = %if.end.i
-  %free_cluster_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %11, i64 0, i32 26
+  %free_cluster_index.i = getelementptr inbounds i8, ptr %11, i64 144
   br label %for.body.us.i
 
 for.cond.us.i:                                    ; preds = %if.else.us.i.thread, %if.else.us.i
@@ -2053,18 +2026,18 @@ for.body.us.i:                                    ; preds = %for.body.us.i.backe
   store i64 %inc.us.i, ptr %free_cluster_index.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refcount_block.i)
   %16 = load ptr, ptr %opaque, align 8
-  %refcount_block_bits.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 10
+  %refcount_block_bits.i = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i32, ptr %refcount_block_bits.i, align 8
   %sh_prom.i67 = zext nneg i32 %17 to i64
   %shr.i68 = ashr i64 %15, %sh_prom.i67
-  %refcount_table_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 24
+  %refcount_table_size.i = getelementptr inbounds i8, ptr %16, i64 136
   %18 = load i32, ptr %refcount_table_size.i, align 8
   %conv.i69 = zext i32 %18 to i64
   %cmp.not.i = icmp ult i64 %shr.i68, %conv.i69
   br i1 %cmp.not.i, label %if.end.i72, label %if.else.us.i.thread
 
 if.end.i72:                                       ; preds = %for.body.us.i
-  %refcount_table.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 22
+  %refcount_table.i = getelementptr inbounds i8, ptr %16, i64 120
   %19 = load ptr, ptr %refcount_table.i, align 8
   %arrayidx.i = getelementptr i64, ptr %19, i64 %shr.i68
   %20 = load i64, ptr %arrayidx.i, align 8
@@ -2086,7 +2059,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %if.then3.i
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %refcount_block_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 18
+  %refcount_block_cache.i = getelementptr inbounds i8, ptr %16, i64 88
   %22 = load ptr, ptr %refcount_block_cache.i, align 8
   %call7.i = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %22, i64 noundef %and.i73, ptr noundef nonnull %refcount_block.i) #18
   %cmp8.i = icmp slt i32 %call7.i, 0
@@ -2097,12 +2070,12 @@ if.else.us.i.thread:                              ; preds = %if.end.i72, %for.bo
   br label %for.cond.us.i
 
 if.else.us.i:                                     ; preds = %if.end6.i
-  %refcount_block_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 11
+  %refcount_block_size.i = getelementptr inbounds i8, ptr %16, i64 44
   %23 = load i32, ptr %refcount_block_size.i, align 4
   %sub.i78 = add i32 %23, -1
   %conv12.i = sext i32 %sub.i78 to i64
   %and13.i = and i64 %15, %conv12.i
-  %get_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %16, i64 0, i32 47
+  %get_refcount.i = getelementptr inbounds i8, ptr %16, i64 328
   %24 = load ptr, ptr %get_refcount.i, align 8
   %25 = load ptr, ptr %refcount_block.i, align 8
   %call14.i = call i64 %24(ptr noundef %25, i64 noundef %and13.i) #18
@@ -2127,7 +2100,7 @@ for.end.loopexit.i:                               ; preds = %for.cond.us.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
   %.pre.i = phi i32 [ %.val.i, %if.end.i ], [ %.pre.pre.i, %for.end.loopexit.i ]
-  %free_cluster_index10.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %11, i64 0, i32 26
+  %free_cluster_index10.i = getelementptr inbounds i8, ptr %11, i64 144
   %28 = load i64, ptr %free_cluster_index10.i, align 8
   %cmp11.not.i = icmp eq i64 %28, 0
   br i1 %cmp11.not.i, label %for.end.if.end17_crit_edge.i, label %land.lhs.true.i
@@ -2191,9 +2164,9 @@ if.then81:                                        ; preds = %do.end78
   br label %return
 
 if.end83:                                         ; preds = %do.end78
-  %l2_table_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %l2_table_cache, align 8
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %30 = load ptr, ptr %refcount_block_cache, align 8
   %call84 = call i32 @qcow2_cache_set_dependency(ptr noundef %bs, ptr noundef %29, ptr noundef %30) #18
   %add86 = add i64 %offset.2, %conv30
@@ -2224,7 +2197,7 @@ define dso_local void @qcow2_free_any_cluster(ptr noundef %bs, i64 noundef %l2_e
 entry:
   %coffset = alloca i64, align 8
   %csize = alloca i32, align 4
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %and.i = and i64 %l2_entry, 4611686018427387904
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -2274,8 +2247,9 @@ qcow2_get_cluster_type.exit:                      ; preds = %entry, %if.then3.i,
   br i1 %cmp.i.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %qcow2_get_cluster_type.exit
+  %discard_passthrough = getelementptr inbounds i8, ptr %0, i64 344
   %idxprom = zext i32 %type to i64
-  %arrayidx = getelementptr %struct.BDRVQcow2State, ptr %0, i64 0, i32 49, i64 %idxprom
+  %arrayidx = getelementptr [5 x i8], ptr %discard_passthrough, i64 0, i64 %idxprom
   %6 = load i8, ptr %arrayidx, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp ne i8 %7, 0
@@ -2286,7 +2260,7 @@ if.then:                                          ; preds = %qcow2_get_cluster_t
 
 if.then3:                                         ; preds = %if.then
   %and = and i64 %l2_entry, 72057594037927424
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %9 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %9 to i64
   %call4 = tail call i32 @bdrv_pdiscard(ptr noundef %bs.val.val, i64 noundef %and, i64 noundef %conv) #18
@@ -2379,9 +2353,9 @@ declare void @abort() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_write_caches(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %l2_table_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %l2_table_cache, align 8
   %call = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %1) #18
   %cmp = icmp slt i32 %call, 0
@@ -2395,7 +2369,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.end
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %refcount_block_cache, align 8
   %call3 = tail call i32 @qcow2_cache_write(ptr noundef nonnull %bs, ptr noundef %3) #18
   %cmp4 = icmp slt i32 %call3, 0
@@ -2414,9 +2388,9 @@ declare i32 @qcow2_cache_write(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_flush_caches(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
-  %l2_table_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %l2_table_cache.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %l2_table_cache.i, align 8
   %call.i = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %1) #18
   %cmp.i = icmp slt i32 %call.i, 0
@@ -2430,14 +2404,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
-  %refcount_block_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache.i = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %refcount_block_cache.i, align 8
   %call3.i = tail call i32 @qcow2_cache_write(ptr noundef nonnull %bs, ptr noundef %3) #18
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then2.i, %if.end.i
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file, align 8
   %5 = load ptr, ptr %4, align 8
   %call2 = tail call i32 @bdrv_flush(ptr noundef %5) #18
@@ -2457,7 +2431,7 @@ entry:
   %refcount = alloca i64, align 8
   %coffset = alloca i64, align 8
   %csize = alloca i32, align 4
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = add i32 %addend, 1
   %or.cond = icmp ult i32 %1, 3
@@ -2471,7 +2445,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %l2_slice, align 8
   %conv = sext i32 %l1_size to i64
   %mul = shl nsw i64 %conv, 3
-  %l2_slice_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 2
+  %l2_slice_size = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %l2_slice_size, align 8
   %3 = getelementptr i8, ptr %0, i64 360
   %.val125 = load i64, ptr %3, align 8
@@ -2479,12 +2453,12 @@ if.end:                                           ; preds = %entry
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %4 = select i1 %tobool.i.not.i, i32 3, i32 4
   %conv5 = shl i32 %2, %4
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %cluster_size, align 4
   %div = udiv i32 %5, %conv5
-  %cache_discards = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 60
+  %cache_discards = getelementptr inbounds i8, ptr %0, i64 424
   store i8 1, ptr %cache_discards, align 8
-  %l1_table_offset6 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 15
+  %l1_table_offset6 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i64, ptr %l1_table_offset6, align 8
   %cmp7.not = icmp eq i64 %6, %l1_table_offset
   br i1 %cmp7.not, label %if.else23, label %if.then9
@@ -2497,7 +2471,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %or.cond1, label %fail, label %if.end15
 
 if.end15:                                         ; preds = %if.then9
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %7 = load ptr, ptr %file, align 8
   %call16 = tail call i32 @bdrv_pread(ptr noundef %7, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef %call10, i32 noundef 0) #18
   %cmp17 = icmp slt i32 %call16, 0
@@ -2522,7 +2496,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %if.end31, label %for.body, !llvm.loop !21
 
 if.else23:                                        ; preds = %if.end
-  %l1_size24 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 8
+  %l1_size24 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i32, ptr %l1_size24, align 8
   %cmp25 = icmp eq i32 %10, %l1_size
   br i1 %cmp25, label %if.end29, label %if.else28
@@ -2532,7 +2506,7 @@ if.else28:                                        ; preds = %if.else23
   unreachable
 
 if.end29:                                         ; preds = %if.else23
-  %l1_table30 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 16
+  %l1_table30 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load ptr, ptr %l1_table30, align 8
   br label %if.end31
 
@@ -2544,13 +2518,13 @@ if.end31:                                         ; preds = %for.body, %if.end29
 
 for.body35.lr.ph:                                 ; preds = %if.end31
   %cmp45185.not = icmp ugt i32 %conv5, %5
-  %l2_table_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %cmp64.not = icmp eq i32 %addend, 0
   %12 = tail call i32 @llvm.abs.i32(i32 %addend, i1 false)
   %conv68 = zext nneg i32 %12 to i64
   %cmp69 = icmp slt i32 %addend, 0
   %cmp114 = icmp sgt i32 %addend, 0
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %13 = zext i32 %div to i64
   %wide.trip.count238 = zext nneg i32 %l1_size to i64
   br label %for.body35
@@ -2806,7 +2780,7 @@ fail:                                             ; preds = %if.end143, %if.then
   br i1 %tobool169.not, label %if.end172, label %if.then170
 
 if.then170:                                       ; preds = %fail
-  %l2_table_cache171 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 17
+  %l2_table_cache171 = getelementptr inbounds i8, ptr %0, i64 80
   %50 = load ptr, ptr %l2_table_cache171, align 8
   call void @qcow2_cache_put(ptr noundef %50, ptr noundef nonnull %l2_slice) #18
   br label %if.end172
@@ -2826,7 +2800,7 @@ for.cond182.preheader:                            ; preds = %if.end172
   br i1 %cmp183190, label %for.body185.preheader, label %for.end190.thread
 
 for.end190.thread:                                ; preds = %for.cond182.preheader
-  %file191257 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file191257 = getelementptr inbounds i8, ptr %bs, i64 16840
   %51 = load ptr, ptr %file191257, align 8
   %call192258 = call i32 @bdrv_pwrite_sync(ptr noundef %51, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef %l1_table.1, i32 noundef 0) #18
   br label %if.end202
@@ -2846,7 +2820,7 @@ for.body185:                                      ; preds = %for.body185.prehead
   br i1 %exitcond244.not, label %for.end190, label %for.body185, !llvm.loop !25
 
 for.end190:                                       ; preds = %for.body185
-  %file191 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file191 = getelementptr inbounds i8, ptr %bs, i64 16840
   %54 = load ptr, ptr %file191, align 8
   %call192 = call i32 @bdrv_pwrite_sync(ptr noundef %54, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef nonnull %l1_table.1, i32 noundef 0) #18
   br i1 %cmp183190, label %for.body196.preheader, label %if.end202
@@ -2890,13 +2864,13 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_inc_refcounts_imrt(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, ptr nocapture noundef %refcount_table, ptr nocapture noundef %refcount_table_size, i64 noundef %offset, i64 noundef %size) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp = icmp slt i64 %size, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %2) #18
@@ -2910,7 +2884,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %add = add i64 %size, %offset
   %sub = sub i64 %add, %call
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %cluster_size, align 4
   %conv5 = sext i32 %3 to i64
   %cmp6.not = icmp slt i64 %sub, %conv5
@@ -2934,9 +2908,9 @@ if.end10:                                         ; preds = %if.end4
   br i1 %cmp15.not35, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end10
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
-  %refcount_max = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 46
-  %set_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
+  %refcount_max = getelementptr inbounds i8, ptr %0, i64 320
+  %set_refcount = getelementptr inbounds i8, ptr %0, i64 336
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2955,7 +2929,7 @@ if.then19:                                        ; preds = %for.body
   br i1 %cmp22, label %if.then24, label %if.end27
 
 if.then24:                                        ; preds = %if.then19
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %8 = load i32, ptr %check_errors, align 8
   %inc25 = add i32 %8, 1
   store i32 %inc25, ptr %check_errors, align 8
@@ -3012,7 +2986,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 refcount_array_byte_size.exit:                    ; preds = %entry
-  %refcount_order.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %s, i64 0, i32 44
+  %refcount_order.i = getelementptr inbounds i8, ptr %s, i64 308
   %1 = load i32, ptr %refcount_order.i, align 4
   %sh_prom.i = zext nneg i32 %1 to i64
   %shl.i = shl i64 %0, %sh_prom.i
@@ -3092,11 +3066,11 @@ entry:
   %rebuild = alloca i8, align 1
   %local_err = alloca ptr, align 8
   %saved_res = alloca %struct.BdrvCheckResult, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %refcount_table, align 8
   store i8 0, ptr %rebuild, align 1
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %2) #18
@@ -3104,7 +3078,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %3 = load i32, ptr %check_errors, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -3125,19 +3099,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %check_errors6 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors6 = getelementptr inbounds i8, ptr %res, i64 8
   %5 = load i32, ptr %check_errors6, align 8
   %inc7 = add i32 %5, 1
   store i32 %inc7, ptr %check_errors6, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
   %6 = load i64, ptr %total_sectors, align 8
   %mul = shl i64 %6, 9
   %add.i61 = add i64 %mul, %conv.i
   %shr.i63 = lshr i64 %add.i61, %sh_prom.i
-  %total_clusters = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6, i32 1
+  %total_clusters = getelementptr inbounds i8, ptr %res, i64 40
   store i64 %shr.i63, ptr %total_clusters, align 8
   %call10 = call i32 @calculate_refcounts(ptr noundef nonnull %bs, ptr noundef %res, i32 noundef %fix, ptr noundef nonnull %rebuild, ptr noundef nonnull %refcount_table, ptr noundef nonnull %nb_clusters), !range !13
   %cmp11 = icmp slt i32 %call10, 0
@@ -3186,7 +3160,7 @@ if.else.i:                                        ; preds = %if.end23
 
 refcount_array_byte_size.exit:                    ; preds = %if.end23
   %15 = load ptr, ptr %refcount_table, align 8
-  %refcount_order.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 44
+  %refcount_order.i = getelementptr inbounds i8, ptr %0, i64 308
   %16 = load i32, ptr %refcount_order.i, align 4
   %sh_prom.i64 = zext nneg i32 %16 to i64
   %shl.i = shl i64 %14, %sh_prom.i64
@@ -3231,7 +3205,7 @@ if.end42:                                         ; preds = %if.end40, %if.end29
 
 if.then47:                                        ; preds = %if.end42
   %sub = sub i32 %old_res.sroa.0.0.copyload, %24
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
   %25 = load i32, ptr %corruptions_fixed, align 4
   %add = add i32 %sub, %25
   store i32 %add, ptr %corruptions_fixed, align 4
@@ -3244,7 +3218,7 @@ if.end50:                                         ; preds = %if.then47, %if.end4
 
 if.then55:                                        ; preds = %if.end50
   %sub58 = sub i32 %old_res.sroa.3.0.copyload, %26
-  %leaks_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 4
+  %leaks_fixed = getelementptr inbounds i8, ptr %res, i64 16
   %27 = load i32, ptr %leaks_fixed, align 8
   %add59 = add i32 %sub58, %27
   store i32 %add59, ptr %leaks_fixed, align 8
@@ -3265,14 +3239,14 @@ if.then64:                                        ; preds = %if.else
 if.then66:                                        ; preds = %if.then64
   %28 = load ptr, ptr @stderr, align 8
   %29 = call i64 @fwrite(ptr nonnull @.str.28, i64 42, i64 1, ptr %28) #20
-  %check_errors68 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors68 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load i32, ptr %check_errors68, align 8
   %inc69 = add i32 %30, 1
   store i32 %inc69, ptr %check_errors68, align 8
   br label %fail
 
 if.end70:                                         ; preds = %if.then64
-  %leaks71 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 1
+  %leaks71 = getelementptr inbounds i8, ptr %res, i64 4
   %31 = load i32, ptr %leaks71, align 4
   %tobool72.not = icmp eq i32 %31, 0
   br i1 %tobool72.not, label %lor.lhs.false, label %if.then75
@@ -3300,7 +3274,7 @@ if.end83:                                         ; preds = %if.end78
   %36 = load i32, ptr %4, align 4
   %conv85 = sext i32 %36 to i64
   %mul86 = mul i64 %add84, %conv85
-  %image_end_offset = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 5
+  %image_end_offset = getelementptr inbounds i8, ptr %res, i64 24
   store i64 %mul86, ptr %image_end_offset, align 8
   br label %fail
 
@@ -3319,7 +3293,7 @@ return:                                           ; preds = %fail, %if.then5, %i
 define internal i32 @calculate_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr noundef %refcount_table, ptr noundef %nb_clusters) #0 {
 entry:
   %old_size = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %refcount_table, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -3333,14 +3307,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.then
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %3 = load i32, ptr %check_errors, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %check_errors, align 8
   br label %return
 
 if.end2:                                          ; preds = %if.then, %entry
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %4 to i64
   %call3 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef 0, i64 noundef %conv)
@@ -3348,9 +3322,9 @@ if.end2:                                          ; preds = %if.then, %entry
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end2
-  %l1_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 15
+  %l1_table_offset = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i64, ptr %l1_table_offset, align 8
-  %l1_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 8
+  %l1_size = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %l1_size, align 8
   %call8 = tail call i32 @check_refcounts_l1(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %5, i32 noundef %6, i32 noundef 2, i32 noundef %fix, i1 noundef zeroext true), !range !13
   %cmp9 = icmp slt i32 %call8, 0
@@ -3366,7 +3340,7 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp.i.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end12
-  %nb_snapshots = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 36
+  %nb_snapshots = getelementptr inbounds i8, ptr %0, i64 260
   %9 = load i32, ptr %nb_snapshots, align 4
   %tobool15.not = icmp eq i32 %9, 0
   br i1 %tobool15.not, label %if.end20, label %if.then16
@@ -3380,13 +3354,13 @@ if.then16:                                        ; preds = %land.lhs.true
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then16, %land.lhs.true, %if.end12
-  %nb_snapshots21 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 36
+  %nb_snapshots21 = getelementptr inbounds i8, ptr %0, i64 260
   %12 = load i32, ptr %nb_snapshots21, align 4
   %cmp2384.not = icmp eq i32 %12, 0
   br i1 %cmp2384.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end20
-  %snapshots = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 37
+  %snapshots = getelementptr inbounds i8, ptr %0, i64 264
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3403,24 +3377,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then28:                                        ; preds = %for.body
   %15 = load ptr, ptr @stderr, align 8
-  %id_str = getelementptr %struct.QCowSnapshot, ptr %13, i64 %i.085, i32 2
+  %id_str = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %16 = load ptr, ptr %id_str, align 8
-  %name = getelementptr %struct.QCowSnapshot, ptr %13, i64 %i.085, i32 3
+  %name = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %17 = load ptr, ptr %name, align 8
   %call30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.59, ptr noundef %16, ptr noundef %17, i64 noundef %14) #20
   br label %for.inc.sink.split
 
 if.end33:                                         ; preds = %for.body
-  %l1_size34 = getelementptr %struct.QCowSnapshot, ptr %13, i64 %i.085, i32 1
+  %l1_size34 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %18 = load i32, ptr %l1_size34, align 8
   %cmp36 = icmp ugt i32 %18, 4194304
   br i1 %cmp36, label %if.then38, label %if.end45
 
 if.then38:                                        ; preds = %if.end33
   %19 = load ptr, ptr @stderr, align 8
-  %id_str39 = getelementptr %struct.QCowSnapshot, ptr %13, i64 %i.085, i32 2
+  %id_str39 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %20 = load ptr, ptr %id_str39, align 8
-  %name40 = getelementptr %struct.QCowSnapshot, ptr %13, i64 %i.085, i32 3
+  %name40 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %21 = load ptr, ptr %name40, align 8
   %call42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.60, ptr noundef %20, ptr noundef %21, i32 noundef %18) #20
   br label %for.inc.sink.split
@@ -3444,9 +3418,9 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %if.end20
-  %snapshots_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 34
+  %snapshots_offset = getelementptr inbounds i8, ptr %0, i64 248
   %24 = load i64, ptr %snapshots_offset, align 8
-  %snapshots_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 35
+  %snapshots_size = getelementptr inbounds i8, ptr %0, i64 256
   %25 = load i32, ptr %snapshots_size, align 8
   %conv54 = sext i32 %25 to i64
   %call55 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %24, i64 noundef %conv54)
@@ -3454,9 +3428,9 @@ for.end:                                          ; preds = %for.inc, %if.end20
   br i1 %cmp56, label %return, label %if.end59
 
 if.end59:                                         ; preds = %for.end
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
   %26 = load i64, ptr %refcount_table_offset, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %27 = load i32, ptr %refcount_table_size, align 8
   %conv60 = zext i32 %27 to i64
   %mul = shl nuw nsw i64 %conv60, 3
@@ -3465,13 +3439,13 @@ if.end59:                                         ; preds = %for.end
   br i1 %cmp62, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end59
-  %length = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 29, i32 1
+  %length = getelementptr inbounds i8, ptr %0, i64 216
   %28 = load i64, ptr %length, align 8
   %tobool66.not = icmp eq i64 %28, 0
   br i1 %tobool66.not, label %if.end76, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
-  %crypto_header = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 29
+  %crypto_header = getelementptr inbounds i8, ptr %0, i64 208
   %29 = load i64, ptr %crypto_header, align 8
   %call71 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %29, i64 noundef %28)
   %cmp72 = icmp slt i32 %call71, 0
@@ -3495,22 +3469,22 @@ return:                                           ; preds = %if.end45, %if.end76
 define internal void @compare_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr nocapture noundef writeonly %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
 entry:
   %refcount1 = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store i64 0, ptr %highest_cluster, align 8
   %cmp34 = icmp sgt i64 %nb_clusters, 0
   br i1 %cmp34, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   %and = and i32 %fix, 1
   %tobool.not = icmp eq i32 %and, 0
-  %leaks_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 4
+  %leaks_fixed = getelementptr inbounds i8, ptr %res, i64 16
   %and18 = and i32 %fix, 2
   %tobool19.not = icmp eq i32 %and18, 0
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
-  %leaks = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 1
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
+  %leaks = getelementptr inbounds i8, ptr %res, i64 4
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3621,11 +3595,11 @@ entry:
   %on_disk_reftable_entries = alloca i32, align 4
   %on_disk_reftable = alloca ptr, align 8
   %reftable_offset_and_clusters = alloca %struct.anon.19, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store i32 0, ptr %on_disk_reftable_entries, align 4
   store ptr null, ptr %on_disk_reftable, align 8
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %refcount_block_cache, align 8
   %call = tail call i32 @qcow2_cache_empty(ptr noundef %bs, ptr noundef %1) #18
   %2 = load i64, ptr %nb_clusters, align 8
@@ -3634,7 +3608,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %3 = load i32, ptr %check_errors, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -3672,7 +3646,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %7, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %do.body
-  %get_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %bs.val, i64 0, i32 47
+  %get_refcount.i = getelementptr inbounds i8, ptr %bs.val, i64 328
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -3724,7 +3698,7 @@ if.end18.i:                                       ; preds = %if.then10.i, %for.e
   br i1 %cmp14.i, label %for.body25.lr.ph.i, label %alloc_clusters_imrt.exit
 
 for.body25.lr.ph.i:                               ; preds = %if.end18.i
-  %set_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %bs.val, i64 0, i32 48
+  %set_refcount.i = getelementptr inbounds i8, ptr %bs.val, i64 336
   br label %for.body25.i
 
 for.body25.i:                                     ; preds = %for.body25.i, %for.body25.lr.ph.i
@@ -3752,7 +3726,7 @@ if.then9:                                         ; preds = %if.then10.i, %if.th
   %retval.0.i74 = phi i32 [ %16, %if.then9.loopexit ], [ %call12.i, %if.then10.i ]
   %conv10 = sub i32 0, %retval.0.i74
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2686, ptr noundef nonnull @__func__.rebuild_refcount_structure, i32 noundef %conv10, ptr noundef nonnull @.str.89) #18
-  %check_errors11 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors11 = getelementptr inbounds i8, ptr %res, i64 8
   %17 = load i32, ptr %check_errors11, align 8
   %inc12 = add i32 %17, 1
   store i32 %inc12, ptr %check_errors11, align 8
@@ -3779,7 +3753,7 @@ if.end20:                                         ; preds = %if.end14
   br i1 %cmp23, label %if.then25, label %do.cond
 
 if.then25:                                        ; preds = %if.end20
-  %check_errors26 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors26 = getelementptr inbounds i8, ptr %res, i64 8
   %18 = load i32, ptr %check_errors26, align 8
   %inc27 = add i32 %18, 1
   store i32 %inc27, ptr %check_errors26, align 8
@@ -3841,18 +3815,18 @@ if.else48:                                        ; preds = %if.end44
   unreachable
 
 if.end49:                                         ; preds = %if.end44
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %25 = load ptr, ptr %file, align 8
   %26 = load ptr, ptr %on_disk_reftable, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %27 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %27, align 8
   store ptr %26, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %mul, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #18
   %call.i68 = call i32 @bdrv_co_pwritev(ptr noundef %25, i64 noundef %shl.i, i64 noundef %mul, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
@@ -3869,7 +3843,7 @@ if.end55:                                         ; preds = %if.end49
   %28 = call i64 @llvm.bswap.i64(i64 %shl.i)
   store i64 %28, ptr %reftable_offset_and_clusters, align 8
   %29 = call i32 @llvm.bswap.i32(i32 %conv5)
-  %reftable_clusters60 = getelementptr inbounds %struct.anon.19, ptr %reftable_offset_and_clusters, i64 0, i32 1
+  %reftable_clusters60 = getelementptr inbounds i8, ptr %reftable_offset_and_clusters, i64 8
   store i32 %29, ptr %reftable_clusters60, align 8
   %30 = load ptr, ptr %file, align 8
   %call62 = call i32 @bdrv_co_pwrite_sync(ptr noundef %30, i64 noundef 48, i64 noundef 12, ptr noundef nonnull %reftable_offset_and_clusters, i32 noundef 0) #18
@@ -3895,11 +3869,11 @@ for.body72:                                       ; preds = %for.cond68.preheade
   br i1 %exitcond117.not, label %for.end76, label %for.body72, !llvm.loop !37
 
 for.end76:                                        ; preds = %for.body72, %for.cond68.preheader
-  %refcount_table77 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table77 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %26, ptr %refcount_table77, align 8
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
   store i64 %shl.i, ptr %refcount_table_offset, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %19, ptr %refcount_table_size, align 8
   br label %while.cond.i
 
@@ -3917,7 +3891,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp1.i71, label %while.cond.i, label %update_max_refcount_table_index.exit, !llvm.loop !7
 
 update_max_refcount_table_index.exit:             ; preds = %while.cond.i, %land.rhs.i
-  %max_refcount_table_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 25
+  %max_refcount_table_index.i = getelementptr inbounds i8, ptr %0, i64 140
   store i32 %i.0.i, ptr %max_refcount_table_index.i, align 4
   br label %return
 
@@ -3941,9 +3915,9 @@ entry:
   %refcount_block.i = alloca ptr, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %refcount = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %1 to i64
   %call = tail call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef %conv) #18
@@ -3957,7 +3931,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %2 = load i32, ptr %check_errors, align 8
   %tobool4.not = icmp eq i32 %2, 0
   br i1 %tobool4.not, label %land.lhs.true, label %if.end8
@@ -3968,33 +3942,33 @@ land.lhs.true:                                    ; preds = %if.then3
   br i1 %tobool5.not, label %land.rhs, label %if.end8
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %leaks = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 1
+  %leaks = getelementptr inbounds i8, ptr %res, i64 4
   %4 = load i32, ptr %leaks, align 4
   %tobool6.not = icmp eq i32 %4, 0
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then3, %land.lhs.true, %land.rhs, %entry
   %repair.0 = phi i1 [ true, %entry ], [ false, %land.lhs.true ], [ false, %if.then3 ], [ %tobool6.not, %land.rhs ], [ false, %if.else ]
-  %l1_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 8
+  %l1_size = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %l1_size, align 8
   %cmp131 = icmp sgt i32 %5, 0
   br i1 %cmp131, label %for.body.lr.ph, label %fail
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %l1_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 16
+  %l1_table = getelementptr inbounds i8, ptr %0, i64 72
   %cond = select i1 %repair.0, ptr @.str.71, ptr @.str.72
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %l2_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 7
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %l2_size = getelementptr inbounds i8, ptr %0, i64 28
   %6 = getelementptr i8, ptr %0, i64 360
-  %7 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
-  %8 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i99, i64 0, i32 2
-  %local_iov.i100 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i99, i64 0, i32 2, i32 0, i32 1
-  %niov.i101 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i99, i64 0, i32 1
-  %iov_len.i102 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i99, i64 0, i32 2, i32 0, i32 1, i32 1
+  %7 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %8 = getelementptr inbounds i8, ptr %qiov.i99, i64 16
+  %local_iov.i100 = getelementptr inbounds i8, ptr %qiov.i99, i64 24
+  %niov.i101 = getelementptr inbounds i8, ptr %qiov.i99, i64 8
+  %iov_len.i102 = getelementptr inbounds i8, ptr %qiov.i99, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc148
@@ -4145,18 +4119,18 @@ if.else77:                                        ; preds = %if.then74
   %sh_prom79 = zext nneg i32 %36 to i64
   %shr80 = lshr i64 %and68, %sh_prom79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refcount_block.i)
-  %refcount_block_bits.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %31, i64 0, i32 10
+  %refcount_block_bits.i = getelementptr inbounds i8, ptr %31, i64 40
   %37 = load i32, ptr %refcount_block_bits.i, align 8
   %sh_prom.i = zext nneg i32 %37 to i64
   %shr.i = lshr i64 %shr80, %sh_prom.i
-  %refcount_table_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %31, i64 0, i32 24
+  %refcount_table_size.i = getelementptr inbounds i8, ptr %31, i64 136
   %38 = load i32, ptr %refcount_table_size.i, align 8
   %conv.i = zext i32 %38 to i64
   %cmp.not.i = icmp ult i64 %shr.i, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %if.end86.thr_comm
 
 if.end.i:                                         ; preds = %if.else77
-  %refcount_table.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %31, i64 0, i32 22
+  %refcount_table.i = getelementptr inbounds i8, ptr %31, i64 120
   %39 = load ptr, ptr %refcount_table.i, align 8
   %arrayidx.i86 = getelementptr i64, ptr %39, i64 %shr.i
   %40 = load i64, ptr %arrayidx.i86, align 8
@@ -4178,7 +4152,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %qcow2_get_refcount.exit
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %refcount_block_cache.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %31, i64 0, i32 18
+  %refcount_block_cache.i = getelementptr inbounds i8, ptr %31, i64 88
   %42 = load ptr, ptr %refcount_block_cache.i, align 8
   %call7.i = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %42, i64 noundef %and.i87, ptr noundef nonnull %refcount_block.i) #18
   %cmp8.i = icmp slt i32 %call7.i, 0
@@ -4194,12 +4168,12 @@ if.end86.thr_comm:                                ; preds = %if.end.i, %if.else7
   br i1 %43, label %for.inc, label %if.then94
 
 if.end86:                                         ; preds = %if.end6.i
-  %refcount_block_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %31, i64 0, i32 11
+  %refcount_block_size.i = getelementptr inbounds i8, ptr %31, i64 44
   %44 = load i32, ptr %refcount_block_size.i, align 4
   %sub.i = add i32 %44, -1
   %conv12.i = sext i32 %sub.i to i64
   %and13.i = and i64 %shr80, %conv12.i
-  %get_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %31, i64 0, i32 47
+  %get_refcount.i = getelementptr inbounds i8, ptr %31, i64 328
   %45 = load ptr, ptr %get_refcount.i, align 8
   %46 = load ptr, ptr %refcount_block.i, align 8
   %call14.i = call i64 %45(ptr noundef %46, i64 noundef %and13.i) #18
@@ -4312,7 +4286,7 @@ fail.sink.split.sink.split:                       ; preds = %if.end130, %if.then
 
 fail.sink.split:                                  ; preds = %if.then32, %fail.sink.split.sink.split
   %ret.0.ph = phi i32 [ %call.i.lcssa.sink, %fail.sink.split.sink.split ], [ %call40, %if.then32 ]
-  %check_errors44 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors44 = getelementptr inbounds i8, ptr %res, i64 8
   %69 = load i32, ptr %check_errors44, align 8
   %inc142 = add i32 %69, 1
   store i32 %inc142, ptr %check_errors44, align 8
@@ -4327,9 +4301,9 @@ fail:                                             ; preds = %for.inc148, %fail.s
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_check_metadata_overlap(ptr noundef %bs, i32 noundef %ign, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %overlap_check = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 51
+  %overlap_check = getelementptr inbounds i8, ptr %0, i64 352
   %1 = load i32, ptr %overlap_check, align 8
   %not = xor i32 %ign, -1
   %and = and i32 %1, %not
@@ -4338,35 +4312,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   %and1 = and i32 %and, 1
-  %tobool2.not = icmp eq i32 %and1, 0
-  br i1 %tobool2.not, label %if.end.if.end7_crit_edge, label %if.then3
-
-if.end.if.end7_crit_edge:                         ; preds = %if.end
+  %tobool2.not = icmp ne i32 %and1, 0
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 4
   %.val.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre = sext i32 %.val.pre to i64
-  br label %if.end7
+  %cmp = icmp sgt i64 %.pre, %offset
+  %or.cond202 = select i1 %tobool2.not, i1 %cmp, i1 false
+  br i1 %or.cond202, label %return, label %if.end7
 
-if.then3:                                         ; preds = %if.end
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
-  %2 = load i32, ptr %cluster_size, align 4
-  %conv = sext i32 %2 to i64
-  %cmp = icmp sgt i64 %conv, %offset
-  br i1 %cmp, label %return, label %if.end7
-
-if.end7:                                          ; preds = %if.end.if.end7_crit_edge, %if.then3
-  %conv9.pre-phi = phi i64 [ %.pre, %if.end.if.end7_crit_edge ], [ %conv, %if.then3 ]
-  %.val = phi i32 [ %.val.pre, %if.end.if.end7_crit_edge ], [ %2, %if.then3 ]
-  %3 = getelementptr i8, ptr %0, i64 4
-  %sub.i = add i32 %.val, -1
+if.end7:                                          ; preds = %if.end
+  %2 = getelementptr i8, ptr %0, i64 4
+  %sub.i = add i32 %.val.pre, -1
   %conv.i = sext i32 %sub.i to i64
   %and.i = and i64 %conv.i, %offset
   %add = add i64 %size, -1
-  %add10 = add i64 %add, %conv9.pre-phi
+  %add10 = add i64 %add, %.pre
   %sub = add i64 %add10, %and.i
-  %sub13 = sub nsw i64 0, %conv9.pre-phi
+  %sub13 = sub nsw i64 0, %.pre
   %and14 = and i64 %sub, %sub13
-  %not.i = sub i32 0, %.val
+  %not.i = sub i32 0, %.val.pre
   %conv.i112 = sext i32 %not.i to i64
   %and.i113 = and i64 %conv.i112, %offset
   %and16 = and i32 %and, 2
@@ -4374,22 +4338,22 @@ if.end7:                                          ; preds = %if.end.if.end7_crit
   br i1 %tobool17.not, label %if.end26, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end7
-  %l1_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 8
-  %4 = load i32, ptr %l1_size, align 8
-  %tobool18.not = icmp eq i32 %4, 0
+  %l1_size = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i32, ptr %l1_size, align 8
+  %tobool18.not = icmp eq i32 %3, 0
   br i1 %tobool18.not, label %if.end26, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true
-  %l1_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 15
-  %5 = load i64, ptr %l1_table_offset, align 8
-  %conv21 = sext i32 %4 to i64
+  %l1_table_offset = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = load i64, ptr %l1_table_offset, align 8
+  %conv21 = sext i32 %3 to i64
   %mul = shl nsw i64 %conv21, 3
   %add.i.i = add i64 %and.i113, -1
   %sub.i.i = add i64 %add.i.i, %and14
   %add.i3.i = add nsw i64 %mul, -1
-  %sub.i4.i = add i64 %add.i3.i, %5
+  %sub.i4.i = add i64 %add.i3.i, %4
   %cmp.i = icmp ult i64 %sub.i4.i, %and.i113
-  %cmp2.i = icmp ult i64 %sub.i.i, %5
+  %cmp2.i = icmp ult i64 %sub.i.i, %4
   %.not.i.not = or i1 %cmp2.i, %cmp.i
   br i1 %.not.i.not, label %if.end26, label %return
 
@@ -4399,22 +4363,22 @@ if.end26:                                         ; preds = %if.then19, %land.lh
   br i1 %tobool28.not, label %if.end39, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.end26
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
-  %6 = load i32, ptr %refcount_table_size, align 8
-  %tobool30.not = icmp eq i32 %6, 0
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = load i32, ptr %refcount_table_size, align 8
+  %tobool30.not = icmp eq i32 %5, 0
   br i1 %tobool30.not, label %if.end39, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true29
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
-  %7 = load i64, ptr %refcount_table_offset, align 8
-  %conv33 = zext i32 %6 to i64
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = load i64, ptr %refcount_table_offset, align 8
+  %conv33 = zext i32 %5 to i64
   %mul34 = shl nuw nsw i64 %conv33, 3
   %add.i.i114 = add i64 %and.i113, -1
   %sub.i.i115 = add i64 %add.i.i114, %and14
   %add.i3.i116 = add nsw i64 %mul34, -1
-  %sub.i4.i117 = add i64 %add.i3.i116, %7
+  %sub.i4.i117 = add i64 %add.i3.i116, %6
   %cmp.i118 = icmp ult i64 %sub.i4.i117, %and.i113
-  %cmp2.i119 = icmp ult i64 %sub.i.i115, %7
+  %cmp2.i119 = icmp ult i64 %sub.i.i115, %6
   %.not.i120.not = or i1 %cmp2.i119, %cmp.i118
   br i1 %.not.i120.not, label %if.end39, label %return
 
@@ -4424,21 +4388,21 @@ if.end39:                                         ; preds = %if.then31, %land.lh
   br i1 %tobool41.not, label %if.end51, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end39
-  %snapshots_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 35
-  %8 = load i32, ptr %snapshots_size, align 8
-  %tobool43.not = icmp eq i32 %8, 0
+  %snapshots_size = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = load i32, ptr %snapshots_size, align 8
+  %tobool43.not = icmp eq i32 %7, 0
   br i1 %tobool43.not, label %if.end51, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %snapshots_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 34
-  %9 = load i64, ptr %snapshots_offset, align 8
-  %conv46 = sext i32 %8 to i64
+  %snapshots_offset = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = load i64, ptr %snapshots_offset, align 8
+  %conv46 = sext i32 %7 to i64
   %add.i.i122 = add i64 %and.i113, -1
   %sub.i.i123 = add i64 %add.i.i122, %and14
   %add.i3.i124 = add nsw i64 %conv46, -1
-  %sub.i4.i125 = add i64 %add.i3.i124, %9
+  %sub.i4.i125 = add i64 %add.i3.i124, %8
   %cmp.i126 = icmp ult i64 %sub.i4.i125, %and.i113
-  %cmp2.i127 = icmp ult i64 %sub.i.i123, %9
+  %cmp2.i127 = icmp ult i64 %sub.i.i123, %8
   %.not.i128.not = or i1 %cmp2.i127, %cmp.i126
   br i1 %.not.i128.not, label %if.end51, label %return
 
@@ -4448,15 +4412,15 @@ if.end51:                                         ; preds = %if.then44, %land.lh
   br i1 %tobool53.not, label %if.end77, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %if.end51
-  %snapshots = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 37
-  %10 = load ptr, ptr %snapshots, align 8
-  %tobool55.not = icmp eq ptr %10, null
+  %snapshots = getelementptr inbounds i8, ptr %0, i64 264
+  %9 = load ptr, ptr %snapshots, align 8
+  %tobool55.not = icmp eq ptr %9, null
   br i1 %tobool55.not, label %if.end77, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true54
-  %nb_snapshots = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 36
-  %11 = load i32, ptr %nb_snapshots, align 4
-  %cmp57175.not = icmp eq i32 %11, 0
+  %nb_snapshots = getelementptr inbounds i8, ptr %0, i64 260
+  %10 = load i32, ptr %nb_snapshots, align 4
+  %cmp57175.not = icmp eq i32 %10, 0
   br i1 %cmp57175.not, label %if.end77, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -4467,26 +4431,26 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0176 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %idxprom = sext i32 %i.0176 to i64
-  %l1_size60 = getelementptr %struct.QCowSnapshot, ptr %10, i64 %idxprom, i32 1
-  %12 = load i32, ptr %l1_size60, align 8
-  %tobool61.not = icmp eq i32 %12, 0
+  %arrayidx = getelementptr %struct.QCowSnapshot, ptr %9, i64 %idxprom
+  %l1_size60 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %11 = load i32, ptr %l1_size60, align 8
+  %tobool61.not = icmp eq i32 %11, 0
   br i1 %tobool61.not, label %for.inc, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %for.body
-  %arrayidx = getelementptr %struct.QCowSnapshot, ptr %10, i64 %idxprom
-  %13 = load i64, ptr %arrayidx, align 8
-  %conv71 = zext i32 %12 to i64
+  %12 = load i64, ptr %arrayidx, align 8
+  %conv71 = zext i32 %11 to i64
   %mul72 = shl nuw nsw i64 %conv71, 3
   %add.i3.i132 = add nsw i64 %mul72, -1
-  %sub.i4.i133 = add i64 %add.i3.i132, %13
+  %sub.i4.i133 = add i64 %add.i3.i132, %12
   %cmp.i134 = icmp ult i64 %sub.i4.i133, %and.i113
-  %cmp2.i135 = icmp ult i64 %sub.i.i131, %13
+  %cmp2.i135 = icmp ult i64 %sub.i.i131, %12
   %.not.i136.not = or i1 %cmp2.i135, %cmp.i134
   br i1 %.not.i136.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true62
   %inc = add nuw i32 %i.0176, 1
-  %exitcond.not = icmp eq i32 %inc, %11
+  %exitcond.not = icmp eq i32 %inc, %10
   br i1 %exitcond.not, label %if.end77, label %for.body, !llvm.loop !40
 
 if.end77:                                         ; preds = %for.inc, %for.cond.preheader, %land.lhs.true54, %if.end51
@@ -4495,29 +4459,29 @@ if.end77:                                         ; preds = %for.inc, %for.cond.
   br i1 %tobool79.not, label %if.end107, label %land.lhs.true80
 
 land.lhs.true80:                                  ; preds = %if.end77
-  %l1_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 16
-  %14 = load ptr, ptr %l1_table, align 8
-  %tobool81.not = icmp eq ptr %14, null
+  %l1_table = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = load ptr, ptr %l1_table, align 8
+  %tobool81.not = icmp eq ptr %13, null
   br i1 %tobool81.not, label %if.end107, label %for.cond83.preheader
 
 for.cond83.preheader:                             ; preds = %land.lhs.true80
-  %l1_size84 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 8
-  %15 = load i32, ptr %l1_size84, align 8
-  %cmp85177 = icmp sgt i32 %15, 0
+  %l1_size84 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load i32, ptr %l1_size84, align 8
+  %cmp85177 = icmp sgt i32 %14, 0
   br i1 %cmp85177, label %for.body87.lr.ph, label %if.end107
 
 for.body87.lr.ph:                                 ; preds = %for.cond83.preheader
   %add.i.i138 = add i64 %and.i113, -1
   %sub.i.i139 = add i64 %add.i.i138, %and14
-  %add.i3.i140 = add nsw i64 %conv9.pre-phi, -1
-  %wide.trip.count = zext nneg i32 %15 to i64
+  %add.i3.i140 = add nsw i64 %.pre, -1
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %for.body87
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %for.inc104
   %indvars.iv = phi i64 [ 0, %for.body87.lr.ph ], [ %indvars.iv.next, %for.inc104 ]
-  %arrayidx90 = getelementptr i64, ptr %14, i64 %indvars.iv
-  %16 = load i64, ptr %arrayidx90, align 8
-  %and91 = and i64 %16, 72057594037927424
+  %arrayidx90 = getelementptr i64, ptr %13, i64 %indvars.iv
+  %15 = load i64, ptr %arrayidx90, align 8
+  %and91 = and i64 %15, 72057594037927424
   %tobool92.not = icmp eq i64 %and91, 0
   br i1 %tobool92.not, label %for.inc104, label %land.lhs.true93
 
@@ -4539,17 +4503,17 @@ if.end107:                                        ; preds = %for.inc104, %for.co
   br i1 %tobool109.not, label %if.end155, label %land.lhs.true110
 
 land.lhs.true110:                                 ; preds = %if.end107
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
-  %17 = load ptr, ptr %refcount_table, align 8
-  %tobool111.not = icmp eq ptr %17, null
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = load ptr, ptr %refcount_table, align 8
+  %tobool111.not = icmp eq ptr %16, null
   br i1 %tobool111.not, label %if.end155, label %if.then112
 
 if.then112:                                       ; preds = %land.lhs.true110
-  %max_refcount_table_index = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 25
-  %18 = load i32, ptr %max_refcount_table_index, align 4
-  %refcount_table_size113 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
-  %19 = load i32, ptr %refcount_table_size113, align 8
-  %cmp114 = icmp ult i32 %18, %19
+  %max_refcount_table_index = getelementptr inbounds i8, ptr %0, i64 140
+  %17 = load i32, ptr %max_refcount_table_index, align 4
+  %refcount_table_size113 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = load i32, ptr %refcount_table_size113, align 8
+  %cmp114 = icmp ult i32 %17, %18
   br i1 %cmp114, label %if.end117, label %if.else
 
 if.else:                                          ; preds = %if.then112
@@ -4557,15 +4521,15 @@ if.else:                                          ; preds = %if.then112
   unreachable
 
 if.end117:                                        ; preds = %if.then112
-  %add118 = add nuw i32 %18, 1
-  %cmp120 = icmp eq i32 %add118, %19
+  %add118 = add nuw i32 %17, 1
+  %cmp120 = icmp eq i32 %add118, %18
   br i1 %cmp120, label %if.end131, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end117
   %idxprom124 = zext i32 %add118 to i64
-  %arrayidx125 = getelementptr i64, ptr %17, i64 %idxprom124
-  %20 = load i64, ptr %arrayidx125, align 8
-  %cmp127 = icmp ult i64 %20, 512
+  %arrayidx125 = getelementptr i64, ptr %16, i64 %idxprom124
+  %19 = load i64, ptr %arrayidx125, align 8
+  %cmp127 = icmp ult i64 %19, 512
   br i1 %cmp127, label %if.end131, label %if.else130
 
 if.else130:                                       ; preds = %lor.lhs.false
@@ -4575,15 +4539,15 @@ if.else130:                                       ; preds = %lor.lhs.false
 if.end131:                                        ; preds = %if.end117, %lor.lhs.false
   %add.i.i146 = add i64 %and.i113, -1
   %sub.i.i147 = add i64 %add.i.i146, %and14
-  %add.i3.i148 = add nsw i64 %conv9.pre-phi, -1
+  %add.i3.i148 = add nsw i64 %.pre, -1
   br label %for.body135
 
 for.body135:                                      ; preds = %if.end131, %for.inc152
   %i.2179 = phi i32 [ 0, %if.end131 ], [ %inc153, %for.inc152 ]
   %idxprom137 = sext i32 %i.2179 to i64
-  %arrayidx138 = getelementptr i64, ptr %17, i64 %idxprom137
-  %21 = load i64, ptr %arrayidx138, align 8
-  %and139 = and i64 %21, -512
+  %arrayidx138 = getelementptr i64, ptr %16, i64 %idxprom137
+  %20 = load i64, ptr %arrayidx138, align 8
+  %and139 = and i64 %20, -512
   %tobool140.not = icmp eq i64 %and139, 0
   br i1 %tobool140.not, label %for.inc152, label %land.lhs.true141
 
@@ -4596,7 +4560,7 @@ land.lhs.true141:                                 ; preds = %for.body135
 
 for.inc152:                                       ; preds = %for.body135, %land.lhs.true141
   %inc153 = add i32 %i.2179, 1
-  %cmp133.not = icmp ugt i32 %inc153, %18
+  %cmp133.not = icmp ugt i32 %inc153, %17
   br i1 %cmp133.not, label %if.end155, label %for.body135, !llvm.loop !42
 
 if.end155:                                        ; preds = %for.inc152, %land.lhs.true110, %if.end107
@@ -4605,52 +4569,52 @@ if.end155:                                        ; preds = %for.inc152, %land.l
   br i1 %tobool157.not, label %if.end217, label %land.lhs.true158
 
 land.lhs.true158:                                 ; preds = %if.end155
-  %snapshots159 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 37
-  %22 = load ptr, ptr %snapshots159, align 8
-  %tobool160.not = icmp eq ptr %22, null
+  %snapshots159 = getelementptr inbounds i8, ptr %0, i64 264
+  %21 = load ptr, ptr %snapshots159, align 8
+  %tobool160.not = icmp eq ptr %21, null
   br i1 %tobool160.not, label %if.end217, label %for.cond162.preheader
 
 for.cond162.preheader:                            ; preds = %land.lhs.true158
-  %nb_snapshots163 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 36
-  %23 = load i32, ptr %nb_snapshots163, align 4
-  %cmp164182.not = icmp eq i32 %23, 0
+  %nb_snapshots163 = getelementptr inbounds i8, ptr %0, i64 260
+  %22 = load i32, ptr %nb_snapshots163, align 4
+  %cmp164182.not = icmp eq i32 %22, 0
   br i1 %cmp164182.not, label %if.end217, label %for.body166.lr.ph
 
 for.body166.lr.ph:                                ; preds = %for.cond162.preheader
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %add.i.i154 = add i64 %and.i113, -1
   %sub.i.i155 = add i64 %add.i.i154, %and14
   br label %for.body166
 
 for.body166:                                      ; preds = %for.body166.lr.ph, %for.end213
   %i.3183 = phi i32 [ 0, %for.body166.lr.ph ], [ %inc215, %for.end213 ]
-  %24 = load ptr, ptr %snapshots159, align 8
+  %23 = load ptr, ptr %snapshots159, align 8
   %idxprom168 = sext i32 %i.3183 to i64
-  %arrayidx169 = getelementptr %struct.QCowSnapshot, ptr %24, i64 %idxprom168
-  %25 = load i64, ptr %arrayidx169, align 8
-  %l1_size174 = getelementptr %struct.QCowSnapshot, ptr %24, i64 %idxprom168, i32 1
-  %26 = load i32, ptr %l1_size174, align 8
-  %conv175 = zext i32 %26 to i64
+  %arrayidx169 = getelementptr %struct.QCowSnapshot, ptr %23, i64 %idxprom168
+  %24 = load i64, ptr %arrayidx169, align 8
+  %l1_size174 = getelementptr inbounds i8, ptr %arrayidx169, i64 8
+  %25 = load i32, ptr %l1_size174, align 8
+  %conv175 = zext i32 %25 to i64
   %mul176 = shl nuw nsw i64 %conv175, 3
-  %call178 = tail call i32 @qcow2_validate_table(ptr noundef %bs, i64 noundef %25, i64 noundef %conv175, i64 noundef 8, i64 noundef 33554432, ptr noundef nonnull @.str.31, ptr noundef null) #18
+  %call178 = tail call i32 @qcow2_validate_table(ptr noundef %bs, i64 noundef %24, i64 noundef %conv175, i64 noundef 8, i64 noundef 33554432, ptr noundef nonnull @.str.31, ptr noundef null) #18
   %cmp179 = icmp slt i32 %call178, 0
   br i1 %cmp179, label %return, label %if.end182
 
 if.end182:                                        ; preds = %for.body166
   %call183 = tail call noalias ptr @g_try_malloc(i64 noundef %mul176) #17
-  %tobool184 = icmp ne i32 %26, 0
+  %tobool184 = icmp ne i32 %25, 0
   %cmp186 = icmp eq ptr %call183, null
   %or.cond = select i1 %tobool184, i1 %cmp186, i1 false
   br i1 %or.cond, label %return, label %if.end189
 
 if.end189:                                        ; preds = %if.end182
-  %27 = load ptr, ptr %file, align 8
-  %call190 = tail call i32 @bdrv_pread(ptr noundef %27, i64 noundef %25, i64 noundef %mul176, ptr noundef %call183, i32 noundef 0) #18
+  %26 = load ptr, ptr %file, align 8
+  %call190 = tail call i32 @bdrv_pread(ptr noundef %26, i64 noundef %24, i64 noundef %mul176, ptr noundef %call183, i32 noundef 0) #18
   %cmp191 = icmp slt i32 %call190, 0
   br i1 %cmp191, label %if.then193, label %for.cond195.preheader
 
 for.cond195.preheader:                            ; preds = %if.end189
-  %cmp196180.not = icmp eq i32 %26, 0
+  %cmp196180.not = icmp eq i32 %25, 0
   br i1 %cmp196180.not, label %for.end213, label %for.body198
 
 if.then193:                                       ; preds = %if.end189
@@ -4661,15 +4625,15 @@ for.body198:                                      ; preds = %for.cond195.prehead
   %j.0181 = phi i32 [ %inc212, %for.inc211 ], [ 0, %for.cond195.preheader ]
   %idxprom199 = sext i32 %j.0181 to i64
   %arrayidx200 = getelementptr i64, ptr %call183, i64 %idxprom199
-  %28 = load i64, ptr %arrayidx200, align 8
-  %29 = and i64 %28, 71776119061217024
-  %tobool203.not = icmp eq i64 %29, 0
+  %27 = load i64, ptr %arrayidx200, align 8
+  %28 = and i64 %27, 71776119061217024
+  %tobool203.not = icmp eq i64 %28, 0
   br i1 %tobool203.not, label %for.inc211, label %land.lhs.true204
 
 land.lhs.true204:                                 ; preds = %for.body198
-  %and202 = tail call i64 @llvm.bswap.i64(i64 %29)
-  %30 = load i32, ptr %3, align 4
-  %conv206 = sext i32 %30 to i64
+  %and202 = tail call i64 @llvm.bswap.i64(i64 %28)
+  %29 = load i32, ptr %2, align 4
+  %conv206 = sext i32 %29 to i64
   %add.i3.i156 = add nsw i64 %and202, -1
   %sub.i4.i157 = add nsw i64 %add.i3.i156, %conv206
   %cmp.i158 = icmp ult i64 %sub.i4.i157, %and.i113
@@ -4683,14 +4647,14 @@ if.then209:                                       ; preds = %land.lhs.true204
 
 for.inc211:                                       ; preds = %for.body198, %land.lhs.true204
   %inc212 = add nuw i32 %j.0181, 1
-  %exitcond193.not = icmp eq i32 %inc212, %26
+  %exitcond193.not = icmp eq i32 %inc212, %25
   br i1 %exitcond193.not, label %for.end213, label %for.body198, !llvm.loop !43
 
 for.end213:                                       ; preds = %for.inc211, %for.cond195.preheader
   tail call void @g_free(ptr noundef %call183) #18
   %inc215 = add nuw i32 %i.3183, 1
-  %31 = load i32, ptr %nb_snapshots163, align 4
-  %cmp164 = icmp ult i32 %inc215, %31
+  %30 = load i32, ptr %nb_snapshots163, align 4
+  %cmp164 = icmp ult i32 %inc215, %30
   br i1 %cmp164, label %for.body166, label %if.end217, !llvm.loop !44
 
 if.end217:                                        ; preds = %for.end213, %for.cond162.preheader, %land.lhs.true158, %if.end155
@@ -4699,31 +4663,31 @@ if.end217:                                        ; preds = %for.end213, %for.co
   br i1 %tobool219.not, label %if.end228, label %land.lhs.true220
 
 land.lhs.true220:                                 ; preds = %if.end217
-  %autoclear_features = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 55
-  %32 = load i64, ptr %autoclear_features, align 8
-  %and221 = and i64 %32, 1
+  %autoclear_features = getelementptr inbounds i8, ptr %0, i64 376
+  %31 = load i64, ptr %autoclear_features, align 8
+  %and221 = and i64 %31, 1
   %tobool222.not = icmp eq i64 %and221, 0
   br i1 %tobool222.not, label %if.end228, label %if.then223
 
 if.then223:                                       ; preds = %land.lhs.true220
-  %bitmap_directory_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 40
-  %33 = load i64, ptr %bitmap_directory_offset, align 8
-  %bitmap_directory_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 39
-  %34 = load i64, ptr %bitmap_directory_size, align 8
+  %bitmap_directory_offset = getelementptr inbounds i8, ptr %0, i64 288
+  %32 = load i64, ptr %bitmap_directory_offset, align 8
+  %bitmap_directory_size = getelementptr inbounds i8, ptr %0, i64 280
+  %33 = load i64, ptr %bitmap_directory_size, align 8
   %add.i.i162 = add i64 %and.i113, -1
   %sub.i.i163 = add i64 %add.i.i162, %and14
-  %add.i3.i164 = add i64 %33, -1
-  %sub.i4.i165 = add i64 %add.i3.i164, %34
+  %add.i3.i164 = add i64 %32, -1
+  %sub.i4.i165 = add i64 %add.i3.i164, %33
   %cmp.i166 = icmp ult i64 %sub.i4.i165, %and.i113
-  %cmp2.i167 = icmp ult i64 %sub.i.i163, %33
+  %cmp2.i167 = icmp ult i64 %sub.i.i163, %32
   %.not.i168.not = or i1 %cmp2.i167, %cmp.i166
   br i1 %.not.i168.not, label %if.end228, label %return
 
 if.end228:                                        ; preds = %if.then223, %land.lhs.true220, %if.end217
   br label %return
 
-return:                                           ; preds = %land.lhs.true62, %land.lhs.true93, %land.lhs.true141, %if.end182, %for.body166, %if.then223, %if.then44, %if.then31, %if.then19, %if.then3, %entry, %if.end228, %if.then209, %if.then193
-  %retval.0 = phi i32 [ %call190, %if.then193 ], [ 128, %if.then209 ], [ 0, %if.end228 ], [ 0, %entry ], [ 1, %if.then3 ], [ 2, %if.then19 ], [ 8, %if.then31 ], [ 32, %if.then44 ], [ 256, %if.then223 ], [ -12, %if.end182 ], [ %call178, %for.body166 ], [ 16, %land.lhs.true141 ], [ 4, %land.lhs.true93 ], [ 64, %land.lhs.true62 ]
+return:                                           ; preds = %land.lhs.true62, %land.lhs.true93, %land.lhs.true141, %if.end182, %for.body166, %if.end, %if.then223, %if.then44, %if.then31, %if.then19, %entry, %if.end228, %if.then209, %if.then193
+  %retval.0 = phi i32 [ %call190, %if.then193 ], [ 128, %if.then209 ], [ 0, %if.end228 ], [ 0, %entry ], [ 2, %if.then19 ], [ 8, %if.then31 ], [ 32, %if.then44 ], [ 256, %if.then223 ], [ 1, %if.end ], [ -12, %if.end182 ], [ %call178, %for.body166 ], [ 16, %land.lhs.true141 ], [ 4, %land.lhs.true93 ], [ 64, %land.lhs.true62 ]
   ret i32 %retval.0
 }
 
@@ -4773,12 +4737,12 @@ entry:
   %new_reftable_size = alloca i64, align 8
   %new_reftable_index = alloca i64, align 8
   %new_allocation = alloca i8, align 1
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %3 to i64
   %call = tail call ptr @qemu_blockalign(ptr noundef %2, i64 noundef %conv) #18
@@ -4786,7 +4750,7 @@ entry:
   store i64 0, ptr %new_reftable_size, align 8
   store i64 0, ptr %new_reftable_index, align 8
   %shl = shl nuw i32 1, %refcount_order
-  %qcow_version = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 42
+  %qcow_version = getelementptr inbounds i8, ptr %0, i64 300
   %4 = load i32, ptr %qcow_version, align 4
   %cmp = icmp sgt i32 %4, 2
   br i1 %cmp, label %if.end, label %if.else
@@ -4979,7 +4943,7 @@ if.then70:                                        ; preds = %for.end67
   br label %donethread-pre-split
 
 if.end72:                                         ; preds = %for.end67
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %36 = load ptr, ptr %refcount_block_cache, align 8
   %call73 = call i32 @qcow2_cache_flush(ptr noundef %bs, ptr noundef %36) #18
   %cmp74 = icmp slt i32 %call73, 0
@@ -4991,11 +4955,11 @@ if.then76:                                        ; preds = %if.end72
   br label %donethread-pre-split
 
 if.end78:                                         ; preds = %if.end72
-  %refcount_order79 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 44
+  %refcount_order79 = getelementptr inbounds i8, ptr %0, i64 308
   %37 = load i32, ptr %refcount_order79, align 4
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %38 = load i32, ptr %refcount_table_size, align 8
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
   %39 = load i64, ptr %refcount_table_offset, align 8
   store i32 %refcount_order, ptr %refcount_order79, align 4
   %40 = load i64, ptr %new_reftable_size, align 8
@@ -5016,7 +4980,7 @@ if.then88:                                        ; preds = %if.end78
 
 if.end94:                                         ; preds = %if.end78
   %conv80 = zext i32 %38 to i64
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %41 = load ptr, ptr %refcount_table, align 8
   %42 = load ptr, ptr %new_reftable, align 8
   store ptr %42, ptr %refcount_table, align 8
@@ -5037,26 +5001,26 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp1.i, label %while.cond.i, label %update_max_refcount_table_index.exit, !llvm.loop !7
 
 update_max_refcount_table_index.exit:             ; preds = %while.cond.i, %land.rhs.i
-  %max_refcount_table_index.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 25
+  %max_refcount_table_index.i = getelementptr inbounds i8, ptr %0, i64 140
   store i32 %i.0.i, ptr %max_refcount_table_index.i, align 4
-  %refcount_bits = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 45
+  %refcount_bits = getelementptr inbounds i8, ptr %0, i64 312
   store i32 %shl, ptr %refcount_bits, align 8
   %sub98 = add nsw i32 %shl, -1
   %sh_prom = zext nneg i32 %sub98 to i64
-  %refcount_max = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 46
+  %refcount_max = getelementptr inbounds i8, ptr %0, i64 320
   %reass.add = shl i64 2, %sh_prom
   %add103 = add i64 %reass.add, -1
   store i64 %add103, ptr %refcount_max, align 8
   %45 = load i32, ptr %0, align 8
   %sub106 = sub i32 %45, %sub
-  %refcount_block_bits = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 10
+  %refcount_block_bits = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %sub106, ptr %refcount_block_bits, align 8
   %shl108 = shl nuw i32 1, %sub106
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %shl108, ptr %refcount_block_size, align 4
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   store ptr %6, ptr %get_refcount, align 8
-  %set_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
+  %set_refcount = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %7, ptr %set_refcount, align 8
   store ptr %41, ptr %new_reftable, align 8
   store i64 %conv80, ptr %new_reftable_size, align 8
@@ -5164,22 +5128,22 @@ declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #3
 define internal fastcc i32 @walk_over_reftable(ptr noundef %bs, ptr noundef %new_reftable, ptr nocapture noundef %new_reftable_index, ptr noundef %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr nocapture noundef readonly %operation, ptr noundef %allocated, ptr noundef readonly %new_set_refcount, ptr nocapture noundef readonly %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %refblock = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load i32, ptr %refcount_table_size, align 8
   %cmp144.not = icmp eq i32 %1, 0
   br i1 %cmp144.not, label %if.end108, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv143 = zext i32 %1 to i64
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %conv2 = sext i32 %index to i64
   %conv5 = sext i32 %total to i64
   %2 = getelementptr i8, ptr %0, i64 4
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   %cmp33 = icmp sgt i32 %new_refcount_bits, 63
   %sh_prom = zext nneg i32 %new_refcount_bits to i64
   %tobool44.not = icmp eq ptr %new_set_refcount, null
@@ -5325,7 +5289,7 @@ if.end30:                                         ; preds = %if.end29, %for.body
 if.then36:                                        ; preds = %if.end30
   %23 = load ptr, ptr %refcount_block_cache, align 8
   call void @qcow2_cache_put(ptr noundef %23, ptr noundef nonnull %refblock) #18
-  %refcount_block_bits = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 10
+  %refcount_block_bits = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i32, ptr %refcount_block_bits, align 8
   %sh_prom38 = zext nneg i32 %24 to i64
   %shl = shl i64 %reftable_index.0147, %sh_prom38
@@ -5467,7 +5431,7 @@ return:                                           ; preds = %if.then64, %if.end1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @alloc_refblock(ptr noundef %bs, ptr nocapture noundef %reftable, i64 noundef %reftable_index, ptr nocapture noundef %reftable_size, ptr nocapture readnone %refblock, i1 noundef zeroext %refblock_empty, ptr nocapture noundef writeonly %allocated, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   br i1 %refblock_empty, label %return, label %land.lhs.true
 
@@ -5477,7 +5441,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.not, label %land.lhs.true16, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %2 to i64
   %div24 = lshr i64 %conv, 3
@@ -5520,7 +5484,7 @@ land.lhs.true16:                                  ; preds = %land.lhs.true, %if.
   br i1 %tobool17.not, label %if.then18, label %return
 
 if.then18:                                        ; preds = %land.lhs.true16
-  %cluster_size19 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size19 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %cluster_size19, align 4
   %conv20 = sext i32 %7 to i64
   %call21 = tail call i64 @qcow2_alloc_clusters(ptr noundef nonnull %bs, i64 noundef %conv20)
@@ -5550,7 +5514,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @flush_refblock(ptr noundef %bs, ptr nocapture noundef readonly %reftable, i64 noundef %reftable_index, ptr nocapture noundef readonly %reftable_size, ptr noundef %refblock, i1 noundef zeroext %refblock_empty, ptr nocapture readnone %allocated, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i64, ptr %reftable_size, align 8
   %cmp = icmp ugt i64 %1, %reftable_index
@@ -5564,7 +5528,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %cluster_size, align 4
   %conv = sext i32 %4 to i64
   %call1.i = tail call i32 @qcow2_check_metadata_overlap(ptr noundef nonnull %bs, i32 noundef 0, i64 noundef %3, i64 noundef %conv), !range !35
@@ -5590,7 +5554,7 @@ if.then4:                                         ; preds = %if.then4.i, %if.the
   br label %return
 
 if.end:                                           ; preds = %if.else.i
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %7 = load ptr, ptr %file, align 8
   %8 = load i32, ptr %cluster_size, align 4
   %conv6 = sext i32 %8 to i64
@@ -5625,9 +5589,9 @@ declare void @qemu_vfree(ptr noundef) local_unnamed_addr #3
 define dso_local i32 @qcow2_shrink_reftable(ptr noundef %bs) #0 {
 entry:
   %refblock = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load i32, ptr %refcount_table_size, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 3
@@ -5637,13 +5601,13 @@ entry:
   br i1 %cmp53.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %3 = getelementptr i8, ptr %0, i64 40
-  %cluster_size22 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
-  %set_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
+  %cluster_size22 = getelementptr inbounds i8, ptr %0, i64 4
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
+  %set_refcount = getelementptr inbounds i8, ptr %0, i64 336
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -5738,9 +5702,9 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %.lcssa = phi i64 [ 0, %entry ], [ %26, %for.end.loopexit ]
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %27 = load ptr, ptr %file, align 8
-  %refcount_table_offset = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
+  %refcount_table_offset = getelementptr inbounds i8, ptr %0, i64 128
   %28 = load i64, ptr %refcount_table_offset, align 8
   %call38 = call i32 @bdrv_co_pwrite_sync(ptr noundef %27, i64 noundef %28, i64 noundef %.lcssa, ptr noundef %call, i32 noundef 0) #18
   %29 = load i32, ptr %refcount_table_size, align 8
@@ -5748,7 +5712,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp4155.not, label %for.end67, label %for.body43.lr.ph
 
 for.body43.lr.ph:                                 ; preds = %for.end
-  %refcount_table44 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table44 = getelementptr inbounds i8, ptr %0, i64 120
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %for.inc65
@@ -5795,7 +5759,7 @@ for.inc65:                                        ; preds = %for.body43, %land.l
 
 for.end67:                                        ; preds = %for.inc65, %for.end
   %ret.0.lcssa = phi i32 [ %call38, %for.end ], [ %ret.2, %for.inc65 ]
-  %cache_discards = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 60
+  %cache_discards = getelementptr inbounds i8, ptr %0, i64 424
   %36 = load i8, ptr %cache_discards, align 8
   %37 = and i8 %36, 1
   %tobool68.not = icmp eq i8 %37, 0
@@ -5822,12 +5786,12 @@ declare i32 @bdrv_co_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noun
 define internal i32 @qcow2_discard_refcount_block(ptr noundef %bs, i64 noundef %discard_block_offs) #0 {
 entry:
   %refblock = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i32, ptr %0, align 8
   %sh_prom = zext nneg i32 %1 to i64
   %shr = lshr i64 %discard_block_offs, %sh_prom
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 11
+  %refcount_block_size = getelementptr inbounds i8, ptr %0, i64 44
   %2 = load i32, ptr %refcount_block_size, align 4
   %sub = add i32 %2, -1
   %3 = trunc i64 %shr to i32
@@ -5838,13 +5802,13 @@ entry:
   %sh_prom.i.i = zext nneg i32 %add.i.i to i64
   %shr.i.i = lshr i64 %discard_block_offs, %sh_prom.i.i
   %conv.i.i = trunc i64 %shr.i.i to i32
-  %refcount_table_size.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size.i = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i32, ptr %refcount_table_size.i, align 8
   %cmp.i = icmp ugt i32 %5, %conv.i.i
   br i1 %cmp.i, label %if.end.i, label %get_refblock_offset.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  %refcount_table.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table.i = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %refcount_table.i, align 8
   %idxprom.i = and i64 %shr.i.i, 4294967295
   %arrayidx.i = getelementptr i64, ptr %6, i64 %idxprom.i
@@ -5875,14 +5839,14 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %refcount_block_cache = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 18
+  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %refcount_block_cache, align 8
   %call8 = call i32 @qcow2_cache_get(ptr noundef nonnull %bs, ptr noundef %8, i64 noundef %and.i, ptr noundef nonnull %refblock) #18
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   %9 = load ptr, ptr %get_refcount, align 8
   %10 = load ptr, ptr %refblock, align 8
   %conv13 = zext i32 %conv1 to i64
@@ -5906,7 +5870,7 @@ if.then17:                                        ; preds = %if.end12
   br label %return
 
 if.end23:                                         ; preds = %if.end12
-  %set_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 48
+  %set_refcount = getelementptr inbounds i8, ptr %0, i64 336
   %14 = load ptr, ptr %set_refcount, align 8
   %15 = load ptr, ptr %refblock, align 8
   call void %14(ptr noundef %15, i64 noundef %conv13, i64 noundef 0) #18
@@ -5915,7 +5879,7 @@ if.end23:                                         ; preds = %if.end12
   call void @qcow2_cache_entry_mark_dirty(ptr noundef %16, ptr noundef %17) #18
   %18 = load ptr, ptr %refcount_block_cache, align 8
   call void @qcow2_cache_put(ptr noundef %18, ptr noundef nonnull %refblock) #18
-  %free_cluster_index = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 26
+  %free_cluster_index = getelementptr inbounds i8, ptr %0, i64 144
   %19 = load i64, ptr %free_cluster_index, align 8
   %cmp27 = icmp ult i64 %shr, %19
   br i1 %cmp27, label %if.then29, label %if.end31
@@ -5937,7 +5901,7 @@ if.then34:                                        ; preds = %if.end31
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.end31
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %22 = load i32, ptr %cluster_size, align 4
   %conv37 = sext i32 %22 to i64
   call fastcc void @update_refcount_discard(ptr noundef nonnull %bs, i64 noundef %discard_block_offs, i64 noundef %conv37)
@@ -5952,7 +5916,7 @@ return:                                           ; preds = %if.end7, %if.end36,
 define dso_local i64 @qcow2_get_last_cluster(ptr noundef %bs, i64 noundef %size) #0 {
 entry:
   %refcount = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %.val = load i32, ptr %0, align 8
   %1 = getelementptr i8, ptr %0, i64 4
@@ -6001,15 +5965,15 @@ return:                                           ; preds = %if.end, %for.end, %
 define dso_local i32 @qcow2_detect_metadata_preallocation(ptr noundef %bs) #0 {
 entry:
   %refcount = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %lock = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 28
+  %lock = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load atomic i32, ptr %lock monotonic, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %holder.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 28, i32 6
+  %holder.i = getelementptr inbounds i8, ptr %0, i64 200
   %2 = load ptr, ptr %holder.i, align 8
   %call.i = tail call ptr @qemu_coroutine_self() #18
   %cmp.i = icmp eq ptr %2, %call.i
@@ -6020,7 +5984,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
   unreachable
 
 qemu_co_mutex_assert_locked.exit:                 ; preds = %land.lhs.true.i
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %3 = load ptr, ptr %file, align 8
   %4 = load ptr, ptr %3, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %4) #18
@@ -6043,7 +6007,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %cluster_size, align 4
   %conv10 = sext i32 %7 to i64
   %div = sdiv i64 %call4, %conv10
@@ -6099,7 +6063,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %holder = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 6
+  %holder = getelementptr inbounds i8, ptr %mutex, i64 40
   %1 = load ptr, ptr %holder, align 8
   %call = tail call ptr @qemu_coroutine_self() #18
   %cmp = icmp eq ptr %1, %call
@@ -6369,9 +6333,9 @@ declare void @qcow2_cache_discard(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @update_refcount_discard(ptr noundef %bs, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %discards = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 59
+  %discards = getelementptr inbounds i8, ptr %0, i64 408
   %d.070 = load ptr, ptr %discards, align 8
   %tobool.not71 = icmp eq ptr %d.070, null
   br i1 %tobool.not71, label %for.end, label %for.body.lr.ph
@@ -6382,10 +6346,10 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %d.072 = phi ptr [ %d.070, %for.body.lr.ph ], [ %d.0, %for.inc ]
-  %offset1 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.072, i64 0, i32 1
+  %offset1 = getelementptr inbounds i8, ptr %d.072, i64 8
   %1 = load i64, ptr %offset1, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %1, i64 %offset)
-  %bytes = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.072, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %d.072, i64 16
   %2 = load i64, ptr %bytes, align 8
   %add3 = add i64 %2, %1
   %cond9 = tail call i64 @llvm.umax.i64(i64 %add, i64 %add3)
@@ -6403,14 +6367,14 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %bytes.le = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.072, i64 0, i32 2
-  %offset1.le = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.072, i64 0, i32 1
+  %bytes.le = getelementptr inbounds i8, ptr %d.072, i64 16
+  %offset1.le = getelementptr inbounds i8, ptr %d.072, i64 8
   store i64 %cond, ptr %offset1.le, align 8
   store i64 %sub, ptr %bytes.le, align 8
   br label %found
 
 for.inc:                                          ; preds = %for.body
-  %next22 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.072, i64 0, i32 3
+  %next22 = getelementptr inbounds i8, ptr %d.072, i64 24
   %d.0 = load ptr, ptr %next22, align 8
   %tobool.not = icmp eq ptr %d.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !58
@@ -6423,7 +6387,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %length, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
   %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
-  %tql_prev = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 59, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %0, i64 416
   store i64 0, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
   %3 = load ptr, ptr %tql_prev, align 8
   %tql_prev30 = getelementptr inbounds i8, ptr %call, i64 32
@@ -6439,20 +6403,20 @@ found:                                            ; preds = %for.end, %if.end
   br i1 %tobool38.not73, label %for.end107, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %found
-  %offset43 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.1, i64 0, i32 1
-  %bytes44 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %d.1, i64 0, i32 2
-  %tql_prev82 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 59, i32 0, i32 1
+  %offset43 = getelementptr inbounds i8, ptr %d.1, i64 8
+  %bytes44 = getelementptr inbounds i8, ptr %d.1, i64 16
+  %tql_prev82 = getelementptr inbounds i8, ptr %0, i64 416
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc106
   %p.074 = phi ptr [ %4, %land.rhs.lr.ph ], [ %5, %for.inc106 ]
-  %next39 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %p.074, i64 0, i32 3
+  %next39 = getelementptr inbounds i8, ptr %p.074, i64 24
   %5 = load ptr, ptr %next39, align 8
   %cmp41 = icmp eq ptr %p.074, %d.1
   br i1 %cmp41, label %for.inc106, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.rhs
-  %offset42 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %p.074, i64 0, i32 1
+  %offset42 = getelementptr inbounds i8, ptr %p.074, i64 8
   %6 = load i64, ptr %offset42, align 8
   %7 = load i64, ptr %offset43, align 8
   %8 = load i64, ptr %bytes44, align 8
@@ -6461,7 +6425,7 @@ lor.lhs.false:                                    ; preds = %land.rhs
   br i1 %cmp46, label %for.inc106, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false
-  %bytes50 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %p.074, i64 0, i32 2
+  %bytes50 = getelementptr inbounds i8, ptr %p.074, i64 16
   %9 = load i64, ptr %bytes50, align 8
   %add51 = add i64 %9, %6
   %cmp52 = icmp ugt i64 %7, %add51
@@ -6479,9 +6443,9 @@ if.else67:                                        ; preds = %if.end54
 
 do.body69:                                        ; preds = %if.end54
   %cmp71.not = icmp eq ptr %5, null
-  %tql_prev80 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %p.074, i64 0, i32 3, i32 0, i32 1
+  %tql_prev80 = getelementptr inbounds i8, ptr %p.074, i64 32
   %10 = load ptr, ptr %tql_prev80, align 8
-  %tql_prev77 = getelementptr inbounds %struct.Qcow2DiscardRegion, ptr %5, i64 0, i32 3, i32 0, i32 1
+  %tql_prev77 = getelementptr inbounds i8, ptr %5, i64 32
   %tql_prev82.sink = select i1 %cmp71.not, ptr %tql_prev82, ptr %tql_prev77
   store ptr %10, ptr %tql_prev82.sink, align 8
   %11 = load ptr, ptr %next39, align 8
@@ -6512,7 +6476,7 @@ declare ptr @g_try_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 define internal i32 @check_refcounts_l1(ptr noundef %bs, ptr nocapture noundef %res, ptr nocapture noundef %refcount_table, ptr nocapture noundef %refcount_table_size, i64 noundef %l1_table_offset, i32 noundef %l1_size, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %conv = sext i32 %l1_size to i64
   %mul = shl nsw i64 %conv, 3
@@ -6530,17 +6494,17 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %cleanup.sink.split, label %if.end8
 
 if.end8:                                          ; preds = %if.end3
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %2 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %2, align 8
   store ptr %call4, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %mul, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #18
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %1, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
@@ -6565,7 +6529,7 @@ for.cond20.preheader:                             ; preds = %for.body
   br i1 %cmp1742, label %for.body23.lr.ph, label %cleanup
 
 for.body23.lr.ph:                                 ; preds = %for.cond20.preheader
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %wide.trip.count52 = zext nneg i32 %l1_size to i64
   br label %for.body23
 
@@ -6638,7 +6602,7 @@ for.inc60:                                        ; preds = %if.end53, %for.body
 cleanup.sink.split:                               ; preds = %if.end3, %if.then12
   %l1_table.0.ph = phi ptr [ %call4, %if.then12 ], [ null, %if.end3 ]
   %retval.0.ph = phi i32 [ %call.i, %if.then12 ], [ -12, %if.end3 ]
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %14 = load i32, ptr %check_errors, align 8
   %inc15 = add i32 %14, 1
   store i32 %inc15, ptr %check_errors, align 8
@@ -6657,22 +6621,22 @@ declare i32 @qcow2_check_bitmaps_refcounts(ptr noundef, ptr noundef, ptr noundef
 define internal i32 @check_refblocks(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr nocapture noundef %refcount_table, ptr nocapture noundef %nb_clusters) #0 {
 entry:
   %local_err = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load i32, ptr %refcount_table_size, align 8
   %cmp69.not = icmp eq i32 %1, 0
   br i1 %cmp69.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %refcount_table2 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table2 = getelementptr inbounds i8, ptr %0, i64 120
   %2 = getelementptr i8, ptr %0, i64 4
   %and18 = and i32 %fix, 2
   %tobool19.not = icmp eq i32 %and18, 0
   %cond = select i1 %tobool19.not, ptr @.str.72, ptr @.str.71
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 47
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
+  %get_refcount = getelementptr inbounds i8, ptr %0, i64 328
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -6780,7 +6744,7 @@ if.end48:                                         ; preds = %if.end43
   br i1 %cmp50, label %if.then52, label %if.end54
 
 if.then52:                                        ; preds = %if.end48
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %19 = load i32, ptr %check_errors, align 8
   %inc53 = add i32 %19, 1
   store i32 %inc53, ptr %check_errors, align 8
@@ -6861,9 +6825,9 @@ entry:
   %metadata_overlap = alloca i8, align 1
   %coffset = alloca i64, align 8
   %csize = alloca i32, align 4
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %l2_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 7
+  %l2_size = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i32, ptr %l2_size, align 4
   %conv = sext i32 %1 to i64
   %2 = getelementptr i8, ptr %0, i64 360
@@ -6873,17 +6837,17 @@ entry:
   %3 = select i1 %tobool.i.not.i, i64 3, i64 4
   %mul = shl nsw i64 %conv, %3
   %call1 = tail call noalias ptr @g_malloc(i64 noundef %mul) #17
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %5 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %5, align 8
   store ptr %call1, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %mul, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #18
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %4, i64 noundef %l2_offset, i64 noundef %mul, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
@@ -6897,11 +6861,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp6102, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cluster_offset_mask = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 14
+  %cluster_offset_mask = getelementptr inbounds i8, ptr %0, i64 56
   %and46 = and i32 %flags, 2
   %tobool47.not = icmp eq i32 %and46, 0
-  %bfi = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6
-  %fragmented_clusters = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6, i32 2
+  %bfi = getelementptr inbounds i8, ptr %res, i64 32
+  %fragmented_clusters = getelementptr inbounds i8, ptr %res, i64 48
   %7 = getelementptr i8, ptr %0, i64 4
   %and80 = and i32 %fix, 2
   %tobool81.not = icmp eq i32 %and80, 0
@@ -6911,7 +6875,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 if.then:                                          ; preds = %entry
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i64 @fwrite(ptr nonnull @.str.64, i64 39, i64 1, ptr %8) #20
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %10 = load i32, ptr %check_errors, align 8
   %inc = add i32 %10, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -7208,7 +7172,7 @@ cleanup:                                          ; preds = %if.end39, %if.then8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @fix_l2_entry_by_zero(ptr noundef %bs, ptr nocapture noundef %res, i64 noundef %l2_offset, ptr noundef %l2_table, i32 noundef %l2_index, i1 noundef zeroext %active, ptr noundef writeonly %metadata_overlap) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %conv = sext i32 %l2_index to i64
   %1 = getelementptr i8, ptr %0, i64 360
@@ -7290,7 +7254,7 @@ if.then17:                                        ; preds = %if.end14
   br label %fail
 
 if.end19:                                         ; preds = %if.end14
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %14 = load ptr, ptr %file, align 8
   %.val32 = load i64, ptr %1, align 8
   %and.i.i64 = and i64 %.val32, 16
@@ -7313,7 +7277,7 @@ if.end27:                                         ; preds = %if.end19
   %16 = load i32, ptr %res, align 8
   %dec = add i32 %16, -1
   store i32 %dec, ptr %res, align 8
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
   %17 = load i32, ptr %corruptions_fixed, align 4
   %inc = add i32 %17, 1
   store i32 %inc, ptr %corruptions_fixed, align 4
@@ -7321,7 +7285,7 @@ if.end27:                                         ; preds = %if.end19
 
 fail:                                             ; preds = %if.then24, %if.then17
   %ret.0 = phi i32 [ %retval.0.i63, %if.then17 ], [ %call21, %if.then24 ]
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %18 = load i32, ptr %check_errors, align 8
   %inc28 = add i32 %18, 1
   store i32 %inc28, ptr %check_errors, align 8
@@ -7340,7 +7304,7 @@ declare i32 @qcow2_cache_empty(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal i32 @rebuild_refcounts_write_refblocks(ptr noundef %bs, ptr nocapture noundef %refcount_table, ptr nocapture noundef %nb_clusters, i64 noundef %first_cluster, i64 noundef %end_cluster, ptr nocapture noundef %on_disk_reftable_ptr, ptr nocapture noundef %on_disk_reftable_entries_ptr, ptr noundef %errp) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %cmp88 = icmp slt i64 %first_cluster, %end_cluster
   br i1 %cmp88, label %for.body.lr.ph, label %return
 
@@ -7348,15 +7312,15 @@ for.body.lr.ph:                                   ; preds = %entry
   %0 = load i32, ptr %on_disk_reftable_entries_ptr, align 4
   %1 = load ptr, ptr %on_disk_reftable_ptr, align 8
   %2 = load ptr, ptr %opaque, align 8
-  %get_refcount = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 47
-  %refcount_block_bits = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 10
-  %cluster_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 1
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %3 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
-  %refcount_block_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %2, i64 0, i32 11
+  %get_refcount = getelementptr inbounds i8, ptr %2, i64 328
+  %refcount_block_bits = getelementptr inbounds i8, ptr %2, i64 40
+  %cluster_size = getelementptr inbounds i8, ptr %2, i64 4
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %3 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %refcount_block_size = getelementptr inbounds i8, ptr %2, i64 44
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -7395,7 +7359,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp2.i, label %for.body.lr.ph.i, label %if.then10.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
-  %get_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %bs.val, i64 0, i32 47
+  %get_refcount.i = getelementptr inbounds i8, ptr %bs.val, i64 328
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -7449,7 +7413,7 @@ if.then10.i:                                      ; preds = %if.else, %for.end.l
 if.end18.i:                                       ; preds = %for.end.loopexit.i.if.end18.i_crit_edge, %if.then10.i
   %sub20.i.pre-phi = phi i64 [ %.pre, %for.end.loopexit.i.if.end18.i_crit_edge ], [ %reass.sub, %if.then10.i ]
   %first_free_cluster.5 = phi i64 [ %first_free_cluster.3, %for.end.loopexit.i.if.end18.i_crit_edge ], [ %first_free_cluster.4, %if.then10.i ]
-  %set_refcount.i = getelementptr inbounds %struct.BDRVQcow2State, ptr %bs.val, i64 0, i32 48
+  %set_refcount.i = getelementptr inbounds i8, ptr %bs.val, i64 336
   %15 = load ptr, ptr %set_refcount.i, align 8
   %16 = load ptr, ptr %refcount_table, align 8
   call void %15(ptr noundef %16, i64 noundef %sub20.i.pre-phi, i64 noundef 1) #18
@@ -7610,14 +7574,14 @@ return:                                           ; preds = %entry, %for.end.loo
 define internal i32 @bdrv_co_pwrite(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #18
   %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #18
@@ -7636,7 +7600,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @get_refblock_offset(ptr noundef %bs, i64 noundef %offset) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %.val = load i32, ptr %0, align 8
   %1 = getelementptr i8, ptr %0, i64 40
@@ -7645,13 +7609,13 @@ entry:
   %sh_prom.i = zext nneg i32 %add.i to i64
   %shr.i = lshr i64 %offset, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32
-  %refcount_table_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 24
+  %refcount_table_size = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i32, ptr %refcount_table_size, align 8
   %cmp = icmp ugt i32 %2, %conv.i
   br i1 %cmp, label %if.end, label %if.then1
 
 if.end:                                           ; preds = %entry
-  %refcount_table = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 22
+  %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %refcount_table, align 8
   %idxprom = and i64 %shr.i, 4294967295
   %arrayidx = getelementptr i64, ptr %3, i64 %idxprom

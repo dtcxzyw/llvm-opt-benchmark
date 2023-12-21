@@ -30,93 +30,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.80" = type { %"struct.std::_Vector_base<hermes::parser::StoredToken, std::allocator<hermes::parser::StoredToken>>::_Vector_impl" }
 %"struct.std::_Vector_base<hermes::parser::StoredToken, std::allocator<hermes::parser::StoredToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::parser::StoredToken, std::allocator<hermes::parser::StoredToken>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<hermes::parser::StoredToken, std::allocator<hermes::parser::StoredToken>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::Context" = type { %"class.hermes::BacktrackingBumpPtrAllocator", %"class.hermes::BacktrackingBumpPtrAllocator", %"class.std::unique_ptr", %"class.hermes::StringTable", %"class.std::map", %"class.std::unique_ptr.10", ptr, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i32, i8, i8, %"class.std::unique_ptr.18", %"class.std::vector.26", i32, i8, %"struct.hermes::CodeGenerationSettings", %"struct.hermes::OptimizationSettings", %"class.std::shared_ptr" }
-%"class.hermes::BacktrackingBumpPtrAllocator" = type { %"class.std::vector.0", ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.hermes::StringTable" = type { ptr, %"class.llvh::DenseMap" }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
-%"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
-%"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::CodeGenerationSettings" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8], %"struct.hermes::CodeGenerationSettings_DumpSettings", %"struct.hermes::CodeGenerationSettings_DumpSettings", %"class.llvh::SmallDenseSet" }
-%"struct.hermes::CodeGenerationSettings_DumpSettings" = type { i8, [7 x i8], %"class.llvh::SmallDenseSet", %"class.llvh::SmallDenseSet" }
-%"class.llvh::SmallDenseSet" = type { %"class.llvh::detail::DenseSetImpl" }
-%"class.llvh::detail::DenseSetImpl" = type { %"class.llvh::SmallDenseMap" }
-%"class.llvh::SmallDenseMap" = type { i32, i32, %"struct.llvh::AlignedCharArrayUnion" }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [64 x i8] }
-%"struct.hermes::OptimizationSettings" = type { i8, i8, i8, i8, i8, i8 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.hermes::SourceErrorManager" = type { %"class.llvh::SourceMgr", %"struct.hermes::SourceErrorOutputOptions", %"class.std::shared_ptr.50", %"struct.hermes::SourceErrorManager::FindLineCache", %"struct.hermes::StringSetVector", [4 x i32], i32, i8, %"class.llvh::SmallBitVector", %"class.llvh::SmallBitVector", %"class.hermes::OptValue", i8, [7 x i8], %"class.llvh::DenseMap.56", %"class.llvh::DenseMap.56", i32, ptr, %"class.std::vector.59", %"class.std::vector.64" }
-%"class.llvh::SourceMgr" = type { %"class.std::vector.32", %"class.std::map.37", i32, %"class.std::vector.45", ptr, ptr }
-%"class.std::vector.32" = type { %"struct.std::_Vector_base.33" }
-%"struct.std::_Vector_base.33" = type { %"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvh::SourceMgr::SrcBuffer, std::allocator<llvh::SourceMgr::SrcBuffer>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.37" = type { %"class.std::_Rb_tree.38" }
-%"class.std::_Rb_tree.38" = type { %"struct.std::_Rb_tree<const char *, std::pair<const char *const, unsigned int>, std::_Select1st<std::pair<const char *const, unsigned int>>, std::less<const char *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<const char *, std::pair<const char *const, unsigned int>, std::_Select1st<std::pair<const char *const, unsigned int>>, std::less<const char *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.42", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.42" = type { %"struct.std::less.43" }
-%"struct.std::less.43" = type { i8 }
-%"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
-%"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::SourceErrorOutputOptions" = type { i8, i64 }
-%"class.std::shared_ptr.50" = type { %"class.std::__shared_ptr.51" }
-%"class.std::__shared_ptr.51" = type { ptr, %"class.std::__shared_count" }
-%"struct.hermes::SourceErrorManager::FindLineCache" = type { i32, i32, %"class.llvh::StringRef", %"class.llvh::StringRef" }
-%"class.llvh::StringRef" = type { ptr, i64 }
-%"struct.hermes::StringSetVector" = type { %"class.std::deque", %"class.llvh::DenseMap.53" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.llvh::DenseMap.53" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::SmallBitVector" = type { i64 }
-%"class.hermes::OptValue" = type <{ i32, i8, [3 x i8] }>
-%"class.llvh::DenseMap.56" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::vector.59" = type { %"struct.std::_Vector_base.60" }
-%"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::BufferedMessage, std::allocator<hermes::SourceErrorManager::BufferedMessage>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.64" = type { %"struct.std::_Vector_base.65" }
-%"struct.std::_Vector_base.65" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::SourceErrorManager::MessageData, std::allocator<hermes::SourceErrorManager::MessageData>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.hermes::parser::StoredComment" = type { i32, %"class.llvh::SMRange" }
+%"class.llvh::StringRef" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -127,26 +42,26 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN6hermes6parser21getCommentsInDocBlockERNS_7ContextEj(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %context, i32 noundef %bufferId) local_unnamed_addr #0 {
 entry:
   %lexer = alloca %"class.hermes::parser::JSLexer", align 8
-  %sm_.i = getelementptr inbounds %"class.hermes::Context", ptr %context, i64 0, i32 6
+  %sm_.i = getelementptr inbounds i8, ptr %context, i64 160
   %0 = load ptr, ptr %sm_.i, align 8
-  %suppressMessages_.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %0, i64 0, i32 10
+  %suppressMessages_.i = getelementptr inbounds i8, ptr %0, i64 336
   %1 = load i64, ptr %suppressMessages_.i, align 8
   store i32 0, ptr %suppressMessages_.i, align 8
-  %ref.tmp.sroa.2.0.suppressMessages_.sroa_idx.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %0, i64 0, i32 10, i32 1
+  %ref.tmp.sroa.2.0.suppressMessages_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 340
   store i8 1, ptr %ref.tmp.sroa.2.0.suppressMessages_.sroa_idx.i, align 4
   %2 = load ptr, ptr %sm_.i, align 8
-  %stringTable_.i = getelementptr inbounds %"class.hermes::Context", ptr %context, i64 0, i32 3
-  %strictMode_.i = getelementptr inbounds %"class.hermes::Context", ptr %context, i64 0, i32 7
+  %stringTable_.i = getelementptr inbounds i8, ptr %context, i64 72
+  %strictMode_.i = getelementptr inbounds i8, ptr %context, i64 168
   %3 = load i8, ptr %strictMode_.i, align 8
   %4 = and i8 %3, 1
   %tobool.i = icmp ne i8 %4, 0
   call void @_ZN6hermes6parser7JSLexerC1EjRNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) %lexer, i32 noundef %bufferId, ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef nonnull align 8 dereferenceable(32) %context, ptr noundef nonnull %stringTable_.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext false) #8
-  %storeComments_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 7
+  %storeComments_.i = getelementptr inbounds i8, ptr %lexer, i64 49
   store i8 1, ptr %storeComments_.i, align 1
   %call5 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer, i32 noundef 0) #8
-  %commentStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 20
+  %commentStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 1080
   %5 = load ptr, ptr %commentStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 20, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 1088
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -180,13 +95,13 @@ while.end:                                        ; preds = %while.cond.while.en
   %numComments.0.in.lcssa = phi i64 [ %sub.ptr.sub.i.i.i10.le, %while.cond.while.end_crit_edge ], [ %sub.ptr.sub.i.i.i, %entry ]
   %numComments.0 = sdiv exact i64 %numComments.0.in.lcssa, 24
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::parser::StoredComment, std::allocator<hermes::parser::StoredComment>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::parser::StoredComment, std::allocator<hermes::parser::StoredComment>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %10 = load ptr, ptr %commentStorage_.i, align 8, !noalias !6
   store ptr %10, ptr %agg.result, align 8, !alias.scope !6
   %11 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !6
   store ptr %11, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !6
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 20, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 1096
   %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !6
   store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commentStorage_.i, i8 0, i64 24, i1 false), !noalias !6
@@ -221,7 +136,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %while.end, %if.end.i.i, %if.then.i.i.i
-  %tokenStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 21
+  %tokenStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 1104
   %14 = load ptr, ptr %tokenStorage_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -240,9 +155,9 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN6herm
   br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i2.i, %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i
-  %rawStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 18
+  %rawStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 440
   %16 = load ptr, ptr %rawStorage_.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 18, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 456
   %cmp.i.i.i.i.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit.i, label %if.then.i.i.i3.i
 
@@ -251,9 +166,9 @@ if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorIN6herm
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit.i:         ; preds = %if.then.i.i.i3.i, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
-  %tmpStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 17
+  %tmpStorage_.i = getelementptr inbounds i8, ptr %lexer, i64 168
   %17 = load ptr, ptr %tmpStorage_.i, align 8
-  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 17, i32 0, i32 1
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %lexer, i64 184
   %cmp.i.i.i.i5.i = icmp eq ptr %17, %add.ptr.i.i.i.i.i4.i
   br i1 %cmp.i.i.i.i5.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i, label %if.then.i.i.i6.i
 
@@ -262,13 +177,13 @@ if.then.i.i.i6.i:                                 ; preds = %_ZN4llvh11SmallStri
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit7.i:        ; preds = %if.then.i.i.i6.i, %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
-  %ownStrTab_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 3
+  %ownStrTab_.i = getelementptr inbounds i8, ptr %lexer, i64 24
   %18 = load ptr, ptr %ownStrTab_.i, align 8
   %cmp.not.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i, label %_ZN6hermes6parser7JSLexerD2Ev.exit, label %_ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i: ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i
-  %strMap_.i.i.i.i = getelementptr inbounds %"class.hermes::StringTable", ptr %18, i64 0, i32 1
+  %strMap_.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %strMap_.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %19) #8
   call void @_ZdlPv(ptr noundef nonnull %18) #9
@@ -295,7 +210,7 @@ entry:
   br i1 %cmp.not26.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %value, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %value, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -305,10 +220,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp3, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %range_.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__begin2.027, i64 0, i32 1
+  %range_.i = getelementptr inbounds i8, ptr %__begin2.027, i64 8
   %2 = load ptr, ptr %range_.i, align 8
   %cmp.i = icmp eq i32 %1, 1
-  %End.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__begin2.027, i64 0, i32 1, i32 1
+  %End.i = getelementptr inbounds i8, ptr %__begin2.027, i64 16
   %3 = load ptr, ptr %End.i, align 8
   %cond.idx.i = select i1 %cmp.i, i64 -2, i64 0
   %cond.i = getelementptr inbounds i8, ptr %3, i64 %cond.idx.i
@@ -357,7 +272,7 @@ _ZN4llvh9StringRefC2EPKc.exit39:                  ; preds = %if.end13, %lor.lhs.
   br i1 %cmp7, label %while.body, label %for.inc, !llvm.loop !9
 
 for.inc:                                          ; preds = %_ZN4llvh9StringRefC2EPKc.exit39, %if.end, %for.body
-  %incdec.ptr = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__begin2.027, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.027, i64 24
   %cmp.not.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not.not, label %return, label %for.body
 
@@ -378,16 +293,16 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %__begin2.06 = phi ptr [ %incdec.ptr, %for.body ], [ %comments.coerce0, %entry ]
-  %range_.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__begin2.06, i64 0, i32 1
+  %range_.i = getelementptr inbounds i8, ptr %__begin2.06, i64 8
   %0 = load ptr, ptr %range_.i, align 8
-  %End.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__begin2.06, i64 0, i32 1, i32 1
+  %End.i = getelementptr inbounds i8, ptr %__begin2.06, i64 16
   %1 = load ptr, ptr %End.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %sub.ptr.sub.i) #8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10) #8
-  %incdec.ptr = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__begin2.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.06, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 

@@ -3,27 +3,6 @@ source_filename = "bench/jemalloc/original/ecache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ecache_s = type { %struct.malloc_mutex_s, %struct.eset_s, %struct.eset_s, i32, i32, i8 }
-%struct.malloc_mutex_s = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %struct.mutex_prof_data_t, %struct.atomic_b_t, %union.pthread_mutex_t }
-%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
-%struct.nstime_t = type { i64 }
-%struct.atomic_u32_t = type { i32 }
-%struct.atomic_b_t = type { i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.eset_s = type { [4 x i64], [200 x %struct.eset_bin_s], [200 x %struct.eset_bin_stats_s], %struct.edata_list_inactive_t, %struct.atomic_zu_t, i32 }
-%struct.eset_bin_s = type { %struct.edata_heap_t, %struct.edata_cmp_summary_s }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.edata_cmp_summary_s = type { i64, i64 }
-%struct.eset_bin_stats_s = type { %struct.atomic_zu_t, %struct.atomic_zu_t }
-%struct.edata_list_inactive_t = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr }
-%struct.atomic_zu_t = type { i64 }
-
 @.str = private unnamed_addr constant [8 x i8] c"extents\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -34,15 +13,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %delay_coalesce to i8
-  %state1 = getelementptr inbounds %struct.ecache_s, ptr %ecache, i64 0, i32 3
+  %state1 = getelementptr inbounds i8, ptr %ecache, i64 19424
   store i32 %state, ptr %state1, align 8
-  %ind2 = getelementptr inbounds %struct.ecache_s, ptr %ecache, i64 0, i32 4
+  %ind2 = getelementptr inbounds i8, ptr %ecache, i64 19428
   store i32 %ind, ptr %ind2, align 4
-  %delay_coalesce3 = getelementptr inbounds %struct.ecache_s, ptr %ecache, i64 0, i32 5
+  %delay_coalesce3 = getelementptr inbounds i8, ptr %ecache, i64 19432
   store i8 %frombool, ptr %delay_coalesce3, align 8
-  %eset = getelementptr inbounds %struct.ecache_s, ptr %ecache, i64 0, i32 1
+  %eset = getelementptr inbounds i8, ptr %ecache, i64 112
   tail call void @eset_init(ptr noundef nonnull %eset, i32 noundef %state) #2
-  %guarded_eset = getelementptr inbounds %struct.ecache_s, ptr %ecache, i64 0, i32 2
+  %guarded_eset = getelementptr inbounds i8, ptr %ecache, i64 9768
   tail call void @eset_init(ptr noundef nonnull %guarded_eset, i32 noundef %state) #2
   br label %return
 

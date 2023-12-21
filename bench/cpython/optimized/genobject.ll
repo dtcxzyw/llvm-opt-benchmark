@@ -868,20 +868,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyGenObject = type { %struct._object, ptr, ptr, ptr, %struct._err_stackitem, ptr, i8, i8, i8, i8, [1 x ptr] }
-%struct.PyAsyncGenObject = type { %struct._object, ptr, ptr, ptr, %struct._err_stackitem, ptr, i8, i8, i8, i8, [1 x ptr] }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
-%struct._PyInterpreterFrame = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i8, [1 x ptr] }
-%struct.anon.4 = type { i8, i8 }
-%struct.PyStopIterationObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%struct.PyCoroObject = type { %struct._object, ptr, ptr, ptr, %struct._err_stackitem, ptr, i8, i8, i8, i8, [1 x ptr] }
-%struct.PyFunctionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %union._Py_CODEUNIT = type { i16 }
-%struct._frame = type { %struct._object, ptr, ptr, ptr, i32, i8, i8, i8, [1 x ptr] }
-%struct.PyCoroWrapper = type { %struct._object, ptr }
-%struct.PyAsyncGenASend = type { %struct._object, ptr, ptr, i32 }
-%struct._PyAsyncGenWrappedValue = type { %struct._object, ptr }
-%struct.PyAsyncGenAThrow = type { %struct._object, ptr, ptr, i32 }
 
 @PyAsyncGen_Type = dso_local global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyType_Type }, i64 0 }, ptr @.str.7, i64 144, i64 8, ptr @gen_dealloc, i64 0, ptr null, ptr null, ptr @async_gen_as_async, ptr @async_gen_repr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @PyObject_GenericGetAttr, ptr null, ptr null, i64 16384, ptr null, ptr @async_gen_traverse, ptr null, ptr null, i64 16, ptr null, ptr null, ptr @async_gen_methods, ptr @async_gen_memberlist, ptr @async_gen_getsetlist, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr @_PyGen_Finalize, ptr null, i8 0 }, align 8
 @PyExc_StopIteration = external local_unnamed_addr global ptr, align 8
@@ -1027,7 +1014,7 @@ Py_INCREF.exit:                                   ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyGen_Finalize(ptr noundef %self) #1 {
 entry:
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %self, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %self, i64 67
   %0 = load i8, ptr %gi_frame_state, align 1
   %cmp = icmp sgt i8 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1039,13 +1026,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i19.not, label %if.then2, label %if.end13
 
 if.then2:                                         ; preds = %if.end
-  %ag_origin_or_finalizer = getelementptr inbounds %struct.PyAsyncGenObject, ptr %self, i64 0, i32 5
+  %ag_origin_or_finalizer = getelementptr inbounds i8, ptr %self, i64 56
   %2 = load ptr, ptr %ag_origin_or_finalizer, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %ag_closed = getelementptr inbounds %struct.PyAsyncGenObject, ptr %self, i64 0, i32 7
+  %ag_closed = getelementptr inbounds i8, ptr %self, i64 65
   %3 = load i8, ptr %ag_closed, align 1
   %tobool4.not = icmp eq i8 %3, 0
   br i1 %tobool4.not, label %if.then5, label %if.end13
@@ -1080,7 +1067,7 @@ if.end13:                                         ; preds = %if.then2, %land.lhs
   %call15 = tail call ptr @PyErr_GetRaisedException() #7
   %6 = getelementptr i8, ptr %self, i64 72
   %self.val = load ptr, ptr %6, align 8
-  %co_flags = getelementptr inbounds %struct.PyCodeObject, ptr %self.val, i64 0, i32 4
+  %co_flags = getelementptr inbounds i8, ptr %self.val, i64 48
   %7 = load i32, ptr %co_flags, align 8
   %and = and i32 %7, 128
   %tobool17.not = icmp eq i32 %and, 0
@@ -1148,7 +1135,7 @@ declare void @_PyErr_WarnUnawaitedCoroutine(ptr noundef) local_unnamed_addr #2
 define internal ptr @gen_close(ptr noundef %gen, ptr nocapture readnone %args) #1 {
 entry:
   %retval1 = alloca ptr, align 8
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state, align 1
   %cmp = icmp eq i8 %0, -3
   br i1 %cmp, label %if.then, label %if.end
@@ -1166,12 +1153,12 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp.i21, label %if.then.i, label %if.end17
 
 if.then.i:                                        ; preds = %if.end9
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
-  %stacktop.i.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 5
+  %localsplus.i.i = getelementptr inbounds i8, ptr %gen, i64 144
+  %stacktop.i.i = getelementptr inbounds i8, ptr %gen, i64 136
   %1 = load i32, ptr %stacktop.i.i, align 8
   %sub.i.i = add i32 %1, -1
   %idxprom.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr %struct._PyInterpreterFrame, ptr %gi_iframe.i, i64 0, i32 11, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %localsplus.i.i, i64 0, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %3, 1
@@ -1205,7 +1192,7 @@ if.then1.i58:                                     ; preds = %if.end.i55
 
 if.end17:                                         ; preds = %if.end9, %if.end.i55, %if.then1.i58, %if.then10
   %err.0 = phi i32 [ %call14, %if.then10 ], [ %call14, %if.then1.i58 ], [ %call14, %if.end.i55 ], [ 0, %if.end9 ]
-  %instr_ptr = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 4, i32 1
+  %instr_ptr = getelementptr inbounds i8, ptr %gen, i64 128
   %7 = load ptr, ptr %instr_ptr, align 8
   %.val = load i8, ptr %7, align 2
   switch i8 %.val, label %if.end26 [
@@ -1215,7 +1202,7 @@ if.end17:                                         ; preds = %if.end9, %if.end.i5
   ]
 
 if.then19:                                        ; preds = %if.end17, %if.end17, %if.end17
-  %arg = getelementptr inbounds %struct.anon.4, ptr %7, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %7, i64 1
   %8 = load i8, ptr %arg, align 1
   %9 = and i8 %8, 4
   %tobool22.not = icmp eq i8 %9, 0
@@ -1294,18 +1281,18 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @_PyGen_yf(ptr nocapture noundef readonly %gen) local_unnamed_addr #0 {
 entry:
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state, align 1
   %cmp = icmp eq i8 %0, -1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %gi_iframe = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
-  %stacktop.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 5
+  %localsplus.i = getelementptr inbounds i8, ptr %gen, i64 144
+  %stacktop.i = getelementptr inbounds i8, ptr %gen, i64 136
   %1 = load i32, ptr %stacktop.i, align 8
   %sub.i = add i32 %1, -1
   %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr %struct._PyInterpreterFrame, ptr %gi_iframe, i64 0, i32 11, i64 %idxprom.i
+  %arrayidx.i = getelementptr [1 x ptr], ptr %localsplus.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i = add i32 %3, 1
@@ -1382,7 +1369,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @PyErr_GetRaisedException() #7
-  %value2 = getelementptr inbounds %struct.PyStopIterationObject, ptr %call1, i64 0, i32 8
+  %value2 = getelementptr inbounds i8, ptr %call1, i64 72
   %1 = load ptr, ptr %value2, align 8
   %2 = load i32, ptr %1, align 8
   %add.i.i = add i32 %2, 1
@@ -1447,7 +1434,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1456,7 +1443,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %gi_weakreflist = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 1
+  %gi_weakreflist = getelementptr inbounds i8, ptr %gen, i64 16
   %5 = load ptr, ptr %gi_weakreflist, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1468,11 +1455,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %7 = load ptr, ptr %6, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %7, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %8, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %8, i64 1096
   %9 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %_gc_prev.i, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1495,7 +1482,7 @@ if.end2:                                          ; preds = %if.end
   %call.val6.i49 = load i64, ptr %add.ptr.i.i, align 8
   %16 = inttoptr i64 %call.val6.i49 to ptr
   store i64 %call.val6.i49, ptr %15, align 8
-  %_gc_prev.i.i50 = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
+  %_gc_prev.i.i50 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %_gc_prev.i.i50, align 8
   %and.i7.i51 = and i64 %17, 3
   %or.i.i52 = or disjoint i64 %and.i7.i51, %and.i.i48
@@ -1510,7 +1497,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp.i54.not, label %do.body, label %if.end9
 
 do.body:                                          ; preds = %if.end2
-  %ag_origin_or_finalizer = getelementptr inbounds %struct.PyAsyncGenObject, ptr %gen, i64 0, i32 5
+  %ag_origin_or_finalizer = getelementptr inbounds i8, ptr %gen, i64 56
   %20 = load ptr, ptr %ag_origin_or_finalizer, align 8
   %cmp6.not = icmp eq ptr %20, null
   br i1 %cmp6.not, label %if.end9, label %if.then7
@@ -1533,18 +1520,18 @@ if.then1.i77:                                     ; preds = %if.end.i74
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.i74, %if.then1.i77, %if.then7, %do.body, %if.end2
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %23 = load i8, ptr %gi_frame_state, align 1
   %cmp10.not = icmp eq i8 %23, 4
   br i1 %cmp10.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %gi_iframe = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
+  %gi_iframe = getelementptr inbounds i8, ptr %gen, i64 72
   store i8 4, ptr %gi_frame_state, align 1
-  %previous = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1
+  %previous = getelementptr inbounds i8, ptr %gen, i64 80
   store ptr null, ptr %previous, align 8
   tail call void @_PyFrame_ClearExceptCode(ptr noundef nonnull %gi_iframe) #7
-  %gi_exc_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 4
+  %gi_exc_state = getelementptr inbounds i8, ptr %gen, i64 40
   %24 = load ptr, ptr %gi_exc_state, align 8
   %cmp.not.i = icmp eq ptr %24, null
   br i1 %cmp.not.i, label %if.end14, label %if.then.i
@@ -1569,14 +1556,14 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end14:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then12, %if.end9
   %27 = getelementptr i8, ptr %gen, i64 72
   %gen.val40 = load ptr, ptr %27, align 8
-  %co_flags = getelementptr inbounds %struct.PyCodeObject, ptr %gen.val40, i64 0, i32 4
+  %co_flags = getelementptr inbounds i8, ptr %gen.val40, i64 48
   %28 = load i32, ptr %co_flags, align 8
   %and = and i32 %28, 128
   %tobool16.not = icmp eq i32 %and, 0
   br i1 %tobool16.not, label %if.end26, label %do.body18
 
 do.body18:                                        ; preds = %if.end14
-  %cr_origin_or_finalizer = getelementptr inbounds %struct.PyCoroObject, ptr %gen, i64 0, i32 5
+  %cr_origin_or_finalizer = getelementptr inbounds i8, ptr %gen, i64 56
   %29 = load ptr, ptr %cr_origin_or_finalizer, align 8
   %cmp21.not = icmp eq ptr %29, null
   br i1 %cmp21.not, label %if.end26, label %if.then23
@@ -1616,7 +1603,7 @@ if.then1.i59:                                     ; preds = %if.end.i56
   br label %do.body28
 
 do.body28:                                        ; preds = %if.end.i56, %if.then1.i59, %if.end26
-  %gi_name = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 2
+  %gi_name = getelementptr inbounds i8, ptr %gen, i64 24
   %34 = load ptr, ptr %gi_name, align 8
   %cmp31.not = icmp eq ptr %34, null
   br i1 %cmp31.not, label %do.body36, label %if.then33
@@ -1639,7 +1626,7 @@ if.then1.i50:                                     ; preds = %if.end.i47
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i47, %if.then1.i50, %if.then33, %do.body28
-  %gi_qualname = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 3
+  %gi_qualname = getelementptr inbounds i8, ptr %gen, i64 32
   %37 = load ptr, ptr %gi_qualname, align 8
   %cmp39.not = icmp eq ptr %37, null
   br i1 %cmp39.not, label %do.end43, label %if.then41
@@ -1672,7 +1659,7 @@ return:                                           ; preds = %if.end, %do.end43
 ; Function Attrs: nounwind uwtable
 define internal ptr @gen_repr(ptr noundef %gen) #1 {
 entry:
-  %gi_qualname = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 3
+  %gi_qualname = getelementptr inbounds i8, ptr %gen, i64 32
   %0 = load ptr, ptr %gi_qualname, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.21, ptr noundef %0, ptr noundef %gen) #7
   ret ptr %call
@@ -1683,7 +1670,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @gen_traverse(ptr noundef %gen, ptr noundef %visit, ptr noundef %arg) #1 {
 entry:
-  %gi_name = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 2
+  %gi_name = getelementptr inbounds i8, ptr %gen, i64 24
   %0 = load ptr, ptr %gi_name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -1694,7 +1681,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %gi_qualname = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 3
+  %gi_qualname = getelementptr inbounds i8, ptr %gen, i64 32
   %1 = load ptr, ptr %gi_qualname, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.end15, label %if.then7
@@ -1705,19 +1692,19 @@ if.then7:                                         ; preds = %do.body5
   br i1 %tobool11.not, label %do.end15, label %return
 
 do.end15:                                         ; preds = %do.body5, %if.then7
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %2 = load i8, ptr %gi_frame_state, align 1
   %cmp.not = icmp eq i8 %2, 4
   br i1 %cmp.not, label %do.body23, label %if.then17
 
 if.then17:                                        ; preds = %do.end15
-  %gi_iframe = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
+  %gi_iframe = getelementptr inbounds i8, ptr %gen, i64 72
   %call18 = tail call i32 @_PyFrame_Traverse(ptr noundef nonnull %gi_iframe, ptr noundef %visit, ptr noundef %arg) #7
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %do.body23, label %return
 
 do.body23:                                        ; preds = %do.end15, %if.then17
-  %gi_exc_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 4
+  %gi_exc_state = getelementptr inbounds i8, ptr %gen, i64 40
   %3 = load ptr, ptr %gi_exc_state, align 8
   %tobool24.not = icmp eq ptr %3, null
   br i1 %tobool24.not, label %do.end34, label %if.then25
@@ -1820,9 +1807,9 @@ if.end7:                                          ; preds = %do.body.thread9, %i
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_MakeCoro(ptr nocapture noundef readonly %func) local_unnamed_addr #1 {
 entry:
-  %func_code = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 5
+  %func_code = getelementptr inbounds i8, ptr %func, i64 48
   %0 = load ptr, ptr %func_code, align 8
-  %co_flags = getelementptr inbounds %struct.PyCodeObject, ptr %0, i64 0, i32 4
+  %co_flags = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %co_flags, align 8
   %and = and i32 %1, 672
   %2 = getelementptr i8, ptr %0, i64 76
@@ -1840,12 +1827,12 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i20, label %return, label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %call1.i, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %call1.i, i64 67
   store i8 4, ptr %gi_frame_state.i, align 1
-  %gi_weakreflist.i = getelementptr inbounds %struct.PyGenObject, ptr %call1.i, i64 0, i32 1
+  %gi_weakreflist.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr null, ptr %gi_weakreflist.i, align 8
-  %gi_exc_state.i = getelementptr inbounds %struct.PyGenObject, ptr %call1.i, i64 0, i32 4
-  %func_name.i = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 3
+  %gi_exc_state.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %func_name.i = getelementptr inbounds i8, ptr %func, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gi_exc_state.i, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %func_name.i, align 8
   %4 = load i32, ptr %3, align 8
@@ -1858,9 +1845,9 @@ if.end.i.i.i:                                     ; preds = %if.end.i21
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i21
-  %gi_name.i = getelementptr inbounds %struct.PyGenObject, ptr %call1.i, i64 0, i32 2
+  %gi_name.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %3, ptr %gi_name.i, align 8
-  %func_qualname.i = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 4
+  %func_qualname.i = getelementptr inbounds i8, ptr %func, i64 40
   %5 = load ptr, ptr %func_qualname.i, align 8
   %6 = load i32, ptr %5, align 8
   %add.i.i11.i = add i32 %6, 1
@@ -1872,16 +1859,16 @@ if.end.i.i13.i:                                   ; preds = %_Py_NewRef.exit.i
   br label %_Py_NewRef.exit14.i
 
 _Py_NewRef.exit14.i:                              ; preds = %if.end.i.i13.i, %_Py_NewRef.exit.i
-  %gi_qualname.i = getelementptr inbounds %struct.PyGenObject, ptr %call1.i, i64 0, i32 3
+  %gi_qualname.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %5, ptr %gi_qualname.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call1.i, i64 -16
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %8, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %9, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %9, i64 1096
   %10 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %10, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %_gc_prev.i.i, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -1902,12 +1889,12 @@ if.then2:                                         ; preds = %entry
   br i1 %cmp.i27, label %return, label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then2
-  %gi_frame_state.i29 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i26, i64 0, i32 9
+  %gi_frame_state.i29 = getelementptr inbounds i8, ptr %call1.i26, i64 67
   store i8 4, ptr %gi_frame_state.i29, align 1
-  %gi_weakreflist.i30 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i26, i64 0, i32 1
+  %gi_weakreflist.i30 = getelementptr inbounds i8, ptr %call1.i26, i64 16
   store ptr null, ptr %gi_weakreflist.i30, align 8
-  %gi_exc_state.i31 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i26, i64 0, i32 4
-  %func_name.i32 = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 3
+  %gi_exc_state.i31 = getelementptr inbounds i8, ptr %call1.i26, i64 40
+  %func_name.i32 = getelementptr inbounds i8, ptr %func, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gi_exc_state.i31, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %func_name.i32, align 8
   %17 = load i32, ptr %16, align 8
@@ -1920,9 +1907,9 @@ if.end.i.i.i35:                                   ; preds = %if.end.i28
   br label %_Py_NewRef.exit.i36
 
 _Py_NewRef.exit.i36:                              ; preds = %if.end.i.i.i35, %if.end.i28
-  %gi_name.i37 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i26, i64 0, i32 2
+  %gi_name.i37 = getelementptr inbounds i8, ptr %call1.i26, i64 24
   store ptr %16, ptr %gi_name.i37, align 8
-  %func_qualname.i38 = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 4
+  %func_qualname.i38 = getelementptr inbounds i8, ptr %func, i64 40
   %18 = load ptr, ptr %func_qualname.i38, align 8
   %19 = load i32, ptr %18, align 8
   %add.i.i11.i39 = add i32 %19, 1
@@ -1934,16 +1921,16 @@ if.end.i.i13.i41:                                 ; preds = %_Py_NewRef.exit.i36
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end.i.i13.i41, %_Py_NewRef.exit.i36
-  %gi_qualname.i43 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i26, i64 0, i32 3
+  %gi_qualname.i43 = getelementptr inbounds i8, ptr %call1.i26, i64 32
   store ptr %18, ptr %gi_qualname.i43, align 8
   %add.ptr.i.i.i44 = getelementptr i8, ptr %call1.i26, i64 -16
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %21 = load ptr, ptr %20, align 8
-  %interp.i.i.i45 = getelementptr inbounds %struct._ts, ptr %21, i64 0, i32 2
+  %interp.i.i.i45 = getelementptr inbounds i8, ptr %21, i64 16
   %22 = load ptr, ptr %interp.i.i.i45, align 8
-  %generation03.i.i46 = getelementptr inbounds %struct._is, ptr %22, i64 0, i32 13, i32 5
+  %generation03.i.i46 = getelementptr inbounds i8, ptr %22, i64 1096
   %23 = load ptr, ptr %generation03.i.i46, align 8
-  %_gc_prev.i.i47 = getelementptr inbounds %struct.PyGC_Head, ptr %23, i64 0, i32 1
+  %_gc_prev.i.i47 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %_gc_prev.i.i47, align 8
   %25 = inttoptr i64 %24 to ptr
   %26 = ptrtoint ptr %add.ptr.i.i.i44 to i64
@@ -1956,7 +1943,7 @@ if.end6:                                          ; preds = %if.end.i.i13.i41, %
   %28 = ptrtoint ptr %23 to i64
   store i64 %28, ptr %add.ptr.i.i.i44, align 8
   store i64 %26, ptr %_gc_prev.i.i47, align 8
-  %ag_origin_or_finalizer = getelementptr inbounds %struct.PyAsyncGenObject, ptr %call1.i26, i64 0, i32 5
+  %ag_origin_or_finalizer = getelementptr inbounds i8, ptr %call1.i26, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %ag_origin_or_finalizer, i8 0, i64 11, i1 false)
   br label %return
 
@@ -1966,12 +1953,12 @@ if.end7:                                          ; preds = %entry
   br i1 %cmp.i57, label %return, label %if.end.i58
 
 if.end.i58:                                       ; preds = %if.end7
-  %gi_frame_state.i59 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i56, i64 0, i32 9
+  %gi_frame_state.i59 = getelementptr inbounds i8, ptr %call1.i56, i64 67
   store i8 4, ptr %gi_frame_state.i59, align 1
-  %gi_weakreflist.i60 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i56, i64 0, i32 1
+  %gi_weakreflist.i60 = getelementptr inbounds i8, ptr %call1.i56, i64 16
   store ptr null, ptr %gi_weakreflist.i60, align 8
-  %gi_exc_state.i61 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i56, i64 0, i32 4
-  %func_name.i62 = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 3
+  %gi_exc_state.i61 = getelementptr inbounds i8, ptr %call1.i56, i64 40
+  %func_name.i62 = getelementptr inbounds i8, ptr %func, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gi_exc_state.i61, i8 0, i64 16, i1 false)
   %29 = load ptr, ptr %func_name.i62, align 8
   %30 = load i32, ptr %29, align 8
@@ -1984,9 +1971,9 @@ if.end.i.i.i65:                                   ; preds = %if.end.i58
   br label %_Py_NewRef.exit.i66
 
 _Py_NewRef.exit.i66:                              ; preds = %if.end.i.i.i65, %if.end.i58
-  %gi_name.i67 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i56, i64 0, i32 2
+  %gi_name.i67 = getelementptr inbounds i8, ptr %call1.i56, i64 24
   store ptr %29, ptr %gi_name.i67, align 8
-  %func_qualname.i68 = getelementptr inbounds %struct.PyFunctionObject, ptr %func, i64 0, i32 4
+  %func_qualname.i68 = getelementptr inbounds i8, ptr %func, i64 40
   %31 = load ptr, ptr %func_qualname.i68, align 8
   %32 = load i32, ptr %31, align 8
   %add.i.i11.i69 = add i32 %32, 1
@@ -1998,16 +1985,16 @@ if.end.i.i13.i71:                                 ; preds = %_Py_NewRef.exit.i66
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end.i.i13.i71, %_Py_NewRef.exit.i66
-  %gi_qualname.i73 = getelementptr inbounds %struct.PyGenObject, ptr %call1.i56, i64 0, i32 3
+  %gi_qualname.i73 = getelementptr inbounds i8, ptr %call1.i56, i64 32
   store ptr %31, ptr %gi_qualname.i73, align 8
   %add.ptr.i.i.i74 = getelementptr i8, ptr %call1.i56, i64 -16
   %33 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %34 = load ptr, ptr %33, align 8
-  %interp.i.i.i75 = getelementptr inbounds %struct._ts, ptr %34, i64 0, i32 2
+  %interp.i.i.i75 = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load ptr, ptr %interp.i.i.i75, align 8
-  %generation03.i.i76 = getelementptr inbounds %struct._is, ptr %35, i64 0, i32 13, i32 5
+  %generation03.i.i76 = getelementptr inbounds i8, ptr %35, i64 1096
   %36 = load ptr, ptr %generation03.i.i76, align 8
-  %_gc_prev.i.i77 = getelementptr inbounds %struct.PyGC_Head, ptr %36, i64 0, i32 1
+  %_gc_prev.i.i77 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %_gc_prev.i.i77, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = ptrtoint ptr %add.ptr.i.i.i74 to i64
@@ -2021,27 +2008,27 @@ if.end10:                                         ; preds = %if.end.i.i13.i71, %
   store i64 %41, ptr %add.ptr.i.i.i74, align 8
   store i64 %39, ptr %_gc_prev.i.i77, align 8
   %42 = load ptr, ptr %33, align 8
-  %coroutine_origin_tracking_depth = getelementptr inbounds %struct._ts, ptr %42, i64 0, i32 28
+  %coroutine_origin_tracking_depth = getelementptr inbounds i8, ptr %42, i64 200
   %43 = load i32, ptr %coroutine_origin_tracking_depth, align 8
   %cmp12 = icmp eq i32 %43, 0
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end10
-  %cr_origin_or_finalizer = getelementptr inbounds %struct.PyCoroObject, ptr %call1.i56, i64 0, i32 5
+  %cr_origin_or_finalizer = getelementptr inbounds i8, ptr %call1.i56, i64 56
   store ptr null, ptr %cr_origin_or_finalizer, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end10
-  %current_frame = getelementptr inbounds %struct._ts, ptr %42, i64 0, i32 12
+  %current_frame = getelementptr inbounds i8, ptr %42, i64 64
   %44 = load ptr, ptr %current_frame, align 8
-  %previous = getelementptr inbounds %struct._PyInterpreterFrame, ptr %44, i64 0, i32 1
+  %previous = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load ptr, ptr %previous, align 8
   %tobool.not7.i = icmp eq ptr %45, null
   br i1 %tobool.not7.i, label %_PyFrame_GetFirstComplete.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.else, %while.body.i
   %frame.addr.08.i = phi ptr [ %49, %while.body.i ], [ %45, %if.else ]
-  %owner.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i, i64 0, i32 10
+  %owner.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 70
   %46 = load i8, ptr %owner.i.i, align 2
   switch i8 %46, label %_PyFrame_IsIncomplete.exit.i [
     i8 3, label %while.body.i
@@ -2049,11 +2036,11 @@ land.rhs.i:                                       ; preds = %if.else, %while.bod
   ]
 
 _PyFrame_IsIncomplete.exit.i:                     ; preds = %land.rhs.i
-  %instr_ptr.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i, i64 0, i32 7
+  %instr_ptr.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 56
   %47 = load ptr, ptr %instr_ptr.i.i, align 8
   %frame.val5.i.i = load ptr, ptr %frame.addr.08.i, align 8
-  %co_code_adaptive.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i, i64 0, i32 29
-  %_co_firsttraceable.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i, i64 0, i32 27
+  %co_code_adaptive.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i, i64 200
+  %_co_firsttraceable.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i, i64 184
   %48 = load i32, ptr %_co_firsttraceable.i.i, align 8
   %idx.ext.i.i = sext i32 %48 to i64
   %add.ptr.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i, i64 %idx.ext.i.i
@@ -2061,7 +2048,7 @@ _PyFrame_IsIncomplete.exit.i:                     ; preds = %land.rhs.i
   br i1 %cmp7.i.i, label %while.body.i, label %_PyFrame_GetFirstComplete.exit
 
 while.body.i:                                     ; preds = %_PyFrame_IsIncomplete.exit.i, %land.rhs.i
-  %previous.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i, i64 0, i32 1
+  %previous.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 8
   %49 = load ptr, ptr %previous.i, align 8
   %tobool.not.i = icmp eq ptr %49, null
   br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit, label %land.rhs.i, !llvm.loop !7
@@ -2069,7 +2056,7 @@ while.body.i:                                     ; preds = %_PyFrame_IsIncomple
 _PyFrame_GetFirstComplete.exit:                   ; preds = %land.rhs.i, %_PyFrame_IsIncomplete.exit.i, %while.body.i, %if.else
   %frame.addr.0.lcssa.i = phi ptr [ null, %if.else ], [ %frame.addr.08.i, %_PyFrame_IsIncomplete.exit.i ], [ null, %while.body.i ], [ %frame.addr.08.i, %land.rhs.i ]
   %call15 = tail call fastcc ptr @compute_cr_origin(i32 noundef %43, ptr noundef %frame.addr.0.lcssa.i)
-  %cr_origin_or_finalizer16 = getelementptr inbounds %struct.PyCoroObject, ptr %call1.i56, i64 0, i32 5
+  %cr_origin_or_finalizer16 = getelementptr inbounds i8, ptr %call1.i56, i64 56
   store ptr %call15, ptr %cr_origin_or_finalizer16, align 8
   %tobool17.not = icmp eq ptr %call15, null
   br i1 %tobool17.not, label %if.then18, label %return
@@ -2106,14 +2093,14 @@ entry:
 for.body:                                         ; preds = %entry, %_PyFrame_GetFirstComplete.exit
   %frame.038 = phi ptr [ %frame.addr.08.i, %_PyFrame_GetFirstComplete.exit ], [ %current_frame, %entry ]
   %frame_count.037 = phi i32 [ %inc, %_PyFrame_GetFirstComplete.exit ], [ 0, %entry ]
-  %previous = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.038, i64 0, i32 1
+  %previous = getelementptr inbounds i8, ptr %frame.038, i64 8
   %1 = load ptr, ptr %previous, align 8
   %tobool.not7.i = icmp eq ptr %1, null
   br i1 %tobool.not7.i, label %_PyFrame_GetFirstComplete.exit.thread, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body, %while.body.i
   %frame.addr.08.i = phi ptr [ %5, %while.body.i ], [ %1, %for.body ]
-  %owner.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i, i64 0, i32 10
+  %owner.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 70
   %2 = load i8, ptr %owner.i.i, align 2
   switch i8 %2, label %_PyFrame_IsIncomplete.exit.i [
     i8 3, label %while.body.i
@@ -2121,11 +2108,11 @@ land.rhs.i:                                       ; preds = %for.body, %while.bo
   ]
 
 _PyFrame_IsIncomplete.exit.i:                     ; preds = %land.rhs.i
-  %instr_ptr.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i, i64 0, i32 7
+  %instr_ptr.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 56
   %3 = load ptr, ptr %instr_ptr.i.i, align 8
   %frame.val5.i.i = load ptr, ptr %frame.addr.08.i, align 8
-  %co_code_adaptive.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i, i64 0, i32 29
-  %_co_firsttraceable.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i, i64 0, i32 27
+  %co_code_adaptive.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i, i64 200
+  %_co_firsttraceable.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i, i64 184
   %4 = load i32, ptr %_co_firsttraceable.i.i, align 8
   %idx.ext.i.i = sext i32 %4 to i64
   %add.ptr.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i, i64 %idx.ext.i.i
@@ -2133,7 +2120,7 @@ _PyFrame_IsIncomplete.exit.i:                     ; preds = %land.rhs.i
   br i1 %cmp7.i.i, label %while.body.i, label %_PyFrame_GetFirstComplete.exit
 
 while.body.i:                                     ; preds = %_PyFrame_IsIncomplete.exit.i, %land.rhs.i
-  %previous.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i, i64 0, i32 1
+  %previous.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 8
   %5 = load ptr, ptr %previous.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit.thread, label %land.rhs.i, !llvm.loop !7
@@ -2152,20 +2139,24 @@ for.end:                                          ; preds = %_PyFrame_GetFirstCo
   %conv = zext i32 %frame_count.0.lcssa to i64
   %call1 = tail call ptr @PyTuple_New(i64 noundef %conv) #7
   %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %return, label %for.body7
+  br i1 %cmp2, label %return, label %for.body7.lr.ph
 
 for.end.thread:                                   ; preds = %entry
   %call150 = tail call ptr @PyTuple_New(i64 noundef 0) #7
   br label %return
 
-for.body7:                                        ; preds = %for.end, %_PyFrame_GetFirstComplete.exit34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_PyFrame_GetFirstComplete.exit34 ], [ 0, %for.end ]
-  %frame.141 = phi ptr [ %frame.addr.0.lcssa.i22, %_PyFrame_GetFirstComplete.exit34 ], [ %current_frame, %for.end ]
+for.body7.lr.ph:                                  ; preds = %for.end
+  %ob_item.i = getelementptr inbounds i8, ptr %call1, i64 24
+  br label %for.body7
+
+for.body7:                                        ; preds = %for.body7.lr.ph, %_PyFrame_GetFirstComplete.exit34
+  %indvars.iv = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next, %_PyFrame_GetFirstComplete.exit34 ]
+  %frame.141 = phi ptr [ %current_frame, %for.body7.lr.ph ], [ %frame.addr.0.lcssa.i22, %_PyFrame_GetFirstComplete.exit34 ]
   %frame.1.val = load ptr, ptr %frame.141, align 8
   %call9 = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %frame.141) #7
-  %co_filename = getelementptr inbounds %struct.PyCodeObject, ptr %frame.1.val, i64 0, i32 18
+  %co_filename = getelementptr inbounds i8, ptr %frame.1.val, i64 112
   %6 = load ptr, ptr %co_filename, align 8
-  %co_name = getelementptr inbounds %struct.PyCodeObject, ptr %frame.1.val, i64 0, i32 19
+  %co_name = getelementptr inbounds i8, ptr %frame.1.val, i64 120
   %7 = load ptr, ptr %co_name, align 8
   %call10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.54, ptr noundef %6, i32 noundef %call9, ptr noundef %7) #7
   %tobool11.not = icmp eq ptr %call10, null
@@ -2188,16 +2179,16 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end13:                                         ; preds = %for.body7
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call1, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %indvars.iv
   store ptr %call10, ptr %arrayidx.i, align 8
-  %previous15 = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.141, i64 0, i32 1
+  %previous15 = getelementptr inbounds i8, ptr %frame.141, i64 8
   %10 = load ptr, ptr %previous15, align 8
   %tobool.not7.i18 = icmp eq ptr %10, null
   br i1 %tobool.not7.i18, label %_PyFrame_GetFirstComplete.exit34, label %land.rhs.i19
 
 land.rhs.i19:                                     ; preds = %if.end13, %while.body.i23
   %frame.addr.08.i20 = phi ptr [ %14, %while.body.i23 ], [ %10, %if.end13 ]
-  %owner.i.i21 = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i20, i64 0, i32 10
+  %owner.i.i21 = getelementptr inbounds i8, ptr %frame.addr.08.i20, i64 70
   %11 = load i8, ptr %owner.i.i21, align 2
   switch i8 %11, label %_PyFrame_IsIncomplete.exit.i26 [
     i8 3, label %while.body.i23
@@ -2205,11 +2196,11 @@ land.rhs.i19:                                     ; preds = %if.end13, %while.bo
   ]
 
 _PyFrame_IsIncomplete.exit.i26:                   ; preds = %land.rhs.i19
-  %instr_ptr.i.i27 = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i20, i64 0, i32 7
+  %instr_ptr.i.i27 = getelementptr inbounds i8, ptr %frame.addr.08.i20, i64 56
   %12 = load ptr, ptr %instr_ptr.i.i27, align 8
   %frame.val5.i.i28 = load ptr, ptr %frame.addr.08.i20, align 8
-  %co_code_adaptive.i.i29 = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i28, i64 0, i32 29
-  %_co_firsttraceable.i.i30 = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i28, i64 0, i32 27
+  %co_code_adaptive.i.i29 = getelementptr inbounds i8, ptr %frame.val5.i.i28, i64 200
+  %_co_firsttraceable.i.i30 = getelementptr inbounds i8, ptr %frame.val5.i.i28, i64 184
   %13 = load i32, ptr %_co_firsttraceable.i.i30, align 8
   %idx.ext.i.i31 = sext i32 %13 to i64
   %add.ptr.i.i32 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i29, i64 %idx.ext.i.i31
@@ -2217,7 +2208,7 @@ _PyFrame_IsIncomplete.exit.i26:                   ; preds = %land.rhs.i19
   br i1 %cmp7.i.i33, label %while.body.i23, label %_PyFrame_GetFirstComplete.exit34
 
 while.body.i23:                                   ; preds = %_PyFrame_IsIncomplete.exit.i26, %land.rhs.i19
-  %previous.i24 = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i20, i64 0, i32 1
+  %previous.i24 = getelementptr inbounds i8, ptr %frame.addr.08.i20, i64 8
   %14 = load ptr, ptr %previous.i24, align 8
   %tobool.not.i25 = icmp eq ptr %14, null
   br i1 %tobool.not.i25, label %_PyFrame_GetFirstComplete.exit34, label %land.rhs.i19, !llvm.loop !7
@@ -2243,12 +2234,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @gen_new_with_qualname(ptr noundef %type, ptr noundef %f, ptr noundef %name, ptr noundef %qualname) unnamed_addr #1 {
 entry:
-  %f_frame = getelementptr inbounds %struct._frame, ptr %f, i64 0, i32 2
+  %f_frame = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %f_frame, align 8
   %.val = load ptr, ptr %0, align 8
-  %co_nlocalsplus = getelementptr inbounds %struct.PyCodeObject, ptr %.val, i64 0, i32 10
+  %co_nlocalsplus = getelementptr inbounds i8, ptr %.val, i64 72
   %1 = load i32, ptr %co_nlocalsplus, align 8
-  %co_stacksize = getelementptr inbounds %struct.PyCodeObject, ptr %.val, i64 0, i32 8
+  %co_stacksize = getelementptr inbounds i8, ptr %.val, i64 64
   %2 = load i32, ptr %co_stacksize, align 8
   %add = add i32 %2, %1
   %conv = sext i32 %add to i64
@@ -2273,10 +2264,10 @@ if.then1.i29:                                     ; preds = %if.end.i26
   br label %return
 
 if.end:                                           ; preds = %entry
-  %gi_iframe = getelementptr inbounds %struct.PyGenObject, ptr %call1, i64 0, i32 10
-  %_f_frame_data = getelementptr inbounds %struct._frame, ptr %f, i64 0, i32 8
+  %gi_iframe = getelementptr inbounds i8, ptr %call1, i64 72
+  %_f_frame_data = getelementptr inbounds i8, ptr %f, i64 48
   tail call void @_PyFrame_Copy(ptr noundef nonnull %_f_frame_data, ptr noundef nonnull %gi_iframe) #7
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %call1, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %call1, i64 67
   store i8 -3, ptr %gi_frame_state, align 1
   store ptr %gi_iframe, ptr %f_frame, align 8
   %owner = getelementptr inbounds i8, ptr %call1, i64 142
@@ -2297,9 +2288,9 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %gi_weakreflist = getelementptr inbounds %struct.PyGenObject, ptr %call1, i64 0, i32 1
+  %gi_weakreflist = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr null, ptr %gi_weakreflist, align 8
-  %gi_exc_state = getelementptr inbounds %struct.PyGenObject, ptr %call1, i64 0, i32 4
+  %gi_exc_state = getelementptr inbounds i8, ptr %call1, i64 40
   %cmp6.not = icmp eq ptr %name, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gi_exc_state, i8 0, i64 16, i1 false)
   br i1 %cmp6.not, label %if.else, label %if.then8
@@ -2316,7 +2307,7 @@ if.end.i.i:                                       ; preds = %if.then8
 
 if.else:                                          ; preds = %Py_DECREF.exit
   %call1.val27 = load ptr, ptr %gi_iframe, align 8
-  %co_name = getelementptr inbounds %struct.PyCodeObject, ptr %call1.val27, i64 0, i32 19
+  %co_name = getelementptr inbounds i8, ptr %call1.val27, i64 120
   %8 = load ptr, ptr %co_name, align 8
   %9 = load i32, ptr %8, align 8
   %add.i.i28 = add i32 %9, 1
@@ -2329,7 +2320,7 @@ if.end.i.i30:                                     ; preds = %if.else
 
 if.end13:                                         ; preds = %if.end.i.i30, %if.else, %if.end.i.i, %if.then8
   %.sink = phi ptr [ %name, %if.then8 ], [ %name, %if.end.i.i ], [ %8, %if.else ], [ %8, %if.end.i.i30 ]
-  %gi_name12 = getelementptr inbounds %struct.PyGenObject, ptr %call1, i64 0, i32 2
+  %gi_name12 = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %.sink, ptr %gi_name12, align 8
   %cmp14.not = icmp eq ptr %qualname, null
   br i1 %cmp14.not, label %if.else18, label %if.then16
@@ -2346,7 +2337,7 @@ if.end.i.i34:                                     ; preds = %if.then16
 
 if.else18:                                        ; preds = %if.end13
   %call1.val = load ptr, ptr %gi_iframe, align 8
-  %co_qualname = getelementptr inbounds %struct.PyCodeObject, ptr %call1.val, i64 0, i32 20
+  %co_qualname = getelementptr inbounds i8, ptr %call1.val, i64 128
   %11 = load ptr, ptr %co_qualname, align 8
   %12 = load i32, ptr %11, align 8
   %add.i.i36 = add i32 %12, 1
@@ -2359,16 +2350,16 @@ if.end.i.i38:                                     ; preds = %if.else18
 
 if.end22:                                         ; preds = %if.end.i.i38, %if.else18, %if.end.i.i34, %if.then16
   %.sink40 = phi ptr [ %qualname, %if.then16 ], [ %qualname, %if.end.i.i34 ], [ %11, %if.else18 ], [ %11, %if.end.i.i38 ]
-  %gi_qualname21 = getelementptr inbounds %struct.PyGenObject, ptr %call1, i64 0, i32 3
+  %gi_qualname21 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %.sink40, ptr %gi_qualname21, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call1, i64 -16
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %14 = load ptr, ptr %13, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %14, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %15, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %15, i64 1096
   %16 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %_gc_prev.i, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = ptrtoint ptr %add.ptr.i.i to i64
@@ -2409,7 +2400,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then.i:                                        ; preds = %lor.lhs.false
   %1 = getelementptr i8, ptr %o, i64 72
   %o.val.i = load ptr, ptr %1, align 8
-  %co_flags.i = getelementptr inbounds %struct.PyCodeObject, ptr %o.val.i, i64 0, i32 4
+  %co_flags.i = getelementptr inbounds i8, ptr %o.val.i, i64 48
   %2 = load i32, ptr %co_flags.i, align 8
   %and.i = and i32 %2, 256
   %tobool2.not.i = icmp eq i32 %and.i, 0
@@ -2426,7 +2417,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false, %if.then.i
-  %tp_as_async = getelementptr inbounds %struct._typeobject, ptr %o.val24, i64 0, i32 8
+  %tp_as_async = getelementptr inbounds i8, ptr %o.val24, i64 80
   %4 = load ptr, ptr %tp_as_async, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end37, label %if.end7
@@ -2454,7 +2445,7 @@ lor.lhs.false15:                                  ; preds = %if.then12
 if.then.i32:                                      ; preds = %lor.lhs.false15
   %7 = getelementptr i8, ptr %call10, i64 72
   %o.val.i33 = load ptr, ptr %7, align 8
-  %co_flags.i34 = getelementptr inbounds %struct.PyCodeObject, ptr %o.val.i33, i64 0, i32 4
+  %co_flags.i34 = getelementptr inbounds i8, ptr %o.val.i33, i64 48
   %8 = load i32, ptr %co_flags.i34, align 8
   %and.i35 = and i32 %8, 256
   %tobool2.not.i36 = icmp eq i32 %and.i35, 0
@@ -2486,7 +2477,7 @@ if.else:                                          ; preds = %lor.lhs.false15, %i
 if.then24:                                        ; preds = %if.else
   %12 = load ptr, ptr @PyExc_TypeError, align 8
   %call10.val = load ptr, ptr %6, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call10.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call10.val, i64 24
   %13 = load ptr, ptr %tp_name, align 8
   %call26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.2, ptr noundef %13) #7
   %14 = load i64, ptr %call10, align 8
@@ -2506,7 +2497,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end37:                                         ; preds = %if.end, %if.end7
   %16 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name38 = getelementptr inbounds %struct._typeobject, ptr %o.val24, i64 0, i32 1
+  %tp_name38 = getelementptr inbounds i8, ptr %o.val24, i64 24
   %17 = load ptr, ptr %tp_name38, align 8
   %call39 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef %17) #7
   br label %return
@@ -2525,7 +2516,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal ptr @coro_repr(ptr noundef %coro) #1 {
 entry:
-  %cr_qualname = getelementptr inbounds %struct.PyCoroObject, ptr %coro, i64 0, i32 3
+  %cr_qualname = getelementptr inbounds i8, ptr %coro, i64 32
   %0 = load ptr, ptr %cr_qualname, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.44, ptr noundef %0, ptr noundef %coro) #7
   ret ptr %call
@@ -2542,7 +2533,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -2551,7 +2542,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %cw, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %5 = load ptr, ptr %cw_coroutine, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2581,7 +2572,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @coro_wrapper_traverse(ptr nocapture noundef readonly %cw, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
 entry:
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %cw, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %0 = load ptr, ptr %cw_coroutine, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -2602,7 +2593,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @coro_wrapper_iternext(ptr nocapture noundef readonly %cw) #1 {
 entry:
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %cw, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %0 = load ptr, ptr %cw_coroutine, align 8
   %call = tail call ptr @gen_iternext(ptr noundef %0)
   ret ptr %call
@@ -2618,20 +2609,20 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %coroutine_origin_tracking_depth = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 28
+  %coroutine_origin_tracking_depth = getelementptr inbounds i8, ptr %1, i64 200
   %2 = load i32, ptr %coroutine_origin_tracking_depth, align 8
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %cr_origin_or_finalizer = getelementptr inbounds %struct.PyCoroObject, ptr %call, i64 0, i32 5
+  %cr_origin_or_finalizer = getelementptr inbounds i8, ptr %call, i64 56
   store ptr null, ptr %cr_origin_or_finalizer, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
   %call3 = tail call ptr @_PyEval_GetFrame() #7
   %call4 = tail call fastcc ptr @compute_cr_origin(i32 noundef %2, ptr noundef %call3)
-  %cr_origin_or_finalizer5 = getelementptr inbounds %struct.PyCoroObject, ptr %call, i64 0, i32 5
+  %cr_origin_or_finalizer5 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call4, ptr %cr_origin_or_finalizer5, align 8
   %tobool6.not = icmp eq ptr %call4, null
   br i1 %tobool6.not, label %if.then7, label %return
@@ -2662,7 +2653,7 @@ declare ptr @_PyEval_GetFrame() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_repr(ptr noundef %o) #1 {
 entry:
-  %ag_qualname = getelementptr inbounds %struct.PyAsyncGenObject, ptr %o, i64 0, i32 3
+  %ag_qualname = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load ptr, ptr %ag_qualname, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.55, ptr noundef %0, ptr noundef %o) #7
   ret ptr %call
@@ -2671,7 +2662,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @async_gen_traverse(ptr noundef %gen, ptr noundef %visit, ptr noundef %arg) #1 {
 entry:
-  %ag_origin_or_finalizer = getelementptr inbounds %struct.PyAsyncGenObject, ptr %gen, i64 0, i32 5
+  %ag_origin_or_finalizer = getelementptr inbounds i8, ptr %gen, i64 56
   %0 = load ptr, ptr %ag_origin_or_finalizer, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -2682,7 +2673,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.end, label %return
 
 do.end:                                           ; preds = %entry, %if.then
-  %gi_name.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 2
+  %gi_name.i = getelementptr inbounds i8, ptr %gen, i64 24
   %1 = load ptr, ptr %gi_name.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %do.body5.i, label %if.then.i
@@ -2693,7 +2684,7 @@ if.then.i:                                        ; preds = %do.end
   br i1 %tobool2.not.i, label %do.body5.i, label %return
 
 do.body5.i:                                       ; preds = %if.then.i, %do.end
-  %gi_qualname.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 3
+  %gi_qualname.i = getelementptr inbounds i8, ptr %gen, i64 32
   %2 = load ptr, ptr %gi_qualname.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %do.end15.i, label %if.then7.i
@@ -2704,19 +2695,19 @@ if.then7.i:                                       ; preds = %do.body5.i
   br i1 %tobool11.not.i, label %do.end15.i, label %return
 
 do.end15.i:                                       ; preds = %if.then7.i, %do.body5.i
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %gen, i64 67
   %3 = load i8, ptr %gi_frame_state.i, align 1
   %cmp.not.i = icmp eq i8 %3, 4
   br i1 %cmp.not.i, label %do.body23.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %do.end15.i
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
+  %gi_iframe.i = getelementptr inbounds i8, ptr %gen, i64 72
   %call18.i = tail call i32 @_PyFrame_Traverse(ptr noundef nonnull %gi_iframe.i, ptr noundef %visit, ptr noundef %arg) #7
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %do.body23.i, label %return
 
 do.body23.i:                                      ; preds = %if.then17.i, %do.end15.i
-  %gi_exc_state.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 4
+  %gi_exc_state.i = getelementptr inbounds i8, ptr %gen, i64 40
   %4 = load ptr, ptr %gi_exc_state.i, align 8
   %tobool24.not.i = icmp eq ptr %4, null
   br i1 %tobool24.not.i, label %do.end34.i, label %if.then25.i
@@ -2742,7 +2733,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ag_origin_or_finalizer = getelementptr inbounds %struct.PyAsyncGenObject, ptr %call, i64 0, i32 5
+  %ag_origin_or_finalizer = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %ag_origin_or_finalizer, i8 0, i64 11, i1 false)
   br label %return
 
@@ -2753,17 +2744,21 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyAsyncGen_ClearFreeLists(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
-  %async_gen = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 53
-  %value_numfree = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 53, i32 1
+  %async_gen = getelementptr inbounds i8, ptr %interp, i64 305272
+  %value_numfree = getelementptr inbounds i8, ptr %interp, i64 305912
   %0 = load i32, ptr %value_numfree, align 8
   %tobool.not7 = icmp eq i32 %0, 0
   br i1 %tobool.not7, label %while.cond2.preheader, label %while.body
 
 while.cond2.preheader:                            ; preds = %while.body, %entry
-  %asend_numfree = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 53, i32 3
+  %asend_numfree = getelementptr inbounds i8, ptr %interp, i64 306560
   %1 = load i32, ptr %asend_numfree, align 8
   %tobool3.not8 = icmp eq i32 %1, 0
-  br i1 %tobool3.not8, label %while.end10, label %while.body4
+  br i1 %tobool3.not8, label %while.end10, label %while.body4.lr.ph
+
+while.body4.lr.ph:                                ; preds = %while.cond2.preheader
+  %asend_freelist = getelementptr inbounds i8, ptr %interp, i64 305920
+  br label %while.body4
 
 while.body:                                       ; preds = %entry, %while.body
   %2 = phi i32 [ %4, %while.body ], [ %0, %entry ]
@@ -2777,12 +2772,12 @@ while.body:                                       ; preds = %entry, %while.body
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %while.cond2.preheader, label %while.body, !llvm.loop !11
 
-while.body4:                                      ; preds = %while.cond2.preheader, %while.body4
-  %5 = phi i32 [ %7, %while.body4 ], [ %1, %while.cond2.preheader ]
+while.body4:                                      ; preds = %while.body4.lr.ph, %while.body4
+  %5 = phi i32 [ %1, %while.body4.lr.ph ], [ %7, %while.body4 ]
   %dec7 = add i32 %5, -1
   store i32 %dec7, ptr %asend_numfree, align 8
   %idxprom8 = sext i32 %dec7 to i64
-  %arrayidx9 = getelementptr %struct._is, ptr %interp, i64 0, i32 53, i32 2, i64 %idxprom8
+  %arrayidx9 = getelementptr [80 x ptr], ptr %asend_freelist, i64 0, i64 %idxprom8
   %6 = load ptr, ptr %arrayidx9, align 8
   tail call void @PyObject_GC_Del(ptr noundef %6) #7
   %7 = load i32, ptr %asend_numfree, align 8
@@ -2798,17 +2793,21 @@ declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyAsyncGen_Fini(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
-  %async_gen.i = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 53
-  %value_numfree.i = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 53, i32 1
+  %async_gen.i = getelementptr inbounds i8, ptr %interp, i64 305272
+  %value_numfree.i = getelementptr inbounds i8, ptr %interp, i64 305912
   %0 = load i32, ptr %value_numfree.i, align 8
   %tobool.not7.i = icmp eq i32 %0, 0
   br i1 %tobool.not7.i, label %while.cond2.preheader.i, label %while.body.i
 
 while.cond2.preheader.i:                          ; preds = %while.body.i, %entry
-  %asend_numfree.i = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 53, i32 3
+  %asend_numfree.i = getelementptr inbounds i8, ptr %interp, i64 306560
   %1 = load i32, ptr %asend_numfree.i, align 8
   %tobool3.not8.i = icmp eq i32 %1, 0
-  br i1 %tobool3.not8.i, label %_PyAsyncGen_ClearFreeLists.exit, label %while.body4.i
+  br i1 %tobool3.not8.i, label %_PyAsyncGen_ClearFreeLists.exit, label %while.body4.lr.ph.i
+
+while.body4.lr.ph.i:                              ; preds = %while.cond2.preheader.i
+  %asend_freelist.i = getelementptr inbounds i8, ptr %interp, i64 305920
+  br label %while.body4.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %2 = phi i32 [ %4, %while.body.i ], [ %0, %entry ]
@@ -2822,12 +2821,12 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %while.cond2.preheader.i, label %while.body.i, !llvm.loop !11
 
-while.body4.i:                                    ; preds = %while.cond2.preheader.i, %while.body4.i
-  %5 = phi i32 [ %7, %while.body4.i ], [ %1, %while.cond2.preheader.i ]
+while.body4.i:                                    ; preds = %while.body4.i, %while.body4.lr.ph.i
+  %5 = phi i32 [ %1, %while.body4.lr.ph.i ], [ %7, %while.body4.i ]
   %dec7.i = add i32 %5, -1
   store i32 %dec7.i, ptr %asend_numfree.i, align 8
   %idxprom8.i = sext i32 %dec7.i to i64
-  %arrayidx9.i = getelementptr %struct._is, ptr %interp, i64 0, i32 53, i32 2, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr [80 x ptr], ptr %asend_freelist.i, i64 0, i64 %idxprom8.i
   %6 = load ptr, ptr %arrayidx9.i, align 8
   tail call void @PyObject_GC_Del(ptr noundef %6) #7
   %7 = load i32, ptr %asend_numfree.i, align 8
@@ -2854,7 +2853,7 @@ if.end:                                           ; preds = %entry
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -2863,7 +2862,7 @@ if.end:                                           ; preds = %entry
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %ags_gen = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen = getelementptr inbounds i8, ptr %o, i64 16
   %5 = load ptr, ptr %ags_gen, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %do.body3, label %if.then1
@@ -2886,7 +2885,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
   br label %do.body3
 
 do.body3:                                         ; preds = %if.end.i18, %if.then1.i21, %if.then1, %if.end
-  %ags_sendval = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 2
+  %ags_sendval = getelementptr inbounds i8, ptr %o, i64 24
   %8 = load ptr, ptr %ags_sendval, align 8
   %cmp6.not = icmp eq ptr %8, null
   br i1 %cmp6.not, label %do.end9, label %if.then7
@@ -2911,18 +2910,19 @@ if.then1.i:                                       ; preds = %if.end.i
 do.end9:                                          ; preds = %do.body3, %if.then7, %if.then1.i, %if.end.i
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %12 = load ptr, ptr %11, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %12, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %interp.i.i, align 8
-  %asend_numfree = getelementptr inbounds %struct._is, ptr %13, i64 0, i32 53, i32 3
+  %asend_numfree = getelementptr inbounds i8, ptr %13, i64 306560
   %14 = load i32, ptr %asend_numfree, align 8
   %cmp11 = icmp slt i32 %14, 80
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %do.end9
+  %asend_freelist = getelementptr inbounds i8, ptr %13, i64 305920
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %asend_numfree, align 8
   %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr %struct._is, ptr %13, i64 0, i32 53, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [80 x ptr], ptr %asend_freelist, i64 0, i64 %idxprom
   store ptr %o, ptr %arrayidx, align 8
   br label %if.end14
 
@@ -2937,7 +2937,7 @@ if.end14:                                         ; preds = %entry, %if.else, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @async_gen_asend_traverse(ptr nocapture noundef readonly %o, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
 entry:
-  %ags_gen = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %ags_gen, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -2948,7 +2948,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %ags_sendval = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 2
+  %ags_sendval = getelementptr inbounds i8, ptr %o, i64 24
   %1 = load ptr, ptr %ags_sendval, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.end15, label %if.then7
@@ -2969,7 +2969,7 @@ return:                                           ; preds = %if.then7, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_asend_iternext(ptr nocapture noundef %o) #1 {
 entry:
-  %ags_state.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 3
+  %ags_state.i = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %ags_state.i, align 8
   switch i32 %0, label %entry.if.end11_crit_edge.i [
     i32 2, label %if.then.i
@@ -2977,7 +2977,7 @@ entry:
   ]
 
 entry.if.end11_crit_edge.i:                       ; preds = %entry
-  %ags_gen12.phi.trans.insert.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen12.phi.trans.insert.i = getelementptr inbounds i8, ptr %o, i64 16
   %.pre.i = load ptr, ptr %ags_gen12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -2987,9 +2987,9 @@ if.then.i:                                        ; preds = %entry
   br label %async_gen_asend_send.exit
 
 if.then3.i:                                       ; preds = %entry
-  %ags_gen.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen.i = getelementptr inbounds i8, ptr %o, i64 16
   %2 = load ptr, ptr %ags_gen.i, align 8
-  %ag_running_async.i = getelementptr inbounds %struct.PyAsyncGenObject, ptr %2, i64 0, i32 8
+  %ag_running_async.i = getelementptr inbounds i8, ptr %2, i64 66
   %3 = load i8, ptr %ag_running_async.i, align 2
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.end5.i, label %if.then4.i
@@ -3000,7 +3000,7 @@ if.then4.i:                                       ; preds = %if.then3.i
   br label %async_gen_asend_send.exit
 
 if.end5.i:                                        ; preds = %if.then3.i
-  %ags_sendval.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 2
+  %ags_sendval.i = getelementptr inbounds i8, ptr %o, i64 24
   %5 = load ptr, ptr %ags_sendval.i, align 8
   store i32 1, ptr %ags_state.i, align 8
   br label %if.end11.i
@@ -3008,8 +3008,8 @@ if.end5.i:                                        ; preds = %if.then3.i
 if.end11.i:                                       ; preds = %if.end5.i, %entry.if.end11_crit_edge.i
   %6 = phi ptr [ %2, %if.end5.i ], [ %.pre.i, %entry.if.end11_crit_edge.i ]
   %arg.addr.1.i = phi ptr [ %5, %if.end5.i ], [ null, %entry.if.end11_crit_edge.i ]
-  %ags_gen12.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
-  %ag_running_async13.i = getelementptr inbounds %struct.PyAsyncGenObject, ptr %6, i64 0, i32 8
+  %ags_gen12.i = getelementptr inbounds i8, ptr %o, i64 16
+  %ag_running_async13.i = getelementptr inbounds i8, ptr %6, i64 66
   store i8 1, ptr %ag_running_async13.i, align 2
   %7 = load ptr, ptr %ags_gen12.i, align 8
   %call.i.i = tail call fastcc ptr @gen_send_ex(ptr noundef %7, ptr noundef %arg.addr.1.i, i32 noundef 0, i32 noundef 0)
@@ -3030,13 +3030,13 @@ async_gen_asend_send.exit:                        ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @async_gen_asend_finalize(ptr nocapture noundef readonly %o) #1 {
 entry:
-  %ags_state = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 3
+  %ags_state = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %ags_state, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ags_gen = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %ags_gen, align 8
   tail call void @_PyErr_WarnUnawaitedAgenMethod(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 224)) #7
   br label %if.end
@@ -3056,7 +3056,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -3065,7 +3065,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %agw_val = getelementptr inbounds %struct._PyAsyncGenWrappedValue, ptr %o, i64 0, i32 1
+  %agw_val = getelementptr inbounds i8, ptr %o, i64 16
   %5 = load ptr, ptr %agw_val, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -3090,15 +3090,15 @@ if.then1.i:                                       ; preds = %if.end.i
 do.end:                                           ; preds = %entry, %if.then, %if.then1.i, %if.end.i
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %9 = load ptr, ptr %8, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %9, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp.i.i, align 8
-  %value_numfree = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 53, i32 1
+  %value_numfree = getelementptr inbounds i8, ptr %10, i64 305912
   %11 = load i32, ptr %value_numfree, align 8
   %cmp1 = icmp slt i32 %11, 80
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %do.end
-  %async_gen.i = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 53
+  %async_gen.i = getelementptr inbounds i8, ptr %10, i64 305272
   %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %value_numfree, align 8
   %idxprom = sext i32 %11 to i64
@@ -3117,7 +3117,7 @@ if.end4:                                          ; preds = %if.else, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal i32 @async_gen_wrapped_val_traverse(ptr nocapture noundef readonly %o, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
 entry:
-  %agw_val = getelementptr inbounds %struct._PyAsyncGenWrappedValue, ptr %o, i64 0, i32 1
+  %agw_val = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %agw_val, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3138,15 +3138,15 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyAsyncGenValueWrapperNew(ptr nocapture noundef readonly %tstate, ptr noundef %val) local_unnamed_addr #1 {
 entry:
-  %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
-  %value_numfree = getelementptr inbounds %struct._is, ptr %0, i64 0, i32 53, i32 1
+  %value_numfree = getelementptr inbounds i8, ptr %0, i64 305912
   %1 = load i32, ptr %value_numfree, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %async_gen = getelementptr inbounds %struct._is, ptr %0, i64 0, i32 53
+  %async_gen = getelementptr inbounds i8, ptr %0, i64 305272
   %dec = add i32 %1, -1
   store i32 %dec, ptr %value_numfree, align 8
   %idxprom = sext i32 %dec to i64
@@ -3172,16 +3172,16 @@ if.end.i.i:                                       ; preds = %if.end4
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end4, %if.end.i.i
-  %agw_val = getelementptr inbounds %struct._PyAsyncGenWrappedValue, ptr %o.0, i64 0, i32 1
+  %agw_val = getelementptr inbounds i8, ptr %o.0, i64 16
   store ptr %val, ptr %agw_val, align 8
   %add.ptr.i.i = getelementptr i8, ptr %o.0, i64 -16
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %6, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %6, i64 1096
   %7 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %7, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %_gc_prev.i, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = ptrtoint ptr %add.ptr.i.i to i64
@@ -3221,7 +3221,7 @@ if.end:                                           ; preds = %entry
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -3230,7 +3230,7 @@ if.end:                                           ; preds = %entry
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %agt_gen = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 1
+  %agt_gen = getelementptr inbounds i8, ptr %o, i64 16
   %5 = load ptr, ptr %agt_gen, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %do.body3, label %if.then1
@@ -3253,7 +3253,7 @@ if.then1.i16:                                     ; preds = %if.end.i13
   br label %do.body3
 
 do.body3:                                         ; preds = %if.end.i13, %if.then1.i16, %if.then1, %if.end
-  %agt_args = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args = getelementptr inbounds i8, ptr %o, i64 24
   %8 = load ptr, ptr %agt_args, align 8
   %cmp6.not = icmp eq ptr %8, null
   br i1 %cmp6.not, label %do.end9, label %if.then7
@@ -3286,7 +3286,7 @@ return:                                           ; preds = %entry, %do.end9
 ; Function Attrs: nounwind uwtable
 define internal i32 @async_gen_athrow_traverse(ptr nocapture noundef readonly %o, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
 entry:
-  %agt_gen = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 1
+  %agt_gen = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %agt_gen, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -3297,7 +3297,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %agt_args = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args = getelementptr inbounds i8, ptr %o, i64 24
   %1 = load ptr, ptr %agt_args, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.end15, label %if.then7
@@ -3325,17 +3325,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @async_gen_athrow_finalize(ptr nocapture noundef readonly %o) #1 {
 entry:
-  %agt_state = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 3
+  %agt_state = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %agt_state, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %agt_args = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args = getelementptr inbounds i8, ptr %o, i64 24
   %1 = load ptr, ptr %agt_args, align 8
   %tobool.not = icmp eq ptr %1, null
   %cond = select i1 %tobool.not, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 213), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 226)
-  %agt_gen = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 1
+  %agt_gen = getelementptr inbounds i8, ptr %o, i64 16
   %2 = load ptr, ptr %agt_gen, align 8
   tail call void @_PyErr_WarnUnawaitedAgenMethod(ptr noundef %2, ptr noundef nonnull %cond) #7
   br label %if.end
@@ -3388,7 +3388,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then11
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %7 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %7
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -3563,9 +3563,9 @@ define internal fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %gi_iframe = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
+  %gi_iframe = getelementptr inbounds i8, ptr %gen, i64 72
   store ptr null, ptr %presult, align 8
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %2 = load i8, ptr %gi_frame_state, align 1
   %cmp = icmp eq i8 %2, -3
   %tobool = icmp ne ptr %arg, null
@@ -3649,18 +3649,19 @@ if.end.i.i60:                                     ; preds = %if.end47
   br label %_Py_NewRef.exit61
 
 _Py_NewRef.exit61:                                ; preds = %if.end47, %if.end.i.i60
-  %stacktop.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 5
+  %localsplus.i = getelementptr inbounds i8, ptr %gen, i64 144
+  %stacktop.i = getelementptr inbounds i8, ptr %gen, i64 136
   %12 = load i32, ptr %stacktop.i, align 8
   %idxprom.i = sext i32 %12 to i64
-  %arrayidx.i = getelementptr %struct._PyInterpreterFrame, ptr %gi_iframe, i64 0, i32 11, i64 %idxprom.i
+  %arrayidx.i = getelementptr [1 x ptr], ptr %localsplus.i, i64 0, i64 %idxprom.i
   store ptr %cond, ptr %arrayidx.i, align 8
   %13 = load i32, ptr %stacktop.i, align 8
   %inc.i = add i32 %13, 1
   store i32 %inc.i, ptr %stacktop.i, align 8
-  %exc_info = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 18
+  %exc_info = getelementptr inbounds i8, ptr %1, i64 112
   %14 = load ptr, ptr %exc_info, align 8
-  %gi_exc_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 4
-  %previous_item = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 4, i32 1
+  %gi_exc_state = getelementptr inbounds i8, ptr %gen, i64 40
+  %previous_item = getelementptr inbounds i8, ptr %gen, i64 48
   store ptr %14, ptr %previous_item, align 8
   store ptr %gi_exc_state, ptr %exc_info, align 8
   %tobool52.not = icmp eq i32 %exc, 0
@@ -3668,9 +3669,9 @@ _Py_NewRef.exit61:                                ; preds = %if.end47, %if.end.i
 
 if.end47.split:                                   ; preds = %_Py_NewRef.exit61
   store i8 0, ptr %gi_frame_state, align 1
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load ptr, ptr %interp.i, align 8
-  %eval_frame.i = getelementptr inbounds %struct._is, ptr %15, i64 0, i32 27
+  %eval_frame.i = getelementptr inbounds i8, ptr %15, i64 2072
   %16 = load ptr, ptr %eval_frame.i, align 8
   %cmp.i62 = icmp eq ptr %16, null
   br i1 %cmp.i62, label %if.then.i, label %if.end.i63
@@ -3686,9 +3687,9 @@ if.end.i63:                                       ; preds = %if.end47.split
 if.then53:                                        ; preds = %_Py_NewRef.exit61
   tail call void @_PyErr_ChainStackItem() #7
   store i8 0, ptr %gi_frame_state, align 1
-  %interp.i64 = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i64 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load ptr, ptr %interp.i64, align 8
-  %eval_frame.i65 = getelementptr inbounds %struct._is, ptr %17, i64 0, i32 27
+  %eval_frame.i65 = getelementptr inbounds i8, ptr %17, i64 2072
   %18 = load ptr, ptr %eval_frame.i65, align 8
   %cmp.i66 = icmp eq ptr %18, null
   br i1 %cmp.i66, label %if.then.i70, label %if.end.i67
@@ -3812,14 +3813,14 @@ if.end8:                                          ; preds = %if.then3, %if.end
   ]
 
 if.then10:                                        ; preds = %if.end8
-  %arrayidx11 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx11 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx11, align 8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx12 = getelementptr i8, ptr %args, i64 16
   %4 = load ptr, ptr %arrayidx12, align 8
   br label %if.end17
 
 if.then14:                                        ; preds = %if.end8
-  %arrayidx15 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx15 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   br label %if.end17
 
@@ -3863,18 +3864,18 @@ entry:
   store ptr %typ, ptr %typ.addr, align 8
   store ptr %val, ptr %val.addr, align 8
   store ptr %tb, ptr %tb.addr, align 8
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state.i, align 1
   %cmp.i52 = icmp eq i8 %0, -1
   br i1 %cmp.i52, label %if.then.i, label %throw_here
 
 if.then.i:                                        ; preds = %entry
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
-  %stacktop.i.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 5
+  %localsplus.i.i = getelementptr inbounds i8, ptr %gen, i64 144
+  %stacktop.i.i = getelementptr inbounds i8, ptr %gen, i64 136
   %1 = load i32, ptr %stacktop.i.i, align 8
   %sub.i.i = add i32 %1, -1
   %idxprom.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr %struct._PyInterpreterFrame, ptr %gi_iframe.i, i64 0, i32 11, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %localsplus.i.i, i64 0, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %3, 1
@@ -3886,6 +3887,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br label %if.then
 
 if.then:                                          ; preds = %if.then.i, %if.end.i.i.i
+  %gi_iframe = getelementptr inbounds i8, ptr %gen, i64 72
   %4 = load ptr, ptr @PyExc_GeneratorExit, align 8
   %call1 = tail call i32 @PyErr_GivenExceptionMatches(ptr noundef %typ, ptr noundef %4) #7
   %tobool2 = icmp ne i32 %call1, 0
@@ -3932,11 +3934,11 @@ if.end12:                                         ; preds = %if.then
 if.then17:                                        ; preds = %if.end12
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %10 = load ptr, ptr %9, align 8
-  %current_frame = getelementptr inbounds %struct._ts, ptr %10, i64 0, i32 12
+  %current_frame = getelementptr inbounds i8, ptr %10, i64 64
   %11 = load ptr, ptr %current_frame, align 8
-  %previous = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1
+  %previous = getelementptr inbounds i8, ptr %gen, i64 80
   store ptr %11, ptr %previous, align 8
-  store ptr %gi_iframe.i, ptr %current_frame, align 8
+  store ptr %gi_iframe, ptr %current_frame, align 8
   %12 = load i8, ptr %gi_frame_state.i, align 1
   store i8 0, ptr %gi_frame_state.i, align 1
   %call24 = tail call fastcc ptr @_gen_throw(ptr noundef nonnull %2, i32 noundef %close_on_genexit, ptr noundef %typ, ptr noundef %val, ptr noundef %tb)
@@ -4176,7 +4178,7 @@ if.then84:                                        ; preds = %_Py_NewRef.exit
 
 if.else88:                                        ; preds = %if.else69
   %39 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %.val51, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %.val51, i64 24
   %40 = load ptr, ptr %tp_name, align 8
   %call90 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %39, ptr noundef nonnull @.str.29, ptr noundef %40) #7
   br label %failed_throw
@@ -4263,7 +4265,7 @@ declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @gen_get_name(ptr nocapture noundef readonly %op, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %gi_name = getelementptr inbounds %struct.PyGenObject, ptr %op, i64 0, i32 2
+  %gi_name = getelementptr inbounds i8, ptr %op, i64 24
   %0 = load ptr, ptr %gi_name, align 8
   %1 = load i32, ptr %0, align 8
   %add.i.i = add i32 %1, 1
@@ -4299,7 +4301,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 do.body:                                          ; preds = %lor.lhs.false
-  %gi_name = getelementptr inbounds %struct.PyGenObject, ptr %op, i64 0, i32 2
+  %gi_name = getelementptr inbounds i8, ptr %op, i64 24
   %4 = load ptr, ptr %gi_name, align 8
   %5 = load i32, ptr %value, align 8
   %add.i.i = add i32 %5, 1
@@ -4339,7 +4341,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @gen_get_qualname(ptr nocapture noundef readonly %op, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %gi_qualname = getelementptr inbounds %struct.PyGenObject, ptr %op, i64 0, i32 3
+  %gi_qualname = getelementptr inbounds i8, ptr %op, i64 32
   %0 = load ptr, ptr %gi_qualname, align 8
   %1 = load i32, ptr %0, align 8
   %add.i.i = add i32 %1, 1
@@ -4375,7 +4377,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 do.body:                                          ; preds = %lor.lhs.false
-  %gi_qualname = getelementptr inbounds %struct.PyGenObject, ptr %op, i64 0, i32 3
+  %gi_qualname = getelementptr inbounds i8, ptr %op, i64 32
   %4 = load ptr, ptr %gi_qualname, align 8
   %5 = load i32, ptr %value, align 8
   %add.i.i = add i32 %5, 1
@@ -4415,18 +4417,18 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal nonnull ptr @gen_getyieldfrom(ptr nocapture noundef readonly %gen, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state.i, align 1
   %cmp.i = icmp eq i8 %0, -1
   br i1 %cmp.i, label %if.then.i, label %_PyGen_yf.exit
 
 if.then.i:                                        ; preds = %entry
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
-  %stacktop.i.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 5
+  %localsplus.i.i = getelementptr inbounds i8, ptr %gen, i64 144
+  %stacktop.i.i = getelementptr inbounds i8, ptr %gen, i64 136
   %1 = load i32, ptr %stacktop.i.i, align 8
   %sub.i.i = add i32 %1, -1
   %idxprom.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr %struct._PyInterpreterFrame, ptr %gi_iframe.i, i64 0, i32 11, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %localsplus.i.i, i64 0, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %3, 1
@@ -4447,7 +4449,7 @@ _PyGen_yf.exit:                                   ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @gen_getrunning(ptr nocapture noundef readonly %gen, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state, align 1
   %cmp = icmp eq i8 %0, 0
   %_Py_TrueStruct._Py_FalseStruct = select i1 %cmp, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
@@ -4462,19 +4464,19 @@ entry:
   br i1 %cmp.i, label %_gen_getframe.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state.i, align 1
   %cmp1.i = icmp sgt i8 %0, 0
   br i1 %cmp1.i, label %_gen_getframe.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %frame_obj.i.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 1, i32 4
+  %frame_obj.i.i = getelementptr inbounds i8, ptr %gen, i64 120
   %1 = load ptr, ptr %frame_obj.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_PyFrame_GetFrameObject.exit.i, label %if.then.i.i.i
 
 _PyFrame_GetFrameObject.exit.i:                   ; preds = %if.end4.i
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 10
+  %gi_iframe.i = getelementptr inbounds i8, ptr %gen, i64 72
   %call.i.i = tail call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %gi_iframe.i) #7
   %cmp.not.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i.i, label %_gen_getframe.exit, label %if.then.i.i.i
@@ -4498,7 +4500,7 @@ _gen_getframe.exit:                               ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @gen_getsuspended(ptr nocapture noundef readonly %gen, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %gen, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %gen, i64 67
   %0 = load i8, ptr %gi_frame_state, align 1
   %narrow = icmp ugt i8 %0, -3
   %lor.ext = zext i1 %narrow to i64
@@ -4561,16 +4563,16 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %call, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %coro, ptr %cw_coroutine, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %3, i64 1096
   %4 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_gc_prev.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %add.ptr.i.i to i64
@@ -4592,18 +4594,18 @@ return:                                           ; preds = %entry, %_Py_NewRef.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal nonnull ptr @coro_get_cr_await(ptr nocapture noundef readonly %coro, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %coro, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %coro, i64 67
   %0 = load i8, ptr %gi_frame_state.i, align 1
   %cmp.i = icmp eq i8 %0, -1
   br i1 %cmp.i, label %if.then.i, label %_PyGen_yf.exit
 
 if.then.i:                                        ; preds = %entry
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %coro, i64 0, i32 10
-  %stacktop.i.i = getelementptr inbounds %struct.PyGenObject, ptr %coro, i64 1, i32 5
+  %localsplus.i.i = getelementptr inbounds i8, ptr %coro, i64 144
+  %stacktop.i.i = getelementptr inbounds i8, ptr %coro, i64 136
   %1 = load i32, ptr %stacktop.i.i, align 8
   %sub.i.i = add i32 %1, -1
   %idxprom.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr %struct._PyInterpreterFrame, ptr %gi_iframe.i, i64 0, i32 11, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %localsplus.i.i, i64 0, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %3, 1
@@ -4624,7 +4626,7 @@ _PyGen_yf.exit:                                   ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @cr_getrunning(ptr nocapture noundef readonly %coro, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %cr_frame_state = getelementptr inbounds %struct.PyCoroObject, ptr %coro, i64 0, i32 9
+  %cr_frame_state = getelementptr inbounds i8, ptr %coro, i64 67
   %0 = load i8, ptr %cr_frame_state, align 1
   %cmp = icmp eq i8 %0, 0
   %_Py_TrueStruct._Py_FalseStruct = select i1 %cmp, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
@@ -4639,19 +4641,19 @@ entry:
   br i1 %cmp.i, label %_gen_getframe.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %coro, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %coro, i64 67
   %0 = load i8, ptr %gi_frame_state.i, align 1
   %cmp1.i = icmp sgt i8 %0, 0
   br i1 %cmp1.i, label %_gen_getframe.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %frame_obj.i.i = getelementptr inbounds %struct.PyGenObject, ptr %coro, i64 1, i32 4
+  %frame_obj.i.i = getelementptr inbounds i8, ptr %coro, i64 120
   %1 = load ptr, ptr %frame_obj.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_PyFrame_GetFrameObject.exit.i, label %if.then.i.i.i
 
 _PyFrame_GetFrameObject.exit.i:                   ; preds = %if.end4.i
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %coro, i64 0, i32 10
+  %gi_iframe.i = getelementptr inbounds i8, ptr %coro, i64 72
   %call.i.i = tail call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %gi_iframe.i) #7
   %cmp.not.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i.i, label %_gen_getframe.exit, label %if.then.i.i.i
@@ -4699,7 +4701,7 @@ _gen_getcode.exit:                                ; preds = %entry, %if.end.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @cr_getsuspended(ptr nocapture noundef readonly %coro, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %cr_frame_state = getelementptr inbounds %struct.PyCoroObject, ptr %coro, i64 0, i32 9
+  %cr_frame_state = getelementptr inbounds i8, ptr %coro, i64 67
   %0 = load i8, ptr %cr_frame_state, align 1
   %switch = icmp ugt i8 %0, -3
   %spec.select = select i1 %switch, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
@@ -4709,7 +4711,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @coro_wrapper_send(ptr nocapture noundef readonly %cw, ptr noundef %arg) #1 {
 entry:
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %cw, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %0 = load ptr, ptr %cw_coroutine, align 8
   %call.i = tail call fastcc ptr @gen_send_ex(ptr noundef %0, ptr noundef %arg, i32 noundef 0, i32 noundef 0)
   ret ptr %call.i
@@ -4718,7 +4720,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @coro_wrapper_throw(ptr nocapture noundef readonly %cw, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %cw, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %0 = load ptr, ptr %cw_coroutine, align 8
   %1 = add i64 %nargs, -1
   %or.cond.i = icmp ult i64 %1, 3
@@ -4747,14 +4749,14 @@ if.end8.i:                                        ; preds = %if.then3.i, %if.end
   ]
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %arrayidx11.i = getelementptr ptr, ptr %args, i64 1
+  %arrayidx11.i = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx11.i, align 8
-  %arrayidx12.i = getelementptr ptr, ptr %args, i64 2
+  %arrayidx12.i = getelementptr i8, ptr %args, i64 16
   %5 = load ptr, ptr %arrayidx12.i, align 8
   br label %if.end17.i
 
 if.then14.i:                                      ; preds = %if.end8.i
-  %arrayidx15.i = getelementptr ptr, ptr %args, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %args, i64 8
   %6 = load ptr, ptr %arrayidx15.i, align 8
   br label %if.end17.i
 
@@ -4772,7 +4774,7 @@ gen_throw.exit:                                   ; preds = %lor.lhs.false.i, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @coro_wrapper_close(ptr nocapture noundef readonly %cw, ptr nocapture readnone %args) #1 {
 entry:
-  %cw_coroutine = getelementptr inbounds %struct.PyCoroWrapper, ptr %cw, i64 0, i32 1
+  %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %0 = load ptr, ptr %cw_coroutine, align 8
   %call = tail call ptr @gen_close(ptr noundef %0, ptr poison)
   ret ptr %call
@@ -4794,9 +4796,9 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
-  %asend_numfree.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 53, i32 3
+  %asend_numfree.i = getelementptr inbounds i8, ptr %2, i64 306560
   %3 = load i32, ptr %asend_numfree.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -4804,8 +4806,9 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %dec.i = add i32 %3, -1
   store i32 %dec.i, ptr %asend_numfree.i, align 8
+  %asend_freelist.i = getelementptr inbounds i8, ptr %2, i64 305920
   %idxprom.i = sext i32 %dec.i to i64
-  %arrayidx.i = getelementptr %struct._is, ptr %2, i64 0, i32 53, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [80 x ptr], ptr %asend_freelist.i, i64 0, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   tail call void @_Py_NewReference(ptr noundef %4) #7
   br label %if.end5.i
@@ -4827,19 +4830,19 @@ if.end.i.i.i:                                     ; preds = %if.end5.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end5.i
-  %ags_gen.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o.0.i, i64 0, i32 1
+  %ags_gen.i = getelementptr inbounds i8, ptr %o.0.i, i64 16
   store ptr %o, ptr %ags_gen.i, align 8
-  %ags_sendval.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o.0.i, i64 0, i32 2
+  %ags_sendval.i = getelementptr inbounds i8, ptr %o.0.i, i64 24
   store ptr null, ptr %ags_sendval.i, align 8
-  %ags_state.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o.0.i, i64 0, i32 3
+  %ags_state.i = getelementptr inbounds i8, ptr %o.0.i, i64 32
   store i32 0, ptr %ags_state.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %o.0.i, i64 -16
   %6 = load ptr, ptr %0, align 8
-  %interp.i.i10.i = getelementptr inbounds %struct._ts, ptr %6, i64 0, i32 2
+  %interp.i.i10.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i10.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %7, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %7, i64 1096
   %8 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %_gc_prev.i.i, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -4862,7 +4865,7 @@ return:                                           ; preds = %_Py_NewRef.exit.i, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @async_gen_init_hooks(ptr noundef %o) unnamed_addr #1 {
 entry:
-  %ag_hooks_inited = getelementptr inbounds %struct.PyAsyncGenObject, ptr %o, i64 0, i32 6
+  %ag_hooks_inited = getelementptr inbounds i8, ptr %o, i64 64
   %0 = load i8, ptr %ag_hooks_inited, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -4871,7 +4874,7 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %ag_hooks_inited, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %async_gen_finalizer = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 30
+  %async_gen_finalizer = getelementptr inbounds i8, ptr %2, i64 216
   %3 = load ptr, ptr %async_gen_finalizer, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -4887,12 +4890,12 @@ if.end.i.i:                                       ; preds = %if.then3
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then3, %if.end.i.i
-  %ag_origin_or_finalizer = getelementptr inbounds %struct.PyAsyncGenObject, ptr %o, i64 0, i32 5
+  %ag_origin_or_finalizer = getelementptr inbounds i8, ptr %o, i64 56
   store ptr %3, ptr %ag_origin_or_finalizer, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %_Py_NewRef.exit, %if.end
-  %async_gen_firstiter = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 29
+  %async_gen_firstiter = getelementptr inbounds i8, ptr %2, i64 208
   %5 = load ptr, ptr %async_gen_firstiter, align 8
   %tobool6.not = icmp eq ptr %5, null
   br i1 %tobool6.not, label %return, label %if.then7
@@ -4959,9 +4962,9 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
-  %asend_numfree.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 53, i32 3
+  %asend_numfree.i = getelementptr inbounds i8, ptr %2, i64 306560
   %3 = load i32, ptr %asend_numfree.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -4969,8 +4972,9 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %dec.i = add i32 %3, -1
   store i32 %dec.i, ptr %asend_numfree.i, align 8
+  %asend_freelist.i = getelementptr inbounds i8, ptr %2, i64 305920
   %idxprom.i = sext i32 %dec.i to i64
-  %arrayidx.i = getelementptr %struct._is, ptr %2, i64 0, i32 53, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [80 x ptr], ptr %asend_freelist.i, i64 0, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   tail call void @_Py_NewReference(ptr noundef %4) #7
   br label %if.end5.i
@@ -4992,7 +4996,7 @@ if.end.i.i.i:                                     ; preds = %if.end5.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end5.i
-  %ags_gen.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o.0.i, i64 0, i32 1
+  %ags_gen.i = getelementptr inbounds i8, ptr %o.0.i, i64 16
   store ptr %o, ptr %ags_gen.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i.i, label %_Py_XNewRef.exit.i, label %if.then.i.i.i
@@ -5008,17 +5012,17 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %_Py_NewRef.exit.i
-  %ags_sendval.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o.0.i, i64 0, i32 2
+  %ags_sendval.i = getelementptr inbounds i8, ptr %o.0.i, i64 24
   store ptr %arg, ptr %ags_sendval.i, align 8
-  %ags_state.i = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o.0.i, i64 0, i32 3
+  %ags_state.i = getelementptr inbounds i8, ptr %o.0.i, i64 32
   store i32 0, ptr %ags_state.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %o.0.i, i64 -16
   %7 = load ptr, ptr %0, align 8
-  %interp.i.i10.i = getelementptr inbounds %struct._ts, ptr %7, i64 0, i32 2
+  %interp.i.i10.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i10.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %8, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %8, i64 1096
   %9 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %_gc_prev.i.i, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -5073,7 +5077,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i, %if.end.i.i.i
-  %agt_gen.i = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %call.i, i64 0, i32 1
+  %agt_gen.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %o, ptr %agt_gen.i, align 8
   %3 = load i32, ptr %args, align 8
   %add.i.i.i.i = add i32 %3, 1
@@ -5085,18 +5089,18 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i
-  %agt_args.i = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %call.i, i64 0, i32 2
+  %agt_args.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %args, ptr %agt_args.i, align 8
-  %agt_state.i = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %call.i, i64 0, i32 3
+  %agt_state.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 0, ptr %agt_state.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %6, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %6, i64 1096
   %7 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %7, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %_gc_prev.i.i, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -5139,20 +5143,20 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i
-  %agt_gen.i = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %call.i, i64 0, i32 1
+  %agt_gen.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %o, ptr %agt_gen.i, align 8
-  %agt_args.i = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %call.i, i64 0, i32 2
+  %agt_args.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %agt_args.i, align 8
-  %agt_state.i = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %call.i, i64 0, i32 3
+  %agt_state.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 0, ptr %agt_state.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %3, i64 1096
   %4 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_gc_prev.i.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -5182,19 +5186,19 @@ entry:
   br i1 %cmp.i, label %_gen_getframe.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %gi_frame_state.i = getelementptr inbounds %struct.PyGenObject, ptr %ag, i64 0, i32 9
+  %gi_frame_state.i = getelementptr inbounds i8, ptr %ag, i64 67
   %0 = load i8, ptr %gi_frame_state.i, align 1
   %cmp1.i = icmp sgt i8 %0, 0
   br i1 %cmp1.i, label %_gen_getframe.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %frame_obj.i.i = getelementptr inbounds %struct.PyGenObject, ptr %ag, i64 1, i32 4
+  %frame_obj.i.i = getelementptr inbounds i8, ptr %ag, i64 120
   %1 = load ptr, ptr %frame_obj.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_PyFrame_GetFrameObject.exit.i, label %if.then.i.i.i
 
 _PyFrame_GetFrameObject.exit.i:                   ; preds = %if.end4.i
-  %gi_iframe.i = getelementptr inbounds %struct.PyGenObject, ptr %ag, i64 0, i32 10
+  %gi_iframe.i = getelementptr inbounds i8, ptr %ag, i64 72
   %call.i.i = tail call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %gi_iframe.i) #7
   %cmp.not.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i.i, label %_gen_getframe.exit, label %if.then.i.i.i
@@ -5242,7 +5246,7 @@ _gen_getcode.exit:                                ; preds = %entry, %if.end.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @ag_getsuspended(ptr nocapture noundef readonly %ag, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %ag_frame_state = getelementptr inbounds %struct.PyAsyncGenObject, ptr %ag, i64 0, i32 9
+  %ag_frame_state = getelementptr inbounds i8, ptr %ag, i64 67
   %0 = load i8, ptr %ag_frame_state, align 1
   %switch = icmp ugt i8 %0, -3
   %spec.select = select i1 %switch, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
@@ -5252,7 +5256,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_asend_send(ptr nocapture noundef %o, ptr noundef %arg) #1 {
 entry:
-  %ags_state = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 3
+  %ags_state = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %ags_state, align 8
   switch i32 %0, label %entry.if.end11_crit_edge [
     i32 2, label %if.then
@@ -5260,7 +5264,7 @@ entry:
   ]
 
 entry.if.end11_crit_edge:                         ; preds = %entry
-  %ags_gen12.phi.trans.insert = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen12.phi.trans.insert = getelementptr inbounds i8, ptr %o, i64 16
   %.pre = load ptr, ptr %ags_gen12.phi.trans.insert, align 8
   br label %if.end11
 
@@ -5270,9 +5274,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.then3:                                         ; preds = %entry
-  %ags_gen = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen = getelementptr inbounds i8, ptr %o, i64 16
   %2 = load ptr, ptr %ags_gen, align 8
-  %ag_running_async = getelementptr inbounds %struct.PyAsyncGenObject, ptr %2, i64 0, i32 8
+  %ag_running_async = getelementptr inbounds i8, ptr %2, i64 66
   %3 = load i8, ptr %ag_running_async, align 2
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end5, label %if.then4
@@ -5289,7 +5293,7 @@ if.end5:                                          ; preds = %if.then3
   br i1 %or.cond, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end5
-  %ags_sendval = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 2
+  %ags_sendval = getelementptr inbounds i8, ptr %o, i64 24
   %5 = load ptr, ptr %ags_sendval, align 8
   br label %if.end9
 
@@ -5301,8 +5305,8 @@ if.end9:                                          ; preds = %if.end5, %if.then8
 if.end11:                                         ; preds = %entry.if.end11_crit_edge, %if.end9
   %6 = phi ptr [ %2, %if.end9 ], [ %.pre, %entry.if.end11_crit_edge ]
   %arg.addr.1 = phi ptr [ %arg.addr.0, %if.end9 ], [ %arg, %entry.if.end11_crit_edge ]
-  %ags_gen12 = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
-  %ag_running_async13 = getelementptr inbounds %struct.PyAsyncGenObject, ptr %6, i64 0, i32 8
+  %ags_gen12 = getelementptr inbounds i8, ptr %o, i64 16
+  %ag_running_async13 = getelementptr inbounds i8, ptr %6, i64 66
   store i8 1, ptr %ag_running_async13, align 2
   %7 = load ptr, ptr %ags_gen12, align 8
   %call.i = tail call fastcc ptr @gen_send_ex(ptr noundef %7, ptr noundef %arg.addr.1, i32 noundef 0, i32 noundef 0)
@@ -5349,7 +5353,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool5.not, label %return.sink.split, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.end
-  %ag_closed = getelementptr inbounds %struct.PyAsyncGenObject, ptr %gen, i64 0, i32 7
+  %ag_closed = getelementptr inbounds i8, ptr %gen, i64 65
   store i8 1, ptr %ag_closed, align 1
   br label %return.sink.split
 
@@ -5360,7 +5364,7 @@ if.end8:                                          ; preds = %entry
   br i1 %cmp.i9.not, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end8
-  %agw_val = getelementptr inbounds %struct._PyAsyncGenWrappedValue, ptr %result, i64 0, i32 1
+  %agw_val = getelementptr inbounds i8, ptr %result, i64 16
   %4 = load ptr, ptr %agw_val, align 8
   %cmp.i10 = icmp eq ptr %4, null
   br i1 %cmp.i10, label %if.then.i, label %lor.lhs.false.i
@@ -5420,7 +5424,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i, %if.then1.i, %_PyGen_SetStopIterationValue.exit, %lor.lhs.false, %if.then6
-  %ag_running_async13 = getelementptr inbounds %struct.PyAsyncGenObject, ptr %gen, i64 0, i32 8
+  %ag_running_async13 = getelementptr inbounds i8, ptr %gen, i64 66
   store i8 0, ptr %ag_running_async13, align 2
   br label %return
 
@@ -5432,7 +5436,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_asend_throw(ptr nocapture noundef %o, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
-  %ags_state = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 3
+  %ags_state = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %ags_state, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -5443,7 +5447,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ags_gen = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 1
+  %ags_gen = getelementptr inbounds i8, ptr %o, i64 16
   %2 = load ptr, ptr %ags_gen, align 8
   %3 = add i64 %nargs, -1
   %or.cond.i = icmp ult i64 %3, 3
@@ -5472,14 +5476,14 @@ if.end8.i:                                        ; preds = %if.then3.i, %if.end
   ]
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %arrayidx11.i = getelementptr ptr, ptr %args, i64 1
+  %arrayidx11.i = getelementptr i8, ptr %args, i64 8
   %6 = load ptr, ptr %arrayidx11.i, align 8
-  %arrayidx12.i = getelementptr ptr, ptr %args, i64 2
+  %arrayidx12.i = getelementptr i8, ptr %args, i64 16
   %7 = load ptr, ptr %arrayidx12.i, align 8
   br label %if.end17.i
 
 if.then14.i:                                      ; preds = %if.end8.i
-  %arrayidx15.i = getelementptr ptr, ptr %args, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %args, i64 8
   %8 = load ptr, ptr %arrayidx15.i, align 8
   br label %if.end17.i
 
@@ -5508,7 +5512,7 @@ return:                                           ; preds = %gen_throw.exit, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal nonnull ptr @async_gen_asend_close(ptr nocapture noundef writeonly %o, ptr nocapture readnone %args) #5 {
 entry:
-  %ags_state = getelementptr inbounds %struct.PyAsyncGenASend, ptr %o, i64 0, i32 3
+  %ags_state = getelementptr inbounds i8, ptr %o, i64 32
   store i32 2, ptr %ags_state, align 8
   ret ptr @_Py_NoneStruct
 }
@@ -5521,9 +5525,9 @@ entry:
   %typ = alloca ptr, align 8
   %tb = alloca ptr, align 8
   %val = alloca ptr, align 8
-  %agt_gen = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 1
+  %agt_gen = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %agt_gen, align 8
-  %agt_state = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 3
+  %agt_state = getelementptr inbounds i8, ptr %o, i64 32
   %1 = load i32, ptr %agt_state, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -5534,7 +5538,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %gi_frame_state = getelementptr inbounds %struct.PyGenObject, ptr %0, i64 0, i32 9
+  %gi_frame_state = getelementptr inbounds i8, ptr %0, i64 67
   %3 = load i8, ptr %gi_frame_state, align 1
   %cmp2 = icmp sgt i8 %3, 0
   br i1 %cmp2, label %if.then4, label %if.end6
@@ -5550,14 +5554,14 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %if.then10, label %if.end56
 
 if.then10:                                        ; preds = %if.end6
-  %ag_running_async = getelementptr inbounds %struct.PyAsyncGenObject, ptr %0, i64 0, i32 8
+  %ag_running_async = getelementptr inbounds i8, ptr %0, i64 66
   %5 = load i8, ptr %ag_running_async, align 2
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %if.end18, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
   store i32 2, ptr %agt_state, align 8
-  %agt_args = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args = getelementptr inbounds i8, ptr %o, i64 24
   %6 = load ptr, ptr %agt_args, align 8
   %cmp14 = icmp eq ptr %6, null
   %7 = load ptr, ptr @PyExc_RuntimeError, align 8
@@ -5572,7 +5576,7 @@ if.else:                                          ; preds = %if.then12
   br label %return
 
 if.end18:                                         ; preds = %if.then10
-  %ag_closed = getelementptr inbounds %struct.PyAsyncGenObject, ptr %0, i64 0, i32 7
+  %ag_closed = getelementptr inbounds i8, ptr %0, i64 65
   %8 = load i8, ptr %ag_closed, align 1
   %tobool20.not = icmp eq i8 %8, 0
   br i1 %tobool20.not, label %if.end23, label %if.then21
@@ -5595,14 +5599,14 @@ if.then26:                                        ; preds = %if.end23
 if.end27:                                         ; preds = %if.end23
   store i32 1, ptr %agt_state, align 8
   store i8 1, ptr %ag_running_async, align 2
-  %agt_args31 = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args31 = getelementptr inbounds i8, ptr %o, i64 24
   %11 = load ptr, ptr %agt_args31, align 8
   %cmp32 = icmp eq ptr %11, null
   br i1 %cmp32, label %if.then34, label %if.else42
 
 if.then34:                                        ; preds = %if.end27
   %12 = load ptr, ptr %agt_gen, align 8
-  %ag_closed36 = getelementptr inbounds %struct.PyAsyncGenObject, ptr %12, i64 0, i32 7
+  %ag_closed36 = getelementptr inbounds i8, ptr %12, i64 65
   store i8 1, ptr %ag_closed36, align 1
   %13 = load ptr, ptr @PyExc_GeneratorExit, align 8
   %call = tail call fastcc ptr @_gen_throw(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %13, ptr noundef null, ptr noundef null)
@@ -5646,7 +5650,7 @@ if.end51:                                         ; preds = %if.else42
 
 if.end56:                                         ; preds = %if.end6
   %call.i = tail call fastcc ptr @gen_send_ex(ptr noundef nonnull %0, ptr noundef %arg, i32 noundef 0, i32 noundef 0)
-  %agt_args58 = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args58 = getelementptr inbounds i8, ptr %o, i64 24
   %21 = load ptr, ptr %agt_args58, align 8
   %tobool59.not = icmp eq ptr %21, null
   br i1 %tobool59.not, label %if.else63, label %if.then60
@@ -5685,7 +5689,7 @@ yield_close.sink.split:                           ; preds = %if.end.i, %if.end.i
 
 yield_close:                                      ; preds = %yield_close.sink.split, %if.end.i, %if.then68, %if.end.i91, %if.then40
   %26 = load ptr, ptr %agt_gen, align 8
-  %ag_running_async72 = getelementptr inbounds %struct.PyAsyncGenObject, ptr %26, i64 0, i32 8
+  %ag_running_async72 = getelementptr inbounds i8, ptr %26, i64 66
   store i8 0, ptr %ag_running_async72, align 2
   store i32 2, ptr %agt_state, align 8
   %27 = load ptr, ptr @PyExc_RuntimeError, align 8
@@ -5694,7 +5698,7 @@ yield_close:                                      ; preds = %yield_close.sink.sp
 
 check_error:                                      ; preds = %if.then34, %if.else63, %if.end51
   %28 = load ptr, ptr %agt_gen, align 8
-  %ag_running_async75 = getelementptr inbounds %struct.PyAsyncGenObject, ptr %28, i64 0, i32 8
+  %ag_running_async75 = getelementptr inbounds i8, ptr %28, i64 66
   store i8 0, ptr %ag_running_async75, align 2
   store i32 2, ptr %agt_state, align 8
   %29 = load ptr, ptr @PyExc_StopAsyncIteration, align 8
@@ -5709,7 +5713,7 @@ lor.lhs.false:                                    ; preds = %check_error
   br i1 %tobool80.not, label %return, label %if.then81
 
 if.then81:                                        ; preds = %lor.lhs.false, %check_error
-  %agt_args82 = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args82 = getelementptr inbounds i8, ptr %o, i64 24
   %31 = load ptr, ptr %agt_args82, align 8
   %cmp83 = icmp eq ptr %31, null
   br i1 %cmp83, label %if.then85, label %return
@@ -5730,7 +5734,7 @@ declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_athrow_throw(ptr nocapture noundef %o, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
-  %agt_state = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 3
+  %agt_state = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %agt_state, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -5741,7 +5745,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %agt_gen = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 1
+  %agt_gen = getelementptr inbounds i8, ptr %o, i64 16
   %2 = load ptr, ptr %agt_gen, align 8
   %3 = add i64 %nargs, -1
   %or.cond.i = icmp ult i64 %3, 3
@@ -5770,14 +5774,14 @@ if.end8.i:                                        ; preds = %if.then3.i, %if.end
   ]
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %arrayidx11.i = getelementptr ptr, ptr %args, i64 1
+  %arrayidx11.i = getelementptr i8, ptr %args, i64 8
   %6 = load ptr, ptr %arrayidx11.i, align 8
-  %arrayidx12.i = getelementptr ptr, ptr %args, i64 2
+  %arrayidx12.i = getelementptr i8, ptr %args, i64 16
   %7 = load ptr, ptr %arrayidx12.i, align 8
   br label %if.end17.i
 
 if.then14.i:                                      ; preds = %if.end8.i
-  %arrayidx15.i = getelementptr ptr, ptr %args, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %args, i64 8
   %8 = load ptr, ptr %arrayidx15.i, align 8
   br label %if.end17.i
 
@@ -5789,7 +5793,7 @@ if.end17.i:                                       ; preds = %if.then14.i, %if.th
 
 gen_throw.exit:                                   ; preds = %lor.lhs.false.i, %if.then3.i, %if.end17.i
   %retval.0.i = phi ptr [ %call18.i, %if.end17.i ], [ null, %lor.lhs.false.i ], [ null, %if.then3.i ]
-  %agt_args = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 2
+  %agt_args = getelementptr inbounds i8, ptr %o, i64 24
   %9 = load ptr, ptr %agt_args, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else, label %if.then2
@@ -5811,7 +5815,7 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then8:                                         ; preds = %land.lhs.true
   %12 = load ptr, ptr %agt_gen, align 8
-  %ag_running_async = getelementptr inbounds %struct.PyAsyncGenObject, ptr %12, i64 0, i32 8
+  %ag_running_async = getelementptr inbounds i8, ptr %12, i64 66
   store i8 0, ptr %ag_running_async, align 2
   store i32 2, ptr %agt_state, align 8
   %13 = load i64, ptr %retval.0.i, align 8
@@ -5860,7 +5864,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal nonnull ptr @async_gen_athrow_close(ptr nocapture noundef writeonly %o, ptr nocapture readnone %args) #5 {
 entry:
-  %agt_state = getelementptr inbounds %struct.PyAsyncGenAThrow, ptr %o, i64 0, i32 3
+  %agt_state = getelementptr inbounds i8, ptr %o, i64 32
   store i32 2, ptr %agt_state, align 8
   ret ptr @_Py_NoneStruct
 }

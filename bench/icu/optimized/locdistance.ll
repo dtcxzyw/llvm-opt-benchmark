@@ -3,12 +3,8 @@ source_filename = "bench/icu/original/locdistance.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::LikelySubtags" = type { ptr, ptr, %"class.icu_75::CharStringMap", %"class.icu_75::CharStringMap", %"class.icu_75::BytesTrie", i64, i64, i32, [26 x i64], ptr, %"struct.icu_75::LocaleDistanceData" }
-%"class.icu_75::CharStringMap" = type { ptr }
-%"class.icu_75::BytesTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.icu_75::LocaleDistanceData" = type { ptr, ptr, ptr, ptr, i32, ptr }
-%"class.icu_75::LocaleDistance" = type { ptr, %"class.icu_75::BytesTrie", ptr, ptr, ptr, i32, i32, i32, i32, i32, i32 }
 %"struct.icu_75::LSR" = type <{ ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
+%"class.icu_75::BytesTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN6icu_753LSRD2Ev = comdat any
 
@@ -32,18 +28,18 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %distanceData.i = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call, i64 0, i32 10
+  %distanceData.i = getelementptr inbounds i8, ptr %call, i64 304
   %1 = load ptr, ptr %distanceData.i, align 8
   %cmp = icmp eq ptr %1, null
-  %regionToPartitions = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call, i64 0, i32 10, i32 1
+  %regionToPartitions = getelementptr inbounds i8, ptr %call, i64 312
   %2 = load ptr, ptr %regionToPartitions, align 8
   %cmp3 = icmp eq ptr %2, null
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
-  %partitions = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call, i64 0, i32 10, i32 2
+  %partitions = getelementptr inbounds i8, ptr %call, i64 320
   %3 = load ptr, ptr %partitions, align 8
   %cmp5 = icmp eq ptr %3, null
   %or.cond9 = select i1 %or.cond, i1 true, i1 %cmp5
-  %distances = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call, i64 0, i32 10, i32 5
+  %distances = getelementptr inbounds i8, ptr %call, i64 344
   %4 = load ptr, ptr %distances, align 8
   %cmp7 = icmp eq ptr %4, null
   %or.cond10 = select i1 %or.cond9, i1 true, i1 %cmp7
@@ -102,7 +98,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %trie.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %0, i64 0, i32 1
+  %trie.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie.i) #8
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #8
   br label %delete.end
@@ -137,18 +133,18 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i2, label %if.end.i3, label %_ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit
 
 if.end.i3:                                        ; preds = %if.then4.i
-  %distanceData.i.i = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call.i, i64 0, i32 10
+  %distanceData.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
   %3 = load ptr, ptr %distanceData.i.i, align 8
   %cmp.i4 = icmp eq ptr %3, null
-  %regionToPartitions.i = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call.i, i64 0, i32 10, i32 1
+  %regionToPartitions.i = getelementptr inbounds i8, ptr %call.i, i64 312
   %4 = load ptr, ptr %regionToPartitions.i, align 8
   %cmp3.i = icmp eq ptr %4, null
   %or.cond.i = select i1 %cmp.i4, i1 true, i1 %cmp3.i
-  %partitions.i = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call.i, i64 0, i32 10, i32 2
+  %partitions.i = getelementptr inbounds i8, ptr %call.i, i64 320
   %5 = load ptr, ptr %partitions.i, align 8
   %cmp5.i = icmp eq ptr %5, null
   %or.cond9.i = select i1 %or.cond.i, i1 true, i1 %cmp5.i
-  %distances.i = getelementptr inbounds %"class.icu_75::LikelySubtags", ptr %call.i, i64 0, i32 10, i32 5
+  %distances.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %6 = load ptr, ptr %distances.i, align 8
   %cmp7.i = icmp eq ptr %6, null
   %or.cond10.i = select i1 %or.cond9.i, i1 true, i1 %cmp7.i
@@ -215,84 +211,84 @@ entry:
   %enGB = alloca %"struct.icu_75::LSR", align 8
   %p_enGB = alloca ptr, align 8
   store ptr %likely, ptr %this, align 8
-  %trie = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 1
+  %trie = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr null, ptr %trie, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 1, i32 1
+  %bytes_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %0, ptr %bytes_.i, align 8
-  %pos_.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 1, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 1, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %remainingMatchLength_.i, align 8
-  %regionToPartitionsIndex = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 2
-  %regionToPartitions = getelementptr inbounds %"struct.icu_75::LocaleDistanceData", ptr %data, i64 0, i32 1
+  %regionToPartitionsIndex = getelementptr inbounds i8, ptr %this, i64 40
+  %regionToPartitions = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load ptr, ptr %regionToPartitions, align 8
   store ptr %1, ptr %regionToPartitionsIndex, align 8
-  %partitionArrays = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 3
-  %partitions = getelementptr inbounds %"struct.icu_75::LocaleDistanceData", ptr %data, i64 0, i32 2
+  %partitionArrays = getelementptr inbounds i8, ptr %this, i64 48
+  %partitions = getelementptr inbounds i8, ptr %data, i64 16
   %2 = load ptr, ptr %partitions, align 8
   store ptr %2, ptr %partitionArrays, align 8
-  %paradigmLSRs = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 4
-  %paradigms = getelementptr inbounds %"struct.icu_75::LocaleDistanceData", ptr %data, i64 0, i32 3
+  %paradigmLSRs = getelementptr inbounds i8, ptr %this, i64 56
+  %paradigms = getelementptr inbounds i8, ptr %data, i64 24
   %3 = load ptr, ptr %paradigms, align 8
   store ptr %3, ptr %paradigmLSRs, align 8
-  %paradigmLSRsLength = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 5
-  %paradigmsLength = getelementptr inbounds %"struct.icu_75::LocaleDistanceData", ptr %data, i64 0, i32 4
+  %paradigmLSRsLength = getelementptr inbounds i8, ptr %this, i64 64
+  %paradigmsLength = getelementptr inbounds i8, ptr %data, i64 32
   %4 = load i32, ptr %paradigmsLength, align 8
   store i32 %4, ptr %paradigmLSRsLength, align 8
-  %defaultLanguageDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 6
-  %distances = getelementptr inbounds %"struct.icu_75::LocaleDistanceData", ptr %data, i64 0, i32 5
+  %defaultLanguageDistance = getelementptr inbounds i8, ptr %this, i64 68
+  %distances = getelementptr inbounds i8, ptr %data, i64 40
   %5 = load ptr, ptr %distances, align 8
   %6 = load i32, ptr %5, align 4
   store i32 %6, ptr %defaultLanguageDistance, align 4
-  %defaultScriptDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 7
+  %defaultScriptDistance = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %distances, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %7, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %arrayidx3, align 4
   store i32 %8, ptr %defaultScriptDistance, align 8
-  %defaultRegionDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 8
+  %defaultRegionDistance = getelementptr inbounds i8, ptr %this, i64 76
   %9 = load ptr, ptr %distances, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %9, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i32, ptr %arrayidx5, align 4
   store i32 %10, ptr %defaultRegionDistance, align 4
-  %minRegionDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 9
+  %minRegionDistance = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %distances, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %11, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %arrayidx7, align 4
   store i32 %12, ptr %minRegionDistance, align 8
   store ptr @.str, ptr %en, align 8
-  %script.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %en, i64 0, i32 1
+  %script.i = getelementptr inbounds i8, ptr %en, i64 8
   store ptr @.str.1, ptr %script.i, align 8
-  %region.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %en, i64 0, i32 2
+  %region.i = getelementptr inbounds i8, ptr %en, i64 16
   store ptr @.str.2, ptr %region.i, align 8
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %en, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %en, i64 24
   store ptr null, ptr %owned.i, align 8
   %call.i11 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %regionIndex.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %en, i64 0, i32 4
+  %regionIndex.i = getelementptr inbounds i8, ptr %en, i64 32
   store i32 %call.i11, ptr %regionIndex.i, align 8
-  %flags.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %en, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %en, i64 36
   store i32 7, ptr %flags.i, align 4
-  %hashCode.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %en, i64 0, i32 6
+  %hashCode.i = getelementptr inbounds i8, ptr %en, i64 40
   store i32 0, ptr %hashCode.i, align 8
   store ptr @.str, ptr %enGB, align 8
-  %script.i12 = getelementptr inbounds %"struct.icu_75::LSR", ptr %enGB, i64 0, i32 1
+  %script.i12 = getelementptr inbounds i8, ptr %enGB, i64 8
   store ptr @.str.1, ptr %script.i12, align 8
-  %region.i13 = getelementptr inbounds %"struct.icu_75::LSR", ptr %enGB, i64 0, i32 2
+  %region.i13 = getelementptr inbounds i8, ptr %enGB, i64 16
   store ptr @.str.3, ptr %region.i13, align 8
-  %owned.i14 = getelementptr inbounds %"struct.icu_75::LSR", ptr %enGB, i64 0, i32 3
+  %owned.i14 = getelementptr inbounds i8, ptr %enGB, i64 24
   store ptr null, ptr %owned.i14, align 8
   %call.i18 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.3)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  %regionIndex.i15 = getelementptr inbounds %"struct.icu_75::LSR", ptr %enGB, i64 0, i32 4
+  %regionIndex.i15 = getelementptr inbounds i8, ptr %enGB, i64 32
   store i32 %call.i18, ptr %regionIndex.i15, align 8
-  %flags.i16 = getelementptr inbounds %"struct.icu_75::LSR", ptr %enGB, i64 0, i32 5
+  %flags.i16 = getelementptr inbounds i8, ptr %enGB, i64 36
   store i32 7, ptr %flags.i16, align 4
-  %hashCode.i17 = getelementptr inbounds %"struct.icu_75::LSR", ptr %enGB, i64 0, i32 6
+  %hashCode.i17 = getelementptr inbounds i8, ptr %enGB, i64 40
   store i32 0, ptr %hashCode.i17, align 8
   store ptr %enGB, ptr %p_enGB, align 8
   %call13 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %en, ptr noundef nonnull %p_enGB, i32 noundef 1, i32 noundef 400, i32 noundef 0, i32 noundef 0)
@@ -301,7 +297,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 invoke.cont12:                                    ; preds = %invoke.cont9
   %and.i = lshr i32 %call13, 3
   %shr.i = and i32 %and.i, 127
-  %defaultDemotionPerDesiredLocale = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 10
+  %defaultDemotionPerDesiredLocale = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %shr.i, ptr %defaultDemotionPerDesiredLocale, align 4
   %13 = load ptr, ptr %owned.i14, align 8
   %cmp.not.i = icmp eq ptr %13, null
@@ -372,13 +368,13 @@ entry:
   %pSupp.i = alloca ptr, align 8
   %iter = alloca %"class.icu_75::BytesTrie", align 8
   store ptr null, ptr %iter, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 1
-  %bytes_2.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 1, i32 1
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %bytes_.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %bytes_2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load <2 x ptr>, ptr %bytes_2.i, align 8
   store <2 x ptr> %0, ptr %bytes_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 3
-  %remainingMatchLength_4.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 1, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
+  %remainingMatchLength_4.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %remainingMatchLength_4.i, align 8
   store i32 %1, ptr %remainingMatchLength_.i, align 8
   %2 = load ptr, ptr %desired, align 8
@@ -446,18 +442,18 @@ for.body.lr.ph:                                   ; preds = %cond.end.thread, %c
   %conv.i81 = trunc i64 %shr.i to i32
   %sub.i = add nsw i32 %conv.i81, -2
   %and.i84 = and i64 %cond202, 576460752303423487
-  %defaultLanguageDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 6
+  %defaultLanguageDistance = getelementptr inbounds i8, ptr %this, i64 68
   %cmp26 = icmp eq i32 %favorSubtag, 1
-  %script44 = getelementptr inbounds %"struct.icu_75::LSR", ptr %desired, i64 0, i32 1
-  %defaultScriptDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 7
-  %region = getelementptr inbounds %"struct.icu_75::LSR", ptr %desired, i64 0, i32 2
-  %minRegionDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 9
-  %regionToPartitionsIndex.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 2
-  %regionIndex.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %desired, i64 0, i32 4
-  %partitionArrays.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 3
-  %defaultRegionDistance = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 8
+  %script44 = getelementptr inbounds i8, ptr %desired, i64 8
+  %defaultScriptDistance = getelementptr inbounds i8, ptr %this, i64 72
+  %region = getelementptr inbounds i8, ptr %desired, i64 16
+  %minRegionDistance = getelementptr inbounds i8, ptr %this, i64 80
+  %regionToPartitionsIndex.i = getelementptr inbounds i8, ptr %this, i64 40
+  %regionIndex.i = getelementptr inbounds i8, ptr %desired, i64 32
+  %partitionArrays.i = getelementptr inbounds i8, ptr %this, i64 48
+  %defaultRegionDistance = getelementptr inbounds i8, ptr %this, i64 76
   %cmp115.not = icmp eq i32 %direction, 1
-  %flags85 = getelementptr inbounds %"struct.icu_75::LSR", ptr %desired, i64 0, i32 5
+  %flags85 = getelementptr inbounds i8, ptr %desired, i64 36
   %wide.trip.count = zext nneg i32 %supportedLSRsLength to i64
   br label %for.body
 
@@ -592,7 +588,7 @@ if.end32:                                         ; preds = %if.end25
 
 if.then34:                                        ; preds = %if.end32
   %21 = load ptr, ptr %script44, align 8
-  %script35 = getelementptr inbounds %"struct.icu_75::LSR", ptr %9, i64 0, i32 1
+  %script35 = getelementptr inbounds i8, ptr %9, i64 8
   %22 = load ptr, ptr %script35, align 8
   %call36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22) #10
   %cmp37 = icmp eq i32 %call36, 0
@@ -612,7 +608,7 @@ if.else41:                                        ; preds = %if.end32
   %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i112, %sub.ptr.rhs.cast.i113
   %or.i115 = or i64 %sub.ptr.sub.i114, %shl.i109
   %27 = load ptr, ptr %script44, align 8
-  %script45 = getelementptr inbounds %"struct.icu_75::LSR", ptr %9, i64 0, i32 1
+  %script45 = getelementptr inbounds i8, ptr %9, i64 8
   %28 = load ptr, ptr %script45, align 8
   %call47 = invoke noundef i32 @_ZN6icu_7514LocaleDistance24getDesSuppScriptDistanceERNS_9BytesTrieEmPKcS4_(ptr noundef nonnull align 8 dereferenceable(28) %iter, i64 noundef %or.i115, ptr noundef %27, ptr noundef %28)
           to label %invoke.cont46 unwind label %lpad.loopexit.split-lp.loopexit
@@ -631,7 +627,7 @@ if.end50:                                         ; preds = %if.then34, %invoke.
 
 if.end54:                                         ; preds = %if.end50
   %29 = load ptr, ptr %region, align 8
-  %region55 = getelementptr inbounds %"struct.icu_75::LSR", ptr %9, i64 0, i32 2
+  %region55 = getelementptr inbounds i8, ptr %9, i64 16
   %30 = load ptr, ptr %region55, align 8
   %call56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %30) #10
   %cmp57 = icmp eq i32 %call56, 0
@@ -674,7 +670,7 @@ if.end69:                                         ; preds = %if.else66
   %idxprom2.i = zext i8 %38 to i64
   %arrayidx3.i = getelementptr inbounds ptr, ptr %39, i64 %idxprom2.i
   %40 = load ptr, ptr %arrayidx3.i, align 8
-  %regionIndex.i127 = getelementptr inbounds %"struct.icu_75::LSR", ptr %9, i64 0, i32 4
+  %regionIndex.i127 = getelementptr inbounds i8, ptr %9, i64 32
   %41 = load i32, ptr %regionIndex.i127, align 8
   %idxprom.i128 = sext i32 %41 to i64
   %arrayidx.i129 = getelementptr inbounds i8, ptr %36, i64 %idxprom.i128
@@ -698,7 +694,7 @@ if.end80:                                         ; preds = %if.then64, %invoke.
 
 if.then84:                                        ; preds = %if.end80
   %45 = load i32, ptr %flags85, align 4
-  %flags86 = getelementptr inbounds %"struct.icu_75::LSR", ptr %9, i64 0, i32 5
+  %flags86 = getelementptr inbounds i8, ptr %9, i64 36
   %46 = load i32, ptr %flags86, align 4
   %xor = xor i32 %46, %45
   %cmp87 = icmp slt i32 %xor, %shiftedThreshold.addr.0185
@@ -807,7 +803,7 @@ cleanup:                                          ; preds = %cond.end, %for.end,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_753LSRD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %owned = getelementptr inbounds %"struct.icu_75::LSR", ptr %this, i64 0, i32 3
+  %owned = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %owned, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -863,7 +859,7 @@ if.then10:                                        ; preds = %if.else
   br i1 %cmp11, label %if.then12, label %if.end24
 
 if.then12:                                        ; preds = %if.then10
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
   %3 = load ptr, ptr %pos_.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 1
   %4 = load i8, ptr %3, align 1
@@ -949,7 +945,7 @@ if.else.i21:                                      ; preds = %for.cond.i10
   br i1 %cmp11.i, label %if.end, label %if.then3
 
 if.end:                                           ; preds = %if.else.i21
-  %pos_.i.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %pos_.i.i = getelementptr inbounds i8, ptr %iter, i64 16
   %6 = load ptr, ptr %pos_.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 1
   %7 = load i8, ptr %6, align 1
@@ -966,13 +962,13 @@ if.then3:                                         ; preds = %if.then3.i, %if.the
   %shr.i = lshr i64 %startState, 59
   %conv.i = trunc i64 %shr.i to i32
   %sub.i = add nsw i32 %conv.i, -2
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 %sub.i, ptr %remainingMatchLength_.i, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 1
+  %bytes_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %9 = load ptr, ptr %bytes_.i, align 8
   %and.i26 = and i64 %startState, 576460752303423487
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %and.i26
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %add.ptr.i, ptr %pos_.i, align 8
   %call5 = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef 42)
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %desired, ptr noundef nonnull dereferenceable(1) %supported) #10
@@ -1015,9 +1011,9 @@ entry:
   br i1 %brmerge, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 3
-  %pos_.i37 = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 1
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
+  %pos_.i37 = getelementptr inbounds i8, ptr %iter, i64 16
+  %bytes_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %shr.i.i42 = lshr i64 %startState, 59
   %conv.i.i43 = trunc i64 %shr.i.i42 to i32
   %sub.i.i44 = add nsw i32 %conv.i.i43, -2
@@ -1040,20 +1036,20 @@ if.then6:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.then6
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
   br label %return.sink.split
 
 if.end13:                                         ; preds = %if.then6, %if.then
   %shr.i.i = lshr i64 %startState, 59
   %conv.i.i = trunc i64 %shr.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i, -2
-  %remainingMatchLength_.i.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 3
+  %remainingMatchLength_.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 %sub.i.i, ptr %remainingMatchLength_.i.i, align 8
-  %bytes_.i.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 1
+  %bytes_.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   %4 = load ptr, ptr %bytes_.i.i, align 8
   %and.i.i = and i64 %startState, 576460752303423487
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %and.i.i
-  %pos_.i.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %pos_.i.i = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %add.ptr.i.i, ptr %pos_.i.i, align 8
   %call1.i = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef 42)
   br label %return.sink.split
@@ -1214,13 +1210,13 @@ entry:
   %shr.i = lshr i64 %startState, 59
   %conv.i = trunc i64 %shr.i to i32
   %sub.i = add nsw i32 %conv.i, -2
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 %sub.i, ptr %remainingMatchLength_.i, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 1
+  %bytes_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %0 = load ptr, ptr %bytes_.i, align 8
   %and.i = and i64 %startState, 576460752303423487
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %and.i
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %iter, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %add.ptr.i, ptr %pos_.i, align 8
   %call1 = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef 42)
   %1 = load ptr, ptr %pos_.i, align 8
@@ -1235,8 +1231,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7514LocaleDistance13isParadigmLSRERKNS_3LSRE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %lsr) local_unnamed_addr #0 align 2 {
 entry:
-  %paradigmLSRs = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 4
-  %paradigmLSRsLength = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %this, i64 0, i32 5
+  %paradigmLSRs = getelementptr inbounds i8, ptr %this, i64 56
+  %paradigmLSRsLength = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %paradigmLSRsLength, align 8
   %cmp3 = icmp sgt i32 %0, 0
   br i1 %cmp3, label %for.body, label %return

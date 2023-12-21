@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.anon = type { [2 x i64] }
-%struct.xts128_context = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_crypto_xts128gb_encrypt(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %iv, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len, i32 noundef %enc) local_unnamed_addr #0 {
@@ -16,9 +15,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
-  %block2 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 3
+  %block2 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %block2, align 8
-  %key2 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 1
+  %key2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %key2, align 8
   call void %0(ptr noundef nonnull %tweak, ptr noundef nonnull %tweak, ptr noundef %1) #3
   %tobool.not = icmp ne i32 %enc, 0
@@ -31,9 +30,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp689, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %arrayidx10 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %block1 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 2
-  %arrayidx39 = getelementptr inbounds [16 x i8], ptr %tweak, i64 0, i64 15
+  %arrayidx10 = getelementptr inbounds i8, ptr %tweak, i64 8
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx39 = getelementptr inbounds i8, ptr %tweak, i64 15
   %2 = load <2 x i64>, ptr %tweak, align 16
   br label %while.body
 
@@ -125,7 +124,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %28 = load <2 x i64>, ptr %tweak, align 16
   %29 = xor <2 x i64> %27, %28
   store <2 x i64> %29, ptr %scratch, align 16
-  %block170 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 2
+  %block170 = getelementptr inbounds i8, ptr %ctx, i64 16
   %30 = load ptr, ptr %block170, align 8
   %31 = load ptr, ptr %ctx, align 8
   call void %30(ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, ptr noundef %31) #3
@@ -140,7 +139,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.else:                                          ; preds = %while.end
   %35 = load i64, ptr %tweak, align 16
   %36 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %35) #4, !srcloc !11
-  %arrayidx89 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
+  %arrayidx89 = getelementptr inbounds i8, ptr %tweak, i64 8
   %37 = load i64, ptr %arrayidx89, align 8
   %38 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %37) #4, !srcloc !12
   %or97 = call i64 @llvm.fshl.i64(i64 %36, i64 %38, i64 63)
@@ -157,12 +156,12 @@ if.else:                                          ; preds = %while.end
   %43 = load i64, ptr %inp.addr.0.lcssa, align 1
   %xor118 = xor i64 %43, %42
   store i64 %xor118, ptr %scratch, align 16
-  %arrayidx120 = getelementptr inbounds i64, ptr %inp.addr.0.lcssa, i64 1
+  %arrayidx120 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 8
   %44 = load i64, ptr %arrayidx120, align 1
   %xor122 = xor i64 %44, %39
-  %arrayidx123 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
+  %arrayidx123 = getelementptr inbounds i8, ptr %scratch, i64 8
   store i64 %xor122, ptr %arrayidx123, align 8
-  %block1124 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 2
+  %block1124 = getelementptr inbounds i8, ptr %ctx, i64 16
   %45 = load ptr, ptr %block1124, align 8
   %46 = load ptr, ptr %ctx, align 8
   call void %45(ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, ptr noundef %46) #3

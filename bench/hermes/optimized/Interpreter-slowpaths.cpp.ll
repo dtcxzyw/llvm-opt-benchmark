@@ -7,253 +7,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::vm::HermesValue" = type { i64 }
 %"class.hermes::vm::TwineChar16" = type { %"union.hermes::vm::TwineChar16::Node", i32, %"union.hermes::vm::TwineChar16::Node", i32, i64, i64 }
 %"union.hermes::vm::TwineChar16::Node" = type { ptr }
-%"class.hermes::vm::HandleRootOwner" = type { ptr, ptr }
-%"class.hermes::vm::GCScope" = type <{ ptr, ptr, [128 x i8], %"class.llvh::SmallVector.223", ptr, ptr, i32, [4 x i8] }>
-%"class.llvh::SmallVector.223" = type { %"class.llvh::SmallVectorImpl.224", %"struct.llvh::SmallVectorStorage.227" }
-%"class.llvh::SmallVectorImpl.224" = type { %"class.llvh::SmallVectorTemplateBase.225" }
-%"class.llvh::SmallVectorTemplateBase.225" = type { %"class.llvh::SmallVectorTemplateCommon.226" }
-%"class.llvh::SmallVectorTemplateCommon.226" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage.227" = type { [4 x %"struct.llvh::AlignedCharArrayUnion.228"] }
-%"struct.llvh::AlignedCharArrayUnion.228" = type { %"struct.llvh::AlignedCharArray.190" }
-%"struct.llvh::AlignedCharArray.190" = type { [8 x i8] }
-%"class.hermes::vm::JSFunction" = type <{ %"class.hermes::vm::Callable", %"class.hermes::vm::XorPtr", %"class.hermes::vm::GCPointer.158", [4 x i8] }>
-%"class.hermes::vm::Callable" = type { %"class.hermes::vm::JSObject", %"class.hermes::vm::GCPointer.157" }
-%"class.hermes::vm::JSObject" = type { %"class.hermes::vm::GCCell", %"struct.hermes::vm::ObjectFlags", %"class.hermes::vm::GCPointer", %"class.hermes::vm::GCPointer.155", %"class.hermes::vm::GCPointer.156" }
-%"class.hermes::vm::GCCell" = type { %union.anon.154 }
-%union.anon.154 = type { %"class.hermes::vm::KindAndSize" }
-%"class.hermes::vm::KindAndSize" = type { i32 }
-%"struct.hermes::vm::ObjectFlags" = type { i32 }
-%"class.hermes::vm::GCPointer" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCPointerBase" = type { %"class.hermes::vm::CompressedPointer" }
-%"class.hermes::vm::CompressedPointer" = type { %"class.hermes::vm::BasedPointer" }
-%"class.hermes::vm::BasedPointer" = type { i32 }
-%"class.hermes::vm::GCPointer.155" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCPointer.156" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCPointer.157" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::XorPtr" = type { i64 }
-%"class.hermes::vm::GCPointer.158" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::Runtime" = type { %"class.hermes::vm::HandleRootOwner", %"struct.hermes::vm::GCBase::GCCallbacks", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", %"class.hermes::vm::PinnedHermesValue", ptr, ptr, %"class.llvh::SmallVector", i8, i8, %"class.std::unique_ptr", %"class.std::shared_ptr", %"class.hermes::vm::GCStorage", %"class.std::vector.84", %"class.std::vector.89", %"class.std::vector.94", %"class.std::vector.94", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, %"class.std::chrono::time_point", [17 x double], double, i32, [4 x i8], %"class.hermes::vm::IdentifierTable", %"class.hermes::vm::SymbolRegistry", %"class.std::unique_ptr.107", ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.hermes::vm::CrashTraceNoop", %"class.llvh::MutableArrayRef.115", ptr, ptr, ptr, %"class.std::shared_ptr.2", %"class.hermes::vm::StackFramePtrT", i32, %"struct.std::array.117", [1 x %"struct.hermes::vm::PropertyCacheEntry"], %"class.std::vector.118", %"class.std::vector.123", %"class.std::vector.128", i8, %"class.std::deque.133", i32, i32, %"class.std::unique_ptr.136", %"struct.std::atomic.144", %"class.std::vector.146", %"class.std::function.151", ptr }
-%"struct.hermes::vm::GCBase::GCCallbacks" = type { ptr }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage" = type { [4 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [12 x i8] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.hermes::vm::GCStorage" = type { %"class.hermes::vm::HadesGC" }
-%"class.hermes::vm::HadesGC" = type { %"class.hermes::vm::GCBase.base", i64, i64, %"class.std::vector.25", %"class.std::shared_ptr.30", %"class.hermes::vm::HadesGC::HeapSegment", %"class.hermes::vm::AssignableCompressedPointer", %"class.std::vector.33", double, %"class.hermes::vm::HadesGC::OldGen", %"class.std::recursive_mutex", %"struct.std::atomic", %"class.std::_V2::condition_variable_any", i8, i8, %"class.std::unique_ptr.54", %"class.std::unique_ptr.62", %"class.std::future", i8, i8, i8, double, %"class.hermes::ExponentialMovingAverage", %"class.std::unique_ptr.73", %"class.std::unique_ptr.73", %"struct.hermes::vm::GCBase::CumulativeHeapStats", %"struct.hermes::vm::GCBase::CumulativeHeapStats", %"class.hermes::ExponentialMovingAverage", i64, %"struct.hermes::vm::HadesGC::CompacteeState", i64, %"struct.hermes::vm::HadesGC::NativeIDs" }
-%"class.hermes::vm::GCBase.base" = type <{ ptr, i32, [4 x i8], i64, %"class.hermes::vm::GCExecTrace", [7 x i8], ptr, ptr, %"class.std::shared_ptr.2", i32, [4 x i8], %"class.std::function", %"class.std::vector", i8, i8, i8, i8, [4 x i8], %"class.std::chrono::time_point", %"class.std::chrono::duration.5", i64, i64, %"struct.hermes::vm::GCBase::CumulativeHeapStats", %"class.std::__cxx11::basic_string", %"class.std::deque", ptr, %"class.std::recursive_mutex", %"class.hermes::vm::GCBase::IDTracker", [3 x i64], %"class.std::function.22", i32, i8 }>
-%"class.hermes::vm::GCExecTrace" = type { i8 }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::vm::GCAnalyticsEvent, std::allocator<hermes::vm::GCAnalyticsEvent>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::GCAnalyticsEvent, std::allocator<hermes::vm::GCAnalyticsEvent>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::GCAnalyticsEvent, std::allocator<hermes::vm::GCAnalyticsEvent>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::GCAnalyticsEvent, std::allocator<hermes::vm::GCAnalyticsEvent>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::chrono::duration.5" = type { i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<hermes::vm::WeakRefSlot, std::allocator<hermes::vm::WeakRefSlot>>::_Deque_impl" }
-%"struct.std::_Deque_base<hermes::vm::WeakRefSlot, std::allocator<hermes::vm::WeakRefSlot>>::_Deque_impl" = type { %"struct.std::_Deque_base<hermes::vm::WeakRefSlot, std::allocator<hermes::vm::WeakRefSlot>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<hermes::vm::WeakRefSlot, std::allocator<hermes::vm::WeakRefSlot>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.hermes::vm::GCBase::IDTracker" = type { %"class.std::recursive_mutex", i32, [4 x i8], %"class.llvh::DenseMap", %"class.llvh::DenseMap", %"class.llvh::DenseMap.13", %"class.llvh::DenseMap.16", %"class.llvh::DenseMap", %"class.llvh::DenseMap.19" }
-%"class.llvh::DenseMap.13" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.16" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.19" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::function.22" = type { %"class.std::_Function_base", ptr }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.30" = type { %"class.std::__shared_ptr.31" }
-%"class.std::__shared_ptr.31" = type { ptr, %"class.std::__shared_count" }
-%"class.hermes::vm::HadesGC::HeapSegment" = type { %"class.hermes::vm::AlignedHeapSegment" }
-%"class.hermes::vm::AlignedHeapSegment" = type { %"struct.hermes::vm::AlignedStorage", ptr, ptr }
-%"struct.hermes::vm::AlignedStorage" = type { ptr, ptr }
-%"class.hermes::vm::AssignableCompressedPointer" = type { %"class.hermes::vm::CompressedPointer" }
-%"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
-%"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<hermes::vm::GCCell *, std::allocator<hermes::vm::GCCell *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::GCCell *, std::allocator<hermes::vm::GCCell *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::GCCell *, std::allocator<hermes::vm::GCCell *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::GCCell *, std::allocator<hermes::vm::GCCell *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::vm::HadesGC::OldGen" = type { ptr, %"class.std::deque.38", %"class.hermes::ExponentialMovingAverage", i64, i64, %"class.hermes::BitArray", %"class.std::deque.44", %"struct.std::array.50", %"struct.hermes::vm::HadesGC::OldGen::SweepIterator" }
-%"class.std::deque.38" = type { %"class.std::_Deque_base.39" }
-%"class.std::_Deque_base.39" = type { %"struct.std::_Deque_base<hermes::vm::HadesGC::HeapSegment, std::allocator<hermes::vm::HadesGC::HeapSegment>>::_Deque_impl" }
-%"struct.std::_Deque_base<hermes::vm::HadesGC::HeapSegment, std::allocator<hermes::vm::HadesGC::HeapSegment>>::_Deque_impl" = type { %"struct.std::_Deque_base<hermes::vm::HadesGC::HeapSegment, std::allocator<hermes::vm::HadesGC::HeapSegment>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<hermes::vm::HadesGC::HeapSegment, std::allocator<hermes::vm::HadesGC::HeapSegment>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.43", %"struct.std::_Deque_iterator.43" }
-%"struct.std::_Deque_iterator.43" = type { ptr, ptr, ptr, ptr }
-%"class.hermes::BitArray" = type { %"struct.std::array" }
-%"struct.std::array" = type { [5 x i64] }
-%"class.std::deque.44" = type { %"class.std::_Deque_base.45" }
-%"class.std::_Deque_base.45" = type { %"struct.std::_Deque_base<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>, std::allocator<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>, std::allocator<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>, std::allocator<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>, std::allocator<std::array<hermes::vm::HadesGC::OldGen::SegmentBucket, 267>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.49", %"struct.std::_Deque_iterator.49" }
-%"struct.std::_Deque_iterator.49" = type { ptr, ptr, ptr, ptr }
-%"struct.std::array.50" = type { [267 x %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket"] }
-%"struct.hermes::vm::HadesGC::OldGen::SegmentBucket" = type <{ ptr, ptr, %"class.hermes::vm::AssignableCompressedPointer", [4 x i8] }>
-%"struct.hermes::vm::HadesGC::OldGen::SweepIterator" = type { i64, i64, i64 }
-%"class.std::recursive_mutex" = type { %"class.std::__recursive_mutex_base" }
-%"class.std::__recursive_mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.std::_V2::condition_variable_any" = type { %"class.std::condition_variable", %"class.std::shared_ptr.51" }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%"class.std::shared_ptr.51" = type { %"class.std::__shared_ptr.52" }
-%"class.std::__shared_ptr.52" = type { ptr, %"class.std::__shared_count" }
-%"class.std::unique_ptr.54" = type { %"struct.std::__uniq_ptr_data.55" }
-%"struct.std::__uniq_ptr_data.55" = type { %"class.std::__uniq_ptr_impl.56" }
-%"class.std::__uniq_ptr_impl.56" = type { %"class.std::tuple.57" }
-%"class.std::tuple.57" = type { %"struct.std::_Tuple_impl.58" }
-%"struct.std::_Tuple_impl.58" = type { %"struct.std::_Head_base.61" }
-%"struct.std::_Head_base.61" = type { ptr }
-%"class.std::unique_ptr.62" = type { %"struct.std::__uniq_ptr_data.63" }
-%"struct.std::__uniq_ptr_data.63" = type { %"class.std::__uniq_ptr_impl.64" }
-%"class.std::__uniq_ptr_impl.64" = type { %"class.std::tuple.65" }
-%"class.std::tuple.65" = type { %"struct.std::_Tuple_impl.66" }
-%"struct.std::_Tuple_impl.66" = type { %"struct.std::_Head_base.69" }
-%"struct.std::_Head_base.69" = type { ptr }
-%"class.std::future" = type { %"class.std::__basic_future" }
-%"class.std::__basic_future" = type { %"class.std::shared_ptr.70" }
-%"class.std::shared_ptr.70" = type { %"class.std::__shared_ptr.71" }
-%"class.std::__shared_ptr.71" = type { ptr, %"class.std::__shared_count" }
-%"class.std::unique_ptr.73" = type { %"struct.std::__uniq_ptr_data.74" }
-%"struct.std::__uniq_ptr_data.74" = type { %"class.std::__uniq_ptr_impl.75" }
-%"class.std::__uniq_ptr_impl.75" = type { %"class.std::tuple.76" }
-%"class.std::tuple.76" = type { %"struct.std::_Tuple_impl.77" }
-%"struct.std::_Tuple_impl.77" = type { %"struct.std::_Head_base.80" }
-%"struct.std::_Head_base.80" = type { ptr }
-%"struct.hermes::vm::GCBase::CumulativeHeapStats" = type { i32, %"class.hermes::StatsAccumulator", %"class.hermes::StatsAccumulator", i32, %"class.hermes::StatsAccumulator.6", %"class.hermes::StatsAccumulator.6" }
-%"class.hermes::StatsAccumulator" = type { i32, double, double, double, double }
-%"class.hermes::StatsAccumulator.6" = type { i32, i64, i32, i32, double }
-%"class.hermes::ExponentialMovingAverage" = type { double, double }
-%"struct.hermes::vm::HadesGC::CompacteeState" = type { ptr, %"class.hermes::vm::AssignableCompressedPointer", ptr, %"class.hermes::vm::AssignableCompressedPointer", %"class.std::shared_ptr.81" }
-%"class.std::shared_ptr.81" = type { %"class.std::__shared_ptr.82" }
-%"class.std::__shared_ptr.82" = type { ptr, %"class.std::__shared_count" }
-%"struct.hermes::vm::HadesGC::NativeIDs" = type { i32, i32 }
-%"class.std::vector.84" = type { %"struct.std::_Vector_base.85" }
-%"struct.std::_Vector_base.85" = type { %"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::RootAcceptor &)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
-%"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>, std::allocator<std::function<void (hermes::vm::HadesGC *, hermes::vm::WeakRootAcceptor &)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<std::function<void (hermes::vm::HeapSnapshot &)>, std::allocator<std::function<void (hermes::vm::HeapSnapshot &)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<void (hermes::vm::HeapSnapshot &)>, std::allocator<std::function<void (hermes::vm::HeapSnapshot &)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<void (hermes::vm::HeapSnapshot &)>, std::allocator<std::function<void (hermes::vm::HeapSnapshot &)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<void (hermes::vm::HeapSnapshot &)>, std::allocator<std::function<void (hermes::vm::HeapSnapshot &)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.hermes::vm::IdentifierTable" = type <{ %"class.hermes::vm::IdentifierTable::ConservativeVector", %"class.llvh::BitVector", %"class.hermes::vm::detail::IdentifierHashTable", i32, [4 x i8] }>
-%"class.hermes::vm::IdentifierTable::ConservativeVector" = type { %"class.std::vector.99" }
-%"class.std::vector.99" = type { %"struct.std::_Vector_base.100" }
-%"struct.std::_Vector_base.100" = type { %"struct.std::_Vector_base<hermes::vm::IdentifierTable::LookupEntry, std::allocator<hermes::vm::IdentifierTable::LookupEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::IdentifierTable::LookupEntry, std::allocator<hermes::vm::IdentifierTable::LookupEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::IdentifierTable::LookupEntry, std::allocator<hermes::vm::IdentifierTable::LookupEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::IdentifierTable::LookupEntry, std::allocator<hermes::vm::IdentifierTable::LookupEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::BitVector" = type <{ %"class.llvh::MutableArrayRef", i32, [4 x i8] }>
-%"class.llvh::MutableArrayRef" = type { %"class.llvh::ArrayRef" }
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-%"class.hermes::vm::detail::IdentifierHashTable" = type { %"class.hermes::CompactTable", ptr, i32, i32 }
-%"class.hermes::CompactTable" = type { %"class.hermes::CompactArray" }
-%"class.hermes::CompactArray" = type { i32, i32, ptr }
-%"class.hermes::vm::SymbolRegistry" = type { %"class.hermes::vm::PinnedHermesValue", %"class.llvh::DenseSet" }
-%"class.llvh::DenseSet" = type { %"class.llvh::detail::DenseSetImpl" }
-%"class.llvh::detail::DenseSetImpl" = type { %"class.llvh::DenseMap.104" }
-%"class.llvh::DenseMap.104" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
-%"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
-%"class.std::__uniq_ptr_impl.109" = type { %"class.std::tuple.110" }
-%"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
-%"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.114" }
-%"struct.std::_Head_base.114" = type { ptr }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.hermes::vm::CrashTraceNoop" = type { i8 }
-%"class.llvh::MutableArrayRef.115" = type { %"class.llvh::ArrayRef.116" }
-%"class.llvh::ArrayRef.116" = type { ptr, i64 }
-%"class.std::shared_ptr.2" = type { %"class.std::__shared_ptr.3" }
-%"class.std::__shared_ptr.3" = type { ptr, %"class.std::__shared_count" }
-%"class.hermes::vm::StackFramePtrT" = type { ptr }
-%"struct.std::array.117" = type { [8 x %"class.hermes::vm::PinnedHermesValue"] }
-%"struct.hermes::vm::PropertyCacheEntry" = type { %"class.hermes::vm::WeakRoot", i32 }
-%"class.hermes::vm::WeakRoot" = type { %"class.hermes::vm::WeakRootBase" }
-%"class.hermes::vm::WeakRootBase" = type { %"class.hermes::vm::CompressedPointer" }
-%"class.std::vector.118" = type { %"struct.std::_Vector_base.119" }
-%"struct.std::_Vector_base.119" = type { %"struct.std::_Vector_base<hermes::vm::PinnedHermesValue, std::allocator<hermes::vm::PinnedHermesValue>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::PinnedHermesValue, std::allocator<hermes::vm::PinnedHermesValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::PinnedHermesValue, std::allocator<hermes::vm::PinnedHermesValue>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::PinnedHermesValue, std::allocator<hermes::vm::PinnedHermesValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.123" = type { %"struct.std::_Vector_base.124" }
-%"struct.std::_Vector_base.124" = type { %"struct.std::_Vector_base<hermes::vm::JSObject *, std::allocator<hermes::vm::JSObject *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::JSObject *, std::allocator<hermes::vm::JSObject *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::JSObject *, std::allocator<hermes::vm::JSObject *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::JSObject *, std::allocator<hermes::vm::JSObject *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.128" = type { %"struct.std::_Vector_base.129" }
-%"struct.std::_Vector_base.129" = type { %"struct.std::_Vector_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::deque.133" = type { %"class.std::_Deque_base.134" }
-%"class.std::_Deque_base.134" = type { %"struct.std::_Deque_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Deque_impl" }
-%"struct.std::_Deque_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Deque_impl" = type { %"struct.std::_Deque_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<hermes::vm::Callable *, std::allocator<hermes::vm::Callable *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.135", %"struct.std::_Deque_iterator.135" }
-%"struct.std::_Deque_iterator.135" = type { ptr, ptr, ptr, ptr }
-%"class.std::unique_ptr.136" = type { %"struct.std::__uniq_ptr_data.137" }
-%"struct.std::__uniq_ptr_data.137" = type { %"class.std::__uniq_ptr_impl.138" }
-%"class.std::__uniq_ptr_impl.138" = type { %"class.std::tuple.139" }
-%"class.std::tuple.139" = type { %"struct.std::_Tuple_impl.140" }
-%"struct.std::_Tuple_impl.140" = type { %"struct.std::_Head_base.143" }
-%"struct.std::_Head_base.143" = type { ptr }
-%"struct.std::atomic.144" = type { %"struct.std::__atomic_base.145" }
-%"struct.std::__atomic_base.145" = type { i8 }
-%"class.std::vector.146" = type { %"struct.std::_Vector_base.147" }
-%"struct.std::_Vector_base.147" = type { %"struct.std::_Vector_base<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>, std::allocator<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>, std::allocator<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>, std::allocator<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>, std::allocator<std::shared_ptr<hermes::hbc::BCProviderFromBuffer>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::function.151" = type { %"class.std::_Function_base", ptr }
-%"class.hermes::vm::CodeBlock" = type <{ ptr, %"class.hermes::hbc::RuntimeFunctionHeader", ptr, i32, i32, i32, [4 x i8] }>
-%"class.hermes::hbc::RuntimeFunctionHeader" = type { ptr }
-%"class.hermes::vm::GeneratorInnerFunction" = type <{ %"class.hermes::vm::JSFunction.base", i32, i32, %"class.hermes::vm::GCPointer.159", %"class.hermes::vm::GCHermesValueBase", i32, i32, i8, [3 x i8] }>
-%"class.hermes::vm::JSFunction.base" = type <{ %"class.hermes::vm::Callable", %"class.hermes::vm::XorPtr", %"class.hermes::vm::GCPointer.158" }>
-%"class.hermes::vm::GCPointer.159" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue32" }
-%"class.hermes::vm::HermesValue32" = type { i32 }
 %"struct.hermes::ScopeChain" = type { %"class.std::vector.165" }
 %"class.std::vector.165" = type { %"struct.std::_Vector_base.166" }
 %"struct.std::_Vector_base.166" = type { %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl" }
 %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::inst::DirectEvalInst" = type { i8, i8, i8, i8 }
-%"class.hermes::vm::NativeFunction" = type { %"class.hermes::vm::Callable", ptr, ptr }
-%"struct.hermes::ScopeChainItem" = type { %"class.std::vector.170" }
-%"class.std::vector.170" = type { %"struct.std::_Vector_base.171" }
-%"struct.std::_Vector_base.171" = type { %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::inst::PutOwnByValInst" = type { i8, i8, i8, i8, i8 }
-%"struct.hermes::inst::PutOwnGetterSetterByValInst" = type { i8, i8, i8, i8, i8, i8 }
 %"struct.hermes::vm::NamedPropertyDescriptor" = type { %"struct.hermes::vm::PropertyDescriptor" }
 %"struct.hermes::vm::PropertyDescriptor" = type { %union.anon.179, i32 }
 %union.anon.179 = type { i32 }
@@ -262,47 +20,21 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::optional_detail::OptionalStorage" = type { %"struct.llvh::AlignedCharArrayUnion.185", i8, [7 x i8] }
 %"struct.llvh::AlignedCharArrayUnion.185" = type { %"struct.llvh::AlignedCharArray.186" }
 %"struct.llvh::AlignedCharArray.186" = type { [16 x i8] }
-%"struct.hermes::inst::IteratorBeginInst" = type { i8, i8, i8 }
+%"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue32" }
+%"class.hermes::vm::HermesValue32" = type { i32 }
 %"struct.hermes::vm::IteratorRecord" = type { %"class.hermes::vm::Handle.161", %"class.hermes::vm::Handle.164" }
 %"class.hermes::vm::Handle.161" = type { %"class.hermes::vm::HandleBase" }
 %"class.hermes::vm::HandleBase" = type { ptr }
 %"class.hermes::vm::Handle.164" = type { %"class.hermes::vm::HandleBase" }
-%"class.hermes::vm::JSObjectAndDirectProps" = type { %"class.hermes::vm::JSObject", [5 x %"class.hermes::vm::GCHermesValueBase"] }
-%"class.hermes::vm::ArrayStorageBase" = type { %"class.hermes::vm::VariableSizeRuntimeCell", %"struct.std::atomic.232" }
-%"class.hermes::vm::VariableSizeRuntimeCell" = type { %"class.hermes::vm::GCCell" }
-%"struct.std::atomic.232" = type { %"struct.std::__atomic_base.233" }
-%"struct.std::__atomic_base.233" = type { i32 }
-%"class.hermes::vm::BoxedDouble" = type { %"class.hermes::vm::GCCell", double }
-%"struct.hermes::inst::IteratorNextInst" = type { i8, i8, i8, i8 }
-%"class.hermes::vm::ArrayImpl" = type { %"class.hermes::vm::JSObject", i32, i32, %"class.hermes::vm::GCPointer.192" }
-%"class.hermes::vm::GCPointer.192" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::SegmentedArrayBase" = type { %"class.hermes::vm::VariableSizeRuntimeCell", %"struct.std::atomic.232" }
-%"class.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::Segment" = type { %"class.hermes::vm::GCCell", %"struct.std::atomic.232", [1024 x %"class.hermes::vm::GCHermesValueBase"] }
-%"struct.hermes::inst::GetPNameListInst" = type { i8, i8, i8, i8, i8 }
-%"struct.hermes::inst::CallBuiltinInst" = type { i8, i8, i8, i8 }
 %"class.hermes::vm::NativeArgs" = type { %"class.std::reverse_iterator", i32, ptr }
 %"class.std::reverse_iterator" = type { ptr }
-%"struct.hermes::inst::DeclareGlobalVarInst" = type <{ i8, i32 }>
-%"class.hermes::vm::RuntimeModule" = type { %"class.llvh::ilist_node", ptr, %"class.std::vector.201", %"class.hermes::vm::WeakRoot.206", %"class.std::vector.207", %"class.std::shared_ptr.212", %"union.hermes::vm::RuntimeModuleFlags", %"class.std::__cxx11::basic_string", i32, [4 x i8], %"class.llvh::DenseMap.216", %"class.llvh::DenseMap.219" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.std::vector.201" = type { %"struct.std::_Vector_base.202" }
-%"struct.std::_Vector_base.202" = type { %"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::vm::WeakRoot.206" = type { %"class.hermes::vm::WeakRootBase" }
-%"class.std::vector.207" = type { %"struct.std::_Vector_base.208" }
-%"struct.std::_Vector_base.208" = type { %"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.212" = type { %"class.std::__shared_ptr.213" }
-%"class.std::__shared_ptr.213" = type { ptr, %"class.std::__shared_count" }
-%"union.hermes::vm::RuntimeModuleFlags" = type { %struct.anon.215 }
-%struct.anon.215 = type { i8 }
-%"class.llvh::DenseMap.216" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.219" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.hermes::vm::RootSymbolID" = type { %"class.hermes::vm::SymbolID" }
 %"class.hermes::vm::SymbolID" = type { i32 }
-%"struct.hermes::inst::ThrowIfHasRestrictedGlobalPropertyInst" = type <{ i8, i32 }>
+%"struct.hermes::ScopeChainItem" = type { %"class.std::vector.170" }
+%"class.std::vector.170" = type { %"struct.std::_Vector_base.171" }
+%"struct.std::_Vector_base.171" = type { %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl" }
+%"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN6hermes2vm14doOperSlowPathITnDaXadL_ZNS0_5doDivEddEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleIS3_EESA_ = comdat any
 
@@ -355,11 +87,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i15 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i15 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i16, align 8
-  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i17, align 8
   %cmp.i.i.i.i.i.i18 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -368,7 +100,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -405,7 +137,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i22, label %if.end.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i22:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i23, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -430,38 +162,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %15, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %16 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %16, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %17 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 192
   %18 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %18, %19
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %18, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %14, ptr %18, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -512,11 +244,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i15 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i15 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i16, align 8
-  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i17, align 8
   %cmp.i.i.i.i.i.i18 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -525,7 +257,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -562,7 +294,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i22, label %if.end.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i22:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i23, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -587,38 +319,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %15, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %16 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %16, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %17 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 192
   %18 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %18, %19
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %18, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %14, ptr %18, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -665,11 +397,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i15 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i15 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i16, align 8
-  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i17, align 8
   %cmp.i.i.i.i.i.i18 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -678,7 +410,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -715,7 +447,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i22, label %if.end.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i22:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i23, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -740,38 +472,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %15, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %16 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %16, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %17 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 192
   %18 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %18, %19
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %18, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %14, ptr %18, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -818,11 +550,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i15 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i15 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i16, align 8
-  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i17, align 8
   %cmp.i.i.i.i.i.i18 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -831,7 +563,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -868,7 +600,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i22, label %if.end.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i22:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i23, ptr %next_.i.i.i.i.i.i.i16, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -893,38 +625,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %15, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %16 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %16, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %17 = load ptr, ptr %topGCScope_.i.i.i.i15, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 192
   %18 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %17, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %18, %19
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %18, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %14, ptr %18, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -971,11 +703,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i17 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i17, align 8
-  %next_.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i18, align 8
-  %curChunkEnd_.i.i.i.i.i.i19 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i19, align 8
   %cmp.i.i.i.i.i.i20 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -984,7 +716,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i18, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1022,7 +754,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i24, label %if.end.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i24:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i25, ptr %next_.i.i.i.i.i.i.i18, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -1047,38 +779,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %14 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %14, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %15, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %16 = load ptr, ptr %topGCScope_.i.i.i.i17, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -1127,11 +859,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i17 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i17, align 8
-  %next_.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i18, align 8
-  %curChunkEnd_.i.i.i.i.i.i19 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i19, align 8
   %cmp.i.i.i.i.i.i20 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -1140,7 +872,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i18, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1178,7 +910,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i24, label %if.end.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i24:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i25, ptr %next_.i.i.i.i.i.i.i18, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -1203,38 +935,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %14 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %14, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %15, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %16 = load ptr, ptr %topGCScope_.i.i.i.i17, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -1281,11 +1013,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i17 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i17, align 8
-  %next_.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i18, align 8
-  %curChunkEnd_.i.i.i.i.i.i19 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i19, align 8
   %cmp.i.i.i.i.i.i20 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end42, label %if.then9
@@ -1294,7 +1026,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i18, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1332,7 +1064,7 @@ if.end42:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i24, label %if.end.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i24:                            ; preds = %if.end42
-  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i25, ptr %next_.i.i.i.i.i.i.i18, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -1357,38 +1089,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %14 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %14, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %15, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %16 = load ptr, ptr %topGCScope_.i.i.i.i17, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -1435,11 +1167,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i18 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i18, align 8
-  %next_.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i19, align 8
-  %curChunkEnd_.i.i.i.i.i.i20 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i20, align 8
   %cmp.i.i.i.i.i.i21 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end43, label %if.then9
@@ -1448,7 +1180,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i21, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i19, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1503,7 +1235,7 @@ if.end43:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i21, label %if.then.i.i.i.i.i.i25, label %if.end.i.i.i.i.i.i22
 
 if.then.i.i.i.i.i.i25:                            ; preds = %if.end43
-  %incdec.ptr.i.i.i.i.i.i26 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i26, ptr %next_.i.i.i.i.i.i.i19, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -1528,38 +1260,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %14 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %14, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %15, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %16 = load ptr, ptr %topGCScope_.i.i.i.i18, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -1608,11 +1340,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i18 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i18, align 8
-  %next_.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i19, align 8
-  %curChunkEnd_.i.i.i.i.i.i20 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i20, align 8
   %cmp.i.i.i.i.i.i21 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end43, label %if.then9
@@ -1621,7 +1353,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i21, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i19, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1676,7 +1408,7 @@ if.end43:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i21, label %if.then.i.i.i.i.i.i25, label %if.end.i.i.i.i.i.i22
 
 if.then.i.i.i.i.i.i25:                            ; preds = %if.end43
-  %incdec.ptr.i.i.i.i.i.i26 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i26, ptr %next_.i.i.i.i.i.i.i19, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -1701,38 +1433,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %14 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %14, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %15, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %16 = load ptr, ptr %topGCScope_.i.i.i.i18, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -1779,11 +1511,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i6 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i18 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i18, align 8
-  %next_.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i19, align 8
-  %curChunkEnd_.i.i.i.i.i.i20 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i20, align 8
   %cmp.i.i.i.i.i.i21 = icmp ult ptr %3, %4
   br i1 %cmp.i6, label %if.end43, label %if.then9
@@ -1792,7 +1524,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i21, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then9
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i19, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1847,7 +1579,7 @@ if.end43:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i21, label %if.then.i.i.i.i.i.i25, label %if.end.i.i.i.i.i.i22
 
 if.then.i.i.i.i.i.i25:                            ; preds = %if.end43
-  %incdec.ptr.i.i.i.i.i.i26 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i26, ptr %next_.i.i.i.i.i.i.i19, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -1872,38 +1604,38 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
   br i1 %cmp.i4.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 15, ptr %leftSize_.i4.i.i, align 8
-  %rightSize_.i5.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 5
+  %rightSize_.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %rightSize_.i5.i.i, align 8
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %14 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %14, align 8
-  %rightKind_.i3.i6.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 3
+  %rightKind_.i3.i6.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 24
   store i32 1, ptr %rightKind_.i3.i6.i, align 8
-  %leftSize_.i4.i7.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 4
+  %leftSize_.i4.i7.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   store i64 10, ptr %leftSize_.i4.i7.i, align 8
-  %rightSize_.i5.i8.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 5
+  %rightSize_.i5.i8.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 40
   store i64 0, ptr %rightSize_.i5.i8.i, align 8
   store ptr @.str.4, ptr %ref.tmp11.i, align 8
-  %15 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp11.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store i32 3, ptr %15, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %rhs.coerce, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i) #10
   br label %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %16 = load ptr, ptr %topGCScope_.i.i.i.i18, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %16, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end15.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
@@ -1948,11 +1680,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i5 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i10 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i10 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i10, align 8
-  %next_.i.i.i.i.i.i.i11 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i11, align 8
-  %curChunkEnd_.i.i.i.i.i.i12 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i12, align 8
   %cmp.i.i.i.i.i.i13 = icmp ult ptr %3, %4
   br i1 %cmp.i5, label %if.end29, label %if.then7
@@ -1961,7 +1693,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i13, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then7
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i11, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -1990,7 +1722,7 @@ if.end29:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i13, label %if.then.i.i.i.i.i.i17, label %if.end.i.i.i.i.i.i14
 
 if.then.i.i.i.i.i.i17:                            ; preds = %if.end29
-  %incdec.ptr.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i18, ptr %next_.i.i.i.i.i.i.i11, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -2028,11 +1760,11 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i.mask.i = and i64 %1, -281474976710656
   %cmp.i5 = icmp eq i64 %shr.i.mask.i, -562949953421312
-  %topGCScope_.i.i.i.i10 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i10 = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i10, align 8
-  %next_.i.i.i.i.i.i.i11 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i11, align 8
-  %curChunkEnd_.i.i.i.i.i.i12 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i12, align 8
   %cmp.i.i.i.i.i.i13 = icmp ult ptr %3, %4
   br i1 %cmp.i5, label %if.end29, label %if.then7
@@ -2041,7 +1773,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i13, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then7
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i11, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
@@ -2070,7 +1802,7 @@ if.end29:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i13, label %if.then.i.i.i.i.i.i17, label %if.end.i.i.i.i.i.i14
 
 if.then.i.i.i.i.i.i17:                            ; preds = %if.end29
-  %incdec.ptr.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i18, ptr %next_.i.i.i.i.i.i.i11, align 8
   store i64 %1, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -2099,26 +1831,26 @@ declare { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive3decERNS0_7RuntimeENS0_6Hand
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm11Interpreter13saveGeneratorERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %frameRegs, ptr noundef %resumeIP) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayidx.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 -7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %frameRegs, i64 -56
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i, align 8
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i to ptr
   tail call void @_ZN6hermes2vm22GeneratorInnerFunction9saveStackERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %codeBlock_.i.i = getelementptr inbounds %"class.hermes::vm::JSFunction", ptr %0, i64 0, i32 1
+  %codeBlock_.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %codeBlock_.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 0, i32 28, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1528
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %xor.i.i.i.i = xor i64 %2, %1
   %3 = inttoptr i64 %xor.i.i.i.i to ptr
-  %bytecode_.i.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %3, i64 0, i32 2
+  %bytecode_.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %bytecode_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %resumeIP to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %nextIPOffset_.i = getelementptr inbounds %"class.hermes::vm::GeneratorInnerFunction", ptr %0, i64 0, i32 5
+  %nextIPOffset_.i = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %conv.i.i, ptr %nextIPOffset_.i, align 4
-  %state_.i = getelementptr inbounds %"class.hermes::vm::GeneratorInnerFunction", ptr %0, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %0, i64 36
   store i32 1, ptr %state_.i, align 4
   ret void
 }
@@ -2131,22 +1863,22 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %scopeChain = alloca %"struct.hermes::ScopeChain", align 8
-  %op1 = getelementptr inbounds %"struct.hermes::inst::DirectEvalInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %0 = load i8, ptr %op1, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
-  %op2 = getelementptr inbounds %"struct.hermes::inst::DirectEvalInst", ptr %ip, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %ip, i64 2
   %1 = load i8, ptr %op2, align 1
   %idxprom1 = zext i8 %1 to i64
   %arrayidx2 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom1
-  %op3 = getelementptr inbounds %"struct.hermes::inst::DirectEvalInst", ptr %ip, i64 0, i32 3
+  %op3 = getelementptr inbounds i8, ptr %ip, i64 3
   %2 = load i8, ptr %op3, align 1
   %tobool = icmp ne i8 %2, 0
-  %topGCScope_.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %3 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %3, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %3, i64 192
   %4 = load ptr, ptr %next_.i.i, align 8
-  %curChunkIndex_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %3, i64 0, i32 6
+  %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %3, i64 208
   %5 = load i32, ptr %curChunkIndex_.i.i, align 8
   %call = tail call ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %call, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 43, ptr %call, i32 0, ptr noundef null) #10
@@ -2168,7 +1900,7 @@ cond.true.i:                                      ; preds = %if.end
   br i1 %10, label %lor.rhs, label %cond.true.i24
 
 lor.rhs:                                          ; preds = %cond.true.i
-  %functionPtr_.i = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %8, i64 0, i32 2
+  %functionPtr_.i = getelementptr inbounds i8, ptr %8, i64 32
   %11 = load ptr, ptr %functionPtr_.i, align 8
   %cmp.not = icmp eq ptr %11, @_ZN6hermes2vm4evalEPvRNS0_7RuntimeENS0_10NativeArgsE
   br i1 %cmp.not, label %if.end65, label %if.then31
@@ -2181,15 +1913,15 @@ cond.true.i24:                                    ; preds = %cond.true.i
 if.then31:                                        ; preds = %lor.rhs, %cond.true.i24
   %or.i.i.i.i.i = or i64 %7, -281474976710656
   %14 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %14, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 192
   %15 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %14, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 200
   %16 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then31
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %15, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit
@@ -2213,15 +1945,15 @@ if.end49:                                         ; preds = %_ZN6hermes2vm15Hand
 
 if.end55:                                         ; preds = %cond.true.i24, %if.end
   %19 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i.i.i.i.i.i34 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %19, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %19, i64 192
   %20 = load ptr, ptr %next_.i.i.i.i.i.i.i34, align 8
-  %curChunkEnd_.i.i.i.i.i.i35 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %19, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %19, i64 200
   %21 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i35, align 8
   %cmp.i.i.i.i.i.i36 = icmp ult ptr %20, %21
   br i1 %cmp.i.i.i.i.i.i36, label %if.then.i.i.i.i.i.i40, label %if.end.i.i.i.i.i.i37
 
 if.then.i.i.i.i.i.i40:                            ; preds = %if.end55
-  %incdec.ptr.i.i.i.i.i.i41 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %20, i64 1
+  %incdec.ptr.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i41, ptr %next_.i.i.i.i.i.i.i34, align 8
   store i64 %7, ptr %20, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -2234,20 +1966,20 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   %retval.0.i.i.i.i.i.i39 = phi ptr [ %20, %if.then.i.i.i.i.i.i40 ], [ %call7.i.i.i.i.i.i38, %if.end.i.i.i.i.i.i37 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  %rightKind_.i3.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
+  %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
-  %leftSize_.i4.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
-  %22 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
+  %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i4.i.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %22, align 8
-  %rightKind_.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp3.i, i64 0, i32 3
+  %rightKind_.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 24
   store i32 1, ptr %rightKind_.i.i, align 8
-  %leftSize_.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp3.i, i64 0, i32 4
+  %leftSize_.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 32
   store i64 18, ptr %leftSize_.i.i, align 8
-  %rightSize_.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp3.i, i64 0, i32 5
+  %rightSize_.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 40
   store i64 0, ptr %rightSize_.i.i, align 8
   store ptr @.str, ptr %ref.tmp3.i, align 8
-  %23 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp3.i, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   store i32 3, ptr %23, align 8
   %call.i42 = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %retval.0.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -2265,7 +1997,7 @@ if.then67:                                        ; preds = %if.end65
   br label %cleanup85
 
 _ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds = %if.end65
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl_data", ptr %scopeChain, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %scopeChain, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, ptr null)
   %call79 = call { i32, i64 } @_ZN6hermes2vm10directEvalERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEERKNS_10ScopeChainEbb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %arrayidx2, ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, i1 noundef zeroext %tobool, i1 noundef zeroext false) #10
@@ -2296,7 +2028,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
   br label %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %28
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -2315,14 +2047,14 @@ if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN6he
 
 cleanup85:                                        ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit, %entry, %if.then67, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end49
   %retval.1 = phi i32 [ 1, %if.end49 ], [ %call.i42, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 1, %if.then67 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit ], [ %retval.0, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %retval.0, %if.then.i.i.i.i ]
-  %chunks_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %3, i64 0, i32 3
+  %chunks_.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
   %conv.i.i.i = zext i32 %5 to i64
   %31 = load ptr, ptr %chunks_.i.i.i, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %31, i64 %conv.i.i.i
   %32 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
-  %add.ptr.i.i.i49 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %32, i64 16
+  %add.ptr.i.i.i49 = getelementptr inbounds i8, ptr %32, i64 128
   store i32 %5, ptr %curChunkIndex_.i.i, align 8
-  %curChunkEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %3, i64 0, i32 5
+  %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
   store ptr %add.ptr.i.i.i49, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %4, ptr %next_.i.i, align 8
   ret i32 %retval.1
@@ -2342,19 +2074,19 @@ declare { i32, i64 } @_ZN6hermes2vm10directEvalERNS0_7RuntimeENS0_6HandleINS0_15
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6hermes2vm11Interpreter15casePutOwnByValERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
-  %op1 = getelementptr inbounds %"struct.hermes::inst::PutOwnByValInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %0 = load i8, ptr %op1, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
-  %op3 = getelementptr inbounds %"struct.hermes::inst::PutOwnByValInst", ptr %ip, i64 0, i32 3
+  %op3 = getelementptr inbounds i8, ptr %ip, i64 3
   %1 = load i8, ptr %op3, align 1
   %idxprom3 = zext i8 %1 to i64
   %arrayidx4 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom3
-  %op4 = getelementptr inbounds %"struct.hermes::inst::PutOwnByValInst", ptr %ip, i64 0, i32 4
+  %op4 = getelementptr inbounds i8, ptr %ip, i64 4
   %2 = load i8, ptr %op4, align 1
   %tobool.not = icmp eq i8 %2, 0
   %spec.select = select i1 %tobool.not, i32 318, i32 319
-  %op2 = getelementptr inbounds %"struct.hermes::inst::PutOwnByValInst", ptr %ip, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %ip, i64 2
   %3 = load i8, ptr %op2, align 1
   %idxprom11 = zext i8 %3 to i64
   %arrayidx12 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom11
@@ -2369,22 +2101,22 @@ declare i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7Ru
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6hermes2vm11Interpreter27casePutOwnGetterSetterByValERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
-  %op5 = getelementptr inbounds %"struct.hermes::inst::PutOwnGetterSetterByValInst", ptr %ip, i64 0, i32 5
+  %op5 = getelementptr inbounds i8, ptr %ip, i64 5
   %0 = load i8, ptr %op5, align 1
   %1 = and i8 %0, 1
   %2 = or disjoint i8 %1, 44
   %bf.set9 = zext nneg i8 %2 to i16
-  %topGCScope_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %3 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %3, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 192
   %4 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %3, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
   %5 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 -281474976710656, ptr %4, align 8
   br label %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit
@@ -2396,15 +2128,15 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
 _ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %6 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %6, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %6, i64 192
   %7 = load ptr, ptr %next_.i.i.i.i.i.i.i17, align 8
-  %curChunkEnd_.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %6, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %6, i64 200
   %8 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i18, align 8
   %cmp.i.i.i.i.i.i19 = icmp ult ptr %7, %8
   br i1 %cmp.i.i.i.i.i.i19, label %if.then.i.i.i.i.i.i23, label %if.end.i.i.i.i.i.i20
 
 if.then.i.i.i.i.i.i23:                            ; preds = %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit
-  %incdec.ptr.i.i.i.i.i.i24 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %7, i64 1
+  %incdec.ptr.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i24, ptr %next_.i.i.i.i.i.i.i17, align 8
   store i64 -281474976710656, ptr %7, align 8
   br label %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit25
@@ -2415,7 +2147,7 @@ if.end.i.i.i.i.i.i20:                             ; preds = %_ZN6hermes2vm13Muta
 
 _ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit25: ; preds = %if.then.i.i.i.i.i.i23, %if.end.i.i.i.i.i.i20
   %retval.0.i.i.i.i.i.i22 = phi ptr [ %7, %if.then.i.i.i.i.i.i23 ], [ %call7.i.i.i.i.i.i21, %if.end.i.i.i.i.i.i20 ]
-  %op3 = getelementptr inbounds %"struct.hermes::inst::PutOwnGetterSetterByValInst", ptr %ip, i64 0, i32 3
+  %op3 = getelementptr inbounds i8, ptr %ip, i64 3
   %9 = load i8, ptr %op3, align 1
   %idxprom = zext i8 %9 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
@@ -2432,7 +2164,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm13Muta
 
 if.end:                                           ; preds = %if.then, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit25
   %dpFlags.sroa.0.0 = phi i16 [ %bf.set9, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit25 ], [ %bf.set15, %if.then ]
-  %op4 = getelementptr inbounds %"struct.hermes::inst::PutOwnGetterSetterByValInst", ptr %ip, i64 0, i32 4
+  %op4 = getelementptr inbounds i8, ptr %ip, i64 4
   %11 = load i8, ptr %op4, align 1
   %idxprom21 = zext i8 %11 to i64
   %arrayidx22 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom21
@@ -2452,15 +2184,15 @@ if.end37:                                         ; preds = %if.then26, %if.end
   %call45 = tail call i64 @_ZN6hermes2vm16PropertyAccessor6createERNS0_7RuntimeENS0_6HandleINS0_8CallableEEES6_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, ptr %retval.0.i.i.i.i.i.i22) #10
   %or.i.i.i.i.i30 = or i64 %call45, -281474976710656
   %13 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i32 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %13, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %13, i64 192
   %14 = load ptr, ptr %next_.i.i.i.i.i.i.i32, align 8
-  %curChunkEnd_.i.i.i.i.i.i33 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %13, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %13, i64 200
   %15 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i33, align 8
   %cmp.i.i.i.i.i.i34 = icmp ult ptr %14, %15
   br i1 %cmp.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i38, label %if.end.i.i.i.i.i.i35
 
 if.then.i.i.i.i.i.i38:                            ; preds = %if.end37
-  %incdec.ptr.i.i.i.i.i.i39 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %14, i64 1
+  %incdec.ptr.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i39, ptr %next_.i.i.i.i.i.i.i32, align 8
   store i64 %or.i.i.i.i.i30, ptr %14, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleIT_EENS0_11HermesValueE.exit
@@ -2471,11 +2203,11 @@ if.end.i.i.i.i.i.i35:                             ; preds = %if.end37
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleIT_EENS0_11HermesValueE.exit: ; preds = %if.then.i.i.i.i.i.i38, %if.end.i.i.i.i.i.i35
   %retval.0.i.i.i.i.i.i37 = phi ptr [ %14, %if.then.i.i.i.i.i.i38 ], [ %call7.i.i.i.i.i.i36, %if.end.i.i.i.i.i.i35 ]
-  %op1 = getelementptr inbounds %"struct.hermes::inst::PutOwnGetterSetterByValInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %16 = load i8, ptr %op1, align 1
   %idxprom52 = zext i8 %16 to i64
   %arrayidx53 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom52
-  %op2 = getelementptr inbounds %"struct.hermes::inst::PutOwnGetterSetterByValInst", ptr %ip, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %ip, i64 2
   %17 = load i8, ptr %op2, align 1
   %idxprom58 = zext i8 %17 to i64
   %arrayidx59 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom58
@@ -2493,7 +2225,7 @@ define hidden noundef i32 @_ZN6hermes2vm11Interpreter17caseIteratorBeginERNS0_7R
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
   %iterRecord = alloca %"class.hermes::vm::CallResult.184", align 8
-  %op2 = getelementptr inbounds %"struct.hermes::inst::IteratorBeginInst", ptr %ip, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %ip, i64 2
   %0 = load i8, ptr %op2, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
@@ -2511,7 +2243,7 @@ _ZN6hermes2vm5vmisaINS0_7JSArrayEEEbNS0_11HermesValueE.exit: ; preds = %entry
 
 if.then:                                          ; preds = %_ZN6hermes2vm5vmisaINS0_7JSArrayEEEbNS0_11HermesValueE.exit
   store i32 0, ptr %desc, align 8
-  %slot.i.i = getelementptr inbounds %"struct.hermes::vm::PropertyDescriptor", ptr %desc, i64 0, i32 1
+  %slot.i.i = getelementptr inbounds i8, ptr %desc, i64 4
   store i32 -1, ptr %slot.i.i, align 4
   %call15.i = call noundef ptr @_ZN6hermes2vm8JSObject24getNamedDescriptorUnsafeENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsERNS0_23NamedPropertyDescriptorE(ptr nonnull %arrayidx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 268436004, i16 1, ptr noundef nonnull align 4 dereferenceable(8) %desc) #10
   %tobool.not = icmp eq ptr %call15.i, null
@@ -2526,13 +2258,13 @@ if.then11:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then11
   %3 = extractvalue { i32, i64 } %call18, 1
-  %arrayPrototypeValues = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 74
+  %arrayPrototypeValues = getelementptr inbounds i8, ptr %runtime, i64 600
   %4 = load i64, ptr %arrayPrototypeValues, align 8
   %cmp = icmp eq i64 %3, %4
   br i1 %cmp, label %if.then25, label %if.end34
 
 if.then25:                                        ; preds = %if.end
-  %op1 = getelementptr inbounds %"struct.hermes::inst::IteratorBeginInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %5 = load i8, ptr %op1, align 1
   %idxprom29 = zext i8 %5 to i64
   %arrayidx30 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom29
@@ -2540,24 +2272,24 @@ if.then25:                                        ; preds = %if.end
   br label %return
 
 if.end34:                                         ; preds = %entry, %if.then, %if.end, %_ZN6hermes2vm5vmisaINS0_7JSArrayEEEbNS0_11HermesValueE.exit
-  %topGCScope_.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %6 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %6, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %6, i64 192
   %7 = load ptr, ptr %next_.i.i, align 8
-  %curChunkIndex_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %6, i64 0, i32 6
+  %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %6, i64 208
   %8 = load i32, ptr %curChunkIndex_.i.i, align 8
   %9 = load i8, ptr %op2, align 1
   %idxprom37 = zext i8 %9 to i64
   %arrayidx38 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom37
   call void @_ZN6hermes2vm11getIteratorERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEN4llvh8OptionalINS3_INS0_8CallableEEEEE(ptr nonnull sret(%"class.hermes::vm::CallResult.184") align 8 %iterRecord, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %arrayidx38, i64 undef, i8 0) #10
-  %hasVal.i.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %iterRecord, i64 0, i32 1
+  %hasVal.i.i.i = getelementptr inbounds i8, ptr %iterRecord, i64 16
   %10 = load i8, ptr %hasVal.i.i.i, align 8
   %11 = and i8 %10, 1
   %cmp.i16 = icmp eq i8 %11, 0
   br i1 %cmp.i16, label %_ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializeE0EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end34
-  %nextMethod = getelementptr inbounds %"struct.hermes::vm::IteratorRecord", ptr %iterRecord, i64 0, i32 1
+  %nextMethod = getelementptr inbounds i8, ptr %iterRecord, i64 8
   %12 = load ptr, ptr %nextMethod, align 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %12, align 8
   %13 = load i8, ptr %op2, align 1
@@ -2566,7 +2298,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end34
   store i64 %retval.sroa.0.0.copyload.i, ptr %arrayidx51, align 8
   %14 = load ptr, ptr %iterRecord, align 8
   %retval.sroa.0.0.copyload.i18 = load i64, ptr %14, align 8
-  %op157 = getelementptr inbounds %"struct.hermes::inst::IteratorBeginInst", ptr %ip, i64 0, i32 1
+  %op157 = getelementptr inbounds i8, ptr %ip, i64 1
   %15 = load i8, ptr %op157, align 1
   %idxprom58 = zext i8 %15 to i64
   %arrayidx59 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom58
@@ -2576,14 +2308,14 @@ if.then.i.i.i.i:                                  ; preds = %if.end34
 
 _ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializeE0EED2Ev.exit: ; preds = %if.end34, %if.then.i.i.i.i
   %retval.021 = phi i32 [ 1, %if.then.i.i.i.i ], [ 0, %if.end34 ]
-  %chunks_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %6, i64 0, i32 3
+  %chunks_.i.i.i = getelementptr inbounds i8, ptr %6, i64 144
   %conv.i.i.i = zext i32 %8 to i64
   %16 = load ptr, ptr %chunks_.i.i.i, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %conv.i.i.i
   %17 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %17, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 128
   store i32 %8, ptr %curChunkIndex_.i.i, align 8
-  %curChunkEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %6, i64 0, i32 5
+  %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %7, ptr %next_.i.i, align 8
   br label %return
@@ -2605,17 +2337,17 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = ptrtoint ptr %self.coerce to i64
   %or.i.i.i.i.i = or i64 %1, -281474976710656
-  %topGCScope_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 192
   %3 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %2, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %3, %4
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %3, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %3, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -2636,18 +2368,18 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %directProps_.i.i.i = getelementptr inbounds %"class.hermes::vm::JSObjectAndDirectProps", ptr %self.coerce, i64 0, i32 1
+  %directProps_.i.i.i = getelementptr inbounds i8, ptr %self.coerce, i64 20
   br label %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %propStorage_.i.i = getelementptr inbounds %"class.hermes::vm::JSObject", ptr %self.coerce, i64 0, i32 4
+  %propStorage_.i.i = getelementptr inbounds i8, ptr %self.coerce, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %propStorage_.i.i, align 4
   %7 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %7
   %8 = inttoptr i64 %add.i.i.i.i.i to ptr
   %sub.i.i = add nuw nsw i64 %desc.sroa.44.0.extract.shift, 4294967291
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %8, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = and i64 %sub.i.i, 4294967295
   br label %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit
 
@@ -2708,7 +2440,7 @@ sw.bb12.i:                                        ; preds = %_ZN6hermes2vm8JSObj
   %conv.i.i.i.i = zext i32 %and.i.i.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %15
   %16 = inttoptr i64 %add.i.i.i.i to ptr
-  %value_.i.i = getelementptr inbounds %"class.hermes::vm::BoxedDouble", ptr %16, i64 0, i32 1
+  %value_.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load double, ptr %value_.i.i, align 8
   %18 = fcmp uno double %17, 0.000000e+00
   %19 = bitcast double %17 to i64
@@ -2756,7 +2488,7 @@ declare void @_ZN6hermes2vm11getIteratorERNS0_7RuntimeENS0_6HandleINS0_11HermesV
 define hidden noundef i32 @_ZN6hermes2vm11Interpreter16caseIteratorNextERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %iterRecord = alloca %"struct.hermes::vm::IteratorRecord", align 8
-  %op2 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %ip, i64 2
   %0 = load i8, ptr %op2, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
@@ -2767,14 +2499,14 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = bitcast i64 %1 to double
   %conv.i = fptoui double %2 to i32
-  %op3 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 3
+  %op3 = getelementptr inbounds i8, ptr %ip, i64 3
   %3 = load i8, ptr %op3, align 1
   %idxprom5 = zext i8 %3 to i64
   %arrayidx6 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom5
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %arrayidx6, align 8
   %and.i.i = and i64 %agg.tmp.sroa.0.0.copyload, 281474976710655
   %4 = inttoptr i64 %and.i.i to ptr
-  %arrayidx.i.i = getelementptr inbounds %"class.hermes::vm::JSObjectAndDirectProps", ptr %4, i64 0, i32 1, i64 3
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4
   %conv.i1.i.i = and i32 %retval.sroa.0.0.copyload.i.i, 7
   %cmp.i.i48 = icmp eq i32 %conv.i1.i.i, 4
@@ -2791,7 +2523,7 @@ if.end.i.i:                                       ; preds = %if.then
   %conv.i.i.i.i.i = zext i32 %and.i.i.i.i to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %5
   %6 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %value_.i.i.i = getelementptr inbounds %"class.hermes::vm::BoxedDouble", ptr %6, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load double, ptr %value_.i.i.i, align 8
   br label %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
 
@@ -2803,7 +2535,7 @@ _ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit: ; preds = %if.the
 
 if.then9:                                         ; preds = %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
   store i64 -1688849860263936, ptr %arrayidx, align 8
-  %op1 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %8 = load i8, ptr %op1, align 1
   %idxprom19 = zext i8 %8 to i64
   %arrayidx20 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom19
@@ -2811,17 +2543,17 @@ if.then9:                                         ; preds = %_ZN6hermes2vm7JSArr
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
-  %beginIndex_.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %4, i64 0, i32 1
+  %beginIndex_.i = getelementptr inbounds i8, ptr %4, i64 20
   %9 = load i32, ptr %beginIndex_.i, align 4
   %cmp.not.i = icmp ule i32 %9, %conv.i
-  %endIndex_.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %4, i64 0, i32 2
+  %endIndex_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %endIndex_.i, align 4
   %cmp2.i = icmp ugt i32 %10, %conv.i
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %if.end47
 
 cond.true.i:                                      ; preds = %if.end
-  %indexedStorage_.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %4, i64 0, i32 3
+  %indexedStorage_.i.i = getelementptr inbounds i8, ptr %4, i64 28
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %indexedStorage_.i.i, align 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
   %11 = ptrtoint ptr %runtime to i64
@@ -2834,7 +2566,7 @@ cond.true.i:                                      ; preds = %if.end
   br i1 %cmp.i.i51, label %if.then.i.i52, label %if.else.i.i
 
 if.then.i.i52:                                    ; preds = %cond.true.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::SegmentedArrayBase", ptr %cond.i.i.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 8
   %idxprom.i.i = zext nneg i32 %sub.i to i64
   %arrayidx.i.i53 = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
   br label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
@@ -2842,7 +2574,7 @@ if.then.i.i52:                                    ; preds = %cond.true.i
 if.else.i.i:                                      ; preds = %cond.true.i
   %sub.i.i.i = add i32 %sub.i, -4096
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
-  %add.ptr.i.i.i5.i.i = getelementptr inbounds %"class.hermes::vm::SegmentedArrayBase", ptr %cond.i.i.i.i.i.i, i64 2049
+  %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %13 = load i32, ptr %add.ptr.i.i.i.i, align 4
@@ -2852,8 +2584,9 @@ if.else.i.i:                                      ; preds = %cond.true.i
   %14 = inttoptr i64 %add.i.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i, ptr null, ptr %14
   %rem.i.i.i = and i32 %sub.i, 1023
+  %data_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"class.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::Segment", ptr %cond.i.i.i.i.i.i.i, i64 0, i32 2, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 
 _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %if.then.i.i52, %if.else.i.i
@@ -2914,7 +2647,7 @@ sw.bb12.i:                                        ; preds = %if.then32, %if.then
   %conv.i.i.i.i = zext i32 %and.i.i.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %11
   %17 = inttoptr i64 %add.i.i.i.i to ptr
-  %value_.i.i = getelementptr inbounds %"class.hermes::vm::BoxedDouble", ptr %17, i64 0, i32 1
+  %value_.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load double, ptr %value_.i.i, align 8
   %19 = fcmp uno double %18, 0.000000e+00
   %20 = bitcast double %18 to i64
@@ -2950,7 +2683,7 @@ sw.default.i:                                     ; preds = %if.then32
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %if.then32, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
   %retval.sroa.0.0.i57 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i, %sw.bb22.i ], [ %21, %sw.bb18.i ], [ %retval.sroa.0.0.i.i58, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %if.then32 ]
-  %op143 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 1
+  %op143 = getelementptr inbounds i8, ptr %ip, i64 1
   %22 = load i8, ptr %op143, align 1
   %idxprom44 = zext i8 %22 to i64
   %arrayidx45 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom44
@@ -2958,11 +2691,11 @@ _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %if.
   br label %return
 
 if.end47:                                         ; preds = %if.end, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
-  %topGCScope_.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %23 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %23, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %23, i64 192
   %24 = load ptr, ptr %next_.i.i, align 8
-  %curChunkIndex_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %23, i64 0, i32 6
+  %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %23, i64 208
   %25 = load i32, ptr %curChunkIndex_.i.i, align 8
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject27getComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nonnull %arrayidx6, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %arrayidx, ptr nonnull %arrayidx6) #10
   %26 = extractvalue { i32, i64 } %call.i, 0
@@ -2977,7 +2710,7 @@ if.end60:                                         ; preds = %if.end47
   %idxprom66 = zext i8 %28 to i64
   %arrayidx67 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom66
   store double %conv.i64, ptr %arrayidx67, align 8
-  %op173 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 1
+  %op173 = getelementptr inbounds i8, ptr %ip, i64 1
   %29 = load i8, ptr %op173, align 1
   %idxprom74 = zext i8 %29 to i64
   %arrayidx75 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom74
@@ -2986,14 +2719,14 @@ if.end60:                                         ; preds = %if.end47
 
 cleanup:                                          ; preds = %if.end47, %if.end60
   %retval.0 = phi i32 [ 1, %if.end60 ], [ 0, %if.end47 ]
-  %chunks_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %23, i64 0, i32 3
+  %chunks_.i.i.i = getelementptr inbounds i8, ptr %23, i64 144
   %conv.i.i.i = zext i32 %25 to i64
   %30 = load ptr, ptr %chunks_.i.i.i, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %30, i64 %conv.i.i.i
   %31 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %31, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %31, i64 128
   store i32 %25, ptr %curChunkIndex_.i.i, align 8
-  %curChunkEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %23, i64 0, i32 5
+  %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %23, i64 200
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %24, ptr %next_.i.i, align 8
   br label %return
@@ -3004,7 +2737,7 @@ if.end77:                                         ; preds = %entry
   br i1 %cmp.i68, label %if.then82, label %if.end90
 
 if.then82:                                        ; preds = %if.end77
-  %op186 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 1
+  %op186 = getelementptr inbounds i8, ptr %ip, i64 1
   %32 = load i8, ptr %op186, align 1
   %idxprom87 = zext i8 %32 to i64
   %arrayidx88 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom87
@@ -3012,18 +2745,18 @@ if.then82:                                        ; preds = %if.end77
   br label %return
 
 if.end90:                                         ; preds = %if.end77
-  %topGCScope_.i.i70 = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i70 = getelementptr inbounds i8, ptr %runtime, i64 8
   %33 = load ptr, ptr %topGCScope_.i.i70, align 8
-  %next_.i.i72 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %33, i64 0, i32 4
+  %next_.i.i72 = getelementptr inbounds i8, ptr %33, i64 192
   %34 = load ptr, ptr %next_.i.i72, align 8
-  %curChunkIndex_.i.i73 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %33, i64 0, i32 6
+  %curChunkIndex_.i.i73 = getelementptr inbounds i8, ptr %33, i64 208
   %35 = load i32, ptr %curChunkIndex_.i.i73, align 8
-  %op3100 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 3
+  %op3100 = getelementptr inbounds i8, ptr %ip, i64 3
   %36 = load i8, ptr %op3100, align 1
   %idxprom101 = zext i8 %36 to i64
   %arrayidx102 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom101
   store ptr %arrayidx, ptr %iterRecord, align 8
-  %nextMethod6.i = getelementptr inbounds %"struct.hermes::vm::IteratorRecord", ptr %iterRecord, i64 0, i32 1
+  %nextMethod6.i = getelementptr inbounds i8, ptr %iterRecord, i64 8
   store ptr %arrayidx102, ptr %nextMethod6.i, align 8
   %call111 = call ptr @_ZN6hermes2vm12iteratorNextERNS0_7RuntimeERKNS0_14IteratorRecordEN4llvh8OptionalINS0_6HandleINS0_11HermesValueEEEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(16) %iterRecord, i64 undef, i8 0) #10
   %cmp.i.i74.not = icmp eq ptr %call111, inttoptr (i64 -1 to ptr)
@@ -3033,15 +2766,15 @@ if.end116:                                        ; preds = %if.end90
   %37 = ptrtoint ptr %call111 to i64
   %or.i.i.i.i.i = or i64 %37, -281474976710656
   %38 = load ptr, ptr %topGCScope_.i.i70, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %38, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 192
   %39 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %38, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 200
   %40 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end116
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %39, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %39, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -3081,7 +2814,7 @@ if.end167:                                        ; preds = %if.else
 
 cleanup178.sink.split:                            ; preds = %if.end167, %if.then140
   %.sink = phi i64 [ -1688849860263936, %if.then140 ], [ %45, %if.end167 ]
-  %op1151 = getelementptr inbounds %"struct.hermes::inst::IteratorNextInst", ptr %ip, i64 0, i32 1
+  %op1151 = getelementptr inbounds i8, ptr %ip, i64 1
   %46 = load i8, ptr %op1151, align 1
   %idxprom152 = zext i8 %46 to i64
   %arrayidx153 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom152
@@ -3090,14 +2823,14 @@ cleanup178.sink.split:                            ; preds = %if.end167, %if.then
 
 cleanup178:                                       ; preds = %cleanup178.sink.split, %if.else, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end90
   %retval.1 = phi i32 [ 0, %if.end90 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.else ], [ 1, %cleanup178.sink.split ]
-  %chunks_.i.i.i92 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %33, i64 0, i32 3
+  %chunks_.i.i.i92 = getelementptr inbounds i8, ptr %33, i64 144
   %conv.i.i.i93 = zext i32 %35 to i64
   %47 = load ptr, ptr %chunks_.i.i.i92, align 8
   %arrayidx.i19.i.i.i94 = getelementptr inbounds ptr, ptr %47, i64 %conv.i.i.i93
   %48 = load ptr, ptr %arrayidx.i19.i.i.i94, align 8
-  %add.ptr.i.i.i95 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %48, i64 16
+  %add.ptr.i.i.i95 = getelementptr inbounds i8, ptr %48, i64 128
   store i32 %35, ptr %curChunkIndex_.i.i73, align 8
-  %curChunkEnd_.i.i.i97 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %33, i64 0, i32 5
+  %curChunkEnd_.i.i.i97 = getelementptr inbounds i8, ptr %33, i64 200
   store ptr %add.ptr.i.i.i95, ptr %curChunkEnd_.i.i.i97, align 8
   store ptr %34, ptr %next_.i.i72, align 8
   br label %return
@@ -3116,7 +2849,7 @@ define hidden noundef i32 @_ZN6hermes2vm11Interpreter16caseGetPNameListERNS0_7Ru
 entry:
   %beginIndex = alloca i32, align 4
   %endIndex = alloca i32, align 4
-  %op2 = getelementptr inbounds %"struct.hermes::inst::GetPNameListInst", ptr %ip, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %ip, i64 2
   %0 = load i8, ptr %op2, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
@@ -3140,17 +2873,17 @@ if.end17:                                         ; preds = %if.end
   %arrayidx21 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom20
   store i64 %3, ptr %arrayidx21, align 8
   %or.i.i.i.i.i.i = or i64 %3, -281474976710656
-  %topGCScope_.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %5 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8, !noalias !6
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %5, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 192
   %6 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8, !noalias !6
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %5, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 200
   %7 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8, !noalias !6
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end17
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %6, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8, !noalias !6
   store i64 %or.i.i.i.i.i.i, ptr %6, align 8, !noalias !6
   br label %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_8JSObjectEEENS0_13MutableHandleIT_EEPS5_.exit
@@ -3168,14 +2901,14 @@ _ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_8JSObjectEEENS0_13MutableH
 if.end36:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_8JSObjectEEENS0_13MutableHandleIT_EEPS5_.exit
   %8 = load i32, ptr %beginIndex, align 4
   %conv.i = uitofp i32 %8 to double
-  %op3 = getelementptr inbounds %"struct.hermes::inst::GetPNameListInst", ptr %ip, i64 0, i32 3
+  %op3 = getelementptr inbounds i8, ptr %ip, i64 3
   %9 = load i8, ptr %op3, align 1
   %idxprom41 = zext i8 %9 to i64
   %arrayidx42 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom41
   store double %conv.i, ptr %arrayidx42, align 8
   %10 = load i32, ptr %endIndex, align 4
   %conv.i24 = uitofp i32 %10 to double
-  %op4 = getelementptr inbounds %"struct.hermes::inst::GetPNameListInst", ptr %ip, i64 0, i32 4
+  %op4 = getelementptr inbounds i8, ptr %ip, i64 4
   %11 = load i8, ptr %op4, align 1
   %idxprom47 = zext i8 %11 to i64
   %arrayidx48 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom47
@@ -3185,7 +2918,7 @@ if.end36:                                         ; preds = %_ZN6hermes2vm15Hand
 
 return.sink.split:                                ; preds = %entry, %entry, %if.end36
   %retval.sroa.0.0.copyload.i.sink = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end36 ], [ -1688849860263936, %entry ], [ -1688849860263936, %entry ]
-  %op153 = getelementptr inbounds %"struct.hermes::inst::GetPNameListInst", ptr %ip, i64 0, i32 1
+  %op153 = getelementptr inbounds i8, ptr %ip, i64 1
   %12 = load i8, ptr %op153, align 1
   %idxprom54 = zext i8 %12 to i64
   %arrayidx55 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom54
@@ -3204,39 +2937,39 @@ declare ptr @_ZN6hermes2vm21getForInPropertyNamesERNS0_7RuntimeENS0_6HandleINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6hermes2vm11Interpreter15implCallBuiltinERNS0_7RuntimeEPNS0_17PinnedHermesValueEPNS0_9CodeBlockEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr noundef %curCodeBlock, i32 noundef %op3) local_unnamed_addr #0 align 2 {
 entry:
-  %currentIP_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 146
+  %currentIP_.i = getelementptr inbounds i8, ptr %runtime, i64 9824
   %0 = load ptr, ptr %currentIP_.i, align 8
-  %op2 = getelementptr inbounds %"struct.hermes::inst::CallBuiltinInst", ptr %0, i64 0, i32 2
+  %op2 = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i8, ptr %op2, align 1
-  %builtins_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 137
+  %builtins_.i = getelementptr inbounds i8, ptr %runtime, i64 9632
   %conv.i = zext i8 %1 to i64
   %2 = load ptr, ptr %builtins_.i, align 8
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 %conv.i
   %3 = load ptr, ptr %add.ptr.i.i, align 8
-  %stackPointer_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 129
+  %stackPointer_ = getelementptr inbounds i8, ptr %runtime, i64 9472
   %4 = load ptr, ptr %stackPointer_, align 8
-  %add.ptr = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %frameRegs, i64 -8
   %sub = add i32 %op3, -1
   %5 = ptrtoint ptr %3 to i64
   %or.i.i.i = or i64 %5, -281474976710656
   %6 = ptrtoint ptr %add.ptr to i64
-  %arrayidx.i27 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -1
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %4, i64 -8
   store i64 %6, ptr %arrayidx.i27, align 8
   %7 = ptrtoint ptr %0 to i64
-  %arrayidx9.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %4, i64 -16
   store i64 %7, ptr %arrayidx9.i, align 8
   %8 = ptrtoint ptr %curCodeBlock to i64
-  %arrayidx14.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %4, i64 -24
   store i64 %8, ptr %arrayidx14.i, align 8
   %conv.i17 = zext i32 %sub to i64
   %or.i.i = or disjoint i64 %conv.i17, -1125899906842624
-  %arrayidx19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -4
+  %arrayidx19.i = getelementptr inbounds i8, ptr %4, i64 -32
   store i64 %or.i.i, ptr %arrayidx19.i, align 8
-  %arrayidx21.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -5
+  %arrayidx21.i = getelementptr inbounds i8, ptr %4, i64 -40
   store i64 -1688849860263936, ptr %arrayidx21.i, align 8
-  %arrayidx23.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -6
+  %arrayidx23.i = getelementptr inbounds i8, ptr %4, i64 -48
   store i64 %or.i.i.i, ptr %arrayidx23.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -7
+  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -56
   store i64 -1688849860263936, ptr %arrayidx.i, align 8
   %call9 = tail call { i32, i64 } @_ZN6hermes2vm14NativeFunction11_nativeCallEPS1_RNS0_7RuntimeE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   %9 = extractvalue { i32, i64 } %call9, 0
@@ -3245,7 +2978,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %10 = extractvalue { i32, i64 } %call9, 1
-  %op1 = getelementptr inbounds %"struct.hermes::inst::CallBuiltinInst", ptr %0, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %0, i64 1
   %11 = load i8, ptr %op1, align 1
   %idxprom = zext i8 %11 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
@@ -3261,7 +2994,7 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm14NativeFunction11_nativeCallEPS1_RNS0_7RuntimeE(ptr noundef %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 comdat align 2 {
 entry:
   %agg.tmp14 = alloca %"class.hermes::vm::NativeArgs", align 8
-  %nativeCallFrameDepth_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 132
+  %nativeCallFrameDepth_.i = getelementptr inbounds i8, ptr %runtime, i64 9504
   %0 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
@@ -3273,16 +3006,16 @@ if.then:                                          ; preds = %entry
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %stackPointer_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 129
+  %stackPointer_.i = getelementptr inbounds i8, ptr %runtime, i64 9472
   %1 = load ptr, ptr %stackPointer_.i, align 8
-  %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
+  %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   store ptr %1, ptr %currentFrame_.i, align 8
-  %currentIP_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 146
+  %currentIP_.i.i = getelementptr inbounds i8, ptr %runtime, i64 9824
   %2 = load ptr, ptr %currentIP_.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -16
   store i64 %3, ptr %arrayidx.i.i, align 8
-  %registerStackEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 128
+  %registerStackEnd_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9464
   %4 = load ptr, ptr %registerStackEnd_.i.i.i, align 8
   %5 = load ptr, ptr %stackPointer_.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %4 to i64
@@ -3294,7 +3027,7 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   store ptr %1, ptr %stackPointer_.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %8 = inttoptr i64 %7 to ptr
   store ptr %8, ptr %currentFrame_.i, align 8
@@ -3303,26 +3036,26 @@ if.then7:                                         ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end
   tail call void @_ZN6hermes2vm7Runtime10allocStackEjNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1, i64 -1688849860263936) #10
-  %functionPtr_ = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %self, i64 0, i32 2
+  %functionPtr_ = getelementptr inbounds i8, ptr %self, i64 32
   %9 = load ptr, ptr %functionPtr_, align 8
-  %context_ = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %self, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load ptr, ptr %context_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %arrayidx.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -7
-  %arrayidx.i.i1.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -56
+  %arrayidx.i.i1.i = getelementptr inbounds i8, ptr %1, i64 -32
   %11 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !9
   %conv.i.i.i = trunc i64 %11 to i32
-  %arrayidx.i.i16 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -5
+  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %1, i64 -40
   store ptr %arrayidx.i.i.i, ptr %agg.tmp14, align 8, !alias.scope !9
-  %argCount_.i.i = getelementptr inbounds %"class.hermes::vm::NativeArgs", ptr %agg.tmp14, i64 0, i32 1
+  %argCount_.i.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
   store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !9
-  %newTarget_.i.i = getelementptr inbounds %"class.hermes::vm::NativeArgs", ptr %agg.tmp14, i64 0, i32 2
+  %newTarget_.i.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 16
   store ptr %arrayidx.i.i16, ptr %newTarget_.i.i, align 8, !alias.scope !9
   %call15 = call { i32, i64 } %9(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp14) #10
   %12 = extractvalue { i32, i64 } %call15, 0
   %13 = extractvalue { i32, i64 } %call15, 1
   store ptr %1, ptr %stackPointer_.i, align 8
-  %arrayidx.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
+  %arrayidx.i.i.i.i18 = getelementptr inbounds i8, ptr %1, i64 -8
   %14 = load i64, ptr %arrayidx.i.i.i.i18, align 8
   %15 = inttoptr i64 %14 to ptr
   store ptr %15, ptr %currentFrame_.i, align 8
@@ -3346,17 +3079,17 @@ cleanup:                                          ; preds = %if.end13, %if.then7
 define hidden noundef i32 @_ZN6hermes2vm11Interpreter20declareGlobalVarImplERNS0_7RuntimeEPNS0_9CodeBlockEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %curCodeBlock, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 4
-  %topGCScope_.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %0 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load ptr, ptr %next_.i.i, align 8
-  %curChunkIndex_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 6
+  %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %0, i64 208
   %2 = load i32, ptr %curChunkIndex_.i.i, align 8
   %call4 = tail call ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %3 = load ptr, ptr %curCodeBlock, align 8
-  %op1 = getelementptr inbounds %"struct.hermes::inst::DeclareGlobalVarInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %4 = load i32, ptr %op1, align 1
-  %stringIDMap_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %3, i64 0, i32 2
+  %stringIDMap_.i = getelementptr inbounds i8, ptr %3, i64 24
   %conv.i = zext i32 %4 to i64
   %5 = load ptr, ptr %stringIDMap_.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %5, i64 %conv.i
@@ -3368,12 +3101,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %desc, align 4
-  %slot.i.i = getelementptr inbounds %"struct.hermes::vm::PropertyDescriptor", ptr %desc, i64 0, i32 1
+  %slot.i.i = getelementptr inbounds i8, ptr %desc, i64 4
   store i32 -1, ptr %slot.i.i, align 4
   %call29 = tail call ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %6 = load ptr, ptr %curCodeBlock, align 8
   %7 = load i32, ptr %op1, align 1
-  %stringIDMap_.i9 = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %6, i64 0, i32 2
+  %stringIDMap_.i9 = getelementptr inbounds i8, ptr %6, i64 24
   %conv.i10 = zext i32 %7 to i64
   %8 = load ptr, ptr %stringIDMap_.i9, align 8
   %add.ptr.i.i11 = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %8, i64 %conv.i10
@@ -3381,7 +3114,7 @@ if.then:                                          ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %call29, align 8
   %and.i.i.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
   %9 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
-  %clazz_.i.i.i = getelementptr inbounds %"class.hermes::vm::JSObject", ptr %9, i64 0, i32 3
+  %clazz_.i.i.i = getelementptr inbounds i8, ptr %9, i64 12
   %agg.tmp.sroa.0.0.copyload.i.i2.i.i.i = load i32, ptr %clazz_.i.i.i, align 4
   %10 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i2.i.i.i to i64
@@ -3393,20 +3126,20 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.i.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %thrownValue_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 87
+  %thrownValue_.i = getelementptr inbounds i8, ptr %runtime, i64 704
   store i64 -1970324836974592, ptr %thrownValue_.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.end, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end ], [ 1, %entry ]
-  %chunks_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 3
+  %chunks_.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %conv.i.i.i = zext i32 %2 to i64
   %13 = load ptr, ptr %chunks_.i.i.i, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %conv.i.i.i
   %14 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %14, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 128
   store i32 %2, ptr %curChunkIndex_.i.i, align 8
-  %curChunkEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 5
+  %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %1, ptr %next_.i.i, align 8
   ret i32 %retval.0
@@ -3416,16 +3149,16 @@ cleanup:                                          ; preds = %entry, %if.end, %if
 define hidden noundef i32 @_ZN6hermes2vm11Interpreter38throwIfHasRestrictedGlobalPropertyImplERNS0_7RuntimeEPNS0_9CodeBlockEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %curCodeBlock, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %topGCScope_.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %0 = load ptr, ptr %topGCScope_.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load ptr, ptr %next_.i.i, align 8
-  %curChunkIndex_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 6
+  %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %0, i64 208
   %2 = load i32, ptr %curChunkIndex_.i.i, align 8
   %3 = load ptr, ptr %curCodeBlock, align 8
-  %op1 = getelementptr inbounds %"struct.hermes::inst::ThrowIfHasRestrictedGlobalPropertyInst", ptr %ip, i64 0, i32 1
+  %op1 = getelementptr inbounds i8, ptr %ip, i64 1
   %4 = load i32, ptr %op1, align 1
-  %stringIDMap_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %3, i64 0, i32 2
+  %stringIDMap_.i = getelementptr inbounds i8, ptr %3, i64 24
   %conv.i = zext i32 %4 to i64
   %5 = load ptr, ptr %stringIDMap_.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %5, i64 %conv.i
@@ -3434,28 +3167,28 @@ entry:
   br i1 %call3, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %entry
-  %rightKind_.i3.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 3
+  %rightKind_.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 1, ptr %rightKind_.i3.i, align 8
-  %leftSize_.i4.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 4
+  %leftSize_.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i64 38, ptr %leftSize_.i4.i, align 8
-  %rightSize_.i5.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 5
+  %rightSize_.i5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %rightSize_.i5.i, align 8
   store ptr @.str.1, ptr %ref.tmp, align 8
-  %6 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %6, align 8
   %call4 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #10
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.then
   %retval.0 = phi i32 [ %call4, %if.then ], [ 1, %entry ]
-  %chunks_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 3
+  %chunks_.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %conv.i.i.i = zext i32 %2 to i64
   %7 = load ptr, ptr %chunks_.i.i.i, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %conv.i.i.i
   %8 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %8, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 128
   store i32 %2, ptr %curChunkIndex_.i.i, align 8
-  %curChunkEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %0, i64 0, i32 5
+  %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %1, ptr %next_.i.i, align 8
   ret i32 %retval.0
@@ -3504,17 +3237,17 @@ _ZN6hermes15truncateToInt32Ed.exit:               ; preds = %if.then8.i, %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %topGCScope_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %4 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %4, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 192
   %5 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %4, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 200
   %6 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %5, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %1, ptr %5, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -3565,17 +3298,17 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %topGCScope_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
+  %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %5 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %5, i64 0, i32 4
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 192
   %6 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %5, i64 0, i32 5
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 200
   %7 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end14
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %6, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %1, ptr %6, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -3630,7 +3363,7 @@ declare i64 @_ZN6hermes2vm11HiddenClass12findPropertyENS0_12PseudoHandleIS1_EERN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3676,19 +3409,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %2 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !15, !noalias !12
   store <2 x ptr> %2, ptr %__cur.07.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !15, !noalias !12
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6hermes14ScopeChainItemESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6hermes14ScopeChainItemESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12
 
@@ -3699,13 +3432,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !21, !noalias !18
   store <2 x ptr> %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !18, !noalias !21
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !21, !noalias !18
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !18, !noalias !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !21, !noalias !18
-  %incdec.ptr.i.i.i19 = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i20 = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i19, %0
   br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12, !llvm.loop !17
 
@@ -3719,7 +3452,7 @@ if.then.i24:                                      ; preds = %_ZNSt6vectorIN6herm
   br label %_ZNSt12_Vector_baseIN6hermes14ScopeChainItemESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN6hermes14ScopeChainItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, %if.then.i24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<hermes::ScopeChainItem, std::allocator<hermes::ScopeChainItem>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i22, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.hermes::ScopeChainItem", ptr %cond.i10, i64 %cond.i

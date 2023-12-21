@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-evp_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_md_st = type { i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/evp/evp_utils.c\00", align 1
 @__func__.geterr = private unnamed_addr constant [7 x i8] c"geterr\00", align 1
 @__func__.seterr = private unnamed_addr constant [7 x i8] c"seterr\00", align 1
@@ -18,13 +14,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds %struct.evp_cipher_st, ptr %obj, i64 0, i32 17
+  %prov = getelementptr inbounds i8, ptr %obj, i64 120
   %0 = load ptr, ptr %prov, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %get_params = getelementptr inbounds %struct.evp_cipher_st, ptr %obj, i64 0, i32 27
+  %get_params = getelementptr inbounds i8, ptr %obj, i64 200
   %1 = load ptr, ptr %get_params, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -51,13 +47,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds %struct.evp_cipher_st, ptr %obj, i64 0, i32 17
+  %prov = getelementptr inbounds i8, ptr %obj, i64 120
   %0 = load ptr, ptr %prov, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %get_ctx_params = getelementptr inbounds %struct.evp_cipher_st, ptr %obj, i64 0, i32 28
+  %get_ctx_params = getelementptr inbounds i8, ptr %obj, i64 208
   %1 = load ptr, ptr %get_ctx_params, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -84,13 +80,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds %struct.evp_cipher_st, ptr %obj, i64 0, i32 17
+  %prov = getelementptr inbounds i8, ptr %obj, i64 120
   %0 = load ptr, ptr %prov, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %set_ctx_params = getelementptr inbounds %struct.evp_cipher_st, ptr %obj, i64 0, i32 29
+  %set_ctx_params = getelementptr inbounds i8, ptr %obj, i64 216
   %1 = load ptr, ptr %set_ctx_params, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -117,13 +113,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds %struct.evp_md_st, ptr %obj, i64 0, i32 16
+  %prov = getelementptr inbounds i8, ptr %obj, i64 112
   %0 = load ptr, ptr %prov, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %get_params = getelementptr inbounds %struct.evp_md_st, ptr %obj, i64 0, i32 26
+  %get_params = getelementptr inbounds i8, ptr %obj, i64 192
   %1 = load ptr, ptr %get_params, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -150,13 +146,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds %struct.evp_md_st, ptr %obj, i64 0, i32 16
+  %prov = getelementptr inbounds i8, ptr %obj, i64 112
   %0 = load ptr, ptr %prov, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %get_ctx_params = getelementptr inbounds %struct.evp_md_st, ptr %obj, i64 0, i32 28
+  %get_ctx_params = getelementptr inbounds i8, ptr %obj, i64 208
   %1 = load ptr, ptr %get_ctx_params, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -183,13 +179,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds %struct.evp_md_st, ptr %obj, i64 0, i32 16
+  %prov = getelementptr inbounds i8, ptr %obj, i64 112
   %0 = load ptr, ptr %prov, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %set_ctx_params = getelementptr inbounds %struct.evp_md_st, ptr %obj, i64 0, i32 27
+  %set_ctx_params = getelementptr inbounds i8, ptr %obj, i64 200
   %1 = load ptr, ptr %set_ctx_params, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end6

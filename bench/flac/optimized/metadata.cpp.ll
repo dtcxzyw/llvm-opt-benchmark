@@ -3,20 +3,16 @@ source_filename = "bench/flac/original/metadata.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.FLAC::Metadata::Prototype" = type <{ ptr, ptr, i8, [7 x i8] }>
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
-%union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
 %struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
 %"class.FLAC::Metadata::VorbisComment::Entry" = type <{ ptr, i8, [7 x i8], %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
 %struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
+%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
 %"class.FLAC::Metadata::CueSheet::Track" = type { ptr, ptr }
 %struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-%"class.FLAC::Metadata::SimpleIterator" = type { ptr, ptr }
-%"class.FLAC::Metadata::Chain" = type { ptr, ptr }
+%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
+%union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
+%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
 %struct.FLAC__IOCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.FLAC::Metadata::Iterator" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -115,9 +111,9 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %object, align 8
   %call25 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %object_.i.i23 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call25, i64 0, i32 1
+  %object_.i.i23 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %object, ptr %object_.i.i23, align 8
-  %is_reference_.i.i24 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call25, i64 0, i32 2
+  %is_reference_.i.i24 = getelementptr inbounds i8, ptr %call25, i64 16
   store i8 0, ptr %is_reference_.i.i24, align 8
   %1 = icmp ult i32 %0, 7
   br i1 %1, label %switch.lookup, label %return.sink.split
@@ -167,15 +163,15 @@ dynamic_cast.end21:                               ; preds = %entry
 if.then:                                          ; preds = %dynamic_cast.end21
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %object_2.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %1, i64 0, i32 1
+  %object_2.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %object_2.i.i, align 8
   %call.i.i24 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %9)
           to label %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit unwind label %lpad
 
 _ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit:       ; preds = %if.then
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call.i.i24, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   br label %return
@@ -192,15 +188,15 @@ if.end:                                           ; preds = %dynamic_cast.end21
 if.then23:                                        ; preds = %if.end
   %call24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
-  %object_2.i.i26 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %2, i64 0, i32 1
+  %object_2.i.i26 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %object_2.i.i26, align 8
   %call.i.i28 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %11)
           to label %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit unwind label %lpad25
 
 _ZN4FLAC8Metadata7PaddingC2ERKS1_.exit:           ; preds = %if.then23
-  %object_.i.i25 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call24, i64 0, i32 1
+  %object_.i.i25 = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %call.i.i28, ptr %object_.i.i25, align 8
-  %is_reference_.i.i27 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call24, i64 0, i32 2
+  %is_reference_.i.i27 = getelementptr inbounds i8, ptr %call24, i64 16
   store i8 0, ptr %is_reference_.i.i27, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
   br label %return
@@ -217,15 +213,15 @@ if.end27:                                         ; preds = %if.end
 if.then29:                                        ; preds = %if.end27
   %call30 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call30, align 8
-  %object_2.i.i30 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %3, i64 0, i32 1
+  %object_2.i.i30 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load ptr, ptr %object_2.i.i30, align 8
   %call.i.i32 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %13)
           to label %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit unwind label %lpad31
 
 _ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit:      ; preds = %if.then29
-  %object_.i.i29 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call30, i64 0, i32 1
+  %object_.i.i29 = getelementptr inbounds i8, ptr %call30, i64 8
   store ptr %call.i.i32, ptr %object_.i.i29, align 8
-  %is_reference_.i.i31 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call30, i64 0, i32 2
+  %is_reference_.i.i31 = getelementptr inbounds i8, ptr %call30, i64 16
   store i8 0, ptr %is_reference_.i.i31, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 0, inrange i32 0, i64 2), ptr %call30, align 8
   br label %return
@@ -242,15 +238,15 @@ if.end33:                                         ; preds = %if.end27
 if.then35:                                        ; preds = %if.end33
   %call36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call36, align 8
-  %object_2.i.i34 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %4, i64 0, i32 1
+  %object_2.i.i34 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load ptr, ptr %object_2.i.i34, align 8
   %call.i.i36 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %15)
           to label %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit unwind label %lpad37
 
 _ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit:         ; preds = %if.then35
-  %object_.i.i33 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call36, i64 0, i32 1
+  %object_.i.i33 = getelementptr inbounds i8, ptr %call36, i64 8
   store ptr %call.i.i36, ptr %object_.i.i33, align 8
-  %is_reference_.i.i35 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call36, i64 0, i32 2
+  %is_reference_.i.i35 = getelementptr inbounds i8, ptr %call36, i64 16
   store i8 0, ptr %is_reference_.i.i35, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 0, inrange i32 0, i64 2), ptr %call36, align 8
   br label %return
@@ -267,15 +263,15 @@ if.end39:                                         ; preds = %if.end33
 if.then41:                                        ; preds = %if.end39
   %call42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8
-  %object_2.i.i38 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %5, i64 0, i32 1
+  %object_2.i.i38 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %object_2.i.i38, align 8
   %call.i.i40 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %17)
           to label %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit unwind label %lpad43
 
 _ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit:    ; preds = %if.then41
-  %object_.i.i37 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call42, i64 0, i32 1
+  %object_.i.i37 = getelementptr inbounds i8, ptr %call42, i64 8
   store ptr %call.i.i40, ptr %object_.i.i37, align 8
-  %is_reference_.i.i39 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call42, i64 0, i32 2
+  %is_reference_.i.i39 = getelementptr inbounds i8, ptr %call42, i64 16
   store i8 0, ptr %is_reference_.i.i39, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8
   br label %return
@@ -292,15 +288,15 @@ if.end45:                                         ; preds = %if.end39
 if.then47:                                        ; preds = %if.end45
   %call48 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call48, align 8
-  %object_2.i.i42 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %6, i64 0, i32 1
+  %object_2.i.i42 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %object_2.i.i42, align 8
   %call.i.i44 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %19)
           to label %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit unwind label %lpad49
 
 _ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit:          ; preds = %if.then47
-  %object_.i.i41 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call48, i64 0, i32 1
+  %object_.i.i41 = getelementptr inbounds i8, ptr %call48, i64 8
   store ptr %call.i.i44, ptr %object_.i.i41, align 8
-  %is_reference_.i.i43 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call48, i64 0, i32 2
+  %is_reference_.i.i43 = getelementptr inbounds i8, ptr %call48, i64 16
   store i8 0, ptr %is_reference_.i.i43, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, inrange i32 0, i64 2), ptr %call48, align 8
   br label %return
@@ -317,15 +313,15 @@ if.end51:                                         ; preds = %if.end45
 if.then53:                                        ; preds = %if.end51
   %call54 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call54, align 8
-  %object_2.i.i46 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %7, i64 0, i32 1
+  %object_2.i.i46 = getelementptr inbounds i8, ptr %7, i64 8
   %21 = load ptr, ptr %object_2.i.i46, align 8
   %call.i.i48 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %21)
           to label %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit unwind label %lpad55
 
 _ZN4FLAC8Metadata7PictureC2ERKS1_.exit:           ; preds = %if.then53
-  %object_.i.i45 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call54, i64 0, i32 1
+  %object_.i.i45 = getelementptr inbounds i8, ptr %call54, i64 8
   store ptr %call.i.i48, ptr %object_.i.i45, align 8
-  %is_reference_.i.i47 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call54, i64 0, i32 2
+  %is_reference_.i.i47 = getelementptr inbounds i8, ptr %call54, i64 16
   store i8 0, ptr %is_reference_.i.i47, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, inrange i32 0, i64 2), ptr %call54, align 8
   br label %return
@@ -342,15 +338,15 @@ if.end57:                                         ; preds = %if.end51
 if.then59:                                        ; preds = %if.end57
   %call60 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %call60, align 8
-  %object_2.i.i50 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %8, i64 0, i32 1
+  %object_2.i.i50 = getelementptr inbounds i8, ptr %8, i64 8
   %23 = load ptr, ptr %object_2.i.i50, align 8
   %call.i.i52 = invoke ptr @FLAC__metadata_object_clone(ptr noundef %23)
           to label %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit unwind label %lpad61
 
 _ZN4FLAC8Metadata7UnknownC2ERKS1_.exit:           ; preds = %if.then59
-  %object_.i.i49 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call60, i64 0, i32 1
+  %object_.i.i49 = getelementptr inbounds i8, ptr %call60, i64 8
   store ptr %call.i.i52, ptr %object_.i.i49, align 8
-  %is_reference_.i.i51 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call60, i64 0, i32 2
+  %is_reference_.i.i51 = getelementptr inbounds i8, ptr %call60, i64 16
   store i8 0, ptr %is_reference_.i.i51, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, inrange i32 0, i64 2), ptr %call60, align 8
   br label %return
@@ -378,12 +374,12 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #3
 define void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %object) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
-  %object_2 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %object, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
+  %object_2 = getelementptr inbounds i8, ptr %object, i64 8
   %0 = load ptr, ptr %object_2, align 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %0)
   store ptr %call, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   ret void
 }
@@ -394,10 +390,10 @@ declare ptr @FLAC__metadata_object_clone(ptr noundef) local_unnamed_addr #4
 define void @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(176) %object) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
   store ptr %call, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   ret void
 }
@@ -406,10 +402,10 @@ entry:
 define void @_ZN4FLAC8Metadata9PrototypeC2EPK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %object) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
   store ptr %call, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   ret void
 }
@@ -426,9 +422,9 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %object, %entry ]
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   ret void
 }
@@ -437,13 +433,13 @@ cond.end:                                         ; preds = %entry, %cond.true
 define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -487,13 +483,13 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata9Prototype5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -516,12 +512,12 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %object, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %object, i64 8
   %1 = load ptr, ptr %object_, align 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1)
-  %object_2 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_2, align 8
   ret ptr %this
 }
@@ -532,10 +528,10 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_, align 8
   ret ptr %this
 }
@@ -546,10 +542,10 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this)
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   %call = tail call ptr @FLAC__metadata_object_clone(ptr noundef %object)
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_, align 8
   ret ptr %this
 }
@@ -568,9 +564,9 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %object, %entry ]
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond, ptr %object_, align 8
-  %is_reference_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_, align 8
   ret ptr %this
 }
@@ -578,9 +574,9 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata9Prototype11get_is_lastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %is_last = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 1
+  %is_last = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %is_last, align 4
   %tobool = icmp ne i32 %1, 0
   ret i1 %tobool
@@ -589,7 +585,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata9Prototype8get_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %1 = load i32, ptr %0, align 8
   ret i32 %1
@@ -598,9 +594,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata9Prototype10get_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %length = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %length, align 8
   ret i32 %1
 }
@@ -609,9 +605,9 @@ entry:
 define void @_ZN4FLAC8Metadata9Prototype11set_is_lastEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i1 noundef zeroext %value) local_unnamed_addr #8 align 2 {
 entry:
   %conv = zext i1 %value to i32
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %is_last = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 1
+  %is_last = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %conv, ptr %is_last, align 4
   ret void
 }
@@ -620,9 +616,9 @@ entry:
 define void @_ZN4FLAC8Metadata10StreamInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 0)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -634,13 +630,13 @@ declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #4
 define void @_ZN4FLAC8Metadata10StreamInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -673,9 +669,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_blocksizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %data, align 8
   ret i32 %1
 }
@@ -683,9 +679,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_blocksizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %max_blocksize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 4
+  %max_blocksize = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %max_blocksize, align 4
   ret i32 %1
 }
@@ -693,9 +689,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_framesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %min_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %min_framesize = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %min_framesize, align 8
   ret i32 %1
 }
@@ -703,9 +699,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_framesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %max_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 12
+  %max_framesize = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i32, ptr %max_framesize, align 4
   ret i32 %1
 }
@@ -713,9 +709,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo15get_sample_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %sample_rate, align 8
   ret i32 %1
 }
@@ -723,9 +719,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo12get_channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels = getelementptr inbounds i8, ptr %0, i64 36
   %1 = load i32, ptr %channels, align 4
   ret i32 %1
 }
@@ -733,9 +729,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo19get_bits_per_sampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %bits_per_sample, align 8
   ret i32 %1
 }
@@ -743,9 +739,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK4FLAC8Metadata10StreamInfo17get_total_samplesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %total_samples = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i64, ptr %total_samples, align 8
   ret i64 %1
 }
@@ -753,18 +749,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @_ZNK4FLAC8Metadata10StreamInfo10get_md5sumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %md5sum = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 40
+  %md5sum = getelementptr inbounds i8, ptr %0, i64 56
   ret ptr %md5sum
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo17set_min_blocksizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %value, ptr %data, align 8
   ret void
 }
@@ -772,9 +768,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo17set_max_blocksizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %max_blocksize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 4
+  %max_blocksize = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %value, ptr %max_blocksize, align 4
   ret void
 }
@@ -782,9 +778,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo17set_min_framesizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %min_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %min_framesize = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %value, ptr %min_framesize, align 8
   ret void
 }
@@ -792,9 +788,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo17set_max_framesizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %max_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 12
+  %max_framesize = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %value, ptr %max_framesize, align 4
   ret void
 }
@@ -802,9 +798,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo15set_sample_rateEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %value, ptr %sample_rate, align 8
   ret void
 }
@@ -812,9 +808,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo12set_channelsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %value, ptr %channels, align 4
   ret void
 }
@@ -822,9 +818,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo19set_bits_per_sampleEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %value, ptr %bits_per_sample, align 8
   ret void
 }
@@ -832,9 +828,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo17set_total_samplesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i64 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %total_samples = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %value, ptr %total_samples, align 8
   ret void
 }
@@ -842,9 +838,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata10StreamInfo10set_md5sumEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #10 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %md5sum = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 40
+  %md5sum = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md5sum, ptr noundef nonnull align 1 dereferenceable(16) %value, i64 16, i1 false)
   ret void
 }
@@ -856,9 +852,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN4FLAC8Metadata7PaddingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -868,12 +864,12 @@ entry:
 define void @_ZN4FLAC8Metadata7PaddingC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, i32 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %length2.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 2
+  %length2.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %length, ptr %length2.i, align 8
   ret void
 }
@@ -881,9 +877,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata7Padding10set_lengthEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %length) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %length2 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 2
+  %length2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %length, ptr %length2, align 8
   ret void
 }
@@ -892,13 +888,13 @@ entry:
 define void @_ZN4FLAC8Metadata7PaddingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -932,9 +928,9 @@ entry:
 define void @_ZN4FLAC8Metadata11ApplicationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -944,13 +940,13 @@ entry:
 define void @_ZN4FLAC8Metadata11ApplicationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -983,18 +979,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @_ZNK4FLAC8Metadata11Application6get_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata11Application8get_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data2 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %data2 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %data2, align 8
   ret ptr %1
 }
@@ -1002,9 +998,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata11Application6set_idEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %value, align 1
   store i32 %1, ptr %data, align 8
   ret void
@@ -1013,7 +1009,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata11Application8set_dataEPKhj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %data, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef 1)
   %tobool = icmp ne i32 %call, 0
@@ -1025,7 +1021,7 @@ declare i32 @FLAC__metadata_object_application_set_data(ptr noundef, ptr noundef
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata11Application8set_dataEPhjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %data, i32 noundef %length, i1 noundef zeroext %copy) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %conv = zext i1 %copy to i32
   %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef %conv)
@@ -1037,9 +1033,9 @@ entry:
 define void @_ZN4FLAC8Metadata9SeekTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 3)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -1049,13 +1045,13 @@ entry:
 define void @_ZN4FLAC8Metadata9SeekTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -1088,9 +1084,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata9SeekTable14get_num_pointsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %data, align 8
   ret i32 %1
 }
@@ -1098,9 +1094,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr noalias nocapture writeonly sret(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #10 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %points = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %points = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %points, align 8
   %idxprom = zext i32 %indx to i64
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %1, i64 %idxprom
@@ -1111,7 +1107,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable13resize_pointsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %new_num_points) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef %0, i32 noundef %new_num_points)
   %tobool = icmp ne i32 %call, 0
@@ -1123,7 +1119,7 @@ declare i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef, i32 noun
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata9SeekTable9set_pointEjRK30FLAC__StreamMetadata_SeekPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %point) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   tail call void @FLAC__metadata_object_seektable_set_point(ptr noundef %0, i32 noundef %indx, ptr noundef nonnull byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %point)
   ret void
@@ -1134,7 +1130,7 @@ declare void @FLAC__metadata_object_seektable_set_point(ptr noundef, i32 noundef
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable12insert_pointEjRK30FLAC__StreamMetadata_SeekPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %point) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef %0, i32 noundef %indx, ptr noundef nonnull byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %point)
   %tobool = icmp ne i32 %call, 0
@@ -1146,7 +1142,7 @@ declare i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef, i32 nound
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable12delete_pointEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef %0, i32 noundef %indx)
   %tobool = icmp ne i32 %call, 0
@@ -1158,7 +1154,7 @@ declare i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef, i32 nound
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata9SeekTable8is_legalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -1170,7 +1166,7 @@ declare i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef) local_unnamed
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable28template_append_placeholdersEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %num) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %0, i32 noundef %num)
   %tobool = icmp ne i32 %call, 0
@@ -1182,7 +1178,7 @@ declare i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr no
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable21template_append_pointEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i64 noundef %sample_number) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef %0, i64 noundef %sample_number)
   %tobool = icmp ne i32 %call, 0
@@ -1194,7 +1190,7 @@ declare i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef, 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable22template_append_pointsEPmj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %sample_numbers, i32 noundef %num) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef %0, ptr noundef %sample_numbers, i32 noundef %num)
   %tobool = icmp ne i32 %call, 0
@@ -1206,7 +1202,7 @@ declare i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef,
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable29template_append_spaced_pointsEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %num, i64 noundef %total_samples) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef %0, i32 noundef %num, i64 noundef %total_samples)
   %tobool = icmp ne i32 %call, 0
@@ -1218,7 +1214,7 @@ declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr n
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable40template_append_spaced_points_by_samplesEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %samples, i64 noundef %total_samples) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef %0, i32 noundef %samples, i64 noundef %total_samples)
   %tobool = icmp ne i32 %call, 0
@@ -1230,7 +1226,7 @@ declare i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_sa
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata9SeekTable13template_sortEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i1 noundef zeroext %compact) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %conv = zext i1 %compact to i32
   %call = tail call i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %0, i32 noundef %conv)
@@ -1244,13 +1240,13 @@ declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noun
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %entry_, align 8
   store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
@@ -1263,14 +1259,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry4zeroEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_valid_, align 8
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %entry_, align 8
-  %entry3 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %entry3 = getelementptr inbounds i8, ptr %this, i64 24
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %field_value_, align 8
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3, i8 0, i64 20, i1 false)
   ret void
@@ -1280,13 +1276,13 @@ entry:
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field, i32 noundef %field_length) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %entry_, align 8
   store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
@@ -1347,18 +1343,18 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %is_valid_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_.i, align 8
   br label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
@@ -1372,18 +1368,18 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then
   br i1 %cmp.i, label %if.then4.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 if.then4.i:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %is_valid_5.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_5.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_5.i, align 8
   br label %if.end
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %field_length, ptr %entry_.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %field, i64 %conv.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i
   store i8 0, ptr %arrayidx.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i8, ptr %is_valid_13.phi.trans.insert.i, align 8
   %1 = and i8 %.pre.i, 1
   %.not = icmp eq i8 %1, 0
@@ -1401,13 +1397,13 @@ if.end:                                           ; preds = %if.then4.i, %if.the
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %entry_, align 8
   store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
@@ -1425,18 +1421,18 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %is_valid_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %entry2.i.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %entry_.i.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
@@ -1450,18 +1446,18 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then4.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i
 
 if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %is_valid_5.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_5.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_5.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %conv, ptr %entry_.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %field, i64 %conv.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i.i = load i8, ptr %is_valid_13.phi.trans.insert.i.i, align 8
   %1 = and i8 %.pre.i.i, 1
   %.not.i = icmp eq i8 %1, 0
@@ -1479,15 +1475,15 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %field_name_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
-  %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %field_name_ = getelementptr inbounds i8, ptr %this, i64 32
+  %field_name_length_ = getelementptr inbounds i8, ptr %this, i64 40
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %entry_, align 8
   store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
@@ -1568,34 +1564,34 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.then
-  %field_name_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i32, ptr %field_name_length_.i, align 8
   %conv.i = zext i32 %1 to i64
-  %field_value_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %field_value_length_.i, align 8
   %conv2.i = zext i32 %2 to i64
   %add1.i.i = add nuw nsw i64 %conv.i, 2
   %add5.i.i = add nuw nsw i64 %add1.i.i, %conv2.i
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #24
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i.i, ptr %entry2.i.i, align 8
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_name_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %field_name_.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %3, i64 %conv.i, i1 false)
   %4 = load i32, ptr %entry_.i, align 8
@@ -1611,7 +1607,7 @@ if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13
 if.then19.i:                                      ; preds = %if.else.i
   %idx.ext24.i = zext i32 %add16.i to i64
   %add.ptr25.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %idx.ext24.i
-  %field_value_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %field_value_.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i, ptr align 1 %5, i64 %conv2.i, i1 false)
   br label %if.end.i
@@ -1626,7 +1622,7 @@ if.end.i:                                         ; preds = %if.then19.i, %if.el
 
 _ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %if.end.i
   %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_36.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_36.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink.i, ptr %is_valid_36.i, align 8
   br label %if.end
 
@@ -1638,13 +1634,13 @@ if.end:                                           ; preds = %_ZN4FLAC8Metadata13
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %entry_, align 8
   store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
@@ -1665,34 +1661,34 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %call2.i, label %if.then.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %entry2.i.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %entry_.i.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i
-  %field_name_length_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i32, ptr %field_name_length_.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  %field_value_length_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %field_value_length_.i.i, align 8
   %conv2.i.i = zext i32 %2 to i64
   %add1.i.i.i = add nuw nsw i64 %conv.i.i, 2
   %add5.i.i.i = add nuw nsw i64 %add1.i.i.i, %conv2.i.i
   %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i.i) #24
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i.i.i, ptr %entry2.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %field_name_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %field_name_.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
   %4 = load i32, ptr %entry_.i.i, align 8
@@ -1708,7 +1704,7 @@ if.else.i.i:                                      ; preds = %_ZN4FLAC8Metadata13
 if.then19.i.i:                                    ; preds = %if.else.i.i
   %idx.ext24.i.i = zext i32 %add16.i.i to i64
   %add.ptr25.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %idx.ext24.i.i
-  %field_value_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %field_value_.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i.i, ptr align 1 %5, i64 %conv2.i.i, i1 false)
   br label %if.end.i.i
@@ -1723,7 +1719,7 @@ if.end.i.i:                                       ; preds = %if.then19.i.i, %if.
 
 _ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit.i: ; preds = %if.end.i.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
   %.sink.i.i = phi i8 [ 1, %if.end.i.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i ]
-  %is_valid_36.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_36.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink.i.i, ptr %is_valid_36.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
 
@@ -1735,18 +1731,18 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit: ; preds = %entry,
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %entry_, align 8
   store i8 1, ptr %is_valid_, align 8
-  %entry3.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
-  %entry_3 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3
-  %entry4 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3, i32 1
+  %entry_3 = getelementptr inbounds i8, ptr %entry1, i64 16
+  %entry4 = getelementptr inbounds i8, ptr %entry1, i64 24
   %0 = load ptr, ptr %entry4, align 8
   %1 = load i32, ptr %entry_3, align 8
   %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %0, i32 noundef %1)
@@ -1801,20 +1797,20 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef nonnull align 8 dereferenceable(60) ptr @_ZN4FLAC8Metadata13VorbisComment5EntryaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
 entry:
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %entry2.i.i, align 8
   store i32 0, ptr %entry_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %entry
-  %field_name_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %field_name_.i.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %if.then.i2.i
@@ -1822,12 +1818,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then
 if.then.i2.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   tail call void @free(ptr noundef nonnull %1) #21
   store ptr null, ptr %field_name_.i.i, align 8
-  %field_name_length_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %field_name_length_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %if.then.i2.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_value_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %field_value_.i.i, align 8
   %cmp.not.i3.i = icmp eq ptr %2, null
   br i1 %cmp.not.i3.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit, label %if.then.i4.i
@@ -1835,15 +1831,15 @@ _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %if
 if.then.i4.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   tail call void @free(ptr noundef nonnull %2) #21
   store ptr null, ptr %field_value_.i.i, align 8
-  %field_value_length_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, %if.then.i4.i
-  %is_valid_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_valid_.i, align 8
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3
-  %entry3 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3, i32 1
+  %entry_ = getelementptr inbounds i8, ptr %entry1, i64 16
+  %entry3 = getelementptr inbounds i8, ptr %entry1, i64 24
   %3 = load ptr, ptr %entry3, align 8
   %4 = load i32, ptr %entry_, align 8
   %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %4)
@@ -1860,7 +1856,7 @@ if.end.i.i:                                       ; preds = %_ZN4FLAC8Metadata13
   br i1 %cmp.not.i.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %entry_.i.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %5) #21
   store i32 0, ptr %entry_.i.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
@@ -1878,7 +1874,7 @@ if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
-  %entry_.i.i2 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i2 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %entry_.i.i2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i.i
@@ -1900,20 +1896,20 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %entry2.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %entry2.i, align 8
   store i32 0, ptr %entry_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %entry, %if.then.i
-  %field_name_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %field_name_.i, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %if.then.i2
@@ -1921,12 +1917,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %entry, %i
 if.then.i2:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
   tail call void @free(ptr noundef nonnull %1) #21
   store ptr null, ptr %field_name_.i, align 8
-  %field_name_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %field_name_length_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %if.then.i2
-  %field_value_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %field_value_.i, align 8
   %cmp.not.i3 = icmp eq ptr %2, null
   br i1 %cmp.not.i3, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %if.then.i4
@@ -1934,12 +1930,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %_ZN4
 if.then.i4:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   tail call void @free(ptr noundef nonnull %2) #21
   store ptr null, ptr %field_value_.i, align 8
-  %field_value_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %if.then.i4
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_valid_, align 8
   ret void
 }
@@ -1948,20 +1944,20 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %entry2.i.i, align 8
   store i32 0, ptr %entry_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %entry
-  %field_name_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %field_name_.i.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %if.then.i2.i
@@ -1969,12 +1965,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then
 if.then.i2.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   tail call void @free(ptr noundef nonnull %1) #21
   store ptr null, ptr %field_name_.i.i, align 8
-  %field_name_length_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %field_name_length_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %if.then.i2.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_value_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %field_value_.i.i, align 8
   %cmp.not.i3.i = icmp eq ptr %2, null
   br i1 %cmp.not.i3.i, label %invoke.cont, label %if.then.i4.i
@@ -1982,12 +1978,12 @@ _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %if
 if.then.i4.i:                                     ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   tail call void @free(ptr noundef nonnull %2) #21
   store ptr null, ptr %field_value_.i.i, align 8
-  %field_value_length_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i4.i, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
-  %is_valid_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_valid_.i, align 8
   ret void
 }
@@ -2003,7 +1999,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata13VorbisComment5Entry8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) unnamed_addr #9 align 2 {
 entry:
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_valid_, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -2013,7 +2009,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry16get_field_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %entry_, align 8
   ret i32 %0
 }
@@ -2021,7 +2017,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry21get_field_name_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %field_name_length_, align 8
   ret i32 %0
 }
@@ -2029,7 +2025,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry22get_field_value_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %field_value_length_, align 8
   ret i32 %0
 }
@@ -2037,9 +2033,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define { i32, ptr } @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_entryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload = load i32, ptr %entry_, align 8
-  %retval.sroa.21.0.entry_.sroa_idx = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %retval.sroa.21.0.entry_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.21.0.copyload = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx, align 8
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.21.0.copyload, 1
@@ -2049,7 +2045,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_fieldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %entry2 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2, align 8
   ret ptr %0
 }
@@ -2057,7 +2053,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry14get_field_nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %field_name_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %field_name_, align 8
   ret ptr %0
 }
@@ -2065,7 +2061,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry15get_field_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %field_value_, align 8
   ret ptr %0
 }
@@ -2078,18 +2074,18 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %entry2.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
@@ -2103,18 +2099,18 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %if.end, %
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  %is_valid_5 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_5 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_5, align 8
   br label %return
 
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %field_length, ptr %entry_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_13.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load i8, ptr %is_valid_13.phi.trans.insert, align 8
   %1 = and i8 %.pre, 1
   %2 = icmp ne i8 %1, 0
@@ -2130,13 +2126,13 @@ declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef)
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %entry2 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %entry2, align 8
   store i32 0, ptr %entry_, align 8
@@ -2149,7 +2145,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %field_name_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %field_name_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %if.then.i
@@ -2157,12 +2153,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %field_name_.i, align 8
-  %field_name_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %field_name_length_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %entry, %if.then.i
-  %field_value_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %field_value_.i, align 8
   %cmp.not.i3 = icmp eq ptr %1, null
   br i1 %cmp.not.i3, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %if.then.i4
@@ -2170,13 +2166,13 @@ _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %entr
 if.then.i4:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   tail call void @free(ptr noundef nonnull %1) #21
   store ptr null, ptr %field_value_.i, align 8
-  %field_value_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %if.then.i4
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
-  %entry2 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
+  %entry2 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %entry2, align 8
   %3 = load i32, ptr %entry_, align 8
   %conv = zext i32 %3 to i64
@@ -2188,7 +2184,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv10 = trunc i64 %sub.ptr.sub to i32
-  %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %conv10, ptr %field_name_length_, align 8
   %conv12 = and i64 %sub.ptr.sub, 4294967295
   %add.i = add nuw nsw i64 %conv12, 1
@@ -2205,7 +2201,7 @@ if.end16:                                         ; preds = %_ZN4FLAC8Metadata13
   br i1 %cmp27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end16
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_, align 8
   %call.i = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #24
   store ptr %call.i, ptr %field_value_.i, align 8
@@ -2215,7 +2211,7 @@ if.then28:                                        ; preds = %if.end16
 if.else:                                          ; preds = %if.end16
   %4 = xor i32 %conv10, -1
   %sub38 = add i32 %3, %4
-  %field_value_length_39 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_39 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %sub38, ptr %field_value_length_39, align 8
   %conv41 = zext i32 %sub38 to i64
   %add.i5 = add nuw nsw i64 %conv41, 1
@@ -2236,7 +2232,7 @@ if.end55:                                         ; preds = %if.then28, %if.end4
 
 return:                                           ; preds = %if.else, %if.then28, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %if.end55
   %.sink = phi i8 [ 1, %if.end55 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %if.then28 ], [ 0, %if.else ]
-  %is_valid_56 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_56 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink, ptr %is_valid_56, align 8
   ret void
 }
@@ -2251,18 +2247,18 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %is_valid_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 if.end.i:                                         ; preds = %entry
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
@@ -2276,18 +2272,18 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then
   br i1 %cmp.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %is_valid_5.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_5.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_5.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %conv, ptr %entry_.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %field, i64 %conv.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i
   store i8 0, ptr %arrayidx.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %is_valid_13.phi.trans.insert.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i8, ptr %is_valid_13.phi.trans.insert.i, align 8
   %1 = and i8 %.pre.i, 1
   %2 = icmp ne i8 %1, 0
@@ -2309,7 +2305,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %field_name_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %field_name_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %if.then.i
@@ -2317,7 +2313,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %field_name_.i, align 8
-  %field_name_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %field_name_length_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
@@ -2330,15 +2326,15 @@ _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %if.e
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2) #25
   %conv = trunc i64 %call6 to i32
-  %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %conv, ptr %field_name_length_, align 8
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %1) #21
   store i32 0, ptr %entry_.i.i, align 8
   %.pre = load i32, ptr %field_name_length_, align 8
@@ -2347,13 +2343,13 @@ if.then.i.i:                                      ; preds = %if.else
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.else
   %2 = phi i32 [ %.pre, %if.then.i.i ], [ %conv, %if.else ]
   %conv.i = zext i32 %2 to i64
-  %field_value_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %field_value_length_.i, align 8
   %conv2.i = zext i32 %3 to i64
   %add1.i.i = add nuw nsw i64 %conv.i, 2
   %add5.i.i = add nuw nsw i64 %add1.i.i, %conv2.i
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #24
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i.i, ptr %entry2.i.i, align 8
   %cmp.i = icmp ne ptr %call.i.i.i, null
   br i1 %cmp.i, label %if.else.i, label %return
@@ -2374,7 +2370,7 @@ if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13
 if.then19.i:                                      ; preds = %if.else.i
   %idx.ext24.i = zext i32 %add16.i to i64
   %add.ptr25.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %idx.ext24.i
-  %field_value_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %field_value_.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25.i, ptr align 1 %6, i64 %conv2.i, i1 false)
   br label %if.end.i
@@ -2390,7 +2386,7 @@ if.end.i:                                         ; preds = %if.then19.i, %if.el
 return:                                           ; preds = %if.end.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %entry
   %.sink = phi i8 [ 0, %entry ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit ], [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
   %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit ], [ %cmp.i, %if.end.i ], [ %cmp.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_4 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_4 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink, ptr %is_valid_4, align 8
   ret i1 %retval.0
 }
@@ -2400,7 +2396,7 @@ declare i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef) local_u
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %field_name_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %field_name_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2408,7 +2404,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %field_name_, align 8
-  %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %field_name_length_, align 8
   br label %if.end
 
@@ -2422,34 +2418,34 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %entry2.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %0) #21
   store i32 0, ptr %entry_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %entry, %if.then.i
-  %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i32, ptr %field_name_length_, align 8
   %conv = zext i32 %1 to i64
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %field_value_length_, align 8
   %conv2 = zext i32 %2 to i64
   %add1.i = add nuw nsw i64 %conv, 2
   %add5.i = add nuw nsw i64 %add1.i, %conv2
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i) #24
-  %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i, ptr %entry2.i, align 8
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.end37, label %if.else
 
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
-  %field_name_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %field_name_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %3, i64 %conv, i1 false)
   %4 = load i32, ptr %entry_, align 8
@@ -2465,7 +2461,7 @@ if.else:                                          ; preds = %_ZN4FLAC8Metadata13
 if.then19:                                        ; preds = %if.else
   %idx.ext24 = zext i32 %add16 to i64
   %add.ptr25 = getelementptr inbounds i8, ptr %call.i.i, i64 %idx.ext24
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %field_value_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %5, i64 %conv2, i1 false)
   br label %if.end
@@ -2480,7 +2476,7 @@ if.end:                                           ; preds = %if.then19, %if.else
 
 if.end37:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %if.end
   %.sink = phi i8 [ 1, %if.end ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit ]
-  %is_valid_36 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_36 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink, ptr %is_valid_36, align 8
   ret void
 }
@@ -2493,14 +2489,14 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %field_value_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %field_value_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   tail call void @free(ptr noundef nonnull %0) #21
-  %field_value_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_.i, align 8
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
@@ -2513,18 +2509,18 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %if.
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %field_value_length, ptr %field_value_length_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field_value, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %conv
   store i8 0, ptr %arrayidx, align 1
-  %entry2.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3, i32 1
+  %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %entry2.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %entry_.i.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @free(ptr noundef nonnull %1) #21
   store i32 0, ptr %entry_.i.i, align 8
   %.pre = load i32, ptr %field_value_length_, align 8
@@ -2534,19 +2530,19 @@ if.then.i.i:                                      ; preds = %if.else
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %if.then.i.i, %if.else
   %conv2.i.pre-phi = phi i64 [ %.pre9, %if.then.i.i ], [ %conv, %if.else ]
   %2 = phi i32 [ %.pre, %if.then.i.i ], [ %field_value_length, %if.else ]
-  %field_name_length_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 5
+  %field_name_length_.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %field_name_length_.i, align 8
   %conv.i = zext i32 %3 to i64
   %add1.i.i = add nuw nsw i64 %conv.i, 2
   %add5.i.i = add nuw nsw i64 %add1.i.i, %conv2.i.pre-phi
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add5.i.i) #24
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i.i.i, ptr %entry2.i.i, align 8
   %cmp.i = icmp ne ptr %call.i.i.i, null
   br i1 %cmp.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
-  %field_name_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 4
+  %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %field_name_.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %4, i64 %conv.i, i1 false)
   %5 = load i32, ptr %entry_.i, align 8
@@ -2577,7 +2573,7 @@ if.end.i:                                         ; preds = %if.then19.i, %if.el
 return:                                           ; preds = %if.end.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %entry
   %.sink = phi i8 [ 0, %entry ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
   %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ %cmp.i, %if.end.i ], [ %cmp.i, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
-  %is_valid_4 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 1
+  %is_valid_4 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink, ptr %is_valid_4, align 8
   ret i1 %retval.0
 }
@@ -2587,7 +2583,7 @@ declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 no
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %field_value_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 7
+  %field_value_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %field_value_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2595,7 +2591,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr %field_value_, align 8
-  %field_value_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this, i64 0, i32 8
+  %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %field_value_length_, align 8
   br label %if.end
 
@@ -2622,9 +2618,9 @@ declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed
 define void @_ZN4FLAC8Metadata13VorbisCommentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 4)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -2634,13 +2630,13 @@ entry:
 define void @_ZN4FLAC8Metadata13VorbisCommentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -2673,9 +2669,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment16get_num_commentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %num_comments = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %num_comments = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %num_comments, align 8
   ret i32 %1
 }
@@ -2683,9 +2679,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment17get_vendor_stringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %entry2 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %entry2 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %entry2, align 8
   ret ptr %1
 }
@@ -2693,13 +2689,13 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZNK4FLAC8Metadata13VorbisComment11get_commentEj(ptr noalias sret(%"class.FLAC::Metadata::VorbisComment::Entry") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %comments = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %comments, align 8
   %idxprom = zext i32 %indx to i64
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idxprom
-  %entry2 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idxprom, i32 1
+  %entry2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %entry2, align 8
   %3 = load i32, ptr %arrayidx, align 8
   tail call void @_ZN4FLAC8Metadata13VorbisComment5EntryC1EPKcj(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, ptr noundef %2, i32 noundef %3)
@@ -2711,7 +2707,7 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment17set_vendor_stringEP
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #25
   %conv = trunc i64 %call to i32
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef %0, i32 %conv, ptr %string, i32 noundef 1)
   %tobool = icmp ne i32 %call3, 0
@@ -2723,7 +2719,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef, 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15resize_commentsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %new_num_comments) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef %0, i32 noundef %new_num_comments)
   %tobool = icmp ne i32 %call, 0
@@ -2735,11 +2731,11 @@ declare i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef, i3
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment11set_commentEjRKNS1_5EntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %entry1, i64 16
   %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3, i32 1
+  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 24
   %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
   %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef %0, i32 noundef %indx, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef 1)
   %tobool = icmp ne i32 %call3, 0
@@ -2751,11 +2747,11 @@ declare i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef, i32 no
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14insert_commentEjRKNS1_5EntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %entry1, i64 16
   %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3, i32 1
+  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 24
   %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
   %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %0, i32 noundef %indx, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef 1)
   %tobool = icmp ne i32 %call3, 0
@@ -2767,11 +2763,11 @@ declare i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef, i32
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14append_commentERKNS1_5EntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %entry1, i64 16
   %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3, i32 1
+  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 24
   %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
   %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %0, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef 1)
   %tobool = icmp ne i32 %call3, 0
@@ -2783,11 +2779,11 @@ declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15replace_commentERKNS1_5EntryEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1, i1 noundef zeroext %all) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %entry_.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3
+  %entry_.i = getelementptr inbounds i8, ptr %entry1, i64 16
   %retval.sroa.0.0.copyload.i = load i32, ptr %entry_.i, align 8
-  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %entry1, i64 0, i32 3, i32 1
+  %retval.sroa.21.0.entry_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 24
   %retval.sroa.21.0.copyload.i = load ptr, ptr %retval.sroa.21.0.entry_.sroa_idx.i, align 8
   %conv = zext i1 %all to i32
   %call3 = tail call i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef %0, i32 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.21.0.copyload.i, i32 noundef %conv, i32 noundef 1)
@@ -2800,7 +2796,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef, i3
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14delete_commentEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef %0, i32 noundef %indx)
   %tobool = icmp ne i32 %call, 0
@@ -2812,7 +2808,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef, i32
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC8Metadata13VorbisComment15find_entry_fromEjPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %offset, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %0, i32 noundef %offset, ptr noundef %field_name)
   ret i32 %call
@@ -2823,7 +2819,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef, i3
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC8Metadata13VorbisComment21remove_entry_matchingEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef %0, ptr noundef %field_name)
   ret i32 %call
@@ -2834,7 +2830,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr nound
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC8Metadata13VorbisComment23remove_entries_matchingEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef %field_name)
   ret i32 %call
@@ -2846,7 +2842,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr nou
 define void @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_cuesheet_track_new()
   store ptr %call, ptr %object_, align 8
   ret void
@@ -2858,7 +2854,7 @@ declare ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #4
 define void @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %track) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %track)
   store ptr %call, ptr %object_, align 8
   ret void
@@ -2870,8 +2866,8 @@ declare ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef) local_unnam
 define void @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
-  %object_2 = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %track, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
+  %object_2 = getelementptr inbounds i8, ptr %track, i64 8
   %0 = load ptr, ptr %object_2, align 8
   %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %0)
   store ptr %call, ptr %object_, align 8
@@ -2881,7 +2877,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4FLAC8Metadata8CueSheet5TrackaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2891,7 +2887,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %object_3 = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %track, i64 0, i32 1
+  %object_3 = getelementptr inbounds i8, ptr %track, i64 8
   %1 = load ptr, ptr %object_3, align 8
   %call = tail call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %1)
   store ptr %call, ptr %object_, align 8
@@ -2904,7 +2900,7 @@ declare void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef) local_unn
 define void @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2935,7 +2931,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet5Track8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -2944,9 +2940,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define { i64, i8 } @_ZNK4FLAC8Metadata8CueSheet5Track9get_indexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %i) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %0, i64 0, i32 5
+  %indices = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %indices, align 8
   %idxprom = zext i32 %i to i64
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %1, i64 %idxprom
@@ -2961,12 +2957,12 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5Track8set_isrcEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #10 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %isrc = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %0, i64 0, i32 2
+  %isrc = getelementptr inbounds i8, ptr %0, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %isrc, ptr noundef nonnull align 1 dereferenceable(12) %value, i64 12, i1 false)
   %1 = load ptr, ptr %object_, align 8
-  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %1, i64 0, i32 2, i64 12
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 21
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -2974,9 +2970,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5Track8set_typeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) local_unnamed_addr #18 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %type = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %0, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %0, i64 22
   %1 = trunc i32 %value to i8
   %bf.load = load i8, ptr %type, align 2
   %bf.value = and i8 %1, 1
@@ -2989,9 +2985,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata8CueSheet5Track9set_indexEjRK35FLAC__StreamMetadata_CueSheet_Index(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %i, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indx) local_unnamed_addr #10 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %0, i64 0, i32 5
+  %indices = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %indices, align 8
   %idxprom = zext i32 %i to i64
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %1, i64 %idxprom
@@ -3003,9 +2999,9 @@ entry:
 define void @_ZN4FLAC8Metadata8CueSheetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 5)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -3015,13 +3011,13 @@ entry:
 define void @_ZN4FLAC8Metadata8CueSheetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -3054,18 +3050,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @_ZNK4FLAC8Metadata8CueSheet24get_media_catalog_numberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK4FLAC8Metadata8CueSheet11get_lead_inEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %lead_in = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 1
+  %lead_in = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i64, ptr %lead_in, align 8
   ret i64 %1
 }
@@ -3073,9 +3069,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet9get_is_cdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %is_cd = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 2
+  %is_cd = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load i32, ptr %is_cd, align 8
   %tobool = icmp ne i32 %1, 0
   ret i1 %tobool
@@ -3084,9 +3080,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata8CueSheet14get_num_tracksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %num_tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 3
+  %num_tracks = getelementptr inbounds i8, ptr %0, i64 164
   %1 = load i32, ptr %num_tracks, align 4
   ret i32 %1
 }
@@ -3094,9 +3090,9 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZNK4FLAC8Metadata8CueSheet9get_trackEj(ptr noalias sret(%"class.FLAC::Metadata::CueSheet::Track") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %i) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 4
+  %tracks = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %tracks, align 8
   %idx.ext = zext i32 %i to i64
   %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %1, i64 %idx.ext
@@ -3107,12 +3103,12 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata8CueSheet24set_media_catalog_numberEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #10 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %data, ptr noundef nonnull align 1 dereferenceable(128) %value, i64 128, i1 false)
   %1 = load ptr, ptr %object_, align 8
-  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %1, i64 0, i32 3, i32 0, i32 0, i64 128
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 144
   store i8 0, ptr %arrayidx, align 8
   ret void
 }
@@ -3120,9 +3116,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata8CueSheet11set_lead_inEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i64 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %lead_in = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 1
+  %lead_in = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %value, ptr %lead_in, align 8
   ret void
 }
@@ -3131,9 +3127,9 @@ entry:
 define void @_ZN4FLAC8Metadata8CueSheet9set_is_cdEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i1 noundef zeroext %value) local_unnamed_addr #8 align 2 {
 entry:
   %conv = zext i1 %value to i32
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %is_cd = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 2
+  %is_cd = getelementptr inbounds i8, ptr %0, i64 160
   store i32 %conv, ptr %is_cd, align 8
   ret void
 }
@@ -3141,9 +3137,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indx) local_unnamed_addr #10 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 4
+  %tracks = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %tracks, align 8
   %idxprom = zext i32 %track_num to i64
   %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %1, i64 %idxprom, i32 5
@@ -3157,7 +3153,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet14resize_indicesEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %new_num_indices) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef %0, i32 noundef %track_num, i32 noundef %new_num_indices)
   %tobool = icmp ne i32 %call, 0
@@ -3169,7 +3165,7 @@ declare i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef, i3
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indx) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %indx, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %indx, i64 8
@@ -3184,7 +3180,7 @@ declare i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef, i32 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet18insert_blank_indexEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef %0, i32 noundef %track_num, i32 noundef %index_num)
   %tobool = icmp ne i32 %call, 0
@@ -3196,7 +3192,7 @@ declare i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12delete_indexEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %track_num, i32 noundef %index_num) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef %0, i32 noundef %track_num, i32 noundef %index_num)
   %tobool = icmp ne i32 %call, 0
@@ -3208,7 +3204,7 @@ declare i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef, i32 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet13resize_tracksEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %new_num_tracks) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef %0, i32 noundef %new_num_tracks)
   %tobool = icmp ne i32 %call, 0
@@ -3220,9 +3216,9 @@ declare i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef, i32 nound
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet9set_trackEjRKNS1_5TrackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %i, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %track, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %track, i64 8
   %1 = load ptr, ptr %object_.i, align 8
   %call2 = tail call i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef %0, i32 noundef %i, ptr noundef %1, i32 noundef 1)
   %tobool = icmp ne i32 %call2, 0
@@ -3234,9 +3230,9 @@ declare i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef, i32 noundef, 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_trackEjRKNS1_5TrackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %i, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %track, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %track, i64 8
   %1 = load ptr, ptr %object_.i, align 8
   %call2 = tail call i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef %0, i32 noundef %i, ptr noundef %1, i32 noundef 1)
   %tobool = icmp ne i32 %call2, 0
@@ -3248,7 +3244,7 @@ declare i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef, i32 nounde
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet18insert_blank_trackEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %i) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef %0, i32 noundef %i)
   %tobool = icmp ne i32 %call, 0
@@ -3260,7 +3256,7 @@ declare i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef, i32 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12delete_trackEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %i) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef %0, i32 noundef %i)
   %tobool = icmp ne i32 %call, 0
@@ -3272,7 +3268,7 @@ declare i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef, i32 nounde
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet8is_legalEbPPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i1 noundef zeroext %check_cd_da_subset, ptr noundef %violation) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %conv = zext i1 %check_cd_da_subset to i32
   %call = tail call i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef %0, i32 noundef %conv, ptr noundef %violation)
@@ -3285,7 +3281,7 @@ declare i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef, i32 noundef, p
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZNK4FLAC8Metadata8CueSheet17calculate_cddb_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef %0)
   ret i32 %call
@@ -3297,9 +3293,9 @@ declare i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef) local
 define void @_ZN4FLAC8Metadata7PictureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 6)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -3309,13 +3305,13 @@ entry:
 define void @_ZN4FLAC8Metadata7PictureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -3348,9 +3344,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata7Picture8get_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %data, align 8
   ret i32 %1
 }
@@ -3358,9 +3354,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata7Picture13get_mime_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %mime_type = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %mime_type = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mime_type, align 8
   ret ptr %1
 }
@@ -3368,9 +3364,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata7Picture15get_descriptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %description = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %description = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %description, align 8
   ret ptr %1
 }
@@ -3378,9 +3374,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_widthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %width = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %width = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %width, align 8
   ret i32 %1
 }
@@ -3388,9 +3384,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_heightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %height = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 28
+  %height = getelementptr inbounds i8, ptr %0, i64 44
   %1 = load i32, ptr %height, align 4
   ret i32 %1
 }
@@ -3398,9 +3394,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_depthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %depth = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 32
+  %depth = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %depth, align 8
   ret i32 %1
 }
@@ -3408,9 +3404,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_colorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %colors = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 36
+  %colors = getelementptr inbounds i8, ptr %0, i64 52
   %1 = load i32, ptr %colors, align 4
   ret i32 %1
 }
@@ -3418,9 +3414,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata7Picture15get_data_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data_length = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 40
+  %data_length = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %data_length, align 8
   ret i32 %1
 }
@@ -3428,9 +3424,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata7Picture8get_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data2 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 48
+  %data2 = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %data2, align 8
   ret ptr %1
 }
@@ -3438,9 +3434,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4FLAC8Metadata7Picture8set_typeE33FLAC__StreamMetadata_Picture_Type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %type) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %type, ptr %data, align 8
   ret void
 }
@@ -3448,7 +3444,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture13set_mime_typeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %string) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef %0, ptr noundef %string, i32 noundef 1)
   %tobool = icmp ne i32 %call, 0
@@ -3460,7 +3456,7 @@ declare i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef, ptr nounde
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture15set_descriptionEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %string) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef %0, ptr noundef %string, i32 noundef 1)
   %tobool = icmp ne i32 %call, 0
@@ -3472,9 +3468,9 @@ declare i32 @FLAC__metadata_object_picture_set_description(ptr noundef, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK4FLAC8Metadata7Picture9set_widthEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %width = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %width = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %value, ptr %width, align 8
   ret void
 }
@@ -3482,9 +3478,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK4FLAC8Metadata7Picture10set_heightEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %height = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 28
+  %height = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %value, ptr %height, align 4
   ret void
 }
@@ -3492,9 +3488,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK4FLAC8Metadata7Picture9set_depthEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %depth = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 32
+  %depth = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %value, ptr %depth, align 8
   ret void
 }
@@ -3502,9 +3498,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK4FLAC8Metadata7Picture10set_colorsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %colors = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 36
+  %colors = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %value, ptr %colors, align 4
   ret void
 }
@@ -3512,7 +3508,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture8set_dataEPKhj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %data, i32 noundef %data_length) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %data_length, i32 noundef 1)
   %tobool = icmp ne i32 %call, 0
@@ -3524,7 +3520,7 @@ declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i3
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata7Picture8is_legalEPPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %violation) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_picture_is_legal(ptr noundef %0, ptr noundef %violation)
   %tobool = icmp ne i32 %call, 0
@@ -3537,9 +3533,9 @@ declare i32 @FLAC__metadata_object_picture_is_legal(ptr noundef, ptr noundef) lo
 define void @_ZN4FLAC8Metadata7UnknownC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
-  %object_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %object_.i, align 8
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %is_reference_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -3549,13 +3545,13 @@ entry:
 define void @_ZN4FLAC8Metadata7UnknownD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4FLAC8Metadata9PrototypeD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_reference_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -3588,9 +3584,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata7Unknown8get_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
-  %data2 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %0, i64 0, i32 3, i32 0, i32 0, i64 8
+  %data2 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %data2, align 8
   ret ptr %1
 }
@@ -3598,7 +3594,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata7Unknown8set_dataEPKhj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %data, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef 1)
   %tobool = icmp ne i32 %call, 0
@@ -3608,7 +3604,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata7Unknown8set_dataEPhjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %data, i32 noundef %length, i1 noundef zeroext %copy) local_unnamed_addr #0 align 2 {
 entry:
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
   %conv = zext i1 %copy to i32
   %call = tail call i32 @FLAC__metadata_object_application_set_data(ptr noundef %0, ptr noundef %data, i32 noundef %length, i32 noundef %conv)
@@ -3628,10 +3624,10 @@ if.then:                                          ; preds = %entry
   %vtable.i.i = load ptr, ptr %streaminfo, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(17) %streaminfo)
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %streaminfo, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %streaminfo, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   %call.i.i = call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %streaminfo, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %streaminfo, i64 8
   store ptr %call.i.i, ptr %object_.i.i, align 8
   br label %return
 
@@ -3653,9 +3649,9 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %call1 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   %0 = load ptr, ptr %object, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call1, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call1, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
   store ptr %call1, ptr %tags, align 8
@@ -3680,9 +3676,9 @@ if.then:                                          ; preds = %entry
   %vtable.i.i = load ptr, ptr %tags, align 8
   %1 = load ptr, ptr %vtable.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(17) %tags)
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %tags, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %tags, i64 8
   store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %tags, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %tags, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   br label %return
 
@@ -3702,9 +3698,9 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %call1 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   %0 = load ptr, ptr %object, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call1, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call1, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
   store ptr %call1, ptr %cuesheet, align 8
@@ -3729,9 +3725,9 @@ if.then:                                          ; preds = %entry
   %vtable.i.i = load ptr, ptr %cuesheet, align 8
   %1 = load ptr, ptr %vtable.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(17) %cuesheet)
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %cuesheet, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %cuesheet, i64 8
   store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %cuesheet, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %cuesheet, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   br label %return
 
@@ -3751,9 +3747,9 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %call1 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   %0 = load ptr, ptr %object, align 8
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call1, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call1, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
   store ptr %call1, ptr %picture, align 8
@@ -3778,9 +3774,9 @@ if.then:                                          ; preds = %entry
   %vtable.i.i = load ptr, ptr %picture, align 8
   %1 = load ptr, ptr %vtable.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(17) %picture)
-  %object_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %picture, i64 0, i32 1
+  %object_.i.i = getelementptr inbounds i8, ptr %picture, i64 8
   store ptr %0, ptr %object_.i.i, align 8
-  %is_reference_.i.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %picture, i64 0, i32 2
+  %is_reference_.i.i = getelementptr inbounds i8, ptr %picture, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
   br label %return
 
@@ -3792,7 +3788,7 @@ return:                                           ; preds = %entry, %if.then
 define void @_ZN4FLAC8Metadata14SimpleIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_simple_iterator_new()
   store ptr %call, ptr %iterator_, align 8
   ret void
@@ -3804,7 +3800,7 @@ declare ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #4
 define void @_ZN4FLAC8Metadata14SimpleIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %iterator_.i = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
@@ -3828,7 +3824,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata14SimpleIterator5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3855,7 +3851,7 @@ declare void @FLAC__metadata_simple_iterator_delete(ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4initEPKcbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %filename, i1 noundef zeroext %read_only, i1 noundef zeroext %preserve_file_stats) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %conv = zext i1 %read_only to i32
   %conv4 = zext i1 %preserve_file_stats to i32
@@ -3869,7 +3865,7 @@ declare i32 @FLAC__metadata_simple_iterator_init(ptr noundef, ptr noundef, i32 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -3878,7 +3874,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define i32 @_ZN4FLAC8Metadata14SimpleIterator6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_status(ptr noundef %0)
   ret i32 %call
@@ -3889,7 +3885,7 @@ declare i32 @FLAC__metadata_simple_iterator_status(ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator11is_writableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_is_writable(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -3901,7 +3897,7 @@ declare i32 @FLAC__metadata_simple_iterator_is_writable(ptr noundef) local_unnam
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_next(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -3913,7 +3909,7 @@ declare i32 @FLAC__metadata_simple_iterator_next(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator4prevEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_prev(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -3925,7 +3921,7 @@ declare i32 @FLAC__metadata_simple_iterator_prev(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata14SimpleIterator7is_lastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_is_last(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -3937,7 +3933,7 @@ declare i32 @FLAC__metadata_simple_iterator_is_last(ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i64 @_ZNK4FLAC8Metadata14SimpleIterator16get_block_offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef %0)
   ret i64 %call
@@ -3948,7 +3944,7 @@ declare i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef) local_
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZNK4FLAC8Metadata14SimpleIterator14get_block_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_get_block_type(ptr noundef %0)
   ret i32 %call
@@ -3959,7 +3955,7 @@ declare i32 @FLAC__metadata_simple_iterator_get_block_type(ptr noundef) local_un
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZNK4FLAC8Metadata14SimpleIterator16get_block_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef %0)
   ret i32 %call
@@ -3970,7 +3966,7 @@ declare i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef) local_
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator18get_application_idEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %id) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_simple_iterator_get_application_id(ptr noundef %0, ptr noundef %id)
   %tobool = icmp ne i32 %call, 0
@@ -3982,7 +3978,7 @@ declare i32 @FLAC__metadata_simple_iterator_get_application_id(ptr noundef, ptr 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noalias noundef ptr @_ZN4FLAC8Metadata14SimpleIterator9get_blockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef %0)
   %cmp.i = icmp eq ptr %call, null
@@ -3991,9 +3987,9 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %call, align 8
   %call25.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %object_.i.i23.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call25.i, i64 0, i32 1
+  %object_.i.i23.i = getelementptr inbounds i8, ptr %call25.i, i64 8
   store ptr %call, ptr %object_.i.i23.i, align 8
-  %is_reference_.i.i24.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call25.i, i64 0, i32 2
+  %is_reference_.i.i24.i = getelementptr inbounds i8, ptr %call25.i, i64 16
   store i8 0, ptr %is_reference_.i.i24.i, align 8
   %2 = icmp ult i32 %1, 7
   br i1 %2, label %switch.lookup, label %return.sink.split.i
@@ -4019,9 +4015,9 @@ declare ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef) local_unnamed
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator9set_blockEPNS0_9PrototypeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %block, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %block, i64 8
   %1 = load ptr, ptr %object_, align 8
   %conv = zext i1 %use_padding to i32
   %call = tail call i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %0, ptr noundef %1, i32 noundef %conv)
@@ -4034,9 +4030,9 @@ declare i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef, ptr noundef, 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator18insert_block_afterEPNS0_9PrototypeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %block, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %block, i64 8
   %1 = load ptr, ptr %object_, align 8
   %conv = zext i1 %use_padding to i32
   %call = tail call i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %0, ptr noundef %1, i32 noundef %conv)
@@ -4049,7 +4045,7 @@ declare i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef, ptr 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata14SimpleIterator12delete_blockEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %conv = zext i1 %use_padding to i32
   %call = tail call i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef %0, i32 noundef %conv)
@@ -4063,7 +4059,7 @@ declare i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef, i32 nounde
 define void @_ZN4FLAC8Metadata5ChainC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_chain_new()
   store ptr %call, ptr %chain_, align 8
   ret void
@@ -4075,7 +4071,7 @@ declare ptr @FLAC__metadata_chain_new() local_unnamed_addr #4
 define void @_ZN4FLAC8Metadata5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chain_.i = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
@@ -4107,7 +4103,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata5Chain5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4126,7 +4122,7 @@ declare void @FLAC__metadata_chain_delete(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata5Chain8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -4135,7 +4131,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define i32 @_ZN4FLAC8Metadata5Chain6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %call = tail call i32 @FLAC__metadata_chain_status(ptr noundef %0)
   ret i32 %call
@@ -4146,7 +4142,7 @@ declare i32 @FLAC__metadata_chain_status(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain4readEPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %filename, i1 noundef zeroext %is_ogg) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   br i1 %is_ogg, label %cond.true, label %cond.false
 
@@ -4171,7 +4167,7 @@ declare i32 @FLAC__metadata_chain_read(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain4readEPv17FLAC__IOCallbacksb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks, i1 noundef zeroext %is_ogg) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   br i1 %is_ogg, label %cond.true, label %cond.false
 
@@ -4196,7 +4192,7 @@ declare i32 @FLAC__metadata_chain_read_with_callbacks(ptr noundef, ptr noundef, 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain24check_if_tempfile_neededEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %use_padding) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %conv = zext i1 %use_padding to i32
   %call = tail call i32 @FLAC__metadata_chain_check_if_tempfile_needed(ptr noundef %0, i32 noundef %conv)
@@ -4209,7 +4205,7 @@ declare i32 @FLAC__metadata_chain_check_if_tempfile_needed(ptr noundef, i32 noun
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %use_padding, i1 noundef zeroext %preserve_file_stats) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %conv = zext i1 %use_padding to i32
   %conv4 = zext i1 %preserve_file_stats to i32
@@ -4223,7 +4219,7 @@ declare i32 @FLAC__metadata_chain_write(ptr noundef, i32 noundef, i32 noundef) l
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbPv17FLAC__IOCallbacks(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %use_padding, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %conv = zext i1 %use_padding to i32
   %call = tail call i32 @FLAC__metadata_chain_write_with_callbacks(ptr noundef %0, i32 noundef %conv, ptr noundef %handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %callbacks)
@@ -4236,7 +4232,7 @@ declare i32 @FLAC__metadata_chain_write_with_callbacks(ptr noundef, i32 noundef,
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata5Chain5writeEbPv17FLAC__IOCallbacksS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %use_padding, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks, ptr noundef %temp_handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %temp_callbacks) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   %conv = zext i1 %use_padding to i32
   %call = tail call i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr noundef %0, i32 noundef %conv, ptr noundef %handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %callbacks, ptr noundef %temp_handle, ptr noundef nonnull byval(%struct.FLAC__IOCallbacks) align 8 %temp_callbacks)
@@ -4249,7 +4245,7 @@ declare i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr noundef,
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata5Chain13merge_paddingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   tail call void @FLAC__metadata_chain_merge_padding(ptr noundef %0)
   ret void
@@ -4260,7 +4256,7 @@ declare void @FLAC__metadata_chain_merge_padding(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata5Chain12sort_paddingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chain_, align 8
   tail call void @FLAC__metadata_chain_sort_padding(ptr noundef %0)
   ret void
@@ -4272,7 +4268,7 @@ declare void @FLAC__metadata_chain_sort_padding(ptr noundef) local_unnamed_addr 
 define void @_ZN4FLAC8Metadata8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @FLAC__metadata_iterator_new()
   store ptr %call, ptr %iterator_, align 8
   ret void
@@ -4284,7 +4280,7 @@ declare ptr @FLAC__metadata_iterator_new() local_unnamed_addr #4
 define void @_ZN4FLAC8Metadata8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %iterator_.i = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
@@ -4316,7 +4312,7 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata8Iterator5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4335,7 +4331,7 @@ declare void @FLAC__metadata_iterator_delete(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata8Iterator8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -4344,9 +4340,9 @@ entry:
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN4FLAC8Metadata8Iterator4initERNS0_5ChainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %chain) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
-  %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %chain, i64 0, i32 1
+  %chain_ = getelementptr inbounds i8, ptr %chain, i64 8
   %1 = load ptr, ptr %chain_, align 8
   tail call void @FLAC__metadata_iterator_init(ptr noundef %0, ptr noundef %1)
   ret void
@@ -4357,7 +4353,7 @@ declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -4369,7 +4365,7 @@ declare i32 @FLAC__metadata_iterator_next(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator4prevEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_iterator_prev(ptr noundef %0)
   %tobool = icmp ne i32 %call, 0
@@ -4381,7 +4377,7 @@ declare i32 @FLAC__metadata_iterator_prev(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZNK4FLAC8Metadata8Iterator14get_block_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call i32 @FLAC__metadata_iterator_get_block_type(ptr noundef %0)
   ret i32 %call
@@ -4392,7 +4388,7 @@ declare i32 @FLAC__metadata_iterator_get_block_type(ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress sspstrong uwtable
 define noalias noundef ptr @_ZN4FLAC8Metadata8Iterator9get_blockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %call = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef %0)
   %cmp.i = icmp eq ptr %call, null
@@ -4401,9 +4397,9 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %call, align 8
   %call25.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %object_.i.i23.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call25.i, i64 0, i32 1
+  %object_.i.i23.i = getelementptr inbounds i8, ptr %call25.i, i64 8
   store ptr %call, ptr %object_.i.i23.i, align 8
-  %is_reference_.i.i24.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %call25.i, i64 0, i32 2
+  %is_reference_.i.i24.i = getelementptr inbounds i8, ptr %call25.i, i64 16
   %2 = icmp ult i32 %1, 7
   br i1 %2, label %switch.lookup, label %if.then
 
@@ -4429,19 +4425,19 @@ declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator9set_blockEPNS0_9PrototypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %block, i64 8
   %1 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_iterator_set_block(ptr noundef %0, ptr noundef %1)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %block, i64 16
   store i8 1, ptr %is_reference_.i, align 8
   %vtable = load ptr, ptr %block, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %block) #21
   br label %if.end
@@ -4455,7 +4451,7 @@ declare i32 @FLAC__metadata_iterator_set_block(ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator12delete_blockEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %replace_with_padding) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
   %conv = zext i1 %replace_with_padding to i32
   %call = tail call i32 @FLAC__metadata_iterator_delete_block(ptr noundef %0, i32 noundef %conv)
@@ -4468,19 +4464,19 @@ declare i32 @FLAC__metadata_iterator_delete_block(ptr noundef, i32 noundef) loca
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator19insert_block_beforeEPNS0_9PrototypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %block, i64 8
   %1 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_iterator_insert_block_before(ptr noundef %0, ptr noundef %1)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %block, i64 16
   store i8 1, ptr %is_reference_.i, align 8
   %vtable = load ptr, ptr %block, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %block) #21
   br label %if.end
@@ -4494,19 +4490,19 @@ declare i32 @FLAC__metadata_iterator_insert_block_before(ptr noundef, ptr nounde
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN4FLAC8Metadata8Iterator18insert_block_afterEPNS0_9PrototypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #0 align 2 {
 entry:
-  %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this, i64 0, i32 1
+  %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iterator_, align 8
-  %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 1
+  %object_ = getelementptr inbounds i8, ptr %block, i64 8
   %1 = load ptr, ptr %object_, align 8
   %call = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %0, ptr noundef %1)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %is_reference_.i = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %block, i64 0, i32 2
+  %is_reference_.i = getelementptr inbounds i8, ptr %block, i64 16
   store i8 1, ptr %is_reference_.i, align 8
   %vtable = load ptr, ptr %block, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(17) %block) #21
   br label %if.end

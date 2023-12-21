@@ -6,15 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 
 @X509_CINF_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_CINF_seq_tt, i64 10, ptr @X509_CINF_aux, i64 136, ptr @.str }, align 8
 @X509_CINF_seq_tt = internal constant [10 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 145, i64 0, i64 0, ptr @.str.3, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 4096, i64 0, i64 8, ptr @.str.4, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 4096, i64 0, i64 32, ptr @.str.5, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 48, ptr @.str.6, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 4096, i64 0, i64 56, ptr @.str.7, ptr @X509_VAL_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 72, ptr @.str.8, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 80, ptr @.str.9, ptr @X509_PUBKEY_it }, %struct.ASN1_TEMPLATE_st { i64 137, i64 1, i64 88, ptr @.str.10, ptr @ASN1_BIT_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 137, i64 2, i64 96, ptr @.str.11, ptr @ASN1_BIT_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 149, i64 3, i64 104, ptr @.str.12, ptr @X509_EXTENSION_it }], align 16
@@ -130,9 +121,9 @@ entry:
   br i1 %cmp.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %libctx1 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 25
+  %libctx1 = getelementptr inbounds i8, ptr %x, i64 368
   store ptr %libctx, ptr %libctx1, align 8
-  %propq2 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 26
+  %propq2 = getelementptr inbounds i8, ptr %x, i64 376
   %0 = load ptr, ptr %propq2, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 150) #6
   store ptr null, ptr %propq2, align 8
@@ -165,9 +156,9 @@ entry:
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %libctx1.i = getelementptr inbounds %struct.x509_st, ptr %call1, i64 0, i32 25
+  %libctx1.i = getelementptr inbounds i8, ptr %call1, i64 368
   store ptr %libctx, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.x509_st, ptr %call1, i64 0, i32 26
+  %propq2.i = getelementptr inbounds i8, ptr %call1, i64 376
   %0 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 150) #6
   store ptr null, ptr %propq2.i, align 8
@@ -194,7 +185,7 @@ declare ptr @ASN1_item_new_ex(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @X509_set_ex_data(ptr noundef %r, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
-  %ex_data = getelementptr inbounds %struct.x509_st, ptr %r, i64 0, i32 5
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 200
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #6
   ret i32 %call
 }
@@ -204,7 +195,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @X509_get_ex_data(ptr noundef %r, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
-  %ex_data = getelementptr inbounds %struct.x509_st, ptr %r, i64 0, i32 5
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 200
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #6
   ret ptr %call
 }
@@ -250,7 +241,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end4
-  %aux = getelementptr inbounds %struct.x509_st, ptr %phi.call, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %phi.call, i64 336
   %call6 = call ptr @d2i_X509_CERT_AUX(ptr noundef nonnull %aux, ptr noundef nonnull %q, i64 noundef %sub) #6
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %err, label %land.lhs.true.if.end8_crit_edge
@@ -297,7 +288,7 @@ entry.split:                                      ; preds = %entry
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry.split
-  %aux.i = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 21
+  %aux.i = getelementptr inbounds i8, ptr %a, i64 336
   %0 = load ptr, ptr %aux.i, align 8
   %call3.i = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %0, ptr noundef null) #6
   %cmp4.i = icmp slt i32 %call3.i, 0
@@ -317,7 +308,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false
   br i1 %or.cond.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %cond.end.i
-  %aux.i18 = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 21
+  %aux.i18 = getelementptr inbounds i8, ptr %a, i64 336
   %2 = load ptr, ptr %aux.i18, align 8
   %call3.i19 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %2, ptr noundef nonnull %pp) #6
   %cmp4.i20 = icmp slt i32 %call3.i19, 0
@@ -338,7 +329,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond.i34, label %i2d_x509_aux_internal.exit45, label %if.end.i35
 
 if.end.i35:                                       ; preds = %if.end
-  %aux.i36 = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 21
+  %aux.i36 = getelementptr inbounds i8, ptr %a, i64 336
   %3 = load ptr, ptr %aux.i36, align 8
   %call3.i37 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %3, ptr noundef null) #6
   %cmp4.i38 = icmp slt i32 %call3.i37, 0
@@ -367,7 +358,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %or.cond.i53, label %i2d_x509_aux_internal.exit64, label %if.end.i54
 
 if.end.i54:                                       ; preds = %if.end10
-  %aux.i55 = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 21
+  %aux.i55 = getelementptr inbounds i8, ptr %a, i64 336
   %4 = load ptr, ptr %aux.i55, align 8
   %call3.i56 = call i32 @i2d_X509_CERT_AUX(ptr noundef %4, ptr noundef nonnull %tmp) #6
   %cmp4.i57 = icmp slt i32 %call3.i56, 0
@@ -401,7 +392,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @i2d_re_X509_tbs(ptr noundef %x, ptr noundef %pp) local_unnamed_addr #1 {
 entry:
-  %modified = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 10, i32 2
+  %modified = getelementptr inbounds i8, ptr %x, i64 128
   store i32 1, ptr %modified, align 8
   %call1.i = tail call i32 @ASN1_item_i2d(ptr noundef %x, ptr noundef %pp, ptr noundef nonnull @X509_CINF_it.local_it) #6
   ret i32 %call1.i
@@ -414,7 +405,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %signature = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 152
   store ptr %signature, ptr %psig, align 8
   br label %if.end
 
@@ -423,7 +414,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 136
   store ptr %sig_alg, ptr %palg, align 8
   br label %if.end3
 
@@ -434,7 +425,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @X509_get_signature_nid(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 136
   %0 = load ptr, ptr %sig_alg, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #6
   ret i32 %call
@@ -445,7 +436,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @X509_set0_distinguishing_id(ptr nocapture noundef %x, ptr noundef %d_id) local_unnamed_addr #1 {
 entry:
-  %distinguishing_id = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 24
+  %distinguishing_id = getelementptr inbounds i8, ptr %x, i64 360
   %0 = load ptr, ptr %distinguishing_id, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %0) #6
   store ptr %d_id, ptr %distinguishing_id, align 8
@@ -457,7 +448,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get0_distinguishing_id(ptr nocapture noundef readonly %x) local_unnamed_addr #4 {
 entry:
-  %distinguishing_id = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 24
+  %distinguishing_id = getelementptr inbounds i8, ptr %x, i64 360
   %0 = load ptr, ptr %distinguishing_id, align 8
   ret ptr %0
 }
@@ -490,108 +481,108 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ex_data = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 5
+  %ex_data = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @CRYPTO_free_ex_data(i32 noundef 3, ptr noundef %0, ptr noundef nonnull %ex_data) #6
-  %aux = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %0, i64 336
   %1 = load ptr, ptr %aux, align 8
   tail call void @X509_CERT_AUX_free(ptr noundef %1) #6
-  %skid = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 12
+  %skid = getelementptr inbounds i8, ptr %0, i64 248
   %2 = load ptr, ptr %skid, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %2) #6
-  %akid = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 13
+  %akid = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %akid, align 8
   tail call void @AUTHORITY_KEYID_free(ptr noundef %3) #6
-  %crldp = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 15
+  %crldp = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %crldp, align 8
   tail call void @CRL_DIST_POINTS_free(ptr noundef %4) #6
-  %policy_cache = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 14
+  %policy_cache = getelementptr inbounds i8, ptr %0, i64 264
   %5 = load ptr, ptr %policy_cache, align 8
   tail call void @ossl_policy_cache_free(ptr noundef %5) #6
-  %altname = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 16
+  %altname = getelementptr inbounds i8, ptr %0, i64 280
   %6 = load ptr, ptr %altname, align 8
   tail call void @GENERAL_NAMES_free(ptr noundef %6) #6
-  %nc = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 17
+  %nc = getelementptr inbounds i8, ptr %0, i64 288
   %7 = load ptr, ptr %nc, align 8
   tail call void @NAME_CONSTRAINTS_free(ptr noundef %7) #6
-  %rfc3779_addr = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 18
+  %rfc3779_addr = getelementptr inbounds i8, ptr %0, i64 296
   %8 = load ptr, ptr %rfc3779_addr, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %8, ptr noundef nonnull @IPAddressFamily_free) #6
-  %rfc3779_asid = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 19
+  %rfc3779_asid = getelementptr inbounds i8, ptr %0, i64 304
   %9 = load ptr, ptr %rfc3779_asid, align 8
   tail call void @ASIdentifiers_free(ptr noundef %9) #6
-  %distinguishing_id = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 24
+  %distinguishing_id = getelementptr inbounds i8, ptr %0, i64 360
   %10 = load ptr, ptr %distinguishing_id, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %10) #6
   br label %sw.bb2
 
 sw.bb2:                                           ; preds = %sw.bb, %entry
-  %ex_cached = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 23
+  %ex_cached = getelementptr inbounds i8, ptr %0, i64 352
   store volatile i32 0, ptr %ex_cached, align 8
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 8
-  %ex_pathlen = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 6
+  %ex_flags = getelementptr inbounds i8, ptr %0, i64 232
+  %ex_pathlen = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ex_flags, i8 0, i64 16, i1 false)
-  %skid3 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 12
+  %skid3 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ex_pathlen, i8 -1, i64 16, i1 false)
-  %distinguishing_id10 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 24
+  %distinguishing_id10 = getelementptr inbounds i8, ptr %0, i64 360
   store ptr null, ptr %distinguishing_id10, align 8
-  %aux11 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 21
+  %aux11 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr null, ptr %aux11, align 8
-  %ex_data13 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 5
+  %ex_data13 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %skid3, i8 0, i64 64, i1 false)
   %call14 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 3, ptr noundef %0, ptr noundef nonnull %ex_data13) #6
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %return, label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %ex_data16 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 5
+  %ex_data16 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @CRYPTO_free_ex_data(i32 noundef 3, ptr noundef %0, ptr noundef nonnull %ex_data16) #6
-  %aux17 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 21
+  %aux17 = getelementptr inbounds i8, ptr %0, i64 336
   %11 = load ptr, ptr %aux17, align 8
   tail call void @X509_CERT_AUX_free(ptr noundef %11) #6
-  %skid18 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 12
+  %skid18 = getelementptr inbounds i8, ptr %0, i64 248
   %12 = load ptr, ptr %skid18, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %12) #6
-  %akid19 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 13
+  %akid19 = getelementptr inbounds i8, ptr %0, i64 256
   %13 = load ptr, ptr %akid19, align 8
   tail call void @AUTHORITY_KEYID_free(ptr noundef %13) #6
-  %crldp20 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 15
+  %crldp20 = getelementptr inbounds i8, ptr %0, i64 272
   %14 = load ptr, ptr %crldp20, align 8
   tail call void @CRL_DIST_POINTS_free(ptr noundef %14) #6
-  %policy_cache21 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 14
+  %policy_cache21 = getelementptr inbounds i8, ptr %0, i64 264
   %15 = load ptr, ptr %policy_cache21, align 8
   tail call void @ossl_policy_cache_free(ptr noundef %15) #6
-  %altname22 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 16
+  %altname22 = getelementptr inbounds i8, ptr %0, i64 280
   %16 = load ptr, ptr %altname22, align 8
   tail call void @GENERAL_NAMES_free(ptr noundef %16) #6
-  %nc23 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 17
+  %nc23 = getelementptr inbounds i8, ptr %0, i64 288
   %17 = load ptr, ptr %nc23, align 8
   tail call void @NAME_CONSTRAINTS_free(ptr noundef %17) #6
-  %rfc3779_addr24 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 18
+  %rfc3779_addr24 = getelementptr inbounds i8, ptr %0, i64 296
   %18 = load ptr, ptr %rfc3779_addr24, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %18, ptr noundef nonnull @IPAddressFamily_free) #6
-  %rfc3779_asid27 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 19
+  %rfc3779_asid27 = getelementptr inbounds i8, ptr %0, i64 304
   %19 = load ptr, ptr %rfc3779_asid27, align 8
   tail call void @ASIdentifiers_free(ptr noundef %19) #6
-  %distinguishing_id28 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 24
+  %distinguishing_id28 = getelementptr inbounds i8, ptr %0, i64 360
   %20 = load ptr, ptr %distinguishing_id28, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %20) #6
-  %propq = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 26
+  %propq = getelementptr inbounds i8, ptr %0, i64 376
   %21 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 98) #6
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %propq30 = getelementptr inbounds %struct.x509_st, ptr %exarg, i64 0, i32 26
+  %propq30 = getelementptr inbounds i8, ptr %exarg, i64 376
   %22 = load ptr, ptr %propq30, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb29
-  %libctx = getelementptr inbounds %struct.x509_st, ptr %exarg, i64 0, i32 25
+  %libctx = getelementptr inbounds i8, ptr %exarg, i64 368
   %23 = load ptr, ptr %libctx, align 8
-  %libctx1.i = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 25
+  %libctx1.i = getelementptr inbounds i8, ptr %0, i64 368
   store ptr %23, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 26
+  %propq2.i = getelementptr inbounds i8, ptr %0, i64 376
   %24 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.2, i32 noundef 150) #6
   store ptr null, ptr %propq2.i, align 8
@@ -605,13 +596,13 @@ if.then5.i:                                       ; preds = %if.then.i
   br i1 %cmp8.i, label %return, label %sw.epilog
 
 sw.bb35:                                          ; preds = %entry
-  %libctx37 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 25
+  %libctx37 = getelementptr inbounds i8, ptr %0, i64 368
   %25 = load ptr, ptr %libctx37, align 8
   store ptr %25, ptr %exarg, align 8
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
-  %propq40 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 26
+  %propq40 = getelementptr inbounds i8, ptr %0, i64 376
   %26 = load ptr, ptr %propq40, align 8
   store ptr %26, ptr %exarg, align 8
   br label %sw.epilog

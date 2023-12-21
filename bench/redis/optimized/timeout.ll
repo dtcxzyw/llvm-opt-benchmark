@@ -13,10 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisOpArray = type { ptr, i32, i32 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
 %struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
 
@@ -31,14 +27,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @checkBlockedClientTimeout(ptr noundef %c, i64 noundef %now) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 16
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %timeout = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 1
+  %timeout = getelementptr inbounds i8, ptr %c, i64 472
   %1 = load i64, ptr %timeout, align 8
   %cmp.not = icmp ne i64 %1, 0
   %cmp4 = icmp slt i64 %1, %now
@@ -65,7 +61,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 1
   %tobool1.not = icmp eq i64 %and, 0
@@ -83,7 +79,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true2
   br i1 %or.cond9, label %land.lhs.true12, label %if.else
 
 land.lhs.true12:                                  ; preds = %land.lhs.true4
-  %lastinteraction = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 32
+  %lastinteraction = getelementptr inbounds i8, ptr %c, i64 240
   %4 = load i64, ptr %lastinteraction, align 8
   %sub = sub nsw i64 %div, %4
   %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 157), align 4
@@ -105,7 +101,7 @@ do.end:                                           ; preds = %do.body, %if.end
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true12, %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %entry
-  %flags17 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags17 = getelementptr inbounds i8, ptr %c, i64 8
   %7 = load i64, ptr %flags17, align 8
   %and18 = and i64 %7, 16
   %tobool19 = icmp ne i64 %and18, 0
@@ -167,7 +163,7 @@ entry:
 define dso_local void @addClientToTimeoutTable(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
-  %timeout = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 1
+  %timeout = getelementptr inbounds i8, ptr %c, i64 472
   %0 = load i64, ptr %timeout, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.end6, label %if.end
@@ -183,7 +179,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load i64, ptr %flags, align 8
   %or = or i64 %2, 274877906944
   store i64 %or, ptr %flags, align 8
@@ -199,7 +195,7 @@ declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, pt
 define dso_local void @removeClientFromTimeoutTable(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 274877906944
   %tobool.not = icmp eq i64 %and, 0
@@ -208,7 +204,7 @@ entry:
 if.end:                                           ; preds = %entry
   %and2 = and i64 %0, -274877906945
   store i64 %and2, ptr %flags, align 8
-  %timeout3 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 1
+  %timeout3 = getelementptr inbounds i8, ptr %c, i64 472
   %1 = load i64, ptr %timeout3, align 8
   %call.i = tail call i64 @intrev64(i64 noundef %1) #3
   store i64 %call.i, ptr %buf, align 16
@@ -238,13 +234,13 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 64), align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %1) #3
   %call2 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #3
-  %key = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %ri, i64 16
   %call32 = call i32 @raxNext(ptr noundef nonnull %ri) #3
   %tobool.not3 = icmp eq i32 %call32, 0
   br i1 %tobool.not3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %checkBlockedClientTimeout.exit
@@ -258,7 +254,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp4.not, label %if.end6, label %while.end
 
 if.end6:                                          ; preds = %while.body
-  %flags = getelementptr inbounds %struct.client, ptr %5, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %flags, align 8
   %and = and i64 %6, -274877906945
   store i64 %and, ptr %flags, align 8
@@ -267,7 +263,7 @@ if.end6:                                          ; preds = %while.body
   br i1 %tobool.not.i, label %checkBlockedClientTimeout.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %timeout.i = getelementptr inbounds %struct.client, ptr %5, i64 0, i32 55, i32 1
+  %timeout.i = getelementptr inbounds i8, ptr %5, i64 472
   %7 = load i64, ptr %timeout.i, align 8
   %cmp.not.i = icmp ne i64 %7, 0
   %cmp4.i = icmp slt i64 %7, %call1

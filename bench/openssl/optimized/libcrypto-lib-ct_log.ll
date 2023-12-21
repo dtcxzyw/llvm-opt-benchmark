@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ct_log.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ctlog_store_st = type { ptr, ptr, ptr }
-%struct.ctlog_st = type { ptr, ptr, ptr, [32 x i8], ptr }
-%struct.ctlog_store_load_ctx_st = type { ptr, ptr, i64 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/ct/ct_log.c\00", align 1
 @__func__.CTLOG_STORE_new_ex = private unnamed_addr constant [19 x i8] c"CTLOG_STORE_new_ex\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"CTLOG_FILE\00", align 1
@@ -34,14 +30,14 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 109) #6
-  %propq5 = getelementptr inbounds %struct.ctlog_store_st, ptr %call, i64 0, i32 1
+  %propq5 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %propq5, align 8
   %cmp7 = icmp eq ptr %call4, null
   br i1 %cmp7, label %CTLOG_STORE_free.exit, label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.end
   %call11 = tail call ptr @OPENSSL_sk_new_null() #6
-  %logs = getelementptr inbounds %struct.ctlog_store_st, ptr %call, i64 0, i32 2
+  %logs = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call11, ptr %logs, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %if.then14, label %return
@@ -50,14 +46,14 @@ if.then14:                                        ; preds = %if.end10
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.CTLOG_STORE_new_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef 524303, ptr noundef null) #6
-  %propq.i.phi.trans.insert = getelementptr inbounds %struct.ctlog_store_st, ptr %call, i64 0, i32 1
+  %propq.i.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 8
   %.pre = load ptr, ptr %propq.i.phi.trans.insert, align 8
   br label %CTLOG_STORE_free.exit
 
 CTLOG_STORE_free.exit:                            ; preds = %if.then3, %if.then14
   %0 = phi ptr [ null, %if.then3 ], [ %.pre, %if.then14 ]
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 134) #6
-  %logs.i = getelementptr inbounds %struct.ctlog_store_st, ptr %call, i64 0, i32 2
+  %logs.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %logs.i, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @CTLOG_free) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 136) #6
@@ -87,10 +83,10 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %propq = getelementptr inbounds %struct.ctlog_store_st, ptr %store, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %store, i64 8
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 134) #6
-  %logs = getelementptr inbounds %struct.ctlog_store_st, ptr %store, i64 0, i32 2
+  %logs = getelementptr inbounds i8, ptr %store, i64 16
   %1 = load ptr, ptr %logs, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @CTLOG_free) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %store, ptr noundef nonnull @.str, i32 noundef 136) #6
@@ -118,13 +114,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.ctlog_st, ptr %log, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %log, i64 16
   %0 = load ptr, ptr %name, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 295) #6
-  %public_key = getelementptr inbounds %struct.ctlog_st, ptr %log, i64 0, i32 4
+  %public_key = getelementptr inbounds i8, ptr %log, i64 56
   %1 = load ptr, ptr %public_key, align 8
   tail call void @EVP_PKEY_free(ptr noundef %1) #6
-  %propq = getelementptr inbounds %struct.ctlog_st, ptr %log, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %log, i64 8
   %2 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 297) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %log, ptr noundef nonnull @.str, i32 noundef 298) #6
@@ -156,7 +152,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %store, ptr %call.i, align 8
   %call1 = tail call ptr @NCONF_new(ptr noundef null) #6
-  %conf = getelementptr inbounds %struct.ctlog_store_load_ctx_st, ptr %call.i, i64 0, i32 1
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1, ptr %conf, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %end, label %if.end5
@@ -178,7 +174,7 @@ if.end15:                                         ; preds = %if.end10
   br i1 %tobool.not, label %end.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end15
-  %invalid_log_entries = getelementptr inbounds %struct.ctlog_store_load_ctx_st, ptr %call.i, i64 0, i32 2
+  %invalid_log_entries = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load i64, ptr %invalid_log_entries, align 8
   %cmp17.not = icmp eq i64 %1, 0
   br i1 %cmp17.not, label %end, label %end.sink.split
@@ -226,7 +222,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %0 = load ptr, ptr %arg, align 8
-  %conf = getelementptr inbounds %struct.ctlog_store_load_ctx_st, ptr %arg, i64 0, i32 1
+  %conf = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %conf, align 8
   %call.i = tail call ptr @NCONF_get_string(ptr noundef %1, ptr noundef nonnull %call, ptr noundef nonnull @.str.4) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -248,7 +244,7 @@ if.end9.thread:                                   ; preds = %if.end.i, %if.end4
 
 ctlog_new_from_conf.exit:                         ; preds = %if.end.i
   %2 = load ptr, ptr %0, align 8
-  %propq.i = getelementptr inbounds %struct.ctlog_store_st, ptr %0, i64 0, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %propq.i, align 8
   %call5.i = call i32 @CTLOG_new_from_base64_ex(ptr noundef nonnull %ct_log, ptr noundef nonnull %call1.i, ptr noundef nonnull %call.i, ptr noundef %2, ptr noundef %3) #6
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 195) #6
@@ -260,7 +256,7 @@ if.end9:                                          ; preds = %ctlog_new_from_conf
   br i1 %cmp10, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9.thread, %if.end9
-  %invalid_log_entries = getelementptr inbounds %struct.ctlog_store_load_ctx_st, ptr %arg, i64 0, i32 2
+  %invalid_log_entries = getelementptr inbounds i8, ptr %arg, i64 16
   %4 = load i64, ptr %invalid_log_entries, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %invalid_log_entries, align 8
@@ -268,7 +264,7 @@ if.then12:                                        ; preds = %if.end9.thread, %if
 
 if.end13:                                         ; preds = %if.end9
   %5 = load ptr, ptr %arg, align 8
-  %logs = getelementptr inbounds %struct.ctlog_store_st, ptr %5, i64 0, i32 2
+  %logs = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %logs, align 8
   %7 = load ptr, ptr %ct_log, align 8
   %call17 = call i32 @OPENSSL_sk_push(ptr noundef %6, ptr noundef %7) #6
@@ -281,13 +277,13 @@ if.then18:                                        ; preds = %if.end13
   br i1 %cmp.not.i, label %CTLOG_free.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %if.then18
-  %name.i = getelementptr inbounds %struct.ctlog_st, ptr %8, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %name.i, align 8
   call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 295) #6
-  %public_key.i = getelementptr inbounds %struct.ctlog_st, ptr %8, i64 0, i32 4
+  %public_key.i = getelementptr inbounds i8, ptr %8, i64 56
   %10 = load ptr, ptr %public_key.i, align 8
   call void @EVP_PKEY_free(ptr noundef %10) #6
-  %propq.i10 = getelementptr inbounds %struct.ctlog_st, ptr %8, i64 0, i32 1
+  %propq.i10 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load ptr, ptr %propq.i10, align 8
   call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 297) #6
   call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 298) #6
@@ -322,14 +318,14 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 267) #6
-  %propq5 = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 1
+  %propq5 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %propq5, align 8
   %cmp7 = icmp eq ptr %call4, null
   br i1 %cmp7, label %CTLOG_free.exit, label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.end
   %call11 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str, i32 noundef 272) #6
-  %name12 = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 2
+  %name12 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call11, ptr %name12, align 8
   %cmp14 = icmp eq ptr %call11, null
   br i1 %cmp14, label %CTLOG_free.exit, label %if.end16
@@ -344,7 +340,7 @@ if.end16:                                         ; preds = %if.end10
 
 if.end.i:                                         ; preds = %if.end16
   %0 = load ptr, ptr %call, align 8
-  %propq.i = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %propq.i, align 8
   %call1.i = call ptr @EVP_MD_fetch(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %1) #6
   %cmp2.i = icmp eq ptr %call1.i, null
@@ -353,7 +349,7 @@ if.end.i:                                         ; preds = %if.end16
 if.end4.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr %pkey_der.i, align 8
   %conv.i = zext nneg i32 %call.i to i64
-  %log_id.i = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 3
+  %log_id.i = getelementptr inbounds i8, ptr %call, i64 24
   %call5.i = call i32 @EVP_Digest(ptr noundef %2, i64 noundef %conv.i, ptr noundef nonnull %log_id.i, ptr noundef nonnull %len.i, ptr noundef nonnull %call1.i, ptr noundef null) #6
   %3 = icmp eq i32 %call5.i, 1
   call void @EVP_MD_free(ptr noundef nonnull %call1.i) #6
@@ -364,7 +360,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %3, label %if.end20, label %CTLOG_free.exit
 
 if.end20:                                         ; preds = %if.end4.i
-  %public_key21 = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 4
+  %public_key21 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %public_key, ptr %public_key21, align 8
   br label %return
 
@@ -382,13 +378,13 @@ CTLOG_free.exit.critedge:                         ; preds = %if.end.i, %if.end16
   br label %CTLOG_free.exit
 
 CTLOG_free.exit:                                  ; preds = %CTLOG_free.exit.critedge, %if.end4.i, %if.end10, %if.then3
-  %name.i = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %call, i64 16
   %6 = load ptr, ptr %name.i, align 8
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 295) #6
-  %public_key.i = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 4
+  %public_key.i = getelementptr inbounds i8, ptr %call, i64 56
   %7 = load ptr, ptr %public_key.i, align 8
   call void @EVP_PKEY_free(ptr noundef %7) #6
-  %propq.i13 = getelementptr inbounds %struct.ctlog_st, ptr %call, i64 0, i32 1
+  %propq.i13 = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load ptr, ptr %propq.i13, align 8
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 297) #6
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 298) #6
@@ -411,7 +407,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CTLOG_get0_name(ptr nocapture noundef readonly %log) local_unnamed_addr #2 {
 entry:
-  %name = getelementptr inbounds %struct.ctlog_st, ptr %log, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %log, i64 16
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -419,7 +415,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CTLOG_get0_log_id(ptr noundef %log, ptr nocapture noundef writeonly %log_id, ptr nocapture noundef writeonly %log_id_len) local_unnamed_addr #3 {
 entry:
-  %log_id1 = getelementptr inbounds %struct.ctlog_st, ptr %log, i64 0, i32 3
+  %log_id1 = getelementptr inbounds i8, ptr %log, i64 24
   store ptr %log_id1, ptr %log_id, align 8
   store i64 32, ptr %log_id_len, align 8
   ret void
@@ -428,7 +424,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CTLOG_get0_public_key(ptr nocapture noundef readonly %log) local_unnamed_addr #2 {
 entry:
-  %public_key = getelementptr inbounds %struct.ctlog_st, ptr %log, i64 0, i32 4
+  %public_key = getelementptr inbounds i8, ptr %log, i64 56
   %0 = load ptr, ptr %public_key, align 8
   ret ptr %0
 }
@@ -436,7 +432,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @CTLOG_STORE_get0_log_by_id(ptr nocapture noundef readonly %store, ptr nocapture noundef readonly %log_id, i64 noundef %log_id_len) local_unnamed_addr #0 {
 entry:
-  %logs = getelementptr inbounds %struct.ctlog_store_st, ptr %store, i64 0, i32 2
+  %logs = getelementptr inbounds i8, ptr %store, i64 16
   %0 = load ptr, ptr %logs, align 8
   %call15 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   %cmp6 = icmp sgt i32 %call15, 0
@@ -453,7 +449,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %i.07 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
   %2 = load ptr, ptr %logs, align 8
   %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.07) #6
-  %log_id5 = getelementptr inbounds %struct.ctlog_st, ptr %call4, i64 0, i32 3
+  %log_id5 = getelementptr inbounds i8, ptr %call4, i64 24
   %bcmp = tail call i32 @bcmp(ptr nonnull %log_id5, ptr %log_id, i64 %log_id_len)
   %cmp7 = icmp eq i32 %bcmp, 0
   br i1 %cmp7, label %return, label %for.cond

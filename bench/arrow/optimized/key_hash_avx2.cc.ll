@@ -430,7 +430,7 @@ while.end:                                        ; preds = %land.rhs
 for.body.preheader:                               ; preds = %while.end
   %div32 = lshr i32 %num_rows_to_process.061, 1
   %wide.trip.count = zext nneg i32 %div32 to i64
-  %invariant.gep = getelementptr i32, ptr %offsets, i64 2
+  %invariant.gep = getelementptr i8, ptr %offsets, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -543,7 +543,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %add.ptr38.i = getelementptr inbounds <2 x i64>, ptr %add.ptr37.i, i64 %istripe.0.lcssa.i
   %18 = load <2 x i64>, ptr %add.ptr38.i, align 1
   %insert41.i = shufflevector <2 x i64> %17, <2 x i64> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %invariant.gep.i = getelementptr <2 x i64>, ptr %add.ptr33.i, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %add.ptr33.i, i64 16
   %add4361.i = add nuw nsw i64 %istripe.0.lcssa.i, 1
   %cmp4462.i = icmp slt i64 %add4361.i, %or23.i
   br i1 %cmp4462.i, label %for.body45.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -712,7 +712,7 @@ while.end:                                        ; preds = %land.rhs
 for.body.preheader:                               ; preds = %while.end
   %div32 = lshr i32 %num_rows_to_process.060, 1
   %wide.trip.count = zext nneg i32 %div32 to i64
-  %invariant.gep = getelementptr i32, ptr %offsets, i64 2
+  %invariant.gep = getelementptr i8, ptr %offsets, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -825,7 +825,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %add.ptr38.i = getelementptr inbounds <2 x i64>, ptr %add.ptr37.i, i64 %istripe.0.lcssa.i
   %18 = load <2 x i64>, ptr %add.ptr38.i, align 1
   %insert41.i = shufflevector <2 x i64> %17, <2 x i64> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %invariant.gep.i = getelementptr <2 x i64>, ptr %add.ptr33.i, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %add.ptr33.i, i64 16
   %add4361.i = add nuw nsw i64 %istripe.0.lcssa.i, 1
   %cmp4462.i = icmp slt i64 %add4361.i, %or23.i
   br i1 %cmp4462.i, label %for.body45.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -992,7 +992,7 @@ while.end:                                        ; preds = %land.rhs
 for.body.preheader:                               ; preds = %while.end
   %div32 = lshr i32 %num_rows_to_process.052, 1
   %wide.trip.count = zext nneg i32 %div32 to i64
-  %invariant.gep = getelementptr i64, ptr %offsets, i64 2
+  %invariant.gep = getelementptr i8, ptr %offsets, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -1111,7 +1111,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %add.ptr38.i = getelementptr inbounds <2 x i64>, ptr %add.ptr37.i, i64 %istripe.0.lcssa.i
   %16 = load <2 x i64>, ptr %add.ptr38.i, align 1
   %insert41.i = shufflevector <2 x i64> %15, <2 x i64> %16, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %invariant.gep.i = getelementptr <2 x i64>, ptr %add.ptr33.i, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %add.ptr33.i, i64 16
   %add4361.i = add nuw nsw i64 %istripe.0.lcssa.i, 1
   %cmp4462.i = icmp slt i64 %add4361.i, %or23.i
   br i1 %cmp4462.i, label %for.body45.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -1278,7 +1278,7 @@ while.end:                                        ; preds = %land.rhs
 for.body.preheader:                               ; preds = %while.end
   %div32 = lshr i32 %num_rows_to_process.051, 1
   %wide.trip.count = zext nneg i32 %div32 to i64
-  %invariant.gep = getelementptr i64, ptr %offsets, i64 2
+  %invariant.gep = getelementptr i8, ptr %offsets, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
@@ -1397,7 +1397,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %add.ptr38.i = getelementptr inbounds <2 x i64>, ptr %add.ptr37.i, i64 %istripe.0.lcssa.i
   %16 = load <2 x i64>, ptr %add.ptr38.i, align 1
   %insert41.i = shufflevector <2 x i64> %15, <2 x i64> %16, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %invariant.gep.i = getelementptr <2 x i64>, ptr %add.ptr33.i, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %add.ptr33.i, i64 16
   %add4361.i = add nuw nsw i64 %istripe.0.lcssa.i, 1
   %cmp4462.i = icmp slt i64 %add4361.i, %or23.i
   br i1 %cmp4462.i, label %for.body45.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit

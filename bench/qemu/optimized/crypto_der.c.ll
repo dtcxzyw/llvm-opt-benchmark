@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/crypto_der.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QCryptoEncodeContext = type { %struct.QCryptoDerEncodeNode, ptr, ptr }
-%struct.QCryptoDerEncodeNode = type { i8, ptr, ptr, ptr, i64 }
-
 @.str = private unnamed_addr constant [21 x i8] c"../qemu/crypto/der.c\00", align 1
 @__func__.qcrypto_der_decode_tlv = private unnamed_addr constant [23 x i8] c"qcrypto_der_decode_tlv\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Need more data\00", align 1
@@ -230,9 +227,9 @@ entry:
 define dso_local ptr @qcrypto_der_encode_ctx_new() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #8
-  %current_parent = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %call, i64 0, i32 1
+  %current_parent = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call, ptr %current_parent, align 8
-  %tail = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %call, i64 0, i32 2
+  %tail = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call, ptr %tail, align 8
   ret ptr %call
 }
@@ -245,14 +242,14 @@ define dso_local void @qcrypto_der_encode_seq_begin(ptr nocapture noundef %ctx) 
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 48, ptr %call.i, align 8
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %parent.i, align 8
   store ptr %call.i, ptr %current_parent.i, align 8
-  %tail.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %tail.i, align 8
-  %next.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %1, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %call.i, ptr %next.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
   ret void
@@ -261,9 +258,9 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @qcrypto_der_encode_seq_end(ptr nocapture noundef %ctx) local_unnamed_addr #2 {
 entry:
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %dlen.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 4
+  %dlen.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %dlen.i, align 8
   %cmp.i.i = icmp ult i64 %1, 128
   br i1 %cmp.i.i, label %qcrypto_der_encode_cons_end.exit, label %for.cond.preheader.i.i
@@ -288,9 +285,9 @@ if.end.i.loopexit.i:                              ; preds = %for.body.i.i
 qcrypto_der_encode_cons_end.exit:                 ; preds = %entry, %for.cond.preheader.i.i, %if.end.i.loopexit.i
   %nbytes_len.0.i = phi i64 [ 2, %entry ], [ 3, %for.cond.preheader.i.i ], [ %3, %if.end.i.loopexit.i ]
   %add2.i = add i64 %nbytes_len.0.i, %1
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %parent.i, align 8
-  %dlen3.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %4, i64 0, i32 4
+  %dlen3.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %dlen3.i, align 8
   %add4.i = add i64 %add2.i, %5
   store i64 %add4.i, ptr %dlen3.i, align 8
@@ -304,13 +301,13 @@ define dso_local void @qcrypto_der_encode_oid(ptr nocapture noundef %ctx, ptr no
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 6, ptr %call.i, align 8
-  %data2.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 3
+  %data2.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %src, ptr %data2.i, align 8
-  %dlen3.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 4
+  %dlen3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %src_len, ptr %dlen3.i, align 8
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %parent.i, align 8
   %cmp.i.i = icmp ult i64 %src_len, 128
   br i1 %cmp.i.i, label %qcrypto_der_encode_prim.exit, label %for.cond.preheader.i.i
@@ -335,13 +332,13 @@ if.end.i.loopexit.i:                              ; preds = %for.body.i.i
 qcrypto_der_encode_prim.exit:                     ; preds = %entry, %for.cond.preheader.i.i, %if.end.i.loopexit.i
   %nbytes_len.0.i = phi i64 [ 2, %entry ], [ 3, %for.cond.preheader.i.i ], [ %2, %if.end.i.loopexit.i ]
   %add4.i = add i64 %nbytes_len.0.i, %src_len
-  %dlen6.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 4
+  %dlen6.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %dlen6.i, align 8
   %add7.i = add i64 %add4.i, %3
   store i64 %add7.i, ptr %dlen6.i, align 8
-  %tail.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %4 = load ptr, ptr %tail.i, align 8
-  %next.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %4, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call.i, ptr %next.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
   ret void
@@ -352,13 +349,13 @@ define dso_local void @qcrypto_der_encode_int(ptr nocapture noundef %ctx, ptr no
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 2, ptr %call.i, align 8
-  %data2.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 3
+  %data2.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %src, ptr %data2.i, align 8
-  %dlen3.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 4
+  %dlen3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %src_len, ptr %dlen3.i, align 8
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %parent.i, align 8
   %cmp.i.i = icmp ult i64 %src_len, 128
   br i1 %cmp.i.i, label %qcrypto_der_encode_prim.exit, label %for.cond.preheader.i.i
@@ -383,13 +380,13 @@ if.end.i.loopexit.i:                              ; preds = %for.body.i.i
 qcrypto_der_encode_prim.exit:                     ; preds = %entry, %for.cond.preheader.i.i, %if.end.i.loopexit.i
   %nbytes_len.0.i = phi i64 [ 2, %entry ], [ 3, %for.cond.preheader.i.i ], [ %2, %if.end.i.loopexit.i ]
   %add4.i = add i64 %nbytes_len.0.i, %src_len
-  %dlen6.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 4
+  %dlen6.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %dlen6.i, align 8
   %add7.i = add i64 %add4.i, %3
   store i64 %add7.i, ptr %dlen6.i, align 8
-  %tail.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %4 = load ptr, ptr %tail.i, align 8
-  %next.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %4, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call.i, ptr %next.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
   ret void
@@ -400,19 +397,19 @@ define dso_local void @qcrypto_der_encode_null(ptr nocapture noundef %ctx) local
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 5, ptr %call.i, align 8
-  %data2.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 3
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %data2.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data2.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %current_parent.i, align 8
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %parent.i, align 8
-  %dlen6.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 4
+  %dlen6.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %dlen6.i, align 8
   %add7.i = add i64 %1, 2
   store i64 %add7.i, ptr %dlen6.i, align 8
-  %tail.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %tail.i, align 8
-  %next.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %2, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %call.i, ptr %next.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
   ret void
@@ -423,13 +420,13 @@ define dso_local void @qcrypto_der_encode_octet_str(ptr nocapture noundef %ctx, 
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 4, ptr %call.i, align 8
-  %data2.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 3
+  %data2.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %src, ptr %data2.i, align 8
-  %dlen3.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 4
+  %dlen3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %src_len, ptr %dlen3.i, align 8
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %parent.i, align 8
   %cmp.i.i = icmp ult i64 %src_len, 128
   br i1 %cmp.i.i, label %qcrypto_der_encode_prim.exit, label %for.cond.preheader.i.i
@@ -454,13 +451,13 @@ if.end.i.loopexit.i:                              ; preds = %for.body.i.i
 qcrypto_der_encode_prim.exit:                     ; preds = %entry, %for.cond.preheader.i.i, %if.end.i.loopexit.i
   %nbytes_len.0.i = phi i64 [ 2, %entry ], [ 3, %for.cond.preheader.i.i ], [ %2, %if.end.i.loopexit.i ]
   %add4.i = add i64 %nbytes_len.0.i, %src_len
-  %dlen6.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 4
+  %dlen6.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %dlen6.i, align 8
   %add7.i = add i64 %add4.i, %3
   store i64 %add7.i, ptr %dlen6.i, align 8
-  %tail.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %4 = load ptr, ptr %tail.i, align 8
-  %next.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %4, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call.i, ptr %next.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
   ret void
@@ -471,14 +468,14 @@ define dso_local void @qcrypto_der_encode_octet_str_begin(ptr nocapture noundef 
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 4, ptr %call.i, align 8
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %call.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %parent.i, align 8
   store ptr %call.i, ptr %current_parent.i, align 8
-  %tail.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %tail.i, align 8
-  %next.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %1, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %call.i, ptr %next.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
   ret void
@@ -487,9 +484,9 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @qcrypto_der_encode_octet_str_end(ptr nocapture noundef %ctx) local_unnamed_addr #2 {
 entry:
-  %current_parent.i = getelementptr inbounds %struct.QCryptoEncodeContext, ptr %ctx, i64 0, i32 1
+  %current_parent.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
-  %dlen.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 4
+  %dlen.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %dlen.i, align 8
   %cmp.i.i = icmp ult i64 %1, 128
   br i1 %cmp.i.i, label %qcrypto_der_encode_cons_end.exit, label %for.cond.preheader.i.i
@@ -514,9 +511,9 @@ if.end.i.loopexit.i:                              ; preds = %for.body.i.i
 qcrypto_der_encode_cons_end.exit:                 ; preds = %entry, %for.cond.preheader.i.i, %if.end.i.loopexit.i
   %nbytes_len.0.i = phi i64 [ 2, %entry ], [ 3, %for.cond.preheader.i.i ], [ %3, %if.end.i.loopexit.i ]
   %add2.i = add i64 %nbytes_len.0.i, %1
-  %parent.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %0, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %parent.i, align 8
-  %dlen3.i = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %4, i64 0, i32 4
+  %dlen3.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %dlen3.i, align 8
   %add4.i = add i64 %add2.i, %5
   store i64 %add4.i, ptr %dlen3.i, align 8
@@ -528,7 +525,7 @@ qcrypto_der_encode_cons_end.exit:                 ; preds = %entry, %for.cond.pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qcrypto_der_encode_ctx_buffer_len(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %dlen = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %ctx, i64 0, i32 4
+  %dlen = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load i64, ptr %dlen, align 8
   ret i64 %0
 }
@@ -536,7 +533,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcrypto_der_encode_ctx_flush_and_free(ptr noundef %ctx, ptr noundef writeonly %dst) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %ctx, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %next, align 8
   %tobool.not29 = icmp eq ptr %0, null
   br i1 %tobool.not29, label %for.end, label %land.rhs
@@ -544,13 +541,13 @@ entry:
 land.rhs:                                         ; preds = %entry, %if.end
   %1 = phi ptr [ %9, %if.end ], [ %0, %entry ]
   %dst.addr.030 = phi ptr [ %dst.addr.1, %if.end ], [ %dst, %entry ]
-  %next1 = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %1, i64 0, i32 2
+  %next1 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %next1, align 8
   store ptr %2, ptr %next, align 8
   %3 = load i8, ptr %1, align 8
   %incdec.ptr = getelementptr i8, ptr %dst.addr.030, i64 1
   store i8 %3, ptr %dst.addr.030, align 1
-  %dlen = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %1, i64 0, i32 4
+  %dlen = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %dlen, align 8
   %cmp.i = icmp ult i64 %4, 128
   br i1 %cmp.i, label %if.end.thread.i, label %for.cond.preheader.i
@@ -619,7 +616,7 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
 qcrypto_der_encode_length.exit:                   ; preds = %for.body14.i, %if.end.i.thread, %if.end.i, %if.end.thread.i, %if.end9.thread.i, %if.end9.i
   %len.0 = phi i64 [ 1, %if.end.thread.i ], [ 1, %if.end9.thread.i ], [ %add6.i, %if.end.i ], [ %add6.i, %if.end9.i ], [ 2, %if.end.i.thread ], [ %add6.i2127, %for.body14.i ]
   %add.ptr = getelementptr i8, ptr %incdec.ptr, i64 %len.0
-  %data = getelementptr inbounds %struct.QCryptoDerEncodeNode, ptr %1, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %data, align 8
   %tobool3.not = icmp eq ptr %6, null
   br i1 %tobool3.not, label %if.end, label %if.then

@@ -3,12 +3,6 @@ source_filename = "bench/grpc/original/hpack_encoder_table.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.grpc_core::HPackEncoderTable" = type { i32, i32, i32, i32, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [150 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/ext/transport/chttp2/transport/hpack_encoder_table.cc\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"table_elems_ < elem_size_.size()\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"tail_remote_index_ > 0\00", align 1
@@ -20,15 +14,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %element_size) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %table_elems_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 2
+  %table_elems_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %table_elems_, align 8
   %add = add i32 %0, 1
   %add2 = add i32 %add, %1
-  %max_table_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 1
+  %max_table_size_ = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %max_table_size_, align 4
   %conv = zext i32 %2 to i64
   %cmp = icmp ult i64 %conv, %element_size
-  %table_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 3
+  %table_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %table_size_.promoted = load i32, ptr %table_size_, align 4
   br i1 %cmp, label %while.cond.preheader, label %while.cond4.preheader
 
@@ -39,9 +33,9 @@ while.cond4.preheader:                            ; preds = %entry
   br i1 %cmp1041, label %while.body11.lr.ph, label %while.cond4.preheader.do.body_crit_edge
 
 while.cond4.preheader.do.body_crit_edge:          ; preds = %while.cond4.preheader
-  %_M_finish.i.phi.trans.insert = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
-  %elem_size_.phi.trans.insert = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
+  %elem_size_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre56 = load ptr, ptr %elem_size_.phi.trans.insert, align 8
   %.pre57 = ptrtoint ptr %.pre to i64
   %.pre58 = ptrtoint ptr %.pre56 to i64
@@ -50,8 +44,8 @@ while.cond4.preheader.do.body_crit_edge:          ; preds = %while.cond4.prehead
   br label %do.body
 
 while.body11.lr.ph:                               ; preds = %while.cond4.preheader
-  %elem_size_.i11 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
-  %_M_finish.i.i13 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %elem_size_.i11 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i13 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i.i13, align 8
   %4 = load ptr, ptr %elem_size_.i11, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %3 to i64
@@ -66,8 +60,8 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp3.not48, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %elem_size_.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
-  %_M_finish.i.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %elem_size_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %elem_size_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -209,7 +203,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %table_elems_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 2
+  %table_elems_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %table_elems_, align 8
   %cmp4.not = icmp eq i32 %1, 0
   br i1 %cmp4.not, label %if.then6, label %do.end8
@@ -219,9 +213,9 @@ if.then6:                                         ; preds = %do.body3
   unreachable
 
 do.end8:                                          ; preds = %do.body3
-  %elem_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
+  %elem_size_ = getelementptr inbounds i8, ptr %this, i64 16
   %conv = zext i32 %inc to i64
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %elem_size_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -231,7 +225,7 @@ do.end8:                                          ; preds = %do.body3
   %rem = urem i64 %conv, %sub.ptr.div.i
   %add.ptr.i = getelementptr inbounds i16, ptr %3, i64 %rem
   %4 = load i16, ptr %add.ptr.i, align 2
-  %table_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 3
+  %table_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %table_size_, align 4
   %conv13 = zext i16 %4 to i32
   %cmp14.not = icmp ult i32 %5, %conv13
@@ -255,20 +249,20 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %max_table_size) local_unnamed_addr #0 align 2 {
 entry:
-  %max_table_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 1
+  %max_table_size_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %max_table_size_, align 4
   %cmp = icmp ne i32 %0, %max_table_size
   br i1 %cmp, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry
-  %table_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 3
+  %table_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %table_size_.promoted = load i32, ptr %table_size_, align 4
   %cmp414 = icmp ugt i32 %table_size_.promoted, %max_table_size
-  %elem_size_.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
+  %elem_size_.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp414, label %while.body.lr.ph, label %while.cond.preheader.while.end_crit_edge
 
 while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheader
-  %_M_finish.i.phi.trans.insert = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
   %.pre19 = load ptr, ptr %elem_size_.i, align 8
   %.pre20 = ptrtoint ptr %.pre to i64
@@ -279,8 +273,8 @@ while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheade
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %this.promoted = load i32, ptr %this, align 8
-  %table_elems_.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %table_elems_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %elem_size_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -366,20 +360,22 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %call5.i.i.i.i2.i.i7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #7
   %add.ptr.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i2.i.i7, i64 %conv
   store i16 0, ptr %call5.i.i.i.i2.i.i7, align 2
-  %incdec.ptr.i.i.i.i.i = getelementptr i16, ptr %call5.i.i.i.i2.i.i7, i64 1
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %capacity, 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i7, i64 2
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %new_elem_size.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i7, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i7, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
   %new_elem_size.sroa.11.0 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
-  %table_elems_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 2
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
+  %table_elems_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %table_elems_, align 8
   %cmp.not = icmp ugt i32 %1, %capacity
   br i1 %cmp.not, label %if.then, label %for.cond.preheader
@@ -390,8 +386,8 @@ for.cond.preheader:                               ; preds = %invoke.cont
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %2 = load i32, ptr %this, align 8
-  %elem_size_ = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %elem_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %elem_size_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
@@ -435,20 +431,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end.thread, label %for.body, !llvm.loop !8
 
 for.end.thread:                                   ; preds = %for.body
-  %elem_size_1422 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
-  %_M_finish.i.i.i23 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i924 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %elem_size_1422 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_end_of_storage.i.i.i924 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %new_elem_size.sroa.0.0, ptr %elem_size_1422, align 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i.i23, align 8
   store ptr %new_elem_size.sroa.11.0, ptr %_M_end_of_storage.i.i.i924, align 8
   br label %if.then.i.i.i11
 
 for.end:                                          ; preds = %for.cond.preheader
-  %elem_size_14.phi.trans.insert = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
+  %elem_size_14.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %elem_size_14.phi.trans.insert, align 8
-  %elem_size_14 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4
-  %_M_finish.i.i.i = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i9 = getelementptr inbounds %"class.grpc_core::HPackEncoderTable", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %elem_size_14 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_end_of_storage.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %new_elem_size.sroa.0.0, ptr %elem_size_14, align 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %new_elem_size.sroa.11.0, ptr %_M_end_of_storage.i.i.i9, align 8

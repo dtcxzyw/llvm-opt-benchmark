@@ -3,29 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ocsp_srv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ocsp_req_info_st = type { ptr, ptr, ptr, ptr }
-%struct.ocsp_cert_id_st = type { %struct.X509_algor_st, %struct.asn1_string_st, %struct.asn1_string_st, %struct.asn1_string_st }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ocsp_request_st = type { %struct.ocsp_req_info_st, ptr }
-%struct.ocsp_response_st = type { ptr, ptr }
-%struct.ocsp_resp_bytes_st = type { ptr, ptr }
-%struct.ocsp_response_data_st = type { ptr, %struct.ocsp_responder_id_st, ptr, ptr, ptr }
-%struct.ocsp_responder_id_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ocsp_single_response_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.ocsp_cert_status_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.ocsp_revoked_info_st = type { ptr, ptr }
-%struct.ocsp_basic_response_st = type { %struct.ocsp_response_data_st, %struct.X509_algor_st, ptr, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/ocsp/ocsp_srv.c\00", align 1
 @__func__.OCSP_basic_add1_status = private unnamed_addr constant [23 x i8] c"OCSP_basic_add1_status\00", align 1
 @__func__.OCSP_basic_sign_ctx = private unnamed_addr constant [20 x i8] c"OCSP_basic_sign_ctx\00", align 1
@@ -34,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_request_onereq_count(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
-  %requestList = getelementptr inbounds %struct.ocsp_req_info_st, ptr %req, i64 0, i32 2
+  %requestList = getelementptr inbounds i8, ptr %req, i64 16
   %0 = load ptr, ptr %requestList, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   ret i32 %call1
@@ -45,7 +22,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_request_onereq_get0(ptr nocapture noundef readonly %req, i32 noundef %i) local_unnamed_addr #0 {
 entry:
-  %requestList = getelementptr inbounds %struct.ocsp_req_info_st, ptr %req, i64 0, i32 2
+  %requestList = getelementptr inbounds i8, ptr %req, i64 16
   %0 = load ptr, ptr %requestList, align 8
   %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i) #6
   ret ptr %call1
@@ -80,7 +57,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %issuerNameHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %cid, i64 0, i32 1
+  %issuerNameHash = getelementptr inbounds i8, ptr %cid, i64 16
   store ptr %issuerNameHash, ptr %piNameHash, align 8
   br label %if.end6
 
@@ -89,7 +66,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %issuerKeyHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %cid, i64 0, i32 2
+  %issuerKeyHash = getelementptr inbounds i8, ptr %cid, i64 40
   store ptr %issuerKeyHash, ptr %pikeyHash, align 8
   br label %if.end9
 
@@ -98,7 +75,7 @@ if.end9:                                          ; preds = %if.then8, %if.end6
   br i1 %tobool10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %serialNumber = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %cid, i64 0, i32 3
+  %serialNumber = getelementptr inbounds i8, ptr %cid, i64 64
   store ptr %serialNumber, ptr %pserial, align 8
   br label %return
 
@@ -110,7 +87,7 @@ return:                                           ; preds = %if.end9, %if.then11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @OCSP_request_is_signed(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
 entry:
-  %optionalSignature = getelementptr inbounds %struct.ocsp_request_st, ptr %req, i64 0, i32 1
+  %optionalSignature = getelementptr inbounds i8, ptr %req, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
   %tobool.not = icmp ne ptr %0, null
   %. = zext i1 %tobool.not to i32
@@ -137,7 +114,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end3
   %call7 = tail call ptr @OCSP_RESPBYTES_new() #6
-  %responseBytes = getelementptr inbounds %struct.ocsp_response_st, ptr %call, i64 0, i32 1
+  %responseBytes = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call7, ptr %responseBytes, align 8
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %err, label %if.end11
@@ -148,7 +125,7 @@ if.end11:                                         ; preds = %if.end6
   store ptr %call12, ptr %1, align 8
   %call14 = tail call ptr @OCSP_BASICRESP_it() #6
   %2 = load ptr, ptr %responseBytes, align 8
-  %response = getelementptr inbounds %struct.ocsp_resp_bytes_st, ptr %2, i64 0, i32 1
+  %response = getelementptr inbounds i8, ptr %2, i64 8
   %call16 = tail call ptr @ASN1_item_pack(ptr noundef nonnull %bs, ptr noundef %call14, ptr noundef nonnull %response) #6
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %err, label %return
@@ -179,7 +156,7 @@ declare void @OCSP_RESPONSE_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_basic_add1_status(ptr nocapture noundef %rsp, ptr noundef %cid, i32 noundef %status, i32 noundef %reason, ptr noundef %revtime, ptr noundef %thisupd, ptr noundef %nextupd) local_unnamed_addr #0 {
 entry:
-  %responses = getelementptr inbounds %struct.ocsp_response_data_st, ptr %rsp, i64 0, i32 3
+  %responses = getelementptr inbounds i8, ptr %rsp, i64 32
   %0 = load ptr, ptr %responses, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -196,7 +173,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp5, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %thisUpdate = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call4, i64 0, i32 2
+  %thisUpdate = getelementptr inbounds i8, ptr %call4, i64 16
   %call8 = tail call ptr @ASN1_TIME_to_generalizedtime(ptr noundef %thisupd, ptr noundef nonnull %thisUpdate) #6
   %tobool.not = icmp eq ptr %call8, null
   br i1 %tobool.not, label %err, label %if.end10
@@ -206,7 +183,7 @@ if.end10:                                         ; preds = %if.end7
   br i1 %tobool11.not, label %if.end16, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end10
-  %nextUpdate = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call4, i64 0, i32 3
+  %nextUpdate = getelementptr inbounds i8, ptr %call4, i64 24
   %call13 = tail call ptr @ASN1_TIME_to_generalizedtime(ptr noundef nonnull %nextupd, ptr noundef nonnull %nextUpdate) #6
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %err, label %if.end16
@@ -220,7 +197,7 @@ if.end16:                                         ; preds = %land.lhs.true12, %i
   br i1 %cmp19, label %err, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
-  %certStatus = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call4, i64 0, i32 1
+  %certStatus = getelementptr inbounds i8, ptr %call4, i64 8
   %2 = load ptr, ptr %certStatus, align 8
   store i32 %status, ptr %2, align 8
   switch i32 %status, label %err [
@@ -241,7 +218,7 @@ if.then23:                                        ; preds = %sw.bb
 
 if.end24:                                         ; preds = %sw.bb
   %call25 = tail call ptr @OCSP_REVOKEDINFO_new() #6
-  %value = getelementptr inbounds %struct.ocsp_cert_status_st, ptr %2, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %call25, ptr %value, align 8
   %cmp26 = icmp eq ptr %call25, null
   br i1 %cmp26, label %err, label %if.end28
@@ -257,7 +234,7 @@ if.end32:                                         ; preds = %if.end28
 
 if.then34:                                        ; preds = %if.end32
   %call35 = tail call ptr @ASN1_ENUMERATED_new() #6
-  %revocationReason = getelementptr inbounds %struct.ocsp_revoked_info_st, ptr %call25, i64 0, i32 1
+  %revocationReason = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %call35, ptr %revocationReason, align 8
   %cmp36 = icmp eq ptr %call35, null
   br i1 %cmp36, label %err, label %if.end38
@@ -270,14 +247,14 @@ if.end38:                                         ; preds = %if.then34
 
 sw.bb45:                                          ; preds = %if.end21
   %call46 = tail call ptr @ASN1_NULL_new() #6
-  %value47 = getelementptr inbounds %struct.ocsp_cert_status_st, ptr %2, i64 0, i32 1
+  %value47 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %call46, ptr %value47, align 8
   %cmp48 = icmp eq ptr %call46, null
   br i1 %cmp48, label %err, label %sw.epilog
 
 sw.bb52:                                          ; preds = %if.end21
   %call53 = tail call ptr @ASN1_NULL_new() #6
-  %value54 = getelementptr inbounds %struct.ocsp_cert_status_st, ptr %2, i64 0, i32 1
+  %value54 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %call53, ptr %value54, align 8
   %cmp55 = icmp eq ptr %call53, null
   br i1 %cmp55, label %err, label %sw.epilog
@@ -327,7 +304,7 @@ declare void @OCSP_SINGLERESP_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_basic_add1_cert(ptr noundef %resp, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
-  %certs = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %resp, i64 0, i32 3
+  %certs = getelementptr inbounds i8, ptr %resp, i64 72
   %call = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs, ptr noundef %cert, i32 noundef 1) #6
   ret i32 %call
 }
@@ -362,7 +339,7 @@ if.end8:                                          ; preds = %lor.lhs.false5
   br i1 %tobool9.not, label %if.then10, label %if.end19
 
 if.then10:                                        ; preds = %if.end8
-  %certs.i = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %brsp, i64 0, i32 3
+  %certs.i = getelementptr inbounds i8, ptr %brsp, i64 72
   %call.i = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs.i, ptr noundef %signer, i32 noundef 1) #6
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %err, label %lor.lhs.false13
@@ -374,7 +351,7 @@ lor.lhs.false13:                                  ; preds = %if.then10
   br i1 %tobool16.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %lor.lhs.false13, %if.end8
-  %responderId = getelementptr inbounds %struct.ocsp_response_data_st, ptr %brsp, i64 0, i32 1
+  %responderId = getelementptr inbounds i8, ptr %brsp, i64 8
   %and20 = and i64 %flags, 1024
   %tobool21.not = icmp eq i64 %and20, 0
   br i1 %tobool21.not, label %if.else, label %if.then22
@@ -385,7 +362,7 @@ if.then22:                                        ; preds = %if.end19
   br i1 %tobool24.not, label %err, label %if.end31
 
 if.else:                                          ; preds = %if.end19
-  %value.i = getelementptr inbounds %struct.ocsp_response_data_st, ptr %brsp, i64 0, i32 1, i32 1
+  %value.i = getelementptr inbounds i8, ptr %brsp, i64 16
   %call.i17 = tail call ptr @X509_get_subject_name(ptr noundef %signer) #6
   %call1.i = tail call i32 @X509_NAME_set(ptr noundef nonnull %value.i, ptr noundef %call.i17) #6
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -401,7 +378,7 @@ if.end31:                                         ; preds = %OCSP_RESPID_set_by_
   br i1 %tobool33.not, label %land.lhs.true, label %if.end38
 
 land.lhs.true:                                    ; preds = %if.end31
-  %producedAt = getelementptr inbounds %struct.ocsp_response_data_st, ptr %brsp, i64 0, i32 2
+  %producedAt = getelementptr inbounds i8, ptr %brsp, i64 24
   %1 = load ptr, ptr %producedAt, align 8
   %call35 = tail call ptr @X509_gmtime_adj(ptr noundef %1, i64 noundef 0) #6
   %tobool36.not = icmp eq ptr %call35, null
@@ -409,8 +386,8 @@ land.lhs.true:                                    ; preds = %if.end31
 
 if.end38:                                         ; preds = %land.lhs.true, %if.end31
   %call39 = tail call ptr @OCSP_RESPDATA_it() #6
-  %signatureAlgorithm = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %brsp, i64 0, i32 1
-  %signature = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %brsp, i64 0, i32 2
+  %signatureAlgorithm = getelementptr inbounds i8, ptr %brsp, i64 48
+  %signature = getelementptr inbounds i8, ptr %brsp, i64 64
   %2 = load ptr, ptr %signature, align 8
   %call41 = tail call i32 @ASN1_item_sign_ctx(ptr noundef %call39, ptr noundef nonnull %signatureAlgorithm, ptr noundef null, ptr noundef %2, ptr noundef %brsp, ptr noundef nonnull %ctx) #6
   %tobool42.not = icmp eq i32 %call41, 0
@@ -448,9 +425,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx = getelementptr inbounds %struct.x509_st, ptr %cert, i64 0, i32 25
+  %libctx = getelementptr inbounds i8, ptr %cert, i64 368
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.x509_st, ptr %cert, i64 0, i32 26
+  %propq = getelementptr inbounds i8, ptr %cert, i64 376
   %1 = load ptr, ptr %propq, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %md.i)
   %call.i = tail call ptr @EVP_MD_fetch(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %1) #6
@@ -478,7 +455,7 @@ if.then11.i:                                      ; preds = %if.end7.i
 
 if.end12.i:                                       ; preds = %if.end7.i
   store i32 1, ptr %respid, align 8
-  %value.i = getelementptr inbounds %struct.ocsp_responder_id_st, ptr %respid, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %respid, i64 8
   store ptr %call4.i, ptr %value.i, align 8
   br label %err.i
 
@@ -500,7 +477,7 @@ return:                                           ; preds = %entry, %OCSP_RESPID
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_RESPID_set_by_name(ptr noundef %respid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.ocsp_responder_id_st, ptr %respid, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %respid, i64 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %cert) #6
   %call1 = tail call i32 @X509_NAME_set(ptr noundef nonnull %value, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
@@ -532,9 +509,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @EVP_MD_get0_name(ptr noundef %dgst) #6
-  %libctx = getelementptr inbounds %struct.x509_st, ptr %signer, i64 0, i32 25
+  %libctx = getelementptr inbounds i8, ptr %signer, i64 368
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.x509_st, ptr %signer, i64 0, i32 26
+  %propq = getelementptr inbounds i8, ptr %signer, i64 376
   %1 = load ptr, ptr %propq, align 8
   %call2 = call i32 @EVP_DigestSignInit_ex(ptr noundef nonnull %call, ptr noundef nonnull %pkctx, ptr noundef %call1, ptr noundef %0, ptr noundef %1, ptr noundef %key, ptr noundef null) #6
   %tobool.not = icmp eq i32 %call2, 0
@@ -595,7 +572,7 @@ if.then11:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   store i32 1, ptr %respid, align 8
-  %value = getelementptr inbounds %struct.ocsp_responder_id_st, ptr %respid, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %respid, i64 8
   store ptr %call4, ptr %value, align 8
   br label %err
 
@@ -637,7 +614,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %err, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %value = getelementptr inbounds %struct.ocsp_responder_id_st, ptr %respid, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %respid, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %err, label %if.end5
@@ -662,7 +639,7 @@ land.rhs:                                         ; preds = %if.end8
   br label %err
 
 if.then19:                                        ; preds = %entry
-  %value20 = getelementptr inbounds %struct.ocsp_responder_id_st, ptr %respid, i64 0, i32 1
+  %value20 = getelementptr inbounds i8, ptr %respid, i64 8
   %5 = load ptr, ptr %value20, align 8
   %cmp21 = icmp eq ptr %5, null
   br i1 %cmp21, label %return, label %if.end23
@@ -698,9 +675,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx = getelementptr inbounds %struct.x509_st, ptr %cert, i64 0, i32 25
+  %libctx = getelementptr inbounds i8, ptr %cert, i64 368
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.x509_st, ptr %cert, i64 0, i32 26
+  %propq = getelementptr inbounds i8, ptr %cert, i64 376
   %1 = load ptr, ptr %propq, align 8
   %call = tail call i32 @OCSP_RESPID_match_ex(ptr noundef %respid, ptr noundef nonnull %cert, ptr noundef %0, ptr noundef %1), !range !4
   br label %return

@@ -3,19 +3,15 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x509_cmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
+%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
 %struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_algor_st = type { ptr, ptr }
 %struct.X509_val_st = type { ptr, ptr }
 %struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
+%struct.X509_algor_st = type { ptr, ptr }
+%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.x509_sig_info_st = type { i32, i32, i32, i32 }
 %struct.CRYPTO_REF_COUNT = type { i32 }
 %struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.X509_crl_info_st = type { ptr, %struct.X509_algor_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_crl_st = type { %struct.X509_crl_info_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, [20 x i8], ptr, ptr, ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/x509_cmp.c\00", align 1
@@ -44,8 +40,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 1
-  %serialNumber7 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %a, i64 8
+  %serialNumber7 = getelementptr inbounds i8, ptr %b, i64 8
   %call = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %serialNumber, ptr noundef nonnull %serialNumber7) #8
   %cmp8.not = icmp eq i32 %call, 0
   br i1 %cmp8.not, label %if.end13, label %if.then10
@@ -56,9 +52,9 @@ if.then10:                                        ; preds = %if.end5
   br label %return
 
 if.end13:                                         ; preds = %if.end5
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %a, i64 48
   %0 = load ptr, ptr %issuer, align 8
-  %issuer14 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 3
+  %issuer14 = getelementptr inbounds i8, ptr %b, i64 48
   %1 = load ptr, ptr %issuer14, align 8
   %call15 = tail call i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1), !range !4
   br label %return
@@ -86,13 +82,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %canon_enc, align 8
   %cmp6 = icmp eq ptr %0, null
   br i1 %cmp6, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i32, ptr %modified, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end13, label %if.then8
@@ -103,13 +99,13 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp9, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %lor.lhs.false
-  %canon_enc14 = getelementptr inbounds %struct.X509_name_st, ptr %b, i64 0, i32 3
+  %canon_enc14 = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load ptr, ptr %canon_enc14, align 8
   %cmp15 = icmp eq ptr %2, null
   br i1 %cmp15, label %if.then20, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %if.end13
-  %modified18 = getelementptr inbounds %struct.X509_name_st, ptr %b, i64 0, i32 1
+  %modified18 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i32, ptr %modified18, align 8
   %tobool19.not = icmp eq i32 %3, 0
   br i1 %tobool19.not, label %if.end26, label %if.then20
@@ -120,9 +116,9 @@ if.then20:                                        ; preds = %lor.lhs.false17, %i
   br i1 %cmp22, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.then20, %lor.lhs.false17
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %a, i64 32
   %4 = load i32, ptr %canon_enclen, align 8
-  %canon_enclen27 = getelementptr inbounds %struct.X509_name_st, ptr %b, i64 0, i32 4
+  %canon_enclen27 = getelementptr inbounds i8, ptr %b, i64 32
   %5 = load i32, ptr %canon_enclen27, align 8
   %sub = sub nsw i32 %4, %5
   %6 = or i32 %sub, %4
@@ -170,16 +166,16 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %a, i64 48
   %0 = load ptr, ptr %issuer, align 8
   %call1 = tail call ptr @X509_NAME_oneline(ptr noundef %0, ptr noundef null, i32 noundef 0) #8
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %err, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 25
+  %libctx = getelementptr inbounds i8, ptr %a, i64 368
   %1 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 26
+  %propq = getelementptr inbounds i8, ptr %a, i64 376
   %2 = load ptr, ptr %propq, align 8
   %call5 = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %2) #8
   %cmp6 = icmp eq ptr %call5, null
@@ -197,8 +193,8 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool14.not, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 1
-  %data = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 1, i32 2
+  %serialNumber = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load ptr, ptr %data, align 8
   %4 = load i32, ptr %serialNumber, align 8
   %conv = sext i32 %4 to i64
@@ -250,9 +246,9 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_issuer_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %a, i64 48
   %0 = load ptr, ptr %issuer, align 8
-  %issuer2 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 3
+  %issuer2 = getelementptr inbounds i8, ptr %b, i64 48
   %1 = load ptr, ptr %issuer2, align 8
   %call = tail call i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1), !range !4
   ret i32 %call
@@ -261,9 +257,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_subject_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %a, i64 72
   %0 = load ptr, ptr %subject, align 8
-  %subject2 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 5
+  %subject2 = getelementptr inbounds i8, ptr %b, i64 72
   %1 = load ptr, ptr %subject2, align 8
   %call = tail call i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1), !range !4
   ret i32 %call
@@ -272,9 +268,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_CRL_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %issuer = getelementptr inbounds %struct.X509_crl_info_st, ptr %a, i64 0, i32 2
+  %issuer = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %issuer, align 8
-  %issuer2 = getelementptr inbounds %struct.X509_crl_info_st, ptr %b, i64 0, i32 2
+  %issuer2 = getelementptr inbounds i8, ptr %b, i64 24
   %1 = load ptr, ptr %issuer2, align 8
   %call = tail call i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1), !range !4
   ret i32 %call
@@ -283,22 +279,22 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_CRL_match(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds %struct.X509_crl_st, ptr %a, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %a, i64 132
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 1048576
   %cmp = icmp eq i32 %and, 0
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %flags1 = getelementptr inbounds %struct.X509_crl_st, ptr %b, i64 0, i32 4
+  %flags1 = getelementptr inbounds i8, ptr %b, i64 132
   %1 = load i32, ptr %flags1, align 4
   %and2 = and i32 %1, 1048576
   %cmp3 = icmp eq i32 %and2, 0
   br i1 %cmp3, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %sha1_hash = getelementptr inbounds %struct.X509_crl_st, ptr %a, i64 0, i32 12
-  %sha1_hash4 = getelementptr inbounds %struct.X509_crl_st, ptr %b, i64 0, i32 12
+  %sha1_hash = getelementptr inbounds i8, ptr %a, i64 184
+  %sha1_hash4 = getelementptr inbounds i8, ptr %b, i64 184
   %call = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %sha1_hash, ptr noundef nonnull dereferenceable(20) %sha1_hash4, i64 noundef 20) #9
   %cmp7 = icmp sgt i32 %call, 0
   %conv = zext i1 %cmp7 to i32
@@ -317,7 +313,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get_issuer_name(ptr nocapture noundef readonly %a) local_unnamed_addr #4 {
 entry:
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %a, i64 48
   %0 = load ptr, ptr %issuer, align 8
   ret ptr %0
 }
@@ -326,7 +322,7 @@ entry:
 define i64 @X509_issuer_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %x, i64 48
   %0 = load ptr, ptr %issuer, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %md.i)
   %call.i = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null) #8
@@ -337,9 +333,9 @@ entry:
   br i1 %or.cond.i, label %land.lhs.true4.i, label %X509_NAME_hash_ex.exit
 
 land.lhs.true4.i:                                 ; preds = %entry
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %canon_enc.i, align 8
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %canon_enclen.i, align 8
   %conv.i = sext i32 %2 to i64
   %call5.i = call i32 @EVP_Digest(ptr noundef %1, i64 noundef %conv.i, ptr noundef nonnull %md.i, ptr noundef null, ptr noundef nonnull %call.i, ptr noundef null) #8
@@ -349,12 +345,12 @@ land.lhs.true4.i:                                 ; preds = %entry
 if.then6.i:                                       ; preds = %land.lhs.true4.i
   %3 = load i16, ptr %md.i, align 16
   %4 = zext i16 %3 to i64
-  %arrayidx10.i = getelementptr inbounds [20 x i8], ptr %md.i, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %md.i, i64 2
   %5 = load i8, ptr %arrayidx10.i, align 2
   %conv11.i = zext i8 %5 to i64
   %shl12.i = shl nuw nsw i64 %conv11.i, 16
   %or13.i = or disjoint i64 %shl12.i, %4
-  %arrayidx14.i = getelementptr inbounds [20 x i8], ptr %md.i, i64 0, i64 3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %md.i, i64 3
   %6 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %6 to i64
   %shl16.i = shl nuw nsw i64 %conv15.i, 24
@@ -388,9 +384,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %or.cond, label %land.lhs.true4, label %if.end22
 
 land.lhs.true4:                                   ; preds = %if.end
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %x, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %canon_enc, align 8
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %x, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %x, i64 32
   %1 = load i32, ptr %canon_enclen, align 8
   %conv = sext i32 %1 to i64
   %call5 = call i32 @EVP_Digest(ptr noundef %0, i64 noundef %conv, ptr noundef nonnull %md, ptr noundef null, ptr noundef nonnull %call, ptr noundef null) #8
@@ -400,12 +396,12 @@ land.lhs.true4:                                   ; preds = %if.end
 if.then6:                                         ; preds = %land.lhs.true4
   %2 = load i16, ptr %md, align 16
   %3 = zext i16 %2 to i64
-  %arrayidx10 = getelementptr inbounds [20 x i8], ptr %md, i64 0, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %md, i64 2
   %4 = load i8, ptr %arrayidx10, align 2
   %conv11 = zext i8 %4 to i64
   %shl12 = shl nuw nsw i64 %conv11, 16
   %or13 = or disjoint i64 %shl12, %3
-  %arrayidx14 = getelementptr inbounds [20 x i8], ptr %md, i64 0, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %md, i64 3
   %5 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %5 to i64
   %shl16 = shl nuw nsw i64 %conv15, 24
@@ -425,7 +421,7 @@ if.end22:                                         ; preds = %if.then6, %if.then2
 ; Function Attrs: nounwind uwtable
 define i64 @X509_issuer_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %x, i64 48
   %0 = load ptr, ptr %issuer, align 8
   %call = tail call i64 @X509_NAME_hash_old(ptr noundef %0), !range !5
   ret i64 %call
@@ -453,9 +449,9 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool.not, label %end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end6
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %x, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load ptr, ptr %bytes, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i64, ptr %0, align 8
   %call9 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %1, i64 noundef %2) #8
@@ -482,7 +478,7 @@ end:                                              ; preds = %if.end6, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get_subject_name(ptr nocapture noundef readonly %a) local_unnamed_addr #4 {
 entry:
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %a, i64 72
   %0 = load ptr, ptr %subject, align 8
   ret ptr %0
 }
@@ -490,14 +486,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @X509_get_serialNumber(ptr noundef readnone %a) local_unnamed_addr #5 {
 entry:
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %a, i64 8
   ret ptr %serialNumber
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @X509_get0_serialNumber(ptr noundef readnone %a) local_unnamed_addr #5 {
 entry:
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %a, i64 8
   ret ptr %serialNumber
 }
 
@@ -505,7 +501,7 @@ entry:
 define i64 @X509_subject_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %x, i64 72
   %0 = load ptr, ptr %subject, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %md.i)
   %call.i = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null) #8
@@ -516,9 +512,9 @@ entry:
   br i1 %or.cond.i, label %land.lhs.true4.i, label %X509_NAME_hash_ex.exit
 
 land.lhs.true4.i:                                 ; preds = %entry
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %canon_enc.i, align 8
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %canon_enclen.i, align 8
   %conv.i = sext i32 %2 to i64
   %call5.i = call i32 @EVP_Digest(ptr noundef %1, i64 noundef %conv.i, ptr noundef nonnull %md.i, ptr noundef null, ptr noundef nonnull %call.i, ptr noundef null) #8
@@ -528,12 +524,12 @@ land.lhs.true4.i:                                 ; preds = %entry
 if.then6.i:                                       ; preds = %land.lhs.true4.i
   %3 = load i16, ptr %md.i, align 16
   %4 = zext i16 %3 to i64
-  %arrayidx10.i = getelementptr inbounds [20 x i8], ptr %md.i, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %md.i, i64 2
   %5 = load i8, ptr %arrayidx10.i, align 2
   %conv11.i = zext i8 %5 to i64
   %shl12.i = shl nuw nsw i64 %conv11.i, 16
   %or13.i = or disjoint i64 %shl12.i, %4
-  %arrayidx14.i = getelementptr inbounds [20 x i8], ptr %md.i, i64 0, i64 3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %md.i, i64 3
   %6 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %6 to i64
   %shl16.i = shl nuw nsw i64 %conv15.i, 24
@@ -550,7 +546,7 @@ X509_NAME_hash_ex.exit:                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define i64 @X509_subject_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %x, i64 72
   %0 = load ptr, ptr %subject, align 8
   %call = tail call i64 @X509_NAME_hash_old(ptr noundef %0), !range !5
   ret i64 %call
@@ -565,22 +561,22 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i32 @X509_check_purpose(ptr noundef %a, i32 noundef -1, i32 noundef 0) #8
   %call1 = tail call i32 @X509_check_purpose(ptr noundef %b, i32 noundef -1, i32 noundef 0) #8
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 8
+  %ex_flags = getelementptr inbounds i8, ptr %a, i64 232
   %0 = load i32, ptr %ex_flags, align 8
   %and = and i32 %0, 1048576
   %cmp2 = icmp eq i32 %and, 0
   br i1 %cmp2, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end
-  %ex_flags3 = getelementptr inbounds %struct.x509_st, ptr %b, i64 0, i32 8
+  %ex_flags3 = getelementptr inbounds i8, ptr %b, i64 232
   %1 = load i32, ptr %ex_flags3, align 8
   %and4 = and i32 %1, 1048576
   %cmp5 = icmp eq i32 %and4, 0
   br i1 %cmp5, label %if.end10, label %if.end14
 
 if.end10:                                         ; preds = %land.lhs.true
-  %sha1_hash = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 20
-  %sha1_hash7 = getelementptr inbounds %struct.x509_st, ptr %b, i64 0, i32 20
+  %sha1_hash = getelementptr inbounds i8, ptr %a, i64 312
+  %sha1_hash7 = getelementptr inbounds i8, ptr %b, i64 312
   %call9 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %sha1_hash, ptr noundef nonnull dereferenceable(20) %sha1_hash7, i64 noundef 20) #9
   %cmp11.not = icmp eq i32 %call9, 0
   br i1 %cmp11.not, label %if.end14, label %if.then12
@@ -591,23 +587,23 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end14:                                         ; preds = %if.end, %land.lhs.true, %if.end10
-  %enc = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 10
-  %modified = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 10, i32 2
+  %enc = getelementptr inbounds i8, ptr %a, i64 112
+  %modified = getelementptr inbounds i8, ptr %a, i64 128
   %2 = load i32, ptr %modified, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %land.lhs.true15, label %return
 
 land.lhs.true15:                                  ; preds = %if.end14
-  %enc17 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 10
-  %modified18 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 10, i32 2
+  %enc17 = getelementptr inbounds i8, ptr %b, i64 112
+  %modified18 = getelementptr inbounds i8, ptr %b, i64 128
   %3 = load i32, ptr %modified18, align 8
   %tobool19.not = icmp eq i32 %3, 0
   br i1 %tobool19.not, label %if.then20, label %return
 
 if.then20:                                        ; preds = %land.lhs.true15
-  %len = getelementptr inbounds %struct.x509_cinf_st, ptr %a, i64 0, i32 10, i32 1
+  %len = getelementptr inbounds i8, ptr %a, i64 120
   %4 = load i64, ptr %len, align 8
-  %len25 = getelementptr inbounds %struct.x509_cinf_st, ptr %b, i64 0, i32 10, i32 1
+  %len25 = getelementptr inbounds i8, ptr %b, i64 120
   %5 = load i64, ptr %len25, align 8
   %cmp26 = icmp slt i64 %4, %5
   br i1 %cmp26, label %return, label %if.end28
@@ -867,9 +863,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %x, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %serialNumber, ptr noundef nonnull align 8 dereferenceable(24) %serial, i64 24, i1 false)
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %x, i64 48
   store ptr %name, ptr %issuer, align 8
   %call28 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk) #8
   %cmp9 = icmp sgt i32 %call28, 0
@@ -882,13 +878,13 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp2.i, label %for.inc, label %if.end5.i
 
 if.end5.i:                                        ; preds = %for.body
-  %serialNumber.i = getelementptr inbounds %struct.x509_cinf_st, ptr %call4, i64 0, i32 1
+  %serialNumber.i = getelementptr inbounds i8, ptr %call4, i64 8
   %call.i = call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %serialNumber.i, ptr noundef nonnull %serialNumber) #8
   %cmp8.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.not.i, label %X509_issuer_and_serial_cmp.exit, label %for.inc
 
 X509_issuer_and_serial_cmp.exit:                  ; preds = %if.end5.i
-  %issuer.i = getelementptr inbounds %struct.x509_cinf_st, ptr %call4, i64 0, i32 3
+  %issuer.i = getelementptr inbounds i8, ptr %call4, i64 48
   %0 = load ptr, ptr %issuer.i, align 8
   %1 = load ptr, ptr %issuer, align 8
   %call15.i = call i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1), !range !4
@@ -925,7 +921,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %i.08 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
   %call3 = tail call ptr @OPENSSL_sk_value(ptr noundef %sk, i32 noundef %i.08) #8
-  %subject.i = getelementptr inbounds %struct.x509_cinf_st, ptr %call3, i64 0, i32 5
+  %subject.i = getelementptr inbounds i8, ptr %call3, i64 72
   %0 = load ptr, ptr %subject.i, align 8
   %call5 = tail call i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %name), !range !4
   %cmp6 = icmp eq i32 %call5, 0
@@ -943,7 +939,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %x, i64 80
   %0 = load ptr, ptr %key, align 8
   %call = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #8
   br label %return
@@ -962,7 +958,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %x, i64 80
   %0 = load ptr, ptr %key, align 8
   %call = tail call ptr @X509_PUBKEY_get(ptr noundef %0) #8
   br label %return
@@ -981,7 +977,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %X509_get0_pubkey.exit
 
 X509_get0_pubkey.exit:                            ; preds = %entry
-  %key.i = getelementptr inbounds %struct.x509_cinf_st, ptr %cert, i64 0, i32 6
+  %key.i = getelementptr inbounds i8, ptr %cert, i64 80
   %0 = load ptr, ptr %key.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #8
   %cmp = icmp eq ptr %call.i, null
@@ -1078,7 +1074,7 @@ if.end3:                                          ; preds = %if.end
 X509_get0_pubkey.exit:                            ; preds = %if.end3, %if.end
   %i.0120 = phi i32 [ 1, %if.end3 ], [ 0, %if.end ]
   %x.addr.0118 = phi ptr [ %call2, %if.end3 ], [ %x, %if.end ]
-  %key.i = getelementptr inbounds %struct.x509_cinf_st, ptr %x.addr.0118, i64 0, i32 6
+  %key.i = getelementptr inbounds i8, ptr %x.addr.0118, i64 80
   %0 = load ptr, ptr %key.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #8
   %cmp5 = icmp eq ptr %chain, null
@@ -1221,7 +1217,7 @@ X509_get0_pubkey.exit60.thread:                   ; preds = %if.end26
   br label %check_suite_b.exit82.thread
 
 X509_get0_pubkey.exit60:                          ; preds = %if.end26
-  %key.i57 = getelementptr inbounds %struct.x509_cinf_st, ptr %call22, i64 0, i32 6
+  %key.i57 = getelementptr inbounds i8, ptr %call22, i64 80
   %1 = load ptr, ptr %key.i57, align 8
   %call.i58 = call ptr @X509_PUBKEY_get0(ptr noundef %1) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i61)
@@ -1390,7 +1386,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sig_alg = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %crl, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i)

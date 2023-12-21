@@ -6,23 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ASIdentifiers_st = type { ptr, ptr }
-%struct.ASIdentifierChoice_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ASIdOrRange_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.ASRange_st = type { ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.x509_store_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, ptr, i32, ptr, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @ASRange_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @ASRange_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @ASRange_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_INTEGER_it }], align 16
@@ -222,7 +205,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb1:                                           ; preds = %if.end
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %asid, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb1
@@ -240,7 +223,7 @@ if.then3:                                         ; preds = %sw.epilog
 if.end6:                                          ; preds = %if.then3
   %call7 = tail call ptr @ASN1_NULL_new() #5
   %1 = load ptr, ptr %choice.0, align 8
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %1, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %call7, ptr %u, align 8
   %cmp8 = icmp eq ptr %call7, null
   %2 = load ptr, ptr %choice.0, align 8
@@ -283,7 +266,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb1:                                           ; preds = %if.end
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %asid, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb1
@@ -306,10 +289,10 @@ if.then7:                                         ; preds = %sw.epilog
 if.end10:                                         ; preds = %if.then7
   %call12 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @ASIdOrRange_cmp) #5
   %2 = load ptr, ptr %choice.0, align 8
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %2, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %call12, ptr %u, align 8
   %3 = load ptr, ptr %choice.0, align 8
-  %u13 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %3, i64 0, i32 1
+  %u13 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %u13, align 8
   %cmp14 = icmp eq ptr %4, null
   br i1 %cmp14, label %if.then15, label %if.end16
@@ -330,7 +313,7 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
 
 if.end22:                                         ; preds = %if.end18
   %5 = load ptr, ptr %choice.0, align 8
-  %u23 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %5, i64 0, i32 1
+  %u23 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %u23, align 8
   %call25 = tail call i32 @OPENSSL_sk_reserve(ptr noundef %6, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call25, 0
@@ -342,14 +325,12 @@ if.end27:                                         ; preds = %if.end22
 
 if.then29:                                        ; preds = %if.end27
   store i32 0, ptr %call1.i24, align 8
-  %u31 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call1.i24, i64 0, i32 1
-  store ptr %min, ptr %u31, align 8
   br label %if.end46
 
 if.else:                                          ; preds = %if.end27
   store i32 1, ptr %call1.i24, align 8
   %call1.i25 = tail call ptr @ASN1_item_new(ptr noundef nonnull @ASRange_it.local_it) #5
-  %u34 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call1.i24, i64 0, i32 1
+  %u34 = getelementptr inbounds i8, ptr %call1.i24, i64 8
   store ptr %call1.i25, ptr %u34, align 8
   %cmp35 = icmp eq ptr %call1.i25, null
   br i1 %cmp35, label %err, label %if.end37
@@ -360,17 +341,19 @@ if.end37:                                         ; preds = %if.else
   %8 = load ptr, ptr %u34, align 8
   store ptr %min, ptr %8, align 8
   %9 = load ptr, ptr %u34, align 8
-  %max43 = getelementptr inbounds %struct.ASRange_st, ptr %9, i64 0, i32 1
+  %max43 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %max43, align 8
   tail call void @ASN1_INTEGER_free(ptr noundef %10) #5
   %11 = load ptr, ptr %u34, align 8
-  %max45 = getelementptr inbounds %struct.ASRange_st, ptr %11, i64 0, i32 1
-  store ptr %max, ptr %max45, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end37, %if.then29
+  %.sink = phi ptr [ %11, %if.end37 ], [ %call1.i24, %if.then29 ]
+  %max.sink = phi ptr [ %max, %if.end37 ], [ %min, %if.then29 ]
+  %max45 = getelementptr inbounds i8, ptr %.sink, i64 8
+  store ptr %max.sink, ptr %max45, align 8
   %12 = load ptr, ptr %choice.0, align 8
-  %u47 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %12, i64 0, i32 1
+  %u47 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %u47, align 8
   %call50 = tail call i32 @OPENSSL_sk_push(ptr noundef %13, ptr noundef nonnull %call1.i24) #5
   %cmp51.not = icmp eq i32 %call50, 0
@@ -401,9 +384,9 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %3 = load i32, ptr %1, align 8
   %cmp2 = icmp eq i32 %3, 0
-  %u = getelementptr inbounds %struct.ASIdOrRange_st, ptr %0, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %u, align 8
-  %u3 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %1, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %u3, align 8
   br i1 %cmp2, label %if.then, label %if.then22
 
@@ -417,10 +400,10 @@ land.lhs.true6:                                   ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %u10 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %0, i64 0, i32 1
+  %u10 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %u10, align 8
   %8 = load ptr, ptr %7, align 8
-  %u11 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %1, i64 0, i32 1
+  %u11 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %u11, align 8
   %10 = load ptr, ptr %9, align 8
   %call13 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %8, ptr noundef %10) #5
@@ -429,10 +412,10 @@ if.then9:                                         ; preds = %land.lhs.true6
 
 cond.false:                                       ; preds = %if.then9
   %11 = load ptr, ptr %u10, align 8
-  %max = getelementptr inbounds %struct.ASRange_st, ptr %11, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %max, align 8
   %13 = load ptr, ptr %u11, align 8
-  %max17 = getelementptr inbounds %struct.ASRange_st, ptr %13, i64 0, i32 1
+  %max17 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %max17, align 8
   %call18 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %12, ptr noundef %14) #5
   br label %return
@@ -443,10 +426,10 @@ if.then22:                                        ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %entry, %land.lhs.true6
-  %u27 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %0, i64 0, i32 1
+  %u27 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %u27, align 8
   %17 = load ptr, ptr %16, align 8
-  %u29 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %1, i64 0, i32 1
+  %u29 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load ptr, ptr %u29, align 8
   %call30 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %17, ptr noundef %18) #5
   br label %return
@@ -475,7 +458,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %tobool.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %asid, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   %1 = load ptr, ptr %rdi, align 8
   %call1 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %1), !range !4
   br label %lor.end
@@ -499,7 +482,7 @@ lor.lhs.false:                                    ; preds = %entry
   ]
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %choice, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %choice, i64 8
   %1 = load ptr, ptr %u, align 8
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp6 = icmp eq i32 %call5, 0
@@ -535,15 +518,15 @@ if.end.i:                                         ; preds = %for.body
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call15, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call15, i64 8
   %6 = load ptr, ptr %u.i, align 8
   br label %lor.lhs.false20
 
 sw.bb6.i:                                         ; preds = %if.end.i
-  %u7.i = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call15, i64 0, i32 1
+  %u7.i = getelementptr inbounds i8, ptr %call15, i64 8
   %7 = load ptr, ptr %u7.i, align 8
   %8 = load ptr, ptr %7, align 8
-  %max10.i = getelementptr inbounds %struct.ASRange_st, ptr %7, i64 0, i32 1
+  %max10.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %max10.i, align 8
   br label %lor.lhs.false20
 
@@ -561,15 +544,15 @@ if.end.i22:                                       ; preds = %lor.lhs.false20
   ]
 
 sw.bb.i29:                                        ; preds = %if.end.i22
-  %u.i30 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call18, i64 0, i32 1
+  %u.i30 = getelementptr inbounds i8, ptr %call18, i64 8
   %11 = load ptr, ptr %u.i30, align 8
   br label %if.end24
 
 sw.bb6.i23:                                       ; preds = %if.end.i22
-  %u7.i24 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call18, i64 0, i32 1
+  %u7.i24 = getelementptr inbounds i8, ptr %call18, i64 8
   %12 = load ptr, ptr %u7.i24, align 8
   %13 = load ptr, ptr %12, align 8
-  %max10.i25 = getelementptr inbounds %struct.ASRange_st, ptr %12, i64 0, i32 1
+  %max10.i25 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %max10.i25, align 8
   br label %if.end24
 
@@ -647,10 +630,10 @@ land.lhs.true65:                                  ; preds = %for.end
   br i1 %cmp67, label %lor.lhs.false71, label %if.end76
 
 lor.lhs.false71:                                  ; preds = %land.lhs.true65
-  %u7.i35 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call61, i64 0, i32 1
+  %u7.i35 = getelementptr inbounds i8, ptr %call61, i64 8
   %17 = load ptr, ptr %u7.i35, align 8
   %18 = load ptr, ptr %17, align 8
-  %max10.i36 = getelementptr inbounds %struct.ASRange_st, ptr %17, i64 0, i32 1
+  %max10.i36 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %max10.i36, align 8
   %call72 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %18, ptr noundef %19) #5
   %cmp73 = icmp sgt i32 %call72, 0
@@ -685,7 +668,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %tobool.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %asid, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   %1 = load ptr, ptr %rdi, align 8
   %call1 = tail call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %1), !range !4
   br label %lor.end
@@ -709,7 +692,7 @@ lor.lhs.false:                                    ; preds = %entry
   ]
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %choice, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %choice, i64 8
   %1 = load ptr, ptr %u, align 8
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp6 = icmp eq i32 %call5, 0
@@ -749,15 +732,15 @@ if.end.i:                                         ; preds = %for.body
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call17, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call17, i64 8
   %7 = load ptr, ptr %u.i, align 8
   br label %lor.lhs.false22
 
 sw.bb6.i:                                         ; preds = %if.end.i
-  %u7.i = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call17, i64 0, i32 1
+  %u7.i = getelementptr inbounds i8, ptr %call17, i64 8
   %8 = load ptr, ptr %u7.i, align 8
   %9 = load ptr, ptr %8, align 8
-  %max10.i = getelementptr inbounds %struct.ASRange_st, ptr %8, i64 0, i32 1
+  %max10.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %max10.i, align 8
   br label %lor.lhs.false22
 
@@ -775,15 +758,15 @@ if.end.i38:                                       ; preds = %lor.lhs.false22
   ]
 
 sw.bb.i45:                                        ; preds = %if.end.i38
-  %u.i46 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call20, i64 0, i32 1
+  %u.i46 = getelementptr inbounds i8, ptr %call20, i64 8
   %12 = load ptr, ptr %u.i46, align 8
   br label %if.end26
 
 sw.bb6.i39:                                       ; preds = %if.end.i38
-  %u7.i40 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call20, i64 0, i32 1
+  %u7.i40 = getelementptr inbounds i8, ptr %call20, i64 8
   %13 = load ptr, ptr %u7.i40, align 8
   %14 = load ptr, ptr %13, align 8
-  %max10.i41 = getelementptr inbounds %struct.ASRange_st, ptr %13, i64 0, i32 1
+  %max10.i41 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %max10.i41, align 8
   br label %if.end26
 
@@ -872,44 +855,43 @@ sw.bb:                                            ; preds = %if.then72
 
 if.end78:                                         ; preds = %sw.bb
   store ptr %a_min.1, ptr %call74, align 8
-  %max = getelementptr inbounds %struct.ASRange_st, ptr %call74, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call74, i64 8
   store ptr %b_max.0, ptr %max, align 8
   store i32 1, ptr %call17, align 8
-  %u80 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call17, i64 0, i32 1
-  store ptr %call74, ptr %u80, align 8
-  br label %sw.epilog
+  br label %sw.epilog.sink.split
 
 sw.bb81:                                          ; preds = %if.then72
-  %u82 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call17, i64 0, i32 1
+  %u82 = getelementptr inbounds i8, ptr %call17, i64 8
   %17 = load ptr, ptr %u82, align 8
-  %max83 = getelementptr inbounds %struct.ASRange_st, ptr %17, i64 0, i32 1
+  %max83 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %max83, align 8
   tail call void @ASN1_INTEGER_free(ptr noundef %18) #5
   %19 = load ptr, ptr %u82, align 8
-  %max85 = getelementptr inbounds %struct.ASRange_st, ptr %19, i64 0, i32 1
-  store ptr %b_max.0, ptr %max85, align 8
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %if.end78, %sw.bb81
+  %.sink = phi ptr [ %19, %sw.bb81 ], [ %call17, %if.end78 ]
+  %b_max.0.sink = phi ptr [ %b_max.0, %sw.bb81 ], [ %call74, %if.end78 ]
+  %max85 = getelementptr inbounds i8, ptr %.sink, i64 8
+  store ptr %b_max.0.sink, ptr %max85, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb81, %if.end78, %if.then72
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.then72
   %20 = load i32, ptr %call20, align 8
   switch i32 %20, label %sw.epilog92 [
-    i32 0, label %sw.bb87
+    i32 0, label %sw.epilog92.sink.split
     i32 1, label %sw.bb89
   ]
 
-sw.bb87:                                          ; preds = %sw.epilog
-  %u88 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call20, i64 0, i32 1
-  br label %sw.epilog92.sink.split
-
 sw.bb89:                                          ; preds = %sw.epilog
-  %u90 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call20, i64 0, i32 1
+  %u90 = getelementptr inbounds i8, ptr %call20, i64 8
   %21 = load ptr, ptr %u90, align 8
-  %max91 = getelementptr inbounds %struct.ASRange_st, ptr %21, i64 0, i32 1
   br label %sw.epilog92.sink.split
 
-sw.epilog92.sink.split:                           ; preds = %sw.bb87, %sw.bb89
-  %max91.sink = phi ptr [ %max91, %sw.bb89 ], [ %u88, %sw.bb87 ]
-  store ptr null, ptr %max91.sink, align 8
+sw.epilog92.sink.split:                           ; preds = %sw.epilog, %sw.bb89
+  %.sink111 = phi ptr [ %21, %sw.bb89 ], [ %call20, %sw.epilog ]
+  %max91 = getelementptr inbounds i8, ptr %.sink111, i64 8
+  store ptr null, ptr %max91, align 8
   br label %sw.epilog92
 
 sw.epilog92:                                      ; preds = %sw.epilog92.sink.split, %sw.epilog
@@ -943,10 +925,10 @@ land.lhs.true110:                                 ; preds = %for.end
   br i1 %cmp112, label %lor.lhs.false117, label %if.end123
 
 lor.lhs.false117:                                 ; preds = %land.lhs.true110
-  %u7.i51 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call105, i64 0, i32 1
+  %u7.i51 = getelementptr inbounds i8, ptr %call105, i64 8
   %27 = load ptr, ptr %u7.i51, align 8
   %28 = load ptr, ptr %27, align 8
-  %max10.i52 = getelementptr inbounds %struct.ASRange_st, ptr %27, i64 0, i32 1
+  %max10.i52 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %max10.i52, align 8
   %call118 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %28, ptr noundef %29) #5
   %cmp119 = icmp sgt i32 %call118, 0
@@ -981,11 +963,7 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %call295 = tail call i32 @OPENSSL_sk_num(ptr noundef %values) #5
   %cmp396 = icmp sgt i32 %call295, 0
-  br i1 %cmp396, label %for.body.lr.ph, label %lor.rhs.i
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %rdi.i = getelementptr inbounds %struct.ASIdentifiers_st, ptr %call1.i, i64 0, i32 1
-  br label %for.body
+  br i1 %cmp396, label %for.body, label %lor.rhs.i
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #5
@@ -993,10 +971,10 @@ if.then:                                          ; preds = %entry
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #5
   br label %return
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.097 = phi i32 [ 0, %for.body.lr.ph ], [ %inc109, %for.inc ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %i.097 = phi i32 [ %inc109, %for.inc ], [ 0, %for.cond.preheader ]
   %call5 = call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.097) #5
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %call6 = call i32 @ossl_v3_name_cmp(ptr noundef %0, ptr noundef nonnull @.str.13) #5
   %tobool.not = icmp eq i32 %call6, 0
@@ -1013,21 +991,22 @@ if.else12:                                        ; preds = %if.else
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 543, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 115, ptr noundef null) #5
   %2 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %3 = load ptr, ptr %value, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %3) #5
   br label %err
 
 if.end15:                                         ; preds = %if.else, %for.body
   %which.0 = phi i32 [ 0, %for.body ], [ 1, %if.else ]
-  %value16 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value16 = getelementptr inbounds i8, ptr %call5, i64 16
   %4 = load ptr, ptr %value16, align 8
   %call17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.17) #6
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %if.end.i, label %if.end26
 
 if.end.i:                                         ; preds = %if.end15
-  %spec.select = select i1 %tobool.not, ptr %call1.i, ptr %rdi.i
+  %spec.select.idx = select i1 %tobool.not, i64 0, i64 8
+  %spec.select = getelementptr inbounds i8, ptr %call1.i, i64 %spec.select.idx
   %5 = load ptr, ptr %spec.select, align 8
   %cmp2.i = icmp eq ptr %5, null
   br i1 %cmp2.i, label %if.then3.i, label %X509v3_asid_add_inherit.exit
@@ -1041,7 +1020,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then3.i
   %call7.i = call ptr @ASN1_NULL_new() #5
   %6 = load ptr, ptr %spec.select, align 8
-  %u.i = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %6, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call7.i, ptr %u.i, align 8
   %cmp8.i = icmp eq ptr %call7.i, null
   %7 = load ptr, ptr %spec.select, align 8
@@ -1064,7 +1043,7 @@ X509v3_asid_add_inherit.exit:                     ; preds = %if.end.i, %if.end10
   br i1 %cmp13.i.not, label %for.inc, label %if.end23
 
 if.end23:                                         ; preds = %if.then3.i, %X509v3_asid_add_inherit.exit, %if.then9.i
-  %value16154 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value16154 = getelementptr inbounds i8, ptr %call5, i64 16
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 554, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 165, ptr noundef null) #5
@@ -1093,7 +1072,7 @@ if.else34:                                        ; preds = %if.end26
   br i1 %cmp43.not, label %if.end48, label %if.then45
 
 if.then45:                                        ; preds = %if.else34
-  %value16.le160 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value16.le160 = getelementptr inbounds i8, ptr %call5, i64 16
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 569, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 162, ptr noundef null) #5
@@ -1121,7 +1100,7 @@ if.end48:                                         ; preds = %if.else34
   br i1 %cmp67.not, label %if.else80, label %if.then69
 
 if.then69:                                        ; preds = %if.end48
-  %value16.le158 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value16.le158 = getelementptr inbounds i8, ptr %call5, i64 16
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 577, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 163, ptr noundef null) #5
@@ -1207,7 +1186,7 @@ lor.rhs.i:                                        ; preds = %for.inc, %for.cond.
   br i1 %tobool.not.i, label %err, label %X509v3_asid_canonize.exit
 
 X509v3_asid_canonize.exit:                        ; preds = %lor.rhs.i
-  %rdi.i50 = getelementptr inbounds %struct.ASIdentifiers_st, ptr %call1.i, i64 0, i32 1
+  %rdi.i50 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %22 = load ptr, ptr %rdi.i50, align 8
   %call1.i51 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %22), !range !4
   %tobool111.not = icmp eq i32 %call1.i51, 0
@@ -1235,7 +1214,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %ext, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %ext, i64 8
   %1 = load ptr, ptr %rdi, align 8
   %call1 = tail call fastcc i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef %1, i32 noundef %indent, ptr noundef nonnull @.str.21), !range !4
   br label %land.end
@@ -1262,7 +1241,7 @@ land.lhs.true:                                    ; preds = %land.rhs
   br i1 %cmp3, label %land.end9, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %land.rhs
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %asid, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   %2 = load ptr, ptr %rdi, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %land.end9, label %land.rhs5
@@ -1301,7 +1280,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
   br i1 %cmp3.i, label %return, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i, %land.rhs.i
-  %rdi.i = getelementptr inbounds %struct.ASIdentifiers_st, ptr %a, i64 0, i32 1
+  %rdi.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %rdi.i, align 8
   %cmp4.not.i = icmp eq ptr %2, null
   br i1 %cmp4.not.i, label %land.rhs.i17, label %X509v3_asid_inherits.exit
@@ -1322,7 +1301,7 @@ land.lhs.true.i19:                                ; preds = %land.rhs.i17
   br i1 %cmp3.i20, label %return, label %lor.rhs.i21
 
 lor.rhs.i21:                                      ; preds = %land.lhs.true.i19, %land.rhs.i17
-  %rdi.i22 = getelementptr inbounds %struct.ASIdentifiers_st, ptr %b, i64 0, i32 1
+  %rdi.i22 = getelementptr inbounds i8, ptr %b, i64 8
   %6 = load ptr, ptr %rdi.i22, align 8
   %cmp4.not.i23 = icmp eq ptr %6, null
   br i1 %cmp4.not.i23, label %if.end9, label %X509v3_asid_inherits.exit27
@@ -1339,9 +1318,9 @@ lor.rhs:                                          ; preds = %if.end9
   br i1 %cmp1.not.i18, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %4, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %u, align 8
-  %u15 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %0, i64 0, i32 1
+  %u15 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %u15, align 8
   %call16 = tail call fastcc i32 @asid_contains(ptr noundef %8, ptr noundef %9), !range !4
   %tobool17.not = icmp eq i32 %call16, 0
@@ -1362,9 +1341,9 @@ lor.rhs22:                                        ; preds = %if.end20
   br i1 %cmp24.not, label %return, label %land.rhs25
 
 land.rhs25:                                       ; preds = %lor.rhs22
-  %u27 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %11, i64 0, i32 1
+  %u27 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %u27, align 8
-  %u29 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %10, i64 0, i32 1
+  %u29 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %u29, align 8
   %call30 = tail call fastcc i32 @asid_contains(ptr noundef %12, ptr noundef %13), !range !4
   br label %return
@@ -1412,15 +1391,15 @@ if.end.i:                                         ; preds = %for.body
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call8, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call8, i64 8
   %1 = load ptr, ptr %u.i, align 8
   br label %extract_min_max.exit
 
 sw.bb6.i:                                         ; preds = %if.end.i
-  %u7.i = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call8, i64 0, i32 1
+  %u7.i = getelementptr inbounds i8, ptr %call8, i64 8
   %2 = load ptr, ptr %u7.i, align 8
   %3 = load ptr, ptr %2, align 8
-  %max10.i = getelementptr inbounds %struct.ASRange_st, ptr %2, i64 0, i32 1
+  %max10.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %max10.i, align 8
   br label %extract_min_max.exit
 
@@ -1445,15 +1424,15 @@ if.end.i12:                                       ; preds = %if.end17
   ]
 
 sw.bb.i19:                                        ; preds = %if.end.i12
-  %u.i20 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call19, i64 0, i32 1
+  %u.i20 = getelementptr inbounds i8, ptr %call19, i64 8
   %6 = load ptr, ptr %u.i20, align 8
   br label %if.end23
 
 sw.bb6.i13:                                       ; preds = %if.end.i12
-  %u7.i14 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call19, i64 0, i32 1
+  %u7.i14 = getelementptr inbounds i8, ptr %call19, i64 8
   %7 = load ptr, ptr %u7.i14, align 8
   %8 = load ptr, ptr %7, align 8
-  %max10.i15 = getelementptr inbounds %struct.ASRange_st, ptr %7, i64 0, i32 1
+  %max10.i15 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %max10.i15, align 8
   br label %if.end23
 
@@ -1483,7 +1462,7 @@ return:                                           ; preds = %if.end27, %for.cond
 ; Function Attrs: nounwind uwtable
 define i32 @X509v3_asid_validate_path(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  %chain = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 20
+  %chain = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %chain, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1494,13 +1473,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %verify_cb = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load ptr, ptr %verify_cb, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false4, %lor.lhs.false, %entry
-  %error = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 1, ptr %error, align 8
   br label %return
 
@@ -1538,7 +1517,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false
   br i1 %cmp18, label %if.end36, label %lor.rhs20
 
 lor.rhs20:                                        ; preds = %lor.lhs.false17
-  %verify_cb = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load ptr, ptr %verify_cb, align 8
   %cmp21.not = icmp eq ptr %1, null
   br i1 %cmp21.not, label %if.then35, label %if.end36
@@ -1548,7 +1527,7 @@ if.then:                                          ; preds = %entry, %land.rhs
   br i1 %cmp33.not, label %return, label %if.then35
 
 if.then35:                                        ; preds = %lor.rhs20, %if.then
-  %error = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 1, ptr %error, align 8
   br label %return
 
@@ -1557,7 +1536,7 @@ if.end36:                                         ; preds = %lor.lhs.false17, %l
 
 if.else:                                          ; preds = %if.end36
   %call41 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef 0) #5
-  %rfc3779_asid = getelementptr inbounds %struct.x509_st, ptr %call41, i64 0, i32 19
+  %rfc3779_asid = getelementptr inbounds i8, ptr %call41, i64 304
   %2 = load ptr, ptr %rfc3779_asid, align 8
   %cmp42 = icmp eq ptr %2, null
   br i1 %cmp42, label %return, label %if.end46
@@ -1572,7 +1551,7 @@ if.end46:                                         ; preds = %if.end36, %if.else
   br i1 %tobool.not.i, label %do.body, label %X509v3_asid_is_canonical.exit
 
 X509v3_asid_is_canonical.exit:                    ; preds = %if.end46
-  %rdi.i = getelementptr inbounds %struct.ASIdentifiers_st, ptr %ext.addr.0, i64 0, i32 1
+  %rdi.i = getelementptr inbounds i8, ptr %ext.addr.0, i64 8
   %4 = load ptr, ptr %rdi.i, align 8
   %call1.i = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %4), !range !4
   %tobool48.not = icmp eq i32 %call1.i, 0
@@ -1582,13 +1561,13 @@ do.body:                                          ; preds = %if.end46, %X509v3_a
   br i1 %cmp5, label %if.end57, label %return
 
 if.end57:                                         ; preds = %do.body
-  %error53 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error53 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 41, ptr %error53, align 8
-  %error_depth = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
+  %error_depth = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 %i.0, ptr %error_depth, align 4
-  %current_cert = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
+  %current_cert = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %x.0, ptr %current_cert, align 8
-  %verify_cb54 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb54 = getelementptr inbounds i8, ptr %ctx, i64 56
   %5 = load ptr, ptr %verify_cb54, align 8
   %call55 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %ctx) #5
   %tobool58.not = icmp eq i32 %call55, 0
@@ -1611,14 +1590,14 @@ sw.bb:                                            ; preds = %if.then64
   br label %if.end68
 
 sw.bb66:                                          ; preds = %if.then64
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %6, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %u, align 8
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then64, %sw.bb, %sw.bb66, %if.end61
   %child_as.0 = phi ptr [ null, %if.then64 ], [ %8, %sw.bb66 ], [ null, %sw.bb ], [ null, %if.end61 ]
   %inherit_as.0 = phi i32 [ 0, %if.then64 ], [ 0, %sw.bb66 ], [ 1, %sw.bb ], [ 0, %if.end61 ]
-  %rdi = getelementptr inbounds %struct.ASIdentifiers_st, ptr %ext.addr.0, i64 0, i32 1
+  %rdi = getelementptr inbounds i8, ptr %ext.addr.0, i64 8
   %9 = load ptr, ptr %rdi, align 8
   %cmp69.not = icmp eq ptr %9, null
   br i1 %cmp69.not, label %if.end79, label %if.then71
@@ -1634,7 +1613,7 @@ sw.bb74:                                          ; preds = %if.then71
   br label %if.end79
 
 sw.bb75:                                          ; preds = %if.then71
-  %u77 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %9, i64 0, i32 1
+  %u77 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %u77, align 8
   br label %if.end79
 
@@ -1647,10 +1626,10 @@ if.end79:                                         ; preds = %if.then71, %sw.bb74
   br i1 %cmp82199, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end79
-  %error138 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
-  %error_depth139 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
-  %current_cert140 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
-  %verify_cb141 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %error138 = getelementptr inbounds i8, ptr %ctx, i64 176
+  %error_depth139 = getelementptr inbounds i8, ptr %ctx, i64 172
+  %current_cert140 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %verify_cb141 = getelementptr inbounds i8, ptr %ctx, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1672,7 +1651,7 @@ if.then99:                                        ; preds = %if.then96
   br label %return
 
 if.end102:                                        ; preds = %for.body
-  %rfc3779_asid103 = getelementptr inbounds %struct.x509_st, ptr %call85, i64 0, i32 19
+  %rfc3779_asid103 = getelementptr inbounds i8, ptr %call85, i64 304
   %12 = load ptr, ptr %rfc3779_asid103, align 8
   %cmp104 = icmp eq ptr %12, null
   br i1 %cmp104, label %if.then106, label %lor.rhs.i
@@ -1702,7 +1681,7 @@ lor.rhs.i:                                        ; preds = %if.end102
   br i1 %tobool.not.i139, label %do.body134, label %X509v3_asid_is_canonical.exit144
 
 X509v3_asid_is_canonical.exit144:                 ; preds = %lor.rhs.i
-  %rdi.i141 = getelementptr inbounds %struct.ASIdentifiers_st, ptr %12, i64 0, i32 1
+  %rdi.i141 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load ptr, ptr %rdi.i141, align 8
   %call1.i142 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %15), !range !4
   %tobool132.not = icmp eq i32 %call1.i142, 0
@@ -1772,7 +1751,7 @@ if.then183:                                       ; preds = %land.lhs.true177
   br i1 %tobool184.not, label %lor.lhs.false185, label %if.then191
 
 lor.lhs.false185:                                 ; preds = %if.then183
-  %u188 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %22, i64 0, i32 1
+  %u188 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %u188, align 8
   %call189 = tail call fastcc i32 @asid_contains(ptr noundef %25, ptr noundef %child_as.2), !range !4
   %tobool190.not = icmp eq i32 %call189, 0
@@ -1786,7 +1765,7 @@ lor.lhs.false185.if.then191_crit_edge:            ; preds = %lor.lhs.false185
 if.then191:                                       ; preds = %lor.lhs.false185.if.then191_crit_edge, %if.then183
   %26 = phi ptr [ %.pre215, %lor.lhs.false185.if.then191_crit_edge ], [ %22, %if.then183 ]
   %27 = phi ptr [ %.pre214, %lor.lhs.false185.if.then191_crit_edge ], [ %23, %if.then183 ]
-  %u194 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %26, i64 0, i32 1
+  %u194 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %u194, align 8
   br label %if.end212
 
@@ -1806,7 +1785,7 @@ if.end212:                                        ; preds = %if.then191, %land.l
   %30 = phi ptr [ %27, %if.then191 ], [ %23, %land.lhs.true177 ], [ %23, %if.end172 ]
   %child_as.3 = phi ptr [ %28, %if.then191 ], [ %child_as.2, %land.lhs.true177 ], [ %child_as.2, %if.end172 ]
   %inherit_as.3 = phi i32 [ 0, %if.then191 ], [ %inherit_as.2, %land.lhs.true177 ], [ %inherit_as.2, %if.end172 ]
-  %rdi214 = getelementptr inbounds %struct.ASIdentifiers_st, ptr %30, i64 0, i32 1
+  %rdi214 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %rdi214, align 8
   %cmp215 = icmp eq ptr %31, null
   %cmp218 = icmp ne ptr %child_rdi.1201, null
@@ -1815,7 +1794,7 @@ if.end212:                                        ; preds = %if.then191, %land.l
 
 if.end212.thread:                                 ; preds = %if.end206
   %32 = load ptr, ptr %rfc3779_asid103, align 8
-  %rdi214169 = getelementptr inbounds %struct.ASIdentifiers_st, ptr %32, i64 0, i32 1
+  %rdi214169 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %rdi214169, align 8
   %cmp215170 = icmp eq ptr %33, null
   %cmp218171 = icmp ne ptr %child_rdi.1201, null
@@ -1838,7 +1817,7 @@ if.end231:                                        ; preds = %if.end212.thread, %
 
 if.end231.if.end236_crit_edge:                    ; preds = %if.end231
   %.pre216 = load ptr, ptr %rfc3779_asid103, align 8
-  %rdi238.phi.trans.insert = getelementptr inbounds %struct.ASIdentifiers_st, ptr %.pre216, i64 0, i32 1
+  %rdi238.phi.trans.insert = getelementptr inbounds i8, ptr %.pre216, i64 8
   %.pre217 = load ptr, ptr %rdi238.phi.trans.insert, align 8
   br label %if.end236
 
@@ -1862,7 +1841,7 @@ if.then247:                                       ; preds = %land.lhs.true241
   br i1 %tobool248.not, label %lor.lhs.false249, label %if.then255
 
 lor.lhs.false249:                                 ; preds = %if.then247
-  %u252 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %35, i64 0, i32 1
+  %u252 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %u252, align 8
   %call253 = tail call fastcc i32 @asid_contains(ptr noundef %37, ptr noundef %child_rdi.2), !range !4
   %tobool254.not = icmp eq i32 %call253, 0
@@ -1870,13 +1849,13 @@ lor.lhs.false249:                                 ; preds = %if.then247
 
 lor.lhs.false249.if.then255_crit_edge:            ; preds = %lor.lhs.false249
   %.pre218 = load ptr, ptr %rfc3779_asid103, align 8
-  %rdi257.phi.trans.insert = getelementptr inbounds %struct.ASIdentifiers_st, ptr %.pre218, i64 0, i32 1
+  %rdi257.phi.trans.insert = getelementptr inbounds i8, ptr %.pre218, i64 8
   %.pre219 = load ptr, ptr %rdi257.phi.trans.insert, align 8
   br label %if.then255
 
 if.then255:                                       ; preds = %lor.lhs.false249.if.then255_crit_edge, %if.then247
   %38 = phi ptr [ %.pre219, %lor.lhs.false249.if.then255_crit_edge ], [ %35, %if.then247 ]
-  %u258 = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %38, i64 0, i32 1
+  %u258 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %u258, align 8
   br label %for.inc
 
@@ -1911,7 +1890,7 @@ if.then288:                                       ; preds = %for.end
   br i1 %cmp5, label %if.then291, label %return
 
 if.then291:                                       ; preds = %if.then288
-  %error292 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error292 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 1, ptr %error292, align 8
   br label %return
 
@@ -1919,7 +1898,7 @@ if.end294:                                        ; preds = %for.inc, %for.end
   %i.1.lcssa227 = phi i32 [ %i.1197, %for.end ], [ %i.1, %for.inc ]
   %x.1.lcssa226 = phi ptr [ %x.0, %for.end ], [ %call85, %for.inc ]
   %ret.2.lcssa225 = phi i32 [ %ret.1, %for.end ], [ %ret.13, %for.inc ]
-  %rfc3779_asid295 = getelementptr inbounds %struct.x509_st, ptr %x.1.lcssa226, i64 0, i32 19
+  %rfc3779_asid295 = getelementptr inbounds i8, ptr %x.1.lcssa226, i64 304
   %41 = load ptr, ptr %rfc3779_asid295, align 8
   %cmp296.not = icmp eq ptr %41, null
   br i1 %cmp296.not, label %return, label %if.then298
@@ -1938,13 +1917,13 @@ do.body310:                                       ; preds = %land.lhs.true303
   br i1 %cmp5, label %if.end320, label %return
 
 if.end320:                                        ; preds = %do.body310
-  %error314 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error314 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 46, ptr %error314, align 8
-  %error_depth315 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
+  %error_depth315 = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 %i.1.lcssa227, ptr %error_depth315, align 4
-  %current_cert316 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
+  %current_cert316 = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %x.1.lcssa226, ptr %current_cert316, align 8
-  %verify_cb317 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb317 = getelementptr inbounds i8, ptr %ctx, i64 56
   %44 = load ptr, ptr %verify_cb317, align 8
   %call318 = tail call i32 %44(i32 noundef 0, ptr noundef nonnull %ctx) #5
   %tobool321.not = icmp eq i32 %call318, 0
@@ -1957,7 +1936,7 @@ if.end320.if.end325_crit_edge:                    ; preds = %if.end320
 if.end325:                                        ; preds = %if.end320.if.end325_crit_edge, %land.lhs.true303, %if.then298
   %45 = phi ptr [ %.pre220, %if.end320.if.end325_crit_edge ], [ %41, %land.lhs.true303 ], [ %41, %if.then298 ]
   %ret.15 = phi i32 [ %call318, %if.end320.if.end325_crit_edge ], [ %ret.2.lcssa225, %land.lhs.true303 ], [ %ret.2.lcssa225, %if.then298 ]
-  %rdi327 = getelementptr inbounds %struct.ASIdentifiers_st, ptr %45, i64 0, i32 1
+  %rdi327 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %rdi327, align 8
   %cmp328.not = icmp eq ptr %46, null
   br i1 %cmp328.not, label %return, label %land.lhs.true330
@@ -1970,13 +1949,13 @@ land.lhs.true330:                                 ; preds = %if.end325
   br i1 %brmerge.not, label %if.then340, label %return
 
 if.then340:                                       ; preds = %land.lhs.true330
-  %error341 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error341 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 46, ptr %error341, align 8
-  %error_depth342 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
+  %error_depth342 = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 %i.1.lcssa227, ptr %error_depth342, align 4
-  %current_cert343 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
+  %current_cert343 = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %x.1.lcssa226, ptr %current_cert343, align 8
-  %verify_cb344 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb344 = getelementptr inbounds i8, ptr %ctx, i64 56
   %48 = load ptr, ptr %verify_cb344, align 8
   %call345 = tail call i32 %48(i32 noundef 0, ptr noundef nonnull %ctx) #5
   br label %return
@@ -2016,7 +1995,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
   br i1 %cmp3.i, label %return, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i, %land.rhs.i
-  %rdi.i = getelementptr inbounds %struct.ASIdentifiers_st, ptr %ext, i64 0, i32 1
+  %rdi.i = getelementptr inbounds i8, ptr %ext, i64 8
   %2 = load ptr, ptr %rdi.i, align 8
   %cmp4.not.i = icmp eq ptr %2, null
   br i1 %cmp4.not.i, label %if.end9, label %X509v3_asid_inherits.exit
@@ -2099,7 +2078,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %add24 = add nsw i32 %indent, 2
-  %u = getelementptr inbounds %struct.ASIdentifierChoice_st, ptr %choice, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %choice, i64 8
   %1 = load ptr, ptr %u, align 8
   %call421 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp522 = icmp sgt i32 %call421, 0
@@ -2121,7 +2100,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 sw.bb10:                                          ; preds = %for.body
-  %u11 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call8, i64 0, i32 1
+  %u11 = getelementptr inbounds i8, ptr %call8, i64 8
   %4 = load ptr, ptr %u11, align 8
   %call12 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %4) #5
   %cmp13 = icmp eq ptr %call12, null
@@ -2133,7 +2112,7 @@ if.end15:                                         ; preds = %sw.bb10
   br label %for.inc
 
 sw.bb18:                                          ; preds = %for.body
-  %u19 = getelementptr inbounds %struct.ASIdOrRange_st, ptr %call8, i64 0, i32 1
+  %u19 = getelementptr inbounds i8, ptr %call8, i64 8
   %5 = load ptr, ptr %u19, align 8
   %6 = load ptr, ptr %5, align 8
   %call20 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %6) #5
@@ -2144,7 +2123,7 @@ if.end23:                                         ; preds = %sw.bb18
   %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.26, i32 noundef %add24, ptr noundef nonnull @.str.23, ptr noundef nonnull %call20) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call20, ptr noundef nonnull @.str.12, i32 noundef 90) #5
   %7 = load ptr, ptr %u19, align 8
-  %max = getelementptr inbounds %struct.ASRange_st, ptr %7, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %max, align 8
   %call27 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %8) #5
   %cmp28 = icmp eq ptr %call27, null

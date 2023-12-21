@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.pthread_condattr_t = type { i32 }
-%struct.timespec = type { i64, i64 }
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
@@ -119,7 +118,7 @@ declare i32 @pthread_condattr_destroy(ptr noundef) local_unnamed_addr #4
 define dso_local noundef i32 @_ZN2EA6Thread9Condition4WaitEPNS0_5MutexERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %pMutex, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN11EAMutexData12SimulateLockEb(ptr noundef nonnull align 8 dereferenceable(44) %pMutex, i1 noundef zeroext false)
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %timeoutAbsolute, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %cmp.i = icmp eq i64 %0, 2147483647
   %1 = load i64, ptr %timeoutAbsolute, align 8
@@ -187,7 +186,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 48, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 48, i1 false)
@@ -235,7 +234,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %pCondition) #11
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %pCondition, i64 noundef 0)
   br label %if.end

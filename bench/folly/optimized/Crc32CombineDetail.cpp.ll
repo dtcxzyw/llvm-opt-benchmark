@@ -57,7 +57,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.i.i.i, %
 _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %cond.false.i.i.i
   %shr2.i = lshr i64 %len.addr.02.i, %0
   %shr4.i = lshr i64 %shr2.i, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp ult i64 %shr2.i, 2
   br i1 %tobool.not.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !12
 
@@ -128,7 +128,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.i.i.i, %
 _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %cond.false.i.i.i
   %shr2.i = lshr i64 %len.addr.02.i, %0
   %shr4.i = lshr i64 %shr2.i, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp ult i64 %shr2.i, 2
   br i1 %tobool.not.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !14
 

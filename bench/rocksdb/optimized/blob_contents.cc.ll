@@ -3,18 +3,6 @@ source_filename = "bench/rocksdb/original/blob_contents.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::BlobContents" = type { %"class.std::unique_ptr", %"class.rocksdb::Slice" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.0", %"struct.std::_Head_base.1" }
-%"struct.std::_Tuple_impl.0" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { %"struct.rocksdb::CustomDeleter" }
-%"struct.rocksdb::CustomDeleter" = type { ptr }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::Slice" = type { ptr, i64 }
-
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK7rocksdb12BlobContents22ApproximateMemoryUsageEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
@@ -29,10 +17,10 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %size_.i = getelementptr inbounds %"class.rocksdb::BlobContents", ptr %this, i64 0, i32 1, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %size_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %3 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %0, i64 noundef %2)
   br label %if.end14

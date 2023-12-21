@@ -22,13 +22,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx2 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 8
   %3 = load ptr, ptr %arrayidx2, align 8
   %cmp3 = icmp eq i32 %argc, 3
   br i1 %cmp3, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end
-  %arrayidx4 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %argv, i64 16
   %4 = load ptr, ptr %arrayidx4, align 8
   br label %cond.end
 

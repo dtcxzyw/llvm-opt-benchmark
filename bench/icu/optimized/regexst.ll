@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::RegexStaticSets" = type { [8 x i8], [13 x %"class.icu_75::UnicodeSet"], [13 x %"struct.icu_75::Regex8BitSet"], [3 x %"class.icu_75::UnicodeSet"], %"class.icu_75::UnicodeSet", ptr, ptr }
 %"struct.icu_75::Regex8BitSet" = type { [32 x i8] }
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
@@ -91,12 +90,12 @@ invoke.cont19:                                    ; preds = %arrayinit.body16
   br i1 %arrayinit.done21, label %arrayinit.end22, label %arrayinit.body16
 
 arrayinit.end22:                                  ; preds = %invoke.cont19
-  %fUnescapeCharSet = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %this, i64 0, i32 4
+  %fUnescapeCharSet = getelementptr inbounds i8, ptr %this, i64 3624
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fUnescapeCharSet)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %arrayinit.end22
-  %fRuleDigitsAlias = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %this, i64 0, i32 5
+  %fRuleDigitsAlias = getelementptr inbounds i8, ptr %this, i64 3824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fRuleDigitsAlias, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef -1)
@@ -590,7 +589,7 @@ invoke.cont231:                                   ; preds = %invoke.cont229
           to label %invoke.cont236 unwind label %lpad32.loopexit.split-lp
 
 invoke.cont236:                                   ; preds = %invoke.cont231
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %this, i64 0, i32 6
+  %fEmptyText = getelementptr inbounds i8, ptr %this, i64 3832
   store ptr %call237, ptr %fEmptyText, align 8
   ret void
 
@@ -667,15 +666,15 @@ declare ptr @utext_openUChars_75(ptr noundef, ptr noundef, i64 noundef, ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515RegexStaticSetsD2Ev(ptr noundef nonnull align 8 dereferenceable(3840) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fRuleDigitsAlias = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %this, i64 0, i32 5
+  %fRuleDigitsAlias = getelementptr inbounds i8, ptr %this, i64 3824
   store ptr null, ptr %fRuleDigitsAlias, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %this, i64 0, i32 6
+  %fEmptyText = getelementptr inbounds i8, ptr %this, i64 3832
   %0 = load ptr, ptr %fEmptyText, align 8
   %call = invoke ptr @utext_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fUnescapeCharSet = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %this, i64 0, i32 4
+  %fUnescapeCharSet = getelementptr inbounds i8, ptr %this, i64 3624
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fUnescapeCharSet) #6
   br label %arraydestroy.body
 

@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::PizCompressor" = type <{ %"class.Imf_3_2::Compressor", i32, i32, i32, [4 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, i32, i32, i32, [4 x i8] }>
-%"class.Imf_3_2::Compressor" = type { ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [272 x i8] }
 %"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Vec2" = type { i32, i32 }
 %"struct.Imf_3_2::PizCompressor::ChannelData" = type { ptr, ptr, i32, i32, i32, i32 }
@@ -45,25 +40,25 @@ define hidden void @_ZN7Imf_3_213PizCompressorC2ERKNS_6HeaderEmm(ptr noundef non
 entry:
   tail call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 1
+  %_maxScanLineSize = getelementptr inbounds i8, ptr %this, i64 16
   %conv = trunc i64 %maxScanLineSize to i32
   store i32 %conv, ptr %_maxScanLineSize, align 8
-  %_format = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 2
+  %_format = getelementptr inbounds i8, ptr %this, i64 20
   store i32 1, ptr %_format, align 4
-  %_numScanLines = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 3
+  %_numScanLines = getelementptr inbounds i8, ptr %this, i64 24
   %conv2 = trunc i64 %numScanLines to i32
   store i32 %conv2, ptr %_numScanLines, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 5
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
-  %_numChans = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 7
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 32
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 40
+  %_numChans = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_tmpBuffer, i8 0, i64 20, i1 false)
   %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %_channels = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 9
+  %_channels = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call, ptr %_channels, align 8
-  %_channelData = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %_channelData, align 8
   %cmp.not.i = icmp eq i64 %maxScanLineSize, 0
   br i1 %cmp.not.i, label %invoke.cont8, label %land.lhs.true.i
@@ -123,7 +118,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
 
 invoke.cont15:                                    ; preds = %invoke.cont12
   store ptr %call16, ptr %_outBuffer, align 8
-  %_header.i = getelementptr inbounds %"class.Imf_3_2::Compressor", ptr %this, i64 0, i32 1
+  %_header.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_header.i, align 8
   %call21 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %3)
           to label %invoke.cont20 unwind label %lpad.loopexit.split-lp
@@ -146,7 +141,7 @@ invoke.cont29:                                    ; preds = %for.cond
 for.body:                                         ; preds = %invoke.cont29
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %_numChans, align 8
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.0, i64 288
   %5 = load i32, ptr %second.i, align 4
   %cmp.not = icmp eq i32 %5, 1
   %spec.select = select i1 %cmp.not, i8 %onlyHalfChannels.0, i8 0
@@ -183,15 +178,15 @@ invoke.cont38:                                    ; preds = %for.end
 
 invoke.cont41:                                    ; preds = %invoke.cont38
   %9 = load i32, ptr %call42, align 4
-  %_minX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 11
+  %_minX = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %9, ptr %_minX, align 8
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call42, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call42, i64 8
   %10 = load i32, ptr %max, align 4
-  %_maxX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 12
+  %_maxX = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %10, ptr %_maxX, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call42, i64 0, i32 1, i32 1
+  %y = getelementptr inbounds i8, ptr %call42, i64 12
   %11 = load i32, ptr %y, align 4
-  %_maxY = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 13
+  %_maxY = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %11, ptr %_maxY, align 8
   %12 = and i8 %onlyHalfChannels.0, 1
   %tobool.not = icmp eq i8 %12, 0
@@ -240,7 +235,7 @@ declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenc
 define hidden void @_ZN7Imf_3_213PizCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 5
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -250,7 +245,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_outBuffer, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -260,7 +255,7 @@ delete.notnull3:                                  ; preds = %delete.end
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  %_channelData = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_channelData, align 8
   %isnull5 = icmp eq ptr %2, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -281,7 +276,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 define hidden void @_ZN7Imf_3_213PizCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213PizCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_tmpBuffer.i = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 5
+  %_tmpBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_tmpBuffer.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -291,7 +286,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %entry
-  %_outBuffer.i = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
+  %_outBuffer.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_outBuffer.i, align 8
   %isnull2.i = icmp eq ptr %1, null
   br i1 %isnull2.i, label %delete.end4.i, label %delete.notnull3.i
@@ -301,7 +296,7 @@ delete.notnull3.i:                                ; preds = %delete.end.i
   br label %delete.end4.i
 
 delete.end4.i:                                    ; preds = %delete.notnull3.i, %delete.end.i
-  %_channelData.i = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_channelData.i, align 8
   %isnull5.i = icmp eq ptr %2, null
   br i1 %isnull5.i, label %_ZN7Imf_3_213PizCompressorD2Ev.exit, label %delete.notnull6.i
@@ -322,7 +317,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK7Imf_3_213PizCompressor12numScanLinesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this) unnamed_addr #8 align 2 {
 entry:
-  %_numScanLines = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 3
+  %_numScanLines = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %_numScanLines, align 8
   ret i32 %0
 }
@@ -330,7 +325,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK7Imf_3_213PizCompressor6formatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this) unnamed_addr #8 align 2 {
 entry:
-  %_format = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 2
+  %_format = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %_format, align 4
   ret i32 %0
 }
@@ -339,22 +334,22 @@ entry:
 define hidden noundef i32 @_ZN7Imf_3_213PizCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
-  %_minX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 11
+  %_minX = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %_minX, align 8
-  %_maxX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 12
+  %_maxX = getelementptr inbounds i8, ptr %this, i64 76
   %1 = load i32, ptr %_maxX, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %add = add i32 %minY, -1
   %sub = add i32 %add, %call
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.tmp, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %0, ptr %agg.tmp, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %agg.tmp, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   store i32 %minY, ptr %y3.i.i, align 4
   store i32 %1, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.tmp, i64 0, i32 1, i32 1
+  %y3.i2.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
   store i32 %sub, ptr %y3.i2.i, align 4
   %call3 = call noundef i32 @_ZN7Imf_3_213PizCompressor8compressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call3
@@ -370,28 +365,28 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_outBuffer, align 8
   store ptr %0, ptr %outPtr, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %range, align 4
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %range, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %range, i64 8
   %2 = load i32, ptr %max, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %range, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %range, i64 4
   %3 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %range, i64 0, i32 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %range, i64 12
   %4 = load i32, ptr %y5, align 4
-  %_maxY = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 13
+  %_maxY = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load i32, ptr %_maxY, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
-  %_maxX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 12
+  %_maxX = getelementptr inbounds i8, ptr %this, i64 76
   %6 = load i32, ptr %_maxX, align 4
   %maxX.0 = tail call i32 @llvm.smin.i32(i32 %2, i32 %6)
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 5
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %_tmpBuffer, align 8
-  %_channels = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 9
+  %_channels = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load ptr, ptr %_channels, align 8
   %call = tail call ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   %9 = load ptr, ptr %_channels, align 8
@@ -400,7 +395,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.not182, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_channelData = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -410,27 +405,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load ptr, ptr %_channelData, align 8
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv
   store ptr %tmpBufferEnd.0185, ptr %arrayidx, align 8
-  %end = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 1
+  %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %tmpBufferEnd.0185, ptr %end, align 8
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0183, i64 0, i32 1, i32 0, i64 256
-  %xSampling = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0183, i64 0, i32 1, i32 0, i64 260
+  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.0183, i64 288
+  %xSampling = getelementptr inbounds i8, ptr %c.sroa.0.0183, i64 292
   %11 = load i32, ptr %xSampling, align 4
   %call22 = tail call noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef %11, i32 noundef %1, i32 noundef %maxX.0)
-  %nx = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 2
+  %nx = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %call22, ptr %nx, align 8
-  %ySampling = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0183, i64 0, i32 1, i32 0, i64 264
+  %ySampling = getelementptr inbounds i8, ptr %c.sroa.0.0183, i64 296
   %12 = load i32, ptr %ySampling, align 4
   %call24 = tail call noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef %12, i32 noundef %3, i32 noundef %spec.select)
-  %ny = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 3
+  %ny = getelementptr inbounds i8, ptr %arrayidx, i64 20
   store i32 %call24, ptr %ny, align 4
   %13 = load i32, ptr %ySampling, align 4
-  %ys = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 4
+  %ys = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i32 %13, ptr %ys, align 8
   %14 = load i32, ptr %second.i, align 4
   %call28 = tail call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %14)
   %call29 = tail call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef 1)
   %div = sdiv i32 %call28, %call29
-  %size = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 5
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 28
   store i32 %div, ptr %size, align 4
   %15 = load i32, ptr %nx, align 8
   %16 = load i32, ptr %ny, align 4
@@ -447,7 +442,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %if.end
   %tmpBufferEnd.0.lcssa = phi ptr [ %7, %if.end ], [ %add.ptr, %for.body ]
-  %_format = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 2
+  %_format = getelementptr inbounds i8, ptr %this, i64 20
   %18 = load i32, ptr %_format, align 4
   %cmp35 = icmp eq i32 %18, 1
   %cmp39.not203 = icmp sgt i32 %3, %spec.select
@@ -457,8 +452,8 @@ for.cond72.preheader:                             ; preds = %for.end
   br i1 %cmp39.not203, label %if.end106, label %for.cond76.preheader.lr.ph
 
 for.cond76.preheader.lr.ph:                       ; preds = %for.cond72.preheader
-  %_numChans77 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 7
-  %_channelData81 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_numChans77 = getelementptr inbounds i8, ptr %this, i64 48
+  %_channelData81 = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load i32, ptr %_numChans77, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %for.cond76.preheader, label %if.end106
@@ -467,8 +462,8 @@ for.cond38.preheader:                             ; preds = %for.end
   br i1 %cmp39.not203, label %if.end106, label %for.cond42.preheader.lr.ph
 
 for.cond42.preheader.lr.ph:                       ; preds = %for.cond38.preheader
-  %_numChans = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 7
-  %_channelData46 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_numChans = getelementptr inbounds i8, ptr %this, i64 48
+  %_channelData46 = getelementptr inbounds i8, ptr %this, i64 64
   %21 = load i32, ptr %_numChans, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %for.cond42.preheader, label %if.end106
@@ -492,7 +487,8 @@ for.body44.us:                                    ; preds = %for.body44.lr.ph, %
   %indvars.iv226 = phi i64 [ %indvars.iv.next227, %for.inc65.us ], [ 0, %for.body44.lr.ph ]
   %inPtr.addr.1199.us = phi ptr [ %inPtr.addr.3.us, %for.inc65.us ], [ %inPtr.addr.0204, %for.body44.lr.ph ]
   %28 = load ptr, ptr %_channelData46, align 8
-  %ys49.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %28, i64 %indvars.iv226, i32 4
+  %arrayidx48.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %28, i64 %indvars.iv226
+  %ys49.us = getelementptr inbounds i8, ptr %arrayidx48.us, i64 24
   %29 = load i32, ptr %ys49.us, align 8
   %cmp1.i.i.us = icmp sgt i32 %29, -1
   br i1 %cmp1.i.i.us, label %cond.true2.i.i.us, label %cond.false.i.i.us
@@ -514,9 +510,9 @@ _ZN9Imath_3_24modpEii.exit.us:                    ; preds = %cond.true2.i.i.us, 
   br i1 %cmp51.not.us, label %if.end53.us, label %for.inc65.us
 
 if.end53.us:                                      ; preds = %_ZN9Imath_3_24modpEii.exit.us
-  %nx55.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %28, i64 %indvars.iv226, i32 2
+  %nx55.us = getelementptr inbounds i8, ptr %arrayidx48.us, i64 16
   %30 = load i32, ptr %nx55.us, align 8
-  %size56.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %28, i64 %indvars.iv226, i32 5
+  %size56.us = getelementptr inbounds i8, ptr %arrayidx48.us, i64 28
   %31 = load i32, ptr %size56.us, align 4
   %mul57.us = mul nsw i32 %31, %30
   %cmp59194.us = icmp sgt i32 %mul57.us, 0
@@ -558,14 +554,14 @@ _ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rt.exit.us: ; preds = %while.body.i
   store i16 %36, ptr %34, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %b.i)
   %37 = load ptr, ptr %end61.us, align 8
-  %incdec.ptr.us = getelementptr inbounds i16, ptr %37, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %37, i64 2
   store ptr %incdec.ptr.us, ptr %end61.us, align 8
   %dec.us = add nsw i32 %x54.0196.us, -1
   %cmp59.us = icmp sgt i32 %x54.0196.us, 1
   br i1 %cmp59.us, label %for.body60.us, label %for.inc65.us.loopexit, !llvm.loop !9
 
 for.body60.lr.ph.us:                              ; preds = %if.end53.us
-  %end61.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %28, i64 %indvars.iv226, i32 1
+  %end61.us = getelementptr inbounds i8, ptr %arrayidx48.us, i64 8
   %.pre240 = load ptr, ptr %end61.us, align 8
   br label %for.body60.us
 
@@ -575,7 +571,8 @@ for.body44:                                       ; preds = %for.body44.lr.ph, %
   %indvars.iv223 = phi i64 [ %indvars.iv.next224, %for.inc65 ], [ 0, %for.body44.lr.ph ]
   %inPtr.addr.1199 = phi ptr [ %inPtr.addr.3, %for.inc65 ], [ %inPtr.addr.0204, %for.body44.lr.ph ]
   %40 = load ptr, ptr %_channelData46, align 8
-  %ys49 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv223, i32 4
+  %arrayidx48 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv223
+  %ys49 = getelementptr inbounds i8, ptr %arrayidx48, i64 24
   %41 = load i32, ptr %ys49, align 8
   %cmp1.i.i = icmp sgt i32 %41, -1
   br i1 %cmp1.i.i, label %cond.true7.i.i, label %cond.false12.i.i
@@ -600,16 +597,16 @@ _ZN9Imath_3_24modpEii.exit:                       ; preds = %cond.true7.i.i, %co
   br i1 %cmp51.not, label %if.end53, label %for.inc65
 
 if.end53:                                         ; preds = %_ZN9Imath_3_24modpEii.exit
-  %nx55 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv223, i32 2
+  %nx55 = getelementptr inbounds i8, ptr %arrayidx48, i64 16
   %42 = load i32, ptr %nx55, align 8
-  %size56 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv223, i32 5
+  %size56 = getelementptr inbounds i8, ptr %arrayidx48, i64 28
   %43 = load i32, ptr %size56, align 4
   %mul57 = mul nsw i32 %43, %42
   %cmp59194 = icmp sgt i32 %mul57, 0
   br i1 %cmp59194, label %for.body60.lr.ph, label %for.inc65
 
 for.body60.lr.ph:                                 ; preds = %if.end53
-  %end61 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv223, i32 1
+  %end61 = getelementptr inbounds i8, ptr %arrayidx48, i64 8
   %.pre238 = load ptr, ptr %end61, align 8
   br label %for.body60
 
@@ -637,7 +634,7 @@ _ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rt.exit: ; preds = %while.body.i.i.
   store i16 %46, ptr %44, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %b.i)
   %47 = load ptr, ptr %end61, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %47, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %47, i64 2
   store ptr %incdec.ptr, ptr %end61, align 8
   %dec = add nsw i32 %x54.0196, -1
   %cmp59 = icmp sgt i32 %x54.0196, 1
@@ -684,7 +681,8 @@ for.body79.us:                                    ; preds = %for.body79.lr.ph, %
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %for.inc100.us ], [ 0, %for.body79.lr.ph ]
   %inPtr.addr.5187.us = phi ptr [ %inPtr.addr.6.us, %for.inc100.us ], [ %inPtr.addr.4191, %for.body79.lr.ph ]
   %59 = load ptr, ptr %_channelData81, align 8
-  %ys84.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %59, i64 %indvars.iv220, i32 4
+  %arrayidx83.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %59, i64 %indvars.iv220
+  %ys84.us = getelementptr inbounds i8, ptr %arrayidx83.us, i64 24
   %60 = load i32, ptr %ys84.us, align 8
   %cmp1.i.i61.us = icmp sgt i32 %60, -1
   br i1 %cmp1.i.i61.us, label %cond.true2.i.i80.us, label %cond.false.i.i76.us
@@ -706,12 +704,12 @@ _ZN9Imath_3_24modpEii.exit82.us:                  ; preds = %cond.true2.i.i80.us
   br i1 %cmp86.not.us, label %if.end88.us, label %for.inc100.us
 
 if.end88.us:                                      ; preds = %_ZN9Imath_3_24modpEii.exit82.us
-  %nx89.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %59, i64 %indvars.iv220, i32 2
+  %nx89.us = getelementptr inbounds i8, ptr %arrayidx83.us, i64 16
   %61 = load i32, ptr %nx89.us, align 8
-  %size90.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %59, i64 %indvars.iv220, i32 5
+  %size90.us = getelementptr inbounds i8, ptr %arrayidx83.us, i64 28
   %62 = load i32, ptr %size90.us, align 4
   %mul91.us = mul nsw i32 %62, %61
-  %end92.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %59, i64 %indvars.iv220, i32 1
+  %end92.us = getelementptr inbounds i8, ptr %arrayidx83.us, i64 8
   %63 = load ptr, ptr %end92.us, align 8
   %conv.us = sext i32 %mul91.us to i64
   %mul93.us = shl nsw i64 %conv.us, 1
@@ -737,7 +735,8 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %for.inc100 ], [ 0, %for.body79.lr.ph ]
   %inPtr.addr.5187 = phi ptr [ %inPtr.addr.6, %for.inc100 ], [ %inPtr.addr.4191, %for.body79.lr.ph ]
   %69 = load ptr, ptr %_channelData81, align 8
-  %ys84 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %69, i64 %indvars.iv217, i32 4
+  %arrayidx83 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %69, i64 %indvars.iv217
+  %ys84 = getelementptr inbounds i8, ptr %arrayidx83, i64 24
   %70 = load i32, ptr %ys84, align 8
   %cmp1.i.i61 = icmp sgt i32 %70, -1
   br i1 %cmp1.i.i61, label %cond.true7.i.i71, label %cond.false12.i.i63
@@ -762,12 +761,12 @@ _ZN9Imath_3_24modpEii.exit82:                     ; preds = %cond.true7.i.i71, %
   br i1 %cmp86.not, label %if.end88, label %for.inc100
 
 if.end88:                                         ; preds = %_ZN9Imath_3_24modpEii.exit82
-  %nx89 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %69, i64 %indvars.iv217, i32 2
+  %nx89 = getelementptr inbounds i8, ptr %arrayidx83, i64 16
   %71 = load i32, ptr %nx89, align 8
-  %size90 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %69, i64 %indvars.iv217, i32 5
+  %size90 = getelementptr inbounds i8, ptr %arrayidx83, i64 28
   %72 = load i32, ptr %size90, align 4
   %mul91 = mul nsw i32 %72, %71
-  %end92 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %69, i64 %indvars.iv217, i32 1
+  %end92 = getelementptr inbounds i8, ptr %arrayidx83, i64 8
   %73 = load ptr, ptr %end92, align 8
   %conv = sext i32 %mul91 to i64
   %mul93 = shl nsw i64 %conv, 1
@@ -933,7 +932,7 @@ for.body.i93:                                     ; preds = %for.body.i93, %for.
   br i1 %exitcond.not.i97, label %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit, label %for.body.i93, !llvm.loop !17
 
 _ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit:   ; preds = %for.body.i93, %_ZN7Imf_3_212_GLOBAL__N_120forwardLutFromBitmapEPKhPt.exit
-  %_outBuffer130 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
+  %_outBuffer130 = getelementptr inbounds i8, ptr %this, i64 40
   %98 = load ptr, ptr %_outBuffer130, align 8
   %conv.i99 = trunc i16 %minNonZero.2 to i8
   %99 = lshr i16 %minNonZero.2, 8
@@ -999,13 +998,13 @@ _ZN7Imf_3_29AutoArrayItLi65536EED2Ev.exit:        ; preds = %_ZN7Imf_3_29AutoArr
 
 if.end146:                                        ; preds = %while.body.i.i, %if.then136, %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit
   %buf.4 = phi ptr [ %scevgep230, %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit ], [ %scevgep230, %if.then136 ], [ %incdec.ptr1.i.i, %while.body.i.i ]
-  %_numChans149 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 7
+  %_numChans149 = getelementptr inbounds i8, ptr %this, i64 48
   %103 = load i32, ptr %_numChans149, align 8
   %cmp150209 = icmp sgt i32 %103, 0
   br i1 %cmp150209, label %for.body151.lr.ph, label %for.end175
 
 for.body151.lr.ph:                                ; preds = %if.end146
-  %_channelData153 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData153 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body151
 
 for.body151:                                      ; preds = %for.body151.lr.ph, %for.inc173
@@ -1013,14 +1012,14 @@ for.body151:                                      ; preds = %for.body151.lr.ph, 
   %indvars.iv234 = phi i64 [ 0, %for.body151.lr.ph ], [ %indvars.iv.next235, %for.inc173 ]
   %105 = load ptr, ptr %_channelData153, align 8
   %arrayidx155 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %105, i64 %indvars.iv234
-  %size157 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %105, i64 %indvars.iv234, i32 5
+  %size157 = getelementptr inbounds i8, ptr %arrayidx155, i64 28
   %106 = load i32, ptr %size157, align 4
   %cmp158207 = icmp sgt i32 %106, 0
   br i1 %cmp158207, label %for.body159.lr.ph, label %for.inc173
 
 for.body159.lr.ph:                                ; preds = %for.body151
-  %nx163 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %105, i64 %indvars.iv234, i32 2
-  %ny165 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %105, i64 %indvars.iv234, i32 3
+  %nx163 = getelementptr inbounds i8, ptr %arrayidx155, i64 16
+  %ny165 = getelementptr inbounds i8, ptr %arrayidx155, i64 20
   br label %for.body159
 
 for.body159:                                      ; preds = %for.body159.lr.ph, %for.inc170
@@ -1085,15 +1084,15 @@ invoke.cont184:                                   ; preds = %invoke.cont176
   store i8 %conv.i130, ptr %b.i129, align 1
   %shr.i131 = lshr i32 %call185, 8
   %conv1.i = trunc i32 %shr.i131 to i8
-  %arrayidx2.i132 = getelementptr inbounds [4 x i8], ptr %b.i129, i64 0, i64 1
+  %arrayidx2.i132 = getelementptr inbounds i8, ptr %b.i129, i64 1
   store i8 %conv1.i, ptr %arrayidx2.i132, align 1
   %shr3.i = lshr i32 %call185, 16
   %conv4.i = trunc i32 %shr3.i to i8
-  %arrayidx5.i133 = getelementptr inbounds [4 x i8], ptr %b.i129, i64 0, i64 2
+  %arrayidx5.i133 = getelementptr inbounds i8, ptr %b.i129, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i133, align 1
   %shr6.i = lshr i32 %call185, 24
   %conv7.i = trunc i32 %shr6.i to i8
-  %arrayidx8.i134 = getelementptr inbounds [4 x i8], ptr %b.i129, i64 0, i64 3
+  %arrayidx8.i134 = getelementptr inbounds i8, ptr %b.i129, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i134, align 1
   br label %while.body.i.i.i135
 
@@ -1146,22 +1145,22 @@ entry:
 define hidden noundef i32 @_ZN7Imf_3_213PizCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
-  %_minX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 11
+  %_minX = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %_minX, align 8
-  %_maxX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 12
+  %_maxX = getelementptr inbounds i8, ptr %this, i64 76
   %1 = load i32, ptr %_maxX, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %add = add i32 %minY, -1
   %sub = add i32 %add, %call
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.tmp, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %0, ptr %agg.tmp, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %agg.tmp, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   store i32 %minY, ptr %y3.i.i, align 4
   store i32 %1, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.tmp, i64 0, i32 1, i32 1
+  %y3.i2.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
   store i32 %sub, ptr %y3.i2.i, align 4
   %call3 = call noundef i32 @_ZN7Imf_3_213PizCompressor10uncompressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call3
@@ -1177,28 +1176,28 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_outBuffer, align 8
   store ptr %0, ptr %outPtr, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %range, align 4
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %range, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %range, i64 8
   %2 = load i32, ptr %max, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %range, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %range, i64 4
   %3 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %range, i64 0, i32 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %range, i64 12
   %4 = load i32, ptr %y5, align 4
-  %_maxY = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 13
+  %_maxY = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load i32, ptr %_maxY, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
-  %_maxX = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 12
+  %_maxX = getelementptr inbounds i8, ptr %this, i64 76
   %6 = load i32, ptr %_maxX, align 4
   %maxX.0 = tail call i32 @llvm.smin.i32(i32 %2, i32 %6)
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 5
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %_tmpBuffer, align 8
-  %_channels = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 9
+  %_channels = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load ptr, ptr %_channels, align 8
   %call = tail call ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   %9 = load ptr, ptr %_channels, align 8
@@ -1207,7 +1206,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.not155, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_channelData = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1217,27 +1216,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load ptr, ptr %_channelData, align 8
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv
   store ptr %tmpBufferEnd.0158, ptr %arrayidx, align 8
-  %end = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 1
+  %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %tmpBufferEnd.0158, ptr %end, align 8
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0156, i64 0, i32 1, i32 0, i64 256
-  %xSampling = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0156, i64 0, i32 1, i32 0, i64 260
+  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.0156, i64 288
+  %xSampling = getelementptr inbounds i8, ptr %c.sroa.0.0156, i64 292
   %11 = load i32, ptr %xSampling, align 4
   %call22 = tail call noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef %11, i32 noundef %1, i32 noundef %maxX.0)
-  %nx = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 2
+  %nx = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %call22, ptr %nx, align 8
-  %ySampling = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.0156, i64 0, i32 1, i32 0, i64 264
+  %ySampling = getelementptr inbounds i8, ptr %c.sroa.0.0156, i64 296
   %12 = load i32, ptr %ySampling, align 4
   %call24 = tail call noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef %12, i32 noundef %3, i32 noundef %spec.select)
-  %ny = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 3
+  %ny = getelementptr inbounds i8, ptr %arrayidx, i64 20
   store i32 %call24, ptr %ny, align 4
   %13 = load i32, ptr %ySampling, align 4
-  %ys = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 4
+  %ys = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i32 %13, ptr %ys, align 8
   %14 = load i32, ptr %second.i, align 4
   %call28 = tail call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %14)
   %call29 = tail call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef 1)
   %div = sdiv i32 %call28, %call29
-  %size = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv, i32 5
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 28
   store i32 %div, ptr %size, align 4
   %15 = load i32, ptr %nx, align 8
   %16 = load i32, ptr %ny, align 4
@@ -1464,13 +1463,13 @@ if.end99:                                         ; preds = %if.end89
           to label %for.cond105.preheader unwind label %lpad76.loopexit.split-lp
 
 for.cond105.preheader:                            ; preds = %if.end99
-  %_numChans = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 7
+  %_numChans = getelementptr inbounds i8, ptr %this, i64 48
   %38 = load i32, ptr %_numChans, align 8
   %cmp106161 = icmp sgt i32 %38, 0
   br i1 %cmp106161, label %for.body107.lr.ph, label %for.end131
 
 for.body107.lr.ph:                                ; preds = %for.cond105.preheader
-  %_channelData109 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData109 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body107
 
 for.body107:                                      ; preds = %for.body107.lr.ph, %for.inc129
@@ -1478,14 +1477,14 @@ for.body107:                                      ; preds = %for.body107.lr.ph, 
   %indvars.iv199 = phi i64 [ 0, %for.body107.lr.ph ], [ %indvars.iv.next200, %for.inc129 ]
   %40 = load ptr, ptr %_channelData109, align 8
   %arrayidx111 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv199
-  %size113 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv199, i32 5
+  %size113 = getelementptr inbounds i8, ptr %arrayidx111, i64 28
   %41 = load i32, ptr %size113, align 4
   %cmp114159 = icmp sgt i32 %41, 0
   br i1 %cmp114159, label %for.body115.lr.ph, label %for.inc129
 
 for.body115.lr.ph:                                ; preds = %for.body107
-  %nx119 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv199, i32 2
-  %ny121 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %40, i64 %indvars.iv199, i32 3
+  %nx119 = getelementptr inbounds i8, ptr %arrayidx111, i64 16
+  %ny121 = getelementptr inbounds i8, ptr %arrayidx111, i64 20
   br label %for.body115
 
 for.body115:                                      ; preds = %for.body115.lr.ph, %for.inc126
@@ -1543,9 +1542,9 @@ for.body.i89:                                     ; preds = %for.body.i89, %for.
   br i1 %exitcond.not.i91, label %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit, label %for.body.i89, !llvm.loop !17
 
 _ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit:   ; preds = %for.body.i89, %for.end131
-  %_outBuffer142 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 6
+  %_outBuffer142 = getelementptr inbounds i8, ptr %this, i64 40
   %53 = load ptr, ptr %_outBuffer142, align 8
-  %_format = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 2
+  %_format = getelementptr inbounds i8, ptr %this, i64 20
   %54 = load i32, ptr %_format, align 4
   %cmp143 = icmp eq i32 %54, 1
   %cmp147.not182 = icmp sgt i32 %3, %spec.select
@@ -1555,7 +1554,7 @@ for.cond182.preheader:                            ; preds = %_ZN7Imf_3_212_GLOBA
   br i1 %cmp147.not182, label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit, label %for.cond186.preheader.lr.ph
 
 for.cond186.preheader.lr.ph:                      ; preds = %for.cond182.preheader
-  %_channelData191 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
+  %_channelData191 = getelementptr inbounds i8, ptr %this, i64 64
   %55 = load i32, ptr %_numChans, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %for.cond186.preheader, label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit
@@ -1564,8 +1563,8 @@ for.cond146.preheader:                            ; preds = %_ZN7Imf_3_212_GLOBA
   br i1 %cmp147.not182, label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit, label %for.cond150.preheader.lr.ph
 
 for.cond150.preheader.lr.ph:                      ; preds = %for.cond146.preheader
-  %_channelData155 = getelementptr inbounds %"class.Imf_3_2::PizCompressor", ptr %this, i64 0, i32 10
-  %arrayidx3.i = getelementptr inbounds [2 x i8], ptr %b.i92, i64 0, i64 1
+  %_channelData155 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b.i92, i64 1
   %57 = load i32, ptr %_numChans, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %for.cond150.preheader, label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit
@@ -1589,7 +1588,8 @@ for.body153.us:                                   ; preds = %for.body153.lr.ph, 
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %for.inc175.us ], [ 0, %for.body153.lr.ph ]
   %outEnd.1178.us = phi ptr [ %outEnd.4.us, %for.inc175.us ], [ %outEnd.0183, %for.body153.lr.ph ]
   %64 = load ptr, ptr %_channelData155, align 8
-  %ys158.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %64, i64 %indvars.iv211, i32 4
+  %arrayidx157.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %64, i64 %indvars.iv211
+  %ys158.us = getelementptr inbounds i8, ptr %arrayidx157.us, i64 24
   %65 = load i32, ptr %ys158.us, align 8
   %cmp1.i.i.us = icmp sgt i32 %65, -1
   br i1 %cmp1.i.i.us, label %cond.true2.i.i.us, label %cond.false.i.i.us
@@ -1611,9 +1611,9 @@ _ZN9Imath_3_24modpEii.exit.us:                    ; preds = %cond.true2.i.i.us, 
   br i1 %cmp160.not.us, label %if.end162.us, label %for.inc175.us
 
 if.end162.us:                                     ; preds = %_ZN9Imath_3_24modpEii.exit.us
-  %nx164.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %64, i64 %indvars.iv211, i32 2
+  %nx164.us = getelementptr inbounds i8, ptr %arrayidx157.us, i64 16
   %66 = load i32, ptr %nx164.us, align 8
-  %size165.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %64, i64 %indvars.iv211, i32 5
+  %size165.us = getelementptr inbounds i8, ptr %arrayidx157.us, i64 28
   %67 = load i32, ptr %size165.us, align 4
   %mul166.us = mul nsw i32 %67, %66
   %cmp168173.us = icmp sgt i32 %mul166.us, 0
@@ -1659,14 +1659,14 @@ while.body.i.i.i94.us:                            ; preds = %while.body.i.i.i94.
 invoke.cont171.us:                                ; preds = %while.body.i.i.i94.us
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %b.i92)
   %74 = load ptr, ptr %end170.us, align 8
-  %incdec.ptr.us = getelementptr inbounds i16, ptr %74, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %74, i64 2
   store ptr %incdec.ptr.us, ptr %end170.us, align 8
   %dec.us = add nsw i32 %x163.0175.us, -1
   %cmp168.us = icmp sgt i32 %x163.0175.us, 1
   br i1 %cmp168.us, label %for.body169.us, label %for.inc175.us.loopexit, !llvm.loop !26
 
 for.body169.lr.ph.us:                             ; preds = %if.end162.us
-  %end170.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %64, i64 %indvars.iv211, i32 1
+  %end170.us = getelementptr inbounds i8, ptr %arrayidx157.us, i64 8
   %.pre219 = load ptr, ptr %end170.us, align 8
   br label %for.body169.us
 
@@ -1676,7 +1676,8 @@ for.body153:                                      ; preds = %for.body153.lr.ph, 
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %for.inc175 ], [ 0, %for.body153.lr.ph ]
   %outEnd.1178 = phi ptr [ %outEnd.4, %for.inc175 ], [ %outEnd.0183, %for.body153.lr.ph ]
   %77 = load ptr, ptr %_channelData155, align 8
-  %ys158 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %77, i64 %indvars.iv208, i32 4
+  %arrayidx157 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %77, i64 %indvars.iv208
+  %ys158 = getelementptr inbounds i8, ptr %arrayidx157, i64 24
   %78 = load i32, ptr %ys158, align 8
   %cmp1.i.i = icmp sgt i32 %78, -1
   br i1 %cmp1.i.i, label %cond.true7.i.i, label %cond.false12.i.i
@@ -1701,16 +1702,16 @@ _ZN9Imath_3_24modpEii.exit:                       ; preds = %cond.true7.i.i, %co
   br i1 %cmp160.not, label %if.end162, label %for.inc175
 
 if.end162:                                        ; preds = %_ZN9Imath_3_24modpEii.exit
-  %nx164 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %77, i64 %indvars.iv208, i32 2
+  %nx164 = getelementptr inbounds i8, ptr %arrayidx157, i64 16
   %79 = load i32, ptr %nx164, align 8
-  %size165 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %77, i64 %indvars.iv208, i32 5
+  %size165 = getelementptr inbounds i8, ptr %arrayidx157, i64 28
   %80 = load i32, ptr %size165, align 4
   %mul166 = mul nsw i32 %80, %79
   %cmp168173 = icmp sgt i32 %mul166, 0
   br i1 %cmp168173, label %for.body169.lr.ph, label %for.inc175
 
 for.body169.lr.ph:                                ; preds = %if.end162
-  %end170 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %77, i64 %indvars.iv208, i32 1
+  %end170 = getelementptr inbounds i8, ptr %arrayidx157, i64 8
   %.pre217 = load ptr, ptr %end170, align 8
   br label %for.body169
 
@@ -1742,7 +1743,7 @@ while.body.i.i.i94:                               ; preds = %while.body.i.i.i94,
 invoke.cont171:                                   ; preds = %while.body.i.i.i94
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %b.i92)
   %85 = load ptr, ptr %end170, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %85, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %85, i64 2
   store ptr %incdec.ptr, ptr %end170, align 8
   %dec = add nsw i32 %x163.0175, -1
   %cmp168 = icmp sgt i32 %x163.0175, 1
@@ -1789,7 +1790,8 @@ for.body189.us:                                   ; preds = %for.body189.lr.ph, 
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %for.inc211.us ], [ 0, %for.body189.lr.ph ]
   %outEnd.6164.us = phi ptr [ %outEnd.7.us, %for.inc211.us ], [ %outEnd.5168, %for.body189.lr.ph ]
   %97 = load ptr, ptr %_channelData191, align 8
-  %ys194.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %97, i64 %indvars.iv205, i32 4
+  %arrayidx193.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %97, i64 %indvars.iv205
+  %ys194.us = getelementptr inbounds i8, ptr %arrayidx193.us, i64 24
   %98 = load i32, ptr %ys194.us, align 8
   %cmp1.i.i102.us = icmp sgt i32 %98, -1
   br i1 %cmp1.i.i102.us, label %cond.true2.i.i121.us, label %cond.false.i.i117.us
@@ -1811,12 +1813,12 @@ _ZN9Imath_3_24modpEii.exit123.us:                 ; preds = %cond.true2.i.i121.u
   br i1 %cmp196.not.us, label %if.end198.us, label %for.inc211.us
 
 if.end198.us:                                     ; preds = %_ZN9Imath_3_24modpEii.exit123.us
-  %nx199.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %97, i64 %indvars.iv205, i32 2
+  %nx199.us = getelementptr inbounds i8, ptr %arrayidx193.us, i64 16
   %99 = load i32, ptr %nx199.us, align 8
-  %size200.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %97, i64 %indvars.iv205, i32 5
+  %size200.us = getelementptr inbounds i8, ptr %arrayidx193.us, i64 28
   %100 = load i32, ptr %size200.us, align 4
   %mul201.us = mul nsw i32 %100, %99
-  %end202.us = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %97, i64 %indvars.iv205, i32 1
+  %end202.us = getelementptr inbounds i8, ptr %arrayidx193.us, i64 8
   %101 = load ptr, ptr %end202.us, align 8
   %conv203.us = sext i32 %mul201.us to i64
   %mul204.us = shl nsw i64 %conv203.us, 1
@@ -1842,7 +1844,8 @@ for.body189:                                      ; preds = %for.body189.lr.ph, 
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %for.inc211 ], [ 0, %for.body189.lr.ph ]
   %outEnd.6164 = phi ptr [ %outEnd.7, %for.inc211 ], [ %outEnd.5168, %for.body189.lr.ph ]
   %107 = load ptr, ptr %_channelData191, align 8
-  %ys194 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %107, i64 %indvars.iv202, i32 4
+  %arrayidx193 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %107, i64 %indvars.iv202
+  %ys194 = getelementptr inbounds i8, ptr %arrayidx193, i64 24
   %108 = load i32, ptr %ys194, align 8
   %cmp1.i.i102 = icmp sgt i32 %108, -1
   br i1 %cmp1.i.i102, label %cond.true7.i.i112, label %cond.false12.i.i104
@@ -1867,12 +1870,12 @@ _ZN9Imath_3_24modpEii.exit123:                    ; preds = %cond.true7.i.i112, 
   br i1 %cmp196.not, label %if.end198, label %for.inc211
 
 if.end198:                                        ; preds = %_ZN9Imath_3_24modpEii.exit123
-  %nx199 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %107, i64 %indvars.iv202, i32 2
+  %nx199 = getelementptr inbounds i8, ptr %arrayidx193, i64 16
   %109 = load i32, ptr %nx199, align 8
-  %size200 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %107, i64 %indvars.iv202, i32 5
+  %size200 = getelementptr inbounds i8, ptr %arrayidx193, i64 28
   %110 = load i32, ptr %size200, align 4
   %mul201 = mul nsw i32 %110, %109
-  %end202 = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %107, i64 %indvars.iv202, i32 1
+  %end202 = getelementptr inbounds i8, ptr %arrayidx193, i64 8
   %111 = load ptr, ptr %end202, align 8
   %conv203 = sext i32 %mul201 to i64
   %mul204 = shl nsw i64 %conv203, 1

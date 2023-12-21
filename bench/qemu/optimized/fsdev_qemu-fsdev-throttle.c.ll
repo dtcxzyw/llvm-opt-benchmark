@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/fsdev_qemu-fsdev-throttle.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FsThrottle = type { %struct.ThrottleState, %struct.ThrottleTimers, %struct.ThrottleConfig, [2 x %struct.CoQueue] }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
-%struct.LeakyBucket = type { i64, i64, double, double, i64 }
 %struct.CoQueue = type { %struct.anon }
 %struct.anon = type { ptr, ptr }
 
@@ -41,63 +36,63 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @fsdev_throttle_parse_opts(ptr noundef %opts, ptr noundef %fst, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %cfg = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2
+  %cfg = getelementptr inbounds i8, ptr %fst, i64 304
   tail call void @throttle_config_init(ptr noundef nonnull %cfg) #3
   %call = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str, i64 noundef 0) #3
   store i64 %call, ptr %cfg, align 8
   %call2 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.1, i64 noundef 0) #3
-  %arrayidx5 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5 = getelementptr i8, ptr %fst, i64 344
   store i64 %call2, ptr %arrayidx5, align 8
   %call7 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.2, i64 noundef 0) #3
-  %arrayidx10 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 2
+  %arrayidx10 = getelementptr i8, ptr %fst, i64 384
   store i64 %call7, ptr %arrayidx10, align 8
   %call12 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.3, i64 noundef 0) #3
-  %arrayidx15 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 3
+  %arrayidx15 = getelementptr i8, ptr %fst, i64 424
   store i64 %call12, ptr %arrayidx15, align 8
   %call17 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.4, i64 noundef 0) #3
-  %arrayidx20 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 4
+  %arrayidx20 = getelementptr i8, ptr %fst, i64 464
   store i64 %call17, ptr %arrayidx20, align 8
   %call22 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.5, i64 noundef 0) #3
-  %arrayidx25 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 5
+  %arrayidx25 = getelementptr i8, ptr %fst, i64 504
   store i64 %call22, ptr %arrayidx25, align 8
   %call27 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.6, i64 noundef 0) #3
-  %max = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %fst, i64 312
   store i64 %call27, ptr %max, align 8
   %call31 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.7, i64 noundef 0) #3
-  %max35 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 1, i32 1
+  %max35 = getelementptr i8, ptr %fst, i64 352
   store i64 %call31, ptr %max35, align 8
   %call36 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.8, i64 noundef 0) #3
-  %max40 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 2, i32 1
+  %max40 = getelementptr i8, ptr %fst, i64 392
   store i64 %call36, ptr %max40, align 8
   %call41 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.9, i64 noundef 0) #3
-  %max45 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 3, i32 1
+  %max45 = getelementptr i8, ptr %fst, i64 432
   store i64 %call41, ptr %max45, align 8
   %call46 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.10, i64 noundef 0) #3
-  %max50 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 4, i32 1
+  %max50 = getelementptr i8, ptr %fst, i64 472
   store i64 %call46, ptr %max50, align 8
   %call51 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.11, i64 noundef 0) #3
-  %max55 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 5, i32 1
+  %max55 = getelementptr i8, ptr %fst, i64 512
   store i64 %call51, ptr %max55, align 8
   %call56 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.12, i64 noundef 1) #3
-  %burst_length = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 0, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %fst, i64 336
   store i64 %call56, ptr %burst_length, align 8
   %call60 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.13, i64 noundef 1) #3
-  %burst_length64 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 1, i32 4
+  %burst_length64 = getelementptr i8, ptr %fst, i64 376
   store i64 %call60, ptr %burst_length64, align 8
   %call65 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.14, i64 noundef 1) #3
-  %burst_length69 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 2, i32 4
+  %burst_length69 = getelementptr i8, ptr %fst, i64 416
   store i64 %call65, ptr %burst_length69, align 8
   %call70 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.15, i64 noundef 1) #3
-  %burst_length74 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 3, i32 4
+  %burst_length74 = getelementptr i8, ptr %fst, i64 456
   store i64 %call70, ptr %burst_length74, align 8
   %call75 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.16, i64 noundef 1) #3
-  %burst_length79 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 4, i32 4
+  %burst_length79 = getelementptr i8, ptr %fst, i64 496
   store i64 %call75, ptr %burst_length79, align 8
   %call80 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.17, i64 noundef 1) #3
-  %burst_length84 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 0, i64 5, i32 4
+  %burst_length84 = getelementptr i8, ptr %fst, i64 536
   store i64 %call80, ptr %burst_length84, align 8
   %call85 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.18, i64 noundef 0) #3
-  %op_size = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2, i32 1
+  %op_size = getelementptr inbounds i8, ptr %fst, i64 544
   store i64 %call85, ptr %op_size, align 8
   %call88 = tail call zeroext i1 @throttle_is_valid(ptr noundef nonnull %cfg, ptr noundef %errp) #3
   %not.call88 = xor i1 %call88, true
@@ -114,19 +109,19 @@ declare zeroext i1 @throttle_is_valid(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fsdev_throttle_init(ptr noundef %fst) local_unnamed_addr #0 {
 entry:
-  %cfg = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2
+  %cfg = getelementptr inbounds i8, ptr %fst, i64 304
   %call = tail call zeroext i1 @throttle_enabled(ptr noundef nonnull %cfg) #3
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @throttle_init(ptr noundef %fst) #3
-  %tt = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %fst, i64 256
   %call1 = tail call ptr @qemu_get_aio_context() #3
   tail call void @throttle_timers_init(ptr noundef nonnull %tt, ptr noundef %call1, i32 noundef 0, ptr noundef nonnull @fsdev_throttle_read_timer_cb, ptr noundef nonnull @fsdev_throttle_write_timer_cb, ptr noundef %fst) #3
   tail call void @throttle_config(ptr noundef %fst, i32 noundef 0, ptr noundef nonnull %cfg) #3
-  %throttled_reqs = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 3
+  %throttled_reqs = getelementptr inbounds i8, ptr %fst, i64 552
   tail call void @qemu_co_queue_init(ptr noundef nonnull %throttled_reqs) #3
-  %arrayidx5 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 3, i64 1
+  %arrayidx5 = getelementptr i8, ptr %fst, i64 568
   tail call void @qemu_co_queue_init(ptr noundef %arrayidx5) #3
   br label %if.end
 
@@ -145,7 +140,7 @@ declare ptr @qemu_get_aio_context() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fsdev_throttle_read_timer_cb(ptr noundef %opaque) #0 {
 entry:
-  %throttled_reqs = getelementptr inbounds %struct.FsThrottle, ptr %opaque, i64 0, i32 3
+  %throttled_reqs = getelementptr inbounds i8, ptr %opaque, i64 552
   %call1 = tail call zeroext i1 @qemu_co_enter_next_impl(ptr noundef nonnull %throttled_reqs, ptr noundef null) #3
   ret void
 }
@@ -153,7 +148,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fsdev_throttle_write_timer_cb(ptr noundef %opaque) #0 {
 entry:
-  %arrayidx = getelementptr %struct.FsThrottle, ptr %opaque, i64 0, i32 3, i64 1
+  %arrayidx = getelementptr i8, ptr %opaque, i64 568
   %call1 = tail call zeroext i1 @qemu_co_enter_next_impl(ptr noundef %arrayidx, ptr noundef null) #3
   ret void
 }
@@ -173,30 +168,39 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cfg = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2
+  %cfg = getelementptr inbounds i8, ptr %fst, i64 304
   %call = tail call zeroext i1 @throttle_enabled(ptr noundef nonnull %cfg) #3
   br i1 %call, label %if.then1, label %if.end25
 
 if.then1:                                         ; preds = %if.end
-  %tt = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %fst, i64 256
   %call2 = tail call zeroext i1 @throttle_schedule_timer(ptr noundef %fst, ptr noundef nonnull %tt, i32 noundef %direction) #3
+  br i1 %call2, label %if.then1.qemu_null_lockable.exit_crit_edge, label %lor.lhs.false
+
+if.then1.qemu_null_lockable.exit_crit_edge:       ; preds = %if.then1
   %.pre = zext nneg i32 %direction to i64
-  br i1 %call2, label %qemu_null_lockable.exit, label %lor.lhs.false
+  br label %qemu_null_lockable.exit
 
 lor.lhs.false:                                    ; preds = %if.then1
-  %arrayidx = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 3, i64 %.pre
+  %throttled_reqs = getelementptr inbounds i8, ptr %fst, i64 552
+  %idxprom = zext nneg i32 %direction to i64
+  %arrayidx = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %idxprom
   %call3 = tail call zeroext i1 @qemu_co_queue_empty(ptr noundef %arrayidx) #3
   br i1 %call3, label %if.end9, label %qemu_null_lockable.exit
 
-qemu_null_lockable.exit:                          ; preds = %if.then1, %lor.lhs.false
-  %arrayidx7 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 3, i64 %.pre
+qemu_null_lockable.exit:                          ; preds = %if.then1.qemu_null_lockable.exit_crit_edge, %lor.lhs.false
+  %idxprom6.pre-phi = phi i64 [ %.pre, %if.then1.qemu_null_lockable.exit_crit_edge ], [ %idxprom, %lor.lhs.false ]
+  %throttled_reqs5 = getelementptr inbounds i8, ptr %fst, i64 552
+  %arrayidx7 = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs5, i64 0, i64 %idxprom6.pre-phi
   tail call void @qemu_co_queue_wait_impl(ptr noundef %arrayidx7, ptr noundef null, i32 noundef 0) #3
   br label %if.end9
 
 if.end9:                                          ; preds = %qemu_null_lockable.exit, %lor.lhs.false
+  %idxprom13.pre-phi = phi i64 [ %idxprom6.pre-phi, %qemu_null_lockable.exit ], [ %idxprom, %lor.lhs.false ]
   %call11 = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #3
   tail call void @throttle_account(ptr noundef %fst, i32 noundef %direction, i64 noundef %call11) #3
-  %arrayidx14 = getelementptr %struct.FsThrottle, ptr %fst, i64 0, i32 3, i64 %.pre
+  %throttled_reqs12 = getelementptr inbounds i8, ptr %fst, i64 552
+  %arrayidx14 = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs12, i64 0, i64 %idxprom13.pre-phi
   %call15 = tail call zeroext i1 @qemu_co_queue_empty(ptr noundef %arrayidx14) #3
   br i1 %call15, label %if.end25, label %land.lhs.true
 
@@ -230,12 +234,12 @@ declare zeroext i1 @qemu_co_queue_next(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fsdev_throttle_cleanup(ptr noundef %fst) local_unnamed_addr #0 {
 entry:
-  %cfg = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 2
+  %cfg = getelementptr inbounds i8, ptr %fst, i64 304
   %call = tail call zeroext i1 @throttle_enabled(ptr noundef nonnull %cfg) #3
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tt = getelementptr inbounds %struct.FsThrottle, ptr %fst, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %fst, i64 256
   tail call void @throttle_timers_destroy(ptr noundef nonnull %tt) #3
   br label %if.end
 

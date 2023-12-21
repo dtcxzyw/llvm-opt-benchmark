@@ -9,47 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.rcu_head = type { ptr, ptr }
 %union.anon.11 = type { %struct.QTailQLink }
 %union.anon.12 = type { %struct.QTailQLink }
-%struct.Monitor = type { %struct.CharBackend, i32, i8, i8, i8, ptr, %union.anon, %struct.QemuMutex, %struct.anon, ptr, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.0, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon.0 = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.4 }
-%struct.anon.4 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.5 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.5 = type { %struct.anon.6 }
-%struct.anon.6 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 %struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.8, %union.anon.9, %union.anon.10, ptr, i32, ptr, ptr, i8 }
-%union.anon.8 = type { %struct.QTailQLink }
-%union.anon.9 = type { %struct.QTailQLink }
-%union.anon.10 = type { %struct.QTailQLink }
+%struct.MemTxAttrs = type { i32 }
 
 @.str = private unnamed_addr constant [13 x i8] c"cpustate_all\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"vcpu\00", align 1
@@ -98,7 +59,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mon_cpu_path = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 5
+  %mon_cpu_path = getelementptr inbounds i8, ptr %mon, i64 64
   %0 = load ptr, ptr %mon_cpu_path, align 8
   tail call void @g_free(ptr noundef %0) #7
   %call1 = tail call ptr @object_get_canonical_path(ptr noundef nonnull %call) #7
@@ -126,7 +87,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @mon_get_cpu_sync(ptr nocapture noundef %mon, i1 noundef zeroext %synchronize) unnamed_addr #0 {
 entry:
-  %mon_cpu_path = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 5
+  %mon_cpu_path = getelementptr inbounds i8, ptr %mon, i64 64
   %0 = load ptr, ptr %mon_cpu_path, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %while.end, label %if.then
@@ -156,7 +117,7 @@ if.end12:                                         ; preds = %while.end
   %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %4, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %4, i64 712
   %5 = load i32, ptr %cpu_index, align 8
   %call.i = tail call ptr @qemu_get_cpu(i32 noundef %5) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -198,7 +159,7 @@ define dso_local ptr @mon_get_cpu_env(ptr nocapture noundef %mon) local_unnamed_
 entry:
   %call.i = tail call fastcc ptr @mon_get_cpu_sync(ptr noundef %mon, i1 noundef zeroext true)
   %tobool.not = icmp eq ptr %call.i, null
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %call.i, i64 1
+  %add.ptr.i = getelementptr i8, ptr %call.i, i64 10176
   %spec.select = select i1 %tobool.not, ptr null, ptr %add.ptr.i
   ret ptr %spec.select
 }
@@ -211,7 +172,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %call, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %call, i64 712
   %0 = load i32, ptr %cpu_index, align 8
   br label %cond.end
 
@@ -237,11 +198,11 @@ while.end:                                        ; preds = %entry
 for.body:                                         ; preds = %while.end, %for.body
   %cs.0.in19 = phi i64 [ %2, %for.body ], [ %0, %while.end ]
   %cs.0 = inttoptr i64 %cs.0.in19 to ptr
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cs.0, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cs.0, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, i32 noundef %1) #7
   tail call void @cpu_dump_state(ptr noundef nonnull %cs.0, ptr noundef null, i32 noundef 131072) #7
-  %node = getelementptr inbounds %struct.CPUState, ptr %cs.0, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cs.0, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %tobool2.not = icmp eq i64 %2, 0
@@ -271,7 +232,7 @@ if.else19:                                        ; preds = %cond.end.thread
 
 if.end21:                                         ; preds = %cond.end.thread, %cond.end
   %cond17 = phi ptr [ %call.i, %cond.end.thread ], [ %call11, %cond.end ]
-  %cpu_index22 = getelementptr inbounds %struct.CPUState, ptr %cond17, i64 0, i32 51
+  %cpu_index22 = getelementptr inbounds i8, ptr %cond17, i64 712
   %3 = load i32, ptr %cpu_index22, align 8
   %call23 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, i32 noundef %3) #7
   tail call void @cpu_dump_state(ptr noundef nonnull %cond17, ptr noundef null, i32 noundef 131072) #7
@@ -368,7 +329,7 @@ sw.epilog:                                        ; preds = %if.end6, %sw.bb14, 
 
 while.body.lr.ph:                                 ; preds = %sw.epilog
   %tobool22.not = icmp eq i32 %is_physical, 0
-  %as34 = getelementptr inbounds %struct.CPUState, ptr %call.i82, i64 0, i32 29
+  %as34 = getelementptr inbounds i8, ptr %call.i82, i64 528
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
@@ -512,7 +473,7 @@ entry:
   %mrs = alloca %struct.MemoryRegionSection, align 16
   %call = tail call ptr @get_system_memory() #7
   call void @memory_region_find(ptr nonnull sret(%struct.MemoryRegionSection) align 16 %mrs, ptr noundef %call, i64 noundef %addr, i64 noundef %size) #7
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %mrs, i64 16
   %0 = load ptr, ptr %mr, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -529,14 +490,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
-  %rom_device.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 6
+  %rom_device.i = getelementptr inbounds i8, ptr %0, i64 45
   %3 = load i8, ptr %rom_device.i, align 1
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.then5, label %memory_region_is_romd.exit
 
 memory_region_is_romd.exit:                       ; preds = %land.lhs.true
-  %romd_mode.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 1
+  %romd_mode.i = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i8, ptr %romd_mode.i, align 8
   %6 = and i8 %5, 1
   %tobool1.i.not = icmp eq i8 %6, 0
@@ -562,9 +523,9 @@ if.then13:                                        ; preds = %if.end7
 
 if.end15:                                         ; preds = %if.end7
   store ptr %0, ptr %p_mr, align 8
-  %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %ram_block, align 8
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %mrs, i64 32
   %11 = load i64, ptr %offset_within_region, align 16
   %call18 = call ptr @qemu_map_ram_ptr(ptr noundef %10, i64 noundef %11) #7
   br label %return
@@ -603,7 +564,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %mr, align 8
-  %name = getelementptr inbounds %struct.MemoryRegion, ptr %1, i64 0, i32 33
+  %name = getelementptr inbounds i8, ptr %1, i64 232
   %2 = load ptr, ptr %name, align 8
   %call2 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.13, i64 noundef %call, ptr noundef %2, ptr noundef %call1) #7
   call void @memory_region_unref(ptr noundef %1) #7
@@ -733,7 +694,7 @@ if.then4:                                         ; preds = %vtop.exit
 
 if.else:                                          ; preds = %vtop.exit
   %7 = load ptr, ptr %mr, align 8
-  %name = getelementptr inbounds %struct.MemoryRegion, ptr %7, i64 0, i32 33
+  %name = getelementptr inbounds i8, ptr %7, i64 232
   %8 = load ptr, ptr %name, align 8
   %call5 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.17, i64 noundef %call, ptr noundef %8, i64 noundef %retval.0.i) #7
   br label %if.end6

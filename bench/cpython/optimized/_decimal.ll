@@ -19,19 +19,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Slot = type { i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.mpd_context_t = type { i64, i64, i64, i32, i32, i32, i32, i32, i32 }
-%struct.decimal_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [8 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyDecContextObject = type { %struct._object, %struct.mpd_context_t, ptr, ptr, i32, ptr }
-%struct.PyDecContextManagerObject = type { %struct._object, ptr, ptr }
-%struct.PyDecSignalDictObject = type { %struct._object, ptr }
-%struct.PyNumberMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
-%struct.PyDecObject = type { %struct._object, i64, %struct.mpd_t, [4 x i64] }
 %struct.mpd_t = type { i8, i64, i64, i64, i64, ptr }
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon }
-%struct.anon = type { i32 }
-%struct.PyCompactUnicodeObject = type { %struct.PyASCIIObject, i64, ptr }
 %struct.mpd_spec_t = type { i64, i64, i8, i8, i8, [5 x i8], ptr, ptr, ptr }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
 
 @_decimal_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @doc__decimal, i64 232, ptr @_decimal_methods, ptr @_decimal_slots, ptr @decimal_traverse, ptr @decimal_clear, ptr @decimal_free }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"decimal\00", align 1
@@ -524,7 +513,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %module.val, i64 8
   %2 = load ptr, ptr %PyDecContext_Type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -535,7 +524,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %PyDecSignalDictMixin_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 2
+  %PyDecSignalDictMixin_Type = getelementptr inbounds i8, ptr %module.val, i64 16
   %3 = load ptr, ptr %PyDecSignalDictMixin_Type, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -546,7 +535,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %module.val, i64 24
   %4 = load ptr, ptr %PyDec_Type, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -557,7 +546,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %PyDecSignalDict_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 4
+  %PyDecSignalDict_Type = getelementptr inbounds i8, ptr %module.val, i64 32
   %5 = load ptr, ptr %PyDecSignalDict_Type, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -568,7 +557,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %DecimalTuple = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 5
+  %DecimalTuple = getelementptr inbounds i8, ptr %module.val, i64 40
   %6 = load ptr, ptr %DecimalTuple, align 8
   %tobool51.not = icmp eq ptr %6, null
   br i1 %tobool51.not, label %do.body61, label %if.then52
@@ -579,7 +568,7 @@ if.then52:                                        ; preds = %do.body50
   br i1 %tobool56.not, label %do.body61, label %return
 
 do.body61:                                        ; preds = %if.then52, %do.body50
-  %DecimalException = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 6
+  %DecimalException = getelementptr inbounds i8, ptr %module.val, i64 48
   %7 = load ptr, ptr %DecimalException, align 8
   %tobool62.not = icmp eq ptr %7, null
   br i1 %tobool62.not, label %do.body72, label %if.then63
@@ -590,7 +579,7 @@ if.then63:                                        ; preds = %do.body61
   br i1 %tobool67.not, label %do.body72, label %return
 
 do.body72:                                        ; preds = %if.then63, %do.body61
-  %current_context_var = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 7
+  %current_context_var = getelementptr inbounds i8, ptr %module.val, i64 56
   %8 = load ptr, ptr %current_context_var, align 8
   %tobool73.not = icmp eq ptr %8, null
   br i1 %tobool73.not, label %do.body83, label %if.then74
@@ -601,7 +590,7 @@ if.then74:                                        ; preds = %do.body72
   br i1 %tobool78.not, label %do.body83, label %return
 
 do.body83:                                        ; preds = %if.then74, %do.body72
-  %default_context_template = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 8
+  %default_context_template = getelementptr inbounds i8, ptr %module.val, i64 64
   %9 = load ptr, ptr %default_context_template, align 8
   %tobool84.not = icmp eq ptr %9, null
   br i1 %tobool84.not, label %do.body94, label %if.then85
@@ -612,7 +601,7 @@ if.then85:                                        ; preds = %do.body83
   br i1 %tobool89.not, label %do.body94, label %return
 
 do.body94:                                        ; preds = %if.then85, %do.body83
-  %basic_context_template = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 9
+  %basic_context_template = getelementptr inbounds i8, ptr %module.val, i64 72
   %10 = load ptr, ptr %basic_context_template, align 8
   %tobool95.not = icmp eq ptr %10, null
   br i1 %tobool95.not, label %do.body105, label %if.then96
@@ -623,7 +612,7 @@ if.then96:                                        ; preds = %do.body94
   br i1 %tobool100.not, label %do.body105, label %return
 
 do.body105:                                       ; preds = %if.then96, %do.body94
-  %extended_context_template = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 10
+  %extended_context_template = getelementptr inbounds i8, ptr %module.val, i64 80
   %11 = load ptr, ptr %extended_context_template, align 8
   %tobool106.not = icmp eq ptr %11, null
   br i1 %tobool106.not, label %do.body116, label %if.then107
@@ -634,7 +623,7 @@ if.then107:                                       ; preds = %do.body105
   br i1 %tobool111.not, label %do.body116, label %return
 
 do.body116:                                       ; preds = %if.then107, %do.body105
-  %Rational = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 12
+  %Rational = getelementptr inbounds i8, ptr %module.val, i64 152
   %12 = load ptr, ptr %Rational, align 8
   %tobool117.not = icmp eq ptr %12, null
   br i1 %tobool117.not, label %do.body127, label %if.then118
@@ -645,7 +634,7 @@ if.then118:                                       ; preds = %do.body116
   br i1 %tobool122.not, label %do.body127, label %return
 
 do.body127:                                       ; preds = %if.then118, %do.body116
-  %SignalTuple = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 13
+  %SignalTuple = getelementptr inbounds i8, ptr %module.val, i64 160
   %13 = load ptr, ptr %SignalTuple, align 8
   %tobool128.not = icmp eq ptr %13, null
   br i1 %tobool128.not, label %do.end137, label %if.then129
@@ -690,7 +679,7 @@ if.then1.i190:                                    ; preds = %if.end.i187
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i187, %if.then1.i190, %if.then, %entry
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %module.val, i64 8
   %4 = load ptr, ptr %PyDecContext_Type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -713,7 +702,7 @@ if.then1.i181:                                    ; preds = %if.end.i178
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i178, %if.then1.i181, %if.then5, %do.body1
-  %PyDecSignalDictMixin_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 2
+  %PyDecSignalDictMixin_Type = getelementptr inbounds i8, ptr %module.val, i64 16
   %7 = load ptr, ptr %PyDecSignalDictMixin_Type, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -736,7 +725,7 @@ if.then1.i172:                                    ; preds = %if.end.i169
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i169, %if.then1.i172, %if.then12, %do.body8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %module.val, i64 24
   %10 = load ptr, ptr %PyDec_Type, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -759,7 +748,7 @@ if.then1.i163:                                    ; preds = %if.end.i160
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i160, %if.then1.i163, %if.then19, %do.body15
-  %PyDecSignalDict_Type = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 4
+  %PyDecSignalDict_Type = getelementptr inbounds i8, ptr %module.val, i64 32
   %13 = load ptr, ptr %PyDecSignalDict_Type, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -782,7 +771,7 @@ if.then1.i154:                                    ; preds = %if.end.i151
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i151, %if.then1.i154, %if.then26, %do.body22
-  %DecimalTuple = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 5
+  %DecimalTuple = getelementptr inbounds i8, ptr %module.val, i64 40
   %16 = load ptr, ptr %DecimalTuple, align 8
   %cmp32.not = icmp eq ptr %16, null
   br i1 %cmp32.not, label %do.body36, label %if.then33
@@ -805,7 +794,7 @@ if.then1.i145:                                    ; preds = %if.end.i142
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i142, %if.then1.i145, %if.then33, %do.body29
-  %DecimalException = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 6
+  %DecimalException = getelementptr inbounds i8, ptr %module.val, i64 48
   %19 = load ptr, ptr %DecimalException, align 8
   %cmp39.not = icmp eq ptr %19, null
   br i1 %cmp39.not, label %do.body43, label %if.then40
@@ -828,7 +817,7 @@ if.then1.i136:                                    ; preds = %if.end.i133
   br label %do.body43
 
 do.body43:                                        ; preds = %if.end.i133, %if.then1.i136, %if.then40, %do.body36
-  %current_context_var = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 7
+  %current_context_var = getelementptr inbounds i8, ptr %module.val, i64 56
   %22 = load ptr, ptr %current_context_var, align 8
   %cmp46.not = icmp eq ptr %22, null
   br i1 %cmp46.not, label %do.body50, label %if.then47
@@ -851,7 +840,7 @@ if.then1.i127:                                    ; preds = %if.end.i124
   br label %do.body50
 
 do.body50:                                        ; preds = %if.end.i124, %if.then1.i127, %if.then47, %do.body43
-  %default_context_template = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 8
+  %default_context_template = getelementptr inbounds i8, ptr %module.val, i64 64
   %25 = load ptr, ptr %default_context_template, align 8
   %cmp53.not = icmp eq ptr %25, null
   br i1 %cmp53.not, label %do.body57, label %if.then54
@@ -874,7 +863,7 @@ if.then1.i118:                                    ; preds = %if.end.i115
   br label %do.body57
 
 do.body57:                                        ; preds = %if.end.i115, %if.then1.i118, %if.then54, %do.body50
-  %basic_context_template = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 9
+  %basic_context_template = getelementptr inbounds i8, ptr %module.val, i64 72
   %28 = load ptr, ptr %basic_context_template, align 8
   %cmp60.not = icmp eq ptr %28, null
   br i1 %cmp60.not, label %do.body64, label %if.then61
@@ -897,7 +886,7 @@ if.then1.i109:                                    ; preds = %if.end.i106
   br label %do.body64
 
 do.body64:                                        ; preds = %if.end.i106, %if.then1.i109, %if.then61, %do.body57
-  %extended_context_template = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 10
+  %extended_context_template = getelementptr inbounds i8, ptr %module.val, i64 80
   %31 = load ptr, ptr %extended_context_template, align 8
   %cmp67.not = icmp eq ptr %31, null
   br i1 %cmp67.not, label %do.body71, label %if.then68
@@ -920,7 +909,7 @@ if.then1.i100:                                    ; preds = %if.end.i97
   br label %do.body71
 
 do.body71:                                        ; preds = %if.end.i97, %if.then1.i100, %if.then68, %do.body64
-  %Rational = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 12
+  %Rational = getelementptr inbounds i8, ptr %module.val, i64 152
   %34 = load ptr, ptr %Rational, align 8
   %cmp74.not = icmp eq ptr %34, null
   br i1 %cmp74.not, label %do.body78, label %if.then75
@@ -943,7 +932,7 @@ if.then1.i91:                                     ; preds = %if.end.i88
   br label %do.body78
 
 do.body78:                                        ; preds = %if.end.i88, %if.then1.i91, %if.then75, %do.body71
-  %SignalTuple = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 13
+  %SignalTuple = getelementptr inbounds i8, ptr %module.val, i64 160
   %37 = load ptr, ptr %SignalTuple, align 8
   %cmp81.not = icmp eq ptr %37, null
   br i1 %cmp81.not, label %do.end84, label %if.then82
@@ -966,10 +955,10 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end84
 
 do.end84:                                         ; preds = %do.body78, %if.then82, %if.then1.i, %if.end.i
-  %signal_map = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 14
+  %signal_map = getelementptr inbounds i8, ptr %module.val, i64 168
   %40 = load ptr, ptr %signal_map, align 8
   tail call void @PyMem_Free(ptr noundef %40) #15
-  %cond_map = getelementptr inbounds %struct.decimal_state, ptr %module.val, i64 0, i32 15
+  %cond_map = getelementptr inbounds i8, ptr %module.val, i64 176
   %41 = load ptr, ptr %cond_map, align 8
   tail call void @PyMem_Free(ptr noundef %41) #15
   ret i32 0
@@ -996,7 +985,7 @@ define internal ptr @PyDec_SetCurrentContext(ptr nocapture noundef readonly %sel
 entry:
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %self.val, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %self.val, i64 8
   %1 = load ptr, ptr %PyDecContext_Type, align 8
   %2 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %2, align 8
@@ -1014,19 +1003,19 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %default_context_template = getelementptr inbounds %struct.decimal_state, ptr %self.val, i64 0, i32 8
+  %default_context_template = getelementptr inbounds i8, ptr %self.val, i64 64
   %4 = load ptr, ptr %default_context_template, align 8
   %cmp = icmp eq ptr %4, %v
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %basic_context_template = getelementptr inbounds %struct.decimal_state, ptr %self.val, i64 0, i32 9
+  %basic_context_template = getelementptr inbounds i8, ptr %self.val, i64 72
   %5 = load ptr, ptr %basic_context_template, align 8
   %cmp2 = icmp eq ptr %5, %v
   br i1 %cmp2, label %if.then5, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %extended_context_template = getelementptr inbounds %struct.decimal_state, ptr %self.val, i64 0, i32 10
+  %extended_context_template = getelementptr inbounds i8, ptr %self.val, i64 80
   %6 = load ptr, ptr %extended_context_template, align 8
   %cmp4 = icmp eq ptr %6, %v
   br i1 %cmp4, label %if.then5, label %if.else
@@ -1036,23 +1025,23 @@ if.then5:                                         ; preds = %lor.lhs.false3, %lo
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @_decimal_module) #15
   %7 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %7, align 8
-  %PyDecContext_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 1
+  %PyDecContext_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 8
   %8 = load ptr, ptr %PyDecContext_Type.i, align 8
   %call2.i21 = tail call ptr @PyObject_CallObject(ptr noundef %8, ptr noundef null) #15
   %cmp.i22 = icmp eq ptr %call2.i21, null
   br i1 %cmp.i22, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %ctx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i21, i64 0, i32 1
-  %ctx3.i = getelementptr inbounds %struct.PyDecContextObject, ptr %v, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %call2.i21, i64 16
+  %ctx3.i = getelementptr inbounds i8, ptr %v, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx3.i, i64 48, i1 false)
-  %newtrap.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i21, i64 0, i32 1, i32 5
+  %newtrap.i = getelementptr inbounds i8, ptr %call2.i21, i64 48
   store i32 0, ptr %newtrap.i, align 8
-  %capitals.i = getelementptr inbounds %struct.PyDecContextObject, ptr %v, i64 0, i32 4
+  %capitals.i = getelementptr inbounds i8, ptr %v, i64 80
   %9 = load i32, ptr %capitals.i, align 8
-  %capitals5.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i21, i64 0, i32 4
+  %capitals5.i = getelementptr inbounds i8, ptr %call2.i21, i64 80
   store i32 %9, ptr %capitals5.i, align 8
-  %status = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i21, i64 0, i32 1, i32 4
+  %status = getelementptr inbounds i8, ptr %call2.i21, i64 44
   store i32 0, ptr %status, align 4
   br label %if.end10
 
@@ -1068,7 +1057,7 @@ if.end.i32:                                       ; preds = %if.else
 
 if.end10:                                         ; preds = %if.end.i32, %if.else, %if.end9
   %v.addr.0 = phi ptr [ %call2.i21, %if.end9 ], [ %v, %if.else ], [ %v, %if.end.i32 ]
-  %current_context_var = getelementptr inbounds %struct.decimal_state, ptr %self.val, i64 0, i32 7
+  %current_context_var = getelementptr inbounds i8, ptr %self.val, i64 56
   %11 = load ptr, ptr %current_context_var, align 8
   %call11 = tail call ptr @PyContextVar_Set(ptr noundef %11, ptr noundef nonnull %v.addr.0) #15
   %12 = load i64, ptr %v.addr.0, align 8
@@ -1169,7 +1158,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end11
 
 if.else:                                          ; preds = %if.end4
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %m.val, i64 8
   %4 = load ptr, ptr %PyDecContext_Type, align 8
   %5 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -1197,21 +1186,21 @@ if.end11:                                         ; preds = %PyObject_TypeCheck.
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDecContext_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 1
+  %PyDecContext_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 8
   %10 = load ptr, ptr %PyDecContext_Type.i, align 8
   %call2.i20 = call ptr @PyObject_CallObject(ptr noundef %10, ptr noundef null) #15
   %cmp.i21 = icmp eq ptr %call2.i20, null
   br i1 %cmp.i21, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %ctx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i20, i64 0, i32 1
-  %ctx3.i = getelementptr inbounds %struct.PyDecContextObject, ptr %7, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %call2.i20, i64 16
+  %ctx3.i = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx3.i, i64 48, i1 false)
-  %newtrap.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i20, i64 0, i32 1, i32 5
+  %newtrap.i = getelementptr inbounds i8, ptr %call2.i20, i64 48
   store i32 0, ptr %newtrap.i, align 8
-  %capitals.i = getelementptr inbounds %struct.PyDecContextObject, ptr %7, i64 0, i32 4
+  %capitals.i = getelementptr inbounds i8, ptr %7, i64 80
   %11 = load i32, ptr %capitals.i, align 8
-  %capitals5.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i20, i64 0, i32 4
+  %capitals5.i = getelementptr inbounds i8, ptr %call2.i20, i64 80
   store i32 %11, ptr %capitals5.i, align 8
   %12 = load ptr, ptr %prec, align 8
   %13 = load ptr, ptr %rounding, align 8
@@ -1264,7 +1253,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end23:                                         ; preds = %if.end19
-  %local24 = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %call20, i64 0, i32 1
+  %local24 = getelementptr inbounds i8, ptr %call20, i64 16
   store ptr %call2.i20, ptr %local24, align 8
   %25 = load i32, ptr %call1, align 8
   %add.i.i = add i32 %25, 1
@@ -1276,7 +1265,7 @@ if.end.i.i:                                       ; preds = %if.end23
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end23, %if.end.i.i
-  %global26 = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %call20, i64 0, i32 2
+  %global26 = getelementptr inbounds i8, ptr %call20, i64 24
   store ptr %call1, ptr %global26, align 8
   call void @PyObject_GC_Track(ptr noundef nonnull %call20) #15
   br label %return
@@ -1290,7 +1279,7 @@ return:                                           ; preds = %if.end11, %if.end.i
 define internal fastcc ptr @current_context(ptr nocapture noundef readonly %state) unnamed_addr #0 {
 entry:
   %tl_context = alloca ptr, align 8
-  %current_context_var = getelementptr inbounds %struct.decimal_state, ptr %state, i64 0, i32 7
+  %current_context_var = getelementptr inbounds i8, ptr %state, i64 56
   %0 = load ptr, ptr %current_context_var, align 8
   %call = call i32 @PyContextVar_Get(ptr noundef %0, ptr noundef null, ptr noundef nonnull %tl_context) #15
   %cmp = icmp slt i32 %call, 0
@@ -1302,30 +1291,30 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %default_context_template.i = getelementptr inbounds %struct.decimal_state, ptr %state, i64 0, i32 8
+  %default_context_template.i = getelementptr inbounds i8, ptr %state, i64 64
   %2 = load ptr, ptr %default_context_template.i, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %self.val.i.i = load ptr, ptr %3, align 8
   %call.i.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i.i, ptr noundef nonnull @_decimal_module) #15
   %4 = getelementptr i8, ptr %call.i.i.i, i64 32
   %call.val.i.i.i = load ptr, ptr %4, align 8
-  %PyDecContext_Type.i.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i.i, i64 0, i32 1
+  %PyDecContext_Type.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type.i.i, align 8
   %call2.i.i = call ptr @PyObject_CallObject(ptr noundef %5, ptr noundef null) #15
   %cmp.i11.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i11.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %ctx.i.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i.i, i64 0, i32 1
-  %ctx3.i.i = getelementptr inbounds %struct.PyDecContextObject, ptr %2, i64 0, i32 1
+  %ctx.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
+  %ctx3.i.i = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx3.i.i, i64 48, i1 false)
-  %newtrap.i.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i.i, i64 0, i32 1, i32 5
+  %newtrap.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 48
   store i32 0, ptr %newtrap.i.i, align 8
-  %capitals.i.i = getelementptr inbounds %struct.PyDecContextObject, ptr %2, i64 0, i32 4
+  %capitals.i.i = getelementptr inbounds i8, ptr %2, i64 80
   %6 = load i32, ptr %capitals.i.i, align 8
-  %capitals5.i.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i.i, i64 0, i32 4
+  %capitals5.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 80
   store i32 %6, ptr %capitals5.i.i, align 8
-  %status.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call2.i.i, i64 0, i32 1, i32 4
+  %status.i = getelementptr inbounds i8, ptr %call2.i.i, i64 44
   store i32 0, ptr %status.i, align 4
   %7 = load ptr, ptr %current_context_var, align 8
   %call1.i = call ptr @PyContextVar_Set(ptr noundef %7, ptr noundef nonnull %call2.i.i) #15
@@ -1377,21 +1366,21 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %2 = load ptr, ptr %PyDecContext_Type, align 8
   %call2 = tail call ptr @PyObject_CallObject(ptr noundef %2, ptr noundef null) #15
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 1
-  %ctx3 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call2, i64 16
+  %ctx3 = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx3, i64 48, i1 false)
-  %newtrap = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 1, i32 5
+  %newtrap = getelementptr inbounds i8, ptr %call2, i64 48
   store i32 0, ptr %newtrap, align 8
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %self, i64 80
   %3 = load i32, ptr %capitals, align 8
-  %capitals5 = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 4
+  %capitals5 = getelementptr inbounds i8, ptr %call2, i64 80
   store i32 %3, ptr %capitals5, align 8
   br label %return
 
@@ -1433,7 +1422,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %land.lhs.true
-  %ctx2.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx2.i = getelementptr inbounds i8, ptr %self, i64 16
   %call3.i = tail call i32 @mpd_qsetprec(ptr noundef nonnull %ctx2.i, i64 noundef %call.i) #15
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %return.sink.split, label %if.end
@@ -1446,19 +1435,23 @@ land.lhs.true3:                                   ; preds = %if.end
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @_decimal_module) #15
-  %1 = getelementptr i8, ptr %call.i.i, i64 32
-  %call.val.i.i = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %rounding, i64 8
-  %v.val.i.i = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %v.val.i.i, i64 168
-  %call.val.i3.i = load i64, ptr %3, align 8
-  %4 = and i64 %call.val.i3.i, 268435456
-  %tobool.not.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.i.i, label %return.sink.split, label %for.body.i.i
+  %1 = getelementptr i8, ptr %rounding, i64 8
+  %v.val.i.i = load ptr, ptr %1, align 8
+  %2 = getelementptr i8, ptr %v.val.i.i, i64 168
+  %call.val.i3.i = load i64, ptr %2, align 8
+  %3 = and i64 %call.val.i3.i, 268435456
+  %tobool.not.i.i = icmp eq i64 %3, 0
+  br i1 %tobool.not.i.i, label %return.sink.split, label %for.cond.preheader.i.i
 
-for.body.i.i:                                     ; preds = %land.lhs.true3, %for.inc.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %land.lhs.true3 ]
-  %arrayidx.i.i = getelementptr %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 11, i64 %indvars.iv.i.i
+for.cond.preheader.i.i:                           ; preds = %land.lhs.true3
+  %4 = getelementptr i8, ptr %call.i.i, i64 32
+  %call.val.i.i = load ptr, ptr %4, align 8
+  %round_map.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 88
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr [8 x ptr], ptr %round_map.i.i, i64 0, i64 %indvars.iv.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp eq ptr %5, %rounding
   br i1 %cmp2.i.i, label %getround.exit.i, label %for.inc.i.i
@@ -1470,7 +1463,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 for.body6.i.i:                                    ; preds = %for.inc.i.i, %for.inc14.i.i
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %for.inc14.i.i ], [ 0, %for.inc.i.i ]
-  %arrayidx9.i.i = getelementptr %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 11, i64 %indvars.iv20.i.i
+  %arrayidx9.i.i = getelementptr [8 x ptr], ptr %round_map.i.i, i64 0, i64 %indvars.iv20.i.i
   %6 = load ptr, ptr %arrayidx9.i.i, align 8
   %call10.i.i = tail call i32 @PyUnicode_Compare(ptr noundef %rounding, ptr noundef %6) #15
   %cmp11.i.i = icmp eq i32 %call10.i.i, 0
@@ -1488,7 +1481,7 @@ getround.exit.i:                                  ; preds = %for.body.i.i, %for.
   br i1 %cmp.i26, label %return, label %if.end.i27
 
 if.end.i27:                                       ; preds = %getround.exit.i
-  %ctx3.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx3.i = getelementptr inbounds i8, ptr %self, i64 16
   %call4.i = tail call i32 @mpd_qsetround(ptr noundef nonnull %ctx3.i, i32 noundef %retval.0.i.i) #15
   %tobool.not.i28 = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i28, label %return.sink.split, label %if.end7
@@ -1508,7 +1501,7 @@ land.lhs.true.i37:                                ; preds = %land.lhs.true9
   br i1 %tobool.not.i39, label %if.end.i31, label %return
 
 if.end.i31:                                       ; preds = %land.lhs.true.i37, %land.lhs.true9
-  %ctx2.i32 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx2.i32 = getelementptr inbounds i8, ptr %self, i64 16
   %call3.i33 = tail call i32 @mpd_qsetemin(ptr noundef nonnull %ctx2.i32, i64 noundef %call.i29) #15
   %tobool4.not.i34 = icmp eq i32 %call3.i33, 0
   br i1 %tobool4.not.i34, label %return.sink.split, label %if.end13
@@ -1528,7 +1521,7 @@ land.lhs.true.i48:                                ; preds = %land.lhs.true15
   br i1 %tobool.not.i50, label %if.end.i42, label %return
 
 if.end.i42:                                       ; preds = %land.lhs.true.i48, %land.lhs.true15
-  %ctx2.i43 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx2.i43 = getelementptr inbounds i8, ptr %self, i64 16
   %call3.i44 = tail call i32 @mpd_qsetemax(ptr noundef nonnull %ctx2.i43, i64 noundef %call.i40) #15
   %tobool4.not.i45 = icmp eq i32 %call3.i44, 0
   br i1 %tobool4.not.i45, label %return.sink.split, label %if.end19
@@ -1553,7 +1546,7 @@ if.end.i53:                                       ; preds = %land.lhs.true21
 
 context_setcapitals.exit:                         ; preds = %if.end.i53
   %conv.i = trunc i64 %call.i51 to i32
-  %capitals.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 4
+  %capitals.i = getelementptr inbounds i8, ptr %self, i64 80
   store i32 %conv.i, ptr %capitals.i, align 8
   br label %if.end25
 
@@ -1575,7 +1568,7 @@ if.end.i61:                                       ; preds = %land.lhs.true.i65, 
   %7 = add i64 %call.i59, -2147483648
   %or.cond.i62 = icmp ult i64 %7, -4294967296
   %8 = trunc i64 %call.i59 to i32
-  %ctx4.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx4.i = getelementptr inbounds i8, ptr %self, i64 16
   %conv.i63 = select i1 %or.cond.i62, i32 2147483647, i32 %8
   %call5.i = tail call i32 @mpd_qsetclamp(ptr noundef nonnull %ctx4.i, i32 noundef %conv.i63) #15
   %tobool6.not.i = icmp eq i32 %call5.i, 0
@@ -1619,19 +1612,19 @@ for.body.i.i78:                                   ; preds = %if.end.i.i, %for.bo
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i78, %for.inc.i.i.i
   %cm.03.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %state.val.i.i, %for.body.i.i78 ]
-  %ex1.i.i.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i.i.i, i64 0, i32 3
+  %ex1.i.i.i = getelementptr inbounds i8, ptr %cm.03.i.i.i, i64 24
   %16 = load ptr, ptr %ex1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %16, %call1.i.i
   br i1 %cmp2.i.i.i, label %exception_as_flag.exit.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr %struct.DecCondMap, ptr %cm.03.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %cm.03.i.i.i, i64 32
   %17 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i, label %return.sink.split, label %for.body.i.i.i, !llvm.loop !8
 
 exception_as_flag.exit.i.i:                       ; preds = %for.body.i.i.i
-  %flag.i.i.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i.i.i, i64 0, i32 2
+  %flag.i.i.i = getelementptr inbounds i8, ptr %cm.03.i.i.i, i64 16
   %18 = load i32, ptr %flag.i.i.i, align 8
   %and.i.i = and i32 %18, 98304
   %tobool.not.i.i79 = icmp eq i32 %and.i.i, 0
@@ -1650,20 +1643,20 @@ list_as_flags.exit.i:                             ; preds = %if.end.i.i
 
 if.end.i73:                                       ; preds = %list_as_flags.exit.i, %if.then36
   %retval.0.i7.i = phi i32 [ %or.i.i, %list_as_flags.exit.i ], [ 0, %if.then36 ]
-  %ctx3.i74 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx3.i74 = getelementptr inbounds i8, ptr %self, i64 16
   %call4.i75 = tail call i32 @mpd_qsettraps(ptr noundef nonnull %ctx3.i74, i32 noundef %retval.0.i7.i) #15
   %tobool5.not.i = icmp eq i32 %call4.i75, 0
   br i1 %tobool5.not.i, label %return.sink.split, label %if.end43
 
 if.else:                                          ; preds = %if.then33
-  %PyDecSignalDict_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i83, i64 0, i32 4
+  %PyDecSignalDict_Type.i = getelementptr inbounds i8, ptr %call.val.i.i83, i64 32
   %20 = load ptr, ptr %PyDecSignalDict_Type.i, align 8
   %value.val.i = load ptr, ptr %9, align 8
   %cmp.i.not.i = icmp eq ptr %value.val.i, %20
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %flags3.i = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %traps, i64 0, i32 1
+  %flags3.i = getelementptr inbounds i8, ptr %traps, i64 16
   %21 = load ptr, ptr %flags3.i, align 8
   %22 = load i32, ptr %21, align 4
   br label %if.end7.i88
@@ -1676,7 +1669,7 @@ if.else.i:                                        ; preds = %if.else
 
 if.end7.i88:                                      ; preds = %if.else.i, %if.then.i
   %flags.0.i = phi i32 [ %22, %if.then.i ], [ %call4.i84, %if.else.i ]
-  %ctx8.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx8.i = getelementptr inbounds i8, ptr %self, i64 16
   %call9.i = tail call i32 @mpd_qsettraps(ptr noundef nonnull %ctx8.i, i32 noundef %flags.0.i) #15
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %return.sink.split, label %if.end43
@@ -1719,19 +1712,19 @@ for.body.i.i107:                                  ; preds = %if.end.i.i124, %for
 
 for.body.i.i.i113:                                ; preds = %for.body.i.i107, %for.inc.i.i.i117
   %cm.03.i.i.i114 = phi ptr [ %incdec.ptr.i.i.i118, %for.inc.i.i.i117 ], [ %state.val.i.i111, %for.body.i.i107 ]
-  %ex1.i.i.i115 = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i.i.i114, i64 0, i32 3
+  %ex1.i.i.i115 = getelementptr inbounds i8, ptr %cm.03.i.i.i114, i64 24
   %30 = load ptr, ptr %ex1.i.i.i115, align 8
   %cmp2.i.i.i116 = icmp eq ptr %30, %call1.i.i110
   br i1 %cmp2.i.i.i116, label %exception_as_flag.exit.i.i120, label %for.inc.i.i.i117
 
 for.inc.i.i.i117:                                 ; preds = %for.body.i.i.i113
-  %incdec.ptr.i.i.i118 = getelementptr %struct.DecCondMap, ptr %cm.03.i.i.i114, i64 1
+  %incdec.ptr.i.i.i118 = getelementptr i8, ptr %cm.03.i.i.i114, i64 32
   %31 = load ptr, ptr %incdec.ptr.i.i.i118, align 8
   %cmp.not.i.i.i119 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i119, label %return.sink.split, label %for.body.i.i.i113, !llvm.loop !8
 
 exception_as_flag.exit.i.i120:                    ; preds = %for.body.i.i.i113
-  %flag.i.i.i121 = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i.i.i114, i64 0, i32 2
+  %flag.i.i.i121 = getelementptr inbounds i8, ptr %cm.03.i.i.i114, i64 16
   %32 = load i32, ptr %flag.i.i.i121, align 8
   %and.i.i122 = and i32 %32, 98304
   %tobool.not.i.i123 = icmp eq i32 %and.i.i122, 0
@@ -1750,20 +1743,20 @@ list_as_flags.exit.i128:                          ; preds = %if.end.i.i124
 
 if.end.i97:                                       ; preds = %list_as_flags.exit.i128, %if.then49
   %retval.0.i7.i98 = phi i32 [ %or.i.i125, %list_as_flags.exit.i128 ], [ 0, %if.then49 ]
-  %ctx3.i99 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx3.i99 = getelementptr inbounds i8, ptr %self, i64 16
   %call4.i100 = tail call i32 @mpd_qsetstatus(ptr noundef nonnull %ctx3.i99, i32 noundef %retval.0.i7.i98) #15
   %tobool5.not.i101 = icmp eq i32 %call4.i100, 0
   br i1 %tobool5.not.i101, label %return.sink.split, label %return
 
 if.else51:                                        ; preds = %if.then45
-  %PyDecSignalDict_Type.i133 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i132, i64 0, i32 4
+  %PyDecSignalDict_Type.i133 = getelementptr inbounds i8, ptr %call.val.i.i132, i64 32
   %34 = load ptr, ptr %PyDecSignalDict_Type.i133, align 8
   %value.val.i134 = load ptr, ptr %23, align 8
   %cmp.i.not.i135 = icmp eq ptr %value.val.i134, %34
   br i1 %cmp.i.not.i135, label %if.then.i147, label %if.else.i136
 
 if.then.i147:                                     ; preds = %if.else51
-  %flags3.i148 = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %status, i64 0, i32 1
+  %flags3.i148 = getelementptr inbounds i8, ptr %status, i64 16
   %35 = load ptr, ptr %flags3.i148, align 8
   %36 = load i32, ptr %35, align 4
   br label %if.end7.i141
@@ -1776,7 +1769,7 @@ if.else.i136:                                     ; preds = %if.else51
 
 if.end7.i141:                                     ; preds = %if.else.i136, %if.then.i147
   %flags.0.i142 = phi i32 [ %36, %if.then.i147 ], [ %call4.i137, %if.else.i136 ]
-  %ctx8.i143 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx8.i143 = getelementptr inbounds i8, ptr %self, i64 16
   %call9.i144 = tail call i32 @mpd_qsetstatus(ptr noundef nonnull %ctx8.i143, i32 noundef %flags.0.i142) #15
   %tobool10.not.i145 = icmp eq i32 %call9.i144, 0
   br i1 %tobool10.not.i145, label %return.sink.split, label %return
@@ -1810,7 +1803,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %ctx2 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx2 = getelementptr inbounds i8, ptr %self, i64 16
   %call3 = tail call i32 @mpd_qsetprec(ptr noundef nonnull %ctx2, i64 noundef %call) #15
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %return
@@ -1831,19 +1824,23 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
-  %1 = getelementptr i8, ptr %call.i, i64 32
-  %call.val.i = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %value, i64 8
-  %v.val.i = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %v.val.i, i64 168
-  %call.val.i3 = load i64, ptr %3, align 8
-  %4 = and i64 %call.val.i3, 268435456
-  %tobool.not.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.i, label %return.sink.split, label %for.body.i
+  %1 = getelementptr i8, ptr %value, i64 8
+  %v.val.i = load ptr, ptr %1, align 8
+  %2 = getelementptr i8, ptr %v.val.i, i64 168
+  %call.val.i3 = load i64, ptr %2, align 8
+  %3 = and i64 %call.val.i3, 268435456
+  %tobool.not.i = icmp eq i64 %3, 0
+  br i1 %tobool.not.i, label %return.sink.split, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv.i
+for.cond.preheader.i:                             ; preds = %entry
+  %4 = getelementptr i8, ptr %call.i, i64 32
+  %call.val.i = load ptr, ptr %4, align 8
+  %round_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 88
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq ptr %5, %value
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
@@ -1855,7 +1852,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.inc.i, %for.inc14.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc14.i ], [ 0, %for.inc.i ]
-  %arrayidx9.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv20.i
+  %arrayidx9.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv20.i
   %6 = load ptr, ptr %arrayidx9.i, align 8
   %call10.i = tail call i32 @PyUnicode_Compare(ptr noundef %value, ptr noundef %6) #15
   %cmp11.i = icmp eq i32 %call10.i, 0
@@ -1873,7 +1870,7 @@ getround.exit:                                    ; preds = %for.body.i, %for.bo
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %getround.exit
-  %ctx3 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx3 = getelementptr inbounds i8, ptr %self, i64 16
   %call4 = tail call i32 @mpd_qsetround(ptr noundef nonnull %ctx3, i32 noundef %retval.0.i) #15
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return.sink.split, label %return
@@ -1903,7 +1900,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %ctx2 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx2 = getelementptr inbounds i8, ptr %self, i64 16
   %call3 = tail call i32 @mpd_qsetemin(ptr noundef nonnull %ctx2, i64 noundef %call) #15
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %return
@@ -1931,7 +1928,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %ctx2 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx2 = getelementptr inbounds i8, ptr %self, i64 16
   %call3 = tail call i32 @mpd_qsetemax(ptr noundef nonnull %ctx2, i64 noundef %call) #15
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %return
@@ -1969,7 +1966,7 @@ if.then5:                                         ; preds = %land.lhs.true, %if.
 
 if.end7:                                          ; preds = %if.end
   %conv = trunc i64 %call to i32
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %self, i64 80
   store i32 %conv, ptr %capitals, align 8
   br label %return
 
@@ -1994,7 +1991,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %0 = add i64 %call, -2147483648
   %or.cond = icmp ult i64 %0, -4294967296
   %1 = trunc i64 %call to i32
-  %ctx4 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx4 = getelementptr inbounds i8, ptr %self, i64 16
   %conv = select i1 %or.cond, i32 2147483647, i32 %1
   %call5 = tail call i32 @mpd_qsetclamp(ptr noundef nonnull %ctx4, i32 noundef %conv) #15
   %tobool6.not = icmp eq i32 %call5, 0
@@ -2049,7 +2046,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %return.sink.split
 
 if.end4:                                          ; preds = %if.end
-  %signal_map = getelementptr inbounds %struct.decimal_state, ptr %state, i64 0, i32 14
+  %signal_map = getelementptr inbounds i8, ptr %state, i64 168
   %3 = load ptr, ptr %signal_map, align 8
   %4 = load ptr, ptr %3, align 8
   %cmp5.not9 = icmp eq ptr %4, null
@@ -2058,7 +2055,7 @@ if.end4:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end4, %for.inc
   %flags.011 = phi i32 [ %flags.1, %for.inc ], [ 0, %if.end4 ]
   %cm.010 = phi ptr [ %incdec.ptr, %for.inc ], [ %3, %if.end4 ]
-  %ex = getelementptr inbounds %struct.DecCondMap, ptr %cm.010, i64 0, i32 3
+  %ex = getelementptr inbounds i8, ptr %cm.010, i64 24
   %5 = load ptr, ptr %ex, align 8
   %call6 = tail call ptr @PyDict_GetItemWithError(ptr noundef %val, ptr noundef %5) #15
   %cmp7 = icmp eq ptr %call6, null
@@ -2079,14 +2076,14 @@ if.end17:                                         ; preds = %if.end13
   br i1 %cmp18, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %if.end17
-  %flag = getelementptr inbounds %struct.DecCondMap, ptr %cm.010, i64 0, i32 2
+  %flag = getelementptr inbounds i8, ptr %cm.010, i64 16
   %6 = load i32, ptr %flag, align 8
   %or = or i32 %6, %flags.011
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end17, %if.then19
   %flags.1 = phi i32 [ %or, %if.then19 ], [ %flags.011, %if.end17 ]
-  %incdec.ptr = getelementptr %struct.DecCondMap, ptr %cm.010, i64 1
+  %incdec.ptr = getelementptr i8, ptr %cm.010, i64 32
   %7 = load ptr, ptr %incdec.ptr, align 8
   %cmp5.not = icmp eq ptr %7, null
   br i1 %cmp5.not, label %return, label %for.body, !llvm.loop !10
@@ -2131,22 +2128,22 @@ if.end:                                           ; preds = %if.then, %entry
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_multiply = getelementptr inbounds %struct.PyNumberMethods, ptr %1, i64 0, i32 2
+  %nb_multiply = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %nb_multiply, align 8
-  %_py_long_multiply = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 16
+  %_py_long_multiply = getelementptr inbounds i8, ptr %m.val, i64 184
   store ptr %2, ptr %_py_long_multiply, align 8
-  %nb_floor_divide = getelementptr inbounds %struct.PyNumberMethods, ptr %1, i64 0, i32 29
+  %nb_floor_divide = getelementptr inbounds i8, ptr %1, i64 232
   %3 = load ptr, ptr %nb_floor_divide, align 8
-  %_py_long_floor_divide = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 17
+  %_py_long_floor_divide = getelementptr inbounds i8, ptr %m.val, i64 192
   store ptr %3, ptr %_py_long_floor_divide, align 8
-  %nb_power = getelementptr inbounds %struct.PyNumberMethods, ptr %1, i64 0, i32 5
+  %nb_power = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %nb_power, align 8
-  %_py_long_power = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 18
+  %_py_long_power = getelementptr inbounds i8, ptr %m.val, i64 200
   store ptr %4, ptr %_py_long_power, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 10), align 8
-  %nb_absolute = getelementptr inbounds %struct.PyNumberMethods, ptr %5, i64 0, i32 8
+  %nb_absolute = getelementptr inbounds i8, ptr %5, i64 64
   %6 = load ptr, ptr %nb_absolute, align 8
-  %_py_float_abs = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 19
+  %_py_float_abs = getelementptr inbounds i8, ptr %m.val, i64 208
   store ptr %6, ptr %_py_float_abs, align 8
   %PyFloat_Type.val = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 27), align 8
   %cmp.i213 = icmp eq ptr %PyFloat_Type.val, null
@@ -2165,14 +2162,14 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %m.03.i, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %m.03.i, i64 16
   %9 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %9, 4
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %cfunc_noargs.exit.thread, label %cfunc_noargs.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr %struct.PyMethodDef, ptr %m.03.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %m.03.i, i64 32
   %10 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp2.not.i = icmp eq ptr %10, null
   br i1 %cmp2.not.i, label %cfunc_noargs.exit.thread, label %for.body.i, !llvm.loop !11
@@ -2180,13 +2177,13 @@ for.inc.i:                                        ; preds = %for.body.i
 cfunc_noargs.exit.thread:                         ; preds = %for.inc.i, %if.end, %for.cond.preheader.i, %if.then5.i
   %11 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.30) #15
-  %_py_float_as_integer_ratio248 = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 21
+  %_py_float_as_integer_ratio248 = getelementptr inbounds i8, ptr %m.val, i64 224
   br label %do.body548.thread324.sink.split
 
 cfunc_noargs.exit:                                ; preds = %if.then5.i
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %m.03.i, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %m.03.i, i64 8
   %12 = load ptr, ptr %ml_meth.i, align 8
-  %_py_float_as_integer_ratio = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 21
+  %_py_float_as_integer_ratio = getelementptr inbounds i8, ptr %m.val, i64 224
   store ptr %12, ptr %_py_float_as_integer_ratio, align 8
   %cmp = icmp eq ptr %12, null
   br i1 %cmp, label %do.body548.thread324, label %do.body5
@@ -2209,14 +2206,14 @@ for.body.i217:                                    ; preds = %for.cond.preheader.
   br i1 %cmp4.i220, label %if.then5.i227, label %for.inc.i221
 
 if.then5.i227:                                    ; preds = %for.body.i217
-  %ml_flags.i228 = getelementptr inbounds %struct.PyMethodDef, ptr %m.03.i218, i64 0, i32 2
+  %ml_flags.i228 = getelementptr inbounds i8, ptr %m.03.i218, i64 16
   %15 = load i32, ptr %ml_flags.i228, align 8
   %and.i229 = and i32 %15, 4
   %tobool.not.i230 = icmp eq i32 %and.i229, 0
   br i1 %tobool.not.i230, label %cfunc_noargs.exit233.thread, label %cfunc_noargs.exit233
 
 for.inc.i221:                                     ; preds = %for.body.i217
-  %incdec.ptr.i222 = getelementptr %struct.PyMethodDef, ptr %m.03.i218, i64 1
+  %incdec.ptr.i222 = getelementptr i8, ptr %m.03.i218, i64 32
   %16 = load ptr, ptr %incdec.ptr.i222, align 8
   %cmp2.not.i223 = icmp eq ptr %16, null
   br i1 %cmp2.not.i223, label %cfunc_noargs.exit233.thread, label %for.body.i217, !llvm.loop !11
@@ -2224,27 +2221,27 @@ for.inc.i221:                                     ; preds = %for.body.i217
 cfunc_noargs.exit233.thread:                      ; preds = %for.inc.i221, %do.body5, %for.cond.preheader.i215, %if.then5.i227
   %17 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call9.i225 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.31) #15
-  %_py_long_bit_length251 = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 20
+  %_py_long_bit_length251 = getelementptr inbounds i8, ptr %m.val, i64 216
   br label %do.body548.thread324.sink.split
 
 cfunc_noargs.exit233:                             ; preds = %if.then5.i227
-  %ml_meth.i232 = getelementptr inbounds %struct.PyMethodDef, ptr %m.03.i218, i64 0, i32 1
+  %ml_meth.i232 = getelementptr inbounds i8, ptr %m.03.i218, i64 8
   %18 = load ptr, ptr %ml_meth.i232, align 8
-  %_py_long_bit_length = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 20
+  %_py_long_bit_length = getelementptr inbounds i8, ptr %m.val, i64 216
   store ptr %18, ptr %_py_long_bit_length, align 8
   %cmp8 = icmp eq ptr %18, null
   br i1 %cmp8, label %do.body548.thread324, label %do.body12
 
 do.body12:                                        ; preds = %cfunc_noargs.exit233
   %call13 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %m, ptr noundef nonnull @dec_spec, ptr noundef null) #15
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %m.val, i64 24
   store ptr %call13, ptr %PyDec_Type, align 8
   %cmp16 = icmp eq ptr %call13, null
   br i1 %cmp16, label %do.body548.thread324, label %do.body21
 
 do.body21:                                        ; preds = %do.body12
   %call22 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %m, ptr noundef nonnull @context_spec, ptr noundef null) #15
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %m.val, i64 8
   store ptr %call22, ptr %PyDecContext_Type, align 8
   %cmp25 = icmp eq ptr %call22, null
   br i1 %cmp25, label %do.body548.thread324, label %do.body30
@@ -2257,7 +2254,7 @@ do.body30:                                        ; preds = %do.body21
 
 do.body39:                                        ; preds = %do.body30
   %call40 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %m, ptr noundef nonnull @signaldict_spec, ptr noundef null) #15
-  %PyDecSignalDictMixin_Type = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 2
+  %PyDecSignalDictMixin_Type = getelementptr inbounds i8, ptr %m.val, i64 16
   store ptr %call40, ptr %PyDecSignalDictMixin_Type, align 8
   %cmp43 = icmp eq ptr %call40, null
   br i1 %cmp43, label %do.body548.thread324, label %do.body48
@@ -2269,7 +2266,7 @@ do.body48:                                        ; preds = %do.body39
 
 do.body54:                                        ; preds = %do.body48
   %19 = load ptr, ptr %PyDec_Type, align 8
-  %tp_dict = getelementptr inbounds %struct._typeobject, ptr %19, i64 0, i32 31
+  %tp_dict = getelementptr inbounds i8, ptr %19, i64 264
   %20 = load ptr, ptr %tp_dict, align 8
   %call56 = tail call i32 @PyDict_SetItemString(ptr noundef %20, ptr noundef nonnull @.str.32, ptr noundef nonnull %call49) #15
   %cmp57 = icmp slt i32 %call56, 0
@@ -2277,7 +2274,7 @@ do.body54:                                        ; preds = %do.body48
 
 do.body61:                                        ; preds = %do.body54
   %21 = load ptr, ptr %PyDecContext_Type, align 8
-  %tp_dict63 = getelementptr inbounds %struct._typeobject, ptr %21, i64 0, i32 31
+  %tp_dict63 = getelementptr inbounds i8, ptr %21, i64 264
   %22 = load ptr, ptr %tp_dict63, align 8
   %call64 = tail call i32 @PyDict_SetItemString(ptr noundef %22, ptr noundef nonnull @.str.32, ptr noundef nonnull %call49) #15
   %cmp65 = icmp slt i32 %call64, 0
@@ -2333,7 +2330,7 @@ if.then1.i679:                                    ; preds = %if.end.i676
 
 do.body100:                                       ; preds = %if.end.i676, %if.then1.i679, %if.then97
   %call101 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call75, ptr noundef nonnull @.str.37) #15
-  %Rational = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 12
+  %Rational = getelementptr inbounds i8, ptr %m.val, i64 152
   store ptr %call101, ptr %Rational, align 8
   %cmp103 = icmp eq ptr %call101, null
   br i1 %cmp103, label %if.then521, label %if.then111
@@ -2377,7 +2374,7 @@ do.body121:                                       ; preds = %if.end.i658, %if.th
 
 do.body127:                                       ; preds = %do.body121
   %call128 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call122, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #15
-  %DecimalTuple = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 5
+  %DecimalTuple = getelementptr inbounds i8, ptr %m.val, i64 40
   store ptr %call128, ptr %DecimalTuple, align 8
   %cmp130 = icmp eq ptr %call128, null
   br i1 %cmp130, label %if.then537, label %do.body134
@@ -2389,7 +2386,7 @@ do.body134:                                       ; preds = %do.body127
 
 do.body140:                                       ; preds = %do.body134
   %32 = load ptr, ptr %DecimalTuple, align 8
-  %tp_dict142 = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 31
+  %tp_dict142 = getelementptr inbounds i8, ptr %32, i64 264
   %33 = load ptr, ptr %tp_dict142, align 8
   %call143 = tail call i32 @PyDict_SetItemString(ptr noundef %33, ptr noundef nonnull @.str.32, ptr noundef nonnull %call135) #15
   %cmp144 = icmp slt i32 %call143, 0
@@ -2424,7 +2421,7 @@ do.body161:                                       ; preds = %do.body155
 do.body167:                                       ; preds = %do.body161
   %36 = load ptr, ptr %PyDecSignalDictMixin_Type, align 8
   %call169 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull @PyType_Type, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef %36, ptr noundef nonnull %call162) #15
-  %PyDecSignalDict_Type = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 4
+  %PyDecSignalDict_Type = getelementptr inbounds i8, ptr %m.val, i64 32
   store ptr %call169, ptr %PyDecSignalDict_Type, align 8
   %cmp171 = icmp eq ptr %call169, null
   br i1 %cmp171, label %if.then537, label %if.then179
@@ -2498,7 +2495,7 @@ do.body210:                                       ; preds = %do.body203
 do.body217:                                       ; preds = %do.body210
   %46 = load ptr, ptr @PyExc_ArithmeticError, align 8
   %call218 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.47, ptr noundef %46, ptr noundef null) #15
-  %DecimalException = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 6
+  %DecimalException = getelementptr inbounds i8, ptr %m.val, i64 48
   store ptr %call218, ptr %DecimalException, align 8
   %cmp220 = icmp eq ptr %call218, null
   br i1 %cmp220, label %do.body548.thread324, label %do.body224
@@ -2510,7 +2507,7 @@ do.body224:                                       ; preds = %do.body217
 
 do.body231:                                       ; preds = %do.body224
   %call232 = tail call ptr @PyTuple_New(i64 noundef 9) #15
-  %SignalTuple = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 13
+  %SignalTuple = getelementptr inbounds i8, ptr %m.val, i64 160
   store ptr %call232, ptr %SignalTuple, align 8
   %cmp234 = icmp eq ptr %call232, null
   br i1 %cmp234, label %do.body548.thread324, label %do.body238
@@ -2518,7 +2515,7 @@ do.body231:                                       ; preds = %do.body224
 do.body238:                                       ; preds = %do.body231
   %call.i234 = tail call ptr @PyMem_Malloc(i64 noundef 320) #15
   %cmp.i235 = icmp eq ptr %call.i234, null
-  %signal_map253 = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 14
+  %signal_map253 = getelementptr inbounds i8, ptr %m.val, i64 168
   br i1 %cmp.i235, label %dec_cond_map_init.exit.thread, label %dec_cond_map_init.exit
 
 dec_cond_map_init.exit.thread:                    ; preds = %do.body238
@@ -2534,7 +2531,7 @@ for.body:                                         ; preds = %dec_cond_map_init.e
   %indvars.iv = phi i64 [ 8, %dec_cond_map_init.exit ], [ %indvars.iv.next, %_Py_NewRef.exit ]
   %47 = load ptr, ptr %signal_map253, align 8
   %add.ptr = getelementptr %struct.DecCondMap, ptr %47, i64 %indvars.iv
-  %flag = getelementptr %struct.DecCondMap, ptr %47, i64 %indvars.iv, i32 2
+  %flag = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %48 = load i32, ptr %flag, align 8
   switch i32 %48, label %sw.default [
     i32 1024, label %sw.bb
@@ -2556,19 +2553,19 @@ sw.bb249:                                         ; preds = %for.body
   br label %sw.epilog
 
 sw.bb252:                                         ; preds = %for.body
-  %ex = getelementptr %struct.DecCondMap, ptr %47, i64 6, i32 3
+  %ex = getelementptr i8, ptr %47, i64 216
   %53 = load ptr, ptr %ex, align 8
-  %ex256 = getelementptr %struct.DecCondMap, ptr %47, i64 7, i32 3
+  %ex256 = getelementptr i8, ptr %47, i64 248
   %54 = load ptr, ptr %ex256, align 8
   %call257 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %53, ptr noundef %54) #15
   br label %sw.epilog
 
 sw.bb258:                                         ; preds = %for.body
-  %ex261 = getelementptr %struct.DecCondMap, ptr %47, i64 6, i32 3
+  %ex261 = getelementptr i8, ptr %47, i64 216
   %55 = load ptr, ptr %ex261, align 8
-  %ex264 = getelementptr %struct.DecCondMap, ptr %47, i64 7, i32 3
+  %ex264 = getelementptr i8, ptr %47, i64 248
   %56 = load ptr, ptr %ex264, align 8
-  %ex267 = getelementptr %struct.DecCondMap, ptr %47, i64 5, i32 3
+  %ex267 = getelementptr i8, ptr %47, i64 184
   %57 = load ptr, ptr %ex267, align 8
   %call268 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef %55, ptr noundef %56, ptr noundef %57) #15
   br label %sw.epilog
@@ -2584,10 +2581,10 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb2
   br i1 %cmp271, label %do.body548.thread324, label %do.body274
 
 do.body274:                                       ; preds = %sw.epilog
-  %fqname = getelementptr %struct.DecCondMap, ptr %47, i64 %indvars.iv, i32 1
+  %fqname = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %59 = load ptr, ptr %fqname, align 8
   %call275 = tail call ptr @PyErr_NewException(ptr noundef %59, ptr noundef nonnull %base.0, ptr noundef null) #15
-  %ex276 = getelementptr %struct.DecCondMap, ptr %47, i64 %indvars.iv, i32 3
+  %ex276 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store ptr %call275, ptr %ex276, align 8
   %cmp278 = icmp eq ptr %call275, null
   br i1 %cmp278, label %do.body548.thread324, label %do.end281
@@ -2628,7 +2625,8 @@ if.end.i.i:                                       ; preds = %do.end288
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %do.end288, %if.end.i.i
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %64, i64 0, i32 1, i64 %indvars.iv
+  %ob_item.i = getelementptr inbounds i8, ptr %64, i64 24
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %indvars.iv
   store ptr %65, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp245.not = icmp eq i64 %indvars.iv, 0
@@ -2637,7 +2635,7 @@ _Py_NewRef.exit:                                  ; preds = %do.end288, %if.end.
 do.body292:                                       ; preds = %_Py_NewRef.exit
   %call.i237 = tail call ptr @PyMem_Malloc(i64 noundef 192) #15
   %cmp.i238 = icmp eq ptr %call.i237, null
-  %cond_map254 = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 15
+  %cond_map254 = getelementptr inbounds i8, ptr %m.val, i64 176
   br i1 %cmp.i238, label %dec_cond_map_init.exit242.thread, label %do.end299
 
 dec_cond_map_init.exit242.thread:                 ; preds = %do.body292
@@ -2648,26 +2646,26 @@ do.end299:                                        ; preds = %do.body292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call.i237, ptr noundef nonnull align 16 dereferenceable(192) @cond_map_template, i64 192, i1 false)
   store ptr %call.i237, ptr %cond_map254, align 8
   %67 = load ptr, ptr %signal_map253, align 8
-  %ex302 = getelementptr inbounds %struct.DecCondMap, ptr %67, i64 0, i32 3
+  %ex302 = getelementptr inbounds i8, ptr %67, i64 24
   %68 = load ptr, ptr %ex302, align 8
-  %ex305 = getelementptr inbounds %struct.DecCondMap, ptr %call.i237, i64 0, i32 3
+  %ex305 = getelementptr inbounds i8, ptr %call.i237, i64 24
   store ptr %68, ptr %ex305, align 8
   %69 = load ptr, ptr %cond_map254, align 8
   br label %for.cond308
 
 for.cond308:                                      ; preds = %do.body341, %do.end299
   %.pn = phi ptr [ %69, %do.end299 ], [ %cm.0, %do.body341 ]
-  %cm.0 = getelementptr %struct.DecCondMap, ptr %.pn, i64 1
+  %cm.0 = getelementptr i8, ptr %.pn, i64 32
   %70 = load ptr, ptr %cm.0, align 8
   %cmp310.not = icmp eq ptr %70, null
   br i1 %cmp310.not, label %do.body352, label %for.body312
 
 for.body312:                                      ; preds = %for.cond308
-  %flag314 = getelementptr %struct.DecCondMap, ptr %.pn, i64 1, i32 2
+  %flag314 = getelementptr i8, ptr %.pn, i64 48
   %71 = load i32, ptr %flag314, align 8
   %cmp315 = icmp eq i32 %71, 16
   %72 = load ptr, ptr %signal_map253, align 8
-  %ex320 = getelementptr inbounds %struct.DecCondMap, ptr %72, i64 0, i32 3
+  %ex320 = getelementptr inbounds i8, ptr %72, i64 24
   %73 = load ptr, ptr %ex320, align 8
   br i1 %cmp315, label %if.then317, label %if.else
 
@@ -2686,10 +2684,10 @@ if.end326:                                        ; preds = %if.else, %if.then31
   br i1 %cmp327, label %do.body548.thread324, label %do.body331
 
 do.body331:                                       ; preds = %if.end326
-  %fqname332 = getelementptr %struct.DecCondMap, ptr %.pn, i64 1, i32 1
+  %fqname332 = getelementptr i8, ptr %.pn, i64 40
   %75 = load ptr, ptr %fqname332, align 8
   %call333 = tail call ptr @PyErr_NewException(ptr noundef %75, ptr noundef nonnull %base313.0, ptr noundef null) #15
-  %ex334 = getelementptr %struct.DecCondMap, ptr %.pn, i64 1, i32 3
+  %ex334 = getelementptr i8, ptr %.pn, i64 56
   store ptr %call333, ptr %ex334, align 8
   %cmp336 = icmp eq ptr %call333, null
   br i1 %cmp336, label %do.body548.thread324, label %do.end340
@@ -2720,7 +2718,7 @@ do.body341:                                       ; preds = %if.end.i604, %if.th
 do.body352:                                       ; preds = %for.cond308
   %80 = load ptr, ptr %PyDecContext_Type, align 8
   %call354 = tail call ptr @PyObject_CallObject(ptr noundef %80, ptr noundef null) #15
-  %default_context_template = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 8
+  %default_context_template = getelementptr inbounds i8, ptr %m.val, i64 64
   store ptr %call354, ptr %default_context_template, align 8
   %cmp356 = icmp eq ptr %call354, null
   br i1 %cmp356, label %do.body548.thread324, label %do.body361
@@ -2732,7 +2730,7 @@ do.body361:                                       ; preds = %do.body352
 
 do.body369:                                       ; preds = %do.body361
   %call370 = tail call ptr @PyContextVar_New(ptr noundef nonnull @.str.49, ptr noundef null) #15
-  %current_context_var = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 7
+  %current_context_var = getelementptr inbounds i8, ptr %m.val, i64 56
   store ptr %call370, ptr %current_context_var, align 8
   %cmp372 = icmp eq ptr %call370, null
   br i1 %cmp372, label %do.body548.thread324, label %do.body377
@@ -2750,25 +2748,25 @@ do.body384:                                       ; preds = %do.body377
 do.body391:                                       ; preds = %do.body384
   %81 = load ptr, ptr %PyDecContext_Type, align 8
   %call393 = tail call ptr @PyObject_CallObject(ptr noundef %81, ptr noundef null) #15
-  %basic_context_template = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 9
+  %basic_context_template = getelementptr inbounds i8, ptr %m.val, i64 72
   store ptr %call393, ptr %basic_context_template, align 8
   %cmp395 = icmp eq ptr %call393, null
   br i1 %cmp395, label %do.body548.thread324, label %do.end399
 
 do.end399:                                        ; preds = %do.body391
-  %ctx1.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 1
+  %ctx1.i = getelementptr inbounds i8, ptr %call393, i64 16
   store i64 9, ptr %ctx1.i, align 8
-  %ctx.sroa.3.0.ctx1.sroa_idx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 1, i32 1
+  %ctx.sroa.3.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.mpd_context_t, ptr @dflt_ctx, i64 0, i32 1), i64 16, i1 false)
-  %ctx.sroa.32.0.ctx1.sroa_idx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 1, i32 3
+  %ctx.sroa.32.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 40
   store i32 19391, ptr %ctx.sroa.32.0.ctx1.sroa_idx.i, align 8
-  %ctx.sroa.5.0.ctx1.sroa_idx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 1, i32 4
+  %ctx.sroa.5.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 44
   store i64 0, ptr %ctx.sroa.5.0.ctx1.sroa_idx.i, align 4
-  %ctx.sroa.54.0.ctx1.sroa_idx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 1, i32 6
+  %ctx.sroa.54.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 52
   store i32 4, ptr %ctx.sroa.54.0.ctx1.sroa_idx.i, align 4
-  %ctx.sroa.6.0.ctx1.sroa_idx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 1, i32 7
+  %ctx.sroa.6.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 56
   store i64 4294967296, ptr %ctx.sroa.6.0.ctx1.sroa_idx.i, align 8
-  %capitals.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call393, i64 0, i32 4
+  %capitals.i = getelementptr inbounds i8, ptr %call393, i64 80
   store i32 1, ptr %capitals.i, align 8
   %82 = load ptr, ptr %basic_context_template, align 8
   %call403 = tail call i32 @PyModule_AddObjectRef(ptr noundef %m, ptr noundef nonnull @.str.52, ptr noundef %82) #15
@@ -2778,21 +2776,21 @@ do.end399:                                        ; preds = %do.body391
 do.body409:                                       ; preds = %do.end399
   %83 = load ptr, ptr %PyDecContext_Type, align 8
   %call411 = tail call ptr @PyObject_CallObject(ptr noundef %83, ptr noundef null) #15
-  %extended_context_template = getelementptr inbounds %struct.decimal_state, ptr %m.val, i64 0, i32 10
+  %extended_context_template = getelementptr inbounds i8, ptr %m.val, i64 80
   store ptr %call411, ptr %extended_context_template, align 8
   %cmp413 = icmp eq ptr %call411, null
   br i1 %cmp413, label %do.body548.thread324, label %do.end417
 
 do.end417:                                        ; preds = %do.body409
-  %ctx1.i243 = getelementptr inbounds %struct.PyDecContextObject, ptr %call411, i64 0, i32 1
+  %ctx1.i243 = getelementptr inbounds i8, ptr %call411, i64 16
   store i64 9, ptr %ctx1.i243, align 8
-  %ctx.sroa.3.0.ctx1.sroa_idx.i244 = getelementptr inbounds %struct.PyDecContextObject, ptr %call411, i64 0, i32 1, i32 1
+  %ctx.sroa.3.0.ctx1.sroa_idx.i244 = getelementptr inbounds i8, ptr %call411, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i244, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.mpd_context_t, ptr @dflt_ctx, i64 0, i32 1), i64 16, i1 false)
-  %ctx.sroa.32.0.ctx1.sroa_idx.i245 = getelementptr inbounds %struct.PyDecContextObject, ptr %call411, i64 0, i32 1, i32 3
+  %ctx.sroa.32.0.ctx1.sroa_idx.i245 = getelementptr inbounds i8, ptr %call411, i64 40
   store i32 0, ptr %ctx.sroa.32.0.ctx1.sroa_idx.i245, align 8
-  %ctx.sroa.4.0.ctx1.sroa_idx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call411, i64 0, i32 1, i32 4
+  %ctx.sroa.4.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call411, i64 44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ctx.sroa.4.0.ctx1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (%struct.mpd_context_t, ptr @dflt_ctx, i64 0, i32 4), i64 20, i1 false)
-  %capitals.i246 = getelementptr inbounds %struct.PyDecContextObject, ptr %call411, i64 0, i32 4
+  %capitals.i246 = getelementptr inbounds i8, ptr %call411, i64 80
   store i32 1, ptr %capitals.i246, align 8
   %84 = load ptr, ptr %extended_context_template, align 8
   %call421 = tail call i32 @PyModule_AddObjectRef(ptr noundef %m, ptr noundef nonnull @.str.53, ptr noundef %84) #15
@@ -2800,32 +2798,36 @@ do.end417:                                        ; preds = %do.body409
   br i1 %cmp422, label %do.body548.thread324, label %do.body432
 
 for.cond427:                                      ; preds = %do.body432
-  %incdec.ptr442 = getelementptr %struct.ssize_constmap, ptr %ssize_cm.0334, i64 1
+  %incdec.ptr442 = getelementptr i8, ptr %ssize_cm.0334, i64 16
   %85 = load ptr, ptr %incdec.ptr442, align 8
   %cmp429.not = icmp eq ptr %85, null
-  br i1 %cmp429.not, label %do.body466, label %do.body432, !llvm.loop !14
+  br i1 %cmp429.not, label %for.cond462.preheader, label %do.body432, !llvm.loop !14
 
 do.body432:                                       ; preds = %do.end417, %for.cond427
   %86 = phi ptr [ %85, %for.cond427 ], [ @.str.251, %do.end417 ]
   %ssize_cm.0334 = phi ptr [ %incdec.ptr442, %for.cond427 ], [ @ssize_constants, %do.end417 ]
-  %val = getelementptr inbounds %struct.ssize_constmap, ptr %ssize_cm.0334, i64 0, i32 1
+  %val = getelementptr inbounds i8, ptr %ssize_cm.0334, i64 8
   %87 = load i64, ptr %val, align 8
   %call434 = tail call ptr @PyLong_FromSsize_t(i64 noundef %87) #15
   %call435 = tail call i32 @PyModule_Add(ptr noundef %m, ptr noundef nonnull %86, ptr noundef %call434) #15
   %cmp436 = icmp slt i32 %call435, 0
   br i1 %cmp436, label %do.body548.thread324, label %for.cond427
 
+for.cond462.preheader:                            ; preds = %for.cond427
+  %round_map = getelementptr inbounds i8, ptr %m.val, i64 88
+  br label %do.body466
+
 for.cond462:                                      ; preds = %do.body479
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next344, 8
   br i1 %exitcond.not, label %do.body493, label %do.body466, !llvm.loop !15
 
-do.body466:                                       ; preds = %for.cond427, %for.cond462
-  %indvars.iv343 = phi i64 [ %indvars.iv.next344, %for.cond462 ], [ 0, %for.cond427 ]
+do.body466:                                       ; preds = %for.cond462.preheader, %for.cond462
+  %indvars.iv343 = phi i64 [ 0, %for.cond462.preheader ], [ %indvars.iv.next344, %for.cond462 ]
   %arrayidx467 = getelementptr [9 x ptr], ptr @mpd_round_string, i64 0, i64 %indvars.iv343
   %88 = load ptr, ptr %arrayidx467, align 8
   %call468 = tail call ptr @PyUnicode_InternFromString(ptr noundef %88) #15
-  %arrayidx470 = getelementptr %struct.decimal_state, ptr %m.val, i64 0, i32 11, i64 %indvars.iv343
+  %arrayidx470 = getelementptr [8 x ptr], ptr %round_map, i64 0, i64 %indvars.iv343
   store ptr %call468, ptr %arrayidx470, align 8
   %cmp474 = icmp eq ptr %call468, null
   br i1 %cmp474, label %do.body548.thread324, label %do.body479
@@ -3038,9 +3040,9 @@ entry:
   %0 = getelementptr i8, ptr %dec, i64 8
   %dec.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %dec) #15
-  %dec1 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec1 = getelementptr inbounds i8, ptr %dec, i64 24
   tail call void @mpd_del(ptr noundef nonnull %dec1) #15
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %dec.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %dec.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %dec) #15
   %2 = load i64, ptr %dec.val, align 8
@@ -3114,8 +3116,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %dec3 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 4
+  %dec3 = getelementptr inbounds i8, ptr %dec, i64 24
+  %capitals = getelementptr inbounds i8, ptr %call2, i64 80
   %4 = load i32, ptr %capitals, align 8
   %call4 = tail call ptr @mpd_to_sci(ptr noundef nonnull %dec3, i32 noundef %4) #15
   %cmp5 = icmp eq ptr %call4, null
@@ -3147,7 +3149,7 @@ entry:
   %ten.i = alloca %struct.mpd_t, align 8
   %status.i = alloca i32, align 4
   %maxctx.i = alloca %struct.mpd_context_t, align 8
-  %hash = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 1
+  %hash = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %hash, align 8
   %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -3163,42 +3165,42 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %maxctx.i)
   store i64 2305843009213693951, ptr %p_data.i, align 8
   store i8 -112, ptr %p.i, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %p.i, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %p.i, i64 8
   store i64 0, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %p.i, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %p.i, i64 16
   store i64 19, ptr %digits.i, align 8
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %p.i, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %p.i, i64 24
   store i64 1, ptr %len.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %p.i, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %p.i, i64 32
   store i64 1, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %p.i, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %p.i, i64 40
   store ptr %p_data.i, ptr %data.i, align 8
   store i64 2075258708292324556, ptr %inv10_p_data.i, align 8
   store i8 -112, ptr %inv10_p.i, align 8
-  %exp2.i = getelementptr inbounds %struct.mpd_t, ptr %inv10_p.i, i64 0, i32 1
+  %exp2.i = getelementptr inbounds i8, ptr %inv10_p.i, i64 8
   store i64 0, ptr %exp2.i, align 8
-  %digits3.i = getelementptr inbounds %struct.mpd_t, ptr %inv10_p.i, i64 0, i32 2
+  %digits3.i = getelementptr inbounds i8, ptr %inv10_p.i, i64 16
   store i64 19, ptr %digits3.i, align 8
-  %len4.i = getelementptr inbounds %struct.mpd_t, ptr %inv10_p.i, i64 0, i32 3
+  %len4.i = getelementptr inbounds i8, ptr %inv10_p.i, i64 24
   store i64 1, ptr %len4.i, align 8
-  %alloc5.i = getelementptr inbounds %struct.mpd_t, ptr %inv10_p.i, i64 0, i32 4
+  %alloc5.i = getelementptr inbounds i8, ptr %inv10_p.i, i64 32
   store i64 1, ptr %alloc5.i, align 8
-  %data6.i = getelementptr inbounds %struct.mpd_t, ptr %inv10_p.i, i64 0, i32 5
+  %data6.i = getelementptr inbounds i8, ptr %inv10_p.i, i64 40
   store ptr %inv10_p_data.i, ptr %data6.i, align 8
   store i64 10, ptr %ten_data.i, align 8
   store i8 -112, ptr %ten.i, align 8
-  %exp9.i = getelementptr inbounds %struct.mpd_t, ptr %ten.i, i64 0, i32 1
+  %exp9.i = getelementptr inbounds i8, ptr %ten.i, i64 8
   store i64 0, ptr %exp9.i, align 8
-  %digits10.i = getelementptr inbounds %struct.mpd_t, ptr %ten.i, i64 0, i32 2
+  %digits10.i = getelementptr inbounds i8, ptr %ten.i, i64 16
   store i64 2, ptr %digits10.i, align 8
-  %len11.i = getelementptr inbounds %struct.mpd_t, ptr %ten.i, i64 0, i32 3
+  %len11.i = getelementptr inbounds i8, ptr %ten.i, i64 24
   store i64 1, ptr %len11.i, align 8
-  %alloc12.i = getelementptr inbounds %struct.mpd_t, ptr %ten.i, i64 0, i32 4
+  %alloc12.i = getelementptr inbounds i8, ptr %ten.i, i64 32
   store i64 1, ptr %alloc12.i, align 8
-  %data13.i = getelementptr inbounds %struct.mpd_t, ptr %ten.i, i64 0, i32 5
+  %data13.i = getelementptr inbounds i8, ptr %ten.i, i64 40
   store ptr %ten_data.i, ptr %data13.i, align 8
   store i32 0, ptr %status.i, align 4
-  %dec.i = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec.i = getelementptr inbounds i8, ptr %self, i64 24
   %call.i = call i32 @mpd_isspecial(ptr noundef nonnull %dec.i) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -3240,7 +3242,7 @@ if.end31.i:                                       ; preds = %if.end.i
   br i1 %cmp33.i, label %return.critedge.i, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end31.i
-  %exp38.i = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2, i32 1
+  %exp38.i = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i64, ptr %exp38.i, align 8
   %sub.sink.i = call i64 @llvm.abs.i64(i64 %2, i1 false)
   %cmp3953.i = icmp slt i64 %2, 0
@@ -3252,13 +3254,13 @@ if.end36.i:                                       ; preds = %if.end31.i
   br i1 %tobool46.not.i, label %if.end71.i, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end36.i
-  %exp49.i = getelementptr inbounds %struct.mpd_t, ptr %call32.i, i64 0, i32 1
+  %exp49.i = getelementptr inbounds i8, ptr %call32.i, i64 8
   store i64 0, ptr %exp49.i, align 8
   call void @mpd_set_positive(ptr noundef nonnull %call32.i) #15
   store i64 1000000000000000020, ptr %maxctx.i, align 8
-  %emax.i = getelementptr inbounds %struct.mpd_context_t, ptr %maxctx.i, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %maxctx.i, i64 8
   store i64 1000000000000000020, ptr %emax.i, align 8
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %maxctx.i, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %maxctx.i, i64 16
   store i64 -1000000000000000020, ptr %emin.i, align 8
   call void @mpd_qmul(ptr noundef nonnull %call32.i, ptr noundef nonnull %call32.i, ptr noundef nonnull %call28.i, ptr noundef nonnull %maxctx.i, ptr noundef nonnull %status.i) #15
   call void @mpd_qrem(ptr noundef nonnull %call32.i, ptr noundef nonnull %call32.i, ptr noundef nonnull %p.i, ptr noundef nonnull %maxctx.i, ptr noundef nonnull %status.i) #15
@@ -3349,8 +3351,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %dec3 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 4
+  %dec3 = getelementptr inbounds i8, ptr %dec, i64 24
+  %capitals = getelementptr inbounds i8, ptr %call2, i64 80
   %4 = load i32, ptr %capitals, align 8
   %call4 = call i64 @mpd_to_sci_size(ptr noundef nonnull %cp, ptr noundef nonnull %dec3, i32 noundef %4) #15
   %cmp5 = icmp slt i64 %call4, 0
@@ -3376,9 +3378,8 @@ if.end.i9:                                        ; preds = %if.end8
 if.then.i.i:                                      ; preds = %if.end.i9
   %8 = and i32 %op.val.i.i, 64
   %tobool.not.i.i.i = icmp eq i32 %8, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i7, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i7, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %call.i7, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i9
@@ -3450,7 +3451,7 @@ Py_DECREF.exit63:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %8 = getelementptr i8, ptr %w, i64 8
   %w.val65.i = load ptr, ptr %8, align 8
@@ -3505,7 +3506,7 @@ land.lhs.true16.i:                                ; preds = %if.then14.i
   br i1 %tobool18.not.i, label %if.else20.i, label %return
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %if.then14.i
-  %status.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1, i32 4
+  %status.i = getelementptr inbounds i8, ptr %call1, i64 44
   %14 = load i32, ptr %status.i, align 4
   %or.i = or i32 %14, 1024
   store i32 %or.i, ptr %status.i, align 4
@@ -3552,7 +3553,7 @@ if.then38.i:                                      ; preds = %if.else36.i
   br i1 %cmp41.i, label %return, label %if.else43.i
 
 if.else43.i:                                      ; preds = %if.then38.i
-  %status44.i = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1, i32 4
+  %status44.i = getelementptr inbounds i8, ptr %call1, i64 44
   %19 = load i32, ptr %status44.i, align 4
   %or45.i = or i32 %19, 1024
   store i32 %or45.i, ptr %status44.i, align 4
@@ -3584,7 +3585,7 @@ if.end.i.i81.i:                                   ; preds = %if.else49.i
   br label %return
 
 if.else53.i:                                      ; preds = %PyObject_TypeCheck.exit78.i
-  %Rational.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 12
+  %Rational.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 152
   %24 = load ptr, ptr %Rational.i, align 8
   %call54.i = tail call i32 @PyObject_IsInstance(ptr noundef nonnull %w, ptr noundef %24) #15
   %cmp55.i = icmp slt i32 %call54.i, 0
@@ -3600,7 +3601,7 @@ if.then59.i:                                      ; preds = %if.else57.i
   br i1 %tobool61.not.i, label %return, label %land.lhs.true62.i
 
 land.lhs.true62.i:                                ; preds = %if.then59.i
-  %dec.i28 = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2
+  %dec.i28 = getelementptr inbounds i8, ptr %v, i64 24
   %call63.i = tail call i32 @mpd_isspecial(ptr noundef nonnull %dec.i28) #15
   %tobool64.not.i = icmp eq i32 %call63.i, 0
   br i1 %tobool64.not.i, label %if.then65.i, label %if.end81.i
@@ -3659,9 +3660,9 @@ if.end.i107.i:                                    ; preds = %if.then88.i
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.i107.i, %if.then88.i, %if.end86.i
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.0, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.0, i64 24
   %call5 = tail call i32 @mpd_issnan(ptr noundef nonnull %dec) #15
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %b.0, i64 0, i32 2
+  %dec6 = getelementptr inbounds i8, ptr %b.0, i64 24
   %call7 = tail call i32 @mpd_issnan(ptr noundef nonnull %dec6) #15
   %call10 = call i32 @mpd_qcmp(ptr noundef nonnull %dec, ptr noundef nonnull %dec6, ptr noundef nonnull %status) #15
   %29 = load i64, ptr %a.0, align 8
@@ -3834,7 +3835,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %4 = load ptr, ptr %PyDecContext_Type, align 8
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -3865,7 +3866,7 @@ if.then.i:                                        ; preds = %if.end11
   %call.i.i.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i.i.i, i64 32
   %call.val.i.i.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i.i.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i.i.i, i64 0, i32 3
+  %PyDec_Type.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i.i.i, align 8
   %cmp.i6.i.i = icmp eq ptr %10, %type
   br i1 %cmp.i6.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -3875,7 +3876,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br label %if.end.i7.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
-  %tp_alloc.i.i.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %11 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call3.i.i.i = call ptr %11(ptr noundef %type, i64 noundef 0) #15
   br label %if.end.i7.i.i
@@ -3886,16 +3887,16 @@ if.end.i7.i.i:                                    ; preds = %if.else.i.i.i, %if.
   br i1 %cmp4.i.i.i, label %PyDecType_FromSsizeExact.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i7.i.i
-  %hash.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 1
+  %hash.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 16
   store i64 -1, ptr %hash.i.i.i, align 8
-  %dec7.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2
+  %dec7.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 24
   store i8 48, ptr %dec7.i.i.i, align 8
-  %exp.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2, i32 1
-  %alloc.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2, i32 4
+  %exp.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 32
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 3
-  %data13.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 72
+  %data13.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 64
   store ptr %data.i.i.i, ptr %data13.i.i.i, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxctx.i.i) #15
   call void @mpd_qset_ssize(ptr noundef nonnull %dec7.i.i.i, i64 noundef 0, ptr noundef nonnull %maxctx.i.i, ptr noundef nonnull %status.i.i) #15
@@ -3929,7 +3930,7 @@ PyDecType_FromSsizeExact.exit.i:                  ; preds = %if.then1.i.i.i, %if
 if.else.i:                                        ; preds = %if.end11
   %15 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %15, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %16 = load ptr, ptr %PyDec_Type.i, align 8
   %17 = getelementptr i8, ptr %7, i64 8
   %v.val30.i = load ptr, ptr %17, align 8
@@ -3947,7 +3948,7 @@ if.then3.i:                                       ; preds = %PyObject_TypeCheck.
   %call.i.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %18 = getelementptr i8, ptr %call.i.i.i, i64 32
   %call.val.i.i.i = load ptr, ptr %18, align 8
-  %PyDec_Type.i.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i.i, i64 0, i32 3
+  %PyDec_Type.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 24
   %19 = load ptr, ptr %PyDec_Type.i.i, align 8
   %cmp.i.i = icmp eq ptr %19, %type
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i33.i
@@ -3971,7 +3972,7 @@ if.end.i33.i:                                     ; preds = %land.lhs.true.i.i, 
   %call.i.i.i34.i = call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i.i34.i, i64 32
   %call.val.i.i.i35.i = load ptr, ptr %21, align 8
-  %PyDec_Type.i.i36.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i.i35.i, i64 0, i32 3
+  %PyDec_Type.i.i36.i = getelementptr inbounds i8, ptr %call.val.i.i.i35.i, i64 24
   %22 = load ptr, ptr %PyDec_Type.i.i36.i, align 8
   %cmp.i12.i.i = icmp eq ptr %22, %type
   br i1 %cmp.i12.i.i, label %if.then.i.i53.i, label %if.else.i.i37.i
@@ -3981,7 +3982,7 @@ if.then.i.i53.i:                                  ; preds = %if.end.i33.i
   br label %if.end.i13.i.i
 
 if.else.i.i37.i:                                  ; preds = %if.end.i33.i
-  %tp_alloc.i.i38.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i38.i = getelementptr inbounds i8, ptr %type, i64 304
   %23 = load ptr, ptr %tp_alloc.i.i38.i, align 8
   %call3.i.i39.i = call ptr %23(ptr noundef %type, i64 noundef 0) #15
   br label %if.end.i13.i.i
@@ -3992,18 +3993,18 @@ if.end.i13.i.i:                                   ; preds = %if.else.i.i37.i, %i
   br i1 %cmp4.i.i41.i, label %PyDecType_FromDecimalExact.exit.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i13.i.i
-  %hash.i.i42.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i40.i, i64 0, i32 1
+  %hash.i.i42.i = getelementptr inbounds i8, ptr %dec.0.i.i40.i, i64 16
   store i64 -1, ptr %hash.i.i42.i, align 8
-  %dec7.i.i43.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i40.i, i64 0, i32 2
+  %dec7.i.i43.i = getelementptr inbounds i8, ptr %dec.0.i.i40.i, i64 24
   store i8 48, ptr %dec7.i.i43.i, align 8
-  %exp.i.i44.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i40.i, i64 0, i32 2, i32 1
-  %alloc.i.i45.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i40.i, i64 0, i32 2, i32 4
+  %exp.i.i44.i = getelementptr inbounds i8, ptr %dec.0.i.i40.i, i64 32
+  %alloc.i.i45.i = getelementptr inbounds i8, ptr %dec.0.i.i40.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i44.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i.i45.i, align 8
-  %data.i.i46.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i40.i, i64 0, i32 3
-  %data13.i.i47.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i40.i, i64 0, i32 2, i32 5
+  %data.i.i46.i = getelementptr inbounds i8, ptr %dec.0.i.i40.i, i64 72
+  %data13.i.i47.i = getelementptr inbounds i8, ptr %dec.0.i.i40.i, i64 64
   store ptr %data.i.i46.i, ptr %data13.i.i47.i, align 8
-  %dec9.i.i = getelementptr inbounds %struct.PyDecObject, ptr %7, i64 0, i32 2
+  %dec9.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %call10.i.i = call i32 @mpd_qcopy(ptr noundef nonnull %dec7.i.i43.i, ptr noundef nonnull %dec9.i.i, ptr noundef nonnull %status.i32.i) #15
   %24 = load i32, ptr %status.i32.i, align 4
   %call11.i.i = call fastcc i32 @dec_addstatus(ptr noundef %8, i32 noundef %24), !range !16
@@ -4141,7 +4142,7 @@ if.end.i6:                                        ; preds = %if.then29.i
 if.else34.i:                                      ; preds = %PyObject_TypeCheck.exit85.i
   %36 = load ptr, ptr @PyExc_TypeError, align 8
   %v.val.i = load ptr, ptr %17, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val.i, i64 24
   %37 = load ptr, ptr %tp_name.i, align 8
   %call36.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.137, ptr noundef %37) #15
   br label %return
@@ -4199,7 +4200,7 @@ Py_DECREF.exit72:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -4250,7 +4251,7 @@ if.end4:                                          ; preds = %if.then.i27, %if.en
   %call.i.i31 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %13, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %14 = load ptr, ptr %PyDec_Type.i33, align 8
   %15 = getelementptr i8, ptr %other, i64 8
   %v.val11.i34 = load ptr, ptr %15, align 8
@@ -4315,12 +4316,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end8:                                          ; preds = %if.then.i39, %if.end.i.i.i42, %convert_op.exit59
   %b.093 = phi ptr [ %call9.i50, %convert_op.exit59 ], [ %other, %if.end.i.i.i42 ], [ %other, %if.then.i39 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i60 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %cmp.i63 = icmp eq ptr %25, %23
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
@@ -4330,7 +4331,7 @@ if.then.i66:                                      ; preds = %if.end8
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i64 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i65
@@ -4373,20 +4374,20 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end12:                                         ; preds = %if.end.i65
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec13 = getelementptr inbounds %struct.PyDecObject, ptr %a.083, i64 0, i32 2
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %b.093, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec13 = getelementptr inbounds i8, ptr %a.083, i64 24
+  %dec14 = getelementptr inbounds i8, ptr %b.093, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qadd(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec13, ptr noundef nonnull %dec14, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %31 = load i64, ptr %a.083, align 8
   %32 = and i64 %31, 2147483648
@@ -4494,7 +4495,7 @@ Py_DECREF.exit72:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -4545,7 +4546,7 @@ if.end4:                                          ; preds = %if.then.i27, %if.en
   %call.i.i31 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %13, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %14 = load ptr, ptr %PyDec_Type.i33, align 8
   %15 = getelementptr i8, ptr %other, i64 8
   %v.val11.i34 = load ptr, ptr %15, align 8
@@ -4610,12 +4611,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end8:                                          ; preds = %if.then.i39, %if.end.i.i.i42, %convert_op.exit59
   %b.093 = phi ptr [ %call9.i50, %convert_op.exit59 ], [ %other, %if.end.i.i.i42 ], [ %other, %if.then.i39 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i60 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %cmp.i63 = icmp eq ptr %25, %23
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
@@ -4625,7 +4626,7 @@ if.then.i66:                                      ; preds = %if.end8
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i64 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i65
@@ -4668,20 +4669,20 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end12:                                         ; preds = %if.end.i65
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec13 = getelementptr inbounds %struct.PyDecObject, ptr %a.083, i64 0, i32 2
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %b.093, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec13 = getelementptr inbounds i8, ptr %a.083, i64 24
+  %dec14 = getelementptr inbounds i8, ptr %b.093, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qsub(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec13, ptr noundef nonnull %dec14, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %31 = load i64, ptr %a.083, align 8
   %32 = and i64 %31, 2147483648
@@ -4789,7 +4790,7 @@ Py_DECREF.exit72:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -4840,7 +4841,7 @@ if.end4:                                          ; preds = %if.then.i27, %if.en
   %call.i.i31 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %13, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %14 = load ptr, ptr %PyDec_Type.i33, align 8
   %15 = getelementptr i8, ptr %other, i64 8
   %v.val11.i34 = load ptr, ptr %15, align 8
@@ -4905,12 +4906,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end8:                                          ; preds = %if.then.i39, %if.end.i.i.i42, %convert_op.exit59
   %b.093 = phi ptr [ %call9.i50, %convert_op.exit59 ], [ %other, %if.end.i.i.i42 ], [ %other, %if.then.i39 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i60 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %cmp.i63 = icmp eq ptr %25, %23
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
@@ -4920,7 +4921,7 @@ if.then.i66:                                      ; preds = %if.end8
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i64 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i65
@@ -4963,20 +4964,20 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end12:                                         ; preds = %if.end.i65
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec13 = getelementptr inbounds %struct.PyDecObject, ptr %a.083, i64 0, i32 2
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %b.093, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec13 = getelementptr inbounds i8, ptr %a.083, i64 24
+  %dec14 = getelementptr inbounds i8, ptr %b.093, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qmul(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec13, ptr noundef nonnull %dec14, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %31 = load i64, ptr %a.083, align 8
   %32 = and i64 %31, 2147483648
@@ -5084,7 +5085,7 @@ Py_DECREF.exit72:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -5135,7 +5136,7 @@ if.end4:                                          ; preds = %if.then.i27, %if.en
   %call.i.i31 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %13, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %14 = load ptr, ptr %PyDec_Type.i33, align 8
   %15 = getelementptr i8, ptr %other, i64 8
   %v.val11.i34 = load ptr, ptr %15, align 8
@@ -5200,12 +5201,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end8:                                          ; preds = %if.then.i39, %if.end.i.i.i42, %convert_op.exit59
   %b.093 = phi ptr [ %call9.i50, %convert_op.exit59 ], [ %other, %if.end.i.i.i42 ], [ %other, %if.then.i39 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i60 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %cmp.i63 = icmp eq ptr %25, %23
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
@@ -5215,7 +5216,7 @@ if.then.i66:                                      ; preds = %if.end8
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i64 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i65
@@ -5258,20 +5259,20 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end12:                                         ; preds = %if.end.i65
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec13 = getelementptr inbounds %struct.PyDecObject, ptr %a.083, i64 0, i32 2
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %b.093, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec13 = getelementptr inbounds i8, ptr %a.083, i64 24
+  %dec14 = getelementptr inbounds i8, ptr %b.093, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qrem(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec13, ptr noundef nonnull %dec14, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %31 = load i64, ptr %a.083, align 8
   %32 = and i64 %31, 2147483648
@@ -5379,7 +5380,7 @@ Py_DECREF.exit133:                                ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -5430,7 +5431,7 @@ if.end4:                                          ; preds = %if.then.i47, %if.en
   %call.i.i52 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i51, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i52, i64 32
   %call.val.i.i53 = load ptr, ptr %13, align 8
-  %PyDec_Type.i54 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i53, i64 0, i32 3
+  %PyDec_Type.i54 = getelementptr inbounds i8, ptr %call.val.i.i53, i64 24
   %14 = load ptr, ptr %PyDec_Type.i54, align 8
   %15 = getelementptr i8, ptr %w, i64 8
   %v.val11.i55 = load ptr, ptr %15, align 8
@@ -5495,12 +5496,12 @@ if.then1.i122:                                    ; preds = %if.end.i119
 
 if.end8:                                          ; preds = %if.then.i60, %if.end.i.i.i63, %convert_op.exit79
   %b.0135 = phi ptr [ %call9.i71, %convert_op.exit79 ], [ %w, %if.end.i.i.i63 ], [ %w, %if.then.i60 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i80 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i80, i64 32
   %call.val.i.i81 = load ptr, ptr %24, align 8
-  %PyDec_Type.i82 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i81, i64 0, i32 3
+  %PyDec_Type.i82 = getelementptr inbounds i8, ptr %call.val.i.i81, i64 24
   %25 = load ptr, ptr %PyDec_Type.i82, align 8
   %cmp.i83 = icmp eq ptr %25, %23
   br i1 %cmp.i83, label %if.then.i86, label %if.else.i
@@ -5510,7 +5511,7 @@ if.then.i86:                                      ; preds = %if.end8
   br label %if.end.i85
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i84 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i85
@@ -5553,22 +5554,22 @@ if.then1.i104:                                    ; preds = %if.end.i101
   br label %return
 
 if.end12:                                         ; preds = %if.end.i85
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %31 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i87 = tail call ptr @PyType_GetModuleByDef(ptr noundef %31, ptr noundef nonnull @_decimal_module) #15
   %32 = getelementptr i8, ptr %call.i.i87, i64 32
   %call.val.i.i88 = load ptr, ptr %32, align 8
-  %PyDec_Type.i89 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i88, i64 0, i32 3
+  %PyDec_Type.i89 = getelementptr inbounds i8, ptr %call.val.i.i88, i64 24
   %33 = load ptr, ptr %PyDec_Type.i89, align 8
   %cmp.i90 = icmp eq ptr %33, %31
   br i1 %cmp.i90, label %if.then.i104, label %if.else.i91
@@ -5578,7 +5579,7 @@ if.then.i104:                                     ; preds = %if.end12
   br label %if.end.i94
 
 if.else.i91:                                      ; preds = %if.end12
-  %tp_alloc.i92 = getelementptr inbounds %struct._typeobject, ptr %31, i64 0, i32 36
+  %tp_alloc.i92 = getelementptr inbounds i8, ptr %31, i64 304
   %34 = load ptr, ptr %tp_alloc.i92, align 8
   %call3.i93 = tail call ptr %34(ptr noundef %31, i64 noundef 0) #15
   br label %if.end.i94
@@ -5637,20 +5638,20 @@ if.then1.i77:                                     ; preds = %if.end.i74
   br label %return
 
 if.end17:                                         ; preds = %if.end.i94
-  %hash.i98 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i95, i64 0, i32 1
+  %hash.i98 = getelementptr inbounds i8, ptr %dec.0.i95, i64 16
   store i64 -1, ptr %hash.i98, align 8
-  %dec7.i99 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i95, i64 0, i32 2
+  %dec7.i99 = getelementptr inbounds i8, ptr %dec.0.i95, i64 24
   store i8 48, ptr %dec7.i99, align 8
-  %exp.i100 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i95, i64 0, i32 2, i32 1
-  %alloc.i101 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i95, i64 0, i32 2, i32 4
+  %exp.i100 = getelementptr inbounds i8, ptr %dec.0.i95, i64 32
+  %alloc.i101 = getelementptr inbounds i8, ptr %dec.0.i95, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i100, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i101, align 8
-  %data.i102 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i95, i64 0, i32 3
-  %data13.i103 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i95, i64 0, i32 2, i32 5
+  %data.i102 = getelementptr inbounds i8, ptr %dec.0.i95, i64 72
+  %data13.i103 = getelementptr inbounds i8, ptr %dec.0.i95, i64 64
   store ptr %data.i102, ptr %data13.i103, align 8
-  %dec19 = getelementptr inbounds %struct.PyDecObject, ptr %a.0125, i64 0, i32 2
-  %dec20 = getelementptr inbounds %struct.PyDecObject, ptr %b.0135, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec19 = getelementptr inbounds i8, ptr %a.0125, i64 24
+  %dec20 = getelementptr inbounds i8, ptr %b.0135, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qdivmod(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec7.i99, ptr noundef nonnull %dec19, ptr noundef nonnull %dec20, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.0125, align 8
   %42 = and i64 %41, 2147483648
@@ -5807,7 +5808,7 @@ Py_DECREF.exit114:                                ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -5858,7 +5859,7 @@ if.end4:                                          ; preds = %if.then.i39, %if.en
   %call.i.i43 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i42, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i43, i64 32
   %call.val.i.i44 = load ptr, ptr %13, align 8
-  %PyDec_Type.i45 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i44, i64 0, i32 3
+  %PyDec_Type.i45 = getelementptr inbounds i8, ptr %call.val.i.i44, i64 24
   %14 = load ptr, ptr %PyDec_Type.i45, align 8
   %15 = getelementptr i8, ptr %exp, i64 8
   %v.val11.i46 = load ptr, ptr %15, align 8
@@ -5931,7 +5932,7 @@ if.then10:                                        ; preds = %if.end8
   %call.i.i72 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i71, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i.i72, i64 32
   %call.val.i.i73 = load ptr, ptr %23, align 8
-  %PyDec_Type.i74 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i73, i64 0, i32 3
+  %PyDec_Type.i74 = getelementptr inbounds i8, ptr %call.val.i.i73, i64 24
   %24 = load ptr, ptr %PyDec_Type.i74, align 8
   %25 = getelementptr i8, ptr %mod, i64 8
   %v.val11.i75 = load ptr, ptr %25, align 8
@@ -6012,12 +6013,12 @@ if.then1.i85:                                     ; preds = %if.end.i82
 
 if.end15:                                         ; preds = %if.then.i80, %if.end.i.i.i83, %convert_op.exit99, %if.end8
   %c.1 = phi ptr [ null, %if.end8 ], [ %call9.i91, %convert_op.exit99 ], [ %mod, %if.end.i.i.i83 ], [ %mod, %if.then.i80 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %35 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i100 = tail call ptr @PyType_GetModuleByDef(ptr noundef %35, ptr noundef nonnull @_decimal_module) #15
   %36 = getelementptr i8, ptr %call.i.i100, i64 32
   %call.val.i.i101 = load ptr, ptr %36, align 8
-  %PyDec_Type.i102 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i101, i64 0, i32 3
+  %PyDec_Type.i102 = getelementptr inbounds i8, ptr %call.val.i.i101, i64 24
   %37 = load ptr, ptr %PyDec_Type.i102, align 8
   %cmp.i103 = icmp eq ptr %37, %35
   br i1 %cmp.i103, label %if.then.i106, label %if.else.i
@@ -6027,7 +6028,7 @@ if.then.i106:                                     ; preds = %if.end15
   br label %if.end.i105
 
 if.else.i:                                        ; preds = %if.end15
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %35, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %35, i64 304
   %38 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i104 = tail call ptr %38(ptr noundef %35, i64 noundef 0) #15
   br label %if.end.i105
@@ -6090,30 +6091,30 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end19:                                         ; preds = %if.end.i105
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %cmp20 = icmp eq ptr %c.1, null
-  %dec22 = getelementptr inbounds %struct.PyDecObject, ptr %a.0132, i64 0, i32 2
-  %dec23 = getelementptr inbounds %struct.PyDecObject, ptr %b.0142, i64 0, i32 2
+  %dec22 = getelementptr inbounds i8, ptr %a.0132, i64 24
+  %dec23 = getelementptr inbounds i8, ptr %b.0142, i64 24
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end19
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qpow(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec22, ptr noundef nonnull %dec23, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   br label %if.end29
 
 if.else:                                          ; preds = %if.end19
-  %dec27 = getelementptr inbounds %struct.PyDecObject, ptr %c.1, i64 0, i32 2
-  %ctx28 = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec27 = getelementptr inbounds i8, ptr %c.1, i64 24
+  %ctx28 = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qpowmod(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec22, ptr noundef nonnull %dec23, ptr noundef nonnull %dec27, ptr noundef nonnull %ctx28, ptr noundef nonnull %status) #15
   %45 = load i64, ptr %c.1, align 8
   %46 = and i64 %45, 2147483648
@@ -6220,12 +6221,12 @@ if.then1.i17:                                     ; preds = %if.end.i14
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i17, %if.end.i14
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %4 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %4, ptr noundef nonnull @_decimal_module) #15
   %5 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %5, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i12 = icmp eq ptr %6, %4
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
@@ -6235,7 +6236,7 @@ if.then.i:                                        ; preds = %Py_DECREF.exit19
   br label %if.end.i13
 
 if.else.i:                                        ; preds = %Py_DECREF.exit19
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %4, i64 304
   %7 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %7(ptr noundef %4, i64 noundef 0) #15
   br label %if.end.i13
@@ -6246,19 +6247,19 @@ if.end.i13:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end.i13
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec7 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 1
+  %dec7 = getelementptr inbounds i8, ptr %self, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call2, i64 16
   call void @mpd_qminus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec7, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %8 = load i32, ptr %status, align 4
   %call8 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %call2, i32 noundef %8), !range !16
@@ -6317,12 +6318,12 @@ if.then1.i17:                                     ; preds = %if.end.i14
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i17, %if.end.i14
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %4 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %4, ptr noundef nonnull @_decimal_module) #15
   %5 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %5, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i12 = icmp eq ptr %6, %4
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
@@ -6332,7 +6333,7 @@ if.then.i:                                        ; preds = %Py_DECREF.exit19
   br label %if.end.i13
 
 if.else.i:                                        ; preds = %Py_DECREF.exit19
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %4, i64 304
   %7 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %7(ptr noundef %4, i64 noundef 0) #15
   br label %if.end.i13
@@ -6343,19 +6344,19 @@ if.end.i13:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end.i13
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec7 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 1
+  %dec7 = getelementptr inbounds i8, ptr %self, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call2, i64 16
   call void @mpd_qplus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec7, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %8 = load i32, ptr %status, align 4
   %call8 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %call2, i32 noundef %8), !range !16
@@ -6414,12 +6415,12 @@ if.then1.i17:                                     ; preds = %if.end.i14
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i17, %if.end.i14
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %4 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %4, ptr noundef nonnull @_decimal_module) #15
   %5 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %5, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i12 = icmp eq ptr %6, %4
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
@@ -6429,7 +6430,7 @@ if.then.i:                                        ; preds = %Py_DECREF.exit19
   br label %if.end.i13
 
 if.else.i:                                        ; preds = %Py_DECREF.exit19
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %4, i64 304
   %7 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %7(ptr noundef %4, i64 noundef 0) #15
   br label %if.end.i13
@@ -6440,19 +6441,19 @@ if.end.i13:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end.i13
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec7 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 1
+  %dec7 = getelementptr inbounds i8, ptr %self, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call2, i64 16
   call void @mpd_qabs(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec7, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %8 = load i32, ptr %status, align 4
   %call8 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %call2, i32 noundef %8), !range !16
@@ -6483,7 +6484,7 @@ return:                                           ; preds = %if.end.i13, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @nm_nonzero(ptr noundef %v) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %v, i64 24
   %call = tail call i32 @mpd_iszero(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   %lnot.ext = zext i1 %tobool.not to i32
@@ -6530,7 +6531,7 @@ return:                                           ; preds = %entry, %Py_DECREF.e
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyDec_AsFloat(ptr noundef %dec) #0 {
 entry:
-  %dec1 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec1 = getelementptr inbounds i8, ptr %dec, i64 24
   %call = tail call i32 @mpd_isnan(ptr noundef nonnull %dec1) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else13, label %if.then
@@ -6637,7 +6638,7 @@ Py_DECREF.exit72:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -6688,7 +6689,7 @@ if.end4:                                          ; preds = %if.then.i27, %if.en
   %call.i.i31 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %13, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %14 = load ptr, ptr %PyDec_Type.i33, align 8
   %15 = getelementptr i8, ptr %other, i64 8
   %v.val11.i34 = load ptr, ptr %15, align 8
@@ -6753,12 +6754,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end8:                                          ; preds = %if.then.i39, %if.end.i.i.i42, %convert_op.exit59
   %b.093 = phi ptr [ %call9.i50, %convert_op.exit59 ], [ %other, %if.end.i.i.i42 ], [ %other, %if.then.i39 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i60 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %cmp.i63 = icmp eq ptr %25, %23
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
@@ -6768,7 +6769,7 @@ if.then.i66:                                      ; preds = %if.end8
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i64 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i65
@@ -6811,20 +6812,20 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end12:                                         ; preds = %if.end.i65
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec13 = getelementptr inbounds %struct.PyDecObject, ptr %a.083, i64 0, i32 2
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %b.093, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec13 = getelementptr inbounds i8, ptr %a.083, i64 24
+  %dec14 = getelementptr inbounds i8, ptr %b.093, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qdivint(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec13, ptr noundef nonnull %dec14, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %31 = load i64, ptr %a.083, align 8
   %32 = and i64 %31, 2147483648
@@ -6932,7 +6933,7 @@ Py_DECREF.exit72:                                 ; preds = %if.end, %if.then1.i
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %6 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %6, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %7 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %7
@@ -6983,7 +6984,7 @@ if.end4:                                          ; preds = %if.then.i27, %if.en
   %call.i.i31 = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %13 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %13, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %14 = load ptr, ptr %PyDec_Type.i33, align 8
   %15 = getelementptr i8, ptr %other, i64 8
   %v.val11.i34 = load ptr, ptr %15, align 8
@@ -7048,12 +7049,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end8:                                          ; preds = %if.then.i39, %if.end.i.i.i42, %convert_op.exit59
   %b.093 = phi ptr [ %call9.i50, %convert_op.exit59 ], [ %other, %if.end.i.i.i42 ], [ %other, %if.then.i39 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 24
   %23 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i60 = tail call ptr @PyType_GetModuleByDef(ptr noundef %23, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %cmp.i63 = icmp eq ptr %25, %23
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
@@ -7063,7 +7064,7 @@ if.then.i66:                                      ; preds = %if.end8
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %23, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %23, i64 304
   %26 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i64 = tail call ptr %26(ptr noundef %23, i64 noundef 0) #15
   br label %if.end.i65
@@ -7106,20 +7107,20 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end12:                                         ; preds = %if.end.i65
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec13 = getelementptr inbounds %struct.PyDecObject, ptr %a.083, i64 0, i32 2
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %b.093, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call1, i64 0, i32 1
+  %dec13 = getelementptr inbounds i8, ptr %a.083, i64 24
+  %dec14 = getelementptr inbounds i8, ptr %b.093, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   call void @mpd_qdiv(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec13, ptr noundef nonnull %dec14, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %31 = load i64, ptr %a.083, align 8
   %32 = and i64 %31, 2147483648
@@ -7233,11 +7234,11 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %status3 = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1, i32 4
+  %status3 = getelementptr inbounds i8, ptr %context, i64 44
   %2 = load i32, ptr %status3, align 4
   %or = or i32 %2, %status
   store i32 %or, ptr %status3, align 4
-  %traps = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1, i32 3
+  %traps = getelementptr inbounds i8, ptr %context, i64 40
   %3 = load i32, ptr %traps, align 8
   %or4 = or i32 %3, 512
   %and = and i32 %or4, %status
@@ -7262,7 +7263,7 @@ if.end:                                           ; preds = %if.then
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %cm.03.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call2.val, %if.end ]
-  %flag.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i, i64 0, i32 2
+  %flag.i = getelementptr inbounds i8, ptr %cm.03.i, i64 16
   %6 = load i32, ptr %flag.i, align 8
   %7 = and i32 %6, %status
   %and.i = and i32 %7, %3
@@ -7270,7 +7271,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %flags_as_exception.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr %struct.DecCondMap, ptr %cm.03.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %cm.03.i, i64 32
   %8 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %flags_as_exception.exit.thread, label %for.body.i, !llvm.loop !17
@@ -7281,7 +7282,7 @@ flags_as_exception.exit.thread:                   ; preds = %for.inc.i, %if.end
   br label %return
 
 flags_as_exception.exit:                          ; preds = %for.body.i
-  %ex.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i, i64 0, i32 3
+  %ex.i = getelementptr inbounds i8, ptr %cm.03.i, i64 24
   %10 = load ptr, ptr %ex.i, align 8
   %cmp = icmp eq ptr %10, null
   br i1 %cmp, label %return, label %if.end13
@@ -7293,7 +7294,7 @@ if.end13:                                         ; preds = %flags_as_exception.
   br i1 %cmp.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.end13
-  %cond_map.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 15
+  %cond_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 176
   %11 = load ptr, ptr %cond_map.i, align 8
   %12 = load ptr, ptr %11, align 8
   %cmp1.not17.i = icmp eq ptr %12, null
@@ -7301,28 +7302,28 @@ if.end.i17:                                       ; preds = %if.end13
 
 for.body.i18:                                     ; preds = %if.end.i17, %for.inc.i23
   %cm.018.i = phi ptr [ %incdec.ptr.i24, %for.inc.i23 ], [ %11, %if.end.i17 ]
-  %flag.i19 = getelementptr inbounds %struct.DecCondMap, ptr %cm.018.i, i64 0, i32 2
+  %flag.i19 = getelementptr inbounds i8, ptr %cm.018.i, i64 16
   %13 = load i32, ptr %flag.i19, align 8
   %and.i20 = and i32 %13, %and15
   %tobool.not.i21 = icmp eq i32 %and.i20, 0
   br i1 %tobool.not.i21, label %for.inc.i23, label %if.then2.i
 
 if.then2.i:                                       ; preds = %for.body.i18
-  %ex.i22 = getelementptr inbounds %struct.DecCondMap, ptr %cm.018.i, i64 0, i32 3
+  %ex.i22 = getelementptr inbounds i8, ptr %cm.018.i, i64 24
   %14 = load ptr, ptr %ex.i22, align 8
   %call3.i = tail call i32 @PyList_Append(ptr noundef nonnull %call.i15, ptr noundef %14) #15
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %error.i, label %for.inc.i23
 
 for.inc.i23:                                      ; preds = %if.then2.i, %for.body.i18
-  %incdec.ptr.i24 = getelementptr %struct.DecCondMap, ptr %cm.018.i, i64 1
+  %incdec.ptr.i24 = getelementptr i8, ptr %cm.018.i, i64 32
   %15 = load ptr, ptr %incdec.ptr.i24, align 8
   %cmp1.not.i = icmp eq ptr %15, null
   br i1 %cmp1.not.i, label %for.end.i25, label %for.body.i18, !llvm.loop !18
 
 for.end.i25:                                      ; preds = %for.inc.i23, %if.end.i17
   %16 = load ptr, ptr %4, align 8
-  %cm.119.i = getelementptr %struct.DecCondMap, ptr %16, i64 1
+  %cm.119.i = getelementptr i8, ptr %16, i64 32
   %17 = load ptr, ptr %cm.119.i, align 8
   %cmp10.not20.i = icmp eq ptr %17, null
   br i1 %cmp10.not20.i, label %if.end19, label %for.body11.i
@@ -7330,21 +7331,21 @@ for.end.i25:                                      ; preds = %for.inc.i23, %if.en
 for.body11.i:                                     ; preds = %for.end.i25, %for.inc22.i
   %cm.122.i = phi ptr [ %cm.1.i, %for.inc22.i ], [ %cm.119.i, %for.end.i25 ]
   %.pn21.i = phi ptr [ %cm.122.i, %for.inc22.i ], [ %16, %for.end.i25 ]
-  %flag12.i = getelementptr %struct.DecCondMap, ptr %.pn21.i, i64 1, i32 2
+  %flag12.i = getelementptr i8, ptr %.pn21.i, i64 48
   %18 = load i32, ptr %flag12.i, align 8
   %and13.i = and i32 %18, %and15
   %tobool14.not.i = icmp eq i32 %and13.i, 0
   br i1 %tobool14.not.i, label %for.inc22.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.body11.i
-  %ex16.i = getelementptr %struct.DecCondMap, ptr %.pn21.i, i64 1, i32 3
+  %ex16.i = getelementptr i8, ptr %.pn21.i, i64 56
   %19 = load ptr, ptr %ex16.i, align 8
   %call17.i = tail call i32 @PyList_Append(ptr noundef nonnull %call.i15, ptr noundef %19) #15
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %error.i, label %for.inc22.i
 
 for.inc22.i:                                      ; preds = %if.then15.i, %for.body11.i
-  %cm.1.i = getelementptr %struct.DecCondMap, ptr %cm.122.i, i64 1
+  %cm.1.i = getelementptr i8, ptr %cm.122.i, i64 32
   %20 = load ptr, ptr %cm.1.i, align 8
   %cmp10.not.i = icmp eq ptr %20, null
   br i1 %cmp10.not.i, label %if.end19, label %for.body11.i, !llvm.loop !19
@@ -7423,7 +7424,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %dec7 = getelementptr inbounds %struct.PyDecObject, ptr %call2, i64 0, i32 2
+  %dec7 = getelementptr inbounds i8, ptr %call2, i64 24
   call void @mpd_seterror(ptr noundef nonnull %dec7, i32 noundef 256, ptr noundef nonnull %status) #15
   %.pre = load i32, ptr %status, align 4
   br label %if.end8
@@ -7515,7 +7516,7 @@ if.then15:                                        ; preds = %if.end12
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %8 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %8, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %9 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i75 = icmp eq ptr %9, %type
   br i1 %cmp.i75, label %if.then.i, label %if.else.i
@@ -7525,7 +7526,7 @@ if.then.i:                                        ; preds = %if.then15
   br label %if.end.i76
 
 if.else.i:                                        ; preds = %if.then15
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %10 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %10(ptr noundef %type, i64 noundef 0) #15
   br label %if.end.i76
@@ -7536,16 +7537,16 @@ if.end.i76:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end.i76
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   br i1 %6, label %if.then20, label %if.else
 
@@ -7559,14 +7560,14 @@ if.else:                                          ; preds = %if.end19
   br label %return
 
 if.end24:                                         ; preds = %if.end12
-  %_py_float_abs = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 19
+  %_py_float_abs = getelementptr inbounds i8, ptr %call.val.i, i64 208
   %11 = load ptr, ptr %_py_float_abs, align 8
   %call25 = tail call ptr %11(ptr noundef nonnull %v) #15
   %cmp26 = icmp eq ptr %call25, null
   br i1 %cmp26, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end24
-  %_py_float_as_integer_ratio = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 21
+  %_py_float_as_integer_ratio = getelementptr inbounds i8, ptr %call.val.i, i64 224
   %12 = load ptr, ptr %_py_float_as_integer_ratio, align 8
   %call30 = tail call ptr %12(ptr noundef nonnull %call25, ptr noundef null) #15
   %13 = load i64, ptr %call25, align 8
@@ -7589,11 +7590,11 @@ Py_DECREF.exit152:                                ; preds = %if.end29, %if.then1
   br i1 %cmp31, label %return, label %if.end34
 
 if.end34:                                         ; preds = %Py_DECREF.exit152
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %call30, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %call30, i64 24
   %15 = load ptr, ptr %ob_item, align 8
-  %arrayidx36 = getelementptr %struct.PyTupleObject, ptr %call30, i64 1
+  %arrayidx36 = getelementptr i8, ptr %call30, i64 32
   %16 = load ptr, ptr %arrayidx36, align 8
-  %_py_long_bit_length = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 20
+  %_py_long_bit_length = getelementptr inbounds i8, ptr %call.val.i, i64 216
   %17 = load ptr, ptr %_py_long_bit_length, align 8
   %call37 = tail call ptr %17(ptr noundef %16, ptr noundef null) #15
   %cmp38 = icmp eq ptr %call37, null
@@ -7759,7 +7760,7 @@ if.then1.i87:                                     ; preds = %if.end.i84
   br label %return
 
 if.end71:                                         ; preds = %if.end67
-  %dec72 = getelementptr inbounds %struct.PyDecObject, ptr %call51, i64 0, i32 2
+  %dec72 = getelementptr inbounds i8, ptr %call51, i64 24
   call void @mpd_qmul(ptr noundef nonnull %dec72, ptr noundef nonnull %dec72, ptr noundef nonnull %call56, ptr noundef nonnull %maxctx, ptr noundef nonnull %status) #15
   call void @mpd_del(ptr noundef nonnull %call56) #15
   call void @mpd_del(ptr noundef nonnull %call62) #15
@@ -7788,7 +7789,7 @@ if.end77:                                         ; preds = %if.end71
   %conv79 = zext i1 %cmp13 to i8
   call void @mpd_set_sign(ptr noundef nonnull %dec72, i8 noundef zeroext %conv79) #15
   %sub = sub i64 1, %call42
-  %exp = getelementptr inbounds %struct.PyDecObject, ptr %call51, i64 0, i32 2, i32 1
+  %exp = getelementptr inbounds i8, ptr %call51, i64 32
   store i64 %sub, ptr %exp, align 8
   br label %return
 
@@ -7816,7 +7817,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call3 = tail call fastcc ptr @PyDecType_FromLongExact(ptr noundef %2, ptr noundef nonnull %call, ptr noundef %context)
   %3 = load i64, ptr %call, align 8
@@ -7855,7 +7856,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call3 = tail call fastcc ptr @PyDecType_FromLongExact(ptr noundef %2, ptr noundef nonnull %call, ptr noundef %context)
   %3 = load i64, ptr %call, align 8
@@ -7878,7 +7879,7 @@ Py_DECREF.exit60:                                 ; preds = %if.end, %if.then1.i
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %Py_DECREF.exit60
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %v, i64 24
   %call7 = tail call ptr @mpd_qncopy(ptr noundef nonnull %dec) #15
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -7908,7 +7909,7 @@ if.end11:                                         ; preds = %if.end6
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %7, ptr noundef nonnull @_decimal_module) #15
   %8 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %8, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %9 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i28 = icmp eq ptr %9, %7
   br i1 %cmp.i28, label %if.then.i, label %if.else.i
@@ -7918,7 +7919,7 @@ if.then.i:                                        ; preds = %if.end11
   br label %if.end.i29
 
 if.else.i:                                        ; preds = %if.end11
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %7, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %7, i64 304
   %10 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %10(ptr noundef %7, i64 noundef 0) #15
   br label %if.end.i29
@@ -7949,22 +7950,22 @@ Py_DECREF.exit42:                                 ; preds = %if.then15, %if.then
   br label %return
 
 if.end16:                                         ; preds = %if.end.i29
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxctx) #15
-  %exp17 = getelementptr inbounds %struct.mpd_t, ptr %call7, i64 0, i32 1
+  %exp17 = getelementptr inbounds i8, ptr %call7, i64 8
   %13 = load i64, ptr %exp17, align 8
   store i64 0, ptr %exp17, align 8
-  %dec20 = getelementptr inbounds %struct.PyDecObject, ptr %call3, i64 0, i32 2
+  %dec20 = getelementptr inbounds i8, ptr %call3, i64 24
   call void @mpd_qmul(ptr noundef nonnull %dec7.i, ptr noundef nonnull %call7, ptr noundef nonnull %dec20, ptr noundef nonnull %maxctx, ptr noundef nonnull %status) #15
   store i64 %13, ptr %exp.i, align 8
   %14 = load i64, ptr %call3, align 8
@@ -8017,7 +8018,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %0 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %0, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %1 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i = icmp eq ptr %1, %type
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -8027,7 +8028,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %2 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %2(ptr noundef %type, i64 noundef 0) #15
   br label %if.end.i
@@ -8038,16 +8039,16 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %3 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %3, align 8
@@ -8057,7 +8058,7 @@ if.end:                                           ; preds = %if.end.i
 
 if.then2:                                         ; preds = %if.end
   store i64 0, ptr %data.i, align 8
-  %len.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 3
+  %len.i = getelementptr inbounds i8, ptr %dec.0.i, i64 48
   store i64 1, ptr %len.i, align 8
   tail call void @mpd_set_flags(ptr noundef nonnull %dec7.i, i8 noundef zeroext 0) #15
   store i64 0, ptr %exp.i, align 8
@@ -8071,11 +8072,11 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i23, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  %ob_digit = getelementptr inbounds %struct._longobject, ptr %v, i64 0, i32 1, i32 1
+  %ob_digit = getelementptr inbounds i8, ptr %v, i64 24
   %4 = load i32, ptr %ob_digit, align 8
   %conv.i24 = zext i32 %4 to i64
   store i64 %conv.i24, ptr %data.i, align 8
-  %len.i27 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %dec.0.i, i64 48
   store i64 1, ptr %len.i27, align 8
   tail call void @mpd_set_flags(ptr noundef nonnull %dec7.i, i8 noundef zeroext %conv) #15
   store i64 0, ptr %exp.i, align 8
@@ -8085,7 +8086,7 @@ if.then6:                                         ; preds = %if.end3
 
 if.end8:                                          ; preds = %if.end3
   %shr.i = lshr i64 %v.val, 3
-  %ob_digit12 = getelementptr inbounds %struct._longobject, ptr %v, i64 0, i32 1, i32 1
+  %ob_digit12 = getelementptr inbounds i8, ptr %v, i64 24
   tail call void @mpd_qimport_u32(ptr noundef nonnull %dec7.i, ptr noundef nonnull %ob_digit12, i64 noundef %shr.i, i8 noundef zeroext %conv, i32 noundef 1073741824, ptr noundef %ctx, ptr noundef %status) #15
   br label %return
 
@@ -8173,7 +8174,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8191,12 +8192,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -8206,7 +8207,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -8217,20 +8218,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qexp(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -8303,7 +8304,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8321,12 +8322,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -8336,7 +8337,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -8347,20 +8348,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qln(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -8433,7 +8434,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8451,12 +8452,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -8466,7 +8467,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -8477,20 +8478,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qlog10(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -8563,7 +8564,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8581,12 +8582,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -8596,7 +8597,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -8607,20 +8608,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qnext_minus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -8693,7 +8694,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8711,12 +8712,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -8726,7 +8727,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -8737,20 +8738,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qnext_plus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -8823,7 +8824,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8841,12 +8842,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -8856,7 +8857,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -8867,20 +8868,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qreduce(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -8956,7 +8957,7 @@ if.then1.i41:                                     ; preds = %if.end.i38
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -8975,7 +8976,7 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i38, %if.then1.i41, %if.end7
   %8 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
   %9 = load ptr, ptr %rounding, align 8
   %cmp13.not = icmp eq ptr %9, @_Py_NoneStruct
@@ -8988,11 +8989,15 @@ if.then14:                                        ; preds = %if.end12
   %call.val.i14 = load i64, ptr %11, align 8
   %12 = and i64 %call.val.i14, 268435456
   %tobool.not.i = icmp eq i64 %12, 0
-  br i1 %tobool.not.i, label %getround.exit.thread, label %for.body.i
+  br i1 %tobool.not.i, label %getround.exit.thread, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %if.then14, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then14 ]
-  %arrayidx.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv.i
+for.cond.preheader.i:                             ; preds = %if.then14
+  %round_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 88
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq ptr %13, %9
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
@@ -9004,7 +9009,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.inc.i, %for.inc14.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc14.i ], [ 0, %for.inc.i ]
-  %arrayidx9.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv20.i
+  %arrayidx9.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv20.i
   %14 = load ptr, ptr %arrayidx9.i, align 8
   %call10.i = call i32 @PyUnicode_Compare(ptr noundef %9, ptr noundef %14) #15
   %cmp11.i = icmp eq i32 %call10.i, 0
@@ -9037,12 +9042,12 @@ if.then21:                                        ; preds = %if.end18
   br label %return
 
 if.end24:                                         ; preds = %if.end18, %if.end12
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %17 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %17, ptr noundef nonnull @_decimal_module) #15
   %18 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %18, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %19 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i15 = icmp eq ptr %19, %17
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
@@ -9052,7 +9057,7 @@ if.then.i:                                        ; preds = %if.end24
   br label %if.end.i16
 
 if.else.i:                                        ; preds = %if.end24
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %17, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %17, i64 304
   %20 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %20(ptr noundef %17, i64 noundef 0) #15
   br label %if.end.i16
@@ -9063,18 +9068,18 @@ if.end.i16:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end.i16
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec30 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec30 = getelementptr inbounds i8, ptr %dec, i64 24
   call void @mpd_qround_to_int(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec30, ptr noundef nonnull %workctx, ptr noundef nonnull %status) #15
   %21 = load ptr, ptr %context, align 8
   %22 = load i32, ptr %status, align 4
@@ -9150,7 +9155,7 @@ if.then1.i41:                                     ; preds = %if.end.i38
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -9169,7 +9174,7 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i38, %if.then1.i41, %if.end7
   %8 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
   %9 = load ptr, ptr %rounding, align 8
   %cmp13.not = icmp eq ptr %9, @_Py_NoneStruct
@@ -9182,11 +9187,15 @@ if.then14:                                        ; preds = %if.end12
   %call.val.i14 = load i64, ptr %11, align 8
   %12 = and i64 %call.val.i14, 268435456
   %tobool.not.i = icmp eq i64 %12, 0
-  br i1 %tobool.not.i, label %getround.exit.thread, label %for.body.i
+  br i1 %tobool.not.i, label %getround.exit.thread, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %if.then14, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then14 ]
-  %arrayidx.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv.i
+for.cond.preheader.i:                             ; preds = %if.then14
+  %round_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 88
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq ptr %13, %9
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
@@ -9198,7 +9207,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.inc.i, %for.inc14.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc14.i ], [ 0, %for.inc.i ]
-  %arrayidx9.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv20.i
+  %arrayidx9.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv20.i
   %14 = load ptr, ptr %arrayidx9.i, align 8
   %call10.i = call i32 @PyUnicode_Compare(ptr noundef %9, ptr noundef %14) #15
   %cmp11.i = icmp eq i32 %call10.i, 0
@@ -9231,12 +9240,12 @@ if.then21:                                        ; preds = %if.end18
   br label %return
 
 if.end24:                                         ; preds = %if.end18, %if.end12
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %17 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %17, ptr noundef nonnull @_decimal_module) #15
   %18 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %18, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %19 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i15 = icmp eq ptr %19, %17
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
@@ -9246,7 +9255,7 @@ if.then.i:                                        ; preds = %if.end24
   br label %if.end.i16
 
 if.else.i:                                        ; preds = %if.end24
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %17, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %17, i64 304
   %20 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %20(ptr noundef %17, i64 noundef 0) #15
   br label %if.end.i16
@@ -9257,18 +9266,18 @@ if.end.i16:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end.i16
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec30 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec30 = getelementptr inbounds i8, ptr %dec, i64 24
   call void @mpd_qround_to_intx(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec30, ptr noundef nonnull %workctx, ptr noundef nonnull %status) #15
   %21 = load ptr, ptr %context, align 8
   %22 = load i32, ptr %status, align 4
@@ -9341,7 +9350,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -9359,12 +9368,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -9374,7 +9383,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -9385,20 +9394,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qsqrt(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -9472,7 +9481,7 @@ if.then1.i83:                                     ; preds = %if.end.i80
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -9496,7 +9505,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -9527,7 +9536,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread68:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -9547,7 +9556,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -9579,7 +9588,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread76:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -9608,12 +9617,12 @@ if.then1.i74:                                     ; preds = %if.end.i71
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.075 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
@@ -9623,7 +9632,7 @@ if.then.i55:                                      ; preds = %if.end20
   br label %if.end.i54
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i54
@@ -9666,21 +9675,21 @@ if.then1.i56:                                     ; preds = %if.end.i53
   br label %return
 
 if.end24:                                         ; preds = %if.end.i54
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.067, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.075, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.067, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.075, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   %call27 = call i32 @mpd_qcompare(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.067, align 8
   %42 = and i64 %41, 2147483648
@@ -9786,7 +9795,7 @@ if.then1.i83:                                     ; preds = %if.end.i80
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -9810,7 +9819,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -9841,7 +9850,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread68:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -9861,7 +9870,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -9893,7 +9902,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread76:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -9922,12 +9931,12 @@ if.then1.i74:                                     ; preds = %if.end.i71
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.075 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
@@ -9937,7 +9946,7 @@ if.then.i55:                                      ; preds = %if.end20
   br label %if.end.i54
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i54
@@ -9980,21 +9989,21 @@ if.then1.i56:                                     ; preds = %if.end.i53
   br label %return
 
 if.end24:                                         ; preds = %if.end.i54
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.067, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.075, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.067, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.075, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   %call27 = call i32 @mpd_qcompare_signal(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.067, align 8
   %42 = and i64 %41, 2147483648
@@ -10100,7 +10109,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -10124,7 +10133,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -10155,7 +10164,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -10175,7 +10184,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -10207,7 +10216,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -10236,12 +10245,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -10251,7 +10260,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -10294,21 +10303,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qmax(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -10414,7 +10423,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -10438,7 +10447,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -10469,7 +10478,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -10489,7 +10498,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -10521,7 +10530,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -10550,12 +10559,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -10565,7 +10574,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -10608,21 +10617,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qmax_mag(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -10728,7 +10737,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -10752,7 +10761,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -10783,7 +10792,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -10803,7 +10812,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -10835,7 +10844,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -10864,12 +10873,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -10879,7 +10888,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -10922,21 +10931,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qmin(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -11042,7 +11051,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -11066,7 +11075,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -11097,7 +11106,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -11117,7 +11126,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -11149,7 +11158,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -11178,12 +11187,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -11193,7 +11202,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -11236,21 +11245,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qmin_mag(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -11356,7 +11365,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -11380,7 +11389,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -11411,7 +11420,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -11431,7 +11440,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -11463,7 +11472,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -11492,12 +11501,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -11507,7 +11516,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -11550,21 +11559,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qnext_toward(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -11673,7 +11682,7 @@ if.then1.i94:                                     ; preds = %if.end.i91
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -11692,7 +11701,7 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i91, %if.then1.i94, %if.end7
   %8 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
   %9 = load ptr, ptr %rounding, align 8
   %cmp13.not = icmp eq ptr %9, @_Py_NoneStruct
@@ -11705,11 +11714,15 @@ if.then14:                                        ; preds = %if.end12
   %call.val.i24 = load i64, ptr %11, align 8
   %12 = and i64 %call.val.i24, 268435456
   %tobool.not.i = icmp eq i64 %12, 0
-  br i1 %tobool.not.i, label %getround.exit.thread, label %for.body.i
+  br i1 %tobool.not.i, label %getround.exit.thread, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %if.then14, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then14 ]
-  %arrayidx.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv.i
+for.cond.preheader.i:                             ; preds = %if.then14
+  %round_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 88
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq ptr %13, %9
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
@@ -11721,7 +11734,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.inc.i, %for.inc14.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc14.i ], [ 0, %for.inc.i ]
-  %arrayidx9.i = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %indvars.iv20.i
+  %arrayidx9.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv20.i
   %14 = load ptr, ptr %arrayidx9.i, align 8
   %call10.i = call i32 @PyUnicode_Compare(ptr noundef %9, ptr noundef %14) #15
   %cmp11.i = icmp eq i32 %call10.i, 0
@@ -11764,7 +11777,7 @@ if.end24:                                         ; preds = %if.end18.if.end24_c
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %19 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %19, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %20 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %20
@@ -11795,7 +11808,7 @@ if.end.i26:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread75:                         ; preds = %if.end.i26
   %24 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %25 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.137, ptr noundef %25) #15
   br label %return
@@ -11815,7 +11828,7 @@ if.end28:                                         ; preds = %if.then.i, %if.end.
   %call.i.i29 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i28, ptr noundef nonnull @_decimal_module) #15
   %30 = getelementptr i8, ptr %call.i.i29, i64 32
   %call.val.i.i30 = load ptr, ptr %30, align 8
-  %PyDec_Type.i31 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i30, i64 0, i32 3
+  %PyDec_Type.i31 = getelementptr inbounds i8, ptr %call.val.i.i30, i64 24
   %31 = load ptr, ptr %PyDec_Type.i31, align 8
   %32 = getelementptr i8, ptr %27, i64 8
   %v.val11.i32 = load ptr, ptr %32, align 8
@@ -11847,7 +11860,7 @@ if.end.i43:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit54.thread83:                       ; preds = %if.end.i43
   %36 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i52 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i44, i64 0, i32 1
+  %tp_name.i52 = getelementptr inbounds i8, ptr %v.val10.i44, i64 24
   %37 = load ptr, ptr %tp_name.i52, align 8
   %call17.i53 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.137, ptr noundef %37) #15
   br label %if.then31
@@ -11876,12 +11889,12 @@ if.then1.i85:                                     ; preds = %if.end.i82
 
 if.end32:                                         ; preds = %if.then.i37, %if.end.i.i.i40, %convert_op.exit54
   %b.082 = phi ptr [ %call9.i48, %convert_op.exit54 ], [ %27, %if.end.i.i.i40 ], [ %27, %if.then.i37 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %41 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i55 = call ptr @PyType_GetModuleByDef(ptr noundef %41, ptr noundef nonnull @_decimal_module) #15
   %42 = getelementptr i8, ptr %call.i.i55, i64 32
   %call.val.i.i56 = load ptr, ptr %42, align 8
-  %PyDec_Type.i57 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i56, i64 0, i32 3
+  %PyDec_Type.i57 = getelementptr inbounds i8, ptr %call.val.i.i56, i64 24
   %43 = load ptr, ptr %PyDec_Type.i57, align 8
   %cmp.i58 = icmp eq ptr %43, %41
   br i1 %cmp.i58, label %if.then.i60, label %if.else.i
@@ -11891,7 +11904,7 @@ if.then.i60:                                      ; preds = %if.end32
   br label %if.end.i59
 
 if.else.i:                                        ; preds = %if.end32
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %41, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %41, i64 304
   %44 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %44(ptr noundef %41, i64 noundef 0) #15
   br label %if.end.i59
@@ -11934,19 +11947,19 @@ if.then1.i67:                                     ; preds = %if.end.i64
   br label %return
 
 if.end36:                                         ; preds = %if.end.i59
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec37 = getelementptr inbounds %struct.PyDecObject, ptr %a.074, i64 0, i32 2
-  %dec38 = getelementptr inbounds %struct.PyDecObject, ptr %b.082, i64 0, i32 2
+  %dec37 = getelementptr inbounds i8, ptr %a.074, i64 24
+  %dec38 = getelementptr inbounds i8, ptr %b.082, i64 24
   call void @mpd_qquantize(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec37, ptr noundef nonnull %dec38, ptr noundef nonnull %workctx, ptr noundef nonnull %status) #15
   %49 = load i64, ptr %a.074, align 8
   %50 = and i64 %49, 2147483648
@@ -12052,7 +12065,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -12076,7 +12089,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -12107,7 +12120,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -12127,7 +12140,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -12159,7 +12172,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -12188,12 +12201,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -12203,7 +12216,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -12246,21 +12259,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qrem_near(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -12367,7 +12380,7 @@ if.then1.i123:                                    ; preds = %if.end.i120
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -12391,7 +12404,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -12422,7 +12435,7 @@ if.end.i28:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread106:                        ; preds = %if.end.i28
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -12442,7 +12455,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i31 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i30, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i31, i64 32
   %call.val.i.i32 = load ptr, ptr %21, align 8
-  %PyDec_Type.i33 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i32, i64 0, i32 3
+  %PyDec_Type.i33 = getelementptr inbounds i8, ptr %call.val.i.i32, i64 24
   %22 = load ptr, ptr %PyDec_Type.i33, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i34 = load ptr, ptr %23, align 8
@@ -12474,7 +12487,7 @@ if.end.i45:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit56.thread114:                      ; preds = %if.end.i45
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i54 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i46, i64 0, i32 1
+  %tp_name.i54 = getelementptr inbounds i8, ptr %v.val10.i46, i64 24
   %28 = load ptr, ptr %tp_name.i54, align 8
   %call17.i55 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -12510,7 +12523,7 @@ if.end20:                                         ; preds = %if.then.i39, %if.en
   %call.i.i58 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i57, ptr noundef nonnull @_decimal_module) #15
   %35 = getelementptr i8, ptr %call.i.i58, i64 32
   %call.val.i.i59 = load ptr, ptr %35, align 8
-  %PyDec_Type.i60 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i59, i64 0, i32 3
+  %PyDec_Type.i60 = getelementptr inbounds i8, ptr %call.val.i.i59, i64 24
   %36 = load ptr, ptr %PyDec_Type.i60, align 8
   %37 = getelementptr i8, ptr %32, i64 8
   %v.val11.i61 = load ptr, ptr %37, align 8
@@ -12542,7 +12555,7 @@ if.end.i72:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit83.thread122:                      ; preds = %if.end.i72
   %41 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i81 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i73, i64 0, i32 1
+  %tp_name.i81 = getelementptr inbounds i8, ptr %v.val10.i73, i64 24
   %42 = load ptr, ptr %tp_name.i81, align 8
   %call17.i82 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.137, ptr noundef %42) #15
   br label %if.then23
@@ -12587,12 +12600,12 @@ if.then1.i96:                                     ; preds = %if.end.i93
 
 if.end24:                                         ; preds = %if.then.i66, %if.end.i.i.i69, %convert_op.exit83
   %c.0121 = phi ptr [ %call9.i77, %convert_op.exit83 ], [ %32, %if.end.i.i.i69 ], [ %32, %if.then.i66 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %48 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i84 = call ptr @PyType_GetModuleByDef(ptr noundef %48, ptr noundef nonnull @_decimal_module) #15
   %49 = getelementptr i8, ptr %call.i.i84, i64 32
   %call.val.i.i85 = load ptr, ptr %49, align 8
-  %PyDec_Type.i86 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i85, i64 0, i32 3
+  %PyDec_Type.i86 = getelementptr inbounds i8, ptr %call.val.i.i85, i64 24
   %50 = load ptr, ptr %PyDec_Type.i86, align 8
   %cmp.i87 = icmp eq ptr %50, %48
   br i1 %cmp.i87, label %if.then.i89, label %if.else.i
@@ -12602,7 +12615,7 @@ if.then.i89:                                      ; preds = %if.end24
   br label %if.end.i88
 
 if.else.i:                                        ; preds = %if.end24
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %48, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %48, i64 304
   %51 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %51(ptr noundef %48, i64 noundef 0) #15
   br label %if.end.i88
@@ -12661,22 +12674,22 @@ if.then1.i69:                                     ; preds = %if.end.i66
   br label %return
 
 if.end28:                                         ; preds = %if.end.i88
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec29 = getelementptr inbounds %struct.PyDecObject, ptr %a.0105, i64 0, i32 2
-  %dec30 = getelementptr inbounds %struct.PyDecObject, ptr %b.0113, i64 0, i32 2
-  %dec31 = getelementptr inbounds %struct.PyDecObject, ptr %c.0121, i64 0, i32 2
+  %dec29 = getelementptr inbounds i8, ptr %a.0105, i64 24
+  %dec30 = getelementptr inbounds i8, ptr %b.0113, i64 24
+  %dec31 = getelementptr inbounds i8, ptr %c.0121, i64 24
   %58 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %58, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %58, i64 16
   call void @mpd_qfma(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec29, ptr noundef nonnull %dec30, ptr noundef nonnull %dec31, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %59 = load i64, ptr %a.0105, align 8
   %60 = and i64 %59, 2147483648
@@ -12756,7 +12769,7 @@ return:                                           ; preds = %convert_op.exit.thr
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_iscanonical(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_iscanonical(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12789,7 +12802,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_isfinite(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_isfinite(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12822,7 +12835,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_isinfinite(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_isinfinite(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12855,7 +12868,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_isnan(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_isnan(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12888,7 +12901,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_isqnan(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_isqnan(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12921,7 +12934,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_issnan(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_issnan(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12954,7 +12967,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_issigned(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_issigned(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -12987,7 +13000,7 @@ cond.end:                                         ; preds = %if.end.i.i.i3, %con
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @dec_mpd_iszero(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_iszero(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -13059,7 +13072,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13077,9 +13090,9 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i, %if.then1.i, %if.end7
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %8, i64 16
   %call13 = call i32 @mpd_isnormal(ptr noundef nonnull %dec, ptr noundef nonnull %ctx) #15
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %cond.false, label %cond.true
@@ -13151,7 +13164,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13169,9 +13182,9 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i, %if.then1.i, %if.end7
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %8, i64 16
   %call13 = call i32 @mpd_issubnormal(ptr noundef nonnull %dec, ptr noundef nonnull %ctx) #15
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %cond.false, label %cond.true
@@ -13204,7 +13217,7 @@ return:                                           ; preds = %if.end.i.i.i7, %con
 ; Function Attrs: nounwind uwtable
 define internal ptr @dec_mpd_adjexp(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_isspecial(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -13259,12 +13272,12 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %2, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %3, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i = icmp eq ptr %4, %2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -13274,7 +13287,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %2, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %2, i64 304
   %5 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %5(ptr noundef %2, i64 noundef 0) #15
   br label %if.end.i
@@ -13285,19 +13298,19 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 16, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   store i64 10, ptr %data.i, align 8
-  %len.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 3
+  %len.i = getelementptr inbounds i8, ptr %dec.0.i, i64 48
   store i64 1, ptr %len.i, align 8
   tail call void @mpd_set_flags(ptr noundef nonnull %dec7.i, i8 noundef zeroext 0) #15
   store i64 0, ptr %exp.i, align 8
@@ -13318,12 +13331,12 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %2, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %3, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i6 = icmp eq ptr %4, %2
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
@@ -13333,7 +13346,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i7
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %2, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %2, i64 304
   %5 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %5(ptr noundef %2, i64 noundef 0) #15
   br label %if.end.i7
@@ -13344,18 +13357,18 @@ if.end.i7:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i7
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec3 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec3 = getelementptr inbounds i8, ptr %self, i64 24
   %call4 = call i32 @mpd_qcopy_abs(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec3, ptr noundef nonnull %status) #15
   %6 = load i32, ptr %status, align 4
   %and = and i32 %6, 512
@@ -13397,12 +13410,12 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %2, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %3, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i6 = icmp eq ptr %4, %2
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
@@ -13412,7 +13425,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i7
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %2, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %2, i64 304
   %5 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %5(ptr noundef %2, i64 noundef 0) #15
   br label %if.end.i7
@@ -13423,18 +13436,18 @@ if.end.i7:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i7
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec3 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec3 = getelementptr inbounds i8, ptr %self, i64 24
   %call4 = call i32 @mpd_qcopy_negate(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec3, ptr noundef nonnull %status) #15
   %6 = load i32, ptr %status, align 4
   %and = and i32 %6, 512
@@ -13510,7 +13523,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13528,12 +13541,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -13543,7 +13556,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -13554,20 +13567,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qlogb(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -13640,7 +13653,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13658,12 +13671,12 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i25, %if.then1.i28, %if.end7
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %8 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %8, ptr noundef nonnull @_decimal_module) #15
   %9 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %9, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i10 = icmp eq ptr %10, %8
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -13673,7 +13686,7 @@ if.then.i:                                        ; preds = %if.end12
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %8, i64 304
   %11 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %11(ptr noundef %8, i64 noundef 0) #15
   br label %if.end.i11
@@ -13684,20 +13697,20 @@ if.end.i11:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end.i11
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec17 = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec17 = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %12, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %12, i64 16
   call void @mpd_qinvert(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec17, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load ptr, ptr %context, align 8
   %14 = load i32, ptr %status, align 4
@@ -13768,7 +13781,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13786,9 +13799,9 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i, %if.then1.i, %if.end7
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %8, i64 16
   %call13 = call ptr @mpd_class(ptr noundef nonnull %dec, ptr noundef nonnull %ctx) #15
   %call14 = call ptr @PyUnicode_FromString(ptr noundef %call13) #15
   br label %return
@@ -13841,7 +13854,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13859,9 +13872,9 @@ if.then10:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end12:                                         ; preds = %if.else, %PyObject_TypeCheck.exit, %if.end.i, %if.then1.i, %if.end7
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load ptr, ptr %context, align 8
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %8, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %8, i64 80
   %9 = load i32, ptr %capitals, align 8
   %call13 = call i64 @mpd_to_eng_size(ptr noundef nonnull %s, ptr noundef nonnull %dec, i32 noundef %9) #15
   %cmp14 = icmp slt i64 %call13, 0
@@ -13887,9 +13900,8 @@ if.end.i8:                                        ; preds = %if.end17
 if.then.i.i:                                      ; preds = %if.end.i8
   %13 = and i32 %op.val.i.i, 64
   %tobool.not.i.i.i = icmp eq i32 %13, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i6, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i6, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %call.i6, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i8
@@ -13956,7 +13968,7 @@ if.then1.i70:                                     ; preds = %if.end.i67
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -13980,7 +13992,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -14011,7 +14023,7 @@ if.end.i17:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread64:                         ; preds = %if.end.i17
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -14031,7 +14043,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i20 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i19, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i20, i64 32
   %call.val.i.i21 = load ptr, ptr %21, align 8
-  %PyDec_Type.i22 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i21, i64 0, i32 3
+  %PyDec_Type.i22 = getelementptr inbounds i8, ptr %call.val.i.i21, i64 24
   %22 = load ptr, ptr %PyDec_Type.i22, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i23 = load ptr, ptr %23, align 8
@@ -14063,7 +14075,7 @@ if.end.i34:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit45.thread72:                       ; preds = %if.end.i34
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i43 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i35, i64 0, i32 1
+  %tp_name.i43 = getelementptr inbounds i8, ptr %v.val10.i35, i64 24
   %28 = load ptr, ptr %tp_name.i43, align 8
   %call17.i44 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -14092,12 +14104,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end20:                                         ; preds = %if.then.i28, %if.end.i.i.i31, %convert_op.exit45
   %b.071 = phi ptr [ %call9.i39, %convert_op.exit45 ], [ %18, %if.end.i.i.i31 ], [ %18, %if.then.i28 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i46 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i46, i64 32
   %call.val.i.i47 = load ptr, ptr %33, align 8
-  %PyDec_Type.i48 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i47, i64 0, i32 3
+  %PyDec_Type.i48 = getelementptr inbounds i8, ptr %call.val.i.i47, i64 24
   %34 = load ptr, ptr %PyDec_Type.i48, align 8
   %cmp.i49 = icmp eq ptr %34, %32
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
@@ -14107,7 +14119,7 @@ if.then.i51:                                      ; preds = %if.end20
   br label %if.end.i50
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i50
@@ -14150,19 +14162,19 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end24:                                         ; preds = %if.end.i50
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.063, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.071, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.063, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.071, i64 24
   %call27 = call i32 @mpd_compare_total(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26) #15
   %40 = load i64, ptr %a.063, align 8
   %41 = and i64 %40, 2147483648
@@ -14243,7 +14255,7 @@ if.then1.i70:                                     ; preds = %if.end.i67
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -14267,7 +14279,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -14298,7 +14310,7 @@ if.end.i17:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread64:                         ; preds = %if.end.i17
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -14318,7 +14330,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i20 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i19, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i20, i64 32
   %call.val.i.i21 = load ptr, ptr %21, align 8
-  %PyDec_Type.i22 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i21, i64 0, i32 3
+  %PyDec_Type.i22 = getelementptr inbounds i8, ptr %call.val.i.i21, i64 24
   %22 = load ptr, ptr %PyDec_Type.i22, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i23 = load ptr, ptr %23, align 8
@@ -14350,7 +14362,7 @@ if.end.i34:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit45.thread72:                       ; preds = %if.end.i34
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i43 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i35, i64 0, i32 1
+  %tp_name.i43 = getelementptr inbounds i8, ptr %v.val10.i35, i64 24
   %28 = load ptr, ptr %tp_name.i43, align 8
   %call17.i44 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -14379,12 +14391,12 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end20:                                         ; preds = %if.then.i28, %if.end.i.i.i31, %convert_op.exit45
   %b.071 = phi ptr [ %call9.i39, %convert_op.exit45 ], [ %18, %if.end.i.i.i31 ], [ %18, %if.then.i28 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i46 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i46, i64 32
   %call.val.i.i47 = load ptr, ptr %33, align 8
-  %PyDec_Type.i48 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i47, i64 0, i32 3
+  %PyDec_Type.i48 = getelementptr inbounds i8, ptr %call.val.i.i47, i64 24
   %34 = load ptr, ptr %PyDec_Type.i48, align 8
   %cmp.i49 = icmp eq ptr %34, %32
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
@@ -14394,7 +14406,7 @@ if.then.i51:                                      ; preds = %if.end20
   br label %if.end.i50
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i50
@@ -14437,19 +14449,19 @@ if.then1.i43:                                     ; preds = %if.end.i40
   br label %return
 
 if.end24:                                         ; preds = %if.end.i50
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.063, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.071, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.063, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.071, i64 24
   %call27 = call i32 @mpd_compare_total_mag(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26) #15
   %40 = load i64, ptr %a.063, align 8
   %41 = and i64 %40, 2147483648
@@ -14532,7 +14544,7 @@ if.then1.i83:                                     ; preds = %if.end.i80
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -14556,7 +14568,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -14587,7 +14599,7 @@ if.end.i21:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread68:                         ; preds = %if.end.i21
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -14607,7 +14619,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i24 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i23, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i24, i64 32
   %call.val.i.i25 = load ptr, ptr %21, align 8
-  %PyDec_Type.i26 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i25, i64 0, i32 3
+  %PyDec_Type.i26 = getelementptr inbounds i8, ptr %call.val.i.i25, i64 24
   %22 = load ptr, ptr %PyDec_Type.i26, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i27 = load ptr, ptr %23, align 8
@@ -14639,7 +14651,7 @@ if.end.i38:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit49.thread76:                       ; preds = %if.end.i38
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i47 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i39, i64 0, i32 1
+  %tp_name.i47 = getelementptr inbounds i8, ptr %v.val10.i39, i64 24
   %28 = load ptr, ptr %tp_name.i47, align 8
   %call17.i48 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -14668,12 +14680,12 @@ if.then1.i74:                                     ; preds = %if.end.i71
 
 if.end20:                                         ; preds = %if.then.i32, %if.end.i.i.i35, %convert_op.exit49
   %b.075 = phi ptr [ %call9.i43, %convert_op.exit49 ], [ %18, %if.end.i.i.i35 ], [ %18, %if.then.i32 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i50 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i50, i64 32
   %call.val.i.i51 = load ptr, ptr %33, align 8
-  %PyDec_Type.i52 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i51, i64 0, i32 3
+  %PyDec_Type.i52 = getelementptr inbounds i8, ptr %call.val.i.i51, i64 24
   %34 = load ptr, ptr %PyDec_Type.i52, align 8
   %cmp.i53 = icmp eq ptr %34, %32
   br i1 %cmp.i53, label %if.then.i55, label %if.else.i
@@ -14683,7 +14695,7 @@ if.then.i55:                                      ; preds = %if.end20
   br label %if.end.i54
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i54
@@ -14726,19 +14738,19 @@ if.then1.i56:                                     ; preds = %if.end.i53
   br label %return
 
 if.end24:                                         ; preds = %if.end.i54
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.067, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.075, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.067, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.075, i64 24
   %call27 = call i32 @mpd_qcopy_sign(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %status) #15
   %40 = load i64, ptr %a.067, align 8
   %41 = and i64 %40, 2147483648
@@ -14842,7 +14854,7 @@ if.then1.i50:                                     ; preds = %if.end.i47
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -14866,7 +14878,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -14897,7 +14909,7 @@ if.end.i11:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread57:                         ; preds = %if.end.i11
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -14917,7 +14929,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i14 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i13, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %21, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %22 = load ptr, ptr %PyDec_Type.i16, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i17 = load ptr, ptr %23, align 8
@@ -14949,7 +14961,7 @@ if.end.i28:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit39.thread65:                       ; preds = %if.end.i28
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i37 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i29, i64 0, i32 1
+  %tp_name.i37 = getelementptr inbounds i8, ptr %v.val10.i29, i64 24
   %28 = load ptr, ptr %tp_name.i37, align 8
   %call17.i38 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -14978,8 +14990,8 @@ if.then1.i41:                                     ; preds = %if.end.i38
 
 if.end20:                                         ; preds = %if.then.i22, %if.end.i.i.i25, %convert_op.exit39
   %b.064 = phi ptr [ %call9.i33, %convert_op.exit39 ], [ %18, %if.end.i.i.i25 ], [ %18, %if.then.i22 ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.056, i64 0, i32 2
-  %dec21 = getelementptr inbounds %struct.PyDecObject, ptr %b.064, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.056, i64 24
+  %dec21 = getelementptr inbounds i8, ptr %b.064, i64 24
   %call22 = call i32 @mpd_same_quantum(ptr noundef nonnull %dec, ptr noundef nonnull %dec21) #15
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %cond.false, label %cond.true
@@ -15087,7 +15099,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -15111,7 +15123,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -15142,7 +15154,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -15162,7 +15174,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -15194,7 +15206,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -15223,12 +15235,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -15238,7 +15250,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -15281,21 +15293,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qand(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -15401,7 +15413,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -15425,7 +15437,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -15456,7 +15468,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -15476,7 +15488,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -15508,7 +15520,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -15537,12 +15549,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -15552,7 +15564,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -15595,21 +15607,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qor(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -15715,7 +15727,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -15739,7 +15751,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -15770,7 +15782,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -15790,7 +15802,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -15822,7 +15834,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -15851,12 +15863,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -15866,7 +15878,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -15909,21 +15921,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qxor(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -16029,7 +16041,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -16053,7 +16065,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -16084,7 +16096,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -16104,7 +16116,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -16136,7 +16148,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -16165,12 +16177,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -16180,7 +16192,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -16223,21 +16235,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qrotate(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -16343,7 +16355,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -16367,7 +16379,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -16398,7 +16410,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -16418,7 +16430,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -16450,7 +16462,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -16479,12 +16491,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -16494,7 +16506,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -16537,21 +16549,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qscaleb(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -16657,7 +16669,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %5 = load ptr, ptr %PyDecContext_Type, align 8
   %6 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -16681,7 +16693,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %v.val11.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %v.val11.i, %11
@@ -16712,7 +16724,7 @@ if.end.i20:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread67:                         ; preds = %if.end.i20
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.137, ptr noundef %16) #15
   br label %return
@@ -16732,7 +16744,7 @@ if.end16:                                         ; preds = %if.then.i, %if.end.
   %call.i.i23 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i22, ptr noundef nonnull @_decimal_module) #15
   %21 = getelementptr i8, ptr %call.i.i23, i64 32
   %call.val.i.i24 = load ptr, ptr %21, align 8
-  %PyDec_Type.i25 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i24, i64 0, i32 3
+  %PyDec_Type.i25 = getelementptr inbounds i8, ptr %call.val.i.i24, i64 24
   %22 = load ptr, ptr %PyDec_Type.i25, align 8
   %23 = getelementptr i8, ptr %18, i64 8
   %v.val11.i26 = load ptr, ptr %23, align 8
@@ -16764,7 +16776,7 @@ if.end.i37:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit48.thread75:                       ; preds = %if.end.i37
   %27 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i46 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i38, i64 0, i32 1
+  %tp_name.i46 = getelementptr inbounds i8, ptr %v.val10.i38, i64 24
   %28 = load ptr, ptr %tp_name.i46, align 8
   %call17.i47 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.137, ptr noundef %28) #15
   br label %if.then19
@@ -16793,12 +16805,12 @@ if.then1.i73:                                     ; preds = %if.end.i70
 
 if.end20:                                         ; preds = %if.then.i31, %if.end.i.i.i34, %convert_op.exit48
   %b.074 = phi ptr [ %call9.i42, %convert_op.exit48 ], [ %18, %if.end.i.i.i34 ], [ %18, %if.then.i31 ]
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i49 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i49, i64 32
   %call.val.i.i50 = load ptr, ptr %33, align 8
-  %PyDec_Type.i51 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i50, i64 0, i32 3
+  %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
   %cmp.i52 = icmp eq ptr %34, %32
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
@@ -16808,7 +16820,7 @@ if.then.i54:                                      ; preds = %if.end20
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i53
@@ -16851,21 +16863,21 @@ if.then1.i55:                                     ; preds = %if.end.i52
   br label %return
 
 if.end24:                                         ; preds = %if.end.i53
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec25 = getelementptr inbounds %struct.PyDecObject, ptr %a.066, i64 0, i32 2
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %b.074, i64 0, i32 2
+  %dec25 = getelementptr inbounds i8, ptr %a.066, i64 24
+  %dec26 = getelementptr inbounds i8, ptr %b.074, i64 24
   %40 = load ptr, ptr %context, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %40, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %40, i64 16
   call void @mpd_qshift(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec25, ptr noundef nonnull %dec26, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %41 = load i64, ptr %a.066, align 8
   %42 = and i64 %41, 2147483648
@@ -16953,7 +16965,7 @@ if.then1.i15:                                     ; preds = %if.end.i12
   br label %Py_DECREF.exit17
 
 Py_DECREF.exit17:                                 ; preds = %if.end, %if.then1.i15, %if.end.i12
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %3 = load ptr, ptr %PyDec_Type, align 8
   %call2 = tail call fastcc ptr @PyDecType_FromFloatExact(ptr noundef %3, ptr noundef %pyfloat, ptr noundef nonnull %call1)
   %4 = load ptr, ptr %PyDec_Type, align 8
@@ -16987,7 +16999,7 @@ return:                                           ; preds = %Py_DECREF.exit17, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyDec_AsTuple(ptr noundef %dec, ptr nocapture readnone %dummy) #0 {
 entry:
-  %dec1 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec1 = getelementptr inbounds i8, ptr %dec, i64 24
   %call = tail call ptr @mpd_qncopy(ptr noundef nonnull %dec1) #15
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %Py_XDECREF.exit39.thread, label %if.end
@@ -17031,7 +17043,7 @@ if.then24:                                        ; preds = %if.else
   br label %if.end31
 
 if.else28:                                        ; preds = %if.else
-  %exp = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2, i32 1
+  %exp = getelementptr inbounds i8, ptr %dec, i64 32
   %0 = load i64, ptr %exp, align 8
   %call30 = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #15
   br label %if.end31
@@ -17042,13 +17054,13 @@ if.end31:                                         ; preds = %if.else28, %if.then
   br i1 %cmp32, label %if.then73.thread, label %if.end35
 
 if.end35:                                         ; preds = %if.end31
-  %len = getelementptr inbounds %struct.mpd_t, ptr %call, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %len, align 8
   %cmp36 = icmp sgt i64 %1, 0
   br i1 %cmp36, label %if.then38, label %if.else61
 
 if.then38:                                        ; preds = %if.end35
-  %exp39 = getelementptr inbounds %struct.mpd_t, ptr %call, i64 0, i32 1
+  %exp39 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %exp39, align 8
   tail call void @mpd_clear_flags(ptr noundef nonnull %call) #15
   %call40 = tail call ptr @mpd_to_sci(ptr noundef nonnull %call, i32 noundef 1) #15
@@ -17067,10 +17079,14 @@ if.end45:                                         ; preds = %if.then38
 
 for.cond.preheader:                               ; preds = %if.end45
   %cmp5297 = icmp sgt i64 %call46, 0
-  br i1 %cmp5297, label %for.body, label %if.then73
+  br i1 %cmp5297, label %for.body.lr.ph, label %if.then73
 
-for.body:                                         ; preds = %for.cond.preheader, %if.end60
-  %i.098 = phi i64 [ %inc, %if.end60 ], [ 0, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %ob_item.i = getelementptr inbounds i8, ptr %call47, i64 24
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %if.end60
+  %i.098 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end60 ]
   %arrayidx = getelementptr i8, ptr %call40, i64 %i.098
   %2 = load i8, ptr %arrayidx, align 1
   %conv54 = sext i8 %2 to i64
@@ -17080,7 +17096,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp57, label %if.then73.thread110, label %if.end60
 
 if.end60:                                         ; preds = %for.body
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call47, i64 0, i32 1, i64 %i.098
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.098
   store ptr %call56, ptr %arrayidx.i, align 8
   %inc = add nuw nsw i64 %i.098, 1
   %exitcond.not = icmp eq i64 %inc, %call46
@@ -17109,7 +17125,7 @@ if.then73:                                        ; preds = %if.end60, %if.end16
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %dec.val, ptr noundef nonnull @_decimal_module) #15
   %4 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %4, align 8
-  %DecimalTuple = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 5
+  %DecimalTuple = getelementptr inbounds i8, ptr %call.val.i, i64 40
   %5 = load ptr, ptr %DecimalTuple, align 8
   %call71 = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %5, ptr noundef nonnull %call5, ptr noundef nonnull %coeff.0, ptr noundef nonnull %expt.1, ptr noundef null) #15
   tail call void @mpd_del(ptr noundef nonnull %call) #15
@@ -17198,7 +17214,7 @@ define internal ptr @dec_as_integer_ratio(ptr noundef %self, ptr nocapture readn
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %self, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @mpd_isspecial(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end5, label %if.then
@@ -17245,12 +17261,12 @@ if.then1.i166:                                    ; preds = %if.end.i163
   br label %Py_DECREF.exit168
 
 Py_DECREF.exit168:                                ; preds = %if.end10, %if.then1.i166, %if.end.i163
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %6 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %6, ptr noundef nonnull @_decimal_module) #15
   %7 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %7, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %8 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i74 = icmp eq ptr %8, %6
   br i1 %cmp.i74, label %if.then.i, label %if.else.i
@@ -17260,7 +17276,7 @@ if.then.i:                                        ; preds = %Py_DECREF.exit168
   br label %if.end.i75
 
 if.else.i:                                        ; preds = %Py_DECREF.exit168
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %6, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %6, i64 304
   %9 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %9(ptr noundef %6, i64 noundef 0) #15
   br label %if.end.i75
@@ -17271,16 +17287,16 @@ if.end.i75:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end.i75
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %call17 = call i32 @mpd_qcopy(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec, ptr noundef nonnull %status) #15
   %tobool18.not = icmp eq i32 %call17, 0
@@ -17350,7 +17366,7 @@ if.end41:                                         ; preds = %if.end32
   br i1 %cmp43, label %if.then.i76, label %do.body
 
 do.body:                                          ; preds = %if.end41
-  %_py_long_power = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 18
+  %_py_long_power = getelementptr inbounds i8, ptr %call.val.i, i64 200
   %15 = load ptr, ptr %_py_long_power, align 8
   %call46 = call ptr %15(ptr noundef nonnull %call42, ptr noundef nonnull %call38, ptr noundef nonnull @_Py_NoneStruct) #15
   %16 = load i64, ptr %call38, align 8
@@ -17393,7 +17409,7 @@ if.end49:                                         ; preds = %Py_DECREF.exit132
   br i1 %cmp50, label %do.body52, label %if.else64
 
 do.body52:                                        ; preds = %if.end49
-  %_py_long_multiply = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 16
+  %_py_long_multiply = getelementptr inbounds i8, ptr %call.val.i, i64 184
   %20 = load ptr, ptr %_py_long_multiply, align 8
   %call55 = call ptr %20(ptr noundef nonnull %call29, ptr noundef nonnull %call46) #15
   %21 = load i64, ptr %call29, align 8
@@ -17426,7 +17442,7 @@ if.else64:                                        ; preds = %if.end49
   br i1 %cmp66, label %if.then.i79, label %do.body69
 
 do.body69:                                        ; preds = %if.else64
-  %_py_long_floor_divide = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 17
+  %_py_long_floor_divide = getelementptr inbounds i8, ptr %call.val.i, i64 192
   %23 = load ptr, ptr %_py_long_floor_divide, align 8
   %call72 = call ptr %23(ptr noundef nonnull %call29, ptr noundef nonnull %call65) #15
   %24 = load i64, ptr %call29, align 8
@@ -17614,14 +17630,14 @@ entry:
   store ptr null, ptr %sep, align 8
   store ptr null, ptr %grouping, align 8
   store i32 0, ptr %status, align 4
-  %dec1 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec1 = getelementptr inbounds i8, ptr %dec, i64 24
   store i8 48, ptr %tmp, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 2
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %tmp, i64 8
+  %digits = getelementptr inbounds i8, ptr %tmp, i64 16
+  %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %dt, ptr %data, align 8
   %0 = getelementptr i8, ptr %dec, i64 8
   %dec.val = load ptr, ptr %0, align 8
@@ -17812,7 +17828,7 @@ if.end43:                                         ; preds = %land.lhs.true31.i, 
   %cmp27.not95 = phi i1 [ false, %if.end38 ], [ true, %if.end28.i ], [ true, %land.lhs.true31.i ]
   %fmt_copy.2 = phi ptr [ %fmt_copy.1, %if.end38 ], [ %fmt_copy.0, %if.end28.i ], [ %fmt_copy.0, %land.lhs.true31.i ]
   %fmt.2 = phi ptr [ %fmt.1, %if.end38 ], [ %fmt.0, %if.end28.i ], [ %fmt.0, %land.lhs.true31.i ]
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %call3, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %call3, i64 80
   %20 = load i32, ptr %capitals, align 8
   %call44 = call i32 @mpd_parse_fmt_str(ptr noundef nonnull %spec, ptr noundef %fmt.2, i32 noundef %20) #15
   %tobool45.not = icmp eq i32 %call44, 0
@@ -17827,9 +17843,9 @@ if.end47:                                         ; preds = %if.end43
   br i1 %tobool48.not, label %if.end53, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  %fill = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 5
+  %fill = getelementptr inbounds i8, ptr %spec, i64 19
   store i8 -1, ptr %fill, align 1
-  %arrayidx52 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 5, i64 1
+  %arrayidx52 = getelementptr inbounds i8, ptr %spec, i64 20
   store i8 0, ptr %arrayidx52, align 4
   br label %if.end53
 
@@ -17853,7 +17869,7 @@ if.then59:                                        ; preds = %if.then55
   br label %finish
 
 if.end60:                                         ; preds = %if.then55
-  %dot61 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 6
+  %dot61 = getelementptr inbounds i8, ptr %spec, i64 24
   %call.i60 = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.153) #15
   %cmp.i61 = icmp eq ptr %call.i60, null
   br i1 %cmp.i61, label %finish, label %if.end.i62
@@ -17885,7 +17901,7 @@ if.end7.i:                                        ; preds = %Py_DECREF.exit.i
   br i1 %cmp9.i64, label %finish, label %dict_get_item_string.exit.thread99
 
 dict_get_item_string.exit.thread99:               ; preds = %if.end7.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call8.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call8.i, i64 32
   store ptr %ob_sval.i.i, ptr %dot61, align 8
   br label %lor.lhs.false
 
@@ -17897,14 +17913,14 @@ dict_get_item_string.exit:                        ; preds = %Py_DECREF.exit.i
 lor.lhs.false:                                    ; preds = %dict_get_item_string.exit.thread99, %dict_get_item_string.exit
   %dot.0103 = phi ptr [ %call8.i, %dict_get_item_string.exit.thread99 ], [ null, %dict_get_item_string.exit ]
   %29 = load ptr, ptr %override, align 8
-  %sep64 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 7
+  %sep64 = getelementptr inbounds i8, ptr %spec, i64 32
   %call65 = call fastcc i32 @dict_get_item_string(ptr noundef %29, ptr noundef nonnull @.str.154, ptr noundef nonnull %sep, ptr noundef nonnull %sep64), !range !22
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %lor.lhs.false67, label %finish
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false
   %30 = load ptr, ptr %override, align 8
-  %grouping68 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 8
+  %grouping68 = getelementptr inbounds i8, ptr %spec, i64 40
   %call69 = call fastcc i32 @dict_get_item_string(ptr noundef %30, ptr noundef nonnull @.str.155, ptr noundef nonnull %grouping, ptr noundef nonnull %grouping68), !range !22
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %if.end72, label %finish
@@ -17920,7 +17936,7 @@ if.then76:                                        ; preds = %if.end72
   br label %finish
 
 if.else78:                                        ; preds = %if.end53
-  %dot79 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 6
+  %dot79 = getelementptr inbounds i8, ptr %spec, i64 24
   %32 = load ptr, ptr %dot79, align 8
   %call80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #16
   %cmp81 = icmp ugt i64 %call80, 1
@@ -17941,13 +17957,13 @@ if.then92:                                        ; preds = %land.lhs.true86, %i
   br i1 %cmp95, label %finish, label %if.end98
 
 if.end98:                                         ; preds = %if.then92
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call94, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call94, i64 32
   store ptr %ob_sval.i, ptr %dot79, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end98, %land.lhs.true86, %lor.lhs.false83
   %dot.1 = phi ptr [ %call94, %if.end98 ], [ null, %land.lhs.true86 ], [ null, %lor.lhs.false83 ]
-  %sep102 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 7
+  %sep102 = getelementptr inbounds i8, ptr %spec, i64 32
   %34 = load ptr, ptr %sep102, align 8
   %call103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #16
   %cmp104 = icmp ugt i64 %call103, 1
@@ -17969,7 +17985,7 @@ if.then116:                                       ; preds = %land.lhs.true109, %
   br i1 %cmp119, label %finish, label %if.end122
 
 if.end122:                                        ; preds = %if.then116
-  %ob_sval.i66 = getelementptr inbounds %struct.PyBytesObject, ptr %call118, i64 0, i32 2
+  %ob_sval.i66 = getelementptr inbounds i8, ptr %call118, i64 32
   store ptr %ob_sval.i66, ptr %sep102, align 8
   br label %if.end126
 
@@ -17989,13 +18005,13 @@ land.lhs.true131:                                 ; preds = %land.lhs.true128
 
 if.then134:                                       ; preds = %land.lhs.true131
   %call135 = call i32 @mpd_qcopy(ptr noundef nonnull %tmp, ptr noundef nonnull %dec1, ptr noundef nonnull %status) #15
-  %prec136 = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 1
+  %prec136 = getelementptr inbounds i8, ptr %spec, i64 8
   %36 = load i64, ptr %prec136, align 8
   %cmp137 = icmp sgt i64 %36, -1
   br i1 %cmp137, label %if.then139, label %if.end167
 
 if.then139:                                       ; preds = %if.then134
-  %type = getelementptr inbounds %struct.mpd_spec_t, ptr %spec, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %spec, i64 16
   %37 = load i8, ptr %type, align 8
   %conv140 = sext i8 %37 to i32
   switch i32 %conv140, label %if.end167 [
@@ -18007,7 +18023,7 @@ if.then139:                                       ; preds = %if.then134
 
 sw.bb:                                            ; preds = %if.then139
   %sub142 = sub nsw i64 0, %36
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call3, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call3, i64 16
   call void @mpd_qrescale(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef %sub142, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   br label %if.end167
 
@@ -18016,7 +18032,7 @@ sw.bb143:                                         ; preds = %if.then139
   %add = add i64 %38, 2
   store i64 %add, ptr %exp, align 8
   %sub146 = sub nsw i64 0, %36
-  %ctx147 = getelementptr inbounds %struct.PyDecContextObject, ptr %call3, i64 0, i32 1
+  %ctx147 = getelementptr inbounds i8, ptr %call3, i64 16
   call void @mpd_qrescale(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef %sub146, ptr noundef nonnull %ctx147, ptr noundef nonnull %status) #15
   br label %if.end167
 
@@ -18027,7 +18043,7 @@ sw.bb148:                                         ; preds = %if.then139
   br i1 %cmp154, label %if.then156, label %if.end167
 
 if.then156:                                       ; preds = %sw.bb148
-  %ctx157 = getelementptr inbounds %struct.PyDecContextObject, ptr %call3, i64 0, i32 1
+  %ctx157 = getelementptr inbounds i8, ptr %call3, i64 16
   call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef %cond, ptr noundef nonnull %ctx157, ptr noundef nonnull %status)
   br label %if.end167
 
@@ -18039,7 +18055,7 @@ sw.bb159:                                         ; preds = %if.then139
 if.then162:                                       ; preds = %sw.bb159
   %40 = load i64, ptr %prec136, align 8
   %add164 = add i64 %40, 1
-  %ctx165 = getelementptr inbounds %struct.PyDecContextObject, ptr %call3, i64 0, i32 1
+  %ctx165 = getelementptr inbounds i8, ptr %call3, i64 16
   call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef %add164, ptr noundef nonnull %ctx165, ptr noundef nonnull %status)
   br label %if.end167
 
@@ -18065,7 +18081,7 @@ if.then174:                                       ; preds = %if.end171
 
 if.end176:                                        ; preds = %if.end171, %if.then174, %land.lhs.true131, %land.lhs.true128, %if.end126
   %mpd.0 = phi ptr [ %dec1, %land.lhs.true131 ], [ %tmp, %if.then174 ], [ %dec1, %if.end171 ], [ %dec1, %land.lhs.true128 ], [ %dec1, %if.end126 ]
-  %ctx177 = getelementptr inbounds %struct.PyDecContextObject, ptr %call3, i64 0, i32 1
+  %ctx177 = getelementptr inbounds i8, ptr %call3, i64 16
   %call178 = call ptr @mpd_qformat_spec(ptr noundef nonnull %mpd.0, ptr noundef nonnull %spec, ptr noundef nonnull %ctx177, ptr noundef nonnull %status) #15
   %cmp179 = icmp eq ptr %call178, null
   br i1 %cmp179, label %if.then181, label %if.end188
@@ -18287,14 +18303,14 @@ if.end5:                                          ; preds = %Py_DECREF.exit40
 if.then7:                                         ; preds = %if.end5
   store i64 1, ptr %dq, align 8
   store i8 -112, ptr %q, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %q, i64 8
+  %digits = getelementptr inbounds i8, ptr %q, i64 16
   store i64 1, ptr %digits, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %q, i64 24
   store i64 1, ptr %len, align 8
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %q, i64 32
   store i64 1, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %q, i64 40
   store ptr %dq, ptr %data, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -18320,12 +18336,12 @@ land.lhs.true:                                    ; preds = %if.end12
   br i1 %tobool16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %land.lhs.true, %if.end12
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %9 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %9, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %10, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i18 = icmp eq ptr %11, %9
   br i1 %cmp.i18, label %if.then.i, label %if.else.i
@@ -18335,7 +18351,7 @@ if.then.i:                                        ; preds = %if.end18
   br label %if.end.i19
 
 if.else.i:                                        ; preds = %if.end18
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %9, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %9, i64 304
   %12 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %12(ptr noundef %9, i64 noundef 0) #15
   br label %if.end.i19
@@ -18346,23 +18362,23 @@ if.end.i19:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end.i19
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %cmp23 = icmp eq i64 %call13, -9223372036854775808
   %sub = sub i64 0, %call13
   %cond = select i1 %cmp23, i64 9223372036854775807, i64 %sub
   store i64 %cond, ptr %exp, align 8
-  %dec26 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %call2, i64 0, i32 1
+  %dec26 = getelementptr inbounds i8, ptr %dec, i64 24
+  %ctx = getelementptr inbounds i8, ptr %call2, i64 16
   call void @mpd_qquantize(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec26, ptr noundef nonnull %q, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %13 = load i32, ptr %status, align 4
   %call27 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %call2, i32 noundef %13), !range !16
@@ -18554,13 +18570,13 @@ entry:
   %v.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %v.val, i64 32
   %call.val = load i64, ptr %1, align 8
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %v, i64 24
   %call2 = tail call i32 @mpd_isdynamic_data(ptr noundef nonnull %dec) #15
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %alloc = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2, i32 4
+  %alloc = getelementptr inbounds i8, ptr %v, i64 56
   %2 = load i64, ptr %alloc, align 8
   %mul = shl i64 %2, 3
   %add = add i64 %mul, %call.val
@@ -18682,7 +18698,7 @@ entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %dec1 = getelementptr inbounds %struct.PyDecObject, ptr %dec, i64 0, i32 2
+  %dec1 = getelementptr inbounds i8, ptr %dec, i64 24
   %call = tail call i32 @mpd_isspecial(ptr noundef nonnull %dec1) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end6, label %if.then
@@ -18712,9 +18728,9 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %round11 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round11 = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 %round, ptr %round11, align 4
   call void @mpd_qround_to_int(ptr noundef nonnull %call7, ptr noundef nonnull %dec1, ptr noundef nonnull %workctx, ptr noundef nonnull %status) #15
   %2 = load i32, ptr %status, align 4
@@ -18826,7 +18842,7 @@ if.end7:                                          ; preds = %Py_DECREF.exit
 
 if.end11:                                         ; preds = %if.end7
   store ptr %call8, ptr %valueobj, align 8
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call8, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call8, i64 32
   store ptr %ob_sval.i, ptr %valuestr, align 8
   br label %return
 
@@ -18882,9 +18898,9 @@ declare hidden void @mpd_qrescale(ptr noundef, ptr noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_mpd_round(ptr noundef %result, ptr noundef %a, i64 noundef %prec, ptr noundef %ctx, ptr noundef %status) unnamed_addr #0 {
 entry:
-  %exp1 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %exp1, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load i64, ptr %digits, align 8
   %add = sub i64 %0, %prec
   %sub = add i64 %add, %1
@@ -18911,7 +18927,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
 
 if.end6:                                          ; preds = %lor.lhs.false
   tail call void @mpd_qrescale_fmt(ptr noundef %result, ptr noundef nonnull %a, i64 noundef %sub, ptr noundef %ctx, ptr noundef %status) #15
-  %digits7 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits7 = getelementptr inbounds i8, ptr %result, i64 16
   %2 = load i64, ptr %digits7, align 8
   %cmp8 = icmp sgt i64 %2, %prec
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -18973,12 +18989,12 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %2, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %3, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i = icmp eq ptr %4, %2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -18988,7 +19004,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %2, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %2, i64 304
   %5 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %5(ptr noundef %2, i64 noundef 0) #15
   br label %if.end.i
@@ -18999,19 +19015,19 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 16, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   store i64 0, ptr %data.i, align 8
-  %len.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 3
+  %len.i = getelementptr inbounds i8, ptr %dec.0.i, i64 48
   store i64 1, ptr %len.i, align 8
   tail call void @mpd_set_flags(ptr noundef nonnull %dec7.i, i8 noundef zeroext 0) #15
   store i64 0, ptr %exp.i, align 8
@@ -19025,7 +19041,7 @@ return:                                           ; preds = %if.end.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @numeric_as_ascii(ptr nocapture noundef readonly %u, i32 noundef %strip_ws, i32 noundef %ignore_underscores) unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.PyASCIIObject, ptr %u, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %u, i64 32
   %bf.load = load i32, ptr %state, align 8
   %bf.load.fr = freeze i32 %bf.load
   %bf.lshr = lshr i32 %bf.load.fr, 2
@@ -19037,9 +19053,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = and i32 %bf.load.fr, 64
   %tobool.not.i.i = icmp eq i32 %1, 0
-  %add.ptr.i.i = getelementptr %struct.PyASCIIObject, ptr %u, i64 1
-  %add.ptr1.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %u, i64 1
-  %retval.0.i.i = select i1 %tobool.not.i.i, ptr %add.ptr1.i.i, ptr %add.ptr.i.i
+  %retval.0.v.i.i = select i1 %tobool.not.i.i, i64 56, i64 40
+  %retval.0.i.i = getelementptr i8, ptr %u, i64 %retval.0.v.i.i
   br label %PyUnicode_DATA.exit
 
 if.end.i:                                         ; preds = %entry
@@ -19324,7 +19339,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %0 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %0, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %1 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i7 = icmp eq ptr %1, %type
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
@@ -19334,7 +19349,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i8
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %2 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %2(ptr noundef %type, i64 noundef 0) #15
   br label %if.end.i8
@@ -19345,16 +19360,16 @@ if.end.i8:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i8
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxctx) #15
   call void @mpd_qset_string(ptr noundef nonnull %dec7.i, ptr noundef %s, ptr noundef nonnull %maxctx, ptr noundef nonnull %status) #15
@@ -19417,7 +19432,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %dectuple, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %dectuple, i64 24
   %1 = load ptr, ptr %ob_item, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val52 = load ptr, ptr %2, align 8
@@ -19455,9 +19470,9 @@ if.end15:                                         ; preds = %if.end10
   %cmp11.not = icmp eq i64 %call5, 0
   %conv = select i1 %cmp11.not, i8 43, i8 45
   store i8 %conv, ptr %sign_special, align 1
-  %arrayidx18 = getelementptr inbounds [6 x i8], ptr %sign_special, i64 0, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %sign_special, i64 1
   store i8 0, ptr %arrayidx18, align 1
-  %arrayidx20 = getelementptr %struct.PyTupleObject, ptr %dectuple, i64 1, i32 0, i32 0, i32 1
+  %arrayidx20 = getelementptr i8, ptr %dectuple, i64 40
   %7 = load ptr, ptr %arrayidx20, align 8
   %8 = getelementptr i8, ptr %7, i64 8
   %.val51 = load ptr, ptr %8, align 8
@@ -19528,7 +19543,7 @@ land.lhs.true56:                                  ; preds = %if.end52
 if.end61:                                         ; preds = %if.end52, %land.lhs.true56, %if.then28, %if.then40, %if.then33
   %exp.0 = phi i64 [ 0, %if.then28 ], [ 0, %if.then33 ], [ 0, %if.then40 ], [ -1, %land.lhs.true56 ], [ %call53, %if.end52 ]
   %tobool121.not = phi i1 [ false, %if.then28 ], [ true, %if.then33 ], [ true, %if.then40 ], [ true, %land.lhs.true56 ], [ true, %if.end52 ]
-  %arrayidx63 = getelementptr %struct.PyTupleObject, ptr %dectuple, i64 1
+  %arrayidx63 = getelementptr i8, ptr %dectuple, i64 32
   %14 = load ptr, ptr %arrayidx63, align 8
   %15 = load ptr, ptr @PyExc_ValueError, align 8
   %16 = getelementptr i8, ptr %14, i64 8
@@ -19608,12 +19623,13 @@ if.end96:                                         ; preds = %if.end87
   br i1 %cmp9797, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end96
+  %ob_item99 = getelementptr inbounds i8, ptr %retval.0.i76, i64 24
   br i1 %tobool121.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end120.us
   %i.099.us = phi i64 [ %inc.us, %if.end120.us ], [ 0, %for.body.lr.ph ]
   %cp.198.us = phi ptr [ %incdec.ptr128.us, %if.end120.us ], [ %add.ptr, %for.body.lr.ph ]
-  %arrayidx100.us = getelementptr %struct.PyTupleObject, ptr %retval.0.i76, i64 0, i32 1, i64 %i.099.us
+  %arrayidx100.us = getelementptr [1 x ptr], ptr %ob_item99, i64 0, i64 %i.099.us
   %23 = load ptr, ptr %arrayidx100.us, align 8
   %24 = getelementptr i8, ptr %23, i64 8
   %.val.us = load ptr, ptr %24, align 8
@@ -19643,7 +19659,7 @@ if.end120.us:                                     ; preds = %if.end113.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end120
   %i.099 = phi i64 [ %inc, %if.end120 ], [ 0, %for.body.lr.ph ]
-  %arrayidx100 = getelementptr %struct.PyTupleObject, ptr %retval.0.i76, i64 0, i32 1, i64 %i.099
+  %arrayidx100 = getelementptr [1 x ptr], ptr %ob_item99, i64 0, i64 %i.099
   %27 = load ptr, ptr %arrayidx100, align 8
   %28 = getelementptr i8, ptr %27, i64 8
   %.val = load ptr, ptr %28, align 8
@@ -19781,7 +19797,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #15
-  %traps.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 2
+  %traps.i = getelementptr inbounds i8, ptr %self, i64 64
   %1 = load ptr, ptr %traps.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %do.body1.i, label %if.then.i
@@ -19804,7 +19820,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %flags.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %self, i64 72
   %4 = load ptr, ptr %flags.i, align 8
   %cmp4.not.i = icmp eq ptr %4, null
   br i1 %cmp4.not.i, label %context_clear.exit, label %if.then5.i
@@ -19827,7 +19843,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %context_clear.exit
 
 context_clear.exit:                               ; preds = %do.body1.i, %if.then5.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %7 = load ptr, ptr %tp_free, align 8
   tail call void %7(ptr noundef nonnull %self) #15
   %8 = load i64, ptr %self.val, align 8
@@ -19863,7 +19879,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %traps = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 2
+  %traps = getelementptr inbounds i8, ptr %self, i64 64
   %1 = load ptr, ptr %traps, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -19874,7 +19890,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %flags = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %self, i64 72
   %2 = load ptr, ptr %flags, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -19895,7 +19911,7 @@ return:                                           ; preds = %if.then19, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @context_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %traps = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 2
+  %traps = getelementptr inbounds i8, ptr %self, i64 64
   %0 = load ptr, ptr %traps, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -19918,7 +19934,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %flags = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %self, i64 72
   %3 = load ptr, ptr %flags, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -19949,8 +19965,8 @@ define internal ptr @context_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %flags = alloca [121 x i8], align 16
   %traps = alloca [121 x i8], align 16
-  %ctx1 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
-  %status = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 4
+  %ctx1 = getelementptr inbounds i8, ptr %self, i64 16
+  %status = getelementptr inbounds i8, ptr %self, i64 44
   %0 = load i32, ptr %status, align 4
   %call = call i32 @mpd_lsnprint_signals(ptr noundef nonnull %flags, i32 noundef 121, i32 noundef %0, ptr noundef nonnull @dec_signal_string) #15
   %or.cond = icmp ugt i32 %call, 120
@@ -19962,7 +19978,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %traps5 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 3
+  %traps5 = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load i32, ptr %traps5, align 8
   %call6 = call i32 @mpd_lsnprint_signals(ptr noundef nonnull %traps, i32 noundef 121, i32 noundef %2, ptr noundef nonnull @dec_signal_string) #15
   %or.cond14 = icmp ugt i32 %call6, 120
@@ -19975,18 +19991,18 @@ if.then10:                                        ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end
   %4 = load i64, ptr %ctx1, align 8
-  %round = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 6
+  %round = getelementptr inbounds i8, ptr %self, i64 52
   %5 = load i32, ptr %round, align 4
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr [9 x ptr], ptr @mpd_round_string, i64 0, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %emin = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 2
+  %emin = getelementptr inbounds i8, ptr %self, i64 32
   %7 = load i64, ptr %emin, align 8
-  %emax = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 1
+  %emax = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i64, ptr %emax, align 8
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %self, i64 80
   %9 = load i32, ptr %capitals, align 8
-  %clamp = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 7
+  %clamp = getelementptr inbounds i8, ptr %self, i64 56
   %10 = load i32, ptr %clamp, align 8
   %call15 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.186, i64 noundef %4, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %flags, ptr noundef nonnull %traps) #15
   br label %return
@@ -20013,7 +20029,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %traps = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 2
+  %traps = getelementptr inbounds i8, ptr %self, i64 64
   %3 = load ptr, ptr %traps, align 8
   %4 = load i32, ptr %3, align 8
   %add.i.i = add i32 %4, 1
@@ -20030,7 +20046,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %self, i64 72
   %5 = load ptr, ptr %flags, align 8
   %6 = load i32, ptr %5, align 8
   %add.i.i7 = add i32 %6, 1
@@ -20081,7 +20097,7 @@ if.then5:                                         ; preds = %if.then2
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @_decimal_module) #15
   %5 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %5, align 8
-  %PyDecSignalDict_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 4
+  %PyDecSignalDict_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 32
   %6 = load ptr, ptr %PyDecSignalDict_Type.i, align 8
   %7 = getelementptr i8, ptr %value, i64 8
   %value.val.i = load ptr, ptr %7, align 8
@@ -20089,7 +20105,7 @@ if.then5:                                         ; preds = %if.then2
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %flags3.i = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %value, i64 0, i32 1
+  %flags3.i = getelementptr inbounds i8, ptr %value, i64 16
   %8 = load ptr, ptr %flags3.i, align 8
   %9 = load i32, ptr %8, align 4
   br label %if.end7.i
@@ -20102,7 +20118,7 @@ if.else.i:                                        ; preds = %if.then5
 
 if.end7.i:                                        ; preds = %if.else.i, %if.then.i
   %flags.0.i = phi i32 [ %9, %if.then.i ], [ %call4.i, %if.else.i ]
-  %ctx8.i = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx8.i = getelementptr inbounds i8, ptr %self, i64 16
   %call9.i = tail call i32 @mpd_qsettraps(ptr noundef nonnull %ctx8.i, i32 noundef %flags.0.i) #15
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.then11.i, label %return
@@ -20123,7 +20139,7 @@ if.then10:                                        ; preds = %if.end7
   %call.i.i11 = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i10, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i11, i64 32
   %call.val.i.i12 = load ptr, ptr %12, align 8
-  %PyDecSignalDict_Type.i13 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i12, i64 0, i32 4
+  %PyDecSignalDict_Type.i13 = getelementptr inbounds i8, ptr %call.val.i.i12, i64 32
   %13 = load ptr, ptr %PyDecSignalDict_Type.i13, align 8
   %14 = getelementptr i8, ptr %value, i64 8
   %value.val.i14 = load ptr, ptr %14, align 8
@@ -20131,7 +20147,7 @@ if.then10:                                        ; preds = %if.end7
   br i1 %cmp.i.not.i15, label %if.then.i27, label %if.else.i16
 
 if.then.i27:                                      ; preds = %if.then10
-  %flags3.i28 = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %value, i64 0, i32 1
+  %flags3.i28 = getelementptr inbounds i8, ptr %value, i64 16
   %15 = load ptr, ptr %flags3.i28, align 8
   %16 = load i32, ptr %15, align 4
   br label %if.end7.i21
@@ -20144,7 +20160,7 @@ if.else.i16:                                      ; preds = %if.then10
 
 if.end7.i21:                                      ; preds = %if.else.i16, %if.then.i27
   %flags.0.i22 = phi i32 [ %16, %if.then.i27 ], [ %call4.i17, %if.else.i16 ]
-  %ctx8.i23 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx8.i23 = getelementptr inbounds i8, ptr %self, i64 16
   %call9.i24 = tail call i32 @mpd_qsetstatus(ptr noundef nonnull %ctx8.i23, i32 noundef %flags.0.i22) #15
   %tobool10.not.i25 = icmp eq i32 %call9.i24, 0
   br i1 %tobool10.not.i25, label %if.then11.i26, label %return
@@ -20209,7 +20225,7 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %0 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %0, align 8
-  %PyDecContext_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 1
+  %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %1 = load ptr, ptr %PyDecContext_Type, align 8
   %cmp = icmp eq ptr %1, %type
   br i1 %cmp, label %if.then, label %if.else
@@ -20219,7 +20235,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %2 = load ptr, ptr %tp_alloc, align 8
   %call3 = tail call ptr %2(ptr noundef %type, i64 noundef 0) #15
   br label %if.end
@@ -20230,16 +20246,16 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %PyDecSignalDict_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 4
+  %PyDecSignalDict_Type = getelementptr inbounds i8, ptr %call.val.i, i64 32
   %3 = load ptr, ptr %PyDecSignalDict_Type, align 8
   %call7 = tail call ptr @PyObject_CallObject(ptr noundef %3, ptr noundef null) #15
-  %traps = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 2
+  %traps = getelementptr inbounds i8, ptr %self.0, i64 64
   store ptr %call7, ptr %traps, align 8
   %cmp9 = icmp eq ptr %call7, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end6
-  %flags = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %self.0, i64 72
   store ptr null, ptr %flags, align 8
   %4 = load i64, ptr %self.0, align 8
   %5 = and i64 %4, 2147483648
@@ -20259,7 +20275,7 @@ if.then1.i36:                                     ; preds = %if.end.i33
 if.end11:                                         ; preds = %if.end6
   %6 = load ptr, ptr %PyDecSignalDict_Type, align 8
   %call13 = tail call ptr @PyObject_CallObject(ptr noundef %6, ptr noundef null) #15
-  %flags14 = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 3
+  %flags14 = getelementptr inbounds i8, ptr %self.0, i64 72
   store ptr %call13, ptr %flags14, align 8
   %cmp16 = icmp eq ptr %call13, null
   br i1 %cmp16, label %if.then17, label %if.end18
@@ -20281,14 +20297,14 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end18:                                         ; preds = %if.end11
-  %ctx19 = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 1
-  %default_context_template = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 8
+  %ctx19 = getelementptr inbounds i8, ptr %self.0, i64 16
+  %default_context_template = getelementptr inbounds i8, ptr %call.val.i, i64 64
   %9 = load ptr, ptr %default_context_template, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else23, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %ctx22 = getelementptr inbounds %struct.PyDecContextObject, ptr %9, i64 0, i32 1
+  %ctx22 = getelementptr inbounds i8, ptr %9, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx19, ptr noundef nonnull align 8 dereferenceable(48) %ctx22, i64 48, i1 false)
   br label %if.end24
 
@@ -20297,17 +20313,17 @@ if.else23:                                        ; preds = %if.end18
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else23, %if.then20
-  %traps25 = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 1, i32 3
+  %traps25 = getelementptr inbounds i8, ptr %self.0, i64 40
   %10 = load ptr, ptr %traps, align 8
-  %flags27 = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %10, i64 0, i32 1
+  %flags27 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %traps25, ptr %flags27, align 8
-  %status = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 1, i32 4
+  %status = getelementptr inbounds i8, ptr %self.0, i64 44
   %11 = load ptr, ptr %flags14, align 8
-  %flags29 = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %11, i64 0, i32 1
+  %flags29 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %status, ptr %flags29, align 8
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %self.0, i64 80
   store i32 1, ptr %capitals, align 8
-  %tstate = getelementptr inbounds %struct.PyDecContextObject, ptr %self.0, i64 0, i32 5
+  %tstate = getelementptr inbounds i8, ptr %self.0, i64 88
   store ptr null, ptr %tstate, align 8
   br label %return
 
@@ -20330,7 +20346,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -20362,7 +20378,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -20379,12 +20395,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -20394,7 +20410,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -20421,19 +20437,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qabs(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -20487,7 +20503,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -20519,7 +20535,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -20536,12 +20552,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -20551,7 +20567,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -20578,19 +20594,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qexp(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -20644,7 +20660,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -20676,7 +20692,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -20693,12 +20709,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -20708,7 +20724,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -20735,19 +20751,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qln(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -20801,7 +20817,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -20833,7 +20849,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -20850,12 +20866,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -20865,7 +20881,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -20892,19 +20908,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qlog10(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -20958,7 +20974,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -20990,7 +21006,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21007,12 +21023,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21022,7 +21038,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21049,19 +21065,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qminus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -21115,7 +21131,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -21147,7 +21163,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21164,12 +21180,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21179,7 +21195,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21206,19 +21222,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qnext_minus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -21272,7 +21288,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -21304,7 +21320,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21321,12 +21337,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21336,7 +21352,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21363,19 +21379,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qnext_plus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -21429,7 +21445,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -21461,7 +21477,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21478,12 +21494,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21493,7 +21509,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21520,19 +21536,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qreduce(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -21586,7 +21602,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -21618,7 +21634,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21635,12 +21651,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21650,7 +21666,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21677,19 +21693,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qplus(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -21743,7 +21759,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -21775,7 +21791,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21792,12 +21808,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21807,7 +21823,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21834,19 +21850,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qround_to_int(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -21900,7 +21916,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -21932,7 +21948,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -21949,12 +21965,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -21964,7 +21980,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -21991,19 +22007,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qround_to_intx(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -22057,7 +22073,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -22089,7 +22105,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -22106,12 +22122,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -22121,7 +22137,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -22148,19 +22164,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qsqrt(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -22222,7 +22238,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -22254,7 +22270,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -22272,7 +22288,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -22304,7 +22320,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -22337,12 +22353,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -22352,7 +22368,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -22395,20 +22411,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qadd(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -22486,7 +22502,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -22518,7 +22534,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -22536,7 +22552,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -22568,7 +22584,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -22601,12 +22617,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -22616,7 +22632,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -22659,20 +22675,20 @@ if.then1.i45:                                     ; preds = %if.end.i42
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   %call16 = call i32 @mpd_qcompare(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -22750,7 +22766,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -22782,7 +22798,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -22800,7 +22816,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -22832,7 +22848,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -22865,12 +22881,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -22880,7 +22896,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -22923,20 +22939,20 @@ if.then1.i45:                                     ; preds = %if.end.i42
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   %call16 = call i32 @mpd_qcompare_signal(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -23014,7 +23030,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -23046,7 +23062,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -23064,7 +23080,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -23096,7 +23112,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -23129,12 +23145,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -23144,7 +23160,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -23187,20 +23203,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qdiv(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -23278,7 +23294,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -23310,7 +23326,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -23328,7 +23344,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -23360,7 +23376,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -23393,12 +23409,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -23408,7 +23424,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -23451,20 +23467,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qdivint(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -23542,7 +23558,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -23574,7 +23590,7 @@ if.end.i40:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread107:                        ; preds = %if.end.i40
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -23592,7 +23608,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i44 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i43, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i44, i64 32
   %call.val.i.i45 = load ptr, ptr %12, align 8
-  %PyDec_Type.i46 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i45, i64 0, i32 3
+  %PyDec_Type.i46 = getelementptr inbounds i8, ptr %call.val.i.i45, i64 24
   %13 = load ptr, ptr %PyDec_Type.i46, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i47 = load ptr, ptr %14, align 8
@@ -23624,7 +23640,7 @@ if.end.i58:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit69.thread115:                      ; preds = %if.end.i58
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i67 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i59, i64 0, i32 1
+  %tp_name.i67 = getelementptr inbounds i8, ptr %v.val10.i59, i64 24
   %19 = load ptr, ptr %tp_name.i67, align 8
   %call17.i68 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -23657,12 +23673,12 @@ if.end8:                                          ; preds = %if.then.i52, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i70 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i70, i64 32
   %call.val.i.i71 = load ptr, ptr %25, align 8
-  %PyDec_Type.i72 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i71, i64 0, i32 3
+  %PyDec_Type.i72 = getelementptr inbounds i8, ptr %call.val.i.i71, i64 24
   %26 = load ptr, ptr %PyDec_Type.i72, align 8
   %cmp.i73 = icmp eq ptr %26, %24
   br i1 %cmp.i73, label %if.then.i75, label %if.else.i
@@ -23672,7 +23688,7 @@ if.then.i75:                                      ; preds = %if.end8
   br label %if.end.i74
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i74
@@ -23715,22 +23731,22 @@ if.then1.i105:                                    ; preds = %if.end.i102
   br label %return
 
 if.end13:                                         ; preds = %if.end.i74
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %32 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i76 = call ptr @PyType_GetModuleByDef(ptr noundef %32, ptr noundef nonnull @_decimal_module) #15
   %33 = getelementptr i8, ptr %call.i.i76, i64 32
   %call.val.i.i77 = load ptr, ptr %33, align 8
-  %PyDec_Type.i78 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i77, i64 0, i32 3
+  %PyDec_Type.i78 = getelementptr inbounds i8, ptr %call.val.i.i77, i64 24
   %34 = load ptr, ptr %PyDec_Type.i78, align 8
   %cmp.i79 = icmp eq ptr %34, %32
   br i1 %cmp.i79, label %if.then.i93, label %if.else.i80
@@ -23740,7 +23756,7 @@ if.then.i93:                                      ; preds = %if.end13
   br label %if.end.i83
 
 if.else.i80:                                      ; preds = %if.end13
-  %tp_alloc.i81 = getelementptr inbounds %struct._typeobject, ptr %32, i64 0, i32 36
+  %tp_alloc.i81 = getelementptr inbounds i8, ptr %32, i64 304
   %35 = load ptr, ptr %tp_alloc.i81, align 8
   %call3.i82 = call ptr %35(ptr noundef %32, i64 noundef 0) #15
   br label %if.end.i83
@@ -23799,20 +23815,20 @@ if.then1.i78:                                     ; preds = %if.end.i75
   br label %return
 
 if.end18:                                         ; preds = %if.end.i83
-  %hash.i87 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i84, i64 0, i32 1
+  %hash.i87 = getelementptr inbounds i8, ptr %dec.0.i84, i64 16
   store i64 -1, ptr %hash.i87, align 8
-  %dec7.i88 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i84, i64 0, i32 2
+  %dec7.i88 = getelementptr inbounds i8, ptr %dec.0.i84, i64 24
   store i8 48, ptr %dec7.i88, align 8
-  %exp.i89 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i84, i64 0, i32 2, i32 1
-  %alloc.i90 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i84, i64 0, i32 2, i32 4
+  %exp.i89 = getelementptr inbounds i8, ptr %dec.0.i84, i64 32
+  %alloc.i90 = getelementptr inbounds i8, ptr %dec.0.i84, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i89, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i90, align 8
-  %data.i91 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i84, i64 0, i32 3
-  %data13.i92 = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i84, i64 0, i32 2, i32 5
+  %data.i91 = getelementptr inbounds i8, ptr %dec.0.i84, i64 72
+  %data13.i92 = getelementptr inbounds i8, ptr %dec.0.i84, i64 64
   store ptr %data.i91, ptr %data13.i92, align 8
-  %dec20 = getelementptr inbounds %struct.PyDecObject, ptr %a.0106, i64 0, i32 2
-  %dec21 = getelementptr inbounds %struct.PyDecObject, ptr %b.0114, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec20 = getelementptr inbounds i8, ptr %a.0106, i64 24
+  %dec21 = getelementptr inbounds i8, ptr %b.0114, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qdivmod(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec7.i88, ptr noundef nonnull %dec20, ptr noundef nonnull %dec21, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %42 = load i64, ptr %a.0106, align 8
   %43 = and i64 %42, 2147483648
@@ -23939,7 +23955,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -23971,7 +23987,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -23989,7 +24005,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -24021,7 +24037,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -24054,12 +24070,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -24069,7 +24085,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -24112,20 +24128,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qmax(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -24203,7 +24219,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -24235,7 +24251,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -24253,7 +24269,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -24285,7 +24301,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -24318,12 +24334,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -24333,7 +24349,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -24376,20 +24392,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qmax_mag(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -24467,7 +24483,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -24499,7 +24515,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -24517,7 +24533,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -24549,7 +24565,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -24582,12 +24598,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -24597,7 +24613,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -24640,20 +24656,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qmin(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -24731,7 +24747,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -24763,7 +24779,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -24781,7 +24797,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -24813,7 +24829,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -24846,12 +24862,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -24861,7 +24877,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -24904,20 +24920,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qmin_mag(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -24995,7 +25011,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -25027,7 +25043,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -25045,7 +25061,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -25077,7 +25093,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -25110,12 +25126,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -25125,7 +25141,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -25168,20 +25184,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qmul(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -25259,7 +25275,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -25291,7 +25307,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -25309,7 +25325,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -25341,7 +25357,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -25374,12 +25390,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -25389,7 +25405,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -25432,20 +25448,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qnext_toward(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -25523,7 +25539,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -25555,7 +25571,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -25573,7 +25589,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -25605,7 +25621,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -25638,12 +25654,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -25653,7 +25669,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -25696,20 +25712,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qquantize(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -25787,7 +25803,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -25819,7 +25835,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -25837,7 +25853,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -25869,7 +25885,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -25902,12 +25918,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -25917,7 +25933,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -25960,20 +25976,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qrem(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -26051,7 +26067,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -26083,7 +26099,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -26101,7 +26117,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -26133,7 +26149,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -26166,12 +26182,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -26181,7 +26197,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -26224,20 +26240,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qrem_near(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -26315,7 +26331,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -26347,7 +26363,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -26365,7 +26381,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -26397,7 +26413,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -26430,12 +26446,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -26445,7 +26461,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -26488,20 +26504,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qsub(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -26581,7 +26597,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -26613,7 +26629,7 @@ if.end.i30:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread111:                        ; preds = %if.end.i30
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -26631,7 +26647,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i33 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i32, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i33, i64 32
   %call.val.i.i34 = load ptr, ptr %12, align 8
-  %PyDec_Type.i35 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i34, i64 0, i32 3
+  %PyDec_Type.i35 = getelementptr inbounds i8, ptr %call.val.i.i34, i64 24
   %13 = load ptr, ptr %PyDec_Type.i35, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i36 = load ptr, ptr %14, align 8
@@ -26663,7 +26679,7 @@ if.end.i48:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit59.thread119:                      ; preds = %if.end.i48
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i57 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i49, i64 0, i32 1
+  %tp_name.i57 = getelementptr inbounds i8, ptr %v.val10.i49, i64 24
   %19 = load ptr, ptr %tp_name.i57, align 8
   %call17.i58 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -26701,7 +26717,7 @@ if.then9:                                         ; preds = %if.end8
   %call.i.i61 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i60, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i61, i64 32
   %call.val.i.i62 = load ptr, ptr %24, align 8
-  %PyDec_Type.i63 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i62, i64 0, i32 3
+  %PyDec_Type.i63 = getelementptr inbounds i8, ptr %call.val.i.i62, i64 24
   %25 = load ptr, ptr %PyDec_Type.i63, align 8
   %26 = getelementptr i8, ptr %23, i64 8
   %v.val11.i64 = load ptr, ptr %26, align 8
@@ -26733,7 +26749,7 @@ if.end.i75:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit86.thread126:                      ; preds = %if.end.i75
   %30 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i84 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i76, i64 0, i32 1
+  %tp_name.i84 = getelementptr inbounds i8, ptr %v.val10.i76, i64 24
   %31 = load ptr, ptr %tp_name.i84, align 8
   %call17.i85 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.137, ptr noundef %31) #15
   br label %if.then12
@@ -26782,12 +26798,12 @@ if.end14:                                         ; preds = %if.then.i69, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %37 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %37, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %38 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i87 = call ptr @PyType_GetModuleByDef(ptr noundef %38, ptr noundef nonnull @_decimal_module) #15
   %39 = getelementptr i8, ptr %call.i.i87, i64 32
   %call.val.i.i88 = load ptr, ptr %39, align 8
-  %PyDec_Type.i89 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i88, i64 0, i32 3
+  %PyDec_Type.i89 = getelementptr inbounds i8, ptr %call.val.i.i88, i64 24
   %40 = load ptr, ptr %PyDec_Type.i89, align 8
   %cmp.i90 = icmp eq ptr %40, %38
   br i1 %cmp.i90, label %if.then.i92, label %if.else.i
@@ -26797,7 +26813,7 @@ if.then.i92:                                      ; preds = %if.end14
   br label %if.end.i91
 
 if.else.i:                                        ; preds = %if.end14
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %38, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %38, i64 304
   %41 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %41(ptr noundef %38, i64 noundef 0) #15
   br label %if.end.i91
@@ -26860,30 +26876,30 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end20:                                         ; preds = %if.end.i91
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %cmp21 = icmp eq ptr %c.1, null
-  %dec23 = getelementptr inbounds %struct.PyDecObject, ptr %a.0110, i64 0, i32 2
-  %dec24 = getelementptr inbounds %struct.PyDecObject, ptr %b.0118, i64 0, i32 2
+  %dec23 = getelementptr inbounds i8, ptr %a.0110, i64 24
+  %dec24 = getelementptr inbounds i8, ptr %b.0118, i64 24
   br i1 %cmp21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %if.end20
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qpow(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec23, ptr noundef nonnull %dec24, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   br label %if.end30
 
 if.else:                                          ; preds = %if.end20
-  %dec28 = getelementptr inbounds %struct.PyDecObject, ptr %c.1, i64 0, i32 2
-  %ctx29 = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec28 = getelementptr inbounds i8, ptr %c.1, i64 24
+  %ctx29 = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qpowmod(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec23, ptr noundef nonnull %dec24, ptr noundef nonnull %dec28, ptr noundef nonnull %ctx29, ptr noundef nonnull %status) #15
   %48 = load i64, ptr %c.1, align 8
   %49 = and i64 %48, 2147483648
@@ -26978,7 +26994,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -27010,7 +27026,7 @@ if.end.i29:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread105:                        ; preds = %if.end.i29
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -27028,7 +27044,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i33 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i32, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i33, i64 32
   %call.val.i.i34 = load ptr, ptr %12, align 8
-  %PyDec_Type.i35 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i34, i64 0, i32 3
+  %PyDec_Type.i35 = getelementptr inbounds i8, ptr %call.val.i.i34, i64 24
   %13 = load ptr, ptr %PyDec_Type.i35, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i36 = load ptr, ptr %14, align 8
@@ -27060,7 +27076,7 @@ if.end.i47:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit58.thread113:                      ; preds = %if.end.i47
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i56 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i48, i64 0, i32 1
+  %tp_name.i56 = getelementptr inbounds i8, ptr %v.val10.i48, i64 24
   %19 = load ptr, ptr %tp_name.i56, align 8
   %call17.i57 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -27094,7 +27110,7 @@ if.end8:                                          ; preds = %if.then.i41, %if.en
   %call.i.i60 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i59, ptr noundef nonnull @_decimal_module) #15
   %24 = getelementptr i8, ptr %call.i.i60, i64 32
   %call.val.i.i61 = load ptr, ptr %24, align 8
-  %PyDec_Type.i62 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i61, i64 0, i32 3
+  %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
   %26 = getelementptr i8, ptr %23, i64 8
   %v.val11.i63 = load ptr, ptr %26, align 8
@@ -27126,7 +27142,7 @@ if.end.i74:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit85.thread121:                      ; preds = %if.end.i74
   %30 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i83 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i75, i64 0, i32 1
+  %tp_name.i83 = getelementptr inbounds i8, ptr %v.val10.i75, i64 24
   %31 = load ptr, ptr %tp_name.i83, align 8
   %call17.i84 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.137, ptr noundef %31) #15
   br label %if.then11
@@ -27175,12 +27191,12 @@ if.end12:                                         ; preds = %if.then.i68, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %37 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %37, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %38 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i86 = call ptr @PyType_GetModuleByDef(ptr noundef %38, ptr noundef nonnull @_decimal_module) #15
   %39 = getelementptr i8, ptr %call.i.i86, i64 32
   %call.val.i.i87 = load ptr, ptr %39, align 8
-  %PyDec_Type.i88 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i87, i64 0, i32 3
+  %PyDec_Type.i88 = getelementptr inbounds i8, ptr %call.val.i.i87, i64 24
   %40 = load ptr, ptr %PyDec_Type.i88, align 8
   %cmp.i89 = icmp eq ptr %40, %38
   br i1 %cmp.i89, label %if.then.i91, label %if.else.i
@@ -27190,7 +27206,7 @@ if.then.i91:                                      ; preds = %if.end12
   br label %if.end.i90
 
 if.else.i:                                        ; preds = %if.end12
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %38, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %38, i64 304
   %41 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %41(ptr noundef %38, i64 noundef 0) #15
   br label %if.end.i90
@@ -27249,21 +27265,21 @@ if.then1.i58:                                     ; preds = %if.end.i55
   br label %return
 
 if.end17:                                         ; preds = %if.end.i90
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec18 = getelementptr inbounds %struct.PyDecObject, ptr %a.0104, i64 0, i32 2
-  %dec19 = getelementptr inbounds %struct.PyDecObject, ptr %b.0112, i64 0, i32 2
-  %dec20 = getelementptr inbounds %struct.PyDecObject, ptr %c.0120, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec18 = getelementptr inbounds i8, ptr %a.0104, i64 24
+  %dec19 = getelementptr inbounds i8, ptr %b.0112, i64 24
+  %dec20 = getelementptr inbounds i8, ptr %c.0120, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qfma(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec18, ptr noundef nonnull %dec19, ptr noundef nonnull %dec20, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %48 = load i64, ptr %a.0104, align 8
   %49 = and i64 %48, 2147483648
@@ -27342,7 +27358,7 @@ return:                                           ; preds = %convert_op.exit.thr
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getetiny(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i64 @mpd_etiny(ptr noundef nonnull %ctx) #15
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %call) #15
   ret ptr %call1
@@ -27351,7 +27367,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getetop(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i64 @mpd_etop(ptr noundef nonnull %ctx) #15
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %call) #15
   ret ptr %call1
@@ -27372,7 +27388,7 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %3, align 8
@@ -27390,7 +27406,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %v, i64 24
   %call3 = tail call i32 @mpd_iscanonical(ptr noundef nonnull %dec) #15
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %cond.false, label %cond.true
@@ -27428,7 +27444,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -27460,7 +27476,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -27473,7 +27489,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_isfinite(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -27528,7 +27544,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -27560,7 +27576,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -27573,7 +27589,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_isinfinite(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -27628,7 +27644,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -27660,7 +27676,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -27673,7 +27689,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_isnan(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -27728,7 +27744,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -27760,7 +27776,7 @@ if.end.i4:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread19:                         ; preds = %if.end.i4
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -27773,8 +27789,8 @@ convert_op.exit:                                  ; preds = %if.end.i4
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.018 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.018, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec = getelementptr inbounds i8, ptr %a.018, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   %call1 = tail call i32 @mpd_isnormal(ptr noundef nonnull %dec, ptr noundef nonnull %ctx) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -27829,7 +27845,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -27861,7 +27877,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -27874,7 +27890,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_isqnan(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -27929,7 +27945,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -27961,7 +27977,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -27974,7 +27990,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_issigned(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -28029,7 +28045,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28061,7 +28077,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28074,7 +28090,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_issnan(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -28129,7 +28145,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28161,7 +28177,7 @@ if.end.i4:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread19:                         ; preds = %if.end.i4
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28174,8 +28190,8 @@ convert_op.exit:                                  ; preds = %if.end.i4
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.018 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.018, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec = getelementptr inbounds i8, ptr %a.018, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   %call1 = tail call i32 @mpd_issubnormal(ptr noundef nonnull %dec, ptr noundef nonnull %ctx) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -28230,7 +28246,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28262,7 +28278,7 @@ if.end.i3:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread18:                         ; preds = %if.end.i3
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28275,7 +28291,7 @@ convert_op.exit:                                  ; preds = %if.end.i3
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.017 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.017, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.017, i64 24
   %call1 = tail call i32 @mpd_iszero(ptr noundef nonnull %dec) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
@@ -28330,7 +28346,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28362,7 +28378,7 @@ if.end.i4:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread11:                         ; preds = %if.end.i4
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28404,7 +28420,7 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %3, align 8
@@ -28446,7 +28462,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28478,7 +28494,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread27:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28495,12 +28511,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i18 = icmp eq ptr %13, %11
   br i1 %cmp.i18, label %if.then.i20, label %if.else.i
@@ -28510,7 +28526,7 @@ if.then.i20:                                      ; preds = %if.end
   br label %if.end.i19
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i19
@@ -28537,18 +28553,18 @@ if.then1.i27:                                     ; preds = %if.end.i24
   br label %return
 
 if.end5:                                          ; preds = %if.end.i19
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.026, i64 0, i32 2
+  %dec6 = getelementptr inbounds i8, ptr %a.026, i64 24
   %call7 = call i32 @mpd_qcopy_abs(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.026, align 8
   %18 = and i64 %17, 2147483648
@@ -28600,7 +28616,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28632,7 +28648,7 @@ if.end.i:                                         ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread5:                          ; preds = %if.end.i
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %10
@@ -28662,7 +28678,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28694,7 +28710,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread27:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28711,12 +28727,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i18 = icmp eq ptr %13, %11
   br i1 %cmp.i18, label %if.then.i20, label %if.else.i
@@ -28726,7 +28742,7 @@ if.then.i20:                                      ; preds = %if.end
   br label %if.end.i19
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i19
@@ -28753,18 +28769,18 @@ if.then1.i27:                                     ; preds = %if.end.i24
   br label %return
 
 if.end5:                                          ; preds = %if.end.i19
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.026, i64 0, i32 2
+  %dec6 = getelementptr inbounds i8, ptr %a.026, i64 24
   %call7 = call i32 @mpd_qcopy_negate(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.026, align 8
   %18 = and i64 %17, 2147483648
@@ -28818,7 +28834,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -28850,7 +28866,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -28867,12 +28883,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -28882,7 +28898,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -28909,19 +28925,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qlogb(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -28975,7 +28991,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -29007,7 +29023,7 @@ if.end.i12:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread26:                         ; preds = %if.end.i12
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -29024,12 +29040,12 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %10 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %10, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %11 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i14 = tail call ptr @PyType_GetModuleByDef(ptr noundef %11, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i14, i64 32
   %call.val.i.i15 = load ptr, ptr %12, align 8
-  %PyDec_Type.i16 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i15, i64 0, i32 3
+  %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
   %cmp.i17 = icmp eq ptr %13, %11
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
@@ -29039,7 +29055,7 @@ if.then.i19:                                      ; preds = %if.end
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %11, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %11, i64 noundef 0) #15
   br label %if.end.i18
@@ -29066,19 +29082,19 @@ if.then1.i26:                                     ; preds = %if.end.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i18
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec6 = getelementptr inbounds %struct.PyDecObject, ptr %a.025, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec6 = getelementptr inbounds i8, ptr %a.025, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qinvert(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec6, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %17 = load i64, ptr %a.025, align 8
   %18 = and i64 %17, 2147483648
@@ -29130,7 +29146,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -29162,7 +29178,7 @@ if.end.i4:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread11:                         ; preds = %if.end.i4
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -29175,8 +29191,8 @@ convert_op.exit:                                  ; preds = %if.end.i4
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.010 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.010, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec = getelementptr inbounds i8, ptr %a.010, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   %call1 = tail call ptr @mpd_class(ptr noundef nonnull %dec, ptr noundef nonnull %ctx) #15
   %10 = load i64, ptr %a.010, align 8
   %11 = and i64 %10, 2147483648
@@ -29211,7 +29227,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -29243,7 +29259,7 @@ if.end.i5:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread14:                         ; preds = %if.end.i5
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -29256,8 +29272,8 @@ convert_op.exit:                                  ; preds = %if.end.i5
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.013 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.013, i64 0, i32 2
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 4
+  %dec = getelementptr inbounds i8, ptr %a.013, i64 24
+  %capitals = getelementptr inbounds i8, ptr %context, i64 80
   %10 = load i32, ptr %capitals, align 8
   %call1 = call i64 @mpd_to_sci_size(ptr noundef nonnull %s, ptr noundef nonnull %dec, i32 noundef %10) #15
   %11 = load i64, ptr %a.013, align 8
@@ -29299,9 +29315,8 @@ if.end.i8:                                        ; preds = %if.end4
 if.then.i.i:                                      ; preds = %if.end.i8
   %16 = and i32 %op.val.i.i, 64
   %tobool.not.i.i.i = icmp eq i32 %16, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %call.i, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i8
@@ -29334,7 +29349,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %1, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %2 = load ptr, ptr %PyDec_Type.i, align 8
   %3 = getelementptr i8, ptr %v, i64 8
   %v.val11.i = load ptr, ptr %3, align 8
@@ -29366,7 +29381,7 @@ if.end.i5:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread14:                         ; preds = %if.end.i5
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.137, ptr noundef %8) #15
   br label %return
@@ -29379,8 +29394,8 @@ convert_op.exit:                                  ; preds = %if.end.i5
 
 if.end:                                           ; preds = %if.then.i, %if.end.i.i.i, %convert_op.exit
   %a.013 = phi ptr [ %call9.i, %convert_op.exit ], [ %v, %if.end.i.i.i ], [ %v, %if.then.i ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.013, i64 0, i32 2
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 4
+  %dec = getelementptr inbounds i8, ptr %a.013, i64 24
+  %capitals = getelementptr inbounds i8, ptr %context, i64 80
   %10 = load i32, ptr %capitals, align 8
   %call1 = call i64 @mpd_to_eng_size(ptr noundef nonnull %s, ptr noundef nonnull %dec, i32 noundef %10) #15
   %11 = load i64, ptr %a.013, align 8
@@ -29422,9 +29437,8 @@ if.end.i8:                                        ; preds = %if.end4
 if.then.i.i:                                      ; preds = %if.end.i8
   %16 = and i32 %op.val.i.i, 64
   %tobool.not.i.i.i = icmp eq i32 %16, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %call.i, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i8
@@ -29464,7 +29478,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -29496,7 +29510,7 @@ if.end.i14:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread59:                         ; preds = %if.end.i14
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -29514,7 +29528,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i17 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i16, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i17, i64 32
   %call.val.i.i18 = load ptr, ptr %12, align 8
-  %PyDec_Type.i19 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i18, i64 0, i32 3
+  %PyDec_Type.i19 = getelementptr inbounds i8, ptr %call.val.i.i18, i64 24
   %13 = load ptr, ptr %PyDec_Type.i19, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i20 = load ptr, ptr %14, align 8
@@ -29546,7 +29560,7 @@ if.end.i31:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit42.thread67:                       ; preds = %if.end.i31
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i40 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i32, i64 0, i32 1
+  %tp_name.i40 = getelementptr inbounds i8, ptr %v.val10.i32, i64 24
   %19 = load ptr, ptr %tp_name.i40, align 8
   %call17.i41 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -29579,12 +29593,12 @@ if.end8:                                          ; preds = %if.then.i25, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i43 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i43, i64 32
   %call.val.i.i44 = load ptr, ptr %25, align 8
-  %PyDec_Type.i45 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i44, i64 0, i32 3
+  %PyDec_Type.i45 = getelementptr inbounds i8, ptr %call.val.i.i44, i64 24
   %26 = load ptr, ptr %PyDec_Type.i45, align 8
   %cmp.i46 = icmp eq ptr %26, %24
   br i1 %cmp.i46, label %if.then.i49, label %if.else.i
@@ -29594,7 +29608,7 @@ if.then.i49:                                      ; preds = %if.end8
   br label %if.end.i48
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i48
@@ -29637,19 +29651,19 @@ if.then1.i32:                                     ; preds = %if.end.i29
   br label %return
 
 if.end13:                                         ; preds = %if.end.i48
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.058, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.066, i64 0, i32 2
+  %dec14 = getelementptr inbounds i8, ptr %a.058, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.066, i64 24
   %call16 = call i32 @mpd_compare_total(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15) #15
   %32 = load i64, ptr %a.058, align 8
   %33 = and i64 %32, 2147483648
@@ -29703,7 +29717,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -29735,7 +29749,7 @@ if.end.i14:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread59:                         ; preds = %if.end.i14
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -29753,7 +29767,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i17 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i16, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i17, i64 32
   %call.val.i.i18 = load ptr, ptr %12, align 8
-  %PyDec_Type.i19 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i18, i64 0, i32 3
+  %PyDec_Type.i19 = getelementptr inbounds i8, ptr %call.val.i.i18, i64 24
   %13 = load ptr, ptr %PyDec_Type.i19, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i20 = load ptr, ptr %14, align 8
@@ -29785,7 +29799,7 @@ if.end.i31:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit42.thread67:                       ; preds = %if.end.i31
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i40 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i32, i64 0, i32 1
+  %tp_name.i40 = getelementptr inbounds i8, ptr %v.val10.i32, i64 24
   %19 = load ptr, ptr %tp_name.i40, align 8
   %call17.i41 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -29818,12 +29832,12 @@ if.end8:                                          ; preds = %if.then.i25, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i43 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i43, i64 32
   %call.val.i.i44 = load ptr, ptr %25, align 8
-  %PyDec_Type.i45 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i44, i64 0, i32 3
+  %PyDec_Type.i45 = getelementptr inbounds i8, ptr %call.val.i.i44, i64 24
   %26 = load ptr, ptr %PyDec_Type.i45, align 8
   %cmp.i46 = icmp eq ptr %26, %24
   br i1 %cmp.i46, label %if.then.i49, label %if.else.i
@@ -29833,7 +29847,7 @@ if.then.i49:                                      ; preds = %if.end8
   br label %if.end.i48
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i48
@@ -29876,19 +29890,19 @@ if.then1.i32:                                     ; preds = %if.end.i29
   br label %return
 
 if.end13:                                         ; preds = %if.end.i48
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.058, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.066, i64 0, i32 2
+  %dec14 = getelementptr inbounds i8, ptr %a.058, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.066, i64 24
   %call16 = call i32 @mpd_compare_total_mag(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15) #15
   %32 = load i64, ptr %a.058, align 8
   %33 = and i64 %32, 2147483648
@@ -29944,7 +29958,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -29976,7 +29990,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -29994,7 +30008,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -30026,7 +30040,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -30059,12 +30073,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -30074,7 +30088,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -30117,19 +30131,19 @@ if.then1.i45:                                     ; preds = %if.end.i42
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
   %call16 = call i32 @mpd_qcopy_sign(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -30207,7 +30221,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -30239,7 +30253,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -30257,7 +30271,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -30289,7 +30303,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -30322,12 +30336,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -30337,7 +30351,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -30380,20 +30394,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qand(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -30471,7 +30485,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -30503,7 +30517,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -30521,7 +30535,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -30553,7 +30567,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -30586,12 +30600,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -30601,7 +30615,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -30644,20 +30658,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qor(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -30735,7 +30749,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -30767,7 +30781,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -30785,7 +30799,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -30817,7 +30831,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -30850,12 +30864,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -30865,7 +30879,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -30908,20 +30922,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qxor(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -30999,7 +31013,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -31031,7 +31045,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -31049,7 +31063,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -31081,7 +31095,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -31114,12 +31128,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -31129,7 +31143,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -31172,20 +31186,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qrotate(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -31261,7 +31275,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -31293,7 +31307,7 @@ if.end.i8:                                        ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread52:                         ; preds = %if.end.i8
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -31311,7 +31325,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i11 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i10, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i11, i64 32
   %call.val.i.i12 = load ptr, ptr %12, align 8
-  %PyDec_Type.i13 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i12, i64 0, i32 3
+  %PyDec_Type.i13 = getelementptr inbounds i8, ptr %call.val.i.i12, i64 24
   %13 = load ptr, ptr %PyDec_Type.i13, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i14 = load ptr, ptr %14, align 8
@@ -31343,7 +31357,7 @@ if.end.i25:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit36.thread60:                       ; preds = %if.end.i25
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i34 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i26, i64 0, i32 1
+  %tp_name.i34 = getelementptr inbounds i8, ptr %v.val10.i26, i64 24
   %19 = load ptr, ptr %tp_name.i34, align 8
   %call17.i35 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -31372,8 +31386,8 @@ if.then1.i29:                                     ; preds = %if.end.i26
 
 if.end8:                                          ; preds = %if.then.i19, %if.end.i.i.i22, %convert_op.exit36
   %b.059 = phi ptr [ %call9.i30, %convert_op.exit36 ], [ %11, %if.end.i.i.i22 ], [ %11, %if.then.i19 ]
-  %dec = getelementptr inbounds %struct.PyDecObject, ptr %a.051, i64 0, i32 2
-  %dec9 = getelementptr inbounds %struct.PyDecObject, ptr %b.059, i64 0, i32 2
+  %dec = getelementptr inbounds i8, ptr %a.051, i64 24
+  %dec9 = getelementptr inbounds i8, ptr %b.059, i64 24
   %call10 = call i32 @mpd_same_quantum(ptr noundef nonnull %dec, ptr noundef nonnull %dec9) #15
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %cond.false, label %cond.true
@@ -31454,7 +31468,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -31486,7 +31500,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -31504,7 +31518,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -31536,7 +31550,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -31569,12 +31583,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -31584,7 +31598,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -31627,20 +31641,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qscaleb(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -31718,7 +31732,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i, ptr noundef nonnull @_decimal_module) #15
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %v.val11.i = load ptr, ptr %4, align 8
@@ -31750,7 +31764,7 @@ if.end.i19:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit.thread63:                         ; preds = %if.end.i19
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val10.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val10.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call17.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.137, ptr noundef %9) #15
   br label %return
@@ -31768,7 +31782,7 @@ if.end4:                                          ; preds = %if.then.i, %if.end.
   %call.i.i22 = call ptr @PyType_GetModuleByDef(ptr noundef %context.val.i21, ptr noundef nonnull @_decimal_module) #15
   %12 = getelementptr i8, ptr %call.i.i22, i64 32
   %call.val.i.i23 = load ptr, ptr %12, align 8
-  %PyDec_Type.i24 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i23, i64 0, i32 3
+  %PyDec_Type.i24 = getelementptr inbounds i8, ptr %call.val.i.i23, i64 24
   %13 = load ptr, ptr %PyDec_Type.i24, align 8
   %14 = getelementptr i8, ptr %11, i64 8
   %v.val11.i25 = load ptr, ptr %14, align 8
@@ -31800,7 +31814,7 @@ if.end.i36:                                       ; preds = %PyObject_TypeCheck.
 
 convert_op.exit47.thread71:                       ; preds = %if.end.i36
   %18 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i45 = getelementptr inbounds %struct._typeobject, ptr %v.val10.i37, i64 0, i32 1
+  %tp_name.i45 = getelementptr inbounds i8, ptr %v.val10.i37, i64 24
   %19 = load ptr, ptr %tp_name.i45, align 8
   %call17.i46 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.137, ptr noundef %19) #15
   br label %if.then7
@@ -31833,12 +31847,12 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.i = call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %23 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %23, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %24 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i48 = call ptr @PyType_GetModuleByDef(ptr noundef %24, ptr noundef nonnull @_decimal_module) #15
   %25 = getelementptr i8, ptr %call.i.i48, i64 32
   %call.val.i.i49 = load ptr, ptr %25, align 8
-  %PyDec_Type.i50 = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i49, i64 0, i32 3
+  %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
   %cmp.i51 = icmp eq ptr %26, %24
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
@@ -31848,7 +31862,7 @@ if.then.i53:                                      ; preds = %if.end8
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %24, i64 304
   %27 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = call ptr %27(ptr noundef %24, i64 noundef 0) #15
   br label %if.end.i52
@@ -31891,20 +31905,20 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end13:                                         ; preds = %if.end.i52
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec14 = getelementptr inbounds %struct.PyDecObject, ptr %a.062, i64 0, i32 2
-  %dec15 = getelementptr inbounds %struct.PyDecObject, ptr %b.070, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec14 = getelementptr inbounds i8, ptr %a.062, i64 24
+  %dec15 = getelementptr inbounds i8, ptr %b.070, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qshift(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec14, ptr noundef nonnull %dec15, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %32 = load i64, ptr %a.062, align 8
   %33 = and i64 %32, 2147483648
@@ -31967,7 +31981,7 @@ return:                                           ; preds = %convert_op.exit.thr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal nonnull ptr @context_clear_flags(ptr nocapture noundef writeonly %self, ptr nocapture readnone %dummy) #9 {
 entry:
-  %status = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 4
+  %status = getelementptr inbounds i8, ptr %self, i64 44
   store i32 0, ptr %status, align 4
   ret ptr @_Py_NoneStruct
 }
@@ -31975,7 +31989,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal nonnull ptr @context_clear_traps(ptr nocapture noundef writeonly %self, ptr nocapture readnone %dummy) #9 {
 entry:
-  %traps = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 3
+  %traps = getelementptr inbounds i8, ptr %self, i64 40
   store i32 0, ptr %traps, align 8
   ret ptr @_Py_NoneStruct
 }
@@ -31988,15 +32002,15 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val22, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %ctx2 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
-  %status = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 4
+  %ctx2 = getelementptr inbounds i8, ptr %self, i64 16
+  %status = getelementptr inbounds i8, ptr %self, i64 44
   %2 = load i32, ptr %status, align 4
   %call.i23 = tail call ptr @PyList_New(i64 noundef 0) #15
   %cmp.i24 = icmp eq ptr %call.i23, null
   br i1 %cmp.i24, label %return, label %if.end.i25
 
 if.end.i25:                                       ; preds = %entry
-  %signal_map.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 14
+  %signal_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 168
   %3 = load ptr, ptr %signal_map.i, align 8
   %4 = load ptr, ptr %3, align 8
   %cmp1.not9.i = icmp eq ptr %4, null
@@ -32004,14 +32018,14 @@ if.end.i25:                                       ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end.i25, %for.inc.i
   %cm.010.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %3, %if.end.i25 ]
-  %flag.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.010.i, i64 0, i32 2
+  %flag.i = getelementptr inbounds i8, ptr %cm.010.i, i64 16
   %5 = load i32, ptr %flag.i, align 8
   %and.i = and i32 %5, %2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %for.body.i
-  %ex.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.010.i, i64 0, i32 3
+  %ex.i = getelementptr inbounds i8, ptr %cm.010.i, i64 24
   %6 = load ptr, ptr %ex.i, align 8
   %call3.i = tail call i32 @PyList_Append(ptr noundef nonnull %call.i23, ptr noundef %6) #15
   %cmp4.i = icmp slt i32 %call3.i, 0
@@ -32030,13 +32044,13 @@ if.end.i.i:                                       ; preds = %if.then5.i
   br i1 %cmp.i.i, label %return.sink.split, label %return
 
 for.inc.i:                                        ; preds = %if.then2.i, %for.body.i
-  %incdec.ptr.i = getelementptr %struct.DecCondMap, ptr %cm.010.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %cm.010.i, i64 32
   %9 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq ptr %9, null
   br i1 %cmp1.not.i, label %if.end, label %for.body.i, !llvm.loop !28
 
 if.end:                                           ; preds = %for.inc.i, %if.end.i25
-  %traps4 = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 3
+  %traps4 = getelementptr inbounds i8, ptr %self, i64 40
   %10 = load i32, ptr %traps4, align 8
   %call.i26 = tail call ptr @PyList_New(i64 noundef 0) #15
   %cmp.i27 = icmp eq ptr %call.i26, null
@@ -32050,14 +32064,14 @@ if.end.i28:                                       ; preds = %if.end
 
 for.body.i31:                                     ; preds = %if.end.i28, %for.inc.i40
   %cm.010.i32 = phi ptr [ %incdec.ptr.i41, %for.inc.i40 ], [ %11, %if.end.i28 ]
-  %flag.i33 = getelementptr inbounds %struct.DecCondMap, ptr %cm.010.i32, i64 0, i32 2
+  %flag.i33 = getelementptr inbounds i8, ptr %cm.010.i32, i64 16
   %13 = load i32, ptr %flag.i33, align 8
   %and.i34 = and i32 %13, %10
   %tobool.not.i35 = icmp eq i32 %and.i34, 0
   br i1 %tobool.not.i35, label %for.inc.i40, label %if.then2.i36
 
 if.then2.i36:                                     ; preds = %for.body.i31
-  %ex.i37 = getelementptr inbounds %struct.DecCondMap, ptr %cm.010.i32, i64 0, i32 3
+  %ex.i37 = getelementptr inbounds i8, ptr %cm.010.i32, i64 24
   %14 = load ptr, ptr %ex.i37, align 8
   %call3.i38 = tail call i32 @PyList_Append(ptr noundef nonnull %call.i26, ptr noundef %14) #15
   %cmp4.i39 = icmp slt i32 %call3.i38, 0
@@ -32080,7 +32094,7 @@ if.then1.i.i49:                                   ; preds = %if.end.i.i46
   br label %if.then7
 
 for.inc.i40:                                      ; preds = %if.then2.i36, %for.body.i31
-  %incdec.ptr.i41 = getelementptr %struct.DecCondMap, ptr %cm.010.i32, i64 1
+  %incdec.ptr.i41 = getelementptr i8, ptr %cm.010.i32, i64 32
   %17 = load ptr, ptr %incdec.ptr.i41, align 8
   %cmp1.not.i42 = icmp eq ptr %17, null
   br i1 %cmp1.not.i42, label %if.end8, label %for.body.i31, !llvm.loop !28
@@ -32100,18 +32114,18 @@ if.end.i23:                                       ; preds = %if.then7
 if.end8:                                          ; preds = %for.inc.i40, %if.end.i28
   %self.val = load ptr, ptr %0, align 8
   %20 = load i64, ptr %ctx2, align 8
-  %round = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 6
+  %round = getelementptr inbounds i8, ptr %self, i64 52
   %21 = load i32, ptr %round, align 4
   %idxprom = sext i32 %21 to i64
   %arrayidx = getelementptr [9 x ptr], ptr @mpd_round_string, i64 0, i64 %idxprom
   %22 = load ptr, ptr %arrayidx, align 8
-  %emin = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 2
+  %emin = getelementptr inbounds i8, ptr %self, i64 32
   %23 = load i64, ptr %emin, align 8
-  %emax = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 1
+  %emax = getelementptr inbounds i8, ptr %self, i64 24
   %24 = load i64, ptr %emax, align 8
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %self, i64 80
   %25 = load i32, ptr %capitals, align 8
-  %clamp = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1, i32 7
+  %clamp = getelementptr inbounds i8, ptr %self, i64 56
   %26 = load i32, ptr %clamp, align 8
   %call10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.224, ptr noundef %self.val, i64 noundef %20, ptr noundef %22, i64 noundef %23, i64 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef nonnull %call.i23, ptr noundef nonnull %call.i26) #15
   %27 = load i64, ptr %call.i23, align 8
@@ -32171,7 +32185,7 @@ if.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %2, align 8
   %cmp.i = icmp eq ptr %0, null
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %3 = load ptr, ptr %PyDec_Type.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -32181,7 +32195,7 @@ if.then.i:                                        ; preds = %if.end
   %call.i.i.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %3, ptr noundef nonnull @_decimal_module) #15
   %4 = getelementptr i8, ptr %call.i.i.i.i, i64 32
   %call.val.i.i.i.i = load ptr, ptr %4, align 8
-  %PyDec_Type.i.i.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i.i.i, i64 0, i32 3
+  %PyDec_Type.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i, i64 24
   %5 = load ptr, ptr %PyDec_Type.i.i.i, align 8
   %cmp.i7.i.i = icmp eq ptr %5, %3
   br i1 %cmp.i7.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -32191,7 +32205,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br label %if.end.i8.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
-  %tp_alloc.i.i.i = getelementptr inbounds %struct._typeobject, ptr %3, i64 0, i32 36
+  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %3, i64 304
   %6 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call3.i.i.i = call ptr %6(ptr noundef %3, i64 noundef 0) #15
   br label %if.end.i8.i.i
@@ -32202,18 +32216,18 @@ if.end.i8.i.i:                                    ; preds = %if.else.i.i.i, %if.
   br i1 %cmp4.i.i.i, label %PyDecType_FromSsize.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i8.i.i
-  %hash.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 1
+  %hash.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 16
   store i64 -1, ptr %hash.i.i.i, align 8
-  %dec7.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2
+  %dec7.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 24
   store i8 48, ptr %dec7.i.i.i, align 8
-  %exp.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2, i32 1
-  %alloc.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2, i32 4
+  %exp.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 32
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 3
-  %data13.i.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i.i, i64 0, i32 2, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 72
+  %data13.i.i.i = getelementptr inbounds i8, ptr %dec.0.i.i.i, i64 64
   store ptr %data.i.i.i, ptr %data13.i.i.i, align 8
-  %ctx.i.i = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %ctx.i.i = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qset_ssize(ptr noundef nonnull %dec7.i.i.i, i64 noundef 0, ptr noundef nonnull %ctx.i.i, ptr noundef nonnull %status.i.i) #15
   %7 = load i32, ptr %status.i.i, align 4
   %call2.i.i = call fastcc i32 @dec_addstatus(ptr noundef nonnull %context, i32 noundef %7), !range !16
@@ -32253,17 +32267,17 @@ PyObject_TypeCheck.exit.i:                        ; preds = %if.else.i
   br i1 %tobool3.i.not.i, label %if.else25.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %PyObject_TypeCheck.exit.i, %if.else.i
-  %dec.i = getelementptr inbounds %struct.PyDecObject, ptr %0, i64 0, i32 2
+  %dec.i = getelementptr inbounds i8, ptr %0, i64 24
   %call7.i = call i32 @mpd_isnan(ptr noundef nonnull %dec.i) #15
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.end23.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then5.i
-  %ctx6.i = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
-  %digits.i = getelementptr inbounds %struct.PyDecObject, ptr %0, i64 0, i32 2, i32 2
+  %ctx6.i = getelementptr inbounds i8, ptr %context, i64 16
+  %digits.i = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i64, ptr %digits.i, align 8
   %12 = load i64, ptr %ctx6.i, align 8
-  %clamp.i = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1, i32 7
+  %clamp.i = getelementptr inbounds i8, ptr %context, i64 56
   %13 = load i32, ptr %clamp.i, align 8
   %conv.i = sext i32 %13 to i64
   %sub.i = sub i64 %12, %conv.i
@@ -32280,7 +32294,7 @@ if.end.i:                                         ; preds = %if.then12.i
   %call.i.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %14, ptr noundef nonnull @_decimal_module) #15
   %15 = getelementptr i8, ptr %call.i.i.i, i64 32
   %call.val.i.i.i = load ptr, ptr %15, align 8
-  %PyDec_Type.i.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i.i, i64 0, i32 3
+  %PyDec_Type.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 24
   %16 = load ptr, ptr %PyDec_Type.i.i, align 8
   %cmp.i.i = icmp eq ptr %16, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -32290,7 +32304,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i40.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %tp_alloc.i.i = getelementptr inbounds %struct._typeobject, ptr %14, i64 0, i32 36
+  %tp_alloc.i.i = getelementptr inbounds i8, ptr %14, i64 304
   %17 = load ptr, ptr %tp_alloc.i.i, align 8
   %call3.i.i = call ptr %17(ptr noundef %14, i64 noundef 0) #15
   br label %if.end.i40.i
@@ -32301,16 +32315,16 @@ if.end.i40.i:                                     ; preds = %if.else.i.i, %if.th
   br i1 %cmp4.i.i, label %return, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end.i40.i
-  %hash.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i, i64 0, i32 1
+  %hash.i.i = getelementptr inbounds i8, ptr %dec.0.i.i, i64 16
   store i64 -1, ptr %hash.i.i, align 8
-  %dec7.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i, i64 0, i32 2
+  %dec7.i.i = getelementptr inbounds i8, ptr %dec.0.i.i, i64 24
   store i8 48, ptr %dec7.i.i, align 8
-  %exp.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i, i64 0, i32 2, i32 1
-  %alloc.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i, i64 0, i32 2, i32 4
+  %exp.i.i = getelementptr inbounds i8, ptr %dec.0.i.i, i64 32
+  %alloc.i.i = getelementptr inbounds i8, ptr %dec.0.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i, i64 0, i32 3
-  %data13.i.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i.i, i64 0, i32 2, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec.0.i.i, i64 72
+  %data13.i.i = getelementptr inbounds i8, ptr %dec.0.i.i, i64 64
   store ptr %data.i.i, ptr %data13.i.i, align 8
   call void @mpd_setspecial(ptr noundef nonnull %dec7.i.i, i8 noundef zeroext 0, i8 noundef zeroext 4) #15
   br label %return
@@ -32347,7 +32361,7 @@ if.then36.i:                                      ; preds = %if.else32.i
   %21 = load ptr, ptr %PyDec_Type.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i50.i)
   store i32 0, ptr %status.i50.i, align 4
-  %ctx.i54.i = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %ctx.i54.i = getelementptr inbounds i8, ptr %context, i64 16
   %call2.i55.i = call fastcc ptr @dec_from_long(ptr noundef %21, ptr noundef nonnull %0, ptr noundef nonnull %ctx.i54.i, ptr noundef nonnull %status.i50.i)
   %cmp.i56.i = icmp eq ptr %call2.i55.i, null
   br i1 %cmp.i56.i, label %PyDecType_FromLong.exit.i, label %if.end4.i.i
@@ -32464,7 +32478,7 @@ if.end56.i:                                       ; preds = %if.then52.i
 if.else59.i:                                      ; preds = %PyObject_TypeCheck.exit86.i
   %33 = load ptr, ptr @PyExc_TypeError, align 8
   %v.val.i = load ptr, ptr %10, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %v.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %v.val.i, i64 24
   %34 = load ptr, ptr %tp_name.i, align 8
   %call61.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %33, ptr noundef nonnull @.str.137, ptr noundef %34) #15
   br label %return
@@ -32483,7 +32497,7 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
@@ -32492,8 +32506,8 @@ entry:
   br i1 %cmp.i, label %PyDecType_FromFloat.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %dec1.i = getelementptr inbounds %struct.PyDecObject, ptr %call.i2, i64 0, i32 2
-  %ctx.i = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec1.i = getelementptr inbounds i8, ptr %call.i2, i64 24
+  %ctx.i = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qfinalize(ptr noundef nonnull %dec1.i, ptr noundef nonnull %ctx.i, ptr noundef nonnull %status.i) #15
   %3 = load i32, ptr %status.i, align 4
   %call2.i = call fastcc i32 @dec_addstatus(ptr noundef nonnull %context, i32 noundef %3), !range !16
@@ -32536,12 +32550,12 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %context.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %PyDec_Type = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 3
+  %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %2, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %3, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i13 = icmp eq ptr %4, %2
   br i1 %cmp.i13, label %if.then.i, label %if.else.i
@@ -32551,7 +32565,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i14
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %2, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %2, i64 304
   %5 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %5(ptr noundef %2, i64 noundef 0) #15
   br label %if.end.i14
@@ -32562,18 +32576,18 @@ if.end.i14:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i14
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %dec3 = getelementptr inbounds %struct.PyDecObject, ptr %v, i64 0, i32 2
+  %dec3 = getelementptr inbounds i8, ptr %v, i64 24
   %call4 = call i32 @mpd_qcopy(ptr noundef nonnull %dec7.i, ptr noundef nonnull %dec3, ptr noundef nonnull %status) #15
   %6 = load i32, ptr %status, align 4
   %call5 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %context, i32 noundef %6), !range !16
@@ -32593,7 +32607,7 @@ if.end.i16:                                       ; preds = %if.then6
   br i1 %cmp.i18, label %return.sink.split, label %return
 
 if.end7:                                          ; preds = %if.end
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qfinalize(ptr noundef nonnull %dec7.i, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %9 = load i32, ptr %status, align 4
   %call9 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %context, i32 noundef %9), !range !16
@@ -32631,8 +32645,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dec1 = getelementptr inbounds %struct.PyDecObject, ptr %call, i64 0, i32 2
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %dec1 = getelementptr inbounds i8, ptr %call, i64 24
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qfinalize(ptr noundef nonnull %dec1, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %0 = load i32, ptr %status, align 4
   %call2 = call fastcc i32 @dec_addstatus(ptr noundef %context, i32 noundef %0), !range !16
@@ -32668,7 +32682,7 @@ entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %0 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %0, align 8
-  %PyDec_Type.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i.i, i64 0, i32 3
+  %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %1 = load ptr, ptr %PyDec_Type.i, align 8
   %cmp.i7 = icmp eq ptr %1, %type
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
@@ -32678,7 +32692,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i8
 
 if.else.i:                                        ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %2 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %2(ptr noundef %type, i64 noundef 0) #15
   br label %if.end.i8
@@ -32689,18 +32703,18 @@ if.end.i8:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp4.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i8
-  %hash.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %dec.0.i, i64 16
   store i64 -1, ptr %hash.i, align 8
-  %dec7.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2
+  %dec7.i = getelementptr inbounds i8, ptr %dec.0.i, i64 24
   store i8 48, ptr %dec7.i, align 8
-  %exp.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 1
-  %alloc.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 4
+  %exp.i = getelementptr inbounds i8, ptr %dec.0.i, i64 32
+  %alloc.i = getelementptr inbounds i8, ptr %dec.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 4, ptr %alloc.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 3
-  %data13.i = getelementptr inbounds %struct.PyDecObject, ptr %dec.0.i, i64 0, i32 2, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec.0.i, i64 72
+  %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %context, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %context, i64 16
   call void @mpd_qset_string(ptr noundef nonnull %dec7.i, ptr noundef %s, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %3 = load i32, ptr %status, align 4
   %call2 = call fastcc i32 @dec_addstatus(ptr noundef %context, i32 noundef %3), !range !16
@@ -32731,7 +32745,7 @@ return:                                           ; preds = %if.end.i8, %if.end,
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getprec(ptr noundef %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i64 @mpd_getprec(ptr noundef nonnull %ctx) #15
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %call) #15
   ret ptr %call1
@@ -32740,7 +32754,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getemax(ptr noundef %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i64 @mpd_getemax(ptr noundef nonnull %ctx) #15
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %call) #15
   ret ptr %call1
@@ -32749,7 +32763,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getemin(ptr noundef %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i64 @mpd_getemin(ptr noundef nonnull %ctx) #15
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %call) #15
   ret ptr %call1
@@ -32758,15 +32772,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getround(ptr noundef %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i32 @mpd_getround(ptr noundef nonnull %ctx) #15
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
+  %round_map = getelementptr inbounds i8, ptr %call.val.i, i64 88
   %idxprom = sext i32 %call to i64
-  %arrayidx = getelementptr %struct.decimal_state, ptr %call.val.i, i64 0, i32 11, i64 %idxprom
+  %arrayidx = getelementptr [8 x ptr], ptr %round_map, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i = add i32 %3, 1
@@ -32784,7 +32799,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getcapitals(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %capitals = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 4
+  %capitals = getelementptr inbounds i8, ptr %self, i64 80
   %0 = load i32, ptr %capitals, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -32794,7 +32809,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @context_getclamp(ptr noundef %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.PyDecContextObject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i32 @mpd_getclamp(ptr noundef nonnull %ctx) #15
   %conv = sext i32 %call to i64
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %conv) #15
@@ -32817,7 +32832,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #15
-  %local.i = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 1
+  %local.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %local.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %do.body1.i, label %if.then.i
@@ -32840,7 +32855,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %global.i = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 2
+  %global.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %global.i, align 8
   %cmp4.not.i = icmp eq ptr %4, null
   br i1 %cmp4.not.i, label %ctxmanager_clear.exit, label %if.then5.i
@@ -32863,7 +32878,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %ctxmanager_clear.exit
 
 ctxmanager_clear.exit:                            ; preds = %do.body1.i, %if.then5.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %7 = load ptr, ptr %tp_free, align 8
   tail call void %7(ptr noundef nonnull %self) #15
   %8 = load i64, ptr %self.val, align 8
@@ -32899,7 +32914,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %local = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 1
+  %local = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %local, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -32910,7 +32925,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %global = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 2
+  %global = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load ptr, ptr %global, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -32931,7 +32946,7 @@ return:                                           ; preds = %if.then19, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @ctxmanager_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %local = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 1
+  %local = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %local, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -32954,7 +32969,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %global = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 2
+  %global = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %global, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -32986,7 +33001,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @PyType_GetModule(ptr noundef %self.val) #15
-  %local = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 1
+  %local = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %local, align 8
   %call2 = tail call ptr @PyDec_SetCurrentContext(ptr noundef %call1, ptr noundef %1)
   %cmp = icmp eq ptr %call2, null
@@ -33030,7 +33045,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @PyType_GetModule(ptr noundef %self.val) #15
-  %global = getelementptr inbounds %struct.PyDecContextManagerObject, ptr %self, i64 0, i32 2
+  %global = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load ptr, ptr %global, align 8
   %call2 = tail call ptr @PyDec_SetCurrentContext(ptr noundef %call1, ptr noundef %1)
   %cmp = icmp eq ptr %call2, null
@@ -33065,7 +33080,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #15
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #15
   %2 = load i64, ptr %self.val, align 8
@@ -33113,7 +33128,7 @@ define internal ptr @signaldict_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %n = alloca [9 x ptr], align 16
   %b = alloca [9 x ptr], align 16
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -33129,7 +33144,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_decimal_module) #15
   %3 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %3, align 8
-  %signal_map = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 14
+  %signal_map = getelementptr inbounds i8, ptr %call.val.i, i64 168
   %4 = load ptr, ptr %signal_map, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp3.not8 = icmp ne ptr %5, null
@@ -33141,19 +33156,19 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.body
   %i.010 = phi i32 [ 0, %if.end ], [ %inc, %for.body ]
   %cm.09 = phi ptr [ %4, %if.end ], [ %incdec.ptr, %for.body ]
-  %fqname = getelementptr inbounds %struct.DecCondMap, ptr %cm.09, i64 0, i32 1
+  %fqname = getelementptr inbounds i8, ptr %cm.09, i64 8
   %8 = load ptr, ptr %fqname, align 8
   %idxprom = sext i32 %i.010 to i64
   %arrayidx = getelementptr [9 x ptr], ptr %n, i64 0, i64 %idxprom
   store ptr %8, ptr %arrayidx, align 8
-  %flag = getelementptr inbounds %struct.DecCondMap, ptr %cm.09, i64 0, i32 2
+  %flag = getelementptr inbounds i8, ptr %cm.09, i64 16
   %9 = load i32, ptr %flag, align 8
   %and = and i32 %9, %7
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @.str.231, ptr @.str.230
   %arrayidx6 = getelementptr [9 x ptr], ptr %b, i64 0, i64 %idxprom
   store ptr %cond, ptr %arrayidx6, align 8
-  %incdec.ptr = getelementptr %struct.DecCondMap, ptr %cm.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %cm.09, i64 32
   %inc = add i32 %i.010, 1
   %10 = load ptr, ptr %incdec.ptr, align 8
   %cmp3.not = icmp eq ptr %10, null
@@ -33162,37 +33177,37 @@ for.body:                                         ; preds = %if.end, %for.body
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %n, align 16
   %.pre11 = load ptr, ptr %b, align 16
-  %arrayidx9.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 1
+  %arrayidx9.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 8
   %.pre12 = load ptr, ptr %arrayidx9.phi.trans.insert, align 8
-  %arrayidx10.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 1
+  %arrayidx10.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 8
   %.pre13 = load ptr, ptr %arrayidx10.phi.trans.insert, align 8
-  %arrayidx11.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 2
+  %arrayidx11.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 16
   %.pre14 = load ptr, ptr %arrayidx11.phi.trans.insert, align 16
-  %arrayidx12.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 2
+  %arrayidx12.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 16
   %.pre15 = load ptr, ptr %arrayidx12.phi.trans.insert, align 16
-  %arrayidx13.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 3
+  %arrayidx13.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 24
   %.pre16 = load ptr, ptr %arrayidx13.phi.trans.insert, align 8
-  %arrayidx14.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 3
+  %arrayidx14.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 24
   %.pre17 = load ptr, ptr %arrayidx14.phi.trans.insert, align 8
-  %arrayidx15.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 4
+  %arrayidx15.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 32
   %.pre18 = load ptr, ptr %arrayidx15.phi.trans.insert, align 16
-  %arrayidx16.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 4
+  %arrayidx16.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 32
   %.pre19 = load ptr, ptr %arrayidx16.phi.trans.insert, align 16
-  %arrayidx17.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 5
+  %arrayidx17.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 40
   %.pre20 = load ptr, ptr %arrayidx17.phi.trans.insert, align 8
-  %arrayidx18.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 5
+  %arrayidx18.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 40
   %.pre21 = load ptr, ptr %arrayidx18.phi.trans.insert, align 8
-  %arrayidx19.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 6
+  %arrayidx19.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 48
   %.pre22 = load ptr, ptr %arrayidx19.phi.trans.insert, align 16
-  %arrayidx20.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 6
+  %arrayidx20.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 48
   %.pre23 = load ptr, ptr %arrayidx20.phi.trans.insert, align 16
-  %arrayidx21.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 7
+  %arrayidx21.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 56
   %.pre24 = load ptr, ptr %arrayidx21.phi.trans.insert, align 8
-  %arrayidx22.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 7
+  %arrayidx22.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 56
   %.pre25 = load ptr, ptr %arrayidx22.phi.trans.insert, align 8
-  %arrayidx23.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %n, i64 0, i64 8
+  %arrayidx23.phi.trans.insert = getelementptr inbounds i8, ptr %n, i64 64
   %.pre26 = load ptr, ptr %arrayidx23.phi.trans.insert, align 16
-  %arrayidx24.phi.trans.insert = getelementptr inbounds [9 x ptr], ptr %b, i64 0, i64 8
+  %arrayidx24.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 64
   %.pre27 = load ptr, ptr %arrayidx24.phi.trans.insert, align 16
   %call25 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.232, ptr noundef %.pre, ptr noundef %.pre11, ptr noundef %.pre12, ptr noundef %.pre13, ptr noundef %.pre14, ptr noundef %.pre15, ptr noundef %.pre16, ptr noundef %.pre17, ptr noundef %.pre18, ptr noundef %.pre19, ptr noundef %.pre20, ptr noundef %.pre21, ptr noundef %.pre22, ptr noundef %.pre23, ptr noundef %.pre24, ptr noundef %.pre25, ptr noundef %.pre26, ptr noundef %.pre27) #15
   br label %return
@@ -33224,13 +33239,13 @@ find_state_left_or_right.exit:                    ; preds = %entry, %if.then.i
   %mod.0.i = phi ptr [ %call3.i, %if.then.i ], [ %call1.i, %entry ]
   %2 = getelementptr i8, ptr %mod.0.i, i64 32
   %mod.0.val.i = load ptr, ptr %2, align 8
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %v, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %v, i64 16
   %3 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %find_state_left_or_right.exit
-  %flags1 = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %w, i64 0, i32 1
+  %flags1 = getelementptr inbounds i8, ptr %w, i64 16
   %4 = load ptr, ptr %flags1, align 8
   %cmp2 = icmp eq ptr %4, null
   br i1 %cmp2, label %if.then, label %if.end
@@ -33247,7 +33262,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond, label %if.then7, label %if.end41
 
 if.then7:                                         ; preds = %if.end
-  %PyDecSignalDict_Type = getelementptr inbounds %struct.decimal_state, ptr %mod.0.val.i, i64 0, i32 4
+  %PyDecSignalDict_Type = getelementptr inbounds i8, ptr %mod.0.val.i, i64 32
   %7 = load ptr, ptr %PyDecSignalDict_Type, align 8
   %8 = getelementptr i8, ptr %w, i64 8
   %w.val17 = load ptr, ptr %8, align 8
@@ -33311,7 +33326,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @signaldict_iter(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -33328,7 +33343,7 @@ if.end:                                           ; preds = %entry
   %3 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %3, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyTuple_Type, i64 0, i32 25), align 8
-  %SignalTuple = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 13
+  %SignalTuple = getelementptr inbounds i8, ptr %call.val.i, i64 160
   %5 = load ptr, ptr %SignalTuple, align 8
   %call3 = tail call ptr %4(ptr noundef %5) #15
   br label %return
@@ -33341,7 +33356,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @signaldict_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #9 {
 entry:
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   store ptr null, ptr %flags, align 8
   ret i32 0
 }
@@ -33349,7 +33364,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @signaldict_len(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %return
@@ -33367,7 +33382,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @signaldict_getitem(ptr nocapture noundef readonly %self, ptr noundef readnone %key) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -33391,13 +33406,13 @@ if.end:                                           ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %cm.03.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call2.val, %if.end ]
-  %ex1.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i, i64 0, i32 3
+  %ex1.i = getelementptr inbounds i8, ptr %cm.03.i, i64 24
   %6 = load ptr, ptr %ex1.i, align 8
   %cmp2.i = icmp eq ptr %6, %key
   br i1 %cmp2.i, label %exception_as_flag.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr %struct.DecCondMap, ptr %cm.03.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %cm.03.i, i64 32
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %exception_as_flag.exit.thread, label %for.body.i, !llvm.loop !8
@@ -33408,7 +33423,7 @@ exception_as_flag.exit.thread:                    ; preds = %for.inc.i, %if.end
   br label %return
 
 exception_as_flag.exit:                           ; preds = %for.body.i
-  %flag.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i, i64 0, i32 2
+  %flag.i = getelementptr inbounds i8, ptr %cm.03.i, i64 16
   %9 = load i32, ptr %flag.i, align 8
   %and = and i32 %9, 98304
   %tobool.not = icmp eq i32 %and, 0
@@ -33449,7 +33464,7 @@ return:                                           ; preds = %if.end.i.i.i6, %con
 ; Function Attrs: nounwind uwtable
 define internal i32 @signaldict_setitem(ptr nocapture noundef readonly %self, ptr noundef readnone %key, ptr noundef %value) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -33482,13 +33497,13 @@ if.end4:                                          ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.end4, %for.inc.i
   %cm.03.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call6.val, %if.end4 ]
-  %ex1.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i, i64 0, i32 3
+  %ex1.i = getelementptr inbounds i8, ptr %cm.03.i, i64 24
   %7 = load ptr, ptr %ex1.i, align 8
   %cmp2.i = icmp eq ptr %7, %key
   br i1 %cmp2.i, label %exception_as_flag.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr %struct.DecCondMap, ptr %cm.03.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %cm.03.i, i64 32
   %8 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %exception_as_flag.exit.thread, label %for.body.i, !llvm.loop !8
@@ -33499,7 +33514,7 @@ exception_as_flag.exit.thread:                    ; preds = %for.inc.i, %if.end4
   br label %return
 
 exception_as_flag.exit:                           ; preds = %for.body.i
-  %flag.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.03.i, i64 0, i32 2
+  %flag.i = getelementptr inbounds i8, ptr %cm.03.i, i64 16
   %10 = load i32, ptr %flag.i, align 8
   %and = and i32 %10, 98304
   %tobool.not = icmp eq i32 %and, 0
@@ -33537,7 +33552,7 @@ return:                                           ; preds = %exception_as_flag.e
 ; Function Attrs: nounwind uwtable
 define internal ptr @signaldict_copy(ptr nocapture noundef readonly %self, ptr nocapture readnone %args) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.PyDecSignalDictObject, ptr %self, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %flags, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -33560,26 +33575,26 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %signal_map.i = getelementptr inbounds %struct.decimal_state, ptr %call.val.i, i64 0, i32 14
+  %signal_map.i = getelementptr inbounds i8, ptr %call.val.i, i64 168
   %6 = load ptr, ptr %signal_map.i, align 8
   %7 = load ptr, ptr %6, align 8
   %cmp1.not9.i = icmp eq ptr %7, null
   br i1 %cmp1.not9.i, label %return, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr %struct.DecCondMap, ptr %cm.010.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %cm.010.i, i64 32
   %8 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq ptr %8, null
   br i1 %cmp1.not.i, label %return, label %for.body.i, !llvm.loop !30
 
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %cm.010.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %6, %if.end.i ]
-  %flag.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.010.i, i64 0, i32 2
+  %flag.i = getelementptr inbounds i8, ptr %cm.010.i, i64 16
   %9 = load i32, ptr %flag.i, align 8
   %and.i = and i32 %9, %5
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  %ex.i = getelementptr inbounds %struct.DecCondMap, ptr %cm.010.i, i64 0, i32 3
+  %ex.i = getelementptr inbounds i8, ptr %cm.010.i, i64 24
   %10 = load ptr, ptr %ex.i, align 8
   %call2.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call.i3, ptr noundef %10, ptr noundef nonnull %cond.i) #15
   %cmp3.i = icmp slt i32 %call2.i, 0

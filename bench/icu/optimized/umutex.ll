@@ -26,7 +26,7 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE
 define noundef ptr @_ZN6icu_756UMutex8getMutexEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__callable.i = alloca %class.anon.4, align 8
-  %fMutex = getelementptr inbounds %"class.icu_75::UMutex", ptr %this, i64 0, i32 1
+  %fMutex = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i64, ptr %fMutex acquire, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end10
@@ -83,7 +83,7 @@ if.then5:                                         ; preds = %_ZNSt10lock_guardIS
   store atomic i64 %6, ptr %fMutex seq_cst, align 8
   %7 = load atomic i64, ptr %fMutex seq_cst, align 8
   %8 = load ptr, ptr @_ZN6icu_756UMutex9gListHeadE, align 8
-  %fListLink = getelementptr inbounds %"class.icu_75::UMutex", ptr %this, i64 0, i32 2
+  %fListLink = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %8, ptr %fListLink, align 8
   store ptr %this, ptr @_ZN6icu_756UMutex9gListHeadE, align 8
   br label %if.end
@@ -122,10 +122,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %m.06 = phi ptr [ %2, %for.body ], [ %0, %entry ]
-  %fMutex = getelementptr inbounds %"class.icu_75::UMutex", ptr %m.06, i64 0, i32 1
+  %fMutex = getelementptr inbounds i8, ptr %m.06, i64 40
   %1 = load atomic i64, ptr %fMutex seq_cst, align 8
   store atomic i64 0, ptr %fMutex seq_cst, align 8
-  %fListLink = getelementptr inbounds %"class.icu_75::UMutex", ptr %m.06, i64 0, i32 2
+  %fListLink = getelementptr inbounds i8, ptr %m.06, i64 48
   %2 = load ptr, ptr %fListLink, align 8
   store ptr null, ptr %fListLink, align 8
   %cmp.not = icmp eq ptr %2, null
@@ -141,7 +141,7 @@ define void @umtx_lock_75(ptr noundef %mutex) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mutex, null
   %spec.store.select = select i1 %cmp, ptr @_ZN6icu_7512_GLOBAL__N_111globalMutexE, ptr %mutex
-  %fMutex.i = getelementptr inbounds %"class.icu_75::UMutex", ptr %spec.store.select, i64 0, i32 1
+  %fMutex.i = getelementptr inbounds i8, ptr %spec.store.select, i64 40
   %0 = load atomic i64, ptr %fMutex.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
   %cmp.i = icmp eq i64 %0, 0
@@ -170,7 +170,7 @@ define void @umtx_unlock_75(ptr noundef readonly %mutex) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %mutex, null
   %spec.store.select = select i1 %cmp, ptr @_ZN6icu_7512_GLOBAL__N_111globalMutexE, ptr %mutex
-  %fMutex.i = getelementptr inbounds %"class.icu_75::UMutex", ptr %spec.store.select, i64 0, i32 1
+  %fMutex.i = getelementptr inbounds i8, ptr %spec.store.select, i64 40
   %0 = load atomic i64, ptr %fMutex.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %atomic-temp.i.0.i.i) #11
@@ -219,7 +219,7 @@ _ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__callable.i)
   %3 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_19initMutexE, align 8
   store ptr %3, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #11
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -362,10 +362,10 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %m.06.i = phi ptr [ %3, %for.body.i ], [ %1, %entry ]
-  %fMutex.i = getelementptr inbounds %"class.icu_75::UMutex", ptr %m.06.i, i64 0, i32 1
+  %fMutex.i = getelementptr inbounds i8, ptr %m.06.i, i64 40
   %2 = load atomic i64, ptr %fMutex.i seq_cst, align 8
   store atomic i64 0, ptr %fMutex.i seq_cst, align 8
-  %fListLink.i = getelementptr inbounds %"class.icu_75::UMutex", ptr %m.06.i, i64 0, i32 2
+  %fListLink.i = getelementptr inbounds i8, ptr %m.06.i, i64 48
   %3 = load ptr, ptr %fListLink.i, align 8
   store ptr null, ptr %fListLink.i, align 8
   %cmp.not.i = icmp eq ptr %3, null

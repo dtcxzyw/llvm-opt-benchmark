@@ -17,12 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.0 = type { ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, %struct.IntervalTreeNode, %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
 %struct.tb_tc = type { ptr, i64 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
-%struct.QemuSpin = type { i32 }
-%struct.tcg_region_tree = type { %struct.QemuMutex, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
 
 @region = internal global %struct.tcg_region_state zeroinitializer, align 8
@@ -73,7 +68,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_tb_insert(ptr noundef %tb) local_unnamed_addr #1 {
 entry:
-  %tc = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 6
+  %tc = getelementptr inbounds i8, ptr %tb, i64 32
   %0 = load ptr, ptr %tc, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 1), align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -128,7 +123,7 @@ while.end:                                        ; preds = %tc_ptr_to_region_tr
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %add.ptr12.i, ptr noundef nonnull @.str, i32 noundef 228) #12
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr12.i, i64 0, i32 1
+  %tree = getelementptr inbounds i8, ptr %add.ptr12.i, i64 48
   %10 = load ptr, ptr %tree, align 8
   tail call void @q_tree_insert(ptr noundef %10, ptr noundef nonnull %tc, ptr noundef nonnull %tb) #12
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %add.ptr12.i, ptr noundef nonnull @.str, i32 noundef 230) #12
@@ -145,7 +140,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_tb_remove(ptr noundef %tb) local_unnamed_addr #1 {
 entry:
-  %tc = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 6
+  %tc = getelementptr inbounds i8, ptr %tb, i64 32
   %0 = load ptr, ptr %tc, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 1), align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -200,7 +195,7 @@ while.end:                                        ; preds = %tc_ptr_to_region_tr
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %add.ptr12.i, ptr noundef nonnull @.str, i32 noundef 238) #12
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr12.i, i64 0, i32 1
+  %tree = getelementptr inbounds i8, ptr %add.ptr12.i, i64 48
   %10 = load ptr, ptr %tree, align 8
   %call4 = tail call i32 @q_tree_remove(ptr noundef %10, ptr noundef nonnull %tc) #12
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %add.ptr12.i, ptr noundef nonnull @.str, i32 noundef 240) #12
@@ -256,7 +251,7 @@ tc_ptr_to_region_tree.exit:                       ; preds = %if.end3.i, %if.else
   %mul11.i = mul i64 %7, %region_idx.0.i
   %add.ptr12.i = getelementptr i8, ptr %6, i64 %mul11.i
   store ptr %0, ptr %s, align 8
-  %size = getelementptr inbounds %struct.tb_tc, ptr %s, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %s, i64 8
   store i64 0, ptr %size, align 8
   %cmp = icmp eq ptr %add.ptr12.i, null
   br i1 %cmp, label %return, label %while.end
@@ -265,7 +260,7 @@ while.end:                                        ; preds = %tc_ptr_to_region_tr
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %add.ptr12.i, ptr noundef nonnull @.str, i32 noundef 258) #12
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr12.i, i64 0, i32 1
+  %tree = getelementptr inbounds i8, ptr %add.ptr12.i, i64 48
   %10 = load ptr, ptr %tree, align 8
   %call1 = call ptr @q_tree_lookup(ptr noundef %10, ptr noundef nonnull %s) #12
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %add.ptr12.i, ptr noundef nonnull @.str, i32 noundef 260) #12
@@ -309,7 +304,7 @@ for.body:                                         ; preds = %tcg_region_tree_loc
   %8 = load i64, ptr @tree_size, align 8
   %mul = mul i64 %8, %i.011
   %add.ptr = getelementptr i8, ptr %7, i64 %mul
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr, i64 0, i32 1
+  %tree = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %9 = load ptr, ptr %tree, align 8
   tail call void @q_tree_foreach(ptr noundef %9, ptr noundef %func, ptr noundef %user_data) #12
   %inc = add nuw i64 %i.011, 1
@@ -371,7 +366,7 @@ for.body:                                         ; preds = %tcg_region_tree_loc
   %8 = load i64, ptr @tree_size, align 8
   %mul = mul i64 %8, %i.012
   %add.ptr = getelementptr i8, ptr %7, i64 %mul
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr, i64 0, i32 1
+  %tree = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %9 = load ptr, ptr %tree, align 8
   %call = tail call i32 @q_tree_nnodes(ptr noundef %9) #12
   %conv = sext i32 %call to i64
@@ -407,7 +402,7 @@ declare i32 @q_tree_nnodes(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @tcg_region_alloc(ptr nocapture noundef %s) local_unnamed_addr #1 {
 entry:
-  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 25
+  %code_gen_buffer_size = getelementptr inbounds i8, ptr %s, i64 144
   %0 = load i64, ptr %code_gen_buffer_size, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -432,16 +427,16 @@ if.then:                                          ; preds = %entry
   %9 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 6), align 8
   %add.ptr4.i.i.i = getelementptr i8, ptr %5, i64 %9
   %end.0.i.i.i = select i1 %cmp2.i.i.i, ptr %add.ptr4.i.i.i, ptr %add.ptr1.i.i.i
-  %code_gen_buffer.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 24
+  %code_gen_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 136
   store ptr %spec.select.i.i.i, ptr %code_gen_buffer.i.i, align 8
-  %code_gen_ptr.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 26
+  %code_gen_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 152
   store ptr %spec.select.i.i.i, ptr %code_gen_ptr.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %end.0.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i64 %sub.ptr.sub.i.i, ptr %code_gen_buffer_size, align 8
   %add.ptr.i.i = getelementptr i8, ptr %end.0.i.i.i, i64 -1024
-  %code_gen_highwater.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 28
+  %code_gen_highwater.i.i = getelementptr inbounds i8, ptr %s, i64 168
   store ptr %add.ptr.i.i, ptr %code_gen_highwater.i.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 7), align 8
@@ -486,17 +481,17 @@ tcg_region_initial_alloc__locked.exit:            ; preds = %entry
   %8 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 6), align 8
   %add.ptr4.i.i.i.i = getelementptr i8, ptr %4, i64 %8
   %end.0.i.i.i.i = select i1 %cmp2.i.i.i.i, ptr %add.ptr4.i.i.i.i, ptr %add.ptr1.i.i.i.i
-  %code_gen_buffer.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 24
+  %code_gen_buffer.i.i.i = getelementptr inbounds i8, ptr %s, i64 136
   store ptr %spec.select.i.i.i.i, ptr %code_gen_buffer.i.i.i, align 8
-  %code_gen_ptr.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 26
+  %code_gen_ptr.i.i.i = getelementptr inbounds i8, ptr %s, i64 152
   store ptr %spec.select.i.i.i.i, ptr %code_gen_ptr.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %end.0.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %code_gen_buffer_size.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 25
+  %code_gen_buffer_size.i.i.i = getelementptr inbounds i8, ptr %s, i64 144
   store i64 %sub.ptr.sub.i.i.i, ptr %code_gen_buffer_size.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %end.0.i.i.i.i, i64 -1024
-  %code_gen_highwater.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 28
+  %code_gen_highwater.i.i.i = getelementptr inbounds i8, ptr %s, i64 168
   store ptr %add.ptr.i.i.i, ptr %code_gen_highwater.i.i.i, align 8
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 7), align 8
@@ -549,17 +544,17 @@ tcg_region_initial_alloc__locked.exit:            ; preds = %while.end12
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %8, ptr %add.ptr.i.i.i.i
   %cmp2.i.i.i.i = icmp eq i64 %sub.i.i.i.i, %10
   %end.0.i.i.i.i = select i1 %cmp2.i.i.i.i, ptr %add.ptr4.i.i.i.i, ptr %add.ptr1.i.i.i.i
-  %code_gen_buffer.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %12, i64 0, i32 24
+  %code_gen_buffer.i.i.i = getelementptr inbounds i8, ptr %12, i64 136
   store ptr %spec.select.i.i.i.i, ptr %code_gen_buffer.i.i.i, align 8
-  %code_gen_ptr.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %12, i64 0, i32 26
+  %code_gen_ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 152
   store ptr %spec.select.i.i.i.i, ptr %code_gen_ptr.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %end.0.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %code_gen_buffer_size.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %12, i64 0, i32 25
+  %code_gen_buffer_size.i.i.i = getelementptr inbounds i8, ptr %12, i64 144
   store i64 %sub.ptr.sub.i.i.i, ptr %code_gen_buffer_size.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %end.0.i.i.i.i, i64 -1024
-  %code_gen_highwater.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %12, i64 0, i32 28
+  %code_gen_highwater.i.i.i = getelementptr inbounds i8, ptr %12, i64 168
   store ptr %add.ptr.i.i.i, ptr %code_gen_highwater.i.i.i, align 8
   %inc.i.i = add i64 %10, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 7), align 8
@@ -597,7 +592,7 @@ for.body.i:                                       ; preds = %tcg_region_tree_loc
   %21 = load i64, ptr @tree_size, align 8
   %mul.i = mul i64 %21, %i.012.i
   %add.ptr.i = getelementptr i8, ptr %20, i64 %mul.i
-  %tree.i = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr.i, i64 0, i32 1
+  %tree.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %22 = load ptr, ptr %tree.i, align 8
   %call.i = tail call ptr @q_tree_ref(ptr noundef %22) #12
   %23 = load ptr, ptr %tree.i, align 8
@@ -656,7 +651,7 @@ if.end6:                                          ; preds = %if.then, %if.else, 
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 2147483648)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
-  %errp1.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i, i64 0, i32 1
+  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
   store ptr @error_fatal, ptr %errp1.i, align 8
   %tobool3.not.i = icmp eq i32 %splitwx, 0
   br i1 %tobool3.not.i, label %if.end11.i, label %if.then4.i
@@ -920,7 +915,7 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   %add.ptr.i34 = getelementptr i8, ptr %38, i64 %mul5.i
   call void @qemu_mutex_init(ptr noundef %add.ptr.i34) #12
   %call6.i = call ptr @q_tree_new_full(ptr noundef nonnull @tb_tc_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @tb_destroy) #12
-  %tree.i = getelementptr inbounds %struct.tcg_region_tree, ptr %add.ptr.i34, i64 0, i32 1
+  %tree.i = getelementptr inbounds i8, ptr %add.ptr.i34, i64 48
   store ptr %call6.i, ptr %tree.i, align 8
   %inc.i = add nuw i64 %i.05.i, 1
   %40 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 3), align 8
@@ -989,7 +984,7 @@ declare i32 @qemu_mprotect_none(ptr noundef, i64 noundef) local_unnamed_addr #3
 define dso_local void @tcg_region_prologue_set(ptr nocapture noundef %s) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 1), align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 24
+  %code_gen_buffer = getelementptr inbounds i8, ptr %s, i64 136
   %1 = load ptr, ptr %code_gen_buffer, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %do.end, label %if.else
@@ -999,7 +994,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 23
+  %code_ptr = getelementptr inbounds i8, ptr %s, i64 128
   %2 = load ptr, ptr %code_ptr, align 8
   store ptr %2, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 2), align 8
   %3 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i64 0, i32 4), align 8
@@ -1010,15 +1005,15 @@ do.end:                                           ; preds = %entry
   %add.ptr4.i.i = getelementptr i8, ptr %0, i64 %5
   %end.0.i.i = select i1 %cmp2.i.i, ptr %add.ptr4.i.i, ptr %add.ptr1.i.i
   store ptr %2, ptr %code_gen_buffer, align 8
-  %code_gen_ptr.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 26
+  %code_gen_ptr.i = getelementptr inbounds i8, ptr %s, i64 152
   store ptr %2, ptr %code_gen_ptr.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %end.0.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %code_gen_buffer_size.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 25
+  %code_gen_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 144
   store i64 %sub.ptr.sub.i, ptr %code_gen_buffer_size.i, align 8
   %add.ptr.i = getelementptr i8, ptr %end.0.i.i, i64 -1024
-  %code_gen_highwater.i = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 28
+  %code_gen_highwater.i = getelementptr inbounds i8, ptr %s, i64 168
   store ptr %add.ptr.i, ptr %code_gen_highwater.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   %6 = load i64, ptr @tcg_splitwx_diff, align 8
@@ -1054,13 +1049,13 @@ while.end12:                                      ; preds = %while.end12.lr.ph, 
   %arrayidx = getelementptr ptr, ptr %4, i64 %indvars.iv
   %5 = load atomic i64, ptr %arrayidx monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  %code_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %6, i64 0, i32 26
+  %code_gen_ptr = getelementptr inbounds i8, ptr %6, i64 152
   %7 = load atomic i64, ptr %code_gen_ptr monotonic, align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %6, i64 0, i32 24
+  %code_gen_buffer = getelementptr inbounds i8, ptr %6, i64 136
   %8 = load ptr, ptr %code_gen_buffer, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %7, %sub.ptr.rhs.cast
-  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %6, i64 0, i32 25
+  %code_gen_buffer_size = getelementptr inbounds i8, ptr %6, i64 144
   %9 = load i64, ptr %code_gen_buffer_size, align 8
   %cmp23.not = icmp ugt i64 %sub.ptr.sub, %9
   br i1 %cmp23.not, label %if.else, label %do.end24
@@ -1125,13 +1120,13 @@ declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tb_tc_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp, ptr nocapture readnone %userdata) #1 {
 entry:
-  %size = getelementptr inbounds %struct.tb_tc, ptr %ap, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = load i64, ptr %size, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then31, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %size1 = getelementptr inbounds %struct.tb_tc, ptr %bp, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %bp, i64 8
   %1 = load i64, ptr %size1, align 8
   %tobool2.not = icmp eq i64 %1, 0
   br i1 %tobool2.not, label %if.end33, label %if.then

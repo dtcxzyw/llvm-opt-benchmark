@@ -53,10 +53,10 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp159.not182, label %if.end302, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %arrayidx34 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
-  %arrayidx125 = getelementptr inbounds [4 x i32], ptr %sh, i64 0, i64 1
-  %arrayidx126 = getelementptr inbounds [4 x i32], ptr %sh, i64 0, i64 2
-  %arrayidx127 = getelementptr inbounds [4 x i32], ptr %sh, i64 0, i64 3
+  %arrayidx34 = getelementptr inbounds i8, ptr %ti, i64 4
+  %arrayidx125 = getelementptr inbounds i8, ptr %sh, i64 4
+  %arrayidx126 = getelementptr inbounds i8, ptr %sh, i64 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %sh, i64 12
   %cmp128 = icmp eq i32 %rem2, 0
   %sub145 = sub nuw nsw i32 8, %rem2
   %idx.ext131 = zext nneg i32 %div to i64
@@ -68,10 +68,10 @@ while.cond157.preheader:                          ; preds = %if.end
   br i1 %cmp159.not182, label %if.end302, label %while.body161.lr.ph
 
 while.body161.lr.ph:                              ; preds = %while.cond157.preheader
-  %arrayidx165 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
-  %arrayidx217 = getelementptr inbounds [4 x i32], ptr %sh, i64 0, i64 1
-  %arrayidx218 = getelementptr inbounds [4 x i32], ptr %sh, i64 0, i64 2
-  %arrayidx219 = getelementptr inbounds [4 x i32], ptr %sh, i64 0, i64 3
+  %arrayidx165 = getelementptr inbounds i8, ptr %ti, i64 4
+  %arrayidx217 = getelementptr inbounds i8, ptr %sh, i64 4
+  %arrayidx218 = getelementptr inbounds i8, ptr %sh, i64 8
+  %arrayidx219 = getelementptr inbounds i8, ptr %sh, i64 12
   %cmp220 = icmp eq i32 %rem2, 0
   %sub240 = sub nuw nsw i32 8, %rem2
   %idx.ext223 = zext nneg i32 %div to i64

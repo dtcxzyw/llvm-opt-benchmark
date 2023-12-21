@@ -3,25 +3,10 @@ source_filename = "bench/luajit/original/lib_debug_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
 %struct.lj_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32, i32, i32 }
+%union.TValue = type { i64 }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32 }
-%struct.GCfuncL = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.MRef, [1 x %struct.GCRef] }
-%struct.GCfuncC = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.MRef, ptr, [1 x %union.TValue] }
-%struct.GChead = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.GCRef }
+%struct.GCRef = type { i64 }
 
 @.str = private unnamed_addr constant [6 x i8] c"debug\00", align 1
 @lj_lib_init_debug = internal constant [160 x i8] c"\7F9\10\0Bgetregistry\0Cgetmetatable\0Csetmetatable\07getfenv\07setfenv\07getinfo\08getlocal\08setlocal\0Agetupvalue\0Asetupvalue\09upvalueid\0Bupvaluejoin\07sethook\07gethook\05debug\09traceback\FF", align 16
@@ -67,14 +52,14 @@ declare hidden void @lj_lib_register(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @lj_cf_debug_getregistry(ptr nocapture noundef %L) #2 {
 entry:
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref, align 8
   %2 = inttoptr i64 %1 to ptr
-  %registrytv = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 15
+  %registrytv = getelementptr inbounds i8, ptr %2, i64 272
   %3 = load i64, ptr %registrytv, align 8
   store i64 %3, ptr %0, align 8
   ret i32 1
@@ -89,9 +74,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   store i64 -1, ptr %add.ptr, align 8
   br label %if.end
 
@@ -103,14 +88,14 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @lj_cf_debug_setmetatable(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktabornil(ptr noundef %L, i32 noundef 2) #8
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 2
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   store ptr %add.ptr, ptr %top, align 8
   %call1 = tail call i32 @lua_setmetatable(ptr noundef %L, i32 noundef 1) #8
   %1 = load ptr, ptr %top, align 8
-  %add.ptr3 = getelementptr inbounds %union.TValue, ptr %1, i64 -1
+  %add.ptr3 = getelementptr inbounds i8, ptr %1, i64 -8
   store i64 -281474976710657, ptr %add.ptr3, align 8
   ret i32 1
 }
@@ -127,10 +112,10 @@ entry:
 define internal i32 @lj_cf_debug_setfenv(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 2) #8
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 2
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   store ptr %add.ptr, ptr %top, align 8
   %call1 = tail call i32 @lua_setfenv(ptr noundef %L, i32 noundef 1) #8
   %tobool.not = icmp eq i32 %call1, 0
@@ -148,9 +133,9 @@ if.end:                                           ; preds = %entry
 define internal i32 @lj_cf_debug_getinfo(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lj_Debug, align 8
-  %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %getthread.exit
@@ -186,7 +171,7 @@ if.then:                                          ; preds = %getthread.exit
 
 if.then8:                                         ; preds = %if.then
   %5 = load ptr, ptr %top.i, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %5, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 -8
   store i64 -1, ptr %add.ptr, align 8
   br label %return
 
@@ -207,9 +192,9 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then18:                                        ; preds = %land.lhs.true
   %call19 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.3, ptr noundef %call1) #8
-  %top20 = getelementptr inbounds %struct.lua_State, ptr %retval.0.i, i64 0, i32 8
+  %top20 = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   %10 = load ptr, ptr %top20, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %10, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr, ptr %top20, align 8
   %11 = load ptr, ptr %base.i, align 8
   %add.ptr23 = getelementptr inbounds %union.TValue, ptr %11, i64 %idx.ext
@@ -240,17 +225,17 @@ if.end32:                                         ; preds = %if.end27
   br i1 %tobool33.not53, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end32
-  %name = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 1
-  %namewhat = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 2
-  %nups = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 6
-  %nparams = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 11
-  %isvararg = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 12
-  %currentline = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 5
-  %source = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 4
-  %short_src = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 9
-  %linedefined = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 7
-  %lastlinedefined = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 8
-  %what = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %ar, i64 8
+  %namewhat = getelementptr inbounds i8, ptr %ar, i64 16
+  %nups = getelementptr inbounds i8, ptr %ar, i64 44
+  %nparams = getelementptr inbounds i8, ptr %ar, i64 120
+  %isvararg = getelementptr inbounds i8, ptr %ar, i64 124
+  %currentline = getelementptr inbounds i8, ptr %ar, i64 40
+  %source = getelementptr inbounds i8, ptr %ar, i64 32
+  %short_src = getelementptr inbounds i8, ptr %ar, i64 56
+  %linedefined = getelementptr inbounds i8, ptr %ar, i64 48
+  %lastlinedefined = getelementptr inbounds i8, ptr %ar, i64 52
+  %what = getelementptr inbounds i8, ptr %ar, i64 24
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %for.inc.thread, %for.body.lr.ph
@@ -393,9 +378,9 @@ return:                                           ; preds = %if.end32, %treatsta
 define internal i32 @lj_cf_debug_getlocal(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
-  %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %getthread.exit
@@ -427,7 +412,7 @@ getthread.exit:                                   ; preds = %entry, %land.lhs.tr
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %getthread.exit
-  %add.ptr6 = getelementptr inbounds %union.TValue, ptr %add.ptr, i64 1
+  %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %add.ptr6, ptr %top.i, align 8
   %call7 = tail call ptr @lua_getlocal(ptr noundef nonnull %L, ptr noundef null, i32 noundef %call1) #8
   tail call void @lua_pushstring(ptr noundef nonnull %L, ptr noundef %call7) #8
@@ -457,7 +442,7 @@ if.then16:                                        ; preds = %if.end13
 
 if.else:                                          ; preds = %if.end13
   %8 = load ptr, ptr %top.i, align 8
-  %add.ptr18 = getelementptr inbounds %union.TValue, ptr %8, i64 -1
+  %add.ptr18 = getelementptr inbounds i8, ptr %8, i64 -8
   store i64 -1, ptr %add.ptr18, align 8
   br label %return
 
@@ -470,9 +455,9 @@ return:                                           ; preds = %if.else, %if.then16
 define internal i32 @lj_cf_debug_setlocal(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
-  %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %getthread.exit
@@ -505,9 +490,9 @@ if.then:                                          ; preds = %getthread.exit
 if.end:                                           ; preds = %getthread.exit
   %add4 = add nuw nsw i32 %arg.0, 3
   %call5 = call ptr @lj_lib_checkany(ptr noundef nonnull %L, i32 noundef %add4) #8
-  %top = getelementptr inbounds %struct.lua_State, ptr %retval.0.i, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   %5 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %5, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   %6 = load i64, ptr %call5, align 8
   store i64 %6, ptr %5, align 8
@@ -529,13 +514,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call2.i) #8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top.i, align 8
-  %add.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 -2
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -16
   %1 = load i64, ptr %add.ptr.i, align 8
   store i64 %1, ptr %0, align 8
   %2 = load ptr, ptr %top.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %top.i, align 8
   br label %debug_getupvalue.exit
 
@@ -569,7 +554,7 @@ entry:
   %call = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #8
   %sub = add nsw i32 %call1, -1
-  %nupvalues = getelementptr inbounds %struct.GCfuncL, ptr %call, i64 0, i32 4
+  %nupvalues = getelementptr inbounds i8, ptr %call, i64 11
   %0 = load i8, ptr %nupvalues, align 1
   %conv = zext i8 %0 to i32
   %cmp.not = icmp ult i32 %sub, %conv
@@ -580,20 +565,22 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %call, i64 0, i32 3
+  %ffid = getelementptr inbounds i8, ptr %call, i64 10
   %1 = load i8, ptr %ffid, align 2
   %cmp4 = icmp eq i8 %1, 0
   %idxprom = zext nneg i32 %sub to i64
   br i1 %cmp4, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
-  %arrayidx = getelementptr inbounds %struct.GCfuncL, ptr %call, i64 0, i32 8, i64 %idxprom
+  %uvptr = getelementptr inbounds i8, ptr %call, i64 40
+  %arrayidx = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
   %3 = inttoptr i64 %2 to ptr
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %arrayidx7 = getelementptr inbounds %struct.GCfuncC, ptr %call, i64 0, i32 9, i64 %idxprom
+  %upvalue = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx7 = getelementptr inbounds [1 x %union.TValue], ptr %upvalue, i64 0, i64 %idxprom
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -618,7 +605,7 @@ for.body:                                         ; preds = %entry, %if.end18
   %call = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef %2) #8
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %fn, i64 0, i64 %indvars.iv
   store ptr %call, ptr %arrayidx, align 8
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %call, i64 0, i32 3
+  %ffid = getelementptr inbounds i8, ptr %call, i64 10
   %3 = load i8, ptr %ffid, align 2
   %cmp3 = icmp eq i8 %3, 0
   br i1 %cmp3, label %if.end, label %if.then
@@ -632,7 +619,7 @@ if.end:                                           ; preds = %for.body
   %5 = add nuw nsw i32 %4, 2
   %call9 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef %5) #8
   %sub = add nsw i32 %call9, -1
-  %nupvalues = getelementptr inbounds %struct.GCfuncL, ptr %call, i64 0, i32 4
+  %nupvalues = getelementptr inbounds i8, ptr %call, i64 11
   %6 = load i8, ptr %nupvalues, align 1
   %conv12 = zext i8 %6 to i32
   %cmp13.not = icmp ult i32 %sub, %conv12
@@ -643,20 +630,21 @@ if.then15:                                        ; preds = %if.end
   unreachable
 
 if.end18:                                         ; preds = %if.end
+  %uvptr = getelementptr inbounds i8, ptr %call, i64 40
   %idxprom21 = zext nneg i32 %sub to i64
-  %arrayidx22 = getelementptr inbounds %struct.GCfuncL, ptr %call, i64 0, i32 8, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr, i64 0, i64 %idxprom21
   %arrayidx24 = getelementptr inbounds [2 x ptr], ptr %p, i64 0, i64 %indvars.iv
   store ptr %arrayidx22, ptr %arrayidx24, align 8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end18
-  %arrayidx25 = getelementptr inbounds [2 x ptr], ptr %p, i64 0, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %p, i64 8
   %7 = load ptr, ptr %arrayidx25, align 8
   %8 = load i64, ptr %7, align 8
   %9 = load ptr, ptr %p, align 16
   store i64 %8, ptr %9, align 8
   %10 = inttoptr i64 %8 to ptr
-  %marked = getelementptr inbounds %struct.GChead, ptr %10, i64 0, i32 1
+  %marked = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr %marked, align 8
   %12 = and i8 %11, 3
   %tobool.not = icmp eq i8 %12, 0
@@ -664,14 +652,14 @@ for.end:                                          ; preds = %if.end18
 
 land.lhs.true:                                    ; preds = %for.end
   %13 = load ptr, ptr %fn, align 16
-  %marked32 = getelementptr inbounds %struct.GChead, ptr %13, i64 0, i32 1
+  %marked32 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i8, ptr %marked32, align 8
   %15 = and i8 %14, 4
   %tobool35.not = icmp eq i8 %15, 0
   br i1 %tobool35.not, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %16 = load i64, ptr %glref, align 8
   %17 = inttoptr i64 %16 to ptr
   tail call void @lj_gc_barrierf(ptr noundef %17, ptr noundef nonnull %13, ptr noundef nonnull %10) #8
@@ -684,9 +672,9 @@ if.end40:                                         ; preds = %if.then36, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_debug_sethook(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %getthread.exit
@@ -738,7 +726,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %func.0 = phi ptr [ null, %if.then ], [ @hookf, %if.else ]
   %mask.0 = phi i32 [ 0, %if.then ], [ %mask.3.i, %if.else ]
   %4 = load ptr, ptr %top.i, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %4, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr, ptr %top.i, align 8
   store i64 -9223372036854775704, ptr %4, align 8
   tail call void @lua_pushvalue(ptr noundef nonnull %L, i32 noundef %add) #8
@@ -763,9 +751,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   store i64 -9223372036854775704, ptr %0, align 8
   tail call void @lua_rawget(ptr noundef %L, i32 noundef -10000) #8
@@ -871,9 +859,9 @@ if.end17:                                         ; preds = %if.then12, %lor.lhs
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_debug_traceback(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %getthread.exit
@@ -907,7 +895,7 @@ land.lhs.true:                                    ; preds = %getthread.exit
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %add.ptr6 = getelementptr inbounds %union.TValue, ptr %add.ptr, i64 1
+  %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %add.ptr6, ptr %top.i, align 8
   br label %if.end
 
@@ -1000,9 +988,9 @@ declare i64 @luaL_optinteger(ptr noundef, i32 noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @hookf(ptr noundef %L, ptr nocapture noundef readonly %ar) #0 {
 entry:
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   store i64 -9223372036854775704, ptr %0, align 8
   tail call void @lua_rawget(ptr noundef %L, i32 noundef -10000) #8
@@ -1016,7 +1004,7 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   tail call void @lua_pushstring(ptr noundef nonnull %L, ptr noundef %2) #8
-  %currentline = getelementptr inbounds %struct.lua_Debug, ptr %ar, i64 0, i32 5
+  %currentline = getelementptr inbounds i8, ptr %ar, i64 40
   %3 = load i32, ptr %currentline, align 8
   %cmp1 = icmp sgt i32 %3, -1
   br i1 %cmp1, label %if.then2, label %if.else

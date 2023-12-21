@@ -3,19 +3,10 @@ source_filename = "bench/openssl/original/libssl-shlib-quic_demux.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_demux_st = type { ptr, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ossl_list_st_urxe, %struct.ossl_list_st_urxe, i8 }
-%struct.ossl_list_st_urxe = type { ptr, ptr, i64 }
 %struct.quic_demux_conn_st = type { ptr, %struct.quic_conn_id_st, ptr, ptr }
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
-%struct.anon = type { ptr, ptr }
 %struct.unreg_arg = type { ptr, ptr, ptr }
 %struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
-%struct.quic_urxe_st = type { %struct.anon, i64, i64, i64, i64, %union.bio_addr_st, %union.bio_addr_st, %struct.OSSL_TIME, i8, i8 }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.OSSL_TIME = type { i64 }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/ssl/quic/quic_demux.c\00", align 1
 
@@ -28,16 +19,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %net_bio, ptr %call, align 8
-  %short_conn_id_len2 = getelementptr inbounds %struct.quic_demux_st, ptr %call, i64 0, i32 1
+  %short_conn_id_len2 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %short_conn_id_len, ptr %short_conn_id_len2, align 8
-  %mtu = getelementptr inbounds %struct.quic_demux_st, ptr %call, i64 0, i32 2
+  %mtu = getelementptr inbounds i8, ptr %call, i64 16
   store i64 1500, ptr %mtu, align 8
-  %now3 = getelementptr inbounds %struct.quic_demux_st, ptr %call, i64 0, i32 3
+  %now3 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %now, ptr %now3, align 8
-  %now_arg4 = getelementptr inbounds %struct.quic_demux_st, ptr %call, i64 0, i32 4
+  %now_arg4 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %now_arg, ptr %now_arg4, align 8
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @demux_conn_hash, ptr noundef nonnull @demux_conn_cmp) #12
-  %conns_by_id = getelementptr inbounds %struct.quic_demux_st, ptr %call, i64 0, i32 5
+  %conns_by_id = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call.i, ptr %conns_by_id, align 8
   %cmp7 = icmp eq ptr %call.i, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -63,7 +54,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true12
-  %use_local_addr = getelementptr inbounds %struct.quic_demux_st, ptr %call, i64 0, i32 12
+  %use_local_addr = getelementptr inbounds i8, ptr %call, i64 128
   store i8 1, ptr %use_local_addr, align 8
   br label %return
 
@@ -77,16 +68,20 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i64 @demux_conn_hash(ptr nocapture noundef readonly %conn) #2 {
 entry:
-  %dst_conn_id = getelementptr inbounds %struct.quic_demux_conn_st, ptr %conn, i64 0, i32 1
+  %dst_conn_id = getelementptr inbounds i8, ptr %conn, i64 8
   %0 = load i8, ptr %dst_conn_id, align 8
   %conv = zext i8 %0 to i64
   %cmp6.not = icmp eq i8 %0, 0
-  br i1 %cmp6.not, label %for.end, label %for.body
+  br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %v.08 = phi i64 [ %xor, %for.body ], [ 0, %entry ]
-  %i.07 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.quic_demux_conn_st, ptr %conn, i64 0, i32 1, i32 1, i64 %i.07
+for.body.lr.ph:                                   ; preds = %entry
+  %id = getelementptr inbounds i8, ptr %conn, i64 9
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %v.08 = phi i64 [ 0, %for.body.lr.ph ], [ %xor, %for.body ]
+  %i.07 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds [20 x i8], ptr %id, i64 0, i64 %i.07
   %1 = load i8, ptr %arrayidx, align 1
   %conv3 = zext i8 %1 to i64
   %mul = shl nuw nsw i64 %i.07, 3
@@ -105,8 +100,8 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @demux_conn_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
 entry:
-  %dst_conn_id = getelementptr inbounds %struct.quic_demux_conn_st, ptr %a, i64 0, i32 1
-  %dst_conn_id1 = getelementptr inbounds %struct.quic_demux_conn_st, ptr %b, i64 0, i32 1
+  %dst_conn_id = getelementptr inbounds i8, ptr %a, i64 8
+  %dst_conn_id1 = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i8, ptr %dst_conn_id, align 1
   %1 = load i8, ptr %dst_conn_id1, align 1
   %cmp.not.i = icmp ne i8 %0, %1
@@ -115,8 +110,8 @@ entry:
   br i1 %or.cond.i, label %ossl_quic_conn_id_eq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %id.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %a, i64 0, i32 1, i32 1
-  %id8.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %b, i64 0, i32 1, i32 1
+  %id.i = getelementptr inbounds i8, ptr %a, i64 9
+  %id8.i = getelementptr inbounds i8, ptr %b, i64 9
   %conv11.i = zext nneg i8 %0 to i64
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i, i64 %conv11.i)
   %cmp12.i = icmp ne i32 %bcmp.i, 0
@@ -139,19 +134,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conns_by_id = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 5
+  %conns_by_id = getelementptr inbounds i8, ptr %demux, i64 40
   %0 = load ptr, ptr %conns_by_id, align 8
   tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @demux_free_conn_it, ptr noundef null) #12
   %1 = load ptr, ptr %conns_by_id, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %1) #12
-  %urx_free = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10
+  %urx_free = getelementptr inbounds i8, ptr %demux, i64 80
   %l.val.i = load ptr, ptr %urx_free, align 8
   %cmp.not5.i = icmp eq ptr %l.val.i, null
   br i1 %cmp.not5.i, label %demux_free_urxl.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %omega.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
-  %num_elems.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 2
+  %omega.i.i = getelementptr inbounds i8, ptr %demux, i64 88
+  %num_elems.i.i = getelementptr inbounds i8, ptr %demux, i64 96
   br label %for.body.i
 
 for.body.i:                                       ; preds = %ossl_list_urxe_remove.exit.i, %for.body.lr.ph.i
@@ -168,7 +163,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i
   %3 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %3, %e.06.i
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %e.06.i, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %e.06.i, i64 8
   %4 = load ptr, ptr %prev.i.i, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -191,7 +186,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %5 = load ptr, ptr %prev.i.i, align 8
-  %prev27.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i, i64 0, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 8
   store ptr %5, ptr %prev27.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i
 
@@ -205,14 +200,14 @@ ossl_list_urxe_remove.exit.i:                     ; preds = %if.then21.i.i, %if.
   br i1 %cmp.not.i, label %demux_free_urxl.exit, label %for.body.i, !llvm.loop !6
 
 demux_free_urxl.exit:                             ; preds = %ossl_list_urxe_remove.exit.i, %if.end
-  %urx_pending = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11
+  %urx_pending = getelementptr inbounds i8, ptr %demux, i64 104
   %l.val.i6 = load ptr, ptr %urx_pending, align 8
   %cmp.not5.i7 = icmp eq ptr %l.val.i6, null
   br i1 %cmp.not5.i7, label %demux_free_urxl.exit31, label %for.body.lr.ph.i8
 
 for.body.lr.ph.i8:                                ; preds = %demux_free_urxl.exit
-  %omega.i.i9 = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 1
-  %num_elems.i.i10 = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 2
+  %omega.i.i9 = getelementptr inbounds i8, ptr %demux, i64 112
+  %num_elems.i.i10 = getelementptr inbounds i8, ptr %demux, i64 120
   br label %for.body.i11
 
 for.body.i11:                                     ; preds = %ossl_list_urxe_remove.exit.i26, %for.body.lr.ph.i8
@@ -229,7 +224,7 @@ if.then.i.i30:                                    ; preds = %for.body.i11
 if.end.i.i15:                                     ; preds = %if.then.i.i30, %for.body.i11
   %8 = load ptr, ptr %omega.i.i9, align 8
   %cmp2.i.i16 = icmp eq ptr %8, %e.06.i12
-  %prev.i.i17 = getelementptr inbounds %struct.anon, ptr %e.06.i12, i64 0, i32 1
+  %prev.i.i17 = getelementptr inbounds i8, ptr %e.06.i12, i64 8
   %9 = load ptr, ptr %prev.i.i17, align 8
   br i1 %cmp2.i.i16, label %if.then3.i.i29, label %if.end6.i.i18
 
@@ -252,7 +247,7 @@ if.end17.i.i22:                                   ; preds = %if.then10.i.i21, %i
 
 if.then21.i.i24:                                  ; preds = %if.end17.i.i22
   %10 = load ptr, ptr %prev.i.i17, align 8
-  %prev27.i.i25 = getelementptr inbounds %struct.anon, ptr %.pre16.i.i20, i64 0, i32 1
+  %prev27.i.i25 = getelementptr inbounds i8, ptr %.pre16.i.i20, i64 8
   store ptr %10, ptr %prev27.i.i25, align 8
   br label %ossl_list_urxe_remove.exit.i26
 
@@ -295,7 +290,7 @@ if.then:                                          ; preds = %entry
 
 ossl_quic_demux_set_mtu.exit:                     ; preds = %if.then
   %conv.i = and i64 %call, 4294967295
-  %mtu1.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 2
+  %mtu1.i = getelementptr inbounds i8, ptr %demux, i64 16
   store i64 %conv.i, ptr %mtu1.i, align 8
   br label %if.end6
 
@@ -311,7 +306,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext i32 %mtu to i64
-  %mtu1 = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 2
+  %mtu1 = getelementptr inbounds i8, ptr %demux, i64 16
   store i64 %conv, ptr %mtu1, align 8
   br label %return
 
@@ -336,9 +331,9 @@ lor.lhs.false:                                    ; preds = %entry
 
 demux_get_by_conn_id.exit:                        ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
-  %dst_conn_id2.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %key.i, i64 0, i32 1
+  %dst_conn_id2.i = getelementptr inbounds i8, ptr %key.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i, ptr noundef nonnull align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
-  %conns_by_id.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 5
+  %conns_by_id.i = getelementptr inbounds i8, ptr %demux, i64 40
   %1 = load ptr, ptr %conns_by_id.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key.i) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i)
@@ -351,11 +346,11 @@ if.end9:                                          ; preds = %demux_get_by_conn_i
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %dst_conn_id15 = getelementptr inbounds %struct.quic_demux_conn_st, ptr %call10, i64 0, i32 1
+  %dst_conn_id15 = getelementptr inbounds i8, ptr %call10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id15, ptr noundef nonnull align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
-  %cb16 = getelementptr inbounds %struct.quic_demux_conn_st, ptr %call10, i64 0, i32 2
+  %cb16 = getelementptr inbounds i8, ptr %call10, i64 32
   store ptr %cb, ptr %cb16, align 8
-  %cb_arg17 = getelementptr inbounds %struct.quic_demux_conn_st, ptr %call10, i64 0, i32 3
+  %cb_arg17 = getelementptr inbounds i8, ptr %call10, i64 40
   store ptr %cb_arg, ptr %cb_arg17, align 8
   %2 = load ptr, ptr %conns_by_id.i, align 8
   %call.i = call ptr @OPENSSL_LH_insert(ptr noundef %2, ptr noundef nonnull %call10) #12
@@ -383,9 +378,9 @@ lor.lhs.false:                                    ; preds = %entry
 
 demux_get_by_conn_id.exit:                        ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
-  %dst_conn_id2.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %key.i, i64 0, i32 1
+  %dst_conn_id2.i = getelementptr inbounds i8, ptr %key.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i, ptr noundef nonnull align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
-  %conns_by_id.i = getelementptr %struct.quic_demux_st, ptr %demux, i64 0, i32 5
+  %conns_by_id.i = getelementptr i8, ptr %demux, i64 40
   %1 = load ptr, ptr %conns_by_id.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key.i) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i)
@@ -410,12 +405,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %arg, i64 16
   store i64 0, ptr %0, align 8
   store ptr %cb, ptr %arg, align 8
-  %cb_arg2 = getelementptr inbounds %struct.unreg_arg, ptr %arg, i64 0, i32 1
+  %cb_arg2 = getelementptr inbounds i8, ptr %arg, i64 8
   store ptr %cb_arg, ptr %cb_arg2, align 8
-  %conns_by_id = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 5
+  %conns_by_id = getelementptr inbounds i8, ptr %demux, i64 40
   %1 = load ptr, ptr %conns_by_id, align 8
   call void @OPENSSL_LH_doall_arg(ptr noundef %1, ptr noundef nonnull @demux_unregister_by_cb, ptr noundef nonnull %arg) #12
-  %head = getelementptr inbounds %struct.unreg_arg, ptr %arg, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load ptr, ptr %head, align 8
   %cmp.not4 = icmp eq ptr %2, null
   br i1 %cmp.not4, label %for.end, label %for.body
@@ -439,22 +434,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @demux_unregister_by_cb(ptr noundef %conn, ptr nocapture noundef %arg_) #7 {
 entry:
-  %cb = getelementptr inbounds %struct.quic_demux_conn_st, ptr %conn, i64 0, i32 2
+  %cb = getelementptr inbounds i8, ptr %conn, i64 32
   %0 = load ptr, ptr %cb, align 8
   %1 = load ptr, ptr %arg_, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cb_arg = getelementptr inbounds %struct.quic_demux_conn_st, ptr %conn, i64 0, i32 3
+  %cb_arg = getelementptr inbounds i8, ptr %conn, i64 40
   %2 = load ptr, ptr %cb_arg, align 8
-  %cb_arg2 = getelementptr inbounds %struct.unreg_arg, ptr %arg_, i64 0, i32 1
+  %cb_arg2 = getelementptr inbounds i8, ptr %arg_, i64 8
   %3 = load ptr, ptr %cb_arg2, align 8
   %cmp3 = icmp eq ptr %2, %3
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %head = getelementptr inbounds %struct.unreg_arg, ptr %arg_, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %arg_, i64 16
   %4 = load ptr, ptr %head, align 8
   store ptr %4, ptr %conn, align 8
   store ptr %conn, ptr %head, align 8
@@ -467,9 +462,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_demux_set_default_handler(ptr nocapture noundef writeonly %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
 entry:
-  %default_cb = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 6
+  %default_cb = getelementptr inbounds i8, ptr %demux, i64 48
   store ptr %cb, ptr %default_cb, align 8
-  %default_cb_arg = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 7
+  %default_cb_arg = getelementptr inbounds i8, ptr %demux, i64 56
   store ptr %cb_arg, ptr %default_cb_arg, align 8
   ret void
 }
@@ -477,9 +472,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_demux_set_stateless_reset_handler(ptr nocapture noundef writeonly %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
 entry:
-  %reset_token_cb = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 8
+  %reset_token_cb = getelementptr inbounds i8, ptr %demux, i64 64
   store ptr %cb, ptr %reset_token_cb, align 8
-  %reset_token_cb_arg = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 9
+  %reset_token_cb_arg = getelementptr inbounds i8, ptr %demux, i64 72
   store ptr %cb_arg, ptr %reset_token_cb_arg, align 8
   ret void
 }
@@ -489,21 +484,21 @@ define i32 @ossl_quic_demux_pump(ptr nocapture noundef %demux) local_unnamed_add
 entry:
   %msg.i = alloca [32 x %struct.bio_msg_st], align 16
   %rd.i = alloca i64, align 8
-  %urx_pending = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11
+  %urx_pending = getelementptr inbounds i8, ptr %demux, i64 104
   %urx_pending.val = load ptr, ptr %urx_pending, align 8
   %cmp = icmp eq ptr %urx_pending.val, null
   br i1 %cmp, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %mtu.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 2
-  %urx_free.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10
-  %0 = getelementptr %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 2
+  %mtu.i = getelementptr inbounds i8, ptr %demux, i64 16
+  %urx_free.i = getelementptr inbounds i8, ptr %demux, i64 80
+  %0 = getelementptr i8, ptr %demux, i64 96
   %urx_free.val8.i = load i64, ptr %0, align 8
   %cmp9.i = icmp ult i64 %urx_free.val8.i, 32
   br i1 %cmp9.i, label %while.body.lr.ph.i, label %if.end
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %omega.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
+  %omega.i.i = getelementptr inbounds i8, ptr %demux, i64 88
   br label %while.body.i
 
 while.body.i:                                     ; preds = %ossl_list_urxe_insert_tail.exit.i, %while.body.lr.ph.i
@@ -518,9 +513,9 @@ if.end.i.i:                                       ; preds = %while.body.i
   br i1 %cmp1.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i
-  %alloc_len4.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call.i.i, i64 0, i32 2
+  %alloc_len4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %1, ptr %alloc_len4.i.i, align 8
-  %data_len.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call.i.i, i64 0, i32 1
+  %data_len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 0, ptr %data_len.i.i, align 8
   %2 = load ptr, ptr %omega.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -533,7 +528,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 if.end.i5.i:                                      ; preds = %if.then.i.i, %if.end.i
   %3 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %if.end.i ]
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %call.i.i, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %3, ptr %prev.i.i, align 8
   store ptr null, ptr %call.i.i, align 8
   store ptr %call.i.i, ptr %omega.i.i, align 8
@@ -549,7 +544,7 @@ ossl_list_urxe_insert_tail.exit.i:                ; preds = %if.then8.i.i, %if.e
   %5 = load i64, ptr %0, align 8
   %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %demux_state.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call.i.i, i64 0, i32 9
+  %demux_state.i = getelementptr inbounds i8, ptr %call.i.i, i64 281
   store i8 0, ptr %demux_state.i, align 1
   %cmp.i = icmp ult i64 %inc.i.i, 32
   br i1 %cmp.i, label %while.body.i, label %if.end, !llvm.loop !8
@@ -562,7 +557,7 @@ if.end:                                           ; preds = %ossl_list_urxe_inse
   br i1 %cmp.i8, label %demux_recv.exit.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end
-  %use_local_addr.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 12
+  %use_local_addr.i = getelementptr inbounds i8, ptr %demux, i64 128
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
@@ -584,26 +579,25 @@ if.end11.i:                                       ; preds = %for.body.i
 
 if.end16.i:                                       ; preds = %if.end11.i
   %arrayidx.i = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.049.i
-  %8 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
-  %arrayidx.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call12.i, i64 1
+  %8 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %call12.i, i64 288
   store ptr %arrayidx.i.i, ptr %arrayidx.i, align 8
-  %alloc_len.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call12.i, i64 0, i32 2
+  %alloc_len.i = getelementptr inbounds i8, ptr %call12.i, i64 24
   %9 = load i64, ptr %alloc_len.i, align 8
-  %data_len.i = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.049.i, i32 1
+  %data_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %9, ptr %data_len.i, align 8
-  %peer.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call12.i, i64 0, i32 5
-  %peer21.i = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.049.i, i32 2
+  %peer.i = getelementptr inbounds i8, ptr %call12.i, i64 48
+  %peer21.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store ptr %peer.i, ptr %peer21.i, align 8
   tail call void @BIO_ADDR_clear(ptr noundef nonnull %peer.i) #12
   %10 = load i8, ptr %use_local_addr.i, align 8
   %tobool23.not.i = icmp eq i8 %10, 0
-  %local27.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call12.i, i64 0, i32 6
+  %local27.i = getelementptr inbounds i8, ptr %call12.i, i64 160
   br i1 %tobool23.not.i, label %if.else.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end16.i
-  %local26.i = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.049.i, i32 3
-  store ptr %local27.i, ptr %local26.i, align 8
+  store ptr %local27.i, ptr %8, align 8
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %if.end16.i
@@ -640,13 +634,13 @@ if.else41.i:                                      ; preds = %if.then34.i
 
 if.end43.i:                                       ; preds = %for.end.i
   %call44.i = call i32 @ERR_clear_last_mark() #12
-  %now45.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 3
+  %now45.i = getelementptr inbounds i8, ptr %demux, i64 24
   %12 = load ptr, ptr %now45.i, align 8
   %cmp46.not.i = icmp eq ptr %12, null
   br i1 %cmp46.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end43.i
-  %now_arg.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 4
+  %now_arg.i = getelementptr inbounds i8, ptr %demux, i64 32
   %13 = load ptr, ptr %now_arg.i, align 8
   %call49.i = call i64 %12(ptr noundef %13) #12
   br label %cond.end.i
@@ -659,9 +653,9 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
 
 for.body58.lr.ph.i:                               ; preds = %cond.end.i
   %urx_free.val.i = load ptr, ptr %urx_free.i, align 8
-  %omega.i.i10 = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
-  %omega.i39.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 1
-  %num_elems.i43.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 2
+  %omega.i.i10 = getelementptr inbounds i8, ptr %demux, i64 88
+  %omega.i39.i = getelementptr inbounds i8, ptr %demux, i64 112
+  %num_elems.i43.i = getelementptr inbounds i8, ptr %demux, i64 120
   br label %for.body58.i
 
 for.body58.i:                                     ; preds = %ossl_list_urxe_insert_tail.exit.i17, %for.body58.lr.ph.i
@@ -670,9 +664,9 @@ for.body58.i:                                     ; preds = %ossl_list_urxe_inse
   %urxe.1.val.i = load ptr, ptr %urxe.152.i, align 8
   %data_len61.i = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.153.i, i32 1
   %15 = load i64, ptr %data_len61.i, align 8
-  %data_len62.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe.152.i, i64 0, i32 1
+  %data_len62.i = getelementptr inbounds i8, ptr %urxe.152.i, i64 16
   store i64 %15, ptr %data_len62.i, align 8
-  %time.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe.152.i, i64 0, i32 7
+  %time.i = getelementptr inbounds i8, ptr %urxe.152.i, i64 272
   store i64 %now.sroa.0.0.i, ptr %time.i, align 8
   %16 = load ptr, ptr %urx_free.i, align 8
   %cmp.i.i11 = icmp eq ptr %16, %urxe.152.i
@@ -685,7 +679,7 @@ if.then.i.i22:                                    ; preds = %for.body58.i
 if.end.i.i12:                                     ; preds = %if.then.i.i22, %for.body58.i
   %17 = load ptr, ptr %omega.i.i10, align 8
   %cmp2.i.i = icmp eq ptr %17, %urxe.152.i
-  %prev.i.i13 = getelementptr inbounds %struct.anon, ptr %urxe.152.i, i64 0, i32 1
+  %prev.i.i13 = getelementptr inbounds i8, ptr %urxe.152.i, i64 8
   %18 = load ptr, ptr %prev.i.i13, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -708,7 +702,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %19 = load ptr, ptr %prev.i.i13, align 8
-  %prev27.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i, i64 0, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 8
   store ptr %19, ptr %prev27.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i
 
@@ -743,7 +737,7 @@ ossl_list_urxe_insert_tail.exit.i17:              ; preds = %if.then8.i.i21, %if
   %24 = load i64, ptr %num_elems.i43.i, align 8
   %inc.i.i18 = add i64 %24, 1
   store i64 %inc.i.i18, ptr %num_elems.i43.i, align 8
-  %demux_state.i19 = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe.152.i, i64 0, i32 9
+  %demux_state.i19 = getelementptr inbounds i8, ptr %urxe.152.i, i64 281
   store i8 1, ptr %demux_state.i19, align 1
   %inc65.i = add nuw i64 %i.153.i, 1
   %25 = load i64, ptr %rd.i, align 8
@@ -781,24 +775,24 @@ define internal fastcc i32 @demux_process_pending_urxl(ptr nocapture noundef %de
 entry:
   %key.i.i.i = alloca %struct.quic_demux_conn_st, align 8
   %dst_conn_id.i.i = alloca %struct.quic_conn_id_st, align 1
-  %urx_pending = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11
+  %urx_pending = getelementptr inbounds i8, ptr %demux, i64 104
   %urx_pending.val4 = load ptr, ptr %urx_pending, align 8
   %cmp.not5 = icmp eq ptr %urx_pending.val4, null
   br i1 %cmp.not5, label %return, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %entry
-  %reset_token_cb.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 8
-  %reset_token_cb_arg.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 9
+  %reset_token_cb.i = getelementptr inbounds i8, ptr %demux, i64 64
+  %reset_token_cb_arg.i = getelementptr inbounds i8, ptr %demux, i64 72
   %0 = getelementptr i8, ptr %demux, i64 8
-  %dst_conn_id2.i.i.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %key.i.i.i, i64 0, i32 1
-  %conns_by_id.i.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 5
-  %omega.i33.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 1
-  %num_elems.i45.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 2
-  %default_cb.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 6
-  %default_cb_arg.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 7
-  %urx_free.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10
-  %omega.i26.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
-  %num_elems.i30.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 2
+  %dst_conn_id2.i.i.i = getelementptr inbounds i8, ptr %key.i.i.i, i64 8
+  %conns_by_id.i.i.i = getelementptr inbounds i8, ptr %demux, i64 40
+  %omega.i33.i = getelementptr inbounds i8, ptr %demux, i64 112
+  %num_elems.i45.i = getelementptr inbounds i8, ptr %demux, i64 120
+  %default_cb.i = getelementptr inbounds i8, ptr %demux, i64 48
+  %default_cb_arg.i = getelementptr inbounds i8, ptr %demux, i64 56
+  %urx_free.i = getelementptr inbounds i8, ptr %demux, i64 80
+  %omega.i26.i = getelementptr inbounds i8, ptr %demux, i64 88
+  %num_elems.i30.i = getelementptr inbounds i8, ptr %demux, i64 96
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %demux_process_pending_urxe.exit
@@ -808,8 +802,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %de
   br i1 %cmp5.not.i, label %if.end19.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 1
-  %data_len.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 0, i32 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 288
+  %data_len.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 16
   %2 = load i64, ptr %data_len.i, align 8
   %3 = load ptr, ptr %reset_token_cb_arg.i, align 8
   %call10.i = call i32 %1(ptr noundef nonnull %arrayidx.i.i, i64 noundef %2, ptr noundef %3) #12
@@ -823,8 +817,8 @@ if.end14.i:                                       ; preds = %if.then7.i
 if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %dst_conn_id.i.i)
   %demux.val.i.i = load i64, ptr %0, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 1
-  %data_len.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 0, i32 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 288
+  %data_len.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 16
   %4 = load i64, ptr %data_len.i.i.i, align 8
   %call1.i.i.i = call i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef nonnull %arrayidx.i.i.i.i, i64 noundef %4, i64 noundef %demux.val.i.i, ptr noundef nonnull %dst_conn_id.i.i) #12
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
@@ -867,7 +861,7 @@ if.then.i.i:                                      ; preds = %if.then23.i
 if.end.i25.i:                                     ; preds = %if.then.i.i, %if.then23.i
   %9 = load ptr, ptr %omega.i33.i, align 8
   %cmp2.i.i = icmp eq ptr %9, %urx_pending.val6
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %urx_pending.val6, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 8
   %10 = load ptr, ptr %prev.i.i, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -890,7 +884,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %11 = load ptr, ptr %prev.i.i, align 8
-  %prev27.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i, i64 0, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 8
   store ptr %11, ptr %prev27.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i
 
@@ -904,7 +898,7 @@ ossl_list_urxe_remove.exit.i:                     ; preds = %if.then21.i.i, %if.
   br i1 %cmp25.not.i, label %if.else.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %ossl_list_urxe_remove.exit.i
-  %demux_state.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 0, i32 9
+  %demux_state.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 281
   store i8 2, ptr %demux_state.i, align 1
   %14 = load ptr, ptr %default_cb.i, align 8
   %15 = load ptr, ptr %default_cb_arg.i, align 8
@@ -938,7 +932,7 @@ ossl_list_urxe_insert_tail.exit.i:                ; preds = %if.then8.i.i, %if.e
   %19 = load i64, ptr %num_elems.i30.i, align 8
   %inc.i.i = add i64 %19, 1
   store i64 %inc.i.i, ptr %num_elems.i30.i, align 8
-  %demux_state29.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 0, i32 9
+  %demux_state29.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 281
   store i8 0, ptr %demux_state29.i, align 1
   br label %demux_process_pending_urxe.exit
 
@@ -955,7 +949,7 @@ if.then.i48.i:                                    ; preds = %if.end31.i
 if.end.i32.i:                                     ; preds = %if.then.i48.i, %if.end31.i
   %22 = load ptr, ptr %omega.i33.i, align 8
   %cmp2.i34.i = icmp eq ptr %22, %urx_pending.val6
-  %prev.i35.i = getelementptr inbounds %struct.anon, ptr %urx_pending.val6, i64 0, i32 1
+  %prev.i35.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 8
   %23 = load ptr, ptr %prev.i35.i, align 8
   br i1 %cmp2.i34.i, label %if.then3.i47.i, label %if.end6.i36.i
 
@@ -978,7 +972,7 @@ if.end17.i41.i:                                   ; preds = %if.then10.i40.i, %i
 
 if.then21.i43.i:                                  ; preds = %if.end17.i41.i
   %24 = load ptr, ptr %prev.i35.i, align 8
-  %prev27.i44.i = getelementptr inbounds %struct.anon, ptr %.pre16.i39.i, i64 0, i32 1
+  %prev27.i44.i = getelementptr inbounds i8, ptr %.pre16.i39.i, i64 8
   store ptr %24, ptr %prev27.i44.i, align 8
   br label %ossl_list_urxe_remove.exit49.i
 
@@ -987,11 +981,11 @@ ossl_list_urxe_remove.exit49.i:                   ; preds = %if.then21.i43.i, %i
   %dec.i46.i = add i64 %25, -1
   store i64 %dec.i46.i, ptr %num_elems.i45.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %urx_pending.val6, i8 0, i64 16, i1 false)
-  %demux_state33.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val6, i64 0, i32 9
+  %demux_state33.i = getelementptr inbounds i8, ptr %urx_pending.val6, i64 281
   store i8 2, ptr %demux_state33.i, align 1
-  %cb.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %call.i.i.i.i, i64 0, i32 2
+  %cb.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %26 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds %struct.quic_demux_conn_st, ptr %call.i.i.i.i, i64 0, i32 3
+  %cb_arg.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   %27 = load ptr, ptr %cb_arg.i, align 8
   call void %26(ptr noundef nonnull %urx_pending.val6, ptr noundef %27) #12
   br label %demux_process_pending_urxe.exit
@@ -1009,9 +1003,9 @@ return:                                           ; preds = %demux_process_pendi
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_demux_inject(ptr nocapture noundef %demux, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr noundef readonly %peer, ptr noundef readonly %local) local_unnamed_addr #0 {
 entry:
-  %mtu.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 2
-  %urx_free.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10
-  %0 = getelementptr %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 2
+  %mtu.i = getelementptr inbounds i8, ptr %demux, i64 16
+  %urx_free.i = getelementptr inbounds i8, ptr %demux, i64 80
+  %0 = getelementptr i8, ptr %demux, i64 96
   %urx_free.val8.i = load i64, ptr %0, align 8
   %cmp9.i = icmp eq i64 %urx_free.val8.i, 0
   br i1 %cmp9.i, label %while.body.lr.ph.i, label %entry.if.end_crit_edge
@@ -1021,7 +1015,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %omega.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
+  %omega.i.i = getelementptr inbounds i8, ptr %demux, i64 88
   br label %while.body.i
 
 while.body.i:                                     ; preds = %ossl_list_urxe_insert_tail.exit.i, %while.body.lr.ph.i
@@ -1036,9 +1030,9 @@ if.end.i.i:                                       ; preds = %while.body.i
   br i1 %cmp1.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i
-  %alloc_len4.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call.i.i, i64 0, i32 2
+  %alloc_len4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %1, ptr %alloc_len4.i.i, align 8
-  %data_len.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call.i.i, i64 0, i32 1
+  %data_len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 0, ptr %data_len.i.i, align 8
   %2 = load ptr, ptr %omega.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -1051,7 +1045,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 if.end.i5.i:                                      ; preds = %if.then.i.i, %if.end.i
   %3 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %if.end.i ]
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %call.i.i, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %3, ptr %prev.i.i, align 8
   store ptr null, ptr %call.i.i, align 8
   store ptr %call.i.i, ptr %omega.i.i, align 8
@@ -1068,7 +1062,7 @@ ossl_list_urxe_insert_tail.exit.i:                ; preds = %if.then8.i.i, %if.e
   %5 = load i64, ptr %0, align 8
   %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %demux_state.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call.i.i, i64 0, i32 9
+  %demux_state.i = getelementptr inbounds i8, ptr %call.i.i, i64 281
   store i8 0, ptr %demux_state.i, align 1
   %cmp.i = icmp eq i64 %inc.i.i, 0
   br i1 %cmp.i, label %while.body.i, label %if.end, !llvm.loop !8
@@ -1080,12 +1074,12 @@ if.end:                                           ; preds = %ossl_list_urxe_inse
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call2, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %call2, i64 288
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf, i64 %buf_len, i1 false)
-  %data_len = getelementptr inbounds %struct.quic_urxe_st, ptr %call2, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %call2, i64 16
   store i64 %buf_len, ptr %data_len, align 8
   %cmp7.not = icmp eq ptr %peer, null
-  %peer10 = getelementptr inbounds %struct.quic_urxe_st, ptr %call2, i64 0, i32 5
+  %peer10 = getelementptr inbounds i8, ptr %call2, i64 48
   br i1 %cmp7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
@@ -1098,7 +1092,7 @@ if.else:                                          ; preds = %if.end5
 
 if.end11:                                         ; preds = %if.else, %if.then8
   %cmp12.not = icmp eq ptr %local, null
-  %local16 = getelementptr inbounds %struct.quic_urxe_st, ptr %call2, i64 0, i32 6
+  %local16 = getelementptr inbounds i8, ptr %call2, i64 160
   br i1 %cmp12.not, label %if.else15, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
@@ -1110,14 +1104,14 @@ if.else15:                                        ; preds = %if.end11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %if.then13
-  %time = getelementptr inbounds %struct.quic_urxe_st, ptr %call2, i64 0, i32 7
-  %now = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 3
+  %time = getelementptr inbounds i8, ptr %call2, i64 272
+  %now = getelementptr inbounds i8, ptr %demux, i64 24
   %6 = load ptr, ptr %now, align 8
   %cmp18.not = icmp eq ptr %6, null
   br i1 %cmp18.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end17
-  %now_arg = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 4
+  %now_arg = getelementptr inbounds i8, ptr %demux, i64 32
   %7 = load ptr, ptr %now_arg, align 8
   %call20 = tail call i64 %6(ptr noundef %7) #12
   br label %cond.end
@@ -1135,10 +1129,10 @@ if.then.i:                                        ; preds = %cond.end
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.then.i, %cond.end
-  %omega.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
+  %omega.i = getelementptr inbounds i8, ptr %demux, i64 88
   %10 = load ptr, ptr %omega.i, align 8
   %cmp2.i = icmp eq ptr %10, %call2
-  %prev.i = getelementptr inbounds %struct.anon, ptr %call2, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call2, i64 8
   %11 = load ptr, ptr %prev.i, align 8
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
@@ -1161,7 +1155,7 @@ if.end17.i:                                       ; preds = %if.then10.i, %if.en
 
 if.then21.i:                                      ; preds = %if.end17.i
   %12 = load ptr, ptr %prev.i, align 8
-  %prev27.i = getelementptr inbounds %struct.anon, ptr %.pre16.i, i64 0, i32 1
+  %prev27.i = getelementptr inbounds i8, ptr %.pre16.i, i64 8
   store ptr %12, ptr %prev27.i, align 8
   br label %ossl_list_urxe_remove.exit
 
@@ -1170,8 +1164,8 @@ ossl_list_urxe_remove.exit:                       ; preds = %if.end17.i, %if.the
   %dec.i = add i64 %13, -1
   store i64 %dec.i, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
-  %urx_pending = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11
-  %omega.i26 = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 1
+  %urx_pending = getelementptr inbounds i8, ptr %demux, i64 104
+  %omega.i26 = getelementptr inbounds i8, ptr %demux, i64 112
   %14 = load ptr, ptr %omega.i26, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %if.end.i28, label %if.then.i27
@@ -1195,11 +1189,11 @@ if.then8.i:                                       ; preds = %if.end.i28
   br label %ossl_list_urxe_insert_tail.exit
 
 ossl_list_urxe_insert_tail.exit:                  ; preds = %if.end.i28, %if.then8.i
-  %num_elems.i30 = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 2
+  %num_elems.i30 = getelementptr inbounds i8, ptr %demux, i64 120
   %17 = load i64, ptr %num_elems.i30, align 8
   %inc.i = add i64 %17, 1
   store i64 %inc.i, ptr %num_elems.i30, align 8
-  %demux_state = getelementptr inbounds %struct.quic_urxe_st, ptr %call2, i64 0, i32 9
+  %demux_state = getelementptr inbounds i8, ptr %call2, i64 281
   store i8 1, ptr %demux_state, align 1
   %call25 = tail call fastcc i32 @demux_process_pending_urxl(ptr noundef nonnull %demux), !range !11
   %cmp26 = icmp sgt i32 %call25, 0
@@ -1214,13 +1208,13 @@ return:                                           ; preds = %while.body.i, %if.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @demux_reserve_urxe(ptr nocapture noundef %demux, ptr noundef %e, i64 noundef %alloc_len) unnamed_addr #0 {
 entry:
-  %alloc_len1 = getelementptr inbounds %struct.quic_urxe_st, ptr %e, i64 0, i32 2
+  %alloc_len1 = getelementptr inbounds i8, ptr %e, i64 24
   %0 = load i64, ptr %alloc_len1, align 8
   %cmp = icmp ult i64 %0, %alloc_len
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %demux_state.i = getelementptr inbounds %struct.quic_urxe_st, ptr %e, i64 0, i32 9
+  %demux_state.i = getelementptr inbounds i8, ptr %e, i64 281
   %1 = load i8, ptr %demux_state.i, align 1
   %cmp.i = icmp eq i8 %1, 0
   br i1 %cmp.i, label %if.end.i, label %cond.end
@@ -1228,7 +1222,7 @@ cond.true:                                        ; preds = %entry
 if.end.i:                                         ; preds = %cond.true
   %2 = getelementptr i8, ptr %e, i64 8
   %e.val.i = load ptr, ptr %2, align 8
-  %urx_free.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10
+  %urx_free.i = getelementptr inbounds i8, ptr %demux, i64 80
   %3 = load ptr, ptr %urx_free.i, align 8
   %cmp.i.i = icmp eq ptr %3, %e
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1241,7 +1235,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
   %5 = phi ptr [ %.pr.i, %if.then.i.i ], [ %e.val.i, %if.end.i ]
-  %omega.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
+  %omega.i.i = getelementptr inbounds i8, ptr %demux, i64 88
   %6 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %6, %e
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
@@ -1265,12 +1259,12 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %7 = load ptr, ptr %2, align 8
-  %prev27.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i, i64 0, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 8
   store ptr %7, ptr %prev27.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i
 
 ossl_list_urxe_remove.exit.i:                     ; preds = %if.then21.i.i, %if.end17.i.i
-  %num_elems.i.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 2
+  %num_elems.i.i = getelementptr inbounds i8, ptr %demux, i64 96
   %8 = load i64, ptr %num_elems.i.i, align 8
   %dec.i.i = add i64 %8, -1
   store i64 %dec.i.i, ptr %num_elems.i.i, align 8
@@ -1290,7 +1284,7 @@ if.then12.i:                                      ; preds = %if.then9.i
   br i1 %cmp.not.i.i, label %if.end.i20.i, label %if.then.i18.i
 
 if.then.i18.i:                                    ; preds = %if.then12.i
-  %prev.i19.i = getelementptr inbounds %struct.anon, ptr %9, i64 0, i32 1
+  %prev.i19.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %e, ptr %prev.i19.i, align 8
   %.pre.i.i = load ptr, ptr %urx_free.i, align 8
   br label %if.end.i20.i
@@ -1322,7 +1316,7 @@ if.else.i:                                        ; preds = %if.then9.i
   br i1 %cmp.not.i24.i, label %if.end.i26.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %if.else.i
-  %prev9.i.i = getelementptr inbounds %struct.anon, ptr %13, i64 0, i32 1
+  %prev9.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %e, ptr %prev9.i.i, align 8
   br label %if.end.i26.i
 
@@ -1351,7 +1345,7 @@ if.then19.i:                                      ; preds = %if.end16.i
   br i1 %cmp.not.i30.i, label %if.end.i34.i, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %if.then19.i
-  %prev.i32.i = getelementptr inbounds %struct.anon, ptr %16, i64 0, i32 1
+  %prev.i32.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %call6.i, ptr %prev.i32.i, align 8
   %.pre.i33.i = load ptr, ptr %urx_free.i, align 8
   br label %if.end.i34.i
@@ -1359,7 +1353,7 @@ if.then.i31.i:                                    ; preds = %if.then19.i
 if.end.i34.i:                                     ; preds = %if.then.i31.i, %if.then19.i
   %17 = phi ptr [ %.pre.i33.i, %if.then.i31.i ], [ null, %if.then19.i ]
   store ptr %17, ptr %call6.i, align 8
-  %prev5.i35.i = getelementptr inbounds %struct.anon, ptr %call6.i, i64 0, i32 1
+  %prev5.i35.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr null, ptr %prev5.i35.i, align 8
   store ptr %call6.i, ptr %urx_free.i, align 8
   %18 = load ptr, ptr %omega.i.i, align 8
@@ -1367,7 +1361,7 @@ if.end.i34.i:                                     ; preds = %if.then.i31.i, %if.
   br i1 %cmp7.i37.i, label %if.end23.sink.split.i, label %if.end23.i
 
 if.else21.i:                                      ; preds = %if.end16.i
-  %prev.i42.i = getelementptr inbounds %struct.anon, ptr %call6.i, i64 0, i32 1
+  %prev.i42.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %e.val.i, ptr %prev.i42.i, align 8
   %19 = load ptr, ptr %e.val.i, align 8
   store ptr %19, ptr %call6.i, align 8
@@ -1375,7 +1369,7 @@ if.else21.i:                                      ; preds = %if.end16.i
   br i1 %cmp.not.i43.i, label %if.end.i46.i, label %if.then.i44.i
 
 if.then.i44.i:                                    ; preds = %if.else21.i
-  %prev9.i45.i = getelementptr inbounds %struct.anon, ptr %19, i64 0, i32 1
+  %prev9.i45.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %call6.i, ptr %prev9.i45.i, align 8
   br label %if.end.i46.i
 
@@ -1393,7 +1387,7 @@ if.end23.i:                                       ; preds = %if.end23.sink.split
   %storemerge.in.i = load i64, ptr %num_elems.i.i, align 8
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %num_elems.i.i, align 8
-  %alloc_len.i = getelementptr inbounds %struct.quic_urxe_st, ptr %call6.i, i64 0, i32 2
+  %alloc_len.i = getelementptr inbounds i8, ptr %call6.i, i64 24
   store i64 %alloc_len, ptr %alloc_len.i, align 8
   br label %cond.end
 
@@ -1407,8 +1401,8 @@ declare void @BIO_ADDR_clear(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ossl_quic_demux_release_urxe(ptr nocapture noundef %demux, ptr noundef %e) local_unnamed_addr #8 {
 entry:
-  %urx_free = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10
-  %omega.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 1
+  %urx_free = getelementptr inbounds i8, ptr %demux, i64 80
+  %omega.i = getelementptr inbounds i8, ptr %demux, i64 88
   %0 = load ptr, ptr %omega.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1420,7 +1414,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %1 = phi ptr [ %.pre.i, %if.then.i ], [ null, %entry ]
-  %prev.i = getelementptr inbounds %struct.anon, ptr %e, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %e, i64 8
   store ptr %1, ptr %prev.i, align 8
   store ptr null, ptr %e, align 8
   store ptr %e, ptr %omega.i, align 8
@@ -1433,11 +1427,11 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %ossl_list_urxe_insert_tail.exit
 
 ossl_list_urxe_insert_tail.exit:                  ; preds = %if.end.i, %if.then8.i
-  %num_elems.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 10, i32 2
+  %num_elems.i = getelementptr inbounds i8, ptr %demux, i64 96
   %3 = load i64, ptr %num_elems.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %num_elems.i, align 8
-  %demux_state = getelementptr inbounds %struct.quic_urxe_st, ptr %e, i64 0, i32 9
+  %demux_state = getelementptr inbounds i8, ptr %e, i64 281
   store i8 0, ptr %demux_state, align 1
   ret void
 }
@@ -1445,13 +1439,13 @@ ossl_list_urxe_insert_tail.exit:                  ; preds = %if.end.i, %if.then8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ossl_quic_demux_reinject_urxe(ptr nocapture noundef %demux, ptr noundef %e) local_unnamed_addr #8 {
 entry:
-  %urx_pending = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11
+  %urx_pending = getelementptr inbounds i8, ptr %demux, i64 104
   %0 = load ptr, ptr %urx_pending, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %prev.i = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %e, ptr %prev.i, align 8
   %.pre.i = load ptr, ptr %urx_pending, align 8
   br label %if.end.i
@@ -1459,10 +1453,10 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %if.then.i, %entry
   %1 = phi ptr [ %.pre.i, %if.then.i ], [ null, %entry ]
   store ptr %1, ptr %e, align 8
-  %prev5.i = getelementptr inbounds %struct.anon, ptr %e, i64 0, i32 1
+  %prev5.i = getelementptr inbounds i8, ptr %e, i64 8
   store ptr null, ptr %prev5.i, align 8
   store ptr %e, ptr %urx_pending, align 8
-  %omega.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 1
+  %omega.i = getelementptr inbounds i8, ptr %demux, i64 112
   %2 = load ptr, ptr %omega.i, align 8
   %cmp7.i = icmp eq ptr %2, null
   br i1 %cmp7.i, label %if.then8.i, label %ossl_list_urxe_insert_head.exit
@@ -1472,11 +1466,11 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %ossl_list_urxe_insert_head.exit
 
 ossl_list_urxe_insert_head.exit:                  ; preds = %if.end.i, %if.then8.i
-  %num_elems.i = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11, i32 2
+  %num_elems.i = getelementptr inbounds i8, ptr %demux, i64 120
   %3 = load i64, ptr %num_elems.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %num_elems.i, align 8
-  %demux_state = getelementptr inbounds %struct.quic_urxe_st, ptr %e, i64 0, i32 9
+  %demux_state = getelementptr inbounds i8, ptr %e, i64 281
   store i8 1, ptr %demux_state, align 1
   ret void
 }
@@ -1484,7 +1478,7 @@ ossl_list_urxe_insert_head.exit:                  ; preds = %if.end.i, %if.then8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ossl_quic_demux_has_pending(ptr nocapture noundef readonly %demux) local_unnamed_addr #9 {
 entry:
-  %urx_pending = getelementptr inbounds %struct.quic_demux_st, ptr %demux, i64 0, i32 11
+  %urx_pending = getelementptr inbounds i8, ptr %demux, i64 104
   %urx_pending.val = load ptr, ptr %urx_pending, align 8
   %cmp = icmp ne ptr %urx_pending.val, null
   %conv = zext i1 %cmp to i32

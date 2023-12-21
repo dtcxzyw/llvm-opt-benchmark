@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.NetFilterReplayState = type { %struct.NetFilterState, ptr }
-%struct.NetFilterState = type { %struct.Object, ptr, ptr, i32, i8, ptr, i8, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.NetFilterClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @filter_replay_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 104, i64 0, ptr @filter_replay_instance_init, ptr null, ptr @filter_replay_instance_finalize, i8 0, i64 0, ptr @filter_replay_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"filter-replay\00", align 1
@@ -45,7 +38,7 @@ define internal void @filter_replay_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 25, ptr noundef nonnull @__func__.FILTER_REPLAY) #2
   %call1 = tail call ptr @replay_register_net(ptr noundef %call.i) #2
-  %rns = getelementptr inbounds %struct.NetFilterReplayState, ptr %call.i, i64 0, i32 1
+  %rns = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %call1, ptr %rns, align 8
   ret void
 }
@@ -54,7 +47,7 @@ entry:
 define internal void @filter_replay_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 25, ptr noundef nonnull @__func__.FILTER_REPLAY) #2
-  %rns = getelementptr inbounds %struct.NetFilterReplayState, ptr %call.i, i64 0, i32 1
+  %rns = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %rns, align 8
   tail call void @replay_unregister_net(ptr noundef %0) #2
   ret void
@@ -64,7 +57,7 @@ entry:
 define internal void @filter_replay_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_CLASS) #2
-  %receive_iov = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 5
+  %receive_iov = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @filter_replay_receive_iov, ptr %receive_iov, align 8
   ret void
 }
@@ -86,13 +79,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %netdev = getelementptr inbounds %struct.NetFilterState, ptr %nf, i64 0, i32 2
+  %netdev = getelementptr inbounds i8, ptr %nf, i64 48
   %1 = load ptr, ptr %netdev, align 8
   %cmp = icmp eq ptr %1, %sndr
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.bb
-  %rns = getelementptr inbounds %struct.NetFilterReplayState, ptr %call.i, i64 0, i32 1
+  %rns = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %rns, align 8
   tail call void @replay_net_packet_event(ptr noundef %2, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt) #2
   br label %return.sink.split

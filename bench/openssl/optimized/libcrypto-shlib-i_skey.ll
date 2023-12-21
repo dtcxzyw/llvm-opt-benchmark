@@ -20,7 +20,7 @@ entry:
   %2 = load i8, ptr %incdec.ptr3, align 1
   %conv7 = zext i8 %2 to i32
   %shl8 = shl nuw nsw i32 %conv7, 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %ks, i64 4
   store i32 %shl8, ptr %arrayidx9, align 4
   %incdec.ptr10 = getelementptr inbounds i8, ptr %key, i64 4
   %3 = load i8, ptr %incdec.ptr6, align 1
@@ -31,7 +31,7 @@ entry:
   %4 = load i8, ptr %incdec.ptr10, align 1
   %conv15 = zext i8 %4 to i32
   %shl16 = shl nuw nsw i32 %conv15, 8
-  %arrayidx17 = getelementptr inbounds i32, ptr %ks, i64 2
+  %arrayidx17 = getelementptr inbounds i8, ptr %ks, i64 8
   store i32 %shl16, ptr %arrayidx17, align 4
   %incdec.ptr18 = getelementptr inbounds i8, ptr %key, i64 6
   %5 = load i8, ptr %incdec.ptr14, align 1
@@ -42,7 +42,7 @@ entry:
   %6 = load i8, ptr %incdec.ptr18, align 1
   %conv23 = zext i8 %6 to i32
   %shl24 = shl nuw nsw i32 %conv23, 8
-  %arrayidx25 = getelementptr inbounds i32, ptr %ks, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %ks, i64 12
   store i32 %shl24, ptr %arrayidx25, align 4
   %incdec.ptr26 = getelementptr inbounds i8, ptr %key, i64 8
   %7 = load i8, ptr %incdec.ptr22, align 1
@@ -53,7 +53,7 @@ entry:
   %8 = load i8, ptr %incdec.ptr26, align 1
   %conv31 = zext i8 %8 to i32
   %shl32 = shl nuw nsw i32 %conv31, 8
-  %arrayidx33 = getelementptr inbounds i32, ptr %ks, i64 4
+  %arrayidx33 = getelementptr inbounds i8, ptr %ks, i64 16
   store i32 %shl32, ptr %arrayidx33, align 4
   %incdec.ptr34 = getelementptr inbounds i8, ptr %key, i64 10
   %9 = load i8, ptr %incdec.ptr30, align 1
@@ -64,7 +64,7 @@ entry:
   %10 = load i8, ptr %incdec.ptr34, align 1
   %conv39 = zext i8 %10 to i32
   %shl40 = shl nuw nsw i32 %conv39, 8
-  %arrayidx41 = getelementptr inbounds i32, ptr %ks, i64 5
+  %arrayidx41 = getelementptr inbounds i8, ptr %ks, i64 20
   store i32 %shl40, ptr %arrayidx41, align 4
   %incdec.ptr42 = getelementptr inbounds i8, ptr %key, i64 12
   %11 = load i8, ptr %incdec.ptr38, align 1
@@ -75,7 +75,7 @@ entry:
   %12 = load i8, ptr %incdec.ptr42, align 1
   %conv47 = zext i8 %12 to i32
   %shl48 = shl nuw nsw i32 %conv47, 8
-  %arrayidx49 = getelementptr inbounds i32, ptr %ks, i64 6
+  %arrayidx49 = getelementptr inbounds i8, ptr %ks, i64 24
   store i32 %shl48, ptr %arrayidx49, align 4
   %incdec.ptr50 = getelementptr inbounds i8, ptr %key, i64 14
   %13 = load i8, ptr %incdec.ptr46, align 1
@@ -86,7 +86,7 @@ entry:
   %14 = load i8, ptr %incdec.ptr50, align 1
   %conv55 = zext i8 %14 to i32
   %shl56 = shl nuw nsw i32 %conv55, 8
-  %arrayidx57 = getelementptr inbounds i32, ptr %ks, i64 7
+  %arrayidx57 = getelementptr inbounds i8, ptr %ks, i64 28
   store i32 %shl56, ptr %arrayidx57, align 4
   %15 = load i8, ptr %incdec.ptr54, align 1
   %conv59 = zext i8 %15 to i32
@@ -104,36 +104,36 @@ for.body:                                         ; preds = %entry, %if.end
   %22 = phi i32 [ %or13, %entry ], [ %and72, %if.end ]
   %ks.pn = phi ptr [ %ks, %entry ], [ %kt.0, %if.end ]
   %i.0 = phi i32 [ 0, %entry ], [ %inc, %if.end ]
-  %kt.0 = getelementptr i32, ptr %ks.pn, i64 8
+  %kt.0 = getelementptr i8, ptr %ks.pn, i64 32
   %shl65 = shl nuw nsw i32 %22, 9
   %shr = lshr i32 %21, 7
   %or66 = or i32 %shr, %shl65
   %and = and i32 %or66, 65535
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %ks.pn, i64 9
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %ks.pn, i64 36
   store i32 %and, ptr %kt.0, align 4
   %shl69 = shl nuw nsw i32 %21, 9
   %shr70 = lshr i32 %20, 7
   %or71 = or i32 %shr70, %shl69
   %and72 = and i32 %or71, 65535
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %ks.pn, i64 10
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %ks.pn, i64 40
   store i32 %and72, ptr %incdec.ptr67, align 4
   %shl75 = shl nuw nsw i32 %20, 9
   %shr76 = lshr i32 %19, 7
   %or77 = or i32 %shr76, %shl75
   %and78 = and i32 %or77, 65535
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %ks.pn, i64 11
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %ks.pn, i64 44
   store i32 %and78, ptr %incdec.ptr73, align 4
   %shl81 = shl nuw nsw i32 %19, 9
   %shr82 = lshr i32 %18, 7
   %or83 = or i32 %shr82, %shl81
   %and84 = and i32 %or83, 65535
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %ks.pn, i64 12
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %ks.pn, i64 48
   store i32 %and84, ptr %incdec.ptr79, align 4
   %shl87 = shl nuw nsw i32 %18, 9
   %shr88 = lshr i32 %17, 7
   %or89 = or i32 %shr88, %shl87
   %and90 = and i32 %or89, 65535
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %ks.pn, i64 13
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %ks.pn, i64 52
   store i32 %and90, ptr %incdec.ptr85, align 4
   %shl93 = shl nuw nsw i32 %17, 9
   %shr94 = lshr i32 %16, 7
@@ -145,12 +145,12 @@ for.body:                                         ; preds = %entry, %if.end
 
 if.end:                                           ; preds = %for.body
   %23 = load i32, ptr %ks.pn, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %ks.pn, i64 14
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %ks.pn, i64 56
   %shl101 = shl nuw nsw i32 %16, 9
   %shr102 = lshr i32 %23, 7
   %or103 = or i32 %shr102, %shl101
   %and104 = and i32 %or103, 65535
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %ks.pn, i64 15
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %ks.pn, i64 60
   store i32 %and104, ptr %incdec.ptr97, align 4
   %shl106 = shl i32 %23, 9
   %shr107 = lshr i32 %22, 7
@@ -167,7 +167,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @IDEA_set_decrypt_key(ptr nocapture noundef readonly %ek, ptr nocapture noundef %dk) local_unnamed_addr #0 {
 entry:
-  %arrayidx3 = getelementptr inbounds [9 x [6 x i32]], ptr %ek, i64 0, i64 8
+  %arrayidx3 = getelementptr inbounds i8, ptr %ek, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %entry
@@ -212,21 +212,21 @@ do.cond.i:                                        ; preds = %do.cond.i.preheader
 
 inverse.exit:                                     ; preds = %if.else.i, %do.cond.thread.i, %for.body
   %b2.2.i = phi i32 [ 0, %for.body ], [ 1, %if.else.i ], [ %1, %do.cond.thread.i ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %tp.051, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tp.051, i64 4
   store i32 %b2.2.i, ptr %tp.051, align 4
-  %arrayidx6 = getelementptr inbounds i32, ptr %fp.050, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %fp.050, i64 8
   %2 = load i32, ptr %arrayidx6, align 4
   %sub = sub i32 0, %2
   %and = and i32 %sub, 65535
-  %incdec.ptr8 = getelementptr inbounds i32, ptr %tp.051, i64 2
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %tp.051, i64 8
   store i32 %and, ptr %incdec.ptr, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %fp.050, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %fp.050, i64 4
   %3 = load i32, ptr %arrayidx9, align 4
   %sub11 = sub i32 0, %3
   %and13 = and i32 %sub11, 65535
-  %incdec.ptr14 = getelementptr inbounds i32, ptr %tp.051, i64 3
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %tp.051, i64 12
   store i32 %and13, ptr %incdec.ptr8, align 4
-  %arrayidx15 = getelementptr inbounds i32, ptr %fp.050, i64 3
+  %arrayidx15 = getelementptr inbounds i8, ptr %fp.050, i64 12
   %4 = load i32, ptr %arrayidx15, align 4
   %cmp.i24 = icmp eq i32 %4, 0
   br i1 %cmp.i24, label %inverse.exit49, label %if.else.i25
@@ -270,25 +270,25 @@ inverse.exit49:                                   ; preds = %if.else.i25, %do.co
   br i1 %cmp18, label %for.end, label %if.end
 
 if.end:                                           ; preds = %inverse.exit49
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %tp.051, i64 4
-  %add.ptr = getelementptr inbounds i32, ptr %fp.050, i64 -6
-  %arrayidx20 = getelementptr inbounds i32, ptr %fp.050, i64 -2
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %tp.051, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %fp.050, i64 -24
+  %arrayidx20 = getelementptr inbounds i8, ptr %fp.050, i64 -8
   %6 = load i32, ptr %arrayidx20, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %tp.051, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %tp.051, i64 20
   store i32 %6, ptr %incdec.ptr17, align 4
-  %arrayidx22 = getelementptr inbounds i32, ptr %fp.050, i64 -1
+  %arrayidx22 = getelementptr inbounds i8, ptr %fp.050, i64 -4
   %7 = load i32, ptr %arrayidx22, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %tp.051, i64 6
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %tp.051, i64 24
   store i32 %7, ptr %incdec.ptr21, align 4
   %inc = add nuw nsw i32 %r.052, 1
   br label %for.body
 
 for.end:                                          ; preds = %inverse.exit49
-  %arrayidx27 = getelementptr inbounds i32, ptr %dk, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %dk, i64 4
   %8 = load <2 x i32>, ptr %arrayidx27, align 4
   %9 = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %9, ptr %arrayidx27, align 4
-  %arrayidx31 = getelementptr inbounds i32, ptr %dk, i64 49
+  %arrayidx31 = getelementptr inbounds i8, ptr %dk, i64 196
   %10 = load <2 x i32>, ptr %arrayidx31, align 4
   %11 = shufflevector <2 x i32> %10, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %11, ptr %arrayidx31, align 4

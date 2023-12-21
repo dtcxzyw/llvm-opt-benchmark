@@ -4,20 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::context::ContextMemoryManager" = type { %"class.std::vector", %"class.std::deque", ptr, ptr, i32, %"class.std::vector", %"class.std::vector", %"class.std::vector.0" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl" }
-%"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl" = type { %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
 
 $_ZNSt5dequeIPcSaIS0_EED2Ev = comdat any
@@ -58,12 +44,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc57context20ContextMemoryManager8newChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_indexChunkList = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 4
+  %d_indexChunkList = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i32, ptr %d_indexChunkList, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %d_indexChunkList, align 8
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
@@ -71,9 +57,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #16
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -81,7 +67,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then
   store ptr %call2, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit
 
@@ -125,7 +111,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i
 
 _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -153,25 +139,25 @@ if.then5:                                         ; preds = %_ZNSt6vectorIPcSaIS
   unreachable
 
 if.else:                                          ; preds = %entry
-  %_M_first3.i.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %9 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !4
   %cmp.i.i3 = icmp eq ptr %1, %9
   br i1 %cmp.i.i3, label %if.then.i.i5, label %_ZNSt5dequeIPcSaIS0_EE4backEv.exit
 
 if.then.i.i5:                                     ; preds = %if.else
-  %_M_node5.i.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !4
-  %add.ptr.i.i6 = getelementptr inbounds ptr, ptr %10, i64 -1
+  %add.ptr.i.i6 = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i6, align 8
-  %add.ptr.i.i.i7 = getelementptr inbounds ptr, ptr %11, i64 64
+  %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt5dequeIPcSaIS0_EE4backEv.exit
 
 _ZNSt5dequeIPcSaIS0_EE4backEv.exit:               ; preds = %if.else, %if.then.i.i5
   %12 = phi ptr [ %add.ptr.i.i.i7, %if.then.i.i5 ], [ %1, %if.else ]
-  %incdec.ptr.i.i4 = getelementptr inbounds ptr, ptr %12, i64 -1
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %incdec.ptr.i.i4 = getelementptr inbounds i8, ptr %12, i64 -8
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %_M_finish.i8, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %13, %14
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -180,7 +166,7 @@ if.then.i:                                        ; preds = %_ZNSt5dequeIPcSaIS0
   %15 = load ptr, ptr %incdec.ptr.i.i4, align 8
   store ptr %15, ptr %13, align 8
   %16 = load ptr, ptr %_M_finish.i8, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i8, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -225,7 +211,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i
 
 _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i10 = getelementptr inbounds ptr, ptr %add.ptr.i.i9, i64 1
+  %incdec.ptr.i.i10 = getelementptr inbounds i8, ptr %add.ptr.i.i9, i64 8
   %tobool.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -248,21 +234,21 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %if.then.i, %_ZNSt6v
   br i1 %cmp.not.i12, label %if.else.i15, label %if.then.i13
 
 if.then.i13:                                      ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
-  %incdec.ptr.i14 = getelementptr inbounds ptr, ptr %19, i64 -1
+  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %19, i64 -8
   br label %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit
 
 if.else.i15:                                      ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
   tail call void @_ZdlPv(ptr noundef %19) #19
-  %_M_node.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %21 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i16 = getelementptr inbounds ptr, ptr %21, i64 -1
+  %add.ptr.i.i16 = getelementptr inbounds i8, ptr %21, i64 -8
   store ptr %add.ptr.i.i16, ptr %_M_node.i.i, align 8
   %22 = load ptr, ptr %add.ptr.i.i16, align 8
   store ptr %22, ptr %_M_first3.i.i.i, align 8
-  %add.ptr.i.i.i17 = getelementptr inbounds ptr, ptr %22, i64 64
-  %_M_last.i.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
+  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr %22, i64 512
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %add.ptr.i.i.i17, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i = getelementptr inbounds ptr, ptr %22, i64 63
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %22, i64 504
   %.pre.pre = load ptr, ptr %_M_finish.i8, align 8
   br label %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit
 
@@ -270,16 +256,16 @@ _ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit:           ; preds = %if.then.i13, %if.el
   %.pre = phi ptr [ %.pre23, %if.then.i13 ], [ %.pre.pre, %if.else.i15 ]
   %storemerge.i = phi ptr [ %incdec.ptr.i14, %if.then.i13 ], [ %add.ptr8.i.i, %if.else.i15 ]
   store ptr %storemerge.i, ptr %_M_finish.i, align 8
-  %add.ptr.i.i19.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 -1
+  %add.ptr.i.i19.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -8
   %.pre21 = load ptr, ptr %add.ptr.i.i19.phi.trans.insert, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit, %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit
   %23 = phi ptr [ %8, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %.pre21, %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit ]
-  %d_nextFree = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 2
+  %d_nextFree = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %23, ptr %d_nextFree, align 8
   %add.ptr = getelementptr inbounds i8, ptr %23, i64 16384
-  %d_endChunk = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 3
+  %d_endChunk = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %add.ptr, ptr %d_endChunk, align 8
   ret void
 }
@@ -297,22 +283,22 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc57context20ContextMemoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_freeChunks = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1
+  %d_freeChunks = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %this, i8 0, i64 104, i1 false)
   invoke void @_ZNSt11_Deque_baseIPcSaIS0_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %d_freeChunks, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_indexChunkList = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 4
+  %d_indexChunkList = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %d_indexChunkList, align 8
-  %d_nextFreeStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 5
-  %d_endChunkStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 6
-  %d_indexChunkListStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 7
+  %d_nextFreeStack = getelementptr inbounds i8, ptr %this, i64 128
+  %d_endChunkStack = getelementptr inbounds i8, ptr %this, i64 152
+  %d_indexChunkListStack = getelementptr inbounds i8, ptr %this, i64 176
   %call = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #16
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %d_nextFreeStack, i8 0, i64 72, i1 false)
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -320,7 +306,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i.i:                                      ; preds = %invoke.cont
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont4
 
@@ -367,7 +353,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i
 
 _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -385,7 +371,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
 invoke.cont4:                                     ; preds = %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %if.then.i.i
   %4 = phi ptr [ %add.ptr.i.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %2, %if.then.i.i ]
   %5 = load ptr, ptr %4, align 8
-  %d_nextFree = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 2
+  %d_nextFree = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %5, ptr %d_nextFree, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then, label %if.end
@@ -436,7 +422,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit8:                ; preds = %_ZNSt6vectorIPcSaIS
 
 if.end:                                           ; preds = %invoke.cont4
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 16384
-  %d_endChunk = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 3
+  %d_endChunk = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %add.ptr, ptr %d_endChunk, align 8
   ret void
 
@@ -467,11 +453,11 @@ entry:
   br i1 %tobool.not.i, label %_ZNSt11_Deque_baseIPcSaIS0_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node5.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPcSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i
 
@@ -479,7 +465,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %if.then.i ]
   %3 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #19
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPcSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.loopexit.i, !llvm.loop !7
 
@@ -499,34 +485,34 @@ _ZNSt11_Deque_baseIPcSaIS0_EED2Ev.exit:           ; preds = %entry, %_ZNSt11_Deq
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4cvc57context20ContextMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i22 = icmp eq ptr %0, %1
   br i1 %cmp.i.i22, label %while.cond5.preheader, label %while.body
 
 while.cond5.preheader:                            ; preds = %while.body, %entry
-  %_M_finish.i2 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_finish.i2, align 8
   %3 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i323 = icmp eq ptr %2, %3
   br i1 %cmp.i.i323, label %while.end12, label %while.body8.lr.ph
 
 while.body8.lr.ph:                                ; preds = %while.cond5.preheader
-  %_M_first3.i.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_node5.i.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_last.i.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %.pre = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !9
   br label %while.body8
 
 while.body:                                       ; preds = %entry, %while.body
   %4 = phi ptr [ %incdec.ptr.i, %while.body ], [ %1, %entry ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   tail call void @free(ptr noundef %5) #20
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %6, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %7, %incdec.ptr.i
@@ -540,14 +526,14 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
 
 if.then.i.i:                                      ; preds = %while.body8
   %10 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !9
-  %add.ptr.i.i6 = getelementptr inbounds ptr, ptr %10, i64 -1
+  %add.ptr.i.i6 = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i6, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %11, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt5dequeIPcSaIS0_EE4backEv.exit
 
 _ZNSt5dequeIPcSaIS0_EE4backEv.exit:               ; preds = %while.body8, %if.then.i.i
   %12 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i ], [ %9, %while.body8 ]
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %12, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = load ptr, ptr %incdec.ptr.i.i, align 8
   tail call void @free(ptr noundef %13) #20
   %14 = load ptr, ptr %_M_finish.i2, align 8
@@ -556,19 +542,19 @@ _ZNSt5dequeIPcSaIS0_EE4backEv.exit:               ; preds = %while.body8, %if.th
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt5dequeIPcSaIS0_EE4backEv.exit
-  %incdec.ptr.i8 = getelementptr inbounds ptr, ptr %14, i64 -1
+  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %14, i64 -8
   br label %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZNSt5dequeIPcSaIS0_EE4backEv.exit
   tail call void @_ZdlPv(ptr noundef %14) #19
   %16 = load ptr, ptr %_M_node5.i.i.i, align 8
-  %add.ptr.i.i9 = getelementptr inbounds ptr, ptr %16, i64 -1
+  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %16, i64 -8
   store ptr %add.ptr.i.i9, ptr %_M_node5.i.i.i, align 8
   %17 = load ptr, ptr %add.ptr.i.i9, align 8
   store ptr %17, ptr %_M_first3.i.i.i, align 8
-  %add.ptr.i.i.i10 = getelementptr inbounds ptr, ptr %17, i64 64
+  %add.ptr.i.i.i10 = getelementptr inbounds i8, ptr %17, i64 512
   store ptr %add.ptr.i.i.i10, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i = getelementptr inbounds ptr, ptr %17, i64 63
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %17, i64 504
   br label %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit
 
 _ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit:           ; preds = %if.then.i, %if.else.i
@@ -580,8 +566,8 @@ _ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit:           ; preds = %if.then.i, %if.else
   br i1 %cmp.i.i3, label %while.end12, label %while.body8, !llvm.loop !13
 
 while.end12:                                      ; preds = %_ZNSt5dequeIPcSaIS0_EE8pop_backEv.exit, %while.cond5.preheader
-  %d_freeChunks.le = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1
-  %d_indexChunkListStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 7
+  %d_freeChunks.le = getelementptr inbounds i8, ptr %this, i64 24
+  %d_indexChunkListStack = getelementptr inbounds i8, ptr %this, i64 176
   %20 = load ptr, ptr %d_indexChunkListStack, align 8
   %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
@@ -591,7 +577,7 @@ if.then.i.i.i:                                    ; preds = %while.end12
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %while.end12, %if.then.i.i.i
-  %d_endChunkStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 6
+  %d_endChunkStack = getelementptr inbounds i8, ptr %this, i64 152
   %21 = load ptr, ptr %d_endChunkStack, align 8
   %tobool.not.i.i.i11 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, label %if.then.i.i.i12
@@ -601,7 +587,7 @@ if.then.i.i.i12:                                  ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i12
-  %d_nextFreeStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 5
+  %d_nextFreeStack = getelementptr inbounds i8, ptr %this, i64 128
   %22 = load ptr, ptr %d_nextFreeStack, align 8
   %tobool.not.i.i.i13 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i13, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit15, label %if.then.i.i.i14
@@ -616,11 +602,11 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit15:               ; preds = %_ZNSt6vectorIPcSaIS
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIPcSaIS0_EED2Ev.exit, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit15
-  %_M_node5.i.i6.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i17 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_node5.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 64
   %24 = load ptr, ptr %_M_node5.i.i.i17, align 8
   %25 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i18 = getelementptr inbounds ptr, ptr %25, i64 1
+  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %25, i64 8
   %cmp3.i.i.i = icmp ult ptr %24, %add.ptr.i.i18
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPcSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i.i
 
@@ -628,7 +614,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i16, %for
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %24, %if.then.i.i16 ]
   %26 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %26) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %25
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPcSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.loopexit.i.i, !llvm.loop !7
 
@@ -661,11 +647,11 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 define noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, i64 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_nextFree = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 2
+  %d_nextFree = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %d_nextFree, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %size
   store ptr %add.ptr, ptr %d_nextFree, align 8
-  %d_endChunk = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 3
+  %d_endChunk = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load ptr, ptr %d_endChunk, align 8
   %cmp = icmp ugt ptr %add.ptr, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -727,11 +713,11 @@ declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 der
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc57context20ContextMemoryManager4pushEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_nextFreeStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 5
-  %d_nextFree = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %d_nextFreeStack = getelementptr inbounds i8, ptr %this, i64 128
+  %d_nextFree = getelementptr inbounds i8, ptr %this, i64 104
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -740,7 +726,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %d_nextFree, align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -785,7 +771,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i
 
 _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -801,11 +787,11 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_itera
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %if.then.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
-  %d_endChunkStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 6
-  %d_endChunk = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 3
-  %_M_finish.i1 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %d_endChunkStack = getelementptr inbounds i8, ptr %this, i64 152
+  %d_endChunk = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 160
   %6 = load ptr, ptr %_M_finish.i1, align 8
-  %_M_end_of_storage.i2 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i2 = getelementptr inbounds i8, ptr %this, i64 168
   %7 = load ptr, ptr %_M_end_of_storage.i2, align 8
   %cmp.not.i3 = icmp eq ptr %6, %7
   br i1 %cmp.not.i3, label %if.else.i6, label %if.then.i4
@@ -814,7 +800,7 @@ if.then.i4:                                       ; preds = %_ZNSt6vectorIPcSaIS
   %8 = load ptr, ptr %d_endChunk, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %_M_finish.i1, align 8
-  %incdec.ptr.i5 = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i5, ptr %_M_finish.i1, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit35
 
@@ -859,7 +845,7 @@ if.then.i.i.i12.i.i33:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i27
 
 _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i27: ; preds = %if.then.i.i.i12.i.i33, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i23
-  %incdec.ptr.i.i28 = getelementptr inbounds ptr, ptr %add.ptr.i.i25, i64 1
+  %incdec.ptr.i.i28 = getelementptr inbounds i8, ptr %add.ptr.i.i25, i64 8
   %tobool.not.i.i.i29 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i29, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i31, label %if.then.i21.i.i30
 
@@ -875,11 +861,11 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_itera
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit35
 
 _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit35:   ; preds = %if.then.i4, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i31
-  %d_indexChunkListStack = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 7
-  %d_indexChunkList = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 4
-  %_M_finish.i36 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %d_indexChunkListStack = getelementptr inbounds i8, ptr %this, i64 176
+  %d_indexChunkList = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_finish.i36 = getelementptr inbounds i8, ptr %this, i64 184
   %12 = load ptr, ptr %_M_finish.i36, align 8
-  %_M_end_of_storage.i37 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i37 = getelementptr inbounds i8, ptr %this, i64 192
   %13 = load ptr, ptr %_M_end_of_storage.i37, align 8
   %cmp.not.i38 = icmp eq ptr %12, %13
   br i1 %cmp.not.i38, label %if.else.i41, label %if.then.i39
@@ -888,7 +874,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorIPcSaIS
   %14 = load i32, ptr %d_indexChunkList, align 8
   store i32 %14, ptr %12, align 4
   %15 = load ptr, ptr %_M_finish.i36, align 8
-  %incdec.ptr.i40 = getelementptr inbounds i32, ptr %15, i64 1
+  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %15, i64 4
   store ptr %incdec.ptr.i40, ptr %_M_finish.i36, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -933,7 +919,7 @@ if.then.i.i.i12.i.i63:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i63, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i59 = getelementptr inbounds i32, ptr %add.ptr.i.i57, i64 1
+  %incdec.ptr.i.i59 = getelementptr inbounds i8, ptr %add.ptr.i.i57, i64 4
   %tobool.not.i.i.i60 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i60, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i21.i.i61
 
@@ -955,43 +941,43 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %if.then.i39, %_ZNSt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc57context20ContextMemoryManager3popEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load ptr, ptr %add.ptr.i.i, align 8
-  %d_nextFree = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 2
+  %d_nextFree = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %1, ptr %d_nextFree, align 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
-  %_M_finish.i.i1 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i1 = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load ptr, ptr %_M_finish.i.i1, align 8
-  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %2, i64 -1
+  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i2, align 8
-  %d_endChunk = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 3
+  %d_endChunk = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %3, ptr %d_endChunk, align 8
   store ptr %add.ptr.i.i2, ptr %_M_finish.i.i1, align 8
-  %d_indexChunkList = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 4
-  %_M_finish.i.i5 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %d_indexChunkList = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i32, ptr %d_indexChunkList, align 8
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
-  %add.ptr.i.i626 = getelementptr inbounds i32, ptr %5, i64 -1
+  %add.ptr.i.i626 = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %add.ptr.i.i626, align 4
   %cmp27 = icmp ugt i32 %4, %6
   br i1 %cmp27, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_finish.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_finish.i9 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_last.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
-  %d_freeChunks = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i9 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 88
+  %d_freeChunks = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %_M_finish.i.i7, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5dequeIPcSaIS0_EE9push_backERKS0_.exit
   %7 = phi ptr [ %.pre, %while.body.lr.ph ], [ %incdec.ptr.i12, %_ZNSt5dequeIPcSaIS0_EE9push_backERKS0_.exit ]
-  %add.ptr.i.i8 = getelementptr inbounds ptr, ptr %7, i64 -1
+  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %_M_finish.i9, align 8
   %9 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 -8
   %cmp.not.i = icmp eq ptr %8, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -999,7 +985,7 @@ if.then.i:                                        ; preds = %while.body
   %10 = load ptr, ptr %add.ptr.i.i8, align 8
   store ptr %10, ptr %8, align 8
   %11 = load ptr, ptr %_M_finish.i9, align 8
-  %incdec.ptr.i10 = getelementptr inbounds ptr, ptr %11, i64 1
+  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %incdec.ptr.i10, ptr %_M_finish.i9, align 8
   br label %_ZNSt5dequeIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -1009,28 +995,28 @@ if.else.i:                                        ; preds = %while.body
 
 _ZNSt5dequeIPcSaIS0_EE9push_backERKS0_.exit:      ; preds = %if.then.i, %if.else.i
   %12 = load ptr, ptr %_M_finish.i.i7, align 8
-  %incdec.ptr.i12 = getelementptr inbounds ptr, ptr %12, i64 -1
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %incdec.ptr.i12, ptr %_M_finish.i.i7, align 8
   %13 = load i32, ptr %d_indexChunkList, align 8
   %dec = add i32 %13, -1
   store i32 %dec, ptr %d_indexChunkList, align 8
   %14 = load ptr, ptr %_M_finish.i.i5, align 8
-  %add.ptr.i.i6 = getelementptr inbounds i32, ptr %14, i64 -1
+  %add.ptr.i.i6 = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %add.ptr.i.i6, align 4
   %cmp = icmp ugt i32 %dec, %15
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %_ZNSt5dequeIPcSaIS0_EE9push_backERKS0_.exit, %entry
   %.lcssa = phi ptr [ %5, %entry ], [ %14, %_ZNSt5dequeIPcSaIS0_EE9push_backERKS0_.exit ]
-  %add.ptr.i.i6.le = getelementptr inbounds i32, ptr %.lcssa, i64 -1
+  %add.ptr.i.i6.le = getelementptr inbounds i8, ptr %.lcssa, i64 -4
   store ptr %add.ptr.i.i6.le, ptr %_M_finish.i.i5, align 8
-  %_M_finish.i15 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_first.i.i23 = getelementptr inbounds %"class.cvc5::context::ContextMemoryManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_finish.i15 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i23 = getelementptr inbounds i8, ptr %this, i64 48
   %.pre29 = load ptr, ptr %_M_last.i.i, align 8
   %.pre30 = load ptr, ptr %_M_start.i, align 8
   br label %while.cond10
@@ -1068,23 +1054,23 @@ while.body14:                                     ; preds = %while.cond10
   tail call void @free(ptr noundef %22) #20
   %23 = load ptr, ptr %_M_start.i, align 8
   %24 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i18 = getelementptr inbounds ptr, ptr %24, i64 -1
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %24, i64 -8
   %cmp.not.i19 = icmp eq ptr %23, %add.ptr.i18
   br i1 %cmp.not.i19, label %if.else.i22, label %if.then.i20
 
 if.then.i20:                                      ; preds = %while.body14
-  %incdec.ptr.i21 = getelementptr inbounds ptr, ptr %23, i64 1
+  %incdec.ptr.i21 = getelementptr inbounds i8, ptr %23, i64 8
   br label %_ZNSt5dequeIPcSaIS0_EE9pop_frontEv.exit
 
 if.else.i22:                                      ; preds = %while.body14
   %25 = load ptr, ptr %_M_first.i.i23, align 8
   tail call void @_ZdlPv(ptr noundef %25) #19
   %26 = load ptr, ptr %_M_node1.i.i, align 8
-  %add.ptr.i.i25 = getelementptr inbounds ptr, ptr %26, i64 1
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %add.ptr.i.i25, ptr %_M_node1.i.i, align 8
   %27 = load ptr, ptr %add.ptr.i.i25, align 8
   store ptr %27, ptr %_M_first.i.i23, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %27, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %27, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i, align 8
   br label %_ZNSt5dequeIPcSaIS0_EE9pop_frontEv.exit
 
@@ -1105,7 +1091,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
@@ -1123,7 +1109,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !16
 
@@ -1139,7 +1125,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #19
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPcSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i, !llvm.loop !7
 
@@ -1179,24 +1165,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds ptr, ptr %13, i64 64
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
@@ -1254,11 +1240,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPcSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1269,14 +1255,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1292,7 +1278,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1310,18 +1296,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPcSaIS0_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #18
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %__args, align 8
   store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -1330,9 +1316,9 @@ _ZNSt5dequeIPcSaIS0_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPcSaIS0_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1340,7 +1326,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -1354,7 +1340,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -1407,7 +1393,7 @@ _ZNSt11_Deque_baseIPcSaIS0_EE15_M_allocate_mapEm.exit: ; preds = %if.else31
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit32, label %if.then.i.i.i.i.i29
 
@@ -1428,19 +1414,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds ptr, ptr %6, i64 64
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<char *, std::allocator<char *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }

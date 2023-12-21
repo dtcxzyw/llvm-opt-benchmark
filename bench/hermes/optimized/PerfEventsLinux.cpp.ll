@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { i64, [8 x i8] }
 %"class.llvh::raw_string_ostream" = type { %"class.llvh::raw_ostream.base", ptr }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 
 @.str = private unnamed_addr constant [12 x i8] c"\22perfEvent_\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"\22: \00", align 1
@@ -34,16 +33,16 @@ entry:
   %pe = alloca %struct.perf_event_attr, align 8
   %0 = getelementptr inbounds i8, ptr %pe, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
-  %type_ = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %this, i64 0, i32 2
+  %type_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %type_, align 8
   store i32 %1, ptr %pe, align 8
-  %size = getelementptr inbounds %struct.perf_event_attr, ptr %pe, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %pe, i64 4
   store i32 128, ptr %size, align 4
-  %config_ = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %this, i64 0, i32 3
+  %config_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %config_, align 8
-  %config = getelementptr inbounds %struct.perf_event_attr, ptr %pe, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %pe, i64 8
   store i64 %2, ptr %config, align 8
-  %disabled = getelementptr inbounds %struct.perf_event_attr, ptr %pe, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %pe, i64 40
   store i64 97, ptr %disabled, align 8
   %call = call i64 (i64, ...) @syscall(i64 noundef 298, ptr noundef nonnull %pe, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0) #8
   %conv = trunc i64 %call to i32
@@ -70,16 +69,16 @@ land.lhs.true:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i)
   %1 = getelementptr inbounds i8, ptr %pe.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 112, i1 false)
-  %type_.i = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %this, i64 0, i32 2
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %type_.i, align 8
   store i32 %2, ptr %pe.i, align 8
-  %size.i = getelementptr inbounds %struct.perf_event_attr, ptr %pe.i, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %pe.i, i64 4
   store i32 128, ptr %size.i, align 4
-  %config_.i = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %this, i64 0, i32 3
+  %config_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %config_.i, align 8
-  %config.i = getelementptr inbounds %struct.perf_event_attr, ptr %pe.i, i64 0, i32 2
+  %config.i = getelementptr inbounds i8, ptr %pe.i, i64 8
   store i64 %3, ptr %config.i, align 8
-  %disabled.i = getelementptr inbounds %struct.perf_event_attr, ptr %pe.i, i64 0, i32 6
+  %disabled.i = getelementptr inbounds i8, ptr %pe.i, i64 40
   store i64 97, ptr %disabled.i, align 8
   %call.i = call i64 (i64, ...) @syscall(i64 noundef 298, ptr noundef nonnull %pe.i, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0) #8
   %conv.i = trunc i64 %call.i to i32
@@ -123,25 +122,25 @@ if.end:                                           ; preds = %entry
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stats) #8
-  %BufferMode.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 4
+  %BufferMode.i.i = getelementptr inbounds i8, ptr %os, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
-  %OutBufStart.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 1
+  %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
-  %OS.i = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %os, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %stats, ptr %OS.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %os, i64 24
   %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull @.str, i64 noundef 11) #8
-  %name_ = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %name_, align 8
   %tobool.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit17, label %cond.true.i.split.i
 
 cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %call.i.i3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
-  %OutBufEnd.i5.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i, i64 0, i32 2
+  %OutBufEnd.i5.i4 = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i4, align 8
-  %OutBufCur.i6.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i, i64 0, i32 3
+  %OutBufCur.i6.i5 = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i5, align 8
   %sub.ptr.lhs.cast.i7.i6 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i7 = ptrtoint ptr %4 to i64
@@ -166,9 +165,9 @@ if.then4.i.i12:                                   ; preds = %if.end.i.i10
 
 _ZN4llvh11raw_ostreamlsEPKc.exit17:               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i.i15, %if.end.i.i10, %if.then4.i.i12
   %phi.call.i14 = phi ptr [ %call3.i.i16, %if.then.i.i15 ], [ %call3.i.i, %if.then4.i.i12 ], [ %call3.i.i, %if.end.i.i10 ], [ %call3.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
-  %OutBufEnd.i5.i20 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i14, i64 0, i32 2
+  %OutBufEnd.i5.i20 = getelementptr inbounds i8, ptr %phi.call.i14, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5.i20, align 8
-  %OutBufCur.i6.i21 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i14, i64 0, i32 3
+  %OutBufCur.i6.i21 = getelementptr inbounds i8, ptr %phi.call.i14, i64 24
   %7 = load ptr, ptr %OutBufCur.i6.i21, align 8
   %sub.ptr.lhs.cast.i7.i22 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i8.i23 = ptrtoint ptr %7 to i64
@@ -191,9 +190,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit33:               ; preds = %if.then.i.i31, %if.
   %phi.call.i30 = phi ptr [ %call3.i.i32, %if.then.i.i31 ], [ %phi.call.i14, %if.then4.i.i28 ]
   %9 = load i64, ptr %count, align 8
   %call11 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i30, i64 noundef %9) #8
-  %OutBufEnd.i5.i36 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call11, i64 0, i32 2
+  %OutBufEnd.i5.i36 = getelementptr inbounds i8, ptr %call11, i64 16
   %10 = load ptr, ptr %OutBufEnd.i5.i36, align 8
-  %OutBufCur.i6.i37 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call11, i64 0, i32 3
+  %OutBufCur.i6.i37 = getelementptr inbounds i8, ptr %call11, i64 24
   %11 = load ptr, ptr %OutBufCur.i6.i37, align 8
   %sub.ptr.lhs.cast.i7.i38 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i8.i39 = ptrtoint ptr %11 to i64
@@ -265,9 +264,9 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation10PerfEvents5beg
 entry:
   %pe.i.i = alloca %struct.perf_event_attr, align 8
   %0 = getelementptr inbounds i8, ptr %pe.i.i, i64 16
-  %size.i.i = getelementptr inbounds %struct.perf_event_attr, ptr %pe.i.i, i64 0, i32 1
-  %config.i.i = getelementptr inbounds %struct.perf_event_attr, ptr %pe.i.i, i64 0, i32 2
-  %disabled.i.i = getelementptr inbounds %struct.perf_event_attr, ptr %pe.i.i, i64 0, i32 6
+  %size.i.i = getelementptr inbounds i8, ptr %pe.i.i, i64 4
+  %config.i.i = getelementptr inbounds i8, ptr %pe.i.i, i64 8
+  %disabled.i.i = getelementptr inbounds i8, ptr %pe.i.i, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -280,11 +279,11 @@ for.body:                                         ; preds = %entry, %for.inc
 land.lhs.true.i:                                  ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
-  %type_.i.i = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %__begin2.0.ptr, i64 0, i32 2
+  %type_.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr, i64 16
   %2 = load i32, ptr %type_.i.i, align 16
   store i32 %2, ptr %pe.i.i, align 8
   store i32 128, ptr %size.i.i, align 4
-  %config_.i.i = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %__begin2.0.ptr, i64 0, i32 3
+  %config_.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr, i64 24
   %3 = load i64, ptr %config_.i.i, align 8
   store i64 %3, ptr %config.i.i, align 8
   store i64 97, ptr %disabled.i.i, align 8

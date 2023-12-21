@@ -8,82 +8,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic.15" = type { %"struct.std::__atomic_base.16" }
 %"struct.std::__atomic_base.16" = type { i8 }
 %"struct.absl::lts_20230802::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr }
-%"class.grpc_event_engine::experimental::WorkStealingThreadPool" = type { %"class.grpc_event_engine::experimental::ThreadPool", %"class.std::shared_ptr" }
-%"class.grpc_event_engine::experimental::ThreadPool" = type { %"class.grpc_event_engine::experimental::Forkable" }
-%"class.grpc_event_engine::experimental::Forkable" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<632, 8>::type" }
-%"union.std::aligned_storage<632, 8>::type" = type { [632 x i8] }
-%"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl" = type { %"class.std::enable_shared_from_this", i64, %"class.grpc_event_engine::experimental::BusyThreadCount", %"class.grpc_event_engine::experimental::LivingThreadCount", %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", %"class.grpc_event_engine::experimental::BasicWorkQueue", %"struct.std::atomic.15", %"struct.std::atomic.15", %"struct.std::atomic.15", %"struct.std::atomic", %"struct.std::atomic.15", %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkSignal", %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard" }
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
-%"class.grpc_event_engine::experimental::BusyThreadCount" = type { %"class.std::vector", %"struct.std::atomic" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::BusyThreadCount::ShardedData, std::allocator<grpc_event_engine::experimental::BusyThreadCount::ShardedData>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_event_engine::experimental::BusyThreadCount::ShardedData, std::allocator<grpc_event_engine::experimental::BusyThreadCount::ShardedData>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::BusyThreadCount::ShardedData, std::allocator<grpc_event_engine::experimental::BusyThreadCount::ShardedData>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_event_engine::experimental::BusyThreadCount::ShardedData, std::allocator<grpc_event_engine::experimental::BusyThreadCount::ShardedData>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_event_engine::experimental::LivingThreadCount" = type { %"class.absl::lts_20230802::Mutex", %"class.absl::lts_20230802::CondVar", i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic.0" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
-%"class.absl::lts_20230802::CondVar" = type { %"struct.std::atomic.0" }
-%"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry" = type { %"class.absl::lts_20230802::Mutex", %"class.absl::lts_20230802::flat_hash_set" }
-%"class.absl::lts_20230802::flat_hash_set" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
-%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.2" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.2" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.3" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.3" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.4" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.4" = type { i64 }
-%"class.grpc_event_engine::experimental::BasicWorkQueue" = type { %"class.grpc_event_engine::experimental::WorkQueue", %"class.absl::lts_20230802::Mutex", %"class.std::deque", ptr }
-%"class.grpc_event_engine::experimental::WorkQueue" = type { ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Deque_impl" }
-%"struct.std::_Deque_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Deque_impl" = type { %"struct.std::_Deque_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkSignal" = type { %"class.absl::lts_20230802::Mutex", %"class.absl::lts_20230802::CondVar" }
-%"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard" = type <{ ptr, %"class.grpc_core::BackOff", %"class.std::unique_ptr", %"class.std::unique_ptr", %"struct.std::atomic.15", [7 x i8] }>
-%"class.grpc_core::BackOff" = type { %"class.grpc_core::BackOff::Options", %"class.absl::lts_20230802::random_internal::NonsecureURBGBase", i8, %"class.grpc_core::Duration" }
-%"class.grpc_core::BackOff::Options" = type { %"class.grpc_core::Duration", double, double, %"class.grpc_core::Duration" }
-%"class.absl::lts_20230802::random_internal::NonsecureURBGBase" = type { %"class.absl::lts_20230802::random_internal::randen_engine" }
-%"class.absl::lts_20230802::random_internal::randen_engine" = type { [264 x i8], i64, %"class.absl::lts_20230802::random_internal::Randen" }
-%"class.absl::lts_20230802::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
-%"class.grpc_core::Duration" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.18" }
-%"struct.std::_Head_base.18" = type { ptr }
 %"class.absl::lts_20230802::AnyInvocable" = type { %"class.absl::lts_20230802::internal_any_invocable::Impl" }
 %"class.absl::lts_20230802::internal_any_invocable::Impl" = type { %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" }
 %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.grpc_event_engine::experimental::SelfDeletingClosure" = type { %"class.grpc_event_engine::experimental::EventEngine::Closure", [8 x i8], %"class.absl::lts_20230802::AnyInvocable", %"class.absl::lts_20230802::AnyInvocable" }
-%"class.grpc_event_engine::experimental::EventEngine::Closure" = type { ptr }
 %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData" = type { %"struct.std::atomic", [56 x i8] }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i64 }
 %"class.grpc_core::Thread" = type { i32, ptr, %"class.grpc_core::Thread::Options" }
 %"class.grpc_core::Thread::Options" = type { i8, i8, i64 }
-%"class.grpc_core::Notification" = type <{ %"class.absl::lts_20230802::Mutex", %"class.absl::lts_20230802::CondVar", i8, [7 x i8] }>
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+%"class.grpc_core::BackOff::Options" = type { %"class.grpc_core::Duration", double, double, %"class.grpc_core::Duration" }
+%"class.grpc_core::Duration" = type { i64 }
 %"class.absl::lts_20230802::Duration" = type { %"class.absl::lts_20230802::Duration::HiRep", i32 }
 %"class.absl::lts_20230802::Duration::HiRep" = type { i32, i32 }
 %"class.absl::lts_20230802::Time" = type { %"class.absl::lts_20230802::Duration" }
-%"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState" = type { %"class.std::shared_ptr", %"class.grpc_event_engine::experimental::LivingThreadCount::AutoThreadCounter", %"class.grpc_core::BackOff", i64 }
-%"class.grpc_event_engine::experimental::LivingThreadCount::AutoThreadCounter" = type { ptr }
-%"class.std::type_info" = type { ptr, ptr }
 %"class.std::allocator.40" = type { i8 }
 
 $_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev = comdat any
@@ -249,16 +191,16 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPoolC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %reserve_threads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental22WorkStealingThreadPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store ptr null, ptr %pool_, align 8, !alias.scope !4
   %call5.i.i.i3.i.i.i.i2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #21
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i2, align 8, !noalias !4
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i2, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 16
   invoke void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplC1Em(ptr noundef nonnull align 8 dereferenceable(632) %_M_impl.i.i.i.i.i.i, i64 noundef %reserve_threads)
           to label %if.then.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !4
 
@@ -269,16 +211,16 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12expe
   br label %ehcleanup
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call5.i.i.i3.i.i.i.i2, ptr %_M_refcount.i.i.i, align 8, !alias.scope !4
   store ptr %_M_impl.i.i.i.i.i.i, ptr %pool_, align 8, !alias.scope !4
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i2, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 24
   %1 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !noalias !4
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i
 
 _ZNKSt10__weak_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i monotonic, align 8, !noalias !4
   %cmp.i.i.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %invoke.cont
@@ -306,7 +248,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i.i.i.i, label %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
-  %_M_weak_count.i4.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i7.i.i.i.i.i.i.i, label %if.then.i.i5.i.i.i.i.i.i.i
@@ -328,7 +270,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8, !noalias !4
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !4
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #23, !noalias !4
   br label %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i
@@ -340,7 +282,7 @@ _ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2E
 
 invoke.cont:                                      ; preds = %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i, %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i
   %11 = phi ptr [ %.pre, %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i, %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i ]
-  %reserve_threads_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %11, i64 0, i32 1
+  %reserve_threads_.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i64, ptr %reserve_threads_.i, align 8
   %cmp2.not.i = icmp eq i64 %12, 0
   br i1 %cmp2.not.i, label %for.end.i, label %for.body.i
@@ -357,7 +299,7 @@ for.body.i:                                       ; preds = %invoke.cont, %.noex
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %.noexc, %invoke.cont
-  %lifeguard_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %11, i64 0, i32 12
+  %lifeguard_.i = getelementptr inbounds i8, ptr %11, i64 264
   invoke void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard5StartEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_.i)
           to label %invoke.cont4 unwind label %lpad3.loopexit.split-lp
 
@@ -389,7 +331,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl5StartEv(ptr noundef nonnull align 8 dereferenceable(632) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %reserve_threads_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 1
+  %reserve_threads_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %reserve_threads_, align 8
   %cmp2.not = icmp eq i64 %0, 0
   br i1 %cmp2.not, label %for.end, label %for.body
@@ -403,7 +345,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
-  %lifeguard_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12
+  %lifeguard_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard5StartEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_)
   ret void
 }
@@ -411,13 +353,13 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -425,10 +367,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %if.end8.sink.split.i.i.i
@@ -454,10 +396,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -479,7 +421,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -491,7 +433,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool7QuiesceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pool_, align 8
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl7QuiesceEv(ptr noundef nonnull align 8 dereferenceable(632) %0)
   ret void
@@ -505,9 +447,9 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17grpc_event_engine12experimental13g_local_queueE)
   %1 = load ptr, ptr %0, align 8
   %cmp.not = icmp ne ptr %1, null
-  %work_signal_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11
+  %work_signal_.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -539,10 +481,10 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2.i:     ; preds = %lpad.i
   resume { ptr, i32 } %4
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv.exit: ; preds = %invoke.cont.i
-  %living_thread_count_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 3
+  %living_thread_count_ = getelementptr inbounds i8, ptr %this, i64 56
   %conv = zext i1 %cmp.not to i64
   tail call void @_ZN17grpc_event_engine12experimental17LivingThreadCount21BlockUntilThreadCountEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_, i64 noundef %conv, ptr noundef nonnull @.str.4)
-  %queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 120
   %call2 = tail call noundef zeroext i1 @_ZNK17grpc_event_engine12experimental14BasicWorkQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(104) %queue_)
   br i1 %call2, label %do.end, label %if.then
 
@@ -551,9 +493,9 @@ if.then:                                          ; preds = %_ZN17grpc_event_eng
   unreachable
 
 do.end:                                           ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv.exit
-  %quiesced_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 8
+  %quiesced_ = getelementptr inbounds i8, ptr %this, i64 226
   store atomic i8 1, ptr %quiesced_ monotonic, align 2
-  %lifeguard_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12
+  %lifeguard_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard26BlockUntilShutdownAndResetEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_)
   ret void
 }
@@ -561,9 +503,9 @@ do.end:                                           ; preds = %_ZN17grpc_event_eng
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPoolD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pool_, align 8
-  %quiesced_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 8
+  %quiesced_.i = getelementptr inbounds i8, ptr %0, i64 226
   %1 = load atomic i8, ptr %quiesced_.i monotonic, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
@@ -577,13 +519,13 @@ invoke.cont3:                                     ; preds = %if.then
   unreachable
 
 do.end:                                           ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -591,10 +533,10 @@ if.then.i.i.i:                                    ; preds = %do.end
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %if.end8.sink.split.i.i.i.i
@@ -620,10 +562,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -645,7 +587,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit
@@ -664,7 +606,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10IsQuiescedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %quiesced_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 8
+  %quiesced_ = getelementptr inbounds i8, ptr %this, i64 226
   %0 = load atomic i8, ptr %quiesced_ monotonic, align 2
   %1 = and i8 %0, 1
   %tobool.i.i = icmp ne i8 %1, 0
@@ -701,15 +643,15 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool3RunEN4
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  %manager_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %callback, i64 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
   call void %0(i1 noundef zeroext false, ptr noundef nonnull %callback, ptr noundef nonnull %agg.tmp) #23
   %1 = load ptr, ptr %manager_.i.i.i, align 16
-  %manager_5.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 1
+  %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %1, ptr %manager_5.i.i.i, align 16
-  %invoker_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %callback, i64 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 24
   %2 = load ptr, ptr %invoker_.i.i.i, align 8
-  %invoker_6.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 2
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %2, ptr %invoker_6.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
@@ -720,25 +662,25 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void %1(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp.i) #23
   %3 = load ptr, ptr %manager_5.i.i.i, align 16
-  %manager_5.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp.i, i64 0, i32 1
+  %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr %3, ptr %manager_5.i.i.i.i, align 16
   %4 = load ptr, ptr %invoker_6.i.i.i, align 8
-  %invoker_6.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp.i, i64 0, i32 2
+  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr %4, ptr %invoker_6.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i, align 16
   store ptr null, ptr %invoker_6.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 0, inrange i32 0, i64 2), ptr %call.i1, align 16
-  %cb_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %call.i1, i64 0, i32 2
+  %cb_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   call void %3(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %cb_.i.i) #23
-  %manager_5.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %call.i1, i64 0, i32 2, i32 0, i32 0, i32 1
+  %manager_5.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 32
   %5 = load <2 x ptr>, ptr %manager_5.i.i.i.i, align 16
   store <2 x ptr> %5, ptr %manager_5.i.i.i.i.i, align 16
-  %manager_5.i.i.i2.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %call.i1, i64 0, i32 3, i32 0, i32 0, i32 1
+  %manager_5.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i1, i64 64
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i2.i.i, align 16
-  %invoker_6.i.i.i4.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %call.i1, i64 0, i32 3, i32 0, i32 0, i32 2
+  %invoker_6.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 72
   store ptr null, ptr %invoker_6.i.i.i4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %pool_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %pool_.i, align 8
   invoke void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl3RunEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(632) %6, ptr noundef nonnull %call.i1)
           to label %invoke.cont2 unwind label %lpad
@@ -759,7 +701,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool3RunEPNS0_11EventEngine7ClosureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %closure) unnamed_addr #3 align 2 {
 entry:
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pool_, align 8
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl3RunEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %closure)
   ret void
@@ -775,7 +717,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %cmp2 = icmp eq ptr %call, %this
@@ -784,20 +726,20 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %3 = load ptr, ptr %0, align 8
   %vtable3 = load ptr, ptr %3, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 6
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 48
   %4 = load ptr, ptr %vfn4, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %closure)
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN17grpc_event_engine12experimental14BasicWorkQueue3AddEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(104) %queue_, ptr noundef %closure)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %work_signal_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11
+  %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -836,7 +778,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal6SignalE
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistry6EnrollEPNS0_9WorkQueueE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %queue) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %queues_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1
+  %queues_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queues_, align 8, !noalias !9
   tail call void @llvm.prefetch.p0(ptr %0, i32 0, i32 1, i32 1), !noalias !9
   %1 = ptrtoint ptr %queue to i64
@@ -852,7 +794,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !14
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %3 = ptrtoint ptr %0 to i64
@@ -862,7 +804,7 @@ entry:
   %conv.i.i.i.i = and i8 %4, 127
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !9
   br label %while.body.i.i.i
 
@@ -954,7 +896,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %lpad
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistry8UnenrollEPNS0_9WorkQueueE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %queue) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %queues_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1
+  %queues_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queues_, align 8
   tail call void @llvm.prefetch.p0(ptr %0, i32 0, i32 1, i32 1)
   %1 = ptrtoint ptr %queue to i64
@@ -970,13 +912,13 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !19
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %3 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %3, 12
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i = and i8 %5, 127
@@ -1071,45 +1013,45 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %lpad
 define noundef ptr @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistry8StealOneEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %queues_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1
+  %queues_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queues_, align 8, !nonnull !23, !noundef !23
-  %slots_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %slots_.i.i.i.i, align 8
   %2 = load i8, ptr %0, align 1
   %cmp.i3.i.i = icmp slt i8 %2, -1
   br i1 %cmp.i3.i.i, label %while.body.i.i, label %invoke.cont2
 
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
-  %add.ptr65.i.i = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %1, %entry ]
+  %3 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %1, %entry ]
   %add.ptr24.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %0, %entry ]
-  %3 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
-  %cmp.i.i.i.i.i = icmp slt <16 x i8> %3, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %4 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
-  %5 = zext i16 %4 to i32
-  %add.i.i.i = add nuw nsw i32 %5, 1
-  %6 = tail call noundef i32 @llvm.cttz.i32(i32 %add.i.i.i, i1 true), !range !17
-  %idx.ext.i.i = zext nneg i32 %6 to i64
+  %4 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
+  %cmp.i.i.i.i.i = icmp slt <16 x i8> %4, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %5 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
+  %6 = zext i16 %5 to i32
+  %add.i.i.i = add nuw nsw i32 %6, 1
+  %7 = tail call noundef i32 @llvm.cttz.i32(i32 %add.i.i.i, i1 true), !range !17
+  %idx.ext.i.i = zext nneg i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr24.i.i, i64 %idx.ext.i.i
-  %add.ptr6.i.i = getelementptr inbounds ptr, ptr %add.ptr65.i.i, i64 %idx.ext.i.i
-  %7 = load i8, ptr %add.ptr.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %7, -1
+  %add.ptr6.i.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i.i
+  %8 = load i8, ptr %add.ptr.i.i, align 1
+  %cmp.i.i.i = icmp slt i8 %8, -1
   br i1 %cmp.i.i.i, label %while.body.i.i, label %invoke.cont2, !llvm.loop !24
 
 invoke.cont2:                                     ; preds = %while.body.i.i, %entry
   %retval.sroa.5.0.i = phi ptr [ %1, %entry ], [ %add.ptr6.i.i, %while.body.i.i ]
   %retval.sroa.0.0.i = phi ptr [ %0, %entry ], [ %add.ptr.i.i, %while.body.i.i ]
-  %.lcssa.i.i = phi i8 [ %2, %entry ], [ %7, %while.body.i.i ]
+  %.lcssa.i.i = phi i8 [ %2, %entry ], [ %8, %while.body.i.i ]
   %cmp.i.i = icmp eq i8 %.lcssa.i.i, -1
   br i1 %cmp.i.i, label %cleanup, label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %invoke.cont2, %while.end.i.i
-  %__begin2.sroa.6.023 = phi ptr [ %__begin2.sroa.6.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %invoke.cont2 ]
-  %__begin2.sroa.0.022 = phi ptr [ %__begin2.sroa.0.1, %while.end.i.i ], [ %retval.sroa.0.0.i, %invoke.cont2 ]
-  %8 = load ptr, ptr %__begin2.sroa.6.023, align 8
-  %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %9 = load ptr, ptr %vfn, align 8
-  %call9 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %__begin2.sroa.6.022 = phi ptr [ %__begin2.sroa.6.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %invoke.cont2 ]
+  %__begin2.sroa.0.021 = phi ptr [ %__begin2.sroa.0.1, %while.end.i.i ], [ %retval.sroa.0.0.i, %invoke.cont2 ]
+  %9 = load ptr, ptr %__begin2.sroa.6.022, align 8
+  %vtable = load ptr, ptr %9, align 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %10 = load ptr, ptr %vfn, align 8
+  %call9 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -1117,71 +1059,71 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   br i1 %cmp.not, label %for.inc, label %cleanup
 
 lpad:                                             ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #24
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #24
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 
 for.inc:                                          ; preds = %invoke.cont8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 1
-  %incdec.ptr4.i = getelementptr inbounds ptr, ptr %__begin2.sroa.6.023, i64 1
-  %13 = load i8, ptr %incdec.ptr.i, align 1
-  %cmp.i3.i.i4 = icmp slt i8 %13, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.021, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin2.sroa.6.022, i64 8
+  %14 = load i8, ptr %incdec.ptr.i, align 1
+  %cmp.i3.i.i4 = icmp slt i8 %14, -1
   br i1 %cmp.i3.i.i4, label %while.body.i.i7, label %while.end.i.i
 
 while.body.i.i7:                                  ; preds = %for.inc, %while.body.i.i7
-  %add.ptr65.i.i8 = phi ptr [ %add.ptr6.i.i14, %while.body.i.i7 ], [ %incdec.ptr4.i, %for.inc ]
-  %add.ptr24.i.i9 = phi ptr [ %add.ptr.i.i13, %while.body.i.i7 ], [ %incdec.ptr.i, %for.inc ]
-  %14 = load <16 x i8>, ptr %add.ptr24.i.i9, align 1
-  %cmp.i.i.i.i.i10 = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %15 = bitcast <16 x i1> %cmp.i.i.i.i.i10 to i16
-  %16 = zext i16 %15 to i32
-  %add.i.i.i11 = add nuw nsw i32 %16, 1
-  %17 = tail call noundef i32 @llvm.cttz.i32(i32 %add.i.i.i11, i1 true), !range !17
-  %idx.ext.i.i12 = zext nneg i32 %17 to i64
-  %add.ptr.i.i13 = getelementptr inbounds i8, ptr %add.ptr24.i.i9, i64 %idx.ext.i.i12
-  %add.ptr6.i.i14 = getelementptr inbounds ptr, ptr %add.ptr65.i.i8, i64 %idx.ext.i.i12
-  %18 = load i8, ptr %add.ptr.i.i13, align 1
-  %cmp.i.i.i15 = icmp slt i8 %18, -1
-  br i1 %cmp.i.i.i15, label %while.body.i.i7, label %while.end.i.i, !llvm.loop !24
+  %15 = phi ptr [ %add.ptr6.i.i13, %while.body.i.i7 ], [ %incdec.ptr4.i, %for.inc ]
+  %add.ptr24.i.i8 = phi ptr [ %add.ptr.i.i12, %while.body.i.i7 ], [ %incdec.ptr.i, %for.inc ]
+  %16 = load <16 x i8>, ptr %add.ptr24.i.i8, align 1
+  %cmp.i.i.i.i.i9 = icmp slt <16 x i8> %16, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %17 = bitcast <16 x i1> %cmp.i.i.i.i.i9 to i16
+  %18 = zext i16 %17 to i32
+  %add.i.i.i10 = add nuw nsw i32 %18, 1
+  %19 = tail call noundef i32 @llvm.cttz.i32(i32 %add.i.i.i10, i1 true), !range !17
+  %idx.ext.i.i11 = zext nneg i32 %19 to i64
+  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %add.ptr24.i.i8, i64 %idx.ext.i.i11
+  %add.ptr6.i.i13 = getelementptr inbounds ptr, ptr %15, i64 %idx.ext.i.i11
+  %20 = load i8, ptr %add.ptr.i.i12, align 1
+  %cmp.i.i.i14 = icmp slt i8 %20, -1
+  br i1 %cmp.i.i.i14, label %while.body.i.i7, label %while.end.i.i, !llvm.loop !24
 
 while.end.i.i:                                    ; preds = %while.body.i.i7, %for.inc
-  %__begin2.sroa.0.1 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %add.ptr.i.i13, %while.body.i.i7 ]
-  %__begin2.sroa.6.1 = phi ptr [ %incdec.ptr4.i, %for.inc ], [ %add.ptr6.i.i14, %while.body.i.i7 ]
-  %.lcssa.i.i5 = phi i8 [ %13, %for.inc ], [ %18, %while.body.i.i7 ]
+  %__begin2.sroa.0.1 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %add.ptr.i.i12, %while.body.i.i7 ]
+  %__begin2.sroa.6.1 = phi ptr [ %incdec.ptr4.i, %for.inc ], [ %add.ptr6.i.i13, %while.body.i.i7 ]
+  %.lcssa.i.i5 = phi i8 [ %14, %for.inc ], [ %20, %while.body.i.i7 ]
   %cmp.i.i6 = icmp eq i8 %.lcssa.i.i5, -1
   br i1 %cmp.i.i6, label %cleanup, label %invoke.cont6
 
 cleanup:                                          ; preds = %invoke.cont8, %while.end.i.i, %invoke.cont2
   %retval.0 = phi ptr [ null, %invoke.cont2 ], [ null, %while.end.i.i ], [ %call9, %invoke.cont8 ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit17 unwind label %terminate.lpad.i16
+          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
 
-terminate.lpad.i16:                               ; preds = %cleanup
-  %19 = landingpad { ptr, i32 }
+terminate.lpad.i15:                               ; preds = %cleanup
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #24
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #24
   unreachable
 
-_ZN4absl12lts_202308029MutexLockD2Ev.exit17:      ; preds = %cleanup
+_ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %cleanup
   ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11PrepareForkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pool_, align 8
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11PrepareForkEv(ptr noundef nonnull align 8 dereferenceable(632) %0)
   ret void
@@ -1191,7 +1133,7 @@ entry:
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11PrepareForkEv(ptr noundef nonnull align 8 dereferenceable(632) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 262, i32 noundef 1, ptr noundef nonnull @.str.8)
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %this, i64 225
   %0 = atomicrmw xchg ptr %forking_.i, i8 1 seq_cst, align 1
   %1 = and i8 %0, 1
   %tobool3.i.i.i.not = icmp eq i8 %1, 0
@@ -1202,9 +1144,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit: ; preds = %entry
-  %work_signal_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11
+  %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1236,9 +1178,9 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2.i:     ; preds = %lpad.i
   resume { ptr, i32 } %4
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv.exit: ; preds = %invoke.cont.i
-  %living_thread_count_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 3
+  %living_thread_count_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN17grpc_event_engine12experimental17LivingThreadCount21BlockUntilThreadCountEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_, i64 noundef 0, ptr noundef nonnull @.str.9)
-  %lifeguard_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12
+  %lifeguard_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard26BlockUntilShutdownAndResetEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_)
   ret void
 }
@@ -1246,9 +1188,9 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalA
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool14PostforkParentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pool_, align 8
-  %forking_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 7
+  %forking_.i.i = getelementptr inbounds i8, ptr %0, i64 225
   %1 = atomicrmw xchg ptr %forking_.i.i, i8 0 seq_cst, align 1
   %2 = and i8 %1, 1
   %tobool3.i.i.i.not.i = icmp eq i8 %2, 0
@@ -1259,7 +1201,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit.i: ; preds = %entry
-  %reserve_threads_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 1
+  %reserve_threads_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %reserve_threads_.i.i, align 8
   %cmp2.not.i.i = icmp eq i64 %3, 0
   br i1 %cmp2.not.i.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv.exit, label %for.body.i.i
@@ -1273,7 +1215,7 @@ for.body.i.i:                                     ; preds = %_ZN17grpc_event_eng
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv.exit, !llvm.loop !7
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv.exit: ; preds = %for.body.i.i, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit.i
-  %lifeguard_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 12
+  %lifeguard_.i.i = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard5StartEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_.i.i)
   ret void
 }
@@ -1281,7 +1223,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv(ptr noundef nonnull align 8 dereferenceable(632) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %this, i64 225
   %0 = atomicrmw xchg ptr %forking_.i, i8 0 seq_cst, align 1
   %1 = and i8 %0, 1
   %tobool3.i.i.i.not = icmp eq i8 %1, 0
@@ -1292,7 +1234,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit: ; preds = %entry
-  %reserve_threads_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 1
+  %reserve_threads_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %reserve_threads_.i, align 8
   %cmp2.not.i = icmp eq i64 %2, 0
   br i1 %cmp2.not.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl5StartEv.exit, label %for.body.i
@@ -1306,7 +1248,7 @@ for.body.i:                                       ; preds = %_ZN17grpc_event_eng
   br i1 %cmp.i, label %for.body.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl5StartEv.exit, !llvm.loop !7
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl5StartEv.exit: ; preds = %for.body.i, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit
-  %lifeguard_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12
+  %lifeguard_.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard5StartEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_.i)
   ret void
 }
@@ -1314,9 +1256,9 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13PostforkChildEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  %pool_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pool_, align 8
-  %forking_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 7
+  %forking_.i.i = getelementptr inbounds i8, ptr %0, i64 225
   %1 = atomicrmw xchg ptr %forking_.i.i, i8 0 seq_cst, align 1
   %2 = and i8 %1, 1
   %tobool3.i.i.i.not.i = icmp eq i8 %2, 0
@@ -1327,7 +1269,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit.i: ; preds = %entry
-  %reserve_threads_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 1
+  %reserve_threads_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %reserve_threads_.i.i, align 8
   %cmp2.not.i.i = icmp eq i64 %3, 0
   br i1 %cmp2.not.i.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv.exit, label %for.body.i.i
@@ -1341,7 +1283,7 @@ for.body.i.i:                                     ; preds = %_ZN17grpc_event_eng
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv.exit, !llvm.loop !7
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl8PostforkEv.exit: ; preds = %for.body.i.i, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit.i
-  %lifeguard_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 12
+  %lifeguard_.i.i = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard5StartEv(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_.i.i)
   ret void
 }
@@ -1350,9 +1292,9 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplC2Em(ptr noundef nonnull align 8 dereferenceable(632) %this, i64 noundef %reserve_threads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %reserve_threads_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 1
+  %reserve_threads_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %reserve_threads, ptr %reserve_threads_, align 8
-  %busy_thread_count_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 2
+  %busy_thread_count_ = getelementptr inbounds i8, ptr %this, i64 24
   %call.i6 = invoke i32 @gpr_cpu_num_cores()
           to label %call.i.noexc unwind label %lpad
 
@@ -1371,36 +1313,36 @@ invoke.cont5:                                     ; preds = %call.i.noexc
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %call5.i.i.i.i2.i.i1.i7, i64 %conv.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %call5.i.i.i.i2.i.i1.i7, i8 0, i64 %mul.i.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i1.i7, i64 %mul.i.i.i.i.i.i.i
-  %_M_finish.i.i7.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %0 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr.i.i.i.i, ptr %0, align 8
   store ptr %scevgep.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8
-  %next_idx_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 2, i32 1
-  %living_thread_count_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 3
-  %theft_registry_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 4
-  %queues_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 4, i32 1
+  %next_idx_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %living_thread_count_ = getelementptr inbounds i8, ptr %this, i64 56
+  %theft_registry_ = getelementptr inbounds i8, ptr %this, i64 80
+  %queues_.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %next_idx_.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %queues_.i, align 8
-  %slots_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 120
   invoke void @_ZN17grpc_event_engine12experimental14BasicWorkQueueC1EPv(ptr noundef nonnull align 8 dereferenceable(104) %queue_, ptr noundef nonnull %this)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  %shutdown_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 6
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 224
   store i8 0, ptr %shutdown_, align 8
-  %forking_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 7
+  %forking_ = getelementptr inbounds i8, ptr %this, i64 225
   store i8 0, ptr %forking_, align 1
-  %quiesced_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 8
+  %quiesced_ = getelementptr inbounds i8, ptr %this, i64 226
   store i8 0, ptr %quiesced_, align 2
-  %last_started_thread_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 9
+  %last_started_thread_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %last_started_thread_, align 8
-  %throttled_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 10
+  %throttled_ = getelementptr inbounds i8, ptr %this, i64 240
   store i8 0, ptr %throttled_, align 8
-  %work_signal_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11
+  %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_, i8 0, i64 16, i1 false)
-  %lifeguard_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12
+  %lifeguard_ = getelementptr inbounds i8, ptr %this, i64 264
   invoke void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardC1EPS2_(ptr noundef nonnull align 8 dereferenceable(361) %lifeguard_, ptr noundef nonnull %this)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -1420,7 +1362,7 @@ lpad6:                                            ; preds = %invoke.cont5
 lpad10:                                           ; preds = %invoke.cont9
   %3 = landingpad { ptr, i32 }
           cleanup
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_) #23
   tail call void @_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %queue_) #23
@@ -1429,7 +1371,7 @@ lpad10:                                           ; preds = %invoke.cont9
 ehcleanup12:                                      ; preds = %lpad10, %lpad6
   %.pn.pn = phi { ptr, i32 } [ %3, %lpad10 ], [ %2, %lpad6 ]
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %theft_registry_) #23
-  %cv_.i8 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 3, i32 1
+  %cv_.i8 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i8) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_) #23
   %4 = load ptr, ptr %busy_thread_count_, align 8
@@ -1452,17 +1394,17 @@ declare void @_ZN17grpc_event_engine12experimental14BasicWorkQueueC1EPv(ptr noun
 define linkonce_odr void @_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental14BasicWorkQueueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %q_ = getelementptr inbounds %"class.grpc_event_engine::experimental::BasicWorkQueue", ptr %this, i64 0, i32 2
+  %q_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %q_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_node5.i.i6.i = getelementptr inbounds %"class.grpc_event_engine::experimental::BasicWorkQueue", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::BasicWorkQueue", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_node5.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i = icmp ult ptr %1, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
 
@@ -1470,7 +1412,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %if.then.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #22
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i, !llvm.loop !25
 
@@ -1484,7 +1426,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit
 
 _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
-  %mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::BasicWorkQueue", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #23
   ret void
 }
@@ -1492,13 +1434,13 @@ _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIPN17grpc_event_engine12experimental9WorkQueueENS0_18container_internal6HashEqIS5_vE4HashENS8_2EqESaIS5_EED2Ev.exit, label %invoke.cont15.i.i
 
 invoke.cont15.i.i:                                ; preds = %entry
-  %queues_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::TheftRegistry", ptr %this, i64 0, i32 1
+  %queues_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %queues_, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i) #22
@@ -1512,13 +1454,13 @@ _ZN4absl12lts_2023080213flat_hash_setIPN17grpc_event_engine12experimental9WorkQu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23enable_shared_from_thisIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1540,7 +1482,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit
@@ -1567,19 +1509,19 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %entry, %0
   %vtable.i = load ptr, ptr %2, align 8
   %3 = load ptr, ptr %vtable.i, align 8
   %call.i6 = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %last_started_thread_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 9
+  %last_started_thread_ = getelementptr inbounds i8, ptr %this, i64 232
   store atomic i64 %call.i6, ptr %last_started_thread_ monotonic, align 8
   %call6 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp, i64 0, i32 1
-  %_M_refcount2.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !26
   store ptr %4, ptr %_M_refcount.i.i.i, align 8, !alias.scope !26
   %cmp.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i monotonic, align 8, !noalias !26
   br label %do.body.i.i.i.i.i
 
@@ -1617,8 +1559,8 @@ ehcleanup18.thread24:                             ; preds = %invoke.cont
   br label %cleanup.action
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  %tracked_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp9, i64 0, i32 1
-  %stack_size_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp9, i64 0, i32 2
+  %tracked_.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 1
+  %stack_size_.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 0, ptr %stack_size_.i, align 8
   store i8 0, ptr %tracked_.i, align 1
   store i8 0, ptr %ref.tmp9, align 8
@@ -1626,7 +1568,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
           to label %invoke.cont15 unwind label %ehcleanup18
 
 invoke.cont15:                                    ; preds = %invoke.cont8
-  %impl_.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp3, i64 0, i32 1
+  %impl_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %11 = load ptr, ptr %impl_.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   %12 = load i32, ptr %ref.tmp3, align 8
@@ -1648,7 +1590,7 @@ if.then3.i.cont:                                  ; preds = %if.then3.i.invoke
 do.end.i:                                         ; preds = %do.body.i
   store i32 2, ptr %ref.tmp3, align 8
   %vtable.i8 = load ptr, ptr %11, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i8, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i8, i64 16
   %15 = load ptr, ptr %vfn.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %invoke.cont17 unwind label %ehcleanup18.thread21
@@ -1660,7 +1602,7 @@ do.body6.i:                                       ; preds = %invoke.cont15
 invoke.cont17:                                    ; preds = %do.end.i
   %.pre = load ptr, ptr %impl_.i, align 8
   %16 = icmp ne ptr %.pre, null
-  %options_.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp3, i64 0, i32 2
+  %options_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %17 = load i8, ptr %options_.i, align 8
   %18 = and i8 %17, 1
   %tobool.i.i = icmp ne i8 %18, 0
@@ -1687,7 +1629,7 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %do.body6.i, %invoke
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core6ThreadD2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i14 = icmp eq i64 %22, 4294967297
   %23 = trunc i64 %22 to i32
@@ -1695,10 +1637,10 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core6Threa
 
 if.then.i.i.i.i16:                                ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
   br label %if.end8.sink.split.i.i.i.i
@@ -1724,10 +1666,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1749,7 +1691,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i16
   %vtable2.i.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %31 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit
@@ -1790,15 +1732,15 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
 entry:
   %ref.tmp = alloca %"class.grpc_core::Thread", align 8
   %ref.tmp3 = alloca %"class.grpc_core::Thread::Options", align 8
-  %lifeguard_running_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 4
+  %lifeguard_running_ = getelementptr inbounds i8, ptr %this, i64 360
   store atomic i8 1, ptr %lifeguard_running_ seq_cst, align 8
-  %tracked_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp3, i64 0, i32 1
-  %stack_size_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp3, i64 0, i32 2
+  %tracked_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 1
+  %stack_size_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i64 0, ptr %stack_size_.i, align 8
   store i8 0, ptr %tracked_.i, align 1
   store i8 0, ptr %ref.tmp3, align 8
   call void @_ZN9grpc_core6ThreadC1EPKcPFvPvES3_PbRKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.10, ptr noundef nonnull @"_ZZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard5StartEvEN3$_08__invokeEPv", ptr noundef nonnull %this, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
-  %impl_.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp, i64 0, i32 1
+  %impl_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %impl_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %ref.tmp, align 8
@@ -1811,7 +1753,7 @@ do.body.i:                                        ; preds = %entry
 do.end.i:                                         ; preds = %do.body.i
   store i32 2, ptr %ref.tmp, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %invoke.cont unwind label %lpad
@@ -1832,7 +1774,7 @@ if.then10.i.cont:                                 ; preds = %if.then10.i.invoke
 invoke.cont:                                      ; preds = %do.end.i
   %.pre = load ptr, ptr %impl_.i, align 8
   %5 = icmp ne ptr %.pre, null
-  %options_.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp, i64 0, i32 2
+  %options_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %options_.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.i = icmp ne i8 %7, 0
@@ -1872,7 +1814,7 @@ declare void @_ZN17grpc_event_engine12experimental14BasicWorkQueue3AddEPNS0_11Ev
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal6SignalEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %cv_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkSignal", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN4absl12lts_202308027CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_)
           to label %invoke.cont unwind label %lpad
 
@@ -1915,11 +1857,11 @@ declare void @_ZN9grpc_core6ThreadC1EPKcPFvPvES3_PbRKNS0_7OptionsE(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %options_ = getelementptr inbounds %"class.grpc_core::Thread", ptr %this, i64 0, i32 2
+  %options_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %options_, align 8
   %1 = and i8 %0, 1
   %tobool.i = icmp ne i8 %1, 0
-  %impl_ = getelementptr inbounds %"class.grpc_core::Thread", ptr %this, i64 0, i32 1
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %impl_, align 8
   %cmp = icmp ne ptr %2, null
   %lnot = select i1 %tobool.i, i1 %cmp, i1 false
@@ -1948,7 +1890,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11SetShutdownEb(ptr noundef nonnull align 8 dereferenceable(632) %this, i1 noundef zeroext %is_shutdown) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shutdown_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 6
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 224
   %frombool.i = zext i1 %is_shutdown to i8
   %0 = atomicrmw xchg ptr %shutdown_, i8 %frombool.i seq_cst, align 1
   %1 = and i8 %0, 1
@@ -1961,9 +1903,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %work_signal_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11
+  %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2002,7 +1944,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalA
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %cv_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkSignal", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_)
           to label %invoke.cont unwind label %lpad
 
@@ -2044,12 +1986,12 @@ declare noundef zeroext i1 @_ZNK17grpc_event_engine12experimental14BasicWorkQueu
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard26BlockUntilShutdownAndResetEv(ptr noundef nonnull align 8 dereferenceable(361) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lifeguard_should_shut_down_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 2
+  %lifeguard_should_shut_down_ = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load ptr, ptr %lifeguard_should_shut_down_, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %notified_.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %0, i64 0, i32 2
+  %notified_.i = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %notified_.i, align 8
-  %cv_.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %0, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2058,8 +2000,8 @@ invoke.cont.i:                                    ; preds = %entry
           to label %while.cond.preheader unwind label %terminate.lpad.i.i
 
 while.cond.preheader:                             ; preds = %invoke.cont.i
-  %lifeguard_running_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 4
-  %lifeguard_is_shut_down_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 3
+  %lifeguard_running_ = getelementptr inbounds i8, ptr %this, i64 360
+  %lifeguard_is_shut_down_ = getelementptr inbounds i8, ptr %this, i64 352
   br label %while.cond
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -2109,8 +2051,8 @@ if.then:                                          ; preds = %do.body
 do.end:                                           ; preds = %do.body, %if.then
   %11 = load ptr, ptr %lifeguard_is_shut_down_, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %notified_.i6 = getelementptr inbounds %"class.grpc_core::Notification", ptr %11, i64 0, i32 2
-  %cv_.i7 = getelementptr inbounds %"class.grpc_core::Notification", ptr %11, i64 0, i32 1
+  %notified_.i6 = getelementptr inbounds i8, ptr %11, i64 16
+  %cv_.i7 = getelementptr inbounds i8, ptr %11, i64 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %do.end
@@ -2150,8 +2092,8 @@ terminate.lpad.i1.i8:                             ; preds = %while.end.i
 while.end:                                        ; preds = %while.cond
   %19 = load ptr, ptr %lifeguard_is_shut_down_, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %notified_.i12 = getelementptr inbounds %"class.grpc_core::Notification", ptr %19, i64 0, i32 2
-  %cv_.i13 = getelementptr inbounds %"class.grpc_core::Notification", ptr %19, i64 0, i32 1
+  %notified_.i12 = getelementptr inbounds i8, ptr %19, i64 16
+  %cv_.i13 = getelementptr inbounds i8, ptr %19, i64 8
   br label %while.cond.i14
 
 while.cond.i14:                                   ; preds = %while.body.i19, %while.end
@@ -2189,7 +2131,7 @@ terminate.lpad.i1.i17:                            ; preds = %while.end.i16
   unreachable
 
 _ZN9grpc_core12Notification19WaitForNotificationEv.exit23: ; preds = %while.end.i16
-  %backoff_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 1
+  %backoff_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_)
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i, i8 0, i64 24, i1 false), !noalias !32
@@ -2199,7 +2141,7 @@ _ZN9grpc_core12Notification19WaitForNotificationEv.exit23: ; preds = %while.end.
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN9grpc_core12Notification19WaitForNotificationEv.exit23
-  %cv_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %27, i64 0, i32 1
+  %cv_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i.i) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #23
   tail call void @_ZdlPv(ptr noundef nonnull %27) #22
@@ -2214,7 +2156,7 @@ _ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit: ;
   br i1 %tobool.not.i.i.i.i27, label %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i.i.i28
 
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i.i.i28: ; preds = %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit
-  %cv_.i.i.i.i.i.i29 = getelementptr inbounds %"class.grpc_core::Notification", ptr %28, i64 0, i32 1
+  %cv_.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %28, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i.i29) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
   tail call void @_ZdlPv(ptr noundef nonnull %28) #22
@@ -2227,7 +2169,7 @@ _ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit34:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl12SetThrottledEb(ptr nocapture noundef nonnull align 8 dereferenceable(632) %this, i1 noundef zeroext %throttled) local_unnamed_addr #5 align 2 {
 entry:
-  %throttled_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 10
+  %throttled_ = getelementptr inbounds i8, ptr %this, i64 240
   %frombool.i = zext i1 %throttled to i8
   %0 = atomicrmw xchg ptr %throttled_, i8 %frombool.i monotonic, align 1
   %1 = and i8 %0, 1
@@ -2238,7 +2180,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb(ptr nocapture noundef nonnull align 8 dereferenceable(632) %this, i1 noundef zeroext %is_forking) local_unnamed_addr #3 align 2 {
 entry:
-  %forking_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 7
+  %forking_ = getelementptr inbounds i8, ptr %this, i64 225
   %frombool.i = zext i1 %is_forking to i8
   %0 = atomicrmw xchg ptr %forking_, i8 %frombool.i seq_cst, align 1
   %1 = and i8 %0, 1
@@ -2257,7 +2199,7 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9IsForkingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %forking_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 7
+  %forking_ = getelementptr inbounds i8, ptr %this, i64 225
   %0 = load atomic i8, ptr %forking_ monotonic, align 1
   %1 = and i8 %0, 1
   %tobool.i.i = icmp ne i8 %1, 0
@@ -2267,7 +2209,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10IsShutdownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %shutdown_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 6
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load atomic i8, ptr %shutdown_ monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i = icmp ne i8 %1, 0
@@ -2279,16 +2221,16 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
 entry:
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   store ptr %pool, ptr %this, align 8
-  %backoff_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 1
-  %max_backoff_.i = getelementptr inbounds %"class.grpc_core::BackOff::Options", ptr %ref.tmp, i64 0, i32 3
+  %backoff_ = getelementptr inbounds i8, ptr %this, i64 8
+  %max_backoff_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 0, ptr %0, align 8
   store i64 15, ptr %ref.tmp, align 8
   store i64 1000, ptr %max_backoff_.i, align 8
-  %multiplier_.i = getelementptr inbounds %"class.grpc_core::BackOff::Options", ptr %ref.tmp, i64 0, i32 1
+  %multiplier_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store double 1.300000e+00, ptr %multiplier_.i, align 8
   call void @_ZN9grpc_core7BackOffC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(336) %backoff_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  %lifeguard_should_shut_down_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 2
+  %lifeguard_should_shut_down_ = getelementptr inbounds i8, ptr %this, i64 344
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %call.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i, i8 0, i64 24, i1 false), !noalias !38
@@ -2298,10 +2240,10 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %lifeguard_is_shut_down_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 3
+  %lifeguard_is_shut_down_ = getelementptr inbounds i8, ptr %this, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i23, i8 0, i64 24, i1 false), !noalias !41
   store ptr %call.i23, ptr %lifeguard_is_shut_down_, align 8, !alias.scope !41
-  %lifeguard_running_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 4
+  %lifeguard_running_ = getelementptr inbounds i8, ptr %this, i64 360
   store i8 0, ptr %lifeguard_running_, align 8
   ret void
 
@@ -2325,7 +2267,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit: ; preds = %entry
-  %cv_.i.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %0, i64 0, i32 1
+  %cv_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
@@ -2340,28 +2282,28 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard13LifeguardMainEv(ptr noundef nonnull align 8 dereferenceable(361) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %forking_.i4 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 7
+  %forking_.i4 = getelementptr inbounds i8, ptr %0, i64 225
   %1 = load atomic i8, ptr %forking_.i4 monotonic, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.i.not5 = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not5, label %if.end.lr.ph, label %while.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %lifeguard_should_shut_down_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 2
-  %backoff_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 1
+  %lifeguard_should_shut_down_ = getelementptr inbounds i8, ptr %this, i64 344
+  %backoff_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end22
   %4 = phi ptr [ %0, %if.end.lr.ph ], [ %14, %if.end22 ]
-  %shutdown_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %4, i64 0, i32 6
+  %shutdown_.i = getelementptr inbounds i8, ptr %4, i64 224
   %5 = load atomic i8, ptr %shutdown_.i monotonic, align 1
   %6 = and i8 %5, 1
   %tobool.i.i.i1.not = icmp eq i8 %6, 0
   br i1 %tobool.i.i.i1.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %quiesced_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %4, i64 0, i32 8
+  %quiesced_.i = getelementptr inbounds i8, ptr %4, i64 226
   %7 = load atomic i8, ptr %quiesced_.i monotonic, align 1
   %8 = and i8 %7, 1
   %tobool.i.i.i2.not = icmp eq i8 %8, 0
@@ -2428,21 +2370,21 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Times
 if.end22:                                         ; preds = %if.then4, %_ZN9grpc_coremiENS_9TimestampES0_.exit
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard19MaybeStartNewThreadEv(ptr noundef nonnull align 8 dereferenceable(361) %this)
   %14 = load ptr, ptr %this, align 8
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %14, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %14, i64 225
   %15 = load atomic i8, ptr %forking_.i monotonic, align 1
   %16 = and i8 %15, 1
   %tobool.i.i.i.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %while.end, !llvm.loop !44
 
 while.end:                                        ; preds = %if.end22, %if.then4, %entry
-  %lifeguard_running_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 4
+  %lifeguard_running_ = getelementptr inbounds i8, ptr %this, i64 360
   store atomic i8 0, ptr %lifeguard_running_ monotonic, align 8
-  %lifeguard_is_shut_down_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 3
+  %lifeguard_is_shut_down_ = getelementptr inbounds i8, ptr %this, i64 352
   %17 = load ptr, ptr %lifeguard_is_shut_down_, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-  %notified_.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %17, i64 0, i32 2
+  %notified_.i = getelementptr inbounds i8, ptr %17, i64 16
   store i8 1, ptr %notified_.i, align 8
-  %cv_.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %17, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2494,7 +2436,7 @@ entry:
   %retval.sroa.2.0.copyload.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i)
   call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %notified_ = getelementptr inbounds %"class.grpc_core::Notification", ptr %this, i64 0, i32 2
+  %notified_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %notified_, align 8
   %1 = and i8 %0, 1
   %tobool.not13 = icmp eq i8 %1, 0
@@ -2503,7 +2445,7 @@ entry:
 land.rhs.lr.ph:                                   ; preds = %entry
   %add18.i.i = add i32 %retval.sroa.2.0.copyload.i, 1
   %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %lhs.i.i, i64 8
-  %cv_ = getelementptr inbounds %"class.grpc_core::Notification", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp12.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -9223372036854775808
   br label %land.rhs
 
@@ -2594,7 +2536,7 @@ declare i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9Lifeguard19MaybeStartNewThreadEv(ptr noundef nonnull align 8 dereferenceable(361) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %forking_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 7
+  %forking_ = getelementptr inbounds i8, ptr %0, i64 225
   %1 = load atomic i8, ptr %forking_ seq_cst, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -2602,9 +2544,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %this, align 8
-  %living_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %3, i64 0, i32 3
+  %living_thread_count_.i = getelementptr inbounds i8, ptr %3, i64 56
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
-  %living_count_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %3, i64 0, i32 3, i32 2
+  %living_count_.i.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load i64, ptr %living_count_.i.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
           to label %_ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit unwind label %terminate.lpad.i.i
@@ -2618,9 +2560,9 @@ terminate.lpad.i.i:                               ; preds = %if.end
 
 _ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit: ; preds = %if.end
   %7 = load ptr, ptr %this, align 8
-  %busy_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %7, i64 0, i32 2
+  %busy_thread_count_.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %busy_thread_count_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %7, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not4.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.not4.i.i, label %_ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit, label %for.body.i.i
@@ -2631,7 +2573,7 @@ for.body.i.i:                                     ; preds = %_ZN17grpc_event_eng
   %10 = load atomic i64, ptr %__first.sroa.0.05.i.i monotonic, align 8
   %11 = trunc i64 %10 to i32
   %conv4.i.i = add i32 %__init.addr.06.i.i, %11
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %__first.sroa.0.05.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i.i, i64 64
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %9
   br i1 %cmp.i.not.i.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN17grpc_event_engine12experimental15BusyThreadCount11ShardedDataESt6vectorIS5_SaIS5_EEEEiZNS4_5countEvEUlmRS5_E_ET0_T_SE_SD_T1_.exit.loopexit.i, label %for.body.i.i, !llvm.loop !46
 
@@ -2645,15 +2587,15 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit: ; preds = %_
   br i1 %cmp, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit
-  %queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %7, i64 0, i32 5
+  %queue_ = getelementptr inbounds i8, ptr %7, i64 120
   %call10 = tail call noundef zeroext i1 @_ZNK17grpc_event_engine12experimental14BasicWorkQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(104) %queue_)
   br i1 %call10, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.then8
   %13 = load ptr, ptr %this, align 8
-  %work_signal_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %13, i64 0, i32 11
+  %work_signal_.i = getelementptr inbounds i8, ptr %13, i64 248
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %13, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %13, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2698,7 +2640,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end15, %19
   %22 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %23 = load ptr, ptr %this, align 8
-  %last_started_thread_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %23, i64 0, i32 9
+  %last_started_thread_ = getelementptr inbounds i8, ptr %23, i64 232
   %24 = load atomic i64, ptr %last_started_thread_ seq_cst, align 8
   %sub.i = sub i64 0, %24
   %cmp.i.i = icmp eq i64 %call.i, 9223372036854775807
@@ -2732,7 +2674,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i, label %return.sink.split, label %if.end31
 
 if.end31:                                         ; preds = %if.then.i.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit, %_ZN9grpc_coremiENS_9TimestampES0_.exit
-  %25 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2) monotonic, align 8
+  %25 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %26 = and i8 %25, 1
   %tobool.i.i.i.not = icmp eq i8 %26, 0
   br i1 %tobool.i.i.i.not, label %if.end34, label %if.then33
@@ -2748,7 +2690,7 @@ if.end34:                                         ; preds = %if.then33, %if.end3
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit, %if.end.i.i, %if.else.i.i.i, %invoke.cont.i, %if.end34
-  %backoff_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl::Lifeguard", ptr %this, i64 0, i32 1
+  %backoff_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_)
   br label %return
 
@@ -2768,27 +2710,27 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   %0 = load ptr, ptr %pool, align 8
   store ptr %0, ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
-  %_M_refcount4.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %pool, i64 0, i32 1
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %pool, align 8
-  %auto_thread_counter_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 1
+  %auto_thread_counter_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %this, align 8
-  %living_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %2, i64 0, i32 3
+  %living_thread_count_.i = getelementptr inbounds i8, ptr %2, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   store ptr %living_thread_count_.i, ptr %auto_thread_counter_, align 8, !alias.scope !47
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %living_count_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %2, i64 0, i32 3, i32 2
+  %living_count_.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i64, ptr %living_count_.i.i.i, align 8, !noalias !47
   %inc.i.i.i = add i64 %3, 1
   store i64 %inc.i.i.i, ptr %living_count_.i.i.i, align 8, !noalias !47
-  %cv_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %2, i64 0, i32 3, i32 1
+  %cv_.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !47
 
@@ -2817,24 +2759,24 @@ terminate.lpad.i1.i.i.i:                          ; preds = %lpad.i.i.i
   unreachable
 
 invoke.cont4:                                     ; preds = %invoke.cont.i.i.i
-  %backoff_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 2
-  %max_backoff_.i = getelementptr inbounds %"class.grpc_core::BackOff::Options", ptr %ref.tmp, i64 0, i32 3
+  %backoff_ = getelementptr inbounds i8, ptr %this, i64 24
+  %max_backoff_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 0, ptr %9, align 8
   store i64 15, ptr %ref.tmp, align 8
   store i64 3000, ptr %max_backoff_.i, align 8
-  %multiplier_.i = getelementptr inbounds %"class.grpc_core::BackOff::Options", ptr %ref.tmp, i64 0, i32 1
+  %multiplier_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store double 1.300000e+00, ptr %multiplier_.i, align 8
   invoke void @_ZN9grpc_core7BackOffC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(336) %backoff_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont14 unwind label %lpad5
 
 invoke.cont14:                                    ; preds = %invoke.cont4
-  %busy_count_idx_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 3
+  %busy_count_idx_ = getelementptr inbounds i8, ptr %this, i64 360
   %10 = load ptr, ptr %this, align 8
-  %busy_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %10, i64 0, i32 2
-  %next_idx_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %10, i64 0, i32 2, i32 1
+  %busy_thread_count_.i = getelementptr inbounds i8, ptr %10, i64 24
+  %next_idx_.i = getelementptr inbounds i8, ptr %10, i64 48
   %11 = atomicrmw add ptr %next_idx_.i, i64 1 seq_cst, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %10, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %busy_thread_count_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -2874,11 +2816,11 @@ if.then:                                          ; preds = %entry
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then
-  %living_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::LivingThreadCount", ptr %0, i64 0, i32 2
+  %living_count_.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %living_count_.i, align 8
   %dec.i = add i64 %1, -1
   store i64 %dec.i, ptr %living_count_.i, align 8
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::LivingThreadCount", ptr %0, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2933,7 +2875,7 @@ invoke.cont:                                      ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17grpc_event_engine12experimental13g_local_queueE)
   store ptr %call, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %theft_registry_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %2, i64 0, i32 4
+  %theft_registry_.i = getelementptr inbounds i8, ptr %2, i64 80
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistry6EnrollEPNS0_9WorkQueueE(ptr noundef nonnull align 8 dereferenceable(40) %theft_registry_.i, ptr noundef nonnull %call)
   tail call void @_ZN17grpc_event_engine12experimental11ThreadLocal22SetIsEventEngineThreadEb(i1 noundef zeroext true)
   br label %while.cond
@@ -2954,7 +2896,7 @@ lpad:                                             ; preds = %entry
 
 while.end:                                        ; preds = %while.cond
   %4 = load ptr, ptr %this, align 8
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %4, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %4, i64 225
   %5 = load atomic i8, ptr %forking_.i monotonic, align 1
   %6 = and i8 %5, 1
   %tobool.i.i.i.not = icmp eq i8 %6, 0
@@ -2963,7 +2905,7 @@ while.end:                                        ; preds = %while.cond
 while.cond10.preheader:                           ; preds = %while.end
   %7 = load ptr, ptr %1, align 8
   %vtable4 = load ptr, ptr %7, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %8 = load ptr, ptr %vfn5, align 8
   %call116 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
   br i1 %call116, label %do.body, label %while.body12
@@ -2971,7 +2913,7 @@ while.cond10.preheader:                           ; preds = %while.end
 while.body12:                                     ; preds = %while.cond10.preheader, %if.end
   %9 = load ptr, ptr %1, align 8
   %vtable13 = load ptr, ptr %9, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 4
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 32
   %10 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %cmp.not = icmp eq ptr %call15, null
@@ -2979,9 +2921,9 @@ while.body12:                                     ; preds = %while.cond10.prehea
 
 if.then16:                                        ; preds = %while.body12
   %11 = load ptr, ptr %this, align 8
-  %queue_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %11, i64 0, i32 5
+  %queue_.i = getelementptr inbounds i8, ptr %11, i64 120
   %vtable20 = load ptr, ptr %queue_.i, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 6
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 48
   %12 = load ptr, ptr %vfn21, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i, ptr noundef nonnull %call15)
   br label %if.end
@@ -2989,27 +2931,27 @@ if.then16:                                        ; preds = %while.body12
 if.end:                                           ; preds = %if.then16, %while.body12
   %13 = load ptr, ptr %1, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   br i1 %call11, label %do.body, label %while.body12, !llvm.loop !51
 
 if.else:                                          ; preds = %while.end
-  %shutdown_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %4, i64 0, i32 6
+  %shutdown_.i = getelementptr inbounds i8, ptr %4, i64 224
   %15 = load atomic i8, ptr %shutdown_.i monotonic, align 1
   %16 = and i8 %15, 1
   %tobool.i.i.i2.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i.i2.not, label %do.body, label %if.then26
 
 if.then26:                                        ; preds = %if.else
-  %busy_thread_count_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %4, i64 0, i32 2
-  %busy_count_idx_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 3
+  %busy_thread_count_.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %busy_count_idx_.i = getelementptr inbounds i8, ptr %this, i64 360
   %17 = load i64, ptr %busy_count_idx_.i, align 8
   %18 = load ptr, ptr %busy_thread_count_.i.i, align 8, !noalias !52
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %18, i64 %17
   %19 = atomicrmw add ptr %add.ptr.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !52
   %20 = load ptr, ptr %this, align 8
-  %forking_.i11.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %20, i64 0, i32 7
+  %forking_.i11.i = getelementptr inbounds i8, ptr %20, i64 225
   %21 = load atomic i8, ptr %forking_.i11.i monotonic, align 1
   %22 = and i8 %21, 1
   %tobool.i.i.i.not12.i = icmp eq i8 %22, 0
@@ -3018,7 +2960,7 @@ if.then26:                                        ; preds = %if.else
 while.body.i:                                     ; preds = %if.then26, %while.cond.backedge.i
   %23 = load ptr, ptr %1, align 8
   %vtable.i = load ptr, ptr %23, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %24 = load ptr, ptr %vfn.i, align 8
   %call6.i = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %invoke.cont.i unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit.i
@@ -3029,7 +2971,7 @@ invoke.cont.i:                                    ; preds = %while.body.i
 if.then.i:                                        ; preds = %invoke.cont.i
   %25 = load ptr, ptr %1, align 8
   %vtable7.i = load ptr, ptr %25, align 8
-  %vfn8.i = getelementptr inbounds ptr, ptr %vtable7.i, i64 4
+  %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 32
   %26 = load ptr, ptr %vfn8.i, align 8
   %call10.i = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %invoke.cont9.i unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit.i
@@ -3048,7 +2990,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
 
 while.cond.backedge.i:                            ; preds = %if.then35.invoke.i, %invoke.cont32.i, %invoke.cont9.i
   %30 = load ptr, ptr %this, align 8
-  %forking_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %30, i64 0, i32 7
+  %forking_.i.i = getelementptr inbounds i8, ptr %30, i64 225
   %31 = load atomic i8, ptr %forking_.i.i monotonic, align 1
   %32 = and i8 %31, 1
   %tobool.i.i.i.not.i = icmp eq i8 %32, 0
@@ -3056,9 +2998,9 @@ while.cond.backedge.i:                            ; preds = %if.then35.invoke.i,
 
 if.end15.i:                                       ; preds = %invoke.cont.i
   %33 = load ptr, ptr %this, align 8
-  %queue_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %33, i64 0, i32 5
+  %queue_.i.i = getelementptr inbounds i8, ptr %33, i64 120
   %vtable20.i = load ptr, ptr %queue_.i.i, align 8
-  %vfn21.i = getelementptr inbounds ptr, ptr %vtable20.i, i64 2
+  %vfn21.i = getelementptr inbounds i8, ptr %vtable20.i, i64 16
   %34 = load ptr, ptr %vfn21.i, align 8
   %call23.i = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i.i)
           to label %invoke.cont22.i unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit.i
@@ -3068,9 +3010,9 @@ invoke.cont22.i:                                  ; preds = %if.end15.i
 
 if.then24.i:                                      ; preds = %invoke.cont22.i
   %35 = load ptr, ptr %this, align 8
-  %queue_.i3.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %35, i64 0, i32 5
+  %queue_.i3.i = getelementptr inbounds i8, ptr %35, i64 120
   %vtable30.i = load ptr, ptr %queue_.i3.i, align 8
-  %vfn31.i = getelementptr inbounds ptr, ptr %vtable30.i, i64 4
+  %vfn31.i = getelementptr inbounds i8, ptr %vtable30.i, i64 32
   %36 = load ptr, ptr %vfn31.i, align 8
   %call33.i = invoke noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i3.i)
           to label %invoke.cont32.i unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit.i
@@ -3082,7 +3024,7 @@ invoke.cont32.i:                                  ; preds = %if.then24.i
 if.then35.invoke.i:                               ; preds = %invoke.cont32.i, %invoke.cont9.i
   %call10.sink.i = phi ptr [ %call10.i, %invoke.cont9.i ], [ %call33.i, %invoke.cont32.i ]
   %vtable12.i = load ptr, ptr %call10.sink.i, align 8
-  %vfn13.i = getelementptr inbounds ptr, ptr %vtable12.i, i64 2
+  %vfn13.i = getelementptr inbounds i8, ptr %vtable12.i, i64 16
   %37 = load ptr, ptr %vfn13.i, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %call10.sink.i)
           to label %while.cond.backedge.i unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit.i
@@ -3096,7 +3038,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState14Finis
 do.body:                                          ; preds = %if.end, %while.cond10.preheader, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState14FinishDrainingEv.exit, %if.else
   %40 = load ptr, ptr %1, align 8
   %vtable29 = load ptr, ptr %40, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 2
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 16
   %41 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(8) %40)
   br i1 %call31, label %do.end, label %if.then33
@@ -3107,7 +3049,7 @@ if.then33:                                        ; preds = %do.body
 
 do.end:                                           ; preds = %do.body
   %42 = load ptr, ptr %this, align 8
-  %theft_registry_.i3 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %42, i64 0, i32 4
+  %theft_registry_.i3 = getelementptr inbounds i8, ptr %42, i64 80
   %43 = load ptr, ptr %1, align 8
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistry8UnenrollEPNS0_9WorkQueueE(ptr noundef nonnull align 8 dereferenceable(40) %theft_registry_.i3, ptr noundef %43)
   %44 = load ptr, ptr %1, align 8
@@ -3116,7 +3058,7 @@ do.end:                                           ; preds = %do.body
 
 delete.notnull:                                   ; preds = %do.end
   %vtable38 = load ptr, ptr %44, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 1
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 8
   %45 = load ptr, ptr %vfn39, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44) #23
   br label %delete.end
@@ -3131,7 +3073,7 @@ declare void @_ZN17grpc_event_engine12experimental11ThreadLocal22SetIsEventEngin
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState4StepEv(ptr noundef nonnull align 8 dereferenceable(368) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %0, i64 225
   %1 = load atomic i8, ptr %forking_.i monotonic, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
@@ -3141,7 +3083,7 @@ if.end:                                           ; preds = %entry
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17grpc_event_engine12experimental13g_local_queueE)
   %4 = load ptr, ptr %3, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %cmp.not = icmp eq ptr %call3, null
@@ -3149,14 +3091,14 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %6 = load ptr, ptr %this, align 8
-  %busy_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %6, i64 0, i32 2
-  %busy_count_idx_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 3
+  %busy_thread_count_.i = getelementptr inbounds i8, ptr %6, i64 24
+  %busy_count_idx_ = getelementptr inbounds i8, ptr %this, i64 360
   %7 = load i64, ptr %busy_count_idx_, align 8
   %8 = load ptr, ptr %busy_thread_count_.i, align 8, !noalias !56
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %8, i64 %7
   %9 = atomicrmw add ptr %add.ptr.i.i.i.i, i64 1 monotonic, align 8, !noalias !56
   %vtable8 = load ptr, ptr %call3, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %10 = load ptr, ptr %vfn9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %call3)
           to label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit13
@@ -3175,22 +3117,22 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
 if.end10:                                         ; preds = %if.end
   %call11 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
   %14 = load ptr, ptr %this, align 8
-  %forking_.i1445 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %14, i64 0, i32 7
+  %forking_.i1445 = getelementptr inbounds i8, ptr %14, i64 225
   %15 = load atomic i8, ptr %forking_.i1445 monotonic, align 1
   %16 = and i8 %15, 1
   %tobool.i.i.i15.not46 = icmp eq i8 %16, 0
   br i1 %tobool.i.i.i15.not46, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end10
-  %backoff_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 2
+  %backoff_ = getelementptr inbounds i8, ptr %this, i64 24
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end76
   %18 = phi ptr [ %14, %while.body.lr.ph ], [ %43, %if.end76 ]
-  %queue_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %18, i64 0, i32 5
+  %queue_.i = getelementptr inbounds i8, ptr %18, i64 120
   %vtable19 = load ptr, ptr %queue_.i, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 4
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 32
   %19 = load ptr, ptr %vfn20, align 8
   %call21 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i)
   %cmp22.not = icmp eq ptr %call21, null
@@ -3198,21 +3140,21 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp22.not, label %if.end24, label %while.end
 
 if.end24:                                         ; preds = %while.body
-  %theft_registry_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %.pre61.pre62, i64 0, i32 4
+  %theft_registry_.i = getelementptr inbounds i8, ptr %.pre61.pre62, i64 80
   %call28 = tail call noundef ptr @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistry8StealOneEv(ptr noundef nonnull align 8 dereferenceable(40) %theft_registry_.i)
   %cmp29.not = icmp eq ptr %call28, null
   %.pre61.pre = load ptr, ptr %this, align 8
   br i1 %cmp29.not, label %if.end31, label %while.end
 
 if.end31:                                         ; preds = %if.end24
-  %shutdown_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %.pre61.pre, i64 0, i32 6
+  %shutdown_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 224
   %20 = load atomic i8, ptr %shutdown_.i monotonic, align 1
   %21 = and i8 %20, 1
   %tobool.i.i.i16.not = icmp eq i8 %21, 0
   br i1 %tobool.i.i.i16.not, label %if.end36, label %while.end
 
 if.end36:                                         ; preds = %if.end31
-  %work_signal_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %.pre61.pre, i64 0, i32 11
+  %work_signal_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 248
   %call41 = tail call i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_)
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %22, label %_ZN9grpc_core9Timestamp3NowEv.exit
 
@@ -3267,7 +3209,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Times
   %ticks.lobit.i.i.i.i = ashr i64 %mul2.i.i.i, 63
   %sub.pn.i.i.i.i = add nsw i64 %ticks.lobit.i.i.i.i, %div.i.i.i
   %conv.i.pn.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %conv.i.i.i.i.i, i32 %25
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %.pre61.pre, i64 0, i32 11, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 256
   %call6.i = invoke noundef zeroext i1 @_ZN4absl12lts_202308027CondVar15WaitWithTimeoutEPNS0_5MutexENS0_8DurationE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i, ptr noundef nonnull %work_signal_.i, i64 %sub.pn.i.i.i.i, i32 %conv.i.pn.i.i.i.i)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -3310,14 +3252,14 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit: ; preds = %invoke.cont5.i
   %33 = load ptr, ptr %this, align 8
-  %forking_.i17 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %33, i64 0, i32 7
+  %forking_.i17 = getelementptr inbounds i8, ptr %33, i64 225
   %34 = load atomic i8, ptr %forking_.i17 monotonic, align 1
   %35 = and i8 %34, 1
   %tobool.i.i.i18.not = icmp eq i8 %35, 0
   br i1 %tobool.i.i.i18.not, label %lor.lhs.false, label %while.end
 
 lor.lhs.false:                                    ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit
-  %shutdown_.i19 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %33, i64 0, i32 6
+  %shutdown_.i19 = getelementptr inbounds i8, ptr %33, i64 224
   %36 = load atomic i8, ptr %shutdown_.i19 monotonic, align 1
   %37 = and i8 %36, 1
   %tobool.i.i.i20.not = icmp eq i8 %37, 0
@@ -3327,9 +3269,9 @@ if.end59:                                         ; preds = %lor.lhs.false
   br i1 %call6.i, label %land.lhs.true, label %if.end76
 
 land.lhs.true:                                    ; preds = %if.end59
-  %living_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %33, i64 0, i32 3
+  %living_thread_count_.i = getelementptr inbounds i8, ptr %33, i64 56
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
-  %living_count_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %33, i64 0, i32 3, i32 2
+  %living_count_.i.i = getelementptr inbounds i8, ptr %33, i64 72
   %38 = load i64, ptr %living_count_.i.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
           to label %_ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit unwind label %terminate.lpad.i.i21
@@ -3343,7 +3285,7 @@ terminate.lpad.i.i21:                             ; preds = %land.lhs.true
 
 _ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit: ; preds = %land.lhs.true
   %41 = load ptr, ptr %this, align 8
-  %reserve_threads_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %41, i64 0, i32 1
+  %reserve_threads_.i = getelementptr inbounds i8, ptr %41, i64 16
   %42 = load i64, ptr %reserve_threads_.i, align 8
   %cmp67 = icmp ugt i64 %38, %42
   br i1 %cmp67, label %land.rhs, label %if.end76
@@ -3360,7 +3302,7 @@ land.rhs.if.end76_crit_edge:                      ; preds = %land.rhs
 
 if.end76:                                         ; preds = %land.rhs.if.end76_crit_edge, %_ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit, %if.end59
   %43 = phi ptr [ %.pre, %land.rhs.if.end76_crit_edge ], [ %41, %_ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit ], [ %33, %if.end59 ]
-  %forking_.i14 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %43, i64 0, i32 7
+  %forking_.i14 = getelementptr inbounds i8, ptr %43, i64 225
   %44 = load atomic i8, ptr %forking_.i14 monotonic, align 1
   %45 = and i8 %44, 1
   %tobool.i.i.i15.not = icmp eq i8 %45, 0
@@ -3370,7 +3312,7 @@ while.end:                                        ; preds = %if.end76, %if.end31
   %46 = phi ptr [ %14, %if.end10 ], [ %.pre61.pre, %if.end24 ], [ %.pre61.pre62, %while.body ], [ %33, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ %33, %lor.lhs.false ], [ %.pre61.pre, %if.end31 ], [ %43, %if.end76 ]
   %should_run_again.0 = phi i1 [ false, %if.end10 ], [ true, %if.end24 ], [ true, %while.body ], [ false, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ false, %lor.lhs.false ], [ false, %if.end31 ], [ false, %if.end76 ]
   %closure.1 = phi ptr [ null, %if.end10 ], [ %call28, %if.end24 ], [ %call21, %while.body ], [ null, %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit ], [ null, %lor.lhs.false ], [ null, %if.end31 ], [ null, %if.end76 ]
-  %forking_.i23 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %46, i64 0, i32 7
+  %forking_.i23 = getelementptr inbounds i8, ptr %46, i64 225
   %47 = load atomic i8, ptr %forking_.i23 monotonic, align 1
   %48 = and i8 %47, 1
   %tobool.i.i.i24.not = icmp eq i8 %48, 0
@@ -3383,7 +3325,7 @@ if.then80:                                        ; preds = %while.end
 if.then82:                                        ; preds = %if.then80
   %49 = load ptr, ptr %3, align 8
   %vtable83 = load ptr, ptr %49, align 8
-  %vfn84 = getelementptr inbounds ptr, ptr %vtable83, i64 6
+  %vfn84 = getelementptr inbounds i8, ptr %vtable83, i64 48
   %50 = load ptr, ptr %vfn84, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull %closure.1)
   br label %return
@@ -3392,14 +3334,14 @@ if.end86:                                         ; preds = %while.end
   br i1 %cmp87.not, label %if.end98, label %if.then88
 
 if.then88:                                        ; preds = %if.end86
-  %busy_thread_count_.i25 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %46, i64 0, i32 2
-  %busy_count_idx_93 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 3
+  %busy_thread_count_.i25 = getelementptr inbounds i8, ptr %46, i64 24
+  %busy_count_idx_93 = getelementptr inbounds i8, ptr %this, i64 360
   %51 = load i64, ptr %busy_count_idx_93, align 8
   %52 = load ptr, ptr %busy_thread_count_.i25, align 8, !noalias !60
   %add.ptr.i.i.i.i27 = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %52, i64 %51
   %53 = atomicrmw add ptr %add.ptr.i.i.i.i27, i64 1 monotonic, align 8, !noalias !60
   %vtable94 = load ptr, ptr %closure.1, align 8
-  %vfn95 = getelementptr inbounds ptr, ptr %vtable94, i64 2
+  %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 16
   %54 = load ptr, ptr %vfn95, align 8
   invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %closure.1)
           to label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit32 unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit37
@@ -3416,7 +3358,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
   br label %common.resume.sink.split
 
 if.end98:                                         ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit32, %if.end86
-  %backoff_99 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 2
+  %backoff_99 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_99)
   br label %return
 
@@ -3429,14 +3371,14 @@ return:                                           ; preds = %land.rhs, %if.then8
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState14FinishDrainingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %busy_thread_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 2
-  %busy_count_idx_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %this, i64 0, i32 3
+  %busy_thread_count_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %busy_count_idx_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load i64, ptr %busy_count_idx_, align 8
   %2 = load ptr, ptr %busy_thread_count_.i, align 8, !noalias !63
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %2, i64 %1
   %3 = atomicrmw add ptr %add.ptr.i.i.i.i, i64 1 monotonic, align 8, !noalias !63
   %4 = load ptr, ptr %this, align 8
-  %forking_.i11 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %4, i64 0, i32 7
+  %forking_.i11 = getelementptr inbounds i8, ptr %4, i64 225
   %5 = load atomic i8, ptr %forking_.i11 monotonic, align 1
   %6 = and i8 %5, 1
   %tobool.i.i.i.not12 = icmp eq i8 %6, 0
@@ -3449,7 +3391,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %8 = load ptr, ptr %7, align 8
   %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %invoke.cont unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit
@@ -3460,7 +3402,7 @@ invoke.cont:                                      ; preds = %while.body
 if.then:                                          ; preds = %invoke.cont
   %10 = load ptr, ptr %7, align 8
   %vtable7 = load ptr, ptr %10, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 4
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 32
   %11 = load ptr, ptr %vfn8, align 8
   %call10 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %invoke.cont9 unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit
@@ -3479,7 +3421,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
 
 while.cond.backedge:                              ; preds = %if.then35.invoke, %invoke.cont32, %invoke.cont9
   %15 = load ptr, ptr %this, align 8
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %15, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %15, i64 225
   %16 = load atomic i8, ptr %forking_.i monotonic, align 1
   %17 = and i8 %16, 1
   %tobool.i.i.i.not = icmp eq i8 %17, 0
@@ -3487,9 +3429,9 @@ while.cond.backedge:                              ; preds = %if.then35.invoke, %
 
 if.end15:                                         ; preds = %invoke.cont
   %18 = load ptr, ptr %this, align 8
-  %queue_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %18, i64 0, i32 5
+  %queue_.i = getelementptr inbounds i8, ptr %18, i64 120
   %vtable20 = load ptr, ptr %queue_.i, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 2
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 16
   %19 = load ptr, ptr %vfn21, align 8
   %call23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i)
           to label %invoke.cont22 unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit
@@ -3499,9 +3441,9 @@ invoke.cont22:                                    ; preds = %if.end15
 
 if.then24:                                        ; preds = %invoke.cont22
   %20 = load ptr, ptr %this, align 8
-  %queue_.i3 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %20, i64 0, i32 5
+  %queue_.i3 = getelementptr inbounds i8, ptr %20, i64 120
   %vtable30 = load ptr, ptr %queue_.i3, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 4
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 32
   %21 = load ptr, ptr %vfn31, align 8
   %call33 = invoke noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %queue_.i3)
           to label %invoke.cont32 unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit
@@ -3513,7 +3455,7 @@ invoke.cont32:                                    ; preds = %if.then24
 if.then35.invoke:                                 ; preds = %invoke.cont32, %invoke.cont9
   %call10.sink = phi ptr [ %call10, %invoke.cont9 ], [ %call33, %invoke.cont32 ]
   %vtable12 = load ptr, ptr %call10.sink, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 2
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 16
   %22 = load ptr, ptr %vfn13, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %call10.sink)
           to label %while.cond.backedge unwind label %_ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exit
@@ -3529,7 +3471,7 @@ _ZN17grpc_event_engine12experimental15BusyThreadCount17AutoThreadCounterD2Ev.exi
 define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState14SleepIfRunningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %forking_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %0, i64 0, i32 7
+  %forking_.i = getelementptr inbounds i8, ptr %0, i64 225
   %1 = load atomic i8, ptr %forking_.i monotonic, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
@@ -3559,7 +3501,7 @@ invoke.cont3:
   %ticks.lobit.i.i.i = ashr i64 %mul2.i.i, 63
   %sub.pn.i.i.i = add nsw i64 %ticks.lobit.i.i.i, %div.i.i
   %conv.i.pn.i.i.i = select i1 %cmp.i.i.i, i32 %conv.i.i.i.i, i32 %0
-  %cv_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkSignal", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
   %call6 = invoke noundef zeroext i1 @_ZN4absl12lts_202308027CondVar15WaitWithTimeoutEPNS0_5MutexENS0_8DurationE(ptr noundef nonnull align 8 dereferenceable(8) %cv_, ptr noundef nonnull %this, i64 %sub.pn.i.i.i, i32 %conv.i.pn.i.i.i)
           to label %invoke.cont5 unwind label %lpad
 
@@ -3610,8 +3552,8 @@ entry:
 define linkonce_odr void @_ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev(ptr noundef nonnull align 16 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %dest_cb_ = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 3
-  %invoker_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 2
+  %dest_cb_ = getelementptr inbounds i8, ptr %this, i64 48
+  %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %invoker_.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
@@ -3621,11 +3563,11 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %manager_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %1(i1 noundef zeroext true, ptr noundef nonnull %dest_cb_, ptr noundef nonnull %dest_cb_) #23
-  %cb_ = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 2
-  %manager_.i.i.i2 = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %cb_ = getelementptr inbounds i8, ptr %this, i64 16
+  %manager_.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %manager_.i.i.i2, align 16
   tail call void %2(i1 noundef zeroext true, ptr noundef nonnull %cb_, ptr noundef nonnull %cb_) #23
   ret void
@@ -3642,8 +3584,8 @@ terminate.lpad:                                   ; preds = %if.then
 define linkonce_odr void @_ZN17grpc_event_engine12experimental19SelfDeletingClosureD0Ev(ptr noundef nonnull align 16 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %dest_cb_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 3
-  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 2
+  %dest_cb_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %invoker_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit, label %if.then.i
@@ -3660,11 +3602,11 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit: ; preds = %entry, %if.then.i
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
+  %manager_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %manager_.i.i.i.i, align 16
   tail call void %3(i1 noundef zeroext true, ptr noundef nonnull %dest_cb_.i, ptr noundef nonnull %dest_cb_.i) #23
-  %cb_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 2
-  %manager_.i.i.i2.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %cb_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %manager_.i.i.i2.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %manager_.i.i.i2.i, align 16
   tail call void %4(i1 noundef zeroext true, ptr noundef nonnull %cb_.i, ptr noundef nonnull %cb_.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -3674,12 +3616,12 @@ _ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit: ; preds = %e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental19SelfDeletingClosure3RunEv(ptr noundef nonnull align 16 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %cb_ = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 2
-  %invoker_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::SelfDeletingClosure", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 2
+  %cb_ = getelementptr inbounds i8, ptr %this, i64 16
+  %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %invoker_.i.i, align 8
   tail call void %0(ptr noundef nonnull %cb_)
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 16 dereferenceable(80) %this) #23
   ret void
@@ -3713,15 +3655,15 @@ declare void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 der
 define internal void @"_ZZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11StartThreadEvEN3$_08__invokeEPv"(ptr noundef nonnull %arg) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadState10ThreadBodyEv(ptr noundef nonnull align 8 dereferenceable(368) %arg)
-  %auto_thread_counter_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::ThreadState", ptr %arg, i64 0, i32 1
+  %auto_thread_counter_.i.i = getelementptr inbounds i8, ptr %arg, i64 16
   tail call void @_ZN17grpc_event_engine12experimental17LivingThreadCount17AutoThreadCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %auto_thread_counter_.i.i) #23
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %arg, i64 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %"_ZZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11StartThreadEvENK3$_0clEPv.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3729,10 +3671,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -3758,10 +3700,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -3783,7 +3725,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   br label %"_ZZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl11StartThreadEvENK3$_0clEPv.exit"
@@ -3826,7 +3768,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(648) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %_M_impl.i) #23
   ret void
 }
@@ -3841,12 +3783,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12expe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3873,13 +3815,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lifeguard_is_shut_down_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12, i32 3
+  %lifeguard_is_shut_down_.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %lifeguard_is_shut_down_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i: ; preds = %entry
-  %cv_.i.i.i.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %0, i64 0, i32 1
+  %cv_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
@@ -3887,13 +3829,13 @@ _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i: ; preds = %e
 
 _ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %lifeguard_is_shut_down_.i, align 8
-  %lifeguard_should_shut_down_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 12, i32 2
+  %lifeguard_should_shut_down_.i = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load ptr, ptr %lifeguard_should_shut_down_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardD2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i2.i
 
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i2.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i
-  %cv_.i.i.i3.i = getelementptr inbounds %"class.grpc_core::Notification", ptr %1, i64 0, i32 1
+  %cv_.i.i.i3.i = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i3.i) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #23
   tail call void @_ZdlPv(ptr noundef nonnull %1) #22
@@ -3901,23 +3843,23 @@ _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i2.i: ; preds = %
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i2.i
   store ptr null, ptr %lifeguard_should_shut_down_.i, align 8
-  %work_signal_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11
-  %cv_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 11, i32 1
+  %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_) #23
-  %queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental14BasicWorkQueueE, i64 0, inrange i32 0, i64 2), ptr %queue_, align 8
-  %q_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5, i32 2
+  %q_.i = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load ptr, ptr %q_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardD2Ev.exit
-  %_M_node5.i.i6.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %3, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
 
@@ -3925,7 +3867,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %3, %if.then.i.i.i ]
   %5 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #22
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !25
 
@@ -3939,16 +3881,16 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   br label %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit
 
 _ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit: ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardD2Ev.exit, %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
-  %mu_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 5, i32 1
+  %mu_.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i) #23
-  %theft_registry_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 4
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %theft_registry_ = getelementptr inbounds i8, ptr %this, i64 80
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %tobool.not.i.i.i1 = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i.i1, label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev.exit, label %invoke.cont15.i.i.i
 
 invoke.cont15.i.i.i:                              ; preds = %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit
-  %queues_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 4, i32 1
+  %queues_.i = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load ptr, ptr %queues_.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i) #22
@@ -3956,11 +3898,11 @@ invoke.cont15.i.i.i:                              ; preds = %_ZN17grpc_event_eng
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev.exit: ; preds = %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit, %invoke.cont15.i.i.i
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %theft_registry_) #23
-  %living_thread_count_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 3
-  %cv_.i2 = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 3, i32 1
+  %living_thread_count_ = getelementptr inbounds i8, ptr %this, i64 56
+  %cv_.i2 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i2) #23
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_) #23
-  %busy_thread_count_ = getelementptr inbounds %"class.grpc_event_engine::experimental::WorkStealingThreadPool::WorkStealingThreadPoolImpl", ptr %this, i64 0, i32 2
+  %busy_thread_count_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %busy_thread_count_, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit, label %if.then.i.i.i.i
@@ -3970,13 +3912,13 @@ if.then.i.i.i.i:                                  ; preds = %_ZN17grpc_event_eng
   br label %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit
 
 _ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit: ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev.exit, %if.then.i.i.i.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt23enable_shared_from_thisIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit, label %if.then.i.i.i.i3
 
 if.then.i.i.i.i3:                                 ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3998,7 +3940,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
   br label %_ZNSt23enable_shared_from_thisIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev.exit
@@ -4029,13 +3971,13 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %land.rhs
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i10 = icmp ugt i64 %4, 16
   br i1 %cmp.i10, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.then13
-  %compressed_tuple_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %mul.i11 = shl i64 %5, 5
   %mul3.i = mul i64 %4, 25
@@ -4063,7 +4005,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
   %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
   %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN17grpc_event_engine12experimental9WorkQueueEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
-  %compressed_tuple_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
   store i64 %add, ptr %compressed_tuple_.i, align 8
@@ -4077,7 +4019,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
   store i64 %sub, ptr %add.ptr.i.i.i13, align 8
   %11 = trunc i64 %hash to i8
   %conv.i = and i8 %11, 127
-  %capacity_.i.i.i16 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %capacity_.i.i.i16, align 8
   %13 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %target.sroa.0.0
@@ -4102,9 +4044,9 @@ define linkonce_odr void @_ZN4absl12lts_2023080218container_internal12raw_hash_s
 entry:
   %agg.tmp.i = alloca %"class.std::allocator.40", align 1
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %slots_.i.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
@@ -4143,7 +4085,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %new_capacity
   store i8 -1, ptr %arrayidx.i.i.i, align 1
   %div2.i.i.i.i.i = lshr i64 %new_capacity, 3
-  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %compressed_tuple_.i.i.i.i.i, align 8
   %5 = add i64 %div2.i.i.i.i.i, %4
   %sub.i.i20.i.i = sub i64 %new_capacity, %5

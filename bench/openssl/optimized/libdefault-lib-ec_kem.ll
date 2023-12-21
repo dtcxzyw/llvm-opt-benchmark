@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.OSSL_HPKE_KEM_INFO = type { i16, ptr, ptr, ptr, i64, i64, i64, i64, i8 }
-%struct.PROV_EC_CTX = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i64, ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"HKDF\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"../openssl/providers/implementations/kem/ec_kem.c\00", align 1
@@ -57,7 +55,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %mdname = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call1, i64 0, i32 3
+  %mdname = getelementptr inbounds i8, ptr %call1, i64 24
   %0 = load ptr, ptr %mdname, align 8
   %call5 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef %ec) #5
   %call6 = tail call ptr @ossl_ec_key_get0_propq(ptr noundef %ec) #5
@@ -66,7 +64,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end4
-  %Nsecret = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call1, i64 0, i32 4
+  %Nsecret = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load i64, ptr %Nsecret, align 8
   %cmp11 = icmp ugt i64 %1, %ikmlen
   br i1 %cmp11, label %if.then12, label %if.end14
@@ -84,7 +82,7 @@ if.end14:                                         ; preds = %if.end10
   %conv15 = trunc i16 %4 to i8
   store i8 %conv15, ptr %suiteid, align 1
   %conv18 = trunc i16 %3 to i8
-  %arrayidx19 = getelementptr inbounds [2 x i8], ptr %suiteid, i64 0, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %suiteid, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
   %call22 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call7, ptr noundef nonnull %prk, i64 noundef %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid, i64 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %ikm, i64 noundef %ikmlen) #5
   %tobool.not = icmp eq i32 %call22, 0
@@ -93,7 +91,7 @@ if.end14:                                         ; preds = %if.end10
 if.end24:                                         ; preds = %if.end14
   %call25 = call ptr @EC_KEY_get0_group(ptr noundef %ec) #5
   %call26 = call ptr @EC_GROUP_get0_order(ptr noundef %call25) #5
-  %Nsk = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call1, i64 0, i32 7
+  %Nsk = getelementptr inbounds i8, ptr %call1, i64 56
   %5 = load i64, ptr %Nsk, align 8
   %6 = load i64, ptr %Nsecret, align 8
   %call3123 = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %call7, ptr noundef nonnull %privbuf, i64 noundef %5, ptr noundef nonnull %prk, i64 noundef %6, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid, i64 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %counter, i64 noundef 1) #5
@@ -101,7 +99,7 @@ if.end24:                                         ; preds = %if.end14
   br i1 %tobool32.not24, label %err, label %if.end34.lr.ph
 
 if.end34.lr.ph:                                   ; preds = %if.end24
-  %bitmask = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call1, i64 0, i32 8
+  %bitmask = getelementptr inbounds i8, ptr %call1, i64 64
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34.lr.ph, %do.body.backedge
@@ -198,7 +196,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #5
-  %libctx = getelementptr inbounds %struct.PROV_EC_CTX, ptr %call, i64 0, i32 2
+  %libctx = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %libctx, align 8
   br label %return
 
@@ -219,7 +217,7 @@ entry:
   %tmpbuf.i.i = alloca [66 x i8], align 16
   %sender_pub.i = alloca [133 x i8], align 16
   %recipient_pub.i = alloca [133 x i8], align 16
-  %mode = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 4
+  %mode = getelementptr inbounds i8, ptr %vctx, i64 32
   %0 = load i32, ptr %mode, align 8
   %cond = icmp eq i32 %0, 1
   br i1 %cond, label %sw.bb, label %sw.default
@@ -227,7 +225,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %sender_pub.i)
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %recipient_pub.i)
-  %info1.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 9
+  %info1.i = getelementptr inbounds i8, ptr %vctx, i64 64
   %1 = load ptr, ptr %info1.i, align 8
   %cmp.i = icmp eq ptr %out, null
   br i1 %cmp.i, label %if.then.i, label %if.end11.i
@@ -242,7 +240,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp2.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %Nenc.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 5
+  %Nenc.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %Nenc.i, align 8
   store i64 %2, ptr %outlen, align 8
   br label %if.end7.i
@@ -251,14 +249,14 @@ if.end7.i:                                        ; preds = %if.then6.i, %if.end
   br i1 %cmp3.i, label %dhkem_encap.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %Nsecret.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 4
+  %Nsecret.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %Nsecret.i, align 8
   store i64 %3, ptr %secretlen, align 8
   br label %dhkem_encap.exit
 
 if.end11.i:                                       ; preds = %sw.bb
   %4 = load i64, ptr %secretlen, align 8
-  %Nsecret12.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 4
+  %Nsecret12.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %Nsecret12.i, align 8
   %cmp13.i = icmp ult i64 %4, %5
   br i1 %cmp13.i, label %if.then14.i, label %if.end15.i
@@ -271,7 +269,7 @@ if.then14.i:                                      ; preds = %if.end11.i
 
 if.end15.i:                                       ; preds = %if.end11.i
   %6 = load i64, ptr %outlen, align 8
-  %Nenc16.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 5
+  %Nenc16.i = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load i64, ptr %Nenc16.i, align 8
   %cmp17.i = icmp ult i64 %6, %7
   br i1 %cmp17.i, label %if.then18.i, label %if.end19.i
@@ -283,14 +281,14 @@ if.then18.i:                                      ; preds = %if.end15.i
   br label %dhkem_encap.exit
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %ikm.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 6
+  %ikm.i = getelementptr inbounds i8, ptr %vctx, i64 40
   %8 = load ptr, ptr %ikm.i, align 8
-  %ikmlen.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 7
+  %ikmlen.i = getelementptr inbounds i8, ptr %vctx, i64 48
   %9 = load i64, ptr %ikmlen.i, align 8
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %tmpbuf.i.i)
-  %libctx.i.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 2
+  %libctx.i.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %10 = load ptr, ptr %libctx.i.i, align 8
-  %propq.i.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 3
+  %propq.i.i = getelementptr inbounds i8, ptr %vctx, i64 24
   %11 = load ptr, ptr %propq.i.i, align 8
   %call.i.i = tail call ptr @EC_KEY_new_ex(ptr noundef %10, ptr noundef %11) #5
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -316,7 +314,7 @@ err.thread22.i.i:                                 ; preds = %if.end4.i.i
 
 if.then7.i.i:                                     ; preds = %if.end4.i.i
   %14 = load ptr, ptr %info1.i, align 8
-  %Nsk.i.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %14, i64 0, i32 7
+  %Nsk.i.i = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load i64, ptr %Nsk.i.i, align 8
   %cmp8.i.i = icmp ugt i64 %15, 66
   br i1 %cmp8.i.i, label %derivekey.exit.i, label %if.end10.i.i
@@ -362,7 +360,7 @@ lor.lhs.false.i:                                  ; preds = %if.end22.i
   br i1 %cmp.i34.not.i, label %err.i, label %if.end28.i
 
 if.end28.i:                                       ; preds = %lor.lhs.false.i
-  %Npk.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 6
+  %Npk.i = getelementptr inbounds i8, ptr %1, i64 48
   %19 = load i64, ptr %Npk.i, align 8
   %cmp29.not.i = icmp eq i64 %call2.i29.i, %19
   %cmp31.not.i = icmp eq i64 %call2.i33.i, %call2.i29.i
@@ -377,7 +375,7 @@ if.then32.i:                                      ; preds = %if.end28.i
 
 if.end33.i:                                       ; preds = %if.end28.i
   %20 = load ptr, ptr %vctx, align 8
-  %sender_authkey.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 1
+  %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %21 = load ptr, ptr %sender_authkey.i, align 8
   %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef nonnull %recipient_pub.i), !range !7
   %tobool39.not.i = icmp eq i32 %call38.i, 0
@@ -424,29 +422,29 @@ entry:
 define internal i32 @eckem_decapsulate(ptr nocapture noundef readonly %vctx, ptr noundef %out, ptr nocapture noundef %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %recipient_pub.i = alloca [133 x i8], align 16
-  %mode = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 4
+  %mode = getelementptr inbounds i8, ptr %vctx, i64 32
   %0 = load i32, ptr %mode, align 8
   %cond = icmp eq i32 %0, 1
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %recipient_pub.i)
-  %info1.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 9
+  %info1.i = getelementptr inbounds i8, ptr %vctx, i64 64
   %1 = load ptr, ptr %info1.i, align 8
-  %Npk.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 6
+  %Npk.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load i64, ptr %Npk.i, align 8
   %cmp.i = icmp eq ptr %out, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %Nsecret.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 4
+  %Nsecret.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %Nsecret.i, align 8
   store i64 %3, ptr %outlen, align 8
   br label %dhkem_decap.exit
 
 if.end.i:                                         ; preds = %sw.bb
   %4 = load i64, ptr %outlen, align 8
-  %Nsecret2.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %1, i64 0, i32 4
+  %Nsecret2.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %Nsecret2.i, align 8
   %cmp3.i = icmp ult i64 %4, %5
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
@@ -510,7 +508,7 @@ if.then17.i:                                      ; preds = %if.end15.i
 
 if.end18.i:                                       ; preds = %if.end15.i
   %8 = load ptr, ptr %vctx, align 8
-  %sender_authkey.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 1
+  %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %9 = load ptr, ptr %sender_authkey.i, align 8
   %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef nonnull %recipient_pub.i), !range !7
   %tobool23.not.i = icmp eq i32 %call22.i, 0
@@ -546,15 +544,15 @@ return:                                           ; preds = %sw.default, %dhkem_
 ; Function Attrs: nounwind uwtable
 define internal void @eckem_freectx(ptr noundef %vectx) #0 {
 entry:
-  %ikm = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vectx, i64 0, i32 6
+  %ikm = getelementptr inbounds i8, ptr %vectx, i64 40
   %0 = load ptr, ptr %ikm, align 8
-  %ikmlen = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vectx, i64 0, i32 7
+  %ikmlen = getelementptr inbounds i8, ptr %vectx, i64 48
   %1 = load i64, ptr %ikmlen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 208) #5
   %2 = load ptr, ptr %vectx, align 8
   tail call void @EC_KEY_free(ptr noundef %2) #5
   store ptr null, ptr %vectx, align 8
-  %sender_authkey.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vectx, i64 0, i32 1
+  %sender_authkey.i = getelementptr inbounds i8, ptr %vectx, i64 8
   %3 = load ptr, ptr %sender_authkey.i, align 8
   tail call void @EC_KEY_free(ptr noundef %3) #5
   store ptr null, ptr %sender_authkey.i, align 8
@@ -578,13 +576,13 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   store ptr null, ptr %tmp, align 8
   store i64 0, ptr %tmplen, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %data_size, align 8
   %cmp4.not = icmp eq i64 %1, 0
   br i1 %cmp4.not, label %if.end9, label %if.then5
@@ -595,9 +593,9 @@ if.then5:                                         ; preds = %land.lhs.true
   br i1 %tobool.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %land.lhs.true, %if.then2
-  %ikm = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 6
+  %ikm = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load ptr, ptr %ikm, align 8
-  %ikmlen = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 7
+  %ikmlen = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load i64, ptr %ikmlen, align 8
   call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.1, i32 noundef 304) #5
   %4 = load ptr, ptr %tmp, align 8
@@ -612,20 +610,20 @@ if.end12:                                         ; preds = %if.end9, %if.end
   br i1 %cmp14.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call13, i64 8
   %6 = load i32, ptr %data_type, align 8
   %cmp16.not = icmp eq i32 %6, 4
   br i1 %cmp16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then15
-  %data19 = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 2
+  %data19 = getelementptr inbounds i8, ptr %call13, i64 16
   %7 = load ptr, ptr %data19, align 8
   %call20 = call i32 @ossl_eckem_modename2id(ptr noundef %7) #5
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %mode24 = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 4
+  %mode24 = getelementptr inbounds i8, ptr %vctx, i64 32
   store i32 %call20, ptr %mode24, align 8
   br label %return
 
@@ -692,7 +690,7 @@ if.then.i:                                        ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.then.i
   %call4.i = tail call ptr @ossl_HPKE_KEM_INFO_find_curve(ptr noundef nonnull %call2.i.i) #5
-  %info.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 9
+  %info.i = getelementptr inbounds i8, ptr %vctx, i64 64
   store ptr %call4.i, ptr %info.i, align 8
   %cmp6.i = icmp eq ptr %call4.i, null
   br i1 %cmp6.i, label %return, label %if.end8.i
@@ -704,7 +702,7 @@ if.end8.i:                                        ; preds = %if.end.i
 
 if.end11.i:                                       ; preds = %if.end8.i
   store ptr %vec, ptr %vctx, align 8
-  %kdfname.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 8
+  %kdfname.i = getelementptr inbounds i8, ptr %vctx, i64 56
   store ptr @.str, ptr %kdfname.i, align 8
   br label %if.end9
 
@@ -747,7 +745,7 @@ lor.lhs.false:                                    ; preds = %land.end.i
   br i1 %tobool18.not, label %return, label %if.then.i15
 
 if.then.i15:                                      ; preds = %lor.lhs.false
-  %sender_authkey.i = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 1
+  %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %sender_authkey.i, align 8
   tail call void @EC_KEY_free(ptr noundef %1) #5
   store ptr null, ptr %sender_authkey.i, align 8
@@ -760,7 +758,7 @@ sender_authkey_set.exit:                          ; preds = %if.then.i15
   br label %if.end24
 
 if.end24:                                         ; preds = %sender_authkey_set.exit, %if.end9
-  %op = getelementptr inbounds %struct.PROV_EC_CTX, ptr %vctx, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %vctx, i64 36
   store i32 %operation, ptr %op, align 4
   %call25 = tail call i32 @eckem_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !7
   br label %return
@@ -858,13 +856,13 @@ entry:
   %sender_authpub = alloca [133 x i8], align 16
   %dhkm = alloca [132 x i8], align 16
   %kemctx = alloca [399 x i8], align 16
-  %info1 = getelementptr inbounds %struct.PROV_EC_CTX, ptr %ctx, i64 0, i32 9
+  %info1 = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load ptr, ptr %info1, align 8
-  %Npk = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %0, i64 0, i32 6
+  %Npk = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i64, ptr %Npk, align 8
-  %Nsk = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %0, i64 0, i32 7
+  %Nsk = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i64, ptr %Nsk, align 8
-  %sender_authkey = getelementptr inbounds %struct.PROV_EC_CTX, ptr %ctx, i64 0, i32 1
+  %sender_authkey = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %sender_authkey, align 8
   %conv2 = trunc i64 %2 to i32
   %call = call fastcc i32 @generate_ecdhkm(ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef nonnull %dhkm, i64 noundef 132, i32 noundef %conv2), !range !7
@@ -930,20 +928,20 @@ if.then34:                                        ; preds = %if.end22.thread
 if.end39:                                         ; preds = %if.end26, %if.then34
   %dhkmlen.04149 = phi i64 [ %add, %if.then34 ], [ %2, %if.end26 ]
   %kemctxlen.04247 = phi i64 [ %add21, %if.then34 ], [ %mul, %if.end26 ]
-  %kdfname = getelementptr inbounds %struct.PROV_EC_CTX, ptr %ctx, i64 0, i32 8
+  %kdfname = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %kdfname, align 8
-  %mdname = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %0, i64 0, i32 3
+  %mdname = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %mdname, align 8
-  %libctx = getelementptr inbounds %struct.PROV_EC_CTX, ptr %ctx, i64 0, i32 2
+  %libctx = getelementptr inbounds i8, ptr %ctx, i64 16
   %9 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.PROV_EC_CTX, ptr %ctx, i64 0, i32 3
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 24
   %10 = load ptr, ptr %propq, align 8
   %call40 = call ptr @ossl_kdf_ctx_create(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #5
   %cmp41 = icmp eq ptr %call40, null
   br i1 %cmp41, label %err, label %if.end44
 
 if.end44:                                         ; preds = %if.end39
-  %Nsecret = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %0, i64 0, i32 4
+  %Nsecret = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i64, ptr %Nsecret, align 8
   %12 = load i16, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %suiteid.i)
@@ -961,7 +959,7 @@ if.end.i:                                         ; preds = %if.end44
   %conv1.i = trunc i16 %shr.i to i8
   store i8 %conv1.i, ptr %suiteid.i, align 1
   %conv4.i = trunc i16 %12 to i8
-  %arrayidx5.i = getelementptr inbounds [2 x i8], ptr %suiteid.i, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %suiteid.i, i64 1
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %call.i30 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call40, ptr noundef nonnull %prk.i, i64 noundef %11, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.04149) #5
   %tobool.not.i = icmp eq i32 %call.i30, 0

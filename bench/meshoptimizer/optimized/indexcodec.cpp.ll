@@ -47,9 +47,9 @@ for.body:                                         ; preds = %if.end, %for.inc
 if.end11:                                         ; preds = %for.body
   %arrayidx14 = getelementptr inbounds i32, ptr %indices, i64 %i.0314
   %2 = load i32, ptr %arrayidx14, align 4
-  %arrayidx16 = getelementptr i32, ptr %arrayidx14, i64 1
+  %arrayidx16 = getelementptr i8, ptr %arrayidx14, i64 4
   %3 = load i32, ptr %arrayidx16, align 4
-  %arrayidx18 = getelementptr i32, ptr %arrayidx14, i64 2
+  %arrayidx18 = getelementptr i8, ptr %arrayidx14, i64 8
   %4 = load i32, ptr %arrayidx18, align 4
   br label %for.body.i
 
@@ -60,7 +60,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end1
   %and.i = and i64 %sub1.i, 15
   %arrayidx.i = getelementptr inbounds [2 x i32], ptr %edgefifo, i64 %and.i
   %6 = load i32, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds [2 x i32], ptr %edgefifo, i64 %and.i, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %7 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.i = icmp eq i32 %6, %2
   %cmp6.i = icmp eq i32 %7, %3
@@ -114,12 +114,12 @@ if.then21:                                        ; preds = %_ZN7meshoptL11getEd
   %conv25 = zext i32 %11 to i64
   %arrayidx27 = getelementptr i32, ptr %arrayidx14, i64 %conv25
   %12 = load i32, ptr %arrayidx27, align 4
-  %arrayidx28 = getelementptr inbounds i32, ptr %arrayidx22, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %arrayidx22, i64 4
   %13 = load i32, ptr %arrayidx28, align 4
   %conv29 = zext i32 %13 to i64
   %arrayidx31 = getelementptr i32, ptr %arrayidx14, i64 %conv29
   %14 = load i32, ptr %arrayidx31, align 4
-  %arrayidx32 = getelementptr inbounds i32, ptr %arrayidx22, i64 2
+  %arrayidx32 = getelementptr inbounds i8, ptr %arrayidx22, i64 8
   %15 = load i32, ptr %arrayidx32, align 4
   %conv33 = zext i32 %15 to i64
   %arrayidx35 = getelementptr i32, ptr %arrayidx14, i64 %conv33
@@ -234,12 +234,12 @@ if.else:                                          ; preds = %for.inc.i, %_ZN7mes
   %conv86 = zext i32 %22 to i64
   %arrayidx88 = getelementptr i32, ptr %arrayidx14, i64 %conv86
   %23 = load i32, ptr %arrayidx88, align 4
-  %arrayidx90 = getelementptr inbounds i32, ptr %arrayidx82, i64 1
+  %arrayidx90 = getelementptr inbounds i8, ptr %arrayidx82, i64 4
   %24 = load i32, ptr %arrayidx90, align 4
   %conv91 = zext i32 %24 to i64
   %arrayidx93 = getelementptr i32, ptr %arrayidx14, i64 %conv91
   %25 = load i32, ptr %arrayidx93, align 4
-  %arrayidx95 = getelementptr inbounds i32, ptr %arrayidx82, i64 2
+  %arrayidx95 = getelementptr inbounds i8, ptr %arrayidx82, i64 8
   %26 = load i32, ptr %arrayidx95, align 4
   %conv96 = zext i32 %26 to i64
   %arrayidx98 = getelementptr i32, ptr %arrayidx14, i64 %conv96
@@ -656,7 +656,7 @@ if.then23:                                        ; preds = %if.end20
   %and27 = and i64 %sub26, 15
   %arrayidx28 = getelementptr inbounds [16 x [2 x i32]], ptr %edgefifo, i64 0, i64 %and27
   %3 = load i32, ptr %arrayidx28, align 8
-  %arrayidx35 = getelementptr inbounds [16 x [2 x i32]], ptr %edgefifo, i64 0, i64 %and27, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   %4 = load i32, ptr %arrayidx35, align 4
   %and37 = and i32 %conv21, 15
   %cmp38 = icmp ult i32 %and37, %cond
@@ -680,19 +680,19 @@ if.then.i:                                        ; preds = %if.then39
   %arrayidx.i = getelementptr inbounds i16, ptr %destination, i64 %i.0343
   store i16 %conv.i, ptr %arrayidx.i, align 2
   %conv1.i = trunc i32 %4 to i16
-  %arrayidx3.i = getelementptr i16, ptr %arrayidx.i, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %arrayidx.i, i64 2
   store i16 %conv1.i, ptr %arrayidx3.i, align 2
   %conv4.i = trunc i32 %cond46 to i16
-  %arrayidx6.i = getelementptr i16, ptr %arrayidx.i, i64 2
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx.i, i64 4
   store i16 %conv4.i, ptr %arrayidx6.i, align 2
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit
 
 if.else.i:                                        ; preds = %if.then39
   %arrayidx8.i = getelementptr inbounds i32, ptr %destination, i64 %i.0343
   store i32 %3, ptr %arrayidx8.i, align 4
-  %arrayidx10.i = getelementptr i32, ptr %arrayidx8.i, i64 1
+  %arrayidx10.i = getelementptr i8, ptr %arrayidx8.i, i64 4
   store i32 %4, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr i32, ptr %arrayidx8.i, i64 2
+  %arrayidx12.i = getelementptr i8, ptr %arrayidx8.i, i64 8
   store i32 %cond46, ptr %arrayidx12.i, align 4
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit
 
@@ -766,19 +766,19 @@ if.then.i115:                                     ; preds = %cond.end59
   %arrayidx.i117 = getelementptr inbounds i16, ptr %destination, i64 %i.0343
   store i16 %conv.i116, ptr %arrayidx.i117, align 2
   %conv1.i118 = trunc i32 %4 to i16
-  %arrayidx3.i119 = getelementptr i16, ptr %arrayidx.i117, i64 1
+  %arrayidx3.i119 = getelementptr i8, ptr %arrayidx.i117, i64 2
   store i16 %conv1.i118, ptr %arrayidx3.i119, align 2
   %conv4.i120 = trunc i32 %cond60 to i16
-  %arrayidx6.i121 = getelementptr i16, ptr %arrayidx.i117, i64 2
+  %arrayidx6.i121 = getelementptr i8, ptr %arrayidx.i117, i64 4
   store i16 %conv4.i120, ptr %arrayidx6.i121, align 2
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit122
 
 if.else.i111:                                     ; preds = %cond.end59
   %arrayidx8.i112 = getelementptr inbounds i32, ptr %destination, i64 %i.0343
   store i32 %3, ptr %arrayidx8.i112, align 4
-  %arrayidx10.i113 = getelementptr i32, ptr %arrayidx8.i112, i64 1
+  %arrayidx10.i113 = getelementptr i8, ptr %arrayidx8.i112, i64 4
   store i32 %4, ptr %arrayidx10.i113, align 4
-  %arrayidx12.i114 = getelementptr i32, ptr %arrayidx8.i112, i64 2
+  %arrayidx12.i114 = getelementptr i8, ptr %arrayidx8.i112, i64 8
   store i32 %cond60, ptr %arrayidx12.i114, align 4
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit122
 
@@ -826,19 +826,19 @@ if.then.i139:                                     ; preds = %if.then68
   %arrayidx.i141 = getelementptr inbounds i16, ptr %destination, i64 %i.0343
   store i16 %conv.i140, ptr %arrayidx.i141, align 2
   %conv1.i142 = trunc i32 %cond87 to i16
-  %arrayidx3.i143 = getelementptr i16, ptr %arrayidx.i141, i64 1
+  %arrayidx3.i143 = getelementptr i8, ptr %arrayidx.i141, i64 2
   store i16 %conv1.i142, ptr %arrayidx3.i143, align 2
   %conv4.i144 = trunc i32 %cond101 to i16
-  %arrayidx6.i145 = getelementptr i16, ptr %arrayidx.i141, i64 2
+  %arrayidx6.i145 = getelementptr i8, ptr %arrayidx.i141, i64 4
   store i16 %conv4.i144, ptr %arrayidx6.i145, align 2
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit146
 
 if.else.i135:                                     ; preds = %if.then68
   %arrayidx8.i136 = getelementptr inbounds i32, ptr %destination, i64 %i.0343
   store i32 %next.0347, ptr %arrayidx8.i136, align 4
-  %arrayidx10.i137 = getelementptr i32, ptr %arrayidx8.i136, i64 1
+  %arrayidx10.i137 = getelementptr i8, ptr %arrayidx8.i136, i64 4
   store i32 %cond87, ptr %arrayidx10.i137, align 4
-  %arrayidx12.i138 = getelementptr i32, ptr %arrayidx8.i136, i64 2
+  %arrayidx12.i138 = getelementptr i8, ptr %arrayidx8.i136, i64 8
   store i32 %cond101, ptr %arrayidx12.i138, align 4
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit146
 
@@ -1064,19 +1064,19 @@ if.then.i253:                                     ; preds = %if.end168
   %arrayidx.i255 = getelementptr inbounds i16, ptr %destination, i64 %i.0343
   store i16 %conv.i254, ptr %arrayidx.i255, align 2
   %conv1.i256 = trunc i32 %b135.0 to i16
-  %arrayidx3.i257 = getelementptr i16, ptr %arrayidx.i255, i64 1
+  %arrayidx3.i257 = getelementptr i8, ptr %arrayidx.i255, i64 2
   store i16 %conv1.i256, ptr %arrayidx3.i257, align 2
   %conv4.i258 = trunc i32 %c146.0 to i16
-  %arrayidx6.i259 = getelementptr i16, ptr %arrayidx.i255, i64 2
+  %arrayidx6.i259 = getelementptr i8, ptr %arrayidx.i255, i64 4
   store i16 %conv4.i258, ptr %arrayidx6.i259, align 2
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit260
 
 if.else.i249:                                     ; preds = %if.end168
   %arrayidx8.i250 = getelementptr inbounds i32, ptr %destination, i64 %i.0343
   store i32 %a128.0, ptr %arrayidx8.i250, align 4
-  %arrayidx10.i251 = getelementptr i32, ptr %arrayidx8.i250, i64 1
+  %arrayidx10.i251 = getelementptr i8, ptr %arrayidx8.i250, i64 4
   store i32 %b135.0, ptr %arrayidx10.i251, align 4
-  %arrayidx12.i252 = getelementptr i32, ptr %arrayidx8.i250, i64 2
+  %arrayidx12.i252 = getelementptr i8, ptr %arrayidx8.i250, i64 8
   store i32 %c146.0, ptr %arrayidx12.i252, align 4
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit260
 

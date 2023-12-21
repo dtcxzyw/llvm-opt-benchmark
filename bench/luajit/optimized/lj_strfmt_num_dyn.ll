@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/lj_strfmt_num_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.MRef = type { i64 }
-
 @.str = private unnamed_addr constant [19 x i8] c"0123456789ABCDEFPX\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"0123456789abcdefpx\00", align 1
 @rescale_e = internal unnamed_addr constant [32 x i16] [i16 -308, i16 -289, i16 -270, i16 -250, i16 -231, i16 -212, i16 -193, i16 -173, i16 -154, i16 -135, i16 -115, i16 -96, i16 -77, i16 -58, i16 -38, i16 0, i16 0, i16 0, i16 39, i16 58, i16 77, i16 96, i16 116, i16 135, i16 154, i16 174, i16 193, i16 212, i16 231, i16 251, i16 270, i16 289], align 16
@@ -90,7 +87,7 @@ if.end30.thread:                                  ; preds = %if.else19, %if.else
 
 if.then34:                                        ; preds = %3
   %cond37 = tail call i32 @llvm.umax.i32(i32 %and, i32 %4)
-  %e.i909 = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
+  %e.i909 = getelementptr inbounds i8, ptr %sb, i64 8
   %5 = load ptr, ptr %e.i909, align 8
   %6 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i910 = ptrtoint ptr %5 to i64
@@ -278,7 +275,7 @@ if.end139:                                        ; preds = %cond.true120, %cond
 
 if.then158:                                       ; preds = %if.end139
   %cond164 = tail call i32 @llvm.umax.i32(i32 %and, i32 %add156)
-  %e.i893 = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
+  %e.i893 = getelementptr inbounds i8, ptr %sb, i64 8
   %16 = load ptr, ptr %e.i893, align 8
   %17 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i894 = ptrtoint ptr %16 to i64
@@ -541,7 +538,7 @@ if.end341:                                        ; preds = %for.end.i
   br i1 %cmp342, label %if.then344, label %if.else347.if.then.i528_crit_edge
 
 if.end341.thread1194:                             ; preds = %for.end.i
-  %arrayidx17.i = getelementptr inbounds i32, ptr %nd, i64 1
+  %arrayidx17.i = getelementptr inbounds i8, ptr %nd, i64 4
   store i32 %conv9.i, ptr %arrayidx17.i, align 4
   %e238.21196 = add nsw i32 %e238.2.in, -1075
   %cmp3421197 = icmp sgt i32 %e238.2.in, 1074
@@ -964,21 +961,21 @@ if.then385:                                       ; preds = %if.end377
   %mul397 = shl nsw i32 %add396, 1
   %idx.ext398 = sext i32 %mul397 to i64
   %add.ptr399 = getelementptr inbounds i8, ptr @four_ulp_m_e, i64 %idx.ext398
-  %arrayidx402 = getelementptr inbounds [64 x i32], ptr %nd, i64 0, i64 33
+  %arrayidx402 = getelementptr inbounds i8, ptr %nd, i64 132
   store i32 %76, ptr %arrayidx402, align 4
   %sub403 = add i32 %ndhi.5, 63
   %and404 = and i32 %sub403, 63
   %idxprom405 = zext nneg i32 %and404 to i64
   %arrayidx406 = getelementptr inbounds [64 x i32], ptr %nd, i64 0, i64 %idxprom405
   %81 = load i32, ptr %arrayidx406, align 4
-  %arrayidx407 = getelementptr inbounds [64 x i32], ptr %nd, i64 0, i64 32
+  %arrayidx407 = getelementptr inbounds i8, ptr %nd, i64 128
   store i32 %81, ptr %arrayidx407, align 16
   %sub408 = add i32 %ndhi.5, 62
   %and409 = and i32 %sub408, 63
   %idxprom410 = zext nneg i32 %and409 to i64
   %arrayidx411 = getelementptr inbounds [64 x i32], ptr %nd, i64 0, i64 %idxprom410
   %82 = load i32, ptr %arrayidx411, align 4
-  %arrayidx412 = getelementptr inbounds [64 x i32], ptr %nd, i64 0, i64 31
+  %arrayidx412 = getelementptr inbounds i8, ptr %nd, i64 124
   store i32 %82, ptr %arrayidx412, align 4
   %83 = load i8, ptr %add.ptr399, align 2
   %arrayidx414 = getelementptr inbounds i8, ptr %add.ptr399, i64 1
@@ -1600,7 +1597,7 @@ if.end529:                                        ; preds = %if.end525, %land.rh
 if.then551:                                       ; preds = %if.end529
   %cond557 = tail call i32 @llvm.umax.i32(i32 %and, i32 %add549)
   %add558 = add i32 %cond557, 5
-  %e.i877 = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
+  %e.i877 = getelementptr inbounds i8, ptr %sb, i64 8
   %147 = load ptr, ptr %e.i877, align 8
   %148 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i878 = ptrtoint ptr %147 to i64
@@ -2162,7 +2159,7 @@ if.end737:                                        ; preds = %land.rhs711, %if.en
 if.then754:                                       ; preds = %if.end737
   %cond760 = tail call i32 @llvm.umax.i32(i32 %and, i32 %add752)
   %add761 = add i32 %cond760, 8
-  %e.i = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
+  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
   %225 = load ptr, ptr %e.i, align 8
   %226 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %225 to i64

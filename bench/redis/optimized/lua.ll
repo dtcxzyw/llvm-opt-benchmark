@@ -67,13 +67,13 @@ l_message.exit:                                   ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %entry
   store i32 %argc, ptr %s, align 8, !tbaa !8
-  %argv2 = getelementptr inbounds %struct.Smain, ptr %s, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %argv, ptr %argv2, align 8, !tbaa !11
   %call3 = call i32 @lua_cpcall(ptr noundef nonnull %call, ptr noundef nonnull @pmain, ptr noundef nonnull %s) #8
   %call4 = call fastcc i32 @report(ptr noundef nonnull %call, i32 noundef %call3)
   call void @lua_close(ptr noundef nonnull %call) #8
   %tobool = icmp ne i32 %call3, 0
-  %status5 = getelementptr inbounds %struct.Smain, ptr %s, i64 0, i32 2
+  %status5 = getelementptr inbounds i8, ptr %s, i64 16
   %4 = load i32, ptr %status5, align 8
   %tobool6 = icmp ne i32 %4, 0
   %5 = select i1 %tobool, i1 true, i1 %tobool6
@@ -97,7 +97,7 @@ declare i32 @lua_cpcall(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 define internal i32 @pmain(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef 1) #8
-  %argv1 = getelementptr inbounds %struct.Smain, ptr %call, i64 0, i32 1
+  %argv1 = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %argv1, align 8, !tbaa !11
   store ptr %L, ptr @globalL, align 8, !tbaa !4
   %1 = load ptr, ptr %0, align 8, !tbaa !4
@@ -122,7 +122,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp.i, label %handle_luainit.exit.thread, label %if.else.i
 
 handle_luainit.exit.thread:                       ; preds = %if.end
-  %status117 = getelementptr inbounds %struct.Smain, ptr %call, i64 0, i32 2
+  %status117 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %status117, align 8, !tbaa !13
   br label %if.end12
 
@@ -145,7 +145,7 @@ if.else5.i:                                       ; preds = %if.else.i
 
 handle_luainit.exit.thread120:                    ; preds = %if.else5.i, %if.then3.i
   %call4.i.i122 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef 1)
-  %status123 = getelementptr inbounds %struct.Smain, ptr %call, i64 0, i32 2
+  %status123 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 1, ptr %status123, align 8, !tbaa !13
   br label %cleanup
 
@@ -154,13 +154,13 @@ handle_luainit.exit:                              ; preds = %if.else5.i, %if.the
   %tobool3.i.i = icmp ne i32 %call2.i.i, 0
   %4 = zext i1 %tobool3.i.i to i32
   %call4.i.i = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %4)
-  %status = getelementptr inbounds %struct.Smain, ptr %call, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %4, ptr %status, align 8, !tbaa !13
   br i1 %tobool3.i.i, label %cleanup, label %if.end12
 
 if.end12:                                         ; preds = %handle_luainit.exit, %handle_luainit.exit.thread
   %status119 = phi ptr [ %status117, %handle_luainit.exit.thread ], [ %status, %handle_luainit.exit ]
-  %arrayidx84.i = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx84.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %arrayidx84.i, align 8, !tbaa !4
   %cmp.not85.i = icmp eq ptr %5, null
   br i1 %cmp.not85.i, label %cond.false, label %for.body.i

@@ -3,31 +3,28 @@ source_filename = "bench/openexr/original/internal_piz.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._exr_encode_pipeline = type { ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, ptr, ptr, i64, i64, ptr, i64, ptr, i64, i64, ptr, i64, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
-%struct.exr_chunk_info_t = type { i32, i32, i32, i32, i32, i8, i8, i8, i8, i64, i64, i64, i64, i64 }
 %struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
 %union.anon = type { ptr }
-%struct._exr_decode_pipeline = type { ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_exr_apply_piz(ptr noundef %encode) local_unnamed_addr #0 {
 entry:
   %nBytes = alloca i64, align 8
-  %compressed_buffer = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 15
+  %compressed_buffer = getelementptr inbounds i8, ptr %encode, i64 160
   %0 = load ptr, ptr %compressed_buffer, align 8
   %call = tail call i64 @internal_exr_huf_compress_spare_bytes() #5
-  %packed_bytes = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 8
+  %packed_bytes = getelementptr inbounds i8, ptr %encode, i64 104
   %1 = load i64, ptr %packed_bytes, align 8
   %div103 = lshr i64 %1, 1
-  %scratch_buffer_1 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 18
-  %scratch_alloc_size_1 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 19
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %encode, i64 184
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %encode, i64 192
   %call1 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %1) #5
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %scratch_buffer_2 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 20
-  %scratch_alloc_size_2 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 21
+  %scratch_buffer_2 = getelementptr inbounds i8, ptr %encode, i64 200
+  %scratch_alloc_size_2 = getelementptr inbounds i8, ptr %encode, i64 208
   %add = add i64 %call, 139264
   %call2 = tail call i32 @internal_encode_alloc_buffer(ptr noundef nonnull %encode, i32 noundef 4, ptr noundef nonnull %scratch_buffer_2, ptr noundef nonnull %scratch_alloc_size_2, i64 noundef %add) #5
   %cmp3.not = icmp eq i32 %call2, 0
@@ -37,16 +34,16 @@ if.end5:                                          ; preds = %if.end
   %2 = load ptr, ptr %scratch_buffer_2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %call
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 8192
-  %packed_buffer = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 7
-  %height = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 5, i32 3
+  %packed_buffer = getelementptr inbounds i8, ptr %encode, i64 96
+  %height = getelementptr inbounds i8, ptr %encode, i64 36
   %3 = load i32, ptr %height, align 4
   %cmp8129 = icmp sgt i32 %3, 0
   br i1 %cmp8129, label %for.body.lr.ph, label %for.end51
 
 for.body.lr.ph:                                   ; preds = %if.end5
   %4 = load ptr, ptr %packed_buffer, align 8
-  %start_y = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 5, i32 2
-  %channel_count = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 1
+  %start_y = getelementptr inbounds i8, ptr %encode, i64 32
+  %channel_count = getelementptr inbounds i8, ptr %encode, i64 8
   %.pre = load i16, ptr %channel_count, align 8
   br label %for.body
 
@@ -71,12 +68,13 @@ for.body15:                                       ; preds = %for.body15.preheade
   %scratch.0127 = phi ptr [ %9, %for.body15.preheader ], [ %scratch.1, %for.inc ]
   %packed.1126 = phi ptr [ %packed.0130, %for.body15.preheader ], [ %packed.2, %for.inc ]
   %11 = load ptr, ptr %encode, align 8
-  %width = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %11, i64 %indvars.iv, i32 2
+  %add.ptr16 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %11, i64 %indvars.iv
+  %width = getelementptr inbounds i8, ptr %add.ptr16, i64 12
   %12 = load i32, ptr %width, align 4
-  %height17 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %11, i64 %indvars.iv, i32 1
+  %height17 = getelementptr inbounds i8, ptr %add.ptr16, i64 8
   %13 = load i32, ptr %height17, align 8
   %conv18 = sext i32 %12 to i64
-  %bytes_per_element = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %11, i64 %indvars.iv, i32 6
+  %bytes_per_element = getelementptr inbounds i8, ptr %add.ptr16, i64 25
   %14 = load i8, ptr %bytes_per_element, align 1
   %conv19 = sext i8 %14 to i64
   %mul = mul nsw i64 %conv19, %conv18
@@ -88,7 +86,7 @@ for.body15:                                       ; preds = %for.body15.preheade
 
 if.end25:                                         ; preds = %for.body15
   %add.ptr26 = getelementptr inbounds i8, ptr %scratch.0127, i64 %mul21
-  %y_samples = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %11, i64 %indvars.iv, i32 4
+  %y_samples = getelementptr inbounds i8, ptr %add.ptr16, i64 20
   %15 = load i32, ptr %y_samples, align 4
   %cmp27 = icmp sgt i32 %15, 1
   br i1 %cmp27, label %if.then29, label %if.end43
@@ -254,7 +252,7 @@ if.then63:                                        ; preds = %applyLut.exit
 if.end73:                                         ; preds = %if.then63, %applyLut.exit
   %nOut.0 = phi i64 [ %35, %if.then63 ], [ 8, %applyLut.exit ]
   %out.0 = phi ptr [ %add.ptr71, %if.then63 ], [ %add.ptr57, %applyLut.exit ]
-  %channel_count77 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 1
+  %channel_count77 = getelementptr inbounds i8, ptr %encode, i64 8
   %36 = load i16, ptr %channel_count77, align 8
   %cmp79135 = icmp sgt i16 %36, 0
   %.pre152 = load ptr, ptr %scratch_buffer_1, align 8
@@ -269,11 +267,12 @@ for.body81:                                       ; preds = %for.body81.lr.ph, %
   %indvars.iv145 = phi i64 [ 0, %for.body81.lr.ph ], [ %indvars.iv.next146, %for.end100 ]
   %wavbuf.0136 = phi ptr [ %.pre152, %for.body81.lr.ph ], [ %add.ptr104, %for.end100 ]
   %38 = load ptr, ptr %encode, align 8
-  %width86 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %38, i64 %indvars.iv145, i32 2
+  %add.ptr85 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %38, i64 %indvars.iv145
+  %width86 = getelementptr inbounds i8, ptr %add.ptr85, i64 12
   %39 = load i32, ptr %width86, align 4
-  %height87 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %38, i64 %indvars.iv145, i32 1
+  %height87 = getelementptr inbounds i8, ptr %add.ptr85, i64 8
   %40 = load i32, ptr %height87, align 8
-  %bytes_per_element88 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %38, i64 %indvars.iv145, i32 6
+  %bytes_per_element88 = getelementptr inbounds i8, ptr %add.ptr85, i64 25
   %41 = load i8, ptr %bytes_per_element88, align 1
   %42 = sdiv i8 %41, 2
   %div90 = sext i8 %42 to i32
@@ -562,7 +561,7 @@ for.end107:                                       ; preds = %for.end107.loopexit
   %83 = phi ptr [ %.pre151, %for.end107.loopexit ], [ %.pre152, %if.end73 ]
   store i64 0, ptr %nBytes, align 8
   %add.ptr108 = getelementptr inbounds i8, ptr %out.0, i64 4
-  %compressed_alloc_size = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 17
+  %compressed_alloc_size = getelementptr inbounds i8, ptr %encode, i64 176
   %84 = load i64, ptr %compressed_alloc_size, align 8
   %sub110 = sub i64 %84, %nOut.0
   %call112 = call i32 @internal_huf_compress(ptr noundef nonnull %nBytes, ptr noundef nonnull %add.ptr108, i64 noundef %sub110, ptr noundef %83, i64 noundef %div103, ptr noundef %2, i64 noundef %call) #5
@@ -596,7 +595,7 @@ if.else128:                                       ; preds = %if.else122
 
 if.end132:                                        ; preds = %for.end107, %if.then126, %if.else128, %if.then118
   %nOut.1 = phi i64 [ %1, %if.then118 ], [ %add123, %if.then126 ], [ %1, %if.else128 ], [ %nOut.0, %for.end107 ]
-  %compressed_bytes = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 16
+  %compressed_bytes = getelementptr inbounds i8, ptr %encode, i64 168
   store i64 %nOut.1, ptr %compressed_bytes, align 8
   br label %return
 
@@ -618,15 +617,15 @@ declare i32 @internal_huf_compress(ptr noundef, ptr noundef, i64 noundef, ptr no
 define hidden i32 @internal_exr_undo_piz(ptr noundef %decode, ptr noundef %src, i64 noundef %packsz, ptr nocapture noundef writeonly %outptr, i64 noundef %outsz) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @internal_exr_huf_decompress_spare_bytes() #5
-  %scratch_buffer_1 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 15
-  %scratch_alloc_size_1 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 16
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %decode, i64 160
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %decode, i64 168
   %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %outsz) #5
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %scratch_buffer_2 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 17
-  %scratch_alloc_size_2 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 18
+  %scratch_buffer_2 = getelementptr inbounds i8, ptr %decode, i64 176
+  %scratch_alloc_size_2 = getelementptr inbounds i8, ptr %decode, i64 184
   %add = add i64 %call, 139264
   %call2 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 4, ptr noundef nonnull %scratch_buffer_2, ptr noundef nonnull %scratch_alloc_size_2, i64 noundef %add) #5
   %cmp3.not = icmp eq i32 %call2, 0
@@ -635,7 +634,7 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   %0 = load ptr, ptr %scratch_buffer_2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %call
-  %add.ptr7 = getelementptr inbounds i16, ptr %add.ptr, i64 65536
+  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 131072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %add.ptr7, i8 0, i64 8192, i1 false)
   %cmp8 = icmp ult i64 %packsz, 4
   br i1 %cmp8, label %return, label %if.end10
@@ -740,7 +739,7 @@ if.end54:                                         ; preds = %if.end45
   br i1 %cmp59.not, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.end54
-  %channel_count = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 1
+  %channel_count = getelementptr inbounds i8, ptr %decode, i64 8
   %8 = load i16, ptr %channel_count, align 8
   %cmp65118 = icmp sgt i16 %8, 0
   %.pre143 = load ptr, ptr %scratch_buffer_1, align 8
@@ -755,11 +754,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv136 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next137, %for.end ]
   %wavbuf.0119 = phi ptr [ %.pre143, %for.body.lr.ph ], [ %add.ptr80, %for.end ]
   %10 = load ptr, ptr %decode, align 8
-  %width = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %10, i64 %indvars.iv136, i32 2
+  %add.ptr68 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %10, i64 %indvars.iv136
+  %width = getelementptr inbounds i8, ptr %add.ptr68, i64 12
   %11 = load i32, ptr %width, align 4
-  %height = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %10, i64 %indvars.iv136, i32 1
+  %height = getelementptr inbounds i8, ptr %add.ptr68, i64 8
   %12 = load i32, ptr %height, align 8
-  %bytes_per_element = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %10, i64 %indvars.iv136, i32 6
+  %bytes_per_element = getelementptr inbounds i8, ptr %add.ptr68, i64 25
   %13 = load i8, ptr %bytes_per_element, align 1
   %14 = sdiv i8 %13, 2
   %div70 = sext i8 %14 to i32
@@ -1030,13 +1030,13 @@ for.body.i107:                                    ; preds = %for.end83, %for.bod
   br i1 %exitcond.not.i111, label %applyLut.exit, label %for.body.i107, !llvm.loop !10
 
 applyLut.exit:                                    ; preds = %for.body.i107, %for.end83
-  %height87 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 5, i32 3
+  %height87 = getelementptr inbounds i8, ptr %decode, i64 36
   %40 = load i32, ptr %height87, align 4
   %cmp88128 = icmp sgt i32 %40, 0
   br i1 %cmp88128, label %for.body90.lr.ph, label %for.end147
 
 for.body90.lr.ph:                                 ; preds = %applyLut.exit
-  %start_y = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 5, i32 2
+  %start_y = getelementptr inbounds i8, ptr %decode, i64 32
   %.pre144 = load i16, ptr %channel_count, align 8
   br label %for.body90
 
@@ -1063,10 +1063,11 @@ for.body100:                                      ; preds = %for.body100.prehead
   %nOut.1124 = phi i64 [ %nOut.0129, %for.body100.preheader ], [ %nOut.2, %for.inc142 ]
   %scratch.0123 = phi ptr [ %45, %for.body100.preheader ], [ %scratch.1, %for.inc142 ]
   %47 = load ptr, ptr %decode, align 8
-  %width105 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %47, i64 %indvars.iv139, i32 2
+  %add.ptr104 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %47, i64 %indvars.iv139
+  %width105 = getelementptr inbounds i8, ptr %add.ptr104, i64 12
   %48 = load i32, ptr %width105, align 4
   %conv108 = sext i32 %48 to i64
-  %bytes_per_element109 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %47, i64 %indvars.iv139, i32 6
+  %bytes_per_element109 = getelementptr inbounds i8, ptr %add.ptr104, i64 25
   %49 = load i8, ptr %bytes_per_element109, align 1
   %conv110 = sext i8 %49 to i64
   %mul111 = mul nsw i64 %conv110, %conv108
@@ -1074,12 +1075,12 @@ for.body100:                                      ; preds = %for.body100.prehead
   br i1 %cmp112, label %for.inc142, label %if.end115
 
 if.end115:                                        ; preds = %for.body100
-  %height106 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %47, i64 %indvars.iv139, i32 1
+  %height106 = getelementptr inbounds i8, ptr %add.ptr104, i64 8
   %50 = load i32, ptr %height106, align 8
   %conv116 = sext i32 %50 to i64
   %mul117 = mul i64 %mul111, %conv116
   %add.ptr118 = getelementptr inbounds i8, ptr %scratch.0123, i64 %mul117
-  %y_samples = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %47, i64 %indvars.iv139, i32 4
+  %y_samples = getelementptr inbounds i8, ptr %add.ptr104, i64 20
   %51 = load i32, ptr %y_samples, align 4
   %cmp119 = icmp sgt i32 %51, 1
   br i1 %cmp119, label %if.then121, label %if.end135

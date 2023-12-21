@@ -7,58 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.10, i32, ptr, i32, ptr }
 %union.anon.10 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VirtIOSoundPCI = type { %struct.VirtIOPCIProxy, %struct.VirtIOSound }
-%struct.VirtIOPCIProxy = type { %struct.PCIDevice, %struct.MemoryRegion, %union.anon.4, %struct.MemoryRegion, %struct.MemoryRegion, i32, i32, i32, i32, i32, i32, i8, i8, i32, i16, i32, i32, i32, i32, [2 x i32], [1024 x %struct.VirtIOPCIQueue], ptr, i32, %struct.VirtioBusState }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%union.anon.4 = type { %struct.anon }
-%struct.anon = type { %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion }
-%struct.VirtIOPCIRegion = type { %struct.MemoryRegion, i32, i32, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.VirtIOPCIQueue = type { i16, i8, i8, [2 x i32], [2 x i32], [2 x i32] }
-%struct.VirtioBusState = type { %struct.BusState, i8, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.VirtIOSound = type { %struct.VirtIODevice, [4 x ptr], i64, ptr, %struct.QEMUSoundCard, ptr, %struct.virtio_snd_config, %struct.QemuMutex, %union.anon.9, i8 }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.7, %struct.EventNotifier, i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.5, %union.anon.6 }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.QEMUSoundCard = type { ptr, ptr, %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.virtio_snd_config = type { i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.anon.9 = type { %struct.QTailQLink }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioPCIClass = type { %struct.PCIDeviceClass, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
 
 @virtio_snd_pci_info = internal constant %struct.VirtioPCIDeviceTypeInfo { ptr null, ptr @.str.2, ptr null, ptr null, ptr null, i64 34448, i64 0, ptr @virtio_snd_pci_instance_init, ptr null, ptr @virtio_snd_pci_class_init, ptr null }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"virtio\00", align 1
@@ -124,7 +72,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.VIRTIO_SND_PCI) #3
-  %vdev2 = getelementptr inbounds %struct.VirtIOSoundPCI, ptr %call.i, i64 0, i32 1
+  %vdev2 = getelementptr inbounds i8, ptr %call.i, i64 33744
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   tail call void @qdev_prop_set_string(ptr noundef %call.i3, ptr noundef nonnull @.str.15, ptr noundef %audiodev) #3
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
@@ -136,7 +84,7 @@ if.end:                                           ; preds = %entry
 define internal void @virtio_snd_pci_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.VIRTIO_SND_PCI) #3
-  %vdev = getelementptr inbounds %struct.VirtIOSoundPCI, ptr %call.i, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call.i, i64 33744
   tail call void @virtio_instance_init_common(ptr noundef %obj, ptr noundef nonnull %vdev, i64 noundef 696, ptr noundef nonnull @.str.3) #3
   ret void
 }
@@ -148,15 +96,15 @@ entry:
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_CLASS) #3
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_snd_pci_properties) #3
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.1, ptr %desc, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioPCIClass, ptr %call.i5, i64 0, i32 2
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 240
   store ptr @virtio_snd_pci_realize, ptr %realize, align 8
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i6, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i6, i64 214
   store i16 1025, ptr %class_id, align 2
   ret void
 }
@@ -171,13 +119,13 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @virtio_snd_pci_realize(ptr noundef %vpci_dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vpci_dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.VIRTIO_SND_PCI) #3
-  %vdev1 = getelementptr inbounds %struct.VirtIOSoundPCI, ptr %call.i, i64 0, i32 1
+  %vdev1 = getelementptr inbounds i8, ptr %call.i, i64 33744
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
-  %disable_modern.i = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 11
+  %disable_modern.i = getelementptr inbounds i8, ptr %vpci_dev, i64 4888
   store i8 0, ptr %disable_modern.i, align 8
-  %disable_legacy.i = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 13
+  %disable_legacy.i = getelementptr inbounds i8, ptr %vpci_dev, i64 4892
   store i32 1, ptr %disable_legacy.i, align 4
-  %bus = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 23
+  %bus = getelementptr inbounds i8, ptr %vpci_dev, i64 33616
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
   %call4 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i3, ptr noundef %call.i4, ptr noundef %errp) #3
   ret void

@@ -83,9 +83,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %cond6.i70.i, ptr %p2.0536, align 8
   store i64 %cond6.i56.i, ptr %p1.0535, align 8
   store i64 %cond6.i42.i, ptr %p0.0534, align 8
-  %incdec.ptr = getelementptr i64, ptr %p0.0534, i64 1
-  %incdec.ptr4 = getelementptr i64, ptr %p1.0535, i64 1
-  %incdec.ptr5 = getelementptr i64, ptr %p2.0536, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p0.0534, i64 8
+  %incdec.ptr4 = getelementptr i8, ptr %p1.0535, i64 8
+  %incdec.ptr5 = getelementptr i8, ptr %p2.0536, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
@@ -346,7 +346,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %w1.0538 = phi i64 [ %r.1.i, %for.body13.lr.ph ], [ %spec.select93.i370, %x64_mulmod.exit429 ]
   %arrayidx = getelementptr i64, ptr %6, i64 %k.0540
   %7 = load i64, ptr %arrayidx, align 8
-  %arrayidx18 = getelementptr i64, ptr %arrayidx, i64 1
+  %arrayidx18 = getelementptr i8, ptr %arrayidx, i64 8
   %8 = load i64, ptr %arrayidx18, align 8
   %conv.i.i240 = zext i64 %7 to i128
   %conv1.i.i241 = zext i64 %w0.0539 to i128
@@ -1166,7 +1166,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %w1.0537 = phi i64 [ %r.1.i, %for.body10.lr.ph ], [ %spec.select93.i370, %x64_mulmod.exit429 ]
   %arrayidx = getelementptr i64, ptr %1, i64 %k.0539
   %2 = load i64, ptr %arrayidx, align 8
-  %arrayidx14 = getelementptr i64, ptr %arrayidx, i64 1
+  %arrayidx14 = getelementptr i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %arrayidx14, align 8
   %conv.i.i240 = zext i64 %2 to i128
   %conv1.i.i241 = zext i64 %w0.0538 to i128
@@ -1650,9 +1650,9 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   store i64 %cond6.i70.i, ptr %p2.0544, align 8
   store i64 %cond6.i56.i, ptr %p1.0543, align 8
   store i64 %cond6.i42.i, ptr %p0.0542, align 8
-  %incdec.ptr = getelementptr i64, ptr %p0.0542, i64 1
-  %incdec.ptr36 = getelementptr i64, ptr %p1.0543, i64 1
-  %incdec.ptr37 = getelementptr i64, ptr %p2.0544, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p0.0542, i64 8
+  %incdec.ptr36 = getelementptr i8, ptr %p1.0543, i64 8
+  %incdec.ptr37 = getelementptr i8, ptr %p2.0544, i64 8
   %cmp32 = icmp ult ptr %incdec.ptr, %add.ptr27
   br i1 %cmp32, label %for.body33, label %return, !llvm.loop !13
 

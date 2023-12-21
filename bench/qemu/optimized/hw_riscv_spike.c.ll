@@ -4,17 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.SpikeState = type { %struct.MachineState, [8 x %struct.RISCVHartArrayState] }
 %struct.RISCVHartArrayState = type { %struct.SysBusDevice, i32, i32, ptr, i64, ptr }
 %struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
 %struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
+%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 %struct.NamedGPIOListHead = type { ptr }
 %struct.NamedClockListHead = type { ptr }
 %struct.BusStateHead = type { ptr }
@@ -163,27 +156,27 @@ entry:
 define internal void @spike_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #7
-  %desc = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 4
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @.str.2, ptr %desc, align 8
-  %init = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @spike_board_init, ptr %init, align 8
-  %max_cpus = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 12
+  %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 176
   store i32 8, ptr %max_cpus, align 8
-  %is_default = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 16
+  %is_default = getelementptr inbounds i8, ptr %call.i, i64 189
   store i8 1, ptr %is_default, align 1
-  %default_cpu_type = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 24
+  %default_cpu_type = getelementptr inbounds i8, ptr %call.i, i64 248
   store ptr @.str.3, ptr %default_cpu_type, align 8
-  %possible_cpu_arch_ids = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 47
+  %possible_cpu_arch_ids = getelementptr inbounds i8, ptr %call.i, i64 336
   store ptr @riscv_numa_possible_cpu_arch_ids, ptr %possible_cpu_arch_ids, align 8
-  %cpu_index_to_instance_props = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 46
+  %cpu_index_to_instance_props = getelementptr inbounds i8, ptr %call.i, i64 328
   store ptr @riscv_numa_cpu_index_to_props, ptr %cpu_index_to_instance_props, align 8
-  %get_default_cpu_node_id = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 48
+  %get_default_cpu_node_id = getelementptr inbounds i8, ptr %call.i, i64 344
   store ptr @riscv_numa_get_default_cpu_node_id, ptr %get_default_cpu_node_id, align 8
-  %numa_mem_supported = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 39
+  %numa_mem_supported = getelementptr inbounds i8, ptr %call.i, i64 293
   store i8 1, ptr %numa_mem_supported, align 1
-  %cpu_cluster_has_numa_boundary = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 41
+  %cpu_cluster_has_numa_boundary = getelementptr inbounds i8, ptr %call.i, i64 295
   store i8 1, ptr %cpu_cluster_has_numa_boundary, align 1
-  %default_ram_id = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 43
+  %default_ram_id = getelementptr inbounds i8, ptr %call.i, i64 304
   store ptr @.str.4, ptr %default_ram_id, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull @spike_set_signature) #7
   tail call void @object_class_property_set_description(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
@@ -214,7 +207,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp599, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cpu_type = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 26
+  %soc = getelementptr inbounds i8, ptr %call.i, i64 344
+  %cpu_type = getelementptr inbounds i8, ptr %machine, i64 264
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -255,7 +249,7 @@ if.then15:                                        ; preds = %if.end12
 
 if.end16:                                         ; preds = %if.end12
   %call17 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, i32 noundef %0) #7
-  %arrayidx18 = getelementptr %struct.SpikeState, ptr %call.i, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx18 = getelementptr [8 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv
   tail call void @object_initialize_child_internal(ptr noundef %machine, ptr noundef %call17, ptr noundef %arrayidx18, i64 noundef 848, ptr noundef nonnull @.str.15) #7
   tail call void @g_free(ptr noundef %call17) #7
   %1 = load ptr, ptr %cpu_type, align 8
@@ -278,21 +272,21 @@ if.end16:                                         ; preds = %if.end12
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end16, %for.cond.preheader
-  %ram = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 16
+  %ram = getelementptr inbounds i8, ptr %machine, i64 120
   %3 = load ptr, ptr %ram, align 8
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 2147483648, ptr noundef %3) #7
   tail call void @memory_region_init_rom(ptr noundef %call2, ptr noundef null, ptr noundef nonnull @.str.19, i64 noundef 61440, ptr noundef nonnull @error_fatal) #7
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 4096, ptr noundef %call2) #7
-  %firmware = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 10
+  %firmware = getelementptr inbounds i8, ptr %machine, i64 88
   %4 = load ptr, ptr %firmware, align 8
-  %soc57 = getelementptr inbounds %struct.SpikeState, ptr %call.i, i64 0, i32 1
+  %soc57 = getelementptr inbounds i8, ptr %call.i, i64 344
   %call59 = tail call ptr @riscv_default_firmware_name(ptr noundef nonnull %soc57) #7
   %call60 = tail call ptr @riscv_find_firmware(ptr noundef %4, ptr noundef %call59) #7
   %tobool.not = icmp eq ptr %call60, null
   br i1 %tobool.not, label %land.lhs.true, label %if.then64
 
 land.lhs.true:                                    ; preds = %for.end
-  %kernel_filename = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename = getelementptr inbounds i8, ptr %machine, i64 240
   %5 = load ptr, ptr %kernel_filename, align 8
   %tobool61.not = icmp eq ptr %5, null
   br i1 %tobool61.not, label %if.end83, label %if.then71
@@ -312,7 +306,7 @@ if.end77.thread92:                                ; preds = %if.then64
 
 land.lhs.true68:                                  ; preds = %if.then64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  %kernel_filename69.phi.trans.insert = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename69.phi.trans.insert = getelementptr inbounds i8, ptr %machine, i64 240
   %.pre = load ptr, ptr %kernel_filename69.phi.trans.insert, align 8
   %tobool70.not = icmp eq ptr %.pre, null
   br i1 %tobool70.not, label %if.then79, label %if.then71
@@ -350,7 +344,7 @@ if.end83:                                         ; preds = %land.lhs.true, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp162.i)
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #7
   %call2.i = call ptr @create_device_tree(ptr noundef nonnull %fdt_size.i) #7
-  %fdt3.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i, i64 0, i32 1
+  %fdt3.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %call2.i, ptr %fdt3.i, align 8
   %tobool.not.i81 = icmp eq ptr %call2.i, null
   br i1 %tobool.not.i81, label %if.then.i82, label %if.end.i
@@ -404,12 +398,12 @@ if.end24.i:                                       ; preds = %for.end.i, %if.end.
   br i1 %cmp379.i, label %for.body39.lr.ph.i, label %create_fdt.exit
 
 for.body39.lr.ph.i:                               ; preds = %if.end24.i
-  %arrayinit.element126.i = getelementptr inbounds i32, ptr %qdt_tmp123.i, i64 1
-  %arrayinit.element128.i = getelementptr inbounds i32, ptr %qdt_tmp123.i, i64 2
-  %arrayinit.element131.i = getelementptr inbounds i32, ptr %qdt_tmp123.i, i64 3
-  %arrayinit.element164.i = getelementptr inbounds i32, ptr %qdt_tmp162.i, i64 1
-  %arrayinit.element166.i = getelementptr inbounds i32, ptr %qdt_tmp162.i, i64 2
-  %arrayinit.element167.i = getelementptr inbounds i32, ptr %qdt_tmp162.i, i64 3
+  %arrayinit.element126.i = getelementptr inbounds i8, ptr %qdt_tmp123.i, i64 4
+  %arrayinit.element128.i = getelementptr inbounds i8, ptr %qdt_tmp123.i, i64 8
+  %arrayinit.element131.i = getelementptr inbounds i8, ptr %qdt_tmp123.i, i64 12
+  %arrayinit.element164.i = getelementptr inbounds i8, ptr %qdt_tmp162.i, i64 4
+  %arrayinit.element166.i = getelementptr inbounds i8, ptr %qdt_tmp162.i, i64 8
+  %arrayinit.element167.i = getelementptr inbounds i8, ptr %qdt_tmp162.i, i64 12
   %11 = zext nneg i32 %socket.08.i to i64
   %.str.45..str.46.i = select i1 %call86, ptr @.str.45, ptr @.str.46
   br label %for.body39.i
@@ -420,7 +414,8 @@ for.body39.i:                                     ; preds = %for.end184.i, %for.
   %12 = trunc i64 %indvars.iv24.i to i32
   %call40.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.42, i32 noundef %12) #7
   %call41.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call2.i, ptr noundef %call40.i) #7
-  %num_harts.i = getelementptr %struct.SpikeState, ptr %call.i, i64 0, i32 1, i64 %indvars.iv24.i, i32 1
+  %arrayidx43.i = getelementptr [8 x %struct.RISCVHartArrayState], ptr %soc57, i64 0, i64 %indvars.iv24.i
+  %num_harts.i = getelementptr inbounds i8, ptr %arrayidx43.i, i64 816
   %13 = load i32, ptr %num_harts.i, align 8
   %mul.i = shl i32 %13, 2
   %conv44.i = zext i32 %mul.i to i64
@@ -431,8 +426,8 @@ for.body39.i:                                     ; preds = %for.end184.i, %for.
   br i1 %cmp523.i, label %for.body54.lr.ph.i, label %for.end114.i
 
 for.body54.lr.ph.i:                               ; preds = %for.body39.i
-  %hartid_base.i = getelementptr %struct.SpikeState, ptr %call.i, i64 0, i32 1, i64 %indvars.iv24.i, i32 2
-  %harts.i = getelementptr %struct.SpikeState, ptr %call.i, i64 0, i32 1, i64 %indvars.iv24.i, i32 5
+  %hartid_base.i = getelementptr inbounds i8, ptr %arrayidx43.i, i64 820
+  %harts.i = getelementptr inbounds i8, ptr %arrayidx43.i, i64 840
   %15 = zext nneg i32 %cpu.02.i to i64
   br label %for.body54.i
 
@@ -570,7 +565,7 @@ create_fdt.exit:                                  ; preds = %for.end184.i, %if.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp123.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp162.i)
-  %kernel_filename88 = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename88 = getelementptr inbounds i8, ptr %machine, i64 240
   %26 = load ptr, ptr %kernel_filename88, align 8
   %tobool89.not = icmp eq ptr %26, null
   br i1 %tobool89.not, label %if.end98, label %if.then90
@@ -584,7 +579,7 @@ if.end98:                                         ; preds = %create_fdt.exit, %i
   %kernel_entry.0 = phi i64 [ %call96, %if.then90 ], [ 0, %create_fdt.exit ]
   %call103 = call i64 @riscv_compute_fdt_addr(i64 noundef 2147483648, i64 noundef 0, ptr noundef nonnull %machine) #7
   %conv105 = and i64 %call103, 4294967295
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %machine, i64 40
   %27 = load ptr, ptr %fdt, align 8
   call void @riscv_load_fdt(i64 noundef %conv105, ptr noundef %27) #7
   call void @riscv_setup_rom_reset_vec(ptr noundef nonnull %machine, ptr noundef nonnull %soc57, i64 noundef 2147483648, i64 noundef 4096, i64 noundef 61440, i64 noundef %kernel_entry.0, i64 noundef %conv105) #7

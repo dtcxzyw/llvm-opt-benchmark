@@ -8,29 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { i64 }
 %struct.SCSIBusInfo = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.MSDState = type { %struct.USBDevice, i32, i32, i32, i32, %struct.usb_msd_csw, ptr, %struct.SCSIBus, ptr, %struct.BlockConf, i8, i8, ptr, i8 }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.usb_msd_csw = type <{ i32, i32, i32, i8 }>
-%struct.SCSIBus = type { %struct.BusState, i32, %struct.SCSISense, ptr, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.SCSISense = type { i8, i8, i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
 
 @msd_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr @usb_msd_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @usb_msd_class_storage_initfn, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"usb-storage\00", align 1
@@ -110,7 +87,7 @@ define internal void @usb_msd_class_storage_initfn(ptr noundef %klass, ptr nocap
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #2
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i2, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i2, i64 176
   store ptr @usb_msd_storage_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @msd_properties) #2
   ret void
@@ -123,7 +100,7 @@ define internal void @usb_msd_get_bootindex(ptr noundef %obj, ptr noundef %v, pt
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #2
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 49, ptr noundef nonnull @__func__.USB_STORAGE_DEV) #2
-  %bootindex = getelementptr inbounds %struct.MSDState, ptr %call.i1, i64 0, i32 9, i32 6
+  %bootindex = getelementptr inbounds i8, ptr %call.i1, i64 6084
   %call2 = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %bootindex, ptr noundef %errp) #2
   ret void
 }
@@ -148,9 +125,9 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %2 = load i32, ptr %boot_index, align 4
-  %bootindex = getelementptr inbounds %struct.MSDState, ptr %call.i4, i64 0, i32 9, i32 6
+  %bootindex = getelementptr inbounds i8, ptr %call.i4, i64 6084
   store i32 %2, ptr %bootindex, align 4
-  %scsi_dev = getelementptr inbounds %struct.MSDState, ptr %call.i4, i64 0, i32 12
+  %scsi_dev = getelementptr inbounds i8, ptr %call.i4, i64 6152
   %3 = load ptr, ptr %scsi_dev, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %out, label %if.then6
@@ -184,7 +161,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @usb_msd_storage_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 49, ptr noundef nonnull @__func__.USB_STORAGE_DEV) #2
-  %conf = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 9
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 6056
   %0 = load ptr, ptr %conf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -210,28 +187,28 @@ if.end10:                                         ; preds = %if.end5
   store ptr null, ptr %conf, align 8
   tail call void @usb_desc_create_serial(ptr noundef %dev) #2
   tail call void @usb_desc_init(ptr noundef %dev) #2
-  %flags = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %dev, i64 192
   %1 = load i32, ptr %flags, align 8
   %or = or i32 %1, 8
   store i32 %or, ptr %flags, align 8
-  %bus = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 7
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 5904
   %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #2
   tail call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %call.i29, ptr noundef nonnull @usb_msd_scsi_info_storage, ptr noundef null) #2
-  %removable = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 10
+  %removable = getelementptr inbounds i8, ptr %call.i, i64 6144
   %2 = load i8, ptr %removable, align 8
   %3 = and i8 %2, 1
   %tobool16 = icmp ne i8 %3, 0
-  %bootindex = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 9, i32 6
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 6084
   %4 = load i32, ptr %bootindex, align 4
-  %share_rw = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 9, i32 15
+  %share_rw = getelementptr inbounds i8, ptr %call.i, i64 6120
   %5 = load i8, ptr %share_rw, align 8
   %6 = and i8 %5, 1
   %tobool21 = icmp ne i8 %6, 0
-  %rerror = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 9, i32 18
+  %rerror = getelementptr inbounds i8, ptr %call.i, i64 6132
   %7 = load i32, ptr %rerror, align 4
-  %werror = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 9, i32 19
+  %werror = getelementptr inbounds i8, ptr %call.i, i64 6136
   %8 = load i32, ptr %werror, align 8
-  %serial = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 3
+  %serial = getelementptr inbounds i8, ptr %dev, i64 176
   %9 = load ptr, ptr %serial, align 8
   %call24 = tail call ptr @scsi_bus_legacy_add_drive(ptr noundef nonnull %bus, ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext %tobool16, i32 noundef %4, i1 noundef zeroext %tobool21, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %errp) #2
   tail call void @blk_unref(ptr noundef nonnull %0) #2
@@ -240,7 +217,7 @@ if.end10:                                         ; preds = %if.end5
 
 if.end27:                                         ; preds = %if.end10
   tail call void @usb_msd_handle_reset(ptr noundef nonnull %dev) #2
-  %scsi_dev28 = getelementptr inbounds %struct.MSDState, ptr %call.i, i64 0, i32 12
+  %scsi_dev28 = getelementptr inbounds i8, ptr %call.i, i64 6152
   store ptr %call24, ptr %scsi_dev28, align 8
   br label %return
 

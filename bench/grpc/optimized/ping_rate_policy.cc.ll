@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::_Optional_payload_base<int>::_Empty_byte" = type { i8 }
-%"class.grpc_core::Chttp2PingRatePolicy" = type { i32, i32, i32, %"class.grpc_core::Timestamp" }
-%"class.grpc_core::Timestamp" = type { i64 }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
 %"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
@@ -19,8 +17,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union.2" = type { %"struct.std::__detail::__variant::_Uninitialized.3" }
 %"struct.std::__detail::__variant::_Uninitialized.3" = type { %"struct.grpc_core::Chttp2PingRatePolicy::TooSoon" }
 %"struct.grpc_core::Chttp2PingRatePolicy::TooSoon" = type { %"class.grpc_core::Duration", %"class.grpc_core::Timestamp", %"class.grpc_core::Duration" }
+%"class.grpc_core::Timestamp" = type { i64 }
 %"class.grpc_core::Duration" = type { i64 }
-%"struct.std::__detail::__variant::_Variant_storage" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -72,7 +70,7 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %.sroa.speculated17, %cond.true ], [ 0, %entry ]
   store i32 %cond, ptr %this, align 8
-  %max_inflight_pings_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 1
+  %max_inflight_pings_ = getelementptr inbounds i8, ptr %this, i64 4
   %call11 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 29, ptr nonnull @.str.1)
   %ref.tmp9.sroa.0.0.extract.trunc = trunc i64 %call11 to i32
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 13)
@@ -87,9 +85,9 @@ cond.end:                                         ; preds = %entry, %cond.true
   %retval.0.i12 = select i1 %tobool.i.not.i9, i32 %retval.0.i7, i32 %ref.tmp9.sroa.0.0.extract.trunc
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 0)
   store i32 %.sroa.speculated, ptr %max_inflight_pings_, align 4
-  %pings_before_data_required_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 2
+  %pings_before_data_required_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %pings_before_data_required_, align 8
-  %last_ping_sent_time_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 3
+  %last_ping_sent_time_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 -9223372036854775808, ptr %last_ping_sent_time_, align 8
   ret void
 }
@@ -120,14 +118,14 @@ define void @_ZNK9grpc_core20Chttp2PingRatePolicy15RequestSendPingENS_8DurationE
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not = icmp ne i32 %0, 0
-  %pings_before_data_required_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 2
+  %pings_before_data_required_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %pings_before_data_required_, align 8
   %cmp2 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp.not, i1 %cmp2, i1 false
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %max_inflight_pings_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 1
+  %max_inflight_pings_ = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %max_inflight_pings_, align 4
   %cmp3 = icmp sgt i32 %2, 0
   %conv = zext nneg i32 %2 to i64
@@ -136,7 +134,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond2, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %last_ping_sent_time_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 3
+  %last_ping_sent_time_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %last_ping_sent_time_, align 8
   %cmp.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload, 9223372036854775807
   %cmp2.i.i = icmp eq i64 %next_allowed_ping_interval.coerce, 9223372036854775807
@@ -225,7 +223,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %if.then19, %if.end.
 
 return:                                           ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %if.end, %entry, %_ZN9grpc_coremiENS_9TimestampES0_.exit
   %.sink = phi i8 [ 2, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ 1, %entry ], [ 1, %if.end ], [ 0, %_ZN9grpc_core9Timestamp3NowEv.exit ]
-  %_M_index.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %agg.result, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 %.sink, ptr %_M_index.i.i.i.i.i.i.i.i23, align 8
   ret void
 }
@@ -245,9 +243,9 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %entry, %0
   %vtable.i = load ptr, ptr %2, align 8
   %3 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %last_ping_sent_time_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 3
+  %last_ping_sent_time_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %call.i, ptr %last_ping_sent_time_, align 8
-  %pings_before_data_required_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 2
+  %pings_before_data_required_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %pings_before_data_required_, align 8
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -264,7 +262,7 @@ if.end:                                           ; preds = %if.then, %_ZN9grpc_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9grpc_core20Chttp2PingRatePolicy17ReceivedDataFrameEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %last_ping_sent_time_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 3
+  %last_ping_sent_time_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 -9223372036854775808, ptr %last_ping_sent_time_, align 8
   ret void
 }
@@ -273,7 +271,7 @@ entry:
 define void @_ZN9grpc_core20Chttp2PingRatePolicy28ResetPingsBeforeDataRequiredEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %pings_before_data_required_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 2
+  %pings_before_data_required_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %0, ptr %pings_before_data_required_, align 8
   ret void
 }
@@ -286,56 +284,56 @@ entry:
   %ref.tmp4 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i32, ptr %this, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %0, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  %pings_before_data_required_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 2
+  %pings_before_data_required_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %pings_before_data_required_, align 8
-  %digits_.i2 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4, i64 0, i32 1
+  %digits_.i2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   %call.i3 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %digits_.i2)
   %sub.ptr.lhs.cast.i4 = ptrtoint ptr %call.i3 to i64
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %digits_.i2 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp4, align 8
-  %_M_str.i.i7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4, i64 0, i32 1
+  %_M_str.i.i7 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %digits_.i2, ptr %_M_str.i.i7, align 8
-  %last_ping_sent_time_ = getelementptr inbounds %"class.grpc_core::Chttp2PingRatePolicy", ptr %this, i64 0, i32 3
+  %last_ping_sent_time_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNK9grpc_core9Timestamp8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %last_ping_sent_time_)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store i64 24, ptr %ref.tmp.i, align 8, !noalias !4
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.2, ptr %2, align 8, !noalias !4
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %ref.tmp2, align 8, !noalias !4
   %retval.sroa.2.0.copyload.i3.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !4
   store i64 %retval.sroa.0.0.copyload.i1.i, ptr %arrayinit.element.i, align 8, !noalias !4
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %retval.sroa.2.0.copyload.i3.i, ptr %3, align 8, !noalias !4
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 30, ptr %arrayinit.element2.i, align 8, !noalias !4
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.3, ptr %4, align 8, !noalias !4
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   %retval.sroa.0.0.copyload.i11.i = load i64, ptr %ref.tmp4, align 8, !noalias !4
   %retval.sroa.2.0.copyload.i13.i = load ptr, ptr %_M_str.i.i7, align 8, !noalias !4
   store i64 %retval.sroa.0.0.copyload.i11.i, ptr %arrayinit.element4.i, align 8, !noalias !4
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %retval.sroa.2.0.copyload.i13.i, ptr %5, align 8, !noalias !4
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 24, ptr %arrayinit.element6.i, align 8, !noalias !4
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.4, ptr %6, align 8, !noalias !4
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #12, !noalias !4
   %7 = extractvalue { i64, ptr } %call.i.i, 0
   %8 = extractvalue { i64, ptr } %call.i.i, 1
   store i64 %7, ptr %arrayinit.element8.i, align 8, !noalias !4
-  %9 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr %8, ptr %9, align 8, !noalias !4
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 6)
           to label %invoke.cont unwind label %lpad
@@ -366,7 +364,7 @@ entry:
   %ref.tmp5.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp1.i.i.i.i.i.i = alloca %"struct.grpc_core::Chttp2PingRatePolicy::TooSoon", align 8
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %r, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
   switch i8 %0, label %sw.default.i.i.i [
     i8 0, label %sw.bb.i.i.i
@@ -398,7 +396,7 @@ invoke.cont.i.i.i.i.i.i.i:                        ; preds = %sw.bb3.i.i.i
           to label %invoke.cont3.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
 
 invoke.cont3.i.i.i.i.i.i.i:                       ; preds = %invoke.cont.i.i.i.i.i.i.i
-  %last_ping.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Chttp2PingRatePolicy::TooSoon", ptr %agg.tmp1.i.i.i.i.i.i, i64 0, i32 1
+  %last_ping.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i.i.i, i64 8
   invoke void @_ZNK9grpc_core9Timestamp8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %last_ping.i.i.i.i.i.i.i)
           to label %invoke.cont6.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
 
@@ -411,7 +409,7 @@ invoke.cont8.i.i.i.i.i.i.i:                       ; preds = %invoke.cont6.i.i.i.
           to label %invoke.cont10.i.i.i.i.i.i.i unwind label %lpad7.i.i.i.i.i.i.i
 
 invoke.cont10.i.i.i.i.i.i.i:                      ; preds = %invoke.cont8.i.i.i.i.i.i.i
-  %wait.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Chttp2PingRatePolicy::TooSoon", ptr %agg.tmp1.i.i.i.i.i.i, i64 0, i32 2
+  %wait.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i.i.i, i64 16
   invoke void @_ZNK9grpc_core8Duration8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %wait.i.i.i.i.i.i.i)
           to label %invoke.cont13.i.i.i.i.i.i.i unwind label %lpad7.i.i.i.i.i.i.i
 

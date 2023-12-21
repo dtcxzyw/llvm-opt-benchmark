@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libssl-shlib-event_queue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_event_queue_st = type { ptr, ptr }
-%struct.ossl_event_st = type { i32, i32, %struct.OSSL_TIME, ptr, ptr, i64, ptr, i64, i8 }
-%struct.OSSL_TIME = type { i64 }
-
 @.str = private unnamed_addr constant [29 x i8] c"../openssl/ssl/event_queue.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -20,7 +16,7 @@ if.then:                                          ; preds = %entry
   %call.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @event_compare_times) #4
   store ptr %call.i, ptr %call, align 8
   %call.i7 = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @event_compare_priority) #4
-  %now_events = getelementptr inbounds %struct.ossl_event_queue_st, ptr %call, i64 0, i32 1
+  %now_events = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call.i7, ptr %now_events, align 8
   %cmp4 = icmp eq ptr %call.i, null
   %cmp6 = icmp eq ptr %call.i7, null
@@ -41,8 +37,8 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @event_compare_times(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
-  %when = getelementptr inbounds %struct.ossl_event_st, ptr %a, i64 0, i32 2
-  %when1 = getelementptr inbounds %struct.ossl_event_st, ptr %b, i64 0, i32 2
+  %when = getelementptr inbounds i8, ptr %a, i64 8
+  %when1 = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %when, align 8
   %1 = load i64, ptr %when1, align 8
   %cmp.i = icmp ugt i64 %0, %1
@@ -55,9 +51,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @event_compare_priority(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
-  %priority = getelementptr inbounds %struct.ossl_event_st, ptr %a, i64 0, i32 1
+  %priority = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %priority, align 4
-  %priority1 = getelementptr inbounds %struct.ossl_event_st, ptr %b, i64 0, i32 1
+  %priority1 = getelementptr inbounds i8, ptr %b, i64 4
   %1 = load i32, ptr %priority1, align 4
   %cmp = icmp ugt i32 %0, %1
   %cmp4 = icmp ult i32 %0, %1
@@ -73,7 +69,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %now_events = getelementptr inbounds %struct.ossl_event_queue_st, ptr %queue, i64 0, i32 1
+  %now_events = getelementptr inbounds i8, ptr %queue, i64 8
   %0 = load ptr, ptr %now_events, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %event_queue_free.exit, label %entry.split.i
@@ -85,7 +81,7 @@ entry.split.i:                                    ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %entry.split.i, %ossl_event_free.exit.i
   %phi.call7.i = phi ptr [ %call.i5.i, %ossl_event_free.exit.i ], [ %call.i.i, %entry.split.i ]
-  %flag_dynamic.i.i = getelementptr inbounds %struct.ossl_event_st, ptr %phi.call7.i, i64 0, i32 8
+  %flag_dynamic.i.i = getelementptr inbounds i8, ptr %phi.call7.i, i64 56
   %bf.load.i.i = load i8, ptr %flag_dynamic.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not.i.i = icmp eq i8 %bf.clear.i.i, 0
@@ -96,7 +92,7 @@ if.then1.i.i:                                     ; preds = %if.then.i.i
   br label %ossl_event_free.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %queue.i.i = getelementptr inbounds %struct.ossl_event_st, ptr %phi.call7.i, i64 0, i32 6
+  %queue.i.i = getelementptr inbounds i8, ptr %phi.call7.i, i64 40
   store ptr null, ptr %queue.i.i, align 8
   br label %ossl_event_free.exit.i
 
@@ -121,7 +117,7 @@ entry.split.i5:                                   ; preds = %event_queue_free.ex
 
 if.then.i.i8:                                     ; preds = %entry.split.i5, %ossl_event_free.exit.i15
   %phi.call7.i9 = phi ptr [ %call.i5.i16, %ossl_event_free.exit.i15 ], [ %call.i.i6, %entry.split.i5 ]
-  %flag_dynamic.i.i10 = getelementptr inbounds %struct.ossl_event_st, ptr %phi.call7.i9, i64 0, i32 8
+  %flag_dynamic.i.i10 = getelementptr inbounds i8, ptr %phi.call7.i9, i64 56
   %bf.load.i.i11 = load i8, ptr %flag_dynamic.i.i10, align 8
   %bf.clear.i.i12 = and i8 %bf.load.i.i11, 1
   %tobool.not.i.i13 = icmp eq i8 %bf.clear.i.i12, 0
@@ -132,7 +128,7 @@ if.then1.i.i14:                                   ; preds = %if.then.i.i8
   br label %ossl_event_free.exit.i15
 
 if.else.i.i19:                                    ; preds = %if.then.i.i8
-  %queue.i.i20 = getelementptr inbounds %struct.ossl_event_st, ptr %phi.call7.i9, i64 0, i32 6
+  %queue.i.i20 = getelementptr inbounds i8, ptr %phi.call7.i9, i64 40
   store ptr null, ptr %queue.i.i20, align 8
   br label %ossl_event_free.exit.i15
 
@@ -160,7 +156,7 @@ entry:
   br i1 %cmp.not, label %if.end2, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flag_dynamic = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 8
+  %flag_dynamic = getelementptr inbounds i8, ptr %event, i64 56
   %bf.load = load i8, ptr %flag_dynamic, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -171,7 +167,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end2
 
 if.else:                                          ; preds = %if.then
-  %queue = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 6
+  %queue = getelementptr inbounds i8, ptr %event, i64 40
   store ptr null, ptr %queue, align 8
   br label %if.end2
 
@@ -196,33 +192,33 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 %type, ptr %call, align 8
-  %priority2.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 1
+  %priority2.i = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %priority, ptr %priority2.i, align 4
-  %when3.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 2
+  %when3.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %when.coerce, ptr %when3.i, align 8
-  %ctx4.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 3
+  %ctx4.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %ctx, ptr %ctx4.i, align 8
-  %payload5.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 4
+  %payload5.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %payload, ptr %payload5.i, align 8
-  %payload_size6.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 5
+  %payload_size6.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %payload_size, ptr %payload_size6.i, align 8
-  %flag_dynamic = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 8
+  %flag_dynamic = getelementptr inbounds i8, ptr %call, i64 56
   %bf.load = load i8, ptr %flag_dynamic, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_dynamic, align 8
   %call.i = tail call i64 @ossl_time_now() #4
   %0 = load i64, ptr %when3.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, %call.i
-  %now_events.i = getelementptr inbounds %struct.ossl_event_queue_st, ptr %queue, i64 0, i32 1
-  %cond.in.i = select i1 %cmp.i.not.i, ptr %queue, ptr %now_events.i
+  %cond.in.idx.i = select i1 %cmp.i.not.i, i64 0, i64 8
+  %cond.in.i = getelementptr inbounds i8, ptr %queue, i64 %cond.in.idx.i
   %cond.i = load ptr, ptr %cond.in.i, align 8
-  %ref.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %call, i64 48
   %call.i.i = tail call i32 @ossl_pqueue_push(ptr noundef %cond.i, ptr noundef nonnull %call, ptr noundef nonnull %ref.i) #4
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end5, label %event_queue_add.exit
 
 event_queue_add.exit:                             ; preds = %if.end
-  %queue5.i = getelementptr inbounds %struct.ossl_event_st, ptr %call, i64 0, i32 6
+  %queue5.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %cond.i, ptr %queue5.i, align 8
   br label %return
 
@@ -245,33 +241,33 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %type, ptr %event, align 8
-  %priority2.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 1
+  %priority2.i = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %priority, ptr %priority2.i, align 4
-  %when3.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 2
+  %when3.i = getelementptr inbounds i8, ptr %event, i64 8
   store i64 %when.coerce, ptr %when3.i, align 8
-  %ctx4.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 3
+  %ctx4.i = getelementptr inbounds i8, ptr %event, i64 16
   store ptr %ctx, ptr %ctx4.i, align 8
-  %payload5.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 4
+  %payload5.i = getelementptr inbounds i8, ptr %event, i64 24
   store ptr %payload, ptr %payload5.i, align 8
-  %payload_size6.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 5
+  %payload_size6.i = getelementptr inbounds i8, ptr %event, i64 32
   store i64 %payload_size, ptr %payload_size6.i, align 8
-  %flag_dynamic = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 8
+  %flag_dynamic = getelementptr inbounds i8, ptr %event, i64 56
   %bf.load = load i8, ptr %flag_dynamic, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_dynamic, align 8
   %call.i = tail call i64 @ossl_time_now() #4
   %0 = load i64, ptr %when3.i, align 8
   %cmp.i.not.i = icmp ugt i64 %0, %call.i
-  %now_events.i = getelementptr inbounds %struct.ossl_event_queue_st, ptr %queue, i64 0, i32 1
-  %cond.in.i = select i1 %cmp.i.not.i, ptr %queue, ptr %now_events.i
+  %cond.in.idx.i = select i1 %cmp.i.not.i, i64 0, i64 8
+  %cond.in.i = getelementptr inbounds i8, ptr %queue, i64 %cond.in.idx.i
   %cond.i = load ptr, ptr %cond.in.i, align 8
-  %ref.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %event, i64 48
   %call.i.i = tail call i32 @ossl_pqueue_push(ptr noundef %cond.i, ptr noundef nonnull %event, ptr noundef nonnull %ref.i) #4
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %queue5.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 6
+  %queue5.i = getelementptr inbounds i8, ptr %event, i64 40
   store ptr %cond.i, ptr %queue5.i, align 8
   br label %return
 
@@ -287,13 +283,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %queue1 = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 6
+  %queue1 = getelementptr inbounds i8, ptr %event, i64 40
   %0 = load ptr, ptr %queue1, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ref = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %event, i64 48
   %1 = load i64, ptr %ref, align 8
   %call.i = tail call ptr @ossl_pqueue_remove(ptr noundef nonnull %0, i64 noundef %1) #4
   store ptr null, ptr %queue1, align 8
@@ -310,7 +306,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %when = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 2
+  %when = getelementptr inbounds i8, ptr %event, i64 8
   %call1 = tail call i64 @ossl_time_now() #4
   %0 = load i64, ptr %when, align 8
   %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %call1)
@@ -330,7 +326,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %now_events = getelementptr inbounds %struct.ossl_event_queue_st, ptr %queue, i64 0, i32 1
+  %now_events = getelementptr inbounds i8, ptr %queue, i64 8
   %0 = load ptr, ptr %now_events, align 8
   %call.i = tail call i64 @ossl_pqueue_num(ptr noundef %0) #4
   %cmp2.not = icmp eq i64 %call.i, 0
@@ -343,7 +339,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %when.i = getelementptr inbounds %struct.ossl_event_st, ptr %call.i3, i64 0, i32 2
+  %when.i = getelementptr inbounds i8, ptr %call.i3, i64 8
   %call1.i = tail call i64 @ossl_time_now() #4
   %2 = load i64, ptr %when.i, align 8
   %retval.sroa.0.0.i.i = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %call1.i)
@@ -361,34 +357,34 @@ entry:
   br i1 %cmp.not.i, label %ossl_event_queue_remove.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %queue1.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 6
+  %queue1.i = getelementptr inbounds i8, ptr %event, i64 40
   %0 = load ptr, ptr %queue1.i, align 8
   %cmp2.not.i = icmp eq ptr %0, null
   br i1 %cmp2.not.i, label %ossl_event_queue_remove.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %ref.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %event, i64 48
   %1 = load i64, ptr %ref.i, align 8
   %call.i.i = tail call ptr @ossl_pqueue_remove(ptr noundef nonnull %0, i64 noundef %1) #4
   store ptr null, ptr %queue1.i, align 8
   br label %ossl_event_queue_remove.exit
 
 ossl_event_queue_remove.exit:                     ; preds = %entry, %land.lhs.true.i, %if.then.i
-  %when1 = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 2
+  %when1 = getelementptr inbounds i8, ptr %event, i64 8
   store i64 %when.coerce, ptr %when1, align 8
   %call.i = tail call i64 @ossl_time_now() #4
   %2 = load i64, ptr %when1, align 8
   %cmp.i.not.i = icmp ugt i64 %2, %call.i
-  %now_events.i = getelementptr inbounds %struct.ossl_event_queue_st, ptr %queue, i64 0, i32 1
-  %cond.in.i = select i1 %cmp.i.not.i, ptr %queue, ptr %now_events.i
+  %cond.in.idx.i = select i1 %cmp.i.not.i, i64 0, i64 8
+  %cond.in.i = getelementptr inbounds i8, ptr %queue, i64 %cond.in.idx.i
   %cond.i = load ptr, ptr %cond.in.i, align 8
-  %ref.i4 = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 7
+  %ref.i4 = getelementptr inbounds i8, ptr %event, i64 48
   %call.i.i5 = tail call i32 @ossl_pqueue_push(ptr noundef %cond.i, ptr noundef %event, ptr noundef nonnull %ref.i4) #4
   %tobool.not.i = icmp eq i32 %call.i.i5, 0
   br i1 %tobool.not.i, label %event_queue_add.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %ossl_event_queue_remove.exit
-  %queue5.i = getelementptr inbounds %struct.ossl_event_st, ptr %event, i64 0, i32 6
+  %queue5.i = getelementptr inbounds i8, ptr %event, i64 40
   store ptr %cond.i, ptr %queue5.i, align 8
   br label %event_queue_add.exit
 
@@ -401,7 +397,7 @@ event_queue_add.exit:                             ; preds = %ossl_event_queue_re
 define i32 @ossl_event_queue_get1_next_event(ptr nocapture noundef readonly %queue, ptr nocapture noundef writeonly %event) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #4
-  %now_events = getelementptr inbounds %struct.ossl_event_queue_st, ptr %queue, i64 0, i32 1
+  %now_events = getelementptr inbounds i8, ptr %queue, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -411,7 +407,7 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %when = getelementptr inbounds %struct.ossl_event_st, ptr %call.i, i64 0, i32 2
+  %when = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i64, ptr %when, align 8
   %cmp.i.not = icmp ugt i64 %1, %call
   br i1 %cmp.i.not, label %while.end, label %while.body
@@ -420,13 +416,13 @@ while.body:                                       ; preds = %land.rhs
   %2 = load ptr, ptr %queue, align 8
   %call.i7 = tail call ptr @ossl_pqueue_pop(ptr noundef %2) #4
   %3 = load ptr, ptr %now_events, align 8
-  %ref = getelementptr inbounds %struct.ossl_event_st, ptr %call.i7, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %call.i7, i64 48
   %call.i8 = tail call i32 @ossl_pqueue_push(ptr noundef %3, ptr noundef %call.i7, ptr noundef nonnull %ref) #4
   %tobool.not = icmp eq i32 %call.i8, 0
   br i1 %tobool.not, label %if.then, label %while.cond, !llvm.loop !6
 
 if.then:                                          ; preds = %while.body
-  %queue9 = getelementptr inbounds %struct.ossl_event_st, ptr %call.i7, i64 0, i32 6
+  %queue9 = getelementptr inbounds i8, ptr %call.i7, i64 40
   store ptr null, ptr %queue9, align 8
   br label %return
 

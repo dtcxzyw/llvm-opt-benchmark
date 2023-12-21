@@ -3,20 +3,10 @@ source_filename = "bench/assimp/original/FBXExportProperty.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::FBX::FBXExportProperty" = type { i8, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.0" = type { i8 }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -26,10 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.Assimp::StreamWriter" = type { %"class.std::shared_ptr", i8, %"class.std::vector", i64 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN17DeadlyExportErrorC2IJRA43_KcEEEDpOT_ = comdat any
@@ -103,13 +89,13 @@ define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Eb(ptr nocapture noundef 
 entry:
   %frombool = zext i1 %v to i8
   store i8 67, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i1 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #14
   store ptr %call5.i.i.i.i1.i.i1, ptr %data, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call5.i.i.i.i1.i.i1, i8 %frombool, i64 1, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -122,14 +108,14 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Es(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i16 noundef signext %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 89, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i1 = tail call noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #14
   store ptr %call5.i.i.i.i1.i.i1, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1, i64 2
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store i16 %v, ptr %call5.i.i.i.i1.i.i1, align 2
   ret void
@@ -139,14 +125,14 @@ entry:
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 73, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i1 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #14
   store ptr %call5.i.i.i.i1.i.i1, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1, i64 4
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store i32 %v, ptr %call5.i.i.i.i1.i.i1, align 4
   ret void
@@ -156,14 +142,14 @@ entry:
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, float noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 70, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i1 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #14
   store ptr %call5.i.i.i.i1.i.i1, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1, i64 4
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store float %v, ptr %call5.i.i.i.i1.i.i1, align 4
   ret void
@@ -173,14 +159,14 @@ entry:
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 68, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr %call5.i.i.i.i1.i.i1, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store double %v, ptr %call5.i.i.i.i1.i.i1, align 8
   ret void
@@ -190,14 +176,14 @@ entry:
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i64 noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 76, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr %call5.i.i.i.i1.i.i1, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i1, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store i64 %v, ptr %call5.i.i.i.i1.i.i1, align 8
   ret void
@@ -273,7 +259,7 @@ define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKNSt7__cxx1112basic_str
 entry:
   %cond = select i1 %raw, i8 82, i8 83
   store i8 %cond, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #15
   %cmp.i.i = icmp slt i64 %call, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -291,7 +277,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %call) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %call
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 1
@@ -305,7 +291,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %call27 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #15
   %cmp8.not = icmp eq i64 %call27, 0
@@ -343,8 +329,8 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 82, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %r, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %r, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -369,10 +355,10 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i1.i5.i, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %data, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %r, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -396,8 +382,8 @@ _ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %invoke.cont.i, %if.
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 105, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %va, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %va, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %va, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -419,7 +405,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 1
@@ -430,7 +416,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 invoke.cont:                                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i
   %2 = phi ptr [ %call5.i.i.i.i1.i.i6, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %va, align 8
@@ -462,8 +448,8 @@ for.end:                                          ; preds = %for.body, %invoke.c
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIlSaIlEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 108, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %va, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %va, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %va, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -485,7 +471,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 1
@@ -496,7 +482,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 invoke.cont:                                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i
   %2 = phi ptr [ %call5.i.i.i.i1.i.i6, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %va, align 8
@@ -528,8 +514,8 @@ for.end:                                          ; preds = %for.body, %invoke.c
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIfSaIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 102, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %va, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %va, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %va, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -551,7 +537,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 1
@@ -562,7 +548,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 invoke.cont:                                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i
   %2 = phi ptr [ %call5.i.i.i.i1.i.i6, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %va, align 8
@@ -594,8 +580,8 @@ for.end:                                          ; preds = %for.body, %invoke.c
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 100, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %va, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %va, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %va, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -617,7 +603,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #14
   store ptr %call5.i.i.i.i1.i.i6, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 %sub.ptr.sub.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i6, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i6, i64 1
@@ -628,7 +614,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 invoke.cont:                                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i
   %2 = phi ptr [ %call5.i.i.i.i1.i.i6, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %va, align 8
@@ -660,19 +646,19 @@ for.end:                                          ; preds = %for.body, %invoke.c
 define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %vm) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 100, ptr %this, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i7 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   store ptr %call5.i.i.i.i1.i.i7, ptr %data, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i7, i64 128
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call5.i.i.i.i1.i.i7, i8 0, i64 128, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %c1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 8
-  %b1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 4
-  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 12
+  %c1.i = getelementptr inbounds i8, ptr %vm, i64 32
+  %b1.i = getelementptr inbounds i8, ptr %vm, i64 16
+  %d1.i = getelementptr inbounds i8, ptr %vm, i64 48
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %entry, %for.inc11
@@ -760,8 +746,8 @@ lpad:                                             ; preds = %sw.default
 
 return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb6, %sw.bb2
   %.sink = phi i64 [ 13, %sw.bb6 ], [ 5, %sw.bb2 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
-  %data7 = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
-  %_M_finish.i5 = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %data7 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i5 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i5, align 8
   %3 = load ptr, ptr %data7, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %2 to i64
@@ -810,11 +796,11 @@ entry:
   %err = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i8, ptr %this, align 8
-  %cursor.i.i = getelementptr inbounds %"class.Assimp::StreamWriter", ptr %s, i64 0, i32 3
+  %cursor.i.i = getelementptr inbounds i8, ptr %s, i64 48
   %1 = load i64, ptr %cursor.i.i, align 8
   %add.i.i = add i64 %1, 1
-  %buffer.i.i = getelementptr inbounds %"class.Assimp::StreamWriter", ptr %s, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::StreamWriter", ptr %s, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buffer.i.i = getelementptr inbounds i8, ptr %s, i64 24
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %s, i64 32
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %buffer.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -838,7 +824,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit:  ; preds = %entry, %if.then.i.i
   %6 = load i64, ptr %cursor.i.i, align 8
   %add9.i.i = add i64 %6, 1
   store i64 %add9.i.i, ptr %cursor.i.i, align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %data, align 8
   %8 = load i8, ptr %this, align 8
   %conv = sext i8 %8 to i32
@@ -1008,7 +994,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit:  ; preds = %sw.bb7, %if.then.i.
   br label %return.sink.split
 
 sw.bb8:                                           ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %39 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1083,7 +1069,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit174: ; preds = %for.body, %if.the
   br i1 %cmp, label %for.body, label %return, !llvm.loop !12
 
 sw.bb16:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
-  %_M_finish.i175 = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i175 = getelementptr inbounds i8, ptr %this, i64 16
   %57 = load ptr, ptr %_M_finish.i175, align 8
   %sub.ptr.lhs.cast.i176 = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i177 = ptrtoint ptr %7 to i64
@@ -1209,7 +1195,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242: ; preds = %for.body26, %if.t
   br i1 %exitcond478.not, label %return, label %for.body26, !llvm.loop !13
 
 sw.bb30:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
-  %_M_finish.i243 = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i243 = getelementptr inbounds i8, ptr %this, i64 16
   %82 = load ptr, ptr %_M_finish.i243, align 8
   %sub.ptr.lhs.cast.i244 = ptrtoint ptr %82 to i64
   %sub.ptr.rhs.cast.i245 = ptrtoint ptr %7 to i64
@@ -1335,7 +1321,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310: ; preds = %for.body41, %if.t
   br i1 %exitcond476.not, label %return, label %for.body41, !llvm.loop !14
 
 sw.bb46:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
-  %_M_finish.i311 = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i311 = getelementptr inbounds i8, ptr %this, i64 16
   %107 = load ptr, ptr %_M_finish.i311, align 8
   %sub.ptr.lhs.cast.i312 = ptrtoint ptr %107 to i64
   %sub.ptr.rhs.cast.i313 = ptrtoint ptr %7 to i64
@@ -1461,7 +1447,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378: ; preds = %for.body57, %if.t
   br i1 %exitcond474.not, label %return, label %for.body57, !llvm.loop !15
 
 sw.bb62:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
-  %_M_finish.i379 = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i379 = getelementptr inbounds i8, ptr %this, i64 16
   %132 = load ptr, ptr %_M_finish.i379, align 8
   %sub.ptr.lhs.cast.i380 = ptrtoint ptr %132 to i64
   %sub.ptr.rhs.cast.i381 = ptrtoint ptr %7 to i64
@@ -1714,7 +1700,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -24
   %vbase.offset5 = load i64, ptr %vbase.offset.ptr4, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset5
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr6, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr6, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   invoke void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %ss, i32 noundef %indent)
           to label %invoke.cont9 unwind label %lpad
@@ -1761,9 +1747,9 @@ define hidden void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr nocaptu
 entry:
   %err = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data, align 8
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -2153,7 +2139,7 @@ for.end221:                                       ; preds = %for.body217, %sw.bb
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   %cmp226155.not = icmp ult i64 %sub.ptr.sub.i, 8
   br i1 %cmp226155.not, label %for.end241, label %for.body227.preheader
@@ -2279,12 +2265,12 @@ unreachable:                                      ; preds = %invoke.cont264
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6Assimp12StreamWriterILb0ELb0EE9PutStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cursor = getelementptr inbounds %"class.Assimp::StreamWriter", ptr %this, i64 0, i32 3
+  %cursor = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %cursor, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #15
   %add = add i64 %call, %0
-  %buffer = getelementptr inbounds %"class.Assimp::StreamWriter", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::StreamWriter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %buffer, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -2563,13 +2549,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i

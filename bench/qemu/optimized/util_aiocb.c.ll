@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/util_aiocb.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.AIOCBInfo = type { ptr, i64 }
-%struct.BlockAIOCB = type { ptr, ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [16 x i8] c"acb->refcnt > 0\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"../qemu/util/aiocb.c\00", align 1
 @__PRETTY_FUNCTION__.qemu_aio_unref = private unnamed_addr constant [28 x i8] c"void qemu_aio_unref(void *)\00", align 1
@@ -13,17 +10,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @qemu_aio_get(ptr noundef %aiocb_info, ptr noundef %bs, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %aiocb_size = getelementptr inbounds %struct.AIOCBInfo, ptr %aiocb_info, i64 0, i32 1
+  %aiocb_size = getelementptr inbounds i8, ptr %aiocb_info, i64 8
   %0 = load i64, ptr %aiocb_size, align 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %0) #5
   store ptr %aiocb_info, ptr %call, align 8
-  %bs2 = getelementptr inbounds %struct.BlockAIOCB, ptr %call, i64 0, i32 1
+  %bs2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %bs, ptr %bs2, align 8
-  %cb3 = getelementptr inbounds %struct.BlockAIOCB, ptr %call, i64 0, i32 2
+  %cb3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %cb, ptr %cb3, align 8
-  %opaque4 = getelementptr inbounds %struct.BlockAIOCB, ptr %call, i64 0, i32 3
+  %opaque4 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %opaque, ptr %opaque4, align 8
-  %refcnt = getelementptr inbounds %struct.BlockAIOCB, ptr %call, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %call, i64 32
   store i32 1, ptr %refcnt, align 8
   ret ptr %call
 }
@@ -34,7 +31,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @qemu_aio_ref(ptr nocapture noundef %p) local_unnamed_addr #2 {
 entry:
-  %refcnt = getelementptr inbounds %struct.BlockAIOCB, ptr %p, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i32, ptr %refcnt, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %refcnt, align 8
@@ -44,7 +41,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_aio_unref(ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %refcnt = getelementptr inbounds %struct.BlockAIOCB, ptr %p, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i32, ptr %refcnt, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else

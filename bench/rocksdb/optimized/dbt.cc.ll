@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.__toku_dbt = type { ptr, i64, i64, i32 }
-%struct.simple_dbt = type { i32, ptr }
 
 @_ZZ26toku_dbt_positive_infinityvE21positive_infinity_dbt = internal global %struct.__toku_dbt zeroinitializer, align 8
 @_ZZ26toku_dbt_negative_infinityvE21negative_infinity_dbt = internal global %struct.__toku_dbt zeroinitializer, align 8
@@ -30,7 +29,7 @@ entry:
 define noundef ptr @_Z19toku_init_dbt_flagsP10__toku_dbtj(ptr noundef returned writeonly %dbt, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
-  %flags1 = getelementptr inbounds %struct.__toku_dbt, ptr %dbt, i64 0, i32 3
+  %flags1 = getelementptr inbounds i8, ptr %dbt, i64 24
   store i32 %flags, ptr %flags1, align 8
   ret ptr %dbt
 }
@@ -38,7 +37,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_Z16toku_destroy_dbtP10__toku_dbt(ptr nocapture noundef %dbt) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.__toku_dbt, ptr %dbt, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dbt, i64 24
   %0 = load i32, ptr %flags, align 8
   switch i32 %0, label %sw.epilog [
     i32 8, label %sw.bb
@@ -62,7 +61,7 @@ define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writ
 entry:
   %0 = getelementptr inbounds i8, ptr %dbt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %dbt, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %dbt, i64 8
   store i64 %len, ptr %size, align 8
   store ptr %k, ptr %dbt, align 8
   ret ptr %dbt
@@ -72,9 +71,9 @@ entry:
 define noundef ptr @_Z15toku_memdup_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
-  %flags1.i = getelementptr inbounds %struct.__toku_dbt, ptr %dbt, i64 0, i32 3
+  %flags1.i = getelementptr inbounds i8, ptr %dbt, i64 24
   store i32 8, ptr %flags1.i, align 8
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %dbt, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %dbt, i64 8
   store i64 %len, ptr %size, align 8
   %call1 = tail call noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef %k, i64 noundef %len)
   store ptr %call1, ptr %dbt, align 8
@@ -86,13 +85,13 @@ declare noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef, i64 noundef) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef returned writeonly %dst, ptr nocapture noundef readonly byval(%struct.__toku_dbt) align 8 %src) local_unnamed_addr #4 {
 entry:
-  %flags = getelementptr inbounds %struct.__toku_dbt, ptr %dst, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dst, i64 24
   store i32 0, ptr %flags, align 8
-  %ulen = getelementptr inbounds %struct.__toku_dbt, ptr %dst, i64 0, i32 2
+  %ulen = getelementptr inbounds i8, ptr %dst, i64 16
   store i64 0, ptr %ulen, align 8
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %src, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %size, align 8
-  %size1 = getelementptr inbounds %struct.__toku_dbt, ptr %dst, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %0, ptr %size1, align 8
   %1 = load ptr, ptr %src, align 8
   store ptr %1, ptr %dst, align 8
@@ -103,12 +102,12 @@ entry:
 define noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef returned writeonly %dst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %src) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %src, align 8
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %src, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i64, ptr %size, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst, i8 0, i64 32, i1 false)
-  %flags1.i.i = getelementptr inbounds %struct.__toku_dbt, ptr %dst, i64 0, i32 3
+  %flags1.i.i = getelementptr inbounds i8, ptr %dst, i64 24
   store i32 8, ptr %flags1.i.i, align 8
-  %size.i = getelementptr inbounds %struct.__toku_dbt, ptr %dst, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %1, ptr %size.i, align 8
   %call1.i = tail call noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef %0, i64 noundef %1)
   store ptr %call1.i, ptr %dst, align 8
@@ -118,7 +117,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_Z17toku_sdbt_cleanupP10simple_dbt(ptr nocapture noundef %sdbt) local_unnamed_addr #2 {
 entry:
-  %data = getelementptr inbounds %struct.simple_dbt, ptr %sdbt, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sdbt, i64 8
   %0 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -204,9 +203,9 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.then
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %a, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i64, ptr %size, align 8
-  %size3 = getelementptr inbounds %struct.__toku_dbt, ptr %b, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size3, align 8
   %cmp4 = icmp eq i64 %2, %3
   br label %return

@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.pkcs7_signed_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.TS_resp_st = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/ts/ts_asn1.c\00", align 1
 @__func__.PKCS7_to_TS_TST_INFO = private unnamed_addr constant [21 x i8] c"PKCS7_to_TS_TST_INFO\00", align 1
@@ -421,7 +413,7 @@ entry:
 define ptr @PKCS7_to_TS_TST_INFO(ptr noundef %token) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %token, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %token, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #3
   %cmp = icmp eq i32 %call, 22
@@ -445,11 +437,11 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %token, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %token, i64 32
   %1 = load ptr, ptr %d, align 8
-  %contents = getelementptr inbounds %struct.pkcs7_signed_st, ptr %1, i64 0, i32 5
+  %contents = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %contents, align 8
-  %type4 = getelementptr inbounds %struct.pkcs7_st, ptr %2, i64 0, i32 4
+  %type4 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %type4, align 8
   %call5 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #3
   %cmp6.not = icmp eq i32 %call5, 207
@@ -462,7 +454,7 @@ if.then7:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %d9 = getelementptr inbounds %struct.pkcs7_st, ptr %2, i64 0, i32 5
+  %d9 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %d9, align 8
   %5 = load i32, ptr %4, align 8
   %cmp11.not = icmp eq i32 %5, 4
@@ -475,9 +467,9 @@ if.then12:                                        ; preds = %if.end8
   br label %return
 
 if.end13:                                         ; preds = %if.end8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %4, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %data, align 8
   store ptr %7, ptr %p, align 8
   %8 = load i32, ptr %6, align 8
@@ -533,12 +525,12 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %tst_info = getelementptr inbounds %struct.TS_resp_st, ptr %0, i64 0, i32 2
+  %tst_info = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %tst_info, align 8
   br label %return
 
 if.then2:                                         ; preds = %entry
-  %tst_info3 = getelementptr inbounds %struct.TS_resp_st, ptr %0, i64 0, i32 2
+  %tst_info3 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %tst_info3, align 8
   tail call void @ASN1_item_free(ptr noundef %1, ptr noundef nonnull @TS_TST_INFO_it.local_it) #3
   br label %return
@@ -547,7 +539,7 @@ if.then6:                                         ; preds = %entry
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %call.i = tail call i64 @ASN1_INTEGER_get(ptr noundef %3) #3
-  %token.i = getelementptr inbounds %struct.TS_resp_st, ptr %0, i64 0, i32 1
+  %token.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %token.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -557,7 +549,7 @@ if.then.i:                                        ; preds = %if.then6
   br i1 %or.cond.i, label %ts_resp_set_tst_info.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %tst_info.i = getelementptr inbounds %struct.TS_resp_st, ptr %0, i64 0, i32 2
+  %tst_info.i = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %tst_info.i, align 8
   tail call void @ASN1_item_free(ptr noundef %5, ptr noundef nonnull @TS_TST_INFO_it.local_it) #3
   %6 = load ptr, ptr %token.i, align 8

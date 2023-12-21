@@ -213,15 +213,15 @@ if.then48:                                        ; preds = %create_dgram_bio.ex
 
 if.end50:                                         ; preds = %lor.lhs.false45
   store ptr null, ptr %tserver_args, align 8
-  %net_rbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 3
+  %net_rbio = getelementptr inbounds i8, ptr %tserver_args, i64 24
   store ptr %call26.i, ptr %net_rbio, align 8
-  %net_wbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 4
+  %net_wbio = getelementptr inbounds i8, ptr %tserver_args, i64 32
   store ptr %call26.i, ptr %net_wbio, align 8
-  %alpn51 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 7
+  %alpn51 = getelementptr inbounds i8, ptr %tserver_args, i64 56
   store ptr %alpn, ptr %alpn51, align 8
-  %alpnlen = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 8
+  %alpnlen = getelementptr inbounds i8, ptr %tserver_args, i64 64
   store i64 9, ptr %alpnlen, align 8
-  %ctx = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %tserver_args, i64 16
   store ptr null, ptr %ctx, align 8
   %call52 = call ptr @ossl_quic_tserver_new(ptr noundef nonnull %tserver_args, ptr noundef %10, ptr noundef %11) #9
   %cmp53 = icmp eq ptr %call52, null

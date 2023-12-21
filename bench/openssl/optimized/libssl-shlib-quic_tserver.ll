@@ -4,23 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.quic_channel_args_st = type { ptr, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.quic_tserver_args_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.quic_tserver_st = type { %struct.quic_tserver_args_st, ptr, ptr, ptr, ptr, ptr, %union.bio_addr_st, i8 }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.quic_conn_st = type { %struct.ssl_st, ptr, ptr, ptr, ptr, ptr, ptr, %union.bio_addr_st, %struct.quic_thread_assist_st, ptr, ptr, i64, i16, i32, i32, i64, i32, i64, i32 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.quic_thread_assist_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct.ossl_rtt_info_st = type { %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME }
 %struct.OSSL_TIME = type { i64 }
-%struct.quic_stream_st = type { %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, ptr, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.quic_txfc_st, %struct.quic_rxfc_st, i40 }
-%struct.quic_stream_list_node_st = type { ptr, ptr }
-%struct.quic_txfc_st = type { ptr, i64, i64, i8 }
-%struct.quic_rxfc_st = type { i64, i64, i64, i64, i64, i64, i64, %struct.OSSL_TIME, ptr, ptr, ptr, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/quic/quic_tserver.c\00", align 1
 @alpn_select_cb.alpndeflt = internal constant [9 x i8] c"\08ossltest", align 1
@@ -30,13 +15,13 @@ define ptr @ossl_quic_tserver_new(ptr nocapture noundef readonly %args, ptr noun
 entry:
   %ch_args = alloca %struct.quic_channel_args_st, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %ch_args, i8 0, i64 56, i1 false)
-  %net_rbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %args, i64 0, i32 3
+  %net_rbio = getelementptr inbounds i8, ptr %args, i64 24
   %0 = load ptr, ptr %net_rbio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end91, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %net_wbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %args, i64 0, i32 4
+  %net_wbio = getelementptr inbounds i8, ptr %args, i64 32
   %1 = load ptr, ptr %net_wbio, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.end91, label %if.end
@@ -49,29 +34,29 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end4:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 8 dereferenceable(72) %args, i64 72, i1 false)
   %call6 = tail call ptr @ossl_crypto_mutex_new() #5
-  %mutex = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 3
+  %mutex = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %call6, ptr %mutex, align 8
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %if.then82, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %ctx = getelementptr inbounds %struct.quic_tserver_args_st, ptr %args, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %args, i64 16
   %2 = load ptr, ptr %ctx, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.end19, label %if.end19.thread
 
 if.end19.thread:                                  ; preds = %if.end9
-  %3 = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 4
+  %3 = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %2, ptr %3, align 8
   br label %if.end23
 
 if.end19:                                         ; preds = %if.end9
   %4 = load ptr, ptr %call, align 8
-  %propq = getelementptr inbounds %struct.quic_tserver_args_st, ptr %call, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load ptr, ptr %propq, align 8
   %call16 = tail call ptr @TLS_method() #5
   %call17 = tail call ptr @SSL_CTX_new_ex(ptr noundef %4, ptr noundef %5, ptr noundef %call16) #5
-  %6 = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 4
+  %6 = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %call17, ptr %6, align 8
   %cmp21 = icmp eq ptr %call17, null
   br i1 %cmp21, label %if.then82, label %if.end23
@@ -110,7 +95,7 @@ if.end36:                                         ; preds = %land.lhs.true31.if.
   tail call void @SSL_CTX_set_alpn_select_cb(ptr noundef %8, ptr noundef nonnull @alpn_select_cb, ptr noundef nonnull %call) #5
   %9 = load ptr, ptr %7, align 8
   %call39 = tail call ptr @SSL_new(ptr noundef %9) #5
-  %tls = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %call, i64 104
   store ptr %call39, ptr %tls, align 8
   %cmp41 = icmp eq ptr %call39, null
   br i1 %cmp41, label %if.then82, label %if.end43
@@ -118,25 +103,25 @@ if.end36:                                         ; preds = %land.lhs.true31.if.
 if.end43:                                         ; preds = %if.end36
   %10 = load <2 x ptr>, ptr %call, align 8
   store <2 x ptr> %10, ptr %ch_args, align 16
-  %tls51 = getelementptr inbounds %struct.quic_channel_args_st, ptr %ch_args, i64 0, i32 3
+  %tls51 = getelementptr inbounds i8, ptr %ch_args, i64 24
   store ptr %call39, ptr %tls51, align 8
   %11 = load ptr, ptr %mutex, align 8
-  %mutex53 = getelementptr inbounds %struct.quic_channel_args_st, ptr %ch_args, i64 0, i32 4
+  %mutex53 = getelementptr inbounds i8, ptr %ch_args, i64 32
   store ptr %11, ptr %mutex53, align 16
-  %is_server = getelementptr inbounds %struct.quic_channel_args_st, ptr %ch_args, i64 0, i32 2
+  %is_server = getelementptr inbounds i8, ptr %ch_args, i64 16
   store i32 1, ptr %is_server, align 16
-  %now_cb = getelementptr inbounds %struct.quic_tserver_args_st, ptr %call, i64 0, i32 5
-  %now_cb55 = getelementptr inbounds %struct.quic_channel_args_st, ptr %ch_args, i64 0, i32 5
+  %now_cb = getelementptr inbounds i8, ptr %call, i64 40
+  %now_cb55 = getelementptr inbounds i8, ptr %ch_args, i64 40
   %12 = load <2 x ptr>, ptr %now_cb, align 8
   store <2 x ptr> %12, ptr %now_cb55, align 8
   %call58 = call ptr @ossl_quic_channel_new(ptr noundef nonnull %ch_args) #5
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %call58, ptr %ch, align 8
   %cmp59 = icmp eq ptr %call58, null
   br i1 %cmp59, label %if.then82, label %if.end61
 
 if.end61:                                         ; preds = %if.end43
-  %net_rbio64 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %call, i64 0, i32 3
+  %net_rbio64 = getelementptr inbounds i8, ptr %call, i64 24
   %13 = load ptr, ptr %net_rbio64, align 8
   %call65 = call i32 @ossl_quic_channel_set_net_rbio(ptr noundef nonnull %call58, ptr noundef %13) #5
   %tobool.not = icmp eq i32 %call65, 0
@@ -144,7 +129,7 @@ if.end61:                                         ; preds = %if.end43
 
 lor.lhs.false66:                                  ; preds = %if.end61
   %14 = load ptr, ptr %ch, align 8
-  %net_wbio69 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %call, i64 0, i32 4
+  %net_wbio69 = getelementptr inbounds i8, ptr %call, i64 32
   %15 = load ptr, ptr %net_wbio69, align 8
   %call70 = call i32 @ossl_quic_channel_set_net_wbio(ptr noundef %14, ptr noundef %15) #5
   %tobool71.not = icmp eq i32 %call70, 0
@@ -156,31 +141,31 @@ if.end73:                                         ; preds = %lor.lhs.false66
   br i1 %cmp75, label %if.then82, label %if.end77
 
 if.end77:                                         ; preds = %if.end73
-  %ssl = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 1
+  %ssl = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call74, ptr %ssl, align 8
   %16 = load ptr, ptr %ch, align 8
-  %ch79 = getelementptr inbounds %struct.quic_conn_st, ptr %call74, i64 0, i32 2
+  %ch79 = getelementptr inbounds i8, ptr %call74, i64 72
   store ptr %16, ptr %ch79, align 8
   store i32 1, ptr %call74, align 8
   br label %return
 
 if.then82:                                        ; preds = %if.end4, %if.end19, %land.lhs.true, %land.lhs.true31, %if.end36, %if.end43, %if.end73, %lor.lhs.false66, %if.end61
-  %ctx83 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %args, i64 0, i32 2
+  %ctx83 = getelementptr inbounds i8, ptr %args, i64 16
   %17 = load ptr, ptr %ctx83, align 8
   %cmp84 = icmp eq ptr %17, null
   br i1 %cmp84, label %if.then85, label %if.end87
 
 if.then85:                                        ; preds = %if.then82
-  %ctx86 = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 4
+  %ctx86 = getelementptr inbounds i8, ptr %call, i64 96
   %18 = load ptr, ptr %ctx86, align 8
   call void @SSL_CTX_free(ptr noundef %18) #5
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then85, %if.then82
-  %tls88 = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 5
+  %tls88 = getelementptr inbounds i8, ptr %call, i64 104
   %19 = load ptr, ptr %tls88, align 8
   call void @SSL_free(ptr noundef %19) #5
-  %ch89 = getelementptr inbounds %struct.quic_tserver_st, ptr %call, i64 0, i32 2
+  %ch89 = getelementptr inbounds i8, ptr %call, i64 80
   %20 = load ptr, ptr %ch89, align 8
   call void @ossl_quic_channel_free(ptr noundef %20) #5
   call void @ossl_crypto_mutex_free(ptr noundef nonnull %mutex) #5
@@ -220,13 +205,13 @@ declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %alpn1 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %arg, i64 0, i32 7
+  %alpn1 = getelementptr inbounds i8, ptr %arg, i64 56
   %0 = load ptr, ptr %alpn1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %alpnlen5 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %arg, i64 0, i32 8
+  %alpnlen5 = getelementptr inbounds i8, ptr %arg, i64 64
   %1 = load i64, ptr %alpnlen5, align 8
   %2 = trunc i64 %1 to i32
   br label %if.end
@@ -265,25 +250,25 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   tail call void @ossl_quic_channel_free(ptr noundef %0) #5
-  %net_rbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %srv, i64 0, i32 3
+  %net_rbio = getelementptr inbounds i8, ptr %srv, i64 24
   %1 = load ptr, ptr %net_rbio, align 8
   tail call void @BIO_free_all(ptr noundef %1) #5
-  %net_wbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %srv, i64 0, i32 4
+  %net_wbio = getelementptr inbounds i8, ptr %srv, i64 32
   %2 = load ptr, ptr %net_wbio, align 8
   tail call void @BIO_free_all(ptr noundef %2) #5
-  %ssl = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 1
+  %ssl = getelementptr inbounds i8, ptr %srv, i64 72
   %3 = load ptr, ptr %ssl, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 164) #5
-  %tls = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %srv, i64 104
   %4 = load ptr, ptr %tls, align 8
   tail call void @SSL_free(ptr noundef %4) #5
-  %ctx = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %srv, i64 96
   %5 = load ptr, ptr %ctx, align 8
   tail call void @SSL_CTX_free(ptr noundef %5) #5
-  %mutex = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 3
+  %mutex = getelementptr inbounds i8, ptr %srv, i64 88
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %mutex) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %srv, ptr noundef nonnull @.str, i32 noundef 170) #5
   br label %return
@@ -297,7 +282,7 @@ declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_set_plain_packet_mutator(ptr nocapture noundef readonly %srv, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_set_mutator(ptr noundef %0, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) #5
   ret i32 %call
@@ -308,7 +293,7 @@ declare i32 @ossl_quic_channel_set_mutator(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_set_handshake_mutator(ptr nocapture noundef readonly %srv, ptr noundef %mutate_handshake_cb, ptr noundef %finish_mutate_handshake_cb, ptr noundef %mutatearg) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get0_ssl(ptr noundef %0) #5
   %call1 = tail call i32 @ossl_statem_set_mutator(ptr noundef %call, ptr noundef %mutate_handshake_cb, ptr noundef %finish_mutate_handshake_cb, ptr noundef %mutatearg) #5
@@ -322,7 +307,7 @@ declare ptr @ossl_quic_channel_get0_ssl(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_tick(ptr nocapture noundef %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %0) #5
   %call1 = tail call i32 @ossl_quic_reactor_tick(ptr noundef %call, i32 noundef 0) #5
@@ -332,7 +317,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %connected = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 7
+  %connected = getelementptr inbounds i8, ptr %srv, i64 224
   %bf.load = load i8, ptr %connected, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %connected, align 8
@@ -351,7 +336,7 @@ declare i32 @ossl_quic_channel_is_active(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_is_connected(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_active(ptr noundef %0) #5
   ret i32 %call
@@ -360,7 +345,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_is_term_any(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %0) #5
   ret i32 %call
@@ -371,7 +356,7 @@ declare i32 @ossl_quic_channel_is_term_any(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_tserver_get_terminate_cause(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_terminate_cause(ptr noundef %0) #5
   ret ptr %call
@@ -382,7 +367,7 @@ declare ptr @ossl_quic_channel_get_terminate_cause(ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_is_terminated(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_terminated(ptr noundef %0) #5
   ret i32 %call
@@ -393,7 +378,7 @@ declare i32 @ossl_quic_channel_is_terminated(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_is_handshake_confirmed(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_handshake_confirmed(ptr noundef %0) #5
   ret i32 %call
@@ -407,7 +392,7 @@ entry:
   %is_fin = alloca i32, align 4
   %rtt_info = alloca %struct.ossl_rtt_info_st, align 8
   store i32 0, ptr %is_fin, align 4
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %0) #5
   %call1 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %call, i64 noundef %stream_id) #5
@@ -430,7 +415,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %recv_state = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 15
+  %recv_state = getelementptr inbounds i8, ptr %call1, i64 256
   %bf.load = load i64, ptr %recv_state, align 8
   %2 = and i64 %bf.load, 16711680
   %cmp8 = icmp eq i64 %2, 262144
@@ -444,7 +429,7 @@ lor.lhs.false10:                                  ; preds = %if.end7
   br i1 %switch.i, label %return, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false10
-  %rstream = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 12
+  %rstream = getelementptr inbounds i8, ptr %call1, i64 120
   %5 = load ptr, ptr %rstream, align 8
   %call15 = call i32 @ossl_quic_rstream_read(ptr noundef %5, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_read, ptr noundef nonnull %is_fin) #5
   %tobool16.not = icmp eq i32 %call15, 0
@@ -459,7 +444,7 @@ if.then21:                                        ; preds = %if.end18
   %7 = load ptr, ptr %ch, align 8
   %call23 = call ptr @ossl_quic_channel_get_statm(ptr noundef %7) #5
   call void @ossl_statm_get_rtt_info(ptr noundef %call23, ptr noundef nonnull %rtt_info) #5
-  %rxfc = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 14
+  %rxfc = getelementptr inbounds i8, ptr %call1, i64 160
   %8 = load i64, ptr %bytes_read, align 8
   %9 = load i64, ptr %rtt_info, align 8
   %call24 = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %rxfc, i64 noundef %8, i64 %9) #5
@@ -517,7 +502,7 @@ entry:
   %is_fin = alloca i32, align 4
   store i64 0, ptr %bytes_read, align 8
   store i32 0, ptr %is_fin, align 4
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %0) #5
   %call1 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %call, i64 noundef %stream_id) #5
@@ -525,7 +510,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %recv_state = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 15
+  %recv_state = getelementptr inbounds i8, ptr %call1, i64 256
   %bf.load = load i64, ptr %recv_state, align 8
   %1 = and i64 %bf.load, 16711680
   %cmp2 = icmp eq i64 %1, 262144
@@ -539,7 +524,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %switch.i, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %rstream = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 12
+  %rstream = getelementptr inbounds i8, ptr %call1, i64 120
   %4 = load ptr, ptr %rstream, align 8
   %call8 = call i32 @ossl_quic_rstream_peek(ptr noundef %4, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %bytes_read, ptr noundef nonnull %is_fin) #5
   %tobool9.not = icmp eq i32 %call8, 0
@@ -578,7 +563,7 @@ declare i32 @ossl_quic_rstream_peek(ptr noundef, ptr noundef, i64 noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_write(ptr nocapture noundef %srv, i64 noundef %stream_id, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_written) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_active(ptr noundef %0) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -601,7 +586,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %switch.i, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %sstream = getelementptr inbounds %struct.quic_stream_st, ptr %call3, i64 0, i32 11
+  %sstream = getelementptr inbounds i8, ptr %call3, i64 112
   %5 = load ptr, ptr %sstream, align 8
   %call8 = tail call i32 @ossl_quic_sstream_append(ptr noundef %5, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %bytes_written) #5
   %tobool9.not = icmp eq i32 %call8, 0
@@ -628,7 +613,7 @@ if.end16:                                         ; preds = %if.then13, %if.end1
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end16
-  %connected.i = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 7
+  %connected.i = getelementptr inbounds i8, ptr %srv, i64 224
   %bf.load.i = load i8, ptr %connected.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %connected.i, align 8
@@ -644,7 +629,7 @@ declare i32 @ossl_quic_sstream_append(ptr noundef, ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_conclude(ptr nocapture noundef %srv, i64 noundef %stream_id) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_active(ptr noundef %0) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -667,7 +652,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %switch.i, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %sstream = getelementptr inbounds %struct.quic_stream_st, ptr %call3, i64 0, i32 11
+  %sstream = getelementptr inbounds i8, ptr %call3, i64 112
   %5 = load ptr, ptr %sstream, align 8
   %call8 = tail call i32 @ossl_quic_sstream_get_final_size(ptr noundef %5, ptr noundef null) #5
   %tobool9.not = icmp eq i32 %call8, 0
@@ -691,7 +676,7 @@ if.end14:                                         ; preds = %if.then10, %if.end7
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %connected.i = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 7
+  %connected.i = getelementptr inbounds i8, ptr %srv, i64 224
   %bf.load.i = load i8, ptr %connected.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %connected.i, align 8
@@ -709,7 +694,7 @@ declare void @ossl_quic_sstream_fin(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_stream_new(ptr nocapture noundef readonly %srv, i32 noundef %is_uni, ptr nocapture noundef writeonly %stream_id) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_active(ptr noundef %0) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -722,7 +707,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %id = getelementptr inbounds %struct.quic_stream_st, ptr %call2, i64 0, i32 4
+  %id = getelementptr inbounds i8, ptr %call2, i64 56
   %2 = load i64, ptr %id, align 8
   store i64 %2, ptr %stream_id, align 8
   br label %return
@@ -737,7 +722,7 @@ declare ptr @ossl_quic_channel_new_stream_local(ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_tserver_get0_rbio(ptr nocapture noundef readonly %srv) local_unnamed_addr #4 {
 entry:
-  %net_rbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %srv, i64 0, i32 3
+  %net_rbio = getelementptr inbounds i8, ptr %srv, i64 24
   %0 = load ptr, ptr %net_rbio, align 8
   ret ptr %0
 }
@@ -745,7 +730,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_tserver_get0_ssl_ctx(ptr nocapture noundef readonly %srv) local_unnamed_addr #4 {
 entry:
-  %ctx = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %srv, i64 96
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
 }
@@ -753,7 +738,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %0) #5
   %call1 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %call, i64 noundef %stream_id) #5
@@ -761,7 +746,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %peer_stop_sending = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 15
+  %peer_stop_sending = getelementptr inbounds i8, ptr %call1, i64 256
   %bf.load = load i64, ptr %peer_stop_sending, align 8
   %1 = and i64 %bf.load, 134217728
   %tobool = icmp ne i64 %1, 0
@@ -770,7 +755,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %peer_stop_sending_aec = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 7
+  %peer_stop_sending_aec = getelementptr inbounds i8, ptr %call1, i64 80
   %2 = load i64, ptr %peer_stop_sending_aec, align 8
   store i64 %2, ptr %app_error_code, align 8
   %bf.load6.pre = load i64, ptr %peer_stop_sending, align 8
@@ -791,7 +776,7 @@ return:                                           ; preds = %entry, %if.end4
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr nocapture noundef readonly %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %0) #5
   %call1 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %call, i64 noundef %stream_id) #5
@@ -811,7 +796,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %peer_reset_stream_aec = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 8
+  %peer_reset_stream_aec = getelementptr inbounds i8, ptr %call1, i64 88
   %5 = load i64, ptr %peer_reset_stream_aec, align 8
   store i64 %5, ptr %app_error_code, align 8
   %call1.val5.pre = load i64, ptr %1, align 8
@@ -835,7 +820,7 @@ return:                                           ; preds = %entry, %if.end5
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_set_new_local_cid(ptr nocapture noundef readonly %srv, ptr noundef %conn_id) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_replace_local_cid(ptr noundef %0, ptr noundef %conn_id) #5
   ret i32 %call
@@ -846,7 +831,7 @@ declare i32 @ossl_quic_channel_replace_local_cid(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_quic_tserver_pop_incoming_stream(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %0) #5
   %call1 = tail call ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef %call) #5
@@ -855,7 +840,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @ossl_quic_stream_map_remove_from_accept_queue(ptr noundef %call, ptr noundef nonnull %call1, i64 0) #5
-  %id = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 4
+  %id = getelementptr inbounds i8, ptr %call1, i64 56
   %1 = load i64, ptr %id, align 8
   br label %return
 
@@ -871,7 +856,7 @@ declare void @ossl_quic_stream_map_remove_from_accept_queue(ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_is_stream_totally_acked(ptr nocapture noundef readonly %srv, i64 noundef %stream_id) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %0) #5
   %call1 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %call, i64 noundef %stream_id) #5
@@ -879,7 +864,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sstream = getelementptr inbounds %struct.quic_stream_st, ptr %call1, i64 0, i32 11
+  %sstream = getelementptr inbounds i8, ptr %call1, i64 112
   %1 = load ptr, ptr %sstream, align 8
   %call2 = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %1) #5
   br label %return
@@ -894,7 +879,7 @@ declare i32 @ossl_quic_sstream_is_totally_acked(ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_get_net_read_desired(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %0) #5
   %call1 = tail call i32 @ossl_quic_reactor_net_read_desired(ptr noundef %call) #5
@@ -906,7 +891,7 @@ declare i32 @ossl_quic_reactor_net_read_desired(ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_get_net_write_desired(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %0) #5
   %call1 = tail call i32 @ossl_quic_reactor_net_write_desired(ptr noundef %call) #5
@@ -918,7 +903,7 @@ declare i32 @ossl_quic_reactor_net_write_desired(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_quic_tserver_get_deadline(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %0) #5
   %call1 = tail call i64 @ossl_quic_reactor_get_tick_deadline(ptr noundef %call) #5
@@ -930,7 +915,7 @@ declare i64 @ossl_quic_reactor_get_tick_deadline(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_shutdown(ptr nocapture noundef readonly %srv, i64 noundef %app_error_code) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   tail call void @ossl_quic_channel_local_close(ptr noundef %0, i64 noundef %app_error_code, ptr noundef null) #5
   %1 = load ptr, ptr %ch, align 8
@@ -956,7 +941,7 @@ declare void @ossl_quic_channel_local_close(ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_ping(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   %call = tail call i32 @ossl_quic_channel_is_terminated(ptr noundef %0) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -984,7 +969,7 @@ declare i32 @ossl_quic_channel_ping(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_tserver_get_channel(ptr nocapture noundef readonly %srv) local_unnamed_addr #4 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
   ret ptr %0
 }
@@ -992,14 +977,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_tserver_set_msg_callback(ptr nocapture noundef readonly %srv, ptr noundef %f, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ch = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 2
+  %ch = getelementptr inbounds i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
-  %ssl = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 1
+  %ssl = getelementptr inbounds i8, ptr %srv, i64 72
   %1 = load ptr, ptr %ssl, align 8
   tail call void @ossl_quic_channel_set_msg_callback(ptr noundef %0, ptr noundef %f, ptr noundef %1) #5
   %2 = load ptr, ptr %ch, align 8
   tail call void @ossl_quic_channel_set_msg_callback_arg(ptr noundef %2, ptr noundef %arg) #5
-  %tls = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %srv, i64 104
   %3 = load ptr, ptr %tls, align 8
   tail call void @SSL_set_msg_callback(ptr noundef %3, ptr noundef %f) #5
   %4 = load ptr, ptr %tls, align 8
@@ -1018,7 +1003,7 @@ declare i64 @SSL_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_new_ticket(ptr nocapture noundef readonly %srv) local_unnamed_addr #0 {
 entry:
-  %tls = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %srv, i64 104
   %0 = load ptr, ptr %tls, align 8
   %call = tail call i32 @SSL_new_session_ticket(ptr noundef %0) #5
   ret i32 %call
@@ -1029,7 +1014,7 @@ declare i32 @SSL_new_session_ticket(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_tserver_set_max_early_data(ptr nocapture noundef readonly %srv, i32 noundef %max_early_data) local_unnamed_addr #0 {
 entry:
-  %tls = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %srv, i64 104
   %0 = load ptr, ptr %tls, align 8
   %call = tail call i32 @SSL_set_max_early_data(ptr noundef %0, i32 noundef %max_early_data) #5
   ret i32 %call
@@ -1040,7 +1025,7 @@ declare i32 @SSL_set_max_early_data(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_tserver_set_psk_find_session_cb(ptr nocapture noundef readonly %srv, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %tls = getelementptr inbounds %struct.quic_tserver_st, ptr %srv, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %srv, i64 104
   %0 = load ptr, ptr %tls, align 8
   tail call void @SSL_set_psk_find_session_callback(ptr noundef %0, ptr noundef %cb) #5
   ret void

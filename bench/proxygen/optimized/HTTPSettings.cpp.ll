@@ -3,7 +3,6 @@ source_filename = "bench/proxygen/original/HTTPSettings.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.proxygen::HTTPSetting" = type { i64, i64 }
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -12,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN8proxygen12HTTPSettings10setSettingENS_10SettingsIdEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %id, i64 noundef %val) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -34,25 +33,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end23.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   %call.val.i15.i.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i.i16.i.i.i.i = icmp eq i64 %call.val.i15.i.i.i.i, %id
   br i1 %cmp.i.i16.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   %call.val.i18.i.i.i.i = load i64, ptr %incdec.ptr.i17.i.i.i.i, align 8
   %cmp.i.i19.i.i.i.i = icmp eq i64 %call.val.i18.i.i.i.i, %id
   br i1 %cmp.i.i19.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit21, label %if.end17.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   %call.val.i21.i.i.i.i = load i64, ptr %incdec.ptr.i20.i.i.i.i, align 8
   %cmp.i.i22.i.i.i.i = icmp eq i64 %call.val.i21.i.i.i.i, %id
   br i1 %cmp.i.i22.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit23, label %if.end23.i.i.i.i
 
 if.end23.i.i.i.i:                                 ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 4
+  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__trip_count.058.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.058.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !4
@@ -78,7 +77,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i.i29.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit, label %if.end30.i.i.i.i
 
 if.end30.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 16
   br label %sw.bb32.i.i.i.i
 
 sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %for.end.i.i.i.i
@@ -88,7 +87,7 @@ sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %
   br i1 %cmp.i.i32.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit, label %if.end37.i.i.i.i
 
 if.end37.i.i.i.i:                                 ; preds = %sw.bb32.i.i.i.i
-  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 16
   br label %sw.bb39.i.i.i.i
 
 sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %for.end.i.i.i.i
@@ -99,15 +98,15 @@ sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit21: ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit23: ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit: ; preds = %for.body.i.i.i.i, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit21, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit23, %sw.bb.i.i.i.i, %sw.bb32.i.i.i.i, %sw.bb39.i.i.i.i
@@ -116,22 +115,22 @@ _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit: ; preds = %for
   br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
-  %value = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 8
   store i64 %val, ptr %value, align 8
   br label %if.end
 
 if.else:                                          ; preds = %for.end.i.i.i.i, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   store i64 %id, ptr %1, align 8
-  %value.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %1, i64 0, i32 1
+  %value.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %val, ptr %value.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end
 
@@ -140,7 +139,7 @@ if.else.i:                                        ; preds = %if.else
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #9
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #8
   unreachable
 
 _ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -151,40 +150,46 @@ _ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; pr
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 576460752303423487
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
   %cond.i.i.i = select i1 %or.cond.i.i.i, i64 576460752303423487, i64 %add.i.i.i
-  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
+  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
+  br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %_ZNSt16allocator_traitsISaIN8proxygen11HTTPSettingEEE8allocateERS2_m.exit.i.i.i
+
+_ZNSt16allocator_traitsISaIN8proxygen11HTTPSettingEEE8allocateERS2_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #10
-  %add.ptr.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #9
+  br label %invoke.cont.i.i
+
+invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIN8proxygen11HTTPSettingEEE8allocateERS2_m.exit.i.i.i, %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN8proxygen11HTTPSettingEEE8allocateERS2_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %add.ptr.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i64 %id, ptr %add.ptr.i.i, align 8
-  %value.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %value.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 %val, ptr %value.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
-  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i2, %for.body.i.i.i.i.i ], [ %0, %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i2, %for.body.i.i.i.i.i ], [ %0, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !6
-  %incdec.ptr.i.i.i.i.i2 = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i2 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i2, %1
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
-_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN8proxygen11HTTPSettingESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.proxygen::HTTPSetting", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRNS0_10SettingsIdERmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i27.i.i
 
 if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   br label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRNS0_10SettingsIdERmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE17_M_realloc_insertIJRNS0_10SettingsIdERmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
-  store ptr %call5.i.i.i.i.i, ptr %this, align 8
+  store ptr %cond.i17.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr28.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %cond.i17.i.i, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end
 
@@ -196,7 +201,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN8prox
 define ptr @_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %id) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
@@ -218,25 +223,25 @@ for.body.i.i.i:                                   ; preds = %if.end23.i.i.i, %fo
   br i1 %cmp.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 16
   %call.val.i15.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i, align 8
   %cmp.i.i16.i.i.i = icmp eq i64 %call.val.i15.i.i.i, %id
   br i1 %cmp.i.i16.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit", label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
-  %incdec.ptr.i17.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 32
   %call.val.i18.i.i.i = load i64, ptr %incdec.ptr.i17.i.i.i, align 8
   %cmp.i.i19.i.i.i = icmp eq i64 %call.val.i18.i.i.i, %id
   br i1 %cmp.i.i19.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit13", label %if.end17.i.i.i
 
 if.end17.i.i.i:                                   ; preds = %if.end11.i.i.i
-  %incdec.ptr.i20.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 48
   %call.val.i21.i.i.i = load i64, ptr %incdec.ptr.i20.i.i.i, align 8
   %cmp.i.i22.i.i.i = icmp eq i64 %call.val.i21.i.i.i, %id
   br i1 %cmp.i.i22.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit15", label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.end17.i.i.i
-  %incdec.ptr.i23.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 4
+  %incdec.ptr.i23.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 64
   %dec.i.i.i = add nsw i64 %__trip_count.058.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__trip_count.058.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !4
@@ -262,7 +267,7 @@ sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   br i1 %cmp.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit", label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %sw.bb.i.i.i
-  %incdec.ptr.i30.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.0.lcssa.i.i.i, i64 1
+  %incdec.ptr.i30.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 16
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
@@ -272,7 +277,7 @@ sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %fo
   br i1 %cmp.i.i32.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit", label %if.end37.i.i.i
 
 if.end37.i.i.i:                                   ; preds = %sw.bb32.i.i.i
-  %incdec.ptr.i33.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.1.i.i.i, i64 1
+  %incdec.ptr.i33.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 16
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
@@ -283,15 +288,15 @@ sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %fo
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit": ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit13": ; preds = %if.end11.i.i.i
-  %incdec.ptr.i17.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 32
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit15": ; preds = %if.end17.i.i.i
-  %incdec.ptr.i20.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 48
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit": ; preds = %for.body.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit13", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNS2_12HTTPSettings14getSettingIterENS2_10SettingsIdEE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit15", %for.end.i.i.i, %sw.bb.i.i.i, %sw.bb32.i.i.i, %sw.bb39.i.i.i
@@ -303,7 +308,7 @@ sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %fo
 define void @_ZN8proxygen12HTTPSettings12unsetSettingENS_10SettingsIdE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %id) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -325,25 +330,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end23.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   %call.val.i15.i.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i.i16.i.i.i.i = icmp eq i64 %call.val.i15.i.i.i.i, %id
   br i1 %cmp.i.i16.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   %call.val.i18.i.i.i.i = load i64, ptr %incdec.ptr.i17.i.i.i.i, align 8
   %cmp.i.i19.i.i.i.i = icmp eq i64 %call.val.i18.i.i.i.i, %id
   br i1 %cmp.i.i19.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18, label %if.end17.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   %call.val.i21.i.i.i.i = load i64, ptr %incdec.ptr.i20.i.i.i.i, align 8
   %cmp.i.i22.i.i.i.i = icmp eq i64 %call.val.i21.i.i.i.i, %id
   br i1 %cmp.i.i22.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit20, label %if.end23.i.i.i.i
 
 if.end23.i.i.i.i:                                 ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 4
+  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__trip_count.058.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.058.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !4
@@ -369,7 +374,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i.i29.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit, label %if.end30.i.i.i.i
 
 if.end30.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 16
   br label %sw.bb32.i.i.i.i
 
 sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %for.end.i.i.i.i
@@ -379,7 +384,7 @@ sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %
   br i1 %cmp.i.i32.i.i.i.i, label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit, label %if.end37.i.i.i.i
 
 if.end37.i.i.i.i:                                 ; preds = %sw.bb32.i.i.i.i
-  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 16
   br label %sw.bb39.i.i.i.i
 
 sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %for.end.i.i.i.i
@@ -390,15 +395,15 @@ sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18: ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit20: ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   br label %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
 
 _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit: ; preds = %for.body.i.i.i.i, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18, %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit.loopexit.split.loop.exit20, %sw.bb.i.i.i.i, %sw.bb32.i.i.i.i, %sw.bb39.i.i.i.i
@@ -407,10 +412,10 @@ _ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit: ; preds = %for
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN8proxygen12HTTPSettings14getSettingIterENS_10SettingsIdE.exit
-  %add.ptr.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %1, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %3, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 -16
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end
 
@@ -425,7 +430,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef ptr @_ZNK8proxygen12HTTPSettings10getSettingENS_10SettingsIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %id) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -447,25 +452,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end23.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   %call.val.i15.i.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i.i16.i.i.i.i = icmp eq i64 %call.val.i15.i.i.i.i, %id
   br i1 %cmp.i.i16.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   %call.val.i18.i.i.i.i = load i64, ptr %incdec.ptr.i17.i.i.i.i, align 8
   %cmp.i.i19.i.i.i.i = icmp eq i64 %call.val.i18.i.i.i.i, %id
   br i1 %cmp.i.i19.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit16, label %if.end17.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   %call.val.i21.i.i.i.i = load i64, ptr %incdec.ptr.i20.i.i.i.i, align 8
   %cmp.i.i22.i.i.i.i = icmp eq i64 %call.val.i21.i.i.i.i, %id
   br i1 %cmp.i.i22.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18, label %if.end23.i.i.i.i
 
 if.end23.i.i.i.i:                                 ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 4
+  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__trip_count.058.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.058.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !11
@@ -491,7 +496,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i.i29.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit, label %if.end30.i.i.i.i
 
 if.end30.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 16
   br label %sw.bb32.i.i.i.i
 
 sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %for.end.i.i.i.i
@@ -501,7 +506,7 @@ sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %
   br i1 %cmp.i.i32.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit, label %if.end37.i.i.i.i
 
 if.end37.i.i.i.i:                                 ; preds = %sw.bb32.i.i.i.i
-  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 16
   br label %sw.bb39.i.i.i.i
 
 sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %for.end.i.i.i.i
@@ -512,15 +517,15 @@ sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit16: ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18: ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit: ; preds = %for.body.i.i.i.i, %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit16, %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18, %sw.bb.i.i.i.i, %sw.bb32.i.i.i.i, %sw.bb39.i.i.i.i
@@ -538,7 +543,7 @@ return:                                           ; preds = %_ZNK8proxygen12HTTP
 define ptr @_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %id) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
@@ -560,25 +565,25 @@ for.body.i.i.i:                                   ; preds = %if.end23.i.i.i, %fo
   br i1 %cmp.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 16
   %call.val.i15.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i, align 8
   %cmp.i.i16.i.i.i = icmp eq i64 %call.val.i15.i.i.i, %id
   br i1 %cmp.i.i16.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit", label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
-  %incdec.ptr.i17.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 32
   %call.val.i18.i.i.i = load i64, ptr %incdec.ptr.i17.i.i.i, align 8
   %cmp.i.i19.i.i.i = icmp eq i64 %call.val.i18.i.i.i, %id
   br i1 %cmp.i.i19.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit13", label %if.end17.i.i.i
 
 if.end17.i.i.i:                                   ; preds = %if.end11.i.i.i
-  %incdec.ptr.i20.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 48
   %call.val.i21.i.i.i = load i64, ptr %incdec.ptr.i20.i.i.i, align 8
   %cmp.i.i22.i.i.i = icmp eq i64 %call.val.i21.i.i.i, %id
   br i1 %cmp.i.i22.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit15", label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.end17.i.i.i
-  %incdec.ptr.i23.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 4
+  %incdec.ptr.i23.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 64
   %dec.i.i.i = add nsw i64 %__trip_count.058.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__trip_count.058.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !11
@@ -604,7 +609,7 @@ sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   br i1 %cmp.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit", label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %sw.bb.i.i.i
-  %incdec.ptr.i30.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.0.lcssa.i.i.i, i64 1
+  %incdec.ptr.i30.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 16
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
@@ -614,7 +619,7 @@ sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %fo
   br i1 %cmp.i.i32.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit", label %if.end37.i.i.i
 
 if.end37.i.i.i:                                   ; preds = %sw.bb32.i.i.i
-  %incdec.ptr.i33.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.1.i.i.i, i64 1
+  %incdec.ptr.i33.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 16
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
@@ -625,15 +630,15 @@ sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %fo
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit": ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit13": ; preds = %if.end11.i.i.i
-  %incdec.ptr.i17.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 32
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit15": ; preds = %if.end17.i.i.i
-  %incdec.ptr.i20.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i, i64 48
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit": ; preds = %for.body.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit13", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN8proxygen11HTTPSettingESt6vectorIS3_SaIS3_EEEEZNKS2_12HTTPSettings19getSettingConstIterENS2_10SettingsIdEE3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit15", %for.end.i.i.i, %sw.bb.i.i.i, %sw.bb32.i.i.i, %sw.bb39.i.i.i
@@ -645,7 +650,7 @@ sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %fo
 define noundef i64 @_ZNK8proxygen12HTTPSettings10getSettingENS_10SettingsIdEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %id, i64 noundef %defaultValue) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -667,25 +672,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end23.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   %call.val.i15.i.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i.i16.i.i.i.i = icmp eq i64 %call.val.i15.i.i.i.i, %id
   br i1 %cmp.i.i16.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   %call.val.i18.i.i.i.i = load i64, ptr %incdec.ptr.i17.i.i.i.i, align 8
   %cmp.i.i19.i.i.i.i = icmp eq i64 %call.val.i18.i.i.i.i, %id
   br i1 %cmp.i.i19.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit16, label %if.end17.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   %call.val.i21.i.i.i.i = load i64, ptr %incdec.ptr.i20.i.i.i.i, align 8
   %cmp.i.i22.i.i.i.i = icmp eq i64 %call.val.i21.i.i.i.i, %id
   br i1 %cmp.i.i22.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18, label %if.end23.i.i.i.i
 
 if.end23.i.i.i.i:                                 ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 4
+  %incdec.ptr.i23.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__trip_count.058.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.058.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !11
@@ -711,7 +716,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i.i29.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit, label %if.end30.i.i.i.i
 
 if.end30.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i30.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 16
   br label %sw.bb32.i.i.i.i
 
 sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %for.end.i.i.i.i
@@ -721,7 +726,7 @@ sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %
   br i1 %cmp.i.i32.i.i.i.i, label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit, label %if.end37.i.i.i.i
 
 if.end37.i.i.i.i:                                 ; preds = %sw.bb32.i.i.i.i
-  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i33.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 16
   br label %sw.bb39.i.i.i.i
 
 sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %for.end.i.i.i.i
@@ -732,15 +737,15 @@ sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 16
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit16: ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 2
+  %incdec.ptr.i17.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 32
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18: ; preds = %if.end17.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %__first.sroa.0.057.i.i.i.i, i64 3
+  %incdec.ptr.i20.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i, i64 48
   br label %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
 
 _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit: ; preds = %for.body.i.i.i.i, %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit, %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit16, %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit.loopexit.split.loop.exit18, %sw.bb.i.i.i.i, %sw.bb32.i.i.i.i, %sw.bb39.i.i.i.i
@@ -749,7 +754,7 @@ _ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit: ; preds 
   br i1 %cmp.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZNK8proxygen12HTTPSettings19getSettingConstIterENS_10SettingsIdE.exit
-  %value = getelementptr inbounds %"struct.proxygen::HTTPSetting", ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 8
   %3 = load i64, ptr %value, align 8
   br label %return
 
@@ -772,9 +777,6 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -783,10 +785,9 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { noreturn }
-attributes #10 = { builtin allocsize(0) }
-attributes #11 = { builtin nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { builtin allocsize(0) }
+attributes #10 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

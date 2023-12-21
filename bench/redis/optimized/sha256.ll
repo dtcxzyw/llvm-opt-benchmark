@@ -3,8 +3,6 @@ source_filename = "bench/redis/original/sha256.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SHA256_CTX = type { [64 x i8], i32, i64, [8 x i32] }
-
 @k = internal unnamed_addr constant [64 x i32] [i32 1116352408, i32 1899447441, i32 -1245643825, i32 -373957723, i32 961987163, i32 1508970993, i32 -1841331548, i32 -1424204075, i32 -670586216, i32 310598401, i32 607225278, i32 1426881987, i32 1925078388, i32 -2132889090, i32 -1680079193, i32 -1046744716, i32 -459576895, i32 -272742522, i32 264347078, i32 604807628, i32 770255983, i32 1249150122, i32 1555081692, i32 1996064986, i32 -1740746414, i32 -1473132947, i32 -1341970488, i32 -1084653625, i32 -958395405, i32 -710438585, i32 113926993, i32 338241895, i32 666307205, i32 773529912, i32 1294757372, i32 1396182291, i32 1695183700, i32 1986661051, i32 -2117940946, i32 -1838011259, i32 -1564481375, i32 -1474664885, i32 -1035236496, i32 -949202525, i32 -778901479, i32 -694614492, i32 -200395387, i32 275423344, i32 430227734, i32 506948616, i32 659060556, i32 883997877, i32 958139571, i32 1322822218, i32 1537002063, i32 1747873779, i32 1955562222, i32 2024104815, i32 -2067236844, i32 -1933114872, i32 -1866530822, i32 -1538233109, i32 -1090935817, i32 -965641998], align 16
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
@@ -80,21 +78,21 @@ for.body23:                                       ; preds = %for.body23.preheade
   br i1 %exitcond104.not, label %for.end82, label %for.body23, !llvm.loop !7
 
 for.end82:                                        ; preds = %for.body23
-  %state = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %ctx, i64 80
   %14 = load i32, ptr %state, align 8
-  %arrayidx85 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 1
+  %arrayidx85 = getelementptr inbounds i8, ptr %ctx, i64 84
   %15 = load i32, ptr %arrayidx85, align 4
-  %arrayidx87 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 2
+  %arrayidx87 = getelementptr inbounds i8, ptr %ctx, i64 88
   %16 = load i32, ptr %arrayidx87, align 8
-  %arrayidx89 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 3
+  %arrayidx89 = getelementptr inbounds i8, ptr %ctx, i64 92
   %17 = load i32, ptr %arrayidx89, align 4
-  %arrayidx91 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 4
+  %arrayidx91 = getelementptr inbounds i8, ptr %ctx, i64 96
   %18 = load i32, ptr %arrayidx91, align 8
-  %arrayidx93 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 5
+  %arrayidx93 = getelementptr inbounds i8, ptr %ctx, i64 100
   %19 = load i32, ptr %arrayidx93, align 4
-  %arrayidx95 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 6
+  %arrayidx95 = getelementptr inbounds i8, ptr %ctx, i64 104
   %20 = load i32, ptr %arrayidx95, align 8
-  %arrayidx97 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 7
+  %arrayidx97 = getelementptr inbounds i8, ptr %ctx, i64 108
   %21 = load i32, ptr %arrayidx97, align 4
   br label %for.body101
 
@@ -164,13 +162,13 @@ for.end144:                                       ; preds = %for.body101
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @sha256_init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #1 {
 entry:
-  %datalen = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 1
+  %datalen = getelementptr inbounds i8, ptr %ctx, i64 64
   store i32 0, ptr %datalen, align 8
-  %bitlen = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 2
+  %bitlen = getelementptr inbounds i8, ptr %ctx, i64 72
   store i64 0, ptr %bitlen, align 8
-  %state = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %ctx, i64 80
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %state, align 8
-  %arrayidx8 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %ctx, i64 96
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8, align 8
   ret void
 }
@@ -182,8 +180,8 @@ entry:
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %datalen = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 1
-  %bitlen = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 2
+  %datalen = getelementptr inbounds i8, ptr %ctx, i64 64
+  %bitlen = getelementptr inbounds i8, ptr %ctx, i64 72
   %.pre = load i32, ptr %datalen, align 8
   br label %for.body
 
@@ -224,7 +222,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @sha256_final(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
-  %datalen = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 1
+  %datalen = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i32, ptr %datalen, align 8
   %cmp = icmp ult i32 %0, 56
   %idxprom = zext i32 %0 to i64
@@ -267,50 +265,50 @@ if.end:                                           ; preds = %while.body.preheade
   %7 = load i32, ptr %datalen, align 8
   %mul = shl i32 %7, 3
   %conv = zext i32 %mul to i64
-  %bitlen = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 2
+  %bitlen = getelementptr inbounds i8, ptr %ctx, i64 72
   %8 = load i64, ptr %bitlen, align 8
   %add = add i64 %8, %conv
   store i64 %add, ptr %bitlen, align 8
   %conv24 = trunc i64 %add to i8
-  %arrayidx26 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 63
+  %arrayidx26 = getelementptr inbounds i8, ptr %ctx, i64 63
   store i8 %conv24, ptr %arrayidx26, align 1
   %shr = lshr i64 %add, 8
   %conv28 = trunc i64 %shr to i8
-  %arrayidx30 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 62
+  %arrayidx30 = getelementptr inbounds i8, ptr %ctx, i64 62
   store i8 %conv28, ptr %arrayidx30, align 2
   %shr32 = lshr i64 %add, 16
   %conv33 = trunc i64 %shr32 to i8
-  %arrayidx35 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 61
+  %arrayidx35 = getelementptr inbounds i8, ptr %ctx, i64 61
   store i8 %conv33, ptr %arrayidx35, align 1
   %shr37 = lshr i64 %add, 24
   %conv38 = trunc i64 %shr37 to i8
-  %arrayidx40 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 60
+  %arrayidx40 = getelementptr inbounds i8, ptr %ctx, i64 60
   store i8 %conv38, ptr %arrayidx40, align 4
   %shr42 = lshr i64 %add, 32
   %conv43 = trunc i64 %shr42 to i8
-  %arrayidx45 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 59
+  %arrayidx45 = getelementptr inbounds i8, ptr %ctx, i64 59
   store i8 %conv43, ptr %arrayidx45, align 1
   %shr47 = lshr i64 %add, 40
   %conv48 = trunc i64 %shr47 to i8
-  %arrayidx50 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 58
+  %arrayidx50 = getelementptr inbounds i8, ptr %ctx, i64 58
   store i8 %conv48, ptr %arrayidx50, align 2
   %shr52 = lshr i64 %add, 48
   %conv53 = trunc i64 %shr52 to i8
-  %arrayidx55 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 57
+  %arrayidx55 = getelementptr inbounds i8, ptr %ctx, i64 57
   store i8 %conv53, ptr %arrayidx55, align 1
   %shr57 = lshr i64 %add, 56
   %conv58 = trunc i64 %shr57 to i8
-  %arrayidx60 = getelementptr inbounds [64 x i8], ptr %ctx, i64 0, i64 56
+  %arrayidx60 = getelementptr inbounds i8, ptr %ctx, i64 56
   store i8 %conv58, ptr %arrayidx60, align 8
   tail call void @sha256_transform(ptr noundef nonnull %ctx, ptr noundef nonnull %ctx)
-  %state = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3
-  %arrayidx72 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 1
-  %arrayidx82 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 2
-  %arrayidx92 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 3
-  %arrayidx102 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 4
-  %arrayidx112 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 5
-  %arrayidx122 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 6
-  %arrayidx132 = getelementptr inbounds %struct.SHA256_CTX, ptr %ctx, i64 0, i32 3, i64 7
+  %state = getelementptr inbounds i8, ptr %ctx, i64 80
+  %arrayidx72 = getelementptr inbounds i8, ptr %ctx, i64 84
+  %arrayidx82 = getelementptr inbounds i8, ptr %ctx, i64 88
+  %arrayidx92 = getelementptr inbounds i8, ptr %ctx, i64 92
+  %arrayidx102 = getelementptr inbounds i8, ptr %ctx, i64 96
+  %arrayidx112 = getelementptr inbounds i8, ptr %ctx, i64 100
+  %arrayidx122 = getelementptr inbounds i8, ptr %ctx, i64 104
+  %arrayidx132 = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body

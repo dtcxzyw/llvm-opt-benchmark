@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-a_mbstr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/asn1/a_mbstr.c\00", align 1
 @__func__.ASN1_mbstring_ncopy = private unnamed_addr constant [20 x i8] c"ASN1_mbstring_ncopy\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"minsize=%ld\00", align 1
@@ -215,7 +213,7 @@ if.end74:                                         ; preds = %if.end71
 
 if.then76:                                        ; preds = %if.end74
   call void @ASN1_STRING_set0(ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #7
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %str_type.0, ptr %type, align 4
   br label %if.end83
 
@@ -298,7 +296,7 @@ if.then105:                                       ; preds = %if.then103
 if.end107:                                        ; preds = %sw.epilog98
   %6 = load i32, ptr %outlen, align 4
   store i32 %6, ptr %dest.0, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %dest.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %dest.0, i64 8
   store ptr %call100, ptr %data, align 8
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds i8, ptr %call100, i64 %idxprom

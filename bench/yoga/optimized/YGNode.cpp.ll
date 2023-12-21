@@ -5,14 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.facebook::yoga::Event::Data" = type { ptr }
 %"struct.facebook::yoga::Event::TypedData" = type { ptr }
-%"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, ptr, %"class.std::vector", ptr, %"struct.std::array.5" }
-%"class.facebook::yoga::Style" = type { i8, [3 x i8], %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"class.facebook::yoga::CompactValue", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.facebook::yoga::FloatOptional" }
-%"class.facebook::yoga::CompactValue" = type { i32 }
-%"struct.std::array" = type { [9 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.0" = type { [3 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.1" = type { [2 x %"class.facebook::yoga::CompactValue"] }
-%"struct.facebook::yoga::FloatOptional" = type { float }
+%"struct.facebook::yoga::Event::TypedData.6" = type { ptr }
 %"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array.2", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.3", %"struct.std::array.3", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4" }
+%"struct.facebook::yoga::FloatOptional" = type { float }
 %"struct.std::array.2" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
 %"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
 %"struct.std::array.3" = type { [2 x float] }
@@ -21,9 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" }
 %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.5" = type { [2 x %struct.YGValue] }
-%struct.YGValue = type { float, i32 }
-%"struct.facebook::yoga::Event::TypedData.6" = type { ptr }
 
 $_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_ = comdat any
 
@@ -112,9 +104,9 @@ entry:
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %call1, ptr noundef nonnull align 8 dereferenceable(592) %oldNodeRef, i64 592, i1 false)
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 10
-  %children_2.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %oldNodeRef, i64 0, i32 10
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %oldNodeRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %call1, i64 592
+  %children_2.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 592
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %children_2.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -126,9 +118,9 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.thread, label %cond.true.i.i.i.i.i
 
 invoke.cont.i.i.thread:                           ; preds = %entry
-  %_M_finish.i.i.i.i7 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i7 = getelementptr inbounds i8, ptr %call1, i64 600
   %add.ptr.i.i.i.i8 = getelementptr inbounds ptr, ptr null, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i9 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i9 = getelementptr inbounds i8, ptr %call1, i64 608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %children_.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i8, ptr %_M_end_of_storage.i.i.i.i9, align 8
   br label %invoke.cont
@@ -150,10 +142,10 @@ _ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i.
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i.i4, ptr %children_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call1, i64 600
   store ptr %call5.i.i.i.i2.i6.i.i4, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i6.i.i4, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %call1, i64 608
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i4, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %invoke.cont
@@ -162,8 +154,8 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.i.i.i.i11 = phi ptr [ %add.ptr.i.i.i.i8, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i10 = phi ptr [ %_M_finish.i.i.i.i7, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i11, ptr %_M_finish.i.i.i.i10, align 8
-  %config_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 11
-  %config_3.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %oldNodeRef, i64 0, i32 11
+  %config_.i = getelementptr inbounds i8, ptr %call1, i64 616
+  %config_3.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %config_.i, ptr noundef nonnull align 8 dereferenceable(24) %config_3.i, i64 24, i1 false)
   %2 = load ptr, ptr %config_.i, align 8
   store ptr %2, ptr %ref.tmp, align 8
@@ -171,7 +163,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   store ptr %ref.tmp, ptr %ref.tmp.i, align 8
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %call1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %call1, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %call1, i64 584
   store ptr null, ptr %owner_.i, align 8
   ret ptr %call1
 
@@ -187,7 +179,7 @@ define void @YGNodeFree(ptr noundef %nodeRef) local_unnamed_addr #0 personality 
 entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData.6", align 8
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %nodeRef, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -198,8 +190,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %nodeRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %nodeRef, i64 600
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %children_.i, align 8
   %cmp17.not = icmp eq ptr %1, %2
@@ -231,7 +223,7 @@ if.then.i.i.i:                                    ; preds = %for.body
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %for.body
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %i.018
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %owner_.i14 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %5, i64 0, i32 9
+  %owner_.i14 = getelementptr inbounds i8, ptr %5, i64 584
   store ptr null, ptr %owner_.i14, align 8
   %inc = add nuw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, %umax
@@ -239,7 +231,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %for.body
 
 delete.notnull:                                   ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit, %if.end
   tail call void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(640) %nodeRef)
-  %config_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 11
+  %config_.i.i = getelementptr inbounds i8, ptr %nodeRef, i64 616
   %6 = load ptr, ptr %config_.i.i, align 8
   store ptr %6, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -266,7 +258,7 @@ declare void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetConfig(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %config_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 11
+  %config_.i = getelementptr inbounds i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   ret ptr %0
 }
@@ -275,23 +267,23 @@ entry:
 define void @YGNodeFreeRecursive(ptr noundef %rootRef) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"struct.facebook::yoga::LayoutResults", align 4
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %rootRef, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %rootRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %rootRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %rootRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %cmp14.not = icmp eq ptr %0, %1
   br i1 %cmp14.not, label %while.end, label %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph
 
 _ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph:    ; preds = %entry
-  %computedFlexBasis.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 1
-  %nextCachedMeasurementsIndex.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 4
-  %cachedLayout.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 6
-  %widthSizingMode5.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 6, i32 2
-  %heightSizingMode6.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 6, i32 3
-  %computedWidth7.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 6, i32 4
-  %direction_.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 7
-  %dimensions_.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 8
-  %position_.i.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp.i, i64 0, i32 10
+  %computedFlexBasis.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %nextCachedMeasurementsIndex.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %cachedLayout.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 212
+  %widthSizingMode5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 220
+  %heightSizingMode6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 224
+  %computedWidth7.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 228
+  %direction_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 236
+  %dimensions_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
+  %position_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 256
   br label %_ZNK8facebook4yoga4Node8getChildEm.exit
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph, %if.end
@@ -300,7 +292,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   %skipped.015 = phi i64 [ 0, %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph ], [ %skipped.1, %if.end ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %skipped.015
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %4, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %4, i64 584
   %5 = load ptr, ptr %owner_.i, align 8
   %cmp4.not = icmp eq ptr %5, %rootRef
   br i1 %cmp4.not, label %if.else, label %if.then
@@ -328,11 +320,11 @@ arrayinit.body.i.i:                               ; preds = %arrayinit.body.i.i,
   %arrayinit.cur.idx.i.i = phi i64 [ 20, %if.then7.i ], [ %arrayinit.cur.add.i.i, %arrayinit.body.i.i ]
   %arrayinit.cur.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %arrayinit.cur.idx.i.i
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i.i, align 4
-  %widthSizingMode.i.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i.i, i64 0, i32 2
+  %widthSizingMode.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 8
   store i32 1, ptr %widthSizingMode.i.i, align 4
-  %heightSizingMode.i.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i.i, i64 0, i32 3
+  %heightSizingMode.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 12
   store i32 1, ptr %heightSizingMode.i.i, align 4
-  %computedWidth.i.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i.i, i64 0, i32 4
+  %computedWidth.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 16
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i.i, align 4
   %arrayinit.cur.add.i.i = add nuw nsw i64 %arrayinit.cur.idx.i.i, 24
   %arrayinit.done.i.i = icmp eq i64 %arrayinit.cur.add.i.i, 212
@@ -348,7 +340,7 @@ if.end8.i:                                        ; preds = %arrayinit.body.i.i
   store i8 %bf.clear10.i.i, ptr %direction_.i.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i.i, i8 0, i64 64, i1 false)
-  %layout_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %4, i64 0, i32 7
+  %layout_.i.i = getelementptr inbounds i8, ptr %4, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp.i, i64 320, i1 false)
   store ptr null, ptr %owner_.i, align 8
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(640) %rootRef)
@@ -381,15 +373,15 @@ while.end:                                        ; preds = %if.end, %entry
 define void @YGNodeRemoveChild(ptr noundef %ownerRef, ptr noundef %excludedChildRef) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"struct.facebook::yoga::LayoutResults", align 4
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %ownerRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ownerRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.end9, label %if.end
 
 if.end:                                           ; preds = %entry
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %excludedChildRef, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %excludedChildRef, i64 584
   %2 = load ptr, ptr %owner_.i, align 8
   %call4 = tail call noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef nonnull align 8 dereferenceable(640) %ownerRef, ptr noundef nonnull %excludedChildRef)
   br i1 %call4, label %if.then5, label %if.end9
@@ -399,12 +391,12 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.then5
-  %computedFlexBasis.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 1
+  %computedFlexBasis.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i8 0, i64 320, i1 false)
   store float 0x7FF8000000000000, ptr %computedFlexBasis.i, align 4
-  %lastOwnerDirection.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 3
+  %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i8 0, ptr %lastOwnerDirection.i, align 4
-  %nextCachedMeasurementsIndex.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 4
+  %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %nextCachedMeasurementsIndex.i, i8 0, i64 196, i1 false)
   br label %arrayinit.body.i
 
@@ -412,34 +404,34 @@ arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %
   %arrayinit.cur.idx.i = phi i64 [ 20, %if.then7 ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i, align 4
-  %widthSizingMode.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 2
+  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
-  %heightSizingMode.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 3
+  %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
-  %computedWidth.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 4
+  %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
   br i1 %arrayinit.done.i, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %arrayinit.body.i
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
-  %cachedLayout.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6
+  %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i, align 4
-  %widthSizingMode5.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6, i32 2
+  %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
   store i32 1, ptr %widthSizingMode5.i, align 4
-  %heightSizingMode6.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6, i32 3
+  %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
   store i32 1, ptr %heightSizingMode6.i, align 4
-  %computedWidth7.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6, i32 4
+  %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 228
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i, align 4
-  %direction_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 7
+  %direction_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
   %bf.load.i = load i8, ptr %direction_.i, align 4
   %bf.clear10.i = and i8 %bf.load.i, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
-  %dimensions_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 8
+  %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i, align 4
-  %position_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 10
+  %position_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
-  %layout_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %excludedChildRef, i64 0, i32 7
+  %layout_.i = getelementptr inbounds i8, ptr %excludedChildRef, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i64 320, i1 false)
   store ptr null, ptr %owner_.i, align 8
   br label %if.end8
@@ -457,14 +449,14 @@ define void @YGNodeFinalize(ptr noundef %node) local_unnamed_addr #0 personality
 delete.notnull:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData.6", align 8
-  %config_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 11
+  %config_.i.i = getelementptr inbounds i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
   store ptr %0, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp, ptr %ref.tmp.i, align 8
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef %node, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
   %1 = load ptr, ptr %children_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %delete.end, label %if.then.i.i.i.i
@@ -529,7 +521,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeMarkDirty(ptr noundef %nodeRef) local_unnamed_addr #0 {
 entry:
-  %measureFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 2
+  %measureFunc_.i = getelementptr inbounds i8, ptr %nodeRef, i64 16
   %0 = load ptr, ptr %measureFunc_.i, align 8
   %cmp.i = icmp ne ptr %0, null
   tail call void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef nonnull %nodeRef, i1 noundef zeroext %cmp.i, ptr noundef nonnull @.str.1)
@@ -544,7 +536,7 @@ declare void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetDirtiedFunc(ptr nocapture noundef writeonly %node, ptr noundef %dirtiedFunc) local_unnamed_addr #6 {
 entry:
-  %dirtiedFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 5
+  %dirtiedFunc_.i = getelementptr inbounds i8, ptr %node, i64 40
   store ptr %dirtiedFunc, ptr %dirtiedFunc_.i, align 8
   ret void
 }
@@ -552,7 +544,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetDirtiedFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %dirtiedFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 5
+  %dirtiedFunc_.i = getelementptr inbounds i8, ptr %node, i64 40
   %0 = load ptr, ptr %dirtiedFunc_.i, align 8
   ret ptr %0
 }
@@ -560,11 +552,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeInsertChild(ptr noundef %ownerRef, ptr noundef %childRef, i64 noundef %index) local_unnamed_addr #0 {
 entry:
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %childRef, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %childRef, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   %cmp = icmp eq ptr %0, null
   tail call void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef %ownerRef, i1 noundef zeroext %cmp, ptr noundef nonnull @.str.2)
-  %measureFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 2
+  %measureFunc_.i = getelementptr inbounds i8, ptr %ownerRef, i64 16
   %1 = load ptr, ptr %measureFunc_.i, align 8
   %cmp.i.not = icmp eq ptr %1, null
   tail call void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef nonnull %ownerRef, i1 noundef zeroext %cmp.i.not, ptr noundef nonnull @.str.3)
@@ -580,7 +572,7 @@ declare void @_ZN8facebook4yoga4Node11insertChildEPS1_m(ptr noundef nonnull alig
 define void @YGNodeSwapChild(ptr noundef nonnull %ownerRef, ptr noundef %childRef, i64 noundef %index) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr noundef nonnull align 8 dereferenceable(640) %ownerRef, ptr noundef %childRef, i64 noundef %index)
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %childRef, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %childRef, i64 584
   store ptr %ownerRef, ptr %owner_.i, align 8
   ret void
 }
@@ -595,8 +587,8 @@ define void @YGNodeRemoveAllChildren(ptr noundef %ownerRef) local_unnamed_addr #
 entry:
   %ref.tmp = alloca %"struct.facebook::yoga::LayoutResults", align 4
   %ref.tmp9 = alloca %"class.std::vector", align 8
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %ownerRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ownerRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -608,22 +600,22 @@ entry:
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %2, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %2, i64 584
   %3 = load ptr, ptr %owner_.i, align 8
   %cmp4 = icmp eq ptr %3, %ownerRef
   br i1 %cmp4, label %for.body.lr.ph, label %if.end8
 
 for.body.lr.ph:                                   ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit
-  %computedFlexBasis.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 1
-  %lastOwnerDirection.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 3
-  %nextCachedMeasurementsIndex.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 4
-  %cachedLayout.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6
-  %widthSizingMode5.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6, i32 2
-  %heightSizingMode6.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6, i32 3
-  %computedWidth7.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 6, i32 4
-  %direction_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 7
-  %dimensions_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 8
-  %position_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp, i64 0, i32 10
+  %computedFlexBasis.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
+  %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
+  %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
+  %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 228
+  %direction_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
+  %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
+  %position_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body
 
@@ -655,11 +647,11 @@ arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %
   %arrayinit.cur.idx.i = phi i64 [ 20, %_ZNK8facebook4yoga4Node8getChildEm.exit21 ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i, align 4
-  %widthSizingMode.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 2
+  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
-  %heightSizingMode.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 3
+  %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
-  %computedWidth.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 4
+  %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
@@ -675,9 +667,9 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
-  %layout_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %6, i64 0, i32 7
+  %layout_.i = getelementptr inbounds i8, ptr %6, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i64 320, i1 false)
-  %owner_.i22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %6, i64 0, i32 9
+  %owner_.i22 = getelementptr inbounds i8, ptr %6, i64 584
   store ptr null, ptr %owner_.i22, align 8
   %inc = add nuw i64 %i.031, 1
   %exitcond.not = icmp eq i64 %inc, %umax
@@ -752,7 +744,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIPN8fac
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.idx) #13
   store ptr %call5.i.i.i.i1.i, ptr %childrenVector, align 8
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i1.i, i64 %count
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %childrenVector, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %childrenVector, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %childrenRefs, i64 %add.ptr.idx, i1 false)
   br label %invoke.cont
@@ -760,14 +752,14 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIPN8fac
 invoke.cont:                                      ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %0 = phi ptr [ %call5.i.i.i.i1.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
   %add.ptr7.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %childrenVector, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %childrenVector, i64 8
   store ptr %add.ptr7.i.i, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr7.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp eq i64 %sub.ptr.sub.i, 0
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 10
-  %_M_finish.i.i17 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ownerRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %ownerRef, i64 592
+  %_M_finish.i.i17 = getelementptr inbounds i8, ptr %ownerRef, i64 600
   %1 = load ptr, ptr %_M_finish.i.i17, align 8
   %2 = load ptr, ptr %children_.i, align 8
   %cmp6.not = icmp eq ptr %1, %2
@@ -777,16 +769,16 @@ if.then2:                                         ; preds = %invoke.cont
   br i1 %cmp6.not, label %if.end82, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then2
-  %computedFlexBasis.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 1
-  %lastOwnerDirection.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 3
-  %nextCachedMeasurementsIndex.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 4
-  %cachedLayout.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 6
-  %widthSizingMode5.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 6, i32 2
-  %heightSizingMode6.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 6, i32 3
-  %computedWidth7.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 6, i32 4
-  %direction_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 7
-  %dimensions_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 8
-  %position_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp15, i64 0, i32 10
+  %computedFlexBasis.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 4
+  %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 12
+  %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 212
+  %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 220
+  %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 224
+  %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 228
+  %direction_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 236
+  %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 240
+  %position_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 256
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
@@ -802,11 +794,11 @@ arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %
   %arrayinit.cur.idx.i = phi i64 [ 20, %for.body ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 %arrayinit.cur.idx.i
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i, align 4
-  %widthSizingMode.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 2
+  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
-  %heightSizingMode.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 3
+  %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
-  %computedWidth.i = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i, i64 0, i32 4
+  %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
@@ -822,11 +814,11 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
-  %layout_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %3, i64 0, i32 7
+  %layout_.i = getelementptr inbounds i8, ptr %3, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp15, i64 320, i1 false)
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %3, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %3, i64 584
   store ptr null, ptr %owner_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin3.sroa.0.0117, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0117, i64 8
   %cmp.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i, label %for.end, label %for.body
 
@@ -875,16 +867,16 @@ for.body40.lr.ph:                                 ; preds = %if.else
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %8
   %.pre58.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
   %.pre59.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %.pre58.i.i.i
-  %computedFlexBasis.i45 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 1
-  %lastOwnerDirection.i47 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 3
-  %nextCachedMeasurementsIndex.i48 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 4
-  %cachedLayout.i59 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 6
-  %widthSizingMode5.i61 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 6, i32 2
-  %heightSizingMode6.i62 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 6, i32 3
-  %computedWidth7.i63 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 6, i32 4
-  %direction_.i65 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 7
-  %dimensions_.i68 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 8
-  %position_.i72 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %ref.tmp58, i64 0, i32 10
+  %computedFlexBasis.i45 = getelementptr inbounds i8, ptr %ref.tmp58, i64 4
+  %lastOwnerDirection.i47 = getelementptr inbounds i8, ptr %ref.tmp58, i64 12
+  %nextCachedMeasurementsIndex.i48 = getelementptr inbounds i8, ptr %ref.tmp58, i64 16
+  %cachedLayout.i59 = getelementptr inbounds i8, ptr %ref.tmp58, i64 212
+  %widthSizingMode5.i61 = getelementptr inbounds i8, ptr %ref.tmp58, i64 220
+  %heightSizingMode6.i62 = getelementptr inbounds i8, ptr %ref.tmp58, i64 224
+  %computedWidth7.i63 = getelementptr inbounds i8, ptr %ref.tmp58, i64 228
+  %direction_.i65 = getelementptr inbounds i8, ptr %ref.tmp58, i64 236
+  %dimensions_.i68 = getelementptr inbounds i8, ptr %ref.tmp58, i64 240
+  %position_.i72 = getelementptr inbounds i8, ptr %ref.tmp58, i64 256
   br label %for.body40
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc62
@@ -900,25 +892,25 @@ for.body.i.i.i:                                   ; preds = %for.body40, %if.end
   br i1 %cmp.i.i.i.i, label %invoke.cont50, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 8
   %11 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
   %cmp.i9.i.i.i = icmp eq ptr %11, %9
   br i1 %cmp.i9.i.i.i, label %invoke.cont50.loopexit.split.loop.exit125, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
-  %incdec.ptr.i10.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   %12 = load ptr, ptr %incdec.ptr.i10.i.i.i, align 8
   %cmp.i11.i.i.i = icmp eq ptr %12, %9
   br i1 %cmp.i11.i.i.i, label %invoke.cont50.loopexit.split.loop.exit123, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
-  %incdec.ptr.i12.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   %13 = load ptr, ptr %incdec.ptr.i12.i.i.i, align 8
   %cmp.i13.i.i.i = icmp eq ptr %13, %9
   br i1 %cmp.i13.i.i.i, label %invoke.cont50.loopexit.split.loop.exit, label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %if.end16.i.i.i
-  %incdec.ptr.i14.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 4
+  %incdec.ptr.i14.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 32
   %dec.i.i.i = add nsw i64 %__trip_count.052.i.i.i, -1
   %cmp.i.i.i42 = icmp sgt i64 %__trip_count.052.i.i.i, 1
   br i1 %cmp.i.i.i42, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !8
@@ -939,7 +931,7 @@ sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   br i1 %cmp.i19.i.i.i, label %invoke.cont50, label %if.end29.i.i.i
 
 if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
-  %incdec.ptr.i20.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 1
+  %incdec.ptr.i20.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 8
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end29.i.i.i
@@ -949,7 +941,7 @@ sw.bb31.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   br i1 %cmp.i21.i.i.i, label %invoke.cont50, label %if.end36.i.i.i
 
 if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
-  %incdec.ptr.i22.i.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.1.i.i.i, i64 1
+  %incdec.ptr.i22.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 8
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end36.i.i.i
@@ -960,15 +952,15 @@ sw.bb38.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   br label %invoke.cont50
 
 invoke.cont50.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i
-  %incdec.ptr.i12.i.i.i.le = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   br label %invoke.cont50
 
 invoke.cont50.loopexit.split.loop.exit123:        ; preds = %if.end10.i.i.i
-  %incdec.ptr.i10.i.i.i.le = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   br label %invoke.cont50
 
 invoke.cont50.loopexit.split.loop.exit125:        ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.sroa.0.051.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 8
   br label %invoke.cont50
 
 invoke.cont50:                                    ; preds = %for.body.i.i.i, %invoke.cont50.loopexit.split.loop.exit, %invoke.cont50.loopexit.split.loop.exit123, %invoke.cont50.loopexit.split.loop.exit125, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
@@ -987,11 +979,11 @@ arrayinit.body.i49:                               ; preds = %arrayinit.body.i49,
   %arrayinit.cur.idx.i50 = phi i64 [ 20, %if.then57 ], [ %arrayinit.cur.add.i57, %arrayinit.body.i49 ]
   %arrayinit.cur.ptr.i51 = getelementptr inbounds i8, ptr %ref.tmp58, i64 %arrayinit.cur.idx.i50
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i51, align 4
-  %widthSizingMode.i53 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i51, i64 0, i32 2
+  %widthSizingMode.i53 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 8
   store i32 1, ptr %widthSizingMode.i53, align 4
-  %heightSizingMode.i54 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i51, i64 0, i32 3
+  %heightSizingMode.i54 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 12
   store i32 1, ptr %heightSizingMode.i54, align 4
-  %computedWidth.i55 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %arrayinit.cur.ptr.i51, i64 0, i32 4
+  %computedWidth.i55 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 16
   store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i55, align 4
   %arrayinit.cur.add.i57 = add nuw nsw i64 %arrayinit.cur.idx.i50, 24
   %arrayinit.done.i58 = icmp eq i64 %arrayinit.cur.add.i57, 212
@@ -1007,14 +999,14 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit73:      ; preds = %arrayinit.body.i49
   store i8 %bf.clear10.i67, ptr %direction_.i65, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i68, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i72, i8 0, i64 64, i1 false)
-  %layout_.i74 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %9, i64 0, i32 7
+  %layout_.i74 = getelementptr inbounds i8, ptr %9, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i74, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp58, i64 320, i1 false)
-  %owner_.i75 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %9, i64 0, i32 9
+  %owner_.i75 = getelementptr inbounds i8, ptr %9, i64 584
   store ptr null, ptr %owner_.i75, align 8
   br label %for.inc62
 
 for.inc62:                                        ; preds = %invoke.cont50, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit73
-  %incdec.ptr.i76 = getelementptr inbounds ptr, ptr %__begin331.sroa.0.0113, i64 1
+  %incdec.ptr.i76 = getelementptr inbounds i8, ptr %__begin331.sroa.0.0113, i64 8
   %cmp.i37 = icmp eq ptr %incdec.ptr.i76, %1
   br i1 %cmp.i37, label %if.end65, label %for.body40
 
@@ -1031,9 +1023,9 @@ invoke.cont66:                                    ; preds = %if.end65
 for.body74:                                       ; preds = %invoke.cont66, %for.body74
   %__begin2.sroa.0.0115 = phi ptr [ %incdec.ptr.i83, %for.body74 ], [ %17, %invoke.cont66 ]
   %19 = load ptr, ptr %__begin2.sroa.0.0115, align 8
-  %owner_.i82 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %19, i64 0, i32 9
+  %owner_.i82 = getelementptr inbounds i8, ptr %19, i64 584
   store ptr %ownerRef, ptr %owner_.i82, align 8
-  %incdec.ptr.i83 = getelementptr inbounds ptr, ptr %__begin2.sroa.0.0115, i64 1
+  %incdec.ptr.i83 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 8
   %cmp.i81 = icmp eq ptr %incdec.ptr.i83, %18
   br i1 %cmp.i81, label %for.end80, label %for.body74
 
@@ -1074,8 +1066,8 @@ eh.resume:                                        ; preds = %if.then.i.i.i89, %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @YGNodeGetChild(ptr nocapture noundef readonly %nodeRef, i64 noundef %index) local_unnamed_addr #8 {
 entry:
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 10
-  %_M_finish.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %nodeRef, i64 592
+  %_M_finish.i = getelementptr inbounds i8, ptr %nodeRef, i64 600
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1098,8 +1090,8 @@ return:                                           ; preds = %entry, %_ZNK8facebo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @YGNodeGetChildCount(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10
-  %_M_finish.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
+  %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1112,7 +1104,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetOwner(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %node, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   ret ptr %0
 }
@@ -1120,7 +1112,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetParent(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %owner_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 9
+  %owner_.i = getelementptr inbounds i8, ptr %node, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   ret ptr %0
 }
@@ -1137,7 +1129,7 @@ declare void @_ZN8facebook4yoga4Node9setConfigEPNS0_6ConfigE(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetContext(ptr nocapture noundef writeonly %node, ptr noundef %context) local_unnamed_addr #6 {
 entry:
-  %context_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 1
+  %context_.i = getelementptr inbounds i8, ptr %node, i64 8
   store ptr %context, ptr %context_.i, align 8
   ret void
 }
@@ -1145,7 +1137,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetContext(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %context_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 1
+  %context_.i = getelementptr inbounds i8, ptr %node, i64 8
   %0 = load ptr, ptr %context_.i, align 8
   ret ptr %0
 }
@@ -1162,7 +1154,7 @@ declare void @_ZN8facebook4yoga4Node14setMeasureFuncEPF6YGSizePK6YGNodef13YGMeas
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @YGNodeHasMeasureFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %measureFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 2
+  %measureFunc_.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load ptr, ptr %measureFunc_.i, align 8
   %cmp.i = icmp ne ptr %0, null
   ret i1 %cmp.i
@@ -1171,7 +1163,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetBaselineFunc(ptr nocapture noundef writeonly %node, ptr noundef %baselineFunc) local_unnamed_addr #6 {
 entry:
-  %baselineFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 3
+  %baselineFunc_.i = getelementptr inbounds i8, ptr %node, i64 24
   store ptr %baselineFunc, ptr %baselineFunc_.i, align 8
   ret void
 }
@@ -1179,7 +1171,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @YGNodeHasBaselineFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %baselineFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 3
+  %baselineFunc_.i = getelementptr inbounds i8, ptr %node, i64 24
   %0 = load ptr, ptr %baselineFunc_.i, align 8
   %cmp.i = icmp ne ptr %0, null
   ret i1 %cmp.i
@@ -1241,7 +1233,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetPrintFunc(ptr nocapture noundef writeonly %node, ptr noundef %printFunc) local_unnamed_addr #6 {
 entry:
-  %printFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 4
+  %printFunc_.i = getelementptr inbounds i8, ptr %node, i64 32
   store ptr %printFunc, ptr %printFunc_.i, align 8
   ret void
 }
@@ -1326,14 +1318,14 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -1375,7 +1367,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; 
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -1427,7 +1419,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPPN8faceb
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPPN8facebook4yoga4NodeES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds ptr, ptr %8, i64 %sub.ptr.div.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 

@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
-%"class.EA::Thread::Futex" = type { %"class.EA::Thread::AtomicInt", i16, i16, i64, %union.sem_t }
-%"class.EA::Thread::AtomicInt" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%union.sem_t = type { i64, [24 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -20,7 +15,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread5Futex16CreateFSemaphoreEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mSemaphore = getelementptr inbounds %"class.EA::Thread::Futex", ptr %this, i64 0, i32 4
+  %mSemaphore = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call i32 @sem_init(ptr noundef nonnull %mSemaphore, i32 noundef 0, i32 noundef 0) #10
   ret void
 }
@@ -31,7 +26,7 @@ declare i32 @sem_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread5Futex17DestroyFSemaphoreEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %mSemaphore = getelementptr inbounds %"class.EA::Thread::Futex", ptr %this, i64 0, i32 4
+  %mSemaphore = getelementptr inbounds i8, ptr %this, i64 24
   %call1 = tail call i32 @sem_destroy(ptr noundef nonnull %mSemaphore) #10
   %cmp2 = icmp eq i32 %call1, -1
   br i1 %cmp2, label %land.lhs.true.lr.ph, label %for.end
@@ -66,7 +61,7 @@ declare void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread5Futex16SignalFSemaphoreEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mSemaphore = getelementptr inbounds %"class.EA::Thread::Futex", ptr %this, i64 0, i32 4
+  %mSemaphore = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call i32 @sem_post(ptr noundef nonnull %mSemaphore) #10
   ret void
 }
@@ -77,7 +72,7 @@ declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread5Futex14WaitFSemaphoreEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %mSemaphore = getelementptr inbounds %"class.EA::Thread::Futex", ptr %this, i64 0, i32 4
+  %mSemaphore = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %entry
@@ -100,7 +95,7 @@ declare i32 @sem_wait(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA6Thread5Futex14WaitFSemaphoreERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
 entry:
-  %mSemaphore.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %this, i64 0, i32 4
+  %mSemaphore.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %entry
@@ -127,7 +122,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 56, ptr noundef null, i32 noundef 0)
   br label %return
@@ -139,12 +134,12 @@ if.else:                                          ; preds = %entry
 return:                                           ; preds = %if.else, %if.then
   %call1.sink9 = phi ptr [ %call1, %if.else ], [ %call, %if.then ]
   %2 = atomicrmw xchg ptr %call1.sink9, i64 0 seq_cst, align 8
-  %mRecursionCount.i1 = getelementptr inbounds %"class.EA::Thread::Futex", ptr %call1.sink9, i64 0, i32 1
+  %mRecursionCount.i1 = getelementptr inbounds i8, ptr %call1.sink9, i64 8
   store i16 0, ptr %mRecursionCount.i1, align 8
-  %mSpinCount.i2 = getelementptr inbounds %"class.EA::Thread::Futex", ptr %call1.sink9, i64 0, i32 2
+  %mSpinCount.i2 = getelementptr inbounds i8, ptr %call1.sink9, i64 10
   store i16 256, ptr %mSpinCount.i2, align 2
-  %mThreadUniqueId.i3 = getelementptr inbounds %"class.EA::Thread::Futex", ptr %call1.sink9, i64 0, i32 3
-  %mSemaphore.i4 = getelementptr inbounds %"class.EA::Thread::Futex", ptr %call1.sink9, i64 0, i32 4
+  %mThreadUniqueId.i3 = getelementptr inbounds i8, ptr %call1.sink9, i64 16
+  %mSemaphore.i4 = getelementptr inbounds i8, ptr %call1.sink9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mThreadUniqueId.i3, i8 0, i64 40, i1 false)
   %call.i.i5 = tail call i32 @sem_init(ptr noundef nonnull %mSemaphore.i4, i32 noundef 0, i32 noundef 0) #10
   ret ptr %call1.sink9
@@ -166,7 +161,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mSemaphore.i.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pFutex, i64 0, i32 4
+  %mSemaphore.i.i = getelementptr inbounds i8, ptr %pFutex, i64 24
   %call1.i.i = tail call i32 @sem_destroy(ptr noundef nonnull %mSemaphore.i.i) #10
   %cmp2.i.i = icmp eq i32 %call1.i.i, -1
   br i1 %cmp2.i.i, label %land.lhs.true.lr.ph.i.i, label %_ZN2EA6Thread5FutexD2Ev.exit
@@ -199,7 +194,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
 _ZN2EA6Thread5FutexD2Ev.exit:                     ; preds = %land.lhs.true.i.i, %.noexc.i, %if.then
   %4 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %pFutex, i64 noundef 0)
   br label %if.end
@@ -209,7 +204,7 @@ if.else:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else
-  %mSemaphore.i.i3 = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pFutex, i64 0, i32 4
+  %mSemaphore.i.i3 = getelementptr inbounds i8, ptr %pFutex, i64 24
   %call1.i.i4 = tail call i32 @sem_destroy(ptr noundef nonnull %mSemaphore.i.i3) #10
   %cmp2.i.i5 = icmp eq i32 %call1.i.i4, -1
   br i1 %cmp2.i.i5, label %land.lhs.true.lr.ph.i.i6, label %_ZN2EA6Thread5FutexD2Ev.exit15
@@ -257,12 +252,12 @@ entry:
 define dso_local noundef ptr @_ZN2EA6Thread12FutexFactory14ConstructFutexEPv(ptr noundef returned %pMemory) local_unnamed_addr #0 align 2 {
 entry:
   %0 = atomicrmw xchg ptr %pMemory, i64 0 seq_cst, align 8
-  %mRecursionCount.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pMemory, i64 0, i32 1
+  %mRecursionCount.i = getelementptr inbounds i8, ptr %pMemory, i64 8
   store i16 0, ptr %mRecursionCount.i, align 8
-  %mSpinCount.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pMemory, i64 0, i32 2
+  %mSpinCount.i = getelementptr inbounds i8, ptr %pMemory, i64 10
   store i16 256, ptr %mSpinCount.i, align 2
-  %mThreadUniqueId.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pMemory, i64 0, i32 3
-  %mSemaphore.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pMemory, i64 0, i32 4
+  %mThreadUniqueId.i = getelementptr inbounds i8, ptr %pMemory, i64 16
+  %mSemaphore.i = getelementptr inbounds i8, ptr %pMemory, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mThreadUniqueId.i, i8 0, i64 40, i1 false)
   %call.i.i = tail call i32 @sem_init(ptr noundef nonnull %mSemaphore.i, i32 noundef 0, i32 noundef 0) #10
   ret ptr %pMemory
@@ -271,7 +266,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread12FutexFactory13DestructFutexEPNS0_5FutexE(ptr noundef %pFutex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSemaphore.i.i = getelementptr inbounds %"class.EA::Thread::Futex", ptr %pFutex, i64 0, i32 4
+  %mSemaphore.i.i = getelementptr inbounds i8, ptr %pFutex, i64 24
   %call1.i.i = tail call i32 @sem_destroy(ptr noundef nonnull %mSemaphore.i.i) #10
   %cmp2.i.i = icmp eq i32 %call1.i.i, -1
   br i1 %cmp2.i.i, label %land.lhs.true.lr.ph.i.i, label %_ZN2EA6Thread5FutexD2Ev.exit

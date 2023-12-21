@@ -131,7 +131,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %2) #7
   %cmp8 = icmp eq i32 %call7, -1
@@ -147,7 +147,7 @@ if.end13:                                         ; preds = %land.lhs.true9, %if
   br i1 %cmp14, label %skip_optional, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %arrayidx17 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx17 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx17, align 8
   br label %skip_optional
 
@@ -298,7 +298,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i64 @PyLong_AsUnsignedLongMask(ptr noundef %2) #7
   %conv = trunc i64 %call7 to i32
@@ -315,13 +315,13 @@ if.end14:                                         ; preds = %land.lhs.true10, %i
   br i1 %cmp15, label %skip_optional, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %arrayidx19 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx19 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx19, align 8
   %cmp20 = icmp eq i64 %nargs, 3
   br i1 %cmp20, label %skip_optional, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %arrayidx24 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx24 = getelementptr i8, ptr %args, i64 24
   %4 = load ptr, ptr %arrayidx24, align 8
   %call25 = call i32 @PyObject_IsTrue(ptr noundef %4) #7
   %cmp26 = icmp slt i32 %call25, 0
@@ -351,7 +351,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.then5.i:                                       ; preds = %if.then2.i
   %6 = load ptr, ptr %pstr.i, align 8
-  %len8.i = getelementptr inbounds %struct.Py_buffer, ptr %pstr.i, i64 0, i32 2
+  %len8.i = getelementptr inbounds i8, ptr %pstr.i, i64 16
   %7 = load i64, ptr %len8.i, align 8
   %tobool9.i = icmp ne i32 %mutate_arg.0, 0
   br i1 %tobool9.i, label %if.then10.i, label %if.else15.i
@@ -434,7 +434,7 @@ if.end51.i:                                       ; preds = %if.then2.i
   br i1 %tobool53.not.i, label %if.end75.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.end51.i
-  %len56.i = getelementptr inbounds %struct.Py_buffer, ptr %pstr.i, i64 0, i32 2
+  %len56.i = getelementptr inbounds i8, ptr %pstr.i, i64 16
   %10 = load i64, ptr %len56.i, align 8
   %cmp57.i = icmp sgt i64 %10, 1024
   br i1 %cmp57.i, label %if.then59.i, label %if.end60.i
@@ -524,7 +524,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #7
   %cmp8 = icmp eq i32 %call7, -1
@@ -571,7 +571,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %2) #7
   %cmp8 = icmp eq i32 %call7, -1
@@ -587,19 +587,19 @@ if.end13:                                         ; preds = %land.lhs.true9, %if
   br i1 %cmp14, label %skip_optional, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %arrayidx17 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx17 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx17, align 8
   %cmp18 = icmp eq i64 %nargs, 3
   br i1 %cmp18, label %skip_optional, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %arrayidx21 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx21 = getelementptr i8, ptr %args, i64 24
   %4 = load ptr, ptr %arrayidx21, align 8
   %cmp22 = icmp ult i64 %nargs, 5
   br i1 %cmp22, label %skip_optional, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  %arrayidx25 = getelementptr ptr, ptr %args, i64 4
+  %arrayidx25 = getelementptr i8, ptr %args, i64 32
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyLong_AsInt(ptr noundef %5) #7
   %cmp27 = icmp eq i32 %call26, -1
@@ -656,8 +656,8 @@ if.else16.i:                                      ; preds = %if.else11.i
   br label %fcntl_lockf_impl.exit
 
 if.end19.i:                                       ; preds = %if.then14.i, %if.then9.i, %if.then7.i
-  %l_len.i = getelementptr inbounds %struct.flock, ptr %l.i, i64 0, i32 3
-  %l_start.i = getelementptr inbounds %struct.flock, ptr %l.i, i64 0, i32 2
+  %l_len.i = getelementptr inbounds i8, ptr %l.i, i64 16
+  %l_start.i = getelementptr inbounds i8, ptr %l.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_start.i, i8 0, i64 16, i1 false)
   br i1 %tobool1.not.i, label %if.end28.i, label %if.then21.i
 
@@ -680,7 +680,7 @@ if.then30.i:                                      ; preds = %if.end28.i
 
 if.end37.i:                                       ; preds = %if.then30.i, %if.end28.i
   %conv.i = trunc i32 %whence.0 to i16
-  %l_whence.i = getelementptr inbounds %struct.flock, ptr %l.i, i64 0, i32 1
+  %l_whence.i = getelementptr inbounds i8, ptr %l.i, i64 2
   store i16 %conv.i, ptr %l_whence.i, align 2
   %and39.i = and i32 %call7, 4
   %tobool40.not.i = icmp eq i32 %and39.i, 0

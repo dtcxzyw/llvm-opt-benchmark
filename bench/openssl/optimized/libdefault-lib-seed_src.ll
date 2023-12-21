@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PROV_SEED_SRC = type { ptr, i32 }
 
 @ossl_seed_src_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @seed_src_new }, %struct.ossl_dispatch_st { i32 2, ptr @seed_src_free }, %struct.ossl_dispatch_st { i32 3, ptr @seed_src_instantiate }, %struct.ossl_dispatch_st { i32 4, ptr @seed_src_uninstantiate }, %struct.ossl_dispatch_st { i32 5, ptr @seed_src_generate }, %struct.ossl_dispatch_st { i32 6, ptr @seed_src_reseed }, %struct.ossl_dispatch_st { i32 8, ptr @seed_src_enable_locking }, %struct.ossl_dispatch_st { i32 9, ptr @seed_src_lock }, %struct.ossl_dispatch_st { i32 10, ptr @seed_src_unlock }, %struct.ossl_dispatch_st { i32 12, ptr @seed_src_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 15, ptr @seed_src_get_ctx_params }, %struct.ossl_dispatch_st { i32 17, ptr @seed_src_verify_zeroization }, %struct.ossl_dispatch_st { i32 18, ptr @seed_get_seed }, %struct.ossl_dispatch_st { i32 19, ptr @seed_clear_seed }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [54 x i8] c"../openssl/providers/implementations/rands/seed_src.c\00", align 1
@@ -37,7 +36,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   store ptr %provctx, ptr %call, align 8
-  %state = getelementptr inbounds %struct.PROV_SEED_SRC, ptr %call, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %state, align 8
   br label %return
 
@@ -56,7 +55,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @seed_src_instantiate(ptr nocapture noundef writeonly %vseed, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #1 {
 entry:
-  %state = getelementptr inbounds %struct.PROV_SEED_SRC, ptr %vseed, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vseed, i64 8
   store i32 1, ptr %state, align 8
   ret i32 1
 }
@@ -64,7 +63,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @seed_src_uninstantiate(ptr nocapture noundef writeonly %vseed) #1 {
 entry:
-  %state = getelementptr inbounds %struct.PROV_SEED_SRC, ptr %vseed, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vseed, i64 8
   store i32 0, ptr %state, align 8
   ret i32 1
 }
@@ -72,7 +71,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @seed_src_generate(ptr nocapture noundef readonly %vseed, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #0 {
 entry:
-  %state = getelementptr inbounds %struct.PROV_SEED_SRC, ptr %vseed, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vseed, i64 8
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -121,7 +120,7 @@ return:                                           ; preds = %if.end11, %if.then4
 ; Function Attrs: nounwind uwtable
 define internal i32 @seed_src_reseed(ptr nocapture noundef readonly %vseed, i32 %prediction_resistance, ptr nocapture readnone %ent, i64 %ent_len, ptr nocapture readnone %adin, i64 %adin_len) #0 {
 entry:
-  %state = getelementptr inbounds %struct.PROV_SEED_SRC, ptr %vseed, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vseed, i64 8
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %return, label %if.then
@@ -172,7 +171,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %state = getelementptr inbounds %struct.PROV_SEED_SRC, ptr %vseed, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vseed, i64 8
   %0 = load i32, ptr %state, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call, i32 noundef %0) #5
   %tobool.not = icmp eq i32 %call1, 0

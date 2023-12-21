@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QCryptoHmacDriver = type { ptr, ptr }
-%struct.QCryptoHmac = type { i32, ptr, ptr }
 %struct.iovec = type { ptr, i64 }
 
 @hex = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
@@ -13,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_hmac_bytesv(ptr noundef %hmac, ptr noundef %iov, i64 noundef %niov, ptr noundef %result, ptr noundef %resultlen, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoHmac, ptr %hmac, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %hmac, i64 16
   %0 = load ptr, ptr %driver, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 %1(ptr noundef %hmac, ptr noundef %iov, i64 noundef %niov, ptr noundef %result, ptr noundef %resultlen, ptr noundef %errp) #3
@@ -25,9 +24,9 @@ define dso_local i32 @qcrypto_hmac_bytes(ptr noundef %hmac, ptr noundef %buf, i6
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
-  %driver.i = getelementptr inbounds %struct.QCryptoHmac, ptr %hmac, i64 0, i32 2
+  %driver.i = getelementptr inbounds i8, ptr %hmac, i64 16
   %0 = load ptr, ptr %driver.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = call i32 %1(ptr noundef %hmac, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %result, ptr noundef %resultlen, ptr noundef %errp) #3
@@ -41,7 +40,7 @@ entry:
   %resultlen = alloca i64, align 8
   store ptr null, ptr %result, align 8
   store i64 0, ptr %resultlen, align 8
-  %driver.i = getelementptr inbounds %struct.QCryptoHmac, ptr %hmac, i64 0, i32 2
+  %driver.i = getelementptr inbounds i8, ptr %hmac, i64 16
   %0 = load ptr, ptr %driver.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = call i32 %1(ptr noundef %hmac, ptr noundef %iov, i64 noundef %niov, ptr noundef nonnull %result, ptr noundef nonnull %resultlen, ptr noundef %errp) #3
@@ -116,7 +115,7 @@ define dso_local i32 @qcrypto_hmac_digest(ptr noundef %hmac, ptr noundef %buf, i
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   %call = call i32 @qcrypto_hmac_digestv(ptr noundef %hmac, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %digest, ptr noundef %errp), !range !7
   ret i32 %call
@@ -132,9 +131,9 @@ entry:
 if.end3:                                          ; preds = %entry
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #4
   store i32 %alg, ptr %call4, align 8
-  %opaque = getelementptr inbounds %struct.QCryptoHmac, ptr %call4, i64 0, i32 1
+  %opaque = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %call, ptr %opaque, align 8
-  %driver = getelementptr inbounds %struct.QCryptoHmac, ptr %call4, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr @qcrypto_hmac_lib_driver, ptr %driver, align 8
   br label %return
 
@@ -152,9 +151,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %driver = getelementptr inbounds %struct.QCryptoHmac, ptr %hmac, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %hmac, i64 16
   %0 = load ptr, ptr %driver, align 8
-  %hmac_free = getelementptr inbounds %struct.QCryptoHmacDriver, ptr %0, i64 0, i32 1
+  %hmac_free = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %hmac_free, align 8
   tail call void %1(ptr noundef nonnull %hmac) #3
   tail call void @g_free(ptr noundef nonnull %hmac) #3

@@ -11,13 +11,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<int>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<int>::_Storage" = type { i32 }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm, std::allocator<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::Rational" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpq_struct] }
 %struct.__mpq_struct = type { %struct.__mpz_struct, %struct.__mpz_struct }
 %struct.__mpz_struct = type { i32, i32, ptr }
-%"class.cvc5::internal::theory::arith::linear::InferBoundsResult" = type { i8, i8, i8, i8, i8, %"class.cvc5::internal::DeltaRational", %"class.cvc5::internal::NodeTemplate", i8, %"class.cvc5::internal::NodeTemplate" }
-%"class.cvc5::internal::DeltaRational" = type { %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational" }
 %class.__gmp_expr.0 = type { [1 x %struct.__mpz_struct] }
 %"class.cvc5::internal::Integer" = type { %class.__gmp_expr.0 }
 %"class.cvc5::internal::NodeBuilder" = type <{ %"class.cvc5::internal::expr::NodeValue", [10 x ptr], ptr, ptr, i32, [4 x i8] }>
@@ -107,7 +104,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i, align 4
   ret void
 }
@@ -116,7 +113,7 @@ entry:
 define hidden void @_ZN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmC2ENS4_10AlgorithmsE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, i32 noundef %a) unnamed_addr #3 align 2 {
 entry:
   store i32 %a, ptr %this, align 4
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i, align 4
   ret void
 }
@@ -125,7 +122,7 @@ entry:
 define hidden void @_ZN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmC2ERKSt8optionalIiE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, ptr nocapture nonnull readnone align 4 %simplexRounds) unnamed_addr #3 align 2 {
 entry:
   store i32 3, ptr %this, align 4
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i, align 4
   ret void
 }
@@ -140,7 +137,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithm16getSimplexRoundsEv(ptr noundef nonnull readnone align 4 dereferenceable(12) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_simplexRounds = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %this, i64 0, i32 1
+  %d_simplexRounds = getelementptr inbounds i8, ptr %this, i64 4
   ret ptr %d_simplexRounds
 }
 
@@ -193,9 +190,9 @@ _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorit
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters25addLookupRowSumAlgorithmsEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm, std::allocator<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm, std::allocator<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -205,7 +202,7 @@ if.then.i.i:                                      ; preds = %entry
   %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %ref.tmp.sroa.3.0..sroa_idx, align 4
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %2, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   %.pre = load ptr, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters12addAlgorithmERKNS3_11inferbounds19InferBoundAlgorithmE.exit
@@ -251,14 +248,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 12
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 12
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -284,7 +281,7 @@ if.then.i.i4:                                     ; preds = %_ZN4cvc58internal6t
   %ref.tmp2.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %ref.tmp2.sroa.3.0..sroa_idx, align 4
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i5 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %6, i64 1
+  %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %6, i64 12
   store ptr %incdec.ptr.i.i5, ptr %_M_finish.i.i, align 8
   br label %_ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters12addAlgorithmERKNS3_11inferbounds19InferBoundAlgorithmE.exit41
 
@@ -329,14 +326,14 @@ for.body.i.i.i.i.i.i27:                           ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i28 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i31, %for.body.i.i.i.i.i.i27 ], [ %cond.i10.i.i.i24, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i23 ]
   %__first.addr.06.i.i.i.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i.i.i.i30, %for.body.i.i.i.i.i.i27 ], [ %7, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i23 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i.i.i29, i64 12, i1 false), !alias.scope !10
-  %incdec.ptr.i.i.i.i.i.i30 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__first.addr.06.i.i.i.i.i.i29, i64 1
-  %incdec.ptr1.i.i.i.i.i.i31 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__cur.07.i.i.i.i.i.i28, i64 1
+  %incdec.ptr.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i29, i64 12
+  %incdec.ptr1.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i28, i64 12
   %cmp.not.i.i.i.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i30, %4
   br i1 %cmp.not.i.i.i.i.i.i32, label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i33, label %for.body.i.i.i.i.i.i27, !llvm.loop !8
 
 _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i33: ; preds = %for.body.i.i.i.i.i.i27, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i23
   %__cur.0.lcssa.i.i.i.i.i.i34 = phi ptr [ %cond.i10.i.i.i24, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i.i23 ], [ %incdec.ptr1.i.i.i.i.i.i31, %for.body.i.i.i.i.i.i27 ]
-  %incdec.ptr.i.i.i35 = getelementptr %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__cur.0.lcssa.i.i.i.i.i.i34, i64 1
+  %incdec.ptr.i.i.i35 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i34, i64 12
   %tobool.not.i.i.i.i36 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i36, label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38, label %if.then.i20.i.i.i37
 
@@ -358,9 +355,9 @@ _ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters12addAlgori
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters12addAlgorithmERKNS3_11inferbounds19InferBoundAlgorithmE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %alg) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm, std::allocator<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm, std::allocator<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -368,7 +365,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %alg, i64 12, i1 false)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 12
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE9push_backERKS6_.exit
 
@@ -411,14 +408,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i.i, i64 12, i1 false), !alias.scope !14
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 12
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 12
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -447,7 +444,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @_ZNK4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm, std::allocator<cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   ret ptr %0
 }
@@ -456,7 +453,7 @@ entry:
 define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResultC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %this, i8 0, i64 5, i1 false)
   call void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
   invoke void @_ZN4cvc58internal13DeltaRationalC2ERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(64) %d_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -474,7 +471,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont
-  %d_term = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 6
+  %d_term = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %2 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !18
   store ptr %2, ptr %d_term, align 8, !alias.scope !18
@@ -504,9 +501,9 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %d_upperBound = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 7
+  %d_upperBound = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %d_upperBound, align 8
-  %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 8
+  %d_explanation = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %4 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !21
   store ptr %4, ptr %d_explanation, align 8, !alias.scope !21
@@ -587,7 +584,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -672,8 +669,8 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 define linkonce_odr hidden void @_ZN4cvc58internal13DeltaRationalC2ERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %base) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %base)
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %base, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %base, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
           to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %lpad.i
@@ -696,7 +693,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %entry
-  %k = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN4cvc58internal8RationalC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %k, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
@@ -755,7 +752,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal13DeltaRationalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %k = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @__gmpq_clear(ptr noundef nonnull %k)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -786,7 +783,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResultC2EN
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   %frombool = zext i1 %ub to i8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %this, i8 0, i64 5, i1 false)
   call void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
   invoke void @_ZN4cvc58internal13DeltaRationalC2ERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(64) %d_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -804,7 +801,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont
-  %d_term = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 6
+  %d_term = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %term, align 8
   store ptr %2, ptr %d_term, align 8
   %bf.load.i.i = load i64, ptr %2, align 8
@@ -833,9 +830,9 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
-  %d_upperBound = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 7
+  %d_upperBound = getelementptr inbounds i8, ptr %this, i64 80
   store i8 %frombool, ptr %d_upperBound, align 8
-  %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 8
+  %d_explanation = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %4 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !24
   store ptr %4, ptr %d_explanation, align 8, !alias.scope !24
@@ -913,7 +910,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14boundIsOptimalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_boundIsProvenOpt = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 2
+  %d_boundIsProvenOpt = getelementptr inbounds i8, ptr %this, i64 2
   %0 = load i8, ptr %d_boundIsProvenOpt, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -923,7 +920,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult17inconsistentStateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_inconsistentState = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 3
+  %d_inconsistentState = getelementptr inbounds i8, ptr %this, i64 3
   %0 = load i8, ptr %d_inconsistentState, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -936,14 +933,14 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp ne i8 %1, 0
-  %_mp_size.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i32, ptr %_mp_size.i.i.i.i, align 4
   %cmp6.i.not.i.i.i = icmp eq i32 %2, 0
   %or.cond = select i1 %tobool.i.not, i1 %cmp6.i.not.i.i.i, i1 false
   br i1 %or.cond, label %if.then.i, label %land.end
 
 if.then.i:                                        ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %call2.i.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i, i64 noundef 1) #27
   %cmp.i.i = icmp eq i32 %call2.i.i, 0
   br label %land.end
@@ -959,7 +956,7 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.i = icmp ne i8 %1, 0
-  %_mp_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i32, ptr %_mp_size.i.i.i, align 4
   %cmp6.i.not.i.i = icmp eq i32 %2, 0
   %3 = select i1 %tobool.i, i1 %cmp6.i.not.i.i, i1 false
@@ -969,7 +966,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14valueAsIntegerEv(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK4cvc58internal13DeltaRational5floorEv(ptr sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %d_value.i)
   ret void
 }
@@ -977,7 +974,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult8getValueEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %d_value
 }
 
@@ -987,13 +984,13 @@ entry:
   %q.i = alloca %class.__gmp_expr.0, align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp8 = alloca %"class.cvc5::internal::Integer", align 8
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i, i64 noundef 1) #27
   %cmp.i = icmp eq i32 %call2.i, 0
   br i1 %cmp.i, label %if.then, label %if.else11
 
 if.then:                                          ; preds = %entry
-  %_mp_size.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp.inv.i = icmp sgt i32 %0, -1
   br i1 %cmp.inv.i, label %if.then5, label %if.else
@@ -1112,14 +1109,14 @@ return:                                           ; preds = %_ZN4cvc58internal7I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult15valueAsRationalEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %d_value.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult7getTermEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %d_term = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 6
+  %d_term = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_term, align 8
   store ptr %0, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -1159,17 +1156,17 @@ entry:
   %agg.tmp4.i = alloca %"class.cvc5::internal::NodeTemplate.66", align 8
   %qnode = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   call void @_ZN4cvc58internal11NodeManager11mkConstRealERKNS0_8RationalE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %qnode, ptr noundef nonnull align 8 dereferenceable(3360) %call3, ptr noundef nonnull align 8 dereferenceable(32) %d_value.i)
-  %d_upperBound = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 7
+  %d_upperBound = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %d_upperBound, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %2 = load i8, ptr %this, align 8
   %3 = and i8 %2, 1
   %tobool.i.i3 = icmp ne i8 %3, 0
-  %_mp_size.i.i.i.i4 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %_mp_size.i.i.i.i4, align 4
   %cmp6.i.not.i.i.i5 = icmp eq i32 %4, 0
   %5 = select i1 %tobool.i.i3, i1 %cmp6.i.not.i.i.i5, i1 false
@@ -1177,7 +1174,7 @@ entry:
   %cond7 = select i1 %5, i32 73, i32 72
   %k.0 = select i1 %tobool.not, i32 %cond7, i32 %cond
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %d_term.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 6
+  %d_term.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %d_term.i, align 8, !noalias !30
   store ptr %6, ptr %ref.tmp, align 8, !alias.scope !30
   %bf.load.i.i.i = load i64, ptr %6, align 8, !noalias !30
@@ -1335,7 +1332,7 @@ declare void @_ZN4cvc58internal11NodeManager11mkConstRealERKNS0_8RationalE(ptr s
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14getExplanationEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 8
+  %d_explanation = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_explanation, align 8
   store ptr %0, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -1371,19 +1368,19 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResult8setBoundERKNS0_13DeltaRationalENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %dr, ptr nocapture noundef readonly %exp) local_unnamed_addr #10 align 2 {
 entry:
   store i8 1, ptr %this, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i = icmp eq ptr %d_value, %dr
   br i1 %cmp.i.i, label %_ZN4cvc58internal13DeltaRationalaSERKS1_.exit, label %if.end.i3.i
 
 if.end.i3.i:                                      ; preds = %entry
   tail call void @__gmpq_set(ptr noundef nonnull %d_value, ptr noundef nonnull %dr)
-  %k.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %dr, i64 0, i32 1
-  %k3.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5, i32 1
+  %k.i = getelementptr inbounds i8, ptr %dr, i64 32
+  %k3.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @__gmpq_set(ptr noundef nonnull %k3.i, ptr noundef nonnull %k.i)
   br label %_ZN4cvc58internal13DeltaRationalaSERKS1_.exit
 
 _ZN4cvc58internal13DeltaRationalaSERKS1_.exit:    ; preds = %entry, %if.end.i3.i
-  %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 8
+  %d_explanation = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_explanation, align 8
   %1 = load ptr, ptr %exp, align 8
   %cmp.not.i = icmp eq ptr %0, %1
@@ -1443,7 +1440,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %_ZN4cvc58internal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResult18setBudgetExhaustedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_budgetExhausted = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 1
+  %d_budgetExhausted = getelementptr inbounds i8, ptr %this, i64 1
   store i8 1, ptr %d_budgetExhausted, align 1
   ret void
 }
@@ -1451,7 +1448,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResult19setReachedThresholdEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_reachedThreshold = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 4
+  %d_reachedThreshold = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %d_reachedThreshold, align 4
   ret void
 }
@@ -1459,7 +1456,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResult12setIsOptimalEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_boundIsProvenOpt = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 2
+  %d_boundIsProvenOpt = getelementptr inbounds i8, ptr %this, i64 2
   store i8 1, ptr %d_boundIsProvenOpt, align 2
   ret void
 }
@@ -1467,7 +1464,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResult15setInconsistentEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_inconsistentState = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 3
+  %d_inconsistentState = getelementptr inbounds i8, ptr %this, i64 3
   store i8 1, ptr %d_inconsistentState, align 1
   ret void
 }
@@ -1475,7 +1472,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult19thresholdWasReachedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_reachedThreshold = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 4
+  %d_reachedThreshold = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i8, ptr %d_reachedThreshold, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1485,7 +1482,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult17budgetIsExhaustedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_budgetExhausted = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 1
+  %d_budgetExhausted = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %d_budgetExhausted, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1504,7 +1501,7 @@ entry:
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %d_term.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 6
+  %d_term.i = getelementptr inbounds i8, ptr %ibr, i64 72
   %0 = load ptr, ptr %d_term.i, align 8, !noalias !36
   store ptr %0, ptr %ref.tmp, align 8, !alias.scope !36
   %bf.load.i.i.i = load i64, ptr %0, align 8, !noalias !36
@@ -1567,7 +1564,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont6, %if.then.i.i, %if.then13.i.i
-  %d_upperBound.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 7
+  %d_upperBound.i = getelementptr inbounds i8, ptr %ibr, i64 80
   %5 = load i8, ptr %d_upperBound.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
@@ -1588,17 +1585,17 @@ if.then12:                                        ; preds = %_ZN4cvc58internal12
   %10 = load i8, ptr %ibr, align 8
   %11 = and i8 %10, 1
   %tobool.i.not.i = icmp ne i8 %11, 0
-  %_mp_size.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 5, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i.i = getelementptr inbounds i8, ptr %ibr, i64 44
   %12 = load i32, ptr %_mp_size.i.i.i.i.i, align 4
   %cmp6.i.not.i.i.i.i = icmp eq i32 %12, 0
   %or.cond.i = select i1 %tobool.i.not.i, i1 %cmp6.i.not.i.i.i.i, i1 false
   br i1 %or.cond.i, label %_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14boundIsIntegerEv.exit, label %if.else29
 
 _ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14boundIsIntegerEv.exit: ; preds = %if.then12
-  %_mp_den.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 5, i32 0, i32 0, i32 0, i64 0, i32 1
+  %_mp_den.i.i.i.i = getelementptr inbounds i8, ptr %ibr, i64 24
   %call2.i.i.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i.i, i64 noundef 1) #27
   %cmp.i.i.i33 = icmp eq i32 %call2.i.i.i, 0
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 5
+  %d_value.i.i = getelementptr inbounds i8, ptr %ibr, i64 8
   br i1 %cmp.i.i.i33, label %if.then15, label %if.then25
 
 if.then15:                                        ; preds = %_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14boundIsIntegerEv.exit
@@ -1657,7 +1654,7 @@ if.then25:                                        ; preds = %_ZNK4cvc58internal6
   br label %if.end34
 
 if.else29:                                        ; preds = %if.then12
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 5
+  %d_value.i = getelementptr inbounds i8, ptr %ibr, i64 8
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(64) %d_value.i)
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef nonnull @.str.8)
   br label %if.end34
@@ -1703,7 +1700,7 @@ terminate.lpad.i48:                               ; preds = %if.then13.i.i47
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit49: ; preds = %invoke.cont43, %if.then.i.i41, %if.then13.i.i47
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.10)
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %d_explanation.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 8
+  %d_explanation.i = getelementptr inbounds i8, ptr %ibr, i64 88
   %24 = load ptr, ptr %d_explanation.i, align 8, !noalias !39
   store ptr %24, ptr %ref.tmp49, align 8, !alias.scope !39
   %bf.load.i.i.i50 = load i64, ptr %24, align 8, !noalias !39
@@ -1780,7 +1777,7 @@ if.else59:                                        ; preds = %_ZN4cvc58internal12
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then13.i.i73, %if.then.i.i67, %invoke.cont55, %if.else59
-  %d_boundIsProvenOpt.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 2
+  %d_boundIsProvenOpt.i = getelementptr inbounds i8, ptr %ibr, i64 2
   %31 = load i8, ptr %d_boundIsProvenOpt.i, align 2
   %32 = and i8 %31, 1
   %tobool.i76.not = icmp eq i8 %32, 0
@@ -1791,7 +1788,7 @@ if.then63:                                        ; preds = %if.end61
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then63, %if.end61
-  %d_inconsistentState.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 3
+  %d_inconsistentState.i = getelementptr inbounds i8, ptr %ibr, i64 3
   %33 = load i8, ptr %d_inconsistentState.i, align 1
   %34 = and i8 %33, 1
   %tobool.i77.not = icmp eq i8 %34, 0
@@ -1802,7 +1799,7 @@ if.then67:                                        ; preds = %if.end65
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then67, %if.end65
-  %d_budgetExhausted.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 1
+  %d_budgetExhausted.i = getelementptr inbounds i8, ptr %ibr, i64 1
   %35 = load i8, ptr %d_budgetExhausted.i, align 1
   %36 = and i8 %35, 1
   %tobool.i78.not = icmp eq i8 %36, 0
@@ -1813,7 +1810,7 @@ if.then71:                                        ; preds = %if.end69
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then71, %if.end69
-  %d_reachedThreshold.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %ibr, i64 0, i32 4
+  %d_reachedThreshold.i = getelementptr inbounds i8, ptr %ibr, i64 4
   %37 = load i8, ptr %d_reachedThreshold.i, align 4
   %38 = and i8 %37, 1
   %tobool.i79.not = icmp eq i8 %38, 0
@@ -1875,7 +1872,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear17InferBoundsResultD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 8
+  %d_explanation = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_explanation, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -1903,7 +1900,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i, %if.then13.i.i
-  %d_term = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 6
+  %d_term = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %d_term, align 8
   %bf.load.i.i1 = load i64, ptr %4, align 8
   %5 = and i64 %bf.load.i.i1, 1152920405095219200
@@ -1931,7 +1928,7 @@ terminate.lpad.i10:                               ; preds = %if.then13.i.i9
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i3, %if.then13.i.i9
-  %k.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5, i32 1
+  %k.i = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @__gmpq_clear(ptr noundef nonnull %k.i)
           to label %_ZN4cvc58internal8RationalD2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -1943,7 +1940,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN4cvc58internal12
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit.i:            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11
-  %d_value = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::InferBoundsResult", ptr %this, i64 0, i32 5
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @__gmpq_clear(ptr noundef nonnull %d_value)
           to label %_ZN4cvc58internal13DeltaRationalD2Ev.exit unwind label %terminate.lpad.i.i1.i
 
@@ -2056,9 +2053,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #26
@@ -2148,7 +2145,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc27 unwind label %lpad3
 
 .noexc27:                                         ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 

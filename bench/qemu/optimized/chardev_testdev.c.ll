@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TestdevChardev = type { %struct.Chardev, [32 x i8], i32 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 @char_testdev_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 192, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @char_testdev_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"chardev-testdev\00", align 1
@@ -45,7 +36,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_testdev_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #6
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @testdev_chr_write, ptr %chr_write, align 8
   ret void
 }
@@ -58,9 +49,9 @@ entry:
   br i1 %tobool.not32, label %while.end25, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %in_buf_used = getelementptr inbounds %struct.TestdevChardev, ptr %call.i, i64 0, i32 2
-  %in_buf = getelementptr inbounds %struct.TestdevChardev, ptr %call.i, i64 0, i32 1
-  %incdec.ptr.i = getelementptr %struct.TestdevChardev, ptr %call.i, i64 0, i32 1, i64 1
+  %in_buf_used = getelementptr inbounds i8, ptr %call.i, i64 184
+  %in_buf = getelementptr inbounds i8, ptr %call.i, i64 152
+  %incdec.ptr.i = getelementptr i8, ptr %call.i, i64 153
   %sub.ptr.rhs.cast.i = ptrtoint ptr %in_buf to i64
   %.pre = load i32, ptr %in_buf_used, align 8
   br label %while.body

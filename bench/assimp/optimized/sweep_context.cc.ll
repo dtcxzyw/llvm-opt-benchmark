@@ -3,36 +3,15 @@ source_filename = "bench/assimp/original/sweep_context.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.p2t::SweepContext" = type { %"class.std::vector", %"struct.p2t::SweepContext::Basin", %"struct.p2t::SweepContext::EdgeEvent", %"class.std::vector.0", %"class.std::__cxx11::list", %"class.std::vector.8", ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.p2t::SweepContext::Basin" = type <{ ptr, ptr, ptr, double, i8, [7 x i8] }>
-%"struct.p2t::SweepContext::EdgeEvent" = type <{ ptr, i8, [7 x i8] }>
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.17 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.17 = type { i64, [8 x i8] }
+%"class.std::allocator.14" = type { i8 }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.p2t::Point" = type { double, double, %"class.std::vector" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.17 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.17 = type { i64, [8 x i8] }
-%"class.std::allocator.14" = type { i8 }
-%"struct.p2t::Edge" = type { ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
-%"class.p2t::Triangle" = type <{ [3 x i8], [3 x i8], [2 x i8], [3 x ptr], [3 x ptr], i8, [7 x i8] }>
-%"struct.p2t::Node" = type { ptr, ptr, ptr, ptr, double }
 %struct._Guard = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { ptr }
 
@@ -69,21 +48,21 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaI
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t12SweepContextC2ERKSt6vectorIPNS_5PointESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %polyline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %edge_event = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 2
+  %edge_event = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %edge_event, align 8
-  %right.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 2, i32 1
+  %right.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %right.i, align 8
-  %triangles_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 3
+  %triangles_ = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangles_, i8 0, i64 24, i1 false)
-  %map_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %map_ = getelementptr inbounds i8, ptr %this, i64 104
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %this, i8 0, i64 57, i1 false)
   store ptr %map_, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %map_, ptr %map_, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data", ptr %polyline, i64 0, i32 1
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %polyline, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %polyline, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -112,10 +91,10 @@ _ZNSt16allocator_traitsISaIPN3p2t5PointEEE8allocateERS3_m.exit.i.i.i.i: ; preds 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIPN3p2t5PointEEE8allocateERS3_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i2, %_ZNSt16allocator_traitsISaIPN3p2t5PointEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %points_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %polyline, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -133,7 +112,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %front_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 6
+  %front_ = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %front_, i8 0, i64 48, i1 false)
   invoke void @_ZN3p2t12SweepContext9InitEdgesERKSt6vectorIPNS_5PointESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(24) %points_)
           to label %invoke.cont7 unwind label %lpad6
@@ -197,7 +176,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t12SweepContext9InitEdgesERKSt6vectorIPNS_5PointESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %polyline) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data", ptr %polyline, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %polyline, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %polyline, align 8
   %cmp11.not = icmp eq ptr %0, %1
@@ -209,8 +188,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %sub = add nsw i64 %sub.ptr.div.i, -1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
@@ -237,7 +216,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then.i.i:                                      ; preds = %invoke.cont
   store ptr %call3, ptr %5, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE9push_backEOS2_.exit
 
@@ -281,7 +260,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
 
 _ZNSt6vectorIPN3p2t4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN3p2t4EdgeESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -314,16 +293,16 @@ for.end:                                          ; preds = %_ZNSt6vectorIPN3p2t
 define hidden void @_ZN3p2t12SweepContext7AddHoleERKSt6vectorIPNS_5PointESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %polyline) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3p2t12SweepContext9InitEdgesERKSt6vectorIPNS_5PointESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(24) %polyline)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Point *, std::allocator<p2t::Point *>>::_Vector_impl_data", ptr %polyline, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %polyline, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %polyline, align 8
   %cmp10.not = icmp eq ptr %0, %1
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
-  %_M_finish.i5 = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_finish.i5 = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 144
   %.pre = load ptr, ptr %_M_finish.i5, align 8
   br label %for.body
 
@@ -341,7 +320,7 @@ if.then.i:                                        ; preds = %for.body
   %5 = load ptr, ptr %add.ptr.i, align 8
   store ptr %5, ptr %2, align 8
   %6 = load ptr, ptr %_M_finish.i5, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i5, align 8
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE9push_backERKS2_.exit
 
@@ -386,7 +365,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN3p2t5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN3p2t5PointESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -421,10 +400,10 @@ for.end:                                          ; preds = %_ZNSt6vectorIPN3p2t
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t12SweepContext8AddPointEPNS_5PointE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %point) local_unnamed_addr #0 align 2 {
 entry:
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
-  %_M_finish.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -432,7 +411,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %point, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE9push_backERKS2_.exit
 
@@ -476,7 +455,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN3p2t5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN3p2t5PointESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -498,25 +477,25 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3p2t12SweepContext12GetTrianglesEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %triangles_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 3
+  %triangles_ = getelementptr inbounds i8, ptr %this, i64 80
   ret ptr %triangles_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3p2t12SweepContext6GetMapB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %map_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4
+  %map_ = getelementptr inbounds i8, ptr %this, i64 104
   ret ptr %map_
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t12SweepContext17InitTriangulationEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %points_, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load <2 x double>, ptr %1, align 8
-  %_M_finish.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -558,20 +537,20 @@ for.end:                                          ; preds = %for.body, %entry
   %23 = fsub <2 x double> %16, %21
   %24 = shufflevector <2 x double> %22, <2 x double> %23, <2 x i32> <i32 0, i32 3>
   store <2 x double> %24, ptr %call35, align 8
-  %edge_list.i = getelementptr inbounds %"struct.p2t::Point", ptr %call35, i64 0, i32 2
+  %edge_list.i = getelementptr inbounds i8, ptr %call35, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %edge_list.i, i8 0, i64 24, i1 false)
-  %head_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 7
+  %head_ = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %call35, ptr %head_, align 8
   %call37 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %25 = fsub <2 x double> %17, %21
   %sub38 = extractelement <2 x double> %25, i64 0
   store double %sub38, ptr %call37, align 8
-  %y3.i23 = getelementptr inbounds %"struct.p2t::Point", ptr %call37, i64 0, i32 1
+  %y3.i23 = getelementptr inbounds i8, ptr %call37, i64 8
   %26 = extractelement <2 x double> %23, i64 1
   store double %26, ptr %y3.i23, align 8
-  %edge_list.i24 = getelementptr inbounds %"struct.p2t::Point", ptr %call37, i64 0, i32 2
+  %edge_list.i24 = getelementptr inbounds i8, ptr %call37, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %edge_list.i24, i8 0, i64 24, i1 false)
-  %tail_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 8
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %call37, ptr %tail_, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit, label %if.then.i.i
@@ -582,21 +561,18 @@ if.then.i.i:                                      ; preds = %for.end
   %mul.i.i = xor i64 %sub.i.i.i, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_T0_T1_(ptr nonnull %0, ptr %3, i64 noundef %mul.i.i, ptr nonnull @_ZN3p2t3cmpEPKNS_5PointES2_)
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i, 128
-  br i1 %cmp.i, label %for.body.lr.ph.i.i, label %if.else.i
-
-for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
   %scevgep.i = getelementptr i8, ptr %0, i64 8
-  br label %for.body.i.i
+  br i1 %cmp.i, label %for.body.i.i, label %if.else.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %__i.sroa.0.012.i.idx.i = phi i64 [ 8, %for.body.lr.ph.i.i ], [ %__i.sroa.0.012.i.add.i, %for.inc.i.i ]
-  %__first.coerce.pn11.i.i = phi ptr [ %0, %for.body.lr.ph.i.i ], [ %__i.sroa.0.012.i.ptr.i, %for.inc.i.i ]
+for.body.i.i:                                     ; preds = %if.then.i.i, %for.inc.i.i
+  %__i.sroa.0.012.i.idx.i = phi i64 [ %__i.sroa.0.012.i.add.i, %for.inc.i.i ], [ 8, %if.then.i.i ]
+  %__first.coerce.pn11.i.i = phi ptr [ %__i.sroa.0.012.i.ptr.i, %for.inc.i.i ], [ %0, %if.then.i.i ]
   %__i.sroa.0.012.i.ptr.i = getelementptr inbounds i8, ptr %0, i64 %__i.sroa.0.012.i.idx.i
   %28 = load ptr, ptr %__i.sroa.0.012.i.ptr.i, align 8
   %29 = load ptr, ptr %0, align 8
-  %y.i89 = getelementptr inbounds %"struct.p2t::Point", ptr %28, i64 0, i32 1
+  %y.i89 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load double, ptr %y.i89, align 8
-  %y1.i90 = getelementptr inbounds %"struct.p2t::Point", ptr %29, i64 0, i32 1
+  %y1.i90 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load double, ptr %y1.i90, align 8
   %cmp.i91 = fcmp olt double %30, %31
   br i1 %cmp.i91, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i, label %if.else.i92
@@ -617,7 +593,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_Sa
 
 if.else.i.i:                                      ; preds = %if.then5.i96, %if.else.i92
   %34 = load ptr, ptr %__first.coerce.pn11.i.i, align 8
-  %y1.i80 = getelementptr inbounds %"struct.p2t::Point", ptr %34, i64 0, i32 1
+  %y1.i80 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load double, ptr %y1.i80, align 8
   %cmp.i81 = fcmp olt double %30, %35
   br i1 %cmp.i81, label %while.body.i.i.i.preheader, label %if.else.i82
@@ -640,10 +616,10 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.ba
   %__next.sroa.0.010.i.i.i = phi ptr [ %__first.coerce.pn11.i.i, %while.body.i.i.i.preheader ], [ %__next.sroa.0.0.i.i.i, %while.body.i.i.i.backedge ]
   %__last.sroa.0.09.i.i.i = phi ptr [ %__i.sroa.0.012.i.ptr.i, %while.body.i.i.i.preheader ], [ %__next.sroa.0.010.i.i.i, %while.body.i.i.i.backedge ]
   store ptr %38, ptr %__last.sroa.0.09.i.i.i, align 8
-  %__next.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %__next.sroa.0.010.i.i.i, i64 -1
+  %__next.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i, i64 -8
   %39 = load ptr, ptr %__next.sroa.0.0.i.i.i, align 8
   %40 = load double, ptr %y.i89, align 8
-  %y1.i70 = getelementptr inbounds %"struct.p2t::Point", ptr %39, i64 0, i32 1
+  %y1.i70 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load double, ptr %y1.i70, align 8
   %cmp.i71 = fcmp olt double %40, %41
   br i1 %cmp.i71, label %while.body.i.i.i.backedge, label %if.else.i72
@@ -669,18 +645,18 @@ for.inc.i.i:                                      ; preds = %if.then5.i76, %if.e
   br i1 %cmp.i1.not.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_T0_.exit.i, label %for.body.i.i, !llvm.loop !11
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_T0_.exit.i: ; preds = %for.inc.i.i
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 128
   %cmp.i.not2.i.i = icmp eq ptr %add.ptr.i.i, %3
   br i1 %cmp.i.not2.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit, label %for.body.i2.i
 
 for.body.i2.i:                                    ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_T0_.exit.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbPKS3_SD_EEEEvT_T0_.exit.i.i
   %__i.sroa.0.03.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbPKS3_SD_EEEEvT_T0_.exit.i.i ], [ %add.ptr.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_T0_.exit.i ]
   %44 = load ptr, ptr %__i.sroa.0.03.i.i, align 8
-  %__next.sroa.0.07.i.i.i = getelementptr inbounds ptr, ptr %__i.sroa.0.03.i.i, i64 -1
+  %__next.sroa.0.07.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 -8
   %45 = load ptr, ptr %__next.sroa.0.07.i.i.i, align 8
-  %y.i59 = getelementptr inbounds %"struct.p2t::Point", ptr %44, i64 0, i32 1
+  %y.i59 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load double, ptr %y.i59, align 8
-  %y1.i60 = getelementptr inbounds %"struct.p2t::Point", ptr %45, i64 0, i32 1
+  %y1.i60 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load double, ptr %y1.i60, align 8
   %cmp.i61 = fcmp olt double %46, %47
   br i1 %cmp.i61, label %while.body.i.i4.i.preheader, label %if.else.i62
@@ -703,10 +679,10 @@ while.body.i.i4.i:                                ; preds = %while.body.i.i4.i.b
   %__next.sroa.0.010.i.i5.i = phi ptr [ %__next.sroa.0.07.i.i.i, %while.body.i.i4.i.preheader ], [ %__next.sroa.0.0.i.i7.i, %while.body.i.i4.i.backedge ]
   %__last.sroa.0.09.i.i6.i = phi ptr [ %__i.sroa.0.03.i.i, %while.body.i.i4.i.preheader ], [ %__next.sroa.0.010.i.i5.i, %while.body.i.i4.i.backedge ]
   store ptr %50, ptr %__last.sroa.0.09.i.i6.i, align 8
-  %__next.sroa.0.0.i.i7.i = getelementptr inbounds ptr, ptr %__next.sroa.0.010.i.i5.i, i64 -1
+  %__next.sroa.0.0.i.i7.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i, i64 -8
   %51 = load ptr, ptr %__next.sroa.0.0.i.i7.i, align 8
   %52 = load double, ptr %y.i59, align 8
-  %y1.i50 = getelementptr inbounds %"struct.p2t::Point", ptr %51, i64 0, i32 1
+  %y1.i50 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load double, ptr %y1.i50, align 8
   %cmp.i51 = fcmp olt double %52, %53
   br i1 %cmp.i51, label %while.body.i.i4.i.backedge, label %if.else.i52
@@ -727,23 +703,22 @@ if.then5.i56:                                     ; preds = %if.else.i52
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbPKS3_SD_EEEEvT_T0_.exit.i.i: ; preds = %if.then5.i56, %if.else.i52, %if.then5.i66, %if.else.i62
   %__last.sroa.0.0.lcssa.i.i.i = phi ptr [ %__i.sroa.0.03.i.i, %if.else.i62 ], [ %__i.sroa.0.03.i.i, %if.then5.i66 ], [ %__next.sroa.0.010.i.i5.i, %if.else.i52 ], [ %__next.sroa.0.010.i.i5.i, %if.then5.i56 ]
   store ptr %44, ptr %__last.sroa.0.0.lcssa.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__i.sroa.0.03.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 8
   %cmp.i.not.i.i26 = icmp eq ptr %incdec.ptr.i.i.i, %3
   br i1 %cmp.i.not.i.i26, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit, label %for.body.i2.i, !llvm.loop !12
 
 if.else.i:                                        ; preds = %if.then.i.i
-  %__i.sroa.0.09.i11.i = getelementptr inbounds ptr, ptr %0, i64 1
-  %cmp.i1.not10.i12.i = icmp eq ptr %__i.sroa.0.09.i11.i, %3
+  %cmp.i1.not10.i12.i = icmp eq ptr %scevgep.i, %3
   br i1 %cmp.i1.not10.i12.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit, label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %if.else.i, %for.inc.i21.i
-  %__i.sroa.0.012.i16.i = phi ptr [ %__i.sroa.0.0.i23.i, %for.inc.i21.i ], [ %__i.sroa.0.09.i11.i, %if.else.i ]
+  %__i.sroa.0.012.i16.i = phi ptr [ %__i.sroa.0.0.i23.i, %for.inc.i21.i ], [ %scevgep.i, %if.else.i ]
   %__first.coerce.pn11.i17.i = phi ptr [ %__i.sroa.0.012.i16.i, %for.inc.i21.i ], [ %0, %if.else.i ]
   %56 = load ptr, ptr %__i.sroa.0.012.i16.i, align 8
   %57 = load ptr, ptr %0, align 8
-  %y.i39 = getelementptr inbounds %"struct.p2t::Point", ptr %56, i64 0, i32 1
+  %y.i39 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load double, ptr %y.i39, align 8
-  %y1.i40 = getelementptr inbounds %"struct.p2t::Point", ptr %57, i64 0, i32 1
+  %y1.i40 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load double, ptr %y1.i40, align 8
   %cmp.i41 = fcmp olt double %58, %59
   br i1 %cmp.i41, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i30.i, label %if.else.i42
@@ -759,18 +734,18 @@ if.then5.i46:                                     ; preds = %if.else.i42
   br i1 %cmp7.i47, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i30.i, label %if.else.i19.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i30.i: ; preds = %for.body.i15.i, %if.then5.i46
-  %add.ptr.i2.i31.i = getelementptr inbounds ptr, ptr %__first.coerce.pn11.i17.i, i64 2
+  %add.ptr.i2.i31.i = getelementptr inbounds i8, ptr %__first.coerce.pn11.i17.i, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i = ptrtoint ptr %__i.sroa.0.012.i16.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %0, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %if.then5.i46, %if.else.i42
   %62 = load ptr, ptr %__first.coerce.pn11.i17.i, align 8
-  %y1.i30 = getelementptr inbounds %"struct.p2t::Point", ptr %62, i64 0, i32 1
+  %y1.i30 = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load double, ptr %y1.i30, align 8
   %cmp.i31 = fcmp olt double %58, %63
   br i1 %cmp.i31, label %while.body.i.i25.i.preheader, label %if.else.i32
@@ -793,10 +768,10 @@ while.body.i.i25.i:                               ; preds = %while.body.i.i25.i.
   %__next.sroa.0.010.i.i26.i = phi ptr [ %__first.coerce.pn11.i17.i, %while.body.i.i25.i.preheader ], [ %__next.sroa.0.0.i.i28.i, %while.body.i.i25.i.backedge ]
   %__last.sroa.0.09.i.i27.i = phi ptr [ %__i.sroa.0.012.i16.i, %while.body.i.i25.i.preheader ], [ %__next.sroa.0.010.i.i26.i, %while.body.i.i25.i.backedge ]
   store ptr %66, ptr %__last.sroa.0.09.i.i27.i, align 8
-  %__next.sroa.0.0.i.i28.i = getelementptr inbounds ptr, ptr %__next.sroa.0.010.i.i26.i, i64 -1
+  %__next.sroa.0.0.i.i28.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i, i64 -8
   %67 = load ptr, ptr %__next.sroa.0.0.i.i28.i, align 8
   %68 = load double, ptr %y.i39, align 8
-  %y1.i = getelementptr inbounds %"struct.p2t::Point", ptr %67, i64 0, i32 1
+  %y1.i = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load double, ptr %y1.i, align 8
   %cmp.i27 = fcmp olt double %68, %69
   br i1 %cmp.i27, label %while.body.i.i25.i.backedge, label %if.else.i28
@@ -817,7 +792,7 @@ if.then5.i:                                       ; preds = %if.else.i28
 for.inc.i21.i:                                    ; preds = %if.then5.i, %if.else.i28, %if.then5.i36, %if.else.i32, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i30.i
   %__first.coerce.sink.i22.i = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i30.i ], [ %__i.sroa.0.012.i16.i, %if.else.i32 ], [ %__i.sroa.0.012.i16.i, %if.then5.i36 ], [ %__next.sroa.0.010.i.i26.i, %if.else.i28 ], [ %__next.sroa.0.010.i.i26.i, %if.then5.i ]
   store ptr %56, ptr %__first.coerce.sink.i22.i, align 8
-  %__i.sroa.0.0.i23.i = getelementptr inbounds ptr, ptr %__i.sroa.0.012.i16.i, i64 1
+  %__i.sroa.0.0.i23.i = getelementptr inbounds i8, ptr %__i.sroa.0.012.i16.i, i64 8
   %cmp.i1.not.i24.i = icmp eq ptr %__i.sroa.0.0.i23.i, %3
   br i1 %cmp.i1.not.i24.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit, label %for.body.i15.i, !llvm.loop !11
 
@@ -834,9 +809,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN3p2t3cmpEPKNS_5PointES2_(ptr noundef %a, ptr noundef %b) #4 comdat {
 entry:
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %a, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load double, ptr %y, align 8
-  %y1 = getelementptr inbounds %"struct.p2t::Point", ptr %b, i64 0, i32 1
+  %y1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load double, ptr %y1, align 8
   %cmp = fcmp olt double %0, %1
   br i1 %cmp, label %return, label %if.else
@@ -865,11 +840,11 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator.14", align 1
   store ptr %p1, ptr %this, align 8
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %this, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %p2, ptr %q, align 8
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %p1, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %p1, i64 8
   %0 = load double, ptr %y, align 8
-  %y2 = getelementptr inbounds %"struct.p2t::Point", ptr %p2, i64 0, i32 1
+  %y2 = getelementptr inbounds i8, ptr %p2, i64 8
   %1 = load double, ptr %y2, align 8
   %cmp = fcmp ogt double %0, %1
   br i1 %cmp, label %if.end25.sink.split, label %if.else
@@ -928,10 +903,10 @@ if.end25.sink.split:                              ; preds = %if.then8, %entry
 
 if.end25:                                         ; preds = %if.end25.sink.split, %if.else, %if.else14
   %6 = phi ptr [ %p2, %if.else ], [ %p2, %if.else14 ], [ %p1, %if.end25.sink.split ]
-  %edge_list = getelementptr inbounds %"struct.p2t::Point", ptr %6, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %6, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %edge_list = getelementptr inbounds i8, ptr %6, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %6, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -939,7 +914,7 @@ if.end25:                                         ; preds = %if.end25.sink.split
 if.then.i.i:                                      ; preds = %if.end25
   store ptr %this, ptr %7, align 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE9push_backEOS2_.exit
 
@@ -983,7 +958,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
 
 _ZNSt6vectorIPN3p2t4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN3p2t4EdgeESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN3p2t4EdgeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -1012,7 +987,7 @@ unreachable:                                      ; preds = %invoke.cont21
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN3p2t12SweepContext8GetPointEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i64 noundef %index) local_unnamed_addr #5 align 2 {
 entry:
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %points_, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %index
   %1 = load ptr, ptr %add.ptr.i, align 8
@@ -1022,12 +997,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %triangle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %map_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4
+  %map_ = getelementptr inbounds i8, ptr %this, i64 104
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %triangle, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %map_) #19
-  %_M_size.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -1037,7 +1012,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t12SweepContext10LocateNodeERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %point) local_unnamed_addr #0 align 2 {
 entry:
-  %front_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 6
+  %front_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %front_, align 8
   %1 = load double, ptr %point, align 8
   %call = tail call noundef ptr @_ZN3p2t14AdvancingFront10LocateNodeEd(ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %1)
@@ -1050,84 +1025,84 @@ declare noundef ptr @_ZN3p2t14AdvancingFront10LocateNodeEd(ptr noundef nonnull a
 define hidden void @_ZN3p2t12SweepContext20CreateAdvancingFrontERKSt6vectorIPNS_4NodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readnone align 1 %nodes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %points_, align 8
   %1 = load ptr, ptr %0, align 8
-  %tail_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 8
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load ptr, ptr %tail_, align 8
-  %head_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 7
+  %head_ = getelementptr inbounds i8, ptr %this, i64 160
   %3 = load ptr, ptr %head_, align 8
   invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %map_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4
+  %map_ = getelementptr inbounds i8, ptr %this, i64 104
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %map_) #19
-  %_M_size.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %4 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %4, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-  %arrayidx.i = getelementptr inbounds %"class.p2t::Triangle", ptr %call, i64 0, i32 3, i64 1
+  %points_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load ptr, ptr %arrayidx.i, align 8
   store ptr %5, ptr %call3, align 8
-  %triangle.i = getelementptr inbounds %"struct.p2t::Node", ptr %call3, i64 0, i32 1
+  %triangle.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %call, ptr %triangle.i, align 8
-  %next.i = getelementptr inbounds %"struct.p2t::Node", ptr %call3, i64 0, i32 2
-  %value.i = getelementptr inbounds %"struct.p2t::Node", ptr %call3, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %call3, i64 16
+  %value.i = getelementptr inbounds i8, ptr %call3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %6 = load double, ptr %5, align 8
   store double %6, ptr %value.i, align 8
-  %af_head_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 9
+  %af_head_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %call3, ptr %af_head_, align 8
   %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-  %arrayidx.i2 = getelementptr inbounds %"class.p2t::Triangle", ptr %call, i64 0, i32 3, i64 0
-  %7 = load ptr, ptr %arrayidx.i2, align 8
+  %7 = load ptr, ptr %points_.i, align 8
   store ptr %7, ptr %call8, align 8
-  %triangle.i3 = getelementptr inbounds %"struct.p2t::Node", ptr %call8, i64 0, i32 1
+  %triangle.i3 = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %call, ptr %triangle.i3, align 8
-  %next.i4 = getelementptr inbounds %"struct.p2t::Node", ptr %call8, i64 0, i32 2
-  %value.i5 = getelementptr inbounds %"struct.p2t::Node", ptr %call8, i64 0, i32 4
+  %next.i4 = getelementptr inbounds i8, ptr %call8, i64 16
+  %value.i5 = getelementptr inbounds i8, ptr %call8, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i4, i8 0, i64 16, i1 false)
   %8 = load double, ptr %7, align 8
   store double %8, ptr %value.i5, align 8
-  %af_middle_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 10
+  %af_middle_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %call8, ptr %af_middle_, align 8
   %call13 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-  %arrayidx.i6 = getelementptr inbounds %"class.p2t::Triangle", ptr %call, i64 0, i32 3, i64 2
-  %9 = load ptr, ptr %arrayidx.i6, align 8
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %call, i64 24
+  %9 = load ptr, ptr %arrayidx.i7, align 8
   store ptr %9, ptr %call13, align 8
-  %triangle.i7 = getelementptr inbounds %"struct.p2t::Node", ptr %call13, i64 0, i32 1
-  %value.i8 = getelementptr inbounds %"struct.p2t::Node", ptr %call13, i64 0, i32 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle.i7, i8 0, i64 24, i1 false)
+  %triangle.i8 = getelementptr inbounds i8, ptr %call13, i64 8
+  %value.i9 = getelementptr inbounds i8, ptr %call13, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle.i8, i8 0, i64 24, i1 false)
   %10 = load double, ptr %9, align 8
-  store double %10, ptr %value.i8, align 8
-  %af_tail_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 11
+  store double %10, ptr %value.i9, align 8
+  %af_tail_ = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %call13, ptr %af_tail_, align 8
   %call18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   invoke void @_ZN3p2t14AdvancingFrontC1ERNS_4NodeES2_(ptr noundef nonnull align 8 dereferenceable(24) %call18, ptr noundef nonnull align 8 dereferenceable(40) %call3, ptr noundef nonnull align 8 dereferenceable(40) %call13)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont
-  %front_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 6
+  %front_ = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %call18, ptr %front_, align 8
   %11 = load ptr, ptr %af_middle_, align 8
   %12 = load ptr, ptr %af_head_, align 8
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %12, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %11, ptr %next, align 8
   %13 = load ptr, ptr %af_tail_, align 8
-  %next27 = getelementptr inbounds %"struct.p2t::Node", ptr %11, i64 0, i32 2
+  %next27 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %13, ptr %next27, align 8
   %14 = load ptr, ptr %af_head_, align 8
   %15 = load ptr, ptr %af_middle_, align 8
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %15, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %15, i64 24
   store ptr %14, ptr %prev, align 8
   %16 = load ptr, ptr %af_middle_, align 8
   %17 = load ptr, ptr %af_tail_, align 8
-  %prev32 = getelementptr inbounds %"struct.p2t::Node", ptr %17, i64 0, i32 3
+  %prev32 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %16, ptr %prev32, align 8
   ret void
 
@@ -1169,19 +1144,21 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(57) %t) local_unnamed_addr #0 align 2 {
 entry:
-  %front_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 6
+  %neighbors_.i = getelementptr inbounds i8, ptr %t, i64 32
+  %front_ = getelementptr inbounds i8, ptr %this, i64 152
+  %points_.i = getelementptr inbounds i8, ptr %t, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds %"class.p2t::Triangle", ptr %t, i64 0, i32 4, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %1 = load ptr, ptr %front_, align 8
-  %arrayidx.i9 = getelementptr inbounds %"class.p2t::Triangle", ptr %t, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx.i9 = getelementptr inbounds [3 x ptr], ptr %points_.i, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i9, align 8
   %call3 = tail call noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %2)
   %call4 = tail call noundef ptr @_ZN3p2t14AdvancingFront11LocatePointEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %call3)
@@ -1189,7 +1166,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %triangle = getelementptr inbounds %"struct.p2t::Node", ptr %call4, i64 0, i32 1
+  %triangle = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %t, ptr %triangle, align 8
   br label %for.inc
 
@@ -1210,25 +1187,25 @@ declare noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull a
 define hidden void @_ZN3p2t12SweepContext13RemoveFromMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone %triangle) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list", align 8
-  %map_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4
+  %map_ = getelementptr inbounds i8, ptr %this, i64 104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__to_destroy.i)
-  %_M_prev.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %__to_destroy.i, i64 0, i32 1
+  %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__to_destroy.i, i64 8
   store ptr %__to_destroy.i, ptr %_M_prev.i.i.i.i.i.i, align 8
   store ptr %__to_destroy.i, ptr %__to_destroy.i, align 8
-  %_M_size.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %__to_destroy.i, i64 0, i32 1
+  %_M_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__to_destroy.i, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i.i, align 8
   %0 = load ptr, ptr %map_, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %map_
   br i1 %cmp.i.not3.i, label %_ZNSt7__cxx114listIPN3p2t8TriangleESaIS3_EE6removeERKS3_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %_M_size.i4.i.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
   %__first.sroa.0.04.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %1, %if.end.i ]
   %1 = load ptr, ptr %__first.sroa.0.04.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__first.sroa.0.04.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i, i64 16
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8
   %cmp.i = icmp eq ptr %2, %triangle
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1276,23 +1253,23 @@ define hidden void @_ZN3p2t12SweepContext9MeshCleanERNS_8TriangleE(ptr nocapture
 _ZNSt16allocator_traitsISaIPN3p2t8TriangleEEE8allocateERS3_m.exit.i.i.i.i:
   %call5.i.i.i.i.i.i4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
   store ptr %triangle, ptr %call5.i.i.i.i.i.i4, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i.i4, i64 1
-  %triangles_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 3
-  %_M_finish.i8 = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i4, i64 8
+  %triangles_ = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 96
   br label %while.body
 
 while.body:                                       ; preds = %_ZNSt16allocator_traitsISaIPN3p2t8TriangleEEE8allocateERS3_m.exit.i.i.i.i, %if.end13
   %triangles.sroa.0.196 = phi ptr [ %call5.i.i.i.i.i.i4, %_ZNSt16allocator_traitsISaIPN3p2t8TriangleEEE8allocateERS3_m.exit.i.i.i.i ], [ %triangles.sroa.0.6, %if.end13 ]
   %triangles.sroa.8.195 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaIPN3p2t8TriangleEEE8allocateERS3_m.exit.i.i.i.i ], [ %triangles.sroa.8.5, %if.end13 ]
   %triangles.sroa.20.194 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaIPN3p2t8TriangleEEE8allocateERS3_m.exit.i.i.i.i ], [ %triangles.sroa.20.5, %if.end13 ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %triangles.sroa.8.195, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %triangles.sroa.8.195, i64 -8
   %0 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %interior_.i = getelementptr inbounds %"class.p2t::Triangle", ptr %0, i64 0, i32 5
+  %interior_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i8, ptr %interior_.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -1308,9 +1285,9 @@ if.then:                                          ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %if.then
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i8, align 8
-  %incdec.ptr.i9 = getelementptr inbounds ptr, ptr %5, i64 1
+  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i9, ptr %_M_finish.i8, align 8
-  br label %for.body.preheader
+  br label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit
 
 if.else.i:                                        ; preds = %if.then
   %6 = load ptr, ptr %triangles_, align 8
@@ -1355,7 +1332,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN3p2t8TriangleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN3p2t8TriangleESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i11 = getelementptr inbounds ptr, ptr %add.ptr.i.i10, i64 1
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %add.ptr.i.i10, i64 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1368,16 +1345,17 @@ _ZNSt6vectorIPN3p2t8TriangleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   store ptr %incdec.ptr.i.i11, ptr %_M_finish.i8, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
-  br label %for.body.preheader
+  br label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit
 
-for.body.preheader:                               ; preds = %if.then.i, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %neighbors_.i = getelementptr inbounds i8, ptr %0, i64 32
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
-  %triangles.sroa.0.292 = phi ptr [ %triangles.sroa.0.5, %for.inc ], [ %triangles.sroa.0.196, %for.body.preheader ]
-  %triangles.sroa.8.291 = phi ptr [ %triangles.sroa.8.4, %for.inc ], [ %add.ptr.i.i, %for.body.preheader ]
-  %triangles.sroa.20.290 = phi ptr [ %triangles.sroa.20.4, %for.inc ], [ %triangles.sroa.20.194, %for.body.preheader ]
+for.body:                                         ; preds = %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit, %for.inc
+  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %indvars.iv.next, %for.inc ]
+  %triangles.sroa.0.292 = phi ptr [ %triangles.sroa.0.196, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %triangles.sroa.0.5, %for.inc ]
+  %triangles.sroa.8.291 = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %triangles.sroa.8.4, %for.inc ]
+  %triangles.sroa.20.290 = phi ptr [ %triangles.sroa.20.194, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %triangles.sroa.20.4, %for.inc ]
   %arrayidx = getelementptr inbounds [3 x i8], ptr %0, i64 0, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx, align 1
   %8 = and i8 %7, 1
@@ -1385,14 +1363,14 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool.not, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %arrayidx.i = getelementptr inbounds %"class.p2t::Triangle", ptr %0, i64 0, i32 4, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx.i, align 8
   %cmp.not.i.i16 = icmp eq ptr %triangles.sroa.8.291, %triangles.sroa.20.290
   br i1 %cmp.not.i.i16, label %if.else.i.i19, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %if.then8
   store ptr %9, ptr %triangles.sroa.8.291, align 8
-  %incdec.ptr.i.i18 = getelementptr inbounds ptr, ptr %triangles.sroa.8.291, i64 1
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %triangles.sroa.8.291, i64 8
   br label %for.inc
 
 if.else.i.i19:                                    ; preds = %if.then8
@@ -1437,7 +1415,7 @@ if.then.i.i.i12.i.i.i45:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i39
 
 _ZNSt6vectorIPN3p2t8TriangleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i39: ; preds = %if.then.i.i.i12.i.i.i45, %_ZNSt12_Vector_baseIPN3p2t8TriangleESaIS2_EE11_M_allocateEm.exit.i.i.i35
-  %incdec.ptr.i.i.i40 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i37, i64 1
+  %incdec.ptr.i.i.i40 = getelementptr inbounds i8, ptr %add.ptr.i.i.i37, i64 8
   %tobool.not.i.i.i.i41 = icmp eq ptr %triangles.sroa.0.292, null
   br i1 %tobool.not.i.i.i.i41, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43, label %if.then.i21.i.i.i42
 
@@ -1508,13 +1486,13 @@ _ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit55: ; preds = %while.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3p2t12SweepContextD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %head_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 7
+  %head_ = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %head_, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %edge_list.i = getelementptr inbounds %"struct.p2t::Point", ptr %0, i64 0, i32 2
+  %edge_list.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %edge_list.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3p2t5PointD2Ev.exit, label %if.then.i.i.i.i
@@ -1528,13 +1506,13 @@ _ZN3p2t5PointD2Ev.exit:                           ; preds = %delete.notnull, %if
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN3p2t5PointD2Ev.exit, %entry
-  %tail_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 8
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load ptr, ptr %tail_, align 8
   %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  %edge_list.i10 = getelementptr inbounds %"struct.p2t::Point", ptr %2, i64 0, i32 2
+  %edge_list.i10 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %edge_list.i10, align 8
   %tobool.not.i.i.i.i11 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i11, label %_ZN3p2t5PointD2Ev.exit13, label %if.then.i.i.i.i12
@@ -1548,7 +1526,7 @@ _ZN3p2t5PointD2Ev.exit13:                         ; preds = %delete.notnull3, %i
   br label %delete.end4
 
 delete.end4:                                      ; preds = %_ZN3p2t5PointD2Ev.exit13, %delete.end
-  %front_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 6
+  %front_ = getelementptr inbounds i8, ptr %this, i64 152
   %4 = load ptr, ptr %front_, align 8
   %isnull5 = icmp eq ptr %4, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -1559,7 +1537,7 @@ delete.notnull6:                                  ; preds = %delete.end4
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
-  %af_head_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 9
+  %af_head_ = getelementptr inbounds i8, ptr %this, i64 176
   %5 = load ptr, ptr %af_head_, align 8
   %isnull8 = icmp eq ptr %5, null
   br i1 %isnull8, label %delete.end10, label %delete.notnull9
@@ -1569,7 +1547,7 @@ delete.notnull9:                                  ; preds = %delete.end7
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull9, %delete.end7
-  %af_middle_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 10
+  %af_middle_ = getelementptr inbounds i8, ptr %this, i64 184
   %6 = load ptr, ptr %af_middle_, align 8
   %isnull11 = icmp eq ptr %6, null
   br i1 %isnull11, label %delete.end13, label %delete.notnull12
@@ -1579,7 +1557,7 @@ delete.notnull12:                                 ; preds = %delete.end10
   br label %delete.end13
 
 delete.end13:                                     ; preds = %delete.notnull12, %delete.end10
-  %af_tail_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 11
+  %af_tail_ = getelementptr inbounds i8, ptr %this, i64 192
   %7 = load ptr, ptr %af_tail_, align 8
   %isnull14 = icmp eq ptr %7, null
   br i1 %isnull14, label %delete.end16, label %delete.notnull15
@@ -1589,13 +1567,13 @@ delete.notnull15:                                 ; preds = %delete.end13
   br label %delete.end16
 
 delete.end16:                                     ; preds = %delete.notnull15, %delete.end13
-  %map_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 4
+  %map_ = getelementptr inbounds i8, ptr %this, i64 104
   %iter.sroa.0.020 = load ptr, ptr %map_, align 8
   %cmp.i.not21 = icmp eq ptr %iter.sroa.0.020, %map_
   br i1 %cmp.i.not21, label %for.cond26.preheader, label %for.body
 
 for.cond26.preheader:                             ; preds = %for.inc, %delete.end16
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %this, align 8
   %cmp27.not = icmp eq ptr %8, %9
@@ -1603,7 +1581,7 @@ for.cond26.preheader:                             ; preds = %for.inc, %delete.en
 
 for.body:                                         ; preds = %delete.end16, %for.inc
   %iter.sroa.0.022 = phi ptr [ %iter.sroa.0.0, %for.inc ], [ %iter.sroa.0.020, %delete.end16 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %iter.sroa.0.022, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %iter.sroa.0.022, i64 16
   %10 = load ptr, ptr %_M_storage.i.i, align 8
   %isnull22 = icmp eq ptr %10, null
   br i1 %isnull22, label %for.inc, label %delete.notnull23
@@ -1646,7 +1624,7 @@ for.inc35:                                        ; preds = %for.body28, %delete
   br i1 %cmp, label %for.body28, label %for.end36, !llvm.loop !18
 
 for.end36:                                        ; preds = %for.inc35, %for.cond26.preheader
-  %points_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 5
+  %points_ = getelementptr inbounds i8, ptr %this, i64 128
   %16 = load ptr, ptr %points_, align 8
   %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -1668,7 +1646,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt6vectorIPN3p2t
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN3p2t8TriangleESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !4
 
 _ZNSt7__cxx114listIPN3p2t8TriangleESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i, %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit
-  %triangles_ = getelementptr inbounds %"class.p2t::SweepContext", ptr %this, i64 0, i32 3
+  %triangles_ = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load ptr, ptr %triangles_, align 8
   %tobool.not.i.i.i14 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i14, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit, label %if.then.i.i.i15
@@ -1910,7 +1888,7 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_RT0_.exit.i
   %__last.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_RT0_.exit.i ], [ %__middle.coerce, %entry ]
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__last.sroa.0.05.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i, i64 -8
   %0 = load ptr, ptr %incdec.ptr.i.i, align 8
   %1 = load ptr, ptr %__first.coerce, align 8
   store ptr %1, ptr %incdec.ptr.i.i, align 8
@@ -2002,8 +1980,8 @@ entry:
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %div = sdiv i64 %sub.ptr.div.i, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %div
-  %add.ptr.i1 = getelementptr inbounds ptr, ptr %__first.coerce, i64 1
-  %add.ptr.i2 = getelementptr inbounds ptr, ptr %__last.coerce, i64 -1
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
+  %add.ptr.i2 = getelementptr inbounds i8, ptr %__last.coerce, i64 -8
   %0 = load ptr, ptr %add.ptr.i1, align 8
   %1 = load ptr, ptr %add.ptr.i, align 8
   %call4.i.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef %0, ptr noundef %1)
@@ -2084,12 +2062,12 @@ while.cond4.i:                                    ; preds = %while.cond4.i, %whi
   %19 = load ptr, ptr %__first.sroa.0.1.i, align 8
   %20 = load ptr, ptr %__first.coerce, align 8
   %call4.i.i4 = tail call noundef zeroext i1 %__comp.coerce(ptr noundef %19, ptr noundef %20)
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__first.sroa.0.1.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i, i64 8
   br i1 %call4.i.i4, label %while.cond4.i, label %while.cond11.i, !llvm.loop !23
 
 while.cond11.i:                                   ; preds = %while.cond4.i, %while.cond11.i
   %__last.sroa.0.0.pn.i = phi ptr [ %__last.sroa.0.1.i, %while.cond11.i ], [ %__last.sroa.0.0.i, %while.cond4.i ]
-  %__last.sroa.0.1.i = getelementptr inbounds ptr, ptr %__last.sroa.0.0.pn.i, i64 -1
+  %__last.sroa.0.1.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i, i64 -8
   %21 = load ptr, ptr %__first.coerce, align 8
   %22 = load ptr, ptr %__last.sroa.0.1.i, align 8
   %call4.i2.i5 = tail call noundef zeroext i1 %__comp.coerce(ptr noundef %21, ptr noundef %22)
@@ -2206,7 +2184,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_RT0_.exit.us, %for.body.us
-  %incdec.ptr.i.us = getelementptr inbounds ptr, ptr %__i.sroa.0.03.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__i.sroa.0.03.us, i64 8
   %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %__last.coerce
   br i1 %cmp.i.us, label %for.body.us, label %for.end, !llvm.loop !26
 
@@ -2216,7 +2194,7 @@ while.end.i.i.loopexit.us:                        ; preds = %while.body.i.i.us
   br i1 %or.cond, label %if.then21.i.i.us, label %if.end34.i.i.us
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %add.ptr.i20.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 1
+  %add.ptr.i20.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   br i1 %cmp17.i.i, label %for.body.lr.ph.split.split.us, label %for.body
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
@@ -2247,7 +2225,7 @@ while.body.i.i.i.us20.us:                         ; preds = %if.then.us7.us
   br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_RT0_.exit.loopexit.us30.us
 
 for.inc.us26.us:                                  ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_RT0_.exit.loopexit.us30.us, %for.body.us4.us
-  %incdec.ptr.i.us27.us = getelementptr inbounds ptr, ptr %__i.sroa.0.03.us5.us, i64 1
+  %incdec.ptr.i.us27.us = getelementptr inbounds i8, ptr %__i.sroa.0.03.us5.us, i64 8
   %cmp.i.us28.us = icmp ult ptr %incdec.ptr.i.us27.us, %__last.coerce
   br i1 %cmp.i.us28.us, label %for.body.us4.us, label %for.end, !llvm.loop !26
 
@@ -2273,7 +2251,7 @@ if.then.us7:                                      ; preds = %for.body.us4
   br label %for.inc.us26
 
 for.inc.us26:                                     ; preds = %if.then.us7, %for.body.us4
-  %incdec.ptr.i.us27 = getelementptr inbounds ptr, ptr %__i.sroa.0.03.us5, i64 1
+  %incdec.ptr.i.us27 = getelementptr inbounds i8, ptr %__i.sroa.0.03.us5, i64 8
   %cmp.i.us28 = icmp ult ptr %incdec.ptr.i.us27, %__last.coerce
   br i1 %cmp.i.us28, label %for.body.us4, label %for.end, !llvm.loop !26
 
@@ -2293,7 +2271,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__i.sroa.0.03, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.sroa.0.03, i64 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.i, label %for.body, label %for.end, !llvm.loop !26
 

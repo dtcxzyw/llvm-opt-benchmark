@@ -8,30 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.YAML::Node" = type { i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.YAML::detail::node_data" = type { i8, %"struct.YAML::Mark", i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", %"class.std::vector", i64, %"class.std::vector.13", %"class.std::__cxx11::list" }
 %"struct.YAML::Mark" = type { i32, i32, i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<YAML::detail::node *, std::allocator<YAML::detail::node *>>::_Vector_impl" }
-%"struct.std::_Vector_base<YAML::detail::node *, std::allocator<YAML::detail::node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<YAML::detail::node *, std::allocator<YAML::detail::node *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<YAML::detail::node *, std::allocator<YAML::detail::node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::pair<YAML::detail::node *, YAML::detail::node *>, std::allocator<std::pair<YAML::detail::node *, YAML::detail::node *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<YAML::detail::node *, YAML::detail::node *>, std::allocator<std::pair<YAML::detail::node *, YAML::detail::node *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<YAML::detail::node *, YAML::detail::node *>, std::allocator<std::pair<YAML::detail::node *, YAML::detail::node *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<YAML::detail::node *, YAML::detail::node *>, std::allocator<std::pair<YAML::detail::node *, YAML::detail::node *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<YAML::detail::node *, YAML::detail::node *>, std::allocator<std::pair<YAML::detail::node *, YAML::detail::node *>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<YAML::detail::node *, YAML::detail::node *>, std::allocator<std::pair<YAML::detail::node *, YAML::detail::node *>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.YAML::Exception" = type { %"class.std::runtime_error", %"struct.YAML::Mark", %"class.std::__cxx11::basic_string" }
-%"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
-%"class.std::exception" = type { ptr }
-%"struct.std::__cow_string" = type { %union.anon.0 }
-%union.anon.0 = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -92,7 +69,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 64) #8
-  %m_invalidKey.i.i = getelementptr inbounds %"class.YAML::Node", ptr %node, i64 0, i32 1
+  %m_invalidKey.i.i = getelementptr inbounds i8, ptr %node, i64 8
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %exception.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_invalidKey.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -111,7 +88,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 if.end.i.i:                                       ; preds = %entry
-  %m_pNode.i.i = getelementptr inbounds %"class.YAML::Node", ptr %node, i64 0, i32 3
+  %m_pNode.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %3 = load ptr, ptr %m_pNode.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i.i, label %return, label %_ZNK4YAML4Node8IsScalarEv.exit
@@ -122,7 +99,7 @@ _ZNK4YAML4Node8IsScalarEv.exit:                   ; preds = %if.end.i.i
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %tobool.not.i.i.i.i.i = icmp ne i8 %7, 0
-  %m_type.i.i.i.i.i = getelementptr inbounds %"class.YAML::detail::node_data", ptr %5, i64 0, i32 2
+  %m_type.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i32, ptr %m_type.i.i.i.i.i, align 8
   %9 = icmp eq i32 %8, 2
   %10 = select i1 %tobool.not.i.i.i.i.i, i1 %9, i1 false
@@ -199,7 +176,7 @@ init.end:                                         ; preds = %invoke.cont23, %ini
 
 if.then.i:                                        ; preds = %init.end
   %exception.i = call ptr @__cxa_allocate_exception(i64 64) #8
-  %m_invalidKey.i = getelementptr inbounds %"class.YAML::Node", ptr %node, i64 0, i32 1
+  %m_invalidKey.i = getelementptr inbounds i8, ptr %node, i64 8
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %exception.i, ptr noundef nonnull align 8 dereferenceable(32) %m_invalidKey.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -221,7 +198,7 @@ if.end.i:                                         ; preds = %init.end
 cond.true.i:                                      ; preds = %if.end.i
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %m_scalar.i.i.i.i = getelementptr inbounds %"class.YAML::detail::node_data", ptr %19, i64 0, i32 5
+  %m_scalar.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 64
   br label %_ZNK4YAML4Node6ScalarB5cxx11Ev.exit
 
 cond.false.i:                                     ; preds = %if.end.i
@@ -672,8 +649,8 @@ ehcleanup43:                                      ; preds = %ehcleanup32, %clean
 
 arraydestroy.body:                                ; preds = %ehcleanup43, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.3, %ehcleanup43 ]
-  %arraydestroy.element = getelementptr inbounds %struct.anon, ptr %arraydestroy.elementPast, i64 -1
-  %falsename.i = getelementptr %struct.anon, ptr %arraydestroy.elementPast, i64 -1, i32 1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
+  %falsename.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %falsename.i) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #8
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names
@@ -694,7 +671,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then.i27:                                      ; preds = %for.body
   %exception.i28 = call ptr @__cxa_allocate_exception(i64 64) #8
-  %m_invalidKey.i29 = getelementptr inbounds %"class.YAML::Node", ptr %node, i64 0, i32 1
+  %m_invalidKey.i29 = getelementptr inbounds i8, ptr %node, i64 8
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %exception.i28, ptr noundef nonnull align 8 dereferenceable(32) %m_invalidKey.i29)
           to label %invoke.cont.i31 unwind label %lpad.i30
 
@@ -716,7 +693,7 @@ if.end.i19:                                       ; preds = %for.body
 cond.true.i22:                                    ; preds = %if.end.i19
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
-  %m_scalar.i.i.i.i23 = getelementptr inbounds %"class.YAML::detail::node_data", ptr %102, i64 0, i32 5
+  %m_scalar.i.i.i.i23 = getelementptr inbounds i8, ptr %102, i64 64
   br label %_ZNK4YAML4Node6ScalarB5cxx11Ev.exit32
 
 cond.false.i25:                                   ; preds = %if.end.i19
@@ -778,7 +755,7 @@ if.then57:                                        ; preds = %_ZSteqIcEN9__gnu_cx
   br label %return
 
 if.end58:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread101, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %falsename = getelementptr inbounds %struct.anon, ptr %__begin1.0.ptr128, i64 0, i32 1
+  %falsename = getelementptr inbounds i8, ptr %__begin1.0.ptr128, i64 32
   %107 = load i8, ptr %node, align 8
   %108 = and i8 %107, 1
   %tobool.not.i41 = icmp eq i8 %108, 0
@@ -786,7 +763,7 @@ if.end58:                                         ; preds = %_ZSteqIcEN9__gnu_cx
 
 if.then.i50:                                      ; preds = %if.end58
   %exception.i51 = call ptr @__cxa_allocate_exception(i64 64) #8
-  %m_invalidKey.i52 = getelementptr inbounds %"class.YAML::Node", ptr %node, i64 0, i32 1
+  %m_invalidKey.i52 = getelementptr inbounds i8, ptr %node, i64 8
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %exception.i51, ptr noundef nonnull align 8 dereferenceable(32) %m_invalidKey.i52)
           to label %invoke.cont.i54 unwind label %lpad.i53
 
@@ -808,7 +785,7 @@ if.end.i42:                                       ; preds = %if.end58
 cond.true.i45:                                    ; preds = %if.end.i42
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %111, align 8
-  %m_scalar.i.i.i.i46 = getelementptr inbounds %"class.YAML::detail::node_data", ptr %112, i64 0, i32 5
+  %m_scalar.i.i.i.i46 = getelementptr inbounds i8, ptr %112, i64 64
   br label %_ZNK4YAML4Node6ScalarB5cxx11Ev.exit55
 
 cond.false.i48:                                   ; preds = %if.end.i42
@@ -903,8 +880,8 @@ entry:
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
   %arraydestroy.elementPast = phi ptr [ getelementptr inbounds ([4 x %struct.anon], ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1, i64 0), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
-  %arraydestroy.element = getelementptr inbounds %struct.anon, ptr %arraydestroy.elementPast, i64 -1
-  %falsename.i = getelementptr %struct.anon, ptr %arraydestroy.elementPast, i64 -1, i32 1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
+  %falsename.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %falsename.i) #8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #8
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names
@@ -946,9 +923,9 @@ entry:
 invoke.cont.i.i:                                  ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mark.i.i = getelementptr inbounds %"class.YAML::Exception", ptr %this, i64 0, i32 1
+  %mark.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, i64 12, i1 false)
-  %msg.i.i = getelementptr inbounds %"class.YAML::Exception", ptr %this, i64 0, i32 2
+  %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont unwind label %lpad2.i.i
 
@@ -1068,11 +1045,11 @@ entry:
   %output = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %0 = load i32, ptr %mark, align 4
   %cmp.i = icmp eq i32 %0, -1
-  %line.i = getelementptr inbounds %"struct.YAML::Mark", ptr %mark, i64 0, i32 1
+  %line.i = getelementptr inbounds i8, ptr %mark, i64 4
   %1 = load i32, ptr %line.i, align 4
   %cmp2.i = icmp eq i32 %1, -1
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %column.i = getelementptr inbounds %"struct.YAML::Mark", ptr %mark, i64 0, i32 2
+  %column.i = getelementptr inbounds i8, ptr %mark, i64 8
   %2 = load i32, ptr %column.i, align 4
   %cmp3.i = icmp eq i32 %2, -1
   %or.cond = select i1 %or.cond.i, i1 %cmp3.i, i1 false

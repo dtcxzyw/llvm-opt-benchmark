@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::ICUNotifier" = type { ptr, ptr }
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::UObject" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -70,7 +67,7 @@ entry:
 define void @_ZN6icu_7511ICUNotifierC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7511ICUNotifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %listeners = getelementptr inbounds %"class.icu_75::ICUNotifier", ptr %this, i64 0, i32 1
+  %listeners = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %listeners, align 8
   ret void
 }
@@ -83,14 +80,14 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %listeners = getelementptr inbounds %"class.icu_75::ICUNotifier", ptr %this, i64 0, i32 1
+  %listeners = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %listeners, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
   br label %delete.end
@@ -158,7 +155,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %l)
   %tobool4.not = icmp eq i8 %call3, 0
@@ -166,7 +163,7 @@ if.end:                                           ; preds = %if.then
 
 if.then5:                                         ; preds = %if.end
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L10notifyLockE)
-  %listeners = getelementptr inbounds %"class.icu_75::ICUNotifier", ptr %this, i64 0, i32 1
+  %listeners = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %listeners, align 8
   %cmp6 = icmp eq ptr %2, null
   br i1 %cmp6, label %if.then7, label %if.else
@@ -215,7 +212,7 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %invoke.cont10
   br label %if.end30
 
 if.else:                                          ; preds = %if.then5
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %2, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i32, ptr %count.i, align 8
   %cmp2328 = icmp sgt i32 %6, 0
   br i1 %cmp2328, label %for.body, label %if.end30
@@ -246,7 +243,7 @@ if.end30:                                         ; preds = %if.end30.loopexit, 
 
 delete.notnull.i16:                               ; preds = %invoke.cont10
   %vtable.i17 = load ptr, ptr %call8, align 8
-  %vfn.i18 = getelementptr inbounds ptr, ptr %vtable.i17, i64 1
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 8
   %9 = load ptr, ptr %vfn.i18, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(40) %call8) #9
   br label %cleanup33
@@ -307,13 +304,13 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L10notifyLockE)
-  %listeners = getelementptr inbounds %"class.icu_75::ICUNotifier", ptr %this, i64 0, i32 1
+  %listeners = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %listeners, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %cleanup, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %1, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %count.i, align 8
   %cmp715 = icmp sgt i32 %2, 0
   br i1 %cmp715, label %for.body, label %cleanup
@@ -335,14 +332,14 @@ if.then12:                                        ; preds = %invoke.cont9
 
 invoke.cont14:                                    ; preds = %if.then12
   %5 = load ptr, ptr %listeners, align 8
-  %count.i7 = getelementptr inbounds %"class.icu_75::UVector", ptr %5, i64 0, i32 1
+  %count.i7 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %count.i7, align 8
   %cmp18 = icmp eq i32 %6, 0
   br i1 %cmp18, label %delete.end, label %cleanup
 
 delete.end:                                       ; preds = %invoke.cont14
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %5) #9
   store ptr null, ptr %listeners, align 8
@@ -399,13 +396,13 @@ declare void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 
 define void @_ZN6icu_7511ICUNotifier13notifyChangedEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L10notifyLockE)
-  %listeners = getelementptr inbounds %"class.icu_75::ICUNotifier", ptr %this, i64 0, i32 1
+  %listeners = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %listeners, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %0, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %count.i, align 8
   %cmp36 = icmp sgt i32 %1, 0
   br i1 %cmp36, label %for.body, label %if.end
@@ -418,7 +415,7 @@ for.body:                                         ; preds = %if.then, %for.inc
 
 invoke.cont5:                                     ; preds = %for.body
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %call6)
           to label %for.inc unwind label %lpad

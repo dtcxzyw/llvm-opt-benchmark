@@ -5,12 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"class.cvc5::internal::Result" = type { i32, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -102,9 +99,9 @@ define hidden void @_ZN4cvc58internal6ResultC2Ev(ptr noundef nonnull align 8 der
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %this, align 8
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 9, ptr %d_unknownExplanation, align 4
-  %d_inputName = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 2
+  %d_inputName = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName)
           to label %call.i.noexc unwind label %lpad
@@ -150,9 +147,9 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define hidden void @_ZN4cvc58internal6ResultC2ENS1_6StatusENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %s, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 {
 entry:
   store i32 %s, ptr %this, align 8
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 9, ptr %d_unknownExplanation, align 4
-  %d_inputName = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 2
+  %d_inputName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName, ptr noundef nonnull align 8 dereferenceable(32) %inputName)
   ret void
 }
@@ -163,9 +160,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define hidden void @_ZN4cvc58internal6ResultC2ENS1_6StatusENS_18UnknownExplanationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %s, i32 noundef %unknownExplanation, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 {
 entry:
   store i32 %s, ptr %this, align 8
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %unknownExplanation, ptr %d_unknownExplanation, align 4
-  %d_inputName = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 2
+  %d_inputName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName, ptr noundef nonnull align 8 dereferenceable(32) %inputName)
   ret void
 }
@@ -176,9 +173,9 @@ entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 0, ptr %this, align 8
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 9, ptr %d_unknownExplanation, align 4
-  %d_inputName = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 2
+  %d_inputName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName, ptr noundef nonnull align 8 dereferenceable(32) %inputName)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %instr)
           to label %invoke.cont unwind label %lpad
@@ -417,7 +414,7 @@ lpad2:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   resume { ptr, i32 } %.pn
@@ -427,7 +424,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal24IllegalArgumentExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #11
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   ret void
@@ -443,7 +440,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal6Result21getUnknownExplanationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %d_unknownExplanation, align 4
   ret i32 %0
 }
@@ -461,9 +458,9 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp4.not, label %lor.rhs, label %land.end
 
 lor.rhs:                                          ; preds = %land.rhs
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %d_unknownExplanation, align 4
-  %d_unknownExplanation5 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %r, i64 0, i32 1
+  %d_unknownExplanation5 = getelementptr inbounds i8, ptr %r, i64 4
   %3 = load i32, ptr %d_unknownExplanation5, align 4
   %cmp6 = icmp eq i32 %2, %3
   br label %land.end
@@ -486,9 +483,9 @@ land.rhs.i:                                       ; preds = %entry
   br i1 %cmp4.not.i, label %lor.rhs.i, label %_ZNK4cvc58internal6ResulteqERKS1_.exit
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
-  %d_unknownExplanation.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %d_unknownExplanation.i, align 4
-  %d_unknownExplanation5.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %r, i64 0, i32 1
+  %d_unknownExplanation5.i = getelementptr inbounds i8, ptr %r, i64 4
   %3 = load i32, ptr %d_unknownExplanation5.i, align 4
   %cmp6.i = icmp ne i32 %2, %3
   br label %_ZNK4cvc58internal6ResulteqERKS1_.exit
@@ -669,7 +666,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
-  %d_unknownExplanation.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %this, i64 0, i32 1
+  %d_unknownExplanation.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %d_unknownExplanation.i, align 4
   %cmp.not = icmp eq i32 %1, 9
   br i1 %cmp.not, label %sw.epilog, label %if.then
@@ -696,7 +693,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2Ev(ptr noundef non
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -739,7 +736,7 @@ declare void @_ZN4cvc58internal24IllegalArgumentException12format_extraB5cxx11EP
 define linkonce_odr hidden void @_ZN4cvc58internal24IllegalArgumentExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #11
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
@@ -749,7 +746,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #11
   ret ptr %call
 }

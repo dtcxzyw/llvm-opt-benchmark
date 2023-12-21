@@ -3,19 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-m_sigver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_md_ctx_st = type { ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.4, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr, i64, i8 }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon.5 }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon.5 = type { i32, i32, i32 }
-%struct.evp_signature_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/evp/m_sigver.c\00", align 1
 @__func__.EVP_DigestSignUpdate = private unnamed_addr constant [21 x i8] c"EVP_DigestSignUpdate\00", align 1
 @__func__.EVP_DigestVerifyUpdate = private unnamed_addr constant [23 x i8] c"EVP_DigestVerifyUpdate\00", align 1
@@ -47,7 +34,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
   %cmp = icmp ne ptr %0, null
   br i1 %cmp, label %if.end14, label %if.then2
@@ -74,7 +61,7 @@ if.end14:                                         ; preds = %if.end, %if.end10
   tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %ctx, i32 noundef 2048) #5
   %1 = load ptr, ptr %pctx1, align 8
   %call16 = tail call i32 @ERR_set_mark() #5
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %keymgmt, align 8
   %cmp17 = icmp eq ptr %2, null
   br i1 %cmp17, label %legacy, label %if.end19
@@ -92,13 +79,13 @@ lor.lhs.false:                                    ; preds = %if.end19
   br i1 %cmp23.not, label %lor.lhs.false24, label %if.end31
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %op, align 8
   %cmp26 = icmp eq ptr %4, null
   br i1 %cmp26, label %if.end31, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false24
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 5, i32 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %algctx, align 8
   %cmp29 = icmp ne ptr %5, null
   br label %if.end31
@@ -110,13 +97,13 @@ if.end31:                                         ; preds = %lor.lhs.false27, %l
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end31
-  %propquery = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 2
+  %propquery = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %propquery, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end31
   %props.addr.0 = phi ptr [ %6, %if.then33 ], [ %props, %if.end31 ]
-  %pkey35 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 14
+  %pkey35 = getelementptr inbounds i8, ptr %1, i64 136
   %7 = load ptr, ptr %pkey35, align 8
   %cmp36 = icmp eq ptr %7, null
   br i1 %cmp36, label %if.then37, label %if.end39
@@ -134,7 +121,7 @@ if.end39:                                         ; preds = %if.end34
 if.then41:                                        ; preds = %if.end39
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %1) #5
   %8 = load ptr, ptr %pkey35, align 8
-  %keymgmt52 = getelementptr inbounds %struct.evp_pkey_st, ptr %8, i64 0, i32 13
+  %keymgmt52 = getelementptr inbounds i8, ptr %8, i64 96
   %9 = load ptr, ptr %keymgmt52, align 8
   %cmp53 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %keymgmt, align 8
@@ -175,8 +162,8 @@ if.end63:                                         ; preds = %if.then41
   br i1 %cmp66, label %if.then68, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end63
-  %propquery86 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 2
-  %libctx75 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 1
+  %propquery86 = getelementptr inbounds i8, ptr %1, i64 16
+  %libctx75 = getelementptr inbounds i8, ptr %1, i64 8
   br label %for.body
 
 if.then68:                                        ; preds = %if.end63
@@ -269,18 +256,18 @@ if.then114:                                       ; preds = %for.end
 
 if.end116:                                        ; preds = %for.end
   %call117 = call i32 @ERR_pop_to_mark() #5
-  %op118 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 5
+  %op118 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %signature.3163, ptr %op118, align 8
   %tobool120.not = icmp eq i32 %ver, 0
   %cond121 = select i1 %tobool120.not, i32 128, i32 256
   store i32 %cond121, ptr %1, align 8
-  %newctx = getelementptr inbounds %struct.evp_signature_st, ptr %signature.3163, i64 0, i32 5
+  %newctx = getelementptr inbounds i8, ptr %signature.3163, i64 40
   %22 = load ptr, ptr %newctx, align 8
-  %prov = getelementptr inbounds %struct.evp_signature_st, ptr %signature.3163, i64 0, i32 3
+  %prov = getelementptr inbounds i8, ptr %signature.3163, i64 24
   %23 = load ptr, ptr %prov, align 8
   %call123 = call ptr @ossl_provider_ctx(ptr noundef %23) #5
   %call124 = call ptr %22(ptr noundef %call123, ptr noundef %props.addr.0) #5
-  %algctx126 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 5, i32 0, i32 1
+  %algctx126 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %call124, ptr %algctx126, align 8
   %cmp129 = icmp eq ptr %call124, null
   br i1 %cmp129, label %if.then131, label %reinitialize
@@ -348,13 +335,13 @@ if.then163:                                       ; preds = %if.then156, %if.end
   %mdname.addr.1178 = phi ptr [ %mdname.addr.0, %if.end160 ], [ %locmdname, %if.then156 ]
   call void @evp_md_ctx_clear_digest(ptr noundef %ctx, i32 noundef 1, i32 noundef 0) #5
   %call164 = call i32 @ERR_set_mark() #5
-  %libctx165 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 1
+  %libctx165 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %libctx165, align 8
   %call166 = call ptr @EVP_MD_fetch(ptr noundef %25, ptr noundef nonnull %mdname.addr.1178, ptr noundef %props.addr.0) #5
-  %fetched_digest = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 8
+  %fetched_digest = getelementptr inbounds i8, ptr %ctx, i64 64
   store ptr %call166, ptr %fetched_digest, align 8
   %cmp168.not = icmp eq ptr %call166, null
-  %digest175 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %digest175 = getelementptr inbounds i8, ptr %ctx, i64 8
   br i1 %cmp168.not, label %if.else173, label %if.then170
 
 if.then170:                                       ; preds = %if.then163
@@ -386,7 +373,7 @@ if.end186:                                        ; preds = %if.then156, %if.the
   br i1 %tobool187.not, label %if.else197, label %if.then188
 
 if.then188:                                       ; preds = %if.end186
-  %digest_verify_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.4, i64 0, i32 16
+  %digest_verify_init = getelementptr inbounds i8, ptr %signature.4, i64 128
   %26 = load ptr, ptr %digest_verify_init, align 8
   %cmp189 = icmp eq ptr %26, null
   br i1 %cmp189, label %if.then191, label %if.end206
@@ -398,7 +385,7 @@ if.then191:                                       ; preds = %if.then188
   br label %err
 
 if.else197:                                       ; preds = %if.end186
-  %digest_sign_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.4, i64 0, i32 12
+  %digest_sign_init = getelementptr inbounds i8, ptr %signature.4, i64 96
   %27 = load ptr, ptr %digest_sign_init, align 8
   %cmp198 = icmp eq ptr %27, null
   br i1 %cmp198, label %if.then200, label %if.end206
@@ -411,7 +398,7 @@ if.then200:                                       ; preds = %if.else197
 
 if.end206:                                        ; preds = %if.else197, %if.then188
   %.sink195 = phi ptr [ %26, %if.then188 ], [ %27, %if.else197 ]
-  %algctx204 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 5, i32 0, i32 1
+  %algctx204 = getelementptr inbounds i8, ptr %1, i64 48
   %28 = load ptr, ptr %algctx204, align 8
   %call205 = call i32 %.sink195(ptr noundef %28, ptr noundef %mdname.addr.2, ptr noundef %provkey.3, ptr noundef %params) #5
   %cmp207 = icmp sgt i32 %call205, 0
@@ -446,7 +433,7 @@ legacy:                                           ; preds = %sw.bb83, %if.end14
   br i1 %or.cond3, label %if.then225, label %if.end228
 
 if.then225:                                       ; preds = %legacy
-  %libctx226 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %1, i64 0, i32 1
+  %libctx226 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load ptr, ptr %libctx226, align 8
   %call227 = call ptr @evp_get_digestbyname_ex(ptr noundef %31, ptr noundef nonnull %mdname) #5
   br label %if.end228
@@ -454,7 +441,7 @@ if.then225:                                       ; preds = %legacy
 if.end228:                                        ; preds = %if.then225, %legacy
   %type.addr.0 = phi ptr [ %call227, %if.then225 ], [ %type, %legacy ]
   %32 = load ptr, ptr %pctx1, align 8
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %32, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %32, i64 120
   %33 = load ptr, ptr %pmeth, align 8
   %cmp230 = icmp eq ptr %33, null
   br i1 %cmp230, label %if.then232, label %if.end233
@@ -466,7 +453,7 @@ if.then232:                                       ; preds = %if.end228
   br label %return
 
 if.end233:                                        ; preds = %if.end228
-  %flags = getelementptr inbounds %struct.evp_pkey_method_st, ptr %33, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %33, i64 4
   %34 = load i32, ptr %flags, align 4
   %and = and i32 %34, 4
   %tobool236.not = icmp eq i32 %and, 0
@@ -496,12 +483,12 @@ if.end253:                                        ; preds = %if.end248, %if.end2
   %type.addr.2 = phi ptr [ %type.addr.0, %if.end233 ], [ %call246, %if.end248 ]
   %tobool254.not = icmp eq i32 %ver, 0
   %36 = load ptr, ptr %pctx1, align 8
-  %pmeth290 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %36, i64 0, i32 12
+  %pmeth290 = getelementptr inbounds i8, ptr %36, i64 120
   %37 = load ptr, ptr %pmeth290, align 8
   br i1 %tobool254.not, label %if.else288, label %if.then255
 
 if.then255:                                       ; preds = %if.end253
-  %verifyctx_init = getelementptr inbounds %struct.evp_pkey_method_st, ptr %37, i64 0, i32 17
+  %verifyctx_init = getelementptr inbounds i8, ptr %37, i64 128
   %38 = load ptr, ptr %verifyctx_init, align 8
   %tobool258.not = icmp eq ptr %38, null
   br i1 %tobool258.not, label %if.else271, label %if.then259
@@ -517,14 +504,14 @@ if.end268:                                        ; preds = %if.then259
   br label %if.end322
 
 if.else271:                                       ; preds = %if.then255
-  %digestverify = getelementptr inbounds %struct.evp_pkey_method_st, ptr %37, i64 0, i32 28
+  %digestverify = getelementptr inbounds i8, ptr %37, i64 216
   %40 = load ptr, ptr %digestverify, align 8
   %cmp274.not = icmp eq ptr %40, null
   br i1 %cmp274.not, label %if.else279, label %if.then276
 
 if.then276:                                       ; preds = %if.else271
   store i32 32, ptr %36, align 8
-  %update = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 6
+  %update = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr @update, ptr %update, align 8
   br label %if.end322
 
@@ -534,7 +521,7 @@ if.else279:                                       ; preds = %if.else271
   br i1 %cmp282, label %return, label %if.end322
 
 if.else288:                                       ; preds = %if.end253
-  %signctx_init = getelementptr inbounds %struct.evp_pkey_method_st, ptr %37, i64 0, i32 15
+  %signctx_init = getelementptr inbounds i8, ptr %37, i64 112
   %41 = load ptr, ptr %signctx_init, align 8
   %tobool291.not = icmp eq ptr %41, null
   br i1 %tobool291.not, label %if.else304, label %if.then292
@@ -550,14 +537,14 @@ if.end301:                                        ; preds = %if.then292
   br label %if.end322
 
 if.else304:                                       ; preds = %if.else288
-  %digestsign = getelementptr inbounds %struct.evp_pkey_method_st, ptr %37, i64 0, i32 27
+  %digestsign = getelementptr inbounds i8, ptr %37, i64 208
   %43 = load ptr, ptr %digestsign, align 8
   %cmp307.not = icmp eq ptr %43, null
   br i1 %cmp307.not, label %if.else313, label %if.then309
 
 if.then309:                                       ; preds = %if.else304
   store i32 16, ptr %36, align 8
-  %update312 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 6
+  %update312 = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr @update, ptr %update312, align 8
   br label %if.end322
 
@@ -582,9 +569,9 @@ if.then330:                                       ; preds = %if.end328
   br label %if.end332
 
 if.end332:                                        ; preds = %if.then330, %if.end328
-  %pmeth334 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %.pre193, i64 0, i32 12
+  %pmeth334 = getelementptr inbounds i8, ptr %.pre193, i64 120
   %45 = load ptr, ptr %pmeth334, align 8
-  %flags335 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %45, i64 0, i32 1
+  %flags335 = getelementptr inbounds i8, ptr %45, i64 4
   %46 = load i32, ptr %flags335, align 4
   %and336 = and i32 %46, 4
   %tobool337.not = icmp eq i32 %and336, 0
@@ -597,20 +584,20 @@ if.end339:                                        ; preds = %if.end332
 
 if.end343:                                        ; preds = %if.end339
   %47 = load ptr, ptr %pctx1, align 8
-  %flag_call_digest_custom = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %47, i64 0, i32 17
+  %flag_call_digest_custom = getelementptr inbounds i8, ptr %47, i64 160
   %bf.load = load i8, ptr %flag_call_digest_custom, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_call_digest_custom, align 8
   %48 = load ptr, ptr %pctx1, align 8
-  %pmeth346 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %48, i64 0, i32 12
+  %pmeth346 = getelementptr inbounds i8, ptr %48, i64 120
   %49 = load ptr, ptr %pmeth346, align 8
-  %digest_custom = getelementptr inbounds %struct.evp_pkey_method_st, ptr %49, i64 0, i32 32
+  %digest_custom = getelementptr inbounds i8, ptr %49, i64 248
   %50 = load ptr, ptr %digest_custom, align 8
   %cmp347.not = icmp eq ptr %50, null
   br i1 %cmp347.not, label %if.then358, label %if.then349
 
 if.then349:                                       ; preds = %if.end343
-  %flag_call_digest_custom351 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %48, i64 0, i32 17
+  %flag_call_digest_custom351 = getelementptr inbounds i8, ptr %48, i64 160
   %bf.load352 = load i8, ptr %flag_call_digest_custom351, align 8
   %bf.set354 = or i8 %bf.load352, 1
   store i8 %bf.set354, ptr %flag_call_digest_custom351, align 8
@@ -660,9 +647,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_DigestSignUpdate(ptr noundef %ctx, ptr noundef %data, i64 noundef %dsize) local_unnamed_addr #0 {
 entry:
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
-  %flags = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 2048
   %cmp.not = icmp eq i64 %and, 0
@@ -684,19 +671,19 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp3.not, label %lor.lhs.false4, label %if.then22
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %algctx, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %if.then22, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %op, align 8
   %cmp8 = icmp eq ptr %4, null
   br i1 %cmp8, label %if.then22, label %if.end10
 
 if.end10:                                         ; preds = %lor.lhs.false6
-  %digest_sign_update = getelementptr inbounds %struct.evp_signature_st, ptr %4, i64 0, i32 13
+  %digest_sign_update = getelementptr inbounds i8, ptr %4, i64 104
   %5 = load ptr, ptr %digest_sign_update, align 8
   %cmp13 = icmp eq ptr %5, null
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -712,16 +699,16 @@ if.end15:                                         ; preds = %if.end10
   br label %return
 
 if.then22:                                        ; preds = %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false
-  %flag_call_digest_custom = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 17
+  %flag_call_digest_custom = getelementptr inbounds i8, ptr %0, i64 160
   %bf.load = load i8, ptr %flag_call_digest_custom, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end28, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then22
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %digest_custom = getelementptr inbounds %struct.evp_pkey_method_st, ptr %6, i64 0, i32 32
+  %digest_custom = getelementptr inbounds i8, ptr %6, i64 248
   %7 = load ptr, ptr %digest_custom, align 8
   %call25 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %ctx) #5
   %tobool26.not = icmp eq i32 %call25, 0
@@ -757,9 +744,9 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_DigestVerifyUpdate(ptr noundef %ctx, ptr noundef %data, i64 noundef %dsize) local_unnamed_addr #0 {
 entry:
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
-  %flags = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 2048
   %cmp.not = icmp eq i64 %and, 0
@@ -781,19 +768,19 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp3.not, label %lor.lhs.false4, label %if.then22
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %algctx, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %if.then22, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %op, align 8
   %cmp8 = icmp eq ptr %4, null
   br i1 %cmp8, label %if.then22, label %if.end10
 
 if.end10:                                         ; preds = %lor.lhs.false6
-  %digest_verify_update = getelementptr inbounds %struct.evp_signature_st, ptr %4, i64 0, i32 17
+  %digest_verify_update = getelementptr inbounds i8, ptr %4, i64 136
   %5 = load ptr, ptr %digest_verify_update, align 8
   %cmp13 = icmp eq ptr %5, null
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -809,16 +796,16 @@ if.end15:                                         ; preds = %if.end10
   br label %return
 
 if.then22:                                        ; preds = %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false
-  %flag_call_digest_custom = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 17
+  %flag_call_digest_custom = getelementptr inbounds i8, ptr %0, i64 160
   %bf.load = load i8, ptr %flag_call_digest_custom, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end28, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then22
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %digest_custom = getelementptr inbounds %struct.evp_pkey_method_st, ptr %6, i64 0, i32 32
+  %digest_custom = getelementptr inbounds i8, ptr %6, i64 248
   %7 = load ptr, ptr %digest_custom, align 8
   %call25 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %ctx) #5
   %tobool26.not = icmp eq i32 %call25, 0
@@ -848,9 +835,9 @@ define i32 @EVP_DigestSignFinal(ptr noundef %ctx, ptr noundef %sigret, ptr nound
 entry:
   %md = alloca [64 x i8], align 16
   %mdlen = alloca i32, align 4
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
-  %flags = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 2048
   %cmp.not = icmp eq i64 %and, 0
@@ -872,13 +859,13 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp3.not, label %lor.lhs.false4, label %lor.lhs.false33
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %algctx, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %lor.lhs.false33, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %op, align 8
   %cmp8 = icmp eq ptr %4, null
   br i1 %cmp8, label %lor.lhs.false33, label %if.end10
@@ -894,16 +881,16 @@ if.end19.thread:                                  ; preds = %if.end10
   %call = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %0) #5
   %cmp16.not = icmp eq ptr %call, null
   %spec.select86 = select i1 %cmp16.not, ptr %0, ptr %call
-  %op2089 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %spec.select86, i64 0, i32 5
+  %op2089 = getelementptr inbounds i8, ptr %spec.select86, i64 40
   %5 = load ptr, ptr %op2089, align 8
-  %digest_sign_final90 = getelementptr inbounds %struct.evp_signature_st, ptr %5, i64 0, i32 14
+  %digest_sign_final90 = getelementptr inbounds i8, ptr %5, i64 112
   %6 = load ptr, ptr %digest_sign_final90, align 8
-  %algctx2391 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %spec.select86, i64 0, i32 5, i32 0, i32 1
+  %algctx2391 = getelementptr inbounds i8, ptr %spec.select86, i64 48
   %7 = load ptr, ptr %algctx2391, align 8
   br label %cond.end
 
 if.end19:                                         ; preds = %if.end10
-  %digest_sign_final = getelementptr inbounds %struct.evp_signature_st, ptr %4, i64 0, i32 14
+  %digest_sign_final = getelementptr inbounds i8, ptr %4, i64 112
   %8 = load ptr, ptr %digest_sign_final, align 8
   %cmp24 = icmp eq ptr %sigret, null
   br i1 %cmp24, label %cond.end.thread, label %cond.end
@@ -935,7 +922,7 @@ if.else:                                          ; preds = %cond.end.thread, %c
   br label %return
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %0, i64 120
   %13 = load ptr, ptr %pmeth, align 8
   %cmp34 = icmp eq ptr %13, null
   br i1 %cmp34, label %if.then35, label %if.end36
@@ -947,14 +934,14 @@ if.then35:                                        ; preds = %if.end, %lor.lhs.fa
   br label %return
 
 if.end36:                                         ; preds = %lor.lhs.false33
-  %flag_call_digest_custom = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 17
+  %flag_call_digest_custom = getelementptr inbounds i8, ptr %0, i64 160
   %bf.load = load i8, ptr %flag_call_digest_custom, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end44, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.end36
-  %digest_custom = getelementptr inbounds %struct.evp_pkey_method_st, ptr %13, i64 0, i32 32
+  %digest_custom = getelementptr inbounds i8, ptr %13, i64 248
   %14 = load ptr, ptr %digest_custom, align 8
   %call41 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %ctx) #5
   %tobool42.not = icmp eq i32 %call41, 0
@@ -970,7 +957,7 @@ if.end44:                                         ; preds = %land.lhs.true37.if.
   %bf.load46 = phi i8 [ %bf.load46.pre, %land.lhs.true37.if.end44_crit_edge ], [ %bf.load, %if.end36 ]
   %bf.clear47 = and i8 %bf.load46, -2
   store i8 %bf.clear47, ptr %flag_call_digest_custom, align 8
-  %flags49 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %15, i64 0, i32 1
+  %flags49 = getelementptr inbounds i8, ptr %15, i64 4
   %16 = load i32, ptr %flags49, align 4
   %and50 = and i32 %16, 4
   %tobool51.not = icmp eq i32 %and50, 0
@@ -981,7 +968,7 @@ if.then52:                                        ; preds = %if.end44
   br i1 %cmp53, label %if.then54, label %if.end57
 
 if.then54:                                        ; preds = %if.then52
-  %signctx = getelementptr inbounds %struct.evp_pkey_method_st, ptr %15, i64 0, i32 16
+  %signctx = getelementptr inbounds i8, ptr %15, i64 120
   %17 = load ptr, ptr %signctx, align 8
   %call56 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef null, ptr noundef %siglen, ptr noundef nonnull %ctx) #5
   br label %return
@@ -993,7 +980,7 @@ if.end57:                                         ; preds = %if.then52
   br i1 %cmp60.not, label %if.else67, label %if.then61
 
 if.then61:                                        ; preds = %if.end57
-  %signctx63 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %15, i64 0, i32 16
+  %signctx63 = getelementptr inbounds i8, ptr %15, i64 120
   %19 = load ptr, ptr %signctx63, align 8
   %call64 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %sigret, ptr noundef %siglen, ptr noundef nonnull %ctx) #5
   %20 = load i64, ptr %flags, align 8
@@ -1007,16 +994,16 @@ if.else67:                                        ; preds = %if.end57
   br i1 %cmp69, label %return, label %if.end71
 
 if.end71:                                         ; preds = %if.else67
-  %pmeth72 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %call68, i64 0, i32 12
+  %pmeth72 = getelementptr inbounds i8, ptr %call68, i64 120
   %21 = load ptr, ptr %pmeth72, align 8
-  %signctx73 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %21, i64 0, i32 16
+  %signctx73 = getelementptr inbounds i8, ptr %21, i64 120
   %22 = load ptr, ptr %signctx73, align 8
   %call74 = tail call i32 %22(ptr noundef nonnull %call68, ptr noundef nonnull %sigret, ptr noundef %siglen, ptr noundef nonnull %ctx) #5
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call68) #5
   br label %return
 
 if.end76:                                         ; preds = %if.end44
-  %signctx78 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %15, i64 0, i32 16
+  %signctx78 = getelementptr inbounds i8, ptr %15, i64 120
   %23 = load ptr, ptr %signctx78, align 8
   %cmp79.not = icmp eq ptr %23, null
   %cmp83.not = icmp eq ptr %sigret, null
@@ -1058,11 +1045,11 @@ if.end105:                                        ; preds = %if.end101
   br i1 %cmp79.not, label %if.else113, label %if.then107
 
 if.then107:                                       ; preds = %if.end105
-  %pctx108 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %call98, i64 0, i32 5
+  %pctx108 = getelementptr inbounds i8, ptr %call98, i64 40
   %25 = load ptr, ptr %pctx108, align 8
-  %pmeth109 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %25, i64 0, i32 12
+  %pmeth109 = getelementptr inbounds i8, ptr %25, i64 120
   %26 = load ptr, ptr %pmeth109, align 8
-  %signctx110 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %26, i64 0, i32 16
+  %signctx110 = getelementptr inbounds i8, ptr %26, i64 120
   %27 = load ptr, ptr %signctx110, align 8
   %call112 = tail call i32 %27(ptr noundef %25, ptr noundef nonnull %sigret, ptr noundef %siglen, ptr noundef nonnull %call98) #5
   br label %if.end116
@@ -1098,7 +1085,7 @@ if.then131:                                       ; preds = %if.else129
   br i1 %cmp135, label %return, label %if.end151
 
 if.else139:                                       ; preds = %if.else129
-  %digest = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %ctx, i64 8
   %29 = load ptr, ptr %digest, align 8
   %call140 = tail call i32 @EVP_MD_get_size(ptr noundef %29) #5
   %cmp141 = icmp slt i32 %call140, 0
@@ -1137,9 +1124,9 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_DigestSign(ptr noundef %ctx, ptr noundef %sigret, ptr noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) local_unnamed_addr #0 {
 entry:
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
-  %flags = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 2048
   %cmp.not = icmp eq i64 %and, 0
@@ -1161,8 +1148,8 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true4, label %if.else
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %op = getelementptr inbounds i8, ptr %0, i64 40
+  %algctx = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %algctx, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.else, label %land.lhs.true6
@@ -1173,7 +1160,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true4
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %digest_sign = getelementptr inbounds %struct.evp_signature_st, ptr %4, i64 0, i32 15
+  %digest_sign = getelementptr inbounds i8, ptr %4, i64 120
   %5 = load ptr, ptr %digest_sign, align 8
   %cmp12.not = icmp eq ptr %5, null
   br i1 %cmp12.not, label %if.end37, label %if.then13
@@ -1187,7 +1174,7 @@ cond.false:                                       ; preds = %if.then13
   store i64 %or, ptr %flags, align 8
   %6 = load i64, ptr %siglen, align 8
   %.pn.pre = load ptr, ptr %op, align 8
-  %.in.phi.trans.insert = getelementptr inbounds %struct.evp_signature_st, ptr %.pn.pre, i64 0, i32 15
+  %.in.phi.trans.insert = getelementptr inbounds i8, ptr %.pn.pre, i64 120
   %.pre = load ptr, ptr %.in.phi.trans.insert, align 8
   %.pre34 = load ptr, ptr %algctx, align 8
   br label %cond.end
@@ -1200,13 +1187,13 @@ cond.end:                                         ; preds = %if.then13, %cond.fa
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true4, %land.lhs.true, %if.end
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %0, i64 120
   %9 = load ptr, ptr %pmeth, align 8
   %cmp26.not = icmp eq ptr %9, null
   br i1 %cmp26.not, label %if.end37, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.else
-  %digestsign = getelementptr inbounds %struct.evp_pkey_method_st, ptr %9, i64 0, i32 27
+  %digestsign = getelementptr inbounds i8, ptr %9, i64 208
   %10 = load ptr, ptr %digestsign, align 8
   %cmp30.not = icmp eq ptr %10, null
   br i1 %cmp30.not, label %if.end37, label %if.then31
@@ -1243,9 +1230,9 @@ entry:
   %md = alloca [64 x i8], align 16
   %mdlen = alloca i32, align 4
   store i32 0, ptr %mdlen, align 4
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
-  %flags = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 2048
   %cmp.not = icmp eq i64 %and, 0
@@ -1267,13 +1254,13 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp3.not, label %lor.lhs.false4, label %lor.lhs.false29
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %algctx, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %lor.lhs.false29, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %op, align 8
   %cmp8 = icmp eq ptr %4, null
   br i1 %cmp8, label %lor.lhs.false29, label %if.end10
@@ -1284,7 +1271,7 @@ if.end10:                                         ; preds = %lor.lhs.false6
   br i1 %cmp13, label %if.end18, label %if.end18.thread
 
 if.end18.thread:                                  ; preds = %if.end10
-  %digest_verify_final54 = getelementptr inbounds %struct.evp_signature_st, ptr %4, i64 0, i32 18
+  %digest_verify_final54 = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load ptr, ptr %digest_verify_final54, align 8
   %call2355 = tail call i32 %5(ptr noundef nonnull %3, ptr noundef %sig, i64 noundef %siglen) #5
   br label %if.then25
@@ -1293,11 +1280,11 @@ if.end18:                                         ; preds = %if.end10
   %call = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %0) #5
   %cmp15.not = icmp eq ptr %call, null
   %spec.select46 = select i1 %cmp15.not, ptr %0, ptr %call
-  %op19.phi.trans.insert = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %spec.select46, i64 0, i32 5
+  %op19.phi.trans.insert = getelementptr inbounds i8, ptr %spec.select46, i64 40
   %.pre = load ptr, ptr %op19.phi.trans.insert, align 8
-  %algctx22.phi.trans.insert = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %spec.select46, i64 0, i32 5, i32 0, i32 1
+  %algctx22.phi.trans.insert = getelementptr inbounds i8, ptr %spec.select46, i64 48
   %.pre50 = load ptr, ptr %algctx22.phi.trans.insert, align 8
-  %digest_verify_final = getelementptr inbounds %struct.evp_signature_st, ptr %.pre, i64 0, i32 18
+  %digest_verify_final = getelementptr inbounds i8, ptr %.pre, i64 144
   %6 = load ptr, ptr %digest_verify_final, align 8
   %call23 = tail call i32 %6(ptr noundef %.pre50, ptr noundef %sig, i64 noundef %siglen) #5
   %cmp24 = icmp eq ptr %call, null
@@ -1315,7 +1302,7 @@ if.else:                                          ; preds = %if.end18
   br label %return
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %0, i64 120
   %8 = load ptr, ptr %pmeth, align 8
   %cmp30 = icmp eq ptr %8, null
   br i1 %cmp30, label %if.then31, label %if.end32
@@ -1327,14 +1314,14 @@ if.then31:                                        ; preds = %if.end, %lor.lhs.fa
   br label %return
 
 if.end32:                                         ; preds = %lor.lhs.false29
-  %flag_call_digest_custom = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 17
+  %flag_call_digest_custom = getelementptr inbounds i8, ptr %0, i64 160
   %bf.load = load i8, ptr %flag_call_digest_custom, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end39, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end32
-  %digest_custom = getelementptr inbounds %struct.evp_pkey_method_st, ptr %8, i64 0, i32 32
+  %digest_custom = getelementptr inbounds i8, ptr %8, i64 248
   %9 = load ptr, ptr %digest_custom, align 8
   %call36 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %ctx) #5
   %tobool37.not = icmp eq i32 %call36, 0
@@ -1350,7 +1337,7 @@ if.end39:                                         ; preds = %land.lhs.true.if.en
   %bf.load41 = phi i8 [ %bf.load41.pre, %land.lhs.true.if.end39_crit_edge ], [ %bf.load, %if.end32 ]
   %bf.clear42 = and i8 %bf.load41, -2
   store i8 %bf.clear42, ptr %flag_call_digest_custom, align 8
-  %verifyctx = getelementptr inbounds %struct.evp_pkey_method_st, ptr %10, i64 0, i32 18
+  %verifyctx = getelementptr inbounds i8, ptr %10, i64 136
   %11 = load ptr, ptr %verifyctx, align 8
   %cmp44.not = icmp eq ptr %11, null
   %12 = load i64, ptr %flags, align 8
@@ -1391,11 +1378,11 @@ if.end71:                                         ; preds = %if.end67
   br i1 %cmp44.not, label %if.else80, label %if.then73
 
 if.then73:                                        ; preds = %if.end71
-  %pctx74 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %call63, i64 0, i32 5
+  %pctx74 = getelementptr inbounds i8, ptr %call63, i64 40
   %14 = load ptr, ptr %pctx74, align 8
-  %pmeth75 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %14, i64 0, i32 12
+  %pmeth75 = getelementptr inbounds i8, ptr %14, i64 120
   %15 = load ptr, ptr %pmeth75, align 8
-  %verifyctx76 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %15, i64 0, i32 18
+  %verifyctx76 = getelementptr inbounds i8, ptr %15, i64 136
   %16 = load ptr, ptr %verifyctx76, align 8
   %conv78 = trunc i64 %siglen to i32
   %call79 = tail call i32 %16(ptr noundef %14, ptr noundef %sig, i32 noundef %conv78, ptr noundef nonnull %call63) #5
@@ -1432,9 +1419,9 @@ declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_DigestVerify(ptr noundef %ctx, ptr noundef %sigret, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) local_unnamed_addr #0 {
 entry:
-  %pctx1 = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 5
+  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
-  %flags = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 2048
   %cmp.not = icmp eq i64 %and, 0
@@ -1456,8 +1443,8 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true4, label %if.else
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5
-  %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %op = getelementptr inbounds i8, ptr %0, i64 40
+  %algctx = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %algctx, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.else, label %land.lhs.true6
@@ -1468,7 +1455,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true4
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %digest_verify = getelementptr inbounds %struct.evp_signature_st, ptr %4, i64 0, i32 19
+  %digest_verify = getelementptr inbounds i8, ptr %4, i64 152
   %5 = load ptr, ptr %digest_verify, align 8
   %cmp12.not = icmp eq ptr %5, null
   br i1 %cmp12.not, label %if.end33, label %if.then13
@@ -1477,20 +1464,20 @@ if.then13:                                        ; preds = %if.then9
   %or = or disjoint i64 %1, 2048
   store i64 %or, ptr %flags, align 8
   %6 = load ptr, ptr %op, align 8
-  %digest_verify17 = getelementptr inbounds %struct.evp_signature_st, ptr %6, i64 0, i32 19
+  %digest_verify17 = getelementptr inbounds i8, ptr %6, i64 152
   %7 = load ptr, ptr %digest_verify17, align 8
   %8 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %7(ptr noundef %8, ptr noundef %sigret, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #5
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true4, %land.lhs.true, %if.end
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %0, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %0, i64 120
   %9 = load ptr, ptr %pmeth, align 8
   %cmp22.not = icmp eq ptr %9, null
   br i1 %cmp22.not, label %if.end33, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %if.else
-  %digestverify = getelementptr inbounds %struct.evp_pkey_method_st, ptr %9, i64 0, i32 28
+  %digestverify = getelementptr inbounds i8, ptr %9, i64 216
   %10 = load ptr, ptr %digestverify, align 8
   %cmp26.not = icmp eq ptr %10, null
   br i1 %cmp26.not, label %if.end33, label %if.then27

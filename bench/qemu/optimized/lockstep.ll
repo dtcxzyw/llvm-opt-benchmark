@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.sockaddr_un = type { i16, [108 x i8] }
-%struct.BlockInfo = type { i64, i64 }
 %struct.DivergeState = type { ptr, i32 }
 %struct.ExecState = type { i64, i64 }
-%struct._GSList = type { ptr, ptr }
-%struct.ExecInfo = type { ptr, i64, i64 }
 
 @qemu_plugin_version = local_unnamed_addr global i32 1, align 4
 @.str = private unnamed_addr constant [2 x i8] c"=\00", align 1
@@ -72,7 +69,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %arrayidx5 = getelementptr inbounds ptr, ptr %call, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @verbose) #10
   br i1 %call6, label %glib_auto_cleanup_GStrv.exit, label %glib_auto_cleanup_GStrv.exit11
@@ -83,7 +80,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp11, label %if.then12, label %glib_auto_cleanup_GStrv.exit11
 
 if.then12:                                        ; preds = %if.else
-  %arrayidx13 = getelementptr inbounds ptr, ptr %call, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %arrayidx13, align 8
   br label %glib_auto_cleanup_GStrv.exit
 
@@ -120,7 +117,7 @@ if.then.i.i:                                      ; preds = %if.then.i8
 
 if.end.i.i:                                       ; preds = %if.then.i8
   store i16 1, ptr %sockaddr.i.i, align 2
-  %sun_path.i.i = getelementptr inbounds %struct.sockaddr_un, ptr %sockaddr.i.i, i64 0, i32 1
+  %sun_path.i.i = getelementptr inbounds i8, ptr %sockaddr.i.i, i64 2
   %call1.i.i = call i64 @g_strlcpy(ptr noundef nonnull %sun_path.i.i, ptr noundef nonnull %sock_path.1, i64 noundef 107) #10
   %cmp2.i.i = icmp ugt i64 %call1.i.i, 106
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end5.i.i
@@ -162,7 +159,7 @@ if.then.i19.i:                                    ; preds = %if.else.i
 
 if.end.i6.i:                                      ; preds = %if.else.i
   store i16 1, ptr %sockaddr.i3.i, align 2
-  %sun_path.i7.i = getelementptr inbounds %struct.sockaddr_un, ptr %sockaddr.i3.i, i64 0, i32 1
+  %sun_path.i7.i = getelementptr inbounds i8, ptr %sockaddr.i3.i, i64 2
   %call1.i8.i = call i64 @g_strlcpy(ptr noundef nonnull %sun_path.i7.i, ptr noundef nonnull %sock_path.1, i64 noundef 107) #10
   %cmp2.i9.i = icmp ugt i64 %call1.i8.i, 106
   br i1 %cmp2.i9.i, label %if.then3.i17.i, label %if.end5.i10.i
@@ -264,7 +261,7 @@ entry:
   %call1 = tail call i64 @qemu_plugin_tb_vaddr(ptr noundef %tb) #10
   store i64 %call1, ptr %call, align 8
   %call2 = tail call i64 @qemu_plugin_tb_n_insns(ptr noundef %tb) #10
-  %insns = getelementptr inbounds %struct.BlockInfo, ptr %call, i64 0, i32 1
+  %insns = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %call2, ptr %insns, align 8
   %0 = load ptr, ptr @blocks, align 8
   %call3 = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef nonnull %call) #10
@@ -361,7 +358,7 @@ entry:
   %0 = load i64, ptr %udata, align 8
   store i64 %0, ptr %us, align 8
   %1 = load i64, ptr @insn_count, align 8
-  %insn_count = getelementptr inbounds %struct.ExecState, ptr %us, i64 0, i32 1
+  %insn_count = getelementptr inbounds i8, ptr %us, i64 8
   store i64 %1, ptr %insn_count, align 8
   %2 = load i32, ptr @socket_fd, align 4
   %call = call i64 @write(i32 noundef %2, ptr noundef nonnull %us, i64 noundef 16) #10
@@ -395,7 +392,7 @@ if.then12:                                        ; preds = %if.end8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %divrec.i)
   %7 = load ptr, ptr @log, align 8
   store ptr %7, ptr %divrec.i, align 8
-  %distance.i = getelementptr inbounds %struct.DivergeState, ptr %divrec.i, i64 0, i32 1
+  %distance.i = getelementptr inbounds i8, ptr %divrec.i, i64 8
   store i32 0, ptr %distance.i, align 8
   %call.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.19) #10
   %8 = load ptr, ptr @divergence_log, align 8
@@ -409,7 +406,7 @@ if.then.i:                                        ; preds = %if.then12
   br i1 %tobool2.not27.i, label %if.end19.i, label %cond.end.i.preheader
 
 cond.end.i.preheader:                             ; preds = %if.then.i
-  %next.i9 = getelementptr inbounds %struct._GSList, ptr %entry1.026.i, i64 0, i32 1
+  %next.i9 = getelementptr inbounds i8, ptr %entry1.026.i, i64 8
   %10 = load ptr, ptr %next.i9, align 8
   %tobool3.not.i10 = icmp eq ptr %10, null
   br i1 %tobool3.not.i10, label %if.end19.i, label %for.body.i.preheader
@@ -428,7 +425,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 cond.end11.i:                                     ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %12, 1
   store i32 %inc.i, ptr %distance.i, align 8
-  %next.i = getelementptr inbounds %struct._GSList, ptr %11, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %next.i, align 8
   %tobool3.not.i = icmp eq ptr %13, null
   br i1 %tobool3.not.i, label %for.end.i, label %for.body.i
@@ -439,7 +436,7 @@ for.end.i:                                        ; preds = %cond.end11.i, %for.
   br i1 %14, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %for.end.i
-  %distance15.i = getelementptr inbounds %struct.DivergeState, ptr %9, i64 0, i32 1
+  %distance15.i = getelementptr inbounds i8, ptr %9, i64 8
   %15 = load i32, ptr %distance15.i, align 8
   %cmp16.i = icmp eq i32 %15, 1
   br label %if.end19.i
@@ -470,7 +467,7 @@ if.end31.i:                                       ; preds = %if.then27.i, %if.en
   br i1 %diverged.0.i, label %if.then33.i, label %if.end60.i
 
 if.then33.i:                                      ; preds = %if.end31.i
-  %insn_count37.i = getelementptr inbounds %struct.ExecState, ptr %them, i64 0, i32 1
+  %insn_count37.i = getelementptr inbounds i8, ptr %them, i64 8
   %21 = load i64, ptr %insn_count37.i, align 8
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.21, i64 noundef %0, i64 noundef %1, i64 noundef %6, i64 noundef %21) #10
   %entry34.029.i = load ptr, ptr @log, align 8
@@ -480,7 +477,7 @@ if.then33.i:                                      ; preds = %if.end31.i
 cond.true40.i:                                    ; preds = %if.then33.i, %for.body45.i
   %entry34.032.i = phi ptr [ %entry34.0.i, %for.body45.i ], [ %entry34.029.i, %if.then33.i ]
   %i.031.i = phi i32 [ %inc57.i, %for.body45.i ], [ 0, %if.then33.i ]
-  %next41.i = getelementptr inbounds %struct._GSList, ptr %entry34.032.i, i64 0, i32 1
+  %next41.i = getelementptr inbounds i8, ptr %entry34.032.i, i64 8
   %22 = load ptr, ptr %next41.i, align 8
   %tobool42.i = icmp ne ptr %22, null
   %cmp44.i = icmp ult i32 %i.031.i, 5
@@ -491,9 +488,9 @@ for.body45.i:                                     ; preds = %cond.true40.i
   %23 = load ptr, ptr %entry34.032.i, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %insns.i = getelementptr inbounds %struct.BlockInfo, ptr %24, i64 0, i32 1
+  %insns.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i64, ptr %insns.i, align 8
-  %insn_count49.i = getelementptr inbounds %struct.ExecInfo, ptr %23, i64 0, i32 1
+  %insn_count49.i = getelementptr inbounds i8, ptr %23, i64 8
   %27 = load i64, ptr %insn_count49.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i, ptr noundef nonnull @.str.22, i64 noundef %25, i64 noundef %26, i64 noundef %27) #10
   %inc57.i = add nuw nsw i32 %i.031.i, 1
@@ -522,7 +519,7 @@ report_divergance.exit:                           ; preds = %if.end60.i, %if.the
   br label %if.end13
 
 if.end13:                                         ; preds = %report_divergance.exit, %if.end8
-  %insns = getelementptr inbounds %struct.BlockInfo, ptr %udata, i64 0, i32 1
+  %insns = getelementptr inbounds i8, ptr %udata, i64 8
   %30 = load i64, ptr %insns, align 8
   %31 = load i64, ptr @insn_count, align 8
   %add = add i64 %31, %30
@@ -533,10 +530,10 @@ if.end13:                                         ; preds = %report_divergance.e
   %call14 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #13
   store ptr %udata, ptr %call14, align 8
   %33 = load i64, ptr @insn_count, align 8
-  %insn_count15 = getelementptr inbounds %struct.ExecInfo, ptr %call14, i64 0, i32 1
+  %insn_count15 = getelementptr inbounds i8, ptr %call14, i64 8
   store i64 %33, ptr %insn_count15, align 8
   %34 = load i64, ptr @bb_count, align 8
-  %block_count = getelementptr inbounds %struct.ExecInfo, ptr %call14, i64 0, i32 2
+  %block_count = getelementptr inbounds i8, ptr %call14, i64 16
   store i64 %34, ptr %block_count, align 8
   %35 = load ptr, ptr @log, align 8
   %call16 = call ptr @g_slist_prepend(ptr noundef %35, ptr noundef nonnull %call14) #10

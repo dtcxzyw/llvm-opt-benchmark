@@ -3,24 +3,21 @@ source_filename = "bench/icu/original/localematcher.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::LocaleMatcher::Result" = type <{ ptr, ptr, i32, i32, i8, [7 x i8] }>
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::LocaleBuilder" = type { %"class.icu_75::UObject", i32, [9 x i8], [5 x i8], [4 x i8], ptr, ptr }
 %"class.icu_75::StringPiece" = type <{ ptr, i32, [4 x i8] }>
-%"class.icu_75::LocaleMatcher::Builder" = type { i32, ptr, i32, i32, ptr, i8, i32, i32, ptr, ptr }
 %"class.icu_75::LocalePriorityList" = type { ptr, i32, i32, i8, ptr }
 %"class.icu_75::LocaleMatcher" = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr }
 %"struct.icu_75::LSR" = type <{ ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
 %"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [100 x i8], [7 x i8] }>
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::LocaleDistance" = type { ptr, %"class.icu_75::BytesTrie", ptr, ptr, ptr, i32, i32, i32, i32, i32, i32 }
-%"class.icu_75::BytesTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.icu_75::LocaleLsrIterator" = type <{ ptr, ptr, i32, [4 x i8], ptr, ptr, i32, [4 x i8] }>
 %"class.icu_75::LocalePriorityList::Iterator" = type <{ %"class.icu_75::Locale::Iterator", ptr, i32, i32, i32, [4 x i8] }>
 %"class.icu_75::Locale::Iterator" = type { ptr }
+%"class.icu_75::LocaleMatcher::Result" = type <{ ptr, ptr, i32, i32, i8, [7 x i8] }>
 %"class.(anonymous namespace)::LocaleFromTag" = type { %"class.icu_75::Locale" }
 %"class.icu_75::Locale::ConvertingIterator" = type { %"class.icu_75::Locale::Iterator", ptr, ptr, %"class.(anonymous namespace)::LocaleFromTag" }
+%"class.icu_75::LocaleMatcher::Builder" = type { i32, ptr, i32, i32, ptr, i8, i32, i32, ptr, ptr }
 
 $_ZN6icu_753LSRD2Ev = comdat any
 
@@ -76,20 +73,20 @@ define void @_ZN6icu_7513LocaleMatcher6ResultC2EOS1_(ptr nocapture noundef nonnu
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %supportedLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 1
-  %supportedLocale3 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 1
+  %supportedLocale = getelementptr inbounds i8, ptr %this, i64 8
+  %supportedLocale3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %supportedLocale3, align 8
   store ptr %1, ptr %supportedLocale, align 8
-  %desiredIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 2
-  %desiredIndex4 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 2
+  %desiredIndex = getelementptr inbounds i8, ptr %this, i64 16
+  %desiredIndex4 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i32, ptr %desiredIndex4, align 8
   store i32 %2, ptr %desiredIndex, align 8
-  %supportedIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 3
-  %supportedIndex5 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 3
+  %supportedIndex = getelementptr inbounds i8, ptr %this, i64 20
+  %supportedIndex5 = getelementptr inbounds i8, ptr %src, i64 20
   %3 = load i32, ptr %supportedIndex5, align 4
   store i32 %3, ptr %supportedIndex, align 4
-  %desiredIsOwned = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 4
-  %desiredIsOwned6 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 4
+  %desiredIsOwned = getelementptr inbounds i8, ptr %this, i64 24
+  %desiredIsOwned6 = getelementptr inbounds i8, ptr %src, i64 24
   %4 = load i8, ptr %desiredIsOwned6, align 8
   store i8 %4, ptr %desiredIsOwned, align 8
   %tobool.not = icmp eq i8 %4, 0
@@ -108,7 +105,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513LocaleMatcher6ResultD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this) unnamed_addr #1 align 2 {
 entry:
-  %desiredIsOwned = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 4
+  %desiredIsOwned = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %desiredIsOwned, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -120,7 +117,7 @@ if.then:                                          ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %1) #16
   br label %if.end
@@ -135,21 +132,21 @@ entry:
   tail call void @_ZN6icu_7513LocaleMatcher6ResultD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) #16
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %supportedLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 1
+  %supportedLocale = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %supportedLocale, align 8
-  %supportedLocale3 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 1
+  %supportedLocale3 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %1, ptr %supportedLocale3, align 8
-  %desiredIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 2
+  %desiredIndex = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i32, ptr %desiredIndex, align 8
-  %desiredIndex4 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 2
+  %desiredIndex4 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %2, ptr %desiredIndex4, align 8
-  %supportedIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 3
+  %supportedIndex = getelementptr inbounds i8, ptr %src, i64 20
   %3 = load i32, ptr %supportedIndex, align 4
-  %supportedIndex5 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 3
+  %supportedIndex5 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %3, ptr %supportedIndex5, align 4
-  %desiredIsOwned = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %src, i64 0, i32 4
+  %desiredIsOwned = getelementptr inbounds i8, ptr %src, i64 24
   %4 = load i8, ptr %desiredIsOwned, align 8
-  %desiredIsOwned6 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 4
+  %desiredIsOwned6 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %4, ptr %desiredIsOwned6, align 8
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -175,7 +172,7 @@ entry:
   br i1 %cmp.i, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %supportedLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %this, i64 0, i32 1
+  %supportedLocale = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %supportedLocale, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -210,7 +207,7 @@ if.end10:                                         ; preds = %lor.lhs.false5
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end10
-  %country.i = getelementptr inbounds %"class.icu_75::Locale", ptr %2, i64 0, i32 3
+  %country.i = getelementptr inbounds i8, ptr %2, i64 26
   %5 = load i8, ptr %country.i, align 1
   %cmp15.not = icmp eq i8 %5, 0
   br i1 %cmp15.not, label %if.end20, label %if.then16
@@ -221,7 +218,7 @@ if.then16:                                        ; preds = %invoke.cont
 
 invoke.cont17:                                    ; preds = %if.then16
   %6 = load ptr, ptr %agg.tmp, align 8
-  %7 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %8 = load i32, ptr %7, align 8
   %call19 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder9setRegionENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48) %b, ptr %6, i32 %8)
           to label %if.end20 unwind label %lpad
@@ -233,9 +230,9 @@ lpad:                                             ; preds = %invoke.cont31, %if.
   resume { ptr, i32 } %9
 
 if.end20:                                         ; preds = %invoke.cont17, %invoke.cont
-  %baseName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %2, i64 0, i32 10
+  %baseName.i = getelementptr inbounds i8, ptr %2, i64 208
   %10 = load ptr, ptr %baseName.i, align 8
-  %variantBegin.i = getelementptr inbounds %"class.icu_75::Locale", ptr %2, i64 0, i32 5
+  %variantBegin.i = getelementptr inbounds i8, ptr %2, i64 32
   %11 = load i32, ptr %variantBegin.i, align 8
   %idxprom.i = sext i32 %11 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i
@@ -249,7 +246,7 @@ if.then25:                                        ; preds = %if.end20
 
 invoke.cont27:                                    ; preds = %if.then25
   %13 = load ptr, ptr %agg.tmp26, align 8
-  %14 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp26, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %agg.tmp26, i64 8
   %15 = load i32, ptr %14, align 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder10setVariantENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48) %b, ptr %13, i32 %15)
           to label %if.end30 unwind label %lpad
@@ -300,36 +297,36 @@ define void @_ZN6icu_7513LocaleMatcher7BuilderC2EOS1_(ptr nocapture noundef nonn
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
-  %supportedLocales_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
-  %supportedLocales_3 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 1
+  %supportedLocales_ = getelementptr inbounds i8, ptr %this, i64 8
+  %supportedLocales_3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %supportedLocales_3, align 8
   store ptr %1, ptr %supportedLocales_, align 8
-  %thresholdDistance_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 2
-  %thresholdDistance_4 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 2
+  %thresholdDistance_ = getelementptr inbounds i8, ptr %this, i64 16
+  %thresholdDistance_4 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i32, ptr %thresholdDistance_4, align 8
   store i32 %2, ptr %thresholdDistance_, align 8
-  %demotion_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 3
-  %demotion_5 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 3
+  %demotion_ = getelementptr inbounds i8, ptr %this, i64 20
+  %demotion_5 = getelementptr inbounds i8, ptr %src, i64 20
   %3 = load i32, ptr %demotion_5, align 4
   store i32 %3, ptr %demotion_, align 4
-  %defaultLocale_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 4
-  %defaultLocale_6 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 4
+  %defaultLocale_ = getelementptr inbounds i8, ptr %this, i64 24
+  %defaultLocale_6 = getelementptr inbounds i8, ptr %src, i64 24
   %4 = load ptr, ptr %defaultLocale_6, align 8
   store ptr %4, ptr %defaultLocale_, align 8
-  %withDefault_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 5
-  %withDefault_7 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 5
+  %withDefault_ = getelementptr inbounds i8, ptr %this, i64 32
+  %withDefault_7 = getelementptr inbounds i8, ptr %src, i64 32
   %5 = load i8, ptr %withDefault_7, align 8
   %6 = and i8 %5, 1
   store i8 %6, ptr %withDefault_, align 8
-  %favor_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 6
-  %favor_8 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 6
+  %favor_ = getelementptr inbounds i8, ptr %this, i64 36
+  %favor_8 = getelementptr inbounds i8, ptr %src, i64 36
   %7 = load i32, ptr %favor_8, align 4
   store i32 %7, ptr %favor_, align 4
-  %direction_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 7
-  %direction_9 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 7
+  %direction_ = getelementptr inbounds i8, ptr %this, i64 40
+  %direction_9 = getelementptr inbounds i8, ptr %src, i64 40
   %8 = load i32, ptr %direction_9, align 8
   store i32 %8, ptr %direction_, align 8
-  %maxDistanceDesired_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 8
+  %maxDistanceDesired_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %maxDistanceDesired_, i8 0, i64 16, i1 false)
   store ptr null, ptr %supportedLocales_3, align 8
   store ptr null, ptr %defaultLocale_6, align 8
@@ -339,53 +336,53 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513LocaleMatcher7BuilderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
-  %supportedLocales_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %supportedLocales_, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %defaultLocale_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 4
+  %defaultLocale_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %defaultLocale_, align 8
   %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 8
   %3 = load ptr, ptr %vfn5, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(217) %2) #16
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
-  %maxDistanceDesired_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 8
+  %maxDistanceDesired_ = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %maxDistanceDesired_, align 8
   %isnull7 = icmp eq ptr %4, null
   br i1 %isnull7, label %delete.end11, label %delete.notnull8
 
 delete.notnull8:                                  ; preds = %delete.end6
   %vtable9 = load ptr, ptr %4, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 1
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 8
   %5 = load ptr, ptr %vfn10, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(217) %4) #16
   br label %delete.end11
 
 delete.end11:                                     ; preds = %delete.notnull8, %delete.end6
-  %maxDistanceSupported_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 9
+  %maxDistanceSupported_ = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %maxDistanceSupported_, align 8
   %isnull12 = icmp eq ptr %6, null
   br i1 %isnull12, label %delete.end16, label %delete.notnull13
 
 delete.notnull13:                                 ; preds = %delete.end11
   %vtable14 = load ptr, ptr %6, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 1
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 8
   %7 = load ptr, ptr %vfn15, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(217) %6) #16
   br label %delete.end16
@@ -400,34 +397,34 @@ entry:
   tail call void @_ZN6icu_7513LocaleMatcher7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #16
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
-  %supportedLocales_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 1
+  %supportedLocales_ = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %supportedLocales_, align 8
-  %supportedLocales_3 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_3 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %1, ptr %supportedLocales_3, align 8
-  %thresholdDistance_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 2
+  %thresholdDistance_ = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i32, ptr %thresholdDistance_, align 8
-  %thresholdDistance_4 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 2
+  %thresholdDistance_4 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %2, ptr %thresholdDistance_4, align 8
-  %demotion_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 3
+  %demotion_ = getelementptr inbounds i8, ptr %src, i64 20
   %3 = load i32, ptr %demotion_, align 4
-  %demotion_5 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 3
+  %demotion_5 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %3, ptr %demotion_5, align 4
-  %defaultLocale_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 4
+  %defaultLocale_ = getelementptr inbounds i8, ptr %src, i64 24
   %4 = load ptr, ptr %defaultLocale_, align 8
-  %defaultLocale_6 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 4
+  %defaultLocale_6 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %4, ptr %defaultLocale_6, align 8
-  %withDefault_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 5
+  %withDefault_ = getelementptr inbounds i8, ptr %src, i64 32
   %5 = load i8, ptr %withDefault_, align 8
   %6 = and i8 %5, 1
-  %withDefault_7 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 5
+  %withDefault_7 = getelementptr inbounds i8, ptr %this, i64 32
   store i8 %6, ptr %withDefault_7, align 8
-  %favor_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 6
+  %favor_ = getelementptr inbounds i8, ptr %src, i64 36
   %7 = load i32, ptr %favor_, align 4
-  %favor_8 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 6
+  %favor_8 = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %7, ptr %favor_8, align 4
-  %direction_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %src, i64 0, i32 7
+  %direction_ = getelementptr inbounds i8, ptr %src, i64 40
   %8 = load i32, ptr %direction_, align 8
-  %direction_9 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 7
+  %direction_9 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %8, ptr %direction_9, align 8
   store ptr null, ptr %supportedLocales_, align 8
   store ptr null, ptr %defaultLocale_, align 8
@@ -437,7 +434,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513LocaleMatcher7Builder21clearSupportedLocalesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %supportedLocales_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %supportedLocales_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -460,7 +457,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %supportedLocales_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %supportedLocales_, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end3, label %return
@@ -500,7 +497,7 @@ cleanup.thread:                                   ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i:                                 ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %vtable.i = load ptr, ptr %call4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %call4) #16
   br label %return
@@ -545,7 +542,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %entry
-  %supportedLocales_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %supportedLocales_.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end3.i, label %if.then.i
@@ -599,13 +596,13 @@ cleanup.thread.i:                                 ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i.i:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
   %vtable.i.i = load ptr, ptr %call4.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(40) %call4.i) #16
   br label %cleanup
 
 if.end7:                                          ; preds = %if.end.i, %cleanup.thread.i
-  %listLength.i = getelementptr inbounds %"class.icu_75::LocalePriorityList", ptr %list, i64 0, i32 1
+  %listLength.i = getelementptr inbounds i8, ptr %list, i64 8
   %7 = load i32, ptr %listLength.i, align 8
   %cmp11 = icmp sgt i32 %7, 0
   br i1 %cmp11, label %for.body, label %cleanup
@@ -666,7 +663,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %supportedLocales_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %supportedLocales_.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end3.i, label %_ZN6icu_7513LocaleMatcher7Builder21clearSupportedLocalesEv.exit
@@ -706,7 +703,7 @@ cleanup.thread.i:                                 ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i.i:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
   %vtable.i.i = load ptr, ptr %call4.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %call4.i) #16
   br label %if.end
@@ -715,7 +712,7 @@ _ZN6icu_7513LocaleMatcher7Builder21clearSupportedLocalesEv.exit: ; preds = %clea
   %6 = phi ptr [ %call4.i, %cleanup.thread.i ], [ %1, %if.end.i ]
   tail call void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %vtable17 = load ptr, ptr %locales, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 2
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16
   %7 = load ptr, ptr %vfn18, align 8
   %call219 = tail call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(8) %locales)
   %tobool.not20 = icmp eq i8 %call219, 0
@@ -726,7 +723,7 @@ _ZN6icu_7513LocaleMatcher7Builder21clearSupportedLocalesEv.exit: ; preds = %clea
 
 while.body:                                       ; preds = %_ZN6icu_7513LocaleMatcher7Builder21clearSupportedLocalesEv.exit, %_ZN6icu_7512LocalPointerINS_6LocaleEEC2EPS1_R10UErrorCode.exit
   %vtable5 = load ptr, ptr %locales, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 3
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 24
   %9 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(217) ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %locales)
   %call8 = tail call noundef ptr @_ZNK6icu_756Locale5cloneEv(ptr noundef nonnull align 8 dereferenceable(217) %call7)
@@ -744,7 +741,7 @@ _ZN6icu_7512LocalPointerINS_6LocaleEEC2EPS1_R10UErrorCode.exit: ; preds = %while
   %11 = load ptr, ptr %supportedLocales_.i, align 8
   tail call void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %call8, ptr noundef nonnull align 4 dereferenceable(4) %this)
   %vtable = load ptr, ptr %locales, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %12 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(8) %locales)
   %tobool.not = icmp eq i8 %call2, 0
@@ -767,7 +764,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %supportedLocales_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 1
+  %supportedLocales_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %supportedLocales_.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end3.i, label %if.then
@@ -807,7 +804,7 @@ cleanup.thread.i:                                 ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i.i:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
   %vtable.i.i = load ptr, ptr %call4.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %call4.i) #16
   br label %if.end
@@ -841,21 +838,21 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %defaultLocale_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 4
+  %defaultLocale_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %defaultLocale_, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %1) #16
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   store ptr null, ptr %defaultLocale_, align 8
-  %withDefault_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 5
+  %withDefault_ = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %withDefault_, align 8
   br label %return
 
@@ -885,21 +882,21 @@ if.then5:                                         ; preds = %if.then2
 
 if.end8:                                          ; preds = %if.then2, %if.end
   %clone.0 = phi ptr [ %call3, %if.then2 ], [ null, %if.end ]
-  %defaultLocale_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 4
+  %defaultLocale_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %defaultLocale_, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %1) #16
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end8
   store ptr %clone.0, ptr %defaultLocale_, align 8
-  %withDefault_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 5
+  %withDefault_ = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %withDefault_, align 8
   br label %return
 
@@ -915,7 +912,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %favor_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 6
+  %favor_ = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %subtag, ptr %favor_, align 4
   br label %return
 
@@ -931,7 +928,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %demotion_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 3
+  %demotion_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %demotion, ptr %demotion_, align 4
   br label %return
 
@@ -959,7 +956,7 @@ if.then5:                                         ; preds = %if.end
 
 delete.notnull:                                   ; preds = %if.then5
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(217) %call2) #16
   br label %delete.end
@@ -969,7 +966,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 delete.notnull7:                                  ; preds = %delete.end
   %vtable8 = load ptr, ptr %call3, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 1
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 8
   %2 = load ptr, ptr %vfn9, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %call3) #16
   br label %delete.end10
@@ -979,27 +976,27 @@ delete.end10:                                     ; preds = %delete.notnull7, %d
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %maxDistanceDesired_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 8
+  %maxDistanceDesired_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %maxDistanceDesired_, align 8
   %isnull13 = icmp eq ptr %3, null
   br i1 %isnull13, label %delete.end17, label %delete.notnull14
 
 delete.notnull14:                                 ; preds = %if.end12
   %vtable15 = load ptr, ptr %3, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 1
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 8
   %4 = load ptr, ptr %vfn16, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(217) %3) #16
   br label %delete.end17
 
 delete.end17:                                     ; preds = %delete.notnull14, %if.end12
-  %maxDistanceSupported_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %this, i64 0, i32 9
+  %maxDistanceSupported_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %maxDistanceSupported_, align 8
   %isnull18 = icmp eq ptr %5, null
   br i1 %isnull18, label %delete.end22, label %delete.notnull19
 
 delete.notnull19:                                 ; preds = %delete.end17
   %vtable20 = load ptr, ptr %5, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 1
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 8
   %6 = load ptr, ptr %vfn21, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(217) %5) #16
   br label %delete.end22
@@ -1063,7 +1060,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %supportedLsrToIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 9
+  %supportedLsrToIndex = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %supportedLsrToIndex, align 8
   %call2 = tail call signext i8 @uhash_containsKey_75(ptr noundef %1, ptr noundef nonnull %lsr)
   %tobool3.not = icmp eq i8 %call2, 0
@@ -1077,12 +1074,12 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i9, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then4
-  %supportedLSRs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 10
+  %supportedLSRs = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %supportedLSRs, align 8
   %idxprom = sext i32 %suppLength to i64
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
   store ptr %lsr, ptr %arrayidx, align 8
-  %supportedIndexes = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 11
+  %supportedIndexes = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %supportedIndexes, align 8
   %inc = add nsw i32 %suppLength, 1
   %arrayidx11 = getelementptr inbounds i32, ptr %5, i64 %idxprom
@@ -1110,32 +1107,32 @@ entry:
   %ref.tmp240 = alloca %"struct.icu_75::LSR", align 8
   %call = tail call noundef ptr @_ZN6icu_7513LikelySubtags12getSingletonER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call, ptr %this, align 8
-  %localeDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 1
+  %localeDistance = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef ptr @_ZN6icu_7514LocaleDistance12getSingletonER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call2, ptr %localeDistance, align 8
-  %thresholdDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 2
-  %thresholdDistance_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 2
+  %thresholdDistance = getelementptr inbounds i8, ptr %this, i64 16
+  %thresholdDistance_ = getelementptr inbounds i8, ptr %builder, i64 16
   %0 = load i32, ptr %thresholdDistance_, align 8
   store i32 %0, ptr %thresholdDistance, align 8
-  %demotionPerDesiredLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 3
+  %demotionPerDesiredLocale = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %demotionPerDesiredLocale, align 4
-  %favorSubtag = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 4
-  %favor_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 6
+  %favorSubtag = getelementptr inbounds i8, ptr %this, i64 24
+  %favor_ = getelementptr inbounds i8, ptr %builder, i64 36
   %1 = load i32, ptr %favor_, align 4
   store i32 %1, ptr %favorSubtag, align 8
-  %direction = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 5
-  %direction_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 7
+  %direction = getelementptr inbounds i8, ptr %this, i64 28
+  %direction_ = getelementptr inbounds i8, ptr %builder, i64 40
   %2 = load i32, ptr %direction_, align 8
   store i32 %2, ptr %direction, align 4
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
-  %lsrs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 7
-  %supportedLocalesLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 8
-  %supportedLsrToIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 9
-  %supportedLSRs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 10
-  %supportedIndexes = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 11
-  %supportedLSRsLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 12
-  %ownedDefaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 13
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
+  %lsrs = getelementptr inbounds i8, ptr %this, i64 40
+  %supportedLocalesLength = getelementptr inbounds i8, ptr %this, i64 48
+  %supportedLsrToIndex = getelementptr inbounds i8, ptr %this, i64 56
+  %supportedLSRs = getelementptr inbounds i8, ptr %this, i64 64
+  %supportedIndexes = getelementptr inbounds i8, ptr %this, i64 72
+  %supportedLSRsLength = getelementptr inbounds i8, ptr %this, i64 80
+  %ownedDefaultLocale = getelementptr inbounds i8, ptr %this, i64 88
+  %defaultLocale = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %supportedLocales, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %supportedLsrToIndex, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ownedDefaultLocale, i8 0, i64 16, i1 false)
@@ -1144,14 +1141,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont272
 
 if.end:                                           ; preds = %entry
-  %defaultLocale_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 4
+  %defaultLocale_ = getelementptr inbounds i8, ptr %builder, i64 24
   %4 = load ptr, ptr %defaultLocale_, align 8
   store ptr @.str, ptr %builderDefaultLSR, align 8
-  %script.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %builderDefaultLSR, i64 0, i32 1
+  %script.i = getelementptr inbounds i8, ptr %builderDefaultLSR, i64 8
   store ptr @.str.1, ptr %script.i, align 8
-  %region.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %builderDefaultLSR, i64 0, i32 2
+  %region.i = getelementptr inbounds i8, ptr %builderDefaultLSR, i64 16
   store ptr @.str.1, ptr %region.i, align 8
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %builderDefaultLSR, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %builderDefaultLSR, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %owned.i, i8 0, i64 20, i1 false)
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end20, label %if.then4
@@ -1184,14 +1181,14 @@ if.end10:                                         ; preds = %invoke.cont
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %6 = load i32, ptr %errorCode, align 4, !noalias !7
   %cmp.i.i = icmp slt i32 %6, 1
-  %fIsBogus.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call5, i64 0, i32 11
+  %fIsBogus.i.i = getelementptr inbounds i8, ptr %call5, i64 216
   %7 = load i8, ptr %fIsBogus.i.i, align 8, !noalias !7
   %tobool2.not.i = icmp eq i8 %7, 0
   %or.cond.i = select i1 %cmp.i.i, i1 %tobool2.not.i, i1 false
   br i1 %or.cond.i, label %lor.lhs.false3.i, label %if.then.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end10
-  %fullName.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call5, i64 0, i32 7
+  %fullName.i.i = getelementptr inbounds i8, ptr %call5, i64 40
   %8 = load ptr, ptr %fullName.i.i, align 8, !noalias !7
   %9 = load i8, ptr %8, align 1, !noalias !7
   %cmp.i82 = icmp eq i8 %9, 0
@@ -1199,21 +1196,21 @@ lor.lhs.false3.i:                                 ; preds = %if.end10
 
 if.then.i:                                        ; preds = %lor.lhs.false3.i, %if.end10
   store ptr @.str, ptr %ref.tmp, align 8, !alias.scope !7
-  %script.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 1
+  %script.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i, align 8, !alias.scope !7
-  %region.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 2
+  %region.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i, align 8, !alias.scope !7
-  %owned.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
+  %owned.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %owned.i.i, align 8, !alias.scope !7
   %call.i.i83 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1)
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %if.then.i
-  %regionIndex.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 4
+  %regionIndex.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %call.i.i83, ptr %regionIndex.i.i, align 8, !alias.scope !7
-  %flags.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   store i32 7, ptr %flags.i.i, align 4, !alias.scope !7
-  %hashCode.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 6
+  %hashCode.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i32 0, ptr %hashCode.i.i, align 8, !alias.scope !7
   br label %invoke.cont13
 
@@ -1223,7 +1220,7 @@ if.else.i:                                        ; preds = %lor.lhs.false3.i
 
 invoke.cont13:                                    ; preds = %call.i.i.noexc, %if.else.i
   %call14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_753LSRaSEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %builderDefaultLSR, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #16
-  %owned.i84 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
+  %owned.i84 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %10 = load ptr, ptr %owned.i84, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i85
@@ -1247,7 +1244,7 @@ _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont13, %if.
 if.end20:                                         ; preds = %_ZN6icu_753LSRD2Ev.exit, %if.end
   %defLSR.0 = phi ptr [ null, %if.end ], [ %builderDefaultLSR, %_ZN6icu_753LSRD2Ev.exit ]
   %def.0 = phi ptr [ null, %if.end ], [ %call5, %_ZN6icu_753LSRD2Ev.exit ]
-  %supportedLocales_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 1
+  %supportedLocales_ = getelementptr inbounds i8, ptr %builder, i64 8
   %14 = load ptr, ptr %supportedLocales_, align 8
   %cmp21.not = icmp eq ptr %14, null
   br i1 %cmp21.not, label %cond.end.thread, label %cond.end
@@ -1257,7 +1254,7 @@ cond.end.thread:                                  ; preds = %if.end20
   br label %if.end222
 
 cond.end:                                         ; preds = %if.end20
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %14, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i32, ptr %count.i, align 8
   store i32 %15, ptr %supportedLocalesLength, align 8
   %cmp27 = icmp sgt i32 %15, 0
@@ -1299,13 +1296,13 @@ new.ctorloop:                                     ; preds = %new.notnull
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %22, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   store ptr @.str, ptr %arrayctor.cur, align 8
-  %script.i88 = getelementptr inbounds %"struct.icu_75::LSR", ptr %arrayctor.cur, i64 0, i32 1
+  %script.i88 = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr @.str.1, ptr %script.i88, align 8
-  %region.i89 = getelementptr inbounds %"struct.icu_75::LSR", ptr %arrayctor.cur, i64 0, i32 2
+  %region.i89 = getelementptr inbounds i8, ptr %arrayctor.cur, i64 16
   store ptr @.str.1, ptr %region.i89, align 8
-  %owned.i90 = getelementptr inbounds %"struct.icu_75::LSR", ptr %arrayctor.cur, i64 0, i32 3
+  %owned.i90 = getelementptr inbounds i8, ptr %arrayctor.cur, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %owned.i90, i8 0, i64 20, i1 false)
-  %arrayctor.next = getelementptr inbounds %"struct.icu_75::LSR", ptr %arrayctor.cur, i64 1
+  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 48
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %new.cont, label %arrayctor.loop
 
@@ -1329,12 +1326,12 @@ if.end51:                                         ; preds = %new.cont
   br i1 %cmp57161, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end51
-  %script.i.i96 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp73, i64 0, i32 1
-  %region.i.i97 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp73, i64 0, i32 2
-  %owned.i.i98 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp73, i64 0, i32 3
-  %regionIndex.i.i99 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp73, i64 0, i32 4
-  %flags.i.i100 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp73, i64 0, i32 5
-  %hashCode.i.i101 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp73, i64 0, i32 6
+  %script.i.i96 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
+  %region.i.i97 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %owned.i.i98 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
+  %regionIndex.i.i99 = getelementptr inbounds i8, ptr %ref.tmp73, i64 32
+  %flags.i.i100 = getelementptr inbounds i8, ptr %ref.tmp73, i64 36
+  %hashCode.i.i101 = getelementptr inbounds i8, ptr %ref.tmp73, i64 40
   br label %for.body
 
 for.cond:                                         ; preds = %invoke.cont80
@@ -1374,14 +1371,14 @@ if.end69:                                         ; preds = %invoke.cont61
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %34 = load i32, ptr %errorCode, align 4, !noalias !11
   %cmp.i.i91 = icmp slt i32 %34, 1
-  %fIsBogus.i.i92 = getelementptr inbounds %"class.icu_75::Locale", ptr %32, i64 0, i32 11
+  %fIsBogus.i.i92 = getelementptr inbounds i8, ptr %32, i64 216
   %35 = load i8, ptr %fIsBogus.i.i92, align 8, !noalias !11
   %tobool2.not.i93 = icmp eq i8 %35, 0
   %or.cond.i94 = select i1 %cmp.i.i91, i1 %tobool2.not.i93, i1 false
   br i1 %or.cond.i94, label %lor.lhs.false3.i102, label %if.then.i95
 
 lor.lhs.false3.i102:                              ; preds = %if.end69
-  %fullName.i.i103 = getelementptr inbounds %"class.icu_75::Locale", ptr %32, i64 0, i32 7
+  %fullName.i.i103 = getelementptr inbounds i8, ptr %32, i64 40
   %36 = load ptr, ptr %fullName.i.i103, align 8, !noalias !11
   %37 = load i8, ptr %36, align 1, !noalias !11
   %cmp.i104 = icmp eq i8 %37, 0
@@ -1488,7 +1485,7 @@ for.cond124.preheader:                            ; preds = %invoke.cont116
   br i1 %cmp126163, label %for.body127.lr.ph, label %cleanup
 
 for.body127.lr.ph:                                ; preds = %for.cond124.preheader
-  %withDefault_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 5
+  %withDefault_ = getelementptr inbounds i8, ptr %builder, i64 32
   br label %for.body127
 
 lpad117.loopexit:                                 ; preds = %if.then211
@@ -1677,14 +1674,14 @@ cleanup:                                          ; preds = %for.inc218, %for.co
 if.end222:                                        ; preds = %cleanup, %cond.end.thread, %cond.end
   %def.4 = phi ptr [ %def.1.lcssa202206, %cleanup ], [ %def.0, %cond.end ], [ %def.0, %cond.end.thread ]
   store ptr %def.4, ptr %defaultLocale, align 8
-  %demotion_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 3
+  %demotion_ = getelementptr inbounds i8, ptr %builder, i64 20
   %81 = load i32, ptr %demotion_, align 4
   %cmp224 = icmp eq i32 %81, 1
   br i1 %cmp224, label %if.then225, label %if.end230
 
 if.then225:                                       ; preds = %if.end222
   %82 = load ptr, ptr %localeDistance, align 8
-  %defaultDemotionPerDesiredLocale.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %82, i64 0, i32 10
+  %defaultDemotionPerDesiredLocale.i = getelementptr inbounds i8, ptr %82, i64 84
   %83 = load i32, ptr %defaultDemotionPerDesiredLocale.i, align 4
   store i32 %83, ptr %demotionPerDesiredLocale, align 4
   br label %if.end230
@@ -1695,14 +1692,14 @@ if.end230:                                        ; preds = %if.then225, %if.end
   br i1 %cmp232, label %cleanup270, label %if.else234
 
 if.else234:                                       ; preds = %if.end230
-  %maxDistanceDesired_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 8
+  %maxDistanceDesired_ = getelementptr inbounds i8, ptr %builder, i64 48
   %85 = load ptr, ptr %maxDistanceDesired_, align 8
   %cmp235.not = icmp eq ptr %85, null
   br i1 %cmp235.not, label %if.else263, label %if.then236
 
 if.then236:                                       ; preds = %if.else234
   %86 = load ptr, ptr %this, align 8
-  %maxDistanceSupported_ = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 9
+  %maxDistanceSupported_ = getelementptr inbounds i8, ptr %builder, i64 56
   %87 = load ptr, ptr %maxDistanceSupported_, align 8
   invoke fastcc void @_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode(ptr noalias nonnull align 8 %suppLSR, ptr noundef nonnull align 8 dereferenceable(352) %86, ptr noundef nonnull align 8 dereferenceable(217) %87, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont238 unwind label %lpad.loopexit.split-lp
@@ -1751,7 +1748,7 @@ ehcleanup:                                        ; preds = %lpad245, %lpad243
 
 if.else263:                                       ; preds = %if.else234
   %96 = load ptr, ptr %localeDistance, align 8
-  %defaultScriptDistance.i = getelementptr inbounds %"class.icu_75::LocaleDistance", ptr %96, i64 0, i32 7
+  %defaultScriptDistance.i = getelementptr inbounds i8, ptr %96, i64 72
   %97 = load i32, ptr %defaultScriptDistance.i, align 8
   store i32 %97, ptr %thresholdDistance, align 8
   br label %cleanup270
@@ -1790,14 +1787,14 @@ define internal fastcc void @_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_1
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %fIsBogus.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 11
+  %fIsBogus.i = getelementptr inbounds i8, ptr %locale, i64 216
   %1 = load i8, ptr %fIsBogus.i, align 8
   %tobool2.not = icmp eq i8 %1, 0
   %or.cond = select i1 %cmp.i, i1 %tobool2.not, i1 false
   br i1 %or.cond, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %entry
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
   %2 = load ptr, ptr %fullName.i, align 8
   %3 = load i8, ptr %2, align 1
   %cmp = icmp eq i8 %3, 0
@@ -1805,18 +1802,18 @@ lor.lhs.false3:                                   ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false3, %entry
   store ptr @.str, ptr %agg.result, align 8
-  %script.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.result, i64 0, i32 1
+  %script.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @.str.1, ptr %script.i, align 8
-  %region.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.result, i64 0, i32 2
+  %region.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @.str.1, ptr %region.i, align 8
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.result, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr null, ptr %owned.i, align 8
-  %regionIndex.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.result, i64 0, i32 4
+  %regionIndex.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %call.i = tail call noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1)
   store i32 %call.i, ptr %regionIndex.i, align 8
-  %flags.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.result, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %agg.result, i64 36
   store i32 7, ptr %flags.i, align 4
-  %hashCode.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.result, i64 0, i32 6
+  %hashCode.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %hashCode.i, align 8
   br label %return
 
@@ -1834,7 +1831,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_753LSRaSEOS0_(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_753LSRD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %owned = getelementptr inbounds %"struct.icu_75::LSR", ptr %this, i64 0, i32 3
+  %owned = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %owned, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1878,7 +1875,7 @@ declare ptr @uhash_openSize_75(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZN6icu_7512_GLOBAL__N_17hashLSRE8UElement(ptr nocapture readonly %token.coerce) #10 {
 entry:
-  %hashCode = getelementptr inbounds %"struct.icu_75::LSR", ptr %token.coerce, i64 0, i32 6
+  %hashCode = getelementptr inbounds i8, ptr %token.coerce, i64 40
   %0 = load i32, ptr %hashCode, align 8
   ret i32 %0
 }
@@ -1896,11 +1893,11 @@ declare signext i8 @uhash_compareLong_75(ptr, ptr) #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayIaLi100EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 100, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 100
@@ -1949,7 +1946,7 @@ declare noundef signext i8 @_ZNK6icu_7514LocaleDistance13isParadigmLSRERKNS_3LSR
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -1977,60 +1974,60 @@ define void @_ZN6icu_7513LocaleMatcherC2EOS0_(ptr nocapture noundef nonnull writ
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %localeDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 1
-  %localeDistance3 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 1
+  %localeDistance = getelementptr inbounds i8, ptr %this, i64 8
+  %localeDistance3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %localeDistance3, align 8
   store ptr %1, ptr %localeDistance, align 8
-  %thresholdDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 2
-  %thresholdDistance4 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 2
+  %thresholdDistance = getelementptr inbounds i8, ptr %this, i64 16
+  %thresholdDistance4 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i32, ptr %thresholdDistance4, align 8
   store i32 %2, ptr %thresholdDistance, align 8
-  %demotionPerDesiredLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 3
-  %demotionPerDesiredLocale5 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 3
+  %demotionPerDesiredLocale = getelementptr inbounds i8, ptr %this, i64 20
+  %demotionPerDesiredLocale5 = getelementptr inbounds i8, ptr %src, i64 20
   %3 = load i32, ptr %demotionPerDesiredLocale5, align 4
   store i32 %3, ptr %demotionPerDesiredLocale, align 4
-  %favorSubtag = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 4
-  %favorSubtag6 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 4
+  %favorSubtag = getelementptr inbounds i8, ptr %this, i64 24
+  %favorSubtag6 = getelementptr inbounds i8, ptr %src, i64 24
   %4 = load i32, ptr %favorSubtag6, align 8
   store i32 %4, ptr %favorSubtag, align 8
-  %direction = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 5
-  %direction7 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %this, i64 28
+  %direction7 = getelementptr inbounds i8, ptr %src, i64 28
   %5 = load i32, ptr %direction7, align 4
   store i32 %5, ptr %direction, align 4
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
-  %supportedLocales8 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
+  %supportedLocales8 = getelementptr inbounds i8, ptr %src, i64 32
   %6 = load ptr, ptr %supportedLocales8, align 8
   store ptr %6, ptr %supportedLocales, align 8
-  %lsrs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 7
-  %lsrs9 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 7
+  %lsrs = getelementptr inbounds i8, ptr %this, i64 40
+  %lsrs9 = getelementptr inbounds i8, ptr %src, i64 40
   %7 = load ptr, ptr %lsrs9, align 8
   store ptr %7, ptr %lsrs, align 8
-  %supportedLocalesLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 8
-  %supportedLocalesLength10 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 8
+  %supportedLocalesLength = getelementptr inbounds i8, ptr %this, i64 48
+  %supportedLocalesLength10 = getelementptr inbounds i8, ptr %src, i64 48
   %8 = load i32, ptr %supportedLocalesLength10, align 8
   store i32 %8, ptr %supportedLocalesLength, align 8
-  %supportedLsrToIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 9
-  %supportedLsrToIndex11 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 9
+  %supportedLsrToIndex = getelementptr inbounds i8, ptr %this, i64 56
+  %supportedLsrToIndex11 = getelementptr inbounds i8, ptr %src, i64 56
   %9 = load ptr, ptr %supportedLsrToIndex11, align 8
   store ptr %9, ptr %supportedLsrToIndex, align 8
-  %supportedLSRs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 10
-  %supportedLSRs12 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 10
+  %supportedLSRs = getelementptr inbounds i8, ptr %this, i64 64
+  %supportedLSRs12 = getelementptr inbounds i8, ptr %src, i64 64
   %10 = load ptr, ptr %supportedLSRs12, align 8
   store ptr %10, ptr %supportedLSRs, align 8
-  %supportedIndexes = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 11
-  %supportedIndexes13 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 11
+  %supportedIndexes = getelementptr inbounds i8, ptr %this, i64 72
+  %supportedIndexes13 = getelementptr inbounds i8, ptr %src, i64 72
   %11 = load ptr, ptr %supportedIndexes13, align 8
   store ptr %11, ptr %supportedIndexes, align 8
-  %supportedLSRsLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 12
-  %supportedLSRsLength14 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 12
+  %supportedLSRsLength = getelementptr inbounds i8, ptr %this, i64 80
+  %supportedLSRsLength14 = getelementptr inbounds i8, ptr %src, i64 80
   %12 = load i32, ptr %supportedLSRsLength14, align 8
   store i32 %12, ptr %supportedLSRsLength, align 8
-  %ownedDefaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 13
-  %ownedDefaultLocale15 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 13
+  %ownedDefaultLocale = getelementptr inbounds i8, ptr %this, i64 88
+  %ownedDefaultLocale15 = getelementptr inbounds i8, ptr %src, i64 88
   %13 = load ptr, ptr %ownedDefaultLocale15, align 8
   store ptr %13, ptr %ownedDefaultLocale, align 8
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
-  %defaultLocale16 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 14
+  %defaultLocale = getelementptr inbounds i8, ptr %this, i64 96
+  %defaultLocale16 = getelementptr inbounds i8, ptr %src, i64 96
   %14 = load ptr, ptr %defaultLocale16, align 8
   store ptr %14, ptr %defaultLocale, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %supportedLocales8, i8 0, i64 20, i1 false)
@@ -2042,13 +2039,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513LocaleMatcherD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %supportedLocalesLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 8
+  %supportedLocalesLength = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %supportedLocalesLength, align 8
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2062,7 +2059,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 delete.notnull:                                   ; preds = %for.body
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(217) %3) #16
   %.pre = load i32, ptr %supportedLocalesLength, align 8
@@ -2076,13 +2073,13 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %entry
-  %supportedLocales2 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales2 = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %supportedLocales2, align 8
   invoke void @uprv_free_75(ptr noundef %7)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.end
-  %lsrs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 7
+  %lsrs = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %lsrs, align 8
   %isnull3 = icmp eq ptr %8, null
   br i1 %isnull3, label %delete.end7, label %delete.notnull4
@@ -2099,8 +2096,8 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull4
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %_ZN6icu_753LSRD2Ev.exit
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %_ZN6icu_753LSRD2Ev.exit ], [ %delete.end5, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"struct.icu_75::LSR", ptr %arraydestroy.elementPast, i64 -1
-  %owned.i = getelementptr %"struct.icu_75::LSR", ptr %arraydestroy.elementPast, i64 -1, i32 3
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -48
+  %owned.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -24
   %11 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i
@@ -2125,32 +2122,32 @@ arraydestroy.done6:                               ; preds = %_ZN6icu_753LSRD2Ev.
   br label %delete.end7
 
 delete.end7:                                      ; preds = %arraydestroy.done6, %invoke.cont
-  %supportedLsrToIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 9
+  %supportedLsrToIndex = getelementptr inbounds i8, ptr %this, i64 56
   %14 = load ptr, ptr %supportedLsrToIndex, align 8
   invoke void @uhash_close_75(ptr noundef %14)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %delete.end7
-  %supportedLSRs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 10
+  %supportedLSRs = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %supportedLSRs, align 8
   invoke void @uprv_free_75(ptr noundef %15)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  %supportedIndexes = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 11
+  %supportedIndexes = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load ptr, ptr %supportedIndexes, align 8
   invoke void @uprv_free_75(ptr noundef %16)
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %ownedDefaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 13
+  %ownedDefaultLocale = getelementptr inbounds i8, ptr %this, i64 88
   %17 = load ptr, ptr %ownedDefaultLocale, align 8
   %isnull11 = icmp eq ptr %17, null
   br i1 %isnull11, label %delete.end15, label %delete.notnull12
 
 delete.notnull12:                                 ; preds = %invoke.cont10
   %vtable13 = load ptr, ptr %17, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 1
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 8
   %18 = load ptr, ptr %vfn14, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(217) %17) #16
   br label %delete.end15
@@ -2185,57 +2182,57 @@ declare void @uhash_close_75(ptr noundef) local_unnamed_addr #3
 define noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7513LocaleMatcheraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull align 8 dereferenceable(104) %src) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513LocaleMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #16
-  %thresholdDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 2
+  %thresholdDistance = getelementptr inbounds i8, ptr %src, i64 16
   %0 = load i32, ptr %thresholdDistance, align 8
-  %thresholdDistance2 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 2
+  %thresholdDistance2 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %0, ptr %thresholdDistance2, align 8
-  %demotionPerDesiredLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 3
+  %demotionPerDesiredLocale = getelementptr inbounds i8, ptr %src, i64 20
   %1 = load i32, ptr %demotionPerDesiredLocale, align 4
-  %demotionPerDesiredLocale3 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 3
+  %demotionPerDesiredLocale3 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %1, ptr %demotionPerDesiredLocale3, align 4
-  %favorSubtag = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 4
+  %favorSubtag = getelementptr inbounds i8, ptr %src, i64 24
   %2 = load i32, ptr %favorSubtag, align 8
-  %favorSubtag4 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 4
+  %favorSubtag4 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %2, ptr %favorSubtag4, align 8
-  %direction = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %src, i64 28
   %3 = load i32, ptr %direction, align 4
-  %direction5 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 5
+  %direction5 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %3, ptr %direction5, align 4
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %src, i64 32
   %4 = load ptr, ptr %supportedLocales, align 8
-  %supportedLocales6 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales6 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %4, ptr %supportedLocales6, align 8
-  %lsrs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 7
+  %lsrs = getelementptr inbounds i8, ptr %src, i64 40
   %5 = load ptr, ptr %lsrs, align 8
-  %lsrs7 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 7
+  %lsrs7 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %5, ptr %lsrs7, align 8
-  %supportedLocalesLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 8
+  %supportedLocalesLength = getelementptr inbounds i8, ptr %src, i64 48
   %6 = load i32, ptr %supportedLocalesLength, align 8
-  %supportedLocalesLength8 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 8
+  %supportedLocalesLength8 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %6, ptr %supportedLocalesLength8, align 8
-  %supportedLsrToIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 9
+  %supportedLsrToIndex = getelementptr inbounds i8, ptr %src, i64 56
   %7 = load ptr, ptr %supportedLsrToIndex, align 8
-  %supportedLsrToIndex9 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 9
+  %supportedLsrToIndex9 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %7, ptr %supportedLsrToIndex9, align 8
-  %supportedLSRs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 10
+  %supportedLSRs = getelementptr inbounds i8, ptr %src, i64 64
   %8 = load ptr, ptr %supportedLSRs, align 8
-  %supportedLSRs10 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 10
+  %supportedLSRs10 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %8, ptr %supportedLSRs10, align 8
-  %supportedIndexes = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 11
+  %supportedIndexes = getelementptr inbounds i8, ptr %src, i64 72
   %9 = load ptr, ptr %supportedIndexes, align 8
-  %supportedIndexes11 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 11
+  %supportedIndexes11 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %9, ptr %supportedIndexes11, align 8
-  %supportedLSRsLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 12
+  %supportedLSRsLength = getelementptr inbounds i8, ptr %src, i64 80
   %10 = load i32, ptr %supportedLSRsLength, align 8
-  %supportedLSRsLength12 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 12
+  %supportedLSRsLength12 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %10, ptr %supportedLSRsLength12, align 8
-  %ownedDefaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 13
+  %ownedDefaultLocale = getelementptr inbounds i8, ptr %src, i64 88
   %11 = load ptr, ptr %ownedDefaultLocale, align 8
-  %ownedDefaultLocale13 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 13
+  %ownedDefaultLocale13 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %11, ptr %ownedDefaultLocale13, align 8
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %src, i64 0, i32 14
+  %defaultLocale = getelementptr inbounds i8, ptr %src, i64 96
   %12 = load ptr, ptr %defaultLocale, align 8
-  %defaultLocale14 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale14 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %12, ptr %defaultLocale14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %supportedLocales, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %supportedLsrToIndex, i8 0, i64 28, i1 false)
@@ -2254,13 +2251,13 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %fIsBogus.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 11
+  %fIsBogus.i.i = getelementptr inbounds i8, ptr %desiredLocale, i64 216
   %2 = load i8, ptr %fIsBogus.i.i, align 8, !noalias !18
   %tobool2.not.i = icmp eq i8 %2, 0
   br i1 %tobool2.not.i, label %lor.lhs.false3.i, label %if.then.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end
-  %fullName.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 7
+  %fullName.i.i = getelementptr inbounds i8, ptr %desiredLocale, i64 40
   %3 = load ptr, ptr %fullName.i.i, align 8, !noalias !18
   %4 = load i8, ptr %3, align 1, !noalias !18
   %cmp.i5 = icmp eq i8 %4, 0
@@ -2268,18 +2265,18 @@ lor.lhs.false3.i:                                 ; preds = %if.end
 
 if.then.i:                                        ; preds = %lor.lhs.false3.i, %if.end
   store ptr @.str, ptr %agg.tmp, align 8, !alias.scope !18
-  %script.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 1
+  %script.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i, align 8, !alias.scope !18
-  %region.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 2
+  %region.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i, align 8, !alias.scope !18
-  %owned.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %owned.i.i, align 8, !alias.scope !18
-  %regionIndex.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 4
+  %regionIndex.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %call.i.i = tail call noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1), !noalias !18
   store i32 %call.i.i, ptr %regionIndex.i.i, align 8, !alias.scope !18
-  %flags.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 36
   store i32 7, ptr %flags.i.i, align 4, !alias.scope !18
-  %hashCode.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 6
+  %hashCode.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i32 0, ptr %hashCode.i.i, align 8, !alias.scope !18
   br label %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
 
@@ -2292,7 +2289,7 @@ _ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %5 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i6
@@ -2313,11 +2310,11 @@ _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont, %if.th
   %cmp.i7 = icmp slt i32 %8, 1
   %cmp = icmp sgt i32 %call2, -1
   %or.cond = and i1 %cmp, %cmp.i7
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %supportedLocales, align 8
   %idxprom = zext nneg i32 %call2 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale = getelementptr inbounds i8, ptr %this, i64 96
   %cond.in = select i1 %or.cond, ptr %arrayidx, ptr %defaultLocale
   %cond = load ptr, ptr %cond.in, align 8
   br label %return
@@ -2343,28 +2340,28 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %thresholdDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 2
+  %thresholdDistance = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %thresholdDistance, align 8
   %shl.i = shl i32 %1, 3
-  %supportedLsrToIndex = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 9
-  %localeDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 1
-  %supportedLSRs = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 10
-  %supportedLSRsLength = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 12
-  %favorSubtag = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 4
-  %direction = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 5
+  %supportedLsrToIndex = getelementptr inbounds i8, ptr %this, i64 56
+  %localeDistance = getelementptr inbounds i8, ptr %this, i64 8
+  %supportedLSRs = getelementptr inbounds i8, ptr %this, i64 64
+  %supportedLSRsLength = getelementptr inbounds i8, ptr %this, i64 80
+  %favorSubtag = getelementptr inbounds i8, ptr %this, i64 24
+  %direction = getelementptr inbounds i8, ptr %this, i64 28
   %cmp18.not = icmp eq ptr %remainingIter, null
-  %bestDesiredIndex.i21 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %remainingIter, i64 0, i32 6
-  %lifetime.i22 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %remainingIter, i64 0, i32 2
-  %remembered3.i25 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %remainingIter, i64 0, i32 5
-  %current5.i34 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %remainingIter, i64 0, i32 4
-  %demotionPerDesiredLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 3
-  %locales.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %remainingIter, i64 0, i32 1
-  %script.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 1
-  %region.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 2
-  %owned.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
-  %regionIndex.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 4
-  %flags.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 5
-  %hashCode.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 6
+  %bestDesiredIndex.i21 = getelementptr inbounds i8, ptr %remainingIter, i64 40
+  %lifetime.i22 = getelementptr inbounds i8, ptr %remainingIter, i64 16
+  %remembered3.i25 = getelementptr inbounds i8, ptr %remainingIter, i64 32
+  %current5.i34 = getelementptr inbounds i8, ptr %remainingIter, i64 24
+  %demotionPerDesiredLocale = getelementptr inbounds i8, ptr %this, i64 20
+  %locales.i = getelementptr inbounds i8, ptr %remainingIter, i64 8
+  %script.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %region.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %owned.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %regionIndex.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %flags.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %hashCode.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end39, %if.end
@@ -2409,7 +2406,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 delete.notnull.i:                                 ; preds = %if.else.i
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %9 = load ptr, ptr %vfn.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(217) %8) #16
   br label %delete.end.i
@@ -2480,7 +2477,7 @@ if.else.i24:                                      ; preds = %if.end.i20
 
 delete.notnull.i27:                               ; preds = %if.else.i24
   %vtable.i28 = load ptr, ptr %20, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 1
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 8
   %21 = load ptr, ptr %vfn.i29, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(217) %20) #16
   br label %delete.end.i30
@@ -2529,7 +2526,7 @@ if.end26:                                         ; preds = %if.end24, %if.end13
 lor.lhs.false:                                    ; preds = %if.end26
   %25 = load ptr, ptr %locales.i, align 8
   %vtable.i45 = load ptr, ptr %25, align 8
-  %vfn.i46 = getelementptr inbounds ptr, ptr %vtable.i45, i64 2
+  %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 16
   %26 = load ptr, ptr %vfn.i46, align 8
   %call.i = call noundef signext i8 %26(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %tobool.i.not = icmp eq i8 %call.i, 0
@@ -2539,7 +2536,7 @@ if.end34:                                         ; preds = %lor.lhs.false
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %27 = load ptr, ptr %locales.i, align 8, !noalias !21
   %vtable.i48 = load ptr, ptr %27, align 8, !noalias !21
-  %vfn.i49 = getelementptr inbounds ptr, ptr %vtable.i48, i64 3
+  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 24
   %28 = load ptr, ptr %vfn.i49, align 8, !noalias !21
   %call.i50 = call noundef nonnull align 8 dereferenceable(217) ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %27), !noalias !21
   store ptr %call.i50, ptr %current5.i34, align 8, !noalias !21
@@ -2547,14 +2544,14 @@ if.end34:                                         ; preds = %lor.lhs.false
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %30 = load i32, ptr %errorCode, align 4, !noalias !27
   %cmp.i.i.i = icmp slt i32 %30, 1
-  %fIsBogus.i.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call.i50, i64 0, i32 11
+  %fIsBogus.i.i.i = getelementptr inbounds i8, ptr %call.i50, i64 216
   %31 = load i8, ptr %fIsBogus.i.i.i, align 8, !noalias !27
   %tobool2.not.i.i = icmp eq i8 %31, 0
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool2.not.i.i, i1 false
   br i1 %or.cond.i.i, label %lor.lhs.false3.i.i, label %if.then.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %if.end34
-  %fullName.i.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call.i50, i64 0, i32 7
+  %fullName.i.i.i = getelementptr inbounds i8, ptr %call.i50, i64 40
   %32 = load ptr, ptr %fullName.i.i.i, align 8, !noalias !27
   %33 = load i8, ptr %32, align 1, !noalias !27
   %cmp.i.i52 = icmp eq i8 %33, 0
@@ -2606,7 +2603,7 @@ for.end:                                          ; preds = %lor.lhs.false, %if.
   br i1 %cmp40, label %return, label %if.end42
 
 if.end42:                                         ; preds = %for.end
-  %supportedIndexes = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 11
+  %supportedIndexes = getelementptr inbounds i8, ptr %this, i64 72
   %38 = load ptr, ptr %supportedIndexes, align 8
   %idxprom = zext nneg i32 %bestSupportedLsrIndex.1 to i64
   %arrayidx = getelementptr inbounds i32, ptr %38, i64 %idxprom
@@ -2629,31 +2626,31 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %desiredLocales, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %defaultLocale, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
   %3 = load ptr, ptr %this, align 8
   store ptr %3, ptr %lsrIter, align 8
-  %locales3.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 1
+  %locales3.i = getelementptr inbounds i8, ptr %lsrIter, i64 8
   store ptr %desiredLocales, ptr %locales3.i, align 8
-  %lifetime4.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 2
+  %lifetime4.i = getelementptr inbounds i8, ptr %lsrIter, i64 16
   store i32 0, ptr %lifetime4.i, align 8
-  %current.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 4
-  %bestDesiredIndex.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 6
+  %current.i = getelementptr inbounds i8, ptr %lsrIter, i64 24
+  %bestDesiredIndex.i = getelementptr inbounds i8, ptr %lsrIter, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %bestDesiredIndex.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %vtable.i = load ptr, ptr %desiredLocales, align 8, !noalias !29
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8, !noalias !29
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(217) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales)
           to label %call.i.noexc unwind label %ehcleanup.thread
@@ -2663,14 +2660,14 @@ call.i.noexc:                                     ; preds = %if.end5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %5 = load i32, ptr %errorCode, align 4, !noalias !35
   %cmp.i.i.i = icmp slt i32 %5, 1
-  %fIsBogus.i.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call.i8, i64 0, i32 11
+  %fIsBogus.i.i.i = getelementptr inbounds i8, ptr %call.i8, i64 216
   %6 = load i8, ptr %fIsBogus.i.i.i, align 8, !noalias !35
   %tobool2.not.i.i = icmp eq i8 %6, 0
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool2.not.i.i, i1 false
   br i1 %or.cond.i.i, label %lor.lhs.false3.i.i, label %if.then.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %call.i.noexc
-  %fullName.i.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call.i8, i64 0, i32 7
+  %fullName.i.i.i = getelementptr inbounds i8, ptr %call.i8, i64 40
   %7 = load ptr, ptr %fullName.i.i.i, align 8, !noalias !35
   %8 = load i8, ptr %7, align 1, !noalias !35
   %cmp.i.i = icmp eq i8 %8, 0
@@ -2678,21 +2675,21 @@ lor.lhs.false3.i.i:                               ; preds = %call.i.noexc
 
 if.then.i.i:                                      ; preds = %lor.lhs.false3.i.i, %call.i.noexc
   store ptr @.str, ptr %agg.tmp, align 8, !alias.scope !35
-  %script.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 1
+  %script.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i.i, align 8, !alias.scope !35
-  %region.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 2
+  %region.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i.i, align 8, !alias.scope !35
-  %owned.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %owned.i.i.i, align 8, !alias.scope !35
   %call.i.i.i9 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1)
           to label %call.i.i.i.noexc unwind label %ehcleanup.thread
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  %regionIndex.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 4
+  %regionIndex.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i32 %call.i.i.i9, ptr %regionIndex.i.i.i, align 8, !alias.scope !35
-  %flags.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 5
+  %flags.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 36
   store i32 7, ptr %flags.i.i.i, align 4, !alias.scope !35
-  %hashCode.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 6
+  %hashCode.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i32 0, ptr %hashCode.i.i.i, align 8, !alias.scope !35
   br label %invoke.cont
 
@@ -2705,7 +2702,7 @@ invoke.cont:                                      ; preds = %call.i.i.i.noexc, %
           to label %invoke.cont7 unwind label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %9 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i
@@ -2726,11 +2723,11 @@ _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont7, %if.t
   %cmp.i10 = icmp slt i32 %12, 1
   %cmp = icmp sgt i32 %call8, -1
   %or.cond = and i1 %cmp, %cmp.i10
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load ptr, ptr %supportedLocales, align 8
   %idxprom = zext nneg i32 %call8 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %13, i64 %idxprom
-  %defaultLocale12 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale12 = getelementptr inbounds i8, ptr %this, i64 96
   %cond.in = select i1 %or.cond, ptr %arrayidx, ptr %defaultLocale12
   %cond = load ptr, ptr %cond.in, align 8
   %14 = load i32, ptr %lifetime4.i, align 8
@@ -2738,14 +2735,14 @@ _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont7, %if.t
   br i1 %cmp.i12, label %if.then.i13, label %return
 
 if.then.i13:                                      ; preds = %_ZN6icu_753LSRD2Ev.exit
-  %remembered.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 5
+  %remembered.i = getelementptr inbounds i8, ptr %lsrIter, i64 32
   %15 = load ptr, ptr %remembered.i, align 8
   %isnull.i = icmp eq ptr %15, null
   br i1 %isnull.i, label %return, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i13
   %vtable.i14 = load ptr, ptr %15, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 1
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 8
   %16 = load ptr, ptr %vfn.i15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(217) %15) #16
   br label %return
@@ -2765,14 +2762,14 @@ ehcleanup:                                        ; preds = %invoke.cont
 
 if.then.i18:                                      ; preds = %ehcleanup.thread, %ehcleanup
   %.pn28 = phi { ptr, i32 } [ %17, %ehcleanup.thread ], [ %18, %ehcleanup ]
-  %remembered.i19 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 5
+  %remembered.i19 = getelementptr inbounds i8, ptr %lsrIter, i64 32
   %20 = load ptr, ptr %remembered.i19, align 8
   %isnull.i20 = icmp eq ptr %20, null
   br i1 %isnull.i20, label %_ZN6icu_7517LocaleLsrIteratorD2Ev.exit24, label %delete.notnull.i21
 
 delete.notnull.i21:                               ; preds = %if.then.i18
   %vtable.i22 = load ptr, ptr %20, align 8
-  %vfn.i23 = getelementptr inbounds ptr, ptr %vtable.i22, i64 1
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 8
   %21 = load ptr, ptr %vfn.i23, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(217) %20) #16
   br label %_ZN6icu_7517LocaleLsrIteratorD2Ev.exit24
@@ -2794,16 +2791,16 @@ invoke.cont:
   call void @_ZN6icu_7518LocalePriorityListC1ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %list, ptr %desiredLocaleList.coerce0, i32 %desiredLocaleList.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i64 0, inrange i32 0, i64 2), ptr %iter, align 8, !alias.scope !36
-  %list2.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %iter, i64 0, i32 1
+  %list2.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   store ptr %list, ptr %list2.i.i, align 8, !alias.scope !36
-  %index.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %iter, i64 0, i32 2
+  %index.i.i = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 0, ptr %index.i.i, align 8, !alias.scope !36
-  %count.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %iter, i64 0, i32 3
+  %count.i.i = getelementptr inbounds i8, ptr %iter, i64 20
   store i32 0, ptr %count.i.i, align 4, !alias.scope !36
-  %length.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %iter, i64 0, i32 4
-  %listLength.i.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList", ptr %list, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %iter, i64 24
+  %listLength.i.i.i = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load i32, ptr %listLength.i.i.i, align 8, !noalias !36
-  %numRemoved.i.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList", ptr %list, i64 0, i32 2
+  %numRemoved.i.i.i = getelementptr inbounds i8, ptr %list, i64 12
   %1 = load i32, ptr %numRemoved.i.i.i, align 4, !noalias !36
   %sub.i.i.i = sub nsw i32 %0, %1
   store i32 %sub.i.i.i, ptr %length.i.i, align 8, !alias.scope !36
@@ -2839,19 +2836,19 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale = getelementptr inbounds i8, ptr %this, i64 96
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %fIsBogus.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 11
+  %fIsBogus.i.i = getelementptr inbounds i8, ptr %desiredLocale, i64 216
   %2 = load i8, ptr %fIsBogus.i.i, align 8, !noalias !39
   %tobool2.not.i = icmp eq i8 %2, 0
   br i1 %tobool2.not.i, label %lor.lhs.false3.i, label %if.then.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end
-  %fullName.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 7
+  %fullName.i.i = getelementptr inbounds i8, ptr %desiredLocale, i64 40
   %3 = load ptr, ptr %fullName.i.i, align 8, !noalias !39
   %4 = load i8, ptr %3, align 1, !noalias !39
   %cmp.i7 = icmp eq i8 %4, 0
@@ -2859,18 +2856,18 @@ lor.lhs.false3.i:                                 ; preds = %if.end
 
 if.then.i:                                        ; preds = %lor.lhs.false3.i, %if.end
   store ptr @.str, ptr %agg.tmp, align 8, !alias.scope !39
-  %script.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 1
+  %script.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i, align 8, !alias.scope !39
-  %region.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 2
+  %region.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i, align 8, !alias.scope !39
-  %owned.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %owned.i.i, align 8, !alias.scope !39
-  %regionIndex.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 4
+  %regionIndex.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %call.i.i = tail call noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1), !noalias !39
   store i32 %call.i.i, ptr %regionIndex.i.i, align 8, !alias.scope !39
-  %flags.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 36
   store i32 7, ptr %flags.i.i, align 4, !alias.scope !39
-  %hashCode.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 6
+  %hashCode.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i32 0, ptr %hashCode.i.i, align 8, !alias.scope !39
   br label %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
 
@@ -2883,7 +2880,7 @@ _ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %5 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i8
@@ -2907,7 +2904,7 @@ _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont, %if.th
   br i1 %or.cond, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %_ZN6icu_753LSRD2Ev.exit
-  %defaultLocale6 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale6 = getelementptr inbounds i8, ptr %this, i64 96
   br label %return
 
 lpad:                                             ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
@@ -2917,7 +2914,7 @@ lpad:                                             ; preds = %_ZN6icu_7512_GLOBAL
   resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %_ZN6icu_753LSRD2Ev.exit
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load ptr, ptr %supportedLocales, align 8
   %idxprom = zext nneg i32 %call2 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
@@ -2930,13 +2927,13 @@ return:                                           ; preds = %if.else, %if.then5,
   %call2.sink = phi i32 [ %call2, %if.else ], [ -1, %if.then5 ], [ -1, %if.then ]
   %11 = load ptr, ptr %arrayidx.sink, align 8
   store ptr %desiredLocale.sink, ptr %agg.result, align 8
-  %supportedLocale.i15 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 1
+  %supportedLocale.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %11, ptr %supportedLocale.i15, align 8
-  %desiredIndex.i16 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 2
+  %desiredIndex.i16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %.sink, ptr %desiredIndex.i16, align 8
-  %supportedIndex.i17 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 3
+  %supportedIndex.i17 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i32 %call2.sink, ptr %supportedIndex.i17, align 4
-  %desiredIsOwned.i18 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 4
+  %desiredIsOwned.i18 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %desiredIsOwned.i18, align 8
   ret void
 }
@@ -2952,40 +2949,40 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %vtable = load ptr, ptr %desiredLocales, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %defaultLocale = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %defaultLocale, align 8
   store ptr null, ptr %agg.result, align 8
-  %supportedLocale.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 1
+  %supportedLocale.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %2, ptr %supportedLocale.i, align 8
-  %desiredIndex.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 2
+  %desiredIndex.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 -1, ptr %desiredIndex.i, align 8
-  %supportedIndex.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 3
+  %supportedIndex.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i32 -1, ptr %supportedIndex.i, align 4
-  %desiredIsOwned.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 4
+  %desiredIsOwned.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %desiredIsOwned.i, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   %3 = load ptr, ptr %this, align 8
   store ptr %3, ptr %lsrIter, align 8
-  %locales3.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 1
+  %locales3.i = getelementptr inbounds i8, ptr %lsrIter, i64 8
   store ptr %desiredLocales, ptr %locales3.i, align 8
-  %lifetime4.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 2
+  %lifetime4.i = getelementptr inbounds i8, ptr %lsrIter, i64 16
   store i32 0, ptr %lifetime4.i, align 8
-  %current.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 4
-  %bestDesiredIndex.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 6
+  %current.i = getelementptr inbounds i8, ptr %lsrIter, i64 24
+  %bestDesiredIndex.i = getelementptr inbounds i8, ptr %lsrIter, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %bestDesiredIndex.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %vtable.i = load ptr, ptr %desiredLocales, align 8, !noalias !42
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8, !noalias !42
   %call.i9 = invoke noundef nonnull align 8 dereferenceable(217) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales)
           to label %call.i.noexc unwind label %ehcleanup.thread
@@ -2995,14 +2992,14 @@ call.i.noexc:                                     ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %5 = load i32, ptr %errorCode, align 4, !noalias !48
   %cmp.i.i.i = icmp slt i32 %5, 1
-  %fIsBogus.i.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call.i9, i64 0, i32 11
+  %fIsBogus.i.i.i = getelementptr inbounds i8, ptr %call.i9, i64 216
   %6 = load i8, ptr %fIsBogus.i.i.i, align 8, !noalias !48
   %tobool2.not.i.i = icmp eq i8 %6, 0
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool2.not.i.i, i1 false
   br i1 %or.cond.i.i, label %lor.lhs.false3.i.i, label %if.then.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %call.i.noexc
-  %fullName.i.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call.i9, i64 0, i32 7
+  %fullName.i.i.i = getelementptr inbounds i8, ptr %call.i9, i64 40
   %7 = load ptr, ptr %fullName.i.i.i, align 8, !noalias !48
   %8 = load i8, ptr %7, align 1, !noalias !48
   %cmp.i.i = icmp eq i8 %8, 0
@@ -3010,21 +3007,21 @@ lor.lhs.false3.i.i:                               ; preds = %call.i.noexc
 
 if.then.i.i:                                      ; preds = %lor.lhs.false3.i.i, %call.i.noexc
   store ptr @.str, ptr %agg.tmp, align 8, !alias.scope !48
-  %script.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 1
+  %script.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i.i, align 8, !alias.scope !48
-  %region.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 2
+  %region.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i.i, align 8, !alias.scope !48
-  %owned.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %owned.i.i.i, align 8, !alias.scope !48
   %call.i.i.i10 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1)
           to label %call.i.i.i.noexc unwind label %ehcleanup.thread
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i
-  %regionIndex.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 4
+  %regionIndex.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i32 %call.i.i.i10, ptr %regionIndex.i.i.i, align 8, !alias.scope !48
-  %flags.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 5
+  %flags.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 36
   store i32 7, ptr %flags.i.i.i, align 4, !alias.scope !48
-  %hashCode.i.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 6
+  %hashCode.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i32 0, ptr %hashCode.i.i.i, align 8, !alias.scope !48
   br label %invoke.cont
 
@@ -3037,7 +3034,7 @@ invoke.cont:                                      ; preds = %call.i.i.i.noexc, %
           to label %invoke.cont5 unwind label %ehcleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %agg.tmp, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %9 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i
@@ -3061,7 +3058,7 @@ _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont5, %if.t
   br i1 %or.cond, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %_ZN6icu_753LSRD2Ev.exit
-  %defaultLocale12 = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 14
+  %defaultLocale12 = getelementptr inbounds i8, ptr %this, i64 96
   br label %cleanup
 
 ehcleanup.thread:                                 ; preds = %if.end, %if.then.i.i, %if.else.i.i
@@ -3070,10 +3067,10 @@ ehcleanup.thread:                                 ; preds = %if.end, %if.then.i.
   br label %if.then.i29
 
 if.else:                                          ; preds = %_ZN6icu_753LSRD2Ev.exit
-  %remembered.i = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 5
+  %remembered.i = getelementptr inbounds i8, ptr %lsrIter, i64 32
   %14 = load ptr, ptr %remembered.i, align 8
   store ptr null, ptr %remembered.i, align 8
-  %supportedLocales = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 6
+  %supportedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load ptr, ptr %supportedLocales, align 8
   %idxprom = zext nneg i32 %call6 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %idxprom
@@ -3088,27 +3085,27 @@ cleanup:                                          ; preds = %if.else, %if.then11
   %.sink = phi i8 [ 0, %if.then11 ], [ 1, %if.else ]
   %.sink37 = load ptr, ptr %.sink37.in, align 8
   store ptr %.sink38, ptr %agg.result, align 8
-  %17 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink37, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %.sink36, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 3
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i32 %call6.sink, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %agg.result, i64 0, i32 4
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 %.sink, ptr %20, align 8
   %21 = load i32, ptr %lifetime4.i, align 8
   %cmp.i22 = icmp eq i32 %21, 0
   br i1 %cmp.i22, label %if.then.i23, label %return
 
 if.then.i23:                                      ; preds = %cleanup
-  %remembered.i24 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 5
+  %remembered.i24 = getelementptr inbounds i8, ptr %lsrIter, i64 32
   %22 = load ptr, ptr %remembered.i24, align 8
   %isnull.i = icmp eq ptr %22, null
   br i1 %isnull.i, label %return, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i23
   %vtable.i25 = load ptr, ptr %22, align 8
-  %vfn.i26 = getelementptr inbounds ptr, ptr %vtable.i25, i64 1
+  %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 8
   %23 = load ptr, ptr %vfn.i26, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(217) %22) #16
   br label %return
@@ -3123,14 +3120,14 @@ ehcleanup:                                        ; preds = %invoke.cont
 
 if.then.i29:                                      ; preds = %ehcleanup.thread, %ehcleanup
   %.pn42 = phi { ptr, i32 } [ %13, %ehcleanup.thread ], [ %24, %ehcleanup ]
-  %remembered.i30 = getelementptr inbounds %"class.icu_75::LocaleLsrIterator", ptr %lsrIter, i64 0, i32 5
+  %remembered.i30 = getelementptr inbounds i8, ptr %lsrIter, i64 32
   %26 = load ptr, ptr %remembered.i30, align 8
   %isnull.i31 = icmp eq ptr %26, null
   br i1 %isnull.i31, label %_ZN6icu_7517LocaleLsrIteratorD2Ev.exit35, label %delete.notnull.i32
 
 delete.notnull.i32:                               ; preds = %if.then.i29
   %vtable.i33 = load ptr, ptr %26, align 8
-  %vfn.i34 = getelementptr inbounds ptr, ptr %vtable.i33, i64 1
+  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 8
   %27 = load ptr, ptr %vfn.i34, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(217) %26) #16
   br label %_ZN6icu_7517LocaleLsrIteratorD2Ev.exit35
@@ -3155,14 +3152,14 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %1 = load i32, ptr %errorCode, align 4, !noalias !49
   %cmp.i.i = icmp slt i32 %1, 1
-  %fIsBogus.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %supported, i64 0, i32 11
+  %fIsBogus.i.i = getelementptr inbounds i8, ptr %supported, i64 216
   %2 = load i8, ptr %fIsBogus.i.i, align 8, !noalias !49
   %tobool2.not.i = icmp eq i8 %2, 0
   %or.cond.i = select i1 %cmp.i.i, i1 %tobool2.not.i, i1 false
   br i1 %or.cond.i, label %lor.lhs.false3.i, label %if.then.i
 
 lor.lhs.false3.i:                                 ; preds = %entry
-  %fullName.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %supported, i64 0, i32 7
+  %fullName.i.i = getelementptr inbounds i8, ptr %supported, i64 40
   %3 = load ptr, ptr %fullName.i.i, align 8, !noalias !49
   %4 = load i8, ptr %3, align 1, !noalias !49
   %cmp.i = icmp eq i8 %4, 0
@@ -3170,18 +3167,18 @@ lor.lhs.false3.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %lor.lhs.false3.i, %entry
   store ptr @.str, ptr %suppLSR, align 8, !alias.scope !49
-  %script.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 1
+  %script.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 8
   store ptr @.str.1, ptr %script.i.i, align 8, !alias.scope !49
-  %region.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 2
+  %region.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 16
   store ptr @.str.1, ptr %region.i.i, align 8, !alias.scope !49
-  %owned.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 3
+  %owned.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 24
   store ptr null, ptr %owned.i.i, align 8, !alias.scope !49
-  %regionIndex.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 4
+  %regionIndex.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 32
   %call.i.i = tail call noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1), !noalias !49
   store i32 %call.i.i, ptr %regionIndex.i.i, align 8, !alias.scope !49
-  %flags.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 36
   store i32 7, ptr %flags.i.i, align 4, !alias.scope !49
-  %hashCode.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 6
+  %hashCode.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 40
   store i32 0, ptr %hashCode.i.i, align 8, !alias.scope !49
   br label %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
 
@@ -3201,17 +3198,17 @@ lpad:                                             ; preds = %if.else.i20, %if.th
 
 if.end:                                           ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
   store ptr %suppLSR, ptr %pSuppLSR, align 8
-  %localeDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 1
+  %localeDistance = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %localeDistance, align 8
   %8 = load ptr, ptr %this, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %fIsBogus.i.i6 = getelementptr inbounds %"class.icu_75::Locale", ptr %desired, i64 0, i32 11
+  %fIsBogus.i.i6 = getelementptr inbounds i8, ptr %desired, i64 216
   %9 = load i8, ptr %fIsBogus.i.i6, align 8, !noalias !52
   %tobool2.not.i7 = icmp eq i8 %9, 0
   br i1 %tobool2.not.i7, label %lor.lhs.false3.i17, label %if.then.i9
 
 lor.lhs.false3.i17:                               ; preds = %if.end
-  %fullName.i.i18 = getelementptr inbounds %"class.icu_75::Locale", ptr %desired, i64 0, i32 7
+  %fullName.i.i18 = getelementptr inbounds i8, ptr %desired, i64 40
   %10 = load ptr, ptr %fullName.i.i18, align 8, !noalias !52
   %11 = load i8, ptr %10, align 1, !noalias !52
   %cmp.i19 = icmp eq i8 %11, 0
@@ -3219,21 +3216,21 @@ lor.lhs.false3.i17:                               ; preds = %if.end
 
 if.then.i9:                                       ; preds = %lor.lhs.false3.i17, %if.end
   store ptr @.str, ptr %ref.tmp, align 8, !alias.scope !52
-  %script.i.i10 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 1
+  %script.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i10, align 8, !alias.scope !52
-  %region.i.i11 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 2
+  %region.i.i11 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i11, align 8, !alias.scope !52
-  %owned.i.i12 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
+  %owned.i.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %owned.i.i12, align 8, !alias.scope !52
   %call.i.i1421 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1)
           to label %call.i.i14.noexc unwind label %lpad
 
 call.i.i14.noexc:                                 ; preds = %if.then.i9
-  %regionIndex.i.i13 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 4
+  %regionIndex.i.i13 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %call.i.i1421, ptr %regionIndex.i.i13, align 8, !alias.scope !52
-  %flags.i.i15 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 5
+  %flags.i.i15 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   store i32 7, ptr %flags.i.i15, align 4, !alias.scope !52
-  %hashCode.i.i16 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 6
+  %hashCode.i.i16 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i32 0, ptr %hashCode.i.i16, align 8, !alias.scope !52
   br label %invoke.cont3
 
@@ -3242,18 +3239,18 @@ if.else.i20:                                      ; preds = %lor.lhs.false3.i17
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %call.i.i14.noexc, %if.else.i20
-  %thresholdDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 2
+  %thresholdDistance = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i32, ptr %thresholdDistance, align 8
   %shl.i = shl i32 %12, 3
-  %favorSubtag = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 4
+  %favorSubtag = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load i32, ptr %favorSubtag, align 8
-  %direction = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load i32, ptr %direction, align 4
   %call8 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %pSuppLSR, i32 noundef 1, i32 noundef %shl.i, i32 noundef %13, i32 noundef %14)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont3
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %15 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %15, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i23
@@ -3282,7 +3279,7 @@ lpad4:                                            ; preds = %invoke.cont3
 
 cleanup:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit, %_ZN6icu_753LSRD2Ev.exit
   %retval.0 = phi i8 [ %conv, %_ZN6icu_753LSRD2Ev.exit ], [ 0, %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit ]
-  %owned.i24 = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 3
+  %owned.i24 = getelementptr inbounds i8, ptr %suppLSR, i64 24
   %19 = load ptr, ptr %owned.i24, align 8
   %cmp.not.i25 = icmp eq ptr %19, null
   br i1 %cmp.not.i25, label %_ZN6icu_753LSRD2Ev.exit28, label %if.then.i26
@@ -3317,14 +3314,14 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %1 = load i32, ptr %errorCode, align 4, !noalias !55
   %cmp.i.i = icmp slt i32 %1, 1
-  %fIsBogus.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %supported, i64 0, i32 11
+  %fIsBogus.i.i = getelementptr inbounds i8, ptr %supported, i64 216
   %2 = load i8, ptr %fIsBogus.i.i, align 8, !noalias !55
   %tobool2.not.i = icmp eq i8 %2, 0
   %or.cond.i = select i1 %cmp.i.i, i1 %tobool2.not.i, i1 false
   br i1 %or.cond.i, label %lor.lhs.false3.i, label %if.then.i
 
 lor.lhs.false3.i:                                 ; preds = %entry
-  %fullName.i.i = getelementptr inbounds %"class.icu_75::Locale", ptr %supported, i64 0, i32 7
+  %fullName.i.i = getelementptr inbounds i8, ptr %supported, i64 40
   %3 = load ptr, ptr %fullName.i.i, align 8, !noalias !55
   %4 = load i8, ptr %3, align 1, !noalias !55
   %cmp.i = icmp eq i8 %4, 0
@@ -3332,18 +3329,18 @@ lor.lhs.false3.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %lor.lhs.false3.i, %entry
   store ptr @.str, ptr %suppLSR, align 8, !alias.scope !55
-  %script.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 1
+  %script.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 8
   store ptr @.str.1, ptr %script.i.i, align 8, !alias.scope !55
-  %region.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 2
+  %region.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 16
   store ptr @.str.1, ptr %region.i.i, align 8, !alias.scope !55
-  %owned.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 3
+  %owned.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 24
   store ptr null, ptr %owned.i.i, align 8, !alias.scope !55
-  %regionIndex.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 4
+  %regionIndex.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 32
   %call.i.i = tail call noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1), !noalias !55
   store i32 %call.i.i, ptr %regionIndex.i.i, align 8, !alias.scope !55
-  %flags.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 36
   store i32 7, ptr %flags.i.i, align 4, !alias.scope !55
-  %hashCode.i.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 6
+  %hashCode.i.i = getelementptr inbounds i8, ptr %suppLSR, i64 40
   store i32 0, ptr %hashCode.i.i, align 8, !alias.scope !55
   br label %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
 
@@ -3363,17 +3360,17 @@ lpad:                                             ; preds = %if.else.i20, %if.th
 
 if.end:                                           ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit
   store ptr %suppLSR, ptr %pSuppLSR, align 8
-  %localeDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 1
+  %localeDistance = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %localeDistance, align 8
   %8 = load ptr, ptr %this, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %fIsBogus.i.i6 = getelementptr inbounds %"class.icu_75::Locale", ptr %desired, i64 0, i32 11
+  %fIsBogus.i.i6 = getelementptr inbounds i8, ptr %desired, i64 216
   %9 = load i8, ptr %fIsBogus.i.i6, align 8, !noalias !58
   %tobool2.not.i7 = icmp eq i8 %9, 0
   br i1 %tobool2.not.i7, label %lor.lhs.false3.i17, label %if.then.i9
 
 lor.lhs.false3.i17:                               ; preds = %if.end
-  %fullName.i.i18 = getelementptr inbounds %"class.icu_75::Locale", ptr %desired, i64 0, i32 7
+  %fullName.i.i18 = getelementptr inbounds i8, ptr %desired, i64 40
   %10 = load ptr, ptr %fullName.i.i18, align 8, !noalias !58
   %11 = load i8, ptr %10, align 1, !noalias !58
   %cmp.i19 = icmp eq i8 %11, 0
@@ -3381,21 +3378,21 @@ lor.lhs.false3.i17:                               ; preds = %if.end
 
 if.then.i9:                                       ; preds = %lor.lhs.false3.i17, %if.end
   store ptr @.str, ptr %ref.tmp, align 8, !alias.scope !58
-  %script.i.i10 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 1
+  %script.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.1, ptr %script.i.i10, align 8, !alias.scope !58
-  %region.i.i11 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 2
+  %region.i.i11 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr @.str.1, ptr %region.i.i11, align 8, !alias.scope !58
-  %owned.i.i12 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
+  %owned.i.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %owned.i.i12, align 8, !alias.scope !58
   %call.i.i1421 = invoke noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr noundef nonnull @.str.1)
           to label %call.i.i14.noexc unwind label %lpad
 
 call.i.i14.noexc:                                 ; preds = %if.then.i9
-  %regionIndex.i.i13 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 4
+  %regionIndex.i.i13 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %call.i.i1421, ptr %regionIndex.i.i13, align 8, !alias.scope !58
-  %flags.i.i15 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 5
+  %flags.i.i15 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   store i32 7, ptr %flags.i.i15, align 4, !alias.scope !58
-  %hashCode.i.i16 = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 6
+  %hashCode.i.i16 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i32 0, ptr %hashCode.i.i16, align 8, !alias.scope !58
   br label %invoke.cont3
 
@@ -3404,18 +3401,18 @@ if.else.i20:                                      ; preds = %lor.lhs.false3.i17
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %call.i.i14.noexc, %if.else.i20
-  %thresholdDistance = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 2
+  %thresholdDistance = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i32, ptr %thresholdDistance, align 8
   %shl.i = shl i32 %12, 3
-  %favorSubtag = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 4
+  %favorSubtag = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load i32, ptr %favorSubtag, align 8
-  %direction = getelementptr inbounds %"class.icu_75::LocaleMatcher", ptr %this, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load i32, ptr %direction, align 4
   %call8 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %pSuppLSR, i32 noundef 1, i32 noundef %shl.i, i32 noundef %13, i32 noundef %14)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont3
-  %owned.i = getelementptr inbounds %"struct.icu_75::LSR", ptr %ref.tmp, i64 0, i32 3
+  %owned.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %15 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %15, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i23
@@ -3447,7 +3444,7 @@ lpad4:                                            ; preds = %invoke.cont3
 
 cleanup:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit, %_ZN6icu_753LSRD2Ev.exit
   %retval.0 = phi double [ %div, %_ZN6icu_753LSRD2Ev.exit ], [ 0.000000e+00, %_ZN6icu_7512_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit ]
-  %owned.i25 = getelementptr inbounds %"struct.icu_75::LSR", ptr %suppLSR, i64 0, i32 3
+  %owned.i25 = getelementptr inbounds i8, ptr %suppLSR, i64 24
   %19 = load ptr, ptr %owned.i25, align 8
   %cmp.not.i26 = icmp eq ptr %19, null
   br i1 %cmp.not.i26, label %_ZN6icu_753LSRD2Ev.exit29, label %if.then.i27
@@ -3523,11 +3520,11 @@ invoke.cont:                                      ; preds = %if.end11
   %idx.ext = zext nneg i32 %acceptListCount to i64
   %add.ptr = getelementptr inbounds ptr, ptr %acceptList, i64 %idx.ext
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, inrange i32 0, i64 2), ptr %desiredLocales, align 8
-  %it_.i = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %desiredLocales, i64 0, i32 1
+  %it_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 8
   store ptr %acceptList, ptr %it_.i, align 8
-  %end_.i = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %desiredLocales, i64 0, i32 2
+  %end_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 16
   store ptr %add.ptr, ptr %end_.i, align 8
-  %converter_.i = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %desiredLocales, i64 0, i32 3
+  %converter_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 24
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i, ptr noundef nonnull align 8 dereferenceable(217) %agg.tmp)
           to label %invoke.cont13 unwind label %lpad.i
 
@@ -3586,23 +3583,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %builder, align 8
-  %supportedLocales_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 1
+  %supportedLocales_.i = getelementptr inbounds i8, ptr %builder, i64 8
   store ptr null, ptr %supportedLocales_.i, align 8
-  %thresholdDistance_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 2
+  %thresholdDistance_.i = getelementptr inbounds i8, ptr %builder, i64 16
   store i32 -1, ptr %thresholdDistance_.i, align 8
-  %demotion_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 3
+  %demotion_.i = getelementptr inbounds i8, ptr %builder, i64 20
   store i32 1, ptr %demotion_.i, align 4
-  %defaultLocale_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 4
+  %defaultLocale_.i = getelementptr inbounds i8, ptr %builder, i64 24
   store ptr null, ptr %defaultLocale_.i, align 8
-  %withDefault_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 5
+  %withDefault_.i = getelementptr inbounds i8, ptr %builder, i64 32
   store i8 1, ptr %withDefault_.i, align 8
-  %favor_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 6
+  %favor_.i = getelementptr inbounds i8, ptr %builder, i64 36
   store i32 0, ptr %favor_.i, align 4
-  %direction_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 7
+  %direction_.i = getelementptr inbounds i8, ptr %builder, i64 40
   store i32 0, ptr %direction_.i, align 8
-  %maxDistanceDesired_.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Builder", ptr %builder, i64 0, i32 8
+  %maxDistanceDesired_.i = getelementptr inbounds i8, ptr %builder, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %maxDistanceDesired_.i, i8 0, i64 16, i1 false)
-  %fIsBogus.i = getelementptr inbounds %"class.icu_75::Locale", ptr %loc, i64 0, i32 11
+  %fIsBogus.i = getelementptr inbounds i8, ptr %loc, i64 216
   br label %while.cond
 
 while.cond:                                       ; preds = %cleanup, %if.end
@@ -3684,7 +3681,7 @@ lpad11:                                           ; preds = %invoke.cont10
   br label %ehcleanup
 
 if.end16:                                         ; preds = %invoke.cont12
-  %desiredIndex.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %result, i64 0, i32 2
+  %desiredIndex.i = getelementptr inbounds i8, ptr %result, i64 16
   %7 = load i32, ptr %desiredIndex.i, align 8
   %cmp20 = icmp sgt i32 %7, -1
   %cmp22.not = icmp eq ptr %acceptResult, null
@@ -3695,7 +3692,7 @@ if.then21:                                        ; preds = %if.end16
 
 if.then23:                                        ; preds = %if.then21
   %8 = load ptr, ptr %result, align 8
-  %supportedLocale.i = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %result, i64 0, i32 1
+  %supportedLocale.i = getelementptr inbounds i8, ptr %result, i64 8
   %9 = load ptr, ptr %supportedLocale.i, align 8
   %call28 = invoke noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %8, ptr noundef nonnull align 8 dereferenceable(217) %9)
           to label %invoke.cont27 unwind label %lpad17
@@ -3712,9 +3709,9 @@ lpad17:                                           ; preds = %if.end42.invoke, %i
   br label %ehcleanup
 
 if.end29:                                         ; preds = %invoke.cont27, %if.then21
-  %supportedLocale.i24 = getelementptr inbounds %"class.icu_75::LocaleMatcher::Result", ptr %result, i64 0, i32 1
+  %supportedLocale.i24 = getelementptr inbounds i8, ptr %result, i64 8
   %11 = load ptr, ptr %supportedLocale.i24, align 8
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %11, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %fullName.i, align 8
   %call33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #19
   %conv = trunc i64 %call33 to i32
@@ -3769,7 +3766,7 @@ return:                                           ; preds = %entry, %cleanup47
 define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %converter_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this, i64 0, i32 3
+  %converter_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_) #16
   tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
@@ -3810,21 +3807,21 @@ if.then6:                                         ; preds = %lor.lhs.false, %con
 invoke.cont:                                      ; preds = %lor.lhs.false
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull %httpAcceptLanguage)
   %1 = load ptr, ptr %agg.tmp, align 8
-  %2 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = load i32, ptr %2, align 8
   call void @_ZN6icu_7518LocalePriorityListC1ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %list, ptr %1, i32 %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i64 0, inrange i32 0, i64 2), ptr %desiredLocales, align 8, !alias.scope !65
-  %list2.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %desiredLocales, i64 0, i32 1
+  %list2.i.i = getelementptr inbounds i8, ptr %desiredLocales, i64 8
   store ptr %list, ptr %list2.i.i, align 8, !alias.scope !65
-  %index.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %desiredLocales, i64 0, i32 2
+  %index.i.i = getelementptr inbounds i8, ptr %desiredLocales, i64 16
   store i32 0, ptr %index.i.i, align 8, !alias.scope !65
-  %count.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %desiredLocales, i64 0, i32 3
+  %count.i.i = getelementptr inbounds i8, ptr %desiredLocales, i64 20
   store i32 0, ptr %count.i.i, align 4, !alias.scope !65
-  %length.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %desiredLocales, i64 0, i32 4
-  %listLength.i.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList", ptr %list, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %desiredLocales, i64 24
+  %listLength.i.i.i = getelementptr inbounds i8, ptr %list, i64 8
   %4 = load i32, ptr %listLength.i.i.i, align 8, !noalias !65
-  %numRemoved.i.i.i = getelementptr inbounds %"class.icu_75::LocalePriorityList", ptr %list, i64 0, i32 2
+  %numRemoved.i.i.i = getelementptr inbounds i8, ptr %list, i64 12
   %5 = load i32, ptr %numRemoved.i.i.i, align 4, !noalias !65
   %sub.i.i.i = sub nsw i32 %4, %5
   store i32 %sub.i.i.i, ptr %length.i.i, align 8, !alias.scope !65
@@ -3870,9 +3867,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef signext i8 @_ZNK6icu_7518LocalePriorityList8Iterator7hasNextEv(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %count, align 4
-  %length = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %length, align 8
   %cmp = icmp slt i32 %0, %1
   %conv = zext i1 %cmp to i8
@@ -3882,8 +3879,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_7518LocalePriorityList8Iterator4nextEv(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %list = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this, i64 0, i32 1
-  %index = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this, i64 0, i32 2
+  %list = getelementptr inbounds i8, ptr %this, i64 8
+  %index = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond, %entry
@@ -3896,7 +3893,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   br i1 %cmp.not, label %for.cond, label %if.then, !llvm.loop !68
 
 if.then:                                          ; preds = %for.cond
-  %count = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %count, align 4
   %inc2 = add nsw i32 %2, 1
   store i32 %inc2, ptr %count, align 4
@@ -3924,7 +3921,7 @@ declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noun
 define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %converter_.i = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this, i64 0, i32 3
+  %converter_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #16
   tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
@@ -3934,9 +3931,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext i8 @_ZNK6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEE7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #10 align 2 {
 entry:
-  %it_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this, i64 0, i32 1
+  %it_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %it_, align 8
-  %end_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this, i64 0, i32 2
+  %end_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %end_, align 8
   %cmp = icmp ne ptr %0, %1
   %conv = zext i1 %cmp to i8
@@ -3947,10 +3944,10 @@ entry:
 define internal noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEE4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.icu_75::Locale", align 8
-  %converter_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this, i64 0, i32 3
-  %it_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this, i64 0, i32 1
+  %converter_ = getelementptr inbounds i8, ptr %this, i64 24
+  %it_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %it_, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %incdec.ptr, ptr %it_, align 8
   %1 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %ref.tmp.i)

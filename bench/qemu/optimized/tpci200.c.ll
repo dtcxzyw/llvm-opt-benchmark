@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QTpci200 = type { %struct.QOSGraphObject, %struct.QPCIDevice, %struct.QIpack }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QPCIDevice = type { ptr, i32, i8, %struct.QPCIBar, %struct.QPCIBar, i64, i64 }
-%struct.QPCIBar = type { i64, i8 }
-%struct.QIpack = type {}
 
 @.str = private unnamed_addr constant [20 x i8] c"addr=04.0,id=ipack0\00", align 1
 @__const.tpci200_register_nodes.opts = private unnamed_addr constant %struct.QOSGraphEdgeOptions { ptr null, i32 0, ptr @.str, ptr null, ptr null, ptr null }, align 8
@@ -39,9 +34,9 @@ entry:
   %.compoundliteral = alloca %struct.QPCIAddress, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %opts, ptr noundef nonnull align 8 dereferenceable(48) @__const.tpci200_register_nodes.opts, i64 48, i1 false)
   store i32 32, ptr %.compoundliteral, align 4
-  %vendor_id = getelementptr inbounds %struct.QPCIAddress, ptr %.compoundliteral, i64 0, i32 1
+  %vendor_id = getelementptr inbounds i8, ptr %.compoundliteral, i64 4
   store i16 0, ptr %vendor_id, align 4
-  %device_id = getelementptr inbounds %struct.QPCIAddress, ptr %.compoundliteral, i64 0, i32 2
+  %device_id = getelementptr inbounds i8, ptr %.compoundliteral, i64 6
   store i16 0, ptr %device_id, align 2
   call void @add_qpci_address(ptr noundef nonnull %opts, ptr noundef nonnull %.compoundliteral) #6
   call void @qos_node_create_driver(ptr noundef nonnull @.str.1, ptr noundef nonnull @tpci200_create) #6
@@ -62,7 +57,7 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal ptr @tpci200_create(ptr noundef %pci_bus, ptr nocapture readnone %alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #7
-  %dev = getelementptr inbounds %struct.QTpci200, ptr %call, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @qpci_device_init(ptr noundef nonnull %dev, ptr noundef %pci_bus, ptr noundef %addr) #6
   store ptr @tpci200_get_driver, ptr %call, align 8
   ret ptr %call
@@ -82,20 +77,12 @@ define internal nonnull ptr @tpci200_get_driver(ptr noundef readnone %obj, ptr n
 entry:
   %call = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.3) #6
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %ipack = getelementptr inbounds %struct.QTpci200, ptr %obj, i64 0, i32 2
-  br label %do.end
+  br i1 %tobool.not, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.4) #6
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %dev = getelementptr inbounds %struct.QTpci200, ptr %obj, i64 0, i32 1
-  br label %do.end
+  br i1 %tobool2.not, label %do.end, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %0 = load ptr, ptr @stderr, align 8
@@ -103,9 +90,10 @@ if.end4:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 40, ptr noundef nonnull @__func__.tpci200_get_driver, ptr noundef null) #9
   unreachable
 
-do.end:                                           ; preds = %if.then3, %if.then
-  %retval.0 = phi ptr [ %dev, %if.then3 ], [ %ipack, %if.then ]
-  ret ptr %retval.0
+do.end:                                           ; preds = %if.end, %entry
+  %.sink = phi i64 [ 104, %entry ], [ 40, %if.end ]
+  %dev = getelementptr inbounds i8, ptr %obj, i64 %.sink
+  ret ptr %dev
 }
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1

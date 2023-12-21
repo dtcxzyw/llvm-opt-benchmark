@@ -6,14 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon.3 }
 %union.anon.3 = type { %struct.FLAC__StreamMetadata_CueSheet }
 %struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.CommandLineOptions = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.anon, %struct.anon.0, i32, ptr }
-%struct.anon = type { ptr, i32, i32 }
-%struct.anon.0 = type { %struct.anon.1, ptr, i32, i32 }
-%struct.anon.1 = type { i32, i32, i32, i32 }
 %struct.Argument = type { i32, %union.anon.2 }
 %union.anon.2 = type { %struct.Argument_BlockNumber }
 %struct.Argument_BlockNumber = type { i32, ptr }
-%struct.Argument_BlockType = type { i32, ptr }
 %struct.Argument_BlockTypeEntry = type { i32, [4 x i8], i32 }
 %struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
 %struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
@@ -129,7 +124,7 @@ entry:
   %album_peak.i = alloca float, align 4
   %needs_write.i.i = alloca i32, align 4
   %header.i.i.i = alloca [4 x i8], align 4
-  %show_long_help = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 5
+  %show_long_help = getelementptr inbounds i8, ptr %options, i64 20
   %0 = load i32, ptr %show_long_help, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -139,7 +134,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %show_version = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 6
+  %show_version = getelementptr inbounds i8, ptr %options, i64 24
   %1 = load i32, ptr %show_version, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.else, label %if.then2
@@ -150,37 +145,37 @@ if.then2:                                         ; preds = %if.end
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %num_major_ops = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 1
+  %num_major_ops = getelementptr inbounds i8, ptr %options, i64 60
   %3 = load i32, ptr %num_major_ops, align 4
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %if.else5, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %num_files.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 12
+  %num_files.i = getelementptr inbounds i8, ptr %options, i64 88
   %4 = load i32, ptr %num_files.i, align 8
   %cmp35.not.i = icmp eq i32 %4, 0
   br i1 %cmp35.not.i, label %if.end13, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then3
-  %filenames.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 13
-  %ops.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10
-  %use_padding.i55.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 3
-  %num_arguments.i.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 2
-  %arguments.i.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 1
-  %arrayidx39.i.i.i = getelementptr inbounds [4 x i8], ptr %header.i.i.i, i64 0, i64 1
-  %arrayidx40.i.i.i = getelementptr inbounds [4 x i8], ptr %header.i.i.i, i64 0, i64 2
-  %arrayidx43.i.i.i = getelementptr inbounds [4 x i8], ptr %header.i.i.i, i64 0, i64 3
-  %prefix_with_filename.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 1
-  %data_format_is_binary.i.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 7
-  %data_format_is_binary_headerless.i.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 8
-  %utf8_convert.i.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 2
-  %application_data_format_is_hexdump.i.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 9
+  %filenames.i = getelementptr inbounds i8, ptr %options, i64 96
+  %ops.i.i = getelementptr inbounds i8, ptr %options, i64 40
+  %use_padding.i55.i.i = getelementptr inbounds i8, ptr %options, i64 12
+  %num_arguments.i.i.i = getelementptr inbounds i8, ptr %options, i64 80
+  %arguments.i.i.i = getelementptr inbounds i8, ptr %options, i64 72
+  %arrayidx39.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 1
+  %arrayidx40.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 2
+  %arrayidx43.i.i.i = getelementptr inbounds i8, ptr %header.i.i.i, i64 3
+  %prefix_with_filename.i.i = getelementptr inbounds i8, ptr %options, i64 4
+  %data_format_is_binary.i.i.i = getelementptr inbounds i8, ptr %options, i64 28
+  %data_format_is_binary_headerless.i.i.i = getelementptr inbounds i8, ptr %options, i64 32
+  %utf8_convert.i.i.i = getelementptr inbounds i8, ptr %options, i64 8
+  %application_data_format_is_hexdump.i.i.i = getelementptr inbounds i8, ptr %options, i64 36
   %5 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8
   %6 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
   %div33.i.i = lshr i32 %6, 3
   %conv.i.i = zext nneg i32 %div33.i.i to i64
-  %has_block_type.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 2
-  %has_except_block_type.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 3
+  %has_block_type.i.i = getelementptr inbounds i8, ptr %options, i64 64
+  %has_except_block_type.i.i = getelementptr inbounds i8, ptr %options, i64 68
   br label %for.body.i
 
 for.body.i:                                       ; preds = %do_major_operation_on_file.exit.i, %for.body.lr.ph.i
@@ -271,7 +266,7 @@ if.else.i.i.i:                                    ; preds = %do.body.i.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else.i.i.i
   %13 = load ptr, ptr %arguments.i.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call5.i.i.i, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   %wide.trip.count69.i.i = zext i32 %12 to i64
   br label %for.body.i.i
 
@@ -295,7 +290,7 @@ for.cond60.preheader.i.i:                         ; preds = %for.body.i.i
   br i1 %cmp6737.not.i.i, label %for.inc87.i.i, label %for.body69.lr.ph.i.i
 
 for.body69.lr.ph.i.i:                             ; preds = %for.cond60.preheader.i.i
-  %entries75.i.i = getelementptr inbounds %struct.Argument_BlockNumber, ptr %value65.i.i, i64 0, i32 1
+  %entries75.i.i = getelementptr inbounds i8, ptr %value65.i.i, i64 8
   %16 = load ptr, ptr %entries75.i.i, align 8
   %wide.trip.count.i.i = zext i32 %15 to i64
   br label %for.body69.i.i
@@ -307,7 +302,7 @@ if.then.i6.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp1440.not.i.i, label %for.inc87.i.i, label %for.body15.lr.ph.i.i
 
 for.body15.lr.ph.i.i:                             ; preds = %if.then.i6.i
-  %entries.i.i = getelementptr inbounds %struct.Argument_BlockType, ptr %value.i.i, i64 0, i32 1
+  %entries.i.i = getelementptr inbounds i8, ptr %value.i.i, i64 8
   %18 = load ptr, ptr %entries.i.i, align 8
   %19 = load i32, ptr %call5.i.i.i, align 8
   %.fr.i.i = freeze i32 %19
@@ -324,13 +319,13 @@ for.body15.us.i.i:                                ; preds = %for.body15.lr.ph.i.
   br i1 %cmp25.us.i.i, label %if.then26.us.i.i, label %for.inc.us.i.i
 
 if.then26.us.i.i:                                 ; preds = %for.body15.us.i.i
-  %filter_application_by_id.us.i.i = getelementptr inbounds %struct.Argument_BlockTypeEntry, ptr %18, i64 %indvars.iv61.i.i, i32 2
+  %filter_application_by_id.us.i.i = getelementptr inbounds i8, ptr %arrayidx22.us.i.i, i64 8
   %21 = load i32, ptr %filter_application_by_id.us.i.i, align 4
   %tobool.not.us.i.i = icmp eq i32 %21, 0
   br i1 %tobool.not.us.i.i, label %if.then50.us.i.i, label %lor.lhs.false38.us.i.i
 
 lor.lhs.false38.us.i.i:                           ; preds = %if.then26.us.i.i
-  %application_id.us.i.i = getelementptr inbounds %struct.Argument_BlockTypeEntry, ptr %18, i64 %indvars.iv61.i.i, i32 1
+  %application_id.us.i.i = getelementptr inbounds i8, ptr %arrayidx22.us.i.i, i64 4
   %bcmp.us.i.i = tail call i32 @bcmp(ptr nonnull %application_id.us.i.i, ptr nonnull %data.i.i, i64 %conv.i.i)
   %cmp48.us.i.i = icmp eq i32 %bcmp.us.i.i, 0
   br i1 %cmp48.us.i.i, label %if.then50.us.i.i, label %for.inc.us.i.i
@@ -448,7 +443,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.true.i.i.i.i, 
 
 if.then19.i.i.i.i:                                ; preds = %cond.end.i.i.i.i
   %call24.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %is_last.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 1
+  %is_last.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 4
   %35 = load i32, ptr %is_last.i.i.i.i, align 4
   %tobool27.not.i.i.i.i = icmp eq i32 %35, 0
   %cond28.i.i.i.i = select i1 %tobool27.not.i.i.i.i, ptr @.str.15, ptr @.str.14
@@ -457,7 +452,7 @@ if.then19.i.i.i.i:                                ; preds = %cond.end.i.i.i.i
   br label %if.end38.i.i.i.i
 
 if.end38.critedge.i.i.i.i:                        ; preds = %cond.end.i.i.i.i
-  %is_last.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 1
+  %is_last.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 4
   %36 = load i32, ptr %is_last.c.i.i.i.i, align 4
   %tobool27.not.c.i.i.i.i = icmp eq i32 %36, 0
   %cond28.c.i.i.i.i = select i1 %tobool27.not.c.i.i.i.i, ptr @.str.15, ptr @.str.14
@@ -465,7 +460,7 @@ if.end38.critedge.i.i.i.i:                        ; preds = %cond.end.i.i.i.i
   br label %if.end38.i.i.i.i
 
 if.end38.i.i.i.i:                                 ; preds = %if.end38.critedge.i.i.i.i, %if.then19.i.i.i.i
-  %length.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 2
+  %length.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   %37 = load i32, ptr %length.i.i.i.i, align 8
   %call39.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %37)
   %38 = load i32, ptr %call1.i.i.i, align 8
@@ -484,70 +479,70 @@ sw.bb.i.i.i.i:                                    ; preds = %if.end38.i.i.i.i
 
 if.then42.i.i.i.i:                                ; preds = %sw.bb.i.i.i.i
   %call47.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %data303.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data303.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %39 = load i32, ptr %data303.i.i.i.i, align 8
   %call50304.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %39)
   %call57.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %max_blocksize305307.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 4
+  %max_blocksize305307.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 20
   %40 = load i32, ptr %max_blocksize305307.i.i.i.i, align 4
   %call61306308.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %40)
   %call68.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %min_framesize310.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 8
+  %min_framesize310.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   %41 = load i32, ptr %min_framesize310.i.i.i.i, align 8
   %call72311.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %41)
   %call79.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %max_framesize313315.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 12
+  %max_framesize313315.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 28
   %42 = load i32, ptr %max_framesize313315.i.i.i.i, align 4
   %call83314316.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %42)
   %call90.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %sample_rate318.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate318.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   %43 = load i32, ptr %sample_rate318.i.i.i.i, align 8
   %call94319.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %43)
   %call101.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %channels321323.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels321323.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 36
   %44 = load i32, ptr %channels321323.i.i.i.i, align 4
   %call105322324.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %44)
   %call112.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %bits_per_sample326.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample326.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
   %45 = load i32, ptr %bits_per_sample326.i.i.i.i, align 8
   %call116327.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %45)
   %call123.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %total_samples329331.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples329331.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 48
   %46 = load i64, ptr %total_samples329331.i.i.i.i, align 8
   %call127330332.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i64 noundef %46)
   %call134.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
   br label %if.end136.i.i.i.i
 
 if.end125.i.i.i.i:                                ; preds = %sw.bb.i.i.i.i
-  %data.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %47 = load i32, ptr %data.c.i.i.i.i, align 8
   %call50.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %47)
-  %max_blocksize.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 4
+  %max_blocksize.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 20
   %48 = load i32, ptr %max_blocksize.i.i.i.i, align 4
   %call61.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %48)
-  %min_framesize.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 8
+  %min_framesize.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   %49 = load i32, ptr %min_framesize.c.i.i.i.i, align 8
   %call72.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %49)
-  %max_framesize.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 12
+  %max_framesize.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 28
   %50 = load i32, ptr %max_framesize.i.i.i.i, align 4
   %call83.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %50)
-  %sample_rate.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   %51 = load i32, ptr %sample_rate.c.i.i.i.i, align 8
   %call94.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %51)
-  %channels.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 36
   %52 = load i32, ptr %channels.i.i.i.i, align 4
   %call105.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %52)
-  %bits_per_sample.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
   %53 = load i32, ptr %bits_per_sample.c.i.i.i.i, align 8
   %call116.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %53)
-  %total_samples.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 48
   %54 = load i64, ptr %total_samples.i.i.i.i, align 8
   %call127.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i64 noundef %54)
   br label %if.end136.i.i.i.i
 
 if.end136.i.i.i.i:                                ; preds = %if.end125.i.i.i.i, %if.then42.i.i.i.i
   %call137.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25)
-  %md5sum.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 40
+  %md5sum.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 56
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end136.i.i.i.i
@@ -573,7 +568,7 @@ if.then147.i.i.i.i:                               ; preds = %sw.bb145.i.i.i.i
 
 if.end154.i.i.i.i:                                ; preds = %if.then147.i.i.i.i, %sw.bb145.i.i.i.i
   %call155.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
-  %data160.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data160.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   br label %for.body159.i.i.i.i
 
 for.body159.i.i.i.i:                              ; preds = %for.body159.i.i.i.i, %if.end154.i.i.i.i
@@ -596,7 +591,7 @@ if.then170.i.i.i.i:                               ; preds = %for.end167.i.i.i.i
 
 if.end177.i.i.i.i:                                ; preds = %if.then170.i.i.i.i, %for.end167.i.i.i.i
   %puts284.i.i.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %data180.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 8
+  %data180.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   %57 = load ptr, ptr %data180.i.i.i.i, align 8
   %cmp181.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %cmp181.not.i.i.i.i, label %land.rhs.i.i.i, label %if.then183.i.i.i.i
@@ -625,7 +620,7 @@ if.then200.i.i.i.i:                               ; preds = %sw.bb198.i.i.i.i
   br label %if.end207.i.i.i.i
 
 if.end207.i.i.i.i:                                ; preds = %if.then200.i.i.i.i, %sw.bb198.i.i.i.i
-  %data208.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data208.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %60 = load i32, ptr %data208.i.i.i.i, align 8
   %call209.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %60)
   %61 = load i32, ptr %data208.i.i.i.i, align 8
@@ -633,7 +628,7 @@ if.end207.i.i.i.i:                                ; preds = %if.then200.i.i.i.i,
   br i1 %cmp213406.not.i.i.i.i, label %land.rhs.i.i.i, label %for.body215.lr.ph.i.i.i.i
 
 for.body215.lr.ph.i.i.i.i:                        ; preds = %if.end207.i.i.i.i
-  %points.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 8
+  %points.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   br label %for.body215.i.i.i.i
 
 for.body215.i.i.i.i:                              ; preds = %for.inc257.i.i.i.i, %for.body215.lr.ph.i.i.i.i
@@ -657,9 +652,10 @@ if.then223.i.i.i.i:                               ; preds = %if.then221.i.i.i.i
 if.end230.i.i.i.i:                                ; preds = %if.then223.i.i.i.i, %if.then221.i.i.i.i
   %64 = phi i64 [ %.pre49.i.i.i, %if.then223.i.i.i.i ], [ %63, %if.then221.i.i.i.i ]
   %65 = phi ptr [ %.pre.i.i.i, %if.then223.i.i.i.i ], [ %62, %if.then221.i.i.i.i ]
-  %stream_offset.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %65, i64 %indvars.iv435.i.i.i.i, i32 1
+  %arrayidx234.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %65, i64 %indvars.iv435.i.i.i.i
+  %stream_offset.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx234.i.i.i.i, i64 8
   %66 = load i64, ptr %stream_offset.i.i.i.i, align 8
-  %frame_samples.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %65, i64 %indvars.iv435.i.i.i.i, i32 2
+  %frame_samples.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx234.i.i.i.i, i64 16
   %67 = load i32, ptr %frame_samples.i.i.i.i, align 8
   %68 = trunc i64 %indvars.iv435.i.i.i.i to i32
   %call244.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %68, i64 noundef %64, i64 noundef %66, i32 noundef %67)
@@ -690,7 +686,7 @@ sw.bb260.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
 if.then262.i.i.i.i:                               ; preds = %sw.bb260.i.i.i.i
   %call267.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
   %call270.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34)
-  %data271.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data271.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %72 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.i.i.i.i, i32 noundef %lnot.ext.i.i.i, ptr noundef %72) #9
   %call278.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
@@ -698,13 +694,13 @@ if.then262.i.i.i.i:                               ; preds = %sw.bb260.i.i.i.i
 
 if.end280.critedge.i.i.i.i:                       ; preds = %sw.bb260.i.i.i.i
   %call270.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34)
-  %data271.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data271.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %73 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.c.i.i.i.i, i32 noundef %lnot.ext.i.i.i, ptr noundef %73) #9
   br label %if.end280.i.i.i.i
 
 if.end280.i.i.i.i:                                ; preds = %if.end280.critedge.i.i.i.i, %if.then262.i.i.i.i
-  %num_comments.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 16
+  %num_comments.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   %74 = load i32, ptr %num_comments.i.i.i.i, align 8
   %call282.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %74)
   %75 = load i32, ptr %num_comments.i.i.i.i, align 8
@@ -712,7 +708,7 @@ if.end280.i.i.i.i:                                ; preds = %if.end280.critedge.
   br i1 %cmp286396.not.i.i.i.i, label %land.rhs.i.i.i, label %for.body288.lr.ph.i.i.i.i
 
 for.body288.lr.ph.i.i.i.i:                        ; preds = %if.end280.i.i.i.i
-  %comments.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
   br i1 %tobool.not.i.i.i.i, label %for.body288.us.i.i.i.i, label %for.body288.lr.ph.split.i.i.i.i
 
 for.body288.us.i.i.i.i:                           ; preds = %for.body288.lr.ph.i.i.i.i, %for.body288.us.i.i.i.i
@@ -767,14 +763,14 @@ sw.bb305.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
 
 if.then307.i.i.i.i:                               ; preds = %sw.bb305.i.i.i.i
   %call312.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %data315334.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data315334.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %call316335.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef nonnull %data315334.i.i.i.i)
   %call323.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %lead_in336338.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %lead_in336338.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 152
   %91 = load i64, ptr %lead_in336338.i.i.i.i, align 8
   %call327337339.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %91)
   %call334.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %is_cd.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 2
+  %is_cd.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
   %92 = load i32, ptr %is_cd.i.i.i.i, align 8
   %tobool338.not.i.i.i.i = icmp eq i32 %92, 0
   %cond339.i.i.i.i = select i1 %tobool338.not.i.i.i.i, ptr @.str.15, ptr @.str.14
@@ -783,12 +779,12 @@ if.then307.i.i.i.i:                               ; preds = %sw.bb305.i.i.i.i
   br label %if.end349.i.i.i.i
 
 if.end349.critedge.i.i.i.i:                       ; preds = %sw.bb305.i.i.i.i
-  %data315.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data315.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %call316.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef nonnull %data315.c.i.i.i.i)
-  %lead_in.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %lead_in.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 152
   %93 = load i64, ptr %lead_in.i.i.i.i, align 8
   %call327.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %93)
-  %is_cd.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 2
+  %is_cd.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
   %94 = load i32, ptr %is_cd.c.i.i.i.i, align 8
   %tobool338.not.c.i.i.i.i = icmp eq i32 %94, 0
   %cond339.c.i.i.i.i = select i1 %tobool338.not.c.i.i.i.i, ptr @.str.15, ptr @.str.14
@@ -796,7 +792,7 @@ if.end349.critedge.i.i.i.i:                       ; preds = %sw.bb305.i.i.i.i
   br label %if.end349.i.i.i.i
 
 if.end349.i.i.i.i:                                ; preds = %if.end349.critedge.i.i.i.i, %if.then307.i.i.i.i
-  %num_tracks.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 3
+  %num_tracks.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 164
   %95 = load i32, ptr %num_tracks.i.i.i.i, align 4
   %call351.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %95)
   %96 = load i32, ptr %num_tracks.i.i.i.i, align 4
@@ -804,7 +800,7 @@ if.end349.i.i.i.i:                                ; preds = %if.end349.critedge.
   br i1 %cmp355391.not.i.i.i.i, label %land.rhs.i.i.i, label %for.body357.lr.ph.i.i.i.i
 
 for.body357.lr.ph.i.i.i.i:                        ; preds = %if.end349.i.i.i.i
-  %tracks.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 4
+  %tracks.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 168
   br label %for.body357.i.i.i.i
 
 for.body357.i.i.i.i:                              ; preds = %for.inc517.i.i.i.i, %for.body357.lr.ph.i.i.i.i
@@ -818,7 +814,7 @@ for.body357.i.i.i.i:                              ; preds = %for.inc517.i.i.i.i,
   br i1 %cmp363.i.i.i.i, label %land.rhs.i.i.i.i, label %land.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %for.body357.i.i.i.i
-  %num_indices.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 4
+  %num_indices.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 23
   %100 = load i8, ptr %num_indices.i.i.i.i, align 1
   %cmp367.i.i.i.i = icmp eq i8 %100, 0
   br label %land.end.i.i.i.i
@@ -845,7 +841,7 @@ if.end387.thread.i.i.i.i:                         ; preds = %land.end.i.i.i.i
   br i1 %cmp363.i.i.i.i, label %if.end399.i.i.i.i, label %if.end413.i.i.i.i
 
 if.end399.i.i.i.i:                                ; preds = %if.end387.thread.i.i.i.i, %if.then370.i.i.i.i
-  %number.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 1
+  %number.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %106 = load i8, ptr %number.i.i.i.i, align 8
   %conv400.i.i.i.i = zext i8 %106 to i32
   %cond402.i.i.i.i = select i1 %101, ptr @.str.44, ptr @.str.45
@@ -853,7 +849,7 @@ if.end399.i.i.i.i:                                ; preds = %if.end387.thread.i.
   br label %if.end417.i.i.i.i
 
 if.end413.i.i.i.i:                                ; preds = %if.end387.thread.i.i.i.i, %if.then370.i.i.i.i
-  %number414.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 1
+  %number414.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %107 = load i8, ptr %number414.i.i.i.i, align 8
   %conv415.i.i.i.i = zext i8 %107 to i32
   %call416.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %conv415.i.i.i.i)
@@ -867,18 +863,18 @@ if.then419.i.i.i.i:                               ; preds = %if.end417.i.i.i.i
 
 if.then421.i.i.i.i:                               ; preds = %if.then419.i.i.i.i
   %call426.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %isrc343.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 2
+  %isrc343.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 9
   %call430344.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %isrc343.i.i.i.i)
   %call437.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
   br label %if.end439.i.i.i.i
 
 if.end439.critedge.i.i.i.i:                       ; preds = %if.then419.i.i.i.i
-  %isrc.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 2
+  %isrc.c.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 9
   %call430.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %isrc.c.i.i.i.i)
   br label %if.end439.i.i.i.i
 
 if.end439.i.i.i.i:                                ; preds = %if.end439.critedge.i.i.i.i, %if.then421.i.i.i.i
-  %type440.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 3
+  %type440.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 22
   %bf.load.i.i.i.i = load i8, ptr %type440.i.i.i.i, align 2
   %bf.clear.i.i.i.i = and i8 %bf.load.i.i.i.i, 1
   %cmp441.not.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i, 0
@@ -905,7 +901,7 @@ if.end468.critedge.i.i.i.i:                       ; preds = %if.end439.i.i.i.i
   br label %if.end468.i.i.i.i
 
 if.end468.i.i.i.i:                                ; preds = %if.end468.critedge.i.i.i.i, %if.then446.i.i.i.i
-  %num_indices469.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 4
+  %num_indices469.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 23
   %110 = load i8, ptr %num_indices469.i.i.i.i, align 1
   %conv470.i.i.i.i = zext i8 %110 to i32
   %call471.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %conv470.i.i.i.i)
@@ -914,7 +910,7 @@ if.end468.i.i.i.i:                                ; preds = %if.end468.critedge.
   br i1 %cmp475378.not.i.i.i.i, label %for.inc517.i.i.i.i, label %for.body477.lr.ph.i.i.i.i
 
 for.body477.lr.ph.i.i.i.i:                        ; preds = %if.end468.i.i.i.i
-  %indices.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %98, i64 %indvars.iv423.i.i.i.i, i32 5
+  %indices.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 24
   br i1 %tobool.not.i.i.i.i, label %for.body477.us.i.i.i.i, label %for.body477.lr.ph.split.i.i.i.i
 
 for.body477.us.i.i.i.i:                           ; preds = %for.body477.lr.ph.i.i.i.i, %for.body477.us.i.i.i.i
@@ -925,7 +921,7 @@ for.body477.us.i.i.i.i:                           ; preds = %for.body477.lr.ph.i
   %call489.c.us.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %113)
   %114 = load i64, ptr %add.ptr479.us.i.i.i.i, align 8
   %call500.us.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i64 noundef %114)
-  %number510.us.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %112, i64 %indvars.iv420.i.i.i.i, i32 1
+  %number510.us.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr479.us.i.i.i.i, i64 8
   %115 = load i8, ptr %number510.us.i.i.i.i, align 8
   %conv511.us.i.i.i.i = zext i8 %115 to i32
   %call512.us.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %conv511.us.i.i.i.i)
@@ -949,7 +945,7 @@ for.body477.us380.i.i.i.i:                        ; preds = %for.body477.lr.ph.s
   %120 = load i64, ptr %add.ptr479.us383.i.i.i.i, align 8
   %call500346347.us.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i64 noundef %120)
   %call507.us.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %number510.us385.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %118, i64 %indvars.iv417.i.i.i.i, i32 1
+  %number510.us385.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr479.us383.i.i.i.i, i64 8
   %121 = load i8, ptr %number510.us385.i.i.i.i, align 8
   %conv511.us386.i.i.i.i = zext i8 %121 to i32
   %call512.us387.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %conv511.us386.i.i.i.i)
@@ -970,7 +966,7 @@ for.body477.i.i.i.i:                              ; preds = %for.body477.lr.ph.s
   %126 = load i64, ptr %add.ptr479.i.i.i.i, align 8
   %call500346.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i64 noundef %126)
   %call505.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %number510.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %124, i64 %indvars.iv.i.i.i.i, i32 1
+  %number510.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr479.i.i.i.i, i64 8
   %127 = load i8, ptr %number510.i.i.i.i, align 8
   %conv511.i.i.i.i = zext i8 %127 to i32
   %call512.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %conv511.i.i.i.i)
@@ -995,7 +991,7 @@ if.then522.i.i.i.i:                               ; preds = %sw.bb520.i.i.i.i
   br label %if.end529.i.i.i.i
 
 if.end529.i.i.i.i:                                ; preds = %if.then522.i.i.i.i, %sw.bb520.i.i.i.i
-  %data530.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data530.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %132 = load i32, ptr %data530.i.i.i.i, align 8
   %cmp534.i.i.i.i = icmp ult i32 %132, 21
   br i1 %cmp534.i.i.i.i, label %cond.true536.i.i.i.i, label %cond.end542.i.i.i.i
@@ -1013,48 +1009,48 @@ cond.end542.i.i.i.i:                              ; preds = %cond.true536.i.i.i.
 
 if.then546.i.i.i.i:                               ; preds = %cond.end542.i.i.i.i
   %call551.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %mime_type349.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 8
+  %mime_type349.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   %134 = load ptr, ptr %mime_type349.i.i.i.i, align 8
   %call555350.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, ptr noundef %134)
   %call562.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %description351353.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 16
+  %description351353.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   %135 = load ptr, ptr %description351353.i.i.i.i, align 8
   %call566352354.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %135)
   %call573.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %width356.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 24
+  %width356.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
   %136 = load i32, ptr %width356.i.i.i.i, align 8
   %call577357.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %136)
   %call584.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %height359361.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 28
+  %height359361.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 44
   %137 = load i32, ptr %height359361.i.i.i.i, align 4
   %call588360362.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %137)
   %call595.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %depth364.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 32
+  %depth364.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 48
   %138 = load i32, ptr %depth364.i.i.i.i, align 8
   %call599365.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, i32 noundef %138)
   %call606.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
   br label %if.end608.i.i.i.i
 
 if.end608.critedge.i.i.i.i:                       ; preds = %cond.end542.i.i.i.i
-  %mime_type.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 8
+  %mime_type.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   %139 = load ptr, ptr %mime_type.c.i.i.i.i, align 8
   %call555.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, ptr noundef %139)
-  %description.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 16
+  %description.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   %140 = load ptr, ptr %description.i.i.i.i, align 8
   %call566.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %140)
-  %width.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 24
+  %width.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
   %141 = load i32, ptr %width.c.i.i.i.i, align 8
   %call577.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %141)
-  %height.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 28
+  %height.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 44
   %142 = load i32, ptr %height.i.i.i.i, align 4
   %call588.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %142)
-  %depth.c.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 32
+  %depth.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 48
   %143 = load i32, ptr %depth.c.i.i.i.i, align 8
   %call599.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, i32 noundef %143)
   br label %if.end608.i.i.i.i
 
 if.end608.i.i.i.i:                                ; preds = %if.end608.critedge.i.i.i.i, %if.then546.i.i.i.i
-  %colors.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 36
+  %colors.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 52
   %144 = load i32, ptr %colors.i.i.i.i, align 4
   %tobool612.not.i.i.i.i = icmp eq i32 %144, 0
   %cond613.i.i.i.i = select i1 %tobool612.not.i.i.i.i, ptr @.str.64, ptr @.str.63
@@ -1063,14 +1059,14 @@ if.end608.i.i.i.i:                                ; preds = %if.end608.critedge.
 
 if.then616.i.i.i.i:                               ; preds = %if.end608.i.i.i.i
   %call621.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
-  %data_length367371.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 40
+  %data_length367371.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 56
   %145 = load i32, ptr %data_length367371.i.i.i.i, align 8
   %call625368372.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, i32 noundef %145)
   %call632.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
   br label %if.end634.i.i.i.i
 
 if.end623.i.i.i.i:                                ; preds = %if.end608.i.i.i.i
-  %data_length.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 40
+  %data_length.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 56
   %146 = load i32, ptr %data_length.i.i.i.i, align 8
   %call625.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, i32 noundef %146)
   br label %if.end634.i.i.i.i
@@ -1078,7 +1074,7 @@ if.end623.i.i.i.i:                                ; preds = %if.end608.i.i.i.i
 if.end634.i.i.i.i:                                ; preds = %if.end623.i.i.i.i, %if.then616.i.i.i.i
   %data_length370.i.i.i.i = phi ptr [ %data_length.i.i.i.i, %if.end623.i.i.i.i ], [ %data_length367371.i.i.i.i, %if.then616.i.i.i.i ]
   %puts.i.i.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %data637.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3, i32 0, i32 0, i64 48
+  %data637.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 64
   %147 = load ptr, ptr %data637.i.i.i.i, align 8
   %cmp638.not.i.i.i.i = icmp eq ptr %147, null
   br i1 %cmp638.not.i.i.i.i, label %land.rhs.i.i.i, label %if.then640.i.i.i.i
@@ -1097,7 +1093,7 @@ if.then647.i.i.i.i:                               ; preds = %sw.default.i.i.i.i
 
 if.end654.i.i.i.i:                                ; preds = %if.then647.i.i.i.i, %sw.default.i.i.i.i
   %puts286.i.i.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %data656.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 3
+  %data656.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %149 = load ptr, ptr %data656.i.i.i.i, align 8
   %cmp658.not.i.i.i.i = icmp eq ptr %149, null
   br i1 %cmp658.not.i.i.i.i, label %land.rhs.i.i.i, label %if.then660.i.i.i.i
@@ -1123,7 +1119,7 @@ if.end19.i.i.i:                                   ; preds = %if.else13.i.i.i
   br i1 %tobool.not.i24.i.i.i, label %if.then.i26.i.i.i, label %if.else.i.i.i.i
 
 if.then.i26.i.i.i:                                ; preds = %if.end19.i.i.i
-  %length.i27.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 2
+  %length.i27.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   %153 = load i32, ptr %length.i27.i.i.i, align 8
   %add.i.i.i.i = add i32 %153, 4
   br label %write_metadata_binary.exit.i.i.i
@@ -1131,7 +1127,7 @@ if.then.i26.i.i.i:                                ; preds = %if.end19.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.end19.i.i.i
   %154 = load i32, ptr %call1.i.i.i, align 8
   %cmp.i25.i.i.i = icmp eq i32 %154, 2
-  %length2.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1.i.i.i, i64 0, i32 2
+  %length2.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   %155 = load i32, ptr %length2.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ugt i32 %155, 3
   %or.cond.i.i.i.i = select i1 %cmp.i25.i.i.i, i1 %cmp3.i.i.i.i, i1 false
@@ -1199,7 +1195,7 @@ if.then.i38.i.i:                                  ; preds = %for.body.i.i.i
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then9.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i38.i.i
-  %value.i.i.i = getelementptr inbounds %struct.Argument, ptr %159, i64 %indvars.iv.i.i.i, i32 1
+  %value.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %161 = load i32, ptr %value.i.i.i, align 8
   %cmp8.i.i.i = icmp ugt i32 %161, 1
   br i1 %cmp8.i.i.i, label %if.then9.i.i.i, label %if.end.i39.i.i
@@ -1210,7 +1206,7 @@ if.then9.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   br label %do_major_operation__append.exit.i.i
 
 if.end.i39.i.i:                                   ; preds = %lor.lhs.false.i.i.i
-  %entries.i.i.i = getelementptr inbounds %struct.Argument_BlockNumber, ptr %value.i.i.i, i64 0, i32 1
+  %entries.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   %164 = load ptr, ptr %entries.i.i.i, align 8
   %165 = load i32, ptr %164, align 4
   br label %for.inc.i.i.i
@@ -1419,7 +1415,7 @@ while.body.i45.i.i:                               ; preds = %land.rhs.i43.i.i
 
 for.body.lr.ph.i29:                               ; preds = %while.body.i45.i.i
   %186 = load ptr, ptr %arguments.i.i.i, align 8
-  %data.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call3.i.i.i, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 16
   %wide.trip.count69.i = zext i32 %185 to i64
   br label %for.body.i30
 
@@ -1443,7 +1439,7 @@ for.cond60.preheader.i:                           ; preds = %for.body.i30
   br i1 %cmp6737.not.i, label %for.inc87.i, label %for.body69.lr.ph.i
 
 for.body69.lr.ph.i:                               ; preds = %for.cond60.preheader.i
-  %entries75.i = getelementptr inbounds %struct.Argument_BlockNumber, ptr %value65.i, i64 0, i32 1
+  %entries75.i = getelementptr inbounds i8, ptr %value65.i, i64 8
   %189 = load ptr, ptr %entries75.i, align 8
   %wide.trip.count.i = zext i32 %188 to i64
   br label %for.body69.i
@@ -1455,7 +1451,7 @@ if.then.i:                                        ; preds = %for.body.i30, %for.
   br i1 %cmp1440.not.i, label %for.inc87.i, label %for.body15.lr.ph.i
 
 for.body15.lr.ph.i:                               ; preds = %if.then.i
-  %entries.i = getelementptr inbounds %struct.Argument_BlockType, ptr %value.i, i64 0, i32 1
+  %entries.i = getelementptr inbounds i8, ptr %value.i, i64 8
   %191 = load ptr, ptr %entries.i, align 8
   %192 = load i32, ptr %call3.i.i.i, align 8
   %.fr.i = freeze i32 %192
@@ -1472,13 +1468,13 @@ for.body15.us.i:                                  ; preds = %for.body15.lr.ph.i,
   br i1 %cmp25.us.i, label %if.then26.us.i, label %for.inc.us.i
 
 if.then26.us.i:                                   ; preds = %for.body15.us.i
-  %filter_application_by_id.us.i = getelementptr inbounds %struct.Argument_BlockTypeEntry, ptr %191, i64 %indvars.iv61.i, i32 2
+  %filter_application_by_id.us.i = getelementptr inbounds i8, ptr %arrayidx22.us.i, i64 8
   %194 = load i32, ptr %filter_application_by_id.us.i, align 4
   %tobool.not.us.i = icmp eq i32 %194, 0
   br i1 %tobool.not.us.i, label %if.then50.us.i, label %lor.lhs.false38.us.i
 
 lor.lhs.false38.us.i:                             ; preds = %if.then26.us.i
-  %application_id.us.i = getelementptr inbounds %struct.Argument_BlockTypeEntry, ptr %191, i64 %indvars.iv61.i, i32 1
+  %application_id.us.i = getelementptr inbounds i8, ptr %arrayidx22.us.i, i64 4
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %application_id.us.i, ptr nonnull %data.i, i64 %conv.i.i)
   %cmp48.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %cmp48.us.i, label %if.then50.us.i, label %for.inc.us.i
@@ -1664,24 +1660,24 @@ do_major_operation_on_file.exit.i:                ; preds = %return.sink.split.i
   br i1 %cmp.i, label %for.body.i, label %if.end13, !llvm.loop !22
 
 if.else5:                                         ; preds = %if.else
-  %args = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11
+  %args = getelementptr inbounds i8, ptr %options, i64 56
   %211 = load i32, ptr %args, align 8
   %cmp8.not = icmp eq i32 %211, 0
   br i1 %cmp8.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.else5
-  %num_files.i6 = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 12
+  %num_files.i6 = getelementptr inbounds i8, ptr %options, i64 88
   %212 = load i32, ptr %num_files.i6, align 8
   %cmp24.not.i = icmp eq i32 %212, 0
   br i1 %cmp24.not.i, label %if.end13, label %for.body.lr.ph.i7
 
 for.body.lr.ph.i7:                                ; preds = %if.then9
-  %filenames.i8 = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 13
-  %use_padding1.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 3
-  %ops.i.i9 = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10
-  %num_operations.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10, i32 1
-  %prefix_with_filename.i.i10 = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 1
-  %utf8_convert.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 2
+  %filenames.i8 = getelementptr inbounds i8, ptr %options, i64 96
+  %use_padding1.i.i = getelementptr inbounds i8, ptr %options, i64 12
+  %ops.i.i9 = getelementptr inbounds i8, ptr %options, i64 40
+  %num_operations.i.i = getelementptr inbounds i8, ptr %options, i64 48
+  %prefix_with_filename.i.i10 = getelementptr inbounds i8, ptr %options, i64 4
+  %utf8_convert.i.i = getelementptr inbounds i8, ptr %options, i64 8
   br label %for.body.i11
 
 for.body.i11:                                     ; preds = %do_shorthand_operations_on_file.exit.i, %for.body.lr.ph.i7
@@ -1836,9 +1832,9 @@ for.cond3.preheader.i:                            ; preds = %for.end.i
   br i1 %cmp428.not.i, label %if.end13, label %for.body5.i.preheader
 
 for.body5.i.preheader:                            ; preds = %for.cond3.preheader.i
-  %sample_rate6.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %streaminfo.i, i64 0, i32 3, i32 0, i32 0, i64 16
-  %bits_per_sample8.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %streaminfo.i, i64 0, i32 3, i32 0, i32 0, i64 24
-  %channels10.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %streaminfo.i, i64 0, i32 3, i32 0, i32 0, i64 20
+  %sample_rate6.i = getelementptr inbounds i8, ptr %streaminfo.i, i64 32
+  %bits_per_sample8.i = getelementptr inbounds i8, ptr %streaminfo.i, i64 40
+  %channels10.i = getelementptr inbounds i8, ptr %streaminfo.i, i64 36
   br label %for.body5.i
 
 for.body5.i:                                      ; preds = %for.body5.i.preheader, %for.inc26.i
@@ -2245,13 +2241,13 @@ sw.bb5:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %argument = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument = getelementptr inbounds i8, ptr %operation, i64 8
   %1 = load ptr, ptr %argument, align 8
   %call8 = tail call i32 @do_shorthand_operation__add_seekpoints(ptr noundef %filename, ptr noundef %chain, ptr noundef %1, ptr noundef %needs_write) #9
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %argument11 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument11 = getelementptr inbounds i8, ptr %operation, i64 8
   %2 = load i32, ptr %argument11, align 8
   %call.i = tail call ptr @FLAC__metadata_iterator_new() #9
   %cmp.i = icmp eq ptr %call.i, null
@@ -2280,7 +2276,7 @@ if.then4.i:                                       ; preds = %while.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then4.i, %while.end.i
-  %length6.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call2.i, i64 0, i32 2
+  %length6.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store i32 %2, ptr %length6.i, align 8
   %call7.i = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %call.i, ptr noundef %call2.i) #9
   %tobool8.not.i = icmp eq i32 %call7.i, 0

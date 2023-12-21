@@ -8,24 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.arrow::Status" = type { ptr }
 %"class.arrow::internal::AlignedStorage" = type { %"union.std::aligned_storage<8, 8>::type" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
-%"class.arrow::TimestampType" = type { %"class.arrow::TemporalType", i32, %"class.std::__cxx11::basic_string" }
-%"class.arrow::TemporalType" = type { %"class.arrow::FixedWidthType" }
-%"class.arrow::FixedWidthType" = type { %"class.arrow::DataType" }
-%"class.arrow::DataType" = type { %"class.arrow::detail::Fingerprintable", %"class.std::enable_shared_from_this", i32, %"class.std::vector" }
-%"class.arrow::detail::Fingerprintable" = type { ptr, %"struct.std::atomic", %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 @_ZN5arrow4utilL25kTimestampConversionTableE = internal unnamed_addr constant [4 x [4 x %"struct.std::pair"]] [[4 x %"struct.std::pair"] [%"struct.std::pair" { i32 0, i64 1 }, %"struct.std::pair" { i32 0, i64 1000 }, %"struct.std::pair" { i32 0, i64 1000000 }, %"struct.std::pair" { i32 0, i64 1000000000 }], [4 x %"struct.std::pair"] [%"struct.std::pair" { i32 1, i64 1000 }, %"struct.std::pair" { i32 0, i64 1 }, %"struct.std::pair" { i32 0, i64 1000 }, %"struct.std::pair" { i32 0, i64 1000000 }], [4 x %"struct.std::pair"] [%"struct.std::pair" { i32 1, i64 1000000 }, %"struct.std::pair" { i32 1, i64 1000 }, %"struct.std::pair" { i32 0, i64 1 }, %"struct.std::pair" { i32 0, i64 1000 }], [4 x %"struct.std::pair"] [%"struct.std::pair" { i32 1, i64 1000000000 }, %"struct.std::pair" { i32 1, i64 1000000 }, %"struct.std::pair" { i32 1, i64 1000 }, %"struct.std::pair" { i32 0, i64 1 }]], align 16
 
@@ -47,10 +29,10 @@ entry:
 define void @_ZN5arrow4util21ConvertTimestampValueERKSt10shared_ptrINS_8DataTypeEES5_l(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %out, i64 noundef %value) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %in, align 8
-  %unit_.i = getelementptr inbounds %"class.arrow::TimestampType", ptr %0, i64 0, i32 1
+  %unit_.i = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i32, ptr %unit_.i, align 8
   %2 = load ptr, ptr %out, align 8
-  %unit_.i3 = getelementptr inbounds %"class.arrow::TimestampType", ptr %2, i64 0, i32 1
+  %unit_.i3 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i32, ptr %unit_.i3, align 8
   %idxprom.i = sext i32 %1 to i64
   %idxprom1.i = sext i32 %3 to i64
@@ -66,14 +48,14 @@ entry:
 sw.bb:                                            ; preds = %entry
   %mul = mul nsw i64 %retval.sroa.21.0.copyload.i, %value
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %mul, ptr %storage_.i.i, align 8
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   %div = sdiv i64 %value, %retval.sroa.21.0.copyload.i
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i4 = getelementptr inbounds %"class.arrow::Result", ptr %agg.result, i64 0, i32 1
+  %storage_.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %div, ptr %storage_.i.i4, align 8
   br label %return
 

@@ -4,34 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct._GSourceFuncs = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.1, i8, %struct.EventNotifier, %struct.anon.2, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.2 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
 %struct.timeval = type { i64, i64 }
-%struct.QEMUBH = type { ptr, ptr, ptr, ptr, %struct.anon, i32, ptr }
-%struct.anon = type { ptr }
 %struct.BHListSlice = type { %struct.BHList, %struct.anon.0 }
+%struct.BHList = type { ptr }
 %struct.anon.0 = type { ptr }
-%struct.Coroutine = type { ptr, ptr, ptr, %struct.anon.3, i64, ptr, ptr, %struct.anon.4, %struct.anon.5, %struct.anon.6 }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
 %struct.AioCoRescheduleSelf = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [21 x i8] c"../qemu/util/async.c\00", align 1
@@ -100,7 +76,7 @@ entry:
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 7
+  %bh_list.i = getelementptr inbounds i8, ptr %ctx, i64 176
   %1 = ptrtoint ptr %call to i64
   br label %do.body2.i
 
@@ -119,17 +95,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 9
+  %notified.i.i = getelementptr inbounds i8, ptr %ctx, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 5
+  %notify_me.i.i = getelementptr inbounds i8, ptr %ctx, i64 168
   %8 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 10
+  %notifier.i.i = getelementptr inbounds i8, ptr %ctx, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
   br label %aio_bh_enqueue.exit
 
@@ -165,15 +141,15 @@ entry:
 define dso_local void @aio_bh_call(ptr nocapture noundef readonly %bh) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %reentrancy_guard1 = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 6
+  %reentrancy_guard1 = getelementptr inbounds i8, ptr %bh, i64 48
   %0 = load ptr, ptr %reentrancy_guard1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7.thread, label %if.then
 
 if.end7.thread:                                   ; preds = %entry
-  %cb11 = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 2
+  %cb11 = getelementptr inbounds i8, ptr %bh, i64 16
   %1 = load ptr, ptr %cb11, align 8
-  %opaque12 = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 3
+  %opaque12 = getelementptr inbounds i8, ptr %bh, i64 24
   %2 = load ptr, ptr %opaque12, align 8
   tail call void %1(ptr noundef %2) #12
   br label %if.end13
@@ -186,7 +162,7 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.then
   %5 = load ptr, ptr %bh, align 8
-  %name = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %bh, i64 8
   %6 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -212,7 +188,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %5, ptr noundef %6) #12
   br label %trace_reentrant_aio.exit
@@ -227,9 +203,9 @@ trace_reentrant_aio.exit:                         ; preds = %if.then5, %land.lhs
 
 if.then9:                                         ; preds = %trace_reentrant_aio.exit, %if.then
   store i8 1, ptr %0, align 1
-  %cb = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 2
+  %cb = getelementptr inbounds i8, ptr %bh, i64 16
   %14 = load ptr, ptr %cb, align 8
-  %opaque = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 3
+  %opaque = getelementptr inbounds i8, ptr %bh, i64 24
   %15 = load ptr, ptr %opaque, align 8
   tail call void %14(ptr noundef %15) #12
   store i8 %4, ptr %0, align 1
@@ -243,14 +219,14 @@ if.end13:                                         ; preds = %if.end7.thread, %if
 define dso_local i32 @aio_bh_poll(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %slice = alloca %struct.BHListSlice, align 8
-  %bh_list = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 7
+  %bh_list = getelementptr inbounds i8, ptr %ctx, i64 176
   %0 = atomicrmw xchg ptr %bh_list, i64 0 seq_cst, align 8
   %1 = inttoptr i64 %0 to ptr
   store ptr %1, ptr %slice, align 8
-  %next = getelementptr inbounds %struct.BHListSlice, ptr %slice, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %slice, i64 8
   store ptr null, ptr %next, align 8
-  %bh_slice_list = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 8
-  %sqh_last = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 8, i32 1
+  %bh_slice_list = getelementptr inbounds i8, ptr %ctx, i64 184
+  %sqh_last = getelementptr inbounds i8, ptr %ctx, i64 192
   %2 = load ptr, ptr %sqh_last, align 8
   store ptr %slice, ptr %2, align 8
   store ptr %next, ptr %sqh_last, align 8
@@ -273,11 +249,11 @@ while.body14:                                     ; preds = %while.body14.lr.ph,
 aio_bh_dequeue.exit:                              ; preds = %while.body14
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %5, align 8
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %8, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %next.i, align 8
   store ptr %9, ptr %5, align 8
   store ptr null, ptr %next.i, align 8
-  %flags7.i = getelementptr inbounds %struct.QEMUBH, ptr %7, i64 0, i32 5
+  %flags7.i = getelementptr inbounds i8, ptr %7, i64 40
   %10 = atomicrmw and ptr %flags7.i, i32 -20 seq_cst, align 8
   %and = and i32 %10, 6
   %cmp33 = icmp eq i32 %and, 2
@@ -285,7 +261,7 @@ aio_bh_dequeue.exit:                              ; preds = %while.body14
 
 do.body17:                                        ; preds = %while.body14
   %11 = load ptr, ptr %bh_slice_list, align 8
-  %next20 = getelementptr inbounds %struct.BHListSlice, ptr %11, i64 0, i32 1
+  %next20 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %next20, align 8
   store ptr %12, ptr %bh_slice_list, align 8
   %cmp = icmp eq ptr %12, null
@@ -334,15 +310,15 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @qemu_bh_schedule_idle(ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bh, align 8
-  %flags.i = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %bh, i64 40
   %1 = atomicrmw or ptr %flags.i, i32 19 seq_cst, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 7
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 4
+  %bh_list.i = getelementptr inbounds i8, ptr %0, i64 176
+  %next.i = getelementptr inbounds i8, ptr %bh, i64 32
   %2 = ptrtoint ptr %bh to i64
   br label %do.body2.i
 
@@ -361,17 +337,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 9
+  %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 5
+  %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 10
+  %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
   br label %aio_bh_enqueue.exit
 
@@ -384,15 +360,15 @@ aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.
 define dso_local void @qemu_bh_schedule(ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bh, align 8
-  %flags.i = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %bh, i64 40
   %1 = atomicrmw or ptr %flags.i, i32 3 seq_cst, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 7
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 4
+  %bh_list.i = getelementptr inbounds i8, ptr %0, i64 176
+  %next.i = getelementptr inbounds i8, ptr %bh, i64 32
   %2 = ptrtoint ptr %bh to i64
   br label %do.body2.i
 
@@ -411,17 +387,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 9
+  %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 5
+  %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 10
+  %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
   br label %aio_bh_enqueue.exit
 
@@ -433,7 +409,7 @@ aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @qemu_bh_cancel(ptr nocapture noundef %bh) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %bh, i64 40
   %0 = atomicrmw and ptr %flags, i32 -3 seq_cst, align 8
   ret void
 }
@@ -442,15 +418,15 @@ entry:
 define dso_local void @qemu_bh_delete(ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bh, align 8
-  %flags.i = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %bh, i64 40
   %1 = atomicrmw or ptr %flags.i, i32 5 seq_cst, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 7
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %bh, i64 0, i32 4
+  %bh_list.i = getelementptr inbounds i8, ptr %0, i64 176
+  %next.i = getelementptr inbounds i8, ptr %bh, i64 32
   %2 = ptrtoint ptr %bh to i64
   br label %do.body2.i
 
@@ -469,17 +445,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 9
+  %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 5
+  %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds %struct.AioContext, ptr %0, i64 0, i32 10
+  %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
   br label %aio_bh_enqueue.exit
 
@@ -491,7 +467,7 @@ aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @aio_compute_timeout(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %bh_list = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 7
+  %bh_list = getelementptr inbounds i8, ptr %ctx, i64 176
   %0 = load atomic i64, ptr %bh_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
   %tobool.not6.i = icmp eq i64 %0, 0
@@ -501,7 +477,7 @@ for.body.i:                                       ; preds = %entry, %while.end10
   %bh.08.in.i = phi i64 [ %2, %while.end10.i ], [ %0, %entry ]
   %timeout.addr.07.i = phi i32 [ %timeout.addr.1.i, %while.end10.i ], [ -1, %entry ]
   %bh.08.i = inttoptr i64 %bh.08.in.i to ptr
-  %flags.i = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %bh.08.i, i64 40
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 6
   %cmp.i = icmp eq i32 %and.i, 2
@@ -514,7 +490,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 while.end10.i:                                    ; preds = %if.then.i, %for.body.i
   %timeout.addr.1.i = phi i32 [ %timeout.addr.07.i, %for.body.i ], [ 10000000, %if.then.i ]
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %bh.08.i, i64 32
   %2 = load atomic i64, ptr %next.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %tobool.not.i = icmp eq i64 %2, 0
@@ -526,14 +502,14 @@ aio_compute_bh_timeout.exit:                      ; preds = %while.end10.i
 
 if.end:                                           ; preds = %entry, %aio_compute_bh_timeout.exit
   %conv38 = phi i32 [ %timeout.addr.1.i, %aio_compute_bh_timeout.exit ], [ -1, %entry ]
-  %bh_slice_list = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 8
+  %bh_slice_list = getelementptr inbounds i8, ptr %ctx, i64 184
   %s.046 = load ptr, ptr %bh_slice_list, align 8
   %tobool.not47 = icmp eq ptr %s.046, null
   br i1 %tobool.not47, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body, %aio_compute_bh_timeout.exit29
   %timeout.addr.0.lcssa.i2355 = phi i32 [ %timeout.addr.1.i19, %aio_compute_bh_timeout.exit29 ], [ %timeout.048, %for.body ]
-  %next = getelementptr inbounds %struct.BHListSlice, ptr %s.049, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %s.049, i64 8
   %s.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !14
@@ -550,7 +526,7 @@ for.body.i11:                                     ; preds = %for.body, %while.en
   %bh.08.in.i12 = phi i64 [ %5, %while.end10.i18 ], [ %3, %for.body ]
   %timeout.addr.07.i13 = phi i32 [ %timeout.addr.1.i19, %while.end10.i18 ], [ %timeout.048, %for.body ]
   %bh.08.i14 = inttoptr i64 %bh.08.in.i12 to ptr
-  %flags.i15 = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i14, i64 0, i32 5
+  %flags.i15 = getelementptr inbounds i8, ptr %bh.08.i14, i64 40
   %4 = load i32, ptr %flags.i15, align 8
   %and.i16 = and i32 %4, 6
   %cmp.i17 = icmp eq i32 %and.i16, 2
@@ -563,7 +539,7 @@ if.then.i26:                                      ; preds = %for.body.i11
 
 while.end10.i18:                                  ; preds = %if.then.i26, %for.body.i11
   %timeout.addr.1.i19 = phi i32 [ %timeout.addr.07.i13, %for.body.i11 ], [ 10000000, %if.then.i26 ]
-  %next.i20 = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i14, i64 0, i32 4
+  %next.i20 = getelementptr inbounds i8, ptr %bh.08.i14, i64 32
   %5 = load atomic i64, ptr %next.i20 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %tobool.not.i21 = icmp eq i64 %5, 0
@@ -575,7 +551,7 @@ aio_compute_bh_timeout.exit29:                    ; preds = %while.end10.i18
 
 for.end:                                          ; preds = %for.cond, %if.end
   %timeout.0.lcssa = phi i32 [ %conv38, %if.end ], [ %timeout.addr.0.lcssa.i2355, %for.cond ]
-  %tlg = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 19
+  %tlg = getelementptr inbounds i8, ptr %ctx, i64 480
   %call9 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #12
   %cmp10 = icmp eq i64 %call9, 0
   br i1 %cmp10, label %return, label %if.else
@@ -607,7 +583,7 @@ declare ptr @g_source_ref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @aio_get_thread_pool(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %thread_pool = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 15
+  %thread_pool = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -627,7 +603,7 @@ declare ptr @thread_pool_new(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @aio_setup_linux_io_uring(ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %linux_io_uring = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 16
+  %linux_io_uring = getelementptr inbounds i8, ptr %ctx, i64 248
   %0 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
@@ -655,7 +631,7 @@ declare void @luring_attach_aio_context(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @aio_get_linux_io_uring(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
-  %linux_io_uring = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 16
+  %linux_io_uring = getelementptr inbounds i8, ptr %ctx, i64 248
   %0 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -676,17 +652,17 @@ define dso_local void @aio_notify(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 9
+  %notified = getelementptr inbounds i8, ptr %ctx, i64 200
   store atomic i8 1, ptr %notified monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 5
+  %notify_me = getelementptr inbounds i8, ptr %ctx, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %notifier = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 10
+  %notifier = getelementptr inbounds i8, ptr %ctx, i64 204
   %call = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier) #12
   br label %if.end
 
@@ -699,7 +675,7 @@ declare i32 @event_notifier_set(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_notify_accept(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
-  %notified = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 9
+  %notified = getelementptr inbounds i8, ptr %ctx, i64 200
   store atomic i8 0, ptr %notified monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   fence seq_cst
@@ -710,13 +686,13 @@ entry:
 define dso_local ptr @aio_context_new(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_source_new(ptr noundef nonnull @aio_source_funcs, i32 noundef 584) #12
-  %bh_list = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 7
-  %bh_slice_list = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 8
-  %sqh_last = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 8, i32 1
+  %bh_list = getelementptr inbounds i8, ptr %call, i64 176
+  %bh_slice_list = getelementptr inbounds i8, ptr %call, i64 184
+  %sqh_last = getelementptr inbounds i8, ptr %call, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bh_list, i8 0, i64 16, i1 false)
   store ptr %bh_slice_list, ptr %sqh_last, align 8
   tail call void @aio_context_setup(ptr noundef %call) #12
-  %notifier = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 10
+  %notifier = getelementptr inbounds i8, ptr %call, i64 204
   %call6 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier, i32 noundef 0) #12
   %cmp = icmp slt i32 %call6, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -729,7 +705,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @g_source_set_can_recurse(ptr noundef nonnull %call, i32 noundef 1) #12
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %call, i64 172
   tail call void @qemu_lockcnt_init(ptr noundef nonnull %list_lock) #12
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
   store ptr %call, ptr %call.i, align 8
@@ -745,21 +721,21 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %.compoundliteral.sroa.6.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.71.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr null, ptr %.compoundliteral.sroa.71.0..sroa_idx.i, align 8
-  %co_schedule_bh = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 12
+  %co_schedule_bh = getelementptr inbounds i8, ptr %call, i64 224
   store ptr %call.i, ptr %co_schedule_bh, align 8
-  %scheduled_coroutines = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 11
+  %scheduled_coroutines = getelementptr inbounds i8, ptr %call, i64 216
   store ptr null, ptr %scheduled_coroutines, align 8
   tail call void @aio_set_event_notifier(ptr noundef nonnull %call, ptr noundef nonnull %notifier, ptr noundef nonnull @aio_context_notifier_cb, ptr noundef nonnull @aio_context_notifier_poll, ptr noundef nonnull @aio_context_notifier_poll_ready) #12
-  %thread_pool = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 15
-  %lock = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 1
+  %thread_pool = getelementptr inbounds i8, ptr %call, i64 240
+  %lock = getelementptr inbounds i8, ptr %call, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %thread_pool, i8 0, i64 16, i1 false)
   tail call void @qemu_rec_mutex_init(ptr noundef nonnull %lock) #12
-  %tlg = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 19
+  %tlg = getelementptr inbounds i8, ptr %call, i64 480
   tail call void @timerlistgroup_init(ptr noundef nonnull %tlg, ptr noundef nonnull @aio_timerlist_notify, ptr noundef nonnull %call) #12
-  %poll_ns = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 21
-  %thread_pool_min = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 13
+  %poll_ns = getelementptr inbounds i8, ptr %call, i64 520
+  %thread_pool_min = getelementptr inbounds i8, ptr %call, i64 232
   store i32 0, ptr %thread_pool_min, align 8
-  %thread_pool_max = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 14
+  %thread_pool_max = getelementptr inbounds i8, ptr %call, i64 236
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %poll_ns, i8 0, i64 40, i1 false)
   store i32 64, ptr %thread_pool_max, align 4
   tail call void @register_aiocontext(ptr noundef nonnull %call) #12
@@ -786,7 +762,7 @@ declare void @qemu_lockcnt_init(ptr noundef) local_unnamed_addr #2
 define internal void @co_schedule_bh_cb(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %scheduled_coroutines = getelementptr inbounds %struct.AioContext, ptr %opaque, i64 0, i32 11
+  %scheduled_coroutines = getelementptr inbounds i8, ptr %opaque, i64 216
   %0 = atomicrmw xchg ptr %scheduled_coroutines, i64 0 seq_cst, align 8
   %cmp.not16 = icmp eq i64 %0, 0
   br i1 %cmp.not16, label %while.end49, label %while.body10.preheader
@@ -796,14 +772,14 @@ while.body10.preheader:                           ; preds = %entry
   br label %while.body10
 
 while.body29.lr.ph:                               ; preds = %while.body10
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %lock.i = getelementptr inbounds %struct.AioContext, ptr %opaque, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %lock.i = getelementptr inbounds i8, ptr %opaque, i64 96
   br label %while.body29
 
 while.body10:                                     ; preds = %while.body10.preheader, %while.body10
   %straight.sroa.0.018 = phi ptr [ %reversed.sroa.0.017, %while.body10 ], [ null, %while.body10.preheader ]
   %reversed.sroa.0.017 = phi ptr [ %2, %while.body10 ], [ %1, %while.body10.preheader ]
-  %co_scheduled_next = getelementptr inbounds %struct.Coroutine, ptr %reversed.sroa.0.017, i64 0, i32 9
+  %co_scheduled_next = getelementptr inbounds i8, ptr %reversed.sroa.0.017, i64 80
   %2 = load ptr, ptr %co_scheduled_next, align 8
   store ptr %straight.sroa.0.018, ptr %co_scheduled_next, align 8
   %cmp.not = icmp eq ptr %2, null
@@ -811,7 +787,7 @@ while.body10:                                     ; preds = %while.body10.prehea
 
 while.body29:                                     ; preds = %while.body29.lr.ph, %trace_aio_co_schedule_bh_cb.exit
   %straight.sroa.0.120 = phi ptr [ %reversed.sroa.0.017, %while.body29.lr.ph ], [ %3, %trace_aio_co_schedule_bh_cb.exit ]
-  %co_scheduled_next35 = getelementptr inbounds %struct.Coroutine, ptr %straight.sroa.0.120, i64 0, i32 9
+  %co_scheduled_next35 = getelementptr inbounds i8, ptr %straight.sroa.0.120, i64 80
   %3 = load ptr, ptr %co_scheduled_next35, align 8
   store ptr null, ptr %co_scheduled_next35, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -851,7 +827,7 @@ trace_aio_co_schedule_bh_cb.exit:                 ; preds = %while.body29, %land
   %11 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %12 = inttoptr i64 %11 to ptr
   tail call void %12(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #12
-  %scheduled = getelementptr inbounds %struct.Coroutine, ptr %straight.sroa.0.120, i64 0, i32 6
+  %scheduled = getelementptr inbounds i8, ptr %straight.sroa.0.120, i64 48
   store atomic i64 0, ptr %scheduled monotonic, align 8
   tail call void @qemu_aio_coroutine_enter(ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #12
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #12
@@ -896,17 +872,17 @@ define internal void @aio_timerlist_notify(ptr noundef %opaque, i32 %type) #0 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i = getelementptr inbounds %struct.AioContext, ptr %opaque, i64 0, i32 9
+  %notified.i = getelementptr inbounds i8, ptr %opaque, i64 200
   store atomic i8 1, ptr %notified.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i = getelementptr inbounds %struct.AioContext, ptr %opaque, i64 0, i32 5
+  %notify_me.i = getelementptr inbounds i8, ptr %opaque, i64 168
   %0 = load atomic i32, ptr %notify_me.i monotonic, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %aio_notify.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %notifier.i = getelementptr inbounds %struct.AioContext, ptr %opaque, i64 0, i32 10
+  %notifier.i = getelementptr inbounds i8, ptr %opaque, i64 204
   %call.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i) #12
   br label %aio_notify.exit
 
@@ -946,7 +922,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %ctx, ptr noundef %co) #12
   br label %trace_aio_co_schedule.exit
@@ -957,7 +933,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_aio_co_schedule.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %scheduled1 = getelementptr inbounds %struct.Coroutine, ptr %co, i64 0, i32 6
+  %scheduled1 = getelementptr inbounds i8, ptr %co, i64 48
   %7 = cmpxchg ptr %scheduled1, i64 0, i64 ptrtoint (ptr @__func__.aio_co_schedule to i64) seq_cst seq_cst, align 8
   %8 = extractvalue { i64, i1 } %7, 1
   br i1 %8, label %if.end, label %if.then
@@ -972,8 +948,8 @@ if.then:                                          ; preds = %trace_aio_co_schedu
 
 if.end:                                           ; preds = %trace_aio_co_schedule.exit
   %call.i = tail call ptr @g_source_ref(ptr noundef %ctx) #12
-  %scheduled_coroutines = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 11
-  %co_scheduled_next = getelementptr inbounds %struct.Coroutine, ptr %co, i64 0, i32 9
+  %scheduled_coroutines = getelementptr inbounds i8, ptr %ctx, i64 216
+  %co_scheduled_next = getelementptr inbounds i8, ptr %co, i64 80
   %12 = ptrtoint ptr %co to i64
   br label %do.body5
 
@@ -990,18 +966,18 @@ do.body5:                                         ; preds = %do.body5, %if.end
   br i1 %cmp.not, label %do.end25, label %do.body5, !llvm.loop !18
 
 do.end25:                                         ; preds = %do.body5
-  %co_schedule_bh = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 12
+  %co_schedule_bh = getelementptr inbounds i8, ptr %ctx, i64 224
   %19 = load ptr, ptr %co_schedule_bh, align 8
   %20 = load ptr, ptr %19, align 8
-  %flags.i.i = getelementptr inbounds %struct.QEMUBH, ptr %19, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %19, i64 40
   %21 = atomicrmw or ptr %flags.i.i, i32 3 seq_cst, align 8
   %and.i.i = and i32 %21, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do.body2.preheader.i.i, label %if.end.i.i
 
 do.body2.preheader.i.i:                           ; preds = %do.end25
-  %bh_list.i.i = getelementptr inbounds %struct.AioContext, ptr %20, i64 0, i32 7
-  %next.i.i = getelementptr inbounds %struct.QEMUBH, ptr %19, i64 0, i32 4
+  %bh_list.i.i = getelementptr inbounds i8, ptr %20, i64 176
+  %next.i.i = getelementptr inbounds i8, ptr %19, i64 32
   %22 = ptrtoint ptr %19 to i64
   br label %do.body2.i.i
 
@@ -1020,17 +996,17 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
 if.end.i.i:                                       ; preds = %do.body2.i.i, %do.end25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i.i = getelementptr inbounds %struct.AioContext, ptr %20, i64 0, i32 9
+  %notified.i.i.i = getelementptr inbounds i8, ptr %20, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i.i = getelementptr inbounds %struct.AioContext, ptr %20, i64 0, i32 5
+  %notify_me.i.i.i = getelementptr inbounds i8, ptr %20, i64 168
   %29 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
   %tobool.not.i.i.i = icmp eq i32 %29, 0
   br i1 %tobool.not.i.i.i, label %qemu_bh_schedule.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %notifier.i.i.i = getelementptr inbounds %struct.AioContext, ptr %20, i64 0, i32 10
+  %notifier.i.i.i = getelementptr inbounds i8, ptr %20, i64 204
   %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #12
   br label %qemu_bh_schedule.exit
 
@@ -1086,7 +1062,7 @@ qemu_get_current_aio_context.exit:                ; preds = %entry, %if.end.i, %
 if.then:                                          ; preds = %qemu_get_current_aio_context.exit
   %call1 = tail call ptr @qemu_coroutine_self() #12
   store ptr %call1, ptr %data, align 8
-  %new_ctx2 = getelementptr inbounds %struct.AioCoRescheduleSelf, ptr %data, i64 0, i32 1
+  %new_ctx2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %new_ctx, ptr %new_ctx2, align 8
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
   store ptr %retval.0.i, ptr %call.i, align 8
@@ -1108,7 +1084,7 @@ if.then:                                          ; preds = %qemu_get_current_ai
   br i1 %tobool.not.i.i, label %do.body2.preheader.i.i, label %if.end.i.i
 
 do.body2.preheader.i.i:                           ; preds = %if.then
-  %bh_list.i.i = getelementptr inbounds %struct.AioContext, ptr %retval.0.i, i64 0, i32 7
+  %bh_list.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 176
   %3 = ptrtoint ptr %call.i to i64
   br label %do.body2.i.i
 
@@ -1127,17 +1103,17 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
 if.end.i.i:                                       ; preds = %do.body2.i.i, %if.then
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i.i = getelementptr inbounds %struct.AioContext, ptr %retval.0.i, i64 0, i32 9
+  %notified.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i.i = getelementptr inbounds %struct.AioContext, ptr %retval.0.i, i64 0, i32 5
+  %notify_me.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 168
   %10 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %aio_bh_schedule_oneshot_full.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %notifier.i.i.i = getelementptr inbounds %struct.AioContext, ptr %retval.0.i, i64 0, i32 10
+  %notifier.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 204
   %call.i.i.i = call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #12
   br label %aio_bh_schedule_oneshot_full.exit
 
@@ -1177,7 +1153,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_co_reschedule_self_bh(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %new_ctx = getelementptr inbounds %struct.AioCoRescheduleSelf, ptr %opaque, i64 0, i32 1
+  %new_ctx = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %new_ctx, align 8
   %1 = load ptr, ptr %opaque, align 8
   tail call void @aio_co_schedule(ptr noundef %0, ptr noundef %1)
@@ -1190,7 +1166,7 @@ declare void @qemu_coroutine_yield() #2
 define dso_local void @aio_co_wake(ptr noundef %co) local_unnamed_addr #0 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
-  %ctx1 = getelementptr inbounds %struct.Coroutine, ptr %co, i64 0, i32 5
+  %ctx1 = getelementptr inbounds i8, ptr %co, i64 40
   %0 = load atomic i64, ptr %ctx1 monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void @aio_co_enter(ptr noundef %1, ptr noundef %co)
@@ -1237,9 +1213,9 @@ if.else:                                          ; preds = %if.then2
   unreachable
 
 do.body:                                          ; preds = %if.then2
-  %co_queue_next = getelementptr inbounds %struct.Coroutine, ptr %co, i64 0, i32 7
+  %co_queue_next = getelementptr inbounds i8, ptr %co, i64 56
   store ptr null, ptr %co_queue_next, align 8
-  %sqh_last = getelementptr inbounds %struct.Coroutine, ptr %call3, i64 0, i32 8, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %call3, i64 72
   %2 = load ptr, ptr %sqh_last, align 8
   store ptr %co, ptr %2, align 8
   store ptr %co_queue_next, ptr %sqh_last, align 8
@@ -1248,7 +1224,7 @@ do.body:                                          ; preds = %if.then2
 if.else11:                                        ; preds = %if.end
   %3 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %lock.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %4(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #12
   tail call void @qemu_aio_coroutine_enter(ptr noundef %ctx, ptr noundef %co) #12
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #12
@@ -1265,7 +1241,7 @@ define dso_local void @aio_context_acquire(ptr noundef %ctx) local_unnamed_addr 
 entry:
   %0 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 728) #12
   ret void
 }
@@ -1275,7 +1251,7 @@ declare void @qemu_aio_coroutine_enter(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_release(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 733) #12
   ret void
 }
@@ -1325,12 +1301,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %min to i32
-  %thread_pool_min = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 13
+  %thread_pool_min = getelementptr inbounds i8, ptr %ctx, i64 232
   store i32 %conv, ptr %thread_pool_min, align 8
   %conv5 = trunc i64 %max to i32
-  %thread_pool_max = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 14
+  %thread_pool_max = getelementptr inbounds i8, ptr %ctx, i64 236
   store i32 %conv5, ptr %thread_pool_max, align 4
-  %thread_pool = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 15
+  %thread_pool = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
   %tobool6.not = icmp eq ptr %0, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -1359,13 +1335,13 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @aio_ctx_prepare(ptr noundef %source, ptr nocapture noundef %timeout) #0 {
 entry:
-  %notify_me = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 5
+  %notify_me = getelementptr inbounds i8, ptr %source, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %or = or i32 %0, 1
   store atomic i32 %or, ptr %notify_me monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   fence seq_cst
-  %bh_list.i = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 7
+  %bh_list.i = getelementptr inbounds i8, ptr %source, i64 176
   %1 = load atomic i64, ptr %bh_list.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
   %tobool.not6.i.i = icmp eq i64 %1, 0
@@ -1375,7 +1351,7 @@ for.body.i.i:                                     ; preds = %entry, %while.end10
   %bh.08.in.i.i = phi i64 [ %3, %while.end10.i.i ], [ %1, %entry ]
   %timeout.addr.07.i.i = phi i32 [ %timeout.addr.1.i.i, %while.end10.i.i ], [ -1, %entry ]
   %bh.08.i.i = inttoptr i64 %bh.08.in.i.i to ptr
-  %flags.i.i = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i.i, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %bh.08.i.i, i64 40
   %2 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %2, 6
   %cmp.i.i = icmp eq i32 %and.i.i, 2
@@ -1388,7 +1364,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 while.end10.i.i:                                  ; preds = %if.then.i.i, %for.body.i.i
   %timeout.addr.1.i.i = phi i32 [ %timeout.addr.07.i.i, %for.body.i.i ], [ 10000000, %if.then.i.i ]
-  %next.i.i = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i.i, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %bh.08.i.i, i64 32
   %3 = load atomic i64, ptr %next.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %tobool.not.i.i = icmp eq i64 %3, 0
@@ -1400,14 +1376,14 @@ aio_compute_bh_timeout.exit.i:                    ; preds = %while.end10.i.i
 
 if.end.i:                                         ; preds = %aio_compute_bh_timeout.exit.i, %entry
   %conv38.i = phi i32 [ %timeout.addr.1.i.i, %aio_compute_bh_timeout.exit.i ], [ -1, %entry ]
-  %bh_slice_list.i = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 8
+  %bh_slice_list.i = getelementptr inbounds i8, ptr %source, i64 184
   %s.046.i = load ptr, ptr %bh_slice_list.i, align 8
   %tobool.not47.i = icmp eq ptr %s.046.i, null
   br i1 %tobool.not47.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %aio_compute_bh_timeout.exit29.i, %for.body.i
   %timeout.addr.0.lcssa.i2355.i = phi i32 [ %timeout.addr.1.i19.i, %aio_compute_bh_timeout.exit29.i ], [ %timeout.048.i, %for.body.i ]
-  %next.i = getelementptr inbounds %struct.BHListSlice, ptr %s.049.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %s.049.i, i64 8
   %s.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
@@ -1424,7 +1400,7 @@ for.body.i11.i:                                   ; preds = %for.body.i, %while.
   %bh.08.in.i12.i = phi i64 [ %6, %while.end10.i18.i ], [ %4, %for.body.i ]
   %timeout.addr.07.i13.i = phi i32 [ %timeout.addr.1.i19.i, %while.end10.i18.i ], [ %timeout.048.i, %for.body.i ]
   %bh.08.i14.i = inttoptr i64 %bh.08.in.i12.i to ptr
-  %flags.i15.i = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i14.i, i64 0, i32 5
+  %flags.i15.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 40
   %5 = load i32, ptr %flags.i15.i, align 8
   %and.i16.i = and i32 %5, 6
   %cmp.i17.i = icmp eq i32 %and.i16.i, 2
@@ -1437,7 +1413,7 @@ if.then.i26.i:                                    ; preds = %for.body.i11.i
 
 while.end10.i18.i:                                ; preds = %if.then.i26.i, %for.body.i11.i
   %timeout.addr.1.i19.i = phi i32 [ %timeout.addr.07.i13.i, %for.body.i11.i ], [ 10000000, %if.then.i26.i ]
-  %next.i20.i = getelementptr inbounds %struct.QEMUBH, ptr %bh.08.i14.i, i64 0, i32 4
+  %next.i20.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 32
   %6 = load atomic i64, ptr %next.i20.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %tobool.not.i21.i = icmp eq i64 %6, 0
@@ -1449,7 +1425,7 @@ aio_compute_bh_timeout.exit29.i:                  ; preds = %while.end10.i18.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end.i
   %timeout.0.lcssa.i = phi i32 [ %conv38.i, %if.end.i ], [ %timeout.addr.0.lcssa.i2355.i, %for.cond.i ]
-  %tlg.i = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 19
+  %tlg.i = getelementptr inbounds i8, ptr %source, i64 480
   %call9.i = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg.i) #12
   %cmp10.i = icmp eq i64 %call9.i, 0
   br i1 %cmp10.i, label %aio_compute_timeout.exit, label %if.else.i
@@ -1484,15 +1460,15 @@ if.end:                                           ; preds = %aio_compute_timeout
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @aio_ctx_check(ptr noundef %source) #0 {
 entry:
-  %notify_me = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 5
+  %notify_me = getelementptr inbounds i8, ptr %source, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %and = and i32 %0, -2
   store atomic i32 %and, ptr %notify_me release, align 8
-  %notified.i = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 9
+  %notified.i = getelementptr inbounds i8, ptr %source, i64 200
   store atomic i8 0, ptr %notified.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   fence seq_cst
-  %bh_list = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 7
+  %bh_list = getelementptr inbounds i8, ptr %source, i64 176
   %1 = load atomic i64, ptr %bh_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !23
   %tobool.not16 = icmp eq i64 %1, 0
@@ -1501,21 +1477,21 @@ entry:
 for.body:                                         ; preds = %entry, %while.end20
   %bh.017.in = phi i64 [ %3, %while.end20 ], [ %1, %entry ]
   %bh.017 = inttoptr i64 %bh.017.in to ptr
-  %flags = getelementptr inbounds %struct.QEMUBH, ptr %bh.017, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %bh.017, i64 40
   %2 = load i32, ptr %flags, align 8
   %and15 = and i32 %2, 6
   %cmp = icmp eq i32 %and15, 2
   br i1 %cmp, label %return, label %while.end20
 
 while.end20:                                      ; preds = %for.body
-  %next = getelementptr inbounds %struct.QEMUBH, ptr %bh.017, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %bh.017, i64 32
   %3 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !24
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %while.end20, %entry
-  %bh_slice_list = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 8
+  %bh_slice_list = getelementptr inbounds i8, ptr %source, i64 184
   %s.021 = load ptr, ptr %bh_slice_list, align 8
   %tobool23.not22 = icmp eq ptr %s.021, null
   br i1 %tobool23.not22, label %for.end53, label %while.end29
@@ -1530,21 +1506,21 @@ while.end29:                                      ; preds = %for.end, %for.inc51
 for.body35:                                       ; preds = %while.end29, %while.end46
   %bh.120.in = phi i64 [ %6, %while.end46 ], [ %4, %while.end29 ]
   %bh.120 = inttoptr i64 %bh.120.in to ptr
-  %flags36 = getelementptr inbounds %struct.QEMUBH, ptr %bh.120, i64 0, i32 5
+  %flags36 = getelementptr inbounds i8, ptr %bh.120, i64 40
   %5 = load i32, ptr %flags36, align 8
   %and37 = and i32 %5, 6
   %cmp38 = icmp eq i32 %and37, 2
   br i1 %cmp38, label %return, label %while.end46
 
 while.end46:                                      ; preds = %for.body35
-  %next47 = getelementptr inbounds %struct.QEMUBH, ptr %bh.120, i64 0, i32 4
+  %next47 = getelementptr inbounds i8, ptr %bh.120, i64 32
   %6 = load atomic i64, ptr %next47 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !27
   %tobool34.not = icmp eq i64 %6, 0
   br i1 %tobool34.not, label %for.inc51, label %for.body35, !llvm.loop !28
 
 for.inc51:                                        ; preds = %while.end46, %while.end29
-  %next52 = getelementptr inbounds %struct.BHListSlice, ptr %s.023, i64 0, i32 1
+  %next52 = getelementptr inbounds i8, ptr %s.023, i64 8
   %s.0 = load ptr, ptr %next52, align 8
   %tobool23.not = icmp eq ptr %s.0, null
   br i1 %tobool23.not, label %for.end53, label %while.end29, !llvm.loop !29
@@ -1554,7 +1530,7 @@ for.end53:                                        ; preds = %for.inc51, %for.end
   br i1 %call, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.end53
-  %tlg = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 19
+  %tlg = getelementptr inbounds i8, ptr %source, i64 480
   %call54 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #12
   %cmp55 = icmp eq i64 %call54, 0
   %7 = zext i1 %cmp55 to i32
@@ -1583,10 +1559,10 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_ctx_finalize(ptr noundef %source) #0 {
 entry:
-  %thread_pool = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 15
+  %thread_pool = getelementptr inbounds i8, ptr %source, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
   tail call void @thread_pool_free(ptr noundef %0) #12
-  %linux_io_uring = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 16
+  %linux_io_uring = getelementptr inbounds i8, ptr %source, i64 248
   %1 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1599,7 +1575,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %scheduled_coroutines = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 11
+  %scheduled_coroutines = getelementptr inbounds i8, ptr %source, i64 216
   %3 = load ptr, ptr %scheduled_coroutines, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.end5, label %if.else
@@ -1609,18 +1585,18 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %co_schedule_bh = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 12
+  %co_schedule_bh = getelementptr inbounds i8, ptr %source, i64 224
   %4 = load ptr, ptr %co_schedule_bh, align 8
   %5 = load ptr, ptr %4, align 8
-  %flags.i.i = getelementptr inbounds %struct.QEMUBH, ptr %4, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %6 = atomicrmw or ptr %flags.i.i, i32 5 seq_cst, align 8
   %and.i.i = and i32 %6, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do.body2.preheader.i.i, label %if.end.i.i
 
 do.body2.preheader.i.i:                           ; preds = %if.end5
-  %bh_list.i.i = getelementptr inbounds %struct.AioContext, ptr %5, i64 0, i32 7
-  %next.i.i = getelementptr inbounds %struct.QEMUBH, ptr %4, i64 0, i32 4
+  %bh_list.i.i = getelementptr inbounds i8, ptr %5, i64 176
+  %next.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %7 = ptrtoint ptr %4 to i64
   br label %do.body2.i.i
 
@@ -1639,29 +1615,29 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
 if.end.i.i:                                       ; preds = %do.body2.i.i, %if.end5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence release
-  %notified.i.i.i = getelementptr inbounds %struct.AioContext, ptr %5, i64 0, i32 9
+  %notified.i.i.i = getelementptr inbounds i8, ptr %5, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence seq_cst
-  %notify_me.i.i.i = getelementptr inbounds %struct.AioContext, ptr %5, i64 0, i32 5
+  %notify_me.i.i.i = getelementptr inbounds i8, ptr %5, i64 168
   %14 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
   %tobool.not.i.i.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i.i.i, label %qemu_bh_delete.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %notifier.i.i.i = getelementptr inbounds %struct.AioContext, ptr %5, i64 0, i32 10
+  %notifier.i.i.i = getelementptr inbounds i8, ptr %5, i64 204
   %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #12
   br label %qemu_bh_delete.exit
 
 qemu_bh_delete.exit:                              ; preds = %if.end.i.i, %if.then.i.i.i
   tail call void @icount_notify_exit() #12
-  %bh_slice_list = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 8
+  %bh_slice_list = getelementptr inbounds i8, ptr %source, i64 184
   %15 = load ptr, ptr %bh_slice_list, align 8
   %cmp6 = icmp eq ptr %15, null
   br i1 %cmp6, label %while.cond.preheader, label %if.else8
 
 while.cond.preheader:                             ; preds = %qemu_bh_delete.exit
-  %bh_list = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 7
+  %bh_list = getelementptr inbounds i8, ptr %source, i64 176
   %16 = load atomic i64, ptr %bh_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %tobool.not.i22 = icmp eq i64 %16, 0
@@ -1675,11 +1651,11 @@ aio_bh_dequeue.exit:                              ; preds = %while.cond.preheade
   %17 = phi i64 [ %24, %if.end17 ], [ %16, %while.cond.preheader ]
   %18 = inttoptr i64 %17 to ptr
   %19 = load ptr, ptr %bh_list, align 8
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %19, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %19, i64 32
   %20 = load ptr, ptr %next.i, align 8
   store ptr %20, ptr %bh_list, align 8
   store ptr null, ptr %next.i, align 8
-  %flags7.i = getelementptr inbounds %struct.QEMUBH, ptr %18, i64 0, i32 5
+  %flags7.i = getelementptr inbounds i8, ptr %18, i64 40
   %21 = atomicrmw and ptr %flags7.i, i32 -20 seq_cst, align 8
   %and = and i32 %21, 4
   %tobool11.not = icmp eq i32 %and, 0
@@ -1687,7 +1663,7 @@ aio_bh_dequeue.exit:                              ; preds = %while.cond.preheade
 
 if.then15:                                        ; preds = %aio_bh_dequeue.exit
   %22 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds %struct.QEMUBH, ptr %18, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load ptr, ptr %name, align 8
   %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.aio_ctx_finalize, ptr noundef %23) #14
   tail call void @abort() #13
@@ -1701,14 +1677,14 @@ if.end17:                                         ; preds = %aio_bh_dequeue.exit
   br i1 %tobool.not.i, label %while.end, label %aio_bh_dequeue.exit, !llvm.loop !30
 
 while.end:                                        ; preds = %if.end17, %while.cond.preheader
-  %notifier = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 10
+  %notifier = getelementptr inbounds i8, ptr %source, i64 204
   tail call void @aio_set_event_notifier(ptr noundef nonnull %source, ptr noundef nonnull %notifier, ptr noundef null, ptr noundef null, ptr noundef null) #12
   tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #12
-  %lock = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %source, i64 96
   tail call void @qemu_rec_mutex_destroy(ptr noundef nonnull %lock) #12
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %source, i64 172
   tail call void @qemu_lockcnt_destroy(ptr noundef nonnull %list_lock) #12
-  %tlg = getelementptr inbounds %struct.AioContext, ptr %source, i64 0, i32 19
+  %tlg = getelementptr inbounds i8, ptr %source, i64 480
   tail call void @timerlistgroup_deinit(ptr noundef nonnull %tlg) #12
   tail call void @unregister_aiocontext(ptr noundef nonnull %source) #12
   tail call void @aio_context_destroy(ptr noundef nonnull %source) #12

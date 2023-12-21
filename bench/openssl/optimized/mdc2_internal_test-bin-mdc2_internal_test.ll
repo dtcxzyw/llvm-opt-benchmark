@@ -37,7 +37,7 @@ entry:
   %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %call3 = call i32 @MDC2_Update(ptr noundef nonnull %c, ptr noundef %0, i64 noundef %call2) #4
   %call5 = call i32 @MDC2_Final(ptr noundef nonnull %md, ptr noundef nonnull %c) #4
-  %expected = getelementptr inbounds %struct.TESTDATA, ptr %testdata, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %testdata, i64 8
   %call7 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 65, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %expected, i64 noundef 16, ptr noundef nonnull %md, i64 noundef 16) #4
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %if.then, label %return

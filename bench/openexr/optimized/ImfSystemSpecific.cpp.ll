@@ -3,15 +3,13 @@ source_filename = "bench/openexr/original/ImfSystemSpecific.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Imf_3_2::CpuId" = type { i8, i8, i8, i8, i8, i8, i8 }
-
 @_ZN7Imf_3_25CpuIdC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_25CpuIdC2Ev
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_25CpuIdC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(7) %this) unnamed_addr #0 align 2 {
 entry:
-  %avx = getelementptr inbounds %"class.Imf_3_2::CpuId", ptr %this, i64 0, i32 5
-  %f16c = getelementptr inbounds %"class.Imf_3_2::CpuId", ptr %this, i64 0, i32 6
+  %avx = getelementptr inbounds i8, ptr %this, i64 5
+  %f16c = getelementptr inbounds i8, ptr %this, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %this, i8 0, i64 7, i1 false)
   %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 0) #2, !srcloc !4
   %asmresult.i = extractvalue { i32, i32, i32, i32 } %0, 0
@@ -19,10 +17,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.end40
 
 if.then:                                          ; preds = %entry
-  %sse4_2 = getelementptr inbounds %"class.Imf_3_2::CpuId", ptr %this, i64 0, i32 4
-  %sse4_1 = getelementptr inbounds %"class.Imf_3_2::CpuId", ptr %this, i64 0, i32 3
-  %ssse3 = getelementptr inbounds %"class.Imf_3_2::CpuId", ptr %this, i64 0, i32 2
-  %sse3 = getelementptr inbounds %"class.Imf_3_2::CpuId", ptr %this, i64 0, i32 1
+  %sse4_2 = getelementptr inbounds i8, ptr %this, i64 4
+  %sse4_1 = getelementptr inbounds i8, ptr %this, i64 3
+  %ssse3 = getelementptr inbounds i8, ptr %this, i64 2
+  %sse3 = getelementptr inbounds i8, ptr %this, i64 1
   %1 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 1) #2, !srcloc !4
   %asmresult2.i3 = extractvalue { i32, i32, i32, i32 } %1, 2
   %asmresult3.i4 = extractvalue { i32, i32, i32, i32 } %1, 3

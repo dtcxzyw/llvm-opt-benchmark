@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-a_dup.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/asn1/a_dup.c\00", align 1
 @__func__.ASN1_item_dup = private unnamed_addr constant [14 x i8] c"ASN1_item_dup\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"Type=%s\00", align 1
@@ -73,13 +70,13 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then12:                                        ; preds = %if.end, %if.end, %if.end
-  %funcs = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs, align 8
   %cmp13.not = icmp eq ptr %1, null
   br i1 %cmp13.not, label %if.end28, label %if.end16
 
 if.end16:                                         ; preds = %if.then12
-  %asn1_cb15 = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 4
+  %asn1_cb15 = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %asn1_cb15, align 8
   %cmp17.not = icmp eq ptr %2, null
   br i1 %cmp17.not, label %if.end28, label %if.then19
@@ -142,7 +139,7 @@ land.lhs.true.if.end41_crit_edge:                 ; preds = %land.lhs.true
 auxerr:                                           ; preds = %land.lhs.true, %if.then19, %lor.lhs.false20, %lor.lhs.false23
   call void @ERR_new() #2
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @__func__.ASN1_item_dup) #2
-  %sname = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 6
+  %sname = getelementptr inbounds i8, ptr %it, i64 48
   %9 = load ptr, ptr %sname, align 8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 100, ptr noundef nonnull @.str.1, ptr noundef %9) #2
   br label %return

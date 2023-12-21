@@ -3,17 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_add.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pkcs12_bag_st = type { ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.PKCS12_SAFEBAG_st = type { ptr, %union.anon.0, ptr }
-%union.anon.0 = type { ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon.1, %struct.PKCS7_CTX_st }
-%union.anon.1 = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.pkcs7_encrypted_st = type { ptr, ptr }
-%struct.pkcs7_enc_content_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.PKCS12_st = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs12/p12_add.c\00", align 1
 @__func__.PKCS12_item_pack_safebag = private unnamed_addr constant [25 x i8] c"PKCS12_item_pack_safebag\00", align 1
 @__func__.PKCS12_pack_p7data = private unnamed_addr constant [19 x i8] c"PKCS12_pack_p7data\00", align 1
@@ -37,7 +26,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef %nid1) #2
   store ptr %call1, ptr %call, align 8
-  %value = getelementptr inbounds %struct.pkcs12_bag_st, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   %call2 = tail call ptr @ASN1_item_pack(ptr noundef %obj, ptr noundef %it, ptr noundef nonnull %value) #2
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %err, label %if.end4
@@ -48,7 +37,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %err, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %value9 = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call5, i64 0, i32 1
+  %value9 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call, ptr %value9, align 8
   %call10 = tail call ptr @OBJ_nid2obj(i32 noundef %nid2) #2
   store ptr %call10, ptr %call5, align 8
@@ -98,10 +87,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef 21) #2
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %call, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call1, ptr %type, align 8
   %call2 = tail call ptr @ASN1_OCTET_STRING_new() #2
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %call, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call2, ptr %d, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %err, label %if.end5
@@ -137,7 +126,7 @@ declare void @PKCS7_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_unpack_p7data(ptr noundef %p7) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #2
   %cmp = icmp eq i32 %call, 21
@@ -150,10 +139,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %1 = load ptr, ptr %d, align 8
   %call1 = tail call ptr @PKCS12_SAFEBAGS_it() #2
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %p7, i64 40
   %call2 = tail call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef nonnull %ctx) #2
   %call4 = tail call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef nonnull %ctx) #2
   %call5 = tail call ptr @ASN1_item_unpack_ex(ptr noundef %1, ptr noundef %call1, ptr noundef %call2, ptr noundef %call4) #2
@@ -223,30 +212,30 @@ if.end17:                                         ; preds = %if.else, %if.then14
   br i1 %cmp18, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.end17
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %call, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %d, align 8
-  %enc_data = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %0, i64 0, i32 1
+  %enc_data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %enc_data, align 8
-  %algorithm = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %1, i64 0, i32 1
+  %algorithm = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %algorithm, align 8
   tail call void @X509_ALGOR_free(ptr noundef %2) #2
   %3 = load ptr, ptr %d, align 8
-  %enc_data22 = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %3, i64 0, i32 1
+  %enc_data22 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %enc_data22, align 8
-  %algorithm23 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %4, i64 0, i32 1
+  %algorithm23 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %pbe.0, ptr %algorithm23, align 8
   %5 = load ptr, ptr %d, align 8
-  %enc_data25 = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %5, i64 0, i32 1
+  %enc_data25 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %enc_data25, align 8
-  %enc_data26 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %6, i64 0, i32 2
+  %enc_data26 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %enc_data26, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %7) #2
   %call27 = tail call ptr @PKCS12_SAFEBAGS_it() #2
   %call28 = tail call ptr @PKCS12_item_i2d_encrypt_ex(ptr noundef nonnull %pbe.0, ptr noundef %call27, ptr noundef %pass, i32 noundef %passlen, ptr noundef %bags, i32 noundef 1, ptr noundef %ctx, ptr noundef %propq) #2
   %8 = load ptr, ptr %d, align 8
-  %enc_data30 = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %8, i64 0, i32 1
+  %enc_data30 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %enc_data30, align 8
-  %enc_data31 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %9, i64 0, i32 2
+  %enc_data31 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %call28, ptr %enc_data31, align 8
   %tobool32.not = icmp eq ptr %call28, null
   br i1 %tobool32.not, label %err, label %if.end34
@@ -307,28 +296,28 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_unpack_p7encdata(ptr nocapture noundef readonly %p7, ptr noundef %pass, i32 noundef %passlen) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #2
   %cmp = icmp eq i32 %call, 26
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %1 = load ptr, ptr %d, align 8
-  %enc_data = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %1, i64 0, i32 1
+  %enc_data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %enc_data, align 8
-  %algorithm = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %2, i64 0, i32 1
+  %algorithm = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %algorithm, align 8
   %call1 = tail call ptr @PKCS12_SAFEBAGS_it() #2
   %4 = load ptr, ptr %d, align 8
-  %enc_data3 = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %4, i64 0, i32 1
+  %enc_data3 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %enc_data3, align 8
-  %enc_data4 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %5, i64 0, i32 2
+  %enc_data4 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %enc_data4, align 8
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %p7, i64 40
   %7 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 6, i32 1
+  %propq = getelementptr inbounds i8, ptr %p7, i64 48
   %8 = load ptr, ptr %propq, align 8
   %call6 = tail call ptr @PKCS12_item_decrypt_d2i_ex(ptr noundef %3, ptr noundef %call1, ptr noundef %pass, i32 noundef %passlen, ptr noundef %6, i32 noundef 1, ptr noundef %7, ptr noundef %8) #2
   br label %return
@@ -343,7 +332,7 @@ declare ptr @PKCS12_item_decrypt_d2i_ex(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_decrypt_skey_ex(ptr nocapture noundef readonly %bag, ptr noundef %pass, i32 noundef %passlen, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %0 = load ptr, ptr %value, align 8
   %call = tail call ptr @PKCS8_decrypt_ex(ptr noundef %0, ptr noundef %pass, i32 noundef %passlen, ptr noundef %ctx, ptr noundef %propq) #2
   ret ptr %call
@@ -354,7 +343,7 @@ declare ptr @PKCS8_decrypt_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_decrypt_skey(ptr nocapture noundef readonly %bag, ptr noundef %pass, i32 noundef %passlen) local_unnamed_addr #0 {
 entry:
-  %value.i = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %bag, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %call.i = tail call ptr @PKCS8_decrypt_ex(ptr noundef %0, ptr noundef %pass, i32 noundef %passlen, ptr noundef null, ptr noundef null) #2
   ret ptr %call.i
@@ -364,9 +353,9 @@ entry:
 define i32 @PKCS12_pack_authsafes(ptr nocapture noundef readonly %p12, ptr noundef %safes) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS12_AUTHSAFES_it() #2
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %p12, i64 16
   %0 = load ptr, ptr %authsafes, align 8
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %0, i64 32
   %call1 = tail call ptr @ASN1_item_pack(ptr noundef %safes, ptr noundef %call, ptr noundef nonnull %d) #2
   %tobool.not = icmp ne ptr %call1, null
   %. = zext i1 %tobool.not to i32
@@ -378,9 +367,9 @@ declare ptr @PKCS12_AUTHSAFES_it() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_unpack_authsafes(ptr nocapture noundef readonly %p12) local_unnamed_addr #0 {
 entry:
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %p12, i64 16
   %0 = load ptr, ptr %authsafes, align 8
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #2
   %cmp = icmp eq i32 %call, 21
@@ -394,8 +383,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %authsafes, align 8
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %2, i64 0, i32 6
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %2, i64 0, i32 5
+  %ctx = getelementptr inbounds i8, ptr %2, i64 40
+  %d = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %d, align 8
   %call3 = tail call ptr @PKCS12_AUTHSAFES_it() #2
   %call4 = tail call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef nonnull %ctx) #2

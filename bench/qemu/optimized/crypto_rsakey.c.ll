@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/crypto_rsakey.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QCryptoAkCipherRSAKey = type { %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI, %struct.QCryptoAkCipherMPI }
-%struct.QCryptoAkCipherMPI = type { ptr, i64 }
-
 @.str = private unnamed_addr constant [10 x i8] c"*\86H\86\F7\0D\01\01\01\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"../qemu/crypto/rsakey-builtin.c.inc\00", align 1
 @__func__.qcrypto_akcipher_rsakey_parse = private unnamed_addr constant [30 x i8] c"qcrypto_akcipher_rsakey_parse\00", align 1
@@ -30,25 +27,25 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %rsa_key, align 8
   tail call void @g_free(ptr noundef %0) #6
-  %e = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %rsa_key, i64 16
   %1 = load ptr, ptr %e, align 8
   tail call void @g_free(ptr noundef %1) #6
-  %d = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 2
+  %d = getelementptr inbounds i8, ptr %rsa_key, i64 32
   %2 = load ptr, ptr %d, align 8
   tail call void @g_free(ptr noundef %2) #6
-  %p = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 3
+  %p = getelementptr inbounds i8, ptr %rsa_key, i64 48
   %3 = load ptr, ptr %p, align 8
   tail call void @g_free(ptr noundef %3) #6
-  %q = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 4
+  %q = getelementptr inbounds i8, ptr %rsa_key, i64 64
   %4 = load ptr, ptr %q, align 8
   tail call void @g_free(ptr noundef %4) #6
-  %dp = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 5
+  %dp = getelementptr inbounds i8, ptr %rsa_key, i64 80
   %5 = load ptr, ptr %dp, align 8
   tail call void @g_free(ptr noundef %5) #6
-  %dq = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 6
+  %dq = getelementptr inbounds i8, ptr %rsa_key, i64 96
   %6 = load ptr, ptr %dq, align 8
   tail call void @g_free(ptr noundef %6) #6
-  %u = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %rsa_key, i64 0, i32 7
+  %u = getelementptr inbounds i8, ptr %rsa_key, i64 112
   %7 = load ptr, ptr %u, align 8
   tail call void @g_free(ptr noundef %7) #6
   tail call void @g_free(ptr noundef nonnull %rsa_key) #6
@@ -145,43 +142,43 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp5.i, label %error.i, label %lor.lhs.false7.i
 
 lor.lhs.false7.i:                                 ; preds = %if.end.i
-  %e.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 1
+  %e.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %call8.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %e.i, ptr noundef %errp) #6
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %error.i, label %lor.lhs.false11.i
 
 lor.lhs.false11.i:                                ; preds = %lor.lhs.false7.i
-  %d.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 2
+  %d.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call12.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %d.i, ptr noundef %errp) #6
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %error.i, label %lor.lhs.false15.i
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false11.i
-  %p.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 3
+  %p.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %call16.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %p.i, ptr noundef %errp) #6
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %error.i, label %lor.lhs.false19.i
 
 lor.lhs.false19.i:                                ; preds = %lor.lhs.false15.i
-  %q.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 4
+  %q.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %call20.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %q.i, ptr noundef %errp) #6
   %cmp21.i = icmp slt i32 %call20.i, 0
   br i1 %cmp21.i, label %error.i, label %lor.lhs.false23.i
 
 lor.lhs.false23.i:                                ; preds = %lor.lhs.false19.i
-  %dp.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 5
+  %dp.i = getelementptr inbounds i8, ptr %call.i, i64 80
   %call24.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %dp.i, ptr noundef %errp) #6
   %cmp25.i = icmp slt i32 %call24.i, 0
   br i1 %cmp25.i, label %error.i, label %lor.lhs.false27.i
 
 lor.lhs.false27.i:                                ; preds = %lor.lhs.false23.i
-  %dq.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 6
+  %dq.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %call28.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %dq.i, ptr noundef %errp) #6
   %cmp29.i = icmp slt i32 %call28.i, 0
   br i1 %cmp29.i, label %error.i, label %lor.lhs.false31.i
 
 lor.lhs.false31.i:                                ; preds = %lor.lhs.false27.i
-  %u.i = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i, i64 0, i32 7
+  %u.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %call32.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i, ptr noundef nonnull %seq_length.i, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %u.i, ptr noundef %errp) #6
   %cmp33.i = icmp slt i32 %call32.i, 0
   br i1 %cmp33.i, label %error.i, label %if.end36.i
@@ -245,7 +242,7 @@ if.end.i15:                                       ; preds = %sw.bb1
   br i1 %cmp4.i, label %error.i19, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end.i15
-  %e.i18 = getelementptr inbounds %struct.QCryptoAkCipherRSAKey, ptr %call.i10, i64 0, i32 1
+  %e.i18 = getelementptr inbounds i8, ptr %call.i10, i64 16
   %call7.i = call i32 @qcrypto_der_decode_int(ptr noundef nonnull %seq.i8, ptr noundef nonnull %seq_length.i9, ptr noundef nonnull @extract_mpi, ptr noundef nonnull %e.i18, ptr noundef %errp) #6
   %cmp8.i = icmp slt i32 %call7.i, 0
   br i1 %cmp8.i, label %error.i19, label %if.end11.i
@@ -345,7 +342,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @g_memdup2(ptr noundef %value, i64 noundef %vlen) #9
   store ptr %call.i, ptr %ctx, align 8
-  %len = getelementptr inbounds %struct.QCryptoAkCipherMPI, ptr %ctx, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 %vlen, ptr %len, align 8
   br label %return
 

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_rc4_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [1024 x i8] }
 
 @rc4_hw = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_rc4_initkey, ptr @cipher_hw_rc4_cipher, ptr null }, align 8
 
@@ -20,7 +16,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_rc4_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks = getelementptr inbounds %struct.prov_rc4_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %conv = trunc i64 %keylen to i32
   tail call void @RC4_set_key(ptr noundef nonnull %ks, i32 noundef %conv, ptr noundef %key) #3
   ret i32 1
@@ -29,7 +25,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_rc4_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %ks = getelementptr inbounds %struct.prov_rc4_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   tail call void @RC4(ptr noundef nonnull %ks, i64 noundef %len, ptr noundef %in, ptr noundef %out) #3
   ret i32 1
 }

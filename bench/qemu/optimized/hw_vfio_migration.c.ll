@@ -7,39 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.vfio_precopy_info = type { i32, i32, i64, i64 }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.VFIODevice = type { %struct.anon, %struct.anon.0, %struct.anon.1, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.VFIODeviceOps = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.vfio_device_feature = type { i32, i32, [0 x i8] }
-%struct.VFIOMigration = type { ptr, ptr, %struct.Notifier, i32, i32, ptr, i64, i64, i64, i64, i8 }
-%struct.Notifier = type { ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
-%struct.VMStateIfClass = type { %struct.InterfaceClass, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.4, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuThread = type { i64 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.4 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuEvent = type { i32, i8 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 
 @bytes_transferred = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [28 x i8] c"../qemu/hw/vfio/migration.c\00", align 1
@@ -167,13 +134,13 @@ entry:
   %id.i = alloca [256 x i8], align 16
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %enable_migration = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 14
+  %enable_migration = getelementptr inbounds i8, ptr %vbasedev, i64 100
   %0 = load i32, ptr %enable_migration, align 4
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %1 = load ptr, ptr %name, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.vfio_migration_realize, ptr noundef nonnull @.str.1, ptr noundef %1) #16
   %2 = load ptr, ptr %err, align 8
@@ -187,7 +154,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %call.i = call ptr @error_copy(ptr noundef %2) #16
-  %migration_blocker.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 20
+  %migration_blocker.i = getelementptr inbounds i8, ptr %vbasedev, i64 136
   store ptr %call.i, ptr %migration_blocker.i, align 8
   call void @error_free(ptr noundef %2) #16
   %call2.i = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker.i, ptr noundef %errp) #16
@@ -197,9 +164,9 @@ if.end.i:                                         ; preds = %if.then
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %id.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %id.i, i8 0, i64 256, i1 false)
-  %ops.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 15
+  %ops.i = getelementptr inbounds i8, ptr %vbasedev, i64 104
   %5 = load ptr, ptr %ops.i, align 8
-  %vfio_get_object.i = getelementptr inbounds %struct.VFIODeviceOps, ptr %5, i64 0, i32 3
+  %vfio_get_object.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %vfio_get_object.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %vfio_migration_init.exit.thread, label %if.end.i26
@@ -215,7 +182,7 @@ if.end5.i:                                        ; preds = %if.end.i26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf.i.i, i8 0, i64 16, i1 false)
   store i32 16, ptr %buf.i.i, align 16
-  %flags.i.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 4
   store i32 65537, ptr %flags.i.i, align 4
   %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vbasedev.val.i, i64 noundef 15221, ptr noundef nonnull %buf.i.i) #16
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -229,7 +196,7 @@ vfio_migration_query_flags.exit.i:                ; preds = %if.end5.i
   br i1 %tobool7.not.i, label %vfio_migration_init.exit.thread, label %vfio_migration_init.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %data.i.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i.i, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 8
   %9 = load i64, ptr %data.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i.i)
   %and.i = and i64 %9, 1
@@ -238,14 +205,14 @@ if.end9.i:                                        ; preds = %if.end5.i
 
 if.end12.i:                                       ; preds = %if.end9.i
   %call13.i = call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #18
-  %migration14.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
+  %migration14.i = getelementptr inbounds i8, ptr %vbasedev, i64 128
   store ptr %call13.i, ptr %migration14.i, align 8
   store ptr %vbasedev, ptr %call13.i, align 8
-  %device_state.i = getelementptr inbounds %struct.VFIOMigration, ptr %call13.i, i64 0, i32 3
+  %device_state.i = getelementptr inbounds i8, ptr %call13.i, i64 40
   store i32 2, ptr %device_state.i, align 8
-  %data_fd.i = getelementptr inbounds %struct.VFIOMigration, ptr %call13.i, i64 0, i32 4
+  %data_fd.i = getelementptr inbounds i8, ptr %call13.i, i64 44
   store i32 -1, ptr %data_fd.i, align 4
-  %mig_flags17.i = getelementptr inbounds %struct.VFIOMigration, ptr %call13.i, i64 0, i32 7
+  %mig_flags17.i = getelementptr inbounds i8, ptr %call13.i, i64 64
   store i64 %9, ptr %mig_flags17.i, align 8
   %vbasedev.val20.i = load i32, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i21.i)
@@ -253,7 +220,7 @@ if.end12.i:                                       ; preds = %if.end9.i
   %call.i22.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vbasedev.val20.i, i64 noundef 15221, ptr noundef nonnull %buf.i21.i) #16
   %tobool.not.i23.i = icmp eq i32 %call.i22.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i21.i)
-  %dirty_pages_supported.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 22
+  %dirty_pages_supported.i = getelementptr inbounds i8, ptr %vbasedev, i64 148
   %frombool.i = zext i1 %tobool.not.i23.i to i8
   store i8 %frombool.i, ptr %dirty_pages_supported.i, align 4
   %call.i24.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i27, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
@@ -264,7 +231,7 @@ if.end12.i:                                       ; preds = %if.end9.i
 vmstate_if_get_id.exit.i:                         ; preds = %if.end12.i
   %call.i.i.i = call ptr @object_get_class(ptr noundef nonnull %call20.i) #16
   %call1.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_GET_CLASS) #16
-  %get_id.i.i = getelementptr inbounds %struct.VMStateIfClass, ptr %call1.i.i.i, i64 0, i32 1
+  %get_id.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 112
   %10 = load ptr, ptr %get_id.i.i, align 8
   %call1.i.i = call ptr %10(ptr noundef nonnull %call20.i) #16
   %tobool22.not.i = icmp eq ptr %call1.i.i, null
@@ -287,17 +254,17 @@ vfio_migration_init.exit.thread55:                ; preds = %if.then23.i, %if.el
   %and30.i = and i64 %11, 2
   %tobool31.not.i = icmp eq i64 %and30.i, 0
   %cond.i = select i1 %tobool31.not.i, ptr null, ptr @vfio_vmstate_change_prepare
-  %dev.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 7
+  %dev.i = getelementptr inbounds i8, ptr %vbasedev, i64 80
   %12 = load ptr, ptr %dev.i, align 8
   %call32.i = call ptr @qdev_add_vm_change_state_handler_full(ptr noundef %12, ptr noundef nonnull @vfio_vmstate_change, ptr noundef %cond.i, ptr noundef nonnull %vbasedev) #16
-  %vm_state.i = getelementptr inbounds %struct.VFIOMigration, ptr %call13.i, i64 0, i32 1
+  %vm_state.i = getelementptr inbounds i8, ptr %call13.i, i64 8
   store ptr %call32.i, ptr %vm_state.i, align 8
-  %migration_state.i = getelementptr inbounds %struct.VFIOMigration, ptr %call13.i, i64 0, i32 2
+  %migration_state.i = getelementptr inbounds i8, ptr %call13.i, i64 16
   call void @migration_add_notifier(ptr noundef nonnull %migration_state.i, ptr noundef nonnull @vfio_migration_state_notifier) #16
   call void @g_free(ptr noundef %retval.0.i2738.i) #16
   call void @g_free(ptr noundef %storemerge.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %id.i)
-  %dirty_pages_supported = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 22
+  %dirty_pages_supported = getelementptr inbounds i8, ptr %vbasedev, i64 148
   %13 = load i8, ptr %dirty_pages_supported, align 4
   %14 = and i8 %13, 1
   %tobool14.not = icmp eq i8 %14, 0
@@ -319,14 +286,14 @@ vfio_migration_init.exit:                         ; preds = %vfio_migration_quer
   br i1 %cond, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %vfio_migration_init.exit
-  %name6 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name6 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %15 = load ptr, ptr %name6, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str, i32 noundef 937, ptr noundef nonnull @__func__.vfio_migration_realize, ptr noundef nonnull @.str.2, ptr noundef %15) #16
   br label %if.end9
 
 if.else:                                          ; preds = %vfio_migration_init.exit, %vfio_migration_init.exit.thread
   %retval.0.i2854 = phi i32 [ %retval.0.i28.ph, %vfio_migration_init.exit.thread ], [ %sub.i.i, %vfio_migration_init.exit ]
-  %name7 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name7 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %16 = load ptr, ptr %name7, align 8
   %sub = sub i32 0, %retval.0.i2854
   %call8 = call ptr @strerror(i32 noundef %sub) #16
@@ -345,7 +312,7 @@ if.then.i36:                                      ; preds = %if.end9
 
 if.end.i31:                                       ; preds = %if.end9
   %call.i32 = call ptr @error_copy(ptr noundef %17) #16
-  %migration_blocker.i33 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 20
+  %migration_blocker.i33 = getelementptr inbounds i8, ptr %vbasedev, i64 136
   store ptr %call.i32, ptr %migration_blocker.i33, align 8
   call void @error_free(ptr noundef %17) #16
   %call2.i34 = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker.i33, ptr noundef %errp) #16
@@ -355,7 +322,7 @@ if.end.i31:                                       ; preds = %if.end9
 if.then15:                                        ; preds = %vfio_migration_init.exit.thread55
   %20 = load i32, ptr %enable_migration, align 4
   %cmp17 = icmp eq i32 %20, 0
-  %name19 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name19 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %21 = load ptr, ptr %name19, align 8
   br i1 %cmp17, label %if.then18, label %if.end20
 
@@ -374,7 +341,7 @@ if.end22:                                         ; preds = %if.end20, %vfio_mig
 
 if.end26:                                         ; preds = %if.end22
   %call27 = call zeroext i1 @vfio_viommu_preset(ptr noundef nonnull %vbasedev) #16
-  %name29 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name29 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %22 = load ptr, ptr %name29, align 8
   br i1 %call27, label %if.then28, label %if.end30
 
@@ -407,7 +374,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %28 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %28, i64 noundef %29, ptr noundef %22) #16
   br label %trace_vfio_migration_realize.exit
@@ -432,7 +399,7 @@ out_deinit.thread61:                              ; preds = %add_blocker
 
 out_deinit:                                       ; preds = %add_blocker
   %call.i41 = call ptr @error_copy(ptr noundef %30) #16
-  %migration_blocker.i42 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 20
+  %migration_blocker.i42 = getelementptr inbounds i8, ptr %vbasedev, i64 136
   store ptr %call.i41, ptr %migration_blocker.i42, align 8
   call void @error_free(ptr noundef %30) #16
   %call2.i43 = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker.i42, ptr noundef %errp) #16
@@ -440,14 +407,14 @@ out_deinit:                                       ; preds = %add_blocker
   br i1 %32, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.end22, %out_deinit.thread61, %out_deinit
-  %migration1.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
+  %migration1.i = getelementptr inbounds i8, ptr %vbasedev, i64 128
   %33 = load ptr, ptr %migration1.i, align 8
-  %migration_state.i47 = getelementptr inbounds %struct.VFIOMigration, ptr %33, i64 0, i32 2
+  %migration_state.i47 = getelementptr inbounds i8, ptr %33, i64 16
   call void @migration_remove_notifier(ptr noundef nonnull %migration_state.i47) #16
-  %vm_state.i48 = getelementptr inbounds %struct.VFIOMigration, ptr %33, i64 0, i32 1
+  %vm_state.i48 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %vm_state.i48, align 8
   call void @qemu_del_vm_change_state_handler(ptr noundef %34) #16
-  %dev.i49 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 7
+  %dev.i49 = getelementptr inbounds i8, ptr %vbasedev, i64 80
   %35 = load ptr, ptr %dev.i49, align 8
   %call.i50 = call ptr @object_dynamic_cast_assert(ptr noundef %35, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 887, ptr noundef nonnull @__func__.vfio_migration_deinit) #16
   call void @unregister_savevm(ptr noundef %call.i50, ptr noundef nonnull @.str.8, ptr noundef nonnull %vbasedev) #16
@@ -476,18 +443,18 @@ declare zeroext i1 @vfio_viommu_preset(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_migration_exit(ptr noundef %vbasedev) local_unnamed_addr #2 {
 entry:
-  %migration = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
+  %migration = getelementptr inbounds i8, ptr %vbasedev, i64 128
   %0 = load ptr, ptr %migration, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %migration_state.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 2
+  %migration_state.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @migration_remove_notifier(ptr noundef nonnull %migration_state.i) #16
-  %vm_state.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 1
+  %vm_state.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %vm_state.i, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %1) #16
-  %dev.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 7
+  %dev.i = getelementptr inbounds i8, ptr %vbasedev, i64 80
   %2 = load ptr, ptr %dev.i, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 887, ptr noundef nonnull @__func__.vfio_migration_deinit) #16
   tail call void @unregister_savevm(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %vbasedev) #16
@@ -498,7 +465,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %migration_blocker = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 20
+  %migration_blocker = getelementptr inbounds i8, ptr %vbasedev, i64 136
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #16
   ret void
 }
@@ -533,9 +500,9 @@ declare i32 @register_savevm_live(ptr noundef, i32 noundef, i32 noundef, ptr nou
 define internal void @vfio_vmstate_change_prepare(ptr nocapture noundef readonly %opaque, i1 noundef zeroext %running, i32 noundef %state) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
-  %device_state = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %device_state, align 8
   %cmp = icmp eq i32 %1, 6
   %cond = select i1 %cmp, i32 7, i32 5
@@ -545,20 +512,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call ptr @migrate_get_current() #16
-  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %call2, i64 0, i32 4
+  %to_dst_file = getelementptr inbounds i8, ptr %call2, i64 184
   %2 = load ptr, ptr %to_dst_file, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %call5 = tail call ptr @migrate_get_current() #16
-  %to_dst_file6 = getelementptr inbounds %struct.MigrationState, ptr %call5, i64 0, i32 4
+  %to_dst_file6 = getelementptr inbounds i8, ptr %call5, i64 184
   %3 = load ptr, ptr %to_dst_file6, align 8
   tail call void @qemu_file_set_error(ptr noundef %3, i32 noundef %call) #16
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then4, %entry
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %4 = load ptr, ptr %name, align 8
   %conv = zext i1 %running to i32
   %call9 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %state) #16
@@ -587,7 +554,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %conv, ptr noundef %call9, ptr noundef nonnull %.str.30..str.28) #16
   br label %trace_vfio_vmstate_change_prepare.exit
@@ -626,20 +593,20 @@ if.end:                                           ; preds = %entry, %if.else
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @migrate_get_current() #16
-  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %call5, i64 0, i32 4
+  %to_dst_file = getelementptr inbounds i8, ptr %call5, i64 184
   %2 = load ptr, ptr %to_dst_file, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.then4
   %call8 = tail call ptr @migrate_get_current() #16
-  %to_dst_file9 = getelementptr inbounds %struct.MigrationState, ptr %call8, i64 0, i32 4
+  %to_dst_file9 = getelementptr inbounds i8, ptr %call8, i64 184
   %3 = load ptr, ptr %to_dst_file9, align 8
   tail call void @qemu_file_set_error(ptr noundef %3, i32 noundef %call2) #16
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then4, %if.then7, %if.end
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %4 = load ptr, ptr %name, align 8
   %conv = zext i1 %running to i32
   %call13 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %state) #16
@@ -671,7 +638,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %4, i32 noundef %conv, ptr noundef %call13, ptr noundef nonnull %switch.load) #16
   br label %trace_vfio_vmstate_change.exit
@@ -693,9 +660,9 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr = getelementptr i8, ptr %notifier, i64 -16
   %0 = load ptr, ptr %add.ptr, align 8
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %0, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %name, align 8
-  %state = getelementptr inbounds %struct.MigrationState, ptr %data, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %data, i64 776
   %2 = load i32, ptr %state, align 8
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationStatus_lookup, i32 noundef %2) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -722,7 +689,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, ptr noundef %call) #16
   br label %trace_vfio_migration_state_notifier.exit
@@ -765,13 +732,13 @@ define internal void @vfio_save_state(ptr noundef %f, ptr noundef %opaque) #2 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef -284164094) #16
-  %ops.i = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 15
+  %ops.i = getelementptr inbounds i8, ptr %opaque, i64 104
   %0 = load ptr, ptr %ops.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %vfio_save_config.i = getelementptr inbounds %struct.VFIODeviceOps, ptr %0, i64 0, i32 4
+  %vfio_save_config.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %vfio_save_config.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %if.end.i, label %if.then.i
@@ -782,7 +749,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %entry
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef -284164095) #16
-  %name.i = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %opaque, i64 72
   %2 = load ptr, ptr %name.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -808,7 +775,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #16
   br label %vfio_save_device_config_state.exit
@@ -844,7 +811,7 @@ if.end:                                           ; preds = %entry
   br i1 %call1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %0 = load ptr, ptr %name, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.vfio_save_prepare, ptr noundef nonnull @.str.15, ptr noundef %0) #16
   br label %return
@@ -854,7 +821,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %call4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end3
-  %name6 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name6 = getelementptr inbounds i8, ptr %opaque, i64 72
   %1 = load ptr, ptr %name6, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @__func__.vfio_save_prepare, ptr noundef nonnull @.str.16, ptr noundef %1) #16
   br label %return
@@ -870,7 +837,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %precopy.i = alloca %struct.vfio_precopy_info, align 8
   %buf.i = alloca [2 x i64], align 16
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef -284164093) #16
   %1 = getelementptr i8, ptr %opaque, i64 88
@@ -878,25 +845,25 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf.i, i8 0, i64 16, i1 false)
   store i32 16, ptr %buf.i, align 16
-  %flags.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %buf.i, i64 4
   store i32 65545, ptr %flags.i, align 4
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %opaque.val17, i64 noundef 15221, ptr noundef nonnull %buf.i) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
-  %data.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %2 = load i64, ptr %data.i, align 8
   %3 = call i64 @llvm.umin.i64(i64 %2, i64 1048576)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
   %cond = select i1 %tobool.not.i, i64 %3, i64 1048576
-  %data_buffer_size = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 6
+  %data_buffer_size = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %cond, ptr %data_buffer_size, align 8
   %call3 = call noalias ptr @g_try_malloc0(i64 noundef %cond) #19
-  %data_buffer = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 5
+  %data_buffer = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call3, ptr %data_buffer, align 8
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %4 = load ptr, ptr %name, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef %4) #16
   br label %return
@@ -910,7 +877,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %device_state = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %device_state, align 8
   switch i32 %6, label %return [
     i32 2, label %sw.bb
@@ -925,8 +892,8 @@ sw.bb:                                            ; preds = %if.then6
 if.end10:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %precopy.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %precopy.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.vfio_query_precopy_size.precopy, i64 24, i1 false)
-  %precopy_init_size.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 8
-  %data_fd.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 4
+  %precopy_init_size.i = getelementptr inbounds i8, ptr %0, i64 72
+  %data_fd.i = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %precopy_init_size.i, i8 0, i64 16, i1 false)
   %7 = load i32, ptr %data_fd.i, align 4
   %call.i18 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 15225, ptr noundef nonnull %precopy.i) #16
@@ -934,7 +901,7 @@ if.end10:                                         ; preds = %sw.bb
   br i1 %tobool.not.i19, label %if.end.i23, label %vfio_query_precopy_size.exit
 
 if.end.i23:                                       ; preds = %if.end10
-  %initial_bytes.i = getelementptr inbounds %struct.vfio_precopy_info, ptr %precopy.i, i64 0, i32 2
+  %initial_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 8
   %8 = load <2 x i64>, ptr %initial_bytes.i, align 8
   store <2 x i64> %8, ptr %precopy_init_size.i, align 8
   br label %vfio_query_precopy_size.exit
@@ -944,7 +911,7 @@ vfio_query_precopy_size.exit:                     ; preds = %if.end10, %if.end.i
   br label %if.end13
 
 if.end13:                                         ; preds = %vfio_query_precopy_size.exit, %if.then6, %if.end
-  %name14 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name14 = getelementptr inbounds i8, ptr %opaque, i64 72
   %9 = load ptr, ptr %name14, align 8
   %10 = load i64, ptr %data_buffer_size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -971,7 +938,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %16 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %9, i64 noundef %10) #16
   br label %trace_vfio_save_setup.exit
@@ -995,9 +962,9 @@ return:                                           ; preds = %if.then6, %sw.bb, %
 define internal void @vfio_save_cleanup(ptr nocapture noundef readonly %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
-  %device_state = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %device_state, align 8
   %cmp = icmp eq i32 %1, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -1007,18 +974,18 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %data_buffer = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 5
+  %data_buffer = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %data_buffer, align 8
   tail call void @g_free(ptr noundef %2) #16
   store ptr null, ptr %data_buffer, align 8
-  %precopy_init_size = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 8
+  %precopy_init_size = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %precopy_init_size, i8 0, i64 17, i1 false)
   %opaque.val = load ptr, ptr %migration1, align 8
-  %data_fd.i = getelementptr inbounds %struct.VFIOMigration, ptr %opaque.val, i64 0, i32 4
+  %data_fd.i = getelementptr inbounds i8, ptr %opaque.val, i64 44
   %3 = load i32, ptr %data_fd.i, align 4
   %call.i = tail call i32 @close(i32 noundef %3) #16
   store i32 -1, ptr %data_fd.i, align 4
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %4 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1044,7 +1011,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4) #16
   br label %trace_vfio_save_cleanup.exit
@@ -1067,7 +1034,7 @@ entry:
   br i1 %tobool.not, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %entry
-  %migration = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration = getelementptr inbounds i8, ptr %opaque, i64 128
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
@@ -1091,7 +1058,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %do.end
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %1 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1117,7 +1084,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1, i32 noundef 0) #16
   br label %trace_vfio_save_complete_precopy.exit
@@ -1146,7 +1113,7 @@ entry:
 define internal i32 @vfio_save_iterate(ptr noundef %f, ptr nocapture noundef readonly %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
   %call = tail call fastcc i64 @vfio_save_block(ptr noundef %f, ptr noundef %0), !range !5
   %cmp = icmp slt i64 %call, 0
@@ -1158,7 +1125,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %tobool.not.i = icmp eq i64 %call, 0
-  %precopy_init_size.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 8
+  %precopy_init_size.i = getelementptr inbounds i8, ptr %0, i64 72
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1179,7 +1146,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.then3.i, %if.end.i
   %data_size.addr.0.i = phi i64 [ %sub6.i, %if.then3.i ], [ %call, %if.end.i ]
-  %precopy_dirty_size8.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 9
+  %precopy_dirty_size8.i = getelementptr inbounds i8, ptr %0, i64 80
   %2 = load i64, ptr %precopy_dirty_size8.i, align 8
   %sub16.i = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %data_size.addr.0.i)
   store i64 %sub16.i, ptr %precopy_dirty_size8.i, align 8
@@ -1195,7 +1162,7 @@ land.lhs.true:                                    ; preds = %vfio_update_estimat
   br i1 %tobool.not, label %land.lhs.true4, label %if.else
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %initial_data_sent = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 10
+  %initial_data_sent = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i8, ptr %initial_data_sent, align 8
   %5 = and i8 %4, 1
   %tobool5.not = icmp eq i8 %5, 0
@@ -1211,10 +1178,10 @@ if.else:                                          ; preds = %land.lhs.true4, %la
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then6
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %6 = load ptr, ptr %name, align 8
   %7 = load i64, ptr %precopy_init_size.i, align 8
-  %precopy_dirty_size = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 9
+  %precopy_dirty_size = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i64, ptr %precopy_dirty_size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1240,7 +1207,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %6, i64 noundef %7, i64 noundef %8) #16
   br label %trace_vfio_save_iterate.exit
@@ -1262,21 +1229,21 @@ return:                                           ; preds = %trace_vfio_save_ite
 define internal void @vfio_state_pending_estimate(ptr noundef %opaque, ptr nocapture noundef %must_precopy, ptr nocapture noundef readonly %can_postcopy) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
   %call = tail call zeroext i1 @vfio_device_state_is_precopy(ptr noundef %opaque) #16
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %precopy_init_size = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 8
+  %precopy_init_size = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i64, ptr %precopy_init_size, align 8
-  %precopy_dirty_size = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 9
+  %precopy_dirty_size = getelementptr inbounds i8, ptr %0, i64 80
   %2 = load i64, ptr %precopy_dirty_size, align 8
   %add = add i64 %2, %1
   %3 = load i64, ptr %must_precopy, align 8
   %add2 = add i64 %add, %3
   store i64 %add2, ptr %must_precopy, align 8
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %4 = load ptr, ptr %name, align 8
   %5 = load i64, ptr %can_postcopy, align 8
   %6 = load i64, ptr %precopy_init_size, align 8
@@ -1305,7 +1272,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %4, i64 noundef %add2, i64 noundef %5, i64 noundef %6, i64 noundef %7) #16
   br label %trace_vfio_state_pending_estimate.exit
@@ -1328,18 +1295,18 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %precopy.i = alloca %struct.vfio_precopy_info, align 8
   %buf.i = alloca [2 x i64], align 16
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
   %1 = getelementptr i8, ptr %opaque, i64 88
   %opaque.val = load i32, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf.i, i8 0, i64 16, i1 false)
   store i32 16, ptr %buf.i, align 16
-  %flags.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %buf.i, i64 4
   store i32 65545, ptr %flags.i, align 4
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %opaque.val, i64 noundef 15221, ptr noundef nonnull %buf.i) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
-  %data.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %2 = load i64, ptr %data.i, align 8
   %stop_copy_size.0 = select i1 %tobool.not.i, i64 %2, i64 107374182400
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
@@ -1356,8 +1323,8 @@ entry.if.end_crit_edge:                           ; preds = %entry
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %precopy.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %precopy.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.vfio_query_precopy_size.precopy, i64 24, i1 false)
-  %precopy_init_size.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 8
-  %data_fd.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 4
+  %precopy_init_size.i = getelementptr inbounds i8, ptr %0, i64 72
+  %data_fd.i = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %precopy_init_size.i, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %data_fd.i, align 4
   %call.i10 = call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 15225, ptr noundef nonnull %precopy.i) #16
@@ -1366,16 +1333,16 @@ if.then:                                          ; preds = %entry
 
 if.then.vfio_query_precopy_size.exit_crit_edge:   ; preds = %if.then
   %.pre = load i64, ptr %precopy_init_size.i, align 8
-  %precopy_dirty_size.phi.trans.insert = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 9
+  %precopy_dirty_size.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
   %.pre17 = load i64, ptr %precopy_dirty_size.phi.trans.insert, align 8
   br label %vfio_query_precopy_size.exit
 
 if.end.i15:                                       ; preds = %if.then
-  %precopy_dirty_size.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 9
-  %initial_bytes.i = getelementptr inbounds %struct.vfio_precopy_info, ptr %precopy.i, i64 0, i32 2
+  %precopy_dirty_size.i = getelementptr inbounds i8, ptr %0, i64 80
+  %initial_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 8
   %5 = load i64, ptr %initial_bytes.i, align 8
   store i64 %5, ptr %precopy_init_size.i, align 8
-  %dirty_bytes.i = getelementptr inbounds %struct.vfio_precopy_info, ptr %precopy.i, i64 0, i32 3
+  %dirty_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 16
   %6 = load i64, ptr %dirty_bytes.i, align 8
   store i64 %6, ptr %precopy_dirty_size.i, align 8
   br label %vfio_query_precopy_size.exit
@@ -1392,12 +1359,12 @@ vfio_query_precopy_size.exit:                     ; preds = %if.then.vfio_query_
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %vfio_query_precopy_size.exit
   %10 = phi i64 [ %.pre18, %entry.if.end_crit_edge ], [ %add5, %vfio_query_precopy_size.exit ]
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %11 = load ptr, ptr %name, align 8
   %12 = load i64, ptr %can_postcopy, align 8
-  %precopy_init_size6 = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 8
+  %precopy_init_size6 = getelementptr inbounds i8, ptr %0, i64 72
   %13 = load i64, ptr %precopy_init_size6, align 8
-  %precopy_dirty_size7 = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 9
+  %precopy_dirty_size7 = getelementptr inbounds i8, ptr %0, i64 80
   %14 = load i64, ptr %precopy_dirty_size7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %15 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1423,7 +1390,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %20 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, ptr noundef %11, i64 noundef %10, i64 noundef %12, i64 noundef %stop_copy_size.0, i64 noundef %13, i64 noundef %14) #16
   br label %trace_vfio_state_pending_exact.exit
@@ -1444,10 +1411,10 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_get_be64(ptr noundef %f) #16
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %migration1.i = getelementptr %struct.VFIODevice, ptr %opaque, i64 0, i32 19
-  %tv_usec.i.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i29, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %migration1.i = getelementptr i8, ptr %opaque, i64 128
+  %tv_usec.i.i.i43 = getelementptr inbounds i8, ptr %_now.i.i.i29, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %sw.epilog, %entry
@@ -1499,13 +1466,13 @@ trace_vfio_load_state.exit:                       ; preds = %while.body, %land.l
   ]
 
 sw.bb:                                            ; preds = %trace_vfio_load_state.exit
-  %ops.i = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 15
+  %ops.i = getelementptr inbounds i8, ptr %opaque, i64 104
   %8 = load ptr, ptr %ops.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %if.end7.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %vfio_load_config.i = getelementptr inbounds %struct.VFIODeviceOps, ptr %8, i64 0, i32 5
+  %vfio_load_config.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %vfio_load_config.i, align 8
   %tobool2.not.i = icmp eq ptr %9, null
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i
@@ -1555,7 +1522,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %17 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %11) #16
   br label %trace_vfio_load_device_config_state.exit.i
@@ -1586,7 +1553,7 @@ sw.bb6:                                           ; preds = %trace_vfio_load_sta
 
 if.then8:                                         ; preds = %sw.bb6
   %20 = load ptr, ptr %migration1.i, align 8
-  %data_fd.i = getelementptr inbounds %struct.VFIOMigration, ptr %20, i64 0, i32 4
+  %data_fd.i = getelementptr inbounds i8, ptr %20, i64 44
   %21 = load i32, ptr %data_fd.i, align 4
   %call.i30 = tail call i32 @qemu_file_get_to_fd(ptr noundef %f, i32 noundef %21, i64 noundef %call7) #16
   %22 = load ptr, ptr %name, align 8
@@ -1675,9 +1642,9 @@ return:                                           ; preds = %while.cond, %sw.epi
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vfio_load_setup(ptr nocapture readnone %f, ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %migration = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 19
+  %migration = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration, align 8
-  %device_state = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %device_state, align 8
   %call = tail call fastcc i32 @vfio_migration_set_state(ptr noundef %opaque, i32 noundef 4, i32 noundef %1)
   ret i32 %call
@@ -1689,11 +1656,11 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %opaque, i64 128
   %opaque.val = load ptr, ptr %0, align 8
-  %data_fd.i = getelementptr inbounds %struct.VFIOMigration, ptr %opaque.val, i64 0, i32 4
+  %data_fd.i = getelementptr inbounds i8, ptr %opaque.val, i64 44
   %1 = load i32, ptr %data_fd.i, align 4
   %call.i = tail call i32 @close(i32 noundef %1) #16
   store i32 -1, ptr %data_fd.i, align 4
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 72
   %2 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1719,7 +1686,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #16
   br label %trace_vfio_load_cleanup.exit
@@ -1774,15 +1741,15 @@ define internal fastcc i32 @vfio_migration_set_state(ptr nocapture noundef reado
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [2 x i64], align 16
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %vbasedev, i64 128
   %0 = load ptr, ptr %migration1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, i8 0, i64 16, i1 false)
-  %data = getelementptr inbounds %struct.vfio_device_feature, ptr %buf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %buf, i64 8
   store i32 16, ptr %buf, align 16
-  %flags = getelementptr inbounds %struct.vfio_device_feature, ptr %buf, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %buf, i64 4
   store i32 131074, ptr %flags, align 4
   store i32 %new_state, ptr %data, align 8
-  %fd = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 8
+  %fd = getelementptr inbounds i8, ptr %vbasedev, i64 88
   %1 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 15221, ptr noundef nonnull %buf) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -1793,7 +1760,7 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %call3, align 4
   %sub = sub i32 0, %2
   %cmp = icmp eq i32 %recover_state, 0
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %3 = load ptr, ptr %name, align 8
   %switch.tableidx = add i32 %new_state, -1
   %4 = icmp ult i32 %switch.tableidx, 7
@@ -1854,26 +1821,26 @@ if.then17:                                        ; preds = %mig_state_to_str.ex
   br label %reset_device
 
 if.end23:                                         ; preds = %mig_state_to_str.exit47
-  %device_state24 = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state24 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %recover_state, ptr %device_state24, align 8
   br label %return
 
 if.end25:                                         ; preds = %entry
-  %device_state26 = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state26 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %new_state, ptr %device_state26, align 8
-  %data_fd = getelementptr inbounds %struct.vfio_device_feature, ptr %buf, i64 1, i32 1
+  %data_fd = getelementptr inbounds i8, ptr %buf, i64 12
   %12 = load i32, ptr %data_fd, align 4
   %cmp27.not = icmp eq i32 %12, -1
   br i1 %cmp27.not, label %if.end38, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
-  %data_fd29 = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 4
+  %data_fd29 = getelementptr inbounds i8, ptr %0, i64 44
   %13 = load i32, ptr %data_fd29, align 4
   %cmp30.not = icmp eq i32 %13, -1
   br i1 %cmp30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %if.then28
-  %name32 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name32 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %14 = load ptr, ptr %name32, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, ptr noundef %14) #16
   %15 = load i32, ptr %data_fd, align 4
@@ -1885,7 +1852,7 @@ if.end35:                                         ; preds = %if.then28
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end35, %if.end25
-  %name39 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name39 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %16 = load ptr, ptr %name39, align 8
   %switch.tableidx66 = add i32 %new_state, -1
   %17 = icmp ult i32 %switch.tableidx66, 7
@@ -1923,7 +1890,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %24 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %24, i64 noundef %25, ptr noundef %16, ptr noundef nonnull %retval.0.i49) #16
   br label %trace_vfio_migration_set_state.exit
@@ -1944,7 +1911,7 @@ reset_device:                                     ; preds = %if.then17, %mig_sta
   br i1 %tobool43.not, label %if.end48, label %if.then44
 
 if.then44:                                        ; preds = %reset_device
-  %name45 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 6
+  %name45 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %27 = load ptr, ptr %name45, align 8
   %28 = load i32, ptr %call3, align 4
   %call47 = call ptr @strerror(i32 noundef %28) #16
@@ -1952,7 +1919,7 @@ if.then44:                                        ; preds = %reset_device
   unreachable
 
 if.end48:                                         ; preds = %reset_device
-  %device_state49 = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state49 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 2, ptr %device_state49, align 8
   br label %return
 
@@ -1973,11 +1940,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc i64 @vfio_save_block(ptr noundef %f, ptr nocapture noundef readonly %migration) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %data_fd = getelementptr inbounds %struct.VFIOMigration, ptr %migration, i64 0, i32 4
+  %data_fd = getelementptr inbounds i8, ptr %migration, i64 44
   %0 = load i32, ptr %data_fd, align 4
-  %data_buffer = getelementptr inbounds %struct.VFIOMigration, ptr %migration, i64 0, i32 5
+  %data_buffer = getelementptr inbounds i8, ptr %migration, i64 48
   %1 = load ptr, ptr %data_buffer, align 8
-  %data_buffer_size = getelementptr inbounds %struct.VFIOMigration, ptr %migration, i64 0, i32 6
+  %data_buffer_size = getelementptr inbounds i8, ptr %migration, i64 56
   %2 = load i64, ptr %data_buffer_size, align 8
   %call = tail call i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) #16
   %cmp = icmp slt i64 %call, 0
@@ -2007,7 +1974,7 @@ if.end9:                                          ; preds = %if.end5
   %add = add i64 %5, %call
   store i64 %add, ptr @bytes_transferred, align 8
   %6 = load ptr, ptr %migration, align 8
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %6, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %6, i64 72
   %7 = load ptr, ptr %name, align 8
   %conv11 = trunc i64 %call to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2034,7 +2001,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %7, i32 noundef %conv11) #16
   br label %trace_vfio_save_block.exit

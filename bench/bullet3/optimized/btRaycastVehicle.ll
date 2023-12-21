@@ -12,27 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.1 = type { i8 }
 %class.btVector3 = type { [4 x float] }
-%class.btRaycastVehicle = type { %class.btActionInterface, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.8, i32, i32, ptr, float, float, float, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray.12 }
-%class.btActionInterface = type { ptr }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
 %struct.btWheelInfo = type { %"struct.btWheelInfo::RaycastInfo", %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i8, ptr, float, float, float, float }
 %"struct.btWheelInfo::RaycastInfo" = type { %class.btVector3, %class.btVector3, float, %class.btVector3, %class.btVector3, %class.btVector3, i8, ptr }
-%"class.btRaycastVehicle::btVehicleTuning" = type { float, float, float, float, float, float }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3, [4 x i8] }>
 %"struct.btVehicleRaycaster::btVehicleRaycasterResult" = type { %class.btVector3, %class.btVector3, float }
 %struct.btWheelContactPoint = type { ptr, ptr, %class.btVector3, %class.btVector3, float, float }
 %"struct.btCollisionWorld::ClosestRayResultCallback" = type { %"struct.btCollisionWorld::RayResultCallback.base", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8] }
 %"struct.btCollisionWorld::RayResultCallback.base" = type <{ ptr, float, [4 x i8], ptr, i32, i32, i32 }>
-%"struct.btCollisionWorld::RayResultCallback" = type <{ ptr, float, [4 x i8], ptr, i32, i32, i32, [4 x i8] }>
-%class.btDefaultVehicleRaycaster = type { %struct.btVehicleRaycaster, ptr }
-%struct.btVehicleRaycaster = type { ptr }
-%struct.btBroadphaseProxy = type <{ ptr, i32, i32, i32, %class.btVector3, %class.btVector3, [4 x i8] }>
-%"struct.btCollisionWorld::LocalRayResult" = type <{ ptr, ptr, %class.btVector3, float, [4 x i8] }>
 
 $_ZN11btRigidBodyD2Ev = comdat any
 
@@ -152,13 +137,13 @@ declare void @_ZN11btRigidBodyC1EfP13btMotionStateP16btCollisionShapeRK9btVector
 define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11btRigidBody, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 21, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 21, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 624
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -176,12 +161,12 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 21, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 21, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 604
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 624
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 21, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   store i32 0, ptr %m_capacity.i.i.i, align 8
   tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #18
   ret void
@@ -202,58 +187,58 @@ declare void @_ZN11btRigidBody12setMassPropsEfRK9btVector3(ptr noundef nonnull a
 define dso_local void @_ZN16btRaycastVehicleC2ERKNS_15btVehicleTuningEP11btRigidBodyP18btVehicleRaycaster(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr nocapture nonnull readnone align 4 %tuning, ptr noundef %chassis, ptr noundef %raycaster) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i5 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i5 = getelementptr inbounds i8, ptr %this, i64 64
   store i8 1, ptr %m_ownsMemory.i.i5, align 8
-  %m_data.i.i6 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i6 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %m_data.i.i6, align 8
-  %m_size.i.i7 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i.i7 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %m_size.i.i7, align 4
-  %m_capacity.i.i8 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i8 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %m_capacity.i.i8, align 8
-  %m_ownsMemory.i.i9 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i9 = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %m_ownsMemory.i.i9, align 8
-  %m_data.i.i10 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i10 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %m_data.i.i10, align 8
-  %m_size.i.i11 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i11 = getelementptr inbounds i8, ptr %this, i64 76
   store i32 0, ptr %m_size.i.i11, align 4
-  %m_capacity.i.i12 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i12 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %m_capacity.i.i12, align 8
-  %m_ownsMemory.i.i13 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i13 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_ownsMemory.i.i13, align 8
-  %m_data.i.i14 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i14 = getelementptr inbounds i8, ptr %this, i64 120
   store ptr null, ptr %m_data.i.i14, align 8
-  %m_size.i.i15 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 2
+  %m_size.i.i15 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 0, ptr %m_size.i.i15, align 4
-  %m_capacity.i.i16 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i16 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_capacity.i.i16, align 8
-  %m_vehicleRaycaster = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 7
+  %m_vehicleRaycaster = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %raycaster, ptr %m_vehicleRaycaster, align 8
-  %m_pitchControl = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 8
-  %m_ownsMemory.i.i17 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 6
+  %m_pitchControl = getelementptr inbounds i8, ptr %this, i64 152
+  %m_ownsMemory.i.i17 = getelementptr inbounds i8, ptr %this, i64 216
   store i8 1, ptr %m_ownsMemory.i.i17, align 8
-  %m_data.i.i18 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i18 = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %m_data.i.i18, align 8
-  %m_size.i.i19 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i.i19 = getelementptr inbounds i8, ptr %this, i64 196
   store i32 0, ptr %m_size.i.i19, align 4
-  %m_capacity.i.i20 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 3
+  %m_capacity.i.i20 = getelementptr inbounds i8, ptr %this, i64 200
   store i32 0, ptr %m_capacity.i.i20, align 8
-  %m_chassisBody = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %chassis, ptr %m_chassisBody, align 8
-  %m_indexRightAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 12
+  %m_indexRightAxis = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %m_indexRightAxis, align 8
-  %m_indexUpAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 13
+  %m_indexUpAxis = getelementptr inbounds i8, ptr %this, i64 180
   store i32 2, ptr %m_indexUpAxis, align 4
-  %m_indexForwardAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 14
+  %m_indexForwardAxis = getelementptr inbounds i8, ptr %this, i64 184
   store i32 1, ptr %m_indexForwardAxis, align 8
-  %m_currentVehicleSpeedKmHour.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 10
+  %m_currentVehicleSpeedKmHour.i = getelementptr inbounds i8, ptr %this, i64 160
   store float 0.000000e+00, ptr %m_currentVehicleSpeedKmHour.i, align 8
   store <2 x float> zeroinitializer, ptr %m_pitchControl, align 8
   ret void
@@ -262,7 +247,7 @@ invoke.cont9:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16btRaycastVehicle11defaultInitERKNS_15btVehicleTuningE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(24) %tuning) local_unnamed_addr #4 align 2 {
 entry:
-  %m_steeringValue = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 9
+  %m_steeringValue = getelementptr inbounds i8, ptr %this, i64 156
   store <2 x float> zeroinitializer, ptr %m_steeringValue, align 4
   ret void
 }
@@ -271,13 +256,13 @@ entry:
 define dso_local void @_ZN16btRaycastVehicleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayI11btWheelInfoED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -295,20 +280,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI11btWheelInfoED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 196
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20btAlignedObjectArrayIfED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20btAlignedObjectArrayI11btWheelInfoED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 128
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -326,20 +311,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI11btWheelInfoED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 108
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i11 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load ptr, ptr %m_data.i.i.i11, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i12, label %_ZN20btAlignedObjectArrayIfED2Ev.exit21, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit
-  %m_ownsMemory.i.i.i14 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i15 = icmp eq i8 %12, 0
@@ -357,20 +342,20 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit21:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 76
+  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
   store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %m_capacity.i.i.i20, align 8
-  %m_data.i.i.i22 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load ptr, ptr %m_data.i.i.i22, align 8
   %tobool.not.i.i.i23 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i23, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit21
-  %m_ownsMemory.i.i.i25 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load i8, ptr %m_ownsMemory.i.i.i25, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i26 = icmp eq i8 %17, 0
@@ -388,20 +373,20 @@ terminate.lpad.i28:                               ; preds = %if.then3.i.i.i27
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit21, %if.then.i.i.i24, %if.then3.i.i.i27
-  %m_size.i.i.i29 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i.i30 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 44
+  %m_ownsMemory.i1.i.i30 = getelementptr inbounds i8, ptr %this, i64 64
   store i8 1, ptr %m_ownsMemory.i1.i.i30, align 8
   store ptr null, ptr %m_data.i.i.i22, align 8
   store i32 0, ptr %m_size.i.i.i29, align 4
-  %m_capacity.i.i.i31 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %m_capacity.i.i.i31, align 8
-  %m_data.i.i.i32 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load ptr, ptr %m_data.i.i.i32, align 8
   %tobool.not.i.i.i33 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i33, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit42, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit
-  %m_ownsMemory.i.i.i35 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 32
   %21 = load i8, ptr %m_ownsMemory.i.i.i35, align 8
   %22 = and i8 %21, 1
   %tobool2.not.i.i.i36 = icmp eq i8 %22, 0
@@ -419,12 +404,12 @@ terminate.lpad.i38:                               ; preds = %if.then3.i.i.i37
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit42: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i34, %if.then3.i.i.i37
-  %m_size.i.i.i39 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i40 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 12
+  %m_ownsMemory.i1.i.i40 = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i1.i.i40, align 8
   store ptr null, ptr %m_data.i.i.i32, align 8
   store i32 0, ptr %m_size.i.i.i39, align 4
-  %m_capacity.i.i.i41 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i.i41, align 8
   ret void
 }
@@ -445,78 +430,78 @@ define dso_local noundef nonnull align 8 dereferenceable(296) ptr @_ZN16btRaycas
 entry:
   %ref.tmp = alloca %struct.btWheelInfo, align 8
   %frombool = zext i1 %isFrontWheel to i8
-  %m_chassisConnectionPointCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 2
+  %m_chassisConnectionPointCS.i = getelementptr inbounds i8, ptr %ref.tmp, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_chassisConnectionPointCS.i, ptr noundef nonnull align 4 dereferenceable(16) %connectionPointCS, i64 16, i1 false)
-  %m_wheelDirectionCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 3
+  %m_wheelDirectionCS.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_wheelDirectionCS.i, ptr noundef nonnull align 4 dereferenceable(16) %wheelDirectionCS0, i64 16, i1 false)
-  %m_wheelAxleCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 4
+  %m_wheelAxleCS.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_wheelAxleCS.i, ptr noundef nonnull align 4 dereferenceable(16) %wheelAxleCS, i64 16, i1 false)
   %0 = load <4 x float>, ptr %tuning, align 4
-  %m_suspensionCompression = getelementptr inbounds %"class.btRaycastVehicle::btVehicleTuning", ptr %tuning, i64 0, i32 1
+  %m_suspensionCompression = getelementptr inbounds i8, ptr %tuning, i64 4
   %1 = load <4 x float>, ptr %m_suspensionCompression, align 4
-  %m_frictionSlip = getelementptr inbounds %"class.btRaycastVehicle::btVehicleTuning", ptr %tuning, i64 0, i32 4
+  %m_frictionSlip = getelementptr inbounds i8, ptr %tuning, i64 16
   %2 = load float, ptr %m_frictionSlip, align 4
-  %m_maxSuspensionTravelCm = getelementptr inbounds %"class.btRaycastVehicle::btVehicleTuning", ptr %tuning, i64 0, i32 3
+  %m_maxSuspensionTravelCm = getelementptr inbounds i8, ptr %tuning, i64 12
   %3 = load float, ptr %m_maxSuspensionTravelCm, align 4
-  %m_maxSuspensionForce = getelementptr inbounds %"class.btRaycastVehicle::btVehicleTuning", ptr %tuning, i64 0, i32 5
+  %m_maxSuspensionForce = getelementptr inbounds i8, ptr %tuning, i64 20
   %4 = load float, ptr %m_maxSuspensionForce, align 4
-  %m_wheelInfo = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16
-  %m_suspensionRestLength1.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 5
+  %m_wheelInfo = getelementptr inbounds i8, ptr %this, i64 192
+  %m_suspensionRestLength1.i = getelementptr inbounds i8, ptr %ref.tmp, i64 208
   store float %suspensionRestLength, ptr %m_suspensionRestLength1.i, align 8
-  %m_maxSuspensionTravelCm2.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 6
+  %m_maxSuspensionTravelCm2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
   store float %3, ptr %m_maxSuspensionTravelCm2.i, align 4
-  %m_wheelsRadius.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 7
+  %m_wheelsRadius.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
   store float %wheelRadius, ptr %m_wheelsRadius.i, align 8
-  %m_suspensionStiffness3.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 8
+  %m_suspensionStiffness3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
   %5 = shufflevector <4 x float> %0, <4 x float> %1, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
   %6 = insertelement <4 x float> %5, float %2, i64 3
   store <4 x float> %6, ptr %m_suspensionStiffness3.i, align 4
-  %m_steering.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 12
-  %m_engineForce.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 17
+  %m_steering.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
+  %m_engineForce.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   store <2 x float> zeroinitializer, ptr %m_engineForce.i, align 8
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0x3FB99999A0000000>, ptr %m_steering.i, align 4
-  %m_bIsFrontWheel12.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 19
+  %m_bIsFrontWheel12.i = getelementptr inbounds i8, ptr %ref.tmp, i64 264
   store i8 %frombool, ptr %m_bIsFrontWheel12.i, align 8
-  %m_maxSuspensionForce13.i = getelementptr inbounds %struct.btWheelInfo, ptr %ref.tmp, i64 0, i32 16
+  %m_maxSuspensionForce13.i = getelementptr inbounds i8, ptr %ref.tmp, i64 252
   store float %4, ptr %m_maxSuspensionForce13.i, align 4
   call void @_ZN20btAlignedObjectArrayI11btWheelInfoE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_wheelInfo, ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp)
-  %m_size.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 196
   %7 = load i32, ptr %m_size.i.i, align 4
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %8 = load ptr, ptr %m_data.i, align 8
   %9 = sext i32 %7 to i64
   %10 = getelementptr %struct.btWheelInfo, ptr %8, i64 %9
-  %arrayidx.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1
-  %m_isInContact.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 6
+  %arrayidx.i = getelementptr i8, ptr %10, i64 -296
+  %m_isInContact.i = getelementptr i8, ptr %10, i64 -212
   store i8 0, ptr %m_isInContact.i, align 4
-  %m_chassisBody.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %11 = load ptr, ptr %m_chassisBody.i.i.i, align 8
-  %m_worldTransform.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1
+  %m_worldTransform.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %chassisTrans.i.sroa.0.0.copyload = load float, ptr %m_worldTransform.i.i.i, align 4
-  %chassisTrans.i.sroa.4.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 1
+  %chassisTrans.i.sroa.4.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 12
   %chassisTrans.i.sroa.4.0.copyload = load float, ptr %chassisTrans.i.sroa.4.0.m_worldTransform.i.i.i.sroa_idx, align 4
-  %chassisTrans.i.sroa.5.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
+  %chassisTrans.i.sroa.5.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   %chassisTrans.i.sroa.5.0.copyload = load float, ptr %chassisTrans.i.sroa.5.0.m_worldTransform.i.i.i.sroa_idx, align 4
-  %arrayidx6.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %chassisTrans.i.sroa.611.16.copyload = load float, ptr %arrayidx6.i.i.i, align 4
-  %chassisTrans.i.sroa.8.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 1
+  %chassisTrans.i.sroa.8.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 28
   %chassisTrans.i.sroa.8.16.copyload = load float, ptr %chassisTrans.i.sroa.8.16.arrayidx6.i.i.i.sroa_idx, align 4
-  %chassisTrans.i.sroa.9.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
+  %chassisTrans.i.sroa.9.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
   %chassisTrans.i.sroa.9.16.copyload = load float, ptr %chassisTrans.i.sroa.9.16.arrayidx6.i.i.i.sroa_idx, align 4
-  %arrayidx10.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %chassisTrans.i.sroa.1012.32.copyload = load float, ptr %arrayidx10.i.i.i, align 4
-  %chassisTrans.i.sroa.12.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 1
+  %chassisTrans.i.sroa.12.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 44
   %chassisTrans.i.sroa.12.32.copyload = load float, ptr %chassisTrans.i.sroa.12.32.arrayidx10.i.i.i.sroa_idx, align 4
-  %chassisTrans.i.sroa.13.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %chassisTrans.i.sroa.13.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 48
   %chassisTrans.i.sroa.13.32.copyload = load float, ptr %chassisTrans.i.sroa.13.32.arrayidx10.i.i.i.sroa_idx, align 4
-  %m_origin3.i.i = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 1
-  %chassisTrans.i.sroa.17.48.m_origin3.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %11, i64 0, i32 1, i32 1, i32 0, i64 2
+  %m_origin3.i.i = getelementptr inbounds i8, ptr %11, i64 56
+  %chassisTrans.i.sroa.17.48.m_origin3.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 64
   %chassisTrans.i.sroa.17.48.copyload = load float, ptr %chassisTrans.i.sroa.17.48.m_origin3.i.i.sroa_idx, align 4
-  %m_chassisConnectionPointCS.i7 = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 2
+  %m_chassisConnectionPointCS.i7 = getelementptr i8, ptr %10, i64 -136
   %12 = load float, ptr %m_chassisConnectionPointCS.i7, align 4
-  %arrayidx5.i.i.i.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 2, i32 0, i64 1
+  %arrayidx5.i.i.i.i = getelementptr i8, ptr %10, i64 -132
   %13 = load float, ptr %arrayidx5.i.i.i.i, align 4
-  %arrayidx10.i.i.i.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 2, i32 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr i8, ptr %10, i64 -128
   %14 = load float, ptr %arrayidx10.i.i.i.i, align 4
   %mul8.i8.i.i.i = fmul float %chassisTrans.i.sroa.12.32.copyload, %13
   %15 = call float @llvm.fmuladd.f32(float %12, float %chassisTrans.i.sroa.1012.32.copyload, float %mul8.i8.i.i.i)
@@ -540,15 +525,15 @@ entry:
   %33 = fadd <2 x float> %17, %32
   %add14.i.i.i = fadd float %chassisTrans.i.sroa.17.48.copyload, %16
   %retval.sroa.3.12.vec.insert.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i.i, i64 0
-  %m_hardPointWS.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 3
+  %m_hardPointWS.i = getelementptr i8, ptr %10, i64 -260
   store <2 x float> %33, ptr %m_hardPointWS.i, align 4
-  %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 3, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i = getelementptr i8, ptr %10, i64 -252
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i, ptr %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i, align 4
-  %m_wheelDirectionCS.i8 = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 3
+  %m_wheelDirectionCS.i8 = getelementptr i8, ptr %10, i64 -120
   %34 = load float, ptr %m_wheelDirectionCS.i8, align 4
-  %arrayidx7.i.i10.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 3, i32 0, i64 1
+  %arrayidx7.i.i10.i = getelementptr i8, ptr %10, i64 -116
   %35 = load float, ptr %arrayidx7.i.i10.i, align 4
-  %arrayidx12.i.i12.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 3, i32 0, i64 2
+  %arrayidx12.i.i12.i = getelementptr i8, ptr %10, i64 -112
   %36 = load float, ptr %arrayidx12.i.i12.i, align 4
   %37 = insertelement <2 x float> poison, float %35, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
@@ -563,15 +548,15 @@ entry:
   %46 = call float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.1012.32.copyload, float %34, float %mul8.i13.i.i)
   %47 = call noundef float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.13.32.copyload, float %36, float %46)
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %47, i64 0
-  %m_wheelDirectionWS.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 4
+  %m_wheelDirectionWS.i = getelementptr i8, ptr %10, i64 -244
   store <2 x float> %45, ptr %m_wheelDirectionWS.i, align 4
-  %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 4, i32 0, i64 2
+  %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i = getelementptr i8, ptr %10, i64 -236
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i, align 4
-  %m_wheelAxleCS.i9 = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 4
+  %m_wheelAxleCS.i9 = getelementptr i8, ptr %10, i64 -104
   %48 = load float, ptr %m_wheelAxleCS.i9, align 4
-  %arrayidx7.i.i15.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 4, i32 0, i64 1
+  %arrayidx7.i.i15.i = getelementptr i8, ptr %10, i64 -100
   %49 = load float, ptr %arrayidx7.i.i15.i, align 4
-  %arrayidx12.i.i18.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 4, i32 0, i64 2
+  %arrayidx12.i.i18.i = getelementptr i8, ptr %10, i64 -96
   %50 = load float, ptr %arrayidx12.i.i18.i, align 4
   %51 = insertelement <2 x float> poison, float %49, i64 0
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
@@ -586,9 +571,9 @@ entry:
   %60 = call float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.1012.32.copyload, float %48, float %mul8.i13.i25.i)
   %61 = call noundef float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.13.32.copyload, float %50, float %60)
   %retval.sroa.3.12.vec.insert.i29.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %61, i64 0
-  %m_wheelAxleWS.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 5
+  %m_wheelAxleWS.i = getelementptr i8, ptr %10, i64 -228
   store <2 x float> %59, ptr %m_wheelAxleWS.i, align 4
-  %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx.i = getelementptr %struct.btWheelInfo, ptr %10, i64 -1, i32 0, i32 5, i32 0, i64 2
+  %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx.i = getelementptr i8, ptr %10, i64 -220
   store <2 x float> %retval.sroa.3.12.vec.insert.i29.i, ptr %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx.i, align 4
   %62 = load i32, ptr %m_size.i.i, align 4
   %sub10 = add nsw i32 %62, -1
@@ -602,9 +587,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI11btWheelInfoE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(296) %_Val) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %m_capacity.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -634,7 +619,7 @@ _ZN20btAlignedObjectArrayI11btWheelInfoE8allocateEi.exit.i: ; preds = %if.then.i
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %_ZNK20btAlignedObjectArrayI11btWheelInfoE4copyEiiPS0_.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN20btAlignedObjectArrayI11btWheelInfoE8allocateEi.exit.i
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
   br label %for.body.i.i
 
@@ -644,33 +629,33 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(96) %arrayidx3.i.i, i64 96, i1 false)
-  %m_worldTransform.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %retval.0.i.i, i64 %indvars.iv.i.i, i32 1
-  %m_worldTransform3.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i, i32 1
+  %m_worldTransform.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 96
+  %m_worldTransform3.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform3.i.i.i, i64 16, i1 false)
-  %arrayidx6.i.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i, i32 1, i32 0, i32 0, i64 1
-  %arrayidx8.i.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %retval.0.i.i, i64 %indvars.iv.i.i, i32 1, i32 0, i32 0, i64 1
+  %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 112
+  %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
-  %arrayidx10.i.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i, i32 1, i32 0, i32 0, i64 2
-  %arrayidx12.i.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %retval.0.i.i, i64 %indvars.iv.i.i, i32 1, i32 0, i32 0, i64 2
+  %arrayidx10.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 128
+  %arrayidx12.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx10.i.i.i.i.i, i64 16, i1 false)
-  %m_origin.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %retval.0.i.i, i64 %indvars.iv.i.i, i32 1, i32 1
-  %m_origin3.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i, i32 1, i32 1
+  %m_origin.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %m_origin3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i.i.i.i, i64 16, i1 false)
-  %m_chassisConnectionPointCS.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %retval.0.i.i, i64 %indvars.iv.i.i, i32 2
-  %m_chassisConnectionPointCS4.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i, i32 2
+  %m_chassisConnectionPointCS.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 160
+  %m_chassisConnectionPointCS4.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %m_chassisConnectionPointCS.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %m_chassisConnectionPointCS4.i.i.i, i64 136, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI11btWheelInfoE4copyEiiPS0_.exit.i, label %for.body.i.i, !llvm.loop !6
 
 _ZNK20btAlignedObjectArrayI11btWheelInfoE4copyEiiPS0_.exit.i: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayI11btWheelInfoE8allocateEi.exit.i
-  %m_data.i5.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i5.i, align 8
   %tobool.not.i6.i = icmp eq ptr %4, null
   br i1 %tobool.not.i6.i, label %_ZN20btAlignedObjectArrayI11btWheelInfoE10deallocateEv.exit.i, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %_ZNK20btAlignedObjectArrayI11btWheelInfoE4copyEiiPS0_.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i.i = icmp eq i8 %6, 0
@@ -681,7 +666,7 @@ if.then3.i.i:                                     ; preds = %if.then.i7.i
   br label %_ZN20btAlignedObjectArrayI11btWheelInfoE10deallocateEv.exit.i
 
 _ZN20btAlignedObjectArrayI11btWheelInfoE10deallocateEv.exit.i: ; preds = %if.then3.i.i, %if.then.i7.i, %_ZNK20btAlignedObjectArrayI11btWheelInfoE4copyEiiPS0_.exit.i
-  %m_ownsMemory.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr %retval.0.i.i, ptr %m_data.i5.i, align 8
   store i32 %cond.i, ptr %m_capacity.i, align 8
@@ -690,25 +675,25 @@ _ZN20btAlignedObjectArrayI11btWheelInfoE10deallocateEv.exit.i: ; preds = %if.the
 
 if.end:                                           ; preds = %_ZN20btAlignedObjectArrayI11btWheelInfoE10deallocateEv.exit.i, %if.then, %entry
   %7 = phi i32 [ %.pre2, %_ZN20btAlignedObjectArrayI11btWheelInfoE10deallocateEv.exit.i ], [ %0, %if.then ], [ %0, %entry ]
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds %struct.btWheelInfo, ptr %8, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayidx, ptr noundef nonnull align 8 dereferenceable(96) %_Val, i64 96, i1 false)
-  %m_worldTransform.i = getelementptr inbounds %struct.btWheelInfo, ptr %8, i64 %idxprom, i32 1
-  %m_worldTransform3.i = getelementptr inbounds %struct.btWheelInfo, ptr %_Val, i64 0, i32 1
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %m_worldTransform3.i = getelementptr inbounds i8, ptr %_Val, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i, ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform3.i, i64 16, i1 false)
-  %arrayidx6.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %_Val, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx8.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %8, i64 %idxprom, i32 1, i32 0, i32 0, i64 1
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %_Val, i64 112
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
-  %arrayidx10.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %_Val, i64 0, i32 1, i32 0, i32 0, i64 2
-  %arrayidx12.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %8, i64 %idxprom, i32 1, i32 0, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %_Val, i64 128
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
-  %m_origin.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %8, i64 %idxprom, i32 1, i32 1
-  %m_origin3.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %_Val, i64 0, i32 1, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 144
+  %m_origin3.i.i = getelementptr inbounds i8, ptr %_Val, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
-  %m_chassisConnectionPointCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %8, i64 %idxprom, i32 2
-  %m_chassisConnectionPointCS4.i = getelementptr inbounds %struct.btWheelInfo, ptr %_Val, i64 0, i32 2
+  %m_chassisConnectionPointCS.i = getelementptr inbounds i8, ptr %arrayidx, i64 160
+  %m_chassisConnectionPointCS4.i = getelementptr inbounds i8, ptr %_Val, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %m_chassisConnectionPointCS.i, ptr noundef nonnull align 8 dereferenceable(136) %m_chassisConnectionPointCS4.i, i64 136, i1 false)
   %9 = load i32, ptr %m_size.i, align 4
   %inc = add nsw i32 %9, 1
@@ -720,62 +705,62 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 define dso_local void @_ZN16btRaycastVehicle23updateWheelTransformsWSER11btWheelInfob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull align 8 dereferenceable(296) %wheel, i1 noundef zeroext %interpolatedTransform) local_unnamed_addr #6 align 2 {
 entry:
   %chassisTrans = alloca %class.btTransform, align 16
-  %m_isInContact = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 6
+  %m_isInContact = getelementptr inbounds i8, ptr %wheel, i64 84
   store i8 0, ptr %m_isInContact, align 4
-  %m_chassisBody.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_chassisBody.i.i, align 8
-  %m_worldTransform.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1
+  %m_worldTransform.i.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %chassisTrans, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i.i, i64 16, i1 false)
-  %arrayidx6.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx8.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %chassisTrans, i64 0, i64 1
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
-  %arrayidx10.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 2
-  %arrayidx12.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %chassisTrans, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i, i64 16, i1 false)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %chassisTrans, i64 0, i32 1
-  %m_origin3.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %chassisTrans, i64 48
+  %m_origin3.i = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   br i1 %interpolatedTransform, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_optionalMotionState.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 20
+  %m_optionalMotionState.i = getelementptr inbounds i8, ptr %0, i64 592
   %1 = load ptr, ptr %m_optionalMotionState.i, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(64) %chassisTrans)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %m_chassisConnectionPointCS = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 2
+  %m_chassisConnectionPointCS = getelementptr inbounds i8, ptr %wheel, i64 160
   %3 = load float, ptr %m_chassisConnectionPointCS, align 8
   %4 = load <4 x float>, ptr %chassisTrans, align 16
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %wheel, i64 164
   %6 = load float, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %chassisTrans, i64 0, i64 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 4
   %7 = load <4 x float>, ptr %arrayidx7.i.i.i, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 2, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %wheel, i64 168
   %9 = load float, ptr %arrayidx10.i.i.i, align 8
-  %arrayidx12.i.i.i = getelementptr inbounds [4 x float], ptr %chassisTrans, i64 0, i64 2
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 8
   %10 = load <4 x float>, ptr %arrayidx12.i.i.i, align 8
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %12 = load float, ptr %arrayidx8.i.i, align 16
-  %arrayidx7.i2.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %chassisTrans, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 20
   %13 = load float, ptr %arrayidx7.i2.i.i, align 4
-  %arrayidx12.i5.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %chassisTrans, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 24
   %14 = load float, ptr %arrayidx12.i5.i.i, align 8
   %15 = load float, ptr %arrayidx12.i.i, align 16
-  %arrayidx7.i7.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %chassisTrans, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 36
   %16 = load float, ptr %arrayidx7.i7.i.i, align 4
   %mul8.i8.i.i = fmul float %6, %16
   %17 = call float @llvm.fmuladd.f32(float %3, float %15, float %mul8.i8.i.i)
-  %arrayidx12.i10.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %chassisTrans, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 40
   %18 = load float, ptr %arrayidx12.i10.i.i, align 8
   %19 = call noundef float @llvm.fmuladd.f32(float %9, float %18, float %17)
   %20 = insertelement <2 x float> poison, float %6, i64 0
@@ -792,19 +777,19 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %31 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %29, <2 x float> %30, <2 x float> %27)
   %32 = load <2 x float>, ptr %m_origin.i, align 16
   %33 = fadd <2 x float> %31, %32
-  %arrayidx13.i.i = getelementptr inbounds %class.btTransform, ptr %chassisTrans, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 56
   %34 = load float, ptr %arrayidx13.i.i, align 8
   %add14.i.i = fadd float %19, %34
   %retval.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
-  %m_hardPointWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 3
+  %m_hardPointWS = getelementptr inbounds i8, ptr %wheel, i64 36
   store <2 x float> %33, ptr %m_hardPointWS, align 4
-  %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 3, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx = getelementptr inbounds i8, ptr %wheel, i64 44
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i, ptr %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx, align 4
-  %m_wheelDirectionCS = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 3
+  %m_wheelDirectionCS = getelementptr inbounds i8, ptr %wheel, i64 176
   %35 = load float, ptr %m_wheelDirectionCS, align 8
-  %arrayidx7.i.i10 = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 3, i32 0, i64 1
+  %arrayidx7.i.i10 = getelementptr inbounds i8, ptr %wheel, i64 180
   %36 = load float, ptr %arrayidx7.i.i10, align 4
-  %arrayidx12.i.i12 = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i.i12 = getelementptr inbounds i8, ptr %wheel, i64 184
   %37 = load float, ptr %arrayidx12.i.i12, align 8
   %38 = insertelement <2 x float> poison, float %36, i64 0
   %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> zeroinitializer
@@ -819,15 +804,15 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %47 = call float @llvm.fmuladd.f32(float %15, float %35, float %mul8.i13.i)
   %48 = call noundef float @llvm.fmuladd.f32(float %18, float %37, float %47)
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %48, i64 0
-  %m_wheelDirectionWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 4
+  %m_wheelDirectionWS = getelementptr inbounds i8, ptr %wheel, i64 52
   store <2 x float> %46, ptr %m_wheelDirectionWS, align 4
-  %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 4, i32 0, i64 2
+  %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx = getelementptr inbounds i8, ptr %wheel, i64 60
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx, align 4
-  %m_wheelAxleCS = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 4
+  %m_wheelAxleCS = getelementptr inbounds i8, ptr %wheel, i64 192
   %49 = load float, ptr %m_wheelAxleCS, align 8
-  %arrayidx7.i.i15 = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 4, i32 0, i64 1
+  %arrayidx7.i.i15 = getelementptr inbounds i8, ptr %wheel, i64 196
   %50 = load float, ptr %arrayidx7.i.i15, align 4
-  %arrayidx12.i.i18 = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 4, i32 0, i64 2
+  %arrayidx12.i.i18 = getelementptr inbounds i8, ptr %wheel, i64 200
   %51 = load float, ptr %arrayidx12.i.i18, align 8
   %52 = insertelement <2 x float> poison, float %50, i64 0
   %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
@@ -842,9 +827,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %61 = call float @llvm.fmuladd.f32(float %15, float %49, float %mul8.i13.i25)
   %62 = call noundef float @llvm.fmuladd.f32(float %18, float %51, float %61)
   %retval.sroa.3.12.vec.insert.i29 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %62, i64 0
-  %m_wheelAxleWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 5
+  %m_wheelAxleWS = getelementptr inbounds i8, ptr %wheel, i64 68
   store <2 x float> %60, ptr %m_wheelAxleWS, align 4
-  %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 5, i32 0, i64 2
+  %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx = getelementptr inbounds i8, ptr %wheel, i64 76
   store <2 x float> %retval.sroa.3.12.vec.insert.i29, ptr %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx, align 4
   ret void
 }
@@ -853,24 +838,24 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 define dso_local void @_ZN16btRaycastVehicle20updateWheelTransformEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %wheelIndex, i1 noundef zeroext %interpolatedTransform) local_unnamed_addr #6 align 2 {
 entry:
   %basis2 = alloca %class.btMatrix3x3, align 8
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %wheelIndex to i64
   %arrayidx.i = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i
   tail call void @_ZN16btRaycastVehicle23updateWheelTransformsWSER11btWheelInfob(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(296) %arrayidx.i, i1 noundef zeroext %interpolatedTransform)
-  %m_wheelDirectionWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 4
+  %m_wheelDirectionWS = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
   %1 = load float, ptr %m_wheelDirectionWS, align 4
   %fneg.i = fneg float %1
-  %arrayidx3.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 4, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %2 = load float, ptr %arrayidx3.i, align 4
   %fneg4.i = fneg float %2
-  %arrayidx7.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 4, i32 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
   %3 = load float, ptr %arrayidx7.i, align 4
   %fneg8.i = fneg float %3
-  %m_wheelAxleWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 5
-  %arrayidx3.i15 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 5, i32 0, i64 2
+  %m_wheelAxleWS = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
+  %arrayidx3.i15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 76
   %4 = load float, ptr %arrayidx3.i15, align 4
-  %arrayidx7.i16 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 5, i32 0, i64 1
+  %arrayidx7.i16 = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   %5 = load float, ptr %arrayidx7.i16, align 4
   %neg.i = fmul float %3, %5
   %6 = tail call float @llvm.fmuladd.f32(float %fneg4.i, float %4, float %neg.i)
@@ -887,12 +872,12 @@ entry:
   %mul.i.i.i = fmul float %6, %div.i.i
   %mul4.i.i.i = fmul float %8, %div.i.i
   %mul7.i.i.i = fmul float %9, %div.i.i
-  %m_steering = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i, i32 12
+  %m_steering = getelementptr inbounds i8, ptr %arrayidx.i, i64 236
   %12 = load float, ptr %m_steering, align 4
   %mul.i.i = fmul float %12, 5.000000e-01
   %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i) #18
   %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i) #18
-  %m_rotation = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i, i32 13
+  %m_rotation = getelementptr inbounds i8, ptr %arrayidx.i, i64 240
   %13 = load float, ptr %m_rotation, align 8
   %14 = load float, ptr %m_wheelAxleWS, align 4
   %15 = load float, ptr %arrayidx7.i16, align 4
@@ -994,22 +979,22 @@ entry:
   %sub42.i.i75 = fsub float 1.000000e+00, %add41.i.i74
   %71 = load float, ptr %m_wheelAxleWS, align 4
   %fneg8 = fneg float %71
-  %m_indexRightAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 12
+  %m_indexRightAxis = getelementptr inbounds i8, ptr %this, i64 176
   %72 = load i32, ptr %m_indexRightAxis, align 8
   %idxprom = sext i32 %72 to i64
   %arrayidx11 = getelementptr inbounds float, ptr %basis2, i64 %idxprom
   store float %fneg8, ptr %arrayidx11, align 4
   %73 = load float, ptr %arrayidx7.i16, align 4
   %fneg14 = fneg float %73
-  %arrayidx.i87 = getelementptr inbounds [3 x %class.btVector3], ptr %basis2, i64 0, i64 1
+  %arrayidx.i87 = getelementptr inbounds i8, ptr %basis2, i64 16
   %arrayidx19 = getelementptr inbounds float, ptr %arrayidx.i87, i64 %idxprom
   store float %fneg14, ptr %arrayidx19, align 4
   %74 = load float, ptr %arrayidx3.i15, align 4
   %fneg22 = fneg float %74
-  %arrayidx.i88 = getelementptr inbounds [3 x %class.btVector3], ptr %basis2, i64 0, i64 2
+  %arrayidx.i88 = getelementptr inbounds i8, ptr %basis2, i64 32
   %arrayidx27 = getelementptr inbounds float, ptr %arrayidx.i88, i64 %idxprom
   store float %fneg22, ptr %arrayidx27, align 4
-  %m_indexUpAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 13
+  %m_indexUpAxis = getelementptr inbounds i8, ptr %this, i64 180
   %75 = load i32, ptr %m_indexUpAxis, align 4
   %idxprom32 = sext i32 %75 to i64
   %arrayidx33 = getelementptr inbounds float, ptr %basis2, i64 %idxprom32
@@ -1018,7 +1003,7 @@ entry:
   store float %fneg4.i, ptr %arrayidx40, align 4
   %arrayidx47 = getelementptr inbounds float, ptr %arrayidx.i88, i64 %idxprom32
   store float %fneg8.i, ptr %arrayidx47, align 4
-  %m_indexForwardAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 14
+  %m_indexForwardAxis = getelementptr inbounds i8, ptr %this, i64 184
   %76 = load i32, ptr %m_indexForwardAxis, align 8
   %idxprom52 = sext i32 %76 to i64
   %arrayidx53 = getelementptr inbounds float, ptr %basis2, i64 %idxprom52
@@ -1027,7 +1012,7 @@ entry:
   store float %mul4.i.i.i, ptr %arrayidx60, align 4
   %arrayidx67 = getelementptr inbounds float, ptr %arrayidx.i88, i64 %idxprom52
   store float %mul7.i.i.i, ptr %arrayidx67, align 4
-  %m_worldTransform = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i, i32 1
+  %m_worldTransform = getelementptr inbounds i8, ptr %arrayidx.i, i64 96
   %77 = extractelement <2 x float> %69, i64 0
   %mul7.i.i93 = fmul float %77, %add30.i.i68
   %78 = tail call float @llvm.fmuladd.f32(float %sub.i.i65, float %sub.i.i, float %mul7.i.i93)
@@ -1057,13 +1042,13 @@ entry:
   %mul7.i62.i = fmul float %add39.i.i, %82
   %95 = tail call float @llvm.fmuladd.f32(float %add28.i.i67, float %sub37.i.i, float %mul7.i62.i)
   %96 = tail call noundef float @llvm.fmuladd.f32(float %sub42.i.i75, float %sub42.i.i, float %95)
-  %arrayidx.i.i20.i114 = getelementptr inbounds [4 x float], ptr %basis2, i64 0, i64 2
+  %arrayidx.i.i20.i114 = getelementptr inbounds i8, ptr %basis2, i64 8
   %97 = load float, ptr %arrayidx.i.i20.i114, align 8, !noalias !8
-  %arrayidx.i3.i21.i115 = getelementptr inbounds [3 x %class.btVector3], ptr %basis2, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i115 = getelementptr inbounds i8, ptr %basis2, i64 24
   %98 = load float, ptr %arrayidx.i3.i21.i115, align 8, !noalias !8
   %mul7.i23.i116 = fmul float %81, %98
   %99 = tail call float @llvm.fmuladd.f32(float %97, float %79, float %mul7.i23.i116)
-  %arrayidx.i5.i24.i117 = getelementptr inbounds [3 x %class.btVector3], ptr %basis2, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i117 = getelementptr inbounds i8, ptr %basis2, i64 40
   %100 = load float, ptr %arrayidx.i5.i24.i117, align 8, !noalias !8
   %101 = tail call noundef float @llvm.fmuladd.f32(float %100, float %84, float %99)
   %mul7.i42.i123 = fmul float %88, %98
@@ -1085,11 +1070,11 @@ entry:
   %116 = shufflevector <2 x float> %115, <2 x float> poison, <2 x i32> zeroinitializer
   %117 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %114, <2 x float> %116, <2 x float> %113)
   store <2 x float> %117, ptr %m_worldTransform, align 4
-  %ref.tmp68.sroa.3.0.m_worldTransform.sroa_idx = getelementptr inbounds i8, ptr %m_worldTransform, i64 8
+  %ref.tmp68.sroa.3.0.m_worldTransform.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 104
   store float %101, ptr %ref.tmp68.sroa.3.0.m_worldTransform.sroa_idx, align 4
-  %ref.tmp68.sroa.4.0.m_worldTransform.sroa_idx = getelementptr inbounds i8, ptr %m_worldTransform, i64 12
+  %ref.tmp68.sroa.4.0.m_worldTransform.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 108
   store float 0.000000e+00, ptr %ref.tmp68.sroa.4.0.m_worldTransform.sroa_idx, align 4
-  %arrayidx7.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 112
   %118 = insertelement <2 x float> poison, float %88, i64 0
   %119 = shufflevector <2 x float> %118, <2 x float> poison, <2 x i32> zeroinitializer
   %120 = fmul <2 x float> %119, %107
@@ -1100,11 +1085,11 @@ entry:
   %125 = shufflevector <2 x float> %124, <2 x float> poison, <2 x i32> zeroinitializer
   %126 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %114, <2 x float> %125, <2 x float> %123)
   store <2 x float> %126, ptr %arrayidx7.i.i, align 4
-  %ref.tmp68.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp68.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 120
   store float %103, ptr %ref.tmp68.sroa.8.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp68.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 1, i32 0, i64 3
+  %ref.tmp68.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 124
   store float 0.000000e+00, ptr %ref.tmp68.sroa.9.16.arrayidx7.i.i.sroa_idx, align 4
-  %arrayidx11.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
   %127 = insertelement <2 x float> poison, float %94, i64 0
   %128 = shufflevector <2 x float> %127, <2 x float> poison, <2 x i32> zeroinitializer
   %129 = fmul <2 x float> %128, %107
@@ -1115,12 +1100,12 @@ entry:
   %134 = shufflevector <2 x float> %133, <2 x float> poison, <2 x i32> zeroinitializer
   %135 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %114, <2 x float> %134, <2 x float> %132)
   store <2 x float> %135, ptr %arrayidx11.i.i, align 4
-  %ref.tmp68.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp68.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 136
   store float %105, ptr %ref.tmp68.sroa.13.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp68.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 2, i32 0, i64 3
+  %ref.tmp68.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 140
   store float 0.000000e+00, ptr %ref.tmp68.sroa.14.32.arrayidx11.i.i.sroa_idx, align 4
-  %m_hardPointWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 3
-  %m_suspensionLength = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 2
+  %m_hardPointWS = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
+  %m_suspensionLength = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %136 = load float, ptr %m_wheelDirectionWS, align 4
   %137 = load float, ptr %m_suspensionLength, align 4
   %138 = load float, ptr %arrayidx3.i, align 4
@@ -1133,13 +1118,13 @@ entry:
   %144 = fmul <2 x float> %141, %143
   %145 = load <2 x float>, ptr %m_hardPointWS, align 4
   %146 = fadd <2 x float> %144, %145
-  %arrayidx11.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 3, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 44
   %147 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %mul8.i, %147
   %retval.sroa.3.12.vec.insert.i153 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  %m_origin.i = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i, i32 1, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
   store <2 x float> %146, ptr %m_origin.i, align 4
-  %ref.tmp71.sroa.2.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %m_origin.i, i64 8
+  %ref.tmp71.sroa.2.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
   store <2 x float> %retval.sroa.3.12.vec.insert.i153, ptr %ref.tmp71.sroa.2.0.m_origin.i.sroa_idx, align 4
   ret void
 }
@@ -1147,7 +1132,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16btRaycastVehicle19getWheelTransformWSEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %wheelIndex) local_unnamed_addr #8 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %wheelIndex to i64
   %m_worldTransform = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i, i32 1
@@ -1157,13 +1142,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16btRaycastVehicle15resetSuspensionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %cmp8 = icmp sgt i32 %0, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1171,19 +1156,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.btWheelInfo, ptr %1, i64 %indvars.iv
   %call4 = tail call noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull align 8 dereferenceable(296) %arrayidx.i)
-  %m_suspensionLength = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 2
+  %m_suspensionLength = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   store float %call4, ptr %m_suspensionLength, align 8
-  %m_wheelDirectionWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 4
+  %m_wheelDirectionWS = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
   %2 = load <2 x float>, ptr %m_wheelDirectionWS, align 4
   %3 = fneg <2 x float> %2
-  %arrayidx7.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 4, i32 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
   %4 = load float, ptr %arrayidx7.i, align 4
   %fneg8.i = fneg float %4
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i, i64 0
   store <2 x float> %3, ptr %arrayidx.i, align 8
   %ref.tmp.sroa.2.0.m_contactNormalWS.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.m_contactNormalWS.sroa_idx, align 8
-  %m_clippedInvContactDotSuspension = getelementptr inbounds %struct.btWheelInfo, ptr %1, i64 %indvars.iv, i32 21
+  %m_clippedInvContactDotSuspension = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %m_clippedInvContactDotSuspension, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %m_size.i, align 4
@@ -1200,9 +1185,9 @@ declare noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16btRaycastVehicle24getChassisWorldTransformEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_chassisBody.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_chassisBody.i, align 8
-  %m_worldTransform.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %0, i64 8
   ret ptr %m_worldTransform.i
 }
 
@@ -1210,36 +1195,36 @@ entry:
 define dso_local noundef float @_ZN16btRaycastVehicle7rayCastER11btWheelInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(296) %wheel) local_unnamed_addr #6 align 2 {
 entry:
   %rayResults = alloca %"struct.btVehicleRaycaster::btVehicleRaycasterResult", align 4
-  %m_isInContact.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 6
+  %m_isInContact.i = getelementptr inbounds i8, ptr %wheel, i64 84
   store i8 0, ptr %m_isInContact.i, align 4
-  %m_chassisBody.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_chassisBody.i.i.i, align 8
-  %m_worldTransform.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1
+  %m_worldTransform.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %chassisTrans.i.sroa.0.0.copyload = load float, ptr %m_worldTransform.i.i.i, align 4
-  %chassisTrans.i.sroa.4.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 1
+  %chassisTrans.i.sroa.4.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   %chassisTrans.i.sroa.4.0.copyload = load float, ptr %chassisTrans.i.sroa.4.0.m_worldTransform.i.i.i.sroa_idx, align 4
-  %chassisTrans.i.sroa.5.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
+  %chassisTrans.i.sroa.5.0.m_worldTransform.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %chassisTrans.i.sroa.5.0.copyload = load float, ptr %chassisTrans.i.sroa.5.0.m_worldTransform.i.i.i.sroa_idx, align 4
-  %arrayidx6.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %chassisTrans.i.sroa.676.16.copyload = load float, ptr %arrayidx6.i.i.i, align 4
-  %chassisTrans.i.sroa.8.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 1
+  %chassisTrans.i.sroa.8.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   %chassisTrans.i.sroa.8.16.copyload = load float, ptr %chassisTrans.i.sroa.8.16.arrayidx6.i.i.i.sroa_idx, align 4
-  %chassisTrans.i.sroa.9.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
+  %chassisTrans.i.sroa.9.16.arrayidx6.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %chassisTrans.i.sroa.9.16.copyload = load float, ptr %chassisTrans.i.sroa.9.16.arrayidx6.i.i.i.sroa_idx, align 4
-  %arrayidx10.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %chassisTrans.i.sroa.1077.32.copyload = load float, ptr %arrayidx10.i.i.i, align 4
-  %chassisTrans.i.sroa.12.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 1
+  %chassisTrans.i.sroa.12.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
   %chassisTrans.i.sroa.12.32.copyload = load float, ptr %chassisTrans.i.sroa.12.32.arrayidx10.i.i.i.sroa_idx, align 4
-  %chassisTrans.i.sroa.13.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %chassisTrans.i.sroa.13.32.arrayidx10.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   %chassisTrans.i.sroa.13.32.copyload = load float, ptr %chassisTrans.i.sroa.13.32.arrayidx10.i.i.i.sroa_idx, align 4
-  %m_origin3.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 1
-  %chassisTrans.i.sroa.17.48.m_origin3.i.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 1, i32 0, i64 2
+  %m_origin3.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %chassisTrans.i.sroa.17.48.m_origin3.i.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   %chassisTrans.i.sroa.17.48.copyload = load float, ptr %chassisTrans.i.sroa.17.48.m_origin3.i.i.sroa_idx, align 4
-  %m_chassisConnectionPointCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 2
+  %m_chassisConnectionPointCS.i = getelementptr inbounds i8, ptr %wheel, i64 160
   %1 = load float, ptr %m_chassisConnectionPointCS.i, align 8
-  %arrayidx5.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %wheel, i64 164
   %2 = load float, ptr %arrayidx5.i.i.i.i, align 4
-  %arrayidx10.i.i.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 2, i32 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %wheel, i64 168
   %3 = load float, ptr %arrayidx10.i.i.i.i, align 8
   %mul8.i8.i.i.i = fmul float %chassisTrans.i.sroa.12.32.copyload, %2
   %4 = tail call float @llvm.fmuladd.f32(float %1, float %chassisTrans.i.sroa.1077.32.copyload, float %mul8.i8.i.i.i)
@@ -1263,15 +1248,15 @@ entry:
   %22 = fadd <2 x float> %6, %21
   %add14.i.i.i = fadd float %chassisTrans.i.sroa.17.48.copyload, %5
   %retval.sroa.3.12.vec.insert.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i.i, i64 0
-  %m_hardPointWS.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 3
+  %m_hardPointWS.i = getelementptr inbounds i8, ptr %wheel, i64 36
   store <2 x float> %22, ptr %m_hardPointWS.i, align 4
-  %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 3, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i = getelementptr inbounds i8, ptr %wheel, i64 44
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i, ptr %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i, align 4
-  %m_wheelDirectionCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 3
+  %m_wheelDirectionCS.i = getelementptr inbounds i8, ptr %wheel, i64 176
   %23 = load float, ptr %m_wheelDirectionCS.i, align 8
-  %arrayidx7.i.i10.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 3, i32 0, i64 1
+  %arrayidx7.i.i10.i = getelementptr inbounds i8, ptr %wheel, i64 180
   %24 = load float, ptr %arrayidx7.i.i10.i, align 4
-  %arrayidx12.i.i12.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i.i12.i = getelementptr inbounds i8, ptr %wheel, i64 184
   %25 = load float, ptr %arrayidx12.i.i12.i, align 8
   %26 = insertelement <2 x float> poison, float %24, i64 0
   %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1286,15 +1271,15 @@ entry:
   %35 = tail call float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.1077.32.copyload, float %23, float %mul8.i13.i.i)
   %36 = tail call noundef float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.13.32.copyload, float %25, float %35)
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %36, i64 0
-  %m_wheelDirectionWS.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 4
+  %m_wheelDirectionWS.i = getelementptr inbounds i8, ptr %wheel, i64 52
   store <2 x float> %34, ptr %m_wheelDirectionWS.i, align 4
-  %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 4, i32 0, i64 2
+  %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i = getelementptr inbounds i8, ptr %wheel, i64 60
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i, align 4
-  %m_wheelAxleCS.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 4
+  %m_wheelAxleCS.i = getelementptr inbounds i8, ptr %wheel, i64 192
   %37 = load float, ptr %m_wheelAxleCS.i, align 8
-  %arrayidx7.i.i15.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 4, i32 0, i64 1
+  %arrayidx7.i.i15.i = getelementptr inbounds i8, ptr %wheel, i64 196
   %38 = load float, ptr %arrayidx7.i.i15.i, align 4
-  %arrayidx12.i.i18.i = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 4, i32 0, i64 2
+  %arrayidx12.i.i18.i = getelementptr inbounds i8, ptr %wheel, i64 200
   %39 = load float, ptr %arrayidx12.i.i18.i, align 8
   %40 = insertelement <2 x float> poison, float %38, i64 0
   %41 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1309,15 +1294,15 @@ entry:
   %49 = tail call float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.1077.32.copyload, float %37, float %mul8.i13.i25.i)
   %50 = tail call noundef float @llvm.fmuladd.f32(float %chassisTrans.i.sroa.13.32.copyload, float %39, float %49)
   %retval.sroa.3.12.vec.insert.i29.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %50, i64 0
-  %m_wheelAxleWS.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 5
+  %m_wheelAxleWS.i = getelementptr inbounds i8, ptr %wheel, i64 68
   store <2 x float> %48, ptr %m_wheelAxleWS.i, align 4
-  %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 5, i32 0, i64 2
+  %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx.i = getelementptr inbounds i8, ptr %wheel, i64 76
   store <2 x float> %retval.sroa.3.12.vec.insert.i29.i, ptr %ref.tmp14.sroa.2.0.m_wheelAxleWS.sroa_idx.i, align 4
   %call = tail call noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull align 8 dereferenceable(296) %wheel)
-  %m_wheelsRadius = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 7
+  %m_wheelsRadius = getelementptr inbounds i8, ptr %wheel, i64 216
   %51 = load float, ptr %m_wheelsRadius, align 8
   %add = fadd float %call, %51
-  %arrayidx3.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 4, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %wheel, i64 56
   %52 = load float, ptr %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i, align 4
   %mul8.i = fmul float %add, %52
   %53 = load <2 x float>, ptr %m_wheelDirectionWS.i, align 4
@@ -1329,19 +1314,19 @@ entry:
   %59 = load float, ptr %ref.tmp.sroa.2.0.m_hardPointWS.sroa_idx.i, align 4
   %add14.i = fadd float %mul8.i, %59
   %retval.sroa.3.12.vec.insert.i45 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  %m_contactPointWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 1
+  %m_contactPointWS = getelementptr inbounds i8, ptr %wheel, i64 16
   store <2 x float> %58, ptr %m_contactPointWS, align 8
-  %ref.tmp.sroa.2.0.m_contactPointWS.sroa_idx = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_contactPointWS.sroa_idx = getelementptr inbounds i8, ptr %wheel, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i45, ptr %ref.tmp.sroa.2.0.m_contactPointWS.sroa_idx, align 8
-  %m_distFraction.i = getelementptr inbounds %"struct.btVehicleRaycaster::btVehicleRaycasterResult", ptr %rayResults, i64 0, i32 2
+  %m_distFraction.i = getelementptr inbounds i8, ptr %rayResults, i64 32
   store float -1.000000e+00, ptr %m_distFraction.i, align 4
-  %m_vehicleRaycaster = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 7
+  %m_vehicleRaycaster = getelementptr inbounds i8, ptr %this, i64 144
   %60 = load ptr, ptr %m_vehicleRaycaster, align 8
   %vtable = load ptr, ptr %60, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %61 = load ptr, ptr %vfn, align 8
   %call9 = call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(16) %m_hardPointWS.i, ptr noundef nonnull align 4 dereferenceable(16) %m_contactPointWS, ptr noundef nonnull align 4 dereferenceable(36) %rayResults)
-  %m_groundObject = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 7
+  %m_groundObject = getelementptr inbounds i8, ptr %wheel, i64 88
   store ptr null, ptr %m_groundObject, align 8
   %tobool.not = icmp eq ptr %call9, null
   br i1 %tobool.not, label %if.else63, label %if.then
@@ -1349,17 +1334,17 @@ entry:
 if.then:                                          ; preds = %entry
   %62 = load float, ptr %m_distFraction.i, align 4
   %mul = fmul float %add, %62
-  %m_hitNormalInWorld = getelementptr inbounds %"struct.btVehicleRaycaster::btVehicleRaycasterResult", ptr %rayResults, i64 0, i32 1
+  %m_hitNormalInWorld = getelementptr inbounds i8, ptr %rayResults, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wheel, ptr noundef nonnull align 4 dereferenceable(16) %m_hitNormalInWorld, i64 16, i1 false)
   store i8 1, ptr %m_isInContact.i, align 4
   %call14 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btActionInterface12getFixedBodyEv()
   store ptr @_ZZN17btActionInterface12getFixedBodyEvE7s_fixed, ptr %m_groundObject, align 8
   %63 = load float, ptr %m_wheelsRadius, align 8
   %sub = fsub float %mul, %63
-  %m_suspensionLength = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 2
+  %m_suspensionLength = getelementptr inbounds i8, ptr %wheel, i64 32
   store float %sub, ptr %m_suspensionLength, align 8
   %call20 = call noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull align 8 dereferenceable(296) %wheel)
-  %m_maxSuspensionTravelCm = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 6
+  %m_maxSuspensionTravelCm = getelementptr inbounds i8, ptr %wheel, i64 212
   %64 = load float, ptr %m_maxSuspensionTravelCm, align 4
   %neg = fneg float %64
   %65 = call float @llvm.fmuladd.f32(float %neg, float 0x3F847AE140000000, float %call20)
@@ -1382,12 +1367,12 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_contactPointWS, ptr noundef nonnull align 4 dereferenceable(16) %rayResults, i64 16, i1 false)
   %73 = load float, ptr %wheel, align 8
   %74 = load float, ptr %m_wheelDirectionWS.i, align 4
-  %arrayidx5.i48 = getelementptr inbounds [4 x float], ptr %wheel, i64 0, i64 1
+  %arrayidx5.i48 = getelementptr inbounds i8, ptr %wheel, i64 4
   %75 = load float, ptr %arrayidx5.i48, align 4
   %76 = load float, ptr %arrayidx3.i, align 8
   %mul8.i50 = fmul float %75, %76
   %77 = call float @llvm.fmuladd.f32(float %73, float %74, float %mul8.i50)
-  %arrayidx10.i = getelementptr inbounds [4 x float], ptr %wheel, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %wheel, i64 8
   %78 = load float, ptr %arrayidx10.i, align 8
   %79 = load float, ptr %ref.tmp9.sroa.2.0.m_wheelDirectionWS.sroa_idx.i, align 4
   %80 = call noundef float @llvm.fmuladd.f32(float %78, float %79, float %77)
@@ -1395,44 +1380,44 @@ if.then:                                          ; preds = %entry
   br i1 %cmp57, label %if.else, label %if.then58
 
 if.then58:                                        ; preds = %72
-  %m_suspensionRelativeVelocity = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 22
+  %m_suspensionRelativeVelocity = getelementptr inbounds i8, ptr %wheel, i64 284
   store float 0.000000e+00, ptr %m_suspensionRelativeVelocity, align 4
   br label %if.end76
 
 if.else:                                          ; preds = %72
   %81 = load ptr, ptr %m_chassisBody.i.i.i, align 8
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %81, i64 0, i32 3
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %81, i64 436
   %82 = load float, ptr %m_angularVelocity.i, align 4
-  %arrayidx5.i52 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i52 = getelementptr inbounds i8, ptr %wheel, i64 20
   %83 = load float, ptr %arrayidx5.i52, align 4
-  %arrayidx7.i53 = getelementptr inbounds %class.btCollisionObject, ptr %81, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i53 = getelementptr inbounds i8, ptr %81, i64 60
   %84 = load float, ptr %arrayidx7.i53, align 4
   %sub8.i = fsub float %83, %84
   %85 = load float, ptr %m_contactPointWS, align 8
-  %m_origin.i.i51 = getelementptr inbounds %class.btCollisionObject, ptr %81, i64 0, i32 1, i32 1
+  %m_origin.i.i51 = getelementptr inbounds i8, ptr %81, i64 56
   %86 = load float, ptr %m_origin.i.i51, align 4
   %sub.i = fsub float %85, %86
-  %arrayidx.i.i = getelementptr inbounds %class.btRigidBody, ptr %81, i64 0, i32 3, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %81, i64 440
   %87 = load float, ptr %arrayidx.i.i, align 4
   %88 = fneg float %87
   %neg30.i.i = fmul float %sub.i, %88
   %89 = call float @llvm.fmuladd.f32(float %82, float %sub8.i, float %neg30.i.i)
-  %arrayidx11.i.i = getelementptr inbounds %class.btRigidBody, ptr %81, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %81, i64 428
   %90 = load float, ptr %arrayidx11.i.i, align 4
   %add14.i.i = fadd float %90, %89
   %91 = load float, ptr %ref.tmp.sroa.2.0.m_contactPointWS.sroa_idx, align 8
-  %arrayidx13.i55 = getelementptr inbounds %class.btCollisionObject, ptr %81, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i55 = getelementptr inbounds i8, ptr %81, i64 64
   %92 = load float, ptr %arrayidx13.i55, align 4
   %sub14.i = fsub float %91, %92
-  %arrayidx5.i.i = getelementptr inbounds %class.btRigidBody, ptr %81, i64 0, i32 3, i32 0, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %81, i64 444
   %93 = load float, ptr %arrayidx5.i.i, align 4
   %94 = fneg float %93
   %neg.i.i = fmul float %sub8.i, %94
   %95 = call float @llvm.fmuladd.f32(float %87, float %sub14.i, float %neg.i.i)
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %81, i64 0, i32 2
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %81, i64 420
   %96 = load float, ptr %m_linearVelocity.i, align 4
   %add.i.i = fadd float %96, %95
-  %arrayidx5.i1.i = getelementptr inbounds %class.btRigidBody, ptr %81, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i1.i = getelementptr inbounds i8, ptr %81, i64 424
   %97 = load float, ptr %arrayidx5.i1.i, align 4
   %98 = fneg float %82
   %neg19.i.i = fmul float %sub14.i, %98
@@ -1443,15 +1428,15 @@ if.else:                                          ; preds = %72
   %101 = call noundef float @llvm.fmuladd.f32(float %78, float %add14.i.i, float %100)
   %div = fdiv float -1.000000e+00, %80
   %mul59 = fmul float %div, %101
-  %m_suspensionRelativeVelocity60 = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 22
+  %m_suspensionRelativeVelocity60 = getelementptr inbounds i8, ptr %wheel, i64 284
   store float %mul59, ptr %m_suspensionRelativeVelocity60, align 4
   br label %if.end76
 
 if.else63:                                        ; preds = %entry
   %call64 = call noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull align 8 dereferenceable(296) %wheel)
-  %m_suspensionLength66 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %wheel, i64 0, i32 2
+  %m_suspensionLength66 = getelementptr inbounds i8, ptr %wheel, i64 32
   store float %call64, ptr %m_suspensionLength66, align 8
-  %m_suspensionRelativeVelocity67 = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 22
+  %m_suspensionRelativeVelocity67 = getelementptr inbounds i8, ptr %wheel, i64 284
   store float 0.000000e+00, ptr %m_suspensionRelativeVelocity67, align 4
   %102 = load <2 x float>, ptr %m_wheelDirectionWS.i, align 4
   %103 = fneg <2 x float> %102
@@ -1466,7 +1451,7 @@ if.else63:                                        ; preds = %entry
 if.end76:                                         ; preds = %if.then58, %if.else, %if.else63
   %.sink = phi float [ 1.000000e+01, %if.then58 ], [ %div, %if.else ], [ 1.000000e+00, %if.else63 ]
   %depth.0 = phi float [ %mul, %if.then58 ], [ %mul, %if.else ], [ -1.000000e+00, %if.else63 ]
-  %m_clippedInvContactDotSuspension = getelementptr inbounds %struct.btWheelInfo, ptr %wheel, i64 0, i32 21
+  %m_clippedInvContactDotSuspension = getelementptr inbounds i8, ptr %wheel, i64 280
   store float %.sink, ptr %m_clippedInvContactDotSuspension, align 8
   ret float %depth.0
 }
@@ -1479,7 +1464,7 @@ define dso_local void @_ZN16btRaycastVehicle13updateVehicleEf(ptr noundef nonnul
 entry:
   %impulse = alloca %class.btVector3, align 8
   %relpos = alloca %class.btVector3, align 8
-  %m_size.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp127 = icmp sgt i32 %0, 0
   br i1 %cmp127, label %for.body, label %for.end
@@ -1498,29 +1483,29 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %cmp30129 = phi i1 [ %2, %for.end.loopexit ], [ false, %entry ]
-  %m_chassisBody.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody.i = getelementptr inbounds i8, ptr %this, i64 168
   %3 = load ptr, ptr %m_chassisBody.i, align 8
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %3, i64 0, i32 2
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %3, i64 420
   %4 = load float, ptr %m_linearVelocity.i, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %3, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %3, i64 424
   %5 = load float, ptr %arrayidx5.i.i.i, align 4
   %mul8.i.i.i = fmul float %5, %5
   %6 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %3, i64 0, i32 2, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %3, i64 428
   %7 = load float, ptr %arrayidx10.i.i.i, align 4
   %8 = tail call noundef float @llvm.fmuladd.f32(float %7, float %7, float %6)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %8)
   %mul = fmul float %sqrt.i, 0x400CCCCCC0000000
-  %m_currentVehicleSpeedKmHour = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 10
+  %m_currentVehicleSpeedKmHour = getelementptr inbounds i8, ptr %this, i64 160
   store float %mul, ptr %m_currentVehicleSpeedKmHour, align 8
-  %m_worldTransform.i.i = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 1
-  %m_indexForwardAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 14
+  %m_worldTransform.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %m_indexForwardAxis = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load i32, ptr %m_indexForwardAxis, align 8
   %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds float, ptr %m_worldTransform.i.i, i64 %idxprom
-  %arrayidx.i = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 24
   %arrayidx14 = getelementptr inbounds float, ptr %arrayidx.i, i64 %idxprom
-  %arrayidx.i29 = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %3, i64 40
   %arrayidx20 = getelementptr inbounds float, ptr %arrayidx.i29, i64 %idxprom
   %10 = load float, ptr %arrayidx, align 4
   %11 = load float, ptr %arrayidx14, align 4
@@ -1543,7 +1528,7 @@ if.end:                                           ; preds = %if.then, %for.end
   br i1 %cmp30129, label %for.body31.lr.ph, label %for.end60
 
 for.body31.lr.ph:                                 ; preds = %if.end
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   br label %for.body31
 
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.body31
@@ -1560,20 +1545,20 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
 for.end37:                                        ; preds = %for.body31
   %.pre = load ptr, ptr %m_chassisBody.i, align 8
   %21 = icmp sgt i32 %19, 0
-  %m_inverseMass.i.i = getelementptr inbounds %class.btRigidBody, ptr %.pre, i64 0, i32 4
+  %m_inverseMass.i.i = getelementptr inbounds i8, ptr %.pre, i64 452
   %22 = load float, ptr %m_inverseMass.i.i, align 4
   %div.i = fdiv float 1.000000e+00, %22
   br i1 %21, label %for.body.lr.ph.i, label %for.end60
 
 for.body.lr.ph.i:                                 ; preds = %for.end37
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %23 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i
-  %m_isInContact.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i.i, i64 0, i32 6
+  %m_isInContact.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 84
   %24 = load i8, ptr %m_isInContact.i, align 4
   %25 = and i8 %24, 1
   %tobool.not.i = icmp eq i8 %25, 0
@@ -1581,32 +1566,31 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body.i
   %call4.i = tail call noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull align 8 dereferenceable(296) %arrayidx.i.i)
-  %m_suspensionLength.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i.i, i64 0, i32 2
+  %m_suspensionLength.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %26 = load float, ptr %m_suspensionLength.i, align 8
   %sub.i = fsub float %call4.i, %26
-  %m_suspensionStiffness.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 8
+  %m_suspensionStiffness.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 220
   %27 = load float, ptr %m_suspensionStiffness.i, align 4
   %mul.i = fmul float %27, %sub.i
-  %m_clippedInvContactDotSuspension.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 21
+  %m_clippedInvContactDotSuspension.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 280
   %28 = load float, ptr %m_clippedInvContactDotSuspension.i, align 8
   %mul6.i = fmul float %mul.i, %28
-  %m_suspensionRelativeVelocity.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 22
+  %m_suspensionRelativeVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 284
   %29 = load float, ptr %m_suspensionRelativeVelocity.i, align 4
   %cmp7.i = fcmp olt float %29, 0.000000e+00
-  %m_wheelsDampingCompression.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 9
-  %m_wheelsDampingRelaxation.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 10
-  %susp_damping.0.in.i = select i1 %cmp7.i, ptr %m_wheelsDampingCompression.i, ptr %m_wheelsDampingRelaxation.i
+  %susp_damping.0.in.v.i = select i1 %cmp7.i, i64 224, i64 228
+  %susp_damping.0.in.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %susp_damping.0.in.v.i
   %susp_damping.0.i = load float, ptr %susp_damping.0.in.i, align 4
   %neg.i = fneg float %susp_damping.0.i
   %30 = tail call float @llvm.fmuladd.f32(float %neg.i, float %29, float %mul6.i)
   %mul10.i = fmul float %div.i, %30
-  %m_wheelsSuspensionForce.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 23
+  %m_wheelsSuspensionForce.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 288
   store float %mul10.i, ptr %m_wheelsSuspensionForce.i, align 8
   %cmp12.i = fcmp olt float %mul10.i, 0.000000e+00
   br i1 %cmp12.i, label %for.inc.sink.split.i, label %for.inc.i
 
 if.else16.i:                                      ; preds = %for.body.i
-  %m_wheelsSuspensionForce17.i = getelementptr inbounds %struct.btWheelInfo, ptr %23, i64 %indvars.iv.i, i32 23
+  %m_wheelsSuspensionForce17.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 288
   br label %for.inc.sink.split.i
 
 for.inc.sink.split.i:                             ; preds = %if.else16.i, %if.then.i
@@ -1626,9 +1610,9 @@ _ZN16btRaycastVehicle16updateSuspensionEf.exit:   ; preds = %for.inc.i
   br i1 %33, label %for.body42.lr.ph, label %for.end60
 
 for.body42.lr.ph:                                 ; preds = %_ZN16btRaycastVehicle16updateSuspensionEf.exit
-  %m_data.i37 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %34 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %impulse, i64 0, i32 1
-  %35 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %relpos, i64 0, i32 1
+  %m_data.i37 = getelementptr inbounds i8, ptr %this, i64 208
+  %34 = getelementptr inbounds i8, ptr %impulse, i64 8
+  %35 = getelementptr inbounds i8, ptr %relpos, i64 8
   %36 = insertelement <2 x float> poison, float %step, i64 0
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body42
@@ -1637,13 +1621,13 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %indvars.iv136 = phi i64 [ 0, %for.body42.lr.ph ], [ %indvars.iv.next137, %for.body42 ]
   %38 = load ptr, ptr %m_data.i37, align 8
   %arrayidx.i39 = getelementptr inbounds %struct.btWheelInfo, ptr %38, i64 %indvars.iv136
-  %m_wheelsSuspensionForce = getelementptr inbounds %struct.btWheelInfo, ptr %38, i64 %indvars.iv136, i32 23
+  %m_wheelsSuspensionForce = getelementptr inbounds i8, ptr %arrayidx.i39, i64 288
   %39 = load float, ptr %m_wheelsSuspensionForce, align 8
-  %m_maxSuspensionForce = getelementptr inbounds %struct.btWheelInfo, ptr %38, i64 %indvars.iv136, i32 16
+  %m_maxSuspensionForce = getelementptr inbounds i8, ptr %arrayidx.i39, i64 252
   %40 = load float, ptr %m_maxSuspensionForce, align 4
   %cmp45 = fcmp ogt float %39, %40
   %suspensionForce.0 = select i1 %cmp45, float %40, float %39
-  %arrayidx7.i42 = getelementptr inbounds [4 x float], ptr %arrayidx.i39, i64 0, i64 2
+  %arrayidx7.i42 = getelementptr inbounds i8, ptr %arrayidx.i39, i64 8
   %41 = load float, ptr %arrayidx7.i42, align 4
   %mul8.i43 = fmul float %suspensionForce.0, %41
   %42 = load <2 x float>, ptr %arrayidx.i39, align 4
@@ -1655,15 +1639,15 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %retval.sroa.3.12.vec.insert.i51 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i48, i64 0
   store <2 x float> %46, ptr %impulse, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i51, ptr %34, align 8
-  %m_contactPointWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i39, i64 0, i32 1
+  %m_contactPointWS = getelementptr inbounds i8, ptr %arrayidx.i39, i64 16
   %47 = load ptr, ptr %m_chassisBody.i, align 8
-  %m_origin.i.i = getelementptr inbounds %class.btCollisionObject, ptr %47, i64 0, i32 1, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %47, i64 56
   %48 = load <2 x float>, ptr %m_contactPointWS, align 4
   %49 = load <2 x float>, ptr %m_origin.i.i, align 4
   %50 = fsub <2 x float> %48, %49
-  %arrayidx11.i = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i39, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 24
   %51 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btCollisionObject, ptr %47, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %47, i64 64
   %52 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %51, %52
   %retval.sroa.3.12.vec.insert.i60 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -1678,7 +1662,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
 
 for.end60:                                        ; preds = %for.body42, %if.end, %for.end37, %_ZN16btRaycastVehicle16updateSuspensionEf.exit
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %55 = load ptr, ptr %vfn, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(224) %this, float noundef %step)
   %56 = load i32, ptr %m_size.i.i, align 4
@@ -1686,14 +1670,14 @@ for.end60:                                        ; preds = %for.body42, %if.end
   br i1 %cmp64133, label %for.body65.lr.ph, label %for.end119
 
 for.body65.lr.ph:                                 ; preds = %for.end60
-  %m_data.i65 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i65 = getelementptr inbounds i8, ptr %this, i64 208
   br label %for.body65
 
 for.body65:                                       ; preds = %for.body65.lr.ph, %if.end114
   %indvars.iv139 = phi i64 [ 0, %for.body65.lr.ph ], [ %indvars.iv.next140, %if.end114 ]
   %57 = load ptr, ptr %m_data.i65, align 8
   %arrayidx.i67 = getelementptr inbounds %struct.btWheelInfo, ptr %57, i64 %indvars.iv139
-  %m_isInContact = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i67, i64 0, i32 6
+  %m_isInContact = getelementptr inbounds i8, ptr %arrayidx.i67, i64 84
   %58 = load i8, ptr %m_isInContact, align 4
   %59 = and i8 %58, 1
   %tobool.not = icmp eq i8 %59, 0
@@ -1701,33 +1685,33 @@ for.body65:                                       ; preds = %for.body65.lr.ph, %
 
 if.then79:                                        ; preds = %for.body65
   %60 = load ptr, ptr %m_chassisBody.i, align 8
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %60, i64 0, i32 3
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %60, i64 436
   %61 = load float, ptr %m_angularVelocity.i, align 4
-  %arrayidx5.i71 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i67, i64 0, i32 3, i32 0, i64 1
+  %arrayidx5.i71 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 40
   %62 = load float, ptr %arrayidx5.i71, align 4
-  %arrayidx7.i72 = getelementptr inbounds %class.btCollisionObject, ptr %60, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i72 = getelementptr inbounds i8, ptr %60, i64 60
   %63 = load float, ptr %arrayidx7.i72, align 4
   %sub8.i73 = fsub float %62, %63
-  %m_hardPointWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i67, i64 0, i32 3
+  %m_hardPointWS = getelementptr inbounds i8, ptr %arrayidx.i67, i64 36
   %64 = load float, ptr %m_hardPointWS, align 4
-  %m_origin.i.i69 = getelementptr inbounds %class.btCollisionObject, ptr %60, i64 0, i32 1, i32 1
+  %m_origin.i.i69 = getelementptr inbounds i8, ptr %60, i64 56
   %65 = load float, ptr %m_origin.i.i69, align 4
   %sub.i70 = fsub float %64, %65
-  %arrayidx.i.i84 = getelementptr inbounds %class.btRigidBody, ptr %60, i64 0, i32 3, i32 0, i64 1
+  %arrayidx.i.i84 = getelementptr inbounds i8, ptr %60, i64 440
   %66 = load float, ptr %arrayidx.i.i84, align 4
   %67 = fneg float %66
   %neg30.i.i = fmul float %sub.i70, %67
   %68 = call float @llvm.fmuladd.f32(float %61, float %sub8.i73, float %neg30.i.i)
-  %arrayidx11.i.i = getelementptr inbounds %class.btRigidBody, ptr %60, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %60, i64 428
   %69 = load float, ptr %arrayidx11.i.i, align 4
   %add14.i.i = fadd float %69, %68
-  %arrayidx5.i1.i = getelementptr inbounds %class.btRigidBody, ptr %60, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i1.i = getelementptr inbounds i8, ptr %60, i64 424
   %70 = load float, ptr %arrayidx5.i1.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds %class.btRigidBody, ptr %60, i64 0, i32 3, i32 0, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %60, i64 444
   %71 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx11.i74 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i67, i64 0, i32 3, i32 0, i64 2
+  %arrayidx11.i74 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 44
   %72 = load float, ptr %arrayidx11.i74, align 4
-  %arrayidx13.i75 = getelementptr inbounds %class.btCollisionObject, ptr %60, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i75 = getelementptr inbounds i8, ptr %60, i64 64
   %73 = load float, ptr %arrayidx13.i75, align 4
   %sub14.i76 = fsub float %72, %73
   %74 = fneg float %61
@@ -1737,26 +1721,26 @@ if.then79:                                        ; preds = %for.body65
   %76 = fneg float %71
   %neg.i.i = fmul float %sub8.i73, %76
   %77 = call float @llvm.fmuladd.f32(float %66, float %sub14.i76, float %neg.i.i)
-  %m_linearVelocity.i83 = getelementptr inbounds %class.btRigidBody, ptr %60, i64 0, i32 2
+  %m_linearVelocity.i83 = getelementptr inbounds i8, ptr %60, i64 420
   %78 = load float, ptr %m_linearVelocity.i83, align 4
   %add.i.i = fadd float %78, %77
-  %m_worldTransform.i.i86 = getelementptr inbounds %class.btCollisionObject, ptr %60, i64 0, i32 1
+  %m_worldTransform.i.i86 = getelementptr inbounds i8, ptr %60, i64 8
   %79 = load i32, ptr %m_indexForwardAxis, align 8
   %idxprom85 = sext i32 %79 to i64
   %arrayidx86 = getelementptr inbounds float, ptr %m_worldTransform.i.i86, i64 %idxprom85
-  %arrayidx.i87 = getelementptr inbounds %class.btCollisionObject, ptr %60, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx.i87 = getelementptr inbounds i8, ptr %60, i64 24
   %arrayidx92 = getelementptr inbounds float, ptr %arrayidx.i87, i64 %idxprom85
-  %arrayidx.i88 = getelementptr inbounds %class.btCollisionObject, ptr %60, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx.i88 = getelementptr inbounds i8, ptr %60, i64 40
   %arrayidx98 = getelementptr inbounds float, ptr %arrayidx.i88, i64 %idxprom85
   %80 = load float, ptr %arrayidx86, align 4
   %81 = load float, ptr %arrayidx92, align 4
   %82 = load float, ptr %arrayidx98, align 4
   %83 = load float, ptr %arrayidx.i67, align 4
-  %arrayidx7.i93 = getelementptr inbounds [4 x float], ptr %arrayidx.i67, i64 0, i64 1
+  %arrayidx7.i93 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 4
   %84 = load float, ptr %arrayidx7.i93, align 4
   %mul8.i94 = fmul float %81, %84
   %85 = call float @llvm.fmuladd.f32(float %80, float %83, float %mul8.i94)
-  %arrayidx12.i96 = getelementptr inbounds [4 x float], ptr %arrayidx.i67, i64 0, i64 2
+  %arrayidx12.i96 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 8
   %86 = load float, ptr %arrayidx12.i96, align 4
   %87 = call noundef float @llvm.fmuladd.f32(float %82, float %86, float %85)
   %mul.i97 = fmul float %83, %87
@@ -1769,17 +1753,17 @@ if.then79:                                        ; preds = %for.body65
   %88 = call float @llvm.fmuladd.f32(float %sub.i107, float %add.i.i, float %mul8.i115)
   %89 = call noundef float @llvm.fmuladd.f32(float %sub13.i, float %add14.i.i, float %88)
   %mul109 = fmul float %89, %step
-  %m_wheelsRadius = getelementptr inbounds %struct.btWheelInfo, ptr %57, i64 %indvars.iv139, i32 7
+  %m_wheelsRadius = getelementptr inbounds i8, ptr %arrayidx.i67, i64 216
   %90 = load float, ptr %m_wheelsRadius, align 8
   %div = fdiv float %mul109, %90
-  %m_rotation = getelementptr inbounds %struct.btWheelInfo, ptr %57, i64 %indvars.iv139, i32 13
+  %m_rotation = getelementptr inbounds i8, ptr %arrayidx.i67, i64 240
   %91 = load float, ptr %m_rotation, align 8
   br label %if.end114
 
 if.else:                                          ; preds = %for.body65
-  %m_deltaRotation111 = getelementptr inbounds %struct.btWheelInfo, ptr %57, i64 %indvars.iv139, i32 14
+  %m_deltaRotation111 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 244
   %92 = load float, ptr %m_deltaRotation111, align 4
-  %m_rotation112 = getelementptr inbounds %struct.btWheelInfo, ptr %57, i64 %indvars.iv139, i32 13
+  %m_rotation112 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 240
   %93 = load float, ptr %m_rotation112, align 8
   br label %if.end114
 
@@ -1790,7 +1774,7 @@ if.end114:                                        ; preds = %if.else, %if.then79
   %94 = phi float [ %92, %if.else ], [ %div, %if.then79 ]
   %add113 = fadd float %.sink, %.sink148
   store float %add113, ptr %m_rotation112.sink, align 8
-  %m_deltaRotation115 = getelementptr inbounds %struct.btWheelInfo, ptr %57, i64 %indvars.iv139, i32 14
+  %m_deltaRotation115 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 244
   %mul116 = fmul float %94, 0x3FEFAE1480000000
   store float %mul116, ptr %m_deltaRotation115, align 4
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
@@ -1806,25 +1790,25 @@ for.end119:                                       ; preds = %if.end114, %for.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16btRaycastVehicle16updateSuspensionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %deltaTime) local_unnamed_addr #0 align 2 {
 entry:
-  %m_chassisBody = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
+  %m_chassisBody = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_chassisBody, align 8
-  %m_inverseMass.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 4
+  %m_inverseMass.i = getelementptr inbounds i8, ptr %0, i64 452
   %1 = load float, ptr %m_inverseMass.i, align 4
   %div = fdiv float 1.000000e+00, %1
-  %m_size.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 196
   %2 = load i32, ptr %m_size.i.i, align 4
   %cmp16 = icmp sgt i32 %2, 0
   br i1 %cmp16, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv
-  %m_isInContact = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 6
+  %m_isInContact = getelementptr inbounds i8, ptr %arrayidx.i, i64 84
   %4 = load i8, ptr %m_isInContact, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -1832,32 +1816,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %call4 = tail call noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull align 8 dereferenceable(296) %arrayidx.i)
-  %m_suspensionLength = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i, i64 0, i32 2
+  %m_suspensionLength = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %6 = load float, ptr %m_suspensionLength, align 8
   %sub = fsub float %call4, %6
-  %m_suspensionStiffness = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 8
+  %m_suspensionStiffness = getelementptr inbounds i8, ptr %arrayidx.i, i64 220
   %7 = load float, ptr %m_suspensionStiffness, align 4
   %mul = fmul float %7, %sub
-  %m_clippedInvContactDotSuspension = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 21
+  %m_clippedInvContactDotSuspension = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
   %8 = load float, ptr %m_clippedInvContactDotSuspension, align 8
   %mul6 = fmul float %mul, %8
-  %m_suspensionRelativeVelocity = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 22
+  %m_suspensionRelativeVelocity = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
   %9 = load float, ptr %m_suspensionRelativeVelocity, align 4
   %cmp7 = fcmp olt float %9, 0.000000e+00
-  %m_wheelsDampingCompression = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 9
-  %m_wheelsDampingRelaxation = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 10
-  %susp_damping.0.in = select i1 %cmp7, ptr %m_wheelsDampingCompression, ptr %m_wheelsDampingRelaxation
+  %susp_damping.0.in.v = select i1 %cmp7, i64 224, i64 228
+  %susp_damping.0.in = getelementptr inbounds i8, ptr %arrayidx.i, i64 %susp_damping.0.in.v
   %susp_damping.0 = load float, ptr %susp_damping.0.in, align 4
   %neg = fneg float %susp_damping.0
   %10 = tail call float @llvm.fmuladd.f32(float %neg, float %9, float %mul6)
   %mul10 = fmul float %div, %10
-  %m_wheelsSuspensionForce = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 23
+  %m_wheelsSuspensionForce = getelementptr inbounds i8, ptr %arrayidx.i, i64 288
   store float %mul10, ptr %m_wheelsSuspensionForce, align 8
   %cmp12 = fcmp olt float %mul10, 0.000000e+00
   br i1 %cmp12, label %for.inc.sink.split, label %for.inc
 
 if.else16:                                        ; preds = %for.body
-  %m_wheelsSuspensionForce17 = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv, i32 23
+  %m_wheelsSuspensionForce17 = getelementptr inbounds i8, ptr %arrayidx.i, i64 288
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then, %if.else16
@@ -1879,21 +1862,21 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %rel_pos) local_unnamed_addr #6 comdat align 2 {
 entry:
-  %m_inverseMass = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 4
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 452
   %0 = load float, ptr %m_inverseMass, align 4
   %cmp = fcmp une float %0, 0.000000e+00
   br i1 %cmp, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %entry
-  %m_linearFactor.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 5
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %m_linearFactor.i = getelementptr inbounds i8, ptr %this, i64 456
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %impulse, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %1 = load float, ptr %arrayidx11.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load float, ptr %arrayidx13.i.i, align 8
   %mul14.i.i = fmul float %1, %2
   %mul8.i3.i = fmul float %0, %mul14.i.i
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 2
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %this, i64 420
   %3 = load <2 x float>, ptr %impulse, align 4
   %4 = load <2 x float>, ptr %m_linearFactor.i, align 8
   %5 = fmul <2 x float> %3, %4
@@ -1903,11 +1886,11 @@ if.then2:                                         ; preds = %entry
   %9 = load <2 x float>, ptr %m_linearVelocity.i, align 4
   %10 = fadd <2 x float> %8, %9
   store <2 x float> %10, ptr %m_linearVelocity.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %this, i64 428
   %11 = load float, ptr %arrayidx12.i.i, align 4
   %add13.i.i = fadd float %mul8.i3.i, %11
   store float %add13.i.i, ptr %arrayidx12.i.i, align 4
-  %m_angularFactor = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 26
+  %m_angularFactor = getelementptr inbounds i8, ptr %this, i64 672
   %12 = load float, ptr %impulse, align 4
   %13 = extractelement <2 x float> %4, i64 0
   %mul.i = fmul float %13, %12
@@ -1916,9 +1899,9 @@ if.then2:                                         ; preds = %entry
   %mul8.i = fmul float %14, %15
   %16 = load float, ptr %arrayidx11.i.i, align 4
   %mul14.i = fmul float %16, %2
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %rel_pos, i64 4
   %17 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i2 = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 2
+  %arrayidx5.i2 = getelementptr inbounds i8, ptr %rel_pos, i64 8
   %18 = load float, ptr %arrayidx5.i2, align 4
   %19 = fneg float %18
   %neg.i = fmul float %mul8.i, %19
@@ -1930,34 +1913,34 @@ if.then2:                                         ; preds = %entry
   %24 = fneg float %17
   %neg30.i = fmul float %mul.i, %24
   %25 = tail call float @llvm.fmuladd.f32(float %21, float %mul8.i, float %neg30.i)
-  %m_invInertiaTensorWorld.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1
+  %m_invInertiaTensorWorld.i = getelementptr inbounds i8, ptr %this, i64 372
   %26 = load <4 x float>, ptr %m_invInertiaTensorWorld.i, align 4
   %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   %28 = load <4 x float>, ptr %arrayidx5.i.i.i, align 8
   %29 = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %this, i64 380
   %30 = load <4 x float>, ptr %arrayidx10.i.i.i, align 4
   %31 = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 388
   %32 = load float, ptr %arrayidx.i.i.i, align 4
-  %arrayidx5.i5.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %33 = load float, ptr %arrayidx5.i5.i.i, align 8
-  %arrayidx10.i8.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i.i = getelementptr inbounds i8, ptr %this, i64 396
   %34 = load float, ptr %arrayidx10.i8.i.i, align 4
-  %arrayidx.i10.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i.i = getelementptr inbounds i8, ptr %this, i64 404
   %35 = load float, ptr %arrayidx.i10.i.i, align 4
-  %arrayidx5.i11.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i.i = getelementptr inbounds i8, ptr %this, i64 408
   %36 = load float, ptr %arrayidx5.i11.i.i, align 8
   %mul8.i13.i.i = fmul float %23, %36
   %37 = tail call float @llvm.fmuladd.f32(float %35, float %20, float %mul8.i13.i.i)
-  %arrayidx10.i14.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i.i = getelementptr inbounds i8, ptr %this, i64 412
   %38 = load float, ptr %arrayidx10.i14.i.i, align 4
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %25, float %37)
-  %arrayidx13.i.i12 = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 26, i32 0, i64 2
+  %arrayidx13.i.i12 = getelementptr inbounds i8, ptr %this, i64 680
   %40 = load float, ptr %arrayidx13.i.i12, align 8
   %mul14.i.i13 = fmul float %39, %40
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 3
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %this, i64 436
   %41 = insertelement <2 x float> %29, float %33, i64 1
   %42 = insertelement <2 x float> poison, float %23, i64 0
   %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1975,7 +1958,7 @@ if.then2:                                         ; preds = %entry
   %55 = load <2 x float>, ptr %m_angularVelocity.i, align 4
   %56 = fadd <2 x float> %54, %55
   store <2 x float> %56, ptr %m_angularVelocity.i, align 4
-  %arrayidx12.i.i16 = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i.i16 = getelementptr inbounds i8, ptr %this, i64 444
   %57 = load float, ptr %arrayidx12.i.i16, align 4
   %add13.i.i17 = fadd float %mul14.i.i13, %57
   store float %add13.i.i17, ptr %arrayidx12.i.i16, align 4
@@ -1988,7 +1971,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btRaycastVehicle16setSteeringValueEfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %steering, i32 noundef %wheel) local_unnamed_addr #10 align 2 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %wheel to i64
   %m_steering = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i.i, i32 12
@@ -1999,7 +1982,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(296) ptr @_ZN16btRaycastVehicle12getWheelInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i
@@ -2009,7 +1992,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef float @_ZNK16btRaycastVehicle16getSteeringValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %wheel) local_unnamed_addr #11 align 2 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %wheel to i64
   %m_steering = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i.i, i32 12
@@ -2020,7 +2003,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(296) ptr @_ZNK16btRaycastVehicle12getWheelInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i
@@ -2030,7 +2013,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btRaycastVehicle16applyEngineForceEfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %force, i32 noundef %wheel) local_unnamed_addr #10 align 2 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %wheel to i64
   %m_engineForce = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i.i, i32 17
@@ -2041,7 +2024,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btRaycastVehicle8setBrakeEfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %brake, i32 noundef %wheelIndex) local_unnamed_addr #10 align 2 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %wheelIndex to i64
   %m_brake = getelementptr inbounds %struct.btWheelInfo, ptr %0, i64 %idxprom.i.i, i32 18
@@ -2052,52 +2035,52 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef float @_Z19calcRollingFrictionR19btWheelContactPointi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %contactPoint, i32 noundef %numWheelsOnGround) local_unnamed_addr #12 {
 entry:
-  %m_frictionPositionWorld = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 2
+  %m_frictionPositionWorld = getelementptr inbounds i8, ptr %contactPoint, i64 16
   %0 = load ptr, ptr %contactPoint, align 8
-  %m_origin.i.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load <4 x float>, ptr %m_frictionPositionWorld, align 8
   %2 = load float, ptr %m_origin.i.i, align 4
-  %arrayidx5.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %contactPoint, i64 20
   %3 = load <4 x float>, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx11.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %contactPoint, i64 24
   %5 = load <4 x float>, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr inbounds %class.btCollisionObject, ptr %0, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load float, ptr %arrayidx13.i, align 4
-  %m_body1 = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 1
+  %m_body1 = getelementptr inbounds i8, ptr %contactPoint, i64 8
   %7 = load ptr, ptr %m_body1, align 8
-  %m_origin.i.i9 = getelementptr inbounds %class.btCollisionObject, ptr %7, i64 0, i32 1, i32 1
+  %m_origin.i.i9 = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load float, ptr %m_origin.i.i9, align 4
-  %arrayidx7.i12 = getelementptr inbounds %class.btCollisionObject, ptr %7, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i12 = getelementptr inbounds i8, ptr %7, i64 60
   %9 = load float, ptr %arrayidx7.i12, align 4
-  %arrayidx13.i15 = getelementptr inbounds %class.btCollisionObject, ptr %7, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i15 = getelementptr inbounds i8, ptr %7, i64 64
   %10 = load float, ptr %arrayidx13.i15, align 4
-  %m_maxImpulse = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 5
+  %m_maxImpulse = getelementptr inbounds i8, ptr %contactPoint, i64 52
   %11 = load float, ptr %m_maxImpulse, align 4
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 2
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 3
-  %arrayidx.i.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 3, i32 0, i64 1
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %0, i64 420
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %0, i64 436
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 440
   %12 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 3, i32 0, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %0, i64 444
   %13 = load float, ptr %arrayidx5.i.i, align 4
   %14 = load float, ptr %m_angularVelocity.i, align 4
   %15 = load float, ptr %m_linearVelocity.i, align 4
-  %arrayidx5.i1.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i1.i = getelementptr inbounds i8, ptr %0, i64 424
   %16 = load float, ptr %arrayidx5.i1.i, align 4
-  %arrayidx11.i.i = getelementptr inbounds %class.btRigidBody, ptr %0, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %0, i64 428
   %17 = load float, ptr %arrayidx11.i.i, align 4
-  %m_linearVelocity.i22 = getelementptr inbounds %class.btRigidBody, ptr %7, i64 0, i32 2
-  %m_angularVelocity.i23 = getelementptr inbounds %class.btRigidBody, ptr %7, i64 0, i32 3
-  %arrayidx.i.i24 = getelementptr inbounds %class.btRigidBody, ptr %7, i64 0, i32 3, i32 0, i64 1
+  %m_linearVelocity.i22 = getelementptr inbounds i8, ptr %7, i64 420
+  %m_angularVelocity.i23 = getelementptr inbounds i8, ptr %7, i64 436
+  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %7, i64 440
   %18 = load float, ptr %arrayidx.i.i24, align 4
-  %arrayidx5.i.i26 = getelementptr inbounds %class.btRigidBody, ptr %7, i64 0, i32 3, i32 0, i64 2
+  %arrayidx5.i.i26 = getelementptr inbounds i8, ptr %7, i64 444
   %19 = load float, ptr %arrayidx5.i.i26, align 4
   %20 = load float, ptr %m_angularVelocity.i23, align 4
   %21 = load float, ptr %m_linearVelocity.i22, align 4
-  %arrayidx5.i1.i32 = getelementptr inbounds %class.btRigidBody, ptr %7, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i1.i32 = getelementptr inbounds i8, ptr %7, i64 424
   %22 = load float, ptr %arrayidx5.i1.i32, align 4
-  %arrayidx11.i.i34 = getelementptr inbounds %class.btRigidBody, ptr %7, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i34 = getelementptr inbounds i8, ptr %7, i64 428
   %23 = load float, ptr %arrayidx11.i.i34, align 4
   %24 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
   %25 = insertelement <2 x float> poison, float %2, i64 0
@@ -2144,17 +2127,17 @@ entry:
   %shift61 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %62 = fsub <2 x float> %59, %shift61
   %sub14.i47 = extractelement <2 x float> %62, i64 0
-  %m_frictionDirectionWorld = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 3
+  %m_frictionDirectionWorld = getelementptr inbounds i8, ptr %contactPoint, i64 32
   %63 = load float, ptr %m_frictionDirectionWorld, align 8
-  %arrayidx5.i53 = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 3, i32 0, i64 1
+  %arrayidx5.i53 = getelementptr inbounds i8, ptr %contactPoint, i64 36
   %64 = load float, ptr %arrayidx5.i53, align 4
   %mul8.i = fmul float %sub8.i44, %64
   %65 = tail call float @llvm.fmuladd.f32(float %63, float %sub.i41, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 3, i32 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %contactPoint, i64 40
   %66 = load float, ptr %arrayidx10.i, align 8
   %67 = tail call noundef float @llvm.fmuladd.f32(float %66, float %sub14.i47, float %65)
   %fneg = fneg float %67
-  %m_jacDiagABInv = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPoint, i64 0, i32 4
+  %m_jacDiagABInv = getelementptr inbounds i8, ptr %contactPoint, i64 48
   %68 = load float, ptr %m_jacDiagABInv, align 8
   %mul = fmul float %68, %fneg
   %conv = sitofp i32 %numWheelsOnGround to float
@@ -2177,19 +2160,19 @@ entry:
   %rel_pos2 = alloca %class.btVector3, align 8
   %sideImp = alloca %class.btVector3, align 8
   %ref.tmp239 = alloca %class.btVector3, align 8
-  %m_size.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i.i, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %for.end245, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_size.i.i79 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i79 = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_size.i.i79, align 4
   %cmp3.i = icmp slt i32 %1, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %if.end
-  %m_capacity.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %2, %0
   br i1 %cmp.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
@@ -2203,7 +2186,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %if.then4.i
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %wide.trip.count.i.i.i = zext nneg i32 %.pre.i to i64
   br label %for.body.i.i.i
 
@@ -2218,13 +2201,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %for.body.i.i.i, !llvm.loop !17
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i.i.i = icmp eq i8 %6, 0
@@ -2235,7 +2218,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %call.i.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %0, ptr %m_capacity.i.i.i, align 8
@@ -2243,13 +2226,13 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i, %if.end.i, %if.end
   store i32 %0, ptr %m_size.i.i79, align 4
-  %m_size.i.i80 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i.i80 = getelementptr inbounds i8, ptr %this, i64 44
   %7 = load i32, ptr %m_size.i.i80, align 4
   %cmp3.i83 = icmp slt i32 %7, %0
   br i1 %cmp3.i83, label %if.then4.i84, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit123
 
 if.then4.i84:                                     ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
-  %m_capacity.i.i.i85 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i85 = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i32, ptr %m_capacity.i.i.i85, align 8
   %cmp.i.i86 = icmp slt i32 %8, %0
   br i1 %cmp.i.i86, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i102, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit123
@@ -2263,7 +2246,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i102: ; preds = %if.then
   br i1 %cmp4.i.i.i104, label %for.body.lr.ph.i.i.i114, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i105
 
 for.body.lr.ph.i.i.i114:                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i102
-  %m_data.i.i.i115 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i115 = getelementptr inbounds i8, ptr %this, i64 56
   %wide.trip.count.i.i.i116 = zext nneg i32 %.pre.i101 to i64
   br label %for.body.i.i.i117
 
@@ -2278,13 +2261,13 @@ for.body.i.i.i117:                                ; preds = %for.body.i.i.i117, 
   br i1 %exitcond.not.i.i.i122, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i105, label %for.body.i.i.i117, !llvm.loop !17
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i105: ; preds = %for.body.i.i.i117, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i102
-  %m_data.i5.i.i106 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i5.i.i106 = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %m_data.i5.i.i106, align 8
   %tobool.not.i6.i.i107 = icmp eq ptr %10, null
   br i1 %tobool.not.i6.i.i107, label %if.end.i112, label %if.then.i7.i.i108
 
 if.then.i7.i.i108:                                ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i105
-  %m_ownsMemory.i.i.i109 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 64
   %11 = load i8, ptr %m_ownsMemory.i.i.i109, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i110 = icmp eq i8 %12, 0
@@ -2295,7 +2278,7 @@ if.then3.i.i.i111:                                ; preds = %if.then.i7.i.i108
   br label %if.end.i112
 
 if.end.i112:                                      ; preds = %if.then3.i.i.i111, %if.then.i7.i.i108, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i105
-  %m_ownsMemory.i.i113 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i113 = getelementptr inbounds i8, ptr %this, i64 64
   store i8 1, ptr %m_ownsMemory.i.i113, align 8
   store ptr %call.i.i.i.i100, ptr %m_data.i5.i.i106, align 8
   store i32 %0, ptr %m_capacity.i.i.i85, align 8
@@ -2303,13 +2286,13 @@ if.end.i112:                                      ; preds = %if.then3.i.i.i111, 
 
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit123: ; preds = %if.then4.i84, %if.end.i112, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
   store i32 %0, ptr %m_size.i.i80, align 4
-  %m_size.i.i124 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i124 = getelementptr inbounds i8, ptr %this, i64 76
   %13 = load i32, ptr %m_size.i.i124, align 4
   %cmp3.i127 = icmp slt i32 %13, %0
   br i1 %cmp3.i127, label %if.then4.i128, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
 
 if.then4.i128:                                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit123
-  %m_capacity.i.i.i129 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i129 = getelementptr inbounds i8, ptr %this, i64 80
   %14 = load i32, ptr %m_capacity.i.i.i129, align 8
   %cmp.i.i130 = icmp slt i32 %14, %0
   %conv.i.i.i.i142 = sext i32 %0 to i64
@@ -2323,7 +2306,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %if.then4.i128
   br i1 %cmp4.i.i.i147, label %for.body.lr.ph.i.i.i156, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
 
 for.body.lr.ph.i.i.i156:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i.i.i157 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i157 = getelementptr inbounds i8, ptr %this, i64 88
   %wide.trip.count.i.i.i158 = zext nneg i32 %.pre.i145 to i64
   br label %for.body.i.i.i159
 
@@ -2339,13 +2322,13 @@ for.body.i.i.i159:                                ; preds = %for.body.i.i.i159, 
   br i1 %exitcond.not.i.i.i164, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i, label %for.body.i.i.i159, !llvm.loop !18
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %for.body.i.i.i159, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i5.i.i148 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i5.i.i148 = getelementptr inbounds i8, ptr %this, i64 88
   %17 = load ptr, ptr %m_data.i5.i.i148, align 8
   %tobool.not.i6.i.i149 = icmp eq ptr %17, null
   br i1 %tobool.not.i6.i.i149, label %if.end.i154, label %if.then.i7.i.i150
 
 if.then.i7.i.i150:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i.i151 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i151 = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load i8, ptr %m_ownsMemory.i.i.i151, align 8
   %19 = and i8 %18, 1
   %tobool2.not.i.i.i152 = icmp eq i8 %19, 0
@@ -2356,14 +2339,14 @@ if.then3.i.i.i153:                                ; preds = %if.then.i7.i.i150
   br label %if.end.i154
 
 if.end.i154:                                      ; preds = %if.then3.i.i.i153, %if.then.i7.i.i150, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i155 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i155 = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %m_ownsMemory.i.i155, align 8
   store ptr %call.i.i.i.i144, ptr %m_data.i5.i.i148, align 8
   store i32 %0, ptr %m_capacity.i.i.i129, align 8
   br label %for.body8.lr.ph.i131
 
 for.body8.lr.ph.i131:                             ; preds = %if.then4.i128, %if.end.i154
-  %m_data9.i132 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data9.i132 = getelementptr inbounds i8, ptr %this, i64 88
   %20 = sext i32 %13 to i64
   br label %for.body8.i134
 
@@ -2378,13 +2361,13 @@ for.body8.i134:                                   ; preds = %for.body8.i134, %fo
 
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %for.body8.i134, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit123
   store i32 %0, ptr %m_size.i.i124, align 4
-  %m_size.i.i165 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 2
+  %m_size.i.i165 = getelementptr inbounds i8, ptr %this, i64 108
   %22 = load i32, ptr %m_size.i.i165, align 4
   %cmp3.i168 = icmp slt i32 %22, %0
   br i1 %cmp3.i168, label %if.then4.i169, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit209
 
 if.then4.i169:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
-  %m_capacity.i.i.i170 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i.i170 = getelementptr inbounds i8, ptr %this, i64 112
   %23 = load i32, ptr %m_capacity.i.i.i170, align 8
   %cmp.i.i171 = icmp slt i32 %23, %0
   %conv.i.i.i.i184 = sext i32 %0 to i64
@@ -2398,7 +2381,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i188: ; preds = %if.then4.i169
   br i1 %cmp4.i.i.i190, label %for.body.lr.ph.i.i.i200, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i191
 
 for.body.lr.ph.i.i.i200:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i188
-  %m_data.i.i.i201 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i.i201 = getelementptr inbounds i8, ptr %this, i64 120
   %wide.trip.count.i.i.i202 = zext nneg i32 %.pre.i187 to i64
   br label %for.body.i.i.i203
 
@@ -2414,13 +2397,13 @@ for.body.i.i.i203:                                ; preds = %for.body.i.i.i203, 
   br i1 %exitcond.not.i.i.i208, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i191, label %for.body.i.i.i203, !llvm.loop !18
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i191: ; preds = %for.body.i.i.i203, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i188
-  %m_data.i5.i.i192 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data.i5.i.i192 = getelementptr inbounds i8, ptr %this, i64 120
   %26 = load ptr, ptr %m_data.i5.i.i192, align 8
   %tobool.not.i6.i.i193 = icmp eq ptr %26, null
   br i1 %tobool.not.i6.i.i193, label %if.end.i198, label %if.then.i7.i.i194
 
 if.then.i7.i.i194:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i191
-  %m_ownsMemory.i.i.i195 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i.i195 = getelementptr inbounds i8, ptr %this, i64 128
   %27 = load i8, ptr %m_ownsMemory.i.i.i195, align 8
   %28 = and i8 %27, 1
   %tobool2.not.i.i.i196 = icmp eq i8 %28, 0
@@ -2431,14 +2414,14 @@ if.then3.i.i.i197:                                ; preds = %if.then.i7.i.i194
   br label %if.end.i198
 
 if.end.i198:                                      ; preds = %if.then3.i.i.i197, %if.then.i7.i.i194, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i191
-  %m_ownsMemory.i.i199 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i199 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_ownsMemory.i.i199, align 8
   store ptr %call.i.i.i.i186, ptr %m_data.i5.i.i192, align 8
   store i32 %0, ptr %m_capacity.i.i.i170, align 8
   br label %for.body8.lr.ph.i172
 
 for.body8.lr.ph.i172:                             ; preds = %if.then4.i169, %if.end.i198
-  %m_data9.i173 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data9.i173 = getelementptr inbounds i8, ptr %this, i64 120
   %29 = sext i32 %22 to i64
   br label %for.body8.i176
 
@@ -2458,9 +2441,9 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit209: ; preds = %for.body8.i176, %_Z
   br i1 %cmp467, label %for.body.lr.ph, label %for.end245
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit209
-  %m_data.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %m_data.i211 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
-  %m_data.i214 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 208
+  %m_data.i211 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_data.i214 = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.body
@@ -2469,14 +2452,14 @@ for.cond16.preheader:                             ; preds = %for.body
   br i1 %cmp18470, label %for.body19.lr.ph, label %for.end245
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %m_data.i218 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %arrayidx8.i = getelementptr inbounds [3 x %class.btVector3], ptr %wheelBasis0, i64 0, i64 1
-  %arrayidx12.i = getelementptr inbounds [3 x %class.btVector3], ptr %wheelBasis0, i64 0, i64 2
-  %m_indexRightAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 12
-  %m_data.i225 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 5
-  %m_data.i268 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
-  %m_chassisBody = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
-  %m_data.i285 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data.i218 = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx8.i = getelementptr inbounds i8, ptr %wheelBasis0, i64 16
+  %arrayidx12.i = getelementptr inbounds i8, ptr %wheelBasis0, i64 32
+  %m_indexRightAxis = getelementptr inbounds i8, ptr %this, i64 176
+  %m_data.i225 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_data.i268 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_chassisBody = getelementptr inbounds i8, ptr %this, i64 168
+  %m_data.i285 = getelementptr inbounds i8, ptr %this, i64 120
   br label %for.body19
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2505,20 +2488,20 @@ for.cond85.preheader:                             ; preds = %for.inc82
   br i1 %cmp87472, label %for.body88.lr.ph, label %for.end245
 
 for.body88.lr.ph:                                 ; preds = %for.cond85.preheader
-  %m_data.i292 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %m_chassisBody103 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
-  %m_data.i295 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
-  %m_frictionPositionWorld.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 2
-  %arrayidx5.i.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 2, i32 0, i64 1
-  %arrayidx11.i.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 2, i32 0, i64 2
-  %m_body1.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 1
-  %m_maxImpulse.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 5
-  %m_frictionDirectionWorld.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 3
-  %arrayidx5.i53.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 3, i32 0, i64 1
-  %arrayidx10.i.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 3, i32 0, i64 2
-  %m_jacDiagABInv.i = getelementptr inbounds %struct.btWheelContactPoint, ptr %contactPt, i64 0, i32 4
-  %m_data.i302458 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
-  %m_data.i317 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
+  %m_data.i292 = getelementptr inbounds i8, ptr %this, i64 208
+  %m_chassisBody103 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_data.i295 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_frictionPositionWorld.i = getelementptr inbounds i8, ptr %contactPt, i64 16
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %contactPt, i64 20
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %contactPt, i64 24
+  %m_body1.i = getelementptr inbounds i8, ptr %contactPt, i64 8
+  %m_maxImpulse.i = getelementptr inbounds i8, ptr %contactPt, i64 52
+  %m_frictionDirectionWorld.i = getelementptr inbounds i8, ptr %contactPt, i64 32
+  %arrayidx5.i53.i = getelementptr inbounds i8, ptr %contactPt, i64 36
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %contactPt, i64 40
+  %m_jacDiagABInv.i = getelementptr inbounds i8, ptr %contactPt, i64 48
+  %m_data.i302458 = getelementptr inbounds i8, ptr %this, i64 88
+  %m_data.i317 = getelementptr inbounds i8, ptr %this, i64 120
   br label %for.body88
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc82
@@ -2526,7 +2509,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   %indvars.iv481 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next482, %for.inc82 ]
   %40 = load ptr, ptr %m_data.i218, align 8
   %arrayidx.i220 = getelementptr inbounds %struct.btWheelInfo, ptr %40, i64 %indvars.iv481
-  %m_groundObject25 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i220, i64 0, i32 7
+  %m_groundObject25 = getelementptr inbounds i8, ptr %arrayidx.i220, i64 88
   %41 = load ptr, ptr %m_groundObject25, align 8
   %tobool26.not = icmp eq ptr %41, null
   br i1 %tobool26.not, label %for.inc82, label %if.then27
@@ -2534,9 +2517,9 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 if.then27:                                        ; preds = %for.body19
   %m_worldTransform.i = getelementptr inbounds %struct.btWheelInfo, ptr %40, i64 %indvars.iv481, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %wheelBasis0, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
-  %arrayidx6.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform.i, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %m_worldTransform.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i, i64 16, i1 false)
-  %arrayidx10.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform.i, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %m_worldTransform.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i, i64 16, i1 false)
   %42 = load i32, ptr %m_indexRightAxis, align 8
   %idxprom = sext i32 %42 to i64
@@ -2558,10 +2541,10 @@ if.then27:                                        ; preds = %for.body19
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp30.sroa.2.0.call46.sroa_idx, align 4
   %50 = load ptr, ptr %m_data.i225, align 8
   %arrayidx.i230 = getelementptr inbounds %class.btVector3, ptr %50, i64 %indvars.iv481
-  %arrayidx7.i232 = getelementptr inbounds [4 x float], ptr %arrayidx.i220, i64 0, i64 1
-  %arrayidx10.i233 = getelementptr inbounds [4 x float], ptr %arrayidx.i230, i64 0, i64 2
+  %arrayidx7.i232 = getelementptr inbounds i8, ptr %arrayidx.i220, i64 4
+  %arrayidx10.i233 = getelementptr inbounds i8, ptr %arrayidx.i230, i64 8
   %51 = load float, ptr %arrayidx10.i233, align 4
-  %arrayidx12.i234 = getelementptr inbounds [4 x float], ptr %arrayidx.i220, i64 0, i64 2
+  %arrayidx12.i234 = getelementptr inbounds i8, ptr %arrayidx.i220, i64 8
   %52 = load float, ptr %arrayidx12.i234, align 4
   %53 = load <2 x float>, ptr %arrayidx.i230, align 4
   %54 = load <2 x float>, ptr %arrayidx.i220, align 4
@@ -2581,7 +2564,7 @@ if.then27:                                        ; preds = %for.body19
   store float %sub13.i, ptr %arrayidx10.i233, align 4
   %64 = load ptr, ptr %m_data.i225, align 8
   %arrayidx.i252 = getelementptr inbounds %class.btVector3, ptr %64, i64 %indvars.iv481
-  %arrayidx10.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i252, i64 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i252, i64 8
   %65 = load float, ptr %arrayidx10.i.i.i.i, align 4
   %66 = load <2 x float>, ptr %arrayidx.i252, align 4
   %67 = fmul <2 x float> %66, %66
@@ -2602,7 +2585,7 @@ if.then27:                                        ; preds = %for.body19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i255, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i252, i64 16, i1 false)
   %75 = load ptr, ptr %m_data.i225, align 8
   %arrayidx.i258 = getelementptr inbounds %class.btVector3, ptr %75, i64 %indvars.iv481
-  %arrayidx7.i262 = getelementptr inbounds [4 x float], ptr %arrayidx.i258, i64 0, i64 1
+  %arrayidx7.i262 = getelementptr inbounds i8, ptr %arrayidx.i258, i64 4
   %76 = load float, ptr %arrayidx.i258, align 4
   %77 = load float, ptr %arrayidx.i220, align 4
   %78 = load <2 x float>, ptr %arrayidx7.i232, align 4
@@ -2627,7 +2610,7 @@ if.then27:                                        ; preds = %for.body19
   store <2 x float> %retval.sroa.3.12.vec.insert.i265, ptr %ref.tmp62.sroa.2.0.call68.sroa_idx, align 4
   %92 = load ptr, ptr %m_data.i268, align 8
   %arrayidx.i273 = getelementptr inbounds %class.btVector3, ptr %92, i64 %indvars.iv481
-  %arrayidx10.i.i.i.i276 = getelementptr inbounds [4 x float], ptr %arrayidx.i273, i64 0, i64 2
+  %arrayidx10.i.i.i.i276 = getelementptr inbounds i8, ptr %arrayidx.i273, i64 8
   %93 = load float, ptr %arrayidx10.i.i.i.i276, align 4
   %94 = load <2 x float>, ptr %arrayidx.i273, align 4
   %95 = fmul <2 x float> %94, %94
@@ -2644,7 +2627,7 @@ if.then27:                                        ; preds = %for.body19
   %mul7.i.i.i281 = fmul float %93, %div.i.i278
   store float %mul7.i.i.i281, ptr %arrayidx10.i.i.i.i276, align 4
   %102 = load ptr, ptr %m_chassisBody, align 8
-  %m_contactPointWS = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i220, i64 0, i32 1
+  %m_contactPointWS = getelementptr inbounds i8, ptr %arrayidx.i220, i64 16
   %103 = load ptr, ptr %m_data.i225, align 8
   %arrayidx.i284 = getelementptr inbounds %class.btVector3, ptr %103, i64 %indvars.iv481
   %104 = load ptr, ptr %m_data.i285, align 8
@@ -2671,13 +2654,13 @@ for.body88:                                       ; preds = %for.body88.lr.ph, %
   %sliding.0474 = phi i8 [ 0, %for.body88.lr.ph ], [ %sliding.1, %for.inc142 ]
   %110 = load ptr, ptr %m_data.i292, align 8
   %arrayidx.i294 = getelementptr inbounds %struct.btWheelInfo, ptr %110, i64 %indvars.iv484
-  %m_groundObject94 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i294, i64 0, i32 7
+  %m_groundObject94 = getelementptr inbounds i8, ptr %arrayidx.i294, i64 88
   %111 = load ptr, ptr %m_groundObject94, align 8
   %tobool95.not = icmp eq ptr %111, null
   br i1 %tobool95.not, label %if.end110, label %if.then96
 
 if.then96:                                        ; preds = %for.body88
-  %m_engineForce = getelementptr inbounds %struct.btWheelInfo, ptr %110, i64 %indvars.iv484, i32 17
+  %m_engineForce = getelementptr inbounds i8, ptr %arrayidx.i294, i64 256
   %112 = load float, ptr %m_engineForce, align 8
   %cmp97 = fcmp une float %112, 0.000000e+00
   br i1 %cmp97, label %if.then98, label %if.else
@@ -2687,56 +2670,56 @@ if.then98:                                        ; preds = %if.then96
   br label %if.then116
 
 if.else:                                          ; preds = %if.then96
-  %m_brake = getelementptr inbounds %struct.btWheelInfo, ptr %110, i64 %indvars.iv484, i32 18
+  %m_brake = getelementptr inbounds i8, ptr %arrayidx.i294, i64 260
   %113 = load float, ptr %m_brake, align 4
   %tobool101.inv = fcmp oeq float %113, 0.000000e+00
   %. = select i1 %tobool101.inv, float 0.000000e+00, float %113
   %114 = load ptr, ptr %m_chassisBody103, align 8
-  %m_contactPointWS105 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i294, i64 0, i32 1
+  %m_contactPointWS105 = getelementptr inbounds i8, ptr %arrayidx.i294, i64 16
   %115 = load ptr, ptr %m_data.i295, align 8
   %arrayidx.i297 = getelementptr inbounds %class.btVector3, ptr %115, i64 %indvars.iv484
   call void @_ZN19btWheelContactPointC2EP11btRigidBodyS1_RK9btVector3S4_f(ptr noundef nonnull align 8 dereferenceable(56) %contactPt, ptr noundef %114, ptr noundef nonnull %111, ptr noundef nonnull align 4 dereferenceable(16) %m_contactPointWS105, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i297, float noundef %.)
   %116 = load ptr, ptr %contactPt, align 8
-  %m_origin.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %116, i64 0, i32 1, i32 1
+  %m_origin.i.i.i = getelementptr inbounds i8, ptr %116, i64 56
   %117 = load <4 x float>, ptr %m_frictionPositionWorld.i, align 8
   %118 = load float, ptr %m_origin.i.i.i, align 4
   %119 = load <4 x float>, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds %class.btCollisionObject, ptr %116, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %116, i64 60
   %120 = load float, ptr %arrayidx7.i.i, align 4
   %121 = load <4 x float>, ptr %arrayidx11.i.i, align 8
-  %arrayidx13.i.i = getelementptr inbounds %class.btCollisionObject, ptr %116, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %116, i64 64
   %122 = load float, ptr %arrayidx13.i.i, align 4
   %123 = load ptr, ptr %m_body1.i, align 8
-  %m_origin.i.i9.i = getelementptr inbounds %class.btCollisionObject, ptr %123, i64 0, i32 1, i32 1
+  %m_origin.i.i9.i = getelementptr inbounds i8, ptr %123, i64 56
   %124 = load float, ptr %m_origin.i.i9.i, align 4
-  %arrayidx7.i12.i = getelementptr inbounds %class.btCollisionObject, ptr %123, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i12.i = getelementptr inbounds i8, ptr %123, i64 60
   %125 = load float, ptr %arrayidx7.i12.i, align 4
-  %arrayidx13.i15.i = getelementptr inbounds %class.btCollisionObject, ptr %123, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i15.i = getelementptr inbounds i8, ptr %123, i64 64
   %126 = load float, ptr %arrayidx13.i15.i, align 4
   %127 = load float, ptr %m_maxImpulse.i, align 4
-  %m_linearVelocity.i.i = getelementptr inbounds %class.btRigidBody, ptr %116, i64 0, i32 2
-  %m_angularVelocity.i.i = getelementptr inbounds %class.btRigidBody, ptr %116, i64 0, i32 3
-  %arrayidx.i.i.i298 = getelementptr inbounds %class.btRigidBody, ptr %116, i64 0, i32 3, i32 0, i64 1
+  %m_linearVelocity.i.i = getelementptr inbounds i8, ptr %116, i64 420
+  %m_angularVelocity.i.i = getelementptr inbounds i8, ptr %116, i64 436
+  %arrayidx.i.i.i298 = getelementptr inbounds i8, ptr %116, i64 440
   %128 = load float, ptr %arrayidx.i.i.i298, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %116, i64 0, i32 3, i32 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %116, i64 444
   %129 = load float, ptr %arrayidx5.i.i.i, align 4
   %130 = load float, ptr %m_angularVelocity.i.i, align 4
   %131 = load float, ptr %m_linearVelocity.i.i, align 4
-  %arrayidx5.i1.i.i = getelementptr inbounds %class.btRigidBody, ptr %116, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i1.i.i = getelementptr inbounds i8, ptr %116, i64 424
   %132 = load float, ptr %arrayidx5.i1.i.i, align 4
-  %arrayidx11.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %116, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %116, i64 428
   %133 = load float, ptr %arrayidx11.i.i.i, align 4
-  %m_linearVelocity.i22.i = getelementptr inbounds %class.btRigidBody, ptr %123, i64 0, i32 2
-  %m_angularVelocity.i23.i = getelementptr inbounds %class.btRigidBody, ptr %123, i64 0, i32 3
-  %arrayidx.i.i24.i = getelementptr inbounds %class.btRigidBody, ptr %123, i64 0, i32 3, i32 0, i64 1
+  %m_linearVelocity.i22.i = getelementptr inbounds i8, ptr %123, i64 420
+  %m_angularVelocity.i23.i = getelementptr inbounds i8, ptr %123, i64 436
+  %arrayidx.i.i24.i = getelementptr inbounds i8, ptr %123, i64 440
   %134 = load float, ptr %arrayidx.i.i24.i, align 4
-  %arrayidx5.i.i26.i = getelementptr inbounds %class.btRigidBody, ptr %123, i64 0, i32 3, i32 0, i64 2
+  %arrayidx5.i.i26.i = getelementptr inbounds i8, ptr %123, i64 444
   %135 = load float, ptr %arrayidx5.i.i26.i, align 4
   %136 = load float, ptr %m_angularVelocity.i23.i, align 4
   %137 = load float, ptr %m_linearVelocity.i22.i, align 4
-  %arrayidx5.i1.i32.i = getelementptr inbounds %class.btRigidBody, ptr %123, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i1.i32.i = getelementptr inbounds i8, ptr %123, i64 424
   %138 = load float, ptr %arrayidx5.i1.i32.i, align 4
-  %arrayidx11.i.i34.i = getelementptr inbounds %class.btRigidBody, ptr %123, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i34.i = getelementptr inbounds i8, ptr %123, i64 428
   %139 = load float, ptr %arrayidx11.i.i34.i, align 4
   %140 = shufflevector <4 x float> %117, <4 x float> poison, <2 x i32> zeroinitializer
   %141 = insertelement <2 x float> poison, float %118, i64 0
@@ -2820,10 +2803,10 @@ if.then116:                                       ; preds = %if.then98, %if.else
   %189 = load ptr, ptr %m_data.i292, align 8
   %m_skidInfo119 = getelementptr inbounds %struct.btWheelInfo, ptr %189, i64 %indvars.iv484, i32 24
   store float 1.000000e+00, ptr %m_skidInfo119, align 4
-  %m_wheelsSuspensionForce = getelementptr inbounds %struct.btWheelInfo, ptr %110, i64 %indvars.iv484, i32 23
+  %m_wheelsSuspensionForce = getelementptr inbounds i8, ptr %arrayidx.i294, i64 288
   %190 = load float, ptr %m_wheelsSuspensionForce, align 8
   %mul120 = fmul float %190, %timeStep
-  %m_frictionSlip = getelementptr inbounds %struct.btWheelInfo, ptr %110, i64 %indvars.iv484, i32 11
+  %m_frictionSlip = getelementptr inbounds i8, ptr %arrayidx.i294, i64 232
   %191 = load float, ptr %m_frictionSlip, align 8
   %mul121 = fmul float %mul120, %191
   %mul122 = fmul float %mul121, %mul121
@@ -2868,9 +2851,9 @@ for.end144:                                       ; preds = %for.inc142
   br i1 %or.cond, label %for.body151.lr.ph, label %if.end178
 
 for.body151.lr.ph:                                ; preds = %for.end144
-  %m_data.i324 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
-  %m_data.i327 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %m_data.i333 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i324 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_data.i327 = getelementptr inbounds i8, ptr %this, i64 208
+  %m_data.i333 = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body151
 
 for.body151:                                      ; preds = %for.body151.lr.ph, %for.inc175
@@ -2919,33 +2902,33 @@ if.end178:                                        ; preds = %for.inc175, %for.en
   br i1 %cmp182478, label %for.body183.lr.ph, label %for.end245
 
 for.body183.lr.ph:                                ; preds = %if.end178
-  %m_data.i343 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %m_chassisBody189 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 11
-  %218 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %rel_pos, i64 0, i32 1
-  %m_data.i356 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 3, i32 5
-  %m_data.i359 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 1, i32 5
-  %219 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp198, i64 0, i32 1
-  %m_data.i375 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 4, i32 5
-  %220 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %rel_pos2, i64 0, i32 1
-  %m_data.i394 = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 2, i32 5
-  %221 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %sideImp, i64 0, i32 1
-  %m_indexUpAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 13
-  %222 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp239, i64 0, i32 1
+  %m_data.i343 = getelementptr inbounds i8, ptr %this, i64 208
+  %m_chassisBody189 = getelementptr inbounds i8, ptr %this, i64 168
+  %218 = getelementptr inbounds i8, ptr %rel_pos, i64 8
+  %m_data.i356 = getelementptr inbounds i8, ptr %this, i64 88
+  %m_data.i359 = getelementptr inbounds i8, ptr %this, i64 24
+  %219 = getelementptr inbounds i8, ptr %ref.tmp198, i64 8
+  %m_data.i375 = getelementptr inbounds i8, ptr %this, i64 120
+  %220 = getelementptr inbounds i8, ptr %rel_pos2, i64 8
+  %m_data.i394 = getelementptr inbounds i8, ptr %this, i64 56
+  %221 = getelementptr inbounds i8, ptr %sideImp, i64 8
+  %m_indexUpAxis = getelementptr inbounds i8, ptr %this, i64 180
+  %222 = getelementptr inbounds i8, ptr %ref.tmp239, i64 8
   br label %for.body183
 
 for.body183:                                      ; preds = %for.body183.lr.ph, %for.inc243
   %indvars.iv489 = phi i64 [ 0, %for.body183.lr.ph ], [ %indvars.iv.next490, %for.inc243 ]
   %223 = load ptr, ptr %m_data.i343, align 8
   %arrayidx.i345 = getelementptr inbounds %struct.btWheelInfo, ptr %223, i64 %indvars.iv489
-  %m_contactPointWS188 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i345, i64 0, i32 1
+  %m_contactPointWS188 = getelementptr inbounds i8, ptr %arrayidx.i345, i64 16
   %224 = load ptr, ptr %m_chassisBody189, align 8
-  %m_origin.i.i = getelementptr inbounds %class.btCollisionObject, ptr %224, i64 0, i32 1, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %224, i64 56
   %225 = load <2 x float>, ptr %m_contactPointWS188, align 4
   %226 = load <2 x float>, ptr %m_origin.i.i, align 4
   %227 = fsub <2 x float> %225, %226
-  %arrayidx11.i350 = getelementptr inbounds %"struct.btWheelInfo::RaycastInfo", ptr %arrayidx.i345, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i350 = getelementptr inbounds i8, ptr %arrayidx.i345, i64 24
   %228 = load float, ptr %arrayidx11.i350, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btCollisionObject, ptr %224, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %224, i64 64
   %229 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %228, %229
   %retval.sroa.3.12.vec.insert.i353 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -2964,7 +2947,7 @@ if.then196:                                       ; preds = %for.body183
   %234 = insertelement <2 x float> poison, float %231, i64 0
   %235 = shufflevector <2 x float> %234, <2 x float> poison, <2 x i32> zeroinitializer
   %236 = fmul <2 x float> %235, %233
-  %arrayidx7.i368 = getelementptr inbounds [4 x float], ptr %arrayidx.i361, i64 0, i64 2
+  %arrayidx7.i368 = getelementptr inbounds i8, ptr %arrayidx.i361, i64 8
   %237 = load float, ptr %arrayidx7.i368, align 4
   %mul8.i369 = fmul float %231, %237
   %retval.sroa.3.12.vec.insert.i372 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i369, i64 0
@@ -2984,12 +2967,12 @@ if.then209:                                       ; preds = %if.end205
   %240 = load ptr, ptr %m_data.i343, align 8
   %m_groundObject214 = getelementptr inbounds %struct.btWheelInfo, ptr %240, i64 %indvars.iv489, i32 0, i32 7
   %241 = load ptr, ptr %m_groundObject214, align 8
-  %m_origin.i.i381 = getelementptr inbounds %class.btCollisionObject, ptr %241, i64 0, i32 1, i32 1
+  %m_origin.i.i381 = getelementptr inbounds i8, ptr %241, i64 56
   %242 = load <2 x float>, ptr %m_contactPointWS188, align 4
   %243 = load <2 x float>, ptr %m_origin.i.i381, align 4
   %244 = fsub <2 x float> %242, %243
   %245 = load float, ptr %arrayidx11.i350, align 4
-  %arrayidx13.i387 = getelementptr inbounds %class.btCollisionObject, ptr %241, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i387 = getelementptr inbounds i8, ptr %241, i64 64
   %246 = load float, ptr %arrayidx13.i387, align 4
   %sub14.i388 = fsub float %245, %246
   %retval.sroa.3.12.vec.insert.i391 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i388, i64 0
@@ -3002,26 +2985,26 @@ if.then209:                                       ; preds = %if.end205
   %250 = insertelement <2 x float> poison, float %248, i64 0
   %251 = shufflevector <2 x float> %250, <2 x float> poison, <2 x i32> zeroinitializer
   %252 = fmul <2 x float> %251, %249
-  %arrayidx7.i403 = getelementptr inbounds [4 x float], ptr %arrayidx.i396, i64 0, i64 2
+  %arrayidx7.i403 = getelementptr inbounds i8, ptr %arrayidx.i396, i64 8
   %253 = load float, ptr %arrayidx7.i403, align 4
   %mul8.i404 = fmul float %248, %253
   %retval.sroa.3.12.vec.insert.i407 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i404, i64 0
   store <2 x float> %252, ptr %sideImp, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i407, ptr %221, align 8
   %254 = load ptr, ptr %m_chassisBody189, align 8
-  %m_worldTransform.i410 = getelementptr inbounds %class.btCollisionObject, ptr %254, i64 0, i32 1
+  %m_worldTransform.i410 = getelementptr inbounds i8, ptr %254, i64 8
   %255 = load i32, ptr %m_indexUpAxis, align 4
   %idxprom.i411 = sext i32 %255 to i64
   %arrayidx2.i = getelementptr inbounds float, ptr %m_worldTransform.i410, i64 %idxprom.i411
-  %arrayidx4.i = getelementptr inbounds %class.btCollisionObject, ptr %254, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %254, i64 24
   %arrayidx7.i412 = getelementptr inbounds float, ptr %arrayidx4.i, i64 %idxprom.i411
-  %arrayidx9.i = getelementptr inbounds %class.btCollisionObject, ptr %254, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %254, i64 40
   %arrayidx12.i413 = getelementptr inbounds float, ptr %arrayidx9.i, i64 %idxprom.i411
   %256 = load float, ptr %arrayidx2.i, align 4
   %257 = load float, ptr %arrayidx7.i412, align 4
   %258 = load float, ptr %arrayidx12.i413, align 4
   %259 = load float, ptr %218, align 8
-  %m_rollInfluence = getelementptr inbounds %struct.btWheelInfo, ptr %223, i64 %indvars.iv489, i32 15
+  %m_rollInfluence = getelementptr inbounds i8, ptr %arrayidx.i345, i64 248
   %260 = load float, ptr %m_rollInfluence, align 8
   %sub = fsub float 1.000000e+00, %260
   %261 = load <2 x float>, ptr %rel_pos, align 8
@@ -3069,31 +3052,31 @@ declare void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff(
 define linkonce_odr dso_local void @_ZN19btWheelContactPointC2EP11btRigidBodyS1_RK9btVector3S4_f(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %body0, ptr noundef %body1, ptr noundef nonnull align 4 dereferenceable(16) %frictionPosWorld, ptr noundef nonnull align 4 dereferenceable(16) %frictionDirectionWorld, float noundef %maxImpulse) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr %body0, ptr %this, align 8
-  %m_body1 = getelementptr inbounds %struct.btWheelContactPoint, ptr %this, i64 0, i32 1
+  %m_body1 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %body1, ptr %m_body1, align 8
-  %m_frictionPositionWorld = getelementptr inbounds %struct.btWheelContactPoint, ptr %this, i64 0, i32 2
+  %m_frictionPositionWorld = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frictionPositionWorld, ptr noundef nonnull align 4 dereferenceable(16) %frictionPosWorld, i64 16, i1 false)
-  %m_frictionDirectionWorld = getelementptr inbounds %struct.btWheelContactPoint, ptr %this, i64 0, i32 3
+  %m_frictionDirectionWorld = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frictionDirectionWorld, ptr noundef nonnull align 4 dereferenceable(16) %frictionDirectionWorld, i64 16, i1 false)
-  %m_maxImpulse = getelementptr inbounds %struct.btWheelContactPoint, ptr %this, i64 0, i32 5
+  %m_maxImpulse = getelementptr inbounds i8, ptr %this, i64 52
   store float %maxImpulse, ptr %m_maxImpulse, align 4
-  %m_origin.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %body0, i64 0, i32 1, i32 1
+  %m_origin.i.i.i = getelementptr inbounds i8, ptr %body0, i64 56
   %0 = load float, ptr %frictionPosWorld, align 4
   %1 = load float, ptr %m_origin.i.i.i, align 4
   %sub.i.i = fsub float %0, %1
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %frictionPosWorld, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %frictionPosWorld, i64 4
   %2 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds %class.btCollisionObject, ptr %body0, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %body0, i64 60
   %3 = load float, ptr %arrayidx7.i.i, align 4
   %sub8.i.i = fsub float %2, %3
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %frictionPosWorld, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %frictionPosWorld, i64 8
   %4 = load float, ptr %arrayidx11.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds %class.btCollisionObject, ptr %body0, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %body0, i64 64
   %5 = load float, ptr %arrayidx13.i.i, align 4
   %sub14.i.i = fsub float %4, %5
-  %arrayidx3.i.i = getelementptr inbounds [4 x float], ptr %frictionDirectionWorld, i64 0, i64 2
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %frictionDirectionWorld, i64 8
   %6 = load float, ptr %arrayidx3.i.i, align 4
-  %arrayidx7.i3.i = getelementptr inbounds [4 x float], ptr %frictionDirectionWorld, i64 0, i64 1
+  %arrayidx7.i3.i = getelementptr inbounds i8, ptr %frictionDirectionWorld, i64 4
   %7 = load float, ptr %arrayidx7.i3.i, align 4
   %8 = fneg float %sub14.i.i
   %neg.i.i = fmul float %7, %8
@@ -3105,31 +3088,31 @@ entry:
   %13 = fneg float %sub8.i.i
   %neg30.i.i = fmul float %10, %13
   %14 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %7, float %neg30.i.i)
-  %m_invInertiaTensorWorld.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1
+  %m_invInertiaTensorWorld.i.i = getelementptr inbounds i8, ptr %body0, i64 372
   %15 = load float, ptr %m_invInertiaTensorWorld.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %body0, i64 388
   %16 = load float, ptr %arrayidx4.i.i.i, align 4
   %mul7.i.i.i = fmul float %12, %16
   %17 = tail call float @llvm.fmuladd.f32(float %15, float %9, float %mul7.i.i.i)
-  %arrayidx9.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %body0, i64 404
   %18 = load float, ptr %arrayidx9.i.i.i, align 4
   %19 = tail call noundef float @llvm.fmuladd.f32(float %18, float %14, float %17)
-  %arrayidx.i.i5.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %body0, i64 376
   %20 = load float, ptr %arrayidx.i.i5.i.i, align 4
-  %arrayidx.i3.i6.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i6.i.i = getelementptr inbounds i8, ptr %body0, i64 392
   %21 = load float, ptr %arrayidx.i3.i6.i.i, align 4
   %mul7.i7.i.i = fmul float %12, %21
   %22 = tail call float @llvm.fmuladd.f32(float %20, float %9, float %mul7.i7.i.i)
-  %arrayidx.i5.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i.i = getelementptr inbounds i8, ptr %body0, i64 408
   %23 = load float, ptr %arrayidx.i5.i.i.i, align 4
   %24 = tail call noundef float @llvm.fmuladd.f32(float %23, float %14, float %22)
-  %arrayidx.i.i8.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i8.i.i = getelementptr inbounds i8, ptr %body0, i64 380
   %25 = load float, ptr %arrayidx.i.i8.i.i, align 4
-  %arrayidx.i3.i9.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i9.i.i = getelementptr inbounds i8, ptr %body0, i64 396
   %26 = load float, ptr %arrayidx.i3.i9.i.i, align 4
   %mul7.i11.i.i = fmul float %12, %26
   %27 = tail call float @llvm.fmuladd.f32(float %25, float %9, float %mul7.i11.i.i)
-  %arrayidx.i5.i12.i.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i12.i.i = getelementptr inbounds i8, ptr %body0, i64 412
   %28 = load float, ptr %arrayidx.i5.i12.i.i, align 4
   %29 = tail call noundef float @llvm.fmuladd.f32(float %28, float %14, float %27)
   %30 = fneg float %29
@@ -3141,19 +3124,19 @@ entry:
   %34 = fneg float %24
   %neg30.i20.i = fmul float %sub.i.i, %34
   %35 = tail call float @llvm.fmuladd.f32(float %19, float %sub8.i.i, float %neg30.i20.i)
-  %m_inverseMass.i = getelementptr inbounds %class.btRigidBody, ptr %body0, i64 0, i32 4
+  %m_inverseMass.i = getelementptr inbounds i8, ptr %body0, i64 452
   %36 = load float, ptr %m_inverseMass.i, align 4
   %mul8.i.i = fmul float %7, %33
   %37 = tail call float @llvm.fmuladd.f32(float %10, float %31, float %mul8.i.i)
   %38 = tail call noundef float @llvm.fmuladd.f32(float %6, float %35, float %37)
   %add.i = fadd float %36, %38
-  %m_origin.i.i.i7 = getelementptr inbounds %class.btCollisionObject, ptr %body1, i64 0, i32 1, i32 1
+  %m_origin.i.i.i7 = getelementptr inbounds i8, ptr %body1, i64 56
   %39 = load float, ptr %m_origin.i.i.i7, align 4
   %sub.i.i8 = fsub float %0, %39
-  %arrayidx7.i.i10 = getelementptr inbounds %class.btCollisionObject, ptr %body1, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i.i10 = getelementptr inbounds i8, ptr %body1, i64 60
   %40 = load float, ptr %arrayidx7.i.i10, align 4
   %sub8.i.i11 = fsub float %2, %40
-  %arrayidx13.i.i13 = getelementptr inbounds %class.btCollisionObject, ptr %body1, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i.i13 = getelementptr inbounds i8, ptr %body1, i64 64
   %41 = load float, ptr %arrayidx13.i.i13, align 4
   %sub14.i.i14 = fsub float %4, %41
   %42 = fneg float %sub14.i.i14
@@ -3165,31 +3148,31 @@ entry:
   %46 = fneg float %sub8.i.i11
   %neg30.i.i19 = fmul float %10, %46
   %47 = tail call float @llvm.fmuladd.f32(float %sub.i.i8, float %7, float %neg30.i.i19)
-  %m_invInertiaTensorWorld.i.i20 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1
+  %m_invInertiaTensorWorld.i.i20 = getelementptr inbounds i8, ptr %body1, i64 372
   %48 = load float, ptr %m_invInertiaTensorWorld.i.i20, align 4
-  %arrayidx4.i.i.i21 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 1
+  %arrayidx4.i.i.i21 = getelementptr inbounds i8, ptr %body1, i64 388
   %49 = load float, ptr %arrayidx4.i.i.i21, align 4
   %mul7.i.i.i22 = fmul float %45, %49
   %50 = tail call float @llvm.fmuladd.f32(float %48, float %43, float %mul7.i.i.i22)
-  %arrayidx9.i.i.i23 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 2
+  %arrayidx9.i.i.i23 = getelementptr inbounds i8, ptr %body1, i64 404
   %51 = load float, ptr %arrayidx9.i.i.i23, align 4
   %52 = tail call noundef float @llvm.fmuladd.f32(float %51, float %47, float %50)
-  %arrayidx.i.i5.i.i24 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i5.i.i24 = getelementptr inbounds i8, ptr %body1, i64 376
   %53 = load float, ptr %arrayidx.i.i5.i.i24, align 4
-  %arrayidx.i3.i6.i.i25 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i6.i.i25 = getelementptr inbounds i8, ptr %body1, i64 392
   %54 = load float, ptr %arrayidx.i3.i6.i.i25, align 4
   %mul7.i7.i.i26 = fmul float %45, %54
   %55 = tail call float @llvm.fmuladd.f32(float %53, float %43, float %mul7.i7.i.i26)
-  %arrayidx.i5.i.i.i27 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i.i27 = getelementptr inbounds i8, ptr %body1, i64 408
   %56 = load float, ptr %arrayidx.i5.i.i.i27, align 4
   %57 = tail call noundef float @llvm.fmuladd.f32(float %56, float %47, float %55)
-  %arrayidx.i.i8.i.i28 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i8.i.i28 = getelementptr inbounds i8, ptr %body1, i64 380
   %58 = load float, ptr %arrayidx.i.i8.i.i28, align 4
-  %arrayidx.i3.i9.i.i29 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i9.i.i29 = getelementptr inbounds i8, ptr %body1, i64 396
   %59 = load float, ptr %arrayidx.i3.i9.i.i29, align 4
   %mul7.i11.i.i30 = fmul float %45, %59
   %60 = tail call float @llvm.fmuladd.f32(float %58, float %43, float %mul7.i11.i.i30)
-  %arrayidx.i5.i12.i.i31 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i12.i.i31 = getelementptr inbounds i8, ptr %body1, i64 412
   %61 = load float, ptr %arrayidx.i5.i12.i.i31, align 4
   %62 = tail call noundef float @llvm.fmuladd.f32(float %61, float %47, float %60)
   %63 = fneg float %62
@@ -3201,7 +3184,7 @@ entry:
   %67 = fneg float %57
   %neg30.i20.i34 = fmul float %sub.i.i8, %67
   %68 = tail call float @llvm.fmuladd.f32(float %52, float %sub8.i.i11, float %neg30.i20.i34)
-  %m_inverseMass.i35 = getelementptr inbounds %class.btRigidBody, ptr %body1, i64 0, i32 4
+  %m_inverseMass.i35 = getelementptr inbounds i8, ptr %body1, i64 452
   %69 = load float, ptr %m_inverseMass.i35, align 4
   %mul8.i.i36 = fmul float %7, %66
   %70 = tail call float @llvm.fmuladd.f32(float %10, float %64, float %mul8.i.i36)
@@ -3209,7 +3192,7 @@ entry:
   %add.i37 = fadd float %69, %71
   %add = fadd float %add.i, %add.i37
   %div = fdiv float 1.000000e+00, %add
-  %m_jacDiagABInv = getelementptr inbounds %struct.btWheelContactPoint, ptr %this, i64 0, i32 4
+  %m_jacDiagABInv = getelementptr inbounds i8, ptr %this, i64 48
   store float %div, ptr %m_jacDiagABInv, align 8
   ret void
 }
@@ -3220,25 +3203,26 @@ entry:
   %wheelColor = alloca %class.btVector3, align 16
   %wheelPosWS = alloca %class.btVector3, align 8
   %ref.tmp35 = alloca %class.btVector3, align 8
-  %m_size.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp38 = icmp sgt i32 %0, 0
   br i1 %cmp38, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %wheelColor, i64 0, i64 1
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %wheelColor, i64 0, i64 3
-  %m_data.i.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 16, i32 5
-  %m_indexRightAxis.i = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 12
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %wheelPosWS, i64 0, i64 2
-  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp35, i64 0, i32 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %wheelColor, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %wheelColor, i64 12
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %m_indexRightAxis.i = getelementptr inbounds i8, ptr %this, i64 176
+  %arrayidx11.i = getelementptr inbounds i8, ptr %wheelPosWS, i64 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %wheelColor, align 16
   %2 = load ptr, ptr %m_data.i.i, align 8
-  %m_isInContact = getelementptr inbounds %struct.btWheelInfo, ptr %2, i64 %indvars.iv, i32 0, i32 6
+  %arrayidx.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %2, i64 %indvars.iv
+  %m_isInContact = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 84
   %3 = load i8, ptr %m_isInContact, align 4
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -3246,15 +3230,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store float %., ptr %wheelColor, align 16
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %arrayidx3.i, align 4
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
-  %m_worldTransform = getelementptr inbounds %struct.btWheelInfo, ptr %2, i64 %indvars.iv, i32 1
-  %m_origin.i = getelementptr inbounds %struct.btWheelInfo, ptr %2, i64 %indvars.iv, i32 1, i32 1
+  %m_worldTransform = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 96
+  %m_origin.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wheelPosWS, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %5 = load i32, ptr %m_indexRightAxis.i, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds float, ptr %m_worldTransform, i64 %idxprom
-  %arrayidx.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 112
   %arrayidx26 = getelementptr inbounds float, ptr %arrayidx.i, i64 %idxprom
-  %arrayidx.i28 = getelementptr inbounds [3 x %class.btVector3], ptr %m_worldTransform, i64 0, i64 2
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
   %arrayidx34 = getelementptr inbounds float, ptr %arrayidx.i28, i64 %idxprom
   %6 = load float, ptr %arrayidx, align 4
   %7 = load float, ptr %arrayidx26, align 4
@@ -3269,13 +3253,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store <2 x float> %12, ptr %ref.tmp35, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %1, align 8
   %vtable = load ptr, ptr %debugDrawer, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %14 = load ptr, ptr %vfn, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %debugDrawer, ptr noundef nonnull align 4 dereferenceable(16) %wheelPosWS, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(16) %wheelColor)
   %15 = load ptr, ptr %m_data.i.i, align 8
   %m_contactPointWS = getelementptr inbounds %struct.btWheelInfo, ptr %15, i64 %indvars.iv, i32 0, i32 1
   %vtable39 = load ptr, ptr %debugDrawer, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 4
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 32
   %16 = load ptr, ptr %vfn40, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %debugDrawer, ptr noundef nonnull align 4 dereferenceable(16) %wheelPosWS, ptr noundef nonnull align 4 dereferenceable(16) %m_contactPointWS, ptr noundef nonnull align 4 dereferenceable(16) %wheelColor)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3292,25 +3276,25 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local noundef ptr @_ZN25btDefaultVehicleRaycaster7castRayERK9btVector3S2_RN18btVehicleRaycaster24btVehicleRaycasterResultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %from, ptr noundef nonnull align 4 dereferenceable(16) %to, ptr nocapture noundef nonnull align 4 dereferenceable(36) %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rayCallback = alloca %"struct.btCollisionWorld::ClosestRayResultCallback", align 8
-  %m_closestHitFraction.i.i = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %rayCallback, i64 0, i32 1
+  %m_closestHitFraction.i.i = getelementptr inbounds i8, ptr %rayCallback, i64 8
   store float 1.000000e+00, ptr %m_closestHitFraction.i.i, align 8
-  %m_collisionObject.i.i = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %rayCallback, i64 0, i32 3
+  %m_collisionObject.i.i = getelementptr inbounds i8, ptr %rayCallback, i64 16
   store ptr null, ptr %m_collisionObject.i.i, align 8
-  %m_collisionFilterGroup.i.i = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %rayCallback, i64 0, i32 4
+  %m_collisionFilterGroup.i.i = getelementptr inbounds i8, ptr %rayCallback, i64 24
   store i32 1, ptr %m_collisionFilterGroup.i.i, align 8
-  %m_collisionFilterMask.i.i = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %rayCallback, i64 0, i32 5
+  %m_collisionFilterMask.i.i = getelementptr inbounds i8, ptr %rayCallback, i64 28
   store i32 -1, ptr %m_collisionFilterMask.i.i, align 4
-  %m_flags.i.i = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %rayCallback, i64 0, i32 6
+  %m_flags.i.i = getelementptr inbounds i8, ptr %rayCallback, i64 32
   store i32 0, ptr %m_flags.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld24ClosestRayResultCallbackE, i64 0, inrange i32 0, i64 2), ptr %rayCallback, align 8
-  %m_rayFromWorld.i = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %rayCallback, i64 0, i32 1
+  %m_rayFromWorld.i = getelementptr inbounds i8, ptr %rayCallback, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_rayFromWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %from, i64 16, i1 false)
-  %m_rayToWorld.i = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %rayCallback, i64 0, i32 2
+  %m_rayToWorld.i = getelementptr inbounds i8, ptr %rayCallback, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_rayToWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %to, i64 16, i1 false)
-  %m_dynamicsWorld = getelementptr inbounds %class.btDefaultVehicleRaycaster, ptr %this, i64 0, i32 1
+  %m_dynamicsWorld = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_dynamicsWorld, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 4 dereferenceable(16) %from, ptr noundef nonnull align 4 dereferenceable(16) %to, ptr noundef nonnull align 8 dereferenceable(36) %rayCallback)
   %2 = load ptr, ptr %m_collisionObject.i.i, align 8
@@ -3318,26 +3302,26 @@ entry:
   br i1 %cmp.i.not, label %cleanup, label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %entry
-  %m_internalType.i.i = getelementptr inbounds %class.btCollisionObject, ptr %2, i64 0, i32 24
+  %m_internalType.i.i = getelementptr inbounds i8, ptr %2, i64 272
   %3 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %3, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %cleanup, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont3
-  %m_collisionFlags.i = getelementptr inbounds %class.btCollisionObject, ptr %2, i64 0, i32 12
+  %m_collisionFlags.i = getelementptr inbounds i8, ptr %2, i64 224
   %4 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i8 = and i32 %4, 4
   %cmp.i9 = icmp eq i32 %and.i8, 0
   br i1 %cmp.i9, label %invoke.cont9, label %cleanup
 
 invoke.cont9:                                     ; preds = %land.lhs.true
-  %m_hitPointWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %rayCallback, i64 0, i32 4
+  %m_hitPointWorld = getelementptr inbounds i8, ptr %rayCallback, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %result, ptr noundef nonnull align 4 dereferenceable(16) %m_hitPointWorld, i64 16, i1 false)
-  %m_hitNormalWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %rayCallback, i64 0, i32 3
-  %m_hitNormalInWorld = getelementptr inbounds %"struct.btVehicleRaycaster::btVehicleRaycasterResult", ptr %result, i64 0, i32 1
+  %m_hitNormalWorld = getelementptr inbounds i8, ptr %rayCallback, i64 68
+  %m_hitNormalInWorld = getelementptr inbounds i8, ptr %result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_hitNormalInWorld, ptr noundef nonnull align 4 dereferenceable(16) %m_hitNormalWorld, i64 16, i1 false)
-  %arrayidx10.i.i.i.i = getelementptr inbounds %"struct.btVehicleRaycaster::btVehicleRaycasterResult", ptr %result, i64 0, i32 1, i32 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %5 = load float, ptr %arrayidx10.i.i.i.i, align 4
   %6 = load <2 x float>, ptr %m_hitNormalInWorld, align 4
   %7 = fmul <2 x float> %6, %6
@@ -3354,7 +3338,7 @@ invoke.cont9:                                     ; preds = %land.lhs.true
   %mul7.i.i.i = fmul float %5, %div.i.i
   store float %mul7.i.i.i, ptr %arrayidx10.i.i.i.i, align 4
   %14 = load float, ptr %m_closestHitFraction.i.i, align 8
-  %m_distFraction = getelementptr inbounds %"struct.btVehicleRaycaster::btVehicleRaycasterResult", ptr %result, i64 0, i32 2
+  %m_distFraction = getelementptr inbounds i8, ptr %result, i64 32
   store float %14, ptr %m_distFraction, align 4
   br label %cleanup
 
@@ -3386,7 +3370,7 @@ entry:
 define linkonce_odr dso_local void @_ZN16btRaycastVehicle12updateActionEP16btCollisionWorldf(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %collisionWorld, float noundef %step) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(224) %this, float noundef %step)
   ret void
@@ -3395,11 +3379,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btRaycastVehicle19setCoordinateSystemEiii(ptr noundef nonnull align 8 dereferenceable(224) %this, i32 noundef %rightIndex, i32 noundef %upIndex, i32 noundef %forwardIndex) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_indexRightAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 12
+  %m_indexRightAxis = getelementptr inbounds i8, ptr %this, i64 176
   store i32 %rightIndex, ptr %m_indexRightAxis, align 8
-  %m_indexUpAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 13
+  %m_indexUpAxis = getelementptr inbounds i8, ptr %this, i64 180
   store i32 %upIndex, ptr %m_indexUpAxis, align 4
-  %m_indexForwardAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this, i64 0, i32 14
+  %m_indexForwardAxis = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %forwardIndex, ptr %m_indexForwardAxis, align 8
   ret void
 }
@@ -3436,18 +3420,18 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK16btCollisionWorld17RayResultCallback14needsCollisionEP17btBroadphaseProxy(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %proxy0) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionFilterGroup = getelementptr inbounds %struct.btBroadphaseProxy, ptr %proxy0, i64 0, i32 1
+  %m_collisionFilterGroup = getelementptr inbounds i8, ptr %proxy0, i64 8
   %0 = load i32, ptr %m_collisionFilterGroup, align 8
-  %m_collisionFilterMask = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this, i64 0, i32 5
+  %m_collisionFilterMask = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %m_collisionFilterMask, align 4
   %and = and i32 %1, %0
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %m_collisionFilterGroup2 = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this, i64 0, i32 4
+  %m_collisionFilterGroup2 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %m_collisionFilterGroup2, align 8
-  %m_collisionFilterMask3 = getelementptr inbounds %struct.btBroadphaseProxy, ptr %proxy0, i64 0, i32 2
+  %m_collisionFilterMask3 = getelementptr inbounds i8, ptr %proxy0, i64 12
   %3 = load i32, ptr %m_collisionFilterMask3, align 4
   %and4 = and i32 %3, %2
   %tobool5 = icmp ne i32 %and4, 0
@@ -3461,39 +3445,39 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN16btCollisionWorld24ClosestRayResultCallback15addSingleResultERNS_14LocalRayResultEb(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull align 8 dereferenceable(36) %rayResult, i1 noundef zeroext %normalInWorldSpace) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_hitFraction = getelementptr inbounds %"struct.btCollisionWorld::LocalRayResult", ptr %rayResult, i64 0, i32 3
+  %m_hitFraction = getelementptr inbounds i8, ptr %rayResult, i64 32
   %0 = load float, ptr %m_hitFraction, align 8
-  %m_closestHitFraction = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this, i64 0, i32 1
+  %m_closestHitFraction = getelementptr inbounds i8, ptr %this, i64 8
   store float %0, ptr %m_closestHitFraction, align 8
   %1 = load ptr, ptr %rayResult, align 8
-  %m_collisionObject2 = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this, i64 0, i32 3
+  %m_collisionObject2 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %1, ptr %m_collisionObject2, align 8
   br i1 %normalInWorldSpace, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_hitNormalLocal = getelementptr inbounds %"struct.btCollisionWorld::LocalRayResult", ptr %rayResult, i64 0, i32 2
-  %m_hitNormalWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 3
+  %m_hitNormalLocal = getelementptr inbounds i8, ptr %rayResult, i64 16
+  %m_hitNormalWorld = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_hitNormalWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_hitNormalLocal, i64 16, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_worldTransform.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1
-  %m_hitNormalLocal5 = getelementptr inbounds %"struct.btCollisionWorld::LocalRayResult", ptr %rayResult, i64 0, i32 2
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %1, i64 8
+  %m_hitNormalLocal5 = getelementptr inbounds i8, ptr %rayResult, i64 16
   %2 = load float, ptr %m_worldTransform.i, align 4
   %3 = load float, ptr %m_hitNormalLocal5, align 8
-  %arrayidx5.i.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds %"struct.btCollisionWorld::LocalRayResult", ptr %rayResult, i64 0, i32 2, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %rayResult, i64 20
   %5 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds %"struct.btCollisionWorld::LocalRayResult", ptr %rayResult, i64 0, i32 2, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %rayResult, i64 24
   %7 = load float, ptr %arrayidx12.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %1, i64 28
   %9 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load float, ptr %arrayidx10.i8.i, align 4
   %11 = insertelement <2 x float> poison, float %5, i64 0
   %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3510,26 +3494,26 @@ if.else:                                          ; preds = %entry
   %23 = insertelement <2 x float> poison, float %7, i64 0
   %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
   %25 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %22, <2 x float> %24, <2 x float> %20)
-  %arrayidx.i10.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %1, i64 40
   %26 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %1, i64 44
   %27 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %5, %27
   %28 = tail call float @llvm.fmuladd.f32(float %26, float %3, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %1, i64 48
   %29 = load float, ptr %arrayidx10.i14.i, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %29, float %7, float %28)
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %30, i64 0
-  %m_hitNormalWorld7 = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 3
+  %m_hitNormalWorld7 = getelementptr inbounds i8, ptr %this, i64 68
   store <2 x float> %25, ptr %m_hitNormalWorld7, align 4
-  %ref.tmp.sroa.2.0.m_hitNormalWorld7.sroa_idx = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 3, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_hitNormalWorld7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 76
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.m_hitNormalWorld7.sroa_idx, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_hitPointWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 4
-  %m_rayFromWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 1
-  %m_rayToWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 2
+  %m_hitPointWorld = getelementptr inbounds i8, ptr %this, i64 84
+  %m_rayFromWorld = getelementptr inbounds i8, ptr %this, i64 36
+  %m_rayToWorld = getelementptr inbounds i8, ptr %this, i64 52
   %31 = load float, ptr %m_hitFraction, align 8
   %sub.i = fsub float 1.000000e+00, %31
   %32 = load <2 x float>, ptr %m_rayFromWorld, align 4
@@ -3541,13 +3525,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %32, <2 x float> %36)
   store <2 x float> %39, ptr %m_hitPointWorld, align 4
-  %arrayidx15.i = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 44
   %40 = load float, ptr %arrayidx15.i, align 4
-  %arrayidx17.i = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 60
   %41 = load float, ptr %arrayidx17.i, align 4
   %mul18.i = fmul float %31, %41
   %42 = tail call float @llvm.fmuladd.f32(float %sub.i, float %40, float %mul18.i)
-  %arrayidx20.i = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 92
   store float %42, ptr %arrayidx20.i, align 4
   %43 = load float, ptr %m_hitFraction, align 8
   ret float %43

@@ -154,7 +154,7 @@ if.then33:                                        ; preds = %for.end
 
 if.then35:                                        ; preds = %if.then33
   %call38 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull %month) #10
-  %arrayidx40 = getelementptr ptr, ptr %arrayidx37, i64 1
+  %arrayidx40 = getelementptr i8, ptr %arrayidx37, i64 8
   %4 = load ptr, ptr %arrayidx40, align 8
   %call41 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %year) #10
   %5 = load i32, ptr %month, align 4

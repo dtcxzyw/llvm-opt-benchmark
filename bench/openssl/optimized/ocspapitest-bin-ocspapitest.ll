@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -267,7 +266,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %if.end
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %location, align 8
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 169, ptr noundef nonnull @.str.46, ptr noundef %0) #6
   %tobool4.not = icmp eq i32 %call3, 0
@@ -280,7 +279,7 @@ if.end6:                                          ; preds = %sw.bb2
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %if.end
-  %location10 = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call, i64 0, i32 1
+  %location10 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %location10, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %2) #6
   %call11 = tail call ptr @GENERAL_NAME_new() #6

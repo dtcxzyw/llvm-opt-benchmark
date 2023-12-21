@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%struct.ValueStruct = type { ptr, i16, i32 }
-%struct.UHashElement = type { i32, %union.UElement, %union.UElement }
-%union.UElement = type { ptr }
 
 @dataInfo = internal global %struct.UDataInfo { i16 20, i16 0, i8 0, i8 0, i8 2, i8 0, [4 x i8] c"SPRP", [4 x i8] c"\03\02\05\02", [4 x i8] c"\03\02\00\00" }, align 2
 @indexes = internal global [16 x i32] zeroinitializer, align 16
@@ -257,9 +254,9 @@ for.inc108:                                       ; preds = %if.else92, %if.then
 for.end110:                                       ; preds = %for.inc108, %if.end71
   %call111 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #17
   store ptr %call75, ptr %call111, align 8
-  %type113 = getelementptr inbounds %struct.ValueStruct, ptr %call111, i64 0, i32 2
+  %type113 = getelementptr inbounds i8, ptr %call111, i64 12
   store i32 %type, ptr %type113, align 4
-  %length114 = getelementptr inbounds %struct.ValueStruct, ptr %call111, i64 0, i32 1
+  %length114 = getelementptr inbounds i8, ptr %call111, i64 8
   store i16 %add17, ptr %length114, align 8
   %cmp117 = icmp sgt i16 %add17, 3
   br i1 %cmp117, label %if.then119, label %if.end121
@@ -492,9 +489,9 @@ while.body8.i:                                    ; preds = %if.end96.i, %while.
   %limitIndex.159.i = phi i32 [ %limitIndex.067.i, %while.body8.lr.ph.i ], [ %limitIndex.3.i, %if.end96.i ]
   %oldMappingLength.158.i = phi i32 [ %oldMappingLength.066.i, %while.body8.lr.ph.i ], [ %oldMappingLength.2.i, %if.end96.i ]
   %writtenElementCount.157.i = phi i32 [ %writtenElementCount.064.i, %while.body8.lr.ph.i ], [ %writtenElementCount.2.i, %if.end96.i ]
-  %key.i = getelementptr inbounds %struct.UHashElement, ptr %call560.i, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %call560.i, i64 16
   %5 = load i32, ptr %key.i, align 8
-  %value9.i = getelementptr inbounds %struct.UHashElement, ptr %call560.i, i64 0, i32 1
+  %value9.i = getelementptr inbounds i8, ptr %call560.i, i64 8
   %6 = load ptr, ptr %value9.i, align 8
   %7 = zext i32 %oldMappingLength.158.i to i64
   %cmp10.not.i = icmp eq i64 %indvars.iv.i, %7
@@ -514,7 +511,7 @@ if.end17.i:                                       ; preds = %if.then12.i
 if.end25.i:                                       ; preds = %if.end17.i, %if.then12.i, %while.body8.i
   %oldMappingLength.2.i = phi i32 [ %oldMappingLength.158.i, %while.body8.i ], [ %4, %if.then12.i ], [ %4, %if.end17.i ]
   %limitIndex.3.i = phi i32 [ %limitIndex.159.i, %while.body8.i ], [ %limitIndex.159.i, %if.then12.i ], [ %spec.select.i, %if.end17.i ]
-  %length.i = getelementptr inbounds %struct.ValueStruct, ptr %6, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i16, ptr %length.i, align 8
   %conv26.i = sext i16 %8 to i64
   %9 = and i64 %conv26.i, 4294967295

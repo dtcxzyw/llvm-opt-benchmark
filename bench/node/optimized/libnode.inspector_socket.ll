@@ -5,18 +5,23 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"class.node::inspector::ProtocolHandler" = type { ptr, ptr, %"class.std::unique_ptr" }
+%"class.std::allocator" = type { i8 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.10 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.10 = type { i64, [8 x i8] }
+%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.node::inspector::TcpHolder" = type { %struct.uv_tcp_s, %"class.std::unique_ptr.2", ptr, %"class.std::vector" }
-%struct.uv_tcp_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv__queue = type { ptr, ptr }
+%"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
+%"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
+%"class.std::__uniq_ptr_impl.23" = type { %"class.std::tuple.24" }
+%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
+%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.28" }
+%"struct.std::_Head_base.28" = type { ptr }
 %"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
 %"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
 %"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
@@ -27,44 +32,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::allocator" = type { i8 }
-%"class.node::inspector::(anonymous namespace)::WriteRequest" = type { ptr, %"class.std::vector", %struct.uv_write_s, %struct.uv_buf_t }
-%struct.uv_write_s = type { ptr, i32, [6 x ptr], ptr, ptr, ptr, %struct.uv__queue, i32, ptr, i32, i32, [4 x %struct.uv_buf_t] }
-%struct.uv_buf_t = type { ptr, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.10 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.10 = type { i64, [8 x i8] }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_stream_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.11, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon.11 = type { [4 x ptr] }
-%"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
-%"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
-%"class.std::__uniq_ptr_impl.23" = type { %"class.std::tuple.24" }
-%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.28" }
-%"struct.std::_Head_base.28" = type { ptr }
-%"class.node::inspector::(anonymous namespace)::HttpHandler" = type { %"class.node::inspector::ProtocolHandler", i8, %struct.llhttp__internal_s, %struct.llhttp_settings_s, %"class.std::vector.29", %"class.std::__cxx11::basic_string", %"class.std::map", %"class.std::__cxx11::basic_string" }
-%struct.llhttp__internal_s = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i8, i8, i8, i8, i8, i16, i8, i8, i16, i16, i8, ptr }
-%struct.llhttp_settings_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
-%"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<node::inspector::(anonymous namespace)::HttpEvent, std::allocator<node::inspector::(anonymous namespace)::HttpEvent>>::_Vector_impl" }
-%"struct.std::_Vector_base<node::inspector::(anonymous namespace)::HttpEvent, std::allocator<node::inspector::(anonymous namespace)::HttpEvent>>::_Vector_impl" = type { %"struct.std::_Vector_base<node::inspector::(anonymous namespace)::HttpEvent, std::allocator<node::inspector::(anonymous namespace)::HttpEvent>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<node::inspector::(anonymous namespace)::HttpEvent, std::allocator<node::inspector::(anonymous namespace)::HttpEvent>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::tuple.39" = type { %"struct.std::_Tuple_impl.40" }
 %"struct.std::_Tuple_impl.40" = type { %"struct.std::_Head_base.41" }
 %"struct.std::_Head_base.41" = type { ptr }
 %"class.std::tuple.42" = type { i8 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [64 x i8] }
 %"class.node::inspector::(anonymous namespace)::HttpEvent" = type { %"class.std::__cxx11::basic_string", i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.node::inspector::(anonymous namespace)::WsHandler" = type <{ %"class.node::inspector::ProtocolHandler", { i64, i64 }, { i64, i64 }, i8, [7 x i8] }>
 
 $_ZN4node9inspector15ProtocolHandlerD2Ev = comdat any
 
@@ -119,9 +91,9 @@ $_ZSt19piecewise_construct = comdat any
 define dso_local void @_ZN4node9inspector15ProtocolHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS5_XadL_ZNS5_20DisconnectAndDisposeEPS5_EEEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %inspector, ptr nocapture noundef %tcp) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %inspector_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 1
+  %inspector_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %inspector, ptr %inspector_, align 8
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %tcp, align 8
   store i64 %0, ptr %tcp_, align 8
   store ptr null, ptr %tcp, align 8
@@ -135,7 +107,7 @@ do.body5:                                         ; preds = %entry
   unreachable
 
 do.end6:                                          ; preds = %entry
-  %handler_.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %1, i64 0, i32 2
+  %handler_.i = getelementptr inbounds i8, ptr %1, i64 256
   store ptr %this, ptr %handler_.i, align 8
   ret void
 }
@@ -148,7 +120,7 @@ declare void @abort() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node9inspector9TcpHolder10SetHandlerEPNS0_15ProtocolHandlerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) %this, ptr noundef %handler) local_unnamed_addr #3 align 2 {
 entry:
-  %handler_ = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 2
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 256
   store ptr %handler, ptr %handler_, align 8
   ret void
 }
@@ -156,7 +128,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4node9inspector15ProtocolHandler8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef %write_cb) local_unnamed_addr #0 align 2 {
 entry:
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   %call2 = tail call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef %write_cb), !range !5
   ret i32 %call2
@@ -167,12 +139,12 @@ define dso_local noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorI
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %call = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #21
-  %handler_ = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 2
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load ptr, ptr %handler_, align 8
   store ptr %0, ptr %call, align 8
-  %storage.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %call, i64 0, i32 1
+  %storage.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %buffer, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -199,10 +171,10 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %cond.tr
 _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.i.i:    ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i.i, %entry
   %cond.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i.i ], [ null, %entry ]
   store ptr %cond.i.i.i.i.i, ptr %storage.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %cond.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #19
   %3 = load ptr, ptr %buffer, align 8
@@ -224,9 +196,9 @@ _ZN4node9inspector12_GLOBAL__N_112WriteRequestC2EPNS0_15ProtocolHandlerERKSt6vec
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %req.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %call, i64 0, i32 2
+  %req.i = getelementptr inbounds i8, ptr %call, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %req.i, i8 0, i64 192, i1 false)
-  %buf.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %call, i64 0, i32 3
+  %buf.i = getelementptr inbounds i8, ptr %call, i64 224
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -234,7 +206,7 @@ _ZN4node9inspector12_GLOBAL__N_112WriteRequestC2EPNS0_15ProtocolHandlerERKSt6vec
   %call6.i = call { ptr, i64 } @uv_buf_init(ptr noundef %6, i32 noundef %conv.i) #19
   %7 = extractvalue { ptr, i64 } %call6.i, 0
   store ptr %7, ptr %buf.i, align 8
-  %8 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %call, i64 0, i32 3, i32 1
+  %8 = getelementptr inbounds i8, ptr %call, i64 232
   %9 = extractvalue { ptr, i64 } %call6.i, 1
   store i64 %9, ptr %8, align 8
   %call2 = call i32 @uv_write(ptr noundef nonnull %req.i, ptr noundef nonnull %this, ptr noundef nonnull %buf.i, i32 noundef 1, ptr noundef %write_cb) #19
@@ -263,9 +235,9 @@ if.end:                                           ; preds = %_ZN4node9inspector1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN4node9inspector15ProtocolHandler8delegateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
-  %delegate_.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %0, i64 0, i32 1
+  %delegate_.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load ptr, ptr %delegate_.i, align 8
   ret ptr %1
 }
@@ -273,7 +245,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN4node9inspector9TcpHolder8delegateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %delegate_ = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %delegate_, align 8
   ret ptr %0
 }
@@ -288,7 +260,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::allocator", align 1
   %ref.tmp15 = alloca %"class.std::allocator", align 1
   store i32 128, ptr %len, align 4
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   %call3 = call i32 @uv_tcp_getsockname(ptr noundef %0, ptr noundef nonnull %addr, ptr noundef nonnull %len) #19
   %cmp.not = icmp eq i32 %call3, 0
@@ -357,13 +329,13 @@ declare i32 @uv_ip4_name(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 define dso_local void @_ZN4node9inspector9TcpHolderC2ESt10unique_ptrINS0_15InspectorSocket8DelegateESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef %delegate) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %this, i8 0, i64 248, i1 false)
-  %delegate_ = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i64, ptr %delegate, align 8
   store i64 %0, ptr %delegate_, align 8
   store ptr null, ptr %delegate, align 8
-  %handler_ = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 2
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 256
   store ptr null, ptr %handler_, align 8
-  %buffer = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 3
+  %buffer = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   ret void
@@ -379,14 +351,14 @@ _ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteI
   %0 = load i64, ptr %delegate, align 8
   store ptr null, ptr %delegate, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %call, i8 0, i64 248, i1 false)
-  %delegate_.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %call, i64 0, i32 1
+  %delegate_.i = getelementptr inbounds i8, ptr %call, i64 248
   store i64 %0, ptr %delegate_.i, align 8
-  %handler_.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %call, i64 0, i32 2
+  %handler_.i = getelementptr inbounds i8, ptr %call, i64 256
   store ptr null, ptr %handler_.i, align 8
-  %buffer.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %call, i64 0, i32 3
+  %buffer.i = getelementptr inbounds i8, ptr %call, i64 264
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer.i) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i, i8 0, i64 24, i1 false)
-  %loop = getelementptr inbounds %struct.uv_stream_s, ptr %server, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %server, i64 8
   %1 = load ptr, ptr %loop, align 8
   %call2 = tail call i32 @uv_tcp_init(ptr noundef %1, ptr noundef nonnull %call) #19
   %cmp = icmp eq i32 %call2, 0
@@ -419,7 +391,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %d
 
 _ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i.i: ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %_ZN4node9inspector9TcpHolderD2Ev.exit
@@ -464,8 +436,8 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %buffer.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %tcp, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %tcp, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %tcp, i64 264
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %tcp, i64 272
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %buf, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %nread
@@ -488,21 +460,21 @@ delete.notnull.i:                                 ; preds = %if.end.i
 
 _ZN4node9inspector9TcpHolder12ReclaimUvBufEPK8uv_buf_tl.exit: ; preds = %if.end.i, %delete.notnull.i
   %cmp = icmp slt i64 %nread, 0
-  %handler_ = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %tcp, i64 0, i32 2
+  %handler_ = getelementptr inbounds i8, ptr %tcp, i64 256
   %4 = load ptr, ptr %handler_, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN4node9inspector9TcpHolder12ReclaimUvBufEPK8uv_buf_tl.exit
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(24) %4) #19
   br label %if.end
 
 if.else:                                          ; preds = %_ZN4node9inspector9TcpHolder12ReclaimUvBufEPK8uv_buf_tl.exit
-  %buffer = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %tcp, i64 0, i32 3
+  %buffer = getelementptr inbounds i8, ptr %tcp, i64 264
   %vtable3 = load ptr, ptr %4, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 1
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 8
   %6 = load ptr, ptr %vfn4, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %buffer) #19
   br label %if.end
@@ -523,7 +495,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %buffer.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %handle, i64 0, i32 3
+  %buffer.i = getelementptr inbounds i8, ptr %handle, i64 264
   %0 = load ptr, ptr %buffer.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -534,14 +506,14 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %delete.notnull
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer.i) #19
-  %delegate_.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %handle, i64 0, i32 1
+  %delegate_.i = getelementptr inbounds i8, ptr %handle, i64 248
   %1 = load ptr, ptr %delegate_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN4node9inspector9TcpHolderD2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i.i
 
 _ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i.i: ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   br label %_ZN4node9inspector9TcpHolderD2Ev.exit
@@ -561,8 +533,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %buffer = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 264
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %read
@@ -608,7 +580,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 5
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 40
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZNSt10unique_ptrIN4node9inspector15ProtocolHandlerENS0_15FunctionDeleterIS2_XadL_ZNS1_15InspectorSocket8ShutdownEPS2_EEEEED2Ev.exit
@@ -622,7 +594,7 @@ _ZNSt10unique_ptrIN4node9inspector15ProtocolHandlerENS0_15FunctionDeleterIS2_Xad
 define dso_local void @_ZN4node9inspector15InspectorSocket8ShutdownEPNS0_15ProtocolHandlerE(ptr noundef %handler) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %handler, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %handler) #19
   ret void
@@ -643,7 +615,7 @@ entry:
 
 _ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   br label %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit
@@ -658,42 +630,42 @@ _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10uniqu
   %call1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr null, ptr %call1, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #21
-  %inspector_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %call2, i64 0, i32 1
+  %inspector_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call1, ptr %inspector_.i.i, align 8
-  %tcp_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %call2, i64 0, i32 2
+  %tcp_.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   store i64 %4, ptr %tcp_.i.i, align 8
-  %handler_.i.i.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %3, i64 0, i32 2
+  %handler_.i.i.i = getelementptr inbounds i8, ptr %3, i64 256
   store ptr %call2, ptr %handler_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
-  %parsing_value_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 1
+  %parsing_value_.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i8 0, ptr %parsing_value_.i, align 8
-  %events_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 4
+  %events_.i = getelementptr inbounds i8, ptr %call2, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events_.i, i8 0, i64 24, i1 false)
-  %current_header_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 5
+  %current_header_.i = getelementptr inbounds i8, ptr %call2, i64 336
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_header_.i) #19
-  %5 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %call2, i64 376
   store i32 0, ptr %5, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 384
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 392
   store ptr %5, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 400
   store ptr %5, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 408
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %path_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 7
+  %path_.i = getelementptr inbounds i8, ptr %call2, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #19
-  %parser_2.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 2
-  %parser_settings3.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 3
+  %parser_2.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %parser_settings3.i = getelementptr inbounds i8, ptr %call2, i64 128
   tail call void @llhttp_init(ptr noundef nonnull %parser_2.i, i32 noundef 1, ptr noundef nonnull %parser_settings3.i) #19
   tail call void @llhttp_settings_init(ptr noundef nonnull %parser_settings3.i) #19
-  %on_header_field.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 3, i32 5
+  %on_header_field.i = getelementptr inbounds i8, ptr %call2, i64 168
   store ptr @_ZN4node9inspector12_GLOBAL__N_111HttpHandler13OnHeaderFieldEP18llhttp__internal_sPKcm, ptr %on_header_field.i, align 8
-  %on_header_value.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 3, i32 6
+  %on_header_value.i = getelementptr inbounds i8, ptr %call2, i64 176
   store ptr @_ZN4node9inspector12_GLOBAL__N_111HttpHandler13OnHeaderValueEP18llhttp__internal_sPKcm, ptr %on_header_value.i, align 8
-  %on_message_complete.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 3, i32 11
+  %on_message_complete.i = getelementptr inbounds i8, ptr %call2, i64 216
   store ptr @_ZN4node9inspector12_GLOBAL__N_111HttpHandler17OnMessageCompleteEP18llhttp__internal_s, ptr %on_message_complete.i, align 8
-  %on_url.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 3, i32 1
+  %on_url.i = getelementptr inbounds i8, ptr %call2, i64 136
   store ptr @_ZN4node9inspector12_GLOBAL__N_111HttpHandler6OnPathEP18llhttp__internal_sPKcm, ptr %on_url.i, align 8
   %6 = load ptr, ptr %call1, align 8
   store ptr %call2, ptr %call1, align 8
@@ -702,7 +674,7 @@ _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10uniqu
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 5
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 40
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   br label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit6
@@ -723,7 +695,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 5
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 40
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZNSt10unique_ptrIN4node9inspector15ProtocolHandlerENS0_15FunctionDeleterIS2_XadL_ZNS1_15InspectorSocket8ShutdownEPS2_EEEEE5resetES5_.exit
@@ -747,7 +719,7 @@ define dso_local void @_ZN4node9inspector15InspectorSocket15CancelHandshakeEv(pt
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   ret void
@@ -796,12 +768,12 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   %call5.i.i.i.i.i.sink = phi ptr [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %add.ptr.i.i.sink = phi ptr [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   store ptr %call5.i.i.i.i.i.sink, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %add.ptr.i.i.sink, ptr %1, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %add.ptr.i.i.sink, ptr %_M_finish.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -824,7 +796,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr dso_local void @_ZN4node9inspector15ProtocolHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit, label %if.then.i
@@ -881,7 +853,7 @@ entry:
   %0 = ptrtoint ptr %parser to i64
   %sub.i.i.i = add i64 %0, -32
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  %parsing_value_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 1
+  %parsing_value_ = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i8, ptr %parsing_value_, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -889,12 +861,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %parsing_value_, align 8
-  %current_header_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 5
+  %current_header_ = getelementptr inbounds i8, ptr %1, i64 336
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %current_header_) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %current_header_2 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 5
+  %current_header_2 = getelementptr inbounds i8, ptr %1, i64 336
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %current_header_2, ptr noundef %at, i64 noundef %length) #19
   ret i32 0
 }
@@ -907,28 +879,27 @@ entry:
   %0 = ptrtoint ptr %parser to i64
   %sub.i.i.i = add i64 %0, -32
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  %parsing_value_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 1
+  %parsing_value_ = getelementptr inbounds i8, ptr %1, i64 24
   store i8 1, ptr %parsing_value_, align 8
-  %headers_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6
-  %current_header_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 5
+  %headers_ = getelementptr inbounds i8, ptr %1, i64 368
+  %current_header_ = getelementptr inbounds i8, ptr %1, i64 336
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 384
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 376
   %cmp.not5.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %2, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %current_header_) #19
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, 0
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !6
@@ -938,7 +909,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %current_header_, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #19
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_.exit
@@ -951,7 +922,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_.exit: ; preds = %lor.rhs.i, %if.then.i
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 32
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef %at, i64 noundef %length) #19
@@ -970,10 +941,10 @@ entry:
   %0 = ptrtoint ptr %parser to i64
   %sub.i.i.i = add i64 %0, -32
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  %events_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 4
-  %path_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 7
-  %upgrade = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 15
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 10
+  %events_ = getelementptr inbounds i8, ptr %1, i64 312
+  %path_ = getelementptr inbounds i8, ptr %1, i64 416
+  %upgrade = getelementptr inbounds i8, ptr %parser, i64 80
+  %method = getelementptr inbounds i8, ptr %parser, i64 73
   %2 = load i8, ptr %method, align 1
   %cmp = icmp eq i8 %2, 1
   %frombool = zext i1 %cmp to i8
@@ -988,9 +959,9 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 4))
   call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
   %upgrade.val = load i8, ptr %upgrade, align 1
-  %_M_finish.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 320
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -999,16 +970,16 @@ if.then.i:                                        ; preds = %entry
   %tobool.i.i.i = icmp ne i8 %upgrade.val, 0
   %frombool.i.i.i.i = zext i1 %tobool.i.i.i to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %path_) #19
-  %upgrade4.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %3, i64 0, i32 1
+  %upgrade4.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   store i8 %frombool.i.i.i.i, ptr %upgrade4.i.i.i.i, align 8
-  %isGET6.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %3, i64 0, i32 2
+  %isGET6.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 33
   store i8 %frombool, ptr %isGET6.i.i.i.i, align 1
-  %ws_key9.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %3, i64 0, i32 3
+  %ws_key9.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ws_key9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #19
-  %host10.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %3, i64 0, i32 4
+  %host10.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 104
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.exit
 
@@ -1047,13 +1018,13 @@ _ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_alloca
   %tobool.i.i.i.i = icmp ne i8 %upgrade.val, 0
   %frombool.i.i.i.i.i = zext i1 %tobool.i.i.i.i to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %path_) #19
-  %upgrade4.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %upgrade4.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   store i8 %frombool.i.i.i.i.i, ptr %upgrade4.i.i.i.i.i, align 8
-  %isGET6.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 2
+  %isGET6.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 33
   store i8 %frombool, ptr %isGET6.i.i.i.i.i, align 1
-  %ws_key9.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 3
+  %ws_key9.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ws_key9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #19
-  %host10.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 4
+  %host10.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i, label %for.body.i.i.i.i.i
 
@@ -1063,27 +1034,27 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #19
-  %upgrade.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1
-  %upgrade3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1
+  %upgrade.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 32
+  %upgrade3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 32
   %6 = load i16, ptr %upgrade3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !8
   store i16 %6, ptr %upgrade.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !8, !noalias !11
-  %ws_key.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__cur.03.i.i.i.i.i, i64 0, i32 3
-  %ws_key4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 3
+  %ws_key.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 40
+  %ws_key4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ws_key.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ws_key4.i.i.i.i.i.i.i.i.i) #19
-  %host.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__cur.03.i.i.i.i.i, i64 0, i32 4
-  %host5.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 4
+  %host.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 72
+  %host5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %host5.i.i.i.i.i.i.i.i.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host5.i.i.i.i.i.i.i.i.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ws_key4.i.i.i.i.i.i.i.i.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.02.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__cur.03.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 104
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 104
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i, label %for.body.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 104
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i28.i.i
 
@@ -1106,21 +1077,21 @@ _ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
   %call9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %path_, ptr noundef nonnull @.str.3) #19
-  %parsing_value_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 1
+  %parsing_value_ = getelementptr inbounds i8, ptr %1, i64 24
   store i8 0, ptr %parsing_value_, align 8
-  %headers_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
+  %headers_ = getelementptr inbounds i8, ptr %1, i64 368
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 384
   %7 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %headers_, ptr noundef %7)
-  %add.ptr.i.i13 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1
+  %add.ptr.i.i13 = getelementptr inbounds i8, ptr %1, i64 376
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %1, i64 392
   store ptr %add.ptr.i.i13, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 400
   store ptr %add.ptr.i.i13, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 6, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 408
   store i64 0, ptr %_M_node_count.i.i.i, align 8
-  %current_header_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 5
+  %current_header_ = getelementptr inbounds i8, ptr %1, i64 336
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %current_header_, ptr noundef nonnull @.str.3) #19
   ret i32 0
 }
@@ -1131,7 +1102,7 @@ entry:
   %0 = ptrtoint ptr %parser to i64
   %sub.i.i.i = add i64 %0, -32
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  %path_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %1, i64 0, i32 7
+  %path_ = getelementptr inbounds i8, ptr %1, i64 416
   %call1 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %path_, ptr noundef %at, i64 noundef %length) #19
   ret i32 0
 }
@@ -1172,10 +1143,10 @@ entry:
   %call5.i.i.i.i.i = call noalias noundef nonnull dereferenceable(97) ptr @_Znwm(i64 noundef 97) #21
   store ptr %call5.i.i.i.i.i, ptr %reply, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 97
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %reply, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %reply, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(97) %call5.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(97) @__const._ZN4node9inspector12_GLOBAL__N_111HttpHandler13AcceptUpgradeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.accept_ws_prefix, i64 97, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %reply, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %reply, i64 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1194,17 +1165,17 @@ entry:
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i5
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %reply, ptr %add.ptr.i.i6, ptr noundef nonnull %accept_ws_suffix, ptr noundef nonnull %add.ptr18)
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %tcp_.i, align 8
   %call2.i8 = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 8 dereferenceable(24) %reply, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si), !range !5
-  %inspector_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 1
+  %inspector_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %inspector_, align 8
   %call24 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %6 = load i64, ptr %tcp_.i, align 8
   store ptr null, ptr %tcp_.i, align 8
-  %inspector_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %call24, i64 0, i32 1
+  %inspector_.i.i = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %5, ptr %inspector_.i.i, align 8
-  %tcp_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %call24, i64 0, i32 2
+  %tcp_.i.i = getelementptr inbounds i8, ptr %call24, i64 16
   store i64 %6, ptr %tcp_.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.i.not.i.i, label %do.body5.i.i, label %_ZN4node9inspector12_GLOBAL__N_19WsHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit
@@ -1216,18 +1187,18 @@ do.body5.i.i:                                     ; preds = %entry
 
 _ZN4node9inspector12_GLOBAL__N_19WsHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit: ; preds = %entry
   %7 = inttoptr i64 %6 to ptr
-  %handler_.i.i.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %7, i64 0, i32 2
+  %handler_.i.i.i = getelementptr inbounds i8, ptr %7, i64 256
   store ptr %call24, ptr %handler_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_19WsHandlerE, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
-  %OnCloseSent.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 1
+  %OnCloseSent.i = getelementptr inbounds i8, ptr %call24, i64 24
   store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler17WaitForCloseReplyEv to i64), ptr %OnCloseSent.i, align 8
-  %OnCloseSent.repack1.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 1, i32 1
+  %OnCloseSent.repack1.i = getelementptr inbounds i8, ptr %call24, i64 32
   store i64 0, ptr %OnCloseSent.repack1.i, align 8
-  %OnCloseReceived.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 2
+  %OnCloseReceived.i = getelementptr inbounds i8, ptr %call24, i64 40
   store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler18CloseFrameReceivedEv to i64), ptr %OnCloseReceived.i, align 8
-  %OnCloseReceived.repack2.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 2, i32 1
+  %OnCloseReceived.repack2.i = getelementptr inbounds i8, ptr %call24, i64 48
   store i64 0, ptr %OnCloseReceived.repack2.i, align 8
-  %dispose_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 3
+  %dispose_.i = getelementptr inbounds i8, ptr %call24, i64 56
   store i8 0, ptr %dispose_.i, align 8
   %8 = load ptr, ptr %5, align 8
   store ptr %call24, ptr %5, align 8
@@ -1236,7 +1207,7 @@ _ZN4node9inspector12_GLOBAL__N_19WsHandlerC2EPNS0_15InspectorSocketESt10unique_p
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9inspector12_GLOBAL__N_19WsHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit
   %vtable.i.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 5
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 40
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(24) %8) #19
   br label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit
@@ -1262,9 +1233,9 @@ entry:
   %ipv6.i.i = alloca [16 x i8], align 16
   %ipv4.i.i = alloca [4 x i8], align 1
   %host.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %parser_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 2
+  %parser_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %data, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %data, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -1294,15 +1265,15 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %if.end, %if.then.i.
 
 if.then6:                                         ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(448) %this) #19
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %_ZNSt6vectorIcSaIcEE5clearEv.exit
-  %events_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 4
+  %events_ = getelementptr inbounds i8, ptr %this, i64 312
   %5 = load ptr, ptr %events_, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   %cmp.i.not21 = icmp eq ptr %5, %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events_, i8 0, i64 24, i1 false)
@@ -1310,12 +1281,12 @@ if.end7:                                          ; preds = %if.then6, %_ZNSt6ve
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ipv6.i.i, i64 16
-  %tcp_.i16 = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i16 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin3.sroa.0.022 = phi ptr [ %5, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %host = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__begin3.sroa.0.022, i64 0, i32 4
+  %host = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %host.i)
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %host, i8 noundef signext 58, i64 noundef -1) #19, !noalias !14
   %cmp.i.i = icmp eq i64 %call.i.i, -1
@@ -1441,14 +1412,14 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %lo
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #19
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i) #19
   %vtable.i.i.i.i.i = load ptr, ptr %call.i.i.i.i, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %12 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i = call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i.i, i8 noundef signext %11) #19
   %13 = load i8, ptr %b.addr.0.i.i, align 1
   %call.i2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #19
   %call.i.i3.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i.i) #19
   %vtable.i.i.i4.i.i = load ptr, ptr %call.i.i3.i.i, align 8
-  %vfn.i.i.i5.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i.i, i64 4
+  %vfn.i.i.i5.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i4.i.i, i64 32
   %14 = load ptr, ptr %vfn.i.i.i5.i.i, align 8
   %call.i.i.i6.i.i = call noundef signext i8 %14(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i.i, i8 noundef signext %13) #19
   %cmp.i5.i = icmp eq i8 %call.i.i.i.i.i, %call.i.i.i6.i.i
@@ -1469,14 +1440,14 @@ _ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112bas
 lor.lhs.false:                                    ; preds = %while.body.i.i, %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN4node9inspector12_GLOBAL__N_18TrimPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %if.end36.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %host.i)
-  %isGET = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__begin3.sroa.0.022, i64 0, i32 2
+  %isGET = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 33
   %16 = load i8, ptr %isGET, align 1
   %17 = and i8 %16, 1
   %tobool.not = icmp eq i8 %17, 0
   br i1 %tobool.not, label %cleanup.sink.split, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  %upgrade = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__begin3.sroa.0.022, i64 0, i32 1
+  %upgrade = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 32
   %18 = load i8, ptr %upgrade, align 8
   %19 = and i8 %18, 1
   %tobool17.not = icmp eq i8 %19, 0
@@ -1484,7 +1455,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.then18:                                        ; preds = %if.else
   %20 = load ptr, ptr %tcp_.i16, align 8
-  %delegate_.i.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %20, i64 0, i32 1
+  %delegate_.i.i = getelementptr inbounds i8, ptr %20, i64 248
   %21 = load ptr, ptr %delegate_.i.i, align 8
   %vtable21 = load ptr, ptr %21, align 8
   %22 = load ptr, ptr %vtable21, align 8
@@ -1492,28 +1463,28 @@ if.then18:                                        ; preds = %if.else
   br label %for.inc
 
 if.else23:                                        ; preds = %if.else
-  %ws_key = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__begin3.sroa.0.022, i64 0, i32 3
+  %ws_key = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 40
   %call24 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %ws_key) #19
   br i1 %call24, label %cleanup.sink.split, label %if.else28
 
 if.else28:                                        ; preds = %if.else23
   %23 = load ptr, ptr %tcp_.i16, align 8
-  %delegate_.i.i17 = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %23, i64 0, i32 1
+  %delegate_.i.i17 = getelementptr inbounds i8, ptr %23, i64 248
   %24 = load ptr, ptr %delegate_.i.i17, align 8
   %vtable33 = load ptr, ptr %24, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 1
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 8
   %25 = load ptr, ptr %vfn34, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.022, ptr noundef nonnull align 8 dereferenceable(32) %ws_key) #19
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else28, %if.then18
-  %incdec.ptr.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__begin3.sroa.0.022, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 104
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
 cleanup.sink.split:                               ; preds = %if.else23, %lor.lhs.false, %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %vtable26 = load ptr, ptr %this, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 4
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 32
   %26 = load ptr, ptr %vfn27, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(448) %this) #19
   br label %cleanup
@@ -1523,12 +1494,12 @@ cleanup:                                          ; preds = %for.inc, %cleanup.s
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %cleanup ]
-  %host.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.04.i.i.i.i, i64 0, i32 4
+  %host.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i.i) #19
-  %ws_key.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.04.i.i.i.i, i64 0, i32 3
+  %ws_key.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ws_key.i.i.i.i.i.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 104
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.i.i.i.i, !llvm.loop !18
 
@@ -1547,7 +1518,7 @@ _ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_111HttpHandler5OnEofEv(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #0 align 2 {
 entry:
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   store ptr null, ptr %tcp_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1564,7 +1535,7 @@ _ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_111HttpHandler5WriteESt6vectorIcSaIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 {
 entry:
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
   %call2.i = tail call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si), !range !5
   ret void
@@ -1586,12 +1557,12 @@ entry:
   %call5.i.i.i.i.i = call noalias noundef nonnull dereferenceable(101) ptr @_Znwm(i64 noundef 101) #21
   store ptr %call5.i.i.i.i.i, ptr %ref.tmp, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 101
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(101) %call5.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(101) @__const._ZN4node9inspector12_GLOBAL__N_111HttpHandler15CancelHandshakeEv.HANDSHAKE_FAILED_RESPONSE, i64 101, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
   %call2.i = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_111HttpHandler25ThenCloseAndReportFailureEP10uv_write_si), !range !5
   %1 = load ptr, ptr %ref.tmp, align 8
@@ -1612,7 +1583,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 define internal void @_ZN4node9inspector12_GLOBAL__N_111HttpHandler8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(448) %this) #19
   ret void
@@ -1622,29 +1593,29 @@ entry:
 define internal void @_ZN4node9inspector12_GLOBAL__N_111HttpHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %path_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 7
+  %path_ = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #19
-  %headers_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 6
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 368
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %headers_, ptr noundef %0)
-  %current_header_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 5
+  %current_header_ = getelementptr inbounds i8, ptr %this, i64 336
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_header_) #19
-  %events_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 4
+  %events_ = getelementptr inbounds i8, ptr %this, i64 312
   %1 = load ptr, ptr %events_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 320
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %entry ]
-  %host.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.04.i.i.i.i, i64 0, i32 4
+  %host.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i.i) #19
-  %ws_key.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.04.i.i.i.i, i64 0, i32 3
+  %ws_key.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ws_key.i.i.i.i.i.i) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 104
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !18
 
@@ -1663,7 +1634,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4no
 
 _ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, %if.then.i.i.i
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %tcp_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN4node9inspector15ProtocolHandlerD2Ev.exit, label %if.then.i.i
@@ -1694,11 +1665,11 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #0 comdat align 2 {
 entry:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i) #19
   %call7 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
   %2 = extractvalue { ptr, ptr } %call7, 0
@@ -1714,7 +1685,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %call.i.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i) #19
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br label %cleanup.thread
@@ -1757,7 +1728,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then9, label %if.else
@@ -1774,12 +1745,11 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 while.body.i:                                     ; preds = %if.else, %while.body.i
   %__x.021.i = phi ptr [ %__x.0.i, %while.body.i ], [ %__x.019.i, %if.else ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i10) #19
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !19
@@ -1801,7 +1771,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i12, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 32
   %call.i.i4.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
   %cmp.i.i5.i = icmp slt i32 %call.i.i4.i, 0
   %spec.select.i = select i1 %cmp.i.i5.i, ptr null, ptr %__j.sroa.0.0.i
@@ -1809,7 +1779,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i13 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i13 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %call.i.i14 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13) #19
   %cmp.i.i15 = icmp slt i32 %call.i.i14, 0
   br i1 %cmp.i.i15, label %if.then18, label %if.else44
@@ -1822,131 +1792,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #23
-  %_M_storage.i.i.i19 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i19 = getelementptr inbounds i8, ptr %call.i, i64 32
   %call.i.i20 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
   %cmp.i.i21 = icmp slt i32 %call.i.i20, 0
   br i1 %cmp.i.i21, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i22 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i22 = getelementptr inbounds i8, ptr %call.i, i64 24
   %5 = load ptr, ptr %_M_right.i22, align 8
   %cmp35 = icmp eq ptr %5, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select120 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select118 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i27 = load ptr, ptr %_M_parent.i.i.i25, align 8
   %cmp.not20.i28 = icmp eq ptr %__x.019.i27, null
-  br i1 %cmp.not20.i28, label %if.then.i52, label %while.body.i29
+  br i1 %cmp.not20.i28, label %if.then.i51, label %while.body.i29
 
 while.body.i29:                                   ; preds = %if.else42, %while.body.i29
-  %__x.021.i30 = phi ptr [ %__x.0.i37, %while.body.i29 ], [ %__x.019.i27, %if.else42 ]
-  %_M_storage.i.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i30, i64 0, i32 1
+  %__x.021.i30 = phi ptr [ %__x.0.i36, %while.body.i29 ], [ %__x.019.i27, %if.else42 ]
+  %_M_storage.i.i.i31 = getelementptr inbounds i8, ptr %__x.021.i30, i64 32
   %call.i.i.i32 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i31) #19
   %cmp.i.i.i33 = icmp slt i32 %call.i.i.i32, 0
-  %_M_left.i.i34 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i30, i64 0, i32 2
-  %_M_right.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i30, i64 0, i32 3
-  %cond.in.i36 = select i1 %cmp.i.i.i33, ptr %_M_left.i.i34, ptr %_M_right.i.i35
-  %__x.0.i37 = load ptr, ptr %cond.in.i36, align 8
-  %cmp.not.i38 = icmp eq ptr %__x.0.i37, null
-  br i1 %cmp.not.i38, label %while.end.i39, label %while.body.i29, !llvm.loop !19
+  %cond.in.v.i34 = select i1 %cmp.i.i.i33, i64 16, i64 24
+  %cond.in.i35 = getelementptr inbounds i8, ptr %__x.021.i30, i64 %cond.in.v.i34
+  %__x.0.i36 = load ptr, ptr %cond.in.i35, align 8
+  %cmp.not.i37 = icmp eq ptr %__x.0.i36, null
+  br i1 %cmp.not.i37, label %while.end.i38, label %while.body.i29, !llvm.loop !19
 
-while.end.i39:                                    ; preds = %while.body.i29
-  br i1 %cmp.i.i.i33, label %if.then.i52, label %if.end12.i40
+while.end.i38:                                    ; preds = %while.body.i29
+  br i1 %cmp.i.i.i33, label %if.then.i51, label %if.end12.i39
 
-if.then.i52:                                      ; preds = %while.end.i39, %if.else42
-  %__y.0.lcssa25.i53 = phi ptr [ %__x.021.i30, %while.end.i39 ], [ %add.ptr.i, %if.else42 ]
+if.then.i51:                                      ; preds = %while.end.i38, %if.else42
+  %__y.0.lcssa25.i52 = phi ptr [ %__x.021.i30, %while.end.i38 ], [ %add.ptr.i, %if.else42 ]
   %6 = load ptr, ptr %_M_left.i, align 8
-  %cmp.i.i55 = icmp eq ptr %__y.0.lcssa25.i53, %6
-  br i1 %cmp.i.i55, label %return, label %if.else.i56
+  %cmp.i.i54 = icmp eq ptr %__y.0.lcssa25.i52, %6
+  br i1 %cmp.i.i54, label %return, label %if.else.i55
 
-if.else.i56:                                      ; preds = %if.then.i52
-  %call.i.i57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i53) #23
-  br label %if.end12.i40
+if.else.i55:                                      ; preds = %if.then.i51
+  %call.i.i56 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i52) #23
+  br label %if.end12.i39
 
-if.end12.i40:                                     ; preds = %if.else.i56, %while.end.i39
-  %__y.0.lcssa26.i41 = phi ptr [ %__y.0.lcssa25.i53, %if.else.i56 ], [ %__x.021.i30, %while.end.i39 ]
-  %__j.sroa.0.0.i42 = phi ptr [ %call.i.i57, %if.else.i56 ], [ %__x.021.i30, %while.end.i39 ]
-  %_M_storage.i.i.i.i43 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i42, i64 0, i32 1
-  %call.i.i4.i44 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
-  %cmp.i.i5.i45 = icmp slt i32 %call.i.i4.i44, 0
-  %spec.select.i46 = select i1 %cmp.i.i5.i45, ptr null, ptr %__j.sroa.0.0.i42
-  %spec.select18.i47 = select i1 %cmp.i.i5.i45, ptr %__y.0.lcssa26.i41, ptr null
+if.end12.i39:                                     ; preds = %if.else.i55, %while.end.i38
+  %__y.0.lcssa26.i40 = phi ptr [ %__y.0.lcssa25.i52, %if.else.i55 ], [ %__x.021.i30, %while.end.i38 ]
+  %__j.sroa.0.0.i41 = phi ptr [ %call.i.i56, %if.else.i55 ], [ %__x.021.i30, %while.end.i38 ]
+  %_M_storage.i.i.i.i42 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i41, i64 32
+  %call.i.i4.i43 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
+  %cmp.i.i5.i44 = icmp slt i32 %call.i.i4.i43, 0
+  %spec.select.i45 = select i1 %cmp.i.i5.i44, ptr null, ptr %__j.sroa.0.0.i41
+  %spec.select18.i46 = select i1 %cmp.i.i5.i44, ptr %__y.0.lcssa26.i40, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %call.i.i60 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
-  %cmp.i.i61 = icmp slt i32 %call.i.i60, 0
-  br i1 %cmp.i.i61, label %if.then50, label %return
+  %call.i.i59 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
+  %cmp.i.i60 = icmp slt i32 %call.i.i59, 0
+  br i1 %cmp.i.i60, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i62 = getelementptr inbounds i8, ptr %this, i64 32
-  %7 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %_M_right.i61, align 8
   %cmp53 = icmp eq ptr %7, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i65 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #23
-  %_M_storage.i.i.i66 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i65, i64 0, i32 1
-  %call.i.i67 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i66) #19
-  %cmp.i.i68 = icmp slt i32 %call.i.i67, 0
-  br i1 %cmp.i.i68, label %if.then64, label %if.else74
+  %call.i64 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #23
+  %_M_storage.i.i.i65 = getelementptr inbounds i8, ptr %call.i64, i64 32
+  %call.i.i66 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i65) #19
+  %cmp.i.i67 = icmp slt i32 %call.i.i66, 0
+  br i1 %cmp.i.i67, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i69 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %8 = load ptr, ptr %_M_right.i69, align 8
+  %_M_right.i68 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %8 = load ptr, ptr %_M_right.i68, align 8
   %cmp67 = icmp eq ptr %8, null
-  %spec.select121 = select i1 %cmp67, ptr null, ptr %call.i65
-  %spec.select122 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i65
+  %spec.select119 = select i1 %cmp67, ptr null, ptr %call.i64
+  %spec.select120 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i64
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i74 = load ptr, ptr %_M_parent.i.i.i72, align 8
-  %cmp.not20.i75 = icmp eq ptr %__x.019.i74, null
-  br i1 %cmp.not20.i75, label %if.then.i99, label %while.body.i76
+  %_M_parent.i.i.i71 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i73 = load ptr, ptr %_M_parent.i.i.i71, align 8
+  %cmp.not20.i74 = icmp eq ptr %__x.019.i73, null
+  br i1 %cmp.not20.i74, label %if.then.i97, label %while.body.i75
 
-while.body.i76:                                   ; preds = %if.else74, %while.body.i76
-  %__x.021.i77 = phi ptr [ %__x.0.i84, %while.body.i76 ], [ %__x.019.i74, %if.else74 ]
-  %_M_storage.i.i.i78 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i77, i64 0, i32 1
-  %call.i.i.i79 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i78) #19
-  %cmp.i.i.i80 = icmp slt i32 %call.i.i.i79, 0
-  %_M_left.i.i81 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i77, i64 0, i32 2
-  %_M_right.i.i82 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i77, i64 0, i32 3
-  %cond.in.i83 = select i1 %cmp.i.i.i80, ptr %_M_left.i.i81, ptr %_M_right.i.i82
-  %__x.0.i84 = load ptr, ptr %cond.in.i83, align 8
-  %cmp.not.i85 = icmp eq ptr %__x.0.i84, null
-  br i1 %cmp.not.i85, label %while.end.i86, label %while.body.i76, !llvm.loop !19
+while.body.i75:                                   ; preds = %if.else74, %while.body.i75
+  %__x.021.i76 = phi ptr [ %__x.0.i82, %while.body.i75 ], [ %__x.019.i73, %if.else74 ]
+  %_M_storage.i.i.i77 = getelementptr inbounds i8, ptr %__x.021.i76, i64 32
+  %call.i.i.i78 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i77) #19
+  %cmp.i.i.i79 = icmp slt i32 %call.i.i.i78, 0
+  %cond.in.v.i80 = select i1 %cmp.i.i.i79, i64 16, i64 24
+  %cond.in.i81 = getelementptr inbounds i8, ptr %__x.021.i76, i64 %cond.in.v.i80
+  %__x.0.i82 = load ptr, ptr %cond.in.i81, align 8
+  %cmp.not.i83 = icmp eq ptr %__x.0.i82, null
+  br i1 %cmp.not.i83, label %while.end.i84, label %while.body.i75, !llvm.loop !19
 
-while.end.i86:                                    ; preds = %while.body.i76
-  br i1 %cmp.i.i.i80, label %if.then.i99, label %if.end12.i87
+while.end.i84:                                    ; preds = %while.body.i75
+  br i1 %cmp.i.i.i79, label %if.then.i97, label %if.end12.i85
 
-if.then.i99:                                      ; preds = %while.end.i86, %if.else74
-  %__y.0.lcssa25.i100 = phi ptr [ %__x.021.i77, %while.end.i86 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i101 = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %_M_left.i3.i101, align 8
-  %cmp.i.i102 = icmp eq ptr %__y.0.lcssa25.i100, %9
-  br i1 %cmp.i.i102, label %return, label %if.else.i103
+if.then.i97:                                      ; preds = %while.end.i84, %if.else74
+  %__y.0.lcssa25.i98 = phi ptr [ %__x.021.i76, %while.end.i84 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i99 = getelementptr inbounds i8, ptr %this, i64 24
+  %9 = load ptr, ptr %_M_left.i3.i99, align 8
+  %cmp.i.i100 = icmp eq ptr %__y.0.lcssa25.i98, %9
+  br i1 %cmp.i.i100, label %return, label %if.else.i101
 
-if.else.i103:                                     ; preds = %if.then.i99
-  %call.i.i104 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i100) #23
-  br label %if.end12.i87
+if.else.i101:                                     ; preds = %if.then.i97
+  %call.i.i102 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i98) #23
+  br label %if.end12.i85
 
-if.end12.i87:                                     ; preds = %if.else.i103, %while.end.i86
-  %__y.0.lcssa26.i88 = phi ptr [ %__y.0.lcssa25.i100, %if.else.i103 ], [ %__x.021.i77, %while.end.i86 ]
-  %__j.sroa.0.0.i89 = phi ptr [ %call.i.i104, %if.else.i103 ], [ %__x.021.i77, %while.end.i86 ]
-  %_M_storage.i.i.i.i90 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i89, i64 0, i32 1
-  %call.i.i4.i91 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i90, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
-  %cmp.i.i5.i92 = icmp slt i32 %call.i.i4.i91, 0
-  %spec.select.i93 = select i1 %cmp.i.i5.i92, ptr null, ptr %__j.sroa.0.0.i89
-  %spec.select18.i94 = select i1 %cmp.i.i5.i92, ptr %__y.0.lcssa26.i88, ptr null
+if.end12.i85:                                     ; preds = %if.else.i101, %while.end.i84
+  %__y.0.lcssa26.i86 = phi ptr [ %__y.0.lcssa25.i98, %if.else.i101 ], [ %__x.021.i76, %while.end.i84 ]
+  %__j.sroa.0.0.i87 = phi ptr [ %call.i.i102, %if.else.i101 ], [ %__x.021.i76, %while.end.i84 ]
+  %_M_storage.i.i.i.i88 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i87, i64 32
+  %call.i.i4.i89 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i88, ptr noundef nonnull align 8 dereferenceable(32) %__k) #19
+  %cmp.i.i5.i90 = icmp slt i32 %call.i.i4.i89, 0
+  %spec.select.i91 = select i1 %cmp.i.i5.i90, ptr null, ptr %__j.sroa.0.0.i87
+  %spec.select18.i92 = select i1 %cmp.i.i5.i90, ptr %__y.0.lcssa26.i86, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i87, %if.then.i99, %if.end12.i40, %if.then.i52, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select121, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i52 ], [ %spec.select.i46, %if.end12.i40 ], [ null, %if.then.i99 ], [ %spec.select.i93, %if.end12.i87 ]
-  %retval.sroa.12.0 = phi ptr [ %2, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select120, %if.then32 ], [ %spec.select122, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i53, %if.then.i52 ], [ %spec.select18.i47, %if.end12.i40 ], [ %__y.0.lcssa25.i100, %if.then.i99 ], [ %spec.select18.i94, %if.end12.i87 ]
+return:                                           ; preds = %if.end12.i85, %if.then.i97, %if.end12.i39, %if.then.i51, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %if.then9
+  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select119, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i51 ], [ %spec.select.i45, %if.end12.i39 ], [ null, %if.then.i97 ], [ %spec.select.i91, %if.end12.i85 ]
+  %retval.sroa.12.0 = phi ptr [ %2, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select118, %if.then32 ], [ %spec.select120, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i52, %if.then.i51 ], [ %spec.select18.i46, %if.end12.i39 ], [ %__y.0.lcssa25.i98, %if.then.i97 ], [ %spec.select18.i92, %if.end12.i85 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1972,16 +1940,16 @@ entry:
   %value = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #19
-  %_M_left.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 376
   %cmp.i.not10 = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.i.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %header_found.012 = phi i8 [ %header_found.1, %for.inc ], [ 0, %entry ]
   %__begin3.sroa.0.011 = phi ptr [ %call.i6, %for.inc ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin3.sroa.0.011, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.011, i64 32
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #19
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %header) #19
   %call8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %header) #19
@@ -1995,7 +1963,7 @@ for.body.i:                                       ; preds = %for.body, %if.end.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #19
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i) #19
   %vtable.i.i.i.i = load ptr, ptr %call.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i, i8 noundef signext %1) #19
   %arrayidx1.i = getelementptr inbounds i8, ptr %call7, i64 %i.012.i
@@ -2003,7 +1971,7 @@ for.body.i:                                       ; preds = %for.body, %if.end.i
   %call.i6.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #19
   %call.i.i7.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i6.i) #19
   %vtable.i.i.i8.i = load ptr, ptr %call.i.i7.i, align 8
-  %vfn.i.i.i9.i = getelementptr inbounds ptr, ptr %vtable.i.i.i8.i, i64 4
+  %vfn.i.i.i9.i = getelementptr inbounds i8, ptr %vtable.i.i.i8.i, i64 32
   %4 = load ptr, ptr %vfn.i.i.i9.i, align 8
   %call.i.i.i10.i = call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i7.i, i8 noundef signext %3) #19
   %cmp4.not.i = icmp eq i8 %call.i.i.i.i, %call.i.i.i10.i
@@ -2031,7 +1999,7 @@ if.then10:                                        ; preds = %if.then
   br label %cleanup
 
 if.end:                                           ; preds = %if.then
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin3.sroa.0.011, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %__begin3.sroa.0.011, i64 64
   %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(32) %second) #19
   br label %for.inc
 
@@ -2081,13 +2049,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
@@ -2108,7 +2076,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %storage.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %1, i64 0, i32 1
+  %storage.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %storage.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_112WriteRequestD2Ev.exit, label %if.then.i.i.i.i
@@ -2148,9 +2116,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -2294,9 +2262,9 @@ if.end79:                                         ; preds = %if.then.i.i.i.i.i48
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandler17WaitForCloseReplyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %this) #3 align 2 {
 entry:
-  %OnCloseReceived = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 2
+  %OnCloseReceived = getelementptr inbounds i8, ptr %this, i64 40
   store i64 17, ptr %OnCloseReceived, align 8
-  %OnCloseReceived.repack1 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 2, i32 1
+  %OnCloseReceived.repack1 = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %OnCloseReceived.repack1, align 8
   ret void
 }
@@ -2304,9 +2272,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandler18CloseFrameReceivedEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) #0 align 2 {
 entry:
-  %OnCloseSent = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 1
+  %OnCloseSent = getelementptr inbounds i8, ptr %this, i64 24
   store i64 17, ptr %OnCloseSent, align 8
-  %OnCloseSent.repack1 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 1, i32 1
+  %OnCloseSent.repack1 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %OnCloseSent.repack1, align 8
   tail call fastcc void @_ZN4node9inspector12_GLOBAL__N_19WsHandler9SendCloseEv(ptr noundef nonnull align 8 dereferenceable(57) %this)
   ret void
@@ -2322,12 +2290,12 @@ entry:
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandler6OnDataEPSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef %data) unnamed_addr #0 align 2 {
 entry:
   %output.i = alloca %"class.std::vector", align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %data, i64 0, i32 1
-  %_M_finish.i37.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %output.i, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %output.i, i64 0, i32 2
-  %tcp_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
-  %OnCloseReceived.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 2
-  %.elt3.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 2, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data, i64 8
+  %_M_finish.i37.i.i = getelementptr inbounds i8, ptr %output.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %output.i, i64 16
+  %tcp_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %OnCloseReceived.i = getelementptr inbounds i8, ptr %this, i64 40
+  %.elt3.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4node9inspector12_GLOBAL__N_121remove_from_beginningEPSt6vectorIcSaIcEEm.exit, %entry
@@ -2525,7 +2493,7 @@ _ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_
 
 if.then.i:                                        ; preds = %_ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i, %if.end68.i.i, %land.lhs.true.i.i, %if.end35.i.i, %if.end.i.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %19 = load ptr, ptr %vfn.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(57) %this) #19
   br label %if.end12.i
@@ -2562,10 +2530,10 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
 
 if.then7.i:                                       ; preds = %if.else.i
   %25 = load ptr, ptr %tcp_.i.i, align 8
-  %delegate_.i.i.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %25, i64 0, i32 1
+  %delegate_.i.i.i = getelementptr inbounds i8, ptr %25, i64 248
   %26 = load ptr, ptr %delegate_.i.i.i, align 8
   %vtable9.i = load ptr, ptr %26, align 8
-  %vfn10.i = getelementptr inbounds ptr, ptr %vtable9.i, i64 2
+  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 16
   %27 = load ptr, ptr %vfn10.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(24) %output.i) #19
   br label %if.end12.i
@@ -2628,7 +2596,7 @@ do.end:                                           ; preds = %_ZN4node9inspector1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandler5OnEofEv(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   store ptr null, ptr %tcp_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2639,7 +2607,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEE5resetES4_.exit
 
 _ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEE5resetES4_.exit: ; preds = %entry, %if.then.i.i
-  %dispose_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 3
+  %dispose_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %dispose_, align 8
   %2 = and i8 %1, 1
   %tobool.not1 = icmp eq i8 %2, 0
@@ -2647,7 +2615,7 @@ _ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_
 
 delete.notnull:                                   ; preds = %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEE5resetES4_.exit
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(57) %this) #19
   br label %if.end
@@ -2664,15 +2632,15 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %extended_payload_length.i)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %output) #19
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %output, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %output, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #21
   store i8 -127, ptr %call5.i.i.i.i.i.i.i, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 1
   store ptr %call5.i.i.i.i.i.i.i, ptr %output, align 8, !alias.scope !26
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !26
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !26
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %data, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !26
   %1 = load ptr, ptr %data, align 8, !noalias !26
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2772,7 +2740,7 @@ _ZN4node9inspector12_GLOBAL__N_119encode_frame_hybi17ERKSt6vectorIcSaIcEE.exit: 
   %add.ptr.i.i183.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i182.i
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKcS1_EEEEvNS4_IPcS1_EET_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr %add.ptr.i.i183.i, ptr %5, ptr %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %extended_payload_length.i)
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %tcp_.i, align 8
   %call2.i = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %7, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si), !range !5
   %8 = load ptr, ptr %output, align 8
@@ -2797,20 +2765,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandler8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
-  %tcp_ = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %delete.notnull, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dispose_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %this, i64 0, i32 3
+  %dispose_ = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %dispose_, align 8
   tail call fastcc void @_ZN4node9inspector12_GLOBAL__N_19WsHandler9SendCloseEv(ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(57) %this) #19
   br label %if.end
@@ -2823,7 +2791,7 @@ if.end:                                           ; preds = %delete.notnull, %if
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandlerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4node9inspector15ProtocolHandlerD2Ev.exit, label %if.then.i.i
@@ -2841,7 +2809,7 @@ _ZN4node9inspector15ProtocolHandlerD2Ev.exit:     ; preds = %entry, %if.then.i.i
 define internal void @_ZN4node9inspector12_GLOBAL__N_19WsHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tcp_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_19WsHandlerD2Ev.exit, label %if.then.i.i.i
@@ -2871,12 +2839,12 @@ entry:
   %call5.i.i.i.i.i = call noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #21
   store ptr %call5.i.i.i.i.i, ptr %ref.tmp, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 2
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i16 136, ptr %call5.i.i.i.i.i, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
-  %tcp_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %this, i64 0, i32 2
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
   %call2.i = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_19WsHandler19OnCloseFrameWrittenEP10uv_write_si), !range !5
   %1 = load ptr, ptr %ref.tmp, align 8
@@ -2900,7 +2868,7 @@ entry:
   %sub.i.i.i = add i64 %0, -32
   %1 = inttoptr i64 %sub.i.i.i to ptr
   %2 = load ptr, ptr %1, align 8
-  %storage.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %1, i64 0, i32 1
+  %storage.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %storage.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_112WriteRequestD2Ev.exit, label %if.then.i.i.i.i
@@ -2912,9 +2880,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN4node9inspector12_GLOBAL__N_112WriteRequestD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %storage.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %1) #22
-  %OnCloseSent = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %2, i64 0, i32 1
+  %OnCloseSent = getelementptr inbounds i8, ptr %2, i64 24
   %.unpack = load i64, ptr %OnCloseSent, align 8
-  %.elt5 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %2, i64 0, i32 1, i32 1
+  %.elt5 = getelementptr inbounds i8, ptr %2, i64 32
   %.unpack6 = load i64, ptr %.elt5, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 %.unpack6
   %5 = and i64 %.unpack, 1
@@ -2948,9 +2916,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -3240,7 +3208,7 @@ entry:
   br i1 %isnull.i, label %_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %storage.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WriteRequest", ptr %1, i64 0, i32 1
+  %storage.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %storage.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_112WriteRequestD2Ev.exit.i, label %if.then.i.i.i.i.i
@@ -3255,7 +3223,7 @@ _ZN4node9inspector12_GLOBAL__N_112WriteRequestD2Ev.exit.i: ; preds = %if.then.i.
   br label %_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si.exit
 
 _ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si.exit: ; preds = %entry, %_ZN4node9inspector12_GLOBAL__N_112WriteRequestD2Ev.exit.i
-  %inspector_.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %2, i64 0, i32 1
+  %inspector_.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %inspector_.i, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
@@ -3264,7 +3232,7 @@ _ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si.exit: ; pr
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si.exit
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 5
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 40
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   br label %_ZN4node9inspector15InspectorSocket14SwitchProtocolEPNS0_15ProtocolHandlerE.exit
@@ -3286,9 +3254,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64

@@ -83,7 +83,7 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [2 x %struct.TESTDATA], ptr @b64_pem_data, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
-  %encoded5 = getelementptr inbounds [2 x %struct.TESTDATA], ptr @b64_pem_data, i64 0, i64 %idxprom, i32 1
+  %encoded5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %encoded5, align 8
   %call6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 43, ptr noundef nonnull @.str.7, ptr noundef %call1) #3
   %tobool.not = icmp eq i32 %call6, 0

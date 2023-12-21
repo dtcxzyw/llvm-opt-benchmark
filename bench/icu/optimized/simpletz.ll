@@ -6,15 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::SimpleTimeZone" = type { %"class.icu_75::BasicTimeZone", i8, i8, i8, i32, i32, i32, i8, i8, i8, i32, i32, i32, i8, i32, i32, i32, i8, ptr, ptr, ptr, ptr }
-%"class.icu_75::BasicTimeZone" = type { %"class.icu_75::TimeZone" }
-%"class.icu_75::TimeZone" = type { %"class.icu_75::UObject", %"class.icu_75::UnicodeString" }
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZNK6icu_7514SimpleTimeZone9getOffsetEdaRiS1_R10UErrorCode = comdat any
 
@@ -56,30 +52,30 @@ define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringE(ptr noundef non
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %startMonth, align 8
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   store i8 0, ptr %startDay, align 1
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   store i8 0, ptr %startDayOfWeek, align 2
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   store i32 0, ptr %endTime, align 4
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %startYear, align 8
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %this, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(15) %startTime, i8 0, i64 15, i1 false)
   store i32 %rawOffsetGMT, ptr %rawOffset, align 4
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %useDaylight, align 8
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode, align 4
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode, align 8
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   store i32 3600000, ptr %dstSavings, align 4
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   ret void
@@ -90,8 +86,8 @@ declare void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonn
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7514SimpleTimeZone20clearTransitionRulesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %initialRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule, i8 0, i64 32, i1 false)
   ret void
@@ -107,39 +103,39 @@ define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiR10UErro
 invoke.cont2:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
-  %rawOffset.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %savingsStartMonth, ptr %startMonth.i, align 8
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %savingsStartDay, ptr %startDay.i, align 1
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %savingsStartDayOfWeek, ptr %startDayOfWeek.i, align 2
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %savingsStartTime, ptr %startTime.i, align 4
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %startTimeMode.i, align 8
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %savingsEndMonth, ptr %endMonth.i, align 8
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %savingsEndDay, ptr %endDay.i, align 1
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %savingsEndDayOfWeek, ptr %endDayOfWeek.i, align 2
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %savingsEndTime, ptr %endTime.i, align 4
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 0, ptr %endTimeMode.i, align 4
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %this, i64 116
   store i32 3600000, ptr %dstSavings.i, align 4
-  %startYear.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %startYear.i, align 8
-  %startMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i, align 4
-  %endMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i, align 8
   tail call void @_ZN6icu_7514SimpleTimeZone11decodeRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -148,35 +144,35 @@ invoke.cont2:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7514SimpleTimeZone9constructEiaaaiNS0_8TimeModeEaaaiS1_iR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i32 noundef %savingsStartTimeMode, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsEndTimeMode, i32 noundef %savingsDST, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset, align 4
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %savingsStartMonth, ptr %startMonth, align 8
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %savingsStartDay, ptr %startDay, align 1
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %savingsStartDayOfWeek, ptr %startDayOfWeek, align 2
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %savingsStartTime, ptr %startTime, align 4
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %savingsStartTimeMode, ptr %startTimeMode, align 8
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %savingsEndMonth, ptr %endMonth, align 8
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %savingsEndDay, ptr %endDay, align 1
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %savingsEndDayOfWeek, ptr %endDayOfWeek, align 2
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %savingsEndTime, ptr %endTime, align 4
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %savingsEndTimeMode, ptr %endTimeMode, align 4
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   store i32 %savingsDST, ptr %dstSavings, align 4
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %startYear, align 8
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode, align 4
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode, align 8
   tail call void @_ZN6icu_7514SimpleTimeZone11decodeRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp = icmp eq i32 %savingsDST, 0
@@ -195,39 +191,39 @@ define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiiR10UErr
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
-  %rawOffset.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %savingsStartMonth, ptr %startMonth.i, align 8
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %savingsStartDay, ptr %startDay.i, align 1
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %savingsStartDayOfWeek, ptr %startDayOfWeek.i, align 2
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %savingsStartTime, ptr %startTime.i, align 4
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %startTimeMode.i, align 8
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %savingsEndMonth, ptr %endMonth.i, align 8
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %savingsEndDay, ptr %endDay.i, align 1
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %savingsEndDayOfWeek, ptr %endDayOfWeek.i, align 2
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %savingsEndTime, ptr %endTime.i, align 4
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 0, ptr %endTimeMode.i, align 4
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %this, i64 116
   store i32 %savingsDST, ptr %dstSavings.i, align 4
-  %startYear.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %startYear.i, align 8
-  %startMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i, align 4
-  %endMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i, align 8
   tail call void @_ZN6icu_7514SimpleTimeZone11decodeRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp.i = icmp eq i32 %savingsDST, 0
@@ -246,39 +242,39 @@ define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiNS0_8TimeMod
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
-  %rawOffset.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %savingsStartMonth, ptr %startMonth.i, align 8
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %savingsStartDay, ptr %startDay.i, align 1
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %savingsStartDayOfWeek, ptr %startDayOfWeek.i, align 2
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %savingsStartTime, ptr %startTime.i, align 4
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %savingsStartTimeMode, ptr %startTimeMode.i, align 8
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %savingsEndMonth, ptr %endMonth.i, align 8
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %savingsEndDay, ptr %endDay.i, align 1
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %savingsEndDayOfWeek, ptr %endDayOfWeek.i, align 2
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %savingsEndTime, ptr %endTime.i, align 4
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %savingsEndTimeMode, ptr %endTimeMode.i, align 4
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %this, i64 116
   store i32 %savingsDST, ptr %dstSavings.i, align 4
-  %startYear.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %startYear.i, align 8
-  %startMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i, align 4
-  %endMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i, align 8
   tail call void @_ZN6icu_7514SimpleTimeZone11decodeRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp.i = icmp eq i32 %savingsDST, 0
@@ -300,20 +296,20 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   %1 = load i8, ptr %startDay.i, align 1
   %cmp.not.i = icmp ne i8 %1, 0
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   %2 = load i8, ptr %endDay.i, align 1
   %cmp3.i = icmp ne i8 %2, 0
   %3 = select i1 %cmp.not.i, i1 %cmp3.i, i1 false
   %conv4.i = zext i1 %3 to i8
-  %useDaylight.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i, ptr %useDaylight.i, align 8
   br i1 %3, label %land.lhs.true.i, label %if.end10.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %this, i64 116
   %4 = load i32, ptr %dstSavings.i, align 4
   %cmp7.i = icmp eq i32 %4, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.then14.i
@@ -326,29 +322,29 @@ if.end10.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i, label %if.then14.i, label %_ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
 
 if.then14.i:                                      ; preds = %if.end10.i, %if.then8.i, %land.lhs.true.i
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i8, ptr %startMonth.i, align 8
   %or.cond.i = icmp ugt i8 %5, 11
   br i1 %or.cond.i, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then14.i
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %this, i64 76
   %6 = load i32, ptr %startTime.i, align 4
   %or.cond7.i = icmp ugt i32 %6, 86400000
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %this, i64 80
   %7 = load i32, ptr %startTimeMode.i, align 8
   %or.cond8.i = icmp ugt i32 %7, 2
   %or.cond10.i = select i1 %or.cond7.i, i1 true, i1 %or.cond8.i
   br i1 %or.cond10.i, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end21.i
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 74
   %8 = load i8, ptr %startDayOfWeek.i, align 2
   %cmp34.i = icmp eq i8 %8, 0
   br i1 %cmp34.i, label %if.end65.thread.i, label %if.else.i
 
 if.end65.thread.i:                                ; preds = %if.end32.i
-  %startMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i, align 4
   br label %if.else78.i
 
@@ -370,13 +366,13 @@ if.else51.i:                                      ; preds = %if.else41.i
 if.end59.i:                                       ; preds = %if.else51.i, %if.else41.i
   %.sink.i = phi i32 [ 4, %if.else51.i ], [ 3, %if.else41.i ]
   %9 = phi i8 [ %sub54.i, %if.else51.i ], [ %1, %if.else41.i ]
-  %startMode57.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %.sink.i, ptr %startMode57.i, align 4
   %cmp62.i = icmp sgt i8 %sub.i, 7
   br i1 %cmp62.i, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %if.else78.i
 
 if.end59.i.thread:                                ; preds = %if.else.i
-  %startMode57.i45 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57.i45 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %startMode57.i45, align 4
   %cmp62.i46 = icmp ugt i8 %8, 7
   %10 = add i8 %1, -6
@@ -410,7 +406,7 @@ if.end.i3:                                        ; preds = %_ZN6icu_7514SimpleT
   br i1 %14, label %land.lhs.true.i40, label %if.end10.i10
 
 land.lhs.true.i40:                                ; preds = %if.end.i3
-  %dstSavings.i41 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i41 = getelementptr inbounds i8, ptr %this, i64 116
   %15 = load i32, ptr %dstSavings.i41, align 4
   %cmp7.i42 = icmp eq i32 %15, 0
   br i1 %cmp7.i42, label %if.then8.i43, label %if.then14.i11
@@ -424,29 +420,29 @@ if.end10.i10:                                     ; preds = %if.end.i3
   br i1 %cmp13.not.i, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit, label %if.then14.i11
 
 if.then14.i11:                                    ; preds = %if.end10.i10, %if.then8.i43, %land.lhs.true.i40
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load i8, ptr %endMonth.i, align 8
   %or.cond.i12 = icmp ugt i8 %16, 11
   br i1 %or.cond.i12, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %if.end21.i13
 
 if.end21.i13:                                     ; preds = %if.then14.i11
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %this, i64 92
   %17 = load i32, ptr %endTime.i, align 4
   %or.cond7.i14 = icmp ugt i32 %17, 86400000
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %this, i64 84
   %18 = load i32, ptr %endTimeMode.i, align 4
   %or.cond8.i15 = icmp ugt i32 %18, 2
   %or.cond10.i16 = select i1 %or.cond7.i14, i1 true, i1 %or.cond8.i15
   br i1 %or.cond10.i16, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %if.end32.i17
 
 if.end32.i17:                                     ; preds = %if.end21.i13
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 90
   %19 = load i8, ptr %endDayOfWeek.i, align 2
   %cmp34.i18 = icmp eq i8 %19, 0
   br i1 %cmp34.i18, label %if.end65.thread.i39, label %if.else.i19
 
 if.end65.thread.i39:                              ; preds = %if.end32.i17
-  %endMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i, align 8
   br label %if.else78.i30
 
@@ -468,13 +464,13 @@ if.else51.i24:                                    ; preds = %if.else41.i21
 if.end59.i26:                                     ; preds = %if.else51.i24, %if.else41.i21
   %.sink.i27 = phi i32 [ 4, %if.else51.i24 ], [ 3, %if.else41.i21 ]
   %20 = phi i8 [ %sub54.i25, %if.else51.i24 ], [ %2, %if.else41.i21 ]
-  %endMode57.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %.sink.i27, ptr %endMode57.i, align 8
   %cmp62.i28 = icmp sgt i8 %sub.i22, 7
   br i1 %cmp62.i28, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %if.else78.i30
 
 if.end59.i26.thread:                              ; preds = %if.else.i19
-  %endMode57.i49 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57.i49 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 2, ptr %endMode57.i49, align 8
   %cmp62.i2850 = icmp ugt i8 %19, 7
   %21 = add i8 %2, -6
@@ -506,59 +502,59 @@ _ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit: ; preds = %_ZN6icu
 define void @_ZN6icu_7514SimpleTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %initialRule.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %entry
-  %firstTransition.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 19
+  %firstTransition.i = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load ptr, ptr %firstTransition.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end11.i, label %delete.notnull7.i
 
 delete.notnull7.i:                                ; preds = %if.end.i
   %vtable8.i = load ptr, ptr %2, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 1
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 8
   %3 = load ptr, ptr %vfn9.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %delete.notnull7.i, %if.end.i
-  %stdRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 20
+  %stdRule.i = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %stdRule.i, align 8
   %cmp12.not.i = icmp eq ptr %4, null
   br i1 %cmp12.not.i, label %if.end20.i, label %delete.notnull16.i
 
 delete.notnull16.i:                               ; preds = %if.end11.i
   %vtable17.i = load ptr, ptr %4, align 8
-  %vfn18.i = getelementptr inbounds ptr, ptr %vtable17.i, i64 1
+  %vfn18.i = getelementptr inbounds i8, ptr %vtable17.i, i64 8
   %5 = load ptr, ptr %vfn18.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %delete.notnull16.i, %if.end11.i
-  %dstRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 21
+  %dstRule.i = getelementptr inbounds i8, ptr %this, i64 152
   %6 = load ptr, ptr %dstRule.i, align 8
   %cmp21.not.i = icmp eq ptr %6, null
   br i1 %cmp21.not.i, label %_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit, label %delete.notnull25.i
 
 delete.notnull25.i:                               ; preds = %if.end20.i
   %vtable26.i = load ptr, ptr %6, align 8
-  %vfn27.i = getelementptr inbounds ptr, ptr %vtable26.i, i64 1
+  %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 8
   %7 = load ptr, ptr %vfn27.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
   br label %_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit
 
 _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i, %delete.notnull25.i
-  %transitionRulesInitialized.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   tail call void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #16
@@ -568,59 +564,59 @@ _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %initialRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
+  %initialRule = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %initialRule, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
-  %firstTransition = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 19
+  %firstTransition = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load ptr, ptr %firstTransition, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end11, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %if.end
   %vtable8 = load ptr, ptr %2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 1
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 8
   %3 = load ptr, ptr %vfn9, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   br label %if.end11
 
 if.end11:                                         ; preds = %delete.notnull7, %if.end
-  %stdRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 20
+  %stdRule = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %stdRule, align 8
   %cmp12.not = icmp eq ptr %4, null
   br i1 %cmp12.not, label %if.end20, label %delete.notnull16
 
 delete.notnull16:                                 ; preds = %if.end11
   %vtable17 = load ptr, ptr %4, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 1
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 8
   %5 = load ptr, ptr %vfn18, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
   br label %if.end20
 
 if.end20:                                         ; preds = %delete.notnull16, %if.end11
-  %dstRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 21
+  %dstRule = getelementptr inbounds i8, ptr %this, i64 152
   %6 = load ptr, ptr %dstRule, align 8
   %cmp21.not = icmp eq ptr %6, null
   br i1 %cmp21.not, label %if.end29, label %delete.notnull25
 
 delete.notnull25:                                 ; preds = %if.end20
   %vtable26 = load ptr, ptr %6, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 1
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 8
   %7 = load ptr, ptr %vfn27, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
   br label %if.end29
 
 if.end29:                                         ; preds = %delete.notnull25, %if.end20
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule, i8 0, i64 32, i1 false)
   ret void
@@ -650,72 +646,72 @@ if.then.i:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
-  %rawOffset.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 12
+  %rawOffset.i = getelementptr inbounds i8, ptr %source, i64 100
   %0 = load i32, ptr %rawOffset.i, align 4
-  %rawOffset2.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset2.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %0, ptr %rawOffset2.i, align 4
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %source, i64 72
   %1 = load i8, ptr %startMonth.i, align 8
-  %startMonth3.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth3.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %1, ptr %startMonth3.i, align 8
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %source, i64 73
   %2 = load i8, ptr %startDay.i, align 1
-  %startDay4.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay4.i = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %2, ptr %startDay4.i, align 1
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %source, i64 74
   %3 = load i8, ptr %startDayOfWeek.i, align 2
-  %startDayOfWeek5.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek5.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %3, ptr %startDayOfWeek5.i, align 2
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %source, i64 76
   %4 = load i32, ptr %startTime.i, align 4
-  %startTime6.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime6.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %4, ptr %startTime6.i, align 4
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %source, i64 80
   %5 = load i32, ptr %startTimeMode.i, align 8
-  %startTimeMode7.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode7.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %5, ptr %startTimeMode7.i, align 8
-  %startMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 14
+  %startMode.i = getelementptr inbounds i8, ptr %source, i64 108
   %6 = load i32, ptr %startMode.i, align 4
-  %startMode8.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode8.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %6, ptr %startMode8.i, align 4
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %source, i64 88
   %7 = load i8, ptr %endMonth.i, align 8
-  %endMonth9.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth9.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %7, ptr %endMonth9.i, align 8
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %source, i64 89
   %8 = load i8, ptr %endDay.i, align 1
-  %endDay10.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay10.i = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %8, ptr %endDay10.i, align 1
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %source, i64 90
   %9 = load i8, ptr %endDayOfWeek.i, align 2
-  %endDayOfWeek11.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek11.i = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %9, ptr %endDayOfWeek11.i, align 2
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %source, i64 92
   %10 = load i32, ptr %endTime.i, align 4
-  %endTime12.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime12.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %10, ptr %endTime12.i, align 4
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %source, i64 84
   %11 = load i32, ptr %endTimeMode.i, align 4
-  %endTimeMode13.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode13.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %11, ptr %endTimeMode13.i, align 4
-  %endMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 15
+  %endMode.i = getelementptr inbounds i8, ptr %source, i64 112
   %12 = load i32, ptr %endMode.i, align 8
-  %endMode14.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode14.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %12, ptr %endMode14.i, align 8
-  %startYear.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 11
+  %startYear.i = getelementptr inbounds i8, ptr %source, i64 96
   %13 = load i32, ptr %startYear.i, align 8
-  %startYear15.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear15.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %13, ptr %startYear15.i, align 8
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %source, i64 116
   %14 = load i32, ptr %dstSavings.i, align 4
-  %dstSavings16.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings16.i = getelementptr inbounds i8, ptr %this, i64 116
   store i32 %14, ptr %dstSavings16.i, align 4
-  %useDaylight.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %source, i64 0, i32 13
+  %useDaylight.i = getelementptr inbounds i8, ptr %source, i64 104
   %15 = load i8, ptr %useDaylight.i, align 8
-  %useDaylight17.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight17.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %15, ptr %useDaylight17.i, align 8
-  %initialRule.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i.i, i8 0, i64 32, i1 false)
   br label %invoke.cont
@@ -740,72 +736,72 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN6icu_758TimeZoneaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %right)
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %right, i64 100
   %0 = load i32, ptr %rawOffset, align 4
-  %rawOffset2 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset2 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %0, ptr %rawOffset2, align 4
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %right, i64 72
   %1 = load i8, ptr %startMonth, align 8
-  %startMonth3 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth3 = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %1, ptr %startMonth3, align 8
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %right, i64 73
   %2 = load i8, ptr %startDay, align 1
-  %startDay4 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay4 = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %2, ptr %startDay4, align 1
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %right, i64 74
   %3 = load i8, ptr %startDayOfWeek, align 2
-  %startDayOfWeek5 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek5 = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %3, ptr %startDayOfWeek5, align 2
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %right, i64 76
   %4 = load i32, ptr %startTime, align 4
-  %startTime6 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime6 = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %4, ptr %startTime6, align 4
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %right, i64 80
   %5 = load i32, ptr %startTimeMode, align 8
-  %startTimeMode7 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode7 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %5, ptr %startTimeMode7, align 8
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %right, i64 108
   %6 = load i32, ptr %startMode, align 4
-  %startMode8 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode8 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %6, ptr %startMode8, align 4
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %right, i64 88
   %7 = load i8, ptr %endMonth, align 8
-  %endMonth9 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth9 = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %7, ptr %endMonth9, align 8
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %right, i64 89
   %8 = load i8, ptr %endDay, align 1
-  %endDay10 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay10 = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %8, ptr %endDay10, align 1
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %right, i64 90
   %9 = load i8, ptr %endDayOfWeek, align 2
-  %endDayOfWeek11 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek11 = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %9, ptr %endDayOfWeek11, align 2
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %right, i64 92
   %10 = load i32, ptr %endTime, align 4
-  %endTime12 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime12 = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %10, ptr %endTime12, align 4
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %right, i64 84
   %11 = load i32, ptr %endTimeMode, align 4
-  %endTimeMode13 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode13 = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %11, ptr %endTimeMode13, align 4
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %right, i64 112
   %12 = load i32, ptr %endMode, align 8
-  %endMode14 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode14 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %12, ptr %endMode14, align 8
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %right, i64 96
   %13 = load i32, ptr %startYear, align 8
-  %startYear15 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear15 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %13, ptr %startYear15, align 8
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %right, i64 116
   %14 = load i32, ptr %dstSavings, align 4
-  %dstSavings16 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings16 = getelementptr inbounds i8, ptr %this, i64 116
   store i32 %14, ptr %dstSavings16, align 4
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %right, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %right, i64 104
   %15 = load i8, ptr %useDaylight, align 8
-  %useDaylight17 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight17 = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %15, ptr %useDaylight17, align 8
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   br label %if.end
@@ -824,14 +820,14 @@ entry:
 
 typeid.end:                                       ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %that, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i, align 8
-  %__name2.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i, align 8
   %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
@@ -856,7 +852,7 @@ land.lhs.true:                                    ; preds = %typeid.end, %_ZNKSt
 
 land.rhs:                                         ; preds = %land.lhs.true
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable4, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable4, i64 88
   %8 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef signext i8 %8(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(72) %that)
   %tobool = icmp ne i8 %call5, 0
@@ -896,9 +892,9 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7514SimpleTimeZone12setStartYearEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, i32 noundef %year) local_unnamed_addr #7 align 2 {
 entry:
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %year, ptr %startYear, align 8
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized, align 8
   ret void
 }
@@ -907,17 +903,17 @@ entry:
 define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %month, i32 noundef %dayOfWeekInMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv = trunc i32 %month to i8
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %conv, ptr %startMonth, align 8
   %conv2 = trunc i32 %dayOfWeekInMonth to i8
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %conv2, ptr %startDay, align 1
   %conv3 = trunc i32 %dayOfWeek to i8
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %conv3, ptr %startDayOfWeek, align 2
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %time, ptr %startTime, align 4
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %mode, ptr %startTimeMode, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -925,17 +921,17 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp.not.i = icmp ne i8 %conv2, 0
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   %1 = load i8, ptr %endDay.i, align 1
   %cmp3.i = icmp ne i8 %1, 0
   %2 = select i1 %cmp.not.i, i1 %cmp3.i, i1 false
   %conv4.i = zext i1 %2 to i8
-  %useDaylight.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i, ptr %useDaylight.i, align 8
   br i1 %2, label %land.lhs.true.i, label %if.end10.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %this, i64 116
   %3 = load i32, ptr %dstSavings.i, align 4
   %cmp7.i = icmp eq i32 %3, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.then14.i
@@ -962,7 +958,7 @@ if.end32.i:                                       ; preds = %if.end21.i
   br i1 %cmp34.i, label %if.end65.thread.i, label %if.else.i
 
 if.end65.thread.i:                                ; preds = %if.end32.i
-  %startMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i, align 4
   br label %if.else78.i
 
@@ -984,13 +980,13 @@ if.else51.i:                                      ; preds = %if.else41.i
 if.end59.i:                                       ; preds = %if.else51.i, %if.else41.i
   %.sink.i = phi i32 [ 4, %if.else51.i ], [ 3, %if.else41.i ]
   %4 = phi i8 [ %sub54.i, %if.else51.i ], [ %conv2, %if.else41.i ]
-  %startMode57.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %.sink.i, ptr %startMode57.i, align 4
   %cmp62.i = icmp sgt i8 %sub.i, 7
   br i1 %cmp62.i, label %if.end91.sink.split.i, label %if.else78.i
 
 if.end59.i.thread:                                ; preds = %if.else.i
-  %startMode57.i2 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57.i2 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %startMode57.i2, align 4
   %cmp62.i3 = icmp ugt i8 %conv3, 7
   %5 = add i8 %conv2, -6
@@ -1016,7 +1012,7 @@ if.end91.sink.split.i:                            ; preds = %if.end59.i.thread, 
   br label %_ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
 
 _ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode.exit: ; preds = %if.end59.i.thread, %entry, %if.end10.i, %lor.lhs.false82.i, %if.end91.sink.split.i
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized, align 8
   ret void
 }
@@ -1029,20 +1025,20 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end91
 
 if.end:                                           ; preds = %entry
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   %1 = load i8, ptr %startDay, align 1
   %cmp.not = icmp ne i8 %1, 0
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   %2 = load i8, ptr %endDay, align 1
   %cmp3 = icmp ne i8 %2, 0
   %3 = select i1 %cmp.not, i1 %cmp3, i1 false
   %conv4 = zext i1 %3 to i8
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4, ptr %useDaylight, align 8
   br i1 %3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   %4 = load i32, ptr %dstSavings, align 4
   %cmp7 = icmp eq i32 %4, 0
   br i1 %cmp7, label %if.then8, label %if.then14
@@ -1055,29 +1051,29 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp.not, label %if.then14, label %if.end91
 
 if.then14:                                        ; preds = %land.lhs.true, %if.then8, %if.end10
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i8, ptr %startMonth, align 8
   %or.cond = icmp ugt i8 %5, 11
   br i1 %or.cond, label %if.end91.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %if.then14
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
   %6 = load i32, ptr %startTime, align 4
   %or.cond7 = icmp ugt i32 %6, 86400000
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %this, i64 80
   %7 = load i32, ptr %startTimeMode, align 8
   %or.cond8 = icmp ugt i32 %7, 2
   %or.cond10 = select i1 %or.cond7, i1 true, i1 %or.cond8
   br i1 %or.cond10, label %if.end91.sink.split, label %if.end32
 
 if.end32:                                         ; preds = %if.end21
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   %8 = load i8, ptr %startDayOfWeek, align 2
   %cmp34 = icmp eq i8 %8, 0
   br i1 %cmp34, label %if.end65.thread, label %if.else
 
 if.end65.thread:                                  ; preds = %if.end32
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode, align 4
   br label %if.else78
 
@@ -1100,7 +1096,7 @@ if.end59:                                         ; preds = %if.else41, %if.else
   %.sink = phi i32 [ 4, %if.else51 ], [ 2, %if.else ], [ 3, %if.else41 ]
   %9 = phi i8 [ %sub54, %if.else51 ], [ %1, %if.else ], [ %1, %if.else41 ]
   %10 = phi i8 [ %sub, %if.else51 ], [ %8, %if.else ], [ %sub, %if.else41 ]
-  %startMode57 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %.sink, ptr %startMode57, align 4
   %cmp62 = icmp sgt i8 %10, 7
   br i1 %cmp62, label %if.end91.sink.split, label %if.end65
@@ -1137,16 +1133,16 @@ if.end91:                                         ; preds = %if.end91.sink.split
 define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv.i = trunc i32 %month to i8
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %conv.i, ptr %startMonth.i, align 8
   %conv2.i = trunc i32 %dayOfMonth to i8
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %conv2.i, ptr %startDay.i, align 1
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 0, ptr %startDayOfWeek.i, align 2
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %time, ptr %startTime.i, align 4
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %mode, ptr %startTimeMode.i, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -1154,17 +1150,17 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %cmp.not.i.i = icmp ne i8 %conv2.i, 0
-  %endDay.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i.i = getelementptr inbounds i8, ptr %this, i64 89
   %1 = load i8, ptr %endDay.i.i, align 1
   %cmp3.i.i = icmp ne i8 %1, 0
   %2 = select i1 %cmp.not.i.i, i1 %cmp3.i.i, i1 false
   %conv4.i.i = zext i1 %2 to i8
-  %useDaylight.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i.i, ptr %useDaylight.i.i, align 8
   br i1 %2, label %land.lhs.true.i.i, label %if.end10.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %dstSavings.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i.i = getelementptr inbounds i8, ptr %this, i64 116
   %3 = load i32, ptr %dstSavings.i.i, align 4
   %cmp7.i.i = icmp eq i32 %3, 0
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.then14.i.i
@@ -1187,7 +1183,7 @@ if.end21.i.i:                                     ; preds = %if.then14.i.i
   br i1 %or.cond10.i.i, label %if.end91.sink.split.i.i, label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %if.end21.i.i
-  %startMode.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i.i, align 4
   %cmp81.i.i = icmp slt i8 %conv2.i, 1
   br i1 %cmp81.i.i, label %if.end91.sink.split.i.i, label %lor.lhs.false82.i.i
@@ -1205,7 +1201,7 @@ if.end91.sink.split.i.i:                          ; preds = %lor.lhs.false82.i.i
   br label %_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
 _ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ; preds = %entry, %if.end10.i.i, %lor.lhs.false82.i.i, %if.end91.sink.split.i.i
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   ret void
 }
@@ -1217,18 +1213,18 @@ entry:
   %sub = sub nsw i32 0, %dayOfMonth
   %cond = select i1 %tobool.not, i32 %sub, i32 %dayOfMonth
   %conv.i = trunc i32 %month to i8
-  %startMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %conv.i, ptr %startMonth.i, align 8
   %conv2.i = trunc i32 %cond to i8
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %conv2.i, ptr %startDay.i, align 1
   %0 = trunc i32 %dayOfWeek to i8
   %conv3.i = sub i8 0, %0
-  %startDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %conv3.i, ptr %startDayOfWeek.i, align 2
-  %startTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %time, ptr %startTime.i, align 4
-  %startTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %mode, ptr %startTimeMode.i, align 8
   %1 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %1, 1
@@ -1236,17 +1232,17 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %cmp.not.i.i = icmp ne i8 %conv2.i, 0
-  %endDay.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i.i = getelementptr inbounds i8, ptr %this, i64 89
   %2 = load i8, ptr %endDay.i.i, align 1
   %cmp3.i.i = icmp ne i8 %2, 0
   %3 = select i1 %cmp.not.i.i, i1 %cmp3.i.i, i1 false
   %conv4.i.i = zext i1 %3 to i8
-  %useDaylight.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i.i, ptr %useDaylight.i.i, align 8
   br i1 %3, label %land.lhs.true.i.i, label %if.end10.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %dstSavings.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i.i = getelementptr inbounds i8, ptr %this, i64 116
   %4 = load i32, ptr %dstSavings.i.i, align 4
   %cmp7.i.i = icmp eq i32 %4, 0
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.then14.i.i
@@ -1273,7 +1269,7 @@ if.end32.i.i:                                     ; preds = %if.end21.i.i
   br i1 %cmp34.i.i, label %if.end65.thread.i.i, label %if.else.i.i
 
 if.end65.thread.i.i:                              ; preds = %if.end32.i.i
-  %startMode.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 1, ptr %startMode.i.i, align 4
   br label %if.else78.i.i
 
@@ -1294,13 +1290,13 @@ if.else51.i.i:                                    ; preds = %if.else41.i.i
 if.end59.i.i:                                     ; preds = %if.else51.i.i, %if.else41.i.i
   %.sink.i.i = phi i32 [ 4, %if.else51.i.i ], [ 3, %if.else41.i.i ]
   %5 = phi i8 [ %sub54.i.i, %if.else51.i.i ], [ %conv2.i, %if.else41.i.i ]
-  %startMode57.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %.sink.i.i, ptr %startMode57.i.i, align 4
   %cmp62.i.i = icmp sgt i8 %0, 7
   br i1 %cmp62.i.i, label %if.end91.sink.split.i.i, label %if.else78.i.i
 
 if.end59.i.thread.i:                              ; preds = %if.else.i.i
-  %startMode57.i2.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode57.i2.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %startMode57.i2.i, align 4
   %cmp62.i3.i = icmp ugt i8 %conv3.i, 7
   %6 = add i8 %conv2.i, -6
@@ -1326,7 +1322,7 @@ if.end91.sink.split.i.i:                          ; preds = %lor.lhs.false82.i.i
   br label %_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
 _ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ; preds = %entry, %if.end10.i.i, %if.end59.i.thread.i, %lor.lhs.false82.i.i, %if.end91.sink.split.i.i
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   ret void
 }
@@ -1335,35 +1331,35 @@ _ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ;
 define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %month, i32 noundef %dayOfWeekInMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv = trunc i32 %month to i8
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %conv, ptr %endMonth, align 8
   %conv2 = trunc i32 %dayOfWeekInMonth to i8
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %conv2, ptr %endDay, align 1
   %conv3 = trunc i32 %dayOfWeek to i8
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %conv3, ptr %endDayOfWeek, align 2
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %time, ptr %endTime, align 4
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %mode, ptr %endTimeMode, align 4
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %startDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i = getelementptr inbounds i8, ptr %this, i64 73
   %1 = load i8, ptr %startDay.i, align 1
   %cmp.not.i = icmp ne i8 %1, 0
   %cmp3.i = icmp ne i8 %conv2, 0
   %2 = and i1 %cmp3.i, %cmp.not.i
   %conv4.i = zext i1 %2 to i8
-  %useDaylight.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i, ptr %useDaylight.i, align 8
   br i1 %2, label %land.lhs.true.i, label %if.end10.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %dstSavings.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i = getelementptr inbounds i8, ptr %this, i64 116
   %3 = load i32, ptr %dstSavings.i, align 4
   %cmp7.i = icmp eq i32 %3, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.then14.i
@@ -1391,7 +1387,7 @@ if.end32.i:                                       ; preds = %if.end21.i
   br i1 %cmp34.i, label %if.end65.thread.i, label %if.else.i
 
 if.end65.thread.i:                                ; preds = %if.end32.i
-  %endMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i, align 8
   br label %if.else78.i
 
@@ -1413,13 +1409,13 @@ if.else51.i:                                      ; preds = %if.else41.i
 if.end59.i:                                       ; preds = %if.else51.i, %if.else41.i
   %.sink.i = phi i32 [ 4, %if.else51.i ], [ 3, %if.else41.i ]
   %4 = phi i8 [ %sub54.i, %if.else51.i ], [ %conv2, %if.else41.i ]
-  %endMode57.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %.sink.i, ptr %endMode57.i, align 8
   %cmp62.i = icmp sgt i8 %sub.i, 7
   br i1 %cmp62.i, label %if.end91.sink.split.i, label %if.else78.i
 
 if.end59.i.thread:                                ; preds = %if.else.i
-  %endMode57.i2 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57.i2 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 2, ptr %endMode57.i2, align 8
   %cmp62.i3 = icmp ugt i8 %conv3, 7
   %5 = add i8 %conv2, -6
@@ -1445,7 +1441,7 @@ if.end91.sink.split.i:                            ; preds = %if.end59.i.thread, 
   br label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
 
 _ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit: ; preds = %if.end59.i.thread, %entry, %if.end10.i, %lor.lhs.false82.i, %if.end91.sink.split.i
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized, align 8
   ret void
 }
@@ -1458,20 +1454,20 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end91
 
 if.end:                                           ; preds = %entry
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   %1 = load i8, ptr %startDay, align 1
   %cmp.not = icmp ne i8 %1, 0
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   %2 = load i8, ptr %endDay, align 1
   %cmp3 = icmp ne i8 %2, 0
   %3 = select i1 %cmp.not, i1 %cmp3, i1 false
   %conv4 = zext i1 %3 to i8
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4, ptr %useDaylight, align 8
   br i1 %3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   %4 = load i32, ptr %dstSavings, align 4
   %cmp7 = icmp eq i32 %4, 0
   br i1 %cmp7, label %if.then8, label %if.then14
@@ -1485,29 +1481,29 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp13.not, label %if.end91, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true, %if.then8, %if.end10
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i8, ptr %endMonth, align 8
   %or.cond = icmp ugt i8 %5, 11
   br i1 %or.cond, label %if.end91.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %if.then14
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   %6 = load i32, ptr %endTime, align 4
   %or.cond7 = icmp ugt i32 %6, 86400000
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %this, i64 84
   %7 = load i32, ptr %endTimeMode, align 4
   %or.cond8 = icmp ugt i32 %7, 2
   %or.cond10 = select i1 %or.cond7, i1 true, i1 %or.cond8
   br i1 %or.cond10, label %if.end91.sink.split, label %if.end32
 
 if.end32:                                         ; preds = %if.end21
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %this, i64 90
   %8 = load i8, ptr %endDayOfWeek, align 2
   %cmp34 = icmp eq i8 %8, 0
   br i1 %cmp34, label %if.end65.thread, label %if.else
 
 if.end65.thread:                                  ; preds = %if.end32
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode, align 8
   br label %if.else78
 
@@ -1530,7 +1526,7 @@ if.end59:                                         ; preds = %if.else41, %if.else
   %.sink = phi i32 [ 4, %if.else51 ], [ 2, %if.else ], [ 3, %if.else41 ]
   %9 = phi i8 [ %sub54, %if.else51 ], [ %2, %if.else ], [ %2, %if.else41 ]
   %10 = phi i8 [ %sub, %if.else51 ], [ %8, %if.else ], [ %sub, %if.else41 ]
-  %endMode57 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %.sink, ptr %endMode57, align 8
   %cmp62 = icmp sgt i8 %10, 7
   br i1 %cmp62, label %if.end91.sink.split, label %if.end65
@@ -1567,34 +1563,34 @@ if.end91:                                         ; preds = %if.end91.sink.split
 define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv.i = trunc i32 %month to i8
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %conv.i, ptr %endMonth.i, align 8
   %conv2.i = trunc i32 %dayOfMonth to i8
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %conv2.i, ptr %endDay.i, align 1
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 90
   store i8 0, ptr %endDayOfWeek.i, align 2
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %time, ptr %endTime.i, align 4
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %mode, ptr %endTimeMode.i, align 4
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %startDay.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i.i = getelementptr inbounds i8, ptr %this, i64 73
   %1 = load i8, ptr %startDay.i.i, align 1
   %cmp.not.i.i = icmp ne i8 %1, 0
   %cmp3.i.i = icmp ne i8 %conv2.i, 0
   %2 = and i1 %cmp3.i.i, %cmp.not.i.i
   %conv4.i.i = zext i1 %2 to i8
-  %useDaylight.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i.i, ptr %useDaylight.i.i, align 8
   br i1 %2, label %land.lhs.true.i.i, label %if.end10.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %dstSavings.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i.i = getelementptr inbounds i8, ptr %this, i64 116
   %3 = load i32, ptr %dstSavings.i.i, align 4
   %cmp7.i.i = icmp eq i32 %3, 0
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.then14.i.i
@@ -1618,7 +1614,7 @@ if.end21.i.i:                                     ; preds = %if.then14.i.i
   br i1 %or.cond10.i.i, label %if.end91.sink.split.i.i, label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %if.end21.i.i
-  %endMode.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i.i, align 8
   %cmp81.i.i = icmp slt i8 %conv2.i, 1
   br i1 %cmp81.i.i, label %if.end91.sink.split.i.i, label %lor.lhs.false82.i.i
@@ -1636,7 +1632,7 @@ if.end91.sink.split.i.i:                          ; preds = %lor.lhs.false82.i.i
   br label %_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
 _ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ; preds = %entry, %if.end10.i.i, %lor.lhs.false82.i.i, %if.end91.sink.split.i.i
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   ret void
 }
@@ -1648,36 +1644,36 @@ entry:
   %sub = sub nsw i32 0, %dayOfMonth
   %cond = select i1 %tobool.not, i32 %sub, i32 %dayOfMonth
   %conv.i = trunc i32 %month to i8
-  %endMonth.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %conv.i, ptr %endMonth.i, align 8
   %conv2.i = trunc i32 %cond to i8
-  %endDay.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay.i = getelementptr inbounds i8, ptr %this, i64 89
   store i8 %conv2.i, ptr %endDay.i, align 1
   %0 = trunc i32 %dayOfWeek to i8
   %conv3.i = sub i8 0, %0
-  %endDayOfWeek.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 90
   store i8 %conv3.i, ptr %endDayOfWeek.i, align 2
-  %endTime.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %time, ptr %endTime.i, align 4
-  %endTimeMode.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %mode, ptr %endTimeMode.i, align 4
   %1 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %1, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %startDay.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay.i.i = getelementptr inbounds i8, ptr %this, i64 73
   %2 = load i8, ptr %startDay.i.i, align 1
   %cmp.not.i.i = icmp ne i8 %2, 0
   %cmp3.i.i = icmp ne i8 %conv2.i, 0
   %3 = and i1 %cmp3.i.i, %cmp.not.i.i
   %conv4.i.i = zext i1 %3 to i8
-  %useDaylight.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv4.i.i, ptr %useDaylight.i.i, align 8
   br i1 %3, label %land.lhs.true.i.i, label %if.end10.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %dstSavings.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings.i.i = getelementptr inbounds i8, ptr %this, i64 116
   %4 = load i32, ptr %dstSavings.i.i, align 4
   %cmp7.i.i = icmp eq i32 %4, 0
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.then14.i.i
@@ -1705,7 +1701,7 @@ if.end32.i.i:                                     ; preds = %if.end21.i.i
   br i1 %cmp34.i.i, label %if.end65.thread.i.i, label %if.else.i.i
 
 if.end65.thread.i.i:                              ; preds = %if.end32.i.i
-  %endMode.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %endMode.i.i, align 8
   br label %if.else78.i.i
 
@@ -1726,13 +1722,13 @@ if.else51.i.i:                                    ; preds = %if.else41.i.i
 if.end59.i.i:                                     ; preds = %if.else51.i.i, %if.else41.i.i
   %.sink.i.i = phi i32 [ 4, %if.else51.i.i ], [ 3, %if.else41.i.i ]
   %5 = phi i8 [ %sub54.i.i, %if.else51.i.i ], [ %conv2.i, %if.else41.i.i ]
-  %endMode57.i.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %.sink.i.i, ptr %endMode57.i.i, align 8
   %cmp62.i.i = icmp sgt i8 %0, 7
   br i1 %cmp62.i.i, label %if.end91.sink.split.i.i, label %if.else78.i.i
 
 if.end59.i.thread.i:                              ; preds = %if.else.i.i
-  %endMode57.i2.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode57.i2.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 2, ptr %endMode57.i2.i, align 8
   %cmp62.i3.i = icmp ugt i8 %conv3.i, 7
   %6 = add i8 %conv2.i, -6
@@ -1758,7 +1754,7 @@ if.end91.sink.split.i.i:                          ; preds = %lor.lhs.false82.i.i
   br label %_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
 
 _ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ; preds = %entry, %if.end10.i.i, %if.end59.i.thread.i, %lor.lhs.false82.i.i, %if.end91.sink.split.i.i
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
   ret void
 }
@@ -1797,7 +1793,7 @@ _ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv = sext i8 %1 to i32
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %conv, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1870,7 +1866,7 @@ _ZN6icu_755Grego19previousMonthLengthEii.exit:    ; preds = %_ZN6icu_755Grego11m
   %conv13 = phi i32 [ %conv1418, %_ZN6icu_755Grego11monthLengthEii.exit.i ], [ %conv, %_ZN6icu_755Grego11monthLengthEii.exit ], [ %conv11, %_ZN6icu_755Grego11monthLengthEii.exit.thread ], [ %conv26, %_ZN6icu_755Grego11monthLengthEii.exit.thread23 ]
   %cond.i = phi i32 [ %6, %_ZN6icu_755Grego11monthLengthEii.exit.i ], [ 31, %_ZN6icu_755Grego11monthLengthEii.exit ], [ 31, %_ZN6icu_755Grego11monthLengthEii.exit.thread ], [ 31, %_ZN6icu_755Grego11monthLengthEii.exit.thread23 ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %7 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %conv13, i32 noundef %cond.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1916,42 +1912,42 @@ if.then29:                                        ; preds = %if.end, %lor.lhs.fa
   br label %return
 
 if.end30:                                         ; preds = %lor.lhs.false9
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %this, i64 100
   %9 = load i32, ptr %rawOffset, align 4
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i8, ptr %useDaylight, align 8
   %tobool31.not = icmp eq i8 %10, 0
   br i1 %tobool31.not, label %return, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %if.end30
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i32, ptr %startYear, align 8
   %cmp33 = icmp sgt i32 %11, %year
   %or.cond12 = or i1 %cmp, %cmp33
   br i1 %or.cond12, label %return, label %if.end38
 
 if.end38:                                         ; preds = %lor.lhs.false32
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load i8, ptr %startMonth, align 8
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %this, i64 88
   %13 = load i8, ptr %endMonth, align 8
   %cmp41 = icmp sgt i8 %12, %13
   %conv43 = trunc i32 %month to i8
   %conv44 = trunc i32 %monthLength to i8
   %conv45 = trunc i32 %prevMonthLength to i8
   %conv46 = trunc i32 %day to i8
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %this, i64 80
   %14 = load i32, ptr %startTimeMode, align 8
   %cmp47 = icmp eq i32 %14, 2
   %sub = sub nsw i32 0, %9
   %spec.select = select i1 %cmp47, i32 %sub, i32 0
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %this, i64 108
   %15 = load i32, ptr %startMode, align 4
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   %16 = load i8, ptr %startDayOfWeek, align 2
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   %17 = load i8, ptr %startDay, align 1
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
   %18 = load i32, ptr %startTime, align 4
   %call50 = tail call noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %conv43, i8 noundef signext %conv44, i8 noundef signext %conv45, i8 noundef signext %conv46, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %spec.select, i32 noundef %15, i8 noundef signext %12, i8 noundef signext %16, i8 noundef signext %17, i32 noundef %18), !range !4
   %cmp52 = icmp sgt i32 %call50, -1
@@ -1959,7 +1955,7 @@ if.end38:                                         ; preds = %lor.lhs.false32
   br i1 %19, label %if.then55, label %if.end75
 
 if.then55:                                        ; preds = %if.end38
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %this, i64 84
   %20 = load i32, ptr %endTimeMode, align 4
   switch i32 %20, label %cond.end71 [
     i32 0, label %cond.true61
@@ -1967,7 +1963,7 @@ if.then55:                                        ; preds = %if.end38
   ]
 
 cond.true61:                                      ; preds = %if.then55
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   %21 = load i32, ptr %dstSavings, align 4
   br label %cond.end71
 
@@ -1976,13 +1972,13 @@ cond.true65:                                      ; preds = %if.then55
 
 cond.end71:                                       ; preds = %if.then55, %cond.true65, %cond.true61
   %cond72 = phi i32 [ %21, %cond.true61 ], [ %sub, %cond.true65 ], [ 0, %if.then55 ]
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %this, i64 112
   %22 = load i32, ptr %endMode, align 8
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %this, i64 90
   %23 = load i8, ptr %endDayOfWeek, align 2
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   %24 = load i8, ptr %endDay, align 1
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   %25 = load i32, ptr %endTime, align 4
   %call74 = tail call noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %conv43, i8 noundef signext %conv44, i8 noundef signext %conv45, i8 noundef signext %conv46, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %cond72, i32 noundef %22, i8 noundef signext %13, i8 noundef signext %23, i8 noundef signext %24, i32 noundef %25), !range !4
   %26 = icmp slt i32 %call74, 0
@@ -1999,7 +1995,7 @@ if.end75:                                         ; preds = %cond.end71, %if.end
   br i1 %or.cond46, label %if.then87, label %return
 
 if.then87:                                        ; preds = %if.end75
-  %dstSavings88 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings88 = getelementptr inbounds i8, ptr %this, i64 116
   %27 = load i32, ptr %dstSavings88, align 4
   %add = add nsw i32 %27, %9
   br label %return
@@ -2185,7 +2181,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(160) %this)
   store i32 %call2, ptr %rawOffsetGMT, align 4
@@ -2222,7 +2218,7 @@ _ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6
   %8 = load i8, ptr %arrayidx.i, align 1
   %conv5 = sext i8 %8 to i32
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 5
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 40
   %9 = load ptr, ptr %vfn7, align 8
   %call8 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 noundef zeroext 1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %conv, i32 noundef %6, i32 noundef %conv5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %rawOffsetGMT, align 4
@@ -2262,7 +2258,7 @@ land.lhs.true31:                                  ; preds = %if.else
 
 if.then43:                                        ; preds = %land.lhs.true31, %if.else, %land.lhs.true, %if.then13
   %vtable20 = load ptr, ptr %this, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 13
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 104
   %12 = load ptr, ptr %vfn21, align 8
   %call22 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(160) %this)
   %conv23.pn = sitofp i32 %call22 to double
@@ -2300,7 +2296,7 @@ _ZN6icu_755Grego11monthLengthEii.exit31:          ; preds = %land.rhs.i.i25, %_Z
   %19 = load i8, ptr %arrayidx.i24, align 1
   %conv47 = sext i8 %19 to i32
   %vtable48 = load ptr, ptr %this, align 8
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 5
+  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 40
   %20 = load ptr, ptr %vfn49, align 8
   %call50 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 noundef zeroext 1, i32 noundef %13, i32 noundef %14, i32 noundef %15, i8 noundef zeroext %conv45, i32 noundef %17, i32 noundef %conv47, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %21 = load i32, ptr %rawOffsetGMT, align 4
@@ -2317,7 +2313,7 @@ declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEdiPi(double noundef, i32 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7514SimpleTimeZone12getRawOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #10 align 2 {
 entry:
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %rawOffset, align 4
   ret i32 %0
 }
@@ -2325,9 +2321,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7514SimpleTimeZone12setRawOffsetEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, i32 noundef %offsetMillis) unnamed_addr #7 align 2 {
 entry:
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %offsetMillis, ptr %rawOffset, align 4
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized, align 8
   ret void
 }
@@ -2343,12 +2339,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   store i32 %millisSavedDuringDST, ptr %dstSavings, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized, align 8
   ret void
 }
@@ -2356,7 +2352,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7514SimpleTimeZone13getDSTSavingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #10 align 2 {
 entry:
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load i32, ptr %dstSavings, align 4
   ret i32 %0
 }
@@ -2364,7 +2360,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7514SimpleTimeZone15useDaylightTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #10 align 2 {
 entry:
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %useDaylight, align 8
   ret i8 %0
 }
@@ -2398,11 +2394,11 @@ lpad:                                             ; preds = %new.notnull
 if.end4:                                          ; preds = %new.notnull
   tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call2, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %2 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(618) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable6 = load ptr, ptr %call2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 1
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 8
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(654) %call2) #16
   br label %return
@@ -2422,14 +2418,14 @@ entry:
 
 typeid.end:                                       ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %other, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
@@ -2449,17 +2445,17 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %if.end.i.i
   br i1 %cmp7.i.i.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %typeid.end, %_ZNKSt9type_infoneERKS_.exit
-  %rawOffset = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 12
+  %rawOffset = getelementptr inbounds i8, ptr %this, i64 100
   %8 = load i32, ptr %rawOffset, align 4
-  %rawOffset5 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 12
+  %rawOffset5 = getelementptr inbounds i8, ptr %other, i64 100
   %9 = load i32, ptr %rawOffset5, align 4
   %cmp6 = icmp eq i32 %8, %9
   br i1 %cmp6, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end4
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i8, ptr %useDaylight, align 8
-  %useDaylight7 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 13
+  %useDaylight7 = getelementptr inbounds i8, ptr %other, i64 104
   %11 = load i8, ptr %useDaylight7, align 8
   %cmp9 = icmp eq i8 %10, %11
   br i1 %cmp9, label %land.rhs, label %return
@@ -2469,113 +2465,113 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool.not, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %dstSavings = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 16
+  %dstSavings = getelementptr inbounds i8, ptr %this, i64 116
   %12 = load i32, ptr %dstSavings, align 4
-  %dstSavings11 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 16
+  %dstSavings11 = getelementptr inbounds i8, ptr %other, i64 116
   %13 = load i32, ptr %dstSavings11, align 4
   %cmp12 = icmp eq i32 %12, %13
   br i1 %cmp12, label %land.lhs.true13, label %return
 
 land.lhs.true13:                                  ; preds = %lor.rhs
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %this, i64 108
   %14 = load i32, ptr %startMode, align 4
-  %startMode14 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 14
+  %startMode14 = getelementptr inbounds i8, ptr %other, i64 108
   %15 = load i32, ptr %startMode14, align 4
   %cmp15 = icmp eq i32 %14, %15
   br i1 %cmp15, label %land.lhs.true16, label %return
 
 land.lhs.true16:                                  ; preds = %land.lhs.true13
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load i8, ptr %startMonth, align 8
-  %startMonth18 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 1
+  %startMonth18 = getelementptr inbounds i8, ptr %other, i64 72
   %17 = load i8, ptr %startMonth18, align 8
   %cmp20 = icmp eq i8 %16, %17
   br i1 %cmp20, label %land.lhs.true21, label %return
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   %18 = load i8, ptr %startDay, align 1
-  %startDay23 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 2
+  %startDay23 = getelementptr inbounds i8, ptr %other, i64 73
   %19 = load i8, ptr %startDay23, align 1
   %cmp25 = icmp eq i8 %18, %19
   br i1 %cmp25, label %land.lhs.true26, label %return
 
 land.lhs.true26:                                  ; preds = %land.lhs.true21
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   %20 = load i8, ptr %startDayOfWeek, align 2
-  %startDayOfWeek28 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 3
+  %startDayOfWeek28 = getelementptr inbounds i8, ptr %other, i64 74
   %21 = load i8, ptr %startDayOfWeek28, align 2
   %cmp30 = icmp eq i8 %20, %21
   br i1 %cmp30, label %land.lhs.true31, label %return
 
 land.lhs.true31:                                  ; preds = %land.lhs.true26
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
   %22 = load i32, ptr %startTime, align 4
-  %startTime32 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 4
+  %startTime32 = getelementptr inbounds i8, ptr %other, i64 76
   %23 = load i32, ptr %startTime32, align 4
   %cmp33 = icmp eq i32 %22, %23
   br i1 %cmp33, label %land.lhs.true34, label %return
 
 land.lhs.true34:                                  ; preds = %land.lhs.true31
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %this, i64 80
   %24 = load i32, ptr %startTimeMode, align 8
-  %startTimeMode35 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 5
+  %startTimeMode35 = getelementptr inbounds i8, ptr %other, i64 80
   %25 = load i32, ptr %startTimeMode35, align 8
   %cmp36 = icmp eq i32 %24, %25
   br i1 %cmp36, label %land.lhs.true37, label %return
 
 land.lhs.true37:                                  ; preds = %land.lhs.true34
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %this, i64 112
   %26 = load i32, ptr %endMode, align 8
-  %endMode38 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 15
+  %endMode38 = getelementptr inbounds i8, ptr %other, i64 112
   %27 = load i32, ptr %endMode38, align 8
   %cmp39 = icmp eq i32 %26, %27
   br i1 %cmp39, label %land.lhs.true40, label %return
 
 land.lhs.true40:                                  ; preds = %land.lhs.true37
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %this, i64 88
   %28 = load i8, ptr %endMonth, align 8
-  %endMonth42 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 7
+  %endMonth42 = getelementptr inbounds i8, ptr %other, i64 88
   %29 = load i8, ptr %endMonth42, align 8
   %cmp44 = icmp eq i8 %28, %29
   br i1 %cmp44, label %land.lhs.true45, label %return
 
 land.lhs.true45:                                  ; preds = %land.lhs.true40
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   %30 = load i8, ptr %endDay, align 1
-  %endDay47 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 8
+  %endDay47 = getelementptr inbounds i8, ptr %other, i64 89
   %31 = load i8, ptr %endDay47, align 1
   %cmp49 = icmp eq i8 %30, %31
   br i1 %cmp49, label %land.lhs.true50, label %return
 
 land.lhs.true50:                                  ; preds = %land.lhs.true45
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %this, i64 90
   %32 = load i8, ptr %endDayOfWeek, align 2
-  %endDayOfWeek52 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 9
+  %endDayOfWeek52 = getelementptr inbounds i8, ptr %other, i64 90
   %33 = load i8, ptr %endDayOfWeek52, align 2
   %cmp54 = icmp eq i8 %32, %33
   br i1 %cmp54, label %land.lhs.true55, label %return
 
 land.lhs.true55:                                  ; preds = %land.lhs.true50
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   %34 = load i32, ptr %endTime, align 4
-  %endTime56 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 10
+  %endTime56 = getelementptr inbounds i8, ptr %other, i64 92
   %35 = load i32, ptr %endTime56, align 4
   %cmp57 = icmp eq i32 %34, %35
   br i1 %cmp57, label %land.lhs.true58, label %return
 
 land.lhs.true58:                                  ; preds = %land.lhs.true55
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %this, i64 84
   %36 = load i32, ptr %endTimeMode, align 4
-  %endTimeMode59 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 6
+  %endTimeMode59 = getelementptr inbounds i8, ptr %other, i64 84
   %37 = load i32, ptr %endTimeMode59, align 4
   %cmp60 = icmp eq i32 %36, %37
   br i1 %cmp60, label %land.rhs61, label %return
 
 land.rhs61:                                       ; preds = %land.lhs.true58
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %this, i64 96
   %38 = load i32, ptr %startYear, align 8
-  %startYear62 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %other, i64 0, i32 11
+  %startYear62 = getelementptr inbounds i8, ptr %other, i64 96
   %39 = load i32, ptr %startYear62, align 8
   %cmp63 = icmp eq i32 %38, %39
   %40 = zext i1 %cmp63 to i8
@@ -2592,7 +2588,7 @@ entry:
   %status = alloca i32, align 4
   %stdDate = alloca double, align 8
   %dstDate = alloca double, align 8
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %useDaylight, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end.i
@@ -2600,7 +2596,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   store i32 0, ptr %status, align 4
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCodeE5gLock)
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %transitionRulesInitialized.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit, label %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit.thread
@@ -2617,7 +2613,7 @@ _ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br i1 %2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit.thread, %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit
-  %firstTransition = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 19
+  %firstTransition = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load ptr, ptr %firstTransition, align 8
   %call5 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %cmp = fcmp ogt double %call5, %base
@@ -2635,15 +2631,15 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %lor.lhs.false
-  %stdRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 20
+  %stdRule = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load ptr, ptr %stdRule, align 8
-  %dstRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 21
+  %dstRule = getelementptr inbounds i8, ptr %this, i64 152
   %6 = load ptr, ptr %dstRule, align 8
   %call12 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
   %7 = load ptr, ptr %dstRule, align 8
   %call14 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %7)
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %8 = load ptr, ptr %vfn, align 8
   %call15 = call noundef signext i8 %8(ptr noundef nonnull align 8 dereferenceable(96) %5, double noundef %base, i32 noundef %call12, i32 noundef %call14, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %stdDate)
   %9 = load ptr, ptr %dstRule, align 8
@@ -2652,7 +2648,7 @@ if.end11:                                         ; preds = %if.then8, %lor.lhs.
   %11 = load ptr, ptr %stdRule, align 8
   %call20 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %11)
   %vtable21 = load ptr, ptr %9, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 9
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 72
   %12 = load ptr, ptr %vfn22, align 8
   %call23 = call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(96) %9, double noundef %base, i32 noundef %call18, i32 noundef %call20, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %dstDate)
   %tobool24.not = icmp eq i8 %call15, 0
@@ -2704,7 +2700,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCodeE5gLock)
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %transitionRulesInitialized, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -2741,7 +2737,7 @@ entry:
   %status = alloca i32, align 4
   %stdDate = alloca double, align 8
   %dstDate = alloca double, align 8
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %useDaylight, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end.i
@@ -2749,7 +2745,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   store i32 0, ptr %status, align 4
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCodeE5gLock)
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %transitionRulesInitialized.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit, label %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit.thread
@@ -2766,7 +2762,7 @@ _ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br i1 %2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit.thread, %_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit
-  %firstTransition = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 19
+  %firstTransition = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load ptr, ptr %firstTransition, align 8
   %call5 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %cmp = fcmp ogt double %call5, %base
@@ -2779,15 +2775,15 @@ lor.lhs.false:                                    ; preds = %if.end4
   br i1 %or.cond, label %return, label %if.end9
 
 if.end9:                                          ; preds = %lor.lhs.false
-  %stdRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 20
+  %stdRule = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %stdRule, align 8
-  %dstRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 21
+  %dstRule = getelementptr inbounds i8, ptr %this, i64 152
   %5 = load ptr, ptr %dstRule, align 8
   %call10 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
   %6 = load ptr, ptr %dstRule, align 8
   %call12 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %7 = load ptr, ptr %vfn, align 8
   %call13 = call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(96) %4, double noundef %base, i32 noundef %call10, i32 noundef %call12, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %stdDate)
   %8 = load ptr, ptr %dstRule, align 8
@@ -2796,7 +2792,7 @@ if.end9:                                          ; preds = %lor.lhs.false
   %10 = load ptr, ptr %stdRule, align 8
   %call18 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %10)
   %vtable19 = load ptr, ptr %8, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 10
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 80
   %11 = load ptr, ptr %vfn20, align 8
   %call21 = call noundef signext i8 %11(ptr noundef nonnull align 8 dereferenceable(96) %8, double noundef %base, i32 noundef %call16, i32 noundef %call18, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %dstDate)
   %tobool22.not = icmp eq i8 %call13, 0
@@ -2860,59 +2856,59 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  %transitionRulesInitialized = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %transitionRulesInitialized, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end4, label %cleanup.cont
 
 if.end4:                                          ; preds = %if.end
-  %initialRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
+  %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load ptr, ptr %initialRule.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end4
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %2) #16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.end4
-  %firstTransition.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 19
+  %firstTransition.i = getelementptr inbounds i8, ptr %this, i64 136
   %4 = load ptr, ptr %firstTransition.i, align 8
   %cmp3.not.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i, label %if.end11.i, label %delete.notnull7.i
 
 delete.notnull7.i:                                ; preds = %if.end.i
   %vtable8.i = load ptr, ptr %4, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 1
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 8
   %5 = load ptr, ptr %vfn9.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %delete.notnull7.i, %if.end.i
-  %stdRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 20
+  %stdRule.i = getelementptr inbounds i8, ptr %this, i64 144
   %6 = load ptr, ptr %stdRule.i, align 8
   %cmp12.not.i = icmp eq ptr %6, null
   br i1 %cmp12.not.i, label %if.end20.i, label %delete.notnull16.i
 
 delete.notnull16.i:                               ; preds = %if.end11.i
   %vtable17.i = load ptr, ptr %6, align 8
-  %vfn18.i = getelementptr inbounds ptr, ptr %vtable17.i, i64 1
+  %vfn18.i = getelementptr inbounds i8, ptr %vtable17.i, i64 8
   %7 = load ptr, ptr %vfn18.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %delete.notnull16.i, %if.end11.i
-  %dstRule.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 21
+  %dstRule.i = getelementptr inbounds i8, ptr %this, i64 152
   %8 = load ptr, ptr %dstRule.i, align 8
   %cmp21.not.i = icmp eq ptr %8, null
   br i1 %cmp21.not.i, label %_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit, label %delete.notnull25.i
 
 delete.notnull25.i:                               ; preds = %if.end20.i
   %vtable26.i = load ptr, ptr %8, align 8
-  %vfn27.i = getelementptr inbounds ptr, ptr %vtable26.i, i64 1
+  %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 8
   %9 = load ptr, ptr %vfn27.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(96) %8) #16
   br label %_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit
@@ -2921,26 +2917,26 @@ _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i,
   store i8 0, ptr %transitionRulesInitialized, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tzid, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tzid, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %tzid, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fID.i = getelementptr inbounds %"class.icu_75::TimeZone", ptr %this, i64 0, i32 1
+  %fID.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i36 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %tzid, ptr noundef nonnull align 8 dereferenceable(64) %fID.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i8, ptr %useDaylight, align 8
   %tobool6.not = icmp eq i8 %10, 0
   br i1 %tobool6.not, label %if.else389, label %if.then7
 
 if.then7:                                         ; preds = %invoke.cont
-  %startTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 5
+  %startTimeMode = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load i32, ptr %startTimeMode, align 8
   %cmp = icmp eq i32 %11, 1
   %cmp9 = icmp eq i32 %11, 2
   %cond = select i1 %cmp9, i32 2, i32 0
   %cond10 = select i1 %cmp, i32 1, i32 %cond
-  %startMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 14
+  %startMode = getelementptr inbounds i8, ptr %this, i64 108
   %12 = load i32, ptr %startMode, align 4
   switch i32 %12, label %sw.default [
     i32 1, label %sw.bb
@@ -2960,13 +2956,13 @@ sw.bb:                                            ; preds = %if.then7
   br i1 %new.isnull, label %if.then72, label %new.notnull
 
 new.notnull:                                      ; preds = %sw.bb
-  %startMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth = getelementptr inbounds i8, ptr %this, i64 72
   %14 = load i8, ptr %startMonth, align 8
   %conv = sext i8 %14 to i32
-  %startDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay = getelementptr inbounds i8, ptr %this, i64 73
   %15 = load i8, ptr %startDay, align 1
   %conv12 = sext i8 %15 to i32
-  %startTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime = getelementptr inbounds i8, ptr %this, i64 76
   %16 = load i32, ptr %startTime, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call11, i32 noundef %conv, i32 noundef %conv12, i32 noundef %16, i32 noundef %cond10)
           to label %if.end73 unwind label %lpad13
@@ -2983,16 +2979,16 @@ sw.bb15:                                          ; preds = %if.then7
   br i1 %new.isnull17, label %if.then72, label %new.notnull18
 
 new.notnull18:                                    ; preds = %sw.bb15
-  %startMonth21 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth21 = getelementptr inbounds i8, ptr %this, i64 72
   %18 = load i8, ptr %startMonth21, align 8
   %conv22 = sext i8 %18 to i32
-  %startDay23 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay23 = getelementptr inbounds i8, ptr %this, i64 73
   %19 = load i8, ptr %startDay23, align 1
   %conv24 = sext i8 %19 to i32
-  %startDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek = getelementptr inbounds i8, ptr %this, i64 74
   %20 = load i8, ptr %startDayOfWeek, align 2
   %conv25 = sext i8 %20 to i32
-  %startTime26 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime26 = getelementptr inbounds i8, ptr %this, i64 76
   %21 = load i32, ptr %startTime26, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call16, i32 noundef %conv22, i32 noundef %conv24, i32 noundef %conv25, i32 noundef %21, i32 noundef %cond10)
           to label %if.end73 unwind label %lpad27
@@ -3009,16 +3005,16 @@ sw.bb33:                                          ; preds = %if.then7
   br i1 %new.isnull35, label %if.then72, label %new.notnull36
 
 new.notnull36:                                    ; preds = %sw.bb33
-  %startMonth39 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth39 = getelementptr inbounds i8, ptr %this, i64 72
   %23 = load i8, ptr %startMonth39, align 8
   %conv40 = sext i8 %23 to i32
-  %startDay41 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay41 = getelementptr inbounds i8, ptr %this, i64 73
   %24 = load i8, ptr %startDay41, align 1
   %conv42 = sext i8 %24 to i32
-  %startDayOfWeek43 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek43 = getelementptr inbounds i8, ptr %this, i64 74
   %25 = load i8, ptr %startDayOfWeek43, align 2
   %conv44 = sext i8 %25 to i32
-  %startTime45 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime45 = getelementptr inbounds i8, ptr %this, i64 76
   %26 = load i32, ptr %startTime45, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiaiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call34, i32 noundef %conv40, i32 noundef %conv42, i32 noundef %conv44, i8 noundef signext 1, i32 noundef %26, i32 noundef %cond10)
           to label %if.end73 unwind label %lpad46
@@ -3035,16 +3031,16 @@ sw.bb52:                                          ; preds = %if.then7
   br i1 %new.isnull54, label %if.then72, label %new.notnull55
 
 new.notnull55:                                    ; preds = %sw.bb52
-  %startMonth58 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 1
+  %startMonth58 = getelementptr inbounds i8, ptr %this, i64 72
   %28 = load i8, ptr %startMonth58, align 8
   %conv59 = sext i8 %28 to i32
-  %startDay60 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 2
+  %startDay60 = getelementptr inbounds i8, ptr %this, i64 73
   %29 = load i8, ptr %startDay60, align 1
   %conv61 = sext i8 %29 to i32
-  %startDayOfWeek62 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 3
+  %startDayOfWeek62 = getelementptr inbounds i8, ptr %this, i64 74
   %30 = load i8, ptr %startDayOfWeek62, align 2
   %conv63 = sext i8 %30 to i32
-  %startTime64 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 4
+  %startTime64 = getelementptr inbounds i8, ptr %this, i64 76
   %31 = load i32, ptr %startTime64, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiaiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call53, i32 noundef %conv59, i32 noundef %conv61, i32 noundef %conv63, i8 noundef signext 0, i32 noundef %31, i32 noundef %cond10)
           to label %if.end73 unwind label %lpad65
@@ -3083,20 +3079,20 @@ invoke.cont81:                                    ; preds = %new.notnull76
 
 invoke.cont84:                                    ; preds = %invoke.cont81
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %33 = load ptr, ptr %vfn, align 8
   %call88 = invoke noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont84
   %vtable89 = load ptr, ptr %this, align 8
-  %vfn90 = getelementptr inbounds ptr, ptr %vtable89, i64 13
+  %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 104
   %34 = load ptr, ptr %vfn90, align 8
   %call92 = invoke noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont91 unwind label %lpad86
 
 invoke.cont91:                                    ; preds = %invoke.cont87
-  %startYear = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 11
+  %startYear = getelementptr inbounds i8, ptr %this, i64 96
   %35 = load i32, ptr %startYear, align 8
   %36 = load i32, ptr @_ZN6icu_7518AnnualTimeZoneRule8MAX_YEARE, align 4
   invoke void @_ZN6icu_7518AnnualTimeZoneRuleC1ERKNS_13UnicodeStringEiiPNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96) %call74, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %call88, i32 noundef %call92, ptr noundef nonnull %dtRule.0, i32 noundef %35, i32 noundef %36)
@@ -3143,26 +3139,26 @@ cleanup.action109:                                ; preds = %lpad80, %cleanup.ac
 
 if.end114:                                        ; preds = %cleanup.done103
   %vtable116 = load ptr, ptr %this, align 8
-  %vfn117 = getelementptr inbounds ptr, ptr %vtable116, i64 8
+  %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 64
   %40 = load ptr, ptr %vfn117, align 8
   %call119 = invoke noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont118 unwind label %lpad
 
 invoke.cont118:                                   ; preds = %if.end114
   %vtable120 = load ptr, ptr %.pr, align 8
-  %vfn121 = getelementptr inbounds ptr, ptr %vtable120, i64 7
+  %vfn121 = getelementptr inbounds i8, ptr %vtable120, i64 56
   %41 = load ptr, ptr %vfn121, align 8
   %call123 = invoke noundef signext i8 %41(ptr noundef nonnull align 8 dereferenceable(96) %.pr, i32 noundef %call119, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %firstDstStart)
           to label %invoke.cont122 unwind label %lpad
 
 invoke.cont122:                                   ; preds = %invoke.cont118
-  %endTimeMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 6
+  %endTimeMode = getelementptr inbounds i8, ptr %this, i64 84
   %42 = load i32, ptr %endTimeMode, align 4
   %cmp124 = icmp eq i32 %42, 1
   %cmp128 = icmp eq i32 %42, 2
   %cond129 = select i1 %cmp128, i32 2, i32 0
   %cond131 = select i1 %cmp124, i32 1, i32 %cond129
-  %endMode = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 15
+  %endMode = getelementptr inbounds i8, ptr %this, i64 112
   %43 = load i32, ptr %endMode, align 8
   switch i32 %43, label %if.end209 [
     i32 1, label %sw.bb132
@@ -3177,13 +3173,13 @@ sw.bb132:                                         ; preds = %invoke.cont122
   br i1 %new.isnull134, label %if.then208, label %new.notnull135
 
 new.notnull135:                                   ; preds = %sw.bb132
-  %endMonth = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth = getelementptr inbounds i8, ptr %this, i64 88
   %44 = load i8, ptr %endMonth, align 8
   %conv138 = sext i8 %44 to i32
-  %endDay = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay = getelementptr inbounds i8, ptr %this, i64 89
   %45 = load i8, ptr %endDay, align 1
   %conv139 = sext i8 %45 to i32
-  %endTime = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime = getelementptr inbounds i8, ptr %this, i64 92
   %46 = load i32, ptr %endTime, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call133, i32 noundef %conv138, i32 noundef %conv139, i32 noundef %46, i32 noundef %cond131)
           to label %if.end209 unwind label %lpad140
@@ -3200,16 +3196,16 @@ sw.bb147:                                         ; preds = %invoke.cont122
   br i1 %new.isnull149, label %if.then208, label %new.notnull150
 
 new.notnull150:                                   ; preds = %sw.bb147
-  %endMonth153 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth153 = getelementptr inbounds i8, ptr %this, i64 88
   %48 = load i8, ptr %endMonth153, align 8
   %conv154 = sext i8 %48 to i32
-  %endDay155 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay155 = getelementptr inbounds i8, ptr %this, i64 89
   %49 = load i8, ptr %endDay155, align 1
   %conv156 = sext i8 %49 to i32
-  %endDayOfWeek = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek = getelementptr inbounds i8, ptr %this, i64 90
   %50 = load i8, ptr %endDayOfWeek, align 2
   %conv157 = sext i8 %50 to i32
-  %endTime158 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime158 = getelementptr inbounds i8, ptr %this, i64 92
   %51 = load i32, ptr %endTime158, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call148, i32 noundef %conv154, i32 noundef %conv156, i32 noundef %conv157, i32 noundef %51, i32 noundef %cond131)
           to label %if.end209 unwind label %lpad159
@@ -3226,16 +3222,16 @@ sw.bb166:                                         ; preds = %invoke.cont122
   br i1 %new.isnull168, label %if.then208, label %new.notnull169
 
 new.notnull169:                                   ; preds = %sw.bb166
-  %endMonth172 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth172 = getelementptr inbounds i8, ptr %this, i64 88
   %53 = load i8, ptr %endMonth172, align 8
   %conv173 = sext i8 %53 to i32
-  %endDay174 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay174 = getelementptr inbounds i8, ptr %this, i64 89
   %54 = load i8, ptr %endDay174, align 1
   %conv175 = sext i8 %54 to i32
-  %endDayOfWeek176 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek176 = getelementptr inbounds i8, ptr %this, i64 90
   %55 = load i8, ptr %endDayOfWeek176, align 2
   %conv177 = sext i8 %55 to i32
-  %endTime178 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime178 = getelementptr inbounds i8, ptr %this, i64 92
   %56 = load i32, ptr %endTime178, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiaiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call167, i32 noundef %conv173, i32 noundef %conv175, i32 noundef %conv177, i8 noundef signext 1, i32 noundef %56, i32 noundef %cond131)
           to label %if.end209 unwind label %lpad179
@@ -3252,16 +3248,16 @@ sw.bb186:                                         ; preds = %invoke.cont122
   br i1 %new.isnull188, label %if.then208, label %new.notnull189
 
 new.notnull189:                                   ; preds = %sw.bb186
-  %endMonth192 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 7
+  %endMonth192 = getelementptr inbounds i8, ptr %this, i64 88
   %58 = load i8, ptr %endMonth192, align 8
   %conv193 = sext i8 %58 to i32
-  %endDay194 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 8
+  %endDay194 = getelementptr inbounds i8, ptr %this, i64 89
   %59 = load i8, ptr %endDay194, align 1
   %conv195 = sext i8 %59 to i32
-  %endDayOfWeek196 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 9
+  %endDayOfWeek196 = getelementptr inbounds i8, ptr %this, i64 90
   %60 = load i8, ptr %endDayOfWeek196, align 2
   %conv197 = sext i8 %60 to i32
-  %endTime198 = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 10
+  %endTime198 = getelementptr inbounds i8, ptr %this, i64 92
   %61 = load i32, ptr %endTime198, align 4
   invoke void @_ZN6icu_7512DateTimeRuleC1EiiiaiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call187, i32 noundef %conv193, i32 noundef %conv195, i32 noundef %conv197, i8 noundef signext 0, i32 noundef %61, i32 noundef %cond131)
           to label %if.end209 unwind label %lpad199
@@ -3297,7 +3293,7 @@ invoke.cont218:                                   ; preds = %new.notnull212
 
 invoke.cont221:                                   ; preds = %invoke.cont218
   %vtable223 = load ptr, ptr %this, align 8
-  %vfn224 = getelementptr inbounds ptr, ptr %vtable223, i64 8
+  %vfn224 = getelementptr inbounds i8, ptr %vtable223, i64 64
   %63 = load ptr, ptr %vfn224, align 8
   %call227 = invoke noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont226 unwind label %lpad225
@@ -3348,7 +3344,7 @@ cleanup.action247:                                ; preds = %lpad217, %cleanup.a
 
 if.end252:                                        ; preds = %cleanup.done240
   %vtable254 = load ptr, ptr %this, align 8
-  %vfn255 = getelementptr inbounds ptr, ptr %vtable254, i64 8
+  %vfn255 = getelementptr inbounds i8, ptr %vtable254, i64 64
   %68 = load ptr, ptr %vfn255, align 8
   %call257 = invoke noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont256 unwind label %lpad
@@ -3360,7 +3356,7 @@ invoke.cont256:                                   ; preds = %if.end252
 
 invoke.cont259:                                   ; preds = %invoke.cont256
   %vtable261 = load ptr, ptr %.pr43, align 8
-  %vfn262 = getelementptr inbounds ptr, ptr %vtable261, i64 7
+  %vfn262 = getelementptr inbounds i8, ptr %vtable261, i64 56
   %70 = load ptr, ptr %vfn262, align 8
   %call264 = invoke noundef signext i8 %70(ptr noundef nonnull align 8 dereferenceable(96) %.pr43, i32 noundef %call257, i32 noundef %call260, ptr noundef nonnull align 8 dereferenceable(8) %firstStdStart)
           to label %invoke.cont263 unwind label %lpad
@@ -3390,7 +3386,7 @@ invoke.cont275:                                   ; preds = %new.notnull269
 
 invoke.cont278:                                   ; preds = %invoke.cont275
   %vtable280 = load ptr, ptr %this, align 8
-  %vfn281 = getelementptr inbounds ptr, ptr %vtable280, i64 8
+  %vfn281 = getelementptr inbounds i8, ptr %vtable280, i64 64
   %73 = load ptr, ptr %vfn281, align 8
   %call284 = invoke noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont283 unwind label %lpad282
@@ -3478,7 +3474,7 @@ invoke.cont334:                                   ; preds = %new.notnull328
 
 invoke.cont337:                                   ; preds = %invoke.cont334
   %vtable339 = load ptr, ptr %this, align 8
-  %vfn340 = getelementptr inbounds ptr, ptr %vtable339, i64 8
+  %vfn340 = getelementptr inbounds i8, ptr %vtable339, i64 64
   %82 = load ptr, ptr %vfn340, align 8
   %call343 = invoke noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont342 unwind label %lpad341
@@ -3562,7 +3558,7 @@ if.else389:                                       ; preds = %invoke.cont
 
 new.notnull392:                                   ; preds = %if.else389
   %vtable395 = load ptr, ptr %this, align 8
-  %vfn396 = getelementptr inbounds ptr, ptr %vtable395, i64 8
+  %vfn396 = getelementptr inbounds i8, ptr %vtable395, i64 64
   %91 = load ptr, ptr %vfn396, align 8
   %call399 = invoke noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %invoke.cont398 unwind label %lpad397
@@ -3628,7 +3624,7 @@ declare void @_ZN6icu_7518TimeZoneTransitionC1EdRKNS_12TimeZoneRuleES3_(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7514SimpleTimeZone20countTransitionRulesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
 entry:
-  %useDaylight = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 13
+  %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %useDaylight, align 8
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, i32 0, i32 2
@@ -3644,7 +3640,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCodeE5gLock)
-  %transitionRulesInitialized.i = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 17
+  %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %transitionRulesInitialized.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end4.i
@@ -3660,10 +3656,10 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp.i10, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end4.i
-  %initialRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 18
+  %initialRule = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load ptr, ptr %initialRule, align 8
   store ptr %3, ptr %initial, align 8
-  %stdRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 20
+  %stdRule = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %stdRule, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end17, label %if.then6
@@ -3685,7 +3681,7 @@ if.end10:                                         ; preds = %if.then8, %if.then6
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
-  %dstRule = getelementptr inbounds %"class.icu_75::SimpleTimeZone", ptr %this, i64 0, i32 21
+  %dstRule = getelementptr inbounds i8, ptr %this, i64 152
   %7 = load ptr, ptr %dstRule, align 8
   %inc13 = add nuw nsw i32 %cnt.0, 1
   %idxprom14 = zext nneg i32 %cnt.0 to i64

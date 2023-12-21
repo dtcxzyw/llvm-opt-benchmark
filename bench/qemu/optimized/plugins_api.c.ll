@@ -3,52 +3,6 @@ source_filename = "bench/qemu/original/plugins_api.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.qemu_plugin_tb = type { ptr, i64, i64, i64, ptr, ptr, i8, i8, [2 x ptr] }
-%struct.qemu_plugin_insn = type { ptr, i64, ptr, [2 x [2 x ptr]], i8, i8, i8 }
-%struct._GByteArray = type { ptr, i32 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.TaskState = type { i32, i32, i64, i64, i64, i64, i32, ptr, ptr, %struct.emulated_sigtable, [64 x %struct.emulated_sigtable], %struct.__sigset_t, %struct.__sigset_t, i32, i32, %struct.target_sigaltstack, i64 }
-%struct.emulated_sigtable = type { i32, %struct.target_siginfo }
-%struct.target_siginfo = type { i32, i32, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.anon.10, [80 x i8] }
-%struct.anon.10 = type { i32, i32, i32, i64, i64 }
-%struct.target_sigaltstack = type { i64, i32, i64 }
-%struct.linux_binprm = type { [1024 x i8], %struct.ImageSource, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, [8 x i8] }
-%struct.ImageSource = type { ptr, i32, i32 }
-%struct.image_info = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i8, i64, i64, i64, i16, ptr, i64, i64, i64, ptr, i32 }
-
 @current_cpu = external thread_local global ptr, align 8
 @.str = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
@@ -89,14 +43,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_tb_exec_cb(ptr noundef %tb, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 6
+  %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
   %0 = load i8, ptr %mem_only, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cbs = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 8
+  %cbs = getelementptr inbounds i8, ptr %tb, i64 56
   tail call void @plugin_register_dyn_cb__udata(ptr noundef nonnull %cbs, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) #8
   br label %if.end
 
@@ -109,14 +63,14 @@ declare void @plugin_register_dyn_cb__udata(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_tb_exec_inline(ptr noundef %tb, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 6
+  %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
   %0 = load i8, ptr %mem_only, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 8, i64 1
+  %arrayidx = getelementptr i8, ptr %tb, i64 64
   tail call void @plugin_register_inline_op(ptr noundef %arrayidx, i32 noundef 0, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) #8
   br label %if.end
 
@@ -129,14 +83,14 @@ declare void @plugin_register_inline_op(ptr noundef, i32 noundef, i32 noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef %insn, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 6
+  %mem_only = getelementptr inbounds i8, ptr %insn, i64 58
   %0 = load i8, ptr %mem_only, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cbs = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 3
+  %cbs = getelementptr inbounds i8, ptr %insn, i64 24
   tail call void @plugin_register_dyn_cb__udata(ptr noundef nonnull %cbs, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) #8
   br label %if.end
 
@@ -147,14 +101,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef %insn, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 6
+  %mem_only = getelementptr inbounds i8, ptr %insn, i64 58
   %0 = load i8, ptr %mem_only, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx1 = getelementptr %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 3, i64 0, i64 1
+  %arrayidx1 = getelementptr i8, ptr %insn, i64 32
   tail call void @plugin_register_inline_op(ptr noundef %arrayidx1, i32 noundef 0, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) #8
   br label %if.end
 
@@ -165,7 +119,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_mem_cb(ptr noundef %insn, ptr noundef %cb, i32 noundef %flags, i32 noundef %rw, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 3, i64 1
+  %arrayidx = getelementptr i8, ptr %insn, i64 40
   tail call void @plugin_register_vcpu_mem_cb(ptr noundef %arrayidx, ptr noundef %cb, i32 noundef %flags, i32 noundef %rw, ptr noundef %udata) #8
   ret void
 }
@@ -175,7 +129,7 @@ declare void @plugin_register_vcpu_mem_cb(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_mem_inline(ptr noundef %insn, i32 noundef %rw, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
 entry:
-  %arrayidx1 = getelementptr %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 3, i64 1, i64 1
+  %arrayidx1 = getelementptr i8, ptr %insn, i64 48
   tail call void @plugin_register_inline_op(ptr noundef %arrayidx1, i32 noundef %rw, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) #8
   ret void
 }
@@ -204,7 +158,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qemu_plugin_tb_n_insns(ptr nocapture noundef readonly %tb) local_unnamed_addr #2 {
 entry:
-  %n = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
   ret i64 %0
 }
@@ -212,7 +166,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qemu_plugin_tb_vaddr(ptr nocapture noundef readonly %tb) local_unnamed_addr #2 {
 entry:
-  %vaddr = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 2
+  %vaddr = getelementptr inbounds i8, ptr %tb, i64 16
   %0 = load i64, ptr %vaddr, align 8
   ret i64 %0
 }
@@ -220,7 +174,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_plugin_tb_get_insn(ptr nocapture noundef readonly %tb, i64 noundef %idx) local_unnamed_addr #3 {
 entry:
-  %n = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
   %cmp.not = icmp ugt i64 %0, %idx
   br i1 %cmp.not, label %if.end, label %return
@@ -230,10 +184,10 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %arrayidx = getelementptr ptr, ptr %2, i64 %idx
   %3 = load ptr, ptr %arrayidx, align 8
-  %mem_only = getelementptr inbounds %struct.qemu_plugin_tb, ptr %tb, i64 0, i32 6
+  %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
   %4 = load i8, ptr %mem_only, align 8
   %5 = and i8 %4, 1
-  %mem_only3 = getelementptr inbounds %struct.qemu_plugin_insn, ptr %3, i64 0, i32 6
+  %mem_only3 = getelementptr inbounds i8, ptr %3, i64 58
   store i8 %5, ptr %mem_only3, align 2
   br label %return
 
@@ -254,7 +208,7 @@ entry:
 define dso_local i64 @qemu_plugin_insn_size(ptr nocapture noundef readonly %insn) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %insn, align 8
-  %len = getelementptr inbounds %struct._GByteArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %conv = zext i32 %1 to i64
   ret i64 %conv
@@ -263,7 +217,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qemu_plugin_insn_vaddr(ptr nocapture noundef readonly %insn) local_unnamed_addr #2 {
 entry:
-  %vaddr = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 1
+  %vaddr = getelementptr inbounds i8, ptr %insn, i64 8
   %0 = load i64, ptr %vaddr, align 8
   ret i64 %0
 }
@@ -271,7 +225,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @qemu_plugin_insn_haddr(ptr nocapture noundef readonly %insn) local_unnamed_addr #2 {
 entry:
-  %haddr = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 2
+  %haddr = getelementptr inbounds i8, ptr %insn, i64 16
   %0 = load ptr, ptr %haddr, align 8
   ret ptr %0
 }
@@ -281,10 +235,10 @@ define dso_local ptr @qemu_plugin_insn_disas(ptr nocapture noundef readonly %ins
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %vaddr = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 1
+  %vaddr = getelementptr inbounds i8, ptr %insn, i64 8
   %2 = load i64, ptr %vaddr, align 8
   %3 = load ptr, ptr %insn, align 8
-  %len = getelementptr inbounds %struct._GByteArray, ptr %3, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %len, align 8
   %conv = zext i32 %4 to i64
   %call = tail call ptr @plugin_disas(ptr noundef %1, i64 noundef %2, i64 noundef %conv) #8
@@ -299,7 +253,7 @@ declare ptr @plugin_disas(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_plugin_insn_symbol(ptr nocapture noundef readonly %insn) local_unnamed_addr #0 {
 entry:
-  %vaddr = getelementptr inbounds %struct.qemu_plugin_insn, ptr %insn, i64 0, i32 1
+  %vaddr = getelementptr inbounds i8, ptr %insn, i64 8
   %0 = load i64, ptr %vaddr, align 8
   %call = tail call ptr @lookup_symbol(i64 noundef %0) #8
   %1 = load i8, ptr %call, align 1
@@ -423,11 +377,11 @@ define dso_local noalias ptr @qemu_plugin_path_to_binary() local_unnamed_addr #0
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %bprm = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 8
+  %bprm = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %bprm, align 8
-  %filename = getelementptr inbounds %struct.linux_binprm, ptr %3, i64 0, i32 9
+  %filename = getelementptr inbounds i8, ptr %3, i64 1080
   %4 = load ptr, ptr %filename, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %4) #8
   ret ptr %call
@@ -440,11 +394,11 @@ define dso_local i64 @qemu_plugin_start_code() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %start_code = getelementptr inbounds %struct.image_info, ptr %3, i64 0, i32 2
+  %start_code = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %start_code, align 8
   ret i64 %4
 }
@@ -454,11 +408,11 @@ define dso_local i64 @qemu_plugin_end_code() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %end_code = getelementptr inbounds %struct.image_info, ptr %3, i64 0, i32 3
+  %end_code = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i64, ptr %end_code, align 8
   ret i64 %4
 }
@@ -468,11 +422,11 @@ define dso_local i64 @qemu_plugin_entry_code() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %entry2 = getelementptr inbounds %struct.image_info, ptr %3, i64 0, i32 10
+  %entry2 = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load i64, ptr %entry2, align 8
   ret i64 %4
 }

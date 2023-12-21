@@ -3,14 +3,9 @@ source_filename = "bench/openssl/original/libssl-lib-quic_sstream.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_sstream_st = type { %struct.ring_buf, %struct.ossl_list_st_uint_set, %struct.ossl_list_st_uint_set, i8 }
-%struct.ring_buf = type { ptr, i64, i64, i64 }
-%struct.ossl_list_st_uint_set = type { ptr, ptr, i64 }
-%struct.ossl_quic_frame_stream_st = type { i64, i64, i64, ptr, i8 }
-%struct.uint_set_item_st = type { %struct.anon, %struct.uint_range_st }
-%struct.anon = type { ptr, ptr }
-%struct.uint_range_st = type { i64, i64 }
 %struct.ossl_qtx_iovec_st = type { ptr, i64 }
+%struct.ossl_quic_frame_stream_st = type { i64, i64, i64, ptr, i8 }
+%struct.uint_range_st = type { i64, i64 }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/quic/quic_sstream.c\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"../openssl/include/internal/ring_buf.h\00", align 1
@@ -36,9 +31,9 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %new_set = getelementptr inbounds %struct.quic_sstream_st, ptr %call, i64 0, i32 1
+  %new_set = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @ossl_uint_set_init(ptr noundef nonnull %new_set) #10
-  %acked_set = getelementptr inbounds %struct.quic_sstream_st, ptr %call, i64 0, i32 2
+  %acked_set = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @ossl_uint_set_init(ptr noundef nonnull %acked_set) #10
   br label %return
 
@@ -52,7 +47,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
 entry:
-  %alloc = getelementptr inbounds %struct.ring_buf, ptr %r, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
   %cmp = icmp eq i64 %0, %num_bytes
   br i1 %cmp, label %return, label %if.end
@@ -186,11 +181,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %new_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 1
+  %new_set = getelementptr inbounds i8, ptr %qss, i64 32
   tail call void @ossl_uint_set_destroy(ptr noundef nonnull %new_set) #10
-  %acked_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 2
+  %acked_set = getelementptr inbounds i8, ptr %qss, i64 56
   tail call void @ossl_uint_set_destroy(ptr noundef nonnull %acked_set) #10
-  %cleanse = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %cleanse = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %cleanse, align 8
   %0 = and i8 %bf.load, 8
   %tobool.not.i = icmp eq i8 %0, 0
@@ -198,7 +193,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %alloc.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qss, i64 8
   %2 = load i64, ptr %alloc.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.1, i32 noundef 58) #10
   br label %ring_buf_destroy.exit
@@ -226,7 +221,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %new_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 1
+  %new_set = getelementptr inbounds i8, ptr %qss, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.cond
@@ -247,28 +242,28 @@ if.then5:                                         ; preds = %for.end
   br i1 %cmp1, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then5
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %2 = and i8 %bf.load, 3
   %or.cond = icmp eq i8 %2, 1
   br i1 %or.cond, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end8
-  %head_offset = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset = getelementptr inbounds i8, ptr %qss, i64 16
   %3 = load i64, ptr %head_offset, align 8
-  %offset = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %hdr, i64 8
   store i64 %3, ptr %offset, align 8
-  %len = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %hdr, i64 16
   store i64 0, ptr %len, align 8
-  %is_fin = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 4
+  %is_fin = getelementptr inbounds i8, ptr %hdr, i64 32
   %bf.load15 = load i8, ptr %is_fin, align 8
   %bf.set = or i8 %bf.load15, 2
   store i8 %bf.set, ptr %is_fin, align 8
   br label %return.sink.split
 
 if.end17:                                         ; preds = %for.end
-  %range18 = getelementptr inbounds %struct.uint_set_item_st, ptr %range.0, i64 0, i32 1
-  %end = getelementptr inbounds %struct.uint_set_item_st, ptr %range.0, i64 0, i32 1, i32 1
+  %range18 = getelementptr inbounds i8, ptr %range.0, i64 16
+  %end = getelementptr inbounds i8, ptr %range.0, i64 24
   %4 = load i64, ptr %end, align 8
   %5 = load i64, ptr %range18, align 8
   %sub = sub i64 %4, %5
@@ -277,9 +272,9 @@ if.end17:                                         ; preds = %for.end
   br i1 %cmp21.not48.not, label %for.end45, label %if.end23.lr.ph
 
 if.end23.lr.ph:                                   ; preds = %if.end17
-  %head_offset.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
-  %ctail_offset.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 3
-  %alloc.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 1
+  %head_offset.i = getelementptr inbounds i8, ptr %qss, i64 16
+  %ctail_offset.i = getelementptr inbounds i8, ptr %qss, i64 24
+  %alloc.i = getelementptr inbounds i8, ptr %qss, i64 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end23.lr.ph, %if.end34
@@ -318,7 +313,7 @@ if.end34:                                         ; preds = %if.end31
   %spec.select = select i1 %cmp36, i64 %sub38, i64 %spec.select.i
   %arrayidx = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %num_iov_.049
   store ptr %add.ptr.i, ptr %arrayidx, align 8
-  %buf_len = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %num_iov_.049, i32 1
+  %buf_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %spec.select, ptr %buf_len, align 8
   %add41 = add i64 %spec.select, %total_len.050
   %inc42 = add i64 %num_iov_.049, 1
@@ -333,11 +328,11 @@ for.end45:                                        ; preds = %if.end31, %if.end.i
   %11 = phi i64 [ %5, %if.end17 ], [ %.pre.pre, %if.end34.for.end45.loopexit_crit_edge ], [ %6, %if.end.i ], [ %6, %if.end31 ]
   %num_iov_.0.lcssa = phi i64 [ 0, %if.end17 ], [ %inc42, %if.end34.for.end45.loopexit_crit_edge ], [ %num_iov_.049, %if.end.i ], [ %num_iov_.049, %if.end31 ]
   %total_len.0.lcssa = phi i64 [ 0, %if.end17 ], [ %add41, %if.end34.for.end45.loopexit_crit_edge ], [ %total_len.050, %if.end.i ], [ %total_len.050, %if.end31 ]
-  %offset48 = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 1
+  %offset48 = getelementptr inbounds i8, ptr %hdr, i64 8
   store i64 %11, ptr %offset48, align 8
-  %len49 = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 2
+  %len49 = getelementptr inbounds i8, ptr %hdr, i64 16
   store i64 %total_len.0.lcssa, ptr %len49, align 8
-  %have_final_size50 = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size50 = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load51 = load i8, ptr %have_final_size50, align 8
   %bf.clear52 = and i8 %bf.load51, 1
   %tobool54.not = icmp eq i8 %bf.clear52, 0
@@ -345,7 +340,7 @@ for.end45:                                        ; preds = %if.end31, %if.end.i
 
 land.rhs55:                                       ; preds = %for.end45
   %add58 = add i64 %11, %total_len.0.lcssa
-  %head_offset60 = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset60 = getelementptr inbounds i8, ptr %qss, i64 16
   %12 = load i64, ptr %head_offset60, align 8
   %cmp61 = icmp eq i64 %add58, %12
   %13 = select i1 %cmp61, i8 2, i8 0
@@ -353,7 +348,7 @@ land.rhs55:                                       ; preds = %for.end45
 
 land.end62:                                       ; preds = %land.rhs55, %for.end45
   %bf.shl = phi i8 [ 0, %for.end45 ], [ %13, %land.rhs55 ]
-  %is_fin63 = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 4
+  %is_fin63 = getelementptr inbounds i8, ptr %hdr, i64 32
   %bf.load64 = load i8, ptr %is_fin63, align 8
   %bf.clear65 = and i8 %bf.load64, -3
   %bf.set66 = or disjoint i8 %bf.clear65, %bf.shl
@@ -384,7 +379,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_sstream_get_cur_size(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
 entry:
-  %head_offset = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset = getelementptr inbounds i8, ptr %qss, i64 16
   %0 = load i64, ptr %head_offset, align 8
   ret i64 %0
 }
@@ -394,9 +389,9 @@ define i32 @ossl_quic_sstream_mark_transmitted(ptr noundef %qss, i64 noundef %st
 entry:
   %r = alloca %struct.uint_range_st, align 8
   store i64 %start, ptr %r, align 8
-  %end2 = getelementptr inbounds %struct.uint_range_st, ptr %r, i64 0, i32 1
+  %end2 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %end, ptr %end2, align 8
-  %new_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 1
+  %new_set = getelementptr inbounds i8, ptr %qss, i64 32
   %call = call i32 @ossl_uint_set_remove(ptr noundef nonnull %new_set, ptr noundef nonnull %r) #10
   %tobool.not = icmp ne i32 %call, 0
   %. = zext i1 %tobool.not to i32
@@ -408,14 +403,14 @@ declare i32 @ossl_uint_set_remove(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_quic_sstream_mark_transmitted_fin(ptr nocapture noundef %qss, i64 noundef %final_size) local_unnamed_addr #4 {
 entry:
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %head_offset = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset = getelementptr inbounds i8, ptr %qss, i64 16
   %0 = load i64, ptr %head_offset, align 8
   %cmp.not = icmp eq i64 %0, %final_size
   br i1 %cmp.not, label %if.end, label %return
@@ -435,9 +430,9 @@ define i32 @ossl_quic_sstream_mark_lost(ptr noundef %qss, i64 noundef %start, i6
 entry:
   %r = alloca %struct.uint_range_st, align 8
   store i64 %start, ptr %r, align 8
-  %end2 = getelementptr inbounds %struct.uint_range_st, ptr %r, i64 0, i32 1
+  %end2 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %end, ptr %end2, align 8
-  %new_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 1
+  %new_set = getelementptr inbounds i8, ptr %qss, i64 32
   %call = call i32 @ossl_uint_set_insert(ptr noundef nonnull %new_set, ptr noundef nonnull %r) #10
   %tobool.not = icmp ne i32 %call, 0
   %. = zext i1 %tobool.not to i32
@@ -449,7 +444,7 @@ declare i32 @ossl_uint_set_insert(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_quic_sstream_mark_lost_fin(ptr nocapture noundef %qss) local_unnamed_addr #4 {
 entry:
-  %acked_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %acked_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %acked_final_size, align 8
   %0 = and i8 %bf.load, 4
   %tobool.not = icmp eq i8 %0, 0
@@ -470,9 +465,9 @@ define i32 @ossl_quic_sstream_mark_acked(ptr noundef %qss, i64 noundef %start, i
 entry:
   %r = alloca %struct.uint_range_st, align 8
   store i64 %start, ptr %r, align 8
-  %end2 = getelementptr inbounds %struct.uint_range_st, ptr %r, i64 0, i32 1
+  %end2 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %end, ptr %end2, align 8
-  %acked_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 2
+  %acked_set = getelementptr inbounds i8, ptr %qss, i64 56
   %call = call i32 @ossl_uint_set_insert(ptr noundef nonnull %acked_set, ptr noundef nonnull %r) #10
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -483,11 +478,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %range.i = getelementptr inbounds %struct.uint_set_item_st, ptr %acked_set.val.i, i64 0, i32 1
+  %range.i = getelementptr inbounds i8, ptr %acked_set.val.i, i64 16
   %0 = load i64, ptr %range.i, align 8
-  %end.i = getelementptr inbounds %struct.uint_set_item_st, ptr %acked_set.val.i, i64 0, i32 1, i32 1
+  %end.i = getelementptr inbounds i8, ptr %acked_set.val.i, i64 24
   %1 = load i64, ptr %end.i, align 8
-  %ctail_offset.i.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 3
+  %ctail_offset.i.i = getelementptr inbounds i8, ptr %qss, i64 24
   %2 = load i64, ptr %ctail_offset.i.i, align 8
   %cmp.i.i = icmp ult i64 %2, %0
   %cmp1.i.i = icmp ugt i64 %1, 4611686018427387903
@@ -495,14 +490,14 @@ if.then.i:                                        ; preds = %if.end
   br i1 %or.cond.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %cleanse.i = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %cleanse.i = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load.i = load i8, ptr %cleanse.i, align 8
   %3 = and i8 %bf.load.i, 8
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.end30.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %alloc.i.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 1
+  %alloc.i.i = getelementptr inbounds i8, ptr %qss, i64 8
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp2.not.i.i = icmp ne i64 %4, 0
   %cmp5.i.i = icmp ult i64 %2, %1
@@ -512,7 +507,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 if.then6.i.i:                                     ; preds = %land.lhs.true.i.i
   %rem.i.i = urem i64 %2, %4
   %add.i.i = add nuw nsw i64 %1, 1
-  %head_offset.i.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset.i.i = getelementptr inbounds i8, ptr %qss, i64 16
   %5 = load i64, ptr %head_offset.i.i, align 8
   %cmp9.not.i.i = icmp ugt i64 %5, %1
   %spec.select.i.i = select i1 %cmp9.not.i.i, i64 %add.i.i, i64 %5
@@ -545,7 +540,7 @@ if.then26.i.i:                                    ; preds = %if.end24.i.i
 if.end30.i.i:                                     ; preds = %if.then26.i.i, %if.end24.i.i, %land.lhs.true.i.i, %if.end.i.i
   %add31.i.i = add nuw nsw i64 %1, 1
   store i64 %add31.i.i, ptr %ctail_offset.i.i, align 8
-  %head_offset33.i.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset33.i.i = getelementptr inbounds i8, ptr %qss, i64 16
   %9 = load i64, ptr %head_offset33.i.i, align 8
   %cmp35.not.i.i = icmp ugt i64 %9, %1
   br i1 %cmp35.not.i.i, label %return, label %if.then36.i.i
@@ -562,7 +557,7 @@ return:                                           ; preds = %if.then36.i.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_quic_sstream_mark_acked_fin(ptr nocapture noundef %qss) local_unnamed_addr #4 {
 entry:
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -581,7 +576,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_quic_sstream_fin(ptr nocapture noundef %qss) local_unnamed_addr #4 {
 entry:
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -599,7 +594,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_quic_sstream_get_final_size(ptr nocapture noundef readonly %qss, ptr noundef writeonly %final_size) local_unnamed_addr #4 {
 entry:
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -610,7 +605,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %head_offset = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset = getelementptr inbounds i8, ptr %qss, i64 16
   %0 = load i64, ptr %head_offset, align 8
   store i64 %0, ptr %final_size, align 8
   br label %return
@@ -630,7 +625,7 @@ entry:
   %old_ring_buf.sroa.2.0.copyload = load i64, ptr %old_ring_buf.sroa.2.0.ring_buf.sroa_idx, align 8
   %old_ring_buf.sroa.3.0.ring_buf.sroa_idx = getelementptr inbounds i8, ptr %qss, i64 24
   %old_ring_buf.sroa.3.0.copyload = load i64, ptr %old_ring_buf.sroa.3.0.ring_buf.sroa_idx, align 8
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -641,7 +636,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.not20, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %alloc.i.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 1
+  %alloc.i.i = getelementptr inbounds i8, ptr %qss, i64 8
   %.pre = load i64, ptr %alloc.i.i, align 8
   br label %while.body
 
@@ -708,9 +703,9 @@ if.then6:                                         ; preds = %while.end
   store i64 %old_ring_buf.sroa.2.0.copyload, ptr %r, align 8
   %add8 = add i64 %old_ring_buf.sroa.2.0.copyload, -1
   %sub9 = add i64 %add8, %consumed_.0.lcssa
-  %end = getelementptr inbounds %struct.uint_range_st, ptr %r, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %sub9, ptr %end, align 8
-  %new_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 1
+  %new_set = getelementptr inbounds i8, ptr %qss, i64 32
   %call10 = call i32 @ossl_uint_set_insert(ptr noundef nonnull %new_set, ptr noundef nonnull %r) #10
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %return
@@ -734,7 +729,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_sstream_set_buffer_size(ptr nocapture noundef %qss, i64 noundef %num_bytes) local_unnamed_addr #0 {
 entry:
-  %cleanse = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %cleanse = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %cleanse, align 8
   %bf.lshr = lshr i8 %bf.load, 3
   %bf.clear = and i8 %bf.lshr, 1
@@ -746,7 +741,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_sstream_get_buffer_size(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
 entry:
-  %alloc = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %qss, i64 8
   %0 = load i64, ptr %alloc, align 8
   ret i64 %0
 }
@@ -765,7 +760,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_sstream_get_buffer_avail(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
 entry:
-  %alloc.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qss, i64 8
   %0 = load i64, ptr %alloc.i, align 8
   %1 = getelementptr i8, ptr %qss, i64 16
   %r.val.i = load i64, ptr %1, align 8
@@ -779,30 +774,30 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @ossl_quic_sstream_is_totally_acked(ptr nocapture noundef readonly %qss) local_unnamed_addr #6 {
 entry:
-  %have_final_size = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %have_final_size = getelementptr inbounds i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
   %0 = and i8 %bf.load, 5
   %or.cond = icmp eq i8 %0, 1
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %head_offset.i = getelementptr inbounds %struct.ring_buf, ptr %qss, i64 0, i32 2
+  %head_offset.i = getelementptr inbounds i8, ptr %qss, i64 16
   %1 = load i64, ptr %head_offset.i, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %2 = getelementptr %struct.quic_sstream_st, ptr %qss, i64 0, i32 2, i32 2
+  %2 = getelementptr i8, ptr %qss, i64 72
   %acked_set.val6 = load i64, ptr %2, align 8
   %cmp8.not = icmp eq i64 %acked_set.val6, 1
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end6
-  %acked_set = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 2
+  %acked_set = getelementptr inbounds i8, ptr %qss, i64 56
   %acked_set.val = load ptr, ptr %acked_set, align 8
-  %range = getelementptr inbounds %struct.uint_set_item_st, ptr %acked_set.val, i64 0, i32 1
+  %range = getelementptr inbounds i8, ptr %acked_set.val, i64 16
   %r.sroa.0.0.copyload = load i64, ptr %range, align 8
-  %r.sroa.2.0.range.sroa_idx = getelementptr inbounds %struct.uint_set_item_st, ptr %acked_set.val, i64 0, i32 1, i32 1
+  %r.sroa.2.0.range.sroa_idx = getelementptr inbounds i8, ptr %acked_set.val, i64 24
   %r.sroa.2.0.copyload = load i64, ptr %r.sroa.2.0.range.sroa_idx, align 8
   %cmp13 = icmp eq i64 %r.sroa.0.0.copyload, 0
   %add = add i64 %r.sroa.2.0.copyload, 1
@@ -858,7 +853,7 @@ for.end:                                          ; preds = %if.end8, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_quic_sstream_set_cleanse(ptr nocapture noundef %qss, i32 noundef %cleanse) local_unnamed_addr #4 {
 entry:
-  %cleanse1 = getelementptr inbounds %struct.quic_sstream_st, ptr %qss, i64 0, i32 3
+  %cleanse1 = getelementptr inbounds i8, ptr %qss, i64 80
   %0 = trunc i32 %cleanse to i8
   %bf.load = load i8, ptr %cleanse1, align 8
   %bf.value = shl i8 %0, 3

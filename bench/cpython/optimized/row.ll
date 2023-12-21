@@ -12,12 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct._Row = type { %struct._object, ptr, ptr }
-%struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon }
-%struct.anon = type { i32 }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
-%struct.pysqlite_Cursor = type { %struct._object, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, i32, i32, i32, ptr }
 
 @row_spec = internal global %struct.PyType_Spec { ptr @.str, i32 32, i32 0, i32 17664, ptr @row_slots }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"sqlite3.Row\00", align 1
@@ -40,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @pysqlite_row_item(ptr nocapture noundef readonly %self, i64 noundef %idx) #0 {
 entry:
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %call = tail call ptr @PyTuple_GetItem(ptr noundef %0, i64 noundef %idx) #3
   %cmp.not.i.i = icmp eq ptr %call, null
@@ -71,7 +65,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %RowType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 19
+  %RowType = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr %call, ptr %RowType, align 8
   br label %return
 
@@ -88,10 +82,10 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #3
-  %tp_clear = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 22
+  %tp_clear = getelementptr inbounds i8, ptr %self.val, i64 192
   %1 = load ptr, ptr %tp_clear, align 8
   %call1 = tail call i32 %1(ptr noundef %self) #3
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %2 = load ptr, ptr %tp_free, align 8
   tail call void %2(ptr noundef %self) #3
   %3 = load i64, ptr %self.val, align 8
@@ -116,10 +110,10 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 ; Function Attrs: nounwind uwtable
 define internal i64 @pysqlite_row_hash(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %description = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %description, align 8
   %call = tail call i64 @PyObject_Hash(ptr noundef %0) #3
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %data, align 8
   %call1 = tail call i64 @PyObject_Hash(ptr noundef %1) #3
   %xor = xor i64 %call1, %call
@@ -139,7 +133,7 @@ if.end:                                           ; preds = %entry
   %self.val = load ptr, ptr %1, align 8
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_sqlite3module) #3
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #3
-  %RowType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i, i64 0, i32 19
+  %RowType = getelementptr inbounds i8, ptr %call.i.i, i64 144
   %2 = load ptr, ptr %RowType, align 8
   %3 = getelementptr i8, ptr %_other, i64 8
   %_other.val = load ptr, ptr %3, align 8
@@ -152,9 +146,9 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
   br i1 %tobool3.i.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %description = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %description, align 8
-  %description5 = getelementptr inbounds %struct._Row, ptr %_other, i64 0, i32 2
+  %description5 = getelementptr inbounds i8, ptr %_other, i64 24
   %5 = load ptr, ptr %description5, align 8
   %call6 = tail call i32 @PyObject_RichCompareBool(ptr noundef %4, ptr noundef %5, i32 noundef 2) #3
   %cmp7 = icmp slt i32 %call6, 0
@@ -165,9 +159,9 @@ if.end9:                                          ; preds = %if.then4
   br i1 %tobool10.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %6 = load ptr, ptr %data, align 8
-  %data12 = getelementptr inbounds %struct._Row, ptr %_other, i64 0, i32 1
+  %data12 = getelementptr inbounds i8, ptr %_other, i64 16
   %7 = load ptr, ptr %data12, align 8
   %call13 = tail call ptr @PyObject_RichCompare(ptr noundef %6, ptr noundef %7, i32 noundef %opid) #3
   br label %return
@@ -185,7 +179,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 ; Function Attrs: nounwind uwtable
 define internal ptr @pysqlite_iter(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %call = tail call ptr @PyObject_GetIter(ptr noundef %0) #3
   ret ptr %call
@@ -194,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @pysqlite_row_length(ptr nocapture noundef readonly %self) #2 {
 entry:
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %1 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %1, align 8
@@ -228,12 +222,12 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp6, label %if.then7, label %if.end.if.end9_crit_edge
 
 if.end.if.end9_crit_edge:                         ; preds = %if.end
-  %data10.phi.trans.insert = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data10.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 16
   %.pre = load ptr, ptr %data10.phi.trans.insert, align 8
   br label %if.end9
 
 if.then7:                                         ; preds = %land.lhs.true, %if.end
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %data, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %5, align 8
@@ -263,7 +257,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool15.not, label %if.else33, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %description = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load ptr, ptr %description, align 8
   %call17 = tail call i64 @PyTuple_Size(ptr noundef %9) #3
   %cmp1849 = icmp sgt i64 %call17, 0
@@ -272,16 +266,17 @@ if.then16:                                        ; preds = %if.else
 for.body.lr.ph:                                   ; preds = %if.then16
   %10 = getelementptr i8, ptr %idx, i64 32
   %11 = getelementptr i8, ptr %idx, i64 16
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %idx, i64 1
+  %retval.0.i.i.i = getelementptr i8, ptr %idx, i64 40
   %12 = getelementptr i8, ptr %idx, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.050 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %13 = load ptr, ptr %description, align 8
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %13, i64 0, i32 1, i64 %i.050
+  %ob_item = getelementptr inbounds i8, ptr %13, i64 24
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.050
   %14 = load ptr, ptr %arrayidx, align 8
-  %ob_item20 = getelementptr inbounds %struct.PyTupleObject, ptr %14, i64 0, i32 1
+  %ob_item20 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %ob_item20, align 8
   %call.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %idx, ptr noundef %15, i32 noundef 2) #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -334,34 +329,34 @@ if.end.i.i:                                       ; preds = %if.end19.i
   br label %PyUnicode_DATA.exit.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end19.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %op.val3.i.i, %if.end.i.i ], [ %add.ptr.i.i.i, %if.end19.i ]
+  %retval.0.i.i = phi ptr [ %op.val3.i.i, %if.end.i.i ], [ %retval.0.i.i.i, %if.end19.i ]
   %26 = and i32 %right.val15.i, 32
   %tobool.not.i24.i = icmp eq i32 %26, 0
-  br i1 %tobool.not.i24.i, label %if.end.i31.i, label %if.then.i25.i
+  br i1 %tobool.not.i24.i, label %if.end.i30.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %PyUnicode_DATA.exit.i
-  %add.ptr.i.i27.i = getelementptr %struct.PyASCIIObject, ptr %15, i64 1
-  br label %PyUnicode_DATA.exit33.i
+  %retval.0.i.i28.i = getelementptr i8, ptr %15, i64 40
+  br label %PyUnicode_DATA.exit32.i
 
-if.end.i31.i:                                     ; preds = %PyUnicode_DATA.exit.i
+if.end.i30.i:                                     ; preds = %PyUnicode_DATA.exit.i
   %27 = getelementptr i8, ptr %15, i64 56
-  %op.val3.i32.i = load ptr, ptr %27, align 8
-  br label %PyUnicode_DATA.exit33.i
+  %op.val3.i31.i = load ptr, ptr %27, align 8
+  br label %PyUnicode_DATA.exit32.i
 
-PyUnicode_DATA.exit33.i:                          ; preds = %if.end.i31.i, %if.then.i25.i
-  %retval.0.i30.i = phi ptr [ %add.ptr.i.i27.i, %if.then.i25.i ], [ %op.val3.i32.i, %if.end.i31.i ]
-  %tobool22.not34.i = icmp eq i64 %left.val16.i, 0
-  br i1 %tobool22.not34.i, label %if.then27, label %for.body.i
+PyUnicode_DATA.exit32.i:                          ; preds = %if.end.i30.i, %if.then.i25.i
+  %retval.0.i29.i = phi ptr [ %retval.0.i.i28.i, %if.then.i25.i ], [ %op.val3.i31.i, %if.end.i30.i ]
+  %tobool22.not33.i = icmp eq i64 %left.val16.i, 0
+  br i1 %tobool22.not33.i, label %if.then27, label %for.body.i
 
-for.body.i:                                       ; preds = %PyUnicode_DATA.exit33.i, %for.inc.i
-  %p2.037.i = phi ptr [ %incdec.ptr35.i, %for.inc.i ], [ %retval.0.i30.i, %PyUnicode_DATA.exit33.i ]
-  %p1.036.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %retval.0.i.i, %PyUnicode_DATA.exit33.i ]
-  %len.035.i = phi i64 [ %dec.i, %for.inc.i ], [ %left.val16.i, %PyUnicode_DATA.exit33.i ]
-  %28 = load i8, ptr %p1.036.i, align 1
+for.body.i:                                       ; preds = %PyUnicode_DATA.exit32.i, %for.inc.i
+  %p2.036.i = phi ptr [ %incdec.ptr35.i, %for.inc.i ], [ %retval.0.i29.i, %PyUnicode_DATA.exit32.i ]
+  %p1.035.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %retval.0.i.i, %PyUnicode_DATA.exit32.i ]
+  %len.034.i = phi i64 [ %dec.i, %for.inc.i ], [ %left.val16.i, %PyUnicode_DATA.exit32.i ]
+  %28 = load i8, ptr %p1.035.i, align 1
   %idxprom.i = zext i8 %28 to i64
   %arrayidx.i = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %idxprom.i
   %29 = load i8, ptr %arrayidx.i, align 1
-  %30 = load i8, ptr %p2.037.i, align 1
+  %30 = load i8, ptr %p2.036.i, align 1
   %idxprom28.i = zext i8 %30 to i64
   %arrayidx29.i = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %idxprom28.i
   %31 = load i8, ptr %arrayidx29.i, align 1
@@ -369,9 +364,9 @@ for.body.i:                                       ; preds = %PyUnicode_DATA.exit
   br i1 %cmp31.not.i, label %for.inc.i, label %for.inc
 
 for.inc.i:                                        ; preds = %for.body.i
-  %dec.i = add i64 %len.035.i, -1
-  %incdec.ptr.i = getelementptr i8, ptr %p1.036.i, i64 1
-  %incdec.ptr35.i = getelementptr i8, ptr %p2.037.i, i64 1
+  %dec.i = add i64 %len.034.i, -1
+  %incdec.ptr.i = getelementptr i8, ptr %p1.035.i, i64 1
+  %incdec.ptr35.i = getelementptr i8, ptr %p2.036.i, i64 1
   %tobool22.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool22.not.i, label %if.then27, label %for.body.i, !llvm.loop !4
 
@@ -379,8 +374,8 @@ equal_ignore_case.exit:                           ; preds = %for.body
   %cmp23 = icmp slt i32 %call.i, 0
   br i1 %cmp23, label %return, label %if.then27
 
-if.then27:                                        ; preds = %PyUnicode_DATA.exit33.i, %for.inc.i, %equal_ignore_case.exit
-  %data29 = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+if.then27:                                        ; preds = %PyUnicode_DATA.exit32.i, %for.inc.i, %equal_ignore_case.exit
+  %data29 = getelementptr inbounds i8, ptr %self, i64 16
   %32 = load ptr, ptr %data29, align 8
   %call30 = tail call ptr @PyTuple_GetItem(ptr noundef %32, i64 noundef %i.050) #3
   %cmp.not.i.i25 = icmp eq ptr %call30, null
@@ -411,7 +406,7 @@ if.else33:                                        ; preds = %if.else
   br i1 %cmp.i31.not, label %if.then36, label %if.else39
 
 if.then36:                                        ; preds = %if.else33
-  %data37 = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data37 = getelementptr inbounds i8, ptr %self, i64 16
   %35 = load ptr, ptr %data37, align 8
   %call38 = tail call ptr @PyObject_GetItem(ptr noundef %35, ptr noundef nonnull %idx) #3
   br label %return
@@ -431,15 +426,15 @@ define internal ptr @pysqlite_row_new(ptr noundef %type, ptr nocapture noundef r
 entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_sqlite3module) #3
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #3
-  %RowType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i, i64 0, i32 19
+  %RowType = getelementptr inbounds i8, ptr %call.i.i, i64 144
   %0 = load ptr, ptr %RowType, align 8
   %cmp = icmp eq ptr %0, %type
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 35
+  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %1 = load ptr, ptr %tp_init, align 8
-  %tp_init1 = getelementptr inbounds %struct._typeobject, ptr %0, i64 0, i32 35
+  %tp_init1 = getelementptr inbounds i8, ptr %0, i64 296
   %2 = load ptr, ptr %tp_init1, align 8
   %cmp2 = icmp ne ptr %1, %2
   %cmp3 = icmp eq ptr %kwargs, null
@@ -467,11 +462,11 @@ lor.lhs.false11:                                  ; preds = %if.end
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end, %lor.lhs.false11
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %ob_item, align 8
   %call.i19 = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_sqlite3module) #3
   %call.i.i20 = tail call ptr @PyModule_GetState(ptr noundef %call.i19) #3
-  %CursorType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i20, i64 0, i32 17
+  %CursorType = getelementptr inbounds i8, ptr %call.i.i20, i64 128
   %5 = load ptr, ptr %CursorType, align 8
   %6 = getelementptr i8, ptr %4, i64 8
   %.val18 = load ptr, ptr %6, align 8
@@ -486,9 +481,9 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end16
 if.then20:                                        ; preds = %PyObject_TypeCheck.exit
   %call.i21 = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_sqlite3module) #3
   %call.i.i22 = tail call ptr @PyModule_GetState(ptr noundef %call.i21) #3
-  %CursorType22 = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i22, i64 0, i32 17
+  %CursorType22 = getelementptr inbounds i8, ptr %call.i.i22, i64 128
   %7 = load ptr, ptr %CursorType22, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %7, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %tp_name, align 8
   %9 = load ptr, ptr %ob_item, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %8, ptr noundef %9) #3
@@ -496,7 +491,7 @@ if.then20:                                        ; preds = %PyObject_TypeCheck.
 
 if.end25:                                         ; preds = %if.end16, %PyObject_TypeCheck.exit
   %10 = load ptr, ptr %ob_item, align 8
-  %arrayidx29 = getelementptr %struct.PyTupleObject, ptr %args, i64 1
+  %arrayidx29 = getelementptr i8, ptr %args, i64 32
   %11 = load ptr, ptr %arrayidx29, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8
@@ -511,7 +506,7 @@ if.then33:                                        ; preds = %if.end25
   br label %exit
 
 if.end36:                                         ; preds = %if.end25
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %15 = load ptr, ptr %tp_alloc.i, align 8
   %call.i23 = tail call ptr %15(ptr noundef %type, i64 noundef 0) #3
   %cmp.i24 = icmp eq ptr %call.i23, null
@@ -528,9 +523,9 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i
-  %data2.i = getelementptr inbounds %struct._Row, ptr %call.i23, i64 0, i32 1
+  %data2.i = getelementptr inbounds i8, ptr %call.i23, i64 16
   store ptr %11, ptr %data2.i, align 8
-  %description.i = getelementptr inbounds %struct.pysqlite_Cursor, ptr %10, i64 0, i32 2
+  %description.i = getelementptr inbounds i8, ptr %10, i64 24
   %17 = load ptr, ptr %description.i, align 8
   %18 = load i32, ptr %17, align 8
   %add.i.i5.i = add i32 %18, 1
@@ -542,7 +537,7 @@ if.end.i.i7.i:                                    ; preds = %_Py_NewRef.exit.i
   br label %_Py_NewRef.exit8.i
 
 _Py_NewRef.exit8.i:                               ; preds = %if.end.i.i7.i, %_Py_NewRef.exit.i
-  %description4.i = getelementptr inbounds %struct._Row, ptr %call.i23, i64 0, i32 2
+  %description4.i = getelementptr inbounds i8, ptr %call.i23, i64 24
   store ptr %17, ptr %description4.i, align 8
   br label %exit
 
@@ -565,7 +560,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %data, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -576,7 +571,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %description = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load ptr, ptr %description, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -597,7 +592,7 @@ return:                                           ; preds = %if.then19, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @row_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %data = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -620,7 +615,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %description = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %description, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -660,7 +655,7 @@ entry:
   br i1 %tobool.not.i, label %pysqlite_row_keys_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %description.i = getelementptr inbounds %struct._Row, ptr %self, i64 0, i32 2
+  %description.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %description.i, align 8
   %call1.i = tail call i64 @PyTuple_Size(ptr noundef %0) #3
   %cmp9.i = icmp sgt i64 %call1.i, 0
@@ -674,9 +669,10 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %i.010.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
   %1 = load ptr, ptr %description.i, align 8
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %1, i64 0, i32 1, i64 %i.010.i
+  %ob_item.i = getelementptr inbounds i8, ptr %1, i64 24
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.010.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %ob_item3.i = getelementptr inbounds %struct.PyTupleObject, ptr %2, i64 0, i32 1
+  %ob_item3.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %ob_item3.i, align 8
   %call5.i = tail call i32 @PyList_Append(ptr noundef nonnull %call.i, ptr noundef %3) #3
   %cmp6.not.i = icmp eq i32 %call5.i, 0

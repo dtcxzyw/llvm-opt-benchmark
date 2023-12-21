@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/block_reqlist.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockReq = type { i64, i64, %struct.CoQueue, %struct.anon.0 }
-%struct.CoQueue = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
 %struct.QemuLockable = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [44 x i8] c"!reqlist_find_conflict(reqs, offset, bytes)\00", align 1
@@ -35,7 +31,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %r.07.i = phi ptr [ %r.05.i, %for.body.lr.ph.i ], [ %r.0.i, %for.inc.i ]
   %0 = load i64, ptr %r.07.i, align 8
-  %bytes2.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i, i64 0, i32 1
+  %bytes2.i = getelementptr inbounds i8, ptr %r.07.i, i64 8
   %1 = load i64, ptr %bytes2.i, align 8
   %add.i3.i.i = add i64 %0, -1
   %sub.i4.i.i = add i64 %add.i3.i.i, %1
@@ -45,7 +41,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %.not.i.not.i, label %for.inc.i, label %if.else
 
 for.inc.i:                                        ; preds = %for.body.i
-  %list.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i, i64 0, i32 3
+  %list.i = getelementptr inbounds i8, ptr %r.07.i, i64 32
   %r.0.i = load ptr, ptr %list.i, align 8
   %tobool.not.i = icmp eq ptr %r.0.i, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !5
@@ -68,7 +64,7 @@ if.end:                                           ; preds = %for.inc.i, %entry
   br i1 %cmp.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds %struct.BlockReq, ptr %2, i64 0, i32 3, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %.compoundliteral.sroa.4.0..sroa_idx, ptr %le_prev, align 8
   br label %if.end10
 
@@ -94,7 +90,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %r.07 = phi ptr [ %r.05, %for.body.lr.ph ], [ %r.0, %for.inc ]
   %0 = load i64, ptr %r.07, align 8
-  %bytes2 = getelementptr inbounds %struct.BlockReq, ptr %r.07, i64 0, i32 1
+  %bytes2 = getelementptr inbounds i8, ptr %r.07, i64 8
   %1 = load i64, ptr %bytes2, align 8
   %add.i3.i = add i64 %0, -1
   %sub.i4.i = add i64 %add.i3.i, %1
@@ -104,7 +100,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %.not.i.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body
-  %list = getelementptr inbounds %struct.BlockReq, ptr %r.07, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %r.07, i64 32
   %r.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %r.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -138,7 +134,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %r.07.i = phi ptr [ %r.05.i, %for.body.lr.ph.i ], [ %r.0.i, %for.inc.i ]
   %0 = load i64, ptr %r.07.i, align 8
-  %bytes2.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i, i64 0, i32 1
+  %bytes2.i = getelementptr inbounds i8, ptr %r.07.i, i64 8
   %1 = load i64, ptr %bytes2.i, align 8
   %add.i3.i.i = add i64 %0, -1
   %sub.i4.i.i = add i64 %add.i3.i.i, %1
@@ -148,17 +144,17 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %.not.i.not.i, label %for.inc.i, label %if.end
 
 for.inc.i:                                        ; preds = %for.body.i
-  %list.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i, i64 0, i32 3
+  %list.i = getelementptr inbounds i8, ptr %r.07.i, i64 32
   %r.0.i = load ptr, ptr %list.i, align 8
   %tobool.not.i = icmp eq ptr %r.0.i, null
   br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !5
 
 if.end:                                           ; preds = %for.body.i
-  %wait_queue = getelementptr inbounds %struct.BlockReq, ptr %r.07.i, i64 0, i32 2
+  %wait_queue = getelementptr inbounds i8, ptr %r.07.i, i64 16
   store ptr %lock, ptr %.compoundliteral, align 8
-  %lock1 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i64 0, i32 1
+  %lock1 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store ptr @qemu_co_mutex_lock, ptr %lock1, align 8
-  %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i64 0, i32 2
+  %unlock = getelementptr inbounds i8, ptr %.compoundliteral, i64 16
   store ptr @qemu_co_mutex_unlock, ptr %unlock, align 8
   %tobool.i.not = icmp eq ptr %lock, null
   %cond.i = select i1 %tobool.i.not, ptr null, ptr %.compoundliteral
@@ -188,8 +184,8 @@ entry:
 for.body.lr.ph.i.i.lr.ph:                         ; preds = %entry
   %add.i.i.i.i = add i64 %offset, -1
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %bytes
-  %lock1.i = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral.i, i64 0, i32 1
-  %unlock.i = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral.i, i64 0, i32 2
+  %lock1.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 8
+  %unlock.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 16
   %tobool.i.not.i = icmp eq ptr %lock, null
   %cond.i.i = select i1 %tobool.i.not.i, ptr null, ptr %.compoundliteral.i
   br label %for.body.i.i
@@ -197,7 +193,7 @@ for.body.lr.ph.i.i.lr.ph:                         ; preds = %entry
 for.body.i.i:                                     ; preds = %for.body.i.i.backedge, %for.body.lr.ph.i.i.lr.ph
   %r.07.i.i = phi ptr [ %r.05.i.i4, %for.body.lr.ph.i.i.lr.ph ], [ %r.07.i.i.be, %for.body.i.i.backedge ]
   %0 = load i64, ptr %r.07.i.i, align 8
-  %bytes2.i.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i.i, i64 0, i32 1
+  %bytes2.i.i = getelementptr inbounds i8, ptr %r.07.i.i, i64 8
   %1 = load i64, ptr %bytes2.i.i, align 8
   %add.i3.i.i.i = add i64 %0, -1
   %sub.i4.i.i.i = add i64 %add.i3.i.i.i, %1
@@ -207,7 +203,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.backed
   br i1 %.not.i.not.i.i, label %for.inc.i.i, label %reqlist_wait_one.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %list.i.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i.i, i64 0, i32 3
+  %list.i.i = getelementptr inbounds i8, ptr %r.07.i.i, i64 32
   %r.0.i.i = load ptr, ptr %list.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %r.0.i.i, null
   br i1 %tobool.not.i.i, label %while.end, label %for.body.i.i.backedge
@@ -217,7 +213,7 @@ for.body.i.i.backedge:                            ; preds = %for.inc.i.i, %reqli
   br label %for.body.i.i, !llvm.loop !7
 
 reqlist_wait_one.exit:                            ; preds = %for.body.i.i
-  %wait_queue.i = getelementptr inbounds %struct.BlockReq, ptr %r.07.i.i, i64 0, i32 2
+  %wait_queue.i = getelementptr inbounds i8, ptr %r.07.i.i, i64 16
   store ptr %lock, ptr %.compoundliteral.i, align 8
   store ptr @qemu_co_mutex_lock, ptr %lock1.i, align 8
   store ptr @qemu_co_mutex_unlock, ptr %unlock.i, align 8
@@ -236,7 +232,7 @@ while.end:                                        ; preds = %reqlist_wait_one.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @reqlist_shrink_req(ptr noundef %req, i64 noundef %new_bytes) #0 {
 entry:
-  %bytes = getelementptr inbounds %struct.BlockReq, ptr %req, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load i64, ptr %bytes, align 8
   %cmp = icmp eq i64 %0, %new_bytes
   br i1 %cmp, label %return, label %if.end
@@ -253,7 +249,7 @@ if.else:                                          ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   store i64 %new_bytes, ptr %bytes, align 8
-  %wait_queue = getelementptr inbounds %struct.BlockReq, ptr %req, i64 0, i32 2
+  %wait_queue = getelementptr inbounds i8, ptr %req, i64 16
   tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %wait_queue) #7
   br label %return
 
@@ -266,15 +262,15 @@ declare void @qemu_co_queue_restart_all(ptr noundef) #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @reqlist_remove_req(ptr noundef %req) #0 {
 entry:
-  %list = getelementptr inbounds %struct.BlockReq, ptr %req, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %req, i64 32
   %0 = load ptr, ptr %list, align 8
   %cmp.not = icmp eq ptr %0, null
-  %le_prev9.phi.trans.insert = getelementptr inbounds %struct.BlockReq, ptr %req, i64 0, i32 3, i32 1
+  %le_prev9.phi.trans.insert = getelementptr inbounds i8, ptr %req, i64 40
   %.pre8 = load ptr, ptr %le_prev9.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev5 = getelementptr inbounds %struct.BlockReq, ptr %0, i64 0, i32 3, i32 1
+  %le_prev5 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.pre8, ptr %le_prev5, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end
@@ -282,7 +278,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.then
   %1 = phi ptr [ %.pre, %if.then ], [ null, %entry ]
   store ptr %1, ptr %.pre8, align 8
-  %wait_queue = getelementptr inbounds %struct.BlockReq, ptr %req, i64 0, i32 2
+  %wait_queue = getelementptr inbounds i8, ptr %req, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list, i8 0, i64 16, i1 false)
   tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %wait_queue) #7
   ret void

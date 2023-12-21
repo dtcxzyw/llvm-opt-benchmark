@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ffc_params_generate.ll
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [44 x i8] c"../openssl/crypto/ffc/ffc_params_generate.c\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"SHA1\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"SHA-224\00", align 1
@@ -25,14 +23,14 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %flags1 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags1 = getelementptr inbounds i8, ptr %params, i64 64
   %0 = load i32, ptr %flags1, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %0, %cond.true ], [ 0, %entry ]
   store i32 0, ptr %res, align 4
-  %mdname = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 11
+  %mdname = getelementptr inbounds i8, ptr %params, i64 72
   %1 = load ptr, ptr %mdname, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.else, label %if.end19
@@ -61,7 +59,7 @@ if.then15:                                        ; preds = %if.else
 if.end19:                                         ; preds = %if.else, %if.then5.i, %if.then2.i, %cond.end
   %retval.0.i.ph.sink = phi ptr [ %1, %cond.end ], [ @.str.1, %if.else ], [ @.str.3, %if.then5.i ], [ @.str.2, %if.then2.i ]
   %N.addr.1 = phi i64 [ %N, %cond.end ], [ %N.addr.0, %if.else ], [ %N.addr.0, %if.then5.i ], [ %N.addr.0, %if.then2.i ]
-  %mdprops17 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 12
+  %mdprops17 = getelementptr inbounds i8, ptr %params, i64 80
   %2 = load ptr, ptr %mdprops17, align 8
   %call18 = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull %retval.0.i.ph.sink, ptr noundef %2) #5
   %cmp20 = icmp eq ptr %call18, null
@@ -159,12 +157,12 @@ if.end51:                                         ; preds = %if.end46
   br i1 %cmp57, label %err, label %if.end60
 
 if.end60:                                         ; preds = %if.end51
-  %seedlen61 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 5
+  %seedlen61 = getelementptr inbounds i8, ptr %params, i64 40
   %3 = load i64, ptr %seedlen61, align 8
   %cmp62 = icmp eq i64 %3, 0
   %conv65 = zext nneg i32 %call24 to i64
   %spec.select = select i1 %cmp62, i64 %conv65, i64 %3
-  %seed67 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed67 = getelementptr inbounds i8, ptr %params, i64 32
   %4 = load ptr, ptr %seed67, align 8
   %cmp68.not = icmp eq ptr %4, null
   br i1 %cmp, label %if.else85, label %if.then74
@@ -172,7 +170,7 @@ if.end60:                                         ; preds = %if.end51
 if.then74:                                        ; preds = %if.end60
   %5 = load ptr, ptr %params, align 8
   %cmp76 = icmp eq ptr %5, null
-  %q78 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q78 = getelementptr inbounds i8, ptr %params, i64 8
   %6 = load ptr, ptr %q78, align 8
   %7 = icmp ne ptr %6, null
   %cmp81.not = xor i1 %cmp76, %7
@@ -195,7 +193,7 @@ if.then88:                                        ; preds = %if.else85
   br i1 %cmp68.not, label %if.then95, label %lor.lhs.false91
 
 lor.lhs.false91:                                  ; preds = %if.then88
-  %pcounter92 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter92 = getelementptr inbounds i8, ptr %params, i64 48
   %8 = load i32, ptr %pcounter92, align 8
   %cmp93 = icmp slt i32 %8, 0
   br i1 %cmp93, label %if.then95, label %if.end97
@@ -210,7 +208,7 @@ if.end97:                                         ; preds = %lor.lhs.false91, %i
   br i1 %cmp99.not, label %if.end108, label %if.then101
 
 if.then101:                                       ; preds = %if.end97
-  %g102 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g102 = getelementptr inbounds i8, ptr %params, i64 16
   %9 = load ptr, ptr %g102, align 8
   %cmp103 = icmp eq ptr %9, null
   br i1 %cmp103, label %if.then105, label %if.end108
@@ -228,7 +226,7 @@ if.end108:                                        ; preds = %if.then74.if.end108
   br i1 %or.cond178, label %if.then115, label %if.end118
 
 if.then115:                                       ; preds = %if.end108
-  %q117 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q117 = getelementptr inbounds i8, ptr %params, i64 8
   %11 = load ptr, ptr %q117, align 8
   br label %g_only
 
@@ -280,7 +278,7 @@ if.end146:                                        ; preds = %if.end134
   br i1 %cmp, label %if.then150, label %if.end157
 
 if.then150:                                       ; preds = %if.end146
-  %pcounter151 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter151 = getelementptr inbounds i8, ptr %params, i64 48
   %14 = load i32, ptr %pcounter151, align 8
   %cmp152 = icmp sgt i32 %14, %conv148
   br i1 %cmp152, label %if.then154, label %if.end157
@@ -304,7 +302,7 @@ if.end157:                                        ; preds = %if.end146.thread, %
   br i1 %tobool165.not, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end157
-  %q177 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q177 = getelementptr inbounds i8, ptr %params, i64 8
   %.pre = load ptr, ptr %seed67, align 8
   br label %for.cond
 
@@ -402,7 +400,7 @@ if.end234:                                        ; preds = %if.end230
   br i1 %cmp236.not, label %if.end243, label %land.lhs.true238
 
 land.lhs.true238:                                 ; preds = %if.end234
-  %g239 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g239 = getelementptr inbounds i8, ptr %params, i64 16
   %20 = load ptr, ptr %g239, align 8
   %call240 = tail call i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %p.0, ptr noundef %q.0, ptr noundef %20, ptr noundef nonnull %call56, ptr noundef nonnull %res) #5
   %tobool241.not = icmp eq i32 %call240, 0
@@ -424,7 +422,7 @@ if.end251:                                        ; preds = %land.lhs.true247
   br i1 %cmp252.not, label %if.else271, label %land.lhs.true254
 
 land.lhs.true254:                                 ; preds = %if.end251
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %params, i64 56
   %21 = load i32, ptr %gindex, align 8
   %cmp255.not = icmp eq i32 %21, -1
   br i1 %cmp255.not, label %if.else271, label %if.then257
@@ -442,7 +440,7 @@ if.end262:                                        ; preds = %if.then257
   br i1 %cmp, label %land.lhs.true264, label %if.end279
 
 land.lhs.true264:                                 ; preds = %if.end262
-  %g265 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g265 = getelementptr inbounds i8, ptr %params, i64 16
   %22 = load ptr, ptr %g265, align 8
   %call266 = tail call i32 @BN_cmp(ptr noundef %call52, ptr noundef %22) #5
   %cmp267.not = icmp eq i32 %call266, 0
@@ -481,7 +479,7 @@ if.then289:                                       ; preds = %if.then285
   br label %if.end293
 
 if.end293:                                        ; preds = %if.then289, %if.then285
-  %q294 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q294 = getelementptr inbounds i8, ptr %params, i64 8
   %24 = load ptr, ptr %q294, align 8
   %cmp295.not = icmp eq ptr %q.0, %24
   br i1 %cmp295.not, label %if.end301, label %if.then297
@@ -493,7 +491,7 @@ if.then297:                                       ; preds = %if.end293
   br label %if.end301
 
 if.end301:                                        ; preds = %if.then297, %if.end293
-  %g302 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g302 = getelementptr inbounds i8, ptr %params, i64 16
   %25 = load ptr, ptr %g302, align 8
   %cmp303.not = icmp eq ptr %call52, %25
   br i1 %cmp303.not, label %if.end309, label %if.then305
@@ -525,7 +523,7 @@ if.end322:                                        ; preds = %lor.lhs.false313
 
 if.end326:                                        ; preds = %if.end322
   %30 = load i32, ptr %hret, align 4
-  %h = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 9
+  %h = getelementptr inbounds i8, ptr %params, i64 60
   store i32 %30, ptr %h, align 4
   br label %pass
 
@@ -549,7 +547,7 @@ err:                                              ; preds = %if.end196, %if.end1
   %md.1 = phi ptr [ null, %if.end19 ], [ %call18, %if.end23 ], [ %call18, %if.then40 ], [ %call18, %if.end41 ], [ %call18, %if.end46 ], [ %call18, %if.end51 ], [ %call18, %if.then95 ], [ %call18, %if.then105 ], [ %call18, %g_only ], [ %call18, %if.then269 ], [ %call18, %if.end309 ], [ %call18, %lor.lhs.false313 ], [ %call18, %if.end322 ], [ %call18, %if.end279 ], [ %call18, %if.then261 ], [ %call18, %if.then273 ], [ %call18, %land.lhs.true247 ], [ %call18, %if.end243 ], [ %call18, %land.lhs.true238 ], [ %call18, %if.end230 ], [ %call18, %if.end118 ], [ %call18, %if.then128 ], [ %call18, %if.end129 ], [ %call18, %if.then139 ], [ %call18, %if.end140 ], [ %call18, %if.then154 ], [ %call18, %if.then181 ], [ %call18, %land.lhs.true211 ], [ %call18, %lor.lhs.false214 ], [ %call18, %for.end ], [ %call18, %if.then204 ], [ %call18, %if.end157 ], [ %call18, %if.then83 ], [ null, %if.then15 ], [ %call18, %pass ], [ %call18, %for.cond ], [ %call18, %if.end182 ], [ %call18, %if.end186 ], [ %call18, %if.end196 ]
   %seed.4 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ], [ %4, %if.then95 ], [ %4, %if.then105 ], [ %seed.2, %g_only ], [ %seed.2, %if.then269 ], [ %seed.2, %if.end309 ], [ %seed.2, %lor.lhs.false313 ], [ %seed.2, %if.end322 ], [ %seed.2, %if.end279 ], [ %seed.2, %if.then261 ], [ %seed.2, %if.then273 ], [ %seed.2, %land.lhs.true247 ], [ %seed.2, %if.end243 ], [ %seed.2, %land.lhs.true238 ], [ %seed.2, %if.end230 ], [ %4, %if.end118 ], [ %4, %if.then128 ], [ %4, %if.end129 ], [ null, %if.then139 ], [ null, %if.end140 ], [ %4, %if.then154 ], [ %seed.1188, %if.then181 ], [ %seed.1188, %land.lhs.true211 ], [ %seed.1188, %lor.lhs.false214 ], [ %seed.1188, %for.end ], [ %seed.1188, %if.then204 ], [ %seed.1188, %if.end157 ], [ %4, %if.then83 ], [ null, %if.then15 ], [ %seed.3, %pass ], [ %seed.1188, %for.cond ], [ %seed.1188, %if.end182 ], [ %seed.1188, %if.end186 ], [ %seed.1188, %if.end196 ]
   %ok.0 = phi i32 [ 0, %if.end19 ], [ 0, %if.end23 ], [ 0, %if.then40 ], [ 0, %if.end41 ], [ 0, %if.end46 ], [ 0, %if.end51 ], [ 0, %if.then95 ], [ 0, %if.then105 ], [ 0, %g_only ], [ 0, %if.then269 ], [ 0, %if.end309 ], [ 0, %lor.lhs.false313 ], [ 0, %if.end322 ], [ 0, %if.end279 ], [ 0, %if.then261 ], [ 0, %if.then273 ], [ 0, %land.lhs.true247 ], [ 0, %if.end243 ], [ 0, %land.lhs.true238 ], [ 0, %if.end230 ], [ 0, %if.end118 ], [ 0, %if.then128 ], [ 0, %if.end129 ], [ 0, %if.then139 ], [ 0, %if.end140 ], [ 0, %if.then154 ], [ 0, %if.then181 ], [ 0, %land.lhs.true211 ], [ 0, %lor.lhs.false214 ], [ 0, %for.end ], [ 0, %if.then204 ], [ 0, %if.end157 ], [ 0, %if.then83 ], [ 0, %if.then15 ], [ %., %pass ], [ 0, %for.cond ], [ 0, %if.end182 ], [ 0, %if.end186 ], [ 0, %if.end196 ]
-  %seed337 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed337 = getelementptr inbounds i8, ptr %params, i64 32
   %31 = load ptr, ptr %seed337, align 8
   %cmp338.not = icmp eq ptr %seed.4, %31
   br i1 %cmp338.not, label %if.end341, label %if.then340
@@ -959,8 +957,8 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %conv = trunc i32 %gindex to i8
-  %arrayidx8 = getelementptr inbounds [64 x i8], ptr %md, i64 0, i64 1
-  %arrayidx11 = getelementptr inbounds [64 x i8], ptr %md, i64 0, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %md, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %md, i64 2
   br label %for.body
 
 for.cond:                                         ; preds = %if.end34
@@ -1099,22 +1097,22 @@ entry:
   %hret = alloca i32, align 4
   store i32 0, ptr %pcounter, align 4
   store i32 -1, ptr %hret, align 4
-  %seed1 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed1 = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1, align 8
-  %seedlen = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 5
+  %seedlen = getelementptr inbounds i8, ptr %params, i64 40
   %1 = load i64, ptr %seedlen, align 8
   %cmp = icmp eq i32 %mode, 0
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %flags2 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags2 = getelementptr inbounds i8, ptr %params, i64 64
   %2 = load i32, ptr %flags2, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %2, %cond.true ], [ 0, %entry ]
   store i32 0, ptr %res, align 4
-  %mdname = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 11
+  %mdname = getelementptr inbounds i8, ptr %params, i64 72
   %3 = load ptr, ptr %mdname, align 8
   %cmp3.not = icmp eq ptr %3, null
   br i1 %cmp3.not, label %if.else, label %if.end20
@@ -1143,7 +1141,7 @@ if.then16:                                        ; preds = %if.else
 if.end20:                                         ; preds = %if.else, %if.then5.i, %if.then2.i, %cond.end
   %retval.0.i.ph.sink = phi ptr [ %3, %cond.end ], [ @.str.1, %if.else ], [ @.str.3, %if.then5.i ], [ @.str.2, %if.then2.i ]
   %N.addr.1 = phi i64 [ %N, %cond.end ], [ %N.addr.0, %if.else ], [ %N.addr.0, %if.then5.i ], [ %N.addr.0, %if.then2.i ]
-  %mdprops18 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 12
+  %mdprops18 = getelementptr inbounds i8, ptr %params, i64 80
   %4 = load ptr, ptr %mdprops18, align 8
   %call19 = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull %retval.0.i.ph.sink, ptr noundef %4) #5
   %cmp21 = icmp eq ptr %call19, null
@@ -1228,7 +1226,7 @@ if.end78:                                         ; preds = %if.end72
 if.then80:                                        ; preds = %if.end78
   %6 = load ptr, ptr %params, align 8
   %cmp82 = icmp ne ptr %6, null
-  %q84 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q84 = getelementptr inbounds i8, ptr %params, i64 8
   %7 = load ptr, ptr %q84, align 8
   %8 = icmp eq ptr %7, null
   %cmp87.not = xor i1 %cmp82, %8
@@ -1251,7 +1249,7 @@ if.then94:                                        ; preds = %if.else91
   br i1 %cmp46.not, label %if.then100, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then94
-  %pcounter97 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter97 = getelementptr inbounds i8, ptr %params, i64 48
   %9 = load i32, ptr %pcounter97, align 8
   %cmp98 = icmp slt i32 %9, 0
   br i1 %cmp98, label %if.then100, label %if.end102
@@ -1266,7 +1264,7 @@ if.end102:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp104.not, label %if.end113, label %if.then106
 
 if.then106:                                       ; preds = %if.end102
-  %g107 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g107 = getelementptr inbounds i8, ptr %params, i64 16
   %10 = load ptr, ptr %g107, align 8
   %cmp108 = icmp eq ptr %10, null
   br i1 %cmp108, label %if.then110, label %if.end113
@@ -1284,7 +1282,7 @@ if.end113:                                        ; preds = %if.then80.if.end113
   br i1 %or.cond140, label %if.then121, label %if.end124
 
 if.then121:                                       ; preds = %if.end113
-  %q123 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q123 = getelementptr inbounds i8, ptr %params, i64 8
   %12 = load ptr, ptr %q123, align 8
   br label %g_only
 
@@ -1300,7 +1298,7 @@ if.end124:                                        ; preds = %if.end113
   %div139.tr = trunc i64 %div139 to i32
   %14 = shl i32 %div139.tr, 2
   %conv146 = add i32 %14, -1
-  %pcounter149 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter149 = getelementptr inbounds i8, ptr %params, i64 48
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end162, %if.end124
@@ -1501,7 +1499,7 @@ if.else213:                                       ; preds = %if.end197
   br i1 %cmp215.not, label %if.end223, label %land.lhs.true217
 
 land.lhs.true217:                                 ; preds = %if.else213
-  %g218 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g218 = getelementptr inbounds i8, ptr %params, i64 16
   %28 = load ptr, ptr %g218, align 8
   %call219 = call i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef nonnull %call58, ptr noundef nonnull %call189, ptr noundef %p.0, ptr noundef %q.0, ptr noundef %28, ptr noundef %call67, ptr noundef nonnull %res) #5
   %tobool220.not = icmp eq i32 %call219, 0
@@ -1529,7 +1527,7 @@ if.then233:                                       ; preds = %if.then229
   br label %if.end237
 
 if.end237:                                        ; preds = %if.then233, %if.then229
-  %q238 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q238 = getelementptr inbounds i8, ptr %params, i64 8
   %30 = load ptr, ptr %q238, align 8
   %cmp239.not = icmp eq ptr %q.0, %30
   br i1 %cmp239.not, label %if.end245, label %if.then241
@@ -1541,7 +1539,7 @@ if.then241:                                       ; preds = %if.end237
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then241, %if.end237
-  %g246 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g246 = getelementptr inbounds i8, ptr %params, i64 16
   %31 = load ptr, ptr %g246, align 8
   %cmp247.not = icmp eq ptr %call64, %31
   br i1 %cmp247.not, label %if.end253, label %if.then249
@@ -1573,7 +1571,7 @@ if.end266:                                        ; preds = %lor.lhs.false257
 
 if.end271:                                        ; preds = %if.end266
   %36 = load i32, ptr %hret, align 4
-  %h = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 9
+  %h = getelementptr inbounds i8, ptr %params, i64 60
   store i32 %36, ptr %h, align 4
   br label %pass
 

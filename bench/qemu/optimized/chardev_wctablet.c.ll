@@ -5,21 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.QemuInputHandler = type { ptr, i32, ptr, ptr }
-%struct.TabletChardev = type { %struct.Chardev, ptr, [100 x i8], i32, [512 x i8], i32, i32, i8, [2 x i32], [10 x i8] }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.InputEvent = type { i32, %union.anon }
-%union.anon = type { %struct.InputKeyEventWrapper }
-%struct.InputKeyEventWrapper = type { ptr }
-%struct.InputMoveEvent = type { i32, i64 }
-%struct.InputBtnEvent = type { i32, i8 }
 
 @WC_MODEL_STRING = dso_local local_unnamed_addr global [19 x i8] c"~#CT-0045R,V1.3-5,\00", align 16
 @WC_CONFIG_STRING = dso_local local_unnamed_addr global [9 x i8] c"96,N,8,0\00", align 8
@@ -87,7 +73,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @wctablet_chr_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
-  %hs = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 1
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %hs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -104,13 +90,13 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @wctablet_chr_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @wctablet_chr_open, ptr %open, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @wctablet_chr_write, ptr %chr_write, align 8
-  %chr_ioctl = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 9
+  %chr_ioctl = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @wctablet_chr_ioctl, ptr %chr_ioctl, align 8
-  %chr_accept_input = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 15
+  %chr_accept_input = getelementptr inbounds i8, ptr %call.i, i64 200
   store ptr @wctablet_chr_accept_input, ptr %chr_accept_input, align 8
   ret void
 }
@@ -124,14 +110,14 @@ define internal void @wctablet_chr_open(ptr noundef %chr, ptr nocapture readnone
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   store i8 1, ptr %be_opened, align 1
-  %outbuf = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 4
+  %outbuf = getelementptr inbounds i8, ptr %call.i, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %outbuf, ptr noundef nonnull align 16 dereferenceable(61) @WC_FULL_CONFIG_STRING, i64 61, i1 false)
-  %outlen = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %call.i, i64 776
   store i32 61, ptr %outlen, align 8
-  %query_index = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 3
+  %query_index = getelementptr inbounds i8, ptr %call.i, i64 260
   store i32 0, ptr %query_index, align 4
   %call1 = tail call ptr @qemu_input_handler_register(ptr noundef %call.i, ptr noundef nonnull @wctablet_handler) #8
-  %hs = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 1
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %call1, ptr %hs, align 8
   ret void
 }
@@ -144,22 +130,23 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %codes = alloca [7 x i8], align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
-  %line_speed = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 6
+  %line_speed = getelementptr inbounds i8, ptr %call.i, i64 780
   %0 = load i32, ptr %line_speed, align 4
   %cmp.not = icmp eq i32 %0, 9600
   br i1 %cmp.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
-  %query_index = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 3
+  %query_index = getelementptr inbounds i8, ptr %call.i, i64 260
   %cmp1155.not = icmp eq i32 %len, 0
-  br i1 %cmp1155.not, label %for.end, label %land.rhs.preheader
+  br i1 %cmp1155.not, label %for.end, label %land.rhs.lr.ph
 
-land.rhs.preheader:                               ; preds = %for.cond.preheader
+land.rhs.lr.ph:                                   ; preds = %for.cond.preheader
+  %query = getelementptr inbounds i8, ptr %call.i, i64 160
   %wide.trip.count = zext i32 %len to i64
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %for.body ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load i32, ptr %query_index, align 4
   %cmp2 = icmp ult i32 %1, 99
   br i1 %cmp2, label %for.body, label %for.end
@@ -170,24 +157,24 @@ for.body:                                         ; preds = %land.rhs
   %2 = load i8, ptr %arrayidx, align 1
   %inc = add nuw nsw i32 %1, 1
   store i32 %inc, ptr %query_index, align 4
-  %arrayidx6 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %conv
+  %arrayidx6 = getelementptr [100 x i8], ptr %query, i64 0, i64 %conv
   store i8 %2, ptr %arrayidx6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !5
 
 for.end:                                          ; preds = %land.rhs, %for.body, %for.cond.preheader
-  %query8 = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 2
+  %query8 = getelementptr inbounds i8, ptr %call.i, i64 160
   %3 = load i32, ptr %query_index, align 4
   %idxprom10 = sext i32 %3 to i64
-  %arrayidx11 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom10
+  %arrayidx11 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom10
   store i8 0, ptr %arrayidx11, align 1
   %4 = load i32, ptr %query_index, align 4
   %cmp13157 = icmp sgt i32 %4, 0
   br i1 %cmp13157, label %land.rhs15.lr.ph, label %while.end
 
 land.rhs15.lr.ph:                                 ; preds = %for.end
-  %add.ptr.i = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 1
+  %add.ptr.i = getelementptr i8, ptr %call.i, i64 161
   br label %land.rhs15
 
 land.rhs15:                                       ; preds = %land.rhs15.lr.ph, %while.body
@@ -206,7 +193,7 @@ while.body:                                       ; preds = %land.rhs15, %land.r
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i, i64 %conv.i, i1 false)
   %7 = load i32, ptr %query_index, align 4
   %idxprom.i = sext i32 %7 to i64
-  %arrayidx.i = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   %8 = load i32, ptr %query_index, align 4
   %cmp13 = icmp sgt i32 %8, 0
@@ -247,7 +234,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15) #8
   br label %trace_wct_init.exit
@@ -261,21 +248,21 @@ trace_wct_init.exit:                              ; preds = %if.then39, %land.lh
   %16 = load i32, ptr %query_index, align 4
   %sub.i56 = add i32 %16, -2
   store i32 %sub.i56, ptr %query_index, align 4
-  %add.ptr.i58 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 2
+  %add.ptr.i58 = getelementptr i8, ptr %call.i, i64 162
   %conv.i59 = sext i32 %sub.i56 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i58, i64 %conv.i59, i1 false)
   %17 = load i32, ptr %query_index, align 4
   %idxprom.i60 = sext i32 %17 to i64
-  %arrayidx.i61 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i60
+  %arrayidx.i61 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i60
   store i8 0, ptr %arrayidx.i61, align 1
-  %outlen.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %18 = load i32, ptr %outlen.i, align 8
   %19 = add i32 %18, -495
   %cmp.i = icmp ult i32 %19, -513
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %trace_wct_init.exit
-  %outbuf.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 4
+  %outbuf.i = getelementptr inbounds i8, ptr %call.i, i64 264
   %idx.ext.i = sext i32 %18 to i64
   %add.ptr.i62 = getelementptr i8, ptr %outbuf.i, i64 %idx.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr.i62, ptr noundef nonnull align 16 dereferenceable(18) @WC_MODEL_STRING, i64 18, i1 false)
@@ -285,14 +272,14 @@ if.end.i:                                         ; preds = %trace_wct_init.exit
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   %call1.i.i = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i.i) #8
-  %outlen.i.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i.i, i64 0, i32 5
+  %outlen.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 776
   %21 = load i32, ptr %outlen.i.i, align 8
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %call1.i.i, i32 %21)
   %tobool.not.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i
-  %outbuf.i.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i.i, i64 0, i32 4
+  %outbuf.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 264
   tail call void @qemu_chr_be_write(ptr noundef %call.i.i, ptr noundef nonnull %outbuf.i.i, i32 noundef %spec.select.i.i) #8
   %22 = load i32, ptr %outlen.i.i, align 8
   %sub.i.i = sub i32 %22, %spec.select.i.i
@@ -326,7 +313,7 @@ if.end52:                                         ; preds = %if.end40, %if.end49
   %call58 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %query8, ptr noundef nonnull dereferenceable(3) @.str.6, i64 noundef 2) #9
   %cmp59 = icmp eq i32 %call58, 0
   %cmp61 = icmp eq i32 %conv55, 2
-  %or.cond = select i1 %cmp59, i1 %cmp61, i1 false
+  %or.cond = and i1 %cmp59, %cmp61
   br i1 %or.cond, label %if.then63, label %if.else
 
 if.then63:                                        ; preds = %if.end52
@@ -354,7 +341,7 @@ if.then8.i.i72:                                   ; preds = %if.then.i.i70
   %call9.i.i73 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #8
   %call10.i.i74 = tail call i32 @qemu_get_thread_id() #8
   %28 = load i64, ptr %_now.i.i63, align 8
-  %tv_usec.i.i75 = getelementptr inbounds %struct.timeval, ptr %_now.i.i63, i64 0, i32 1
+  %tv_usec.i.i75 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
   %29 = load i64, ptr %tv_usec.i.i75, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i74, i64 noundef %28, i64 noundef %29) #8
   br label %trace_wct_cmd_re.exit
@@ -368,21 +355,21 @@ trace_wct_cmd_re.exit:                            ; preds = %if.then63, %land.lh
   %30 = load i32, ptr %query_index, align 4
   %sub.i78 = add i32 %30, -3
   store i32 %sub.i78, ptr %query_index, align 4
-  %add.ptr.i80 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 3
+  %add.ptr.i80 = getelementptr i8, ptr %call.i, i64 163
   %conv.i81 = sext i32 %sub.i78 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i80, i64 %conv.i81, i1 false)
   %31 = load i32, ptr %query_index, align 4
   %idxprom.i82 = sext i32 %31 to i64
-  %arrayidx.i83 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i82
+  %arrayidx.i83 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i82
   store i8 0, ptr %arrayidx.i83, align 1
-  %outlen.i84 = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 5
+  %outlen.i84 = getelementptr inbounds i8, ptr %call.i, i64 776
   %32 = load i32, ptr %outlen.i84, align 8
   %33 = add i32 %32, -505
   %cmp.i86 = icmp ult i32 %33, -513
   br i1 %cmp.i86, label %return, label %if.end.i87
 
 if.end.i87:                                       ; preds = %trace_wct_cmd_re.exit
-  %outbuf.i88 = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 4
+  %outbuf.i88 = getelementptr inbounds i8, ptr %call.i, i64 264
   %idx.ext.i89 = sext i32 %32 to i64
   %add.ptr.i90 = getelementptr i8, ptr %outbuf.i88, i64 %idx.ext.i89
   %34 = load i64, ptr @WC_CONFIG_STRING, align 8
@@ -393,14 +380,14 @@ if.end.i87:                                       ; preds = %trace_wct_cmd_re.ex
   %call.i.i92 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #8
   %call.i.i.i93 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i92, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   %call1.i.i94 = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i.i92) #8
-  %outlen.i.i95 = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i.i93, i64 0, i32 5
+  %outlen.i.i95 = getelementptr inbounds i8, ptr %call.i.i.i93, i64 776
   %36 = load i32, ptr %outlen.i.i95, align 8
   %spec.select.i.i96 = tail call i32 @llvm.smin.i32(i32 %call1.i.i94, i32 %36)
   %tobool.not.i.i97 = icmp eq i32 %spec.select.i.i96, 0
   br i1 %tobool.not.i.i97, label %return, label %if.then3.i.i98
 
 if.then3.i.i98:                                   ; preds = %if.end.i87
-  %outbuf.i.i99 = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i.i93, i64 0, i32 4
+  %outbuf.i.i99 = getelementptr inbounds i8, ptr %call.i.i.i93, i64 264
   tail call void @qemu_chr_be_write(ptr noundef %call.i.i92, ptr noundef nonnull %outbuf.i.i99, i32 noundef %spec.select.i.i96) #8
   %37 = load i32, ptr %outlen.i.i95, align 8
   %sub.i.i100 = sub i32 %37, %spec.select.i.i96
@@ -418,7 +405,7 @@ if.then7.i.i102:                                  ; preds = %if.then3.i.i98
 if.else:                                          ; preds = %if.end52
   %call66 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %query8, ptr noundef nonnull dereferenceable(3) @.str.7, i64 noundef 2) #9
   %cmp67 = icmp eq i32 %call66, 0
-  %or.cond1 = select i1 %cmp67, i1 %cmp61, i1 false
+  %or.cond1 = and i1 %cmp61, %cmp67
   br i1 %or.cond1, label %if.then72, label %if.else73
 
 if.then72:                                        ; preds = %if.else
@@ -446,7 +433,7 @@ if.then8.i.i116:                                  ; preds = %if.then.i.i114
   %call9.i.i117 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i107, ptr noundef null) #8
   %call10.i.i118 = tail call i32 @qemu_get_thread_id() #8
   %43 = load i64, ptr %_now.i.i107, align 8
-  %tv_usec.i.i119 = getelementptr inbounds %struct.timeval, ptr %_now.i.i107, i64 0, i32 1
+  %tv_usec.i.i119 = getelementptr inbounds i8, ptr %_now.i.i107, i64 8
   %44 = load i64, ptr %tv_usec.i.i119, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i118, i64 noundef %43, i64 noundef %44) #8
   br label %trace_wct_cmd_st.exit
@@ -460,14 +447,14 @@ trace_wct_cmd_st.exit:                            ; preds = %if.then72, %land.lh
   %45 = load i32, ptr %query_index, align 4
   %sub.i122 = add i32 %45, -3
   store i32 %sub.i122, ptr %query_index, align 4
-  %add.ptr.i124 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 3
+  %add.ptr.i124 = getelementptr i8, ptr %call.i, i64 163
   %conv.i125 = sext i32 %sub.i122 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i124, i64 %conv.i125, i1 false)
   %46 = load i32, ptr %query_index, align 4
   %idxprom.i126 = sext i32 %46 to i64
-  %arrayidx.i127 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i126
+  %arrayidx.i127 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i126
   store i8 0, ptr %arrayidx.i127, align 1
-  %send_events = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 7
+  %send_events = getelementptr inbounds i8, ptr %call.i, i64 784
   store i8 1, ptr %send_events, align 8
   tail call fastcc void @wctablet_queue_event(ptr noundef nonnull %call.i)
   br label %return
@@ -475,7 +462,7 @@ trace_wct_cmd_st.exit:                            ; preds = %if.then72, %land.lh
 if.else73:                                        ; preds = %if.else
   %call76 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %query8, ptr noundef nonnull dereferenceable(3) @.str.8, i64 noundef 2) #9
   %cmp77 = icmp eq i32 %call76, 0
-  %or.cond2 = select i1 %cmp77, i1 %cmp61, i1 false
+  %or.cond2 = and i1 %cmp61, %cmp77
   br i1 %or.cond2, label %if.then82, label %if.else84
 
 if.then82:                                        ; preds = %if.else73
@@ -483,14 +470,14 @@ if.then82:                                        ; preds = %if.else73
   %47 = load i32, ptr %query_index, align 4
   %sub.i129 = add i32 %47, -3
   store i32 %sub.i129, ptr %query_index, align 4
-  %add.ptr.i131 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 3
+  %add.ptr.i131 = getelementptr i8, ptr %call.i, i64 163
   %conv.i132 = sext i32 %sub.i129 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i131, i64 %conv.i132, i1 false)
   %48 = load i32, ptr %query_index, align 4
   %idxprom.i133 = sext i32 %48 to i64
-  %arrayidx.i134 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i133
+  %arrayidx.i134 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i133
   store i8 0, ptr %arrayidx.i134, align 1
-  %send_events83 = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 7
+  %send_events83 = getelementptr inbounds i8, ptr %call.i, i64 784
   store i8 0, ptr %send_events83, align 8
   br label %return
 
@@ -498,11 +485,11 @@ if.else84:                                        ; preds = %if.else73
   %call87 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %query8, ptr noundef nonnull dereferenceable(3) @.str.9, i64 noundef 2) #9
   %cmp88 = icmp eq i32 %call87, 0
   %cmp91 = icmp eq i32 %conv55, 3
-  %or.cond3 = select i1 %cmp88, i1 %cmp91, i1 false
+  %or.cond3 = and i1 %cmp91, %cmp88
   br i1 %or.cond3, label %if.then93, label %if.else111
 
 if.then93:                                        ; preds = %if.else84
-  %arrayidx95 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 2
+  %arrayidx95 = getelementptr i8, ptr %call.i, i64 162
   %49 = load i8, ptr %arrayidx95, align 2
   %conv96 = zext i8 %49 to i32
   store i8 -93, ptr %codes, align 1
@@ -520,19 +507,19 @@ if.then93:                                        ; preds = %if.else84
   %51 = load i32, ptr %query_index, align 4
   %sub.i136 = add i32 %51, -4
   store i32 %sub.i136, ptr %query_index, align 4
-  %add.ptr.i138 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 4
+  %add.ptr.i138 = getelementptr i8, ptr %call.i, i64 164
   %conv.i139 = sext i32 %sub.i136 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i138, i64 %conv.i139, i1 false)
   %52 = load i32, ptr %query_index, align 4
   %idxprom.i140 = sext i32 %52 to i64
-  %arrayidx.i141 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i140
+  %arrayidx.i141 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i140
   store i8 0, ptr %arrayidx.i141, align 1
   call fastcc void @wctablet_queue_output(ptr noundef nonnull %call.i, ptr noundef nonnull %codes, i32 noundef 7)
   br label %return
 
 if.else111:                                       ; preds = %if.else84
   %idxprom113 = and i64 %sub.ptr.sub, 4294967295
-  %arrayidx114 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom113
+  %arrayidx114 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom113
   store i8 0, ptr %arrayidx114, align 1
   tail call fastcc void @trace_wct_cmd_other(ptr noundef nonnull %query8)
   %add = add i32 %conv55, 1
@@ -545,7 +532,7 @@ if.else111:                                       ; preds = %if.else84
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %query8, ptr align 1 %add.ptr.i146, i64 %conv.i147, i1 false)
   %54 = load i32, ptr %query_index, align 4
   %idxprom.i148 = sext i32 %54 to i64
-  %arrayidx.i149 = getelementptr %struct.TabletChardev, ptr %call.i, i64 0, i32 2, i64 %idxprom.i148
+  %arrayidx.i149 = getelementptr [100 x i8], ptr %query8, i64 0, i64 %idxprom.i148
   store i8 0, ptr %arrayidx.i149, align 1
   br label %return
 
@@ -562,7 +549,7 @@ entry:
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %line_speed = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 6
+  %line_speed = getelementptr inbounds i8, ptr %call.i, i64 780
   %0 = load i32, ptr %line_speed, align 4
   %1 = load i32, ptr %arg, align 4
   %cmp.not = icmp eq i32 %0, %1
@@ -593,7 +580,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1) #8
   br label %trace_wct_speed.exit
@@ -604,11 +591,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_wct_speed.exit:                             ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %query_index.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 3
+  %query_index.i = getelementptr inbounds i8, ptr %call.i, i64 260
   store i32 0, ptr %query_index.i, align 4
-  %outlen.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %call.i, i64 776
   store i32 0, ptr %outlen.i, align 8
-  %send_events.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 7
+  %send_events.i = getelementptr inbounds i8, ptr %call.i, i64 784
   store i8 0, ptr %send_events.i, align 8
   %9 = load i32, ptr %arg, align 4
   store i32 %9, ptr %line_speed, align 4
@@ -624,14 +611,14 @@ define internal void @wctablet_chr_accept_input(ptr noundef %chr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   %call1 = tail call i32 @qemu_chr_be_can_write(ptr noundef %chr) #8
-  %outlen = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %call.i, i64 776
   %0 = load i32, ptr %outlen, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %call1, i32 %0)
   %tobool.not = icmp eq i32 %spec.select, 0
   br i1 %tobool.not, label %if.end14, label %if.then3
 
 if.then3:                                         ; preds = %entry
-  %outbuf = getelementptr inbounds %struct.TabletChardev, ptr %call.i, i64 0, i32 4
+  %outbuf = getelementptr inbounds i8, ptr %call.i, i64 264
   tail call void @qemu_chr_be_write(ptr noundef %chr, ptr noundef nonnull %outbuf, i32 noundef %spec.select) #8
   %1 = load i32, ptr %outlen, align 8
   %sub = sub i32 %1, %spec.select
@@ -667,26 +654,28 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %1 = load ptr, ptr %u, align 8
-  %value = getelementptr inbounds %struct.InputMoveEvent, ptr %1, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %value, align 8
   %conv = trunc i64 %2 to i32
+  %axis = getelementptr inbounds i8, ptr %dev, i64 788
   %3 = load i32, ptr %1, align 8
   %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr %struct.TabletChardev, ptr %dev, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr [2 x i32], ptr %axis, i64 0, i64 %idxprom
   store i32 %conv, ptr %arrayidx, align 4
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %u3 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %evt, i64 8
   %4 = load ptr, ptr %u3, align 8
-  %down = getelementptr inbounds %struct.InputBtnEvent, ptr %4, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i8, ptr %down, align 4
   %6 = and i8 %5, 1
+  %btns = getelementptr inbounds i8, ptr %dev, i64 796
   %7 = load i32, ptr %4, align 4
   %idxprom5 = zext i32 %7 to i64
-  %arrayidx6 = getelementptr %struct.TabletChardev, ptr %dev, i64 0, i32 9, i64 %idxprom5
+  %arrayidx6 = getelementptr [10 x i8], ptr %btns, i64 0, i64 %idxprom5
   store i8 %6, ptr %arrayidx6, align 1
   br label %sw.epilog
 
@@ -697,7 +686,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wctablet_input_sync(ptr noundef %dev) #0 {
 entry:
-  %send_events = getelementptr inbounds %struct.TabletChardev, ptr %dev, i64 0, i32 7
+  %send_events = getelementptr inbounds i8, ptr %dev, i64 784
   %0 = load i8, ptr %send_events, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -714,24 +703,24 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @wctablet_queue_event(ptr noundef %tablet) unnamed_addr #0 {
 entry:
-  %line_speed = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 6
+  %line_speed = getelementptr inbounds i8, ptr %tablet, i64 780
   %0 = load i32, ptr %line_speed, align 4
   %cmp.not = icmp eq i32 %0, 9600
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %outlen.i = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %tablet, i64 776
   %1 = load i32, ptr %outlen.i, align 8
   %2 = add i32 %1, -506
   %cmp.i = icmp ult i32 %2, -513
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %btns = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 9
+  %btns = getelementptr inbounds i8, ptr %tablet, i64 796
   %3 = load i8, ptr %btns, align 4
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
-  %axis = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 8
+  %axis = getelementptr inbounds i8, ptr %tablet, i64 788
   %5 = load i32, ptr %axis, align 4
   %conv = sitofp i32 %5 to double
   %mul = fmul double %conv, 1.537000e-01
@@ -740,7 +729,7 @@ if.end.i:                                         ; preds = %if.end
   %6 = trunc i32 %shr to i8
   %conv9 = or i8 %6, -32
   %spec.select = select i1 %tobool.not, i8 %conv9, i8 -96
-  %arrayidx3 = getelementptr %struct.TabletChardev, ptr %tablet, i64 0, i32 8, i64 1
+  %arrayidx3 = getelementptr i8, ptr %tablet, i64 792
   %7 = load i32, ptr %arrayidx3, align 4
   %conv4 = sitofp i32 %7 to double
   %mul5 = fmul double %conv4, 1.152000e-01
@@ -757,7 +746,7 @@ if.end.i:                                         ; preds = %if.end
   %shr13 = lshr i32 %conv1, 7
   %15 = trunc i32 %shr13 to i8
   %16 = and i8 %15, 127
-  %outbuf.i = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 4
+  %outbuf.i = getelementptr inbounds i8, ptr %tablet, i64 264
   %idx.ext.i = sext i32 %1 to i64
   %add.ptr.i = getelementptr i8, ptr %outbuf.i, i64 %idx.ext.i
   store i8 %spec.select, ptr %add.ptr.i, align 1
@@ -779,14 +768,14 @@ if.end.i:                                         ; preds = %if.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tablet, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   %call1.i.i = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i.i) #8
-  %outlen.i.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i.i, i64 0, i32 5
+  %outlen.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 776
   %18 = load i32, ptr %outlen.i.i, align 8
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %call1.i.i, i32 %18)
   %tobool.not.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i
-  %outbuf.i.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i.i, i64 0, i32 4
+  %outbuf.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 264
   tail call void @qemu_chr_be_write(ptr noundef %call.i.i, ptr noundef nonnull %outbuf.i.i, i32 noundef %spec.select.i.i) #8
   %19 = load i32, ptr %outlen.i.i, align 8
   %sub.i.i = sub i32 %19, %spec.select.i.i
@@ -808,14 +797,14 @@ return:                                           ; preds = %if.then7.i.i, %if.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @wctablet_queue_output(ptr noundef %tablet, ptr nocapture noundef readonly %buf, i32 noundef %count) unnamed_addr #0 {
 entry:
-  %outlen = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %tablet, i64 776
   %0 = load i32, ptr %outlen, align 8
   %add = add i32 %0, %count
   %cmp = icmp ugt i32 %add, 512
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %outbuf = getelementptr inbounds %struct.TabletChardev, ptr %tablet, i64 0, i32 4
+  %outbuf = getelementptr inbounds i8, ptr %tablet, i64 264
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr i8, ptr %outbuf, i64 %idx.ext
   %conv3 = zext nneg i32 %count to i64
@@ -826,14 +815,14 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tablet, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   %call1.i = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i) #8
-  %outlen.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %call.i.i, i64 776
   %2 = load i32, ptr %outlen.i, align 8
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %call1.i, i32 %2)
   %tobool.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %tobool.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end
-  %outbuf.i = getelementptr inbounds %struct.TabletChardev, ptr %call.i.i, i64 0, i32 4
+  %outbuf.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   tail call void @qemu_chr_be_write(ptr noundef %call.i, ptr noundef nonnull %outbuf.i, i32 noundef %spec.select.i) #8
   %3 = load i32, ptr %outlen.i, align 8
   %sub.i = sub i32 %3, %spec.select.i
@@ -886,7 +875,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #8
   %call10.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #8
   br label %_nocheck__trace_wct_cmd_sp.exit
@@ -928,7 +917,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #8
   %call10.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %input) #8
   br label %_nocheck__trace_wct_cmd_ts.exit
@@ -970,7 +959,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #8
   %call10.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %cmd) #8
   br label %_nocheck__trace_wct_cmd_other.exit

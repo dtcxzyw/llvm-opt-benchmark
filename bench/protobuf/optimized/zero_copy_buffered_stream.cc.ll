@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%"class.google::protobuf::json_internal::ZeroCopyBufferedStream" = type { ptr, %"class.std::basic_string_view", %"class.std::vector", i8, i64, i64, i8, i32 }
-%"class.std::basic_string_view" = type { i64, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20230802::StatusOr" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData" }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData" = type { %union.anon, %union.anon.0 }
 %union.anon = type { %"class.absl::lts_20230802::Status" }
@@ -48,12 +42,12 @@ entry:
   br i1 %cmp.not36, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
-  %last_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
-  %using_buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
-  %buffer_start_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %cursor_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %last_chunk_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %using_buf_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_start_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %.pre = load i64, ptr %cursor_.i, align 8
   %view.sroa.0.0.copyload.i.i.pre = load i64, ptr %last_chunk_.i.i, align 8
   %.pre47 = load i8, ptr %using_buf_.i.i, align 8
@@ -157,29 +151,29 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf13json_internal22ZeroCopyBu
 entry:
   %data = alloca ptr, align 8
   %len = alloca i32, align 4
-  %eof_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 6
+  %eof_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %eof_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %outstanding_buffer_borrows_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 7
+  %outstanding_buffer_borrows_ = getelementptr inbounds i8, ptr %this, i64 76
   %2 = load i32, ptr %outstanding_buffer_borrows_, align 4
   %cmp = icmp sgt i32 %2, 0
   br i1 %cmp, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end
-  %using_buf_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i8, ptr %using_buf_, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
   br i1 %tobool2.not, label %while.end10.i, label %if.end9
 
 while.end10.i:                                    ; preds = %land.lhs.true
-  %buffer_start_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_ = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load i64, ptr %buffer_start_, align 8
-  %last_chunk_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i = load i64, ptr %last_chunk_.i, align 8
   %cmp.i.i.i = icmp ult i64 %view.sroa.0.0.copyload.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream9RawBufferEmm.exit
@@ -190,16 +184,16 @@ if.then.i.i.i:                                    ; preds = %while.end10.i
 
 _ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream9RawBufferEmm.exit: ; preds = %while.end10.i
   %sub.i.i = sub i64 %view.sroa.0.0.copyload.i, %5
-  %buf_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp4.i.i.i.i.i.i = icmp sgt i64 %sub.i.i, 0
   br i1 %cmp4.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_.exit
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream9RawBufferEmm.exit
-  %view.sroa.4.0.last_chunk_.sroa_idx.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 16
   %view.sroa.4.0.copyload.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i, align 8
   %add.ptr.i.pn.i = getelementptr inbounds i8, ptr %view.sroa.4.0.copyload.i, i64 %5
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %.pre.i.i.i.i.i.i = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -287,7 +281,7 @@ _ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back
 if.end9:                                          ; preds = %_ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_.exit, %land.lhs.true, %if.end
   %13 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   %call10 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %data, ptr noundef nonnull %len)
   br i1 %call10, label %if.end13, label %if.then11
@@ -300,23 +294,23 @@ if.end13:                                         ; preds = %if.end9
   %15 = load ptr, ptr %data, align 8
   %16 = load i32, ptr %len, align 4
   %conv = sext i32 %16 to i64
-  %last_chunk_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %conv, ptr %last_chunk_, align 8
-  %ref.tmp14.sroa.2.0.last_chunk_.sroa_idx = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %ref.tmp14.sroa.2.0.last_chunk_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %15, ptr %ref.tmp14.sroa.2.0.last_chunk_.sroa_idx, align 8
-  %using_buf_15 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_15 = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load i8, ptr %using_buf_15, align 8
   %18 = and i8 %17, 1
   %tobool16.not = icmp eq i8 %18, 0
   br i1 %tobool16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  %buf_20 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_20 = getelementptr inbounds i8, ptr %this, i64 24
   %call24 = call ptr @_ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_(ptr noundef nonnull align 8 dereferenceable(16) %last_chunk_, ptr nonnull %buf_20)
   br label %return
 
 if.else:                                          ; preds = %if.end13
-  %cursor_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_ = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cursor_, i8 0, i64 16, i1 false)
   br label %return
 
@@ -333,14 +327,14 @@ entry:
   %guard = alloca %"class.google::protobuf::json_internal::BufferingGuard", align 8
   %ref.tmp15 = alloca %"class.absl::lts_20230802::Status", align 8
   store ptr null, ptr %guard, align 8
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
-  %last_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
-  %using_buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
-  %buffer_start_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %outstanding_buffer_borrows_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 7
-  %eof_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 6
+  %cursor_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %last_chunk_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %using_buf_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_start_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %outstanding_buffer_borrows_.i.i = getelementptr inbounds i8, ptr %this, i64 76
+  %eof_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -421,7 +415,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i, %if.th
   br i1 %cmp.not.i.i, label %if.then.i.i.i, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %invoke.cont8
-  %outstanding_buffer_borrows_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i = getelementptr inbounds i8, ptr %0, i64 76
   %13 = load i32, ptr %outstanding_buffer_borrows_.i.i.i, align 4
   %dec.i.i.i = add nsw i32 %13, -1
   store i32 %dec.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i, align 4
@@ -429,34 +423,34 @@ if.then.i.i30:                                    ; preds = %invoke.cont8
   br i1 %cmp.i.i.i, label %invoke.cont.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i30
-  %using_buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 3
+  %using_buf_.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i8, ptr %using_buf_.i.i.i, align 8
   %15 = and i8 %14, 1
   %tobool.not.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
-  %eof_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 6
+  %eof_.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %16 = load i8, ptr %eof_.i.i.i, align 8
   %17 = and i8 %16, 1
   %tobool3.not.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool3.not.i.i.i, label %if.end5.i.i.i, label %invoke.cont.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
-  %buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 2
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %19 = load ptr, ptr %buf_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 5
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %20 = load i64, ptr %buffer_start_.i.i.i, align 8
-  %last_chunk_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 1
+  %last_chunk_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load i64, ptr %last_chunk_.i.i.i, align 8
   %.neg193 = add i64 %20, %sub.ptr.lhs.cast.i.i.i.i
   %22 = add i64 %21, %sub.ptr.rhs.cast.i.i.i.i
   %sub.i.i.i33 = sub i64 %.neg193, %22
-  %cursor_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 4
+  %cursor_.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %23 = load i64, ptr %cursor_.i.i.i, align 8
   %storemerge.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %23, i64 %sub.i.i.i33)
   store i64 %storemerge.i.i.i, ptr %cursor_.i.i.i, align 8
@@ -604,7 +598,7 @@ invoke.cont21:                                    ; preds = %if.then.i.i55, %if.
   br i1 %cmp.not.i.i59, label %if.then.i.i.i73, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %invoke.cont21
-  %outstanding_buffer_borrows_.i.i.i61 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i61 = getelementptr inbounds i8, ptr %36, i64 76
   %43 = load i32, ptr %outstanding_buffer_borrows_.i.i.i61, align 4
   %dec.i.i.i62 = add nsw i32 %43, -1
   store i32 %dec.i.i.i62, ptr %outstanding_buffer_borrows_.i.i.i61, align 4
@@ -612,34 +606,34 @@ if.then.i.i60:                                    ; preds = %invoke.cont21
   br i1 %cmp.i.i.i63, label %invoke.cont.i.i70, label %lor.lhs.false.i.i.i64
 
 lor.lhs.false.i.i.i64:                            ; preds = %if.then.i.i60
-  %using_buf_.i.i.i65 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 3
+  %using_buf_.i.i.i65 = getelementptr inbounds i8, ptr %36, i64 48
   %44 = load i8, ptr %using_buf_.i.i.i65, align 8
   %45 = and i8 %44, 1
   %tobool.not.i.i.i66 = icmp eq i8 %45, 0
   br i1 %tobool.not.i.i.i66, label %invoke.cont.i.i70, label %if.end.i.i.i67
 
 if.end.i.i.i67:                                   ; preds = %lor.lhs.false.i.i.i64
-  %eof_.i.i.i68 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 6
+  %eof_.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 72
   %46 = load i8, ptr %eof_.i.i.i68, align 8
   %47 = and i8 %46, 1
   %tobool3.not.i.i.i69 = icmp eq i8 %47, 0
   br i1 %tobool3.not.i.i.i69, label %if.end5.i.i.i80, label %invoke.cont.i.i70
 
 if.end5.i.i.i80:                                  ; preds = %if.end.i.i.i67
-  %buf_.i.i.i81 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 2
-  %_M_finish.i.i.i.i82 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buf_.i.i.i81 = getelementptr inbounds i8, ptr %36, i64 24
+  %_M_finish.i.i.i.i82 = getelementptr inbounds i8, ptr %36, i64 32
   %48 = load ptr, ptr %_M_finish.i.i.i.i82, align 8
   %49 = load ptr, ptr %buf_.i.i.i81, align 8
   %sub.ptr.lhs.cast.i.i.i.i83 = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i.i.i.i84 = ptrtoint ptr %49 to i64
-  %buffer_start_.i.i.i85 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 5
+  %buffer_start_.i.i.i85 = getelementptr inbounds i8, ptr %36, i64 64
   %50 = load i64, ptr %buffer_start_.i.i.i85, align 8
-  %last_chunk_.i.i.i86 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 1
+  %last_chunk_.i.i.i86 = getelementptr inbounds i8, ptr %36, i64 8
   %51 = load i64, ptr %last_chunk_.i.i.i86, align 8
   %.neg199 = add i64 %50, %sub.ptr.lhs.cast.i.i.i.i83
   %52 = add i64 %51, %sub.ptr.rhs.cast.i.i.i.i84
   %sub.i.i.i88 = sub i64 %.neg199, %52
-  %cursor_.i.i.i89 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %36, i64 0, i32 4
+  %cursor_.i.i.i89 = getelementptr inbounds i8, ptr %36, i64 56
   %53 = load i64, ptr %cursor_.i.i.i89, align 8
   %storemerge.i.i.i90 = tail call i64 @llvm.usub.sat.i64(i64 %53, i64 %sub.i.i.i88)
   store i64 %storemerge.i.i.i90, ptr %cursor_.i.i.i89, align 8
@@ -725,14 +719,14 @@ while.end30:                                      ; preds = %invoke.cont
 
 if.then.i131.thread:                              ; preds = %while.end30
   store i64 %1, ptr %buffer_start_.i.i, align 8
-  %67 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %this, ptr %67, align 8
   store i64 0, ptr %agg.result, align 8
   store i32 %inc.i.i124, ptr %outstanding_buffer_borrows_.i.i, align 4
   br label %cleanup
 
 if.then.i.i.i.i.i:                                ; preds = %while.end30
-  %68 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %this, ptr %68, align 8
   %inc.i.i.i.i.i.i = add nsw i32 %66, 2
   store i32 %inc.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i, align 4
@@ -786,7 +780,7 @@ cleanup:                                          ; preds = %invoke.cont16, %if.
   br i1 %cmp.not.i157, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit183, label %if.then.i158
 
 if.then.i158:                                     ; preds = %cleanup
-  %outstanding_buffer_borrows_.i.i159 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i159 = getelementptr inbounds i8, ptr %76, i64 76
   %77 = load i32, ptr %outstanding_buffer_borrows_.i.i159, align 4
   %dec.i.i160 = add nsw i32 %77, -1
   store i32 %dec.i.i160, ptr %outstanding_buffer_borrows_.i.i159, align 4
@@ -794,34 +788,34 @@ if.then.i158:                                     ; preds = %cleanup
   br i1 %cmp.i.i161, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit183, label %lor.lhs.false.i.i162
 
 lor.lhs.false.i.i162:                             ; preds = %if.then.i158
-  %using_buf_.i.i163 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 3
+  %using_buf_.i.i163 = getelementptr inbounds i8, ptr %76, i64 48
   %78 = load i8, ptr %using_buf_.i.i163, align 8
   %79 = and i8 %78, 1
   %tobool.not.i.i164 = icmp eq i8 %79, 0
   br i1 %tobool.not.i.i164, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit183, label %if.end.i.i165
 
 if.end.i.i165:                                    ; preds = %lor.lhs.false.i.i162
-  %eof_.i.i166 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 6
+  %eof_.i.i166 = getelementptr inbounds i8, ptr %76, i64 72
   %80 = load i8, ptr %eof_.i.i166, align 8
   %81 = and i8 %80, 1
   %tobool3.not.i.i167 = icmp eq i8 %81, 0
   br i1 %tobool3.not.i.i167, label %if.end5.i.i169, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit183
 
 if.end5.i.i169:                                   ; preds = %if.end.i.i165
-  %buf_.i.i170 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 2
-  %_M_finish.i.i.i171 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buf_.i.i170 = getelementptr inbounds i8, ptr %76, i64 24
+  %_M_finish.i.i.i171 = getelementptr inbounds i8, ptr %76, i64 32
   %82 = load ptr, ptr %_M_finish.i.i.i171, align 8
   %83 = load ptr, ptr %buf_.i.i170, align 8
   %sub.ptr.lhs.cast.i.i.i172 = ptrtoint ptr %82 to i64
   %sub.ptr.rhs.cast.i.i.i173 = ptrtoint ptr %83 to i64
-  %buffer_start_.i.i174 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 5
+  %buffer_start_.i.i174 = getelementptr inbounds i8, ptr %76, i64 64
   %84 = load i64, ptr %buffer_start_.i.i174, align 8
-  %last_chunk_.i.i175 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 1
+  %last_chunk_.i.i175 = getelementptr inbounds i8, ptr %76, i64 8
   %85 = load i64, ptr %last_chunk_.i.i175, align 8
   %.neg197 = add i64 %84, %sub.ptr.lhs.cast.i.i.i172
   %86 = add i64 %85, %sub.ptr.rhs.cast.i.i.i173
   %sub.i.i177 = sub i64 %.neg197, %86
-  %cursor_.i.i178 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %76, i64 0, i32 4
+  %cursor_.i.i178 = getelementptr inbounds i8, ptr %76, i64 56
   %87 = load i64, ptr %cursor_.i.i178, align 8
   %storemerge.i.i179 = call i64 @llvm.usub.sat.i64(i64 %87, i64 %sub.i.i177)
   store i64 %storemerge.i.i179, ptr %cursor_.i.i178, align 8
@@ -855,7 +849,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %outstanding_buffer_borrows_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 7
+  %outstanding_buffer_borrows_.i = getelementptr inbounds i8, ptr %0, i64 76
   %1 = load i32, ptr %outstanding_buffer_borrows_.i, align 4
   %dec.i = add nsw i32 %1, -1
   store i32 %dec.i, ptr %outstanding_buffer_borrows_.i, align 4
@@ -863,34 +857,34 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %invoke.cont, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %using_buf_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 3
+  %using_buf_.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i8, ptr %using_buf_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %eof_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 6
+  %eof_.i = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i8, ptr %eof_.i, align 8
   %5 = and i8 %4, 1
   %tobool3.not.i = icmp eq i8 %5, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %invoke.cont
 
 if.end5.i:                                        ; preds = %if.end.i
-  %buf_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buf_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %buf_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
-  %buffer_start_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 5
+  %buffer_start_.i = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load i64, ptr %buffer_start_.i, align 8
-  %last_chunk_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 1
+  %last_chunk_.i = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %last_chunk_.i, align 8
   %.neg1 = add i64 %8, %sub.ptr.lhs.cast.i.i
   %10 = add i64 %9, %sub.ptr.rhs.cast.i.i
   %sub.i = sub i64 %.neg1, %10
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 4
+  %cursor_.i = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i64, ptr %cursor_.i, align 8
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 %sub.i)
   store i64 %storemerge.i, ptr %cursor_.i, align 8
@@ -939,7 +933,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %outstanding_buffer_borrows_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 7
+  %outstanding_buffer_borrows_ = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %outstanding_buffer_borrows_, align 4
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %outstanding_buffer_borrows_, align 4
@@ -947,34 +941,34 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %using_buf_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %using_buf_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %eof_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 6
+  %eof_ = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i8, ptr %eof_, align 8
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  %buf_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %buf_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
-  %buffer_start_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_ = getelementptr inbounds i8, ptr %this, i64 64
   %7 = load i64, ptr %buffer_start_, align 8
-  %last_chunk_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %last_chunk_, align 8
   %.neg2 = add i64 %7, %sub.ptr.lhs.cast.i
   %9 = add i64 %8, %sub.ptr.rhs.cast.i
   %sub = sub i64 %.neg2, %9
-  %cursor_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_ = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %cursor_, align 8
   %storemerge = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 %sub)
   store i64 %storemerge, ptr %cursor_, align 8
@@ -1001,10 +995,10 @@ entry:
   br i1 %cmp4.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKcSt20back_insert_iteratorISt6vectorIcSaIcEEEET0_T_S8_S7_.exit
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %entry
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %input, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load ptr, ptr %_M_str.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %output.coerce, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %output.coerce, i64 0, i32 2
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %output.coerce, i64 8
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %output.coerce, i64 16
   %.pre.i.i.i.i.i = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i
 

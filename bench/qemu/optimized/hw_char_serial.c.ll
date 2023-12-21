@@ -13,28 +13,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.3, i32, ptr, i32, ptr }
 %union.anon.3 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SerialState = type { %struct.DeviceState, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.CharBackend, i32, i32, i32, i32, i8, i64, %struct.Fifo8, %struct.Fifo8, i8, ptr, i32, i64, i32, ptr, %struct.MemoryRegion }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 %struct.QEMUSerialSetParams = type { i32, i32, i32, i32 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SerialMM = type { %struct.SysBusDevice, %struct.SerialState, i8, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon.4], i32, [32 x i32] }
-%struct.anon.4 = type { i64, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"serial\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"divider\00", align 1
@@ -150,9 +130,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @serial_pre_load(ptr nocapture noundef writeonly %opaque) #0 {
 entry:
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 -1, ptr %thr_ipending, align 16
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
   store i32 -1, ptr %poll_msl, align 8
   ret i32 0
 }
@@ -164,18 +144,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fcr_vmstate = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 13
+  %fcr_vmstate = getelementptr inbounds i8, ptr %opaque, i64 173
   store i8 0, ptr %fcr_vmstate, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   %0 = load i32, ptr %thr_ipending, align 16
   %cmp1 = icmp eq i32 %0, -1
   br i1 %cmp1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %iir = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 6
+  %iir = getelementptr inbounds i8, ptr %opaque, i64 166
   %1 = load i8, ptr %iir, align 2
   %2 = and i8 %1, 6
   %cmp3 = icmp eq i8 %2, 2
@@ -184,10 +164,10 @@ if.then2:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %tsr_retry = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 19
+  %tsr_retry = getelementptr inbounds i8, ptr %opaque, i64 256
   %3 = load i32, ptr %tsr_retry, align 16
   %cmp7.not = icmp eq i32 %3, 0
-  %lsr27 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr27 = getelementptr inbounds i8, ptr %opaque, i64 169
   %4 = load i8, ptr %lsr27, align 1
   %5 = and i8 %4, 64
   %tobool30.not = icmp eq i8 %5, 0
@@ -209,7 +189,7 @@ if.then18:                                        ; preds = %if.end14
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end14
-  %watch_tag = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 20
+  %watch_tag = getelementptr inbounds i8, ptr %opaque, i64 260
   %6 = load i32, ptr %watch_tag, align 4
   %cmp21 = icmp eq i32 %6, 0
   br i1 %cmp21, label %if.end24, label %if.else
@@ -219,7 +199,7 @@ if.else:                                          ; preds = %if.end20
   unreachable
 
 if.end24:                                         ; preds = %if.end20
-  %chr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 192
   %call = tail call i32 @qemu_chr_fe_add_watch(ptr noundef nonnull %chr, i32 noundef 20, ptr noundef nonnull @serial_watch_cb, ptr noundef nonnull %opaque) #10
   store i32 %call, ptr %watch_tag, align 4
   br label %if.end33
@@ -232,21 +212,21 @@ if.then31:                                        ; preds = %if.else26
   br label %return
 
 if.end33:                                         ; preds = %if.else26, %if.end24
-  %lcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr = getelementptr inbounds i8, ptr %opaque, i64 167
   %7 = load i8, ptr %lcr, align 1
   %8 = lshr i8 %7, 6
   %9 = and i8 %8, 1
   %and35 = zext nneg i8 %9 to i32
-  %last_break_enable = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 17
+  %last_break_enable = getelementptr inbounds i8, ptr %opaque, i64 248
   store i32 %and35, ptr %last_break_enable, align 8
-  %fcr_vmstate36 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 13
+  %fcr_vmstate36 = getelementptr inbounds i8, ptr %opaque, i64 173
   %10 = load i8, ptr %fcr_vmstate36, align 1
-  %fcr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr.i = getelementptr inbounds i8, ptr %opaque, i64 172
   store i8 %10, ptr %fcr.i, align 4
   %conv.i = zext i8 %10 to i32
   %and.i = and i32 %conv.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %iir11.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 6
+  %iir11.i = getelementptr inbounds i8, ptr %opaque, i64 166
   %11 = load i8, ptr %iir11.i, align 2
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -254,7 +234,7 @@ if.then.i:                                        ; preds = %if.end33
   %12 = or i8 %11, -64
   store i8 %12, ptr %iir11.i, align 2
   %13 = lshr i32 %conv.i, 6
-  %recv_fifo_itl.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 25
+  %recv_fifo_itl.i = getelementptr inbounds i8, ptr %opaque, i64 328
   switch i32 %13, label %if.then.unreachabledefault.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb5.i
@@ -298,9 +278,9 @@ return:                                           ; preds = %serial_write_fcr.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @serial_pre_save(ptr nocapture noundef %opaque) #2 {
 entry:
-  %fcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr, align 4
-  %fcr_vmstate = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 13
+  %fcr_vmstate = getelementptr inbounds i8, ptr %opaque, i64 173
   store i8 %0, ptr %fcr_vmstate, align 1
   ret i32 0
 }
@@ -308,7 +288,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @serial_set_frequency(ptr noundef %s, i32 noundef %frequency) local_unnamed_addr #1 {
 entry:
-  %baudbase = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 18
+  %baudbase = getelementptr inbounds i8, ptr %s, i64 252
   store i32 %frequency, ptr %baudbase, align 4
   tail call fastcc void @serial_update_parameters(ptr noundef %s)
   ret void
@@ -319,7 +299,7 @@ define internal fastcc void @serial_update_parameters(ptr noundef %s) unnamed_ad
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ssp = alloca %struct.QEMUSerialSetParams, align 4
-  %lcr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 7
+  %lcr = getelementptr inbounds i8, ptr %s, i64 167
   %0 = load i8, ptr %lcr, align 1
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 8
@@ -332,13 +312,13 @@ entry:
   %1 = and i8 %0, 4
   %tobool11.not = icmp eq i8 %1, 0
   %stop_bits.0 = select i1 %tobool11.not, i32 1, i32 2
-  %divider = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 1
+  %divider = getelementptr inbounds i8, ptr %s, i64 160
   %2 = load i16, ptr %divider, align 16
   %cmp = icmp eq i16 %2, 0
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %baudbase = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 18
+  %baudbase = getelementptr inbounds i8, ptr %s, i64 252
   %3 = load i32, ptr %baudbase, align 4
   %conv22 = uitofp i32 %3 to float
   %conv25 = uitofp i16 %2 to float
@@ -354,19 +334,19 @@ cond.end:                                         ; preds = %entry, %cond.false
   %add19 = add nuw nsw i32 %add18, %frame_size.0
   %conv26 = fptosi float %cond to i32
   store i32 %conv26, ptr %ssp, align 4
-  %parity28 = getelementptr inbounds %struct.QEMUSerialSetParams, ptr %ssp, i64 0, i32 1
+  %parity28 = getelementptr inbounds i8, ptr %ssp, i64 4
   store i32 %parity.0, ptr %parity28, align 4
-  %data_bits29 = getelementptr inbounds %struct.QEMUSerialSetParams, ptr %ssp, i64 0, i32 2
+  %data_bits29 = getelementptr inbounds i8, ptr %ssp, i64 8
   store i32 %add, ptr %data_bits29, align 4
-  %stop_bits30 = getelementptr inbounds %struct.QEMUSerialSetParams, ptr %ssp, i64 0, i32 3
+  %stop_bits30 = getelementptr inbounds i8, ptr %ssp, i64 12
   store i32 %stop_bits.0, ptr %stop_bits30, align 4
   %div31 = fdiv float 1.000000e+09, %cond
   %conv32 = sitofp i32 %add19 to float
   %mul = fmul float %div31, %conv32
   %conv33 = fptoui float %mul to i64
-  %char_transmit_time = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 28
+  %char_transmit_time = getelementptr inbounds i8, ptr %s, i64 352
   store i64 %conv33, ptr %char_transmit_time, align 16
-  %chr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %s, i64 192
   %call = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr, i32 noundef 1, ptr noundef nonnull %ssp) #10
   %conv34 = fptoui float %cond to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -393,7 +373,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef %add, i32 noundef %stop_bits.0) #10
   br label %trace_serial_update_parameters.exit
@@ -432,7 +412,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %lcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr = getelementptr inbounds i8, ptr %opaque, i64 167
   %0 = load i8, ptr %lcr, align 1
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.else5, label %if.then2
@@ -448,7 +428,7 @@ if.else.i:                                        ; preds = %if.then2
 
 extract16.exit:                                   ; preds = %if.then2
   %conv3 = shl nuw nsw i32 %addr.tr46, 3
-  %divider = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 1
+  %divider = getelementptr inbounds i8, ptr %opaque, i64 160
   %1 = load i16, ptr %divider, align 16
   %conv.i = zext i16 %1 to i32
   %shr.i.i = lshr i32 %conv.i, %conv3
@@ -456,14 +436,14 @@ extract16.exit:                                   ; preds = %if.then2
   br label %sw.epilog
 
 if.else5:                                         ; preds = %sw.bb
-  %fcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
   %2 = load i8, ptr %fcr, align 4
   %3 = and i8 %2, 1
   %tobool8.not = icmp eq i8 %3, 0
   br i1 %tobool8.not, label %if.else26, label %if.then9
 
 if.then9:                                         ; preds = %if.else5
-  %recv_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23
+  %recv_fifo = getelementptr inbounds i8, ptr %opaque, i64 280
   %call10 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %recv_fifo) #10
   br i1 %call10, label %cond.end, label %cond.false
 
@@ -474,23 +454,23 @@ cond.false:                                       ; preds = %if.then9
 
 cond.end:                                         ; preds = %if.then9, %cond.false
   %cond = phi i32 [ %conv14, %cond.false ], [ 0, %if.then9 ]
-  %num = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23, i32 3
+  %num = getelementptr inbounds i8, ptr %opaque, i64 296
   %4 = load i32, ptr %num, align 8
   %cmp16 = icmp eq i32 %4, 0
   br i1 %cmp16, label %if.then18, label %if.else22
 
 if.then18:                                        ; preds = %cond.end
-  %lsr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
   %5 = load i8, ptr %lsr, align 1
   %6 = and i8 %5, -18
   store i8 %6, ptr %lsr, align 1
   br label %if.end25
 
 if.else22:                                        ; preds = %cond.end
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
   %7 = load ptr, ptr %fifo_timeout_timer, align 16
   %call23 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %char_transmit_time = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 28
+  %char_transmit_time = getelementptr inbounds i8, ptr %opaque, i64 352
   %8 = load i64, ptr %char_transmit_time, align 16
   %mul24 = shl i64 %8, 2
   %add = add i64 %mul24, %call23
@@ -498,15 +478,15 @@ if.else22:                                        ; preds = %cond.end
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else22, %if.then18
-  %timeout_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 27
+  %timeout_ipending = getelementptr inbounds i8, ptr %opaque, i64 344
   store i32 0, ptr %timeout_ipending, align 8
   br label %if.end32
 
 if.else26:                                        ; preds = %if.else5
-  %rbr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 2
+  %rbr = getelementptr inbounds i8, ptr %opaque, i64 162
   %9 = load i8, ptr %rbr, align 2
   %conv27 = zext i8 %9 to i32
-  %lsr28 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr28 = getelementptr inbounds i8, ptr %opaque, i64 169
   %10 = load i8, ptr %lsr28, align 1
   %11 = and i8 %10, -18
   store i8 %11, ptr %lsr28, align 1
@@ -515,38 +495,38 @@ if.else26:                                        ; preds = %if.else5
 if.end32:                                         ; preds = %if.else26, %if.end25
   %ret.0 = phi i32 [ %cond, %if.end25 ], [ %conv27, %if.else26 ]
   tail call fastcc void @serial_update_irq(ptr noundef nonnull %opaque)
-  %mcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 8
+  %mcr = getelementptr inbounds i8, ptr %opaque, i64 168
   %12 = load i8, ptr %mcr, align 8
   %13 = and i8 %12, 16
   %tobool35.not = icmp eq i8 %13, 0
   br i1 %tobool35.not, label %if.then36, label %sw.epilog
 
 if.then36:                                        ; preds = %if.end32
-  %chr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 192
   tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %chr) #10
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %if.end
-  %lcr40 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr40 = getelementptr inbounds i8, ptr %opaque, i64 167
   %14 = load i8, ptr %lcr40, align 1
   %tobool43.not = icmp sgt i8 %14, -1
   br i1 %tobool43.not, label %if.else50, label %extract16.exit52
 
 extract16.exit52:                                 ; preds = %sw.bb39
-  %divider45 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 1
+  %divider45 = getelementptr inbounds i8, ptr %opaque, i64 160
   %15 = load i16, ptr %divider45, align 16
   %16 = lshr i16 %15, 8
   %shr.i.i50 = zext nneg i16 %16 to i32
   br label %sw.epilog
 
 if.else50:                                        ; preds = %sw.bb39
-  %ier = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 5
+  %ier = getelementptr inbounds i8, ptr %opaque, i64 165
   %17 = load i8, ptr %ier, align 1
   %conv51 = zext i8 %17 to i32
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end
-  %iir = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 6
+  %iir = getelementptr inbounds i8, ptr %opaque, i64 166
   %18 = load i8, ptr %iir, align 2
   %conv54 = zext i8 %18 to i32
   %and55 = and i32 %conv54, 6
@@ -554,25 +534,25 @@ sw.bb53:                                          ; preds = %if.end
   br i1 %cmp56, label %if.then58, label %sw.epilog
 
 if.then58:                                        ; preds = %sw.bb53
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 0, ptr %thr_ipending, align 16
   tail call fastcc void @serial_update_irq(ptr noundef nonnull %opaque)
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %if.end
-  %lcr61 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr61 = getelementptr inbounds i8, ptr %opaque, i64 167
   %19 = load i8, ptr %lcr61, align 1
   %conv62 = zext i8 %19 to i32
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %if.end
-  %mcr64 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 8
+  %mcr64 = getelementptr inbounds i8, ptr %opaque, i64 168
   %20 = load i8, ptr %mcr64, align 8
   %conv65 = zext i8 %20 to i32
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %if.end
-  %lsr67 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr67 = getelementptr inbounds i8, ptr %opaque, i64 169
   %21 = load i8, ptr %lsr67, align 1
   %conv68 = zext i8 %21 to i32
   %and71 = and i32 %conv68, 18
@@ -586,7 +566,7 @@ if.then73:                                        ; preds = %sw.bb66
   br label %sw.epilog
 
 sw.bb79:                                          ; preds = %if.end
-  %mcr80 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 8
+  %mcr80 = getelementptr inbounds i8, ptr %opaque, i64 168
   %22 = load i8, ptr %mcr80, align 8
   %conv81 = zext i8 %22 to i32
   %and82 = and i32 %conv81, 16
@@ -605,7 +585,7 @@ if.then84:                                        ; preds = %sw.bb79
   br label %sw.epilog
 
 if.else97:                                        ; preds = %sw.bb79
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
   %23 = load i32, ptr %poll_msl, align 8
   %cmp98 = icmp sgt i32 %23, -1
   br i1 %cmp98, label %if.then100, label %if.end101
@@ -615,7 +595,7 @@ if.then100:                                       ; preds = %if.else97
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then100, %if.else97
-  %msr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 10
+  %msr = getelementptr inbounds i8, ptr %opaque, i64 170
   %24 = load i8, ptr %msr, align 2
   %conv102 = zext i8 %24 to i32
   %and105 = and i32 %conv102, 15
@@ -629,7 +609,7 @@ if.then107:                                       ; preds = %if.end101
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %if.end
-  %scr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 11
+  %scr = getelementptr inbounds i8, ptr %opaque, i64 171
   %25 = load i8, ptr %scr, align 1
   %conv115 = zext i8 %25 to i32
   br label %sw.epilog
@@ -661,7 +641,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %31 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %32 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %31, i64 noundef %32, i32 noundef %conv116, i32 noundef %ret.1) #10
   br label %trace_serial_read.exit
@@ -718,7 +698,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %7 = trunc i64 %val to i32
   %conv12.i.i = and i32 %7, 255
@@ -744,7 +724,7 @@ trace_serial_write.exit:                          ; preds = %if.end, %land.lhs.t
   ]
 
 sw.bb:                                            ; preds = %trace_serial_write.exit
-  %lcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr = getelementptr inbounds i8, ptr %opaque, i64 167
   %9 = load i8, ptr %lcr, align 1
   %tobool.not = icmp sgt i8 %9, -1
   br i1 %tobool.not, label %if.else10, label %if.then4
@@ -760,7 +740,7 @@ if.else.i:                                        ; preds = %if.then4
 deposit32.exit:                                   ; preds = %if.then4
   %conv6 = shl nuw nsw i32 %conv, 3
   %conv7 = trunc i64 %val to i32
-  %divider = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 1
+  %divider = getelementptr inbounds i8, ptr %opaque, i64 160
   %10 = load i16, ptr %divider, align 16
   %conv5 = zext i16 %10 to i32
   %shl.i = shl nuw i32 255, %conv6
@@ -775,16 +755,16 @@ deposit32.exit:                                   ; preds = %if.then4
   br label %sw.epilog
 
 if.else10:                                        ; preds = %sw.bb
-  %thr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 3
+  %thr = getelementptr inbounds i8, ptr %opaque, i64 163
   store i8 %conv2, ptr %thr, align 1
-  %fcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
   %11 = load i8, ptr %fcr, align 4
   %12 = and i8 %11, 1
   %tobool14.not = icmp eq i8 %12, 0
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %if.else10
-  %xmit_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 24
+  %xmit_fifo = getelementptr inbounds i8, ptr %opaque, i64 304
   %call16 = tail call zeroext i1 @fifo8_is_full(ptr noundef nonnull %xmit_fifo) #10
   br i1 %call16, label %if.then17, label %if.end20
 
@@ -798,14 +778,14 @@ if.end20:                                         ; preds = %if.then17, %if.then
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end20, %if.else10
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 0, ptr %thr_ipending, align 16
-  %lsr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
   %14 = load i8, ptr %lsr, align 1
   %15 = and i8 %14, -97
   store i8 %15, ptr %lsr, align 1
   tail call fastcc void @serial_update_irq(ptr noundef nonnull %opaque)
-  %tsr_retry = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 19
+  %tsr_retry = getelementptr inbounds i8, ptr %opaque, i64 256
   %16 = load i32, ptr %tsr_retry, align 16
   %cmp31 = icmp eq i32 %16, 0
   br i1 %cmp31, label %if.then33, label %sw.epilog
@@ -815,13 +795,13 @@ if.then33:                                        ; preds = %if.end23
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %trace_serial_write.exit
-  %lcr37 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr37 = getelementptr inbounds i8, ptr %opaque, i64 167
   %17 = load i8, ptr %lcr37, align 1
   %tobool40.not = icmp sgt i8 %17, -1
   br i1 %tobool40.not, label %if.else50, label %deposit32.exit88
 
 deposit32.exit88:                                 ; preds = %sw.bb36
-  %divider42 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 1
+  %divider42 = getelementptr inbounds i8, ptr %opaque, i64 160
   %18 = load i16, ptr %divider42, align 16
   %conv46 = trunc i64 %val to i16
   %19 = and i16 %18, 255
@@ -832,7 +812,7 @@ deposit32.exit88:                                 ; preds = %sw.bb36
   br label %sw.epilog
 
 if.else50:                                        ; preds = %sw.bb36
-  %ier = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 5
+  %ier = getelementptr inbounds i8, ptr %opaque, i64 165
   %20 = load i8, ptr %ier, align 1
   %21 = xor i8 %20, %conv2
   %conv53 = and i8 %21, 15
@@ -842,7 +822,7 @@ if.else50:                                        ; preds = %sw.bb36
   br i1 %tobool59.not, label %if.end73, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %if.else50
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
   %22 = load i32, ptr %poll_msl, align 8
   %cmp61 = icmp sgt i32 %22, -1
   br i1 %cmp61, label %if.then63, label %if.end73
@@ -858,7 +838,7 @@ if.then68:                                        ; preds = %if.then63
   br label %if.end73
 
 if.else70:                                        ; preds = %if.then63
-  %modem_status_poll = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 30
+  %modem_status_poll = getelementptr inbounds i8, ptr %opaque, i64 368
   %23 = load ptr, ptr %modem_status_poll, align 16
   tail call void @timer_del(ptr noundef %23) #10
   store i32 0, ptr %poll_msl, align 8
@@ -876,7 +856,7 @@ if.then77:                                        ; preds = %if.end73
   br i1 %tobool81.not, label %if.else89, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.then77
-  %lsr83 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr83 = getelementptr inbounds i8, ptr %opaque, i64 169
   %27 = load i8, ptr %lsr83, align 1
   %28 = and i8 %27, 32
   %tobool86.not = icmp eq i8 %28, 0
@@ -887,7 +867,7 @@ if.else89:                                        ; preds = %land.lhs.true82, %i
 
 if.end92.sink.split:                              ; preds = %land.lhs.true82, %if.else89
   %.sink = phi i32 [ 0, %if.else89 ], [ 1, %land.lhs.true82 ]
-  %thr_ipending88 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending88 = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 %.sink, ptr %thr_ipending88, align 16
   br label %if.end92
 
@@ -900,7 +880,7 @@ if.then94:                                        ; preds = %if.end92
   br label %sw.epilog
 
 sw.bb97:                                          ; preds = %trace_serial_write.exit
-  %fcr98 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr98 = getelementptr inbounds i8, ptr %opaque, i64 172
   %29 = load i8, ptr %fcr98, align 4
   %conv99 = zext i8 %29 to i64
   %xor100 = xor i64 %conv99, %val
@@ -913,16 +893,16 @@ sw.bb97:                                          ; preds = %trace_serial_write.
   br i1 %tobool106.not, label %if.end112, label %if.then107
 
 if.then107:                                       ; preds = %sw.bb97
-  %lsr108 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr108 = getelementptr inbounds i8, ptr %opaque, i64 169
   %30 = load i8, ptr %lsr108, align 1
   %31 = and i8 %30, -18
   store i8 %31, ptr %lsr108, align 1
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
   %32 = load ptr, ptr %fifo_timeout_timer, align 16
   tail call void @timer_del(ptr noundef %32) #10
-  %timeout_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 27
+  %timeout_ipending = getelementptr inbounds i8, ptr %opaque, i64 344
   store i32 0, ptr %timeout_ipending, align 8
-  %recv_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23
+  %recv_fifo = getelementptr inbounds i8, ptr %opaque, i64 280
   tail call void @fifo8_reset(ptr noundef nonnull %recv_fifo) #10
   br label %if.end112
 
@@ -932,13 +912,13 @@ if.end112:                                        ; preds = %if.then107, %sw.bb9
   br i1 %tobool114.not, label %if.end122, label %if.then115
 
 if.then115:                                       ; preds = %if.end112
-  %lsr116 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr116 = getelementptr inbounds i8, ptr %opaque, i64 169
   %33 = load i8, ptr %lsr116, align 1
   %34 = or i8 %33, 32
   store i8 %34, ptr %lsr116, align 1
-  %thr_ipending120 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending120 = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 1, ptr %thr_ipending120, align 16
-  %xmit_fifo121 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 24
+  %xmit_fifo121 = getelementptr inbounds i8, ptr %opaque, i64 304
   tail call void @fifo8_reset(ptr noundef nonnull %xmit_fifo121) #10
   br label %if.end122
 
@@ -949,7 +929,7 @@ if.end122:                                        ; preds = %if.then115, %if.end
   %conv.i = zext i8 %conv124 to i32
   %and.i89 = and i32 %conv.i, 1
   %tobool.not.i = icmp eq i32 %and.i89, 0
-  %iir11.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 6
+  %iir11.i = getelementptr inbounds i8, ptr %opaque, i64 166
   %36 = load i8, ptr %iir11.i, align 2
   br i1 %tobool.not.i, label %if.else.i90, label %if.then.i
 
@@ -957,7 +937,7 @@ if.then.i:                                        ; preds = %if.end122
   %37 = or i8 %36, -64
   store i8 %37, ptr %iir11.i, align 2
   %38 = lshr i32 %conv.i, 6
-  %recv_fifo_itl.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 25
+  %recv_fifo_itl.i = getelementptr inbounds i8, ptr %opaque, i64 328
   switch i32 %38, label %if.then.unreachabledefault.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb5.i
@@ -994,26 +974,26 @@ serial_write_fcr.exit:                            ; preds = %sw.bb.i, %sw.bb5.i,
   br label %sw.epilog
 
 sw.bb125:                                         ; preds = %trace_serial_write.exit
-  %lcr127 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr127 = getelementptr inbounds i8, ptr %opaque, i64 167
   store i8 %conv2, ptr %lcr127, align 1
   tail call fastcc void @serial_update_parameters(ptr noundef %opaque)
   %40 = trunc i64 %val to i32
   %41 = lshr i32 %40, 6
   %conv129 = and i32 %41, 1
   store i32 %conv129, ptr %break_enable, align 4
-  %last_break_enable = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 17
+  %last_break_enable = getelementptr inbounds i8, ptr %opaque, i64 248
   %42 = load i32, ptr %last_break_enable, align 8
   %cmp130.not = icmp eq i32 %conv129, %42
   br i1 %cmp130.not, label %sw.epilog, label %if.then132
 
 if.then132:                                       ; preds = %sw.bb125
   store i32 %conv129, ptr %last_break_enable, align 8
-  %chr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 192
   %call134 = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr, i32 noundef 2, ptr noundef nonnull %break_enable) #10
   br label %sw.epilog
 
 sw.bb136:                                         ; preds = %trace_serial_write.exit
-  %mcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 8
+  %mcr = getelementptr inbounds i8, ptr %opaque, i64 168
   %43 = load i8, ptr %mcr, align 8
   %conv139 = and i8 %conv2, 31
   store i8 %conv139, ptr %mcr, align 8
@@ -1022,7 +1002,7 @@ sw.bb136:                                         ; preds = %trace_serial_write.
   br i1 %tobool142.not, label %if.end144, label %sw.epilog
 
 if.end144:                                        ; preds = %sw.bb136
-  %poll_msl145 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl145 = getelementptr inbounds i8, ptr %opaque, i64 360
   %44 = load i32, ptr %poll_msl145, align 8
   %cmp146 = icmp slt i32 %44, 0
   %cmp151.not = icmp eq i8 %43, %conv139
@@ -1031,7 +1011,7 @@ if.end144:                                        ; preds = %sw.bb136
 
 if.then153:                                       ; preds = %if.end144
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %chr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 16
+  %chr.i = getelementptr inbounds i8, ptr %opaque, i64 192
   %call.i = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr.i, i32 noundef 14, ptr noundef nonnull %flags.i) #10
   %45 = load i32, ptr %flags.i, align 4
   %and.i91 = and i32 %45, -7
@@ -1052,17 +1032,17 @@ if.then153:                                       ; preds = %if.end144
 serial_update_tiocm.exit:                         ; preds = %if.then153, %48
   %call10.i = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr.i, i32 noundef 13, ptr noundef nonnull %flags.i) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
-  %modem_status_poll154 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 30
+  %modem_status_poll154 = getelementptr inbounds i8, ptr %opaque, i64 368
   %52 = load ptr, ptr %modem_status_poll154, align 16
   %call155 = call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %char_transmit_time = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 28
+  %char_transmit_time = getelementptr inbounds i8, ptr %opaque, i64 352
   %53 = load i64, ptr %char_transmit_time, align 16
   %add = add i64 %53, %call155
   call void @timer_mod(ptr noundef %52, i64 noundef %add) #10
   br label %sw.epilog
 
 sw.bb159:                                         ; preds = %trace_serial_write.exit
-  %scr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 11
+  %scr = getelementptr inbounds i8, ptr %opaque, i64 171
   store i8 %conv2, ptr %scr, align 1
   br label %sw.epilog
 
@@ -1143,7 +1123,7 @@ declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @serial_watch_cb(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #1 {
 entry:
-  %watch_tag = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 20
+  %watch_tag = getelementptr inbounds i8, ptr %opaque, i64 260
   store i32 0, ptr %watch_tag, align 4
   tail call fastcc void @serial_xmit(ptr noundef %opaque)
   ret i32 0
@@ -1152,17 +1132,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @serial_xmit(ptr noundef %s) unnamed_addr #1 {
 entry:
-  %lsr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 9
-  %tsr_retry = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 19
-  %fcr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 12
-  %xmit_fifo = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 24
-  %tsr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 4
-  %num = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 24, i32 3
-  %thr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 3
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 14
-  %mcr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 8
-  %chr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 16
-  %watch_tag = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 20
+  %lsr = getelementptr inbounds i8, ptr %s, i64 169
+  %tsr_retry = getelementptr inbounds i8, ptr %s, i64 256
+  %fcr = getelementptr inbounds i8, ptr %s, i64 172
+  %xmit_fifo = getelementptr inbounds i8, ptr %s, i64 304
+  %tsr = getelementptr inbounds i8, ptr %s, i64 164
+  %num = getelementptr inbounds i8, ptr %s, i64 320
+  %thr = getelementptr inbounds i8, ptr %s, i64 163
+  %thr_ipending = getelementptr inbounds i8, ptr %s, i64 176
+  %mcr = getelementptr inbounds i8, ptr %s, i64 168
+  %chr = getelementptr inbounds i8, ptr %s, i64 192
+  %watch_tag = getelementptr inbounds i8, ptr %s, i64 260
   %.pre = load i8, ptr %lsr, align 1
   br label %do.body
 
@@ -1298,7 +1278,7 @@ if.end78:                                         ; preds = %if.else47, %land.lh
 
 do.end:                                           ; preds = %if.end78
   %call84 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %last_xmit_ts = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 22
+  %last_xmit_ts = getelementptr inbounds i8, ptr %s, i64 272
   store i64 %call84, ptr %last_xmit_ts, align 16
   %17 = load i8, ptr %lsr, align 1
   %18 = or i8 %17, 64
@@ -1316,14 +1296,14 @@ declare zeroext i8 @fifo8_pop(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @serial_update_irq(ptr nocapture noundef %s) unnamed_addr #1 {
 entry:
-  %ier = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 5
+  %ier = getelementptr inbounds i8, ptr %s, i64 165
   %0 = load i8, ptr %ier, align 1
   %1 = and i8 %0, 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %lsr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 9
+  %lsr = getelementptr inbounds i8, ptr %s, i64 169
   %2 = load i8, ptr %lsr, align 1
   %3 = and i8 %2, 30
   %tobool3.not = icmp eq i8 %3, 0
@@ -1335,29 +1315,29 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br i1 %tobool7.not, label %if.else28, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.else
-  %timeout_ipending = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 27
+  %timeout_ipending = getelementptr inbounds i8, ptr %s, i64 344
   %5 = load i32, ptr %timeout_ipending, align 8
   %tobool9.not = icmp eq i32 %5, 0
   br i1 %tobool9.not, label %land.lhs.true16, label %if.then58.critedge
 
 land.lhs.true16:                                  ; preds = %land.lhs.true8
-  %lsr17 = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 9
+  %lsr17 = getelementptr inbounds i8, ptr %s, i64 169
   %6 = load i8, ptr %lsr17, align 1
   %7 = and i8 %6, 1
   %tobool20.not = icmp eq i8 %7, 0
   br i1 %tobool20.not, label %if.else28, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %fcr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 12
+  %fcr = getelementptr inbounds i8, ptr %s, i64 172
   %8 = load i8, ptr %fcr, align 4
   %9 = and i8 %8, 1
   %tobool24.not = icmp eq i8 %9, 0
   br i1 %tobool24.not, label %if.then58.critedge, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true21
-  %num = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 23, i32 3
+  %num = getelementptr inbounds i8, ptr %s, i64 296
   %10 = load i32, ptr %num, align 8
-  %recv_fifo_itl = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 25
+  %recv_fifo_itl = getelementptr inbounds i8, ptr %s, i64 328
   %11 = load i8, ptr %recv_fifo_itl, align 8
   %conv25 = zext i8 %11 to i32
   %cmp.not = icmp ult i32 %10, %conv25
@@ -1369,7 +1349,7 @@ if.else28:                                        ; preds = %if.else, %lor.lhs.f
   br i1 %tobool32.not, label %if.else36, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.else28
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %s, i64 176
   %13 = load i32, ptr %thr_ipending, align 16
   %tobool34.not = icmp eq i32 %13, 0
   br i1 %tobool34.not, label %if.else36, label %if.then58.critedge
@@ -1380,12 +1360,12 @@ if.else36:                                        ; preds = %land.lhs.true33, %i
   br i1 %tobool40.not, label %if.else59.critedge, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.else36
-  %msr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 10
+  %msr = getelementptr inbounds i8, ptr %s, i64 170
   %15 = load i8, ptr %msr, align 2
   %16 = and i8 %15, 15
   %tobool44.not = icmp eq i8 %16, 0
   %spec.select18 = zext i1 %tobool44.not to i8
-  %iir = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 6
+  %iir = getelementptr inbounds i8, ptr %s, i64 166
   %17 = load i8, ptr %iir, align 2
   %18 = and i8 %17, -16
   %conv53 = or disjoint i8 %18, %spec.select18
@@ -1394,7 +1374,7 @@ land.lhs.true41:                                  ; preds = %if.else36
 
 if.then58.critedge:                               ; preds = %land.lhs.true33, %land.lhs.true21, %lor.lhs.false, %land.lhs.true8, %land.lhs.true
   %tmp_iir.0.ph = phi i8 [ 2, %land.lhs.true33 ], [ 4, %land.lhs.true21 ], [ 4, %lor.lhs.false ], [ 12, %land.lhs.true8 ], [ 6, %land.lhs.true ]
-  %iir.c19 = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 6
+  %iir.c19 = getelementptr inbounds i8, ptr %s, i64 166
   %19 = load i8, ptr %iir.c19, align 2
   %20 = and i8 %19, -16
   %conv53.c20 = or disjoint i8 %20, %tmp_iir.0.ph
@@ -1402,7 +1382,7 @@ if.then58.critedge:                               ; preds = %land.lhs.true33, %l
   br label %if.end61
 
 if.else59.critedge:                               ; preds = %if.else36
-  %iir.c = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 6
+  %iir.c = getelementptr inbounds i8, ptr %s, i64 166
   %21 = load i8, ptr %iir.c, align 2
   %22 = and i8 %21, -16
   %conv53.c = or disjoint i8 %22, 1
@@ -1414,7 +1394,7 @@ if.else59:                                        ; preds = %if.else59.critedge,
 
 if.end61:                                         ; preds = %land.lhs.true41, %if.then58.critedge, %if.else59
   %.sink21 = phi i32 [ 0, %if.else59 ], [ 1, %if.then58.critedge ], [ 1, %land.lhs.true41 ]
-  %irq60 = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 15
+  %irq60 = getelementptr inbounds i8, ptr %s, i64 184
   %23 = load ptr, ptr %irq60, align 8
   tail call void @qemu_set_irq(ptr noundef %23, i32 noundef %.sink21) #10
   ret void
@@ -1423,7 +1403,7 @@ if.end61:                                         ; preds = %land.lhs.true41, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @serial_receive1(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #1 {
 entry:
-  %wakeup = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 21
+  %wakeup = getelementptr inbounds i8, ptr %opaque, i64 264
   %0 = load i8, ptr %wakeup, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1434,7 +1414,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
   %2 = load i8, ptr %fcr, align 4
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
@@ -1445,8 +1425,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %recv_fifo.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23
-  %lsr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %recv_fifo.i = getelementptr inbounds i8, ptr %opaque, i64 280
+  %lsr.i = getelementptr inbounds i8, ptr %opaque, i64 169
   %wide.trip.count = zext nneg i32 %size to i64
   br label %for.body
 
@@ -1473,14 +1453,14 @@ recv_fifo_put.exit:                               ; preds = %if.then.i, %if.else
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %recv_fifo_put.exit, %for.cond.preheader
-  %lsr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
   %7 = load i8, ptr %lsr, align 1
   %8 = or i8 %7, 1
   store i8 %8, ptr %lsr, align 1
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
   %9 = load ptr, ptr %fifo_timeout_timer, align 16
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %char_transmit_time = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 28
+  %char_transmit_time = getelementptr inbounds i8, ptr %opaque, i64 352
   %10 = load i64, ptr %char_transmit_time, align 16
   %mul = shl i64 %10, 2
   %add = add i64 %mul, %call
@@ -1488,7 +1468,7 @@ for.end:                                          ; preds = %recv_fifo_put.exit,
   br label %if.end21
 
 if.else:                                          ; preds = %if.end
-  %lsr6 = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr6 = getelementptr inbounds i8, ptr %opaque, i64 169
   %11 = load i8, ptr %lsr6, align 1
   %12 = and i8 %11, 1
   %tobool9.not = icmp eq i8 %12, 0
@@ -1502,7 +1482,7 @@ if.then10:                                        ; preds = %if.else
 if.end15:                                         ; preds = %if.then10, %if.else
   %13 = phi i8 [ %or13, %if.then10 ], [ %11, %if.else ]
   %14 = load i8, ptr %buf, align 1
-  %rbr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 2
+  %rbr = getelementptr inbounds i8, ptr %opaque, i64 162
   store i8 %14, ptr %rbr, align 2
   %15 = or i8 %13, 1
   store i8 %15, ptr %lsr6, align 1
@@ -1533,18 +1513,18 @@ declare void @fifo8_push(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @serial_thr_ipending_needed(ptr nocapture noundef readonly %opaque) #6 {
 entry:
-  %ier = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 5
+  %ier = getelementptr inbounds i8, ptr %opaque, i64 165
   %0 = load i8, ptr %ier, align 1
   %1 = and i8 %0, 2
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iir = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 6
+  %iir = getelementptr inbounds i8, ptr %opaque, i64 166
   %2 = load i8, ptr %iir, align 2
   %3 = and i8 %2, 6
   %cmp = icmp eq i8 %3, 2
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   %4 = load i32, ptr %thr_ipending, align 16
   %conv5 = zext i1 %cmp to i32
   %cmp6 = icmp ne i32 %4, %conv5
@@ -1558,7 +1538,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @serial_tsr_needed(ptr nocapture noundef readonly %opaque) #6 {
 entry:
-  %tsr_retry = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 19
+  %tsr_retry = getelementptr inbounds i8, ptr %opaque, i64 256
   %0 = load i32, ptr %tsr_retry, align 16
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -1567,7 +1547,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @serial_recv_fifo_needed(ptr noundef %opaque) #1 {
 entry:
-  %recv_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23
+  %recv_fifo = getelementptr inbounds i8, ptr %opaque, i64 280
   %call = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %recv_fifo) #10
   %lnot = xor i1 %call, true
   ret i1 %lnot
@@ -1576,7 +1556,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @serial_xmit_fifo_needed(ptr noundef %opaque) #1 {
 entry:
-  %xmit_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 24
+  %xmit_fifo = getelementptr inbounds i8, ptr %opaque, i64 304
   %call = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %xmit_fifo) #10
   %lnot = xor i1 %call, true
   ret i1 %lnot
@@ -1585,7 +1565,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @serial_fifo_timeout_timer_needed(ptr nocapture noundef readonly %opaque) #1 {
 entry:
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
   %0 = load ptr, ptr %fifo_timeout_timer, align 16
   %call = tail call zeroext i1 @timer_pending(ptr noundef %0) #10
   ret i1 %call
@@ -1596,7 +1576,7 @@ declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @serial_timeout_ipending_needed(ptr nocapture noundef readonly %opaque) #6 {
 entry:
-  %timeout_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 27
+  %timeout_ipending = getelementptr inbounds i8, ptr %opaque, i64 344
   %0 = load i32, ptr %timeout_ipending, align 8
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -1605,7 +1585,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @serial_poll_needed(ptr nocapture noundef readonly %opaque) #6 {
 entry:
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
   %0 = load i32, ptr %poll_msl, align 8
   %cmp = icmp sgt i32 %0, -1
   ret i1 %cmp
@@ -1626,21 +1606,21 @@ declare void @qemu_chr_fe_accept_input(ptr noundef) local_unnamed_addr #3
 define internal void @serial_update_msl(ptr noundef %s) #1 {
 entry:
   %flags = alloca i32, align 4
-  %modem_status_poll = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 30
+  %modem_status_poll = getelementptr inbounds i8, ptr %s, i64 368
   %0 = load ptr, ptr %modem_status_poll, align 16
   tail call void @timer_del(ptr noundef %0) #10
-  %chr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %s, i64 192
   %call = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr, i32 noundef 14, ptr noundef nonnull %flags) #10
   %cmp = icmp eq i32 %call, -95
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %s, i64 360
   store i32 -1, ptr %poll_msl, align 8
   br label %if.end83
 
 if.end:                                           ; preds = %entry
-  %msr = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 10
+  %msr = getelementptr inbounds i8, ptr %s, i64 170
   %1 = load i8, ptr %msr, align 2
   %2 = load i32, ptr %flags, align 4
   %3 = and i8 %1, 15
@@ -1677,7 +1657,7 @@ if.then54:                                        ; preds = %if.end
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then54, %if.end
-  %poll_msl78 = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 29
+  %poll_msl78 = getelementptr inbounds i8, ptr %s, i64 360
   %10 = load i32, ptr %poll_msl78, align 8
   %tobool79.not = icmp eq i32 %10, 0
   br i1 %tobool79.not, label %if.end83, label %if.then80
@@ -1705,11 +1685,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 define internal void @serial_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @serial_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @serial_unrealize, ptr %unrealize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @serial_properties) #10
   ret void
@@ -1721,18 +1701,18 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, i32 noundef 99, ptr noundef nonnull @__func__.SERIAL) #10
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @serial_update_msl, ptr noundef %call.i) #10
-  %modem_status_poll = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 30
+  %modem_status_poll = getelementptr inbounds i8, ptr %call.i, i64 368
   store ptr %call.i.i.i, ptr %modem_status_poll, align 16
   %call.i.i.i10 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   tail call void @timer_init_full(ptr noundef %call.i.i.i10, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @fifo_timeout_int, ptr noundef %call.i) #10
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %call.i, i64 336
   store ptr %call.i.i.i10, ptr %fifo_timeout_timer, align 16
   tail call void @qemu_register_reset(ptr noundef nonnull @serial_reset, ptr noundef %call.i) #10
-  %chr = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %call.i, i64 192
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @serial_can_receive1, ptr noundef nonnull @serial_receive1, ptr noundef nonnull @serial_event, ptr noundef nonnull @serial_be_change, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #10
-  %recv_fifo = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 23
+  %recv_fifo = getelementptr inbounds i8, ptr %call.i, i64 280
   tail call void @fifo8_create(ptr noundef nonnull %recv_fifo, i32 noundef 16) #10
-  %xmit_fifo = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 24
+  %xmit_fifo = getelementptr inbounds i8, ptr %call.i, i64 304
   tail call void @fifo8_create(ptr noundef nonnull %xmit_fifo, i32 noundef 16) #10
   tail call void @serial_reset(ptr noundef %call.i)
   ret void
@@ -1742,9 +1722,9 @@ entry:
 define internal void @serial_unrealize(ptr noundef %dev) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, i32 noundef 99, ptr noundef nonnull @__func__.SERIAL) #10
-  %chr = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %call.i, i64 192
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext false) #10
-  %modem_status_poll = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 30
+  %modem_status_poll = getelementptr inbounds i8, ptr %call.i, i64 368
   %0 = load ptr, ptr %modem_status_poll, align 16
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -1755,7 +1735,7 @@ if.then.i:                                        ; preds = %entry
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %entry, %if.then.i
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %call.i, i64 336
   %1 = load ptr, ptr %fifo_timeout_timer, align 16
   %tobool.not.i6 = icmp eq ptr %1, null
   br i1 %tobool.not.i6, label %timer_free.exit8, label %if.then.i7
@@ -1766,9 +1746,9 @@ if.then.i7:                                       ; preds = %timer_free.exit
   br label %timer_free.exit8
 
 timer_free.exit8:                                 ; preds = %timer_free.exit, %if.then.i7
-  %recv_fifo = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 23
+  %recv_fifo = getelementptr inbounds i8, ptr %call.i, i64 280
   tail call void @fifo8_destroy(ptr noundef nonnull %recv_fifo) #10
-  %xmit_fifo = getelementptr inbounds %struct.SerialState, ptr %call.i, i64 0, i32 24
+  %xmit_fifo = getelementptr inbounds i8, ptr %call.i, i64 304
   tail call void @fifo8_destroy(ptr noundef nonnull %xmit_fifo) #10
   tail call void @qemu_unregister_reset(ptr noundef nonnull @serial_reset, ptr noundef nonnull %call.i) #10
   ret void
@@ -1781,13 +1761,13 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fifo_timeout_int(ptr nocapture noundef %opaque) #1 {
 entry:
-  %num = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23, i32 3
+  %num = getelementptr inbounds i8, ptr %opaque, i64 296
   %0 = load i32, ptr %num, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %timeout_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 27
+  %timeout_ipending = getelementptr inbounds i8, ptr %opaque, i64 344
   store i32 1, ptr %timeout_ipending, align 8
   tail call fastcc void @serial_update_irq(ptr noundef nonnull %opaque)
   br label %if.end
@@ -1801,7 +1781,7 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @serial_reset(ptr noundef %opaque) #1 {
 entry:
-  %watch_tag = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 20
+  %watch_tag = getelementptr inbounds i8, ptr %opaque, i64 260
   %0 = load i32, ptr %watch_tag, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1812,50 +1792,50 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %rbr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 2
+  %rbr = getelementptr inbounds i8, ptr %opaque, i64 162
   store i8 0, ptr %rbr, align 2
-  %ier = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 5
+  %ier = getelementptr inbounds i8, ptr %opaque, i64 165
   store i8 0, ptr %ier, align 1
-  %iir = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 6
+  %iir = getelementptr inbounds i8, ptr %opaque, i64 166
   store i8 1, ptr %iir, align 2
-  %lcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 7
+  %lcr = getelementptr inbounds i8, ptr %opaque, i64 167
   store i8 0, ptr %lcr, align 1
-  %lsr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
   store i8 96, ptr %lsr, align 1
-  %msr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 10
+  %msr = getelementptr inbounds i8, ptr %opaque, i64 170
   store i8 -80, ptr %msr, align 2
-  %divider = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 1
+  %divider = getelementptr inbounds i8, ptr %opaque, i64 160
   store i16 12, ptr %divider, align 16
-  %mcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 8
+  %mcr = getelementptr inbounds i8, ptr %opaque, i64 168
   store i8 8, ptr %mcr, align 8
-  %scr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 11
+  %scr = getelementptr inbounds i8, ptr %opaque, i64 171
   store i8 0, ptr %scr, align 1
-  %tsr_retry = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 19
+  %tsr_retry = getelementptr inbounds i8, ptr %opaque, i64 256
   store i32 0, ptr %tsr_retry, align 16
-  %char_transmit_time = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 28
+  %char_transmit_time = getelementptr inbounds i8, ptr %opaque, i64 352
   store i64 1041660, ptr %char_transmit_time, align 16
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
   store i32 0, ptr %poll_msl, align 8
-  %timeout_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 27
+  %timeout_ipending = getelementptr inbounds i8, ptr %opaque, i64 344
   store i32 0, ptr %timeout_ipending, align 8
-  %fifo_timeout_timer = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 26
+  %fifo_timeout_timer = getelementptr inbounds i8, ptr %opaque, i64 336
   %1 = load ptr, ptr %fifo_timeout_timer, align 16
   tail call void @timer_del(ptr noundef %1) #10
-  %modem_status_poll = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 30
+  %modem_status_poll = getelementptr inbounds i8, ptr %opaque, i64 368
   %2 = load ptr, ptr %modem_status_poll, align 16
   tail call void @timer_del(ptr noundef %2) #10
-  %recv_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23
+  %recv_fifo = getelementptr inbounds i8, ptr %opaque, i64 280
   tail call void @fifo8_reset(ptr noundef nonnull %recv_fifo) #10
-  %xmit_fifo = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 24
+  %xmit_fifo = getelementptr inbounds i8, ptr %opaque, i64 304
   tail call void @fifo8_reset(ptr noundef nonnull %xmit_fifo) #10
   %call3 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %last_xmit_ts = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 22
+  %last_xmit_ts = getelementptr inbounds i8, ptr %opaque, i64 272
   store i64 %call3, ptr %last_xmit_ts, align 16
-  %thr_ipending = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 14
+  %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 0, ptr %thr_ipending, align 16
-  %last_break_enable = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 17
+  %last_break_enable = getelementptr inbounds i8, ptr %opaque, i64 248
   store i32 0, ptr %last_break_enable, align 8
-  %irq = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 15
+  %irq = getelementptr inbounds i8, ptr %opaque, i64 184
   %3 = load ptr, ptr %irq, align 8
   tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 0) #10
   tail call void @serial_update_msl(ptr noundef nonnull %opaque)
@@ -1870,20 +1850,20 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @serial_can_receive1(ptr nocapture noundef readonly %opaque) #6 {
 entry:
-  %fcr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 12
+  %fcr.i = getelementptr inbounds i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.else12.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %num.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23, i32 3
+  %num.i = getelementptr inbounds i8, ptr %opaque, i64 296
   %2 = load i32, ptr %num.i, align 8
   %cmp.i = icmp ult i32 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %serial_can_receive.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %recv_fifo_itl.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 25
+  %recv_fifo_itl.i = getelementptr inbounds i8, ptr %opaque, i64 328
   %3 = load i8, ptr %recv_fifo_itl.i, align 8
   %conv5.i = zext i8 %3 to i32
   %cmp6.not.i = icmp ugt i32 %2, %conv5.i
@@ -1892,7 +1872,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %serial_can_receive.exit
 
 if.else12.i:                                      ; preds = %entry
-  %lsr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr.i = getelementptr inbounds i8, ptr %opaque, i64 169
   %4 = load i8, ptr %lsr.i, align 1
   %5 = and i8 %4, 1
   %6 = xor i8 %5, 1
@@ -1911,27 +1891,27 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rbr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 2
+  %rbr.i = getelementptr inbounds i8, ptr %opaque, i64 162
   store i8 0, ptr %rbr.i, align 2
-  %recv_fifo.i.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 23
+  %recv_fifo.i.i = getelementptr inbounds i8, ptr %opaque, i64 280
   %call.i.i = tail call zeroext i1 @fifo8_is_full(ptr noundef nonnull %recv_fifo.i.i) #10
   br i1 %call.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   tail call void @fifo8_push(ptr noundef nonnull %recv_fifo.i.i, i8 noundef zeroext 0) #10
-  %lsr.phi.trans.insert.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 169
   %.pre.i = load i8, ptr %lsr.phi.trans.insert.i, align 1
   br label %serial_receive_break.exit
 
 if.else.i.i:                                      ; preds = %if.then
-  %lsr.i.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr.i.i = getelementptr inbounds i8, ptr %opaque, i64 169
   %0 = load i8, ptr %lsr.i.i, align 1
   %1 = or i8 %0, 2
   br label %serial_receive_break.exit
 
 serial_receive_break.exit:                        ; preds = %if.then.i.i, %if.else.i.i
   %2 = phi i8 [ %.pre.i, %if.then.i.i ], [ %1, %if.else.i.i ]
-  %lsr.i = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 9
+  %lsr.i = getelementptr inbounds i8, ptr %opaque, i64 169
   %3 = or i8 %2, 17
   store i8 %3, ptr %lsr.i, align 1
   tail call fastcc void @serial_update_irq(ptr noundef nonnull %opaque)
@@ -1945,17 +1925,17 @@ if.end:                                           ; preds = %serial_receive_brea
 define internal i32 @serial_be_change(ptr noundef %opaque) #1 {
 entry:
   %flags.i = alloca i32, align 4
-  %chr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 16
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 192
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @serial_can_receive1, ptr noundef nonnull @serial_receive1, ptr noundef nonnull @serial_event, ptr noundef nonnull @serial_be_change, ptr noundef %opaque, ptr noundef null, i1 noundef zeroext true) #10
   tail call fastcc void @serial_update_parameters(ptr noundef %opaque)
-  %last_break_enable = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 17
+  %last_break_enable = getelementptr inbounds i8, ptr %opaque, i64 248
   %call = tail call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %chr, i32 noundef 2, ptr noundef nonnull %last_break_enable) #10
-  %ier = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 5
+  %ier = getelementptr inbounds i8, ptr %opaque, i64 165
   %0 = load i8, ptr %ier, align 1
   %1 = lshr i8 %0, 3
   %.lobit = and i8 %1, 1
   %cond = zext nneg i8 %.lobit to i32
-  %poll_msl = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 29
+  %poll_msl = getelementptr inbounds i8, ptr %opaque, i64 360
   store i32 %cond, ptr %poll_msl, align 8
   tail call void @serial_update_msl(ptr noundef %opaque)
   %2 = load i32, ptr %poll_msl, align 8
@@ -1963,7 +1943,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %mcr = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 8
+  %mcr = getelementptr inbounds i8, ptr %opaque, i64 168
   %3 = load i8, ptr %mcr, align 8
   %4 = and i8 %3, 16
   %tobool6.not = icmp eq i8 %4, 0
@@ -1994,7 +1974,7 @@ serial_update_tiocm.exit:                         ; preds = %if.then, %8
   br label %if.end
 
 if.end:                                           ; preds = %serial_update_tiocm.exit, %land.lhs.true, %entry
-  %watch_tag = getelementptr inbounds %struct.SerialState, ptr %opaque, i64 0, i32 20
+  %watch_tag = getelementptr inbounds i8, ptr %opaque, i64 260
   %12 = load i32, ptr %watch_tag, align 4
   %cmp7.not = icmp eq i32 %12, 0
   br i1 %cmp7.not, label %if.end15, label %if.then9
@@ -2030,7 +2010,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 define internal void @serial_mm_instance_init(ptr noundef %o) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.58, i32 noundef 102, ptr noundef nonnull @__func__.SERIAL_MM) #10
-  %serial = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @object_initialize_child_internal(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull %serial, i64 noundef 656, ptr noundef nonnull @.str) #10
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   tail call void @qdev_alias_all_properties(ptr noundef %call.i4, ptr noundef %o) #10
@@ -2042,9 +2022,9 @@ define internal void @serial_mm_class_init(ptr noundef %oc, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @serial_mm_properties) #10
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @serial_mm_realize, ptr %realize, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_serial_mm, ptr %vmsd, align 8
   ret void
 }
@@ -2057,18 +2037,18 @@ declare void @qdev_alias_all_properties(ptr noundef, ptr noundef) local_unnamed_
 define internal void @serial_mm_realize(ptr noundef %dev, ptr noundef %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.58, i32 noundef 102, ptr noundef nonnull @__func__.SERIAL_MM) #10
-  %serial = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 816
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %call2 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i10, ptr noundef null, ptr noundef %errp) #10
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %io = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 1, i32 31
-  %endianness = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 3
+  %io = getelementptr inbounds i8, ptr %call.i, i64 1200
+  %endianness = getelementptr inbounds i8, ptr %call.i, i64 1473
   %0 = load i8, ptr %endianness, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr [3 x %struct.MemoryRegionOps], ptr @serial_mm_ops, i64 0, i64 %idxprom
-  %regshift = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 2
+  %regshift = getelementptr inbounds i8, ptr %call.i, i64 1472
   %1 = load i8, ptr %regshift, align 16
   %conv = zext nneg i8 %1 to i32
   %shl = shl i32 8, %conv
@@ -2077,7 +2057,7 @@ if.end:                                           ; preds = %entry
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
   tail call void @sysbus_init_mmio(ptr noundef %call.i11, ptr noundef nonnull %io) #10
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
-  %irq = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 1, i32 15
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 1000
   tail call void @sysbus_init_irq(ptr noundef %call.i12, ptr noundef nonnull %irq) #10
   br label %return
 
@@ -2097,8 +2077,8 @@ declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal i64 @serial_mm_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.58, i32 noundef 102, ptr noundef nonnull @__func__.SERIAL_MM) #10
-  %serial = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 1
-  %regshift = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 2
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 816
+  %regshift = getelementptr inbounds i8, ptr %call.i, i64 1472
   %0 = load i8, ptr %regshift, align 16
   %sh_prom = zext nneg i8 %0 to i64
   %shr = lshr i64 %addr, %sh_prom
@@ -2111,8 +2091,8 @@ define internal void @serial_mm_write(ptr noundef %opaque, i64 noundef %addr, i6
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.58, i32 noundef 102, ptr noundef nonnull @__func__.SERIAL_MM) #10
   %and = and i64 %value, 255
-  %serial = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 1
-  %regshift = getelementptr inbounds %struct.SerialMM, ptr %call.i, i64 0, i32 2
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 816
+  %regshift = getelementptr inbounds i8, ptr %call.i, i64 1472
   %0 = load i8, ptr %regshift, align 16
   %sh_prom = zext nneg i8 %0 to i64
   %shr = lshr i64 %addr, %sh_prom

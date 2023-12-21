@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/libqos-malloc.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.MemBlock = type { %union.anon, i64, i64 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [46 x i8] c"guest malloc leak @ 0x%016lx; size 0x%016lx.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [43 x i8] c"../qemu/tests/qtest/libqos/libqos-malloc.c\00", align 1
@@ -40,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @alloc_destroy(ptr nocapture noundef readonly %allocator) local_unnamed_addr #0 {
 entry:
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 4
+  %used = getelementptr inbounds i8, ptr %allocator, i64 32
   %0 = load ptr, ptr %used, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not21 = icmp eq ptr %1, null
@@ -56,9 +51,9 @@ land.rhs:                                         ; preds = %entry, %if.end6
 
 if.then:                                          ; preds = %land.rhs
   %4 = load ptr, ptr @stderr, align 8
-  %addr = getelementptr inbounds %struct.MemBlock, ptr %node.022, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %node.022, i64 24
   %5 = load i64, ptr %addr, align 8
-  %size = getelementptr inbounds %struct.MemBlock, ptr %node.022, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %node.022, i64 16
   %6 = load i64, ptr %size, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef %6) #9
   %.pre = load i32, ptr %allocator, align 8
@@ -80,15 +75,15 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end6, %entry
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 5
+  %free = getelementptr inbounds i8, ptr %allocator, i64 40
   %8 = load ptr, ptr %free, align 8
   %9 = load ptr, ptr %8, align 8
   %tobool8.not23 = icmp eq ptr %9, null
   br i1 %tobool8.not23, label %for.end28, label %land.rhs9.lr.ph
 
 land.rhs9.lr.ph:                                  ; preds = %for.end
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 1
-  %end = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %allocator, i64 8
+  %end = getelementptr inbounds i8, ptr %allocator, i64 16
   br label %land.rhs9
 
 land.rhs9:                                        ; preds = %land.rhs9.lr.ph, %if.end26
@@ -100,14 +95,14 @@ land.rhs9:                                        ; preds = %land.rhs9.lr.ph, %i
   br i1 %cmp, label %if.then15, label %if.end26
 
 if.then15:                                        ; preds = %land.rhs9
-  %addr16 = getelementptr inbounds %struct.MemBlock, ptr %node.124, i64 0, i32 2
+  %addr16 = getelementptr inbounds i8, ptr %node.124, i64 24
   %12 = load i64, ptr %addr16, align 8
   %13 = load i64, ptr %start, align 8
   %cmp17.not = icmp eq i64 %12, %13
   br i1 %cmp17.not, label %lor.lhs.false, label %if.then21
 
 lor.lhs.false:                                    ; preds = %if.then15
-  %size18 = getelementptr inbounds %struct.MemBlock, ptr %node.124, i64 0, i32 1
+  %size18 = getelementptr inbounds i8, ptr %node.124, i64 16
   %14 = load i64, ptr %size18, align 8
   %15 = load i64, ptr %end, align 8
   %sub = sub i64 %15, %12
@@ -148,7 +143,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %page_size = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 3
+  %page_size = getelementptr inbounds i8, ptr %allocator, i64 24
   %0 = load i32, ptr %page_size, align 8
   %sub = add i32 %0, -1
   %conv = zext i32 %sub to i64
@@ -156,10 +151,10 @@ if.end:                                           ; preds = %entry
   %sub2 = sub i32 0, %0
   %conv3 = zext i32 %sub2 to i64
   %and = and i64 %add, %conv3
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %allocator, i64 8
   %1 = load i64, ptr %start, align 8
   %add4 = add i64 %and, %1
-  %end = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %allocator, i64 16
   %2 = load i64, ptr %end, align 8
   %cmp.not = icmp sgt i64 %add4, %2
   br i1 %cmp.not, label %if.else, label %do.body10
@@ -181,7 +176,7 @@ if.else16:                                        ; preds = %do.body10
   br label %do.end20
 
 do.end20:                                         ; preds = %if.else16, %do.body10
-  %free.i = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 5
+  %free.i = getelementptr inbounds i8, ptr %allocator, i64 40
   %3 = load ptr, ptr %free.i, align 8
   br label %for.cond.i.i
 
@@ -192,7 +187,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %do.e
   br i1 %tobool.not.i.i, label %if.then.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %size1.i.i = getelementptr inbounds %struct.MemBlock, ptr %node.0.i.i, i64 0, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 16
   %4 = load i64, ptr %size1.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %4, %and
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end.i, !llvm.loop !8
@@ -204,7 +199,7 @@ if.then.i:                                        ; preds = %for.cond.i.i
   unreachable
 
 if.end.i:                                         ; preds = %for.body.i.i
-  %size1.i.i.le = getelementptr inbounds %struct.MemBlock, ptr %node.0.i.i, i64 0, i32 1
+  %size1.i.i.le = getelementptr inbounds i8, ptr %node.0.i.i, i64 16
   %cmp.not.i4.i = icmp slt i64 %4, %and
   br i1 %cmp.not.i4.i, label %if.else4.i.i, label %do.end7.i.i
 
@@ -217,7 +212,7 @@ if.else4.i.i:                                     ; preds = %if.end.i
 
 do.end7.i.i:                                      ; preds = %if.else4.i.i, %if.end.i
   %7 = phi i64 [ %.pre.i.i, %if.else4.i.i ], [ %4, %if.end.i ]
-  %addr8.i.i = getelementptr inbounds %struct.MemBlock, ptr %node.0.i.i, i64 0, i32 2
+  %addr8.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 24
   %8 = load i64, ptr %addr8.i.i, align 8
   %cmp10.i.i = icmp eq i64 %7, %and
   br i1 %cmp10.i.i, label %do.body13.i.i, label %if.else35.i.i
@@ -225,7 +220,7 @@ do.end7.i.i:                                      ; preds = %if.else4.i.i, %if.e
 do.body13.i.i:                                    ; preds = %do.end7.i.i
   %9 = load ptr, ptr %node.0.i.i, align 8
   %cmp14.not.i.i = icmp eq ptr %9, null
-  %tql_prev23.i.i = getelementptr inbounds %struct.QTailQLink, ptr %node.0.i.i, i64 0, i32 1
+  %tql_prev23.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 8
   %10 = load ptr, ptr %tql_prev23.i.i, align 8
   br i1 %cmp14.not.i.i, label %if.else21.i.i, label %if.end25.i.i
 
@@ -235,7 +230,7 @@ if.else21.i.i:                                    ; preds = %do.body13.i.i
 
 if.end25.i.i:                                     ; preds = %if.else21.i.i, %do.body13.i.i
   %.sink.i.i = phi ptr [ %11, %if.else21.i.i ], [ %9, %do.body13.i.i ]
-  %tql_prev24.i.i = getelementptr inbounds %struct.QTailQLink, ptr %.sink.i.i, i64 0, i32 1
+  %tql_prev24.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   store ptr %10, ptr %tql_prev24.i.i, align 8
   %12 = load ptr, ptr %node.0.i.i, align 8
   store ptr %12, ptr %10, align 8
@@ -252,21 +247,21 @@ if.else35.i.i:                                    ; preds = %do.end7.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else35.i.i
   %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %addr1.i.i.i = getelementptr inbounds %struct.MemBlock, ptr %call.i.i.i, i64 0, i32 2
+  %addr1.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store i64 %8, ptr %addr1.i.i.i, align 8
-  %size2.i.i.i = getelementptr inbounds %struct.MemBlock, ptr %call.i.i.i, i64 0, i32 1
+  %size2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 %and, ptr %size2.i.i.i, align 8
   br label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end.i.i.i, %if.end25.i.i
   %usednode.0.i.i = phi ptr [ %node.0.i.i, %if.end25.i.i ], [ %call.i.i.i, %if.end.i.i.i ]
-  %used.i.i = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 4
+  %used.i.i = getelementptr inbounds i8, ptr %allocator, i64 32
   %13 = load ptr, ptr %used.i.i, align 8
   %tobool.i.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.i.not.i.i, label %if.else.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.end38.i.i
-  %addr.i.i.i = getelementptr inbounds %struct.MemBlock, ptr %usednode.0.i.i, i64 0, i32 2
+  %addr.i.i.i = getelementptr inbounds i8, ptr %usednode.0.i.i, i64 24
   br label %for.cond.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end38.i.i, %if.else35.i.i
@@ -281,15 +276,15 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %14 = load i64, ptr %addr.i.i.i, align 8
-  %addr3.i.i.i = getelementptr inbounds %struct.MemBlock, ptr %node.0.i.i.i, i64 0, i32 2
+  %addr3.i.i.i = getelementptr inbounds i8, ptr %node.0.i.i.i, i64 24
   %15 = load i64, ptr %addr3.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %14, %15
   br i1 %cmp.i.i.i, label %do.body5.i.i.i, label %for.cond.i.i.i, !llvm.loop !9
 
 do.body5.i.i.i:                                   ; preds = %for.body.i.i.i
-  %tql_prev.i.i.i = getelementptr inbounds %struct.QTailQLink, ptr %node.0.i.i.i, i64 0, i32 1
+  %tql_prev.i.i.i = getelementptr inbounds i8, ptr %node.0.i.i.i, i64 8
   %16 = load ptr, ptr %tql_prev.i.i.i, align 8
-  %tql_prev7.i.i.i = getelementptr inbounds %struct.QTailQLink, ptr %usednode.0.i.i, i64 0, i32 1
+  %tql_prev7.i.i.i = getelementptr inbounds i8, ptr %usednode.0.i.i, i64 8
   store ptr %16, ptr %tql_prev7.i.i.i, align 8
   store ptr %node.0.i.i.i, ptr %usednode.0.i.i, align 8
   %17 = load ptr, ptr %tql_prev.i.i.i, align 8
@@ -297,9 +292,9 @@ do.body5.i.i.i:                                   ; preds = %for.body.i.i.i
 
 do.body17.i.i.i:                                  ; preds = %for.cond.i.i.i
   store ptr null, ptr %usednode.0.i.i, align 8
-  %tql_prev19.i.i.i = getelementptr inbounds %struct.QTailQLink, ptr %13, i64 0, i32 1
+  %tql_prev19.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %tql_prev19.i.i.i, align 8
-  %tql_prev21.i.i.i = getelementptr inbounds %struct.QTailQLink, ptr %usednode.0.i.i, i64 0, i32 1
+  %tql_prev21.i.i.i = getelementptr inbounds i8, ptr %usednode.0.i.i, i64 8
   store ptr %18, ptr %tql_prev21.i.i.i, align 8
   br label %mlist_alloc.exit
 
@@ -327,10 +322,10 @@ declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @mlist_check(ptr nocapture noundef readonly %s) unnamed_addr #0 {
 entry:
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %start, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 5
+  %free = getelementptr inbounds i8, ptr %s, i64 40
   %1 = load ptr, ptr %free, align 8
   %node.037 = load ptr, ptr %1, align 8
   %tobool.not38 = icmp eq ptr %node.037, null
@@ -340,7 +335,7 @@ do.body:                                          ; preds = %entry, %do.end17
   %node.041 = phi ptr [ %node.0, %do.end17 ], [ %node.037, %entry ]
   %addr.040 = phi i64 [ %4, %do.end17 ], [ %spec.select, %entry ]
   %next.039 = phi i64 [ %add, %do.end17 ], [ %0, %entry ]
-  %addr3 = getelementptr inbounds %struct.MemBlock, ptr %node.041, i64 0, i32 2
+  %addr3 = getelementptr inbounds i8, ptr %node.041, i64 24
   %2 = load i64, ptr %addr3, align 8
   %cmp4 = icmp sgt i64 %2, %addr.040
   br i1 %cmp4, label %do.body6, label %if.else
@@ -366,7 +361,7 @@ if.else13:                                        ; preds = %do.body6
 
 do.end17:                                         ; preds = %if.else13, %do.body6
   %4 = phi i64 [ %.pre47, %if.else13 ], [ %3, %do.body6 ]
-  %size = getelementptr inbounds %struct.MemBlock, ptr %node.041, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %node.041, i64 16
   %5 = load i64, ptr %size, align 8
   %add = add i64 %5, %4
   %node.0 = load ptr, ptr %node.041, align 8
@@ -381,7 +376,7 @@ for.end.loopexit:                                 ; preds = %do.end17
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %spec.select36.pre-phi = phi i64 [ %.pre51, %for.end.loopexit ], [ %spec.select, %entry ]
   %6 = phi i64 [ %.pre48, %for.end.loopexit ], [ %0, %entry ]
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 4
+  %used = getelementptr inbounds i8, ptr %s, i64 32
   %7 = load ptr, ptr %used, align 8
   %node.142 = load ptr, ptr %7, align 8
   %tobool31.not43 = icmp eq ptr %node.142, null
@@ -391,7 +386,7 @@ do.body33:                                        ; preds = %for.end, %do.end56
   %node.146 = phi ptr [ %node.1, %do.end56 ], [ %node.142, %for.end ]
   %addr.145 = phi i64 [ %10, %do.end56 ], [ %spec.select36.pre-phi, %for.end ]
   %next.144 = phi i64 [ %add60, %do.end56 ], [ %6, %for.end ]
-  %addr35 = getelementptr inbounds %struct.MemBlock, ptr %node.146, i64 0, i32 2
+  %addr35 = getelementptr inbounds i8, ptr %node.146, i64 24
   %8 = load i64, ptr %addr35, align 8
   %cmp37 = icmp sgt i64 %8, %addr.145
   br i1 %cmp37, label %do.body45, label %if.else40
@@ -417,7 +412,7 @@ if.else52:                                        ; preds = %do.body45
 
 do.end56:                                         ; preds = %if.else52, %do.body45
   %10 = phi i64 [ %.pre50, %if.else52 ], [ %9, %do.body45 ]
-  %size59 = getelementptr inbounds %struct.MemBlock, ptr %node.146, i64 0, i32 1
+  %size59 = getelementptr inbounds i8, ptr %node.146, i64 16
   %11 = load i64, ptr %size59, align 8
   %add60 = add i64 %11, %10
   %node.1 = load ptr, ptr %node.146, align 8
@@ -435,7 +430,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %used.i = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 4
+  %used.i = getelementptr inbounds i8, ptr %allocator, i64 32
   %0 = load ptr, ptr %used.i, align 8
   br label %for.cond.i.i
 
@@ -446,7 +441,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %tobool.not.i.i, label %if.then1.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %addr1.i.i = getelementptr %struct.MemBlock, ptr %node.0.i.i, i64 0, i32 2
+  %addr1.i.i = getelementptr i8, ptr %node.0.i.i, i64 24
   %1 = load i64, ptr %addr1.i.i, align 8
   %cmp.i.i = icmp eq i64 %1, %addr
   br i1 %cmp.i.i, label %do.body4.i, label %for.cond.i.i, !llvm.loop !12
@@ -458,17 +453,17 @@ if.then1.i:                                       ; preds = %for.cond.i.i
   unreachable
 
 do.body4.i:                                       ; preds = %for.body.i.i
-  %addr1.i.i.le = getelementptr %struct.MemBlock, ptr %node.0.i.i, i64 0, i32 2
+  %addr1.i.i.le = getelementptr i8, ptr %node.0.i.i, i64 24
   %3 = load ptr, ptr %node.0.i.i, align 8
   %cmp5.not.i = icmp eq ptr %3, null
-  %tql_prev12.i = getelementptr inbounds %struct.QTailQLink, ptr %node.0.i.i, i64 0, i32 1
+  %tql_prev12.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 8
   %4 = load ptr, ptr %tql_prev12.i, align 8
   %..i = select i1 %cmp5.not.i, ptr %0, ptr %3
-  %tql_prev14.i = getelementptr inbounds %struct.QTailQLink, ptr %..i, i64 0, i32 1
+  %tql_prev14.i = getelementptr inbounds i8, ptr %..i, i64 8
   store ptr %4, ptr %tql_prev14.i, align 8
   %5 = load ptr, ptr %node.0.i.i, align 8
   store ptr %5, ptr %4, align 8
-  %free.i = getelementptr inbounds %struct.QGuestAllocator, ptr %allocator, i64 0, i32 5
+  %free.i = getelementptr inbounds i8, ptr %allocator, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node.0.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %free.i, align 8
   %tobool.i.not.i = icmp eq ptr %6, null
@@ -486,13 +481,13 @@ for.cond.i17.i:                                   ; preds = %do.body4.i, %for.bo
 
 for.body.i20.i:                                   ; preds = %for.cond.i17.i
   %7 = load i64, ptr %addr1.i.i.le, align 8
-  %addr3.i.i = getelementptr inbounds %struct.MemBlock, ptr %node.0.i19.i, i64 0, i32 2
+  %addr3.i.i = getelementptr inbounds i8, ptr %node.0.i19.i, i64 24
   %8 = load i64, ptr %addr3.i.i, align 8
   %cmp.i21.i = icmp ult i64 %7, %8
   br i1 %cmp.i21.i, label %do.body5.i.i, label %for.cond.i17.i, !llvm.loop !9
 
 do.body5.i.i:                                     ; preds = %for.body.i20.i
-  %tql_prev.i.i = getelementptr inbounds %struct.QTailQLink, ptr %node.0.i19.i, i64 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %node.0.i19.i, i64 8
   %9 = load ptr, ptr %tql_prev.i.i, align 8
   store ptr %9, ptr %tql_prev12.i, align 8
   store ptr %node.0.i19.i, ptr %node.0.i.i, align 8
@@ -501,7 +496,7 @@ do.body5.i.i:                                     ; preds = %for.body.i20.i
 
 do.body17.i.i:                                    ; preds = %for.cond.i17.i
   store ptr null, ptr %node.0.i.i, align 8
-  %tql_prev19.i.i = getelementptr inbounds %struct.QTailQLink, ptr %6, i64 0, i32 1
+  %tql_prev19.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load ptr, ptr %tql_prev19.i.i, align 8
   store ptr %11, ptr %tql_prev12.i, align 8
   br label %mlist_sort_insert.exit.i
@@ -518,13 +513,13 @@ mlist_sort_insert.exit.i:                         ; preds = %do.body17.i.i, %do.
 entry.split.us.i.i:                               ; preds = %mlist_sort_insert.exit.i
   %13 = getelementptr i8, ptr %node.0.i.i, i64 16
   %14 = load ptr, ptr %tql_prev12.i, align 8
-  %tql_prev2.us.us.i.i = getelementptr inbounds %struct.QTailQLink, ptr %14, i64 0, i32 1
+  %tql_prev2.us.us.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %tql_prev2.us.us.i.i, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %node.0.i.i, align 8
   %tobool4.not.us.us.i.i = icmp eq ptr %16, null
   %tobool8.not.us.us.i.i = icmp eq ptr %17, null
-  %addr11.us.us.i.i = getelementptr inbounds %struct.MemBlock, ptr %17, i64 0, i32 2
+  %addr11.us.us.i.i = getelementptr inbounds i8, ptr %17, i64 24
   br i1 %tobool4.not.us.us.i.i, label %entry.split.us.split.us.split.us.i.i, label %entry.split.us.split.us.split.i.i
 
 entry.split.us.split.us.split.us.i.i:             ; preds = %entry.split.us.i.i
@@ -560,9 +555,9 @@ entry.split.us.split.us.split.split.split.i.i:    ; preds = %entry.split.us.spli
 
 do.body1.i.i:                                     ; preds = %mlist_sort_insert.exit.i, %do.cond.i.i
   %node.addr.0.i.i = phi ptr [ %node.addr.1.i.i, %do.cond.i.i ], [ %node.0.i.i, %mlist_sort_insert.exit.i ]
-  %tql_prev.i22.i = getelementptr inbounds %struct.QTailQLink, ptr %node.addr.0.i.i, i64 0, i32 1
+  %tql_prev.i22.i = getelementptr inbounds i8, ptr %node.addr.0.i.i, i64 8
   %23 = load ptr, ptr %tql_prev.i22.i, align 8
-  %tql_prev2.i.i = getelementptr inbounds %struct.QTailQLink, ptr %23, i64 0, i32 1
+  %tql_prev2.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %tql_prev2.i.i, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %node.addr.0.i.i, align 8
@@ -575,13 +570,13 @@ land.lhs.true.i.i:                                ; preds = %do.body1.i.i
   %28 = getelementptr i8, ptr %25, i64 24
   %.val13.i.i = load i64, ptr %28, align 8
   %add.i.i.i = add i64 %.val13.i.i, %.val.i.i
-  %addr.i23.i = getelementptr inbounds %struct.MemBlock, ptr %node.addr.0.i.i, i64 0, i32 2
+  %addr.i23.i = getelementptr inbounds i8, ptr %node.addr.0.i.i, i64 24
   %29 = load i64, ptr %addr.i23.i, align 8
   %cmp.i24.i = icmp eq i64 %add.i.i.i, %29
   br i1 %cmp.i24.i, label %if.then5.i.i, label %if.end7.i.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  %size.i.i.i = getelementptr inbounds %struct.MemBlock, ptr %node.addr.0.i.i, i64 0, i32 1
+  %size.i.i.i = getelementptr inbounds i8, ptr %node.addr.0.i.i, i64 16
   %30 = load i64, ptr %size.i.i.i, align 8
   %add.i15.i.i = add i64 %30, %.val.i.i
   store i64 %add.i15.i.i, ptr %27, align 8
@@ -589,7 +584,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   %cmp.not.i.i.i.i = icmp eq ptr %31, null
   %32 = load ptr, ptr %tql_prev.i22.i, align 8
   %list..i.i.i.i = select i1 %cmp.not.i.i.i.i, ptr %12, ptr %31
-  %tql_prev11.i.i.i.i = getelementptr inbounds %struct.QTailQLink, ptr %list..i.i.i.i, i64 0, i32 1
+  %tql_prev11.i.i.i.i = getelementptr inbounds i8, ptr %list..i.i.i.i, i64 8
   store ptr %32, ptr %tql_prev11.i.i.i.i, align 8
   %33 = load ptr, ptr %node.addr.0.i.i, align 8
   store ptr %33, ptr %32, align 8
@@ -613,22 +608,22 @@ land.lhs.true9.i.i:                               ; preds = %if.end7.i.i
   %35 = getelementptr i8, ptr %node.addr.1.i.i, i64 24
   %node.addr.1.val14.i.i = load i64, ptr %35, align 8
   %add.i16.i.i = add i64 %node.addr.1.val14.i.i, %node.addr.1.val.i.i
-  %addr11.i.i = getelementptr inbounds %struct.MemBlock, ptr %26, i64 0, i32 2
+  %addr11.i.i = getelementptr inbounds i8, ptr %26, i64 24
   %36 = load i64, ptr %addr11.i.i, align 8
   %cmp12.i.i = icmp eq i64 %add.i16.i.i, %36
   br i1 %cmp12.i.i, label %if.then13.i.i, label %do.cond.i.i
 
 if.then13.i.i:                                    ; preds = %land.lhs.true9.i.i
-  %size.i18.i.i = getelementptr inbounds %struct.MemBlock, ptr %26, i64 0, i32 1
+  %size.i18.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %37 = load i64, ptr %size.i18.i.i, align 8
   %add.i20.i.i = add i64 %37, %node.addr.1.val.i.i
   store i64 %add.i20.i.i, ptr %34, align 8
   %38 = load ptr, ptr %26, align 8
   %cmp.not.i.i21.i.i = icmp eq ptr %38, null
-  %tql_prev10.i.i22.i.i = getelementptr inbounds %struct.QTailQLink, ptr %26, i64 0, i32 1
+  %tql_prev10.i.i22.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %39 = load ptr, ptr %tql_prev10.i.i22.i.i, align 8
   %list..i.i23.i.i = select i1 %cmp.not.i.i21.i.i, ptr %12, ptr %38
-  %tql_prev11.i.i24.i.i = getelementptr inbounds %struct.QTailQLink, ptr %list..i.i23.i.i, i64 0, i32 1
+  %tql_prev11.i.i24.i.i = getelementptr inbounds i8, ptr %list..i.i23.i.i, i64 8
   store ptr %39, ptr %tql_prev11.i.i24.i.i, align 8
   %40 = load ptr, ptr %26, align 8
   store ptr %40, ptr %39, align 8
@@ -663,25 +658,25 @@ if.end3:                                          ; preds = %entry, %if.then2, %
 define dso_local void @alloc_init(ptr nocapture noundef %s, i32 noundef %opts, i64 noundef %start, i64 noundef %end, i64 noundef %page_size) local_unnamed_addr #0 {
 entry:
   store i32 %opts, ptr %s, align 8
-  %start2 = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 1
+  %start2 = getelementptr inbounds i8, ptr %s, i64 8
   store i64 %start, ptr %start2, align 8
-  %end3 = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 2
+  %end3 = getelementptr inbounds i8, ptr %s, i64 16
   store i64 %end, ptr %end3, align 8
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #12
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 4
+  %used = getelementptr inbounds i8, ptr %s, i64 32
   store ptr %call, ptr %used, align 8
   %call4 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #12
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 5
+  %free = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %call4, ptr %free, align 8
   %0 = load ptr, ptr %used, align 8
   store ptr null, ptr %0, align 8
   %1 = load ptr, ptr %used, align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %1, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %1, ptr %tql_prev, align 8
   %2 = load ptr, ptr %free, align 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr %free, align 8
-  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %3, i64 0, i32 1
+  %tql_prev12 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %3, ptr %tql_prev12, align 8
   %4 = load i64, ptr %start2, align 8
   %5 = load i64, ptr %end3, align 8
@@ -691,9 +686,9 @@ entry:
 if.end.i:                                         ; preds = %entry
   %sub = sub i64 %5, %4
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %addr1.i = getelementptr inbounds %struct.MemBlock, ptr %call.i, i64 0, i32 2
+  %addr1.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %4, ptr %addr1.i, align 8
-  %size2.i = getelementptr inbounds %struct.MemBlock, ptr %call.i, i64 0, i32 1
+  %size2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %sub, ptr %size2.i, align 8
   %.pre = load ptr, ptr %free, align 8
   br label %mlist_new.exit
@@ -705,15 +700,15 @@ mlist_new.exit:                                   ; preds = %entry, %if.end.i
   store ptr %7, ptr %retval.0.i, align 8
   %cmp.not = icmp eq ptr %7, null
   %. = select i1 %cmp.not, ptr %6, ptr %7
-  %tql_prev26 = getelementptr inbounds %struct.QTailQLink, ptr %., i64 0, i32 1
+  %tql_prev26 = getelementptr inbounds i8, ptr %., i64 8
   store ptr %retval.0.i, ptr %tql_prev26, align 8
   %8 = load ptr, ptr %free, align 8
   store ptr %retval.0.i, ptr %8, align 8
   %9 = load ptr, ptr %free, align 8
-  %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %retval.0.i, i64 0, i32 1
+  %tql_prev30 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   store ptr %9, ptr %tql_prev30, align 8
   %conv = trunc i64 %page_size to i32
-  %page_size32 = getelementptr inbounds %struct.QGuestAllocator, ptr %s, i64 0, i32 3
+  %page_size32 = getelementptr inbounds i8, ptr %s, i64 24
   store i32 %conv, ptr %page_size32, align 8
   ret void
 }
@@ -733,9 +728,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @migrate_allocator(ptr nocapture noundef %src, ptr nocapture noundef %dst) local_unnamed_addr #0 {
 entry:
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %src, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %start, align 8
-  %start1 = getelementptr inbounds %struct.QGuestAllocator, ptr %dst, i64 0, i32 1
+  %start1 = getelementptr inbounds i8, ptr %dst, i64 8
   %1 = load i64, ptr %start1, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.body3, label %if.else
@@ -747,9 +742,9 @@ if.else:                                          ; preds = %entry
   br label %do.body3
 
 do.body3:                                         ; preds = %entry, %if.else
-  %end = getelementptr inbounds %struct.QGuestAllocator, ptr %src, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i64, ptr %end, align 8
-  %end6 = getelementptr inbounds %struct.QGuestAllocator, ptr %dst, i64 0, i32 2
+  %end6 = getelementptr inbounds i8, ptr %dst, i64 16
   %3 = load i64, ptr %end6, align 8
   %cmp7 = icmp eq i64 %2, %3
   br i1 %cmp7, label %do.end14, label %if.else10
@@ -761,7 +756,7 @@ if.else10:                                        ; preds = %do.body3
   br label %do.end14
 
 do.end14:                                         ; preds = %if.else10, %do.body3
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %dst, i64 0, i32 4
+  %used = getelementptr inbounds i8, ptr %dst, i64 32
   %4 = load ptr, ptr %used, align 8
   %5 = load ptr, ptr %4, align 8
   %tobool.not45 = icmp eq ptr %5, null
@@ -775,7 +770,7 @@ land.rhs:                                         ; preds = %do.end14, %land.rhs
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !14
 
 for.end:                                          ; preds = %land.rhs, %do.end14
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %dst, i64 0, i32 5
+  %free = getelementptr inbounds i8, ptr %dst, i64 40
   %7 = load ptr, ptr %free, align 8
   %8 = load ptr, ptr %7, align 8
   %tobool16.not47 = icmp eq ptr %8, null
@@ -795,22 +790,22 @@ for.end22.loopexit:                               ; preds = %land.rhs17
 for.end22:                                        ; preds = %for.end22.loopexit, %for.end
   %10 = phi ptr [ %.pre, %for.end22.loopexit ], [ %7, %for.end ]
   %11 = load ptr, ptr %used, align 8
-  %used25 = getelementptr inbounds %struct.QGuestAllocator, ptr %src, i64 0, i32 4
+  %used25 = getelementptr inbounds i8, ptr %src, i64 32
   %12 = load ptr, ptr %used25, align 8
   store ptr %12, ptr %used, align 8
-  %free27 = getelementptr inbounds %struct.QGuestAllocator, ptr %src, i64 0, i32 5
+  %free27 = getelementptr inbounds i8, ptr %src, i64 40
   %13 = load ptr, ptr %free27, align 8
   store ptr %13, ptr %free, align 8
   store ptr %11, ptr %used25, align 8
   store ptr %10, ptr %free27, align 8
   store ptr null, ptr %11, align 8
   %14 = load ptr, ptr %used25, align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %14, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %14, ptr %tql_prev, align 8
   %15 = load ptr, ptr %free27, align 8
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr %free27, align 8
-  %tql_prev40 = getelementptr inbounds %struct.QTailQLink, ptr %16, i64 0, i32 1
+  %tql_prev40 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %16, ptr %tql_prev40, align 8
   %17 = load i64, ptr %start, align 8
   %18 = load i64, ptr %end, align 8
@@ -820,9 +815,9 @@ for.end22:                                        ; preds = %for.end22.loopexit,
 if.end.i:                                         ; preds = %for.end22
   %sub = sub i64 %18, %17
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %addr1.i = getelementptr inbounds %struct.MemBlock, ptr %call.i, i64 0, i32 2
+  %addr1.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %17, ptr %addr1.i, align 8
-  %size2.i = getelementptr inbounds %struct.MemBlock, ptr %call.i, i64 0, i32 1
+  %size2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %sub, ptr %size2.i, align 8
   %.pre49 = load ptr, ptr %free27, align 8
   br label %mlist_new.exit
@@ -834,12 +829,12 @@ mlist_new.exit:                                   ; preds = %for.end22, %if.end.
   store ptr %20, ptr %retval.0.i, align 8
   %cmp48.not = icmp eq ptr %20, null
   %. = select i1 %cmp48.not, ptr %19, ptr %20
-  %tql_prev58 = getelementptr inbounds %struct.QTailQLink, ptr %., i64 0, i32 1
+  %tql_prev58 = getelementptr inbounds i8, ptr %., i64 8
   store ptr %retval.0.i, ptr %tql_prev58, align 8
   %21 = load ptr, ptr %free27, align 8
   store ptr %retval.0.i, ptr %21, align 8
   %22 = load ptr, ptr %free27, align 8
-  %tql_prev63 = getelementptr inbounds %struct.QTailQLink, ptr %retval.0.i, i64 0, i32 1
+  %tql_prev63 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   store ptr %22, ptr %tql_prev63, align 8
   ret void
 }

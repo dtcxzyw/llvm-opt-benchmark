@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-dh_check.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dh_st = type { i32, i32, %struct.ffc_params_st, i32, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/dh/dh_check.c\00", align 1
 @__func__.DH_check_params_ex = private unnamed_addr constant [19 x i8] c"DH_check_params_ex\00", align 1
 @__func__.DH_check_ex = private unnamed_addr constant [12 x i8] c"DH_check_ex\00", align 1
@@ -83,7 +78,7 @@ return:                                           ; preds = %entry, %if.end14
 define i32 @DH_check_params(ptr nocapture noundef readonly %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
-  %libctx = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 11
+  %libctx = getelementptr inbounds i8, ptr %dh, i64 176
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #2
   %cmp = icmp eq ptr %call, null
@@ -96,7 +91,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %err, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
   %1 = load ptr, ptr %params, align 8
   %call5 = tail call i32 @BN_is_odd(ptr noundef %1) #2
   %tobool.not = icmp eq i32 %call5, 0
@@ -109,7 +104,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end4
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %dh, i64 24
   %3 = load ptr, ptr %g, align 8
   %call9 = tail call i32 @BN_is_negative(ptr noundef %3) #2
   %tobool10.not = icmp eq i32 %call9, 0
@@ -347,7 +342,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8
   %call1 = tail call i32 @BN_num_bits(ptr noundef %0) #2
   %cmp2 = icmp sgt i32 %call1, 32768
@@ -366,7 +361,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %libctx = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 11
+  %libctx = getelementptr inbounds i8, ptr %dh, i64 176
   %1 = load ptr, ptr %libctx, align 8
   %call8 = tail call ptr @BN_CTX_new_ex(ptr noundef %1) #2
   %cmp9 = icmp eq ptr %call8, null
@@ -380,7 +375,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp14, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %dh, i64 16
   %2 = load ptr, ptr %q, align 8
   %cmp18.not = icmp eq ptr %2, null
   br i1 %cmp18.not, label %if.end96, label %if.then19
@@ -392,7 +387,7 @@ if.then19:                                        ; preds = %if.end16
   br i1 %cmp25, label %if.then30, label %if.end96.sink.split
 
 if.then30:                                        ; preds = %if.then19
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %dh, i64 24
   %4 = load ptr, ptr %g, align 8
   %call32 = tail call ptr @BN_value_one() #2
   %call33 = tail call i32 @BN_cmp(ptr noundef %4, ptr noundef %call32) #2
@@ -460,7 +455,7 @@ if.then84:                                        ; preds = %if.end81
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then84, %if.end81
-  %j = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 3
+  %j = getelementptr inbounds i8, ptr %dh, i64 32
   %16 = load ptr, ptr %j, align 8
   %cmp88.not = icmp eq ptr %16, null
   br i1 %cmp88.not, label %if.end96, label %land.lhs.true
@@ -601,7 +596,7 @@ return:                                           ; preds = %entry, %if.end10
 ; Function Attrs: nounwind uwtable
 define i32 @DH_check_pub_key(ptr noundef %dh, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %0) #2
   %cmp = icmp sgt i32 %call, 32768
@@ -615,7 +610,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %dh, i64 16
   %1 = load ptr, ptr %q, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end10, label %land.lhs.true
@@ -646,7 +641,7 @@ declare i32 @ossl_ffc_validate_public_key(ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dh_check_pub_key_partial(ptr noundef %dh, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
   %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef nonnull %params, ptr noundef %pub_key, ptr noundef %ret) #2
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -673,7 +668,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %dh, i64 16
   %0 = load ptr, ptr %q, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.else, label %if.then2
@@ -684,13 +679,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp29.not, label %if.end45, label %land.lhs.true30
 
 if.else:                                          ; preds = %if.end
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
   %1 = load ptr, ptr %params, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %end, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %length8 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 3
+  %length8 = getelementptr inbounds i8, ptr %dh, i64 104
   %2 = load i32, ptr %length8, align 8
   %cmp9 = icmp eq i32 %2, 0
   br i1 %cmp9, label %if.then10, label %if.else20
@@ -712,7 +707,7 @@ if.else20:                                        ; preds = %if.then7
   br label %end
 
 land.lhs.true30:                                  ; preds = %if.then2
-  %length31 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 3
+  %length31 = getelementptr inbounds i8, ptr %dh, i64 104
   %3 = load i32, ptr %length31, align 8
   %cmp32.not = icmp eq i32 %3, 0
   br i1 %cmp32.not, label %if.end45, label %if.then33
@@ -759,31 +754,31 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dh_check_pairwise(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %dh, i64 24
   %1 = load ptr, ptr %g, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %priv_key = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 5
+  %priv_key = getelementptr inbounds i8, ptr %dh, i64 120
   %2 = load ptr, ptr %priv_key, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %pub_key6 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 4
+  %pub_key6 = getelementptr inbounds i8, ptr %dh, i64 112
   %3 = load ptr, ptr %pub_key6, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %libctx = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 11
+  %libctx = getelementptr inbounds i8, ptr %dh, i64 176
   %4 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #2
   %cmp8 = icmp eq ptr %call, null

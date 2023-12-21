@@ -16,39 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.USBDescOther = type { i8, ptr }
 %struct.USBDescEndpoint = type { i8, i8, i16, i8, i8, i8, i8, ptr, i8, i8, i16 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.USBNetState = type { %struct.USBDevice, i32, i32, i32, i32, i16, i32, i16, i32, [2048 x i8], i32, i32, [2048 x i8], ptr, ptr, [13 x i8], ptr, %struct.NICConf, %union.anon.0 }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.MACAddr = type { [6 x i8] }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.rndis_response = type { %union.anon.7, i32, [0 x i8] }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.rndis_init_msg_type = type { i32, i32, i32, i32, i32, i32 }
-%struct.rndis_query_msg_type = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.rndis_set_msg_type = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.rndis_keepalive_msg_type = type { i32, i32, i32 }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.5, %union.anon.6 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.2 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
 
 @net_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 18272, i64 0, ptr @usb_net_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @usb_net_class_initfn, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"usb-net\00", align 1
@@ -133,7 +100,7 @@ define internal void @usb_net_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 663, ptr noundef nonnull @__func__.USB_NET) #10
-  %bootindex = getelementptr inbounds %struct.USBNetState, ptr %call.i3, i64 0, i32 17, i32 2
+  %bootindex = getelementptr inbounds i8, ptr %call.i3, i64 18248
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %call.i) #10
   ret void
 }
@@ -143,27 +110,27 @@ define internal void @usb_net_class_initfn(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #10
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
   store ptr @usb_net_realize, ptr %realize, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i11, i64 280
   store ptr @.str.6, ptr %product_desc, align 8
-  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 15
+  %usb_desc = getelementptr inbounds i8, ptr %call.i11, i64 288
   store ptr @desc_net, ptr %usb_desc, align 8
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 6
+  %handle_reset = getelementptr inbounds i8, ptr %call.i11, i64 216
   store ptr @usb_net_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 7
+  %handle_control = getelementptr inbounds i8, ptr %call.i11, i64 224
   store ptr @usb_net_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 8
+  %handle_data = getelementptr inbounds i8, ptr %call.i11, i64 232
   store ptr @usb_net_handle_data, ptr %handle_data, align 8
-  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i11, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i11, i64 184
   store ptr @usb_net_unrealize, ptr %unrealize, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 8
   store i64 %or.i, ptr %categories, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.7, ptr %fw_name, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_net, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @net_properties) #10
   ret void
@@ -179,49 +146,49 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 663, ptr noundef nonnull @__func__.USB_NET) #10
   tail call void @usb_desc_create_serial(ptr noundef %dev) #10
   tail call void @usb_desc_init(ptr noundef %dev) #10
-  %rndis_state = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 1
-  %rndis_resp = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 18
+  %rndis_state = getelementptr inbounds i8, ptr %call.i, i64 5864
+  %rndis_resp = getelementptr inbounds i8, ptr %call.i, i64 18256
   store ptr null, ptr %rndis_resp, align 8
-  %tql_prev = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 18, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 18264
   store ptr %rndis_resp, ptr %tql_prev, align 8
   store <4 x i32> <i32 0, i32 0, i32 1000000, i32 0>, ptr %rndis_state, align 8
-  %filter = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 5
+  %filter = getelementptr inbounds i8, ptr %call.i, i64 5880
   store i16 0, ptr %filter, align 8
-  %vendorid = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 6
+  %vendorid = getelementptr inbounds i8, ptr %call.i, i64 5884
   store i32 4660, ptr %vendorid, align 4
-  %connection = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 7
+  %connection = getelementptr inbounds i8, ptr %call.i, i64 5888
   store i16 1, ptr %connection, align 8
   %call3 = tail call ptr @usb_ep_get(ptr noundef %dev, i32 noundef 105, i32 noundef 1) #10
-  %intr = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 13
+  %intr = getelementptr inbounds i8, ptr %call.i, i64 10000
   store ptr %call3, ptr %intr, align 8
   %call4 = tail call ptr @usb_ep_get(ptr noundef %dev, i32 noundef 105, i32 noundef 2) #10
-  %bulk_in = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 14
+  %bulk_in = getelementptr inbounds i8, ptr %call.i, i64 10008
   store ptr %call4, ptr %bulk_in, align 8
-  %conf = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 17
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 10040
   tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #10
   %call6 = tail call ptr @object_get_typename(ptr noundef %call.i) #10
-  %id = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i, i64 152
   %call10 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_usbnet_info, ptr noundef nonnull %conf, ptr noundef %call6, ptr noundef %0, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %call.i) #10
-  %nic = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 16
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 10032
   store ptr %call10, ptr %nic, align 8
   %call12 = tail call ptr @qemu_get_queue(ptr noundef %call10) #10
   tail call void @qemu_format_nic_info_str(ptr noundef %call12, ptr noundef nonnull %conf) #10
-  %usbstring_mac = getelementptr inbounds %struct.USBNetState, ptr %call.i, i64 0, i32 15
-  %arrayidx = getelementptr %struct.USBNetState, ptr %call.i, i64 0, i32 17, i32 0, i32 0, i64 1
+  %usbstring_mac = getelementptr inbounds i8, ptr %call.i, i64 10016
+  %arrayidx = getelementptr i8, ptr %call.i, i64 10041
   %1 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %1 to i32
-  %arrayidx22 = getelementptr %struct.USBNetState, ptr %call.i, i64 0, i32 17, i32 0, i32 0, i64 2
+  %arrayidx22 = getelementptr i8, ptr %call.i, i64 10042
   %2 = load i8, ptr %arrayidx22, align 2
   %conv23 = zext i8 %2 to i32
-  %arrayidx27 = getelementptr %struct.USBNetState, ptr %call.i, i64 0, i32 17, i32 0, i32 0, i64 3
+  %arrayidx27 = getelementptr i8, ptr %call.i, i64 10043
   %3 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %3 to i32
-  %arrayidx32 = getelementptr %struct.USBNetState, ptr %call.i, i64 0, i32 17, i32 0, i32 0, i64 4
+  %arrayidx32 = getelementptr i8, ptr %call.i, i64 10044
   %4 = load i8, ptr %arrayidx32, align 4
   %conv33 = zext i8 %4 to i32
-  %arrayidx37 = getelementptr %struct.USBNetState, ptr %call.i, i64 0, i32 17, i32 0, i32 0, i64 5
+  %arrayidx37 = getelementptr i8, ptr %call.i, i64 10045
   %5 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %5 to i32
   %call39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %usbstring_mac, i64 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 64, i32 noundef %conv, i32 noundef %conv23, i32 noundef %conv28, i32 noundef %conv33, i32 noundef %conv38) #10
@@ -257,7 +224,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not.i, label %fail, label %is_rndis.exit
 
 is_rndis.exit:                                    ; preds = %sw.bb
-  %bConfigurationValue.i = getelementptr inbounds %struct.USBDescConfig, ptr %dev.val, i64 0, i32 1
+  %bConfigurationValue.i = getelementptr inbounds i8, ptr %dev.val, i64 1
   %1 = load i8, ptr %bConfigurationValue.i, align 1
   %cmp.i = icmp ne i8 %1, 2
   %2 = or i32 %index, %value
@@ -277,59 +244,59 @@ if.end6:                                          ; preds = %is_rndis.exit
   ]
 
 sw.bb.i:                                          ; preds = %if.end6
-  %rndis_state.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 1
+  %rndis_state.i = getelementptr inbounds i8, ptr %dev, i64 5864
   store i32 1, ptr %rndis_state.i, align 8
   %call.i.i.i = tail call noalias dereferenceable_or_null(76) ptr @g_malloc0(i64 noundef 76) #11
-  %rndis_resp.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i.i.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %4 = load ptr, ptr %rndis_resp.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %rndis_init_response.exit.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb.i
-  %intr.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 13
+  %intr.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %5 = load ptr, ptr %intr.i.i.i, align 8
   tail call void @usb_wakeup(ptr noundef %5, i32 noundef 0) #10
   br label %rndis_init_response.exit.i
 
 rndis_init_response.exit.i:                       ; preds = %if.then.i.i.i, %sw.bb.i
   store ptr null, ptr %call.i.i.i, align 8
-  %tql_prev.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev.i.i.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %6 = load ptr, ptr %tql_prev.i.i.i, align 8
-  %tql_prev4.i.i.i = getelementptr inbounds %struct.QTailQLink, ptr %call.i.i.i, i64 0, i32 1
+  %tql_prev4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %6, ptr %tql_prev4.i.i.i, align 8
   store ptr %call.i.i.i, ptr %6, align 8
   store ptr %call.i.i.i, ptr %tql_prev.i.i.i, align 8
-  %length10.i.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 0, i32 1
+  %length10.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i32 52, ptr %length10.i.i.i, align 8
-  %buf.i.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 0, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 20
   store i32 -2147483646, ptr %buf.i.i.i, align 4
-  %MessageLength.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 1
+  %MessageLength.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store i32 52, ptr %MessageLength.i.i, align 4
-  %RequestID.i.i = getelementptr inbounds %struct.rndis_init_msg_type, ptr %data, i64 0, i32 2
+  %RequestID.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %7 = load i32, ptr %RequestID.i.i, align 4
   %RequestID3.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 28
   store i32 %7, ptr %RequestID3.i.i, align 4
-  %Status.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 1, i32 0, i32 0, i32 1
+  %Status.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %Status.i.i, align 4
-  %Medium.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 2
+  %Medium.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
   store <4 x i32> <i32 0, i32 1, i32 1580, i32 0>, ptr %Medium.i.i, align 4
-  %AFListOffset.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 2, i32 1
+  %AFListOffset.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i32 0, ptr %AFListOffset.i.i, align 4
-  %AFListSize.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i.i, i64 2, i32 2
+  %AFListSize.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 68
   store i32 0, ptr %AFListSize.i.i, align 4
   br label %sw.epilog
 
 sw.bb2.i:                                         ; preds = %if.end6
-  %rndis_state3.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 1
+  %rndis_state3.i = getelementptr inbounds i8, ptr %dev, i64 5864
   store i32 0, ptr %rndis_state3.i, align 8
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %infobuf.i.i)
-  %InformationBufferOffset.i.i = getelementptr inbounds %struct.rndis_query_msg_type, ptr %data, i64 0, i32 5
+  %InformationBufferOffset.i.i = getelementptr inbounds i8, ptr %data, i64 20
   %8 = load i32, ptr %InformationBufferOffset.i.i, align 4
   %add.i.i = add i32 %8, 8
-  %InformationBufferLength.i.i = getelementptr inbounds %struct.rndis_query_msg_type, ptr %data, i64 0, i32 4
+  %InformationBufferLength.i.i = getelementptr inbounds i8, ptr %data, i64 16
   %9 = load i32, ptr %InformationBufferLength.i.i, align 4
   %cmp.i.i = icmp ugt i32 %9, %length
   %cmp2.not.i.i = icmp uge i32 %add.i.i, %length
@@ -340,7 +307,7 @@ sw.bb4.i:                                         ; preds = %if.end6
   br i1 %or.cond28.i.i, label %rndis_parse.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb4.i
-  %OID.i.i = getelementptr inbounds %struct.rndis_query_msg_type, ptr %data, i64 0, i32 3
+  %OID.i.i = getelementptr inbounds i8, ptr %data, i64 12
   %10 = load i32, ptr %OID.i.i, align 4
   switch i32 %10, label %sw.default.i.i.i [
     i32 65793, label %for.body.preheader.i.i.i
@@ -383,13 +350,13 @@ sw.bb3.i.i.i:                                     ; preds = %if.end.i.i
   br label %ndis_query.exit.i.i
 
 sw.bb4.i.i.i:                                     ; preds = %if.end.i.i
-  %medium.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 2
+  %medium.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5868
   %11 = load i32, ptr %medium.i.i.i, align 4
   store i32 %11, ptr %infobuf.i.i, align 16
   br label %ndis_query.exit.i.i
 
 sw.bb5.i.i.i:                                     ; preds = %if.end.i.i
-  %medium6.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 2
+  %medium6.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5868
   %12 = load i32, ptr %medium6.i.i.i, align 4
   store i32 %12, ptr %infobuf.i.i, align 16
   br label %ndis_query.exit.i.i
@@ -399,7 +366,7 @@ sw.bb7.i.i.i:                                     ; preds = %if.end.i.i
   br label %ndis_query.exit.i.i
 
 sw.bb8.i.i.i:                                     ; preds = %if.end.i.i
-  %speed.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 3
+  %speed.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5872
   %13 = load i32, ptr %speed.i.i.i, align 8
   store i32 %13, ptr %infobuf.i.i, align 16
   br label %ndis_query.exit.i.i
@@ -413,7 +380,7 @@ sw.bb10.i.i.i:                                    ; preds = %if.end.i.i
   br label %ndis_query.exit.i.i
 
 sw.bb11.i.i.i:                                    ; preds = %if.end.i.i
-  %vendorid.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 6
+  %vendorid.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5884
   %14 = load i32, ptr %vendorid.i.i.i, align 4
   store i32 %14, ptr %infobuf.i.i, align 16
   br label %ndis_query.exit.i.i
@@ -430,7 +397,7 @@ sw.bb15.i.i.i:                                    ; preds = %if.end.i.i
   br label %ndis_query.exit.i.i
 
 sw.bb16.i.i.i:                                    ; preds = %if.end.i.i
-  %filter.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 5
+  %filter.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5880
   %16 = load i16, ptr %filter.i.i.i, align 8
   %conv17.i.i.i = zext i16 %16 to i32
   store i32 %conv17.i.i.i, ptr %infobuf.i.i, align 16
@@ -441,7 +408,7 @@ sw.bb18.i.i.i:                                    ; preds = %if.end.i.i
   br label %ndis_query.exit.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %if.end.i.i
-  %media_state.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 4
+  %media_state.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5876
   %17 = load i32, ptr %media_state.i.i.i, align 4
   store i32 %17, ptr %infobuf.i.i, align 16
   br label %ndis_query.exit.i.i
@@ -475,12 +442,12 @@ sw.bb26.i.i.i:                                    ; preds = %if.end.i.i
   br label %ndis_query.exit.i.i
 
 sw.bb27.i.i.i:                                    ; preds = %if.end.i.i
-  %conf.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 17
+  %conf.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull align 8 dereferenceable(6) %conf.i.i.i, i64 6, i1 false)
   br label %ndis_query.exit.i.i
 
 sw.bb28.i.i.i:                                    ; preds = %if.end.i.i
-  %conf29.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 17
+  %conf29.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull align 8 dereferenceable(6) %conf29.i.i.i, i64 6, i1 false)
   br label %ndis_query.exit.i.i
 
@@ -516,76 +483,76 @@ ndis_query.exit.i.i:                              ; preds = %sw.default.i.i.i, %
   %narrow31.i.i = add nuw i32 %cond.i.i, 48
   %add.i.i.i = zext i32 %narrow31.i.i to i64
   %call.i29.i.i = call noalias ptr @g_malloc0(i64 noundef %add.i.i.i) #11
-  %rndis_resp.i.i16.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i.i16.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %19 = load ptr, ptr %rndis_resp.i.i16.i, align 8
   %cmp.i.i17.i = icmp eq ptr %19, null
   br i1 %cmp.i.i17.i, label %if.then.i.i25.i, label %if.end13.i.i
 
 if.then.i.i25.i:                                  ; preds = %ndis_query.exit.i.i
-  %intr.i.i26.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 13
+  %intr.i.i26.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %20 = load ptr, ptr %intr.i.i26.i, align 8
   call void @usb_wakeup(ptr noundef %20, i32 noundef 0) #10
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then.i.i25.i, %ndis_query.exit.i.i
   store ptr null, ptr %call.i29.i.i, align 8
-  %tql_prev.i.i18.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev.i.i18.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %21 = load ptr, ptr %tql_prev.i.i18.i, align 8
-  %tql_prev4.i.i19.i = getelementptr inbounds %struct.QTailQLink, ptr %call.i29.i.i, i64 0, i32 1
+  %tql_prev4.i.i19.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 8
   store ptr %21, ptr %tql_prev4.i.i19.i, align 8
   store ptr %call.i29.i.i, ptr %21, align 8
   store ptr %call.i29.i.i, ptr %tql_prev.i.i18.i, align 8
-  %length10.i.i20.i = getelementptr inbounds %struct.rndis_response, ptr %call.i29.i.i, i64 0, i32 1
+  %length10.i.i20.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 16
   store i32 %narrow.i.i, ptr %length10.i.i20.i, align 8
-  %buf.i.i21.i = getelementptr inbounds %struct.rndis_response, ptr %call.i29.i.i, i64 0, i32 2
+  %buf.i.i21.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 20
   %cmp8.i.i = icmp slt i32 %retval.0.i.i.i, 0
   store i32 -2147483644, ptr %buf.i.i21.i, align 4
-  %RequestID.i22.i = getelementptr inbounds %struct.rndis_query_msg_type, ptr %data, i64 0, i32 2
+  %RequestID.i22.i = getelementptr inbounds i8, ptr %data, i64 8
   %22 = load i32, ptr %RequestID.i22.i, align 4
   %RequestID15.i.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 28
   store i32 %22, ptr %RequestID15.i.i, align 4
-  %MessageLength.i23.i = getelementptr inbounds %struct.rndis_response, ptr %call.i29.i.i, i64 1
+  %MessageLength.i23.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 24
   store i32 %narrow.i.i, ptr %MessageLength.i23.i, align 4
-  %Status.i24.i = getelementptr inbounds %struct.rndis_response, ptr %call.i29.i.i, i64 1, i32 0, i32 0, i32 1
-  %InformationBufferOffset24.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i29.i.i, i64 1, i32 1
+  %Status.i24.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 32
+  %InformationBufferOffset24.i.i = getelementptr inbounds i8, ptr %call.i29.i.i, i64 40
   br i1 %cmp8.i.i, label %rndis_parse.exit.thread58, label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.end13.i.i
   %tobool28.not.i.i = icmp eq i32 %retval.0.i.i.i, 0
   %conv30.i.i = select i1 %tobool28.not.i.i, i32 0, i32 16
-  %add.ptr35.i.i = getelementptr %struct.rndis_response, ptr %call.i29.i.i, i64 1, i32 2
+  %add.ptr35.i.i = getelementptr i8, ptr %call.i29.i.i, i64 44
   %conv37.i.i = zext nneg i32 %retval.0.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr35.i.i, ptr nonnull align 16 %infobuf.i.i, i64 %conv37.i.i, i1 false)
   br label %rndis_parse.exit.thread58
 
 sw.bb6.i:                                         ; preds = %if.end6
   %call.i.i28.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
-  %rndis_resp.i.i29.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i.i29.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %23 = load ptr, ptr %rndis_resp.i.i29.i, align 8
   %cmp.i.i30.i = icmp eq ptr %23, null
   br i1 %cmp.i.i30.i, label %if.then.i.i43.i, label %if.end.i31.i
 
 if.then.i.i43.i:                                  ; preds = %sw.bb6.i
-  %intr.i.i44.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 13
+  %intr.i.i44.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %24 = load ptr, ptr %intr.i.i44.i, align 8
   tail call void @usb_wakeup(ptr noundef %24, i32 noundef 0) #10
   br label %if.end.i31.i
 
 if.end.i31.i:                                     ; preds = %if.then.i.i43.i, %sw.bb6.i
   store ptr null, ptr %call.i.i28.i, align 8
-  %tql_prev.i.i32.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev.i.i32.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %25 = load ptr, ptr %tql_prev.i.i32.i, align 8
-  %tql_prev4.i.i33.i = getelementptr inbounds %struct.QTailQLink, ptr %call.i.i28.i, i64 0, i32 1
+  %tql_prev4.i.i33.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 8
   store ptr %25, ptr %tql_prev4.i.i33.i, align 8
   store ptr %call.i.i28.i, ptr %25, align 8
   store ptr %call.i.i28.i, ptr %tql_prev.i.i32.i, align 8
-  %length10.i.i34.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i28.i, i64 0, i32 1
+  %length10.i.i34.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 16
   store i32 16, ptr %length10.i.i34.i, align 8
-  %buf.i.i35.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i28.i, i64 0, i32 2
-  %InformationBufferOffset.i36.i = getelementptr inbounds %struct.rndis_set_msg_type, ptr %data, i64 0, i32 5
+  %buf.i.i35.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 20
+  %InformationBufferOffset.i36.i = getelementptr inbounds i8, ptr %data, i64 20
   %26 = load i32, ptr %InformationBufferOffset.i36.i, align 4
   %add.i37.i = add i32 %26, 8
-  %InformationBufferLength.i38.i = getelementptr inbounds %struct.rndis_set_msg_type, ptr %data, i64 0, i32 4
+  %InformationBufferLength.i38.i = getelementptr inbounds i8, ptr %data, i64 16
   %27 = load i32, ptr %InformationBufferLength.i38.i, align 4
   %cmp.i39.i = icmp ugt i32 %27, %length
   %cmp3.not.i.i = icmp uge i32 %add.i37.i, %length
@@ -596,7 +563,7 @@ if.end.i31.i:                                     ; preds = %if.then.i.i43.i, %s
   br i1 %or.cond17.i.i, label %if.then9, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i31.i
-  %OID.i40.i = getelementptr inbounds %struct.rndis_set_msg_type, ptr %data, i64 0, i32 3
+  %OID.i40.i = getelementptr inbounds i8, ptr %data, i64 12
   %28 = load i32, ptr %OID.i40.i, align 4
   switch i32 %28, label %return.sink.split.i.i [
     i32 65806, label %sw.bb.i.i.i
@@ -608,10 +575,10 @@ sw.bb.i.i.i:                                      ; preds = %if.end8.i.i
   %add.ptr.i.i = getelementptr i8, ptr %data, i64 %idx.ext.i.i
   %inbuf.val.i.i.i = load i32, ptr %add.ptr.i.i, align 1
   %conv.i.i.i = trunc i32 %inbuf.val.i.i.i to i16
-  %filter.i.i42.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 5
+  %filter.i.i42.i = getelementptr inbounds i8, ptr %dev, i64 5880
   store i16 %conv.i.i.i, ptr %filter.i.i42.i, align 8
   %tobool.not.i.i.i = icmp eq i16 %conv.i.i.i, 0
-  %rndis_state2.i.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 1
+  %rndis_state2.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5864
   %..i.i = select i1 %tobool.not.i.i.i, i32 1, i32 2
   store i32 %..i.i, ptr %rndis_state2.i.i.i, align 8
   br label %if.end17.i.i
@@ -622,33 +589,33 @@ if.end17.i.i:                                     ; preds = %sw.bb.i.i.i, %if.en
 return.sink.split.i.i:                            ; preds = %if.end17.i.i, %if.end8.i.i
   %.sink25.i.i = phi i32 [ 0, %if.end17.i.i ], [ -1073741637, %if.end8.i.i ]
   store i32 -2147483643, ptr %buf.i.i35.i, align 4
-  %RequestID20.i.i = getelementptr inbounds %struct.rndis_set_msg_type, ptr %data, i64 0, i32 2
+  %RequestID20.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %29 = load i32, ptr %RequestID20.i.i, align 4
   %RequestID1221.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 28
   store i32 %29, ptr %RequestID1221.i.i, align 4
-  %MessageLength22.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i28.i, i64 1
+  %MessageLength22.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 24
   store i32 16, ptr %MessageLength22.i.i, align 4
-  %Status19.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i28.i, i64 1, i32 0, i32 0, i32 1
+  %Status19.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 32
   store i32 %.sink25.i.i, ptr %Status19.i.i, align 4
   br label %sw.epilog
 
 sw.bb8.i:                                         ; preds = %if.end6
-  %rndis_resp.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %30 = load ptr, ptr %rndis_resp.i.i, align 8
   %tobool.not12.i.i = icmp eq ptr %30, null
   br i1 %tobool.not12.i.i, label %rndis_clear_responsequeue.exit.i, label %do.body.lr.ph.i.i
 
 do.body.lr.ph.i.i:                                ; preds = %sw.bb8.i
-  %tql_prev8.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev8.i.i = getelementptr inbounds i8, ptr %dev, i64 18264
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %do.body.lr.ph.i.i
   %31 = phi ptr [ %30, %do.body.lr.ph.i.i ], [ %35, %do.body.i.i ]
   %32 = load ptr, ptr %31, align 8
   %cmp.not.i.i = icmp eq ptr %32, null
-  %tql_prev6.i.i = getelementptr inbounds %struct.QTailQLink, ptr %31, i64 0, i32 1
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %tql_prev6.i.i, align 8
-  %tql_prev4.i.i = getelementptr inbounds %struct.QTailQLink, ptr %32, i64 0, i32 1
+  %tql_prev4.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %tql_prev8.sink.i.i = select i1 %cmp.not.i.i, ptr %tql_prev8.i.i, ptr %tql_prev4.i.i
   store ptr %33, ptr %tql_prev8.sink.i.i, align 8
   %34 = load ptr, ptr %31, align 8
@@ -660,13 +627,13 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.bo
   br i1 %tobool.not.i.i, label %rndis_clear_responsequeue.exit.i, label %do.body.i.i, !llvm.loop !5
 
 rndis_clear_responsequeue.exit.i:                 ; preds = %do.body.i.i, %sw.bb8.i
-  %out_ptr.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 8
+  %out_ptr.i = getelementptr inbounds i8, ptr %dev, i64 5892
   store i32 0, ptr %out_ptr.i, align 4
-  %in_len.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 11
+  %in_len.i.i = getelementptr inbounds i8, ptr %dev, i64 7948
   store i32 0, ptr %in_len.i.i, align 4
-  %in_ptr.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 10
+  %in_ptr.i.i = getelementptr inbounds i8, ptr %dev, i64 7944
   store i32 0, ptr %in_ptr.i.i, align 8
-  %nic.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 16
+  %nic.i.i = getelementptr inbounds i8, ptr %dev, i64 10032
   %36 = load ptr, ptr %nic.i.i, align 8
   %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %36) #10
   tail call void @qemu_flush_queued_packets(ptr noundef %call.i.i) #10
@@ -676,57 +643,57 @@ rndis_clear_responsequeue.exit.i:                 ; preds = %do.body.i.i, %sw.bb
   br i1 %cmp.i.i47.i, label %if.then.i.i54.i, label %rndis_reset_response.exit.i
 
 if.then.i.i54.i:                                  ; preds = %rndis_clear_responsequeue.exit.i
-  %intr.i.i55.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 13
+  %intr.i.i55.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %38 = load ptr, ptr %intr.i.i55.i, align 8
   tail call void @usb_wakeup(ptr noundef %38, i32 noundef 0) #10
   br label %rndis_reset_response.exit.i
 
 rndis_reset_response.exit.i:                      ; preds = %if.then.i.i54.i, %rndis_clear_responsequeue.exit.i
   store ptr null, ptr %call.i.i45.i, align 8
-  %tql_prev.i.i48.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev.i.i48.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %39 = load ptr, ptr %tql_prev.i.i48.i, align 8
-  %tql_prev4.i.i49.i = getelementptr inbounds %struct.QTailQLink, ptr %call.i.i45.i, i64 0, i32 1
+  %tql_prev4.i.i49.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 8
   store ptr %39, ptr %tql_prev4.i.i49.i, align 8
   store ptr %call.i.i45.i, ptr %39, align 8
   store ptr %call.i.i45.i, ptr %tql_prev.i.i48.i, align 8
-  %length10.i.i50.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i45.i, i64 0, i32 1
+  %length10.i.i50.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 16
   store <4 x i32> <i32 16, i32 -2147483642, i32 16, i32 0>, ptr %length10.i.i50.i, align 8
-  %AddressingReset.i.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i45.i, i64 1, i32 0, i32 0, i32 1
+  %AddressingReset.i.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 32
   store i32 1, ptr %AddressingReset.i.i, align 4
   br label %sw.epilog
 
 sw.bb10.i:                                        ; preds = %if.end6
   %call.i.i56.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
-  %rndis_resp.i.i57.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i.i57.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %40 = load ptr, ptr %rndis_resp.i.i57.i, align 8
   %cmp.i.i58.i = icmp eq ptr %40, null
   br i1 %cmp.i.i58.i, label %if.then.i.i67.i, label %rndis_keepalive_response.exit.i
 
 if.then.i.i67.i:                                  ; preds = %sw.bb10.i
-  %intr.i.i68.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 13
+  %intr.i.i68.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %41 = load ptr, ptr %intr.i.i68.i, align 8
   tail call void @usb_wakeup(ptr noundef %41, i32 noundef 0) #10
   br label %rndis_keepalive_response.exit.i
 
 rndis_keepalive_response.exit.i:                  ; preds = %if.then.i.i67.i, %sw.bb10.i
   store ptr null, ptr %call.i.i56.i, align 8
-  %tql_prev.i.i59.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev.i.i59.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %42 = load ptr, ptr %tql_prev.i.i59.i, align 8
-  %tql_prev4.i.i60.i = getelementptr inbounds %struct.QTailQLink, ptr %call.i.i56.i, i64 0, i32 1
+  %tql_prev4.i.i60.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 8
   store ptr %42, ptr %tql_prev4.i.i60.i, align 8
   store ptr %call.i.i56.i, ptr %42, align 8
   store ptr %call.i.i56.i, ptr %tql_prev.i.i59.i, align 8
-  %length10.i.i61.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i56.i, i64 0, i32 1
+  %length10.i.i61.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 16
   store i32 16, ptr %length10.i.i61.i, align 8
-  %buf.i.i62.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i56.i, i64 0, i32 2
+  %buf.i.i62.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 20
   store i32 -2147483640, ptr %buf.i.i62.i, align 4
-  %MessageLength.i63.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i56.i, i64 1
+  %MessageLength.i63.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 24
   store i32 16, ptr %MessageLength.i63.i, align 4
-  %RequestID.i64.i = getelementptr inbounds %struct.rndis_keepalive_msg_type, ptr %data, i64 0, i32 2
+  %RequestID.i64.i = getelementptr inbounds i8, ptr %data, i64 8
   %43 = load i32, ptr %RequestID.i64.i, align 4
   %RequestID3.i65.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 28
   store i32 %43, ptr %RequestID3.i65.i, align 4
-  %Status.i66.i = getelementptr inbounds %struct.rndis_response, ptr %call.i.i56.i, i64 1, i32 0, i32 0, i32 1
+  %Status.i66.i = getelementptr inbounds i8, ptr %call.i.i56.i, i64 32
   store i32 0, ptr %Status.i66.i, align 4
   br label %sw.epilog
 
@@ -746,7 +713,7 @@ rndis_parse.exit:                                 ; preds = %sw.bb4.i
   br label %if.then9
 
 if.then9:                                         ; preds = %if.end.i31.i, %if.end6, %rndis_parse.exit
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog
 
@@ -757,7 +724,7 @@ sw.bb11:                                          ; preds = %if.end
   br i1 %tobool.not.i31, label %fail, label %is_rndis.exit37
 
 is_rndis.exit37:                                  ; preds = %sw.bb11
-  %bConfigurationValue.i33 = getelementptr inbounds %struct.USBDescConfig, ptr %dev.val29, i64 0, i32 1
+  %bConfigurationValue.i33 = getelementptr inbounds i8, ptr %dev.val29, i64 1
   %46 = load i8, ptr %bConfigurationValue.i33, align 1
   %cmp.i34 = icmp ne i8 %46, 2
   %47 = or i32 %index, %value
@@ -766,34 +733,34 @@ is_rndis.exit37:                                  ; preds = %sw.bb11
   br i1 %or.cond3, label %fail, label %if.end19
 
 if.end19:                                         ; preds = %is_rndis.exit37
-  %rndis_resp.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %49 = load ptr, ptr %rndis_resp.i, align 8
   %tobool.not.i38 = icmp eq ptr %49, null
   br i1 %tobool.not.i38, label %rndis_get_response.exit.thread, label %rndis_get_response.exit
 
 rndis_get_response.exit.thread:                   ; preds = %if.end19
-  %actual_length65 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length65 = getelementptr inbounds i8, ptr %p, i64 88
   br label %if.then23
 
 rndis_get_response.exit:                          ; preds = %if.end19
   %50 = load ptr, ptr %49, align 8
   %cmp.not.i = icmp eq ptr %50, null
-  %tql_prev7.i = getelementptr inbounds %struct.QTailQLink, ptr %49, i64 0, i32 1
+  %tql_prev7.i = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev9.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
-  %tql_prev5.i = getelementptr inbounds %struct.QTailQLink, ptr %50, i64 0, i32 1
+  %tql_prev9.i = getelementptr inbounds i8, ptr %dev, i64 18264
+  %tql_prev5.i = getelementptr inbounds i8, ptr %50, i64 8
   %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev9.i, ptr %tql_prev5.i
   store ptr %51, ptr %tql_prev9.sink.i, align 8
   %52 = load ptr, ptr %49, align 8
   store ptr %52, ptr %51, align 8
-  %length.i = getelementptr inbounds %struct.rndis_response, ptr %49, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %49, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %53 = load i32, ptr %length.i, align 8
-  %buf19.i = getelementptr inbounds %struct.rndis_response, ptr %49, i64 0, i32 2
+  %buf19.i = getelementptr inbounds i8, ptr %49, i64 20
   %conv.i = zext i32 %53 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr nonnull align 4 %buf19.i, i64 %conv.i, i1 false)
   tail call void @g_free(ptr noundef nonnull %49) #10
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %53, ptr %actual_length, align 8
   %cmp22 = icmp eq i32 %53, 0
   br i1 %cmp22, label %if.then23, label %sw.epilog
@@ -811,7 +778,7 @@ sw.bb26:                                          ; preds = %if.end
   br i1 %tobool.not.i40, label %sw.epilog, label %is_rndis.exit46
 
 is_rndis.exit46:                                  ; preds = %sw.bb26
-  %bConfigurationValue.i42 = getelementptr inbounds %struct.USBDescConfig, ptr %dev.val30, i64 0, i32 1
+  %bConfigurationValue.i42 = getelementptr inbounds i8, ptr %dev.val30, i64 1
   %55 = load i8, ptr %bConfigurationValue.i42, align 1
   %cmp.i43.not = icmp eq i8 %55, 2
   br i1 %cmp.i43.not, label %fail, label %sw.epilog
@@ -819,7 +786,7 @@ is_rndis.exit46:                                  ; preds = %sw.bb26
 fail:                                             ; preds = %sw.bb11, %sw.bb, %if.end, %is_rndis.exit46, %is_rndis.exit37, %is_rndis.exit
   %56 = load ptr, ptr @stderr, align 8
   %call31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.35, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length) #13
-  %status32 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status32 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status32, align 4
   br label %sw.epilog
 
@@ -839,7 +806,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ep = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %ep, align 8
   %2 = load i8, ptr %1, align 8
   switch i8 %2, label %fail [
@@ -850,13 +817,13 @@ sw.bb:                                            ; preds = %entry
 sw.bb1:                                           ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rbuf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ebuf.i)
-  %size.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %p, i64 64
   %3 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %3, 8
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb1
-  %status.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status.i = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status.i, align 4
   br label %usb_net_handle_statusin.exit
 
@@ -867,35 +834,35 @@ if.end.i:                                         ; preds = %sw.bb1
   br i1 %tobool.not.i.i, label %if.else.i, label %is_rndis.exit.i
 
 is_rndis.exit.i:                                  ; preds = %if.end.i
-  %bConfigurationValue.i.i = getelementptr inbounds %struct.USBDescConfig, ptr %s.val.i, i64 0, i32 1
+  %bConfigurationValue.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 1
   %5 = load i8, ptr %bConfigurationValue.i.i, align 1
   %cmp.i.not.i = icmp eq i8 %5, 2
   br i1 %cmp.i.not.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %is_rndis.exit.i
   store i32 1, ptr %rbuf.i, align 4
-  %arrayidx4.i = getelementptr inbounds [2 x i32], ptr %rbuf.i, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %rbuf.i, i64 4
   store i32 0, ptr %arrayidx4.i, align 4
   call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef nonnull %rbuf.i, i64 noundef 8) #10
-  %rndis_resp.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %6 = load ptr, ptr %rndis_resp.i, align 8
   %tobool5.not.i = icmp eq ptr %6, null
   br i1 %tobool5.not.i, label %if.then6.i, label %usb_net_handle_statusin.exit
 
 if.then6.i:                                       ; preds = %if.then1.i
-  %status7.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status7.i = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status7.i, align 4
   br label %usb_net_handle_statusin.exit
 
 if.else.i:                                        ; preds = %is_rndis.exit.i, %if.end.i
   store i16 161, ptr %ebuf.i, align 2
-  %connection.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 7
+  %connection.i = getelementptr inbounds i8, ptr %dev, i64 5888
   %7 = load i16, ptr %connection.i, align 8
-  %arrayidx12.i = getelementptr inbounds [4 x i16], ptr %ebuf.i, i64 0, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %ebuf.i, i64 2
   store i16 %7, ptr %arrayidx12.i, align 2
-  %arrayidx14.i = getelementptr inbounds [4 x i16], ptr %ebuf.i, i64 0, i64 2
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ebuf.i, i64 4
   store i16 1, ptr %arrayidx14.i, align 2
-  %arrayidx16.i = getelementptr inbounds [4 x i16], ptr %ebuf.i, i64 0, i64 3
+  %arrayidx16.i = getelementptr inbounds i8, ptr %ebuf.i, i64 6
   store i16 0, ptr %arrayidx16.i, align 2
   call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef nonnull %ebuf.i, i64 noundef 8) #10
   br label %usb_net_handle_statusin.exit
@@ -906,9 +873,9 @@ usb_net_handle_statusin.exit:                     ; preds = %if.then.i, %if.then
   br label %sw.epilog11
 
 sw.bb2:                                           ; preds = %sw.bb
-  %in_ptr.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 10
+  %in_ptr.i = getelementptr inbounds i8, ptr %dev, i64 7944
   %8 = load i32, ptr %in_ptr.i, align 8
-  %in_len.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 11
+  %in_len.i = getelementptr inbounds i8, ptr %dev, i64 7948
   %9 = load i32, ptr %in_len.i, align 4
   %cmp.i13 = icmp ugt i32 %8, %9
   br i1 %cmp.i13, label %if.then.i21, label %if.end.i14
@@ -916,11 +883,11 @@ sw.bb2:                                           ; preds = %sw.bb
 if.then.i21:                                      ; preds = %sw.bb2
   store i32 0, ptr %in_len.i, align 4
   store i32 0, ptr %in_ptr.i, align 8
-  %nic.i.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 16
+  %nic.i.i = getelementptr inbounds i8, ptr %dev, i64 10032
   %10 = load ptr, ptr %nic.i.i, align 8
   %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %10) #10
   tail call void @qemu_flush_queued_packets(ptr noundef %call.i.i) #10
-  %status.i22 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status.i22 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status.i22, align 4
   br label %sw.epilog11
 
@@ -929,20 +896,21 @@ if.end.i14:                                       ; preds = %sw.bb2
   br i1 %tobool.not.i, label %if.then2.i, label %if.end4.i
 
 if.then2.i:                                       ; preds = %if.end.i14
-  %status3.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status3.i = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status3.i, align 4
   br label %sw.epilog11
 
 if.end4.i:                                        ; preds = %if.end.i14
   %sub.i = sub i32 %9, %8
   %conv.i = sext i32 %sub.i to i64
-  %size.i15 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size.i15 = getelementptr inbounds i8, ptr %p, i64 64
   %11 = load i64, ptr %size.i15, align 8
   %cmp7.i = icmp ult i64 %11, %conv.i
   %conv12.i = trunc i64 %11 to i32
   %spec.select.i = select i1 %cmp7.i, i32 %conv12.i, i32 %sub.i
+  %in_buf.i = getelementptr inbounds i8, ptr %dev, i64 7952
   %idxprom.i = zext i32 %8 to i64
-  %arrayidx.i = getelementptr %struct.USBNetState, ptr %dev, i64 0, i32 12, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2048 x i8], ptr %in_buf.i, i64 0, i64 %idxprom.i
   %conv15.i = sext i32 %spec.select.i to i64
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %arrayidx.i, i64 noundef %conv15.i) #10
   %12 = load i32, ptr %in_ptr.i, align 8
@@ -959,7 +927,7 @@ land.lhs.true.i:                                  ; preds = %if.end4.i
   br i1 %tobool.not.i.i17, label %lor.lhs.false.i, label %is_rndis.exit.i18
 
 is_rndis.exit.i18:                                ; preds = %land.lhs.true.i
-  %bConfigurationValue.i.i19 = getelementptr inbounds %struct.USBDescConfig, ptr %s.val.i16, i64 0, i32 1
+  %bConfigurationValue.i.i19 = getelementptr inbounds i8, ptr %s.val.i16, i64 1
   %15 = load i8, ptr %bConfigurationValue.i.i19, align 1
   %cmp.i.not.i20 = icmp eq i8 %15, 2
   br i1 %cmp.i.not.i20, label %if.then26.i, label %lor.lhs.false.i
@@ -974,32 +942,32 @@ lor.lhs.false.i:                                  ; preds = %is_rndis.exit.i18, 
 if.then26.i:                                      ; preds = %lor.lhs.false.i, %is_rndis.exit.i18
   store i32 0, ptr %in_len.i, align 4
   store i32 0, ptr %in_ptr.i, align 8
-  %nic.i25.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 16
+  %nic.i25.i = getelementptr inbounds i8, ptr %dev, i64 10032
   %16 = load ptr, ptr %nic.i25.i, align 8
   %call.i26.i = tail call ptr @qemu_get_queue(ptr noundef %16) #10
   tail call void @qemu_flush_queued_packets(ptr noundef %call.i26.i) #10
   br label %sw.epilog11
 
 sw.bb3:                                           ; preds = %entry
-  %ep4 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep4 = getelementptr inbounds i8, ptr %p, i64 16
   %17 = load ptr, ptr %ep4, align 8
   %18 = load i8, ptr %17, align 8
   %cond = icmp eq i8 %18, 2
   br i1 %cond, label %sw.bb7, label %fail
 
 sw.bb7:                                           ; preds = %sw.bb3
-  %out_ptr.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 8
+  %out_ptr.i = getelementptr inbounds i8, ptr %dev, i64 5892
   %19 = load i32, ptr %out_ptr.i, align 4
   %sub.i23 = sub i32 2048, %19
-  %out_buf.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 9
+  %out_buf.i = getelementptr inbounds i8, ptr %dev, i64 5896
   %conv2.i = sext i32 %sub.i23 to i64
-  %size.i24 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size.i24 = getelementptr inbounds i8, ptr %p, i64 64
   %20 = load i64, ptr %size.i24, align 8
   %cmp.i25 = icmp ult i64 %20, %conv2.i
   %conv6.i = trunc i64 %20 to i32
   %spec.select.i26 = select i1 %cmp.i25, i32 %conv6.i, i32 %sub.i23
   %idxprom.i27 = zext i32 %19 to i64
-  %arrayidx.i28 = getelementptr %struct.USBNetState, ptr %dev, i64 0, i32 9, i64 %idxprom.i27
+  %arrayidx.i28 = getelementptr [2048 x i8], ptr %out_buf.i, i64 0, i64 %idxprom.i27
   %conv9.i = sext i32 %spec.select.i26 to i64
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %arrayidx.i28, i64 noundef %conv9.i) #10
   %21 = load i32, ptr %out_ptr.i, align 4
@@ -1011,7 +979,7 @@ sw.bb7:                                           ; preds = %sw.bb3
   br i1 %tobool.not.i.i31, label %if.then11.i, label %is_rndis.exit.i32
 
 is_rndis.exit.i32:                                ; preds = %sw.bb7
-  %bConfigurationValue.i.i33 = getelementptr inbounds %struct.USBDescConfig, ptr %s.val.i30, i64 0, i32 1
+  %bConfigurationValue.i.i33 = getelementptr inbounds i8, ptr %s.val.i30, i64 1
   %23 = load i8, ptr %bConfigurationValue.i.i33, align 1
   %cmp.i.not.i34 = icmp eq i8 %23, 2
   br i1 %cmp.i.not.i34, label %if.end27.i, label %if.then11.i
@@ -1025,7 +993,7 @@ if.then11.i:                                      ; preds = %is_rndis.exit.i32, 
   br i1 %or.cond.i35, label %if.then19.i, label %sw.epilog11
 
 if.then19.i:                                      ; preds = %if.then11.i
-  %nic.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 16
+  %nic.i = getelementptr inbounds i8, ptr %dev, i64 10032
   %25 = load ptr, ptr %nic.i, align 8
   %call20.i = tail call ptr @qemu_get_queue(ptr noundef %25) #10
   %26 = load i32, ptr %out_ptr.i, align 4
@@ -1034,7 +1002,7 @@ if.then19.i:                                      ; preds = %if.then11.i
   br label %sw.epilog11
 
 if.end27.i:                                       ; preds = %is_rndis.exit.i32
-  %MessageLength.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 9, i64 4
+  %MessageLength.i = getelementptr inbounds i8, ptr %dev, i64 5900
   %27 = load i32, ptr %MessageLength.i, align 4
   %cmp30.i = icmp ult i32 %add.i29, 8
   %cmp34.i = icmp ult i32 %add.i29, %27
@@ -1047,10 +1015,10 @@ if.end37.i:                                       ; preds = %if.end27.i
   br i1 %cmp39.i, label %if.then41.i, label %if.end61.i
 
 if.then41.i:                                      ; preds = %if.end37.i
-  %DataOffset.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 9, i64 8
+  %DataOffset.i = getelementptr inbounds i8, ptr %dev, i64 5904
   %29 = load i32, ptr %DataOffset.i, align 4
   %add43.i = add i32 %29, 8
-  %DataLength.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 9, i64 12
+  %DataLength.i = getelementptr inbounds i8, ptr %dev, i64 5908
   %30 = load i32, ptr %DataLength.i, align 4
   %cmp46.i = icmp uge i32 %add43.i, %27
   %cmp48.i = icmp uge i32 %30, %27
@@ -1061,7 +1029,7 @@ if.then41.i:                                      ; preds = %if.end37.i
   br i1 %or.cond39.i, label %if.end61.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.then41.i
-  %nic55.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 16
+  %nic55.i = getelementptr inbounds i8, ptr %dev, i64 10032
   %31 = load ptr, ptr %nic55.i, align 8
   %call56.i = tail call ptr @qemu_get_queue(ptr noundef %31) #10
   %idx.ext.i = zext i32 %add43.i to i64
@@ -1075,18 +1043,18 @@ if.end61.i:                                       ; preds = %if.then54.i, %if.th
   %sub63.i = sub i32 %32, %27
   store i32 %sub63.i, ptr %out_ptr.i, align 4
   %idxprom67.i = zext i32 %27 to i64
-  %arrayidx68.i = getelementptr %struct.USBNetState, ptr %dev, i64 0, i32 9, i64 %idxprom67.i
+  %arrayidx68.i = getelementptr [2048 x i8], ptr %out_buf.i, i64 0, i64 %idxprom67.i
   %conv70.i = zext i32 %sub63.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %out_buf.i, ptr align 1 %arrayidx68.i, i64 %conv70.i, i1 false)
   br label %sw.epilog11
 
 fail:                                             ; preds = %entry, %sw.bb3, %sw.bb
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog11
 
 sw.epilog11:                                      ; preds = %if.end61.i, %if.end27.i, %if.then19.i, %if.then11.i, %if.then26.i, %lor.lhs.false.i, %if.end4.i, %if.then2.i, %if.then.i21, %usb_net_handle_statusin.exit, %fail
-  %status12 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status12 = getelementptr inbounds i8, ptr %p, i64 84
   %33 = load i32, ptr %status12, align 4
   %cmp = icmp eq i32 %33, -3
   br i1 %cmp, label %if.then, label %if.end
@@ -1094,11 +1062,11 @@ sw.epilog11:                                      ; preds = %if.end61.i, %if.end
 if.then:                                          ; preds = %sw.epilog11
   %34 = load ptr, ptr @stderr, align 8
   %35 = load i32, ptr %p, align 8
-  %ep15 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep15 = getelementptr inbounds i8, ptr %p, i64 16
   %36 = load ptr, ptr %ep15, align 8
   %37 = load i8, ptr %36, align 8
   %conv17 = zext i8 %37 to i32
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %p, i64 64
   %38 = load i64, ptr %size, align 8
   %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.38, i32 noundef %35, i32 noundef %conv17, i64 noundef %38) #13
   br label %if.end
@@ -1110,22 +1078,22 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_net_unrealize(ptr nocapture noundef %dev) #0 {
 entry:
-  %rndis_resp.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18
+  %rndis_resp.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %0 = load ptr, ptr %rndis_resp.i, align 8
   %tobool.not12.i = icmp eq ptr %0, null
   br i1 %tobool.not12.i, label %rndis_clear_responsequeue.exit, label %do.body.lr.ph.i
 
 do.body.lr.ph.i:                                  ; preds = %entry
-  %tql_prev8.i = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 18, i32 0, i32 1
+  %tql_prev8.i = getelementptr inbounds i8, ptr %dev, i64 18264
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %do.body.lr.ph.i
   %1 = phi ptr [ %0, %do.body.lr.ph.i ], [ %5, %do.body.i ]
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %2, null
-  %tql_prev6.i = getelementptr inbounds %struct.QTailQLink, ptr %1, i64 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %tql_prev6.i, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QTailQLink, ptr %2, i64 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %2, i64 8
   %tql_prev8.sink.i = select i1 %cmp.not.i, ptr %tql_prev8.i, ptr %tql_prev4.i
   store ptr %3, ptr %tql_prev8.sink.i, align 8
   %4 = load ptr, ptr %1, align 8
@@ -1137,7 +1105,7 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
   br i1 %tobool.not.i, label %rndis_clear_responsequeue.exit, label %do.body.i, !llvm.loop !5
 
 rndis_clear_responsequeue.exit:                   ; preds = %do.body.i, %entry
-  %nic = getelementptr inbounds %struct.USBNetState, ptr %dev, i64 0, i32 16
+  %nic = getelementptr inbounds i8, ptr %dev, i64 10032
   %6 = load ptr, ptr %nic, align 8
   tail call void @qemu_del_nic(ptr noundef %6) #10
   ret void
@@ -1172,20 +1140,20 @@ declare void @usb_desc_set_string(ptr noundef, i8 noundef zeroext, ptr noundef) 
 define internal i64 @usbnet_receive(ptr noundef %nc, ptr nocapture noundef readonly %buf, i64 noundef %size) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #10
-  %in_buf1 = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 12
-  %config = getelementptr inbounds %struct.USBDevice, ptr %call, i64 0, i32 30
+  %in_buf1 = getelementptr inbounds i8, ptr %call, i64 7952
+  %config = getelementptr inbounds i8, ptr %call, i64 5728
   %0 = load ptr, ptr %config, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %is_rndis.exit
 
 is_rndis.exit:                                    ; preds = %entry
-  %bConfigurationValue.i = getelementptr inbounds %struct.USBDescConfig, ptr %0, i64 0, i32 1
+  %bConfigurationValue.i = getelementptr inbounds i8, ptr %0, i64 1
   %1 = load i8, ptr %bConfigurationValue.i, align 1
   %cmp.i.not = icmp eq i8 %1, 2
   br i1 %cmp.i.not, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %is_rndis.exit
-  %rndis_state = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 1
+  %rndis_state = getelementptr inbounds i8, ptr %call, i64 5864
   %2 = load i32, ptr %rndis_state, align 8
   %cmp.not = icmp eq i32 %2, 2
   br i1 %cmp.not, label %if.end6, label %return
@@ -1200,7 +1168,7 @@ if.end7:                                          ; preds = %if.end6, %is_rndis.
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %in_len = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 11
+  %in_len = getelementptr inbounds i8, ptr %call, i64 7948
   %3 = load i32, ptr %in_len, align 4
   %cmp11.not = icmp eq i32 %3, 0
   br i1 %cmp11.not, label %is_rndis.exit28, label %return
@@ -1209,18 +1177,18 @@ is_rndis.exit28:                                  ; preds = %if.end10
   br i1 %cmp.i.not, label %if.then16, label %if.end23
 
 if.then16:                                        ; preds = %is_rndis.exit28
-  %4 = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 12, i64 16
+  %4 = getelementptr inbounds i8, ptr %call, i64 7968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 28, i1 false)
   store i32 1, ptr %in_buf1, align 4
   %5 = trunc i64 %size to i32
   %conv = add i32 %5, 44
-  %MessageLength = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 12, i64 4
+  %MessageLength = getelementptr inbounds i8, ptr %call, i64 7956
   store i32 %conv, ptr %MessageLength, align 4
-  %DataOffset = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 12, i64 8
+  %DataOffset = getelementptr inbounds i8, ptr %call, i64 7960
   store i32 36, ptr %DataOffset, align 4
-  %DataLength = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 12, i64 12
+  %DataLength = getelementptr inbounds i8, ptr %call, i64 7964
   store i32 %5, ptr %DataLength, align 4
-  %add.ptr = getelementptr %struct.USBNetState, ptr %call, i64 0, i32 12, i64 44
+  %add.ptr = getelementptr i8, ptr %call, i64 7996
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then16, %is_rndis.exit28
@@ -1228,9 +1196,9 @@ if.end23:                                         ; preds = %if.then16, %is_rndi
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %in_buf.0, ptr align 1 %buf, i64 %size, i1 false)
   %conv24 = trunc i64 %total_size.0 to i32
   store i32 %conv24, ptr %in_len, align 4
-  %in_ptr = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 10
+  %in_ptr = getelementptr inbounds i8, ptr %call, i64 7944
   store i32 0, ptr %in_ptr, align 8
-  %bulk_in = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 14
+  %bulk_in = getelementptr inbounds i8, ptr %call, i64 10008
   %6 = load ptr, ptr %bulk_in, align 8
   tail call void @usb_wakeup(ptr noundef %6, i32 noundef 0) #10
   br label %return
@@ -1244,7 +1212,7 @@ return:                                           ; preds = %if.end10, %if.end7,
 define internal void @usbnet_cleanup(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #10
-  %nic = getelementptr inbounds %struct.USBNetState, ptr %call, i64 0, i32 16
+  %nic = getelementptr inbounds i8, ptr %call, i64 10032
   store ptr null, ptr %nic, align 8
   ret void
 }

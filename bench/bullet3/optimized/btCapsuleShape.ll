@@ -3,17 +3,7 @@ source_filename = "bench/bullet3/original/btCapsuleShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btConvexInternalShape = type { %class.btConvexShape, %class.btVector3, %class.btVector3, float, float }
-%class.btConvexShape = type { %class.btCollisionShape }
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
 %class.btVector3 = type { [4 x float] }
-%class.btCapsuleShape = type <{ %class.btConvexInternalShape, i32, [4 x i8] }>
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.btConvexInternalShapeData = type { %struct.btCollisionShapeData, %struct.btVector3FloatData, %struct.btVector3FloatData, float, i32 }
-%struct.btCollisionShapeData = type { ptr, i32, [4 x i8] }
-%struct.btVector3FloatData = type { [4 x float] }
-%struct.btCapsuleShapeData = type { %struct.btConvexInternalShapeData, i32, [4 x i8] }
 
 $_ZN14btCapsuleShapeD2Ev = comdat any
 
@@ -93,20 +83,20 @@ define dso_local void @_ZN14btCapsuleShapeC2Eff(ptr noundef nonnull align 8 dere
 entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14btCapsuleShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   store float %radius, ptr %m_collisionMargin, align 8
-  %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType, align 8
-  %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %m_upAxis, align 8
-  %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
+  %m_implicitShapeDimensions = getelementptr inbounds i8, ptr %this, i64 48
   %mul = fmul float %height, 5.000000e-01
   store float %radius, ptr %m_implicitShapeDimensions, align 8
-  %arrayidx3.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 52
   store float %mul, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 56
   store float %radius, ptr %arrayidx5.i, align 8
-  %arrayidx7.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 60
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   ret void
 }
@@ -143,9 +133,9 @@ if.end:                                           ; preds = %entry, %if.else
   %vec.sroa.0.0 = phi float [ %mul.i, %if.else ], [ 1.000000e+00, %entry ]
   %vec.sroa.7.0 = phi float [ %mul4.i, %if.else ], [ 0.000000e+00, %entry ]
   %vec.sroa.13.0 = phi float [ %mul7.i, %if.else ], [ 0.000000e+00, %entry ]
-  %arrayidx5.i11 = getelementptr inbounds [4 x float], ptr %pos, i64 0, i64 2
-  %m_implicitShapeDimensions.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
-  %m_upAxis.i = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %arrayidx5.i11 = getelementptr inbounds i8, ptr %pos, i64 8
+  %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_upAxis.i = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 0, i64 16, i1 false)
   %2 = load i32, ptr %m_upAxis.i, align 8
   %idxprom.i = sext i32 %2 to i64
@@ -161,14 +151,14 @@ if.end:                                           ; preds = %entry, %if.else
   %7 = tail call float @llvm.fmuladd.f32(float %vec.sroa.0.0, float %6, float %mul8.i)
   %8 = tail call noundef float @llvm.fmuladd.f32(float %vec.sroa.13.0, float %vtx.sroa.8.0.copyload, float %7)
   %cmp16 = fcmp ogt float %8, 0xC3ABC16D60000000
-  %arrayidx7.i12 = getelementptr inbounds [4 x float], ptr %pos, i64 0, i64 3
+  %arrayidx7.i12 = getelementptr inbounds i8, ptr %pos, i64 12
   %vtx.sroa.10.0.copyload = load float, ptr %arrayidx7.i12, align 4
   %retval.sroa.7.8.vec.insert69 = insertelement <2 x float> poison, float %vtx.sroa.8.0.copyload, i64 0
   %retval.sroa.7.12.vec.insert73 = insertelement <2 x float> %retval.sroa.7.8.vec.insert69, float %vtx.sroa.10.0.copyload, i64 1
   %retval.sroa.0.0 = select i1 %cmp16, <2 x float> %4, <2 x float> zeroinitializer
   %retval.sroa.7.0 = select i1 %cmp16, <2 x float> %retval.sroa.7.12.vec.insert73, <2 x float> zeroinitializer
   %maxDot.0 = select i1 %cmp16, float %8, float 0xC3ABC16D60000000
-  %arrayidx5.i17 = getelementptr inbounds [4 x float], ptr %pos19, i64 0, i64 2
+  %arrayidx5.i17 = getelementptr inbounds i8, ptr %pos19, i64 8
   %fneg = fneg float %3
   %arrayidx27 = getelementptr inbounds float, ptr %pos19, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos19, i8 0, i64 16, i1 false)
@@ -181,7 +171,7 @@ if.end:                                           ; preds = %entry, %if.else
   %12 = tail call float @llvm.fmuladd.f32(float %vec.sroa.0.0, float %11, float %mul8.i26)
   %13 = tail call noundef float @llvm.fmuladd.f32(float %vec.sroa.13.0, float %vtx.sroa.8.0.copyload39, float %12)
   %cmp29 = fcmp ogt float %13, %maxDot.0
-  %arrayidx7.i18 = getelementptr inbounds [4 x float], ptr %pos19, i64 0, i64 3
+  %arrayidx7.i18 = getelementptr inbounds i8, ptr %pos19, i64 12
   %vtx.sroa.10.0.copyload44 = load float, ptr %arrayidx7.i18, align 4
   %retval.sroa.7.8.vec.insert71 = insertelement <2 x float> poison, float %vtx.sroa.8.0.copyload39, i64 0
   %retval.sroa.7.12.vec.insert75 = insertelement <2 x float> %retval.sroa.7.8.vec.insert71, float %vtx.sroa.10.0.copyload44, i64 1
@@ -201,12 +191,12 @@ entry:
   br i1 %cmp42, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %pos, i64 0, i64 2
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %pos, i64 0, i64 3
-  %m_implicitShapeDimensions.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
-  %m_upAxis.i = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
-  %arrayidx5.i15 = getelementptr inbounds [4 x float], ptr %pos12, i64 0, i64 2
-  %arrayidx7.i16 = getelementptr inbounds [4 x float], ptr %pos12, i64 0, i64 3
+  %arrayidx5.i = getelementptr inbounds i8, ptr %pos, i64 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %pos, i64 12
+  %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_upAxis.i = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx5.i15 = getelementptr inbounds i8, ptr %pos12, i64 8
+  %arrayidx7.i16 = getelementptr inbounds i8, ptr %pos12, i64 12
   %wide.trip.count = zext nneg i32 %numVectors to i64
   br label %for.body
 
@@ -223,13 +213,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load <2 x float>, ptr %pos, align 8
   %vtx.sroa.8.0.copyload = load float, ptr %arrayidx5.i, align 8
   %3 = load float, ptr %arrayidx, align 4
-  %arrayidx5.i12 = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 1
+  %arrayidx5.i12 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %4 = load float, ptr %arrayidx5.i12, align 4
   %5 = extractelement <2 x float> %2, i64 1
   %mul8.i = fmul float %5, %4
   %6 = extractelement <2 x float> %2, i64 0
   %7 = tail call float @llvm.fmuladd.f32(float %3, float %6, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %8 = load float, ptr %arrayidx10.i, align 4
   %9 = tail call noundef float @llvm.fmuladd.f32(float %8, float %vtx.sroa.8.0.copyload, float %7)
   %cmp9 = fcmp ogt float %9, 0xC3ABC16D60000000
@@ -296,20 +286,20 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) unnamed_addr #4 align 2 {
 entry:
   %halfExtents = alloca %class.btVector3, align 16
-  %m_upAxis.i = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_upAxis.i, align 8
   %add.i = add nsw i32 %0, 2
   %rem.i = srem i32 %add.i, 3
-  %m_implicitShapeDimensions.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
+  %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
   %idxprom.i = sext i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds float, ptr %m_implicitShapeDimensions.i, i64 %idxprom.i
   %1 = load float, ptr %arrayidx.i, align 4
   store float %1, ptr %halfExtents, align 16
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %halfExtents, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %halfExtents, i64 4
   store float %1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %halfExtents, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %halfExtents, i64 8
   store float %1, ptr %arrayidx5.i, align 8
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %halfExtents, i64 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %halfExtents, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   %idxprom.i13 = sext i32 %0 to i64
   %arrayidx.i14 = getelementptr inbounds float, ptr %m_implicitShapeDimensions.i, i64 %idxprom.i13
@@ -338,7 +328,7 @@ entry:
   %17 = extractelement <2 x float> %10, i64 1
   %add25 = fadd float %17, %mul14
   %mul26 = fmul float %mul16, %add25
-  %arrayidx28 = getelementptr inbounds float, ptr %inertia, i64 2
+  %arrayidx28 = getelementptr inbounds i8, ptr %inertia, i64 8
   store float %mul26, ptr %arrayidx28, align 4
   ret void
 }
@@ -347,21 +337,21 @@ entry:
 define dso_local void @_ZN15btCapsuleShapeXC2Eff(ptr noundef nonnull align 8 dereferenceable(76) %this, float noundef %radius, float noundef %height) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %m_shapeType.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType.i, align 8
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15btCapsuleShapeX, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   store float %radius, ptr %m_collisionMargin, align 8
-  %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_upAxis, align 8
-  %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
+  %m_implicitShapeDimensions = getelementptr inbounds i8, ptr %this, i64 48
   %mul = fmul float %height, 5.000000e-01
   store float %mul, ptr %m_implicitShapeDimensions, align 8
-  %arrayidx3.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 52
   store float %radius, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 56
   store float %radius, ptr %arrayidx5.i, align 8
-  %arrayidx7.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 60
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   ret void
 }
@@ -370,21 +360,21 @@ entry:
 define dso_local void @_ZN15btCapsuleShapeZC2Eff(ptr noundef nonnull align 8 dereferenceable(76) %this, float noundef %radius, float noundef %height) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %m_shapeType.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType.i, align 8
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15btCapsuleShapeZ, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   store float %radius, ptr %m_collisionMargin, align 8
-  %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis = getelementptr inbounds i8, ptr %this, i64 72
   store i32 2, ptr %m_upAxis, align 8
-  %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
+  %m_implicitShapeDimensions = getelementptr inbounds i8, ptr %this, i64 48
   %mul = fmul float %height, 5.000000e-01
   store float %radius, ptr %m_implicitShapeDimensions, align 8
-  %arrayidx3.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 52
   store float %radius, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 56
   store float %mul, ptr %arrayidx5.i, align 8
-  %arrayidx7.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 60
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   ret void
 }
@@ -418,18 +408,18 @@ _ZN14btCapsuleShapedlEPv.exit:                    ; preds = %entry
 define linkonce_odr dso_local void @_ZNK14btCapsuleShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #6 comdat align 2 {
 entry:
   %halfExtents = alloca %class.btVector3, align 4
-  %m_upAxis.i = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_upAxis.i, align 8
   %add.i = add nsw i32 %0, 2
   %rem.i = srem i32 %add.i, 3
-  %m_implicitShapeDimensions.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
+  %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
   %idxprom.i = sext i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds float, ptr %m_implicitShapeDimensions.i, i64 %idxprom.i
   %1 = load float, ptr %arrayidx.i, align 4
   store float %1, ptr %halfExtents, align 4
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %halfExtents, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %halfExtents, i64 4
   store float %1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %halfExtents, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %halfExtents, i64 8
   store float %1, ptr %arrayidx5.i, align 4
   %idxprom.i22 = sext i32 %0 to i64
   %arrayidx.i23 = getelementptr inbounds float, ptr %m_implicitShapeDimensions.i, i64 %idxprom.i22
@@ -439,29 +429,29 @@ entry:
   store float %add, ptr %arrayidx, align 4
   %3 = load <4 x float>, ptr %t, align 4
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %t, i64 4
   %5 = load <4 x float>, ptr %arrayidx.i.i, align 4
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i1.i = getelementptr inbounds [4 x float], ptr %t, i64 0, i64 2
+  %arrayidx.i1.i = getelementptr inbounds i8, ptr %t, i64 8
   %7 = load <4 x float>, ptr %arrayidx.i1.i, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx15.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %t, i64 16
   %9 = load float, ptr %arrayidx15.i, align 4, !noalias !7
-  %arrayidx.i2.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %t, i64 20
   %10 = load float, ptr %arrayidx.i2.i, align 4, !noalias !7
-  %arrayidx.i3.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 24
   %11 = load float, ptr %arrayidx.i3.i, align 4, !noalias !7
-  %arrayidx30.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2
+  %arrayidx30.i = getelementptr inbounds i8, ptr %t, i64 32
   %12 = load float, ptr %arrayidx30.i, align 4, !noalias !7
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
-  %arrayidx.i4.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %t, i64 36
   %14 = load float, ptr %arrayidx.i4.i, align 4, !noalias !7
   %15 = tail call noundef float @llvm.fabs.f32(float %14)
-  %arrayidx.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %t, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %t, i64 40
   %16 = load float, ptr %arrayidx.i5.i, align 4, !noalias !7
   %17 = tail call noundef float @llvm.fabs.f32(float %16)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1
-  %center.sroa.5.0.m_origin.i.sroa_idx = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1, i32 0, i64 2
+  %m_origin.i = getelementptr inbounds i8, ptr %t, i64 48
+  %center.sroa.5.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %t, i64 56
   %center.sroa.5.0.copyload = load float, ptr %center.sroa.5.0.m_origin.i.sroa_idx, align 4
   %18 = load float, ptr %halfExtents, align 4
   %19 = load float, ptr %arrayidx3.i, align 4
@@ -509,11 +499,11 @@ declare noundef float @_ZNK16btCollisionShape27getContactBreakingThresholdEf(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14btCapsuleShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
-  %arrayidx11.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %m_implicitShapeDimensions = getelementptr inbounds i8, ptr %this, i64 48
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load float, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load float, ptr %arrayidx13.i, align 8
   %div14.i = fdiv float %0, %1
   %2 = load <2 x float>, ptr %m_implicitShapeDimensions, align 8
@@ -522,20 +512,20 @@ entry:
   tail call void @_ZN21btConvexInternalShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling)
   %5 = load <2 x float>, ptr %scaling, align 4
   %6 = fmul <2 x float> %4, %5
-  %arrayidx13.i5 = getelementptr inbounds [4 x float], ptr %scaling, i64 0, i64 2
+  %arrayidx13.i5 = getelementptr inbounds i8, ptr %scaling, i64 8
   %7 = load float, ptr %arrayidx13.i5, align 4
   %mul14.i = fmul float %div14.i, %7
   %retval.sroa.3.12.vec.insert.i8 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i, i64 0
   store <2 x float> %6, ptr %m_implicitShapeDimensions, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i8, ptr %arrayidx11.i, align 8
-  %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load i32, ptr %m_upAxis, align 8
   %add = add nsw i32 %8, 2
   %rem = srem i32 %add, 3
   %idxprom = sext i32 %rem to i64
   %arrayidx = getelementptr inbounds float, ptr %m_implicitShapeDimensions, i64 %idxprom
   %9 = load float, ptr %arrayidx, align 4
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   store float %9, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -543,7 +533,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK21btConvexInternalShape15getLocalScalingEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   ret ptr %m_localScaling
 }
 
@@ -557,8 +547,8 @@ entry:
 define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK14btCapsuleShape38getAnisotropicRollingFrictionDirectionEv(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %retval = alloca %class.btVector3, align 8
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %retval, i64 0, i64 2
-  %m_upAxis.i = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %retval, i64 8
+  %m_upAxis.i = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %m_upAxis.i, align 8
   %idxprom = sext i32 %0 to i64
@@ -580,7 +570,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK21btConvexInternalShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -595,8 +585,8 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK14btCapsuleShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 comdat align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_implicitShapeDimensions.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
-  %m_implicitShapeDimensions2.i = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 2
+  %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_implicitShapeDimensions2.i = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -610,8 +600,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %for.body.i.i, !llvm.loop !10
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %for.body.i.i
-  %m_localScaling.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
-  %m_localScaling3.i = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_localScaling.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_localScaling3.i = getelementptr inbounds i8, ptr %dataBuffer, i64 16
   br label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %for.body.i5.i, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i
@@ -625,17 +615,17 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %_ZN
   br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %for.body.i5.i, !llvm.loop !10
 
 _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %for.body.i5.i
-  %m_collisionMargin.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load float, ptr %m_collisionMargin.i, align 8
-  %m_collisionMargin4.i = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 3
+  %m_collisionMargin4.i = getelementptr inbounds i8, ptr %dataBuffer, i64 48
   store float %2, ptr %m_collisionMargin4.i, align 8
-  %m_padding.i = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 4
+  %m_padding.i = getelementptr inbounds i8, ptr %dataBuffer, i64 52
   store i32 0, ptr %m_padding.i, align 4
-  %m_upAxis = getelementptr inbounds %class.btCapsuleShape, ptr %this, i64 0, i32 1
+  %m_upAxis = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i32, ptr %m_upAxis, align 8
-  %m_upAxis2 = getelementptr inbounds %struct.btCapsuleShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_upAxis2 = getelementptr inbounds i8, ptr %dataBuffer, i64 56
   store i32 %3, ptr %m_upAxis2, align 8
-  %m_padding = getelementptr inbounds %struct.btCapsuleShapeData, ptr %dataBuffer, i64 0, i32 2
+  %m_padding = getelementptr inbounds i8, ptr %dataBuffer, i64 60
   store i32 0, ptr %m_padding, align 4
   ret ptr @.str.1
 }

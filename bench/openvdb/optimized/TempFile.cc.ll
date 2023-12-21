@@ -4,45 +4,26 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.openvdb::v11_0::io::TempFile" = type { %"class.std::basic_ostream.base", %"class.std::unique_ptr", %"class.std::basic_ios" }
-%"class.std::basic_ostream.base" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::locale" = type { ptr }
-%"struct.openvdb::v11_0::io::TempFile::TempFileImpl" = type <{ %"class.std::__cxx11::basic_string", %"class.boost::iostreams::file_descriptor_sink", %"class.boost::iostreams::stream_buffer", i32, [4 x i8] }>
+%"class.std::allocator" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.boost::iostreams::file_descriptor_sink" = type { %"class.boost::iostreams::file_descriptor" }
-%"class.boost::iostreams::file_descriptor" = type { %"class.boost::shared_ptr" }
-%"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
-%"class.boost::iostreams::stream_buffer" = type { %"class.boost::iostreams::detail::indirect_streambuf.base", [4 x i8] }
-%"class.boost::iostreams::detail::indirect_streambuf.base" = type <{ %"class.boost::iostreams::detail::linked_streambuf.base", [4 x i8], %"class.boost::iostreams::detail::optional", ptr, %"class.boost::iostreams::detail::double_object", i64, i32 }>
-%"class.boost::iostreams::detail::linked_streambuf.base" = type <{ %"class.std::basic_streambuf", i32 }>
-%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.boost::iostreams::detail::optional" = type { %"class.boost::iostreams::detail::aligned_storage", i8, [7 x i8] }
-%"class.boost::iostreams::detail::aligned_storage" = type { %"union.boost::iostreams::detail::aligned_storage<boost::iostreams::detail::concept_adapter<boost::iostreams::file_descriptor_sink>>::dummy_u" }
-%"union.boost::iostreams::detail::aligned_storage<boost::iostreams::detail::concept_adapter<boost::iostreams::file_descriptor_sink>>::dummy_u" = type { [16 x i8] }
-%"class.boost::iostreams::detail::double_object" = type { %"class.boost::iostreams::detail::single_object_holder" }
-%"class.boost::iostreams::detail::single_object_holder" = type { %"class.boost::iostreams::detail::basic_buffer" }
-%"class.boost::iostreams::detail::basic_buffer" = type { ptr, i64 }
-%"class.boost::detail::sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::allocator" = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.boost::iostreams::detail::indirect_streambuf" = type <{ %"class.boost::iostreams::detail::linked_streambuf.base", [4 x i8], %"class.boost::iostreams::detail::optional", ptr, %"class.boost::iostreams::detail::double_object", i64, i32, [4 x i8] }>
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"class.std::locale" = type { ptr }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.boost::iostreams::file_descriptor_sink" = type { %"class.boost::iostreams::file_descriptor" }
+%"class.boost::iostreams::file_descriptor" = type { %"class.boost::shared_ptr" }
+%"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
+%"class.boost::detail::shared_count" = type { ptr }
 %"class.std::error_code" = type { i32, ptr }
 %"class.std::ios_base::failure" = type { %"class.std::system_error" }
 %"class.std::system_error" = type { %"class.std::runtime_error", %"class.std::error_code" }
@@ -51,11 +32,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cow_string" = type { %union.anon.3 }
 %union.anon.3 = type { ptr }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
-%"class.boost::exception" = type <{ ptr, %"class.boost::exception_detail::refcount_ptr", ptr, ptr, i32, [4 x i8] }>
-%"class.openvdb::v11_0::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
 %struct._Guard = type { ptr }
 %"class.boost::iostreams::detail::concept_adapter" = type { %"class.boost::iostreams::file_descriptor_sink" }
-%"class.boost::iostreams::detail::linked_streambuf" = type <{ %"class.std::basic_streambuf", i32, [4 x i8] }>
 %"class.boost::iostreams::detail::reset_operation" = type { ptr }
 %"class.boost::iostreams::detail::member_close_operation" = type <{ ptr, i32, [4 x i8] }>
 
@@ -309,11 +287,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_02io8TempFileC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef null)
   %1 = load ptr, ptr %vtt, align 8
   store ptr %1, ptr %this, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtt, i64 3
+  %2 = getelementptr inbounds i8, ptr %vtt, i64 24
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %1, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -327,7 +305,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %mImpl = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this, i64 0, i32 1
+  %mImpl = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %mImpl, align 8
   ret void
 
@@ -359,26 +337,26 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZN7openvdb5v11_02io8TempFile12TempFileImplC2ERSo(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #25
-  %mDevice = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 1
+  %mDevice = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN5boost9iostreams15file_descriptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mDevice)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mBuffer = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 2
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %mBuffer)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %flags_.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %flags_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %flags_.i.i.i, align 8
-  %initialized_.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 2, i32 0, i32 2, i32 1
+  %initialized_.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 0, ptr %initialized_.i.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 2, i32 0, i32 3
-  %flags_.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 2, i32 0, i32 6
+  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %flags_.i.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next_.i.i, i8 0, i64 32, i1 false)
   store i32 4, ptr %flags_.i.i, align 8
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i64 0, inrange i32 0, i64 2), ptr %mBuffer, align 8
-  %mFileDescr = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 3
+  %mFileDescr = getelementptr inbounds i8, ptr %this, i64 184
   store i32 -1, ptr %mFileDescr, align 8
   invoke void @_ZN7openvdb5v11_02io8TempFile12TempFileImpl4initERSo(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(8) %os)
           to label %invoke.cont5 unwind label %lpad4
@@ -438,7 +416,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %mImpl = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this, i64 0, i32 1
+  %mImpl = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %mImpl, align 8
   ret void
 
@@ -479,17 +457,17 @@ define void @_ZN7openvdb5v11_02io8TempFileD2Ev(ptr noundef nonnull align 8 deref
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtt, i64 3
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 24
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8
-  %mImpl.i = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this, i64 0, i32 1
+  %mImpl.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %mImpl.i, align 8
-  %mBuffer.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %3, i64 0, i32 2
-  %storage_.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %3, i64 0, i32 2, i32 0, i32 2
-  %flags_.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %3, i64 0, i32 2, i32 0, i32 6
+  %mBuffer.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %storage_.i.i.i = getelementptr inbounds i8, ptr %3, i64 120
+  %flags_.i.i.i = getelementptr inbounds i8, ptr %3, i64 176
   %call.i.i.i.i = invoke noundef i32 @_ZN5boost9iostreams6detail11execute_allINS1_22member_close_operationINS1_16linked_streambufIcSt11char_traitsIcEEEEES8_NS1_15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEEEENS1_14execute_traitsIT_NS_9result_ofIFSH_vEE4typeEE11result_typeESH_T0_T1_(ptr nonnull %mBuffer.i.i, i32 8, ptr nonnull %mBuffer.i.i, i32 16, ptr nonnull %storage_.i.i.i)
           to label %_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5closeEv.exit.i.i unwind label %lpad.i.i.i.i
 
@@ -520,7 +498,7 @@ unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
 
 _ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5closeEv.exit.i.i: ; preds = %entry
   store i32 0, ptr %flags_.i.i.i, align 4
-  %mFileDescr.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %3, i64 0, i32 3
+  %mFileDescr.i.i = getelementptr inbounds i8, ptr %3, i64 184
   %10 = load i32, ptr %mFileDescr.i.i, align 8
   %cmp.i.i = icmp sgt i32 %10, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
@@ -535,35 +513,35 @@ invoke.cont:                                      ; preds = %_ZN5boost9iostreams
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7openvdb5v11_02io8TempFile12TempFileImplESt14default_deleteIS4_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  %mBuffer.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %11, i64 0, i32 2
+  %mBuffer.i.i.i = getelementptr inbounds i8, ptr %11, i64 48
   tail call void @_ZN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %mBuffer.i.i.i) #25
-  %pn.i.i.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %11, i64 0, i32 1, i32 0, i32 0, i32 1
+  %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFile12TempFileImplEEclEPS4_.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %12, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %13, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFile12TempFileImplEEclEPS4_.exit.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %12, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   %15 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %15, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFile12TempFileImplEEclEPS4_.exit.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFile12TempFileImplEEclEPS4_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -582,7 +560,7 @@ _ZNKSt14default_deleteIN7openvdb5v11_02io8TempFile12TempFileImplEEclEPS4_.exit.i
 
 _ZNSt10unique_ptrIN7openvdb5v11_02io8TempFile12TempFileImplESt14default_deleteIS4_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFile12TempFileImplEEclEPS4_.exit.i
   store ptr null, ptr %mImpl.i, align 8
-  %19 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %19 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %19) #25
   ret void
 
@@ -601,11 +579,11 @@ terminate.lpad.body:                              ; preds = %lpad9.i.i.i.i, %ter
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_02io8TempFile5closeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mImpl = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this, i64 0, i32 1
+  %mImpl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mImpl, align 8
-  %mBuffer.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %0, i64 0, i32 2
-  %storage_.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %0, i64 0, i32 2, i32 0, i32 2
-  %flags_.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %0, i64 0, i32 2, i32 0, i32 6
+  %mBuffer.i = getelementptr inbounds i8, ptr %0, i64 48
+  %storage_.i.i = getelementptr inbounds i8, ptr %0, i64 120
+  %flags_.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %call.i.i.i = invoke noundef i32 @_ZN5boost9iostreams6detail11execute_allINS1_22member_close_operationINS1_16linked_streambufIcSt11char_traitsIcEEEEES8_NS1_15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEEEENS1_14execute_traitsIT_NS_9result_ofIFSH_vEE4typeEE11result_typeESH_T0_T1_(ptr nonnull %mBuffer.i, i32 8, ptr nonnull %mBuffer.i, i32 16, ptr nonnull %storage_.i.i)
           to label %_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5closeEv.exit.i unwind label %lpad.i.i.i
 
@@ -639,7 +617,7 @@ unreachable.i.i.i:                                ; preds = %lpad.i.i.i
 
 _ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5closeEv.exit.i: ; preds = %entry
   store i32 0, ptr %flags_.i.i, align 4
-  %mFileDescr.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %0, i64 0, i32 3
+  %mFileDescr.i = getelementptr inbounds i8, ptr %0, i64 184
   %7 = load i32, ptr %mFileDescr.i, align 8
   %cmp.i = icmp sgt i32 %7, -1
   br i1 %cmp.i, label %if.then.i, label %_ZN7openvdb5v11_02io8TempFile12TempFileImpl5closeEv.exit
@@ -712,7 +690,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7openvdb5v11_02io8TempFile8filenameB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %mImpl = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this, i64 0, i32 1
+  %mImpl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mImpl, align 8
   ret ptr %0
 }
@@ -720,9 +698,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io8TempFile7is_openEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %mImpl = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this, i64 0, i32 1
+  %mImpl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mImpl, align 8
-  %flags_.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %0, i64 0, i32 2, i32 0, i32 6
+  %flags_.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load i32, ptr %flags_.i.i, align 8
   %and.i.i = and i32 %1, 1
   %cmp.i.i = icmp ne i32 %and.i.i, 0
@@ -796,7 +774,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %invoke.cont
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr null, ptr %fnbuf, align 8
   %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
-  %_M_end_of_storage4.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %fnbuf, i64 0, i32 2
+  %_M_end_of_storage4.i.i = getelementptr inbounds i8, ptr %fnbuf, i64 16
   store ptr %add.ptr3.i.i, ptr %_M_end_of_storage4.i.i, align 8
   br label %invoke.cont9
 
@@ -807,7 +785,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIcSaIcE
 call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i, ptr %fnbuf, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %fnbuf, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %fnbuf, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i, ptr align 1 %call, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont9
@@ -821,11 +799,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont9:                                     ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i
   %add.ptr5.i.i = phi ptr [ %add.ptr3.i.i, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %fnbuf, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %fnbuf, i64 8
   store ptr %add.ptr5.i.i, ptr %_M_finish.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #25
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %fnbuf, i64 0, i32 2
+  %_M_end_of_storage.i.i9 = getelementptr inbounds i8, ptr %fnbuf, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
   %cmp.not.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -900,7 +878,7 @@ invoke.cont12:                                    ; preds = %_ZNSt6vectorIcSaIcE
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %mFileDescr = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 3
+  %mFileDescr = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %call15, ptr %mFileDescr, align 8
   %cmp = icmp slt i32 %call15, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -976,48 +954,48 @@ invoke.cont28:                                    ; preds = %if.end
           to label %invoke.cont32 unwind label %lpad11
 
 invoke.cont32:                                    ; preds = %invoke.cont28
-  %mDevice = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 1
+  %mDevice = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load ptr, ptr %ref.tmp30, align 8
-  %pn3.i.i.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %ref.tmp30, i64 0, i32 1
+  %pn3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   %15 = load ptr, ptr %pn3.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont32
-  %use_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %15, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = atomicrmw add ptr %use_count_.i.i.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i
 
 _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont32
   store ptr %14, ptr %mDevice, align 8
-  %pn3.i2.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %pn3.i2.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %pn3.i2.i.i.i, align 8
   store ptr %15, ptr %pn3.i2.i.i.i, align 8
   %cmp.not.i.i4.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i4.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit, label %if.then.i.i5.i.i.i
 
 if.then.i.i5.i.i.i:                               ; preds = %_ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i
-  %use_count_.i.i.i6.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %17, i64 0, i32 1
+  %use_count_.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = atomicrmw sub ptr %use_count_.i.i.i6.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %18, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i14, label %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit
 
 if.then.i.i.i.i.i.i14:                            ; preds = %if.then.i.i5.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %17)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i14
-  %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %17, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 12
   %20 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %20, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %17)
           to label %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit unwind label %terminate.lpad.i.i.i.i.i
@@ -1035,27 +1013,27 @@ _ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit: ; preds = %_ZN5boost10sh
   br i1 %cmp.not.i.i.i.i15, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit, label %if.then.i.i.i.i16
 
 if.then.i.i.i.i16:                                ; preds = %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit
-  %use_count_.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %24, i64 0, i32 1
+  %use_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %25, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i17, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit
 
 if.then.i.i.i.i.i17:                              ; preds = %if.then.i.i.i.i16
   %vtable.i.i.i.i.i = load ptr, ptr %24, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %26 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(16) %24)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i17
-  %weak_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %24, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 12
   %27 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i18 = icmp eq i32 %27, 1
   br i1 %cmp.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i19, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit
 
 if.then.i.i.i.i.i.i19:                            ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i20 = load ptr, ptr %24, align 8
-  %vfn.i.i.i.i.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i20, i64 3
+  %vfn.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i20, i64 24
   %28 = load ptr, ptr %vfn.i.i.i.i.i.i21, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %24)
           to label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -1068,7 +1046,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit: ; preds = %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit, %if.then.i.i.i.i16, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i19
-  %mBuffer = getelementptr inbounds %"struct.openvdb::v11_0::io::TempFile::TempFileImpl", ptr %this, i64 0, i32 2
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE4openERS2_ll(ptr noundef nonnull align 8 dereferenceable(132) %mBuffer, ptr noundef nonnull align 8 dereferenceable(16) %mDevice, i64 noundef -1, i64 noundef -1)
           to label %invoke.cont35 unwind label %lpad11
 
@@ -1189,14 +1167,14 @@ unreachable:                                      ; preds = %try.cont64, %try.co
 define linkonce_odr void @_ZN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i, align 8
   %1 = and i32 %0, 5
   %or.cond = icmp eq i32 %1, 5
   br i1 %or.cond, label %if.then, label %try.cont
 
 if.then:                                          ; preds = %entry
-  %storage_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 72
   %call.i.i = invoke noundef i32 @_ZN5boost9iostreams6detail11execute_allINS1_22member_close_operationINS1_16linked_streambufIcSt11char_traitsIcEEEEES8_NS1_15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEEEENS1_14execute_traitsIT_NS_9result_ofIFSH_vEE4typeEE11result_typeESH_T0_T1_(ptr nonnull %this, i32 8, ptr nonnull %this, i32 16, ptr nonnull %storage_.i)
           to label %_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5closeEv.exit unwind label %lpad.i.i
 
@@ -1250,33 +1228,33 @@ terminate.lpad:                                   ; preds = %lpad.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost9iostreams20file_descriptor_sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %this, i64 0, i32 1
+  %pn.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pn.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN5boost9iostreams15file_descriptorD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %use_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %0, i64 0, i32 1
+  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost9iostreams15file_descriptorD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i
-  %weak_count_.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %0, i64 0, i32 2
+  %weak_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %3 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost9iostreams15file_descriptorD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost9iostreams15file_descriptorD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1309,14 +1287,14 @@ entry:
 define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5imbueERKSt6locale(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %loc) unnamed_addr #3 comdat align 2 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
-  %flags_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i, align 8
   %and.i = and i32 %0, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 3
+  %next_ = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %next_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end5, label %if.then3
@@ -1354,7 +1332,7 @@ if.then26.i:                                      ; preds = %entry
 _ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE9seek_implElSt12_Ios_SeekdirSt13_Ios_Openmode.exit: ; preds = %entry, %if.then26.i
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef null, ptr noundef null, ptr noundef null)
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef null, ptr noundef null)
-  %storage_.i14.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i14.i = getelementptr inbounds i8, ptr %this, i64 72
   %call.i.i.i.i.i15.i = tail call { i64, i64 } @_ZN5boost9iostreams15file_descriptor4seekElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i14.i, i64 noundef %sp.coerce0, i32 noundef 0)
   ret { i64, i64 } %call.i.i.i.i.i15.i
 }
@@ -1366,7 +1344,7 @@ entry:
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
-  %next_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 3
+  %next_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %next_, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
@@ -1403,13 +1381,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(132) %this)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %buffer_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 104
   %call3 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4gptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %call4 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5egptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %cmp = icmp ult ptr %call3, %call4
@@ -1426,7 +1404,7 @@ if.end8:                                          ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %call6 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call10 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %pback_size_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 5
+  %pback_size_ = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load i64, ptr %pback_size_, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %2, i64 %sub.ptr.sub)
   %tobool12.not = icmp eq i64 %.sroa.speculated, 0
@@ -1518,7 +1496,7 @@ declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl(ptr
 define linkonce_odr noundef i32 @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE8overflowEi(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %c) unnamed_addr #3 comdat align 2 {
 entry:
   %d = alloca i8, align 1
-  %flags_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i, align 8
   %and.i = and i32 %0, 2
   %cmp.i.not = icmp eq i32 %and.i, 0
@@ -1531,7 +1509,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(132) %this)
   br label %if.end
@@ -1569,7 +1547,7 @@ if.end22:                                         ; preds = %if.then15, %if.then
 if.else:                                          ; preds = %if.then9
   %conv.i5 = trunc i32 %c to i8
   store i8 %conv.i5, ptr %d, align 1
-  %storage_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 72
   %call.i.i.i.i = call noundef i64 @_ZN5boost9iostreams15file_descriptor5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, ptr noundef nonnull %d, i64 noundef 1)
   %cmp28.not = icmp eq i64 %call.i.i.i.i, 1
   %spec.select = select i1 %cmp28.not, i32 %c, i32 -1
@@ -1583,7 +1561,7 @@ return:                                           ; preds = %if.else, %if.end, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE8set_nextEPNS1_16linked_streambufIcS5_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %next) unnamed_addr #6 comdat align 2 {
 entry:
-  %next_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 3
+  %next_ = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %next, ptr %next_, align 8
   ret void
 }
@@ -1598,14 +1576,14 @@ entry:
 
 if.then3:                                         ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(132) %this)
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef null, ptr noundef null)
   br label %if.end4.sink.split
 
 if.end4.sink.split:                               ; preds = %entry, %if.then3
-  %storage_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN5boost9iostreams15file_descriptor5closeEv(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i)
   br label %if.end4
 
@@ -1616,7 +1594,7 @@ if.end4:                                          ; preds = %if.end4.sink.split,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE10auto_closeEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %flags_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_, align 8
   %and = and i32 %0, 4
   %cmp = icmp ne i32 %and, 0
@@ -1626,7 +1604,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE14set_auto_closeEb(ptr noundef nonnull align 8 dereferenceable(132) %this, i1 noundef zeroext %close) unnamed_addr #6 comdat align 2 {
 entry:
-  %flags_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_, align 8
   %and = and i32 %0, -5
   %cond = select i1 %close, i32 4, i32 0
@@ -1642,7 +1620,7 @@ entry:
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
-  %next_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 3
+  %next_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %next_, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
@@ -1677,14 +1655,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE14component_implEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %storage_.i.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %storage_.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE13init_get_areaEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 if.end:
-  %buffer_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %buffer_.i, align 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %0, ptr noundef %0, ptr noundef %0)
   ret void
@@ -1693,16 +1671,16 @@ if.end:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE13init_put_areaEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 if.end:
-  %flags_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i, align 8
   %and.i = and i32 %0, 2
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %buffer_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %buffer_.i, align 8
-  %size_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load i64, ptr %size_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %1, ptr noundef %add.ptr.i)
@@ -1721,7 +1699,7 @@ define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20f
 entry:
   %alloc.i.i.i = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 104
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i.i.i)
   %0 = load ptr, ptr %buffer_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1736,40 +1714,40 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 _ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev.exit: ; preds = %entry, %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i.i)
-  %initialized_.i.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2, i32 1
+  %initialized_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i8, ptr %initialized_.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev.exit
-  %pn.i.i.i.i.i.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %4, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %4, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %7 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %7, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -1808,33 +1786,33 @@ declare void @llvm.trap() #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %this, i64 0, i32 1
+  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pn.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %use_count_.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %0, i64 0, i32 1
+  %use_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %0, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %3 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -1896,7 +1874,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true5
 if.then:                                          ; preds = %land.lhs.true9
   %conv = trunc i64 %off to i32
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5gbumpEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %conv)
-  %storage_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 72
   %call.i.i.i.i.i = tail call { i64, i64 } @_ZN5boost9iostreams15file_descriptor4seekElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, i64 noundef 0, i32 noundef 1)
   %1 = extractvalue { i64, i64 } %call.i.i.i.i.i, 0
   %2 = extractvalue { i64, i64 } %call.i.i.i.i.i, 1
@@ -1940,7 +1918,7 @@ if.else:                                          ; preds = %if.end28, %land.lhs
   %off.addr.0 = phi i64 [ %sub, %if.then32 ], [ %off, %land.lhs.true30 ], [ %off, %if.end28 ]
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef null, ptr noundef null, ptr noundef null)
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef null, ptr noundef null)
-  %storage_.i14 = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i14 = getelementptr inbounds i8, ptr %this, i64 72
   %call.i.i.i.i.i15 = tail call { i64, i64 } @_ZN5boost9iostreams15file_descriptor4seekElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i14, i64 noundef %off.addr.0, i32 noundef %way)
   br label %return
 
@@ -2004,7 +1982,7 @@ invoke.cont:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #25
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %0, align 8
   %_M_code.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_code2.i.i = getelementptr inbounds %"class.std::system_error", ptr %e, i64 0, i32 1
+  %_M_code2.i.i = getelementptr inbounds i8, ptr %e, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2.i.i, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %this, i64 40
   %data_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2031,7 +2009,7 @@ entry:
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i1.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i unwind label %terminate.lpad.i.i
@@ -2084,7 +2062,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad.i
@@ -2114,7 +2092,7 @@ _ZN5boost10wrapexceptINSt8ios_base7failureB5cxx11EE7deleterD2Ev.exit8: ; preds =
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i6 = load ptr, ptr %call, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 3
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(76) %call) #25
   br label %eh.resume
@@ -2154,7 +2132,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -2192,7 +2170,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -2228,7 +2206,7 @@ entry:
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2268,7 +2246,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -2304,7 +2282,7 @@ entry:
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2370,7 +2348,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
@@ -2395,14 +2373,14 @@ lpad:                                             ; preds = %if.then.i.i.i
 define linkonce_odr void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::exception_detail::refcount_ptr", align 8
-  %data_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %data_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.boost::exception_detail::refcount_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = load ptr, ptr %ref.tmp, align 8
@@ -2411,7 +2389,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i2.i.i:                                   ; preds = %if.then
   %vtable.i3.i.i = load ptr, ptr %2, align 8
-  %vfn.i4.i.i = getelementptr inbounds ptr, ptr %vtable.i3.i.i, i64 3
+  %vfn.i4.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 24
   %3 = load ptr, ptr %vfn.i4.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont3 unwind label %lpad2
@@ -2423,7 +2401,7 @@ invoke.cont3:                                     ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont3
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call.i1.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
           to label %call.i.noexc.i unwind label %terminate.lpad.i
@@ -2451,7 +2429,7 @@ lpad2:                                            ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i11:                              ; preds = %lpad2
   %vtable.i.i12 = load ptr, ptr %8, align 8
-  %vfn.i.i13 = getelementptr inbounds ptr, ptr %vtable.i.i12, i64 4
+  %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 32
   %9 = load ptr, ptr %vfn.i.i13, align 8
   %call.i1.i14 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call.i.noexc.i16 unwind label %terminate.lpad.i15
@@ -2472,26 +2450,26 @@ terminate.lpad.i15:                               ; preds = %land.lhs.true.i.i11
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
   %data.sroa.0.2 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
-  %throw_file_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 3
+  %throw_file_ = getelementptr inbounds i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
-  %throw_file_5 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 3
+  %throw_file_5 = getelementptr inbounds i8, ptr %a, i64 24
   store ptr %12, ptr %throw_file_5, align 8
-  %throw_line_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 4
+  %throw_line_ = getelementptr inbounds i8, ptr %b, i64 32
   %13 = load i32, ptr %throw_line_, align 8
-  %throw_line_6 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 4
+  %throw_line_6 = getelementptr inbounds i8, ptr %a, i64 32
   store i32 %13, ptr %throw_line_6, align 8
-  %throw_function_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 2
+  %throw_function_ = getelementptr inbounds i8, ptr %b, i64 16
   %14 = load ptr, ptr %throw_function_, align 8
-  %throw_function_7 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 2
+  %throw_function_7 = getelementptr inbounds i8, ptr %a, i64 16
   store ptr %14, ptr %throw_function_7, align 8
-  %data_8 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 1
+  %data_8 = getelementptr inbounds i8, ptr %a, i64 8
   %15 = load ptr, ptr %data_8, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i19, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i23, label %land.lhs.true.i.i.i20
 
 land.lhs.true.i.i.i20:                            ; preds = %if.end
   %vtable.i.i.i21 = load ptr, ptr %15, align 8
-  %vfn.i.i.i22 = getelementptr inbounds ptr, ptr %vtable.i.i.i21, i64 4
+  %vfn.i.i.i22 = getelementptr inbounds i8, ptr %vtable.i.i.i21, i64 32
   %16 = load ptr, ptr %vfn.i.i.i22, align 8
   %call.i.i.i29 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i23 unwind label %ehcleanup
@@ -2503,7 +2481,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 if.then.i2.i.i25:                                 ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i23
   %vtable.i3.i.i26 = load ptr, ptr %data.sroa.0.2, align 8
-  %vfn.i4.i.i27 = getelementptr inbounds ptr, ptr %vtable.i3.i.i26, i64 3
+  %vfn.i4.i.i27 = getelementptr inbounds i8, ptr %vtable.i3.i.i26, i64 24
   %17 = load ptr, ptr %vfn.i4.i.i27, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
           to label %land.lhs.true.i.i33 unwind label %ehcleanup.thread63
@@ -2515,7 +2493,7 @@ ehcleanup.thread63:                               ; preds = %if.then.i2.i.i25
 
 land.lhs.true.i.i33:                              ; preds = %if.then.i2.i.i25
   %vtable.i.i34 = load ptr, ptr %data.sroa.0.2, align 8
-  %vfn.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i34, i64 4
+  %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 32
   %19 = load ptr, ptr %vfn.i.i35, align 8
   %call.i1.i36 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit40 unwind label %terminate.lpad.i37
@@ -2540,7 +2518,7 @@ land.lhs.true.i.i42:                              ; preds = %if.then.i.i17, %cal
   %.pn58 = phi { ptr, i32 } [ %22, %ehcleanup ], [ %18, %ehcleanup.thread63 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i16 ], [ %7, %if.then.i.i17 ]
   %data.sroa.0.357 = phi ptr [ %data.sroa.0.2, %ehcleanup ], [ %data.sroa.0.2, %ehcleanup.thread63 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i16 ], [ %2, %if.then.i.i17 ]
   %vtable.i.i43 = load ptr, ptr %data.sroa.0.357, align 8
-  %vfn.i.i44 = getelementptr inbounds ptr, ptr %vtable.i.i43, i64 4
+  %vfn.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i43, i64 32
   %23 = load ptr, ptr %vfn.i.i44, align 8
   %call.i1.i45 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.357)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit49 unwind label %terminate.lpad.i46
@@ -2574,16 +2552,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end22
 
 if.then:                                          ; preds = %entry
-  %storage_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 72
   %call4 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %call.i.i.i.i = tail call noundef i64 @_ZN5boost9iostreams15file_descriptor5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, ptr noundef %call4, i64 noundef %sub.ptr.sub)
   %cmp7 = icmp eq i64 %call.i.i.i.i, %sub.ptr.sub
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then
-  %buffer_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %buffer_.i, align 8
-  %size_.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load i64, ptr %size_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %0, ptr noundef %add.ptr.i)
@@ -2591,10 +2569,10 @@ if.then8:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %call13 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %buffer_.i3 = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_.i3 = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %buffer_.i3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %call.i.i.i.i
-  %size_.i5 = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %size_.i5 = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load i64, ptr %size_.i5, align 8
   %add.ptr.i6 = getelementptr inbounds i8, ptr %2, i64 %3
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %add.ptr, ptr noundef %add.ptr.i6)
@@ -2909,7 +2887,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define linkonce_odr void @_ZN7openvdb5v11_07IoErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   ret void
@@ -2928,7 +2906,7 @@ entry:
   call void @_ZN5boost9iostreams20file_descriptor_sinkC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %t)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %flags_.i.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i.i, align 8
   %and.i.i = and i32 %0, 1
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
@@ -2962,33 +2940,33 @@ if.end.i:                                         ; preds = %entry
 invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %pn.i.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %pn.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %pn.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  %use_count_.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %2, i64 0, i32 1
+  %use_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %2, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %5 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN5boost9iostreams20file_descriptor_sinkD2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -3252,7 +3230,7 @@ define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #25
   %tobool.not = icmp eq ptr %eType, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3310,7 +3288,7 @@ terminate.lpad:                                   ; preds = %catch
 define linkonce_odr void @_ZN7openvdb5v11_07IoErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -3320,7 +3298,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK7openvdb5v11_09Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #25
   ret ptr %call
 }
@@ -3333,7 +3311,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   ret void
@@ -3343,7 +3321,7 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -3370,7 +3348,7 @@ if.then23.fold.split:                             ; preds = %entry
 
 if.then23:                                        ; preds = %entry, %if.then23.fold.split
   %cond20 = phi i64 [ 4096, %entry ], [ %buffer_size, %if.then23.fold.split ]
-  %buffer_.i9 = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 4
+  %buffer_.i9 = getelementptr inbounds i8, ptr %this, i64 104
   %sext8 = shl i64 %cond20, 32
   %conv26 = ashr exact i64 %sext8, 32
   tail call void @_ZN5boost9iostreams6detail12basic_bufferIcSaIcEE6resizeEl(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i9, i64 noundef %conv26)
@@ -3381,45 +3359,45 @@ if.then23:                                        ; preds = %entry, %if.then23.f
 if.end30:                                         ; preds = %if.then23, %entry
   %cond21 = phi i32 [ 1, %entry ], [ %spec.select22, %if.then23 ]
   %vtable28 = load ptr, ptr %this, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 22
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 176
   %1 = load ptr, ptr %vfn29, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(132) %this)
-  %storage_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZN5boost9iostreams20file_descriptor_sinkC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %t)
-  %initialized_.i.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2, i32 1
+  %initialized_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i8, ptr %initialized_.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end30
-  %pn.i.i.i.i.i.i = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %4, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %4, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %7 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %7, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -3441,33 +3419,33 @@ _ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_
 
 invoke.cont:                                      ; preds = %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit.i
   store i8 1, ptr %initialized_.i.i, align 8
-  %pn.i.i.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %ref.tmp31, i64 0, i32 1
+  %pn.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   %11 = load ptr, ptr %pn.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %use_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %11, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %12, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %11, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   %14 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %14, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i10, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i10:                          ; preds = %.noexc.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
@@ -3480,11 +3458,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i.i.i10
-  %flags_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this, i64 0, i32 6
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 128
   %18 = load i32, ptr %flags_, align 8
   %spec.select = or i32 %18, %cond21
   store i32 %spec.select, ptr %flags_, align 8
-  %flags_.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %this, i64 0, i32 1
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load i32, ptr %flags_.i, align 8
   %and.i12 = and i32 %19, -8
   store i32 %and.i12, ptr %flags_.i, align 8
@@ -3502,7 +3480,7 @@ define linkonce_odr void @_ZN5boost9iostreams6detail12basic_bufferIcSaIcEE6resiz
 entry:
   %alloc.i = alloca %"class.std::allocator", align 1
   %alloc.i.i = alloca %"class.std::allocator", align 1
-  %size_ = getelementptr inbounds %"class.boost::iostreams::detail::basic_buffer", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %size_, align 8
   %cmp.not = icmp eq i64 %0, %buffer_size
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3580,40 +3558,40 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %initialized_.i.i = getelementptr inbounds %"class.boost::iostreams::detail::optional", ptr %c1.coerce, i64 0, i32 1
+  %initialized_.i.i = getelementptr inbounds i8, ptr %c1.coerce, i64 16
   %0 = load i8, ptr %initialized_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %_ZNK5boost9iostreams6detail15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEclEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %pn.i.i.i.i.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %c1.coerce, i64 0, i32 1
+  %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c1.coerce, i64 8
   %2 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %2, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %2, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %5 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -3677,7 +3655,7 @@ define linkonce_odr noundef i32 @_ZN5boost9iostreams6detail11execute_allINS1_22m
 entry:
   %c0 = alloca %"class.boost::iostreams::detail::member_close_operation", align 8
   store ptr %c0.coerce0, ptr %c0, align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %c0, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %c0, i64 8
   store i32 %c0.coerce1, ptr %0, align 8
   switch i32 %op.coerce1, label %invoke.cont [
     i32 8, label %land.lhs.true.i.i.i.i
@@ -3685,7 +3663,7 @@ entry:
   ]
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %flags_.i.i.i.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %op.coerce0, i64 0, i32 1
+  %flags_.i.i.i.i = getelementptr inbounds i8, ptr %op.coerce0, i64 64
   %1 = load i32, ptr %flags_.i.i.i.i, align 8
   %and.i.i.i.i = and i32 %1, 2
   %cmp2.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -3697,7 +3675,7 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br label %if.end14.sink.split.i.i.i.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %entry
-  %flags_6.i.i.i.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %op.coerce0, i64 0, i32 1
+  %flags_6.i.i.i.i = getelementptr inbounds i8, ptr %op.coerce0, i64 64
   %2 = load i32, ptr %flags_6.i.i.i.i, align 8
   %and7.i.i.i.i = and i32 %2, 4
   %cmp8.i.i.i.i = icmp eq i32 %and7.i.i.i.i, 0
@@ -3710,7 +3688,7 @@ if.then9.i.i.i.i:                                 ; preds = %land.lhs.true5.i.i.
 
 if.end14.sink.split.i.i.i.i:                      ; preds = %if.then9.i.i.i.i, %if.then.i.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %op.coerce0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 15
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 120
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(68) %op.coerce0, i32 noundef %op.coerce1)
           to label %invoke.cont unwind label %lpad
@@ -3722,7 +3700,7 @@ invoke.cont:                                      ; preds = %land.lhs.true5.i.i.
   ]
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont
-  %flags_.i.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %c0.coerce0, i64 0, i32 1
+  %flags_.i.i = getelementptr inbounds i8, ptr %c0.coerce0, i64 64
   %4 = load i32, ptr %flags_.i.i, align 8
   %and.i.i = and i32 %4, 2
   %cmp2.i.i = icmp eq i32 %and.i.i, 0
@@ -3734,7 +3712,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %if.end14.sink.split.i.i
 
 land.lhs.true5.i.i:                               ; preds = %invoke.cont
-  %flags_6.i.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %c0.coerce0, i64 0, i32 1
+  %flags_6.i.i = getelementptr inbounds i8, ptr %c0.coerce0, i64 64
   %5 = load i32, ptr %flags_6.i.i, align 8
   %and7.i.i = and i32 %5, 4
   %cmp8.i.i = icmp eq i32 %and7.i.i, 0
@@ -3747,7 +3725,7 @@ if.then9.i.i:                                     ; preds = %land.lhs.true5.i.i
 
 if.end14.sink.split.i.i:                          ; preds = %if.then9.i.i, %if.then.i.i
   %vtable.i.i = load ptr, ptr %c0.coerce0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 15
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(68) %c0.coerce0, i32 noundef %c0.coerce1)
   br label %_ZNK5boost9iostreams6detail22member_close_operationINS1_16linked_streambufIcSt11char_traitsIcEEEEclEv.exit
@@ -3799,40 +3777,40 @@ unreachable:                                      ; preds = %try.cont
 define linkonce_odr void @_ZNK5boost9iostreams6detail15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEclEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %initialized_.i = getelementptr inbounds %"class.boost::iostreams::detail::optional", ptr %0, i64 0, i32 1
+  %initialized_.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %initialized_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %pn.i.i.i.i.i = getelementptr inbounds %"class.boost::shared_ptr", ptr %0, i64 0, i32 1
+  %pn.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %pn.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
-  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i64 0, i32 1
+  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i64 0, i32 2
+  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %6 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %6, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
@@ -3856,7 +3834,7 @@ _ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_
 define linkonce_odr void @_ZNK5boost9iostreams6detail22member_close_operationINS1_16linked_streambufIcSt11char_traitsIcEEEEclEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %which_ = getelementptr inbounds %"class.boost::iostreams::detail::member_close_operation", ptr %this, i64 0, i32 1
+  %which_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %which_, align 8
   switch i32 %1, label %_ZN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEE5closeESt13_Ios_Openmode.exit [
     i32 8, label %land.lhs.true.i
@@ -3864,7 +3842,7 @@ entry:
   ]
 
 land.lhs.true.i:                                  ; preds = %entry
-  %flags_.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %0, i64 0, i32 1
+  %flags_.i = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load i32, ptr %flags_.i, align 8
   %and.i = and i32 %2, 2
   %cmp2.i = icmp eq i32 %and.i, 0
@@ -3876,7 +3854,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %if.end14.sink.split.i
 
 land.lhs.true5.i:                                 ; preds = %entry
-  %flags_6.i = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %0, i64 0, i32 1
+  %flags_6.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i32, ptr %flags_6.i, align 8
   %and7.i = and i32 %3, 4
   %cmp8.i = icmp eq i32 %and7.i, 0
@@ -3889,7 +3867,7 @@ if.then9.i:                                       ; preds = %land.lhs.true5.i
 
 if.end14.sink.split.i:                            ; preds = %if.then9.i, %if.then.i
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 15
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1)
   br label %_ZN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEE5closeESt13_Ios_Openmode.exit

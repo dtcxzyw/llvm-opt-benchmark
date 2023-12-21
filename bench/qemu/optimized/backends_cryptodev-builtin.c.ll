@@ -4,34 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.CryptoDevBackendClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.QCryptoAkCipherOptions = type { i32, %union.anon.1 }
 %union.anon.1 = type { %struct.QCryptoAkCipherOptionsRSA }
 %struct.QCryptoAkCipherOptionsRSA = type { i32, i32 }
-%struct.CryptoDevBackend = type { %struct.Object, i8, i8, %struct.CryptoDevBackendConf, ptr, ptr, %struct.ThrottleState, %struct.ThrottleTimers, %struct.ThrottleConfig, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.CryptoDevBackendConf = type { %struct.CryptoDevBackendPeers, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.CryptoDevBackendPeers = type { [64 x ptr], i32 }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
-%struct.LeakyBucket = type { i64, i64, double, double, i64 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.CryptoDevBackendClient = type { i32, ptr, i32, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.CryptoDevBackendBuiltin = type { %struct.CryptoDevBackend, [256 x ptr] }
-%struct.CryptoDevBackendBuiltinSession = type { ptr, i8, i8, ptr, %union.anon.4 }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.CryptoDevBackendSessionInfo = type { i32, %union.anon.2, i64 }
-%union.anon.2 = type { %struct.CryptoDevBackendSymSessionInfo }
-%struct.CryptoDevBackendSymSessionInfo = type { i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, ptr, ptr }
-%struct.CryptoDevBackendOpInfo = type { i32, i32, i32, ptr, ptr, i64, %union.anon.5, %union.anon.6 }
-%union.anon.5 = type { ptr }
-%union.anon.6 = type { %struct.QTailQLink }
-%struct.CryptoDevBackendSymOpInfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, [0 x i8] }
-%struct.CryptoDevBackendAsymOpInfo = type { i32, i32, ptr, ptr }
 
 @cryptodev_builtin_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 3248, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @cryptodev_builtin_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [26 x i8] c"cryptodev-backend-builtin\00", align 1
@@ -92,15 +67,15 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @cryptodev_builtin_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_CLASS) #6
-  %init = getelementptr inbounds %struct.CryptoDevBackendClass, ptr %call.i, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @cryptodev_builtin_init, ptr %init, align 8
-  %cleanup = getelementptr inbounds %struct.CryptoDevBackendClass, ptr %call.i, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @cryptodev_builtin_cleanup, ptr %cleanup, align 8
-  %create_session = getelementptr inbounds %struct.CryptoDevBackendClass, ptr %call.i, i64 0, i32 3
+  %create_session = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @cryptodev_builtin_create_session, ptr %create_session, align 8
-  %close_session = getelementptr inbounds %struct.CryptoDevBackendClass, ptr %call.i, i64 0, i32 4
+  %close_session = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @cryptodev_builtin_close_session, ptr %close_session, align 8
-  %do_op = getelementptr inbounds %struct.CryptoDevBackendClass, ptr %call.i, i64 0, i32 5
+  %do_op = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @cryptodev_builtin_operation, ptr %do_op, align 8
   ret void
 }
@@ -109,7 +84,7 @@ entry:
 define internal void @cryptodev_builtin_init(ptr noundef %backend, ptr noundef %errp) #0 {
 entry:
   %opts.i = alloca %struct.QCryptoAkCipherOptions, align 4
-  %queues1 = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 0, i32 1
+  %queues1 = getelementptr inbounds i8, ptr %backend, i64 560
   %0 = load i32, ptr %queues1, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -119,30 +94,30 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conf = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3
+  %conf = getelementptr inbounds i8, ptr %backend, i64 48
   %call = tail call ptr @cryptodev_backend_new_client() #6
   %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5) #6
-  %info_str = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %call, i64 0, i32 1
+  %info_str = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %info_str, align 8
-  %queue_index = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %call, i64 0, i32 2
+  %queue_index = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %queue_index, align 8
   store i32 0, ptr %call, align 8
   store ptr %call, ptr %conf, align 8
-  %crypto_services = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 1
+  %crypto_services = getelementptr inbounds i8, ptr %backend, i64 568
   store i32 7, ptr %crypto_services, align 8
-  %cipher_algo_l = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 2
+  %cipher_algo_l = getelementptr inbounds i8, ptr %backend, i64 572
   store i32 8, ptr %cipher_algo_l, align 4
-  %hash_algo = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 4
+  %hash_algo = getelementptr inbounds i8, ptr %backend, i64 580
   store i32 4, ptr %hash_algo, align 4
-  %max_size = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 11
+  %max_size = getelementptr inbounds i8, ptr %backend, i64 608
   store i64 9223372036854775743, ptr %max_size, align 8
-  %max_cipher_key_len = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 9
+  %max_cipher_key_len = getelementptr inbounds i8, ptr %backend, i64 600
   store i32 64, ptr %max_cipher_key_len, align 8
-  %max_auth_key_len = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 10
+  %max_auth_key_len = getelementptr inbounds i8, ptr %backend, i64 604
   store i32 512, ptr %max_auth_key_len, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %opts.i)
   store i32 0, ptr %opts.i, align 4
-  %padding_alg.i = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %opts.i, i64 0, i32 1, i32 0, i32 1
+  %padding_alg.i = getelementptr inbounds i8, ptr %opts.i, i64 8
   store i32 0, ptr %padding_alg.i, align 4
   %call.i = call zeroext i1 @qcrypto_akcipher_supports(ptr noundef nonnull %opts.i) #6
   br i1 %call.i, label %if.then.i, label %cryptodev_builtin_init_akcipher.exit
@@ -151,7 +126,7 @@ if.then.i:                                        ; preds = %if.end
   %1 = load i32, ptr %crypto_services, align 8
   %or.i = or i32 %1, 16
   store i32 %or.i, ptr %crypto_services, align 8
-  %akcipher_algo.i = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 8
+  %akcipher_algo.i = getelementptr inbounds i8, ptr %backend, i64 596
   store i32 2, ptr %akcipher_algo.i, align 4
   br label %cryptodev_builtin_init_akcipher.exit
 
@@ -168,9 +143,10 @@ return:                                           ; preds = %cryptodev_builtin_i
 define internal void @cryptodev_builtin_cleanup(ptr noundef %backend, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
-  %conf = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3
-  %queues1 = getelementptr inbounds %struct.CryptoDevBackend, ptr %backend, i64 0, i32 3, i32 0, i32 1
+  %conf = getelementptr inbounds i8, ptr %backend, i64 48
+  %queues1 = getelementptr inbounds i8, ptr %backend, i64 560
   %0 = load i32, ptr %queues1, align 8
+  %sessions = getelementptr inbounds i8, ptr %call.i, i64 1200
   br label %for.body
 
 for.cond4.preheader:                              ; preds = %for.inc
@@ -180,14 +156,15 @@ for.cond4.preheader:                              ; preds = %for.inc
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.014 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %i.014
+  %arrayidx = getelementptr [256 x ptr], ptr %sessions, i64 0, i64 %i.014
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %for.inc, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
-  %arrayidx.i = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i.i, i64 0, i32 1, i64 %i.014
+  %sessions.i = getelementptr inbounds i8, ptr %call.i.i, i64 1200
+  %arrayidx.i = getelementptr [256 x ptr], ptr %sessions.i, i64 0, i64 %i.014
   %2 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -206,7 +183,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %cryptodev_builtin_close_session.exit
 
 if.else6.i:                                       ; preds = %if.end.i
-  %akcipher.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %2, i64 0, i32 3
+  %akcipher.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %akcipher.i, align 8
   %tobool7.not.i = icmp eq ptr %4, null
   br i1 %tobool7.not.i, label %cryptodev_builtin_close_session.exit, label %if.then8.i
@@ -261,20 +238,24 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1
-  %op_type.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 6
+  %u = getelementptr inbounds i8, ptr %sess_info, i64 8
+  %op_type.i = getelementptr inbounds i8, ptr %sess_info, i64 32
   %1 = load i8, ptr %op_type.i, align 8
   %cmp.not.i = icmp eq i8 %1, 1
-  br i1 %cmp.not.i, label %for.body.i.i, label %if.then.i
+  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
   %conv.i = zext i8 %1 to i32
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 227, ptr noundef nonnull @__func__.cryptodev_builtin_create_cipher_session, ptr noundef nonnull @.str.7, i32 noundef %conv.i) #6
   br label %sw.epilog
 
-for.body.i.i:                                     ; preds = %sw.bb, %for.inc.i.i
-  %i.05.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %sw.bb ]
-  %arrayidx.i.i = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %i.05.i.i
+if.end.i:                                         ; preds = %sw.bb
+  %sessions.i.i = getelementptr inbounds i8, ptr %call.i, i64 1200
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i
+  %i.05.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr [256 x ptr], ptr %sessions.i.i, i64 0, i64 %i.05.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp1.i.i = icmp eq ptr %2, null
   br i1 %cmp1.i.i, label %cryptodev_builtin_get_unused_session_index.exit.i, label %for.inc.i.i
@@ -306,7 +287,7 @@ if.end7.i:                                        ; preds = %cryptodev_builtin_g
   ]
 
 sw.bb.i:                                          ; preds = %if.end7.i
-  %key_len.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
+  %key_len.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %4 = load i32, ptr %key_len.i, align 4
   switch i32 %4, label %cryptodev_builtin_get_aes_algo.exit.i [
     i32 16, label %sw.epilog.i
@@ -325,7 +306,7 @@ cryptodev_builtin_get_aes_algo.exit.i:            ; preds = %sw.bb.i
   br label %sw.epilog
 
 sw.bb13.i:                                        ; preds = %if.end7.i
-  %key_len14.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
+  %key_len14.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %5 = load i32, ptr %key_len14.i, align 4
   switch i32 %5, label %cryptodev_builtin_get_aes_algo.exit40.i [
     i32 16, label %sw.epilog.i
@@ -344,7 +325,7 @@ cryptodev_builtin_get_aes_algo.exit40.i:          ; preds = %sw.bb13.i
   br label %sw.epilog
 
 sw.bb20.i:                                        ; preds = %if.end7.i
-  %key_len21.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
+  %key_len21.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %6 = load i32, ptr %key_len21.i, align 4
   switch i32 %6, label %cryptodev_builtin_get_aes_algo.exit46.i [
     i32 16, label %sw.epilog.i
@@ -363,7 +344,7 @@ cryptodev_builtin_get_aes_algo.exit46.i:          ; preds = %sw.bb20.i
   br label %sw.epilog
 
 sw.bb27.i:                                        ; preds = %if.end7.i
-  %key_len28.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
+  %key_len28.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %7 = load i32, ptr %key_len28.i, align 4
   %8 = add i32 %7, -16
   %9 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %8, i32 29)
@@ -400,9 +381,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 sw.epilog.i:                                      ; preds = %switch.lookup, %sw.bb36.i, %sw.bb35.i, %if.then5.i41.i, %if.then2.i43.i, %sw.bb20.i, %if.then5.i35.i, %if.then2.i37.i, %sw.bb13.i, %if.then5.i.i, %if.then2.i.i, %sw.bb.i, %if.end7.i
   %mode.0.i = phi i32 [ 3, %sw.bb36.i ], [ 1, %sw.bb35.i ], [ 0, %if.end7.i ], [ 0, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 0, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 1, %sw.bb13.i ], [ 1, %if.then5.i35.i ], [ 3, %if.then2.i43.i ], [ 3, %sw.bb20.i ], [ 3, %if.then5.i41.i ], [ 2, %switch.lookup ]
   %algo.0.i = phi i32 [ 4, %sw.bb36.i ], [ 4, %sw.bb35.i ], [ 4, %if.end7.i ], [ 1, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 2, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 0, %sw.bb13.i ], [ 2, %if.then5.i35.i ], [ 1, %if.then2.i43.i ], [ 0, %sw.bb20.i ], [ 2, %if.then5.i41.i ], [ %switch.load, %switch.lookup ]
-  %cipher_key.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 10
+  %cipher_key.i = getelementptr inbounds i8, ptr %sess_info, i64 40
   %13 = load ptr, ptr %cipher_key.i, align 8
-  %key_len38.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
+  %key_len38.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %14 = load i32, ptr %key_len38.i, align 4
   %conv39.i = zext i32 %14 to i64
   %call40.i = call ptr @qcrypto_cipher_new(i32 noundef %algo.0.i, i32 noundef %mode.0.i, ptr noundef %13, i64 noundef %conv39.i, ptr noundef nonnull %local_error) #6
@@ -412,20 +393,20 @@ sw.epilog.i:                                      ; preds = %switch.lookup, %sw.
 if.end42.i:                                       ; preds = %sw.epilog.i
   %call43.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store ptr %call40.i, ptr %call43.i, align 8
-  %direction.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 7
+  %direction.i = getelementptr inbounds i8, ptr %sess_info, i64 33
   %15 = load i8, ptr %direction.i, align 1
-  %direction45.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %call43.i, i64 0, i32 1
+  %direction45.i = getelementptr inbounds i8, ptr %call43.i, i64 8
   store i8 %15, ptr %direction45.i, align 8
   %16 = load i8, ptr %op_type.i, align 8
-  %type.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %call43.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %call43.i, i64 9
   store i8 %16, ptr %type.i, align 1
   %idxprom.i = and i64 %i.05.i.i, 4294967295
-  %arrayidx.i = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [256 x ptr], ptr %sessions.i.i, i64 0, i64 %idxprom.i
   store ptr %call43.i, ptr %arrayidx.i, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %u3 = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %sess_info, i64 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %opts.i)
   %17 = load i32, ptr %u3, align 8
   %cond.i = icmp eq i32 %17, 1
@@ -433,11 +414,11 @@ sw.bb2:                                           ; preds = %entry
 
 sw.bb.i10:                                        ; preds = %sw.bb2
   store i32 0, ptr %opts.i, align 4
-  %u.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 6
+  %u.i = getelementptr inbounds i8, ptr %sess_info, i64 32
   %18 = load i32, ptr %u.i, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %sess_info, i64 36
   %19 = load i32, ptr %hash_algo.i, align 4
-  %u2.i = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %opts.i, i64 0, i32 1
+  %u2.i = getelementptr inbounds i8, ptr %opts.i, i64 4
   switch i32 %18, label %if.end8.i.i [
     i32 1, label %if.then.i.i
     i32 0, label %sw.epilog.i11
@@ -446,24 +427,24 @@ sw.bb.i10:                                        ; preds = %sw.bb2
 if.then.i.i:                                      ; preds = %sw.bb.i10
   %switch.tableidx = add i32 %19, -4
   %20 = icmp ult i32 %switch.tableidx, 5
-  br i1 %20, label %switch.hole_check34, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i
+  br i1 %20, label %switch.hole_check35, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i
 
-cryptodev_builtin_get_rsa_hash_algo.exit.i.i:     ; preds = %switch.hole_check34, %if.then.i.i
+cryptodev_builtin_get_rsa_hash_algo.exit.i.i:     ; preds = %switch.hole_check35, %if.then.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 183, ptr noundef nonnull @__func__.cryptodev_builtin_get_rsa_hash_algo, ptr noundef nonnull @.str.14, i32 noundef %19) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
-switch.hole_check34:                              ; preds = %if.then.i.i
-  %switch.maskindex36 = trunc i32 %switch.tableidx to i8
-  %switch.shifted37 = lshr i8 23, %switch.maskindex36
-  %21 = and i8 %switch.shifted37, 1
-  %switch.lobit38.not = icmp eq i8 %21, 0
-  br i1 %switch.lobit38.not, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i, label %switch.lookup35
+switch.hole_check35:                              ; preds = %if.then.i.i
+  %switch.maskindex37 = trunc i32 %switch.tableidx to i8
+  %switch.shifted38 = lshr i8 23, %switch.maskindex37
+  %21 = and i8 %switch.shifted38, 1
+  %switch.lobit39.not = icmp eq i8 %21, 0
+  br i1 %switch.lobit39.not, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i, label %switch.lookup36
 
-switch.lookup35:                                  ; preds = %switch.hole_check34
+switch.lookup36:                                  ; preds = %switch.hole_check35
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep39 = getelementptr inbounds [5 x i32], ptr @switch.table.cryptodev_builtin_create_session.1, i64 0, i64 %22
-  %switch.load40 = load i32, ptr %switch.gep39, align 4
-  store i32 %switch.load40, ptr %u2.i, align 4
+  %switch.gep40 = getelementptr inbounds [5 x i32], ptr @switch.table.cryptodev_builtin_create_session.1, i64 0, i64 %22
+  %switch.load41 = load i32, ptr %switch.gep40, align 4
+  store i32 %switch.load41, ptr %u2.i, align 4
   br label %sw.epilog.i11
 
 if.end8.i.i:                                      ; preds = %sw.bb.i10
@@ -474,10 +455,10 @@ sw.default.i8:                                    ; preds = %sw.bb2
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.11, i32 noundef %17) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
-sw.epilog.i11:                                    ; preds = %switch.lookup35, %sw.bb.i10
-  %padding_alg.i.i = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %opts.i, i64 0, i32 1, i32 0, i32 1
+sw.epilog.i11:                                    ; preds = %switch.lookup36, %sw.bb.i10
+  %padding_alg.i.i = getelementptr inbounds i8, ptr %opts.i, i64 8
   store i32 %18, ptr %padding_alg.i.i, align 4
-  %keytype.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
+  %keytype.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %23 = load i32, ptr %keytype.i, align 4
   switch i32 %23, label %sw.default6.i [
     i32 1, label %sw.epilog8.i
@@ -493,50 +474,51 @@ sw.default6.i:                                    ; preds = %sw.epilog.i11
 
 sw.epilog8.i:                                     ; preds = %sw.bb5.i, %sw.epilog.i11
   %type.0.i = phi i32 [ 1, %sw.bb5.i ], [ 0, %sw.epilog.i11 ]
-  br label %for.body.i.i12
+  %sessions.i.i12 = getelementptr inbounds i8, ptr %call.i, i64 1200
+  br label %for.body.i.i13
 
-for.body.i.i12:                                   ; preds = %for.inc.i.i16, %sw.epilog8.i
-  %i.05.i.i13 = phi i64 [ 0, %sw.epilog8.i ], [ %inc.i.i17, %for.inc.i.i16 ]
-  %arrayidx.i.i14 = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %i.05.i.i13
-  %24 = load ptr, ptr %arrayidx.i.i14, align 8
-  %cmp1.i.i15 = icmp eq ptr %24, null
-  br i1 %cmp1.i.i15, label %cryptodev_builtin_get_unused_session_index.exit.i19, label %for.inc.i.i16
+for.body.i.i13:                                   ; preds = %for.inc.i.i17, %sw.epilog8.i
+  %i.05.i.i14 = phi i64 [ 0, %sw.epilog8.i ], [ %inc.i.i18, %for.inc.i.i17 ]
+  %arrayidx.i.i15 = getelementptr [256 x ptr], ptr %sessions.i.i12, i64 0, i64 %i.05.i.i14
+  %24 = load ptr, ptr %arrayidx.i.i15, align 8
+  %cmp1.i.i16 = icmp eq ptr %24, null
+  br i1 %cmp1.i.i16, label %cryptodev_builtin_get_unused_session_index.exit.i20, label %for.inc.i.i17
 
-for.inc.i.i16:                                    ; preds = %for.body.i.i12
-  %inc.i.i17 = add nuw nsw i64 %i.05.i.i13, 1
-  %exitcond.not.i.i18 = icmp eq i64 %inc.i.i17, 256
-  br i1 %exitcond.not.i.i18, label %if.then11.i, label %for.body.i.i12, !llvm.loop !8
+for.inc.i.i17:                                    ; preds = %for.body.i.i13
+  %inc.i.i18 = add nuw nsw i64 %i.05.i.i14, 1
+  %exitcond.not.i.i19 = icmp eq i64 %inc.i.i18, 256
+  br i1 %exitcond.not.i.i19, label %if.then11.i, label %for.body.i.i13, !llvm.loop !8
 
-cryptodev_builtin_get_unused_session_index.exit.i19: ; preds = %for.body.i.i12
-  %conv.i.i20 = trunc i64 %i.05.i.i13 to i32
-  %cmp10.i = icmp slt i32 %conv.i.i20, 0
+cryptodev_builtin_get_unused_session_index.exit.i20: ; preds = %for.body.i.i13
+  %conv.i.i21 = trunc i64 %i.05.i.i14 to i32
+  %cmp10.i = icmp slt i32 %conv.i.i21, 0
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
 
-if.then11.i:                                      ; preds = %for.inc.i.i16, %cryptodev_builtin_get_unused_session_index.exit.i19
+if.then11.i:                                      ; preds = %for.inc.i.i17, %cryptodev_builtin_get_unused_session_index.exit.i20
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 351, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.8, i32 noundef 256) #6
   br label %cryptodev_builtin_create_akcipher_session.exit
 
-if.end12.i:                                       ; preds = %cryptodev_builtin_get_unused_session_index.exit.i19
-  %key.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 4
+if.end12.i:                                       ; preds = %cryptodev_builtin_get_unused_session_index.exit.i20
+  %key.i = getelementptr inbounds i8, ptr %sess_info, i64 24
   %25 = load ptr, ptr %key.i, align 8
-  %keylen.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 2
+  %keylen.i = getelementptr inbounds i8, ptr %sess_info, i64 16
   %26 = load i32, ptr %keylen.i, align 8
-  %conv.i21 = zext i32 %26 to i64
-  %call13.i = call ptr @qcrypto_akcipher_new(ptr noundef nonnull %opts.i, i32 noundef %type.0.i, ptr noundef %25, i64 noundef %conv.i21, ptr noundef nonnull %local_error) #6
-  %tobool.not.i22 = icmp eq ptr %call13.i, null
-  br i1 %tobool.not.i22, label %cryptodev_builtin_create_akcipher_session.exit, label %if.end15.i
+  %conv.i22 = zext i32 %26 to i64
+  %call13.i = call ptr @qcrypto_akcipher_new(ptr noundef nonnull %opts.i, i32 noundef %type.0.i, ptr noundef %25, i64 noundef %conv.i22, ptr noundef nonnull %local_error) #6
+  %tobool.not.i23 = icmp eq ptr %call13.i, null
+  br i1 %tobool.not.i23, label %cryptodev_builtin_create_akcipher_session.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end12.i
   %call16.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
-  %akcipher17.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %call16.i, i64 0, i32 3
+  %akcipher17.i = getelementptr inbounds i8, ptr %call16.i, i64 16
   store ptr %call13.i, ptr %akcipher17.i, align 8
-  %idxprom.i23 = and i64 %i.05.i.i13, 4294967295
-  %arrayidx.i24 = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %idxprom.i23
-  store ptr %call16.i, ptr %arrayidx.i24, align 8
+  %idxprom.i24 = and i64 %i.05.i.i14, 4294967295
+  %arrayidx.i25 = getelementptr [256 x ptr], ptr %sessions.i.i12, i64 0, i64 %idxprom.i24
+  store ptr %call16.i, ptr %arrayidx.i25, align 8
   br label %cryptodev_builtin_create_akcipher_session.exit
 
 cryptodev_builtin_create_akcipher_session.exit:   ; preds = %cryptodev_builtin_get_rsa_hash_algo.exit.i.i, %if.end8.i.i, %sw.default.i8, %sw.default6.i, %if.then11.i, %if.end12.i, %if.end15.i
-  %retval.0.i9 = phi i32 [ -1, %sw.default6.i ], [ -1, %if.then11.i ], [ %conv.i.i20, %if.end15.i ], [ -1, %sw.default.i8 ], [ -1, %if.end12.i ], [ -1, %cryptodev_builtin_get_rsa_hash_algo.exit.i.i ], [ -1, %if.end8.i.i ]
+  %retval.0.i9 = phi i32 [ -1, %sw.default6.i ], [ -1, %if.then11.i ], [ %conv.i.i21, %if.end15.i ], [ -1, %sw.default.i8 ], [ -1, %if.end12.i ], [ -1, %cryptodev_builtin_get_rsa_hash_algo.exit.i.i ], [ -1, %if.end8.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %opts.i)
   br label %sw.epilog
 
@@ -560,7 +542,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 
 if.else:                                          ; preds = %if.end
   %conv = zext nneg i32 %ret.0 to i64
-  %session_id = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 2
+  %session_id = getelementptr inbounds i8, ptr %sess_info, i64 56
   store i64 %conv, ptr %session_id, align 8
   br label %if.end8
 
@@ -586,7 +568,8 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %session_id
+  %sessions = getelementptr inbounds i8, ptr %call.i, i64 1200
+  %arrayidx = getelementptr [256 x ptr], ptr %sessions, i64 0, i64 %session_id
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -605,7 +588,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end11
 
 if.else6:                                         ; preds = %if.end
-  %akcipher = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %0, i64 0, i32 3
+  %akcipher = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %akcipher, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end11, label %if.then8
@@ -635,13 +618,14 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
   %0 = load i32, ptr %op_info, align 8
   store ptr null, ptr %local_error, align 8
-  %session_id = getelementptr inbounds %struct.CryptoDevBackendOpInfo, ptr %op_info, i64 0, i32 5
+  %session_id = getelementptr inbounds i8, ptr %op_info, i64 32
   %1 = load i64, ptr %session_id, align 8
   %cmp = icmp ugt i64 %1, 255
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %arrayidx = getelementptr %struct.CryptoDevBackendBuiltin, ptr %call.i, i64 0, i32 1, i64 %1
+  %sessions = getelementptr inbounds i8, ptr %call.i, i64 1200
+  %arrayidx = getelementptr [256 x ptr], ptr %sessions, i64 0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -657,9 +641,9 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 if.then9:                                         ; preds = %if.end
-  %u = getelementptr inbounds %struct.CryptoDevBackendOpInfo, ptr %op_info, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %op_info, i64 40
   %3 = load ptr, ptr %u, align 8
-  %op_type.i = getelementptr inbounds %struct.CryptoDevBackendSymOpInfo, ptr %3, i64 0, i32 9
+  %op_type.i = getelementptr inbounds i8, ptr %3, i64 36
   %4 = load i8, ptr %op_type.i, align 4
   %cmp.i = icmp eq i8 %4, 2
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -669,14 +653,14 @@ if.then.i:                                        ; preds = %if.then9
   br label %if.end16
 
 if.end.i:                                         ; preds = %if.then9
-  %iv_len.i = getelementptr inbounds %struct.CryptoDevBackendSymOpInfo, ptr %3, i64 0, i32 1
+  %iv_len.i = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %iv_len.i, align 4
   %cmp2.not.i = icmp eq i32 %5, 0
   br i1 %cmp2.not.i, label %if.end11.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr %2, align 8
-  %iv.i = getelementptr inbounds %struct.CryptoDevBackendSymOpInfo, ptr %3, i64 0, i32 10
+  %iv.i = getelementptr inbounds i8, ptr %3, i64 40
   %7 = load ptr, ptr %iv.i, align 8
   %conv6.i = zext i32 %5 to i64
   %call.i18 = call i32 @qcrypto_cipher_setiv(ptr noundef %6, ptr noundef %7, i64 noundef %conv6.i, ptr noundef nonnull %local_error) #6
@@ -684,15 +668,15 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %cmp7.i, label %if.end16, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then4.i, %if.end.i
-  %direction.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %2, i64 0, i32 1
+  %direction.i = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i8, ptr %direction.i, align 8
   %cmp13.i = icmp eq i8 %8, 1
   %9 = load ptr, ptr %2, align 8
-  %src.i = getelementptr inbounds %struct.CryptoDevBackendSymOpInfo, ptr %3, i64 0, i32 11
+  %src.i = getelementptr inbounds i8, ptr %3, i64 48
   %10 = load ptr, ptr %src.i, align 8
-  %dst.i = getelementptr inbounds %struct.CryptoDevBackendSymOpInfo, ptr %3, i64 0, i32 12
+  %dst.i = getelementptr inbounds i8, ptr %3, i64 56
   %11 = load ptr, ptr %dst.i, align 8
-  %src_len.i = getelementptr inbounds %struct.CryptoDevBackendSymOpInfo, ptr %3, i64 0, i32 2
+  %src_len.i = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load i32, ptr %src_len.i, align 8
   %conv17.i = zext i32 %12 to i64
   br i1 %cmp13.i, label %if.then15.i, label %if.else.i
@@ -711,9 +695,9 @@ if.end33.i:                                       ; preds = %if.else.i, %if.then
   br label %if.end16
 
 if.then12:                                        ; preds = %if.end
-  %u13 = getelementptr inbounds %struct.CryptoDevBackendOpInfo, ptr %op_info, i64 0, i32 6
+  %u13 = getelementptr inbounds i8, ptr %op_info, i64 40
   %13 = load ptr, ptr %u13, align 8
-  %op_code = getelementptr inbounds %struct.CryptoDevBackendOpInfo, ptr %op_info, i64 0, i32 1
+  %op_code = getelementptr inbounds i8, ptr %op_info, i64 4
   %14 = load i32, ptr %op_code, align 4
   switch i32 %14, label %if.end16 [
     i32 1024, label %sw.bb.i
@@ -723,60 +707,60 @@ if.then12:                                        ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.then12
-  %akcipher.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %2, i64 0, i32 3
+  %akcipher.i = getelementptr inbounds i8, ptr %2, i64 16
   %15 = load ptr, ptr %akcipher.i, align 8
-  %src.i25 = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 2
+  %src.i25 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %src.i25, align 8
   %17 = load i32, ptr %13, align 8
   %conv.i = zext i32 %17 to i64
-  %dst.i26 = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 3
+  %dst.i26 = getelementptr inbounds i8, ptr %13, i64 16
   %18 = load ptr, ptr %dst.i26, align 8
-  %dst_len.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 1
+  %dst_len.i = getelementptr inbounds i8, ptr %13, i64 4
   %19 = load i32, ptr %dst_len.i, align 4
   %conv1.i = zext i32 %19 to i64
   %call.i27 = call i32 @qcrypto_akcipher_encrypt(ptr noundef %15, ptr noundef %16, i64 noundef %conv.i, ptr noundef %18, i64 noundef %conv1.i, ptr noundef nonnull %local_error) #6
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %if.then12
-  %akcipher3.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %2, i64 0, i32 3
+  %akcipher3.i = getelementptr inbounds i8, ptr %2, i64 16
   %20 = load ptr, ptr %akcipher3.i, align 8
-  %src4.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 2
+  %src4.i = getelementptr inbounds i8, ptr %13, i64 8
   %21 = load ptr, ptr %src4.i, align 8
   %22 = load i32, ptr %13, align 8
   %conv6.i24 = zext i32 %22 to i64
-  %dst7.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 3
+  %dst7.i = getelementptr inbounds i8, ptr %13, i64 16
   %23 = load ptr, ptr %dst7.i, align 8
-  %dst_len8.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 1
+  %dst_len8.i = getelementptr inbounds i8, ptr %13, i64 4
   %24 = load i32, ptr %dst_len8.i, align 4
   %conv9.i = zext i32 %24 to i64
   %call10.i = call i32 @qcrypto_akcipher_decrypt(ptr noundef %20, ptr noundef %21, i64 noundef %conv6.i24, ptr noundef %23, i64 noundef %conv9.i, ptr noundef nonnull %local_error) #6
   br label %sw.epilog.i
 
 sw.bb11.i:                                        ; preds = %if.then12
-  %akcipher12.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %2, i64 0, i32 3
+  %akcipher12.i = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load ptr, ptr %akcipher12.i, align 8
-  %src13.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 2
+  %src13.i = getelementptr inbounds i8, ptr %13, i64 8
   %26 = load ptr, ptr %src13.i, align 8
   %27 = load i32, ptr %13, align 8
   %conv15.i = zext i32 %27 to i64
-  %dst16.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 3
+  %dst16.i = getelementptr inbounds i8, ptr %13, i64 16
   %28 = load ptr, ptr %dst16.i, align 8
-  %dst_len17.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 1
+  %dst_len17.i = getelementptr inbounds i8, ptr %13, i64 4
   %29 = load i32, ptr %dst_len17.i, align 4
   %conv18.i = zext i32 %29 to i64
   %call19.i = call i32 @qcrypto_akcipher_sign(ptr noundef %25, ptr noundef %26, i64 noundef %conv15.i, ptr noundef %28, i64 noundef %conv18.i, ptr noundef nonnull %local_error) #6
   br label %sw.epilog.i
 
 sw.bb20.i:                                        ; preds = %if.then12
-  %akcipher21.i = getelementptr inbounds %struct.CryptoDevBackendBuiltinSession, ptr %2, i64 0, i32 3
+  %akcipher21.i = getelementptr inbounds i8, ptr %2, i64 16
   %30 = load ptr, ptr %akcipher21.i, align 8
-  %src22.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 2
+  %src22.i = getelementptr inbounds i8, ptr %13, i64 8
   %31 = load ptr, ptr %src22.i, align 8
   %32 = load i32, ptr %13, align 8
   %conv24.i = zext i32 %32 to i64
-  %dst25.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 3
+  %dst25.i = getelementptr inbounds i8, ptr %13, i64 16
   %33 = load ptr, ptr %dst25.i, align 8
-  %dst_len26.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 1
+  %dst_len26.i = getelementptr inbounds i8, ptr %13, i64 4
   %34 = load i32, ptr %dst_len26.i, align 4
   %conv27.i = zext i32 %34 to i64
   %call28.i19 = call i32 @qcrypto_akcipher_verify(ptr noundef %30, ptr noundef %31, i64 noundef %conv24.i, ptr noundef %33, i64 noundef %conv27.i, ptr noundef nonnull %local_error) #6
@@ -793,7 +777,7 @@ if.then.i23:                                      ; preds = %sw.epilog.i
   br label %if.end16
 
 if.end33.i21:                                     ; preds = %sw.epilog.i
-  %dst_len34.i = getelementptr inbounds %struct.CryptoDevBackendAsymOpInfo, ptr %13, i64 0, i32 1
+  %dst_len34.i = getelementptr inbounds i8, ptr %13, i64 4
   %35 = load i32, ptr %dst_len34.i, align 4
   %cmp35.i = icmp ugt i32 %ret.0.i, %35
   br i1 %cmp35.i, label %if.then39.i, label %if.end44.i
@@ -825,13 +809,13 @@ if.then17:                                        ; preds = %if.then39.i, %if.en
 
 if.end18:                                         ; preds = %if.then17, %if.end16
   %status.031 = phi i32 [ %status.030, %if.then17 ], [ %status.0.ph, %if.end16 ]
-  %cb = getelementptr inbounds %struct.CryptoDevBackendOpInfo, ptr %op_info, i64 0, i32 3
+  %cb = getelementptr inbounds i8, ptr %op_info, i64 16
   %38 = load ptr, ptr %cb, align 8
   %tobool19.not = icmp eq ptr %38, null
   br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %opaque = getelementptr inbounds %struct.CryptoDevBackendOpInfo, ptr %op_info, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %op_info, i64 24
   %39 = load ptr, ptr %opaque, align 8
   call void %38(ptr noundef %39, i32 noundef %status.031) #6
   br label %return

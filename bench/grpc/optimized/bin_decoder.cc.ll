@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %struct.grpc_base64_decode_context = type { ptr, ptr, ptr, ptr, i8 }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 @.str = private unnamed_addr constant [142 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/ext/transport/chttp2/transport/bin_decoder.cc\00", align 1
 @.str.1 = private unnamed_addr constant [56 x i8] c"Base64 decoding failed. Input has more than 2 paddings.\00", align 1
@@ -30,11 +27,11 @@ define noundef i64 @_Z44grpc_chttp2_base64_infer_length_after_decodeRK10grpc_sli
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %slice, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
-  %bytes7 = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes7 = getelementptr inbounds i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes7, align 8
   %bytes10 = getelementptr inbounds i8, ptr %slice, i64 9
   %cond12 = select i1 %tobool.not, ptr %bytes10, ptr %2
@@ -90,15 +87,15 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %input_end = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 1
+  %input_end = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %input_end, align 8
   %cmp = icmp ugt ptr %0, %1
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %output_cur = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 2
+  %output_cur = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %output_cur, align 8
-  %output_end = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 3
+  %output_end = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %output_end, align 8
   %cmp1 = icmp ugt ptr %2, %3
   br i1 %cmp1, label %return, label %while.cond.preheader
@@ -321,7 +318,7 @@ if.end104:                                        ; preds = %if.then100
   br label %return
 
 if.else142:                                       ; preds = %while.end
-  %contains_tail = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 4
+  %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
   %60 = load i8, ptr %contains_tail, align 8
   %61 = and i8 %60, 1
   %tobool = icmp ne i8 %61, 0
@@ -488,7 +485,7 @@ entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -509,7 +506,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.end37, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %input, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %bytes13 = getelementptr inbounds i8, ptr %input, i64 9
   %cond15 = select i1 %tobool.not, ptr %bytes13, ptr %2
@@ -533,7 +530,7 @@ if.end37:                                         ; preds = %if.then29, %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %output, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %5 = load ptr, ptr %input, align 8
   %tobool39.not = icmp eq ptr %5, null
-  %bytes42 = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %bytes42 = getelementptr inbounds i8, ptr %input, i64 16
   %6 = load ptr, ptr %bytes42, align 8
   %bytes45 = getelementptr inbounds i8, ptr %input, i64 9
   %cond48 = select i1 %tobool39.not, ptr %bytes45, ptr %6
@@ -542,24 +539,24 @@ if.end37:                                         ; preds = %if.then29, %if.then
   %conv68 = and i64 %7, 255
   %cond70 = select i1 %tobool39.not, i64 %conv68, i64 %7
   %add.ptr71 = getelementptr inbounds i8, ptr %cond48, i64 %cond70
-  %input_end72 = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 1
+  %input_end72 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %add.ptr71, ptr %input_end72, align 8
   %8 = load ptr, ptr %output, align 8
   %tobool74.not = icmp eq ptr %8, null
-  %data76 = getelementptr inbounds %struct.grpc_slice, ptr %output, i64 0, i32 1
-  %bytes77 = getelementptr inbounds %struct.grpc_slice, ptr %output, i64 0, i32 1, i32 0, i32 1
+  %data76 = getelementptr inbounds i8, ptr %output, i64 8
+  %bytes77 = getelementptr inbounds i8, ptr %output, i64 16
   %9 = load ptr, ptr %bytes77, align 8
   %bytes80 = getelementptr inbounds i8, ptr %output, i64 9
   %cond83 = select i1 %tobool74.not, ptr %bytes80, ptr %9
-  %output_cur = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 2
+  %output_cur = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %cond83, ptr %output_cur, align 8
   %10 = load i64, ptr %data76, align 8
   %conv103 = and i64 %10, 255
   %cond105 = select i1 %tobool74.not, i64 %conv103, i64 %10
   %add.ptr106 = getelementptr inbounds i8, ptr %cond83, i64 %cond105
-  %output_end = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 3
+  %output_end = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %add.ptr106, ptr %output_end, align 8
-  %contains_tail = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 4
+  %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
   store i8 0, ptr %contains_tail, align 8
   %call = call noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr noundef nonnull %ctx)
   br i1 %call, label %do.body, label %if.then108
@@ -578,7 +575,7 @@ if.then.i:                                        ; preds = %if.then108
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %11, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %13(ptr noundef nonnull %11)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -650,7 +647,7 @@ entry:
   %ctx = alloca %struct.grpc_base64_decode_context, align 8
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -672,7 +669,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %2, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %4(ptr noundef nonnull %2)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -705,7 +702,7 @@ if.then.i29:                                      ; preds = %if.then9
   br i1 %cmp.i.i30, label %if.then.i.i31, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33
 
 if.then.i.i31:                                    ; preds = %if.then.i29
-  %destroyer_fn_.i.i32 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %6, i64 0, i32 1
+  %destroyer_fn_.i.i32 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i32, align 8
   call void %8(ptr noundef nonnull %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33
@@ -717,7 +714,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33: ; preds = %
 if.end19:                                         ; preds = %if.end
   %9 = load ptr, ptr %input, align 8
   %tobool21.not = icmp eq ptr %9, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %input, i64 16
   %10 = load ptr, ptr %bytes, align 8
   %bytes26 = getelementptr inbounds i8, ptr %input, i64 9
   %cond28 = select i1 %tobool21.not, ptr %bytes26, ptr %10
@@ -726,24 +723,24 @@ if.end19:                                         ; preds = %if.end
   %conv48 = and i64 %11, 255
   %cond50 = select i1 %tobool21.not, i64 %conv48, i64 %11
   %add.ptr = getelementptr inbounds i8, ptr %cond28, i64 %cond50
-  %input_end = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 1
+  %input_end = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %add.ptr, ptr %input_end, align 8
   %12 = load ptr, ptr %output, align 8
   %tobool52.not = icmp eq ptr %12, null
-  %data54 = getelementptr inbounds %struct.grpc_slice, ptr %output, i64 0, i32 1
-  %bytes55 = getelementptr inbounds %struct.grpc_slice, ptr %output, i64 0, i32 1, i32 0, i32 1
+  %data54 = getelementptr inbounds i8, ptr %output, i64 8
+  %bytes55 = getelementptr inbounds i8, ptr %output, i64 16
   %13 = load ptr, ptr %bytes55, align 8
   %bytes58 = getelementptr inbounds i8, ptr %output, i64 9
   %cond61 = select i1 %tobool52.not, ptr %bytes58, ptr %13
-  %output_cur = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 2
+  %output_cur = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %cond61, ptr %output_cur, align 8
   %14 = load i64, ptr %data54, align 8
   %conv81 = and i64 %14, 255
   %cond83 = select i1 %tobool52.not, i64 %conv81, i64 %14
   %add.ptr84 = getelementptr inbounds i8, ptr %cond61, i64 %cond83
-  %output_end = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 3
+  %output_end = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %add.ptr84, ptr %output_end, align 8
-  %contains_tail = getelementptr inbounds %struct.grpc_base64_decode_context, ptr %ctx, i64 0, i32 4
+  %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
   store i8 1, ptr %contains_tail, align 8
   %call = call noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr noundef nonnull %ctx)
   br i1 %call, label %do.body, label %if.then86
@@ -762,7 +759,7 @@ if.then.i35:                                      ; preds = %if.then86
   br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit39
 
 if.then.i.i37:                                    ; preds = %if.then.i35
-  %destroyer_fn_.i.i38 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %15, i64 0, i32 1
+  %destroyer_fn_.i.i38 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %destroyer_fn_.i.i38, align 8
   call void %17(ptr noundef nonnull %15)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit39

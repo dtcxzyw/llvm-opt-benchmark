@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/cmp_client_test-bin-cmp_mock_srv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mock_srv_ctx = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/apps/lib/cmp_mock_srv.c\00", align 1
 @__func__.ossl_cmp_mock_srv_set1_refCert = private unnamed_addr constant [31 x i8] c"ossl_cmp_mock_srv_set1_refCert\00", align 1
 @__func__.ossl_cmp_mock_srv_set1_certOut = private unnamed_addr constant [31 x i8] c"ossl_cmp_mock_srv_set1_certOut\00", align 1
@@ -104,7 +102,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %certOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 1
+  %certOut = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %certOut, align 8
   tail call void @X509_free(ptr noundef %0) #2
   store ptr %cert, ptr %certOut, align 8
@@ -139,7 +137,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
   %chain_copy.0 = phi ptr [ %call2, %land.lhs.true ], [ null, %if.end ]
-  %chainOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 2
+  %chainOut = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %chainOut, align 8
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %0) #2
   store ptr %chain_copy.0, ptr %chainOut, align 8
@@ -178,7 +176,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
   %caPubs_copy.0 = phi ptr [ %call2, %land.lhs.true ], [ null, %if.end ]
-  %caPubsOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 3
+  %caPubsOut = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load ptr, ptr %caPubsOut, align 8
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %0) #2
   store ptr %caPubs_copy.0, ptr %caPubsOut, align 8
@@ -212,7 +210,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %newWithNew = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 4
+  %newWithNew = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %newWithNew, align 8
   tail call void @X509_free(ptr noundef %0) #2
   store ptr %cert, ptr %newWithNew, align 8
@@ -246,7 +244,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %newWithOld = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 5
+  %newWithOld = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %newWithOld, align 8
   tail call void @X509_free(ptr noundef %0) #2
   store ptr %cert, ptr %newWithOld, align 8
@@ -280,7 +278,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %oldWithNew = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 6
+  %oldWithNew = getelementptr inbounds i8, ptr %call, i64 48
   %0 = load ptr, ptr %oldWithNew, align 8
   tail call void @X509_free(ptr noundef %0) #2
   store ptr %cert, ptr %oldWithNew, align 8
@@ -310,7 +308,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %statusOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 7
+  %statusOut = getelementptr inbounds i8, ptr %call, i64 56
   %0 = load ptr, ptr %statusOut, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %0) #2
   store ptr %call1, ptr %statusOut, align 8
@@ -339,7 +337,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sendError = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 8
+  %sendError = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %bodytype, ptr %sendError, align 8
   br label %return
 
@@ -372,7 +370,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %pollCount = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 10
+  %pollCount = getelementptr inbounds i8, ptr %call, i64 80
   store i32 %count, ptr %pollCount, align 8
   br label %return
 
@@ -395,7 +393,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %checkAfterTime = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 12
+  %checkAfterTime = getelementptr inbounds i8, ptr %call, i64 88
   store i32 %sec, ptr %checkAfterTime, align 8
   br label %return
 
@@ -414,7 +412,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @OSSL_CMP_PKISI_new() #2
-  %statusOut.i = getelementptr inbounds %struct.mock_srv_ctx, ptr %call.i, i64 0, i32 7
+  %statusOut.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %call1.i, ptr %statusOut.i, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %mock_srv_ctx_free.exit.i, label %mock_srv_ctx_new.exit
@@ -423,23 +421,23 @@ mock_srv_ctx_free.exit.i:                         ; preds = %if.end.i
   tail call void @OSSL_CMP_PKISI_free(ptr noundef null) #2
   %0 = load ptr, ptr %call.i, align 8
   tail call void @X509_free(ptr noundef %0) #2
-  %certOut.i.i = getelementptr inbounds %struct.mock_srv_ctx, ptr %call.i, i64 0, i32 1
+  %certOut.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %certOut.i.i, align 8
   tail call void @X509_free(ptr noundef %1) #2
-  %chainOut.i.i = getelementptr inbounds %struct.mock_srv_ctx, ptr %call.i, i64 0, i32 2
+  %chainOut.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %chainOut.i.i, align 8
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %2) #2
-  %caPubsOut.i.i = getelementptr inbounds %struct.mock_srv_ctx, ptr %call.i, i64 0, i32 3
+  %caPubsOut.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %caPubsOut.i.i, align 8
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %3) #2
-  %certReq.i.i = getelementptr inbounds %struct.mock_srv_ctx, ptr %call.i, i64 0, i32 9
+  %certReq.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %4 = load ptr, ptr %certReq.i.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %4) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 47) #2
   br label %if.end
 
 mock_srv_ctx_new.exit:                            ; preds = %if.end.i
-  %sendError.i = getelementptr inbounds %struct.mock_srv_ctx, ptr %call.i, i64 0, i32 8
+  %sendError.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 -1, ptr %sendError.i, align 8
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true3
@@ -487,7 +485,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call8 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %cert_req) #2
-  %sendError = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 8
+  %sendError = getelementptr inbounds i8, ptr %call, i64 64
   %7 = load i32, ptr %sendError, align 8
   %cmp9 = icmp eq i32 %7, 1
   %cmp12 = icmp eq i32 %7, %call8
@@ -504,17 +502,17 @@ if.end14:                                         ; preds = %if.end
   store ptr null, ptr %certOut, align 8
   store ptr null, ptr %chainOut, align 8
   store ptr null, ptr %caPubs, align 8
-  %pollCount = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 10
+  %pollCount = getelementptr inbounds i8, ptr %call, i64 80
   %8 = load i32, ptr %pollCount, align 8
   %cmp15 = icmp sgt i32 %8, 0
-  %curr_pollCount = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 11
+  %curr_pollCount = getelementptr inbounds i8, ptr %call, i64 84
   %9 = load i32, ptr %curr_pollCount, align 4
   %cmp16 = icmp eq i32 %9, 0
   %or.cond52 = select i1 %cmp15, i1 %cmp16, i1 false
   br i1 %or.cond52, label %if.then17, label %if.end27
 
 if.then17:                                        ; preds = %if.end14
-  %certReq = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 9
+  %certReq = getelementptr inbounds i8, ptr %call, i64 72
   %10 = load ptr, ptr %certReq, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %if.end20, label %if.then19
@@ -540,7 +538,7 @@ if.end27:                                         ; preds = %if.end14
   br i1 %cmp30.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.end27
-  %curr_pollCount28 = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 11
+  %curr_pollCount28 = getelementptr inbounds i8, ptr %call, i64 84
   store i32 0, ptr %curr_pollCount28, align 4
   br label %if.end33
 
@@ -600,7 +598,7 @@ if.then48:                                        ; preds = %lor.lhs.false.i, %r
   br label %return
 
 if.end50:                                         ; preds = %land.rhs.i, %if.end43, %refcert_cmp.exit, %land.lhs.true37, %if.end33
-  %certOut51 = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 1
+  %certOut51 = getelementptr inbounds i8, ptr %call, i64 8
   %13 = load ptr, ptr %certOut51, align 8
   %cmp52.not = icmp eq ptr %13, null
   br i1 %cmp52.not, label %if.end58, label %land.lhs.true53
@@ -612,7 +610,7 @@ land.lhs.true53:                                  ; preds = %if.end50
   br i1 %cmp56, label %err, label %if.end58
 
 if.end58:                                         ; preds = %land.lhs.true53, %if.end50
-  %chainOut59 = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 2
+  %chainOut59 = getelementptr inbounds i8, ptr %call, i64 16
   %14 = load ptr, ptr %chainOut59, align 8
   %cmp60.not = icmp eq ptr %14, null
   br i1 %cmp60.not, label %if.end66, label %land.lhs.true61
@@ -624,7 +622,7 @@ land.lhs.true61:                                  ; preds = %if.end58
   br i1 %cmp64, label %err, label %if.end66
 
 if.end66:                                         ; preds = %land.lhs.true61, %if.end58
-  %caPubsOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 3
+  %caPubsOut = getelementptr inbounds i8, ptr %call, i64 24
   %15 = load ptr, ptr %caPubsOut, align 8
   %cmp67.not = icmp eq ptr %15, null
   br i1 %cmp67.not, label %if.end73, label %land.lhs.true68
@@ -636,7 +634,7 @@ land.lhs.true68:                                  ; preds = %if.end66
   br i1 %cmp71, label %err, label %if.end73
 
 if.end73:                                         ; preds = %land.lhs.true68, %if.end66
-  %statusOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 7
+  %statusOut = getelementptr inbounds i8, ptr %call, i64 56
   %16 = load ptr, ptr %statusOut, align 8
   %cmp74.not = icmp eq ptr %16, null
   br i1 %cmp74.not, label %return, label %land.lhs.true75
@@ -679,7 +677,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sendError = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 8
+  %sendError = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i32, ptr %sendError, align 8
   %cmp2 = icmp eq i32 %0, 1
   br i1 %cmp2, label %if.then7, label %lor.lhs.false3
@@ -733,7 +731,7 @@ if.then13:                                        ; preds = %lor.lhs.false.i, %r
   br label %return
 
 if.end14:                                         ; preds = %land.rhs.i, %land.lhs.true, %if.end8, %refcert_cmp.exit
-  %statusOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 7
+  %statusOut = getelementptr inbounds i8, ptr %call, i64 56
   %2 = load ptr, ptr %statusOut, align 8
   %call15 = tail call ptr @OSSL_CMP_PKISI_dup(ptr noundef %2) #2
   br label %return
@@ -763,7 +761,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sendError = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 8
+  %sendError = getelementptr inbounds i8, ptr %call, i64 64
   %6 = load i32, ptr %sendError, align 8
   %cmp6 = icmp eq i32 %6, 1
   br i1 %cmp6, label %if.then15, label %lor.lhs.false7
@@ -931,7 +929,7 @@ entry:
   br i1 %or.cond1, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sendError = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 8
+  %sendError = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i32, ptr %sendError, align 8
   %cmp4 = icmp eq i32 %0, 1
   br i1 %cmp4, label %return.sink.split, label %lor.lhs.false5
@@ -942,7 +940,7 @@ lor.lhs.false5:                                   ; preds = %if.end
   br i1 %cmp8, label %return.sink.split, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %certOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 1
+  %certOut = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %certOut, align 8
   %cmp10 = icmp eq ptr %1, null
   br i1 %cmp10, label %return.sink.split, label %if.end12
@@ -991,7 +989,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sendError = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 8
+  %sendError = getelementptr inbounds i8, ptr %call, i64 64
   %6 = load i32, ptr %sendError, align 8
   %cmp6 = icmp eq i32 %6, 1
   br i1 %cmp6, label %if.then11, label %lor.lhs.false7
@@ -1009,7 +1007,7 @@ if.then11:                                        ; preds = %lor.lhs.false7, %if
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false7
-  %certReq13 = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 9
+  %certReq13 = getelementptr inbounds i8, ptr %call, i64 72
   %7 = load ptr, ptr %certReq13, align 8
   %cmp14 = icmp eq ptr %7, null
   br i1 %cmp14, label %if.then15, label %if.end16
@@ -1022,11 +1020,11 @@ if.then15:                                        ; preds = %if.end12
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  %curr_pollCount = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 11
+  %curr_pollCount = getelementptr inbounds i8, ptr %call, i64 84
   %8 = load i32, ptr %curr_pollCount, align 4
   %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %curr_pollCount, align 4
-  %pollCount = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 10
+  %pollCount = getelementptr inbounds i8, ptr %call, i64 80
   %9 = load i32, ptr %pollCount, align 8
   %cmp17.not = icmp slt i32 %inc, %9
   br i1 %cmp17.not, label %if.else, label %if.then18
@@ -1038,7 +1036,7 @@ if.then18:                                        ; preds = %if.end16
 
 if.else:                                          ; preds = %if.end16
   store ptr null, ptr %certReq, align 8
-  %checkAfterTime = getelementptr inbounds %struct.mock_srv_ctx, ptr %call, i64 0, i32 12
+  %checkAfterTime = getelementptr inbounds i8, ptr %call, i64 88
   %10 = load i32, ptr %checkAfterTime, align 8
   %conv = sext i32 %10 to i64
   br label %if.end21
@@ -1060,21 +1058,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %statusOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 7
+  %statusOut = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %statusOut, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %0) #2
   %1 = load ptr, ptr %ctx, align 8
   tail call void @X509_free(ptr noundef %1) #2
-  %certOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 1
+  %certOut = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %certOut, align 8
   tail call void @X509_free(ptr noundef %2) #2
-  %chainOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 2
+  %chainOut = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %chainOut, align 8
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %3) #2
-  %caPubsOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 3
+  %caPubsOut = getelementptr inbounds i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %caPubsOut, align 8
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %4) #2
-  %certReq = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 9
+  %certReq = getelementptr inbounds i8, ptr %ctx, i64 72
   %5 = load ptr, ptr %certReq, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 47) #2
@@ -1145,17 +1143,17 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %caPubsOut = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 3
+  %caPubsOut = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %caPubsOut, align 8
   %call = tail call ptr @OSSL_CMP_ITAV_new_caCerts(ptr noundef %0) #2
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %newWithNew = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 4
+  %newWithNew = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %newWithNew, align 8
-  %newWithOld = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 5
+  %newWithOld = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load ptr, ptr %newWithOld, align 8
-  %oldWithNew = getelementptr inbounds %struct.mock_srv_ctx, ptr %ctx, i64 0, i32 6
+  %oldWithNew = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load ptr, ptr %oldWithNew, align 8
   %call2 = tail call ptr @OSSL_CMP_ITAV_new_rootCaKeyUpdate(ptr noundef %1, ptr noundef %2, ptr noundef %3) #2
   br label %sw.epilog

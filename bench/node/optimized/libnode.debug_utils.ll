@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.std::allocator" = type { i8 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -20,8 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.node::PosixSymbolDebuggingContext" = type { %"class.node::NativeSymbolDebuggingContext", i64 }
-%"class.node::NativeSymbolDebuggingContext" = type { ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -36,10 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.uv_handle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.16, ptr, i32 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon.16 = type { [4 x ptr] }
-%struct.dl_phdr_info = type { i64, ptr, ptr, i16, i64, i64, i64, ptr }
 %struct.Dl_info = type { ptr, ptr, ptr, ptr }
 
 $_ZN4node7ToLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
@@ -334,15 +327,15 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cats) #17
   %0 = load ptr, ptr %env_vars, align 8
   store ptr %0, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %env_vars, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %env_vars, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -364,7 +357,7 @@ _ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit:  ; preds = %entry, %if.then.i.i
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -372,10 +365,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -401,10 +394,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -426,7 +419,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit
@@ -604,80 +597,80 @@ entry:
   br i1 %call78, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx.i = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 1
-  %arrayidx.i3 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 2
-  %arrayidx.i4 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 3
-  %arrayidx.i5 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 4
-  %arrayidx.i6 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 5
-  %arrayidx.i7 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 6
-  %arrayidx.i8 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 7
-  %arrayidx.i9 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 8
-  %arrayidx.i10 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 9
-  %arrayidx.i11 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 10
-  %arrayidx.i12 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 11
-  %arrayidx.i13 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 12
-  %arrayidx.i14 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 13
-  %arrayidx.i15 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 14
-  %arrayidx.i16 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 15
-  %arrayidx.i17 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 16
-  %arrayidx.i18 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 17
-  %arrayidx.i19 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 18
-  %arrayidx.i20 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 19
-  %arrayidx.i21 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 20
-  %arrayidx.i22 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 21
-  %arrayidx.i23 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 22
-  %arrayidx.i24 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 23
-  %arrayidx.i25 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 24
-  %arrayidx.i26 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 25
-  %arrayidx.i27 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 26
-  %arrayidx.i28 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 27
-  %arrayidx.i29 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 28
-  %arrayidx.i30 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 29
-  %arrayidx.i31 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 30
-  %arrayidx.i32 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 31
-  %arrayidx.i33 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 32
-  %arrayidx.i34 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 33
-  %arrayidx.i35 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 34
-  %arrayidx.i36 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 35
-  %arrayidx.i37 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 36
-  %arrayidx.i38 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 37
-  %arrayidx.i39 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 38
-  %arrayidx.i40 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 39
-  %arrayidx.i41 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 40
-  %arrayidx.i42 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 41
-  %arrayidx.i43 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 42
-  %arrayidx.i44 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 43
-  %arrayidx.i45 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 44
-  %arrayidx.i46 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 45
-  %arrayidx.i47 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 46
-  %arrayidx.i48 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 47
-  %arrayidx.i49 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 48
-  %arrayidx.i50 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 49
-  %arrayidx.i51 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 50
-  %arrayidx.i52 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 51
-  %arrayidx.i53 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 52
-  %arrayidx.i54 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 53
-  %arrayidx.i55 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 54
-  %arrayidx.i56 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 55
-  %arrayidx.i57 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 56
-  %arrayidx.i58 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 57
-  %arrayidx.i59 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 58
-  %arrayidx.i60 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 59
-  %arrayidx.i61 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 60
-  %arrayidx.i62 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 61
-  %arrayidx.i63 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 62
-  %arrayidx.i64 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 63
-  %arrayidx.i65 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 64
-  %arrayidx.i66 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 65
-  %arrayidx.i67 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 66
-  %arrayidx.i68 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 67
-  %arrayidx.i69 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 68
-  %arrayidx.i70 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 69
-  %arrayidx.i71 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 70
-  %arrayidx.i72 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 71
-  %arrayidx.i73 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 72
-  %arrayidx.i74 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 73
-  %arrayidx.i75 = getelementptr inbounds [75 x i8], ptr %this, i64 0, i64 74
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 1
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 2
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %this, i64 3
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 5
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 6
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 7
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %this, i64 9
+  %arrayidx.i11 = getelementptr inbounds i8, ptr %this, i64 10
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %this, i64 11
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %this, i64 13
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %this, i64 14
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %this, i64 15
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 17
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %this, i64 18
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %this, i64 19
+  %arrayidx.i21 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %this, i64 21
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %this, i64 22
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %this, i64 23
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %this, i64 25
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %this, i64 26
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %this, i64 27
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %this, i64 29
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 30
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %this, i64 31
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %this, i64 33
+  %arrayidx.i35 = getelementptr inbounds i8, ptr %this, i64 34
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %this, i64 35
+  %arrayidx.i37 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx.i38 = getelementptr inbounds i8, ptr %this, i64 37
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %this, i64 38
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %this, i64 39
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 41
+  %arrayidx.i43 = getelementptr inbounds i8, ptr %this, i64 42
+  %arrayidx.i44 = getelementptr inbounds i8, ptr %this, i64 43
+  %arrayidx.i45 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx.i46 = getelementptr inbounds i8, ptr %this, i64 45
+  %arrayidx.i47 = getelementptr inbounds i8, ptr %this, i64 46
+  %arrayidx.i48 = getelementptr inbounds i8, ptr %this, i64 47
+  %arrayidx.i49 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.i50 = getelementptr inbounds i8, ptr %this, i64 49
+  %arrayidx.i51 = getelementptr inbounds i8, ptr %this, i64 50
+  %arrayidx.i52 = getelementptr inbounds i8, ptr %this, i64 51
+  %arrayidx.i53 = getelementptr inbounds i8, ptr %this, i64 52
+  %arrayidx.i54 = getelementptr inbounds i8, ptr %this, i64 53
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %this, i64 54
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %this, i64 55
+  %arrayidx.i57 = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx.i58 = getelementptr inbounds i8, ptr %this, i64 57
+  %arrayidx.i59 = getelementptr inbounds i8, ptr %this, i64 58
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %this, i64 59
+  %arrayidx.i61 = getelementptr inbounds i8, ptr %this, i64 60
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %this, i64 61
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %this, i64 62
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %this, i64 63
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %this, i64 65
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %this, i64 66
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %this, i64 67
+  %arrayidx.i69 = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %this, i64 69
+  %arrayidx.i71 = getelementptr inbounds i8, ptr %this, i64 70
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %this, i64 71
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %this, i64 73
+  %arrayidx.i75 = getelementptr inbounds i8, ptr %this, i64 74
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
@@ -2913,7 +2906,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #17
   %call.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i6) #17
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i, i8 noundef signext %0) #17
   %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %i.09) #17
@@ -2971,7 +2964,7 @@ define dso_local void @_ZN4node28NativeSymbolDebuggingContext3NewEv(ptr noalias 
 _ZNSt10unique_ptrIN4node27PosixSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !8
-  %pagesize_.i.i = getelementptr inbounds %"class.node::PosixSymbolDebuggingContext", ptr %call.i, i64 0, i32 1
+  %pagesize_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i.i = tail call i32 @getpagesize() #20
   %conv.i.i = sext i32 %call.i.i to i64
   store i64 %conv.i.i, ptr %pagesize_.i.i, align 8, !noalias !8
@@ -2985,7 +2978,7 @@ entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #17
   %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %oss, ptr noundef nonnull align 8 dereferenceable(32) %this) #17
-  %dis = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %this, i64 0, i32 3
+  %dis = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %dis, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2997,7 +2990,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %filename = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %this, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %this, i64 32
   %call5 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #17
   br i1 %call5, label %if.end11, label %if.then6
 
@@ -3008,7 +3001,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %if.end
-  %line = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %this, i64 0, i32 2
+  %line = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i64, ptr %line, align 8
   %cmp12.not = icmp eq i64 %2, 0
   br i1 %cmp12.not, label %if.end17, label %if.then13
@@ -3049,7 +3042,7 @@ entry:
   %0 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 32, i64 1, ptr %fp)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !11
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !noalias !11
-  %pagesize_.i.i.i = getelementptr inbounds %"class.node::PosixSymbolDebuggingContext", ptr %call.i.i, i64 0, i32 1
+  %pagesize_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #20
   %conv.i.i.i = sext i32 %call.i.i.i to i64
   store i64 %conv.i.i.i, ptr %pagesize_.i.i.i, align 8, !noalias !11
@@ -3058,7 +3051,7 @@ entry:
   br i1 %cmp8, label %for.body.lr.ph, label %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit
 
 for.body.lr.ph:                                   ; preds = %entry
-  %filename.i = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %s, i64 0, i32 1
+  %filename.i = getelementptr inbounds i8, ptr %s, i64 32
   %wide.trip.count = zext nneg i32 %call.i to i64
   br label %for.body
 
@@ -3067,7 +3060,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds [256 x ptr], ptr %frames, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %vtable5 = load ptr, ptr %call.i.i, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %2 = load ptr, ptr %vfn6, align 8
   call void %2(ptr nonnull sret(%"class.node::NativeSymbolDebuggingContext::SymbolInfo") align 8 %s, ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef %1) #17
   call void @_ZNK4node28NativeSymbolDebuggingContext10SymbolInfo7DisplayB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %s)
@@ -3087,7 +3080,7 @@ _ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED
 
 _ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit, %entry
   %vtable.i.i = phi ptr [ %vtable.i.i.pre, %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, inrange i32 0, i64 2), %entry ]
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i) #17
   ret void
@@ -3156,14 +3149,14 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !20
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !noalias !20
-  %pagesize_.i.i.i = getelementptr inbounds %"class.node::PosixSymbolDebuggingContext", ptr %call.i.i, i64 0, i32 1
+  %pagesize_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #20
   %conv.i.i.i = sext i32 %call.i.i.i to i64
   store i64 %conv.i.i.i, ptr %pagesize_.i.i.i, align 8, !noalias !20
   store ptr %call.i.i, ptr %info, align 8, !alias.scope !17
-  %stream1 = getelementptr inbounds %struct.Info, ptr %info, i64 0, i32 1
+  %stream1 = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %stream, ptr %stream1, align 8
-  %num_handles = getelementptr inbounds %struct.Info, ptr %info, i64 0, i32 2
+  %num_handles = getelementptr inbounds i8, ptr %info, i64 16
   store i64 0, ptr %num_handles, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull @.str.86, ptr noundef %loop)
   call void @uv_walk(ptr noundef %loop, ptr noundef nonnull @"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEEN3$_08__invokeEP11uv_handle_sPv", ptr noundef nonnull %info) #17
@@ -3175,7 +3168,7 @@ entry:
 
 _ZNKSt14default_deleteIN4node28NativeSymbolDebuggingContextEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   br label %_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEEN4InfoD2Ev.exit
@@ -3270,47 +3263,47 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp24.i)
   %0 = load ptr, ptr %arg, align 8
-  %stream2.i = getelementptr inbounds %struct.Info, ptr %arg, i64 0, i32 1
+  %stream2.i = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %stream2.i, align 8
-  %num_handles.i = getelementptr inbounds %struct.Info, ptr %arg, i64 0, i32 2
+  %num_handles.i = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load i64, ptr %num_handles.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %num_handles.i, align 8
-  %type.i = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %handle, i64 16
   %3 = load i32, ptr %type.i, align 8
   %call3.i = tail call ptr @uv_handle_type_name(i32 noundef %3) #17
   %call4.i = tail call i32 @uv_is_active(ptr noundef %handle) #17
   %tobool.not.i = icmp eq i32 %call4.i, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.90, ptr @.str.89
   %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.88, ptr noundef %handle, ptr noundef %call3.i, ptr noundef nonnull %cond.i)
-  %close_cb6.i = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 3
+  %close_cb6.i = getelementptr inbounds i8, ptr %handle, i64 24
   %4 = load ptr, ptr %close_cb6.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   call void %5(ptr nonnull sret(%"class.node::NativeSymbolDebuggingContext::SymbolInfo") align 8 %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4) #17
   call void @_ZNK4node28NativeSymbolDebuggingContext10SymbolInfo7DisplayB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp7.i)
   %call8.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   %call9.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.91, ptr noundef %4, ptr noundef %call8.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  %filename.i.i = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %ref.tmp7.i, i64 0, i32 1
+  %filename.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i) #17
   %6 = load ptr, ptr %handle, align 8
   %vtable13.i = load ptr, ptr %0, align 8
-  %vfn14.i = getelementptr inbounds ptr, ptr %vtable13.i, i64 2
+  %vfn14.i = getelementptr inbounds i8, ptr %vtable13.i, i64 16
   %7 = load ptr, ptr %vfn14.i, align 8
   call void %7(ptr nonnull sret(%"class.node::NativeSymbolDebuggingContext::SymbolInfo") align 8 %ref.tmp11.i, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6) #17
   call void @_ZNK4node28NativeSymbolDebuggingContext10SymbolInfo7DisplayB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp11.i)
   %call15.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #17
   %call16.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.92, ptr noundef %6, ptr noundef %call15.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #17
-  %filename.i19.i = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %ref.tmp11.i, i64 0, i32 1
+  %filename.i19.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i19.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #17
   %8 = load ptr, ptr %handle, align 8
   %vtable18.i = load ptr, ptr %0, align 8
-  %vfn19.i = getelementptr inbounds ptr, ptr %vtable18.i, i64 3
+  %vfn19.i = getelementptr inbounds i8, ptr %vtable18.i, i64 24
   %9 = load ptr, ptr %vfn19.i, align 8
   %call20.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8) #17
   br i1 %call20.i, label %if.end.i, label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.exit"
@@ -3323,14 +3316,14 @@ if.end.i:                                         ; preds = %entry
 
 if.then22.i:                                      ; preds = %if.end.i
   %vtable25.i = load ptr, ptr %0, align 8
-  %vfn26.i = getelementptr inbounds ptr, ptr %vtable25.i, i64 2
+  %vfn26.i = getelementptr inbounds i8, ptr %vtable25.i, i64 16
   %12 = load ptr, ptr %vfn26.i, align 8
   call void %12(ptr nonnull sret(%"class.node::NativeSymbolDebuggingContext::SymbolInfo") align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %11) #17
   call void @_ZNK4node28NativeSymbolDebuggingContext10SymbolInfo7DisplayB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp24.i)
   %call27.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i) #17
   %call28.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.93, ptr noundef nonnull %11, ptr noundef %call27.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i) #17
-  %filename.i20.i = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %ref.tmp24.i, i64 0, i32 1
+  %filename.i20.i = getelementptr inbounds i8, ptr %ref.tmp24.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i20.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24.i) #17
   br label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.exit"
@@ -3352,7 +3345,7 @@ declare i32 @uv_is_active(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvEN3$_08__invokeEP12dl_phdr_infomPv"(ptr noundef %info, i64 %size, ptr noundef %data) #3 align 2 {
 entry:
-  %dlpi_name.i = getelementptr inbounds %struct.dl_phdr_info, ptr %info, i64 0, i32 1
+  %dlpi_name.i = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %dlpi_name.i, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not.i = icmp eq i8 %1, 0
@@ -3370,9 +3363,9 @@ if.then.i:                                        ; preds = %entry
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -3397,7 +3390,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %3 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end
 
@@ -3408,7 +3401,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit
   %4 = phi ptr [ %.pre, %if.else ], [ %incdec.ptr, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit ]
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -32
   ret ptr %add.ptr.i.i
 }
 
@@ -3416,7 +3409,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRPKcEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3477,14 +3470,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i13 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i13, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %for.body.i.i.i14
 
@@ -3493,8 +3486,8 @@ for.body.i.i.i14:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i14 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i16) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i16) #17
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i16, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i15, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i16, i64 32
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i15, i64 32
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %for.body.i.i.i14, !llvm.loop !23
 
@@ -3508,7 +3501,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -3606,14 +3599,14 @@ entry:
   %call = call i32 @dladdr(ptr noundef %address, ptr noundef nonnull %info) #17
   %tobool.not = icmp eq i32 %call, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17
-  %filename.i = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %agg.result, i64 0, i32 1
+  %filename.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i) #17
-  %line.i = getelementptr inbounds %"class.node::NativeSymbolDebuggingContext::SymbolInfo", ptr %agg.result, i64 0, i32 2
+  %line.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %line.i, i8 0, i64 16, i1 false)
   br i1 %tobool.not, label %nrvo.skipdtor, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dli_sname = getelementptr inbounds %struct.Dl_info, ptr %info, i64 0, i32 2
+  %dli_sname = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load ptr, ptr %dli_sname, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end13, label %if.then3
@@ -3650,7 +3643,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %if.then15, 
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4node27PosixSymbolDebuggingContext8IsMappedEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %address) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = ptrtoint ptr %address to i64
-  %pagesize_ = getelementptr inbounds %"class.node::PosixSymbolDebuggingContext", ptr %this, i64 0, i32 1
+  %pagesize_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %pagesize_, align 8
   %not = sub i64 0, %1
   %and = and i64 %not, %0

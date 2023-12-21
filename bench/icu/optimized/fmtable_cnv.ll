@@ -3,15 +3,6 @@ source_filename = "bench/icu/original/fmtable_cnv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::Formattable" = type { %"class.icu_75::UObject", %union.anon, ptr, ptr, i32, %"class.icu_75::UnicodeString" }
-%"class.icu_75::UObject" = type { ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i32 }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.1, [32 x i8] }
-%struct.anon.1 = type { i16, i32, i32, ptr }
-
 @_ZTVN6icu_7511FormattableE = external unnamed_addr constant { [5 x ptr] }, align 8
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
@@ -21,15 +12,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_7511FormattableC2EPKc(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %stringToCopy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511FormattableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fBogus = getelementptr inbounds %"class.icu_75::Formattable", ptr %this, i64 0, i32 5
+  %fBogus = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fBogus, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::Formattable", ptr %this, i64 0, i32 5, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7511Formattable4initEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fType = getelementptr inbounds %"class.icu_75::Formattable", ptr %this, i64 0, i32 4
+  %fType = getelementptr inbounds i8, ptr %this, i64 40
   store i32 3, ptr %fType, align 8
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #3
   %new.isnull = icmp eq ptr %call, null
@@ -40,7 +31,7 @@ new.notnull:                                      ; preds = %invoke.cont3
           to label %new.cont unwind label %lpad4
 
 new.cont:                                         ; preds = %new.notnull, %invoke.cont3
-  %fValue6 = getelementptr inbounds %"class.icu_75::Formattable", ptr %this, i64 0, i32 1
+  %fValue6 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %fValue6, align 8
   ret void
 

@@ -17,48 +17,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QemuUUID = type { %union.anon.9 }
 %union.anon.9 = type { %struct.anon.10 }
 %struct.anon.10 = type { i32, i16, i16, i8, i8, [6 x i8] }
-%struct.FWCfgState = type { %struct.SysBusDevice, i16, [2 x ptr], ptr, ptr, i16, i32, %struct.Notifier, i32, i8, i64, ptr, %struct.MemoryRegion, i8, i64, i64, i64 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.Notifier = type { ptr, %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 %struct.FWCfgEntry = type { i32, i8, ptr, ptr, ptr, ptr }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.FWCfgFiles = type { i32, [0 x %struct.fw_cfg_file] }
 %struct.fw_cfg_file = type { i32, i16, i16, [56 x i8] }
-%struct.FWCfgDataGeneratorClass = type { %struct.InterfaceClass, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct._GByteArray = type { ptr, i32 }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon.3, %struct.anon.4, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.FWCfgIoState = type { %struct.FWCfgState, %struct.MemoryRegion }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct._GError = type { i32, i32, ptr }
 %struct.fw_cfg_dma_access = type { i32, i32, i64 }
-%struct.FWCfgMemState = type { %struct.FWCfgState, %struct.MemoryRegion, %struct.MemoryRegion, i32, %struct.MemoryRegionOps }
 
 @.str = private unnamed_addr constant [30 x i8] c"s->fw_cfg_order_override == 0\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/hw/nvram/fw_cfg.c\00", align 1
@@ -248,7 +211,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @fw_cfg_dma_enabled(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %opaque, i64 892
   %0 = load i8, ptr %dma_enabled, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -304,7 +267,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i4
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i64 noundef %len) #19
@@ -334,8 +297,9 @@ if.else.i:                                        ; preds = %trace_fw_cfg_add_by
 
 if.end.i:                                         ; preds = %trace_fw_cfg_add_bytes.exit
   %key.lobit.i = lshr i16 %key, 15
+  %entries.i = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i, i64 0, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %idxprom9.i = zext nneg i16 %8 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %10, i64 %idxprom9.i, i32 2
@@ -418,7 +382,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i6
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, ptr noundef %value) #19
@@ -468,8 +432,9 @@ if.else.i:                                        ; preds = %entry
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %key.lobit.i = lshr i16 %key, 15
+  %entries.i = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %idxprom9.i = zext nneg i16 %0 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom9.i, i32 2
@@ -541,7 +506,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i5
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   %conv12.i.i = zext i16 %value to i32
@@ -583,8 +548,9 @@ if.else.i:                                        ; preds = %entry
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %key.lobit.i = lshr i16 %key, 15
+  %entries.i = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %idxprom9.i = zext nneg i16 %0 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom9.i, i32 2
@@ -654,7 +620,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i5
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %value) #19
@@ -691,8 +657,9 @@ if.else.i:                                        ; preds = %entry
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %key.lobit.i = lshr i16 %key, 15
+  %entries.i = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %idxprom9.i = zext nneg i16 %0 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom9.i, i32 2
@@ -762,7 +729,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i5
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i64 noundef %value) #19
@@ -799,8 +766,9 @@ if.else.i:                                        ; preds = %entry
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %key.lobit.i = lshr i16 %key, 15
+  %entries.i = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %idxprom9.i = zext nneg i16 %0 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom9.i, i32 2
@@ -822,7 +790,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_set_order_override(ptr nocapture noundef %s, i32 noundef %order) local_unnamed_addr #1 {
 entry:
-  %fw_cfg_order_override = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 8
+  %fw_cfg_order_override = getelementptr inbounds i8, ptr %s, i64 888
   %0 = load i32, ptr %fw_cfg_order_override, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -842,7 +810,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_reset_order_override(ptr nocapture noundef %s) local_unnamed_addr #1 {
 entry:
-  %fw_cfg_order_override = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 8
+  %fw_cfg_order_override = getelementptr inbounds i8, ptr %s, i64 888
   %0 = load i32, ptr %fw_cfg_order_override, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -863,7 +831,7 @@ entry:
   %call = tail call ptr @qdev_get_machine() #19
   %call.i = tail call ptr @object_get_class(ptr noundef %call) #19
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #19
-  %files = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 4
+  %files = getelementptr inbounds i8, ptr %s, i64 848
   %0 = load ptr, ptr %files, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -895,13 +863,14 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end13:                                         ; preds = %if.end
-  %legacy_fw_cfg_order = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 15
+  %legacy_fw_cfg_order = getelementptr inbounds i8, ptr %call1.i, i64 188
   %bf.load = load i8, ptr %legacy_fw_cfg_order, align 4
   %6 = and i8 %bf.load, 64
   %tobool14.not = icmp eq i8 %6, 0
   br i1 %tobool14.not, label %for.cond22.preheader, label %if.then15
 
 for.cond22.preheader:                             ; preds = %if.end13
+  %f = getelementptr inbounds i8, ptr %2, i64 4
   %7 = zext i32 %4 to i64
   %smin98 = tail call i32 @llvm.smin.i32(i32 %4, i32 0)
   br label %for.cond22
@@ -925,7 +894,7 @@ if.end8.i:                                        ; preds = %for.body.i
   br i1 %cmp12.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %if.end8.i
-  %order.i = getelementptr [22 x %struct.anon.7], ptr @fw_cfg_order, i64 0, i64 %indvars.iv.i, i32 1
+  %order.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %10 = load i32, ptr %order.i, align 8
   br label %get_fw_cfg_order.exit
 
@@ -940,7 +909,7 @@ for.end.i:                                        ; preds = %for.inc.i
 
 get_fw_cfg_order.exit:                            ; preds = %if.then15, %if.then14.i, %for.end.i
   %retval.0.i = phi i32 [ %10, %if.then14.i ], [ 200, %for.end.i ], [ %s.val77, %if.then15 ]
-  %entry_order = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
+  %entry_order = getelementptr inbounds i8, ptr %s, i64 840
   %11 = zext i32 %4 to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %4, i32 0)
   br label %for.cond
@@ -967,7 +936,7 @@ for.cond22:                                       ; preds = %for.cond22.preheade
 
 land.rhs25:                                       ; preds = %for.cond22
   %17 = add nsw i64 %indvars.iv95, -1
-  %name = getelementptr %struct.FWCfgFiles, ptr %2, i64 0, i32 1, i64 %17, i32 3
+  %name = getelementptr [0 x %struct.fw_cfg_file], ptr %f, i64 0, i64 %17, i32 3
   %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #21
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %for.cond22, label %if.end38, !llvm.loop !8
@@ -983,8 +952,8 @@ if.end38.for.end78_crit_edge:                     ; preds = %if.end38
   br label %for.end78
 
 for.body42.lr.ph:                                 ; preds = %if.end38
-  %entries = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 2
-  %entry_order69 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %s, i64 824
+  %entry_order69 = getelementptr inbounds i8, ptr %s, i64 840
   %18 = sext i32 %4 to i64
   %19 = sext i32 %index.2 to i64
   br label %for.body42
@@ -992,20 +961,22 @@ for.body42.lr.ph:                                 ; preds = %if.end38
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.body42
   %indvars.iv100 = phi i64 [ %18, %for.body42.lr.ph ], [ %indvars.iv.next101, %for.body42 ]
   %20 = load ptr, ptr %files, align 16
-  %arrayidx46 = getelementptr %struct.FWCfgFiles, ptr %20, i64 0, i32 1, i64 %indvars.iv100
+  %f44 = getelementptr inbounds i8, ptr %20, i64 4
+  %arrayidx46 = getelementptr [0 x %struct.fw_cfg_file], ptr %f44, i64 0, i64 %indvars.iv100
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
-  %arrayidx51 = getelementptr %struct.FWCfgFiles, ptr %20, i64 0, i32 1, i64 %indvars.iv.next101
+  %arrayidx51 = getelementptr [0 x %struct.fw_cfg_file], ptr %f44, i64 0, i64 %indvars.iv.next101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx46, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx51, i64 64, i1 false)
   %21 = add nsw i64 %indvars.iv100, 32
   %conv53 = trunc i64 %21 to i16
   %22 = tail call i16 @llvm.bswap.i16(i16 %conv53)
   %23 = load ptr, ptr %files, align 16
-  %select = getelementptr %struct.FWCfgFiles, ptr %23, i64 0, i32 1, i64 %indvars.iv100, i32 1
+  %f56 = getelementptr inbounds i8, ptr %23, i64 4
+  %select = getelementptr [0 x %struct.fw_cfg_file], ptr %f56, i64 0, i64 %indvars.iv100, i32 1
   store i16 %22, ptr %select, align 4
   %24 = load ptr, ptr %entries, align 8
   %arrayidx62 = getelementptr %struct.FWCfgEntry, ptr %24, i64 %21
   %25 = getelementptr %struct.FWCfgEntry, ptr %24, i64 %indvars.iv100
-  %arrayidx68 = getelementptr %struct.FWCfgEntry, ptr %25, i64 31
+  %arrayidx68 = getelementptr i8, ptr %25, i64 1240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx62, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx68, i64 40, i1 false)
   %26 = load ptr, ptr %entry_order69, align 8
   %arrayidx72 = getelementptr i32, ptr %26, i64 %indvars.iv.next101
@@ -1018,16 +989,18 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
 for.end78:                                        ; preds = %for.body42, %if.end38.for.end78_crit_edge
   %idxprom81.pre-phi = phi i64 [ %.pre107, %if.end38.for.end78_crit_edge ], [ %19, %for.body42 ]
   %28 = load ptr, ptr %files, align 16
-  %arrayidx82 = getelementptr %struct.FWCfgFiles, ptr %28, i64 0, i32 1, i64 %idxprom81.pre-phi
+  %f80 = getelementptr inbounds i8, ptr %28, i64 4
+  %arrayidx82 = getelementptr [0 x %struct.fw_cfg_file], ptr %f80, i64 0, i64 %idxprom81.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx82, i8 0, i64 64, i1 false)
-  %entries83 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 2
+  %entries83 = getelementptr inbounds i8, ptr %s, i64 824
   %29 = load ptr, ptr %entries83, align 8
   %add85 = add nsw i32 %index.2, 32
   %idxprom86 = sext i32 %add85 to i64
   %arrayidx87 = getelementptr %struct.FWCfgEntry, ptr %29, i64 %idxprom86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx87, i8 0, i64 40, i1 false)
   %30 = load ptr, ptr %files, align 16
-  %name92 = getelementptr %struct.FWCfgFiles, ptr %30, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
+  %f89 = getelementptr inbounds i8, ptr %30, i64 4
+  %name92 = getelementptr [0 x %struct.fw_cfg_file], ptr %f89, i64 0, i64 %idxprom81.pre-phi, i32 3
   tail call void @pstrcpy(ptr noundef %name92, i32 noundef 56, ptr noundef %filename) #19
   %cmp95.not89 = icmp slt i32 %4, 0
   br i1 %cmp95.not89, label %for.end124, label %for.body97.preheader
@@ -1045,8 +1018,9 @@ for.body97:                                       ; preds = %for.body97.preheade
 
 land.lhs.true:                                    ; preds = %for.body97
   %33 = load ptr, ptr %files, align 16
-  %name104 = getelementptr %struct.FWCfgFiles, ptr %33, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
-  %name110 = getelementptr %struct.FWCfgFiles, ptr %33, i64 0, i32 1, i64 %indvars.iv104, i32 3
+  %f101 = getelementptr inbounds i8, ptr %33, i64 4
+  %name104 = getelementptr [0 x %struct.fw_cfg_file], ptr %f101, i64 0, i64 %idxprom81.pre-phi, i32 3
+  %name110 = getelementptr [0 x %struct.fw_cfg_file], ptr %f101, i64 0, i64 %indvars.iv104, i32 3
   %call112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name104, ptr noundef nonnull dereferenceable(1) %name110) #21
   %cmp113 = icmp eq i32 %call112, 0
   br i1 %cmp113, label %if.then115, label %for.inc123
@@ -1080,7 +1054,7 @@ if.end.i:                                         ; preds = %for.end124
   %34 = and i16 %conv126, 16383
   %key.lobit.i = lshr i16 %conv126, 15
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i80 = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i80 = getelementptr [2 x ptr], ptr %entries83, i64 0, i64 %idxprom.i
   %35 = load ptr, ptr %arrayidx.i80, align 8
   %idxprom9.i = zext nneg i16 %34 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %35, i64 %idxprom9.i, i32 2
@@ -1114,18 +1088,21 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
   store i8 %frombool56.i, ptr %allow_write.i, align 4
   %42 = tail call i32 @llvm.bswap.i32(i32 %conv23.i)
   %43 = load ptr, ptr %files, align 16
-  %arrayidx133 = getelementptr %struct.FWCfgFiles, ptr %43, i64 0, i32 1, i64 %idxprom81.pre-phi
+  %f131 = getelementptr inbounds i8, ptr %43, i64 4
+  %arrayidx133 = getelementptr [0 x %struct.fw_cfg_file], ptr %f131, i64 0, i64 %idxprom81.pre-phi
   store i32 %42, ptr %arrayidx133, align 4
   %44 = tail call i16 @llvm.bswap.i16(i16 %conv126)
   %45 = load ptr, ptr %files, align 16
-  %select141 = getelementptr %struct.FWCfgFiles, ptr %45, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 1
+  %f138 = getelementptr inbounds i8, ptr %45, i64 4
+  %select141 = getelementptr [0 x %struct.fw_cfg_file], ptr %f138, i64 0, i64 %idxprom81.pre-phi, i32 1
   store i16 %44, ptr %select141, align 4
-  %entry_order142 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
+  %entry_order142 = getelementptr inbounds i8, ptr %s, i64 840
   %46 = load ptr, ptr %entry_order142, align 8
   %arrayidx144 = getelementptr i32, ptr %46, i64 %idxprom81.pre-phi
   store i32 %order.0, ptr %arrayidx144, align 4
   %47 = load ptr, ptr %files, align 16
-  %name149 = getelementptr %struct.FWCfgFiles, ptr %47, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
+  %f146 = getelementptr inbounds i8, ptr %47, i64 4
+  %name149 = getelementptr [0 x %struct.fw_cfg_file], ptr %f146, i64 0, i64 %idxprom81.pre-phi, i32 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %48 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %48, 0
@@ -1150,7 +1127,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %53 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %54 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %53, i64 noundef %54, ptr noundef nonnull %s, i32 noundef %index.2, ptr noundef %name149, i64 noundef %len) #19
   br label %trace_fw_cfg_add_file.exit
@@ -1170,7 +1147,7 @@ trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_ca
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i83
 
 if.then.i:                                        ; preds = %trace_fw_cfg_add_file.exit
-  %table_mr_size.i = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 14
+  %table_mr_size.i = getelementptr inbounds i8, ptr %s, i64 1192
   store i64 %len, ptr %table_mr_size.i, align 8
   br label %fw_cfg_acpi_mr_save.exit
 
@@ -1180,7 +1157,7 @@ if.else.i83:                                      ; preds = %trace_fw_cfg_add_fi
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i83
-  %linker_mr_size.i = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 15
+  %linker_mr_size.i = getelementptr inbounds i8, ptr %s, i64 1200
   store i64 %len, ptr %linker_mr_size.i, align 16
   br label %fw_cfg_acpi_mr_save.exit
 
@@ -1190,7 +1167,7 @@ if.else4.i:                                       ; preds = %if.else.i83
   br i1 %tobool6.not.i, label %if.then7.i, label %fw_cfg_acpi_mr_save.exit
 
 if.then7.i:                                       ; preds = %if.else4.i
-  %rsdp_mr_size.i = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 16
+  %rsdp_mr_size.i = getelementptr inbounds i8, ptr %s, i64 1208
   store i64 %len, ptr %rsdp_mr_size.i, align 8
   br label %fw_cfg_acpi_mr_save.exit
 
@@ -1229,7 +1206,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @fw_cfg_modify_file(ptr noundef %s, ptr noundef %filename, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %files = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 4
+  %files = getelementptr inbounds i8, ptr %s, i64 848
   %0 = load ptr, ptr %files, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1242,15 +1219,16 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %0, align 4
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
   %cmp21 = icmp sgt i32 %2, 0
-  br i1 %cmp21, label %for.body.preheader, label %for.end
+  br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %if.end
+for.body.lr.ph:                                   ; preds = %if.end
+  %f = getelementptr inbounds i8, ptr %0, i64 4
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %name = getelementptr %struct.FWCfgFiles, ptr %0, i64 0, i32 1, i64 %indvars.iv, i32 3
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %name = getelementptr [0 x %struct.fw_cfg_file], ptr %f, i64 0, i64 %indvars.iv, i32 3
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #21
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %for.inc
@@ -1275,8 +1253,9 @@ if.else.i:                                        ; preds = %if.then5
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %if.then5
   %key.lobit.i = lshr i16 %conv, 15
+  %entries.i = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %idxprom9.i = zext nneg i16 %4 to i64
   %data11.i = getelementptr %struct.FWCfgEntry, ptr %6, i64 %idxprom9.i, i32 2
@@ -1294,14 +1273,15 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %if.then5
   store i8 0, ptr %allow_write.i, align 4
   %11 = tail call i32 @llvm.bswap.i32(i32 %conv18.i)
   %12 = load ptr, ptr %files, align 16
-  %arrayidx12 = getelementptr %struct.FWCfgFiles, ptr %12, i64 0, i32 1, i64 %indvars.iv
+  %f10 = getelementptr inbounds i8, ptr %12, i64 4
+  %arrayidx12 = getelementptr [0 x %struct.fw_cfg_file], ptr %f10, i64 0, i64 %indvars.iv
   store i32 %11, ptr %arrayidx12, align 4
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i19
 
 if.then.i:                                        ; preds = %fw_cfg_modify_bytes_read.exit
-  %table_mr_size.i = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 14
+  %table_mr_size.i = getelementptr inbounds i8, ptr %s, i64 1192
   store i64 %len, ptr %table_mr_size.i, align 8
   br label %return
 
@@ -1311,7 +1291,7 @@ if.else.i19:                                      ; preds = %fw_cfg_modify_bytes
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i19
-  %linker_mr_size.i = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 15
+  %linker_mr_size.i = getelementptr inbounds i8, ptr %s, i64 1200
   store i64 %len, ptr %linker_mr_size.i, align 16
   br label %return
 
@@ -1321,7 +1301,7 @@ if.else4.i:                                       ; preds = %if.else.i19
   br i1 %tobool6.not.i, label %if.then7.i, label %return
 
 if.then7.i:                                       ; preds = %if.else4.i
-  %rsdp_mr_size.i = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 16
+  %rsdp_mr_size.i = getelementptr inbounds i8, ptr %s, i64 1208
   store i64 %len, ptr %rsdp_mr_size.i, align 8
   br label %return
 
@@ -1374,14 +1354,14 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call1) #19
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.79, i32 noundef 21, ptr noundef nonnull @__func__.FW_CFG_DATA_GENERATOR_GET_CLASS) #19
-  %get_data = getelementptr inbounds %struct.FWCfgDataGeneratorClass, ptr %call1.i, i64 0, i32 1
+  %get_data = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %get_data, align 8
   %call7 = tail call ptr %0(ptr noundef nonnull %call1, ptr noundef %errp) #19
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %len = getelementptr inbounds %struct._GByteArray, ptr %call7, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %call7, i64 8
   %1 = load i32, ptr %len, align 8
   %conv = zext i32 %1 to i64
   %call11 = tail call ptr @g_byte_array_free(ptr noundef nonnull %call7, i32 noundef 0) #19
@@ -1410,7 +1390,7 @@ entry:
   br i1 %tobool.not, label %if.end9, label %if.end
 
 if.end:                                           ; preds = %entry
-  %child = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 14
+  %child = getelementptr inbounds i8, ptr %bus, i64 2256
   %bus.addr.09 = load ptr, ptr %child, align 8
   %tobool1.not10 = icmp eq ptr %bus.addr.09, null
   br i1 %tobool1.not10, label %if.end9, label %for.body
@@ -1422,7 +1402,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %bus.addr.0.val = load i32, ptr %0, align 8
   %and.i = and i32 %bus.addr.0.val, 1
   %spec.select = add i32 %and.i, %extra_hosts.011
-  %sibling = getelementptr inbounds %struct.PCIBus, ptr %bus.addr.012, i64 0, i32 15
+  %sibling = getelementptr inbounds i8, ptr %bus.addr.012, i64 2264
   %bus.addr.0 = load ptr, ptr %sibling, align 8
   %tobool1.not = icmp eq ptr %bus.addr.0, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !12
@@ -1464,22 +1444,22 @@ if.end:                                           ; preds = %if.then, %entry
   %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #19
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #19
   %conv = zext i32 %iobase to i64
-  %comb_iomem = getelementptr inbounds %struct.FWCfgIoState, ptr %call.i13, i64 0, i32 1
+  %comb_iomem = getelementptr inbounds i8, ptr %call.i13, i64 1216
   tail call void @sysbus_add_io(ptr noundef %call.i, i64 noundef %conv, ptr noundef nonnull %comb_iomem) #19
   %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %call.i14, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %call.i14, i64 892
   %1 = load i8, ptr %dma_enabled, align 4
   %2 = and i8 %1, 1
   %tobool9.not = icmp eq i8 %2, 0
   br i1 %tobool9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %dma_as11 = getelementptr inbounds %struct.FWCfgState, ptr %call.i14, i64 0, i32 11
+  %dma_as11 = getelementptr inbounds i8, ptr %call.i14, i64 904
   store ptr %dma_as, ptr %dma_as11, align 8
-  %dma_addr = getelementptr inbounds %struct.FWCfgState, ptr %call.i14, i64 0, i32 10
+  %dma_addr = getelementptr inbounds i8, ptr %call.i14, i64 896
   store i64 0, ptr %dma_addr, align 16
   %conv12 = zext i32 %dma_iobase to i64
-  %dma_iomem = getelementptr inbounds %struct.FWCfgState, ptr %call.i14, i64 0, i32 12
+  %dma_iomem = getelementptr inbounds i8, ptr %call.i14, i64 912
   tail call void @sysbus_add_io(ptr noundef %call.i, i64 noundef %conv12, ptr noundef nonnull %dma_iomem) #19
   br label %if.end13
 
@@ -1526,16 +1506,16 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 0, i64 noundef %ctl_addr) #19
   tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 1, i64 noundef %data_addr) #19
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %call.i13, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %call.i13, i64 892
   %1 = load i8, ptr %dma_enabled, align 4
   %2 = and i8 %1, 1
   %tobool8.not = icmp eq i8 %2, 0
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %dma_as10 = getelementptr inbounds %struct.FWCfgState, ptr %call.i13, i64 0, i32 11
+  %dma_as10 = getelementptr inbounds i8, ptr %call.i13, i64 904
   store ptr %dma_as, ptr %dma_as10, align 8
-  %dma_addr11 = getelementptr inbounds %struct.FWCfgState, ptr %call.i13, i64 0, i32 10
+  %dma_addr11 = getelementptr inbounds i8, ptr %call.i13, i64 896
   store i64 0, ptr %dma_addr11, align 16
   tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 2, i64 noundef %dma_addr) #19
   br label %if.end12
@@ -1659,7 +1639,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal i64 @fw_cfg_data_read(ptr noundef %opaque, i64 %addr, i32 noundef %size) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %cur_entry = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 5
+  %cur_entry = getelementptr inbounds i8, ptr %opaque, i64 856
   %0 = load i16, ptr %cur_entry, align 8
   %cmp = icmp eq i16 %0, -1
   br i1 %cmp, label %cond.end, label %cond.end.thread
@@ -1671,8 +1651,9 @@ cond.end:                                         ; preds = %entry
 
 cond.end.thread:                                  ; preds = %entry
   %.lobit = lshr i16 %0, 15
+  %entries = getelementptr inbounds i8, ptr %opaque, i64 824
   %idxprom = zext nneg i16 %.lobit to i64
-  %arrayidx = getelementptr %struct.FWCfgState, ptr %opaque, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %entries, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = and i16 %0, 16383
   %idxprom8 = zext nneg i16 %3 to i64
@@ -1686,13 +1667,13 @@ if.else:                                          ; preds = %cond.end.thread, %c
   unreachable
 
 land.lhs.true19:                                  ; preds = %cond.end.thread
-  %data = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom8, i32 2
+  %data = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   %5 = load ptr, ptr %data, align 8
   %tobool20.not = icmp eq ptr %5, null
   br i1 %tobool20.not, label %if.end36, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true19
-  %cur_offset = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 6
+  %cur_offset = getelementptr inbounds i8, ptr %opaque, i64 860
   %6 = load i32, ptr %cur_offset, align 4
   %7 = load i32, ptr %arrayidx9, align 8
   %cmp22 = icmp ult i32 %6, %7
@@ -1752,7 +1733,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %opaque, i64 noundef %value.1) #19
   br label %trace_fw_cfg_read.exit
@@ -1785,9 +1766,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 define internal void @fw_cfg_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @fw_cfg_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_fw_cfg, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_properties) #19
   ret void
@@ -1807,7 +1788,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal fastcc void @fw_cfg_select(ptr noundef %s, i16 noundef zeroext %key) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %cur_offset = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 6
+  %cur_offset = getelementptr inbounds i8, ptr %s, i64 860
   store i32 0, ptr %cur_offset, align 4
   %0 = and i16 %key, 16383
   %and = zext nneg i16 %0 to i32
@@ -1816,7 +1797,7 @@ entry:
   %conv.i = zext i16 %s.val to i32
   %add.i = add nuw nsw i32 %conv.i, 32
   %cmp.not = icmp ugt i32 %add.i, %and
-  %cur_entry2 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 5
+  %cur_entry2 = getelementptr inbounds i8, ptr %s, i64 856
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1826,17 +1807,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   store i16 %key, ptr %cur_entry2, align 8
   %key.lobit = lshr i16 %key, 15
+  %entries = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom = zext nneg i16 %key.lobit to i64
-  %arrayidx = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %entries, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %idxprom8 = zext nneg i16 %0 to i64
-  %select_cb = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom8, i32 4
+  %arrayidx9 = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom8
+  %select_cb = getelementptr inbounds i8, ptr %arrayidx9, i64 24
   %3 = load ptr, ptr %select_cb, align 8
   %tobool10.not = icmp eq ptr %3, null
   br i1 %tobool10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %callback_opaque = getelementptr %struct.FWCfgEntry, ptr %2, i64 %idxprom8, i32 3
+  %callback_opaque = getelementptr inbounds i8, ptr %arrayidx9, i64 16
   %4 = load ptr, ptr %callback_opaque, align 8
   tail call void %3(ptr noundef %4) #19
   br label %if.end13
@@ -1888,7 +1871,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i14
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %s, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #19
@@ -1934,10 +1917,10 @@ declare i32 @qemu_get_be16(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @fw_cfg_acpi_mr_restore_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #1 {
 entry:
-  %offset.i32 = alloca i64, align 8
+  %offset.i33 = alloca i64, align 8
   %offset.i18 = alloca i64, align 8
   %offset.i = alloca i64, align 8
-  %files = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 4
+  %files = getelementptr inbounds i8, ptr %opaque, i64 848
   %0 = load ptr, ptr %files, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1949,21 +1932,23 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %0, align 4
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %cmp46 = icmp sgt i32 %2, 0
-  br i1 %cmp46, label %for.body.lr.ph, label %for.end
+  %cmp48 = icmp sgt i32 %2, 0
+  br i1 %cmp48, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %rsdp_mr_size = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 16
+  %rsdp_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1208
   %3 = getelementptr i8, ptr %opaque, i64 816
-  %linker_mr_size = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 15
-  %table_mr_size = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 14
+  %entries.i41 = getelementptr inbounds i8, ptr %opaque, i64 824
+  %linker_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1200
+  %table_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1192
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = load ptr, ptr %files, align 16
-  %name = getelementptr %struct.FWCfgFiles, ptr %4, i64 0, i32 1, i64 %indvars.iv, i32 3
+  %f = getelementptr inbounds i8, ptr %4, i64 4
+  %name = getelementptr [0 x %struct.fw_cfg_file], ptr %f, i64 0, i64 %indvars.iv, i32 3
   %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(16) @.str.71) #21
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %if.else6
@@ -1988,7 +1973,7 @@ if.else.i:                                        ; preds = %if.then5
 fw_cfg_update_mr.exit:                            ; preds = %if.then5
   %key.lobit.i = lshr i16 %conv, 15
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
-  %arrayidx.i = getelementptr %struct.FWCfgState, ptr %opaque, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %entries.i41, i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %idxprom7.i = zext nneg i16 %7 to i64
   %data.i = getelementptr %struct.FWCfgEntry, ptr %8, i64 %idxprom7.i, i32 2
@@ -2014,22 +1999,22 @@ if.then15:                                        ; preds = %if.else6
   %conv.i.i21 = zext i16 %s.val.i20 to i32
   %add.i.i22 = add nuw nsw i32 %conv.i.i21, 32
   %cmp.i23 = icmp ugt i32 %add.i.i22, %conv5.i19
-  br i1 %cmp.i23, label %fw_cfg_update_mr.exit31, label %if.else.i24
+  br i1 %cmp.i23, label %fw_cfg_update_mr.exit32, label %if.else.i24
 
 if.else.i24:                                      ; preds = %if.then15
   call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #20
   unreachable
 
-fw_cfg_update_mr.exit31:                          ; preds = %if.then15
+fw_cfg_update_mr.exit32:                          ; preds = %if.then15
   %key.lobit.i25 = lshr i16 %conv17, 15
-  %idxprom.i26 = zext nneg i16 %key.lobit.i25 to i64
-  %arrayidx.i27 = getelementptr %struct.FWCfgState, ptr %opaque, i64 0, i32 2, i64 %idxprom.i26
-  %13 = load ptr, ptr %arrayidx.i27, align 8
-  %idxprom7.i28 = zext nneg i16 %12 to i64
-  %data.i29 = getelementptr %struct.FWCfgEntry, ptr %13, i64 %idxprom7.i28, i32 2
-  %14 = load ptr, ptr %data.i29, align 8
-  %call9.i30 = call ptr @memory_region_from_host(ptr noundef %14, ptr noundef nonnull %offset.i18) #19
-  call void @memory_region_ram_resize(ptr noundef %call9.i30, i64 noundef %11, ptr noundef nonnull @error_abort) #19
+  %idxprom.i27 = zext nneg i16 %key.lobit.i25 to i64
+  %arrayidx.i28 = getelementptr [2 x ptr], ptr %entries.i41, i64 0, i64 %idxprom.i27
+  %13 = load ptr, ptr %arrayidx.i28, align 8
+  %idxprom7.i29 = zext nneg i16 %12 to i64
+  %data.i30 = getelementptr %struct.FWCfgEntry, ptr %13, i64 %idxprom7.i29, i32 2
+  %14 = load ptr, ptr %data.i30, align 8
+  %call9.i31 = call ptr @memory_region_from_host(ptr noundef %14, ptr noundef nonnull %offset.i18) #19
+  call void @memory_region_ram_resize(ptr noundef %call9.i31, i64 noundef %11, ptr noundef nonnull @error_abort) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i18)
   br label %for.inc
 
@@ -2042,33 +2027,33 @@ if.then27:                                        ; preds = %if.else18
   %15 = trunc i64 %indvars.iv to i16
   %conv29 = add i16 %15, 32
   %16 = load i64, ptr %rsdp_mr_size, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offset.i32)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offset.i33)
   %17 = and i16 %conv29, 16383
-  %conv5.i33 = zext nneg i16 %17 to i32
-  %s.val.i34 = load i16, ptr %3, align 16
-  %conv.i.i35 = zext i16 %s.val.i34 to i32
-  %add.i.i36 = add nuw nsw i32 %conv.i.i35, 32
-  %cmp.i37 = icmp ugt i32 %add.i.i36, %conv5.i33
-  br i1 %cmp.i37, label %fw_cfg_update_mr.exit45, label %if.else.i38
+  %conv5.i34 = zext nneg i16 %17 to i32
+  %s.val.i35 = load i16, ptr %3, align 16
+  %conv.i.i36 = zext i16 %s.val.i35 to i32
+  %add.i.i37 = add nuw nsw i32 %conv.i.i36, 32
+  %cmp.i38 = icmp ugt i32 %add.i.i37, %conv5.i34
+  br i1 %cmp.i38, label %fw_cfg_update_mr.exit47, label %if.else.i39
 
-if.else.i38:                                      ; preds = %if.then27
+if.else.i39:                                      ; preds = %if.then27
   call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #20
   unreachable
 
-fw_cfg_update_mr.exit45:                          ; preds = %if.then27
-  %key.lobit.i39 = lshr i16 %conv29, 15
-  %idxprom.i40 = zext nneg i16 %key.lobit.i39 to i64
-  %arrayidx.i41 = getelementptr %struct.FWCfgState, ptr %opaque, i64 0, i32 2, i64 %idxprom.i40
-  %18 = load ptr, ptr %arrayidx.i41, align 8
-  %idxprom7.i42 = zext nneg i16 %17 to i64
-  %data.i43 = getelementptr %struct.FWCfgEntry, ptr %18, i64 %idxprom7.i42, i32 2
-  %19 = load ptr, ptr %data.i43, align 8
-  %call9.i44 = call ptr @memory_region_from_host(ptr noundef %19, ptr noundef nonnull %offset.i32) #19
-  call void @memory_region_ram_resize(ptr noundef %call9.i44, i64 noundef %16, ptr noundef nonnull @error_abort) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i32)
+fw_cfg_update_mr.exit47:                          ; preds = %if.then27
+  %key.lobit.i40 = lshr i16 %conv29, 15
+  %idxprom.i42 = zext nneg i16 %key.lobit.i40 to i64
+  %arrayidx.i43 = getelementptr [2 x ptr], ptr %entries.i41, i64 0, i64 %idxprom.i42
+  %18 = load ptr, ptr %arrayidx.i43, align 8
+  %idxprom7.i44 = zext nneg i16 %17 to i64
+  %data.i45 = getelementptr %struct.FWCfgEntry, ptr %18, i64 %idxprom7.i44, i32 2
+  %19 = load ptr, ptr %data.i45, align 8
+  %call9.i46 = call ptr @memory_region_from_host(ptr noundef %19, ptr noundef nonnull %offset.i33) #19
+  call void @memory_region_ram_resize(ptr noundef %call9.i46, i64 noundef %16, ptr noundef nonnull @error_abort) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i33)
   br label %for.inc
 
-for.inc:                                          ; preds = %fw_cfg_update_mr.exit, %if.else18, %fw_cfg_update_mr.exit45, %fw_cfg_update_mr.exit31
+for.inc:                                          ; preds = %fw_cfg_update_mr.exit, %if.else18, %fw_cfg_update_mr.exit47, %fw_cfg_update_mr.exit32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
@@ -2080,7 +2065,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @fw_cfg_acpi_mr_restore(ptr nocapture noundef readonly %opaque) #13 {
 entry:
-  %table_mr_size = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 14
+  %table_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1192
   %0 = load i64, ptr %table_mr_size, align 8
   %call.i = tail call i32 @getpagesize() #25
   %conv.i = sext i32 %call.i to i64
@@ -2089,14 +2074,14 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %linker_mr_size = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 15
+  %linker_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1200
   %1 = load i64, ptr %linker_mr_size, align 16
   %rem2 = urem i64 %1, %conv.i
   %cmp3 = icmp eq i64 %rem2, 0
   br i1 %cmp3, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %rsdp_mr_size = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 16
+  %rsdp_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1208
   %2 = load i64, ptr %rsdp_mr_size, align 8
   %rem5 = urem i64 %2, %conv.i
   %cmp6 = icmp ne i64 %rem5, 0
@@ -2104,7 +2089,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
   %lnot = phi i1 [ true, %land.lhs.true ], [ true, %entry ], [ %cmp6, %land.rhs ]
-  %acpi_mr_restore = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 13
+  %acpi_mr_restore = getelementptr inbounds i8, ptr %opaque, i64 1184
   %3 = load i8, ptr %acpi_mr_restore, align 16
   %4 = and i8 %3, 1
   %tobool = icmp ne i8 %4, 0
@@ -2123,7 +2108,7 @@ declare i32 @getpagesize() local_unnamed_addr #14
 define internal void @fw_cfg_io_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @fw_cfg_io_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_io_properties) #19
   ret void
@@ -2134,7 +2119,7 @@ define internal void @fw_cfg_io_realize(ptr noundef %dev, ptr noundef %errp) #1 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -2148,11 +2133,11 @@ entry:
   br i1 %tobool4.not, label %if.end6, label %cleanup
 
 if.end6:                                          ; preds = %entry
-  %comb_iomem = getelementptr inbounds %struct.FWCfgIoState, ptr %call.i, i64 0, i32 1
+  %comb_iomem = getelementptr inbounds i8, ptr %call.i, i64 1216
   %call.i16 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
   call void @memory_region_init_io(ptr noundef nonnull %comb_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_comb_mem_ops, ptr noundef %call.i16, ptr noundef nonnull @.str.105, i64 noundef 2) #19
   %call.i17 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %call.i17, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %call.i17, i64 892
   %1 = load i8, ptr %dma_enabled, align 4
   %2 = and i8 %1, 1
   %tobool9.not = icmp eq i8 %2, 0
@@ -2160,7 +2145,7 @@ if.end6:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.end6
   %call.i18 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_iomem = getelementptr inbounds %struct.FWCfgState, ptr %call.i18, i64 0, i32 12
+  %dma_iomem = getelementptr inbounds i8, ptr %call.i18, i64 912
   %call.i19 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
   call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i19, ptr noundef nonnull @.str.106, i64 noundef 8) #19
   br label %if.end13
@@ -2200,19 +2185,19 @@ if.end9:                                          ; preds = %if.end
   %narrow = add nuw nsw i16 %s.val10, 32
   %conv11 = zext nneg i16 %narrow to i64
   %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 40) #26
-  %entries = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 2
+  %entries = getelementptr inbounds i8, ptr %s, i64 824
   store ptr %call12, ptr %entries, align 8
   %s.val12 = load i16, ptr %0, align 16
   %conv.i14 = zext i16 %s.val12 to i64
   %add.i15 = add nuw nsw i64 %conv.i14, 32
   %call15 = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i15, i64 noundef 40) #26
-  %arrayidx17 = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 1
+  %arrayidx17 = getelementptr i8, ptr %s, i64 832
   store ptr %call15, ptr %arrayidx17, align 8
   %s.val11 = load i16, ptr %0, align 16
   %conv.i16 = zext i16 %s.val11 to i64
   %add.i17 = add nuw nsw i64 %conv.i16, 32
   %call20 = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i17, i64 noundef 4) #26
-  %entry_order = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
+  %entry_order = getelementptr inbounds i8, ptr %s, i64 840
   store ptr %call20, ptr %entry_order, align 8
   br label %return
 
@@ -2245,20 +2230,20 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @fw_cfg_add_bytes(ptr noundef %call.i, i16 noundef zeroext 0, ptr noundef nonnull @.str.112, i64 noundef 4)
   tail call void @fw_cfg_add_bytes(ptr noundef %call.i, i16 noundef zeroext 2, ptr noundef nonnull @qemu_uuid, i64 noundef 16)
-  %enable_graphics = getelementptr inbounds %struct.MachineState, ptr %call.i13, i64 0, i32 13
+  %enable_graphics = getelementptr inbounds i8, ptr %call.i13, i64 98
   %0 = load i8, ptr %enable_graphics, align 2
   %1 = and i8 %0, 1
   %2 = xor i8 %1, 1
   %conv = zext nneg i8 %2 to i16
   tail call void @fw_cfg_add_i16(ptr noundef %call.i, i16 noundef zeroext 4, i16 noundef zeroext %conv)
-  %has_menu = getelementptr inbounds %struct.MachineState, ptr %call.i13, i64 0, i32 22, i32 2
+  %has_menu = getelementptr inbounds i8, ptr %call.i13, i64 184
   %3 = load i8, ptr %has_menu, align 8
   %4 = and i8 %3, 1
   %tobool5.not = icmp eq i8 %4, 0
   br i1 %tobool5.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %menu = getelementptr inbounds %struct.MachineState, ptr %call.i13, i64 0, i32 22, i32 3
+  %menu = getelementptr inbounds i8, ptr %call.i13, i64 185
   %5 = load i8, ptr %menu, align 1
   %6 = and i8 %5, 1
   %7 = zext nneg i8 %6 to i16
@@ -2270,14 +2255,14 @@ land.end:                                         ; preds = %land.rhs, %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %file_size.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %bst_le16.i)
   %8 = load ptr, ptr @current_machine, align 8
-  %has_splash_time.i = getelementptr inbounds %struct.MachineState, ptr %8, i64 0, i32 22, i32 5
+  %has_splash_time.i = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load i8, ptr %has_splash_time.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %if.end5.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.end
-  %splash_time.i = getelementptr inbounds %struct.MachineState, ptr %8, i64 0, i32 22, i32 6
+  %splash_time.i = getelementptr inbounds i8, ptr %8, i64 208
   %11 = load i64, ptr %splash_time.i, align 8
   %or.cond.i = icmp ugt i64 %11, 65535
   br i1 %or.cond.i, label %if.then3.i, label %if.end.i
@@ -2297,7 +2282,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end5.i:                                        ; preds = %if.end.i, %land.end
   %12 = phi ptr [ %.pre.i, %if.end.i ], [ %8, %land.end ]
-  %splash.i = getelementptr inbounds %struct.MachineState, ptr %12, i64 0, i32 22, i32 4
+  %splash.i = getelementptr inbounds i8, ptr %12, i64 192
   %13 = load ptr, ptr %splash.i, align 8
   %tobool7.not.i = icmp eq ptr %13, null
   br i1 %tobool7.not.i, label %fw_cfg_bootsplash.exit, label %if.then8.i
@@ -2321,7 +2306,7 @@ if.end15.i:                                       ; preds = %if.then8.i
 
 if.then.i.i:                                      ; preds = %if.end15.i
   %14 = load ptr, ptr %err.i.i, align 8
-  %message.i.i = getelementptr inbounds %struct._GError, ptr %14, i64 0, i32 2
+  %message.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %message.i.i, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.115, ptr noundef nonnull %call11.i, ptr noundef %15) #19
   %16 = load ptr, ptr %err.i.i, align 8
@@ -2388,14 +2373,14 @@ fw_cfg_bootsplash.exit:                           ; preds = %if.end5.i, %if.then
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %bst_le16.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rt_le32.i)
   %24 = load ptr, ptr @current_machine, align 8
-  %has_reboot_timeout.i = getelementptr inbounds %struct.MachineState, ptr %24, i64 0, i32 22, i32 7
+  %has_reboot_timeout.i = getelementptr inbounds i8, ptr %24, i64 216
   %25 = load i8, ptr %has_reboot_timeout.i, align 8
   %26 = and i8 %25, 1
   %tobool.not.i16 = icmp eq i8 %26, 0
   br i1 %tobool.not.i16, label %fw_cfg_reboot.exit, label %if.then.i17
 
 if.then.i17:                                      ; preds = %fw_cfg_bootsplash.exit
-  %reboot_timeout.i = getelementptr inbounds %struct.MachineState, ptr %24, i64 0, i32 22, i32 8
+  %reboot_timeout.i = getelementptr inbounds i8, ptr %24, i64 224
   %27 = load i64, ptr %reboot_timeout.i, align 8
   %28 = add i64 %27, -65536
   %or.cond.i18 = icmp ult i64 %28, -65537
@@ -2413,13 +2398,13 @@ fw_cfg_reboot.exit:                               ; preds = %fw_cfg_bootsplash.e
   %call5.i = call dereferenceable_or_null(4) ptr @g_memdup(ptr noundef nonnull %rt_le32.i, i32 noundef 4) #22
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call5.i, i64 noundef 4, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rt_le32.i)
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %call.i, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %call.i, i64 892
   %29 = load i8, ptr %dma_enabled, align 4
   %30 = and i8 %29, 1
   %tobool11.not = icmp eq i8 %30, 0
   %. = select i1 %tobool11.not, i32 1, i32 3
   call void @fw_cfg_add_i32(ptr noundef nonnull %call.i, i16 noundef zeroext 1, i32 noundef %.)
-  %machine_ready = getelementptr inbounds %struct.FWCfgState, ptr %call.i, i64 0, i32 7
+  %machine_ready = getelementptr inbounds i8, ptr %call.i, i64 864
   store ptr @fw_cfg_machine_ready, ptr %machine_ready, align 16
   call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_ready) #19
   br label %return
@@ -2507,12 +2492,12 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %shl = shl i64 %value, 32
-  %dma_addr = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 10
+  %dma_addr = getelementptr inbounds i8, ptr %opaque, i64 896
   store i64 %shl, ptr %dma_addr, align 16
   br label %if.end13
 
 if.then4:                                         ; preds = %if.then
-  %dma_addr5 = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 10
+  %dma_addr5 = getelementptr inbounds i8, ptr %opaque, i64 896
   %0 = load i64, ptr %dma_addr5, align 16
   %or = or i64 %0, %value
   store i64 %or, ptr %dma_addr5, align 16
@@ -2526,7 +2511,7 @@ if.else7:                                         ; preds = %entry
   br i1 %or.cond, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.else7
-  %dma_addr11 = getelementptr inbounds %struct.FWCfgState, ptr %opaque, i64 0, i32 10
+  %dma_addr11 = getelementptr inbounds i8, ptr %opaque, i64 896
   store i64 %value, ptr %dma_addr11, align 16
   tail call fastcc void @fw_cfg_dma_transfer(ptr noundef %opaque)
   br label %if.end13
@@ -2565,10 +2550,10 @@ entry:
   %val.addr.i107 = alloca i32, align 4
   %val.addr.i = alloca i32, align 4
   %dma = alloca %struct.fw_cfg_dma_access, align 8
-  %dma_addr1 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 10
+  %dma_addr1 = getelementptr inbounds i8, ptr %s, i64 896
   %0 = load i64, ptr %dma_addr1, align 16
   store i64 0, ptr %dma_addr1, align 16
-  %dma_as = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 11
+  %dma_as = getelementptr inbounds i8, ptr %s, i64 904
   %1 = load ptr, ptr %dma_as, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !15
   fence seq_cst
@@ -2587,11 +2572,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %address = getelementptr inbounds %struct.fw_cfg_dma_access, ptr %dma, i64 0, i32 2
+  %address = getelementptr inbounds i8, ptr %dma, i64 8
   %3 = load i64, ptr %address, align 8
   %4 = call i64 @llvm.bswap.i64(i64 %3)
   store i64 %4, ptr %address, align 8
-  %length = getelementptr inbounds %struct.fw_cfg_dma_access, ptr %dma, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %dma, i64 4
   %5 = load i32, ptr %length, align 4
   %6 = call i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %length, align 4
@@ -2609,15 +2594,16 @@ if.then72:                                        ; preds = %if.end
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then72, %if.end
-  %cur_entry = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 5
+  %cur_entry = getelementptr inbounds i8, ptr %s, i64 856
   %9 = load i16, ptr %cur_entry, align 8
   %cmp = icmp eq i16 %9, -1
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end75
   %.lobit = lshr i16 %9, 15
+  %entries = getelementptr inbounds i8, ptr %s, i64 824
   %idxprom = zext nneg i16 %.lobit to i64
-  %arrayidx = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %entries, i64 0, i64 %idxprom
   %10 = load ptr, ptr %arrayidx, align 8
   %11 = and i16 %9, 16383
   %idxprom86 = zext nneg i16 %11 to i64
@@ -2654,11 +2640,11 @@ if.end105:                                        ; preds = %if.else96, %if.else
   br i1 %cmp108109.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end105
-  %data = getelementptr inbounds %struct.FWCfgEntry, ptr %cond, i64 0, i32 2
-  %cur_offset = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 6
-  %allow_write = getelementptr inbounds %struct.FWCfgEntry, ptr %cond, i64 0, i32 1
-  %write_cb = getelementptr inbounds %struct.FWCfgEntry, ptr %cond, i64 0, i32 5
-  %callback_opaque = getelementptr inbounds %struct.FWCfgEntry, ptr %cond, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %cond, i64 8
+  %cur_offset = getelementptr inbounds i8, ptr %s, i64 860
+  %allow_write = getelementptr inbounds i8, ptr %cond, i64 4
+  %write_cb = getelementptr inbounds i8, ptr %cond, i64 32
+  %callback_opaque = getelementptr inbounds i8, ptr %cond, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end301
@@ -2844,7 +2830,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = call i32 @qemu_get_thread_id() #19
   %46 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %47 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %46, i64 noundef %47, ptr noundef nonnull %s, i64 noundef 0) #19
   br label %trace_fw_cfg_read.exit
@@ -2895,7 +2881,7 @@ entry:
   %0 = load i64, ptr %len, align 8
   %call3 = call ptr @fw_cfg_modify_file(ptr noundef %opaque, ptr noundef nonnull @.str.75, ptr noundef %call2, i64 noundef %0)
   call void @g_free(ptr noundef %call3) #19
-  %legacy_fw_cfg_order = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 15
+  %legacy_fw_cfg_order = getelementptr inbounds i8, ptr %call1.i, i64 188
   %bf.load = load i8, ptr %legacy_fw_cfg_order, align 4
   %1 = and i8 %bf.load, 64
   %tobool.not = icmp eq i8 %1, 0
@@ -2920,7 +2906,7 @@ declare ptr @get_boot_devices_lchs_list(ptr noundef) local_unnamed_addr #4
 define internal void @fw_cfg_mem_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @fw_cfg_mem_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_mem_properties) #19
   ret void
@@ -2931,7 +2917,7 @@ define internal void @fw_cfg_mem_realize(ptr noundef %dev, ptr noundef %errp) #1
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -2946,35 +2932,35 @@ entry:
   br i1 %tobool5.not, label %if.end7, label %cleanup
 
 if.end7:                                          ; preds = %entry
-  %ctl_iomem = getelementptr inbounds %struct.FWCfgMemState, ptr %call.i, i64 0, i32 1
+  %ctl_iomem = getelementptr inbounds i8, ptr %call.i, i64 1216
   %call.i36 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
   call void @memory_region_init_io(ptr noundef nonnull %ctl_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_ctl_mem_ops, ptr noundef %call.i36, ptr noundef nonnull @.str.120, i64 noundef 2) #19
   call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %ctl_iomem) #19
-  %data_width = getelementptr inbounds %struct.FWCfgMemState, ptr %call.i, i64 0, i32 3
+  %data_width = getelementptr inbounds i8, ptr %call.i, i64 1760
   %1 = load i32, ptr %data_width, align 16
   %cmp10 = icmp ugt i32 %1, 1
   br i1 %cmp10, label %if.then11, label %if.end20
 
 if.then11:                                        ; preds = %if.end7
-  %wide_data_ops = getelementptr inbounds %struct.FWCfgMemState, ptr %call.i, i64 0, i32 4
+  %wide_data_ops = getelementptr inbounds i8, ptr %call.i, i64 1768
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %wide_data_ops, ptr noundef nonnull align 8 dereferenceable(80) @fw_cfg_data_mem_ops, i64 80, i1 false)
-  %max_access_size15 = getelementptr inbounds %struct.FWCfgMemState, ptr %call.i, i64 0, i32 4, i32 5, i32 1
+  %max_access_size15 = getelementptr inbounds i8, ptr %call.i, i64 1812
   store i32 %1, ptr %max_access_size15, align 4
-  %max_access_size18 = getelementptr inbounds %struct.FWCfgMemState, ptr %call.i, i64 0, i32 4, i32 6, i32 1
+  %max_access_size18 = getelementptr inbounds i8, ptr %call.i, i64 1836
   store i32 %1, ptr %max_access_size18, align 4
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then11, %if.end7
   %data_ops.0 = phi ptr [ %wide_data_ops, %if.then11 ], [ @fw_cfg_data_mem_ops, %if.end7 ]
-  %data_iomem = getelementptr inbounds %struct.FWCfgMemState, ptr %call.i, i64 0, i32 2
+  %data_iomem = getelementptr inbounds i8, ptr %call.i, i64 1488
   %call.i37 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %max_access_size23 = getelementptr inbounds %struct.MemoryRegionOps, ptr %data_ops.0, i64 0, i32 5, i32 1
+  %max_access_size23 = getelementptr inbounds i8, ptr %data_ops.0, i64 44
   %2 = load i32, ptr %max_access_size23, align 4
   %conv = zext i32 %2 to i64
   call void @memory_region_init_io(ptr noundef nonnull %data_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull %data_ops.0, ptr noundef %call.i37, ptr noundef nonnull @.str.121, i64 noundef %conv) #19
   call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %data_iomem) #19
   %call.i38 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %call.i38, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %call.i38, i64 892
   %3 = load i8, ptr %dma_enabled, align 4
   %4 = and i8 %3, 1
   %tobool26.not = icmp eq i8 %4, 0
@@ -2982,11 +2968,11 @@ if.end20:                                         ; preds = %if.then11, %if.end7
 
 if.then27:                                        ; preds = %if.end20
   %call.i39 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_iomem = getelementptr inbounds %struct.FWCfgState, ptr %call.i39, i64 0, i32 12
+  %dma_iomem = getelementptr inbounds i8, ptr %call.i39, i64 912
   %call.i40 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
   call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i40, ptr noundef nonnull @.str.106, i64 noundef 8) #19
   %call.i41 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %dma_iomem31 = getelementptr inbounds %struct.FWCfgState, ptr %call.i41, i64 0, i32 12
+  %dma_iomem31 = getelementptr inbounds i8, ptr %call.i41, i64 912
   call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %dma_iomem31) #19
   br label %if.end32
 

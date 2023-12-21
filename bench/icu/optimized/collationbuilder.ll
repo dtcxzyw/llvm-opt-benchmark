@@ -3,12 +3,9 @@ source_filename = "bench/icu/original/collationbuilder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::RuleBasedCollator" = type <{ %"class.icu_75::Collator", ptr, ptr, ptr, ptr, %"class.icu_75::Locale", i32, i8, [3 x i8] }>
-%"class.icu_75::Collator" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::CollationBuilder" = type { %"class.icu_75::CollationRuleParser::Sink", ptr, ptr, ptr, ptr, ptr, %"class.icu_75::CollationRootElements", i32, ptr, i8, i8, [6 x i8], %"class.icu_75::UnicodeSet", ptr, [31 x i64], i32, %"class.icu_75::UVector32", %"class.icu_75::UVector64" }
 %"class.icu_75::CollationRuleParser::Sink" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::CollationRootElements" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
@@ -22,16 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"struct.icu_75::CollationTailoring" = type { %"class.icu_75::SharedObject", ptr, ptr, %"class.icu_75::UnicodeString", %"class.icu_75::Locale", [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.icu_75::UInitOnce" }
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
 %"class.icu_75::CollationRuleParser" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.icu_75::CollationData" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
-%"struct.icu_75::CollationSettings" = type <{ %"class.icu_75::SharedObject", i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, i32, i32, [384 x i16], [4 x i8] }>
-%"class.icu_75::CollationDataBuilder" = type { %"class.icu_75::UObject", ptr, ptr, ptr, ptr, %"class.icu_75::UVector32", %"class.icu_75::UVector64", %"class.icu_75::UVector", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeString", i32, [4 x i8], %"class.icu_75::UnicodeSet", i8, i8, i8, ptr, ptr }
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
 %"class.icu_75::CollationWeights" = type { i32, [5 x i32], [5 x i32], [7 x %"struct.icu_75::CollationWeights::WeightRange"], i32, i32 }
 %"struct.icu_75::CollationWeights::WeightRange" = type { i32, i32, i32, i32 }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
@@ -42,7 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::CollationIterator.base" = type <{ %"class.icu_75::UObject", ptr, ptr, %"class.icu_75::CollationIterator::CEBuffer", i32, [4 x i8], ptr, i32, i8 }>
 %"class.icu_75::CollationIterator::CEBuffer" = type { i32, %"class.icu_75::MaybeStackArray" }
 %"class.icu_75::MaybeStackArray" = type { ptr, i32, i8, [40 x i64] }
-%"class.icu_75::CollationIterator" = type <{ %"class.icu_75::UObject", ptr, ptr, %"class.icu_75::CollationIterator::CEBuffer", i32, [4 x i8], ptr, i32, i8, [3 x i8] }>
 %"class.icu_75::CanonicalIterator" = type { %"class.icu_75::UObject", %"class.icu_75::UnicodeString", i8, ptr, i32, ptr, ptr, i32, %"class.icu_75::UnicodeString", ptr, ptr }
 
 $_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_ = comdat any
@@ -119,16 +106,16 @@ define void @_ZN6icu_7517RuleBasedCollatorC2Ev(ptr noundef nonnull align 8 deref
 entry:
   tail call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 1
-  %validLocale = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data, i8 0, i64 32, i1 false)
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %explicitlySetAttributes = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 6
+  %explicitlySetAttributes = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %explicitlySetAttributes, align 8
-  %actualLocaleIsSameAsValid = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 7
+  %actualLocaleIsSameAsValid = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %actualLocaleIsSameAsValid, align 4
   ret void
 
@@ -153,16 +140,16 @@ define void @_ZN6icu_7517RuleBasedCollatorC2ERKNS_13UnicodeStringER10UErrorCode(
 entry:
   tail call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 1
-  %validLocale = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data, i8 0, i64 32, i1 false)
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %explicitlySetAttributes = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 6
+  %explicitlySetAttributes = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %explicitlySetAttributes, align 8
-  %actualLocaleIsSameAsValid = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 7
+  %actualLocaleIsSameAsValid = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %actualLocaleIsSameAsValid, align 4
   invoke void @_ZN6icu_7517RuleBasedCollator22internalBuildTailoringERKNS_13UnicodeStringEi18UColAttributeValueP11UParseErrorPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef -1, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad2
@@ -204,7 +191,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %outReason, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %outReason, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i3.i = and i16 %1, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
@@ -226,7 +213,7 @@ invoke.cont9:                                     ; preds = %if.end5
   br i1 %cmp.i15, label %if.end23, label %if.then14
 
 if.then14:                                        ; preds = %invoke.cont9
-  %errorReason.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %builder, i64 0, i32 13
+  %errorReason.i = getelementptr inbounds i8, ptr %builder, i64 288
   %4 = load ptr, ptr %errorReason.i, align 8
   %cmp17 = icmp ne ptr %4, null
   %or.cond = and i1 %cmp, %cmp17
@@ -259,13 +246,13 @@ lpad10:                                           ; preds = %if.end23, %if.then1
 
 delete.notnull.i:                                 ; preds = %lpad10
   %vtable.i = load ptr, ptr %call8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(400) %call8) #12
   br label %ehcleanup
 
 if.end23:                                         ; preds = %invoke.cont9
-  %actualLocale = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call8, i64 0, i32 4
+  %actualLocale = getelementptr inbounds i8, ptr %call8, i64 104
   invoke void @_ZN6icu_756Locale10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(217) %actualLocale)
           to label %invoke.cont26 unwind label %lpad10
 
@@ -295,7 +282,7 @@ cleanup:                                          ; preds = %if.then14, %invoke.
 
 delete.notnull.i18:                               ; preds = %cleanup
   %vtable.i19 = load ptr, ptr %call8, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 1
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 8
   %7 = load ptr, ptr %vfn.i20, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(400) %call8) #12
   br label %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit21
@@ -323,16 +310,16 @@ define void @_ZN6icu_7517RuleBasedCollatorC2ERKNS_13UnicodeStringENS_8Collator18
 entry:
   tail call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 1
-  %validLocale = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data, i8 0, i64 32, i1 false)
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %explicitlySetAttributes = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 6
+  %explicitlySetAttributes = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %explicitlySetAttributes, align 8
-  %actualLocaleIsSameAsValid = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 7
+  %actualLocaleIsSameAsValid = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %actualLocaleIsSameAsValid, align 4
   invoke void @_ZN6icu_7517RuleBasedCollator22internalBuildTailoringERKNS_13UnicodeStringEi18UColAttributeValueP11UParseErrorPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %strength, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad2
@@ -362,16 +349,16 @@ define void @_ZN6icu_7517RuleBasedCollatorC2ERKNS_13UnicodeStringE18UColAttribut
 entry:
   tail call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 1
-  %validLocale = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data, i8 0, i64 32, i1 false)
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %explicitlySetAttributes = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 6
+  %explicitlySetAttributes = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %explicitlySetAttributes, align 8
-  %actualLocaleIsSameAsValid = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 7
+  %actualLocaleIsSameAsValid = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %actualLocaleIsSameAsValid, align 4
   invoke void @_ZN6icu_7517RuleBasedCollator22internalBuildTailoringERKNS_13UnicodeStringEi18UColAttributeValueP11UParseErrorPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef -1, i32 noundef %decompositionMode, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad2
@@ -401,16 +388,16 @@ define void @_ZN6icu_7517RuleBasedCollatorC2ERKNS_13UnicodeStringENS_8Collator18
 entry:
   tail call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 1
-  %validLocale = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data, i8 0, i64 32, i1 false)
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %explicitlySetAttributes = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 6
+  %explicitlySetAttributes = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %explicitlySetAttributes, align 8
-  %actualLocaleIsSameAsValid = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 7
+  %actualLocaleIsSameAsValid = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %actualLocaleIsSameAsValid, align 4
   invoke void @_ZN6icu_7517RuleBasedCollator22internalBuildTailoringERKNS_13UnicodeStringEi18UColAttributeValueP11UParseErrorPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %strength, i32 noundef %decompositionMode, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad2
@@ -440,16 +427,16 @@ define void @_ZN6icu_7517RuleBasedCollatorC2ERKNS_13UnicodeStringER11UParseError
 entry:
   tail call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 1
-  %validLocale = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %this, i64 8
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data, i8 0, i64 32, i1 false)
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %explicitlySetAttributes = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 6
+  %explicitlySetAttributes = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %explicitlySetAttributes, align 8
-  %actualLocaleIsSameAsValid = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this, i64 0, i32 7
+  %actualLocaleIsSameAsValid = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %actualLocaleIsSameAsValid, align 4
   invoke void @_ZN6icu_7517RuleBasedCollator22internalBuildTailoringERKNS_13UnicodeStringEi18UColAttributeValueP11UParseErrorPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %parseError, ptr noundef nonnull %reason, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad2
@@ -488,16 +475,16 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %baseData, align 8
-  %rootElements = getelementptr inbounds %"struct.icu_75::CollationData", ptr %1, i64 0, i32 20
+  %rootElements = getelementptr inbounds i8, ptr %1, i64 128
   %2 = load ptr, ptr %rootElements, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   store i32 2, ptr %errorCode, align 4
-  %errorReason = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 13
+  %errorReason = getelementptr inbounds i8, ptr %this, i64 288
   store ptr @.str.3, ptr %errorReason, align 8
   br label %return
 
@@ -507,15 +494,15 @@ if.end3:                                          ; preds = %if.end
   br i1 %new.isnull, label %if.then14, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end3
-  %base = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 4
+  %base = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %base, align 8
-  %settings = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %3, i64 0, i32 2
+  %settings = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %settings, align 8
   invoke void @_ZN6icu_7518CollationTailoringC1EPKNS_17CollationSettingsE(ptr noundef nonnull align 8 dereferenceable(400) %call4, ptr noundef %4)
           to label %lor.lhs.false unwind label %lpad
 
 lor.lhs.false:                                    ; preds = %new.notnull
-  %settings.i = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call4, i64 0, i32 2
+  %settings.i = getelementptr inbounds i8, ptr %call4, i64 32
   %5 = load ptr, ptr %settings.i, align 8
   %cmp.i23.not = icmp eq ptr %5, null
   br i1 %cmp.i23.not, label %if.then14, label %if.end15
@@ -553,15 +540,15 @@ lpad18:                                           ; preds = %invoke.cont111, %in
 
 if.end23:                                         ; preds = %invoke.cont17
   %11 = load ptr, ptr %base, align 8
-  %settings25 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %11, i64 0, i32 2
+  %settings25 = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %settings25, align 8
-  %variableTop = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %12, i64 0, i32 2
+  %variableTop = getelementptr inbounds i8, ptr %12, i64 28
   %13 = load i32, ptr %variableTop, align 4
-  %variableTop26 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 7
+  %variableTop26 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %13, ptr %variableTop26, align 8
-  %sink.i = getelementptr inbounds %"class.icu_75::CollationRuleParser", ptr %parser, i64 0, i32 7
+  %sink.i = getelementptr inbounds i8, ptr %parser, i64 56
   store ptr %this, ptr %sink.i, align 8
-  %importer.i = getelementptr inbounds %"class.icu_75::CollationRuleParser", ptr %parser, i64 0, i32 8
+  %importer.i = getelementptr inbounds i8, ptr %parser, i64 64
   store ptr %importer, ptr %importer.i, align 8
   %call33 = invoke noundef ptr @_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_(ptr noundef nonnull align 8 dereferenceable(8) %settings.i)
           to label %invoke.cont32 unwind label %lpad18
@@ -571,18 +558,18 @@ invoke.cont32:                                    ; preds = %if.end23
           to label %invoke.cont34 unwind label %lpad18
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %errorReason.i = getelementptr inbounds %"class.icu_75::CollationRuleParser", ptr %parser, i64 0, i32 6
+  %errorReason.i = getelementptr inbounds i8, ptr %parser, i64 48
   %14 = load ptr, ptr %errorReason.i, align 8
-  %errorReason37 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 13
+  %errorReason37 = getelementptr inbounds i8, ptr %this, i64 288
   store ptr %14, ptr %errorReason37, align 8
   %15 = load i32, ptr %errorCode, align 4
   %cmp.i27 = icmp slt i32 %15, 1
   br i1 %cmp.i27, label %if.end42, label %cleanup
 
 if.end42:                                         ; preds = %invoke.cont34
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load ptr, ptr %dataBuilder, align 8
-  %modified.i = getelementptr inbounds %"class.icu_75::CollationDataBuilder", ptr %16, i64 0, i32 13
+  %modified.i = getelementptr inbounds i8, ptr %16, i64 616
   %17 = load i8, ptr %modified.i, align 8
   %tobool45.not = icmp eq i8 %17, 0
   br i1 %tobool45.not, label %if.else, label %if.then46
@@ -592,7 +579,7 @@ if.then46:                                        ; preds = %if.end42
           to label %invoke.cont47 unwind label %lpad18
 
 invoke.cont47:                                    ; preds = %if.then46
-  %icu4xMode = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 10
+  %icu4xMode = getelementptr inbounds i8, ptr %this, i64 81
   %18 = load i8, ptr %icu4xMode, align 1
   %tobool48.not = icmp eq i8 %18, 0
   br i1 %tobool48.not, label %if.then49, label %if.end51
@@ -611,7 +598,7 @@ invoke.cont52:                                    ; preds = %if.end51
   br i1 %tobool54.not, label %if.then55, label %if.end67
 
 if.then55:                                        ; preds = %invoke.cont52
-  %optimizeSet = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 12
+  %optimizeSet = getelementptr inbounds i8, ptr %this, i64 88
   %call57 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %optimizeSet, i32 noundef 0, i32 noundef 127)
           to label %invoke.cont56 unwind label %lpad18
 
@@ -638,37 +625,37 @@ invoke.cont70:                                    ; preds = %if.end67
   br i1 %cmp.i29, label %if.end76, label %cleanup
 
 if.end76:                                         ; preds = %invoke.cont70
-  %fastLatinEnabled = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 9
+  %fastLatinEnabled = getelementptr inbounds i8, ptr %this, i64 80
   %22 = load i8, ptr %fastLatinEnabled, align 8
   %tobool77.not = icmp eq i8 %22, 0
   br i1 %tobool77.not, label %if.end81, label %if.then78
 
 if.then78:                                        ; preds = %if.end76
   %23 = load ptr, ptr %dataBuilder, align 8
-  %fastLatinEnabled.i = getelementptr inbounds %"class.icu_75::CollationDataBuilder", ptr %23, i64 0, i32 15
+  %fastLatinEnabled.i = getelementptr inbounds i8, ptr %23, i64 618
   store i8 1, ptr %fastLatinEnabled.i, align 2
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then78, %if.end76
   %24 = load ptr, ptr %dataBuilder, align 8
-  %ownedData = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call4, i64 0, i32 6
+  %ownedData = getelementptr inbounds i8, ptr %call4, i64 336
   %25 = load ptr, ptr %ownedData, align 8
   %vtable = load ptr, ptr %24, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %26 = load ptr, ptr %vfn, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(640) %24, ptr noundef nonnull align 8 dereferenceable(140) %25, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont85 unwind label %lpad18
 
 invoke.cont85:                                    ; preds = %if.end81
   %27 = load ptr, ptr %dataBuilder, align 8
-  %builder = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call4, i64 0, i32 7
+  %builder = getelementptr inbounds i8, ptr %call4, i64 344
   store ptr %27, ptr %builder, align 8
   store ptr null, ptr %dataBuilder, align 8
   br label %if.end93
 
 if.else:                                          ; preds = %if.end42
   %28 = load ptr, ptr %baseData, align 8
-  %data = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call4, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call4, i64 24
   store ptr %28, ptr %data, align 8
   br label %if.end93
 
@@ -678,16 +665,16 @@ if.end93:                                         ; preds = %if.else, %invoke.co
   br i1 %cmp.i31, label %if.end98, label %cleanup
 
 if.end98:                                         ; preds = %if.end93
-  %data101 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call4, i64 0, i32 1
+  %data101 = getelementptr inbounds i8, ptr %call4, i64 24
   %30 = load ptr, ptr %data101, align 8
-  %fastLatinPrimaries = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %call33, i64 0, i32 13
+  %fastLatinPrimaries = getelementptr inbounds i8, ptr %call33, i64 84
   %call103 = invoke noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(852) %call33, ptr noundef nonnull %fastLatinPrimaries, i32 noundef 384)
           to label %invoke.cont102 unwind label %lpad18
 
 invoke.cont102:                                   ; preds = %if.end98
-  %fastLatinOptions = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %call33, i64 0, i32 12
+  %fastLatinOptions = getelementptr inbounds i8, ptr %call33, i64 80
   store i32 %call103, ptr %fastLatinOptions, align 8
-  %rules = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call4, i64 0, i32 3
+  %rules = getelementptr inbounds i8, ptr %call4, i64 40
   %call107 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef nonnull align 8 dereferenceable(64) %ruleString)
           to label %invoke.cont106 unwind label %lpad18
 
@@ -697,7 +684,7 @@ invoke.cont106:                                   ; preds = %invoke.cont102
 
 invoke.cont111:                                   ; preds = %invoke.cont106
   %31 = load ptr, ptr %base, align 8
-  %version = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %31, i64 0, i32 5
+  %version = getelementptr inbounds i8, ptr %31, i64 328
   invoke void @_ZN6icu_7518CollationTailoring10setVersionEPKhS2_(ptr noundef nonnull align 8 dereferenceable(400) %call4, ptr noundef nonnull %version, ptr noundef %rulesVersion)
           to label %cleanup unwind label %lpad18
 
@@ -715,7 +702,7 @@ cleanup120:                                       ; preds = %cleanup, %if.then14
 
 delete.notnull.i:                                 ; preds = %cleanup120
   %vtable.i = load ptr, ptr %tailoring.sroa.0.1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %32 = load ptr, ptr %vfn.i, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(400) %tailoring.sroa.0.1) #12
   br label %return
@@ -723,7 +710,7 @@ delete.notnull.i:                                 ; preds = %cleanup120
 _ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit37: ; preds = %lpad18, %lpad5
   %.pn = phi { ptr, i32 } [ %10, %lpad18 ], [ %7, %lpad5 ]
   %vtable.i35 = load ptr, ptr %call4, align 8
-  %vfn.i36 = getelementptr inbounds ptr, ptr %vtable.i35, i64 1
+  %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 8
   %33 = load ptr, ptr %vfn.i36, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(400) %call4) #12
   br label %eh.resume
@@ -766,37 +753,37 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %nfd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
+  %nfd = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %nfd, align 8
   %call3 = invoke noundef ptr @_ZN6icu_7518Normalizer2Factory14getFCDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %fcd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
+  %fcd = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call3, ptr %fcd, align 8
-  %nfcImpl = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 3
+  %nfcImpl = getelementptr inbounds i8, ptr %this, i64 24
   %call5 = invoke noundef ptr @_ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   store ptr %call5, ptr %nfcImpl, align 8
-  %base = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 4
+  %base = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %b, ptr %base, align 8
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
-  %data = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %b, i64 0, i32 1
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
+  %data = getelementptr inbounds i8, ptr %b, i64 24
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %baseData, align 8
-  %rootElements = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
-  %rootElements7 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %0, i64 0, i32 20
+  %rootElements = getelementptr inbounds i8, ptr %this, i64 48
+  %rootElements7 = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %rootElements7, align 8
-  %rootElementsLength = getelementptr inbounds %"struct.icu_75::CollationData", ptr %0, i64 0, i32 21
+  %rootElementsLength = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i32, ptr %rootElementsLength, align 8
   store ptr %1, ptr %rootElements, align 8
-  %length.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6, i32 1
+  %length.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %2, ptr %length.i, align 8
-  %variableTop = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 7
+  %variableTop = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %variableTop, align 8
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %call10 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 640) #12
   %new.isnull = icmp eq ptr %call10, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
@@ -807,25 +794,25 @@ new.notnull:                                      ; preds = %invoke.cont4
 
 new.cont:                                         ; preds = %new.notnull, %invoke.cont4
   store ptr %call10, ptr %dataBuilder, align 8
-  %fastLatinEnabled = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 9
+  %fastLatinEnabled = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %fastLatinEnabled, align 8
-  %icu4xMode13 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 10
+  %icu4xMode13 = getelementptr inbounds i8, ptr %this, i64 81
   store i8 %icu4xMode, ptr %icu4xMode13, align 1
-  %optimizeSet = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 12
+  %optimizeSet = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %optimizeSet)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %new.cont
-  %errorReason = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 13
+  %errorReason = getelementptr inbounds i8, ptr %this, i64 288
   store ptr null, ptr %errorReason, align 8
-  %cesLength = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %cesLength = getelementptr inbounds i8, ptr %this, i64 544
   store i32 0, ptr %cesLength, align 8
-  %rootPrimaryIndexes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16
+  %rootPrimaryIndexes = getelementptr inbounds i8, ptr %this, i64 552
   invoke void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %rootPrimaryIndexes, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  %nodes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17
+  %nodes = getelementptr inbounds i8, ptr %this, i64 584
   invoke void @_ZN6icu_759UVector64C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %nodes, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont18 unwind label %lpad17
 
@@ -959,24 +946,24 @@ entry:
 define void @_ZN6icu_7516CollationBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7516CollationBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %dataBuilder, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(640) %0) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %nodes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17
+  %nodes = getelementptr inbounds i8, ptr %this, i64 584
   tail call void @_ZN6icu_759UVector64D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nodes) #12
-  %rootPrimaryIndexes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16
+  %rootPrimaryIndexes = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rootPrimaryIndexes) #12
-  %optimizeSet = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 12
+  %optimizeSet = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %optimizeSet) #12
   tail call void @_ZN6icu_7519CollationRuleParser4SinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
   ret void
@@ -1044,17 +1031,17 @@ if.end:                                           ; preds = %entry
   call void @_ZN6icu_7516CollationWeightsC1Ev(ptr noundef nonnull align 4 dereferenceable(164) %primaries)
   call void @_ZN6icu_7516CollationWeightsC1Ev(ptr noundef nonnull align 4 dereferenceable(164) %secondaries)
   call void @_ZN6icu_7516CollationWeightsC1Ev(ptr noundef nonnull align 4 dereferenceable(164) %tertiaries)
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load ptr, ptr %elements.i, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 560
   %2 = load i32, ptr %count.i, align 8
   %cmp165 = icmp sgt i32 %2, 0
   br i1 %cmp165, label %cond.true.i.lr.ph, label %for.end
 
 cond.true.i.lr.ph:                                ; preds = %if.end
-  %elements.i56 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16, i32 4
-  %rootElements = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %elements.i56 = getelementptr inbounds i8, ptr %this, i64 576
+  %rootElements = getelementptr inbounds i8, ptr %this, i64 48
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
   br label %cond.true.i
 
 cond.true.i:                                      ; preds = %cond.true.i.lr.ph, %for.inc
@@ -1165,7 +1152,7 @@ _ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit: ; preds = %if.end.i
 
 if.then31:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit
   %10 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i70 = getelementptr inbounds i32, ptr %10, i64 4
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i32, ptr %arrayidx.i70, align 4
   %shl.i = shl i32 %11, 8
   %and.i71 = and i32 %shl.i, 65280
@@ -1193,7 +1180,7 @@ if.else42:                                        ; preds = %if.else36
 
 if.else45:                                        ; preds = %if.else42
   %14 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i74 = getelementptr inbounds i32, ptr %14, i64 4
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load i32, ptr %arrayidx.i74, align 4
   %shl.i75 = shl i32 %15, 8
   %and.i76 = and i32 %shl.i75, 65280
@@ -1266,12 +1253,12 @@ _ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101: ; preds = %if.en
 
 if.then72:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
   %19 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i102 = getelementptr inbounds i32, ptr %19, i64 4
+  %arrayidx.i102 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %arrayidx.i102, align 4
   %shr.i103 = lshr i32 %20, 8
   %and.i104 = and i32 %shr.i103, 65280
   %sub75 = add nsw i32 %and.i104, -256
-  %arrayidx.i105 = getelementptr inbounds i32, ptr %19, i64 1
+  %arrayidx.i105 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %arrayidx.i105, align 4
   %idxprom.i106 = zext i32 %21 to i64
   %arrayidx3.i107 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i106
@@ -1293,7 +1280,7 @@ if.else83:                                        ; preds = %if.else78
 
 if.else86:                                        ; preds = %if.else83
   %23 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i109 = getelementptr inbounds i32, ptr %23, i64 4
+  %arrayidx.i109 = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %arrayidx.i109, align 4
   %shr.i110 = lshr i32 %24, 8
   %and.i111 = and i32 %shr.i110, 65280
@@ -1307,7 +1294,7 @@ if.end91:                                         ; preds = %if.then80, %if.else
 
 if.then93:                                        ; preds = %if.end91
   %25 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i112 = getelementptr inbounds i32, ptr %25, i64 4
+  %arrayidx.i112 = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load i32, ptr %arrayidx.i112, align 4
   %shr.i113 = lshr i32 %26, 16
   %and.i114 = and i32 %shr.i113, 65280
@@ -1370,7 +1357,7 @@ _ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit137: ; preds = %if.th
   %add111 = add nsw i32 %count.0.lcssa.i132, 1
   %29 = load ptr, ptr %baseData, align 8
   %shr.i138 = lshr i32 %p.0164, 24
-  %compressibleBytes.i.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %29, i64 0, i32 11
+  %compressibleBytes.i.i = getelementptr inbounds i8, ptr %29, i64 72
   %30 = load ptr, ptr %compressibleBytes.i.i, align 8
   %idxprom.i.i = zext nneg i32 %shr.i138 to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 %idxprom.i.i
@@ -1432,7 +1419,7 @@ for.inc:                                          ; preds = %if.end133, %cond.en
 for.end.sink.split:                               ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit137, %if.end96, %if.end50, %if.then18
   %.str.31.sink = phi ptr [ @.str.28, %if.then18 ], [ @.str.29, %if.end50 ], [ @.str.30, %if.end96 ], [ @.str.31, %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit137 ]
   store i32 15, ptr %errorCode, align 4
-  %errorReason118 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 13
+  %errorReason118 = getelementptr inbounds i8, ptr %this, i64 288
   store ptr %.str.31.sink, ptr %errorReason118, align 8
   br label %for.end
 
@@ -1494,20 +1481,20 @@ if.end:                                           ; preds = %invoke.cont3
 
 invoke.cont10:                                    ; preds = %if.end
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %prefix, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %prefix, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %prefix, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nfdString, align 8
-  %fUnion2.i9 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
+  %fUnion2.i9 = getelementptr inbounds i8, ptr %nfdString, i64 8
   store i16 2, ptr %fUnion2.i9, align 8
   invoke void @_ZN6icu_7518UnicodeSetIteratorC1ERKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(64) %iter, ptr noundef nonnull align 8 dereferenceable(200) %composites)
           to label %while.cond.preheader unwind label %lpad11
 
 while.cond.preheader:                             ; preds = %invoke.cont10
-  %nfd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
-  %codepoint.i = getelementptr inbounds %"class.icu_75::UnicodeSetIterator", ptr %iter, i64 0, i32 1
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
-  %ces = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
-  %cesLength = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %nfd = getelementptr inbounds i8, ptr %this, i64 8
+  %codepoint.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
+  %ces = getelementptr inbounds i8, ptr %this, i64 296
+  %cesLength = getelementptr inbounds i8, ptr %this, i64 544
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
@@ -1522,7 +1509,7 @@ while.body:                                       ; preds = %invoke.cont14
   %6 = load ptr, ptr %nfd, align 8
   %7 = load i32, ptr %codepoint.i, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %8 = load ptr, ptr %vfn, align 8
   %call20 = invoke noundef signext i8 %8(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %nfdString)
           to label %invoke.cont19 unwind label %lpad13
@@ -1596,7 +1583,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 if.then6.i:                                       ; preds = %for.body.i.i, %call2.i.noexc
   %17 = load ptr, ptr %dataBuilder, align 8
   %vtable.i = load ptr, ptr %17, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %18 = load ptr, ptr %vfn.i, align 8
   %call9.i11 = invoke noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(640) %17, ptr noundef nonnull %ces, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call9.i.noexc unwind label %lpad13
@@ -1650,7 +1637,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %icu4xMode = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 10
+  %icu4xMode = getelementptr inbounds i8, ptr %this, i64 81
   %1 = load i8, ptr %icu4xMode, align 1
   invoke void @_ZN6icu_7520CollationDataBuilderC1EaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %call2, i8 noundef signext %1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEEC2EPS1_R10UErrorCode.exit unwind label %lpad
@@ -1681,18 +1668,18 @@ lpad3:                                            ; preds = %if.end8
   br label %delete.notnull.i15
 
 if.end8:                                          ; preds = %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEEC2EPS1_R10UErrorCode.exit
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %baseData, align 8
   invoke void @_ZN6icu_7520CollationDataBuilder16initForTailoringEPKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %call2, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont11 unwind label %lpad3
 
 invoke.cont11:                                    ; preds = %if.end8
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %7 = load ptr, ptr %elements.i, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511CEFinalizerE, i64 0, inrange i32 0, i64 2), ptr %finalizer, align 8
-  %finalCEs.i = getelementptr inbounds %"class.icu_75::CEFinalizer", ptr %finalizer, i64 0, i32 1
+  %finalCEs.i = getelementptr inbounds i8, ptr %finalizer, i64 8
   store ptr %7, ptr %finalCEs.i, align 8
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %dataBuilder, align 8
   invoke void @_ZN6icu_7520CollationDataBuilder8copyFromERKS0_RKNS0_10CEModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %call2, ptr noundef nonnull align 8 dereferenceable(640) %8, ptr noundef nonnull align 8 dereferenceable(8) %finalizer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont18 unwind label %lpad15
@@ -1715,7 +1702,7 @@ if.end23:                                         ; preds = %invoke.cont18
 
 delete.notnull:                                   ; preds = %if.end23
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %12 = load ptr, ptr %vfn, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(640) %11) #12
   br label %cleanup28.thread33
@@ -1731,7 +1718,7 @@ cleanup28:                                        ; preds = %invoke.cont18
 
 delete.notnull.i:                                 ; preds = %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEEC2EPS1_R10UErrorCode.exit, %cleanup28
   %vtable.i = load ptr, ptr %call2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %13 = load ptr, ptr %vfn.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(640) %call2) #12
   br label %cleanup.cont
@@ -1742,7 +1729,7 @@ cleanup.cont:                                     ; preds = %new.cont, %if.then.
 delete.notnull.i15:                               ; preds = %lpad3, %lpad15
   %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %5, %lpad3 ]
   %vtable.i16 = load ptr, ptr %call2, align 8
-  %vfn.i17 = getelementptr inbounds ptr, ptr %vtable.i16, i64 1
+  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 8
   %14 = load ptr, ptr %vfn.i17, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(640) %call2) #12
   br label %eh.resume
@@ -1780,12 +1767,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i.i.i = sext i16 %2 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   %3 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %3, i32 %shr.i.i.i.i
   %cmp.i.i.not = icmp eq i32 %cond.i.i.i, 0
@@ -1795,7 +1782,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end
   %4 = and i16 %1, 2
   %tobool.not.i.i.i = icmp eq i16 %4, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %str, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %str, i64 24
   %5 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %5, ptr %fBuffer.i.i.i
   %6 = load i16, ptr %cond.i2.i.i, align 2
@@ -1804,9 +1791,9 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end
 
 if.then3:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %call4 = tail call noundef i64 @_ZN6icu_7516CollationBuilder23getSpecialResetPositionERKNS_13UnicodeStringERPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 8 dereferenceable(8) %parserErrorReason, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %ces = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces = getelementptr inbounds i8, ptr %this, i64 296
   store i64 %call4, ptr %ces, align 8
-  %cesLength = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %cesLength = getelementptr inbounds i8, ptr %this, i64 544
   store i32 1, ptr %cesLength, align 8
   %7 = load i32, ptr %errorCode, align 4
   %cmp.i82 = icmp sgt i32 %7, 0
@@ -1819,14 +1806,14 @@ if.then3.split:                                   ; preds = %if.then3
   br label %if.end24
 
 if.else:                                          ; preds = %if.end, %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %nfd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
+  %nfd = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %nfd, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nfdString, align 8, !alias.scope !11
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %nfdString, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !11
   %vtable.i = load ptr, ptr %8, align 8, !noalias !11
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %9 = load ptr, ptr %vfn.i, align 8, !noalias !11
   %call.i = invoke noundef nonnull align 8 dereferenceable(64) ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %_ZNK6icu_7511Normalizer29normalizeERKNS_13UnicodeStringER10UErrorCode.exit unwind label %lpad.i
@@ -1852,14 +1839,14 @@ lpad:                                             ; preds = %if.end12
   br label %common.resume
 
 if.end12:                                         ; preds = %_ZNK6icu_7511Normalizer29normalizeERKNS_13UnicodeStringER10UErrorCode.exit
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %13 = load ptr, ptr %dataBuilder, align 8
-  %ces13 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces13 = getelementptr inbounds i8, ptr %this, i64 296
   %call15 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringEPli(ptr noundef nonnull align 8 dereferenceable(640) %13, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, ptr noundef nonnull %ces13, i32 noundef 0)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end12
-  %cesLength16 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %cesLength16 = getelementptr inbounds i8, ptr %this, i64 544
   store i32 %call15, ptr %cesLength16, align 8
   %cmp18 = icmp sgt i32 %call15, 31
   br i1 %cmp18, label %if.then19, label %cleanup
@@ -1891,14 +1878,14 @@ if.end24:                                         ; preds = %if.then3.split, %if
 
 if.end29:                                         ; preds = %if.end24
   %cmp.i88 = icmp sgt i32 %phi.call, -1
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %15 = load i32, ptr %count.i, align 8
   %cmp2.i = icmp sgt i32 %15, %phi.call
   %or.cond.i = select i1 %cmp.i88, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.end29
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %16 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %phi.call to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %16, i64 %idxprom.i
@@ -1913,7 +1900,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit:         ; preds = %if.end29, %cond.tru
   br i1 %cmp32203, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit
-  %elements.i96 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i96 = getelementptr inbounds i8, ptr %this, i64 608
   %18 = load ptr, ptr %elements.i96, align 8
   br label %while.body
 
@@ -1970,9 +1957,9 @@ if.then47:                                        ; preds = %if.then44
   br label %return
 
 if.end48:                                         ; preds = %if.then44
-  %rootElements = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements = getelementptr inbounds i8, ptr %this, i64 48
   %21 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i108 = getelementptr inbounds i32, ptr %21, i64 2
+  %arrayidx.i108 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i32, ptr %arrayidx.i108, align 4
   %idxprom.i109 = zext i32 %22 to i64
   %arrayidx3.i = getelementptr inbounds i32, ptr %21, i64 %idxprom.i109
@@ -1995,16 +1982,16 @@ if.then54:                                        ; preds = %if.end52
   br label %return
 
 if.end55:                                         ; preds = %if.end52
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
   %24 = load ptr, ptr %baseData, align 8
   %shr.i110 = lshr i64 %node.0.lcssa, 56
-  %compressibleBytes.i.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %24, i64 0, i32 11
+  %compressibleBytes.i.i = getelementptr inbounds i8, ptr %24, i64 72
   %25 = load ptr, ptr %compressibleBytes.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %25, i64 %shr.i110
   %26 = load i8, ptr %arrayidx.i.i, align 1
   %call58 = call noundef i32 @_ZNK6icu_7521CollationRootElements16getPrimaryBeforeEja(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %conv.i107, i8 noundef signext %26)
   %call59 = call noundef i32 @_ZN6icu_7516CollationBuilder26findOrInsertNodeForPrimaryEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef %call58, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %elements.i117 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i117 = getelementptr inbounds i8, ptr %this, i64 608
   %27 = load i32, ptr %count.i, align 8
   %28 = load ptr, ptr %elements.i117, align 8
   br label %for.cond
@@ -2033,7 +2020,7 @@ if.else66:                                        ; preds = %if.else42
   br i1 %or.cond.i.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i, label %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i:       ; preds = %if.else66
-  %elements.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %30 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i127 = zext nneg i32 %index.0.lcssa to i64
   %arrayidx.i.i128 = getelementptr inbounds i64, ptr %30, i64 %idxprom.i.i127
@@ -2108,7 +2095,7 @@ if.end71:                                         ; preds = %if.then69, %_ZNK6ic
   br i1 %or.cond.i132, label %_ZNK6icu_759UVector6410elementAtiEi.exit138, label %if.else111
 
 _ZNK6icu_759UVector6410elementAtiEi.exit138:      ; preds = %if.end71
-  %elements.i135 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i135 = getelementptr inbounds i8, ptr %this, i64 608
   %36 = load ptr, ptr %elements.i135, align 8
   %idxprom.i136 = zext nneg i32 %index.2 to i64
   %arrayidx.i137 = getelementptr inbounds i64, ptr %36, i64 %idxprom.i136
@@ -2141,7 +2128,7 @@ if.end84:                                         ; preds = %if.then76
   %conv.i144 = trunc i64 %shr.i143 to i32
   %and.i145 = and i32 %conv.i144, 1048575
   %38 = load i32, ptr %count.i, align 8
-  %elements.i152 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i152 = getelementptr inbounds i8, ptr %this, i64 608
   %39 = load ptr, ptr %elements.i152, align 8
   br label %for.cond87
 
@@ -2202,11 +2189,12 @@ if.else111:                                       ; preds = %if.end71, %_ZNK6icu
 
 if.end115:                                        ; preds = %for.end103, %if.else106, %if.else111
   %index.3 = phi i32 [ %call109, %if.else106 ], [ %call114, %if.else111 ], [ %and.i145, %for.end103 ]
-  %cesLength117 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %ces116 = getelementptr inbounds i8, ptr %this, i64 296
+  %cesLength117 = getelementptr inbounds i8, ptr %this, i64 544
   %42 = load i32, ptr %cesLength117, align 8
   %sub = add nsw i32 %42, -1
   %idxprom = sext i32 %sub to i64
-  %arrayidx118 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %idxprom
+  %arrayidx118 = getelementptr inbounds [31 x i64], ptr %ces116, i64 0, i64 %idxprom
   %43 = load i64, ptr %arrayidx118, align 8
   %conv.i.i166 = trunc i64 %43 to i32
   %44 = add i32 %conv.i.i166, -1174405120
@@ -2257,11 +2245,12 @@ if.end125:                                        ; preds = %if.end121
   %shl9.i = shl i32 %strength.addr.0, 8
   %conv10.i = sext i32 %shl9.i to i64
   %add11.i = add nsw i64 %add8.i, %conv10.i
-  %cesLength128 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %ces127 = getelementptr inbounds i8, ptr %this, i64 296
+  %cesLength128 = getelementptr inbounds i8, ptr %this, i64 544
   %48 = load i32, ptr %cesLength128, align 8
   %sub129 = add nsw i32 %48, -1
   %idxprom130 = sext i32 %sub129 to i64
-  %arrayidx131 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %idxprom130
+  %arrayidx131 = getelementptr inbounds [31 x i64], ptr %ces127, i64 0, i64 %idxprom130
   store i64 %add11.i, ptr %arrayidx131, align 8
   br label %return
 
@@ -2272,12 +2261,12 @@ return:                                           ; preds = %cleanup.thread, %cl
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN6icu_7516CollationBuilder23getSpecialResetPositionERKNS_13UnicodeStringERPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %str, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %parserErrorReason, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i.i.i = sext i16 %1 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   %2 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %2, i32 %shr.i.i.i.i
   %cmp.i.i = icmp ugt i32 %cond.i.i.i, 1
@@ -2287,10 +2276,10 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry
   %3 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %3, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %str, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %str, i64 24
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %4, ptr %fBuffer.i.i.i
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %5 = load i16, ptr %arrayidx.i.i, align 2
   switch i16 %5, label %sw.default [
     i16 10240, label %return
@@ -2322,14 +2311,14 @@ if.end.i:                                         ; preds = %sw.bb3
 
 if.end.i308:                                      ; preds = %if.end.i
   %cmp.i41.i310 = icmp sgt i32 %call2.i, -1
-  %count.i.i311 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i.i311 = getelementptr inbounds i8, ptr %this, i64 592
   %8 = load i32, ptr %count.i.i311, align 8
   %cmp2.i.i312 = icmp sgt i32 %8, %call2.i
   %or.cond.i42.i313 = select i1 %cmp.i41.i310, i1 %cmp2.i.i312, i1 false
   br i1 %or.cond.i42.i313, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i314, label %while.end.i339
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i314:    ; preds = %if.end.i308
-  %elements.i.i353 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i353 = getelementptr inbounds i8, ptr %this, i64 608
   %9 = load ptr, ptr %elements.i.i353, align 8
   %idxprom.i.i354 = zext nneg i32 %call2.i to i64
   %arrayidx.i.i355 = getelementptr inbounds i64, ptr %9, i64 %idxprom.i.i354
@@ -2395,7 +2384,7 @@ if.end.i303:                                      ; preds = %_ZN6icu_7516Collati
   br i1 %or.cond.i42.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i, label %while.end.i
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i:       ; preds = %if.end.i303
-  %elements.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %14 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i304 = zext nneg i32 %retval.0.i307.ph to i64
   %arrayidx.i.i305 = getelementptr inbounds i64, ptr %14, i64 %idxprom.i.i304
@@ -2455,14 +2444,14 @@ _ZN6icu_7516CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit: ; 
 
 if.end:                                           ; preds = %_ZN6icu_7516CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
   %cmp.i53 = icmp sgt i32 %retval.0.i, -1
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %19 = load i32, ptr %count.i, align 8
   %cmp2.i = icmp sgt i32 %19, %retval.0.i
   %or.cond.i = select i1 %cmp.i53, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit, label %if.end18
 
 _ZNK6icu_759UVector6410elementAtiEi.exit:         ; preds = %if.end
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %20 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %retval.0.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i
@@ -2499,7 +2488,7 @@ if.then15:                                        ; preds = %_ZNK6icu_759UVector
   br label %return
 
 if.end18:                                         ; preds = %if.end, %_ZNK6icu_759UVector6410elementAtiEi.exit62, %_ZNK6icu_759UVector6410elementAtiEi.exit
-  %rootElements = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements = getelementptr inbounds i8, ptr %this, i64 48
   %24 = load ptr, ptr %rootElements, align 8
   %25 = load i32, ptr %24, align 4
   %idxprom.i68 = zext i32 %25 to i64
@@ -2510,9 +2499,9 @@ if.end18:                                         ; preds = %if.end, %_ZNK6icu_7
   br label %return
 
 sw.bb21:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %rootElements22 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements22 = getelementptr inbounds i8, ptr %this, i64 48
   %27 = load ptr, ptr %rootElements22, align 8
-  %arrayidx.i70 = getelementptr inbounds i32, ptr %27, i64 1
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %27, i64 4
   %28 = load i32, ptr %arrayidx.i70, align 4
   %sub.i = add i32 %28, -1
   %idxprom.i71 = zext i32 %sub.i to i64
@@ -2535,14 +2524,14 @@ if.end.i76:                                       ; preds = %sw.bb25
 
 if.end.i359:                                      ; preds = %if.end.i76
   %cmp.i41.i361 = icmp sgt i32 %call2.i77, -1
-  %count.i.i362 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i.i362 = getelementptr inbounds i8, ptr %this, i64 592
   %32 = load i32, ptr %count.i.i362, align 8
   %cmp2.i.i363 = icmp sgt i32 %32, %call2.i77
   %or.cond.i42.i364 = select i1 %cmp.i41.i361, i1 %cmp2.i.i363, i1 false
   br i1 %or.cond.i42.i364, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i365, label %while.end.i390
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i365:    ; preds = %if.end.i359
-  %elements.i.i404 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i404 = getelementptr inbounds i8, ptr %this, i64 608
   %33 = load ptr, ptr %elements.i.i404, align 8
   %idxprom.i.i405 = zext nneg i32 %call2.i77 to i64
   %arrayidx.i.i406 = getelementptr inbounds i64, ptr %33, i64 %idxprom.i.i405
@@ -2602,11 +2591,11 @@ _ZN6icu_7516CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit79: 
 
 if.end31:                                         ; preds = %_ZN6icu_7516CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit79
   %cmp.i82 = icmp sgt i32 %retval.0.i75, -1
-  %count.i83 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i83 = getelementptr inbounds i8, ptr %this, i64 592
   %38 = load i32, ptr %count.i83, align 8
   %cmp2.i84 = icmp sgt i32 %38, %retval.0.i75
   %or.cond.i85 = select i1 %cmp.i82, i1 %cmp2.i84, i1 false
-  %elements.i88 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i88 = getelementptr inbounds i8, ptr %this, i64 608
   %39 = load ptr, ptr %elements.i88, align 8
   br i1 %or.cond.i85, label %cond.true.i87, label %while.cond.preheader
 
@@ -2684,9 +2673,9 @@ if.end55:                                         ; preds = %cond.true.i113, %if
   br label %return
 
 while.end:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit102, %while.cond, %if.then44
-  %rootElements58 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements58 = getelementptr inbounds i8, ptr %this, i64 48
   %49 = load ptr, ptr %rootElements58, align 8
-  %arrayidx.i134 = getelementptr inbounds i32, ptr %49, i64 1
+  %arrayidx.i134 = getelementptr inbounds i8, ptr %49, i64 4
   %50 = load i32, ptr %arrayidx.i134, align 4
   %idxprom.i135 = zext i32 %50 to i64
   %arrayidx3.i136 = getelementptr inbounds i32, ptr %49, i64 %idxprom.i135
@@ -2696,9 +2685,9 @@ while.end:                                        ; preds = %_ZNK6icu_759UVector
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %rootElements62 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements62 = getelementptr inbounds i8, ptr %this, i64 48
   %52 = load ptr, ptr %rootElements62, align 8
-  %arrayidx.i138 = getelementptr inbounds i32, ptr %52, i64 2
+  %arrayidx.i138 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load i32, ptr %arrayidx.i138, align 4
   %sub.i139 = add i32 %53, -1
   %idxprom.i140 = zext i32 %sub.i139 to i64
@@ -2709,9 +2698,9 @@ sw.bb61:                                          ; preds = %_ZNK6icu_7513Unicod
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %rootElements66 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements66 = getelementptr inbounds i8, ptr %this, i64 48
   %55 = load ptr, ptr %rootElements66, align 8
-  %arrayidx.i.i143 = getelementptr inbounds i32, ptr %55, i64 2
+  %arrayidx.i.i143 = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load i32, ptr %arrayidx.i.i143, align 4
   %idxprom.i.i = zext i32 %56 to i64
   %arrayidx3.i.i = getelementptr inbounds i32, ptr %55, i64 %idxprom.i.i
@@ -2722,31 +2711,31 @@ sw.bb65:                                          ; preds = %_ZNK6icu_7513Unicod
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %rootElements69 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
-  %variableTop = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 7
+  %rootElements69 = getelementptr inbounds i8, ptr %this, i64 48
+  %variableTop = getelementptr inbounds i8, ptr %this, i64 64
   %58 = load i32, ptr %variableTop, align 8
   %add = add i32 %58, 1
   %call70 = tail call noundef i64 @_ZNK6icu_7521CollationRootElements23lastCEWithPrimaryBeforeEj(ptr noundef nonnull align 8 dereferenceable(12) %rootElements69, i32 noundef %add)
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %rootElements72 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
-  %variableTop73 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 7
+  %rootElements72 = getelementptr inbounds i8, ptr %this, i64 48
+  %variableTop73 = getelementptr inbounds i8, ptr %this, i64 64
   %59 = load i32, ptr %variableTop73, align 8
   %add74 = add i32 %59, 1
   %call75 = tail call noundef i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr noundef nonnull align 8 dereferenceable(12) %rootElements72, i32 noundef %add74)
   br label %sw.epilog
 
 sw.bb76:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %rootElements77 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %rootElements77 = getelementptr inbounds i8, ptr %this, i64 48
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
   %60 = load ptr, ptr %baseData, align 8
   %call78 = tail call noundef i32 @_ZNK6icu_7513CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %60, i32 noundef 17)
   %call79 = tail call noundef i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr noundef nonnull align 8 dereferenceable(12) %rootElements77, i32 noundef %call78)
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %baseData81 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %baseData81 = getelementptr inbounds i8, ptr %this, i64 40
   %61 = load ptr, ptr %baseData81, align 8
   %call82 = tail call noundef i64 @_ZNK6icu_7513CollationData11getSingleCEEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(140) %61, i32 noundef 19968, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
@@ -2800,14 +2789,14 @@ _ZN6icu_7516CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit154:
 
 if.end92:                                         ; preds = %_ZN6icu_7516CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit154
   %cmp.i157 = icmp sgt i32 %retval.0.i145.ph, -1
-  %count.i158 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i158 = getelementptr inbounds i8, ptr %this, i64 592
   %63 = load i32, ptr %count.i158, align 8
   %cmp2.i159 = icmp sgt i32 %63, %retval.0.i145.ph
   %or.cond.i160 = select i1 %cmp.i157, i1 %cmp2.i159, i1 false
   br i1 %or.cond.i160, label %cond.true.i162, label %_ZNK6icu_759UVector6410elementAtiEi.exit166
 
 cond.true.i162:                                   ; preds = %if.end92
-  %elements.i163 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i163 = getelementptr inbounds i8, ptr %this, i64 608
   %64 = load ptr, ptr %elements.i163, align 8
   %idxprom.i164 = zext nneg i32 %retval.0.i145.ph to i64
   %arrayidx.i165 = getelementptr inbounds i64, ptr %64, i64 %idxprom.i164
@@ -2828,7 +2817,7 @@ for.cond.preheader:                               ; preds = %_ZNK6icu_759UVector
   br i1 %cmp152502, label %for.end, label %if.end154.lr.ph
 
 if.end154.lr.ph:                                  ; preds = %for.cond.preheader
-  %elements.i279 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i279 = getelementptr inbounds i8, ptr %this, i64 608
   %67 = load ptr, ptr %elements.i279, align 8
   br label %if.end154
 
@@ -2850,7 +2839,7 @@ if.then105:                                       ; preds = %if.then102
   br i1 %cmp2.i174, label %cond.true.i176, label %_ZNK6icu_759UVector6410elementAtiEi.exit180
 
 cond.true.i176:                                   ; preds = %if.then105
-  %elements.i177 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i177 = getelementptr inbounds i8, ptr %this, i64 608
   %68 = load ptr, ptr %elements.i177, align 8
   %idxprom.i178 = zext nneg i32 %and.i172 to i64
   %arrayidx.i179 = getelementptr inbounds i64, ptr %68, i64 %idxprom.i178
@@ -2879,12 +2868,12 @@ _ZNK6icu_759UVector6410elementAtiEi.exit180:      ; preds = %if.then105, %cond.t
 if.else109:                                       ; preds = %if.then102
   %shr = lshr i64 %ce.0, 32
   %conv110 = trunc i64 %shr to i32
-  %rootElements111 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements111 = getelementptr inbounds i8, ptr %this, i64 48
   %call112 = tail call noundef i32 @_ZNK6icu_7521CollationRootElements11findPrimaryEj(ptr noundef nonnull align 8 dereferenceable(12) %rootElements111, i32 noundef %conv110)
-  %baseData113 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %baseData113 = getelementptr inbounds i8, ptr %this, i64 40
   %70 = load ptr, ptr %baseData113, align 8
   %shr.i194 = lshr i64 %ce.0, 56
-  %compressibleBytes.i.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %70, i64 0, i32 11
+  %compressibleBytes.i.i = getelementptr inbounds i8, ptr %70, i64 72
   %71 = load ptr, ptr %compressibleBytes.i.i, align 8
   %arrayidx.i.i196 = getelementptr inbounds i8, ptr %71, i64 %shr.i194
   %72 = load i8, ptr %arrayidx.i.i196, align 1
@@ -2910,7 +2899,7 @@ if.end122:                                        ; preds = %_ZN6icu_7516Collati
   br i1 %or.cond.i209, label %cond.true.i211, label %return
 
 cond.true.i211:                                   ; preds = %if.end122
-  %elements.i212 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i212 = getelementptr inbounds i8, ptr %this, i64 608
   %76 = load ptr, ptr %elements.i212, align 8
   %idxprom.i213 = zext nneg i32 %call2.i202 to i64
   %arrayidx.i214 = getelementptr inbounds i64, ptr %76, i64 %idxprom.i213
@@ -2939,7 +2928,7 @@ if.then132:                                       ; preds = %if.then129
   br i1 %cmp2.i224, label %cond.true.i226, label %_ZNK6icu_759UVector6410elementAtiEi.exit230
 
 cond.true.i226:                                   ; preds = %if.then132
-  %elements.i227 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i227 = getelementptr inbounds i8, ptr %this, i64 608
   %80 = load ptr, ptr %elements.i227, align 8
   %idxprom.i228 = zext nneg i32 %and.i222 to i64
   %arrayidx.i229 = getelementptr inbounds i64, ptr %80, i64 %idxprom.i228
@@ -2955,7 +2944,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit230:      ; preds = %if.then132, %cond.t
   br i1 %cmp2.i235, label %cond.true.i237, label %if.end147
 
 cond.true.i237:                                   ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit230
-  %elements.i238 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i238 = getelementptr inbounds i8, ptr %this, i64 608
   %85 = load ptr, ptr %elements.i238, align 8
   %idxprom.i239 = zext nneg i32 %cond.i225 to i64
   %arrayidx.i240 = getelementptr inbounds i64, ptr %85, i64 %idxprom.i239
@@ -2977,7 +2966,7 @@ if.then142:                                       ; preds = %if.end139
   br i1 %cmp2.i247, label %cond.true.i249, label %if.end147
 
 cond.true.i249:                                   ; preds = %if.then142
-  %elements.i250 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i250 = getelementptr inbounds i8, ptr %this, i64 608
   %88 = load ptr, ptr %elements.i250, align 8
   %idxprom.i251 = zext nneg i32 %and.i245 to i64
   %arrayidx.i252 = getelementptr inbounds i64, ptr %88, i64 %idxprom.i251
@@ -3072,25 +3061,26 @@ entry:
   br i1 %cmp.i, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
-  %cesLength = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %cesLength = getelementptr inbounds i8, ptr %this, i64 544
   %cesLength.promoted = load i32, ptr %cesLength, align 8
-  %cmp29 = icmp eq i32 %cesLength.promoted, 0
-  br i1 %cmp29, label %if.end17.thread, label %if.else.preheader
+  %cmp28 = icmp eq i32 %cesLength.promoted, 0
+  br i1 %cmp28, label %if.end17.thread, label %if.else.lr.ph
 
-if.else.preheader:                                ; preds = %for.cond.preheader
+if.else.lr.ph:                                    ; preds = %for.cond.preheader
+  %ces4 = getelementptr inbounds i8, ptr %this, i64 296
   %1 = sext i32 %cesLength.promoted to i64
   br label %if.else
 
 if.end17.thread:                                  ; preds = %for.inc, %for.cond.preheader
-  %ces = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces = getelementptr inbounds i8, ptr %this, i64 296
   store i64 0, ptr %ces, align 8
   store i32 1, ptr %cesLength, align 8
   br label %if.end21
 
-if.else:                                          ; preds = %if.else.preheader, %for.inc
-  %indvars.iv = phi i64 [ %1, %if.else.preheader ], [ %indvars.iv.next, %for.inc ]
+if.else:                                          ; preds = %if.else.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ %1, %if.else.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx6 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %indvars.iv.next
+  %arrayidx6 = getelementptr inbounds [31 x i64], ptr %ces4, i64 0, i64 %indvars.iv.next
   %2 = load i64, ptr %arrayidx6, align 8
   %conv.i.i = trunc i64 %2 to i32
   %3 = add i32 %conv.i.i, -1174405120
@@ -3117,8 +3107,8 @@ _ZN6icu_7516CollationBuilder10ceStrengthEl.exit:  ; preds = %cond.false.i, %cond
 _ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread: ; preds = %if.else
   %shr.i.i = lshr i32 %conv.i.i, 8
   %and.i.i = and i32 %shr.i.i, 3
-  %cmp9.not34 = icmp sgt i32 %and.i.i, %strength
-  br i1 %cmp9.not34, label %for.inc, label %if.then15
+  %cmp9.not32 = icmp sgt i32 %and.i.i, %strength
+  br i1 %cmp9.not32, label %for.inc, label %if.then15
 
 for.inc:                                          ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread, %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit
   %6 = trunc i64 %indvars.iv.next to i32
@@ -3194,13 +3184,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rootPrimaryIndexes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16, i32 4
+  %rootPrimaryIndexes = getelementptr inbounds i8, ptr %this, i64 552
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 576
   %1 = load ptr, ptr %elements.i, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 16, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 560
   %2 = load i32, ptr %count.i, align 8
-  %nodes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17
-  %elements.i7 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %nodes = getelementptr inbounds i8, ptr %this, i64 584
+  %elements.i7 = getelementptr inbounds i8, ptr %this, i64 608
   %3 = load ptr, ptr %elements.i7, align 8
   %cmp.i8 = icmp eq i32 %2, 0
   br i1 %cmp.i8, label %if.else, label %for.cond.preheader.i
@@ -3274,12 +3264,12 @@ cond.true.i:                                      ; preds = %if.then7
 
 if.else:                                          ; preds = %if.end, %_ZN6icu_7512_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit
   %retval.0.i25 = phi i32 [ %retval.0.i, %_ZN6icu_7512_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit ], [ -1, %if.end ]
-  %count.i16 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i16 = getelementptr inbounds i8, ptr %this, i64 592
   %9 = load i32, ptr %count.i16, align 8
   %conv.i17 = zext i32 %p to i64
   %shl.i = shl nuw i64 %conv.i17, 32
   %cmp.i.i = icmp slt i32 %9, -1
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 2
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 596
   %10 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i = icmp sle i32 %10, %9
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
@@ -3321,14 +3311,14 @@ return:                                           ; preds = %cond.true.i, %if.th
 define noundef i32 @_ZNK6icu_7516CollationBuilder14findCommonNodeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i32 noundef %index, i32 noundef %strength) local_unnamed_addr #5 align 2 {
 entry:
   %cmp.i = icmp sgt i32 %index, -1
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %0 = load i32, ptr %count.i, align 8
   %cmp2.i = icmp sgt i32 %0, %index
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %entry
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %index to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %idxprom.i
@@ -3360,7 +3350,7 @@ if.end8:                                          ; preds = %cond.false, %cond.t
   %shr.i = lshr i32 %conv.i, 8
   %and.i18 = and i32 %shr.i, 1048575
   %cmp2.i20 = icmp sgt i32 %0, %and.i18
-  %elements.i23 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i23 = getelementptr inbounds i8, ptr %this, i64 608
   %5 = load ptr, ptr %elements.i23, align 8
   br i1 %cmp2.i20, label %cond.true.i22, label %do.body.preheader
 
@@ -3423,9 +3413,9 @@ entry:
   br i1 %cmp445, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %0 = load i32, ptr %count.i, align 8
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load ptr, ptr %elements.i, align 8
   br label %while.body
 
@@ -3464,9 +3454,9 @@ if.end9:                                          ; preds = %while.end
   br i1 %cmp18.not49, label %while.end23, label %while.body19.lr.ph
 
 while.body19.lr.ph:                               ; preds = %if.end9
-  %count.i30 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i30 = getelementptr inbounds i8, ptr %this, i64 592
   %4 = load i32, ptr %count.i30, align 8
-  %elements.i34 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i34 = getelementptr inbounds i8, ptr %this, i64 608
   %5 = load ptr, ptr %elements.i34, align 8
   br label %while.body19
 
@@ -3498,7 +3488,7 @@ if.end27:                                         ; preds = %while.body, %while.
   %shr.i39 = lshr i64 %node.addr.1.lcssa81, 32
   %conv.i40 = trunc i64 %shr.i39 to i32
   %cmp29 = icmp eq i32 %level, 1
-  %rootElements = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 6
+  %rootElements = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp29, label %if.then30, label %if.else32
 
 if.then30:                                        ; preds = %if.end27
@@ -3522,8 +3512,8 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %nodes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %nodes = getelementptr inbounds i8, ptr %this, i64 584
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %1 = load i32, ptr %count.i, align 8
   %conv.i13 = sext i32 %index to i64
   %shl.i = shl nsw i64 %conv.i13, 28
@@ -3532,7 +3522,7 @@ if.end:                                           ; preds = %entry
   %or = or i64 %shl.i, %node
   %or5 = or i64 %or, %conv.i15
   %cmp.i.i = icmp slt i32 %1, -1
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 2
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 596
   %2 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i = icmp sle i32 %2, %1
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
@@ -3550,7 +3540,7 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i: ; 
 
 if.then.i:                                        ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i, %if.end
   %3 = phi i32 [ %.pre.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i ], [ %1, %if.end ]
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %4 = load ptr, ptr %elements.i, align 8
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %4, i64 %idxprom.i
@@ -3573,7 +3563,7 @@ if.end10:                                         ; preds = %_ZN6icu_759UVector6
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.end10
-  %elements.i21 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i21 = getelementptr inbounds i8, ptr %this, i64 608
   %8 = load ptr, ptr %elements.i21, align 8
   %idxprom.i22 = zext nneg i32 %index to i64
   %arrayidx.i23 = getelementptr inbounds i64, ptr %8, i64 %idxprom.i22
@@ -3598,7 +3588,7 @@ if.then15:                                        ; preds = %_ZNK6icu_759UVector
   br i1 %or.cond.i27, label %cond.true.i29, label %_ZNK6icu_759UVector6410elementAtiEi.exit33
 
 cond.true.i29:                                    ; preds = %if.then15
-  %elements.i30 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i30 = getelementptr inbounds i8, ptr %this, i64 608
   %12 = load ptr, ptr %elements.i30, align 8
   %idxprom.i31 = zext nneg i32 %nextIndex to i64
   %arrayidx.i32 = getelementptr inbounds i64, ptr %12, i64 %idxprom.i31
@@ -3632,14 +3622,14 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %cmp.i.i = icmp sgt i32 %index, -1
-  %count.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %1 = load i32, ptr %count.i.i, align 8
   %cmp2.i.i = icmp sgt i32 %1, %index
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %cond.true.i.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i
 
 cond.true.i.i:                                    ; preds = %if.then2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %2 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i = zext nneg i32 %index to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i.i
@@ -3671,7 +3661,7 @@ if.end8.i:                                        ; preds = %cond.false.i, %cond
   %shr.i.i = lshr i32 %conv.i.i, 8
   %and.i18.i = and i32 %shr.i.i, 1048575
   %cmp2.i20.i = icmp sgt i32 %1, %and.i18.i
-  %elements.i23.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i23.i = getelementptr inbounds i8, ptr %this, i64 608
   %6 = load ptr, ptr %elements.i23.i, align 8
   br i1 %cmp2.i20.i, label %cond.true.i22.i, label %do.body.i.preheader
 
@@ -3716,16 +3706,16 @@ do.body.i.backedge:                               ; preds = %lor.lhs.false.i, %_
   br label %do.body.i, !llvm.loop !16
 
 if.end4:                                          ; preds = %if.end
-  %nodes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17
+  %nodes = getelementptr inbounds i8, ptr %this, i64 584
   %cmp.i41 = icmp sgt i32 %index, -1
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %10 = load i32, ptr %count.i, align 8
   %cmp2.i = icmp sgt i32 %10, %index
   %or.cond.i42 = select i1 %cmp.i41, i1 %cmp2.i, i1 false
   br i1 %or.cond.i42, label %cond.true.i43, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
 cond.true.i43:                                    ; preds = %if.end4
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %11 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %index to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %11, i64 %idxprom.i
@@ -3773,7 +3763,7 @@ if.end30:                                         ; preds = %if.then8, %_ZNK6icu
   br i1 %cmp33.not73, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end30
-  %elements.i55 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i55 = getelementptr inbounds i8, ptr %this, i64 608
   %14 = load ptr, ptr %elements.i55, align 8
   br label %while.body
 
@@ -3928,18 +3918,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nfdPrefix, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdPrefix, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %nfdPrefix, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %prefix, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %prefix, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
   %cmp.i63 = icmp ugt i16 %1, 31
   br i1 %cmp.i63, label %if.then4, label %if.end12
 
 if.then4:                                         ; preds = %if.end
-  %nfd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
+  %nfd = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %nfd, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(64) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 8 dereferenceable(64) %nfdPrefix, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont5 unwind label %lpad
@@ -3959,14 +3949,14 @@ lpad:                                             ; preds = %if.then4
   br label %ehcleanup171
 
 if.end12:                                         ; preds = %invoke.cont5, %if.end
-  %nfd13 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
+  %nfd13 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %nfd13, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nfdString, align 8, !alias.scope !24
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %nfdString, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !24
   %vtable.i = load ptr, ptr %6, align 8, !noalias !24
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %7 = load ptr, ptr %vfn.i, align 8, !noalias !24
   %call.i = invoke noundef nonnull align 8 dereferenceable(64) ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont14 unwind label %lpad.i
@@ -3996,7 +3986,7 @@ invoke.cont21:                                    ; preds = %invoke.cont14
   %cmp.i.i = icmp slt i16 %11, 0
   %12 = ashr i16 %11, 5
   %shr.i.i = sext i16 %12 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %nfdString, i64 12
   %13 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %13, i32 %shr.i.i
   %cmp = icmp sgt i32 %cond.i, 1
@@ -4006,7 +3996,7 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   %14 = and i16 %11, 2
   %tobool.not.i.i.i = icmp eq i16 %14, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %nfdString, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %nfdString, i64 24
   %15 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %15, ptr %fBuffer.i.i.i
   %16 = load i16, ptr %cond.i2.i.i, align 2
@@ -4062,11 +4052,12 @@ if.then57:                                        ; preds = %if.end55
           to label %invoke.cont58 unwind label %lpad15
 
 invoke.cont58:                                    ; preds = %if.then57
-  %cesLength = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %ces = getelementptr inbounds i8, ptr %this, i64 296
+  %cesLength = getelementptr inbounds i8, ptr %this, i64 544
   %24 = load i32, ptr %cesLength, align 8
   %sub60 = add nsw i32 %24, -1
   %idxprom = sext i32 %sub60 to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %idxprom
+  %arrayidx = getelementptr inbounds [31 x i64], ptr %ces, i64 0, i64 %idxprom
   %25 = load i64, ptr %arrayidx, align 8
   %cmp61 = icmp eq i32 %strength, 0
   br i1 %cmp61, label %land.lhs.true62, label %if.end70
@@ -4156,7 +4147,7 @@ invoke.cont83:                                    ; preds = %cond.false3.i, %con
   %32 = load i32, ptr %cesLength, align 8
   %sub92 = add nsw i32 %32, -1
   %idxprom93 = sext i32 %sub92 to i64
-  %arrayidx94 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %idxprom93
+  %arrayidx94 = getelementptr inbounds [31 x i64], ptr %ces, i64 0, i64 %idxprom93
   store i64 %add11.i, ptr %arrayidx94, align 8
   br label %if.end95
 
@@ -4170,9 +4161,9 @@ invoke.cont96:                                    ; preds = %if.end95
   br i1 %cmp.i119, label %if.end101, label %cleanup167
 
 if.end101:                                        ; preds = %invoke.cont96
-  %cesLength102 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %cesLength102 = getelementptr inbounds i8, ptr %this, i64 544
   %34 = load i32, ptr %cesLength102, align 8
-  %fUnion.i121 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %extension, i64 0, i32 1
+  %fUnion.i121 = getelementptr inbounds i8, ptr %extension, i64 8
   %35 = load i16, ptr %fUnion.i121, align 8
   %cmp.i122 = icmp ugt i16 %35, 31
   br i1 %cmp.i122, label %if.then106, label %if.end124
@@ -4181,10 +4172,10 @@ if.then106:                                       ; preds = %if.end101
   %36 = load ptr, ptr %nfd13, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nfdExtension, align 8, !alias.scope !27
-  %fUnion2.i.i124 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdExtension, i64 0, i32 1
+  %fUnion2.i.i124 = getelementptr inbounds i8, ptr %nfdExtension, i64 8
   store i16 2, ptr %fUnion2.i.i124, align 8, !alias.scope !27
   %vtable.i125 = load ptr, ptr %36, align 8, !noalias !27
-  %vfn.i126 = getelementptr inbounds ptr, ptr %vtable.i125, i64 3
+  %vfn.i126 = getelementptr inbounds i8, ptr %vtable.i125, i64 24
   %37 = load ptr, ptr %vfn.i126, align 8, !noalias !27
   %call.i127 = invoke noundef nonnull align 8 dereferenceable(64) ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(64) %extension, ptr noundef nonnull align 8 dereferenceable(64) %nfdExtension, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont108 unwind label %lpad.i128
@@ -4207,9 +4198,9 @@ lpad109:                                          ; preds = %if.end114
   br label %ehcleanup
 
 if.end114:                                        ; preds = %invoke.cont108
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %41 = load ptr, ptr %dataBuilder, align 8
-  %ces115 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces115 = getelementptr inbounds i8, ptr %this, i64 296
   %42 = load i32, ptr %cesLength102, align 8
   %call118 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringEPli(ptr noundef nonnull align 8 dereferenceable(640) %41, ptr noundef nonnull align 8 dereferenceable(64) %nfdExtension, ptr noundef nonnull %ces115, i32 noundef %42)
           to label %invoke.cont117 unwind label %lpad109
@@ -4228,7 +4219,7 @@ cleanup:                                          ; preds = %invoke.cont117
   br label %if.end124
 
 if.end124:                                        ; preds = %cleanup, %if.end101
-  %icu4xMode = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 10
+  %icu4xMode = getelementptr inbounds i8, ptr %this, i64 81
   %43 = load i8, ptr %icu4xMode, align 1
   %tobool125.not = icmp eq i8 %43, 0
   br i1 %tobool125.not, label %land.lhs.true126, label %if.end124.if.else_crit_edge
@@ -4260,10 +4251,10 @@ land.lhs.true132:                                 ; preds = %invoke.cont127
   br i1 %cmp.i.i.i.old, label %if.end146, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %invoke.cont130, %land.lhs.true132
-  %fcd.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
+  %fcd.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %45 = load ptr, ptr %fcd.i.i, align 8
   %vtable.i.i = load ptr, ptr %45, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %46 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i134 = invoke noundef signext i8 %46(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont133 unwind label %lpad15
@@ -4281,7 +4272,7 @@ invoke.cont137:                                   ; preds = %land.lhs.true136
   br i1 %tobool139.not, label %if.then140, label %if.end146
 
 if.then140:                                       ; preds = %invoke.cont137
-  %ces141 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces141 = getelementptr inbounds i8, ptr %this, i64 296
   %47 = load i32, ptr %cesLength102, align 8
   %call145 = invoke noundef i32 @_ZN6icu_7516CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %ces141, i32 noundef %47, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end146 unwind label %lpad15
@@ -4294,14 +4285,14 @@ if.end146:                                        ; preds = %land.lhs.true132, %
   br i1 %tobool148.not, label %if.then149, label %if.else
 
 if.then149:                                       ; preds = %if.end146
-  %ces150 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces150 = getelementptr inbounds i8, ptr %this, i64 296
   %call154 = invoke noundef i32 @_ZN6icu_7516CollationBuilder14addWithClosureERKNS_13UnicodeStringES3_PKlijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(64) %nfdPrefix, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, ptr noundef nonnull %ces150, i32 noundef %.pre167, i32 noundef %ce32.0.ph, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end160 unwind label %lpad15
 
 if.else:                                          ; preds = %if.end124.if.else_crit_edge, %if.end146
   %48 = phi i32 [ %.pre167, %if.end146 ], [ %.pre, %if.end124.if.else_crit_edge ]
   %ce32.0163 = phi i32 [ %ce32.0.ph, %if.end146 ], [ -1, %if.end124.if.else_crit_edge ]
-  %ces155 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14
+  %ces155 = getelementptr inbounds i8, ptr %this, i64 296
   %call159 = invoke noundef i32 @_ZN6icu_7516CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(64) %nfdPrefix, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, ptr noundef nonnull %ces155, i32 noundef %48, i32 noundef %ce32.0163, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end160 unwind label %lpad15
 
@@ -4358,20 +4349,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end.if.end8_crit_edge
 
 if.end.if.end8_crit_edge:                         ; preds = %if.end
-  %count.i.phi.trans.insert = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 592
   %.pre = load i32, ptr %count.i.phi.trans.insert, align 8
   br label %if.end8
 
 if.then2:                                         ; preds = %if.end
   %cmp.i.i = icmp sgt i32 %index, -1
-  %count.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %1 = load i32, ptr %count.i.i, align 8
   %cmp2.i.i = icmp sgt i32 %1, %index
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i, label %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i:       ; preds = %if.then2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %2 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i = zext nneg i32 %index to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i.i
@@ -4441,7 +4432,7 @@ if.then5:                                         ; preds = %_ZNK6icu_7516Collat
   br i1 %or.cond.i.i21, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i22, label %if.end8
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i22:     ; preds = %if.then5
-  %elements.i.i60 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i.i60 = getelementptr inbounds i8, ptr %this, i64 608
   %8 = load ptr, ptr %elements.i.i60, align 8
   %idxprom.i.i61 = zext nneg i32 %retval.0.i to i64
   %arrayidx.i.i62 = getelementptr inbounds i64, ptr %8, i64 %idxprom.i.i61
@@ -4502,12 +4493,12 @@ do.body.i36.backedge:                             ; preds = %lor.lhs.false.i48, 
 if.end8:                                          ; preds = %lor.lhs.false.i48, %if.end.if.end8_crit_edge, %if.then5, %_ZNK6icu_759UVector6410elementAtiEi.exit.i22, %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit
   %14 = phi i32 [ %1, %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit ], [ %.pre, %if.end.if.end8_crit_edge ], [ %1, %_ZNK6icu_759UVector6410elementAtiEi.exit.i22 ], [ %1, %if.then5 ], [ %1, %lor.lhs.false.i48 ]
   %index.addr.0 = phi i32 [ %retval.0.i, %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit ], [ %index, %if.end.if.end8_crit_edge ], [ %retval.0.i, %_ZNK6icu_759UVector6410elementAtiEi.exit.i22 ], [ %retval.0.i, %if.then5 ], [ %and.i29.i40, %lor.lhs.false.i48 ]
-  %nodes = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17
+  %nodes = getelementptr inbounds i8, ptr %this, i64 584
   %cmp.i64 = icmp sgt i32 %index.addr.0, -1
-  %count.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %cmp2.i = icmp sgt i32 %14, %index.addr.0
   %or.cond.i65 = select i1 %cmp.i64, i1 %cmp2.i, i1 false
-  %elements.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %15 = load ptr, ptr %elements.i, align 8
   br i1 %or.cond.i65, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
@@ -4519,7 +4510,7 @@ cond.true.i:                                      ; preds = %if.end8
 
 _ZNK6icu_759UVector6410elementAtiEi.exit:         ; preds = %if.end8, %cond.true.i
   %cond.i = phi i64 [ %16, %cond.true.i ], [ 0, %if.end8 ]
-  %elements.i84 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 4
+  %elements.i84 = getelementptr inbounds i8, ptr %this, i64 608
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit87, %_ZNK6icu_759UVector6410elementAtiEi.exit
@@ -4538,7 +4529,7 @@ if.end.i70:                                       ; preds = %while.cond
   %shl.i.i = shl nsw i64 %conv.i13.i, 28
   %or.i = or i64 %shl.i.i, %or13
   %cmp.i.i.i = icmp slt i32 %14, -1
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 17, i32 2
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 596
   %18 = load i32, ptr %capacity.i.i.i, align 4
   %cmp2.not.i.i.i = icmp sle i32 %18, %14
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp2.not.i.i.i
@@ -4631,19 +4622,20 @@ entry:
   br i1 %cmp.i, label %for.cond.preheader, label %for.end81
 
 for.cond.preheader:                               ; preds = %entry
-  %cesLength = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
+  %cesLength = getelementptr inbounds i8, ptr %this, i64 544
   %1 = load i32, ptr %cesLength, align 8
   %cmp67 = icmp sgt i32 %1, 0
-  br i1 %cmp67, label %for.body.preheader, label %for.end81
+  br i1 %cmp67, label %for.body.lr.ph, label %for.end81
 
-for.body.preheader:                               ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %ces = getelementptr inbounds i8, ptr %this, i64 296
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %numTailoredPrimaries.069 = phi i32 [ 0, %for.body.preheader ], [ %6, %for.body ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %indvars.iv
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %numTailoredPrimaries.069 = phi i32 [ 0, %for.body.lr.ph ], [ %6, %for.body ]
+  %arrayidx = getelementptr inbounds [31 x i64], ptr %ces, i64 0, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx, align 8
   %.fr = freeze i64 %2
   %conv.i.i = trunc i64 %.fr to i32
@@ -4664,7 +4656,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp7.not, label %if.end52, label %if.then8
 
 if.then8:                                         ; preds = %for.end
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %nfdString, i64 8
   %7 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %7 to i32
   %and.i = and i32 %conv1.i, 17
@@ -4681,50 +4673,50 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %nfdString, i64 24
   %8 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then8, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %8, %if.else9.i ], [ null, %if.then8 ]
-  %baseData = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 5
+  %baseData = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load ptr, ptr %baseData, align 8
   %cmp.i.i = icmp slt i16 %7, 0
   %10 = ashr i16 %7, 5
   %shr.i.i33 = sext i16 %10 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %nfdString, i64 12
   %11 = load i32, ptr %fLength.i, align 4
   %cond.i34 = select i1 %cmp.i.i, i32 %11, i32 %shr.i.i33
   %idx.ext = sext i32 %cond.i34 to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
-  %trie.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 1
+  %trie.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 8
   %12 = load ptr, ptr %9, align 8
   store ptr %12, ptr %trie.i.i, align 8
-  %data.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 16
   store ptr %9, ptr %data.i.i, align 8
-  %ceBuffer.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 3
+  %ceBuffer.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 24
   store i32 0, ptr %ceBuffer.i.i, align 8
-  %buffer.i.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 3, i32 1
-  %stackArray.i.i.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 3, i32 1, i32 3
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 32
+  %stackArray.i.i.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 48
   store ptr %stackArray.i.i.i.i, ptr %buffer.i.i.i, align 8
-  %capacity.i.i.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 3, i32 1, i32 1
+  %capacity.i.i.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 40
   store i32 40, ptr %capacity.i.i.i.i, align 8
-  %needToRelease.i.i.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 3, i32 1, i32 2
+  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 44
   store i8 0, ptr %needToRelease.i.i.i.i, align 4
-  %cesIndex.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 4
+  %cesIndex.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 368
   store i32 0, ptr %cesIndex.i.i, align 8
-  %skipped.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 6
+  %skipped.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 376
   store ptr null, ptr %skipped.i.i, align 8
-  %numCpFwd.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 7
+  %numCpFwd.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 384
   store i32 -1, ptr %numCpFwd.i.i, align 8
-  %isNumeric.i.i = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %baseCEs, i64 0, i32 8
+  %isNumeric.i.i = getelementptr inbounds i8, ptr %baseCEs, i64 388
   store i8 0, ptr %isNumeric.i.i, align 4
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i64 0, inrange i32 0, i64 2), ptr %baseCEs, align 8
-  %start.i = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %baseCEs, i64 0, i32 1
+  %start.i = getelementptr inbounds i8, ptr %baseCEs, i64 392
   store ptr %retval.0.i, ptr %start.i, align 8
-  %pos.i = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %baseCEs, i64 0, i32 2
+  %pos.i = getelementptr inbounds i8, ptr %baseCEs, i64 400
   store ptr %retval.0.i, ptr %pos.i, align 8
-  %limit.i = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %baseCEs, i64 0, i32 3
+  %limit.i = getelementptr inbounds i8, ptr %baseCEs, i64 408
   store ptr %add.ptr, ptr %limit.i, align 8
   %call11 = invoke noundef i32 @_ZN6icu_7517CollationIterator8fetchCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %baseCEs, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont unwind label %lpad
@@ -4823,12 +4815,16 @@ cleanup:                                          ; preds = %cleanup.loopexit, %
 if.end52:                                         ; preds = %cleanup, %for.end
   %cmp5681 = phi i1 [ %18, %cleanup ], [ true, %for.end ]
   %cases.4 = phi i64 [ %cases.2, %cleanup ], [ 0, %for.end ]
-  br i1 %cmp5681, label %for.body57, label %for.end81
+  br i1 %cmp5681, label %for.body57.lr.ph, label %for.end81
 
-for.body57:                                       ; preds = %if.end52, %if.end75
-  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %if.end75 ], [ 0, %if.end52 ]
-  %cases.582 = phi i64 [ %cases.6, %if.end75 ], [ %cases.4, %if.end52 ]
-  %arrayidx61 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 14, i64 %indvars.iv90
+for.body57.lr.ph:                                 ; preds = %if.end52
+  %ces59 = getelementptr inbounds i8, ptr %this, i64 296
+  br label %for.body57
+
+for.body57:                                       ; preds = %for.body57.lr.ph, %if.end75
+  %indvars.iv90 = phi i64 [ 0, %for.body57.lr.ph ], [ %indvars.iv.next91, %if.end75 ]
+  %cases.582 = phi i64 [ %cases.4, %for.body57.lr.ph ], [ %cases.6, %if.end75 ]
+  %arrayidx61 = getelementptr inbounds [31 x i64], ptr %ces59, i64 0, i64 %indvars.iv90
   %19 = load i64, ptr %arrayidx61, align 8
   %and62 = and i64 %19, -49153
   %conv.i.i38 = trunc i64 %and62 to i32
@@ -4887,14 +4883,14 @@ for.end81:                                        ; preds = %if.end75, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK6icu_7513UnicodeStringneERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %text) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %0, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %text, i64 8
   %1 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %1, 1
   %tobool3.i = icmp ne i16 %conv2.i615.i, 0
@@ -4904,15 +4900,15 @@ if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %2 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %3, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %text, i64 8
   %4 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i9.i = sext i16 %5 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %text, i64 12
   %6 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %6, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %4, 1
@@ -4940,10 +4936,10 @@ entry:
   br i1 %cmp.i.i, label %_ZNK6icu_7516CollationBuilder5isFCDERKNS_13UnicodeStringER10UErrorCode.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %fcd.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
+  %fcd.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fcd.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool3.i = icmp eq i8 %call2.i, 0
@@ -4963,22 +4959,22 @@ entry:
   br i1 %cmp.i.i, label %lor.end, label %_ZNK6icu_7516CollationBuilder5isFCDERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZNK6icu_7516CollationBuilder5isFCDERKNS_13UnicodeStringER10UErrorCode.exit: ; preds = %entry
-  %fcd.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
+  %fcd.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fcd.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool3.i.not = icmp eq i8 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNK6icu_7516CollationBuilder5isFCDERKNS_13UnicodeStringER10UErrorCode.exit
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
   %shr.i.i.i.i = sext i16 %4 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %s, i64 12
   %5 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %5, i32 %shr.i.i.i.i
   %cmp.i.i2.not = icmp eq i32 %cond.i.i.i, 0
@@ -4988,7 +4984,7 @@ if.then.i.i:                                      ; preds = %lor.rhs
   %6 = and i16 %3, 2
   %tobool.not.i.i.i = icmp eq i16 %6, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %s, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %s, i64 24
   %7 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %7, ptr %fBuffer.i.i.i
   %8 = load i16, ptr %cond.i2.i.i, align 2
@@ -5012,7 +5008,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %dataBuilder, align 8
   %call2 = call noundef i32 @_ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringES3_Pli(ptr noundef nonnull align 8 dereferenceable(640) %1, ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %oldCEs, i32 noundef 0)
   %cmp.not.i = icmp eq i32 %call2, %newCEsLength
@@ -5047,7 +5043,7 @@ if.then6:                                         ; preds = %for.body.i, %if.end
 if.then7:                                         ; preds = %if.then6
   %4 = load ptr, ptr %dataBuilder, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call9 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(640) %4, ptr noundef %newCEs, i32 noundef %newCEsLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end10
@@ -5073,7 +5069,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7516CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %dataBuilder.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %dataBuilder.i, align 8
   %call2.i = call noundef i32 @_ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringES3_Pli(ptr noundef nonnull align 8 dereferenceable(640) %1, ptr noundef nonnull align 8 dereferenceable(64) %nfdPrefix, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, ptr noundef nonnull %oldCEs.i, i32 noundef 0)
   %cmp.not.i.i = icmp eq i32 %call2.i, %newCEsLength
@@ -5108,7 +5104,7 @@ if.then6.i:                                       ; preds = %for.body.i.i, %if.e
 if.then7.i:                                       ; preds = %if.then6.i
   %4 = load ptr, ptr %dataBuilder.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %5 = load ptr, ptr %vfn.i, align 8
   %call9.i = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(640) %4, ptr noundef %newCEs, i32 noundef %newCEsLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end10.i
@@ -5144,7 +5140,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end5
 
 if.end:                                           ; preds = %entry
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %dataBuilder, align 8
   tail call void @_ZN6icu_7520CollationDataBuilder20suppressContractionsERKNS_10UnicodeSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %1, ptr noundef nonnull align 8 dereferenceable(200) %set, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
@@ -5169,7 +5165,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %optimizeSet = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 12
+  %optimizeSet = getelementptr inbounds i8, ptr %this, i64 88
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %optimizeSet, ptr noundef nonnull align 8 dereferenceable(200) %set)
   br label %return
 
@@ -5196,7 +5192,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdPrefix, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %nfdPrefix, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
   %cmp.i45 = icmp ugt i16 %1, 31
   br i1 %cmp.i45, label %if.else, label %if.then4
@@ -5213,16 +5209,16 @@ cleanup35.thread:                                 ; preds = %if.then4
 
 if.end8:                                          ; preds = %if.then4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %prefix, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %prefix, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %prefix, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fUnion.i48 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1
-  %fcd.i.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
-  %fLength.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i48 = getelementptr inbounds i8, ptr %str, i64 8
+  %fcd.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fLength.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   %fBuffer.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 10
-  %fArray.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 3
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 1
-  %dataBuilder.i = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %fArray.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 24
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %nfdString, i64 8
+  %fLength.i10.i = getelementptr inbounds i8, ptr %nfdString, i64 12
+  %dataBuilder.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp15.i.i = icmp sgt i32 %newCEsLength, 0
   %wide.trip.count.i.i = zext nneg i32 %newCEsLength to i64
   br label %for.cond
@@ -5258,7 +5254,7 @@ if.end17:                                         ; preds = %invoke.cont11
 _ZNK6icu_7516CollationBuilder5isFCDERKNS_13UnicodeStringER10UErrorCode.exit.i: ; preds = %if.end17
   %7 = load ptr, ptr %fcd.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i50 = invoke noundef signext i8 %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call2.i.i.noexc unwind label %lpad12
@@ -5371,7 +5367,7 @@ if.then6.i:                                       ; preds = %for.body.i.i, %call
 if.then7.i:                                       ; preds = %if.then6.i
   %25 = load ptr, ptr %dataBuilder.i, align 8
   %vtable.i = load ptr, ptr %25, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %26 = load ptr, ptr %vfn.i, align 8
   %call9.i57 = invoke noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(640) %25, ptr noundef %newCEs, i32 noundef %newCEsLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end10.i unwind label %lpad12
@@ -5419,17 +5415,17 @@ invoke.cont41:                                    ; preds = %if.else
   br i1 %cmp.i60, label %for.cond48.preheader, label %cleanup104
 
 for.cond48.preheader:                             ; preds = %invoke.cont41
-  %fUnion.i62 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %prefix49, i64 0, i32 1
-  %fcd.i.i65 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
-  %fLength.i.i82 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %prefix49, i64 0, i32 1, i32 0, i32 1
-  %fLength.i10.i87 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdPrefix, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i98 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str65, i64 0, i32 1
-  %fLength.i.i.i.i110 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str65, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i62 = getelementptr inbounds i8, ptr %prefix49, i64 8
+  %fcd.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
+  %fLength.i.i82 = getelementptr inbounds i8, ptr %prefix49, i64 12
+  %fLength.i10.i87 = getelementptr inbounds i8, ptr %nfdPrefix, i64 12
+  %fUnion.i98 = getelementptr inbounds i8, ptr %str65, i64 8
+  %fLength.i.i.i.i110 = getelementptr inbounds i8, ptr %str65, i64 12
   %fBuffer.i.i.i.i115 = getelementptr inbounds i8, ptr %str65, i64 10
-  %fArray.i.i.i.i116 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str65, i64 0, i32 1, i32 0, i32 3
-  %fUnion.i5.i126 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
-  %fLength.i10.i138 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 1
-  %dataBuilder.i153 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %fArray.i.i.i.i116 = getelementptr inbounds i8, ptr %str65, i64 24
+  %fUnion.i5.i126 = getelementptr inbounds i8, ptr %nfdString, i64 8
+  %fLength.i10.i138 = getelementptr inbounds i8, ptr %nfdString, i64 12
+  %dataBuilder.i153 = getelementptr inbounds i8, ptr %this, i64 72
   %cmp15.i.i163 = icmp sgt i32 %newCEsLength, 0
   %wide.trip.count.i.i165 = zext nneg i32 %newCEsLength to i64
   br label %for.cond48
@@ -5474,7 +5470,7 @@ if.end56:                                         ; preds = %invoke.cont50
 land.rhs.i.i:                                     ; preds = %if.end56
   %33 = load ptr, ptr %fcd.i.i65, align 8
   %vtable.i.i66 = load ptr, ptr %33, align 8
-  %vfn.i.i67 = getelementptr inbounds ptr, ptr %vtable.i.i66, i64 11
+  %vfn.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i66, i64 88
   %34 = load ptr, ptr %vfn.i.i67, align 8
   %call2.i.i70 = invoke noundef signext i8 %34(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(64) %prefix49, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont57 unwind label %lpad51.loopexit.split-lp
@@ -5551,7 +5547,7 @@ if.end72:                                         ; preds = %invoke.cont66
 _ZNK6icu_7516CollationBuilder5isFCDERKNS_13UnicodeStringER10UErrorCode.exit.i101: ; preds = %if.end72
   %45 = load ptr, ptr %fcd.i.i65, align 8
   %vtable.i.i103 = load ptr, ptr %45, align 8
-  %vfn.i.i104 = getelementptr inbounds ptr, ptr %vtable.i.i103, i64 11
+  %vfn.i.i104 = getelementptr inbounds i8, ptr %vtable.i.i103, i64 88
   %46 = load ptr, ptr %vfn.i.i104, align 8
   %call2.i.i120 = invoke noundef signext i8 %46(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %str65, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call2.i.i.noexc119 unwind label %lpad67
@@ -5667,7 +5663,7 @@ if.then6.i155:                                    ; preds = %for.body.i.i166, %c
 if.then7.i159:                                    ; preds = %if.then6.i155
   %63 = load ptr, ptr %dataBuilder.i153, align 8
   %vtable.i160 = load ptr, ptr %63, align 8
-  %vfn.i161 = getelementptr inbounds ptr, ptr %vtable.i160, i64 4
+  %vfn.i161 = getelementptr inbounds i8, ptr %vtable.i160, i64 32
   %64 = load ptr, ptr %vfn.i161, align 8
   %call9.i177 = invoke noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(640) %63, ptr noundef %newCEs, i32 noundef %newCEsLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end10.i157 unwind label %lpad67
@@ -5761,19 +5757,19 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %nfdString, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %nfdString, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %cmp32 = icmp eq i32 %cond.i, 0
   br i1 %cmp32, label %cleanup.cont, label %if.end4.lr.ph
 
 if.end4.lr.ph:                                    ; preds = %if.end
-  %nfd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
+  %nfd = getelementptr inbounds i8, ptr %this, i64 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end4.lr.ph, %if.end9
@@ -5782,7 +5778,7 @@ if.end4:                                          ; preds = %if.end4.lr.ph, %if.
   %call5 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %nfdString, i32 noundef %sub)
   %4 = load ptr, ptr %nfd, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %5 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef zeroext i8 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %call5)
   %cmp7 = icmp eq i8 %call6, 0
@@ -5802,7 +5798,7 @@ for.end:                                          ; preds = %if.end4
 
 if.end15:                                         ; preds = %for.end
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %composites)
-  %nfcImpl = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 3
+  %nfcImpl = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %nfcImpl, align 8
   %call16 = invoke noundef signext i8 @_ZNK6icu_7515Normalizer2Impl16getCanonStartSetEiRNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(80) %7, i32 noundef %call5, ptr noundef nonnull align 8 dereferenceable(200) %composites)
           to label %invoke.cont unwind label %lpad
@@ -5818,20 +5814,20 @@ lpad:                                             ; preds = %if.end15
 
 invoke.cont24:                                    ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %decomp, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decomp, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %decomp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %newNFDString, align 8
-  %fUnion2.i24 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %newNFDString, i64 0, i32 1
+  %fUnion2.i24 = getelementptr inbounds i8, ptr %newNFDString, i64 8
   store i16 2, ptr %fUnion2.i24, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %newString, align 8
-  %fUnion2.i25 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %newString, i64 0, i32 1
+  %fUnion2.i25 = getelementptr inbounds i8, ptr %newString, i64 8
   store i16 2, ptr %fUnion2.i25, align 8
   invoke void @_ZN6icu_7518UnicodeSetIteratorC1ERKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(64) %iter, ptr noundef nonnull align 8 dereferenceable(200) %composites)
           to label %while.cond.preheader unwind label %lpad25
 
 while.cond.preheader:                             ; preds = %invoke.cont24
-  %codepoint.i = getelementptr inbounds %"class.icu_75::UnicodeSetIterator", ptr %iter, i64 0, i32 1
-  %dataBuilder = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 8
+  %codepoint.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
@@ -5846,7 +5842,7 @@ while.body:                                       ; preds = %invoke.cont28
   %9 = load i32, ptr %codepoint.i, align 8
   %10 = load ptr, ptr %nfd, align 8
   %vtable34 = load ptr, ptr %10, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 7
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 56
   %11 = load ptr, ptr %vfn35, align 8
   %call37 = invoke noundef signext i8 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(64) %decomp)
           to label %invoke.cont36 unwind label %lpad27
@@ -5919,7 +5915,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 if.then6.i:                                       ; preds = %for.body.i.i, %call2.i.noexc
   %19 = load ptr, ptr %dataBuilder, align 8
   %vtable.i = load ptr, ptr %19, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %20 = load ptr, ptr %vfn.i, align 8
   %call9.i28 = invoke noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(640) %19, ptr noundef nonnull %newCEs, i32 noundef %call44, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call9.i.noexc unwind label %lpad27
@@ -5998,12 +5994,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %decomp, i32 noundef 0, i32 noundef 1)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decomp, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %decomp, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decomp, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %decomp, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %cmp = icmp eq i32 %call2, %cond.i
@@ -6015,7 +6011,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %fUnion.i3.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
+  %fUnion.i3.i.i = getelementptr inbounds i8, ptr %nfdString, i64 8
   %4 = load i16, ptr %fUnion.i3.i.i, align 8
   %5 = trunc i16 %4 to i8
   %6 = and i8 %5, 1
@@ -6030,7 +6026,7 @@ if.else.i.i:                                      ; preds = %if.end5
   %7 = and i16 %1, 2
   %tobool.not.i.i.i = icmp eq i16 %7, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %decomp, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decomp, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %decomp, i64 24
   %8 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %8, ptr %fBuffer.i.i.i
   %call5.i.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %nfdString, i32 noundef %indexAfterLastStarter, i32 noundef 2147483647, ptr noundef %cond.i.i.i, i32 noundef %srcStart.addr.0.i.i, i32 noundef %sub.i.i.i)
@@ -6043,30 +6039,30 @@ _ZNK6icu_7513UnicodeString7compareEiiRKS0_ii.exit: ; preds = %if.then.i.i, %if.e
 
 if.end9:                                          ; preds = %_ZNK6icu_7513UnicodeString7compareEiiRKS0_ii.exit
   tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %newNFDString)
-  %fUnion.i.i.i47 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %newNFDString, i64 0, i32 1
+  %fUnion.i.i.i47 = getelementptr inbounds i8, ptr %newNFDString, i64 8
   %9 = load i16, ptr %fUnion.i.i.i47, align 8
   %cmp.i.i.i48 = icmp slt i16 %9, 0
   %10 = ashr i16 %9, 5
   %shr.i.i.i = sext i16 %10 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %newNFDString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %newNFDString, i64 12
   %11 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i48, i32 %11, i32 %shr.i.i.i
   %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %newNFDString, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, i32 noundef 0, i32 noundef %indexAfterLastStarter)
   %sub = sub nsw i32 %indexAfterLastStarter, %call2
   tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %newString)
-  %fUnion.i.i.i49 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %newString, i64 0, i32 1
+  %fUnion.i.i.i49 = getelementptr inbounds i8, ptr %newString, i64 8
   %12 = load i16, ptr %fUnion.i.i.i49, align 8
   %cmp.i.i.i50 = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
   %shr.i.i.i51 = sext i16 %13 to i32
-  %fLength.i.i52 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %newString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i52 = getelementptr inbounds i8, ptr %newString, i64 12
   %14 = load i32, ptr %fLength.i.i52, align 4
   %cond.i.i53 = select i1 %cmp.i.i.i50, i32 %14, i32 %shr.i.i.i51
   %call2.i54 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %newString, i32 noundef 0, i32 noundef %cond.i.i53, ptr noundef nonnull align 8 dereferenceable(64) %nfdString, i32 noundef 0, i32 noundef %sub)
   %call12 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %call2.i54, i32 noundef %composite)
-  %fUnion.i.i55 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1
-  %fLength.i58 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nfdString, i64 0, i32 1, i32 0, i32 1
-  %nfd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 1
+  %fUnion.i.i55 = getelementptr inbounds i8, ptr %nfdString, i64 8
+  %fLength.i58 = getelementptr inbounds i8, ptr %nfdString, i64 12
+  %nfd = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end59, %if.end9
@@ -6092,7 +6088,7 @@ if.end18:                                         ; preds = %if.then14
   %call19 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %nfdString, i32 noundef %sourceIndex.0)
   %18 = load ptr, ptr %nfd, align 8
   %vtable = load ptr, ptr %18, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %19 = load ptr, ptr %vfn, align 8
   %call20 = tail call noundef zeroext i8 %19(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %call19)
   br label %if.end21
@@ -6113,7 +6109,7 @@ if.end25:                                         ; preds = %if.end21
   %call26 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %decomp, i32 noundef %decompIndex.0)
   %23 = load ptr, ptr %nfd, align 8
   %vtable28 = load ptr, ptr %23, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 10
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 80
   %24 = load ptr, ptr %vfn29, align 8
   %call30 = tail call noundef zeroext i8 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %call26)
   %25 = add i8 %call30, -1
@@ -6203,10 +6199,10 @@ entry:
   br i1 %cmp.i, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %fcd = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 2
+  %fcd = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fcd, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool3 = icmp ne i8 %call2, 0
@@ -6532,7 +6528,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true.i
-  %finalCEs = getelementptr inbounds %"class.icu_75::CEFinalizer", ptr %this, i64 0, i32 1
+  %finalCEs = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %finalCEs, align 8
   %sub.i = add i32 %ce32, -1077937696
   %shr.i3 = lshr i32 %sub.i, 11
@@ -6566,7 +6562,7 @@ entry:
   br i1 %1, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %finalCEs = getelementptr inbounds %"class.icu_75::CEFinalizer", ptr %this, i64 0, i32 1
+  %finalCEs = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %finalCEs, align 8
   %sub.i = add nsw i64 %ce, -4629700417037541376
   %shr.i = lshr i64 %sub.i, 43

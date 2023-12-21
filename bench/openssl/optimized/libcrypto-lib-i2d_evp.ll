@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.type_and_structure_st = type { ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @i2d_KeyParams.output_info = internal constant [2 x %struct.type_and_structure_st] [%struct.type_and_structure_st { ptr @.str, ptr @.str.1 }, %struct.type_and_structure_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [4 x i8] c"DER\00", align 1
@@ -27,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @i2d_KeyParams(ptr noundef %a, ptr noundef %pp) #0 {
 entry:
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %a, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -37,13 +31,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %ameth, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %param_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 16
+  %param_encode = getelementptr inbounds i8, ptr %1, i64 120
   %2 = load ptr, ptr %param_encode, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end8, label %if.then4
@@ -78,7 +72,7 @@ land.rhs.us:                                      ; preds = %entry, %if.end.us
 
 for.body.us:                                      ; preds = %land.rhs.us
   store i64 2147483647, ptr %len, align 8
-  %output_structure.us = getelementptr inbounds %struct.type_and_structure_st, ptr %output_info.addr.010.us, i64 0, i32 1
+  %output_structure.us = getelementptr inbounds i8, ptr %output_info.addr.010.us, i64 8
   %1 = load ptr, ptr %output_structure.us, align 8
   %call.us = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %a, i32 noundef %selection, ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #2
   %cmp5.us = icmp eq ptr %call.us, null
@@ -90,7 +84,7 @@ if.end.us:                                        ; preds = %for.body.us
   %2 = load i64, ptr %len, align 8
   %conv.us = trunc i64 %2 to i32
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %call.us) #2
-  %incdec.ptr.us = getelementptr inbounds %struct.type_and_structure_st, ptr %output_info.addr.010.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %output_info.addr.010.us, i64 16
   %cmp.us21 = icmp eq i32 %conv.us, -1
   %cmp.us = select i1 %tobool.not.us, i1 true, i1 %cmp.us21
   br i1 %cmp.us, label %land.rhs.us, label %return, !llvm.loop !4
@@ -105,7 +99,7 @@ for.body:                                         ; preds = %land.rhs
   store i64 2147483647, ptr %len, align 8
   %4 = load ptr, ptr %pp, align 8
   %cmp3 = icmp eq ptr %4, null
-  %output_structure = getelementptr inbounds %struct.type_and_structure_st, ptr %output_info.addr.010, i64 0, i32 1
+  %output_structure = getelementptr inbounds i8, ptr %output_info.addr.010, i64 8
   %5 = load ptr, ptr %output_structure, align 8
   %call = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %a, i32 noundef %selection, ptr noundef nonnull %3, ptr noundef %5, ptr noundef null) #2
   %cmp5 = icmp eq ptr %call, null
@@ -129,7 +123,7 @@ if.end12.thread:                                  ; preds = %if.then7
 if.end12:                                         ; preds = %if.then7, %if.end
   %ret.1 = phi i32 [ -1, %if.end ], [ %conv, %if.then7 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %call) #2
-  %incdec.ptr = getelementptr inbounds %struct.type_and_structure_st, ptr %output_info.addr.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %output_info.addr.010, i64 16
   %cmp = icmp eq i32 %ret.1, -1
   br i1 %cmp, label %land.rhs, label %return, !llvm.loop !4
 
@@ -162,7 +156,7 @@ declare i32 @ASN1_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define i32 @i2d_PrivateKey(ptr noundef %a, ptr noundef %pp) local_unnamed_addr #0 {
 entry:
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %a, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -172,13 +166,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %ameth, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %old_priv_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 25
+  %old_priv_encode = getelementptr inbounds i8, ptr %1, i64 192
   %2 = load ptr, ptr %old_priv_encode, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %land.lhs.true11, label %if.then4
@@ -188,7 +182,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %return
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %priv_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 10
+  %priv_encode = getelementptr inbounds i8, ptr %1, i64 72
   %3 = load ptr, ptr %priv_encode, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end20, label %if.then14
@@ -223,7 +217,7 @@ declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @i2d_PublicKey(ptr noundef %a, ptr noundef %pp) local_unnamed_addr #0 {
 entry:
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %a, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then

@@ -47,9 +47,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.fwrite_stream = type { ptr }
 %struct.fread_stream = type { ptr }
-%"struct.tl::detail::expected_storage_base" = type <{ %union.anon.2, i8, [7 x i8] }>
-%"struct.tl::detail::expected_storage_base.9" = type <{ %union.anon.10, i8, [7 x i8] }>
-%"struct.tl::detail::expected_storage_base.28" = type <{ %union.anon.29, i8, [7 x i8] }>
 %class.anon.54 = type { ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -192,7 +189,7 @@ entry:
   %ifs = alloca %struct.fread_stream, align 8
   %p4 = alloca %"class.tl::expected", align 8
   store i32 20, ptr %p, align 8
-  %name = getelementptr inbounds %struct.person, ptr %p, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -200,7 +197,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   store i32 21, ptr %p2, align 8
-  %name2 = getelementptr inbounds %struct.person, ptr %p2, i64 0, i32 1
+  %name2 = getelementptr inbounds i8, ptr %p2, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name2, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc547 unwind label %lpad4
@@ -209,8 +206,8 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %struct.person, ptr %p, i64 0, i32 1, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, 256
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -245,7 +242,7 @@ if.then.i.i151:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %cmp3.i.i150.not = icmp eq i64 %add.i544, 0
   br i1 %cmp3.i.i150.not, label %.noexc548, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
 
@@ -330,12 +327,12 @@ lpad.i112:                                        ; preds = %_ZNSt12_Vector_base
   call void @_ZdlPv(ptr noundef nonnull %1) #23
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i157)
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %buffer8, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %buffer8, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i157) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %buffer8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i157) #20
   store ptr %8, ptr %buffer8, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i157) #20
-  %_M_string_length.i.i.i158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %buffer8, i64 0, i32 1
+  %_M_string_length.i.i.i158 = getelementptr inbounds i8, ptr %buffer8, i64 8
   store i64 0, ptr %_M_string_length.i.i.i158, align 8
   %9 = load ptr, ptr %buffer8, align 8
   store i8 0, ptr %9, align 1
@@ -561,7 +558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .noexc428:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #20
-  %_M_string_length.i205 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %buffer10, i64 0, i32 1
+  %_M_string_length.i205 = getelementptr inbounds i8, ptr %buffer10, i64 8
   %30 = load i64, ptr %_M_string_length.i205, align 8
   %31 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !12
   %cmp.i395 = icmp ult i64 %31, 256
@@ -588,7 +585,7 @@ _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serializ
   %add34.i411 = add i64 %30, 4
   %add.i149 = add i64 %add34.i411, %storemerge131
   %32 = load ptr, ptr %buffer10, align 8
-  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %buffer10, i64 0, i32 2
+  %33 = getelementptr inbounds i8, ptr %buffer10, i64 16
   %cmp.i.i.i211 = icmp eq ptr %32, %33
   br i1 %cmp.i.i.i211, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i246, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i212
 
@@ -806,7 +803,7 @@ if.else.i.i684:                                   ; preds = %.noexc721
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i699: ; preds = %if.else.i.i684, %if.then.i.i717
   %retval.i.i669.sroa.10.1 = phi i8 [ 0, %if.then.i.i717 ], [ %retval.i.i669.sroa.10.0, %if.else.i.i684 ]
   %storemerge133 = phi i64 [ %add.i.i719, %if.then.i.i717 ], [ %add31.i.i698, %if.else.i.i684 ]
-  %_M_finish.i333 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer21, i64 0, i32 1
+  %_M_finish.i333 = getelementptr inbounds i8, ptr %buffer21, i64 8
   %add34.i.i700 = add i64 %storemerge133, 6
   %cmp.i.i337 = icmp slt i64 %add34.i.i700, 0
   br i1 %cmp.i.i337, label %if.then.i.i357, label %if.end.i.i338
@@ -819,7 +816,7 @@ if.then.i.i357:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i338:                                    ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i699
-  %_M_end_of_storage.i.i.i339 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer21, i64 0, i32 2
+  %_M_end_of_storage.i.i.i339 = getelementptr inbounds i8, ptr %buffer21, i64 16
   %cmp3.i.i343.not = icmp eq i64 %add34.i.i700, 0
   br i1 %cmp3.i.i343.not, label %.noexc722, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i346
 
@@ -904,7 +901,7 @@ lpad.i168:                                        ; preds = %_ZNSt12_Vector_base
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i389.sink, ptr align 1 %58, i64 %51, i1 false)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer2) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer2, i8 0, i64 24, i1 false)
-  %_M_finish.i392 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer2, i64 0, i32 1
+  %_M_finish.i392 = getelementptr inbounds i8, ptr %buffer2, i64 8
   %59 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i567 = icmp ult i64 %59, 256
   br i1 %cmp.i.i567, label %if.then.i.i601, label %if.else.i.i568
@@ -939,7 +936,7 @@ if.then.i.i421:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i402:                                    ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i583
-  %_M_end_of_storage.i.i.i403 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer2, i64 0, i32 2
+  %_M_end_of_storage.i.i.i403 = getelementptr inbounds i8, ptr %buffer2, i64 16
   %cmp3.i.i407.not = icmp eq i64 %add.i586, 0
   br i1 %cmp3.i.i407.not, label %.noexc606, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i410
 
@@ -1035,7 +1032,7 @@ if.then.i.i.i472:                                 ; preds = %_ZNSt6vectorIcSaIcE
 _ZNSt6vectorIcSaIcEED2Ev.exit473:                 ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit470, %if.then.i.i.i472
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer21) #20
   store i32 21, ptr %p232, align 8
-  %name34 = getelementptr inbounds %struct.person, ptr %p232, i64 0, i32 1
+  %name34 = getelementptr inbounds i8, ptr %p232, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name34, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35)
           to label %.noexc894 unwind label %lpad36
@@ -1044,8 +1041,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit473:                 ; preds = %_ZNSt6vectorIcSaIcE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #20
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer38) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer38, i8 0, i64 24, i1 false)
-  %_M_finish.i474 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer38, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %struct.person, ptr %p232, i64 0, i32 1, i32 1
+  %_M_finish.i474 = getelementptr inbounds i8, ptr %buffer38, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %p232, i64 16
   %68 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i861 = icmp ult i64 %68, 256
   br i1 %cmp.i861, label %if.then.i890, label %if.else.i862
@@ -1080,7 +1077,7 @@ if.then.i.i503:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i484:                                    ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit895
-  %_M_end_of_storage.i.i.i485 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer38, i64 0, i32 2
+  %_M_end_of_storage.i.i.i485 = getelementptr inbounds i8, ptr %buffer38, i64 16
   %cmp3.i.i489.not = icmp eq i64 %add.i734, 0
   br i1 %cmp3.i.i489.not, label %.noexc738, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i492
 
@@ -1166,7 +1163,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit518:                 ; preds = %_ZN11struct_pack6de
   call void @_ZdlPv(ptr noundef nonnull %69) #23
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer38) #20
   %76 = load ptr, ptr %name34, align 8
-  %77 = getelementptr inbounds %struct.person, ptr %p232, i64 0, i32 1, i32 2
+  %77 = getelementptr inbounds i8, ptr %p232, i64 24
   %cmp.i.i.i.i519 = icmp eq ptr %76, %77
   br i1 %cmp.i.i.i.i519, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i521, label %if.then.i.i.i520
 
@@ -1208,7 +1205,7 @@ _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serializ
   %storemerge136 = phi i64 [ %add.i340, %if.then.i339 ], [ %add31.i, %if.else.i ]
   %add34.i = add i64 %storemerge136, 4
   store i64 %add34.i, ptr %info.i225, align 8
-  %80 = getelementptr inbounds { i64, i8 }, ptr %info.i225, i64 0, i32 1
+  %80 = getelementptr inbounds i8, ptr %info.i225, i64 8
   store i8 %retval.i336.sroa.10.1, ptr %80, align 8
   invoke void @_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tE13fwrite_streamJ6personEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef nonnull align 8 dereferenceable(9) %info.i225, ptr noundef nonnull align 8 dereferenceable(40) %p)
           to label %.noexc664 unwind label %lpad44
@@ -1218,7 +1215,7 @@ _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serializ
   %call.i528 = call i32 @fclose(ptr noundef %81)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer46) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer46, i8 0, i64 24, i1 false)
-  %_M_finish.i529 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer46, i64 0, i32 1
+  %_M_finish.i529 = getelementptr inbounds i8, ptr %buffer46, i64 8
   %82 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i626 = icmp ult i64 %82, 256
   br i1 %cmp.i.i626, label %if.then.i.i660, label %if.else.i.i627
@@ -1253,7 +1250,7 @@ if.then.i.i558:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i539:                                    ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i642
-  %_M_end_of_storage.i.i.i540 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer46, i64 0, i32 2
+  %_M_end_of_storage.i.i.i540 = getelementptr inbounds i8, ptr %buffer46, i64 16
   %cmp3.i.i544.not = icmp eq i64 %add.i645, 0
   br i1 %cmp3.i.i544.not, label %.noexc665, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i547
 
@@ -1336,19 +1333,19 @@ invoke.cont.i237:                                 ; preds = %sw.bb.i584, %_ZN11s
   call void @llvm.assume(i1 %cmp.i.i.i.i591)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i590.sink, ptr align 1 %89, i64 %82, i1 false)
   store i32 0, ptr %ret.i, align 8
-  %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.person, ptr %ret.i, i64 0, i32 1
+  %name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  %90 = getelementptr inbounds %struct.person, ptr %ret.i, i64 0, i32 1, i32 2
+  %90 = getelementptr inbounds i8, ptr %ret.i, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i) #20
   store ptr %90, ptr %name.i.i.i.i.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i) #20
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.person, ptr %ret.i, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8
   %91 = load ptr, ptr %name.i.i.i.i.i.i.i, align 8
   store i8 0, ptr %91, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %ret.i, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 40
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   %92 = load ptr, ptr %buffer46, align 8
   %93 = load ptr, ptr %_M_finish.i529, align 8
@@ -1357,9 +1354,9 @@ invoke.cont.i237:                                 ; preds = %sw.bb.i584, %_ZN11s
   %sub.ptr.sub.i600 = sub i64 %sub.ptr.lhs.cast.i598, %sub.ptr.rhs.cast.i599
   %add.ptr.i245 = getelementptr inbounds i8, ptr %92, i64 %sub.ptr.sub.i600
   store ptr %92, ptr %reader.i, align 8
-  %end2.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i, i64 0, i32 1
+  %end2.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %add.ptr.i245, ptr %end2.i, align 8
-  %reader_.i504 = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i, i64 0, i32 1
+  %reader_.i504 = getelementptr inbounds i8, ptr %in.i, i64 8
   store ptr %reader.i, ptr %reader_.i504, align 8
   %call3.i246247 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 8 dereferenceable(40) %ret.i)
           to label %invoke.cont1.i unwind label %lpad.i233.body
@@ -1397,7 +1394,7 @@ _ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorI
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i) #20
   store i32 %call3.i246247, ptr %ret.i, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i, align 8
-  %m_has_val.i.i.i.i.i.i.i6091238 = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %p248, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i6091238 = getelementptr inbounds i8, ptr %p248, i64 40
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i6091238, align 8
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit.thread
 
@@ -1408,7 +1405,7 @@ lpad.i233.body:                                   ; preds = %invoke.cont.i237
   br label %ehcleanup88
 
 _ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit: ; preds = %if.then.i608, %invoke.cont1.i
-  %m_has_val.i.i.i.i.i.i.i609 = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %p248, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i609 = getelementptr inbounds i8, ptr %p248, i64 40
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i609, align 8
   %98 = and i8 %.pre, 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %98, 0
@@ -1417,8 +1414,8 @@ _ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorI
 if.then.i.i.i.i:                                  ; preds = %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit
   %99 = load i32, ptr %ret.i, align 8
   store i32 %99, ptr %p248, align 8
-  %name.i.i.i.i.i.i = getelementptr inbounds %struct.person, ptr %p248, i64 0, i32 1
-  %100 = getelementptr inbounds %struct.person, ptr %p248, i64 0, i32 1, i32 2
+  %name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p248, i64 8
+  %100 = getelementptr inbounds i8, ptr %p248, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i) #20
   store ptr %100, ptr %name.i.i.i.i.i.i, align 8
   %101 = load ptr, ptr %name.i.i.i.i.i.i.i, align 8
@@ -1449,7 +1446,7 @@ _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit.thread: ; preds = %_ZN11st
 
 _ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
   %105 = phi i64 [ %.pre1216, %if.else.i.i.i.i.i.i.i ], [ %102, %if.then.i.i.i.i.i.i.i ]
-  %_M_string_length.i13.i.i.i.i.i.i.i = getelementptr inbounds %struct.person, ptr %p248, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p248, i64 16
   store i64 %105, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8
   store ptr %90, ptr %name.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8
@@ -1483,14 +1480,14 @@ _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit: ; preds = %_ZNKSt7__cxx11
   br i1 %tobool.not.i.i.i.i.i.i.i613, label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit622, label %if.then.i.i.i.i.i.i.i614
 
 if.then.i.i.i.i.i.i.i614:                         ; preds = %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit, %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit
-  %name.i.i.i.i.i.i.i.i615 = getelementptr inbounds %struct.person, ptr %p248, i64 0, i32 1
+  %name.i.i.i.i.i.i.i.i615 = getelementptr inbounds i8, ptr %p248, i64 8
   %109 = load ptr, ptr %name.i.i.i.i.i.i.i.i615, align 8
-  %110 = getelementptr inbounds %struct.person, ptr %p248, i64 0, i32 1, i32 2
+  %110 = getelementptr inbounds i8, ptr %p248, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i.i616 = icmp eq ptr %109, %110
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i616, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i619, label %if.then.i.i.i.i.i.i.i.i.i.i617
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i619: ; preds = %if.then.i.i.i.i.i.i.i614
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i620 = getelementptr inbounds %struct.person, ptr %p248, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i620 = getelementptr inbounds i8, ptr %p248, i64 16
   %111 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i620, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i.i621 = icmp ult i64 %111, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i621)
@@ -1505,14 +1502,14 @@ _ZN6personD2Ev.exit.i.i.i.i.i.i.i618:             ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit622
 
 _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit622: ; preds = %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit.thread, %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit, %_ZN6personD2Ev.exit.i.i.i.i.i.i.i618
-  %name.i624 = getelementptr inbounds %struct.person, ptr %p251, i64 0, i32 1
+  %name.i624 = getelementptr inbounds i8, ptr %p251, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i623)
-  %112 = getelementptr inbounds %struct.person, ptr %p251, i64 0, i32 1, i32 2
+  %112 = getelementptr inbounds i8, ptr %p251, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i623) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i624, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i623) #20
   store ptr %112, ptr %name.i624, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i623) #20
-  %_M_string_length.i.i.i.i625 = getelementptr inbounds %struct.person, ptr %p251, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i625 = getelementptr inbounds i8, ptr %p251, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i625, align 8
   %113 = load ptr, ptr %name.i624, align 8
   store i8 0, ptr %113, align 1
@@ -1524,9 +1521,9 @@ _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit622: ; preds = %_ZN2tl8expe
   %sub.ptr.sub.i629 = sub i64 %sub.ptr.lhs.cast.i627, %sub.ptr.rhs.cast.i628
   %add.ptr.i255 = getelementptr inbounds i8, ptr %114, i64 %sub.ptr.sub.i629
   store ptr %114, ptr %reader.i250, align 8
-  %end2.i630 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i250, i64 0, i32 1
+  %end2.i630 = getelementptr inbounds i8, ptr %reader.i250, i64 8
   store ptr %add.ptr.i255, ptr %end2.i630, align 8
-  %reader_.i500 = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i251, i64 0, i32 1
+  %reader_.i500 = getelementptr inbounds i8, ptr %in.i251, i64 8
   store ptr %reader.i250, ptr %reader_.i500, align 8
   %call3.i256257 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %in.i251, ptr noundef nonnull align 8 dereferenceable(40) %p251)
           to label %invoke.cont53 unwind label %lpad52
@@ -1549,17 +1546,17 @@ if.then.i.i.i633:                                 ; preds = %invoke.cont53
 invoke.cont.i271:                                 ; preds = %if.then.i.i.i633, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i634
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name.i624) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i638)
-  %118 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret.i261, i64 0, i32 2
+  %118 = getelementptr inbounds i8, ptr %ret.i261, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i638) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ret.i261, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i638) #20
   store ptr %118, ptr %ret.i261, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i638) #20
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i639 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret.i261, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i639 = getelementptr inbounds i8, ptr %ret.i261, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i639, align 8
   %119 = load ptr, ptr %ret.i261, align 8
   store i8 0, ptr %119, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i638)
-  %m_has_val.i.i.i.i.i.i.i640 = getelementptr inbounds %"struct.tl::detail::expected_storage_base.9", ptr %ret.i261, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i640 = getelementptr inbounds i8, ptr %ret.i261, i64 32
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i640, align 8
   %120 = load ptr, ptr %buffer46, align 8
   %121 = load ptr, ptr %_M_finish.i529, align 8
@@ -1568,9 +1565,9 @@ invoke.cont.i271:                                 ; preds = %if.then.i.i.i633, %
   %sub.ptr.sub.i653 = sub i64 %sub.ptr.lhs.cast.i651, %sub.ptr.rhs.cast.i652
   %add.ptr.i490 = getelementptr inbounds i8, ptr %120, i64 %sub.ptr.sub.i653
   store ptr %120, ptr %reader.i485, align 8
-  %end2.i654 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i485, i64 0, i32 1
+  %end2.i654 = getelementptr inbounds i8, ptr %reader.i485, i64 8
   store ptr %add.ptr.i490, ptr %end2.i654, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i486, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %in.i486, i64 8
   store ptr %reader.i485, ptr %reader_.i, align 8
   %call3.i491492 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9get_fieldI6personLm1EEENS_4errcERNSt13tuple_elementIXT0_EDTcl9get_typesIT_EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(17) %in.i486, ptr noundef nonnull align 8 dereferenceable(32) %ret.i261)
           to label %invoke.cont1.i273 unwind label %lpad.i266.body
@@ -1608,7 +1605,7 @@ _ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vect
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ret.i261) #20
   store i32 %call3.i491492, ptr %ret.i261, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i640, align 8
-  %m_has_val.i.i.i.i.i.i.i6631249 = getelementptr inbounds %"struct.tl::detail::expected_storage_base.9", ptr %name55, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i6631249 = getelementptr inbounds i8, ptr %name55, i64 32
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i6631249, align 8
   br label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit.thread
 
@@ -1620,14 +1617,14 @@ lpad.i266.body:                                   ; preds = %invoke.cont.i271
 
 _ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit: ; preds = %if.then.i662, %invoke.cont1.i273
   store i8 0, ptr %name55, align 8
-  %m_has_val.i.i.i.i.i.i.i663 = getelementptr inbounds %"struct.tl::detail::expected_storage_base.9", ptr %name55, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i663 = getelementptr inbounds i8, ptr %name55, i64 32
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i663, align 8
   %126 = and i8 %.pre1219, 1
   %tobool.i.not.i.i.i.i665 = icmp eq i8 %126, 0
   br i1 %tobool.i.not.i.i.i.i665, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit.thread, label %if.then.i.i.i.i666
 
 if.then.i.i.i.i666:                               ; preds = %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit
-  %127 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %name55, i64 0, i32 2
+  %127 = getelementptr inbounds i8, ptr %name55, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name55, ptr noundef nonnull align 1 dereferenceable(1) %ret.i261) #20
   store ptr %127, ptr %name55, align 8
   %128 = load ptr, ptr %ret.i261, align 8
@@ -1658,7 +1655,7 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pa
 
 _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEEC2EOS9_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %132 = phi i64 [ %.pre1220, %if.else.i.i.i.i.i.i ], [ %129, %if.then.i.i.i.i.i.i ]
-  %_M_string_length.i13.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %name55, i64 0, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %name55, i64 8
   store i64 %132, ptr %_M_string_length.i13.i.i.i.i.i.i, align 8
   store ptr %118, ptr %ret.i261, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i639, align 8
@@ -1693,12 +1690,12 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pa
 
 if.then.i.i.i.i.i.i.i675:                         ; preds = %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEEC2EOS9_.exit, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit
   %136 = load ptr, ptr %name55, align 8
-  %137 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %name55, i64 0, i32 2
+  %137 = getelementptr inbounds i8, ptr %name55, i64 16
   %cmp.i.i.i.i.i.i.i.i.i.i676 = icmp eq ptr %136, %137
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i676, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i679, label %if.then.i.i.i.i.i.i.i.i.i677
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i679: ; preds = %if.then.i.i.i.i.i.i.i675
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i680 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %name55, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i680 = getelementptr inbounds i8, ptr %name55, i64 8
   %138 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i680, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i681 = icmp ult i64 %138, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i681)
@@ -1715,8 +1712,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i678:
 .noexc845:                                        ; preds = %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i678, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer57) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer57, i8 0, i64 24, i1 false)
-  %_M_finish.i683 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer57, i64 0, i32 1
-  %_M_string_length.i.i689 = getelementptr inbounds %struct.person, ptr %p2, i64 0, i32 1, i32 1
+  %_M_finish.i683 = getelementptr inbounds i8, ptr %buffer57, i64 8
+  %_M_string_length.i.i689 = getelementptr inbounds i8, ptr %p2, i64 16
   %139 = load i64, ptr %_M_string_length.i.i689, align 8
   %cmp.i812 = icmp ult i64 %139, 256
   br i1 %cmp.i812, label %if.then.i841, label %if.else.i813
@@ -1751,7 +1748,7 @@ if.then.i.i720:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i701:                                    ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit846
-  %_M_end_of_storage.i.i.i702 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer57, i64 0, i32 2
+  %_M_end_of_storage.i.i.i702 = getelementptr inbounds i8, ptr %buffer57, i64 16
   %cmp3.i.i706.not = icmp eq i64 %add.i750, 0
   br i1 %cmp3.i.i706.not, label %.noexc754, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i709
 
@@ -1834,19 +1831,19 @@ invoke.cont.i294:                                 ; preds = %sw.bb.i747, %_ZN11s
   call void @llvm.assume(i1 %cmp.i.i.i753)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i9.i752.sink, ptr align 1 %146, i64 %139, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
-  %147 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret.i283, i64 0, i32 2
+  %147 = getelementptr inbounds i8, ptr %ret.i283, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ret.i283, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #20
   store ptr %147, ptr %ret.i283, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #20
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret.i283, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i283, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %148 = load ptr, ptr %ret.i283, align 8
   store i8 0, ptr %148, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   %149 = getelementptr inbounds i8, ptr %ret.i283, i64 32
   store i32 0, ptr %149, align 8
-  %m_has_val.i.i.i.i.i.i.i755 = getelementptr inbounds %"struct.tl::detail::expected_storage_base.28", ptr %ret.i283, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i755 = getelementptr inbounds i8, ptr %ret.i283, i64 40
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i755, align 8
   %150 = load ptr, ptr %buffer57, align 8
   %151 = load ptr, ptr %_M_finish.i683, align 8
@@ -1855,9 +1852,9 @@ invoke.cont.i294:                                 ; preds = %sw.bb.i747, %_ZN11s
   %sub.ptr.sub.i768 = sub i64 %sub.ptr.lhs.cast.i766, %sub.ptr.rhs.cast.i767
   %add.ptr.i512 = getelementptr inbounds i8, ptr %150, i64 %sub.ptr.sub.i768
   store ptr %150, ptr %reader.i507, align 8
-  %end2.i769 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i507, i64 0, i32 1
+  %end2.i769 = getelementptr inbounds i8, ptr %reader.i507, i64 8
   store ptr %add.ptr.i512, ptr %end2.i769, align 8
-  %reader_.i.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i508, i64 0, i32 1
+  %reader_.i.i = getelementptr inbounds i8, ptr %in.i508, i64 8
   store ptr %reader.i507, ptr %reader_.i.i, align 8
   %call3.i513514 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %in.i508, ptr noundef nonnull align 8 dereferenceable(36) %ret.i283)
           to label %invoke.cont1.i296 unwind label %lpad.i289.body
@@ -1895,7 +1892,7 @@ _ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ret.i283) #20
   store i32 %call3.i513514, ptr %ret.i283, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i755, align 8
-  %m_has_val.i.i.i.i.i.i.i7751260 = getelementptr inbounds %"struct.tl::detail::expected_storage_base.28", ptr %result61, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i7751260 = getelementptr inbounds i8, ptr %result61, i64 40
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i7751260, align 8
   br label %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit.thread
 
@@ -1906,14 +1903,14 @@ lpad.i289.body:                                   ; preds = %invoke.cont.i294
 
 _ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit: ; preds = %if.then.i774, %invoke.cont1.i296
   store i8 0, ptr %result61, align 8
-  %m_has_val.i.i.i.i.i.i.i775 = getelementptr inbounds %"struct.tl::detail::expected_storage_base.28", ptr %result61, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i775 = getelementptr inbounds i8, ptr %result61, i64 40
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i775, align 8
   %156 = and i8 %.pre1223, 1
   %tobool.i.not.i.i.i.i777 = icmp eq i8 %156, 0
   br i1 %tobool.i.not.i.i.i.i777, label %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit.thread, label %if.then.i.i.i.i778
 
 if.then.i.i.i.i778:                               ; preds = %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit
-  %157 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result61, i64 0, i32 2
+  %157 = getelementptr inbounds i8, ptr %result61, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %result61, ptr noundef nonnull align 1 dereferenceable(1) %ret.i283) #20
   store ptr %157, ptr %result61, align 8
   %158 = load ptr, ptr %ret.i283, align 8
@@ -1945,7 +1942,7 @@ _ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEEC2EOSB_.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i781, %if.else.i.i.i.i.i.i.i.i.i.i
   %162 = phi i64 [ %.pre1224, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %159, %if.then.i.i.i.i.i.i.i.i.i.i781 ]
-  %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result61, i64 0, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result61, i64 8
   store i64 %162, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %147, ptr %ret.i283, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -1989,7 +1986,7 @@ _ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 if.then.i794:                                     ; preds = %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit.thread, %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit
   %168 = load i32, ptr %result61, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessIN11struct_pack4errcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i789, align 8
-  %m_val.i.i795 = getelementptr inbounds %"class.tl::bad_expected_access", ptr %ref.tmp.i789, i64 0, i32 1
+  %m_val.i.i795 = getelementptr inbounds i8, ptr %ref.tmp.i789, i64 8
   store i32 %168, ptr %m_val.i.i795, align 8
   invoke void @_ZN2tl6detail15throw_exceptionINS_19bad_expected_accessIN11struct_pack4errcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i789) #21
           to label %invoke.cont.i797 unwind label %lpad.i796
@@ -2006,12 +2003,12 @@ lpad.i796:                                        ; preds = %if.then.i794
 if.then.i.i.i.i.i.i.i803:                         ; preds = %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit.thread1269, %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i789)
   %170 = load ptr, ptr %result61, align 8
-  %171 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result61, i64 0, i32 2
+  %171 = getelementptr inbounds i8, ptr %result61, i64 16
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i804 = icmp eq ptr %170, %171
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i804, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i807, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i805
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i807: ; preds = %if.then.i.i.i.i.i.i.i803
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i808 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result61, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i808 = getelementptr inbounds i8, ptr %result61, i64 8
   %172 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i808, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i809 = icmp ult i64 %172, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i809)
@@ -2033,21 +2030,21 @@ if.then.i.i.i813:                                 ; preds = %_ZN2tl8expectedISt5
 
 .noexc797:                                        ; preds = %if.then.i.i.i813, %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit810
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer57) #20
-  %name.i816 = getelementptr inbounds %struct.person, ptr %p3, i64 0, i32 1
+  %name.i816 = getelementptr inbounds i8, ptr %p3, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i815)
-  %174 = getelementptr inbounds %struct.person, ptr %p3, i64 0, i32 1, i32 2
+  %174 = getelementptr inbounds i8, ptr %p3, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i815) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i816, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i815) #20
   store ptr %174, ptr %name.i816, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i815) #20
-  %_M_string_length.i.i.i.i817 = getelementptr inbounds %struct.person, ptr %p3, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i817 = getelementptr inbounds i8, ptr %p3, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i817, align 8
   %175 = load ptr, ptr %name.i816, align 8
   store i8 0, ptr %175, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i815)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer71) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer71, i8 0, i64 24, i1 false)
-  %_M_finish.i818 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer71, i64 0, i32 1
+  %_M_finish.i818 = getelementptr inbounds i8, ptr %buffer71, i64 8
   %176 = load i64, ptr %_M_string_length.i.i689, align 8
   %cmp.i785 = icmp ult i64 %176, 256
   br i1 %cmp.i785, label %if.then.i793, label %if.else.i786
@@ -2082,7 +2079,7 @@ if.then.i.i855:                                   ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i836:                                    ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
-  %_M_end_of_storage.i.i.i837 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer71, i64 0, i32 2
+  %_M_end_of_storage.i.i.i837 = getelementptr inbounds i8, ptr %buffer71, i64 16
   %cmp3.i.i841.not = icmp eq i64 %add.i767, 0
   br i1 %cmp3.i.i841.not, label %.noexc771, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i844
 
@@ -2164,9 +2161,9 @@ invoke.cont75:                                    ; preds = %_ZN11struct_pack6de
   call void @llvm.assume(i1 %cmp.i.i14.i872)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i871.sink, ptr align 1 %183, i64 %176, i1 false)
   store ptr %177, ptr %reader.i306, align 8
-  %end2.i892 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i306, i64 0, i32 1
+  %end2.i892 = getelementptr inbounds i8, ptr %reader.i306, i64 8
   store ptr %add.ptr.i3.i842, ptr %end2.i892, align 8
-  %reader_.i496 = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i307, i64 0, i32 1
+  %reader_.i496 = getelementptr inbounds i8, ptr %in.i307, i64 8
   store ptr %reader.i306, ptr %reader_.i496, align 8
   %call3.i312313 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeIiJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %in.i307, ptr noundef nonnull align 4 dereferenceable(4) %p3, ptr noundef nonnull align 8 dereferenceable(32) %name.i816)
           to label %invoke.cont80 unwind label %lpad79
@@ -2201,21 +2198,21 @@ call.i519.noexc:                                  ; preds = %if.then.i.i.i899, %
   %call.i904 = call noalias ptr @fopen(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8)
   store ptr %call.i904, ptr %ifs, align 8
   store i32 0, ptr %ret.i316, align 8
-  %name.i.i.i.i.i.i.i906 = getelementptr inbounds %struct.person, ptr %ret.i316, i64 0, i32 1
+  %name.i.i.i.i.i.i.i906 = getelementptr inbounds i8, ptr %ret.i316, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i905)
-  %187 = getelementptr inbounds %struct.person, ptr %ret.i316, i64 0, i32 1, i32 2
+  %187 = getelementptr inbounds i8, ptr %ret.i316, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i905) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i906, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i905) #20
   store ptr %187, ptr %name.i.i.i.i.i.i.i906, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i905) #20
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i907 = getelementptr inbounds %struct.person, ptr %ret.i316, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i907 = getelementptr inbounds i8, ptr %ret.i316, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i907, align 8
   %188 = load ptr, ptr %name.i.i.i.i.i.i.i906, align 8
   store i8 0, ptr %188, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i905)
-  %m_has_val.i.i.i.i.i.i.i908 = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %ret.i316, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i908 = getelementptr inbounds i8, ptr %ret.i316, i64 40
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i908, align 8
-  %reader_.i535 = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %in.i517, i64 0, i32 1
+  %reader_.i535 = getelementptr inbounds i8, ptr %in.i517, i64 8
   store ptr %ifs, ptr %reader_.i535, align 8
   %189 = load ptr, ptr %ifs, align 8
   %call.i919 = call noundef i64 @ftell(ptr noundef %189)
@@ -2278,7 +2275,7 @@ _ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exi
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i906) #20
   store i32 %ret.i518.01215, ptr %ret.i316, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i908, align 8
-  %m_has_val.i.i.i.i.i.i.i9361271 = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %p4, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i9361271 = getelementptr inbounds i8, ptr %p4, i64 40
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i9361271, align 8
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit964.thread
 
@@ -2292,7 +2289,7 @@ lpad.i322.body:                                   ; preds = %call.i519.noexc
 
 _ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit: ; preds = %_ZN11struct_pack14deserialize_toILm0E6personJETkNS_8reader_tE12fread_streamEENS_4errcERT0_RT2_DpRT1_.exit._ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit_crit_edge, %if.then.i934
   %199 = phi i8 [ %.pre1227, %_ZN11struct_pack14deserialize_toILm0E6personJETkNS_8reader_tE12fread_streamEENS_4errcERT0_RT2_DpRT1_.exit._ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit_crit_edge ], [ %193, %if.then.i934 ]
-  %m_has_val.i.i.i.i.i.i.i936 = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %p4, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i936 = getelementptr inbounds i8, ptr %p4, i64 40
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i936, align 8
   %200 = and i8 %199, 1
   %tobool.i.not.i.i.i.i938 = icmp eq i8 %200, 0
@@ -2301,8 +2298,8 @@ _ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exi
 if.then.i.i.i.i939:                               ; preds = %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit
   %201 = load i32, ptr %ret.i316, align 8
   store i32 %201, ptr %p4, align 8
-  %name.i.i.i.i.i.i940 = getelementptr inbounds %struct.person, ptr %p4, i64 0, i32 1
-  %202 = getelementptr inbounds %struct.person, ptr %p4, i64 0, i32 1, i32 2
+  %name.i.i.i.i.i.i940 = getelementptr inbounds i8, ptr %p4, i64 8
+  %202 = getelementptr inbounds i8, ptr %p4, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i940, ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i906) #20
   store ptr %202, ptr %name.i.i.i.i.i.i940, align 8
   %203 = load ptr, ptr %name.i.i.i.i.i.i.i906, align 8
@@ -2333,7 +2330,7 @@ _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit964.thread: ; preds = %_ZN1
 
 _ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit953: ; preds = %if.then.i.i.i.i.i.i.i948, %if.else.i.i.i.i.i.i.i943
   %207 = phi i64 [ %.pre1228, %if.else.i.i.i.i.i.i.i943 ], [ %204, %if.then.i.i.i.i.i.i.i948 ]
-  %_M_string_length.i13.i.i.i.i.i.i.i946 = getelementptr inbounds %struct.person, ptr %p4, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i.i946 = getelementptr inbounds i8, ptr %p4, i64 16
   store i64 %207, ptr %_M_string_length.i13.i.i.i.i.i.i.i946, align 8
   store ptr %187, ptr %name.i.i.i.i.i.i.i906, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i907, align 8
@@ -2367,14 +2364,14 @@ _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit964: ; preds = %_ZNKSt7__cx
   br i1 %tobool.not.i.i.i.i.i.i.i966, label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit975, label %if.then.i.i.i.i.i.i.i967
 
 if.then.i.i.i.i.i.i.i967:                         ; preds = %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit953, %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit964
-  %name.i.i.i.i.i.i.i.i968 = getelementptr inbounds %struct.person, ptr %p4, i64 0, i32 1
+  %name.i.i.i.i.i.i.i.i968 = getelementptr inbounds i8, ptr %p4, i64 8
   %212 = load ptr, ptr %name.i.i.i.i.i.i.i.i968, align 8
-  %213 = getelementptr inbounds %struct.person, ptr %p4, i64 0, i32 1, i32 2
+  %213 = getelementptr inbounds i8, ptr %p4, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i.i969 = icmp eq ptr %212, %213
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i969, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i972, label %if.then.i.i.i.i.i.i.i.i.i.i970
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i972: ; preds = %if.then.i.i.i.i.i.i.i967
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i973 = getelementptr inbounds %struct.person, ptr %p4, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i973 = getelementptr inbounds i8, ptr %p4, i64 16
   %214 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i973, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i.i974 = icmp ult i64 %214, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i974)
@@ -2402,7 +2399,7 @@ if.then.i.i.i979:                                 ; preds = %_ZN2tl8expectedI6pe
 _ZNSt6vectorIcSaIcEED2Ev.exit980:                 ; preds = %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit975, %if.then.i.i.i979
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer46) #20
   %217 = load ptr, ptr %name2, align 8
-  %218 = getelementptr inbounds %struct.person, ptr %p2, i64 0, i32 1, i32 2
+  %218 = getelementptr inbounds i8, ptr %p2, i64 24
   %cmp.i.i.i.i982 = icmp eq ptr %217, %218
   br i1 %cmp.i.i.i.i982, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i984, label %if.then.i.i.i983
 
@@ -2419,7 +2416,7 @@ if.then.i.i.i983:                                 ; preds = %_ZNSt6vectorIcSaIcE
 _ZN6personD2Ev.exit987:                           ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i984, %if.then.i.i.i983
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name2) #20
   %220 = load ptr, ptr %name, align 8
-  %221 = getelementptr inbounds %struct.person, ptr %p, i64 0, i32 1, i32 2
+  %221 = getelementptr inbounds i8, ptr %p, i64 24
   %cmp.i.i.i.i989 = icmp eq ptr %220, %221
   br i1 %cmp.i.i.i.i989, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i991, label %if.then.i.i.i990
 
@@ -2524,7 +2521,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #20
   store ptr %0, ptr %this, align 8
   %cmp = icmp eq ptr %__s, null
@@ -2597,7 +2594,7 @@ if.end.i.i.i3.i:                                  ; preds = %if.end.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.end.i.i.i3.i, %if.then.i.i.i, %if.end.i
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %call.i, ptr %_M_string_length.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 %call.i
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -2629,12 +2626,12 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -2655,14 +2652,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6personD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name = getelementptr inbounds %struct.person, ptr %this, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name, align 8
-  %1 = getelementptr inbounds %struct.person, ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %struct.person, ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -2680,21 +2677,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_has_val.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %this, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_has_val.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN2tl6detail25expected_move_assign_baseI6personN11struct_pack4errcELb0EED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.person, ptr %this, i64 0, i32 1
+  %name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %name.i.i.i.i.i.i.i, align 8
-  %3 = getelementptr inbounds %struct.person, ptr %this, i64 0, i32 1, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.person, ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
@@ -2715,7 +2712,7 @@ _ZN2tl6detail25expected_move_assign_baseI6personN11struct_pack4errcELb0EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_has_val.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base.9", ptr %this, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %m_has_val.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
@@ -2723,12 +2720,12 @@ entry:
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -2749,7 +2746,7 @@ _ZN2tl6detail25expected_move_assign_baseINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_has_val.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base.28", ptr %this, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_has_val.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
@@ -2757,12 +2754,12 @@ entry:
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -2829,8 +2826,8 @@ define linkonce_odr dso_local void @_ZN2tl6detail15throw_exceptionINS_19bad_expe
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessIN11struct_pack4errcEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_val.i = getelementptr inbounds %"class.tl::bad_expected_access", ptr %exception, i64 0, i32 1
-  %m_val2.i = getelementptr inbounds %"class.tl::bad_expected_access", ptr %e, i64 0, i32 1
+  %m_val.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_val2.i = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i32, ptr %m_val2.i, align 8
   store i32 %0, ptr %m_val.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN2tl19bad_expected_accessIN11struct_pack4errcEEE, ptr nonnull @_ZN2tl19bad_expected_accessIN11struct_pack4errcEED2Ev) #21
@@ -2872,9 +2869,9 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %t.i14 = alloca %struct.person, align 8
   %t.i = alloca %struct.person, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -2897,13 +2894,13 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.end.thread, label %if.end9.i
 
 if.end.thread:                                    ; preds = %if.end6.i
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %size_type_.i, align 8
   br label %sw.bb
 
 if.end9.i:                                        ; preds = %if.end6.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i34 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i34 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i34, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i38.not = icmp eq ptr %4, %5
@@ -2920,7 +2917,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 if.then16.i:                                      ; preds = %if.end15.i
   %and.i = zext nneg i8 %6 to i32
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i45 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i45 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i45, align 8
   %9 = load ptr, ptr %7, align 8
   %sub.ptr.lhs.cast.i46 = ptrtoint ptr %8 to i64
@@ -2960,7 +2957,7 @@ if.end23.i:                                       ; preds = %if.end23.i.sink.spl
 
 if.then27.i:                                      ; preds = %if.end23.i
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i75 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i75 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i75, align 8
   %13 = load ptr, ptr %11, align 8
   %sub.ptr.lhs.cast.i76 = ptrtoint ptr %12 to i64
@@ -2983,27 +2980,27 @@ if.end.i45:                                       ; preds = %_ZN11struct_pack6de
 if.end:                                           ; preds = %if.end23.i, %if.end.i45
   %14 = lshr i8 %metainfo.i.0.copyload, 3
   %15 = and i8 %14, 3
-  %size_type_37.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_37.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %15, ptr %size_type_37.i, align 8
-  %size_type_ = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_ = getelementptr inbounds i8, ptr %this, i64 16
   %switch = icmp eq i8 %15, 0
   br i1 %switch, label %sw.bb, label %sw.bb6
 
 sw.bb:                                            ; preds = %if.end.thread, %if.end
-  %name.i84 = getelementptr inbounds %struct.person, ptr %t.i, i64 0, i32 1
+  %name.i84 = getelementptr inbounds i8, ptr %t.i, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %16 = getelementptr inbounds %struct.person, ptr %t.i, i64 0, i32 1, i32 2
+  %16 = getelementptr inbounds i8, ptr %t.i, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #20
   store ptr %16, ptr %name.i84, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #20
-  %_M_string_length.i.i.i.i = getelementptr inbounds %struct.person, ptr %t.i, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %t.i, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   %17 = load ptr, ptr %name.i84, align 8
   store i8 0, ptr %17, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %18 = load ptr, ptr %reader_.i, align 8
-  %end.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %18, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %end.i.i, align 8
   %20 = load ptr, ptr %18, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
@@ -3016,7 +3013,7 @@ if.end.i.i:                                       ; preds = %sw.bb
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 4
   store ptr %add.ptr.i.i, ptr %18, align 8
   %.pre169 = load ptr, ptr %reader_.i, align 8
-  %end.i.i87.phi.trans.insert = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %.pre169, i64 0, i32 1
+  %end.i.i87.phi.trans.insert = getelementptr inbounds i8, ptr %.pre169, i64 8
   %.pre170 = load ptr, ptr %end.i.i87.phi.trans.insert, align 8
   %.pre171 = load ptr, ptr %.pre169, align 8
   br label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit
@@ -3038,7 +3035,7 @@ if.end.i88:                                       ; preds = %_ZN11struct_pack6de
 
 if.end3.i:                                        ; preds = %if.end.i88
   %24 = load ptr, ptr %reader_.i, align 8
-  %end.i3.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %24, i64 0, i32 1
+  %end.i3.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %end.i3.i, align 8
   %26 = load ptr, ptr %24, align 8
   %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %25 to i64
@@ -3053,7 +3050,7 @@ if.end7.i:                                        ; preds = %if.end3.i
 
 .noexc:                                           ; preds = %if.end7.i
   %27 = load ptr, ptr %reader_.i, align 8
-  %end.i8.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %27, i64 0, i32 1
+  %end.i8.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %end.i8.i, align 8
   %29 = load ptr, ptr %27, align 8
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %28 to i64
@@ -3098,20 +3095,20 @@ lpad.i:                                           ; preds = %if.end7.i
   br label %common.resume
 
 sw.bb6:                                           ; preds = %if.end
-  %name.i95 = getelementptr inbounds %struct.person, ptr %t.i14, i64 0, i32 1
+  %name.i95 = getelementptr inbounds i8, ptr %t.i14, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i94)
-  %35 = getelementptr inbounds %struct.person, ptr %t.i14, i64 0, i32 1, i32 2
+  %35 = getelementptr inbounds i8, ptr %t.i14, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i94) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i95, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i94) #20
   store ptr %35, ptr %name.i95, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i94) #20
-  %_M_string_length.i.i.i.i96 = getelementptr inbounds %struct.person, ptr %t.i14, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i96 = getelementptr inbounds i8, ptr %t.i14, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i96, align 8
   %36 = load ptr, ptr %name.i95, align 8
   store i8 0, ptr %36, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i94)
   %37 = load ptr, ptr %reader_.i, align 8
-  %end.i.i98 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %37, i64 0, i32 1
+  %end.i.i98 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load ptr, ptr %end.i.i98, align 8
   %39 = load ptr, ptr %37, align 8
   %sub.ptr.lhs.cast.i.i99 = ptrtoint ptr %38 to i64
@@ -3124,7 +3121,7 @@ if.end.i.i103:                                    ; preds = %sw.bb6
   %add.ptr.i.i104 = getelementptr inbounds i8, ptr %39, i64 4
   store ptr %add.ptr.i.i104, ptr %37, align 8
   %.pre = load ptr, ptr %reader_.i, align 8
-  %end.i.i108.phi.trans.insert = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %.pre, i64 0, i32 1
+  %end.i.i108.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre167 = load ptr, ptr %end.i.i108.phi.trans.insert, align 8
   %.pre168 = load ptr, ptr %.pre, align 8
   %.pre172 = ptrtoint ptr %.pre167 to i64
@@ -3182,7 +3179,7 @@ sw.epilog.i114:                                   ; preds = %_ZN11struct_pack6de
 
 if.end13.i:                                       ; preds = %sw.epilog.i114
   %43 = load ptr, ptr %reader_.i, align 8
-  %end.i19.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %43, i64 0, i32 1
+  %end.i19.i = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %end.i19.i, align 8
   %45 = load ptr, ptr %43, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %44 to i64
@@ -3197,7 +3194,7 @@ if.end17.i:                                       ; preds = %if.end13.i
 
 .noexc121:                                        ; preds = %if.end17.i
   %46 = load ptr, ptr %reader_.i, align 8
-  %end.i24.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %46, i64 0, i32 1
+  %end.i24.i = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load ptr, ptr %end.i24.i, align 8
   %48 = load ptr, ptr %46, align 8
   %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %47 to i64
@@ -3250,12 +3247,12 @@ return:                                           ; preds = %return.sink.split, 
 define linkonce_odr dso_local void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %raw_str, i64 noundef %sz) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %raw_str, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %raw_str, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %raw_str, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %raw_str, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %raw_str, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -3291,7 +3288,7 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %land.lhs.true.i.i
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i) #22
-  %_M_string_length.i.i12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %raw_str, i64 0, i32 1
+  %_M_string_length.i.i12 = getelementptr inbounds i8, ptr %raw_str, i64 8
   %4 = load i64, ptr %_M_string_length.i.i12, align 8
   switch i64 %4, label %if.end.i.i.i [
     i64 0, label %if.then.i4.i
@@ -3327,14 +3324,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit: ; preds = 
 
 if.end.thread:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
   %.ph = phi ptr [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit ], [ %call5.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit ]
-  %_M_string_length.i.i.i1422 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %raw_str, i64 0, i32 1
+  %_M_string_length.i.i.i1422 = getelementptr inbounds i8, ptr %raw_str, i64 8
   store i64 %sz, ptr %_M_string_length.i.i.i1422, align 8
   %arrayidx.i.i23 = getelementptr inbounds i8, ptr %.ph, i64 %sz
   store i8 0, ptr %arrayidx.i.i23, align 1
   br label %for.body.preheader
 
 if.end:                                           ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread
-  %_M_string_length.i.i.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %raw_str, i64 0, i32 1
+  %_M_string_length.i.i.i14 = getelementptr inbounds i8, ptr %raw_str, i64 8
   store i64 %sz, ptr %_M_string_length.i.i.i14, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %sz
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -3356,9 +3353,9 @@ define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_
 entry:
   %code.i = alloca i32, align 4
   %ref.tmp.i76 = alloca %class.anon.54, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -3381,13 +3378,13 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.end.thread, label %if.end9.i
 
 if.end.thread:                                    ; preds = %if.end6.i
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %size_type_.i, align 8
   br label %sw.bb
 
 if.end9.i:                                        ; preds = %if.end6.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i26 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i26 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i26, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i30.not = icmp eq ptr %4, %5
@@ -3404,7 +3401,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 if.then16.i:                                      ; preds = %if.end15.i
   %and.i = zext nneg i8 %6 to i32
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i37 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i37 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i37, align 8
   %9 = load ptr, ptr %7, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %8 to i64
@@ -3444,7 +3441,7 @@ if.end23.i:                                       ; preds = %if.end23.i.sink.spl
 
 if.then27.i:                                      ; preds = %if.end23.i
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i67 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i67 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i67, align 8
   %13 = load ptr, ptr %11, align 8
   %sub.ptr.lhs.cast.i68 = ptrtoint ptr %12 to i64
@@ -3467,14 +3464,14 @@ if.end.i30:                                       ; preds = %_ZN11struct_pack6de
 if.end:                                           ; preds = %if.end23.i, %if.end.i30
   %14 = lshr i8 %metainfo.i.0.copyload, 3
   %15 = and i8 %14, 3
-  %size_type_37.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_37.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %15, ptr %size_type_37.i, align 8
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %sw.bb, label %sw.bb6
 
 sw.bb:                                            ; preds = %if.end.thread, %if.end
   %17 = load ptr, ptr %reader_.i, align 8
-  %end.i.i.i.i.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %17, i64 0, i32 1
+  %end.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %end.i.i.i.i.i.i.i, align 8
   %19 = load ptr, ptr %17, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %18 to i64
@@ -3491,7 +3488,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %sw.bb
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 4
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %17, align 8
   %22 = load ptr, ptr %reader_.i, align 8
-  %end.i.i5.i.i.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %22, i64 0, i32 1
+  %end.i.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %end.i.i5.i.i.i.i.i, align 8
   %24 = load ptr, ptr %22, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %23, %24
@@ -3507,7 +3504,7 @@ if.end.i6.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i6.i.i.i.i.i
   %25 = load ptr, ptr %reader_.i, align 8
-  %end.i3.i.i.i.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %25, i64 0, i32 1
+  %end.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %end.i3.i.i.i.i.i.i, align 8
   %27 = load ptr, ptr %25, align 8
   %sub.ptr.lhs.cast.i4.i.i.i.i.i.i = ptrtoint ptr %26 to i64
@@ -3519,7 +3516,7 @@ if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i6.i.i.i.i.i
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end3.i.i.i.i.i.i
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef %size.0.insert.ext.i.i.i.i.i.i)
   %28 = load ptr, ptr %reader_.i, align 8
-  %end.i8.i.i.i.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %28, i64 0, i32 1
+  %end.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %end.i8.i.i.i.i.i.i, align 8
   %30 = load ptr, ptr %28, align 8
   %sub.ptr.lhs.cast.i9.i.i.i.i.i.i = ptrtoint ptr %29 to i64
@@ -3541,7 +3538,7 @@ sw.bb6:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i76)
   store i32 0, ptr %code.i, align 4
   store ptr %this, ptr %ref.tmp.i76, align 8
-  %33 = getelementptr inbounds %class.anon.54, ptr %ref.tmp.i76, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %ref.tmp.i76, i64 8
   store ptr %code.i, ptr %33, align 8
   %add.ptr.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %t, i64 32
   call void @_ZSt13__invoke_implIvZN11struct_pack6detail8unpackerINS1_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_4errcERT3_EUlDpOT_E_JRiRSC_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i76, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i.i.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(32) %t)
@@ -3559,9 +3556,9 @@ return:                                           ; preds = %if.end.i30, %if.the
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvZN11struct_pack6detail8unpackerINS1_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_4errcERT3_EUlDpOT_E_JRiRSC_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %__f, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) local_unnamed_addr #3 comdat {
 entry:
   %0 = load ptr, ptr %__f, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %0, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reader_.i, align 8
-  %end.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %1, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %end.i.i, align 8
   %3 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -3576,10 +3573,10 @@ if.end.i:                                         ; preds = %entry
   %5 = load ptr, ptr %1, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %add.ptr.i.i, ptr %1, align 8
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %0, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i8, ptr %size_type_.i, align 8
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i.i5 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i.i5 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i.i5, align 8
   %9 = load ptr, ptr %7, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %8 to i64
@@ -3630,7 +3627,7 @@ sw.epilog.i:                                      ; preds = %_ZN11struct_pack6de
 
 if.end13.i:                                       ; preds = %sw.epilog.i
   %10 = load ptr, ptr %reader_.i, align 8
-  %end.i19.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %10, i64 0, i32 1
+  %end.i19.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %end.i19.i, align 8
   %12 = load ptr, ptr %10, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %11 to i64
@@ -3642,7 +3639,7 @@ if.end13.i:                                       ; preds = %sw.epilog.i
 if.end17.i:                                       ; preds = %if.end13.i
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %__args1, i64 noundef %size.3.i)
   %13 = load ptr, ptr %reader_.i, align 8
-  %end.i24.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %13, i64 0, i32 1
+  %end.i24.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %end.i24.i, align 8
   %15 = load ptr, ptr %13, align 8
   %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %14 to i64
@@ -3661,7 +3658,7 @@ if.end.i29.i:                                     ; preds = %if.end17.i
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE16deserialize_manyILm2ELm18446744073709551615ELb1ELm0ERiJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_4errcEOT3_DpOT4_.exit: ; preds = %entry, %if.end.i29.i, %if.end17.i, %if.end13.i, %sw.epilog.i, %sw.bb7.i, %sw.bb2.i, %sw.bb.i
   %retval.i.0 = phi i32 [ 0, %sw.epilog.i ], [ 1, %if.end13.i ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb7.i ], [ 0, %if.end17.i ], [ 0, %if.end.i29.i ], [ 1, %entry ]
-  %18 = getelementptr inbounds %class.anon.54, ptr %__f, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %__f, i64 8
   %19 = load ptr, ptr %18, align 8
   store i32 %retval.i.0, ptr %19, align 4
   ret void
@@ -3674,7 +3671,7 @@ entry:
   %data_len.i = alloca i64, align 8
   %current_types_code.i = alloca i32, align 4
   %metainfo.i = alloca i8, align 1
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i21 = call i64 @fread(ptr noundef nonnull %current_types_code.i, i64 noundef 4, i64 noundef 1, ptr noundef %1)
@@ -3777,10 +3774,10 @@ _ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6pers
 _ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread66: ; preds = %if.end6.i, %if.end33.i
   %.sink = phi i8 [ %16, %if.end33.i ], [ 0, %if.end6.i ]
   %retval.i.sroa.10.0.ph = phi i64 [ %ret.i.sroa.556.0, %if.end33.i ], [ 0, %if.end6.i ]
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %.sink, ptr %size_type_.i, align 8
   store i64 %retval.i.sroa.10.0.ph, ptr %len, align 8
-  %size_type_ = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 2
+  %size_type_ = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load i8, ptr %size_type_, align 8
   %switch = icmp eq i8 %17, 0
   %18 = load ptr, ptr %reader_.i, align 8
@@ -3797,7 +3794,7 @@ sw.bb:                                            ; preds = %_ZN11struct_pack6de
   br i1 %cmp.i.i.not.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %sw.bb
-  %name.i.i = getelementptr inbounds %struct.person, ptr %t, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %call.i.i = tail call noundef i32 @_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i)
   br label %return
 
@@ -3805,7 +3802,7 @@ sw.bb6:                                           ; preds = %_ZN11struct_pack6de
   br i1 %cmp.i.i.not.i, label %if.end.i.i49, label %return
 
 if.end.i.i49:                                     ; preds = %sw.bb6
-  %name.i.i50 = getelementptr inbounds %struct.person, ptr %t, i64 0, i32 1
+  %name.i.i50 = getelementptr inbounds i8, ptr %t, i64 8
   %call.i.i51 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i50)
   br label %return
 
@@ -3825,7 +3822,7 @@ define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerI12fr
 entry:
   %size = alloca i64, align 8
   store i64 0, ptr %size, align 8
-  %reader_ = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 1
+  %reader_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i11 = call i64 @fread(ptr noundef nonnull %size, i64 noundef 1, i64 noundef 1, ptr noundef %1)
@@ -3859,7 +3856,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp.i13, label %for.cond, label %if.then13, !llvm.loop !26
 
 if.then13:                                        ; preds = %for.body
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %item, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %item, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %6, %i.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -3876,7 +3873,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i: ; preds = %if.then.i.i
   %7 = load ptr, ptr %item, align 8
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %item, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %item, i64 16
   %cmp.i.i.i.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
 
@@ -3940,14 +3937,14 @@ return:                                           ; preds = %for.cond, %_ZNSt7__
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__len1, ptr noundef %__s, i64 noundef %__len2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8
   %1 = add i64 %__len1, %__pos
   %sub2 = sub i64 %0, %1
   %add = sub i64 %__len2, %__len1
   %sub4 = add i64 %add, %0
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
 
@@ -4070,9 +4067,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i = icmp eq ptr %0, %1
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
   br i1 %cmp.i, label %if.end21, label %if.end
 
@@ -4181,9 +4178,9 @@ define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerI12fr
 entry:
   %size = alloca i64, align 8
   store i64 0, ptr %size, align 8
-  %size_type_ = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 2
+  %size_type_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %size_type_, align 8
-  %reader_ = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 1
+  %reader_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %reader_, align 8
   %2 = load ptr, ptr %1, align 8
   switch i8 %0, label %sw.default [
@@ -4216,7 +4213,7 @@ sw.epilog:                                        ; preds = %sw.bb7, %sw.bb2, %s
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %sw.epilog
-  %reader_19 = getelementptr inbounds %"class.struct_pack::detail::unpacker.55", ptr %this, i64 0, i32 1
+  %reader_19 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
@@ -4241,7 +4238,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp.i16, label %for.cond, label %if.then23, !llvm.loop !28
 
 if.then23:                                        ; preds = %for.body
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %item, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %item, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %7, %i.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -4258,7 +4255,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i: ; preds = %if.then.i.i
   %8 = load ptr, ptr %item, align 8
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %item, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %item, i64 16
   %cmp.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
 
@@ -4331,7 +4328,7 @@ entry:
   %size2.i.i = alloca i64, align 8
   %hash_head.i10 = alloca i32, align 4
   %hash_head.i = alloca i32, align 4
-  %metainfo_.i = getelementptr inbounds %"struct.struct_pack::serialize_buffer_size", ptr %info, i64 0, i32 1
+  %metainfo_.i = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i8, ptr %metainfo_.i, align 8
   %1 = and i8 %0, 24
   %switch = icmp eq i8 %1, 0
@@ -4341,10 +4338,10 @@ sw.bb:                                            ; preds = %entry
   store i32 -2052522522, ptr %hash_head.i, align 4
   %2 = load ptr, ptr %writer, align 8
   %call.i4 = call i64 @fwrite(ptr noundef nonnull %hash_head.i, i64 noundef 4, i64 noundef 1, ptr noundef %2)
-  %name.i.i = getelementptr inbounds %struct.person, ptr %args, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %args, i64 8
   %3 = load ptr, ptr %writer, align 8
   %call.i1.i.i = tail call i64 @fwrite(ptr noundef nonnull %args, i64 noundef 4, i64 noundef 1, ptr noundef %3)
-  %_M_string_length.i.i.i = getelementptr inbounds %struct.person, ptr %args, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8
   %size.sroa.0.0.extract.trunc.i.i = trunc i64 %4 to i32
   %5 = load ptr, ptr %writer, align 8
@@ -4370,7 +4367,7 @@ sw.bb1:                                           ; preds = %entry
   %12 = load ptr, ptr %writer, align 8
   %call.i1.i.i9 = tail call i64 @fwrite(ptr noundef nonnull %args, i64 noundef 4, i64 noundef 1, ptr noundef %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size2.i.i)
-  %_M_string_length.i.i.i10 = getelementptr inbounds %struct.person, ptr %args, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i10 = getelementptr inbounds i8, ptr %args, i64 16
   %13 = load i64, ptr %_M_string_length.i.i.i10, align 8
   store i64 %13, ptr %size2.i.i, align 8
   %14 = load i8, ptr %metainfo_.i, align 8
@@ -4381,7 +4378,7 @@ sw.bb1:                                           ; preds = %entry
   %switch.tableidx = add nsw i64 %shr.i.i, -1
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tE13fwrite_streamJ6personEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  %name.i.i11 = getelementptr inbounds %struct.person, ptr %args, i64 0, i32 1
+  %name.i.i11 = getelementptr inbounds i8, ptr %args, i64 8
   %call.i10.i.i = call i64 @fwrite(ptr noundef nonnull %size2.i.i, i64 noundef %switch.load, i64 noundef 1, ptr noundef %17)
   %18 = load ptr, ptr %name.i.i11, align 8
   %19 = load i64, ptr %_M_string_length.i.i.i10, align 8
@@ -4402,9 +4399,9 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(40) %t) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -4427,13 +4424,13 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.end.thread, label %if.end9.i
 
 if.end.thread:                                    ; preds = %if.end6.i
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %size_type_.i, align 8
   br label %sw.bb
 
 if.end9.i:                                        ; preds = %if.end6.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i26 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i26 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i26, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i30.not = icmp eq ptr %4, %5
@@ -4450,7 +4447,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 if.then16.i:                                      ; preds = %if.end15.i
   %and.i = zext nneg i8 %6 to i32
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i37 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i37 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i37, align 8
   %9 = load ptr, ptr %7, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %8 to i64
@@ -4490,7 +4487,7 @@ if.end23.i:                                       ; preds = %if.end23.i.sink.spl
 
 if.then27.i:                                      ; preds = %if.end23.i
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i67 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i67 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i67, align 8
   %13 = load ptr, ptr %11, align 8
   %sub.ptr.lhs.cast.i68 = ptrtoint ptr %12 to i64
@@ -4513,14 +4510,14 @@ if.end.i27:                                       ; preds = %_ZN11struct_pack6de
 if.end:                                           ; preds = %if.end23.i, %if.end.i27
   %14 = lshr i8 %metainfo.i.0.copyload, 3
   %15 = and i8 %14, 3
-  %size_type_37.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_37.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %15, ptr %size_type_37.i, align 8
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %sw.bb, label %sw.bb6
 
 sw.bb:                                            ; preds = %if.end.thread, %if.end
   %17 = load ptr, ptr %reader_.i, align 8
-  %end.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %17, i64 0, i32 1
+  %end.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %end.i.i.i, align 8
   %19 = load ptr, ptr %17, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %18 to i64
@@ -4535,9 +4532,9 @@ if.end.i.i.i:                                     ; preds = %sw.bb
   %21 = load ptr, ptr %17, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 4
   store ptr %add.ptr.i.i.i, ptr %17, align 8
-  %name.i.i = getelementptr inbounds %struct.person, ptr %t, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %22 = load ptr, ptr %reader_.i, align 8
-  %end.i.i7.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %22, i64 0, i32 1
+  %end.i.i7.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %end.i.i7.i, align 8
   %24 = load ptr, ptr %22, align 8
   %cmp.i.not.i.i = icmp eq ptr %23, %24
@@ -4553,7 +4550,7 @@ if.end.i.i:                                       ; preds = %if.end.i.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %25 = load ptr, ptr %reader_.i, align 8
-  %end.i3.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %25, i64 0, i32 1
+  %end.i3.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %end.i3.i.i, align 8
   %27 = load ptr, ptr %25, align 8
   %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %26 to i64
@@ -4565,7 +4562,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
 if.end7.i.i:                                      ; preds = %if.end3.i.i
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, i64 noundef %size.0.insert.ext.i.i)
   %28 = load ptr, ptr %reader_.i, align 8
-  %end.i8.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %28, i64 0, i32 1
+  %end.i8.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %end.i8.i.i, align 8
   %30 = load ptr, ptr %28, align 8
   %sub.ptr.lhs.cast.i9.i.i = ptrtoint ptr %29 to i64
@@ -4594,9 +4591,9 @@ return:                                           ; preds = %if.end.i27, %if.the
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0E6personEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(40) %item) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4611,11 +4608,11 @@ if.end.i.i:                                       ; preds = %entry
   %4 = load ptr, ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %add.ptr.i.i, ptr %0, align 8
-  %name.i = getelementptr inbounds %struct.person, ptr %item, i64 0, i32 1
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %item, i64 8
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i8, ptr %size_type_.i, align 8
   %6 = load ptr, ptr %reader_.i, align 8
-  %end.i.i7 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %6, i64 0, i32 1
+  %end.i.i7 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %end.i.i7, align 8
   %8 = load ptr, ptr %6, align 8
   %sub.ptr.lhs.cast.i.i8 = ptrtoint ptr %7 to i64
@@ -4666,7 +4663,7 @@ sw.epilog.i:                                      ; preds = %_ZN11struct_pack6de
 
 if.end13.i:                                       ; preds = %sw.epilog.i
   %9 = load ptr, ptr %reader_.i, align 8
-  %end.i19.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %9, i64 0, i32 1
+  %end.i19.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %end.i19.i, align 8
   %11 = load ptr, ptr %9, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %10 to i64
@@ -4678,7 +4675,7 @@ if.end13.i:                                       ; preds = %sw.epilog.i
 if.end17.i:                                       ; preds = %if.end13.i
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %name.i, i64 noundef %size.3.i)
   %12 = load ptr, ptr %reader_.i, align 8
-  %end.i24.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %12, i64 0, i32 1
+  %end.i24.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %end.i24.i, align 8
   %14 = load ptr, ptr %12, align 8
   %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %13 to i64
@@ -4703,9 +4700,9 @@ _ZZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeIiJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 4 dereferenceable(4) %t, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -4728,13 +4725,13 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.end.thread, label %if.end9.i
 
 if.end.thread:                                    ; preds = %if.end6.i
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %size_type_.i, align 8
   br label %sw.bb
 
 if.end9.i:                                        ; preds = %if.end6.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i29 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i29 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i29, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i33.not = icmp eq ptr %4, %5
@@ -4751,7 +4748,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 if.then16.i:                                      ; preds = %if.end15.i
   %and.i = zext nneg i8 %6 to i32
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i40 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i40 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i40, align 8
   %9 = load ptr, ptr %7, align 8
   %sub.ptr.lhs.cast.i41 = ptrtoint ptr %8 to i64
@@ -4791,7 +4788,7 @@ if.end23.i:                                       ; preds = %if.end23.i.sink.spl
 
 if.then27.i:                                      ; preds = %if.end23.i
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i70 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i70 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i70, align 8
   %13 = load ptr, ptr %11, align 8
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %12 to i64
@@ -4814,15 +4811,15 @@ if.end.i14:                                       ; preds = %_ZN11struct_pack6de
 if.end:                                           ; preds = %if.end23.i, %if.end.i14
   %14 = lshr i8 %metainfo.i.0.copyload, 3
   %15 = and i8 %14, 3
-  %size_type_37.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_37.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %15, ptr %size_type_37.i, align 8
   %16 = icmp eq i8 %15, 0
-  %size_type_ = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_ = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %16, label %sw.bb, label %sw.bb6
 
 sw.bb:                                            ; preds = %if.end.thread, %if.end
   %17 = load ptr, ptr %reader_.i, align 8
-  %end.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %17, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %end.i.i, align 8
   %19 = load ptr, ptr %17, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
@@ -4838,7 +4835,7 @@ if.end.i22:                                       ; preds = %sw.bb
   %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 4
   store ptr %add.ptr.i.i, ptr %17, align 8
   %22 = load ptr, ptr %reader_.i, align 8
-  %end.i.i81 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %22, i64 0, i32 1
+  %end.i.i81 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %end.i.i81, align 8
   %24 = load ptr, ptr %22, align 8
   %cmp.i.not.i = icmp eq ptr %23, %24
@@ -4854,7 +4851,7 @@ if.end.i82:                                       ; preds = %if.end.i22
 
 if.end3.i:                                        ; preds = %if.end.i82
   %25 = load ptr, ptr %reader_.i, align 8
-  %end.i3.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %25, i64 0, i32 1
+  %end.i3.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %end.i3.i, align 8
   %27 = load ptr, ptr %25, align 8
   %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %26 to i64
@@ -4866,7 +4863,7 @@ if.end3.i:                                        ; preds = %if.end.i82
 if.end7.i:                                        ; preds = %if.end3.i
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %args, i64 noundef %size.0.insert.ext.i)
   %28 = load ptr, ptr %reader_.i, align 8
-  %end.i8.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %28, i64 0, i32 1
+  %end.i8.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %end.i8.i, align 8
   %30 = load ptr, ptr %28, align 8
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %29 to i64
@@ -4882,7 +4879,7 @@ if.end.i13.i:                                     ; preds = %if.end7.i
 
 sw.bb6:                                           ; preds = %if.end
   %32 = load ptr, ptr %reader_.i, align 8
-  %end.i.i87 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %32, i64 0, i32 1
+  %end.i.i87 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %end.i.i87, align 8
   %34 = load ptr, ptr %32, align 8
   %sub.ptr.lhs.cast.i.i88 = ptrtoint ptr %33 to i64
@@ -4899,7 +4896,7 @@ if.end.i42:                                       ; preds = %sw.bb6
   store ptr %add.ptr.i.i93, ptr %32, align 8
   %37 = load i8, ptr %size_type_, align 8
   %38 = load ptr, ptr %reader_.i, align 8
-  %end.i.i97 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %38, i64 0, i32 1
+  %end.i.i97 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %end.i.i97, align 8
   %40 = load ptr, ptr %38, align 8
   %sub.ptr.lhs.cast.i.i98 = ptrtoint ptr %39 to i64
@@ -4950,7 +4947,7 @@ sw.epilog.i:                                      ; preds = %_ZN11struct_pack6de
 
 if.end13.i:                                       ; preds = %sw.epilog.i
   %41 = load ptr, ptr %reader_.i, align 8
-  %end.i19.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %41, i64 0, i32 1
+  %end.i19.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %end.i19.i, align 8
   %43 = load ptr, ptr %41, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %42 to i64
@@ -4962,7 +4959,7 @@ if.end13.i:                                       ; preds = %sw.epilog.i
 if.end17.i:                                       ; preds = %if.end13.i
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %args, i64 noundef %size.3.i)
   %44 = load ptr, ptr %reader_.i, align 8
-  %end.i24.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %44, i64 0, i32 1
+  %end.i24.i = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load ptr, ptr %end.i24.i, align 8
   %46 = load ptr, ptr %44, align 8
   %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %45 to i64

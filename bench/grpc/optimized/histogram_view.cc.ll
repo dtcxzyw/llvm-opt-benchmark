@@ -3,18 +3,16 @@ source_filename = "bench/grpc/original/histogram_view.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.grpc_core::HistogramView" = type { ptr, ptr, i32, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9grpc_core13HistogramView5CountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %num_buckets = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 2
+  %num_buckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets, align 8
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 3
+  %buckets = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %buckets, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -38,13 +36,13 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %count_below) local_unnamed_addr #1 align 2 {
 entry:
-  %num_buckets = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 2
+  %num_buckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets, align 8
   %cmp17 = icmp sgt i32 %0, 0
   br i1 %cmp17, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 3
+  %buckets = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %buckets, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -76,7 +74,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
   br i1 %cmp3, label %for.cond6.preheader, label %if.else
 
 for.cond6.preheader:                              ; preds = %for.end
-  %buckets10 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 3
+  %buckets10 = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %buckets10, align 8
   %6 = add i32 %lower_idx.0.lcssa, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 %6)
@@ -97,7 +95,7 @@ for.body9:                                        ; preds = %for.cond6
 
 for.end17:                                        ; preds = %for.body9, %for.cond6
   %upper_idx.0.lcssa = phi i32 [ %7, %for.body9 ], [ %smax, %for.cond6 ]
-  %bucket_boundaries = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 1
+  %bucket_boundaries = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %bucket_boundaries, align 8
   %arrayidx19 = getelementptr inbounds i32, ptr %9, i64 %4
   %10 = load i32, ptr %arrayidx19, align 4
@@ -110,7 +108,7 @@ for.end17:                                        ; preds = %for.body9, %for.con
   br label %return
 
 if.else:                                          ; preds = %for.end
-  %bucket_boundaries25 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 1
+  %bucket_boundaries25 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %bucket_boundaries25, align 8
   %arrayidx27 = getelementptr inbounds i32, ptr %12, i64 %4
   %13 = load i32, ptr %arrayidx27, align 4
@@ -123,7 +121,7 @@ if.else:                                          ; preds = %for.end
   %sub = fsub double %conv33, %conv28
   %sub34 = fsub double %count_so_far.1, %count_below
   %mul = fmul double %sub34, %sub
-  %buckets35 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 3
+  %buckets35 = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %buckets35, align 8
   %arrayidx37 = getelementptr inbounds i64, ptr %15, i64 %4
   %16 = load i64, ptr %arrayidx37, align 8
@@ -140,13 +138,13 @@ return:                                           ; preds = %if.else, %for.end17
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9grpc_core13HistogramView10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %p) local_unnamed_addr #1 align 2 {
 entry:
-  %num_buckets.i = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 2
+  %num_buckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets.i, align 8
   %cmp4.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %buckets.i = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 3
+  %buckets.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %buckets.i, align 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -217,7 +215,7 @@ for.body9.i:                                      ; preds = %for.cond6.i
 
 for.end17.i:                                      ; preds = %for.body9.i, %for.cond6.i
   %upper_idx.0.lcssa.i = phi i32 [ %6, %for.body9.i ], [ %smax.i, %for.cond6.i ]
-  %bucket_boundaries.i = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 1
+  %bucket_boundaries.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bucket_boundaries.i, align 8
   %arrayidx19.i = getelementptr inbounds i32, ptr %8, i64 %.pre-phi
   %9 = load i32, ptr %arrayidx19.i, align 4
@@ -230,7 +228,7 @@ for.end17.i:                                      ; preds = %for.body9.i, %for.c
   br label %return
 
 if.else.i:                                        ; preds = %for.end.i
-  %bucket_boundaries25.i = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %this, i64 0, i32 1
+  %bucket_boundaries25.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %bucket_boundaries25.i, align 8
   %arrayidx27.i = getelementptr inbounds i32, ptr %11, i64 %.pre-phi
   %12 = load i32, ptr %arrayidx27.i, align 4

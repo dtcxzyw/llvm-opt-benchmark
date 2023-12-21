@@ -15,29 +15,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base" = type { i32 }
 %"struct.std::atomic.11" = type { %"struct.std::__atomic_base.12" }
 %"struct.std::__atomic_base.12" = type { ptr }
-%"struct.folly::threadlocal_detail::ThreadEntryNode" = type { i32, ptr, ptr, ptr }
-%"struct.folly::threadlocal_detail::ThreadEntry" = type { ptr, %"struct.std::atomic.0", ptr, ptr, ptr, i8, i64, %"union.std::aligned_storage<8, 8>::type" }
-%"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
-%"struct.folly::threadlocal_detail::StaticMetaBase" = type <{ i32, [4 x i8], %"class.std::vector", %"class.std::mutex", %"class.folly::SharedMutexImpl", i32, %"struct.folly::threadlocal_detail::ThreadEntry", ptr, i8, [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
 %"struct.folly::threadlocal_detail::ElementWrapper" = type { ptr, %union.anon, i8, %"struct.folly::threadlocal_detail::ThreadEntryNode" }
 %union.anon = type { ptr }
+%"struct.folly::threadlocal_detail::ThreadEntryNode" = type { i32, ptr, ptr, ptr }
 %"struct.folly::SharedMutexImpl<false>::WaitForever" = type { i8 }
 %"class.folly::SharedMutexImpl<false>::ReadHolder" = type <{ ptr, %"struct.folly::SharedMutexToken", [4 x i8] }>
 %"struct.folly::SharedMutexToken" = type { i16, i16 }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::system_error" = type { %"class.std::runtime_error", %"class.std::error_code" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -146,9 +129,9 @@ entry:
   br i1 %bf.cast.not, label %if.end14, label %if.then, !prof !7
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryNode", ptr %this, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parent, align 8, !tbaa !8
-  %meta = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %0, i64 0, i32 4
+  %meta = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %meta, align 8, !tbaa !15
   %bf.clear = and i32 %bf.load, 2147483647
   br i1 %locked, label %if.then6, label %if.else, !prof !7
@@ -168,13 +151,13 @@ if.end14:                                         ; preds = %if.else, %if.then6,
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly18threadlocal_detail14StaticMetaBase14pushBackLockedEPNS0_11ThreadEntryEj(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr nocapture noundef readonly %t, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %removed_ = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %t, i64 0, i32 5
+  %removed_ = getelementptr inbounds i8, ptr %t, i64 40
   %0 = load i8, ptr %removed_, align 8, !tbaa !20, !range !21, !noundef !22
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end, !prof !7
 
 if.then:                                          ; preds = %entry
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 32
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #31
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -190,7 +173,7 @@ invoke.cont:                                      ; preds = %if.then
   %1 = load ptr, ptr %t, align 8, !tbaa !23
   %idxprom = zext i32 %id to i64
   %node3 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %1, i64 %idxprom, i32 3
-  %head_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6
+  %head_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %head_, align 8, !tbaa !23
   %bf.load.i = load i32, ptr %node3, align 8
   %bf.clear.i = and i32 %bf.load.i, 2147483647
@@ -226,7 +209,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly18threadlocal_detail14StaticMetaBase16pushBackUnlockedEPNS0_11ThreadEntryEj(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr nocapture noundef readonly %t, i32 noundef %id) local_unnamed_addr #1 align 2 {
 entry:
-  %removed_ = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %t, i64 0, i32 5
+  %removed_ = getelementptr inbounds i8, ptr %t, i64 40
   %0 = load i8, ptr %removed_, align 8, !tbaa !20, !range !21, !noundef !22
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end, !prof !7
@@ -235,7 +218,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %t, align 8, !tbaa !23
   %idxprom = zext i32 %id to i64
   %node3 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %1, i64 %idxprom, i32 3
-  %head_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6
+  %head_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %head_, align 8, !tbaa !23
   %bf.load.i = load i32, ptr %node3, align 8
   %bf.clear.i = and i32 %bf.load.i, 2147483647
@@ -267,16 +250,16 @@ entry:
   %bf.load = load i32, ptr %this, align 8
   %bf.clear = and i32 %bf.load, 2147483647
   %idxprom = zext nneg i32 %bf.clear to i64
-  %next = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryNode", ptr %this, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %head, ptr %next, align 8, !tbaa !24
   %prev = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %0, i64 %idxprom, i32 3, i32 2
   %1 = load ptr, ptr %prev, align 8, !tbaa !25
-  %prev2 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryNode", ptr %this, i64 0, i32 2
+  %prev2 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %1, ptr %prev2, align 8, !tbaa !25
   store i32 %bf.clear, ptr %this, align 8
   %2 = load ptr, ptr %prev, align 8, !tbaa !25
   %3 = load ptr, ptr %2, align 8, !tbaa !23
-  %parent = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryNode", ptr %this, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %parent, align 8, !tbaa !8
   %next12 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %3, i64 %idxprom, i32 3, i32 3
   store ptr %4, ptr %next12, align 8, !tbaa !24
@@ -293,7 +276,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly18threadlocal_detail15ThreadEntryNode9eraseZeroEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %prev = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryNode", ptr %this, i64 0, i32 2
+  %prev = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %prev, align 8, !tbaa !25
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then, !prof !26
@@ -303,7 +286,7 @@ if.then:                                          ; preds = %entry
   %bf.load = load i32, ptr %this, align 8
   %bf.clear = and i32 %bf.load, 2147483647
   %idxprom = zext nneg i32 %bf.clear to i64
-  %next = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryNode", ptr %this, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %next, align 8, !tbaa !24
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %prev10 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %3, i64 %idxprom, i32 3, i32 2
@@ -325,18 +308,18 @@ define void @_ZN5folly18threadlocal_detail14StaticMetaBaseC2EPFPNS0_11ThreadEntr
 entry:
   %frombool = zext i1 %strict to i8
   store i32 1, ptr %this, align 8, !tbaa !27
-  %freeIds_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2
-  %accessAllThreadsLock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 4
-  %head_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6
-  %tid_os.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6, i32 6
+  %freeIds_ = getelementptr inbounds i8, ptr %this, i64 8
+  %accessAllThreadsLock_ = getelementptr inbounds i8, ptr %this, i64 72
+  %head_ = getelementptr inbounds i8, ptr %this, i64 80
+  %tid_os.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %head_, i8 0, i64 41, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tid_os.i, i8 0, i64 16, i1 false)
-  %threadEntry_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 7
+  %threadEntry_ = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %freeIds_, i8 0, i64 68, i1 false)
   store ptr %threadEntry, ptr %threadEntry_, align 8, !tbaa !38
-  %strict_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 8
+  %strict_ = getelementptr inbounds i8, ptr %this, i64 152
   store i8 %frombool, ptr %strict_, align 8, !tbaa !39
-  %pthreadKey_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 5
+  %pthreadKey_ = getelementptr inbounds i8, ptr %this, i64 76
   %call = tail call i32 @pthread_key_create(ptr noundef nonnull %pthreadKey_, ptr noundef nonnull @_ZN5folly18threadlocal_detail14StaticMetaBase12onThreadExitEPv) #31
   %cmp.not.i = icmp eq i32 %call, 0
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i, !prof !7
@@ -397,29 +380,29 @@ entry:
   %rlock = alloca %"class.folly::SharedMutexImpl<false>::ReadHolder", align 8
   %ref.tmp = alloca %"class.folly::SharedMutexImpl<false>::ReadHolder", align 8
   %ref.tmp72 = alloca %"class.folly::SharedMutexImpl<false>::ReadHolder", align 8
-  %meta1 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %ptr, i64 0, i32 4
+  %meta1 = getelementptr inbounds i8, ptr %ptr, i64 32
   %0 = load ptr, ptr %meta1, align 8, !tbaa !15
-  %pthreadKey_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %0, i64 0, i32 5
+  %pthreadKey_ = getelementptr inbounds i8, ptr %0, i64 76
   %1 = load i32, ptr %pthreadKey_, align 4, !tbaa !40
   %call = tail call i32 @pthread_setspecific(i32 noundef %1, ptr noundef %ptr) #31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rlock) #31
   store ptr null, ptr %rlock, align 8, !tbaa !42
-  %token_.i = getelementptr inbounds %"class.folly::SharedMutexImpl<false>::ReadHolder", ptr %rlock, i64 0, i32 1
+  %token_.i = getelementptr inbounds i8, ptr %rlock, i64 8
   store i16 0, ptr %token_.i, align 8, !tbaa !47
-  %slot_.i.i = getelementptr inbounds %"class.folly::SharedMutexImpl<false>::ReadHolder", ptr %rlock, i64 0, i32 1, i32 1
+  %slot_.i.i = getelementptr inbounds i8, ptr %rlock, i64 10
   store i16 0, ptr %slot_.i.i, align 2, !tbaa !48
-  %strict_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %0, i64 0, i32 8
+  %strict_ = getelementptr inbounds i8, ptr %0, i64 152
   %2 = load i8, ptr %strict_, align 8, !tbaa !39, !range !21, !noundef !22
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #31
-  %accessAllThreadsLock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %0, i64 0, i32 4
+  %accessAllThreadsLock_ = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %accessAllThreadsLock_, ptr %ref.tmp, align 8, !tbaa !42
-  %token_.i173 = getelementptr inbounds %"class.folly::SharedMutexImpl<false>::ReadHolder", ptr %ref.tmp, i64 0, i32 1
+  %token_.i173 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 0, ptr %token_.i173, align 8, !tbaa !47
-  %slot_.i.i174 = getelementptr inbounds %"class.folly::SharedMutexImpl<false>::ReadHolder", ptr %ref.tmp, i64 0, i32 1, i32 1
+  %slot_.i.i174 = getelementptr inbounds i8, ptr %ref.tmp, i64 10
   store i16 0, ptr %slot_.i.i174, align 2, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i) #31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #31
@@ -548,7 +531,7 @@ lpad:                                             ; preds = %if.end7.i.i.i
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit, %entry
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %0, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %0, i64 32
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #31
   %tobool.not.i.i177 = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i177, label %invoke.cont4, label %if.then.i.i178
@@ -561,9 +544,9 @@ if.then.i.i178:                                   ; preds = %if.end
   unreachable
 
 invoke.cont4:                                     ; preds = %if.end
-  %removed_ = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %ptr, i64 0, i32 5
+  %removed_ = getelementptr inbounds i8, ptr %ptr, i64 40
   store i8 1, ptr %removed_, align 8, !tbaa !20
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %ptr, i64 0, i32 1
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %ptr, i64 8
   %25 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %cmp441.not = icmp eq i64 %25, 0
   br i1 %cmp441.not, label %for.cond.cleanup, label %for.body
@@ -698,9 +681,9 @@ terminate.lpad.i183:                              ; preds = %if.then.i.i.i287, %
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit185: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i288, %lor.lhs.false.i277, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i299, %call2.i.i.noexc300, %for.cond.cleanup8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rlock) #31
-  %list = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %ptr, i64 0, i32 2
+  %list = getelementptr inbounds i8, ptr %ptr, i64 16
   %47 = load ptr, ptr %list, align 8, !tbaa !55
-  %count52 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryList", ptr %47, i64 0, i32 1
+  %count52 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i64, ptr %count52, align 8, !tbaa !56
   %dec = add i64 %48, -1
   store i64 %dec, ptr %count52, align 8, !tbaa !56
@@ -708,8 +691,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHo
   br i1 %tobool54.not, label %for.cond57.preheader, label %cleanup
 
 for.cond57.preheader:                             ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit185
-  %token_.i202 = getelementptr inbounds %"class.folly::SharedMutexImpl<false>::ReadHolder", ptr %ref.tmp72, i64 0, i32 1
-  %slot_.i.i203 = getelementptr inbounds %"class.folly::SharedMutexImpl<false>::ReadHolder", ptr %ref.tmp72, i64 0, i32 1, i32 1
+  %token_.i202 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
+  %slot_.i.i203 = getelementptr inbounds i8, ptr %ref.tmp72, i64 10
   %49 = load ptr, ptr %47, align 8, !tbaa !58
   %50 = icmp eq ptr %49, null
   br i1 %50, label %cleanup.sink.split, label %for.body60
@@ -751,7 +734,7 @@ cond.true18.i:                                    ; preds = %while.end.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i)
   store ptr %53, ptr %__args.addr.i.i, align 8, !tbaa !50
   store i32 0, ptr %__args.addr2.i.i, align 4, !tbaa !63
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %56, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %56, i64 16
   %57 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !65
   %tobool.not.i.i.i = icmp eq ptr %57, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i188, label %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i
@@ -764,7 +747,7 @@ if.then.i.i188:                                   ; preds = %cond.true18.i
   unreachable
 
 _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %cond.true18.i
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %56, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %56, i64 24
   %58 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !67
   invoke void %58(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i.i)
           to label %.noexc190 unwind label %lpad14.loopexit
@@ -793,7 +776,7 @@ if.then.i193:                                     ; preds = %if.then23
   br i1 %isnull.i, label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i193
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %62, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %62, i64 16
   %63 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !65
   %tobool.not.i.i194 = icmp eq ptr %63, null
   br i1 %tobool.not.i.i194, label %_ZNSt14_Function_baseD2Ev.exit.i, label %if.then.i.i195
@@ -848,19 +831,19 @@ for.body60:                                       ; preds = %for.cond57.preheade
 while.body63:                                     ; preds = %for.body60, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit227
   %tmp.0457 = phi ptr [ %79, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit227 ], [ %67, %for.body60 ]
   %shouldRunOuter.1456 = phi i8 [ %shouldRunOuter.3.lcssa485, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit227 ], [ 0, %for.body60 ]
-  %meta65 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %tmp.0457, i64 0, i32 4
+  %meta65 = getelementptr inbounds i8, ptr %tmp.0457, i64 32
   %68 = load ptr, ptr %meta65, align 8, !tbaa !15
-  %pthreadKey_66 = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %68, i64 0, i32 5
+  %pthreadKey_66 = getelementptr inbounds i8, ptr %68, i64 76
   %69 = load i32, ptr %pthreadKey_66, align 4, !tbaa !40
   %call67 = call i32 @pthread_setspecific(i32 noundef %69, ptr noundef nonnull %tmp.0457) #31
-  %strict_69 = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %68, i64 0, i32 8
+  %strict_69 = getelementptr inbounds i8, ptr %68, i64 152
   %70 = load i8, ptr %strict_69, align 8, !tbaa !39, !range !21, !noundef !22
   %tobool70.not = icmp eq i8 %70, 0
   br i1 %tobool70.not, label %if.end78, label %if.then71
 
 if.then71:                                        ; preds = %while.body63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp72) #31
-  %accessAllThreadsLock_73 = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %68, i64 0, i32 4
+  %accessAllThreadsLock_73 = getelementptr inbounds i8, ptr %68, i64 72
   store ptr %accessAllThreadsLock_73, ptr %ref.tmp72, align 8, !tbaa !42
   store i16 0, ptr %token_.i202, align 8, !tbaa !47
   store i16 0, ptr %slot_.i.i203, align 2, !tbaa !48
@@ -902,7 +885,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHo
 if.end78:                                         ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221, %while.body63
   %rlock68.sroa.0.0 = phi ptr [ null, %while.body63 ], [ %75, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221 ]
   %rlock68.sroa.10.2 = phi i32 [ 0, %while.body63 ], [ %76, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221 ]
-  %elementsCapacity.i228 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %tmp.0457, i64 0, i32 1
+  %elementsCapacity.i228 = getelementptr inbounds i8, ptr %tmp.0457, i64 8
   br label %for.body82
 
 for.cond79.loopexit:                              ; preds = %for.inc101
@@ -914,7 +897,7 @@ for.cond.cleanup81:                               ; preds = %for.body82, %for.co
   %shouldRunOuter.3.lcssa485 = phi i8 [ %shouldRunOuter.4, %for.cond79.loopexit ], [ %shouldRunOuter.2454, %for.body82 ]
   %78 = load i32, ptr %pthreadKey_66, align 4, !tbaa !40
   %call109 = call i32 @pthread_setspecific(i32 noundef %78, ptr noundef null) #31
-  %listNext = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %tmp.0457, i64 0, i32 3
+  %listNext = getelementptr inbounds i8, ptr %tmp.0457, i64 24
   %79 = load ptr, ptr %listNext, align 8, !tbaa !73
   %tobool.not.i.i222 = icmp eq ptr %rlock68.sroa.0.0, null
   br i1 %tobool.not.i.i222, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit227, label %if.then.i.i223
@@ -1027,7 +1010,7 @@ cond.true18.i236:                                 ; preds = %while.end.i233
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i231)
   store ptr %94, ptr %__args.addr.i.i230, align 8, !tbaa !50
   store i32 0, ptr %__args.addr2.i.i231, align 4, !tbaa !63
-  %_M_manager.i.i.i237 = getelementptr inbounds %"class.std::_Function_base", ptr %97, i64 0, i32 1
+  %_M_manager.i.i.i237 = getelementptr inbounds i8, ptr %97, i64 16
   %98 = load ptr, ptr %_M_manager.i.i.i237, align 8, !tbaa !65
   %tobool.not.i.i.i238 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i.i238, label %if.then.i.i241, label %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i239
@@ -1040,7 +1023,7 @@ if.then.i.i241:                                   ; preds = %cond.true18.i236
   unreachable
 
 _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i239: ; preds = %cond.true18.i236
-  %_M_invoker.i.i240 = getelementptr inbounds %"class.std::function", ptr %97, i64 0, i32 1
+  %_M_invoker.i.i240 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = load ptr, ptr %_M_invoker.i.i240, align 8, !tbaa !67
   invoke void %99(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i230, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i.i231)
           to label %.noexc244 unwind label %ehcleanup110.loopexit
@@ -1069,7 +1052,7 @@ if.then.i249:                                     ; preds = %if.then96
   br i1 %isnull.i250, label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit258, label %delete.notnull.i251
 
 delete.notnull.i251:                              ; preds = %if.then.i249
-  %_M_manager.i.i252 = getelementptr inbounds %"class.std::_Function_base", ptr %103, i64 0, i32 1
+  %_M_manager.i.i252 = getelementptr inbounds i8, ptr %103, i64 16
   %104 = load ptr, ptr %_M_manager.i.i252, align 8, !tbaa !65
   %tobool.not.i.i253 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i253, label %_ZNSt14_Function_baseD2Ev.exit.i257, label %if.then.i.i254
@@ -1192,7 +1175,7 @@ terminate.lpad.i262:                              ; preds = %if.then.i.i.i377, %
 
 while.body122:                                    ; preds = %for.cond.cleanup59, %if.end130
   %head117.0460 = phi ptr [ %119, %if.end130 ], [ %.pre.pr, %for.cond.cleanup59 ]
-  %listNext124 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %head117.0460, i64 0, i32 3
+  %listNext124 = getelementptr inbounds i8, ptr %head117.0460, i64 24
   %119 = load ptr, ptr %listNext124, align 8, !tbaa !73
   %120 = load ptr, ptr %head117.0460, align 8, !tbaa !23
   %tobool126.not = icmp eq ptr %120, null
@@ -1201,7 +1184,7 @@ while.body122:                                    ; preds = %for.cond.cleanup59,
 if.then127:                                       ; preds = %while.body122
   call void @free(ptr noundef nonnull %120) #31
   store ptr null, ptr %head117.0460, align 8, !tbaa !23
-  %elementsCapacity.i265 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %head117.0460, i64 0, i32 1
+  %elementsCapacity.i265 = getelementptr inbounds i8, ptr %head117.0460, i64 8
   store atomic i64 0, ptr %elementsCapacity.i265 monotonic, align 8
   br label %if.end130
 
@@ -1269,8 +1252,8 @@ define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !77
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
-  %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !79
   ret void
 }
@@ -1296,22 +1279,22 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #31
   %vtable.i = load ptr, ptr %__ec.coerce1, align 8, !tbaa !77, !noalias !80
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %0 = load ptr, ptr %vfn.i, align 8, !noalias !80
   call void %0(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %__ec.coerce1, i32 noundef %__ec.coerce0)
   %call3.i.i.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.1, i64 noundef 2)
           to label %call3.i.i.i.noexc unwind label %lpad
 
 call3.i.i.i.noexc:                                ; preds = %entry
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store ptr %1, ptr %ref.tmp2, align 8, !tbaa !83, !alias.scope !85
   %2 = load ptr, ptr %call3.i.i.i15, align 8, !tbaa !88
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 16
   %cmp.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !90
   %cmp3.i.i.i = icmp ult i64 %4, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1323,14 +1306,14 @@ if.else.i.i:                                      ; preds = %call3.i.i.i.noexc
   store ptr %2, ptr %ref.tmp2, align 8, !tbaa !88, !alias.scope !85
   %5 = load i64, ptr %3, align 8, !tbaa !62
   store i64 %5, ptr %1, align 8, !tbaa !62, !alias.scope !85
-  %_M_string_length.i32.i.phi.trans.insert.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 1
+  %_M_string_length.i32.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
   %.pre.i = load i64, ptr %_M_string_length.i32.i.phi.trans.insert.i, align 8, !tbaa !90
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i
   %6 = phi i64 [ %4, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
-  %_M_string_length.i32.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 1
-  %_M_string_length.i33.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 1
+  %_M_string_length.i32.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
+  %_M_string_length.i33.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 %6, ptr %_M_string_length.i33.i.i, align 8, !tbaa !90, !alias.scope !85
   store ptr %3, ptr %call3.i.i.i15, align 8, !tbaa !88
   store i64 0, ptr %_M_string_length.i32.i.i, align 8, !tbaa !90
@@ -1341,15 +1324,15 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %ref.tmp, align 8, !tbaa !83, !alias.scope !91
   %8 = load ptr, ptr %call3.i.i.i28, align 8, !tbaa !88
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 16
   %cmp.i.i.i17 = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i17, label %if.then.i.i23, label %if.else.i.i18
 
 if.then.i.i23:                                    ; preds = %call3.i.i.i.noexc27
-  %_M_string_length.i.i.i24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 1
+  %_M_string_length.i.i.i24 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i24, align 8, !tbaa !90
   %cmp3.i.i.i25 = icmp ult i64 %10, 16
   call void @llvm.assume(i1 %cmp3.i.i.i25)
@@ -1361,14 +1344,14 @@ if.else.i.i18:                                    ; preds = %call3.i.i.i.noexc27
   store ptr %8, ptr %ref.tmp, align 8, !tbaa !88, !alias.scope !91
   %11 = load i64, ptr %9, align 8, !tbaa !62
   store i64 %11, ptr %7, align 8, !tbaa !62, !alias.scope !91
-  %_M_string_length.i32.i.phi.trans.insert.i19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 1
+  %_M_string_length.i32.i.phi.trans.insert.i19 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
   %.pre.i20 = load i64, ptr %_M_string_length.i32.i.phi.trans.insert.i19, align 8, !tbaa !90
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.else.i.i18, %if.then.i.i23
   %12 = phi i64 [ %10, %if.then.i.i23 ], [ %.pre.i20, %if.else.i.i18 ]
-  %_M_string_length.i32.i.i21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 1
-  %_M_string_length.i33.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i32.i.i21 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
+  %_M_string_length.i33.i.i22 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %12, ptr %_M_string_length.i33.i.i22, align 8, !tbaa !90, !alias.scope !91
   store ptr %9, ptr %call3.i.i.i28, align 8, !tbaa !88
   store i64 0, ptr %_M_string_length.i32.i.i21, align 8, !tbaa !90
@@ -1408,12 +1391,12 @@ if.then.i.i35:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %if.then.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36
   %17 = load ptr, ptr %ref.tmp3, align 8, !tbaa !88
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %cmp.i.i.i40 = icmp eq ptr %17, %18
   br i1 %cmp.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %if.then.i.i41
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
-  %_M_string_length.i.i.i43 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
+  %_M_string_length.i.i.i43 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %19 = load i64, ptr %_M_string_length.i.i.i43, align 8, !tbaa !90
   %cmp3.i.i.i44 = icmp ult i64 %19, 16
   call void @llvm.assume(i1 %cmp3.i.i.i44)
@@ -1428,9 +1411,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #31
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !77
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa.struct !79
-  %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1, i32 1
+  %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %__ec.coerce1, ptr %__ec.sroa.364.0._M_code.sroa_idx, align 8, !tbaa.struct !94
   ret void
 
@@ -1480,12 +1463,12 @@ if.then.i.i53:                                    ; preds = %ehcleanup
 ehcleanup8:                                       ; preds = %if.then.i.i53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, %lpad
   %.pn.pn = phi { ptr, i32 } [ %20, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54 ], [ %.pn, %if.then.i.i53 ]
   %27 = load ptr, ptr %ref.tmp3, align 8, !tbaa !88
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %cmp.i.i.i58 = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60, label %if.then.i.i59
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60: ; preds = %ehcleanup8
-  %_M_string_length.i.i.i61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
+  %_M_string_length.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %29 = load i64, ptr %_M_string_length.i.i.i61, align 8, !tbaa !90
   %cmp3.i.i.i62 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i62)
@@ -1532,7 +1515,7 @@ entry:
   br i1 %cmp.not7.i.i, label %_ZNSt10lock_guardIN5folly13MicroSpinLockEEC2ERS1_.exit, label %do.body.preheader.lr.ph.i.i
 
 do.body.preheader.lr.ph.i.i:                      ; preds = %entry
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i.i, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i.backedge, %do.body.preheader.lr.ph.i.i
@@ -1591,7 +1574,7 @@ do.body.i.i.backedge:                             ; preds = %do.end.i.i, %_ZN5fo
   br label %do.body.i.i, !llvm.loop !100
 
 _ZNSt10lock_guardIN5folly13MicroSpinLockEEC2ERS1_.exit: ; preds = %do.end.i.i, %entry
-  %size_ = getelementptr inbounds %"class.folly::threadlocal_detail::PthreadKeyUnregister", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %size_, align 8, !tbaa !101
   %cmp = icmp eq i64 %6, 65536
   br i1 %cmp, label %if.then, label %if.end
@@ -1682,14 +1665,14 @@ entry:
   br i1 %tobool.not5.not, label %cleanup, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %listNext = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %te.06, i64 0, i32 3
+  %listNext = getelementptr inbounds i8, ptr %te.06, i64 24
   %te.0 = load ptr, ptr %listNext, align 8, !tbaa !50
   %tobool.not.not = icmp eq ptr %te.0, null
   br i1 %tobool.not.not, label %cleanup, label %for.body, !llvm.loop !104
 
 for.body:                                         ; preds = %entry, %for.cond
   %te.06 = phi ptr [ %te.0, %for.cond ], [ %te.04, %entry ]
-  %removed_ = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %te.06, i64 0, i32 5
+  %removed_ = getelementptr inbounds i8, ptr %te.06, i64 40
   %1 = load i8, ptr %removed_, align 8, !tbaa !20, !range !21, !noundef !22
   %tobool1.not.not.not.not = icmp ne i8 %1, 0
   br i1 %tobool1.not.not.not.not, label %cleanup, label %for.cond
@@ -1911,7 +1894,7 @@ if.end72.thread:                                  ; preds = %seqcst_fail50.i142
 if.then77:                                        ; preds = %if.end72
   store i16 3, ptr %token, align 2, !tbaa !47
   %conv79 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds %"struct.folly::SharedMutexToken", ptr %token, i64 0, i32 1
+  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
   store i16 %conv79, ptr %slot_, align 2, !tbaa !48
   br label %cleanup99
 
@@ -2170,14 +2153,14 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #20
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK5folly18threadlocal_detail14StaticMetaBase16elementsCapacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %threadEntry_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 7
+  %threadEntry_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %threadEntry_, align 8, !tbaa !38
   %call = tail call noundef ptr %0()
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %cond.end, label %cond.true, !prof !26
 
 cond.true:                                        ; preds = %entry
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %call, i64 0, i32 1
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %2 = trunc i64 %1 to i32
   br label %cond.end
@@ -2191,7 +2174,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 define noundef i32 @_ZN5folly18threadlocal_detail14StaticMetaBase8allocateEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr nocapture noundef %ent) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newCapacity.i = alloca i64, align 8
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 32
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #31
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -2206,15 +2189,15 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %freeIds_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2
+  %freeIds_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %freeIds_, align 8, !tbaa !50
-  %_M_finish.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !50
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !49
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !111
   br label %if.end7
@@ -2228,8 +2211,8 @@ if.else:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.else, %if.then3
   %id.0 = phi i32 [ %4, %if.else ], [ %3, %if.then3 ]
   %5 = atomicrmw xchg ptr %ent, i32 %id.0 release, align 4
-  %head_.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6
-  %elementsCapacity.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6, i32 1
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %elementsCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load atomic i64, ptr %elementsCapacity.i.i monotonic, align 8
   %conv.i = zext i32 %id.0 to i64
   %cmp.not.i = icmp ugt i64 %6, %conv.i
@@ -2304,8 +2287,8 @@ cleanup:                                          ; preds = %for.cond.cleanup.i,
 define void @_ZN5folly18threadlocal_detail14StaticMetaBase19reserveHeadUnlockedEj(ptr noundef nonnull align 8 dereferenceable(153) %this, i32 noundef %id) local_unnamed_addr #4 align 2 {
 entry:
   %newCapacity = alloca i64, align 8
-  %head_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6, i32 1
+  %head_ = getelementptr inbounds i8, ptr %this, i64 80
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %conv = zext i32 %id to i64
   %cmp.not = icmp ugt i64 %0, %conv
@@ -2379,13 +2362,13 @@ invoke.cont:
   %ref.tmp79 = alloca %"class.google::LogMessage", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wlock) #31
   store ptr null, ptr %wlock, align 8, !tbaa !116
-  %strict_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 8
+  %strict_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i8, ptr %strict_, align 8, !tbaa !39, !range !21, !noundef !22
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %accessAllThreadsLock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 4
+  %accessAllThreadsLock_ = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i) #31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #31
   %1 = load atomic i32, ptr %accessAllThreadsLock_ acquire, align 8
@@ -2447,7 +2430,7 @@ lpad2:                                            ; preds = %if.else.i.i.i
   br label %ehcleanup48
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i, %invoke.cont3, %invoke.cont
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 32
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #31
   %tobool.not.i.i114 = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i114, label %invoke.cont5, label %if.then.i.i115
@@ -2470,7 +2453,7 @@ lpad4:                                            ; preds = %if.then.i.i115
   br label %ehcleanup48
 
 if.end8:                                          ; preds = %invoke.cont5
-  %head_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 6
+  %head_ = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load ptr, ptr %head_, align 8, !tbaa !113
   %idxprom = zext i32 %11 to i64
   %node10 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %13, i64 %idxprom, i32 3
@@ -2517,7 +2500,7 @@ if.then.i:                                        ; preds = %while.body
 _ZN5folly18threadlocal_detail15ThreadEntryNode9eraseZeroEv.exit: ; preds = %if.then.i, %while.body
   %parent = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %17, i64 %idxprom.i, i32 3, i32 1
   %22 = load ptr, ptr %parent, align 8, !tbaa !8
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %22, i64 0, i32 1
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %cmp18 = icmp ugt i64 %23, %idxprom
   br i1 %cmp18, label %land.lhs.true, label %if.end39
@@ -2594,7 +2577,7 @@ invoke.cont28:                                    ; preds = %_ZNSt6vectorIN5foll
   %elements.sroa.14.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %elements.sroa.14.0225, %if.then.i121 ]
   %add.ptr.i.i.pn = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %elements.sroa.9.0226, %if.then.i121 ]
   %elements.sroa.0.1 = phi ptr [ %cond.i31.i.i, %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %elements.sroa.0.0227, %if.then.i121 ]
-  %elements.sroa.9.1 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %add.ptr.i.i.pn, i64 1
+  %elements.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.pn, i64 56
   %26 = load ptr, ptr %22, align 8, !tbaa !23
   %arrayidx31 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %26, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx31, i8 0, i64 16, i1 false)
@@ -2630,17 +2613,17 @@ if.end39:                                         ; preds = %invoke.cont28, %lan
 while.end:                                        ; preds = %if.end39, %if.end8
   %elements.sroa.9.0.lcssa = phi ptr [ null, %if.end8 ], [ %elements.sroa.9.2, %if.end39 ]
   %elements.sroa.0.0.lcssa = phi ptr [ null, %if.end8 ], [ %elements.sroa.0.2, %if.end39 ]
-  %freeIds_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2
-  %_M_finish.i125 = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %freeIds_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i125 = getelementptr inbounds i8, ptr %this, i64 16
   %31 = load ptr, ptr %_M_finish.i125, align 8, !tbaa !50
-  %_M_end_of_storage.i126 = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i126 = getelementptr inbounds i8, ptr %this, i64 24
   %32 = load ptr, ptr %_M_end_of_storage.i126, align 8, !tbaa !122
   %cmp.not.i127 = icmp eq ptr %31, %32
   br i1 %cmp.not.i127, label %if.else.i130, label %if.then.i128
 
 if.then.i128:                                     ; preds = %while.end
   store i32 %11, ptr %31, align 4, !tbaa !49
-  %incdec.ptr.i129 = getelementptr inbounds i32, ptr %31, i64 1
+  %incdec.ptr.i129 = getelementptr inbounds i8, ptr %31, i64 4
   store ptr %incdec.ptr.i129, ptr %_M_finish.i125, align 8, !tbaa !111
   br label %cleanup
 
@@ -2687,7 +2670,7 @@ if.then.i.i.i33.i.i151:                           ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit41.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit41.i.i: ; preds = %if.then.i.i.i33.i.i151, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i147 = getelementptr inbounds i32, ptr %add.ptr.i.i145, i64 1
+  %incdec.ptr.i.i147 = getelementptr inbounds i8, ptr %add.ptr.i.i145, i64 4
   %tobool.not.i.i.i148 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i148, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i42.i.i149
 
@@ -2757,10 +2740,10 @@ for.body:                                         ; preds = %cleanup.cont51, %if
   br i1 %cmp.i169.not, label %if.end62, label %while.end.i
 
 while.end.i:                                      ; preds = %for.body
-  %ownsDeleter.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %__begin2.sroa.0.0230, i64 0, i32 2
+  %ownsDeleter.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0230, i64 16
   %40 = load i8, ptr %ownsDeleter.i, align 8, !tbaa !61, !range !21, !noundef !22
   %tobool17.not.i = icmp eq i8 %40, 0
-  %41 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %__begin2.sroa.0.0230, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0230, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !62
   br i1 %tobool17.not.i, label %cond.false20.i, label %cond.true18.i
 
@@ -2769,7 +2752,7 @@ cond.true18.i:                                    ; preds = %while.end.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i)
   store ptr %39, ptr %__args.addr.i.i, align 8, !tbaa !50
   store i32 1, ptr %__args.addr2.i.i, align 4, !tbaa !63
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %42, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !65
   %tobool.not.i.i.i170 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i170, label %if.then.i.i171, label %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i
@@ -2782,7 +2765,7 @@ if.then.i.i171:                                   ; preds = %cond.true18.i
   unreachable
 
 _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %cond.true18.i
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %42, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !67
   invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i.i)
           to label %.noexc173 unwind label %lpad58.loopexit
@@ -2807,7 +2790,7 @@ if.then.i176:                                     ; preds = %if.then61
   br i1 %isnull.i, label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i176
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %46, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !65
   %tobool.not.i.i177 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i177, label %_ZNSt14_Function_baseD2Ev.exit.i, label %if.then.i.i178
@@ -2842,7 +2825,7 @@ lpad58.loopexit.split-lp:                         ; preds = %if.then.i.i171
   br label %ehcleanup72
 
 if.end62:                                         ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit, %for.body
-  %incdec.ptr.i179 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %__begin2.sroa.0.0230, i64 1
+  %incdec.ptr.i179 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0230, i64 56
   %cmp.i167.not = icmp eq ptr %incdec.ptr.i179, %elements.sroa.9.0.lcssa
   br i1 %cmp.i167.not, label %cleanup71, label %for.body
 
@@ -3261,13 +3244,13 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define noalias noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase10reallocateEPNS0_11ThreadEntryEjRm(ptr nocapture noundef readonly %threadEntry, i32 noundef %idval, ptr nocapture noundef nonnull align 8 dereferenceable(8) %newCapacity) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %struct.Initializer, align 1
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %threadEntry, i64 0, i32 1
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %threadEntry, i64 8
   %0 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %add = add i32 %idval, 5
   %conv = uitofp i32 %add to double
   %mul = fmul double %conv, 1.100000e+00
   %conv1 = fptoui double %mul to i64
-  %meta = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %threadEntry, i64 0, i32 4
+  %meta = getelementptr inbounds i8, ptr %threadEntry, i64 32
   %1 = load ptr, ptr %meta, align 8, !tbaa !15
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.false, label %land.lhs.true
@@ -3275,7 +3258,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %mul4 = fmul double %conv, 1.700000e+00
   %conv5 = fptoui double %mul4 to i64
-  %elementsCapacity.i45 = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %1, i64 0, i32 6, i32 1
+  %elementsCapacity.i45 = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load atomic i64, ptr %elementsCapacity.i45 monotonic, align 8
   %cmp.not = icmp ult i64 %2, %conv5
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -3503,10 +3486,10 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr nocapture noundef %id) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newCapacity = alloca i64, align 8
-  %threadEntry_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 7
+  %threadEntry_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %threadEntry_, align 8, !tbaa !38
   %call = tail call noundef ptr %0()
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %call, i64 0, i32 1
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %2 = load atomic i32, ptr %id acquire, align 4
   %cmp.not.i = icmp eq i32 %2, -1
@@ -3525,7 +3508,7 @@ _ZN5folly18threadlocal_detail14StaticMetaBase7EntryID13getOrAllocateERS1_.exit: 
 if.end:                                           ; preds = %_ZN5folly18threadlocal_detail14StaticMetaBase7EntryID13getOrAllocateERS1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %newCapacity) #31
   %call4 = call noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase10reallocateEPNS0_11ThreadEntryEjRm(ptr noundef nonnull %call, i32 noundef %retval.0.i, ptr noundef nonnull align 8 dereferenceable(8) %newCapacity)
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 32
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #31
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -3627,7 +3610,7 @@ entry:
   br i1 %cmp.not7.i.i, label %_ZNSt10lock_guardIN5folly13MicroSpinLockEEC2ERS1_.exit, label %do.body.preheader.lr.ph.i.i
 
 do.body.preheader.lr.ph.i.i:                      ; preds = %entry
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i.i, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i.backedge, %do.body.preheader.lr.ph.i.i
@@ -3686,7 +3669,7 @@ do.body.i.i.backedge:                             ; preds = %do.end.i.i, %_ZN5fo
   br label %do.body.i.i, !llvm.loop !129
 
 _ZNSt10lock_guardIN5folly13MicroSpinLockEEC2ERS1_.exit: ; preds = %do.end.i.i, %entry
-  %size_ = getelementptr inbounds %"class.folly::threadlocal_detail::PthreadKeyUnregister", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %size_, align 8, !tbaa !101
   %tobool.not3 = icmp eq i64 %6, 0
   br i1 %tobool.not3, label %while.end, label %while.body

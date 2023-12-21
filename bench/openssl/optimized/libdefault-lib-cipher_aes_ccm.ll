@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
-%struct.prov_aes_ccm_ctx_st = type { %struct.prov_ccm_st, %union.anon.0 }
-%struct.prov_ccm_st = type { i8, i64, i64, i64, i64, i64, [16 x i8], [16 x i8], %struct.ccm128_context, ptr, ptr }
-%struct.ccm128_context = type { %union.anon, %union.anon, i64, ptr, ptr }
-%union.anon = type { [2 x i64] }
-%union.anon.0 = type { double, [256 x i8] }
 
 @ossl_aes128ccm_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @aes128ccm_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @aes_ccm_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @aes128ccm_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @ossl_ccm_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_ccm_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_ccm_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_ccm_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_ccm_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @aes_128_ccm_get_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_ccm_get_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_ccm_set_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_aead_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_aead_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_aes192ccm_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @aes192ccm_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @aes_ccm_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @aes192ccm_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @ossl_ccm_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_ccm_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_ccm_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_ccm_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_ccm_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @aes_192_ccm_get_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_ccm_get_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_ccm_set_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_aead_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_aead_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -56,8 +51,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %aes_ccm_dupctx.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %ks.i = getelementptr inbounds %struct.prov_aes_ccm_ctx_st, ptr %call.i, i64 0, i32 1, i32 1, i64 8
-  %key.i = getelementptr inbounds %struct.prov_ccm_st, ptr %call.i, i64 0, i32 8, i32 4
+  %ks.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %key.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %ks.i, ptr %key.i, align 8
   br label %aes_ccm_dupctx.exit
 
@@ -127,8 +122,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %aes_ccm_dupctx.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %ks.i = getelementptr inbounds %struct.prov_aes_ccm_ctx_st, ptr %call.i, i64 0, i32 1, i32 1, i64 8
-  %key.i = getelementptr inbounds %struct.prov_ccm_st, ptr %call.i, i64 0, i32 8, i32 4
+  %ks.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %key.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %ks.i, ptr %key.i, align 8
   br label %aes_ccm_dupctx.exit
 
@@ -178,8 +173,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %aes_ccm_dupctx.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %ks.i = getelementptr inbounds %struct.prov_aes_ccm_ctx_st, ptr %call.i, i64 0, i32 1, i32 1, i64 8
-  %key.i = getelementptr inbounds %struct.prov_ccm_st, ptr %call.i, i64 0, i32 8, i32 4
+  %ks.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %key.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %ks.i, ptr %key.i, align 8
   br label %aes_ccm_dupctx.exit
 

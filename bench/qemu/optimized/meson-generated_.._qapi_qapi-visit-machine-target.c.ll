@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.CpuModelInfo = type { ptr, ptr }
-%struct.q_obj_query_cpu_model_expansion_arg = type { i32, ptr }
-%struct.CpuDefinitionInfo = type { ptr, i8, i8, i8, i8, ptr, ptr, ptr, i8 }
-%struct.CpuDefinitionInfoList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"props\00", align 1
@@ -32,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i1 @visit_type_CpuModelInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_props = alloca i8, align 1
-  %props = getelementptr inbounds %struct.CpuModelInfo, ptr %obj, i64 0, i32 1
+  %props = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %props, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -88,7 +84,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_props.i)
-  %props.i = getelementptr inbounds %struct.CpuModelInfo, ptr %0, i64 0, i32 1
+  %props.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %props.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -245,7 +241,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %model = getelementptr inbounds %struct.q_obj_query_cpu_model_expansion_arg, ptr %obj, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_CpuModelInfo(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %model, ptr noundef %errp)
   br label %return
 
@@ -258,7 +254,7 @@ return:                                           ; preds = %if.end, %entry
 define dso_local zeroext i1 @visit_type_CpuDefinitionInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_alias_of = alloca i8, align 1
-  %alias_of = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 7
+  %alias_of = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %alias_of, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -267,32 +263,32 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_migration_safe = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 1
+  %has_migration_safe = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_migration_safe) #4
   br i1 %call2, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.end
-  %migration_safe = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 2
+  %migration_safe = getelementptr inbounds i8, ptr %obj, i64 9
   %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %migration_safe, ptr noundef %errp) #4
   br i1 %call4, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.then3, %if.end
-  %q_static = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 3
+  %q_static = getelementptr inbounds i8, ptr %obj, i64 10
   %call8 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %q_static, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %has_unavailable_features = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 4
+  %has_unavailable_features = getelementptr inbounds i8, ptr %obj, i64 11
   %call11 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_unavailable_features) #4
   br i1 %call11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end10
-  %unavailable_features = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 5
+  %unavailable_features = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %unavailable_features, ptr noundef %errp) #4
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then12, %if.end10
-  %q_typename = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 6
+  %q_typename = getelementptr inbounds i8, ptr %obj, i64 24
   %call17 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %q_typename, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
@@ -305,7 +301,7 @@ if.then21:                                        ; preds = %if.end19
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then21, %if.end19
-  %deprecated = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %obj, i64 0, i32 8
+  %deprecated = getelementptr inbounds i8, ptr %obj, i64 40
   %call27 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %deprecated, ptr noundef %errp) #4
   br label %return
 
@@ -384,7 +380,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.CpuDefinitionInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CpuDefinitionInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

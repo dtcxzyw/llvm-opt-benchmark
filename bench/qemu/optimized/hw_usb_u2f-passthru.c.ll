@@ -9,28 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.U2FKeyClass = type { %struct.USBDeviceClass, ptr, ptr, ptr }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.hidraw_report_descriptor = type { i32, [4096 x i8] }
-%struct.U2FPassthruState = type { %struct.U2FKeyState, ptr, i32, [4 x %struct.transaction], i8, i8, i8, i64, %struct.QEMUTimer }
-%struct.U2FKeyState = type { %struct.USBDevice, ptr, i8, [32 x [64 x i8]], i8, i8, i8 }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
 %struct.transaction = type { i32, i16, i16, [8 x i8] }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.packet_init = type { i32, i8, i8, i8, [57 x i8] }
 
 @u2f_key_passthru_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 8064, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @u2f_passthru_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"u2f-passthru\00", align 1
@@ -83,18 +63,18 @@ define internal void @u2f_passthru_class_init(ptr noundef %klass, ptr nocapture 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 37, ptr noundef nonnull @__func__.U2F_KEY_CLASS) #8
-  %realize = getelementptr inbounds %struct.U2FKeyClass, ptr %call.i7, i64 0, i32 2
+  %realize = getelementptr inbounds i8, ptr %call.i7, i64 312
   store ptr @u2f_passthru_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.U2FKeyClass, ptr %call.i7, i64 0, i32 3
+  %unrealize = getelementptr inbounds i8, ptr %call.i7, i64 320
   store ptr @u2f_passthru_unrealize, ptr %unrealize, align 8
-  %recv_from_guest = getelementptr inbounds %struct.U2FKeyClass, ptr %call.i7, i64 0, i32 1
+  %recv_from_guest = getelementptr inbounds i8, ptr %call.i7, i64 304
   store ptr @u2f_passthru_recv_from_guest, ptr %recv_from_guest, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @u2f_passthru_vmstate, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @u2f_passthru_properties) #8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
@@ -107,7 +87,7 @@ entry:
   %rdesc_size.i = alloca i32, align 4
   %rdesc.i = alloca %struct.hidraw_report_descriptor, align 4
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %base, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 469, ptr noundef nonnull @__func__.u2f_passthru_realize) #8
-  %hidraw = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 1
+  %hidraw = getelementptr inbounds i8, ptr %call, i64 7928
   %0 = load ptr, ptr %hidraw, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -162,19 +142,19 @@ if.then7:                                         ; preds = %u2f_passthru_is_u2f
   br label %return
 
 if.end10:                                         ; preds = %u2f_passthru_is_u2f_device.exit
-  %hidraw_fd = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 2
+  %hidraw_fd = getelementptr inbounds i8, ptr %call, i64 7936
   store i32 %call2, ptr %hidraw_fd, align 8
-  %timer.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 8
+  %timer.i = getelementptr inbounds i8, ptr %call, i64 8016
   call void @timer_del(ptr noundef nonnull %timer.i) #8
   %4 = load i32, ptr %hidraw_fd, align 8
   call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef null, ptr noundef null, ptr noundef nonnull %call) #8
-  %last_transaction_time.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 7
+  %last_transaction_time.i = getelementptr inbounds i8, ptr %call, i64 8008
   store i64 0, ptr %last_transaction_time.i, align 8
-  %current_transactions_start.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 4
+  %current_transactions_start.i = getelementptr inbounds i8, ptr %call, i64 8004
   store i8 0, ptr %current_transactions_start.i, align 4
-  %current_transactions_end.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 5
+  %current_transactions_end.i = getelementptr inbounds i8, ptr %call, i64 8005
   store i8 0, ptr %current_transactions_end.i, align 1
-  %current_transactions_num.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 6
+  %current_transactions_num.i = getelementptr inbounds i8, ptr %call, i64 8006
   store i8 0, ptr %current_transactions_num.i, align 2
   br label %return
 
@@ -186,18 +166,18 @@ return:                                           ; preds = %if.end10, %if.then7
 define internal void @u2f_passthru_unrealize(ptr noundef %base) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %base, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 461, ptr noundef nonnull @__func__.u2f_passthru_unrealize) #8
-  %timer.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 8
+  %timer.i = getelementptr inbounds i8, ptr %call, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i) #8
-  %hidraw_fd.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 2
+  %hidraw_fd.i = getelementptr inbounds i8, ptr %call, i64 7936
   %0 = load i32, ptr %hidraw_fd.i, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %call) #8
-  %last_transaction_time.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 7
+  %last_transaction_time.i = getelementptr inbounds i8, ptr %call, i64 8008
   store i64 0, ptr %last_transaction_time.i, align 8
-  %current_transactions_start.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 4
+  %current_transactions_start.i = getelementptr inbounds i8, ptr %call, i64 8004
   store i8 0, ptr %current_transactions_start.i, align 4
-  %current_transactions_end.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 5
+  %current_transactions_end.i = getelementptr inbounds i8, ptr %call, i64 8005
   store i8 0, ptr %current_transactions_end.i, align 1
-  %current_transactions_num.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 6
+  %current_transactions_num.i = getelementptr inbounds i8, ptr %call, i64 8006
   store i8 0, ptr %current_transactions_num.i, align 2
   %1 = load i32, ptr %hidraw_fd.i, align 8
   %call1 = tail call i32 @qemu_close(i32 noundef %1) #8
@@ -220,7 +200,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %data.i = getelementptr inbounds %struct.packet_init, ptr %packet, i64 0, i32 4
+  %data.i = getelementptr inbounds i8, ptr %packet, i64 7
   tail call fastcc void @u2f_transaction_add(ptr noundef %call, i32 noundef -1, ptr noundef nonnull %data.i)
   br label %if.end.i
 
@@ -231,16 +211,16 @@ if.else.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #8
   %div.i.i = sdiv i64 %call.i.i, 1000000
-  %last_transaction_time.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 7
+  %last_transaction_time.i = getelementptr inbounds i8, ptr %call, i64 8008
   %2 = load i64, ptr %last_transaction_time.i, align 8
   %cmp3.i = icmp eq i64 %2, 0
   br i1 %cmp3.i, label %if.then4.i, label %u2f_transaction_start.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %hidraw_fd.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 2
+  %hidraw_fd.i = getelementptr inbounds i8, ptr %call, i64 7936
   %3 = load i32, ptr %hidraw_fd.i, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef nonnull @u2f_passthru_read, ptr noundef null, ptr noundef nonnull %call) #8
-  %timer.i = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 8
+  %timer.i = getelementptr inbounds i8, ptr %call, i64 8016
   tail call void @timer_init_full(ptr noundef nonnull %timer.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @u2f_timeout_check, ptr noundef nonnull %call) #8
   %add.i = add nsw i64 %div.i.i, 30000
   tail call void @timer_mod(ptr noundef nonnull %timer.i, i64 noundef %add.i) #8
@@ -254,7 +234,7 @@ if.end:                                           ; preds = %u2f_transaction_sta
   store i8 0, ptr %host_packet, align 16
   %add.ptr = getelementptr inbounds i8, ptr %host_packet, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %add.ptr, ptr noundef nonnull align 1 dereferenceable(64) %packet, i64 64, i1 false)
-  %hidraw_fd = getelementptr inbounds %struct.U2FPassthruState, ptr %call, i64 0, i32 2
+  %hidraw_fd = getelementptr inbounds i8, ptr %call, i64 7936
   %4 = load i32, ptr %hidraw_fd, align 8
   %call3 = call i64 @write(i32 noundef %4, ptr noundef nonnull %host_packet, i64 noundef 65) #8
   %cmp.not = icmp eq i64 %call3, 65
@@ -301,16 +281,17 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @u2f_transaction_add(ptr noundef %key, i32 noundef %cid, ptr noundef readonly %nonce) unnamed_addr #0 {
 entry:
-  %current_transactions_num = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 6
+  %current_transactions_num = getelementptr inbounds i8, ptr %key, i64 8006
   %0 = load i8, ptr %current_transactions_num, align 2
   %cmp = icmp ugt i8 %0, 3
   br i1 %cmp, label %for.body.lr.ph.i.i, label %if.end
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %current_transactions_start = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 4
+  %current_transactions_start = getelementptr inbounds i8, ptr %key, i64 8004
   %1 = load i8, ptr %current_transactions_start, align 4
+  %current_transactions = getelementptr inbounds i8, ptr %key, i64 7940
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [4 x %struct.transaction], ptr %current_transactions, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %conv.i.i = zext i8 %0 to i32
   %conv2.i.i = zext i8 %1 to i32
@@ -326,7 +307,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %add.i.i = add nuw nsw i32 %i.07.i.i, %conv2.i.i
   %rem.i.i = and i32 %add.i.i, 3
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions, i64 0, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %cmp4.i.i = icmp eq i32 %3, %2
   br i1 %cmp4.i.i, label %if.end.i, label %for.cond.i.i
@@ -334,7 +315,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 if.end.i:                                         ; preds = %for.body.i.i
   %add.i = add nuw i32 %add.i.i, 1
   %rem.i = and i32 %add.i, 3
-  %current_transactions_end.i = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 5
+  %current_transactions_end.i = getelementptr inbounds i8, ptr %key, i64 8005
   %4 = load i8, ptr %current_transactions_end.i, align 1
   %conv20.i = zext i8 %4 to i32
   %cmp1.not21.i = icmp eq i32 %rem.i, %conv20.i
@@ -344,9 +325,9 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %next_index.023.i = phi i32 [ %rem7.i, %while.body.i ], [ %rem.i, %if.end.i ]
   %index.022.i = phi i32 [ %next_index.023.i, %while.body.i ], [ %rem.i.i, %if.end.i ]
   %idxprom.i = zext nneg i32 %index.022.i to i64
-  %arrayidx.i = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr [4 x %struct.transaction], ptr %current_transactions, i64 0, i64 %idxprom.i
   %idxprom4.i = zext nneg i32 %next_index.023.i to i64
-  %arrayidx5.i = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr [4 x %struct.transaction], ptr %current_transactions, i64 0, i64 %idxprom4.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
   %add6.i = add nuw nsw i32 %next_index.023.i, 1
   %rem7.i = and i32 %add6.i, 3
@@ -370,12 +351,12 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   br i1 %cmp12.i, label %if.then14.i, label %if.end
 
 if.then14.i:                                      ; preds = %while.end.i
-  %timer.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 8
+  %timer.i.i = getelementptr inbounds i8, ptr %key, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i.i) #8
-  %hidraw_fd.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 2
+  %hidraw_fd.i.i = getelementptr inbounds i8, ptr %key, i64 7936
   %7 = load i32, ptr %hidraw_fd.i.i, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %7, ptr noundef null, ptr noundef null, ptr noundef nonnull %key) #8
-  %last_transaction_time.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 7
+  %last_transaction_time.i.i = getelementptr inbounds i8, ptr %key, i64 8008
   store i64 0, ptr %last_transaction_time.i.i, align 8
   store i8 0, ptr %current_transactions_start, align 4
   store i8 0, ptr %current_transactions_end.i, align 1
@@ -383,25 +364,26 @@ if.then14.i:                                      ; preds = %while.end.i
 
 if.end:                                           ; preds = %for.cond.i.i, %if.then14.i, %while.end.i, %entry
   %8 = phi i8 [ 0, %if.then14.i ], [ %dec.i, %while.end.i ], [ %0, %entry ], [ %0, %for.cond.i.i ]
-  %current_transactions_end = getelementptr inbounds %struct.U2FPassthruState, ptr %key, i64 0, i32 5
+  %current_transactions_end = getelementptr inbounds i8, ptr %key, i64 8005
   %9 = load i8, ptr %current_transactions_end, align 1
   %10 = add i8 %9, 1
   %11 = and i8 %10, 3
   store i8 %11, ptr %current_transactions_end, align 1
   %inc = add i8 %8, 1
   store i8 %inc, ptr %current_transactions_num, align 2
+  %current_transactions7 = getelementptr inbounds i8, ptr %key, i64 7940
   %idxprom8 = zext i8 %9 to i64
-  %arrayidx9 = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom8
+  %arrayidx9 = getelementptr [4 x %struct.transaction], ptr %current_transactions7, i64 0, i64 %idxprom8
   store i32 %cid, ptr %arrayidx9, align 4
-  %resp_bcnt = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom8, i32 1
+  %resp_bcnt = getelementptr inbounds i8, ptr %arrayidx9, i64 4
   store i16 0, ptr %resp_bcnt, align 4
-  %resp_size = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom8, i32 2
+  %resp_size = getelementptr inbounds i8, ptr %arrayidx9, i64 6
   store i16 0, ptr %resp_size, align 2
   %cmp11.not = icmp eq ptr %nonce, null
   br i1 %cmp11.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %nonce14 = getelementptr %struct.U2FPassthruState, ptr %key, i64 0, i32 3, i64 %idxprom8, i32 3
+  %nonce14 = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   %12 = load i64, ptr %nonce, align 1
   store i64 %12, ptr %nonce14, align 4
   br label %if.end15
@@ -414,13 +396,13 @@ if.end15:                                         ; preds = %if.then13, %if.end
 define internal void @u2f_passthru_read(ptr noundef %opaque) #0 {
 entry:
   %packet = alloca [128 x i8], align 16
-  %pending_in_num = getelementptr inbounds %struct.U2FKeyState, ptr %opaque, i64 0, i32 6
+  %pending_in_num = getelementptr inbounds i8, ptr %opaque, i64 7923
   %0 = load i8, ptr %pending_in_num, align 1
   %cmp = icmp ugt i8 %0, 31
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hidraw_fd = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 2
+  %hidraw_fd = getelementptr inbounds i8, ptr %opaque, i64 7936
   %1 = load i32, ptr %hidraw_fd, align 8
   %call = call i64 @read(i32 noundef %1, ptr noundef nonnull %packet, i64 noundef 128) #8
   %conv3 = trunc i64 %call to i32
@@ -428,7 +410,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.end
-  %attached = getelementptr inbounds %struct.USBDevice, ptr %opaque, i64 0, i32 13
+  %attached = getelementptr inbounds i8, ptr %opaque, i64 264
   %2 = load i8, ptr %attached, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -436,17 +418,17 @@ if.then6:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then6
   %call9 = tail call i32 @usb_device_detach(ptr noundef nonnull %opaque) #8
-  %timer.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 8
+  %timer.i = getelementptr inbounds i8, ptr %opaque, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i) #8
   %4 = load i32, ptr %hidraw_fd, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
-  %last_transaction_time.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 7
+  %last_transaction_time.i = getelementptr inbounds i8, ptr %opaque, i64 8008
   store i64 0, ptr %last_transaction_time.i, align 8
-  %current_transactions_start.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 4
+  %current_transactions_start.i = getelementptr inbounds i8, ptr %opaque, i64 8004
   store i8 0, ptr %current_transactions_start.i, align 4
-  %current_transactions_end.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 5
+  %current_transactions_end.i = getelementptr inbounds i8, ptr %opaque, i64 8005
   store i8 0, ptr %current_transactions_end.i, align 1
-  %current_transactions_num.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 6
+  %current_transactions_num.i = getelementptr inbounds i8, ptr %opaque, i64 8006
   store i8 0, ptr %current_transactions_num.i, align 2
   br label %return
 
@@ -466,15 +448,16 @@ if.then.i:                                        ; preds = %if.end15
   br i1 %tobool.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then.i
-  %data.i = getelementptr inbounds %struct.packet_init, ptr %packet, i64 0, i32 4
-  %current_transactions_num.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 6
+  %data.i = getelementptr inbounds i8, ptr %packet, i64 7
+  %current_transactions.i.i = getelementptr inbounds i8, ptr %opaque, i64 7940
+  %current_transactions_num.i.i = getelementptr inbounds i8, ptr %opaque, i64 8006
   %6 = load i8, ptr %current_transactions_num.i.i, align 2
   %conv.i.i = zext i8 %6 to i32
   %cmp10.not.i.i = icmp eq i8 %6, 0
   br i1 %cmp10.not.i.i, label %return, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i
-  %current_transactions_start.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 4
+  %current_transactions_start.i.i = getelementptr inbounds i8, ptr %opaque, i64 8004
   %7 = load i8, ptr %current_transactions_start.i.i, align 4
   %conv2.i.i = zext i8 %7 to i32
   br label %for.body.i.i
@@ -484,13 +467,13 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %add.i.i = add nuw nsw i32 %i.011.i.i, %conv2.i.i
   %rem.i.i = and i32 %add.i.i, 3
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i, i64 0, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %cmp3.i.i = icmp eq i32 %8, -1
   br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %nonce8.i.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i, i32 3
+  %nonce8.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %data.i, ptr noundef nonnull dereferenceable(8) %nonce8.i.i, i64 8)
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i, label %for.inc.i.i
@@ -501,16 +484,17 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !8
 
 if.else.i:                                        ; preds = %if.end15
-  %current_transactions_num.i.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 6
+  %current_transactions_num.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8006
   %9 = load i8, ptr %current_transactions_num.i.i.i, align 2
   %conv.i.i.i = zext i8 %9 to i32
   %cmp6.not.i.i.i = icmp eq i8 %9, 0
   br i1 %cmp6.not.i.i.i, label %return, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else.i
-  %current_transactions_start.i.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 4
+  %current_transactions_start.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8004
   %10 = load i8, ptr %current_transactions_start.i.i.i, align 4
   %conv2.i.i.i = zext i8 %10 to i32
+  %current_transactions.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 7940
   br label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -523,7 +507,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %add.i.i.i = add nuw nsw i32 %i.07.i.i.i, %conv2.i.i.i
   %rem.i.i.i = and i32 %add.i.i.i, 3
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i.i, i64 0, i64 %idxprom.i.i.i
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp4.i.i.i = icmp eq i32 %11, %packet.val20.i
   br i1 %cmp4.i.i.i, label %if.end8.i, label %for.cond.i.i.i
@@ -535,7 +519,7 @@ if.end8.i:                                        ; preds = %for.body.i.i.i
   br i1 %12, label %if.then10.i, label %if.else24.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i.i, %if.end8.i
-  %transaction.063.i = phi ptr [ %arrayidx.i.i.i, %if.end8.i ], [ %arrayidx.i.i, %land.lhs.true.i.i ]
+  %transaction.064.i = phi ptr [ %arrayidx.i.i.i, %if.end8.i ], [ %arrayidx.i.i, %land.lhs.true.i.i ]
   %13 = getelementptr inbounds i8, ptr %packet, i64 5
   %packet.val21.i = load i8, ptr %13, align 1
   %14 = getelementptr inbounds i8, ptr %packet, i64 6
@@ -544,25 +528,25 @@ if.then10.i:                                      ; preds = %land.lhs.true.i.i, 
   %shl.i.i = shl nuw i16 %conv.i24.i, 8
   %conv3.i.i = zext i8 %packet.val22.i to i16
   %or5.i.i = or disjoint i16 %shl.i.i, %conv3.i.i
-  %resp_bcnt.i = getelementptr inbounds %struct.transaction, ptr %transaction.063.i, i64 0, i32 1
+  %resp_bcnt.i = getelementptr inbounds i8, ptr %transaction.064.i, i64 4
   store i16 %or5.i.i, ptr %resp_bcnt.i, align 4
-  %resp_size.i = getelementptr inbounds %struct.transaction, ptr %transaction.063.i, i64 0, i32 2
+  %resp_size.i = getelementptr inbounds i8, ptr %transaction.064.i, i64 6
   store i16 57, ptr %resp_size.i, align 2
   br i1 %cmp.i, label %if.then15.i, label %if.end27.i
 
 if.then15.i:                                      ; preds = %if.then10.i
-  %nonce.i = getelementptr inbounds %struct.transaction, ptr %transaction.063.i, i64 0, i32 3
-  %data17.i = getelementptr inbounds %struct.packet_init, ptr %packet, i64 0, i32 4
+  %nonce.i = getelementptr inbounds i8, ptr %transaction.064.i, i64 8
+  %data17.i = getelementptr inbounds i8, ptr %packet, i64 7
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %nonce.i, ptr noundef nonnull dereferenceable(8) %data17.i, i64 8)
   %cmp20.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp20.not.i, label %if.end27.i, label %return
 
 if.else24.i:                                      ; preds = %if.end8.i
-  %resp_size25.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i.i, i32 2
+  %resp_size25.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 6
   %15 = load i16, ptr %resp_size25.i, align 2
   %add.i = add i16 %15, 59
   store i16 %add.i, ptr %resp_size25.i, align 2
-  %resp_bcnt30.phi.trans.insert.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i.i, i32 1
+  %resp_bcnt30.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %.pre.i = load i16, ptr %resp_bcnt30.phi.trans.insert.i, align 4
   br label %if.end27.i
 
@@ -573,55 +557,56 @@ if.end27.i:                                       ; preds = %if.else24.i, %if.th
   br i1 %cmp32.not.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end27.i
-  %current_transactions_num.i.i25.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 6
+  %current_transactions_num.i.i25.i = getelementptr inbounds i8, ptr %opaque, i64 8006
   %18 = load i8, ptr %current_transactions_num.i.i25.i, align 2
   %conv.i.i26.i = zext i8 %18 to i32
   %cmp6.not.i.i27.i = icmp eq i8 %18, 0
   br i1 %cmp6.not.i.i27.i, label %if.end35.i, label %for.body.lr.ph.i.i28.i
 
 for.body.lr.ph.i.i28.i:                           ; preds = %if.then34.i
-  %current_transactions_start.i.i29.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 4
+  %current_transactions_start.i.i29.i = getelementptr inbounds i8, ptr %opaque, i64 8004
   %19 = load i8, ptr %current_transactions_start.i.i29.i, align 4
   %conv2.i.i30.i = zext i8 %19 to i32
-  br label %for.body.i.i31.i
+  %current_transactions.i.i31.i = getelementptr inbounds i8, ptr %opaque, i64 7940
+  br label %for.body.i.i32.i
 
-for.cond.i.i38.i:                                 ; preds = %for.body.i.i31.i
-  %inc.i.i39.i = add nuw nsw i32 %i.07.i.i32.i, 1
-  %exitcond.not.i.i40.i = icmp eq i32 %inc.i.i39.i, %conv.i.i26.i
-  br i1 %exitcond.not.i.i40.i, label %if.end35.i, label %for.body.i.i31.i, !llvm.loop !5
+for.cond.i.i39.i:                                 ; preds = %for.body.i.i32.i
+  %inc.i.i40.i = add nuw nsw i32 %i.07.i.i33.i, 1
+  %exitcond.not.i.i41.i = icmp eq i32 %inc.i.i40.i, %conv.i.i26.i
+  br i1 %exitcond.not.i.i41.i, label %if.end35.i, label %for.body.i.i32.i, !llvm.loop !5
 
-for.body.i.i31.i:                                 ; preds = %for.cond.i.i38.i, %for.body.lr.ph.i.i28.i
-  %i.07.i.i32.i = phi i32 [ 0, %for.body.lr.ph.i.i28.i ], [ %inc.i.i39.i, %for.cond.i.i38.i ]
-  %add.i.i33.i = add nuw nsw i32 %i.07.i.i32.i, %conv2.i.i30.i
-  %rem.i.i34.i = and i32 %add.i.i33.i, 3
-  %idxprom.i.i35.i = zext nneg i32 %rem.i.i34.i to i64
-  %arrayidx.i.i36.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i35.i
-  %20 = load i32, ptr %arrayidx.i.i36.i, align 4
-  %cmp4.i.i37.i = icmp eq i32 %20, %packet.val20.i
-  br i1 %cmp4.i.i37.i, label %if.end.i.i, label %for.cond.i.i38.i
+for.body.i.i32.i:                                 ; preds = %for.cond.i.i39.i, %for.body.lr.ph.i.i28.i
+  %i.07.i.i33.i = phi i32 [ 0, %for.body.lr.ph.i.i28.i ], [ %inc.i.i40.i, %for.cond.i.i39.i ]
+  %add.i.i34.i = add nuw nsw i32 %i.07.i.i33.i, %conv2.i.i30.i
+  %rem.i.i35.i = and i32 %add.i.i34.i, 3
+  %idxprom.i.i36.i = zext nneg i32 %rem.i.i35.i to i64
+  %arrayidx.i.i37.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i31.i, i64 0, i64 %idxprom.i.i36.i
+  %20 = load i32, ptr %arrayidx.i.i37.i, align 4
+  %cmp4.i.i38.i = icmp eq i32 %20, %packet.val20.i
+  br i1 %cmp4.i.i38.i, label %if.end.i.i, label %for.cond.i.i39.i
 
-if.end.i.i:                                       ; preds = %for.body.i.i31.i
-  %add.i41.i = add nuw i32 %add.i.i33.i, 1
-  %rem.i42.i = and i32 %add.i41.i, 3
-  %current_transactions_end.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 5
+if.end.i.i:                                       ; preds = %for.body.i.i32.i
+  %add.i42.i = add nuw i32 %add.i.i34.i, 1
+  %rem.i43.i = and i32 %add.i42.i, 3
+  %current_transactions_end.i.i = getelementptr inbounds i8, ptr %opaque, i64 8005
   %21 = load i8, ptr %current_transactions_end.i.i, align 1
   %conv20.i.i = zext i8 %21 to i32
-  %cmp1.not21.i.i = icmp eq i32 %rem.i42.i, %conv20.i.i
+  %cmp1.not21.i.i = icmp eq i32 %rem.i43.i, %conv20.i.i
   br i1 %cmp1.not21.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
-  %next_index.023.i.i = phi i32 [ %rem7.i.i, %while.body.i.i ], [ %rem.i42.i, %if.end.i.i ]
-  %index.022.i.i = phi i32 [ %next_index.023.i.i, %while.body.i.i ], [ %rem.i.i34.i, %if.end.i.i ]
-  %idxprom.i43.i = zext nneg i32 %index.022.i.i to i64
-  %arrayidx.i44.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i43.i
+  %next_index.023.i.i = phi i32 [ %rem7.i.i, %while.body.i.i ], [ %rem.i43.i, %if.end.i.i ]
+  %index.022.i.i = phi i32 [ %next_index.023.i.i, %while.body.i.i ], [ %rem.i.i35.i, %if.end.i.i ]
+  %idxprom.i44.i = zext nneg i32 %index.022.i.i to i64
+  %arrayidx.i45.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i31.i, i64 0, i64 %idxprom.i44.i
   %idxprom4.i.i = zext nneg i32 %next_index.023.i.i to i64
-  %arrayidx5.i.i = getelementptr %struct.U2FPassthruState, ptr %opaque, i64 0, i32 3, i64 %idxprom4.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i44.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
+  %arrayidx5.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i31.i, i64 0, i64 %idxprom4.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i45.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
   %add6.i.i = add nuw nsw i32 %next_index.023.i.i, 1
   %rem7.i.i = and i32 %add6.i.i, 3
   %22 = load i8, ptr %current_transactions_end.i.i, align 1
-  %conv.i45.i = zext i8 %22 to i32
-  %cmp1.not.i.i = icmp eq i32 %rem7.i.i, %conv.i45.i
+  %conv.i46.i = zext i8 %22 to i32
+  %cmp1.not.i.i = icmp eq i32 %rem7.i.i, %conv.i46.i
   br i1 %cmp1.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !7
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i
@@ -630,7 +615,7 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end.i.i
   %23 = phi i8 [ %18, %if.end.i.i ], [ %.pre.i.i, %while.end.loopexit.i.i ]
-  %index.0.lcssa.i.i = phi i32 [ %rem.i.i34.i, %if.end.i.i ], [ %next_index.023.i.i, %while.end.loopexit.i.i ]
+  %index.0.lcssa.i.i = phi i32 [ %rem.i.i35.i, %if.end.i.i ], [ %next_index.023.i.i, %while.end.loopexit.i.i ]
   %conv8.i.i = trunc i32 %index.0.lcssa.i.i to i8
   store i8 %conv8.i.i, ptr %current_transactions_end.i.i, align 1
   %dec.i.i = add i8 %23, -1
@@ -639,18 +624,18 @@ while.end.i.i:                                    ; preds = %while.end.loopexit.
   br i1 %cmp12.i.i, label %if.then14.i.i, label %if.end35.i
 
 if.then14.i.i:                                    ; preds = %while.end.i.i
-  %timer.i.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 8
+  %timer.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i.i.i) #8
   %24 = load i32, ptr %hidraw_fd, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %24, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
-  %last_transaction_time.i.i.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 7
+  %last_transaction_time.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8008
   store i64 0, ptr %last_transaction_time.i.i.i, align 8
   store i8 0, ptr %current_transactions_start.i.i29.i, align 4
   store i8 0, ptr %current_transactions_end.i.i, align 1
   store i8 0, ptr %current_transactions_num.i.i25.i, align 2
   br label %if.end35.i
 
-if.end35.i:                                       ; preds = %for.cond.i.i38.i, %if.then14.i.i, %while.end.i.i, %if.then34.i, %if.end27.i
+if.end35.i:                                       ; preds = %for.cond.i.i39.i, %if.then14.i.i, %while.end.i.i, %if.then34.i, %if.end27.i
   call void @u2f_send_to_guest(ptr noundef nonnull %opaque, ptr noundef nonnull %packet) #8
   br label %return
 
@@ -663,24 +648,24 @@ define internal void @u2f_timeout_check(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #8
   %div.i = sdiv i64 %call.i, 1000000
-  %last_transaction_time = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 7
+  %last_transaction_time = getelementptr inbounds i8, ptr %opaque, i64 8008
   %0 = load i64, ptr %last_transaction_time, align 8
   %add = add i64 %0, 120000
   %cmp = icmp sgt i64 %div.i, %add
-  %timer.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 8
+  %timer.i = getelementptr inbounds i8, ptr %opaque, i64 8016
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   tail call void @timer_del(ptr noundef nonnull %timer.i) #8
-  %hidraw_fd.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 2
+  %hidraw_fd.i = getelementptr inbounds i8, ptr %opaque, i64 7936
   %1 = load i32, ptr %hidraw_fd.i, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
   store i64 0, ptr %last_transaction_time, align 8
-  %current_transactions_start.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 4
+  %current_transactions_start.i = getelementptr inbounds i8, ptr %opaque, i64 8004
   store i8 0, ptr %current_transactions_start.i, align 4
-  %current_transactions_end.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 5
+  %current_transactions_end.i = getelementptr inbounds i8, ptr %opaque, i64 8005
   store i8 0, ptr %current_transactions_end.i, align 1
-  %current_transactions_num.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 6
+  %current_transactions_num.i = getelementptr inbounds i8, ptr %opaque, i64 8006
   store i8 0, ptr %current_transactions_num.i, align 2
   br label %if.end
 
@@ -709,18 +694,18 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @u2f_passthru_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %timer.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 8
+  %timer.i = getelementptr inbounds i8, ptr %opaque, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i) #8
-  %hidraw_fd.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 2
+  %hidraw_fd.i = getelementptr inbounds i8, ptr %opaque, i64 7936
   %0 = load i32, ptr %hidraw_fd.i, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %opaque) #8
-  %last_transaction_time.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 7
+  %last_transaction_time.i = getelementptr inbounds i8, ptr %opaque, i64 8008
   store i64 0, ptr %last_transaction_time.i, align 8
-  %current_transactions_start.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 4
+  %current_transactions_start.i = getelementptr inbounds i8, ptr %opaque, i64 8004
   store i8 0, ptr %current_transactions_start.i, align 4
-  %current_transactions_end.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 5
+  %current_transactions_end.i = getelementptr inbounds i8, ptr %opaque, i64 8005
   store i8 0, ptr %current_transactions_end.i, align 1
-  %current_transactions_num.i = getelementptr inbounds %struct.U2FPassthruState, ptr %opaque, i64 0, i32 6
+  %current_transactions_num.i = getelementptr inbounds i8, ptr %opaque, i64 8006
   store i8 0, ptr %current_transactions_num.i, align 2
   ret i32 0
 }

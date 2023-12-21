@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.(anonymous namespace)::LargestGaps" = type { i32, i32, [15 x i32], [15 x i64] }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @uprv_makeDenseRanges(ptr nocapture noundef readonly %values, i32 noundef %length, i32 noundef %density, ptr nocapture noundef writeonly %ranges, i32 noundef %capacity) local_unnamed_addr #0 {
 entry:
   %gaps = alloca %"class.(anonymous namespace)::LargestGaps", align 8
@@ -31,33 +31,37 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   store i32 %0, ptr %ranges, align 4
+  %arrayidx11 = getelementptr inbounds i8, ptr %ranges, i64 4
   br label %return.sink.split
 
 if.end12:                                         ; preds = %if.end
   %cmp13 = icmp ult i32 %length, 5
-  br i1 %cmp13, label %return, label %for.body.preheader
+  br i1 %cmp13, label %return, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %if.end12
+for.body.lr.ph:                                   ; preds = %if.end12
   %2 = tail call i32 @llvm.smin.i32(i32 %capacity, i32 16)
   %cond.i = add nsw i32 %2, -1
   store i32 %cond.i, ptr %gaps, align 8
-  %length.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %gaps, i64 4
   store i32 0, ptr %length.i, align 4
+  %gapLengths.i = getelementptr inbounds i8, ptr %gaps, i64 72
+  %gapStarts.i = getelementptr inbounds i8, ptr %gaps, i64 8
   br label %for.body
 
 for.cond27.preheader:                             ; preds = %for.inc
   %gaps.val.pre = load i32, ptr %length.i, align 4
-  %cmp28.not62 = icmp sgt i32 %gaps.val.pre, 0
-  br i1 %cmp28.not62, label %if.end30.preheader, label %return
+  %cmp28.not66 = icmp sgt i32 %gaps.val.pre, 0
+  br i1 %cmp28.not66, label %if.end30.lr.ph, label %return
 
-if.end30.preheader:                               ; preds = %for.cond27.preheader
-  %wide.trip.count77 = zext nneg i32 %gaps.val.pre to i64
+if.end30.lr.ph:                                   ; preds = %for.cond27.preheader
+  %gapLengths.i46 = getelementptr inbounds i8, ptr %gaps, i64 72
+  %wide.trip.count81 = zext nneg i32 %gaps.val.pre to i64
   br label %if.end30
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %expectedValue.061 = phi i32 [ %0, %for.body.preheader ], [ %expectedValue.1, %for.inc ]
-  %inc = add nsw i32 %expectedValue.061, 1
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %expectedValue.065 = phi i32 [ %0, %for.body.lr.ph ], [ %expectedValue.1, %for.inc ]
+  %inc = add nsw i32 %expectedValue.065, 1
   %arrayidx19 = getelementptr inbounds i32, ptr %values, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx19, align 4
   %cmp20.not = icmp eq i32 %inc, %3
@@ -80,7 +84,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %if.the
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %7 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 %7
+  %arrayidx.i = getelementptr inbounds [15 x i64], ptr %gapLengths.i, i64 0, i64 %7
   %8 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %8, %sub24
   br i1 %cmp2.i, label %while.cond.i, label %while.end.i, !llvm.loop !4
@@ -107,36 +111,36 @@ cond.false.i:                                     ; preds = %if.then.i
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i45 = phi i32 [ %4, %cond.true.i ], [ %sub9.i, %cond.false.i ]
   %cmp1114.i = icmp sgt i32 %cond.i45, %i.0.lcssa.i
-  br i1 %cmp1114.i, label %while.body12.preheader.i, label %cond.end.while.end27_crit_edge.i
+  br i1 %cmp1114.i, label %while.body12.lr.ph.i, label %cond.end.while.end27_crit_edge.i
 
 cond.end.while.end27_crit_edge.i:                 ; preds = %cond.end.i
   %.pre.i = sext i32 %i.0.lcssa.i to i64
   br label %while.end27.i
 
-while.body12.preheader.i:                         ; preds = %cond.end.i
+while.body12.lr.ph.i:                             ; preds = %cond.end.i
   %10 = sext i32 %cond.i45 to i64
   %11 = sext i32 %i.0.lcssa.i to i64
   br label %while.body12.i
 
-while.body12.i:                                   ; preds = %while.body12.i, %while.body12.preheader.i
-  %indvars.iv18.i = phi i64 [ %10, %while.body12.preheader.i ], [ %indvars.iv.next19.i, %while.body12.i ]
+while.body12.i:                                   ; preds = %while.body12.i, %while.body12.lr.ph.i
+  %indvars.iv18.i = phi i64 [ %10, %while.body12.lr.ph.i ], [ %indvars.iv.next19.i, %while.body12.i ]
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, -1
-  %arrayidx15.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 2, i64 %indvars.iv.next19.i
+  %arrayidx15.i = getelementptr inbounds [15 x i32], ptr %gapStarts.i, i64 0, i64 %indvars.iv.next19.i
   %12 = load i32, ptr %arrayidx15.i, align 4
-  %arrayidx18.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 2, i64 %indvars.iv18.i
+  %arrayidx18.i = getelementptr inbounds [15 x i32], ptr %gapStarts.i, i64 0, i64 %indvars.iv18.i
   store i32 %12, ptr %arrayidx18.i, align 4
-  %arrayidx22.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 %indvars.iv.next19.i
+  %arrayidx22.i = getelementptr inbounds [15 x i64], ptr %gapLengths.i, i64 0, i64 %indvars.iv.next19.i
   %13 = load i64, ptr %arrayidx22.i, align 8
-  %arrayidx25.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 %indvars.iv18.i
+  %arrayidx25.i = getelementptr inbounds [15 x i64], ptr %gapLengths.i, i64 0, i64 %indvars.iv18.i
   store i64 %13, ptr %arrayidx25.i, align 8
   %cmp11.i = icmp sgt i64 %indvars.iv.next19.i, %11
   br i1 %cmp11.i, label %while.body12.i, label %while.end27.i, !llvm.loop !6
 
 while.end27.i:                                    ; preds = %while.body12.i, %cond.end.while.end27_crit_edge.i
   %idxprom29.pre-phi.i = phi i64 [ %.pre.i, %cond.end.while.end27_crit_edge.i ], [ %11, %while.body12.i ]
-  %arrayidx30.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 2, i64 %idxprom29.pre-phi.i
+  %arrayidx30.i = getelementptr inbounds [15 x i32], ptr %gapStarts.i, i64 0, i64 %idxprom29.pre-phi.i
   store i32 %inc, ptr %arrayidx30.i, align 4
-  %arrayidx33.i = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 %idxprom29.pre-phi.i
+  %arrayidx33.i = getelementptr inbounds [15 x i64], ptr %gapLengths.i, i64 0, i64 %idxprom29.pre-phi.i
   store i64 %sub24, ptr %arrayidx33.i, align 8
   br label %for.inc
 
@@ -146,15 +150,15 @@ for.inc:                                          ; preds = %while.end27.i, %whi
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv4
   br i1 %exitcond.not, label %for.cond27.preheader, label %for.body, !llvm.loop !7
 
-if.end30:                                         ; preds = %if.end30.preheader, %for.inc42
-  %indvars.iv82 = phi i32 [ 1, %if.end30.preheader ], [ %indvars.iv.next83, %for.inc42 ]
-  %indvars.iv74 = phi i64 [ 0, %if.end30.preheader ], [ %indvars.iv.next75, %for.inc42 ]
-  %num.065 = phi i32 [ 2, %if.end30.preheader ], [ %inc44, %for.inc42 ]
-  %maxLength.064 = phi i64 [ %add, %if.end30.preheader ], [ %sub32, %for.inc42 ]
-  %arrayidx.i46 = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 %indvars.iv74
-  %14 = load i64, ptr %arrayidx.i46, align 8
-  %sub32 = sub nsw i64 %maxLength.064, %14
-  %mul33 = shl nuw nsw i32 %num.065, 1
+if.end30:                                         ; preds = %if.end30.lr.ph, %for.inc42
+  %indvars.iv86 = phi i32 [ 1, %if.end30.lr.ph ], [ %indvars.iv.next87, %for.inc42 ]
+  %indvars.iv78 = phi i64 [ 0, %if.end30.lr.ph ], [ %indvars.iv.next79, %for.inc42 ]
+  %num.069 = phi i32 [ 2, %if.end30.lr.ph ], [ %inc44, %for.inc42 ]
+  %maxLength.068 = phi i64 [ %add, %if.end30.lr.ph ], [ %sub32, %for.inc42 ]
+  %arrayidx.i47 = getelementptr inbounds [15 x i64], ptr %gapLengths.i46, i64 0, i64 %indvars.iv78
+  %14 = load i64, ptr %arrayidx.i47, align 8
+  %sub32 = sub nsw i64 %maxLength.068, %14
+  %mul33 = shl nuw nsw i32 %num.069, 1
   %cmp34 = icmp slt i32 %mul33, %length
   br i1 %cmp34, label %land.lhs.true, label %for.inc42
 
@@ -165,48 +169,49 @@ land.lhs.true:                                    ; preds = %if.end30
   br i1 %cmp39.not, label %for.inc42, label %for.end45
 
 for.inc42:                                        ; preds = %if.end30, %land.lhs.true
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %inc44 = add nuw nsw i32 %num.065, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  %indvars.iv.next83 = add nuw nsw i32 %indvars.iv82, 1
-  br i1 %exitcond78.not, label %return, label %if.end30, !llvm.loop !8
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %inc44 = add nuw nsw i32 %num.069, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
+  %indvars.iv.next87 = add nuw nsw i32 %indvars.iv86, 1
+  br i1 %exitcond82.not, label %return, label %if.end30, !llvm.loop !8
 
 for.end45:                                        ; preds = %land.lhs.true
-  %sub46 = add nsw i32 %num.065, -1
-  %cmp.i48.not = icmp slt i32 %gaps.val.pre, %num.065
-  br i1 %cmp.i48.not, label %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit, label %if.then.i49
+  %sub46 = add nsw i32 %num.069, -1
+  %cmp.i49.not = icmp slt i32 %gaps.val.pre, %num.069
+  br i1 %cmp.i49.not, label %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit, label %if.then.i50
 
-if.then.i49:                                      ; preds = %for.end45
+if.then.i50:                                      ; preds = %for.end45
   store i32 %sub46, ptr %length.i, align 4
   br label %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
 
-_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %for.end45, %if.then.i49
-  %15 = phi i32 [ %gaps.val.pre, %for.end45 ], [ %sub46, %if.then.i49 ]
+_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %for.end45, %if.then.i50
+  %15 = phi i32 [ %gaps.val.pre, %for.end45 ], [ %sub46, %if.then.i50 ]
   store i32 %0, ptr %ranges, align 4
-  %cmp51.not66 = icmp ult i32 %num.065, 2
-  br i1 %cmp51.not66, label %for.end69, label %for.body52.lr.ph
+  %cmp51.not70 = icmp ult i32 %num.069, 2
+  br i1 %cmp51.not70, label %for.end69, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
   %cmp38.i = icmp sgt i32 %15, 0
+  %gapStarts.i52 = getelementptr inbounds i8, ptr %gaps, i64 8
   %wide.trip.count.i = zext nneg i32 %15 to i64
   br i1 %cmp38.i, label %for.body52.us.preheader, label %for.body52.lr.ph.split
 
 for.body52.us.preheader:                          ; preds = %for.body52.lr.ph
-  %wide.trip.count92 = zext nneg i32 %indvars.iv82 to i64
+  %wide.trip.count96 = zext nneg i32 %indvars.iv86 to i64
   br label %for.body52.us
 
 for.body52.us:                                    ; preds = %for.body52.us.preheader, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us
-  %indvars.iv87 = phi i64 [ 0, %for.body52.us.preheader ], [ %indvars.iv.next88, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
-  %minValue.068.us = phi i32 [ %0, %for.body52.us.preheader ], [ %conv62.us, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
+  %indvars.iv91 = phi i64 [ 0, %for.body52.us.preheader ], [ %indvars.iv.next92, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
+  %minValue.072.us = phi i32 [ %0, %for.body52.us.preheader ], [ %conv62.us, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.inc.i.us, %for.body52.us
-  %indvars.iv.i51.us = phi i64 [ 0, %for.body52.us ], [ %indvars.iv.next.i.us, %for.inc.i.us ]
+  %indvars.iv.i53.us = phi i64 [ 0, %for.body52.us ], [ %indvars.iv.next.i.us, %for.inc.i.us ]
   %minIndex.010.i.us = phi i32 [ -1, %for.body52.us ], [ %minIndex.1.i.us, %for.inc.i.us ]
   %minValue.09.i.us = phi i32 [ 0, %for.body52.us ], [ %minValue.1.i.us, %for.inc.i.us ]
-  %arrayidx.i52.us = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 2, i64 %indvars.iv.i51.us
-  %16 = load i32, ptr %arrayidx.i52.us, align 4
-  %cmp4.i.us = icmp sgt i32 %16, %minValue.068.us
+  %arrayidx.i54.us = getelementptr inbounds [15 x i32], ptr %gapStarts.i52, i64 0, i64 %indvars.iv.i53.us
+  %16 = load i32, ptr %arrayidx.i54.us, align 4
+  %cmp4.i.us = icmp sgt i32 %16, %minValue.072.us
   br i1 %cmp4.i.us, label %land.lhs.true.i.us, label %for.inc.i.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.i.us
@@ -214,62 +219,62 @@ land.lhs.true.i.us:                               ; preds = %for.body.i.us
   %cmp9.i.us = icmp slt i32 %16, %minValue.09.i.us
   %or.cond.i.us = select i1 %cmp5.i.us, i1 true, i1 %cmp9.i.us
   %spec.select.i.us = select i1 %or.cond.i.us, i32 %16, i32 %minValue.09.i.us
-  %17 = trunc i64 %indvars.iv.i51.us to i32
+  %17 = trunc i64 %indvars.iv.i53.us to i32
   %spec.select7.i.us = select i1 %or.cond.i.us, i32 %17, i32 %minIndex.010.i.us
   br label %for.inc.i.us
 
 for.inc.i.us:                                     ; preds = %land.lhs.true.i.us, %for.body.i.us
   %minValue.1.i.us = phi i32 [ %minValue.09.i.us, %for.body.i.us ], [ %spec.select.i.us, %land.lhs.true.i.us ]
   %minIndex.1.i.us = phi i32 [ %minIndex.010.i.us, %for.body.i.us ], [ %spec.select7.i.us, %land.lhs.true.i.us ]
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i51.us, 1
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i53.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, label %for.body.i.us, !llvm.loop !9
 
 _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us: ; preds = %for.inc.i.us
-  %idxprom.i53.us = sext i32 %minIndex.1.i.us to i64
-  %arrayidx.i54.us = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 2, i64 %idxprom.i53.us
-  %18 = load i32, ptr %arrayidx.i54.us, align 4
+  %idxprom.i56.us = sext i32 %minIndex.1.i.us to i64
+  %arrayidx.i57.us = getelementptr inbounds [15 x i32], ptr %gapStarts.i52, i64 0, i64 %idxprom.i56.us
+  %18 = load i32, ptr %arrayidx.i57.us, align 4
   %sub55.us = add nsw i32 %18, -1
-  %arrayidx58.us = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv87, i64 1
+  %arrayidx58.us = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv91, i64 1
   store i32 %sub55.us, ptr %arrayidx58.us, align 4
-  %arrayidx.i56.us = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 %idxprom.i53.us
-  %19 = load i64, ptr %arrayidx.i56.us, align 8
+  %arrayidx.i60.us = getelementptr inbounds [15 x i64], ptr %gapLengths.i46, i64 0, i64 %idxprom.i56.us
+  %19 = load i64, ptr %arrayidx.i60.us, align 8
   %20 = trunc i64 %19 to i32
   %conv62.us = add i32 %18, %20
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %arrayidx65.us = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv.next88
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %arrayidx65.us = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv.next92
   store i32 %conv62.us, ptr %arrayidx65.us, align 4
-  %exitcond93.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count92
-  br i1 %exitcond93.not, label %for.end69, label %for.body52.us, !llvm.loop !10
+  %exitcond97.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count96
+  br i1 %exitcond97.not, label %for.end69, label %for.body52.us, !llvm.loop !10
 
 for.body52.lr.ph.split:                           ; preds = %for.body52.lr.ph
   %sub55 = add nsw i32 %15, -1
-  %arrayidx.i56 = getelementptr inbounds %"class.(anonymous namespace)::LargestGaps", ptr %gaps, i64 0, i32 3, i64 -1
-  %21 = load i64, ptr %arrayidx.i56, align 8
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %gaps, i64 64
+  %21 = load i64, ptr %arrayidx.i60, align 8
   %22 = trunc i64 %21 to i32
   %conv62 = add i32 %15, %22
-  %wide.trip.count85 = zext nneg i32 %indvars.iv82 to i64
+  %wide.trip.count89 = zext nneg i32 %indvars.iv86 to i64
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.lr.ph.split, %for.body52
-  %indvars.iv79 = phi i64 [ 0, %for.body52.lr.ph.split ], [ %indvars.iv.next80, %for.body52 ]
-  %arrayidx58 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv79, i64 1
+  %indvars.iv83 = phi i64 [ 0, %for.body52.lr.ph.split ], [ %indvars.iv.next84, %for.body52 ]
+  %arrayidx58 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv83, i64 1
   store i32 %sub55, ptr %arrayidx58, align 4
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %arrayidx65 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv.next80
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %arrayidx65 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %indvars.iv.next84
   store i32 %conv62, ptr %arrayidx65, align 4
-  %exitcond86.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count85
-  br i1 %exitcond86.not, label %for.end69, label %for.body52, !llvm.loop !10
+  %exitcond90.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count89
+  br i1 %exitcond90.not, label %for.end69, label %for.body52, !llvm.loop !10
 
 for.end69:                                        ; preds = %for.body52, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
   %idxprom71 = sext i32 %sub46 to i64
+  %arrayidx73 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %idxprom71, i64 1
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then7, %for.end69
-  %idxprom71.sink = phi i64 [ %idxprom71, %for.end69 ], [ 0, %if.then7 ]
-  %retval.0.ph = phi i32 [ %num.065, %for.end69 ], [ 1, %if.then7 ]
-  %arrayidx73 = getelementptr inbounds [2 x i32], ptr %ranges, i64 %idxprom71.sink, i64 1
-  store i32 %1, ptr %arrayidx73, align 4
+  %arrayidx73.sink = phi ptr [ %arrayidx73, %for.end69 ], [ %arrayidx11, %if.then7 ]
+  %retval.0.ph = phi i32 [ %num.069, %for.end69 ], [ 1, %if.then7 ]
+  store i32 %1, ptr %arrayidx73.sink, align 4
   br label %return
 
 return:                                           ; preds = %for.inc42, %return.sink.split, %for.cond27.preheader, %if.end12, %entry
@@ -280,7 +285,7 @@ return:                                           ; preds = %for.inc42, %return.
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

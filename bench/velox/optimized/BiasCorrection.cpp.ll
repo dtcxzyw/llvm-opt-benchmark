@@ -58,7 +58,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -74,7 +74,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   br label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::vector.0", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -130,7 +130,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.015 = phi ptr [ %incdec.ptr1, %for.inc ], [ %__result, %entry ]
   %__first.addr.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %__first.addr.014, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__first.addr.014, i64 8
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %__first.addr.014, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -159,10 +159,10 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %cond.tr
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i, %for.body
   %cond.i.i.i.i.i = phi ptr [ null, %for.body ], [ %call5.i.i.i.i2.i6.i.i7, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i ]
   store ptr %cond.i.i.i.i.i, ptr %__cur.015, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %__cur.015, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 8
   store ptr %cond.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds double, ptr %cond.i.i.i.i.i, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %__cur.015, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   %2 = load ptr, ptr %__first.addr.014, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -180,8 +180,8 @@ for.inc:                                          ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %cond.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds %"class.std::vector.0", ptr %__first.addr.014, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.std::vector.0", ptr %__cur.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.014, i64 24
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.015, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -213,7 +213,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i
   br label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i
 
 _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i:    ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::vector.0", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__cur.015
   br i1 %cmp.not.i.i, label %invoke.cont3, label %for.body.i.i, !llvm.loop !4
 
@@ -257,13 +257,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %ref.tmp.i)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #15
   store ptr %call5.i.i.i.i2.i.i, ptr %ref.tmp.i, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i, i64 80
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp.i, i64 0, i32 2
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 640
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %call5.i.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(640) @constinit, i64 640, i1 false)
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8
-  %arrayinit.element.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i14.i = invoke noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #15
           to label %invoke.cont13.i unwind label %lpad.i15.i
@@ -275,13 +275,13 @@ lpad.i15.i:                                       ; preds = %entry
 
 invoke.cont13.i:                                  ; preds = %entry
   store ptr %call5.i.i.i.i2.i14.i, ptr %arrayinit.element.i, align 8
-  %add.ptr.i1.i19.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i14.i, i64 160
-  %_M_end_of_storage.i.i20.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 1, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i19.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i14.i, i64 1280
+  %_M_end_of_storage.i.i20.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %add.ptr.i1.i19.i, ptr %_M_end_of_storage.i.i20.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1280) %call5.i.i.i.i2.i14.i, ptr noundef nonnull align 8 dereferenceable(1280) @constinit.1, i64 1280, i1 false)
-  %_M_finish.i.i21.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i21.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store ptr %add.ptr.i1.i19.i, ptr %_M_finish.i.i21.i, align 8
-  %arrayinit.element14.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 2
+  %arrayinit.element14.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element14.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i24.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont23.i unwind label %lpad.i25.i
@@ -293,13 +293,13 @@ lpad.i25.i:                                       ; preds = %invoke.cont13.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont13.i
   store ptr %call5.i.i.i.i2.i24.i, ptr %arrayinit.element14.i, align 8
-  %add.ptr.i1.i29.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i24.i, i64 200
-  %_M_end_of_storage.i.i30.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 2, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i29.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i24.i, i64 1600
+  %_M_end_of_storage.i.i30.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store ptr %add.ptr.i1.i29.i, ptr %_M_end_of_storage.i.i30.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i24.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.2, i64 1600, i1 false)
-  %_M_finish.i.i31.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %add.ptr.i1.i29.i, ptr %_M_finish.i.i31.i, align 8
-  %arrayinit.element24.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 3
+  %arrayinit.element24.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element24.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i34.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont33.i unwind label %lpad.i35.i
@@ -311,13 +311,13 @@ lpad.i35.i:                                       ; preds = %invoke.cont23.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont23.i
   store ptr %call5.i.i.i.i2.i34.i, ptr %arrayinit.element24.i, align 8
-  %add.ptr.i1.i39.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i34.i, i64 200
-  %_M_end_of_storage.i.i40.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 3, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i34.i, i64 1600
+  %_M_end_of_storage.i.i40.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr %add.ptr.i1.i39.i, ptr %_M_end_of_storage.i.i40.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i34.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.3, i64 1600, i1 false)
-  %_M_finish.i.i41.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i41.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store ptr %add.ptr.i1.i39.i, ptr %_M_finish.i.i41.i, align 8
-  %arrayinit.element34.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 4
+  %arrayinit.element34.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element34.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i44.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont43.i unwind label %lpad.i45.i
@@ -329,13 +329,13 @@ lpad.i45.i:                                       ; preds = %invoke.cont33.i
 
 invoke.cont43.i:                                  ; preds = %invoke.cont33.i
   store ptr %call5.i.i.i.i2.i44.i, ptr %arrayinit.element34.i, align 8
-  %add.ptr.i1.i49.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i44.i, i64 200
-  %_M_end_of_storage.i.i50.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 4, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i49.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i44.i, i64 1600
+  %_M_end_of_storage.i.i50.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 112
   store ptr %add.ptr.i1.i49.i, ptr %_M_end_of_storage.i.i50.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i44.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.4, i64 1600, i1 false)
-  %_M_finish.i.i51.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i51.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr %add.ptr.i1.i49.i, ptr %_M_finish.i.i51.i, align 8
-  %arrayinit.element44.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 5
+  %arrayinit.element44.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element44.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i54.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont53.i unwind label %lpad.i55.i
@@ -347,13 +347,13 @@ lpad.i55.i:                                       ; preds = %invoke.cont43.i
 
 invoke.cont53.i:                                  ; preds = %invoke.cont43.i
   store ptr %call5.i.i.i.i2.i54.i, ptr %arrayinit.element44.i, align 8
-  %add.ptr.i1.i59.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i54.i, i64 200
-  %_M_end_of_storage.i.i60.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 5, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i59.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i54.i, i64 1600
+  %_M_end_of_storage.i.i60.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 136
   store ptr %add.ptr.i1.i59.i, ptr %_M_end_of_storage.i.i60.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i54.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.5, i64 1600, i1 false)
-  %_M_finish.i.i61.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i61.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 128
   store ptr %add.ptr.i1.i59.i, ptr %_M_finish.i.i61.i, align 8
-  %arrayinit.element54.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 6
+  %arrayinit.element54.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element54.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i64.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont63.i unwind label %lpad.i65.i
@@ -365,13 +365,13 @@ lpad.i65.i:                                       ; preds = %invoke.cont53.i
 
 invoke.cont63.i:                                  ; preds = %invoke.cont53.i
   store ptr %call5.i.i.i.i2.i64.i, ptr %arrayinit.element54.i, align 8
-  %add.ptr.i1.i69.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i64.i, i64 200
-  %_M_end_of_storage.i.i70.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 6, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i69.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i64.i, i64 1600
+  %_M_end_of_storage.i.i70.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 160
   store ptr %add.ptr.i1.i69.i, ptr %_M_end_of_storage.i.i70.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i64.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.6, i64 1600, i1 false)
-  %_M_finish.i.i71.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i71.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 152
   store ptr %add.ptr.i1.i69.i, ptr %_M_finish.i.i71.i, align 8
-  %arrayinit.element64.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 7
+  %arrayinit.element64.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element64.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i74.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont73.i unwind label %lpad.i75.i
@@ -383,13 +383,13 @@ lpad.i75.i:                                       ; preds = %invoke.cont63.i
 
 invoke.cont73.i:                                  ; preds = %invoke.cont63.i
   store ptr %call5.i.i.i.i2.i74.i, ptr %arrayinit.element64.i, align 8
-  %add.ptr.i1.i79.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i74.i, i64 200
-  %_M_end_of_storage.i.i80.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 7, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i79.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i74.i, i64 1600
+  %_M_end_of_storage.i.i80.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 184
   store ptr %add.ptr.i1.i79.i, ptr %_M_end_of_storage.i.i80.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i74.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.7, i64 1600, i1 false)
-  %_M_finish.i.i81.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i81.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 176
   store ptr %add.ptr.i1.i79.i, ptr %_M_finish.i.i81.i, align 8
-  %arrayinit.element74.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 8
+  %arrayinit.element74.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element74.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i84.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont83.i unwind label %lpad.i85.i
@@ -401,13 +401,13 @@ lpad.i85.i:                                       ; preds = %invoke.cont73.i
 
 invoke.cont83.i:                                  ; preds = %invoke.cont73.i
   store ptr %call5.i.i.i.i2.i84.i, ptr %arrayinit.element74.i, align 8
-  %add.ptr.i1.i89.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i84.i, i64 200
-  %_M_end_of_storage.i.i90.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 8, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i89.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i84.i, i64 1600
+  %_M_end_of_storage.i.i90.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 208
   store ptr %add.ptr.i1.i89.i, ptr %_M_end_of_storage.i.i90.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i84.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.8, i64 1600, i1 false)
-  %_M_finish.i.i91.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i91.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 200
   store ptr %add.ptr.i1.i89.i, ptr %_M_finish.i.i91.i, align 8
-  %arrayinit.element84.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 9
+  %arrayinit.element84.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element84.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i94.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont93.i unwind label %lpad.i95.i
@@ -419,13 +419,13 @@ lpad.i95.i:                                       ; preds = %invoke.cont83.i
 
 invoke.cont93.i:                                  ; preds = %invoke.cont83.i
   store ptr %call5.i.i.i.i2.i94.i, ptr %arrayinit.element84.i, align 8
-  %add.ptr.i1.i99.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i94.i, i64 200
-  %_M_end_of_storage.i.i100.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 9, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i99.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i94.i, i64 1600
+  %_M_end_of_storage.i.i100.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 232
   store ptr %add.ptr.i1.i99.i, ptr %_M_end_of_storage.i.i100.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i94.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.9, i64 1600, i1 false)
-  %_M_finish.i.i101.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i101.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 224
   store ptr %add.ptr.i1.i99.i, ptr %_M_finish.i.i101.i, align 8
-  %arrayinit.element94.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 10
+  %arrayinit.element94.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element94.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i104.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont103.i unwind label %lpad.i105.i
@@ -437,13 +437,13 @@ lpad.i105.i:                                      ; preds = %invoke.cont93.i
 
 invoke.cont103.i:                                 ; preds = %invoke.cont93.i
   store ptr %call5.i.i.i.i2.i104.i, ptr %arrayinit.element94.i, align 8
-  %add.ptr.i1.i109.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i104.i, i64 200
-  %_M_end_of_storage.i.i110.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 10, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i109.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i104.i, i64 1600
+  %_M_end_of_storage.i.i110.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 256
   store ptr %add.ptr.i1.i109.i, ptr %_M_end_of_storage.i.i110.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i104.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.10, i64 1600, i1 false)
-  %_M_finish.i.i111.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i111.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 248
   store ptr %add.ptr.i1.i109.i, ptr %_M_finish.i.i111.i, align 8
-  %arrayinit.element104.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 11
+  %arrayinit.element104.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element104.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i114.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont113.i unwind label %lpad.i115.i
@@ -455,13 +455,13 @@ lpad.i115.i:                                      ; preds = %invoke.cont103.i
 
 invoke.cont113.i:                                 ; preds = %invoke.cont103.i
   store ptr %call5.i.i.i.i2.i114.i, ptr %arrayinit.element104.i, align 8
-  %add.ptr.i1.i119.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i114.i, i64 200
-  %_M_end_of_storage.i.i120.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 11, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i119.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i114.i, i64 1600
+  %_M_end_of_storage.i.i120.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 280
   store ptr %add.ptr.i1.i119.i, ptr %_M_end_of_storage.i.i120.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i114.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.11, i64 1600, i1 false)
-  %_M_finish.i.i121.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 11, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i121.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 272
   store ptr %add.ptr.i1.i119.i, ptr %_M_finish.i.i121.i, align 8
-  %arrayinit.element114.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 12
+  %arrayinit.element114.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element114.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i124.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont123.i unwind label %lpad.i125.i
@@ -473,20 +473,20 @@ lpad.i125.i:                                      ; preds = %invoke.cont113.i
 
 invoke.cont123.i:                                 ; preds = %invoke.cont113.i
   store ptr %call5.i.i.i.i2.i124.i, ptr %arrayinit.element114.i, align 8
-  %add.ptr.i1.i129.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i124.i, i64 200
-  %_M_end_of_storage.i.i130.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 12, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i129.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i124.i, i64 1600
+  %_M_end_of_storage.i.i130.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 304
   store ptr %add.ptr.i1.i129.i, ptr %_M_end_of_storage.i.i130.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i124.i, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.12, i64 1600, i1 false)
-  %_M_finish.i.i131.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i131.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 296
   store ptr %add.ptr.i1.i129.i, ptr %_M_finish.i.i131.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i8 0, i64 24, i1 false)
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i, i64 13
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 312
   %call5.i.i.i.i2.i134.i = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #15
           to label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %lpad.i135.i
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %invoke.cont123.i
   store ptr %call5.i.i.i.i2.i134.i, ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, align 8
-  %add.ptr.i1.i137.i = getelementptr inbounds %"class.std::vector.0", ptr %call5.i.i.i.i2.i134.i, i64 13
+  %add.ptr.i1.i137.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i134.i, i64 312
   store ptr %add.ptr.i1.i137.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   %call.i.i.i.i3.i.i = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull %call5.i.i.i.i2.i134.i)
           to label %invoke.cont129.i unwind label %lpad.i135.i
@@ -511,7 +511,7 @@ invoke.cont129.i:                                 ; preds = %_ZNSt12_Vector_base
 
 arraydestroy.body.i:                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %invoke.cont129.i
   %arraydestroy.elementPast.i = phi ptr [ %add.ptr.i.i.i, %invoke.cont129.i ], [ %arraydestroy.element.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.i ]
-  %arraydestroy.element.i = getelementptr inbounds %"class.std::vector.0", ptr %arraydestroy.elementPast.i, i64 -1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -24
   %14 = load ptr, ptr %arraydestroy.element.i, align 8
   %tobool.not.i.i.i139.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i139.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -526,7 +526,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %a
 
 arraydestroy.body132.i:                           ; preds = %arraydestroy.body132.i.preheader, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i
   %arraydestroy.elementPast133.i = phi ptr [ %arraydestroy.element134.i, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i ], [ %add.ptr.i.i.i, %arraydestroy.body132.i.preheader ]
-  %arraydestroy.element134.i = getelementptr inbounds %"class.std::vector.0", ptr %arraydestroy.elementPast133.i, i64 -1
+  %arraydestroy.element134.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast133.i, i64 -24
   %15 = load ptr, ptr %arraydestroy.element134.i, align 8
   %tobool.not.i.i.i141.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i141.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit144.i, label %if.then.i.i.i142.i
@@ -546,7 +546,7 @@ ehcleanup148.i:                                   ; preds = %lpad.i125.i, %lpad.
 
 arraydestroy.body150.i:                           ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit148.i, %ehcleanup148.i
   %arraydestroy.elementPast151.i = phi ptr [ %arraydestroy.element152.i, %_ZNSt6vectorIdSaIdEED2Ev.exit148.i ], [ %arrayinit.endOfInit.11.i, %ehcleanup148.i ]
-  %arraydestroy.element152.i = getelementptr inbounds %"class.std::vector.0", ptr %arraydestroy.elementPast151.i, i64 -1
+  %arraydestroy.element152.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast151.i, i64 -24
   %16 = load ptr, ptr %arraydestroy.element152.i, align 8
   %tobool.not.i.i.i145.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i145.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit148.i, label %if.then.i.i.i146.i
@@ -569,13 +569,13 @@ __cxx_global_var_init.exit:                       ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %ref.tmp.i1)
   %call5.i.i.i.i2.i.i2 = call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #15
   store ptr %call5.i.i.i.i2.i.i2, ptr %ref.tmp.i1, align 8
-  %add.ptr.i1.i.i3 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i2, i64 80
-  %_M_end_of_storage.i.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp.i1, i64 0, i32 2
+  %add.ptr.i1.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2, i64 640
+  %_M_end_of_storage.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 16
   store ptr %add.ptr.i1.i.i3, ptr %_M_end_of_storage.i.i.i4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %call5.i.i.i.i2.i.i2, ptr noundef nonnull align 8 dereferenceable(640) @constinit.14, i64 640, i1 false)
-  %_M_finish.i.i.i5 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp.i1, i64 0, i32 1
+  %_M_finish.i.i.i5 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 8
   store ptr %add.ptr.i1.i.i3, ptr %_M_finish.i.i.i5, align 8
-  %arrayinit.element.i6 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 1
+  %arrayinit.element.i6 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element.i6, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i14.i7 = invoke noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #15
           to label %invoke.cont13.i21 unwind label %lpad.i15.i8
@@ -587,13 +587,13 @@ lpad.i15.i8:                                      ; preds = %__cxx_global_var_in
 
 invoke.cont13.i21:                                ; preds = %__cxx_global_var_init.exit
   store ptr %call5.i.i.i.i2.i14.i7, ptr %arrayinit.element.i6, align 8
-  %add.ptr.i1.i19.i22 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i14.i7, i64 160
-  %_M_end_of_storage.i.i20.i23 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 1, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i19.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i14.i7, i64 1280
+  %_M_end_of_storage.i.i20.i23 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 40
   store ptr %add.ptr.i1.i19.i22, ptr %_M_end_of_storage.i.i20.i23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1280) %call5.i.i.i.i2.i14.i7, ptr noundef nonnull align 8 dereferenceable(1280) @constinit.15, i64 1280, i1 false)
-  %_M_finish.i.i21.i24 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i21.i24 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 32
   store ptr %add.ptr.i1.i19.i22, ptr %_M_finish.i.i21.i24, align 8
-  %arrayinit.element14.i25 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 2
+  %arrayinit.element14.i25 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element14.i25, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i24.i26 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont23.i28 unwind label %lpad.i25.i27
@@ -605,13 +605,13 @@ lpad.i25.i27:                                     ; preds = %invoke.cont13.i21
 
 invoke.cont23.i28:                                ; preds = %invoke.cont13.i21
   store ptr %call5.i.i.i.i2.i24.i26, ptr %arrayinit.element14.i25, align 8
-  %add.ptr.i1.i29.i29 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i24.i26, i64 200
-  %_M_end_of_storage.i.i30.i30 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 2, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i29.i29 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i24.i26, i64 1600
+  %_M_end_of_storage.i.i30.i30 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 64
   store ptr %add.ptr.i1.i29.i29, ptr %_M_end_of_storage.i.i30.i30, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i24.i26, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.16, i64 1600, i1 false)
-  %_M_finish.i.i31.i31 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i31.i31 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 56
   store ptr %add.ptr.i1.i29.i29, ptr %_M_finish.i.i31.i31, align 8
-  %arrayinit.element24.i32 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 3
+  %arrayinit.element24.i32 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element24.i32, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i34.i33 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont33.i35 unwind label %lpad.i35.i34
@@ -623,13 +623,13 @@ lpad.i35.i34:                                     ; preds = %invoke.cont23.i28
 
 invoke.cont33.i35:                                ; preds = %invoke.cont23.i28
   store ptr %call5.i.i.i.i2.i34.i33, ptr %arrayinit.element24.i32, align 8
-  %add.ptr.i1.i39.i36 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i34.i33, i64 200
-  %_M_end_of_storage.i.i40.i37 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 3, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i39.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i34.i33, i64 1600
+  %_M_end_of_storage.i.i40.i37 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 88
   store ptr %add.ptr.i1.i39.i36, ptr %_M_end_of_storage.i.i40.i37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i34.i33, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.17, i64 1600, i1 false)
-  %_M_finish.i.i41.i38 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i41.i38 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 80
   store ptr %add.ptr.i1.i39.i36, ptr %_M_finish.i.i41.i38, align 8
-  %arrayinit.element34.i39 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 4
+  %arrayinit.element34.i39 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element34.i39, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i44.i40 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont43.i42 unwind label %lpad.i45.i41
@@ -641,13 +641,13 @@ lpad.i45.i41:                                     ; preds = %invoke.cont33.i35
 
 invoke.cont43.i42:                                ; preds = %invoke.cont33.i35
   store ptr %call5.i.i.i.i2.i44.i40, ptr %arrayinit.element34.i39, align 8
-  %add.ptr.i1.i49.i43 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i44.i40, i64 200
-  %_M_end_of_storage.i.i50.i44 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 4, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i49.i43 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i44.i40, i64 1600
+  %_M_end_of_storage.i.i50.i44 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 112
   store ptr %add.ptr.i1.i49.i43, ptr %_M_end_of_storage.i.i50.i44, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i44.i40, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.18, i64 1600, i1 false)
-  %_M_finish.i.i51.i45 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i51.i45 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 104
   store ptr %add.ptr.i1.i49.i43, ptr %_M_finish.i.i51.i45, align 8
-  %arrayinit.element44.i46 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 5
+  %arrayinit.element44.i46 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element44.i46, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i54.i47 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont53.i49 unwind label %lpad.i55.i48
@@ -659,13 +659,13 @@ lpad.i55.i48:                                     ; preds = %invoke.cont43.i42
 
 invoke.cont53.i49:                                ; preds = %invoke.cont43.i42
   store ptr %call5.i.i.i.i2.i54.i47, ptr %arrayinit.element44.i46, align 8
-  %add.ptr.i1.i59.i50 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i54.i47, i64 200
-  %_M_end_of_storage.i.i60.i51 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 5, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i59.i50 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i54.i47, i64 1600
+  %_M_end_of_storage.i.i60.i51 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 136
   store ptr %add.ptr.i1.i59.i50, ptr %_M_end_of_storage.i.i60.i51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i54.i47, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.19, i64 1600, i1 false)
-  %_M_finish.i.i61.i52 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i61.i52 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 128
   store ptr %add.ptr.i1.i59.i50, ptr %_M_finish.i.i61.i52, align 8
-  %arrayinit.element54.i53 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 6
+  %arrayinit.element54.i53 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element54.i53, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i64.i54 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont63.i56 unwind label %lpad.i65.i55
@@ -677,13 +677,13 @@ lpad.i65.i55:                                     ; preds = %invoke.cont53.i49
 
 invoke.cont63.i56:                                ; preds = %invoke.cont53.i49
   store ptr %call5.i.i.i.i2.i64.i54, ptr %arrayinit.element54.i53, align 8
-  %add.ptr.i1.i69.i57 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i64.i54, i64 200
-  %_M_end_of_storage.i.i70.i58 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 6, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i69.i57 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i64.i54, i64 1600
+  %_M_end_of_storage.i.i70.i58 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 160
   store ptr %add.ptr.i1.i69.i57, ptr %_M_end_of_storage.i.i70.i58, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i64.i54, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.20, i64 1600, i1 false)
-  %_M_finish.i.i71.i59 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i71.i59 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 152
   store ptr %add.ptr.i1.i69.i57, ptr %_M_finish.i.i71.i59, align 8
-  %arrayinit.element64.i60 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 7
+  %arrayinit.element64.i60 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element64.i60, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i74.i61 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont73.i63 unwind label %lpad.i75.i62
@@ -695,13 +695,13 @@ lpad.i75.i62:                                     ; preds = %invoke.cont63.i56
 
 invoke.cont73.i63:                                ; preds = %invoke.cont63.i56
   store ptr %call5.i.i.i.i2.i74.i61, ptr %arrayinit.element64.i60, align 8
-  %add.ptr.i1.i79.i64 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i74.i61, i64 200
-  %_M_end_of_storage.i.i80.i65 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 7, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i79.i64 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i74.i61, i64 1600
+  %_M_end_of_storage.i.i80.i65 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 184
   store ptr %add.ptr.i1.i79.i64, ptr %_M_end_of_storage.i.i80.i65, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i74.i61, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.21, i64 1600, i1 false)
-  %_M_finish.i.i81.i66 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i81.i66 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 176
   store ptr %add.ptr.i1.i79.i64, ptr %_M_finish.i.i81.i66, align 8
-  %arrayinit.element74.i67 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 8
+  %arrayinit.element74.i67 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element74.i67, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i84.i68 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont83.i70 unwind label %lpad.i85.i69
@@ -713,13 +713,13 @@ lpad.i85.i69:                                     ; preds = %invoke.cont73.i63
 
 invoke.cont83.i70:                                ; preds = %invoke.cont73.i63
   store ptr %call5.i.i.i.i2.i84.i68, ptr %arrayinit.element74.i67, align 8
-  %add.ptr.i1.i89.i71 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i84.i68, i64 200
-  %_M_end_of_storage.i.i90.i72 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 8, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i89.i71 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i84.i68, i64 1600
+  %_M_end_of_storage.i.i90.i72 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 208
   store ptr %add.ptr.i1.i89.i71, ptr %_M_end_of_storage.i.i90.i72, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i84.i68, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.22, i64 1600, i1 false)
-  %_M_finish.i.i91.i73 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i91.i73 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 200
   store ptr %add.ptr.i1.i89.i71, ptr %_M_finish.i.i91.i73, align 8
-  %arrayinit.element84.i74 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 9
+  %arrayinit.element84.i74 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element84.i74, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i94.i75 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont93.i77 unwind label %lpad.i95.i76
@@ -731,13 +731,13 @@ lpad.i95.i76:                                     ; preds = %invoke.cont83.i70
 
 invoke.cont93.i77:                                ; preds = %invoke.cont83.i70
   store ptr %call5.i.i.i.i2.i94.i75, ptr %arrayinit.element84.i74, align 8
-  %add.ptr.i1.i99.i78 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i94.i75, i64 200
-  %_M_end_of_storage.i.i100.i79 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 9, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i99.i78 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i94.i75, i64 1600
+  %_M_end_of_storage.i.i100.i79 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 232
   store ptr %add.ptr.i1.i99.i78, ptr %_M_end_of_storage.i.i100.i79, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i94.i75, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.23, i64 1600, i1 false)
-  %_M_finish.i.i101.i80 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i101.i80 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 224
   store ptr %add.ptr.i1.i99.i78, ptr %_M_finish.i.i101.i80, align 8
-  %arrayinit.element94.i81 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 10
+  %arrayinit.element94.i81 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element94.i81, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i104.i82 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont103.i84 unwind label %lpad.i105.i83
@@ -749,13 +749,13 @@ lpad.i105.i83:                                    ; preds = %invoke.cont93.i77
 
 invoke.cont103.i84:                               ; preds = %invoke.cont93.i77
   store ptr %call5.i.i.i.i2.i104.i82, ptr %arrayinit.element94.i81, align 8
-  %add.ptr.i1.i109.i85 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i104.i82, i64 200
-  %_M_end_of_storage.i.i110.i86 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 10, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i109.i85 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i104.i82, i64 1600
+  %_M_end_of_storage.i.i110.i86 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 256
   store ptr %add.ptr.i1.i109.i85, ptr %_M_end_of_storage.i.i110.i86, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i104.i82, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.24, i64 1600, i1 false)
-  %_M_finish.i.i111.i87 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i111.i87 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 248
   store ptr %add.ptr.i1.i109.i85, ptr %_M_finish.i.i111.i87, align 8
-  %arrayinit.element104.i88 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 11
+  %arrayinit.element104.i88 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element104.i88, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i114.i89 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont113.i91 unwind label %lpad.i115.i90
@@ -767,13 +767,13 @@ lpad.i115.i90:                                    ; preds = %invoke.cont103.i84
 
 invoke.cont113.i91:                               ; preds = %invoke.cont103.i84
   store ptr %call5.i.i.i.i2.i114.i89, ptr %arrayinit.element104.i88, align 8
-  %add.ptr.i1.i119.i92 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i114.i89, i64 200
-  %_M_end_of_storage.i.i120.i93 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 11, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i119.i92 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i114.i89, i64 1600
+  %_M_end_of_storage.i.i120.i93 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 280
   store ptr %add.ptr.i1.i119.i92, ptr %_M_end_of_storage.i.i120.i93, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i114.i89, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.25, i64 1600, i1 false)
-  %_M_finish.i.i121.i94 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 11, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i121.i94 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 272
   store ptr %add.ptr.i1.i119.i92, ptr %_M_finish.i.i121.i94, align 8
-  %arrayinit.element114.i95 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 12
+  %arrayinit.element114.i95 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element114.i95, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i124.i96 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
           to label %invoke.cont123.i98 unwind label %lpad.i125.i97
@@ -785,20 +785,20 @@ lpad.i125.i97:                                    ; preds = %invoke.cont113.i91
 
 invoke.cont123.i98:                               ; preds = %invoke.cont113.i91
   store ptr %call5.i.i.i.i2.i124.i96, ptr %arrayinit.element114.i95, align 8
-  %add.ptr.i1.i129.i99 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i124.i96, i64 200
-  %_M_end_of_storage.i.i130.i100 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 12, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i129.i99 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i124.i96, i64 1600
+  %_M_end_of_storage.i.i130.i100 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 304
   store ptr %add.ptr.i1.i129.i99, ptr %_M_end_of_storage.i.i130.i100, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %call5.i.i.i.i2.i124.i96, ptr noundef nonnull align 8 dereferenceable(1600) @constinit.26, i64 1600, i1 false)
-  %_M_finish.i.i131.i101 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i131.i101 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 296
   store ptr %add.ptr.i1.i129.i99, ptr %_M_finish.i.i131.i101, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i8 0, i64 24, i1 false)
-  %add.ptr.i.i.i102 = getelementptr inbounds %"class.std::vector.0", ptr %ref.tmp.i1, i64 13
+  %add.ptr.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 312
   %call5.i.i.i.i2.i134.i103 = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #15
           to label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115 unwind label %lpad.i135.i104
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115: ; preds = %invoke.cont123.i98
   store ptr %call5.i.i.i.i2.i134.i103, ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, align 8
-  %add.ptr.i1.i137.i116 = getelementptr inbounds %"class.std::vector.0", ptr %call5.i.i.i.i2.i134.i103, i64 13
+  %add.ptr.i1.i137.i116 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i134.i103, i64 312
   store ptr %add.ptr.i1.i137.i116, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   %call.i.i.i.i3.i.i117 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_(ptr noundef nonnull %ref.tmp.i1, ptr noundef nonnull %add.ptr.i.i.i102, ptr noundef nonnull %call5.i.i.i.i2.i134.i103)
           to label %invoke.cont129.i118 unwind label %lpad.i135.i104
@@ -823,7 +823,7 @@ invoke.cont129.i118:                              ; preds = %_ZNSt12_Vector_base
 
 arraydestroy.body.i119:                           ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i124, %invoke.cont129.i118
   %arraydestroy.elementPast.i120 = phi ptr [ %add.ptr.i.i.i102, %invoke.cont129.i118 ], [ %arraydestroy.element.i121, %_ZNSt6vectorIdSaIdEED2Ev.exit.i124 ]
-  %arraydestroy.element.i121 = getelementptr inbounds %"class.std::vector.0", ptr %arraydestroy.elementPast.i120, i64 -1
+  %arraydestroy.element.i121 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i120, i64 -24
   %32 = load ptr, ptr %arraydestroy.element.i121, align 8
   %tobool.not.i.i.i139.i122 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i139.i122, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i124, label %if.then.i.i.i.i123
@@ -838,7 +838,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i124:               ; preds = %if.then.i.i.i.i123,
 
 arraydestroy.body132.i108:                        ; preds = %arraydestroy.body132.i108.preheader, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113
   %arraydestroy.elementPast133.i109 = phi ptr [ %arraydestroy.element134.i110, %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113 ], [ %add.ptr.i.i.i102, %arraydestroy.body132.i108.preheader ]
-  %arraydestroy.element134.i110 = getelementptr inbounds %"class.std::vector.0", ptr %arraydestroy.elementPast133.i109, i64 -1
+  %arraydestroy.element134.i110 = getelementptr inbounds i8, ptr %arraydestroy.elementPast133.i109, i64 -24
   %33 = load ptr, ptr %arraydestroy.element134.i110, align 8
   %tobool.not.i.i.i141.i111 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i141.i111, label %_ZNSt6vectorIdSaIdEED2Ev.exit144.i113, label %if.then.i.i.i142.i112
@@ -858,7 +858,7 @@ ehcleanup148.i9:                                  ; preds = %lpad.i125.i97, %lpa
 
 arraydestroy.body150.i12:                         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit148.i17, %ehcleanup148.i9
   %arraydestroy.elementPast151.i13 = phi ptr [ %arraydestroy.element152.i14, %_ZNSt6vectorIdSaIdEED2Ev.exit148.i17 ], [ %arrayinit.endOfInit.11.i11, %ehcleanup148.i9 ]
-  %arraydestroy.element152.i14 = getelementptr inbounds %"class.std::vector.0", ptr %arraydestroy.elementPast151.i13, i64 -1
+  %arraydestroy.element152.i14 = getelementptr inbounds i8, ptr %arraydestroy.elementPast151.i13, i64 -24
   %34 = load ptr, ptr %arraydestroy.element152.i14, align 8
   %tobool.not.i.i.i145.i15 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i145.i15, label %_ZNSt6vectorIdSaIdEED2Ev.exit148.i17, label %if.then.i.i.i146.i16

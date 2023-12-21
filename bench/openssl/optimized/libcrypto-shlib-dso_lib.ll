@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-dso_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dso_st = type { ptr, ptr, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.dso_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/dso/dso_lib.c\00", align 1
 @__func__.DSO_free = private unnamed_addr constant [9 x i8] c"DSO_free\00", align 1
 @__func__.DSO_up_ref = private unnamed_addr constant [11 x i8] c"DSO_up_ref\00", align 1
@@ -38,7 +33,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OPENSSL_sk_new_null() #3
-  %meth_data = getelementptr inbounds %struct.dso_st, ptr %call, i64 0, i32 1
+  %meth_data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %meth_data, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -53,9 +48,9 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @DSO_METHOD_openssl() #3
   store ptr %call6, ptr %call, align 8
-  %references = getelementptr inbounds %struct.dso_st, ptr %call, i64 0, i32 2
+  %references = getelementptr inbounds i8, ptr %call, i64 16
   store atomic i32 1, ptr %references seq_cst, align 4
-  %init = getelementptr inbounds %struct.dso_meth_st, ptr %call6, i64 0, i32 7
+  %init = getelementptr inbounds i8, ptr %call6, i64 56
   %0 = load ptr, ptr %init, align 8
   %cmp14.not = icmp eq ptr %0, null
   br i1 %cmp14.not, label %return, label %land.lhs.true
@@ -81,7 +76,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 2
+  %references = getelementptr inbounds i8, ptr %dso, i64 16
   %0 = atomicrmw sub ptr %references, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -95,7 +90,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %flags = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dso, i64 20
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 4
   %cmp7 = icmp eq i32 %and, 0
@@ -103,7 +98,7 @@ if.end6:                                          ; preds = %CRYPTO_DOWN_REF.exi
   br i1 %cmp7, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %if.end6
-  %dso_unload = getelementptr inbounds %struct.dso_meth_st, ptr %.pre16, i64 0, i32 2
+  %dso_unload = getelementptr inbounds i8, ptr %.pre16, i64 16
   %2 = load ptr, ptr %dso_unload, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end15, label %land.lhs.true
@@ -125,7 +120,7 @@ if.then13:                                        ; preds = %land.lhs.true
 
 if.end15:                                         ; preds = %land.lhs.true.if.end15_crit_edge, %if.then8, %if.end6
   %3 = phi ptr [ %.pre, %land.lhs.true.if.end15_crit_edge ], [ %.pre16, %if.then8 ], [ %.pre16, %if.end6 ]
-  %finish = getelementptr inbounds %struct.dso_meth_st, ptr %3, i64 0, i32 8
+  %finish = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %finish, align 8
   %cmp17.not = icmp eq ptr %4, null
   br i1 %cmp17.not, label %if.end24, label %land.lhs.true18
@@ -142,13 +137,13 @@ if.then23:                                        ; preds = %land.lhs.true18
   br label %return
 
 if.end24:                                         ; preds = %land.lhs.true18, %if.end15
-  %meth_data = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 1
+  %meth_data = getelementptr inbounds i8, ptr %dso, i64 8
   %5 = load ptr, ptr %meth_data, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %5) #3
-  %filename = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 7
+  %filename = getelementptr inbounds i8, ptr %dso, i64 56
   %6 = load ptr, ptr %filename, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 75) #3
-  %loaded_filename = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 8
+  %loaded_filename = getelementptr inbounds i8, ptr %dso, i64 64
   %7 = load ptr, ptr %loaded_filename, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 76) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %dso, ptr noundef nonnull @.str, i32 noundef 78) #3
@@ -176,7 +171,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %flags = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dso, i64 20
   %0 = load i32, ptr %flags, align 4
   br label %cond.end
 
@@ -198,7 +193,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 2
+  %references = getelementptr inbounds i8, ptr %dso, i64 16
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cmp4 = icmp sgt i32 %0, 0
   %cond = zext i1 %cmp4 to i32
@@ -227,13 +222,13 @@ err.thread:                                       ; preds = %if.then
   br label %return
 
 DSO_ctrl.exit:                                    ; preds = %if.then
-  %flags3.i = getelementptr inbounds %struct.dso_st, ptr %call, i64 0, i32 3
+  %flags3.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %flags, ptr %flags3.i, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %DSO_ctrl.exit, %entry
   %ret.0 = phi ptr [ %call, %DSO_ctrl.exit ], [ %dso, %entry ]
-  %filename9 = getelementptr inbounds %struct.dso_st, ptr %ret.0, i64 0, i32 7
+  %filename9 = getelementptr inbounds i8, ptr %ret.0, i64 56
   %0 = load ptr, ptr %filename9, align 8
   %cmp10.not = icmp eq ptr %0, null
   br i1 %cmp10.not, label %if.end13, label %err
@@ -243,7 +238,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp14.not, label %err, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.end13
-  %loaded_filename.i = getelementptr inbounds %struct.dso_st, ptr %ret.0, i64 0, i32 8
+  %loaded_filename.i = getelementptr inbounds i8, ptr %ret.0, i64 64
   %1 = load ptr, ptr %loaded_filename.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end3.i, label %if.then2.i
@@ -264,7 +259,7 @@ if.end25:                                         ; preds = %if.end3.i
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 241) #3
   store ptr %call.i, ptr %filename9, align 8
   %3 = load ptr, ptr %ret.0, align 8
-  %dso_load = getelementptr inbounds %struct.dso_meth_st, ptr %3, i64 0, i32 1
+  %dso_load = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %dso_load, align 8
   %cmp27 = icmp eq ptr %4, null
   br i1 %cmp27, label %err, label %if.end30
@@ -311,20 +306,20 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %flags = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dso, i64 20
   %0 = load i32, ptr %flags, align 4
   %conv = sext i32 %0 to i64
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
   %conv2 = trunc i64 %larg to i32
-  %flags3 = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags3 = getelementptr inbounds i8, ptr %dso, i64 20
   store i32 %conv2, ptr %flags3, align 4
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
   %conv5 = trunc i64 %larg to i32
-  %flags6 = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags6 = getelementptr inbounds i8, ptr %dso, i64 20
   %1 = load i32, ptr %flags6, align 4
   %or = or i32 %1, %conv5
   store i32 %or, ptr %flags6, align 4
@@ -336,7 +331,7 @@ sw.epilog:                                        ; preds = %if.end
   br i1 %cmp7, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.epilog
-  %dso_ctrl = getelementptr inbounds %struct.dso_meth_st, ptr %2, i64 0, i32 4
+  %dso_ctrl = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %dso_ctrl, align 8
   %cmp10 = icmp eq ptr %3, null
   br i1 %cmp10, label %if.then12, label %if.end13
@@ -371,7 +366,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %loaded_filename = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 8
+  %loaded_filename = getelementptr inbounds i8, ptr %dso, i64 64
   %0 = load ptr, ptr %loaded_filename, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -388,7 +383,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %filename7 = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 7
+  %filename7 = getelementptr inbounds i8, ptr %dso, i64 56
   %1 = load ptr, ptr %filename7, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 241) #3
   store ptr %call, ptr %filename7, align 8
@@ -409,7 +404,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %dso, align 8
-  %dso_bind_func = getelementptr inbounds %struct.dso_meth_st, ptr %0, i64 0, i32 3
+  %dso_bind_func = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %dso_bind_func, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return.sink.split, label %if.end4
@@ -445,7 +440,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %filename = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 7
+  %filename = getelementptr inbounds i8, ptr %dso, i64 56
   %0 = load ptr, ptr %filename, align 8
   br label %return
 
@@ -471,14 +466,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dso, i64 20
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 1
   %cmp2 = icmp eq i32 %and, 0
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %merger = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 6
+  %merger = getelementptr inbounds i8, ptr %dso, i64 48
   %1 = load ptr, ptr %merger, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.else, label %if.then5
@@ -489,7 +484,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.then3
   %2 = load ptr, ptr %dso, align 8
-  %dso_merger = getelementptr inbounds %struct.dso_meth_st, ptr %2, i64 0, i32 6
+  %dso_merger = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %dso_merger, align 8
   %cmp7.not = icmp eq ptr %3, null
   br i1 %cmp7.not, label %return, label %if.then8
@@ -520,7 +515,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end4, label %if.end7
 
 if.end4:                                          ; preds = %if.end
-  %filename3 = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 7
+  %filename3 = getelementptr inbounds i8, ptr %dso, i64 56
   %0 = load ptr, ptr %filename3, align 8
   %cmp5 = icmp eq ptr %0, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -533,21 +528,21 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end, %if.end4
   %filename.addr.018 = phi ptr [ %0, %if.end4 ], [ %filename, %if.end ]
-  %flags = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dso, i64 20
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 1
   %cmp8 = icmp eq i32 %and, 0
   br i1 %cmp8, label %if.then9, label %if.then22
 
 if.then9:                                         ; preds = %if.end7
-  %name_converter = getelementptr inbounds %struct.dso_st, ptr %dso, i64 0, i32 5
+  %name_converter = getelementptr inbounds i8, ptr %dso, i64 40
   %2 = load ptr, ptr %name_converter, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.else, label %if.end20
 
 if.else:                                          ; preds = %if.then9
   %3 = load ptr, ptr %dso, align 8
-  %dso_name_converter = getelementptr inbounds %struct.dso_meth_st, ptr %3, i64 0, i32 5
+  %dso_name_converter = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %dso_name_converter, align 8
   %cmp13.not = icmp eq ptr %4, null
   br i1 %cmp13.not, label %if.then22, label %if.end20
@@ -571,7 +566,7 @@ return:                                           ; preds = %if.then22, %if.end2
 define i32 @DSO_pathbyaddr(ptr noundef %addr, ptr noundef %path, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @DSO_METHOD_openssl() #3
-  %pathbyaddr = getelementptr inbounds %struct.dso_meth_st, ptr %call, i64 0, i32 9
+  %pathbyaddr = getelementptr inbounds i8, ptr %call, i64 72
   %0 = load ptr, ptr %pathbyaddr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -597,7 +592,7 @@ declare ptr @DSO_METHOD_openssl() local_unnamed_addr #1
 define ptr @DSO_dsobyaddr(ptr noundef %addr, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @DSO_METHOD_openssl() #3
-  %pathbyaddr.i = getelementptr inbounds %struct.dso_meth_st, ptr %call.i, i64 0, i32 9
+  %pathbyaddr.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %pathbyaddr.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %DSO_pathbyaddr.exit.thread, label %DSO_pathbyaddr.exit
@@ -621,7 +616,7 @@ if.end:                                           ; preds = %DSO_pathbyaddr.exit
 
 land.lhs.true:                                    ; preds = %if.end
   %call.i8 = tail call ptr @DSO_METHOD_openssl() #3
-  %pathbyaddr.i9 = getelementptr inbounds %struct.dso_meth_st, ptr %call.i8, i64 0, i32 9
+  %pathbyaddr.i9 = getelementptr inbounds i8, ptr %call.i8, i64 72
   %1 = load ptr, ptr %pathbyaddr.i9, align 8
   %cmp.i10 = icmp eq ptr %1, null
   br i1 %cmp.i10, label %if.then.i14, label %if.end.i11
@@ -661,7 +656,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 define ptr @DSO_global_lookup(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @DSO_METHOD_openssl() #3
-  %globallookup = getelementptr inbounds %struct.dso_meth_st, ptr %call, i64 0, i32 10
+  %globallookup = getelementptr inbounds i8, ptr %call, i64 80
   %0 = load ptr, ptr %globallookup, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end

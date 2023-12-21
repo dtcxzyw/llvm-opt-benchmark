@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.luaL_Reg = type { ptr, ptr }
-%struct.mp_buf = type { ptr, i64, i64 }
 %struct.mp_cur = type { ptr, i64, i32 }
 
 @.str = private unnamed_addr constant [41 x i8] c"in function mp_encode_lua_table_as_array\00", align 1
@@ -148,19 +147,19 @@ entry:
 define dso_local void @mp_buf_append(ptr noundef %L, ptr nocapture noundef %buf, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %ud.i = alloca ptr, align 8
-  %free = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i64, ptr %free, align 8, !tbaa !13
   %cmp = icmp ult i64 %0, %len
   br i1 %cmp, label %if.then, label %entry.if.end12_crit_edge
 
 entry.if.end12_crit_edge:                         ; preds = %entry
   %.pre = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40 = load i64, ptr %len14.phi.trans.insert, align 8, !tbaa !17
   br label %if.end12
 
 if.then:                                          ; preds = %entry
-  %len1 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len1, align 8, !tbaa !17
   %add = add i64 %1, %len
   %cmp3 = icmp ult i64 %add, %1
@@ -190,7 +189,7 @@ if.end:                                           ; preds = %if.then
 if.end12:                                         ; preds = %if.end, %entry.if.end12_crit_edge
   %5 = phi i64 [ %.pre40, %entry.if.end12_crit_edge ], [ %4, %if.end ]
   %6 = phi ptr [ %.pre, %entry.if.end12_crit_edge ], [ %call1.i, %if.end ]
-  %len14 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14 = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %s, i64 %len, i1 false)
   %7 = load i64, ptr %len14, align 8, !tbaa !17
@@ -214,9 +213,9 @@ entry:
   %ud.i6 = alloca ptr, align 8
   %ud.i = alloca ptr, align 8
   %0 = load ptr, ptr %buf, align 8, !tbaa !16
-  %len = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len, align 8, !tbaa !17
-  %free = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load i64, ptr %free, align 8, !tbaa !13
   %add = add i64 %2, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ud.i) #9
@@ -236,9 +235,9 @@ entry:
 define dso_local void @mp_cur_init(ptr nocapture noundef writeonly %cursor, ptr noundef %s, i64 noundef %len) local_unnamed_addr #6 {
 entry:
   store ptr %s, ptr %cursor, align 8, !tbaa !18
-  %left = getelementptr inbounds %struct.mp_cur, ptr %cursor, i64 0, i32 1
+  %left = getelementptr inbounds i8, ptr %cursor, i64 8
   store i64 %len, ptr %left, align 8, !tbaa !21
-  %err = getelementptr inbounds %struct.mp_cur, ptr %cursor, i64 0, i32 2
+  %err = getelementptr inbounds i8, ptr %cursor, i64 16
   store i32 0, ptr %err, align 8, !tbaa !22
   ret void
 }
@@ -306,19 +305,19 @@ if.else18:                                        ; preds = %if.else7
 
 if.end36:                                         ; preds = %if.else18, %if.then10, %if.then3, %if.then
   %hdrlen.0 = phi i64 [ 1, %if.then ], [ 2, %if.then3 ], [ 3, %if.then10 ], [ 5, %if.else18 ]
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %free.i, align 8, !tbaa !13
   %cmp.i = icmp ult i64 %1, %hdrlen.0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end12_crit_edge.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %if.end36
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %if.end36
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len1.i, align 8, !tbaa !17
   %add.i = add i64 %2, %hdrlen.0
   %cmp3.i = icmp ult i64 %add.i, %2
@@ -348,7 +347,7 @@ if.end.i:                                         ; preds = %if.then.i
 mp_buf_append.exit:                               ; preds = %if.end.i, %entry.if.end12_crit_edge.i
   %6 = phi i64 [ %.pre40.i, %entry.if.end12_crit_edge.i ], [ %5, %if.end.i ]
   %7 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %call1.i.i, %if.end.i ]
-  %len14.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %hdr, i64 %hdrlen.0, i1 false)
   %8 = load i64, ptr %len14.i, align 8, !tbaa !17
@@ -413,7 +412,7 @@ entry:
   %conv = fptrunc double %d to float
   %conv1 = fpext float %conv to double
   %cmp = fcmp oeq double %conv1, %d
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i64, ptr %free.i, align 8, !tbaa !13
   br i1 %cmp, label %if.then, label %if.else
 
@@ -425,12 +424,12 @@ if.then:                                          ; preds = %entry
 
 entry.if.end12_crit_edge.i:                       ; preds = %if.then
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %if.then
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len1.i, align 8, !tbaa !17
   %or.cond.i = icmp ugt i64 %2, 9223372036854775801
   br i1 %or.cond.i, label %if.then5.i, label %if.end.i
@@ -472,12 +471,12 @@ if.else:                                          ; preds = %entry
 
 entry.if.end12_crit_edge.i29:                     ; preds = %if.else
   %.pre.i30 = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i31 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i31 = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i32 = load i64, ptr %len14.phi.trans.insert.i31, align 8, !tbaa !17
   br label %mp_buf_append.exit50
 
 if.then.i37:                                      ; preds = %if.else
-  %len1.i38 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i38 = getelementptr inbounds i8, ptr %buf, i64 8
   %9 = load i64, ptr %len1.i38, align 8, !tbaa !17
   %or.cond.i42 = icmp ugt i64 %9, 9223372036854775797
   br i1 %or.cond.i42, label %if.then5.i49, label %if.end.i43
@@ -513,7 +512,7 @@ mp_buf_append.exit50:                             ; preds = %if.end.i43, %entry.
 
 if.end:                                           ; preds = %mp_buf_append.exit50, %mp_buf_append.exit
   %15 = phi <2 x i64> [ <i64 9, i64 -9>, %mp_buf_append.exit50 ], [ <i64 5, i64 -5>, %mp_buf_append.exit ]
-  %len14.i33.sink79 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i33.sink79 = getelementptr inbounds i8, ptr %buf, i64 8
   %16 = load <2 x i64>, ptr %len14.i33.sink79, align 8, !tbaa !23
   %17 = add <2 x i64> %16, %15
   store <2 x i64> %17, ptr %len14.i33.sink79, align 8, !tbaa !23
@@ -717,19 +716,19 @@ if.else123:                                       ; preds = %if.else103
 
 if.end160:                                        ; preds = %if.else123, %if.then106, %if.then94, %if.then86, %if.then80, %if.else41, %if.then24, %if.then13, %if.then5, %if.then2
   %enclen.0 = phi i64 [ 1, %if.then2 ], [ 2, %if.then5 ], [ 3, %if.then13 ], [ 5, %if.then24 ], [ 9, %if.else41 ], [ 1, %if.then80 ], [ 2, %if.then86 ], [ 3, %if.then94 ], [ 5, %if.then106 ], [ 9, %if.else123 ]
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %free.i, align 8, !tbaa !13
   %cmp.i = icmp ult i64 %1, %enclen.0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end12_crit_edge.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %if.end160
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %if.end160
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len1.i, align 8, !tbaa !17
   %add.i = add i64 %2, %enclen.0
   %cmp3.i = icmp ult i64 %add.i, %2
@@ -759,7 +758,7 @@ if.end.i:                                         ; preds = %if.then.i
 mp_buf_append.exit:                               ; preds = %if.end.i, %entry.if.end12_crit_edge.i
   %6 = phi i64 [ %.pre40.i, %entry.if.end12_crit_edge.i ], [ %5, %if.end.i ]
   %7 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %call1.i.i, %if.end.i ]
-  %len14.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %b, i64 %enclen.0, i1 false)
   %8 = load i64, ptr %len14.i, align 8, !tbaa !17
@@ -823,19 +822,19 @@ if.else11:                                        ; preds = %if.else
 
 if.end28:                                         ; preds = %if.else11, %if.then3, %if.then
   %enclen.0 = phi i64 [ 1, %if.then ], [ 3, %if.then3 ], [ 5, %if.else11 ]
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %free.i, align 8, !tbaa !13
   %cmp.i = icmp ult i64 %1, %enclen.0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end12_crit_edge.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %if.end28
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %if.end28
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len1.i, align 8, !tbaa !17
   %add.i = add i64 %2, %enclen.0
   %cmp3.i = icmp ult i64 %add.i, %2
@@ -865,7 +864,7 @@ if.end.i:                                         ; preds = %if.then.i
 mp_buf_append.exit:                               ; preds = %if.end.i, %entry.if.end12_crit_edge.i
   %6 = phi i64 [ %.pre40.i, %entry.if.end12_crit_edge.i ], [ %5, %if.end.i ]
   %7 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %call1.i.i, %if.end.i ]
-  %len14.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %b, i64 %enclen.0, i1 false)
   %8 = load i64, ptr %len14.i, align 8, !tbaa !17
@@ -929,19 +928,19 @@ if.else11:                                        ; preds = %if.else
 
 if.end28:                                         ; preds = %if.else11, %if.then3, %if.then
   %enclen.0 = phi i64 [ 1, %if.then ], [ 3, %if.then3 ], [ 5, %if.else11 ]
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %free.i, align 8, !tbaa !13
   %cmp.i = icmp ult i64 %1, %enclen.0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end12_crit_edge.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %if.end28
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %if.end28
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len1.i, align 8, !tbaa !17
   %add.i = add i64 %2, %enclen.0
   %cmp3.i = icmp ult i64 %add.i, %2
@@ -971,7 +970,7 @@ if.end.i:                                         ; preds = %if.then.i
 mp_buf_append.exit:                               ; preds = %if.end.i, %entry.if.end12_crit_edge.i
   %6 = phi i64 [ %.pre40.i, %entry.if.end12_crit_edge.i ], [ %5, %if.end.i ]
   %7 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %call1.i.i, %if.end.i ]
-  %len14.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %b, i64 %enclen.0, i1 false)
   %8 = load i64, ptr %len14.i, align 8, !tbaa !17
@@ -1003,19 +1002,19 @@ define dso_local void @mp_encode_lua_bool(ptr noundef %L, ptr nocapture noundef 
 entry:
   %ud.i.i = alloca ptr, align 8
   %call = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #9
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i64, ptr %free.i, align 8, !tbaa !13
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end12_crit_edge.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %entry
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %entry
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len1.i, align 8, !tbaa !17
   %or.cond.i = icmp ugt i64 %1, 9223372036854775805
   br i1 %or.cond.i, label %if.then5.i, label %if.end.i
@@ -1044,7 +1043,7 @@ mp_buf_append.exit:                               ; preds = %if.end.i, %entry.if
   %6 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %call1.i.i, %if.end.i ]
   %tobool.not = icmp eq i32 %call, 0
   %conv = select i1 %tobool.not, i8 -62, i8 -61
-  %len14.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 %conv, ptr %add.ptr.i, align 1
   %7 = load <2 x i64>, ptr %len14.i, align 8, !tbaa !23
@@ -1160,19 +1159,19 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb2:                                           ; preds = %entry
   %call.i2 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #9
-  %free.i.i3 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i.i3 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %free.i.i3, align 8, !tbaa !13
   %cmp.i.i4 = icmp eq i64 %1, 0
   br i1 %cmp.i.i4, label %if.then.i.i13, label %entry.if.end12_crit_edge.i.i5
 
 entry.if.end12_crit_edge.i.i5:                    ; preds = %sw.bb2
   %.pre.i.i6 = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i.i7 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i.i7 = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i.i8 = load i64, ptr %len14.phi.trans.insert.i.i7, align 8, !tbaa !17
   br label %mp_encode_lua_bool.exit
 
 if.then.i.i13:                                    ; preds = %sw.bb2
-  %len1.i.i14 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i.i14 = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len1.i.i14, align 8, !tbaa !17
   %or.cond.i.i15 = icmp ugt i64 %2, 9223372036854775805
   br i1 %or.cond.i.i15, label %if.then5.i.i22, label %if.end.i.i16
@@ -1201,7 +1200,7 @@ mp_encode_lua_bool.exit:                          ; preds = %entry.if.end12_crit
   %7 = phi ptr [ %.pre.i.i6, %entry.if.end12_crit_edge.i.i5 ], [ %call1.i.i.i20, %if.end.i.i16 ]
   %tobool.not.i9 = icmp eq i32 %call.i2, 0
   %conv.i10 = select i1 %tobool.not.i9, i8 -62, i8 -61
-  %len14.i.i11 = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i.i11 = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i.i12 = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 %conv.i10, ptr %add.ptr.i.i12, align 1
   %8 = load <2 x i64>, ptr %len14.i.i11, align 8, !tbaa !23
@@ -1261,19 +1260,19 @@ if.else.i20:                                      ; preds = %sw.bb4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %free.i.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %11 = load i64, ptr %free.i.i, align 8, !tbaa !13
   %cmp.i.i = icmp eq i64 %11, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %entry.if.end12_crit_edge.i.i
 
 entry.if.end12_crit_edge.i.i:                     ; preds = %sw.default
   %.pre.i.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i.i = load i64, ptr %len14.phi.trans.insert.i.i, align 8, !tbaa !17
   br label %mp_encode_lua_null.exit
 
 if.then.i.i:                                      ; preds = %sw.default
-  %len1.i.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %12 = load i64, ptr %len1.i.i, align 8, !tbaa !17
   %or.cond.i.i = icmp ugt i64 %12, 9223372036854775805
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end.i.i
@@ -1300,7 +1299,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 mp_encode_lua_null.exit:                          ; preds = %if.end.i.i, %entry.if.end12_crit_edge.i.i
   %16 = phi i64 [ %.pre40.i.i, %entry.if.end12_crit_edge.i.i ], [ %15, %if.end.i.i ]
   %17 = phi ptr [ %.pre.i.i, %entry.if.end12_crit_edge.i.i ], [ %call1.i.i.i, %if.end.i.i ]
-  %len14.i.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 -64, ptr %add.ptr.i.i, align 1
   %18 = load <2 x i64>, ptr %len14.i.i, align 8, !tbaa !23
@@ -1462,19 +1461,19 @@ if.end:                                           ; preds = %for.body.i, %if.the
 define dso_local void @mp_encode_lua_null(ptr noundef %L, ptr nocapture noundef %buf) local_unnamed_addr #2 {
 entry:
   %ud.i.i = alloca ptr, align 8
-  %free.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i64, ptr %free.i, align 8, !tbaa !13
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end12_crit_edge.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %entry
   %.pre.i = load ptr, ptr %buf, align 8, !tbaa !16
-  %len14.phi.trans.insert.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre40.i = load i64, ptr %len14.phi.trans.insert.i, align 8, !tbaa !17
   br label %mp_buf_append.exit
 
 if.then.i:                                        ; preds = %entry
-  %len1.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len1.i, align 8, !tbaa !17
   %or.cond.i = icmp ugt i64 %1, 9223372036854775805
   br i1 %or.cond.i, label %if.then5.i, label %if.end.i
@@ -1501,7 +1500,7 @@ if.end.i:                                         ; preds = %if.then.i
 mp_buf_append.exit:                               ; preds = %if.end.i, %entry.if.end12_crit_edge.i
   %5 = phi i64 [ %.pre40.i, %entry.if.end12_crit_edge.i ], [ %4, %if.end.i ]
   %6 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %call1.i.i, %if.end.i ]
-  %len14.i = getelementptr inbounds %struct.mp_buf, ptr %buf, i64 0, i32 1
+  %len14.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 -64, ptr %add.ptr.i, align 1
   %7 = load <2 x i64>, ptr %len14.i, align 8, !tbaa !23
@@ -1544,8 +1543,8 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7.not36, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end5
-  %len = getelementptr inbounds %struct.mp_buf, ptr %call1.i.i, i64 0, i32 1
-  %free = getelementptr inbounds %struct.mp_buf, ptr %call1.i.i, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %call1.i.i, i64 8
+  %free = getelementptr inbounds i8, ptr %call1.i.i, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
@@ -1607,7 +1606,7 @@ entry:
   br i1 %tobool.not8, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %err = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err = getelementptr inbounds i8, ptr %c, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %while.body.lr.ph
@@ -1636,13 +1635,13 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local void @mp_decode_to_lua_type(ptr noundef %L, ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %left = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 1
+  %left = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %left, align 8, !tbaa !21
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %err = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1680,7 +1679,7 @@ do.body1:                                         ; preds = %do.end
   br i1 %cmp3, label %if.then5, label %do.end8
 
 if.then5:                                         ; preds = %do.body1
-  %err6 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err6 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err6, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1703,7 +1702,7 @@ do.body17:                                        ; preds = %do.end
   br i1 %cmp19, label %if.then21, label %do.end24
 
 if.then21:                                        ; preds = %do.body17
-  %err22 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err22 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err22, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1726,7 +1725,7 @@ do.body35:                                        ; preds = %do.end
   br i1 %cmp37, label %if.then39, label %do.end42
 
 if.then39:                                        ; preds = %do.body35
-  %err40 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err40 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err40, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1754,7 +1753,7 @@ do.body57:                                        ; preds = %do.end
   br i1 %cmp59, label %if.then61, label %do.end64
 
 if.then61:                                        ; preds = %do.body57
-  %err62 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err62 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err62, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1783,7 +1782,7 @@ do.body83:                                        ; preds = %do.end
   br i1 %cmp85, label %if.then87, label %do.end90
 
 if.then87:                                        ; preds = %do.body83
-  %err88 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err88 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err88, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1821,7 +1820,7 @@ do.body117:                                       ; preds = %do.end
   br i1 %cmp119, label %if.then121, label %do.end124
 
 if.then121:                                       ; preds = %do.body117
-  %err122 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err122 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err122, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1860,7 +1859,7 @@ do.body151:                                       ; preds = %do.end
   br i1 %cmp153, label %if.then155, label %do.end158
 
 if.then155:                                       ; preds = %do.body151
-  %err156 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err156 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err156, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -1918,7 +1917,7 @@ do.body204:                                       ; preds = %do.end
   br i1 %cmp206, label %if.then208, label %do.end211
 
 if.then208:                                       ; preds = %do.body204
-  %err209 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err209 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err209, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2007,7 +2006,7 @@ do.body279:                                       ; preds = %do.end
   br i1 %cmp281, label %if.then283, label %do.end286
 
 if.then283:                                       ; preds = %do.body279
-  %err284 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err284 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err284, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2032,7 +2031,7 @@ do.body297:                                       ; preds = %do.end
   br i1 %cmp299, label %if.then301, label %do.end305
 
 if.then301:                                       ; preds = %do.body297
-  %err302 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err302 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err302, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2056,7 +2055,7 @@ do.body316:                                       ; preds = %do.end
   br i1 %cmp318, label %if.then320, label %do.end324
 
 if.then320:                                       ; preds = %do.body316
-  %err321 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err321 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err321, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2069,7 +2068,7 @@ do.end324:                                        ; preds = %do.body316
   br i1 %cmp330, label %if.then332, label %do.end336
 
 if.then332:                                       ; preds = %do.end324
-  %err333 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err333 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err333, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2090,7 +2089,7 @@ do.body349:                                       ; preds = %do.end
   br i1 %cmp351, label %if.then353, label %do.end357
 
 if.then353:                                       ; preds = %do.body349
-  %err354 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err354 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err354, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2108,7 +2107,7 @@ do.end357:                                        ; preds = %do.body349
   br i1 %cmp371, label %if.then373, label %do.end377
 
 if.then373:                                       ; preds = %do.end357
-  %err374 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err374 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err374, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2129,7 +2128,7 @@ do.body393:                                       ; preds = %do.end
   br i1 %cmp395, label %if.then397, label %do.end401
 
 if.then397:                                       ; preds = %do.body393
-  %err398 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err398 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err398, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2160,7 +2159,7 @@ do.end401:                                        ; preds = %do.body393
   br i1 %cmp430, label %if.then432, label %do.end436
 
 if.then432:                                       ; preds = %do.end401
-  %err433 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err433 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err433, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2180,7 +2179,7 @@ do.body449:                                       ; preds = %do.end
   br i1 %cmp451, label %if.then453, label %do.end457
 
 if.then453:                                       ; preds = %do.body449
-  %err454 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err454 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err454, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2206,7 +2205,7 @@ do.body476:                                       ; preds = %do.end
   br i1 %cmp478, label %if.then480, label %do.end484
 
 if.then480:                                       ; preds = %do.body476
-  %err481 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err481 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err481, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2242,7 +2241,7 @@ do.body512:                                       ; preds = %do.end
   br i1 %cmp514, label %if.then516, label %do.end520
 
 if.then516:                                       ; preds = %do.body512
-  %err517 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err517 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err517, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2268,7 +2267,7 @@ do.body539:                                       ; preds = %do.end
   br i1 %cmp541, label %if.then543, label %do.end547
 
 if.then543:                                       ; preds = %do.body539
-  %err544 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err544 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err544, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2339,7 +2338,7 @@ if.then614:                                       ; preds = %if.else
   br i1 %cmp624.not, label %do.end630, label %if.then626
 
 if.then626:                                       ; preds = %if.then614
-  %err627 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err627 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 1, ptr %err627, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2385,7 +2384,7 @@ if.then673:                                       ; preds = %if.else645
   br label %sw.epilog
 
 if.else687:                                       ; preds = %if.else645
-  %err688 = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err688 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 2, ptr %err688, align 8, !tbaa !22
   br label %sw.epilog
 
@@ -2403,7 +2402,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %err = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err = getelementptr inbounds i8, ptr %c, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %if.end5, %while.body.lr.ph
@@ -2469,9 +2468,9 @@ if.end11:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %offset
   %sub = sub i64 %3, %offset
   store ptr %add.ptr, ptr %c, align 8, !tbaa !18
-  %left.i = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 1
+  %left.i = getelementptr inbounds i8, ptr %c, i64 8
   store i64 %sub, ptr %left.i, align 8, !tbaa !21
-  %err.i = getelementptr inbounds %struct.mp_cur, ptr %c, i64 0, i32 2
+  %err.i = getelementptr inbounds i8, ptr %c, i64 16
   store i32 0, ptr %err.i, align 8, !tbaa !22
   %cmp1577 = icmp ne i64 %sub, 0
   %cmp1978 = icmp sgt i64 %spec.select, 0

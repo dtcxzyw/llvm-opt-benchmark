@@ -15,36 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.TULIPState = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.NICConf, ptr, ptr, ptr, [16 x i32], i32, i32, i32, i64, i64, [2048 x i8], [2048 x i8], i16, i16, i16, i32, [16 x [6 x i8]] }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.MACAddr = type { [6 x i8] }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.tulip_descriptor = type { i32, i32, i32, i32 }
 
@@ -192,7 +162,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @tulip_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
-  %bootindex = getelementptr inbounds %struct.TULIPState, ptr %call.i, i64 0, i32 3, i32 2
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 11360
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %call.i) #8
   ret void
 }
@@ -202,26 +172,26 @@ define internal void @tulip_class_init(ptr noundef %klass, ptr nocapture readnon
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #8
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
   store ptr @pci_tulip_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i11, i64 184
   store ptr @pci_tulip_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i11, i64 208
   store i16 4113, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i11, i64 210
   store i16 25, ptr %device_id, align 2
-  %subsystem_vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 9
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call.i11, i64 216
   store i16 4156, ptr %subsystem_vendor_id, align 8
-  %subsystem_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 10
+  %subsystem_id = getelementptr inbounds i8, ptr %call.i11, i64 218
   store i16 4175, ptr %subsystem_id, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i11, i64 214
   store i16 512, ptr %class_id, align 2
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_pci_tulip, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @tulip_properties) #8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @tulip_qdev_reset, ptr %reset, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 8
   store i64 %or.i, ptr %categories, align 8
@@ -235,29 +205,29 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_tulip_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx, align 1
-  %c = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %pci_dev, i64 3152
   tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %c) #8
   %call = tail call ptr @eeprom93xx_new(ptr noundef %pci_dev, i16 noundef zeroext 64) #8
-  %eeprom = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 6
+  %eeprom = getelementptr inbounds i8, ptr %pci_dev, i64 11384
   store ptr %call, ptr %eeprom, align 8
   %call.i = tail call ptr @eeprom93xx_data(ptr noundef %call) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %call.i, ptr noundef nonnull align 16 dereferenceable(128) @eeprom_default, i64 128, i1 false)
   %1 = load i16, ptr %c, align 16
-  %arrayidx9.i = getelementptr i16, ptr %call.i, i64 10
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 20
   store i16 %1, ptr %arrayidx9.i, align 2
-  %arrayidx13.i = getelementptr %struct.TULIPState, ptr %pci_dev, i64 0, i32 3, i32 0, i32 0, i64 2
+  %arrayidx13.i = getelementptr i8, ptr %pci_dev, i64 3154
   %2 = load i16, ptr %arrayidx13.i, align 2
-  %arrayidx24.i = getelementptr i16, ptr %call.i, i64 11
+  %arrayidx24.i = getelementptr i8, ptr %call.i, i64 22
   store i16 %2, ptr %arrayidx24.i, align 2
-  %arrayidx28.i = getelementptr %struct.TULIPState, ptr %pci_dev, i64 0, i32 3, i32 0, i32 0, i64 4
+  %arrayidx28.i = getelementptr i8, ptr %pci_dev, i64 3156
   %3 = load i16, ptr %arrayidx28.i, align 4
-  %arrayidx39.i = getelementptr i16, ptr %call.i, i64 12
+  %arrayidx39.i = getelementptr i8, ptr %call.i, i64 24
   store i16 %3, ptr %arrayidx39.i, align 2
-  %arrayidx.i.i = getelementptr i16, ptr %call.i, i64 8
+  %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 16
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.inc30.i.i, %entry
@@ -355,23 +325,23 @@ for.body19.i.i:                                   ; preds = %for.inc13.i.i, %for
 tulip_fill_eeprom.exit:                           ; preds = %for.body19.i.i
   %15 = trunc i64 %add.i.i to i16
   %conv30.i.i = xor i16 %15, -1
-  %arrayidx42.i = getelementptr i16, ptr %call.i, i64 63
+  %arrayidx42.i = getelementptr i8, ptr %call.i, i64 126
   store i16 %conv30.i.i, ptr %arrayidx42.i, align 2
-  %io = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 1
+  %io = getelementptr inbounds i8, ptr %pci_dev, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %pci_dev, ptr noundef nonnull @tulip_ops, ptr noundef %pci_dev, ptr noundef nonnull @.str.8, i64 noundef 128) #8
-  %memory = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 2
+  %memory = getelementptr inbounds i8, ptr %pci_dev, i64 2880
   tail call void @memory_region_init_io(ptr noundef nonnull %memory, ptr noundef %pci_dev, ptr noundef nonnull @tulip_ops, ptr noundef %pci_dev, ptr noundef nonnull @.str.9, i64 noundef 128) #8
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io) #8
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %memory) #8
   %call9 = tail call ptr @pci_allocate_irq(ptr noundef %pci_dev) #8
-  %irq = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 4
+  %irq = getelementptr inbounds i8, ptr %pci_dev, i64 11368
   store ptr %call9, ptr %irq, align 8
   %call11 = tail call ptr @object_get_typename(ptr noundef %pci_dev) #8
-  %id = getelementptr inbounds %struct.DeviceState, ptr %pci_dev, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %pci_dev, i64 40
   %16 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %pci_dev, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %pci_dev, i64 152
   %call14 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_tulip_info, ptr noundef nonnull %c, ptr noundef %call11, ptr noundef %16, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %pci_dev) #8
-  %nic = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %pci_dev, i64 11376
   store ptr %call14, ptr %nic, align 16
   %call16 = tail call ptr @qemu_get_queue(ptr noundef %call14) #8
   tail call void @qemu_format_nic_info_str(ptr noundef %call16, ptr noundef nonnull %c) #8
@@ -381,13 +351,13 @@ tulip_fill_eeprom.exit:                           ; preds = %for.body19.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_tulip_exit(ptr noundef %pci_dev) #0 {
 entry:
-  %nic = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %pci_dev, i64 11376
   %0 = load ptr, ptr %nic, align 16
   tail call void @qemu_del_nic(ptr noundef %0) #8
-  %irq = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 4
+  %irq = getelementptr inbounds i8, ptr %pci_dev, i64 11368
   %1 = load ptr, ptr %irq, align 8
   tail call void @qemu_free_irq(ptr noundef %1) #8
-  %eeprom = getelementptr inbounds %struct.TULIPState, ptr %pci_dev, i64 0, i32 6
+  %eeprom = getelementptr inbounds i8, ptr %pci_dev, i64 11384
   %2 = load ptr, ptr %eeprom, align 8
   tail call void @eeprom93xx_free(ptr noundef %pci_dev, ptr noundef %2) #8
   ret void
@@ -439,14 +409,14 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %arrayidx.i = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 9
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 11428
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = and i32 %0, 2048
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %tulip_csr9_read.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %eeprom.i = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 6
+  %eeprom.i = getelementptr inbounds i8, ptr %opaque, i64 11384
   %2 = load ptr, ptr %eeprom.i, align 8
   %call.i = tail call zeroext i16 @eeprom93xx_read(ptr noundef %2) #8
   %tobool1.not.i = icmp eq i16 %call.i, 0
@@ -478,8 +448,9 @@ if.then6:                                         ; preds = %do.body
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.default
+  %csr = getelementptr inbounds i8, ptr %opaque, i64 11392
   %shr = lshr exact i64 %addr, 3
-  %arrayidx = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 %shr
+  %arrayidx = getelementptr [16 x i32], ptr %csr, i64 0, i64 %shr
   %7 = load i32, ptr %arrayidx, align 4
   br label %sw.epilog
 
@@ -521,7 +492,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i64 noundef %addr, ptr noundef nonnull %retval.0.i, i32 noundef %size, i64 noundef %data.0) #8
   br label %trace_tulip_reg_read.exit
@@ -578,7 +549,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %addr, ptr noundef nonnull %retval.0.i, i32 noundef %size, i64 noundef %data) #8
   br label %trace_tulip_reg_write.exit
@@ -610,7 +581,7 @@ trace_tulip_reg_write.exit:                       ; preds = %tulip_reg_name.exit
 
 sw.bb:                                            ; preds = %trace_tulip_reg_write.exit
   %conv = trunc i64 %data to i32
-  %csr = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 7
+  %csr = getelementptr inbounds i8, ptr %opaque, i64 11392
   store i32 %conv, ptr %csr, align 16
   %and = and i64 %data, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -626,7 +597,7 @@ sw.bb1:                                           ; preds = %trace_tulip_reg_wri
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %trace_tulip_reg_write.exit
-  %nic = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 11376
   %9 = load ptr, ptr %nic, align 16
   %call3 = tail call ptr @qemu_get_queue(ptr noundef %9) #8
   tail call void @qemu_flush_queued_packets(ptr noundef %call3) #8
@@ -635,12 +606,12 @@ sw.bb2:                                           ; preds = %trace_tulip_reg_wri
 sw.bb4:                                           ; preds = %trace_tulip_reg_write.exit
   %10 = trunc i64 %data to i32
   %conv6 = and i32 %10, -4
-  %arrayidx8 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 3
+  %arrayidx8 = getelementptr i8, ptr %opaque, i64 11404
   store i32 %conv6, ptr %arrayidx8, align 4
   %conv11 = and i64 %data, 4294967292
-  %current_rx_desc = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 11
+  %current_rx_desc = getelementptr inbounds i8, ptr %opaque, i64 11472
   store i64 %conv11, ptr %current_rx_desc, align 16
-  %nic12 = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 5
+  %nic12 = getelementptr inbounds i8, ptr %opaque, i64 11376
   %11 = load ptr, ptr %nic12, align 16
   %call13 = tail call ptr @qemu_get_queue(ptr noundef %11) #8
   tail call void @qemu_flush_queued_packets(ptr noundef %call13) #8
@@ -649,16 +620,16 @@ sw.bb4:                                           ; preds = %trace_tulip_reg_wri
 sw.bb14:                                          ; preds = %trace_tulip_reg_write.exit
   %12 = trunc i64 %data to i32
   %conv16 = and i32 %12, -4
-  %arrayidx18 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 4
+  %arrayidx18 = getelementptr i8, ptr %opaque, i64 11408
   store i32 %conv16, ptr %arrayidx18, align 16
   %conv21 = and i64 %data, 4294967292
-  %current_tx_desc = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 12
+  %current_tx_desc = getelementptr inbounds i8, ptr %opaque, i64 11480
   store i64 %conv21, ptr %current_tx_desc, align 8
   tail call fastcc void @tulip_xmit_list_update(ptr noundef %opaque)
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %trace_tulip_reg_write.exit
-  %arrayidx25 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 5
+  %arrayidx25 = getelementptr i8, ptr %opaque, i64 11412
   %13 = load i32, ptr %arrayidx25, align 4
   %14 = trunc i64 %data to i32
   %15 = and i32 %14, 201457663
@@ -670,11 +641,11 @@ sw.bb22:                                          ; preds = %trace_tulip_reg_wri
 
 sw.bb29:                                          ; preds = %trace_tulip_reg_write.exit
   %conv30 = trunc i64 %data to i32
-  %arrayidx32 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 6
+  %arrayidx32 = getelementptr i8, ptr %opaque, i64 11416
   store i32 %conv30, ptr %arrayidx32, align 8
   %and36 = and i64 %data, 2
   %tobool37.not = icmp eq i64 %and36, 0
-  %arrayidx.i60 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 5
+  %arrayidx.i60 = getelementptr i8, ptr %opaque, i64 11412
   %17 = load i32, ptr %arrayidx.i60, align 4
   %and.i61 = and i32 %17, -917505
   br i1 %tobool37.not, label %if.else, label %if.then38
@@ -706,7 +677,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
   %23 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.61) #8
   br label %tulip_update_rs.exit
@@ -717,7 +688,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 tulip_update_rs.exit:                             ; preds = %if.then38, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %nic39 = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 5
+  %nic39 = getelementptr inbounds i8, ptr %opaque, i64 11376
   %25 = load ptr, ptr %nic39, align 16
   %call40 = tail call ptr @qemu_get_queue(ptr noundef %25) #8
   tail call void @qemu_flush_queued_packets(ptr noundef %call40) #8
@@ -749,7 +720,7 @@ if.then8.i.i.i70:                                 ; preds = %if.then.i.i.i68
   %call9.i.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #8
   %call10.i.i.i72 = tail call i32 @qemu_get_thread_id() #8
   %31 = load i64, ptr %_now.i.i.i59, align 8
-  %tv_usec.i.i.i73 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i59, i64 0, i32 1
+  %tv_usec.i.i.i73 = getelementptr inbounds i8, ptr %_now.i.i.i59, i64 8
   %32 = load i64, ptr %tv_usec.i.i.i73, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i72, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.58) #8
   br label %tulip_update_rs.exit75
@@ -766,7 +737,7 @@ if.end41:                                         ; preds = %tulip_update_rs.exi
   %33 = load i32, ptr %arrayidx32, align 8
   %34 = and i32 %33, 8192
   %tobool46.not = icmp eq i32 %34, 0
-  %arrayidx.i94 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 5
+  %arrayidx.i94 = getelementptr i8, ptr %opaque, i64 11412
   %35 = load i32, ptr %arrayidx.i94, align 4
   %and.i95 = and i32 %35, -7340033
   br i1 %tobool46.not, label %if.else48, label %if.then47
@@ -798,7 +769,7 @@ if.then8.i.i.i88:                                 ; preds = %if.then.i.i.i86
   %call9.i.i.i89 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i76, ptr noundef null) #8
   %call10.i.i.i90 = tail call i32 @qemu_get_thread_id() #8
   %41 = load i64, ptr %_now.i.i.i76, align 8
-  %tv_usec.i.i.i91 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i76, i64 0, i32 1
+  %tv_usec.i.i.i91 = getelementptr inbounds i8, ptr %_now.i.i.i76, i64 8
   %42 = load i64, ptr %tv_usec.i.i.i91, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i90, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.62) #8
   br label %tulip_update_ts.exit
@@ -838,7 +809,7 @@ if.then8.i.i.i104:                                ; preds = %if.then.i.i.i102
   %call9.i.i.i105 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i93, ptr noundef null) #8
   %call10.i.i.i106 = tail call i32 @qemu_get_thread_id() #8
   %48 = load i64, ptr %_now.i.i.i93, align 8
-  %tv_usec.i.i.i107 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i93, i64 0, i32 1
+  %tv_usec.i.i.i107 = getelementptr inbounds i8, ptr %_now.i.i.i93, i64 8
   %49 = load i64, ptr %tv_usec.i.i.i107, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i106, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.58) #8
   br label %tulip_update_ts.exit109
@@ -853,26 +824,26 @@ tulip_update_ts.exit109:                          ; preds = %if.else48, %land.lh
 
 sw.bb50:                                          ; preds = %trace_tulip_reg_write.exit
   %conv51 = trunc i64 %data to i32
-  %arrayidx53 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 7
+  %arrayidx53 = getelementptr i8, ptr %opaque, i64 11420
   store i32 %conv51, ptr %arrayidx53, align 4
   tail call fastcc void @tulip_update_int(ptr noundef %opaque)
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %trace_tulip_reg_write.exit
   %conv55 = trunc i64 %data to i32
-  %arrayidx57 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 9
+  %arrayidx57 = getelementptr i8, ptr %opaque, i64 11428
   store i32 %conv55, ptr %arrayidx57, align 4
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %trace_tulip_reg_write.exit
-  %arrayidx60 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 9
+  %arrayidx60 = getelementptr i8, ptr %opaque, i64 11428
   %conv61 = trunc i64 %data to i32
   %50 = and i32 %conv61, 2048
   %tobool.not.i = icmp eq i32 %50, 0
   br i1 %tobool.not.i, label %tulip_csr9_write.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb58
-  %eeprom.i = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 6
+  %eeprom.i = getelementptr inbounds i8, ptr %opaque, i64 11384
   %51 = load ptr, ptr %eeprom.i, align 8
   %and2.i = and i32 %conv61, 1
   %and6.i = lshr i32 %conv61, 1
@@ -890,24 +861,24 @@ tulip_csr9_write.exit:                            ; preds = %sw.bb58, %if.then.i
   store i32 %conv71, ptr %arrayidx60, align 4
   tail call fastcc void @tulip_mii(ptr noundef %opaque)
   %55 = load i32, ptr %arrayidx60, align 4
-  %old_csr9 = getelementptr inbounds %struct.TULIPState, ptr %opaque, i64 0, i32 8
+  %old_csr9 = getelementptr inbounds i8, ptr %opaque, i64 11456
   store i32 %55, ptr %old_csr9, align 16
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %trace_tulip_reg_write.exit
   %conv75 = trunc i64 %data to i32
-  %arrayidx77 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 10
+  %arrayidx77 = getelementptr i8, ptr %opaque, i64 11432
   store i32 %conv75, ptr %arrayidx77, align 8
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %trace_tulip_reg_write.exit
   %conv79 = trunc i64 %data to i32
-  %arrayidx81 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 11
+  %arrayidx81 = getelementptr i8, ptr %opaque, i64 11436
   store i32 %conv79, ptr %arrayidx81, align 4
   br label %sw.epilog
 
 sw.bb82:                                          ; preds = %trace_tulip_reg_write.exit
-  %arrayidx86 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 12
+  %arrayidx86 = getelementptr i8, ptr %opaque, i64 11440
   %56 = load i32, ptr %arrayidx86, align 16
   %57 = trunc i64 %data to i32
   %58 = and i32 %57, 769
@@ -918,19 +889,19 @@ sw.bb82:                                          ; preds = %trace_tulip_reg_wri
 
 sw.bb90:                                          ; preds = %trace_tulip_reg_write.exit
   %conv91 = trunc i64 %data to i32
-  %arrayidx93 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 13
+  %arrayidx93 = getelementptr i8, ptr %opaque, i64 11444
   store i32 %conv91, ptr %arrayidx93, align 4
   br label %sw.epilog
 
 sw.bb94:                                          ; preds = %trace_tulip_reg_write.exit
   %conv95 = trunc i64 %data to i32
-  %arrayidx97 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 14
+  %arrayidx97 = getelementptr i8, ptr %opaque, i64 11448
   store i32 %conv95, ptr %arrayidx97, align 8
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %trace_tulip_reg_write.exit
   %conv99 = trunc i64 %data to i32
-  %arrayidx101 = getelementptr %struct.TULIPState, ptr %opaque, i64 0, i32 7, i64 15
+  %arrayidx101 = getelementptr i8, ptr %opaque, i64 11452
   store i32 %conv99, ptr %arrayidx101, align 4
   br label %sw.epilog
 
@@ -958,9 +929,9 @@ entry:
   %_now.i.i.i33 = alloca %struct.timeval, align 8
   %_now.i.i4.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %old_csr9 = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 8
+  %old_csr9 = getelementptr inbounds i8, ptr %s, i64 11456
   %0 = load i32, ptr %old_csr9, align 16
-  %arrayidx = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 9
+  %arrayidx = getelementptr i8, ptr %s, i64 11428
   %1 = load i32, ptr %arrayidx, align 4
   %2 = and i32 %0, 65536
   %3 = xor i32 %2, 65536
@@ -969,11 +940,11 @@ entry:
   br i1 %or.cond.not.not, label %if.end96, label %if.end7
 
 if.end7:                                          ; preds = %entry
-  %mii_bitcnt = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 10
+  %mii_bitcnt = getelementptr inbounds i8, ptr %s, i64 11464
   %5 = load i32, ptr %mii_bitcnt, align 8
   %inc = add i32 %5, 1
   store i32 %inc, ptr %mii_bitcnt, align 8
-  %mii_word = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 9
+  %mii_word = getelementptr inbounds i8, ptr %s, i64 11460
   %6 = load i32, ptr %mii_word, align 4
   %shl = shl i32 %6, 1
   store i32 %shl, ptr %mii_word, align 4
@@ -1077,7 +1048,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
   %18 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, i32 noundef %and63, i32 noundef %and66, i32 noundef 0) #8
   br label %trace_tulip_mii_read.exit.i
@@ -1118,7 +1089,7 @@ if.then8.i.i13.i:                                 ; preds = %if.then.i.i11.i
   %call9.i.i14.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4.i, ptr noundef null) #8
   %call10.i.i15.i = tail call i32 @qemu_get_thread_id() #8
   %26 = load i64, ptr %_now.i.i4.i, align 8
-  %tv_usec.i.i16.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i4.i, i64 0, i32 1
+  %tv_usec.i.i16.i = getelementptr inbounds i8, ptr %_now.i.i4.i, i64 8
   %27 = load i64, ptr %tv_usec.i.i16.i, align 8
   %conv11.i.i.i = zext i16 %20 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i15.i, i64 noundef %26, i64 noundef %27, i32 noundef 1, i32 noundef %and66, i32 noundef %conv11.i.i.i) #8
@@ -1174,7 +1145,7 @@ if.then8.i.i.i44:                                 ; preds = %if.then.i.i.i42
   %call9.i.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i33, ptr noundef null) #8
   %call10.i.i.i46 = tail call i32 @qemu_get_thread_id() #8
   %34 = load i64, ptr %_now.i.i.i33, align 8
-  %tv_usec.i.i.i47 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i33, i64 0, i32 1
+  %tv_usec.i.i.i47 = getelementptr inbounds i8, ptr %_now.i.i.i33, i64 8
   %35 = load i64, ptr %tv_usec.i.i.i47, align 8
   %conv11.i.i.i48 = and i32 %11, 65535
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i46, i64 noundef %34, i64 noundef %35, i32 noundef %and83, i32 noundef %and86, i32 noundef %conv11.i.i.i48) #8
@@ -1240,7 +1211,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #8
   br label %trace_tulip_reset.exit
@@ -1251,19 +1222,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_tulip_reset.exit:                           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %csr = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 7
+  %csr = getelementptr inbounds i8, ptr %s, i64 11392
   store i32 -33554432, ptr %csr, align 16
-  %arrayidx2 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 1
+  %arrayidx2 = getelementptr i8, ptr %s, i64 11396
   store i32 -1, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 2
+  %arrayidx4 = getelementptr i8, ptr %s, i64 11400
   store i32 -1, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 5
+  %arrayidx6 = getelementptr i8, ptr %s, i64 11412
   store <4 x i32> <i32 -268435456, i32 838860864, i32 -201457664, i32 -536870912>, ptr %arrayidx6, align 4
-  %arrayidx14 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 9
+  %arrayidx14 = getelementptr i8, ptr %s, i64 11428
   store i32 -752641, ptr %arrayidx14, align 4
-  %arrayidx16 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 11
+  %arrayidx16 = getelementptr i8, ptr %s, i64 11436
   store <4 x i32> <i32 -131072, i32 198, i32 -65536, i32 -1>, ptr %arrayidx16, align 4
-  %arrayidx24 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 15
+  %arrayidx24 = getelementptr i8, ptr %s, i64 11452
   store i32 -1880096768, ptr %arrayidx24, align 4
   ret void
 }
@@ -1272,9 +1243,9 @@ trace_tulip_reset.exit:                           ; preds = %entry, %land.lhs.tr
 define internal fastcc void @tulip_update_int(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 5
+  %arrayidx = getelementptr i8, ptr %s, i64 11412
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 7
+  %arrayidx2 = getelementptr i8, ptr %s, i64 11420
   %1 = load i32, ptr %arrayidx2, align 4
   %and = and i32 %1, %0
   %2 = and i32 %0, -98305
@@ -1316,7 +1287,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %spec.select12, i32 noundef %1, ptr noundef nonnull %cond) #8
   br label %trace_tulip_irq.exit
@@ -1327,7 +1298,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_tulip_irq.exit:                             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %irq = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 4
+  %irq = getelementptr inbounds i8, ptr %s, i64 11368
   %13 = load ptr, ptr %irq, align 8
   %conv38 = zext i1 %tobool30 to i32
   tail call void @qemu_set_irq(ptr noundef %13, i32 noundef %conv38) #8
@@ -1349,23 +1320,24 @@ entry:
   br i1 %cmp.not, label %for.cond.preheader, label %for.end
 
 for.cond.preheader:                               ; preds = %entry
-  %current_tx_desc = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 12
-  %control.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 1
-  %buf_addr1.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 2
-  %buf_addr2.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
-  %tv_usec.i.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i20, i64 0, i32 1
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %current_tx_desc = getelementptr inbounds i8, ptr %s, i64 11480
+  %control.i = getelementptr inbounds i8, ptr %desc, i64 4
+  %buf_addr1.i = getelementptr inbounds i8, ptr %desc, i64 8
+  %buf_addr2.i = getelementptr inbounds i8, ptr %desc, i64 12
+  %tv_usec.i.i.i37 = getelementptr inbounds i8, ptr %_now.i.i.i20, i64 8
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
+  %filter.i.i = getelementptr inbounds i8, ptr %s, i64 15596
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %invariant.gep.i = getelementptr inbounds i8, ptr %buf.i, i64 4
   %invariant.gep18.i = getelementptr inbounds i8, ptr %buf.i, i64 5
   %invariant.gep20.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %invariant.gep22.i = getelementptr inbounds i8, ptr %buf.i, i64 9
-  %tx_frame_len = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 15
-  %tx_frame.i = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 14
-  %arrayidx.i51 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 6
-  %nic.i = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 5
-  %arrayidx.i60 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 4
-  %csr10.i = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 7
+  %tx_frame_len = getelementptr inbounds i8, ptr %s, i64 15584
+  %tx_frame.i = getelementptr inbounds i8, ptr %s, i64 13536
+  %arrayidx.i51 = getelementptr i8, ptr %s, i64 11416
+  %nic.i = getelementptr inbounds i8, ptr %s, i64 11376
+  %arrayidx.i60 = getelementptr i8, ptr %s, i64 11408
+  %csr10.i = getelementptr inbounds i8, ptr %s, i64 11392
   %.pre = load i64, ptr %current_tx_desc, align 8
   br label %for.body
 
@@ -1417,7 +1389,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = call i32 @qemu_get_thread_id() #8
   %14 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.62) #8
   br label %tulip_update_ts.exit
@@ -1494,28 +1466,28 @@ for.body.i:                                       ; preds = %tulip_setup_filter_
   %27 = mul nuw nsw i64 %indvars.iv.i, 12
   %arrayidx.i.i = getelementptr i8, ptr %buf.i, i64 %27
   %28 = load i8, ptr %arrayidx.i.i, align 4
-  %arrayidx2.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i
+  %arrayidx2.i.i = getelementptr [16 x [6 x i8]], ptr %filter.i.i, i64 0, i64 %indvars.iv.i
   store i8 %28, ptr %arrayidx2.i.i, align 2
   %29 = or disjoint i64 %27, 1
   %arrayidx5.i.i = getelementptr i8, ptr %buf.i, i64 %29
   %30 = load i8, ptr %arrayidx5.i.i, align 1
-  %arrayidx9.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 1
+  %arrayidx9.i.i = getelementptr i8, ptr %arrayidx2.i.i, i64 1
   store i8 %30, ptr %arrayidx9.i.i, align 1
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %27
   %31 = load i8, ptr %gep.i, align 4
-  %arrayidx16.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 2
+  %arrayidx16.i.i = getelementptr i8, ptr %arrayidx2.i.i, i64 2
   store i8 %31, ptr %arrayidx16.i.i, align 2
   %gep19.i = getelementptr i8, ptr %invariant.gep18.i, i64 %27
   %32 = load i8, ptr %gep19.i, align 1
-  %arrayidx23.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 3
+  %arrayidx23.i.i = getelementptr i8, ptr %arrayidx2.i.i, i64 3
   store i8 %32, ptr %arrayidx23.i.i, align 1
   %gep21.i = getelementptr i8, ptr %invariant.gep20.i, i64 %27
   %33 = load i8, ptr %gep21.i, align 4
-  %arrayidx30.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 4
+  %arrayidx30.i.i = getelementptr i8, ptr %arrayidx2.i.i, i64 4
   store i8 %33, ptr %arrayidx30.i.i, align 2
   %gep23.i = getelementptr i8, ptr %invariant.gep22.i, i64 %27
   %34 = load i8, ptr %gep23.i, align 1
-  %arrayidx37.i.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i, i64 5
+  %arrayidx37.i.i = getelementptr i8, ptr %arrayidx2.i.i, i64 5
   store i8 %34, ptr %arrayidx37.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %35 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1781,11 +1753,11 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tulip_desc_read(ptr noundef %s, i64 noundef %p, ptr noundef %desc) unnamed_addr #0 {
 entry:
-  %csr = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 7
+  %csr = getelementptr inbounds i8, ptr %s, i64 11392
   %0 = load i32, ptr %csr, align 16
   %and = and i32 %0, 1048576
   %tobool.not = icmp eq i32 %and, 0
-  %bus_master_as.i.i36 = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %bus_master_as.i.i36 = getelementptr inbounds i8, ptr %s, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8
   fence seq_cst
   %call.i.i.i.i.i37 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %p, i32 32, ptr noundef %desc, i64 noundef 4, i1 noundef zeroext false) #8
@@ -1796,7 +1768,7 @@ if.then:                                          ; preds = %entry
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
   store i32 %2, ptr %desc, align 4
   %add = add i64 %p, 4
-  %control = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 1
+  %control = getelementptr inbounds i8, ptr %desc, i64 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i31 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add, i32 32, ptr noundef nonnull %control, i64 noundef 4, i1 noundef zeroext false) #8
@@ -1804,7 +1776,7 @@ if.then:                                          ; preds = %entry
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   store i32 %4, ptr %control, align 4
   %add5 = add i64 %p, 8
-  %buf_addr1 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 2
+  %buf_addr1 = getelementptr inbounds i8, ptr %desc, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i33 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add5, i32 32, ptr noundef nonnull %buf_addr1, i64 noundef 4, i1 noundef zeroext false) #8
@@ -1812,7 +1784,7 @@ if.then:                                          ; preds = %entry
   %6 = tail call i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %buf_addr1, align 4
   %add9 = add i64 %p, 12
-  %buf_addr2 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
+  %buf_addr2 = getelementptr inbounds i8, ptr %desc, i64 12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i35 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add9, i32 32, ptr noundef nonnull %buf_addr2, i64 noundef 4, i1 noundef zeroext false) #8
@@ -1823,17 +1795,17 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %add17 = add i64 %p, 4
-  %control18 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 1
+  %control18 = getelementptr inbounds i8, ptr %desc, i64 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i39 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add17, i32 32, ptr noundef nonnull %control18, i64 noundef 4, i1 noundef zeroext false) #8
   %add22 = add i64 %p, 8
-  %buf_addr123 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 2
+  %buf_addr123 = getelementptr inbounds i8, ptr %desc, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i41 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add22, i32 32, ptr noundef nonnull %buf_addr123, i64 noundef 4, i1 noundef zeroext false) #8
   %add27 = add i64 %p, 12
-  %buf_addr228 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
+  %buf_addr228 = getelementptr inbounds i8, ptr %desc, i64 12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i43 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add27, i32 32, ptr noundef nonnull %buf_addr228, i64 noundef 4, i1 noundef zeroext false) #8
@@ -1854,12 +1826,12 @@ entry:
   %val.addr.i.i33 = alloca i32, align 4
   %val.addr.i.i30 = alloca i32, align 4
   %val.addr.i.i = alloca i32, align 4
-  %csr = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 7
+  %csr = getelementptr inbounds i8, ptr %s, i64 11392
   %0 = load i32, ptr %csr, align 16
   %and = and i32 %0, 1048576
   %tobool.not = icmp eq i32 %and, 0
   %1 = load i32, ptr %desc, align 4
-  %bus_master_as.i.i40 = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %bus_master_as.i.i40 = getelementptr inbounds i8, ptr %s, i64 576
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1871,7 +1843,7 @@ if.then:                                          ; preds = %entry
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %p, i32 32, ptr noundef nonnull %val.addr.i.i, i64 noundef 4, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i)
   %add = add i64 %p, 4
-  %control = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 1
+  %control = getelementptr inbounds i8, ptr %desc, i64 4
   %3 = load i32, ptr %control, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i30)
   %4 = call i32 @llvm.bswap.i32(i32 %3)
@@ -1881,7 +1853,7 @@ if.then:                                          ; preds = %entry
   %call.i.i.i.i.i32 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add, i32 32, ptr noundef nonnull %val.addr.i.i30, i64 noundef 4, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i30)
   %add5 = add i64 %p, 8
-  %buf_addr1 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 2
+  %buf_addr1 = getelementptr inbounds i8, ptr %desc, i64 8
   %5 = load i32, ptr %buf_addr1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i33)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
@@ -1891,7 +1863,7 @@ if.then:                                          ; preds = %entry
   %call.i.i.i.i.i35 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add5, i32 32, ptr noundef nonnull %val.addr.i.i33, i64 noundef 4, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i33)
   %add9 = add i64 %p, 12
-  %buf_addr2 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
+  %buf_addr2 = getelementptr inbounds i8, ptr %desc, i64 12
   %7 = load i32, ptr %buf_addr2, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i36)
   %8 = call i32 @llvm.bswap.i32(i32 %7)
@@ -1910,7 +1882,7 @@ if.else:                                          ; preds = %entry
   %call.i.i.i.i.i41 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %p, i32 32, ptr noundef nonnull %val.addr.i.i39, i64 noundef 4, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i39)
   %add17 = add i64 %p, 4
-  %control18 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 1
+  %control18 = getelementptr inbounds i8, ptr %desc, i64 4
   %9 = load i32, ptr %control18, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i42)
   store i32 %9, ptr %val.addr.i.i42, align 4
@@ -1919,7 +1891,7 @@ if.else:                                          ; preds = %entry
   %call.i.i.i.i.i44 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add17, i32 32, ptr noundef nonnull %val.addr.i.i42, i64 noundef 4, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i42)
   %add22 = add i64 %p, 8
-  %buf_addr123 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 2
+  %buf_addr123 = getelementptr inbounds i8, ptr %desc, i64 8
   %10 = load i32, ptr %buf_addr123, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i45)
   store i32 %10, ptr %val.addr.i.i45, align 4
@@ -1928,7 +1900,7 @@ if.else:                                          ; preds = %entry
   %call.i.i.i.i.i47 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add22, i32 32, ptr noundef nonnull %val.addr.i.i45, i64 noundef 4, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i45)
   %add27 = add i64 %p, 12
-  %buf_addr228 = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
+  %buf_addr228 = getelementptr inbounds i8, ptr %desc, i64 12
   %11 = load i32, ptr %buf_addr228, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i48)
   store i32 %11, ptr %val.addr.i.i48, align 4
@@ -1975,7 +1947,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #8
   %call10.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %prefix, i32 noundef %addr, i32 noundef %status, i32 noundef %control, i32 noundef %len1, i32 noundef %len2, i32 noundef %buf1, i32 noundef %buf2) #8
   br label %_nocheck__trace_tulip_descriptor.exit
@@ -2018,7 +1990,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %buf, i64 noundef %size) #8
   br label %trace_tulip_receive.exit
@@ -2034,7 +2006,7 @@ trace_tulip_receive.exit:                         ; preds = %entry, %land.lhs.tr
   br i1 %or.cond, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %trace_tulip_receive.exit
-  %rx_frame_len = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 16
+  %rx_frame_len = getelementptr inbounds i8, ptr %s, i64 15586
   %8 = load i16, ptr %rx_frame_len, align 2
   %tobool.not = icmp eq i16 %8, 0
   br i1 %tobool.not, label %lor.lhs.false3, label %return
@@ -2044,12 +2016,16 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false2
   %s.val = load i32, ptr %9, align 4
   %10 = and i32 %s.val, 917504
   %cmp.i = icmp eq i32 %10, 0
-  br i1 %cmp.i, label %return, label %for.body.i
+  br i1 %cmp.i, label %return, label %if.end
 
-for.body.i:                                       ; preds = %lor.lhs.false3, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %lor.lhs.false3 ]
-  %ret.014.i = phi i8 [ %spec.select.i, %for.body.i ], [ 0, %lor.lhs.false3 ]
-  %arrayidx.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 19, i64 %indvars.iv.i
+if.end:                                           ; preds = %lor.lhs.false3
+  %filter.i = getelementptr inbounds i8, ptr %s, i64 15596
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.end
+  %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
+  %ret.014.i = phi i8 [ 0, %if.end ], [ %spec.select.i, %for.body.i ]
+  %arrayidx.i = getelementptr [16 x [6 x i8]], ptr %filter.i, i64 0, i64 %indvars.iv.i
   %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %arrayidx.i, ptr noundef nonnull dereferenceable(6) %buf, i64 6)
   %tobool3.not.i = icmp eq i32 %bcmp12.i, 0
   %spec.select.i = select i1 %tobool3.not.i, i8 1, i8 %ret.014.i
@@ -2066,7 +2042,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %tobool5.not.i, label %do.body.preheader, label %if.end7.i
 
 if.end7.i:                                        ; preds = %for.end.i
-  %arrayidx8.i = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 6
+  %arrayidx8.i = getelementptr i8, ptr %s, i64 11416
   %13 = load i32, ptr %arrayidx8.i, align 8
   %conv9.i = zext i32 %13 to i64
   %and.i = and i64 %conv9.i, 1073741888
@@ -2094,28 +2070,28 @@ if.end29.i:                                       ; preds = %land.lhs.true.i, %i
 
 do.body.preheader.sink.split:                     ; preds = %land.lhs.true.i, %if.end7.i
   %.sink63 = phi i32 [ 1073741824, %if.end7.i ], [ 1024, %land.lhs.true.i ]
-  %rx_status25.i = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 18
+  %rx_status25.i = getelementptr inbounds i8, ptr %s, i64 15592
   %19 = load i32, ptr %rx_status25.i, align 8
   %20 = or i32 %19, %.sink63
   store i32 %20, ptr %rx_status25.i, align 8
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.sink.split, %if.end29.i, %for.end.i
-  %current_rx_desc = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 11
-  %control.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 1
-  %buf_addr1.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 2
-  %buf_addr2.i = getelementptr inbounds %struct.tulip_descriptor, ptr %desc, i64 0, i32 3
+  %current_rx_desc = getelementptr inbounds i8, ptr %s, i64 11472
+  %control.i = getelementptr inbounds i8, ptr %desc, i64 4
+  %buf_addr1.i = getelementptr inbounds i8, ptr %desc, i64 8
+  %buf_addr2.i = getelementptr inbounds i8, ptr %desc, i64 12
   %21 = trunc i64 %size to i16
   %conv22 = add nuw nsw i16 %21, 4
-  %rx_frame_size23 = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 17
+  %rx_frame_size23 = getelementptr inbounds i8, ptr %s, i64 15588
   %conv25 = zext nneg i16 %conv22 to i32
   %shl = shl nuw nsw i32 %conv25, 16
   %or28 = or disjoint i32 %shl, 256
-  %rx_status = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 18
-  %rx_frame = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 13
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
-  %arrayidx.i56 = getelementptr %struct.TULIPState, ptr %s, i64 0, i32 7, i64 3
-  %csr10.i = getelementptr inbounds %struct.TULIPState, ptr %s, i64 0, i32 7
+  %rx_status = getelementptr inbounds i8, ptr %s, i64 15592
+  %rx_frame = getelementptr inbounds i8, ptr %s, i64 11488
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
+  %arrayidx.i56 = getelementptr i8, ptr %s, i64 11404
+  %csr10.i = getelementptr inbounds i8, ptr %s, i64 11392
   %.pre = load i64, ptr %current_rx_desc, align 16
   br label %do.body
 

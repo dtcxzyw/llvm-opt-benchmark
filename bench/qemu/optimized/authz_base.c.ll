@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.QAuthZClass = type { %struct.ObjectClass, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [21 x i8] c"../qemu/authz/base.c\00", align 1
 @__func__.qauthz_is_allowed_by_id = private unnamed_addr constant [24 x i8] c"qauthz_is_allowed_by_id\00", align 1
@@ -32,7 +30,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %authz) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_GET_CLASS) #4
-  %is_allowed = getelementptr inbounds %struct.QAuthZClass, ptr %call1.i, i64 0, i32 1
+  %is_allowed = getelementptr inbounds i8, ptr %call1.i, i64 96
   %0 = load ptr, ptr %is_allowed, align 8
   %call1 = tail call zeroext i1 %0(ptr noundef %authz, ptr noundef %identity, ptr noundef %errp) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -59,7 +57,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %call1 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %authz, ptr noundef %identity, i32 noundef %conv12.i.i) #4

@@ -11,14 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Notifier = type { ptr, %struct.anon }
 %struct.anon = type { ptr, ptr }
 %struct.QemuEvent = type { i32, i8 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.0, %struct.NotifierList }
-%struct.anon.0 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.RCUCloseFILE = type { %struct.rcu_head, ptr }
-%struct.rcu_head = type { ptr, ptr }
-%struct._GArray = type { ptr, i32 }
 %struct.Range = type { i64, i64 }
 
 @log_per_thread = internal unnamed_addr global i1 false, align 1
@@ -189,7 +182,7 @@ cleanup:                                          ; preds = %if.then2
 
 if.else:                                          ; preds = %if.then
   %call.i9 = tail call ptr @get_ptr_rcu_reader() #15
-  %depth.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i9, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %call.i9, i64 12
   %5 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -213,7 +206,7 @@ rcu_read_lock.exit:                               ; preds = %if.else, %while.end
 
 if.then10:                                        ; preds = %rcu_read_lock.exit
   %call.i10 = tail call ptr @get_ptr_rcu_reader() #15
-  %depth.i11 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i10, i64 0, i32 2
+  %depth.i11 = getelementptr inbounds i8, ptr %call.i10, i64 12
   %9 = load i32, ptr %depth.i11, align 4
   %cmp.not.i12 = icmp eq i32 %9, 0
   br i1 %cmp.not.i12, label %if.else.i, label %if.end.i
@@ -232,7 +225,7 @@ while.end.i13:                                    ; preds = %if.end.i
   store atomic i64 0, ptr %call.i10 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
   fence seq_cst
-  %waiting.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i10, i64 0, i32 1
+  %waiting.i = getelementptr inbounds i8, ptr %call.i10, i64 8
   %10 = load atomic i8, ptr %waiting.i monotonic, align 8
   %11 = and i8 %10, 1
   %tobool.not.i = icmp eq i8 %11, 0
@@ -267,7 +260,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %call.i = tail call ptr @get_ptr_rcu_reader() #15
-  %depth.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
   %0 = load i32, ptr %depth.i, align 4
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -286,7 +279,7 @@ while.end.i:                                      ; preds = %if.end.i
   store atomic i64 0, ptr %call.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
   fence seq_cst
-  %waiting.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i, i64 0, i32 1
+  %waiting.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load atomic i8, ptr %waiting.i monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -323,7 +316,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.then.i
   %call.i.i = call ptr @get_ptr_rcu_reader() #15
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.end.i.i
@@ -342,7 +335,7 @@ while.end.i.i:                                    ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -546,7 +539,7 @@ if.then44:                                        ; preds = %if.end42
 
 if.then49:                                        ; preds = %if.then44
   %call50 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #19
-  %fd = getelementptr inbounds %struct.RCUCloseFILE, ptr %call50, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call50, i64 16
   store ptr %2, ptr %fd, align 8
   store atomic i64 0, ptr @global_file release, align 8
   tail call void @call_rcu1(ptr noundef %call50, ptr noundef nonnull @rcu_close_file) #15
@@ -593,7 +586,7 @@ if.then.i71:                                      ; preds = %if.then71
 
 if.then2.i72:                                     ; preds = %if.then.i71
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #15
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %15 = load i32, ptr %depth.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.end.i.i
@@ -612,7 +605,7 @@ while.end.i.i:                                    ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %16 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %17 = and i8 %16, 1
   %tobool.not.i.i = icmp eq i8 %17, 0
@@ -697,7 +690,7 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %len = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %cmp3.not = icmp eq i32 %1, 0
   br i1 %cmp3.not, label %return, label %for.body.lr.ph
@@ -715,7 +708,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %for.inc, label %range_contains.exit
 
 range_contains.exit:                              ; preds = %for.body
-  %upb.i = getelementptr %struct.Range, ptr %2, i64 %idxprom, i32 1
+  %upb.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %upb.i, align 8
   %cmp1.i.not = icmp ult i64 %4, %addr
   br i1 %cmp1.i.not, label %for.inc, label %return
@@ -756,7 +749,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool3.not46, label %out, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %upb2.i = getelementptr inbounds %struct.Range, ptr %range, i64 0, i32 1
+  %upb2.i = getelementptr inbounds i8, ptr %range, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %range_set_bounds.exit
@@ -916,7 +909,7 @@ for.body6:                                        ; preds = %for.body, %for.body
   %mask.123 = phi i32 [ %or, %for.body6 ], [ %mask.026, %for.body ]
   %item.022 = phi ptr [ %incdec.ptr, %for.body6 ], [ @qemu_log_items, %for.body ]
   %or = or i32 %1, %mask.123
-  %incdec.ptr = getelementptr %struct.QEMULogItem, ptr %item.022, i64 1
+  %incdec.ptr = getelementptr i8, ptr %item.022, i64 24
   %2 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %for.inc30, label %for.body6, !llvm.loop !11
@@ -947,14 +940,14 @@ if.else14:                                        ; preds = %land.lhs.true, %if.
 
 for.cond15:                                       ; preds = %if.else14, %for.body19
   %item.12434 = phi ptr [ %incdec.ptr24, %for.body19 ], [ @qemu_log_items, %if.else14 ]
-  %incdec.ptr24 = getelementptr %struct.QEMULogItem, ptr %item.12434, i64 1
+  %incdec.ptr24 = getelementptr i8, ptr %item.12434, i64 24
   %7 = load i32, ptr %incdec.ptr24, align 8
   %cmp17.not = icmp eq i32 %7, 0
   br i1 %cmp17.not, label %error, label %for.body19, !llvm.loop !12
 
 for.body19:                                       ; preds = %for.cond15
   %8 = load ptr, ptr %tmp.027, align 8
-  %name = getelementptr %struct.QEMULogItem, ptr %item.12434, i64 1, i32 1
+  %name = getelementptr i8, ptr %item.12434, i64 32
   %9 = load ptr, ptr %name, align 8
   %call20 = tail call i32 @g_str_equal(ptr noundef %8, ptr noundef %9) #15
   %tobool21.not = icmp eq i32 %call20, 0
@@ -967,7 +960,7 @@ found:                                            ; preds = %for.body19, %if.els
 
 for.inc30:                                        ; preds = %for.body6, %found, %if.then12
   %mask.2 = phi i32 [ %or13, %if.then12 ], [ %or27, %found ], [ %or, %for.body6 ]
-  %incdec.ptr31 = getelementptr ptr, ptr %tmp.027, i64 1
+  %incdec.ptr31 = getelementptr i8, ptr %tmp.027, i64 8
   %tobool.not = icmp eq ptr %incdec.ptr31, null
   br i1 %tobool.not, label %for.end32, label %land.rhs, !llvm.loop !13
 
@@ -999,12 +992,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %item.07 = phi ptr [ @qemu_log_items, %entry ], [ %incdec.ptr, %for.body ]
-  %name = getelementptr inbounds %struct.QEMULogItem, ptr %item.07, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %item.07, i64 8
   %1 = load ptr, ptr %name, align 8
-  %help = getelementptr inbounds %struct.QEMULogItem, ptr %item.07, i64 0, i32 2
+  %help = getelementptr inbounds i8, ptr %item.07, i64 16
   %2 = load ptr, ptr %help, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.52, ptr noundef %1, ptr noundef %2)
-  %incdec.ptr = getelementptr %struct.QEMULogItem, ptr %item.07, i64 1
+  %incdec.ptr = getelementptr i8, ptr %item.07, i64 24
   %3 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
@@ -1087,7 +1080,7 @@ declare void @call_rcu1(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @rcu_close_file(ptr noundef %r) #2 {
 entry:
-  %fd = getelementptr inbounds %struct.RCUCloseFILE, ptr %r, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %fd, align 8
   %call = tail call i32 @fclose(ptr noundef %0)
   tail call void @g_free(ptr noundef %r) #15

@@ -7,18 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.HIDState = type { %union.anon, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr }
-%union.anon = type { %struct.HIDMouseState }
-%struct.HIDMouseState = type { [16 x %struct.HIDPointerEvent], i32 }
 %struct.HIDPointerEvent = type { i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.HIDKeyboardState = type { [16 x i32], i16, i8, [16 x i8], i32 }
-%struct.InputEvent = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.InputKeyEventWrapper }
-%struct.InputKeyEventWrapper = type { ptr }
-%struct.InputKeyEvent = type { ptr, i8 }
-%struct.InputMoveEvent = type { i32, i64 }
-%struct.InputBtnEvent = type { i32, i8 }
 
 @hid_keyboard_handler = internal constant %struct.QemuInputHandler { ptr @.str.18, i32 1, ptr @hid_keyboard_event, ptr null }, align 8
 @hid_mouse_handler = internal constant %struct.QemuInputHandler { ptr @.str.21, i32 6, ptr @hid_pointer_event, ptr @hid_pointer_sync }, align 8
@@ -73,13 +63,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @hid_has_events(ptr nocapture noundef readonly %hs) local_unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %hs, i64 264
   %0 = load i32, ptr %n, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %idle_pending = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 6
+  %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
   %1 = load i8, ptr %idle_pending, align 1
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
@@ -93,7 +83,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hid_set_next_idle(ptr noundef %hs) local_unnamed_addr #1 {
 entry:
-  %idle = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 5
+  %idle = getelementptr inbounds i8, ptr %hs, i64 276
   %0 = load i8, ptr %idle, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -104,7 +94,7 @@ if.then:                                          ; preds = %entry
   %conv = zext i8 %1 to i64
   %div = mul nuw nsw i64 %conv, 4000000
   %add = add i64 %div, %call
-  %idle_timer = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 7
+  %idle_timer = getelementptr inbounds i8, ptr %hs, i64 280
   %2 = load ptr, ptr %idle_timer, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.then4, label %if.end
@@ -121,7 +111,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %idle_timer.i = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 7
+  %idle_timer.i = getelementptr inbounds i8, ptr %hs, i64 280
   %4 = load ptr, ptr %idle_timer.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end8, label %if.then.i
@@ -141,9 +131,9 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hid_idle_timer(ptr noundef %opaque) #1 {
 entry:
-  %idle_pending = getelementptr inbounds %struct.HIDState, ptr %opaque, i64 0, i32 6
+  %idle_pending = getelementptr inbounds i8, ptr %opaque, i64 277
   store i8 1, ptr %idle_pending, align 1
-  %event = getelementptr inbounds %struct.HIDState, ptr %opaque, i64 0, i32 8
+  %event = getelementptr inbounds i8, ptr %opaque, i64 288
   %0 = load ptr, ptr %event, align 8
   tail call void %0(ptr noundef %opaque) #10
   ret void
@@ -154,13 +144,13 @@ declare void @timer_mod_ns(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hid_pointer_activate(ptr nocapture noundef %hs) local_unnamed_addr #1 {
 entry:
-  %mouse_grabbed = getelementptr inbounds %struct.HIDMouseState, ptr %hs, i64 0, i32 1
+  %mouse_grabbed = getelementptr inbounds i8, ptr %hs, i64 256
   %0 = load i32, ptr %mouse_grabbed, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %s = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 9
+  %s = getelementptr inbounds i8, ptr %hs, i64 296
   %1 = load ptr, ptr %s, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %1) #10
   store i32 1, ptr %mouse_grabbed, align 8
@@ -175,32 +165,32 @@ declare void @qemu_input_handler_activate(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @hid_pointer_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
-  %idle_pending = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 6
+  %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
   store i8 0, ptr %idle_pending, align 1
-  %mouse_grabbed.i = getelementptr inbounds %struct.HIDMouseState, ptr %hs, i64 0, i32 1
+  %mouse_grabbed.i = getelementptr inbounds i8, ptr %hs, i64 256
   %0 = load i32, ptr %mouse_grabbed.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %hid_pointer_activate.exit
 
 if.then.i:                                        ; preds = %entry
-  %s.i = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 9
+  %s.i = getelementptr inbounds i8, ptr %hs, i64 296
   %1 = load ptr, ptr %s.i, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %1) #10
   store i32 1, ptr %mouse_grabbed.i, align 8
   br label %hid_pointer_activate.exit
 
 hid_pointer_activate.exit:                        ; preds = %entry, %if.then.i
-  %n = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %hs, i64 264
   %2 = load i32, ptr %n, align 8
   %tobool.not = icmp eq i32 %2, 0
-  %head1 = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 1
+  %head1 = getelementptr inbounds i8, ptr %hs, i64 260
   %3 = load i32, ptr %head1, align 4
   %sub = sext i1 %tobool.not to i32
   %cond = add i32 %3, %sub
   %and = and i32 %cond, 15
   %idxprom = zext nneg i32 %and to i64
   %arrayidx = getelementptr [16 x %struct.HIDPointerEvent], ptr %hs, i64 0, i64 %idxprom
-  %kind = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 3
+  %kind = getelementptr inbounds i8, ptr %hs, i64 268
   %4 = load i32, ptr %kind, align 4
   %cmp = icmp eq i32 %4, 1
   %5 = load i32, ptr %arrayidx, align 4
@@ -209,7 +199,7 @@ hid_pointer_activate.exit:                        ; preds = %entry, %if.then.i
 if.then:                                          ; preds = %hid_pointer_activate.exit
   %.val.i = tail call i32 @llvm.smin.i32(i32 %5, i32 127)
   %retval.0.i = tail call i32 @llvm.smax.i32(i32 %.val.i, i32 -127)
-  %ydy = getelementptr [16 x %struct.HIDPointerEvent], ptr %hs, i64 0, i64 %idxprom, i32 1
+  %ydy = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %ydy, align 4
   %.val.i72 = tail call i32 @llvm.smin.i32(i32 %6, i32 127)
   %retval.0.i73 = tail call i32 @llvm.smax.i32(i32 %.val.i72, i32 -127)
@@ -220,7 +210,7 @@ if.then:                                          ; preds = %hid_pointer_activat
   br label %if.end
 
 if.else:                                          ; preds = %hid_pointer_activate.exit
-  %ydy8 = getelementptr [16 x %struct.HIDPointerEvent], ptr %hs, i64 0, i64 %idxprom, i32 1
+  %ydy8 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %ydy8, align 4
   br label %if.end
 
@@ -229,7 +219,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %9 = phi i32 [ %sub4, %if.then ], [ %5, %if.else ]
   %dy.0 = phi i32 [ %retval.0.i73, %if.then ], [ %7, %if.else ]
   %dx.0 = phi i32 [ %retval.0.i, %if.then ], [ %5, %if.else ]
-  %dz9 = getelementptr [16 x %struct.HIDPointerEvent], ptr %hs, i64 0, i64 %idxprom, i32 2
+  %dz9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %dz9, align 4
   %.val.i74 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
   %retval.0.i75 = tail call i32 @llvm.smax.i32(i32 %.val.i74, i32 -127)
@@ -251,7 +241,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true17
   br i1 %or.cond76, label %if.then25, label %if.end30
 
 if.then25:                                        ; preds = %lor.lhs.false, %land.lhs.true17
-  %head26 = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 1
+  %head26 = getelementptr inbounds i8, ptr %hs, i64 260
   %inc = add i32 %3, 1
   %and28 = and i32 %inc, 15
   store i32 %and28, ptr %head26, align 4
@@ -270,7 +260,7 @@ sw.bb:                                            ; preds = %if.end30
   br i1 %cmp33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %sw.bb
-  %buttons_state = getelementptr [16 x %struct.HIDPointerEvent], ptr %hs, i64 0, i64 %idxprom, i32 3
+  %buttons_state = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %11 = load i32, ptr %buttons_state, align 4
   %conv = trunc i32 %11 to i8
   store i8 %conv, ptr %buf, align 1
@@ -312,7 +302,7 @@ sw.bb63:                                          ; preds = %if.end30
   br i1 %cmp64, label %if.then66, label %if.end72
 
 if.then66:                                        ; preds = %sw.bb63
-  %buttons_state67 = getelementptr [16 x %struct.HIDPointerEvent], ptr %hs, i64 0, i64 %idxprom, i32 3
+  %buttons_state67 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %12 = load i32, ptr %buttons_state67, align 4
   %conv68 = trunc i32 %12 to i8
   store i8 %conv68, ptr %buf, align 1
@@ -403,19 +393,19 @@ declare void @abort() local_unnamed_addr #3
 define dso_local i32 @hid_keyboard_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %idle_pending = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 6
+  %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
   store i8 0, ptr %idle_pending, align 1
   %cmp = icmp slt i32 %len, 2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %n.i = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 2
+  %n.i = getelementptr inbounds i8, ptr %hs, i64 264
   %0 = load i32, ptr %n.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %hid_keyboard_process_keycode.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %head.i = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %hs, i64 260
   %1 = load i32, ptr %head.i, align 4
   %and.i = and i32 %1, 15
   %inc.i = add i32 %1, 1
@@ -454,7 +444,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9) #10
   br label %trace_hid_kbd_queue_empty.exit.i
@@ -469,7 +459,7 @@ trace_hid_kbd_queue_empty.exit.i:                 ; preds = %if.else.i.i.i, %if.
 
 if.end7.i:                                        ; preds = %trace_hid_kbd_queue_empty.exit.i, %if.end.i
   %conv.i = and i32 %2, 127
-  %modifiers.i = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 1
+  %modifiers.i = getelementptr inbounds i8, ptr %hs, i64 64
   %10 = load i16, ptr %modifiers.i, align 8
   %11 = lshr i16 %10, 1
   %12 = and i16 %11, 128
@@ -548,8 +538,9 @@ sw.bb54.i:                                        ; preds = %if.end7.i, %if.end7
 sw.epilog.i:                                      ; preds = %if.end7.i
   %and55.i = and i32 %2, 128
   %tobool56.not.i = icmp eq i32 %and55.i, 0
-  %keys87.i = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 4
+  %keys87.i = getelementptr inbounds i8, ptr %hs, i64 84
   %18 = load i32, ptr %keys87.i, align 4
+  %key93.i = getelementptr inbounds i8, ptr %hs, i64 67
   %19 = zext i32 %18 to i64
   br i1 %tobool56.not.i, label %for.cond89.i, label %for.cond.i
 
@@ -562,35 +553,35 @@ for.cond.i:                                       ; preds = %sw.epilog.i, %for.b
 
 for.body.i:                                       ; preds = %for.cond.i
   %idxprom61.i = and i64 %indvars.iv.next.i, 2147483647
-  %arrayidx62.i = getelementptr %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3, i64 %idxprom61.i
+  %arrayidx62.i = getelementptr [16 x i8], ptr %key93.i, i64 0, i64 %idxprom61.i
   %21 = load i8, ptr %arrayidx62.i, align 1
   %cmp65.i = icmp eq i8 %21, %13
   br i1 %cmp65.i, label %if.then67.i, label %for.cond.i, !llvm.loop !5
 
 if.then67.i:                                      ; preds = %for.body.i
-  %arrayidx62.i.le = getelementptr %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3, i64 %idxprom61.i
+  %arrayidx62.i.le = getelementptr [16 x i8], ptr %key93.i, i64 0, i64 %idxprom61.i
   %dec70.i = add i32 %18, -1
   store i32 %dec70.i, ptr %keys87.i, align 4
   %idxprom71.i = sext i32 %dec70.i to i64
-  %arrayidx72.i = getelementptr %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3, i64 %idxprom71.i
+  %arrayidx72.i = getelementptr [16 x i8], ptr %key93.i, i64 0, i64 %idxprom71.i
   %22 = load i8, ptr %arrayidx72.i, align 1
   store i8 %22, ptr %arrayidx62.i.le, align 1
   %23 = load i32, ptr %keys87.i, align 4
   %idxprom78.i = sext i32 %23 to i64
-  %arrayidx79.i = getelementptr %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3, i64 %idxprom78.i
+  %arrayidx79.i = getelementptr [16 x i8], ptr %key93.i, i64 0, i64 %idxprom78.i
   store i8 0, ptr %arrayidx79.i, align 1
   br label %hid_keyboard_process_keycode.exit
 
 for.cond89.i:                                     ; preds = %sw.epilog.i, %for.body92.i
-  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %for.body92.i ], [ %19, %sw.epilog.i ]
-  %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, -1
-  %24 = and i64 %indvars.iv.next45.i, 2147483648
+  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %for.body92.i ], [ %19, %sw.epilog.i ]
+  %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
+  %24 = and i64 %indvars.iv.next46.i, 2147483648
   %cmp90.i = icmp eq i64 %24, 0
   br i1 %cmp90.i, label %for.body92.i, label %if.then107.i
 
 for.body92.i:                                     ; preds = %for.cond89.i
-  %idxprom94.i = and i64 %indvars.iv.next45.i, 2147483647
-  %arrayidx95.i = getelementptr %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3, i64 %idxprom94.i
+  %idxprom94.i = and i64 %indvars.iv.next46.i, 2147483647
+  %arrayidx95.i = getelementptr [16 x i8], ptr %key93.i, i64 0, i64 %idxprom94.i
   %25 = load i8, ptr %arrayidx95.i, align 1
   %cmp98.i = icmp eq i8 %25, %13
   br i1 %cmp98.i, label %hid_keyboard_process_keycode.exit, label %for.cond89.i, !llvm.loop !7
@@ -602,18 +593,18 @@ if.then107.i:                                     ; preds = %for.cond89.i
 if.then112.i:                                     ; preds = %if.then107.i
   %inc115.i = add nuw nsw i32 %18, 1
   store i32 %inc115.i, ptr %keys87.i, align 4
-  %arrayidx117.i = getelementptr %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3, i64 %19
+  %arrayidx117.i = getelementptr [16 x i8], ptr %key93.i, i64 0, i64 %19
   store i8 %13, ptr %arrayidx117.i, align 1
   br label %hid_keyboard_process_keycode.exit
 
 hid_keyboard_process_keycode.exit:                ; preds = %for.cond.i, %for.body92.i, %if.end, %if.end7.i, %if.then30.i, %if.then38.i, %sw.bb46.i, %if.then67.i, %if.then107.i, %if.then112.i
-  %modifiers = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 1
+  %modifiers = getelementptr inbounds i8, ptr %hs, i64 64
   %26 = load i16, ptr %modifiers, align 8
   %conv1 = trunc i16 %26 to i8
   store i8 %conv1, ptr %buf, align 1
   %arrayidx2 = getelementptr i8, ptr %buf, i64 1
   store i8 0, ptr %arrayidx2, align 1
-  %keys = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 4
+  %keys = getelementptr inbounds i8, ptr %hs, i64 84
   %27 = load i32, ptr %keys, align 4
   %cmp3 = icmp sgt i32 %27, 6
   %add.ptr = getelementptr i8, ptr %buf, i64 2
@@ -627,7 +618,7 @@ if.then5:                                         ; preds = %hid_keyboard_proces
   br label %return
 
 if.else:                                          ; preds = %hid_keyboard_process_keycode.exit
-  %key = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %hs, i64 67
   %cond16 = tail call i32 @llvm.smin.i32(i32 %len, i32 8)
   %sub17 = add nsw i32 %cond16, -2
   %conv18 = zext nneg i32 %sub17 to i64
@@ -653,7 +644,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %buf, align 1
-  %leds = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 2
+  %leds = getelementptr inbounds i8, ptr %hs, i64 66
   store i8 %0, ptr %leds, align 2
   %1 = lshr i8 %0, 2
   %.lobit = and i8 %1, 1
@@ -673,7 +664,7 @@ declare void @kbd_put_ledstate(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hid_reset(ptr nocapture noundef %hs) local_unnamed_addr #1 {
 entry:
-  %kind = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 3
+  %kind = getelementptr inbounds i8, ptr %hs, i64 268
   %0 = load i32, ptr %kind, align 4
   switch i32 %0, label %sw.epilog [
     i32 3, label %sw.bb
@@ -682,9 +673,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %key = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %hs, i64 67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %key, i8 0, i64 16, i1 false)
-  %keys = getelementptr inbounds %struct.HIDKeyboardState, ptr %hs, i64 0, i32 4
+  %keys = getelementptr inbounds i8, ptr %hs, i64 84
   store i32 0, ptr %keys, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %hs, i8 0, i64 66, i1 false)
   br label %sw.epilog
@@ -694,17 +685,17 @@ sw.bb2:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb, %entry
-  %head = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %hs, i64 260
   store i32 0, ptr %head, align 4
-  %n = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %hs, i64 264
   store i32 0, ptr %n, align 8
-  %protocol = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 4
+  %protocol = getelementptr inbounds i8, ptr %hs, i64 272
   store i32 1, ptr %protocol, align 8
-  %idle = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 5
+  %idle = getelementptr inbounds i8, ptr %hs, i64 276
   store i8 0, ptr %idle, align 4
-  %idle_pending = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 6
+  %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
   store i8 0, ptr %idle_pending, align 1
-  %idle_timer.i = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 7
+  %idle_timer.i = getelementptr inbounds i8, ptr %hs, i64 280
   %1 = load ptr, ptr %idle_timer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %hid_del_idle_timer.exit, label %if.then.i
@@ -722,10 +713,10 @@ hid_del_idle_timer.exit:                          ; preds = %sw.epilog, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hid_free(ptr nocapture noundef %hs) local_unnamed_addr #1 {
 entry:
-  %s = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 9
+  %s = getelementptr inbounds i8, ptr %hs, i64 296
   %0 = load ptr, ptr %s, align 8
   tail call void @qemu_input_handler_unregister(ptr noundef %0) #10
-  %idle_timer.i = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 7
+  %idle_timer.i = getelementptr inbounds i8, ptr %hs, i64 280
   %1 = load ptr, ptr %idle_timer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %hid_del_idle_timer.exit, label %if.then.i
@@ -745,9 +736,9 @@ declare void @qemu_input_handler_unregister(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hid_init(ptr noundef %hs, i32 noundef %kind, ptr noundef %event) local_unnamed_addr #1 {
 entry:
-  %kind1 = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 3
+  %kind1 = getelementptr inbounds i8, ptr %hs, i64 268
   store i32 %kind, ptr %kind1, align 4
-  %event2 = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 8
+  %event2 = getelementptr inbounds i8, ptr %hs, i64 288
   store ptr %event, ptr %event2, align 8
   switch i32 %kind, label %if.end17 [
     i32 3, label %if.then
@@ -757,20 +748,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_keyboard_handler) #10
-  %s = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 9
+  %s = getelementptr inbounds i8, ptr %hs, i64 296
   store ptr %call, ptr %s, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %call) #10
   br label %if.end17
 
 if.then7:                                         ; preds = %entry
   %call8 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_mouse_handler) #10
-  %s9 = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 9
+  %s9 = getelementptr inbounds i8, ptr %hs, i64 296
   store ptr %call8, ptr %s9, align 8
   br label %if.end17
 
 if.then13:                                        ; preds = %entry
   %call14 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_tablet_handler) #10
-  %s15 = getelementptr inbounds %struct.HIDState, ptr %hs, i64 0, i32 9
+  %s15 = getelementptr inbounds i8, ptr %hs, i64 296
   store ptr %call14, ptr %s15, align 8
   br label %if.end17
 
@@ -784,20 +775,20 @@ declare ptr @qemu_input_handler_register(ptr noundef, ptr noundef) local_unnamed
 define internal i32 @hid_post_load(ptr noundef %opaque, i32 %version_id) #1 {
 entry:
   tail call void @hid_set_next_idle(ptr noundef %opaque)
-  %n = getelementptr inbounds %struct.HIDState, ptr %opaque, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %opaque, i64 264
   %0 = load i32, ptr %n, align 8
   %cmp = icmp eq i32 %0, 16
   br i1 %cmp, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %entry
-  %kind = getelementptr inbounds %struct.HIDState, ptr %opaque, i64 0, i32 3
+  %kind = getelementptr inbounds i8, ptr %opaque, i64 268
   %1 = load i32, ptr %kind, align 4
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %land.lhs.true
-  %head = getelementptr inbounds %struct.HIDState, ptr %opaque, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %opaque, i64 260
   %2 = load i32, ptr %head, align 4
   %and = and i32 %2, 15
   %idxprom = zext nneg i32 %and to i64
@@ -847,15 +838,15 @@ define internal void @hid_keyboard_event(ptr noundef %dev, ptr nocapture readnon
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %scancodes = alloca [3 x i32], align 4
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %0 = load ptr, ptr %u, align 8
   %1 = load ptr, ptr %0, align 8
-  %down = getelementptr inbounds %struct.InputKeyEvent, ptr %0, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %down, align 8
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
   %call = call i32 @qemu_input_key_value_to_scancode(ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef nonnull %scancodes) #10
-  %n = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %dev, i64 264
   %4 = load i32, ptr %n, align 8
   %add = add i32 %4, %call
   %cmp = icmp ugt i32 %add, 16
@@ -866,7 +857,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp211, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %head = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %dev, i64 260
   %5 = load i32, ptr %head, align 4
   %wide.trip.count = zext nneg i32 %call to i64
   br label %for.body
@@ -896,7 +887,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12) #10
   br label %trace_hid_kbd_queue_full.exit
@@ -911,15 +902,15 @@ trace_hid_kbd_queue_full.exit:                    ; preds = %if.then, %land.lhs.
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %inc13 = phi i32 [ %4, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add4 = add i32 %inc13, %5
+  %13 = phi i32 [ %4, %for.body.lr.ph ], [ %inc, %for.body ]
+  %add4 = add i32 %13, %5
   %and = and i32 %add4, 15
-  %inc = add i32 %inc13, 1
+  %inc = add i32 %13, 1
   %arrayidx = getelementptr [3 x i32], ptr %scancodes, i64 0, i64 %indvars.iv
-  %13 = load i32, ptr %arrayidx, align 4
+  %14 = load i32, ptr %arrayidx, align 4
   %idxprom6 = zext nneg i32 %and to i64
   %arrayidx7 = getelementptr [16 x i32], ptr %dev, i64 0, i64 %idxprom6
-  store i32 %13, ptr %arrayidx7, align 4
+  store i32 %14, ptr %arrayidx7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !8
@@ -929,9 +920,9 @@ for.cond.for.end_crit_edge:                       ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.cond.for.end_crit_edge, %for.cond.preheader
-  %event = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 8
-  %14 = load ptr, ptr %event, align 8
-  call void %14(ptr noundef nonnull %dev) #10
+  %event = getelementptr inbounds i8, ptr %dev, i64 288
+  %15 = load ptr, ptr %event, align 8
+  call void %15(ptr noundef nonnull %dev) #10
   br label %return
 
 return:                                           ; preds = %for.end, %trace_hid_kbd_queue_full.exit
@@ -943,7 +934,7 @@ declare i32 @qemu_input_key_value_to_scancode(ptr noundef, i1 noundef zeroext, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hid_pointer_event(ptr nocapture noundef %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #1 {
 entry:
-  %n = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %dev, i64 264
   %0 = load i32, ptr %n, align 8
   %cmp = icmp ult i32 %0, 16
   br i1 %cmp, label %if.end, label %if.else
@@ -953,7 +944,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %head = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %dev, i64 260
   %1 = load i32, ptr %head, align 4
   %add = add i32 %1, %0
   %and = and i32 %add, 15
@@ -967,7 +958,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %3 = load ptr, ptr %u, align 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %sw.epilog [
@@ -976,7 +967,7 @@ sw.bb:                                            ; preds = %if.end
   ]
 
 if.then3:                                         ; preds = %sw.bb
-  %value = getelementptr inbounds %struct.InputMoveEvent, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %value, align 8
   %6 = load i32, ptr %arrayidx, align 4
   %7 = trunc i64 %5 to i32
@@ -985,9 +976,9 @@ if.then3:                                         ; preds = %sw.bb
   br label %sw.epilog
 
 if.then10:                                        ; preds = %sw.bb
-  %value11 = getelementptr inbounds %struct.InputMoveEvent, ptr %3, i64 0, i32 1
+  %value11 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i64, ptr %value11, align 8
-  %ydy = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 1
+  %ydy = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %9 = load i32, ptr %ydy, align 4
   %10 = trunc i64 %8 to i32
   %conv14 = add i32 %9, %10
@@ -995,7 +986,7 @@ if.then10:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u18 = getelementptr inbounds i8, ptr %evt, i64 8
   %11 = load ptr, ptr %u18, align 8
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %sw.epilog [
@@ -1004,24 +995,24 @@ sw.bb17:                                          ; preds = %if.end
   ]
 
 if.then23:                                        ; preds = %sw.bb17
-  %value24 = getelementptr inbounds %struct.InputMoveEvent, ptr %11, i64 0, i32 1
+  %value24 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %value24, align 8
   %conv25 = trunc i64 %13 to i32
   store i32 %conv25, ptr %arrayidx, align 4
   br label %sw.epilog
 
 if.then31:                                        ; preds = %sw.bb17
-  %value32 = getelementptr inbounds %struct.InputMoveEvent, ptr %11, i64 0, i32 1
+  %value32 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %value32, align 8
   %conv33 = trunc i64 %14 to i32
-  %ydy34 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 1
+  %ydy34 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 %conv33, ptr %ydy34, align 4
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end
-  %u38 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u38 = getelementptr inbounds i8, ptr %evt, i64 8
   %15 = load ptr, ptr %u38, align 8
-  %down = getelementptr inbounds %struct.InputBtnEvent, ptr %15, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %15, i64 4
   %16 = load i8, ptr %down, align 4
   %17 = and i8 %16, 1
   %tobool.not = icmp eq i8 %17, 0
@@ -1032,7 +1023,7 @@ sw.bb37:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.else55, label %if.then40
 
 if.then40:                                        ; preds = %sw.bb37
-  %buttons_state = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 3
+  %buttons_state = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %20 = load i32, ptr %buttons_state, align 4
   %or = or i32 %20, %19
   store i32 %or, ptr %buttons_state, align 4
@@ -1043,14 +1034,14 @@ if.then40:                                        ; preds = %sw.bb37
   ]
 
 if.then46:                                        ; preds = %if.then40
-  %dz = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 2
+  %dz = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %22 = load i32, ptr %dz, align 4
   %dec = add i32 %22, -1
   store i32 %dec, ptr %dz, align 4
   br label %sw.epilog
 
 if.then51:                                        ; preds = %if.then40
-  %dz52 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 2
+  %dz52 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %23 = load i32, ptr %dz52, align 4
   %inc = add i32 %23, 1
   store i32 %inc, ptr %dz52, align 4
@@ -1058,7 +1049,7 @@ if.then51:                                        ; preds = %if.then40
 
 if.else55:                                        ; preds = %sw.bb37
   %not = xor i32 %19, -1
-  %buttons_state59 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 3
+  %buttons_state59 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %24 = load i32, ptr %buttons_state59, align 4
   %and60 = and i32 %24, %not
   store i32 %and60, ptr %buttons_state59, align 4
@@ -1071,13 +1062,13 @@ sw.epilog:                                        ; preds = %if.then40, %sw.bb17
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hid_pointer_sync(ptr noundef %dev) #1 {
 entry:
-  %n = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %dev, i64 264
   %0 = load i32, ptr %n, align 8
   %cmp = icmp eq i32 %0, 15
   br i1 %cmp, label %if.end58, label %if.end
 
 if.end:                                           ; preds = %entry
-  %head = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %dev, i64 260
   %1 = load i32, ptr %head, align 4
   %add = add i32 %1, %0
   %sub = add i32 %add, 15
@@ -1095,15 +1086,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp18.not, label %if.else42, label %if.then19
 
 if.then19:                                        ; preds = %if.end
-  %buttons_state = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom7, i32 3
+  %buttons_state = getelementptr inbounds i8, ptr %arrayidx8, i64 12
   %2 = load i32, ptr %buttons_state, align 4
-  %buttons_state20 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 3
+  %buttons_state20 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %3 = load i32, ptr %buttons_state20, align 4
   %cmp21 = icmp eq i32 %2, %3
   br i1 %cmp21, label %if.then25, label %if.else42
 
 if.then25:                                        ; preds = %if.then19
-  %kind = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 3
+  %kind = getelementptr inbounds i8, ptr %dev, i64 268
   %4 = load i32, ptr %kind, align 4
   %cmp26 = icmp eq i32 %4, 1
   %5 = load i32, ptr %arrayidx8, align 4
@@ -1114,9 +1105,9 @@ if.then27:                                        ; preds = %if.then25
   %add29 = add i32 %6, %5
   store i32 %add29, ptr %arrayidx, align 4
   store i32 0, ptr %arrayidx8, align 4
-  %ydy = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom7, i32 1
+  %ydy = getelementptr inbounds i8, ptr %arrayidx8, i64 4
   %7 = load i32, ptr %ydy, align 4
-  %ydy31 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 1
+  %ydy31 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %8 = load i32, ptr %ydy31, align 4
   %add32 = add i32 %8, %7
   store i32 %add32, ptr %ydy31, align 4
@@ -1125,16 +1116,16 @@ if.then27:                                        ; preds = %if.then25
 
 if.else:                                          ; preds = %if.then25
   store i32 %5, ptr %arrayidx, align 4
-  %ydy36 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom7, i32 1
+  %ydy36 = getelementptr inbounds i8, ptr %arrayidx8, i64 4
   %9 = load i32, ptr %ydy36, align 4
-  %ydy37 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 1
+  %ydy37 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 %9, ptr %ydy37, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.then27
-  %dz = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom7, i32 2
+  %dz = getelementptr inbounds i8, ptr %arrayidx8, i64 8
   %10 = load i32, ptr %dz, align 4
-  %dz39 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom, i32 2
+  %dz39 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %11 = load i32, ptr %dz39, align 4
   %add40 = add i32 %11, %10
   store i32 %add40, ptr %dz39, align 4
@@ -1142,7 +1133,7 @@ if.end38:                                         ; preds = %if.else, %if.then27
   br label %if.end58
 
 if.else42:                                        ; preds = %if.end, %if.then19
-  %kind43 = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 3
+  %kind43 = getelementptr inbounds i8, ptr %dev, i64 268
   %12 = load i32, ptr %kind43, align 4
   %cmp44 = icmp eq i32 %12, 1
   br i1 %cmp44, label %if.end53, label %if.else48
@@ -1154,15 +1145,15 @@ if.else48:                                        ; preds = %if.else42
 if.end53:                                         ; preds = %if.else42, %if.else48
   %14 = phi <2 x i32> [ %13, %if.else48 ], [ zeroinitializer, %if.else42 ]
   store <2 x i32> %14, ptr %arrayidx16, align 4
-  %dz54 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom15, i32 2
+  %dz54 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   store i32 0, ptr %dz54, align 4
-  %buttons_state55 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom7, i32 3
+  %buttons_state55 = getelementptr inbounds i8, ptr %arrayidx8, i64 12
   %15 = load i32, ptr %buttons_state55, align 4
-  %buttons_state56 = getelementptr [16 x %struct.HIDPointerEvent], ptr %dev, i64 0, i64 %idxprom15, i32 3
+  %buttons_state56 = getelementptr inbounds i8, ptr %arrayidx16, i64 12
   store i32 %15, ptr %buttons_state56, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %n, align 8
-  %event = getelementptr inbounds %struct.HIDState, ptr %dev, i64 0, i32 8
+  %event = getelementptr inbounds i8, ptr %dev, i64 288
   %16 = load ptr, ptr %event, align 8
   tail call void %16(ptr noundef nonnull %dev) #10
   br label %if.end58

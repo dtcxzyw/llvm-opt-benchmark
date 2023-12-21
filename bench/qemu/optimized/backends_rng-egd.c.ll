@@ -4,20 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.RngEgd = type { %struct.RngBackend, %struct.CharBackend, ptr }
-%struct.RngBackend = type { %struct.Object, i8, %struct.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.RngBackendClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.RngRequest = type { ptr, ptr, ptr, i64, i64, %struct.anon.0 }
-%struct.anon.0 = type { ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 @rng_egd_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 128, i64 0, ptr null, ptr null, ptr @rng_egd_finalize, i8 0, i64 0, ptr @rng_egd_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"rng-egd\00", align 1
@@ -58,9 +44,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @rng_egd_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %chr = getelementptr inbounds %struct.RngEgd, ptr %call.i, i64 0, i32 1
+  %chr = getelementptr inbounds i8, ptr %call.i, i64 64
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext false) #4
-  %chr_name = getelementptr inbounds %struct.RngEgd, ptr %call.i, i64 0, i32 2
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %0) #4
   ret void
@@ -70,9 +56,9 @@ entry:
 define internal void @rng_egd_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND_CLASS) #4
-  %request_entropy = getelementptr inbounds %struct.RngBackendClass, ptr %call.i, i64 0, i32 1
+  %request_entropy = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @rng_egd_request_entropy, ptr %request_entropy, align 8
-  %opened = getelementptr inbounds %struct.RngBackendClass, ptr %call.i, i64 0, i32 2
+  %opened = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @rng_egd_opened, ptr %opened, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @rng_egd_get_chardev, ptr noundef nonnull @rng_egd_set_chardev) #4
   ret void
@@ -89,14 +75,14 @@ define internal void @rng_egd_request_entropy(ptr noundef %b, ptr nocapture noun
 entry:
   %header = alloca [2 x i8], align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %size1 = getelementptr inbounds %struct.RngRequest, ptr %req, i64 0, i32 4
+  %size1 = getelementptr inbounds i8, ptr %req, i64 32
   %0 = load i64, ptr %size1, align 8
   %cmp.not6 = icmp eq i64 %0, 0
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx3 = getelementptr inbounds [2 x i8], ptr %header, i64 0, i64 1
-  %chr = getelementptr inbounds %struct.RngEgd, ptr %call.i, i64 0, i32 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %header, i64 1
+  %chr = getelementptr inbounds i8, ptr %call.i, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -118,7 +104,7 @@ while.end:                                        ; preds = %while.body, %entry
 define internal void @rng_egd_opened(ptr noundef %b, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %chr_name = getelementptr inbounds %struct.RngEgd, ptr %call.i, i64 0, i32 2
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %chr_name, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -138,7 +124,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %chr7 = getelementptr inbounds %struct.RngEgd, ptr %call.i, i64 0, i32 1
+  %chr7 = getelementptr inbounds i8, ptr %call.i, i64 64
   %call8 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr7, ptr noundef nonnull %call2, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
@@ -156,13 +142,13 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @rng_egd_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %chr1 = getelementptr inbounds %struct.RngEgd, ptr %call.i, i64 0, i32 1
+  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 64
   %call2 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr1) #4
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %label = getelementptr inbounds %struct.Chardev, ptr %call2, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %call2, i64 96
   %0 = load ptr, ptr %label, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %if.then
@@ -181,7 +167,7 @@ define internal void @rng_egd_set_chardev(ptr noundef %obj, ptr noundef %value, 
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #4
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %opened = getelementptr inbounds %struct.RngBackend, ptr %call.i, i64 0, i32 1
+  %opened = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %opened, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -192,7 +178,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %chr_name = getelementptr inbounds %struct.RngEgd, ptr %call.i3, i64 0, i32 2
+  %chr_name = getelementptr inbounds i8, ptr %call.i3, i64 120
   %2 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %2) #4
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %value) #4
@@ -221,7 +207,7 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 define internal i32 @rng_egd_chr_can_read(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %requests = getelementptr inbounds %struct.RngBackend, ptr %call.i, i64 0, i32 2
+  %requests = getelementptr inbounds i8, ptr %call.i, i64 48
   %req.05 = load ptr, ptr %requests, align 8
   %tobool.not6 = icmp eq ptr %req.05, null
   br i1 %tobool.not6, label %for.end, label %for.body
@@ -229,14 +215,14 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %req.08 = phi ptr [ %req.0, %for.body ], [ %req.05, %entry ]
   %size.07 = phi i32 [ %conv2, %for.body ], [ 0, %entry ]
-  %size1 = getelementptr inbounds %struct.RngRequest, ptr %req.08, i64 0, i32 4
+  %size1 = getelementptr inbounds i8, ptr %req.08, i64 32
   %0 = load i64, ptr %size1, align 8
-  %offset = getelementptr inbounds %struct.RngRequest, ptr %req.08, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %req.08, i64 24
   %1 = load i64, ptr %offset, align 8
   %sub = sub i64 %0, %1
   %2 = trunc i64 %sub to i32
   %conv2 = add i32 %size.07, %2
-  %next = getelementptr inbounds %struct.RngRequest, ptr %req.08, i64 0, i32 5
+  %next = getelementptr inbounds i8, ptr %req.08, i64 40
   %req.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %req.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -250,7 +236,7 @@ for.end:                                          ; preds = %for.body, %entry
 define internal void @rng_egd_chr_read(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.RNG_EGD) #4
-  %requests = getelementptr inbounds %struct.RngBackend, ptr %call.i, i64 0, i32 2
+  %requests = getelementptr inbounds i8, ptr %call.i, i64 48
   %cmp22 = icmp sgt i32 %size, 0
   br i1 %cmp22, label %land.rhs, label %while.end
 
@@ -263,14 +249,14 @@ land.rhs:                                         ; preds = %entry, %if.end
 
 while.body:                                       ; preds = %land.rhs
   %conv = zext nneg i32 %size.addr.024 to i64
-  %size5 = getelementptr inbounds %struct.RngRequest, ptr %0, i64 0, i32 4
+  %size5 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %size5, align 8
-  %offset = getelementptr inbounds %struct.RngRequest, ptr %0, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i64, ptr %offset, align 8
   %sub = sub i64 %1, %2
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
   %conv8 = trunc i64 %cond to i32
-  %data = getelementptr inbounds %struct.RngRequest, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %data, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 %2
   %add.ptr10 = getelementptr i8, ptr %buf, i64 %buf_offset.023
@@ -286,7 +272,7 @@ while.body:                                       ; preds = %land.rhs
 
 if.then:                                          ; preds = %while.body
   %6 = load ptr, ptr %0, align 8
-  %opaque21 = getelementptr inbounds %struct.RngRequest, ptr %0, i64 0, i32 2
+  %opaque21 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %opaque21, align 8
   %8 = load ptr, ptr %data, align 8
   tail call void %6(ptr noundef %7, ptr noundef %8, i64 noundef %add15) #4

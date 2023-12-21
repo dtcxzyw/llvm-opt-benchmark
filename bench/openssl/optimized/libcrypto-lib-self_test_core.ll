@@ -3,9 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-self_test_core.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.self_test_cb_st = type { ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_self_test_st = type { ptr, ptr, ptr, ptr, [4 x %struct.ossl_param_st], ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/self_test_core.c\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -45,7 +43,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr %cb, ptr %call.i, align 8
-  %cbarg2 = getelementptr inbounds %struct.self_test_cb_st, ptr %call.i, i64 0, i32 1
+  %cbarg2 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %cbarg, ptr %cbarg2, align 8
   br label %if.end
 
@@ -82,7 +80,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp5.not, label %cond.end9, label %cond.true6
 
 cond.true6:                                       ; preds = %if.then4
-  %cbarg7 = getelementptr inbounds %struct.self_test_cb_st, ptr %call.i, i64 0, i32 1
+  %cbarg7 = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %cbarg7, align 8
   br label %cond.end9
 
@@ -107,14 +105,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cb1 = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 3
+  %cb1 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %cb, ptr %cb1, align 8
-  %cb_arg = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 5
+  %cb_arg = getelementptr inbounds i8, ptr %call, i64 192
   store ptr %cbarg, ptr %cb_arg, align 8
   store ptr @.str.1, ptr %call, align 8
-  %type = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @.str.1, ptr %type, align 8
-  %desc = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @.str.1, ptr %desc, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp4.i)
@@ -124,20 +122,21 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %self_test_setparams.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %params.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 4
+  %params.i = getelementptr inbounds i8, ptr %call, i64 32
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 4, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %call, i64 72
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
-  %arrayidx7.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 4, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %call, i64 112
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp8.i, i64 40, i1 false)
   br label %self_test_setparams.exit
 
 self_test_setparams.exit:                         ; preds = %if.end, %if.then.i
   %n.0.i = phi i64 [ 3, %if.then.i ], [ 0, %if.end ]
-  %arrayidx11.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %call, i64 0, i32 4, i64 %n.0.i
+  %params9.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx11.i = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params9.i, i64 0, i64 %n.0.i
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12.i) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp12.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
@@ -168,33 +167,33 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cb = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 3
+  %cb = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load ptr, ptr %cb, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %self_test_setparams.exit
 
 self_test_setparams.exit:                         ; preds = %land.lhs.true
   store ptr @.str.2, ptr %st, align 8
-  %type2 = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 1
+  %type2 = getelementptr inbounds i8, ptr %st, i64 8
   store ptr %type, ptr %type2, align 8
-  %desc3 = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 2
+  %desc3 = getelementptr inbounds i8, ptr %st, i64 16
   store ptr %desc, ptr %desc3, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp4.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp12.i)
-  %params.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4
+  %params.i = getelementptr inbounds i8, ptr %st, i64 32
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %st, i64 72
   %1 = load ptr, ptr %type2, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i, ptr noundef nonnull @.str.8, ptr noundef %1, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
-  %arrayidx7.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %st, i64 112
   %2 = load ptr, ptr %desc3, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i, ptr noundef nonnull @.str.9, ptr noundef %2, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp8.i, i64 40, i1 false)
-  %arrayidx11.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 3
+  %arrayidx11.i = getelementptr inbounds i8, ptr %st, i64 152
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12.i) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp12.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
@@ -202,7 +201,7 @@ self_test_setparams.exit:                         ; preds = %land.lhs.true
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp12.i)
   %3 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 5
+  %cb_arg = getelementptr inbounds i8, ptr %st, i64 192
   %4 = load ptr, ptr %cb_arg, align 8
   %call = call i32 %3(ptr noundef nonnull %params.i, ptr noundef %4) #4
   br label %if.end
@@ -222,7 +221,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cb = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 3
+  %cb = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load ptr, ptr %cb, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %self_test_setparams.exit
@@ -235,20 +234,20 @@ self_test_setparams.exit:                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp4.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp12.i)
-  %params.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4
+  %params.i = getelementptr inbounds i8, ptr %st, i64 32
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %cond, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 1
-  %type.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %st, i64 72
+  %type.i = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %type.i, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i, ptr noundef nonnull @.str.8, ptr noundef %1, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
-  %arrayidx7.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 2
-  %desc.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %st, i64 112
+  %desc.i = getelementptr inbounds i8, ptr %st, i64 16
   %2 = load ptr, ptr %desc.i, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i, ptr noundef nonnull @.str.9, ptr noundef %2, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp8.i, i64 40, i1 false)
-  %arrayidx11.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 3
+  %arrayidx11.i = getelementptr inbounds i8, ptr %st, i64 152
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12.i) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp12.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
@@ -256,7 +255,7 @@ self_test_setparams.exit:                         ; preds = %land.lhs.true
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp12.i)
   %3 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 5
+  %cb_arg = getelementptr inbounds i8, ptr %st, i64 192
   %4 = load ptr, ptr %cb_arg, align 8
   %call = call i32 %3(ptr noundef nonnull %params.i, ptr noundef %4) #4
   store ptr @.str.5, ptr %st, align 8
@@ -279,7 +278,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cb = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 3
+  %cb = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load ptr, ptr %cb, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %self_test_setparams.exit
@@ -290,20 +289,20 @@ self_test_setparams.exit:                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp4.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp12.i)
-  %params.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4
+  %params.i = getelementptr inbounds i8, ptr %st, i64 32
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 1
-  %type.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %st, i64 72
+  %type.i = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %type.i, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i, ptr noundef nonnull @.str.8, ptr noundef %1, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
-  %arrayidx7.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 2
-  %desc.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %st, i64 112
+  %desc.i = getelementptr inbounds i8, ptr %st, i64 16
   %2 = load ptr, ptr %desc.i, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i, ptr noundef nonnull @.str.9, ptr noundef %2, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp8.i, i64 40, i1 false)
-  %arrayidx11.i = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 4, i64 3
+  %arrayidx11.i = getelementptr inbounds i8, ptr %st, i64 152
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12.i) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp12.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
@@ -311,7 +310,7 @@ self_test_setparams.exit:                         ; preds = %land.lhs.true
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp12.i)
   %3 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds %struct.ossl_self_test_st, ptr %st, i64 0, i32 5
+  %cb_arg = getelementptr inbounds i8, ptr %st, i64 192
   %4 = load ptr, ptr %cb_arg, align 8
   %call = call i32 %3(ptr noundef nonnull %params.i, ptr noundef %4) #4
   %tobool.not = icmp eq i32 %call, 0

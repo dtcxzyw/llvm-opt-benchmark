@@ -229,9 +229,9 @@ define internal i32 @test_table_compare(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [16 x %struct.compare_testdata], ptr @tbl_compare_testdata, i64 0, i64 %idxprom
-  %t2 = getelementptr inbounds [16 x %struct.compare_testdata], ptr @tbl_compare_testdata, i64 0, i64 %idxprom, i32 1
+  %t2 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %call = tail call i32 @ASN1_TIME_compare(ptr noundef nonnull %arrayidx, ptr noundef nonnull %t2) #4
-  %result = getelementptr inbounds [16 x %struct.compare_testdata], ptr @tbl_compare_testdata, i64 0, i64 %idxprom, i32 2
+  %result = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %0 = load i32, ptr %result, align 8
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 368, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef %call, i32 noundef %0) #4
   ret i32 %call1
@@ -339,7 +339,7 @@ entry:
   %arrayidx = getelementptr inbounds [5 x %struct.TESTDATA_asn1_to_utc], ptr @asn1_to_utc, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %call = tail call i64 @ossl_asn1_string_to_time_t(ptr noundef %0) #4
-  %expected = getelementptr inbounds [5 x %struct.TESTDATA_asn1_to_utc], ptr @asn1_to_utc, i64 0, i64 %idxprom, i32 1
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %expected, align 8
   %call3 = tail call i32 @test_time_t_eq(ptr noundef nonnull @.str.1, i32 noundef 436, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i64 noundef %call, i64 noundef %1) #4
   %tobool.not = icmp eq i32 %call3, 0
@@ -363,19 +363,19 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %data1 = getelementptr inbounds %struct.asn1_string_st, ptr %atime, i64 0, i32 2
+  %data1 = getelementptr inbounds i8, ptr %atime, i64 8
   store ptr %0, ptr %data1, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %atime, align 8
-  %type = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 1
+  %type = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %type, align 8
-  %type3 = getelementptr inbounds %struct.asn1_string_st, ptr %atime, i64 0, i32 1
+  %type3 = getelementptr inbounds i8, ptr %atime, i64 4
   store i32 %1, ptr %type3, align 4
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %atime, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %atime, i64 16
   store i64 0, ptr %flags, align 8
   %call4 = call i32 @ASN1_TIME_check(ptr noundef nonnull %atime) #4
-  %check_result = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 3
+  %check_result = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i32, ptr %check_result, align 8
   %call5 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %call4, i32 noundef %2) #4
   %tobool.not = icmp eq i32 %call5, 0
@@ -393,7 +393,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %t = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 4
+  %t = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %5 = load i64, ptr %t, align 8
   %call11 = call i32 @ASN1_TIME_cmp_time_t(ptr noundef nonnull %atime, i64 noundef %5) #4
   %call12 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef %call11, i32 noundef 0) #4
@@ -453,7 +453,7 @@ if.then38:                                        ; preds = %if.end32
   br label %if.end82
 
 if.else:                                          ; preds = %if.end32
-  %cmp_result = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 5
+  %cmp_result = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %13 = load i32, ptr %cmp_result, align 8
   %cmp40 = icmp eq i32 %13, 0
   br i1 %cmp40, label %land.lhs.true, label %lor.lhs.false50
@@ -517,7 +517,7 @@ if.then79:                                        ; preds = %land.lhs.true67, %l
 if.end82:                                         ; preds = %land.lhs.true, %land.lhs.true54, %land.lhs.true67, %if.then79, %if.then38
   %error.4 = phi i32 [ %error.3, %land.lhs.true ], [ %error.3, %land.lhs.true54 ], [ %error.3, %land.lhs.true67 ], [ 1, %if.then79 ], [ 1, %if.then38 ]
   %call83 = call i32 @ASN1_TIME_cmp_time_t(ptr noundef nonnull %atime, i64 noundef 946598400) #4
-  %cmp_result84 = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 5
+  %cmp_result84 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %26 = load i32, ptr %cmp_result84, align 8
   %call85 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 202, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %call83, i32 noundef %26) #4
   %tobool86.not = icmp eq i32 %call85, 0
@@ -550,16 +550,16 @@ if.else96:                                        ; preds = %if.end89
 if.then101:                                       ; preds = %if.else96
   %30 = load i64, ptr %t, align 8
   %31 = load ptr, ptr %arrayidx, align 8
-  %data104 = getelementptr inbounds %struct.asn1_string_st, ptr %call91, i64 0, i32 2
+  %data104 = getelementptr inbounds i8, ptr %call91, i64 8
   %32 = load ptr, ptr %data104, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 215, ptr noundef nonnull @.str.34, i64 noundef %30, ptr noundef %31, ptr noundef %32) #4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then101, %if.else96
   %error.6 = phi i32 [ %error.5, %if.else96 ], [ 1, %if.then101 ]
-  %type106 = getelementptr inbounds %struct.asn1_string_st, ptr %call91, i64 0, i32 1
+  %type106 = getelementptr inbounds i8, ptr %call91, i64 4
   %33 = load i32, ptr %type106, align 4
-  %expected_type = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 2
+  %expected_type = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %34 = load i32, ptr %expected_type, align 4
   %call107 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef %33, i32 noundef %34) #4
   %tobool108.not = icmp eq i32 %call107, 0
@@ -576,7 +576,7 @@ if.end111:                                        ; preds = %if.end105
 if.then113:                                       ; preds = %if.end111.thread, %if.end111
   %error.769 = phi i32 [ 1, %if.end111.thread ], [ %error.6, %if.end111 ]
   %36 = load i32, ptr %call91, align 8
-  %data115 = getelementptr inbounds %struct.asn1_string_st, ptr %call91, i64 0, i32 2
+  %data115 = getelementptr inbounds i8, ptr %call91, i64 8
   %37 = load ptr, ptr %data115, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @.str.38, i32 noundef %36, ptr noundef %37) #4
   br label %if.end116
@@ -627,9 +627,9 @@ if.then136:                                       ; preds = %if.end131
 if.end138:                                        ; preds = %if.then136, %if.end131
   %error.10 = phi i32 [ %error.9, %if.end131 ], [ 1, %if.then136 ]
   %local_error123.1 = phi i32 [ %local_error123.0, %if.end131 ], [ 1, %if.then136 ]
-  %type139 = getelementptr inbounds %struct.asn1_string_st, ptr %call118, i64 0, i32 1
+  %type139 = getelementptr inbounds i8, ptr %call118, i64 4
   %43 = load i32, ptr %type139, align 4
-  %expected_type140 = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 2
+  %expected_type140 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %44 = load i32, ptr %expected_type140, align 4
   %call141 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef %43, i32 noundef %44) #4
   %tobool142.not = icmp eq i32 %call141, 0
@@ -692,7 +692,7 @@ if.end166:                                        ; preds = %if.end159
 if.then168:                                       ; preds = %if.end166.thread, %if.end166
   %error.1374 = phi i32 [ 1, %if.end166.thread ], [ %error.12, %if.end166 ]
   %53 = load i32, ptr %call118, align 8
-  %data170 = getelementptr inbounds %struct.asn1_string_st, ptr %call118, i64 0, i32 2
+  %data170 = getelementptr inbounds i8, ptr %call118, i64 8
   %54 = load ptr, ptr %data170, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 255, ptr noundef nonnull @.str.49, i32 noundef %53, ptr noundef %54) #4
   br label %if.end171
@@ -778,7 +778,7 @@ if.end207:                                        ; preds = %if.end200
 if.then209:                                       ; preds = %if.end207.thread, %if.end207
   %error.1779 = phi i32 [ 1, %if.end207.thread ], [ %error.16, %if.end207 ]
   %65 = load i32, ptr %call173, align 8
-  %data211 = getelementptr inbounds %struct.asn1_string_st, ptr %call173, i64 0, i32 2
+  %data211 = getelementptr inbounds i8, ptr %call173, i64 8
   %66 = load ptr, ptr %data211, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @.str.53, i32 noundef %65, ptr noundef %66) #4
   br label %if.end212
@@ -796,7 +796,7 @@ if.end213:                                        ; preds = %if.end212, %if.then
 
 if.then217:                                       ; preds = %if.end213
   %call218 = call ptr @ASN1_TIME_to_generalizedtime(ptr noundef nonnull %atime, ptr noundef null) #4
-  %convert_result = getelementptr inbounds %struct.testdata, ptr %tbl, i64 %idxprom, i32 6
+  %convert_result = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %68 = load i32, ptr %convert_result, align 4
   %cmp219 = icmp eq i32 %68, 1
   br i1 %cmp219, label %land.lhs.true221, label %if.else226
@@ -844,7 +844,7 @@ land.lhs.true239:                                 ; preds = %if.end236
 
 if.then244:                                       ; preds = %land.lhs.true239
   %73 = load ptr, ptr %data1, align 8
-  %data246 = getelementptr inbounds %struct.asn1_string_st, ptr %call218, i64 0, i32 2
+  %data246 = getelementptr inbounds i8, ptr %call218, i64 8
   %74 = load ptr, ptr %data246, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @.str.56, ptr noundef %73, ptr noundef %74) #4
   br label %if.end247

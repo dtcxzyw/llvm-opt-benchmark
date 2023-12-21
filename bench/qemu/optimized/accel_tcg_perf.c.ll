@@ -11,20 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.jr_prefix = type { i32, i32, i64 }
 %struct.jr_code_debug_info = type { %struct.jr_prefix, i64, i64, [0 x %struct.debug_entry] }
 %struct.debug_entry = type { i64, i32, i32, [0 x i8] }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, %struct.IntervalTreeNode, %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
-%struct.tb_tc = type { ptr, i64 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
-%struct.QemuSpin = type { i32 }
-%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
-%struct.anon = type { ptr, ptr }
-%struct.TCGTempSet = type { [8 x i64] }
-%struct.TCGTemp = type { i48, i64, ptr, i64, ptr, i64, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
 %struct.debuginfo_query = type { i64, i32, ptr, i64, ptr, i32 }
 
 @.str = private unnamed_addr constant [17 x i8] c"/tmp/perf-%d.map\00", align 1
@@ -177,9 +163,9 @@ if.then13:                                        ; preds = %if.end8
 
 if.end18:                                         ; preds = %if.end8
   store i32 1248416836, ptr %header, align 8
-  %version = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %header, i64 4
   store i32 1, ptr %version, align 4
-  %total_size = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 2
+  %total_size = getelementptr inbounds i8, ptr %header, i64 8
   store i32 40, ptr %total_size, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %elf_header.i)
   %call.i2 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
@@ -193,7 +179,7 @@ if.end.i4:                                        ; preds = %if.end18
   br i1 %cmp3.not.i, label %if.end5.i, label %get_e_machine.exit
 
 if.end5.i:                                        ; preds = %if.end.i4
-  %e_machine.i = getelementptr inbounds %struct.elf64_hdr, ptr %elf_header.i, i64 0, i32 2
+  %e_machine.i = getelementptr inbounds i8, ptr %elf_header.i, i64 18
   %5 = load i16, ptr %e_machine.i, align 2
   %conv.i8 = zext i16 %5 to i32
   br label %get_e_machine.exit
@@ -201,12 +187,12 @@ if.end5.i:                                        ; preds = %if.end.i4
 get_e_machine.exit:                               ; preds = %if.end18, %if.end.i4, %if.end5.i
   %retval.0.i7 = phi i32 [ %conv.i8, %if.end5.i ], [ 0, %if.end18 ], [ 0, %if.end.i4 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %elf_header.i)
-  %elf_mach = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 3
+  %elf_mach = getelementptr inbounds i8, ptr %header, i64 12
   store i32 %retval.0.i7, ptr %elf_mach, align 4
-  %pad1 = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 4
+  %pad1 = getelementptr inbounds i8, ptr %header, i64 16
   store i32 0, ptr %pad1, align 8
   %call20 = tail call i32 @getpid() #13
-  %pid = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 5
+  %pid = getelementptr inbounds i8, ptr %header, i64 20
   store i32 %call20, ptr %pid, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %6 = load i32, ptr @use_rt_clock, align 4
@@ -217,7 +203,7 @@ if.then.i:                                        ; preds = %get_e_machine.exit
   %call.i9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #13
   %7 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %7, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %8 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %8
   br label %get_clock.exit
@@ -227,7 +213,7 @@ if.else.i:                                        ; preds = %get_e_machine.exit
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #13
   %9 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %9, 1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %10, 1000
   %add.i.i = add i64 %mul1.i.i, %mul.i.i
@@ -237,9 +223,9 @@ if.else.i:                                        ; preds = %get_e_machine.exit
 get_clock.exit:                                   ; preds = %if.then.i, %if.else.i
   %retval.0.i10 = phi i64 [ %add.i, %if.then.i ], [ %add.i.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  %timestamp = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 6
+  %timestamp = getelementptr inbounds i8, ptr %header, i64 24
   store i64 %retval.0.i10, ptr %timestamp, align 8
-  %flags = getelementptr inbounds %struct.jitheader, ptr %header, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %header, i64 32
   store i64 0, ptr %flags, align 8
   %11 = load ptr, ptr @jitdump, align 8
   %call22 = call i64 @fwrite(ptr noundef nonnull %header, i64 noundef 40, i64 noundef 1, ptr noundef %11)
@@ -283,9 +269,9 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @perf_report_code(i64 noundef %guest_pc, ptr nocapture noundef readonly %tb, ptr noundef %start) local_unnamed_addr #0 {
 entry:
-  %tv.i.i.i40 = alloca %struct.timeval, align 8
-  %ts.i.i41 = alloca %struct.timespec, align 8
-  %rec.i42 = alloca %struct.jr_code_load, align 8
+  %tv.i.i.i41 = alloca %struct.timeval, align 8
+  %ts.i.i42 = alloca %struct.timespec, align 8
+  %rec.i43 = alloca %struct.jr_code_load, align 8
   %tv.i.i.i = alloca %struct.timeval, align 8
   %ts.i.i = alloca %struct.timespec, align 8
   %rec.i = alloca %struct.jr_code_debug_info, align 8
@@ -298,7 +284,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %icount = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 5
+  %icount = getelementptr inbounds i8, ptr %tb, i64 26
   %2 = load i16, ptr %icount, align 2
   %conv = zext i16 %2 to i64
   %call = tail call noalias ptr @g_try_malloc0_n(i64 noundef %conv, i64 noundef 48) #15
@@ -308,9 +294,9 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %4 = load ptr, ptr %3, align 8
-  %gen_insn_data5 = getelementptr inbounds %struct.TCGContext, ptr %4, i64 0, i32 43
+  %gen_insn_data5 = getelementptr inbounds i8, ptr %4, i64 30664
   %5 = load ptr, ptr %gen_insn_data5, align 8
-  %insn_start_words = getelementptr inbounds %struct.TCGContext, ptr %4, i64 0, i32 14
+  %insn_start_words = getelementptr inbounds i8, ptr %4, i64 70
   %6 = load i8, ptr %insn_start_words, align 2
   %conv6 = zext i8 %6 to i64
   %7 = load i16, ptr %icount, align 2
@@ -319,7 +305,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp71.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %cflags.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 3
+  %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
   %and14 = and i64 %guest_pc, -4096
   %8 = load ptr, ptr @jitdump, align 8
   %tobool18.not = icmp eq ptr %8, null
@@ -344,7 +330,7 @@ if.then13:                                        ; preds = %for.body
   br label %if.end17
 
 if.end17:                                         ; preds = %for.body, %if.then13
-  %flags = getelementptr %struct.debuginfo_query, ptr %call, i64 %insn.072, i32 1
+  %flags = getelementptr inbounds i8, ptr %arrayidx10, i64 8
   store i32 %conv20, ptr %flags, align 8
   %inc = add nuw nsw i64 %insn.072, 1
   %exitcond.not = icmp eq i64 %inc, %conv8
@@ -374,17 +360,19 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   br i1 %tobool.not.i.i, label %get_host_pc_size.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body31
+  %gen_insn_end_off.i.i = getelementptr inbounds i8, ptr %.pre, i64 29640
   %sub.i.i = add nsw i64 %insn.175, -1
-  %arrayidx.i.i = getelementptr %struct.TCGContext, ptr %.pre, i64 0, i32 42, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr [512 x i16], ptr %gen_insn_end_off.i.i, i64 0, i64 %sub.i.i
   %15 = load i16, ptr %arrayidx.i.i, align 2
   br label %get_host_pc_size.exit.i
 
 get_host_pc_size.exit.i:                          ; preds = %cond.true.i.i, %for.body31
   %cond.i.i = phi i16 [ %15, %cond.true.i.i ], [ 0, %for.body31 ]
-  %arrayidx7.i.i = getelementptr %struct.TCGContext, ptr %.pre, i64 0, i32 42, i64 %insn.175
+  %gen_insn_end_off6.i.i = getelementptr inbounds i8, ptr %.pre, i64 29640
+  %arrayidx7.i.i = getelementptr [512 x i16], ptr %gen_insn_end_off6.i.i, i64 0, i64 %insn.175
   %16 = load i16, ptr %arrayidx7.i.i, align 2
   %17 = load ptr, ptr @perfmap, align 8
-  %symbol.i.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %insn.175, i32 2
+  %symbol.i.i = getelementptr inbounds i8, ptr %arrayidx32, i64 16
   %18 = load ptr, ptr %symbol.i.i, align 8
   %tobool.not.i1.i = icmp eq ptr %18, null
   br i1 %tobool.not.i1.i, label %if.then.i.i, label %if.end6.i.i
@@ -395,7 +383,7 @@ if.then.i.i:                                      ; preds = %get_host_pc_size.ex
   br label %write_perfmap_entry.exit
 
 if.end6.i.i:                                      ; preds = %get_host_pc_size.exit.i
-  %offset.i.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %insn.175, i32 3
+  %offset.i.i = getelementptr inbounds i8, ptr %arrayidx32, i64 24
   %20 = load i64, ptr %offset.i.i, align 8
   %tobool7.not.i.i = icmp eq i64 %20, 0
   br i1 %tobool7.not.i.i, label %write_perfmap_entry.exit, label %if.end16.i.i
@@ -434,7 +422,7 @@ if.then38:                                        ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rec.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ent.i)
   store i32 2, ptr %rec.i, align 8
-  %total_size.i = getelementptr inbounds %struct.jr_prefix, ptr %rec.i, i64 0, i32 1
+  %total_size.i = getelementptr inbounds i8, ptr %rec.i, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
   %25 = load i32, ptr @use_rt_clock, align 4
   %tobool.not.i.i27 = icmp eq i32 %25, 0
@@ -444,7 +432,7 @@ if.then.i.i28:                                    ; preds = %if.then38
   %call.i.i29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i) #13
   %26 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul i64 %26, 1000000000
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   %27 = load i64, ptr %tv_nsec.i.i, align 8
   %add.i.i30 = add i64 %mul.i.i, %27
   br label %get_clock.exit.i
@@ -454,7 +442,7 @@ if.else.i.i:                                      ; preds = %if.then38
   %call.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i, ptr noundef null) #13
   %28 = load i64, ptr %tv.i.i.i, align 8
   %mul.i.i.i = mul i64 %28, 1000000000
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %tv.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
   %mul1.i.i.i = mul i64 %29, 1000
   %add.i.i.i = add i64 %mul1.i.i.i, %mul.i.i.i
@@ -464,88 +452,90 @@ if.else.i.i:                                      ; preds = %if.then38
 get_clock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i28
   %retval.0.i.i31 = phi i64 [ %add.i.i30, %if.then.i.i28 ], [ %add.i.i.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
-  %timestamp.i = getelementptr inbounds %struct.jr_prefix, ptr %rec.i, i64 0, i32 2
+  %timestamp.i = getelementptr inbounds i8, ptr %rec.i, i64 8
   store i64 %retval.0.i.i31, ptr %timestamp.i, align 8
   %30 = ptrtoint ptr %start to i64
-  %code_addr.i = getelementptr inbounds %struct.jr_code_debug_info, ptr %rec.i, i64 0, i32 1
+  %code_addr.i = getelementptr inbounds i8, ptr %rec.i, i64 16
   store i64 %30, ptr %code_addr.i, align 8
-  %nr_entry.i = getelementptr inbounds %struct.jr_code_debug_info, ptr %rec.i, i64 0, i32 2
-  %cmp24.not.i = icmp eq i16 %24, 0
-  br i1 %cmp24.not.i, label %write_jr_code_debug_info.exit.critedge, label %for.body.i
+  %nr_entry.i = getelementptr inbounds i8, ptr %rec.i, i64 24
+  %cmp27.not.i = icmp eq i16 %24, 0
+  br i1 %cmp27.not.i, label %write_jr_code_debug_info.exit.critedge, label %for.body.i
 
 for.body.i:                                       ; preds = %get_clock.exit.i, %for.inc.i
-  %conv26.i = phi i64 [ %conv.i32, %for.inc.i ], [ 0, %get_clock.exit.i ]
-  %insn.025.i = phi i32 [ %inc15.i, %for.inc.i ], [ 0, %get_clock.exit.i ]
-  %31 = phi i32 [ %37, %for.inc.i ], [ 49, %get_clock.exit.i ]
-  %32 = phi i64 [ %36, %for.inc.i ], [ 1, %get_clock.exit.i ]
-  %file.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %conv26.i, i32 4
-  %33 = load ptr, ptr %file.i, align 8
-  %tobool.not.i = icmp eq ptr %33, null
+  %conv31.i = phi i64 [ %conv.i32, %for.inc.i ], [ 0, %get_clock.exit.i ]
+  %insn.030.i = phi i32 [ %inc15.i, %for.inc.i ], [ 0, %get_clock.exit.i ]
+  %conv132429.i = phi i32 [ %conv1323.i, %for.inc.i ], [ 49, %get_clock.exit.i ]
+  %inc2628.i = phi i64 [ %inc25.i, %for.inc.i ], [ 1, %get_clock.exit.i ]
+  %file.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %conv31.i, i32 4
+  %31 = load ptr, ptr %file.i, align 8
+  %tobool.not.i = icmp eq ptr %31, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call7.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #16
-  %34 = trunc i64 %call7.i to i32
-  %35 = add i32 %31, 17
-  %conv13.i = add i32 %35, %34
-  %inc.i = add i64 %32, 1
+  %call7.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #16
+  %32 = trunc i64 %call7.i to i32
+  %33 = add i32 %conv132429.i, 17
+  %conv13.i = add i32 %33, %32
+  %inc.i = add i64 %inc2628.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %36 = phi i64 [ %32, %for.body.i ], [ %inc.i, %if.then.i ]
-  %37 = phi i32 [ %31, %for.body.i ], [ %conv13.i, %if.then.i ]
-  %inc15.i = add nuw nsw i32 %insn.025.i, 1
+  %inc25.i = phi i64 [ %inc2628.i, %for.body.i ], [ %inc.i, %if.then.i ]
+  %conv1323.i = phi i32 [ %conv132429.i, %for.body.i ], [ %conv13.i, %if.then.i ]
+  %inc15.i = add nuw nsw i32 %insn.030.i, 1
   %conv.i32 = zext nneg i32 %inc15.i to i64
   %cmp.i = icmp ult i64 %conv.i32, %conv40
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i
-  store i32 %37, ptr %total_size.i, align 4
-  store i64 %36, ptr %nr_entry.i, align 8
-  %38 = load ptr, ptr @jitdump, align 8
-  %call16.i = call i64 @fwrite(ptr noundef nonnull %rec.i, i64 noundef 32, i64 noundef 1, ptr noundef %38)
-  %lineno.i = getelementptr inbounds %struct.debug_entry, ptr %ent.i, i64 0, i32 1
-  %discrim.i = getelementptr inbounds %struct.debug_entry, ptr %ent.i, i64 0, i32 2
+  store i32 %conv1323.i, ptr %total_size.i, align 4
+  store i64 %inc25.i, ptr %nr_entry.i, align 8
+  %34 = load ptr, ptr @jitdump, align 8
+  %call16.i = call i64 @fwrite(ptr noundef nonnull %rec.i, i64 noundef 32, i64 noundef 1, ptr noundef %34)
+  %lineno.i = getelementptr inbounds i8, ptr %ent.i, i64 8
+  %discrim.i = getelementptr inbounds i8, ptr %ent.i, i64 12
   br label %for.body21.i
 
 for.body21.i:                                     ; preds = %for.inc41.i, %for.end.i
-  %conv1830.i = phi i64 [ 0, %for.end.i ], [ %conv18.i, %for.inc41.i ]
-  %insn.129.i = phi i32 [ 0, %for.end.i ], [ %inc42.i, %for.inc41.i ]
-  %file24.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %conv1830.i, i32 4
-  %39 = load ptr, ptr %file24.i, align 8
-  %tobool25.not.i = icmp eq ptr %39, null
+  %conv1835.i = phi i64 [ 0, %for.end.i ], [ %conv18.i, %for.inc41.i ]
+  %insn.134.i = phi i32 [ 0, %for.end.i ], [ %inc42.i, %for.inc41.i ]
+  %arrayidx23.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %conv1835.i
+  %file24.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 32
+  %35 = load ptr, ptr %file24.i, align 8
+  %tobool25.not.i = icmp eq ptr %35, null
   br i1 %tobool25.not.i, label %for.inc41.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %for.body21.i
-  %tobool.not.i20.i = icmp eq i32 %insn.129.i, 0
-  br i1 %tobool.not.i20.i, label %get_host_pc_size.exit.i37, label %cond.true.i.i34
+  %tobool.not.i20.i = icmp eq i32 %insn.134.i, 0
+  br i1 %tobool.not.i20.i, label %get_host_pc_size.exit.i38, label %cond.true.i.i34
 
 cond.true.i.i34:                                  ; preds = %if.then26.i
-  %40 = load ptr, ptr %3, align 8
-  %sub.i.i35 = add nsw i64 %conv1830.i, -1
-  %arrayidx.i.i36 = getelementptr %struct.TCGContext, ptr %40, i64 0, i32 42, i64 %sub.i.i35
-  %41 = load i16, ptr %arrayidx.i.i36, align 2
-  br label %get_host_pc_size.exit.i37
+  %36 = load ptr, ptr %3, align 8
+  %gen_insn_end_off.i.i35 = getelementptr inbounds i8, ptr %36, i64 29640
+  %sub.i.i36 = add nsw i64 %conv1835.i, -1
+  %arrayidx.i.i37 = getelementptr [512 x i16], ptr %gen_insn_end_off.i.i35, i64 0, i64 %sub.i.i36
+  %37 = load i16, ptr %arrayidx.i.i37, align 2
+  br label %get_host_pc_size.exit.i38
 
-get_host_pc_size.exit.i37:                        ; preds = %cond.true.i.i34, %if.then26.i
-  %cond.i.i38 = phi i16 [ %41, %cond.true.i.i34 ], [ 0, %if.then26.i ]
-  %conv3.i.i39 = zext i16 %cond.i.i38 to i64
-  %add.i22.i = add i64 %conv3.i.i39, %30
+get_host_pc_size.exit.i38:                        ; preds = %cond.true.i.i34, %if.then26.i
+  %cond.i.i39 = phi i16 [ %37, %cond.true.i.i34 ], [ 0, %if.then26.i ]
+  %conv3.i.i40 = zext i16 %cond.i.i39 to i64
+  %add.i22.i = add i64 %conv3.i.i40, %30
   store i64 %add.i22.i, ptr %ent.i, align 8
-  %line.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %conv1830.i, i32 5
-  %42 = load i32, ptr %line.i, align 8
-  store i32 %42, ptr %lineno.i, align 8
+  %line.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 40
+  %38 = load i32, ptr %line.i, align 8
+  store i32 %38, ptr %lineno.i, align 8
   store i32 0, ptr %discrim.i, align 4
-  %43 = load ptr, ptr @jitdump, align 8
-  %call30.i = call i64 @fwrite(ptr noundef nonnull %ent.i, i64 noundef 16, i64 noundef 1, ptr noundef %43)
-  %call37.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #16
+  %39 = load ptr, ptr @jitdump, align 8
+  %call30.i = call i64 @fwrite(ptr noundef nonnull %ent.i, i64 noundef 16, i64 noundef 1, ptr noundef %39)
+  %call37.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #16
   %add38.i = add i64 %call37.i, 1
-  %44 = load ptr, ptr @jitdump, align 8
-  %call39.i = call i64 @fwrite(ptr noundef nonnull %39, i64 noundef %add38.i, i64 noundef 1, ptr noundef %44)
+  %40 = load ptr, ptr @jitdump, align 8
+  %call39.i = call i64 @fwrite(ptr noundef nonnull %35, i64 noundef %add38.i, i64 noundef 1, ptr noundef %40)
   br label %for.inc41.i
 
-for.inc41.i:                                      ; preds = %get_host_pc_size.exit.i37, %for.body21.i
-  %inc42.i = add nuw nsw i32 %insn.129.i, 1
+for.inc41.i:                                      ; preds = %get_host_pc_size.exit.i38, %for.body21.i
+  %inc42.i = add nuw nsw i32 %insn.134.i, 1
   %conv18.i = zext nneg i32 %inc42.i to i64
   %cmp19.i = icmp ult i64 %conv18.i, %conv40
   br i1 %cmp19.i, label %for.body21.i, label %write_jr_code_debug_info.exit, !llvm.loop !9
@@ -553,135 +543,137 @@ for.inc41.i:                                      ; preds = %get_host_pc_size.ex
 write_jr_code_debug_info.exit.critedge:           ; preds = %get_clock.exit.i
   store i32 49, ptr %total_size.i, align 4
   store i64 1, ptr %nr_entry.i, align 8
-  %45 = load ptr, ptr @jitdump, align 8
-  %call16.i.c = call i64 @fwrite(ptr noundef nonnull %rec.i, i64 noundef 32, i64 noundef 1, ptr noundef %45)
+  %41 = load ptr, ptr @jitdump, align 8
+  %call16.i.c = call i64 @fwrite(ptr noundef nonnull %rec.i, i64 noundef 32, i64 noundef 1, ptr noundef %41)
   br label %write_jr_code_debug_info.exit
 
 write_jr_code_debug_info.exit:                    ; preds = %for.inc41.i, %write_jr_code_debug_info.exit.critedge
-  %46 = load ptr, ptr %3, align 8
+  %42 = load ptr, ptr %3, align 8
+  %gen_insn_end_off.i = getelementptr inbounds i8, ptr %42, i64 29640
   %sub.i = add nsw i64 %conv40, -1
-  %arrayidx44.i = getelementptr %struct.TCGContext, ptr %46, i64 0, i32 42, i64 %sub.i
-  %47 = load i16, ptr %arrayidx44.i, align 2
-  %conv45.i = zext i16 %47 to i64
+  %arrayidx44.i = getelementptr [512 x i16], ptr %gen_insn_end_off.i, i64 0, i64 %sub.i
+  %43 = load i16, ptr %arrayidx44.i, align 2
+  %conv45.i = zext i16 %43 to i64
   %add46.i = add i64 %conv45.i, %30
   store i64 %add46.i, ptr %ent.i, align 8
-  %lineno48.i = getelementptr inbounds %struct.debug_entry, ptr %ent.i, i64 0, i32 1
+  %lineno48.i = getelementptr inbounds i8, ptr %ent.i, i64 8
   store i32 0, ptr %lineno48.i, align 8
-  %discrim49.i = getelementptr inbounds %struct.debug_entry, ptr %ent.i, i64 0, i32 2
+  %discrim49.i = getelementptr inbounds i8, ptr %ent.i, i64 12
   store i32 0, ptr %discrim49.i, align 4
-  %48 = load ptr, ptr @jitdump, align 8
-  %call50.i = call i64 @fwrite(ptr noundef nonnull %ent.i, i64 noundef 16, i64 noundef 1, ptr noundef %48)
-  %49 = load ptr, ptr @jitdump, align 8
-  %fputc.i = call i32 @fputc(i32 0, ptr %49)
+  %44 = load ptr, ptr @jitdump, align 8
+  %call50.i = call i64 @fwrite(ptr noundef nonnull %ent.i, i64 noundef 16, i64 noundef 1, ptr noundef %44)
+  %45 = load ptr, ptr @jitdump, align 8
+  %fputc.i = call i32 @fputc(i32 0, ptr %45)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rec.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ent.i)
-  %50 = load ptr, ptr %3, align 8
-  %51 = load i16, ptr %icount, align 2
-  %conv42 = zext i16 %51 to i64
+  %46 = load ptr, ptr %3, align 8
+  %gen_insn_end_off = getelementptr inbounds i8, ptr %46, i64 29640
+  %47 = load i16, ptr %icount, align 2
+  %conv42 = zext i16 %47 to i64
   %sub = add nsw i64 %conv42, -1
-  %arrayidx43 = getelementptr %struct.TCGContext, ptr %50, i64 0, i32 42, i64 %sub
-  %52 = load i16, ptr %arrayidx43, align 2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %rec.i42)
-  %symbol.i.i43 = getelementptr inbounds %struct.debuginfo_query, ptr %call, i64 0, i32 2
-  %53 = load ptr, ptr %symbol.i.i43, align 8
-  %tobool.not.i.i44 = icmp eq ptr %53, null
-  br i1 %tobool.not.i.i44, label %if.then.i.i66, label %if.end6.i.i45
+  %arrayidx43 = getelementptr [512 x i16], ptr %gen_insn_end_off, i64 0, i64 %sub
+  %48 = load i16, ptr %arrayidx43, align 2
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %rec.i43)
+  %symbol.i.i44 = getelementptr inbounds i8, ptr %call, i64 16
+  %49 = load ptr, ptr %symbol.i.i44, align 8
+  %tobool.not.i.i45 = icmp eq ptr %49, null
+  br i1 %tobool.not.i.i45, label %if.then.i.i67, label %if.end6.i.i46
 
-if.then.i.i66:                                    ; preds = %write_jr_code_debug_info.exit
-  %54 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @pretty_symbol.buf)
-  %55 = load i64, ptr %call, align 8
-  %call.i.i67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %54, i64 noundef 64, ptr noundef nonnull @.str.12, i64 noundef %55) #13
-  %add.i.i68 = add i32 %call.i.i67, 1
-  %56 = call i32 @llvm.umin.i32(i32 %add.i.i68, i32 64)
-  %cond.i.i69 = zext nneg i32 %56 to i64
+if.then.i.i67:                                    ; preds = %write_jr_code_debug_info.exit
+  %50 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @pretty_symbol.buf)
+  %51 = load i64, ptr %call, align 8
+  %call.i.i68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %50, i64 noundef 64, ptr noundef nonnull @.str.12, i64 noundef %51) #13
+  %add.i.i69 = add i32 %call.i.i68, 1
+  %52 = call i32 @llvm.umin.i32(i32 %add.i.i69, i32 64)
+  %cond.i.i70 = zext nneg i32 %52 to i64
   br label %pretty_symbol.exit.i
 
-if.end6.i.i45:                                    ; preds = %write_jr_code_debug_info.exit
-  %offset.i.i46 = getelementptr inbounds %struct.debuginfo_query, ptr %call, i64 0, i32 3
-  %57 = load i64, ptr %offset.i.i46, align 8
-  %tobool7.not.i.i47 = icmp eq i64 %57, 0
-  br i1 %tobool7.not.i.i47, label %if.then8.i.i, label %if.end16.i.i48
+if.end6.i.i46:                                    ; preds = %write_jr_code_debug_info.exit
+  %offset.i.i47 = getelementptr inbounds i8, ptr %call, i64 24
+  %53 = load i64, ptr %offset.i.i47, align 8
+  %tobool7.not.i.i48 = icmp eq i64 %53, 0
+  br i1 %tobool7.not.i.i48, label %if.then8.i.i, label %if.end16.i.i49
 
-if.then8.i.i:                                     ; preds = %if.end6.i.i45
-  %call12.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #16
+if.then8.i.i:                                     ; preds = %if.end6.i.i46
+  %call12.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #16
   %add13.i.i = add i64 %call12.i.i, 1
   br label %pretty_symbol.exit.i
 
-if.end16.i.i48:                                   ; preds = %if.end6.i.i45
-  %58 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @pretty_symbol.buf)
-  %call20.i.i49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %58, i64 noundef 64, ptr noundef nonnull @.str.13, ptr noundef nonnull %53, i64 noundef %57) #13
-  %add23.i.i = add i32 %call20.i.i49, 1
-  %59 = call i32 @llvm.umin.i32(i32 %add23.i.i, i32 64)
-  %cond31.i.i = zext nneg i32 %59 to i64
+if.end16.i.i49:                                   ; preds = %if.end6.i.i46
+  %54 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @pretty_symbol.buf)
+  %call20.i.i50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %54, i64 noundef 64, ptr noundef nonnull @.str.13, ptr noundef nonnull %49, i64 noundef %53) #13
+  %add23.i.i = add i32 %call20.i.i50, 1
+  %55 = call i32 @llvm.umin.i32(i32 %add23.i.i, i32 64)
+  %cond31.i.i = zext nneg i32 %55 to i64
   br label %pretty_symbol.exit.i
 
-pretty_symbol.exit.i:                             ; preds = %if.end16.i.i48, %if.then8.i.i, %if.then.i.i66
-  %symbol_size.0.i = phi i64 [ %cond.i.i69, %if.then.i.i66 ], [ %add13.i.i, %if.then8.i.i ], [ %cond31.i.i, %if.end16.i.i48 ]
-  %retval.0.i.i50 = phi ptr [ %54, %if.then.i.i66 ], [ %53, %if.then8.i.i ], [ %58, %if.end16.i.i48 ]
-  store i32 0, ptr %rec.i42, align 8
-  %conv.i51 = zext i16 %52 to i64
-  %add.i = add nuw nsw i64 %conv.i51, 56
+pretty_symbol.exit.i:                             ; preds = %if.end16.i.i49, %if.then8.i.i, %if.then.i.i67
+  %symbol_size.0.i = phi i64 [ %cond.i.i70, %if.then.i.i67 ], [ %add13.i.i, %if.then8.i.i ], [ %cond31.i.i, %if.end16.i.i49 ]
+  %retval.0.i.i51 = phi ptr [ %50, %if.then.i.i67 ], [ %49, %if.then8.i.i ], [ %54, %if.end16.i.i49 ]
+  store i32 0, ptr %rec.i43, align 8
+  %conv.i52 = zext i16 %48 to i64
+  %add.i = add nuw nsw i64 %conv.i52, 56
   %add1.i = add i64 %add.i, %symbol_size.0.i
   %conv2.i = trunc i64 %add1.i to i32
-  %total_size.i52 = getelementptr inbounds %struct.jr_prefix, ptr %rec.i42, i64 0, i32 1
-  store i32 %conv2.i, ptr %total_size.i52, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i41)
-  %60 = load i32, ptr @use_rt_clock, align 4
-  %tobool.not.i5.i = icmp eq i32 %60, 0
-  br i1 %tobool.not.i5.i, label %if.else.i.i60, label %if.then.i6.i
+  %total_size.i53 = getelementptr inbounds i8, ptr %rec.i43, i64 4
+  store i32 %conv2.i, ptr %total_size.i53, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i42)
+  %56 = load i32, ptr @use_rt_clock, align 4
+  %tobool.not.i5.i = icmp eq i32 %56, 0
+  br i1 %tobool.not.i5.i, label %if.else.i.i61, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %pretty_symbol.exit.i
-  %call.i7.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i41) #13
-  %61 = load i64, ptr %ts.i.i41, align 8
-  %mul.i.i53 = mul i64 %61, 1000000000
-  %tv_nsec.i.i54 = getelementptr inbounds %struct.timespec, ptr %ts.i.i41, i64 0, i32 1
-  %62 = load i64, ptr %tv_nsec.i.i54, align 8
-  %add.i8.i = add i64 %mul.i.i53, %62
+  %call.i7.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i42) #13
+  %57 = load i64, ptr %ts.i.i42, align 8
+  %mul.i.i54 = mul i64 %57, 1000000000
+  %tv_nsec.i.i55 = getelementptr inbounds i8, ptr %ts.i.i42, i64 8
+  %58 = load i64, ptr %tv_nsec.i.i55, align 8
+  %add.i8.i = add i64 %mul.i.i54, %58
   br label %write_jr_code_load.exit
 
-if.else.i.i60:                                    ; preds = %pretty_symbol.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i.i40)
-  %call.i.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i40, ptr noundef null) #13
-  %63 = load i64, ptr %tv.i.i.i40, align 8
-  %mul.i.i.i62 = mul i64 %63, 1000000000
-  %tv_usec.i.i.i63 = getelementptr inbounds %struct.timeval, ptr %tv.i.i.i40, i64 0, i32 1
-  %64 = load i64, ptr %tv_usec.i.i.i63, align 8
-  %mul1.i.i.i64 = mul i64 %64, 1000
-  %add.i.i.i65 = add i64 %mul1.i.i.i64, %mul.i.i.i62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i.i40)
+if.else.i.i61:                                    ; preds = %pretty_symbol.exit.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i.i41)
+  %call.i.i.i62 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i41, ptr noundef null) #13
+  %59 = load i64, ptr %tv.i.i.i41, align 8
+  %mul.i.i.i63 = mul i64 %59, 1000000000
+  %tv_usec.i.i.i64 = getelementptr inbounds i8, ptr %tv.i.i.i41, i64 8
+  %60 = load i64, ptr %tv_usec.i.i.i64, align 8
+  %mul1.i.i.i65 = mul i64 %60, 1000
+  %add.i.i.i66 = add i64 %mul1.i.i.i65, %mul.i.i.i63
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i.i41)
   br label %write_jr_code_load.exit
 
-write_jr_code_load.exit:                          ; preds = %if.then.i6.i, %if.else.i.i60
-  %retval.0.i9.i = phi i64 [ %add.i8.i, %if.then.i6.i ], [ %add.i.i.i65, %if.else.i.i60 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i41)
-  %timestamp.i56 = getelementptr inbounds %struct.jr_prefix, ptr %rec.i42, i64 0, i32 2
-  store i64 %retval.0.i9.i, ptr %timestamp.i56, align 8
+write_jr_code_load.exit:                          ; preds = %if.then.i6.i, %if.else.i.i61
+  %retval.0.i9.i = phi i64 [ %add.i8.i, %if.then.i6.i ], [ %add.i.i.i66, %if.else.i.i61 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i42)
+  %timestamp.i57 = getelementptr inbounds i8, ptr %rec.i43, i64 8
+  store i64 %retval.0.i9.i, ptr %timestamp.i57, align 8
   %call6.i = call i32 @getpid() #13
-  %pid.i = getelementptr inbounds %struct.jr_code_load, ptr %rec.i42, i64 0, i32 1
+  %pid.i = getelementptr inbounds i8, ptr %rec.i43, i64 16
   store i32 %call6.i, ptr %pid.i, align 8
-  %call7.i57 = call i32 @qemu_get_thread_id() #13
-  %tid.i = getelementptr inbounds %struct.jr_code_load, ptr %rec.i42, i64 0, i32 2
-  store i32 %call7.i57, ptr %tid.i, align 4
-  %vma.i = getelementptr inbounds %struct.jr_code_load, ptr %rec.i42, i64 0, i32 3
+  %call7.i58 = call i32 @qemu_get_thread_id() #13
+  %tid.i = getelementptr inbounds i8, ptr %rec.i43, i64 20
+  store i32 %call7.i58, ptr %tid.i, align 4
+  %vma.i = getelementptr inbounds i8, ptr %rec.i43, i64 24
   store i64 %30, ptr %vma.i, align 8
-  %code_addr.i58 = getelementptr inbounds %struct.jr_code_load, ptr %rec.i42, i64 0, i32 4
-  store i64 %30, ptr %code_addr.i58, align 8
-  %code_size.i = getelementptr inbounds %struct.jr_code_load, ptr %rec.i42, i64 0, i32 5
-  store i64 %conv.i51, ptr %code_size.i, align 8
-  %65 = load i64, ptr @write_jr_code_load.code_index, align 8
-  %inc.i59 = add i64 %65, 1
-  store i64 %inc.i59, ptr @write_jr_code_load.code_index, align 8
-  %code_index.i = getelementptr inbounds %struct.jr_code_load, ptr %rec.i42, i64 0, i32 6
-  store i64 %65, ptr %code_index.i, align 8
-  %66 = load ptr, ptr @jitdump, align 8
-  %call9.i = call i64 @fwrite(ptr noundef nonnull %rec.i42, i64 noundef 56, i64 noundef 1, ptr noundef %66)
-  %67 = load ptr, ptr @jitdump, align 8
-  %call10.i = call i64 @fwrite(ptr noundef nonnull %retval.0.i.i50, i64 noundef %symbol_size.0.i, i64 noundef 1, ptr noundef %67)
-  %68 = load ptr, ptr @jitdump, align 8
-  %call12.i = call i64 @fwrite(ptr noundef %start, i64 noundef %conv.i51, i64 noundef 1, ptr noundef %68)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %rec.i42)
-  %69 = load ptr, ptr @jitdump, align 8
-  call void @funlockfile(ptr noundef %69) #13
+  %code_addr.i59 = getelementptr inbounds i8, ptr %rec.i43, i64 32
+  store i64 %30, ptr %code_addr.i59, align 8
+  %code_size.i = getelementptr inbounds i8, ptr %rec.i43, i64 40
+  store i64 %conv.i52, ptr %code_size.i, align 8
+  %61 = load i64, ptr @write_jr_code_load.code_index, align 8
+  %inc.i60 = add i64 %61, 1
+  store i64 %inc.i60, ptr @write_jr_code_load.code_index, align 8
+  %code_index.i = getelementptr inbounds i8, ptr %rec.i43, i64 48
+  store i64 %61, ptr %code_index.i, align 8
+  %62 = load ptr, ptr @jitdump, align 8
+  %call9.i = call i64 @fwrite(ptr noundef nonnull %rec.i43, i64 noundef 56, i64 noundef 1, ptr noundef %62)
+  %63 = load ptr, ptr @jitdump, align 8
+  %call10.i = call i64 @fwrite(ptr noundef nonnull %retval.0.i.i51, i64 noundef %symbol_size.0.i, i64 noundef 1, ptr noundef %63)
+  %64 = load ptr, ptr @jitdump, align 8
+  %call12.i = call i64 @fwrite(ptr noundef %start, i64 noundef %conv.i52, i64 noundef 1, ptr noundef %64)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %rec.i43)
+  %65 = load ptr, ptr @jitdump, align 8
+  call void @funlockfile(ptr noundef %65) #13
   br label %if.end44
 
 if.end44:                                         ; preds = %write_jr_code_load.exit, %if.end36

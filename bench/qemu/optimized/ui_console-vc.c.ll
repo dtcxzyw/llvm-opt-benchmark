@@ -7,34 +7,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.InterfaceInfo = type { ptr }
 %struct.GraphicHwOps = type { ptr, ptr, ptr, i8, ptr, ptr, ptr }
 %struct.pixman_color = type { i16, i16, i16, i16 }
-%struct.QemuTextConsole = type { %struct.QemuConsole, i32, i32, i32, i32, i32, i32, i32, i32, ptr, [2 x i32], [2 x i32], i32, i32, i32, i32, i32, i32, ptr, %struct.Fifo8 }
-%struct.QemuConsole = type { %struct.Object, i32, ptr, ptr, %struct.DisplayScanout, i32, ptr, i32, ptr, i32, %struct.QemuUIInfo, ptr, ptr, ptr, %struct.CoQueue, %union.anon.0 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.DisplayScanout = type { i32, %union.anon }
-%union.anon = type { %struct.ScanoutTexture }
-%struct.ScanoutTexture = type { i32, i8, i32, i32, i32, i32, i32, i32, ptr }
-%struct.QemuUIInfo = type { i16, i16, i32, i32, i32, i32, i32 }
-%struct.CoQueue = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.TextCell = type <{ i8, %struct.TextAttributes }>
 %struct.TextAttributes = type { i16 }
 %struct.pixman_rectangle16 = type { i16, i16, i16, i16 }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevVC = type { ptr, i8, i8, i8, i64, i8, i64, i8, i64, i8, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.VCChardev = type { %struct.Chardev, ptr, i32, [3 x i32], i32, %struct.TextAttributes, i32, i32 }
 
 @.str = private unnamed_addr constant [2 x i8] c"\0D\00", align 1
 @cursor_visible_phase = internal unnamed_addr global i8 0, align 1
@@ -121,13 +97,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_text_console_get_label(ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
 entry:
-  %chr = getelementptr inbounds %struct.QemuTextConsole, ptr %c, i64 0, i32 18
+  %chr = getelementptr inbounds i8, ptr %c, i64 312
   %0 = load ptr, ptr %chr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %label = getelementptr inbounds %struct.Chardev, ptr %0, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %label, align 8
   br label %cond.end
 
@@ -149,21 +125,21 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %backscroll_height.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 4
+  %backscroll_height.i = getelementptr inbounds i8, ptr %s, i64 244
   %0 = load i32, ptr %backscroll_height.i, align 4
-  %total_height10.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 3
+  %total_height10.i = getelementptr inbounds i8, ptr %s, i64 240
   %1 = load i32, ptr %total_height10.i, align 8
-  %height.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %s, i64 236
   %2 = load i32, ptr %height.i, align 4
   %sub11.i = sub i32 %1, %2
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %sub11.i)
-  %y_base18.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 8
+  %y_base18.i = getelementptr inbounds i8, ptr %s, i64 260
   %3 = load i32, ptr %y_base18.i, align 4
   %sub19.i = sub i32 %3, %spec.select.i
   %cmp20.i = icmp slt i32 %sub19.i, 0
   %add.i = select i1 %cmp20.i, i32 %1, i32 0
   %spec.select29.i = add i32 %add.i, %sub19.i
-  %y_displayed27.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 7
+  %y_displayed27.i = getelementptr inbounds i8, ptr %s, i64 256
   %y_displayed27.promoted.i = load i32, ptr %y_displayed27.i, align 8
   %cmp28.i = icmp eq i32 %y_displayed27.promoted.i, %spec.select29.i
   br i1 %cmp28.i, label %console_scroll.exit, label %if.end30.i
@@ -181,15 +157,15 @@ console_scroll.exit:                              ; preds = %if.end30.i, %sw.bb
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %y_displayed.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 7
-  %y_base.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 8
+  %y_displayed.i = getelementptr inbounds i8, ptr %s, i64 256
+  %y_base.i = getelementptr inbounds i8, ptr %s, i64 260
   %4 = load i32, ptr %y_base.i, align 4
   %y_displayed.promoted.i = load i32, ptr %y_displayed.i, align 8
   %cmp2.i = icmp eq i32 %y_displayed.promoted.i, %4
   br i1 %cmp2.i, label %console_scroll.exit37, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb1
-  %total_height.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 3
+  %total_height.i = getelementptr inbounds i8, ptr %s, i64 240
   %inc.i = add i32 %y_displayed.promoted.i, 1
   %5 = load i32, ptr %total_height.i, align 8
   %cmp5.i = icmp eq i32 %inc.i, %5
@@ -202,21 +178,21 @@ console_scroll.exit37:                            ; preds = %if.end.i, %sw.bb1
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %backscroll_height.i38 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 4
+  %backscroll_height.i38 = getelementptr inbounds i8, ptr %s, i64 244
   %6 = load i32, ptr %backscroll_height.i38, align 4
-  %total_height10.i39 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 3
+  %total_height10.i39 = getelementptr inbounds i8, ptr %s, i64 240
   %7 = load i32, ptr %total_height10.i39, align 8
-  %height.i40 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 2
+  %height.i40 = getelementptr inbounds i8, ptr %s, i64 236
   %8 = load i32, ptr %height.i40, align 4
   %sub11.i41 = sub i32 %7, %8
   %spec.select.i42 = tail call i32 @llvm.smin.i32(i32 %6, i32 %sub11.i41)
-  %y_base18.i43 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 8
+  %y_base18.i43 = getelementptr inbounds i8, ptr %s, i64 260
   %9 = load i32, ptr %y_base18.i43, align 4
   %sub19.i44 = sub i32 %9, %spec.select.i42
   %cmp20.i45 = icmp slt i32 %sub19.i44, 0
   %add.i46 = select i1 %cmp20.i45, i32 %7, i32 0
   %spec.select29.i47 = add i32 %add.i46, %sub19.i44
-  %y_displayed27.i48 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 7
+  %y_displayed27.i48 = getelementptr inbounds i8, ptr %s, i64 256
   %sub35.i49 = add i32 %7, -1
   %y_displayed27.promoted.i50 = load i32, ptr %y_displayed27.i48, align 8
   br label %for.body26.i51
@@ -241,36 +217,36 @@ console_scroll.exit61:                            ; preds = %for.body26.i51, %if
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %y_displayed.i62 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 7
-  %y_base.i63 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 8
+  %y_displayed.i62 = getelementptr inbounds i8, ptr %s, i64 256
+  %y_base.i63 = getelementptr inbounds i8, ptr %s, i64 260
   %10 = load i32, ptr %y_base.i63, align 4
-  %total_height.i64 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 3
+  %total_height.i64 = getelementptr inbounds i8, ptr %s, i64 240
   %y_displayed.promoted.i65 = load i32, ptr %y_displayed.i62, align 8
   br label %for.body.i66
 
-for.body.i66:                                     ; preds = %if.end.i70, %sw.bb3
-  %spec.store.select36.i67 = phi i32 [ %y_displayed.promoted.i65, %sw.bb3 ], [ %spec.store.select.i73, %if.end.i70 ]
-  %i.035.i68 = phi i32 [ 0, %sw.bb3 ], [ %inc9.i74, %if.end.i70 ]
-  %cmp2.i69 = icmp eq i32 %spec.store.select36.i67, %10
-  br i1 %cmp2.i69, label %console_scroll.exit76, label %if.end.i70
+for.body.i66:                                     ; preds = %if.end.i69, %sw.bb3
+  %11 = phi i32 [ %y_displayed.promoted.i65, %sw.bb3 ], [ %spec.store.select.i72, %if.end.i69 ]
+  %i.035.i67 = phi i32 [ 0, %sw.bb3 ], [ %inc9.i73, %if.end.i69 ]
+  %cmp2.i68 = icmp eq i32 %11, %10
+  br i1 %cmp2.i68, label %console_scroll.exit75, label %if.end.i69
 
-if.end.i70:                                       ; preds = %for.body.i66
-  %inc.i71 = add i32 %spec.store.select36.i67, 1
-  %11 = load i32, ptr %total_height.i64, align 8
-  %cmp5.i72 = icmp eq i32 %inc.i71, %11
-  %spec.store.select.i73 = select i1 %cmp5.i72, i32 0, i32 %inc.i71
-  store i32 %spec.store.select.i73, ptr %y_displayed.i62, align 8
-  %inc9.i74 = add nuw nsw i32 %i.035.i68, 1
-  %exitcond38.not.i75 = icmp eq i32 %inc9.i74, 10
-  br i1 %exitcond38.not.i75, label %console_scroll.exit76, label %for.body.i66, !llvm.loop !7
+if.end.i69:                                       ; preds = %for.body.i66
+  %inc.i70 = add i32 %11, 1
+  %12 = load i32, ptr %total_height.i64, align 8
+  %cmp5.i71 = icmp eq i32 %inc.i70, %12
+  %spec.store.select.i72 = select i1 %cmp5.i71, i32 0, i32 %inc.i70
+  store i32 %spec.store.select.i72, ptr %y_displayed.i62, align 8
+  %inc9.i73 = add nuw nsw i32 %i.035.i67, 1
+  %exitcond37.not.i74 = icmp eq i32 %inc9.i73, 10
+  br i1 %exitcond37.not.i74, label %console_scroll.exit75, label %for.body.i66, !llvm.loop !7
 
-console_scroll.exit76:                            ; preds = %for.body.i66, %if.end.i70
+console_scroll.exit75:                            ; preds = %for.body.i66, %if.end.i69
   tail call fastcc void @console_refresh(ptr noundef nonnull %s)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %12 = and i32 %keysym, -32
-  %or.cond = icmp eq i32 %12, 57600
+  %13 = and i32 %keysym, -32
+  %or.cond = icmp eq i32 %13, 57600
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.default
@@ -283,16 +259,16 @@ if.then:                                          ; preds = %sw.default
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.then
-  %div78 = udiv i8 %div.lhs.trunc, 10
-  %conv = or disjoint i8 %div78, 48
+  %div77 = udiv i8 %div.lhs.trunc, 10
+  %conv = or disjoint i8 %div77, 48
   %incdec.ptr8 = getelementptr inbounds i8, ptr %buf, i64 3
   store i8 %conv, ptr %incdec.ptr5, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then7
   %q.0 = phi ptr [ %incdec.ptr8, %if.then7 ], [ %incdec.ptr5, %if.then ]
-  %rem79 = urem i8 %div.lhs.trunc, 10
-  %conv10 = or disjoint i8 %rem79, 48
+  %rem78 = urem i8 %div.lhs.trunc, 10
+  %conv10 = or disjoint i8 %rem78, 48
   %incdec.ptr11 = getelementptr i8, ptr %q.0, i64 1
   store i8 %conv10, ptr %q.0, align 1
   %incdec.ptr12 = getelementptr i8, ptr %q.0, i64 2
@@ -300,8 +276,8 @@ if.end:                                           ; preds = %if.then, %if.then7
   br label %if.end36
 
 if.else:                                          ; preds = %sw.default
-  %13 = add i32 %keysym, -57632
-  %or.cond1 = icmp ult i32 %13, 96
+  %14 = add i32 %keysym, -57632
+  %or.cond1 = icmp ult i32 %14, 96
   br i1 %or.cond1, label %if.then18, label %if.else23
 
 if.then18:                                        ; preds = %if.else
@@ -315,9 +291,9 @@ if.then18:                                        ; preds = %if.else
   br label %if.end36
 
 if.else23:                                        ; preds = %if.else
-  %echo = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 13
-  %14 = load i32, ptr %echo, align 4
-  %tobool.not = icmp eq i32 %14, 0
+  %echo = getelementptr inbounds i8, ptr %s, i64 292
+  %15 = load i32, ptr %echo, align 4
+  %tobool.not = icmp eq i32 %15, 0
   br i1 %tobool.not, label %if.else31, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.else23
@@ -327,9 +303,9 @@ land.lhs.true24:                                  ; preds = %if.else23
   ]
 
 if.then29:                                        ; preds = %land.lhs.true24, %land.lhs.true24
-  %chr = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 18
-  %15 = load ptr, ptr %chr, align 8
-  %call = tail call i32 @qemu_chr_write(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 1, i1 noundef zeroext true) #12
+  %chr = getelementptr inbounds i8, ptr %s, i64 312
+  %16 = load ptr, ptr %chr, align 8
+  %call = tail call i32 @qemu_chr_write(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 1, i1 noundef zeroext true) #12
   %incdec.ptr30 = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 10, ptr %buf, align 16
   br label %if.end36
@@ -342,67 +318,67 @@ if.else31:                                        ; preds = %land.lhs.true24, %i
 
 if.end36:                                         ; preds = %if.then18, %if.else31, %if.then29, %if.end
   %q.1 = phi ptr [ %incdec.ptr12, %if.end ], [ %incdec.ptr22, %if.then18 ], [ %incdec.ptr30, %if.then29 ], [ %incdec.ptr33, %if.else31 ]
-  %echo37 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 13
-  %16 = load i32, ptr %echo37, align 4
-  %tobool38.not = icmp eq i32 %16, 0
+  %echo37 = getelementptr inbounds i8, ptr %s, i64 292
+  %17 = load i32, ptr %echo37, align 4
+  %tobool38.not = icmp eq i32 %17, 0
   br i1 %tobool38.not, label %if.end36.if.end45_crit_edge, label %if.then39
 
 if.end36.if.end45_crit_edge:                      ; preds = %if.end36
-  %.pre80 = ptrtoint ptr %q.1 to i64
-  %.pre81 = ptrtoint ptr %buf to i64
-  %.pre82 = sub i64 %.pre80, %.pre81
+  %.pre79 = ptrtoint ptr %q.1 to i64
+  %.pre80 = ptrtoint ptr %buf to i64
+  %.pre81 = sub i64 %.pre79, %.pre80
   br label %if.end45
 
 if.then39:                                        ; preds = %if.end36
-  %chr40 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 18
-  %17 = load ptr, ptr %chr40, align 8
+  %chr40 = getelementptr inbounds i8, ptr %s, i64 312
+  %18 = load ptr, ptr %chr40, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %q.1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv43 = trunc i64 %sub.ptr.sub to i32
-  %call44 = call i32 @qemu_chr_write(ptr noundef %17, ptr noundef nonnull %buf, i32 noundef %conv43, i1 noundef zeroext true) #12
+  %call44 = call i32 @qemu_chr_write(ptr noundef %18, ptr noundef nonnull %buf, i32 noundef %conv43, i1 noundef zeroext true) #12
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end36.if.end45_crit_edge, %if.then39
-  %sub.ptr.sub53.pre-phi = phi i64 [ %.pre82, %if.end36.if.end45_crit_edge ], [ %sub.ptr.sub, %if.then39 ]
-  %out_fifo = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 19
+  %sub.ptr.sub53.pre-phi = phi i64 [ %.pre81, %if.end36.if.end45_crit_edge ], [ %sub.ptr.sub, %if.then39 ]
+  %out_fifo = getelementptr inbounds i8, ptr %s, i64 320
   %call46 = call i32 @fifo8_num_free(ptr noundef nonnull %out_fifo) #12
   %conv49 = zext i32 %call46 to i64
   %cond = call i64 @llvm.smin.i64(i64 %sub.ptr.sub53.pre-phi, i64 %conv49)
   %conv56 = trunc i64 %cond to i32
   call void @fifo8_push_all(ptr noundef nonnull %out_fifo, ptr noundef nonnull %buf, i32 noundef %conv56) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
-  %chr.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 18
-  %18 = load ptr, ptr %chr.i, align 8
-  %call.i = call i32 @qemu_chr_be_can_write(ptr noundef %18) #12
+  %chr.i = getelementptr inbounds i8, ptr %s, i64 312
+  %19 = load ptr, ptr %chr.i, align 8
+  %call.i = call i32 @qemu_chr_be_can_write(ptr noundef %19) #12
   %call1.i = call i32 @fifo8_num_used(ptr noundef nonnull %out_fifo) #12
   %cmp10.i = icmp ne i32 %call.i, 0
   %cmp211.i = icmp ne i32 %call1.i, 0
-  %19 = select i1 %cmp10.i, i1 %cmp211.i, i1 false
-  br i1 %19, label %while.body.i, label %kbd_send_chars.exit
+  %20 = select i1 %cmp10.i, i1 %cmp211.i, i1 false
+  br i1 %20, label %while.body.i, label %kbd_send_chars.exit
 
 while.body.i:                                     ; preds = %if.end45, %while.body.i
   %len.013.i = phi i32 [ %call8.i, %while.body.i ], [ %call.i, %if.end45 ]
   %avail.012.i = phi i32 [ %sub.i, %while.body.i ], [ %call1.i, %if.end45 ]
   %cond.i = call i32 @llvm.umin.i32(i32 %len.013.i, i32 %avail.012.i)
   %call5.i = call ptr @fifo8_pop_buf(ptr noundef nonnull %out_fifo, i32 noundef %cond.i, ptr noundef nonnull %size.i) #12
-  %20 = load ptr, ptr %chr.i, align 8
-  %21 = load i32, ptr %size.i, align 4
-  call void @qemu_chr_be_write(ptr noundef %20, ptr noundef %call5.i, i32 noundef %21) #12
-  %22 = load ptr, ptr %chr.i, align 8
-  %call8.i = call i32 @qemu_chr_be_can_write(ptr noundef %22) #12
-  %23 = load i32, ptr %size.i, align 4
-  %sub.i = sub i32 %avail.012.i, %23
+  %21 = load ptr, ptr %chr.i, align 8
+  %22 = load i32, ptr %size.i, align 4
+  call void @qemu_chr_be_write(ptr noundef %21, ptr noundef %call5.i, i32 noundef %22) #12
+  %23 = load ptr, ptr %chr.i, align 8
+  %call8.i = call i32 @qemu_chr_be_can_write(ptr noundef %23) #12
+  %24 = load i32, ptr %size.i, align 4
+  %sub.i = sub i32 %avail.012.i, %24
   %cmp.i = icmp ne i32 %call8.i, 0
-  %cmp2.i77 = icmp ne i32 %sub.i, 0
-  %24 = select i1 %cmp.i, i1 %cmp2.i77, i1 false
-  br i1 %24, label %while.body.i, label %kbd_send_chars.exit, !llvm.loop !8
+  %cmp2.i76 = icmp ne i32 %sub.i, 0
+  %25 = select i1 %cmp.i, i1 %cmp2.i76, i1 false
+  br i1 %25, label %while.body.i, label %kbd_send_chars.exit, !llvm.loop !8
 
 kbd_send_chars.exit:                              ; preds = %while.body.i, %if.end45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %kbd_send_chars.exit, %console_scroll.exit76, %console_scroll.exit61, %console_scroll.exit37, %console_scroll.exit
+sw.epilog:                                        ; preds = %kbd_send_chars.exit, %console_scroll.exit75, %console_scroll.exit61, %console_scroll.exit37, %console_scroll.exit
   ret void
 }
 
@@ -443,9 +419,9 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @qemu_text_console_select(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %c, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %c, i64 232
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %c, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %c, i64 236
   %1 = load i32, ptr %height, align 4
   tail call void @dpy_text_resize(ptr noundef %call.i, i32 noundef %0, i32 noundef %1) #12
   %2 = load i8, ptr @cursor_visible_phase, align 1
@@ -495,15 +471,15 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qemu_text_console_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.QEMU_TEXT_CONSOLE) #12
-  %out_fifo = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 19
+  %out_fifo = getelementptr inbounds i8, ptr %call.i, i64 320
   tail call void @fifo8_create(ptr noundef nonnull %out_fifo, i32 noundef 16) #12
-  %total_height = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 3
+  %total_height = getelementptr inbounds i8, ptr %call.i, i64 240
   store i32 512, ptr %total_height, align 8
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %hw_ops = getelementptr inbounds %struct.QemuConsole, ptr %call.i5, i64 0, i32 12
+  %hw_ops = getelementptr inbounds i8, ptr %call.i5, i64 184
   store ptr @text_console_ops, ptr %hw_ops, align 8
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %hw = getelementptr inbounds %struct.QemuConsole, ptr %call.i6, i64 0, i32 13
+  %hw = getelementptr inbounds i8, ptr %call.i6, i64 192
   store ptr %call.i, ptr %hw, align 8
   ret void
 }
@@ -557,30 +533,30 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @text_console_update(ptr noundef %opaque, ptr nocapture noundef writeonly %chardata) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.QEMU_TEXT_CONSOLE) #12
-  %text_x = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 10
+  %text_x = getelementptr inbounds i8, ptr %call.i, i64 272
   %0 = load i32, ptr %text_x, align 8
-  %arrayidx2 = getelementptr %struct.QemuTextConsole, ptr %call.i, i64 0, i32 10, i64 1
+  %arrayidx2 = getelementptr i8, ptr %call.i, i64 276
   %1 = load i32, ptr %arrayidx2, align 4
   %cmp.not = icmp sgt i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %text_y = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 11
+  %text_y = getelementptr inbounds i8, ptr %call.i, i64 280
   %2 = load i32, ptr %text_y, align 8
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 1
-  %arrayidx11 = getelementptr %struct.QemuTextConsole, ptr %call.i, i64 0, i32 11, i64 1
+  %width = getelementptr inbounds i8, ptr %call.i, i64 232
+  %arrayidx11 = getelementptr i8, ptr %call.i, i64 284
   %3 = load i32, ptr %arrayidx11, align 4
   %cmp12.not46 = icmp sgt i32 %2, %3
   br i1 %cmp12.not46, label %for.end46, label %for.cond13.preheader.lr.ph
 
 for.cond13.preheader.lr.ph:                       ; preds = %if.then
   %4 = load i32, ptr %width, align 8
-  %cells = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 9
+  %cells = getelementptr inbounds i8, ptr %call.i, i64 264
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.cond13.preheader.preheader, label %for.cond13.preheader.lr.ph.split.us
 
 for.cond13.preheader.preheader:                   ; preds = %for.cond13.preheader.lr.ph
-  %y_base = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 8
+  %y_base = getelementptr inbounds i8, ptr %call.i, i64 260
   %6 = load i32, ptr %y_base, align 4
   %add = add i32 %2, %6
   %mul = mul i32 %add, %4
@@ -608,11 +584,11 @@ for.body16:                                       ; preds = %for.cond13.preheade
   %src.144 = phi i32 [ %inc43, %for.body16 ], [ %src.049, %for.cond13.preheader ]
   %j.043 = phi i32 [ %inc, %for.body16 ], [ 0, %for.cond13.preheader ]
   %chardata.addr.142 = phi ptr [ %incdec.ptr, %for.body16 ], [ %chardata.addr.047, %for.cond13.preheader ]
-  %incdec.ptr = getelementptr i32, ptr %chardata.addr.142, i64 1
+  %incdec.ptr = getelementptr i8, ptr %chardata.addr.142, i64 4
   %11 = load ptr, ptr %cells, align 8
   %idxprom = sext i32 %src.144 to i64
   %arrayidx17 = getelementptr %struct.TextCell, ptr %11, i64 %idxprom
-  %t_attrib = getelementptr %struct.TextCell, ptr %11, i64 %idxprom, i32 1
+  %t_attrib = getelementptr inbounds i8, ptr %arrayidx17, i64 1
   %bf.load = load i16, ptr %t_attrib, align 1
   %bf.lshr = lshr i16 %bf.load, 8
   %12 = and i16 %bf.lshr, 1
@@ -660,7 +636,7 @@ for.end46:                                        ; preds = %for.inc44, %for.con
   tail call void @dpy_text_update(ptr noundef %call.i39, i32 noundef %23, i32 noundef %24, i32 noundef %sub, i32 noundef %sub58) #12
   %26 = load i32, ptr %width, align 8
   store i32 %26, ptr %text_x, align 8
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %call.i, i64 236
   %27 = load i32, ptr %height, align 4
   store i32 %27, ptr %text_y, align 8
   store i32 0, ptr %arrayidx2, align 4
@@ -668,16 +644,16 @@ for.end46:                                        ; preds = %for.inc44, %for.con
   br label %if.end
 
 if.end:                                           ; preds = %for.end46, %entry
-  %cursor_invalidate = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 12
+  %cursor_invalidate = getelementptr inbounds i8, ptr %call.i, i64 288
   %28 = load i32, ptr %cursor_invalidate, align 8
   %tobool.not = icmp eq i32 %28, 0
   br i1 %tobool.not, label %if.end71, label %if.then68
 
 if.then68:                                        ; preds = %if.end
   %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %x = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 5
+  %x = getelementptr inbounds i8, ptr %call.i, i64 248
   %29 = load i32, ptr %x, align 8
-  %y = getelementptr inbounds %struct.QemuTextConsole, ptr %call.i, i64 0, i32 6
+  %y = getelementptr inbounds i8, ptr %call.i, i64 252
   %30 = load i32, ptr %y, align 4
   tail call void @dpy_text_cursor(ptr noundef %call.i40, i32 noundef %29, i32 noundef %30) #12
   store i32 0, ptr %cursor_invalidate, align 8
@@ -693,7 +669,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @text_console_resize(ptr noundef %t) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %t, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %scanout = getelementptr inbounds %struct.QemuConsole, ptr %call.i, i64 0, i32 4
+  %scanout = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load i32, ptr %scanout, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.end, label %if.else
@@ -703,7 +679,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %surface = getelementptr inbounds %struct.QemuConsole, ptr %call.i, i64 0, i32 3
+  %surface = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load ptr, ptr %surface, align 8
   %.val = load ptr, ptr %1, align 8
   %call.i41 = tail call i32 @pixman_image_get_width(ptr noundef %.val) #12
@@ -712,23 +688,23 @@ if.end:                                           ; preds = %entry
   %.val40 = load ptr, ptr %2, align 8
   %call.i42 = tail call i32 @pixman_image_get_height(ptr noundef %.val40) #12
   %div4 = sdiv i32 %call.i42, 16
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %t, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %t, i64 232
   %3 = load i32, ptr %width, align 8
   %cmp5 = icmp eq i32 %div, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %t, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %t, i64 236
   %4 = load i32, ptr %height, align 4
   %cmp6 = icmp eq i32 %div4, %4
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %land.lhs.true, %if.end
   store i32 %div, ptr %width, align 8
-  %height11 = getelementptr inbounds %struct.QemuTextConsole, ptr %t, i64 0, i32 2
+  %height11 = getelementptr inbounds i8, ptr %t, i64 236
   store i32 %div4, ptr %height11, align 4
   %cond = tail call i32 @llvm.smin.i32(i32 %div, i32 %3)
-  %total_height = getelementptr inbounds %struct.QemuTextConsole, ptr %t, i64 0, i32 3
+  %total_height = getelementptr inbounds i8, ptr %t, i64 240
   %5 = load i32, ptr %total_height, align 8
   %mul = mul i32 %5, %div
   %add = add i32 %mul, 1
@@ -740,7 +716,7 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
 
 for.body.lr.ph:                                   ; preds = %if.end8
   %cmp21 = icmp sgt i32 %cond, 0
-  %cells24 = getelementptr inbounds %struct.QemuTextConsole, ptr %t, i64 0, i32 9
+  %cells24 = getelementptr inbounds i8, ptr %t, i64 264
   %.pre = load i32, ptr %width, align 8
   br i1 %cmp21, label %for.body.us, label %for.body.lr.ph.split
 
@@ -777,11 +753,11 @@ for.body38.us:                                    ; preds = %if.end33.loopexit.u
   %c.248.us = phi ptr [ %incdec.ptr57.us, %for.body38.us ], [ %incdec.ptr.us, %if.end33.loopexit.us ]
   %x.147.us = phi i32 [ %inc59.us, %for.body38.us ], [ %cond, %if.end33.loopexit.us ]
   store i8 32, ptr %c.248.us, align 1
-  %t_attrib.us = getelementptr inbounds %struct.TextCell, ptr %c.248.us, i64 0, i32 1
+  %t_attrib.us = getelementptr inbounds i8, ptr %c.248.us, i64 1
   %bf.clear.us = and i16 %.compoundliteral.sroa.0.149.us, -8192
   %bf.set.us = or disjoint i16 %bf.clear.us, 7
   store i16 %bf.set.us, ptr %t_attrib.us, align 1
-  %incdec.ptr57.us = getelementptr %struct.TextCell, ptr %c.248.us, i64 1
+  %incdec.ptr57.us = getelementptr i8, ptr %c.248.us, i64 3
   %inc59.us = add nuw nsw i32 %x.147.us, 1
   %14 = load i32, ptr %width, align 8
   %cmp36.us = icmp slt i32 %inc59.us, %14
@@ -791,8 +767,8 @@ for.body31.us:                                    ; preds = %for.body31.us, %for
   %c.045.us = phi ptr [ %arrayidx.us, %for.body.us ], [ %incdec.ptr.us, %for.body31.us ]
   %c1.044.us = phi ptr [ %arrayidx27.us, %for.body.us ], [ %incdec.ptr32.us, %for.body31.us ]
   %x.043.us = phi i32 [ 0, %for.body.us ], [ %inc.us, %for.body31.us ]
-  %incdec.ptr.us = getelementptr %struct.TextCell, ptr %c.045.us, i64 1
-  %incdec.ptr32.us = getelementptr %struct.TextCell, ptr %c1.044.us, i64 1
+  %incdec.ptr.us = getelementptr i8, ptr %c.045.us, i64 3
+  %incdec.ptr32.us = getelementptr i8, ptr %c1.044.us, i64 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %c.045.us, ptr noundef nonnull align 1 dereferenceable(3) %c1.044.us, i64 3, i1 false)
   %inc.us = add nuw nsw i32 %x.043.us, 1
   %exitcond79.not = icmp eq i32 %inc.us, %cond
@@ -824,11 +800,11 @@ for.body38.us64:                                  ; preds = %for.body.us53, %for
   %c.248.us66 = phi ptr [ %arrayidx.us58, %for.body.us53 ], [ %incdec.ptr57.us71, %for.body38.us64 ]
   %x.147.us67 = phi i32 [ %cond, %for.body.us53 ], [ %inc59.us72, %for.body38.us64 ]
   store i8 32, ptr %c.248.us66, align 1
-  %t_attrib.us68 = getelementptr inbounds %struct.TextCell, ptr %c.248.us66, i64 0, i32 1
+  %t_attrib.us68 = getelementptr inbounds i8, ptr %c.248.us66, i64 1
   %bf.clear.us69 = and i16 %.compoundliteral.sroa.0.149.us65, -8192
   %bf.set.us70 = or disjoint i16 %bf.clear.us69, 7
   store i16 %bf.set.us70, ptr %t_attrib.us68, align 1
-  %incdec.ptr57.us71 = getelementptr %struct.TextCell, ptr %c.248.us66, i64 1
+  %incdec.ptr57.us71 = getelementptr i8, ptr %c.248.us66, i64 3
   %inc59.us72 = add nsw i32 %x.147.us67, 1
   %cmp36.us73 = icmp slt i32 %inc59.us72, %.pre
   br i1 %cmp36.us73, label %for.body38.us64, label %for.cond34.for.inc61_crit_edge.us75, !llvm.loop !13
@@ -839,7 +815,7 @@ for.cond34.for.inc61_crit_edge.us75:              ; preds = %for.body38.us64
   br i1 %exitcond.not, label %for.end63, label %for.body.us53, !llvm.loop !12
 
 for.end63:                                        ; preds = %for.cond34.for.inc61_crit_edge.us75, %for.inc61.us, %for.body.lr.ph.split, %if.end8
-  %cells64 = getelementptr inbounds %struct.QemuTextConsole, ptr %t, i64 0, i32 9
+  %cells64 = getelementptr inbounds i8, ptr %t, i64 264
   %17 = load ptr, ptr %cells64, align 8
   tail call void @g_free(ptr noundef %17) #12
   store ptr %call15, ptr %cells64, align 8
@@ -866,21 +842,21 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %text_x = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 10
+  %text_x = getelementptr inbounds i8, ptr %s, i64 272
   store i32 0, ptr %text_x, align 8
-  %text_y = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 11
+  %text_y = getelementptr inbounds i8, ptr %s, i64 280
   store i32 0, ptr %text_y, align 8
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %s, i64 232
   %0 = load i32, ptr %width, align 8
   %sub = add i32 %0, -1
-  %arrayidx4 = getelementptr %struct.QemuTextConsole, ptr %s, i64 0, i32 10, i64 1
+  %arrayidx4 = getelementptr i8, ptr %s, i64 276
   store i32 %sub, ptr %arrayidx4, align 4
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %s, i64 236
   %1 = load i32, ptr %height, align 4
   %sub5 = add i32 %1, -1
-  %arrayidx7 = getelementptr %struct.QemuTextConsole, ptr %s, i64 0, i32 11, i64 1
+  %arrayidx7 = getelementptr i8, ptr %s, i64 284
   store i32 %sub5, ptr %arrayidx7, align 4
-  %cursor_invalidate = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 12
+  %cursor_invalidate = getelementptr inbounds i8, ptr %s, i64 288
   store i32 1, ptr %cursor_invalidate, align 8
   %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call1.val = load ptr, ptr %call1, align 8
@@ -892,12 +868,12 @@ if.end:                                           ; preds = %entry
   store i64 -281474976710656, ptr %color.i, align 8
   %call.i35 = tail call ptr @qemu_console_surface(ptr noundef %call.i32) #12
   store i16 0, ptr %rect.i, align 2
-  %y.i = getelementptr inbounds %struct.pixman_rectangle16, ptr %rect.i, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %rect.i, i64 2
   store i16 0, ptr %y.i, align 2
-  %width2.i = getelementptr inbounds %struct.pixman_rectangle16, ptr %rect.i, i64 0, i32 2
+  %width2.i = getelementptr inbounds i8, ptr %rect.i, i64 4
   %conv3.i = trunc i32 %call.i33 to i16
   store i16 %conv3.i, ptr %width2.i, align 2
-  %height4.i = getelementptr inbounds %struct.pixman_rectangle16, ptr %rect.i, i64 0, i32 3
+  %height4.i = getelementptr inbounds i8, ptr %rect.i, i64 6
   %conv5.i = trunc i32 %call.i34 to i16
   store i16 %conv5.i, ptr %height4.i, align 2
   %tobool.not.i = icmp eq ptr %call.i35, null
@@ -917,14 +893,14 @@ qemu_console_fill_rect.exit:                      ; preds = %if.end
   br i1 %cmp46, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %qemu_console_fill_rect.exit
-  %cells = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 9
-  %total_height = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 3
+  %cells = getelementptr inbounds i8, ptr %s, i64 264
+  %total_height = getelementptr inbounds i8, ptr %s, i64 240
   %4 = load i32, ptr %width, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.body.preheader, label %for.end25
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %y_displayed = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 7
+  %y_displayed = getelementptr inbounds i8, ptr %s, i64 256
   %6 = load i32, ptr %y_displayed, align 8
   br label %for.body
 
@@ -960,7 +936,7 @@ if.else.i39:                                      ; preds = %for.body16
   unreachable
 
 if.end.i:                                         ; preds = %for.body16
-  %t_attrib = getelementptr inbounds %struct.TextCell, ptr %c.044, i64 0, i32 1
+  %t_attrib = getelementptr inbounds i8, ptr %c.044, i64 1
   %bf.load.i = load i16, ptr %t_attrib, align 1
   %11 = and i16 %bf.load.i, 2048
   %tobool1.not.i = icmp eq i16 %11, 0
@@ -997,7 +973,7 @@ vga_putcharxy.exit:                               ; preds = %if.end.i, %if.then5
   call void @qemu_pixman_glyph_render(ptr noundef %17, ptr noundef %18, ptr noundef nonnull %fgcol.i, ptr noundef nonnull %bgcol.i, i32 noundef %x.045, i32 noundef %y.047, i32 noundef 8, i32 noundef 16) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fgcol.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bgcol.i)
-  %incdec.ptr = getelementptr %struct.TextCell, ptr %c.044, i64 1
+  %incdec.ptr = getelementptr i8, ptr %c.044, i64 3
   %inc = add nuw nsw i32 %x.045, 1
   %19 = load i32, ptr %width, align 8
   %cmp15 = icmp slt i32 %inc, %19
@@ -1101,36 +1077,36 @@ if.end56:                                         ; preds = %if.then52, %if.end
 define internal fastcc void @console_show_cursor(ptr noundef %s, i32 noundef %show) unnamed_addr #0 {
 entry:
   %t_attrib = alloca %struct.TextAttributes, align 2
-  %x1 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 5
+  %x1 = getelementptr inbounds i8, ptr %s, i64 248
   %0 = load i32, ptr %x1, align 8
-  %cursor_invalidate = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 12
+  %cursor_invalidate = getelementptr inbounds i8, ptr %s, i64 288
   store i32 1, ptr %cursor_invalidate, align 8
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %s, i64 232
   %1 = load i32, ptr %width, align 8
   %cmp.not = icmp slt i32 %0, %1
   %sub = add i32 %1, -1
   %spec.select = select i1 %cmp.not, i32 %0, i32 %sub
-  %y_base = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 8
+  %y_base = getelementptr inbounds i8, ptr %s, i64 260
   %2 = load i32, ptr %y_base, align 4
-  %y3 = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 6
+  %y3 = getelementptr inbounds i8, ptr %s, i64 252
   %3 = load i32, ptr %y3, align 4
   %add = add i32 %3, %2
-  %total_height = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 3
+  %total_height = getelementptr inbounds i8, ptr %s, i64 240
   %4 = load i32, ptr %total_height, align 8
   %rem = srem i32 %add, %4
-  %y_displayed = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 7
+  %y_displayed = getelementptr inbounds i8, ptr %s, i64 256
   %5 = load i32, ptr %y_displayed, align 8
   %sub4 = sub i32 %rem, %5
   %cmp5 = icmp slt i32 %sub4, 0
   %add8 = select i1 %cmp5, i32 %4, i32 0
   %y.0 = add i32 %add8, %sub4
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %s, i64 236
   %6 = load i32, ptr %height, align 4
   %cmp10 = icmp slt i32 %y.0, %6
   br i1 %cmp10, label %if.then11, label %if.end25
 
 if.then11:                                        ; preds = %entry
-  %cells = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 9
+  %cells = getelementptr inbounds i8, ptr %s, i64 264
   %7 = load ptr, ptr %cells, align 8
   %mul = mul i32 %rem, %1
   %add13 = add i32 %mul, %spec.select
@@ -1157,8 +1133,8 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %11 = load i8, ptr %arrayidx, align 1
   %conv22 = zext i8 %11 to i32
-  %t_attrib23 = getelementptr %struct.TextCell, ptr %7, i64 %idxprom, i32 1
-  tail call fastcc void @vga_putcharxy(ptr noundef %call.i28, i32 noundef %spec.select, i32 noundef %y.0, i32 noundef %conv22, ptr noundef %t_attrib23)
+  %t_attrib23 = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  tail call fastcc void @vga_putcharxy(ptr noundef %call.i28, i32 noundef %spec.select, i32 noundef %y.0, i32 noundef %conv22, ptr noundef nonnull %t_attrib23)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then15
@@ -1167,7 +1143,7 @@ if.end24:                                         ; preds = %if.else, %if.then15
   br i1 %call1.i, label %if.end.i, label %if.end25
 
 if.end.i:                                         ; preds = %if.end24
-  %update_x0.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 14
+  %update_x0.i = getelementptr inbounds i8, ptr %s, i64 296
   %12 = load i32, ptr %update_x0.i, align 8
   %mul.i = shl i32 %spec.select, 3
   %cmp.i = icmp sgt i32 %12, %mul.i
@@ -1178,7 +1154,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %update_y0.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 15
+  %update_y0.i = getelementptr inbounds i8, ptr %s, i64 300
   %13 = load i32, ptr %update_y0.i, align 4
   %mul6.i = shl i32 %y.0, 4
   %cmp7.i = icmp sgt i32 %13, %mul6.i
@@ -1189,7 +1165,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.end5.i
-  %update_x1.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 16
+  %update_x1.i = getelementptr inbounds i8, ptr %s, i64 304
   %14 = load i32, ptr %update_x1.i, align 8
   %mul12.i = add i32 %mul.i, 8
   %cmp13.i = icmp slt i32 %14, %mul12.i
@@ -1200,7 +1176,7 @@ if.then14.i:                                      ; preds = %if.end11.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then14.i, %if.end11.i
-  %update_y1.i = getelementptr inbounds %struct.QemuTextConsole, ptr %s, i64 0, i32 17
+  %update_y1.i = getelementptr inbounds i8, ptr %s, i64 308
   %15 = load i32, ptr %update_y1.i, align 4
   %mul20.i = add i32 %mul6.i, 16
   %cmp21.i = icmp slt i32 %15, %mul20.i
@@ -1288,15 +1264,15 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 define internal void @char_vc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #12
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @vc_chr_parse, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @vc_chr_open, ptr %open, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @vc_chr_write, ptr %chr_write, align 8
-  %chr_accept_input = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 15
+  %chr_accept_input = getelementptr inbounds i8, ptr %call.i, i64 200
   store ptr @vc_chr_accept_input, ptr %chr_accept_input, align 8
-  %chr_set_echo = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 16
+  %chr_set_echo = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @vc_chr_set_echo, ptr %chr_set_echo, align 8
   ret void
 }
@@ -1306,7 +1282,7 @@ define internal void @vc_chr_parse(ptr noundef %opts, ptr nocapture noundef writ
 entry:
   store i32 16, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #13
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call) #12
   %call2 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.13, i64 noundef 0) #12
@@ -1315,11 +1291,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %has_width = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 3
+  %has_width = getelementptr inbounds i8, ptr %call, i64 10
   store i8 1, ptr %has_width, align 2
   %sext = shl i64 %call2, 32
   %conv4 = ashr exact i64 %sext, 32
-  %width = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 4
+  %width = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %conv4, ptr %width, align 8
   br label %if.end
 
@@ -1330,11 +1306,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp7.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %has_height = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 5
+  %has_height = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %has_height, align 8
   %sext21 = shl i64 %call5, 32
   %conv10 = ashr exact i64 %sext21, 32
-  %height = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 6
+  %height = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %conv10, ptr %height, align 8
   br label %if.end11
 
@@ -1345,11 +1321,11 @@ if.end11:                                         ; preds = %if.then9, %if.end
   br i1 %cmp14.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.end11
-  %has_cols = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 7
+  %has_cols = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %has_cols, align 8
   %sext22 = shl i64 %call12, 32
   %conv17 = ashr exact i64 %sext22, 32
-  %cols = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 8
+  %cols = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %conv17, ptr %cols, align 8
   br label %if.end18
 
@@ -1360,11 +1336,11 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp21.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end18
-  %has_rows = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 9
+  %has_rows = getelementptr inbounds i8, ptr %call, i64 56
   store i8 1, ptr %has_rows, align 8
   %sext23 = shl i64 %call19, 32
   %conv24 = ashr exact i64 %sext23, 32
-  %rows = getelementptr inbounds %struct.ChardevVC, ptr %call, i64 0, i32 10
+  %rows = getelementptr inbounds i8, ptr %call, i64 64
   store i64 %conv24, ptr %rows, align 8
   br label %if.end25
 
@@ -1376,30 +1352,30 @@ if.end25:                                         ; preds = %if.then23, %if.end1
 define internal void @vc_chr_open(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr nocapture readnone %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
-  %has_width = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 3
+  %has_width = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %has_width, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %width1 = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 4
+  %width1 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %width1, align 8
   %conv = trunc i64 %3 to i32
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %has_cols = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 7
+  %has_cols = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %has_cols, align 8
   %5 = and i8 %4, 1
   %tobool2.not = icmp eq i8 %5, 0
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %cols = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 8
+  %cols = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i64, ptr %cols, align 8
   %.tr = trunc i64 %6 to i32
   %conv4 = shl i32 %.tr, 3
@@ -1407,27 +1383,27 @@ if.then3:                                         ; preds = %if.else
 
 if.end5:                                          ; preds = %if.else, %if.then3, %if.then
   %width.0 = phi i32 [ %conv, %if.then ], [ %conv4, %if.then3 ], [ 0, %if.else ]
-  %has_height = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 5
+  %has_height = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i8, ptr %has_height, align 8
   %8 = and i8 %7, 1
   %tobool6.not = icmp eq i8 %8, 0
   br i1 %tobool6.not, label %if.else10, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %height8 = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 6
+  %height8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i64, ptr %height8, align 8
   %conv9 = trunc i64 %9 to i32
   br label %if.end16
 
 if.else10:                                        ; preds = %if.end5
-  %has_rows = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 9
+  %has_rows = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i8, ptr %has_rows, align 8
   %11 = and i8 %10, 1
   %tobool11.not = icmp eq i8 %11, 0
   br i1 %tobool11.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %if.else10
-  %rows = getelementptr inbounds %struct.ChardevVC, ptr %0, i64 0, i32 10
+  %rows = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load i64, ptr %rows, align 8
   %.tr36 = trunc i64 %12 to i32
   %conv14 = shl i32 %.tr36, 4
@@ -1459,7 +1435,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %18 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, i32 noundef %width.0, i32 noundef %height.0) #12
   br label %trace_console_txt_new.exit
@@ -1494,14 +1470,14 @@ if.end28:                                         ; preds = %if.else25, %if.then
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef %s.0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call30 = tail call ptr @qemu_create_displaysurface(i32 noundef %width.1, i32 noundef %height.1) #12
   tail call void @dpy_gfx_replace_surface(ptr noundef %call.i39, ptr noundef %call30) #12
-  %chr31 = getelementptr inbounds %struct.QemuTextConsole, ptr %s.0, i64 0, i32 18
+  %chr31 = getelementptr inbounds i8, ptr %s.0, i64 312
   store ptr %chr, ptr %chr31, align 8
-  %console = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 1
+  %console = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %s.0, ptr %console, align 8
-  %t_attrib = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 5
+  %t_attrib = getelementptr inbounds i8, ptr %call.i, i64 180
   store i16 7, ptr %t_attrib, align 4
   tail call fastcc void @text_console_resize(ptr noundef %s.0)
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %20 = load ptr, ptr %label, align 8
   %tobool50.not = icmp eq ptr %20, null
   br i1 %tobool50.not, label %if.end84, label %if.then51
@@ -1532,36 +1508,36 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %response.i = alloca [40 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
-  %console = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 1
+  %console = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %console, align 8
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load i32, ptr %width, align 8
   %mul = shl i32 %1, 3
-  %update_x0 = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 14
+  %update_x0 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 %mul, ptr %update_x0, align 8
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %0, i64 236
   %2 = load i32, ptr %height, align 4
   %mul1 = shl i32 %2, 4
-  %update_y0 = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 15
+  %update_y0 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 %mul1, ptr %update_y0, align 4
-  %update_x1 = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 16
+  %update_x1 = getelementptr inbounds i8, ptr %0, i64 304
   store i32 0, ptr %update_x1, align 8
-  %update_y1 = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 17
+  %update_y1 = getelementptr inbounds i8, ptr %0, i64 308
   store i32 0, ptr %update_y1, align 4
   tail call fastcc void @console_show_cursor(ptr noundef %0, i32 noundef 0)
-  %cmp97 = icmp sgt i32 %len, 0
-  br i1 %cmp97, label %for.body.lr.ph, label %for.end
+  %cmp98 = icmp sgt i32 %len, 0
+  br i1 %cmp98, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %state.i = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 2
-  %nb_esc_params37.i = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 4
-  %esc_params60.i = getelementptr %struct.VCChardev, ptr %call.i, i64 0, i32 3
-  %arrayidx63.i = getelementptr %struct.VCChardev, ptr %call.i, i64 0, i32 3, i64 1
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %x_saved245.i = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 6
-  %y_saved247.i = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 7
-  %t_attrib6.i.i24 = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 5
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %nb_esc_params37.i = getelementptr inbounds i8, ptr %call.i, i64 176
+  %esc_params60.i = getelementptr inbounds i8, ptr %call.i, i64 164
+  %arrayidx63.i = getelementptr i8, ptr %call.i, i64 168
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %x_saved245.i = getelementptr inbounds i8, ptr %call.i, i64 184
+  %y_saved247.i = getelementptr inbounds i8, ptr %call.i, i64 188
+  %t_attrib6.i.i24 = getelementptr inbounds i8, ptr %call.i, i64 180
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %wide.trip.count = zext nneg i32 %len to i64
   br label %for.body
 
@@ -1592,7 +1568,7 @@ sw.bb.i:                                          ; preds = %for.body
   ]
 
 sw.bb1.i:                                         ; preds = %sw.bb.i
-  %x2.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x2.i = getelementptr inbounds i8, ptr %4, i64 248
   store i32 0, ptr %x2.i, align 8
   br label %vc_putchar.exit
 
@@ -1601,7 +1577,7 @@ sw.bb3.i:                                         ; preds = %sw.bb.i
   br label %vc_putchar.exit
 
 sw.bb4.i:                                         ; preds = %sw.bb.i
-  %x5.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x5.i = getelementptr inbounds i8, ptr %4, i64 248
   %6 = load i32, ptr %x5.i, align 8
   %cmp.i = icmp sgt i32 %6, 0
   br i1 %cmp.i, label %if.then.i, label %vc_putchar.exit
@@ -1612,12 +1588,12 @@ if.then.i:                                        ; preds = %sw.bb4.i
   br label %vc_putchar.exit
 
 sw.bb7.i:                                         ; preds = %sw.bb.i
-  %x8.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x8.i = getelementptr inbounds i8, ptr %4, i64 248
   %7 = load i32, ptr %x8.i, align 8
   %rem.i = srem i32 %7, 8
   %reass.sub.i = sub i32 %7, %rem.i
   %add.i = add i32 %reass.sub.i, 8
-  %width.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %4, i64 232
   %8 = load i32, ptr %width.i, align 8
   %cmp10.i = icmp sgt i32 %add.i, %8
   br i1 %cmp10.i, label %if.then11.i, label %if.else.i
@@ -1637,9 +1613,9 @@ sw.bb23.i:                                        ; preds = %sw.bb.i
   br label %vc_putchar.exit
 
 sw.default.i:                                     ; preds = %sw.bb.i
-  %x.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x.i.i = getelementptr inbounds i8, ptr %4, i64 248
   %9 = load i32, ptr %x.i.i, align 8
-  %width.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
+  %width.i.i = getelementptr inbounds i8, ptr %4, i64 232
   %10 = load i32, ptr %width.i.i, align 8
   %cmp.not.i.i = icmp slt i32 %9, %10
   br i1 %cmp.not.i.i, label %vc_put_one.exit.i, label %if.then.i.i
@@ -1655,22 +1631,22 @@ if.then.i.i:                                      ; preds = %sw.default.i
 vc_put_one.exit.i:                                ; preds = %if.then.i.i, %sw.default.i
   %11 = phi i32 [ %.pre17.i.i, %if.then.i.i ], [ %9, %sw.default.i ]
   %12 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %10, %sw.default.i ]
-  %y_base.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 8
+  %y_base.i.i = getelementptr inbounds i8, ptr %4, i64 260
   %13 = load i32, ptr %y_base.i.i, align 4
-  %y.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y.i.i = getelementptr inbounds i8, ptr %4, i64 252
   %14 = load i32, ptr %y.i.i, align 4
   %add.i.i = add i32 %14, %13
-  %total_height.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 3
+  %total_height.i.i = getelementptr inbounds i8, ptr %4, i64 240
   %15 = load i32, ptr %total_height.i.i, align 8
   %rem.i.i = srem i32 %add.i.i, %15
-  %cells.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 9
+  %cells.i.i = getelementptr inbounds i8, ptr %4, i64 264
   %16 = load ptr, ptr %cells.i.i, align 8
   %mul.i.i = mul i32 %rem.i.i, %12
   %add4.i.i = add i32 %mul.i.i, %11
   %idxprom.i.i = sext i32 %add4.i.i to i64
   %arrayidx.i.i = getelementptr %struct.TextCell, ptr %16, i64 %idxprom.i.i
   store i8 %3, ptr %arrayidx.i.i, align 1
-  %t_attrib.i.i = getelementptr %struct.TextCell, ptr %16, i64 %idxprom.i.i, i32 1
+  %t_attrib.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
   %17 = load i16, ptr %t_attrib6.i.i24, align 4
   store i16 %17, ptr %t_attrib.i.i, align 1
   %18 = load i32, ptr %x.i.i, align 8
@@ -1684,9 +1660,9 @@ vc_put_one.exit.i:                                ; preds = %if.then.i.i, %sw.de
 
 sw.bb25.i:                                        ; preds = %for.body
   %cmp26.i = icmp eq i8 %3, 91
-  br i1 %cmp26.i, label %for.body.preheader.i, label %if.else30.i
+  br i1 %cmp26.i, label %for.cond.preheader.i, label %if.else30.i
 
-for.body.preheader.i:                             ; preds = %sw.bb25.i
+for.cond.preheader.i:                             ; preds = %sw.bb25.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %esc_params60.i, i8 0, i64 16, i1 false)
   store i32 2, ptr %state.i, align 8
   br label %vc_putchar.exit
@@ -1707,7 +1683,7 @@ if.then36.i:                                      ; preds = %sw.bb33.i
 
 if.then39.i:                                      ; preds = %if.then36.i
   %idxprom42.i = sext i32 %22 to i64
-  %arrayidx43.i = getelementptr %struct.VCChardev, ptr %call.i, i64 0, i32 3, i64 %idxprom42.i
+  %arrayidx43.i = getelementptr [3 x i32], ptr %esc_params60.i, i64 0, i64 %idxprom42.i
   %23 = load i32, ptr %arrayidx43.i, align 4
   %sub45.i = sub nuw i32 -2147483601, %conv
   %div.i = udiv i32 %sub45.i, 10
@@ -1797,14 +1773,14 @@ if.then70.i:                                      ; preds = %sw.bb66.i
 
 if.end73.i:                                       ; preds = %if.then70.i, %sw.bb66.i
   %36 = phi i32 [ 1, %if.then70.i ], [ %35, %sw.bb66.i ]
-  %x74.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x74.i = getelementptr inbounds i8, ptr %4, i64 248
   %37 = load i32, ptr %x74.i, align 8
-  %y75.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y75.i = getelementptr inbounds i8, ptr %4, i64 252
   %38 = load i32, ptr %y75.i, align 4
   %sub78.i = sub i32 %38, %36
   %vc.val151.i = load ptr, ptr %console, align 8
-  %width.i157.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val151.i, i64 0, i32 1
-  %x13.i.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val151.i, i64 0, i32 5
+  %width.i157.i = getelementptr inbounds i8, ptr %vc.val151.i, i64 232
+  %x13.i.i = getelementptr inbounds i8, ptr %vc.val151.i, i64 248
   %39 = insertelement <2 x i32> poison, i32 %37, i64 0
   %40 = insertelement <2 x i32> %39, i32 %sub78.i, i64 1
   %41 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %40, <2 x i32> zeroinitializer)
@@ -1826,14 +1802,14 @@ if.then83.i:                                      ; preds = %sw.bb79.i
 
 if.end86.i:                                       ; preds = %if.then83.i, %sw.bb79.i
   %47 = phi i32 [ 1, %if.then83.i ], [ %46, %sw.bb79.i ]
-  %x87.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x87.i = getelementptr inbounds i8, ptr %4, i64 248
   %48 = load i32, ptr %x87.i, align 8
-  %y88.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y88.i = getelementptr inbounds i8, ptr %4, i64 252
   %49 = load i32, ptr %y88.i, align 4
   %add91.i = add i32 %49, %47
   %vc.val152.i = load ptr, ptr %console, align 8
-  %width.i164.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val152.i, i64 0, i32 1
-  %x13.i168.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val152.i, i64 0, i32 5
+  %width.i164.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 232
+  %x13.i168.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 248
   %50 = insertelement <2 x i32> poison, i32 %48, i64 0
   %51 = insertelement <2 x i32> %50, i32 %add91.i, i64 1
   %52 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %51, <2 x i32> zeroinitializer)
@@ -1855,14 +1831,14 @@ if.then96.i:                                      ; preds = %sw.bb92.i
 
 if.end99.i:                                       ; preds = %if.then96.i, %sw.bb92.i
   %58 = phi i32 [ 1, %if.then96.i ], [ %57, %sw.bb92.i ]
-  %x100.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x100.i = getelementptr inbounds i8, ptr %4, i64 248
   %59 = load i32, ptr %x100.i, align 8
   %add103.i = add i32 %59, %58
-  %y104.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y104.i = getelementptr inbounds i8, ptr %4, i64 252
   %60 = load i32, ptr %y104.i, align 4
   %vc.val153.i = load ptr, ptr %console, align 8
-  %width.i176.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val153.i, i64 0, i32 1
-  %x13.i180.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val153.i, i64 0, i32 5
+  %width.i176.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 232
+  %x13.i180.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 248
   %61 = insertelement <2 x i32> poison, i32 %add103.i, i64 0
   %62 = insertelement <2 x i32> %61, i32 %60, i64 1
   %63 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %62, <2 x i32> zeroinitializer)
@@ -1884,14 +1860,14 @@ if.then109.i:                                     ; preds = %sw.bb105.i
 
 if.end112.i:                                      ; preds = %if.then109.i, %sw.bb105.i
   %69 = phi i32 [ 1, %if.then109.i ], [ %68, %sw.bb105.i ]
-  %x113.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x113.i = getelementptr inbounds i8, ptr %4, i64 248
   %70 = load i32, ptr %x113.i, align 8
   %sub116.i = sub i32 %70, %69
-  %y117.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y117.i = getelementptr inbounds i8, ptr %4, i64 252
   %71 = load i32, ptr %y117.i, align 4
   %vc.val154.i = load ptr, ptr %console, align 8
-  %width.i188.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val154.i, i64 0, i32 1
-  %x13.i192.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val154.i, i64 0, i32 5
+  %width.i188.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 232
+  %x13.i192.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 248
   %72 = insertelement <2 x i32> poison, i32 %sub116.i, i64 0
   %73 = insertelement <2 x i32> %72, i32 %71, i64 1
   %74 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %73, <2 x i32> zeroinitializer)
@@ -1905,11 +1881,11 @@ if.end112.i:                                      ; preds = %if.then109.i, %sw.b
 sw.bb118.i:                                       ; preds = %trace_console_putchar_csi.exit.i
   %79 = load i32, ptr %esc_params60.i, align 4
   %sub121.i = add i32 %79, -1
-  %y122.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y122.i = getelementptr inbounds i8, ptr %4, i64 252
   %80 = load i32, ptr %y122.i, align 4
   %vc.val155.i = load ptr, ptr %console, align 8
-  %width.i200.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val155.i, i64 0, i32 1
-  %x13.i204.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val155.i, i64 0, i32 5
+  %width.i200.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 232
+  %x13.i204.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 248
   %81 = insertelement <2 x i32> poison, i32 %sub121.i, i64 0
   %82 = insertelement <2 x i32> %81, i32 %80, i64 1
   %83 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %82, <2 x i32> zeroinitializer)
@@ -1922,8 +1898,8 @@ sw.bb118.i:                                       ; preds = %trace_console_putch
 
 sw.bb123.i:                                       ; preds = %trace_console_putchar_csi.exit.i, %trace_console_putchar_csi.exit.i
   %vc.val156.i = load ptr, ptr %console, align 8
-  %width.i212.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val156.i, i64 0, i32 1
-  %x13.i216.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.val156.i, i64 0, i32 5
+  %width.i212.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 232
+  %x13.i216.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 248
   %88 = load <2 x i32>, ptr %esc_params60.i, align 4
   %89 = add <2 x i32> %88, <i32 -1, i32 -1>
   %90 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %89, <2 x i32> zeroinitializer)
@@ -1944,41 +1920,41 @@ sw.bb130.i:                                       ; preds = %trace_console_putch
   ]
 
 for.cond178.preheader.i:                          ; preds = %sw.bb130.i
-  %height179.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 2
+  %height179.i = getelementptr inbounds i8, ptr %4, i64 236
   %97 = load i32, ptr %height179.i, align 4
   %cmp180.not310.i = icmp slt i32 %97, 0
   br i1 %cmp180.not310.i, label %vc_putchar.exit, label %for.cond182.preheader.lr.ph.i
 
 for.cond182.preheader.lr.ph.i:                    ; preds = %for.cond178.preheader.i
-  %width183.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
+  %width183.i = getelementptr inbounds i8, ptr %4, i64 232
   %98 = load i32, ptr %width183.i, align 8
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %for.cond182.preheader.i, label %vc_putchar.exit
 
 for.cond156.preheader.i:                          ; preds = %sw.bb130.i
-  %y157.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y157.i = getelementptr inbounds i8, ptr %4, i64 252
   %100 = load i32, ptr %y157.i, align 4
   %cmp158.not314.i = icmp slt i32 %100, 0
   br i1 %cmp158.not314.i, label %vc_putchar.exit, label %for.cond160.preheader.lr.ph.i
 
 for.cond160.preheader.lr.ph.i:                    ; preds = %for.cond156.preheader.i
-  %x167.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
-  %width161.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
+  %x167.i = getelementptr inbounds i8, ptr %4, i64 248
+  %width161.i = getelementptr inbounds i8, ptr %4, i64 232
   %101 = load i32, ptr %width161.i, align 8
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %for.cond160.preheader.i, label %vc_putchar.exit
 
 sw.bb133.i:                                       ; preds = %sw.bb130.i
-  %y134.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y134.i = getelementptr inbounds i8, ptr %4, i64 252
   %103 = load i32, ptr %y134.i, align 4
-  %height.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %4, i64 236
   %104 = load i32, ptr %height.i, align 4
   %cmp136318.i = icmp slt i32 %103, %104
   br i1 %cmp136318.i, label %for.cond138.preheader.lr.ph.i, label %vc_putchar.exit
 
 for.cond138.preheader.lr.ph.i:                    ; preds = %sw.bb133.i
-  %width139.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
-  %x145.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %width139.i = getelementptr inbounds i8, ptr %4, i64 232
+  %x145.i = getelementptr inbounds i8, ptr %4, i64 248
   %105 = load i32, ptr %width139.i, align 8
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %for.cond138.preheader.i, label %vc_putchar.exit
@@ -2005,25 +1981,25 @@ land.lhs.true144.i:                               ; preds = %for.body141.i
 
 if.end148.i:                                      ; preds = %land.lhs.true144.i, %for.body141.i
   %113 = load ptr, ptr %console, align 8
-  %y_base.i219.i = getelementptr inbounds %struct.QemuTextConsole, ptr %113, i64 0, i32 8
+  %y_base.i219.i = getelementptr inbounds i8, ptr %113, i64 260
   %114 = load i32, ptr %y_base.i219.i, align 4
-  %total_height.i220.i = getelementptr inbounds %struct.QemuTextConsole, ptr %113, i64 0, i32 3
+  %total_height.i220.i = getelementptr inbounds i8, ptr %113, i64 240
   %115 = load i32, ptr %total_height.i220.i, align 8
-  %width.i221.i = getelementptr inbounds %struct.QemuTextConsole, ptr %113, i64 0, i32 1
+  %width.i221.i = getelementptr inbounds i8, ptr %113, i64 232
   %116 = load i32, ptr %width.i221.i, align 8
   %cmp.not.i222.i = icmp sgt i32 %116, %x.0317.i
   %sub.i223.i = add i32 %116, -1
   %spec.select.i224.i = select i1 %cmp.not.i222.i, i32 %x.0317.i, i32 %sub.i223.i
   %add.i225.i = add i32 %114, %y.0319.i
   %rem.i226.i = srem i32 %add.i225.i, %115
-  %cells.i227.i = getelementptr inbounds %struct.QemuTextConsole, ptr %113, i64 0, i32 9
+  %cells.i227.i = getelementptr inbounds i8, ptr %113, i64 264
   %117 = load ptr, ptr %cells.i227.i, align 8
   %mul.i228.i = mul i32 %rem.i226.i, %116
   %add3.i.i = add i32 %mul.i228.i, %spec.select.i224.i
   %idxprom.i229.i = sext i32 %add3.i.i to i64
   %arrayidx.i230.i = getelementptr %struct.TextCell, ptr %117, i64 %idxprom.i229.i
   store i8 32, ptr %arrayidx.i230.i, align 1
-  %t_attrib.i231.i = getelementptr %struct.TextCell, ptr %117, i64 %idxprom.i229.i, i32 1
+  %t_attrib.i231.i = getelementptr inbounds i8, ptr %arrayidx.i230.i, i64 1
   store i16 7, ptr %t_attrib.i231.i, align 1
   %vc.val.i232.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i232.i, i32 noundef %spec.select.i224.i, i32 noundef %y.0319.i)
@@ -2069,25 +2045,25 @@ land.lhs.true166.i:                               ; preds = %for.body163.i
 
 if.end170.i:                                      ; preds = %land.lhs.true166.i, %for.body163.i
   %127 = load ptr, ptr %console, align 8
-  %y_base.i234.i = getelementptr inbounds %struct.QemuTextConsole, ptr %127, i64 0, i32 8
+  %y_base.i234.i = getelementptr inbounds i8, ptr %127, i64 260
   %128 = load i32, ptr %y_base.i234.i, align 4
-  %total_height.i235.i = getelementptr inbounds %struct.QemuTextConsole, ptr %127, i64 0, i32 3
+  %total_height.i235.i = getelementptr inbounds i8, ptr %127, i64 240
   %129 = load i32, ptr %total_height.i235.i, align 8
-  %width.i236.i = getelementptr inbounds %struct.QemuTextConsole, ptr %127, i64 0, i32 1
+  %width.i236.i = getelementptr inbounds i8, ptr %127, i64 232
   %130 = load i32, ptr %width.i236.i, align 8
   %cmp.not.i237.i = icmp sgt i32 %130, %x.1313.i
   %sub.i238.i = add i32 %130, -1
   %spec.select.i239.i = select i1 %cmp.not.i237.i, i32 %x.1313.i, i32 %sub.i238.i
   %add.i240.i = add i32 %128, %y.1315.i
   %rem.i241.i = srem i32 %add.i240.i, %129
-  %cells.i242.i = getelementptr inbounds %struct.QemuTextConsole, ptr %127, i64 0, i32 9
+  %cells.i242.i = getelementptr inbounds i8, ptr %127, i64 264
   %131 = load ptr, ptr %cells.i242.i, align 8
   %mul.i243.i = mul i32 %rem.i241.i, %130
   %add3.i244.i = add i32 %mul.i243.i, %spec.select.i239.i
   %idxprom.i245.i = sext i32 %add3.i244.i to i64
   %arrayidx.i246.i = getelementptr %struct.TextCell, ptr %131, i64 %idxprom.i245.i
   store i8 32, ptr %arrayidx.i246.i, align 1
-  %t_attrib.i247.i = getelementptr %struct.TextCell, ptr %131, i64 %idxprom.i245.i, i32 1
+  %t_attrib.i247.i = getelementptr inbounds i8, ptr %arrayidx.i246.i, i64 1
   store i16 7, ptr %t_attrib.i247.i, align 1
   %vc.val.i248.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i248.i, i32 noundef %spec.select.i239.i, i32 noundef %y.1315.i)
@@ -2117,25 +2093,25 @@ for.cond182.preheader.i:                          ; preds = %for.cond182.prehead
 for.body185.i:                                    ; preds = %for.cond182.preheader.i, %for.body185.i
   %x.2309.i = phi i32 [ %inc187.i, %for.body185.i ], [ 0, %for.cond182.preheader.i ]
   %137 = load ptr, ptr %console, align 8
-  %y_base.i250.i = getelementptr inbounds %struct.QemuTextConsole, ptr %137, i64 0, i32 8
+  %y_base.i250.i = getelementptr inbounds i8, ptr %137, i64 260
   %138 = load i32, ptr %y_base.i250.i, align 4
-  %total_height.i251.i = getelementptr inbounds %struct.QemuTextConsole, ptr %137, i64 0, i32 3
+  %total_height.i251.i = getelementptr inbounds i8, ptr %137, i64 240
   %139 = load i32, ptr %total_height.i251.i, align 8
-  %width.i252.i = getelementptr inbounds %struct.QemuTextConsole, ptr %137, i64 0, i32 1
+  %width.i252.i = getelementptr inbounds i8, ptr %137, i64 232
   %140 = load i32, ptr %width.i252.i, align 8
   %cmp.not.i253.i = icmp sgt i32 %140, %x.2309.i
   %sub.i254.i = add i32 %140, -1
   %spec.select.i255.i = select i1 %cmp.not.i253.i, i32 %x.2309.i, i32 %sub.i254.i
   %add.i256.i = add i32 %138, %y.2311.i
   %rem.i257.i = srem i32 %add.i256.i, %139
-  %cells.i258.i = getelementptr inbounds %struct.QemuTextConsole, ptr %137, i64 0, i32 9
+  %cells.i258.i = getelementptr inbounds i8, ptr %137, i64 264
   %141 = load ptr, ptr %cells.i258.i, align 8
   %mul.i259.i = mul i32 %rem.i257.i, %140
   %add3.i260.i = add i32 %mul.i259.i, %spec.select.i255.i
   %idxprom.i261.i = sext i32 %add3.i260.i to i64
   %arrayidx.i262.i = getelementptr %struct.TextCell, ptr %141, i64 %idxprom.i261.i
   store i8 32, ptr %arrayidx.i262.i, align 1
-  %t_attrib.i263.i = getelementptr %struct.TextCell, ptr %141, i64 %idxprom.i261.i, i32 1
+  %t_attrib.i263.i = getelementptr inbounds i8, ptr %arrayidx.i262.i, i64 1
   store i16 7, ptr %t_attrib.i263.i, align 1
   %vc.val.i264.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i264.i, i32 noundef %spec.select.i255.i, i32 noundef %y.2311.i)
@@ -2164,61 +2140,61 @@ sw.bb193.i:                                       ; preds = %trace_console_putch
   ]
 
 for.cond218.preheader.i:                          ; preds = %sw.bb193.i
-  %width219.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
+  %width219.i = getelementptr inbounds i8, ptr %4, i64 232
   %146 = load i32, ptr %width219.i, align 8
   %cmp220302.i = icmp sgt i32 %146, 0
   br i1 %cmp220302.i, label %for.body221.lr.ph.i, label %vc_putchar.exit
 
 for.body221.lr.ph.i:                              ; preds = %for.cond218.preheader.i
-  %y222.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y222.i = getelementptr inbounds i8, ptr %4, i64 252
   br label %for.body221.i
 
 for.cond207.preheader.i:                          ; preds = %sw.bb193.i
-  %width210.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
-  %x208.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %width210.i = getelementptr inbounds i8, ptr %4, i64 232
+  %x208.i = getelementptr inbounds i8, ptr %4, i64 248
   %147 = load i32, ptr %x208.i, align 8
   %cmp209.not304.i = icmp slt i32 %147, 0
   br i1 %cmp209.not304.i, label %vc_putchar.exit, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.cond207.preheader.i
-  %y213.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y213.i = getelementptr inbounds i8, ptr %4, i64 252
   br label %land.rhs.i
 
 sw.bb196.i:                                       ; preds = %sw.bb193.i
-  %x197.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x197.i = getelementptr inbounds i8, ptr %4, i64 248
   %148 = load i32, ptr %x197.i, align 8
-  %width199.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 1
+  %width199.i = getelementptr inbounds i8, ptr %4, i64 232
   %149 = load i32, ptr %width199.i, align 8
   %cmp200306.i = icmp slt i32 %148, %149
   br i1 %cmp200306.i, label %for.body201.lr.ph.i, label %vc_putchar.exit
 
 for.body201.lr.ph.i:                              ; preds = %sw.bb196.i
-  %y202.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y202.i = getelementptr inbounds i8, ptr %4, i64 252
   br label %for.body201.i
 
 for.body201.i:                                    ; preds = %for.body201.i, %for.body201.lr.ph.i
   %x.3307.i = phi i32 [ %148, %for.body201.lr.ph.i ], [ %inc204.i, %for.body201.i ]
   %150 = load i32, ptr %y202.i, align 4
   %151 = load ptr, ptr %console, align 8
-  %y_base.i266.i = getelementptr inbounds %struct.QemuTextConsole, ptr %151, i64 0, i32 8
+  %y_base.i266.i = getelementptr inbounds i8, ptr %151, i64 260
   %152 = load i32, ptr %y_base.i266.i, align 4
-  %total_height.i267.i = getelementptr inbounds %struct.QemuTextConsole, ptr %151, i64 0, i32 3
+  %total_height.i267.i = getelementptr inbounds i8, ptr %151, i64 240
   %153 = load i32, ptr %total_height.i267.i, align 8
-  %width.i268.i = getelementptr inbounds %struct.QemuTextConsole, ptr %151, i64 0, i32 1
+  %width.i268.i = getelementptr inbounds i8, ptr %151, i64 232
   %154 = load i32, ptr %width.i268.i, align 8
   %cmp.not.i269.i = icmp sgt i32 %154, %x.3307.i
   %sub.i270.i = add i32 %154, -1
   %spec.select.i271.i = select i1 %cmp.not.i269.i, i32 %x.3307.i, i32 %sub.i270.i
   %add.i272.i = add i32 %152, %150
   %rem.i273.i = srem i32 %add.i272.i, %153
-  %cells.i274.i = getelementptr inbounds %struct.QemuTextConsole, ptr %151, i64 0, i32 9
+  %cells.i274.i = getelementptr inbounds i8, ptr %151, i64 264
   %155 = load ptr, ptr %cells.i274.i, align 8
   %mul.i275.i = mul i32 %rem.i273.i, %154
   %add3.i276.i = add i32 %mul.i275.i, %spec.select.i271.i
   %idxprom.i277.i = sext i32 %add3.i276.i to i64
   %arrayidx.i278.i = getelementptr %struct.TextCell, ptr %155, i64 %idxprom.i277.i
   store i8 32, ptr %arrayidx.i278.i, align 1
-  %t_attrib.i279.i = getelementptr %struct.TextCell, ptr %155, i64 %idxprom.i277.i, i32 1
+  %t_attrib.i279.i = getelementptr inbounds i8, ptr %arrayidx.i278.i, i64 1
   store i16 7, ptr %t_attrib.i279.i, align 1
   %vc.val.i280.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i280.i, i32 noundef %spec.select.i271.i, i32 noundef %150)
@@ -2236,25 +2212,25 @@ land.rhs.i:                                       ; preds = %for.body212.i, %lan
 for.body212.i:                                    ; preds = %land.rhs.i
   %158 = load i32, ptr %y213.i, align 4
   %159 = load ptr, ptr %console, align 8
-  %y_base.i78 = getelementptr inbounds %struct.QemuTextConsole, ptr %159, i64 0, i32 8
-  %160 = load i32, ptr %y_base.i78, align 4
-  %total_height.i79 = getelementptr inbounds %struct.QemuTextConsole, ptr %159, i64 0, i32 3
-  %161 = load i32, ptr %total_height.i79, align 8
-  %width.i80 = getelementptr inbounds %struct.QemuTextConsole, ptr %159, i64 0, i32 1
-  %162 = load i32, ptr %width.i80, align 8
+  %y_base.i79 = getelementptr inbounds i8, ptr %159, i64 260
+  %160 = load i32, ptr %y_base.i79, align 4
+  %total_height.i80 = getelementptr inbounds i8, ptr %159, i64 240
+  %161 = load i32, ptr %total_height.i80, align 8
+  %width.i81 = getelementptr inbounds i8, ptr %159, i64 232
+  %162 = load i32, ptr %width.i81, align 8
   %cmp.not.i = icmp sgt i32 %162, %x.4305.i
   %sub.i = add i32 %162, -1
   %spec.select.i = select i1 %cmp.not.i, i32 %x.4305.i, i32 %sub.i
-  %add.i81 = add i32 %160, %158
-  %rem.i82 = srem i32 %add.i81, %161
-  %cells.i = getelementptr inbounds %struct.QemuTextConsole, ptr %159, i64 0, i32 9
+  %add.i82 = add i32 %160, %158
+  %rem.i83 = srem i32 %add.i82, %161
+  %cells.i = getelementptr inbounds i8, ptr %159, i64 264
   %163 = load ptr, ptr %cells.i, align 8
-  %mul.i83 = mul i32 %rem.i82, %162
-  %add3.i = add i32 %mul.i83, %spec.select.i
+  %mul.i84 = mul i32 %rem.i83, %162
+  %add3.i = add i32 %mul.i84, %spec.select.i
   %idxprom.i = sext i32 %add3.i to i64
-  %arrayidx.i84 = getelementptr %struct.TextCell, ptr %163, i64 %idxprom.i
-  store i8 32, ptr %arrayidx.i84, align 1
-  %t_attrib.i = getelementptr %struct.TextCell, ptr %163, i64 %idxprom.i, i32 1
+  %arrayidx.i85 = getelementptr %struct.TextCell, ptr %163, i64 %idxprom.i
+  store i8 32, ptr %arrayidx.i85, align 1
+  %t_attrib.i = getelementptr inbounds i8, ptr %arrayidx.i85, i64 1
   store i16 7, ptr %t_attrib.i, align 1
   %vc.val.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i, i32 noundef %spec.select.i, i32 noundef %158)
@@ -2267,25 +2243,25 @@ for.body221.i:                                    ; preds = %for.body221.i, %for
   %x.5303.i = phi i32 [ 0, %for.body221.lr.ph.i ], [ %inc224.i, %for.body221.i ]
   %165 = load i32, ptr %y222.i, align 4
   %166 = load ptr, ptr %console, align 8
-  %y_base.i282.i = getelementptr inbounds %struct.QemuTextConsole, ptr %166, i64 0, i32 8
+  %y_base.i282.i = getelementptr inbounds i8, ptr %166, i64 260
   %167 = load i32, ptr %y_base.i282.i, align 4
-  %total_height.i283.i = getelementptr inbounds %struct.QemuTextConsole, ptr %166, i64 0, i32 3
+  %total_height.i283.i = getelementptr inbounds i8, ptr %166, i64 240
   %168 = load i32, ptr %total_height.i283.i, align 8
-  %width.i284.i = getelementptr inbounds %struct.QemuTextConsole, ptr %166, i64 0, i32 1
+  %width.i284.i = getelementptr inbounds i8, ptr %166, i64 232
   %169 = load i32, ptr %width.i284.i, align 8
   %cmp.not.i285.i = icmp sgt i32 %169, %x.5303.i
   %sub.i286.i = add i32 %169, -1
   %spec.select.i287.i = select i1 %cmp.not.i285.i, i32 %x.5303.i, i32 %sub.i286.i
   %add.i288.i = add i32 %167, %165
   %rem.i289.i = srem i32 %add.i288.i, %168
-  %cells.i290.i = getelementptr inbounds %struct.QemuTextConsole, ptr %166, i64 0, i32 9
+  %cells.i290.i = getelementptr inbounds i8, ptr %166, i64 264
   %170 = load ptr, ptr %cells.i290.i, align 8
   %mul.i291.i = mul i32 %rem.i289.i, %169
   %add3.i292.i = add i32 %mul.i291.i, %spec.select.i287.i
   %idxprom.i293.i = sext i32 %add3.i292.i to i64
   %arrayidx.i294.i = getelementptr %struct.TextCell, ptr %170, i64 %idxprom.i293.i
   store i8 32, ptr %arrayidx.i294.i, align 1
-  %t_attrib.i295.i = getelementptr %struct.TextCell, ptr %170, i64 %idxprom.i293.i, i32 1
+  %t_attrib.i295.i = getelementptr inbounds i8, ptr %arrayidx.i294.i, i64 1
   store i16 7, ptr %t_attrib.i295.i, align 1
   %vc.val.i296.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i296.i, i32 noundef %spec.select.i287.i, i32 noundef %165)
@@ -2306,10 +2282,10 @@ for.body.lr.ph.i:                                 ; preds = %sw.bb227.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %.compoundliteral.sroa.0.039.i = phi i16 [ undef, %for.body.lr.ph.i ], [ %.compoundliteral.sroa.0.1.i, %for.inc.i ]
-  %arrayidx.i = getelementptr %struct.VCChardev, ptr %call.i, i64 0, i32 3, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [3 x i32], ptr %esc_params60.i, i64 0, i64 %indvars.iv.i
   %173 = load i32, ptr %arrayidx.i, align 4
   switch i32 %173, label %for.inc.i [
-    i32 0, label %sw.bb.i76
+    i32 0, label %sw.bb.i77
     i32 1, label %sw.bb19.i
     i32 4, label %sw.bb24.i
     i32 5, label %sw.bb29.i
@@ -2322,7 +2298,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
     i32 28, label %sw.bb64.i
     i32 30, label %sw.bb69.i
     i32 31, label %sw.bb74.i
-    i32 32, label %sw.bb79.i75
+    i32 32, label %sw.bb79.i76
     i32 33, label %sw.bb84.i
     i32 34, label %sw.bb89.i
     i32 35, label %sw.bb94.i
@@ -2338,7 +2314,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
     i32 47, label %sw.bb144.i
   ]
 
-sw.bb.i76:                                        ; preds = %for.body.i
+sw.bb.i77:                                        ; preds = %for.body.i
   %bf.clear.i = and i16 %.compoundliteral.sroa.0.039.i, -8192
   %bf.set.i = or disjoint i16 %bf.clear.i, 7
   br label %for.inc.sink.split.i
@@ -2404,7 +2380,7 @@ sw.bb74.i:                                        ; preds = %for.body.i
   %bf.set78.i = or disjoint i16 %bf.clear77.i, 4
   br label %for.inc.sink.split.i
 
-sw.bb79.i75:                                      ; preds = %for.body.i
+sw.bb79.i76:                                      ; preds = %for.body.i
   %bf.load81.i = load i16, ptr %t_attrib6.i.i24, align 4
   %bf.clear82.i = and i16 %bf.load81.i, -16
   %bf.set83.i = or disjoint i16 %bf.clear82.i, 2
@@ -2487,9 +2463,9 @@ sw.bb144.i:                                       ; preds = %for.body.i
   %bf.set148.i = or disjoint i16 %bf.clear147.i, 112
   br label %for.inc.sink.split.i
 
-for.inc.sink.split.i:                             ; preds = %sw.bb144.i, %sw.bb139.i, %sw.bb134.i, %sw.bb129.i, %sw.bb124.i, %sw.bb119.i, %sw.bb114.i, %sw.bb109.i, %sw.bb104.i, %sw.bb99.i, %sw.bb94.i, %sw.bb89.i, %sw.bb84.i, %sw.bb79.i75, %sw.bb74.i, %sw.bb69.i, %sw.bb64.i, %sw.bb59.i, %sw.bb54.i, %sw.bb49.i, %sw.bb44.i, %sw.bb39.i, %sw.bb34.i, %sw.bb29.i, %sw.bb24.i, %sw.bb19.i, %sw.bb.i76
-  %bf.set.sink.i = phi i16 [ %bf.set.i, %sw.bb.i76 ], [ %bf.set23.i, %sw.bb19.i ], [ %bf.set28.i, %sw.bb24.i ], [ %bf.set33.i, %sw.bb29.i ], [ %bf.set38.i, %sw.bb34.i ], [ %bf.set43.i, %sw.bb39.i ], [ %bf.clear47.i, %sw.bb44.i ], [ %bf.clear52.i, %sw.bb49.i ], [ %bf.clear57.i, %sw.bb54.i ], [ %bf.clear62.i, %sw.bb59.i ], [ %bf.clear67.i, %sw.bb64.i ], [ %bf.clear72.i, %sw.bb69.i ], [ %bf.set78.i, %sw.bb74.i ], [ %bf.set83.i, %sw.bb79.i75 ], [ %bf.set88.i, %sw.bb84.i ], [ %bf.set93.i, %sw.bb89.i ], [ %bf.set98.i, %sw.bb94.i ], [ %bf.set103.i, %sw.bb99.i ], [ %bf.set108.i, %sw.bb104.i ], [ %bf.clear112.i, %sw.bb109.i ], [ %bf.set118.i, %sw.bb114.i ], [ %bf.set123.i, %sw.bb119.i ], [ %bf.set128.i, %sw.bb124.i ], [ %bf.set133.i, %sw.bb129.i ], [ %bf.set138.i, %sw.bb134.i ], [ %bf.set143.i, %sw.bb139.i ], [ %bf.set148.i, %sw.bb144.i ]
-  %.compoundliteral.sroa.0.1.ph.i = phi i16 [ %bf.set.i, %sw.bb.i76 ], [ %.compoundliteral.sroa.0.039.i, %sw.bb19.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb24.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb29.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb34.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb39.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb44.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb49.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb54.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb59.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb64.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb69.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb74.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb79.i75 ], [ %.compoundliteral.sroa.0.039.i, %sw.bb84.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb89.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb94.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb99.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb104.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb109.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb114.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb119.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb124.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb129.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb134.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb139.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb144.i ]
+for.inc.sink.split.i:                             ; preds = %sw.bb144.i, %sw.bb139.i, %sw.bb134.i, %sw.bb129.i, %sw.bb124.i, %sw.bb119.i, %sw.bb114.i, %sw.bb109.i, %sw.bb104.i, %sw.bb99.i, %sw.bb94.i, %sw.bb89.i, %sw.bb84.i, %sw.bb79.i76, %sw.bb74.i, %sw.bb69.i, %sw.bb64.i, %sw.bb59.i, %sw.bb54.i, %sw.bb49.i, %sw.bb44.i, %sw.bb39.i, %sw.bb34.i, %sw.bb29.i, %sw.bb24.i, %sw.bb19.i, %sw.bb.i77
+  %bf.set.sink.i = phi i16 [ %bf.set.i, %sw.bb.i77 ], [ %bf.set23.i, %sw.bb19.i ], [ %bf.set28.i, %sw.bb24.i ], [ %bf.set33.i, %sw.bb29.i ], [ %bf.set38.i, %sw.bb34.i ], [ %bf.set43.i, %sw.bb39.i ], [ %bf.clear47.i, %sw.bb44.i ], [ %bf.clear52.i, %sw.bb49.i ], [ %bf.clear57.i, %sw.bb54.i ], [ %bf.clear62.i, %sw.bb59.i ], [ %bf.clear67.i, %sw.bb64.i ], [ %bf.clear72.i, %sw.bb69.i ], [ %bf.set78.i, %sw.bb74.i ], [ %bf.set83.i, %sw.bb79.i76 ], [ %bf.set88.i, %sw.bb84.i ], [ %bf.set93.i, %sw.bb89.i ], [ %bf.set98.i, %sw.bb94.i ], [ %bf.set103.i, %sw.bb99.i ], [ %bf.set108.i, %sw.bb104.i ], [ %bf.clear112.i, %sw.bb109.i ], [ %bf.set118.i, %sw.bb114.i ], [ %bf.set123.i, %sw.bb119.i ], [ %bf.set128.i, %sw.bb124.i ], [ %bf.set133.i, %sw.bb129.i ], [ %bf.set138.i, %sw.bb134.i ], [ %bf.set143.i, %sw.bb139.i ], [ %bf.set148.i, %sw.bb144.i ]
+  %.compoundliteral.sroa.0.1.ph.i = phi i16 [ %bf.set.i, %sw.bb.i77 ], [ %.compoundliteral.sroa.0.039.i, %sw.bb19.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb24.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb29.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb34.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb39.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb44.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb49.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb54.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb59.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb64.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb69.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb74.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb79.i76 ], [ %.compoundliteral.sroa.0.039.i, %sw.bb84.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb89.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb94.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb99.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb104.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb109.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb114.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb119.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb124.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb129.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb134.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb139.i ], [ %.compoundliteral.sroa.0.039.i, %sw.bb144.i ]
   store i16 %bf.set.sink.i, ptr %t_attrib6.i.i24, align 4
   br label %for.inc.i
 
@@ -2510,9 +2486,9 @@ while.body.i49:                                   ; preds = %sw.bb228.i, %vc_put
   %175 = phi i8 [ %189, %vc_put_one.exit.i58 ], [ 27, %sw.bb228.i ]
   %buf.addr.04.i50 = phi ptr [ %incdec.ptr.i72, %vc_put_one.exit.i58 ], [ @.str.20, %sw.bb228.i ]
   %176 = load ptr, ptr %console, align 8
-  %x.i.i51 = getelementptr inbounds %struct.QemuTextConsole, ptr %176, i64 0, i32 5
+  %x.i.i51 = getelementptr inbounds i8, ptr %176, i64 248
   %177 = load i32, ptr %x.i.i51, align 8
-  %width.i.i52 = getelementptr inbounds %struct.QemuTextConsole, ptr %176, i64 0, i32 1
+  %width.i.i52 = getelementptr inbounds i8, ptr %176, i64 232
   %178 = load i32, ptr %width.i.i52, align 8
   %cmp.not.i.i53 = icmp slt i32 %177, %178
   br i1 %cmp.not.i.i53, label %vc_put_one.exit.i58, label %if.then.i.i54
@@ -2528,22 +2504,22 @@ if.then.i.i54:                                    ; preds = %while.body.i49
 vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %while.body.i49
   %179 = phi i32 [ %.pre17.i.i57, %if.then.i.i54 ], [ %177, %while.body.i49 ]
   %180 = phi i32 [ %.pre.i.i56, %if.then.i.i54 ], [ %178, %while.body.i49 ]
-  %y_base.i.i59 = getelementptr inbounds %struct.QemuTextConsole, ptr %176, i64 0, i32 8
+  %y_base.i.i59 = getelementptr inbounds i8, ptr %176, i64 260
   %181 = load i32, ptr %y_base.i.i59, align 4
-  %y.i.i60 = getelementptr inbounds %struct.QemuTextConsole, ptr %176, i64 0, i32 6
+  %y.i.i60 = getelementptr inbounds i8, ptr %176, i64 252
   %182 = load i32, ptr %y.i.i60, align 4
   %add.i.i61 = add i32 %182, %181
-  %total_height.i.i62 = getelementptr inbounds %struct.QemuTextConsole, ptr %176, i64 0, i32 3
+  %total_height.i.i62 = getelementptr inbounds i8, ptr %176, i64 240
   %183 = load i32, ptr %total_height.i.i62, align 8
   %rem.i.i63 = srem i32 %add.i.i61, %183
-  %cells.i.i64 = getelementptr inbounds %struct.QemuTextConsole, ptr %176, i64 0, i32 9
+  %cells.i.i64 = getelementptr inbounds i8, ptr %176, i64 264
   %184 = load ptr, ptr %cells.i.i64, align 8
   %mul.i.i65 = mul i32 %rem.i.i63, %180
   %add4.i.i66 = add i32 %mul.i.i65, %179
   %idxprom.i.i67 = sext i32 %add4.i.i66 to i64
   %arrayidx.i.i68 = getelementptr %struct.TextCell, ptr %184, i64 %idxprom.i.i67
   store i8 %175, ptr %arrayidx.i.i68, align 1
-  %t_attrib.i.i69 = getelementptr %struct.TextCell, ptr %184, i64 %idxprom.i.i67, i32 1
+  %t_attrib.i.i69 = getelementptr inbounds i8, ptr %arrayidx.i.i68, i64 1
   %185 = load i16, ptr %t_attrib6.i.i24, align 4
   store i16 %185, ptr %t_attrib.i.i69, align 1
   %186 = load i32, ptr %x.i.i51, align 8
@@ -2559,16 +2535,16 @@ vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %whi
   br i1 %exitcond, label %vc_putchar.exit, label %while.body.i49, !llvm.loop !27
 
 sw.bb232.i:                                       ; preds = %sw.bb228.i
-  %y_base.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 8
+  %y_base.i = getelementptr inbounds i8, ptr %4, i64 260
   %190 = load i32, ptr %y_base.i, align 4
-  %y233.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y233.i = getelementptr inbounds i8, ptr %4, i64 252
   %191 = load i32, ptr %y233.i, align 4
   %add234.i = add i32 %191, %190
-  %total_height.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 3
+  %total_height.i = getelementptr inbounds i8, ptr %4, i64 240
   %192 = load i32, ptr %total_height.i, align 8
   %rem235.i = srem i32 %add234.i, %192
   %add236.i = add i32 %rem235.i, 1
-  %x237.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x237.i = getelementptr inbounds i8, ptr %4, i64 248
   %193 = load i32, ptr %x237.i, align 8
   %add238.i = add i32 %193, 1
   %call.i21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %response.i, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %add236.i, i32 noundef %add238.i) #12
@@ -2580,9 +2556,9 @@ while.body.i:                                     ; preds = %sw.bb232.i, %vc_put
   %195 = phi i8 [ %209, %vc_put_one.exit.i32 ], [ %194, %sw.bb232.i ]
   %buf.addr.04.i = phi ptr [ %incdec.ptr.i, %vc_put_one.exit.i32 ], [ %response.i, %sw.bb232.i ]
   %196 = load ptr, ptr %console, align 8
-  %x.i.i25 = getelementptr inbounds %struct.QemuTextConsole, ptr %196, i64 0, i32 5
+  %x.i.i25 = getelementptr inbounds i8, ptr %196, i64 248
   %197 = load i32, ptr %x.i.i25, align 8
-  %width.i.i26 = getelementptr inbounds %struct.QemuTextConsole, ptr %196, i64 0, i32 1
+  %width.i.i26 = getelementptr inbounds i8, ptr %196, i64 232
   %198 = load i32, ptr %width.i.i26, align 8
   %cmp.not.i.i27 = icmp slt i32 %197, %198
   br i1 %cmp.not.i.i27, label %vc_put_one.exit.i32, label %if.then.i.i28
@@ -2598,22 +2574,22 @@ if.then.i.i28:                                    ; preds = %while.body.i
 vc_put_one.exit.i32:                              ; preds = %if.then.i.i28, %while.body.i
   %199 = phi i32 [ %.pre17.i.i31, %if.then.i.i28 ], [ %197, %while.body.i ]
   %200 = phi i32 [ %.pre.i.i30, %if.then.i.i28 ], [ %198, %while.body.i ]
-  %y_base.i.i33 = getelementptr inbounds %struct.QemuTextConsole, ptr %196, i64 0, i32 8
+  %y_base.i.i33 = getelementptr inbounds i8, ptr %196, i64 260
   %201 = load i32, ptr %y_base.i.i33, align 4
-  %y.i.i34 = getelementptr inbounds %struct.QemuTextConsole, ptr %196, i64 0, i32 6
+  %y.i.i34 = getelementptr inbounds i8, ptr %196, i64 252
   %202 = load i32, ptr %y.i.i34, align 4
   %add.i.i35 = add i32 %202, %201
-  %total_height.i.i36 = getelementptr inbounds %struct.QemuTextConsole, ptr %196, i64 0, i32 3
+  %total_height.i.i36 = getelementptr inbounds i8, ptr %196, i64 240
   %203 = load i32, ptr %total_height.i.i36, align 8
   %rem.i.i37 = srem i32 %add.i.i35, %203
-  %cells.i.i38 = getelementptr inbounds %struct.QemuTextConsole, ptr %196, i64 0, i32 9
+  %cells.i.i38 = getelementptr inbounds i8, ptr %196, i64 264
   %204 = load ptr, ptr %cells.i.i38, align 8
   %mul.i.i39 = mul i32 %rem.i.i37, %200
   %add4.i.i40 = add i32 %mul.i.i39, %199
   %idxprom.i.i41 = sext i32 %add4.i.i40 to i64
   %arrayidx.i.i42 = getelementptr %struct.TextCell, ptr %204, i64 %idxprom.i.i41
   store i8 %195, ptr %arrayidx.i.i42, align 1
-  %t_attrib.i.i43 = getelementptr %struct.TextCell, ptr %204, i64 %idxprom.i.i41, i32 1
+  %t_attrib.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i.i42, i64 1
   %205 = load i16, ptr %t_attrib6.i.i24, align 4
   store i16 %205, ptr %t_attrib.i.i43, align 1
   %206 = load i32, ptr %x.i.i25, align 8
@@ -2629,20 +2605,20 @@ vc_put_one.exit.i32:                              ; preds = %if.then.i.i28, %whi
   br i1 %tobool.not.i, label %vc_putchar.exit, label %while.body.i, !llvm.loop !27
 
 sw.bb241.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %x242.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x242.i = getelementptr inbounds i8, ptr %4, i64 248
   %210 = load i32, ptr %x242.i, align 8
   store i32 %210, ptr %x_saved245.i, align 8
-  %y243.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y243.i = getelementptr inbounds i8, ptr %4, i64 252
   %211 = load i32, ptr %y243.i, align 4
   store i32 %211, ptr %y_saved247.i, align 4
   br label %vc_putchar.exit
 
 sw.bb244.i:                                       ; preds = %trace_console_putchar_csi.exit.i
   %212 = load i32, ptr %x_saved245.i, align 8
-  %x246.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 5
+  %x246.i = getelementptr inbounds i8, ptr %4, i64 248
   store i32 %212, ptr %x246.i, align 8
   %213 = load i32, ptr %y_saved247.i, align 4
-  %y248.i = getelementptr inbounds %struct.QemuTextConsole, ptr %4, i64 0, i32 6
+  %y248.i = getelementptr inbounds i8, ptr %4, i64 252
   store i32 %213, ptr %y248.i, align 4
   br label %vc_putchar.exit
 
@@ -2683,11 +2659,11 @@ trace_console_putchar_unhandled.exit:             ; preds = %sw.default249.i, %l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %vc_putchar.exit
 
-vc_putchar.exit:                                  ; preds = %vc_put_one.exit.i32, %vc_put_one.exit.i58, %for.inc.i, %for.body221.i, %land.rhs.i, %for.body212.i, %for.body201.i, %for.inc189.i, %for.inc174.i, %for.inc152.i, %sw.bb232.i, %sw.bb227.i, %for.body, %sw.bb.i, %sw.bb.i, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb4.i, %if.then.i, %if.then11.i, %if.else.i, %sw.bb23.i, %vc_put_one.exit.i, %for.body.preheader.i, %if.else30.i, %if.then36.i, %if.then39.i, %if.end55.i, %if.end73.i, %if.end86.i, %if.end99.i, %if.end112.i, %sw.bb118.i, %sw.bb123.i, %sw.bb130.i, %for.cond178.preheader.i, %for.cond182.preheader.lr.ph.i, %for.cond156.preheader.i, %for.cond160.preheader.lr.ph.i, %sw.bb133.i, %for.cond138.preheader.lr.ph.i, %sw.bb193.i, %for.cond218.preheader.i, %for.cond207.preheader.i, %sw.bb196.i, %sw.bb228.i, %sw.bb241.i, %sw.bb244.i, %trace_console_putchar_unhandled.exit
+vc_putchar.exit:                                  ; preds = %vc_put_one.exit.i32, %vc_put_one.exit.i58, %for.inc.i, %for.body221.i, %land.rhs.i, %for.body212.i, %for.body201.i, %for.inc189.i, %for.inc174.i, %for.inc152.i, %sw.bb232.i, %sw.bb227.i, %for.body, %sw.bb.i, %sw.bb.i, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb4.i, %if.then.i, %if.then11.i, %if.else.i, %sw.bb23.i, %vc_put_one.exit.i, %for.cond.preheader.i, %if.else30.i, %if.then36.i, %if.then39.i, %if.end55.i, %if.end73.i, %if.end86.i, %if.end99.i, %if.end112.i, %sw.bb118.i, %sw.bb123.i, %sw.bb130.i, %for.cond178.preheader.i, %for.cond182.preheader.lr.ph.i, %for.cond156.preheader.i, %for.cond160.preheader.lr.ph.i, %sw.bb133.i, %for.cond138.preheader.lr.ph.i, %sw.bb193.i, %for.cond218.preheader.i, %for.cond207.preheader.i, %sw.bb196.i, %sw.bb228.i, %sw.bb241.i, %sw.bb244.i, %trace_console_putchar_unhandled.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %response.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond112.not, label %for.end, label %for.body, !llvm.loop !28
+  %exitcond113.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond113.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %vc_putchar.exit, %entry
   tail call fastcc void @console_show_cursor(ptr noundef %0, i32 noundef 1)
@@ -2716,13 +2692,13 @@ define internal void @vc_chr_accept_input(ptr noundef %chr) #0 {
 entry:
   %size.i = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
-  %console = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 1
+  %console = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %console, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
-  %chr.i = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 18
+  %chr.i = getelementptr inbounds i8, ptr %0, i64 312
   %1 = load ptr, ptr %chr.i, align 8
   %call.i1 = tail call i32 @qemu_chr_be_can_write(ptr noundef %1) #12
-  %out_fifo.i = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 19
+  %out_fifo.i = getelementptr inbounds i8, ptr %0, i64 320
   %call1.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %out_fifo.i) #12
   %cmp10.i = icmp ne i32 %call.i1, 0
   %cmp211.i = icmp ne i32 %call1.i, 0
@@ -2756,9 +2732,9 @@ define internal void @vc_chr_set_echo(ptr noundef %chr, i1 noundef zeroext %echo
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
   %conv = zext i1 %echo to i32
-  %console = getelementptr inbounds %struct.VCChardev, ptr %call.i, i64 0, i32 1
+  %console = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %console, align 8
-  %echo1 = getelementptr inbounds %struct.QemuTextConsole, ptr %0, i64 0, i32 13
+  %echo1 = getelementptr inbounds i8, ptr %0, i64 292
   store i32 %conv, ptr %echo1, align 4
   ret void
 }
@@ -2796,11 +2772,11 @@ define internal fastcc void @vc_put_lf(ptr %vc.152.val) unnamed_addr #0 {
 entry:
   %color.i = alloca %struct.pixman_color, align 8
   %rect.i = alloca %struct.pixman_rectangle16, align 2
-  %y = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 6
+  %y = getelementptr inbounds i8, ptr %vc.152.val, i64 252
   %0 = load i32, ptr %y, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %y, align 4
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %vc.152.val, i64 236
   %1 = load i32, ptr %height, align 4
   %cmp.not = icmp slt i32 %inc, %1
   br i1 %cmp.not, label %if.end103, label %if.then
@@ -2808,21 +2784,21 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = add i32 %1, -1
   store i32 %sub, ptr %y, align 4
-  %y_displayed = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 7
+  %y_displayed = getelementptr inbounds i8, ptr %vc.152.val, i64 256
   %2 = load i32, ptr %y_displayed, align 8
-  %y_base = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 8
+  %y_base = getelementptr inbounds i8, ptr %vc.152.val, i64 260
   %3 = load i32, ptr %y_base, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %if.then6, label %if.then.if.end12_crit_edge
 
 if.then.if.end12_crit_edge:                       ; preds = %if.then
-  %total_height15.phi.trans.insert = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 3
+  %total_height15.phi.trans.insert = getelementptr inbounds i8, ptr %vc.152.val, i64 240
   %.pre = load i32, ptr %total_height15.phi.trans.insert, align 8
   br label %if.end12
 
 if.then6:                                         ; preds = %if.then
   %inc8 = add i32 %2, 1
-  %total_height = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 3
+  %total_height = getelementptr inbounds i8, ptr %vc.152.val, i64 240
   %4 = load i32, ptr %total_height, align 8
   %cmp9 = icmp eq i32 %inc8, %4
   %spec.store.select = select i1 %cmp9, i32 0, i32 %inc8
@@ -2836,7 +2812,7 @@ if.end12:                                         ; preds = %if.then.if.end12_cr
   %cmp16 = icmp eq i32 %inc14, %6
   %spec.store.select59 = select i1 %cmp16, i32 0, i32 %inc14
   store i32 %spec.store.select59, ptr %y_base, align 4
-  %backscroll_height = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 4
+  %backscroll_height = getelementptr inbounds i8, ptr %vc.152.val, i64 244
   %7 = load i32, ptr %backscroll_height, align 4
   %cmp21 = icmp slt i32 %7, %6
   br i1 %cmp21, label %if.then22, label %if.end25
@@ -2847,13 +2823,13 @@ if.then22:                                        ; preds = %if.end12
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %if.end12
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %vc.152.val, i64 232
   %8 = load i32, ptr %width, align 8
   %cmp314 = icmp sgt i32 %8, 0
   br i1 %cmp314, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %cells = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 9
+  %cells = getelementptr inbounds i8, ptr %vc.152.val, i64 264
   %9 = load ptr, ptr %cells, align 8
   %sub28 = add i32 %sub, %spec.store.select59
   %rem = srem i32 %sub28, %6
@@ -2866,9 +2842,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %c.06 = phi ptr [ %incdec.ptr, %for.body ], [ %arrayidx, %for.body.preheader ]
   %x.05 = phi i32 [ %inc50, %for.body ], [ 0, %for.body.preheader ]
   store i8 32, ptr %c.06, align 1
-  %t_attrib = getelementptr inbounds %struct.TextCell, ptr %c.06, i64 0, i32 1
+  %t_attrib = getelementptr inbounds i8, ptr %c.06, i64 1
   store i16 7, ptr %t_attrib, align 1
-  %incdec.ptr = getelementptr %struct.TextCell, ptr %c.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %c.06, i64 3
   %inc50 = add nuw nsw i32 %x.05, 1
   %10 = load i32, ptr %width, align 8
   %cmp31 = icmp slt i32 %inc50, %10
@@ -2887,16 +2863,16 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp53, label %if.then54, label %if.end103
 
 if.then54:                                        ; preds = %for.end
-  %text_x = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 10
+  %text_x = getelementptr inbounds i8, ptr %vc.152.val, i64 272
   store i32 0, ptr %text_x, align 8
-  %text_y = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 11
+  %text_y = getelementptr inbounds i8, ptr %vc.152.val, i64 280
   store i32 0, ptr %text_y, align 8
   %sub58 = add i32 %.lcssa, -1
-  %arrayidx60 = getelementptr %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 10, i64 1
+  %arrayidx60 = getelementptr i8, ptr %vc.152.val, i64 276
   store i32 %sub58, ptr %arrayidx60, align 4
   %13 = load i32, ptr %height, align 4
   %sub62 = add i32 %13, -1
-  %arrayidx64 = getelementptr %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 11, i64 1
+  %arrayidx64 = getelementptr i8, ptr %vc.152.val, i64 284
   store i32 %sub62, ptr %arrayidx64, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vc.152.val, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %14 = load i32, ptr %width, align 8
@@ -2925,16 +2901,16 @@ qemu_console_bitblt.exit:                         ; preds = %if.then54
   store i64 -281474976710656, ptr %color.i, align 8
   %call.i62 = tail call ptr @qemu_console_surface(ptr noundef %call.i61) #12
   store i16 0, ptr %rect.i, align 2
-  %y.i = getelementptr inbounds %struct.pixman_rectangle16, ptr %rect.i, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %rect.i, i64 2
   %.tr2 = trunc i32 %18 to i16
   %20 = shl i16 %.tr2, 4
   %conv1.i = add i16 %20, -16
   store i16 %conv1.i, ptr %y.i, align 2
-  %width2.i = getelementptr inbounds %struct.pixman_rectangle16, ptr %rect.i, i64 0, i32 2
+  %width2.i = getelementptr inbounds i8, ptr %rect.i, i64 4
   %.tr3 = trunc i32 %19 to i16
   %conv3.i = shl i16 %.tr3, 3
   store i16 %conv3.i, ptr %width2.i, align 2
-  %height4.i = getelementptr inbounds %struct.pixman_rectangle16, ptr %rect.i, i64 0, i32 3
+  %height4.i = getelementptr inbounds i8, ptr %rect.i, i64 6
   store i16 16, ptr %height4.i, align 2
   %tobool.not.i63 = icmp eq ptr %call.i62, null
   br i1 %tobool.not.i63, label %if.else.i64, label %qemu_console_fill_rect.exit
@@ -2948,17 +2924,17 @@ qemu_console_fill_rect.exit:                      ; preds = %qemu_console_bitblt
   %call6.i = call i32 @pixman_image_fill_rectangles(i32 noundef 1, ptr noundef %21, ptr noundef nonnull %color.i, i32 noundef 1, ptr noundef nonnull %rect.i) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %color.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rect.i)
-  %update_x0 = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 14
+  %update_x0 = getelementptr inbounds i8, ptr %vc.152.val, i64 296
   store i32 0, ptr %update_x0, align 8
-  %update_y0 = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 15
+  %update_y0 = getelementptr inbounds i8, ptr %vc.152.val, i64 300
   store i32 0, ptr %update_y0, align 4
   %22 = load i32, ptr %width, align 8
   %mul99 = shl i32 %22, 3
-  %update_x1 = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 16
+  %update_x1 = getelementptr inbounds i8, ptr %vc.152.val, i64 304
   store i32 %mul99, ptr %update_x1, align 8
   %23 = load i32, ptr %height, align 4
   %mul101 = shl i32 %23, 4
-  %update_y1 = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 17
+  %update_y1 = getelementptr inbounds i8, ptr %vc.152.val, i64 308
   store i32 %mul101, ptr %update_y1, align 4
   br label %if.end103
 
@@ -2974,46 +2950,46 @@ declare void @pixman_image_composite(i32 noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vc_update_xy(ptr %vc.152.val, i32 noundef %x, i32 noundef %y) unnamed_addr #0 {
 entry:
-  %text_x = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 10
+  %text_x = getelementptr inbounds i8, ptr %vc.152.val, i64 272
   %0 = load i32, ptr %text_x, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %0, i32 %x)
   store i32 %cond, ptr %text_x, align 8
-  %arrayidx4 = getelementptr %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 10, i64 1
+  %arrayidx4 = getelementptr i8, ptr %vc.152.val, i64 276
   %1 = load i32, ptr %arrayidx4, align 4
   %cond10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %x)
   store i32 %cond10, ptr %arrayidx4, align 4
-  %text_y = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 11
+  %text_y = getelementptr inbounds i8, ptr %vc.152.val, i64 280
   %2 = load i32, ptr %text_y, align 8
   %cond19 = tail call i32 @llvm.smin.i32(i32 %2, i32 %y)
   store i32 %cond19, ptr %text_y, align 8
-  %arrayidx23 = getelementptr %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 11, i64 1
+  %arrayidx23 = getelementptr i8, ptr %vc.152.val, i64 284
   %3 = load i32, ptr %arrayidx23, align 4
   %cond29 = tail call i32 @llvm.smax.i32(i32 %3, i32 %y)
   store i32 %cond29, ptr %arrayidx23, align 4
-  %y_base = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 8
+  %y_base = getelementptr inbounds i8, ptr %vc.152.val, i64 260
   %4 = load i32, ptr %y_base, align 4
   %add = add i32 %4, %y
-  %total_height = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 3
+  %total_height = getelementptr inbounds i8, ptr %vc.152.val, i64 240
   %5 = load i32, ptr %total_height, align 8
   %rem = srem i32 %add, %5
-  %y_displayed = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 7
+  %y_displayed = getelementptr inbounds i8, ptr %vc.152.val, i64 256
   %6 = load i32, ptr %y_displayed, align 8
   %sub = sub i32 %rem, %6
   %cmp32 = icmp slt i32 %sub, 0
   %add34 = select i1 %cmp32, i32 %5, i32 0
   %spec.select = add i32 %add34, %sub
-  %height = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %vc.152.val, i64 236
   %7 = load i32, ptr %height, align 4
   %cmp35 = icmp slt i32 %spec.select, %7
   br i1 %cmp35, label %if.then36, label %if.end45
 
 if.then36:                                        ; preds = %entry
-  %width = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %vc.152.val, i64 232
   %8 = load i32, ptr %width, align 8
   %cmp37.not = icmp sgt i32 %8, %x
   %sub40 = add i32 %8, -1
   %spec.select40 = select i1 %cmp37.not, i32 %x, i32 %sub40
-  %cells = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 9
+  %cells = getelementptr inbounds i8, ptr %vc.152.val, i64 264
   %9 = load ptr, ptr %cells, align 8
   %mul = mul i32 %8, %rem
   %add43 = add i32 %spec.select40, %mul
@@ -3022,14 +2998,14 @@ if.then36:                                        ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vc.152.val, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %10 = load i8, ptr %arrayidx44, align 1
   %conv = zext i8 %10 to i32
-  %t_attrib = getelementptr %struct.TextCell, ptr %9, i64 %idxprom, i32 1
-  tail call fastcc void @vga_putcharxy(ptr noundef %call.i, i32 noundef %spec.select40, i32 noundef %spec.select, i32 noundef %conv, ptr noundef %t_attrib)
+  %t_attrib = getelementptr inbounds i8, ptr %arrayidx44, i64 1
+  tail call fastcc void @vga_putcharxy(ptr noundef %call.i, i32 noundef %spec.select40, i32 noundef %spec.select, i32 noundef %conv, ptr noundef nonnull %t_attrib)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vc.152.val, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call1.i = tail call zeroext i1 @qemu_console_is_visible(ptr noundef %call.i.i) #12
   br i1 %call1.i, label %if.end.i, label %if.end45
 
 if.end.i:                                         ; preds = %if.then36
-  %update_x0.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 14
+  %update_x0.i = getelementptr inbounds i8, ptr %vc.152.val, i64 296
   %11 = load i32, ptr %update_x0.i, align 8
   %mul.i = shl i32 %spec.select40, 3
   %cmp.i = icmp sgt i32 %11, %mul.i
@@ -3040,7 +3016,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %update_y0.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 15
+  %update_y0.i = getelementptr inbounds i8, ptr %vc.152.val, i64 300
   %12 = load i32, ptr %update_y0.i, align 4
   %mul6.i = shl i32 %spec.select, 4
   %cmp7.i = icmp sgt i32 %12, %mul6.i
@@ -3051,7 +3027,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.end5.i
-  %update_x1.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 16
+  %update_x1.i = getelementptr inbounds i8, ptr %vc.152.val, i64 304
   %13 = load i32, ptr %update_x1.i, align 8
   %mul12.i = add i32 %mul.i, 8
   %cmp13.i = icmp slt i32 %13, %mul12.i
@@ -3062,7 +3038,7 @@ if.then14.i:                                      ; preds = %if.end11.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then14.i, %if.end11.i
-  %update_y1.i = getelementptr inbounds %struct.QemuTextConsole, ptr %vc.152.val, i64 0, i32 17
+  %update_y1.i = getelementptr inbounds i8, ptr %vc.152.val, i64 308
   %14 = load i32, ptr %update_y1.i, align 4
   %mul20.i = add i32 %mul6.i, 16
   %cmp21.i = icmp slt i32 %14, %mul20.i

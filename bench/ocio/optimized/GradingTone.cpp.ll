@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.OpenColorIO_v2_4dev::GradingRGBMSW" = type { double, double, double, double, double, double }
-%"struct.OpenColorIO_v2_4dev::GradingTone" = type { %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", double }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -17,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_4dev::GradingTonePreRender" = type { double, double, double, double, double, double, double, double, [4 x [6 x float]], [4 x [6 x float]], [4 x [6 x float]], [2 x [4 x [3 x float]]], [2 x [4 x [3 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x float]], [2 x [4 x float]], [2 x [4 x float]], [2 x [2 x float]], float, float, float, float, i8, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -68,41 +65,41 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 1
+  %m_green = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green, align 8
-  %m_green2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 1
+  %m_green2 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2, align 8
   %cmp3 = fcmp oeq double %2, %3
   br i1 %cmp3, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 2
+  %m_blue = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue, align 8
-  %m_blue5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 2
+  %m_blue5 = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5, align 8
   %cmp6 = fcmp oeq double %4, %5
   br i1 %cmp6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 3
+  %m_master = getelementptr inbounds i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master, align 8
-  %m_master8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 3
+  %m_master8 = getelementptr inbounds i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8, align 8
   %cmp9 = fcmp oeq double %6, %7
   br i1 %cmp9, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 4
+  %m_start = getelementptr inbounds i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start, align 8
-  %m_start11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 4
+  %m_start11 = getelementptr inbounds i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11, align 8
   %cmp12 = fcmp oeq double %8, %9
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true10
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 5
+  %m_width = getelementptr inbounds i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width, align 8
-  %m_width13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 5
+  %m_width13 = getelementptr inbounds i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13, align 8
   %cmp14 = fcmp oeq double %10, %11
   br label %land.end
@@ -121,41 +118,41 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 1
+  %m_green.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green.i, align 8
-  %m_green2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 1
+  %m_green2.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2.i, align 8
   %cmp3.i = fcmp oeq double %2, %3
   br i1 %cmp3.i, label %land.lhs.true4.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 2
+  %m_blue.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue.i, align 8
-  %m_blue5.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 2
+  %m_blue5.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5.i, align 8
   %cmp6.i = fcmp oeq double %4, %5
   br i1 %cmp6.i, label %land.lhs.true7.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 3
+  %m_master.i = getelementptr inbounds i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master.i, align 8
-  %m_master8.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 3
+  %m_master8.i = getelementptr inbounds i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8.i, align 8
   %cmp9.i = fcmp oeq double %6, %7
   br i1 %cmp9.i, label %land.lhs.true10.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %m_start.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 4
+  %m_start.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start.i, align 8
-  %m_start11.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 4
+  %m_start11.i = getelementptr inbounds i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11.i, align 8
   %cmp12.i = fcmp oeq double %8, %9
   br i1 %cmp12.i, label %land.rhs.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true10.i
-  %m_width.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 5
+  %m_width.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width.i, align 8
-  %m_width13.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 5
+  %m_width13.i = getelementptr inbounds i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13.i, align 8
   %cmp14.i = fcmp une double %10, %11
   br label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
@@ -174,241 +171,241 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %land.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 1
+  %m_green.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green.i, align 8
-  %m_green2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 1
+  %m_green2.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2.i, align 8
   %cmp3.i = fcmp oeq double %2, %3
   br i1 %cmp3.i, label %land.lhs.true4.i, label %land.end
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 2
+  %m_blue.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue.i, align 8
-  %m_blue5.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 2
+  %m_blue5.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5.i, align 8
   %cmp6.i = fcmp oeq double %4, %5
   br i1 %cmp6.i, label %land.lhs.true7.i, label %land.end
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 3
+  %m_master.i = getelementptr inbounds i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master.i, align 8
-  %m_master8.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 3
+  %m_master8.i = getelementptr inbounds i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8.i, align 8
   %cmp9.i = fcmp oeq double %6, %7
   br i1 %cmp9.i, label %land.lhs.true10.i, label %land.end
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %m_start.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 4
+  %m_start.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start.i, align 8
-  %m_start11.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 4
+  %m_start11.i = getelementptr inbounds i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11.i, align 8
   %cmp12.i = fcmp oeq double %8, %9
   br i1 %cmp12.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit: ; preds = %land.lhs.true10.i
-  %m_width.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 5
+  %m_width.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width.i, align 8
-  %m_width13.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 5
+  %m_width13.i = getelementptr inbounds i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13.i, align 8
   %cmp14.i = fcmp oeq double %10, %11
   br i1 %cmp14.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4
-  %m_whites2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4
+  %m_whites = getelementptr inbounds i8, ptr %lhs, i64 192
+  %m_whites2 = getelementptr inbounds i8, ptr %rhs, i64 192
   %12 = load double, ptr %m_whites, align 8
   %13 = load double, ptr %m_whites2, align 8
   %cmp.i11 = fcmp oeq double %12, %13
   br i1 %cmp.i11, label %land.lhs.true.i12, label %land.end
 
 land.lhs.true.i12:                                ; preds = %land.lhs.true
-  %m_green.i13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 1
+  %m_green.i13 = getelementptr inbounds i8, ptr %lhs, i64 200
   %14 = load double, ptr %m_green.i13, align 8
-  %m_green2.i14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 1
+  %m_green2.i14 = getelementptr inbounds i8, ptr %rhs, i64 200
   %15 = load double, ptr %m_green2.i14, align 8
   %cmp3.i15 = fcmp oeq double %14, %15
   br i1 %cmp3.i15, label %land.lhs.true4.i16, label %land.end
 
 land.lhs.true4.i16:                               ; preds = %land.lhs.true.i12
-  %m_blue.i17 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 2
+  %m_blue.i17 = getelementptr inbounds i8, ptr %lhs, i64 208
   %16 = load double, ptr %m_blue.i17, align 8
-  %m_blue5.i18 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 2
+  %m_blue5.i18 = getelementptr inbounds i8, ptr %rhs, i64 208
   %17 = load double, ptr %m_blue5.i18, align 8
   %cmp6.i19 = fcmp oeq double %16, %17
   br i1 %cmp6.i19, label %land.lhs.true7.i20, label %land.end
 
 land.lhs.true7.i20:                               ; preds = %land.lhs.true4.i16
-  %m_master.i21 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 3
+  %m_master.i21 = getelementptr inbounds i8, ptr %lhs, i64 216
   %18 = load double, ptr %m_master.i21, align 8
-  %m_master8.i22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 3
+  %m_master8.i22 = getelementptr inbounds i8, ptr %rhs, i64 216
   %19 = load double, ptr %m_master8.i22, align 8
   %cmp9.i23 = fcmp oeq double %18, %19
   br i1 %cmp9.i23, label %land.lhs.true10.i24, label %land.end
 
 land.lhs.true10.i24:                              ; preds = %land.lhs.true7.i20
-  %m_start.i25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 4
+  %m_start.i25 = getelementptr inbounds i8, ptr %lhs, i64 224
   %20 = load double, ptr %m_start.i25, align 8
-  %m_start11.i26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 4
+  %m_start11.i26 = getelementptr inbounds i8, ptr %rhs, i64 224
   %21 = load double, ptr %m_start11.i26, align 8
   %cmp12.i27 = fcmp oeq double %20, %21
   br i1 %cmp12.i27, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32: ; preds = %land.lhs.true10.i24
-  %m_width.i29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 5
+  %m_width.i29 = getelementptr inbounds i8, ptr %lhs, i64 232
   %22 = load double, ptr %m_width.i29, align 8
-  %m_width13.i30 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 5
+  %m_width13.i30 = getelementptr inbounds i8, ptr %rhs, i64 232
   %23 = load double, ptr %m_width13.i30, align 8
   %cmp14.i31 = fcmp oeq double %22, %23
   br i1 %cmp14.i31, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3
-  %m_highlights5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3
+  %m_highlights = getelementptr inbounds i8, ptr %lhs, i64 144
+  %m_highlights5 = getelementptr inbounds i8, ptr %rhs, i64 144
   %24 = load double, ptr %m_highlights, align 8
   %25 = load double, ptr %m_highlights5, align 8
   %cmp.i33 = fcmp oeq double %24, %25
   br i1 %cmp.i33, label %land.lhs.true.i34, label %land.end
 
 land.lhs.true.i34:                                ; preds = %land.lhs.true4
-  %m_green.i35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 1
+  %m_green.i35 = getelementptr inbounds i8, ptr %lhs, i64 152
   %26 = load double, ptr %m_green.i35, align 8
-  %m_green2.i36 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 1
+  %m_green2.i36 = getelementptr inbounds i8, ptr %rhs, i64 152
   %27 = load double, ptr %m_green2.i36, align 8
   %cmp3.i37 = fcmp oeq double %26, %27
   br i1 %cmp3.i37, label %land.lhs.true4.i38, label %land.end
 
 land.lhs.true4.i38:                               ; preds = %land.lhs.true.i34
-  %m_blue.i39 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 2
+  %m_blue.i39 = getelementptr inbounds i8, ptr %lhs, i64 160
   %28 = load double, ptr %m_blue.i39, align 8
-  %m_blue5.i40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 2
+  %m_blue5.i40 = getelementptr inbounds i8, ptr %rhs, i64 160
   %29 = load double, ptr %m_blue5.i40, align 8
   %cmp6.i41 = fcmp oeq double %28, %29
   br i1 %cmp6.i41, label %land.lhs.true7.i42, label %land.end
 
 land.lhs.true7.i42:                               ; preds = %land.lhs.true4.i38
-  %m_master.i43 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 3
+  %m_master.i43 = getelementptr inbounds i8, ptr %lhs, i64 168
   %30 = load double, ptr %m_master.i43, align 8
-  %m_master8.i44 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 3
+  %m_master8.i44 = getelementptr inbounds i8, ptr %rhs, i64 168
   %31 = load double, ptr %m_master8.i44, align 8
   %cmp9.i45 = fcmp oeq double %30, %31
   br i1 %cmp9.i45, label %land.lhs.true10.i46, label %land.end
 
 land.lhs.true10.i46:                              ; preds = %land.lhs.true7.i42
-  %m_start.i47 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 4
+  %m_start.i47 = getelementptr inbounds i8, ptr %lhs, i64 176
   %32 = load double, ptr %m_start.i47, align 8
-  %m_start11.i48 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 4
+  %m_start11.i48 = getelementptr inbounds i8, ptr %rhs, i64 176
   %33 = load double, ptr %m_start11.i48, align 8
   %cmp12.i49 = fcmp oeq double %32, %33
   br i1 %cmp12.i49, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54: ; preds = %land.lhs.true10.i46
-  %m_width.i51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 5
+  %m_width.i51 = getelementptr inbounds i8, ptr %lhs, i64 184
   %34 = load double, ptr %m_width.i51, align 8
-  %m_width13.i52 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 5
+  %m_width13.i52 = getelementptr inbounds i8, ptr %rhs, i64 184
   %35 = load double, ptr %m_width13.i52, align 8
   %cmp14.i53 = fcmp oeq double %34, %35
   br i1 %cmp14.i53, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2
-  %m_midtones8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2
+  %m_midtones = getelementptr inbounds i8, ptr %lhs, i64 96
+  %m_midtones8 = getelementptr inbounds i8, ptr %rhs, i64 96
   %36 = load double, ptr %m_midtones, align 8
   %37 = load double, ptr %m_midtones8, align 8
   %cmp.i55 = fcmp oeq double %36, %37
   br i1 %cmp.i55, label %land.lhs.true.i56, label %land.end
 
 land.lhs.true.i56:                                ; preds = %land.lhs.true7
-  %m_green.i57 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 1
+  %m_green.i57 = getelementptr inbounds i8, ptr %lhs, i64 104
   %38 = load double, ptr %m_green.i57, align 8
-  %m_green2.i58 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 1
+  %m_green2.i58 = getelementptr inbounds i8, ptr %rhs, i64 104
   %39 = load double, ptr %m_green2.i58, align 8
   %cmp3.i59 = fcmp oeq double %38, %39
   br i1 %cmp3.i59, label %land.lhs.true4.i60, label %land.end
 
 land.lhs.true4.i60:                               ; preds = %land.lhs.true.i56
-  %m_blue.i61 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 2
+  %m_blue.i61 = getelementptr inbounds i8, ptr %lhs, i64 112
   %40 = load double, ptr %m_blue.i61, align 8
-  %m_blue5.i62 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 2
+  %m_blue5.i62 = getelementptr inbounds i8, ptr %rhs, i64 112
   %41 = load double, ptr %m_blue5.i62, align 8
   %cmp6.i63 = fcmp oeq double %40, %41
   br i1 %cmp6.i63, label %land.lhs.true7.i64, label %land.end
 
 land.lhs.true7.i64:                               ; preds = %land.lhs.true4.i60
-  %m_master.i65 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 3
+  %m_master.i65 = getelementptr inbounds i8, ptr %lhs, i64 120
   %42 = load double, ptr %m_master.i65, align 8
-  %m_master8.i66 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 3
+  %m_master8.i66 = getelementptr inbounds i8, ptr %rhs, i64 120
   %43 = load double, ptr %m_master8.i66, align 8
   %cmp9.i67 = fcmp oeq double %42, %43
   br i1 %cmp9.i67, label %land.lhs.true10.i68, label %land.end
 
 land.lhs.true10.i68:                              ; preds = %land.lhs.true7.i64
-  %m_start.i69 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 4
+  %m_start.i69 = getelementptr inbounds i8, ptr %lhs, i64 128
   %44 = load double, ptr %m_start.i69, align 8
-  %m_start11.i70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 4
+  %m_start11.i70 = getelementptr inbounds i8, ptr %rhs, i64 128
   %45 = load double, ptr %m_start11.i70, align 8
   %cmp12.i71 = fcmp oeq double %44, %45
   br i1 %cmp12.i71, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76: ; preds = %land.lhs.true10.i68
-  %m_width.i73 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 5
+  %m_width.i73 = getelementptr inbounds i8, ptr %lhs, i64 136
   %46 = load double, ptr %m_width.i73, align 8
-  %m_width13.i74 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 5
+  %m_width13.i74 = getelementptr inbounds i8, ptr %rhs, i64 136
   %47 = load double, ptr %m_width13.i74, align 8
   %cmp14.i75 = fcmp oeq double %46, %47
   br i1 %cmp14.i75, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1
-  %m_shadows11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %lhs, i64 48
+  %m_shadows11 = getelementptr inbounds i8, ptr %rhs, i64 48
   %48 = load double, ptr %m_shadows, align 8
   %49 = load double, ptr %m_shadows11, align 8
   %cmp.i77 = fcmp oeq double %48, %49
   br i1 %cmp.i77, label %land.lhs.true.i78, label %land.end
 
 land.lhs.true.i78:                                ; preds = %land.lhs.true10
-  %m_green.i79 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 1
+  %m_green.i79 = getelementptr inbounds i8, ptr %lhs, i64 56
   %50 = load double, ptr %m_green.i79, align 8
-  %m_green2.i80 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 1
+  %m_green2.i80 = getelementptr inbounds i8, ptr %rhs, i64 56
   %51 = load double, ptr %m_green2.i80, align 8
   %cmp3.i81 = fcmp oeq double %50, %51
   br i1 %cmp3.i81, label %land.lhs.true4.i82, label %land.end
 
 land.lhs.true4.i82:                               ; preds = %land.lhs.true.i78
-  %m_blue.i83 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 2
+  %m_blue.i83 = getelementptr inbounds i8, ptr %lhs, i64 64
   %52 = load double, ptr %m_blue.i83, align 8
-  %m_blue5.i84 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 2
+  %m_blue5.i84 = getelementptr inbounds i8, ptr %rhs, i64 64
   %53 = load double, ptr %m_blue5.i84, align 8
   %cmp6.i85 = fcmp oeq double %52, %53
   br i1 %cmp6.i85, label %land.lhs.true7.i86, label %land.end
 
 land.lhs.true7.i86:                               ; preds = %land.lhs.true4.i82
-  %m_master.i87 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 3
+  %m_master.i87 = getelementptr inbounds i8, ptr %lhs, i64 72
   %54 = load double, ptr %m_master.i87, align 8
-  %m_master8.i88 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 3
+  %m_master8.i88 = getelementptr inbounds i8, ptr %rhs, i64 72
   %55 = load double, ptr %m_master8.i88, align 8
   %cmp9.i89 = fcmp oeq double %54, %55
   br i1 %cmp9.i89, label %land.lhs.true10.i90, label %land.end
 
 land.lhs.true10.i90:                              ; preds = %land.lhs.true7.i86
-  %m_start.i91 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 4
+  %m_start.i91 = getelementptr inbounds i8, ptr %lhs, i64 80
   %56 = load double, ptr %m_start.i91, align 8
-  %m_start11.i92 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 4
+  %m_start11.i92 = getelementptr inbounds i8, ptr %rhs, i64 80
   %57 = load double, ptr %m_start11.i92, align 8
   %cmp12.i93 = fcmp oeq double %56, %57
   br i1 %cmp12.i93, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98: ; preds = %land.lhs.true10.i90
-  %m_width.i95 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 5
+  %m_width.i95 = getelementptr inbounds i8, ptr %lhs, i64 88
   %58 = load double, ptr %m_width.i95, align 8
-  %m_width13.i96 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 5
+  %m_width13.i96 = getelementptr inbounds i8, ptr %rhs, i64 88
   %59 = load double, ptr %m_width13.i96, align 8
   %cmp14.i97 = fcmp oeq double %58, %59
   br i1 %cmp14.i97, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %lhs, i64 240
   %60 = load double, ptr %m_scontrast, align 8
-  %m_scontrast13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 5
+  %m_scontrast13 = getelementptr inbounds i8, ptr %rhs, i64 240
   %61 = load double, ptr %m_scontrast13, align 8
   %cmp = fcmp oeq double %60, %61
   br label %land.end
@@ -468,19 +465,19 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 1
+  %m_green = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load double, ptr %m_green, align 8
   %cmp2 = fcmp olt double %1, 9.999900e-02
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 2
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load double, ptr %m_blue, align 8
   %cmp4 = fcmp olt double %2, 9.999900e-02
   br i1 %cmp4, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 3
+  %m_master = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load double, ptr %m_master, align 8
   %cmp6 = fcmp olt double %3, 9.999900e-02
   br i1 %cmp6, label %if.then, label %if.end
@@ -548,7 +545,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread148
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 5
+  %m_width = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load double, ptr %m_width, align 8
   %cmp21 = fcmp olt double %8, 0x3F847A5B0FF10ECC
   br i1 %cmp21, label %if.then22, label %if.end50
@@ -689,25 +686,25 @@ cleanup.action86:                                 ; preds = %ehcleanup84.thread1
   br label %eh.resume
 
 if.end89:                                         ; preds = %if.end50
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2
+  %m_midtones = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load double, ptr %m_midtones, align 8
   %cmp91 = fcmp olt double %18, 9.999900e-02
   br i1 %cmp91, label %if.then101, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %if.end89
-  %m_green93 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 1
+  %m_green93 = getelementptr inbounds i8, ptr %this, i64 104
   %19 = load double, ptr %m_green93, align 8
   %cmp94 = fcmp olt double %19, 9.999900e-02
   br i1 %cmp94, label %if.then101, label %lor.lhs.false95
 
 lor.lhs.false95:                                  ; preds = %lor.lhs.false92
-  %m_blue96 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 2
+  %m_blue96 = getelementptr inbounds i8, ptr %this, i64 112
   %20 = load double, ptr %m_blue96, align 8
   %cmp97 = fcmp olt double %20, 9.999900e-02
   br i1 %cmp97, label %if.then101, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %lor.lhs.false95
-  %m_master99 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 3
+  %m_master99 = getelementptr inbounds i8, ptr %this, i64 120
   %21 = load double, ptr %m_master99, align 8
   %cmp100 = fcmp olt double %21, 9.999900e-02
   br i1 %cmp100, label %if.then101, label %if.end128
@@ -775,7 +772,7 @@ cleanup.action125:                                ; preds = %ehcleanup123.thread
   br label %eh.resume
 
 if.end128:                                        ; preds = %lor.lhs.false98
-  %m_width129 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 5
+  %m_width129 = getelementptr inbounds i8, ptr %this, i64 136
   %26 = load double, ptr %m_width129, align 8
   %cmp130 = fcmp olt double %26, 0x3F847A5B0FF10ECC
   br i1 %cmp130, label %if.then131, label %if.end159
@@ -916,25 +913,25 @@ cleanup.action195:                                ; preds = %ehcleanup193.thread
   br label %eh.resume
 
 if.end198:                                        ; preds = %if.end159
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4
+  %m_whites = getelementptr inbounds i8, ptr %this, i64 192
   %36 = load double, ptr %m_whites, align 8
   %cmp200 = fcmp olt double %36, 9.999900e-02
   br i1 %cmp200, label %if.then210, label %lor.lhs.false201
 
 lor.lhs.false201:                                 ; preds = %if.end198
-  %m_green202 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 1
+  %m_green202 = getelementptr inbounds i8, ptr %this, i64 200
   %37 = load double, ptr %m_green202, align 8
   %cmp203 = fcmp olt double %37, 9.999900e-02
   br i1 %cmp203, label %if.then210, label %lor.lhs.false204
 
 lor.lhs.false204:                                 ; preds = %lor.lhs.false201
-  %m_blue205 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 2
+  %m_blue205 = getelementptr inbounds i8, ptr %this, i64 208
   %38 = load double, ptr %m_blue205, align 8
   %cmp206 = fcmp olt double %38, 9.999900e-02
   br i1 %cmp206, label %if.then210, label %lor.lhs.false207
 
 lor.lhs.false207:                                 ; preds = %lor.lhs.false204
-  %m_master208 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 3
+  %m_master208 = getelementptr inbounds i8, ptr %this, i64 216
   %39 = load double, ptr %m_master208, align 8
   %cmp209 = fcmp olt double %39, 9.999900e-02
   br i1 %cmp209, label %if.then210, label %if.end237
@@ -1002,7 +999,7 @@ cleanup.action234:                                ; preds = %ehcleanup232.thread
   br label %eh.resume
 
 if.end237:                                        ; preds = %lor.lhs.false207
-  %m_width238 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 5
+  %m_width238 = getelementptr inbounds i8, ptr %this, i64 232
   %44 = load double, ptr %m_width238, align 8
   %cmp239 = fcmp olt double %44, 0x3F847A5B0FF10ECC
   br i1 %cmp239, label %if.then240, label %if.end268
@@ -1143,25 +1140,25 @@ cleanup.action304:                                ; preds = %ehcleanup302.thread
   br label %eh.resume
 
 if.end307:                                        ; preds = %if.end268
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %this, i64 48
   %54 = load double, ptr %m_shadows, align 8
   %cmp309 = fcmp olt double %54, 1.999990e-01
   br i1 %cmp309, label %if.then319, label %lor.lhs.false310
 
 lor.lhs.false310:                                 ; preds = %if.end307
-  %m_green311 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 1
+  %m_green311 = getelementptr inbounds i8, ptr %this, i64 56
   %55 = load double, ptr %m_green311, align 8
   %cmp312 = fcmp olt double %55, 1.999990e-01
   br i1 %cmp312, label %if.then319, label %lor.lhs.false313
 
 lor.lhs.false313:                                 ; preds = %lor.lhs.false310
-  %m_blue314 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 2
+  %m_blue314 = getelementptr inbounds i8, ptr %this, i64 64
   %56 = load double, ptr %m_blue314, align 8
   %cmp315 = fcmp olt double %56, 1.999990e-01
   br i1 %cmp315, label %if.then319, label %lor.lhs.false316
 
 lor.lhs.false316:                                 ; preds = %lor.lhs.false313
-  %m_master317 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 3
+  %m_master317 = getelementptr inbounds i8, ptr %this, i64 72
   %57 = load double, ptr %m_master317, align 8
   %cmp318 = fcmp olt double %57, 1.999990e-01
   br i1 %cmp318, label %if.then319, label %if.end346
@@ -1229,9 +1226,9 @@ cleanup.action343:                                ; preds = %ehcleanup341.thread
   br label %eh.resume
 
 if.end346:                                        ; preds = %lor.lhs.false316
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 4
+  %m_start = getelementptr inbounds i8, ptr %this, i64 80
   %62 = load double, ptr %m_start, align 8
-  %m_width347 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 5
+  %m_width347 = getelementptr inbounds i8, ptr %this, i64 88
   %63 = load double, ptr %m_width347, align 8
   %add = fadd double %63, 0x3F847A5B0FF10ECC
   %cmp348 = fcmp olt double %62, %add
@@ -1382,25 +1379,25 @@ cleanup.action418:                                ; preds = %ehcleanup416.thread
   br label %eh.resume
 
 if.end421:                                        ; preds = %if.end382
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3
+  %m_highlights = getelementptr inbounds i8, ptr %this, i64 144
   %74 = load double, ptr %m_highlights, align 8
   %cmp423 = fcmp olt double %74, 1.999990e-01
   br i1 %cmp423, label %if.then433, label %lor.lhs.false424
 
 lor.lhs.false424:                                 ; preds = %if.end421
-  %m_green425 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 1
+  %m_green425 = getelementptr inbounds i8, ptr %this, i64 152
   %75 = load double, ptr %m_green425, align 8
   %cmp426 = fcmp olt double %75, 1.999990e-01
   br i1 %cmp426, label %if.then433, label %lor.lhs.false427
 
 lor.lhs.false427:                                 ; preds = %lor.lhs.false424
-  %m_blue428 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 2
+  %m_blue428 = getelementptr inbounds i8, ptr %this, i64 160
   %76 = load double, ptr %m_blue428, align 8
   %cmp429 = fcmp olt double %76, 1.999990e-01
   br i1 %cmp429, label %if.then433, label %lor.lhs.false430
 
 lor.lhs.false430:                                 ; preds = %lor.lhs.false427
-  %m_master431 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 3
+  %m_master431 = getelementptr inbounds i8, ptr %this, i64 168
   %77 = load double, ptr %m_master431, align 8
   %cmp432 = fcmp olt double %77, 1.999990e-01
   br i1 %cmp432, label %if.then433, label %if.end460
@@ -1468,9 +1465,9 @@ cleanup.action457:                                ; preds = %ehcleanup455.thread
   br label %eh.resume
 
 if.end460:                                        ; preds = %lor.lhs.false430
-  %m_start461 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 4
+  %m_start461 = getelementptr inbounds i8, ptr %this, i64 176
   %82 = load double, ptr %m_start461, align 8
-  %m_width462 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 5
+  %m_width462 = getelementptr inbounds i8, ptr %this, i64 184
   %83 = load double, ptr %m_width462, align 8
   %sub = fadd double %83, 0xBF847A5B0FF10ECC
   %cmp463 = fcmp ogt double %82, %sub
@@ -1621,7 +1618,7 @@ cleanup.action533:                                ; preds = %ehcleanup531.thread
   br label %eh.resume
 
 if.end536:                                        ; preds = %if.end497
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %this, i64 240
   %94 = load double, ptr %m_scontrast, align 8
   %cmp537 = fcmp olt double %94, 0x3F847A5B0FF10ECC
   br i1 %cmp537, label %if.then538, label %if.end566
@@ -1817,19 +1814,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.then2:                                         ; preds = %entry
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %value, i64 0, i32 1
+  %m_green = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load double, ptr %m_green, align 8
   %conv3 = fptrunc double %1 to float
   br label %return
 
 if.then6:                                         ; preds = %entry
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %value, i64 0, i32 2
+  %m_blue = getelementptr inbounds i8, ptr %value, i64 16
   %2 = load double, ptr %m_blue, align 8
   %conv7 = fptrunc double %2 to float
   br label %return
 
 if.then11:                                        ; preds = %entry
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %value, i64 0, i32 3
+  %m_master = getelementptr inbounds i8, ptr %value, i64 24
   %3 = load double, ptr %m_master, align 8
   %conv12 = fptrunc double %3 to float
   br label %return
@@ -1850,7 +1847,7 @@ entry:
   br i1 %3, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %value, i64 48
   %4 = load <4 x double>, ptr %m_shadows, align 8
   %.fr54 = freeze <4 x double> %4
   %5 = fcmp une <4 x double> %.fr54, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1859,7 +1856,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %7, label %land.lhs.true2, label %land.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 2
+  %m_midtones = getelementptr inbounds i8, ptr %value, i64 96
   %8 = load <4 x double>, ptr %m_midtones, align 8
   %.fr55 = freeze <4 x double> %8
   %9 = fcmp une <4 x double> %.fr55, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1868,7 +1865,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %11, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 3
+  %m_highlights = getelementptr inbounds i8, ptr %value, i64 144
   %12 = load <4 x double>, ptr %m_highlights, align 8
   %.fr56 = freeze <4 x double> %12
   %13 = fcmp une <4 x double> %.fr56, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1877,7 +1874,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true2
   br i1 %15, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 4
+  %m_whites = getelementptr inbounds i8, ptr %value, i64 192
   %16 = load <4 x double>, ptr %m_whites, align 8
   %.fr57 = freeze <4 x double> %16
   %17 = fcmp une <4 x double> %.fr57, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1886,7 +1883,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true4
   br i1 %19, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %value, i64 240
   %20 = load double, ptr %m_scontrast, align 8
   %cmp = fcmp oeq double %20, 1.000000e+00
   br label %land.end
@@ -1899,12 +1896,12 @@ land.end:                                         ; preds = %land.lhs.true6, %la
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, i32 noundef %style) unnamed_addr #5 align 2 {
 entry:
-  %m_top = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 21
+  %m_top = getelementptr inbounds i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 0, i64 912, i1 false)
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0x3FD99999A0000000>, ptr %m_top, align 8
-  %m_localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 25
+  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928
   store i8 0, ptr %m_localBypass, align 8
-  %m_style = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 26
+  %m_style = getelementptr inbounds i8, ptr %this, i64 932
   store i32 0, ptr %m_style, align 4
   %cmp.not.i = icmp eq i32 %style, 0
   br i1 %cmp.not.i, label %_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE.exit, label %if.then.i
@@ -1934,7 +1931,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, i32 noundef %style) local_unnamed_addr #7 align 2 {
 entry:
-  %m_style = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 26
+  %m_style = getelementptr inbounds i8, ptr %this, i64 932
   %0 = load i32, ptr %m_style, align 4
   %cmp.not = icmp eq i32 %0, %style
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1945,10 +1942,10 @@ if.then:                                          ; preds = %entry
   br i1 %1, label %switch.lookup, label %if.end
 
 switch.lookup:                                    ; preds = %if.then
-  %m_pivot = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 24
-  %m_bottom = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 23
-  %m_topSC = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 22
-  %m_top = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 21
+  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
+  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
+  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
+  %m_top = getelementptr inbounds i8, ptr %this, i64 912
   %2 = zext nneg i32 %style to i64
   %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %2
   %switch.load = load float, ptr %switch.gep, align 4
@@ -2004,76 +2001,76 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(248) %v)
-  %m_localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 25
+  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %m_localBypass, align 8
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 3
+  %m_master = getelementptr inbounds i8, ptr %v, i64 168
   %0 = load double, ptr %m_master, align 8
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 4
+  %m_start = getelementptr inbounds i8, ptr %v, i64 176
   %1 = load double, ptr %m_start, align 8
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 5
+  %m_width = getelementptr inbounds i8, ptr %v, i64 184
   %2 = load double, ptr %m_width, align 8
-  %m_start5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 4
+  %m_start5 = getelementptr inbounds i8, ptr %v, i64 224
   %3 = load double, ptr %m_start5, align 8
-  %m_width7 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 5
+  %m_width7 = getelementptr inbounds i8, ptr %v, i64 232
   %4 = load double, ptr %m_width7, align 8
   %sub = fadd double %2, -1.000000e-02
   %cmp = fcmp ogt double %1, %sub
   %cond = select i1 %cmp, double %sub, double %1
-  %m_highlightsStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 2
+  %m_highlightsStart = getelementptr inbounds i8, ptr %this, i64 16
   store double %cond, ptr %m_highlightsStart, align 8
-  %m_highlightsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 3
+  %m_highlightsWidth = getelementptr inbounds i8, ptr %this, i64 24
   store double %2, ptr %m_highlightsWidth, align 8
   %call11 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %3, double noundef %cond, double noundef %2, double noundef %0)
   %add = fadd double %3, %4
   %5 = load double, ptr %m_highlightsStart, align 8
   %6 = load double, ptr %m_highlightsWidth, align 8
   %call14 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %add, double noundef %5, double noundef %6, double noundef %0)
-  %m_whitesStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 6
+  %m_whitesStart = getelementptr inbounds i8, ptr %this, i64 48
   store double %call11, ptr %m_whitesStart, align 8
   %sub15 = fsub double %call14, %call11
-  %m_whitesWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 7
+  %m_whitesWidth = getelementptr inbounds i8, ptr %this, i64 56
   store double %sub15, ptr %m_whitesWidth, align 8
-  %m_master17 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 3
+  %m_master17 = getelementptr inbounds i8, ptr %v, i64 72
   %7 = load double, ptr %m_master17, align 8
-  %m_start20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 4
+  %m_start20 = getelementptr inbounds i8, ptr %v, i64 80
   %8 = load double, ptr %m_start20, align 8
-  %m_width23 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 5
+  %m_width23 = getelementptr inbounds i8, ptr %v, i64 88
   %9 = load double, ptr %m_width23, align 8
-  %m_start24 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 4
+  %m_start24 = getelementptr inbounds i8, ptr %v, i64 32
   %10 = load double, ptr %m_start24, align 8
-  %m_width26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 5
+  %m_width26 = getelementptr inbounds i8, ptr %v, i64 40
   %11 = load double, ptr %m_width26, align 8
   %add27 = fadd double %9, 1.000000e-02
   %cmp28 = fcmp olt double %8, %add27
   %cond33 = select i1 %cmp28, double %add27, double %8
   store double %cond33, ptr %this, align 8
-  %m_shadowsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 1
+  %m_shadowsWidth = getelementptr inbounds i8, ptr %this, i64 8
   store double %9, ptr %m_shadowsWidth, align 8
   %call37 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %10, double noundef %9, double noundef %cond33, double noundef %7)
   %sub39 = fsub double %10, %11
   %12 = load double, ptr %m_shadowsWidth, align 8
   %13 = load double, ptr %this, align 8
   %call42 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %sub39, double noundef %12, double noundef %13, double noundef %7)
-  %m_blacksStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 4
+  %m_blacksStart = getelementptr inbounds i8, ptr %this, i64 32
   store double %call37, ptr %m_blacksStart, align 8
   %sub43 = fsub double %call37, %call42
-  %m_blacksWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 5
+  %m_blacksWidth = getelementptr inbounds i8, ptr %this, i64 40
   store double %sub43, ptr %m_blacksWidth, align 8
-  %m_top = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 21
+  %m_top = getelementptr inbounds i8, ptr %this, i64 912
   %14 = load float, ptr %m_top, align 8
-  %m_bottom = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 23
+  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
   %15 = load float, ptr %m_bottom, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v, float noundef %14, float noundef %15)
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v)
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v)
-  %m_topSC = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 22
+  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
   %16 = load float, ptr %m_topSC, align 4
   %17 = load float, ptr %m_bottom, align 8
-  %m_pivot = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 24
+  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
   %18 = load float, ptr %m_pivot, align 4
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v, float noundef %16, float noundef %17, float noundef %18)
   br label %return
@@ -2354,14 +2351,17 @@ define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomp
 entry:
   %ref.tmp2 = alloca [4 x i32], align 16
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp2, align 16
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 3
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 2
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 1
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2
+  %m_midX = getelementptr inbounds i8, ptr %this, i64 64
+  %m_midY = getelementptr inbounds i8, ptr %this, i64 160
+  %m_midM = getelementptr inbounds i8, ptr %this, i64 256
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 120
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 112
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 104
+  %m_midtones = getelementptr inbounds i8, ptr %v, i64 96
   %sub = fsub float %top, %bottom
   %mul = fmul float %sub, 0x3FEE666660000000
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 5
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 4
+  %m_width = getelementptr inbounds i8, ptr %v, i64 136
+  %m_start = getelementptr inbounds i8, ptr %v, i64 128
   %add96 = fadd float %top, %bottom
   %mul97 = fmul float %add96, 5.000000e-01
   br label %for.body
@@ -2371,24 +2371,24 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx138
   %0 = load i32, ptr %__begin1.0.ptr, align 4
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom
-  %arrayidx10 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 1
-  %arrayidx14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 2
-  %arrayidx18 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 3
-  %arrayidx22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 4
-  %arrayidx26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 5
-  %arrayidx28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom
-  %arrayidx33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 1
-  %arrayidx37 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 2
-  %arrayidx41 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 3
-  %arrayidx45 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 4
-  %arrayidx49 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 5
-  %arrayidx51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom
-  %arrayidx56 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 1
-  %arrayidx60 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 2
-  %arrayidx64 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 3
-  %arrayidx68 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 4
-  %arrayidx72 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 5
+  %arrayidx = getelementptr inbounds [4 x [6 x float]], ptr %m_midX, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %arrayidx22 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx26 = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %arrayidx28 = getelementptr inbounds [4 x [6 x float]], ptr %m_midY, i64 0, i64 %idxprom
+  %arrayidx33 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
+  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx28, i64 8
+  %arrayidx41 = getelementptr inbounds i8, ptr %arrayidx28, i64 12
+  %arrayidx45 = getelementptr inbounds i8, ptr %arrayidx28, i64 16
+  %arrayidx49 = getelementptr inbounds i8, ptr %arrayidx28, i64 20
+  %arrayidx51 = getelementptr inbounds [4 x [6 x float]], ptr %m_midM, i64 0, i64 %idxprom
+  %arrayidx56 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
+  %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
+  %arrayidx64 = getelementptr inbounds i8, ptr %arrayidx51, i64 12
+  %arrayidx68 = getelementptr inbounds i8, ptr %arrayidx51, i64 16
+  %arrayidx72 = getelementptr inbounds i8, ptr %arrayidx51, i64 20
   switch i32 %0, label %_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
@@ -2588,21 +2588,17 @@ entry:
   store i8 0, ptr %ref.tmp2, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
   store i8 1, ptr %arrayinit.element, align 1
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 3
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 2
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 1
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1
-  %m_master.i77 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 3
-  %m_blue.i81 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 2
-  %m_green.i84 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 1
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3
-  %m_highlightsStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 2
-  %m_highlightsStart.val = load double, ptr %m_highlightsStart, align 8
-  %this.val = load double, ptr %this, align 8
-  %m_shadowsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 1
-  %m_highlightsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 3
-  %m_highlightsWidth.val = load double, ptr %m_highlightsWidth, align 8
-  %m_shadowsWidth.val = load double, ptr %m_shadowsWidth, align 8
+  %m_hsX = getelementptr inbounds i8, ptr %this, i64 352
+  %m_hsY = getelementptr inbounds i8, ptr %this, i64 448
+  %m_hsM = getelementptr inbounds i8, ptr %this, i64 544
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 72
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 64
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 56
+  %m_shadows = getelementptr inbounds i8, ptr %v, i64 48
+  %m_master.i77 = getelementptr inbounds i8, ptr %v, i64 168
+  %m_blue.i81 = getelementptr inbounds i8, ptr %v, i64 160
+  %m_green.i84 = getelementptr inbounds i8, ptr %v, i64 152
+  %m_highlights = getelementptr inbounds i8, ptr %v, i64 144
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc168
@@ -2613,33 +2609,31 @@ for.body:                                         ; preds = %entry, %for.inc168
   %tobool.not.not = icmp eq i8 %1, 0
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp5, align 16
   %idxprom = zext nneg i8 %1 to i64
-  %cond87 = select i1 %tobool.not.not, double %m_highlightsStart.val, double %this.val
-  %conv = fptrunc double %cond87 to float
-  %cond92 = select i1 %tobool.not.not, double %m_highlightsWidth.val, double %m_shadowsWidth.val
-  %conv93 = fptrunc double %cond92 to float
-  %cond98 = select i1 %tobool.not.not, float %conv, float %conv93
-  %cond103 = select i1 %tobool.not.not, float %conv93, float %conv
-  %sub104 = fsub float %cond103, %cond98
-  %2 = tail call float @llvm.fmuladd.f32(float %sub104, float 5.000000e-01, float %cond98)
+  %2 = shl nuw nsw i8 %1, 4
+  %3 = xor i8 %2, 16
+  %cond87.in.idx = zext nneg i8 %3 to i64
+  %cond87.in = getelementptr inbounds i8, ptr %this, i64 %cond87.in.idx
+  %cond92.in.v = select i1 %tobool.not.not, i64 24, i64 8
+  %cond92.in = getelementptr inbounds i8, ptr %this, i64 %cond92.in.v
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.idx105 = phi i64 [ 0, %for.body ], [ %__begin2.0.add, %for.inc ]
   %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx105
-  %3 = load i32, ptr %__begin2.0.ptr, align 4
-  %idxprom19 = zext i32 %3 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 11, i64 %idxprom, i64 %idxprom19
-  %arrayidx29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 11, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx37 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 11, i64 %idxprom, i64 %idxprom19, i64 2
-  %arrayidx43 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 12, i64 %idxprom, i64 %idxprom19
-  %arrayidx52 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 12, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx60 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 12, i64 %idxprom, i64 %idxprom19, i64 2
-  %arrayidx66 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 13, i64 %idxprom, i64 %idxprom19
-  %arrayidx75 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 13, i64 %idxprom, i64 %idxprom19, i64 1
+  %4 = load i32, ptr %__begin2.0.ptr, align 4
+  %idxprom19 = zext i32 %4 to i64
+  %arrayidx20 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsX, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %arrayidx43 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsY, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx52 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
+  %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx43, i64 8
+  %arrayidx66 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_hsM, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx75 = getelementptr inbounds i8, ptr %arrayidx66, i64 4
   br i1 %tobool.not.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %for.body17
-  switch i32 %3, label %cond.end [
+  switch i32 %4, label %cond.end [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
     i32 2, label %if.then6.i
@@ -2647,27 +2641,27 @@ cond.true:                                        ; preds = %for.body17
   ]
 
 if.then.i:                                        ; preds = %cond.true
-  %4 = load double, ptr %m_shadows, align 8
-  %conv.i = fptrunc double %4 to float
+  %5 = load double, ptr %m_shadows, align 8
+  %conv.i = fptrunc double %5 to float
   br label %cond.end
 
 if.then2.i:                                       ; preds = %cond.true
-  %5 = load double, ptr %m_green.i, align 8
-  %conv3.i = fptrunc double %5 to float
+  %6 = load double, ptr %m_green.i, align 8
+  %conv3.i = fptrunc double %6 to float
   br label %cond.end
 
 if.then6.i:                                       ; preds = %cond.true
-  %6 = load double, ptr %m_blue.i, align 8
-  %conv7.i = fptrunc double %6 to float
+  %7 = load double, ptr %m_blue.i, align 8
+  %conv7.i = fptrunc double %7 to float
   br label %cond.end
 
 if.then11.i:                                      ; preds = %cond.true
-  %7 = load double, ptr %m_master.i, align 8
-  %conv12.i = fptrunc double %7 to float
+  %8 = load double, ptr %m_master.i, align 8
+  %conv12.i = fptrunc double %8 to float
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body17
-  switch i32 %3, label %cond.end [
+  switch i32 %4, label %cond.end [
     i32 0, label %if.then.i86
     i32 1, label %if.then2.i83
     i32 2, label %if.then6.i80
@@ -2675,23 +2669,23 @@ cond.false:                                       ; preds = %for.body17
   ]
 
 if.then.i86:                                      ; preds = %cond.false
-  %8 = load double, ptr %m_highlights, align 8
-  %conv.i87 = fptrunc double %8 to float
+  %9 = load double, ptr %m_highlights, align 8
+  %conv.i87 = fptrunc double %9 to float
   br label %cond.end
 
 if.then2.i83:                                     ; preds = %cond.false
-  %9 = load double, ptr %m_green.i84, align 8
-  %conv3.i85 = fptrunc double %9 to float
+  %10 = load double, ptr %m_green.i84, align 8
+  %conv3.i85 = fptrunc double %10 to float
   br label %cond.end
 
 if.then6.i80:                                     ; preds = %cond.false
-  %10 = load double, ptr %m_blue.i81, align 8
-  %conv7.i82 = fptrunc double %10 to float
+  %11 = load double, ptr %m_blue.i81, align 8
+  %conv7.i82 = fptrunc double %11 to float
   br label %cond.end
 
 if.then11.i76:                                    ; preds = %cond.false
-  %11 = load double, ptr %m_master.i77, align 8
-  %conv12.i78 = fptrunc double %11 to float
+  %12 = load double, ptr %m_master.i77, align 8
+  %conv12.i78 = fptrunc double %12 to float
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then11.i76, %if.then6.i80, %if.then2.i83, %if.then.i86, %cond.false, %if.then11.i, %if.then6.i, %if.then2.i, %if.then.i, %cond.true
@@ -2702,11 +2696,19 @@ cond.end:                                         ; preds = %if.then11.i76, %if.
   br i1 %cmp81, label %if.then82, label %for.inc
 
 if.then82:                                        ; preds = %cond.end
+  %cond87 = load double, ptr %cond87.in, align 8
+  %conv = fptrunc double %cond87 to float
+  %cond92 = load double, ptr %cond92.in, align 8
+  %conv93 = fptrunc double %cond92 to float
+  %cond98 = select i1 %tobool.not.not, float %conv, float %conv93
   store float %cond98, ptr %arrayidx20, align 4
+  %cond103 = select i1 %tobool.not.not, float %conv93, float %conv
   store float %cond103, ptr %arrayidx37, align 4
   store float %cond98, ptr %arrayidx43, align 4
   store float %cond103, ptr %arrayidx60, align 4
-  store float %2, ptr %arrayidx29, align 4
+  %sub104 = fsub float %cond103, %cond98
+  %13 = tail call float @llvm.fmuladd.f32(float %sub104, float 5.000000e-01, float %cond98)
+  store float %13, ptr %arrayidx29, align 4
   %cmp105 = fcmp olt float %storemerge, 1.000000e+00
   br i1 %cmp105, label %if.then106, label %if.else
 
@@ -2728,23 +2730,23 @@ cond.end119:                                      ; preds = %cond.true108, %cond
   %cond120 = phi float [ %.sroa.speculated96, %cond.false116.critedge ], [ 1.000000e+00, %cond.true108 ]
   store float %.sroa.speculated98.sink, ptr %arrayidx66, align 8
   store float %cond120, ptr %arrayidx75, align 4
-  %12 = load float, ptr %arrayidx37, align 4
-  %13 = load float, ptr %arrayidx20, align 4
-  %sub121 = fsub float %12, %13
+  %14 = load float, ptr %arrayidx37, align 4
+  %15 = load float, ptr %arrayidx20, align 4
+  %sub121 = fsub float %14, %15
   %div = fdiv float 5.000000e-01, %sub121
-  %14 = load float, ptr %arrayidx43, align 4
-  %15 = load float, ptr %arrayidx29, align 4
-  %sub122 = fsub float %15, %13
+  %16 = load float, ptr %arrayidx43, align 4
+  %17 = load float, ptr %arrayidx29, align 4
+  %sub122 = fsub float %17, %15
   %mul123 = fmul float %.sroa.speculated98.sink, %sub122
-  %16 = tail call float @llvm.fmuladd.f32(float %14, float 2.000000e+00, float %mul123)
-  %sub124 = fsub float %12, %15
-  %17 = load float, ptr %arrayidx60, align 4
-  %18 = fneg float %cond120
-  %neg = fmul float %sub124, %18
-  %19 = tail call float @llvm.fmuladd.f32(float %17, float 2.000000e+00, float %neg)
-  %mul129 = fmul float %sub122, %19
-  %20 = tail call float @llvm.fmuladd.f32(float %16, float %sub124, float %mul129)
-  %mul = fmul float %div, %20
+  %18 = tail call float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float %mul123)
+  %sub124 = fsub float %14, %17
+  %19 = load float, ptr %arrayidx60, align 4
+  %20 = fneg float %cond120
+  %neg = fmul float %sub124, %20
+  %21 = tail call float @llvm.fmuladd.f32(float %19, float 2.000000e+00, float %neg)
+  %mul129 = fmul float %sub122, %21
+  %22 = tail call float @llvm.fmuladd.f32(float %18, float %sub124, float %mul129)
+  %mul = fmul float %div, %22
   br label %for.inc.sink.split
 
 if.else:                                          ; preds = %if.then82
@@ -2770,23 +2772,23 @@ cond.end148:                                      ; preds = %cond.true133, %cond
   %cond149 = phi float [ %.sroa.speculated, %cond.false143.critedge ], [ 1.000000e+00, %cond.true133 ]
   store float %.sroa.speculated95.sink, ptr %arrayidx66, align 8
   store float %cond149, ptr %arrayidx75, align 4
-  %21 = load float, ptr %arrayidx37, align 4
-  %22 = load float, ptr %arrayidx29, align 4
-  %sub150 = fsub float %21, %22
-  %23 = load float, ptr %arrayidx20, align 4
-  %sub151 = fsub float %22, %23
+  %23 = load float, ptr %arrayidx37, align 4
+  %24 = load float, ptr %arrayidx29, align 4
+  %sub150 = fsub float %23, %24
+  %25 = load float, ptr %arrayidx20, align 4
+  %sub151 = fsub float %24, %25
   %add = fadd float %sub150, %sub151
   %div152 = fdiv float 5.000000e-01, %add
-  %24 = load float, ptr %arrayidx43, align 4
+  %26 = load float, ptr %arrayidx43, align 4
   %mul155 = fmul float %sub151, %.sroa.speculated95.sink
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float 2.000000e+00, float %mul155)
-  %26 = load float, ptr %arrayidx60, align 4
-  %27 = fneg float %cond149
-  %neg161 = fmul float %sub150, %27
-  %28 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %neg161)
-  %mul163 = fmul float %sub151, %28
-  %29 = tail call float @llvm.fmuladd.f32(float %25, float %sub150, float %mul163)
-  %mul164 = fmul float %div152, %29
+  %27 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %mul155)
+  %28 = load float, ptr %arrayidx60, align 4
+  %29 = fneg float %cond149
+  %neg161 = fmul float %sub150, %29
+  %30 = tail call float @llvm.fmuladd.f32(float %28, float 2.000000e+00, float %neg161)
+  %mul163 = fmul float %sub151, %30
+  %31 = tail call float @llvm.fmuladd.f32(float %27, float %sub150, float %mul163)
+  %mul164 = fmul float %div152, %31
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.end119, %cond.end148
@@ -2816,21 +2818,17 @@ entry:
   store i8 0, ptr %ref.tmp2, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
   store i8 1, ptr %arrayinit.element, align 1
-  %m_blacksStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 4
-  %m_whitesStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 6
-  %m_whitesStart.val = load double, ptr %m_whitesStart, align 8
-  %m_blacksStart.val = load double, ptr %m_blacksStart, align 8
-  %m_blacksWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 5
-  %m_whitesWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 7
-  %m_whitesWidth.val = load double, ptr %m_whitesWidth, align 8
-  %m_blacksWidth.val = load double, ptr %m_blacksWidth, align 8
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 3
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 2
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 1
-  %m_master.i76 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 3
-  %m_blue.i80 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 2
-  %m_green.i83 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 1
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4
+  %m_wbX = getelementptr inbounds i8, ptr %this, i64 608
+  %m_wbY = getelementptr inbounds i8, ptr %this, i64 672
+  %m_wbM = getelementptr inbounds i8, ptr %this, i64 736
+  %m_wbGain = getelementptr inbounds i8, ptr %this, i64 800
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 24
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 16
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 8
+  %m_master.i76 = getelementptr inbounds i8, ptr %v, i64 216
+  %m_blue.i80 = getelementptr inbounds i8, ptr %v, i64 208
+  %m_green.i83 = getelementptr inbounds i8, ptr %v, i64 200
+  %m_whites = getelementptr inbounds i8, ptr %v, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc133
@@ -2841,10 +2839,14 @@ for.body:                                         ; preds = %entry, %for.inc133
   %tobool.not.not = icmp eq i8 %1, 0
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp5, align 16
   %idxprom = zext nneg i8 %1 to i64
-  %cond67 = select i1 %tobool.not.not, double %m_whitesStart.val, double %m_blacksStart.val
-  %conv = fptrunc double %cond67 to float
-  %cond72 = select i1 %tobool.not.not, double %m_whitesWidth.val, double %m_blacksWidth.val
-  %conv73 = fptrunc double %cond72 to float
+  %cond67.in.v = select i1 %tobool.not.not, i64 48, i64 32
+  %cond67.in = getelementptr inbounds i8, ptr %this, i64 %cond67.in.v
+  %cond72.in.v = select i1 %tobool.not.not, i64 56, i64 40
+  %cond72.in = getelementptr inbounds i8, ptr %this, i64 %cond72.in.v
+  %cond67.pre = load double, ptr %cond67.in, align 8
+  %cond72.pre = load double, ptr %cond72.in, align 8
+  %conv = fptrunc double %cond67.pre to float
+  %conv73 = fptrunc double %cond72.pre to float
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
@@ -2852,13 +2854,13 @@ for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx104
   %2 = load i32, ptr %__begin2.0.ptr, align 4
   %idxprom19 = zext i32 %2 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 14, i64 %idxprom, i64 %idxprom19
-  %arrayidx29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 14, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 15, i64 %idxprom, i64 %idxprom19
-  %arrayidx44 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 15, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx50 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 16, i64 %idxprom, i64 %idxprom19
-  %arrayidx59 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 16, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx65 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 17, i64 %idxprom, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbX, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %arrayidx35 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbY, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx44 = getelementptr inbounds i8, ptr %arrayidx35, i64 4
+  %arrayidx50 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbM, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx59 = getelementptr inbounds i8, ptr %arrayidx50, i64 4
+  %arrayidx65 = getelementptr inbounds [2 x [4 x float]], ptr %m_wbGain, i64 0, i64 %idxprom, i64 %idxprom19
   br i1 %tobool.not.not, label %cond.false77, label %cond.true75
 
 cond.true75:                                      ; preds = %for.body17
@@ -3012,7 +3014,7 @@ for.end135:                                       ; preds = %for.inc133
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %topSC, float noundef %bottom, float noundef %pivot) local_unnamed_addr #12 align 2 {
 entry:
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load double, ptr %m_scontrast, align 8
   %conv = fptrunc double %0 to float
   %cmp = fcmp une float %conv, 1.000000e+00
@@ -3037,16 +3039,16 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi float [ %div, %cond.true ], [ %2, %cond.false ]
-  %m_scX = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18
-  %arrayidx8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 0, i64 1
-  %arrayidx11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 0, i64 2
-  %arrayidx14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 0, i64 3
-  %m_scY = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19
-  %arrayidx19 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 0, i64 2
-  %arrayidx25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 0, i64 3
-  %m_scM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20
-  %arrayidx30 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20, i64 0, i64 1
+  %m_scX = getelementptr inbounds i8, ptr %this, i64 832
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 836
+  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 840
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 844
+  %m_scY = getelementptr inbounds i8, ptr %this, i64 864
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 868
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 872
+  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 876
+  %m_scM = getelementptr inbounds i8, ptr %this, i64 896
+  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 900
   store float %topSC, ptr %arrayidx14, align 4
   store float %topSC, ptr %arrayidx25, align 4
   %sub = fsub float %topSC, %pivot
@@ -3109,16 +3111,16 @@ if.end58:                                         ; preds = %if.else, %if.then48
   %mul61 = fmul float %add59, %sub60
   %13 = tail call float @llvm.fmuladd.f32(float %mul61, float 5.000000e-01, float %3)
   store float %13, ptr %arrayidx22, align 8
-  %arrayidx65 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1
-  %arrayidx70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1, i64 1
-  %arrayidx74 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1, i64 2
-  %arrayidx78 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1, i64 3
-  %arrayidx81 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1
-  %arrayidx86 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1, i64 1
-  %arrayidx90 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1, i64 2
-  %arrayidx94 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1, i64 3
-  %arrayidx97 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20, i64 1
-  %arrayidx102 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20, i64 1, i64 1
+  %arrayidx65 = getelementptr inbounds i8, ptr %this, i64 848
+  %arrayidx70 = getelementptr inbounds i8, ptr %this, i64 852
+  %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 856
+  %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 860
+  %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 880
+  %arrayidx86 = getelementptr inbounds i8, ptr %this, i64 884
+  %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 888
+  %arrayidx94 = getelementptr inbounds i8, ptr %this, i64 892
+  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 904
+  %arrayidx102 = getelementptr inbounds i8, ptr %this, i64 908
   store float %bottom, ptr %arrayidx65, align 8
   store float %bottom, ptr %arrayidx81, align 8
   %sub103 = fsub float %pivot, %bottom

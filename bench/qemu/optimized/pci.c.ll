@@ -3,12 +3,6 @@ source_filename = "bench/qemu/original/pci.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QPCIBus = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i8, i8 }
-%struct.QPCIDevice = type { ptr, i32, i8, %struct.QPCIBar, %struct.QPCIBar, i64, i64 }
-%struct.QPCIBar = type { i64, i8 }
-%struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [43 x i8] c"Skipping due to incomplete support for MSI\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"../qemu/tests/qtest/libqos/pci.c\00", align 1
 @__func__.qpci_device_init = private unnamed_addr constant [17 x i8] c"qpci_device_init\00", align 1
@@ -46,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qpci_device_foreach(ptr noundef %bus, i32 noundef %vendor_id, i32 noundef %device_id, ptr nocapture noundef readonly %func, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %config_readw.i.i = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 11
+  %config_readw.i.i = getelementptr inbounds i8, ptr %bus, i64 88
   %cmp4.not = icmp eq i32 %vendor_id, -1
   %cmp10.not = icmp eq i32 %device_id, -1
   br i1 %cmp4.not, label %entry.split.us, label %for.cond1.preheader
@@ -68,7 +62,7 @@ for.body3.us.us.us.us:                            ; preds = %for.inc.us.us.us.us
 
 qpci_device_set.exit.i.us.us.us.us:               ; preds = %for.body3.us.us.us.us
   store ptr %bus, ptr %call.i.us.us.us.us, align 8
-  %devfn2.i.i.us.us.us.us = getelementptr inbounds %struct.QPCIDevice, ptr %call.i.us.us.us.us, i64 0, i32 1
+  %devfn2.i.i.us.us.us.us = getelementptr inbounds i8, ptr %call.i.us.us.us.us, i64 8
   store i32 %or.us.us.us.us, ptr %devfn2.i.i.us.us.us.us, align 8
   %0 = load ptr, ptr %config_readw.i.i, align 8
   %call.i.i.us.us.us.us = tail call zeroext i16 %0(ptr noundef %bus, i32 noundef %or.us.us.us.us, i8 noundef zeroext 0) #11
@@ -107,7 +101,7 @@ for.body3.us.us:                                  ; preds = %for.inc.us.us, %for
 
 qpci_device_set.exit.i.us.us:                     ; preds = %for.body3.us.us
   store ptr %bus, ptr %call.i.us.us, align 8
-  %devfn2.i.i.us.us = getelementptr inbounds %struct.QPCIDevice, ptr %call.i.us.us, i64 0, i32 1
+  %devfn2.i.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 8
   store i32 %or.us.us, ptr %devfn2.i.i.us.us, align 8
   %1 = load ptr, ptr %config_readw.i.i, align 8
   %call.i.i.us.us = tail call zeroext i16 %1(ptr noundef %bus, i32 noundef %or.us.us, i8 noundef zeroext 0) #11
@@ -116,7 +110,7 @@ qpci_device_set.exit.i.us.us:                     ; preds = %for.body3.us.us
 
 if.end.us.us:                                     ; preds = %qpci_device_set.exit.i.us.us
   %2 = load ptr, ptr %call.i.us.us, align 8
-  %config_readw.i15.us.us = getelementptr inbounds %struct.QPCIBus, ptr %2, i64 0, i32 11
+  %config_readw.i15.us.us = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %config_readw.i15.us.us, align 8
   %4 = load i32, ptr %devfn2.i.i.us.us, align 8
   %call.i17.us.us = tail call zeroext i16 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 2) #11
@@ -164,7 +158,7 @@ if.else.i.i:                                      ; preds = %for.body3, %for.bod
 
 qpci_device_set.exit.i:                           ; preds = %for.body3
   store ptr %bus, ptr %call.i, align 8
-  %devfn2.i.i = getelementptr inbounds %struct.QPCIDevice, ptr %call.i, i64 0, i32 1
+  %devfn2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %or, ptr %devfn2.i.i, align 8
   %5 = load ptr, ptr %config_readw.i.i, align 8
   %call.i.i = tail call zeroext i16 %5(ptr noundef %bus, i32 noundef %or, i8 noundef zeroext 0) #11
@@ -177,7 +171,7 @@ qpci_device_find.exit.thread:                     ; preds = %qpci_device_set.exi
 
 if.end:                                           ; preds = %qpci_device_set.exit.i
   %6 = load ptr, ptr %call.i, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %6, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %6, i64 88
   %7 = load ptr, ptr %config_readw.i, align 8
   %8 = load i32, ptr %devfn2.i.i, align 8
   %call.i14 = tail call zeroext i16 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext 0) #11
@@ -194,7 +188,7 @@ if.end9:                                          ; preds = %if.end
 
 land.lhs.true12:                                  ; preds = %if.end9
   %9 = load ptr, ptr %call.i, align 8
-  %config_readw.i15 = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 11
+  %config_readw.i15 = getelementptr inbounds i8, ptr %9, i64 88
   %10 = load ptr, ptr %config_readw.i15, align 8
   %11 = load i32, ptr %devfn2.i.i, align 8
   %call.i17 = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext 2) #11
@@ -237,9 +231,9 @@ if.else.i:                                        ; preds = %entry
 
 qpci_device_set.exit:                             ; preds = %entry
   store ptr %bus, ptr %call, align 8
-  %devfn2.i = getelementptr inbounds %struct.QPCIDevice, ptr %call, i64 0, i32 1
+  %devfn2.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %devfn, ptr %devfn2.i, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %bus, i64 88
   %0 = load ptr, ptr %config_readw.i, align 8
   %call.i = tail call zeroext i16 %0(ptr noundef %bus, i32 noundef %devfn, i8 noundef zeroext 0) #11
   %cmp = icmp eq i16 %call.i, -1
@@ -258,9 +252,9 @@ return:                                           ; preds = %qpci_device_set.exi
 define dso_local zeroext i16 @qpci_config_readw(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_readw = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 11
+  %config_readw = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %config_readw, align 8
-  %devfn = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn, align 8
   %call = tail call zeroext i16 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset) #11
   ret i16 %call
@@ -272,7 +266,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @qpci_has_buggy_msi(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %has_buggy_msi = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 21
+  %has_buggy_msi = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i8, ptr %has_buggy_msi, align 8
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
@@ -283,7 +277,7 @@ entry:
 define dso_local zeroext i1 @qpci_check_buggy_msi(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %has_buggy_msi.i = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 21
+  %has_buggy_msi.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i8, ptr %has_buggy_msi.i, align 8
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -315,17 +309,17 @@ if.else.i:                                        ; preds = %entry
 qpci_device_set.exit:                             ; preds = %entry
   %0 = load i32, ptr %addr, align 4
   store ptr %bus, ptr %dev, align 8
-  %devfn2.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn2.i = getelementptr inbounds i8, ptr %dev, i64 8
   store i32 %0, ptr %devfn2.i, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %bus, i64 88
   %1 = load ptr, ptr %config_readw.i, align 8
   %call.i = tail call zeroext i16 %1(ptr noundef %bus, i32 noundef %0, i8 noundef zeroext 0) #11
   %2 = load ptr, ptr %dev, align 8
-  %config_readw.i9 = getelementptr inbounds %struct.QPCIBus, ptr %2, i64 0, i32 11
+  %config_readw.i9 = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %config_readw.i9, align 8
   %4 = load i32, ptr %devfn2.i, align 8
   %call.i11 = tail call zeroext i16 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 2) #11
-  %vendor_id2 = getelementptr inbounds %struct.QPCIAddress, ptr %addr, i64 0, i32 1
+  %vendor_id2 = getelementptr inbounds i8, ptr %addr, i64 4
   %5 = load i16, ptr %vendor_id2, align 4
   %tobool.not = icmp eq i16 %5, 0
   %cmp = icmp eq i16 %call.i, %5
@@ -337,7 +331,7 @@ if.else:                                          ; preds = %qpci_device_set.exi
   unreachable
 
 do.body6:                                         ; preds = %qpci_device_set.exit
-  %device_id7 = getelementptr inbounds %struct.QPCIAddress, ptr %addr, i64 0, i32 2
+  %device_id7 = getelementptr inbounds i8, ptr %addr, i64 6
   %6 = load i16, ptr %device_id7, align 2
   %tobool8.not = icmp eq i16 %6, 0
   %cmp13 = icmp eq i16 %call.i11, %6
@@ -368,7 +362,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qpci_secondary_buses_rec(ptr noundef %qbus, i32 noundef %bus, ptr nocapture noundef %pci_bus) unnamed_addr #0 {
 entry:
-  %config_readw.i.i = getelementptr inbounds %struct.QPCIBus, ptr %qbus, i64 0, i32 11
+  %config_readw.i.i = getelementptr inbounds i8, ptr %qbus, i64 88
   br label %for.body
 
 for.cond7.preheader:                              ; preds = %for.inc
@@ -389,7 +383,7 @@ qpci_device_set.exit.i:                           ; preds = %for.body
   %add = add nsw i32 %index.0102, %bus
   %shl = shl i32 %add, 3
   store ptr %qbus, ptr %call.i, align 8
-  %devfn2.i.i = getelementptr inbounds %struct.QPCIDevice, ptr %call.i, i64 0, i32 1
+  %devfn2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %shl, ptr %devfn2.i.i, align 8
   %0 = load ptr, ptr %config_readw.i.i, align 8
   %call.i.i = tail call zeroext i16 %0(ptr noundef %qbus, i32 noundef %shl, i8 noundef zeroext 0) #11
@@ -398,7 +392,7 @@ qpci_device_set.exit.i:                           ; preds = %for.body
 
 if.end:                                           ; preds = %qpci_device_set.exit.i
   %1 = load ptr, ptr %call.i, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %1, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %config_readw.i, align 8
   %3 = load i32, ptr %devfn2.i.i, align 8
   %call.i52 = tail call zeroext i16 %2(ptr noundef %1, i32 noundef %3, i8 noundef zeroext 10) #11
@@ -407,12 +401,12 @@ if.end:                                           ; preds = %qpci_device_set.exi
 
 if.then5:                                         ; preds = %if.end
   %4 = load ptr, ptr %call.i, align 8
-  %config_writeb.i = getelementptr inbounds %struct.QPCIBus, ptr %4, i64 0, i32 13
+  %config_writeb.i = getelementptr inbounds i8, ptr %4, i64 104
   %5 = load ptr, ptr %config_writeb.i, align 8
   %6 = load i32, ptr %devfn2.i.i, align 8
   tail call void %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext 25, i8 noundef zeroext -1) #11
   %7 = load ptr, ptr %call.i, align 8
-  %config_writeb.i54 = getelementptr inbounds %struct.QPCIBus, ptr %7, i64 0, i32 13
+  %config_writeb.i54 = getelementptr inbounds i8, ptr %7, i64 104
   %8 = load ptr, ptr %config_writeb.i54, align 8
   %9 = load i32, ptr %devfn2.i.i, align 8
   tail call void %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext 26, i8 noundef zeroext 0) #11
@@ -438,7 +432,7 @@ qpci_device_set.exit.i58:                         ; preds = %for.body10
   %add11 = add nsw i32 %index.1103, %bus
   %shl12 = shl i32 %add11, 3
   store ptr %qbus, ptr %call.i56, align 8
-  %devfn2.i.i59 = getelementptr inbounds %struct.QPCIDevice, ptr %call.i56, i64 0, i32 1
+  %devfn2.i.i59 = getelementptr inbounds i8, ptr %call.i56, i64 8
   store i32 %shl12, ptr %devfn2.i.i59, align 8
   %10 = load ptr, ptr %config_readw.i.i, align 8
   %call.i.i61 = tail call zeroext i16 %10(ptr noundef %qbus, i32 noundef %shl12, i8 noundef zeroext 0) #11
@@ -447,7 +441,7 @@ qpci_device_set.exit.i58:                         ; preds = %for.body10
 
 if.end18:                                         ; preds = %qpci_device_set.exit.i58
   %11 = load ptr, ptr %call.i56, align 8
-  %config_readw.i67 = getelementptr inbounds %struct.QPCIBus, ptr %11, i64 0, i32 11
+  %config_readw.i67 = getelementptr inbounds i8, ptr %11, i64 88
   %12 = load ptr, ptr %config_readw.i67, align 8
   %13 = load i32, ptr %devfn2.i.i59, align 8
   %call.i69 = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext 10) #11
@@ -456,7 +450,7 @@ if.end18:                                         ; preds = %qpci_device_set.exi
 
 if.end24:                                         ; preds = %if.end18
   %14 = load ptr, ptr %call.i56, align 8
-  %config_readb.i = getelementptr inbounds %struct.QPCIBus, ptr %14, i64 0, i32 10
+  %config_readb.i = getelementptr inbounds i8, ptr %14, i64 80
   %15 = load ptr, ptr %config_readb.i, align 8
   %16 = load i32, ptr %devfn2.i.i59, align 8
   %call.i71 = tail call zeroext i8 %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext 24) #11
@@ -466,7 +460,7 @@ if.end24:                                         ; preds = %if.end18
 
 if.then29:                                        ; preds = %if.end24
   %17 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i72 = getelementptr inbounds %struct.QPCIBus, ptr %17, i64 0, i32 13
+  %config_writeb.i72 = getelementptr inbounds i8, ptr %17, i64 104
   %18 = load ptr, ptr %config_writeb.i72, align 8
   %19 = load i32, ptr %devfn2.i.i59, align 8
   tail call void %18(ptr noundef %17, i32 noundef %19, i8 noundef zeroext 24, i8 noundef zeroext %conv30) #11
@@ -474,7 +468,7 @@ if.then29:                                        ; preds = %if.end24
 
 if.end31:                                         ; preds = %if.then29, %if.end24
   %20 = load ptr, ptr %call.i56, align 8
-  %config_readb.i74 = getelementptr inbounds %struct.QPCIBus, ptr %20, i64 0, i32 10
+  %config_readb.i74 = getelementptr inbounds i8, ptr %20, i64 80
   %21 = load ptr, ptr %config_readb.i74, align 8
   %22 = load i32, ptr %devfn2.i.i59, align 8
   %call.i76 = tail call zeroext i8 %21(ptr noundef %20, i32 noundef %22, i8 noundef zeroext 25) #11
@@ -488,7 +482,7 @@ if.end31:                                         ; preds = %if.then29, %if.end2
 if.then37:                                        ; preds = %if.end31
   %conv38 = trunc i32 %inc33 to i8
   %24 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i77 = getelementptr inbounds %struct.QPCIBus, ptr %24, i64 0, i32 13
+  %config_writeb.i77 = getelementptr inbounds i8, ptr %24, i64 104
   %25 = load ptr, ptr %config_writeb.i77, align 8
   %26 = load i32, ptr %devfn2.i.i59, align 8
   tail call void %25(ptr noundef %24, i32 noundef %26, i8 noundef zeroext 25, i8 noundef zeroext %conv38) #11
@@ -499,12 +493,12 @@ if.end39:                                         ; preds = %if.then37, %if.end3
   %conv41.pre-phi = phi i32 [ %.pre, %if.then37 ], [ %conv34, %if.end31 ]
   %secbus.0 = phi i8 [ %conv38, %if.then37 ], [ %call.i76, %if.end31 ]
   %27 = load ptr, ptr %call.i56, align 8
-  %config_readb.i79 = getelementptr inbounds %struct.QPCIBus, ptr %27, i64 0, i32 10
+  %config_readb.i79 = getelementptr inbounds i8, ptr %27, i64 80
   %28 = load ptr, ptr %config_readb.i79, align 8
   %29 = load i32, ptr %devfn2.i.i59, align 8
   %call.i81 = tail call zeroext i8 %28(ptr noundef %27, i32 noundef %29, i8 noundef zeroext 26) #11
   %30 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i82 = getelementptr inbounds %struct.QPCIBus, ptr %30, i64 0, i32 13
+  %config_writeb.i82 = getelementptr inbounds i8, ptr %30, i64 104
   %31 = load ptr, ptr %config_writeb.i82, align 8
   %32 = load i32, ptr %devfn2.i.i59, align 8
   tail call void %31(ptr noundef %30, i32 noundef %32, i8 noundef zeroext 26, i8 noundef zeroext -1) #11
@@ -518,7 +512,7 @@ if.end39:                                         ; preds = %if.then37, %if.end3
 if.then46:                                        ; preds = %if.end39
   %conv47 = trunc i32 %33 to i8
   %34 = load ptr, ptr %call.i56, align 8
-  %config_readw.i.i84 = getelementptr inbounds %struct.QPCIBus, ptr %34, i64 0, i32 11
+  %config_readw.i.i84 = getelementptr inbounds i8, ptr %34, i64 88
   %35 = load ptr, ptr %config_readw.i.i84, align 8
   %36 = load i32, ptr %devfn2.i.i59, align 8
   %call.i.i85 = tail call zeroext i16 %35(ptr noundef %34, i32 noundef %36, i8 noundef zeroext 0) #11
@@ -527,7 +521,7 @@ if.then46:                                        ; preds = %if.end39
 
 if.end.i:                                         ; preds = %if.then46
   %37 = load ptr, ptr %call.i56, align 8
-  %config_readw.i11.i = getelementptr inbounds %struct.QPCIBus, ptr %37, i64 0, i32 11
+  %config_readw.i11.i = getelementptr inbounds i8, ptr %37, i64 88
   %38 = load ptr, ptr %config_readw.i11.i, align 8
   %39 = load i32, ptr %devfn2.i.i59, align 8
   %call.i13.i = tail call zeroext i16 %38(ptr noundef %37, i32 noundef %39, i8 noundef zeroext 2) #11
@@ -547,7 +541,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
 if.then.i.i:                                      ; preds = %do.body.i
   %add.i.i = add i8 %cap.0.i, 1
   %40 = load ptr, ptr %call.i56, align 8
-  %config_readb.i.i.i = getelementptr inbounds %struct.QPCIBus, ptr %40, i64 0, i32 10
+  %config_readb.i.i.i = getelementptr inbounds i8, ptr %40, i64 80
   %41 = load ptr, ptr %config_readb.i.i.i, align 8
   %42 = load i32, ptr %devfn2.i.i59, align 8
   %call.i.i.i = tail call zeroext i8 %41(ptr noundef %40, i32 noundef %42, i8 noundef zeroext %add.i.i) #11
@@ -555,7 +549,7 @@ if.then.i.i:                                      ; preds = %do.body.i
 
 if.else.i.i88:                                    ; preds = %do.body.i
   %43 = load ptr, ptr %call.i56, align 8
-  %config_readb.i10.i.i = getelementptr inbounds %struct.QPCIBus, ptr %43, i64 0, i32 10
+  %config_readb.i10.i.i = getelementptr inbounds i8, ptr %43, i64 80
   %44 = load ptr, ptr %config_readb.i10.i.i, align 8
   %45 = load i32, ptr %devfn2.i.i59, align 8
   %call.i12.i.i = tail call zeroext i8 %44(ptr noundef %43, i32 noundef %45, i8 noundef zeroext 52) #11
@@ -568,7 +562,7 @@ do.body.i.i.preheader:                            ; preds = %if.else.i.i88, %if.
 do.body.i.i:                                      ; preds = %do.body.i.i.preheader, %do.cond.i.i
   %addr.1.i.i = phi i8 [ %call.i18.i.i, %do.cond.i.i ], [ %addr.1.i.i.ph, %do.body.i.i.preheader ]
   %46 = load ptr, ptr %call.i56, align 8
-  %config_readb.i13.i.i = getelementptr inbounds %struct.QPCIBus, ptr %46, i64 0, i32 10
+  %config_readb.i13.i.i = getelementptr inbounds i8, ptr %46, i64 80
   %47 = load ptr, ptr %config_readb.i13.i.i, align 8
   %48 = load i32, ptr %devfn2.i.i59, align 8
   %call.i15.i.i = tail call zeroext i8 %47(ptr noundef %46, i32 noundef %48, i8 noundef zeroext %addr.1.i.i) #11
@@ -578,7 +572,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i.prehead
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %add9.i.i = add i8 %addr.1.i.i, 1
   %49 = load ptr, ptr %call.i56, align 8
-  %config_readb.i16.i.i = getelementptr inbounds %struct.QPCIBus, ptr %49, i64 0, i32 10
+  %config_readb.i16.i.i = getelementptr inbounds i8, ptr %49, i64 80
   %50 = load ptr, ptr %config_readb.i16.i.i, align 8
   %51 = load i32, ptr %devfn2.i.i59, align 8
   %call.i18.i.i = tail call zeroext i8 %50(ptr noundef %49, i32 noundef %51, i8 noundef zeroext %add9.i.i) #11
@@ -592,7 +586,7 @@ qpci_find_capability.exit.i:                      ; preds = %do.body.i.i
 land.rhs.i:                                       ; preds = %qpci_find_capability.exit.i
   %add.i = add i8 %addr.1.i.i, 3
   %52 = load ptr, ptr %call.i56, align 8
-  %config_readb.i.i = getelementptr inbounds %struct.QPCIBus, ptr %52, i64 0, i32 10
+  %config_readb.i.i = getelementptr inbounds i8, ptr %52, i64 80
   %53 = load ptr, ptr %config_readb.i.i, align 8
   %54 = load i32, ptr %devfn2.i.i59, align 8
   %call.i15.i = tail call zeroext i8 %53(ptr noundef %52, i32 noundef %54, i8 noundef zeroext %add.i) #11
@@ -602,7 +596,7 @@ land.rhs.i:                                       ; preds = %qpci_find_capabilit
 if.then20.i:                                      ; preds = %land.rhs.i
   %add22.i = add i8 %addr.1.i.i, 2
   %55 = load ptr, ptr %call.i56, align 8
-  %config_readb.i16.i = getelementptr inbounds %struct.QPCIBus, ptr %55, i64 0, i32 10
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %55, i64 80
   %56 = load ptr, ptr %config_readb.i16.i, align 8
   %57 = load i32, ptr %devfn2.i.i59, align 8
   %call.i18.i = tail call zeroext i8 %56(ptr noundef %55, i32 noundef %57, i8 noundef zeroext %add22.i) #11
@@ -612,7 +606,7 @@ if.then20.i:                                      ; preds = %land.rhs.i
 if.then49:                                        ; preds = %if.then20.i
   %add51 = add i8 %addr.1.i.i, 4
   %58 = load ptr, ptr %call.i56, align 8
-  %config_readl.i = getelementptr inbounds %struct.QPCIBus, ptr %58, i64 0, i32 12
+  %config_readl.i = getelementptr inbounds i8, ptr %58, i64 96
   %59 = load ptr, ptr %config_readl.i, align 8
   %60 = load i32, ptr %devfn2.i.i59, align 8
   %call.i90 = tail call i32 %59(ptr noundef %58, i32 noundef %60, i8 noundef zeroext %add51) #11
@@ -653,7 +647,7 @@ if.end88:                                         ; preds = %qpci_find_capabilit
 if.end90:                                         ; preds = %if.end88, %if.end39
   %subbus.0 = phi i8 [ %res_bus.1, %if.end88 ], [ %call.i81, %if.end39 ]
   %63 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i91 = getelementptr inbounds %struct.QPCIBus, ptr %63, i64 0, i32 13
+  %config_writeb.i91 = getelementptr inbounds i8, ptr %63, i64 104
   %64 = load ptr, ptr %config_writeb.i91, align 8
   %65 = load i32, ptr %devfn2.i.i59, align 8
   tail call void %64(ptr noundef %63, i32 noundef %65, i8 noundef zeroext 26, i8 noundef zeroext %subbus.0) #11
@@ -673,19 +667,19 @@ for.end93:                                        ; preds = %for.inc91
 define dso_local void @qpci_device_enable(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %config_readw.i, align 8
-  %devfn.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn.i, align 8
   %call.i = tail call zeroext i16 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext 4) #11
   %3 = or i16 %call.i, 7
   %4 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds %struct.QPCIBus, ptr %4, i64 0, i32 14
+  %config_writew.i = getelementptr inbounds i8, ptr %4, i64 112
   %5 = load ptr, ptr %config_writew.i, align 8
   %6 = load i32, ptr %devfn.i, align 8
   tail call void %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext 4, i16 noundef zeroext %3) #11
   %7 = load ptr, ptr %dev, align 8
-  %config_readw.i14 = getelementptr inbounds %struct.QPCIBus, ptr %7, i64 0, i32 11
+  %config_readw.i14 = getelementptr inbounds i8, ptr %7, i64 88
   %8 = load ptr, ptr %config_readw.i14, align 8
   %9 = load i32, ptr %devfn.i, align 8
   %call.i16 = tail call zeroext i16 %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext 4) #11
@@ -724,9 +718,9 @@ do.end35:                                         ; preds = %if.else31, %do.body
 define dso_local void @qpci_config_writew(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset, i16 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_writew = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 14
+  %config_writew = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %config_writew, align 8
-  %devfn = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn, align 8
   tail call void %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset, i16 noundef zeroext %value) #11
   ret void
@@ -743,31 +737,31 @@ entry:
 if.then:                                          ; preds = %entry
   %add = add i8 %start_addr, 1
   %0 = load ptr, ptr %dev, align 8
-  %config_readb.i = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 10
+  %config_readb.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %config_readb.i, align 8
-  %devfn.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn.i, align 8
   %call.i = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %add) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %dev, align 8
-  %config_readb.i10 = getelementptr inbounds %struct.QPCIBus, ptr %3, i64 0, i32 10
+  %config_readb.i10 = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %config_readb.i10, align 8
-  %devfn.i11 = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i11 = getelementptr inbounds i8, ptr %dev, i64 8
   %5 = load i32, ptr %devfn.i11, align 8
   %call.i12 = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext 52) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %addr.0 = phi i8 [ %call.i, %if.then ], [ %call.i12, %if.else ]
-  %devfn.i14 = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i14 = getelementptr inbounds i8, ptr %dev, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end
   %addr.1 = phi i8 [ %addr.0, %if.end ], [ %call.i18, %do.cond ]
   %6 = load ptr, ptr %dev, align 8
-  %config_readb.i13 = getelementptr inbounds %struct.QPCIBus, ptr %6, i64 0, i32 10
+  %config_readb.i13 = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load ptr, ptr %config_readb.i13, align 8
   %8 = load i32, ptr %devfn.i14, align 8
   %call.i15 = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %addr.1) #11
@@ -777,7 +771,7 @@ do.body:                                          ; preds = %do.cond, %if.end
 do.cond:                                          ; preds = %do.body
   %add9 = add i8 %addr.1, 1
   %9 = load ptr, ptr %dev, align 8
-  %config_readb.i16 = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 10
+  %config_readb.i16 = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %config_readb.i16, align 8
   %11 = load i32, ptr %devfn.i14, align 8
   %call.i18 = tail call zeroext i8 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add9) #11
@@ -793,9 +787,9 @@ do.end:                                           ; preds = %do.body, %do.cond
 define dso_local zeroext i8 @qpci_config_readb(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_readb = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 10
+  %config_readb = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %config_readb, align 8
-  %devfn = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn, align 8
   %call = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset) #11
   ret i8 %call
@@ -805,9 +799,9 @@ entry:
 define dso_local void @qpci_msix_enable(ptr nocapture noundef %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 10
+  %config_readb.i10.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i11.i = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn.i11.i, align 8
   %call.i12.i = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext 52) #11
   br label %do.body.i
@@ -815,7 +809,7 @@ entry:
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %addr.1.i = phi i8 [ %call.i12.i, %entry ], [ %call.i18.i, %do.cond.i ]
   %3 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds %struct.QPCIBus, ptr %3, i64 0, i32 10
+  %config_readb.i13.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %config_readb.i13.i, align 8
   %5 = load i32, ptr %devfn.i11.i, align 8
   %call.i15.i = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext %addr.1.i) #11
@@ -825,7 +819,7 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
 do.cond.i:                                        ; preds = %do.body.i
   %add9.i = add i8 %addr.1.i, 1
   %6 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds %struct.QPCIBus, ptr %6, i64 0, i32 10
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load ptr, ptr %config_readb.i16.i, align 8
   %8 = load i32, ptr %devfn.i11.i, align 8
   %call.i18.i = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %add9.i) #11
@@ -844,43 +838,43 @@ do.end:                                           ; preds = %if.else, %qpci_find
   %addr.221.i33 = phi i8 [ 0, %if.else ], [ %addr.1.i, %qpci_find_capability.exit ]
   %add = add i8 %addr.221.i33, 2
   %9 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %9, i64 88
   %10 = load ptr, ptr %config_readw.i, align 8
   %11 = load i32, ptr %devfn.i11.i, align 8
   %call.i = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add) #11
   %12 = or i16 %call.i, -32768
   %13 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds %struct.QPCIBus, ptr %13, i64 0, i32 14
+  %config_writew.i = getelementptr inbounds i8, ptr %13, i64 112
   %14 = load ptr, ptr %config_writew.i, align 8
   %15 = load i32, ptr %devfn.i11.i, align 8
   tail call void %14(ptr noundef %13, i32 noundef %15, i8 noundef zeroext %add, i16 noundef zeroext %12) #11
   %add13 = add i8 %addr.221.i33, 4
   %16 = load ptr, ptr %dev, align 8
-  %config_readl.i = getelementptr inbounds %struct.QPCIBus, ptr %16, i64 0, i32 12
+  %config_readl.i = getelementptr inbounds i8, ptr %16, i64 96
   %17 = load ptr, ptr %config_readl.i, align 8
   %18 = load i32, ptr %devfn.i11.i, align 8
   %call.i27 = tail call i32 %17(ptr noundef %16, i32 noundef %18, i8 noundef zeroext %add13) #11
   %conv16 = and i32 %call.i27, 7
-  %msix_table_bar = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 3
+  %msix_table_bar = getelementptr inbounds i8, ptr %dev, i64 16
   %call18 = tail call { i64, i8 } @qpci_iomap(ptr noundef nonnull %dev, i32 noundef %conv16, ptr noundef null)
   %19 = extractvalue { i64, i8 } %call18, 0
   %20 = extractvalue { i64, i8 } %call18, 1
   store i64 %19, ptr %msix_table_bar, align 8
-  %tmp.sroa.2.0.msix_table_bar.sroa_idx = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 3, i32 1
+  %tmp.sroa.2.0.msix_table_bar.sroa_idx = getelementptr inbounds i8, ptr %dev, i64 24
   store i8 %20, ptr %tmp.sroa.2.0.msix_table_bar.sroa_idx, align 8
   %and19 = and i32 %call.i27, -8
   %conv20 = zext i32 %and19 to i64
-  %msix_table_off = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 5
+  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
   store i64 %conv20, ptr %msix_table_off, align 8
   %add22 = add i8 %addr.221.i33, 8
   %21 = load ptr, ptr %dev, align 8
-  %config_readl.i28 = getelementptr inbounds %struct.QPCIBus, ptr %21, i64 0, i32 12
+  %config_readl.i28 = getelementptr inbounds i8, ptr %21, i64 96
   %22 = load ptr, ptr %config_readl.i28, align 8
   %23 = load i32, ptr %devfn.i11.i, align 8
   %call.i30 = tail call i32 %22(ptr noundef %21, i32 noundef %23, i8 noundef zeroext %add22) #11
   %conv26 = and i32 %call.i30, 7
   %cmp29.not = icmp eq i32 %conv26, %conv16
-  %msix_pba_bar36 = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 4
+  %msix_pba_bar36 = getelementptr inbounds i8, ptr %dev, i64 32
   br i1 %cmp29.not, label %if.else35, label %if.then31
 
 if.then31:                                        ; preds = %do.end
@@ -888,7 +882,7 @@ if.then31:                                        ; preds = %do.end
   %24 = extractvalue { i64, i8 } %call34, 0
   %25 = extractvalue { i64, i8 } %call34, 1
   store i64 %24, ptr %msix_pba_bar36, align 8
-  %tmp32.sroa.2.0.msix_pba_bar.sroa_idx = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 4, i32 1
+  %tmp32.sroa.2.0.msix_pba_bar.sroa_idx = getelementptr inbounds i8, ptr %dev, i64 40
   store i8 %25, ptr %tmp32.sroa.2.0.msix_pba_bar.sroa_idx, align 8
   br label %if.end38
 
@@ -899,9 +893,9 @@ if.else35:                                        ; preds = %do.end
 if.end38:                                         ; preds = %if.else35, %if.then31
   %and39 = and i32 %call.i30, -8
   %conv40 = zext i32 %and39 to i64
-  %msix_pba_off = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 6
+  %msix_pba_off = getelementptr inbounds i8, ptr %dev, i64 56
   store i64 %conv40, ptr %msix_pba_off, align 8
-  %msix_enabled = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 2
+  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
   store i8 1, ptr %msix_enabled, align 4
   ret void
 }
@@ -910,9 +904,9 @@ if.end38:                                         ; preds = %if.else35, %if.then
 define dso_local i32 @qpci_config_readl(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_readl = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 12
+  %config_readl = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %config_readl, align 8
-  %devfn = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn, align 8
   %call = tail call i32 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset) #11
   ret i32 %call
@@ -934,13 +928,13 @@ do.end:                                           ; preds = %entry
   %arrayidx = getelementptr [6 x i32], ptr @qpci_iomap.bar_reg_map, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %conv = trunc i32 %1 to i8
-  %config_writel.i = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 15
+  %config_writel.i = getelementptr inbounds i8, ptr %0, i64 120
   %2 = load ptr, ptr %config_writel.i, align 8
-  %devfn.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i = getelementptr inbounds i8, ptr %dev, i64 8
   %3 = load i32, ptr %devfn.i, align 8
   tail call void %2(ptr noundef %0, i32 noundef %3, i8 noundef zeroext %conv, i32 noundef -1) #11
   %4 = load ptr, ptr %dev, align 8
-  %config_readl.i = getelementptr inbounds %struct.QPCIBus, ptr %4, i64 0, i32 12
+  %config_readl.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %config_readl.i, align 8
   %6 = load i32, ptr %devfn.i, align 8
   %call.i = tail call i32 %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext %conv) #11
@@ -974,7 +968,7 @@ if.end24:                                         ; preds = %if.then22, %do.end1
   br i1 %cmp4.not, label %if.else53, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  %pio_alloc_ptr = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 17
+  %pio_alloc_ptr = getelementptr inbounds i8, ptr %0, i64 136
   %10 = load i64, ptr %pio_alloc_ptr, align 8
   %sub = add i64 %add55, %10
   %mul = and i64 %sub, %9
@@ -987,7 +981,7 @@ if.else36:                                        ; preds = %if.then27
 
 do.body39:                                        ; preds = %if.then27
   %add41 = add i64 %mul, %conv54
-  %pio_limit = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 18
+  %pio_limit = getelementptr inbounds i8, ptr %0, i64 144
   %11 = load i64, ptr %pio_limit, align 8
   %cmp42.not = icmp ugt i64 %add41, %11
   br i1 %cmp42.not, label %if.else45, label %do.end47
@@ -1001,14 +995,14 @@ do.end47:                                         ; preds = %do.body39
   %12 = trunc i64 %mul to i32
   %conv52 = or i32 %12, 1
   %13 = load ptr, ptr %dev, align 8
-  %config_writel.i44 = getelementptr inbounds %struct.QPCIBus, ptr %13, i64 0, i32 15
+  %config_writel.i44 = getelementptr inbounds i8, ptr %13, i64 120
   %14 = load ptr, ptr %config_writel.i44, align 8
   %15 = load i32, ptr %devfn.i, align 8
   tail call void %14(ptr noundef %13, i32 noundef %15, i8 noundef zeroext %conv, i32 noundef %conv52) #11
   br label %if.end84
 
 if.else53:                                        ; preds = %if.end24
-  %mmio_alloc_ptr = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 19
+  %mmio_alloc_ptr = getelementptr inbounds i8, ptr %0, i64 152
   %16 = load i64, ptr %mmio_alloc_ptr, align 8
   %sub56 = add i64 %add55, %16
   %mul60 = and i64 %sub56, %9
@@ -1021,7 +1015,7 @@ if.else66:                                        ; preds = %if.else53
 
 do.body69:                                        ; preds = %if.else53
   %add71 = add i64 %mul60, %conv54
-  %mmio_limit = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 20
+  %mmio_limit = getelementptr inbounds i8, ptr %0, i64 160
   %17 = load i64, ptr %mmio_limit, align 8
   %cmp72.not = icmp ugt i64 %add71, %17
   br i1 %cmp72.not, label %if.else75, label %do.end77
@@ -1034,7 +1028,7 @@ do.end77:                                         ; preds = %do.body69
   store i64 %add71, ptr %mmio_alloc_ptr, align 8
   %conv83 = trunc i64 %mul60 to i32
   %18 = load ptr, ptr %dev, align 8
-  %config_writel.i46 = getelementptr inbounds %struct.QPCIBus, ptr %18, i64 0, i32 15
+  %config_writel.i46 = getelementptr inbounds i8, ptr %18, i64 120
   %19 = load ptr, ptr %config_writel.i46, align 8
   %20 = load i32, ptr %devfn.i, align 8
   tail call void %19(ptr noundef %18, i32 noundef %20, i8 noundef zeroext %conv, i32 noundef %conv83) #11
@@ -1054,7 +1048,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qpci_msix_disable(ptr nocapture noundef %dev) local_unnamed_addr #0 {
 entry:
-  %msix_enabled = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 2
+  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
   %0 = load i8, ptr %msix_enabled, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1066,9 +1060,9 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %2 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds %struct.QPCIBus, ptr %2, i64 0, i32 10
+  %config_readb.i10.i = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i11.i = getelementptr inbounds i8, ptr %dev, i64 8
   %4 = load i32, ptr %devfn.i11.i, align 8
   %call.i12.i = tail call zeroext i8 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 52) #11
   br label %do.body.i
@@ -1076,7 +1070,7 @@ do.end:                                           ; preds = %entry
 do.body.i:                                        ; preds = %do.cond.i, %do.end
   %addr.1.i = phi i8 [ %call.i12.i, %do.end ], [ %call.i18.i, %do.cond.i ]
   %5 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds %struct.QPCIBus, ptr %5, i64 0, i32 10
+  %config_readb.i13.i = getelementptr inbounds i8, ptr %5, i64 80
   %6 = load ptr, ptr %config_readb.i13.i, align 8
   %7 = load i32, ptr %devfn.i11.i, align 8
   %call.i15.i = tail call zeroext i8 %6(ptr noundef %5, i32 noundef %7, i8 noundef zeroext %addr.1.i) #11
@@ -1086,7 +1080,7 @@ do.body.i:                                        ; preds = %do.cond.i, %do.end
 do.cond.i:                                        ; preds = %do.body.i
   %add9.i = add i8 %addr.1.i, 1
   %8 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds %struct.QPCIBus, ptr %8, i64 0, i32 10
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %8, i64 80
   %9 = load ptr, ptr %config_readb.i16.i, align 8
   %10 = load i32, ptr %devfn.i11.i, align 8
   %call.i18.i = tail call zeroext i8 %9(ptr noundef %8, i32 noundef %10, i8 noundef zeroext %add9.i) #11
@@ -1105,18 +1099,18 @@ do.end8:                                          ; preds = %if.else4, %qpci_fin
   %addr.221.i20 = phi i8 [ 0, %if.else4 ], [ %addr.1.i, %qpci_find_capability.exit ]
   %add = add i8 %addr.221.i20, 2
   %11 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %11, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %11, i64 88
   %12 = load ptr, ptr %config_readw.i, align 8
   %13 = load i32, ptr %devfn.i11.i, align 8
   %call.i = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext %add) #11
   %14 = and i16 %call.i, 32767
   %15 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds %struct.QPCIBus, ptr %15, i64 0, i32 14
+  %config_writew.i = getelementptr inbounds i8, ptr %15, i64 112
   %16 = load ptr, ptr %config_writew.i, align 8
   %17 = load i32, ptr %devfn.i11.i, align 8
   tail call void %16(ptr noundef %15, i32 noundef %17, i8 noundef zeroext %add, i16 noundef zeroext %14) #11
   store i8 0, ptr %msix_enabled, align 4
-  %msix_table_off = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 5
+  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msix_table_off, i8 0, i64 16, i1 false)
   ret void
 }
@@ -1132,7 +1126,7 @@ define dso_local zeroext i1 @qpci_msix_pending(ptr nocapture noundef readonly %d
 entry:
   %value.addr.i = alloca i32, align 4
   %val.i = alloca i32, align 4
-  %msix_enabled = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 2
+  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
   %0 = load i8, ptr %msix_enabled, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1148,12 +1142,12 @@ do.end:                                           ; preds = %entry
   %conv5 = zext nneg i16 %3 to i64
   %4 = and i16 %entry1, 31
   %conv2 = zext nneg i16 %4 to i32
-  %msix_pba_bar = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 4
-  %msix_pba_off = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 6
+  %msix_pba_bar = getelementptr inbounds i8, ptr %dev, i64 32
+  %msix_pba_off = getelementptr inbounds i8, ptr %dev, i64 56
   %5 = load i64, ptr %msix_pba_off, align 8
   %add = add i64 %5, %conv5
   %6 = load i64, ptr %msix_pba_bar, align 8
-  %7 = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 4, i32 1
+  %7 = getelementptr inbounds i8, ptr %dev, i64 40
   %8 = load i8, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
   %9 = load ptr, ptr %dev, align 8
@@ -1164,13 +1158,13 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
-  %pio_readl.i = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 2
+  %pio_readl.i = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %pio_readl.i, align 8
   %call.i = tail call i32 %11(ptr noundef %9, i32 noundef %conv5.i) #11
   br label %qpci_io_readl.exit
 
 if.else.i:                                        ; preds = %do.end
-  %memread.i = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 8
+  %memread.i = getelementptr inbounds i8, ptr %9, i64 64
   %12 = load ptr, ptr %memread.i, align 8
   call void %12(ptr noundef %9, i32 noundef %conv5.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
   %13 = load i32, ptr %val.i, align 4
@@ -1193,7 +1187,7 @@ qpci_io_readl.exit:                               ; preds = %if.then.i, %if.else
   br i1 %tobool.not.i11, label %if.else.i13, label %if.then.i12
 
 if.then.i12:                                      ; preds = %qpci_io_readl.exit
-  %pio_writel.i = getelementptr inbounds %struct.QPCIBus, ptr %17, i64 0, i32 6
+  %pio_writel.i = getelementptr inbounds i8, ptr %17, i64 48
   %19 = load ptr, ptr %pio_writel.i, align 8
   %add.i = add i64 %add8, %15
   %conv.i = trunc i64 %add.i to i32
@@ -1202,7 +1196,7 @@ if.then.i12:                                      ; preds = %qpci_io_readl.exit
 
 if.else.i13:                                      ; preds = %qpci_io_readl.exit
   store i32 %and, ptr %value.addr.i, align 4
-  %memwrite.i = getelementptr inbounds %struct.QPCIBus, ptr %17, i64 0, i32 9
+  %memwrite.i = getelementptr inbounds i8, ptr %17, i64 72
   %20 = load ptr, ptr %memwrite.i, align 8
   %add3.i = add i64 %add8, %15
   %conv4.i = trunc i64 %add3.i to i32
@@ -1228,13 +1222,13 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_readl = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 2
+  %pio_readl = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %pio_readl, align 8
   %call = tail call i32 %2(ptr noundef %0, i32 noundef %conv5) #11
   br label %return
 
 if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 8
+  %memread = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %memread, align 8
   call void %3(ptr noundef %0, i32 noundef %conv5, ptr noundef nonnull %val, i64 noundef 4) #11
   %4 = load i32, ptr %val, align 4
@@ -1255,7 +1249,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_writel = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 6
+  %pio_writel = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %pio_writel, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
@@ -1264,7 +1258,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i32 %value, ptr %value.addr, align 4
-  %memwrite = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 9
+  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %memwrite, align 8
   %add3 = add i64 %off, %token.coerce0
   %conv4 = trunc i64 %add3 to i32
@@ -1279,11 +1273,11 @@ if.end:                                           ; preds = %if.else, %if.then
 define dso_local zeroext i1 @qpci_msix_masked(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
 entry:
   %val.i = alloca i32, align 4
-  %msix_table_off = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 5
+  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
   %0 = load i64, ptr %msix_table_off, align 8
   %conv = zext i16 %entry1 to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %msix_enabled = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 2
+  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1295,9 +1289,9 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %3 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds %struct.QPCIBus, ptr %3, i64 0, i32 10
+  %config_readb.i10.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i11.i = getelementptr inbounds i8, ptr %dev, i64 8
   %5 = load i32, ptr %devfn.i11.i, align 8
   %call.i12.i = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext 52) #11
   br label %do.body.i
@@ -1305,7 +1299,7 @@ do.end:                                           ; preds = %entry
 do.body.i:                                        ; preds = %do.cond.i, %do.end
   %addr.1.i = phi i8 [ %call.i12.i, %do.end ], [ %call.i18.i, %do.cond.i ]
   %6 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds %struct.QPCIBus, ptr %6, i64 0, i32 10
+  %config_readb.i13.i = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load ptr, ptr %config_readb.i13.i, align 8
   %8 = load i32, ptr %devfn.i11.i, align 8
   %call.i15.i = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %addr.1.i) #11
@@ -1315,7 +1309,7 @@ do.body.i:                                        ; preds = %do.cond.i, %do.end
 do.cond.i:                                        ; preds = %do.body.i
   %add9.i = add i8 %addr.1.i, 1
   %9 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 10
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %config_readb.i16.i, align 8
   %11 = load i32, ptr %devfn.i11.i, align 8
   %call.i18.i = tail call zeroext i8 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add9.i) #11
@@ -1334,7 +1328,7 @@ do.end11:                                         ; preds = %if.else7, %qpci_fin
   %addr.221.i12 = phi i8 [ 0, %if.else7 ], [ %addr.1.i, %qpci_find_capability.exit ]
   %add13 = add i8 %addr.221.i12, 2
   %12 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %12, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %12, i64 88
   %13 = load ptr, ptr %config_readw.i, align 8
   %14 = load i32, ptr %devfn.i11.i, align 8
   %call.i = tail call zeroext i16 %13(ptr noundef %12, i32 noundef %14, i8 noundef zeroext %add13) #11
@@ -1343,9 +1337,9 @@ do.end11:                                         ; preds = %if.else7, %qpci_fin
   br i1 %tobool17.not, label %if.else19, label %return
 
 if.else19:                                        ; preds = %do.end11
-  %msix_table_bar = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 3
+  %msix_table_bar = getelementptr inbounds i8, ptr %dev, i64 16
   %16 = load i64, ptr %msix_table_bar, align 8
-  %17 = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 3, i32 1
+  %17 = getelementptr inbounds i8, ptr %dev, i64 24
   %18 = load i8, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
   %19 = load ptr, ptr %dev, align 8
@@ -1358,13 +1352,13 @@ if.else19:                                        ; preds = %do.end11
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else19
-  %pio_readl.i = getelementptr inbounds %struct.QPCIBus, ptr %19, i64 0, i32 2
+  %pio_readl.i = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %pio_readl.i, align 8
   %call.i9 = tail call i32 %21(ptr noundef %19, i32 noundef %conv5.i) #11
   br label %qpci_io_readl.exit
 
 if.else.i:                                        ; preds = %if.else19
-  %memread.i = getelementptr inbounds %struct.QPCIBus, ptr %19, i64 0, i32 8
+  %memread.i = getelementptr inbounds i8, ptr %19, i64 64
   %22 = load ptr, ptr %memread.i, align 8
   call void %22(ptr noundef %19, i32 noundef %conv5.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
   %23 = load i32, ptr %val.i, align 4
@@ -1386,9 +1380,9 @@ return:                                           ; preds = %do.end11, %qpci_io_
 define dso_local zeroext i16 @qpci_msix_table_size(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 10
+  %config_readb.i10.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn.i11.i = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn.i11.i, align 8
   %call.i12.i = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext 52) #11
   br label %do.body.i
@@ -1396,7 +1390,7 @@ entry:
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %addr.1.i = phi i8 [ %call.i12.i, %entry ], [ %call.i18.i, %do.cond.i ]
   %3 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds %struct.QPCIBus, ptr %3, i64 0, i32 10
+  %config_readb.i13.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %config_readb.i13.i, align 8
   %5 = load i32, ptr %devfn.i11.i, align 8
   %call.i15.i = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext %addr.1.i) #11
@@ -1406,7 +1400,7 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
 do.cond.i:                                        ; preds = %do.body.i
   %add9.i = add i8 %addr.1.i, 1
   %6 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds %struct.QPCIBus, ptr %6, i64 0, i32 10
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load ptr, ptr %config_readb.i16.i, align 8
   %8 = load i32, ptr %devfn.i11.i, align 8
   %call.i18.i = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %add9.i) #11
@@ -1425,7 +1419,7 @@ do.end:                                           ; preds = %if.else, %qpci_find
   %addr.221.i7 = phi i8 [ 0, %if.else ], [ %addr.1.i, %qpci_find_capability.exit ]
   %add = add i8 %addr.221.i7, 2
   %9 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds %struct.QPCIBus, ptr %9, i64 0, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %9, i64 88
   %10 = load ptr, ptr %config_readw.i, align 8
   %11 = load i32, ptr %devfn.i11.i, align 8
   %call.i = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add) #11
@@ -1438,9 +1432,9 @@ do.end:                                           ; preds = %if.else, %qpci_find
 define dso_local void @qpci_config_writeb(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset, i8 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_writeb = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 13
+  %config_writeb = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %config_writeb, align 8
-  %devfn = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn, align 8
   tail call void %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset, i8 noundef zeroext %value) #11
   ret void
@@ -1450,9 +1444,9 @@ entry:
 define dso_local void @qpci_config_writel(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %config_writel = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 15
+  %config_writel = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %config_writel, align 8
-  %devfn = getelementptr inbounds %struct.QPCIDevice, ptr %dev, i64 0, i32 1
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 8
   %2 = load i32, ptr %devfn, align 8
   tail call void %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset, i32 noundef %value) #11
   ret void
@@ -1475,7 +1469,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 8
+  %memread = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %memread, align 8
   %add4 = add i64 %off, %token.coerce0
   %conv5 = trunc i64 %add4 to i32
@@ -1500,13 +1494,13 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_readw = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 1
+  %pio_readw = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %pio_readw, align 8
   %call = tail call zeroext i16 %2(ptr noundef %0, i32 noundef %conv4) #11
   br label %return
 
 if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 8
+  %memread = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %memread, align 8
   call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %val, i64 noundef 2) #11
   %4 = load i16, ptr %val, align 2
@@ -1529,13 +1523,13 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_readq = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 3
+  %pio_readq = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %pio_readq, align 8
   %call = tail call i64 %2(ptr noundef %0, i32 noundef %conv4) #11
   br label %return
 
 if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 8
+  %memread = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %memread, align 8
   call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %val, i64 noundef 8) #11
   %4 = load i64, ptr %val, align 8
@@ -1559,13 +1553,13 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_writeb = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 4
+  %pio_writeb = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %pio_writeb, align 8
   tail call void %2(ptr noundef %0, i32 noundef %conv4, i8 noundef zeroext %value) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %memwrite = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 9
+  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %memwrite, align 8
   call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 1) #11
   br label %if.end
@@ -1584,7 +1578,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_writew = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 5
+  %pio_writew = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %pio_writew, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
@@ -1593,7 +1587,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i16 %value, ptr %value.addr, align 2
-  %memwrite = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 9
+  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %memwrite, align 8
   %add3 = add i64 %off, %token.coerce0
   %conv4 = trunc i64 %add3 to i32
@@ -1614,7 +1608,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pio_writeq = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 7
+  %pio_writeq = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %pio_writeq, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
@@ -1623,7 +1617,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i64 %value, ptr %value.addr, align 8
-  %memwrite = getelementptr inbounds %struct.QPCIBus, ptr %0, i64 0, i32 9
+  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %memwrite, align 8
   %add3 = add i64 %off, %token.coerce0
   %conv4 = trunc i64 %add3 to i32
@@ -1647,7 +1641,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %dev, align 8
-  %memread = getelementptr inbounds %struct.QPCIBus, ptr %1, i64 0, i32 8
+  %memread = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %memread, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
@@ -1668,7 +1662,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %dev, align 8
-  %memwrite = getelementptr inbounds %struct.QPCIBus, ptr %1, i64 0, i32 9
+  %memwrite = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %memwrite, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
@@ -1705,7 +1699,7 @@ if.else4:                                         ; preds = %do.body1
 
 do.end6:                                          ; preds = %do.body1
   store ptr %addr, ptr %opts, align 8
-  %size_arg = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 1
+  %size_arg = getelementptr inbounds i8, ptr %opts, i64 8
   store i32 8, ptr %size_arg, align 8
   ret void
 }

@@ -6,13 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
 %struct.mi_page_queue_s = type { ptr, ptr, i64 }
 %struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
-%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, i64, %struct.mi_commit_mask_s, %struct.mi_commit_mask_s, ptr, ptr, i64, i64, i64, i64, i64, i64, i32, i64, i64, [513 x %struct.mi_page_s] }
-%struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
-%union.anon = type { %struct.mi_memid_os_info }
-%struct.mi_memid_os_info = type { ptr, i64 }
-%struct.mi_commit_mask_s = type { [8 x i64] }
-%struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
-%union.mi_page_flags_s = type { i8 }
 
 @mi_segment_map = internal global [20481 x i64] zeroinitializer, align 16
 @_mi_heap_main = external local_unnamed_addr global %struct.mi_heap_s, align 8
@@ -148,7 +141,7 @@ if.end39.i.i:                                     ; preds = %if.end32.i.i
   %9 = ptrtoint ptr %add.ptr.i.i to i64
   %10 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i64 0, i32 6), align 8
   %xor.i.i.i = xor i64 %10, %9
-  %cookie.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %add.ptr.i.i, i64 0, i32 12
+  %cookie.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 216
   %11 = load i64, ptr %cookie.i.i, align 8
   %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %11
   br i1 %cmp41.not.i.i, label %if.end53.i.i, label %lor.rhs.i

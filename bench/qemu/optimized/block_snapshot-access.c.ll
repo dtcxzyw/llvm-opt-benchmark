@@ -6,27 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.anon = type { ptr, ptr }
 %struct.BdrvChildClass = type { i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
 
 @bdrv_snapshot_access_drv = internal global %struct.BlockDriver { ptr @.str, i32 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @snapshot_access_open, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @snapshot_access_refresh_filename, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @snapshot_access_child_perm, ptr null, ptr null, %struct.anon zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @snapshot_access_co_preadv_part, ptr null, ptr null, ptr @snapshot_access_co_pwritev_part, ptr @snapshot_access_co_pwrite_zeroes, ptr @snapshot_access_co_pdiscard, ptr null, ptr null, ptr @snapshot_access_co_block_status, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"snapshot-access\00", align 1
@@ -63,16 +42,16 @@ define internal i32 @snapshot_access_open(ptr noundef %bs, ptr noundef %options,
 entry:
   %call = tail call ptr @bdrv_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.1, ptr noundef %bs, ptr noundef nonnull @child_of_bds, i32 noundef 17, i1 noundef zeroext false, ptr noundef %errp) #4
   tail call void @bdrv_graph_rdlock_main_loop() #4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %1, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
-  %total_sectors4 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 37
+  %total_sectors4 = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %2, ptr %total_sectors4, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -85,11 +64,11 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @snapshot_access_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %exact_filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 16
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 11
+  %filename = getelementptr inbounds i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #4
   ret void
 }
@@ -109,7 +88,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv_snapshot(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #4
   br label %return
@@ -134,7 +113,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_access_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_pdiscard_snapshot(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #4
@@ -144,7 +123,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_access_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #0 {
 entry:
-  %file1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file1 = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file1, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_snapshot_block_status(ptr noundef %1, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #4

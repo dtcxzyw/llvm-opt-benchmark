@@ -55,14 +55,14 @@ if.end18.thread:                                  ; preds = %if.end12
   %call17 = tail call i64 @_PyTime_Add(i64 noundef %call13, i64 noundef %timeout) #5
   %add67 = add i64 %call13, 1000000
   store i64 %add67, ptr %entry19, align 8
-  %handed_off68 = getelementptr inbounds %struct.mutex_entry, ptr %entry19, i64 0, i32 1
+  %handed_off68 = getelementptr inbounds i8, ptr %entry19, i64 8
   store i32 0, ptr %handed_off68, align 8
   br label %for.cond.outer.split.lr.ph
 
 if.end18:                                         ; preds = %if.end12
   %add = add i64 %call13, 1000000
   store i64 %add, ptr %entry19, align 8
-  %handed_off = getelementptr inbounds %struct.mutex_entry, ptr %entry19, i64 0, i32 1
+  %handed_off = getelementptr inbounds i8, ptr %entry19, i64 8
   store i32 0, ptr %handed_off, align 8
   %cmp4140 = icmp eq i64 %timeout, 0
   br i1 %cmp4140, label %for.cond.outer.split.us, label %for.cond.outer.split.lr.ph
@@ -291,7 +291,7 @@ if.then:                                          ; preds = %entry
   %0 = load i64, ptr %entry1, align 8
   %cmp = icmp sgt i64 %call, %0
   %conv = zext i1 %cmp to i32
-  %handed_off = getelementptr inbounds %struct.mutex_entry, ptr %entry1, i64 0, i32 1
+  %handed_off = getelementptr inbounds i8, ptr %entry1, i64 8
   store i32 %conv, ptr %handed_off, align 8
   %spec.select = zext i1 %cmp to i8
   %tobool6.not = icmp eq i32 %has_more_waiters, 0
@@ -352,7 +352,7 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden void @_PyRawMutex_LockSlow(ptr nocapture noundef %m) local_unnamed_addr #0 {
 entry:
   %waiter = alloca %struct.raw_mutex_entry, align 8
-  %sema = getelementptr inbounds %struct.raw_mutex_entry, ptr %waiter, i64 0, i32 1
+  %sema = getelementptr inbounds i8, ptr %waiter, i64 8
   call void @_PySemaphore_Init(ptr noundef nonnull %sema) #5
   %0 = load atomic i64, ptr %m seq_cst, align 8
   %1 = ptrtoint ptr %waiter to i64
@@ -429,7 +429,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %5, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %if.then3
-  %sema = getelementptr inbounds %struct.raw_mutex_entry, ptr %1, i64 0, i32 1
+  %sema = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_PySemaphore_Wakeup(ptr noundef nonnull %sema) #5
   br label %return
 

@@ -3,18 +3,15 @@ source_filename = "bench/icu/original/ucoleitr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::RCEBuffer" = type { [16 x %struct.RCEI], ptr, i32, i32 }
 %struct.RCEI = type { i32, i32, i32 }
-%"struct.icu_75::PCEBuffer" = type { [16 x %"struct.icu_75::PCEI"], ptr, i32, i32 }
 %"struct.icu_75::PCEI" = type { i64, i32, i32 }
-%"class.icu_75::UCollationPCE" = type <{ %"struct.icu_75::PCEBuffer", ptr, i32, i8, i8, [2 x i8], i32, [4 x i8] }>
-%"class.icu_75::CollationElementIterator" = type { %"class.icu_75::UObject", ptr, ptr, i32, i8, ptr, %"class.icu_75::UnicodeString" }
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
+%"struct.icu_75::RCEBuffer" = type { [16 x %struct.RCEI], ptr, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -32,11 +29,11 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_759RCEBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
-  %buffer = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %this, ptr %buffer, align 8
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 200
   store i32 0, ptr %bufferIndex, align 8
-  %bufferSize = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 3
+  %bufferSize = getelementptr inbounds i8, ptr %this, i64 204
   store i32 16, ptr %bufferSize, align 4
   ret void
 }
@@ -44,7 +41,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759RCEBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %buffer, align 8
   %cmp.not = icmp eq ptr %0, %this
   br i1 %cmp.not, label %if.end, label %if.then
@@ -82,7 +79,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_759RCEBuffer7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i32, ptr %bufferIndex, align 8
   %cmp = icmp slt i32 %0, 1
   %conv = zext i1 %cmp to i8
@@ -97,15 +94,15 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load i32, ptr %bufferIndex, align 8
-  %bufferSize = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 3
+  %bufferSize = getelementptr inbounds i8, ptr %this, i64 204
   %2 = load i32, ptr %bufferSize, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %if.end.if.end19_crit_edge, label %if.then2
 
 if.end.if.end19_crit_edge:                        ; preds = %if.end
-  %buffer20.phi.trans.insert = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 1
+  %buffer20.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 192
   %.pre5 = load ptr, ptr %buffer20.phi.trans.insert, align 8
   br label %if.end19
 
@@ -122,7 +119,7 @@ if.then6:                                         ; preds = %if.then2
   br label %return
 
 do.body:                                          ; preds = %if.then2
-  %buffer = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 192
   %3 = load ptr, ptr %buffer, align 8
   %4 = load i32, ptr %bufferSize, align 4
   %conv9 = sext i32 %4 to i64
@@ -147,7 +144,7 @@ if.end15:                                         ; preds = %if.then13, %do.body
 if.end19:                                         ; preds = %if.end.if.end19_crit_edge, %if.end15
   %6 = phi i32 [ %1, %if.end.if.end19_crit_edge ], [ %.pre6, %if.end15 ]
   %7 = phi ptr [ %.pre5, %if.end.if.end19_crit_edge ], [ %call4, %if.end15 ]
-  %buffer20 = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 1
+  %buffer20 = getelementptr inbounds i8, ptr %this, i64 192
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds %struct.RCEI, ptr %7, i64 %idxprom
   store i32 %ce, ptr %arrayidx, align 4
@@ -179,13 +176,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZN6icu_759RCEBuffer3getEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i32, ptr %bufferIndex, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %buffer = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %buffer, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %bufferIndex, align 8
@@ -201,11 +198,11 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_759PCEBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #0 align 2 {
 entry:
-  %buffer = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 256
   store ptr %this, ptr %buffer, align 8
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %bufferIndex, align 8
-  %bufferSize = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 3
+  %bufferSize = getelementptr inbounds i8, ptr %this, i64 268
   store i32 16, ptr %bufferSize, align 4
   ret void
 }
@@ -213,7 +210,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759PCEBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(272) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load ptr, ptr %buffer, align 8
   %cmp.not = icmp eq ptr %0, %this
   br i1 %cmp.not, label %if.end, label %if.then
@@ -236,7 +233,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_759PCEBuffer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %bufferIndex, align 8
   ret void
 }
@@ -244,7 +241,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_759PCEBuffer7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %bufferIndex, align 8
   %cmp = icmp slt i32 %0, 1
   %conv = zext i1 %cmp to i8
@@ -259,15 +256,15 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load i32, ptr %bufferIndex, align 8
-  %bufferSize = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 3
+  %bufferSize = getelementptr inbounds i8, ptr %this, i64 268
   %2 = load i32, ptr %bufferSize, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %if.end.if.end19_crit_edge, label %if.then2
 
 if.end.if.end19_crit_edge:                        ; preds = %if.end
-  %buffer20.phi.trans.insert = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer20.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 256
   %.pre5 = load ptr, ptr %buffer20.phi.trans.insert, align 8
   br label %if.end19
 
@@ -284,7 +281,7 @@ if.then6:                                         ; preds = %if.then2
   br label %return
 
 do.body:                                          ; preds = %if.then2
-  %buffer = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 256
   %3 = load ptr, ptr %buffer, align 8
   %4 = load i32, ptr %bufferSize, align 4
   %conv9 = sext i32 %4 to i64
@@ -309,7 +306,7 @@ if.end15:                                         ; preds = %if.then13, %do.body
 if.end19:                                         ; preds = %if.end.if.end19_crit_edge, %if.end15
   %6 = phi i32 [ %1, %if.end.if.end19_crit_edge ], [ %.pre6, %if.end15 ]
   %7 = phi ptr [ %.pre5, %if.end.if.end19_crit_edge ], [ %call4, %if.end15 ]
-  %buffer20 = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer20 = getelementptr inbounds i8, ptr %this, i64 256
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds %"struct.icu_75::PCEI", ptr %7, i64 %idxprom
   store i64 %ce, ptr %arrayidx, align 8
@@ -335,13 +332,13 @@ return:                                           ; preds = %entry, %if.end19, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZN6icu_759PCEBuffer3getEv(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %bufferIndex = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %bufferIndex, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %buffer = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %buffer, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %bufferIndex, align 8
@@ -359,23 +356,23 @@ define void @_ZN6icu_7513UCollationPCEC2EP18UCollationElements(ptr noundef nonnu
 entry:
   %status.i.i.i = alloca i32, align 4
   tail call void @_ZN6icu_759PCEBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %this)
-  %cei.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 1
+  %cei.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %elems, ptr %cei.i.i, align 8
-  %rbc_.i.i = getelementptr inbounds %"class.icu_75::CollationElementIterator", ptr %elems, i64 0, i32 2
+  %rbc_.i.i = getelementptr inbounds i8, ptr %elems, i64 16
   %0 = load ptr, ptr %rbc_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i.i.i)
   store i32 0, ptr %status.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 192
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i1 = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %entry
-  %strength.i.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
+  %strength.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   store i32 %call.i.i.i1, ptr %strength.i.i.i, align 8
   %vtable2.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i, i64 24
+  %vfn3.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i, i64 192
   %2 = load ptr, ptr %vfn3.i.i.i, align 8
   %call4.i.i.i2 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i.i)
           to label %call4.i.i.i.noexc unwind label %lpad
@@ -383,18 +380,18 @@ call.i.i.i.noexc:                                 ; preds = %entry
 call4.i.i.i.noexc:                                ; preds = %call.i.i.i.noexc
   %cmp.i.i.i = icmp eq i32 %call4.i.i.i2, 20
   %conv.i.i.i = zext i1 %cmp.i.i.i to i8
-  %toShift.i.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
+  %toShift.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
   store i8 %conv.i.i.i, ptr %toShift.i.i.i, align 4
-  %isShifted.i.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted.i.i.i = getelementptr inbounds i8, ptr %this, i64 285
   store i8 0, ptr %isShifted.i.i.i, align 1
   %vtable5.i.i.i = load ptr, ptr %0, align 8
-  %vfn6.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 30
+  %vfn6.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 240
   %3 = load ptr, ptr %vfn6.i.i.i, align 8
   %call7.i.i.i3 = invoke noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call4.i.i.i.noexc
-  %variableTop.i.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
+  %variableTop.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %call7.i.i.i3, ptr %variableTop.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i.i)
   ret void
@@ -410,33 +407,33 @@ lpad:                                             ; preds = %call4.i.i.i.noexc, 
 define void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) %this, ptr noundef %elems) local_unnamed_addr #5 align 2 {
 entry:
   %status.i.i = alloca i32, align 4
-  %cei.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 1
+  %cei.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %elems, ptr %cei.i, align 8
-  %rbc_.i = getelementptr inbounds %"class.icu_75::CollationElementIterator", ptr %elems, i64 0, i32 2
+  %rbc_.i = getelementptr inbounds i8, ptr %elems, i64 16
   %0 = load ptr, ptr %rbc_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i.i)
   store i32 0, ptr %status.i.i, align 4
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 24
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 192
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i)
-  %strength.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
+  %strength.i.i = getelementptr inbounds i8, ptr %this, i64 280
   store i32 %call.i.i, ptr %strength.i.i, align 8
   %vtable2.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i, i64 24
+  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 192
   %2 = load ptr, ptr %vfn3.i.i, align 8
   %call4.i.i = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i)
   %cmp.i.i = icmp eq i32 %call4.i.i, 20
   %conv.i.i = zext i1 %cmp.i.i to i8
-  %toShift.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
+  %toShift.i.i = getelementptr inbounds i8, ptr %this, i64 284
   store i8 %conv.i.i, ptr %toShift.i.i, align 4
-  %isShifted.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted.i.i = getelementptr inbounds i8, ptr %this, i64 285
   store i8 0, ptr %isShifted.i.i, align 1
   %vtable5.i.i = load ptr, ptr %0, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 30
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 240
   %3 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i.i = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i)
-  %variableTop.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
+  %variableTop.i.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %call7.i.i, ptr %variableTop.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
   ret void
@@ -447,23 +444,23 @@ define void @_ZN6icu_7513UCollationPCEC2EPNS_24CollationElementIteratorE(ptr nou
 entry:
   %status.i.i = alloca i32, align 4
   tail call void @_ZN6icu_759PCEBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %this)
-  %cei.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 1
+  %cei.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %iter, ptr %cei.i, align 8
-  %rbc_.i = getelementptr inbounds %"class.icu_75::CollationElementIterator", ptr %iter, i64 0, i32 2
+  %rbc_.i = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load ptr, ptr %rbc_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i.i)
   store i32 0, ptr %status.i.i, align 4
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 24
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 192
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i1 = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %entry
-  %strength.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
+  %strength.i.i = getelementptr inbounds i8, ptr %this, i64 280
   store i32 %call.i.i1, ptr %strength.i.i, align 8
   %vtable2.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i, i64 24
+  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 192
   %2 = load ptr, ptr %vfn3.i.i, align 8
   %call4.i.i2 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i)
           to label %call4.i.i.noexc unwind label %lpad
@@ -471,18 +468,18 @@ call.i.i.noexc:                                   ; preds = %entry
 call4.i.i.noexc:                                  ; preds = %call.i.i.noexc
   %cmp.i.i = icmp eq i32 %call4.i.i2, 20
   %conv.i.i = zext i1 %cmp.i.i to i8
-  %toShift.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
+  %toShift.i.i = getelementptr inbounds i8, ptr %this, i64 284
   store i8 %conv.i.i, ptr %toShift.i.i, align 4
-  %isShifted.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted.i.i = getelementptr inbounds i8, ptr %this, i64 285
   store i8 0, ptr %isShifted.i.i, align 1
   %vtable5.i.i = load ptr, ptr %0, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 30
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 240
   %3 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i.i3 = invoke noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %status.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call4.i.i.noexc
-  %variableTop.i.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
+  %variableTop.i.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %call7.i.i3, ptr %variableTop.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
   ret void
@@ -498,33 +495,33 @@ lpad:                                             ; preds = %call4.i.i.noexc, %c
 define void @_ZN6icu_7513UCollationPCE4initEPNS_24CollationElementIteratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) %this, ptr noundef %iter) local_unnamed_addr #5 align 2 {
 entry:
   %status.i = alloca i32, align 4
-  %cei = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 1
+  %cei = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %iter, ptr %cei, align 8
-  %rbc_ = getelementptr inbounds %"class.icu_75::CollationElementIterator", ptr %iter, i64 0, i32 2
+  %rbc_ = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load ptr, ptr %rbc_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
-  %strength.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
+  %strength.i = getelementptr inbounds i8, ptr %this, i64 280
   store i32 %call.i, ptr %strength.i, align 8
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 24
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 192
   %2 = load ptr, ptr %vfn3.i, align 8
   %call4.i = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   %cmp.i = icmp eq i32 %call4.i, 20
   %conv.i = zext i1 %cmp.i to i8
-  %toShift.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
+  %toShift.i = getelementptr inbounds i8, ptr %this, i64 284
   store i8 %conv.i, ptr %toShift.i, align 4
-  %isShifted.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted.i = getelementptr inbounds i8, ptr %this, i64 285
   store i8 0, ptr %isShifted.i, align 1
   %vtable5.i = load ptr, ptr %0, align 8
-  %vfn6.i = getelementptr inbounds ptr, ptr %vtable5.i, i64 30
+  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 240
   %3 = load ptr, ptr %vfn6.i, align 8
   %call7.i = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
-  %variableTop.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
+  %variableTop.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %call7.i, ptr %variableTop.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   ret void
@@ -536,26 +533,26 @@ entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %0 = load ptr, ptr %vfn, align 8
   %call = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %strength = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
+  %strength = getelementptr inbounds i8, ptr %this, i64 280
   store i32 %call, ptr %strength, align 8
   %vtable2 = load ptr, ptr %coll, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 24
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 192
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp = icmp eq i32 %call4, 20
   %conv = zext i1 %cmp to i8
-  %toShift = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
+  %toShift = getelementptr inbounds i8, ptr %this, i64 284
   store i8 %conv, ptr %toShift, align 4
-  %isShifted = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted = getelementptr inbounds i8, ptr %this, i64 285
   store i8 0, ptr %isShifted, align 1
   %vtable5 = load ptr, ptr %coll, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 30
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 240
   %2 = load ptr, ptr %vfn6, align 8
   %call7 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %variableTop = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
+  %variableTop = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %call7, ptr %variableTop, align 8
   ret void
 }
@@ -570,7 +567,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN6icu_7513UCollationPCE9processCEEj(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, i32 noundef %ce) local_unnamed_addr #8 align 2 {
 entry:
-  %strength = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
+  %strength = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load i32, ptr %strength, align 8
   switch i32 %0, label %sw.default [
     i32 1, label %sw.bb
@@ -596,13 +593,13 @@ sw.bb4:                                           ; preds = %sw.bb, %entry
   %tertiary.1 = phi i64 [ %tertiary.0, %sw.bb ], [ 0, %entry ]
   %shr.i11 = lshr i32 %ce, 16
   %conv6 = zext nneg i32 %shr.i11 to i64
-  %toShift = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
+  %toShift = getelementptr inbounds i8, ptr %this, i64 284
   %4 = load i8, ptr %toShift, align 4
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb4
-  %variableTop = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
+  %variableTop = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load i32, ptr %variableTop, align 8
   %cmp = icmp ugt i32 %5, %ce
   %cmp8 = icmp ugt i32 %ce, 65535
@@ -610,7 +607,7 @@ land.lhs.true:                                    ; preds = %sw.bb4
   br i1 %or.cond, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %sw.bb4
-  %isShifted = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted = getelementptr inbounds i8, ptr %this, i64 285
   %6 = load i8, ptr %isShifted, align 1
   %tobool9 = icmp ne i8 %6, 0
   %cmp11 = icmp ult i32 %ce, 65536
@@ -620,7 +617,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true, %sw.
 if.end:                                           ; preds = %land.lhs.true
   %cmp15 = icmp sgt i32 %0, 2
   %spec.select = select i1 %cmp15, i64 %conv6, i64 0
-  %isShifted18 = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %isShifted18 = getelementptr inbounds i8, ptr %this, i64 285
   store i8 1, ptr %isShifted18, align 1
   br label %if.end24
 
@@ -808,13 +805,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bufferIndex.i = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex.i = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %bufferIndex.i, align 8
-  %cei = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 1
-  %strength.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
-  %toShift.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
-  %variableTop.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
-  %isShifted18.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
+  %cei = getelementptr inbounds i8, ptr %this, i64 272
+  %strength.i = getelementptr inbounds i8, ptr %this, i64 280
+  %toShift.i = getelementptr inbounds i8, ptr %this, i64 284
+  %variableTop.i = getelementptr inbounds i8, ptr %this, i64 288
+  %isShifted18.i = getelementptr inbounds i8, ptr %this, i64 285
   br label %do.body
 
 do.body:                                          ; preds = %_ZN6icu_7513UCollationPCE9processCEEj.exit, %if.end
@@ -948,22 +945,22 @@ entry:
   br i1 %cmp.i, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry
-  %bufferIndex.i = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 2
+  %bufferIndex.i = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load i32, ptr %bufferIndex.i, align 8
   %cmp.i21113 = icmp sgt i32 %1, 0
   br i1 %cmp.i21113, label %if.then.i88, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %cei = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 1
-  %bufferIndex.i26 = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %rceb, i64 0, i32 2
-  %bufferSize.i = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %rceb, i64 0, i32 3
-  %buffer.i = getelementptr inbounds %"struct.icu_75::RCEBuffer", ptr %rceb, i64 0, i32 1
-  %strength.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 2
-  %toShift.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 3
-  %variableTop.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 6
-  %isShifted18.i = getelementptr inbounds %"class.icu_75::UCollationPCE", ptr %this, i64 0, i32 4
-  %bufferSize.i47 = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 3
-  %buffer.i55 = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %cei = getelementptr inbounds i8, ptr %this, i64 272
+  %bufferIndex.i26 = getelementptr inbounds i8, ptr %rceb, i64 200
+  %bufferSize.i = getelementptr inbounds i8, ptr %rceb, i64 204
+  %buffer.i = getelementptr inbounds i8, ptr %rceb, i64 192
+  %strength.i = getelementptr inbounds i8, ptr %this, i64 280
+  %toShift.i = getelementptr inbounds i8, ptr %this, i64 284
+  %variableTop.i = getelementptr inbounds i8, ptr %this, i64 288
+  %isShifted18.i = getelementptr inbounds i8, ptr %this, i64 285
+  %bufferSize.i47 = getelementptr inbounds i8, ptr %this, i64 268
+  %buffer.i55 = getelementptr inbounds i8, ptr %this, i64 256
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
@@ -1103,9 +1100,9 @@ land.rhs28:                                       ; preds = %land.rhs28.preheade
   %20 = phi i32 [ %48, %if.end43 ], [ %.ph, %land.rhs28.preheader ]
   %21 = load i32, ptr %bufferIndex.i26, align 8
   %cmp.i34 = icmp sgt i32 %21, 0
-  br i1 %cmp.i34, label %if.then.i, label %cleanup
+  br i1 %cmp.i34, label %while.body32, label %cleanup
 
-if.then.i:                                        ; preds = %land.rhs28
+while.body32:                                     ; preds = %land.rhs28
   %22 = load ptr, ptr %buffer.i, align 8
   %dec.i = add nsw i32 %21, -1
   store i32 %dec.i, ptr %bufferIndex.i26, align 8
@@ -1118,23 +1115,23 @@ if.then.i:                                        ; preds = %land.rhs28
     i32 0, label %sw.bb4.i
   ]
 
-sw.default.i:                                     ; preds = %if.then.i
+sw.default.i:                                     ; preds = %while.body32
   %and.i.i = shl i32 %23, 16
   %25 = and i32 %and.i.i, 16711680
   %26 = zext nneg i32 %25 to i64
   br label %sw.bb.i
 
-sw.bb.i:                                          ; preds = %sw.default.i, %if.then.i
-  %tertiary.0.i = phi i64 [ %26, %sw.default.i ], [ 0, %if.then.i ]
+sw.bb.i:                                          ; preds = %sw.default.i, %while.body32
+  %tertiary.0.i = phi i64 [ %26, %sw.default.i ], [ 0, %while.body32 ]
   %shr.i.i = lshr i32 %23, 8
   %and.i10.i = and i32 %shr.i.i, 255
   %conv3.i = zext nneg i32 %and.i10.i to i64
   %27 = shl nuw nsw i64 %conv3.i, 32
   br label %sw.bb4.i
 
-sw.bb4.i:                                         ; preds = %sw.bb.i, %if.then.i
-  %secondary.0.i = phi i64 [ %27, %sw.bb.i ], [ 0, %if.then.i ]
-  %tertiary.1.i = phi i64 [ %tertiary.0.i, %sw.bb.i ], [ 0, %if.then.i ]
+sw.bb4.i:                                         ; preds = %sw.bb.i, %while.body32
+  %secondary.0.i = phi i64 [ %27, %sw.bb.i ], [ 0, %while.body32 ]
+  %tertiary.1.i = phi i64 [ %tertiary.0.i, %sw.bb.i ], [ 0, %while.body32 ]
   %shr.i11.i = lshr i32 %23, 16
   %conv6.i = zext nneg i32 %shr.i11.i to i64
   %28 = load i8, ptr %toShift.i, align 4
@@ -1179,9 +1176,9 @@ invoke.cont35:                                    ; preds = %if.end.i43, %if.els
   br i1 %cmp37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %invoke.cont35
-  %low40 = getelementptr inbounds %struct.RCEI, ptr %22, i64 %idxprom.i39, i32 1
+  %low40 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 4
   %34 = load i32, ptr %low40, align 4
-  %high41 = getelementptr inbounds %struct.RCEI, ptr %22, i64 %idxprom.i39, i32 2
+  %high41 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 8
   %35 = load i32, ptr %high41, align 4
   %cmp.i.i44 = icmp slt i32 %.pre119, 1
   br i1 %cmp.i.i44, label %if.end.i45, label %cleanup.thread
@@ -1297,7 +1294,7 @@ if.then58:                                        ; preds = %if.end56
 
 if.then.i88:                                      ; preds = %cleanup, %while.cond.preheader, %finish
   %50 = phi i32 [ %.pr, %finish ], [ %1, %while.cond.preheader ], [ %49, %cleanup ]
-  %buffer.i89 = getelementptr inbounds %"struct.icu_75::PCEBuffer", ptr %this, i64 0, i32 1
+  %buffer.i89 = getelementptr inbounds i8, ptr %this, i64 256
   %51 = load ptr, ptr %buffer.i89, align 8
   %dec.i90 = add nsw i32 %50, -1
   store i32 %dec.i90, ptr %bufferIndex.i, align 8
@@ -1307,7 +1304,7 @@ if.then.i88:                                      ; preds = %cleanup, %while.con
   br i1 %cmp63.not, label %if.end66, label %if.then64
 
 if.then64:                                        ; preds = %if.then.i88
-  %low65 = getelementptr inbounds %"struct.icu_75::PCEI", ptr %51, i64 %idxprom.i91, i32 1
+  %low65 = getelementptr inbounds i8, ptr %arrayidx.i92, i64 8
   %52 = load i32, ptr %low65, align 8
   store i32 %52, ptr %ixLow, align 4
   br label %if.end66
@@ -1317,7 +1314,7 @@ if.end66:                                         ; preds = %if.then64, %if.then
   br i1 %cmp67.not, label %if.end70, label %if.then68
 
 if.then68:                                        ; preds = %if.end66
-  %high69 = getelementptr inbounds %"struct.icu_75::PCEI", ptr %51, i64 %idxprom.i91, i32 2
+  %high69 = getelementptr inbounds i8, ptr %arrayidx.i92, i64 12
   %53 = load i32, ptr %high69, align 4
   store i32 %53, ptr %ixHigh, align 4
   br label %if.end70

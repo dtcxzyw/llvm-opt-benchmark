@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.doctest::detail::Expression_lhs.1" = type <{ ptr, i32, [4 x i8] }>
 %"struct.doctest::detail::TestCase" = type { %"struct.doctest::TestCaseData", ptr, %"class.doctest::String", i32, %"class.doctest::String" }
 %"struct.doctest::TestCaseData" = type { %"class.doctest::String", i32, ptr, ptr, ptr, i8, i8, i8, i8, i8, i32, double }
-%"struct.doctest::ContextOptions" = type <{ ptr, %"class.doctest::String", ptr, %"class.doctest::String", %"class.doctest::String", i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
 %"struct.doctest::detail::TestSuite" = type { ptr, ptr, i8, i8, i8, i8, i8, i32, double }
 
 $_ZN7doctest6detail8TestCaseD2Ev = comdat any
@@ -215,7 +214,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %m_decomp.i = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp4, i64 0, i32 1
+  %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, i32 noundef 10)
           to label %invoke.cont23 unwind label %lpad7
@@ -223,7 +222,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 invoke.cont23:                                    ; preds = %invoke.cont15
   %1 = load i32, ptr %ref.tmp19, align 4
   store i64 -1, ptr %ref.tmp18, align 8
-  %2 = getelementptr inbounds { i64, i32 }, ptr %ref.tmp18, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store i32 %1, ptr %2, align 8
   store i64 -1, ptr %ref.tmp25, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsImEeqImEEDTcmcvveqclL_ZNS0_7declvalImEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25)
@@ -234,7 +233,7 @@ invoke.cont26:                                    ; preds = %invoke.cont23
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  %m_decomp.i13 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp17, i64 0, i32 1
+  %m_decomp.i13 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i13) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32, i32 noundef 10)
           to label %invoke.cont38 unwind label %lpad7
@@ -253,7 +252,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  %m_decomp.i22 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp30, i64 0, i32 1
+  %m_decomp.i22 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i22) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp46, i32 noundef 10)
           to label %invoke.cont50 unwind label %lpad7
@@ -261,7 +260,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
 invoke.cont50:                                    ; preds = %invoke.cont42
   %4 = load i32, ptr %ref.tmp46, align 4
   store i64 -1, ptr %ref.tmp45, align 8
-  %5 = getelementptr inbounds { i64, i32 }, ptr %ref.tmp45, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   store i32 %4, ptr %5, align 8
   store i64 -1, ptr %ref.tmp52, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsImEeqImEEDTcmcvveqclL_ZNS0_7declvalImEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52)
@@ -272,7 +271,7 @@ invoke.cont53:                                    ; preds = %invoke.cont50
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %invoke.cont53
-  %m_decomp.i29 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp44, i64 0, i32 1
+  %m_decomp.i29 = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i29) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp59, i32 noundef 10)
           to label %invoke.cont64 unwind label %lpad7
@@ -291,7 +290,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
-  %m_decomp.i38 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp57, i64 0, i32 1
+  %m_decomp.i38 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i38) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp72, i32 noundef 10)
           to label %invoke.cont76 unwind label %lpad7
@@ -299,7 +298,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
 invoke.cont76:                                    ; preds = %invoke.cont68
   %7 = load i32, ptr %ref.tmp72, align 4
   store i64 42, ptr %ref.tmp71, align 8
-  %8 = getelementptr inbounds { i64, i32 }, ptr %ref.tmp71, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   store i32 %7, ptr %8, align 8
   store i32 42, ptr %ref.tmp78, align 4
   invoke void @_ZN7doctest6detail14Expression_lhsImEeqIiEEDTcmcvveqclL_ZNS0_7declvalImEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp71, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp78)
@@ -310,7 +309,7 @@ invoke.cont79:                                    ; preds = %invoke.cont76
           to label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit unwind label %lpad80
 
 _ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit: ; preds = %invoke.cont79
-  %m_decomp.i45 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp70, i64 0, i32 1
+  %m_decomp.i45 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i45) #10
   br label %if.end
 
@@ -333,42 +332,42 @@ lpad7:                                            ; preds = %invoke.cont76, %inv
 lpad14:                                           ; preds = %invoke.cont13
   %12 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i46 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp4, i64 0, i32 1
+  %m_decomp.i46 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i46) #10
   br label %ehcleanup83
 
 lpad27:                                           ; preds = %invoke.cont26
   %13 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i47 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp17, i64 0, i32 1
+  %m_decomp.i47 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i47) #10
   br label %ehcleanup83
 
 lpad41:                                           ; preds = %invoke.cont40
   %14 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i48 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp30, i64 0, i32 1
+  %m_decomp.i48 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i48) #10
   br label %ehcleanup83
 
 lpad54:                                           ; preds = %invoke.cont53
   %15 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i49 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp44, i64 0, i32 1
+  %m_decomp.i49 = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i49) #10
   br label %ehcleanup83
 
 lpad67:                                           ; preds = %invoke.cont66
   %16 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i50 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp57, i64 0, i32 1
+  %m_decomp.i50 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i50) #10
   br label %ehcleanup83
 
 lpad80:                                           ; preds = %invoke.cont79
   %17 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i51 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp70, i64 0, i32 1
+  %m_decomp.i51 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i51) #10
   br label %ehcleanup83
 
@@ -404,7 +403,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %invoke.cont107 unwind label %lpad106
 
 invoke.cont107:                                   ; preds = %invoke.cont105
-  %m_decomp.i63 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp95, i64 0, i32 1
+  %m_decomp.i63 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i63) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp112, i32 noundef 10)
           to label %invoke.cont116 unwind label %lpad98
@@ -412,7 +411,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
 invoke.cont116:                                   ; preds = %invoke.cont107
   %19 = load i32, ptr %ref.tmp112, align 4
   store i64 42, ptr %ref.tmp111, align 8
-  %20 = getelementptr inbounds { i64, i32 }, ptr %ref.tmp111, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
   store i32 %19, ptr %20, align 8
   store i32 42, ptr %ref.tmp118, align 4
   invoke void @_ZN7doctest6detail14Expression_lhsImEeqIiEEDTcmcvveqclL_ZNS0_7declvalImEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp111, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp118)
@@ -423,7 +422,7 @@ invoke.cont119:                                   ; preds = %invoke.cont116
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %invoke.cont119
-  %m_decomp.i70 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp110, i64 0, i32 1
+  %m_decomp.i70 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i70) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp126, i32 noundef 10)
           to label %invoke.cont132 unwind label %lpad98
@@ -442,7 +441,7 @@ invoke.cont134:                                   ; preds = %invoke.cont132
           to label %invoke.cont136 unwind label %lpad135
 
 invoke.cont136:                                   ; preds = %invoke.cont134
-  %m_decomp.i79 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp124, i64 0, i32 1
+  %m_decomp.i79 = getelementptr inbounds i8, ptr %ref.tmp124, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i79) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp141, i32 noundef 10)
           to label %invoke.cont145 unwind label %lpad98
@@ -450,7 +449,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 invoke.cont145:                                   ; preds = %invoke.cont136
   %22 = load i32, ptr %ref.tmp141, align 4
   store i64 -1, ptr %ref.tmp140, align 8
-  %23 = getelementptr inbounds { i64, i32 }, ptr %ref.tmp140, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %ref.tmp140, i64 8
   store i32 %22, ptr %23, align 8
   store i64 -1, ptr %ref.tmp147, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsImEeqImEEDTcmcvveqclL_ZNS0_7declvalImEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp139, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp147)
@@ -461,7 +460,7 @@ invoke.cont148:                                   ; preds = %invoke.cont145
           to label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit89 unwind label %lpad149
 
 _ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit89: ; preds = %invoke.cont148
-  %m_decomp.i86 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp139, i64 0, i32 1
+  %m_decomp.i86 = getelementptr inbounds i8, ptr %ref.tmp139, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i86) #10
   br label %if.end154
 
@@ -489,28 +488,28 @@ lpad98:                                           ; preds = %invoke.cont145, %in
 lpad106:                                          ; preds = %invoke.cont105
   %27 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i90 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp95, i64 0, i32 1
+  %m_decomp.i90 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i90) #10
   br label %ehcleanup155
 
 lpad120:                                          ; preds = %invoke.cont119
   %28 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i91 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp110, i64 0, i32 1
+  %m_decomp.i91 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i91) #10
   br label %ehcleanup155
 
 lpad135:                                          ; preds = %invoke.cont134
   %29 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i92 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp124, i64 0, i32 1
+  %m_decomp.i92 = getelementptr inbounds i8, ptr %ref.tmp124, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i92) #10
   br label %ehcleanup155
 
 lpad149:                                          ; preds = %invoke.cont148
   %30 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i93 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp139, i64 0, i32 1
+  %m_decomp.i93 = getelementptr inbounds i8, ptr %ref.tmp139, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i93) #10
   br label %ehcleanup155
 
@@ -540,10 +539,10 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i:           ; preds = %if.then164
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %if.then164
   store <4 x i8> <i8 -54, i8 -2, i8 -70, i8 -66>, ptr %call5.i.i.i.i2.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %container1, i8 0, i64 33, i1 false)
-  %m_subtype.i102 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %container2, i64 0, i32 1
+  %m_subtype.i102 = getelementptr inbounds i8, ptr %container2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container2, i8 0, i64 24, i1 false)
   store i64 42, ptr %m_subtype.i102, align 8
-  %m_has_subtype.i103 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %container2, i64 0, i32 2
+  %m_has_subtype.i103 = getelementptr inbounds i8, ptr %container2, i64 32
   store i8 1, ptr %m_has_subtype.i103, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container3, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i5.i.i110 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #11
@@ -551,16 +550,16 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %if.then
 
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i118: ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i5.i.i110, ptr %container3, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %container3, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %container3, i64 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5.i.i110, i64 4
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %container3, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %container3, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   %32 = load i32, ptr %call5.i.i.i.i2.i, align 1
   store i32 %32, ptr %call5.i.i.i.i1.i5.i.i110, align 1
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %m_subtype.i108 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %container3, i64 0, i32 1
+  %m_subtype.i108 = getelementptr inbounds i8, ptr %container3, i64 24
   store i64 0, ptr %m_subtype.i108, align 8
-  %m_has_subtype.i109 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %container3, i64 0, i32 2
+  %m_has_subtype.i109 = getelementptr inbounds i8, ptr %container3, i64 32
   store i8 0, ptr %m_has_subtype.i109, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container4, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i5.i.i135 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #11
@@ -568,15 +567,15 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i118: ; preds = %_ZNS
 
 invoke.cont176:                                   ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i118
   store ptr %call5.i.i.i.i1.i5.i.i135, ptr %container4, align 8
-  %_M_finish.i.i.i.i121 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %container4, i64 0, i32 1
+  %_M_finish.i.i.i.i121 = getelementptr inbounds i8, ptr %container4, i64 8
   %add.ptr.i.i.i.i122 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5.i.i135, i64 4
-  %_M_end_of_storage.i.i.i.i123 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %container4, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i123 = getelementptr inbounds i8, ptr %container4, i64 16
   store ptr %add.ptr.i.i.i.i122, ptr %_M_end_of_storage.i.i.i.i123, align 8
   store i32 %32, ptr %call5.i.i.i.i1.i5.i.i135, align 1
   store ptr %add.ptr.i.i.i.i122, ptr %_M_finish.i.i.i.i121, align 8
-  %m_subtype.i130 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %container4, i64 0, i32 1
+  %m_subtype.i130 = getelementptr inbounds i8, ptr %container4, i64 24
   store i64 42, ptr %m_subtype.i130, align 8
-  %m_has_subtype.i131 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %container4, i64 0, i32 2
+  %m_has_subtype.i131 = getelementptr inbounds i8, ptr %container4, i64 32
   store i8 1, ptr %m_has_subtype.i131, align 8
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp179, i32 noundef 10)
           to label %invoke.cont182 unwind label %lpad180
@@ -584,7 +583,7 @@ invoke.cont176:                                   ; preds = %_ZNSt16allocator_tr
 invoke.cont182:                                   ; preds = %invoke.cont176
   %33 = load i32, ptr %ref.tmp179, align 4
   store ptr %container1, ptr %ref.tmp178, align 8
-  %34 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp178, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %ref.tmp178, i64 8
   store i32 %33, ptr %34, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEeqIS9_EEDTcmcvveqclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp177, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(33) %container1)
           to label %invoke.cont184 unwind label %lpad180
@@ -594,7 +593,7 @@ invoke.cont184:                                   ; preds = %invoke.cont182
           to label %invoke.cont186 unwind label %lpad185
 
 invoke.cont186:                                   ; preds = %invoke.cont184
-  %m_decomp.i138 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp177, i64 0, i32 1
+  %m_decomp.i138 = getelementptr inbounds i8, ptr %ref.tmp177, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i138) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp191, i32 noundef 10)
           to label %invoke.cont193 unwind label %lpad180
@@ -602,7 +601,7 @@ invoke.cont186:                                   ; preds = %invoke.cont184
 invoke.cont193:                                   ; preds = %invoke.cont186
   %35 = load i32, ptr %ref.tmp191, align 4
   store ptr %container1, ptr %ref.tmp190, align 8
-  %36 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp190, i64 0, i32 1
+  %36 = getelementptr inbounds i8, ptr %ref.tmp190, i64 8
   store i32 %35, ptr %36, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp189, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp190, ptr noundef nonnull align 8 dereferenceable(33) %container2)
           to label %invoke.cont195 unwind label %lpad180
@@ -612,7 +611,7 @@ invoke.cont195:                                   ; preds = %invoke.cont193
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %invoke.cont195
-  %m_decomp.i141 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp189, i64 0, i32 1
+  %m_decomp.i141 = getelementptr inbounds i8, ptr %ref.tmp189, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i141) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp202, i32 noundef 10)
           to label %invoke.cont204 unwind label %lpad180
@@ -620,7 +619,7 @@ invoke.cont197:                                   ; preds = %invoke.cont195
 invoke.cont204:                                   ; preds = %invoke.cont197
   %37 = load i32, ptr %ref.tmp202, align 4
   store ptr %container1, ptr %ref.tmp201, align 8
-  %38 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp201, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %ref.tmp201, i64 8
   store i32 %37, ptr %38, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(33) %container3)
           to label %invoke.cont206 unwind label %lpad180
@@ -630,7 +629,7 @@ invoke.cont206:                                   ; preds = %invoke.cont204
           to label %invoke.cont208 unwind label %lpad207
 
 invoke.cont208:                                   ; preds = %invoke.cont206
-  %m_decomp.i144 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp200, i64 0, i32 1
+  %m_decomp.i144 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i144) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp213, i32 noundef 10)
           to label %invoke.cont215 unwind label %lpad180
@@ -638,7 +637,7 @@ invoke.cont208:                                   ; preds = %invoke.cont206
 invoke.cont215:                                   ; preds = %invoke.cont208
   %39 = load i32, ptr %ref.tmp213, align 4
   store ptr %container1, ptr %ref.tmp212, align 8
-  %40 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp212, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %ref.tmp212, i64 8
   store i32 %39, ptr %40, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp211, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp212, ptr noundef nonnull align 8 dereferenceable(33) %container4)
           to label %invoke.cont217 unwind label %lpad180
@@ -648,7 +647,7 @@ invoke.cont217:                                   ; preds = %invoke.cont215
           to label %invoke.cont219 unwind label %lpad218
 
 invoke.cont219:                                   ; preds = %invoke.cont217
-  %m_decomp.i147 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp211, i64 0, i32 1
+  %m_decomp.i147 = getelementptr inbounds i8, ptr %ref.tmp211, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i147) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp224, i32 noundef 10)
           to label %invoke.cont226 unwind label %lpad180
@@ -656,7 +655,7 @@ invoke.cont219:                                   ; preds = %invoke.cont217
 invoke.cont226:                                   ; preds = %invoke.cont219
   %41 = load i32, ptr %ref.tmp224, align 4
   store ptr %container2, ptr %ref.tmp223, align 8
-  %42 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp223, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %ref.tmp223, i64 8
   store i32 %41, ptr %42, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp222, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp223, ptr noundef nonnull align 8 dereferenceable(33) %container1)
           to label %invoke.cont228 unwind label %lpad180
@@ -666,7 +665,7 @@ invoke.cont228:                                   ; preds = %invoke.cont226
           to label %invoke.cont230 unwind label %lpad229
 
 invoke.cont230:                                   ; preds = %invoke.cont228
-  %m_decomp.i150 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp222, i64 0, i32 1
+  %m_decomp.i150 = getelementptr inbounds i8, ptr %ref.tmp222, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i150) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp235, i32 noundef 10)
           to label %invoke.cont237 unwind label %lpad180
@@ -674,7 +673,7 @@ invoke.cont230:                                   ; preds = %invoke.cont228
 invoke.cont237:                                   ; preds = %invoke.cont230
   %43 = load i32, ptr %ref.tmp235, align 4
   store ptr %container2, ptr %ref.tmp234, align 8
-  %44 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp234, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %ref.tmp234, i64 8
   store i32 %43, ptr %44, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEeqIS9_EEDTcmcvveqclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp233, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp234, ptr noundef nonnull align 8 dereferenceable(33) %container2)
           to label %invoke.cont239 unwind label %lpad180
@@ -684,7 +683,7 @@ invoke.cont239:                                   ; preds = %invoke.cont237
           to label %invoke.cont241 unwind label %lpad240
 
 invoke.cont241:                                   ; preds = %invoke.cont239
-  %m_decomp.i153 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp233, i64 0, i32 1
+  %m_decomp.i153 = getelementptr inbounds i8, ptr %ref.tmp233, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i153) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp246, i32 noundef 10)
           to label %invoke.cont248 unwind label %lpad180
@@ -692,7 +691,7 @@ invoke.cont241:                                   ; preds = %invoke.cont239
 invoke.cont248:                                   ; preds = %invoke.cont241
   %45 = load i32, ptr %ref.tmp246, align 4
   store ptr %container2, ptr %ref.tmp245, align 8
-  %46 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp245, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %ref.tmp245, i64 8
   store i32 %45, ptr %46, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp244, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(33) %container3)
           to label %invoke.cont250 unwind label %lpad180
@@ -702,7 +701,7 @@ invoke.cont250:                                   ; preds = %invoke.cont248
           to label %invoke.cont252 unwind label %lpad251
 
 invoke.cont252:                                   ; preds = %invoke.cont250
-  %m_decomp.i156 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp244, i64 0, i32 1
+  %m_decomp.i156 = getelementptr inbounds i8, ptr %ref.tmp244, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i156) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp257, i32 noundef 10)
           to label %invoke.cont259 unwind label %lpad180
@@ -710,7 +709,7 @@ invoke.cont252:                                   ; preds = %invoke.cont250
 invoke.cont259:                                   ; preds = %invoke.cont252
   %47 = load i32, ptr %ref.tmp257, align 4
   store ptr %container2, ptr %ref.tmp256, align 8
-  %48 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp256, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %ref.tmp256, i64 8
   store i32 %47, ptr %48, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp255, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp256, ptr noundef nonnull align 8 dereferenceable(33) %container4)
           to label %invoke.cont261 unwind label %lpad180
@@ -720,7 +719,7 @@ invoke.cont261:                                   ; preds = %invoke.cont259
           to label %invoke.cont263 unwind label %lpad262
 
 invoke.cont263:                                   ; preds = %invoke.cont261
-  %m_decomp.i159 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp255, i64 0, i32 1
+  %m_decomp.i159 = getelementptr inbounds i8, ptr %ref.tmp255, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i159) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp268, i32 noundef 10)
           to label %invoke.cont270 unwind label %lpad180
@@ -728,7 +727,7 @@ invoke.cont263:                                   ; preds = %invoke.cont261
 invoke.cont270:                                   ; preds = %invoke.cont263
   %49 = load i32, ptr %ref.tmp268, align 4
   store ptr %container3, ptr %ref.tmp267, align 8
-  %50 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp267, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %ref.tmp267, i64 8
   store i32 %49, ptr %50, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp266, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp267, ptr noundef nonnull align 8 dereferenceable(33) %container1)
           to label %invoke.cont272 unwind label %lpad180
@@ -738,7 +737,7 @@ invoke.cont272:                                   ; preds = %invoke.cont270
           to label %invoke.cont274 unwind label %lpad273
 
 invoke.cont274:                                   ; preds = %invoke.cont272
-  %m_decomp.i162 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp266, i64 0, i32 1
+  %m_decomp.i162 = getelementptr inbounds i8, ptr %ref.tmp266, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i162) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp279, i32 noundef 10)
           to label %invoke.cont281 unwind label %lpad180
@@ -746,7 +745,7 @@ invoke.cont274:                                   ; preds = %invoke.cont272
 invoke.cont281:                                   ; preds = %invoke.cont274
   %51 = load i32, ptr %ref.tmp279, align 4
   store ptr %container3, ptr %ref.tmp278, align 8
-  %52 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp278, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %ref.tmp278, i64 8
   store i32 %51, ptr %52, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp277, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp278, ptr noundef nonnull align 8 dereferenceable(33) %container2)
           to label %invoke.cont283 unwind label %lpad180
@@ -756,7 +755,7 @@ invoke.cont283:                                   ; preds = %invoke.cont281
           to label %invoke.cont285 unwind label %lpad284
 
 invoke.cont285:                                   ; preds = %invoke.cont283
-  %m_decomp.i165 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp277, i64 0, i32 1
+  %m_decomp.i165 = getelementptr inbounds i8, ptr %ref.tmp277, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i165) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp290, i32 noundef 10)
           to label %invoke.cont292 unwind label %lpad180
@@ -764,7 +763,7 @@ invoke.cont285:                                   ; preds = %invoke.cont283
 invoke.cont292:                                   ; preds = %invoke.cont285
   %53 = load i32, ptr %ref.tmp290, align 4
   store ptr %container3, ptr %ref.tmp289, align 8
-  %54 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp289, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %ref.tmp289, i64 8
   store i32 %53, ptr %54, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEeqIS9_EEDTcmcvveqclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp288, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp289, ptr noundef nonnull align 8 dereferenceable(33) %container3)
           to label %invoke.cont294 unwind label %lpad180
@@ -774,7 +773,7 @@ invoke.cont294:                                   ; preds = %invoke.cont292
           to label %invoke.cont296 unwind label %lpad295
 
 invoke.cont296:                                   ; preds = %invoke.cont294
-  %m_decomp.i168 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp288, i64 0, i32 1
+  %m_decomp.i168 = getelementptr inbounds i8, ptr %ref.tmp288, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i168) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp301, i32 noundef 10)
           to label %invoke.cont303 unwind label %lpad180
@@ -782,7 +781,7 @@ invoke.cont296:                                   ; preds = %invoke.cont294
 invoke.cont303:                                   ; preds = %invoke.cont296
   %55 = load i32, ptr %ref.tmp301, align 4
   store ptr %container3, ptr %ref.tmp300, align 8
-  %56 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp300, i64 0, i32 1
+  %56 = getelementptr inbounds i8, ptr %ref.tmp300, i64 8
   store i32 %55, ptr %56, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp299, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp300, ptr noundef nonnull align 8 dereferenceable(33) %container4)
           to label %invoke.cont305 unwind label %lpad180
@@ -792,7 +791,7 @@ invoke.cont305:                                   ; preds = %invoke.cont303
           to label %invoke.cont307 unwind label %lpad306
 
 invoke.cont307:                                   ; preds = %invoke.cont305
-  %m_decomp.i171 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp299, i64 0, i32 1
+  %m_decomp.i171 = getelementptr inbounds i8, ptr %ref.tmp299, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i171) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp312, i32 noundef 10)
           to label %invoke.cont314 unwind label %lpad180
@@ -800,7 +799,7 @@ invoke.cont307:                                   ; preds = %invoke.cont305
 invoke.cont314:                                   ; preds = %invoke.cont307
   %57 = load i32, ptr %ref.tmp312, align 4
   store ptr %container4, ptr %ref.tmp311, align 8
-  %58 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp311, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %ref.tmp311, i64 8
   store i32 %57, ptr %58, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp310, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp311, ptr noundef nonnull align 8 dereferenceable(33) %container1)
           to label %invoke.cont316 unwind label %lpad180
@@ -810,7 +809,7 @@ invoke.cont316:                                   ; preds = %invoke.cont314
           to label %invoke.cont318 unwind label %lpad317
 
 invoke.cont318:                                   ; preds = %invoke.cont316
-  %m_decomp.i174 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp310, i64 0, i32 1
+  %m_decomp.i174 = getelementptr inbounds i8, ptr %ref.tmp310, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i174) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp323, i32 noundef 10)
           to label %invoke.cont325 unwind label %lpad180
@@ -818,7 +817,7 @@ invoke.cont318:                                   ; preds = %invoke.cont316
 invoke.cont325:                                   ; preds = %invoke.cont318
   %59 = load i32, ptr %ref.tmp323, align 4
   store ptr %container4, ptr %ref.tmp322, align 8
-  %60 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp322, i64 0, i32 1
+  %60 = getelementptr inbounds i8, ptr %ref.tmp322, i64 8
   store i32 %59, ptr %60, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp321, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp322, ptr noundef nonnull align 8 dereferenceable(33) %container2)
           to label %invoke.cont327 unwind label %lpad180
@@ -828,7 +827,7 @@ invoke.cont327:                                   ; preds = %invoke.cont325
           to label %invoke.cont329 unwind label %lpad328
 
 invoke.cont329:                                   ; preds = %invoke.cont327
-  %m_decomp.i177 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp321, i64 0, i32 1
+  %m_decomp.i177 = getelementptr inbounds i8, ptr %ref.tmp321, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i177) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp334, i32 noundef 10)
           to label %invoke.cont336 unwind label %lpad180
@@ -836,7 +835,7 @@ invoke.cont329:                                   ; preds = %invoke.cont327
 invoke.cont336:                                   ; preds = %invoke.cont329
   %61 = load i32, ptr %ref.tmp334, align 4
   store ptr %container4, ptr %ref.tmp333, align 8
-  %62 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp333, i64 0, i32 1
+  %62 = getelementptr inbounds i8, ptr %ref.tmp333, i64 8
   store i32 %61, ptr %62, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEneIS9_EEDTcmcvvneclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp332, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp333, ptr noundef nonnull align 8 dereferenceable(33) %container3)
           to label %invoke.cont338 unwind label %lpad180
@@ -846,7 +845,7 @@ invoke.cont338:                                   ; preds = %invoke.cont336
           to label %invoke.cont340 unwind label %lpad339
 
 invoke.cont340:                                   ; preds = %invoke.cont338
-  %m_decomp.i180 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp332, i64 0, i32 1
+  %m_decomp.i180 = getelementptr inbounds i8, ptr %ref.tmp332, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i180) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp345, i32 noundef 10)
           to label %invoke.cont347 unwind label %lpad180
@@ -854,7 +853,7 @@ invoke.cont340:                                   ; preds = %invoke.cont338
 invoke.cont347:                                   ; preds = %invoke.cont340
   %63 = load i32, ptr %ref.tmp345, align 4
   store ptr %container4, ptr %ref.tmp344, align 8
-  %64 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp344, i64 0, i32 1
+  %64 = getelementptr inbounds i8, ptr %ref.tmp344, i64 8
   store i32 %63, ptr %64, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEeqIS9_EEDTcmcvveqclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp343, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp344, ptr noundef nonnull align 8 dereferenceable(33) %container4)
           to label %invoke.cont349 unwind label %lpad180
@@ -864,7 +863,7 @@ invoke.cont349:                                   ; preds = %invoke.cont347
           to label %invoke.cont351 unwind label %lpad350
 
 invoke.cont351:                                   ; preds = %invoke.cont349
-  %m_decomp.i183 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp343, i64 0, i32 1
+  %m_decomp.i183 = getelementptr inbounds i8, ptr %ref.tmp343, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i183) #10
   %65 = load ptr, ptr %container3, align 8
   %66 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -892,7 +891,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit189:             ; preds = %_ZNSt6vectorIhSaIhE
 invoke.cont358:                                   ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit189
   %69 = load i32, ptr %ref.tmp356, align 4
   store ptr %container1, ptr %ref.tmp355, align 8
-  %70 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp355, i64 0, i32 1
+  %70 = getelementptr inbounds i8, ptr %ref.tmp355, i64 8
   store i32 %69, ptr %70, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEeqIS9_EEDTcmcvveqclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp354, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp355, ptr noundef nonnull align 8 dereferenceable(33) %container3)
           to label %invoke.cont360 unwind label %lpad180
@@ -902,7 +901,7 @@ invoke.cont360:                                   ; preds = %invoke.cont358
           to label %invoke.cont362 unwind label %lpad361
 
 invoke.cont362:                                   ; preds = %invoke.cont360
-  %m_decomp.i192 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp354, i64 0, i32 1
+  %m_decomp.i192 = getelementptr inbounds i8, ptr %ref.tmp354, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i192) #10
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp367, i32 noundef 10)
           to label %invoke.cont369 unwind label %lpad180
@@ -910,7 +909,7 @@ invoke.cont362:                                   ; preds = %invoke.cont360
 invoke.cont369:                                   ; preds = %invoke.cont362
   %71 = load i32, ptr %ref.tmp367, align 4
   store ptr %container2, ptr %ref.tmp366, align 8
-  %72 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp366, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %ref.tmp366, i64 8
   store i32 %71, ptr %72, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEEeqIS9_EEDTcmcvveqclL_ZNS0_7declvalIS9_EEOT_vEEclsr7doctest6detailE7declvalISD_EEtlNS0_6ResultEEESE_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp365, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp366, ptr noundef nonnull align 8 dereferenceable(33) %container4)
           to label %invoke.cont371 unwind label %lpad180
@@ -920,7 +919,7 @@ invoke.cont371:                                   ; preds = %invoke.cont369
           to label %invoke.cont373 unwind label %lpad372
 
 invoke.cont373:                                   ; preds = %invoke.cont371
-  %m_decomp.i195 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp365, i64 0, i32 1
+  %m_decomp.i195 = getelementptr inbounds i8, ptr %ref.tmp365, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i195) #10
   %73 = load ptr, ptr %container4, align 8
   %tobool.not.i.i.i.i196 = icmp eq ptr %73, null
@@ -995,126 +994,126 @@ lpad180:                                          ; preds = %invoke.cont369, %in
 lpad185:                                          ; preds = %invoke.cont184
   %82 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i212 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp177, i64 0, i32 1
+  %m_decomp.i212 = getelementptr inbounds i8, ptr %ref.tmp177, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i212) #10
   br label %ehcleanup376
 
 lpad196:                                          ; preds = %invoke.cont195
   %83 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i213 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp189, i64 0, i32 1
+  %m_decomp.i213 = getelementptr inbounds i8, ptr %ref.tmp189, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i213) #10
   br label %ehcleanup376
 
 lpad207:                                          ; preds = %invoke.cont206
   %84 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i214 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp200, i64 0, i32 1
+  %m_decomp.i214 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i214) #10
   br label %ehcleanup376
 
 lpad218:                                          ; preds = %invoke.cont217
   %85 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i215 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp211, i64 0, i32 1
+  %m_decomp.i215 = getelementptr inbounds i8, ptr %ref.tmp211, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i215) #10
   br label %ehcleanup376
 
 lpad229:                                          ; preds = %invoke.cont228
   %86 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i216 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp222, i64 0, i32 1
+  %m_decomp.i216 = getelementptr inbounds i8, ptr %ref.tmp222, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i216) #10
   br label %ehcleanup376
 
 lpad240:                                          ; preds = %invoke.cont239
   %87 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i217 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp233, i64 0, i32 1
+  %m_decomp.i217 = getelementptr inbounds i8, ptr %ref.tmp233, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i217) #10
   br label %ehcleanup376
 
 lpad251:                                          ; preds = %invoke.cont250
   %88 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i218 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp244, i64 0, i32 1
+  %m_decomp.i218 = getelementptr inbounds i8, ptr %ref.tmp244, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i218) #10
   br label %ehcleanup376
 
 lpad262:                                          ; preds = %invoke.cont261
   %89 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i219 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp255, i64 0, i32 1
+  %m_decomp.i219 = getelementptr inbounds i8, ptr %ref.tmp255, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i219) #10
   br label %ehcleanup376
 
 lpad273:                                          ; preds = %invoke.cont272
   %90 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i220 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp266, i64 0, i32 1
+  %m_decomp.i220 = getelementptr inbounds i8, ptr %ref.tmp266, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i220) #10
   br label %ehcleanup376
 
 lpad284:                                          ; preds = %invoke.cont283
   %91 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i221 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp277, i64 0, i32 1
+  %m_decomp.i221 = getelementptr inbounds i8, ptr %ref.tmp277, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i221) #10
   br label %ehcleanup376
 
 lpad295:                                          ; preds = %invoke.cont294
   %92 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i222 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp288, i64 0, i32 1
+  %m_decomp.i222 = getelementptr inbounds i8, ptr %ref.tmp288, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i222) #10
   br label %ehcleanup376
 
 lpad306:                                          ; preds = %invoke.cont305
   %93 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i223 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp299, i64 0, i32 1
+  %m_decomp.i223 = getelementptr inbounds i8, ptr %ref.tmp299, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i223) #10
   br label %ehcleanup376
 
 lpad317:                                          ; preds = %invoke.cont316
   %94 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i224 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp310, i64 0, i32 1
+  %m_decomp.i224 = getelementptr inbounds i8, ptr %ref.tmp310, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i224) #10
   br label %ehcleanup376
 
 lpad328:                                          ; preds = %invoke.cont327
   %95 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i225 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp321, i64 0, i32 1
+  %m_decomp.i225 = getelementptr inbounds i8, ptr %ref.tmp321, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i225) #10
   br label %ehcleanup376
 
 lpad339:                                          ; preds = %invoke.cont338
   %96 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i226 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp332, i64 0, i32 1
+  %m_decomp.i226 = getelementptr inbounds i8, ptr %ref.tmp332, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i226) #10
   br label %ehcleanup376
 
 lpad350:                                          ; preds = %invoke.cont349
   %97 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i227 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp343, i64 0, i32 1
+  %m_decomp.i227 = getelementptr inbounds i8, ptr %ref.tmp343, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i227) #10
   br label %ehcleanup376
 
 lpad361:                                          ; preds = %invoke.cont360
   %98 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i228 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp354, i64 0, i32 1
+  %m_decomp.i228 = getelementptr inbounds i8, ptr %ref.tmp354, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i228) #10
   br label %ehcleanup376
 
 lpad372:                                          ; preds = %invoke.cont371
   %99 = landingpad { ptr, i32 }
           cleanup
-  %m_decomp.i229 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp365, i64 0, i32 1
+  %m_decomp.i229 = getelementptr inbounds i8, ptr %ref.tmp365, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i229) #10
   br label %ehcleanup376
 
@@ -1189,9 +1188,9 @@ declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8Tes
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_full_name = getelementptr inbounds %"struct.doctest::detail::TestCase", ptr %this, i64 0, i32 4
+  %m_full_name = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_full_name) #10
-  %m_type = getelementptr inbounds %"struct.doctest::detail::TestCase", ptr %this, i64 0, i32 2
+  %m_type = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_type) #10
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #10
   ret void
@@ -1216,7 +1215,7 @@ entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %ref.tmp13 = alloca %"class.doctest::String", align 8
   %0 = load i8, ptr %this, align 4
-  %m_at = getelementptr inbounds %"struct.doctest::detail::Expression_lhs", ptr %this, i64 0, i32 1
+  %m_at = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_at, align 4
   %and = lshr i32 %1, 8
   %2 = trunc i32 %and to i8
@@ -1227,7 +1226,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %success = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %call, i64 0, i32 10
+  %success = getelementptr inbounds i8, ptr %call, i64 108
   %4 = load i8, ptr %success, align 4
   %5 = and i8 %4, 1
   %tobool6.not = icmp eq i8 %5, 0
@@ -1280,7 +1279,7 @@ entry:
   %0 = load i64, ptr %this, align 8
   %1 = load i64, ptr %rhs, align 8
   %cmp = icmp eq i64 %0, %1
-  %m_at = getelementptr inbounds %"struct.doctest::detail::Expression_lhs.0", ptr %this, i64 0, i32 1
+  %m_at = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_at, align 8
   %3 = and i32 %2, 256
   %4 = icmp ne i32 %3, 0
@@ -1289,7 +1288,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call6 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %success = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %call6, i64 0, i32 10
+  %success = getelementptr inbounds i8, ptr %call6, i64 108
   %5 = load i8, ptr %success, align 4
   %6 = and i8 %5, 1
   %tobool7.not = icmp eq i8 %6, 0
@@ -1336,7 +1335,7 @@ entry:
   %1 = load i32, ptr %rhs, align 4
   %conv = sext i32 %1 to i64
   %cmp = icmp eq i64 %0, %conv
-  %m_at = getelementptr inbounds %"struct.doctest::detail::Expression_lhs.0", ptr %this, i64 0, i32 1
+  %m_at = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_at, align 8
   %3 = and i32 %2, 256
   %4 = icmp ne i32 %3, 0
@@ -1345,7 +1344,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call6 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %success = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %call6, i64 0, i32 10
+  %success = getelementptr inbounds i8, ptr %call6, i64 108
   %5 = load i8, ptr %success, align 4
   %6 = and i8 %5, 1
   %tobool7.not = icmp eq i8 %6, 0
@@ -1392,17 +1391,17 @@ entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %ref.tmp14 = alloca %"class.doctest::String", align 8
   %0 = load ptr, ptr %this, align 8
-  %m_subtype.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %0, i64 0, i32 1
-  %m_has_subtype.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %0, i64 0, i32 2
-  %m_subtype3.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %rhs, i64 0, i32 1
-  %m_has_subtype4.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %rhs, i64 0, i32 2
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %m_subtype.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_has_subtype.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_subtype3.i = getelementptr inbounds i8, ptr %rhs, i64 24
+  %m_has_subtype4.i = getelementptr inbounds i8, ptr %rhs, i64 32
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %_M_finish.i4.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %rhs, i64 0, i32 1
+  %_M_finish.i4.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load ptr, ptr %_M_finish.i4.i.i.i.i, align 8
   %4 = load ptr, ptr %rhs, align 8
   %sub.ptr.lhs.cast.i5.i.i.i.i = ptrtoint ptr %3 to i64
@@ -1427,7 +1426,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZSteqIhSaIhEEbRKSt
   br i1 %cmp.i4.i.i.i, label %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEeqERKS5_.exit, label %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEeqERKS5_.exit.thr_comm
 
 _ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEeqERKS5_.exit.thr_comm: ; preds = %entry, %land.rhs.i.i.i, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i.i
-  %m_at6 = getelementptr inbounds %"struct.doctest::detail::Expression_lhs.1", ptr %this, i64 0, i32 1
+  %m_at6 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %m_at6, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
@@ -1439,7 +1438,7 @@ _ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEe
   %11 = xor i8 %10, %9
   %12 = and i8 %11, 1
   %cmp.i.i.i.i.i = icmp eq i8 %12, 0
-  %m_at = getelementptr inbounds %"struct.doctest::detail::Expression_lhs.1", ptr %this, i64 0, i32 1
+  %m_at = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i32, ptr %m_at, align 8
   %14 = and i32 %13, 256
   %15 = icmp ne i32 %14, 0
@@ -1448,7 +1447,7 @@ _ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEe
 
 lor.lhs.false:                                    ; preds = %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEeqERKS5_.exit.thr_comm, %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEeqERKS5_.exit
   %call7 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %success = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %call7, i64 0, i32 10
+  %success = getelementptr inbounds i8, ptr %call7, i64 108
   %16 = load i8, ptr %success, align 4
   %17 = and i8 %16, 1
   %tobool8.not = icmp eq i8 %17, 0
@@ -1498,17 +1497,17 @@ entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %ref.tmp14 = alloca %"class.doctest::String", align 8
   %0 = load ptr, ptr %this, align 8
-  %m_subtype.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %rhs, i64 0, i32 1
-  %m_has_subtype.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %rhs, i64 0, i32 2
-  %m_subtype3.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %0, i64 0, i32 1
-  %m_has_subtype4.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %0, i64 0, i32 2
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %rhs, i64 0, i32 1
+  %m_subtype.i.i = getelementptr inbounds i8, ptr %rhs, i64 24
+  %m_has_subtype.i.i = getelementptr inbounds i8, ptr %rhs, i64 32
+  %m_subtype3.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_has_subtype4.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %rhs, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %_M_finish.i4.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %_M_finish.i4.i.i.i.i.i, align 8
   %4 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i5.i.i.i.i.i = ptrtoint ptr %3 to i64
@@ -1533,7 +1532,7 @@ land.rhs.i.i.i.i:                                 ; preds = %_ZSteqIhSaIhEEbRKSt
   br i1 %cmp.i4.i.i.i.i, label %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEneERKS5_.exit, label %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEneERKS5_.exit.thr_comm
 
 _ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEneERKS5_.exit.thr_comm: ; preds = %entry, %land.rhs.i.i.i.i, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i.i.i
-  %m_at6 = getelementptr inbounds %"struct.doctest::detail::Expression_lhs.1", ptr %this, i64 0, i32 1
+  %m_at6 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %m_at6, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
@@ -1545,7 +1544,7 @@ _ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEn
   %11 = xor i8 %10, %9
   %12 = and i8 %11, 1
   %cmp.i.i.i.i.i.i = icmp ne i8 %12, 0
-  %m_at = getelementptr inbounds %"struct.doctest::detail::Expression_lhs.1", ptr %this, i64 0, i32 1
+  %m_at = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i32, ptr %m_at, align 8
   %14 = and i32 %13, 256
   %15 = icmp ne i32 %14, 0
@@ -1554,7 +1553,7 @@ _ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEn
 
 lor.lhs.false:                                    ; preds = %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEneERKS5_.exit.thr_comm, %_ZNK8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEneERKS5_.exit
   %call7 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %success = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %call7, i64 0, i32 10
+  %success = getelementptr inbounds i8, ptr %call7, i64 108
   %16 = load i8, ptr %success, align 4
   %17 = and i8 %16, 1
   %tobool8.not = icmp eq i8 %17, 0
@@ -1864,9 +1863,9 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   resume { ptr, i32 } %.pn.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont3.i
-  %m_full_name.i.i = getelementptr inbounds %"struct.doctest::detail::TestCase", ptr %ref.tmp.i1, i64 0, i32 4
+  %m_full_name.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_full_name.i.i) #10
-  %m_type.i.i = getelementptr inbounds %"struct.doctest::detail::TestCase", ptr %ref.tmp.i1, i64 0, i32 2
+  %m_type.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_type.i.i) #10
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1) #10
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1.i) #10

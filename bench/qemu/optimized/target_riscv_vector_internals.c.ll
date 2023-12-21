@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_vector_internals.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @vext_set_elems_1s(ptr nocapture noundef writeonly %base, i32 noundef %is_agnostic, i32 noundef %cnt, i32 noundef %tot) local_unnamed_addr #0 {
 entry:
@@ -32,7 +29,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @do_vext_vv(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr noundef %vs1, ptr noundef %vs2, ptr nocapture noundef %env, i32 noundef %desc, ptr nocapture noundef readonly %fn, i32 noundef %esz) local_unnamed_addr #2 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
@@ -50,7 +47,7 @@ entry:
   %add.i = sub nsw i32 %sub.i, %sh_prom.i
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl i32 %add.i.i, %cond.i
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %6 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %6 to i32
   %cmp36 = icmp ult i32 %conv5, %conv
@@ -164,7 +161,7 @@ vext_set_elems_1s.exit34:                         ; preds = %for.end, %if.end3.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @do_vext_vx(ptr noundef %vd, ptr nocapture noundef readonly %v0, i64 noundef %s1, ptr noundef %vs2, ptr nocapture noundef %env, i32 noundef %desc, ptr nocapture noundef readonly %fn, i32 noundef %esz) local_unnamed_addr #2 {
 entry:
-  %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
@@ -182,7 +179,7 @@ entry:
   %add.i = sub nsw i32 %sub.i, %sh_prom.i
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl i32 %add.i.i, %cond.i
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %6 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %6 to i32
   %cmp36 = icmp ult i32 %conv5, %conv

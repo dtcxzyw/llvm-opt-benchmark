@@ -3,14 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-a_verify.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/a_verify.c\00", align 1
 @__func__.ASN1_verify = private unnamed_addr constant [12 x i8] c"ASN1_verify\00", align 1
 @__func__.ASN1_item_verify_ctx = private unnamed_addr constant [21 x i8] c"ASN1_item_verify_ctx\00", align 1
@@ -47,13 +39,13 @@ if.then5:                                         ; preds = %if.end
   br label %err
 
 if.end6:                                          ; preds = %if.end
-  %type7 = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 1
+  %type7 = getelementptr inbounds i8, ptr %signature, i64 4
   %1 = load i32, ptr %type7, align 4
   %cmp8 = icmp eq i32 %1, 3
   br i1 %cmp8, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end6
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %signature, i64 16
   %2 = load i64, ptr %flags, align 8
   %and = and i64 %2, 7
   %tobool.not = icmp eq i64 %and, 0
@@ -106,7 +98,7 @@ if.then28:                                        ; preds = %land.end.thread, %l
   br label %err
 
 if.end29:                                         ; preds = %land.end
-  %data30 = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 2
+  %data30 = getelementptr inbounds i8, ptr %signature, i64 8
   %3 = load ptr, ptr %data30, align 8
   %4 = load i32, ptr %signature, align 8
   %call31 = call i32 @EVP_VerifyFinal(ptr noundef nonnull %call, ptr noundef %3, i32 noundef %4, ptr noundef %pkey) #2
@@ -210,13 +202,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %signature, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp2 = icmp eq i32 %0, 3
   br i1 %cmp2, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %signature, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 7
   %tobool.not = icmp eq i64 %and, 0
@@ -256,19 +248,19 @@ land.lhs.true11:                                  ; preds = %if.end9
   br i1 %cmp13.not, label %if.else, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %call1, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %call1, i64 96
   %6 = load ptr, ptr %keymgmt, align 8
   %cmp15 = icmp eq ptr %6, null
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %land.lhs.true14
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %call1, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %call1, i64 8
   %7 = load ptr, ptr %ameth, align 8
   %cmp17 = icmp eq ptr %7, null
   br i1 %cmp17, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then16
-  %item_verify = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %7, i64 0, i32 26
+  %item_verify = getelementptr inbounds i8, ptr %7, i64 200
   %8 = load ptr, ptr %item_verify, align 8
   %cmp19 = icmp eq ptr %8, null
   br i1 %cmp19, label %if.then20, label %if.end21
@@ -394,7 +386,7 @@ if.then72:                                        ; preds = %if.end70
 
 if.end73:                                         ; preds = %if.end70
   %conv = zext nneg i32 %call67 to i64
-  %data74 = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 2
+  %data74 = getelementptr inbounds i8, ptr %signature, i64 8
   %14 = load ptr, ptr %data74, align 8
   %15 = load i32, ptr %signature, align 8
   %conv75 = sext i32 %15 to i64

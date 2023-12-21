@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::smt::ResourceOutListener" = type { %"class.cvc5::internal::Listener", ptr }
-%"class.cvc5::internal::Listener" = type { ptr }
 
 $_ZN4cvc58internal3smt19ResourceOutListenerD2Ev = comdat any
 
@@ -35,7 +33,7 @@ define hidden void @_ZN4cvc58internal3smt19ResourceOutListenerC2ERNS0_12SolverEn
 entry:
   tail call void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal3smt19ResourceOutListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_slv = getelementptr inbounds %"class.cvc5::internal::smt::ResourceOutListener", ptr %this, i64 0, i32 1
+  %d_slv = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %slv, ptr %d_slv, align 8
   ret void
 }
@@ -45,7 +43,7 @@ declare void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt19ResourceOutListener6notifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  %d_slv = getelementptr inbounds %"class.cvc5::internal::smt::ResourceOutListener", ptr %this, i64 0, i32 1
+  %d_slv = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_slv, align 8
   tail call void @_ZN4cvc58internal12SolverEngine9interruptEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   ret void

@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/util_envlist.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.envlist_entry = type { ptr, %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.envlist = type { %struct.anon, i64 }
-%struct.anon = type { ptr }
-
 @.str = private unnamed_addr constant [16 x i8] c"envlist != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/util/envlist.c\00", align 1
 @__PRETTY_FUNCTION__.envlist_free = private unnamed_addr constant [31 x i8] c"void envlist_free(envlist_t *)\00", align 1
@@ -40,15 +35,15 @@ if.else:                                          ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end12
   %1 = phi ptr [ %5, %if.end12 ], [ %0, %while.cond.preheader ]
-  %ev_link = getelementptr inbounds %struct.envlist_entry, ptr %1, i64 0, i32 1
+  %ev_link = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ev_link, align 8
   %cmp5.not = icmp eq ptr %2, null
-  %le_prev16.phi.trans.insert = getelementptr inbounds %struct.envlist_entry, ptr %1, i64 0, i32 1, i32 1
+  %le_prev16.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre14 = load ptr, ptr %le_prev16.phi.trans.insert, align 8
   br i1 %cmp5.not, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %while.body
-  %le_prev11 = getelementptr inbounds %struct.envlist_entry, ptr %2, i64 0, i32 1, i32 1
+  %le_prev11 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %.pre14, ptr %le_prev11, align 8
   %.pre = load ptr, ptr %ev_link, align 8
   br label %if.end12
@@ -147,7 +142,7 @@ for.body:                                         ; preds = %if.end5, %for.inc
   %0 = load ptr, ptr %entry1.031, align 8
   %call7 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %env, i64 noundef %add) #11
   %cmp8 = icmp eq i32 %call7, 0
-  %ev_link13 = getelementptr inbounds %struct.envlist_entry, ptr %entry1.031, i64 0, i32 1
+  %ev_link13 = getelementptr inbounds i8, ptr %entry1.031, i64 8
   %1 = load ptr, ptr %ev_link13, align 8
   %cmp15.not = icmp eq ptr %1, null
   br i1 %cmp8, label %do.body, label %for.inc
@@ -156,13 +151,13 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp15.not, label %if.else, label %for.body, !llvm.loop !9
 
 do.body:                                          ; preds = %for.body
-  %ev_link13.le = getelementptr inbounds %struct.envlist_entry, ptr %entry1.031, i64 0, i32 1
-  %le_prev26.phi.trans.insert = getelementptr inbounds %struct.envlist_entry, ptr %entry1.031, i64 0, i32 1, i32 1
+  %ev_link13.le = getelementptr inbounds i8, ptr %entry1.031, i64 8
+  %le_prev26.phi.trans.insert = getelementptr inbounds i8, ptr %entry1.031, i64 16
   %.pre33 = load ptr, ptr %le_prev26.phi.trans.insert, align 8
   br i1 %cmp15.not, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %do.body
-  %le_prev21 = getelementptr inbounds %struct.envlist_entry, ptr %1, i64 0, i32 1, i32 1
+  %le_prev21 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %.pre33, ptr %le_prev21, align 8
   %.pre = load ptr, ptr %ev_link13.le, align 8
   br label %if.end22
@@ -177,7 +172,7 @@ if.end22:                                         ; preds = %do.body, %if.then16
   br label %if.end32
 
 if.else:                                          ; preds = %for.inc, %if.end5
-  %el_count = getelementptr inbounds %struct.envlist, ptr %envlist, i64 0, i32 1
+  %el_count = getelementptr inbounds i8, ptr %envlist, i64 8
   %4 = load i64, ptr %el_count, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %el_count, align 8
@@ -188,19 +183,19 @@ if.end32:                                         ; preds = %if.else, %if.end22
   %call34 = tail call noalias ptr @g_strdup(ptr noundef %env) #10
   store ptr %call34, ptr %call33, align 8
   %5 = load ptr, ptr %envlist, align 8
-  %ev_link39 = getelementptr inbounds %struct.envlist_entry, ptr %call33, i64 0, i32 1
+  %ev_link39 = getelementptr inbounds i8, ptr %call33, i64 8
   store ptr %5, ptr %ev_link39, align 8
   %cmp41.not = icmp eq ptr %5, null
   br i1 %cmp41.not, label %if.end49, label %if.then42
 
 if.then42:                                        ; preds = %if.end32
-  %le_prev48 = getelementptr inbounds %struct.envlist_entry, ptr %5, i64 0, i32 1, i32 1
+  %le_prev48 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %ev_link39, ptr %le_prev48, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then42, %if.end32
   store ptr %call33, ptr %envlist, align 8
-  %le_prev55 = getelementptr inbounds %struct.envlist_entry, ptr %call33, i64 0, i32 1, i32 1
+  %le_prev55 = getelementptr inbounds i8, ptr %call33, i64 16
   store ptr %envlist, ptr %le_prev55, align 8
   br label %return
 
@@ -279,7 +274,7 @@ for.body:                                         ; preds = %if.end5, %for.inc
   %0 = load ptr, ptr %entry1.021, align 8
   %call8 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %env, i64 noundef %call6) #11
   %cmp9 = icmp eq i32 %call8, 0
-  %ev_link14 = getelementptr inbounds %struct.envlist_entry, ptr %entry1.021, i64 0, i32 1
+  %ev_link14 = getelementptr inbounds i8, ptr %entry1.021, i64 8
   %1 = load ptr, ptr %ev_link14, align 8
   %cmp16.not = icmp eq ptr %1, null
   br i1 %cmp9, label %do.body, label %for.inc
@@ -288,13 +283,13 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp16.not, label %return, label %for.body, !llvm.loop !10
 
 do.body:                                          ; preds = %for.body
-  %ev_link14.le = getelementptr inbounds %struct.envlist_entry, ptr %entry1.021, i64 0, i32 1
-  %le_prev27.phi.trans.insert = getelementptr inbounds %struct.envlist_entry, ptr %entry1.021, i64 0, i32 1, i32 1
+  %ev_link14.le = getelementptr inbounds i8, ptr %entry1.021, i64 8
+  %le_prev27.phi.trans.insert = getelementptr inbounds i8, ptr %entry1.021, i64 16
   %.pre23 = load ptr, ptr %le_prev27.phi.trans.insert, align 8
   br i1 %cmp16.not, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %do.body
-  %le_prev22 = getelementptr inbounds %struct.envlist_entry, ptr %1, i64 0, i32 1, i32 1
+  %le_prev22 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %.pre23, ptr %le_prev22, align 8
   %.pre = load ptr, ptr %ev_link14.le, align 8
   br label %if.end23
@@ -306,7 +301,7 @@ if.end23:                                         ; preds = %do.body, %if.then17
   %3 = load ptr, ptr %entry1.021, align 8
   tail call void @g_free(ptr noundef %3) #10
   tail call void @g_free(ptr noundef nonnull %entry1.021) #10
-  %el_count = getelementptr inbounds %struct.envlist, ptr %envlist, i64 0, i32 1
+  %el_count = getelementptr inbounds i8, ptr %envlist, i64 8
   %4 = load i64, ptr %el_count, align 8
   %dec = add i64 %4, -1
   store i64 %dec, ptr %el_count, align 8
@@ -331,7 +326,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @envlist_to_environ(ptr nocapture noundef readonly %envlist, ptr noundef writeonly %count) local_unnamed_addr #0 {
 entry:
-  %el_count = getelementptr inbounds %struct.envlist, ptr %envlist, i64 0, i32 1
+  %el_count = getelementptr inbounds i8, ptr %envlist, i64 8
   %0 = load i64, ptr %el_count, align 8
   %add = add i64 %0, 1
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %add, i64 noundef 8) #13
@@ -344,9 +339,9 @@ for.body:                                         ; preds = %entry, %for.body
   %penv.09 = phi ptr [ %incdec.ptr, %for.body ], [ %call, %entry ]
   %1 = load ptr, ptr %entry1.010, align 8
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %1) #10
-  %incdec.ptr = getelementptr ptr, ptr %penv.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %penv.09, i64 8
   store ptr %call2, ptr %penv.09, align 8
-  %ev_link = getelementptr inbounds %struct.envlist_entry, ptr %entry1.010, i64 0, i32 1
+  %ev_link = getelementptr inbounds i8, ptr %entry1.010, i64 8
   %entry1.0 = load ptr, ptr %ev_link, align 8
   %cmp.not = icmp eq ptr %entry1.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11

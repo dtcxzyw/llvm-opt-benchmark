@@ -4,16 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSStackElement = type { ptr, ptr, ptr, i32 }
-%struct.QOSGraphNode = type { i32, i8, i8, ptr, ptr, ptr, %union.anon, ptr }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr, ptr, i8 }
-%struct.QOSGraphEdge = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr }
 %struct.QOSGraphTestOptions = type { %struct.QOSGraphEdgeOptions, ptr, ptr, i8 }
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct._GList = type { ptr, ptr, ptr }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
 
 @node_table = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -95,7 +88,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %available = getelementptr inbounds %struct.QOSGraphNode, ptr %call.i, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %call.i, i64 4
   %1 = load i8, ptr %available, align 4
   %2 = and i8 %1, 1
   %tobool1 = icmp ne i8 %2, 0
@@ -124,9 +117,9 @@ for.cond.i:                                       ; preds = %land.rhs.i, %if.end
   br i1 %tobool1.not.i, label %search_list_edges.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.cond.i
-  %edge_list.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i, i64 0, i32 7
+  %edge_list.i = getelementptr inbounds i8, ptr %tmp.0.i, i64 56
   %2 = load ptr, ptr %edge_list.i, align 8
-  %dest2.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i, i64 0, i32 1
+  %dest2.i = getelementptr inbounds i8, ptr %tmp.0.i, i64 8
   %3 = load ptr, ptr %dest2.i, align 8
   %call.i1 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %dest) #12
   %cmp.i = icmp eq i32 %call.i1, 0
@@ -159,7 +152,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dest = getelementptr inbounds %struct.QOSGraphEdge, ptr %edge, i64 0, i32 1
+  %dest = getelementptr inbounds i8, ptr %edge, i64 8
   %0 = load ptr, ptr %dest, align 8
   br label %return
 
@@ -175,7 +168,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arg = getelementptr inbounds %struct.QOSGraphEdge, ptr %edge, i64 0, i32 2
+  %arg = getelementptr inbounds i8, ptr %edge, i64 16
   %0 = load ptr, ptr %arg, align 8
   br label %return
 
@@ -191,7 +184,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %after_cmd_line = getelementptr inbounds %struct.QOSGraphEdge, ptr %edge, i64 0, i32 5
+  %after_cmd_line = getelementptr inbounds i8, ptr %edge, i64 40
   %0 = load ptr, ptr %after_cmd_line, align 8
   br label %return
 
@@ -207,7 +200,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %before_cmd_line = getelementptr inbounds %struct.QOSGraphEdge, ptr %edge, i64 0, i32 4
+  %before_cmd_line = getelementptr inbounds i8, ptr %edge, i64 32
   %0 = load ptr, ptr %before_cmd_line, align 8
   br label %return
 
@@ -223,7 +216,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdge, ptr %edge, i64 0, i32 3
+  %extra_device_opts = getelementptr inbounds i8, ptr %edge, i64 24
   %0 = load ptr, ptr %extra_device_opts, align 8
   br label %return
 
@@ -239,7 +232,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %edge_name = getelementptr inbounds %struct.QOSGraphEdge, ptr %edge, i64 0, i32 6
+  %edge_name = getelementptr inbounds i8, ptr %edge, i64 48
   %0 = load ptr, ptr %edge_name, align 8
   br label %return
 
@@ -266,9 +259,9 @@ for.cond.i:                                       ; preds = %land.rhs.i, %if.end
   br i1 %tobool1.not.i.not, label %land.rhs.i, label %search_list_edges.exit
 
 land.rhs.i:                                       ; preds = %for.cond.i
-  %edge_list.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i, i64 0, i32 7
+  %edge_list.i = getelementptr inbounds i8, ptr %tmp.0.i, i64 56
   %2 = load ptr, ptr %edge_list.i, align 8
-  %dest2.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i, i64 0, i32 1
+  %dest2.i = getelementptr inbounds i8, ptr %tmp.0.i, i64 8
   %3 = load ptr, ptr %dest2.i, align 8
   %call.i1 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %dest) #12
   %cmp.i = icmp eq i32 %call.i1, 0
@@ -297,16 +290,16 @@ for.cond.i.i:                                     ; preds = %land.rhs.i.i, %if.e
   br i1 %tobool1.not.i.i, label %search_machine.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.cond.i.i
-  %edge_list.i.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i.i, i64 0, i32 7
+  %edge_list.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 56
   %2 = load ptr, ptr %edge_list.i.i, align 8
-  %dest2.i.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i.i, i64 0, i32 1
+  %dest2.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 8
   %3 = load ptr, ptr %dest2.i.i, align 8
   %call.i3.i = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %node) #12
   %cmp.i.i = icmp eq i32 %call.i3.i, 0
   br i1 %cmp.i.i, label %if.end.i, label %for.cond.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %land.rhs.i.i
-  %dest2.i.i.le = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i.i, i64 0, i32 1
+  %dest2.i.i.le = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 8
   %4 = load ptr, ptr %dest2.i.i.le, align 8
   %5 = load ptr, ptr @node_table, align 8
   %call.i4.i = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %4) #12
@@ -338,16 +331,16 @@ for.cond.i.i:                                     ; preds = %land.rhs.i.i, %if.e
   br i1 %tobool1.not.i.i, label %search_machine.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.cond.i.i
-  %edge_list.i.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i.i, i64 0, i32 7
+  %edge_list.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 56
   %2 = load ptr, ptr %edge_list.i.i, align 8
-  %dest2.i.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i.i, i64 0, i32 1
+  %dest2.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 8
   %3 = load ptr, ptr %dest2.i.i, align 8
   %call.i3.i = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %node) #12
   %cmp.i.i = icmp eq i32 %call.i3.i, 0
   br i1 %cmp.i.i, label %if.end.i, label %for.cond.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %land.rhs.i.i
-  %dest2.i.i.le = getelementptr inbounds %struct.QOSGraphEdge, ptr %tmp.0.i.i, i64 0, i32 1
+  %dest2.i.i.le = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 8
   %4 = load ptr, ptr %dest2.i.i.le, align 8
   %5 = load ptr, ptr @node_table, align 8
   %call.i4.i = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %4) #12
@@ -403,7 +396,7 @@ while.body.i:                                     ; preds = %qos_pop.exit.i, %wh
   %idxprom.i18.i = and i64 %indvars.iv.next.i, 4294967295
   %arrayidx.i19.i = getelementptr [64 x %struct.QOSStackElement], ptr @qos_node_stack, i64 0, i64 %idxprom.i18.i
   %3 = load ptr, ptr %arrayidx.i19.i, align 16
-  %visited.i = getelementptr inbounds %struct.QOSGraphNode, ptr %3, i64 0, i32 2
+  %visited.i = getelementptr inbounds i8, ptr %3, i64 5
   %4 = load i8, ptr %visited.i, align 1
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
@@ -419,7 +412,7 @@ qos_pop.exit.i:                                   ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %while.body.i
   store i8 1, ptr %visited.i, align 1
-  %name.i = getelementptr inbounds %struct.QOSGraphNode, ptr %3, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %name.i, align 8
   %8 = load ptr, ptr @edge_table, align 8
   %call.i.i1 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %7) #12
@@ -441,7 +434,7 @@ qos_pop.exit28.i:                                 ; preds = %if.then5.i
   %idxprom.i.i24.i = sext i32 %sub.i.i23.i to i64
   %arrayidx.i.i25.i = getelementptr [64 x %struct.QOSStackElement], ptr @qos_node_stack, i64 0, i64 %idxprom.i.i24.i
   %10 = load ptr, ptr %arrayidx.i.i25.i, align 16
-  %visited.i26.i = getelementptr inbounds %struct.QOSGraphNode, ptr %10, i64 0, i32 2
+  %visited.i26.i = getelementptr inbounds i8, ptr %10, i64 5
   store i8 0, ptr %visited.i26.i, align 1
   store i32 %sub.i.i23.i, ptr @qos_node_tos, align 4
   %11 = load i32, ptr %3, align 8
@@ -460,9 +453,9 @@ while.condthread-pre-split.backedge.i:            ; preds = %while.condthread-pr
 if.end.i.i:                                       ; preds = %qos_pop.exit28.i
   store i8 0, ptr %visited.i, align 1
   %12 = load ptr, ptr %arrayidx.i19.i, align 8
-  %path_edge.i.i = getelementptr inbounds %struct.QOSGraphNode, ptr %12, i64 0, i32 7
+  %path_edge.i.i = getelementptr inbounds i8, ptr %12, i64 64
   store ptr null, ptr %path_edge.i.i, align 8
-  %parent7.i.i = getelementptr [64 x %struct.QOSStackElement], ptr @qos_node_stack, i64 0, i64 %idxprom.i18.i, i32 1
+  %parent7.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 8
   %13 = load ptr, ptr %parent7.i.i, align 8
   %tobool1.not8.i.i = icmp eq ptr %13, null
   br i1 %tobool1.not8.i.i, label %qos_reverse_path.exit.i, label %while.body.i.i
@@ -471,13 +464,13 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %14 = phi ptr [ %18, %while.body.i.i ], [ %13, %if.end.i.i ]
   %parent10.i.i = phi ptr [ %parent.i.i, %while.body.i.i ], [ %parent7.i.i, %if.end.i.i ]
   %el.addr.09.i.i = phi ptr [ %17, %while.body.i.i ], [ %arrayidx.i19.i, %if.end.i.i ]
-  %parent_edge.i.i = getelementptr inbounds %struct.QOSStackElement, ptr %el.addr.09.i.i, i64 0, i32 2
+  %parent_edge.i.i = getelementptr inbounds i8, ptr %el.addr.09.i.i, i64 16
   %15 = load ptr, ptr %parent_edge.i.i, align 8
   %16 = load ptr, ptr %14, align 8
-  %path_edge4.i.i = getelementptr inbounds %struct.QOSGraphNode, ptr %16, i64 0, i32 7
+  %path_edge4.i.i = getelementptr inbounds i8, ptr %16, i64 64
   store ptr %15, ptr %path_edge4.i.i, align 8
   %17 = load ptr, ptr %parent10.i.i, align 8
-  %parent.i.i = getelementptr inbounds %struct.QOSStackElement, ptr %17, i64 0, i32 1
+  %parent.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %parent.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %18, null
   br i1 %tobool1.not.i.i, label %qos_reverse_path.exit.i, label %while.body.i.i, !llvm.loop !8
@@ -485,7 +478,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
 qos_reverse_path.exit.i:                          ; preds = %while.body.i.i, %if.end.i.i
   %el.addr.0.lcssa.i.i = phi ptr [ %arrayidx.i19.i, %if.end.i.i ], [ %17, %while.body.i.i ]
   %19 = load ptr, ptr %el.addr.0.lcssa.i.i, align 8
-  %length.i = getelementptr [64 x %struct.QOSStackElement], ptr @qos_node_stack, i64 0, i64 %idxprom.i18.i, i32 3
+  %length.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 24
   %20 = load i32, ptr %length.i, align 8
   tail call void %fn(ptr noundef %19, i32 noundef %20) #12
   br label %while.condthread-pre-split.backedgethread-pre-split.i
@@ -496,14 +489,14 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %tobool12.not46.i, label %while.condthread-pre-split.backedgethread-pre-split.i, label %land.rhs.lr.ph.i, !llvm.loop !7
 
 land.rhs.lr.ph.i:                                 ; preds = %if.else.i
-  %length.i.i = getelementptr [64 x %struct.QOSStackElement], ptr @qos_node_stack, i64 0, i64 %idxprom.i18.i, i32 3
+  %length.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 24
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.inc.i, %land.rhs.lr.ph.i
   %e.047.i = phi ptr [ %21, %land.rhs.lr.ph.i ], [ %22, %for.inc.i ]
-  %edge_list.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.047.i, i64 0, i32 7
+  %edge_list.i = getelementptr inbounds i8, ptr %e.047.i, i64 56
   %22 = load ptr, ptr %edge_list.i, align 8
-  %dest.i = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.047.i, i64 0, i32 1
+  %dest.i = getelementptr inbounds i8, ptr %e.047.i, i64 8
   %23 = load ptr, ptr %dest.i, align 8
   %24 = load ptr, ptr @node_table, align 8
   %call.i29.i = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %23) #12
@@ -511,8 +504,8 @@ land.rhs.i:                                       ; preds = %for.inc.i, %land.rh
   br i1 %tobool14.not.i, label %if.then15.i, label %if.end20.i
 
 if.then15.i:                                      ; preds = %land.rhs.i
-  %name.i.le = getelementptr inbounds %struct.QOSGraphNode, ptr %3, i64 0, i32 3
-  %dest.i.le = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.047.i, i64 0, i32 1
+  %name.i.le = getelementptr inbounds i8, ptr %3, i64 8
+  %dest.i.le = getelementptr inbounds i8, ptr %e.047.i, i64 8
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %dest.i.le, align 8
   %27 = load ptr, ptr %name.i.le, align 8
@@ -521,14 +514,14 @@ if.then15.i:                                      ; preds = %land.rhs.i
   unreachable
 
 if.end20.i:                                       ; preds = %land.rhs.i
-  %visited21.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call.i29.i, i64 0, i32 2
+  %visited21.i = getelementptr inbounds i8, ptr %call.i29.i, i64 5
   %28 = load i8, ptr %visited21.i, align 1
   %29 = and i8 %28, 1
   %tobool22.not.i = icmp eq i8 %29, 0
   br i1 %tobool22.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %if.end20.i
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call.i29.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call.i29.i, i64 4
   %30 = load i8, ptr %available.i, align 4
   %31 = and i8 %30, 1
   %tobool23.not.i = icmp eq i8 %31, 0
@@ -596,10 +589,10 @@ if.then.i:                                        ; preds = %if.then
 create_node.exit:                                 ; preds = %if.then
   %call1.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #15
   store i32 1, ptr %call1.i, align 8
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i8 0, ptr %available.i, align 4
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #12
-  %name4.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 3
+  %name4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call3.i, ptr %name4.i, align 8
   %1 = load ptr, ptr @node_table, align 8
   %call6.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call3.i, ptr noundef nonnull %call1.i) #12
@@ -635,10 +628,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @destroy_node(ptr noundef %val) #0 {
 entry:
-  %qemu_name = getelementptr inbounds %struct.QOSGraphNode, ptr %val, i64 0, i32 4
+  %qemu_name = getelementptr inbounds i8, ptr %val, i64 16
   %0 = load ptr, ptr %qemu_name, align 8
   tail call void @g_free(ptr noundef %0) #12
-  %command_line = getelementptr inbounds %struct.QOSGraphNode, ptr %val, i64 0, i32 5
+  %command_line = getelementptr inbounds i8, ptr %val, i64 24
   %1 = load ptr, ptr %command_line, align 8
   tail call void @g_free(ptr noundef %1) #12
   tail call void @g_free(ptr noundef %val) #12
@@ -654,26 +647,26 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %9, %while.body ], [ %0, %entry ]
-  %edge_list = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 7
+  %edge_list = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %edge_list, align 8
   store ptr %2, ptr %list, align 8
   store ptr null, ptr %edge_list, align 8
-  %dest = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 1
+  %dest = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %dest, align 8
   tail call void @g_free(ptr noundef %3) #12
-  %before_cmd_line = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 4
+  %before_cmd_line = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %before_cmd_line, align 8
   tail call void @g_free(ptr noundef %4) #12
-  %after_cmd_line = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 5
+  %after_cmd_line = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %after_cmd_line, align 8
   tail call void @g_free(ptr noundef %5) #12
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 3
+  %extra_device_opts = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %extra_device_opts, align 8
   tail call void @g_free(ptr noundef %6) #12
-  %edge_name = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 6
+  %edge_name = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load ptr, ptr %edge_name, align 8
   tail call void @g_free(ptr noundef %7) #12
-  %arg = getelementptr inbounds %struct.QOSGraphEdge, ptr %1, i64 0, i32 2
+  %arg = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %arg, align 8
   tail call void @g_free(ptr noundef %8) #12
   tail call void @g_free(ptr noundef nonnull %1) #12
@@ -753,20 +746,19 @@ if.then.i:                                        ; preds = %entry
 create_node.exit:                                 ; preds = %entry
   %call1.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #15
   store i32 3, ptr %call1.i, align 8
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i8 0, ptr %available.i, align 4
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %call) #12
-  %name4.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 3
+  %name4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call3.i, ptr %name4.i, align 8
   %1 = load ptr, ptr @node_table, align 8
   %call6.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call3.i, ptr noundef nonnull %call1.i) #12
-  %u = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %test_func, ptr %u, align 8
-  %def_opts.sroa.gep = getelementptr inbounds %struct.QOSGraphTestOptions, ptr %def_opts, i64 0, i32 1
-  %opts.sroa.gep = getelementptr inbounds %struct.QOSGraphTestOptions, ptr %opts, i64 0, i32 1
-  %spec.store.select.sroa.sel = select i1 %tobool.not, ptr %def_opts.sroa.gep, ptr %opts.sroa.gep
-  %2 = load ptr, ptr %spec.store.select.sroa.sel, align 8
-  %arg3 = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6, i32 0, i32 1
+  %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %def_opts, ptr %opts
+  %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 48
+  %2 = load ptr, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %arg3 = getelementptr inbounds i8, ptr %call1.i, i64 40
   store ptr %2, ptr %arg3, align 8
   %3 = load ptr, ptr %spec.store.select, align 8
   %tobool5.not = icmp eq ptr %3, null
@@ -777,10 +769,9 @@ if.else:                                          ; preds = %create_node.exit
   unreachable
 
 if.end7:                                          ; preds = %create_node.exit
-  %def_opts.sroa.gep20 = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %def_opts, i64 0, i32 1
-  %opts.sroa.gep21 = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 1
-  %spec.store.select.sroa.sel22 = select i1 %tobool.not, ptr %def_opts.sroa.gep20, ptr %opts.sroa.gep21
-  %4 = load i32, ptr %spec.store.select.sroa.sel22, align 8
+  %spec.store.select.sroa.sel16.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %def_opts, ptr %opts
+  %spec.store.select.sroa.sel16.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel16.v.sroa.sel.v.sroa.sel.v, i64 8
+  %4 = load i32, ptr %spec.store.select.sroa.sel16.v.sroa.sel.v.sroa.sel, align 8
   %tobool9.not = icmp eq i32 %4, 0
   br i1 %tobool9.not, label %if.end12, label %if.else11
 
@@ -789,18 +780,16 @@ if.else11:                                        ; preds = %if.end7
   unreachable
 
 if.end12:                                         ; preds = %if.end7
-  %def_opts.sroa.gep14 = getelementptr inbounds %struct.QOSGraphTestOptions, ptr %def_opts, i64 0, i32 2
-  %opts.sroa.gep15 = getelementptr inbounds %struct.QOSGraphTestOptions, ptr %opts, i64 0, i32 2
-  %spec.store.select.sroa.sel16 = select i1 %tobool.not, ptr %def_opts.sroa.gep14, ptr %opts.sroa.gep15
-  %5 = load ptr, ptr %spec.store.select.sroa.sel16, align 8
-  %before14 = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6, i32 0, i32 2
+  %spec.store.select.sroa.sel19.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %def_opts, ptr %opts
+  %spec.store.select.sroa.sel19.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel19.v.sroa.sel.v.sroa.sel.v, i64 56
+  %5 = load ptr, ptr %spec.store.select.sroa.sel19.v.sroa.sel.v.sroa.sel, align 8
+  %before14 = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr %5, ptr %before14, align 8
-  %def_opts.sroa.gep17 = getelementptr inbounds %struct.QOSGraphTestOptions, ptr %def_opts, i64 0, i32 3
-  %opts.sroa.gep18 = getelementptr inbounds %struct.QOSGraphTestOptions, ptr %opts, i64 0, i32 3
-  %spec.store.select.sroa.sel19 = select i1 %tobool.not, ptr %def_opts.sroa.gep17, ptr %opts.sroa.gep18
-  %6 = load i8, ptr %spec.store.select.sroa.sel19, align 8
+  %spec.store.select.sroa.sel22.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %def_opts, ptr %opts
+  %spec.store.select.sroa.sel22.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.store.select.sroa.sel22.v.sroa.sel.v.sroa.sel.v, i64 64
+  %6 = load i8, ptr %spec.store.select.sroa.sel22.v.sroa.sel.v.sroa.sel, align 8
   %7 = and i8 %6, 1
-  %subprocess17 = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6, i32 0, i32 3
+  %subprocess17 = getelementptr inbounds i8, ptr %call1.i, i64 56
   store i8 %7, ptr %subprocess17, align 8
   store i8 1, ptr %available.i, align 4
   call fastcc void @add_edge(ptr noundef %interface, ptr noundef %call, i32 noundef 2, ptr noundef nonnull %spec.store.select)
@@ -837,26 +826,26 @@ if.end:                                           ; preds = %if.then, %entry
   %call7 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #15
   store i32 %type, ptr %call7, align 8
   %call9 = tail call noalias ptr @g_strdup(ptr noundef %dest) #12
-  %dest10 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 1
+  %dest10 = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %call9, ptr %dest10, align 8
   br i1 %tobool4.not, label %cond.end29.cont.thread.critedge, label %if.end.else
 
 if.end.else:                                      ; preds = %if.end
-  %opts.sroa.gep = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 5
+  %opts.sroa.gep = getelementptr inbounds i8, ptr %opts, i64 40
   %.else.val = load ptr, ptr %opts.sroa.gep, align 8
   %tobool11.not = icmp eq ptr %.else.val, null
   %cond = select i1 %tobool11.not, ptr %dest, ptr %.else.val
   %call12 = tail call noalias ptr @g_strdup(ptr noundef %cond) #12
-  %edge_name13 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 6
+  %edge_name13 = getelementptr inbounds i8, ptr %call7, i64 48
   store ptr %call12, ptr %edge_name13, align 8
   %.else.val46 = load ptr, ptr %opts, align 8
-  %opts.sroa.gep26 = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 1
+  %opts.sroa.gep26 = getelementptr inbounds i8, ptr %opts, i64 8
   %.else.val43 = load i32, ptr %opts.sroa.gep26, align 8
   %conv = zext i32 %.else.val43 to i64
   %call.i = tail call ptr @g_memdup2(ptr noundef %.else.val46, i64 noundef %conv) #16
-  %arg15 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 2
+  %arg15 = getelementptr inbounds i8, ptr %call7, i64 16
   store ptr %call.i, ptr %arg15, align 8
-  %opts.sroa.gep29 = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 3
+  %opts.sroa.gep29 = getelementptr inbounds i8, ptr %opts, i64 24
   %.else.val39 = load ptr, ptr %opts.sroa.gep29, align 8
   %tobool16.not = icmp eq ptr %.else.val39, null
   br i1 %tobool16.not, label %cond.end21.cont, label %cond.true17
@@ -867,9 +856,9 @@ cond.true17:                                      ; preds = %if.end.else
 
 cond.end21.cont:                                  ; preds = %cond.true17, %if.end.else
   %cond22.ph = phi ptr [ null, %if.end.else ], [ %call19, %cond.true17 ]
-  %before_cmd_line2354 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 4
+  %before_cmd_line2354 = getelementptr inbounds i8, ptr %call7, i64 32
   store ptr %cond22.ph, ptr %before_cmd_line2354, align 8
-  %opts.sroa.gep3255 = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 2
+  %opts.sroa.gep3255 = getelementptr inbounds i8, ptr %opts, i64 16
   %.else.val40 = load ptr, ptr %opts.sroa.gep3255, align 8
   %tobool24.not = icmp eq ptr %.else.val40, null
   br i1 %tobool24.not, label %cond.end29.cont, label %cond.true25
@@ -880,20 +869,20 @@ cond.true25:                                      ; preds = %cond.end21.cont
 
 cond.end29.cont.thread.critedge:                  ; preds = %if.end
   %call12.c = tail call noalias ptr @g_strdup(ptr noundef %dest) #12
-  %edge_name13.c = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 6
+  %edge_name13.c = getelementptr inbounds i8, ptr %call7, i64 48
   store ptr %call12.c, ptr %edge_name13.c, align 8
   %call.i49 = tail call ptr @g_memdup2(ptr noundef null, i64 noundef 0) #16
-  %arg1550 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 2
+  %arg1550 = getelementptr inbounds i8, ptr %call7, i64 16
   store ptr %call.i49, ptr %arg1550, align 8
-  %extra_device_opts31 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 3
+  %extra_device_opts31 = getelementptr inbounds i8, ptr %call7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extra_device_opts31, i8 0, i64 16, i1 false)
   br label %cond.end37
 
 cond.end29.cont:                                  ; preds = %cond.true25, %cond.end21.cont
   %cond30.ph = phi ptr [ null, %cond.end21.cont ], [ %call27, %cond.true25 ]
-  %extra_device_opts3159 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 3
+  %extra_device_opts3159 = getelementptr inbounds i8, ptr %call7, i64 24
   store ptr %cond30.ph, ptr %extra_device_opts3159, align 8
-  %opts.sroa.gep3560 = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 4
+  %opts.sroa.gep3560 = getelementptr inbounds i8, ptr %opts, i64 32
   %.else.val38 = load ptr, ptr %opts.sroa.gep3560, align 8
   %tobool32.not = icmp eq ptr %.else.val38, null
   br i1 %tobool32.not, label %cond.end37, label %cond.true33
@@ -904,10 +893,10 @@ cond.true33:                                      ; preds = %cond.end29.cont
 
 cond.end37:                                       ; preds = %cond.end29.cont.thread.critedge, %cond.end29.cont, %cond.true33
   %cond38 = phi ptr [ %call35, %cond.true33 ], [ null, %cond.end29.cont ], [ null, %cond.end29.cont.thread.critedge ]
-  %after_cmd_line39 = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 5
+  %after_cmd_line39 = getelementptr inbounds i8, ptr %call7, i64 40
   store ptr %cond38, ptr %after_cmd_line39, align 8
   %2 = load ptr, ptr %list.0, align 8
-  %edge_list = getelementptr inbounds %struct.QOSGraphEdge, ptr %call7, i64 0, i32 7
+  %edge_list = getelementptr inbounds i8, ptr %call7, i64 56
   store ptr %2, ptr %edge_list, align 8
   store ptr %call7, ptr %list.0, align 8
   ret void
@@ -938,10 +927,10 @@ if.then.i:                                        ; preds = %entry
 create_node.exit:                                 ; preds = %entry
   %call1.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #15
   store i32 0, ptr %call1.i, align 8
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i8 0, ptr %available.i, align 4
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #12
-  %name4.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 3
+  %name4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call3.i, ptr %name4.i, align 8
   %1 = load ptr, ptr @node_table, align 8
   %call6.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call3.i, ptr noundef nonnull %call1.i) #12
@@ -986,9 +975,9 @@ if.else.i:                                        ; preds = %qos_get_machine_typ
 
 build_machine_cmd_line.exit:                      ; preds = %if.then.i4, %if.else.i
   %call1.sink.i = phi ptr [ %call2.i, %if.else.i ], [ %call1.i5, %if.then.i4 ]
-  %7 = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 5
+  %7 = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %call1.sink.i, ptr %7, align 8
-  %u = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %function, ptr %u, align 8
   tail call fastcc void @add_edge(ptr noundef nonnull @.str, ptr noundef %name, i32 noundef 0, ptr noundef null)
   ret void
@@ -1010,14 +999,14 @@ if.then.i:                                        ; preds = %entry
 create_node.exit:                                 ; preds = %entry
   %call1.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #15
   store i32 1, ptr %call1.i, align 8
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i8 0, ptr %available.i, align 4
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #12
-  %name4.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 3
+  %name4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call3.i, ptr %name4.i, align 8
   %1 = load ptr, ptr @node_table, align 8
   %call6.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call3.i, ptr noundef nonnull %call1.i) #12
-  %qemu_name.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 4
+  %qemu_name.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %2 = load ptr, ptr %qemu_name.i, align 8
   %tobool.not.i2 = icmp eq ptr %2, null
   br i1 %tobool.not.i2, label %cond.false.i, label %build_driver_cmd_line.exit
@@ -1029,9 +1018,9 @@ cond.false.i:                                     ; preds = %create_node.exit
 build_driver_cmd_line.exit:                       ; preds = %create_node.exit, %cond.false.i
   %cond.i = phi ptr [ %3, %cond.false.i ], [ %2, %create_node.exit ]
   %call.i3 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.24, ptr noundef %cond.i, ptr noundef null) #12
-  %command_line.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 5
+  %command_line.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %call.i3, ptr %command_line.i, align 8
-  %u = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %function, ptr %u, align 8
   ret void
 }
@@ -1052,15 +1041,15 @@ if.then.i:                                        ; preds = %entry
 create_node.exit:                                 ; preds = %entry
   %call1.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #15
   store i32 1, ptr %call1.i, align 8
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i8 0, ptr %available.i, align 4
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #12
-  %name4.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 3
+  %name4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call3.i, ptr %name4.i, align 8
   %1 = load ptr, ptr @node_table, align 8
   %call6.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call3.i, ptr noundef nonnull %call1.i) #12
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %qemu_name) #12
-  %qemu_name2 = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 4
+  %qemu_name2 = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call1, ptr %qemu_name2, align 8
   %tobool.not.i3 = icmp eq ptr %call1, null
   br i1 %tobool.not.i3, label %cond.false.i, label %build_driver_cmd_line.exit
@@ -1072,9 +1061,9 @@ cond.false.i:                                     ; preds = %create_node.exit
 build_driver_cmd_line.exit:                       ; preds = %create_node.exit, %cond.false.i
   %cond.i = phi ptr [ %2, %cond.false.i ], [ %call1, %create_node.exit ]
   %call.i4 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.24, ptr noundef %cond.i, ptr noundef null) #12
-  %command_line.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 5
+  %command_line.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %call.i4, ptr %command_line.i, align 8
-  %u = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %function, ptr %u, align 8
   ret void
 }
@@ -1094,8 +1083,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.va_start(ptr nonnull %va)
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %va, i64 8
+  %0 = getelementptr inbounds i8, ptr %va, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %vaarg.end, %if.end
@@ -1169,10 +1158,10 @@ if.then.i:                                        ; preds = %if.then
 create_node.exit:                                 ; preds = %if.then
   %call1.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #15
   store i32 2, ptr %call1.i, align 8
-  %available.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i8 0, ptr %available.i, align 4
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %node) #12
-  %name4.i = getelementptr inbounds %struct.QOSGraphNode, ptr %call1.i, i64 0, i32 3
+  %name4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call3.i, ptr %name4.i, align 8
   %2 = load ptr, ptr @node_table, align 8
   %call6.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %call3.i, ptr noundef nonnull %call1.i) #12
@@ -1215,13 +1204,13 @@ for.body:                                         ; preds = %entry, %for.inc20
   %1 = load ptr, ptr %l.017, align 8
   %2 = load ptr, ptr @node_table, align 8
   %call1 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %1) #12
-  %qemu_name = getelementptr inbounds %struct.QOSGraphNode, ptr %call1, i64 0, i32 4
+  %qemu_name = getelementptr inbounds i8, ptr %call1, i64 16
   %3 = load ptr, ptr %qemu_name, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %name = getelementptr inbounds %struct.QOSGraphNode, ptr %call1, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call1, i64 8
   %4 = load ptr, ptr %name, align 8
   br label %cond.end
 
@@ -1232,9 +1221,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp3, label %if.then, label %for.inc20
 
 if.then:                                          ; preds = %cond.end
-  %available = getelementptr inbounds %struct.QOSGraphNode, ptr %call1, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %call1, i64 4
   store i8 %frombool, ptr %available, align 4
-  %name6 = getelementptr inbounds %struct.QOSGraphNode, ptr %call1, i64 0, i32 3
+  %name6 = getelementptr inbounds i8, ptr %call1, i64 8
   %5 = load ptr, ptr %name6, align 8
   %6 = load ptr, ptr @edge_table, align 8
   %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %5) #12
@@ -1248,14 +1237,14 @@ if.then9:                                         ; preds = %if.then
 
 land.rhs:                                         ; preds = %if.then9, %for.inc
   %e.015 = phi ptr [ %8, %for.inc ], [ %7, %if.then9 ]
-  %edge_list = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.015, i64 0, i32 7
+  %edge_list = getelementptr inbounds i8, ptr %e.015, i64 56
   %8 = load ptr, ptr %edge_list, align 8
   %9 = load i32, ptr %e.015, align 8
   %switch = icmp ult i32 %9, 2
   br i1 %switch, label %if.then16, label %for.inc
 
 if.then16:                                        ; preds = %land.rhs
-  %dest = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.015, i64 0, i32 1
+  %dest = getelementptr inbounds i8, ptr %e.015, i64 8
   %10 = load ptr, ptr %dest, align 8
   tail call fastcc void @qos_graph_node_set_availability_explicit(ptr noundef %10, i1 noundef zeroext %av)
   br label %for.inc
@@ -1265,7 +1254,7 @@ for.inc:                                          ; preds = %land.rhs, %if.then1
   br i1 %tobool11.not, label %for.inc20, label %land.rhs, !llvm.loop !13
 
 for.inc20:                                        ; preds = %for.inc, %if.then9, %cond.end, %if.then
-  %next21 = getelementptr inbounds %struct._GList, ptr %l.017, i64 0, i32 1
+  %next21 = getelementptr inbounds i8, ptr %l.017, i64 8
   %11 = load ptr, ptr %next21, align 8
   %cmp.not = icmp eq ptr %11, null
   br i1 %cmp.not, label %for.end22, label %for.body, !llvm.loop !14
@@ -1291,7 +1280,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %av to i8
-  %available = getelementptr inbounds %struct.QOSGraphNode, ptr %call.i, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %call.i, i64 4
   store i8 %frombool, ptr %available, align 4
   %1 = load ptr, ptr @edge_table, align 8
   %call.i9 = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %node) #12
@@ -1305,14 +1294,14 @@ if.end6:                                          ; preds = %if.end
 
 land.rhs:                                         ; preds = %if.end6, %for.inc
   %e.011 = phi ptr [ %3, %for.inc ], [ %2, %if.end6 ]
-  %edge_list = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.011, i64 0, i32 7
+  %edge_list = getelementptr inbounds i8, ptr %e.011, i64 56
   %3 = load ptr, ptr %edge_list, align 8
   %4 = load i32, ptr %e.011, align 8
   %switch = icmp ult i32 %4, 2
   br i1 %switch, label %if.then10, label %for.inc
 
 if.then10:                                        ; preds = %land.rhs
-  %dest = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.011, i64 0, i32 1
+  %dest = getelementptr inbounds i8, ptr %e.011, i64 8
   %5 = load ptr, ptr %dest, align 8
   tail call fastcc void @qos_graph_node_set_availability_explicit(ptr noundef %5, i1 noundef zeroext %av)
   br label %for.inc
@@ -1339,10 +1328,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.QOSGraphNode, ptr %node, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %node, i64 32
   %1 = load ptr, ptr %u, align 8
   %call = tail call ptr %1(ptr noundef %qts) #12
-  %free = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @g_free, ptr %free, align 8
   ret ptr %call
 }
@@ -1362,10 +1351,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.QOSGraphNode, ptr %node, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %node, i64 32
   %1 = load ptr, ptr %u, align 8
   %call = tail call ptr %1(ptr noundef %parent, ptr noundef %alloc, ptr noundef %arg) #12
-  %free = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @g_free, ptr %free, align 8
   ret ptr %call
 }
@@ -1377,7 +1366,7 @@ entry:
   br i1 %tobool.not, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %obj, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %destructor, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -1387,7 +1376,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %free = getelementptr inbounds %struct.QOSGraphObject, ptr %obj, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %free, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -1412,7 +1401,7 @@ declare void @g_test_queue_destroy(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_object_start_hw(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %obj, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %start_hw, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1473,7 +1462,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %command_line = getelementptr inbounds %struct.QOSGraphNode, ptr %call.i, i64 0, i32 5
+  %command_line = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %command_line, align 8
   tail call void @g_free(ptr noundef %1) #12
   store ptr null, ptr %command_line, align 8
@@ -1504,10 +1493,10 @@ for.body:                                         ; preds = %entry, %for.inc12
 
 land.rhs:                                         ; preds = %for.body, %if.end
   %e.024 = phi ptr [ %4, %if.end ], [ %3, %for.body ]
-  %edge_list = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.024, i64 0, i32 7
+  %edge_list = getelementptr inbounds i8, ptr %e.024, i64 56
   %4 = load ptr, ptr %edge_list, align 8
   %5 = load ptr, ptr @node_table, align 8
-  %dest = getelementptr inbounds %struct.QOSGraphEdge, ptr %e.024, i64 0, i32 1
+  %dest = getelementptr inbounds i8, ptr %e.024, i64 8
   %6 = load ptr, ptr %dest, align 8
   %call6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %6) #12
   %7 = load ptr, ptr %dest, align 8
@@ -1526,7 +1515,7 @@ if.end:                                           ; preds = %if.then, %land.rhs
   br i1 %tobool.not, label %for.inc12, label %land.rhs, !llvm.loop !16
 
 for.inc12:                                        ; preds = %if.end, %for.body
-  %next13 = getelementptr inbounds %struct._GList, ptr %l.026, i64 0, i32 1
+  %next13 = getelementptr inbounds i8, ptr %l.026, i64 8
   %9 = load ptr, ptr %next13, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %for.end14, label %for.body, !llvm.loop !17
@@ -1546,7 +1535,7 @@ for.body20:                                       ; preds = %for.end14, %if.end2
   %12 = load ptr, ptr @node_table, align 8
   %call23 = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %11) #12
   %call24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %11)
-  %qemu_name = getelementptr inbounds %struct.QOSGraphNode, ptr %call23, i64 0, i32 4
+  %qemu_name = getelementptr inbounds i8, ptr %call23, i64 16
   %13 = load ptr, ptr %qemu_name, align 8
   %tobool25.not = icmp eq ptr %13, null
   br i1 %tobool25.not, label %if.end29, label %if.then26
@@ -1557,15 +1546,15 @@ if.then26:                                        ; preds = %for.body20
 
 if.end29:                                         ; preds = %if.then26, %for.body20
   %14 = load i32, ptr %call23, align 8
-  %command_line = getelementptr inbounds %struct.QOSGraphNode, ptr %call23, i64 0, i32 5
+  %command_line = getelementptr inbounds i8, ptr %call23, i64 24
   %15 = load ptr, ptr %command_line, align 8
-  %available = getelementptr inbounds %struct.QOSGraphNode, ptr %call23, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %call23, i64 4
   %16 = load i8, ptr %available, align 4
   %17 = and i8 %16, 1
   %tobool31.not = icmp eq i8 %17, 0
   %cond = select i1 %tobool31.not, ptr @.str.19, ptr @.str.18
   %call32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %14, ptr noundef %15, ptr noundef nonnull %cond)
-  %next34 = getelementptr inbounds %struct._GList, ptr %l.128, i64 0, i32 1
+  %next34 = getelementptr inbounds i8, ptr %l.128, i64 8
   %18 = load ptr, ptr %next34, align 8
   %cmp19.not = icmp eq ptr %18, null
   br i1 %cmp19.not, label %for.end35, label %for.body20, !llvm.loop !18

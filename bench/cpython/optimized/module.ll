@@ -16,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyLongValue = type { i64, [1 x i32] }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 
 @error_codes = internal unnamed_addr constant [106 x %struct.anon] [%struct.anon { ptr @.str.1, i64 4 }, %struct.anon { ptr @.str.2, i64 23 }, %struct.anon { ptr @.str.3, i64 5 }, %struct.anon { ptr @.str.4, i64 14 }, %struct.anon { ptr @.str.5, i64 19 }, %struct.anon { ptr @.str.6, i64 11 }, %struct.anon { ptr @.str.7, i64 101 }, %struct.anon { ptr @.str.8, i64 16 }, %struct.anon { ptr @.str.9, i64 1 }, %struct.anon { ptr @.str.10, i64 24 }, %struct.anon { ptr @.str.11, i64 13 }, %struct.anon { ptr @.str.12, i64 2 }, %struct.anon { ptr @.str.13, i64 9 }, %struct.anon { ptr @.str.14, i64 10 }, %struct.anon { ptr @.str.15, i64 6 }, %struct.anon { ptr @.str.16, i64 20 }, %struct.anon { ptr @.str.17, i64 21 }, %struct.anon { ptr @.str.18, i64 22 }, %struct.anon { ptr @.str.19, i64 7 }, %struct.anon { ptr @.str.20, i64 26 }, %struct.anon { ptr @.str.21, i64 12 }, %struct.anon { ptr @.str.22, i64 0 }, %struct.anon { ptr @.str.23, i64 3 }, %struct.anon { ptr @.str.24, i64 15 }, %struct.anon { ptr @.str.25, i64 25 }, %struct.anon { ptr @.str.26, i64 8 }, %struct.anon { ptr @.str.27, i64 100 }, %struct.anon { ptr @.str.28, i64 17 }, %struct.anon { ptr @.str.29, i64 18 }, %struct.anon { ptr @.str.30, i64 27 }, %struct.anon { ptr @.str.31, i64 28 }, %struct.anon { ptr @.str.32, i64 516 }, %struct.anon { ptr @.str.33, i64 261 }, %struct.anon { ptr @.str.34, i64 782 }, %struct.anon { ptr @.str.35, i64 526 }, %struct.anon { ptr @.str.36, i64 270 }, %struct.anon { ptr @.str.37, i64 267 }, %struct.anon { ptr @.str.38, i64 3338 }, %struct.anon { ptr @.str.39, i64 2826 }, %struct.anon { ptr @.str.40, i64 3594 }, %struct.anon { ptr @.str.41, i64 4106 }, %struct.anon { ptr @.str.42, i64 2570 }, %struct.anon { ptr @.str.43, i64 5898 }, %struct.anon { ptr @.str.44, i64 4362 }, %struct.anon { ptr @.str.45, i64 1290 }, %struct.anon { ptr @.str.46, i64 1802 }, %struct.anon { ptr @.str.47, i64 1034 }, %struct.anon { ptr @.str.48, i64 3850 }, %struct.anon { ptr @.str.49, i64 3082 }, %struct.anon { ptr @.str.50, i64 2314 }, %struct.anon { ptr @.str.51, i64 266 }, %struct.anon { ptr @.str.52, i64 5642 }, %struct.anon { ptr @.str.53, i64 5130 }, %struct.anon { ptr @.str.54, i64 5386 }, %struct.anon { ptr @.str.55, i64 4618 }, %struct.anon { ptr @.str.56, i64 4874 }, %struct.anon { ptr @.str.57, i64 522 }, %struct.anon { ptr @.str.58, i64 1546 }, %struct.anon { ptr @.str.59, i64 2058 }, %struct.anon { ptr @.str.60, i64 778 }, %struct.anon { ptr @.str.61, i64 262 }, %struct.anon { ptr @.str.62, i64 520 }, %struct.anon { ptr @.str.63, i64 264 }, %struct.anon { ptr @.str.64, i64 275 }, %struct.anon { ptr @.str.65, i64 531 }, %struct.anon { ptr @.str.66, i64 787 }, %struct.anon { ptr @.str.67, i64 1043 }, %struct.anon { ptr @.str.68, i64 1299 }, %struct.anon { ptr @.str.69, i64 1555 }, %struct.anon { ptr @.str.70, i64 1811 }, %struct.anon { ptr @.str.71, i64 2067 }, %struct.anon { ptr @.str.72, i64 2323 }, %struct.anon { ptr @.str.73, i64 776 }, %struct.anon { ptr @.str.74, i64 6154 }, %struct.anon { ptr @.str.75, i64 539 }, %struct.anon { ptr @.str.76, i64 283 }, %struct.anon { ptr @.str.77, i64 517 }, %struct.anon { ptr @.str.78, i64 6410 }, %struct.anon { ptr @.str.79, i64 284 }, %struct.anon { ptr @.str.80, i64 1038 }, %struct.anon { ptr @.str.81, i64 6666 }, %struct.anon { ptr @.str.82, i64 2579 }, %struct.anon { ptr @.str.83, i64 1032 }, %struct.anon { ptr @.str.84, i64 279 }, %struct.anon { ptr @.str.85, i64 6922 }, %struct.anon { ptr @.str.86, i64 7178 }, %struct.anon { ptr @.str.87, i64 256 }, %struct.anon { ptr @.str.88, i64 7434 }, %struct.anon { ptr @.str.89, i64 7690 }, %struct.anon { ptr @.str.90, i64 7946 }, %struct.anon { ptr @.str.91, i64 257 }, %struct.anon { ptr @.str.92, i64 513 }, %struct.anon { ptr @.str.93, i64 1288 }, %struct.anon { ptr @.str.94, i64 1544 }, %struct.anon { ptr @.str.95, i64 523 }, %struct.anon { ptr @.str.96, i64 518 }, %struct.anon { ptr @.str.97, i64 1294 }, %struct.anon { ptr @.str.98, i64 769 }, %struct.anon { ptr @.str.99, i64 1550 }, %struct.anon { ptr @.str.100, i64 2835 }, %struct.anon { ptr @.str.101, i64 512 }, %struct.anon { ptr @.str.102, i64 773 }, %struct.anon { ptr @.str.103, i64 779 }, %struct.anon { ptr @.str.104, i64 8202 }, %struct.anon { ptr @.str.105, i64 8458 }, %struct.anon zeroinitializer], align 16
 @.str = private unnamed_addr constant [9 x i8] c"_sqlite3\00", align 1
@@ -273,7 +271,7 @@ for.cond:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.cond
-  %value = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom, i32 1
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %value, align 8
   %cmp3 = icmp eq i64 %1, %conv
   br i1 %cmp3, label %return, label %for.cond, !llvm.loop !4
@@ -297,7 +295,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %DatabaseError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 1
+  %DatabaseError = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %DatabaseError, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -308,7 +306,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %Error = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 2
+  %Error = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %Error, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -319,7 +317,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %IntegrityError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 3
+  %IntegrityError = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %IntegrityError, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -330,7 +328,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %InterfaceError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 4
+  %InterfaceError = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %InterfaceError, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -341,7 +339,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %InternalError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 5
+  %InternalError = getelementptr inbounds i8, ptr %call.i, i64 40
   %5 = load ptr, ptr %InternalError, align 8
   %tobool51.not = icmp eq ptr %5, null
   br i1 %tobool51.not, label %do.body61, label %if.then52
@@ -352,7 +350,7 @@ if.then52:                                        ; preds = %do.body50
   br i1 %tobool56.not, label %do.body61, label %return
 
 do.body61:                                        ; preds = %if.then52, %do.body50
-  %NotSupportedError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 6
+  %NotSupportedError = getelementptr inbounds i8, ptr %call.i, i64 48
   %6 = load ptr, ptr %NotSupportedError, align 8
   %tobool62.not = icmp eq ptr %6, null
   br i1 %tobool62.not, label %do.body72, label %if.then63
@@ -363,7 +361,7 @@ if.then63:                                        ; preds = %do.body61
   br i1 %tobool67.not, label %do.body72, label %return
 
 do.body72:                                        ; preds = %if.then63, %do.body61
-  %OperationalError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 7
+  %OperationalError = getelementptr inbounds i8, ptr %call.i, i64 56
   %7 = load ptr, ptr %OperationalError, align 8
   %tobool73.not = icmp eq ptr %7, null
   br i1 %tobool73.not, label %do.body83, label %if.then74
@@ -374,7 +372,7 @@ if.then74:                                        ; preds = %do.body72
   br i1 %tobool78.not, label %do.body83, label %return
 
 do.body83:                                        ; preds = %if.then74, %do.body72
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 8
+  %ProgrammingError = getelementptr inbounds i8, ptr %call.i, i64 64
   %8 = load ptr, ptr %ProgrammingError, align 8
   %tobool84.not = icmp eq ptr %8, null
   br i1 %tobool84.not, label %do.body94, label %if.then85
@@ -385,7 +383,7 @@ if.then85:                                        ; preds = %do.body83
   br i1 %tobool89.not, label %do.body94, label %return
 
 do.body94:                                        ; preds = %if.then85, %do.body83
-  %Warning = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 9
+  %Warning = getelementptr inbounds i8, ptr %call.i, i64 72
   %9 = load ptr, ptr %Warning, align 8
   %tobool95.not = icmp eq ptr %9, null
   br i1 %tobool95.not, label %do.body105, label %if.then96
@@ -396,7 +394,7 @@ if.then96:                                        ; preds = %do.body94
   br i1 %tobool100.not, label %do.body105, label %return
 
 do.body105:                                       ; preds = %if.then96, %do.body94
-  %BlobType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 15
+  %BlobType = getelementptr inbounds i8, ptr %call.i, i64 112
   %10 = load ptr, ptr %BlobType, align 8
   %tobool106.not = icmp eq ptr %10, null
   br i1 %tobool106.not, label %do.body116, label %if.then107
@@ -407,7 +405,7 @@ if.then107:                                       ; preds = %do.body105
   br i1 %tobool111.not, label %do.body116, label %return
 
 do.body116:                                       ; preds = %if.then107, %do.body105
-  %ConnectionType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 16
+  %ConnectionType = getelementptr inbounds i8, ptr %call.i, i64 120
   %11 = load ptr, ptr %ConnectionType, align 8
   %tobool117.not = icmp eq ptr %11, null
   br i1 %tobool117.not, label %do.body127, label %if.then118
@@ -418,7 +416,7 @@ if.then118:                                       ; preds = %do.body116
   br i1 %tobool122.not, label %do.body127, label %return
 
 do.body127:                                       ; preds = %if.then118, %do.body116
-  %CursorType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 17
+  %CursorType = getelementptr inbounds i8, ptr %call.i, i64 128
   %12 = load ptr, ptr %CursorType, align 8
   %tobool128.not = icmp eq ptr %12, null
   br i1 %tobool128.not, label %do.body138, label %if.then129
@@ -429,7 +427,7 @@ if.then129:                                       ; preds = %do.body127
   br i1 %tobool133.not, label %do.body138, label %return
 
 do.body138:                                       ; preds = %if.then129, %do.body127
-  %PrepareProtocolType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 18
+  %PrepareProtocolType = getelementptr inbounds i8, ptr %call.i, i64 136
   %13 = load ptr, ptr %PrepareProtocolType, align 8
   %tobool139.not = icmp eq ptr %13, null
   br i1 %tobool139.not, label %do.body149, label %if.then140
@@ -440,7 +438,7 @@ if.then140:                                       ; preds = %do.body138
   br i1 %tobool144.not, label %do.body149, label %return
 
 do.body149:                                       ; preds = %if.then140, %do.body138
-  %RowType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 19
+  %RowType = getelementptr inbounds i8, ptr %call.i, i64 144
   %14 = load ptr, ptr %RowType, align 8
   %tobool150.not = icmp eq ptr %14, null
   br i1 %tobool150.not, label %do.body160, label %if.then151
@@ -451,7 +449,7 @@ if.then151:                                       ; preds = %do.body149
   br i1 %tobool155.not, label %do.body160, label %return
 
 do.body160:                                       ; preds = %if.then151, %do.body149
-  %StatementType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 20
+  %StatementType = getelementptr inbounds i8, ptr %call.i, i64 152
   %15 = load ptr, ptr %StatementType, align 8
   %tobool161.not = icmp eq ptr %15, null
   br i1 %tobool161.not, label %do.body171, label %if.then162
@@ -462,7 +460,7 @@ if.then162:                                       ; preds = %do.body160
   br i1 %tobool166.not, label %do.body171, label %return
 
 do.body171:                                       ; preds = %if.then162, %do.body160
-  %converters = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 10
+  %converters = getelementptr inbounds i8, ptr %call.i, i64 80
   %16 = load ptr, ptr %converters, align 8
   %tobool172.not = icmp eq ptr %16, null
   br i1 %tobool172.not, label %do.body182, label %if.then173
@@ -473,7 +471,7 @@ if.then173:                                       ; preds = %do.body171
   br i1 %tobool177.not, label %do.body182, label %return
 
 do.body182:                                       ; preds = %if.then173, %do.body171
-  %lru_cache = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 11
+  %lru_cache = getelementptr inbounds i8, ptr %call.i, i64 88
   %17 = load ptr, ptr %lru_cache, align 8
   %tobool183.not = icmp eq ptr %17, null
   br i1 %tobool183.not, label %do.body193, label %if.then184
@@ -484,7 +482,7 @@ if.then184:                                       ; preds = %do.body182
   br i1 %tobool188.not, label %do.body193, label %return
 
 do.body193:                                       ; preds = %if.then184, %do.body182
-  %psyco_adapters = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 12
+  %psyco_adapters = getelementptr inbounds i8, ptr %call.i, i64 96
   %18 = load ptr, ptr %psyco_adapters, align 8
   %tobool194.not = icmp eq ptr %18, null
   br i1 %tobool194.not, label %do.end203, label %if.then195
@@ -528,7 +526,7 @@ if.then1.i414:                                    ; preds = %if.end.i411
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i411, %if.then1.i414, %if.then, %entry
-  %DatabaseError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 1
+  %DatabaseError = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %DatabaseError, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -551,7 +549,7 @@ if.then1.i405:                                    ; preds = %if.end.i402
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i402, %if.then1.i405, %if.then5, %do.body1
-  %Error = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 2
+  %Error = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %Error, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -574,7 +572,7 @@ if.then1.i396:                                    ; preds = %if.end.i393
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i393, %if.then1.i396, %if.then12, %do.body8
-  %IntegrityError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 3
+  %IntegrityError = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %IntegrityError, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -597,7 +595,7 @@ if.then1.i387:                                    ; preds = %if.end.i384
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i384, %if.then1.i387, %if.then19, %do.body15
-  %InterfaceError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 4
+  %InterfaceError = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %InterfaceError, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -620,7 +618,7 @@ if.then1.i378:                                    ; preds = %if.end.i375
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i375, %if.then1.i378, %if.then26, %do.body22
-  %InternalError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 5
+  %InternalError = getelementptr inbounds i8, ptr %call.i, i64 40
   %15 = load ptr, ptr %InternalError, align 8
   %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %do.body36, label %if.then33
@@ -643,7 +641,7 @@ if.then1.i369:                                    ; preds = %if.end.i366
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i366, %if.then1.i369, %if.then33, %do.body29
-  %NotSupportedError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 6
+  %NotSupportedError = getelementptr inbounds i8, ptr %call.i, i64 48
   %18 = load ptr, ptr %NotSupportedError, align 8
   %cmp39.not = icmp eq ptr %18, null
   br i1 %cmp39.not, label %do.body43, label %if.then40
@@ -666,7 +664,7 @@ if.then1.i360:                                    ; preds = %if.end.i357
   br label %do.body43
 
 do.body43:                                        ; preds = %if.end.i357, %if.then1.i360, %if.then40, %do.body36
-  %OperationalError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 7
+  %OperationalError = getelementptr inbounds i8, ptr %call.i, i64 56
   %21 = load ptr, ptr %OperationalError, align 8
   %cmp46.not = icmp eq ptr %21, null
   br i1 %cmp46.not, label %do.body50, label %if.then47
@@ -689,7 +687,7 @@ if.then1.i351:                                    ; preds = %if.end.i348
   br label %do.body50
 
 do.body50:                                        ; preds = %if.end.i348, %if.then1.i351, %if.then47, %do.body43
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 8
+  %ProgrammingError = getelementptr inbounds i8, ptr %call.i, i64 64
   %24 = load ptr, ptr %ProgrammingError, align 8
   %cmp53.not = icmp eq ptr %24, null
   br i1 %cmp53.not, label %do.body57, label %if.then54
@@ -712,7 +710,7 @@ if.then1.i342:                                    ; preds = %if.end.i339
   br label %do.body57
 
 do.body57:                                        ; preds = %if.end.i339, %if.then1.i342, %if.then54, %do.body50
-  %Warning = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 9
+  %Warning = getelementptr inbounds i8, ptr %call.i, i64 72
   %27 = load ptr, ptr %Warning, align 8
   %cmp60.not = icmp eq ptr %27, null
   br i1 %cmp60.not, label %do.body64, label %if.then61
@@ -735,7 +733,7 @@ if.then1.i333:                                    ; preds = %if.end.i330
   br label %do.body64
 
 do.body64:                                        ; preds = %if.end.i330, %if.then1.i333, %if.then61, %do.body57
-  %BlobType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 15
+  %BlobType = getelementptr inbounds i8, ptr %call.i, i64 112
   %30 = load ptr, ptr %BlobType, align 8
   %cmp67.not = icmp eq ptr %30, null
   br i1 %cmp67.not, label %do.body71, label %if.then68
@@ -758,7 +756,7 @@ if.then1.i324:                                    ; preds = %if.end.i321
   br label %do.body71
 
 do.body71:                                        ; preds = %if.end.i321, %if.then1.i324, %if.then68, %do.body64
-  %ConnectionType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 16
+  %ConnectionType = getelementptr inbounds i8, ptr %call.i, i64 120
   %33 = load ptr, ptr %ConnectionType, align 8
   %cmp74.not = icmp eq ptr %33, null
   br i1 %cmp74.not, label %do.body78, label %if.then75
@@ -781,7 +779,7 @@ if.then1.i315:                                    ; preds = %if.end.i312
   br label %do.body78
 
 do.body78:                                        ; preds = %if.end.i312, %if.then1.i315, %if.then75, %do.body71
-  %CursorType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 17
+  %CursorType = getelementptr inbounds i8, ptr %call.i, i64 128
   %36 = load ptr, ptr %CursorType, align 8
   %cmp81.not = icmp eq ptr %36, null
   br i1 %cmp81.not, label %do.body85, label %if.then82
@@ -804,7 +802,7 @@ if.then1.i306:                                    ; preds = %if.end.i303
   br label %do.body85
 
 do.body85:                                        ; preds = %if.end.i303, %if.then1.i306, %if.then82, %do.body78
-  %PrepareProtocolType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 18
+  %PrepareProtocolType = getelementptr inbounds i8, ptr %call.i, i64 136
   %39 = load ptr, ptr %PrepareProtocolType, align 8
   %cmp88.not = icmp eq ptr %39, null
   br i1 %cmp88.not, label %do.body92, label %if.then89
@@ -827,7 +825,7 @@ if.then1.i297:                                    ; preds = %if.end.i294
   br label %do.body92
 
 do.body92:                                        ; preds = %if.end.i294, %if.then1.i297, %if.then89, %do.body85
-  %RowType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 19
+  %RowType = getelementptr inbounds i8, ptr %call.i, i64 144
   %42 = load ptr, ptr %RowType, align 8
   %cmp95.not = icmp eq ptr %42, null
   br i1 %cmp95.not, label %do.body99, label %if.then96
@@ -850,7 +848,7 @@ if.then1.i288:                                    ; preds = %if.end.i285
   br label %do.body99
 
 do.body99:                                        ; preds = %if.end.i285, %if.then1.i288, %if.then96, %do.body92
-  %StatementType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 20
+  %StatementType = getelementptr inbounds i8, ptr %call.i, i64 152
   %45 = load ptr, ptr %StatementType, align 8
   %cmp102.not = icmp eq ptr %45, null
   br i1 %cmp102.not, label %do.body106, label %if.then103
@@ -873,7 +871,7 @@ if.then1.i279:                                    ; preds = %if.end.i276
   br label %do.body106
 
 do.body106:                                       ; preds = %if.end.i276, %if.then1.i279, %if.then103, %do.body99
-  %converters = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 10
+  %converters = getelementptr inbounds i8, ptr %call.i, i64 80
   %48 = load ptr, ptr %converters, align 8
   %cmp109.not = icmp eq ptr %48, null
   br i1 %cmp109.not, label %do.body113, label %if.then110
@@ -896,7 +894,7 @@ if.then1.i270:                                    ; preds = %if.end.i267
   br label %do.body113
 
 do.body113:                                       ; preds = %if.end.i267, %if.then1.i270, %if.then110, %do.body106
-  %lru_cache = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 11
+  %lru_cache = getelementptr inbounds i8, ptr %call.i, i64 88
   %51 = load ptr, ptr %lru_cache, align 8
   %cmp116.not = icmp eq ptr %51, null
   br i1 %cmp116.not, label %do.body120, label %if.then117
@@ -919,7 +917,7 @@ if.then1.i261:                                    ; preds = %if.end.i258
   br label %do.body120
 
 do.body120:                                       ; preds = %if.end.i258, %if.then1.i261, %if.then117, %do.body113
-  %psyco_adapters = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 12
+  %psyco_adapters = getelementptr inbounds i8, ptr %call.i, i64 96
   %54 = load ptr, ptr %psyco_adapters, align 8
   %cmp123.not = icmp eq ptr %54, null
   br i1 %cmp123.not, label %do.body127, label %if.then124
@@ -942,7 +940,7 @@ if.then1.i252:                                    ; preds = %if.end.i249
   br label %do.body127
 
 do.body127:                                       ; preds = %if.end.i249, %if.then1.i252, %if.then124, %do.body120
-  %str___adapt__ = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 21
+  %str___adapt__ = getelementptr inbounds i8, ptr %call.i, i64 160
   %57 = load ptr, ptr %str___adapt__, align 8
   %cmp130.not = icmp eq ptr %57, null
   br i1 %cmp130.not, label %do.body134, label %if.then131
@@ -965,7 +963,7 @@ if.then1.i243:                                    ; preds = %if.end.i240
   br label %do.body134
 
 do.body134:                                       ; preds = %if.end.i240, %if.then1.i243, %if.then131, %do.body127
-  %str___conform__ = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 22
+  %str___conform__ = getelementptr inbounds i8, ptr %call.i, i64 168
   %60 = load ptr, ptr %str___conform__, align 8
   %cmp137.not = icmp eq ptr %60, null
   br i1 %cmp137.not, label %do.body141, label %if.then138
@@ -988,7 +986,7 @@ if.then1.i234:                                    ; preds = %if.end.i231
   br label %do.body141
 
 do.body141:                                       ; preds = %if.end.i231, %if.then1.i234, %if.then138, %do.body134
-  %str_executescript = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 23
+  %str_executescript = getelementptr inbounds i8, ptr %call.i, i64 176
   %63 = load ptr, ptr %str_executescript, align 8
   %cmp144.not = icmp eq ptr %63, null
   br i1 %cmp144.not, label %do.body148, label %if.then145
@@ -1011,7 +1009,7 @@ if.then1.i225:                                    ; preds = %if.end.i222
   br label %do.body148
 
 do.body148:                                       ; preds = %if.end.i222, %if.then1.i225, %if.then145, %do.body141
-  %str_finalize = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 24
+  %str_finalize = getelementptr inbounds i8, ptr %call.i, i64 184
   %66 = load ptr, ptr %str_finalize, align 8
   %cmp151.not = icmp eq ptr %66, null
   br i1 %cmp151.not, label %do.body155, label %if.then152
@@ -1034,7 +1032,7 @@ if.then1.i216:                                    ; preds = %if.end.i213
   br label %do.body155
 
 do.body155:                                       ; preds = %if.end.i213, %if.then1.i216, %if.then152, %do.body148
-  %str_inverse = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 25
+  %str_inverse = getelementptr inbounds i8, ptr %call.i, i64 192
   %69 = load ptr, ptr %str_inverse, align 8
   %cmp158.not = icmp eq ptr %69, null
   br i1 %cmp158.not, label %do.body162, label %if.then159
@@ -1057,7 +1055,7 @@ if.then1.i207:                                    ; preds = %if.end.i204
   br label %do.body162
 
 do.body162:                                       ; preds = %if.end.i204, %if.then1.i207, %if.then159, %do.body155
-  %str_step = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 26
+  %str_step = getelementptr inbounds i8, ptr %call.i, i64 200
   %72 = load ptr, ptr %str_step, align 8
   %cmp165.not = icmp eq ptr %72, null
   br i1 %cmp165.not, label %do.body169, label %if.then166
@@ -1080,7 +1078,7 @@ if.then1.i198:                                    ; preds = %if.end.i195
   br label %do.body169
 
 do.body169:                                       ; preds = %if.end.i195, %if.then1.i198, %if.then166, %do.body162
-  %str_upper = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 27
+  %str_upper = getelementptr inbounds i8, ptr %call.i, i64 208
   %75 = load ptr, ptr %str_upper, align 8
   %cmp172.not = icmp eq ptr %75, null
   br i1 %cmp172.not, label %do.body176, label %if.then173
@@ -1103,7 +1101,7 @@ if.then1.i189:                                    ; preds = %if.end.i186
   br label %do.body176
 
 do.body176:                                       ; preds = %if.end.i186, %if.then1.i189, %if.then173, %do.body169
-  %str_value = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 28
+  %str_value = getelementptr inbounds i8, ptr %call.i, i64 216
   %78 = load ptr, ptr %str_value, align 8
   %cmp179.not = icmp eq ptr %78, null
   br i1 %cmp179.not, label %do.end182, label %if.then180
@@ -1149,7 +1147,7 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
 define internal ptr @pysqlite_adapt(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %PrepareProtocolType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 18
+  %PrepareProtocolType = getelementptr inbounds i8, ptr %call.i, i64 136
   %0 = load ptr, ptr %PrepareProtocolType, align 8
   %1 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %1, 3
@@ -1166,13 +1164,13 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp3, label %skip_optional, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx6, align 8
   %cmp7 = icmp eq i64 %nargs, 2
   br i1 %cmp7, label %skip_optional, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %arrayidx10 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx10 = getelementptr i8, ptr %args, i64 16
   %4 = load ptr, ptr %arrayidx10, align 8
   br label %skip_optional
 
@@ -1270,7 +1268,7 @@ exit:                                             ; preds = %if.end.i.i3.i, %if.
 define internal ptr @pysqlite_connect(ptr noundef %module, ptr noundef %args, i64 noundef %nargsf, ptr noundef %kwnames) #1 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %ConnectionType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 16
+  %ConnectionType = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %ConnectionType, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
   %1 = add nsw i64 %and.i, -2
@@ -1288,7 +1286,7 @@ if.end5:                                          ; preds = %if.then, %entry
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end5
-  %arrayidx = getelementptr ptr, ptr %args, i64 5
+  %arrayidx = getelementptr i8, ptr %args, i64 40
   br label %if.end19.sink.split
 
 if.else:                                          ; preds = %if.end5
@@ -1299,11 +1297,15 @@ for.cond.preheader:                               ; preds = %if.else
   %3 = getelementptr i8, ptr %kwnames, i64 16
   %kwnames.val14 = load i64, ptr %3, align 8
   %cmp1115 = icmp sgt i64 %kwnames.val14, 0
-  br i1 %cmp1115, label %for.body, label %if.end19
+  br i1 %cmp1115, label %for.body.lr.ph, label %if.end19
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.016 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx12 = getelementptr %struct.PyTupleObject, ptr %kwnames, i64 0, i32 1, i64 %i.016
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %ob_item = getelementptr inbounds i8, ptr %kwnames, i64 24
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %i.016 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx12 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.016
   %4 = load ptr, ptr %arrayidx12, align 8
   %call13 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %4, ptr noundef nonnull @.str.117) #5
   %cmp14 = icmp eq i32 %call13, 0
@@ -1350,7 +1352,7 @@ land.lhs.true:                                    ; preds = %entry
 exit.sink.split:                                  ; preds = %land.lhs.true, %entry
   %call.sink = phi i32 [ %call, %entry ], [ -1, %land.lhs.true ]
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %enable_callback_tracebacks.i = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i, i64 0, i32 14
+  %enable_callback_tracebacks.i = getelementptr inbounds i8, ptr %call.i.i, i64 108
   store i32 %call.sink, ptr %enable_callback_tracebacks.i, align 4
   br label %exit
 
@@ -1372,7 +1374,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %arrayidx2 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx2, align 8
   %cmp.i = icmp eq ptr %0, @PyLong_Type
   %cmp1.i = icmp eq ptr %0, @PyFloat_Type
@@ -1385,13 +1387,13 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 
 if.then.i:                                        ; preds = %if.end
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %BaseTypeAdapted.i = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i, i64 0, i32 13
+  %BaseTypeAdapted.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   store i32 1, ptr %BaseTypeAdapted.i, align 8
   br label %pysqlite_register_adapter_impl.exit
 
 pysqlite_register_adapter_impl.exit:              ; preds = %if.end, %if.then.i
   %call.i9.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %PrepareProtocolType.i = getelementptr inbounds %struct.pysqlite_state, ptr %call.i9.i, i64 0, i32 18
+  %PrepareProtocolType.i = getelementptr inbounds i8, ptr %call.i9.i, i64 136
   %2 = load ptr, ptr %PrepareProtocolType.i, align 8
   %call8.i = tail call i32 @pysqlite_microprotocols_add(ptr noundef %call.i9.i, ptr noundef %0, ptr noundef %2, ptr noundef %1) #5
   %cmp9.i = icmp eq i32 %call8.i, -1
@@ -1430,10 +1432,10 @@ if.then5:                                         ; preds = %if.end
   br label %exit
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %str_upper.i = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i, i64 0, i32 27
+  %str_upper.i = getelementptr inbounds i8, ptr %call.i.i, i64 208
   %5 = load ptr, ptr %str_upper.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %0, ptr %self.addr.i.i, align 8
@@ -1443,7 +1445,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool.not.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end7
-  %converters.i = getelementptr inbounds %struct.pysqlite_state, ptr %call.i.i, i64 0, i32 10
+  %converters.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %6 = load ptr, ptr %converters.i, align 8
   %call3.i = call i32 @PyDict_SetItem(ptr noundef %6, ptr noundef nonnull %call.i4.i, ptr noundef %4) #5
   %cmp.not.i = icmp eq i32 %call3.i, 0
@@ -1573,35 +1575,35 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false16
 
 if.end23:                                         ; preds = %lor.lhs.false19
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %BlobType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 15
+  %BlobType = getelementptr inbounds i8, ptr %call.i, i64 112
   %2 = load ptr, ptr %BlobType, align 8
   %call25 = tail call i32 @PyModule_AddType(ptr noundef %module, ptr noundef %2) #5
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %error, label %do.body29
 
 do.body29:                                        ; preds = %if.end23
-  %ConnectionType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 16
+  %ConnectionType = getelementptr inbounds i8, ptr %call.i, i64 120
   %3 = load ptr, ptr %ConnectionType, align 8
   %call30 = tail call i32 @PyModule_AddType(ptr noundef %module, ptr noundef %3) #5
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %error, label %do.body35
 
 do.body35:                                        ; preds = %do.body29
-  %CursorType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 17
+  %CursorType = getelementptr inbounds i8, ptr %call.i, i64 128
   %4 = load ptr, ptr %CursorType, align 8
   %call36 = tail call i32 @PyModule_AddType(ptr noundef %module, ptr noundef %4) #5
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %error, label %do.body41
 
 do.body41:                                        ; preds = %do.body35
-  %PrepareProtocolType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 18
+  %PrepareProtocolType = getelementptr inbounds i8, ptr %call.i, i64 136
   %5 = load ptr, ptr %PrepareProtocolType, align 8
   %call42 = tail call i32 @PyModule_AddType(ptr noundef %module, ptr noundef %5) #5
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %error, label %do.body47
 
 do.body47:                                        ; preds = %do.body41
-  %RowType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 19
+  %RowType = getelementptr inbounds i8, ptr %call.i, i64 144
   %6 = load ptr, ptr %RowType, align 8
   %call48 = tail call i32 @PyModule_AddType(ptr noundef %module, ptr noundef %6) #5
   %cmp49 = icmp slt i32 %call48, 0
@@ -1610,7 +1612,7 @@ do.body47:                                        ; preds = %do.body41
 do.body53:                                        ; preds = %do.body47
   %7 = load ptr, ptr @PyExc_Exception, align 8
   %call54 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.120, ptr noundef %7, ptr noundef null) #5
-  %Error = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 2
+  %Error = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call54, ptr %Error, align 8
   %cmp56 = icmp eq ptr %call54, null
   br i1 %cmp56, label %error, label %do.body59
@@ -1623,7 +1625,7 @@ do.body59:                                        ; preds = %do.body53
 do.body67:                                        ; preds = %do.body59
   %8 = load ptr, ptr @PyExc_Exception, align 8
   %call68 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.121, ptr noundef %8, ptr noundef null) #5
-  %Warning = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 9
+  %Warning = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call68, ptr %Warning, align 8
   %cmp70 = icmp eq ptr %call68, null
   br i1 %cmp70, label %error, label %do.body73
@@ -1636,7 +1638,7 @@ do.body73:                                        ; preds = %do.body67
 do.body81:                                        ; preds = %do.body73
   %9 = load ptr, ptr %Error, align 8
   %call83 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.122, ptr noundef %9, ptr noundef null) #5
-  %InterfaceError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 4
+  %InterfaceError = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call83, ptr %InterfaceError, align 8
   %cmp85 = icmp eq ptr %call83, null
   br i1 %cmp85, label %error, label %do.body88
@@ -1649,7 +1651,7 @@ do.body88:                                        ; preds = %do.body81
 do.body96:                                        ; preds = %do.body88
   %10 = load ptr, ptr %Error, align 8
   %call98 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.123, ptr noundef %10, ptr noundef null) #5
-  %DatabaseError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 1
+  %DatabaseError = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call98, ptr %DatabaseError, align 8
   %cmp100 = icmp eq ptr %call98, null
   br i1 %cmp100, label %error, label %do.body103
@@ -1662,7 +1664,7 @@ do.body103:                                       ; preds = %do.body96
 do.body111:                                       ; preds = %do.body103
   %11 = load ptr, ptr %DatabaseError, align 8
   %call113 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.124, ptr noundef %11, ptr noundef null) #5
-  %InternalError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 5
+  %InternalError = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call113, ptr %InternalError, align 8
   %cmp115 = icmp eq ptr %call113, null
   br i1 %cmp115, label %error, label %do.body118
@@ -1675,7 +1677,7 @@ do.body118:                                       ; preds = %do.body111
 do.body126:                                       ; preds = %do.body118
   %12 = load ptr, ptr %DatabaseError, align 8
   %call128 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.125, ptr noundef %12, ptr noundef null) #5
-  %OperationalError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 7
+  %OperationalError = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %call128, ptr %OperationalError, align 8
   %cmp130 = icmp eq ptr %call128, null
   br i1 %cmp130, label %error, label %do.body133
@@ -1688,7 +1690,7 @@ do.body133:                                       ; preds = %do.body126
 do.body141:                                       ; preds = %do.body133
   %13 = load ptr, ptr %DatabaseError, align 8
   %call143 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.126, ptr noundef %13, ptr noundef null) #5
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 8
+  %ProgrammingError = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call143, ptr %ProgrammingError, align 8
   %cmp145 = icmp eq ptr %call143, null
   br i1 %cmp145, label %error, label %do.body148
@@ -1701,7 +1703,7 @@ do.body148:                                       ; preds = %do.body141
 do.body156:                                       ; preds = %do.body148
   %14 = load ptr, ptr %DatabaseError, align 8
   %call158 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.127, ptr noundef %14, ptr noundef null) #5
-  %IntegrityError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 3
+  %IntegrityError = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call158, ptr %IntegrityError, align 8
   %cmp160 = icmp eq ptr %call158, null
   br i1 %cmp160, label %error, label %do.body163
@@ -1726,7 +1728,7 @@ do.body178:                                       ; preds = %do.body171
 do.body186:                                       ; preds = %do.body178
   %16 = load ptr, ptr %DatabaseError, align 8
   %call188 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.129, ptr noundef %16, ptr noundef null) #5
-  %NotSupportedError = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 6
+  %NotSupportedError = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %call188, ptr %NotSupportedError, align 8
   %cmp190 = icmp eq ptr %call188, null
   br i1 %cmp190, label %error, label %do.body193
@@ -1742,56 +1744,56 @@ do.body201:                                       ; preds = %do.body193
   br i1 %cmp203, label %error, label %if.end205
 
 if.end205:                                        ; preds = %do.body201
-  %str___adapt__ = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 21
+  %str___adapt__ = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %call202, ptr %str___adapt__, align 8
   %call209 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.131) #5
   %cmp210 = icmp eq ptr %call209, null
   br i1 %cmp210, label %error, label %if.end212
 
 if.end212:                                        ; preds = %if.end205
-  %str___conform__ = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 22
+  %str___conform__ = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr %call209, ptr %str___conform__, align 8
   %call216 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.132) #5
   %cmp217 = icmp eq ptr %call216, null
   br i1 %cmp217, label %error, label %if.end219
 
 if.end219:                                        ; preds = %if.end212
-  %str_executescript = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 23
+  %str_executescript = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr %call216, ptr %str_executescript, align 8
   %call223 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.133) #5
   %cmp224 = icmp eq ptr %call223, null
   br i1 %cmp224, label %error, label %if.end226
 
 if.end226:                                        ; preds = %if.end219
-  %str_finalize = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 24
+  %str_finalize = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %call223, ptr %str_finalize, align 8
   %call230 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.134) #5
   %cmp231 = icmp eq ptr %call230, null
   br i1 %cmp231, label %error, label %if.end233
 
 if.end233:                                        ; preds = %if.end226
-  %str_inverse = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 25
+  %str_inverse = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr %call230, ptr %str_inverse, align 8
   %call237 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.135) #5
   %cmp238 = icmp eq ptr %call237, null
   br i1 %cmp238, label %error, label %if.end240
 
 if.end240:                                        ; preds = %if.end233
-  %str_step = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 26
+  %str_step = getelementptr inbounds i8, ptr %call.i, i64 200
   store ptr %call237, ptr %str_step, align 8
   %call244 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.136) #5
   %cmp245 = icmp eq ptr %call244, null
   br i1 %cmp245, label %error, label %if.end247
 
 if.end247:                                        ; preds = %if.end240
-  %str_upper = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 27
+  %str_upper = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr %call244, ptr %str_upper, align 8
   %call251 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.137) #5
   %cmp252 = icmp eq ptr %call251, null
   br i1 %cmp252, label %error, label %if.end254
 
 if.end254:                                        ; preds = %if.end247
-  %str_value = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 28
+  %str_value = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr %call251, ptr %str_value, align 8
   %call256 = tail call fastcc i32 @add_error_constants(ptr noundef %module), !range !7
   %cmp257 = icmp slt i32 %call256, 0
@@ -1892,9 +1894,9 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %1 = phi ptr [ @.str.1, %entry ], [ %0, %for.cond ]
-  %idxprom5 = phi i64 [ 0, %entry ], [ %idxprom, %for.cond ]
+  %arrayidx5 = phi ptr [ @error_codes, %entry ], [ %arrayidx, %for.cond ]
   %i.04 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
-  %value7 = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom5, i32 1
+  %value7 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
   %2 = load i64, ptr %value7, align 8
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull %1, i64 noundef %2) #5
   %cmp8 = icmp slt i32 %call, 0
@@ -2251,7 +2253,7 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %entry
-  %InterfaceError = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 4
+  %InterfaceError = getelementptr inbounds i8, ptr %state, i64 32
   %1 = load ptr, ptr %InterfaceError, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.208, i32 noundef %call) #5
   br label %return
@@ -2274,7 +2276,7 @@ define internal fastcc i32 @converters_init(ptr noundef %module) unnamed_addr #1
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %call1 = tail call ptr @PyDict_New() #5
-  %converters = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 10
+  %converters = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %call1, ptr %converters, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -2293,7 +2295,7 @@ define internal fastcc i32 @load_functools_lru_cache(ptr noundef %module) unname
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %call1 = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211) #5
-  %lru_cache = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 11
+  %lru_cache = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %call1, ptr %lru_cache, align 8
   %cmp = icmp eq ptr %call1, null
   %. = sext i1 %cmp to i32

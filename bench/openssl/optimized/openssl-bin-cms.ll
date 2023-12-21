@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.cms_key_param_st = type { i32, ptr, ptr }
 
 @OPT_HELP_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [31 x i8] c"Usage: %s [options] [cert...]\0A\00", align 1
@@ -1073,7 +1072,7 @@ lor.lhs.false292:                                 ; preds = %if.end290
 if.then294:                                       ; preds = %lor.lhs.false292, %if.end290
   %call295 = call ptr @app_malloc(i64 noundef 24, ptr noundef nonnull @.str.265) #2
   %call296 = call ptr @OPENSSL_sk_new_null() #2
-  %param = getelementptr inbounds %struct.cms_key_param_st, ptr %call295, i64 0, i32 1
+  %param = getelementptr inbounds i8, ptr %call295, i64 8
   store ptr %call296, ptr %param, align 8
   %cmp297 = icmp eq ptr %call296, null
   br i1 %cmp297, label %if.then298, label %if.end299
@@ -1084,20 +1083,20 @@ if.then298:                                       ; preds = %if.then294
 
 if.end299:                                        ; preds = %if.then294
   store i32 %keyidx.1, ptr %call295, align 8
-  %next = getelementptr inbounds %struct.cms_key_param_st, ptr %call295, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %call295, i64 16
   store ptr null, ptr %next, align 8
   %cmp301 = icmp eq ptr %key_first.01225, null
   br i1 %cmp301, label %if.end306, label %if.else303
 
 if.else303:                                       ; preds = %if.end299
-  %next304 = getelementptr inbounds %struct.cms_key_param_st, ptr %key_param.01228, i64 0, i32 2
+  %next304 = getelementptr inbounds i8, ptr %key_param.01228, i64 16
   store ptr %call295, ptr %next304, align 8
   br label %if.end306
 
 if.end306:                                        ; preds = %if.else303, %if.end299, %lor.lhs.false292
   %key_first.2 = phi ptr [ %key_first.01225, %lor.lhs.false292 ], [ %key_first.01225, %if.else303 ], [ %call295, %if.end299 ]
   %key_param.1 = phi ptr [ %key_param.01228, %lor.lhs.false292 ], [ %call295, %if.else303 ], [ %call295, %if.end299 ]
-  %param307 = getelementptr inbounds %struct.cms_key_param_st, ptr %key_param.1, i64 0, i32 1
+  %param307 = getelementptr inbounds i8, ptr %key_param.1, i64 8
   %12 = load ptr, ptr %param307, align 8
   %call309 = call ptr @opt_arg() #2
   %call311 = call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef %call309) #2
@@ -1560,7 +1559,7 @@ if.then542:                                       ; preds = %if.end538
   br label %if.then1145
 
 for.cond:                                         ; preds = %if.end549
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv.addr.01311, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.01311, i64 8
   %32 = load ptr, ptr %incdec.ptr, align 8
   %cmp545.not = icmp eq ptr %32, null
   br i1 %cmp545.not, label %if.end556, label %for.body, !llvm.loop !7
@@ -1866,7 +1865,7 @@ for.body734:                                      ; preds = %for.body728, %for.i
   br i1 %cmp736.not, label %for.inc739, label %for.end741
 
 for.inc739:                                       ; preds = %for.body734
-  %next740 = getelementptr inbounds %struct.cms_key_param_st, ptr %kparam.01323, i64 0, i32 2
+  %next740 = getelementptr inbounds i8, ptr %kparam.01323, i64 16
   %55 = load ptr, ptr %next740, align 8
   %tobool733.not = icmp eq ptr %55, null
   br i1 %tobool733.not, label %for.end741, label %for.body734, !llvm.loop !9
@@ -1883,7 +1882,7 @@ if.end745:                                        ; preds = %for.end741
   br i1 %tobool733.not.lcssa, label %if.end754, label %if.then748
 
 if.then748:                                       ; preds = %if.end745
-  %param749 = getelementptr inbounds %struct.cms_key_param_st, ptr %kparam.0.lcssa, i64 0, i32 1
+  %param749 = getelementptr inbounds i8, ptr %kparam.0.lcssa, i64 8
   %56 = load ptr, ptr %param749, align 8
   %call750 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call746, ptr noundef %56), !range !8
   %tobool751.not = icmp eq i32 %call750, 0
@@ -2077,7 +2076,7 @@ for.body879:                                      ; preds = %for.cond877.prehead
   br i1 %cmp881, label %for.end887.thread, label %for.inc885
 
 for.inc885:                                       ; preds = %for.body879
-  %next886 = getelementptr inbounds %struct.cms_key_param_st, ptr %kparam863.01313, i64 0, i32 2
+  %next886 = getelementptr inbounds i8, ptr %kparam863.01313, i64 16
   %68 = load ptr, ptr %next886, align 8
   %tobool878.not = icmp eq ptr %68, null
   br i1 %tobool878.not, label %for.end887, label %for.body879, !llvm.loop !12
@@ -2096,7 +2095,7 @@ for.end887.thread:                                ; preds = %for.body879
 
 if.then893:                                       ; preds = %for.end887.thread
   %call895 = call ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef nonnull %call888450) #2
-  %param896 = getelementptr inbounds %struct.cms_key_param_st, ptr %kparam863.01313, i64 0, i32 1
+  %param896 = getelementptr inbounds i8, ptr %kparam863.01313, i64 8
   %71 = load ptr, ptr %param896, align 8
   %call897 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call895, ptr noundef %71), !range !8
   %tobool898.not = icmp eq i32 %call897, 0
@@ -2510,10 +2509,10 @@ if.end1146:                                       ; preds = %if.end982, %if.then
 
 for.body1153:                                     ; preds = %if.end1146, %for.body1153
   %key_param.31333 = phi ptr [ %96, %for.body1153 ], [ %key_first.4546, %if.end1146 ]
-  %param1154 = getelementptr inbounds %struct.cms_key_param_st, ptr %key_param.31333, i64 0, i32 1
+  %param1154 = getelementptr inbounds i8, ptr %key_param.31333, i64 8
   %95 = load ptr, ptr %param1154, align 8
   call void @OPENSSL_sk_free(ptr noundef %95) #2
-  %next1156 = getelementptr inbounds %struct.cms_key_param_st, ptr %key_param.31333, i64 0, i32 2
+  %next1156 = getelementptr inbounds i8, ptr %key_param.31333, i64 16
   %96 = load ptr, ptr %next1156, align 8
   call void @CRYPTO_free(ptr noundef nonnull %key_param.31333, ptr noundef nonnull @.str.266, i32 noundef 1290) #2
   %tobool1152.not = icmp eq ptr %96, null

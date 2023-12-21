@@ -510,7 +510,7 @@ if.end.i.i:                                       ; preds = %if.else.i
   br label %sets.exit
 
 sets.exit:                                        ; preds = %if.then.i, %if.else.i, %if.end.i.i
-  %pw_passwd = getelementptr inbounds %struct.passwd, ptr %p, i64 0, i32 1
+  %pw_passwd = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %pw_passwd, align 8
   %tobool.not.i23 = icmp eq ptr %3, null
   br i1 %tobool.not.i23, label %if.else.i26, label %if.then.i24
@@ -532,15 +532,15 @@ if.end.i.i29:                                     ; preds = %if.else.i26
   br label %sets.exit30
 
 sets.exit30:                                      ; preds = %if.then.i24, %if.else.i26, %if.end.i.i29
-  %pw_uid = getelementptr inbounds %struct.passwd, ptr %p, i64 0, i32 2
+  %pw_uid = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %pw_uid, align 8
   %call4 = tail call ptr @_PyLong_FromUid(i32 noundef %5) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call1, i64 noundef 2, ptr noundef %call4) #4
-  %pw_gid = getelementptr inbounds %struct.passwd, ptr %p, i64 0, i32 3
+  %pw_gid = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %pw_gid, align 4
   %call7 = tail call ptr @_PyLong_FromGid(i32 noundef %6) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call1, i64 noundef 3, ptr noundef %call7) #4
-  %pw_gecos = getelementptr inbounds %struct.passwd, ptr %p, i64 0, i32 4
+  %pw_gecos = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load ptr, ptr %pw_gecos, align 8
   %tobool.not.i31 = icmp eq ptr %7, null
   br i1 %tobool.not.i31, label %if.else.i34, label %if.then.i32
@@ -562,7 +562,7 @@ if.end.i.i37:                                     ; preds = %if.else.i34
   br label %sets.exit38
 
 sets.exit38:                                      ; preds = %if.then.i32, %if.else.i34, %if.end.i.i37
-  %pw_dir = getelementptr inbounds %struct.passwd, ptr %p, i64 0, i32 5
+  %pw_dir = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %pw_dir, align 8
   %tobool.not.i39 = icmp eq ptr %9, null
   br i1 %tobool.not.i39, label %if.else.i42, label %if.then.i40
@@ -584,7 +584,7 @@ if.end.i.i45:                                     ; preds = %if.else.i42
   br label %sets.exit46
 
 sets.exit46:                                      ; preds = %if.then.i40, %if.else.i42, %if.end.i.i45
-  %pw_shell = getelementptr inbounds %struct.passwd, ptr %p, i64 0, i32 6
+  %pw_shell = getelementptr inbounds i8, ptr %p, i64 40
   %11 = load ptr, ptr %pw_shell, align 8
   %tobool.not.i47 = icmp eq ptr %11, null
   br i1 %tobool.not.i47, label %if.else.i50, label %if.then.i48

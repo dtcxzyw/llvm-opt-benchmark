@@ -3,14 +3,13 @@ source_filename = "bench/assimp/original/TargetAnimation.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::KeyIterator" = type { i8, %class.aiVector3t, %class.aiVector3t, double, ptr, ptr, i32, i32, %"class.std::vector", %"class.std::vector" }
+%struct.aiVectorKey = type <{ double, %class.aiVector3t, [4 x i8] }>
 %class.aiVector3t = type { float, float, float }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" }
 %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiVectorKey = type <{ double, %class.aiVector3t, [4 x i8] }>
-%"class.Assimp::TargetAnimationHelper" = type <{ ptr, ptr, %class.aiVector3t, [4 x i8] }>
+%"class.Assimp::KeyIterator" = type { i8, %class.aiVector3t, %class.aiVector3t, double, ptr, ptr, i32, i32, %"class.std::vector", %"class.std::vector" }
 
 $_ZNSt6vectorI11aiVectorKeySaIS0_EEaSERKS2_ = comdat any
 
@@ -29,24 +28,24 @@ $_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_default_appendEm = comdat any
 define hidden void @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %_objPos, ptr noundef %_targetObjPos, ptr noundef readonly %defaultObjectPos, ptr noundef readonly %defaultTargetPos) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
-  %curPosition = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 1
-  %curTime = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 3
+  %curPosition = getelementptr inbounds i8, ptr %this, i64 4
+  %curTime = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %curPosition, i8 0, i64 24, i1 false)
   store double -1.000000e+00, ptr %curTime, align 8
-  %objPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 4
+  %objPos = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %_objPos, ptr %objPos, align 8
-  %targetObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 5
+  %targetObjPos = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %_targetObjPos, ptr %targetObjPos, align 8
-  %nextObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 6
-  %defaultObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 8
-  %defaultTargetObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 9
+  %nextObjPos = getelementptr inbounds i8, ptr %this, i64 56
+  %defaultObjPos = getelementptr inbounds i8, ptr %this, i64 64
+  %defaultTargetObjPos = getelementptr inbounds i8, ptr %this, i64 88
   %tobool.not = icmp eq ptr %_objPos, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %nextObjPos, i8 0, i64 56, i1 false)
   br i1 %tobool.not, label %if.then.i, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_objPos, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %_objPos, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %_objPos, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.then.i, label %if.end13
@@ -63,7 +62,7 @@ invoke.cont:                                      ; preds = %if.then.i
 
 if.then8:                                         ; preds = %invoke.cont
   %2 = load ptr, ptr %defaultObjPos, align 8
-  %mValue = getelementptr inbounds %struct.aiVectorKey, ptr %2, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mValue, ptr noundef nonnull align 4 dereferenceable(12) %defaultObjectPos, i64 12, i1 false)
   br label %if.end
 
@@ -102,13 +101,13 @@ if.end13:                                         ; preds = %if.end, %lor.lhs.fa
 
 lor.lhs.false16:                                  ; preds = %if.end13
   %7 = load ptr, ptr %6, align 8
-  %_M_finish.i.i10 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %6, i64 0, i32 1
+  %_M_finish.i.i10 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %_M_finish.i.i10, align 8
   %cmp.i.i11 = icmp eq ptr %7, %8
   br i1 %cmp.i.i11, label %if.then19, label %if.end33
 
 if.then19:                                        ; preds = %lor.lhs.false16, %if.end13
-  %_M_finish.i.i12 = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i12 = getelementptr inbounds i8, ptr %this, i64 96
   %9 = load ptr, ptr %_M_finish.i.i12, align 8
   %10 = load ptr, ptr %defaultTargetObjPos, align 8
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %9 to i64
@@ -132,7 +131,7 @@ if.else.i18:                                      ; preds = %if.then19
   br i1 %cmp4.i19, label %if.then5.i20, label %invoke.cont21
 
 if.then5.i20:                                     ; preds = %if.else.i18
-  %add.ptr.i21 = getelementptr inbounds %struct.aiVectorKey, ptr %10, i64 1
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %10, i64 24
   %tobool.not.i.i22 = icmp eq ptr %9, %add.ptr.i21
   br i1 %tobool.not.i.i22, label %invoke.cont21, label %invoke.cont.i.i23
 
@@ -148,7 +147,7 @@ invoke.cont21:                                    ; preds = %if.then.i24.invoke.
 
 if.then26:                                        ; preds = %invoke.cont21
   %12 = load ptr, ptr %defaultTargetObjPos, align 8
-  %mValue29 = getelementptr inbounds %struct.aiVectorKey, ptr %12, i64 0, i32 1
+  %mValue29 = getelementptr inbounds i8, ptr %12, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mValue29, ptr noundef nonnull align 4 dereferenceable(12) %defaultTargetPos, i64 12, i1 false)
   br label %if.end30
 
@@ -174,10 +173,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.end156
 
 if.end:                                           ; preds = %entry
-  %objPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 4
+  %objPos = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %objPos, align 8
-  %nextObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 6
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %2, i64 0, i32 1
+  %nextObjPos = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %2, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
@@ -199,10 +198,10 @@ if.then.i.i:                                      ; preds = %if.end
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit:    ; preds = %if.end
   %add.ptr.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %4, i64 %conv4
   %7 = load double, ptr %add.ptr.i.i, align 8
-  %targetObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 5
+  %targetObjPos = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load ptr, ptr %targetObjPos, align 8
-  %nextTargetObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 7
-  %_M_finish.i15 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %8, i64 0, i32 1
+  %nextTargetObjPos = getelementptr inbounds i8, ptr %this, i64 60
+  %_M_finish.i15 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_M_finish.i15, align 8
   %10 = load ptr, ptr %8, align 8
   %sub.ptr.lhs.cast.i16 = ptrtoint ptr %9 to i64
@@ -228,7 +227,7 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit30:  ; preds = %_ZNKSt6vectorI11aiV
   br i1 %cmp, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit30
-  %curTime = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 3
+  %curTime = getelementptr inbounds i8, ptr %this, i64 32
   store double %7, ptr %curTime, align 8
   %conv18 = zext i32 %6 to i64
   %14 = load ptr, ptr %_M_finish.i, align 8
@@ -246,7 +245,7 @@ if.then.i.i37:                                    ; preds = %if.then15
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit39:  ; preds = %if.then15
   %mValue = getelementptr inbounds %struct.aiVectorKey, ptr %15, i64 %conv18, i32 1
-  %curPosition = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 1
+  %curPosition = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %curPosition, ptr noundef nonnull align 8 dereferenceable(12) %mValue, i64 12, i1 false)
   %conv22 = zext i32 %12 to i64
   %16 = load ptr, ptr %_M_finish.i15, align 8
@@ -264,7 +263,7 @@ if.then.i.i46:                                    ; preds = %_ZNKSt6vectorI11aiV
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit48:  ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit39
   %mValue24 = getelementptr inbounds %struct.aiVectorKey, ptr %17, i64 %conv22, i32 1
-  %curTargetPosition = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 2
+  %curTargetPosition = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %curTargetPosition, ptr noundef nonnull align 8 dereferenceable(12) %mValue24, i64 12, i1 false)
   %18 = load ptr, ptr %_M_finish.i, align 8
   %19 = load ptr, ptr %2, align 8
@@ -302,7 +301,7 @@ if.then40:                                        ; preds = %if.end33
 
 if.else:                                          ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit30
   %cmp44 = fcmp olt double %7, %13
-  %curTime46 = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 3
+  %curTime46 = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %cmp44, label %if.then45, label %if.else90
 
 if.then45:                                        ; preds = %if.else
@@ -329,8 +328,8 @@ if.then.i.i70:                                    ; preds = %if.then52
   unreachable
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit71:  ; preds = %if.then45, %if.then52
-  %mValue55 = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 0, i32 1
-  %curTargetPosition56 = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 2
+  %mValue55 = getelementptr inbounds i8, ptr %24, i64 8
+  %curTargetPosition56 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %curTargetPosition56, ptr noundef nonnull align 8 dereferenceable(12) %mValue55, i64 12, i1 false)
   br label %if.end79
 
@@ -348,17 +347,17 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit80:  ; preds = %if.else57
   %conv65 = zext i32 %sub64 to i64
   %add.ptr.i.i79 = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 %conv60
   %add.ptr.i.i88 = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 %conv65
-  %mValue68 = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 %conv65, i32 1
-  %mValue69 = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 %conv60, i32 1
+  %mValue68 = getelementptr inbounds i8, ptr %add.ptr.i.i88, i64 8
+  %mValue69 = getelementptr inbounds i8, ptr %add.ptr.i.i79, i64 8
   %25 = load double, ptr %add.ptr.i.i88, align 8
   %sub72 = fsub double %7, %25
   %26 = load double, ptr %add.ptr.i.i79, align 8
   %sub75 = fsub double %26, %25
   %div = fdiv double %sub72, %sub75
   %conv76 = fptrunc double %div to float
-  %z.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 %conv60, i32 1, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i79, i64 16
   %27 = load float, ptr %z.i.i, align 4
-  %z4.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 %conv65, i32 1, i32 2
+  %z4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i88, i64 16
   %28 = load float, ptr %z4.i.i, align 4
   %sub5.i.i = fsub float %27, %28
   %mul2.i.i = fmul float %sub5.i.i, %conv76
@@ -370,9 +369,9 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit80:  ; preds = %if.else57
   %34 = fmul <2 x float> %31, %33
   %35 = fadd <2 x float> %30, %34
   %add5.i.i = fadd float %28, %mul2.i.i
-  %curTargetPosition78 = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 2
+  %curTargetPosition78 = getelementptr inbounds i8, ptr %this, i64 16
   store <2 x float> %35, ptr %curTargetPosition78, align 8
-  %ref.tmp67.sroa.2.0.curTargetPosition78.sroa_idx = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 2, i32 2
+  %ref.tmp67.sroa.2.0.curTargetPosition78.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store float %add5.i.i, ptr %ref.tmp67.sroa.2.0.curTargetPosition78.sroa_idx, align 8
   br label %if.end79
 
@@ -417,8 +416,8 @@ if.then.i.i106:                                   ; preds = %if.then98
   unreachable
 
 _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit107: ; preds = %if.else90, %if.then98
-  %mValue101 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 0, i32 1
-  %curPosition102 = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 1
+  %mValue101 = getelementptr inbounds i8, ptr %39, i64 8
+  %curPosition102 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %curPosition102, ptr noundef nonnull align 8 dereferenceable(12) %mValue101, i64 12, i1 false)
   br label %if.end129
 
@@ -436,17 +435,17 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit116: ; preds = %if.else103
   %conv113 = zext i32 %sub112 to i64
   %add.ptr.i.i115 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 %conv107
   %add.ptr.i.i124 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 %conv113
-  %mValue116 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 %conv113, i32 1
-  %mValue117 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 %conv107, i32 1
+  %mValue116 = getelementptr inbounds i8, ptr %add.ptr.i.i124, i64 8
+  %mValue117 = getelementptr inbounds i8, ptr %add.ptr.i.i115, i64 8
   %40 = load double, ptr %add.ptr.i.i124, align 8
   %sub120 = fsub double %13, %40
   %41 = load double, ptr %add.ptr.i.i115, align 8
   %sub123 = fsub double %41, %40
   %div124 = fdiv double %sub120, %sub123
   %conv125 = fptrunc double %div124 to float
-  %z.i.i130 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 %conv107, i32 1, i32 2
+  %z.i.i130 = getelementptr inbounds i8, ptr %add.ptr.i.i115, i64 16
   %42 = load float, ptr %z.i.i130, align 4
-  %z4.i.i131 = getelementptr inbounds %struct.aiVectorKey, ptr %39, i64 %conv113, i32 1, i32 2
+  %z4.i.i131 = getelementptr inbounds i8, ptr %add.ptr.i.i124, i64 16
   %43 = load float, ptr %z4.i.i131, align 4
   %sub5.i.i132 = fsub float %42, %43
   %mul2.i.i135 = fmul float %sub5.i.i132, %conv125
@@ -458,9 +457,9 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit116: ; preds = %if.else103
   %49 = fmul <2 x float> %46, %48
   %50 = fadd <2 x float> %45, %49
   %add5.i.i138 = fadd float %43, %mul2.i.i135
-  %curPosition128 = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 1
+  %curPosition128 = getelementptr inbounds i8, ptr %this, i64 4
   store <2 x float> %50, ptr %curPosition128, align 4
-  %ref.tmp115.sroa.2.0.curPosition128.sroa_idx = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 1, i32 2
+  %ref.tmp115.sroa.2.0.curPosition128.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
   store float %add5.i.i138, ptr %ref.tmp115.sroa.2.0.curPosition128.sroa_idx, align 4
   br label %if.end129
 
@@ -525,7 +524,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6Assimp21TargetAnimationHelper23SetMainAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %_objectPositions) local_unnamed_addr #3 align 2 {
 entry:
-  %objectPositions = getelementptr inbounds %"class.Assimp::TargetAnimationHelper", ptr %this, i64 0, i32 1
+  %objectPositions = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_objectPositions, ptr %objectPositions, align 8
   ret void
 }
@@ -533,9 +532,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6Assimp21TargetAnimationHelper28SetFixedMainAnimationChannelERK10aiVector3tIfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %fixed) local_unnamed_addr #4 align 2 {
 entry:
-  %objectPositions = getelementptr inbounds %"class.Assimp::TargetAnimationHelper", ptr %this, i64 0, i32 1
+  %objectPositions = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %objectPositions, align 8
-  %fixedMain = getelementptr inbounds %"class.Assimp::TargetAnimationHelper", ptr %this, i64 0, i32 2
+  %fixedMain = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %fixedMain, ptr noundef nonnull align 4 dereferenceable(12) %fixed, i64 12, i1 false)
   ret void
 }
@@ -547,11 +546,11 @@ entry:
   %iter = alloca %"class.Assimp::KeyIterator", align 8
   %ref.tmp21 = alloca %struct.aiVectorKey, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %real, i8 0, i64 24, i1 false)
-  %objectPositions = getelementptr inbounds %"class.Assimp::TargetAnimationHelper", ptr %this, i64 0, i32 1
+  %objectPositions = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %objectPositions, align 8
   %cmp = icmp eq ptr %0, %distanceTrack
   %cond = select i1 %cmp, ptr %real, ptr %distanceTrack
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -559,7 +558,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %3 = load ptr, ptr %this, align 8
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %_M_finish.i8, align 8
   %5 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %4 to i64
@@ -578,10 +577,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %real.sroa.gep = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %real, i64 0, i32 2
-  %distanceTrack.sroa.gep = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %distanceTrack, i64 0, i32 2
-  %cond.sroa.sel = select i1 %cmp, ptr %real.sroa.gep, ptr %distanceTrack.sroa.gep
-  %6 = load ptr, ptr %cond.sroa.sel, align 8
+  %cond.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, ptr %real, ptr %distanceTrack
+  %cond.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 16
+  %6 = load ptr, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %7 = load ptr, ptr %cond, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -591,10 +589,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i, label %invoke.cont6
 
 _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
-  %real.sroa.gep45 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %real, i64 0, i32 1
-  %distanceTrack.sroa.gep46 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %distanceTrack, i64 0, i32 1
-  %cond.sroa.sel47 = select i1 %cmp, ptr %real.sroa.gep45, ptr %distanceTrack.sroa.gep46
-  %8 = load ptr, ptr %cond.sroa.sel47, align 8
+  %cond.sroa.sel47.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, ptr %real, ptr %distanceTrack
+  %cond.sroa.sel47.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.sroa.sel47.v.sroa.sel.v.sroa.sel.v, i64 8
+  %8 = load ptr, ptr %cond.sroa.sel47.v.sroa.sel.v.sroa.sel, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i9.i = sdiv exact i64 %sub.ptr.sub.i8.i, 24
@@ -610,8 +607,8 @@ for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.noexc
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i14, %call5.i.i.i.i.noexc ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %7, %call5.i.i.i.i.noexc ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false), !alias.scope !4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.i.i.i.i, !llvm.loop !8
 
@@ -626,29 +623,29 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorI11aiVe
 _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i
   store ptr %call5.i.i.i.i14, ptr %cond, align 8
   %add.ptr.i = getelementptr inbounds %struct.aiVectorKey, ptr %call5.i.i.i.i14, i64 %sub.ptr.div.i9.i
-  store ptr %add.ptr.i, ptr %cond.sroa.sel47, align 8
+  store ptr %add.ptr.i, ptr %cond.sroa.sel47.v.sroa.sel.v.sroa.sel, align 8
   %add.ptr21.i = getelementptr inbounds %struct.aiVectorKey, ptr %call5.i.i.i.i14, i64 %.sroa.speculated
-  store ptr %add.ptr21.i, ptr %cond.sroa.sel, align 8
+  store ptr %add.ptr21.i, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %.pre = load ptr, ptr %objectPositions, align 8
-  %.pre57 = load ptr, ptr %this, align 8
+  %.pre61 = load ptr, ptr %this, align 8
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i, %if.end.i
-  %9 = phi ptr [ %.pre57, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ %3, %if.end.i ]
+  %9 = phi ptr [ %.pre61, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ %3, %if.end.i ]
   %10 = phi ptr [ %.pre, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ %0, %if.end.i ]
-  %fixedMain = getelementptr inbounds %"class.Assimp::TargetAnimationHelper", ptr %this, i64 0, i32 2
+  %fixedMain = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_(ptr noundef nonnull align 8 dereferenceable(112) %iter, ptr noundef %10, ptr noundef %9, ptr noundef nonnull %fixedMain, ptr noundef null)
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %invoke.cont6
-  %curPosition.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 1
-  %curTargetPosition.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 2
-  %z.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 2, i32 2
-  %z4.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 1, i32 2
-  %real.sroa.gep48 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %real, i64 0, i32 1
-  %distanceTrack.sroa.gep49 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %distanceTrack, i64 0, i32 1
-  %cond.sroa.sel50 = select i1 %cmp, ptr %real.sroa.gep48, ptr %distanceTrack.sroa.gep49
-  %curTime.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 3
+  %curPosition.i = getelementptr inbounds i8, ptr %iter, i64 4
+  %curTargetPosition.i = getelementptr inbounds i8, ptr %iter, i64 16
+  %z.i = getelementptr inbounds i8, ptr %iter, i64 24
+  %z4.i = getelementptr inbounds i8, ptr %iter, i64 12
+  %real.sroa.gep59 = getelementptr inbounds i8, ptr %real, i64 8
+  %distanceTrack.sroa.gep60 = getelementptr inbounds i8, ptr %distanceTrack, i64 8
+  %cond.sroa.sel50.v.sroa.sel = select i1 %cmp, ptr %real.sroa.gep59, ptr %distanceTrack.sroa.gep60
+  %curTime.i = getelementptr inbounds i8, ptr %iter, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -675,16 +672,16 @@ invoke.cont19:                                    ; preds = %for.cond
 
 if.then:                                          ; preds = %invoke.cont19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp21, i8 0, i64 20, i1 false)
-  %22 = load ptr, ptr %cond.sroa.sel50, align 8
-  %23 = load ptr, ptr %cond.sroa.sel, align 8
+  %22 = load ptr, ptr %cond.sroa.sel50.v.sroa.sel, align 8
+  %23 = load ptr, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %cmp.not.i.i = icmp eq ptr %22, %23
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, i64 24, i1 false)
-  %24 = load ptr, ptr %cond.sroa.sel50, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %24, i64 1
-  store ptr %incdec.ptr.i.i, ptr %cond.sroa.sel50, align 8
+  %24 = load ptr, ptr %cond.sroa.sel50.v.sroa.sel, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 24
+  store ptr %incdec.ptr.i.i, ptr %cond.sroa.sel50.v.sroa.sel, align 8
   br label %invoke.cont22
 
 if.else.i.i:                                      ; preds = %if.then
@@ -729,14 +726,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %25, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !10
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %22
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %struct.aiVectorKey, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 24
   %tobool.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -746,19 +743,19 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorI11aiVe
 
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i.i
   store ptr %cond.i10.i.i.i, ptr %cond, align 8
-  store ptr %incdec.ptr.i.i.i, ptr %cond.sroa.sel50, align 8
+  store ptr %incdec.ptr.i.i.i, ptr %cond.sroa.sel50.v.sroa.sel, align 8
   %add.ptr19.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
-  store ptr %add.ptr19.i.i.i, ptr %cond.sroa.sel, align 8
+  store ptr %add.ptr19.i.i.i, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %if.then.i.i17
   %26 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i17 ]
-  %add.ptr.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %26, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 -24
   %27 = load double, ptr %curTime.i, align 8
   store double %27, ptr %add.ptr.i.i, align 8
-  %mValue = getelementptr %struct.aiVectorKey, ptr %26, i64 -1, i32 1
+  %mValue = getelementptr inbounds i8, ptr %26, i64 -16
   store <2 x float> %15, ptr %mValue, align 8
-  %diff.sroa.8.0.mValue.sroa_idx = getelementptr %struct.aiVectorKey, ptr %26, i64 -1, i32 1, i32 2
+  %diff.sroa.8.0.mValue.sroa_idx = getelementptr inbounds i8, ptr %26, i64 -8
   store float %sub5.i, ptr %diff.sroa.8.0.mValue.sroa_idx, align 8
   br label %for.inc
 
@@ -787,7 +784,7 @@ for.inc:                                          ; preds = %invoke.cont22, %inv
           to label %for.cond unwind label %lpad10.loopexit, !llvm.loop !14
 
 for.end:                                          ; preds = %for.cond
-  %29 = load ptr, ptr %real.sroa.gep48, align 8
+  %29 = load ptr, ptr %real.sroa.gep59, align 8
   %30 = load ptr, ptr %real, align 8
   %tobool30.not = icmp eq ptr %29, %30
   br i1 %tobool30.not, label %if.end34, label %if.then31
@@ -797,7 +794,7 @@ if.then31:                                        ; preds = %for.end
           to label %if.end34 unwind label %lpad10.loopexit.split-lp
 
 if.end34:                                         ; preds = %if.then31, %for.end
-  %defaultTargetObjPos.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 9
+  %defaultTargetObjPos.i = getelementptr inbounds i8, ptr %iter, i64 88
   %31 = load ptr, ptr %defaultTargetObjPos.i, align 8
   %tobool.not.i.i.i.i31 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i31, label %_ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit.i, label %if.then.i.i.i.i32
@@ -807,7 +804,7 @@ if.then.i.i.i.i32:                                ; preds = %if.end34
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit.i
 
 _ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit.i:    ; preds = %if.then.i.i.i.i32, %if.end34
-  %defaultObjPos.i = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %iter, i64 0, i32 8
+  %defaultObjPos.i = getelementptr inbounds i8, ptr %iter, i64 64
   %32 = load ptr, ptr %defaultObjPos.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN6Assimp11KeyIteratorD2Ev.exit, label %if.then.i.i.i2.i
@@ -849,14 +846,14 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -904,7 +901,7 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -950,15 +947,15 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIP11aiVect
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %11, %_ZSt4copyIP11aiVectorKeyS1_ET0_T_S3_S2_.exit ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr62, %_ZSt4copyIP11aiVectorKeyS1_ET0_T_S3_S2_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %10
   br i1 %cmp.not.i.i.i.i, label %if.end69, label %for.body.i.i.i.i, !llvm.loop !15
 
 if.end69:                                         ; preds = %for.body.i.i.i.i, %_ZSt4copyIP11aiVectorKeyS1_ET0_T_S3_S2_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit
   %13 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds %struct.aiVectorKey, ptr %13, i64 %sub.ptr.div.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -969,7 +966,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp11KeyIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %defaultTargetObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 9
+  %defaultTargetObjPos = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %defaultTargetObjPos, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit, label %if.then.i.i.i
@@ -979,7 +976,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit
 
 _ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit:      ; preds = %entry, %if.then.i.i.i
-  %defaultObjPos = getelementptr inbounds %"class.Assimp::KeyIterator", ptr %this, i64 0, i32 8
+  %defaultObjPos = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %defaultObjPos, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit3, label %if.then.i.i.i2
@@ -1002,14 +999,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -1027,7 +1024,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.body.
   %__n.addr.05.i.i.i = phi i64 [ %dec.i.i.i, %for.body.i.i.i ], [ %__n, %if.then ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.06.i.i.i, i8 0, i64 20, i1 false)
   %dec.i.i.i = add i64 %__n.addr.05.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__cur.06.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP11aiVectorKeymS0_ET_S2_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !16
 
@@ -1068,7 +1065,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNSt12_Vector_base
   %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.body.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.06.i.i.i22, i8 0, i64 20, i1 false)
   %dec.i.i.i24 = add i64 %__n.addr.05.i.i.i23, -1
-  %incdec.ptr.i.i.i25 = getelementptr inbounds %struct.aiVectorKey, ptr %__cur.06.i.i.i22, i64 1
+  %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__cur.06.i.i.i22, i64 24
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
   br i1 %cmp.not.i.i.i26, label %try.cont, label %for.body.i.i.i21, !llvm.loop !16
 
@@ -1080,8 +1077,8 @@ for.body.i.i.i30:                                 ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i30 ], [ %cond.i19, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i30 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i64 24, i1 false), !alias.scope !17
-  %incdec.ptr.i.i.i31 = getelementptr inbounds %struct.aiVectorKey, ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i31, %0
   br i1 %cmp.not.i.i.i32, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i30, !llvm.loop !8
 

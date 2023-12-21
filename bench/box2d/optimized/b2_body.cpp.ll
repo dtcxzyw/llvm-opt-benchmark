@@ -4,35 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.b2Vec2 = type { float, float }
-%class.b2Body = type { i32, i16, i32, %struct.b2Transform, %struct.b2Sweep, %struct.b2Vec2, float, %struct.b2Vec2, float, ptr, ptr, ptr, ptr, i32, ptr, ptr, float, float, float, float, float, float, float, float, %struct.b2BodyUserData }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
-%struct.b2BodyUserData = type { i64 }
-%struct.b2BodyDef = type <{ i32, %struct.b2Vec2, float, %struct.b2Vec2, float, float, float, i8, i8, i8, i8, i8, [7 x i8], %struct.b2BodyUserData, float, [4 x i8] }>
-%class.b2World = type <{ %class.b2BlockAllocator, %class.b2StackAllocator, %class.b2ContactManager, ptr, ptr, i32, i32, %struct.b2Vec2, i8, [7 x i8], ptr, ptr, float, i8, i8, i8, i8, i8, i8, i8, i8, %struct.b2Profile, [4 x i8] }>
-%class.b2BlockAllocator = type { ptr, i32, i32, [14 x ptr] }
-%class.b2StackAllocator = type <{ [102400 x i8], i32, i32, i32, [4 x i8], [32 x %struct.b2StackEntry], i32, [4 x i8] }>
-%struct.b2StackEntry = type { ptr, i32, i8 }
-%class.b2ContactManager = type { %class.b2BroadPhase, ptr, i32, ptr, ptr, ptr }
-%class.b2BroadPhase = type <{ %class.b2DynamicTree, i32, [4 x i8], ptr, i32, i32, ptr, i32, i32, i32, [4 x i8] }>
-%class.b2DynamicTree = type { i32, ptr, i32, i32, i32, i32 }
-%struct.b2Profile = type { float, float, float, float, float, float, float, float }
-%class.b2Fixture = type { float, ptr, ptr, ptr, float, float, float, ptr, i32, %struct.b2Filter, i8, %struct.b2FixtureUserData }
-%struct.b2Filter = type { i16, i16, i16 }
-%struct.b2FixtureUserData = type { i64 }
-%struct.b2ContactEdge = type { ptr, ptr, ptr, ptr }
 %struct.b2FixtureProxy = type { %struct.b2AABB, ptr, i32, i32 }
 %struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
 %struct.b2MassData = type { float, %struct.b2Vec2, float }
+%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
+%struct.b2Rot = type { float, float }
 %struct.b2FixtureDef = type { ptr, %struct.b2FixtureUserData, float, float, float, float, i8, %struct.b2Filter }
-%class.b2Contact = type { ptr, i32, ptr, ptr, %struct.b2ContactEdge, %struct.b2ContactEdge, ptr, ptr, i32, i32, %struct.b2Manifold, i32, float, float, float, float, float }
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%union.b2ContactID = type { i32 }
-%struct.b2JointEdge = type { ptr, ptr, ptr, ptr }
-%class.b2Joint = type { ptr, i32, ptr, ptr, %struct.b2JointEdge, %struct.b2JointEdge, ptr, ptr, i32, i8, i8, %struct.b2JointUserData }
-%struct.b2JointUserData = type { i64 }
+%struct.b2FixtureUserData = type { i64 }
+%struct.b2Filter = type { i16, i16, i16 }
 
 @b2Vec2_zero = external local_unnamed_addr global %struct.b2Vec2, align 4
 @.str = private unnamed_addr constant [3 x i8] c"{\0A\00", align 1
@@ -62,17 +41,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN6b2BodyC2EPK9b2BodyDefP7b2World(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %bd, ptr noundef %world) unnamed_addr #0 align 2 {
 entry:
-  %m_userData = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 24
+  %m_userData = getelementptr inbounds i8, ptr %this, i64 176
   store i64 0, ptr %m_userData, align 8
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   store i16 0, ptr %m_flags, align 4
-  %bullet = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 10
+  %bullet = getelementptr inbounds i8, ptr %bd, i64 39
   %0 = load i8, ptr %bullet, align 1
   %1 = shl i8 %0, 3
   %2 = and i8 %1, 8
   %spec.store.select = zext nneg i8 %2 to i16
   store i16 %spec.store.select, ptr %m_flags, align 4
-  %fixedRotation = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 9
+  %fixedRotation = getelementptr inbounds i8, ptr %bd, i64 38
   %3 = load i8, ptr %fixedRotation, align 2
   %4 = and i8 %3, 1
   %tobool4.not = icmp eq i8 %4, 0
@@ -85,7 +64,7 @@ if.then5:                                         ; preds = %entry
 
 if.end10:                                         ; preds = %if.then5, %entry
   %6 = phi i16 [ %5, %if.then5 ], [ %spec.store.select, %entry ]
-  %allowSleep = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 7
+  %allowSleep = getelementptr inbounds i8, ptr %bd, i64 36
   %7 = load i8, ptr %allowSleep, align 4
   %8 = and i8 %7, 1
   %tobool11.not = icmp eq i8 %8, 0
@@ -98,7 +77,7 @@ if.then12:                                        ; preds = %if.end10
 
 if.end17:                                         ; preds = %if.then12, %if.end10
   %10 = phi i16 [ %9, %if.then12 ], [ %6, %if.end10 ]
-  %awake = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 8
+  %awake = getelementptr inbounds i8, ptr %bd, i64 37
   %11 = load i8, ptr %awake, align 1
   %12 = and i8 %11, 1
   %tobool18.not = icmp eq i8 %12, 0
@@ -116,7 +95,7 @@ if.then19:                                        ; preds = %land.lhs.true
 
 if.end24:                                         ; preds = %if.then19, %land.lhs.true, %if.end17
   %15 = phi i16 [ %14, %if.then19 ], [ %10, %land.lhs.true ], [ %10, %if.end17 ]
-  %enabled = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 11
+  %enabled = getelementptr inbounds i8, ptr %bd, i64 40
   %16 = load i8, ptr %enabled, align 8
   %17 = and i8 %16, 1
   %tobool25.not = icmp eq i8 %17, 0
@@ -128,74 +107,74 @@ if.then26:                                        ; preds = %if.end24
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %if.end24
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %world, ptr %m_world, align 8
-  %position = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 1
-  %m_xf32 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %position = getelementptr inbounds i8, ptr %bd, i64 4
+  %m_xf32 = getelementptr inbounds i8, ptr %this, i64 12
   %19 = load i64, ptr %position, align 4
   store i64 %19, ptr %m_xf32, align 4
-  %q = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 1
-  %angle = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %this, i64 20
+  %angle = getelementptr inbounds i8, ptr %bd, i64 12
   %20 = load float, ptr %angle, align 4
   %call.i = tail call float @sinf(float noundef %20) #11
   store float %call.i, ptr %q, align 4
   %call2.i = tail call float @cosf(float noundef %20) #11
-  %c.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 1, i32 1
+  %c.i = getelementptr inbounds i8, ptr %this, i64 24
   store float %call2.i, ptr %c.i, align 8
-  %m_sweep34 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4
+  %m_sweep34 = getelementptr inbounds i8, ptr %this, i64 28
   store <2 x float> zeroinitializer, ptr %m_sweep34, align 4
-  %c0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
+  %c0 = getelementptr inbounds i8, ptr %this, i64 36
   %21 = load i64, ptr %m_xf32, align 4
   store i64 %21, ptr %c0, align 4
-  %c = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 2
+  %c = getelementptr inbounds i8, ptr %this, i64 44
   store i64 %21, ptr %c, align 4
   %22 = load float, ptr %angle, align 4
-  %a0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 3
+  %a0 = getelementptr inbounds i8, ptr %this, i64 52
   store float %22, ptr %a0, align 4
-  %a = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 4
+  %a = getelementptr inbounds i8, ptr %this, i64 56
   store float %22, ptr %a, align 8
-  %alpha0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 5
+  %alpha0 = getelementptr inbounds i8, ptr %this, i64 60
   store float 0.000000e+00, ptr %alpha0, align 4
-  %m_jointList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 14
-  %m_prev = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 10
-  %linearVelocity = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 3
-  %m_linearVelocity46 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 5
+  %m_jointList = getelementptr inbounds i8, ptr %this, i64 128
+  %m_prev = getelementptr inbounds i8, ptr %this, i64 96
+  %linearVelocity = getelementptr inbounds i8, ptr %bd, i64 16
+  %m_linearVelocity46 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_prev, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_jointList, i8 0, i64 16, i1 false)
   %23 = load i64, ptr %linearVelocity, align 8
   store i64 %23, ptr %m_linearVelocity46, align 8
-  %angularVelocity = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 4
+  %angularVelocity = getelementptr inbounds i8, ptr %bd, i64 24
   %24 = load float, ptr %angularVelocity, align 8
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 6
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 72
   store float %24, ptr %m_angularVelocity, align 8
-  %linearDamping = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 5
+  %linearDamping = getelementptr inbounds i8, ptr %bd, i64 28
   %25 = load float, ptr %linearDamping, align 4
-  %m_linearDamping = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 20
+  %m_linearDamping = getelementptr inbounds i8, ptr %this, i64 160
   store float %25, ptr %m_linearDamping, align 8
-  %angularDamping = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 6
+  %angularDamping = getelementptr inbounds i8, ptr %bd, i64 32
   %26 = load float, ptr %angularDamping, align 8
-  %m_angularDamping = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 21
+  %m_angularDamping = getelementptr inbounds i8, ptr %this, i64 164
   store float %26, ptr %m_angularDamping, align 4
-  %gravityScale = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 14
+  %gravityScale = getelementptr inbounds i8, ptr %bd, i64 56
   %27 = load float, ptr %gravityScale, align 8
-  %m_gravityScale = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 22
+  %m_gravityScale = getelementptr inbounds i8, ptr %this, i64 168
   store float %27, ptr %m_gravityScale, align 8
-  %m_force47 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 7
+  %m_force47 = getelementptr inbounds i8, ptr %this, i64 76
   store <2 x float> zeroinitializer, ptr %m_force47, align 4
-  %m_torque = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 8
+  %m_torque = getelementptr inbounds i8, ptr %this, i64 84
   store float 0.000000e+00, ptr %m_torque, align 4
-  %m_sleepTime = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 23
+  %m_sleepTime = getelementptr inbounds i8, ptr %this, i64 172
   store float 0.000000e+00, ptr %m_sleepTime, align 4
   %28 = load i32, ptr %bd, align 8
   store i32 %28, ptr %this, align 8
-  %m_mass = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 16
-  %userData = getelementptr inbounds %struct.b2BodyDef, ptr %bd, i64 0, i32 13
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 144
+  %userData = getelementptr inbounds i8, ptr %bd, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_mass, i8 0, i64 16, i1 false)
   %29 = load i64, ptr %userData, align 8
   store i64 %29, ptr %m_userData, align 8
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %m_fixtureList, align 8
-  %m_fixtureCount = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 13
+  %m_fixtureCount = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %m_fixtureCount, align 8
   ret void
 }
@@ -209,9 +188,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6b2Body7SetTypeE10b2BodyType(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %type) local_unnamed_addr #2 align 2 {
 entry:
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
-  %m_locked.i = getelementptr inbounds %class.b2World, ptr %0, i64 0, i32 14
+  %m_locked.i = getelementptr inbounds i8, ptr %0, i64 103245
   %1 = load i8, ptr %m_locked.i, align 1
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -228,37 +207,37 @@ if.end4:                                          ; preds = %entry
   br i1 %cmp7, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %if.end4
-  %m_linearVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 5
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 64
   store <2 x float> zeroinitializer, ptr %m_linearVelocity, align 8
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 6
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 72
   store float 0.000000e+00, ptr %m_angularVelocity, align 8
-  %a = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 4
+  %a = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load float, ptr %a, align 8
-  %a0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 3
+  %a0 = getelementptr inbounds i8, ptr %this, i64 52
   store float %5, ptr %a0, align 4
-  %c = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 2
-  %c0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
+  %c = getelementptr inbounds i8, ptr %this, i64 44
+  %c0 = getelementptr inbounds i8, ptr %this, i64 36
   %6 = load i64, ptr %c, align 4
   store i64 %6, ptr %c0, align 4
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load i16, ptr %m_flags, align 4
   %8 = and i16 %7, -3
   store i16 %8, ptr %m_flags, align 4
   %9 = load ptr, ptr %m_world, align 8
-  %m_contactManager.i = getelementptr inbounds %class.b2World, ptr %9, i64 0, i32 2
-  %m_fixtureList9.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_contactManager.i = getelementptr inbounds i8, ptr %9, i64 103064
+  %m_fixtureList9.i = getelementptr inbounds i8, ptr %this, i64 112
   %f8.014.i = load ptr, ptr %m_fixtureList9.i, align 8
   %tobool11.not15.i = icmp eq ptr %f8.014.i, null
   br i1 %tobool11.not15.i, label %_ZN6b2Body8SetAwakeEb.exit, label %for.body12.lr.ph.i
 
 for.body12.lr.ph.i:                               ; preds = %if.else.i
-  %m_xf13.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %m_xf13.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body12.i
 
 for.body12.i:                                     ; preds = %for.body12.i, %for.body12.lr.ph.i
   %f8.016.i = phi ptr [ %f8.014.i, %for.body12.lr.ph.i ], [ %f8.0.i, %for.body12.i ]
   tail call void @_ZN9b2Fixture11SynchronizeEP12b2BroadPhaseRK11b2TransformS4_(ptr noundef nonnull align 8 dereferenceable(80) %f8.016.i, ptr noundef nonnull %m_contactManager.i, ptr noundef nonnull align 4 dereferenceable(16) %m_xf13.i, ptr noundef nonnull align 4 dereferenceable(16) %m_xf13.i)
-  %m_next16.i = getelementptr inbounds %class.b2Fixture, ptr %f8.016.i, i64 0, i32 1
+  %m_next16.i = getelementptr inbounds i8, ptr %f8.016.i, i64 8
   %f8.0.i = load ptr, ptr %m_next16.i, align 8
   %tobool11.not.i = icmp eq ptr %f8.0.i, null
   br i1 %tobool11.not.i, label %if.end14, label %for.body12.i, !llvm.loop !4
@@ -269,31 +248,31 @@ if.end14:                                         ; preds = %for.body12.i
   br i1 %10, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4, %if.end14
-  %m_flags.i9 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags.i9 = getelementptr inbounds i8, ptr %this, i64 4
   %11 = load i16, ptr %m_flags.i9, align 4
-  %m_sleepTime.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 23
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %this, i64 172
   %12 = or i16 %11, 2
   store i16 %12, ptr %m_flags.i9, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.else.i, %if.end14, %if.end.i
-  %m_force = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 7
+  %m_force = getelementptr inbounds i8, ptr %this, i64 76
   store <2 x float> zeroinitializer, ptr %m_force, align 4
-  %m_torque = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 8
+  %m_torque = getelementptr inbounds i8, ptr %this, i64 84
   store float 0.000000e+00, ptr %m_torque, align 4
-  %m_contactList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 15
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 136
   %13 = load ptr, ptr %m_contactList, align 8
   %tobool.not12 = icmp eq ptr %13, null
   br i1 %tobool.not12, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN6b2Body8SetAwakeEb.exit, %while.body
   %ce.013 = phi ptr [ %14, %while.body ], [ %13, %_ZN6b2Body8SetAwakeEb.exit ]
-  %next = getelementptr inbounds %struct.b2ContactEdge, ptr %ce.013, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %ce.013, i64 24
   %14 = load ptr, ptr %next, align 8
   %15 = load ptr, ptr %m_world, align 8
-  %m_contactManager = getelementptr inbounds %class.b2World, ptr %15, i64 0, i32 2
-  %contact = getelementptr inbounds %struct.b2ContactEdge, ptr %ce.013, i64 0, i32 1
+  %m_contactManager = getelementptr inbounds i8, ptr %15, i64 103064
+  %contact = getelementptr inbounds i8, ptr %ce.013, i64 8
   %16 = load ptr, ptr %contact, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %m_contactManager, ptr noundef %16)
   %tobool.not = icmp eq ptr %14, null
@@ -302,21 +281,21 @@ while.body:                                       ; preds = %_ZN6b2Body8SetAwake
 while.end:                                        ; preds = %while.body, %_ZN6b2Body8SetAwakeEb.exit
   store ptr null, ptr %m_contactList, align 8
   %17 = load ptr, ptr %m_world, align 8
-  %m_contactManager18 = getelementptr inbounds %class.b2World, ptr %17, i64 0, i32 2
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_contactManager18 = getelementptr inbounds i8, ptr %17, i64 103064
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %f.016 = load ptr, ptr %m_fixtureList, align 8
   %tobool19.not17 = icmp eq ptr %f.016, null
   br i1 %tobool19.not17, label %for.end24, label %for.body
 
 for.body:                                         ; preds = %while.end, %for.inc23
   %f.018 = phi ptr [ %f.0, %for.inc23 ], [ %f.016, %while.end ]
-  %m_proxyCount = getelementptr inbounds %class.b2Fixture, ptr %f.018, i64 0, i32 8
+  %m_proxyCount = getelementptr inbounds i8, ptr %f.018, i64 56
   %18 = load i32, ptr %m_proxyCount, align 8
   %cmp2114 = icmp sgt i32 %18, 0
   br i1 %cmp2114, label %for.body22.lr.ph, label %for.inc23
 
 for.body22.lr.ph:                                 ; preds = %for.body
-  %m_proxies = getelementptr inbounds %class.b2Fixture, ptr %f.018, i64 0, i32 7
+  %m_proxies = getelementptr inbounds i8, ptr %f.018, i64 48
   %wide.trip.count = zext nneg i32 %18 to i64
   br label %for.body22
 
@@ -331,7 +310,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   br i1 %exitcond.not, label %for.inc23, label %for.body22, !llvm.loop !7
 
 for.inc23:                                        ; preds = %for.body22, %for.body
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %f.018, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %f.018, i64 8
   %f.0 = load ptr, ptr %m_next, align 8
   %tobool19.not = icmp eq ptr %f.0, null
   br i1 %tobool19.not, label %for.end24, label %for.body, !llvm.loop !8
@@ -344,11 +323,11 @@ for.end24:                                        ; preds = %for.inc23, %while.e
 define void @_ZN6b2Body13ResetMassDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #2 align 2 {
 entry:
   %massData = alloca %struct.b2MassData, align 8
-  %m_mass = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 16
-  %m_invMass = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 17
-  %m_I = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 18
-  %m_invI = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 19
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 144
+  %m_invMass = getelementptr inbounds i8, ptr %this, i64 148
+  %m_I = getelementptr inbounds i8, ptr %this, i64 152
+  %m_invI = getelementptr inbounds i8, ptr %this, i64 156
+  %m_sweep = getelementptr inbounds i8, ptr %this, i64 28
   store <2 x float> zeroinitializer, ptr %m_sweep, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_mass, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %this, align 8
@@ -356,28 +335,28 @@ entry:
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
-  %c0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
+  %c0 = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i64, ptr %m_xf, align 4
   store i64 %1, ptr %c0, align 4
-  %c = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 2
+  %c = getelementptr inbounds i8, ptr %this, i64 44
   store i64 %1, ptr %c, align 4
-  %a = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 4
+  %a = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load float, ptr %a, align 8
-  %a0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 3
+  %a0 = getelementptr inbounds i8, ptr %this, i64 52
   store float %2, ptr %a0, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
   %3 = load <2 x float>, ptr @b2Vec2_zero, align 4
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %f.034 = load ptr, ptr %m_fixtureList, align 8
   %tobool.not35 = icmp eq ptr %f.034, null
   br i1 %tobool.not35, label %if.else, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %y.i5 = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 1, i32 1
-  %I = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 2
+  %y.i5 = getelementptr inbounds i8, ptr %massData, i64 8
+  %I = getelementptr inbounds i8, ptr %massData, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -390,10 +369,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp11, label %for.inc, label %if.end13
 
 if.end13:                                         ; preds = %for.body
-  %m_shape.i = getelementptr inbounds %class.b2Fixture, ptr %f.038, i64 0, i32 3
+  %m_shape.i = getelementptr inbounds i8, ptr %f.038, i64 24
   %8 = load ptr, ptr %m_shape.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %9 = load ptr, ptr %vfn.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %massData, float noundef %7)
   %10 = load float, ptr %m_mass, align 8
@@ -416,7 +395,7 @@ for.inc:                                          ; preds = %for.body, %if.end13
   %20 = phi float [ %4, %for.body ], [ %add17, %if.end13 ]
   %21 = phi float [ %5, %for.body ], [ %add, %if.end13 ]
   %22 = phi <2 x float> [ %6, %for.body ], [ %17, %if.end13 ]
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %f.038, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %f.038, i64 8
   %f.0 = load ptr, ptr %m_next, align 8
   %tobool.not = icmp eq ptr %f.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -439,7 +418,7 @@ if.end24:                                         ; preds = %if.then20, %for.end
   br i1 %cmp26, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end24
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %27 = load i16, ptr %m_flags, align 4
   %28 = and i16 %27, 16
   %cmp27 = icmp eq i16 %28, 0
@@ -465,14 +444,14 @@ if.end37:                                         ; preds = %if.else, %if.then28
   %storemerge = phi float [ 0.000000e+00, %if.else ], [ %div33, %if.then28 ]
   %34 = phi <2 x float> [ %33, %if.else ], [ %26, %if.then28 ]
   store float %storemerge, ptr %m_invI, align 4
-  %c39 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 2
+  %c39 = getelementptr inbounds i8, ptr %this, i64 44
   store <2 x float> %34, ptr %m_sweep, align 4
-  %m_xf43 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
-  %q.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 1
-  %c050 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 6
+  %m_xf43 = getelementptr inbounds i8, ptr %this, i64 12
+  %q.i = getelementptr inbounds i8, ptr %this, i64 20
+  %c050 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 72
   %35 = load <4 x float>, ptr %m_angularVelocity, align 8
-  %m_linearVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 5
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 64
   %36 = load <2 x float>, ptr %c39, align 4
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %38 = load <2 x float>, ptr %q.i, align 4
@@ -507,28 +486,28 @@ return:                                           ; preds = %if.end37, %if.then
 define void @_ZN6b2Body19SynchronizeFixturesEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #2 align 2 {
 entry:
   %xf1 = alloca %struct.b2Transform, align 8
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
-  %m_contactManager = getelementptr inbounds %class.b2World, ptr %0, i64 0, i32 2
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_contactManager = getelementptr inbounds i8, ptr %0, i64 103064
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i16, ptr %m_flags, align 4
   %2 = and i16 %1, 2
   %tobool.not = icmp eq i16 %2, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %q = getelementptr inbounds %struct.b2Transform, ptr %xf1, i64 0, i32 1
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4
-  %a0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 3
+  %q = getelementptr inbounds i8, ptr %xf1, i64 8
+  %m_sweep = getelementptr inbounds i8, ptr %this, i64 28
+  %a0 = getelementptr inbounds i8, ptr %this, i64 52
   %3 = load float, ptr %a0, align 4
   %call.i = tail call float @sinf(float noundef %3) #11
   store float %call.i, ptr %q, align 8
   %call2.i = tail call float @cosf(float noundef %3) #11
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %xf1, i64 0, i32 1, i32 1
+  %c.i = getelementptr inbounds i8, ptr %xf1, i64 12
   store float %call2.i, ptr %c.i, align 4
-  %c0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
+  %c0 = getelementptr inbounds i8, ptr %this, i64 36
   %4 = load <4 x float>, ptr %m_sweep, align 4
-  %y.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load <4 x float>, ptr %y.i, align 8
   %6 = fneg float %call.i
   %7 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> zeroinitializer
@@ -542,37 +521,37 @@ if.then:                                          ; preds = %entry
   %15 = load <2 x float>, ptr %c0, align 4
   %16 = fsub <2 x float> %15, %14
   store <2 x float> %16, ptr %xf1, align 8
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %f.011 = load ptr, ptr %m_fixtureList, align 8
   %tobool7.not12 = icmp eq ptr %f.011, null
   br i1 %tobool7.not12, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %f.013 = phi ptr [ %f.011, %for.body.lr.ph ], [ %f.0, %for.body ]
   call void @_ZN9b2Fixture11SynchronizeEP12b2BroadPhaseRK11b2TransformS4_(ptr noundef nonnull align 8 dereferenceable(80) %f.013, ptr noundef nonnull %m_contactManager, ptr noundef nonnull align 4 dereferenceable(16) %xf1, ptr noundef nonnull align 4 dereferenceable(16) %m_xf)
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %f.013, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %f.013, i64 8
   %f.0 = load ptr, ptr %m_next, align 8
   %tobool7.not = icmp eq ptr %f.0, null
   br i1 %tobool7.not, label %if.end, label %for.body, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
-  %m_fixtureList9 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList9 = getelementptr inbounds i8, ptr %this, i64 112
   %f8.014 = load ptr, ptr %m_fixtureList9, align 8
   %tobool11.not15 = icmp eq ptr %f8.014, null
   br i1 %tobool11.not15, label %if.end, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %if.else
-  %m_xf13 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %m_xf13 = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.body12
   %f8.016 = phi ptr [ %f8.014, %for.body12.lr.ph ], [ %f8.0, %for.body12 ]
   tail call void @_ZN9b2Fixture11SynchronizeEP12b2BroadPhaseRK11b2TransformS4_(ptr noundef nonnull align 8 dereferenceable(80) %f8.016, ptr noundef nonnull %m_contactManager, ptr noundef nonnull align 4 dereferenceable(16) %m_xf13, ptr noundef nonnull align 4 dereferenceable(16) %m_xf13)
-  %m_next16 = getelementptr inbounds %class.b2Fixture, ptr %f8.016, i64 0, i32 1
+  %m_next16 = getelementptr inbounds i8, ptr %f8.016, i64 8
   %f8.0 = load ptr, ptr %m_next16, align 8
   %tobool11.not = icmp eq ptr %f8.0, null
   br i1 %tobool11.not, label %if.end, label %for.body12, !llvm.loop !4
@@ -588,9 +567,9 @@ declare void @_ZN12b2BroadPhase10TouchProxyEi(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6b2Body13CreateFixtureEPK12b2FixtureDef(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %def) local_unnamed_addr #4 align 2 {
 entry:
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
-  %m_locked.i = getelementptr inbounds %class.b2World, ptr %0, i64 0, i32 14
+  %m_locked.i = getelementptr inbounds i8, ptr %0, i64 103245
   %1 = load i8, ptr %m_locked.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -600,7 +579,7 @@ if.end:                                           ; preds = %entry
   %call3 = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 80)
   tail call void @_ZN9b2FixtureC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %call3)
   tail call void @_ZN9b2Fixture6CreateEP16b2BlockAllocatorP6b2BodyPK12b2FixtureDef(ptr noundef nonnull align 8 dereferenceable(80) %call3, ptr noundef nonnull %0, ptr noundef nonnull %this, ptr noundef %def)
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i16, ptr %m_flags, align 4
   %4 = and i16 %3, 32
   %tobool.not = icmp eq i16 %4, 0
@@ -608,22 +587,22 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %5 = load ptr, ptr %m_world, align 8
-  %m_contactManager = getelementptr inbounds %class.b2World, ptr %5, i64 0, i32 2
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %m_contactManager = getelementptr inbounds i8, ptr %5, i64 103064
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
   tail call void @_ZN9b2Fixture13CreateProxiesEP12b2BroadPhaseRK11b2Transform(ptr noundef nonnull align 8 dereferenceable(80) %call3, ptr noundef nonnull %m_contactManager, ptr noundef nonnull align 4 dereferenceable(16) %m_xf)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %m_fixtureList, align 8
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %call3, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %6, ptr %m_next, align 8
   store ptr %call3, ptr %m_fixtureList, align 8
-  %m_fixtureCount = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 13
+  %m_fixtureCount = getelementptr inbounds i8, ptr %this, i64 120
   %7 = load i32, ptr %m_fixtureCount, align 8
   %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %m_fixtureCount, align 8
-  %m_body = getelementptr inbounds %class.b2Fixture, ptr %call3, i64 0, i32 2
+  %m_body = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr %this, ptr %m_body, align 8
   %8 = load float, ptr %call3, align 8
   %cmp9 = fcmp ogt float %8, 0.000000e+00
@@ -635,7 +614,7 @@ if.then10:                                        ; preds = %if.end7
 
 if.end11:                                         ; preds = %if.then10, %if.end7
   %9 = load ptr, ptr %m_world, align 8
-  %m_newContacts = getelementptr inbounds %class.b2World, ptr %9, i64 0, i32 13
+  %m_newContacts = getelementptr inbounds i8, ptr %9, i64 103244
   store i8 1, ptr %m_newContacts, align 4
   br label %return
 
@@ -656,20 +635,20 @@ declare void @_ZN9b2Fixture13CreateProxiesEP12b2BroadPhaseRK11b2Transform(ptr no
 define noundef ptr @_ZN6b2Body13CreateFixtureEPK7b2Shapef(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %shape, float noundef %density) local_unnamed_addr #4 align 2 {
 entry:
   %def = alloca %struct.b2FixtureDef, align 8
-  %userData.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 1
+  %userData.i = getelementptr inbounds i8, ptr %def, i64 8
   store i64 0, ptr %userData.i, align 8
-  %filter.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 7
+  %filter.i = getelementptr inbounds i8, ptr %def, i64 34
   store i16 1, ptr %filter.i, align 2
-  %maskBits.i.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 7, i32 1
+  %maskBits.i.i = getelementptr inbounds i8, ptr %def, i64 36
   store i16 -1, ptr %maskBits.i.i, align 4
-  %groupIndex.i.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 7, i32 2
+  %groupIndex.i.i = getelementptr inbounds i8, ptr %def, i64 38
   store i16 0, ptr %groupIndex.i.i, align 2
-  %friction.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 2
+  %friction.i = getelementptr inbounds i8, ptr %def, i64 16
   store <2 x float> <float 0x3FC99999A0000000, float 0.000000e+00>, ptr %friction.i, align 8
-  %restitutionThreshold.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 4
+  %restitutionThreshold.i = getelementptr inbounds i8, ptr %def, i64 24
   store float 1.000000e+00, ptr %restitutionThreshold.i, align 8
-  %density.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 5
-  %isSensor.i = getelementptr inbounds %struct.b2FixtureDef, ptr %def, i64 0, i32 6
+  %density.i = getelementptr inbounds i8, ptr %def, i64 28
+  %isSensor.i = getelementptr inbounds i8, ptr %def, i64 32
   store i8 0, ptr %isSensor.i, align 8
   store ptr %shape, ptr %def, align 8
   store float %density, ptr %density.i, align 4
@@ -684,16 +663,16 @@ entry:
   br i1 %cmp, label %if.end30, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
-  %m_locked.i = getelementptr inbounds %class.b2World, ptr %0, i64 0, i32 14
+  %m_locked.i = getelementptr inbounds i8, ptr %0, i64 103245
   %1 = load i8, ptr %m_locked.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.not, label %if.end4, label %if.end30
 
 if.end4:                                          ; preds = %if.end
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %m_fixtureList, align 8
   %cmp5.not20 = icmp eq ptr %3, null
   br i1 %cmp5.not20, label %while.end, label %while.body.preheader
@@ -704,7 +683,7 @@ while.body.preheader:                             ; preds = %if.end4
 
 while.cond:                                       ; preds = %while.body.preheader, %while.body
   %4 = phi ptr [ %5, %while.body ], [ %3, %while.body.preheader ]
-  %m_next9 = getelementptr inbounds %class.b2Fixture, ptr %4, i64 0, i32 1
+  %m_next9 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %m_next9, align 8
   %cmp5.not = icmp eq ptr %5, null
   br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !11
@@ -714,32 +693,32 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp6, label %if.then7.loopexit, label %while.cond, !llvm.loop !11
 
 if.then7.loopexit:                                ; preds = %while.body
-  %m_next9.le = getelementptr inbounds %class.b2Fixture, ptr %4, i64 0, i32 1
+  %m_next9.le = getelementptr inbounds i8, ptr %4, i64 8
   br label %if.then7
 
 if.then7:                                         ; preds = %if.then7.loopexit, %while.body.preheader
   %node.021.lcssa = phi ptr [ %m_fixtureList, %while.body.preheader ], [ %m_next9.le, %if.then7.loopexit ]
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %fixture, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %fixture, i64 8
   %6 = load ptr, ptr %m_next, align 8
   store ptr %6, ptr %node.021.lcssa, align 8
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %if.end4, %if.then7
   %7 = load float, ptr %fixture, align 8
-  %m_contactList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 15
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 136
   %8 = load ptr, ptr %m_contactList, align 8
   %tobool.not22 = icmp eq ptr %8, null
   br i1 %tobool.not22, label %while.end19, label %while.body11
 
 while.body11:                                     ; preds = %while.end, %if.end18
   %edge.023 = phi ptr [ %10, %if.end18 ], [ %8, %while.end ]
-  %contact = getelementptr inbounds %struct.b2ContactEdge, ptr %edge.023, i64 0, i32 1
+  %contact = getelementptr inbounds i8, ptr %edge.023, i64 8
   %9 = load ptr, ptr %contact, align 8
-  %next = getelementptr inbounds %struct.b2ContactEdge, ptr %edge.023, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %edge.023, i64 24
   %10 = load ptr, ptr %next, align 8
-  %m_fixtureA.i = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 6
+  %m_fixtureA.i = getelementptr inbounds i8, ptr %9, i64 96
   %11 = load ptr, ptr %m_fixtureA.i, align 8
-  %m_fixtureB.i = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 7
+  %m_fixtureB.i = getelementptr inbounds i8, ptr %9, i64 104
   %12 = load ptr, ptr %m_fixtureB.i, align 8
   %cmp14 = icmp eq ptr %11, %fixture
   %cmp15 = icmp eq ptr %12, %fixture
@@ -748,7 +727,7 @@ while.body11:                                     ; preds = %while.end, %if.end1
 
 if.then16:                                        ; preds = %while.body11
   %13 = load ptr, ptr %m_world, align 8
-  %m_contactManager = getelementptr inbounds %class.b2World, ptr %13, i64 0, i32 2
+  %m_contactManager = getelementptr inbounds i8, ptr %13, i64 103064
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %m_contactManager, ptr noundef nonnull %9)
   br label %if.end18
 
@@ -758,23 +737,23 @@ if.end18:                                         ; preds = %while.body11, %if.t
 
 while.end19:                                      ; preds = %if.end18, %while.end
   %14 = load ptr, ptr %m_world, align 8
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %15 = load i16, ptr %m_flags, align 4
   %16 = and i16 %15, 32
   %tobool22.not = icmp eq i16 %16, 0
   br i1 %tobool22.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %while.end19
-  %m_contactManager25 = getelementptr inbounds %class.b2World, ptr %14, i64 0, i32 2
+  %m_contactManager25 = getelementptr inbounds i8, ptr %14, i64 103064
   tail call void @_ZN9b2Fixture14DestroyProxiesEP12b2BroadPhase(ptr noundef nonnull align 8 dereferenceable(80) %fixture, ptr noundef nonnull %m_contactManager25)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %while.end19
-  %m_next27 = getelementptr inbounds %class.b2Fixture, ptr %fixture, i64 0, i32 1
+  %m_next27 = getelementptr inbounds i8, ptr %fixture, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_next27, i8 0, i64 16, i1 false)
   tail call void @_ZN9b2Fixture7DestroyEP16b2BlockAllocator(ptr noundef nonnull align 8 dereferenceable(80) %fixture, ptr noundef %14)
   tail call void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull %fixture, i32 noundef 80)
-  %m_fixtureCount = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 13
+  %m_fixtureCount = getelementptr inbounds i8, ptr %this, i64 120
   %17 = load i32, ptr %m_fixtureCount, align 8
   %dec = add nsw i32 %17, -1
   store i32 %dec, ptr %m_fixtureCount, align 8
@@ -801,9 +780,9 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6b2Body11SetMassDataEPK10b2MassData(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %massData) local_unnamed_addr #6 align 2 {
 entry:
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
-  %m_locked.i = getelementptr inbounds %class.b2World, ptr %0, i64 0, i32 14
+  %m_locked.i = getelementptr inbounds i8, ptr %0, i64 103245
   %1 = load i8, ptr %m_locked.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -813,34 +792,34 @@ entry:
   br i1 %or.cond, label %if.end4, label %return
 
 if.end4:                                          ; preds = %entry
-  %m_invMass = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 17
-  %m_I = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 18
+  %m_invMass = getelementptr inbounds i8, ptr %this, i64 148
+  %m_I = getelementptr inbounds i8, ptr %this, i64 152
   store <2 x float> zeroinitializer, ptr %m_invMass, align 4
-  %m_invI = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 19
+  %m_invI = getelementptr inbounds i8, ptr %this, i64 156
   store float 0.000000e+00, ptr %m_invI, align 4
   %4 = load float, ptr %massData, align 4
-  %m_mass = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 16
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 144
   %cmp6 = fcmp ugt float %4, 0.000000e+00
   %storemerge = select i1 %cmp6, float %4, float 1.000000e+00
   store float %storemerge, ptr %m_mass, align 8
   %div = fdiv float 1.000000e+00, %storemerge
   store float %div, ptr %m_invMass, align 4
-  %I = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 2
+  %I = getelementptr inbounds i8, ptr %massData, i64 12
   %5 = load float, ptr %I, align 4
   %cmp12 = fcmp ogt float %5, 0.000000e+00
   br i1 %cmp12, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %if.end4
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %6 = load i16, ptr %m_flags, align 4
   %7 = and i16 %6, 16
   %cmp14 = icmp eq i16 %7, 0
   br i1 %cmp14, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %land.lhs.true
-  %center = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 1
+  %center = getelementptr inbounds i8, ptr %massData, i64 4
   %8 = load float, ptr %center, align 4
-  %y.i = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %massData, i64 8
   %9 = load float, ptr %y.i, align 4
   %mul3.i = fmul float %9, %9
   %10 = tail call noundef float @llvm.fmuladd.f32(float %8, float %8, float %mul3.i)
@@ -852,20 +831,20 @@ if.then15:                                        ; preds = %land.lhs.true
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then15, %land.lhs.true, %if.end4
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4
-  %c = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 2
-  %center25 = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 1
+  %m_sweep = getelementptr inbounds i8, ptr %this, i64 28
+  %c = getelementptr inbounds i8, ptr %this, i64 44
+  %center25 = getelementptr inbounds i8, ptr %massData, i64 4
   %12 = load i64, ptr %center25, align 4
   store i64 %12, ptr %m_sweep, align 4
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
-  %q.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 1
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
+  %q.i = getelementptr inbounds i8, ptr %this, i64 20
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %12, 32
   %15 = trunc i64 %14 to i32
-  %c0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 6
+  %c0 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load <4 x float>, ptr %m_angularVelocity, align 8
-  %m_linearVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 5
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load <2 x float>, ptr %c, align 4
   %18 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %19 = load <2 x float>, ptr %q.i, align 4
@@ -913,7 +892,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %m_jointList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 14
+  %m_jointList = getelementptr inbounds i8, ptr %this, i64 128
   %jn.05 = load ptr, ptr %m_jointList, align 8
   %tobool.not6 = icmp eq ptr %jn.05, null
   br i1 %tobool.not6, label %return, label %for.body
@@ -925,16 +904,16 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp5, label %if.then6, label %for.inc
 
 if.then6:                                         ; preds = %for.body
-  %joint = getelementptr inbounds %struct.b2JointEdge, ptr %jn.07, i64 0, i32 1
+  %joint = getelementptr inbounds i8, ptr %jn.07, i64 8
   %3 = load ptr, ptr %joint, align 8
-  %m_collideConnected = getelementptr inbounds %class.b2Joint, ptr %3, i64 0, i32 10
+  %m_collideConnected = getelementptr inbounds i8, ptr %3, i64 117
   %4 = load i8, ptr %m_collideConnected, align 1
   %5 = and i8 %4, 1
   %cmp8 = icmp eq i8 %5, 0
   br i1 %cmp8, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6
-  %next = getelementptr inbounds %struct.b2JointEdge, ptr %jn.07, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %jn.07, i64 24
   %jn.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %jn.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !13
@@ -947,28 +926,28 @@ return:                                           ; preds = %if.then6, %for.inc,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6b2Body12SetTransformERK6b2Vec2f(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %position, float noundef %angle) local_unnamed_addr #2 align 2 {
 entry:
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
-  %m_locked.i = getelementptr inbounds %class.b2World, ptr %0, i64 0, i32 14
+  %m_locked.i = getelementptr inbounds i8, ptr %0, i64 103245
   %1 = load i8, ptr %m_locked.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
-  %q = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 1
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
+  %q = getelementptr inbounds i8, ptr %this, i64 20
   %call.i = tail call float @sinf(float noundef %angle) #11
   store float %call.i, ptr %q, align 4
   %call2.i = tail call float @cosf(float noundef %angle) #11
-  %c.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 1, i32 1
+  %c.i = getelementptr inbounds i8, ptr %this, i64 24
   store float %call2.i, ptr %c.i, align 8
   %3 = load i64, ptr %position, align 4
   store i64 %3, ptr %m_xf, align 4
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4
+  %m_sweep = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load <4 x float>, ptr %m_sweep, align 4
   %5 = load float, ptr %q, align 4
-  %y.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load <4 x float>, ptr %y.i, align 8
   %7 = fneg float %5
   %8 = lshr i64 %3, 32
@@ -985,17 +964,17 @@ if.end:                                           ; preds = %entry
   %19 = trunc <2 x i64> %18 to <2 x i32>
   %20 = bitcast <2 x i32> %19 to <2 x float>
   %21 = fadd <2 x float> %16, %20
-  %c = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 2
+  %c = getelementptr inbounds i8, ptr %this, i64 44
   store <2 x float> %21, ptr %c, align 4
-  %a = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 4
+  %a = getelementptr inbounds i8, ptr %this, i64 56
   store float %angle, ptr %a, align 8
-  %c0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 1
+  %c0 = getelementptr inbounds i8, ptr %this, i64 36
   store <2 x float> %21, ptr %c0, align 4
-  %a0 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 3
+  %a0 = getelementptr inbounds i8, ptr %this, i64 52
   store float %angle, ptr %a0, align 4
   %22 = load ptr, ptr %m_world, align 8
-  %m_contactManager = getelementptr inbounds %class.b2World, ptr %22, i64 0, i32 2
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_contactManager = getelementptr inbounds i8, ptr %22, i64 103064
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %f.06 = load ptr, ptr %m_fixtureList, align 8
   %tobool.not7 = icmp eq ptr %f.06, null
   br i1 %tobool.not7, label %for.end, label %for.body
@@ -1003,7 +982,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.body
   %f.08 = phi ptr [ %f.0, %for.body ], [ %f.06, %if.end ]
   tail call void @_ZN9b2Fixture11SynchronizeEP12b2BroadPhaseRK11b2TransformS4_(ptr noundef nonnull align 8 dereferenceable(80) %f.08, ptr noundef nonnull %m_contactManager, ptr noundef nonnull align 4 dereferenceable(16) %m_xf, ptr noundef nonnull align 4 dereferenceable(16) %m_xf)
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %f.08, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %f.08, i64 8
   %f.0 = load ptr, ptr %m_next, align 8
   %tobool.not = icmp eq ptr %f.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
@@ -1014,7 +993,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %23 = phi ptr [ %.pre, %for.end.loopexit ], [ %22, %if.end ]
-  %m_newContacts = getelementptr inbounds %class.b2World, ptr %23, i64 0, i32 13
+  %m_newContacts = getelementptr inbounds i8, ptr %23, i64 103244
   store i8 1, ptr %m_newContacts, align 4
   br label %return
 
@@ -1027,7 +1006,7 @@ declare void @_ZN9b2Fixture11SynchronizeEP12b2BroadPhaseRK11b2TransformS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6b2Body10SetEnabledEb(ptr noundef nonnull align 8 dereferenceable(184) %this, i1 noundef zeroext %flag) local_unnamed_addr #4 align 2 {
 entry:
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i16, ptr %m_flags.i, align 4
   %1 = and i16 %0, 32
   %cmp.i = icmp ne i16 %1, 0
@@ -1035,27 +1014,27 @@ entry:
   br i1 %2, label %if.end, label %if.end28
 
 if.end:                                           ; preds = %entry
-  %m_world = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 9
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_world = getelementptr inbounds i8, ptr %this, i64 88
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   br i1 %flag, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
   %3 = or i16 %0, 32
   store i16 %3, ptr %m_flags.i, align 4
   %4 = load ptr, ptr %m_world, align 8
-  %m_contactManager = getelementptr inbounds %class.b2World, ptr %4, i64 0, i32 2
+  %m_contactManager = getelementptr inbounds i8, ptr %4, i64 103064
   %f.013 = load ptr, ptr %m_fixtureList, align 8
   %tobool7.not14 = icmp eq ptr %f.013, null
   br i1 %tobool7.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then4
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %f.015 = phi ptr [ %f.013, %for.body.lr.ph ], [ %f.0, %for.body ]
   tail call void @_ZN9b2Fixture13CreateProxiesEP12b2BroadPhaseRK11b2Transform(ptr noundef nonnull align 8 dereferenceable(80) %f.015, ptr noundef nonnull %m_contactManager, ptr noundef nonnull align 4 dereferenceable(16) %m_xf)
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %f.015, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %f.015, i64 8
   %f.0 = load ptr, ptr %m_next, align 8
   %tobool7.not = icmp eq ptr %f.0, null
   br i1 %tobool7.not, label %for.end.loopexit, label %for.body, !llvm.loop !15
@@ -1066,7 +1045,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then4
   %5 = phi ptr [ %.pre, %for.end.loopexit ], [ %4, %if.then4 ]
-  %m_newContacts = getelementptr inbounds %class.b2World, ptr %5, i64 0, i32 13
+  %m_newContacts = getelementptr inbounds i8, ptr %5, i64 103244
   store i8 1, ptr %m_newContacts, align 4
   br label %if.end28
 
@@ -1074,7 +1053,7 @@ if.else:                                          ; preds = %if.end
   %6 = and i16 %0, -33
   store i16 %6, ptr %m_flags.i, align 4
   %7 = load ptr, ptr %m_world, align 8
-  %m_contactManager14 = getelementptr inbounds %class.b2World, ptr %7, i64 0, i32 2
+  %m_contactManager14 = getelementptr inbounds i8, ptr %7, i64 103064
   %f16.08 = load ptr, ptr %m_fixtureList, align 8
   %tobool19.not9 = icmp eq ptr %f16.08, null
   br i1 %tobool19.not9, label %for.end23, label %for.body20
@@ -1082,24 +1061,24 @@ if.else:                                          ; preds = %if.end
 for.body20:                                       ; preds = %if.else, %for.body20
   %f16.010 = phi ptr [ %f16.0, %for.body20 ], [ %f16.08, %if.else ]
   tail call void @_ZN9b2Fixture14DestroyProxiesEP12b2BroadPhase(ptr noundef nonnull align 8 dereferenceable(80) %f16.010, ptr noundef nonnull %m_contactManager14)
-  %m_next22 = getelementptr inbounds %class.b2Fixture, ptr %f16.010, i64 0, i32 1
+  %m_next22 = getelementptr inbounds i8, ptr %f16.010, i64 8
   %f16.0 = load ptr, ptr %m_next22, align 8
   %tobool19.not = icmp eq ptr %f16.0, null
   br i1 %tobool19.not, label %for.end23, label %for.body20, !llvm.loop !16
 
 for.end23:                                        ; preds = %for.body20, %if.else
-  %m_contactList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 15
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 136
   %8 = load ptr, ptr %m_contactList, align 8
   %tobool24.not11 = icmp eq ptr %8, null
   br i1 %tobool24.not11, label %while.end, label %while.body
 
 while.body:                                       ; preds = %for.end23, %while.body
   %ce.012 = phi ptr [ %9, %while.body ], [ %8, %for.end23 ]
-  %next = getelementptr inbounds %struct.b2ContactEdge, ptr %ce.012, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %ce.012, i64 24
   %9 = load ptr, ptr %next, align 8
   %10 = load ptr, ptr %m_world, align 8
-  %m_contactManager26 = getelementptr inbounds %class.b2World, ptr %10, i64 0, i32 2
-  %contact = getelementptr inbounds %struct.b2ContactEdge, ptr %ce.012, i64 0, i32 1
+  %m_contactManager26 = getelementptr inbounds i8, ptr %10, i64 103064
+  %contact = getelementptr inbounds i8, ptr %ce.012, i64 8
   %11 = load ptr, ptr %contact, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %m_contactManager26, ptr noundef %11)
   %tobool24.not = icmp eq ptr %9, null
@@ -1116,7 +1095,7 @@ if.end28:                                         ; preds = %entry, %while.end, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6b2Body16SetFixedRotationEb(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, i1 noundef zeroext %flag) local_unnamed_addr #4 align 2 {
 entry:
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i16, ptr %m_flags, align 4
   %1 = and i16 %0, 16
   %2 = icmp eq i16 %1, 0
@@ -1128,7 +1107,7 @@ if.end:                                           ; preds = %entry
   %masksel = select i1 %flag, i16 16, i16 0
   %storemerge = or disjoint i16 %and14, %masksel
   store i16 %storemerge, ptr %m_flags, align 4
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 6
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 72
   store float 0.000000e+00, ptr %m_angularVelocity, align 8
   tail call void @_ZN6b2Body13ResetMassDataEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   br label %return
@@ -1140,43 +1119,43 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6b2Body4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_islandIndex = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 2
+  %m_islandIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_islandIndex, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.1)
   %1 = load i32, ptr %this, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.2, i32 noundef %1)
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3
+  %m_xf = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load float, ptr %m_xf, align 4
   %conv = fpext float %2 to double
-  %y = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 3, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load float, ptr %y, align 8
   %conv4 = fpext float %3 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.3, double noundef %conv, double noundef %conv4)
-  %a = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 4, i32 4
+  %a = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load float, ptr %a, align 8
   %conv5 = fpext float %4 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.4, double noundef %conv5)
-  %m_linearVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 5
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load float, ptr %m_linearVelocity, align 8
   %conv7 = fpext float %5 to double
-  %y9 = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 5, i32 1
+  %y9 = getelementptr inbounds i8, ptr %this, i64 68
   %6 = load float, ptr %y9, align 4
   %conv10 = fpext float %6 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.5, double noundef %conv7, double noundef %conv10)
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 6
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load float, ptr %m_angularVelocity, align 8
   %conv11 = fpext float %7 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.6, double noundef %conv11)
-  %m_linearDamping = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 20
+  %m_linearDamping = getelementptr inbounds i8, ptr %this, i64 160
   %8 = load float, ptr %m_linearDamping, align 8
   %conv12 = fpext float %8 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.7, double noundef %conv12)
-  %m_angularDamping = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 21
+  %m_angularDamping = getelementptr inbounds i8, ptr %this, i64 164
   %9 = load float, ptr %m_angularDamping, align 4
   %conv13 = fpext float %9 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.8, double noundef %conv13)
-  %m_flags = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 4
   %10 = load i16, ptr %m_flags, align 4
   %11 = and i16 %10, 4
   %and = zext nneg i16 %11 to i32
@@ -1197,14 +1176,14 @@ entry:
   %19 = and i16 %18, 32
   %and26 = zext nneg i16 %19 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.13, i32 noundef %and26)
-  %m_gravityScale = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 22
+  %m_gravityScale = getelementptr inbounds i8, ptr %this, i64 168
   %20 = load float, ptr %m_gravityScale, align 8
   %conv27 = fpext float %20 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.14, double noundef %conv27)
   %21 = load i32, ptr %m_islandIndex, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.15, i32 noundef %21)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.16)
-  %m_fixtureList = getelementptr inbounds %class.b2Body, ptr %this, i64 0, i32 12
+  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
   %f.03 = load ptr, ptr %m_fixtureList, align 8
   %tobool.not4 = icmp eq ptr %f.03, null
   br i1 %tobool.not4, label %for.end, label %for.body
@@ -1214,7 +1193,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.17)
   tail call void @_ZN9b2Fixture4DumpEi(ptr noundef nonnull align 8 dereferenceable(80) %f.05, i32 noundef %0)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.18)
-  %m_next = getelementptr inbounds %class.b2Fixture, ptr %f.05, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %f.05, i64 8
   %f.0 = load ptr, ptr %m_next, align 8
   %tobool.not = icmp eq ptr %f.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !18

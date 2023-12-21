@@ -3,16 +3,8 @@ source_filename = "bench/mimalloc/original/alloc-aligned.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
-%struct.mi_page_queue_s = type { ptr, ptr, i64 }
-%struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
 %struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
 %union.mi_page_flags_s = type { i8 }
-%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, i64, %struct.mi_commit_mask_s, %struct.mi_commit_mask_s, ptr, ptr, i64, i64, i64, i64, i64, i64, i32, i64, i64, [513 x %struct.mi_page_s] }
-%struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
-%union.anon = type { %struct.mi_memid_os_info }
-%struct.mi_memid_os_info = type { ptr, i64 }
-%struct.mi_commit_mask_s = type { [8 x i64] }
 
 @_mi_heap_default = external thread_local(initialexec) global ptr, align 8
 
@@ -46,9 +38,10 @@ if.end12:                                         ; preds = %lor.rhs
 if.then23:                                        ; preds = %if.end12
   %sub.i.i = add nuw nsw i64 %size, 7
   %div1.i.i = lshr i64 %sub.i.i, 3
-  %arrayidx.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 1, i64 %div1.i.i
+  %pages_free_direct.i = getelementptr inbounds i8, ptr %heap, i64 8
+  %arrayidx.i = getelementptr inbounds [129 x ptr], ptr %pages_free_direct.i, i64 0, i64 %div1.i.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %free = getelementptr inbounds %struct.mi_page_s, ptr %2, i64 0, i32 7
+  %free = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %free, align 8
   %4 = ptrtoint ptr %3 to i64
   %add25 = add i64 %4, %offset
@@ -118,13 +111,14 @@ if.then49.i:                                      ; preds = %if.end36.i
   %9 = inttoptr i64 %and.i.i.i to ptr
   %sub.ptr.sub.i.i.i = sub i64 %7, %and.i.i.i
   %shr.i.i.i = lshr i64 %sub.ptr.sub.i.i.i, 16
-  %arrayidx.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %9, i64 0, i32 18, i64 %shr.i.i.i
-  %slice_offset.i.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %9, i64 0, i32 18, i64 %shr.i.i.i, i32 1
+  %slices.i.i.i = getelementptr inbounds i8, ptr %9, i64 264
+  %arrayidx.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %shr.i.i.i
+  %slice_offset.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %10 = load i32, ptr %slice_offset.i.i.i.i, align 4
   %idx.ext.i.i.i.i = zext i32 %10 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %idx.ext.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i.i
-  %flags.i.i = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr.i.i.i.i, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 14
   %bf.load.i.i = load i8, ptr %flags.i.i, align 2
   %bf.set.i.i = or i8 %bf.load.i.i, 2
   store i8 %bf.set.i.i, ptr %flags.i.i, align 2

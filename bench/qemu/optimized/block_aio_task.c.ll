@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/block_aio_task.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.AioTaskPool = type { ptr, i32, i32, i32, i8 }
-%struct.AioTask = type { ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [21 x i8] c"pool->busy_tasks > 0\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"../qemu/block/aio_task.c\00", align 1
 @__PRETTY_FUNCTION__.aio_task_pool_wait_one = private unnamed_addr constant [43 x i8] c"void aio_task_pool_wait_one(AioTaskPool *)\00", align 1
@@ -23,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_task_pool_wait_one(ptr nocapture noundef %pool) #0 {
 entry:
-  %busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 3
+  %busy_tasks = getelementptr inbounds i8, ptr %pool, i64 16
   %0 = load i32, ptr %busy_tasks, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -43,7 +40,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %waiting = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 4
+  %waiting = getelementptr inbounds i8, ptr %pool, i64 20
   store i8 1, ptr %waiting, align 4
   tail call void @qemu_coroutine_yield() #6
   %2 = load i8, ptr %waiting, align 4
@@ -57,7 +54,7 @@ if.else7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   %4 = load i32, ptr %busy_tasks, align 8
-  %max_busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 2
+  %max_busy_tasks = getelementptr inbounds i8, ptr %pool, i64 12
   %5 = load i32, ptr %max_busy_tasks, align 4
   %cmp10 = icmp slt i32 %4, %5
   br i1 %cmp10, label %if.end13, label %if.else12
@@ -80,9 +77,9 @@ declare void @qemu_coroutine_yield() #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_task_pool_wait_slot(ptr nocapture noundef %pool) #0 {
 entry:
-  %busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 3
+  %busy_tasks = getelementptr inbounds i8, ptr %pool, i64 16
   %0 = load i32, ptr %busy_tasks, align 8
-  %max_busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 2
+  %max_busy_tasks = getelementptr inbounds i8, ptr %pool, i64 12
   %1 = load i32, ptr %max_busy_tasks, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -98,7 +95,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_task_pool_wait_all(ptr nocapture noundef %pool) #0 {
 entry:
-  %busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 3
+  %busy_tasks = getelementptr inbounds i8, ptr %pool, i64 16
   %0 = load i32, ptr %busy_tasks, align 8
   %cmp2 = icmp sgt i32 %0, 0
   br i1 %cmp2, label %while.body, label %while.end
@@ -116,9 +113,9 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_task_pool_start_task(ptr noundef %pool, ptr noundef %task) #0 {
 entry:
-  %busy_tasks.i = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 3
+  %busy_tasks.i = getelementptr inbounds i8, ptr %pool, i64 16
   %0 = load i32, ptr %busy_tasks.i, align 8
-  %max_busy_tasks.i = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 2
+  %max_busy_tasks.i = getelementptr inbounds i8, ptr %pool, i64 12
   %1 = load i32, ptr %max_busy_tasks.i, align 4
   %cmp.i = icmp slt i32 %0, %1
   br i1 %cmp.i, label %aio_task_pool_wait_slot.exit, label %if.end.i
@@ -142,9 +139,9 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @aio_task_co(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %0, i64 0, i32 3
+  %busy_tasks = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %busy_tasks, align 8
-  %max_busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %0, i64 0, i32 2
+  %max_busy_tasks = getelementptr inbounds i8, ptr %0, i64 12
   %2 = load i32, ptr %max_busy_tasks, align 4
   %cmp = icmp slt i32 %1, %2
   br i1 %cmp, label %if.end, label %if.else
@@ -156,10 +153,10 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %busy_tasks, align 8
-  %func = getelementptr inbounds %struct.AioTask, ptr %opaque, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load ptr, ptr %func, align 8
   %call = tail call i32 %3(ptr noundef nonnull %opaque) #6
-  %ret = getelementptr inbounds %struct.AioTask, ptr %opaque, i64 0, i32 2
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 16
   store i32 %call, ptr %ret, align 8
   %4 = load i32, ptr %busy_tasks, align 8
   %dec = add i32 %4, -1
@@ -169,7 +166,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %status = getelementptr inbounds %struct.AioTaskPool, ptr %0, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %status, align 8
   %cmp6 = icmp eq i32 %6, 0
   br i1 %cmp6, label %if.then7, label %if.end10
@@ -180,7 +177,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %if.then7, %land.lhs.true, %if.end
   tail call void @g_free(ptr noundef nonnull %opaque) #6
-  %waiting = getelementptr inbounds %struct.AioTaskPool, ptr %0, i64 0, i32 4
+  %waiting = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i8, ptr %waiting, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -210,7 +207,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @qemu_coroutine_self() #6
   store ptr %call1, ptr %call, align 8
-  %max_busy_tasks2 = getelementptr inbounds %struct.AioTaskPool, ptr %call, i64 0, i32 2
+  %max_busy_tasks2 = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %max_busy_tasks, ptr %max_busy_tasks2, align 4
   ret ptr %call
 }
@@ -234,7 +231,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %status = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %pool, i64 8
   %0 = load i32, ptr %status, align 8
   br label %return
 
@@ -246,7 +243,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @aio_task_pool_empty(ptr nocapture noundef readonly %pool) local_unnamed_addr #4 {
 entry:
-  %busy_tasks = getelementptr inbounds %struct.AioTaskPool, ptr %pool, i64 0, i32 3
+  %busy_tasks = getelementptr inbounds i8, ptr %pool, i64 16
   %0 = load i32, ptr %busy_tasks, align 8
   %cmp = icmp eq i32 %0, 0
   ret i1 %cmp

@@ -13,8 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._typeobject = type opaque
 %struct.PyType_Slot = type { i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct.xx_state = type { ptr, ptr }
-%struct.XxoObject = type { %struct._object, ptr, [10 x i8], i64 }
 
 @xxmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 1 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 16, ptr @xx_methods, ptr @xx_slots, ptr @xx_traverse, ptr @xx_clear, ptr null }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"xxlimited\00", align 1
@@ -71,7 +69,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %Error_Type = getelementptr inbounds %struct.xx_state, ptr %call, i64 0, i32 1
+  %Error_Type = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %Error_Type, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -103,7 +101,7 @@ if.then:                                          ; preds = %entry
   br label %do.body1
 
 do.body1:                                         ; preds = %if.then, %entry
-  %Error_Type = getelementptr inbounds %struct.xx_state, ptr %call, i64 0, i32 1
+  %Error_Type = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %Error_Type, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -152,8 +150,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %newXxoObject.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %x_attr.i = getelementptr inbounds %struct.XxoObject, ptr %call1.i, i64 0, i32 1
-  %x_exports.i = getelementptr inbounds %struct.XxoObject, ptr %call1.i, i64 0, i32 3
+  %x_attr.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %x_exports.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   store i64 0, ptr %x_exports.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %x_attr.i, i8 0, i64 18, i1 false)
   br label %newXxoObject.exit
@@ -179,7 +177,7 @@ define internal i32 @xx_modexec(ptr noundef %m) #0 {
 entry:
   %call = tail call ptr @PyModule_GetState(ptr noundef %m) #4
   %call1 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null) #4
-  %Error_Type = getelementptr inbounds %struct.xx_state, ptr %call, i64 0, i32 1
+  %Error_Type = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %Error_Type, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -239,7 +237,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.end, label %return
 
 do.end:                                           ; preds = %entry, %if.then
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self_obj, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self_obj, i64 16
   %1 = load ptr, ptr %x_attr, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -260,7 +258,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @Xxo_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -277,7 +275,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @Xxo_finalize(ptr nocapture noundef %self_obj) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self_obj, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self_obj, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -295,7 +293,7 @@ do.end:                                           ; preds = %entry, %if.then
 define internal void @Xxo_dealloc(ptr noundef %self) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #4
-  %x_attr.i = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Xxo_finalize.exit, label %if.then.i
@@ -317,7 +315,7 @@ Xxo_finalize.exit:                                ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @Xxo_getattro(ptr noundef %self, ptr noundef %name) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end8, label %if.then
@@ -348,7 +346,7 @@ return:                                           ; preds = %if.else, %if.end8, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Xxo_setattro(ptr nocapture noundef %self, ptr noundef %name, ptr noundef %v) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -392,13 +390,13 @@ return:                                           ; preds = %if.then7, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal i32 @Xxo_getbuffer(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
-  %x_buffer = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 2
+  %x_buffer = getelementptr inbounds i8, ptr %self, i64 24
   %call = tail call i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %self, ptr noundef nonnull %x_buffer, i64 noundef 10, i32 noundef 0, i32 noundef %flags) #4
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %x_exports = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 3
+  %x_exports = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i64, ptr %x_exports, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %x_exports, align 8
@@ -411,7 +409,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @Xxo_releasebuffer(ptr nocapture noundef %self, ptr nocapture readnone %view) #3 {
 entry:
-  %x_exports = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 3
+  %x_exports = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i64, ptr %x_exports, align 8
   %dec = add i64 %0, -1
   store i64 %dec, ptr %x_exports, align 8
@@ -512,7 +510,7 @@ declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @Xxo_get_x_exports(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
 entry:
-  %x_exports = getelementptr inbounds %struct.XxoObject, ptr %self, i64 0, i32 3
+  %x_exports = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i64, ptr %x_exports, align 8
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #4
   ret ptr %call

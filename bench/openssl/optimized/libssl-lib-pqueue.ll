@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libssl-lib-pqueue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pitem_st = type { [8 x i8], ptr, ptr }
-
 @.str = private unnamed_addr constant [24 x i8] c"../openssl/ssl/pqueue.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -17,9 +15,9 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %prio64be, align 1
   store i64 %0, ptr %call, align 8
-  %data1 = getelementptr inbounds %struct.pitem_st, ptr %call, i64 0, i32 1
+  %data1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %data, ptr %data1, align 8
-  %next = getelementptr inbounds %struct.pitem_st, ptr %call, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %next, align 8
   br label %return
 
@@ -74,10 +72,10 @@ for.body:                                         ; preds = %for.inc
 if.then8:                                         ; preds = %for.body, %for.body.preheader
   %next.025.lcssa = phi ptr [ %0, %for.body.preheader ], [ %1, %for.body ]
   %curr.024.lcssa = phi ptr [ null, %for.body.preheader ], [ %next.02541, %for.body ]
-  %next9 = getelementptr inbounds %struct.pitem_st, ptr %item, i64 0, i32 2
+  %next9 = getelementptr inbounds i8, ptr %item, i64 16
   store ptr %next.025.lcssa, ptr %next9, align 8
   %cmp10 = icmp eq ptr %curr.024.lcssa, null
-  %next13 = getelementptr inbounds %struct.pitem_st, ptr %curr.024.lcssa, i64 0, i32 2
+  %next13 = getelementptr inbounds i8, ptr %curr.024.lcssa, i64 16
   %spec.select = select i1 %cmp10, ptr %pq, ptr %next13
   br label %return.sink.split
 
@@ -88,14 +86,14 @@ if.else15:                                        ; preds = %for.body.preheader,
   br i1 %cmp16, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.else15
-  %next20 = getelementptr inbounds %struct.pitem_st, ptr %next.02541, i64 0, i32 2
+  %next20 = getelementptr inbounds i8, ptr %next.02541, i64 16
   %1 = load ptr, ptr %next20, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %next20.le = getelementptr inbounds %struct.pitem_st, ptr %next.02541, i64 0, i32 2
-  %next21 = getelementptr inbounds %struct.pitem_st, ptr %item, i64 0, i32 2
+  %next20.le = getelementptr inbounds i8, ptr %next.02541, i64 16
+  %next21 = getelementptr inbounds i8, ptr %item, i64 16
   store ptr null, ptr %next21, align 8
   br label %return.sink.split
 
@@ -127,7 +125,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.pitem_st, ptr %0, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %pq, align 8
   br label %if.end
@@ -145,7 +143,7 @@ entry:
 
 for.cond:                                         ; preds = %entry, %for.body
   %next.0 = phi ptr [ %1, %for.body ], [ %0, %entry ]
-  %next2 = getelementptr inbounds %struct.pitem_st, ptr %next.0, i64 0, i32 2
+  %next2 = getelementptr inbounds i8, ptr %next.0, i64 16
   %1 = load ptr, ptr %next2, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %for.end, label %for.body
@@ -186,7 +184,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %next = getelementptr inbounds %struct.pitem_st, ptr %0, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %item, align 8
   br label %return
@@ -207,7 +205,7 @@ while.body:                                       ; preds = %entry, %while.body
   %item.06 = phi ptr [ %item.0, %while.body ], [ %item.03, %entry ]
   %count.05 = phi i64 [ %inc, %while.body ], [ 0, %entry ]
   %inc = add i64 %count.05, 1
-  %next = getelementptr inbounds %struct.pitem_st, ptr %item.06, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %item.06, i64 16
   %item.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %item.0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7

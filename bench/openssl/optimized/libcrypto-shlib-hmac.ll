@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-hmac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.hmac_ctx_st = type { ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/hmac/hmac.c\00", align 1
 @HMAC.static_md = internal global [64 x i8] zeroinitializer, align 16
 @.str.1 = private unnamed_addr constant [5 x i8] c"HMAC\00", align 1
@@ -58,7 +56,7 @@ if.end32:                                         ; preds = %if.then20
   br i1 %cmp33, label %if.then35, label %if.else49
 
 if.then35:                                        ; preds = %if.end32
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %md_ctx, align 8
   %call36 = tail call i32 @EVP_DigestInit_ex(ptr noundef %1, ptr noundef nonnull %md.addr.0, ptr noundef %impl) #6
   %tobool37.not = icmp eq i32 %call36, 0
@@ -119,7 +117,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %i_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %i_ctx, align 8
   %call73 = call i32 @EVP_DigestInit_ex(ptr noundef %7, ptr noundef nonnull %md.addr.0, ptr noundef %impl) #6
   %tobool74.not = icmp eq i32 %call73, 0
@@ -145,7 +143,7 @@ for.body87:                                       ; preds = %lor.lhs.false75, %f
   br i1 %exitcond56.not, label %for.end97, label %for.body87, !llvm.loop !6
 
 for.end97:                                        ; preds = %for.body87
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   %11 = load ptr, ptr %o_ctx, align 8
   %call98 = call i32 @EVP_DigestInit_ex(ptr noundef %11, ptr noundef nonnull %md.addr.0, ptr noundef %impl) #6
   %tobool99.not = icmp eq i32 %call98, 0
@@ -160,9 +158,9 @@ lor.lhs.false100:                                 ; preds = %for.end97
   br i1 %tobool106.not, label %if.then117, label %err
 
 err:                                              ; preds = %if.end18, %lor.lhs.false100
-  %md_ctx110 = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx110 = getelementptr inbounds i8, ptr %ctx, i64 8
   %13 = load ptr, ptr %md_ctx110, align 8
-  %i_ctx111 = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %i_ctx111 = getelementptr inbounds i8, ptr %ctx, i64 16
   %14 = load ptr, ptr %i_ctx111, align 8
   %call112 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %13, ptr noundef %14) #6
   %tobool113.not = icmp ne i32 %call112, 0
@@ -220,13 +218,13 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define i32 @HMAC_CTX_reset(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %i_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %i_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
   %call.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %0) #6
-  %o_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %o_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %o_ctx.i, align 8
   %call1.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %1) #6
-  %md_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %md_ctx.i, align 8
   %call2.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %2) #6
   store ptr null, ptr %ctx, align 8
@@ -285,7 +283,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %md_ctx, align 8
   %call = tail call i32 @EVP_DigestUpdate(ptr noundef %1, ptr noundef %data, i64 noundef %len) #6
   br label %return
@@ -305,7 +303,7 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %md_ctx, align 8
   %call = call i32 @EVP_DigestFinal_ex(ptr noundef %1, ptr noundef nonnull %buf, ptr noundef nonnull %i) #6
   %tobool2.not = icmp eq i32 %call, 0
@@ -313,7 +311,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %2 = load ptr, ptr %md_ctx, align 8
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %o_ctx, align 8
   %call6 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %2, ptr noundef %3) #6
   %tobool7.not = icmp eq i32 %call6, 0
@@ -366,13 +364,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %HMAC_CTX_free.exit, label %return
 
 HMAC_CTX_free.exit:                               ; preds = %if.then
-  %i_ctx.i.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %call, i64 0, i32 2
+  %i_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %i_ctx.i.i, align 8
   %call.i.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %0) #6
-  %o_ctx.i.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %call, i64 0, i32 3
+  %o_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load ptr, ptr %o_ctx.i.i, align 8
   %call1.i.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %1) #6
-  %md_ctx.i.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %call, i64 0, i32 1
+  %md_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %md_ctx.i.i, align 8
   %call2.i.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %2) #6
   store ptr null, ptr %call, align 8
@@ -396,13 +394,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %i_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %i_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
   %call.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %0) #6
-  %o_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %o_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %o_ctx.i, align 8
   %call1.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %1) #6
-  %md_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %md_ctx.i, align 8
   %call2.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %2) #6
   store ptr null, ptr %ctx, align 8
@@ -426,7 +424,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define i32 @HMAC_CTX_copy(ptr nocapture noundef %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #0 {
 entry:
-  %i_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %dctx, i64 0, i32 2
+  %i_ctx.i = getelementptr inbounds i8, ptr %dctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.end.i, label %if.end5.i
@@ -438,7 +436,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp3.i, label %err, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i, %entry
-  %o_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %dctx, i64 0, i32 3
+  %o_ctx.i = getelementptr inbounds i8, ptr %dctx, i64 24
   %1 = load ptr, ptr %o_ctx.i, align 8
   %cmp6.i = icmp eq ptr %1, null
   br i1 %cmp6.i, label %if.end10.i, label %if.end14.i
@@ -450,7 +448,7 @@ if.end10.i:                                       ; preds = %if.end5.i
   br i1 %cmp12.i, label %err, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end10.i, %if.end5.i
-  %md_ctx.i = getelementptr inbounds %struct.hmac_ctx_st, ptr %dctx, i64 0, i32 1
+  %md_ctx.i = getelementptr inbounds i8, ptr %dctx, i64 8
   %2 = load ptr, ptr %md_ctx.i, align 8
   %cmp15.i = icmp eq ptr %2, null
   br i1 %cmp15.i, label %hmac_ctx_alloc_mds.exit, label %if.end
@@ -463,7 +461,7 @@ hmac_ctx_alloc_mds.exit:                          ; preds = %if.end14.i
 
 if.end:                                           ; preds = %if.end14.i, %hmac_ctx_alloc_mds.exit
   %3 = load ptr, ptr %i_ctx.i, align 8
-  %i_ctx1 = getelementptr inbounds %struct.hmac_ctx_st, ptr %sctx, i64 0, i32 2
+  %i_ctx1 = getelementptr inbounds i8, ptr %sctx, i64 16
   %4 = load ptr, ptr %i_ctx1, align 8
   %call2 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %3, ptr noundef %4) #6
   %tobool3.not = icmp eq i32 %call2, 0
@@ -471,7 +469,7 @@ if.end:                                           ; preds = %if.end14.i, %hmac_c
 
 if.end5:                                          ; preds = %if.end
   %5 = load ptr, ptr %o_ctx.i, align 8
-  %o_ctx6 = getelementptr inbounds %struct.hmac_ctx_st, ptr %sctx, i64 0, i32 3
+  %o_ctx6 = getelementptr inbounds i8, ptr %sctx, i64 24
   %6 = load ptr, ptr %o_ctx6, align 8
   %call7 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %5, ptr noundef %6) #6
   %tobool8.not = icmp eq i32 %call7, 0
@@ -479,7 +477,7 @@ if.end5:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end5
   %7 = load ptr, ptr %md_ctx.i, align 8
-  %md_ctx11 = getelementptr inbounds %struct.hmac_ctx_st, ptr %sctx, i64 0, i32 1
+  %md_ctx11 = getelementptr inbounds i8, ptr %sctx, i64 8
   %8 = load ptr, ptr %md_ctx11, align 8
   %call12 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %7, ptr noundef %8) #6
   %tobool13.not = icmp eq i32 %call12, 0
@@ -492,10 +490,10 @@ if.end15:                                         ; preds = %if.end10
 err:                                              ; preds = %if.end10.i, %if.end.i, %if.end10, %if.end5, %if.end, %hmac_ctx_alloc_mds.exit
   %10 = load ptr, ptr %i_ctx.i, align 8
   %call.i10 = tail call i32 @EVP_MD_CTX_reset(ptr noundef %10) #6
-  %o_ctx.i11 = getelementptr inbounds %struct.hmac_ctx_st, ptr %dctx, i64 0, i32 3
+  %o_ctx.i11 = getelementptr inbounds i8, ptr %dctx, i64 24
   %11 = load ptr, ptr %o_ctx.i11, align 8
   %call1.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %11) #6
-  %md_ctx.i12 = getelementptr inbounds %struct.hmac_ctx_st, ptr %dctx, i64 0, i32 1
+  %md_ctx.i12 = getelementptr inbounds i8, ptr %dctx, i64 8
   %12 = load ptr, ptr %md_ctx.i12, align 8
   %call2.i = tail call i32 @EVP_MD_CTX_reset(ptr noundef %12) #6
   br label %return
@@ -544,14 +542,14 @@ declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @HMAC_CTX_set_flags(ptr nocapture noundef readonly %ctx, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %i_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx, align 8
   %conv = trunc i64 %flags to i32
   tail call void @EVP_MD_CTX_set_flags(ptr noundef %0, i32 noundef %conv) #6
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %o_ctx, align 8
   tail call void @EVP_MD_CTX_set_flags(ptr noundef %1, i32 noundef %conv) #6
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %md_ctx, align 8
   tail call void @EVP_MD_CTX_set_flags(ptr noundef %2, i32 noundef %conv) #6
   ret void

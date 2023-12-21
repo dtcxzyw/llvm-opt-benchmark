@@ -15,12 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyLongValue = type { i64, [1 x i32] }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct._curses_panel_state = type { ptr, ptr }
-%struct.PyCursesPanelObject = type { %struct._object, ptr, ptr }
-%struct._list_of_panels = type { ptr, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyCursesWindowObject = type { %struct._object, ptr, ptr }
 
 @_curses_panelmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 16, ptr @PyCurses_methods, ptr @_curses_slots, ptr @_curses_panel_traverse, ptr @_curses_panel_clear, ptr @_curses_panel_free }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"_curses_panel\00", align 1
@@ -134,7 +128,7 @@ if.then9:                                         ; preds = %do.end
   br i1 %tobool13.not, label %do.body18, label %return
 
 do.body18:                                        ; preds = %if.then9, %do.end
-  %PyCursesPanel_Type = getelementptr inbounds %struct._curses_panel_state, ptr %call.i, i64 0, i32 1
+  %PyCursesPanel_Type = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %PyCursesPanel_Type, align 8
   %tobool19.not = icmp eq ptr %2, null
   br i1 %tobool19.not, label %do.end28, label %if.then20
@@ -178,7 +172,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %PyCursesPanel_Type = getelementptr inbounds %struct._curses_panel_state, ptr %call.i, i64 0, i32 1
+  %PyCursesPanel_Type = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %PyCursesPanel_Type, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -230,7 +224,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %PyCursesPanel_Type.i = getelementptr inbounds %struct._curses_panel_state, ptr %call.i.i, i64 0, i32 1
+  %PyCursesPanel_Type.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %3 = load ptr, ptr %PyCursesPanel_Type.i, align 8
   %cmp4.not.i = icmp eq ptr %3, null
   br i1 %cmp4.not.i, label %_curses_panel_clear.exit, label %if.then5.i
@@ -260,7 +254,7 @@ _curses_panel_clear.exit:                         ; preds = %do.body1.i, %if.the
 define internal ptr @_curses_panel_bottom_panel(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyCurses_API, align 8
-  %arrayidx.i = getelementptr ptr, ptr %0, i64 2
+  %arrayidx.i = getelementptr i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 %1() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -278,13 +272,13 @@ if.end3.i:                                        ; preds = %if.end.i
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end3.i
   %temp.0.i.i = phi ptr [ %2, %if.end3.i ], [ %5, %for.body.i.i ]
   %3 = load ptr, ptr %temp.0.i.i, align 8
-  %pan1.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %3, i64 0, i32 1
+  %pan1.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %pan1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %call1.i
   br i1 %cmp.not.i.i, label %if.end7.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %next.i.i = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %temp.0.i.i, i64 8
   %5 = load ptr, ptr %next.i.i, align 8
   %cmp2.i.i = icmp eq ptr %5, null
   br i1 %cmp2.i.i, label %if.then6.i, label %for.cond.i.i, !llvm.loop !4
@@ -327,14 +321,14 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
 if.then:                                          ; preds = %PyObject_TypeCheck.exit
   %3 = load ptr, ptr @PyCurses_API, align 8
   %4 = load ptr, ptr %3, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef %5, ptr noundef nonnull %arg) #3
   br label %exit
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %win1.i = getelementptr inbounds %struct.PyCursesWindowObject, ptr %arg, i64 0, i32 1
+  %win1.i = getelementptr inbounds i8, ptr %arg, i64 16
   %6 = load ptr, ptr %win1.i, align 8
   %call2.i3 = tail call ptr @new_panel(ptr noundef %6) #3
   %cmp.i = icmp eq ptr %call2.i3, null
@@ -353,7 +347,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %pan1.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %call.i4.i, i64 0, i32 1
+  %pan1.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 16
   store ptr %call2.i3, ptr %pan1.i.i, align 8
   %call.i.i.i = tail call ptr @PyMem_Malloc(i64 noundef 16) #3
   %cmp.i9.i.i = icmp eq ptr %call.i.i.i, null
@@ -361,7 +355,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %call1.i.i.i = tail call ptr @PyErr_NoMemory() #3
-  %wo5.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %call.i4.i, i64 0, i32 2
+  %wo5.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 24
   store ptr null, ptr %wo5.i.i, align 8
   %9 = load i64, ptr %call.i4.i, align 8
   %10 = and i64 %9, 2147483648
@@ -381,7 +375,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 if.end6.i.i:                                      ; preds = %if.end.i.i
   store ptr %call.i4.i, ptr %call.i.i.i, align 8
   %11 = load ptr, ptr @lop, align 8
-  %next.i.i.i = getelementptr inbounds %struct._list_of_panels, ptr %call.i.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %11, ptr %next.i.i.i, align 8
   store ptr %call.i.i.i, ptr @lop, align 8
   %12 = load i32, ptr %arg, align 8
@@ -394,7 +388,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end6.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end6.i.i
-  %wo8.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %call.i4.i, i64 0, i32 2
+  %wo8.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 24
   store ptr %arg, ptr %wo8.i.i, align 8
   br label %exit
 
@@ -407,7 +401,7 @@ exit:                                             ; preds = %_Py_NewRef.exit.i.i
 define internal ptr @_curses_panel_top_panel(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyCurses_API, align 8
-  %arrayidx.i = getelementptr ptr, ptr %0, i64 2
+  %arrayidx.i = getelementptr i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 %1() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -425,13 +419,13 @@ if.end3.i:                                        ; preds = %if.end.i
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end3.i
   %temp.0.i.i = phi ptr [ %2, %if.end3.i ], [ %5, %for.body.i.i ]
   %3 = load ptr, ptr %temp.0.i.i, align 8
-  %pan1.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %3, i64 0, i32 1
+  %pan1.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %pan1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %call1.i
   br i1 %cmp.not.i.i, label %if.end7.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %next.i.i = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %temp.0.i.i, i64 8
   %5 = load ptr, ptr %next.i.i, align 8
   %cmp2.i.i = icmp eq ptr %5, null
   br i1 %cmp2.i.i, label %if.then6.i, label %for.cond.i.i, !llvm.loop !4
@@ -460,7 +454,7 @@ _curses_panel_top_panel_impl.exit:                ; preds = %entry, %if.end.i, %
 define internal ptr @_curses_panel_update_panels(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyCurses_API, align 8
-  %arrayidx.i = getelementptr ptr, ptr %0, i64 2
+  %arrayidx.i = getelementptr i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 %1() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -504,7 +498,7 @@ define internal i32 @_curses_panel_exec(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #3
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @PyCursesPanel_Type_spec, ptr noundef null) #3
-  %PyCursesPanel_Type = getelementptr inbounds %struct._curses_panel_state, ptr %call.i, i64 0, i32 1
+  %PyCursesPanel_Type = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1, ptr %PyCursesPanel_Type, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -610,7 +604,7 @@ define internal void @PyCursesPanel_Dealloc(ptr noundef %po) #0 {
 entry:
   %0 = getelementptr i8, ptr %po, i64 8
   %po.val = load ptr, ptr %0, align 8
-  %pan = getelementptr inbounds %struct.PyCursesPanelObject, ptr %po, i64 0, i32 1
+  %pan = getelementptr inbounds i8, ptr %po, i64 16
   %1 = load ptr, ptr %pan, align 8
   %call1 = tail call ptr @panel_userptr(ptr noundef %1) #3
   %tobool.not = icmp eq ptr %call1, null
@@ -637,7 +631,7 @@ if.then1.i24:                                     ; preds = %if.end.i21
 if.end:                                           ; preds = %if.end.i21, %if.then1.i24, %if.then, %entry
   %5 = load ptr, ptr %pan, align 8
   %call5 = tail call i32 @del_panel(ptr noundef %5) #3
-  %wo = getelementptr inbounds %struct.PyCursesPanelObject, ptr %po, i64 0, i32 2
+  %wo = getelementptr inbounds i8, ptr %po, i64 24
   %6 = load ptr, ptr %wo, align 8
   %cmp.not = icmp eq ptr %6, null
   br i1 %cmp.not, label %if.end8, label %if.then6
@@ -665,7 +659,7 @@ Py_DECREF.exit17:                                 ; preds = %if.then6, %if.then1
   br i1 %cmp.i15, label %if.then.i, label %while.cond.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit17
-  %next.i = getelementptr inbounds %struct._list_of_panels, ptr %9, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %next.i, align 8
   store ptr %11, ptr @lop, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %9) #3
@@ -673,7 +667,7 @@ if.then.i:                                        ; preds = %Py_DECREF.exit17
 
 while.cond.i:                                     ; preds = %Py_DECREF.exit17, %lor.rhs.i
   %temp.0.i = phi ptr [ %12, %lor.rhs.i ], [ %9, %Py_DECREF.exit17 ]
-  %next2.i = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i, i64 0, i32 1
+  %next2.i = getelementptr inbounds i8, ptr %temp.0.i, i64 8
   %12 = load ptr, ptr %next2.i, align 8
   %cmp3.i = icmp eq ptr %12, null
   br i1 %cmp3.i, label %if.then9.i, label %lor.rhs.i
@@ -689,8 +683,8 @@ if.then9.i:                                       ; preds = %while.cond.i
   br label %if.end8
 
 while.end.i:                                      ; preds = %lor.rhs.i
-  %next2.i.le = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i, i64 0, i32 1
-  %next13.i = getelementptr inbounds %struct._list_of_panels, ptr %12, i64 0, i32 1
+  %next2.i.le = getelementptr inbounds i8, ptr %temp.0.i, i64 8
+  %next13.i = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load ptr, ptr %next13.i, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %12) #3
   store ptr %15, ptr %next2.i.le, align 8
@@ -743,13 +737,13 @@ if.end.i:                                         ; preds = %entry
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end.i
   %temp.0.i.i = phi ptr [ %1, %if.end.i ], [ %4, %for.body.i.i ]
   %2 = load ptr, ptr %temp.0.i.i, align 8
-  %pan1.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %2, i64 0, i32 1
+  %pan1.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %pan1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %call.i
   br i1 %cmp.not.i.i, label %if.end5.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %next.i.i = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %temp.0.i.i, i64 8
   %4 = load ptr, ptr %next.i.i, align 8
   %cmp2.i.i = icmp eq ptr %4, null
   br i1 %cmp2.i.i, label %if.then4.i, label %for.cond.i.i, !llvm.loop !4
@@ -790,13 +784,13 @@ if.end.i:                                         ; preds = %entry
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end.i
   %temp.0.i.i = phi ptr [ %1, %if.end.i ], [ %4, %for.body.i.i ]
   %2 = load ptr, ptr %temp.0.i.i, align 8
-  %pan1.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %2, i64 0, i32 1
+  %pan1.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %pan1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %call.i
   br i1 %cmp.not.i.i, label %if.end5.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %next.i.i = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %temp.0.i.i, i64 8
   %4 = load ptr, ptr %next.i.i, align 8
   %cmp2.i.i = icmp eq ptr %4, null
   br i1 %cmp2.i.i, label %if.then4.i, label %for.cond.i.i, !llvm.loop !4
@@ -834,7 +828,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %pan.i, align 8
   %call1.i = tail call i32 @bottom_panel(ptr noundef %1) #3
   %cmp.not.i.i = icmp eq i32 %call1.i, -1
@@ -874,7 +868,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %pan.i, align 8
   %call1.i = tail call i32 @hide_panel(ptr noundef %1) #3
   %cmp.not.i.i = icmp eq i32 %call1.i, -1
@@ -919,7 +913,7 @@ land.lhs.true8:                                   ; preds = %if.end
   br i1 %tobool10.not, label %if.end12, label %exit
 
 if.end12:                                         ; preds = %land.lhs.true8, %if.end
-  %arrayidx13 = getelementptr ptr, ptr %cond25, i64 1
+  %arrayidx13 = getelementptr i8, ptr %cond25, i64 8
   %2 = load ptr, ptr %arrayidx13, align 8
   %call14 = call i32 @PyLong_AsInt(ptr noundef %2) #3
   %cmp15 = icmp eq i32 %call14, -1
@@ -927,7 +921,7 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
 
 if.end12.split:                                   ; preds = %if.end12
   %call.i = call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %pan.i, align 8
   %call1.i = call i32 @move_panel(ptr noundef %3, i32 noundef %call6, i32 noundef %call14) #3
   %cmp.not.i.i = icmp eq i32 %call1.i, -1
@@ -940,7 +934,7 @@ land.lhs.true16:                                  ; preds = %if.end12
 
 land.lhs.true16.split:                            ; preds = %land.lhs.true16
   %call.i15 = call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i16 = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i16 = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %pan.i16, align 8
   %call1.i17 = call i32 @move_panel(ptr noundef %4, i32 noundef %call6, i32 noundef -1) #3
   %cmp.not.i.i18 = icmp eq i32 %call1.i17, -1
@@ -992,7 +986,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
 if.then9:                                         ; preds = %PyObject_TypeCheck.exit
   %5 = load ptr, ptr @PyCurses_API, align 8
   %6 = load ptr, ptr %5, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %6, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %tp_name, align 8
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32, ptr noundef %7, ptr noundef %.pre) #3
   br label %exit
@@ -1000,7 +994,7 @@ if.then9:                                         ; preds = %PyObject_TypeCheck.
 if.end12:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
   %8 = phi ptr [ %1, %if.end ], [ %.pre, %PyObject_TypeCheck.exit ]
   %call.i = call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load ptr, ptr %pan.i, align 8
   %10 = load ptr, ptr @lop, align 8
   br label %for.cond.i.i
@@ -1008,13 +1002,13 @@ if.end12:                                         ; preds = %if.end, %PyObject_T
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end12
   %temp.0.i.i = phi ptr [ %10, %if.end12 ], [ %13, %for.body.i.i ]
   %11 = load ptr, ptr %temp.0.i.i, align 8
-  %pan1.i.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %11, i64 0, i32 1
+  %pan1.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %pan1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %12, %9
   br i1 %cmp.not.i.i, label %if.end.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %next.i.i = getelementptr inbounds %struct._list_of_panels, ptr %temp.0.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %temp.0.i.i, i64 8
   %13 = load ptr, ptr %next.i.i, align 8
   %cmp2.i.i = icmp eq ptr %13, null
   br i1 %cmp2.i.i, label %if.then.i, label %for.cond.i.i, !llvm.loop !4
@@ -1025,7 +1019,7 @@ if.then.i:                                        ; preds = %for.body.i.i
   br label %exit
 
 if.end.i:                                         ; preds = %for.cond.i.i
-  %win3.i = getelementptr inbounds %struct.PyCursesWindowObject, ptr %8, i64 0, i32 1
+  %win3.i = getelementptr inbounds i8, ptr %8, i64 16
   %15 = load ptr, ptr %win3.i, align 8
   %call4.i = call i32 @replace_panel(ptr noundef %9, ptr noundef %15) #3
   %cmp5.i = icmp eq i32 %call4.i, -1
@@ -1037,7 +1031,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %exit
 
 do.body.i:                                        ; preds = %if.end.i
-  %wo.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %11, i64 0, i32 2
+  %wo.i = getelementptr inbounds i8, ptr %11, i64 24
   %17 = load ptr, ptr %wo.i, align 8
   %18 = load i32, ptr %8, align 8
   %add.i.i.i = add i32 %18, 1
@@ -1090,7 +1084,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %cond12 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond12, align 8
   %2 = load ptr, ptr @PyCurses_API, align 8
-  %arrayidx.i = getelementptr ptr, ptr %2, i64 2
+  %arrayidx.i = getelementptr i8, ptr %2, i64 16
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call.i = call i32 %3() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1107,7 +1101,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %if.end.i
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %pan.i, align 8
   %call1.i = call ptr @panel_userptr(ptr noundef %5) #3
   %6 = load ptr, ptr %pan.i, align 8
@@ -1179,7 +1173,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %pan.i, align 8
   %call1.i = tail call i32 @show_panel(ptr noundef %1) #3
   %cmp.not.i.i = icmp eq i32 %call1.i, -1
@@ -1208,7 +1202,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %pan.i, align 8
   %call1.i = tail call i32 @top_panel(ptr noundef %1) #3
   %cmp.not.i.i = icmp eq i32 %call1.i, -1
@@ -1238,14 +1232,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyType_GetModuleState(ptr noundef %cls) #3
   %1 = load ptr, ptr @PyCurses_API, align 8
-  %arrayidx.i = getelementptr ptr, ptr %1, i64 2
+  %arrayidx.i = getelementptr i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = tail call i32 %2() #3
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %pan.i = getelementptr inbounds %struct.PyCursesPanelObject, ptr %self, i64 0, i32 1
+  %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %pan.i, align 8
   %call2.i = tail call ptr @panel_userptr(ptr noundef %3) #3
   %cmp.i = icmp eq ptr %call2.i, null

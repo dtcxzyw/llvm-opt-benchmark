@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.TraceEventInfo = type { ptr, i32, i8 }
-%struct.q_obj_trace_event_get_state_arg = type { ptr, i8, i64 }
-%struct.TraceEventInfoList = type { ptr, ptr }
-%struct.q_obj_trace_event_set_state_arg = type { ptr, i8, i8, i8, i8, i64 }
 
 @TraceEventState_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
@@ -42,7 +38,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.TraceEventInfo, ptr %obj, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %state, align 4
   store i32 %0, ptr %value.i, align 4
@@ -61,7 +57,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %call7, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %vcpu = getelementptr inbounds %struct.TraceEventInfo, ptr %obj, i64 0, i32 2
+  %vcpu = getelementptr inbounds i8, ptr %obj, i64 12
   %call9 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vcpu, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
@@ -154,7 +150,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_vcpu = getelementptr inbounds %struct.q_obj_trace_event_get_state_arg, ptr %obj, i64 0, i32 1
+  %has_vcpu = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_vcpu) #4
   br i1 %call1, label %if.then2, label %if.end12
 
@@ -167,7 +163,7 @@ if.end5:                                          ; preds = %if.then2
   br i1 %call6, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %vcpu = getelementptr inbounds %struct.q_obj_trace_event_get_state_arg, ptr %obj, i64 0, i32 2
+  %vcpu = getelementptr inbounds i8, ptr %obj, i64 16
   %call8 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vcpu, ptr noundef %errp) #4
   br i1 %call8, label %if.end12, label %return
 
@@ -196,7 +192,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.TraceEventInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_TraceEventInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -246,22 +242,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %enable = getelementptr inbounds %struct.q_obj_trace_event_set_state_arg, ptr %obj, i64 0, i32 1
+  %enable = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %enable, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_ignore_unavailable = getelementptr inbounds %struct.q_obj_trace_event_set_state_arg, ptr %obj, i64 0, i32 2
+  %has_ignore_unavailable = getelementptr inbounds i8, ptr %obj, i64 9
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_ignore_unavailable) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %ignore_unavailable = getelementptr inbounds %struct.q_obj_trace_event_set_state_arg, ptr %obj, i64 0, i32 3
+  %ignore_unavailable = getelementptr inbounds i8, ptr %obj, i64 10
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %ignore_unavailable, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_vcpu = getelementptr inbounds %struct.q_obj_trace_event_set_state_arg, ptr %obj, i64 0, i32 4
+  %has_vcpu = getelementptr inbounds i8, ptr %obj, i64 11
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_vcpu) #4
   br i1 %call10, label %if.then11, label %if.end21
 
@@ -274,7 +270,7 @@ if.end14:                                         ; preds = %if.then11
   br i1 %call15, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %vcpu = getelementptr inbounds %struct.q_obj_trace_event_set_state_arg, ptr %obj, i64 0, i32 5
+  %vcpu = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vcpu, ptr noundef %errp) #4
   br i1 %call17, label %if.end21, label %return
 

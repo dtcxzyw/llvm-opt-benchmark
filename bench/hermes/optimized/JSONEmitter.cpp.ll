@@ -3,16 +3,6 @@ source_filename = "bench/hermes/original/JSONEmitter.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"class.hermes::JSONEmitter" = type { %"class.llvh::SmallVector", ptr, i8, i32 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage" = type { [8 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [5 x i8] }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 %"struct.hermes::JSONEmitter::State" = type { i8, i8, i8, i8, i8 }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
@@ -20,6 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
 %"class.llvh::SmallVectorTemplateBase.2" = type { %"class.llvh::SmallVectorTemplateCommon.3" }
 %"class.llvh::SmallVectorTemplateCommon.3" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage.4" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.5"] }
 %"struct.llvh::AlignedCharArrayUnion.5" = type { %"struct.llvh::AlignedCharArray.6" }
 %"struct.llvh::AlignedCharArray.6" = type { [2 x i8] }
@@ -49,11 +40,11 @@ define hidden void @_ZN6hermes11JSONEmitterC2EOS0_(ptr noundef nonnull align 8 d
 entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %this, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i, align 4
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %0, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i, label %_ZN4llvh11SmallVectorIN6hermes11JSONEmitter5StateELj8EEC2EOS4_.exit, label %if.then.i
@@ -63,8 +54,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh11SmallVectorIN6hermes11JSONEmitter5StateELj8EEC2EOS4_.exit
 
 _ZN4llvh11SmallVectorIN6hermes11JSONEmitter5StateELj8EEC2EOS4_.exit: ; preds = %entry, %if.then.i
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
-  %OS3 = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %0, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
+  %OS3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %OS, ptr noundef nonnull align 8 dereferenceable(16) %OS3, i64 16, i1 false)
   ret void
 }
@@ -76,13 +67,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i1 noundef zeroext %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %cond = select i1 %val, ptr @.str, ptr @.str.1
   %call.i.i = select i1 %val, i64 4, i64 5
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -108,7 +99,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end12, label %if.end
@@ -117,19 +108,19 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %conv.i.i = zext i32 %0 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %1, i64 %conv.i.i
-  %arrayidx.i = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1
-  %needsComma = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -5
+  %needsComma = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
   %2 = load i8, ptr %needsComma, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -147,30 +138,30 @@ if.end.i:                                         ; preds = %if.then4
 if.end6:                                          ; preds = %if.end.i, %if.then.i, %if.end
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp = icmp eq i8 %7, 0
-  %needsKey = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 2
+  %needsKey = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -3
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %needsKey, align 1
   store i8 1, ptr %needsComma, align 1
-  %needsValue = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 3
+  %needsValue = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -2
   store i8 0, ptr %needsValue, align 1
-  %isEmpty = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 4
+  %isEmpty = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -1
   store i8 0, ptr %isEmpty, align 1
   %cmp10 = icmp eq i8 %7, 1
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end6
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %pretty_.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i7 = icmp eq i8 %9, 0
   br i1 %tobool.not.i7, label %if.end12, label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.then11
-  %OS.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
@@ -187,7 +178,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if.then.i.i.i
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 68
   %14 = load i32, ptr %indent_.i, align 4
   %cmp17.not.i = icmp eq i32 %14, 0
   br i1 %cmp17.not.i, label %if.end12, label %for.body.i
@@ -195,9 +186,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if
 for.body.i:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i
   %i.018.i = phi i32 [ %inc.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
   %15 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i5.i3.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %OutBufEnd.i5.i3.i, align 8
-  %OutBufCur.i6.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i6.i4.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %OutBufCur.i6.i4.i, align 8
   %cmp.i.i8.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i8.i, label %if.then.i.i14.i, label %if.then4.i.i11.i
@@ -227,7 +218,7 @@ if.end12:                                         ; preds = %_ZN4llvh11raw_ostre
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEs(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i16 noundef signext %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %conv.i = sext i16 %val to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %conv.i) #10
@@ -238,7 +229,7 @@ entry:
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %conv.i = sext i32 %val to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %conv.i) #10
@@ -249,7 +240,7 @@ entry:
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %val) #10
   ret void
@@ -261,7 +252,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamls
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %val) #10
   ret void
@@ -273,7 +264,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamls
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i16 noundef zeroext %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %conv.i = zext i16 %val to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %conv.i) #10
@@ -284,7 +275,7 @@ entry:
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %conv.i = zext i32 %val to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %conv.i) #10
@@ -295,7 +286,7 @@ entry:
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %val) #10
   ret void
@@ -307,7 +298,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamls
 define hidden void @_ZN6hermes11JSONEmitter9emitValueEy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEy(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %val) #10
   ret void
@@ -326,12 +317,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %val, ptr noundef nonnull %buf8, i64 noundef 32) #10
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %OS, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf8) #11
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
@@ -355,11 +346,11 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %OS5 = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS5 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %OS5, align 8
-  %OutBufEnd.i5.i3 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
+  %OutBufEnd.i5.i3 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i3, align 8
-  %OutBufCur.i6.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
+  %OutBufCur.i6.i4 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %OutBufCur.i6.i4, align 8
   %sub.ptr.lhs.cast.i7.i5 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i8.i6 = ptrtoint ptr %8 to i64
@@ -401,11 +392,11 @@ entry:
   %ref.tmp135.i.i = alloca i64, align 8
   %utf16Chars = alloca %"class.llvh::SmallVector.0", align 8
   %utf16Chars.sroa.gep148 = getelementptr inbounds i8, ptr %utf16Chars, i64 16
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -426,8 +417,8 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
   br i1 %cmp.not158, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %utf16Chars, i64 0, i32 1
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %utf16Chars, i64 0, i32 2
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %utf16Chars, i64 8
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %utf16Chars, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -580,19 +571,19 @@ if.end128.i.i:                                    ; preds = %if.end112.i.i
   br i1 %cmp129.i.i, label %if.then131.i.i, label %_ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19.i
 
 if.then131.i.i:                                   ; preds = %if.end128.i.i
-  %LHSKind.i69.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp133.i.i, i64 0, i32 2
-  %RHSKind.i70.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp133.i.i, i64 0, i32 3
+  %LHSKind.i69.i.i = getelementptr inbounds i8, ptr %ref.tmp133.i.i, i64 16
+  %RHSKind.i70.i.i = getelementptr inbounds i8, ptr %ref.tmp133.i.i, i64 17
   store i8 1, ptr %RHSKind.i70.i.i, align 1
   store ptr @.str.13, ptr %ref.tmp133.i.i, align 8
   store i8 3, ptr %LHSKind.i69.i.i, align 8
   %conv136.i.i = zext nneg i32 %or123.i.i to i64
   store i64 %conv136.i.i, ptr %ref.tmp135.i.i, align 8
   store ptr %ref.tmp135.i.i, ptr %ref.tmp134.i.i, align 8, !alias.scope !6
-  %RHS4.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp134.i.i, i64 0, i32 1
+  %RHS4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp134.i.i, i64 8
   store ptr null, ptr %RHS4.i.i.i.i, align 8, !alias.scope !6
-  %LHSKind5.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp134.i.i, i64 0, i32 2
+  %LHSKind5.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp134.i.i, i64 16
   store i8 15, ptr %LHSKind5.i.i.i.i, align 8, !alias.scope !6
-  %RHSKind6.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp134.i.i, i64 0, i32 3
+  %RHSKind6.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp134.i.i, i64 17
   store i8 1, ptr %RHSKind6.i.i.i.i, align 1, !alias.scope !6
   call void @_ZN4llvhplERKNS_5TwineES2_(ptr nonnull sret(%"class.llvh::Twine") align 8 %ref.tmp132.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp133.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp134.i.i)
   call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.15) #12
@@ -658,9 +649,9 @@ for.body.preheader:                               ; preds = %if.then.i20, %_ZNSt
 for.body:                                         ; preds = %for.body.preheader, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %__begin3.0157 = phi ptr [ %incdec.ptr, %_ZN4llvh11raw_ostreamlsEPKc.exit ], [ %utf16Chars.sroa.gep148, %for.body.preheader ]
   %19 = load ptr, ptr %OS, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %21 to i64
@@ -684,7 +675,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i24, %if.
   %24 = load i16, ptr %__begin3.0157, align 2
   %conv = zext i16 %24 to i64
   call void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %23, i64 noundef %conv, i32 noundef 1, i64 4, i8 1) #10
-  %incdec.ptr = getelementptr inbounds i16, ptr %__begin3.0157, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0157, i64 2
   %cmp9.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp9.not, label %for.end, label %for.body
 
@@ -704,9 +695,9 @@ while.cond.backedge:                              ; preds = %_ZN4llvh11raw_ostre
 
 if.then18:                                        ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit", %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit", %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit"
   %25 = load ptr, ptr %OS, align 8
-  %OutBufCur.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 3
+  %OutBufCur.i26 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i26, align 8
-  %OutBufEnd.i27 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 2
+  %OutBufEnd.i27 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %OutBufEnd.i27, align 8
   %cmp.not.i28 = icmp ult ptr %26, %27
   br i1 %cmp.not.i28, label %if.end.i32, label %if.then.i29
@@ -727,9 +718,9 @@ if.end21:                                         ; preds = %"_ZN6hermes10decode
 
 if.then23:                                        ; preds = %if.then.i29, %if.end.i32, %if.end21
   %28 = load ptr, ptr %OS, align 8
-  %OutBufCur.i35 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 3
+  %OutBufCur.i35 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %OutBufCur.i35, align 8
-  %OutBufEnd.i36 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 2
+  %OutBufEnd.i36 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %OutBufEnd.i36, align 8
   %cmp.not.i37 = icmp ult ptr %29, %30
   br i1 %cmp.not.i37, label %if.end.i41, label %if.then.i38
@@ -746,9 +737,9 @@ if.end.i41:                                       ; preds = %if.then23
 
 if.end27:                                         ; preds = %if.end21
   %31 = load ptr, ptr %OS, align 8
-  %OutBufEnd.i5.i120 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %31, i64 0, i32 2
+  %OutBufEnd.i5.i120 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %OutBufEnd.i5.i120, align 8
-  %OutBufCur.i6.i121 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %31, i64 0, i32 3
+  %OutBufCur.i6.i121 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load ptr, ptr %OutBufCur.i6.i121, align 8
   %sub.ptr.lhs.cast.i7.i122 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i8.i123 = ptrtoint ptr %33 to i64
@@ -854,9 +845,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit133:              ; preds = %if.then.i.i131, %if
 
 while.end:                                        ; preds = %while.cond.backedge, %_ZN4llvh11raw_ostreamlsEc.exit
   %41 = load ptr, ptr %OS, align 8
-  %OutBufCur.i135 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %41, i64 0, i32 3
+  %OutBufCur.i135 = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %OutBufCur.i135, align 8
-  %OutBufEnd.i136 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %41, i64 0, i32 2
+  %OutBufEnd.i136 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %OutBufEnd.i136, align 8
   %cmp.not.i137 = icmp ult ptr %42, %43
   br i1 %cmp.not.i137, label %if.end.i141, label %if.then.i138
@@ -879,11 +870,11 @@ _ZN4llvh11raw_ostreamlsEc.exit143:                ; preds = %if.then.i138, %if.e
 define hidden void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -910,22 +901,22 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 define hidden void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr %key.coerce0, i64 %key.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %0, i64 %conv.i.i
-  %needsComma = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 1
+  %needsComma = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
   %2 = load i8, ptr %needsComma, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -941,18 +932,18 @@ if.end.i:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.then.i, %entry
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 64
   %7 = load i8, ptr %pretty_.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %_ZN6hermes11JSONEmitter13prettyNewLineEv.exit, label %if.end.i4
 
 if.end.i4:                                        ; preds = %if.end
-  %OS.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %9, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %9, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
@@ -969,7 +960,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i4
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if.then.i.i.i
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 68
   %13 = load i32, ptr %indent_.i, align 4
   %cmp17.not.i = icmp eq i32 %13, 0
   br i1 %cmp17.not.i, label %_ZN6hermes11JSONEmitter13prettyNewLineEv.exit, label %for.body.i
@@ -977,9 +968,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if
 for.body.i:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i
   %i.018.i = phi i32 [ %inc.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
   %14 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i5.i3.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %OutBufEnd.i5.i3.i, align 8
-  %OutBufCur.i6.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i6.i4.i = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %OutBufCur.i6.i4.i, align 8
   %cmp.i.i8.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i8.i, label %if.then.i.i14.i, label %if.then4.i.i11.i
@@ -1003,16 +994,16 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16.i:             ; preds = %if.then4.i.i11.i, %
 
 _ZN6hermes11JSONEmitter13prettyNewLineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %if.end, %_ZN4llvh11raw_ostreamlsEPKc.exit.i
   store i8 0, ptr %needsComma, align 1
-  %needsKey = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 2
+  %needsKey = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -3
   store i8 0, ptr %needsKey, align 1
-  %needsValue = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i, i64 -1, i32 3
+  %needsValue = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -2
   store i8 1, ptr %needsValue, align 1
   tail call void @_ZN6hermes11JSONEmitter19primitiveEmitStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %key.coerce0, i64 %key.coerce1)
-  %OS4 = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS4 = getelementptr inbounds i8, ptr %this, i64 56
   %19 = load ptr, ptr %OS4, align 8
-  %OutBufCur.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 3
+  %OutBufCur.i5 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i5, align 8
-  %OutBufEnd.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 2
+  %OutBufEnd.i6 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %OutBufEnd.i6, align 8
   %cmp.not.i7 = icmp ult ptr %20, %21
   br i1 %cmp.not.i7, label %if.end.i11, label %if.then.i8
@@ -1035,9 +1026,9 @@ _ZN4llvh11raw_ostreamlsEc.exit13:                 ; preds = %if.then.i8, %if.end
 
 if.then7:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit13
   %24 = load ptr, ptr %OS4, align 8
-  %OutBufCur.i14 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 3
+  %OutBufCur.i14 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %OutBufCur.i14, align 8
-  %OutBufEnd.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 2
+  %OutBufEnd.i15 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %OutBufEnd.i15, align 8
   %cmp.not.i16 = icmp ult ptr %25, %26
   br i1 %cmp.not.i16, label %if.end.i20, label %if.then.i17
@@ -1059,18 +1050,18 @@ if.end10:                                         ; preds = %if.end.i20, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11JSONEmitter13prettyNewLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %pretty_ = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %pretty_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %OS, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
@@ -1087,7 +1078,7 @@ if.then4.i.i:                                     ; preds = %if.end
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %indent_ = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_ = getelementptr inbounds i8, ptr %this, i64 68
   %6 = load i32, ptr %indent_, align 4
   %cmp17.not = icmp eq i32 %6, 0
   br i1 %cmp17.not, label %for.end, label %for.body
@@ -1095,9 +1086,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 for.body:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit16
   %i.018 = phi i32 [ %inc, %_ZN4llvh11raw_ostreamlsEPKc.exit16 ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
   %7 = load ptr, ptr %OS, align 8
-  %OutBufEnd.i5.i3 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i5.i3 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i3, align 8
-  %OutBufCur.i6.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i6.i4 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i4, align 8
   %cmp.i.i8 = icmp eq ptr %8, %9
   br i1 %cmp.i.i8, label %if.then.i.i14, label %if.then4.i.i11
@@ -1127,11 +1118,11 @@ for.end:                                          ; preds = %_ZN4llvh11raw_ostre
 define hidden void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1147,23 +1138,23 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i8, ptr %pretty_.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %_ZN6hermes11JSONEmitter10indentMoreEv.exit, label %if.end.i1
 
 if.end.i1:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 68
   %5 = load i32, ptr %indent_.i, align 4
   %add.i = add i32 %5, 2
   store i32 %add.i, ptr %indent_.i, align 4
   br label %_ZN6hermes11JSONEmitter10indentMoreEv.exit
 
 _ZN6hermes11JSONEmitter10indentMoreEv.exit:       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.end.i1
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i2 = icmp ult i32 %6, %7
   br i1 %cmp.not.i2, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERKS3_.exit, label %if.then.i3
@@ -1191,14 +1182,14 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERK
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes11JSONEmitter10indentMoreEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %pretty_ = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %pretty_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %indent_ = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_ = getelementptr inbounds i8, ptr %this, i64 68
   %2 = load i32, ptr %indent_, align 4
   %add = add i32 %2, 2
   store i32 %add, ptr %indent_, align 4
@@ -1211,38 +1202,38 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11JSONEmitter9closeDictEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %pretty_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN6hermes11JSONEmitter10indentLessEv.exit, label %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread
 
 _ZN6hermes11JSONEmitter10indentLessEv.exit:       ; preds = %entry
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %if.end
 
 _ZN6hermes11JSONEmitter10indentLessEv.exit.thread: ; preds = %entry
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 68
   %2 = load i32, ptr %indent_.i, align 4
   %sub.i = add i32 %2, -2
   store i32 %sub.i, ptr %indent_.i, align 4
   %3 = load ptr, ptr %this, align 8
-  %Size.i.i8 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i8 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %Size.i.i8, align 8
   %conv.i.i9 = zext i32 %4 to i64
   %add.ptr.i.i10 = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %3, i64 %conv.i.i9
-  %isEmpty12 = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i10, i64 -1, i32 4
+  %isEmpty12 = getelementptr inbounds i8, ptr %add.ptr.i.i10, i64 -1
   %5 = load i8, ptr %isEmpty12, align 1
   %6 = and i8 %5, 1
   %tobool.not13 = icmp eq i8 %6, 0
   br i1 %tobool.not13, label %if.end.i3, label %if.end
 
 if.end.i3:                                        ; preds = %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread
-  %OS.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
@@ -1266,9 +1257,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if
 for.body.i:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i
   %i.018.i = phi i32 [ %inc.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
   %12 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i5.i3.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %OutBufEnd.i5.i3.i, align 8
-  %OutBufCur.i6.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i6.i4.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %OutBufCur.i6.i4.i, align 8
   %cmp.i.i8.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i8.i, label %if.then.i.i14.i, label %if.then4.i.i11.i
@@ -1292,11 +1283,11 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16.i:             ; preds = %if.then4.i.i11.i, %
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread
   %Size.i.i14 = phi ptr [ %Size.i.i8, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread ], [ %Size.i.i8, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %Size.i.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit ], [ %Size.i.i8, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ]
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %18, %19
   br i1 %cmp.not.i, label %if.end.i5, label %if.then.i
@@ -1321,14 +1312,14 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes11JSONEmitter10indentLessEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %pretty_ = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %pretty_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %indent_ = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_ = getelementptr inbounds i8, ptr %this, i64 68
   %2 = load i32, ptr %indent_, align 4
   %sub = add i32 %2, -2
   store i32 %sub, ptr %indent_, align 4
@@ -1342,25 +1333,25 @@ return:                                           ; preds = %entry, %if.end
 define hidden void @_ZN6hermes11JSONEmitter9openArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %pretty_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN6hermes11JSONEmitter10indentMoreEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 68
   %2 = load i32, ptr %indent_.i, align 4
   %add.i = add i32 %2, 2
   store i32 %add.i, ptr %indent_.i, align 4
   br label %_ZN6hermes11JSONEmitter10indentMoreEv.exit
 
 _ZN6hermes11JSONEmitter10indentMoreEv.exit:       ; preds = %entry, %if.end.i
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %4, %5
   br i1 %cmp.not.i, label %if.end.i1, label %if.then.i
@@ -1376,9 +1367,9 @@ if.end.i1:                                        ; preds = %_ZN6hermes11JSONEmi
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i1
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i2 = icmp ult i32 %6, %7
   br i1 %cmp.not.i2, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERKS3_.exit, label %if.then.i3
@@ -1406,38 +1397,38 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERK
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11JSONEmitter10closeArrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %pretty_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN6hermes11JSONEmitter10indentLessEv.exit, label %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread
 
 _ZN6hermes11JSONEmitter10indentLessEv.exit:       ; preds = %entry
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %if.end
 
 _ZN6hermes11JSONEmitter10indentLessEv.exit.thread: ; preds = %entry
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 68
   %2 = load i32, ptr %indent_.i, align 4
   %sub.i = add i32 %2, -2
   store i32 %sub.i, ptr %indent_.i, align 4
   %3 = load ptr, ptr %this, align 8
-  %Size.i.i8 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i8 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %Size.i.i8, align 8
   %conv.i.i9 = zext i32 %4 to i64
   %add.ptr.i.i10 = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %3, i64 %conv.i.i9
-  %isEmpty12 = getelementptr %"struct.hermes::JSONEmitter::State", ptr %add.ptr.i.i10, i64 -1, i32 4
+  %isEmpty12 = getelementptr inbounds i8, ptr %add.ptr.i.i10, i64 -1
   %5 = load i8, ptr %isEmpty12, align 1
   %6 = and i8 %5, 1
   %tobool.not13 = icmp eq i8 %6, 0
   br i1 %tobool.not13, label %if.end.i3, label %if.end
 
 if.end.i3:                                        ; preds = %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread
-  %OS.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
@@ -1461,9 +1452,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if
 for.body.i:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i
   %i.018.i = phi i32 [ %inc.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
   %12 = load ptr, ptr %OS.i, align 8
-  %OutBufEnd.i5.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i5.i3.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %OutBufEnd.i5.i3.i, align 8
-  %OutBufCur.i6.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i6.i4.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %OutBufCur.i6.i4.i, align 8
   %cmp.i.i8.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i8.i, label %if.then.i.i14.i, label %if.then4.i.i11.i
@@ -1487,11 +1478,11 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16.i:             ; preds = %if.then4.i.i11.i, %
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread
   %Size.i.i14 = phi ptr [ %Size.i.i8, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread ], [ %Size.i.i8, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %Size.i.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit ], [ %Size.i.i8, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ]
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load ptr, ptr %OS, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %18, %19
   br i1 %cmp.not.i, label %if.end.i5, label %if.then.i
@@ -1518,11 +1509,11 @@ declare void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8Optio
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11JSONEmitter8endJSONLEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
+  %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
@@ -1563,7 +1554,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i26 = icmp eq ptr %1, %add.ptr.i.i25
   br i1 %cmp.i26, label %if.end8, label %if.then6
@@ -1576,22 +1567,22 @@ if.then6:                                         ; preds = %if.then2
 if.end8:                                          ; preds = %if.then6, %if.then2
   %2 = phi ptr [ %.pre, %if.then6 ], [ %0, %if.then2 ]
   store ptr %2, ptr %this, align 8
-  %Size = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %RHS, i64 8
   %3 = load i32, ptr %Size, align 8
   store i32 %3, ptr %Size.i, align 8
-  %Capacity = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 2
+  %Capacity = getelementptr inbounds i8, ptr %RHS, i64 12
   %4 = load i32, ptr %Capacity, align 4
-  %Capacity11 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity11 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %4, ptr %Capacity11, align 4
   store ptr %add.ptr.i.i, ptr %RHS, align 8
   store i32 0, ptr %Capacity, align 4
   br label %return.sink.split
 
 if.end12:                                         ; preds = %if.end
-  %Size.i29 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size.i29 = getelementptr inbounds i8, ptr %RHS, i64 8
   %5 = load i32, ptr %Size.i29, align 8
   %conv.i30 = zext i32 %5 to i64
-  %Size.i31 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i31 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %Size.i31, align 8
   %conv.i32 = zext i32 %6 to i64
   %cmp15.not = icmp ult i32 %6, %5
@@ -1612,7 +1603,7 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
   %8 = load i32, ptr %Capacity.i37, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
@@ -1677,21 +1668,21 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 define linkonce_odr hidden void @_ZN4llvhplERKNS_5TwineES2_(ptr noalias sret(%"class.llvh::Twine") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %LHS, ptr noundef nonnull align 8 dereferenceable(18) %RHS) local_unnamed_addr #0 comdat {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %LHS, i64 0, i32 2
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %LHS, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i, align 8, !noalias !10
   %cmp.i.i = icmp eq i8 %0, 0
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %LHSKind.i.i7.i = getelementptr inbounds %"class.llvh::Twine", ptr %RHS, i64 0, i32 2
+  %LHSKind.i.i7.i = getelementptr inbounds i8, ptr %RHS, i64 16
   %1 = load i8, ptr %LHSKind.i.i7.i, align 8, !noalias !10
   %cmp.i8.i = icmp eq i8 %1, 0
   br i1 %cmp.i8.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %LHSKind.i.i, align 8, !alias.scope !10
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1, !alias.scope !10
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
@@ -1712,24 +1703,24 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %RHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %LHS, i64 0, i32 3
+  %RHSKind.i.i.i = getelementptr inbounds i8, ptr %LHS, i64 17
   %2 = load i8, ptr %RHSKind.i.i.i, align 1, !noalias !10
   %cmp.i13.i = icmp eq i8 %2, 1
   %NewLHS.sroa.0.0.copyload.i = load ptr, ptr %LHS, align 8, !noalias !10
   %spec.select.i = select i1 %cmp.i13.i, i8 %0, i8 2
   %spec.select20.i = select i1 %cmp.i13.i, ptr %NewLHS.sroa.0.0.copyload.i, ptr %LHS
-  %RHSKind.i.i15.i = getelementptr inbounds %"class.llvh::Twine", ptr %RHS, i64 0, i32 3
+  %RHSKind.i.i15.i = getelementptr inbounds i8, ptr %RHS, i64 17
   %3 = load i8, ptr %RHSKind.i.i15.i, align 1, !noalias !10
   %cmp.i16.i = icmp eq i8 %3, 1
   %NewRHS.sroa.0.0.copyload.i = load ptr, ptr %RHS, align 8, !noalias !10
   %NewRHSKind.0.i = select i1 %cmp.i16.i, i8 %1, i8 2
   %NewRHS.sroa.0.0.i = select i1 %cmp.i16.i, ptr %NewRHS.sroa.0.0.copyload.i, ptr %RHS
   store ptr %spec.select20.i, ptr %agg.result, align 8, !alias.scope !10
-  %RHS4.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 1
+  %RHS4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %NewRHS.sroa.0.0.i, ptr %RHS4.i.i, align 8, !alias.scope !10
-  %LHSKind5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 2
+  %LHSKind5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %spec.select.i, ptr %LHSKind5.i.i, align 8, !alias.scope !10
-  %RHSKind6.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 3
+  %RHSKind6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   store i8 %NewRHSKind.0.i, ptr %RHSKind6.i.i, align 1, !alias.scope !10
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 

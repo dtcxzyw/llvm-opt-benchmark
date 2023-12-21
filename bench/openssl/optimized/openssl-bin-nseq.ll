@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.Netscape_certificate_sequence = type { ptr, ptr }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -116,7 +115,7 @@ if.then25:                                        ; preds = %if.end23
 
 if.end29:                                         ; preds = %if.then25
   %call30 = tail call ptr @OPENSSL_sk_new_null() #2
-  %certs = getelementptr inbounds %struct.Netscape_certificate_sequence, ptr %call26, i64 0, i32 1
+  %certs = getelementptr inbounds i8, ptr %call26, i64 8
   store ptr %call30, ptr %certs, align 8
   %cmp32 = icmp eq ptr %call30, null
   br i1 %cmp32, label %end, label %while.cond35
@@ -154,7 +153,7 @@ if.end55:                                         ; preds = %if.end23
   br i1 %cmp57, label %if.then58, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end55
-  %certs61 = getelementptr inbounds %struct.Netscape_certificate_sequence, ptr %call56, i64 0, i32 1
+  %certs61 = getelementptr inbounds i8, ptr %call56, i64 8
   %4 = load ptr, ptr %certs61, align 8
   %call6337 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #2
   %cmp6438 = icmp sgt i32 %call6337, 0

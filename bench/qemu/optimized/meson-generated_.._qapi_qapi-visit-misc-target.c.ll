@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/meson-generated_.._qapi_qapi-visit-misc-t
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SGXEPCSection = type { i64, i64 }
-%struct.SGXEPCSectionList = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [5 x i8] c"node\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"size\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"visit_is_dealloc(v)\00", align 1
@@ -20,7 +17,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.SGXEPCSection, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %size, ptr noundef %errp) #3
   br label %return
 
@@ -61,7 +58,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_SGXEPCSection_members.exit, label %out_obj.thread
 
 visit_type_SGXEPCSection_members.exit:            ; preds = %if.end5
-  %size.i = getelementptr inbounds %struct.SGXEPCSection, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %size.i, ptr noundef %errp) #3
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -117,7 +114,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.SGXEPCSectionList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SGXEPCSection(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

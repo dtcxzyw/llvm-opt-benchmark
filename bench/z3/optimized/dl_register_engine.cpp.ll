@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.datalog::register_engine" = type { %"class.datalog::register_engine_base", ptr }
-%"class.datalog::register_engine_base" = type { ptr }
 
 $_ZN7datalog15register_engineD2Ev = comdat any
 
@@ -44,7 +42,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN7datalog15register_engineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog15register_engineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ctx = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_ctx, align 8
   ret void
 }
@@ -65,42 +63,42 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 600)
-  %m_ctx = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_ctx, align 8
   tail call void @_ZN6spacer12dl_interfaceC1ERN7datalog7contextE(ptr noundef nonnull align 8 dereferenceable(600) %call, ptr noundef nonnull align 8 dereferenceable(3556) %0)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 432)
-  %m_ctx4 = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx4 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_ctx4, align 8
   tail call void @_ZN7datalog11rel_contextC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(432) %call3, ptr noundef nonnull align 8 dereferenceable(3556) %1)
   br label %return
 
 sw.bb5:                                           ; preds = %entry, %entry
   %call6 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 368)
-  %m_ctx7 = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx7 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_ctx7, align 8
   tail call void @_ZN7datalog3bmcC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(368) %call6, ptr noundef nonnull align 8 dereferenceable(3556) %2)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_ctx10 = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx10 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_ctx10, align 8
   tail call void @_ZN7datalog3tabC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(56) %call9, ptr noundef nonnull align 8 dereferenceable(3556) %3)
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   %call12 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_ctx13 = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx13 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_ctx13, align 8
   tail call void @_ZN7datalog3clpC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(56) %call12, ptr noundef nonnull align 8 dereferenceable(3556) %4)
   br label %return
 
 sw.bb14:                                          ; preds = %entry
   %call15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_ctx16 = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx16 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_ctx16, align 8
   tail call void @_ZN7datalog4ddnfC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(56) %call15, ptr noundef nonnull align 8 dereferenceable(3556) %5)
   br label %return
@@ -155,7 +153,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog15register_engine11set_contextEPNS_7contextE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ctx) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_ctx = getelementptr inbounds %"class.datalog::register_engine", ptr %this, i64 0, i32 1
+  %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ctx, ptr %m_ctx, align 8
   ret void
 }

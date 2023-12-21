@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.epki2pki_ctx_st = type { ptr, [256 x i8] }
 
 @ossl_EncryptedPrivateKeyInfo_der_to_der_decoder_functions = local_unnamed_addr constant [6 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @epki2pki_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @epki2pki_freectx }, %struct.ossl_dispatch_st { i32 11, ptr @epki2pki_decode }, %struct.ossl_dispatch_st { i32 6, ptr @epki2pki_settable_ctx_params }, %struct.ossl_dispatch_st { i32 5, ptr @epki2pki_set_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [69 x i8] c"../openssl/providers/implementations/encode_decode/decode_epki2pki.c\00", align 1
@@ -76,7 +73,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr %mem, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %pder, align 8
   %3 = load i64, ptr %1, align 8
@@ -107,12 +104,12 @@ if.else:                                          ; preds = %if.then10
   %5 = load i64, ptr %plen, align 8
   %conv16 = trunc i64 %5 to i32
   %6 = load ptr, ptr %oct, align 8
-  %data17 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data17 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %data17, align 8
   %8 = load i32, ptr %6, align 8
   %9 = load ptr, ptr %vctx, align 8
   %call20 = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %9) #4
-  %propq = getelementptr inbounds %struct.epki2pki_ctx_st, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %call22 = call ptr @PKCS12_pbe_crypt_ex(ptr noundef %4, ptr noundef nonnull %pbuf, i32 noundef %conv16, ptr noundef %7, i32 noundef %8, ptr noundef nonnull %new_der, ptr noundef nonnull %new_der_len, i32 noundef 0, ptr noundef %call20, ptr noundef nonnull %propq) #4
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end27, label %if.else25
@@ -163,16 +160,16 @@ if.then39:                                        ; preds = %land.lhs.true
   %12 = load ptr, ptr %alg, align 8
   %13 = load ptr, ptr %12, align 8
   %call42 = call i32 @OBJ_obj2txt(ptr noundef nonnull %keytype, i32 noundef 50, ptr noundef %13, i32 noundef 0) #4
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %keytype, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr44 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp45, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp45, i64 40, i1 false)
-  %incdec.ptr46 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 3
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp47, ptr noundef nonnull @.str.4, ptr noundef %der.2, i64 noundef %der_len.2) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr44, ptr noundef nonnull align 8 dereferenceable(40) %tmp47, i64 40, i1 false)
-  %incdec.ptr48 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 4
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %params, i64 160
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp49, ptr noundef nonnull @.str.5, ptr noundef nonnull %objtype) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr46, ptr noundef nonnull align 8 dereferenceable(40) %tmp49, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp50) #4
@@ -201,7 +198,7 @@ entry:
 define internal i32 @epki2pki_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
-  %propq = getelementptr inbounds %struct.epki2pki_ctx_st, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   store ptr %propq, ptr %str, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.6) #4
   %cmp.not = icmp eq ptr %call, null

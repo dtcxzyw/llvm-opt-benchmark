@@ -5,23 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.BlockJobDriver = type { %struct.JobDriver, ptr, ptr, ptr, ptr, ptr }
 %struct.JobDriver = type { i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BackupBlockJob = type { %struct.BlockJob, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, %struct.BackupPerf, ptr, i8, ptr }
-%struct.BlockJob = type { %struct.Job, i32, i64, %struct.RateLimit, ptr, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, ptr }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.0, ptr, %struct.anon.1 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.RateLimit = type { %struct.QemuMutex, i64, i64, i64, i64, i64 }
-%struct.Notifier = type { ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
-%struct.BackupPerf = type { i8, i8, i8, i64, i8, i64 }
 
 @backup_job_driver = internal constant %struct.BlockJobDriver { %struct.JobDriver { i64 640, i32 3, ptr @backup_run, ptr @backup_pause, ptr null, ptr @block_job_user_resume, ptr null, ptr null, ptr @backup_commit, ptr @backup_abort, ptr @backup_clean, ptr @backup_cancel, ptr @block_job_free }, ptr null, ptr null, ptr @backup_set_speed, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [44 x i8] c"block_job_driver(job) == &backup_job_driver\00", align 1
@@ -74,7 +57,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sync_mode = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 5
+  %sync_mode = getelementptr inbounds i8, ptr %job, i64 552
   %0 = load i32, ptr %sync_mode, align 8
   %cmp1.not = icmp eq i32 %0, 2
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -84,10 +67,10 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %bcs = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 12
+  %bcs = getelementptr inbounds i8, ptr %job, i64 616
   %1 = load ptr, ptr %bcs, align 8
   %call4 = tail call ptr @block_copy_dirty_bitmap(ptr noundef %1) #4
-  %len = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 9
+  %len = getelementptr inbounds i8, ptr %job, i64 568
   %2 = load i64, ptr %len, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %call4, i64 noundef 0, i64 noundef %2) #4
   br label %return
@@ -202,7 +185,7 @@ if.end34:                                         ; preds = %if.end31
 
 if.end37:                                         ; preds = %if.end34
   tail call void @bdrv_graph_rdunlock_main_loop() #4
-  %max_workers = getelementptr inbounds %struct.BackupPerf, ptr %perf, i64 0, i32 3
+  %max_workers = getelementptr inbounds i8, ptr %perf, i64 8
   %0 = load i64, ptr %max_workers, align 8
   %1 = add i64 %0, -2147483648
   %or.cond82 = icmp ult i64 %1, -2147483647
@@ -213,7 +196,7 @@ if.then42:                                        ; preds = %if.end37
   br label %return
 
 if.end43:                                         ; preds = %if.end37
-  %max_chunk = getelementptr inbounds %struct.BackupPerf, ptr %perf, i64 0, i32 5
+  %max_chunk = getelementptr inbounds i8, ptr %perf, i64 24
   %2 = load i64, ptr %max_chunk, align 8
   %cmp44 = icmp slt i64 %2, 0
   br i1 %cmp44, label %if.then45, label %if.end46
@@ -299,38 +282,38 @@ if.end94:                                         ; preds = %if.end84
   br i1 %tobool96.not, label %error, label %if.end98
 
 if.end98:                                         ; preds = %if.end94
-  %cbw99 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 1
+  %cbw99 = getelementptr inbounds i8, ptr %call95, i64 520
   store ptr %call81, ptr %cbw99, align 8
-  %source_bs = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 2
+  %source_bs = getelementptr inbounds i8, ptr %call95, i64 528
   store ptr %bs, ptr %source_bs, align 8
-  %target_bs = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 3
+  %target_bs = getelementptr inbounds i8, ptr %call95, i64 536
   store ptr %target, ptr %target_bs, align 8
-  %on_source_error100 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 7
+  %on_source_error100 = getelementptr inbounds i8, ptr %call95, i64 560
   store i32 %on_source_error, ptr %on_source_error100, align 8
-  %on_target_error101 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 8
+  %on_target_error101 = getelementptr inbounds i8, ptr %call95, i64 564
   store i32 %on_target_error, ptr %on_target_error101, align 4
-  %sync_mode102 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 5
+  %sync_mode102 = getelementptr inbounds i8, ptr %call95, i64 552
   store i32 %sync_mode, ptr %sync_mode102, align 8
-  %sync_bitmap103 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 4
+  %sync_bitmap103 = getelementptr inbounds i8, ptr %call95, i64 544
   store ptr %sync_bitmap, ptr %sync_bitmap103, align 8
-  %bitmap_mode104 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 6
+  %bitmap_mode104 = getelementptr inbounds i8, ptr %call95, i64 556
   store i32 %bitmap_mode, ptr %bitmap_mode104, align 4
   %7 = load ptr, ptr %bcs, align 8
-  %bcs105 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 12
+  %bcs105 = getelementptr inbounds i8, ptr %call95, i64 616
   store ptr %7, ptr %bcs105, align 8
-  %cluster_size106 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 10
+  %cluster_size106 = getelementptr inbounds i8, ptr %call95, i64 576
   store i64 %call85, ptr %cluster_size106, align 8
-  %len107 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 9
+  %len107 = getelementptr inbounds i8, ptr %call95, i64 568
   store i64 %call60, ptr %len107, align 8
-  %perf108 = getelementptr inbounds %struct.BackupBlockJob, ptr %call95, i64 0, i32 11
+  %perf108 = getelementptr inbounds i8, ptr %call95, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %perf108, ptr noundef nonnull align 8 dereferenceable(32) %perf, i64 32, i1 false)
-  %use_copy_range = getelementptr inbounds %struct.BackupPerf, ptr %perf, i64 0, i32 1
+  %use_copy_range = getelementptr inbounds i8, ptr %perf, i64 1
   %8 = load i8, ptr %use_copy_range, align 1
   %9 = and i8 %8, 1
   %tobool109 = icmp ne i8 %9, 0
   call void @block_copy_set_copy_opts(ptr noundef %7, i1 noundef zeroext %tobool109, i1 noundef zeroext %compress) #4
   %10 = load ptr, ptr %bcs, align 8
-  %progress = getelementptr inbounds %struct.Job, ptr %call95, i64 0, i32 7
+  %progress = getelementptr inbounds i8, ptr %call95, i64 48
   call void @block_copy_set_progress_meter(ptr noundef %10, ptr noundef nonnull %progress) #4
   %11 = load ptr, ptr %bcs, align 8
   call void @block_copy_set_speed(ptr noundef %11, i64 noundef %speed) #4
@@ -417,10 +400,10 @@ declare void @bdrv_cbw_drop(ptr noundef) local_unnamed_addr #1
 define internal i32 @backup_run(ptr noundef %job, ptr nocapture readnone %errp) #0 {
 entry:
   %count = alloca i64, align 8
-  %bcs.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 12
+  %bcs.i = getelementptr inbounds i8, ptr %job, i64 616
   %0 = load ptr, ptr %bcs.i, align 8
   %call.i = tail call ptr @block_copy_dirty_bitmap(ptr noundef %0) #4
-  %sync_mode.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 5
+  %sync_mode.i = getelementptr inbounds i8, ptr %job, i64 552
   %1 = load i32, ptr %sync_mode.i, align 8
   switch i32 %1, label %backup_init_bcs_bitmap.exit [
     i32 4, label %if.then.i
@@ -429,7 +412,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @bdrv_clear_dirty_bitmap(ptr noundef %call.i, ptr noundef null) #4
-  %sync_bitmap.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 4
+  %sync_bitmap.i = getelementptr inbounds i8, ptr %job, i64 544
   %2 = load ptr, ptr %sync_bitmap.i, align 8
   tail call void @bdrv_dirty_bitmap_merge_internal(ptr noundef %call.i, ptr noundef %2, ptr noundef null, i1 noundef zeroext true) #4
   br label %backup_init_bcs_bitmap.exit
@@ -447,7 +430,7 @@ backup_init_bcs_bitmap.exit:                      ; preds = %entry, %if.then.i, 
   br i1 %cmp, label %for.cond.preheader, label %if.end12
 
 for.cond.preheader:                               ; preds = %backup_init_bcs_bitmap.exit
-  %len = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 9
+  %len = getelementptr inbounds i8, ptr %job, i64 568
   %5 = load i64, ptr %len, align 8
   %cmp116.not = icmp eq i64 %5, 0
   br i1 %cmp116.not, label %for.end, label %for.body
@@ -510,7 +493,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_pause(ptr nocapture noundef %job) #0 {
 entry:
-  %bg_bcs_call = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 14
+  %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
   %0 = load ptr, ptr %bg_bcs_call, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -522,7 +505,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %bg_bcs_call, align 8
   tail call void @block_copy_call_cancel(ptr noundef %1) #4
-  %wait = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 13
+  %wait = getelementptr inbounds i8, ptr %job, i64 624
   store i8 1, ptr %wait, align 8
   tail call void @qemu_coroutine_yield() #4
   br label %if.end
@@ -536,13 +519,13 @@ declare void @block_job_user_resume(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_commit(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %sync_bitmap = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 4
+  %sync_bitmap = getelementptr inbounds i8, ptr %job, i64 544
   %0 = load ptr, ptr %sync_bitmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 6
+  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds i8, ptr %job, i64 556
   %.pre.i = load i32, ptr %bitmap_mode2.phi.trans.insert.i, align 4
   %1 = icmp eq i32 %.pre.i, 1
   br i1 %1, label %if.else.i, label %if.then.i
@@ -571,13 +554,13 @@ if.end:                                           ; preds = %if.end.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_abort(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %sync_bitmap = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 4
+  %sync_bitmap = getelementptr inbounds i8, ptr %job, i64 544
   %0 = load ptr, ptr %sync_bitmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 6
+  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds i8, ptr %job, i64 556
   %.pre.i = load i32, ptr %bitmap_mode2.phi.trans.insert.i, align 4
   %cmp1.i = icmp eq i32 %.pre.i, 2
   br i1 %cmp1.i, label %if.then.i, label %if.else.i
@@ -605,7 +588,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %bcs.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 12
+  %bcs.i = getelementptr inbounds i8, ptr %job, i64 616
   %2 = load ptr, ptr %bcs.i, align 8
   %call14.i = tail call ptr @block_copy_dirty_bitmap(ptr noundef %2) #4
   tail call void @bdrv_dirty_bitmap_merge_internal(ptr noundef nonnull %bm.0.i, ptr noundef %call14.i, ptr noundef null, i1 noundef zeroext true) #4
@@ -619,7 +602,7 @@ if.end:                                           ; preds = %if.then13.i, %if.en
 define internal void @backup_clean(ptr noundef %job) #0 {
 entry:
   tail call void @block_job_remove_all_bdrv(ptr noundef %job) #4
-  %cbw = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 1
+  %cbw = getelementptr inbounds i8, ptr %job, i64 520
   %0 = load ptr, ptr %cbw, align 8
   tail call void @bdrv_cbw_drop(ptr noundef %0) #4
   ret void
@@ -628,7 +611,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @backup_cancel(ptr nocapture noundef readonly %job, i1 zeroext %force) #0 {
 entry:
-  %target_bs = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 3
+  %target_bs = getelementptr inbounds i8, ptr %job, i64 536
   %0 = load ptr, ptr %target_bs, align 8
   tail call void @bdrv_cancel_in_flight(ptr noundef %0) #4
   ret i1 true
@@ -639,14 +622,14 @@ declare void @block_job_free(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_set_speed(ptr nocapture noundef readonly %job, i64 noundef %speed) #0 {
 entry:
-  %bcs = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 12
+  %bcs = getelementptr inbounds i8, ptr %job, i64 616
   %0 = load ptr, ptr %bcs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @block_copy_set_speed(ptr noundef nonnull %0, i64 noundef %speed) #4
-  %bg_bcs_call = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 14
+  %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
   %1 = load ptr, ptr %bg_bcs_call, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -677,14 +660,14 @@ declare void @job_yield(ptr noundef) #1
 define internal i32 @backup_loop(ptr noundef %job) #0 {
 entry:
   %error_is_read = alloca i8, align 1
-  %bcs = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 12
-  %len = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 9
-  %cluster_size = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 10
-  %max_workers = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 11, i32 3
-  %max_chunk = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 11, i32 5
-  %bg_bcs_call = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 14
-  %on_source_error.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 7
-  %on_target_error.i = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 8
+  %bcs = getelementptr inbounds i8, ptr %job, i64 616
+  %len = getelementptr inbounds i8, ptr %job, i64 568
+  %cluster_size = getelementptr inbounds i8, ptr %job, i64 576
+  %max_workers = getelementptr inbounds i8, ptr %job, i64 592
+  %max_chunk = getelementptr inbounds i8, ptr %job, i64 608
+  %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
+  %on_source_error.i = getelementptr inbounds i8, ptr %job, i64 560
+  %on_target_error.i = getelementptr inbounds i8, ptr %job, i64 564
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -727,7 +710,7 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   call void @block_copy_call_cancel(ptr noundef %call) #4
-  %wait = getelementptr inbounds %struct.BackupBlockJob, ptr %job, i64 0, i32 13
+  %wait = getelementptr inbounds i8, ptr %job, i64 624
   store i8 1, ptr %wait, align 8
   call void @qemu_coroutine_yield() #4
   %call16 = call zeroext i1 @block_copy_call_finished(ptr noundef %call) #4
@@ -814,7 +797,7 @@ declare ptr @block_copy_async(ptr noundef, i64 noundef, i64 noundef, i32 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_block_copy_callback(ptr noundef %opaque) #0 {
 entry:
-  %wait = getelementptr inbounds %struct.BackupBlockJob, ptr %opaque, i64 0, i32 13
+  %wait = getelementptr inbounds i8, ptr %opaque, i64 624
   %0 = load i8, ptr %wait, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -822,7 +805,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %wait, align 8
-  %co = getelementptr inbounds %struct.Job, ptr %opaque, i64 0, i32 2
+  %co = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %2) #4
   br label %if.end

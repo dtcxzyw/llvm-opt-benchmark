@@ -11,35 +11,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { %struct.QTailQLink }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
 %struct.NetdevQueue = type { ptr, ptr }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.hostent = type { ptr, ptr, i32, i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.NetClientState = type { ptr, i32, %union.anon, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.0 }
 %union.anon = type { %struct.QTailQLink }
 %union.anon.0 = type { %struct.QTailQLink }
-%struct.NetClientInfo = type { i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.NICState = type { ptr, ptr, ptr, ptr, i8 }
-%struct.NetFilterState = type { %struct.Object, ptr, ptr, i32, i8, ptr, i8, %union.anon.1 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.iovec = type { ptr, i64 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct._GSList = type { ptr, ptr }
-%struct.Netdev = type { ptr, i32, %union.anon.2 }
-%union.anon.2 = type { %struct.NetdevUserOptions }
-%struct.NetdevUserOptions = type { ptr, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr, i8, ptr, i8, ptr, ptr }
 %struct.ObjectPropertyIterator = type { ptr, %struct._GHashTableIter }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
-%struct.RxFilterInfoList = type { ptr, ptr }
-%struct.NetFilterClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr }
-%struct.NetdevQueueEntry = type { ptr, %struct.Location, %struct.anon }
-%struct.Location = type { i32, i32, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.SocketReadState = type { i32, i8, i32, i32, i32, [69632 x i8], ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"../qemu/net/net.c\00", align 1
 @__func__.convert_host_port = private unnamed_addr constant [18 x i8] c"convert_host_port\00", align 1
@@ -186,7 +164,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not, label %if.else11, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %sin_addr7 = getelementptr inbounds %struct.sockaddr_in, ptr %saddr, i64 0, i32 2
+  %sin_addr7 = getelementptr inbounds i8, ptr %saddr, i64 4
   %call8 = tail call i32 @inet_aton(ptr noundef nonnull %host, ptr noundef nonnull %sin_addr7) #26
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end20
@@ -205,8 +183,8 @@ if.then15:                                        ; preds = %if.else11
   br label %return
 
 if.end16:                                         ; preds = %if.else11
-  %sin_addr17 = getelementptr inbounds %struct.sockaddr_in, ptr %saddr, i64 0, i32 2
-  %h_addr_list = getelementptr inbounds %struct.hostent, ptr %call12, i64 0, i32 4
+  %sin_addr17 = getelementptr inbounds i8, ptr %saddr, i64 4
+  %h_addr_list = getelementptr inbounds i8, ptr %call12, i64 24
   %4 = load ptr, ptr %h_addr_list, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -226,7 +204,7 @@ if.end25:                                         ; preds = %if.end20
   %7 = load i64, ptr %p, align 8
   %conv26 = trunc i64 %7 to i16
   %call27 = call zeroext i16 @htons(i16 noundef zeroext %conv26) #25
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %saddr, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
   store i16 %call27, ptr %sin_port, align 2
   br label %return
 
@@ -269,7 +247,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %arrayidx3 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx3 = getelementptr i8, ptr %call, i64 8
   %1 = load ptr, ptr %arrayidx3, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then, label %if.end
@@ -323,7 +301,7 @@ define dso_local void @qemu_set_info_str(ptr nocapture noundef %nc, ptr nocaptur
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %info_str = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 7
+  %info_str = getelementptr inbounds i8, ptr %nc, i64 64
   %call = call i32 @vsnprintf(ptr noundef nonnull %info_str, i64 noundef 256, ptr noundef %fmt, ptr noundef nonnull %ap) #26
   call void @llvm.va_end(ptr nonnull %ap)
   ret void
@@ -341,7 +319,7 @@ declare void @llvm.va_end(ptr) #7
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @qemu_format_nic_info_str(ptr nocapture noundef %nc, ptr nocapture noundef readonly %macaddr) local_unnamed_addr #6 {
 entry:
-  %model = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 5
+  %model = getelementptr inbounds i8, ptr %nc, i64 48
   %0 = load ptr, ptr %model, align 8
   %1 = load i8, ptr %macaddr, align 1
   %conv = zext i8 %1 to i32
@@ -377,7 +355,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.then
-  %arrayidx.i = getelementptr [6 x i8], ptr %macaddr, i64 0, i64 5
+  %arrayidx.i = getelementptr i8, ptr %macaddr, i64 5
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = zext i8 %0 to i64
   %arrayidx3.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %1
@@ -401,7 +379,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 
 if.end:                                           ; preds = %entry
   store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %macaddr, align 1
-  %arrayidx12 = getelementptr [6 x i8], ptr %macaddr, i64 0, i64 4
+  %arrayidx12 = getelementptr i8, ptr %macaddr, i64 4
   store i8 52, ptr %arrayidx12, align 1
   br label %for.body.i11
 
@@ -423,7 +401,7 @@ return.split.loop.exit6.i:                        ; preds = %for.body.i11
 
 qemu_macaddr_get_free.exit:                       ; preds = %for.inc.i15, %return.split.loop.exit6.i
   %retval.0.i = phi i8 [ %4, %return.split.loop.exit6.i ], [ -1, %for.inc.i15 ]
-  %arrayidx15 = getelementptr [6 x i8], ptr %macaddr, i64 0, i64 5
+  %arrayidx15 = getelementptr i8, ptr %macaddr, i64 5
   store i8 %retval.0.i, ptr %arrayidx15, align 1
   %5 = zext i8 %retval.0.i to i64
   %arrayidx3.i19 = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %5
@@ -452,7 +430,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_new_net_client(ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds %struct.NetClientInfo, ptr %info, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i64, ptr %size, align 8
   %cmp = icmp ugt i64 %0, 375
   br i1 %cmp, label %if.end, label %if.else
@@ -478,7 +456,7 @@ define internal fastcc void @qemu_net_client_setup(ptr noundef %nc, ptr noundef 
 entry:
   store ptr %info, ptr %nc, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %model) #26
-  %model2 = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 5
+  %model2 = getelementptr inbounds i8, ptr %nc, i64 48
   store ptr %call, ptr %model2, align 8
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -499,7 +477,7 @@ for.body.i:                                       ; preds = %if.else, %for.inc.i
   br i1 %cmp.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %model1.i = getelementptr inbounds %struct.NetClientState, ptr %nc.09.i, i64 0, i32 5
+  %model1.i = getelementptr inbounds i8, ptr %nc.09.i, i64 48
   %0 = load ptr, ptr %model1.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %model) #29
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -509,7 +487,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %id.1.i = phi i32 [ %id.08.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.09.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.09.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i, label %assign_name.exit, label %for.body.i, !llvm.loop !9
@@ -521,13 +499,13 @@ assign_name.exit:                                 ; preds = %for.inc.i, %if.else
 
 if.end:                                           ; preds = %assign_name.exit, %if.then
   %call5.i.sink = phi ptr [ %call5.i, %assign_name.exit ], [ %call3, %if.then ]
-  %name6 = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 6
+  %name6 = getelementptr inbounds i8, ptr %nc, i64 56
   store ptr %call5.i.sink, ptr %name6, align 8
   %tobool7.not = icmp eq ptr %peer, null
   br i1 %tobool7.not, label %do.body, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %peer9 = getelementptr inbounds %struct.NetClientState, ptr %peer, i64 0, i32 3
+  %peer9 = getelementptr inbounds i8, ptr %peer, i64 32
   %1 = load ptr, ptr %peer9, align 8
   %tobool10.not = icmp eq ptr %1, null
   br i1 %tobool10.not, label %if.end13, label %if.else12
@@ -537,30 +515,30 @@ if.else12:                                        ; preds = %if.then8
   unreachable
 
 if.end13:                                         ; preds = %if.then8
-  %peer14 = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
+  %peer14 = getelementptr inbounds i8, ptr %nc, i64 32
   store ptr %peer, ptr %peer14, align 8
   store ptr %nc, ptr %peer9, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.end13
   %frombool = zext i1 %is_datapath to i8
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc, i64 16
   store ptr null, ptr %next, align 8
   %2 = load ptr, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 2, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %nc, i64 24
   store ptr %2, ptr %tql_prev, align 8
   store ptr %nc, ptr %2, align 8
   store ptr %next, ptr getelementptr inbounds (%union.NetClientStateList, ptr @net_clients, i64 0, i32 0, i32 1), align 8
   %call19 = tail call ptr @qemu_new_net_queue(ptr noundef nonnull @qemu_deliver_packet_iov, ptr noundef nonnull %nc) #26
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   store ptr %call19, ptr %incoming_queue, align 8
-  %destructor20 = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 9
+  %destructor20 = getelementptr inbounds i8, ptr %nc, i64 328
   store ptr %destructor, ptr %destructor20, align 8
-  %is_datapath22 = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 16
+  %is_datapath22 = getelementptr inbounds i8, ptr %nc, i64 354
   store i8 %frombool, ptr %is_datapath22, align 2
-  %filters = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 17
+  %filters = getelementptr inbounds i8, ptr %nc, i64 360
   store ptr null, ptr %filters, align 8
-  %tql_prev27 = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 17, i32 0, i32 1
+  %tql_prev27 = getelementptr inbounds i8, ptr %nc, i64 368
   store ptr %filters, ptr %tql_prev27, align 8
   ret void
 }
@@ -575,7 +553,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_new_net_control_client(ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds %struct.NetClientInfo, ptr %info, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i64, ptr %size, align 8
   %cmp = icmp ugt i64 %0, 375
   br i1 %cmp, label %if.end, label %if.else
@@ -593,8 +571,8 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_new_nic(ptr noundef %info, ptr noundef %conf, ptr noundef %model, ptr noundef %name, ptr noundef %reentrancy_guard, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %peers1 = getelementptr inbounds %struct.NICConf, ptr %conf, i64 0, i32 1
-  %queues3 = getelementptr inbounds %struct.NICConf, ptr %conf, i64 0, i32 1, i32 1
+  %peers1 = getelementptr inbounds i8, ptr %conf, i64 8
+  %queues3 = getelementptr inbounds i8, ptr %conf, i64 8200
   %0 = load i32, ptr %queues3, align 8
   %cond = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %1 = load i32, ptr %info, align 8
@@ -606,7 +584,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.NetClientInfo, ptr %info, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load i64, ptr %size, align 8
   %cmp5 = icmp ugt i64 %2, 39
   br i1 %cmp5, label %if.end8, label %if.else7
@@ -623,11 +601,11 @@ if.end8:                                          ; preds = %if.end
   %3 = load i64, ptr %size, align 8
   %add.ptr = getelementptr i8, ptr %call, i64 %3
   store ptr %add.ptr, ptr %call, align 8
-  %conf12 = getelementptr inbounds %struct.NICState, ptr %call, i64 0, i32 1
+  %conf12 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %conf, ptr %conf12, align 8
-  %reentrancy_guard13 = getelementptr inbounds %struct.NICState, ptr %call, i64 0, i32 2
+  %reentrancy_guard13 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %reentrancy_guard, ptr %reentrancy_guard13, align 8
-  %opaque14 = getelementptr inbounds %struct.NICState, ptr %call, i64 0, i32 3
+  %opaque14 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %opaque, ptr %opaque14, align 8
   br label %for.body
 
@@ -669,13 +647,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_get_nic(ptr noundef readonly %nc) local_unnamed_addr #13 {
 entry:
-  %queue_index = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 10
+  %queue_index = getelementptr inbounds i8, ptr %nc, i64 336
   %0 = load i32, ptr %queue_index, align 8
   %idx.ext = zext i32 %0 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr %struct.NetClientState, ptr %nc, i64 %idx.neg
   %1 = load ptr, ptr %nc, align 8
-  %size = getelementptr inbounds %struct.NetClientInfo, ptr %1, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %size, align 8
   %idx.neg1 = sub i64 0, %2
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 %idx.neg1
@@ -685,17 +663,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_get_nic_opaque(ptr nocapture noundef readonly %nc) local_unnamed_addr #13 {
 entry:
-  %queue_index.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 10
+  %queue_index.i = getelementptr inbounds i8, ptr %nc, i64 336
   %0 = load i32, ptr %queue_index.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr %struct.NetClientState, ptr %nc, i64 %idx.neg.i
   %1 = load ptr, ptr %nc, align 8
-  %size.i = getelementptr inbounds %struct.NetClientInfo, ptr %1, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %size.i, align 8
   %idx.neg1.i = sub i64 0, %2
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.neg1.i
-  %opaque = getelementptr inbounds %struct.NICState, ptr %add.ptr2.i, i64 0, i32 3
+  %opaque = getelementptr inbounds i8, ptr %add.ptr2.i, i64 24
   %3 = load ptr, ptr %opaque, align 8
   ret ptr %3
 }
@@ -731,7 +709,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %nc, i64 56
   %2 = load ptr, ptr %name, align 8
   %nc.09.i = load ptr, ptr @net_clients, align 8
   %tobool.not10.i = icmp eq ptr %nc.09.i, null
@@ -765,7 +743,7 @@ if.end7.us.i:                                     ; preds = %if.then6.us.i, %if.
 
 for.inc.us.i:                                     ; preds = %if.end7.us.i, %for.body.us.i
   %ret.1.us.i = phi i32 [ %ret.011.us.i, %for.body.us.i ], [ %inc.us.i, %if.end7.us.i ]
-  %next.us.i = getelementptr inbounds %struct.NetClientState, ptr %nc.012.us.i, i64 0, i32 2
+  %next.us.i = getelementptr inbounds i8, ptr %nc.012.us.i, i64 16
   %nc.0.us.i = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %nc.0.us.i, null
   br i1 %tobool.not.us.i, label %qemu_find_net_clients_except.exit, label %for.body.us.i, !llvm.loop !11
@@ -779,7 +757,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %nc.012.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %nc.012.i, i64 56
   %7 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %2) #29
   %tobool3.not.i = icmp eq i32 %call.i, 0
@@ -801,7 +779,7 @@ if.end7.i:                                        ; preds = %if.then6.i, %if.the
 
 for.inc.i:                                        ; preds = %if.end7.i, %if.end.i, %for.body.i
   %ret.1.i = phi i32 [ %ret.011.i, %for.body.i ], [ %ret.011.i, %if.end.i ], [ %inc.i, %if.end7.i ]
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.012.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.012.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i, label %qemu_find_net_clients_except.exit, label %for.body.i, !llvm.loop !11
@@ -816,21 +794,21 @@ if.else3:                                         ; preds = %if.end, %qemu_find_
   unreachable
 
 if.end4:                                          ; preds = %qemu_find_net_clients_except.exit
-  %filters = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 17
+  %filters = getelementptr inbounds i8, ptr %nc, i64 360
   %8 = load ptr, ptr %filters, align 8
   %tobool.not49 = icmp eq ptr %8, null
   br i1 %tobool.not49, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end4, %land.rhs
   %nf.050 = phi ptr [ %9, %land.rhs ], [ %8, %if.end4 ]
-  %next5 = getelementptr inbounds %struct.NetFilterState, ptr %nf.050, i64 0, i32 7
+  %next5 = getelementptr inbounds i8, ptr %nf.050, i64 80
   %9 = load ptr, ptr %next5, align 8
   tail call void @object_unparent(ptr noundef nonnull %nf.050) #26
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !12
 
 for.end:                                          ; preds = %land.rhs, %if.end4
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %10 = load ptr, ptr %peer, align 8
   %tobool6.not = icmp eq ptr %10, null
   br i1 %tobool6.not, label %if.end41, label %land.lhs.true
@@ -842,16 +820,16 @@ land.lhs.true:                                    ; preds = %for.end
   br i1 %cmp10, label %if.then11, label %if.end41
 
 if.then11:                                        ; preds = %land.lhs.true
-  %queue_index.i = getelementptr inbounds %struct.NetClientState, ptr %10, i64 0, i32 10
+  %queue_index.i = getelementptr inbounds i8, ptr %10, i64 336
   %13 = load i32, ptr %queue_index.i, align 8
   %idx.ext.i = zext i32 %13 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr %struct.NetClientState, ptr %10, i64 %idx.neg.i
-  %size.i = getelementptr inbounds %struct.NetClientInfo, ptr %11, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %size.i, align 8
   %idx.neg1.i = sub i64 0, %14
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.neg1.i
-  %peer_deleted = getelementptr inbounds %struct.NICState, ptr %add.ptr2.i, i64 0, i32 4
+  %peer_deleted = getelementptr inbounds i8, ptr %add.ptr2.i, i64 32
   %15 = load i8, ptr %peer_deleted, align 8
   %16 = and i8 %15, 1
   %tobool14.not = icmp eq i8 %16, 0
@@ -870,9 +848,9 @@ for.body20:                                       ; preds = %for.body20.preheade
   %indvars.iv = phi i64 [ 0, %for.body20.preheader ], [ %indvars.iv.next, %for.body20 ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %17 = load ptr, ptr %arrayidx, align 8
-  %peer21 = getelementptr inbounds %struct.NetClientState, ptr %17, i64 0, i32 3
+  %peer21 = getelementptr inbounds i8, ptr %17, i64 32
   %18 = load ptr, ptr %peer21, align 8
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %18, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %18, i64 8
   store i32 1, ptr %link_down, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -881,7 +859,7 @@ for.body20:                                       ; preds = %for.body20.preheade
 for.end23:                                        ; preds = %for.body20, %if.end16
   %19 = load ptr, ptr %peer, align 8
   %20 = load ptr, ptr %19, align 8
-  %link_status_changed = getelementptr inbounds %struct.NetClientInfo, ptr %20, i64 0, i32 10
+  %link_status_changed = getelementptr inbounds i8, ptr %20, i64 80
   %21 = load ptr, ptr %link_status_changed, align 8
   %tobool26.not = icmp eq ptr %21, null
   br i1 %tobool26.not, label %if.end32, label %if.then27
@@ -901,15 +879,15 @@ for.body35:                                       ; preds = %for.body35.preheade
   %indvars.iv60 = phi i64 [ 0, %for.body35.preheader ], [ %indvars.iv.next61, %qemu_cleanup_net_client.exit ]
   %arrayidx37 = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv60
   %22 = load ptr, ptr %arrayidx37, align 8
-  %next.i25 = getelementptr inbounds %struct.NetClientState, ptr %22, i64 0, i32 2
+  %next.i25 = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %next.i25, align 8
   %cmp.not.i = icmp eq ptr %23, null
-  %tql_prev6.i = getelementptr inbounds %struct.NetClientState, ptr %22, i64 0, i32 2, i32 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %tql_prev6.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body35
-  %tql_prev4.i = getelementptr inbounds %struct.NetClientState, ptr %23, i64 0, i32 2, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %24, ptr %tql_prev4.i, align 8
   %.pre.i = load ptr, ptr %next.i25, align 8
   br label %if.end.i26
@@ -923,7 +901,7 @@ if.end.i26:                                       ; preds = %if.else.i, %if.then
   store ptr %25, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i25, i8 0, i64 16, i1 false)
   %26 = load ptr, ptr %22, align 8
-  %cleanup.i = getelementptr inbounds %struct.NetClientInfo, ptr %26, i64 0, i32 9
+  %cleanup.i = getelementptr inbounds i8, ptr %26, i64 72
   %27 = load ptr, ptr %cleanup.i, align 8
   %tobool.not.i27 = icmp eq ptr %27, null
   br i1 %tobool.not.i27, label %qemu_cleanup_net_client.exit, label %if.then15.i
@@ -949,15 +927,15 @@ for.body44:                                       ; preds = %for.body44.preheade
   %indvars.iv65 = phi i64 [ 0, %for.body44.preheader ], [ %indvars.iv.next66, %qemu_free_net_client.exit ]
   %arrayidx46 = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv65
   %28 = load ptr, ptr %arrayidx46, align 8
-  %next.i28 = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 2
+  %next.i28 = getelementptr inbounds i8, ptr %28, i64 16
   %29 = load ptr, ptr %next.i28, align 8
   %cmp.not.i29 = icmp eq ptr %29, null
-  %tql_prev6.i30 = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 2, i32 0, i32 1
+  %tql_prev6.i30 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %tql_prev6.i30, align 8
   br i1 %cmp.not.i29, label %if.else.i38, label %if.then.i31
 
 if.then.i31:                                      ; preds = %for.body44
-  %tql_prev4.i32 = getelementptr inbounds %struct.NetClientState, ptr %29, i64 0, i32 2, i32 0, i32 1
+  %tql_prev4.i32 = getelementptr inbounds i8, ptr %29, i64 24
   store ptr %30, ptr %tql_prev4.i32, align 8
   %.pre.i33 = load ptr, ptr %next.i28, align 8
   br label %if.end.i34
@@ -971,7 +949,7 @@ if.end.i34:                                       ; preds = %if.else.i38, %if.th
   store ptr %31, ptr %30, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i28, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %28, align 8
-  %cleanup.i35 = getelementptr inbounds %struct.NetClientInfo, ptr %32, i64 0, i32 9
+  %cleanup.i35 = getelementptr inbounds i8, ptr %32, i64 72
   %33 = load ptr, ptr %cleanup.i35, align 8
   %tobool.not.i36 = icmp eq ptr %33, null
   br i1 %tobool.not.i36, label %qemu_cleanup_net_client.exit39, label %if.then15.i37
@@ -981,7 +959,7 @@ if.then15.i37:                                    ; preds = %if.end.i34
   br label %qemu_cleanup_net_client.exit39
 
 qemu_cleanup_net_client.exit39:                   ; preds = %if.end.i34, %if.then15.i37
-  %incoming_queue.i = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 4
+  %incoming_queue.i = getelementptr inbounds i8, ptr %28, i64 40
   %34 = load ptr, ptr %incoming_queue.i, align 8
   %tobool.not.i40 = icmp eq ptr %34, null
   br i1 %tobool.not.i40, label %if.end.i42, label %if.then.i41
@@ -991,24 +969,24 @@ if.then.i41:                                      ; preds = %qemu_cleanup_net_cl
   br label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.then.i41, %qemu_cleanup_net_client.exit39
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %28, i64 32
   %35 = load ptr, ptr %peer.i, align 8
   %tobool2.not.i43 = icmp eq ptr %35, null
   br i1 %tobool2.not.i43, label %if.end6.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i42
-  %peer5.i = getelementptr inbounds %struct.NetClientState, ptr %35, i64 0, i32 3
+  %peer5.i = getelementptr inbounds i8, ptr %35, i64 32
   store ptr null, ptr %peer5.i, align 8
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then3.i, %if.end.i42
-  %name.i44 = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 6
+  %name.i44 = getelementptr inbounds i8, ptr %28, i64 56
   %36 = load ptr, ptr %name.i44, align 8
   tail call void @g_free(ptr noundef %36) #26
-  %model.i = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 5
+  %model.i = getelementptr inbounds i8, ptr %28, i64 48
   %37 = load ptr, ptr %model.i, align 8
   tail call void @g_free(ptr noundef %37) #26
-  %destructor.i = getelementptr inbounds %struct.NetClientState, ptr %28, i64 0, i32 9
+  %destructor.i = getelementptr inbounds i8, ptr %28, i64 328
   %38 = load ptr, ptr %destructor.i, align 8
   %tobool7.not.i = icmp eq ptr %38, null
   br i1 %tobool7.not.i, label %qemu_free_net_client.exit, label %if.then8.i
@@ -1061,7 +1039,7 @@ if.end7.us:                                       ; preds = %if.then6.us, %if.en
 
 for.inc.us:                                       ; preds = %if.end7.us, %for.body.us
   %ret.1.us = phi i32 [ %ret.011.us, %for.body.us ], [ %inc.us, %if.end7.us ]
-  %next.us = getelementptr inbounds %struct.NetClientState, ptr %nc.012.us, i64 0, i32 2
+  %next.us = getelementptr inbounds i8, ptr %nc.012.us, i64 16
   %nc.0.us = load ptr, ptr %next.us, align 8
   %tobool.not.us = icmp eq ptr %nc.0.us, null
   br i1 %tobool.not.us, label %for.end, label %for.body.us, !llvm.loop !11
@@ -1075,7 +1053,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %name = getelementptr inbounds %struct.NetClientState, ptr %nc.012, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %nc.012, i64 56
   %4 = load ptr, ptr %name, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %id) #29
   %tobool3.not = icmp eq i32 %call, 0
@@ -1097,7 +1075,7 @@ if.end7:                                          ; preds = %if.then6, %if.then4
 
 for.inc:                                          ; preds = %if.end, %if.end7, %for.body
   %ret.1 = phi i32 [ %ret.011, %for.body ], [ %ret.011, %if.end ], [ %inc, %if.end7 ]
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc.012, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc.012, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
@@ -1112,9 +1090,9 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_del_nic(ptr noundef %nic) local_unnamed_addr #0 {
 entry:
-  %conf = getelementptr inbounds %struct.NICState, ptr %nic, i64 0, i32 1
+  %conf = getelementptr inbounds i8, ptr %nic, i64 8
   %0 = load ptr, ptr %conf, align 8
-  %queues1 = getelementptr inbounds %struct.NICConf, ptr %0, i64 0, i32 1, i32 1
+  %queues1 = getelementptr inbounds i8, ptr %0, i64 8200
   %1 = load i32, ptr %queues1, align 8
   %cond = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @qemu_macaddr_set_free.base, i64 5)
@@ -1122,7 +1100,7 @@ entry:
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %qemu_macaddr_set_free.exit
 
 for.cond.preheader.i:                             ; preds = %entry
-  %arrayidx.i = getelementptr [6 x i8], ptr %0, i64 0, i64 5
+  %arrayidx.i = getelementptr i8, ptr %0, i64 5
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = zext i8 %2 to i64
   %arrayidx6.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %3
@@ -1145,7 +1123,7 @@ for.inc.i:                                        ; preds = %if.then5.i, %for.bo
   br i1 %exitcond.not.i, label %qemu_macaddr_set_free.exit, label %for.body.i, !llvm.loop !16
 
 qemu_macaddr_set_free.exit:                       ; preds = %for.inc.i, %entry
-  %peer_deleted = getelementptr inbounds %struct.NICState, ptr %nic, i64 0, i32 4
+  %peer_deleted = getelementptr inbounds i8, ptr %nic, i64 32
   %wide.trip.count = zext nneg i32 %cond to i64
   br label %for.body
 
@@ -1160,7 +1138,7 @@ for.body:                                         ; preds = %qemu_macaddr_set_fr
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %incoming_queue.i = getelementptr inbounds %struct.NetClientState, ptr %8, i64 0, i32 4
+  %incoming_queue.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %incoming_queue.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -1170,24 +1148,24 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %8, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %peer.i, align 8
   %tobool2.not.i = icmp eq ptr %10, null
   br i1 %tobool2.not.i, label %if.end6.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %peer5.i = getelementptr inbounds %struct.NetClientState, ptr %10, i64 0, i32 3
+  %peer5.i = getelementptr inbounds i8, ptr %10, i64 32
   store ptr null, ptr %peer5.i, align 8
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then3.i, %if.end.i
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %8, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %name.i, align 8
   tail call void @g_free(ptr noundef %11) #26
-  %model.i = getelementptr inbounds %struct.NetClientState, ptr %8, i64 0, i32 5
+  %model.i = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %model.i, align 8
   tail call void @g_free(ptr noundef %12) #26
-  %destructor.i = getelementptr inbounds %struct.NetClientState, ptr %8, i64 0, i32 9
+  %destructor.i = getelementptr inbounds i8, ptr %8, i64 328
   %13 = load ptr, ptr %destructor.i, align 8
   %tobool7.not.i = icmp eq ptr %13, null
   br i1 %tobool7.not.i, label %for.inc, label %if.then8.i
@@ -1201,13 +1179,13 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %peer.i17 = getelementptr inbounds %struct.NetClientState, ptr %8, i64 0, i32 3
+  %peer.i17 = getelementptr inbounds i8, ptr %8, i64 32
   %14 = load ptr, ptr %peer.i17, align 8
   %tobool.not.i18 = icmp eq ptr %14, null
   br i1 %tobool.not.i18, label %for.inc, label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.then6
-  %incoming_queue.i20 = getelementptr inbounds %struct.NetClientState, ptr %14, i64 0, i32 4
+  %incoming_queue.i20 = getelementptr inbounds i8, ptr %14, i64 40
   %15 = load ptr, ptr %incoming_queue.i20, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %15, ptr noundef nonnull %8) #26
   br label %for.inc
@@ -1222,15 +1200,15 @@ for.body11:                                       ; preds = %for.inc, %qemu_free
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %16 = load ptr, ptr %nic, align 8
   %add.ptr.i22 = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46
-  %next.i = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 2
+  %next.i = getelementptr inbounds i8, ptr %add.ptr.i22, i64 16
   %17 = load ptr, ptr %next.i, align 8
   %cmp.not.i23 = icmp eq ptr %17, null
-  %tql_prev6.i = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 2, i32 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %add.ptr.i22, i64 24
   %18 = load ptr, ptr %tql_prev6.i, align 8
   br i1 %cmp.not.i23, label %if.else.i, label %if.then.i24
 
 if.then.i24:                                      ; preds = %for.body11
-  %tql_prev4.i = getelementptr inbounds %struct.NetClientState, ptr %17, i64 0, i32 2, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %18, ptr %tql_prev4.i, align 8
   %.pre.i = load ptr, ptr %next.i, align 8
   br label %if.end.i25
@@ -1244,7 +1222,7 @@ if.end.i25:                                       ; preds = %if.else.i, %if.then
   store ptr %19, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %add.ptr.i22, align 8
-  %cleanup.i = getelementptr inbounds %struct.NetClientInfo, ptr %20, i64 0, i32 9
+  %cleanup.i = getelementptr inbounds i8, ptr %20, i64 72
   %21 = load ptr, ptr %cleanup.i, align 8
   %tobool.not.i26 = icmp eq ptr %21, null
   br i1 %tobool.not.i26, label %qemu_cleanup_net_client.exit, label %if.then15.i
@@ -1254,7 +1232,7 @@ if.then15.i:                                      ; preds = %if.end.i25
   br label %qemu_cleanup_net_client.exit
 
 qemu_cleanup_net_client.exit:                     ; preds = %if.end.i25, %if.then15.i
-  %incoming_queue.i27 = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 4
+  %incoming_queue.i27 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 40
   %22 = load ptr, ptr %incoming_queue.i27, align 8
   %tobool.not.i28 = icmp eq ptr %22, null
   br i1 %tobool.not.i28, label %if.end.i30, label %if.then.i29
@@ -1264,24 +1242,24 @@ if.then.i29:                                      ; preds = %qemu_cleanup_net_cl
   br label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.then.i29, %qemu_cleanup_net_client.exit
-  %peer.i31 = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 3
+  %peer.i31 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 32
   %23 = load ptr, ptr %peer.i31, align 8
   %tobool2.not.i32 = icmp eq ptr %23, null
   br i1 %tobool2.not.i32, label %if.end6.i35, label %if.then3.i33
 
 if.then3.i33:                                     ; preds = %if.end.i30
-  %peer5.i34 = getelementptr inbounds %struct.NetClientState, ptr %23, i64 0, i32 3
+  %peer5.i34 = getelementptr inbounds i8, ptr %23, i64 32
   store ptr null, ptr %peer5.i34, align 8
   br label %if.end6.i35
 
 if.end6.i35:                                      ; preds = %if.then3.i33, %if.end.i30
-  %name.i36 = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 6
+  %name.i36 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 56
   %24 = load ptr, ptr %name.i36, align 8
   tail call void @g_free(ptr noundef %24) #26
-  %model.i37 = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 5
+  %model.i37 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 48
   %25 = load ptr, ptr %model.i37, align 8
   tail call void @g_free(ptr noundef %25) #26
-  %destructor.i38 = getelementptr %struct.NetClientState, ptr %16, i64 %indvars.iv.next46, i32 9
+  %destructor.i38 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 328
   %26 = load ptr, ptr %destructor.i38, align 8
   %tobool7.not.i39 = icmp eq ptr %26, null
   br i1 %tobool7.not.i39, label %qemu_free_net_client.exit41, label %if.then8.i40
@@ -1302,13 +1280,13 @@ for.end15:                                        ; preds = %qemu_free_net_clien
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_purge_queued_packets(ptr noundef %nc) local_unnamed_addr #0 {
 entry:
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %0, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %incoming_queue, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %1, ptr noundef nonnull %nc) #26
   br label %return
@@ -1334,13 +1312,13 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %queue_index = getelementptr inbounds %struct.NetClientState, ptr %nc.07, i64 0, i32 10
+  %queue_index = getelementptr inbounds i8, ptr %nc.07, i64 336
   %2 = load i32, ptr %queue_index, align 8
   %cmp1 = icmp eq i32 %2, 0
   br i1 %cmp1, label %if.then2, label %for.inc
 
 if.then2:                                         ; preds = %if.then
-  %size.i = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %size.i, align 8
   %idx.neg1.i = sub i64 0, %3
   %add.ptr2.i = getelementptr i8, ptr %nc.07, i64 %idx.neg1.i
@@ -1348,7 +1326,7 @@ if.then2:                                         ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then2, %if.then
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc.07, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc.07, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !19
@@ -1365,7 +1343,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %has_ufo = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 13
+  %has_ufo = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %has_ufo, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1387,7 +1365,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %has_uso = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 14
+  %has_uso = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %has_uso, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1409,7 +1387,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %has_vnet_hdr = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 15
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %has_vnet_hdr, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1431,7 +1409,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %has_vnet_hdr_len = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 16
+  %has_vnet_hdr_len = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %has_vnet_hdr_len, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1453,7 +1431,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %get_using_vnet_hdr = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 17
+  %get_using_vnet_hdr = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load ptr, ptr %get_using_vnet_hdr, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1475,7 +1453,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %using_vnet_hdr = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 18
+  %using_vnet_hdr = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load ptr, ptr %using_vnet_hdr, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1496,7 +1474,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %set_offload = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 19
+  %set_offload = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %set_offload, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1517,7 +1495,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %get_vnet_hdr_len = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 20
+  %get_vnet_hdr_len = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %get_vnet_hdr_len, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1539,13 +1517,13 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %set_vnet_hdr_len = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 21
+  %set_vnet_hdr_len = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %set_vnet_hdr_len, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %vnet_hdr_len = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 13
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 348
   store i32 %len, ptr %vnet_hdr_len, align 4
   %2 = load ptr, ptr %set_vnet_hdr_len, align 8
   tail call void %2(ptr noundef nonnull %nc, i32 noundef %len) #26
@@ -1569,7 +1547,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %set_vnet_be = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 23
+  %set_vnet_be = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %set_vnet_be, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1586,7 +1564,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
 entry:
-  %receive_disabled = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 8
+  %receive_disabled = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load = load i8, ptr %receive_disabled, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -1594,7 +1572,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %can_receive = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 5
+  %can_receive = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %can_receive, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end5, label %land.lhs.true
@@ -1618,13 +1596,13 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %sender, i64 32
   %0 = load ptr, ptr %peer, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %receive_disabled.i = getelementptr inbounds %struct.NetClientState, ptr %0, i64 0, i32 8
+  %receive_disabled.i = getelementptr inbounds i8, ptr %0, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1632,7 +1610,7 @@ if.end3:                                          ; preds = %if.end
 
 if.else.i:                                        ; preds = %if.end3
   %1 = load ptr, ptr %0, align 8
-  %can_receive.i = getelementptr inbounds %struct.NetClientInfo, ptr %1, i64 0, i32 5
+  %can_receive.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %can_receive.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %if.end5.i, label %land.lhs.true.i
@@ -1656,11 +1634,11 @@ declare void @qemu_net_queue_purge(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_flush_or_purge_queued_packets(ptr nocapture noundef %nc, i1 noundef zeroext %purge) local_unnamed_addr #0 {
 entry:
-  %receive_disabled = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 8
+  %receive_disabled = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load = load i8, ptr %receive_disabled, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %receive_disabled, align 8
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end4, label %land.lhs.true
@@ -1680,7 +1658,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then, %if.then3, %land.lhs.true, %entry
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %3 = load ptr, ptr %incoming_queue, align 8
   %call5 = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #26
   br i1 %call5, label %if.then6, label %if.else
@@ -1711,11 +1689,11 @@ declare zeroext i1 @qemu_net_queue_flush(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_flush_queued_packets(ptr nocapture noundef %nc) local_unnamed_addr #0 {
 entry:
-  %receive_disabled.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 8
+  %receive_disabled.i = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %receive_disabled.i, align 8
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end4.i, label %land.lhs.true.i
@@ -1735,7 +1713,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then.i, %land.lhs.true.i, %entry
-  %incoming_queue.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 4
+  %incoming_queue.i = getelementptr inbounds i8, ptr %nc, i64 40
   %3 = load ptr, ptr %incoming_queue.i, align 8
   %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #26
   br i1 %call5.i, label %if.then6.i, label %qemu_flush_or_purge_queued_packets.exit
@@ -1760,13 +1738,13 @@ define internal fastcc i64 @qemu_send_packet_async_with_flags(ptr noundef %sende
 entry:
   %iov.i21 = alloca %struct.iovec, align 8
   %iov.i = alloca %struct.iovec, align 8
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %sender, i64 8
   %0 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %sender, i64 32
   %1 = load ptr, ptr %peer, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -1779,15 +1757,15 @@ if.end:                                           ; preds = %lor.lhs.false
   %conv2 = sext i32 %size to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
   store ptr %buf, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %conv2, ptr %iov_len.i, align 8
-  %filters.i.i = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 17
+  %filters.i.i = getelementptr inbounds i8, ptr %sender, i64 360
   %nf.027.i.i = load ptr, ptr %filters.i.i, align 8
   %tobool.not28.i.i = icmp eq ptr %nf.027.i.i, null
   br i1 %tobool.not28.i.i, label %filter_receive.exit.thread, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.NetFilterState, ptr %nf.029.i.i, i64 0, i32 7
+  %next.i.i = getelementptr inbounds i8, ptr %nf.029.i.i, i64 80
   %nf.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %nf.0.i.i, null
   br i1 %tobool.not.i.i, label %filter_receive.exit.thread, label %for.body.i.i, !llvm.loop !20
@@ -1817,20 +1795,20 @@ if.end7:                                          ; preds = %filter_receive.exit
   %3 = load ptr, ptr %peer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i21)
   store ptr %buf, ptr %iov.i21, align 8
-  %iov_len.i22 = getelementptr inbounds %struct.iovec, ptr %iov.i21, i64 0, i32 1
+  %iov_len.i22 = getelementptr inbounds i8, ptr %iov.i21, i64 8
   store i64 %conv2, ptr %iov_len.i22, align 8
-  %tql_prev.i.i = getelementptr inbounds %struct.NetClientState, ptr %3, i64 0, i32 17, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %3, i64 368
   %.pn20.i.i = load ptr, ptr %tql_prev.i.i, align 8
-  %nf.1.in.in21.i.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn20.i.i, i64 0, i32 1
+  %nf.1.in.in21.i.i = getelementptr inbounds i8, ptr %.pn20.i.i, i64 8
   %nf.1.in22.i.i = load ptr, ptr %nf.1.in.in21.i.i, align 8
   %nf.123.i.i = load ptr, ptr %nf.1.in22.i.i, align 8
   %tobool6.not24.i.i = icmp eq ptr %nf.123.i.i, null
   br i1 %tobool6.not24.i.i, label %filter_receive.exit24.thread, label %for.body7.i.i
 
 for.cond5.i.i:                                    ; preds = %for.body7.i.i
-  %tql_prev14.i.i = getelementptr inbounds %struct.NetFilterState, ptr %nf.125.i.i, i64 0, i32 7, i32 0, i32 1
+  %tql_prev14.i.i = getelementptr inbounds i8, ptr %nf.125.i.i, i64 88
   %.pn.i.i = load ptr, ptr %tql_prev14.i.i, align 8
-  %nf.1.in.in.i.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i.i, i64 0, i32 1
+  %nf.1.in.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
   %nf.1.in.i.i = load ptr, ptr %nf.1.in.in.i.i, align 8
   %nf.1.i.i = load ptr, ptr %nf.1.in.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %nf.1.i.i, null
@@ -1859,7 +1837,7 @@ if.then13:                                        ; preds = %filter_receive.exit
 
 if.end15:                                         ; preds = %filter_receive.exit24.thread, %filter_receive.exit24
   %5 = load ptr, ptr %peer, align 8
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %5, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %incoming_queue, align 8
   %call18 = call i64 @qemu_net_queue_send(ptr noundef %6, ptr noundef %sender, i32 noundef %flags, ptr noundef %buf, i64 noundef %conv2, ptr noundef %sent_cb) #26
   br label %return
@@ -1879,7 +1857,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_receive_packet(ptr noundef %nc, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %receive_disabled.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 8
+  %receive_disabled.i = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1887,7 +1865,7 @@ entry:
 
 if.else.i:                                        ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %can_receive.i = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 5
+  %can_receive.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %can_receive.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.end, label %land.lhs.true.i
@@ -1897,7 +1875,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true.i, %if.else.i
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %2 = load ptr, ptr %incoming_queue, align 8
   %conv = sext i32 %size to i64
   %call1 = tail call i64 @qemu_net_queue_receive(ptr noundef %2, ptr noundef %buf, i64 noundef %conv) #26
@@ -1913,7 +1891,7 @@ declare i64 @qemu_net_queue_receive(ptr noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_receive_packet_iov(ptr noundef %nc, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
-  %receive_disabled.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 8
+  %receive_disabled.i = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1921,7 +1899,7 @@ entry:
 
 if.else.i:                                        ; preds = %entry
   %0 = load ptr, ptr %nc, align 8
-  %can_receive.i = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 5
+  %can_receive.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %can_receive.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.end, label %land.lhs.true.i
@@ -1931,7 +1909,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true.i, %if.else.i
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %2 = load ptr, ptr %incoming_queue, align 8
   %call1 = tail call i64 @qemu_net_queue_receive_iov(ptr noundef %2, ptr noundef %iov, i32 noundef %iovcnt) #26
   br label %return
@@ -1958,25 +1936,25 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %sender, i64 8
   %0 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %sender, i64 32
   %1 = load ptr, ptr %peer, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %filters.i = getelementptr inbounds %struct.NetClientState, ptr %sender, i64 0, i32 17
+  %filters.i = getelementptr inbounds i8, ptr %sender, i64 360
   %nf.027.i = load ptr, ptr %filters.i, align 8
   %tobool.not28.i = icmp eq ptr %nf.027.i, null
   br i1 %tobool.not28.i, label %if.end8, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.NetFilterState, ptr %nf.029.i, i64 0, i32 7
+  %next.i = getelementptr inbounds i8, ptr %nf.029.i, i64 80
   %nf.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nf.0.i, null
   br i1 %tobool.not.i, label %if.end8, label %for.body.i, !llvm.loop !20
@@ -1999,18 +1977,18 @@ if.then6:                                         ; preds = %filter_receive_iov.
 
 if.end8:                                          ; preds = %for.cond.i, %if.end3, %filter_receive_iov.exit
   %3 = load ptr, ptr %peer, align 8
-  %tql_prev.i = getelementptr inbounds %struct.NetClientState, ptr %3, i64 0, i32 17, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %3, i64 368
   %.pn20.i = load ptr, ptr %tql_prev.i, align 8
-  %nf.1.in.in21.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn20.i, i64 0, i32 1
+  %nf.1.in.in21.i = getelementptr inbounds i8, ptr %.pn20.i, i64 8
   %nf.1.in22.i = load ptr, ptr %nf.1.in.in21.i, align 8
   %nf.123.i = load ptr, ptr %nf.1.in22.i, align 8
   %tobool6.not24.i = icmp eq ptr %nf.123.i, null
   br i1 %tobool6.not24.i, label %if.end15, label %for.body7.i
 
 for.cond5.i:                                      ; preds = %for.body7.i
-  %tql_prev14.i = getelementptr inbounds %struct.NetFilterState, ptr %nf.125.i, i64 0, i32 7, i32 0, i32 1
+  %tql_prev14.i = getelementptr inbounds i8, ptr %nf.125.i, i64 88
   %.pn.i = load ptr, ptr %tql_prev14.i, align 8
-  %nf.1.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+  %nf.1.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %nf.1.in.i = load ptr, ptr %nf.1.in.in.i, align 8
   %nf.1.i = load ptr, ptr %nf.1.in.i, align 8
   %tobool6.not.i = icmp eq ptr %nf.1.i, null
@@ -2034,7 +2012,7 @@ if.then13:                                        ; preds = %filter_receive_iov.
 
 if.end15:                                         ; preds = %for.cond5.i, %if.end8, %filter_receive_iov.exit23
   %5 = load ptr, ptr %peer, align 8
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %5, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %incoming_queue, align 8
   %call17 = tail call i64 @qemu_net_queue_send_iov(ptr noundef %6, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #26
   br label %return
@@ -2070,14 +2048,14 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %name = getelementptr inbounds %struct.NetClientState, ptr %nc.07, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %nc.07, i64 56
   %2 = load ptr, ptr %name, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %id) #29
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc.07, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc.07, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !22
@@ -2102,14 +2080,14 @@ while.body:                                       ; preds = %entry, %if.end12
   %list.011 = phi ptr [ %5, %if.end12 ], [ %call1, %entry ]
   %0 = load ptr, ptr %list.011, align 8
   %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 951, ptr noundef nonnull @__func__.qemu_get_nic_models) #26
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call2, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call2, i64 96
   %categories.val = load i64, ptr %categories, align 8
   %1 = and i64 %categories.val, 8
   %tobool4.not = icmp eq i64 %1, 0
   br i1 %tobool4.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call2, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call2, i64 128
   %2 = load i8, ptr %user_creatable, align 8
   %3 = and i8 %2, 1
   %tobool5.not = icmp eq i8 %3, 0
@@ -2132,7 +2110,7 @@ if.end:                                           ; preds = %if.then11, %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end, %land.lhs.true, %while.body
-  %next13 = getelementptr inbounds %struct._GSList, ptr %list.011, i64 0, i32 1
+  %next13 = getelementptr inbounds i8, ptr %list.011, i64 8
   %5 = load ptr, ptr %next13, align 8
   tail call void @g_slist_free_1(ptr noundef nonnull %list.011) #26
   %tobool.not = icmp eq ptr %5, null
@@ -2204,9 +2182,9 @@ define dso_local void @qemu_check_nic_model(ptr nocapture noundef %nd, ptr nound
 entry:
   %models = alloca [2 x ptr], align 16
   store ptr %model, ptr %models, align 16
-  %arrayidx1 = getelementptr inbounds [2 x ptr], ptr %models, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %models, i64 8
   store ptr null, ptr %arrayidx1, align 8
-  %model2 = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 1
+  %model2 = getelementptr inbounds i8, ptr %nd, i64 8
   %0 = load ptr, ptr %model2, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
@@ -2288,7 +2266,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_find_nic_model(ptr nocapture noundef %nd, ptr nocapture noundef readonly %models, ptr noundef %default_model) local_unnamed_addr #0 {
 entry:
-  %model = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %nd, i64 8
   %0 = load ptr, ptr %model, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2387,7 +2365,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %out
 
 if.end:                                           ; preds = %lor.lhs.false
-  %arrayidx7 = getelementptr ptr, ptr %call2, i64 1
+  %arrayidx7 = getelementptr i8, ptr %call2, i64 8
   %1 = load ptr, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %if.end13, label %land.lhs.true
@@ -2469,7 +2447,7 @@ declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @net_client_init1(ptr noundef %netdev, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   br i1 %is_netdev, label %if.then, label %if.else
 
@@ -2517,7 +2495,7 @@ if.end22:                                         ; preds = %if.end14
   br i1 %cmp24.not, label %lor.lhs.false25, label %if.then28
 
 lor.lhs.false25:                                  ; preds = %if.end22
-  %u = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %netdev, i64 16
   %5 = load ptr, ptr %u, align 8
   %tobool27.not = icmp eq ptr %5, null
   br i1 %tobool27.not, label %if.then28, label %if.end31
@@ -2541,14 +2519,14 @@ for.body.i:                                       ; preds = %if.end31, %for.inc.
   br i1 %cmp.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %9 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %6) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.then34, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i, label %if.end36, label %for.body.i, !llvm.loop !22
@@ -2558,7 +2536,7 @@ if.then34:                                        ; preds = %if.end.i
   br label %return
 
 if.end36:                                         ; preds = %for.inc.i, %if.end31
-  %type37 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type37 = getelementptr inbounds i8, ptr %netdev, i64 8
   %10 = load i32, ptr %type37, align 8
   %idxprom38 = zext i32 %10 to i64
   %arrayidx39 = getelementptr [14 x ptr], ptr @net_client_init_fun, i64 0, i64 %idxprom38
@@ -2599,14 +2577,14 @@ for.body.i30:                                     ; preds = %if.then52, %for.inc
   br i1 %cmp.i32, label %for.inc.i37, label %if.end.i33
 
 if.end.i33:                                       ; preds = %for.body.i30
-  %name.i34 = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i31, i64 0, i32 6
+  %name.i34 = getelementptr inbounds i8, ptr %nc.07.i31, i64 56
   %17 = load ptr, ptr %name.i34, align 8
   %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %14) #29
   %tobool1.not.i36 = icmp eq i32 %call.i35, 0
   br i1 %tobool1.not.i36, label %if.end58, label %for.inc.i37
 
 for.inc.i37:                                      ; preds = %if.end.i33, %for.body.i30
-  %next.i38 = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i31, i64 0, i32 2
+  %next.i38 = getelementptr inbounds i8, ptr %nc.07.i31, i64 16
   %nc.0.i39 = load ptr, ptr %next.i38, align 8
   %tobool.not.i40 = icmp eq ptr %nc.0.i39, null
   br i1 %tobool.not.i40, label %if.else57, label %for.body.i30, !llvm.loop !22
@@ -2616,7 +2594,7 @@ if.else57:                                        ; preds = %for.inc.i37, %if.th
   unreachable
 
 if.end58:                                         ; preds = %if.end.i33
-  %is_netdev59 = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i31, i64 0, i32 14
+  %is_netdev59 = getelementptr inbounds i8, ptr %nc.07.i31, i64 352
   store i8 1, ptr %is_netdev59, align 8
   br label %return
 
@@ -2640,14 +2618,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %2 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %id) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !22
@@ -2657,7 +2635,7 @@ if.then:                                          ; preds = %for.inc.i, %entry
   br label %if.end8
 
 if.end:                                           ; preds = %if.end.i
-  %is_netdev = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 14
+  %is_netdev = getelementptr inbounds i8, ptr %nc.07.i, i64 352
   %3 = load i8, ptr %is_netdev, align 8
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
@@ -2695,16 +2673,16 @@ define dso_local void @print_net_client(ptr noundef %mon, ptr noundef %nc) local
 entry:
   %str.i = alloca ptr, align 8
   %iter.i = alloca %struct.ObjectPropertyIterator, align 8
-  %name = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %nc, i64 56
   %0 = load ptr, ptr %name, align 8
-  %queue_index = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 10
+  %queue_index = getelementptr inbounds i8, ptr %nc, i64 336
   %1 = load i32, ptr %queue_index, align 8
   %2 = load ptr, ptr %nc, align 8
   %3 = load i32, ptr %2, align 8
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %3) #26
-  %info_str = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 7
+  %info_str = getelementptr inbounds i8, ptr %nc, i64 64
   %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, ptr noundef %0, i32 noundef %1, ptr noundef %call, ptr noundef nonnull %info_str) #26
-  %filters = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 17
+  %filters = getelementptr inbounds i8, ptr %nc, i64 360
   %4 = load ptr, ptr %filters, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %for.end, label %if.end
@@ -2756,7 +2734,7 @@ netfilter_print_info.exit:                        ; preds = %while.cond.backedge
   %call8.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.77) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %iter.i)
-  %next = getelementptr inbounds %struct.NetFilterState, ptr %nf.015, i64 0, i32 7
+  %next = getelementptr inbounds i8, ptr %nf.015, i64 80
   %nf.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nf.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !28
@@ -2795,13 +2773,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4.not.us, label %if.end12.us, label %for.inc.us
 
 if.end12.us:                                      ; preds = %for.body.us
-  %queue_index.us = getelementptr inbounds %struct.NetClientState, ptr %nc.028.us, i64 0, i32 10
+  %queue_index.us = getelementptr inbounds i8, ptr %nc.028.us, i64 336
   %2 = load i32, ptr %queue_index.us, align 8
   %cmp13.not.us = icmp eq i32 %2, 0
   br i1 %cmp13.not.us, label %if.end15.us, label %for.inc.us
 
 if.end15.us:                                      ; preds = %if.end12.us
-  %query_rx_filter.us = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 11
+  %query_rx_filter.us = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %query_rx_filter.us, align 8
   %tobool17.not.us = icmp eq ptr %3, null
   br i1 %tobool17.not.us, label %for.inc.us, label %if.end31.us
@@ -2810,21 +2788,21 @@ if.end31.us:                                      ; preds = %if.end15.us
   %call21.us = tail call ptr %3(ptr noundef nonnull %nc.028.us) #26
   %call22.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #28
   store ptr %call22.us, ptr %tail.027.us, align 8
-  %value.us = getelementptr inbounds %struct.RxFilterInfoList, ptr %call22.us, i64 0, i32 1
+  %value.us = getelementptr inbounds i8, ptr %call22.us, i64 8
   store ptr %call21.us, ptr %value.us, align 8
   %4 = load ptr, ptr %tail.027.us, align 8
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end15.us, %if.end31.us, %if.end12.us, %for.body.us
   %tail.2.us = phi ptr [ %tail.027.us, %if.end12.us ], [ %4, %if.end31.us ], [ %tail.027.us, %for.body.us ], [ %tail.027.us, %if.end15.us ]
-  %next35.us = getelementptr inbounds %struct.NetClientState, ptr %nc.028.us, i64 0, i32 2
+  %next35.us = getelementptr inbounds i8, ptr %nc.028.us, i64 16
   %nc.0.us = load ptr, ptr %next35.us, align 8
   %tobool.not.us = icmp eq ptr %nc.0.us, null
   br i1 %tobool.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !29
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %nc.028 = phi ptr [ %nc.0, %for.inc ], [ %nc.025, %for.body.lr.ph ]
-  %name2 = getelementptr inbounds %struct.NetClientState, ptr %nc.028, i64 0, i32 6
+  %name2 = getelementptr inbounds i8, ptr %nc.028, i64 56
   %5 = load ptr, ptr %name2, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #29
   %cmp.not = icmp eq i32 %call, 0
@@ -2841,13 +2819,13 @@ if.then7:                                         ; preds = %if.end.thread
   br label %return
 
 if.end12:                                         ; preds = %if.end.thread
-  %queue_index = getelementptr inbounds %struct.NetClientState, ptr %nc.028, i64 0, i32 10
+  %queue_index = getelementptr inbounds i8, ptr %nc.028, i64 336
   %8 = load i32, ptr %queue_index, align 8
   %cmp13.not = icmp eq i32 %8, 0
   br i1 %cmp13.not, label %if.end15, label %for.inc
 
 if.end15:                                         ; preds = %if.end12
-  %query_rx_filter = getelementptr inbounds %struct.NetClientInfo, ptr %6, i64 0, i32 11
+  %query_rx_filter = getelementptr inbounds i8, ptr %6, i64 88
   %9 = load ptr, ptr %query_rx_filter, align 8
   %tobool17.not = icmp eq ptr %9, null
   br i1 %tobool17.not, label %if.then25, label %for.end.thread
@@ -2859,12 +2837,12 @@ if.then25:                                        ; preds = %if.end15
 for.end.thread:                                   ; preds = %if.end15
   %call21 = tail call ptr %9(ptr noundef nonnull %nc.028) #26
   %call22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #28
-  %value = getelementptr inbounds %struct.RxFilterInfoList, ptr %call22, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call22, i64 8
   store ptr %call21, ptr %value, align 8
   br label %return
 
 for.inc:                                          ; preds = %if.end12, %for.body
-  %next35 = getelementptr inbounds %struct.NetClientState, ptr %nc.028, i64 0, i32 2
+  %next35 = getelementptr inbounds i8, ptr %nc.028, i64 16
   %nc.0 = load ptr, ptr %next35, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
@@ -2900,13 +2878,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc5
   %nc.011 = phi ptr [ %nc.0, %for.inc5 ], [ %nc.09, %entry ]
-  %filters = getelementptr inbounds %struct.NetClientState, ptr %nc.011, i64 0, i32 17
+  %filters = getelementptr inbounds i8, ptr %nc.011, i64 360
   %nf.06 = load ptr, ptr %filters, align 8
   %tobool2.not7 = icmp eq ptr %nf.06, null
   br i1 %tobool2.not7, label %for.inc5, label %for.body3
 
 for.cond1:                                        ; preds = %for.body3
-  %next = getelementptr inbounds %struct.NetFilterState, ptr %nf.08, i64 0, i32 7
+  %next = getelementptr inbounds i8, ptr %nf.08, i64 80
   %nf.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %nf.0, null
   br i1 %tobool2.not, label %for.inc5, label %for.body3, !llvm.loop !30
@@ -2915,7 +2893,7 @@ for.body3:                                        ; preds = %for.body, %for.cond
   %nf.08 = phi ptr [ %nf.0, %for.cond1 ], [ %nf.06, %for.body ]
   %call.i = call ptr @object_get_class(ptr noundef nonnull %nf.08) #26
   %call1.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #26
-  %handle_event = getelementptr inbounds %struct.NetFilterClass, ptr %call1.i, i64 0, i32 4
+  %handle_event = getelementptr inbounds i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %handle_event, align 8
   call void %0(ptr noundef nonnull %nf.08, i32 noundef %event, ptr noundef nonnull %local_err) #26
   %1 = load ptr, ptr %local_err, align 8
@@ -2927,7 +2905,7 @@ if.then:                                          ; preds = %for.body3
   br label %for.end7
 
 for.inc5:                                         ; preds = %for.cond1, %for.body
-  %next6 = getelementptr inbounds %struct.NetClientState, ptr %nc.011, i64 0, i32 2
+  %next6 = getelementptr inbounds i8, ptr %nc.011, i64 16
   %nc.0 = load ptr, ptr %next6, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.end7, label %for.body, !llvm.loop !31
@@ -2974,7 +2952,7 @@ if.end7.us.i:                                     ; preds = %if.then6.us.i, %if.
 
 for.inc.us.i:                                     ; preds = %if.end7.us.i, %for.body.us.i
   %ret.1.us.i = phi i32 [ %ret.011.us.i, %for.body.us.i ], [ %inc.us.i, %if.end7.us.i ]
-  %next.us.i = getelementptr inbounds %struct.NetClientState, ptr %nc.012.us.i, i64 0, i32 2
+  %next.us.i = getelementptr inbounds i8, ptr %nc.012.us.i, i64 16
   %nc.0.us.i = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %nc.0.us.i, null
   br i1 %tobool.not.us.i, label %qemu_find_net_clients_except.exit, label %for.body.us.i, !llvm.loop !11
@@ -2988,7 +2966,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %nc.012.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %nc.012.i, i64 56
   %4 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %name) #29
   %tobool3.not.i = icmp eq i32 %call.i, 0
@@ -3010,7 +2988,7 @@ if.end7.i:                                        ; preds = %if.then6.i, %if.the
 
 for.inc.i:                                        ; preds = %if.end7.i, %if.end.i, %for.body.i
   %ret.1.i = phi i32 [ %ret.011.i, %for.body.i ], [ %ret.011.i, %if.end.i ], [ %inc.i, %if.end7.i ]
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.012.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.012.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i, label %qemu_find_net_clients_except.exit, label %for.body.i, !llvm.loop !11
@@ -3039,7 +3017,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx2 = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx2, align 8
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %6, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %lnot.ext, ptr %link_down, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3047,7 +3025,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %if.end
   %7 = load ptr, ptr %5, align 8
-  %link_status_changed = getelementptr inbounds %struct.NetClientInfo, ptr %7, i64 0, i32 10
+  %link_status_changed = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load ptr, ptr %link_status_changed, align 8
   %tobool3.not = icmp eq ptr %8, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -3057,7 +3035,7 @@ if.then4:                                         ; preds = %for.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %for.end
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %5, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load ptr, ptr %peer, align 8
   %tobool8.not = icmp eq ptr %9, null
   br i1 %tobool8.not, label %if.end38, label %if.then9
@@ -3079,9 +3057,9 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %indvars.iv28 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next29, %for.body16 ]
   %arrayidx21 = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv28
   %12 = load ptr, ptr %arrayidx21, align 8
-  %peer22 = getelementptr inbounds %struct.NetClientState, ptr %12, i64 0, i32 3
+  %peer22 = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load ptr, ptr %peer22, align 8
-  %link_down23 = getelementptr inbounds %struct.NetClientState, ptr %13, i64 0, i32 1
+  %link_down23 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 %lnot.ext19, ptr %link_down23, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
@@ -3095,7 +3073,7 @@ if.end27.loopexit:                                ; preds = %for.body16
 if.end27:                                         ; preds = %if.end27.loopexit, %if.then9
   %14 = phi ptr [ %.pre33, %if.end27.loopexit ], [ %10, %if.then9 ]
   %15 = phi ptr [ %.pre, %if.end27.loopexit ], [ %9, %if.then9 ]
-  %link_status_changed30 = getelementptr inbounds %struct.NetClientInfo, ptr %14, i64 0, i32 10
+  %link_status_changed30 = getelementptr inbounds i8, ptr %14, i64 80
   %16 = load ptr, ptr %link_status_changed30, align 8
   %tobool31.not = icmp eq ptr %16, null
   br i1 %tobool31.not, label %if.end38, label %if.then32
@@ -3125,7 +3103,7 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %next = getelementptr inbounds %struct.NetClientState, ptr %1, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %1, i64 16
   br label %if.end
 
 if.else:                                          ; preds = %while.body
@@ -3158,7 +3136,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %nc.015 = phi ptr [ %nc.0, %for.inc ], [ %nc.013, %entry ]
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %nc.015, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %nc.015, i64 32
   %0 = load ptr, ptr %peer, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then, label %for.inc
@@ -3168,13 +3146,13 @@ if.then:                                          ; preds = %for.body
   %2 = load i32, ptr %1, align 8
   %cmp = icmp eq i32 %2, 1
   %cond = select i1 %cmp, ptr @.str.42, ptr @.str.15
-  %name = getelementptr inbounds %struct.NetClientState, ptr %nc.015, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %nc.015, i64 56
   %3 = load ptr, ptr %name, align 8
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.41, ptr noundef nonnull %cond, ptr noundef %3) #26
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc.015, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc.015, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.body4.preheader, label %for.body, !llvm.loop !35
@@ -3184,23 +3162,24 @@ for.body4.preheader:                              ; preds = %for.inc, %entry
 
 for.body4:                                        ; preds = %for.body4.preheader, %for.inc19
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc19 ], [ 0, %for.body4.preheader ]
-  %used = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %indvars.iv, i32 5
+  %arrayidx = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %indvars.iv
+  %used = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %4 = load i32, ptr %used, align 8
   %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %for.inc19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body4
-  %instantiated = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %indvars.iv, i32 6
+  %instantiated = getelementptr inbounds i8, ptr %arrayidx, i64 44
   %5 = load i32, ptr %instantiated, align 4
   %tobool6.not = icmp eq i32 %5, 0
   br i1 %tobool6.not, label %if.then7, label %for.inc19
 
 if.then7:                                         ; preds = %land.lhs.true
-  %name8 = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %indvars.iv, i32 2
+  %name8 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %name8, align 8
   %tobool9.not = icmp eq ptr %6, null
   %spec.select = select i1 %tobool9.not, ptr @.str.44, ptr %6
-  %model = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %indvars.iv, i32 1
+  %model = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %model, align 8
   %tobool12.not = icmp eq ptr %7, null
   %cond17 = select i1 %tobool12.not, ptr @.str.45, ptr %7
@@ -3233,7 +3212,7 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %if.end.i
   %1 = phi ptr [ %5, %if.end.i ], [ %0, %entry ]
-  %entry1.i = getelementptr inbounds %struct.NetdevQueueEntry, ptr %1, i64 0, i32 2
+  %entry1.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %entry1.i, align 8
   store ptr %2, ptr @nd_queue, align 8
   %cmp2.i = icmp eq ptr %2, null
@@ -3245,7 +3224,7 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   store ptr null, ptr %entry1.i, align 8
-  %loc.i = getelementptr inbounds %struct.NetdevQueueEntry, ptr %1, i64 0, i32 1
+  %loc.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call ptr @loc_push_restore(ptr noundef nonnull %loc.i) #26
   %3 = load ptr, ptr %1, align 8
   %call6.i = tail call fastcc i32 @net_client_init1(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull @error_fatal), !range !5
@@ -3281,9 +3260,9 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc.us
   %nc.017.us = phi ptr [ %1, %for.inc.us ], [ %0, %land.rhs.lr.ph ]
-  %next.us = getelementptr inbounds %struct.NetClientState, ptr %nc.017.us, i64 0, i32 2
+  %next.us = getelementptr inbounds i8, ptr %nc.017.us, i64 16
   %1 = load ptr, ptr %next.us, align 8
-  %peer.us = getelementptr inbounds %struct.NetClientState, ptr %nc.017.us, i64 0, i32 3
+  %peer.us = getelementptr inbounds i8, ptr %nc.017.us, i64 32
   %2 = load ptr, ptr %peer.us, align 8
   %tobool2.not.us = icmp eq ptr %2, null
   br i1 %tobool2.not.us, label %for.inc.us, label %land.lhs.true.us
@@ -3294,7 +3273,7 @@ land.lhs.true.us:                                 ; preds = %land.rhs.us
 
 if.end.i.us:                                      ; preds = %land.lhs.true.us
   %3 = load ptr, ptr %peer.us, align 8, !nonnull !38, !noundef !38
-  %receive_disabled.i.i.us = getelementptr inbounds %struct.NetClientState, ptr %3, i64 0, i32 8
+  %receive_disabled.i.i.us = getelementptr inbounds i8, ptr %3, i64 320
   %bf.load.i.i.us = load i8, ptr %receive_disabled.i.i.us, align 8
   %bf.clear.i.i.us = and i8 %bf.load.i.i.us, 1
   %tobool.not.i.i.us = icmp eq i8 %bf.clear.i.i.us, 0
@@ -3302,7 +3281,7 @@ if.end.i.us:                                      ; preds = %land.lhs.true.us
 
 if.else.i.i.us:                                   ; preds = %if.end.i.us
   %4 = load ptr, ptr %3, align 8
-  %can_receive.i.i.us = getelementptr inbounds %struct.NetClientInfo, ptr %4, i64 0, i32 5
+  %can_receive.i.i.us = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %can_receive.i.i.us, align 8
   %tobool1.not.i.i.us = icmp eq ptr %5, null
   br i1 %tobool1.not.i.i.us, label %if.then4.us, label %land.lhs.true.i.i.us
@@ -3317,11 +3296,11 @@ land.lhs.true.i.i.us.if.then4.us_crit_edge:       ; preds = %land.lhs.true.i.i.u
 
 if.then4.us:                                      ; preds = %land.lhs.true.i.i.us.if.then4.us_crit_edge, %if.else.i.i.us
   %6 = phi ptr [ %.pre, %land.lhs.true.i.i.us.if.then4.us_crit_edge ], [ %3, %if.else.i.i.us ]
-  %receive_disabled.i.i6.us = getelementptr inbounds %struct.NetClientState, ptr %6, i64 0, i32 8
+  %receive_disabled.i.i6.us = getelementptr inbounds i8, ptr %6, i64 320
   %bf.load.i.i7.us = load i8, ptr %receive_disabled.i.i6.us, align 8
   %bf.clear.i.i8.us = and i8 %bf.load.i.i7.us, -2
   store i8 %bf.clear.i.i8.us, ptr %receive_disabled.i.i6.us, align 8
-  %peer.i.i.us = getelementptr inbounds %struct.NetClientState, ptr %6, i64 0, i32 3
+  %peer.i.i.us = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %peer.i.i.us, align 8
   %tobool.not.i.i9.us = icmp eq ptr %7, null
   br i1 %tobool.not.i.i9.us, label %if.end4.i.i.us, label %land.lhs.true.i.i10.us
@@ -3341,7 +3320,7 @@ if.then3.i.i.us:                                  ; preds = %if.then.i.i.us
   br label %if.end4.i.i.us
 
 if.end4.i.i.us:                                   ; preds = %if.then3.i.i.us, %if.then.i.i.us, %land.lhs.true.i.i10.us, %if.then4.us
-  %incoming_queue.i.i.us = getelementptr inbounds %struct.NetClientState, ptr %6, i64 0, i32 4
+  %incoming_queue.i.i.us = getelementptr inbounds i8, ptr %6, i64 40
   %10 = load ptr, ptr %incoming_queue.i.i.us, align 8
   %call5.i.i.us = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %10) #26
   br i1 %call5.i.i.us, label %if.then6.i.i.us, label %for.inc.us
@@ -3356,13 +3335,13 @@ for.inc.us:                                       ; preds = %if.then6.i.i.us, %i
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %nc.017 = phi ptr [ %11, %for.inc ], [ %0, %land.rhs.lr.ph ]
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc.017, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc.017, i64 16
   %11 = load ptr, ptr %next, align 8
-  %receive_disabled.i = getelementptr inbounds %struct.NetClientState, ptr %nc.017, i64 0, i32 8
+  %receive_disabled.i = getelementptr inbounds i8, ptr %nc.017, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %receive_disabled.i, align 8
-  %peer.i12 = getelementptr inbounds %struct.NetClientState, ptr %nc.017, i64 0, i32 3
+  %peer.i12 = getelementptr inbounds i8, ptr %nc.017, i64 32
   %12 = load ptr, ptr %peer.i12, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.end4.i, label %land.lhs.true.i
@@ -3382,7 +3361,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then.i, %land.lhs.true.i, %land.rhs
-  %incoming_queue.i = getelementptr inbounds %struct.NetClientState, ptr %nc.017, i64 0, i32 4
+  %incoming_queue.i = getelementptr inbounds i8, ptr %nc.017, i64 40
   %15 = load ptr, ptr %incoming_queue.i, align 8
   %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %15) #26
   br i1 %call5.i, label %if.then6.i, label %if.else.i
@@ -3506,7 +3485,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
   %arrayidx = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx, i8 0, i64 56, i1 false)
   %call20 = tail call ptr @qemu_opt_get_del(ptr noundef %opts, ptr noundef nonnull @.str.83) #26
-  %model = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 1
+  %model = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call20, ptr %model, align 8
   %call21 = tail call ptr @qemu_opts_id(ptr noundef %opts) #26
   %call22 = tail call noalias ptr @g_strdup(ptr noundef %call21) #26
@@ -3555,7 +3534,7 @@ if.then.i:                                        ; preds = %if.end41
   br i1 %cmp2.not.i, label %if.else.i, label %qemu_macaddr_default_if_unset.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx.i.i = getelementptr [6 x i8], ptr %arrayidx, i64 0, i64 5
+  %arrayidx.i.i = getelementptr i8, ptr %arrayidx, i64 5
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %6 = zext i8 %5 to i64
   %arrayidx3.i.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %6
@@ -3579,7 +3558,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 if.end.i:                                         ; preds = %if.end41
   store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %arrayidx, align 8
-  %arrayidx12.i = getelementptr [6 x i8], ptr %arrayidx, i64 0, i64 4
+  %arrayidx12.i = getelementptr i8, ptr %arrayidx, i64 4
   store i8 52, ptr %arrayidx12.i, align 4
   br label %for.body.i11.i
 
@@ -3601,7 +3580,7 @@ return.split.loop.exit6.i.i:                      ; preds = %for.body.i11.i
 
 qemu_macaddr_get_free.exit.i:                     ; preds = %for.inc.i15.i, %return.split.loop.exit6.i.i
   %retval.0.i.i = phi i8 [ %9, %return.split.loop.exit6.i.i ], [ -1, %for.inc.i15.i ]
-  %arrayidx15.i = getelementptr [6 x i8], ptr %arrayidx, i64 0, i64 5
+  %arrayidx15.i = getelementptr i8, ptr %arrayidx, i64 5
   store i8 %retval.0.i.i, ptr %arrayidx15.i, align 1
   %10 = zext i8 %retval.0.i.i to i64
   %arrayidx3.i19.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %10
@@ -3641,23 +3620,23 @@ for.body.i30:                                     ; preds = %if.then45, %for.inc
   br i1 %cmp.i, label %for.inc.i33, label %if.end.i31
 
 if.end.i31:                                       ; preds = %for.body.i30
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %14 = load ptr, ptr %name.i, align 8
   %call.i32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %nd_id.0) #29
   %tobool1.not.i = icmp eq i32 %call.i32, 0
   br i1 %tobool1.not.i, label %qemu_find_netdev.exit, label %for.inc.i33
 
 for.inc.i33:                                      ; preds = %if.end.i31, %for.body.i30
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i34 = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i34, label %qemu_find_netdev.exit, label %for.body.i30, !llvm.loop !22
 
 qemu_find_netdev.exit:                            ; preds = %if.end.i31, %for.inc.i33, %if.then45
   %nc.0.lcssa.i = phi ptr [ null, %if.then45 ], [ %nc.07.i, %if.end.i31 ], [ null, %for.inc.i33 ]
-  %netdev = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 4
+  %netdev = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %nc.0.lcssa.i, ptr %netdev, align 8
-  %used = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 5
+  %used = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i32 1, ptr %used, align 8
   %15 = load i32, ptr @nb_nics, align 4
   %inc = add i32 %15, 1
@@ -3729,9 +3708,9 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #30
   %call3 = tail call zeroext i1 @visit_type_Netdev(ptr noundef %call, ptr noundef null, ptr noundef %call1, ptr noundef nonnull @error_fatal) #26
   tail call void @visit_free(ptr noundef %call) #26
-  %loc = getelementptr inbounds %struct.NetdevQueueEntry, ptr %call1, i64 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %call1, i64 8
   %call4 = tail call ptr @loc_save(ptr noundef nonnull %loc) #26
-  %entry5 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %call1, i64 0, i32 2
+  %entry5 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr null, ptr %entry5, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i64 0, i32 1), align 8
   store ptr %call1, ptr %0, align 8
@@ -3852,10 +3831,10 @@ define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly %rs, p
 entry:
   %frombool = zext i1 %vnet_hdr to i8
   store i32 0, ptr %rs, align 8
-  %vnet_hdr1 = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 1
+  %vnet_hdr1 = getelementptr inbounds i8, ptr %rs, i64 4
   store i8 %frombool, ptr %vnet_hdr1, align 4
-  %index = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 2
-  %finalize3 = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 6
+  %index = getelementptr inbounds i8, ptr %rs, i64 8
+  %finalize3 = getelementptr inbounds i8, ptr %rs, i64 69656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(69644) %index, i8 0, i64 69644, i1 false)
   store ptr %finalize, ptr %finalize3, align 8
   ret void
@@ -3868,12 +3847,12 @@ entry:
   br i1 %cmp72, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %packet_len50 = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 3
-  %index51 = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 2
-  %buf63 = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 5
-  %finalize = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 6
-  %vnet_hdr_len45 = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 4
-  %vnet_hdr = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 1
+  %packet_len50 = getelementptr inbounds i8, ptr %rs, i64 12
+  %index51 = getelementptr inbounds i8, ptr %rs, i64 8
+  %buf63 = getelementptr inbounds i8, ptr %rs, i64 20
+  %finalize = getelementptr inbounds i8, ptr %rs, i64 69656
+  %vnet_hdr_len45 = getelementptr inbounds i8, ptr %rs, i64 16
+  %vnet_hdr = getelementptr inbounds i8, ptr %rs, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -4018,7 +3997,7 @@ declare ptr @qemu_new_net_queue(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @qemu_deliver_packet_iov(ptr nocapture readnone %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %opaque) #0 {
 entry:
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4028,7 +4007,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %receive_disabled = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 8
+  %receive_disabled = getelementptr inbounds i8, ptr %opaque, i64 320
   %bf.load = load i8, ptr %receive_disabled, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool1.not = icmp eq i8 %bf.clear, 0
@@ -4041,16 +4020,16 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.not, label %lor.lhs.false, label %if.end10
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %queue_index.i = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 10
+  %queue_index.i = getelementptr inbounds i8, ptr %opaque, i64 336
   %3 = load i32, ptr %queue_index.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr %struct.NetClientState, ptr %opaque, i64 %idx.neg.i
-  %size.i = getelementptr inbounds %struct.NetClientInfo, ptr %1, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %size.i, align 8
   %idx.neg1.i = sub i64 0, %4
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.neg1.i
-  %reentrancy_guard = getelementptr inbounds %struct.NICState, ptr %add.ptr2.i, i64 0, i32 2
+  %reentrancy_guard = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
   %5 = load ptr, ptr %reentrancy_guard, align 8
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
@@ -4065,7 +4044,7 @@ if.else:                                          ; preds = %lor.lhs.false
 if.end10:                                         ; preds = %if.end3, %lor.lhs.false, %if.else
   %8 = phi ptr [ %.pre, %if.else ], [ %1, %lor.lhs.false ], [ %1, %if.end3 ]
   %owned_reentrancy_guard.0 = phi ptr [ %5, %if.else ], [ null, %lor.lhs.false ], [ null, %if.end3 ]
-  %receive_iov = getelementptr inbounds %struct.NetClientInfo, ptr %8, i64 0, i32 4
+  %receive_iov = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %receive_iov, align 8
   %tobool12.not = icmp ne ptr %9, null
   %and = and i32 %flags, 1
@@ -4083,7 +4062,7 @@ if.else18:                                        ; preds = %if.end10
 
 if.then.i:                                        ; preds = %if.else18
   %10 = load ptr, ptr %iov, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %11 = load i64, ptr %iov_len.i, align 8
   br label %if.end6.i
 
@@ -4105,13 +4084,13 @@ if.end6.i:                                        ; preds = %if.end.i, %if.then.
   br i1 %tobool13.not, label %if.else12.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6.i
-  %receive_raw.i = getelementptr inbounds %struct.NetClientInfo, ptr %.pre.i, i64 0, i32 3
+  %receive_raw.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
   %12 = load ptr, ptr %receive_raw.i, align 8
   %tobool7.not.i = icmp eq ptr %12, null
   br i1 %tobool7.not.i, label %if.else12.i, label %if.end15.i
 
 if.else12.i:                                      ; preds = %land.lhs.true.i, %if.end6.i
-  %receive.i = getelementptr inbounds %struct.NetClientInfo, ptr %.pre.i, i64 0, i32 2
+  %receive.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %13 = load ptr, ptr %receive.i, align 8
   br label %if.end15.i
 
@@ -4185,7 +4164,7 @@ declare ptr @net_hub_add_port(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @net_init_nic(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) #0 {
 entry:
-  %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.end, label %if.else
@@ -4195,7 +4174,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %netdev, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end
@@ -4244,14 +4223,14 @@ for.body.i38:                                     ; preds = %if.then6, %for.inc.
   br i1 %cmp.i, label %for.inc.i39, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i38
-  %name.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %7 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end21, label %for.inc.i39
 
 for.inc.i39:                                      ; preds = %if.end.i, %for.body.i38
-  %next.i = getelementptr inbounds %struct.NetClientState, ptr %nc.07.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i40 = icmp eq ptr %nc.0.i, null
   br i1 %tobool.not.i40, label %if.then12, label %for.body.i38, !llvm.loop !22
@@ -4271,36 +4250,36 @@ if.else18:                                        ; preds = %if.else15
 
 if.end21:                                         ; preds = %if.end.i, %if.else15
   %nc.07.i.lcssa.sink = phi ptr [ %peer, %if.else15 ], [ %nc.07.i, %if.end.i ]
-  %netdev9 = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 4
+  %netdev9 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %nc.07.i.lcssa.sink, ptr %netdev9, align 8
   %call22 = tail call noalias ptr @g_strdup(ptr noundef %name) #26
-  %name23 = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 2
+  %name23 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %call22, ptr %name23, align 8
-  %model = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 7
+  %model = getelementptr inbounds i8, ptr %netdev, i64 32
   %9 = load ptr, ptr %model, align 8
   %tobool24.not = icmp eq ptr %9, null
   br i1 %tobool24.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.end21
   %call27 = tail call noalias ptr @g_strdup(ptr noundef nonnull %9) #26
-  %model28 = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 1
+  %model28 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call27, ptr %model28, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then25, %if.end21
-  %addr = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 8
+  %addr = getelementptr inbounds i8, ptr %netdev, i64 40
   %10 = load ptr, ptr %addr, align 8
   %tobool30.not = icmp eq ptr %10, null
   br i1 %tobool30.not, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
   %call33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %10) #26
-  %devaddr = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 3
+  %devaddr = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %call33, ptr %devaddr, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then31, %if.end29
-  %macaddr = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 1
+  %macaddr = getelementptr inbounds i8, ptr %netdev, i64 24
   %11 = load ptr, ptr %macaddr, align 8
   %tobool35.not = icmp eq ptr %11, null
   br i1 %tobool35.not, label %if.end51, label %land.lhs.true
@@ -4340,7 +4319,7 @@ if.then.i:                                        ; preds = %if.end51
   br i1 %cmp2.not.i, label %if.else.i, label %qemu_macaddr_default_if_unset.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx.i.i = getelementptr [6 x i8], ptr %arrayidx, i64 0, i64 5
+  %arrayidx.i.i = getelementptr i8, ptr %arrayidx, i64 5
   %13 = load i8, ptr %arrayidx.i.i, align 1
   %14 = zext i8 %13 to i64
   %arrayidx3.i.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %14
@@ -4364,7 +4343,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 if.end.i41:                                       ; preds = %if.end51
   store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %arrayidx, align 8
-  %arrayidx12.i = getelementptr [6 x i8], ptr %arrayidx, i64 0, i64 4
+  %arrayidx12.i = getelementptr i8, ptr %arrayidx, i64 4
   store i8 52, ptr %arrayidx12.i, align 4
   br label %for.body.i11.i
 
@@ -4386,7 +4365,7 @@ return.split.loop.exit6.i.i:                      ; preds = %for.body.i11.i
 
 qemu_macaddr_get_free.exit.i:                     ; preds = %for.inc.i15.i, %return.split.loop.exit6.i.i
   %retval.0.i.i = phi i8 [ %17, %return.split.loop.exit6.i.i ], [ -1, %for.inc.i15.i ]
-  %arrayidx15.i = getelementptr [6 x i8], ptr %arrayidx, i64 0, i64 5
+  %arrayidx15.i = getelementptr i8, ptr %arrayidx, i64 5
   store i8 %retval.0.i.i, ptr %arrayidx15.i, align 1
   %18 = zext i8 %retval.0.i.i to i64
   %arrayidx3.i19.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %18
@@ -4409,7 +4388,7 @@ for.inc.i23.i:                                    ; preds = %if.then.i26.i, %for
   br i1 %exitcond.not.i25.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i20.i, !llvm.loop !6
 
 qemu_macaddr_default_if_unset.exit:               ; preds = %for.inc.i.i, %for.inc.i23.i, %if.then.i
-  %has_vectors = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 9
+  %has_vectors = getelementptr inbounds i8, ptr %netdev, i64 48
   %20 = load i8, ptr %has_vectors, align 8
   %21 = and i8 %20, 1
   %tobool53.not = icmp eq i8 %21, 0
@@ -4427,9 +4406,9 @@ if.then56:                                        ; preds = %if.then54
 
 if.end62:                                         ; preds = %qemu_macaddr_default_if_unset.exit, %if.then54
   %.sink = phi i32 [ %22, %if.then54 ], [ -1, %qemu_macaddr_default_if_unset.exit ]
-  %nvectors61 = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 7
+  %nvectors61 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i32 %.sink, ptr %nvectors61, align 8
-  %used = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom, i32 5
+  %used = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i32 1, ptr %used, align 8
   %23 = load i32, ptr @nb_nics, align 4
   %inc = add i32 %23, 1

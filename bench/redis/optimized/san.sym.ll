@@ -4,26 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.extent_hooks_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ehooks_s = type { i32, %struct.atomic_p_t }
-%struct.atomic_p_t = type { ptr }
-%struct.tsd_s = type { i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
-%struct.ticker_geom_s = type { i32, i32 }
-%struct.tsd_binshards_s = type { [39 x i8] }
-%struct.tsd_link_t = type { ptr, ptr }
-%struct.peak_s = type { i64, i64 }
-%struct.activity_callback_thunk_s = type { ptr, ptr }
-%struct.tcache_slow_s = type { %struct.anon.4, %struct.cache_bin_array_descriptor_s, ptr, i32, [39 x i8], [39 x i8], [39 x i8], ptr, ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.cache_bin_array_descriptor_s = type { %struct.anon.5, ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.rtree_ctx_s = type { [16 x %struct.rtree_ctx_cache_elm_s], [8 x %struct.rtree_ctx_cache_elm_s] }
-%struct.rtree_ctx_cache_elm_s = type { i64, ptr }
-%struct.atomic_u8_t = type { i8 }
-%struct.tcache_s = type { ptr, [76 x %struct.cache_bin_s] }
-%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16 }
-%struct.cache_bin_stats_s = type { i64 }
-%struct.witness_tsd_s = type { %struct.witness_list_t, i8 }
-%struct.witness_list_t = type { ptr }
 
 @opt_san_guard_large = hidden local_unnamed_addr global i64 0, align 8
 @opt_san_guard_small = hidden local_unnamed_addr global i64 0, align 8
@@ -54,7 +34,7 @@ if.end:                                           ; preds = %if.then, %entry
   %and.i.i = and i64 %2, -4096
   %add.i = add i64 %and.i.i, 4096
   %addr.0 = select i1 %left, i64 %add.i, i64 %and.i.i
-  %ptr.i.i = getelementptr inbounds %struct.ehooks_s, ptr %ehooks, i64 0, i32 1
+  %ptr.i.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %3 = load atomic i64, ptr %ptr.i.i acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   %cmp.i.not = icmp eq ptr %4, @ehooks_default_extent_hooks
@@ -105,7 +85,7 @@ entry:
   %2 = ptrtoint ptr %edata.val15.i to i64
   %and.i.i.i = and i64 %2, -4096
   %sub.i.i = add i64 %and.i.i.i, -4096
-  %ptr.i.i.i = getelementptr inbounds %struct.ehooks_s, ptr %ehooks, i64 0, i32 1
+  %ptr.i.i.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %3 = load atomic i64, ptr %ptr.i.i.i acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   %cmp.i.not.i = icmp eq ptr %4, @ehooks_default_extent_hooks
@@ -148,7 +128,7 @@ entry:
   %edata.val15.i = load ptr, ptr %1, align 8
   %2 = ptrtoint ptr %edata.val15.i to i64
   %and.i.i.i = and i64 %2, -4096
-  %ptr.i.i.i = getelementptr inbounds %struct.ehooks_s, ptr %ehooks, i64 0, i32 1
+  %ptr.i.i.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %3 = load atomic i64, ptr %ptr.i.i.i acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   %cmp.i.not.i = icmp eq ptr %4, @ehooks_default_extent_hooks
@@ -228,10 +208,10 @@ declare void @safety_check_fail(ptr noundef, ...) local_unnamed_addr #1
 define hidden void @tsd_san_init(ptr nocapture noundef writeonly %tsd) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr @opt_san_guard_small, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i = getelementptr inbounds i8, ptr %tsd, i64 120
   store i64 %0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i, align 8
   %1 = load i64, ptr @opt_san_guard_large, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 17
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i = getelementptr inbounds i8, ptr %tsd, i64 128
   store i64 %1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i, align 8
   ret void
 }

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -349,7 +347,7 @@ for.body:                                         ; preds = %sw.bb5, %for.body
   %helpp.0162 = phi ptr [ @opt_helplist, %sw.bb5 ], [ %incdec.ptr, %for.body ]
   %4 = load ptr, ptr @bio_err, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.130, ptr noundef nonnull %3) #7
-  %incdec.ptr = getelementptr inbounds ptr, ptr %helpp.0162, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %helpp.0162, i64 8
   %5 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %end, label %for.body, !llvm.loop !7
@@ -1384,7 +1382,7 @@ if.end16:                                         ; preds = %if.end12
 
 if.end21:                                         ; preds = %if.end16
   %call22 = tail call ptr @ASN1_TYPE_new() #7
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %call13, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %call13, i64 8
   store ptr %call22, ptr %parameter, align 8
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %if.then72, label %if.end25
@@ -1625,7 +1623,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
   br i1 %cmp6, label %err, label %if.end8
 
 if.end8:                                          ; preds = %for.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call5, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call5, i64 8
   %2 = load ptr, ptr %data, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.134, i32 noundef 571) #7
   %sub9 = sub nsw i32 8, %i.0.lcssa

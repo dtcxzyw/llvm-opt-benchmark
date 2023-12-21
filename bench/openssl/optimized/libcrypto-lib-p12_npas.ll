@@ -3,21 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-p12_npas.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PKCS12_st = type { ptr, ptr, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.pkcs7_encrypted_st = type { ptr, ptr }
-%struct.pkcs7_enc_content_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.PKCS12_SAFEBAG_st = type { ptr, %union.anon.1, ptr }
-%union.anon.1 = type { ptr }
-%struct.PBE2PARAM_st = type { ptr, ptr }
-%struct.PBKDF2PARAM_st = type { ptr, ptr, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.PBEPARAM_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_npas.c\00", align 1
 @__func__.PKCS12_newpass = private unnamed_addr constant [15 x i8] c"PKCS12_newpass\00", align 1
 
@@ -46,7 +31,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mac = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
@@ -92,7 +77,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %i.059.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %call9.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.059.i) #3
-  %type.i = getelementptr inbounds %struct.pkcs7_st, ptr %call9.i, i64 0, i32 4
+  %type.i = getelementptr inbounds i8, ptr %call9.i, i64 24
   %1 = load ptr, ptr %type.i, align 8
   %call10.i = call i32 @OBJ_obj2nid(ptr noundef %1) #3
   %cmp11.i = icmp eq i32 %call10.i, 21
@@ -109,11 +94,11 @@ if.else.i:                                        ; preds = %for.body.i
 
 if.then15.i:                                      ; preds = %if.else.i
   %call16.i = call ptr @PKCS12_unpack_p7encdata(ptr noundef nonnull %call9.i, ptr noundef %oldpass, i32 noundef -1) #3
-  %d.i = getelementptr inbounds %struct.pkcs7_st, ptr %call9.i, i64 0, i32 5
+  %d.i = getelementptr inbounds i8, ptr %call9.i, i64 32
   %2 = load ptr, ptr %d.i, align 8
-  %enc_data.i = getelementptr inbounds %struct.pkcs7_encrypted_st, ptr %2, i64 0, i32 1
+  %enc_data.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %enc_data.i, align 8
-  %algorithm.i = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %3, i64 0, i32 1
+  %algorithm.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %algorithm.i, align 8
   %call17.i = call fastcc i32 @alg_get(ptr noundef %4, ptr noundef nonnull %pbe_nid.i, ptr noundef nonnull %pbe_iter.i, ptr noundef nonnull %pbe_saltlen.i, ptr noundef nonnull %cipherid.i), !range !4
   %tobool.i = icmp eq i32 %call17.i, 0
@@ -123,9 +108,9 @@ if.then15.i:                                      ; preds = %if.else.i
 
 if.end25.i:                                       ; preds = %if.then15.i, %if.then12.i
   %bags.1.i = phi ptr [ %call13.i, %if.then12.i ], [ %call16.i, %if.then15.i ]
-  %ctx.i = getelementptr inbounds %struct.pkcs7_st, ptr %call9.i, i64 0, i32 6
+  %ctx.i = getelementptr inbounds i8, ptr %call9.i, i64 40
   %5 = load ptr, ptr %ctx.i, align 8
-  %propq.i = getelementptr inbounds %struct.pkcs7_st, ptr %call9.i, i64 0, i32 6, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %call9.i, i64 48
   %6 = load ptr, ptr %propq.i, align 8
   %call18.i.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %bags.1.i) #3
   %cmp9.i.i = icmp sgt i32 %call18.i.i, 0
@@ -145,7 +130,7 @@ for.body.i.i:                                     ; preds = %if.end25.i, %for.in
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %for.inc.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
-  %value.i.i.i = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call3.i.i, i64 0, i32 1
+  %value.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   %7 = load ptr, ptr %value.i.i.i, align 8
   %call1.i.i.i = call ptr @PKCS8_decrypt_ex(ptr noundef %7, ptr noundef %oldpass, i32 noundef -1, ptr noundef %5, ptr noundef %6) #3
   %cmp2.i.i.i = icmp eq ptr %call1.i.i.i, null
@@ -247,13 +232,13 @@ for.inc.i:                                        ; preds = %if.end47.i, %if.els
   br i1 %cmp7.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %authsafes.i = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes.i = getelementptr inbounds i8, ptr %p12, i64 16
   %20 = load ptr, ptr %authsafes.i, align 8
-  %d50.i = getelementptr inbounds %struct.pkcs7_st, ptr %20, i64 0, i32 5
+  %d50.i = getelementptr inbounds i8, ptr %20, i64 32
   %21 = load ptr, ptr %d50.i, align 8
   %call51.i = call ptr @ASN1_OCTET_STRING_new() #3
   %22 = load ptr, ptr %authsafes.i, align 8
-  %d53.i = getelementptr inbounds %struct.pkcs7_st, ptr %22, i64 0, i32 5
+  %d53.i = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %call51.i, ptr %d53.i, align 8
   %cmp54.i = icmp eq ptr %call51.i, null
   br i1 %cmp54.i, label %if.else77.i, label %if.end56.i
@@ -303,11 +288,11 @@ if.else77.i:                                      ; preds = %if.end67.i, %if.the
 
 if.then79.i:                                      ; preds = %if.else77.i
   %28 = load ptr, ptr %authsafes.i, align 8
-  %d81.i = getelementptr inbounds %struct.pkcs7_st, ptr %28, i64 0, i32 5
+  %d81.i = getelementptr inbounds i8, ptr %28, i64 32
   %29 = load ptr, ptr %d81.i, align 8
   call void @ASN1_OCTET_STRING_free(ptr noundef %29) #3
   %30 = load ptr, ptr %authsafes.i, align 8
-  %d83.i = getelementptr inbounds %struct.pkcs7_st, ptr %30, i64 0, i32 5
+  %d83.i = getelementptr inbounds i8, ptr %30, i64 32
   store ptr %21, ptr %d83.i, align 8
   br label %if.then8.critedge
 
@@ -385,7 +370,7 @@ if.end5:                                          ; preds = %if.end
   call void @X509_ALGOR_get0(ptr noundef nonnull %aoid, ptr noundef nonnull %aparamtype, ptr noundef nonnull %aparam, ptr noundef %3) #3
   %4 = load ptr, ptr %aoid, align 8
   %call6 = call i32 @OBJ_obj2nid(ptr noundef %4) #3
-  %encryption = getelementptr inbounds %struct.PBE2PARAM_st, ptr %call2, i64 0, i32 1
+  %encryption = getelementptr inbounds i8, ptr %call2, i64 8
   %5 = load ptr, ptr %encryption, align 8
   call void @X509_ALGOR_get0(ptr noundef nonnull %aoid, ptr noundef null, ptr noundef null, ptr noundef %5) #3
   %6 = load ptr, ptr %aoid, align 8
@@ -408,7 +393,7 @@ if.end15:                                         ; preds = %if.end12
   br i1 %cmp16.not, label %if.end18, label %if.end41.thread56
 
 if.end18:                                         ; preds = %if.end15
-  %prf = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call11, i64 0, i32 3
+  %prf = getelementptr inbounds i8, ptr %call11, i64 24
   %11 = load ptr, ptr %prf, align 8
   %cmp19 = icmp eq ptr %11, null
   br i1 %cmp19, label %done, label %if.else
@@ -422,7 +407,7 @@ if.else:                                          ; preds = %if.end18
 
 sw.default:                                       ; preds = %entry
   %call26 = call ptr @PBEPARAM_it() #3
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %alg, i64 8
   %13 = load ptr, ptr %parameter, align 8
   %call27 = call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %call26, ptr noundef %13) #3
   %cmp28 = icmp eq ptr %call27, null
@@ -431,11 +416,11 @@ sw.default:                                       ; preds = %entry
 done:                                             ; preds = %if.else, %if.end18
   %14 = phi ptr [ %.pre, %if.else ], [ %9, %if.end18 ]
   %prfnid.0 = phi i32 [ %call22, %if.else ], [ 163, %if.end18 ]
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %14, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %value, align 8
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %psaltlen, align 4
-  %iter = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call11, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %call11, i64 8
   %17 = load ptr, ptr %iter, align 8
   %call25 = call i64 @ASN1_INTEGER_get(ptr noundef %17) #3
   %conv = trunc i64 %call25 to i32
@@ -458,7 +443,7 @@ if.then48:                                        ; preds = %sw.default
   %18 = load ptr, ptr %alg, align 8
   %call32 = call i32 @OBJ_obj2nid(ptr noundef %18) #3
   store i32 %call32, ptr %pnid, align 4
-  %iter33 = getelementptr inbounds %struct.PBEPARAM_st, ptr %call27, i64 0, i32 1
+  %iter33 = getelementptr inbounds i8, ptr %call27, i64 8
   %19 = load ptr, ptr %iter33, align 8
   %call34 = call i64 @ASN1_INTEGER_get(ptr noundef %19) #3
   %conv35 = trunc i64 %call34 to i32

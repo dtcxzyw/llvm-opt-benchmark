@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QVirtioIOMMUPCI = type { %struct.QVirtioPCIDevice, %struct.QVirtioIOMMU }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
-%struct.QVirtioIOMMU = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"addr=04.0\00", align 1
 @__const.virtio_iommu_register_nodes.opts = private unnamed_addr constant %struct.QOSGraphEdgeOptions { ptr null, i32 0, ptr @.str, ptr null, ptr null, ptr null }, align 8
@@ -62,15 +56,15 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal ptr @virtio_iommu_pci_create(ptr noundef %pci_bus, ptr noundef %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #7
-  %iommu = getelementptr inbounds %struct.QVirtioIOMMUPCI, ptr %call, i64 0, i32 1
+  %iommu = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #6
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %iommu, align 8
   store ptr %t_alloc, ptr @alloc, align 8
   store ptr @qvirtio_iommu_pci_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qvirtio_iommu_pci_start_hw, ptr %start_hw, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qvirtio_iommu_pci_destructor, ptr %destructor, align 8
   ret ptr %call
 }
@@ -92,11 +86,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %iommu = getelementptr inbounds %struct.QVirtioIOMMUPCI, ptr %object, i64 0, i32 1
+  %iommu = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.5) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
@@ -125,7 +119,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_iommu_pci_start_hw(ptr noundef %obj) #0 {
 entry:
-  %iommu = getelementptr inbounds %struct.QVirtioIOMMUPCI, ptr %obj, i64 0, i32 1
+  %iommu = getelementptr inbounds i8, ptr %obj, i64 152
   tail call void @qvirtio_pci_start_hw(ptr noundef %obj) #6
   %0 = load ptr, ptr %iommu, align 8
   %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #6
@@ -134,7 +128,7 @@ entry:
   %1 = load ptr, ptr %iommu, align 8
   %2 = load ptr, ptr @alloc, align 8
   %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %1, ptr noundef %2, i16 noundef zeroext 0) #6
-  %vq.i = getelementptr inbounds %struct.QVirtioIOMMUPCI, ptr %obj, i64 0, i32 1, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %obj, i64 160
   store ptr %call3.i, ptr %vq.i, align 8
   %3 = load ptr, ptr %iommu, align 8
   tail call void @qvirtio_set_driver_ok(ptr noundef %3) #6
@@ -144,9 +138,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_iommu_pci_destructor(ptr noundef %obj) #0 {
 entry:
-  %iommu = getelementptr inbounds %struct.QVirtioIOMMUPCI, ptr %obj, i64 0, i32 1
+  %iommu = getelementptr inbounds i8, ptr %obj, i64 152
   %iommu.val = load ptr, ptr %iommu, align 8
-  %0 = getelementptr %struct.QVirtioIOMMUPCI, ptr %obj, i64 0, i32 1, i32 1
+  %0 = getelementptr i8, ptr %obj, i64 160
   %iommu.val2 = load ptr, ptr %0, align 8
   %iommu.val.val = load ptr, ptr %iommu.val, align 8
   %1 = load ptr, ptr @alloc, align 8

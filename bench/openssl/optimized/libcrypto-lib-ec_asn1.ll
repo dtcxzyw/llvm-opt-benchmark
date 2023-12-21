@@ -7,26 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ADB_st = type { i64, i64, ptr, ptr, i64, ptr, ptr }
 %struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
-%struct.ec_parameters_st = type { i32, ptr, ptr, ptr, ptr, ptr }
-%struct.x9_62_fieldid_st = type { ptr, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.x9_62_characteristic_two_st = type { i32, ptr, %union.anon.1 }
-%union.anon.1 = type { ptr }
-%struct.x9_62_pentanomial_st = type { i32, i32, i32 }
-%struct.x9_62_curve_st = type { ptr, ptr, ptr }
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon.2, ptr, ptr }
-%union.anon.2 = type { ptr }
-%struct.ecpk_parameters_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ec_privatekey_st = type { i32, ptr, ptr, ptr }
-%struct.ec_key_st = type { ptr, ptr, i32, ptr, ptr, ptr, i32, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, i64 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ECDSA_SIG_st = type { ptr, ptr }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @ECPARAMETERS_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @ECPARAMETERS_seq_tt, i64 6, ptr null, i64 48, ptr @.str }, align 8
 @ECPARAMETERS_seq_tt = internal constant [6 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 4096, i64 0, i64 0, ptr @.str.14, ptr @INT32_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.15, ptr @X9_62_FIELDID_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.16, ptr @X9_62_CURVE_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.17, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 32, ptr @.str.18, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 40, ptr @.str.19, ptr @ASN1_INTEGER_it }], align 16
@@ -253,7 +234,7 @@ err.thread:                                       ; preds = %if.then
 if.end3:                                          ; preds = %entry, %if.then
   %ret.0 = phi ptr [ %call1.i, %if.then ], [ %params, %entry ]
   store i32 1, ptr %ret.0, align 8
-  %fieldID = getelementptr inbounds %struct.ec_parameters_st, ptr %ret.0, i64 0, i32 1
+  %fieldID = getelementptr inbounds i8, ptr %ret.0, i64 8
   %0 = load ptr, ptr %fieldID, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.i)
@@ -274,7 +255,7 @@ ec_asn1_group2fieldid.exit.thread:                ; preds = %if.end3
 if.end.i:                                         ; preds = %if.end3
   %1 = load ptr, ptr %0, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %1) #8
-  %p.i = getelementptr inbounds %struct.x9_62_fieldid_st, ptr %0, i64 0, i32 1
+  %p.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %p.i, align 8
   tail call void @ASN1_TYPE_free(ptr noundef %2) #8
   %call.i = tail call i32 @EC_GROUP_get_field_type(ptr noundef nonnull %group) #8
@@ -356,7 +337,7 @@ if.then35.i:                                      ; preds = %if.end29.i
 
 if.end36.i:                                       ; preds = %if.end29.i
   %call37.i = tail call ptr @OBJ_nid2obj(i32 noundef %call32.i) #8
-  %type.i = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %call1.i.i, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   store ptr %call37.i, ptr %type.i, align 8
   %cmp38.i = icmp eq ptr %call37.i, null
   br i1 %cmp38.i, label %if.then40.i, label %if.end41.i
@@ -380,7 +361,7 @@ if.then44.i:                                      ; preds = %if.end41.i
 
 if.end48.i:                                       ; preds = %if.then44.i
   %call49.i = call ptr @ASN1_INTEGER_new() #8
-  %p50.i = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %call1.i.i, i64 0, i32 2
+  %p50.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
   store ptr %call49.i, ptr %p50.i, align 8
   %cmp52.i = icmp eq ptr %call49.i, null
   br i1 %cmp52.i, label %if.then54.i, label %if.end55.i
@@ -411,7 +392,7 @@ if.then65.i:                                      ; preds = %if.end41.i
 
 if.end69.i:                                       ; preds = %if.then65.i
   %call1.i33.i = call ptr @ASN1_item_new(ptr noundef nonnull @X9_62_PENTANOMIAL_it.local_it) #8
-  %p71.i = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %call1.i.i, i64 0, i32 2
+  %p71.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
   store ptr %call1.i33.i, ptr %p71.i, align 8
   %cmp73.i = icmp eq ptr %call1.i33.i, null
   br i1 %cmp73.i, label %if.then75.i, label %if.end76.i
@@ -427,17 +408,17 @@ if.end76.i:                                       ; preds = %if.end69.i
   store i32 %4, ptr %call1.i33.i, align 4
   %5 = load i32, ptr %k2.i, align 4
   %6 = load ptr, ptr %p71.i, align 8
-  %k284.i = getelementptr inbounds %struct.x9_62_pentanomial_st, ptr %6, i64 0, i32 1
+  %k284.i = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %5, ptr %k284.i, align 4
   %7 = load i32, ptr %k3.i, align 4
   %8 = load ptr, ptr %p71.i, align 8
-  %k388.i = getelementptr inbounds %struct.x9_62_pentanomial_st, ptr %8, i64 0, i32 2
+  %k388.i = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %7, ptr %k388.i, align 4
   br label %if.end6
 
 if.else89.i:                                      ; preds = %if.end41.i
   %call90.i = tail call ptr @ASN1_NULL_new() #8
-  %p91.i = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %call1.i.i, i64 0, i32 2
+  %p91.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
   store ptr %call90.i, ptr %p91.i, align 8
   %cmp93.i = icmp eq ptr %call90.i, null
   br i1 %cmp93.i, label %if.then95.i, label %if.end6
@@ -470,7 +451,7 @@ if.end6:                                          ; preds = %if.else89.i, %if.en
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k3.i)
-  %curve = getelementptr inbounds %struct.ec_parameters_st, ptr %ret.0, i64 0, i32 2
+  %curve = getelementptr inbounds i8, ptr %ret.0, i64 16
   %9 = load ptr, ptr %curve, align 8
   %tobool1.i.not = icmp eq ptr %9, null
   br i1 %tobool1.i.not, label %err, label %lor.lhs.false2.i
@@ -481,7 +462,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end6
   br i1 %tobool3.not.i, label %err, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false2.i
-  %b.i = getelementptr inbounds %struct.x9_62_curve_st, ptr %9, i64 0, i32 1
+  %b.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %b.i, align 8
   %tobool5.not.i = icmp eq ptr %11, null
   br i1 %tobool5.not.i, label %err, label %if.end.i31
@@ -539,10 +520,10 @@ lor.lhs.false40.i:                                ; preds = %if.end35.i
   br i1 %tobool44.not.i, label %if.then9.critedge.sink.split, label %if.end46.i
 
 if.end46.i:                                       ; preds = %lor.lhs.false40.i
-  %seed.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %seed.i = getelementptr inbounds i8, ptr %group, i64 48
   %14 = load ptr, ptr %seed.i, align 8
   %tobool47.not.i = icmp eq ptr %14, null
-  %seed67.i = getelementptr inbounds %struct.x9_62_curve_st, ptr %9, i64 0, i32 2
+  %seed67.i = getelementptr inbounds i8, ptr %9, i64 16
   %15 = load ptr, ptr %seed67.i, align 8
   br i1 %tobool47.not.i, label %if.else.i, label %if.then48.i
 
@@ -561,7 +542,7 @@ if.end58.i:                                       ; preds = %if.then51.i, %if.th
   call void @ossl_asn1_string_set_bits_left(ptr noundef nonnull %16, i32 noundef 0) #8
   %17 = load ptr, ptr %seed67.i, align 8
   %18 = load ptr, ptr %seed.i, align 8
-  %seed_len.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 9
+  %seed_len.i = getelementptr inbounds i8, ptr %group, i64 56
   %19 = load i64, ptr %seed_len.i, align 8
   %conv62.i = trunc i64 %19 to i32
   %call63.i = call i32 @ASN1_BIT_STRING_set(ptr noundef %17, ptr noundef %18, i32 noundef %conv62.i) #8
@@ -610,7 +591,7 @@ if.end14:                                         ; preds = %ec_asn1_group2curve
   br i1 %cmp17, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.end14
-  %base = getelementptr inbounds %struct.ec_parameters_st, ptr %ret.0, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %ret.0, i64 24
   %20 = load ptr, ptr %base, align 8
   %cmp20 = icmp eq ptr %20, null
   br i1 %cmp20, label %land.lhs.true, label %if.end25
@@ -636,7 +617,7 @@ if.end25:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp28, label %err, label %if.end31
 
 if.end31:                                         ; preds = %if.end25
-  %order = getelementptr inbounds %struct.ec_parameters_st, ptr %ret.0, i64 0, i32 4
+  %order = getelementptr inbounds i8, ptr %ret.0, i64 32
   %24 = load ptr, ptr %order, align 8
   %call32 = call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %call27, ptr noundef %24) #8
   store ptr %call32, ptr %order, align 8
@@ -653,7 +634,7 @@ if.end39:                                         ; preds = %if.end31
   br i1 %cmp41.not, label %return, label %if.then43
 
 if.then43:                                        ; preds = %if.end39
-  %cofactor = getelementptr inbounds %struct.ec_parameters_st, ptr %ret.0, i64 0, i32 5
+  %cofactor = getelementptr inbounds i8, ptr %ret.0, i64 40
   %25 = load ptr, ptr %cofactor, align 8
   %call44 = call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %call40, ptr noundef %25) #8
   store ptr %call44, ptr %cofactor, align 8
@@ -731,13 +712,13 @@ if.else:                                          ; preds = %entry
   ]
 
 if.then4:                                         ; preds = %if.else
-  %value = getelementptr inbounds %struct.ecpk_parameters_st, ptr %params, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load ptr, ptr %value, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %1) #8
   br label %if.end14
 
 land.lhs.true:                                    ; preds = %if.else
-  %value8 = getelementptr inbounds %struct.ecpk_parameters_st, ptr %params, i64 0, i32 1
+  %value8 = getelementptr inbounds i8, ptr %params, i64 8
   %2 = load ptr, ptr %value8, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end14, label %if.then10
@@ -776,14 +757,14 @@ if.then24:                                        ; preds = %lor.lhs.false, %if.
 
 if.else25:                                        ; preds = %lor.lhs.false
   store i32 0, ptr %ret.0, align 8
-  %value27 = getelementptr inbounds %struct.ecpk_parameters_st, ptr %ret.0, i64 0, i32 1
+  %value27 = getelementptr inbounds i8, ptr %ret.0, i64 8
   store ptr %call20, ptr %value27, align 8
   br label %return
 
 if.else31:                                        ; preds = %if.end14
   store i32 1, ptr %ret.0, align 8
   %call33 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %group, ptr noundef null)
-  %value34 = getelementptr inbounds %struct.ecpk_parameters_st, ptr %ret.0, i64 0, i32 1
+  %value34 = getelementptr inbounds i8, ptr %ret.0, i64 8
   store ptr %call33, ptr %value34, align 8
   %cmp35 = icmp eq ptr %call33, null
   br i1 %cmp35, label %if.then40, label %return
@@ -810,7 +791,7 @@ declare i64 @OBJ_length(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EC_GROUP_new_from_ecparameters(ptr nocapture noundef readonly %params) local_unnamed_addr #0 {
 entry:
-  %fieldID = getelementptr inbounds %struct.ec_parameters_st, ptr %params, i64 0, i32 1
+  %fieldID = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load ptr, ptr %fieldID, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then329.sink.split, label %lor.lhs.false
@@ -821,13 +802,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %if.then329.sink.split, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %p5 = getelementptr inbounds %struct.x9_62_fieldid_st, ptr %0, i64 0, i32 1
+  %p5 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %p5, align 8
   %cmp6 = icmp eq ptr %2, null
   br i1 %cmp6, label %if.then329.sink.split, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %curve = getelementptr inbounds %struct.ec_parameters_st, ptr %params, i64 0, i32 2
+  %curve = getelementptr inbounds i8, ptr %params, i64 16
   %3 = load ptr, ptr %curve, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %if.then329.sink.split, label %lor.lhs.false8
@@ -838,19 +819,19 @@ lor.lhs.false8:                                   ; preds = %if.end
   br i1 %cmp11, label %if.then329.sink.split, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data, align 8
   %cmp15 = icmp eq ptr %5, null
   br i1 %cmp15, label %if.then329.sink.split, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false12
-  %b18 = getelementptr inbounds %struct.x9_62_curve_st, ptr %3, i64 0, i32 1
+  %b18 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %b18, align 8
   %cmp19 = icmp eq ptr %6, null
   br i1 %cmp19, label %if.then329.sink.split, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false16
-  %data23 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data23 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %data23, align 8
   %cmp24 = icmp eq ptr %7, null
   br i1 %cmp24, label %if.then329.sink.split, label %if.end26
@@ -863,9 +844,9 @@ if.end26:                                         ; preds = %lor.lhs.false20
 
 if.end34:                                         ; preds = %if.end26
   %9 = load ptr, ptr %curve, align 8
-  %b36 = getelementptr inbounds %struct.x9_62_curve_st, ptr %9, i64 0, i32 1
+  %b36 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %b36, align 8
-  %data37 = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data37 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data37, align 8
   %12 = load i32, ptr %10, align 8
   %call41 = tail call ptr @BN_bin2bn(ptr noundef %11, i32 noundef %12, ptr noundef null) #8
@@ -883,7 +864,7 @@ if.end44:                                         ; preds = %if.end34
 
 if.then49:                                        ; preds = %if.end44
   %15 = load ptr, ptr %fieldID, align 8
-  %p51 = getelementptr inbounds %struct.x9_62_fieldid_st, ptr %15, i64 0, i32 1
+  %p51 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %p51, align 8
   %17 = load i32, ptr %16, align 8
   %cmp52 = icmp sgt i32 %17, 661
@@ -895,7 +876,7 @@ if.end55:                                         ; preds = %if.then49
   br i1 %cmp57, label %if.then329.sink.split, label %if.end60
 
 if.end60:                                         ; preds = %if.end55
-  %type = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %16, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %type, align 8
   %call61 = tail call i32 @OBJ_obj2nid(ptr noundef %18) #8
   switch i32 %call61, label %if.else145 [
@@ -905,7 +886,7 @@ if.end60:                                         ; preds = %if.end55
   ]
 
 if.then64:                                        ; preds = %if.end60
-  %p65 = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %16, i64 0, i32 2
+  %p65 = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load ptr, ptr %p65, align 8
   %tobool.not = icmp eq ptr %19, null
   br i1 %tobool.not, label %if.then329.sink.split, label %if.end67
@@ -936,20 +917,20 @@ if.end87:                                         ; preds = %if.end82
   br i1 %tobool89.not, label %if.then329, label %if.end147
 
 if.then94:                                        ; preds = %if.end60
-  %p95 = getelementptr inbounds %struct.x9_62_characteristic_two_st, ptr %16, i64 0, i32 2
+  %p95 = getelementptr inbounds i8, ptr %16, i64 16
   %21 = load ptr, ptr %p95, align 8
   %cmp96 = icmp eq ptr %21, null
   br i1 %cmp96, label %if.then329.sink.split, label %if.end99
 
 if.end99:                                         ; preds = %if.then94
   %22 = load i32, ptr %16, align 8
-  %k3 = getelementptr inbounds %struct.x9_62_pentanomial_st, ptr %21, i64 0, i32 2
+  %k3 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i32, ptr %k3, align 4
   %cmp101 = icmp sgt i32 %22, %23
   br i1 %cmp101, label %land.lhs.true103, label %if.then329.sink.split
 
 land.lhs.true103:                                 ; preds = %if.end99
-  %k2 = getelementptr inbounds %struct.x9_62_pentanomial_st, ptr %21, i64 0, i32 1
+  %k2 = getelementptr inbounds i8, ptr %21, i64 4
   %24 = load i32, ptr %k2, align 4
   %cmp105 = icmp sgt i32 %23, %24
   br i1 %cmp105, label %land.lhs.true107, label %if.then329.sink.split
@@ -998,7 +979,7 @@ if.end147:                                        ; preds = %if.end136, %if.end8
 
 if.then152:                                       ; preds = %if.end44
   %29 = load ptr, ptr %fieldID, align 8
-  %p154 = getelementptr inbounds %struct.x9_62_fieldid_st, ptr %29, i64 0, i32 1
+  %p154 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %p154, align 8
   %cmp155 = icmp eq ptr %30, null
   br i1 %cmp155, label %if.then329.sink.split, label %if.end158
@@ -1036,7 +1017,7 @@ if.end182:                                        ; preds = %if.end178, %if.end1
 
 if.end186:                                        ; preds = %if.end182
   %31 = load ptr, ptr %curve, align 8
-  %seed = getelementptr inbounds %struct.x9_62_curve_st, ptr %31, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %seed, align 8
   %cmp188.not = icmp eq ptr %32, null
   br i1 %cmp188.not, label %if.end221, label %if.then190
@@ -1047,11 +1028,11 @@ if.then190:                                       ; preds = %if.end186
   br i1 %cmp194, label %if.then329.sink.split, label %if.end197
 
 if.end197:                                        ; preds = %if.then190
-  %seed198 = getelementptr inbounds %struct.ec_group_st, ptr %ret.0, i64 0, i32 8
+  %seed198 = getelementptr inbounds i8, ptr %ret.0, i64 48
   %34 = load ptr, ptr %seed198, align 8
   tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str.2, i32 noundef 698) #8
   %35 = load ptr, ptr %curve, align 8
-  %seed200 = getelementptr inbounds %struct.x9_62_curve_st, ptr %35, i64 0, i32 2
+  %seed200 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %seed200, align 8
   %37 = load i32, ptr %36, align 8
   %conv202 = sext i32 %37 to i64
@@ -1062,9 +1043,9 @@ if.end197:                                        ; preds = %if.then190
 
 if.end208:                                        ; preds = %if.end197
   %38 = load ptr, ptr %curve, align 8
-  %seed211 = getelementptr inbounds %struct.x9_62_curve_st, ptr %38, i64 0, i32 2
+  %seed211 = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load ptr, ptr %seed211, align 8
-  %data212 = getelementptr inbounds %struct.asn1_string_st, ptr %39, i64 0, i32 2
+  %data212 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load ptr, ptr %data212, align 8
   %41 = load i32, ptr %39, align 8
   %conv216 = sext i32 %41 to i64
@@ -1072,24 +1053,24 @@ if.end208:                                        ; preds = %if.end197
   %42 = load ptr, ptr %seed211, align 8
   %43 = load i32, ptr %42, align 8
   %conv220 = sext i32 %43 to i64
-  %seed_len = getelementptr inbounds %struct.ec_group_st, ptr %ret.0, i64 0, i32 9
+  %seed_len = getelementptr inbounds i8, ptr %ret.0, i64 56
   store i64 %conv220, ptr %seed_len, align 8
   br label %if.end221
 
 if.end221:                                        ; preds = %if.end208, %if.end186
-  %order = getelementptr inbounds %struct.ec_parameters_st, ptr %params, i64 0, i32 4
+  %order = getelementptr inbounds i8, ptr %params, i64 32
   %44 = load ptr, ptr %order, align 8
   %cmp222 = icmp eq ptr %44, null
   br i1 %cmp222, label %if.then329.sink.split, label %lor.lhs.false224
 
 lor.lhs.false224:                                 ; preds = %if.end221
-  %base = getelementptr inbounds %struct.ec_parameters_st, ptr %params, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %params, i64 24
   %45 = load ptr, ptr %base, align 8
   %cmp225 = icmp eq ptr %45, null
   br i1 %cmp225, label %if.then329.sink.split, label %lor.lhs.false227
 
 lor.lhs.false227:                                 ; preds = %lor.lhs.false224
-  %data229 = getelementptr inbounds %struct.asn1_string_st, ptr %45, i64 0, i32 2
+  %data229 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %data229, align 8
   %cmp230 = icmp eq ptr %46, null
   br i1 %cmp230, label %if.then329.sink.split, label %lor.lhs.false232
@@ -1106,14 +1087,14 @@ if.end238:                                        ; preds = %lor.lhs.false232
 
 if.end243:                                        ; preds = %if.end238
   %48 = load ptr, ptr %base, align 8
-  %data245 = getelementptr inbounds %struct.asn1_string_st, ptr %48, i64 0, i32 2
+  %data245 = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load ptr, ptr %data245, align 8
   %50 = load i8, ptr %49, align 1
   %51 = and i8 %50, -2
   %and = zext i8 %51 to i32
   tail call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %ret.0, i32 noundef %and) #8
   %52 = load ptr, ptr %base, align 8
-  %data248 = getelementptr inbounds %struct.asn1_string_st, ptr %52, i64 0, i32 2
+  %data248 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %data248, align 8
   %54 = load i32, ptr %52, align 8
   %conv251 = sext i32 %54 to i64
@@ -1144,7 +1125,7 @@ if.end268:                                        ; preds = %lor.lhs.false264
   br i1 %cmp271, label %if.then329.sink.split, label %if.end274
 
 if.end274:                                        ; preds = %if.end268
-  %cofactor = getelementptr inbounds %struct.ec_parameters_st, ptr %params, i64 0, i32 5
+  %cofactor = getelementptr inbounds i8, ptr %params, i64 40
   %56 = load ptr, ptr %cofactor, align 8
   %cmp275 = icmp eq ptr %56, null
   br i1 %cmp275, label %if.then277, label %if.else278
@@ -1198,7 +1179,7 @@ if.end315:                                        ; preds = %if.then310
   tail call void @EC_GROUP_free(ptr noundef nonnull %ret.0) #8
   tail call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %call311, i32 noundef 0) #8
   %57 = load ptr, ptr %curve, align 8
-  %seed317 = getelementptr inbounds %struct.x9_62_curve_st, ptr %57, i64 0, i32 2
+  %seed317 = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load ptr, ptr %seed317, align 8
   %cmp318 = icmp eq ptr %58, null
   br i1 %cmp318, label %err, label %if.end330
@@ -1327,7 +1308,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then2:                                         ; preds = %if.end
-  %value = getelementptr inbounds %struct.ecpk_parameters_st, ptr %params, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load ptr, ptr %value, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #8
   %call3 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %call) #8
@@ -1345,7 +1326,7 @@ if.end6:                                          ; preds = %if.then2
   br label %return
 
 if.then9:                                         ; preds = %if.end
-  %value10 = getelementptr inbounds %struct.ecpk_parameters_st, ptr %params, i64 0, i32 1
+  %value10 = getelementptr inbounds i8, ptr %params, i64 8
   %2 = load ptr, ptr %value10, align 8
   %call11 = tail call ptr @EC_GROUP_new_from_ecparameters(ptr noundef %2)
   %tobool.not = icmp eq ptr %call11, null
@@ -1401,7 +1382,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  %decoded_from_explicit_params = getelementptr inbounds %struct.ec_group_st, ptr %call1, i64 0, i32 6
+  %decoded_from_explicit_params = getelementptr inbounds i8, ptr %call1, i64 40
   store i32 1, ptr %decoded_from_explicit_params, align 8
   br label %if.end7
 
@@ -1486,13 +1467,13 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
 
 if.end8:                                          ; preds = %lor.lhs.false, %if.then3
   %ret.0 = phi ptr [ %call4, %if.then3 ], [ %1, %lor.lhs.false ]
-  %parameters = getelementptr inbounds %struct.ec_privatekey_st, ptr %call1.i, i64 0, i32 2
+  %parameters = getelementptr inbounds i8, ptr %call1.i, i64 16
   %2 = load ptr, ptr %parameters, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end20, label %if.then9
 
 if.then9:                                         ; preds = %if.end8
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %ret.0, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %ret.0, i64 24
   %3 = load ptr, ptr %group, align 8
   call void @EC_GROUP_free(ptr noundef %3) #8
   %4 = load ptr, ptr %parameters, align 8
@@ -1508,21 +1489,21 @@ land.lhs.true:                                    ; preds = %if.then9
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %land.lhs.true
-  %decoded_from_explicit_params = getelementptr inbounds %struct.ec_group_st, ptr %call11, i64 0, i32 6
+  %decoded_from_explicit_params = getelementptr inbounds i8, ptr %call11, i64 40
   store i32 1, ptr %decoded_from_explicit_params, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then9, %land.lhs.true, %if.then17, %if.end8
-  %group21 = getelementptr inbounds %struct.ec_key_st, ptr %ret.0, i64 0, i32 3
+  %group21 = getelementptr inbounds i8, ptr %ret.0, i64 24
   %7 = load ptr, ptr %group21, align 8
   %cmp22 = icmp eq ptr %7, null
   br i1 %cmp22, label %err.sink.split, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
   %8 = load i32, ptr %call1.i, align 8
-  %version25 = getelementptr inbounds %struct.ec_key_st, ptr %ret.0, i64 0, i32 2
+  %version25 = getelementptr inbounds i8, ptr %ret.0, i64 16
   store i32 %8, ptr %version25, align 8
-  %privateKey = getelementptr inbounds %struct.ec_privatekey_st, ptr %call1.i, i64 0, i32 1
+  %privateKey = getelementptr inbounds i8, ptr %call1.i, i64 8
   %9 = load ptr, ptr %privateKey, align 8
   %tobool26.not = icmp eq ptr %9, null
   br i1 %tobool26.not, label %err.sink.split, label %if.then27
@@ -1546,7 +1527,7 @@ if.then42:                                        ; preds = %if.end37
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end37
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %ret.0, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %ret.0, i64 32
   %11 = load ptr, ptr %pub_key, align 8
   call void @EC_POINT_clear_free(ptr noundef %11) #8
   %12 = load ptr, ptr %group21, align 8
@@ -1556,7 +1537,7 @@ if.end43:                                         ; preds = %if.then42, %if.end3
   br i1 %cmp48, label %err.sink.split, label %if.end51
 
 if.end51:                                         ; preds = %if.end43
-  %publicKey = getelementptr inbounds %struct.ec_privatekey_st, ptr %call1.i, i64 0, i32 3
+  %publicKey = getelementptr inbounds i8, ptr %call1.i, i64 24
   %13 = load ptr, ptr %publicKey, align 8
   %tobool52.not = icmp eq ptr %13, null
   br i1 %tobool52.not, label %if.else63, label %if.then53
@@ -1573,7 +1554,7 @@ if.then53:                                        ; preds = %if.end51
 if.else63:                                        ; preds = %if.end51
   %15 = load ptr, ptr %group21, align 8
   %16 = load ptr, ptr %15, align 8
-  %keygenpub = getelementptr inbounds %struct.ec_method_st, ptr %16, i64 0, i32 44
+  %keygenpub = getelementptr inbounds i8, ptr %16, i64 344
   %17 = load ptr, ptr %keygenpub, align 8
   %cmp65 = icmp eq ptr %17, null
   br i1 %cmp65, label %err, label %lor.lhs.false67
@@ -1584,7 +1565,7 @@ lor.lhs.false67:                                  ; preds = %if.else63
   br i1 %cmp72, label %err, label %if.end75
 
 if.end75:                                         ; preds = %lor.lhs.false67
-  %enc_flag = getelementptr inbounds %struct.ec_key_st, ptr %ret.0, i64 0, i32 6
+  %enc_flag = getelementptr inbounds i8, ptr %ret.0, i64 48
   %18 = load i32, ptr %enc_flag, align 8
   %or = or i32 %18, 2
   store i32 %or, ptr %enc_flag, align 8
@@ -1601,7 +1582,7 @@ if.end79:                                         ; preds = %if.then78, %if.end7
   call void @ASN1_item_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @EC_PRIVATEKEY_it.local_it) #8
   %19 = load ptr, ptr %p, align 8
   store ptr %19, ptr %in, align 8
-  %dirty_cnt = getelementptr inbounds %struct.ec_key_st, ptr %ret.0, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %ret.0, i64 96
   %20 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %20, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -1665,20 +1646,20 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %group, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %enc_flag = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 6
+  %enc_flag = getelementptr inbounds i8, ptr %a, i64 48
   %1 = load i32, ptr %enc_flag, align 8
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false2
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %a, i64 32
   %2 = load ptr, ptr %pub_key, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -1701,7 +1682,7 @@ if.then5:                                         ; preds = %if.end
   br label %err
 
 if.end6:                                          ; preds = %if.end
-  %version = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load i32, ptr %version, align 8
   store i32 %3, ptr %call1.i, align 8
   %call8 = call i64 @EC_KEY_priv2buf(ptr noundef nonnull %a, ptr noundef nonnull %priv) #8
@@ -1715,7 +1696,7 @@ if.then10:                                        ; preds = %if.end6
   br label %err
 
 if.end11:                                         ; preds = %if.end6
-  %privateKey = getelementptr inbounds %struct.ec_privatekey_st, ptr %call1.i, i64 0, i32 1
+  %privateKey = getelementptr inbounds i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %privateKey, align 8
   %5 = load ptr, ptr %priv, align 8
   %conv = trunc i64 %call8 to i32
@@ -1728,7 +1709,7 @@ if.end11:                                         ; preds = %if.end6
 
 if.then15:                                        ; preds = %if.end11
   %7 = load ptr, ptr %group, align 8
-  %parameters = getelementptr inbounds %struct.ec_privatekey_st, ptr %call1.i, i64 0, i32 2
+  %parameters = getelementptr inbounds i8, ptr %call1.i, i64 16
   %8 = load ptr, ptr %parameters, align 8
   %call17 = call ptr @EC_GROUP_get_ecpkparameters(ptr noundef %7, ptr noundef %8)
   store ptr %call17, ptr %parameters, align 8
@@ -1753,7 +1734,7 @@ if.end23:                                         ; preds = %if.then15.if.end23_
 
 if.then27:                                        ; preds = %if.end23
   %call28 = call ptr @ASN1_BIT_STRING_new() #8
-  %publicKey = getelementptr inbounds %struct.ec_privatekey_st, ptr %call1.i, i64 0, i32 3
+  %publicKey = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %call28, ptr %publicKey, align 8
   %cmp30 = icmp eq ptr %call28, null
   br i1 %cmp30, label %if.then32, label %if.end33
@@ -1765,7 +1746,7 @@ if.then32:                                        ; preds = %if.then27
   br label %err
 
 if.end33:                                         ; preds = %if.then27
-  %conv_form = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 7
+  %conv_form = getelementptr inbounds i8, ptr %a, i64 52
   %10 = load i32, ptr %conv_form, align 4
   %call34 = call i64 @EC_KEY_key2buf(ptr noundef nonnull %a, i32 noundef %10, ptr noundef nonnull %pub, ptr noundef null) #8
   %cmp35 = icmp eq i64 %call34, 0
@@ -1833,7 +1814,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %group, align 8
   %call = tail call i32 @i2d_ECPKParameters(ptr noundef %0, ptr noundef %out)
   br label %return
@@ -1881,13 +1862,13 @@ if.then7:                                         ; preds = %if.then5
   br label %return
 
 if.end9:                                          ; preds = %if.then5
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %call, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %call, i64 24
   %call10 = tail call ptr @d2i_ECPKParameters(ptr noundef nonnull %group, ptr noundef nonnull %in, i64 noundef %len)
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %if.then11, label %if.end18
 
 if.end9.thread:                                   ; preds = %lor.lhs.false3
-  %group18 = getelementptr inbounds %struct.ec_key_st, ptr %1, i64 0, i32 3
+  %group18 = getelementptr inbounds i8, ptr %1, i64 24
   %call1019 = tail call ptr @d2i_ECPKParameters(ptr noundef nonnull %group18, ptr noundef nonnull %in, i64 noundef %len)
   %tobool.not20 = icmp eq ptr %call1019, null
   br i1 %tobool.not20, label %lor.lhs.false13, label %if.end18
@@ -1907,7 +1888,7 @@ if.then15:                                        ; preds = %lor.lhs.false13, %i
   br label %return
 
 if.else16:                                        ; preds = %lor.lhs.false13
-  %dirty_cnt = getelementptr inbounds %struct.ec_key_st, ptr %ret.02225, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %ret.02225, i64 96
   %3 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -1926,7 +1907,7 @@ if.then22:                                        ; preds = %if.end18
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.end18
-  %dirty_cnt24 = getelementptr inbounds %struct.ec_key_st, ptr %ret.021, i64 0, i32 13
+  %dirty_cnt24 = getelementptr inbounds i8, ptr %ret.021, i64 96
   %5 = load i64, ptr %dirty_cnt24, align 8
   %inc25 = add i64 %5, 1
   store i64 %inc25, ptr %dirty_cnt24, align 8
@@ -1953,7 +1934,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %0, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %group, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -2000,11 +1981,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %group, align 8
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %a, i64 32
   %1 = load ptr, ptr %pub_key, align 8
-  %conv_form = getelementptr inbounds %struct.ec_key_st, ptr %a, i64 0, i32 7
+  %conv_form = getelementptr inbounds i8, ptr %a, i64 52
   %2 = load i32, ptr %conv_form, align 4
   %call = tail call i64 @EC_POINT_point2oct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null) #8
   %cmp1 = icmp eq ptr %out, null
@@ -2086,7 +2067,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sig, align 8
   tail call void @BN_clear_free(ptr noundef %0) #8
-  %s = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   tail call void @BN_clear_free(ptr noundef %1) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %sig, ptr noundef nonnull @.str.2, i32 noundef 1208) #8
@@ -2131,7 +2112,7 @@ if.then9:                                         ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.then9, %if.end7
   %2 = phi ptr [ %call10, %if.then9 ], [ %1, %if.end7 ]
-  %s = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig.0, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig.0, i64 8
   %3 = load ptr, ptr %s, align 8
   %cmp13 = icmp eq ptr %3, null
   br i1 %cmp13, label %if.then14, label %if.end17
@@ -2230,7 +2211,7 @@ if.else10:                                        ; preds = %if.else
 if.end16:                                         ; preds = %lor.lhs.false, %if.else10, %if.then
   %buf.0 = phi ptr [ null, %if.then ], [ %call4, %lor.lhs.false ], [ null, %if.else10 ]
   %1 = load ptr, ptr %sig, align 8
-  %s = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %2 = load ptr, ptr %s, align 8
   %call17 = call i32 @ossl_encode_der_dsa_sig(ptr noundef nonnull %pkt, ptr noundef %1, ptr noundef %2) #8
   %tobool18.not = icmp eq i32 %call17, 0
@@ -2260,7 +2241,7 @@ if.then28:                                        ; preds = %if.end26
   br i1 %cmp29, label %if.then30, label %if.else32
 
 if.then30:                                        ; preds = %if.then28
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %buf.0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %buf.0, i64 8
   %4 = load ptr, ptr %data, align 8
   store ptr %4, ptr %ppout, align 8
   store ptr null, ptr %data, align 8
@@ -2317,7 +2298,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %s = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   store ptr %1, ptr %ps, align 8
   br label %if.end3
@@ -2336,7 +2317,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ECDSA_SIG_get0_s(ptr nocapture noundef readonly %sig) local_unnamed_addr #5 {
 entry:
-  %s = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %0 = load ptr, ptr %s, align 8
   ret ptr %0
 }
@@ -2352,7 +2333,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sig, align 8
   tail call void @BN_clear_free(ptr noundef %0) #8
-  %s3 = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s3 = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s3, align 8
   tail call void @BN_clear_free(ptr noundef %1) #8
   store ptr %r, ptr %sig, align 8

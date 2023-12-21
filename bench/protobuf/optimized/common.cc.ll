@@ -22,8 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20230802::Span" = type { ptr, i64 }
-%"class.google::protobuf::internal::FunctionClosure0" = type <{ %"class.google::protobuf::Closure", ptr, i8, [7 x i8] }>
-%"class.google::protobuf::Closure" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN4absl12lts_2023080212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_ = comdat any
@@ -168,7 +166,7 @@ entry:
   %rem = srem i32 %div1, 1000
   %rem2 = srem i32 %version, 1000
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %div, i32 noundef %rem, i32 noundef %rem2) #18
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %buffer, i64 0, i64 127
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 127
   store i8 0, ptr %arrayidx, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
@@ -209,7 +207,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -265,7 +263,7 @@ entry:
   %rem = srem i32 %div, 1000
   %rem1 = srem i32 %version, 1000
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 128, ptr noundef nonnull @.str.6, i32 noundef %rem, i32 noundef %rem1) #18
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %buffer, i64 0, i64 127
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 127
   store i8 0, ptr %arrayidx, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
@@ -353,18 +351,18 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal16FunctionClosure03RunEv(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %self_deleting_ = getelementptr inbounds %"class.google::protobuf::internal::FunctionClosure0", ptr %this, i64 0, i32 2
+  %self_deleting_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %self_deleting_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %function_ = getelementptr inbounds %"class.google::protobuf::internal::FunctionClosure0", ptr %this, i64 0, i32 1
+  %function_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %function_, align 8
   tail call void %2()
   br i1 %tobool.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(17) %this) #18
   br label %if.end

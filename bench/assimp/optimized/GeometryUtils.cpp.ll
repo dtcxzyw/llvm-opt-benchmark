@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %class.aiVector3t = type { float, float, float }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%struct.aiFace = type { i32, ptr }
-%struct.aiRay = type { %class.aiVector3t, %class.aiVector3t }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define noundef float @_ZN6Assimp13GeometryUtils5heronEfff(float noundef %a, float noundef %b, float noundef %c) local_unnamed_addr #0 align 2 {
@@ -37,14 +32,14 @@ entry:
   %0 = load float, ptr %vB, align 4
   %1 = load float, ptr %vA, align 4
   %sub = fsub float %0, %1
-  %y = getelementptr inbounds %class.aiVector3t, ptr %vB, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %vB, i64 4
   %2 = load float, ptr %y, align 4
-  %y2 = getelementptr inbounds %class.aiVector3t, ptr %vA, i64 0, i32 1
+  %y2 = getelementptr inbounds i8, ptr %vA, i64 4
   %3 = load float, ptr %y2, align 4
   %sub3 = fsub float %2, %3
-  %z = getelementptr inbounds %class.aiVector3t, ptr %vB, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %vB, i64 8
   %4 = load float, ptr %z, align 4
-  %z4 = getelementptr inbounds %class.aiVector3t, ptr %vA, i64 0, i32 2
+  %z4 = getelementptr inbounds i8, ptr %vA, i64 8
   %5 = load float, ptr %z4, align 4
   %sub5 = fsub float %4, %5
   %mul6 = fmul float %sub3, %sub3
@@ -62,9 +57,9 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define noundef float @_ZN6Assimp13GeometryUtils23calculateAreaOfTriangleERK6aiFaceP6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %face, ptr nocapture noundef readonly %mesh) local_unnamed_addr #4 align 2 {
 entry:
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 3
+  %mVertices = getelementptr inbounds i8, ptr %mesh, i64 16
   %0 = load ptr, ptr %mVertices, align 8
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %face, i64 0, i32 1
+  %mIndices = getelementptr inbounds i8, ptr %face, i64 8
   %1 = load ptr, ptr %mIndices, align 8
   %2 = load i32, ptr %1, align 4
   %idxprom = zext i32 %2 to i64
@@ -74,7 +69,7 @@ entry:
   %vA.sroa.3.0.copyload = load float, ptr %vA.sroa.3.0.arrayidx1.sroa_idx, align 4
   %vA.sroa.5.0.arrayidx1.sroa_idx = getelementptr inbounds i8, ptr %arrayidx1, i64 8
   %vA.sroa.5.0.copyload = load float, ptr %vA.sroa.5.0.arrayidx1.sroa_idx, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %arrayidx4, align 4
   %idxprom5 = zext i32 %3 to i64
   %arrayidx6 = getelementptr inbounds %class.aiVector3t, ptr %0, i64 %idxprom5
@@ -83,7 +78,7 @@ entry:
   %vB.sroa.3.0.copyload = load float, ptr %vB.sroa.3.0.arrayidx6.sroa_idx, align 4
   %vB.sroa.5.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %vB.sroa.5.0.copyload = load float, ptr %vB.sroa.5.0.arrayidx6.sroa_idx, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %1, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %arrayidx9, align 4
   %idxprom10 = zext i32 %4 to i64
   %arrayidx11 = getelementptr inbounds %class.aiVector3t, ptr %0, i64 %idxprom10
@@ -140,21 +135,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN6Assimp13GeometryUtils14PlaneIntersectERK5aiRayRK10aiVector3tIfES7_RS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %ray, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %planePos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %planeNormal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %pos) local_unnamed_addr #6 align 2 {
 entry:
-  %z4.i = getelementptr inbounds %class.aiVector3t, ptr %ray, i64 0, i32 2
+  %z4.i = getelementptr inbounds i8, ptr %ray, i64 8
   %0 = load float, ptr %z4.i, align 4
   %1 = load float, ptr %planeNormal, align 4
-  %y.i8 = getelementptr inbounds %class.aiVector3t, ptr %planeNormal, i64 0, i32 1
+  %y.i8 = getelementptr inbounds i8, ptr %planeNormal, i64 4
   %2 = load float, ptr %y.i8, align 4
-  %z.i10 = getelementptr inbounds %class.aiVector3t, ptr %planeNormal, i64 0, i32 2
+  %z.i10 = getelementptr inbounds i8, ptr %planeNormal, i64 8
   %3 = load float, ptr %z.i10, align 4
-  %dir = getelementptr inbounds %struct.aiRay, ptr %ray, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %ray, i64 12
   %4 = load <2 x float>, ptr %ray, align 4
   %5 = load <2 x float>, ptr %dir, align 4
   %6 = extractelement <2 x float> %5, i64 1
   %mul3.i14 = fmul float %2, %6
   %7 = extractelement <2 x float> %5, i64 0
   %8 = tail call float @llvm.fmuladd.f32(float %7, float %1, float %mul3.i14)
-  %z.i15 = getelementptr inbounds %struct.aiRay, ptr %ray, i64 0, i32 1, i32 2
+  %z.i15 = getelementptr inbounds i8, ptr %ray, i64 20
   %9 = load float, ptr %z.i15, align 4
   %10 = tail call noundef float @llvm.fmuladd.f32(float %9, float %3, float %8)
   %conv = fpext float %10 to double
@@ -164,13 +159,13 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %z.i = getelementptr inbounds %class.aiVector3t, ptr %planePos, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %planePos, i64 8
   %11 = load float, ptr %z.i, align 4
   %sub5.i = fsub float %11, %0
   %12 = load float, ptr %planePos, align 4
   %13 = extractelement <2 x float> %4, i64 0
   %sub.i = fsub float %12, %13
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %planePos, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %planePos, i64 4
   %14 = load float, ptr %y.i, align 4
   %15 = extractelement <2 x float> %4, i64 1
   %sub3.i = fsub float %14, %15
@@ -212,7 +207,7 @@ for.body:                                         ; preds = %entry, %_ZN10aiVect
   %mul4.i.i.i = extractelement <2 x float> %1, i64 1
   %2 = extractelement <2 x float> %0, i64 0
   %3 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul4.i.i.i)
-  %z.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %vectorArrayIn, i64 %i.05, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load float, ptr %z.i.i.i, align 4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %3)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %5)

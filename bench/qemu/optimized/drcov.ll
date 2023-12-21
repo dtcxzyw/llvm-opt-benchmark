@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union._GMutex = type { ptr }
-%struct.bb_entry_t = type { i32, i16, i16, i8 }
 
 @qemu_plugin_version = local_unnamed_addr global i32 1, align 4
 @.str = private unnamed_addr constant [2 x i8] c"=\00", align 1
@@ -40,7 +39,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %if.then, label %glib_auto_cleanup_GStrv.exit
 
 if.then:                                          ; preds = %for.body
-  %arrayidx4 = getelementptr inbounds ptr, ptr %call, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %arrayidx4, align 8
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %2) #7
   store ptr %call5, ptr @file_name, align 8
@@ -82,7 +81,7 @@ entry:
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %size = getelementptr inbounds %struct.bb_entry_t, ptr %call2, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %call2, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -100,9 +99,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %entry
   %conv9 = trunc i64 %call to i32
   store i32 %conv9, ptr %call2, align 4
-  %mod_id = getelementptr inbounds %struct.bb_entry_t, ptr %call2, i64 0, i32 2
+  %mod_id = getelementptr inbounds i8, ptr %call2, i64 6
   store i16 0, ptr %mod_id, align 2
-  %exec = getelementptr inbounds %struct.bb_entry_t, ptr %call2, i64 0, i32 3
+  %exec = getelementptr inbounds i8, ptr %call2, i64 8
   store i8 0, ptr %exec, align 4
   %2 = load ptr, ptr @blocks, align 8
   tail call void @g_ptr_array_add(ptr noundef %2, ptr noundef nonnull %call2) #7
@@ -172,7 +171,7 @@ declare void @qemu_plugin_register_vcpu_tb_exec_cb(ptr noundef, ptr noundef, i32
 define internal void @vcpu_tb_exec(i32 %cpu_index, ptr nocapture noundef writeonly %udata) #0 {
 entry:
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #7
-  %exec = getelementptr inbounds %struct.bb_entry_t, ptr %udata, i64 0, i32 3
+  %exec = getelementptr inbounds i8, ptr %udata, i64 8
   store i8 1, ptr %exec, align 4
   tail call void @g_mutex_unlock(ptr noundef nonnull @lock) #7
   ret void
@@ -183,7 +182,7 @@ declare void @g_ptr_array_foreach(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @count_block(ptr nocapture noundef readonly %data, ptr nocapture noundef %user_data) #4 {
 entry:
-  %exec = getelementptr inbounds %struct.bb_entry_t, ptr %data, i64 0, i32 3
+  %exec = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i8, ptr %exec, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -205,7 +204,7 @@ entry:
   %data.addr.i7 = alloca i16, align 2
   %data.addr.i5 = alloca i16, align 2
   %data.addr.i = alloca i32, align 4
-  %exec = getelementptr inbounds %struct.bb_entry_t, ptr %data, i64 0, i32 3
+  %exec = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i8, ptr %exec, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -218,14 +217,14 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @fp, align 8
   %call.i = call i64 @fwrite(ptr noundef nonnull %data.addr.i, i64 noundef 1, i64 noundef 4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
-  %size = getelementptr inbounds %struct.bb_entry_t, ptr %data, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %data, i64 4
   %4 = load i16, ptr %size, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %data.addr.i5)
   store i16 %4, ptr %data.addr.i5, align 2
   %5 = load ptr, ptr @fp, align 8
   %call.i6 = call i64 @fwrite(ptr noundef nonnull %data.addr.i5, i64 noundef 1, i64 noundef 2, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %data.addr.i5)
-  %mod_id = getelementptr inbounds %struct.bb_entry_t, ptr %data, i64 0, i32 2
+  %mod_id = getelementptr inbounds i8, ptr %data, i64 6
   %6 = load i16, ptr %mod_id, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %data.addr.i7)
   store i16 %6, ptr %data.addr.i7, align 2

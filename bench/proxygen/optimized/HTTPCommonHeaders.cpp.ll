@@ -347,7 +347,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.not.i.i, label %cond.false, label %for.body.i.i, !llvm.loop !4
 
 cond.false:                                       ; preds = %if.then.i.i
-  %code = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %conv.i, i32 1
+  %code = getelementptr inbounds i8, ptr %arrayidx12.i, i64 8
   %18 = load i8, ptr %code, align 8
   br label %cond.end
 
@@ -379,7 +379,7 @@ for.cond.preheader:                               ; preds = %arrayctor.loop
 for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
   %j.09.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.cond.preheader ]
   %arrayidx.us = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09.us
-  %code1.us = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09.us, i32 1
+  %code1.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
   %0 = load i8, ptr %code1.us, align 8
   %1 = load ptr, ptr %arrayidx.us, align 16
   %idxprom17.us = zext i8 %0 to i64
@@ -395,7 +395,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %j.09 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09
-  %code1 = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09, i32 1
+  %code1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i8, ptr %code1, align 8
   %3 = load ptr, ptr %arrayidx, align 16
   %idxprom17 = zext i8 %2 to i64

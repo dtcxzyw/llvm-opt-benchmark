@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache" = type { i64, i64, ptr, [8 x i8] }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"class.absl::lts_20230802::container_internal::btree" = type { ptr, %"class.absl::lts_20230802::container_internal::CompressedTuple", i64 }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.0", %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.1" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.0" = type { %"class.google::protobuf::internal::MapAllocator" }
-%"class.google::protobuf::internal::MapAllocator" = type { ptr }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.1" = type { ptr }
-%"class.google::protobuf::internal::UntypedMapBase" = type { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator.2" }
-%"class.google::protobuf::internal::MapAllocator.2" = type { ptr }
 %"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { %"struct.google::protobuf::internal::VariantKey", ptr }
 %"struct.google::protobuf::internal::VariantKey" = type { ptr, i64 }
@@ -25,17 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.36" = type { ptr }
 %"struct.std::pair.3" = type { %"class.absl::lts_20230802::container_internal::btree_iterator", i8, [7 x i8] }
 %"class.absl::lts_20230802::container_internal::btree_iterator" = type <{ ptr, i32, [4 x i8] }>
-%"struct.google::protobuf::internal::NodeBase" = type { ptr }
-%"class.google::protobuf::internal::SerialArena" = type { %"struct.std::atomic.21", ptr, ptr, ptr, %"struct.std::atomic.23", %"struct.std::atomic.25", %"struct.std::atomic.27", %"struct.std::atomic.25", %"struct.std::atomic.25", ptr, i8, ptr }
-%"struct.std::atomic.21" = type { %"struct.std::__atomic_base.22" }
-%"struct.std::__atomic_base.22" = type { ptr }
-%"struct.std::atomic.23" = type { %"struct.std::__atomic_base.24" }
-%"struct.std::__atomic_base.24" = type { ptr }
-%"struct.std::atomic.27" = type { %"struct.std::__atomic_base.28" }
-%"struct.std::__atomic_base.28" = type { ptr }
-%"struct.std::atomic.25" = type { %"struct.std::__atomic_base.26" }
-%"struct.std::__atomic_base.26" = type { i64 }
-%"struct.std::pair.12" = type { %"struct.google::protobuf::internal::VariantKey", ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -91,13 +72,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %tree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %tree, i64 0, i32 2
+  %size_.i.i = getelementptr inbounds i8, ptr %tree, i64 24
   %0 = load i64, ptr %size_.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %cond.end, label %cond.end.thread
 
 cond.end:                                         ; preds = %entry
-  %alloc_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %alloc_, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit, label %if.end
@@ -107,13 +88,13 @@ cond.end.thread:                                  ; preds = %entry
   %3 = load ptr, ptr %2, align 8
   %second = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %second, align 8
-  %alloc_4 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_4 = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %alloc_4, align 8
   %cmp5 = icmp eq ptr %5, null
   br i1 %cmp5, label %if.then.i.i.i.i.i.i, label %if.end
 
 if.then.i.i.i.i.i.i:                              ; preds = %cond.end.thread
-  %rightmost_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %tree, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tree, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %2, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
@@ -140,7 +121,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14UntypedMapBase13EraseFromTreeEjN4absl12lts_2023080218container_internal14btree_iteratorINS5_10btree_nodeINS5_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS9_ENS1_12MapAllocatorISt4pairIKS9_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %b, ptr %tree_it.coerce0, i32 %tree_it.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %table_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %table_, align 8
   %idxprom = zext i32 %b to i64
   %arrayidx = getelementptr inbounds i64, ptr %0, i64 %idxprom
@@ -183,17 +164,17 @@ if.else.i.i.i19.i:                                ; preds = %while.body3.i.prehe
   %10 = and i32 %tree_it.coerce1, 255
   %idxprom.i.i.i.i21.i = zext nneg i32 %10 to i64
   %arrayidx.i2.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i1.i.i.i.i, i64 %idxprom.i.i.i.i21.i
-  %storemerge11.i.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i.i, align 8
-  %arrayidx.i.i312.i.i.i.i = getelementptr i8, ptr %storemerge11.i.i.i.i, i64 11
-  %11 = load i8, ptr %arrayidx.i.i312.i.i.i.i, align 1
-  %cmp.i.not.i13.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %cmp.i.not.i13.i.i.i.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i
+  %storemerge10.i.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i.i, align 8
+  %arrayidx.i.i311.i.i.i.i = getelementptr i8, ptr %storemerge10.i.i.i.i, i64 11
+  %11 = load i8, ptr %arrayidx.i.i311.i.i.i.i, align 1
+  %cmp.i.not.i12.i.i.i.i = icmp eq i8 %11, 0
+  br i1 %cmp.i.not.i12.i.i.i.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i
 
 while.body27.i.i.i.i:                             ; preds = %if.else.i.i.i19.i, %while.body27.i.i.i.i
-  %storemerge14.i.i.i.i = phi ptr [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ], [ %storemerge11.i.i.i.i, %if.else.i.i.i19.i ]
-  %arrayidx.i4.i.i.i22.i = getelementptr i8, ptr %storemerge14.i.i.i.i, i64 10
+  %storemerge13.i.i.i.i = phi ptr [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ], [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ]
+  %arrayidx.i4.i.i.i22.i = getelementptr i8, ptr %storemerge13.i.i.i.i, i64 10
   %12 = load i8, ptr %arrayidx.i4.i.i.i22.i, align 1
-  %add.ptr.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %storemerge14.i.i.i.i, i64 256
+  %add.ptr.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %storemerge13.i.i.i.i, i64 256
   %idxprom.i6.i.i.i.i = zext i8 %12 to i64
   %arrayidx.i7.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i5.i.i.i.i, i64 %idxprom.i6.i.i.i.i
   %storemerge.i.i.i23.i = load ptr, ptr %arrayidx.i7.i.i.i.i, align 8
@@ -203,7 +184,7 @@ while.body27.i.i.i.i:                             ; preds = %if.else.i.i.i19.i, 
   br i1 %cmp.i.not.i.i.i.i24.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i, !llvm.loop !6
 
 while.end33.i.i.i.i:                              ; preds = %while.body27.i.i.i.i, %if.else.i.i.i19.i
-  %__x.i.sroa.0.1 = phi ptr [ %storemerge11.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
+  %__x.i.sroa.0.1 = phi ptr [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
   %arrayidx.i8.i.i.i.i = getelementptr i8, ptr %__x.i.sroa.0.1, i64 10
   %14 = load i8, ptr %arrayidx.i8.i.i.i.i, align 1
   %conv36.i.i.i.i = zext i8 %14 to i32
@@ -229,13 +210,13 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
 
 if.end:                                           ; preds = %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i, %entry
   %call.i = tail call { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE5eraseENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %tree_it.coerce0, i32 %tree_it.coerce1)
-  %size_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %2, i64 0, i32 2
+  %size_.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %19 = load i64, ptr %size_.i.i, align 8
   %cmp.i.i6 = icmp eq i64 %19, 0
   br i1 %cmp.i.i6, label %cond.end.i, label %if.end17
 
 cond.end.i:                                       ; preds = %if.end
-  %alloc_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_.i = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load ptr, ptr %alloc_.i, align 8
   %cmp.i = icmp eq ptr %20, null
   br i1 %cmp.i, label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i, label %_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE.exit
@@ -275,7 +256,7 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK6google8protobuf8internal10VariantKey4HashEv.exit: ; preds = %entry, %cond.false.i
   %cond.i = phi i64 [ %conv1.i.i.i.i.i.i.i.i.i.i.i, %cond.false.i ], [ %key.coerce1, %entry ]
-  %seed_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 2
+  %seed_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %seed_.i, align 8
   %conv.i = zext i32 %0 to i64
   %xor.i = xor i64 %cond.i, %conv.i
@@ -284,7 +265,7 @@ _ZNK6google8protobuf8internal10VariantKey4HashEv.exit: ; preds = %entry, %cond.f
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %num_buckets_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %num_buckets_.i, align 4
   %sub.i = add i32 %1, -1
   %2 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
@@ -301,7 +282,7 @@ entry:
   %ref.tmp = alloca %"struct.std::pair.3", align 8
   %ref.tmp11 = alloca %"struct.google::protobuf::internal::VariantKey", align 8
   store ptr %node, ptr %node.addr, align 8
-  %table_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %table_.i, align 8
   %idxprom.i = zext i32 %b to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
@@ -330,7 +311,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call12 = tail call { ptr, i64 } %get_key(ptr noundef %node)
   %7 = extractvalue { ptr, i64 } %call12, 0
   store ptr %7, ptr %ref.tmp11, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp11, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %9 = extractvalue { ptr, i64 } %call12, 1
   store i64 %9, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !7
@@ -379,17 +360,17 @@ if.else.i.i.i19.i:                                ; preds = %while.body3.i.prehe
   %17 = and i32 %it.sroa.4.0.copyload, 255
   %idxprom.i.i.i.i21.i = zext nneg i32 %17 to i64
   %arrayidx.i2.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i1.i.i.i.i, i64 %idxprom.i.i.i.i21.i
-  %storemerge11.i.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i.i, align 8
-  %arrayidx.i.i312.i.i.i.i = getelementptr i8, ptr %storemerge11.i.i.i.i, i64 11
-  %18 = load i8, ptr %arrayidx.i.i312.i.i.i.i, align 1
-  %cmp.i.not.i13.i.i.i.i = icmp eq i8 %18, 0
-  br i1 %cmp.i.not.i13.i.i.i.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i
+  %storemerge10.i.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i.i, align 8
+  %arrayidx.i.i311.i.i.i.i = getelementptr i8, ptr %storemerge10.i.i.i.i, i64 11
+  %18 = load i8, ptr %arrayidx.i.i311.i.i.i.i, align 1
+  %cmp.i.not.i12.i.i.i.i = icmp eq i8 %18, 0
+  br i1 %cmp.i.not.i12.i.i.i.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i
 
 while.body27.i.i.i.i:                             ; preds = %if.else.i.i.i19.i, %while.body27.i.i.i.i
-  %storemerge14.i.i.i.i = phi ptr [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ], [ %storemerge11.i.i.i.i, %if.else.i.i.i19.i ]
-  %arrayidx.i4.i.i.i22.i = getelementptr i8, ptr %storemerge14.i.i.i.i, i64 10
+  %storemerge13.i.i.i.i = phi ptr [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ], [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ]
+  %arrayidx.i4.i.i.i22.i = getelementptr i8, ptr %storemerge13.i.i.i.i, i64 10
   %19 = load i8, ptr %arrayidx.i4.i.i.i22.i, align 1
-  %add.ptr.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %storemerge14.i.i.i.i, i64 256
+  %add.ptr.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %storemerge13.i.i.i.i, i64 256
   %idxprom.i6.i.i.i.i = zext i8 %19 to i64
   %arrayidx.i7.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i5.i.i.i.i, i64 %idxprom.i6.i.i.i.i
   %storemerge.i.i.i23.i = load ptr, ptr %arrayidx.i7.i.i.i.i, align 8
@@ -399,7 +380,7 @@ while.body27.i.i.i.i:                             ; preds = %if.else.i.i.i19.i, 
   br i1 %cmp.i.not.i.i.i.i24.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i, !llvm.loop !6
 
 while.end33.i.i.i.i:                              ; preds = %while.body27.i.i.i.i, %if.else.i.i.i19.i
-  %__x.i.sroa.0.1 = phi ptr [ %storemerge11.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
+  %__x.i.sroa.0.1 = phi ptr [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
   %arrayidx.i8.i.i.i.i = getelementptr i8, ptr %__x.i.sroa.0.1, i64 10
   %21 = load i8, ptr %arrayidx.i8.i.i.i.i, align 1
   %conv36.i.i.i.i = zext i8 %21 to i32
@@ -433,8 +414,8 @@ land.lhs.true.i.i.i:                              ; preds = %if.end20
   %arrayidx.i1.i.i.i = getelementptr i8, ptr %it.sroa.0.0.copyload, i64 10
   %26 = load i8, ptr %arrayidx.i1.i.i.i, align 1
   %conv.i.i.i = zext i8 %26 to i32
-  %cmp10.i.i.i.i = icmp eq i32 %inc.i.i.i, %conv.i.i.i
-  br i1 %cmp10.i.i.i.i, label %land.rhs.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EppEv.exit.i
+  %cmp8.i.i.i.i = icmp eq i32 %inc.i.i.i, %conv.i.i.i
+  br i1 %cmp8.i.i.i.i, label %land.rhs.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EppEv.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i, %while.body.i.i.i.i
   %27 = phi ptr [ %28, %while.body.i.i.i.i ], [ %it.sroa.0.0.copyload, %land.lhs.true.i.i.i ]
@@ -476,7 +457,7 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EppEv.exit.i: ; preds = %land.rhs.i.i.i.i, %while.cond24.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EppEv.exit.i.loopexit38.split.loop.exit42, %land.lhs.true.i.i.i
   %__x.i7.sroa.0.2 = phi ptr [ %it.sroa.0.0.copyload, %land.lhs.true.i.i.i ], [ %28, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EppEv.exit.i.loopexit38.split.loop.exit42 ], [ %storemerge.i.i.i.i, %while.cond24.i.i.i.i ], [ %it.sroa.0.0.copyload, %land.rhs.i.i.i.i ]
   %__x.i7.sroa.9.2 = phi i32 [ %inc.i.i.i, %land.lhs.true.i.i.i ], [ %conv8.i.i.i.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EppEv.exit.i.loopexit38.split.loop.exit42 ], [ 0, %while.cond24.i.i.i.i ], [ %inc.i.i.i, %land.rhs.i.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %6, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %35 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr i8, ptr %35, i64 10
   %36 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -510,7 +491,7 @@ entry:
   %ref.tmp5 = alloca %"struct.google::protobuf::internal::VariantKey", align 8
   %tmp = alloca %"struct.std::pair.3", align 8
   store ptr %node, ptr %node.addr, align 8
-  %alloc_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %alloc_, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -526,18 +507,18 @@ if.end.i.i:                                       ; preds = %entry
 _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS0_9btree_mapINS4_8internal10VariantKeyEPNS8_8NodeBaseESt4lessIS9_ENS8_12MapAllocatorISt4pairIKS9_SB_EEEEEJSD_SI_EEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISJ_JSD_SI_EEESL_SM_SP_EUlSS_E0_JSD_SI_EEEDaOT0_OT1_DpOT2_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %call.sink7.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call.i.i.i, %if.end.i.i ]
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %call.sink7.i.i, align 8
-  %rightmost_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %call.sink7.i.i, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.sink7.i.i, i64 8
   %1 = ptrtoint ptr %0 to i64
   store i64 %1, ptr %rightmost_.i.i.i.i.i.i.i, align 8
-  %2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %call.sink7.i.i, i64 0, i32 1, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call.sink7.i.i, i64 16
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %2, align 8
-  %size_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %call.sink7.i.i, i64 0, i32 2
+  %size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.sink7.i.i, i64 24
   store i64 0, ptr %size_.i.i.i.i.i.i.i, align 8
   %cmp.not19 = icmp eq ptr %node, null
   br i1 %cmp.not19, label %while.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS0_9btree_mapINS4_8internal10VariantKeyEPNS8_8NodeBaseESt4lessIS9_ENS8_12MapAllocatorISt4pairIKS9_SB_EEEEEJSD_SI_EEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISJ_JSD_SI_EEESL_SM_SP_EUlSS_E0_JSD_SI_EEEDaOT0_OT1_DpOT2_.exit
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -603,17 +584,17 @@ if.else.i.i.i:                                    ; preds = %do.body
   %16 = and i32 %it.sroa.9.0, 255
   %idxprom.i.i.i.i = zext nneg i32 %16 to i64
   %arrayidx.i2.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i1.i.i.i, i64 %idxprom.i.i.i.i
-  %storemerge11.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i, align 8
-  %arrayidx.i.i312.i.i.i = getelementptr i8, ptr %storemerge11.i.i.i, i64 11
-  %17 = load i8, ptr %arrayidx.i.i312.i.i.i, align 1
-  %cmp.i.not.i13.i.i.i = icmp eq i8 %17, 0
-  br i1 %cmp.i.not.i13.i.i.i, label %while.body27.i.i.i, label %while.end33.i.i.i
+  %storemerge10.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i, align 8
+  %arrayidx.i.i311.i.i.i = getelementptr i8, ptr %storemerge10.i.i.i, i64 11
+  %17 = load i8, ptr %arrayidx.i.i311.i.i.i, align 1
+  %cmp.i.not.i12.i.i.i = icmp eq i8 %17, 0
+  br i1 %cmp.i.not.i12.i.i.i, label %while.body27.i.i.i, label %while.end33.i.i.i
 
 while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %while.body27.i.i.i
-  %storemerge14.i.i.i = phi ptr [ %storemerge.i.i.i, %while.body27.i.i.i ], [ %storemerge11.i.i.i, %if.else.i.i.i ]
-  %arrayidx.i4.i.i.i = getelementptr i8, ptr %storemerge14.i.i.i, i64 10
+  %storemerge13.i.i.i = phi ptr [ %storemerge.i.i.i, %while.body27.i.i.i ], [ %storemerge10.i.i.i, %if.else.i.i.i ]
+  %arrayidx.i4.i.i.i = getelementptr i8, ptr %storemerge13.i.i.i, i64 10
   %18 = load i8, ptr %arrayidx.i4.i.i.i, align 1
-  %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %storemerge14.i.i.i, i64 256
+  %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %storemerge13.i.i.i, i64 256
   %idxprom.i6.i.i.i = zext i8 %18 to i64
   %arrayidx.i7.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i5.i.i.i, i64 %idxprom.i6.i.i.i
   %storemerge.i.i.i = load ptr, ptr %arrayidx.i7.i.i.i, align 8
@@ -623,7 +604,7 @@ while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %whi
   br i1 %cmp.i.not.i.i.i.i, label %while.body27.i.i.i, label %while.end33.i.i.i, !llvm.loop !6
 
 while.end33.i.i.i:                                ; preds = %while.body27.i.i.i, %if.else.i.i.i
-  %it.sroa.0.1 = phi ptr [ %storemerge11.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
+  %it.sroa.0.1 = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
   %arrayidx.i8.i.i.i = getelementptr i8, ptr %it.sroa.0.1, i64 10
   %20 = load i8, ptr %arrayidx.i8.i.i.i, align 1
   %conv36.i.i.i = zext i8 %20 to i32
@@ -661,13 +642,13 @@ do.end:                                           ; preds = %_ZN4absl12lts_20230
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14UntypedMapBase12TransferTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEEPFS6_S8_E(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %tree, ptr nocapture noundef readonly %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %tree, i64 0, i32 2
+  %size_.i.i.i = getelementptr inbounds i8, ptr %tree, i64 24
   %0 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.i, label %cond.end.i, label %cond.end.thread.i
 
 cond.end.i:                                       ; preds = %entry
-  %alloc_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %alloc_.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i, label %_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE.exit
@@ -677,13 +658,13 @@ cond.end.thread.i:                                ; preds = %entry
   %3 = load ptr, ptr %2, align 8
   %second.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %second.i, align 8
-  %alloc_4.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_4.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %alloc_4.i, align 8
   %cmp5.i = icmp eq ptr %5, null
   br i1 %cmp5.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cond.end.thread.i
-  %rightmost_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %tree, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tree, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %2, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -701,10 +682,10 @@ _ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8No
 
 _ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE.exit: ; preds = %cond.end.i, %cond.end.thread.i, %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i
   %cond6.i = phi ptr [ %4, %cond.end.thread.i ], [ %cond710.i, %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i ], [ null, %cond.end.i ]
-  %seed_.i.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 2
-  %num_buckets_.i.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
-  %table_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
-  %index_of_first_non_null_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %seed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 12
   br label %do.body
 
 do.body:                                          ; preds = %if.end12, %_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE.exit
@@ -802,7 +783,7 @@ do.end:                                           ; preds = %if.end12
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14UntypedMapBase10ClearTableENS2_10ClearInputE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 %input.coerce0, ptr nocapture readonly %input.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %alloc_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 5
+  %alloc_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %alloc_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -821,11 +802,11 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %table_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %table_.i, align 8
-  %index_of_first_non_null_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %num_buckets_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %num_buckets_.i, align 4
   %cmp13.i = icmp ult i32 %2, %3
   br i1 %cmp13.i, label %for.body.lr.ph.i, label %if.end
@@ -846,7 +827,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i.i = add nsw i64 %5, -1
   %6 = inttoptr i64 %sub.i.i to ptr
-  %size_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %6, i64 0, i32 2
+  %size_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i.i.i, label %cond.end.i.i, label %cond.end.thread.i.i
@@ -866,7 +847,7 @@ cond.end.thread.i.i:                              ; preds = %cond.true.i
   br i1 %cmp5.i.i, label %if.then.i.i.i.i.i.i.i.i, label %cond.end.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %cond.end.thread.i.i
-  %rightmost_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %6, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %9, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
@@ -904,11 +885,11 @@ for.inc.i:                                        ; preds = %while.body.i, %cond
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !38
 
 sw.bb3:                                           ; preds = %if.then
-  %table_.i4 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i4 = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %table_.i4, align 8
-  %index_of_first_non_null_.i5 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i5 = getelementptr inbounds i8, ptr %this, i64 12
   %18 = load i32, ptr %index_of_first_non_null_.i5, align 4
-  %num_buckets_.i6 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i6 = getelementptr inbounds i8, ptr %this, i64 4
   %19 = load i32, ptr %num_buckets_.i6, align 4
   %cmp13.i7 = icmp ult i32 %18, %19
   br i1 %cmp13.i7, label %for.body.lr.ph.i8, label %if.end
@@ -929,7 +910,7 @@ for.body.i11:                                     ; preds = %for.inc.i29, %for.b
 cond.true.i16:                                    ; preds = %for.body.i11
   %sub.i.i17 = add nsw i64 %21, -1
   %22 = inttoptr i64 %sub.i.i17 to ptr
-  %size_.i.i.i.i18 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %22, i64 0, i32 2
+  %size_.i.i.i.i18 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load i64, ptr %size_.i.i.i.i18, align 8
   %cmp.i.i.i.i19 = icmp eq i64 %23, 0
   br i1 %cmp.i.i.i.i19, label %cond.end.i.i37, label %cond.end.thread.i.i20
@@ -949,7 +930,7 @@ cond.end.thread.i.i20:                            ; preds = %cond.true.i16
   br i1 %cmp5.i.i22, label %if.then.i.i.i.i.i.i.i.i32, label %cond.end.i23
 
 if.then.i.i.i.i.i.i.i.i32:                        ; preds = %cond.end.thread.i.i20
-  %rightmost_.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %22, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %25, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i33)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i35 unwind label %terminate.lpad.i.i.i.i.i.i.i34
 
@@ -977,7 +958,7 @@ cond.end.i23:                                     ; preds = %cond.false.i39, %_Z
 while.body.i26:                                   ; preds = %cond.end.i23, %while.body.i26
   %node.012.i27 = phi ptr [ %32, %while.body.i26 ], [ %cond.i24, %cond.end.i23 ]
   %32 = load ptr, ptr %node.012.i27, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::NodeBase", ptr %node.012.i27, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %node.012.i27, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %node.012.i27) #20
   %cmp9.not.i28 = icmp eq ptr %32, null
@@ -989,11 +970,11 @@ for.inc.i29:                                      ; preds = %while.body.i26, %co
   br i1 %exitcond.not.i31, label %if.end, label %for.body.i11, !llvm.loop !40
 
 sw.bb5:                                           ; preds = %if.then
-  %table_.i40 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i40 = getelementptr inbounds i8, ptr %this, i64 16
   %33 = load ptr, ptr %table_.i40, align 8
-  %index_of_first_non_null_.i41 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i41 = getelementptr inbounds i8, ptr %this, i64 12
   %34 = load i32, ptr %index_of_first_non_null_.i41, align 4
-  %num_buckets_.i42 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i42 = getelementptr inbounds i8, ptr %this, i64 4
   %35 = load i32, ptr %num_buckets_.i42, align 4
   %cmp13.i43 = icmp ult i32 %34, %35
   br i1 %cmp13.i43, label %for.body.lr.ph.i44, label %if.end
@@ -1015,7 +996,7 @@ for.body.i47:                                     ; preds = %for.inc.i66, %for.b
 cond.true.i52:                                    ; preds = %for.body.i47
   %sub.i.i53 = add nsw i64 %37, -1
   %38 = inttoptr i64 %sub.i.i53 to ptr
-  %size_.i.i.i.i54 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %38, i64 0, i32 2
+  %size_.i.i.i.i54 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load i64, ptr %size_.i.i.i.i54, align 8
   %cmp.i.i.i.i55 = icmp eq i64 %39, 0
   br i1 %cmp.i.i.i.i55, label %cond.end.i.i74, label %cond.end.thread.i.i56
@@ -1035,7 +1016,7 @@ cond.end.thread.i.i56:                            ; preds = %cond.true.i52
   br i1 %cmp5.i.i58, label %if.then.i.i.i.i.i.i.i.i69, label %cond.end.i59
 
 if.then.i.i.i.i.i.i.i.i69:                        ; preds = %cond.end.thread.i.i56
-  %rightmost_.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %38, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %41, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i70)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i72 unwind label %terminate.lpad.i.i.i.i.i.i.i71
 
@@ -1075,11 +1056,11 @@ for.inc.i66:                                      ; preds = %while.body.i62, %co
   br i1 %exitcond.not.i68, label %if.end, label %for.body.i47, !llvm.loop !42
 
 sw.bb7:                                           ; preds = %if.then
-  %table_.i77 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i77 = getelementptr inbounds i8, ptr %this, i64 16
   %49 = load ptr, ptr %table_.i77, align 8
-  %index_of_first_non_null_.i78 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i78 = getelementptr inbounds i8, ptr %this, i64 12
   %50 = load i32, ptr %index_of_first_non_null_.i78, align 4
-  %num_buckets_.i79 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i79 = getelementptr inbounds i8, ptr %this, i64 4
   %51 = load i32, ptr %num_buckets_.i79, align 4
   %cmp13.i80 = icmp ult i32 %50, %51
   br i1 %cmp13.i80, label %for.body.lr.ph.i81, label %if.end
@@ -1101,7 +1082,7 @@ for.body.i85:                                     ; preds = %for.inc.i104, %for.
 cond.true.i90:                                    ; preds = %for.body.i85
   %sub.i.i91 = add nsw i64 %53, -1
   %54 = inttoptr i64 %sub.i.i91 to ptr
-  %size_.i.i.i.i92 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %54, i64 0, i32 2
+  %size_.i.i.i.i92 = getelementptr inbounds i8, ptr %54, i64 24
   %55 = load i64, ptr %size_.i.i.i.i92, align 8
   %cmp.i.i.i.i93 = icmp eq i64 %55, 0
   br i1 %cmp.i.i.i.i93, label %cond.end.i.i112, label %cond.end.thread.i.i94
@@ -1121,7 +1102,7 @@ cond.end.thread.i.i94:                            ; preds = %cond.true.i90
   br i1 %cmp5.i.i96, label %if.then.i.i.i.i.i.i.i.i107, label %cond.end.i97
 
 if.then.i.i.i.i.i.i.i.i107:                       ; preds = %cond.end.thread.i.i94
-  %rightmost_.i.i.i.i.i.i.i.i.i108 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %54, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %54, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %57, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i108)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i110 unwind label %terminate.lpad.i.i.i.i.i.i.i109
 
@@ -1149,7 +1130,7 @@ cond.end.i97:                                     ; preds = %cond.false.i114, %_
 while.body.i100:                                  ; preds = %cond.end.i97, %while.body.i100
   %node.012.i101 = phi ptr [ %64, %while.body.i100 ], [ %cond.i98, %cond.end.i97 ]
   %64 = load ptr, ptr %node.012.i101, align 8
-  %add.ptr.i.i.i102 = getelementptr inbounds %"struct.google::protobuf::internal::NodeBase", ptr %node.012.i101, i64 1
+  %add.ptr.i.i.i102 = getelementptr inbounds i8, ptr %node.012.i101, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i102) #20
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %node.012.i101, i64 %idx.ext.i.i.i83
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i2.i.i) #20
@@ -1163,11 +1144,11 @@ for.inc.i104:                                     ; preds = %while.body.i100, %c
   br i1 %exitcond.not.i106, label %if.end, label %for.body.i85, !llvm.loop !44
 
 sw.bb11:                                          ; preds = %if.then
-  %table_.i115 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i115 = getelementptr inbounds i8, ptr %this, i64 16
   %65 = load ptr, ptr %table_.i115, align 8
-  %index_of_first_non_null_.i116 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i116 = getelementptr inbounds i8, ptr %this, i64 12
   %66 = load i32, ptr %index_of_first_non_null_.i116, align 4
-  %num_buckets_.i117 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i117 = getelementptr inbounds i8, ptr %this, i64 4
   %67 = load i32, ptr %num_buckets_.i117, align 4
   %cmp13.i118 = icmp ult i32 %66, %67
   br i1 %cmp13.i118, label %for.body.lr.ph.i119, label %if.end
@@ -1189,7 +1170,7 @@ for.body.i123:                                    ; preds = %for.inc.i142, %for.
 cond.true.i128:                                   ; preds = %for.body.i123
   %sub.i.i129 = add nsw i64 %69, -1
   %70 = inttoptr i64 %sub.i.i129 to ptr
-  %size_.i.i.i.i130 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %70, i64 0, i32 2
+  %size_.i.i.i.i130 = getelementptr inbounds i8, ptr %70, i64 24
   %71 = load i64, ptr %size_.i.i.i.i130, align 8
   %cmp.i.i.i.i131 = icmp eq i64 %71, 0
   br i1 %cmp.i.i.i.i131, label %cond.end.i.i150, label %cond.end.thread.i.i132
@@ -1209,7 +1190,7 @@ cond.end.thread.i.i132:                           ; preds = %cond.true.i128
   br i1 %cmp5.i.i134, label %if.then.i.i.i.i.i.i.i.i145, label %cond.end.i135
 
 if.then.i.i.i.i.i.i.i.i145:                       ; preds = %cond.end.thread.i.i132
-  %rightmost_.i.i.i.i.i.i.i.i.i146 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %70, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i146 = getelementptr inbounds i8, ptr %70, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %73, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i146)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i148 unwind label %terminate.lpad.i.i.i.i.i.i.i147
 
@@ -1251,11 +1232,11 @@ for.inc.i142:                                     ; preds = %while.body.i138, %c
   br i1 %exitcond.not.i144, label %if.end, label %for.body.i123, !llvm.loop !46
 
 sw.bb15:                                          ; preds = %if.then
-  %table_.i153 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i153 = getelementptr inbounds i8, ptr %this, i64 16
   %82 = load ptr, ptr %table_.i153, align 8
-  %index_of_first_non_null_.i154 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i154 = getelementptr inbounds i8, ptr %this, i64 12
   %83 = load i32, ptr %index_of_first_non_null_.i154, align 4
-  %num_buckets_.i155 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i155 = getelementptr inbounds i8, ptr %this, i64 4
   %84 = load i32, ptr %num_buckets_.i155, align 4
   %cmp13.i156 = icmp ult i32 %83, %84
   br i1 %cmp13.i156, label %for.body.lr.ph.i157, label %if.end
@@ -1277,7 +1258,7 @@ for.body.i161:                                    ; preds = %for.inc.i182, %for.
 cond.true.i166:                                   ; preds = %for.body.i161
   %sub.i.i167 = add nsw i64 %86, -1
   %87 = inttoptr i64 %sub.i.i167 to ptr
-  %size_.i.i.i.i168 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %87, i64 0, i32 2
+  %size_.i.i.i.i168 = getelementptr inbounds i8, ptr %87, i64 24
   %88 = load i64, ptr %size_.i.i.i.i168, align 8
   %cmp.i.i.i.i169 = icmp eq i64 %88, 0
   br i1 %cmp.i.i.i.i169, label %cond.end.i.i190, label %cond.end.thread.i.i170
@@ -1297,7 +1278,7 @@ cond.end.thread.i.i170:                           ; preds = %cond.true.i166
   br i1 %cmp5.i.i172, label %if.then.i.i.i.i.i.i.i.i185, label %cond.end.i173
 
 if.then.i.i.i.i.i.i.i.i185:                       ; preds = %cond.end.thread.i.i170
-  %rightmost_.i.i.i.i.i.i.i.i.i186 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %87, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i186 = getelementptr inbounds i8, ptr %87, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %90, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i186)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i188 unwind label %terminate.lpad.i.i.i.i.i.i.i187
 
@@ -1325,7 +1306,7 @@ cond.end.i173:                                    ; preds = %cond.false.i192, %_
 while.body.i176:                                  ; preds = %cond.end.i173, %while.body.i176
   %node.012.i177 = phi ptr [ %97, %while.body.i176 ], [ %cond.i174, %cond.end.i173 ]
   %97 = load ptr, ptr %node.012.i177, align 8
-  %add.ptr.i.i.i178 = getelementptr inbounds %"struct.google::protobuf::internal::NodeBase", ptr %node.012.i177, i64 1
+  %add.ptr.i.i.i178 = getelementptr inbounds i8, ptr %node.012.i177, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i178) #20
   %add.ptr.i2.i.i179 = getelementptr inbounds i8, ptr %node.012.i177, i64 %idx.ext.i.i.i159
   %vtable.i.i180 = load ptr, ptr %add.ptr.i2.i.i179, align 8
@@ -1341,11 +1322,11 @@ for.inc.i182:                                     ; preds = %while.body.i176, %c
   br i1 %exitcond.not.i184, label %if.end, label %for.body.i161, !llvm.loop !48
 
 sw.bb19:                                          ; preds = %if.then
-  %table_.i193 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i193 = getelementptr inbounds i8, ptr %this, i64 16
   %99 = load ptr, ptr %table_.i193, align 8
-  %index_of_first_non_null_.i194 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_.i194 = getelementptr inbounds i8, ptr %this, i64 12
   %100 = load i32, ptr %index_of_first_non_null_.i194, align 4
-  %num_buckets_.i195 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_.i195 = getelementptr inbounds i8, ptr %this, i64 4
   %101 = load i32, ptr %num_buckets_.i195, align 4
   %cmp13.i196 = icmp ult i32 %100, %101
   br i1 %cmp13.i196, label %for.body.lr.ph.i197, label %if.end
@@ -1366,7 +1347,7 @@ for.body.i200:                                    ; preds = %for.inc.i218, %for.
 cond.true.i205:                                   ; preds = %for.body.i200
   %sub.i.i206 = add nsw i64 %103, -1
   %104 = inttoptr i64 %sub.i.i206 to ptr
-  %size_.i.i.i.i207 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %104, i64 0, i32 2
+  %size_.i.i.i.i207 = getelementptr inbounds i8, ptr %104, i64 24
   %105 = load i64, ptr %size_.i.i.i.i207, align 8
   %cmp.i.i.i.i208 = icmp eq i64 %105, 0
   br i1 %cmp.i.i.i.i208, label %cond.end.i.i226, label %cond.end.thread.i.i209
@@ -1386,7 +1367,7 @@ cond.end.thread.i.i209:                           ; preds = %cond.true.i205
   br i1 %cmp5.i.i211, label %if.then.i.i.i.i.i.i.i.i221, label %cond.end.i212
 
 if.then.i.i.i.i.i.i.i.i221:                       ; preds = %cond.end.thread.i.i209
-  %rightmost_.i.i.i.i.i.i.i.i.i222 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %104, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i.i.i222 = getelementptr inbounds i8, ptr %104, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %107, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i.i.i222)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit.i.i224 unwind label %terminate.lpad.i.i.i.i.i.i.i223
 
@@ -1430,14 +1411,14 @@ if.end:                                           ; preds = %for.inc.i218, %for.
   br i1 %tobool.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end
-  %num_buckets_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 4
   %116 = load i32, ptr %num_buckets_, align 4
   %cmp.not3.i.i.i = icmp eq i32 %116, 0
   br i1 %cmp.not3.i.i.i, label %_ZSt4fillIPN6google8protobuf8internal13TableEntryPtrES3_EvT_S5_RKT0_.exit, label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.then20
   %idx.ext = zext i32 %116 to i64
-  %table_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_ = getelementptr inbounds i8, ptr %this, i64 16
   %117 = load ptr, ptr %table_, align 8
   %118 = shl nuw nsw i64 %idx.ext, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %117, i8 0, i64 %118, i1 false)
@@ -1447,14 +1428,14 @@ for.body.i.i.i.preheader:                         ; preds = %if.then20
 _ZSt4fillIPN6google8protobuf8internal13TableEntryPtrES3_EvT_S5_RKT0_.exit: ; preds = %for.body.i.i.i.preheader, %if.then20
   %119 = phi i32 [ %.pre, %for.body.i.i.i.preheader ], [ 0, %if.then20 ]
   store i32 0, ptr %this, align 8
-  %index_of_first_non_null_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
+  %index_of_first_non_null_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %119, ptr %index_of_first_non_null_, align 4
   br label %if.end26
 
 if.else:                                          ; preds = %if.end
-  %table_24 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_24 = getelementptr inbounds i8, ptr %this, i64 16
   %120 = load ptr, ptr %table_24, align 8
-  %num_buckets_25 = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_25 = getelementptr inbounds i8, ptr %this, i64 4
   %121 = load i32, ptr %num_buckets_25, align 4
   %122 = load ptr, ptr %alloc_, align 8
   %tobool.not.i = icmp eq ptr %122, null
@@ -1463,25 +1444,25 @@ if.else:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.else
   %conv.i = zext i32 %121 to i64
   %123 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %123, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %123, i64 8
   %124 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %125 = load i64, ptr %122, align 8
   %cmp.i.i.i.i229 = icmp eq i64 %124, %125
   br i1 %cmp.i.i.i.i229, label %if.then.i.i.i, label %if.end26
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %123, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %123, i64 16
   %126 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   %mul.i = shl nuw nsw i64 %conv.i, 3
   %cmp.i2.i.i.i = icmp ugt i32 %121, 1
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %127 = tail call i64 @llvm.ctlz.i64(i64 %mul.i, i1 true), !range !51
   %sub.i.i.i.i = sub nuw nsw i64 59, %127
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %126, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %126, i64 80
   %128 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %128 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %126, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %126, i64 88
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -1536,9 +1517,9 @@ define { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTree
 entry:
   %key = alloca %"struct.google::protobuf::internal::VariantKey", align 8
   store ptr %key.coerce0, ptr %key, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %key, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %key.coerce1, ptr %0, align 8
-  %table_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %table_, align 8
   %idxprom = zext i32 %b to i64
   %arrayidx = getelementptr inbounds i64, ptr %1, i64 %idxprom
@@ -1552,7 +1533,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit
 
 cond.false.i.i.i:                                 ; preds = %entry
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %3, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %6, i64 10
   %7 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -1572,7 +1553,7 @@ if.then:                                          ; preds = %_ZN4absl12lts_20230
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %3, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr i8, ptr %8, i64 10
   %9 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -1600,7 +1581,7 @@ return:                                           ; preds = %if.end, %if.then5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK6google8protobuf8internal14UntypedMapBase16SpaceUsedInTableEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %sizeof_node) local_unnamed_addr #7 align 2 {
 entry:
-  %num_buckets_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 1
+  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %num_buckets_, align 4
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 3
@@ -1612,7 +1593,7 @@ entry:
   br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %table_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 4
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %table_.i, align 8
   br label %for.body
 
@@ -1629,7 +1610,7 @@ if.then:                                          ; preds = %for.body
   %add6 = add i64 %size.09, 32
   %sub.i = add nsw i64 %3, -1
   %4 = inttoptr i64 %sub.i to ptr
-  %size_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %4, i64 0, i32 2
+  %size_.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load i64, ptr %size_.i.i, align 8
   %mul9 = mul i64 %5, 24
   %add10 = add i64 %add6, %mul9
@@ -1945,17 +1926,17 @@ if.else.i.i.i:                                    ; preds = %entry
   %1 = and i32 %iter.coerce1, 255
   %idxprom.i.i.i.i = zext nneg i32 %1 to i64
   %arrayidx.i2.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i1.i.i.i, i64 %idxprom.i.i.i.i
-  %storemerge11.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i, align 8
-  %arrayidx.i.i312.i.i.i = getelementptr i8, ptr %storemerge11.i.i.i, i64 11
-  %2 = load i8, ptr %arrayidx.i.i312.i.i.i, align 1
-  %cmp.i.not.i13.i.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.not.i13.i.i.i, label %while.body27.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
+  %storemerge10.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i, align 8
+  %arrayidx.i.i311.i.i.i = getelementptr i8, ptr %storemerge10.i.i.i, i64 11
+  %2 = load i8, ptr %arrayidx.i.i311.i.i.i, align 1
+  %cmp.i.not.i12.i.i.i = icmp eq i8 %2, 0
+  br i1 %cmp.i.not.i12.i.i.i, label %while.body27.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
 
 while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %while.body27.i.i.i
-  %storemerge14.i.i.i = phi ptr [ %storemerge.i.i.i, %while.body27.i.i.i ], [ %storemerge11.i.i.i, %if.else.i.i.i ]
-  %arrayidx.i4.i.i.i = getelementptr i8, ptr %storemerge14.i.i.i, i64 10
+  %storemerge13.i.i.i = phi ptr [ %storemerge.i.i.i, %while.body27.i.i.i ], [ %storemerge10.i.i.i, %if.else.i.i.i ]
+  %arrayidx.i4.i.i.i = getelementptr i8, ptr %storemerge13.i.i.i, i64 10
   %3 = load i8, ptr %arrayidx.i4.i.i.i, align 1
-  %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %storemerge14.i.i.i, i64 256
+  %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %storemerge13.i.i.i, i64 256
   %idxprom.i6.i.i.i = zext i8 %3 to i64
   %arrayidx.i7.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i5.i.i.i, i64 %idxprom.i6.i.i.i
   %storemerge.i.i.i = load ptr, ptr %arrayidx.i7.i.i.i, align 8
@@ -1965,7 +1946,7 @@ while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %whi
   br i1 %cmp.i.not.i.i.i.i, label %while.body27.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit, !llvm.loop !6
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit: ; preds = %while.body27.i.i.i, %if.else.i.i.i
-  %iter.sroa.0.0 = phi ptr [ %storemerge11.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
+  %iter.sroa.0.0 = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
   %arrayidx.i8.i.i.i = getelementptr i8, ptr %iter.sroa.0.0, i64 10
   %5 = load i8, ptr %arrayidx.i8.i.i.i, align 1
   %conv36.i.i.i = zext i8 %5 to i32
@@ -2002,8 +1983,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %dest.09.i = phi ptr [ %incdec.ptr3.i, %for.body.i ], [ %arrayidx.i6.i, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %arrayidx.i.i7, %for.body.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
-  %incdec.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i, i64 1
-  %incdec.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %dest.09.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !59
 
@@ -2014,7 +1995,7 @@ if.end:                                           ; preds = %for.body.i, %if.els
   %8 = load i8, ptr %arrayidx.i8, align 1
   %sub30 = add i8 %8, -1
   store i8 %sub30, ptr %arrayidx.i8, align 1
-  %size_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 2
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i64, ptr %size_, align 8
   %dec = add i64 %9, -1
   store i64 %dec, ptr %size_, align 8
@@ -2034,8 +2015,8 @@ land.lhs.true.i.i13:                              ; preds = %if.then34
   %arrayidx.i1.i.i = getelementptr i8, ptr %10, i64 10
   %13 = load i8, ptr %arrayidx.i1.i.i, align 1
   %conv.i.i = zext i8 %13 to i32
-  %cmp10.i.i.i = icmp eq i32 %inc.i.i, %conv.i.i
-  br i1 %cmp10.i.i.i, label %land.rhs.i.i.i18, label %if.end36
+  %cmp8.i.i.i = icmp eq i32 %inc.i.i, %conv.i.i
+  br i1 %cmp8.i.i.i, label %land.rhs.i.i.i18, label %if.end36
 
 land.rhs.i.i.i18:                                 ; preds = %land.lhs.true.i.i13, %while.body.i.i.i22
   %14 = phi ptr [ %15, %while.body.i.i.i22 ], [ %10, %land.lhs.true.i.i13 ]
@@ -2087,7 +2068,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4absl12lts_2023080218container_inter
 entry:
   %iter = alloca %"class.absl::lts_20230802::container_internal::btree_iterator", align 8
   store ptr %iter.coerce0, ptr %iter, align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %iter, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %iter.coerce1, ptr %0, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp23 = icmp eq ptr %1, %iter.coerce0
@@ -2109,7 +2090,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %add.ptr.i.i.i, align 8
   br label %if.end10.i
 
@@ -2124,18 +2105,18 @@ if.else.i:                                        ; preds = %if.end.i
 if.end10.i:                                       ; preds = %if.else.i, %if.then4.i
   %storemerge.i = phi ptr [ %4, %if.else.i ], [ @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, %if.then4.i ]
   store ptr %storemerge.i, ptr %this, align 8
-  %rightmost_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %.lcssa, ptr noundef nonnull %rightmost_.i.i)
   br label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit
 
 _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit: ; preds = %if.then, %if.end10.i
-  %size_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i64, ptr %size_.i, align 8
   %cmp.i = icmp eq i64 %7, 0
   br i1 %cmp.i, label %if.then3, label %for.end
 
 if.then3:                                         ; preds = %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit
-  %add.ptr.i.i.i1 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %add.ptr.i.i.i1, align 8
   %arrayidx.i.i2 = getelementptr i8, ptr %8, i64 10
   %9 = load i8, ptr %arrayidx.i.i2, align 1
@@ -2260,13 +2241,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp17, label %if.then18, label %if.end25
 
 if.then18:                                        ; preds = %if.then
-  %position_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree_iterator", ptr %iter, i64 0, i32 1
+  %position_ = getelementptr inbounds i8, ptr %iter, i64 8
   %6 = load i32, ptr %position_, align 8
   %add22 = add nsw i32 %6, %add
   store i32 %add22, ptr %position_, align 8
-  %rightmost_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE5mergeEPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %0, ptr noundef nonnull %rightmost_.i.i)
-  %add.ptr.i.i.i44 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %add.ptr.i.i.i44, align 8
   %cmp.i = icmp eq ptr %7, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11merge_nodesEPNS1_10btree_nodeISH_EESL_.exit
@@ -2303,9 +2284,9 @@ if.then32:                                        ; preds = %if.end25
   br i1 %cmp46, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.then32
-  %rightmost_.i.i53 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i.i53 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE5mergeEPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %9, ptr noundef nonnull %rightmost_.i.i53)
-  %add.ptr.i.i.i54 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %add.ptr.i.i.i54, align 8
   %cmp.i55 = icmp eq ptr %12, %9
   br i1 %cmp.i55, label %if.then.i56, label %return
@@ -2323,7 +2304,7 @@ land.lhs.true:                                    ; preds = %if.end49
   br i1 %cmp56, label %if.then62, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %position_57 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree_iterator", ptr %iter, i64 0, i32 1
+  %position_57 = getelementptr inbounds i8, ptr %iter, i64 8
   %13 = load i32, ptr %position_57, align 8
   %cmp61 = icmp sgt i32 %13, 0
   br i1 %cmp61, label %if.then62, label %if.end78
@@ -2335,7 +2316,7 @@ if.then62:                                        ; preds = %lor.lhs.false, %lan
   %conv69 = trunc i16 %div84 to i8
   %sub72 = add i8 %11, -1
   %.sroa.speculated81 = tail call i8 @llvm.umin.i8(i8 %sub72, i8 %conv69)
-  %rightmost_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE23rebalance_right_to_leftEhPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %0, i8 noundef zeroext %.sroa.speculated81, ptr noundef nonnull %9, ptr noundef nonnull %rightmost_.i)
   br label %return
 
@@ -2360,7 +2341,7 @@ land.lhs.true96:                                  ; preds = %if.then85
   br i1 %cmp100, label %if.then107, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %land.lhs.true96
-  %position_102 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree_iterator", ptr %iter, i64 0, i32 1
+  %position_102 = getelementptr inbounds i8, ptr %iter, i64 8
   %17 = load i32, ptr %position_102, align 8
   %conv105 = zext i8 %16 to i32
   %cmp106 = icmp slt i32 %17, %conv105
@@ -2374,10 +2355,10 @@ if.then107:                                       ; preds = %lor.lhs.false101, %
   %conv116 = trunc i16 %div11585 to i8
   %sub120 = add i8 %15, -1
   %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %sub120, i8 %conv116)
-  %rightmost_.i77 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i77 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE23rebalance_left_to_rightEhPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %14, i8 noundef zeroext %.sroa.speculated, ptr noundef nonnull %0, ptr noundef nonnull %rightmost_.i77)
   %conv125 = zext i8 %.sroa.speculated to i32
-  %position_126 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree_iterator", ptr %iter, i64 0, i32 1
+  %position_126 = getelementptr inbounds i8, ptr %iter, i64 8
   %18 = load i32, ptr %position_126, align 8
   %add127 = add nsw i32 %18, %conv125
   store i32 %add127, ptr %position_126, align 8
@@ -2414,9 +2395,9 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %arrayidx.i.i, %entry ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %entry ]
-  %dest.09.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i.pn, i64 1
+  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
-  %incdec.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.loopexit, label %for.body.i, !llvm.loop !59
 
@@ -2447,8 +2428,8 @@ for.body.i52:                                     ; preds = %_ZN4absl12lts_20230
   %dest.09.i53 = phi ptr [ %incdec.ptr3.i56, %for.body.i52 ], [ %add.ptr.i.i.i.i37, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit ]
   %src.08.i54 = phi ptr [ %incdec.ptr.i55, %for.body.i52 ], [ %arrayidx.i.i46, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i53, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i54, i64 24, i1 false)
-  %incdec.ptr.i55 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i54, i64 1
-  %incdec.ptr3.i56 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i53, i64 1
+  %incdec.ptr.i55 = getelementptr inbounds i8, ptr %src.08.i54, i64 24
+  %incdec.ptr3.i56 = getelementptr inbounds i8, ptr %dest.09.i53, i64 24
   %cmp.not.i57 = icmp eq ptr %incdec.ptr.i55, %add.ptr.i47
   br i1 %cmp.not.i57, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit58, label %for.body.i52, !llvm.loop !59
 
@@ -2544,8 +2525,8 @@ for.body.preheader.i:                             ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %for.body.preheader.i ]
   %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i38, %for.body.preheader.i ]
-  %add.ptr4.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.011.i, i64 -1
-  %add.ptr5.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.010.i, i64 -1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %dest.011.i, i64 -24
+  %add.ptr5.i = getelementptr inbounds i8, ptr %src.010.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 1 dereferenceable(24) %add.ptr5.i, i64 24, i1 false)
   %cmp.not.i = icmp eq ptr %add.ptr5.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE19transfer_n_backwardEmmmPSI_PSG_.exit, label %for.body.i, !llvm.loop !63
@@ -2576,8 +2557,8 @@ for.body.i44:                                     ; preds = %_ZN4absl12lts_20230
   %dest.09.i = phi ptr [ %incdec.ptr3.i, %for.body.i44 ], [ %add.ptr.i.i.i.i, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE19transfer_n_backwardEmmmPSI_PSG_.exit ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i44 ], [ %arrayidx.i.i42, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE19transfer_n_backwardEmmmPSI_PSG_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
-  %incdec.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i, i64 1
-  %incdec.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %dest.09.i, i64 24
   %cmp.not.i45 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i45, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.loopexit, label %for.body.i44, !llvm.loop !59
 
@@ -2700,9 +2681,9 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %arrayidx.i3.i, %entry ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i19, %entry ]
-  %dest.09.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i.pn, i64 1
+  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
-  %incdec.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.loopexit, label %for.body.i, !llvm.loop !59
 
@@ -2781,8 +2762,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %dest.09.i.i = phi ptr [ %incdec.ptr3.i.i, %for.body.i.i ], [ %arrayidx.i6.i.i, %for.body.preheader.i.i ]
   %src.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i.i, i64 1
-  %incdec.ptr3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %src.08.i.i, i64 24
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %dest.09.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.i, label %for.body.i.i, !llvm.loop !59
 
@@ -2828,13 +2809,13 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13insert_uniqueIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESN_IJRS9_EEEEESD_INS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EEbERKT_DpOT0_(ptr noalias sret(%"struct.std::pair.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %size_.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rightmost_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %rightmost_.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i.i
@@ -2852,13 +2833,13 @@ _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8proto
   store ptr %retval.0.i.i.i.i.i, ptr %retval.0.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %retval.0.i.i.i.i.i, i64 8
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i, align 1
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %retval.0.i.i.i.i.i, ptr %add.ptr.i.i, align 8
   store ptr %retval.0.i.i.i.i.i, ptr %this, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE18new_leaf_root_nodeEh.exit, %entry
-  %integral1.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::VariantKey", ptr %key, i64 0, i32 1
+  %integral1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load i64, ptr %integral1.i.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %key, align 8
   br label %for.cond.i
@@ -2882,7 +2863,7 @@ while.body.i.i.i.i:                               ; preds = %.thread.i.i.i.i, %w
   %add.i.i.i.i = add i64 %e.addr.022.i.i.i.i, %s.addr.023.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i
-  %integral.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::VariantKey", ptr %arrayidx.i.i.i.i.i.i, i64 0, i32 1
+  %integral.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   %5 = load i64, ptr %integral.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %5, %2
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2953,7 +2934,7 @@ land.lhs.true:                                    ; preds = %while.cond.i
   %conv.i12 = sext i32 %iter.sroa.7.0.i to i64
   %add.ptr.i.i.i.i.i13 = getelementptr inbounds i8, ptr %iter.sroa.0.0.i3, i64 16
   %arrayidx.i.i.i14 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i13, i64 %conv.i12
-  %integral1.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::VariantKey", ptr %arrayidx.i.i.i14, i64 0, i32 1
+  %integral1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i14, i64 8
   %15 = load i64, ptr %integral1.i.i.i.i, align 8
   %cmp.not.i.i.i.i15 = icmp eq i64 %2, %15
   br i1 %cmp.not.i.i.i.i15, label %if.end.i.i.i.i, label %if.then.i.i.i.i
@@ -2985,7 +2966,7 @@ return:                                           ; preds = %_ZNK4absl12lts_2023
   store ptr %.sink30, ptr %agg.result, align 8
   %ref.tmp15.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %.sink29, ptr %ref.tmp15.sroa.2.0.agg.result.sroa_idx, align 8
-  %second.i16 = getelementptr inbounds %"struct.std::pair.3", ptr %agg.result, i64 0, i32 1
+  %second.i16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %second.i16, align 8
   ret void
 }
@@ -2995,7 +2976,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4absl12lts_2023080218container_inter
 entry:
   %iter = alloca %"class.absl::lts_20230802::container_internal::btree_iterator", align 8
   store ptr %iter.coerce0, ptr %iter, align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %iter, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %iter.coerce1, ptr %0, align 8
   %arrayidx.i.i = getelementptr i8, ptr %iter.coerce0, i64 11
   %1 = load i8, ptr %arrayidx.i.i, align 1
@@ -3012,18 +2993,18 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = and i32 %iter.coerce1, 255
   %idxprom.i.i.i.i = zext nneg i32 %2 to i64
   %arrayidx.i2.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i1.i.i.i, i64 %idxprom.i.i.i.i
-  %storemerge11.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i, align 8
-  store ptr %storemerge11.i.i.i, ptr %iter, align 8
-  %arrayidx.i.i312.i.i.i = getelementptr i8, ptr %storemerge11.i.i.i, i64 11
-  %3 = load i8, ptr %arrayidx.i.i312.i.i.i, align 1
-  %cmp.i.not.i13.i.i.i = icmp eq i8 %3, 0
-  br i1 %cmp.i.not.i13.i.i.i, label %while.body27.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
+  %storemerge10.i.i.i = load ptr, ptr %arrayidx.i2.i.i.i, align 8
+  store ptr %storemerge10.i.i.i, ptr %iter, align 8
+  %arrayidx.i.i311.i.i.i = getelementptr i8, ptr %storemerge10.i.i.i, i64 11
+  %3 = load i8, ptr %arrayidx.i.i311.i.i.i, align 1
+  %cmp.i.not.i12.i.i.i = icmp eq i8 %3, 0
+  br i1 %cmp.i.not.i12.i.i.i, label %while.body27.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
 
 while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %while.body27.i.i.i
-  %storemerge14.i.i.i = phi ptr [ %storemerge.i.i.i, %while.body27.i.i.i ], [ %storemerge11.i.i.i, %if.else.i.i.i ]
-  %arrayidx.i4.i.i.i = getelementptr i8, ptr %storemerge14.i.i.i, i64 10
+  %storemerge13.i.i.i = phi ptr [ %storemerge.i.i.i, %while.body27.i.i.i ], [ %storemerge10.i.i.i, %if.else.i.i.i ]
+  %arrayidx.i4.i.i.i = getelementptr i8, ptr %storemerge13.i.i.i, i64 10
   %4 = load i8, ptr %arrayidx.i4.i.i.i, align 1
-  %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %storemerge14.i.i.i, i64 256
+  %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %storemerge13.i.i.i, i64 256
   %idxprom.i6.i.i.i = zext i8 %4 to i64
   %arrayidx.i7.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i5.i.i.i, i64 %idxprom.i6.i.i.i
   %storemerge.i.i.i = load ptr, ptr %arrayidx.i7.i.i.i, align 8
@@ -3035,7 +3016,7 @@ while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %whi
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit: ; preds = %while.body27.i.i.i, %if.else.i.i.i
   %.pre = phi i8 [ %3, %if.else.i.i.i ], [ %5, %while.body27.i.i.i ]
-  %storemerge.lcssa.i.i.i = phi ptr [ %storemerge11.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
+  %storemerge.lcssa.i.i.i = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
   %arrayidx.i8.i.i.i = getelementptr i8, ptr %storemerge.lcssa.i.i.i, i64 10
   %6 = load i8, ptr %arrayidx.i8.i.i.i, align 1
   %conv36.i.i.i = zext i8 %6 to i32
@@ -3046,7 +3027,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %7 = phi i8 [ %6, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %.pre20, %entry.if.end_crit_edge ]
   %8 = phi i8 [ %.pre, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %9 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
-  %rightmost_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
   %arrayidx.i.i3 = getelementptr i8, ptr %9, i64 10
   %cmp = icmp eq i8 %7, %8
   br i1 %cmp, label %if.then13, label %if.end22
@@ -3101,8 +3082,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %dest.09.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %for.body.i.i.i ], [ %add.ptr.i.i.i5.i.i.i7, %for.body.preheader.i.i.i ]
   %src.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %add.ptr.i.i.i.i.i4.i, %for.body.preheader.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i.i.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i.i.i, i64 1
-  %incdec.ptr3.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %src.08.i.i.i, i64 24
+  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %dest.09.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !59
 
@@ -3115,7 +3096,7 @@ _ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8prot
   store i8 %14, ptr %arrayidx.i2.i.i.i6, align 1
   store i8 0, ptr %arrayidx.i.i3, align 1
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef nonnull %9, ptr noundef nonnull %rightmost_.i)
-  %add.ptr.i.i5.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %retval.0.i.i.i.i.i.i, ptr %add.ptr.i.i5.i, align 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %this, align 8
   br label %if.end22
@@ -3151,8 +3132,8 @@ if.then.i:                                        ; preds = %if.end22
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
   %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
   %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i14, %if.then.i ]
-  %add.ptr4.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.011.i.i, i64 -1
-  %add.ptr5.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.010.i.i, i64 -1
+  %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -24
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr4.i.i, ptr noundef nonnull align 1 dereferenceable(24) %add.ptr5.i.i, i64 24, i1 false)
   %cmp.not.i.i = icmp eq ptr %add.ptr5.i.i, %18
   br i1 %cmp.not.i.i, label %if.end.loopexit.i, label %for.body.i.i, !llvm.loop !63
@@ -3170,7 +3151,7 @@ if.end.i:                                         ; preds = %if.end.loopexit.i, 
   %23 = load i64, ptr %args3, align 8
   %24 = inttoptr i64 %23 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.12", ptr %arrayidx.i3.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i.i, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %second.i.i.i.i.i.i.i.i.i, align 8
   %add16.i = add i8 %20, 1
@@ -3206,7 +3187,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp29.i, label %for.body.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13emplace_valueIJRKSt21piecewise_construct_tSt5tupleIJOS7_EESN_IJRS9_EEEEEvhPSG_DpOT_.exit, !llvm.loop !71
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13emplace_valueIJRKSt21piecewise_construct_tSt5tupleIJOS7_EESN_IJRS9_EEEEEvhPSG_DpOT_.exit: ; preds = %for.body.i, %if.end.i, %land.lhs.true.i
-  %size_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 2
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load i64, ptr %size_, align 8
   %inc26 = add i64 %28, 1
   store i64 %inc26, ptr %size_, align 8
@@ -3229,7 +3210,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %iter) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parent_iter = alloca %"class.absl::lts_20230802::container_internal::btree_iterator", align 8
-  %position_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree_iterator", ptr %iter, i64 0, i32 1
+  %position_ = getelementptr inbounds i8, ptr %iter, i64 8
   %0 = load ptr, ptr %iter, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %this, align 8
@@ -3272,7 +3253,7 @@ if.then15:                                        ; preds = %if.then7
   br i1 %or.cond, label %if.then37, label %if.end53
 
 if.then37:                                        ; preds = %if.then15
-  %rightmost_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE23rebalance_right_to_leftEhPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 noundef zeroext %.sroa.speculated128, ptr noundef nonnull %0, ptr noundef nonnull %rightmost_.i)
   %8 = load i32, ptr %position_, align 4
   %conv40 = and i32 %8, 255
@@ -3327,7 +3308,7 @@ if.then68:                                        ; preds = %if.then59
   br i1 %or.cond134, label %if.then95, label %if.end108
 
 if.then95:                                        ; preds = %if.then68
-  %rightmost_.i88 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i88 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE23rebalance_left_to_rightEhPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %0, i8 noundef zeroext %.sroa.speculated, ptr noundef nonnull %11, ptr noundef nonnull %rightmost_.i88)
   %16 = load i32, ptr %position_, align 4
   %17 = load ptr, ptr %iter, align 8
@@ -3349,7 +3330,7 @@ if.end108:                                        ; preds = %if.then68, %if.then
 if.then112:                                       ; preds = %if.end108
   %conv114 = zext i8 %3 to i32
   store ptr %1, ptr %parent_iter, align 8
-  %position_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree_iterator", ptr %parent_iter, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %parent_iter, i64 8
   store i32 %conv114, ptr %position_.i, align 8
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %parent_iter)
   %20 = load ptr, ptr %iter, align 8
@@ -3357,7 +3338,7 @@ if.then112:                                       ; preds = %if.end108
   br label %if.end122
 
 if.else:                                          ; preds = %entry
-  %rightmost_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load ptr, ptr %rightmost_.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i.i
@@ -3394,7 +3375,7 @@ if.end122:                                        ; preds = %if.end108, %if.then
   %add.ptr.i.i.i107 = getelementptr i8, ptr %24, i64 8
   %26 = load i8, ptr %add.ptr.i.i.i107, align 1
   %add139 = add i8 %26, 1
-  %rightmost_.i.i.i108 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1
+  %rightmost_.i.i.i108 = getelementptr inbounds i8, ptr %this, i64 8
   %27 = load ptr, ptr %rightmost_.i.i.i108, align 8
   %cmp.i.i.i.i.i109 = icmp eq ptr %27, null
   br i1 %cmp.i95.not, label %if.else136, label %if.then124
@@ -3424,7 +3405,7 @@ _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8proto
   %28 = load ptr, ptr %iter, align 8
   %29 = load i32, ptr %position_, align 4
   call void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE5splitEiPSI_PSG_(ptr noundef nonnull align 1 dereferenceable(1) %28, i32 noundef %29, ptr noundef nonnull %retval.0.i.i.i.i.i101, ptr noundef nonnull %rightmost_.i.i.i108)
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %30 = load ptr, ptr %add.ptr.i.i, align 8
   %31 = load ptr, ptr %iter, align 8
   %cmp132 = icmp eq ptr %30, %31
@@ -3533,8 +3514,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %dest.09.i = phi ptr [ %incdec.ptr3.i, %for.body.i ], [ %add.ptr.i.i.i5.i, %for.body.preheader.i ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %arrayidx.i.i29, %for.body.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
-  %incdec.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.08.i, i64 1
-  %incdec.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.09.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %dest.09.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.loopexit, label %for.body.i, !llvm.loop !59
 
@@ -3574,8 +3555,8 @@ if.then.i:                                        ; preds = %_ZN4absl12lts_20230
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
   %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
   %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
-  %add.ptr4.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %dest.011.i.i, i64 -1
-  %add.ptr5.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %src.010.i.i, i64 -1
+  %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -24
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr4.i.i, ptr noundef nonnull align 1 dereferenceable(24) %add.ptr5.i.i, i64 24, i1 false)
   %cmp.not.i.i = icmp eq ptr %add.ptr5.i.i, %9
   br i1 %cmp.not.i.i, label %if.end.loopexit.i, label %for.body.i.i, !llvm.loop !63
@@ -3665,14 +3646,14 @@ if.end54:                                         ; preds = %for.body, %_ZN4absl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS7_ENS1_12MapAllocatorISt4pairIKS7_S9_EEEEEEEvPv(ptr noundef %object) #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %size_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %object, i64 0, i32 2
+  %size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 24
   %0 = load i64, ptr %size_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %1 = load ptr, ptr %object, align 8
-  %rightmost_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %object, i64 0, i32 1
+  %rightmost_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
   invoke void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16clear_and_deleteEPSI_PSG_(ptr noundef %1, ptr noundef nonnull %rightmost_.i.i.i.i.i.i.i)
           to label %_ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
@@ -3684,7 +3665,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN4absl12lts_202308029btree_mapIN6google8protobuf8internal10VariantKeyEPNS4_8NodeBaseESt4lessIS5_ENS4_12MapAllocatorISt4pairIKS5_S7_EEEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %object, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 16
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %object, align 8
   store i64 0, ptr %size_.i.i.i.i.i.i.i, align 8
@@ -3696,7 +3677,7 @@ declare noundef ptr @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmmPFv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13internal_findIS7_EENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %integral1.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::VariantKey", ptr %key, i64 0, i32 1
+  %integral1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i64, ptr %integral1.i.i.i.i.i.i.i, align 8
   %1 = load ptr, ptr %key, align 8
   br label %for.cond.i
@@ -3720,7 +3701,7 @@ while.body.i.i.i.i:                               ; preds = %.thread.i.i.i.i, %w
   %add.i.i.i.i = add i64 %e.addr.022.i.i.i.i, %s.addr.023.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i
-  %integral.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::VariantKey", ptr %arrayidx.i.i.i.i.i.i, i64 0, i32 1
+  %integral.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   %3 = load i64, ptr %integral.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %3, %0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -3791,7 +3772,7 @@ land.lhs.true:                                    ; preds = %while.cond.i
   %conv.i10 = sext i32 %iter.sroa.7.0.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %iter.sroa.0.0.i2, i64 16
   %arrayidx.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv.i10
-  %integral1.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::VariantKey", ptr %arrayidx.i.i.i, i64 0, i32 1
+  %integral1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %13 = load i64, ptr %integral1.i.i.i.i, align 8
   %cmp.not.i.i.i.i11 = icmp eq i64 %0, %13
   br i1 %cmp.not.i.i.i.i11, label %if.end.i.i.i.i, label %if.then.i.i.i.i

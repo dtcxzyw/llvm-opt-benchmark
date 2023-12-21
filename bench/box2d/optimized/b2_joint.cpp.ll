@@ -3,16 +3,7 @@ source_filename = "bench/box2d/original/b2_joint.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b2Body = type { i32, i16, i32, %struct.b2Transform, %struct.b2Sweep, %struct.b2Vec2, float, %struct.b2Vec2, float, ptr, ptr, ptr, ptr, i32, ptr, ptr, float, float, float, float, float, float, float, float, %struct.b2BodyUserData }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
 %struct.b2Vec2 = type { float, float }
-%struct.b2BodyUserData = type { i64 }
-%class.b2Joint = type { ptr, i32, ptr, ptr, %struct.b2JointEdge, %struct.b2JointEdge, ptr, ptr, i32, i8, i8, %struct.b2JointUserData }
-%struct.b2JointEdge = type { ptr, ptr, ptr, ptr }
-%struct.b2JointUserData = type { i64 }
-%struct.b2JointDef = type <{ i32, [4 x i8], %struct.b2JointUserData, ptr, ptr, i8, [7 x i8] }>
 %struct.b2Color = type { float, float, float, float }
 
 $_ZN7b2Joint4DumpEv = comdat any
@@ -33,9 +24,9 @@ $_ZN7b2JointD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z17b2LinearStiffnessRfS_ffPK6b2BodyS2_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %stiffness, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr nocapture noundef readonly %bodyA, ptr nocapture noundef readonly %bodyB) local_unnamed_addr #0 {
 entry:
-  %m_mass.i = getelementptr inbounds %class.b2Body, ptr %bodyA, i64 0, i32 16
+  %m_mass.i = getelementptr inbounds i8, ptr %bodyA, i64 144
   %0 = load float, ptr %m_mass.i, align 8
-  %m_mass.i11 = getelementptr inbounds %class.b2Body, ptr %bodyB, i64 0, i32 16
+  %m_mass.i11 = getelementptr inbounds i8, ptr %bodyB, i64 144
   %1 = load float, ptr %m_mass.i11, align 8
   %cmp = fcmp ogt float %0, 0.000000e+00
   %cmp2 = fcmp ogt float %1, 0.000000e+00
@@ -68,21 +59,21 @@ if.end6:                                          ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z18b2AngularStiffnessRfS_ffPK6b2BodyS2_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %stiffness, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr nocapture noundef readonly %bodyA, ptr nocapture noundef readonly %bodyB) local_unnamed_addr #1 {
 entry:
-  %m_I.i = getelementptr inbounds %class.b2Body, ptr %bodyA, i64 0, i32 18
+  %m_I.i = getelementptr inbounds i8, ptr %bodyA, i64 152
   %0 = load float, ptr %m_I.i, align 8
-  %m_mass.i = getelementptr inbounds %class.b2Body, ptr %bodyA, i64 0, i32 16
+  %m_mass.i = getelementptr inbounds i8, ptr %bodyA, i64 144
   %1 = load float, ptr %m_mass.i, align 8
-  %m_sweep.i = getelementptr inbounds %class.b2Body, ptr %bodyA, i64 0, i32 4
+  %m_sweep.i = getelementptr inbounds i8, ptr %bodyA, i64 28
   %2 = load float, ptr %m_sweep.i, align 4
-  %y.i.i = getelementptr inbounds %class.b2Body, ptr %bodyA, i64 0, i32 4, i32 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %bodyA, i64 32
   %3 = load float, ptr %y.i.i, align 4
-  %m_I.i11 = getelementptr inbounds %class.b2Body, ptr %bodyB, i64 0, i32 18
+  %m_I.i11 = getelementptr inbounds i8, ptr %bodyB, i64 152
   %4 = load float, ptr %m_I.i11, align 8
-  %m_mass.i12 = getelementptr inbounds %class.b2Body, ptr %bodyB, i64 0, i32 16
+  %m_mass.i12 = getelementptr inbounds i8, ptr %bodyB, i64 144
   %5 = load float, ptr %m_mass.i12, align 8
-  %m_sweep.i13 = getelementptr inbounds %class.b2Body, ptr %bodyB, i64 0, i32 4
+  %m_sweep.i13 = getelementptr inbounds i8, ptr %bodyB, i64 28
   %6 = load float, ptr %m_sweep.i13, align 4
-  %y.i.i14 = getelementptr inbounds %class.b2Body, ptr %bodyB, i64 0, i32 4, i32 0, i32 1
+  %y.i.i14 = getelementptr inbounds i8, ptr %bodyB, i64 32
   %7 = load float, ptr %y.i.i14, align 4
   %8 = insertelement <2 x float> poison, float %3, i64 0
   %9 = insertelement <2 x float> %8, float %7, i64 1
@@ -226,10 +217,10 @@ declare void @_ZN12b2MotorJointC1EPK15b2MotorJointDef(ptr noundef nonnull align 
 define void @_ZN7b2Joint7DestroyEPS_P16b2BlockAllocator(ptr noundef %joint, ptr noundef %allocator) local_unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %joint, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(128) %joint) #10
-  %m_type = getelementptr inbounds %class.b2Joint, ptr %joint, i64 0, i32 1
+  %m_type = getelementptr inbounds i8, ptr %joint, i64 8
   %1 = load i32, ptr %m_type, align 8
   %switch.tableidx = add i32 %1, -1
   %2 = icmp ult i32 %switch.tableidx, 10
@@ -252,34 +243,34 @@ declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 derefer
 define void @_ZN7b2JointC2EPK10b2JointDef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %def) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7b2Joint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_userData = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 11
+  %m_userData = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %m_userData, align 8
   %0 = load i32, ptr %def, align 8
-  %m_type = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 1
+  %m_type = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %0, ptr %m_type, align 8
-  %m_prev = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 2
-  %bodyA = getelementptr inbounds %struct.b2JointDef, ptr %def, i64 0, i32 3
+  %m_prev = getelementptr inbounds i8, ptr %this, i64 16
+  %bodyA = getelementptr inbounds i8, ptr %def, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_prev, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %bodyA, align 8
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %1, ptr %m_bodyA, align 8
-  %bodyB = getelementptr inbounds %struct.b2JointDef, ptr %def, i64 0, i32 4
+  %bodyB = getelementptr inbounds i8, ptr %def, i64 24
   %2 = load ptr, ptr %bodyB, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %2, ptr %m_bodyB, align 8
-  %m_index = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 8
+  %m_index = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_index, align 8
-  %collideConnected = getelementptr inbounds %struct.b2JointDef, ptr %def, i64 0, i32 5
+  %collideConnected = getelementptr inbounds i8, ptr %def, i64 32
   %3 = load i8, ptr %collideConnected, align 8
   %4 = and i8 %3, 1
-  %m_collideConnected = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 10
+  %m_collideConnected = getelementptr inbounds i8, ptr %this, i64 117
   store i8 %4, ptr %m_collideConnected, align 1
-  %m_islandFlag = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 9
+  %m_islandFlag = getelementptr inbounds i8, ptr %this, i64 116
   store i8 0, ptr %m_islandFlag, align 4
-  %userData = getelementptr inbounds %struct.b2JointDef, ptr %def, i64 0, i32 2
+  %userData = getelementptr inbounds i8, ptr %def, i64 8
   %5 = load i64, ptr %userData, align 8
   store i64 %5, ptr %m_userData, align 8
-  %m_edgeA3 = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 4
+  %m_edgeA3 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_edgeA3, i8 0, i64 64, i1 false)
   ret void
 }
@@ -287,18 +278,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK7b2Joint9IsEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i16, ptr %m_flags.i, align 4
   %2 = and i16 %1, 32
   %cmp.i.not = icmp eq i16 %2, 0
   br i1 %cmp.i.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %m_bodyB, align 8
-  %m_flags.i1 = getelementptr inbounds %class.b2Body, ptr %3, i64 0, i32 1
+  %m_flags.i1 = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i16, ptr %m_flags.i1, align 4
   %5 = and i16 %4, 32
   %cmp.i2 = icmp ne i16 %5, 0
@@ -320,12 +311,12 @@ entry:
   %s1 = alloca %struct.b2Vec2, align 8
   %s2 = alloca %struct.b2Vec2, align 8
   %c = alloca %struct.b2Color, align 16
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %m_xf.i11 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3
+  %m_xf.i11 = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i64, ptr %m_xf.i, align 4
   store i64 %2, ptr %x1, align 8
   %3 = load i64, ptr %m_xf.i11, align 4
@@ -335,12 +326,12 @@ entry:
   %call4 = tail call <2 x float> %4(ptr noundef nonnull align 8 dereferenceable(128) %this)
   store <2 x float> %call4, ptr %p1, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 1
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 8
   %5 = load ptr, ptr %vfn6, align 8
   %call7 = tail call <2 x float> %5(ptr noundef nonnull align 8 dereferenceable(128) %this)
   store <2 x float> %call7, ptr %p2, align 8
   store <4 x float> <float 5.000000e-01, float 0x3FE99999A0000000, float 0x3FE99999A0000000, float 1.000000e+00>, ptr %color, align 16
-  %m_type = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 1
+  %m_type = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %m_type, align 8
   switch i32 %6, label %sw.default [
     i32 3, label %sw.bb
@@ -350,7 +341,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %vtable8 = load ptr, ptr %draw, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 6
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 48
   %7 = load ptr, ptr %vfn9, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   br label %sw.epilog
@@ -361,15 +352,15 @@ sw.bb10:                                          ; preds = %entry
   %call12 = tail call <2 x float> @_ZNK13b2PulleyJoint16GetGroundAnchorBEv(ptr noundef nonnull align 8 dereferenceable(256) %this)
   store <2 x float> %call12, ptr %s2, align 8
   %vtable13 = load ptr, ptr %draw, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 6
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
   %8 = load ptr, ptr %vfn14, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %s1, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable15 = load ptr, ptr %draw, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 6
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 48
   %9 = load ptr, ptr %vfn16, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %s2, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable17 = load ptr, ptr %draw, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 6
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 48
   %10 = load ptr, ptr %vfn18, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %s1, ptr noundef nonnull align 4 dereferenceable(8) %s2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   br label %sw.epilog
@@ -377,31 +368,31 @@ sw.bb10:                                          ; preds = %entry
 sw.bb19:                                          ; preds = %entry
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %c, align 16
   %vtable20 = load ptr, ptr %draw, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 8
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 64
   %11 = load ptr, ptr %vfn21, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, float noundef 4.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c)
   %vtable22 = load ptr, ptr %draw, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 8
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 64
   %12 = load ptr, ptr %vfn23, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p2, float noundef 4.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c)
   store <4 x float> <float 0x3FE99999A0000000, float 0x3FE99999A0000000, float 0x3FE99999A0000000, float 1.000000e+00>, ptr %c, align 16
   %vtable24 = load ptr, ptr %draw, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 6
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 48
   %13 = load ptr, ptr %vfn25, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %c)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   %vtable26 = load ptr, ptr %draw, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 6
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 48
   %14 = load ptr, ptr %vfn27, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %x1, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable28 = load ptr, ptr %draw, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 6
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 48
   %15 = load ptr, ptr %vfn29, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable30 = load ptr, ptr %draw, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 6
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 48
   %16 = load ptr, ptr %vfn31, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %x2, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   br label %sw.epilog

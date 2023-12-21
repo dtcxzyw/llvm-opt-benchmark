@@ -6,10 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.GIM_AABB_DATA = type { %class.GIM_AABB, i32 }
 %class.GIM_AABB = type { %class.btVector3, %class.btVector3 }
 %class.btVector3 = type { [4 x float] }
-%class.GIM_BOX_TREE = type { i32, %class.gim_array.0 }
-%class.gim_array.0 = type { ptr, i32, i32 }
 %struct.GIM_BOX_TREE_NODE = type { %class.GIM_AABB, i32, i32, i32, i32 }
-%class.gim_array = type { ptr, i32, i32 }
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
@@ -35,12 +32,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %means.sroa.0.0113 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %add.i22, %for.body ]
   %2 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %9, %for.body ]
   %arrayidx.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %0, i64 %indvars.iv
-  %m_max = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i, i64 0, i32 1
+  %m_max = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %3 = load float, ptr %m_max, align 4
   %4 = load float, ptr %arrayidx.i, align 4
   %add.i = fadd float %3, %4
-  %arrayidx5.i20 = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i, i64 0, i32 1, i32 0, i64 1
-  %arrayidx7.i21 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %arrayidx7.i21 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %mul.i.i = fmul float %add.i, 5.000000e-01
   %5 = load <2 x float>, ptr %arrayidx5.i20, align 4
   %6 = load <2 x float>, ptr %arrayidx7.i21, align 4
@@ -72,12 +69,12 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %variance.sroa.0.0120 = phi float [ 0.000000e+00, %for.body21.lr.ph ], [ %add.i70, %for.body21 ]
   %15 = phi <2 x float> [ zeroinitializer, %for.body21.lr.ph ], [ %24, %for.body21 ]
   %arrayidx.i27 = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %13, i64 %indvars.iv128
-  %m_max28 = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i27, i64 0, i32 1
+  %m_max28 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 16
   %16 = load float, ptr %m_max28, align 4
   %17 = load float, ptr %arrayidx.i27, align 4
   %add.i29 = fadd float %16, %17
-  %arrayidx5.i30 = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i27, i64 0, i32 1, i32 0, i64 1
-  %arrayidx7.i31 = getelementptr inbounds [4 x float], ptr %arrayidx.i27, i64 0, i64 1
+  %arrayidx5.i30 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 20
+  %arrayidx7.i31 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 4
   %mul.i.i41 = fmul float %add.i29, 5.000000e-01
   %sub.i = fsub float %mul.i.i41, %mul.i
   %mul.i60 = fmul float %sub.i, %sub.i
@@ -134,7 +131,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ %1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %splitValue.037 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %4, %for.body ]
   %arrayidx.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %0, i64 %indvars.iv
-  %m_max = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i, i64 0, i32 1
+  %m_max = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %arrayidx = getelementptr inbounds float, ptr %m_max, i64 %idxprom
   %2 = load float, ptr %arrayidx, align 4
   %arrayidx8 = getelementptr inbounds float, ptr %arrayidx.i, i64 %idxprom
@@ -162,7 +159,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %splitIndex.040 = phi i32 [ %startIndex, %for.body12.lr.ph ], [ %splitIndex.1, %for.inc30 ]
   %6 = load ptr, ptr %primitive_boxes, align 8
   %arrayidx.i34 = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %6, i64 %indvars.iv44
-  %m_max16 = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i34, i64 0, i32 1
+  %m_max16 = getelementptr inbounds i8, ptr %arrayidx.i34, i64 16
   %arrayidx19 = getelementptr inbounds float, ptr %m_max16, i64 %idxprom18
   %7 = load float, ptr %arrayidx19, align 4
   %arrayidx26 = getelementptr inbounds float, ptr %arrayidx.i34, i64 %idxprom18
@@ -177,7 +174,7 @@ if.then:                                          ; preds = %for.body12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %_e_tmp_.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_e_tmp_.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i34, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_e_tmp_.sroa.0.16.m_max.i.i.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_max16, i64 16, i1 false)
-  %m_data3.i.i.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %6, i64 %indvars.iv44, i32 1
+  %m_data3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 32
   %9 = load i32, ptr %m_data3.i.i.i, align 4
   %arrayidx1.i.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %6, i64 %conv2.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i34, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx1.i.i, i64 36, i1 false)
@@ -221,7 +218,7 @@ entry:
   store i32 %inc, ptr %this, align 8
   %sub = sub i32 %endIndex, %startIndex
   %cmp = icmp eq i32 %sub, 1
-  %m_node_array = getelementptr inbounds %class.GIM_BOX_TREE, ptr %this, i64 0, i32 1
+  %m_node_array = getelementptr inbounds i8, ptr %this, i64 8
   %conv = zext i32 %0 to i64
   %1 = load ptr, ptr %m_node_array, align 8
   br i1 %cmp, label %if.then, label %if.end
@@ -252,11 +249,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx.i38 = getelementptr inbounds %struct.GIM_BOX_TREE_NODE, ptr %1, i64 %conv
   store <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %arrayidx.i38, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %arrayidx.i38, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 8
   store float 0x47EFFFFFE0000000, ptr %arrayidx7.i, align 4
-  %m_max.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i38, i64 0, i32 1
+  %m_max.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 16
   store <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %m_max.i, align 4
-  %arrayidx15.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i38, i64 0, i32 1, i32 0, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 24
   store float 0xC7EFFFFFE0000000, ptr %arrayidx15.i, align 4
   %cmp2448 = icmp ult i32 %startIndex, %endIndex
   br i1 %cmp2448, label %for.body.preheader, label %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit
@@ -277,47 +274,47 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp.i = fcmp ogt float %12, %13
   %cond.i = select i1 %cmp.i, float %13, float %12
   store float %cond.i, ptr %arrayidx.i39, align 4
-  %arrayidx16.i = getelementptr inbounds float, ptr %arrayidx.i39, i64 1
+  %arrayidx16.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 4
   %14 = load float, ptr %arrayidx16.i, align 4
-  %arrayidx19.i = getelementptr inbounds float, ptr %arrayidx.i40, i64 1
+  %arrayidx19.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 4
   %15 = load float, ptr %arrayidx19.i, align 4
   %cmp20.i = fcmp ogt float %14, %15
   %call23.pn.i = select i1 %cmp20.i, ptr %arrayidx.i40, ptr %arrayidx.i39
-  %cond30.in.i = getelementptr inbounds float, ptr %call23.pn.i, i64 1
+  %cond30.in.i = getelementptr inbounds i8, ptr %call23.pn.i, i64 4
   %cond30.i = load float, ptr %cond30.in.i, align 4
   store float %cond30.i, ptr %arrayidx16.i, align 4
-  %arrayidx36.i = getelementptr inbounds float, ptr %arrayidx.i39, i64 2
+  %arrayidx36.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 8
   %16 = load float, ptr %arrayidx36.i, align 4
-  %arrayidx39.i = getelementptr inbounds float, ptr %arrayidx.i40, i64 2
+  %arrayidx39.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 8
   %17 = load float, ptr %arrayidx39.i, align 4
   %cmp40.i = fcmp ogt float %16, %17
   %call43.pn.i = select i1 %cmp40.i, ptr %arrayidx.i40, ptr %arrayidx.i39
-  %cond50.in.i = getelementptr inbounds float, ptr %call43.pn.i, i64 2
+  %cond50.in.i = getelementptr inbounds i8, ptr %call43.pn.i, i64 8
   %cond50.i = load float, ptr %cond50.in.i, align 4
   store float %cond50.i, ptr %arrayidx36.i, align 4
-  %m_max.i41 = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i39, i64 0, i32 1
+  %m_max.i41 = getelementptr inbounds i8, ptr %arrayidx.i39, i64 16
   %18 = load float, ptr %m_max.i41, align 4
-  %m_max56.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i40, i64 0, i32 1
+  %m_max56.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 16
   %19 = load float, ptr %m_max56.i, align 4
   %cmp59.i = fcmp olt float %18, %19
   %cond69.i = select i1 %cmp59.i, float %19, float %18
   store float %cond69.i, ptr %m_max.i41, align 4
-  %arrayidx75.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i39, i64 0, i32 1, i32 0, i64 1
+  %arrayidx75.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 20
   %20 = load float, ptr %arrayidx75.i, align 4
-  %arrayidx78.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i40, i64 0, i32 1, i32 0, i64 1
+  %arrayidx78.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 20
   %21 = load float, ptr %arrayidx78.i, align 4
   %cmp79.i = fcmp olt float %20, %21
   %call82.pn.i = select i1 %cmp79.i, ptr %m_max56.i, ptr %m_max.i41
-  %cond89.in.i = getelementptr inbounds float, ptr %call82.pn.i, i64 1
+  %cond89.in.i = getelementptr inbounds i8, ptr %call82.pn.i, i64 4
   %cond89.i = load float, ptr %cond89.in.i, align 4
   store float %cond89.i, ptr %arrayidx75.i, align 4
-  %arrayidx95.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i39, i64 0, i32 1, i32 0, i64 2
+  %arrayidx95.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 24
   %22 = load float, ptr %arrayidx95.i, align 4
-  %arrayidx98.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i40, i64 0, i32 1, i32 0, i64 2
+  %arrayidx98.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 24
   %23 = load float, ptr %arrayidx98.i, align 4
   %cmp99.i = fcmp olt float %22, %23
   %call102.pn.i = select i1 %cmp99.i, ptr %m_max56.i, ptr %m_max.i41
-  %cond109.in.i = getelementptr inbounds float, ptr %call102.pn.i, i64 2
+  %cond109.in.i = getelementptr inbounds i8, ptr %call102.pn.i, i64 8
   %cond109.i = load float, ptr %cond109.in.i, align 4
   store float %cond109.i, ptr %arrayidx95.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -339,7 +336,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ %25, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %splitValue.037.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %28, %for.body.i ]
   %arrayidx.i.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %24, i64 %indvars.iv.i
-  %m_max.i42 = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i.i, i64 0, i32 1
+  %m_max.i42 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %arrayidx.i43 = getelementptr inbounds float, ptr %m_max.i42, i64 %idxprom.i
   %26 = load float, ptr %arrayidx.i43, align 4
   %arrayidx8.i = getelementptr inbounds float, ptr %arrayidx.i.i, i64 %idxprom.i
@@ -361,7 +358,7 @@ for.body12.i:                                     ; preds = %for.inc30.i, %for.b
   %indvars.iv44.i = phi i64 [ %25, %for.body12.lr.ph.i ], [ %indvars.iv.next45.i, %for.inc30.i ]
   %splitIndex.040.i = phi i32 [ %startIndex, %for.body12.lr.ph.i ], [ %splitIndex.1.i, %for.inc30.i ]
   %arrayidx.i34.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %29, i64 %indvars.iv44.i
-  %m_max16.i = getelementptr inbounds %class.GIM_AABB, ptr %arrayidx.i34.i, i64 0, i32 1
+  %m_max16.i = getelementptr inbounds i8, ptr %arrayidx.i34.i, i64 16
   %arrayidx19.i44 = getelementptr inbounds float, ptr %m_max16.i, i64 %idxprom.i
   %30 = load float, ptr %arrayidx19.i44, align 4
   %arrayidx26.i = getelementptr inbounds float, ptr %arrayidx.i34.i, i64 %idxprom.i
@@ -376,7 +373,7 @@ if.then.i:                                        ; preds = %for.body12.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %_e_tmp_.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_e_tmp_.sroa.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i34.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_e_tmp_.sroa.0.16.m_max.i.i.sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_max16.i, i64 16, i1 false)
-  %m_data3.i.i.i.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %29, i64 %indvars.iv44.i, i32 1
+  %m_data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i34.i, i64 32
   %32 = load i32, ptr %m_data3.i.i.i.i, align 4
   %arrayidx1.i.i.i = getelementptr inbounds %struct.GIM_AABB_DATA, ptr %29, i64 %conv2.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i34.i, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx1.i.i.i, i64 36, i1 false)
@@ -433,19 +430,19 @@ define dso_local void @_ZN12GIM_BOX_TREE10build_treeER9gim_arrayI13GIM_AABB_DATA
 entry:
   %ref.tmp = alloca %struct.GIM_BOX_TREE_NODE, align 4
   store i32 0, ptr %this, align 8
-  %m_node_array = getelementptr inbounds %class.GIM_BOX_TREE, ptr %this, i64 0, i32 1
-  %m_size.i = getelementptr inbounds %class.gim_array, ptr %primitive_boxes, i64 0, i32 1
+  %m_node_array = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i = getelementptr inbounds i8, ptr %primitive_boxes, i64 8
   %0 = load i32, ptr %m_size.i, align 8
   %mul = shl i32 %0, 1
   %ref.tmp.32.ref.tmp.32.ref.tmp.32.m_left.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.32.ref.tmp.32.ref.tmp.32.m_left.i.sroa_idx, i8 0, i64 16, i1 false)
-  %m_size.i3 = getelementptr inbounds %class.GIM_BOX_TREE, ptr %this, i64 0, i32 1, i32 1
+  %m_size.i3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_size.i3, align 8
   %cmp.i = icmp ult i32 %1, %mul
   br i1 %cmp.i, label %if.then.i, label %if.else8.i
 
 if.then.i:                                        ; preds = %entry
-  %m_allocated_size.i.i = getelementptr inbounds %class.GIM_BOX_TREE, ptr %this, i64 0, i32 1, i32 2
+  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %m_allocated_size.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %2, %mul
   br i1 %cmp.not.i.i, label %if.end.i.i.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i

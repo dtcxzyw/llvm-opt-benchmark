@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"class.llvh::MemoryBuffer" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -33,9 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::sys::fs::file_status" = type { %"class.llvh::sys::fs::basic_file_status", i64, i64, i64 }
 %"class.llvh::sys::fs::basic_file_status" = type { i64, i64, i32, i32, i64, i32, i32 }
 %"class.std::error_code" = type { i32, ptr }
-%"class.(anonymous namespace)::MemoryBufferMMapFile.41" = type { %"class.llvh::WritableMemoryBuffer", %"class.llvh::sys::fs::mapped_file_region" }
-%"class.llvh::WritableMemoryBuffer" = type { %"class.llvh::MemoryBuffer" }
-%"class.llvh::sys::fs::mapped_file_region" = type <{ i64, ptr, i32, [4 x i8] }>
 %"class.std::unique_ptr.4" = type { %"struct.std::__uniq_ptr_data.5" }
 %"struct.std::__uniq_ptr_data.5" = type { %"class.std::__uniq_ptr_impl.6" }
 %"class.std::__uniq_ptr_impl.6" = type { %"class.std::tuple.7" }
@@ -44,19 +40,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.11" = type { ptr }
 %"class.llvh::ErrorOr.19" = type { %union.anon.20, i8, [7 x i8] }
 %union.anon.20 = type { %"struct.llvh::AlignedCharArrayUnion.2" }
-%"class.(anonymous namespace)::MemoryBufferMMapFile" = type { %"class.llvh::WriteThroughMemoryBuffer", %"class.llvh::sys::fs::mapped_file_region" }
-%"class.llvh::WriteThroughMemoryBuffer" = type { %"class.llvh::MemoryBuffer" }
-%"class.(anonymous namespace)::MemoryBufferMMapFile.42" = type { %"class.llvh::MemoryBuffer", %"class.llvh::sys::fs::mapped_file_region" }
 %"class.llvh::SmallString.38" = type { %"class.llvh::SmallVector.39" }
 %"class.llvh::SmallVector.39" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage.40" }
 %"struct.llvh::SmallVectorStorage.40" = type { [16384 x %"struct.llvh::AlignedCharArrayUnion.16"] }
-%"class.llvh::SmallVectorMemoryBuffer" = type { %"class.llvh::MemoryBuffer", %"class.llvh::SmallVector.23", %"class.std::__cxx11::basic_string" }
-%"class.llvh::SmallVector.23" = type { %"class.llvh::SmallVectorImpl" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.25 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.25 = type { i64, [8 x i8] }
-%"class.(anonymous namespace)::MemoryBufferMem" = type { %"class.llvh::MemoryBuffer" }
-%"class.(anonymous namespace)::MemoryBufferMem.18" = type { %"class.llvh::WritableMemoryBuffer" }
 
 $_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE = comdat any
 
@@ -103,9 +89,9 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4llvh12MemoryBuffer4initEPKcS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %BufStart, ptr noundef %BufEnd, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #3 align 2 {
 entry:
-  %BufferStart = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %this, i64 0, i32 1
+  %BufferStart = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %BufStart, ptr %BufferStart, align 8
-  %BufferEnd = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %this, i64 0, i32 2
+  %BufferEnd = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %BufEnd, ptr %BufferEnd, align 8
   ret void
 }
@@ -117,19 +103,19 @@ entry:
   %BufferName = alloca %"class.llvh::StringRef", align 8
   %ref.tmp1 = alloca %"class.llvh::Twine", align 8
   store ptr %BufferName.coerce0, ptr %BufferName, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %BufferName, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %BufferName, i64 8
   store i64 %BufferName.coerce1, ptr %0, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %BufferName, ptr %ref.tmp1, align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i)
   %1 = extractvalue { ptr, i64 } %call.i, 1
@@ -159,9 +145,9 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefP
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %InputData.coerce0, i64 %InputData.coerce1
-  %BufferStart.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i, i64 0, i32 1
+  %BufferStart.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store ptr %InputData.coerce0, ptr %BufferStart.i.i, align 8
-  %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i, i64 0, i32 2
+  %BufferEnd.i.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store ptr %add.ptr.i.i, ptr %BufferEnd.i.i, align 8
   store ptr %call3.i, ptr %agg.result, align 8
   ret void
@@ -179,27 +165,27 @@ entry:
   %retval.sroa.0.0.copyload.i = load ptr, ptr %Ref, align 8
   %retval.sroa.2.0.Buffer.sroa_idx.i = getelementptr inbounds i8, ptr %Ref, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.Buffer.sroa_idx.i, align 8
-  %Identifier.i = getelementptr inbounds %"class.llvh::MemoryBufferRef", ptr %Ref, i64 0, i32 1
+  %Identifier.i = getelementptr inbounds i8, ptr %Ref, i64 16
   %retval.sroa.0.0.copyload.i1 = load ptr, ptr %Identifier.i, align 8
-  %retval.sroa.2.0.Identifier.sroa_idx.i = getelementptr inbounds %"class.llvh::MemoryBufferRef", ptr %Ref, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.Identifier.sroa_idx.i = getelementptr inbounds i8, ptr %Ref, i64 24
   %retval.sroa.2.0.copyload.i2 = load i64, ptr %retval.sroa.2.0.Identifier.sroa_idx.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %BufferName.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1.i)
   store ptr %retval.sroa.0.0.copyload.i1, ptr %BufferName.i, align 8, !noalias !4
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %BufferName.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %BufferName.i, i64 8
   store i64 %retval.sroa.2.0.copyload.i2, ptr %0, align 8, !noalias !4
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1.i, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
   store i8 5, ptr %LHSKind.i.i, align 8, !noalias !4
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1.i, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1, !noalias !4
   store ptr %BufferName.i, ptr %ref.tmp1.i, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !4
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !4
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !4
   %call.i.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i.i), !noalias !4
   %1 = extractvalue { ptr, i64 } %call.i.i, 1
@@ -229,9 +215,9 @@ _ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit: ; preds = %_ZL13Co
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !4
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i.i, align 8, !noalias !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
-  %BufferStart.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i.i, i64 0, i32 1
+  %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %BufferStart.i.i.i, align 8, !noalias !4
-  %BufferEnd.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i.i, i64 0, i32 2
+  %BufferEnd.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store ptr %add.ptr.i.i.i, ptr %BufferEnd.i.i.i, align 8, !noalias !4
   store ptr %call3.i.i, ptr %agg.result, align 8, !alias.scope !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %BufferName.i)
@@ -246,9 +232,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !7
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !10
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !10
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %call.i.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i.i), !noalias !10
   %0 = extractvalue { ptr, i64 } %call.i.i, 1
@@ -277,9 +263,9 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %InputData.coerce1
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !10
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !10
-  %BufferStart.i.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
+  %BufferStart.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !10
-  %BufferEnd.i.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 2
+  %BufferEnd.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 16
   store ptr %arrayidx.i.i, ptr %BufferEnd.i.i.i.i, align 8, !noalias !10
   br label %cleanup.i.i
 
@@ -297,7 +283,7 @@ _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; pr
   br i1 %tobool.not.i.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
-  %BufferStart.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
+  %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   %3 = load ptr, ptr %BufferStart.i.i.i, align 8, !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %InputData.coerce0, i64 %InputData.coerce1, i1 false), !noalias !7
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit
@@ -316,9 +302,9 @@ entry:
   %NameBuf = alloca %"class.llvh::SmallString", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %NameBuf, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf)
   %0 = extractvalue { ptr, i64 } %call, 1
@@ -336,17 +322,17 @@ if.then:                                          ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1.i)
   %call.i = call { i32, ptr } @_ZN4llvh3sys19ChangeStdinToBinaryEv() #22, !noalias !13
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1.i, i64 0, i32 2
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1.i, i64 0, i32 3
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1, !noalias !13
   store ptr @.str.1, ptr %ref.tmp1.i, align 8, !noalias !13
   store i8 3, ptr %LHSKind.i.i, align 8, !noalias !13
   call fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvh5TwineE(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1.i), !noalias !13
-  %HasError.i.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %ref.tmp.i, i64 0, i32 1
+  %HasError.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %bf.load.i.i.i = load i8, ptr %HasError.i.i.i, align 8, !noalias !13
   %3 = and i8 %bf.load.i.i.i, 1
   %bf.cast.not.i.i.i = icmp eq i8 %3, 0
-  %HasError2.i.i.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError2.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load3.i.i.i = load i8, ptr %HasError2.i.i.i, align 8, !alias.scope !13
   br i1 %bf.cast.not.i.i.i, label %if.then.i.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit.i
 
@@ -356,7 +342,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1
   %retval.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %retval.sroa.31.0.copyload.i.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i.i, align 8, !noalias !13
   store i32 %retval.sroa.0.0.copyload.i.i.i.i, ptr %agg.result, align 8, !alias.scope !13
-  %4 = getelementptr inbounds { i32, ptr }, ptr %agg.result, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %retval.sroa.31.0.copyload.i.i.i.i, ptr %4, align 8, !alias.scope !13
   br label %_ZN4llvh12MemoryBuffer8getSTDINEv.exit
 
@@ -384,7 +370,7 @@ if.end:                                           ; preds = %entry, %if.end.i
 
 if.then.i.i6:                                     ; preds = %if.end
   %7 = extractvalue { i32, ptr } %call.i.i, 1
-  %HasError.i.i.i7 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i.i.i8 = load i8, ptr %HasError.i.i.i7, align 8, !alias.scope !22
   %bf.set.i.i.i = or i8 %bf.load.i.i.i8, 1
   store i8 %bf.set.i.i.i, ptr %HasError.i.i.i7, align 8, !alias.scope !22
@@ -420,13 +406,13 @@ _ZN4llvh11SmallStringILj256EED2Ev.exit:           ; preds = %cleanup, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %RHSKind.i.i, align 1
   %cmp.not.i = icmp eq i8 %0, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %LHSKind.i.i, align 8
   switch i8 %1, label %if.end [
     i8 1, label %return
@@ -461,7 +447,7 @@ sw.bb5.i:                                         ; preds = %if.end.i
 sw.bb7.i:                                         ; preds = %if.end.i
   %5 = load ptr, ptr %this, align 8
   %6 = load ptr, ptr %5, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %5, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %7 to i64
   br label %return
@@ -469,7 +455,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
 if.end:                                           ; preds = %if.end.i, %entry
   tail call void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) #22
   %8 = load ptr, ptr %Out, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Out, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %Out, i64 8
   %9 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %9 to i64
   br label %return
@@ -488,17 +474,17 @@ entry:
   %ref.tmp = alloca %"class.llvh::ErrorOr", align 8
   %ref.tmp1 = alloca %"class.llvh::Twine", align 8
   %call = tail call { i32, ptr } @_ZN4llvh3sys19ChangeStdinToBinaryEv() #22
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.1, ptr %ref.tmp1, align 8
   store i8 3, ptr %LHSKind.i, align 8
   call fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvh5TwineE(ptr noalias nonnull align 8 %ref.tmp, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1)
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %ref.tmp, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8
   %0 = and i8 %bf.load.i.i, 1
   %bf.cast.not.i.i = icmp eq i8 %0, 0
-  %HasError2.i.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load3.i.i = load i8, ptr %HasError2.i.i, align 8
   br i1 %bf.cast.not.i.i, label %if.then.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit
 
@@ -508,7 +494,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1
   %retval.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %retval.sroa.31.0.copyload.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %agg.result, align 8
-  %1 = getelementptr inbounds { i32, ptr }, ptr %agg.result, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %retval.sroa.31.0.copyload.i.i.i, ptr %1, align 8
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
@@ -537,7 +523,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = extractvalue { i32, ptr } %call.i, 1
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !alias.scope !23
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %HasError.i.i, align 8, !alias.scope !23
@@ -571,7 +557,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = extractvalue { i32, ptr } %call.i, 1
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !alias.scope !26
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %HasError.i.i, align 8, !alias.scope !26
@@ -614,7 +600,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = extractvalue { i32, ptr } %call, 1
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -652,10 +638,10 @@ if.then.i:                                        ; preds = %init.end.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end14.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %Perms.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status.i, i64 0, i32 6
+  %Perms.i.i.i = getelementptr inbounds i8, ptr %Status.i, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i, i8 0, i64 36, i1 false), !noalias !29
   store i32 65535, ptr %Perms.i.i.i, align 4, !noalias !29
-  %fs_st_dev.i.i = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %Status.i, i64 0, i32 1
+  %fs_st_dev.i.i = getelementptr inbounds i8, ptr %Status.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i.i, i8 0, i64 24, i1 false), !noalias !29
   %call4.i = call { i32, ptr } @_ZN4llvh3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %Status.i) #22, !noalias !29
   %5 = extractvalue { i32, ptr } %call4.i, 0
@@ -664,7 +650,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then6.i:                                       ; preds = %if.then3.i
   %6 = extractvalue { i32, ptr } %call4.i, 1
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !alias.scope !29
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %HasError.i.i, align 8, !alias.scope !29
@@ -674,7 +660,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 if.end.i:                                         ; preds = %if.then3.i
-  %Type.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status.i, i64 0, i32 5
+  %Type.i.i = getelementptr inbounds i8, ptr %Status.i, i64 32
   %7 = load i32, ptr %Type.i.i, align 8, !noalias !29
   switch i32 %7, label %if.then10.i [
     i32 5, label %if.end11.i
@@ -686,7 +672,7 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 if.end11.i:                                       ; preds = %if.end.i, %if.end.i
-  %fs_st_size.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status.i, i64 0, i32 4
+  %fs_st_size.i.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %8 = load i64, ptr %fs_st_size.i.i, align 8, !noalias !29
   br label %if.end14.i
 
@@ -704,15 +690,15 @@ _ZL13shouldUseMmapimmlbib.exit.i:                 ; preds = %if.end14.i
 
 if.then18.i:                                      ; preds = %_ZL13shouldUseMmapimmlbib.exit.i
   store i32 0, ptr %EC19.i, align 8, !noalias !29
-  %_M_cat.i.i = getelementptr inbounds %"class.std::error_code", ptr %EC19.i, i64 0, i32 1
+  %_M_cat.i.i = getelementptr inbounds i8, ptr %EC19.i, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #24
   store ptr %call.i.i, ptr %_M_cat.i.i, align 8, !noalias !29
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !29
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !29
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !29
   %call.i19.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i.i), !noalias !29
   %10 = extractvalue { ptr, i64 } %call.i19.i, 1
@@ -741,7 +727,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZL13CopyStringRefP
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !29
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i.i, align 8, !noalias !29
-  %MFR.i.i = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.41", ptr %call3.i.i, i64 0, i32 1
+  %MFR.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   %call.i.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
   %13 = add i32 %call.i.i.i.i, -1
   %conv.i.not.i.i.i = sext i32 %13 to i64
@@ -764,9 +750,9 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt
   %sub.i10.i.i = and i64 %conv.i.not.i9.i.i, %Offset
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i7.i.i, i64 %sub.i10.i.i
   %add.ptr.i21.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %MapSize.addr.0.i
-  %BufferStart.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i.i, i64 0, i32 1
+  %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   store ptr %add.ptr.i.i.i, ptr %BufferStart.i.i.i, align 8, !noalias !29
-  %BufferEnd.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i.i, i64 0, i32 2
+  %BufferEnd.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store ptr %add.ptr.i21.i, ptr %BufferEnd.i.i.i, align 8, !noalias !29
   %.pr.i = load i32, ptr %EC19.i, align 8, !noalias !29
   %cmp.i22.not.i = icmp eq i32 %.pr.i, 0
@@ -774,13 +760,13 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt
 
 _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
   %vtable.i.i.i = load ptr, ptr %call3.i.i, align 8, !noalias !29
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %16 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !29
   call void %16(ptr noundef nonnull align 8 dereferenceable(24) %call3.i.i) #22, !noalias !29
   br label %if.end25.i
 
 _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i
-  %HasError.i23.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i23.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i24.i = load i8, ptr %HasError.i23.i, align 8, !alias.scope !29
   %bf.clear.i.i = and i8 %bf.load.i24.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i23.i, align 8, !alias.scope !29
@@ -792,9 +778,9 @@ if.end25.i:                                       ; preds = %_ZNSt10unique_ptrIN
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i26.i), !noalias !29
   %add.ptr.i.i.i.i.i.i.i27.i = getelementptr inbounds i8, ptr %NameBuf.i26.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i27.i, ptr %NameBuf.i26.i, align 8, !noalias !33
-  %Size.i.i.i.i.i.i.i28.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i26.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i28.i = getelementptr inbounds i8, ptr %NameBuf.i26.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i28.i, align 8, !noalias !33
-  %Capacity2.i.i.i.i.i.i.i29.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i26.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i29.i = getelementptr inbounds i8, ptr %NameBuf.i26.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i29.i, align 4, !noalias !33
   %call.i30.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i26.i), !noalias !33
   %18 = extractvalue { ptr, i64 } %call.i30.i, 1
@@ -823,9 +809,9 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i: ; preds = %if.then.i.i34.i, %i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %MapSize.addr.0.i
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !33
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !33
-  %BufferStart.i.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
+  %BufferStart.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !33
-  %BufferEnd.i.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 2
+  %BufferEnd.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 16
   store ptr %arrayidx.i.i, ptr %BufferEnd.i.i.i.i, align 8, !noalias !33
   br label %cleanup.i.i
 
@@ -844,7 +830,7 @@ _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; pr
 
 if.then27.i:                                      ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
   %call.i40.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i41.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i41.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i42.i = load i8, ptr %HasError.i41.i, align 8, !alias.scope !29
   %bf.set.i43.i = or i8 %bf.load.i42.i, 1
   store i8 %bf.set.i43.i, ptr %HasError.i41.i, align 8, !alias.scope !29
@@ -858,7 +844,7 @@ if.end30.i:                                       ; preds = %_ZN4llvh20WritableM
   br i1 %tobool33.not96.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end30.i
-  %BufferStart.i.i45.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
+  %BufferStart.i.i45.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   %21 = load ptr, ptr %BufferStart.i.i45.i, align 8, !noalias !29
   %sub.i = add i64 %MapSize.addr.0.i, %Offset
   %call.i46.i = tail call ptr @__errno_location() #24
@@ -894,7 +880,7 @@ if.end45.i:                                       ; preds = %do.body.i.i
   br i1 %tobool33.not.i, label %while.end.i, label %while.body.i, !llvm.loop !38
 
 while.end.i:                                      ; preds = %if.end45.i, %if.then44.i, %if.end30.i
-  %HasError.i54.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i54.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i55.i = load i8, ptr %HasError.i54.i, align 8, !alias.scope !29
   %bf.clear.i56.i = and i8 %bf.load.i55.i, -2
   store i8 %bf.clear.i56.i, ptr %HasError.i54.i, align 8, !alias.scope !29
@@ -904,7 +890,7 @@ while.end.i:                                      ; preds = %if.end45.i, %if.the
 
 cleanup47.i:                                      ; preds = %land.rhs.i.i
   %call41.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i50.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i50.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i51.i = load i8, ptr %HasError.i50.i, align 8, !alias.scope !29
   %bf.set.i52.i = or i8 %bf.load.i51.i, 1
   store i8 %bf.set.i52.i, ptr %HasError.i50.i, align 8, !alias.scope !29
@@ -912,7 +898,7 @@ cleanup47.i:                                      ; preds = %land.rhs.i.i
   %EC.sroa.21.0.call.sroa_idx.i53.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call41.i, ptr %EC.sroa.21.0.call.sroa_idx.i53.i, align 8, !alias.scope !29
   %vtable.i.i59.i = load ptr, ptr %call6.i.i, align 8, !noalias !29
-  %vfn.i.i60.i = getelementptr inbounds ptr, ptr %vtable.i.i59.i, i64 1
+  %vfn.i.i60.i = getelementptr inbounds i8, ptr %vtable.i.i59.i, i64 8
   %24 = load ptr, ptr %vfn.i.i60.i, align 8, !noalias !29
   call void %24(ptr noundef nonnull align 8 dereferenceable(24) %call6.i.i) #22, !noalias !29
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
@@ -941,9 +927,9 @@ entry:
   %NameBuf = alloca %"class.llvh::SmallString", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %NameBuf, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf)
   %0 = extractvalue { ptr, i64 } %call, 1
@@ -972,9 +958,9 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit:       ; preds = %if.end, %if.then.i
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr7, i64 %Size
   store i8 0, ptr %arrayidx, align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
-  %BufferStart.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6, i64 0, i32 1
+  %BufferStart.i.i = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %add.ptr7, ptr %BufferStart.i.i, align 8
-  %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6, i64 0, i32 2
+  %BufferEnd.i.i = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr %arrayidx, ptr %BufferEnd.i.i, align 8
   br label %cleanup
 
@@ -1002,9 +988,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8, !noalias !39
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !39
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !39
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i), !noalias !39
   %0 = extractvalue { ptr, i64 } %call.i, 1
@@ -1033,9 +1019,9 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.en
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %Size
   store i8 0, ptr %arrayidx.i, align 1, !noalias !39
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i, align 8, !noalias !39
-  %BufferStart.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 1
+  %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !39
-  %BufferEnd.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 2
+  %BufferEnd.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   store ptr %arrayidx.i, ptr %BufferEnd.i.i.i, align 8, !noalias !39
   br label %cleanup.i
 
@@ -1053,7 +1039,7 @@ _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; pred
   br i1 %tobool.not.i, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
-  %BufferStart.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 1
+  %BufferStart.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   %3 = load ptr, ptr %BufferStart.i.i, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %Size, i1 false)
   br label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
@@ -1083,14 +1069,14 @@ entry:
   %call1.i = call { i32, ptr } @_ZN4llvh3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 4 dereferenceable(4) %FD, i32 noundef 2, i32 noundef 3, i32 noundef 0, i32 noundef 438) #22
   %0 = extractvalue { i32, ptr } %call1.i, 0
   store i32 %0, ptr %EC, align 8
-  %1 = getelementptr inbounds { i32, ptr }, ptr %EC, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %EC, i64 8
   %2 = extractvalue { i32, ptr } %call1.i, 1
   store ptr %2, ptr %1, align 8
   %cmp.i.not = icmp eq i32 %0, 0
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr.19", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -1108,10 +1094,10 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.end20
 
 if.then4:                                         ; preds = %if.then2
-  %Perms.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status, i64 0, i32 6
+  %Perms.i.i = getelementptr inbounds i8, ptr %Status, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
-  %fs_st_dev.i = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %Status, i64 0, i32 1
+  %fs_st_dev.i = getelementptr inbounds i8, ptr %Status, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i, i8 0, i64 24, i1 false)
   %3 = load i32, ptr %FD, align 4
   %call6 = call { i32, ptr } @_ZN4llvh3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %Status) #22
@@ -1121,7 +1107,7 @@ if.then4:                                         ; preds = %if.then2
 
 if.then8:                                         ; preds = %if.then4
   %5 = extractvalue { i32, ptr } %call6, 1
-  %HasError.i9 = getelementptr inbounds %"class.llvh::ErrorOr.19", ptr %agg.result, i64 0, i32 1
+  %HasError.i9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i10 = load i8, ptr %HasError.i9, align 8
   %bf.set.i11 = or i8 %bf.load.i10, 1
   store i8 %bf.set.i11, ptr %HasError.i9, align 8
@@ -1131,7 +1117,7 @@ if.then8:                                         ; preds = %if.then4
   br label %return
 
 if.end10:                                         ; preds = %if.then4
-  %Type.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status, i64 0, i32 5
+  %Type.i = getelementptr inbounds i8, ptr %Status, i64 32
   %6 = load i32, ptr %Type.i, align 8
   switch i32 %6, label %if.then14 [
     i32 5, label %if.end17
@@ -1140,7 +1126,7 @@ if.end10:                                         ; preds = %if.then4
 
 if.then14:                                        ; preds = %if.end10
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i13 = getelementptr inbounds %"class.llvh::ErrorOr.19", ptr %agg.result, i64 0, i32 1
+  %HasError.i13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i14 = load i8, ptr %HasError.i13, align 8
   %bf.set.i15 = or i8 %bf.load.i14, 1
   store i8 %bf.set.i15, ptr %HasError.i13, align 8
@@ -1150,7 +1136,7 @@ if.then14:                                        ; preds = %if.end10
   br label %return
 
 if.end17:                                         ; preds = %if.end10, %if.end10
-  %fs_st_size.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status, i64 0, i32 4
+  %fs_st_size.i = getelementptr inbounds i8, ptr %Status, i64 24
   %7 = load i64, ptr %fs_st_size.i, align 8
   br label %if.end20
 
@@ -1159,9 +1145,9 @@ if.end20:                                         ; preds = %if.then2, %if.end17
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i17 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i)
   %8 = extractvalue { ptr, i64 } %call.i17, 1
@@ -1191,7 +1177,7 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefP
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   %11 = load i32, ptr %FD, align 4
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
-  %MFR.i = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile", ptr %call3.i, i64 0, i32 1
+  %MFR.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %12 = add i32 %call.i.i.i, -1
   %conv.i.not.i.i = sext i32 %12 to i64
@@ -1214,16 +1200,16 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2Ebim
   %sub.i10.i = and i64 %conv.i.not.i9.i, %Offset
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 %sub.i10.i
   %add.ptr.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %MapSize.addr.0
-  %BufferStart.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i, i64 0, i32 1
+  %BufferStart.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store ptr %add.ptr.i.i, ptr %BufferStart.i.i, align 8
-  %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i, i64 0, i32 2
+  %BufferEnd.i.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store ptr %add.ptr.i18, ptr %BufferEnd.i.i, align 8
   %.pr = load i32, ptr %EC, align 8
   %cmp.i19.not = icmp eq i32 %.pr, 0
   br i1 %cmp.i19.not, label %cleanup.thread, label %_ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i
 
 cleanup.thread:                                   ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit
-  %HasError.i24 = getelementptr inbounds %"class.llvh::ErrorOr.19", ptr %agg.result, i64 0, i32 1
+  %HasError.i24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i25 = load i8, ptr %HasError.i24, align 8
   %bf.clear.i = and i8 %bf.load.i25, -2
   store i8 %bf.clear.i, ptr %HasError.i24, align 8
@@ -1234,7 +1220,7 @@ cleanup.thread:                                   ; preds = %_ZN12_GLOBAL__N_120
 _ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit
   %16 = phi i32 [ %.pr, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit ], [ %13, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit ]
   %agg.tmp24.sroa.21.0.copyload = load ptr, ptr %1, align 8
-  %HasError.i20 = getelementptr inbounds %"class.llvh::ErrorOr.19", ptr %agg.result, i64 0, i32 1
+  %HasError.i20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i21 = load i8, ptr %HasError.i20, align 8
   %bf.set.i22 = or i8 %bf.load.i21, 1
   store i8 %bf.set.i22, ptr %HasError.i20, align 8
@@ -1242,7 +1228,7 @@ _ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i: ; preds
   %EC.sroa.21.0.call.sroa_idx.i23 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %agg.tmp24.sroa.21.0.copyload, ptr %EC.sroa.21.0.call.sroa_idx.i23, align 8
   %vtable.i.i = load ptr, ptr %call3.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(24) %call3.i) #22
   br label %return
@@ -1298,10 +1284,10 @@ if.then:                                          ; preds = %init.end
   br i1 %cmp2, label %if.then3, label %if.end14
 
 if.then3:                                         ; preds = %if.then
-  %Perms.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status, i64 0, i32 6
+  %Perms.i.i = getelementptr inbounds i8, ptr %Status, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
-  %fs_st_dev.i = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %Status, i64 0, i32 1
+  %fs_st_dev.i = getelementptr inbounds i8, ptr %Status, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i, i8 0, i64 24, i1 false)
   %call4 = call { i32, ptr } @_ZN4llvh3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(64) %Status) #22
   %2 = extractvalue { i32, ptr } %call4, 0
@@ -1310,7 +1296,7 @@ if.then3:                                         ; preds = %if.then
 
 if.then6:                                         ; preds = %if.then3
   %3 = extractvalue { i32, ptr } %call4, 1
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -1320,7 +1306,7 @@ if.then6:                                         ; preds = %if.then3
   br label %return
 
 if.end:                                           ; preds = %if.then3
-  %Type.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status, i64 0, i32 5
+  %Type.i = getelementptr inbounds i8, ptr %Status, i64 32
   %4 = load i32, ptr %Type.i, align 8
   switch i32 %4, label %if.then10 [
     i32 5, label %if.end11
@@ -1329,11 +1315,11 @@ if.end:                                           ; preds = %if.then3
 
 if.then10:                                        ; preds = %if.end
   call fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvh5TwineE(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename)
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %ref.tmp, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8
   %5 = and i8 %bf.load.i.i, 1
   %bf.cast.not.i.i = icmp eq i8 %5, 0
-  %HasError2.i.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load3.i.i = load i8, ptr %HasError2.i.i, align 8
   br i1 %bf.cast.not.i.i, label %if.then.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit
 
@@ -1344,7 +1330,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1
   %retval.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %retval.sroa.31.0.copyload.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %agg.result, align 8
-  %6 = getelementptr inbounds { i32, ptr }, ptr %agg.result, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %retval.sroa.31.0.copyload.i.i.i, ptr %6, align 8
   br label %return
 
@@ -1356,7 +1342,7 @@ if.then.i:                                        ; preds = %if.then10
   br label %return
 
 if.end11:                                         ; preds = %if.end, %if.end
-  %fs_st_size.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status, i64 0, i32 4
+  %fs_st_size.i = getelementptr inbounds i8, ptr %Status, i64 24
   %8 = load i64, ptr %fs_st_size.i, align 8
   br label %if.end14
 
@@ -1381,10 +1367,10 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end14.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %Perms.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status.i, i64 0, i32 6
+  %Perms.i.i.i = getelementptr inbounds i8, ptr %Status.i, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i.i, align 4
-  %fs_st_dev.i.i = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %Status.i, i64 0, i32 1
+  %fs_st_dev.i.i = getelementptr inbounds i8, ptr %Status.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i.i, i8 0, i64 24, i1 false)
   %call.i = call { i32, ptr } @_ZN4llvh3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(64) %Status.i) #22
   %10 = extractvalue { i32, ptr } %call.i, 0
@@ -1392,7 +1378,7 @@ if.then9.i:                                       ; preds = %if.end7.i
   br i1 %cmp.i.not.i, label %if.end12.i, label %_ZL13shouldUseMmapimmlbib.exit.thread
 
 if.end12.i:                                       ; preds = %if.then9.i
-  %fs_st_size.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %Status.i, i64 0, i32 4
+  %fs_st_size.i.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %11 = load i64, ptr %fs_st_size.i.i, align 8
   br label %if.end14.i
 
@@ -1420,15 +1406,15 @@ _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %if.end.i
 
 if.then18:                                        ; preds = %if.end17.i, %_ZL13shouldUseMmapimmlbib.exit
   store i32 0, ptr %EC19, align 8
-  %_M_cat.i = getelementptr inbounds %"class.std::error_code", ptr %EC19, i64 0, i32 1
+  %_M_cat.i = getelementptr inbounds i8, ptr %EC19, i64 8
   %call.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #24
   store ptr %call.i21, ptr %_M_cat.i, align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i22 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i)
   %12 = extractvalue { ptr, i64 } %call.i22, 1
@@ -1457,7 +1443,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
-  %MFR.i = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.42", ptr %call3.i, i64 0, i32 1
+  %MFR.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %15 = add i32 %call.i.i.i, -1
   %conv.i.not.i.i = sext i32 %15 to i64
@@ -1480,9 +1466,9 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_
   %sub.i10.i = and i64 %conv.i.not.i9.i, %Offset
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 %sub.i10.i
   %add.ptr.i27 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %MapSize.addr.0
-  %BufferStart.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i, i64 0, i32 1
+  %BufferStart.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store ptr %add.ptr.i.i, ptr %BufferStart.i.i, align 8
-  %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call3.i, i64 0, i32 2
+  %BufferEnd.i.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store ptr %add.ptr.i27, ptr %BufferEnd.i.i, align 8
   %.pr = load i32, ptr %EC19, align 8
   %cmp.i28.not = icmp eq i32 %.pr, 0
@@ -1490,13 +1476,13 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
   %vtable.i.i = load ptr, ptr %call3.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(24) %call3.i) #22
   br label %if.end26
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit
-  %HasError.i29 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i29 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i30 = load i8, ptr %HasError.i29, align 8
   %bf.clear.i = and i8 %bf.load.i30, -2
   store i8 %bf.clear.i, ptr %HasError.i29, align 8
@@ -1508,9 +1494,9 @@ if.end26:                                         ; preds = %_ZNSt10unique_ptrIN
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i32)
   %add.ptr.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %NameBuf.i32, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i33, ptr %NameBuf.i32, align 8, !noalias !42
-  %Size.i.i.i.i.i.i.i34 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i32, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %NameBuf.i32, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i34, align 8, !noalias !42
-  %Capacity2.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i32, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %NameBuf.i32, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i35, align 4, !noalias !42
   %call.i36 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i32), !noalias !42
   %20 = extractvalue { ptr, i64 } %call.i36, 1
@@ -1539,9 +1525,9 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %MapSize.addr.0
   store i8 0, ptr %arrayidx.i, align 1, !noalias !42
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i, align 8, !noalias !42
-  %BufferStart.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 1
+  %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !42
-  %BufferEnd.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 2
+  %BufferEnd.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   store ptr %arrayidx.i, ptr %BufferEnd.i.i.i, align 8, !noalias !42
   br label %cleanup.i
 
@@ -1560,7 +1546,7 @@ _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; pred
 
 if.then28:                                        ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
   %call.i46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i47 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i47 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i48 = load i8, ptr %HasError.i47, align 8
   %bf.set.i49 = or i8 %bf.load.i48, 1
   store i8 %bf.set.i49, ptr %HasError.i47, align 8
@@ -1574,7 +1560,7 @@ if.end31:                                         ; preds = %_ZN4llvh20WritableM
   br i1 %tobool34.not101, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end31
-  %BufferStart.i.i51 = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 1
+  %BufferStart.i.i51 = getelementptr inbounds i8, ptr %call6.i, i64 8
   %23 = load ptr, ptr %BufferStart.i.i51, align 8
   %sub = add i64 %MapSize.addr.0, %Offset
   %call.i52 = tail call ptr @__errno_location() #24
@@ -1610,7 +1596,7 @@ if.end46:                                         ; preds = %do.body.i
   br i1 %tobool34.not, label %while.end, label %while.body, !llvm.loop !45
 
 while.end:                                        ; preds = %if.end46, %if.end31, %if.then45
-  %HasError.i60 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i60 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i61 = load i8, ptr %HasError.i60, align 8
   %bf.clear.i62 = and i8 %bf.load.i61, -2
   store i8 %bf.clear.i62, ptr %HasError.i60, align 8
@@ -1619,7 +1605,7 @@ while.end:                                        ; preds = %if.end46, %if.end31
 
 cleanup48:                                        ; preds = %land.rhs.i
   %call42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i56 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i56 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i57 = load i8, ptr %HasError.i56, align 8
   %bf.set.i58 = or i8 %bf.load.i57, 1
   store i8 %bf.set.i58, ptr %HasError.i56, align 8
@@ -1627,7 +1613,7 @@ cleanup48:                                        ; preds = %land.rhs.i
   %EC.sroa.21.0.call.sroa_idx.i59 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call42, ptr %EC.sroa.21.0.call.sroa_idx.i59, align 8
   %vtable.i.i64 = load ptr, ptr %call6.i, align 8
-  %vfn.i.i65 = getelementptr inbounds ptr, ptr %vtable.i.i64, i64 1
+  %vfn.i.i65 = getelementptr inbounds i8, ptr %vtable.i.i64, i64 8
   %25 = load ptr, ptr %vfn.i.i65, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(24) %call6.i) #22
   br label %return
@@ -1652,9 +1638,9 @@ entry:
   %Buffer = alloca %"class.llvh::SmallString.38", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Buffer, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Buffer, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Buffer, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Buffer, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Buffer, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Buffer, i64 12
   store i32 16384, ptr %Capacity2.i.i.i.i.i.i, align 4
   br label %do.body
 
@@ -1693,7 +1679,7 @@ land.rhs.i:                                       ; preds = %do.body.i
 
 if.then:                                          ; preds = %land.rhs.i
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -1717,9 +1703,9 @@ do.end:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !48
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !51
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !51
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NameBuf.i.i, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !51
   %call.i.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i.i), !noalias !51
   %7 = extractvalue { ptr, i64 } %call.i.i, 1
@@ -1748,9 +1734,9 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %conv.i.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !51
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !51
-  %BufferStart.i.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
+  %BufferStart.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !51
-  %BufferEnd.i.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 2
+  %BufferEnd.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 16
   store ptr %arrayidx.i.i, ptr %BufferEnd.i.i.i.i, align 8, !noalias !51
   br label %cleanup.i.i
 
@@ -1769,7 +1755,7 @@ _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; pr
 
 if.then.i10:                                      ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !alias.scope !48
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %HasError.i.i, align 8, !alias.scope !48
@@ -1779,10 +1765,10 @@ if.then.i10:                                      ; preds = %_ZN4llvh20WritableM
   br label %cleanup
 
 if.end.i:                                         ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
-  %BufferStart.i.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
+  %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   %10 = load ptr, ptr %BufferStart.i.i.i, align 8, !noalias !48
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %6, i64 %conv.i.i.i, i1 false), !noalias !48
-  %HasError.i3.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i4.i = load i8, ptr %HasError.i3.i, align 8, !alias.scope !48
   %bf.clear.i.i = and i8 %bf.load.i4.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i3.i, align 8, !alias.scope !48
@@ -1815,7 +1801,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = extractvalue { i32, ptr } %call, 1
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -1827,11 +1813,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %FD, align 4
   call fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvh5TwineE(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(18) %Filename)
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %ref.tmp, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8
   %3 = and i8 %bf.load.i.i, 1
   %bf.cast.not.i.i = icmp eq i8 %3, 0
-  %HasError2.i.i = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load3.i.i = load i8, ptr %HasError2.i.i, align 8
   br i1 %bf.cast.not.i.i, label %if.then.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit
 
@@ -1841,7 +1827,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1
   %retval.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %retval.sroa.31.0.copyload.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %agg.result, align 8
-  %4 = getelementptr inbounds { i32, ptr }, ptr %agg.result, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %retval.sroa.31.0.copyload.i.i.i, ptr %4, align 8
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
@@ -1869,15 +1855,15 @@ declare i32 @close(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh12MemoryBuffer15getMemBufferRefEv(ptr noalias nocapture writeonly sret(%"class.llvh::MemoryBufferRef") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %BufferStart.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %this, i64 0, i32 1
+  %BufferStart.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %BufferStart.i, align 8
-  %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %this, i64 0, i32 2
+  %BufferEnd.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %BufferEnd.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call { ptr, i64 } %2(ptr noundef nonnull align 8 dereferenceable(24) %this) #22
   %3 = extractvalue { ptr, i64 } %call2, 0
@@ -1885,9 +1871,9 @@ entry:
   store ptr %0, ptr %agg.result, align 8
   %Buffer.sroa.2.0.Buffer2.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %Buffer.sroa.2.0.Buffer2.sroa_idx.i, align 8
-  %Identifier3.i = getelementptr inbounds %"class.llvh::MemoryBufferRef", ptr %agg.result, i64 0, i32 1
+  %Identifier3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %3, ptr %Identifier3.i, align 8
-  %Identifier.sroa.2.0.Identifier3.sroa_idx.i = getelementptr inbounds %"class.llvh::MemoryBufferRef", ptr %agg.result, i64 0, i32 1, i32 1
+  %Identifier.sroa.2.0.Identifier3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %4, ptr %Identifier.sroa.2.0.Identifier3.sroa_idx.i, align 8
   ret void
 }
@@ -1896,9 +1882,9 @@ entry:
 define hidden void @_ZN4llvh23SmallVectorMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %BufferName = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this, i64 0, i32 2
+  %BufferName = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %BufferName) #22
-  %SV = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this, i64 0, i32 1
+  %SV = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %SV, align 8
   %cmp.i.i.i = icmp eq ptr %0, %BufferName
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIcLj0EED2Ev.exit, label %if.then.i.i
@@ -1918,9 +1904,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden void @_ZN4llvh23SmallVectorMemoryBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %BufferName.i = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this, i64 0, i32 2
+  %BufferName.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %BufferName.i) #22
-  %SV.i = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this, i64 0, i32 1
+  %SV.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %SV.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, %BufferName.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh23SmallVectorMemoryBufferD2Ev.exit, label %if.then.i.i.i
@@ -1948,7 +1934,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvh23SmallVectorMemoryBuffer19getBufferIdentifierEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %BufferName = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this, i64 0, i32 2
+  %BufferName = getelementptr inbounds i8, ptr %this, i64 40
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %BufferName) #22
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %BufferName) #22
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %call.i, 0
@@ -1992,7 +1978,7 @@ declare void @_ZN4llvh3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_c
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile", ptr %this, i64 0, i32 1
+  %MFR = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #22
   ret void
 }
@@ -2001,7 +1987,7 @@ entry:
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %MFR.i = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile", ptr %this, i64 0, i32 1
+  %MFR.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -2010,7 +1996,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEE19getBufferIdentifierEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile", ptr %this, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 48
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #23
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %add.ptr, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %call.i, 1
@@ -2054,7 +2040,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEE19getBufferIdentifierEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #15 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMem", ptr %this, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #23
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %add.ptr, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %call.i, 1
@@ -2085,7 +2071,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_catego
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.41", ptr %this, i64 0, i32 1
+  %MFR = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #22
   ret void
 }
@@ -2094,7 +2080,7 @@ entry:
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %MFR.i = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.41", ptr %this, i64 0, i32 1
+  %MFR.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -2103,7 +2089,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEE19getBufferIdentifierEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.41", ptr %this, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 48
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #23
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %add.ptr, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %call.i, 1
@@ -2132,7 +2118,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEE19getBufferIdentifierEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #15 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMem.18", ptr %this, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #23
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %add.ptr, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %call.i, 1
@@ -2149,7 +2135,7 @@ entry:
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.42", ptr %this, i64 0, i32 1
+  %MFR = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #22
   ret void
 }
@@ -2158,7 +2144,7 @@ entry:
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %MFR.i = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.42", ptr %this, i64 0, i32 1
+  %MFR.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -2167,7 +2153,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEE19getBufferIdentifierEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.42", ptr %this, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 48
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #23
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %add.ptr, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %call.i, 1

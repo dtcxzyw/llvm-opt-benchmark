@@ -134,7 +134,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.end9:                                          ; preds = %if.then5, %if.end3
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %coll)
   %cmp12 = icmp eq ptr %call11, null
@@ -170,7 +170,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   %call11.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %coll)
   %cmp12.i = icmp eq ptr %call11.i, null
@@ -194,7 +194,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll) #10
   br label %if.end
@@ -389,7 +389,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 define i32 @ucol_getSortKey_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %result, i32 noundef %resultLength) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 34
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %result, i32 noundef %resultLength)
   ret i32 %call1
@@ -408,7 +408,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %iter, ptr noundef %state, ptr noundef %dest, i32 noundef %count, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -533,7 +533,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %group, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   br label %return
@@ -546,7 +546,7 @@ return:                                           ; preds = %entry, %if.end
 define i32 @ucol_getMaxVariable_75(ptr noundef %coll) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll)
   ret i32 %call1
@@ -563,7 +563,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 27
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %varTop, i32 noundef %len, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -584,7 +584,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -605,7 +605,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %varTop, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -625,7 +625,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %attr, i32 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -645,7 +645,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %attr, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -665,7 +665,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 23
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 184
   %0 = load ptr, ptr %vfn.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef 5, i32 noundef %strength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %ucol_setAttribute_75.exit
@@ -684,7 +684,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
   %0 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %ucol_getAttribute_75.exit
@@ -703,7 +703,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -722,7 +722,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %reorderCodes, i32 noundef %reorderCodesLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -744,7 +744,7 @@ declare noundef i32 @_ZN6icu_758Collator25getEquivalentReorderCodesEiPiiR10UErro
 define void @ucol_getVersion_75(ptr noundef %coll, ptr noundef %versionInfo) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %versionInfo)
   ret void
@@ -775,7 +775,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 8 dereferenceable(112) %sIter, ptr noundef nonnull align 8 dereferenceable(112) %tIter, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -791,7 +791,7 @@ entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call1 = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call1
@@ -806,7 +806,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -823,7 +823,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -839,7 +839,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -855,7 +855,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -873,17 +873,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull %v)
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %v, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %v, i64 1
   %1 = load i8, ptr %arrayidx, align 1
   %2 = lshr i8 %1, 3
   store i8 %2, ptr %info, align 1
   %3 = and i8 %1, 7
   %arrayidx6 = getelementptr inbounds i8, ptr %info, i64 1
   store i8 %3, ptr %arrayidx6, align 1
-  %arrayidx7 = getelementptr inbounds [4 x i8], ptr %v, i64 0, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %v, i64 2
   %4 = load i8, ptr %arrayidx7, align 1
   %5 = lshr i8 %4, 6
   %arrayidx11 = getelementptr inbounds i8, ptr %info, i64 2
@@ -907,12 +907,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517RuleBasedCollator8getRulesEv(ptr noundef nonnull align 8 dereferenceable(272) %1)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call2, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   store i32 %cond.i, ptr %length, align 4
@@ -932,7 +932,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %return
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call2, i64 24
   %6 = load ptr, ptr %fArray.i, align 8
   br label %return
 
@@ -954,7 +954,7 @@ entry:
   %errorCode = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %rules, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rules, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %rules, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = icmp ne ptr %coll, null
   tail call void @llvm.assume(i1 %0)
@@ -1000,7 +1000,7 @@ if.else:                                          ; preds = %if.end
   %cmp.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i = sext i16 %7 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rules, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %rules, i64 12
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %8, i32 %shr.i.i
   br label %cleanup
@@ -1088,7 +1088,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
@@ -1120,7 +1120,7 @@ entry:
 
 lor.rhs:                                          ; preds = %entry
   %vtable = load ptr, ptr %source, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %source, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %1 = zext i1 %call2 to i8

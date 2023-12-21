@@ -3,15 +3,6 @@ source_filename = "bench/proxygen/original/HTTPSessionObserverInterface.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.folly::Optional<std::reference_wrapper<const std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>>::StorageTriviallyDestructible" = type <{ %union.anon, i8, [7 x i8] }>
-%union.anon = type { %"class.std::reference_wrapper" }
-%"class.std::reference_wrapper" = type { ptr }
-%"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent::BuilderFields" = type { %"class.folly::Optional", %"class.folly::Optional.0" }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::reference_wrapper<const std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>>::StorageTriviallyDestructible" }
-%"class.folly::Optional.0" = type { %"struct.folly::Optional<std::reference_wrapper<const proxygen::HTTPHeaders>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::reference_wrapper<const proxygen::HTTPHeaders>>::StorageTriviallyDestructible" = type <{ %union.anon.1, i8, [7 x i8] }>
-%union.anon.1 = type { %"class.std::reference_wrapper.2" }
-%"class.std::reference_wrapper.2" = type { ptr }
 %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent" = type { %"class.std::chrono::time_point", ptr }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.std::chrono::duration" = type { i64 }
@@ -21,13 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.std::allocator" = type { i8 }
-%"struct.folly::Optional<std::reference_wrapper<const unsigned long>>::StorageTriviallyDestructible" = type <{ %union.anon.14, i8, [7 x i8] }>
-%union.anon.14 = type { %"class.std::reference_wrapper.15" }
-%"class.std::reference_wrapper.15" = type { ptr }
-%"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent::BuilderFields" = type { %"class.folly::Optional.13", %"class.folly::Optional" }
-%"class.folly::Optional.13" = type { %"struct.folly::Optional<std::reference_wrapper<const unsigned long>>::StorageTriviallyDestructible" }
 %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent" = type { i64, %"class.std::chrono::time_point" }
-%"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent::BuilderFields" = type { %"class.folly::Optional.13", %"class.folly::Optional" }
 %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent" = type { i64, %"class.std::chrono::time_point" }
 %struct._Guard = type { ptr }
 
@@ -61,7 +46,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.folly::Optional<std::reference_wrapper<const std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>>::StorageTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -80,7 +65,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212stead
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder10setHeadersERKNS_11HTTPHeadersE(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %headersIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent::BuilderFields", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -91,7 +76,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit: ; preds = %entry, %if.else.i.i
-  %maybeHTTPHeadersRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent::BuilderFields", ptr %this, i64 0, i32 1
+  %maybeHTTPHeadersRef = getelementptr inbounds i8, ptr %this, i64 16
   %2 = ptrtoint ptr %headersIn to i64
   store i64 %2, ptr %maybeHTTPHeadersRef, align 8
   ret ptr %this
@@ -109,7 +94,7 @@ define void @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEventC2ER
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
-  %hasValue.i = getelementptr inbounds %"struct.folly::Optional<std::reference_wrapper<const std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>>::StorageTriviallyDestructible", ptr %builderFields, i64 0, i32 1
+  %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -119,9 +104,9 @@ entry:
   %2 = load ptr, ptr %call2, align 8
   %3 = load i64, ptr %2, align 8
   store i64 %3, ptr %this, align 8
-  %requestHeaders = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent", ptr %this, i64 0, i32 1
-  %maybeHTTPHeadersRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent::BuilderFields", ptr %builderFields, i64 0, i32 1
-  %hasValue.i2 = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent::BuilderFields", ptr %builderFields, i64 0, i32 1, i32 0, i32 1
+  %requestHeaders = getelementptr inbounds i8, ptr %this, i64 8
+  %maybeHTTPHeadersRef = getelementptr inbounds i8, ptr %builderFields, i64 16
+  %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
   %4 = load i8, ptr %hasValue.i2, align 8
   %5 = and i8 %4, 1
   %tobool.not.i3 = icmp eq i8 %5, 0
@@ -228,7 +213,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder21setPendingEgressBytesERKm(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %pendingEgressBytesIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.folly::Optional<std::reference_wrapper<const unsigned long>>::StorageTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -247,7 +232,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent::BuilderFields", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -258,7 +243,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
-  %maybeTimestampRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent::BuilderFields", ptr %this, i64 0, i32 1
+  %maybeTimestampRef = getelementptr inbounds i8, ptr %this, i64 16
   %2 = ptrtoint ptr %timestampIn to i64
   store i64 %2, ptr %maybeTimestampRef, align 8
   ret ptr %this
@@ -276,7 +261,7 @@ define void @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEventC2ERNS1_13
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
-  %hasValue.i = getelementptr inbounds %"struct.folly::Optional<std::reference_wrapper<const unsigned long>>::StorageTriviallyDestructible", ptr %builderFields, i64 0, i32 1
+  %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -286,9 +271,9 @@ entry:
   %2 = load ptr, ptr %call2, align 8
   %3 = load i64, ptr %2, align 8
   store i64 %3, ptr %this, align 8
-  %timestamp = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent", ptr %this, i64 0, i32 1
-  %maybeTimestampRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent::BuilderFields", ptr %builderFields, i64 0, i32 1
-  %hasValue.i2 = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent::BuilderFields", ptr %builderFields, i64 0, i32 1, i32 0, i32 1
+  %timestamp = getelementptr inbounds i8, ptr %this, i64 8
+  %maybeTimestampRef = getelementptr inbounds i8, ptr %builderFields, i64 16
+  %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
   %4 = load i8, ptr %hasValue.i2, align 8
   %5 = and i8 %4, 1
   %tobool.not.i3 = icmp eq i8 %5, 0
@@ -396,7 +381,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder5setIdERKm(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %IdIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.folly::Optional<std::reference_wrapper<const unsigned long>>::StorageTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -415,7 +400,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent::BuilderFields", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -426,7 +411,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
-  %maybeTimestampRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent::BuilderFields", ptr %this, i64 0, i32 1
+  %maybeTimestampRef = getelementptr inbounds i8, ptr %this, i64 16
   %2 = ptrtoint ptr %timestampIn to i64
   store i64 %2, ptr %maybeTimestampRef, align 8
   ret ptr %this
@@ -444,7 +429,7 @@ define void @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEventC2ERNS1_1
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
-  %hasValue.i = getelementptr inbounds %"struct.folly::Optional<std::reference_wrapper<const unsigned long>>::StorageTriviallyDestructible", ptr %builderFields, i64 0, i32 1
+  %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -454,9 +439,9 @@ entry:
   %2 = load ptr, ptr %call2, align 8
   %3 = load i64, ptr %2, align 8
   store i64 %3, ptr %this, align 8
-  %timestamp = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent", ptr %this, i64 0, i32 1
-  %maybeTimestampRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent::BuilderFields", ptr %builderFields, i64 0, i32 1
-  %hasValue.i2 = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent::BuilderFields", ptr %builderFields, i64 0, i32 1, i32 0, i32 1
+  %timestamp = getelementptr inbounds i8, ptr %this, i64 8
+  %maybeTimestampRef = getelementptr inbounds i8, ptr %builderFields, i64 16
+  %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
   %4 = load i8, ptr %hasValue.i2, align 8
   %5 = and i8 %4, 1
   %tobool.not.i3 = icmp eq i8 %5, 0

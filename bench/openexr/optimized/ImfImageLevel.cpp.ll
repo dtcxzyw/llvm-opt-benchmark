@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::ImageLevel" = type { ptr, ptr, i32, i32, %"class.Imath_3_2::Box" }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
-%"class.Imath_3_2::Vec2" = type { i32, i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -54,13 +51,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7Imf_3_210ImageLevelC2ERNS_5ImageEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 %image, i32 noundef %xLevelNumber, i32 noundef %yLevelNumber) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_210ImageLevelE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_image = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 1
+  %_image = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %image, ptr %_image, align 8
-  %_xLevelNumber = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 2
+  %_xLevelNumber = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %xLevelNumber, ptr %_xLevelNumber, align 8
-  %_yLevelNumber = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 3
+  %_yLevelNumber = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %yLevelNumber, ptr %_yLevelNumber, align 4
-  %_dataWindow = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 4
+  %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %_dataWindow, align 8
   ret void
 }
@@ -85,7 +82,7 @@ declare void @llvm.trap() #6
 define void @_ZN7Imf_3_210ImageLevel6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max, align 4
   %1 = load i32, ptr %dataWindow, align 4
   %sub = add nsw i32 %1, -1
@@ -93,9 +90,9 @@ entry:
   br i1 %cmp, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %y = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1, i32 1
+  %y = getelementptr inbounds i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %dataWindow, i64 0, i32 1
+  %y5 = getelementptr inbounds i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5, align 4
   %sub6 = add nsw i32 %3, -1
   %cmp7 = icmp slt i32 %2, %sub6
@@ -118,7 +115,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %y15 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %dataWindow, i64 0, i32 1
+  %y15 = getelementptr inbounds i8, ptr %dataWindow, i64 4
   %5 = load i32, ptr %y15, align 4
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call13, i32 noundef %5)
           to label %invoke.cont16 unwind label %lpad
@@ -137,7 +134,7 @@ invoke.cont22:                                    ; preds = %invoke.cont18
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont22
-  %y27 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1, i32 1
+  %y27 = getelementptr inbounds i8, ptr %dataWindow, i64 12
   %7 = load i32, ptr %y27, align 4
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call25, i32 noundef %7)
           to label %invoke.cont28 unwind label %lpad
@@ -172,16 +169,16 @@ ehcleanup:                                        ; preds = %lpad32, %lpad
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %lor.lhs.false
-  %_dataWindow = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 4
+  %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %1, ptr %_dataWindow, align 8
   %10 = load i32, ptr %y5, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %10, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 4, i32 1
+  %max.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load i32, ptr %max, align 4
   store i32 %11, ptr %max.i, align 8
   %12 = load i32, ptr %y, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 4, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %12, ptr %y3.i3.i, align 4
   ret void
 
@@ -216,7 +213,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210ImageLevel11shiftPixelsEii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy) unnamed_addr #8 align 2 {
 entry:
-  %_dataWindow = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this, i64 0, i32 4
+  %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load <4 x i32>, ptr %_dataWindow, align 8
   %1 = insertelement <4 x i32> poison, i32 %dx, i64 0
   %2 = insertelement <4 x i32> %1, i32 %dy, i64 1

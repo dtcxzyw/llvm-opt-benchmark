@@ -3,25 +3,15 @@ source_filename = "bench/velox/original/Tokenizer.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::common::Tokenizer" = type { %"class.std::__cxx11::basic_string", %"class.std::shared_ptr", i32, i32, i8, %"class.std::unique_ptr" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"struct.facebook::velox::common::Separators" = type { i8, i8, i8, i8, i8, i8, i8 }
-%"class.facebook::velox::common::Subfield::NestedField" = type { %"class.facebook::velox::common::Subfield::PathElement", %"class.std::__cxx11::basic_string" }
-%"class.facebook::velox::common::Subfield::PathElement" = type { ptr }
-%"class.facebook::velox::common::Subfield::StringSubscript" = type { %"class.facebook::velox::common::Subfield::PathElement", %"class.std::__cxx11::basic_string" }
-%"class.facebook::velox::common::Subfield::LongSubscript" = type { %"class.facebook::velox::common::Subfield::PathElement", i64 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 %"struct.boost::algorithm::detail::const_formatF" = type { %"class.boost::iterator_range" }
@@ -181,18 +171,18 @@ $_ZTIN8facebook5velox6common8Subfield15StringSubscriptE = comdat any
 define void @_ZN8facebook5velox6common9TokenizerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS1_10SeparatorsEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %separators) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %separators, align 8
   store ptr %0, ptr %separators_, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %separators, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %separators, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox6common10SeparatorsEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -208,13 +198,13 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN8facebook5velox6common10SeparatorsEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN8facebook5velox6common10SeparatorsEEC2ERKS4_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %firstSegment = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 4
+  %firstSegment = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %firstSegment, align 8
-  %next_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 5
+  %next_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %next_, align 8
-  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %this, i64 52
   store i32 1, ptr %state, align 4
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %index_, align 8
   ret void
 }
@@ -225,7 +215,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer7hasNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %state, align 4
   switch i32 %0, label %sw.epilog [
     i32 2, label %return
@@ -244,7 +234,7 @@ sw.epilog:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 3, ptr %state, align 4
   call void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %next_.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 5
+  %next_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %ref.tmp.i, align 8
   %2 = load ptr, ptr %next_.i, align 8
   store ptr %1, ptr %next_.i, align 8
@@ -253,7 +243,7 @@ sw.epilog:                                        ; preds = %entry
 
 _ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_.exit.i.i.i.i.i: ; preds = %sw.epilog
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
   br label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit.i
@@ -283,10 +273,10 @@ declare void @llvm.trap() #2
 define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
-  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %this, i64 52
   store i32 3, ptr %state, align 4
   call void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %next_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 5
+  %next_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = load ptr, ptr %next_, align 8
   store ptr %0, ptr %next_, align 8
@@ -295,7 +285,7 @@ entry:
 
 _ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_.exit.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #20
   br label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit
@@ -317,7 +307,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 define void @_ZN8facebook5velox6common9Tokenizer4nextEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::unique_ptr", align 8
-  %state.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %state.i, align 4
   switch i32 %0, label %sw.epilog.i [
     i32 2, label %if.then
@@ -333,7 +323,7 @@ sw.epilog.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   store i32 3, ptr %state.i, align 4
   call void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %next_.i.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 5
+  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %ref.tmp.i.i, align 8
   %2 = load ptr, ptr %next_.i.i, align 8
   store ptr %1, ptr %next_.i.i, align 8
@@ -342,7 +332,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_.exit.i.i.i.i.i.i: ; preds = %sw.epilog.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
   br label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit.i.i
@@ -359,7 +349,7 @@ if.then:                                          ; preds = %_ZNSt10unique_ptrIN
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit.i.i, %entry
   store i32 1, ptr %state.i, align 4
-  %next_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 5
+  %next_ = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load i64, ptr %next_, align 8
   store i64 %5, ptr %agg.result, align 8
   store ptr null, ptr %next_, align 8
@@ -369,7 +359,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv = sext i32 %0 to i64
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -383,7 +373,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index_.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i, align 8
   %conv.i = sext i32 %0 to i64
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -391,15 +381,15 @@ entry:
   br i1 %cmp.i, label %land.rhs.i, label %if.then
 
 if.then:                                          ; preds = %entry
-  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %this, i64 52
   store i32 2, ptr %state, align 4
   store ptr null, ptr %agg.result, align 8
   br label %return
 
 land.rhs.i:                                       ; preds = %entry
-  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %separators_, align 8
-  %dot = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %1, i64 0, i32 2
+  %dot = getelementptr inbounds i8, ptr %1, i64 2
   %2 = load i8, ptr %dot, align 1
   %3 = load i32, ptr %index_.i, align 8
   %conv.i.i.i = sext i32 %3 to i64
@@ -420,13 +410,13 @@ if.then4:                                         ; preds = %lor.lhs.false.i.i
   %inc.i.i = add nsw i32 %6, 1
   store i32 %inc.i.i, ptr %index_.i, align 8
   tail call void @_ZN8facebook5velox6common9Tokenizer16matchPathSegmentEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %firstSegment = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 4
+  %firstSegment = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %firstSegment, align 8
   br label %return
 
 land.rhs.i16:                                     ; preds = %land.rhs.i, %lor.lhs.false.i.i
   %7 = load ptr, ptr %separators_, align 8
-  %openBracket = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %7, i64 0, i32 3
+  %openBracket = getelementptr inbounds i8, ptr %7, i64 3
   %8 = load i8, ptr %openBracket, align 1
   %9 = load i32, ptr %index_.i, align 8
   %conv.i.i.i18 = sext i32 %9 to i64
@@ -447,7 +437,7 @@ land.rhs.i43:                                     ; preds = %lor.lhs.false.i.i21
   %inc.i.i26 = add nsw i32 %12, 1
   store i32 %inc.i.i26, ptr %index_.i, align 8
   %13 = load ptr, ptr %separators_, align 8
-  %quote = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %13, i64 0, i32 4
+  %quote = getelementptr inbounds i8, ptr %13, i64 4
   %14 = load i8, ptr %quote, align 1
   %conv.i.i.i45 = sext i32 %inc.i.i26 to i64
   %call.i.i.i46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -471,7 +461,7 @@ cond.true:                                        ; preds = %lor.lhs.false.i.i48
 
 cond.false:                                       ; preds = %lor.lhs.false.i.i48, %land.rhs.i43
   %18 = load ptr, ptr %separators_, align 8
-  %wildCard = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %18, i64 0, i32 5
+  %wildCard = getelementptr inbounds i8, ptr %18, i64 5
   %19 = load i8, ptr %wildCard, align 1
   %20 = load i32, ptr %index_.i, align 8
   %conv.i.i.i72 = sext i32 %20 to i64
@@ -503,7 +493,7 @@ cond.false18:                                     ; preds = %lor.lhs.false.i.i75
 
 cond.end19:                                       ; preds = %cond.true17, %cond.false18, %cond.true
   %24 = load ptr, ptr %separators_, align 8
-  %closeBracket = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %24, i64 0, i32 1
+  %closeBracket = getelementptr inbounds i8, ptr %24, i64 1
   %25 = load i8, ptr %closeBracket, align 1
   %26 = load i32, ptr %index_.i, align 8
   %conv.i.i.i83 = sext i32 %26 to i64
@@ -527,12 +517,12 @@ invoke.cont:                                      ; preds = %lor.lhs.false.i.i86
   %29 = load i32, ptr %index_.i, align 8
   %inc.i.i90 = add nsw i32 %29, 1
   store i32 %inc.i.i90, ptr %index_.i, align 8
-  %firstSegment22 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 4
+  %firstSegment22 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %firstSegment22, align 8
   br label %return
 
 if.end26:                                         ; preds = %lor.lhs.false.i.i21, %land.rhs.i16
-  %firstSegment27 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 4
+  %firstSegment27 = getelementptr inbounds i8, ptr %this, i64 56
   %30 = load i8, ptr %firstSegment27, align 8
   %31 = and i8 %30, 1
   %tobool.not = icmp eq i8 %31, 0
@@ -554,9 +544,9 @@ return:                                           ; preds = %if.then28, %invoke.
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer17tryMatchSeparatorEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %expected) local_unnamed_addr #3 align 2 {
 entry:
-  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %separators_, align 8
-  %closeBracket.i = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %0, i64 0, i32 1
+  %closeBracket.i = getelementptr inbounds i8, ptr %0, i64 1
   %1 = load <4 x i8>, ptr %closeBracket.i, align 1
   %2 = insertelement <4 x i8> poison, i8 %expected, i64 0
   %3 = shufflevector <4 x i8> %2, <4 x i8> poison, <4 x i32> zeroinitializer
@@ -567,13 +557,13 @@ entry:
   br i1 %.not, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit, label %land.rhs
 
 _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %entry
-  %wildCard.i = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %0, i64 0, i32 5
+  %wildCard.i = getelementptr inbounds i8, ptr %0, i64 5
   %7 = load i8, ptr %wildCard.i, align 1
   %cmp16.i = icmp eq i8 %7, %expected
   br i1 %cmp16.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
-  %index_.i.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i32, ptr %index_.i.i, align 8
   %conv.i.i = sext i32 %8 to i64
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -603,7 +593,7 @@ land.end:                                         ; preds = %if.end.i, %lor.lhs.
 define void @_ZN8facebook5velox6common9Tokenizer16matchPathSegmentEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %token = alloca %"class.std::__cxx11::basic_string", align 8
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv.i13 = sext i32 %0 to i64
   %call.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -611,7 +601,7 @@ entry:
   br i1 %cmp.i15, label %land.lhs.true.lr.ph, label %while.end
 
 land.lhs.true.lr.ph:                              ; preds = %entry
-  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %while.body
@@ -620,7 +610,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %conv.i3 = sext i32 %2 to i64
   %call.i4 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i3) #20
   %3 = load i8, ptr %call.i4, align 1
-  %closeBracket.i = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %1, i64 0, i32 1
+  %closeBracket.i = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load <4 x i8>, ptr %closeBracket.i, align 1
   %5 = insertelement <4 x i8> poison, i8 %3, i64 0
   %6 = shufflevector <4 x i8> %5, <4 x i8> poison, <4 x i32> zeroinitializer
@@ -631,7 +621,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   br i1 %.not, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit, label %while.end
 
 _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %land.lhs.true
-  %wildCard.i = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %1, i64 0, i32 5
+  %wildCard.i = getelementptr inbounds i8, ptr %1, i64 5
   %10 = load i8, ptr %wildCard.i, align 1
   %cmp16.i = icmp eq i8 %10, %3
   br i1 %cmp16.i, label %while.end, label %land.rhs
@@ -681,7 +671,7 @@ if.end:                                           ; preds = %while.end
 
 call.i10.noexc:                                   ; preds = %if.end
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i64 0, inrange i32 0, i64 2), ptr %call.i1011, align 8, !noalias !12
-  %name_.i.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %call.i1011, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %call.i1011, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %token)
           to label %.noexc.i unwind label %lpad.i, !noalias !12
 
@@ -711,7 +701,7 @@ define void @_ZN8facebook5velox6common9Tokenizer20matchQuotedSubscriptEv(ptr noa
 entry:
   %token = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #20
-  %index_.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i, align 8
   %conv.i36 = sext i32 %0 to i64
   %call.i37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -719,7 +709,7 @@ entry:
   br i1 %cmp.i38, label %land.rhs.lr.ph, label %if.end26
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end22
@@ -734,7 +724,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
 
 lor.rhs:                                          ; preds = %land.rhs
   %4 = load ptr, ptr %separators_, align 8
-  %quote = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %4, i64 0, i32 4
+  %quote = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i8, ptr %quote, align 1
   %cmp.not = icmp eq i8 %3, %5
   br i1 %cmp.not, label %while.end, label %if.else
@@ -812,9 +802,9 @@ if.then24:                                        ; preds = %while.end
   unreachable
 
 if.end26:                                         ; preds = %entry, %while.end
-  %separators_27 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_27 = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load ptr, ptr %separators_27, align 8
-  %quote29 = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %17, i64 0, i32 4
+  %quote29 = getelementptr inbounds i8, ptr %17, i64 4
   %18 = load i8, ptr %quote29, align 1
   %19 = load i32, ptr %index_.i, align 8
   %conv.i.i.i = sext i32 %19 to i64
@@ -856,7 +846,7 @@ if.end35:                                         ; preds = %invoke.cont30
 
 call.i24.noexc:                                   ; preds = %if.end35
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i64 0, inrange i32 0, i64 2), ptr %call.i2425, align 8, !noalias !19
-  %index_.i.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %call.i2425, i64 0, i32 1
+  %index_.i.i = getelementptr inbounds i8, ptr %call.i2425, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %index_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %token)
           to label %cleanup unwind label %lpad.i, !noalias !19
 
@@ -887,7 +877,7 @@ define void @_ZN8facebook5velox6common9Tokenizer22matchUnquotedSubscriptEv(ptr n
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %token = alloca %"class.std::__cxx11::basic_string", align 8
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv.i11 = sext i32 %0 to i64
   %call.i12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -996,7 +986,7 @@ lpad7.body:                                       ; preds = %lpad.i.i, %if.then.
 
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev.exit: ; preds = %invoke.cont8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i64 0, inrange i32 0, i64 2), ptr %call.i89, align 8, !noalias !26
-  %index_.i.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %call.i89, i64 0, i32 1
+  %index_.i.i = getelementptr inbounds i8, ptr %call.i89, i64 8
   store i64 %call.i.i, ptr %index_.i.i, align 8, !noalias !26
   store ptr %call.i89, ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #20
@@ -1006,7 +996,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_de
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox6common9Tokenizer5matchEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %expected) local_unnamed_addr #3 align 2 {
 entry:
-  %index_.i.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i.i, align 8
   %conv.i.i = sext i32 %0 to i64
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -1037,7 +1027,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer8tryMatchEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %expected) local_unnamed_addr #3 align 2 {
 entry:
-  %index_.i = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i, align 8
   %conv.i = sext i32 %0 to i64
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -1073,7 +1063,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv = sext i32 %0 to i64
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv) #20
@@ -1084,7 +1074,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook5velox6common9Tokenizer13nextCharacterEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %index_, align 8
@@ -1163,13 +1153,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv = sext i32 %0 to i64
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0, i64 noundef %conv)
-  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this, i64 0, i32 1
+  %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %separators_, align 8
-  %unicodeCaret = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %1, i64 0, i32 6
+  %unicodeCaret = getelementptr inbounds i8, ptr %1, i64 6
   %2 = load i8, ptr %unicodeCaret, align 1
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 1, i8 noundef signext %2)
           to label %invoke.cont unwind label %lpad
@@ -1349,7 +1339,7 @@ entry:
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield13AllSubscriptseqERKNS2_11PathElementE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %other)
   %cmp = icmp eq i32 %call, 0
@@ -1476,7 +1466,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #20
   ret void
 }
@@ -1490,7 +1480,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %index_) #20
   ret void
 }
@@ -1498,7 +1488,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedFieldD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %name_.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -1519,7 +1509,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8facebook5velox6common8Subfield11NestedField8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %name_)
   ret void
 }
@@ -1527,7 +1517,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield11NestedField4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name_) #20
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name_) #20
   %call.i2.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i, i64 noundef %call2.i, i64 noundef 3339675911)
@@ -1552,15 +1542,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %other)
   %cmp2 = icmp eq i32 %call, 1
   br i1 %cmp2, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end
-  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %other, i64 0, i32 1
-  %name_3 = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %other, i64 8
+  %name_3 = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name_) #20
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name_3) #20
   %cmp.i = icmp eq i64 %call.i, %call1.i
@@ -1586,10 +1576,10 @@ return:                                           ; preds = %if.end.i.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedField5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !35
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !35
-  %name_.i.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %call.i, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_)
           to label %.noexc.i unwind label %lpad.i, !noalias !35
 
@@ -1689,7 +1679,7 @@ define linkonce_odr void @_ZNK8facebook5velox6common8Subfield13LongSubscript8toS
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %index_, align 8
   call void @_ZNSt7__cxx119to_stringEl(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i64 noundef %0)
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, ptr noundef nonnull @.str.6)
@@ -1726,7 +1716,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield13LongSubscript4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %index_, align 8
   ret i64 %0
 }
@@ -1739,16 +1729,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %other)
   %cmp2 = icmp eq i32 %call, 3
   br i1 %cmp2, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %other, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %index_, align 8
-  %index_3 = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this, i64 0, i32 1
+  %index_3 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %index_3, align 8
   %cmp4 = icmp eq i64 %1, %2
   br label %return
@@ -1761,11 +1751,11 @@ return:                                           ; preds = %if.end, %land.rhs, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield13LongSubscript5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev.exit:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !38
   %0 = load i64, ptr %index_, align 8, !noalias !38
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !38
-  %index_.i.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %call.i, i64 0, i32 1
+  %index_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %0, ptr %index_.i.i, align 8, !noalias !38
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -1931,7 +1921,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscriptD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %index_.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this, i64 0, i32 1
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %index_.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -1954,7 +1944,7 @@ define linkonce_odr void @_ZNK8facebook5velox6common8Subfield15StringSubscript8t
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN5boost9algorithm16replace_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cA3_cEET_RKSA_RKT0_RKT1_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %index_, ptr noundef nonnull align 1 dereferenceable(2) @.str.9, ptr noundef nonnull align 1 dereferenceable(3) @.str.10)
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, ptr noundef nonnull @.str.8)
           to label %invoke.cont unwind label %lpad
@@ -1990,7 +1980,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield15StringSubscript4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %index_) #20
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %index_) #20
   %call.i2.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i, i64 noundef %call2.i, i64 noundef 3339675911)
@@ -2015,15 +2005,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %other)
   %cmp2 = icmp eq i32 %call, 2
   br i1 %cmp2, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %other, i64 0, i32 1
-  %index_3 = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %other, i64 8
+  %index_3 = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %index_) #20
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %index_3) #20
   %cmp.i = icmp eq i64 %call.i, %call1.i
@@ -2049,10 +2039,10 @@ return:                                           ; preds = %if.end.i.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscript5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !43
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !43
-  %index_.i.i = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %call.i, i64 0, i32 1
+  %index_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %index_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %index_)
           to label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EED2Ev.exit unwind label %lpad.i, !noalias !43
 
@@ -2126,11 +2116,11 @@ _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__n
 
 _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_.exit.i: ; preds = %for.end.i.i
   store ptr %OuterIt.sroa.0.023.i.i, ptr %ref.tmp.i, align 8, !noalias !49
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %InnerIt.sroa.0.0.lcssa.ph.i.i, ptr %2, align 8, !noalias !49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Formatter.i.i), !noalias !49
   store ptr %Format, ptr %Formatter.i.i, align 8, !noalias !54
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %Formatter.i.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %Formatter.i.i, i64 8
   store ptr %add.ptr.i.i.i2, ptr %3, align 8, !noalias !54
   %cmp.i.i.i.not.i.i = icmp eq ptr %OuterIt.sroa.0.023.i.i, %InnerIt.sroa.0.0.lcssa.ph.i.i
   br i1 %cmp.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2165,7 +2155,7 @@ entry:
   br i1 %cmp.i.not.i39, label %invoke.cont46, label %invoke.cont2.lr.ph
 
 invoke.cont2.lr.ph:                               ; preds = %entry
-  %m_End.i.i.i.i.i = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.45", ptr %Finder, i64 0, i32 1
+  %m_End.i.i.i.i.i = getelementptr inbounds i8, ptr %Finder, i64 8
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit

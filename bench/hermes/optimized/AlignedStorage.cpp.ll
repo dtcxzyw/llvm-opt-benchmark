@@ -3,7 +3,6 @@ source_filename = "bench/hermes/original/AlignedStorage.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.hermes::vm::AlignedStorage" = type { ptr, ptr }
 %"class.llvh::ErrorOr" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvh::AlignedCharArrayUnion" }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
@@ -23,8 +22,8 @@ entry:
   %1 = load ptr, ptr %b, align 8
   store ptr %1, ptr %a, align 8
   store ptr %0, ptr %b, align 8
-  %provider_ = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %a, i64 0, i32 1
-  %provider_2 = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %b, i64 0, i32 1
+  %provider_ = getelementptr inbounds i8, ptr %a, i64 8
+  %provider_2 = getelementptr inbounds i8, ptr %b, i64 8
   %2 = load ptr, ptr %provider_, align 8
   %3 = load ptr, ptr %provider_2, align 8
   store ptr %3, ptr %provider_, align 8
@@ -39,7 +38,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
   call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr nonnull sret(%"class.llvh::ErrorOr.1") align 8 %result.i, ptr noundef nonnull align 8 dereferenceable(32) %provider, ptr noundef null) #8, !noalias !4
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr.1", ptr %result.i, i64 0, i32 1
+  %HasError.i.i = getelementptr inbounds i8, ptr %result.i, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !noalias !4
   %0 = and i8 %bf.load.i.i, 1
   %bf.cast.not.i.i = icmp eq i8 %0, 0
@@ -49,27 +48,26 @@ _ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i:          ; preds = %entry
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %result.i, align 8, !noalias !4
   %retval.sroa.31.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %result.i, i64 8
   %retval.sroa.31.0.copyload.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i, align 8, !noalias !4
-  %HasError.i5.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i6.i = load i8, ptr %HasError.i5.i, align 8, !alias.scope !4
   %bf.set.i.i = or i8 %bf.load.i6.i, 1
   store i8 %bf.set.i.i, ptr %HasError.i5.i, align 8, !alias.scope !4
   store i32 %retval.sroa.0.0.copyload.i.i, ptr %agg.result, align 8, !alias.scope !4
-  %EC.sroa.21.0.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %retval.sroa.31.0.copyload.i.i, ptr %EC.sroa.21.0.call.sroa_idx.i.i, align 8, !alias.scope !4
   br label %_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit
 
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %result.i, align 8, !noalias !4
-  %HasError.i7.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i8.i = load i8, ptr %HasError.i7.i, align 8, !alias.scope !4
   %bf.clear.i.i = and i8 %bf.load.i8.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i7.i, align 8, !alias.scope !4
   store ptr %1, ptr %agg.result, align 8, !alias.scope !4
-  %provider_.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %agg.result, i64 0, i32 1
-  store ptr %provider, ptr %provider_.i.i.i.i, align 8, !alias.scope !4
   br label %_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit
 
 _ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderEPKc.exit: ; preds = %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i, %if.end.i
+  %provider.sink.i = phi ptr [ %provider, %if.end.i ], [ %retval.sroa.31.0.copyload.i.i, %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i ]
+  %provider_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %provider.sink.i, ptr %provider_.i.i.i.i, align 8, !alias.scope !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
   ret void
 }
@@ -79,7 +77,7 @@ define hidden void @_ZN6hermes2vm14AlignedStorage6createEPNS0_15StorageProviderE
 entry:
   %result = alloca %"class.llvh::ErrorOr.1", align 8
   call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr nonnull sret(%"class.llvh::ErrorOr.1") align 8 %result, ptr noundef nonnull align 8 dereferenceable(32) %provider, ptr noundef %name) #8
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr.1", ptr %result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %0 = and i8 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i8 %0, 0
@@ -89,27 +87,26 @@ _ZNK4llvh7ErrorOrIPvE8getErrorEv.exit:            ; preds = %entry
   %retval.sroa.0.0.copyload.i = load i32, ptr %result, align 8
   %retval.sroa.31.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %result, i64 8
   %retval.sroa.31.0.copyload.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i, align 8
-  %HasError.i5 = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i6 = load i8, ptr %HasError.i5, align 8
   %bf.set.i = or i8 %bf.load.i6, 1
   store i8 %bf.set.i, ptr %HasError.i5, align 8
   store i32 %retval.sroa.0.0.copyload.i, ptr %agg.result, align 8
-  %EC.sroa.21.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %retval.sroa.31.0.copyload.i, ptr %EC.sroa.21.0.call.sroa_idx.i, align 8
   br label %cleanup
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %result, align 8
-  %HasError.i7 = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i8 = load i8, ptr %HasError.i7, align 8
   %bf.clear.i = and i8 %bf.load.i8, -2
   store i8 %bf.clear.i, ptr %HasError.i7, align 8
   store ptr %1, ptr %agg.result, align 8
-  %provider_.i.i.i = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %agg.result, i64 0, i32 1
-  store ptr %provider, ptr %provider_.i.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit
+  %provider.sink = phi ptr [ %provider, %if.end ], [ %retval.sroa.31.0.copyload.i, %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit ]
+  %provider_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %provider.sink, ptr %provider_.i.i.i, align 8
   ret void
 }
 
@@ -119,7 +116,7 @@ declare void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr sret(%"class.ll
 define hidden void @_ZN6hermes2vm14AlignedStorageC2EPNS0_15StorageProviderEPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %provider, ptr noundef %lowLim) unnamed_addr #3 align 2 {
 entry:
   store ptr %lowLim, ptr %this, align 8
-  %provider_ = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %this, i64 0, i32 1
+  %provider_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %provider, ptr %provider_, align 8
   ret void
 }
@@ -131,8 +128,8 @@ entry:
   %0 = load ptr, ptr %that, align 8
   store ptr %0, ptr %this, align 8
   store ptr null, ptr %that, align 8
-  %provider_.i = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %this, i64 0, i32 1
-  %provider_2.i = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %that, i64 0, i32 1
+  %provider_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %provider_2.i = getelementptr inbounds i8, ptr %that, i64 8
   %1 = load ptr, ptr %provider_.i, align 8
   %2 = load ptr, ptr %provider_2.i, align 8
   store ptr %2, ptr %provider_.i, align 8
@@ -150,8 +147,8 @@ entry:
   %1 = load ptr, ptr %that, align 8
   store ptr %1, ptr %this, align 8
   store ptr %0, ptr %that, align 8
-  %provider_.i = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %this, i64 0, i32 1
-  %provider_2.i = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %that, i64 0, i32 1
+  %provider_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %provider_2.i = getelementptr inbounds i8, ptr %that, i64 8
   %2 = load ptr, ptr %provider_.i, align 8
   %3 = load ptr, ptr %provider_2.i, align 8
   store ptr %3, ptr %provider_.i, align 8
@@ -162,7 +159,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm14AlignedStorageD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
 entry:
-  %provider_ = getelementptr inbounds %"struct.hermes::vm::AlignedStorage", ptr %this, i64 0, i32 1
+  %provider_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %provider_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

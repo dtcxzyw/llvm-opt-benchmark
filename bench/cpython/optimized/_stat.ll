@@ -656,7 +656,7 @@ switch.lookup:                                    ; preds = %entry.split
 filetype.exit:                                    ; preds = %entry.split, %switch.lookup
   %retval.0.i7 = phi i8 [ %switch.load, %switch.lookup ], [ 63, %entry.split ]
   store i8 %retval.0.i7, ptr %buf, align 8
-  %arrayidx35 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %buf, i64 1
   %5 = insertelement <8 x i32> poison, i32 %conv.i, i64 0
   %6 = shufflevector <8 x i32> %5, <8 x i32> poison, <8 x i32> zeroinitializer
   %7 = and <8 x i32> %6, <i32 256, i32 128, i32 2048, i32 32, i32 16, i32 1024, i32 4, i32 2>
@@ -691,13 +691,13 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i, %i
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
   store <8 x i8> <i8 63, i8 114, i8 119, i8 115, i8 114, i8 119, i8 115, i8 114>, ptr %buf, align 8
-  %arrayidx52.i17 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 8
+  %arrayidx52.i17 = getelementptr inbounds i8, ptr %buf, i64 8
   store i8 119, ptr %arrayidx52.i17, align 8
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true.split, %filetype.exit
   %.sink = phi i8 [ 116, %land.lhs.true.split ], [ %conv59.sink.i, %filetype.exit ]
-  %14 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 9
+  %14 = getelementptr inbounds i8, ptr %buf, i64 9
   store i8 %.sink, ptr %14, align 1
   %call4 = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %buf, i64 noundef 10) #2
   br label %return

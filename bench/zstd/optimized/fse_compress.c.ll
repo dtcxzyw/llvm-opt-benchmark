@@ -13,7 +13,7 @@ define i64 @FSE_buildCTable_wksp(ptr nocapture noundef writeonly %ct, ptr nocapt
 entry:
   %shl = shl nuw i32 1, %tableLog
   %sub = add i32 %shl, -1
-  %add.ptr = getelementptr inbounds i16, ptr %ct, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %ct, i64 4
   %tobool.not = icmp eq i32 %tableLog, 0
   %shr = lshr i32 %shl, 1
   %cond = select i1 %tobool.not, i32 1, i32 %shr
@@ -39,7 +39,7 @@ if.end:                                           ; preds = %entry
   %conv16 = trunc i32 %tableLog to i16
   store i16 %conv16, ptr %ct, align 2
   %conv17 = trunc i32 %maxSymbolValue to i16
-  %arrayidx18 = getelementptr inbounds i16, ptr %ct, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %ct, i64 2
   store i16 %conv17, ptr %arrayidx18, align 2
   store i16 0, ptr %workSpace, align 2
   %cmp20.not112 = icmp eq i32 %add6, 0
@@ -260,7 +260,7 @@ sw.bb:                                            ; preds = %for.body168
 
 sw.bb178:                                         ; preds = %for.body168, %for.body168
   %arrayidx183 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr2, i64 %indvars.iv157
-  %deltaNbBits184 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr2, i64 %indvars.iv157, i32 1
+  %deltaNbBits184 = getelementptr inbounds i8, ptr %arrayidx183, i64 4
   store i32 %sub181, ptr %deltaNbBits184, align 4
   %sub185 = add i32 %total.0132, -1
   store i32 %sub185, ptr %arrayidx183, align 4
@@ -276,7 +276,7 @@ sw.default:                                       ; preds = %for.body168
   %shl198 = shl i32 %sub193, 16
   %sub199 = sub i32 %shl198, %shl197
   %arrayidx201 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr2, i64 %indvars.iv157
-  %deltaNbBits202 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr2, i64 %indvars.iv157, i32 1
+  %deltaNbBits202 = getelementptr inbounds i8, ptr %arrayidx201, i64 4
   store i32 %sub199, ptr %deltaNbBits202, align 4
   %16 = load i16, ptr %arrayidx170, align 2
   %conv205 = sext i16 %16 to i32
@@ -1000,18 +1000,18 @@ return:                                           ; preds = %for.body, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #4 {
 entry:
-  %add.ptr = getelementptr inbounds i16, ptr %ct, i64 2
-  %add.ptr1 = getelementptr inbounds i32, ptr %ct, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %ct, i64 4
+  %add.ptr1 = getelementptr inbounds i8, ptr %ct, i64 8
   store i16 0, ptr %ct, align 2
   %conv = zext i8 %symbolValue to i16
-  %arrayidx2 = getelementptr inbounds i16, ptr %ct, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %ct, i64 2
   store i16 %conv, ptr %arrayidx2, align 2
   store i16 0, ptr %add.ptr, align 2
-  %arrayidx4 = getelementptr inbounds i16, ptr %ct, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %ct, i64 6
   store i16 0, ptr %arrayidx4, align 2
   %idxprom = zext i8 %symbolValue to i64
   %arrayidx5 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr1, i64 %idxprom
-  %deltaNbBits = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr1, i64 %idxprom, i32 1
+  %deltaNbBits = getelementptr inbounds i8, ptr %arrayidx5, i64 4
   store i32 0, ptr %deltaNbBits, align 4
   store i32 0, ptr %arrayidx5, align 4
   ret i64 0
@@ -1049,7 +1049,7 @@ if.end3:                                          ; preds = %if.end
   %0 = load i8, ptr %incdec.ptr11, align 1
   %ct.val.i.i77 = load i16, ptr %ct, align 1
   %conv.i.i78 = zext i16 %ct.val.i.i77 to i32
-  %add.ptr.i.i81 = getelementptr inbounds i16, ptr %ct, i64 2
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %ct, i64 4
   %tobool.not.i.i83 = icmp eq i16 %ct.val.i.i77, 0
   %sub.i.i84 = add nsw i32 %conv.i.i78, -1
   %shl2.i.i85 = shl nuw i32 1, %sub.i.i84
@@ -1169,7 +1169,7 @@ if.end15:                                         ; preds = %cond.true, %cond.fa
   br i1 %tobool17.not.not, label %if.then18, label %if.end27
 
 if.then18:                                        ; preds = %if.end15
-  %15 = getelementptr inbounds i16, ptr %ct, i64 2
+  %15 = getelementptr inbounds i8, ptr %ct, i64 4
   %incdec.ptr19 = getelementptr inbounds i8, ptr %ip.0, i64 -1
   %16 = load i8, ptr %incdec.ptr19, align 1
   %idxprom.i134 = zext i8 %16 to i64
@@ -1252,7 +1252,7 @@ if.end27:                                         ; preds = %cond.true24, %cond.
   br i1 %cmp28456, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end27
-  %25 = getelementptr inbounds i16, ptr %ct, i64 2
+  %25 = getelementptr inbounds i8, ptr %ct, i64 4
   %tobool38.not = icmp eq i32 %fast, 0
   br label %while.body
 

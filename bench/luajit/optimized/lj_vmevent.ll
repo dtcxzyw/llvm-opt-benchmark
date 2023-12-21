@@ -3,21 +3,7 @@ source_filename = "bench/luajit/original/lj_vmevent.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
 %union.TValue = type { i64 }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
-%struct.GCtab = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.MRef, i32, i32, %struct.MRef }
 
 @.str = private unnamed_addr constant [10 x i8] c"_VMEVENTS\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"VM handler failed: \00", align 1
@@ -27,13 +13,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i64 @lj_vmevent_prepare(ptr noundef %L, i32 noundef %ev) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
   %call = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 9) #4
   %2 = load i64, ptr %glref, align 8
   %3 = inttoptr i64 %2 to ptr
-  %registrytv = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 15
+  %registrytv = getelementptr inbounds i8, ptr %3, i64 272
   %4 = load i64, ptr %registrytv, align 8
   %and = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and to ptr
@@ -48,13 +34,13 @@ if.then:                                          ; preds = %entry
   %and5 = and i32 %ev, -8
   %and7 = and i64 %6, 140737488355327
   %8 = inttoptr i64 %and7 to ptr
-  %asize = getelementptr inbounds %struct.GCtab, ptr %8, i64 0, i32 9
+  %asize = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load i32, ptr %asize, align 8
   %cmp8 = icmp ult i32 %and5, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
-  %array = getelementptr inbounds %struct.GCtab, ptr %8, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i64, ptr %array, align 8
   %11 = inttoptr i64 %10 to ptr
   %idxprom = sext i32 %and5 to i64
@@ -78,9 +64,9 @@ land.lhs.true:                                    ; preds = %cond.end
   br i1 %cmp18, label %if.then20, label %if.end27
 
 if.then20:                                        ; preds = %land.lhs.true
-  %maxstack.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
+  %maxstack.i = getelementptr inbounds i8, ptr %L, i64 48
   %14 = load i64, ptr %maxstack.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %15 = load ptr, ptr %top.i, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %14, %sub.ptr.rhs.cast.i
@@ -94,18 +80,18 @@ if.then.i:                                        ; preds = %if.then20
 
 lj_state_checkstack.exit:                         ; preds = %if.then.i, %if.then20
   %16 = phi ptr [ %.pre, %if.then.i ], [ %15, %if.then20 ]
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %16, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr, ptr %top.i, align 8
   %17 = load i64, ptr %cond, align 8
   %and22 = and i64 %17, 140737488355327
   %or.i = or disjoint i64 %and22, -1266637395197952
   store i64 %or.i, ptr %16, align 8
   %18 = load ptr, ptr %top.i, align 8
-  %incdec.ptr24 = getelementptr inbounds %union.TValue, ptr %18, i64 1
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr24, ptr %top.i, align 8
   store i64 -1, ptr %18, align 8
   %19 = load ptr, ptr %top.i, align 8
-  %stack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 10
+  %stack = getelementptr inbounds i8, ptr %L, i64 56
   %20 = load i64, ptr %stack, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %19 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %20
@@ -114,7 +100,7 @@ lj_state_checkstack.exit:                         ; preds = %if.then.i, %if.then
 if.end27:                                         ; preds = %cond.end, %land.lhs.true, %entry
   %and28 = and i32 %ev, 7
   %shl = shl nuw nsw i32 1, %and28
-  %vmevmask = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 7
+  %vmevmask = getelementptr inbounds i8, ptr %1, i64 147
   %21 = load i8, ptr %vmevmask, align 1
   %22 = trunc i32 %shl to i8
   %23 = xor i8 %22, -1
@@ -136,18 +122,18 @@ declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_vmevent_call(ptr noundef %L, i64 noundef %argbase) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
-  %vmevmask = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 7
+  %vmevmask = getelementptr inbounds i8, ptr %1, i64 147
   %2 = load i8, ptr %vmevmask, align 1
-  %hookmask = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 5
+  %hookmask = getelementptr inbounds i8, ptr %1, i64 145
   %3 = load i8, ptr %hookmask, align 1
   %4 = and i8 %3, -16
   store i8 0, ptr %vmevmask, align 1
   %5 = or i8 %3, 48
   store i8 %5, ptr %hookmask, align 1
-  %stack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 10
+  %stack = getelementptr inbounds i8, ptr %L, i64 56
   %6 = load i64, ptr %stack, align 8
   %7 = inttoptr i64 %6 to ptr
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %argbase
@@ -156,9 +142,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %8 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %8, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 -8
   store ptr %incdec.ptr, ptr %top, align 8
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 19, i64 1, ptr %9) #5
@@ -169,7 +155,7 @@ if.then:                                          ; preds = %entry
   %cmp = icmp eq i64 %13, 4294967291
   %and15 = and i64 %12, 140737488355327
   %14 = inttoptr i64 %and15 to ptr
-  %add.ptr16 = getelementptr inbounds %struct.GCstr, ptr %14, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %14, i64 24
   %cond = select i1 %cmp, ptr %add.ptr16, ptr @.str.2
   %15 = load ptr, ptr @stderr, align 8
   %call17 = tail call i32 @fputs(ptr noundef nonnull %cond, ptr noundef %15) #5

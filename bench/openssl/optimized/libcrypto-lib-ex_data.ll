@@ -3,10 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-ex_data.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_ex_data_global_st = type { ptr, [18 x %struct.ex_callbacks_st] }
 %struct.ex_callbacks_st = type { ptr }
-%struct.ex_callback_st = type { i64, ptr, i32, ptr, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 %struct.ex_callback_entry = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [28 x i8] c"../openssl/crypto/ex_data.c\00", align 1
@@ -42,11 +39,15 @@ define void @ossl_crypto_cleanup_all_ex_data_int(ptr noundef %ctx) local_unnamed
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %for.body
+  br i1 %cmp, label %return, label %for.cond.preheader
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %indvars.iv
+for.cond.preheader:                               ; preds = %entry
+  %ex_data = getelementptr inbounds i8, ptr %call, i64 8
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @cleanup_cb) #8
   store ptr null, ptr %arrayidx, align 8
@@ -101,8 +102,9 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool12.not.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end4.i
+  %ex_data.i = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom.i = zext nneg i32 %class_index to i64
-  %arrayidx.i = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data.i, i64 0, i64 %idxprom.i
   %cmp5 = icmp slt i32 %idx, 0
   br i1 %cmp5, label %err, label %lor.lhs.false
 
@@ -119,11 +121,11 @@ if.end9:                                          ; preds = %lor.lhs.false
   br i1 %cmp12, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %new_func = getelementptr inbounds %struct.ex_callback_st, ptr %call.i10, i64 0, i32 3
+  %new_func = getelementptr inbounds i8, ptr %call.i10, i64 24
   store ptr @dummy_new, ptr %new_func, align 8
-  %dup_func = getelementptr inbounds %struct.ex_callback_st, ptr %call.i10, i64 0, i32 5
+  %dup_func = getelementptr inbounds i8, ptr %call.i10, i64 40
   store ptr @dummy_dup, ptr %dup_func, align 8
-  %free_func = getelementptr inbounds %struct.ex_callback_st, ptr %call.i10, i64 0, i32 4
+  %free_func = getelementptr inbounds i8, ptr %call.i10, i64 32
   store ptr @dummy_free, ptr %free_func, align 8
   br label %err
 
@@ -193,8 +195,9 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool12.not.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end4.i
+  %ex_data.i = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom.i = zext nneg i32 %class_index to i64
-  %arrayidx.i = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then6, label %if.end17
@@ -230,15 +233,15 @@ if.end17:                                         ; preds = %lor.lhs.false, %if.
 
 if.end21:                                         ; preds = %if.end17
   store i64 %argl, ptr %call18, align 8
-  %argp23 = getelementptr inbounds %struct.ex_callback_st, ptr %call18, i64 0, i32 1
+  %argp23 = getelementptr inbounds i8, ptr %call18, i64 8
   store ptr %argp, ptr %argp23, align 8
-  %new_func24 = getelementptr inbounds %struct.ex_callback_st, ptr %call18, i64 0, i32 3
+  %new_func24 = getelementptr inbounds i8, ptr %call18, i64 24
   store ptr %new_func, ptr %new_func24, align 8
-  %dup_func25 = getelementptr inbounds %struct.ex_callback_st, ptr %call18, i64 0, i32 5
+  %dup_func25 = getelementptr inbounds i8, ptr %call18, i64 40
   store ptr %dup_func, ptr %dup_func25, align 8
-  %free_func26 = getelementptr inbounds %struct.ex_callback_st, ptr %call18, i64 0, i32 4
+  %free_func26 = getelementptr inbounds i8, ptr %call18, i64 32
   store ptr %free_func, ptr %free_func26, align 8
-  %priority27 = getelementptr inbounds %struct.ex_callback_st, ptr %call18, i64 0, i32 2
+  %priority27 = getelementptr inbounds i8, ptr %call18, i64 16
   store i32 %priority, ptr %priority27, align 8
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call.i22 = tail call i32 @OPENSSL_sk_push(ptr noundef %3, ptr noundef null) #8
@@ -317,10 +320,11 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end4.i
+  %ex_data.i = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom.i = zext nneg i32 %class_index to i64
-  %arrayidx.i = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data.i, i64 0, i64 %idxprom.i
   store ptr %ctx, ptr %ad, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %ad, i64 0, i32 1
+  %sk = getelementptr inbounds i8, ptr %ad, i64 8
   store ptr null, ptr %sk, align 8
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i35 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #8
@@ -377,7 +381,7 @@ for.body32:                                       ; preds = %for.body32.preheade
   br i1 %cmp35.not, label %for.inc52, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %for.body32
-  %new_func = getelementptr inbounds %struct.ex_callback_st, ptr %5, i64 0, i32 3
+  %new_func = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %new_func, align 8
   %cmp40.not = icmp eq ptr %6, null
   br i1 %cmp40.not, label %for.inc52, label %if.then42
@@ -402,10 +406,10 @@ if.end.i38:                                       ; preds = %lor.lhs.false.i
 CRYPTO_get_ex_data.exit:                          ; preds = %if.then42, %lor.lhs.false.i, %if.end.i38
   %retval.0.i37 = phi ptr [ %call6.i, %if.end.i38 ], [ null, %lor.lhs.false.i ], [ null, %if.then42 ]
   %11 = load ptr, ptr %arrayidx34, align 8
-  %new_func46 = getelementptr inbounds %struct.ex_callback_st, ptr %11, i64 0, i32 3
+  %new_func46 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %new_func46, align 8
   %13 = load i64, ptr %11, align 8
-  %argp = getelementptr inbounds %struct.ex_callback_st, ptr %11, i64 0, i32 1
+  %argp = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load ptr, ptr %argp, align 8
   %15 = trunc i64 %indvars.iv46 to i32
   call void %12(ptr noundef %obj, ptr noundef %retval.0.i37, ptr noundef nonnull %ad, i32 noundef %15, i64 noundef %13, ptr noundef %14) #8
@@ -432,7 +436,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define ptr @CRYPTO_get_ex_data(ptr nocapture noundef readonly %ad, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %ad, i64 0, i32 1
+  %sk = getelementptr inbounds i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -466,7 +470,7 @@ entry:
   %stack = alloca [10 x ptr], align 16
   %0 = load ptr, ptr %from, align 8
   store ptr %0, ptr %to, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %from, i64 0, i32 1
+  %sk = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load ptr, ptr %sk, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -497,8 +501,9 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end4.i
+  %ex_data.i = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom.i = zext nneg i32 %class_index to i64
-  %arrayidx.i = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data.i, i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call.i46 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #8
   %4 = load ptr, ptr %sk, align 8
@@ -552,7 +557,7 @@ if.end36:                                         ; preds = %if.end31
 
 if.end40:                                         ; preds = %if.end36
   %sub = add nsw i32 %spec.select, -1
-  %sk.i = getelementptr inbounds %struct.crypto_ex_data_st, ptr %to, i64 0, i32 1
+  %sk.i = getelementptr inbounds i8, ptr %to, i64 8
   %9 = load ptr, ptr %sk.i, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %CRYPTO_get_ex_data.exit, label %lor.lhs.false.i
@@ -607,14 +612,14 @@ CRYPTO_get_ex_data.exit58:                        ; preds = %for.body49, %lor.lh
   br i1 %cmp53.not, label %if.end71, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %CRYPTO_get_ex_data.exit58
-  %dup_func = getelementptr inbounds %struct.ex_callback_st, ptr %15, i64 0, i32 5
+  %dup_func = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %dup_func, align 8
   %cmp57.not = icmp eq ptr %16, null
   br i1 %cmp57.not, label %if.end71, label %if.then59
 
 if.then59:                                        ; preds = %land.lhs.true
   %17 = load i64, ptr %15, align 8
-  %argp = getelementptr inbounds %struct.ex_callback_st, ptr %15, i64 0, i32 1
+  %argp = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %argp, align 8
   %19 = trunc i64 %indvars.iv73 to i32
   %call67 = call i32 %16(ptr noundef nonnull %to, ptr noundef nonnull %from, ptr noundef nonnull %ptr, i32 noundef %19, i64 noundef %17, ptr noundef %18) #8
@@ -652,7 +657,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %idx, ptr noundef %val) local_unnamed_addr #0 {
 entry:
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %ad, i64 0, i32 1
+  %sk = getelementptr inbounds i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end4
@@ -730,8 +735,9 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %err, label %if.end4
 
 if.end4:                                          ; preds = %if.end4.i
+  %ex_data.i = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom.i = zext nneg i32 %class_index to i64
-  %arrayidx.i = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %call.i38 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #8
   %cmp6 = icmp sgt i32 %call.i38, 0
@@ -760,7 +766,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call.i39 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %4) #8
   %arrayidx = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.064, i64 %indvars.iv
   store ptr %call.i39, ptr %arrayidx, align 8
-  %index = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.064, i64 %indvars.iv, i32 1
+  %index = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %4, ptr %index, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -776,7 +782,7 @@ for.body31.lr.ph:                                 ; preds = %for.body
   %call23 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #8
   %conv27 = zext nneg i32 %call.i38 to i64
   call void @qsort(ptr noundef nonnull %storage.064, i64 noundef %conv27, i64 noundef 16, ptr noundef nonnull @ex_callback_compare) #8
-  %sk.i = getelementptr inbounds %struct.crypto_ex_data_st, ptr %ad, i64 0, i32 1
+  %sk.i = getelementptr inbounds i8, ptr %ad, i64 8
   %smax59 = call i32 @llvm.smax.i32(i32 %call.i38, i32 1)
   %wide.trip.count60 = zext nneg i32 %smax59 to i64
   br label %for.body31
@@ -789,13 +795,13 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   br i1 %cmp35.not, label %for.inc49, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body31
-  %free_func = getelementptr inbounds %struct.ex_callback_st, ptr %7, i64 0, i32 4
+  %free_func = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %free_func, align 8
   %cmp37.not = icmp eq ptr %8, null
   br i1 %cmp37.not, label %for.inc49, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true
-  %index42 = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.064, i64 %indvars.iv56, i32 1
+  %index42 = getelementptr inbounds i8, ptr %arrayidx33, i64 8
   %9 = load i32, ptr %index42, align 8
   %10 = load ptr, ptr %sk.i, align 8
   %cmp.i = icmp eq ptr %10, null
@@ -816,7 +822,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %if.then39, %lor.lhs
   %12 = load ptr, ptr %free_func, align 8
   %13 = load i32, ptr %index42, align 8
   %14 = load i64, ptr %7, align 8
-  %argp = getelementptr inbounds %struct.ex_callback_st, ptr %7, i64 0, i32 1
+  %argp = getelementptr inbounds i8, ptr %7, i64 8
   %15 = load ptr, ptr %argp, align 8
   call void %12(ptr noundef %obj, ptr noundef %retval.0.i40, ptr noundef nonnull %ad, i32 noundef %13, i64 noundef %14, ptr noundef %15) #8
   br label %for.inc49
@@ -836,7 +842,7 @@ if.then56:                                        ; preds = %if.end52.thread, %i
   br label %err
 
 err:                                              ; preds = %if.end4.i, %if.end.i, %if.then.i, %if.end52, %if.then56, %entry
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %ad, i64 0, i32 1
+  %sk = getelementptr inbounds i8, ptr %ad, i64 8
   %16 = load ptr, ptr %sk, align 8
   call void @OPENSSL_sk_free(ptr noundef %16) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ad, i8 0, i64 16, i1 false)
@@ -863,9 +869,9 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %priority = getelementptr inbounds %struct.ex_callback_st, ptr %0, i64 0, i32 2
+  %priority = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i32, ptr %priority, align 8
-  %priority12 = getelementptr inbounds %struct.ex_callback_st, ptr %1, i64 0, i32 2
+  %priority12 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i32, ptr %priority12, align 8
   %cmp13 = icmp eq i32 %2, %3
   br i1 %cmp13, label %return, label %if.end15
@@ -885,7 +891,7 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @CRYPTO_alloc_ex_data(i32 noundef %class_index, ptr noundef %obj, ptr noundef %ad, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %sk.i = getelementptr inbounds %struct.crypto_ex_data_st, ptr %ad, i64 0, i32 1
+  %sk.i = getelementptr inbounds i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.end, label %lor.lhs.false.i
@@ -939,20 +945,21 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end4.i
+  %ex_data.i = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom.i = zext nneg i32 %class_index to i64
-  %arrayidx.i = getelementptr inbounds %struct.ossl_ex_data_global_st, ptr %call, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [18 x %struct.ex_callbacks_st], ptr %ex_data.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %call.i9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %idx) #8
   %3 = load ptr, ptr %call, align 8
   %call6 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #8
-  %new_func = getelementptr inbounds %struct.ex_callback_st, ptr %call.i9, i64 0, i32 3
+  %new_func = getelementptr inbounds i8, ptr %call.i9, i64 24
   %4 = load ptr, ptr %new_func, align 8
   %cmp7 = icmp eq ptr %4, null
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
   %5 = load i64, ptr %call.i9, align 8
-  %argp = getelementptr inbounds %struct.ex_callback_st, ptr %call.i9, i64 0, i32 1
+  %argp = getelementptr inbounds i8, ptr %call.i9, i64 8
   %6 = load ptr, ptr %argp, align 8
   tail call void %4(ptr noundef %obj, ptr noundef null, ptr noundef nonnull %ad, i32 noundef %idx, i64 noundef %5, ptr noundef %6) #8
   br label %return

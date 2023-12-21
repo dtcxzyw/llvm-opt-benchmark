@@ -24,21 +24,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::SharedMutexImpl<false>::WaitForever" = type { i8 }
 %"class.folly::LockedPtr" = type { %"class.std::unique_lock" }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
-%"struct.std::_Vector_base<void (*)(void *, std::type_info *, void (**)(void *)) noexcept, std::allocator<void (*)(void *, std::type_info *, void (**)(void *)) noexcept>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.folly::LockedPtr.50" = type { %"class.std::shared_lock" }
 %"class.std::shared_lock" = type <{ ptr, %"struct.folly::SharedMutexToken", [4 x i8] }>
 %"struct.folly::SharedMutexToken" = type { i16, i16 }
-%"struct.std::_Vector_base<void (*)(void *) noexcept, std::allocator<void (*)(void *) noexcept>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.folly::LockedPtr.14" = type { %"class.std::unique_lock" }
 %"class.folly::LockedPtr.27" = type { %"class.std::unique_lock" }
-%"struct.folly::Synchronized.17" = type <{ %"class.std::vector.20", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl" }
-%"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl" = type { %"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
 %"class.folly::LockedPtr.40" = type { %"class.std::unique_lock" }
-%"struct.std::_Vector_base<void (*)(std::__exception_ptr::exception_ptr) noexcept, std::allocator<void (*)(std::__exception_ptr::exception_ptr) noexcept>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.folly::LockedPtr.42" = type { %"class.std::shared_lock" }
 %"class.folly::LockedPtr.48" = type { %"class.std::shared_lock" }
 %"class.folly::LockedPtr.52" = type { %"class.std::shared_lock" }
@@ -139,7 +130,7 @@ _ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit: ; preds = %init.i, %in
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !8
-  %_M_owns.i3.i.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_owns.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 0, ptr %_M_owns.i3.i.i.i, align 8, !tbaa !17, !alias.scope !8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #17, !noalias !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #17, !noalias !8
@@ -172,9 +163,9 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %6, null
   %cond.neg.i.i.i = select i1 %tobool.not.i.i.i, i64 0, i64 -24
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %cond.neg.i.i.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(void *, std::type_info *, void (**)(void *)) noexcept, std::allocator<void (*)(void *, std::type_info *, void (**)(void *)) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !22
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(void *, std::type_info *, void (**)(void *)) noexcept, std::allocator<void (*)(void *, std::type_info *, void (**)(void *)) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -182,7 +173,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   store ptr %callback, ptr %7, align 8, !tbaa !22
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !25
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !25
   br label %if.then3.i.i.i.i
 
@@ -229,7 +220,7 @@ if.then.i.i.i33.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPDoFvPvPSt9type_infoPPFvS0_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit41.i.i.i.i
 
 _ZNSt6vectorIPDoFvPvPSt9type_infoPPFvS0_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit41.i.i.i.i: ; preds = %if.then.i.i.i33.i.i.i.i, %_ZNSt12_Vector_baseIPDoFvPvPSt9type_infoPPFvS0_EESaIS7_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPDoFvPvPSt9type_infoPPFvS0_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i, label %if.then.i42.i.i.i.i
 
@@ -295,7 +286,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorIPDoFvPvPSt9type_infoPPFvS3_EESaISA_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSI_22SynchronizedMutexLevelE1ELNSI_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8, !tbaa !17, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.else.i.i
@@ -444,9 +435,9 @@ _ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit: ; preds = %init.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   store ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !29
-  %token_.i3.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1
+  %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !29
-  %slot_.i.i4.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1, i32 1
+  %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !29
@@ -483,7 +474,7 @@ invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %cond.neg.i.i
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !22
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(void *) noexcept, std::allocator<void (*)(void *) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %cmp.i.not12 = icmp eq ptr %9, %10
   br i1 %cmp.i.not12, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvPvEE6invokeIJS1_EEEvDpT_.exit, label %for.body.i
@@ -492,7 +483,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %__begin0.i.sroa.0.013 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %9, %invoke.cont.i ]
   %11 = load ptr, ptr %__begin0.i.sroa.0.013, align 8, !tbaa !22
   call void %11(ptr noundef %excObj) #17
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.i.sroa.0.013, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.i.sroa.0.013, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i.not, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvPvEE6invokeIJS1_EEEvDpT_.exit, label %for.body.i
 
@@ -1004,7 +995,7 @@ _ZN5folly16exception_tracer25getCxaBeginCatchCallbacksEv.exit: ; preds = %init.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   store ptr getelementptr inbounds (%"class.folly::Indestructible.13", ptr @_ZZN5folly16exception_tracer25getCxaBeginCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !49
-  %_M_owns.i3.i.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_owns.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 0, ptr %_M_owns.i3.i.i.i, align 8, !tbaa !17, !alias.scope !49
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #17, !noalias !49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #17, !noalias !49
@@ -1037,9 +1028,9 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %6, null
   %cond.neg.i.i.i = select i1 %tobool.not.i.i.i, i64 0, i64 -24
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %cond.neg.i.i.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(void *) noexcept, std::allocator<void (*)(void *) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !22
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(void *) noexcept, std::allocator<void (*)(void *) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !52
   %cmp.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1047,7 +1038,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   store ptr %callback, ptr %7, align 8, !tbaa !22
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !54
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !54
   br label %if.then3.i.i.i.i
 
@@ -1094,7 +1085,7 @@ if.then.i.i.i33.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPDoFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit41.i.i.i.i
 
 _ZNSt6vectorIPDoFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit41.i.i.i.i: ; preds = %if.then.i.i.i33.i.i.i.i, %_ZNSt12_Vector_baseIPDoFvPvESaIS2_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPDoFvPvESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i42.i.i.i.i
 
@@ -1146,7 +1137,7 @@ _ZN12_GLOBAL__N_114CallbackHolderIPDoFvPvEE16registerCallbackES3_.exit: ; preds 
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorIPDoFvPvESaIS5_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE1ELNSD_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8, !tbaa !17, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.else.i.i
@@ -1216,9 +1207,9 @@ entry:
   %ref.tmp = alloca %"class.folly::LockedPtr.27", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %mutex_.i.i = getelementptr inbounds %"struct.folly::Synchronized.17", ptr %this, i64 0, i32 1
+  %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mutex_.i.i, ptr %ref.tmp, align 8, !tbaa !11, !alias.scope !56
-  %_M_owns.i3.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp, i64 0, i32 1
+  %_M_owns.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 0, ptr %_M_owns.i3.i.i, align 8, !tbaa !17, !alias.scope !56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !56
@@ -1251,9 +1242,9 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %tobool.not.i.i = icmp eq ptr %4, null
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %cond.neg.i.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !22
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !59
   %cmp.not.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -1261,7 +1252,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
 if.then.i.i:                                      ; preds = %invoke.cont
   store ptr %f, ptr %5, align 8, !tbaa !22
   %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !61
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !61
   br label %if.then3.i.i.i
 
@@ -1308,7 +1299,7 @@ if.then.i.i.i33.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPDoFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit41.i.i.i
 
 _ZNSt6vectorIPDoFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit41.i.i.i: ; preds = %if.then.i.i.i33.i.i.i, %_ZNSt12_Vector_baseIPDoFvvESaIS1_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPDoFvvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i42.i.i.i
 
@@ -1360,7 +1351,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorIPDoFvvESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSC_22SynchronizedMutexLevelE1ELNSC_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8, !tbaa !17, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.else.i.i
@@ -1446,7 +1437,7 @@ _ZN5folly16exception_tracer28getRethrowExceptionCallbacksEv.exit: ; preds = %ini
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   store ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %ref.tmp.i, align 8, !tbaa !11, !alias.scope !63
-  %_M_owns.i3.i.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_owns.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 0, ptr %_M_owns.i3.i.i.i, align 8, !tbaa !17, !alias.scope !63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #17, !noalias !63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #17, !noalias !63
@@ -1479,9 +1470,9 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %6, null
   %cond.neg.i.i.i = select i1 %tobool.not.i.i.i, i64 0, i64 -24
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %cond.neg.i.i.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(std::__exception_ptr::exception_ptr) noexcept, std::allocator<void (*)(std::__exception_ptr::exception_ptr) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !22
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(std::__exception_ptr::exception_ptr) noexcept, std::allocator<void (*)(std::__exception_ptr::exception_ptr) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !66
   %cmp.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1489,7 +1480,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   store ptr %callback, ptr %7, align 8, !tbaa !22
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !68
   br label %if.then3.i.i.i.i
 
@@ -1536,7 +1527,7 @@ if.then.i.i.i33.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPDoFvNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit41.i.i.i.i
 
 _ZNSt6vectorIPDoFvNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit41.i.i.i.i: ; preds = %if.then.i.i.i33.i.i.i.i, %_ZNSt12_Vector_baseIPDoFvNSt15__exception_ptr13exception_ptrEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPDoFvNSt15__exception_ptr13exception_ptrEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, label %if.then.i42.i.i.i.i
 
@@ -1588,7 +1579,7 @@ _ZN12_GLOBAL__N_114CallbackHolderIPDoFvNSt15__exception_ptr13exception_ptrEEE16r
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorIPDoFvNSt15__exception_ptr13exception_ptrEESaIS6_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSE_22SynchronizedMutexLevelE1ELNSE_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8, !tbaa !17, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.else.i.i
@@ -1669,9 +1660,9 @@ _ZN5folly16exception_tracer20getCxaThrowCallbacksEv.exit: ; preds = %init.i, %in
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   store ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer20getCxaThrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !70
-  %token_.i3.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1
+  %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !70
-  %slot_.i.i4.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1, i32 1
+  %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !70
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !70
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !70
@@ -1708,7 +1699,7 @@ invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %cond.neg.i.i
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !22
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(void *, std::type_info *, void (**)(void *)) noexcept, std::allocator<void (*)(void *, std::type_info *, void (**)(void *)) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %cmp.i.not9 = icmp eq ptr %9, %10
   br i1 %cmp.i.not9, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvPvPSt9type_infoPPFvS1_EEE6invokeIJS1_S3_S6_EEEvDpT_.exit, label %for.body.i
@@ -1717,7 +1708,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %__begin0.i.sroa.0.010 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %9, %invoke.cont.i ]
   %11 = load ptr, ptr %__begin0.i.sroa.0.010, align 8, !tbaa !22
   call void %11(ptr noundef %thrownException, ptr noundef %type, ptr noundef nonnull %destructor.addr) #17
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.i.sroa.0.010, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.i.sroa.0.010, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i.not, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvPvPSt9type_infoPPFvS1_EEE6invokeIJS1_S3_S6_EEEvDpT_.exit, label %for.body.i
 
@@ -1736,7 +1727,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorIPDoFvPvPSt9type_infoPPFvS3_EESaISA_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSI_22SynchronizedMutexLevelE2ELNSI_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %token_.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %this, i64 0, i32 1
+  %token_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %token_.i.i, align 8, !tbaa !37
   %cmp.i.i.not.i = icmp eq i16 %0, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.then.i
@@ -1958,7 +1949,7 @@ if.end72.thread:                                  ; preds = %seqcst_fail50.i142
 if.then77:                                        ; preds = %if.end72
   store i16 3, ptr %token, align 2, !tbaa !37
   %conv79 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds %"struct.folly::SharedMutexToken", ptr %token, i64 0, i32 1
+  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
   store i16 %conv79, ptr %slot_, align 2, !tbaa !38
   br label %cleanup99
 
@@ -2104,9 +2095,9 @@ _ZN5folly16exception_tracer22getCxaRethrowCallbacksEv.exit: ; preds = %init.i, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   store ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer22getCxaRethrowCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !76
-  %token_.i3.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1
+  %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !76
-  %slot_.i.i4.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1, i32 1
+  %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !76
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !76
@@ -2143,7 +2134,7 @@ invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %cond.neg.i.i
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !22
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %cmp.i.not7 = icmp eq ptr %9, %10
   br i1 %cmp.i.not7, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvvEE6invokeIJEEEvDpT_.exit, label %for.body.i
@@ -2152,7 +2143,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %__begin0.i.sroa.0.08 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %9, %invoke.cont.i ]
   %11 = load ptr, ptr %__begin0.i.sroa.0.08, align 8, !tbaa !22
   call void %11() #17
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.i.sroa.0.08, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.i.sroa.0.08, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i.not, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvvEE6invokeIJEEEvDpT_.exit, label %for.body.i
 
@@ -2167,7 +2158,7 @@ _ZN12_GLOBAL__N_114CallbackHolderIPDoFvvEE6invokeIJEEEvDpT_.exit: ; preds = %for
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorIPDoFvvESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSC_22SynchronizedMutexLevelE2ELNSC_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %token_.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %this, i64 0, i32 1
+  %token_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %token_.i.i, align 8, !tbaa !37
   %cmp.i.i.not.i = icmp eq i16 %0, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.then.i
@@ -2230,9 +2221,9 @@ _ZN5folly16exception_tracer23getCxaEndCatchCallbacksEv.exit: ; preds = %init.i, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   store ptr getelementptr inbounds (%"class.folly::Indestructible.26", ptr @_ZZN5folly16exception_tracer23getCxaEndCatchCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !79
-  %token_.i3.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1
+  %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !79
-  %slot_.i.i4.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1, i32 1
+  %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !79
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !79
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !79
@@ -2269,7 +2260,7 @@ invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %cond.neg.i.i
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !22
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)() noexcept, std::allocator<void (*)() noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %cmp.i.not7 = icmp eq ptr %9, %10
   br i1 %cmp.i.not7, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvvEE6invokeIJEEEvDpT_.exit, label %for.body.i
@@ -2278,7 +2269,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %__begin0.i.sroa.0.08 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %9, %invoke.cont.i ]
   %11 = load ptr, ptr %__begin0.i.sroa.0.08, align 8, !tbaa !22
   call void %11() #17
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.i.sroa.0.08, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.i.sroa.0.08, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i.not, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvvEE6invokeIJEEEvDpT_.exit, label %for.body.i
 
@@ -2425,9 +2416,9 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %if.then.i, %_ZN5f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacksLock.i) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   store ptr getelementptr inbounds (%"class.folly::Indestructible.39", ptr @_ZZN5folly16exception_tracer28getRethrowExceptionCallbacksEvE9Callbacks, i64 0, i32 0, i32 0, i32 0, i64 24), ptr %callbacksLock.i, align 8, !tbaa !32, !alias.scope !84
-  %token_.i3.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1
+  %token_.i3.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !37, !alias.scope !84
-  %slot_.i.i4.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %callbacksLock.i, i64 0, i32 1, i32 1
+  %slot_.i.i4.i.i = getelementptr inbounds i8, ptr %callbacksLock.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !38, !alias.scope !84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #17, !noalias !84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #17, !noalias !84
@@ -2464,7 +2455,7 @@ invoke.cont.i:                                    ; preds = %if.end7.i.i.i.i.i.i
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %cond.neg.i.i
   %10 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !22
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<void (*)(std::__exception_ptr::exception_ptr) noexcept, std::allocator<void (*)(std::__exception_ptr::exception_ptr) noexcept>>::_Vector_impl_data", ptr %add.ptr.i.i, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %11 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %cmp.i.not65 = icmp eq ptr %10, %11
   br i1 %cmp.i.not65, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvNSt15__exception_ptr13exception_ptrEEE6invokeIJS2_EEEvDpT_.exit, label %for.body.i
@@ -2492,7 +2483,7 @@ if.then.i13:                                      ; preds = %_ZNSt15__exception_
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %if.then.i13, %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit11
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.i.sroa.0.066, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.i.sroa.0.066, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %11
   br i1 %cmp.i.not, label %_ZN12_GLOBAL__N_114CallbackHolderIPDoFvNSt15__exception_ptr13exception_ptrEEE6invokeIJS2_EEEvDpT_.exit, label %for.body.i
 

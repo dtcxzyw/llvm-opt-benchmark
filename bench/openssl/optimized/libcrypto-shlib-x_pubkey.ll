@@ -6,19 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_EXTERN_FUNCS_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.X509_pubkey_st = type { ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/x_pubkey.c\00", align 1
 @X509_PUBKEY_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 4, i64 16, ptr null, i64 0, ptr @x509_pubkey_ff, i64 0, ptr @.str.1 }, align 8
@@ -126,9 +113,9 @@ entry:
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %libctx1.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call1, i64 0, i32 3
+  %libctx1.i = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %libctx, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call1, i64 0, i32 4
+  %propq2.i = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
@@ -162,13 +149,13 @@ entry:
   br i1 %cmp, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %libctx = getelementptr inbounds %struct.X509_pubkey_st, ptr %a, i64 0, i32 3
+  %libctx = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.X509_pubkey_st, ptr %a, i64 0, i32 4
+  %propq = getelementptr inbounds i8, ptr %a, i64 32
   %1 = load ptr, ptr %propq, align 8
-  %libctx1.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 3
+  %libctx1.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 4
+  %propq2.i = getelementptr inbounds i8, ptr %call, i64 32
   %2 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
@@ -187,10 +174,10 @@ if.then.i7:                                       ; preds = %if.then5.i
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #8
   %3 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %3) #8
-  %public_key.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 1
+  %public_key.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %public_key.i, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %4) #8
-  %pkey.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 2
+  %pkey.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load ptr, ptr %pkey.i, align 8
   tail call void @EVP_PKEY_free(ptr noundef %5) #8
   %6 = load ptr, ptr %propq2.i, align 8
@@ -207,15 +194,15 @@ if.end4:                                          ; preds = %if.then5.i, %if.the
 
 lor.lhs.false:                                    ; preds = %if.end4
   %call8 = tail call ptr @ASN1_BIT_STRING_new() #8
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 1
+  %public_key = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call8, ptr %public_key, align 8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %x509_pubkey_ex_free.exit13, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %public_key12 = getelementptr inbounds %struct.X509_pubkey_st, ptr %a, i64 0, i32 1
+  %public_key12 = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load ptr, ptr %public_key12, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data, align 8
   %10 = load i32, ptr %8, align 8
   %call14 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef nonnull %call8, ptr noundef %9, i32 noundef %10) #8
@@ -225,10 +212,10 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
 x509_pubkey_ex_free.exit13:                       ; preds = %lor.lhs.false10, %if.end4, %lor.lhs.false
   %11 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %11) #8
-  %public_key.i10 = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 1
+  %public_key.i10 = getelementptr inbounds i8, ptr %call, i64 8
   %12 = load ptr, ptr %public_key.i10, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %12) #8
-  %pkey.i11 = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 2
+  %pkey.i11 = getelementptr inbounds i8, ptr %call, i64 16
   %13 = load ptr, ptr %pkey.i11, align 8
   tail call void @EVP_PKEY_free(ptr noundef %13) #8
   %14 = load ptr, ptr %propq2.i, align 8
@@ -240,7 +227,7 @@ x509_pubkey_ex_free.exit13:                       ; preds = %lor.lhs.false10, %i
   br label %return
 
 if.end18:                                         ; preds = %lor.lhs.false10
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %a, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %a, i64 16
   %15 = load ptr, ptr %pkey, align 8
   %cmp19.not = icmp eq ptr %15, null
   br i1 %cmp19.not, label %return, label %if.then20
@@ -249,13 +236,13 @@ if.then20:                                        ; preds = %if.end18
   %call21 = tail call i32 @ERR_set_mark() #8
   %16 = load ptr, ptr %pkey, align 8
   %call23 = tail call ptr @EVP_PKEY_dup(ptr noundef %16) #8
-  %pkey24 = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 2
+  %pkey24 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call23, ptr %pkey24, align 8
   %cmp26 = icmp eq ptr %call23, null
   br i1 %cmp26, label %if.then27, label %if.end35
 
 if.then27:                                        ; preds = %if.then20
-  %flag_force_legacy = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 5
+  %flag_force_legacy = getelementptr inbounds i8, ptr %call, i64 40
   %bf.load = load i8, ptr %flag_force_legacy, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_force_legacy, align 8
@@ -297,13 +284,13 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %0, align 8
   tail call void @X509_ALGOR_free(ptr noundef %1) #8
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %0, i64 0, i32 1
+  %public_key = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %public_key, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %2) #8
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %0, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %3) #8
-  %propq = getelementptr inbounds %struct.X509_pubkey_st, ptr %0, i64 0, i32 4
+  %propq = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 94) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 95) #8
@@ -330,7 +317,7 @@ entry:
   %0 = load ptr, ptr %key, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #8
-  %flag_force_legacy = getelementptr inbounds %struct.X509_pubkey_st, ptr %key, i64 0, i32 5
+  %flag_force_legacy = getelementptr inbounds i8, ptr %key, i64 40
   %bf.load = load i8, ptr %flag_force_legacy, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -362,9 +349,9 @@ if.end8:                                          ; preds = %if.end4
   br i1 %tobool10.not, label %error.sink.split, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %call5, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %call5, i64 8
   %2 = load ptr, ptr %ameth, align 8
-  %pub_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 5
+  %pub_decode = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %pub_decode, align 8
   %tobool13.not = icmp eq ptr %3, null
   br i1 %tobool13.not, label %error.sink.split, label %if.then14
@@ -417,7 +404,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.else16, label %if.then3
@@ -435,7 +422,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.end6:                                          ; preds = %if.then3
   %1 = load ptr, ptr %ameth, align 8
-  %pub_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 6
+  %pub_encode = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %pub_encode, align 8
   %cmp8.not = icmp eq ptr %2, null
   br i1 %cmp8.not, label %if.else, label %if.then9
@@ -458,7 +445,7 @@ if.else:                                          ; preds = %if.end6
   br label %error
 
 if.else16:                                        ; preds = %if.end
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
   %3 = load ptr, ptr %keymgmt, align 8
   %cmp17.not = icmp eq ptr %3, null
   br i1 %cmp17.not, label %if.then28, label %if.then18
@@ -508,7 +495,7 @@ if.then32:                                        ; preds = %if.end29
 
 if.end33:                                         ; preds = %if.end29
   store ptr %pk.125, ptr %x, align 8
-  %pkey34 = getelementptr inbounds %struct.X509_pubkey_st, ptr %pk.125, i64 0, i32 2
+  %pkey34 = getelementptr inbounds i8, ptr %pk.125, i64 16
   %8 = load ptr, ptr %pkey34, align 8
   %cmp35.not = icmp eq ptr %8, null
   br i1 %cmp35.not, label %if.end38, label %if.then36
@@ -556,7 +543,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %key, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %pkey, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %return
@@ -585,7 +572,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %pkey.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %key, i64 0, i32 2
+  %pkey.i = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %pkey.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %if.then2.i, label %land.lhs.true
@@ -641,9 +628,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %libctx1.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 3
+  %libctx1.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %libctx, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 4
+  %propq2.i = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
@@ -657,7 +644,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br i1 %cmp8.i, label %end, label %if.end8
 
 if.end8:                                          ; preds = %if.then5.i, %if.then.i
-  %flag_force_legacy = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 5
+  %flag_force_legacy = getelementptr inbounds i8, ptr %call, i64 40
   %2 = zext i1 %tobool to i8
   %bf.load = load i8, ptr %flag_force_legacy, align 8
   %bf.clear = and i8 %bf.load, -2
@@ -752,7 +739,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.else, label %if.then2
@@ -764,7 +751,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then2
   %1 = load ptr, ptr %ameth, align 8
-  %pub_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 6
+  %pub_encode = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %pub_encode, align 8
   %cmp7.not = icmp eq ptr %2, null
   br i1 %cmp7.not, label %if.end14, label %land.lhs.true
@@ -775,7 +762,7 @@ land.lhs.true:                                    ; preds = %if.end5
   br i1 %tobool.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %call1.i, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %a, ptr %pkey, align 8
   %call1.i25 = tail call i32 @ASN1_item_i2d(ptr noundef nonnull %call1.i, ptr noundef %pp, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   store ptr null, ptr %pkey, align 8
@@ -787,7 +774,7 @@ if.end14:                                         ; preds = %if.then11, %land.lh
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %a, i64 96
   %3 = load ptr, ptr %keymgmt, align 8
   %cmp15.not = icmp eq ptr %3, null
   br i1 %cmp15.not, label %return, label %if.then16
@@ -823,7 +810,7 @@ if.then30:                                        ; preds = %land.lhs.true27
 if.then33:                                        ; preds = %if.then30
   %6 = load ptr, ptr %pp, align 8
   %cmp34 = icmp eq ptr %6, null
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %4, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %data, align 8
   br i1 %cmp34, label %if.then36, label %if.else39
 
@@ -831,7 +818,7 @@ if.then36:                                        ; preds = %if.then33
   store ptr %7, ptr %pp, align 8
   store i64 0, ptr %4, align 8
   %8 = load ptr, ptr %buf, align 8
-  %data38 = getelementptr inbounds %struct.buf_mem_st, ptr %8, i64 0, i32 1
+  %data38 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr null, ptr %data38, align 8
   br label %if.end44
 
@@ -927,7 +914,7 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call3 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 6, ptr noundef nonnull %a) #8
   %call4 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1009,7 +996,7 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call3 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 28, ptr noundef nonnull %a) #8
   %call4 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1081,7 +1068,7 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call3 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 920, ptr noundef nonnull %a) #8
   %call4 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1208,7 +1195,7 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call3 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 116, ptr noundef nonnull %a) #8
   %call4 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1286,7 +1273,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 408, ptr noundef nonnull %a) #8
   %call5 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1353,7 +1340,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 1087, ptr noundef nonnull %a) #8
   %call5 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1427,7 +1414,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 1088, ptr noundef nonnull %a) #8
   %call5 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1501,7 +1488,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 1034, ptr noundef nonnull %a) #8
   %call5 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1575,7 +1562,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %call, i32 noundef 1035, ptr noundef nonnull %a) #8
   %call5 = tail call i32 @i2d_PUBKEY(ptr noundef nonnull %call, ptr noundef %pp)
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %call, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #8
   br label %return
@@ -1588,7 +1575,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 ; Function Attrs: nounwind uwtable
 define void @X509_PUBKEY_set0_public_key(ptr nocapture noundef readonly %pub, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
 entry:
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %pub, i64 0, i32 1
+  %public_key = getelementptr inbounds i8, ptr %pub, i64 8
   %0 = load ptr, ptr %public_key, align 8
   tail call void @ASN1_STRING_set0(ptr noundef %0, ptr noundef %penc, i32 noundef %penclen) #8
   %1 = load ptr, ptr %public_key, align 8
@@ -1613,7 +1600,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %public_key.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %pub, i64 0, i32 1
+  %public_key.i = getelementptr inbounds i8, ptr %pub, i64 8
   %1 = load ptr, ptr %public_key.i, align 8
   tail call void @ASN1_STRING_set0(ptr noundef %1, ptr noundef nonnull %penc, i32 noundef %penclen) #8
   %2 = load ptr, ptr %public_key.i, align 8
@@ -1644,9 +1631,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %pub, i64 0, i32 1
+  %public_key = getelementptr inbounds i8, ptr %pub, i64 8
   %2 = load ptr, ptr %public_key, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   store ptr %3, ptr %pk, align 8
   %4 = load ptr, ptr %public_key, align 8
@@ -1674,9 +1661,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %x, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %x, i64 80
   %0 = load ptr, ptr %key, align 8
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %0, i64 0, i32 1
+  %public_key = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %public_key, align 8
   br label %return
 
@@ -1713,7 +1700,7 @@ if.end13:                                         ; preds = %lor.lhs.false7
   br i1 %cmp15.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end13
-  %pkey.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %a, i64 0, i32 2
+  %pkey.i = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %pkey.i, align 8
   %cmp1.i = icmp eq ptr %2, null
   br i1 %cmp1.i, label %X509_PUBKEY_get0.exit.thread, label %if.end.i10
@@ -1725,7 +1712,7 @@ X509_PUBKEY_get0.exit.thread:                     ; preds = %if.end.i
   br label %return
 
 if.end.i10:                                       ; preds = %if.end.i
-  %pkey.i11 = getelementptr inbounds %struct.X509_pubkey_st, ptr %b, i64 0, i32 2
+  %pkey.i11 = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load ptr, ptr %pkey.i11, align 8
   %cmp1.i12 = icmp eq ptr %3, null
   br i1 %cmp1.i12, label %X509_PUBKEY_get0.exit16.thread, label %if.end24
@@ -1756,7 +1743,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %libctx = getelementptr inbounds %struct.X509_pubkey_st, ptr %key, i64 0, i32 3
+  %libctx = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %libctx, align 8
   store ptr %0, ptr %plibctx, align 8
   br label %if.end
@@ -1766,7 +1753,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %propq = getelementptr inbounds %struct.X509_pubkey_st, ptr %key, i64 0, i32 4
+  %propq = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %propq, align 8
   store ptr %1, ptr %ppropq, align 8
   br label %if.end3
@@ -1813,7 +1800,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp2.not.i, label %x509_pubkey_ex_free.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.lhs.false.i, %if.end
-  %public_key.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 1
+  %public_key.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %public_key.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %x509_pubkey_ex_populate.exit, label %if.then.i
@@ -1825,9 +1812,9 @@ x509_pubkey_ex_populate.exit:                     ; preds = %land.rhs.i
   br i1 %cmp6.i.not, label %x509_pubkey_ex_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs.i, %x509_pubkey_ex_populate.exit
-  %libctx1.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 3
+  %libctx1.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %libctx, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 4
+  %propq2.i = getelementptr inbounds i8, ptr %call, i64 32
   %2 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
@@ -1843,13 +1830,13 @@ if.then5.i:                                       ; preds = %if.then.i
 x509_pubkey_ex_free.exit:                         ; preds = %if.then5.i, %lor.lhs.false.i, %x509_pubkey_ex_populate.exit
   %3 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %3) #8
-  %public_key.i4 = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 1
+  %public_key.i4 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %public_key.i4, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %4) #8
-  %pkey.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 2
+  %pkey.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load ptr, ptr %pkey.i, align 8
   tail call void @EVP_PKEY_free(ptr noundef %5) #8
-  %propq.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %call, i64 0, i32 4
+  %propq.i = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %propq.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 94) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 95) #8
@@ -1900,7 +1887,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.lhs.false.i, %if.end
-  %public_key.i = getelementptr inbounds %struct.X509_pubkey_st, ptr %pval.val, i64 0, i32 1
+  %public_key.i = getelementptr inbounds i8, ptr %pval.val, i64 8
   %3 = load ptr, ptr %public_key.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i, label %x509_pubkey_ex_populate.exit, label %if.end4
@@ -1938,7 +1925,7 @@ if.then16:                                        ; preds = %if.end9
 
 if.end17:                                         ; preds = %if.end9
   %5 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %5, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %6) #8
   store ptr null, ptr %pkey, align 8
@@ -1954,7 +1941,7 @@ if.then24:                                        ; preds = %if.end17
   br label %end
 
 land.lhs.true29:                                  ; preds = %if.end17
-  %flag_force_legacy = getelementptr inbounds %struct.X509_pubkey_st, ptr %5, i64 0, i32 5
+  %flag_force_legacy = getelementptr inbounds i8, ptr %5, i64 40
   %bf.load = load i8, ptr %flag_force_legacy, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool30.not = icmp eq i8 %bf.clear, 0
@@ -1989,9 +1976,9 @@ if.then44:                                        ; preds = %if.end40
   br label %end
 
 if.end46:                                         ; preds = %if.end40
-  %libctx49 = getelementptr inbounds %struct.X509_pubkey_st, ptr %5, i64 0, i32 3
+  %libctx49 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %libctx49, align 8
-  %propq50 = getelementptr inbounds %struct.X509_pubkey_st, ptr %5, i64 0, i32 4
+  %propq50 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load ptr, ptr %propq50, align 8
   %call51 = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %pkey, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %txtoidname, i32 noundef 134, ptr noundef %9, ptr noundef %10) #8
   %cmp52.not = icmp eq ptr %call51, null

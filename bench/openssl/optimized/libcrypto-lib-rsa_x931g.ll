@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-rsa_x931g.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_X931_derive_ex(ptr noundef %rsa, ptr noundef %p1, ptr noundef %p2, ptr noundef %q1, ptr noundef %q2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %Xq1, ptr noundef %Xq2, ptr noundef %Xq, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
@@ -16,7 +10,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #2
   %cmp1 = icmp eq ptr %call, null
@@ -32,7 +26,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp8, label %err, label %if.end10
 
 if.end10:                                         ; preds = %if.end3
-  %e11 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e11 = getelementptr inbounds i8, ptr %rsa, i64 48
   %1 = load ptr, ptr %e11, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then12, label %if.end20
@@ -49,7 +43,7 @@ if.end20:                                         ; preds = %if.end10, %if.then1
   br i1 %tobool21.not, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end20
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %2 = load ptr, ptr %p, align 8
   %cmp22 = icmp eq ptr %2, null
   br i1 %cmp22, label %if.then23, label %if.end35
@@ -70,7 +64,7 @@ if.end35:                                         ; preds = %if.end29, %land.lhs
   br i1 %tobool36.not, label %if.end51, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.end35
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %3 = load ptr, ptr %q, align 8
   %cmp38 = icmp eq ptr %3, null
   br i1 %cmp38, label %if.then39, label %if.end51
@@ -87,13 +81,13 @@ if.end45:                                         ; preds = %if.then39
   br i1 %tobool48.not, label %err, label %if.end51
 
 if.end51:                                         ; preds = %if.end45, %land.lhs.true37, %if.end35
-  %p52 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p52 = getelementptr inbounds i8, ptr %rsa, i64 64
   %4 = load ptr, ptr %p52, align 8
   %cmp53 = icmp eq ptr %4, null
   br i1 %cmp53, label %if.then56, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end51
-  %q54 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q54 = getelementptr inbounds i8, ptr %rsa, i64 72
   %5 = load ptr, ptr %q54, align 8
   %cmp55 = icmp eq ptr %5, null
   br i1 %cmp55, label %if.then56, label %if.end57
@@ -105,7 +99,7 @@ if.then56:                                        ; preds = %lor.lhs.false, %if.
 
 if.end57:                                         ; preds = %lor.lhs.false
   %call58 = tail call ptr @BN_new() #2
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   store ptr %call58, ptr %n, align 8
   %cmp60 = icmp eq ptr %call58, null
   br i1 %cmp60, label %err, label %if.end62
@@ -154,14 +148,14 @@ if.end93:                                         ; preds = %if.end89
 if.end97:                                         ; preds = %if.end93
   %10 = load ptr, ptr %e11, align 8
   %call99 = tail call ptr @BN_mod_inverse(ptr noundef null, ptr noundef %10, ptr noundef %call4, ptr noundef nonnull %call94) #2
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %rsa, i64 56
   store ptr %call99, ptr %d, align 8
   %cmp101 = icmp eq ptr %call99, null
   br i1 %cmp101, label %err, label %if.end103
 
 if.end103:                                        ; preds = %if.end97
   %call104 = tail call ptr @BN_new() #2
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 80
   store ptr %call104, ptr %dmp1, align 8
   %cmp106 = icmp eq ptr %call104, null
   br i1 %cmp106, label %err, label %if.end108
@@ -174,7 +168,7 @@ if.end108:                                        ; preds = %if.end103
 
 if.end114:                                        ; preds = %if.end108
   %call115 = tail call ptr @BN_new() #2
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 88
   store ptr %call115, ptr %dmq1, align 8
   %cmp117 = icmp eq ptr %call115, null
   br i1 %cmp117, label %err, label %if.end119
@@ -189,13 +183,13 @@ if.end125:                                        ; preds = %if.end119
   %13 = load ptr, ptr %q54, align 8
   %14 = load ptr, ptr %p52, align 8
   %call128 = tail call ptr @BN_mod_inverse(ptr noundef null, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %call94) #2
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 96
   store ptr %call128, ptr %iqmp, align 8
   %cmp130 = icmp eq ptr %call128, null
   br i1 %cmp130, label %err, label %if.end132
 
 if.end132:                                        ; preds = %if.end125
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %rsa, i64 216
   %15 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %dirty_cnt, align 8
@@ -248,7 +242,7 @@ declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_X931_generate_key_ex(ptr noundef %rsa, i32 noundef %bits, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #2
   %cmp = icmp eq ptr %call, null
@@ -268,10 +262,10 @@ if.end5:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end5
   %call9 = tail call ptr @BN_new() #2
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   store ptr %call9, ptr %p, align 8
   %call10 = tail call ptr @BN_new() #2
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   store ptr %call10, ptr %q, align 8
   %1 = load ptr, ptr %p, align 8
   %cmp12 = icmp eq ptr %1, null
@@ -296,7 +290,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %tobool28.not, label %error, label %if.end30
 
 if.end30:                                         ; preds = %if.end26
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %rsa, i64 216
   %3 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %dirty_cnt, align 8

@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/usb.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.qhc = type { ptr, %struct.QPCIBar }
-%struct.QPCIBar = type { i64, i8 }
-
 @.str = private unnamed_addr constant [33 x i8] c"../qemu/tests/qtest/libqos/usb.c\00", align 1
 @__func__.qusb_pci_init_one = private unnamed_addr constant [18 x i8] c"qusb_pci_init_one\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"hc->dev != NULL\00", align 1
@@ -30,13 +27,13 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @qpci_device_enable(ptr noundef nonnull %call) #3
-  %bar3 = getelementptr inbounds %struct.qhc, ptr %hc, i64 0, i32 1
+  %bar3 = getelementptr inbounds i8, ptr %hc, i64 8
   %0 = load ptr, ptr %hc, align 8
   %call5 = tail call { i64, i8 } @qpci_iomap(ptr noundef %0, i32 noundef %bar, ptr noundef null) #3
   %1 = extractvalue { i64, i8 } %call5, 0
   %2 = extractvalue { i64, i8 } %call5, 1
   store i64 %1, ptr %bar3, align 8
-  %tmp.sroa.2.0.bar3.sroa_idx = getelementptr inbounds %struct.qhc, ptr %hc, i64 0, i32 1, i32 1
+  %tmp.sroa.2.0.bar3.sroa_idx = getelementptr inbounds i8, ptr %hc, i64 16
   store i8 %2, ptr %tmp.sroa.2.0.bar3.sroa_idx, align 8
   ret void
 }
@@ -64,12 +61,12 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define dso_local void @uhci_port_test(ptr nocapture noundef readonly %hc, i32 noundef %port, i16 noundef zeroext %expect) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hc, align 8
-  %bar = getelementptr inbounds %struct.qhc, ptr %hc, i64 0, i32 1
+  %bar = getelementptr inbounds i8, ptr %hc, i64 8
   %mul = shl i32 %port, 1
   %add = add i32 %mul, 16
   %conv = sext i32 %add to i64
   %1 = load i64, ptr %bar, align 8
-  %2 = getelementptr inbounds %struct.qhc, ptr %hc, i64 0, i32 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %hc, i64 16
   %3 = load i8, ptr %2, align 8
   %call = tail call zeroext i16 @qpci_io_readw(ptr noundef %0, i64 %1, i8 %3, i64 noundef %conv) #3
   %4 = xor i16 %call, %expect

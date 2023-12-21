@@ -3,9 +3,7 @@ source_filename = "bench/qemu/original/virtio-9p-client.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.P9Req = type { ptr, ptr, i16, i64, i32, i64, i64, i64, i32 }
 %struct.P9Hdr = type <{ i32, i8, i16 }>
-%struct.QVirtio9P = type { ptr, ptr }
 %struct.TVersionOpt = type { ptr, i16, i32, ptr, i8, i32 }
 %struct.TAttachOpt = type { ptr, i16, i32, i32, %struct.anon, i8, i32 }
 %struct.anon = type { ptr }
@@ -13,10 +11,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.0 = type { ptr, ptr }
 %struct.TGetAttrOpt = type { ptr, i16, i32, i64, %struct.anon.1, i8, i32 }
 %struct.anon.1 = type { ptr }
-%struct.v9fs_attr = type { i64, [13 x i8], i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.TReadDirOpt = type { ptr, i16, i32, i64, i32, %struct.anon.2, i8, i32 }
 %struct.anon.2 = type { ptr, ptr, ptr }
-%struct.V9fsDirent = type { [13 x i8], i64, i8, ptr, ptr }
 %struct.TLOpenOpt = type { ptr, i16, i32, i32, %struct.anon.3, i8, i32 }
 %struct.anon.3 = type { ptr, ptr }
 %struct.TWriteOpt = type { ptr, i16, i32, i64, i32, ptr, i8, i32 }
@@ -115,9 +111,9 @@ entry:
 define dso_local void @v9fs_memwrite(ptr nocapture noundef %req, ptr noundef %addr, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %t_msg = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg, align 8
-  %t_off = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 6
+  %t_off = getelementptr inbounds i8, ptr %req, i64 48
   %2 = load i64, ptr %t_off, align 8
   %add = add i64 %2, %1
   tail call void @qtest_memwrite(ptr noundef %0, i64 noundef %add, ptr noundef %addr, i64 noundef %len) #13
@@ -132,7 +128,7 @@ declare void @qtest_memwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @v9fs_memskip(ptr nocapture noundef %req, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %r_off = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off = getelementptr inbounds i8, ptr %req, i64 56
   %0 = load i64, ptr %r_off, align 8
   %add = add i64 %0, %len
   store i64 %add, ptr %r_off, align 8
@@ -143,9 +139,9 @@ entry:
 define dso_local void @v9fs_memread(ptr nocapture noundef %req, ptr noundef %addr, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %r_msg = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg, align 8
-  %r_off = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off, align 8
   %add = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add, ptr noundef %addr, i64 noundef %len) #13
@@ -161,9 +157,9 @@ declare void @qtest_memread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) 
 define dso_local void @v9fs_uint8_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef %val, i64 noundef 1) #13
@@ -179,9 +175,9 @@ entry:
   %le_val = alloca i16, align 2
   store i16 %val, ptr %le_val, align 2
   %0 = load ptr, ptr %req, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i, align 8
-  %t_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 6
+  %t_off.i = getelementptr inbounds i8, ptr %req, i64 48
   %2 = load i64, ptr %t_off.i, align 8
   %add.i = add i64 %2, %1
   call void @qtest_memwrite(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %le_val, i64 noundef 2) #13
@@ -195,9 +191,9 @@ entry:
 define dso_local void @v9fs_uint16_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef %val, i64 noundef 2) #13
@@ -213,9 +209,9 @@ entry:
   %le_val = alloca i32, align 4
   store i32 %val, ptr %le_val, align 4
   %0 = load ptr, ptr %req, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i, align 8
-  %t_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 6
+  %t_off.i = getelementptr inbounds i8, ptr %req, i64 48
   %2 = load i64, ptr %t_off.i, align 8
   %add.i = add i64 %2, %1
   call void @qtest_memwrite(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %le_val, i64 noundef 4) #13
@@ -231,9 +227,9 @@ entry:
   %le_val = alloca i64, align 8
   store i64 %val, ptr %le_val, align 8
   %0 = load ptr, ptr %req, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i, align 8
-  %t_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 6
+  %t_off.i = getelementptr inbounds i8, ptr %req, i64 48
   %2 = load i64, ptr %t_off.i, align 8
   %add.i = add i64 %2, %1
   call void @qtest_memwrite(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %le_val, i64 noundef 8) #13
@@ -247,9 +243,9 @@ entry:
 define dso_local void @v9fs_uint32_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef %val, i64 noundef 4) #13
@@ -263,9 +259,9 @@ entry:
 define dso_local void @v9fs_uint64_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef %val, i64 noundef 8) #13
@@ -318,9 +314,9 @@ do.end:                                           ; preds = %if.else, %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %le_val.i)
   store i16 %conv5, ptr %le_val.i, align 2
   %0 = load ptr, ptr %req, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %req, i64 48
   %2 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   call void @qtest_memwrite(ptr noundef %0, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 2) #13
@@ -343,9 +339,9 @@ define dso_local void @v9fs_string_read(ptr nocapture noundef %req, ptr noundef 
 entry:
   %local_len = alloca i16, align 2
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef nonnull %local_len, i64 noundef 2) #13
@@ -405,9 +401,9 @@ define dso_local noalias ptr @v9fs_req_init(ptr noundef %v9p, i32 noundef %size,
 entry:
   %hdr = alloca %struct.P9Hdr, align 4
   %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
-  %id2 = getelementptr inbounds %struct.P9Hdr, ptr %hdr, i64 0, i32 1
+  %id2 = getelementptr inbounds i8, ptr %hdr, i64 4
   store i8 %id, ptr %id2, align 4
-  %tag3 = getelementptr inbounds %struct.P9Hdr, ptr %hdr, i64 0, i32 2
+  %tag3 = getelementptr inbounds i8, ptr %hdr, i64 5
   store i16 %tag, ptr %tag3, align 1
   %cmp = icmp ult i32 %size, -7
   br i1 %cmp, label %do.end, label %do.end.thread
@@ -436,21 +432,21 @@ do.end22:                                         ; preds = %do.end.thread, %if.
   %conv13 = zext i32 %add20 to i64
   %0 = load ptr, ptr @global_qtest, align 8
   store ptr %0, ptr %call, align 8
-  %v9p23 = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 1
+  %v9p23 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %v9p, ptr %v9p23, align 8
-  %t_size = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 4
+  %t_size = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %add20, ptr %t_size, align 8
   %1 = load ptr, ptr @alloc, align 8
   %call26 = tail call i64 @guest_alloc(ptr noundef %1, i64 noundef %conv13) #13
-  %t_msg = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 3
+  %t_msg = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %call26, ptr %t_msg, align 8
-  %t_off.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 6
+  %t_off.i = getelementptr inbounds i8, ptr %call, i64 48
   %2 = load i64, ptr %t_off.i, align 8
   %add.i = add i64 %2, %call26
   call void @qtest_memwrite(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %hdr, i64 noundef 7) #13
   %add2.i = add i64 %2, 7
   store i64 %add2.i, ptr %t_off.i, align 8
-  %tag27 = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 2
+  %tag27 = getelementptr inbounds i8, ptr %call, i64 16
   store i16 %tag, ptr %tag27, align 8
   ret ptr %call
 }
@@ -463,21 +459,21 @@ declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_req_send(ptr nocapture noundef %req) local_unnamed_addr #1 {
 entry:
-  %v9p1 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 1
+  %v9p1 = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %v9p1, align 8
   %1 = load ptr, ptr @alloc, align 8
   %call = tail call i64 @guest_alloc(ptr noundef %1, i64 noundef 4096) #13
-  %r_msg = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg = getelementptr inbounds i8, ptr %req, i64 40
   store i64 %call, ptr %r_msg, align 8
   %2 = load ptr, ptr %req, align 8
-  %vq = getelementptr inbounds %struct.QVirtio9P, ptr %0, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %vq, align 8
-  %t_msg = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg = getelementptr inbounds i8, ptr %req, i64 24
   %4 = load i64, ptr %t_msg, align 8
-  %t_size = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 4
+  %t_size = getelementptr inbounds i8, ptr %req, i64 32
   %5 = load i32, ptr %t_size, align 8
   %call2 = tail call i32 @qvirtqueue_add(ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 8
+  %free_head = getelementptr inbounds i8, ptr %req, i64 64
   store i32 %call2, ptr %free_head, align 8
   %6 = load ptr, ptr %req, align 8
   %7 = load ptr, ptr %vq, align 8
@@ -488,7 +484,7 @@ entry:
   %11 = load ptr, ptr %vq, align 8
   %12 = load i32, ptr %free_head, align 8
   tail call void @qvirtqueue_kick(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef %12) #13
-  %t_off = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 6
+  %t_off = getelementptr inbounds i8, ptr %req, i64 48
   store i64 0, ptr %t_off, align 8
   ret void
 }
@@ -500,13 +496,13 @@ declare void @qvirtqueue_kick(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_req_wait_for_reply(ptr nocapture noundef readonly %req, ptr noundef %len) local_unnamed_addr #1 {
 entry:
-  %v9p1 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 1
+  %v9p1 = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %v9p1, align 8
   %1 = load ptr, ptr %req, align 8
   %2 = load ptr, ptr %0, align 8
-  %vq = getelementptr inbounds %struct.QVirtio9P, ptr %0, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %vq, align 8
-  %free_head = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 8
+  %free_head = getelementptr inbounds i8, ptr %req, i64 64
   %4 = load i32, ptr %free_head, align 8
   tail call void @qvirtio_wait_used_elem(ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %len, i64 noundef 10000000) #13
   ret void
@@ -520,9 +516,9 @@ entry:
   %hdr = alloca %struct.P9Hdr, align 4
   %err = alloca i32, align 4
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %hdr, i64 noundef 7) #13
@@ -530,7 +526,7 @@ entry:
   %add2.i = add i64 %3, 7
   store i64 %add2.i, ptr %r_off.i, align 8
   %hdr.val = load i32, ptr %hdr, align 4
-  %tag = getelementptr inbounds %struct.P9Hdr, ptr %hdr, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %hdr, i64 5
   %cmp = icmp ugt i32 %hdr.val, 6
   br i1 %cmp, label %do.body9, label %if.else
 
@@ -552,7 +548,7 @@ if.else17:                                        ; preds = %do.body9
 
 do.body22:                                        ; preds = %do.body9, %if.else17
   %5 = load i16, ptr %tag, align 1
-  %tag27 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 2
+  %tag27 = getelementptr inbounds i8, ptr %req, i64 16
   %6 = load i16, ptr %tag27, align 8
   %cmp29 = icmp eq i16 %5, %6
   br i1 %cmp29, label %do.end36, label %if.else32
@@ -564,7 +560,7 @@ if.else32:                                        ; preds = %do.body22
   br label %do.end36
 
 do.end36:                                         ; preds = %if.else32, %do.body22
-  %id37 = getelementptr inbounds %struct.P9Hdr, ptr %hdr, i64 0, i32 1
+  %id37 = getelementptr inbounds i8, ptr %hdr, i64 4
   %7 = load i8, ptr %id37, align 4
   %cmp40.not = icmp eq i8 %7, %id
   br i1 %cmp40.not, label %do.end70, label %if.then42
@@ -722,11 +718,11 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 define dso_local void @v9fs_req_free(ptr noundef %req) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @alloc, align 8
-  %t_msg = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg, align 8
   tail call void @guest_free(ptr noundef %0, i64 noundef %1) #13
   %2 = load ptr, ptr @alloc, align 8
-  %r_msg = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg = getelementptr inbounds i8, ptr %req, i64 40
   %3 = load i64, ptr %r_msg, align 8
   tail call void @guest_free(ptr noundef %2, i64 noundef %3) #13
   tail call void @g_free(ptr noundef %req) #13
@@ -742,9 +738,9 @@ define dso_local void @v9fs_rlerror(ptr noundef %req, ptr noundef %err) local_un
 entry:
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 7)
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef %err, i64 noundef 4) #13
@@ -752,7 +748,7 @@ entry:
   %add2.i.i = add i64 %3, 4
   store i64 %add2.i.i, ptr %r_off.i.i, align 8
   %4 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %5 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %4, i64 noundef %5) #13
   %6 = load ptr, ptr @alloc, align 8
@@ -779,15 +775,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %msize = getelementptr inbounds %struct.TVersionOpt, ptr %opt, i64 0, i32 2
+  %msize = getelementptr inbounds i8, ptr %opt, i64 12
   %1 = load i32, ptr %msize, align 4
   %tobool1.not = icmp eq i32 %1, 0
   %spec.select = select i1 %tobool1.not, i32 4096, i32 %1
-  %tag = getelementptr inbounds %struct.TVersionOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %2 = load i16, ptr %tag, align 8
   %tobool5.not = icmp eq i16 %2, 0
   %3 = select i1 %tobool5.not, i16 -1, i16 %2
-  %version = getelementptr inbounds %struct.TVersionOpt, ptr %opt, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %opt, i64 16
   %4 = load ptr, ptr %version, align 8
   %tobool9.not = icmp eq ptr %4, null
   %5 = select i1 %tobool9.not, ptr @.str.15, ptr %4
@@ -809,9 +805,9 @@ v9fs_string_size.exit:                            ; preds = %do.end, %if.else.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %spec.select, ptr %le_val.i, align 4
   %7 = load ptr, ptr %call28, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call28, i64 24
   %8 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call28, i64 48
   %9 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %9, %8
   call void @qtest_memwrite(ptr noundef %7, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -819,20 +815,20 @@ v9fs_string_size.exit:                            ; preds = %do.end, %if.else.i
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @v9fs_string_write(ptr noundef nonnull %call28, ptr noundef nonnull %5)
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call28, i64 8
   %10 = load ptr, ptr %v9p1.i, align 8
   %11 = load ptr, ptr @alloc, align 8
   %call.i25 = call i64 @guest_alloc(ptr noundef %11, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call28, i64 40
   store i64 %call.i25, ptr %r_msg.i, align 8
   %12 = load ptr, ptr %call28, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %10, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %vq.i, align 8
   %14 = load i64, ptr %t_msg.i.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call28, i64 32
   %15 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef %15, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call28, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %16 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %12, ptr noundef %16, i64 noundef %call.i25, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -840,7 +836,7 @@ v9fs_string_size.exit:                            ; preds = %do.end, %if.else.i
   %18 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %12, ptr noundef %17, ptr noundef %18, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TVersionOpt, ptr %opt, i64 0, i32 4
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 24
   %19 = load i8, ptr %requestOnly, align 8
   %20 = and i8 %19, 1
   %tobool31.not = icmp eq i8 %20, 0
@@ -850,7 +846,7 @@ if.then32:                                        ; preds = %v9fs_string_size.ex
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %vq.i, align 8
   call void @qvirtio_wait_used_elem(ptr noundef %12, ptr noundef %21, ptr noundef %22, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
-  %expectErr = getelementptr inbounds %struct.TVersionOpt, ptr %opt, i64 0, i32 5
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 28
   %23 = load i32, ptr %expectErr, align 4
   %tobool33.not = icmp eq i32 %23, 0
   br i1 %tobool33.not, label %if.else50, label %if.then34
@@ -859,7 +855,7 @@ if.then34:                                        ; preds = %if.then32
   call void @v9fs_req_recv(ptr noundef nonnull %call28, i8 noundef zeroext 7)
   %24 = load ptr, ptr %call28, align 8
   %25 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call28, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call28, i64 56
   %26 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %26, %25
   call void @qtest_memread(ptr noundef %24, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -939,9 +935,9 @@ entry:
   %msize = alloca i32, align 4
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 101)
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef nonnull %msize, i64 noundef 4) #13
@@ -1019,7 +1015,7 @@ v9fs_string_read.exit:                            ; preds = %if.then2.i, %if.els
 
 if.end6:                                          ; preds = %do.end, %v9fs_string_read.exit
   %17 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %18 = load i64, ptr %t_msg.i, align 8
   call void @guest_free(ptr noundef %17, i64 noundef %18) #13
   %19 = load ptr, ptr @alloc, align 8
@@ -1049,10 +1045,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %expectErr = getelementptr inbounds %struct.TAttachOpt, ptr %opt, i64 0, i32 6
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 36
   %1 = load i32, ptr %expectErr, align 4
   %tobool2 = icmp ne i32 %1, 0
-  %rattach = getelementptr inbounds %struct.TAttachOpt, ptr %opt, i64 0, i32 4
+  %rattach = getelementptr inbounds i8, ptr %opt, i64 24
   %2 = load ptr, ptr %rattach, align 8
   %tobool3 = icmp ne ptr %2, null
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -1063,7 +1059,7 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.end7:                                          ; preds = %do.body1
-  %requestOnly = getelementptr inbounds %struct.TAttachOpt, ptr %opt, i64 0, i32 5
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 32
   %3 = load i8, ptr %requestOnly, align 8
   %4 = and i8 %3, 1
   %tobool8.not = icmp eq i8 %4, 0
@@ -1077,7 +1073,7 @@ if.then9:                                         ; preds = %do.end7
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %do.end7
-  %n_uname = getelementptr inbounds %struct.TAttachOpt, ptr %opt, i64 0, i32 3
+  %n_uname = getelementptr inbounds i8, ptr %opt, i64 16
   %6 = load i32, ptr %n_uname, align 8
   %tobool15.not = icmp eq i32 %6, 0
   br i1 %tobool15.not, label %if.then16, label %if.end19
@@ -1088,34 +1084,34 @@ if.then16:                                        ; preds = %if.end14
 
 if.end19:                                         ; preds = %if.then16, %if.end14
   %7 = phi i32 [ %call17, %if.then16 ], [ %6, %if.end14 ]
-  %tag = getelementptr inbounds %struct.TAttachOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %8 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
   %call.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
-  %id2.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 1
+  %id2.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i8 104, ptr %id2.i, align 4
-  %tag3.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 2
+  %tag3.i = getelementptr inbounds i8, ptr %hdr.i, i64 5
   store i16 %8, ptr %tag3.i, align 1
   store i32 23, ptr %hdr.i, align 4
   %9 = load ptr, ptr @global_qtest, align 8
   store ptr %9, ptr %call.i, align 8
-  %v9p23.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 1
+  %v9p23.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %v9p23.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 23, ptr %t_size.i, align 8
   %10 = load ptr, ptr @alloc, align 8
   %call26.i = tail call i64 @guest_alloc(ptr noundef %10, i64 noundef 23) #13
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call26.i, ptr %t_msg.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %11 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %11, %call26.i
   call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
   %add2.i.i = add i64 %11, 7
-  %tag27.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 2
+  %tag27.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i16 %8, ptr %tag27.i, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hdr.i)
-  %fid = getelementptr inbounds %struct.TAttachOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %12 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %12, ptr %le_val.i, align 4
@@ -1143,13 +1139,13 @@ if.end19:                                         ; preds = %if.then16, %if.end1
   %16 = load ptr, ptr %v9p23.i, align 8
   %17 = load ptr, ptr @alloc, align 8
   %call.i25 = call i64 @guest_alloc(ptr noundef %17, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %call.i25, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %16, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %vq.i, align 8
   %19 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %13, ptr noundef %18, i64 noundef %14, i32 noundef %19, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %20 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %13, ptr noundef %20, i64 noundef %call.i25, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -1170,7 +1166,7 @@ if.then28:                                        ; preds = %if.then25
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
   %25 = load ptr, ptr %call.i, align 8
   %26 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %27 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %27, %26
   call void @qtest_memread(ptr noundef %25, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -1202,7 +1198,7 @@ if.else39:                                        ; preds = %if.then25
 if.then.i:                                        ; preds = %if.else39
   %34 = load ptr, ptr %call.i, align 8
   %35 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %36 = load i64, ptr %r_off.i.i, align 8
   %add.i.i32 = add i64 %36, %35
   call void @qtest_memread(ptr noundef %34, i64 noundef %add.i.i32, ptr noundef nonnull %2, i64 noundef 13) #13
@@ -1241,9 +1237,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
@@ -1254,11 +1250,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %5 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %4, i64 noundef %5) #13
   %6 = load ptr, ptr @alloc, align 8
-  %r_msg.i4 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i4 = getelementptr inbounds i8, ptr %req, i64 40
   %7 = load i64, ptr %r_msg.i4, align 8
   tail call void @guest_free(ptr noundef %6, i64 noundef %7) #13
   tail call void @g_free(ptr noundef %req) #13
@@ -1281,16 +1277,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %path = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 6
+  %path = getelementptr inbounds i8, ptr %opt, i64 32
   %1 = load ptr, ptr %path, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %do.body11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body1
-  %nwname = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 4
+  %nwname = getelementptr inbounds i8, ptr %opt, i64 20
   %2 = load i16, ptr %nwname, align 4
   %tobool3 = icmp ne i16 %2, 0
-  %wnames5 = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 5
+  %wnames5 = getelementptr inbounds i8, ptr %opt, i64 24
   %3 = load ptr, ptr %wnames5, align 8
   %tobool6 = icmp ne ptr %3, null
   %or.cond = select i1 %tobool3, i1 true, i1 %tobool6
@@ -1301,16 +1297,16 @@ if.else8:                                         ; preds = %lor.lhs.false
   unreachable
 
 do.body11:                                        ; preds = %do.body1, %lor.lhs.false
-  %expectErr = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 9
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 60
   %4 = load i32, ptr %expectErr, align 4
   %tobool12.not = icmp eq i32 %4, 0
   br i1 %tobool12.not, label %do.end21, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %do.body11
-  %rwalk = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 7
+  %rwalk = getelementptr inbounds i8, ptr %opt, i64 40
   %5 = load ptr, ptr %rwalk, align 8
   %tobool14 = icmp ne ptr %5, null
-  %wqid = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 7, i32 1
+  %wqid = getelementptr inbounds i8, ptr %opt, i64 48
   %6 = load ptr, ptr %wqid, align 8
   %tobool17 = icmp ne ptr %6, null
   %or.cond1 = select i1 %tobool14, i1 true, i1 %tobool17
@@ -1321,7 +1317,7 @@ if.else19:                                        ; preds = %lor.lhs.false13
   unreachable
 
 do.end21:                                         ; preds = %lor.lhs.false13, %do.body11
-  %newfid = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 3
+  %newfid = getelementptr inbounds i8, ptr %opt, i64 16
   %7 = load i32, ptr %newfid, align 8
   %tobool22.not = icmp eq i32 %7, 0
   br i1 %tobool22.not, label %if.then23, label %if.end25
@@ -1337,7 +1333,7 @@ if.end25:                                         ; preds = %if.then23, %do.end2
   br i1 %tobool2.not, label %if.end25.if.end34_crit_edge, label %if.then28
 
 if.end25.if.end34_crit_edge:                      ; preds = %if.end25
-  %nwname35.phi.trans.insert = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 4
+  %nwname35.phi.trans.insert = getelementptr inbounds i8, ptr %opt, i64 20
   %.pre = load i16, ptr %nwname35.phi.trans.insert, align 4
   br label %if.end34
 
@@ -1393,7 +1389,7 @@ for.inc19.i:                                      ; preds = %if.then15.i, %for.b
 split.exit:                                       ; preds = %for.inc19.i, %for.end.i
   tail call void @g_free(ptr noundef %call6.i) #13
   %conv31 = trunc i32 %n.0.lcssa.i to i16
-  %wnames33 = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 5
+  %wnames33 = getelementptr inbounds i8, ptr %opt, i64 24
   store ptr %call5.i, ptr %wnames33, align 8
   br label %if.end34
 
@@ -1404,7 +1400,7 @@ if.end34:                                         ; preds = %if.end25.if.end34_c
   br i1 %cmp49.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end34
-  %wnames38 = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 5
+  %wnames38 = getelementptr inbounds i8, ptr %opt, i64 24
   %11 = load ptr, ptr %wnames38, align 8
   %wide.trip.count = zext i16 %10 to i64
   br label %for.body
@@ -1445,17 +1441,17 @@ do.end51:                                         ; preds = %if.else47, %v9fs_st
 
 for.end:                                          ; preds = %do.end51, %if.end34
   %body_size.0.lcssa = phi i32 [ 10, %if.end34 ], [ %add, %do.end51 ]
-  %tag = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %14 = load i16, ptr %tag, align 8
   %call54 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %body_size.0.lcssa, i8 noundef zeroext 110, i16 noundef zeroext %14)
-  %fid = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %15 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %15, ptr %le_val.i, align 4
   %16 = load ptr, ptr %call54, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call54, i64 24
   %17 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call54, i64 48
   %18 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %18, %17
   call void @qtest_memwrite(ptr noundef %16, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -1477,7 +1473,7 @@ for.end:                                          ; preds = %do.end51, %if.end34
   br i1 %cmp49.not, label %for.end68, label %for.body62.lr.ph
 
 for.body62.lr.ph:                                 ; preds = %for.end
-  %wnames63 = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 5
+  %wnames63 = getelementptr inbounds i8, ptr %opt, i64 24
   %19 = load ptr, ptr %wnames63, align 8
   %wide.trip.count60 = zext i16 %10 to i64
   br label %for.body62
@@ -1492,20 +1488,20 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   br i1 %exitcond61.not, label %for.end68, label %for.body62, !llvm.loop !9
 
 for.end68:                                        ; preds = %for.body62, %for.end
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call54, i64 8
   %21 = load ptr, ptr %v9p1.i, align 8
   %22 = load ptr, ptr @alloc, align 8
   %call.i35 = call i64 @guest_alloc(ptr noundef %22, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call54, i64 40
   store i64 %call.i35, ptr %r_msg.i, align 8
   %23 = load ptr, ptr %call54, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %21, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load ptr, ptr %vq.i, align 8
   %25 = load i64, ptr %t_msg.i.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call54, i64 32
   %26 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %23, ptr noundef %24, i64 noundef %25, i32 noundef %26, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call54, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %27 = load ptr, ptr %vq.i, align 8
   %call6.i36 = call i32 @qvirtqueue_add(ptr noundef %23, ptr noundef %27, i64 noundef %call.i35, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -1513,7 +1509,7 @@ for.end68:                                        ; preds = %for.body62, %for.en
   %29 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %23, ptr noundef %28, ptr noundef %29, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 8
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 56
   %30 = load i8, ptr %requestOnly, align 8
   %31 = and i8 %30, 1
   %tobool69.not = icmp eq i8 %31, 0
@@ -1529,7 +1525,7 @@ if.then73:                                        ; preds = %if.then70
   call void @v9fs_req_recv(ptr noundef nonnull %call54, i8 noundef zeroext 7)
   %34 = load ptr, ptr %call54, align 8
   %35 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call54, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call54, i64 56
   %36 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %36, %35
   call void @qtest_memread(ptr noundef %34, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -1554,9 +1550,9 @@ if.else83:                                        ; preds = %if.then73
   br label %if.end94
 
 if.else88:                                        ; preds = %if.then70
-  %rwalk89 = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 7
+  %rwalk89 = getelementptr inbounds i8, ptr %opt, i64 40
   %43 = load ptr, ptr %rwalk89, align 8
-  %wqid92 = getelementptr inbounds %struct.TWalkOpt, ptr %opt, i64 0, i32 7, i32 1
+  %wqid92 = getelementptr inbounds i8, ptr %opt, i64 48
   %44 = load ptr, ptr %wqid92, align 8
   call void @v9fs_rwalk(ptr noundef nonnull %call54, ptr noundef %43, ptr noundef %44)
   br label %if.end94
@@ -1598,9 +1594,9 @@ entry:
   %local_nwqid = alloca i16, align 2
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 111)
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef nonnull %local_nwqid, i64 noundef 2) #13
@@ -1640,7 +1636,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then2, %if.end
   %11 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %12 = load i64, ptr %t_msg.i, align 8
   call void @guest_free(ptr noundef %11, i64 noundef %12) #13
   %13 = load ptr, ptr @alloc, align 8
@@ -1666,10 +1662,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %expectErr = getelementptr inbounds %struct.TGetAttrOpt, ptr %opt, i64 0, i32 6
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 36
   %1 = load i32, ptr %expectErr, align 4
   %tobool2 = icmp ne i32 %1, 0
-  %rgetattr = getelementptr inbounds %struct.TGetAttrOpt, ptr %opt, i64 0, i32 4
+  %rgetattr = getelementptr inbounds i8, ptr %opt, i64 24
   %2 = load ptr, ptr %rgetattr, align 8
   %tobool3 = icmp ne ptr %2, null
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -1680,38 +1676,38 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.end7:                                          ; preds = %do.body1
-  %request_mask = getelementptr inbounds %struct.TGetAttrOpt, ptr %opt, i64 0, i32 3
+  %request_mask = getelementptr inbounds i8, ptr %opt, i64 16
   %3 = load i64, ptr %request_mask, align 8
   %tobool8.not = icmp eq i64 %3, 0
   %spec.select = select i1 %tobool8.not, i64 16383, i64 %3
-  %tag = getelementptr inbounds %struct.TGetAttrOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %4 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
   %call.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
-  %id2.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 1
+  %id2.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i8 24, ptr %id2.i, align 4
-  %tag3.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 2
+  %tag3.i = getelementptr inbounds i8, ptr %hdr.i, i64 5
   store i16 %4, ptr %tag3.i, align 1
   store i32 19, ptr %hdr.i, align 4
   %5 = load ptr, ptr @global_qtest, align 8
   store ptr %5, ptr %call.i, align 8
-  %v9p23.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 1
+  %v9p23.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %v9p23.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 19, ptr %t_size.i, align 8
   %6 = load ptr, ptr @alloc, align 8
   %call26.i = tail call i64 @guest_alloc(ptr noundef %6, i64 noundef 19) #13
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call26.i, ptr %t_msg.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %7 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %7, %call26.i
   call void @qtest_memwrite(ptr noundef %5, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
   %add2.i.i = add i64 %7, 7
-  %tag27.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 2
+  %tag27.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i16 %4, ptr %tag27.i, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hdr.i)
-  %fid = getelementptr inbounds %struct.TGetAttrOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %8 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %8, ptr %le_val.i, align 4
@@ -1726,12 +1722,12 @@ do.end7:                                          ; preds = %do.body1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %le_val.i12)
   %9 = load ptr, ptr @alloc, align 8
   %call.i17 = call i64 @guest_alloc(ptr noundef %9, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %call.i17, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %0, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %vq.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %5, ptr noundef %10, i64 noundef %call26.i, i32 noundef 19, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %11 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %5, ptr noundef %11, i64 noundef %call.i17, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -1739,7 +1735,7 @@ do.end7:                                          ; preds = %do.body1
   %13 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %5, ptr noundef %12, ptr noundef %13, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TGetAttrOpt, ptr %opt, i64 0, i32 5
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 32
   %14 = load i8, ptr %requestOnly, align 8
   %15 = and i8 %14, 1
   %tobool14.not = icmp eq i8 %15, 0
@@ -1756,7 +1752,7 @@ if.then18:                                        ; preds = %if.then15
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
   %18 = load ptr, ptr %call.i, align 8
   %19 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %20 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %20, %19
   call void @qtest_memread(ptr noundef %18, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -1794,16 +1790,16 @@ define dso_local void @v9fs_rgetattr(ptr noundef %req, ptr noundef %attr) local_
 entry:
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 25)
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef %attr, i64 noundef 8) #13
   %3 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i = add i64 %3, 8
   store i64 %add2.i.i, ptr %r_off.i.i, align 8
-  %qid = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 1
+  %qid = getelementptr inbounds i8, ptr %attr, i64 8
   %4 = load ptr, ptr %req, align 8
   %5 = load i64, ptr %r_msg.i.i, align 8
   %add.i = add i64 %5, %add2.i.i
@@ -1811,7 +1807,7 @@ entry:
   %6 = load i64, ptr %r_off.i.i, align 8
   %add2.i = add i64 %6, 13
   store i64 %add2.i, ptr %r_off.i.i, align 8
-  %mode = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %attr, i64 24
   %7 = load ptr, ptr %req, align 8
   %8 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i43 = add i64 %8, %add2.i
@@ -1819,7 +1815,7 @@ entry:
   %9 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i44 = add i64 %9, 4
   store i64 %add2.i.i44, ptr %r_off.i.i, align 8
-  %uid = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 3
+  %uid = getelementptr inbounds i8, ptr %attr, i64 28
   %10 = load ptr, ptr %req, align 8
   %11 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i47 = add i64 %11, %add2.i.i44
@@ -1827,7 +1823,7 @@ entry:
   %12 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i48 = add i64 %12, 4
   store i64 %add2.i.i48, ptr %r_off.i.i, align 8
-  %gid = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 4
+  %gid = getelementptr inbounds i8, ptr %attr, i64 32
   %13 = load ptr, ptr %req, align 8
   %14 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i51 = add i64 %14, %add2.i.i48
@@ -1835,7 +1831,7 @@ entry:
   %15 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i52 = add i64 %15, 4
   store i64 %add2.i.i52, ptr %r_off.i.i, align 8
-  %nlink = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 5
+  %nlink = getelementptr inbounds i8, ptr %attr, i64 40
   %16 = load ptr, ptr %req, align 8
   %17 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i55 = add i64 %17, %add2.i.i52
@@ -1843,7 +1839,7 @@ entry:
   %18 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i56 = add i64 %18, 8
   store i64 %add2.i.i56, ptr %r_off.i.i, align 8
-  %rdev = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 6
+  %rdev = getelementptr inbounds i8, ptr %attr, i64 48
   %19 = load ptr, ptr %req, align 8
   %20 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i59 = add i64 %20, %add2.i.i56
@@ -1851,7 +1847,7 @@ entry:
   %21 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i60 = add i64 %21, 8
   store i64 %add2.i.i60, ptr %r_off.i.i, align 8
-  %size = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 7
+  %size = getelementptr inbounds i8, ptr %attr, i64 56
   %22 = load ptr, ptr %req, align 8
   %23 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i63 = add i64 %23, %add2.i.i60
@@ -1859,7 +1855,7 @@ entry:
   %24 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i64 = add i64 %24, 8
   store i64 %add2.i.i64, ptr %r_off.i.i, align 8
-  %blksize = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 8
+  %blksize = getelementptr inbounds i8, ptr %attr, i64 64
   %25 = load ptr, ptr %req, align 8
   %26 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i67 = add i64 %26, %add2.i.i64
@@ -1867,7 +1863,7 @@ entry:
   %27 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i68 = add i64 %27, 8
   store i64 %add2.i.i68, ptr %r_off.i.i, align 8
-  %blocks = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 9
+  %blocks = getelementptr inbounds i8, ptr %attr, i64 72
   %28 = load ptr, ptr %req, align 8
   %29 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i71 = add i64 %29, %add2.i.i68
@@ -1875,7 +1871,7 @@ entry:
   %30 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i72 = add i64 %30, 8
   store i64 %add2.i.i72, ptr %r_off.i.i, align 8
-  %atime_sec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 10
+  %atime_sec = getelementptr inbounds i8, ptr %attr, i64 80
   %31 = load ptr, ptr %req, align 8
   %32 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i75 = add i64 %32, %add2.i.i72
@@ -1883,7 +1879,7 @@ entry:
   %33 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i76 = add i64 %33, 8
   store i64 %add2.i.i76, ptr %r_off.i.i, align 8
-  %atime_nsec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 11
+  %atime_nsec = getelementptr inbounds i8, ptr %attr, i64 88
   %34 = load ptr, ptr %req, align 8
   %35 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i79 = add i64 %35, %add2.i.i76
@@ -1891,7 +1887,7 @@ entry:
   %36 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i80 = add i64 %36, 8
   store i64 %add2.i.i80, ptr %r_off.i.i, align 8
-  %mtime_sec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 12
+  %mtime_sec = getelementptr inbounds i8, ptr %attr, i64 96
   %37 = load ptr, ptr %req, align 8
   %38 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i83 = add i64 %38, %add2.i.i80
@@ -1899,7 +1895,7 @@ entry:
   %39 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i84 = add i64 %39, 8
   store i64 %add2.i.i84, ptr %r_off.i.i, align 8
-  %mtime_nsec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 13
+  %mtime_nsec = getelementptr inbounds i8, ptr %attr, i64 104
   %40 = load ptr, ptr %req, align 8
   %41 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i87 = add i64 %41, %add2.i.i84
@@ -1907,7 +1903,7 @@ entry:
   %42 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i88 = add i64 %42, 8
   store i64 %add2.i.i88, ptr %r_off.i.i, align 8
-  %ctime_sec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 14
+  %ctime_sec = getelementptr inbounds i8, ptr %attr, i64 112
   %43 = load ptr, ptr %req, align 8
   %44 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i91 = add i64 %44, %add2.i.i88
@@ -1915,7 +1911,7 @@ entry:
   %45 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i92 = add i64 %45, 8
   store i64 %add2.i.i92, ptr %r_off.i.i, align 8
-  %ctime_nsec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 15
+  %ctime_nsec = getelementptr inbounds i8, ptr %attr, i64 120
   %46 = load ptr, ptr %req, align 8
   %47 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i95 = add i64 %47, %add2.i.i92
@@ -1923,7 +1919,7 @@ entry:
   %48 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i96 = add i64 %48, 8
   store i64 %add2.i.i96, ptr %r_off.i.i, align 8
-  %btime_sec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 16
+  %btime_sec = getelementptr inbounds i8, ptr %attr, i64 128
   %49 = load ptr, ptr %req, align 8
   %50 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i99 = add i64 %50, %add2.i.i96
@@ -1931,7 +1927,7 @@ entry:
   %51 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i100 = add i64 %51, 8
   store i64 %add2.i.i100, ptr %r_off.i.i, align 8
-  %btime_nsec = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 17
+  %btime_nsec = getelementptr inbounds i8, ptr %attr, i64 136
   %52 = load ptr, ptr %req, align 8
   %53 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i103 = add i64 %53, %add2.i.i100
@@ -1939,7 +1935,7 @@ entry:
   %54 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i104 = add i64 %54, 8
   store i64 %add2.i.i104, ptr %r_off.i.i, align 8
-  %gen = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 18
+  %gen = getelementptr inbounds i8, ptr %attr, i64 144
   %55 = load ptr, ptr %req, align 8
   %56 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i107 = add i64 %56, %add2.i.i104
@@ -1947,7 +1943,7 @@ entry:
   %57 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i108 = add i64 %57, 8
   store i64 %add2.i.i108, ptr %r_off.i.i, align 8
-  %data_version = getelementptr inbounds %struct.v9fs_attr, ptr %attr, i64 0, i32 19
+  %data_version = getelementptr inbounds i8, ptr %attr, i64 152
   %58 = load ptr, ptr %req, align 8
   %59 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i111 = add i64 %59, %add2.i.i108
@@ -1956,7 +1952,7 @@ entry:
   %add2.i.i112 = add i64 %60, 8
   store i64 %add2.i.i112, ptr %r_off.i.i, align 8
   %61 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %62 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %61, i64 noundef %62) #13
   %63 = load ptr, ptr @alloc, align 8
@@ -1983,20 +1979,20 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %expectErr = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 7
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 60
   %1 = load i32, ptr %expectErr, align 4
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %do.end13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body1
-  %rreaddir = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 5
+  %rreaddir = getelementptr inbounds i8, ptr %opt, i64 32
   %2 = load ptr, ptr %rreaddir, align 8
   %tobool3 = icmp ne ptr %2, null
-  %nentries = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 5, i32 1
+  %nentries = getelementptr inbounds i8, ptr %opt, i64 40
   %3 = load ptr, ptr %nentries, align 8
   %tobool6 = icmp ne ptr %3, null
   %or.cond = select i1 %tobool3, i1 true, i1 %tobool6
-  %entries = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 5, i32 2
+  %entries = getelementptr inbounds i8, ptr %opt, i64 48
   %4 = load ptr, ptr %entries, align 8
   %tobool9 = icmp ne ptr %4, null
   %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool9
@@ -2007,34 +2003,34 @@ if.else11:                                        ; preds = %lor.lhs.false
   unreachable
 
 do.end13:                                         ; preds = %lor.lhs.false, %do.body1
-  %tag = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %5 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
   %call.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
-  %id2.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 1
+  %id2.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i8 40, ptr %id2.i, align 4
-  %tag3.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 2
+  %tag3.i = getelementptr inbounds i8, ptr %hdr.i, i64 5
   store i16 %5, ptr %tag3.i, align 1
   store i32 23, ptr %hdr.i, align 4
   %6 = load ptr, ptr @global_qtest, align 8
   store ptr %6, ptr %call.i, align 8
-  %v9p23.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 1
+  %v9p23.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %v9p23.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 23, ptr %t_size.i, align 8
   %7 = load ptr, ptr @alloc, align 8
   %call26.i = tail call i64 @guest_alloc(ptr noundef %7, i64 noundef 23) #13
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call26.i, ptr %t_msg.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %8 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %8, %call26.i
   call void @qtest_memwrite(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
   %add2.i.i = add i64 %8, 7
-  %tag27.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 2
+  %tag27.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i16 %5, ptr %tag27.i, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hdr.i)
-  %fid = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %9 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %9, ptr %le_val.i, align 4
@@ -2042,7 +2038,7 @@ do.end13:                                         ; preds = %lor.lhs.false, %do.
   call void @qtest_memwrite(ptr noundef %6, i64 noundef %add.i.i12, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
   %add2.i.i13 = add i64 %8, 11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  %offset = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %opt, i64 16
   %10 = load i64, ptr %offset, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %le_val.i14)
   store i64 %10, ptr %le_val.i14, align 8
@@ -2050,7 +2046,7 @@ do.end13:                                         ; preds = %lor.lhs.false, %do.
   call void @qtest_memwrite(ptr noundef %6, i64 noundef %add.i.i17, ptr noundef nonnull %le_val.i14, i64 noundef 8) #13
   %add2.i.i18 = add i64 %8, 19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %le_val.i14)
-  %count15 = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 4
+  %count15 = getelementptr inbounds i8, ptr %opt, i64 24
   %11 = load i32, ptr %count15, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i19)
   store i32 %11, ptr %le_val.i19, align 4
@@ -2059,12 +2055,12 @@ do.end13:                                         ; preds = %lor.lhs.false, %do.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i19)
   %12 = load ptr, ptr @alloc, align 8
   %call.i24 = call i64 @guest_alloc(ptr noundef %12, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %call.i24, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %0, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %vq.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %6, ptr noundef %13, i64 noundef %call26.i, i32 noundef 23, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %14 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %6, ptr noundef %14, i64 noundef %call.i24, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -2072,7 +2068,7 @@ do.end13:                                         ; preds = %lor.lhs.false, %do.
   %16 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %6, ptr noundef %15, ptr noundef %16, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 6
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 56
   %17 = load i8, ptr %requestOnly, align 8
   %18 = and i8 %17, 1
   %tobool16.not = icmp eq i8 %18, 0
@@ -2088,7 +2084,7 @@ if.then20:                                        ; preds = %if.then17
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
   %21 = load ptr, ptr %call.i, align 8
   %22 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %23 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %23, %22
   call void @qtest_memread(ptr noundef %21, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -2113,11 +2109,11 @@ if.else26:                                        ; preds = %if.then20
   br label %if.end39
 
 if.else31:                                        ; preds = %if.then17
-  %rreaddir32 = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 5
+  %rreaddir32 = getelementptr inbounds i8, ptr %opt, i64 32
   %30 = load ptr, ptr %rreaddir32, align 8
-  %nentries35 = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 5, i32 1
+  %nentries35 = getelementptr inbounds i8, ptr %opt, i64 40
   %31 = load ptr, ptr %nentries35, align 8
-  %entries37 = getelementptr inbounds %struct.TReadDirOpt, ptr %opt, i64 0, i32 5, i32 2
+  %entries37 = getelementptr inbounds i8, ptr %opt, i64 48
   %32 = load ptr, ptr %entries37, align 8
   call void @v9fs_rreaddir(ptr noundef nonnull %call.i, ptr noundef %30, ptr noundef %31, ptr noundef %32)
   br label %if.end39
@@ -2134,9 +2130,9 @@ entry:
   %local_count = alloca i32, align 4
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 41)
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef nonnull %local_count, i64 noundef 4) #13
@@ -2172,7 +2168,7 @@ if.then2:                                         ; preds = %for.body
   br i1 %tobool3.not, label %if.end8, label %if.end8.sink.split
 
 if.else6:                                         ; preds = %for.body
-  %next = getelementptr inbounds %struct.V9fsDirent, ptr %e.033, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %e.033, i64 40
   br label %if.end8.sink.split
 
 if.end8.sink.split:                               ; preds = %if.then2, %if.else6
@@ -2182,7 +2178,7 @@ if.end8.sink.split:                               ; preds = %if.then2, %if.else6
 
 if.end8:                                          ; preds = %if.end8.sink.split, %if.then2
   %unused_entries.1 = phi ptr [ %call, %if.then2 ], [ %unused_entries.034, %if.end8.sink.split ]
-  %next9 = getelementptr inbounds %struct.V9fsDirent, ptr %call, i64 0, i32 4
+  %next9 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %next9, align 8
   %4 = load ptr, ptr %req, align 8
   %5 = load i64, ptr %r_msg.i.i, align 8
@@ -2192,7 +2188,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
   %7 = load i64, ptr %r_off.i.i, align 8
   %add2.i = add i64 %7, 13
   store i64 %add2.i, ptr %r_off.i.i, align 8
-  %offset = getelementptr inbounds %struct.V9fsDirent, ptr %call, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %call, i64 16
   %8 = load ptr, ptr %req, align 8
   %9 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i22 = add i64 %9, %add2.i
@@ -2200,7 +2196,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
   %10 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i23 = add i64 %10, 8
   store i64 %add2.i.i23, ptr %r_off.i.i, align 8
-  %type = getelementptr inbounds %struct.V9fsDirent, ptr %call, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %call, i64 24
   %11 = load ptr, ptr %req, align 8
   %12 = load i64, ptr %r_msg.i.i, align 8
   %add.i.i26 = add i64 %12, %add2.i.i23
@@ -2208,7 +2204,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
   %13 = load i64, ptr %r_off.i.i, align 8
   %add2.i.i27 = add i64 %13, 1
   store i64 %add2.i.i27, ptr %r_off.i.i, align 8
-  %name = getelementptr inbounds %struct.V9fsDirent, ptr %call, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call, i64 32
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %local_len.i)
   %14 = load ptr, ptr %req, align 8
   %15 = load i64, ptr %r_msg.i.i, align 8
@@ -2261,9 +2257,9 @@ if.end12:                                         ; preds = %if.then11, %for.end
 
 for.body.i:                                       ; preds = %if.end12, %for.body.i
   %e.addr.05.i = phi ptr [ %25, %for.body.i ], [ %unused_entries.0.lcssa, %if.end12 ]
-  %next1.i = getelementptr inbounds %struct.V9fsDirent, ptr %e.addr.05.i, i64 0, i32 4
+  %next1.i = getelementptr inbounds i8, ptr %e.addr.05.i, i64 40
   %25 = load ptr, ptr %next1.i, align 8
-  %name.i = getelementptr inbounds %struct.V9fsDirent, ptr %e.addr.05.i, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %e.addr.05.i, i64 32
   %26 = load ptr, ptr %name.i, align 8
   call void @g_free(ptr noundef %26) #13
   call void @g_free(ptr noundef nonnull %e.addr.05.i) #13
@@ -2272,7 +2268,7 @@ for.body.i:                                       ; preds = %if.end12, %for.body
 
 v9fs_free_dirents.exit:                           ; preds = %for.body.i, %if.end12
   %27 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %28 = load i64, ptr %t_msg.i, align 8
   call void @guest_free(ptr noundef %27, i64 noundef %28) #13
   %29 = load ptr, ptr @alloc, align 8
@@ -2293,9 +2289,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %e.addr.05 = phi ptr [ %0, %for.body ], [ %e, %entry ]
-  %next1 = getelementptr inbounds %struct.V9fsDirent, ptr %e.addr.05, i64 0, i32 4
+  %next1 = getelementptr inbounds i8, ptr %e.addr.05, i64 40
   %0 = load ptr, ptr %next1, align 8
-  %name = getelementptr inbounds %struct.V9fsDirent, ptr %e.addr.05, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %e.addr.05, i64 32
   %1 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %1) #13
   tail call void @g_free(ptr noundef nonnull %e.addr.05) #13
@@ -2322,16 +2318,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %expectErr = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 6
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 44
   %1 = load i32, ptr %expectErr, align 4
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %do.end10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body1
-  %rlopen = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 4
+  %rlopen = getelementptr inbounds i8, ptr %opt, i64 24
   %2 = load ptr, ptr %rlopen, align 8
   %tobool3 = icmp ne ptr %2, null
-  %iounit = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 4, i32 1
+  %iounit = getelementptr inbounds i8, ptr %opt, i64 32
   %3 = load ptr, ptr %iounit, align 8
   %tobool6 = icmp ne ptr %3, null
   %or.cond = select i1 %tobool3, i1 true, i1 %tobool6
@@ -2342,34 +2338,34 @@ if.else8:                                         ; preds = %lor.lhs.false
   unreachable
 
 do.end10:                                         ; preds = %lor.lhs.false, %do.body1
-  %tag = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %4 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
   %call.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
-  %id2.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 1
+  %id2.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i8 12, ptr %id2.i, align 4
-  %tag3.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 2
+  %tag3.i = getelementptr inbounds i8, ptr %hdr.i, i64 5
   store i16 %4, ptr %tag3.i, align 1
   store i32 15, ptr %hdr.i, align 4
   %5 = load ptr, ptr @global_qtest, align 8
   store ptr %5, ptr %call.i, align 8
-  %v9p23.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 1
+  %v9p23.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %v9p23.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 15, ptr %t_size.i, align 8
   %6 = load ptr, ptr @alloc, align 8
   %call26.i = tail call i64 @guest_alloc(ptr noundef %6, i64 noundef 15) #13
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call26.i, ptr %t_msg.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %7 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %7, %call26.i
   call void @qtest_memwrite(ptr noundef %5, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
   %add2.i.i = add i64 %7, 7
-  %tag27.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 2
+  %tag27.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i16 %4, ptr %tag27.i, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hdr.i)
-  %fid = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %8 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %8, ptr %le_val.i, align 4
@@ -2377,7 +2373,7 @@ do.end10:                                         ; preds = %lor.lhs.false, %do.
   call void @qtest_memwrite(ptr noundef %5, i64 noundef %add.i.i10, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
   %add2.i.i11 = add i64 %7, 11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  %flags = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %opt, i64 16
   %9 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i12)
   store i32 %9, ptr %le_val.i12, align 4
@@ -2386,12 +2382,12 @@ do.end10:                                         ; preds = %lor.lhs.false, %do.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i12)
   %10 = load ptr, ptr @alloc, align 8
   %call.i17 = call i64 @guest_alloc(ptr noundef %10, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %call.i17, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %0, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %vq.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %5, ptr noundef %11, i64 noundef %call26.i, i32 noundef 15, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %12 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %5, ptr noundef %12, i64 noundef %call.i17, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -2399,7 +2395,7 @@ do.end10:                                         ; preds = %lor.lhs.false, %do.
   %14 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %5, ptr noundef %13, ptr noundef %14, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 5
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 40
   %15 = load i8, ptr %requestOnly, align 8
   %16 = and i8 %15, 1
   %tobool12.not = icmp eq i8 %16, 0
@@ -2415,7 +2411,7 @@ if.then16:                                        ; preds = %if.then13
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
   %19 = load ptr, ptr %call.i, align 8
   %20 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %21 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %21, %20
   call void @qtest_memread(ptr noundef %19, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -2440,9 +2436,9 @@ if.else22:                                        ; preds = %if.then16
   br label %if.end33
 
 if.else27:                                        ; preds = %if.then13
-  %rlopen28 = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 4
+  %rlopen28 = getelementptr inbounds i8, ptr %opt, i64 24
   %28 = load ptr, ptr %rlopen28, align 8
-  %iounit31 = getelementptr inbounds %struct.TLOpenOpt, ptr %opt, i64 0, i32 4, i32 1
+  %iounit31 = getelementptr inbounds i8, ptr %opt, i64 32
   %29 = load ptr, ptr %iounit31, align 8
   call void @v9fs_rlopen(ptr noundef nonnull %call.i, ptr noundef %28, ptr noundef %29)
   br label %if.end33
@@ -2461,9 +2457,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
@@ -2473,7 +2469,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %r_off.i7 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i7 = getelementptr inbounds i8, ptr %req, i64 56
   %4 = load i64, ptr %r_off.i7, align 8
   %add.i8 = add i64 %4, 13
   store i64 %add.i8, ptr %r_off.i7, align 8
@@ -2486,9 +2482,9 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then2:                                         ; preds = %if.end
   %6 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %7 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %add.i.i = add i64 %5, %7
   tail call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %iounit, i64 noundef 4) #13
   %8 = load i64, ptr %r_off.i.i, align 8
@@ -2498,11 +2494,11 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then2, %if.end
   %9 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %10 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %9, i64 noundef %10) #13
   %11 = load ptr, ptr @alloc, align 8
-  %r_msg.i9 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i9 = getelementptr inbounds i8, ptr %req, i64 40
   %12 = load i64, ptr %r_msg.i9, align 8
   tail call void @guest_free(ptr noundef %11, i64 noundef %12) #13
   tail call void @g_free(ptr noundef nonnull %req) #13
@@ -2527,7 +2523,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %count = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %opt, i64 24
   %1 = load i32, ptr %count, align 8
   %cmp = icmp ult i32 %1, -16
   br i1 %cmp, label %do.end9, label %if.else5
@@ -2540,23 +2536,23 @@ if.else5:                                         ; preds = %do.body1
 
 do.end9:                                          ; preds = %if.else5, %do.body1
   %add = add i32 %1, 16
-  %tag = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %2 = load i16, ptr %tag, align 8
   %call = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 118, i16 noundef zeroext %2)
-  %fid = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %3 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %3, ptr %le_val.i, align 4
   %4 = load ptr, ptr %call, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %5 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %6 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %6, %5
   call void @qtest_memwrite(ptr noundef %4, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
   %add2.i.i = add i64 %6, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  %offset = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %opt, i64 16
   %7 = load i64, ptr %offset, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %le_val.i15)
   store i64 %7, ptr %le_val.i15, align 8
@@ -2570,23 +2566,23 @@ do.end9:                                          ; preds = %if.else5, %do.body1
   call void @qtest_memwrite(ptr noundef %4, i64 noundef %add.i.i23, ptr noundef nonnull %le_val.i20, i64 noundef 4) #13
   %add2.i.i24 = add i64 %6, 16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i20)
-  %data = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %opt, i64 32
   %8 = load ptr, ptr %data, align 8
   %conv14 = zext i32 %1 to i64
   %add.i = add i64 %5, %add2.i.i24
   call void @qtest_memwrite(ptr noundef %4, i64 noundef %add.i, ptr noundef %8, i64 noundef %conv14) #13
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %v9p1.i, align 8
   %10 = load ptr, ptr @alloc, align 8
   %call.i = call i64 @guest_alloc(ptr noundef %10, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %call.i, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %9, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %vq.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call, i64 32
   %12 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %4, ptr noundef %11, i64 noundef %5, i32 noundef %12, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %13 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %4, ptr noundef %13, i64 noundef %call.i, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -2594,7 +2590,7 @@ do.end9:                                          ; preds = %if.else5, %do.body1
   %15 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %4, ptr noundef %14, ptr noundef %15, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 6
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 40
   %16 = load i8, ptr %requestOnly, align 8
   %17 = and i8 %16, 1
   %tobool15.not = icmp eq i8 %17, 0
@@ -2604,10 +2600,10 @@ if.then16:                                        ; preds = %do.end9
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %vq.i, align 8
   call void @qvirtio_wait_used_elem(ptr noundef %4, ptr noundef %18, ptr noundef %19, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
-  %expectErr = getelementptr inbounds %struct.TWriteOpt, ptr %opt, i64 0, i32 7
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 44
   %20 = load i32, ptr %expectErr, align 4
   %tobool17.not = icmp eq i32 %20, 0
-  %r_off.i.i.i32 = getelementptr inbounds %struct.P9Req, ptr %call, i64 0, i32 7
+  %r_off.i.i.i32 = getelementptr inbounds i8, ptr %call, i64 56
   br i1 %tobool17.not, label %if.else33, label %if.then18
 
 if.then18:                                        ; preds = %if.then16
@@ -2674,9 +2670,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i.i, align 8
   %add.i.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i.i, ptr noundef nonnull %count, i64 noundef 4) #13
@@ -2687,11 +2683,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %5 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %4, i64 noundef %5) #13
   %6 = load ptr, ptr @alloc, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %7 = load i64, ptr %r_msg.i, align 8
   tail call void @guest_free(ptr noundef %6, i64 noundef %7) #13
   tail call void @g_free(ptr noundef %req) #13
@@ -2713,34 +2709,34 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds %struct.TFlushOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %1 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
   %call.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
-  %id2.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 1
+  %id2.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i8 108, ptr %id2.i, align 4
-  %tag3.i = getelementptr inbounds %struct.P9Hdr, ptr %hdr.i, i64 0, i32 2
+  %tag3.i = getelementptr inbounds i8, ptr %hdr.i, i64 5
   store i16 %1, ptr %tag3.i, align 1
   store i32 9, ptr %hdr.i, align 4
   %2 = load ptr, ptr @global_qtest, align 8
   store ptr %2, ptr %call.i, align 8
-  %v9p23.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 1
+  %v9p23.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %v9p23.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 9, ptr %t_size.i, align 8
   %3 = load ptr, ptr @alloc, align 8
   %call26.i = tail call i64 @guest_alloc(ptr noundef %3, i64 noundef 9) #13
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call26.i, ptr %t_msg.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %4 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %4, %call26.i
   call void @qtest_memwrite(ptr noundef %2, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
   %add2.i.i = add i64 %4, 7
-  %tag27.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 2
+  %tag27.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i16 %1, ptr %tag27.i, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hdr.i)
-  %oldtag = getelementptr inbounds %struct.TFlushOpt, ptr %opt, i64 0, i32 2
+  %oldtag = getelementptr inbounds i8, ptr %opt, i64 10
   %5 = load i16, ptr %oldtag, align 2
   %conv = zext i16 %5 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
@@ -2750,12 +2746,12 @@ do.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   %6 = load ptr, ptr @alloc, align 8
   %call.i11 = call i64 @guest_alloc(ptr noundef %6, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %call.i11, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %0, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %vq.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %2, ptr noundef %7, i64 noundef %call26.i, i32 noundef 9, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %8 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %2, ptr noundef %8, i64 noundef %call.i11, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -2763,7 +2759,7 @@ do.end:                                           ; preds = %entry
   %10 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %2, ptr noundef %9, ptr noundef %10, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TFlushOpt, ptr %opt, i64 0, i32 3
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 12
   %11 = load i8, ptr %requestOnly, align 4
   %12 = and i8 %11, 1
   %tobool2.not = icmp eq i8 %12, 0
@@ -2773,7 +2769,7 @@ if.then3:                                         ; preds = %do.end
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %vq.i, align 8
   call void @qvirtio_wait_used_elem(ptr noundef %2, ptr noundef %13, ptr noundef %14, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
-  %expectErr = getelementptr inbounds %struct.TFlushOpt, ptr %opt, i64 0, i32 4
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 16
   %15 = load i32, ptr %expectErr, align 8
   %tobool4.not = icmp eq i32 %15, 0
   br i1 %tobool4.not, label %if.else17, label %if.then5
@@ -2782,7 +2778,7 @@ if.then5:                                         ; preds = %if.then3
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
   %16 = load ptr, ptr %call.i, align 8
   %17 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call.i, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %18 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %18, %17
   call void @qtest_memread(ptr noundef %16, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -2827,11 +2823,11 @@ define dso_local void @v9fs_rflush(ptr noundef %req) local_unnamed_addr #1 {
 entry:
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 109)
   %0 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %0, i64 noundef %1) #13
   %2 = load ptr, ptr @alloc, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %3 = load i64, ptr %r_msg.i, align 8
   tail call void @guest_free(ptr noundef %2, i64 noundef %3) #13
   tail call void @g_free(ptr noundef %req) #13
@@ -2855,10 +2851,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %atPath = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 3
+  %atPath = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load ptr, ptr %atPath, align 8
   %tobool2 = icmp ne ptr %1, null
-  %dfid = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 2
+  %dfid = getelementptr inbounds i8, ptr %opt, i64 12
   %2 = load i32, ptr %dfid, align 4
   %tobool3 = icmp ne i32 %2, 0
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -2869,10 +2865,10 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %expectErr = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 9
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 52
   %3 = load i32, ptr %expectErr, align 4
   %tobool9 = icmp ne i32 %3, 0
-  %rmkdir = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 7
+  %rmkdir = getelementptr inbounds i8, ptr %opt, i64 40
   %4 = load ptr, ptr %rmkdir, align 8
   %tobool11 = icmp ne ptr %4, null
   %or.cond1 = select i1 %tobool9, i1 %tobool11, i1 false
@@ -2889,7 +2885,7 @@ if.then18:                                        ; preds = %do.end15
   %5 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
   store ptr %0, ptr %.compoundliteral, align 8
-  %path = getelementptr inbounds %struct.TWalkOpt, ptr %.compoundliteral, i64 0, i32 6
+  %path = getelementptr inbounds i8, ptr %.compoundliteral, i64 32
   store ptr %1, ptr %path, align 8
   %call = tail call { i32, ptr } @v9fs_twalk(ptr noundef nonnull byval(%struct.TWalkOpt) align 8 %.compoundliteral)
   %6 = extractvalue { i32, ptr } %call, 0
@@ -2897,11 +2893,11 @@ if.then18:                                        ; preds = %do.end15
 
 if.end24:                                         ; preds = %if.then18, %do.end15
   %7 = phi i32 [ %6, %if.then18 ], [ %2, %do.end15 ]
-  %mode = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %opt, i64 32
   %8 = load i32, ptr %mode, align 8
   %tobool25.not = icmp eq i32 %8, 0
   %spec.select = select i1 %tobool25.not, i32 488, i32 %8
-  %name = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %opt, i64 24
   %9 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %cmp.i = icmp slt i64 %call.i, 65534
@@ -2917,15 +2913,15 @@ v9fs_string_size.exit:                            ; preds = %if.end24, %if.else.
   %conv2.i = add i32 %10, 2
   %conv31 = and i32 %conv2.i, 65535
   %add = add nuw nsw i32 %conv31, 12
-  %tag = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %11 = load i16, ptr %tag, align 8
   %call42 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 72, i16 noundef zeroext %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %7, ptr %le_val.i, align 4
   %12 = load ptr, ptr %call42, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call42, i64 24
   %13 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call42, i64 48
   %14 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %14, %13
   call void @qtest_memwrite(ptr noundef %12, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -2942,25 +2938,25 @@ v9fs_string_size.exit:                            ; preds = %if.end24, %if.else.
   call void @qtest_memwrite(ptr noundef %15, i64 noundef %add.i.i20, ptr noundef nonnull %le_val.i17, i64 noundef 4) #13
   %add2.i.i21 = add i64 %17, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i17)
-  %gid = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 6
+  %gid = getelementptr inbounds i8, ptr %opt, i64 36
   %18 = load i32, ptr %gid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i22)
   store i32 %18, ptr %le_val.i22, align 4
   %add.i.i25 = add i64 %16, %add2.i.i21
   call void @qtest_memwrite(ptr noundef %15, i64 noundef %add.i.i25, ptr noundef nonnull %le_val.i22, i64 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i22)
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call42, i64 8
   %19 = load ptr, ptr %v9p1.i, align 8
   %20 = load ptr, ptr @alloc, align 8
   %call.i27 = call i64 @guest_alloc(ptr noundef %20, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call42, i64 40
   store i64 %call.i27, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %19, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %vq.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call42, i64 32
   %22 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %15, ptr noundef %21, i64 noundef %16, i32 noundef %22, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call42, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %23 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %15, ptr noundef %23, i64 noundef %call.i27, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -2968,7 +2964,7 @@ v9fs_string_size.exit:                            ; preds = %if.end24, %if.else.
   %25 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %15, ptr noundef %24, ptr noundef %25, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TMkdirOpt, ptr %opt, i64 0, i32 8
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 48
   %26 = load i8, ptr %requestOnly, align 8
   %27 = and i8 %26, 1
   %tobool46.not = icmp eq i8 %27, 0
@@ -2985,7 +2981,7 @@ if.then50:                                        ; preds = %if.then47
   call void @v9fs_req_recv(ptr noundef nonnull %call42, i8 noundef zeroext 7)
   %30 = load ptr, ptr %call42, align 8
   %31 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call42, i64 56
   %32 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %32, %31
   call void @qtest_memread(ptr noundef %30, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -3017,14 +3013,14 @@ if.else65:                                        ; preds = %if.then47
 if.then.i:                                        ; preds = %if.else65
   %39 = load ptr, ptr %call42, align 8
   %40 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %call42, i64 56
   %41 = load i64, ptr %r_off.i.i, align 8
   %add.i.i32 = add i64 %41, %40
   call void @qtest_memread(ptr noundef %39, i64 noundef %add.i.i32, ptr noundef nonnull %4, i64 noundef 13) #13
   br label %v9fs_rmkdir.exit
 
 if.else.i34:                                      ; preds = %if.else65
-  %r_off.i5.i = getelementptr inbounds %struct.P9Req, ptr %call42, i64 0, i32 7
+  %r_off.i5.i = getelementptr inbounds i8, ptr %call42, i64 56
   br label %v9fs_rmkdir.exit
 
 v9fs_rmkdir.exit:                                 ; preds = %if.then.i, %if.else.i34
@@ -3055,16 +3051,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %r_off.i5 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i5 = getelementptr inbounds i8, ptr %req, i64 56
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3073,11 +3069,11 @@ if.end:                                           ; preds = %if.else, %if.then
   %add.i6 = add i64 %3, 13
   store i64 %add.i6, ptr %r_off.i5.sink8, align 8
   %4 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %5 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %4, i64 noundef %5) #13
   %6 = load ptr, ptr @alloc, align 8
-  %r_msg.i7 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i7 = getelementptr inbounds i8, ptr %req, i64 40
   %7 = load i64, ptr %r_msg.i7, align 8
   tail call void @guest_free(ptr noundef %6, i64 noundef %7) #13
   tail call void @g_free(ptr noundef nonnull %req) #13
@@ -3102,10 +3098,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %atPath = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 3
+  %atPath = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load ptr, ptr %atPath, align 8
   %tobool2 = icmp ne ptr %1, null
-  %fid = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %2 = load i32, ptr %fid, align 4
   %tobool3 = icmp ne i32 %2, 0
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -3116,16 +3112,16 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %expectErr = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 10
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 68
   %3 = load i32, ptr %expectErr, align 4
   %tobool9.not = icmp eq i32 %3, 0
   br i1 %tobool9.not, label %do.end18, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %do.body8
-  %rlcreate = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 8
+  %rlcreate = getelementptr inbounds i8, ptr %opt, i64 48
   %4 = load ptr, ptr %rlcreate, align 8
   %tobool11 = icmp ne ptr %4, null
-  %iounit = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 8, i32 1
+  %iounit = getelementptr inbounds i8, ptr %opt, i64 56
   %5 = load ptr, ptr %iounit, align 8
   %tobool14 = icmp ne ptr %5, null
   %or.cond1 = select i1 %tobool11, i1 true, i1 %tobool14
@@ -3143,7 +3139,7 @@ if.then21:                                        ; preds = %do.end18
   %6 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 56, i1 false)
   store ptr %0, ptr %.compoundliteral, align 8
-  %path = getelementptr inbounds %struct.TWalkOpt, ptr %.compoundliteral, i64 0, i32 6
+  %path = getelementptr inbounds i8, ptr %.compoundliteral, i64 32
   store ptr %1, ptr %path, align 8
   %call = tail call { i32, ptr } @v9fs_twalk(ptr noundef nonnull byval(%struct.TWalkOpt) align 8 %.compoundliteral)
   %7 = extractvalue { i32, ptr } %call, 0
@@ -3151,11 +3147,11 @@ if.then21:                                        ; preds = %do.end18
 
 if.end28:                                         ; preds = %if.then21, %do.end18
   %8 = phi i32 [ %7, %if.then21 ], [ %2, %do.end18 ]
-  %mode = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 6
+  %mode = getelementptr inbounds i8, ptr %opt, i64 36
   %9 = load i32, ptr %mode, align 4
   %tobool29.not = icmp eq i32 %9, 0
   %spec.select = select i1 %tobool29.not, i32 488, i32 %9
-  %name = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %opt, i64 24
   %10 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
   %cmp.i = icmp slt i64 %call.i, 65534
@@ -3171,15 +3167,15 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   %conv2.i = add i32 %11, 2
   %conv35 = and i32 %conv2.i, 65535
   %add = add nuw nsw i32 %conv35, 16
-  %tag = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %12 = load i16, ptr %tag, align 8
   %call46 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 14, i16 noundef zeroext %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %8, ptr %le_val.i, align 4
   %13 = load ptr, ptr %call46, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call46, i64 24
   %14 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call46, i64 48
   %15 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %15, %14
   call void @qtest_memwrite(ptr noundef %13, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -3187,7 +3183,7 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @v9fs_string_write(ptr noundef nonnull %call46, ptr noundef %10)
-  %flags = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %opt, i64 32
   %16 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i18)
   store i32 %16, ptr %le_val.i18, align 4
@@ -3204,25 +3200,25 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   call void @qtest_memwrite(ptr noundef %17, i64 noundef %add.i.i26, ptr noundef nonnull %le_val.i23, i64 noundef 4) #13
   %add2.i.i27 = add i64 %19, 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i23)
-  %gid = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 7
+  %gid = getelementptr inbounds i8, ptr %opt, i64 40
   %20 = load i32, ptr %gid, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i28)
   store i32 %20, ptr %le_val.i28, align 4
   %add.i.i31 = add i64 %18, %add2.i.i27
   call void @qtest_memwrite(ptr noundef %17, i64 noundef %add.i.i31, ptr noundef nonnull %le_val.i28, i64 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i28)
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call46, i64 8
   %21 = load ptr, ptr %v9p1.i, align 8
   %22 = load ptr, ptr @alloc, align 8
   %call.i33 = call i64 @guest_alloc(ptr noundef %22, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call46, i64 40
   store i64 %call.i33, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %21, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %vq.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call46, i64 32
   %24 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %17, ptr noundef %23, i64 noundef %18, i32 noundef %24, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call46, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %25 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %17, ptr noundef %25, i64 noundef %call.i33, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3230,7 +3226,7 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   %27 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %17, ptr noundef %26, ptr noundef %27, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 9
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 64
   %28 = load i8, ptr %requestOnly, align 8
   %29 = and i8 %28, 1
   %tobool50.not = icmp eq i8 %29, 0
@@ -3246,7 +3242,7 @@ if.then54:                                        ; preds = %if.then51
   call void @v9fs_req_recv(ptr noundef nonnull %call46, i8 noundef zeroext 7)
   %32 = load ptr, ptr %call46, align 8
   %33 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call46, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call46, i64 56
   %34 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %34, %33
   call void @qtest_memread(ptr noundef %32, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -3271,9 +3267,9 @@ if.else64:                                        ; preds = %if.then54
   br label %if.end75
 
 if.else69:                                        ; preds = %if.then51
-  %rlcreate70 = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 8
+  %rlcreate70 = getelementptr inbounds i8, ptr %opt, i64 48
   %41 = load ptr, ptr %rlcreate70, align 8
-  %iounit73 = getelementptr inbounds %struct.TlcreateOpt, ptr %opt, i64 0, i32 8, i32 1
+  %iounit73 = getelementptr inbounds i8, ptr %opt, i64 56
   %42 = load ptr, ptr %iounit73, align 8
   call void @v9fs_rlcreate(ptr noundef nonnull %call46, ptr noundef %41, ptr noundef %42)
   br label %if.end75
@@ -3292,9 +3288,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
@@ -3304,7 +3300,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %r_off.i7 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i7 = getelementptr inbounds i8, ptr %req, i64 56
   %4 = load i64, ptr %r_off.i7, align 8
   %add.i8 = add i64 %4, 13
   store i64 %add.i8, ptr %r_off.i7, align 8
@@ -3317,9 +3313,9 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then2:                                         ; preds = %if.end
   %6 = load ptr, ptr %req, align 8
-  %r_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
   %7 = load i64, ptr %r_msg.i.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
   %add.i.i = add i64 %5, %7
   tail call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %iounit, i64 noundef 4) #13
   %8 = load i64, ptr %r_off.i.i, align 8
@@ -3329,11 +3325,11 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then2, %if.end
   %9 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %10 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %9, i64 noundef %10) #13
   %11 = load ptr, ptr @alloc, align 8
-  %r_msg.i9 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i9 = getelementptr inbounds i8, ptr %req, i64 40
   %12 = load i64, ptr %r_msg.i9, align 8
   tail call void @guest_free(ptr noundef %11, i64 noundef %12) #13
   tail call void @g_free(ptr noundef nonnull %req) #13
@@ -3356,10 +3352,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %atPath = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 3
+  %atPath = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load ptr, ptr %atPath, align 8
   %tobool2 = icmp ne ptr %1, null
-  %fid = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 2
+  %fid = getelementptr inbounds i8, ptr %opt, i64 12
   %2 = load i32, ptr %fid, align 4
   %tobool3 = icmp ne i32 %2, 0
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -3370,10 +3366,10 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %expectErr = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 9
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 60
   %3 = load i32, ptr %expectErr, align 4
   %tobool9 = icmp ne i32 %3, 0
-  %rsymlink = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 7
+  %rsymlink = getelementptr inbounds i8, ptr %opt, i64 48
   %4 = load ptr, ptr %rsymlink, align 8
   %tobool11 = icmp ne ptr %4, null
   %or.cond1 = select i1 %tobool9, i1 %tobool11, i1 false
@@ -3390,7 +3386,7 @@ if.then18:                                        ; preds = %do.end15
   %5 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
   store ptr %0, ptr %.compoundliteral, align 8
-  %path = getelementptr inbounds %struct.TWalkOpt, ptr %.compoundliteral, i64 0, i32 6
+  %path = getelementptr inbounds i8, ptr %.compoundliteral, i64 32
   store ptr %1, ptr %path, align 8
   %call = tail call { i32, ptr } @v9fs_twalk(ptr noundef nonnull byval(%struct.TWalkOpt) align 8 %.compoundliteral)
   %6 = extractvalue { i32, ptr } %call, 0
@@ -3398,7 +3394,7 @@ if.then18:                                        ; preds = %do.end15
 
 if.end25:                                         ; preds = %if.then18, %do.end15
   %7 = phi i32 [ %6, %if.then18 ], [ %2, %do.end15 ]
-  %name = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %opt, i64 24
   %8 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %cmp.i = icmp slt i64 %call.i, 65534
@@ -3411,7 +3407,7 @@ if.else.i:                                        ; preds = %if.end25
 
 v9fs_string_size.exit:                            ; preds = %if.end25, %if.else.i
   %9 = trunc i64 %call.i to i32
-  %symtgt = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 5
+  %symtgt = getelementptr inbounds i8, ptr %opt, i64 32
   %10 = load ptr, ptr %symtgt, align 8
   %call.i17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
   %cmp.i18 = icmp slt i64 %call.i17, 65534
@@ -3428,15 +3424,15 @@ v9fs_string_size.exit22:                          ; preds = %v9fs_string_size.ex
   %add = add i32 %conv2.i21, %11
   %conv32 = and i32 %add, 65535
   %add42 = add nuw nsw i32 %conv32, 8
-  %tag = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %12 = load i16, ptr %tag, align 8
   %call44 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add42, i8 noundef zeroext 16, i16 noundef zeroext %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %7, ptr %le_val.i, align 4
   %13 = load ptr, ptr %call44, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call44, i64 24
   %14 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call44, i64 48
   %15 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %15, %14
   call void @qtest_memwrite(ptr noundef %13, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -3445,7 +3441,7 @@ v9fs_string_size.exit22:                          ; preds = %v9fs_string_size.ex
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @v9fs_string_write(ptr noundef nonnull %call44, ptr noundef %8)
   call void @v9fs_string_write(ptr noundef nonnull %call44, ptr noundef %10)
-  %gid = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 6
+  %gid = getelementptr inbounds i8, ptr %opt, i64 40
   %16 = load i32, ptr %gid, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i23)
   store i32 %16, ptr %le_val.i23, align 4
@@ -3455,18 +3451,18 @@ v9fs_string_size.exit22:                          ; preds = %v9fs_string_size.ex
   %add.i.i26 = add i64 %19, %18
   call void @qtest_memwrite(ptr noundef %17, i64 noundef %add.i.i26, ptr noundef nonnull %le_val.i23, i64 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i23)
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call44, i64 8
   %20 = load ptr, ptr %v9p1.i, align 8
   %21 = load ptr, ptr @alloc, align 8
   %call.i28 = call i64 @guest_alloc(ptr noundef %21, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call44, i64 40
   store i64 %call.i28, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %20, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %vq.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call44, i64 32
   %23 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %17, ptr noundef %22, i64 noundef %18, i32 noundef %23, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call44, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %24 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %17, ptr noundef %24, i64 noundef %call.i28, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3474,7 +3470,7 @@ v9fs_string_size.exit22:                          ; preds = %v9fs_string_size.ex
   %26 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %17, ptr noundef %25, ptr noundef %26, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TsymlinkOpt, ptr %opt, i64 0, i32 8
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 56
   %27 = load i8, ptr %requestOnly, align 8
   %28 = and i8 %27, 1
   %tobool48.not = icmp eq i8 %28, 0
@@ -3491,7 +3487,7 @@ if.then52:                                        ; preds = %if.then49
   call void @v9fs_req_recv(ptr noundef nonnull %call44, i8 noundef zeroext 7)
   %31 = load ptr, ptr %call44, align 8
   %32 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call44, i64 56
   %33 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %33, %32
   call void @qtest_memread(ptr noundef %31, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -3523,14 +3519,14 @@ if.else67:                                        ; preds = %if.then49
 if.then.i:                                        ; preds = %if.else67
   %40 = load ptr, ptr %call44, align 8
   %41 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 7
+  %r_off.i.i = getelementptr inbounds i8, ptr %call44, i64 56
   %42 = load i64, ptr %r_off.i.i, align 8
   %add.i.i33 = add i64 %42, %41
   call void @qtest_memread(ptr noundef %40, i64 noundef %add.i.i33, ptr noundef nonnull %4, i64 noundef 13) #13
   br label %v9fs_rsymlink.exit
 
 if.else.i35:                                      ; preds = %if.else67
-  %r_off.i5.i = getelementptr inbounds %struct.P9Req, ptr %call44, i64 0, i32 7
+  %r_off.i5.i = getelementptr inbounds i8, ptr %call44, i64 56
   br label %v9fs_rsymlink.exit
 
 v9fs_rsymlink.exit:                               ; preds = %if.then.i, %if.else.i35
@@ -3561,16 +3557,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %req, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %1 = load i64, ptr %r_msg.i, align 8
-  %r_off.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i = getelementptr inbounds i8, ptr %req, i64 56
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %r_off.i5 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 7
+  %r_off.i5 = getelementptr inbounds i8, ptr %req, i64 56
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3579,11 +3575,11 @@ if.end:                                           ; preds = %if.else, %if.then
   %add.i6 = add i64 %3, 13
   store i64 %add.i6, ptr %r_off.i5.sink8, align 8
   %4 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %5 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %4, i64 noundef %5) #13
   %6 = load ptr, ptr @alloc, align 8
-  %r_msg.i7 = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i7 = getelementptr inbounds i8, ptr %req, i64 40
   %7 = load i64, ptr %r_msg.i7, align 8
   tail call void @guest_free(ptr noundef %6, i64 noundef %7) #13
   tail call void @g_free(ptr noundef nonnull %req) #13
@@ -3607,10 +3603,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %atPath = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 3
+  %atPath = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load ptr, ptr %atPath, align 8
   %tobool2 = icmp ne ptr %1, null
-  %dfid = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 2
+  %dfid = getelementptr inbounds i8, ptr %opt, i64 12
   %2 = load i32, ptr %dfid, align 4
   %tobool3 = icmp ne i32 %2, 0
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -3621,10 +3617,10 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %toPath = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 5
+  %toPath = getelementptr inbounds i8, ptr %opt, i64 32
   %3 = load ptr, ptr %toPath, align 8
   %tobool9 = icmp ne ptr %3, null
-  %fid = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 4
+  %fid = getelementptr inbounds i8, ptr %opt, i64 24
   %4 = load i32, ptr %fid, align 8
   %tobool11 = icmp ne i32 %4, 0
   %or.cond1 = select i1 %tobool9, i1 %tobool11, i1 false
@@ -3641,7 +3637,7 @@ if.then18:                                        ; preds = %do.end15
   %5 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
   store ptr %0, ptr %.compoundliteral, align 8
-  %path = getelementptr inbounds %struct.TWalkOpt, ptr %.compoundliteral, i64 0, i32 6
+  %path = getelementptr inbounds i8, ptr %.compoundliteral, i64 32
   store ptr %1, ptr %path, align 8
   %call = tail call { i32, ptr } @v9fs_twalk(ptr noundef nonnull byval(%struct.TWalkOpt) align 8 %.compoundliteral)
   %6 = extractvalue { i32, ptr } %call, 0
@@ -3656,7 +3652,7 @@ if.then27:                                        ; preds = %if.end24
   %8 = getelementptr inbounds i8, ptr %.compoundliteral28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 56, i1 false)
   store ptr %0, ptr %.compoundliteral28, align 8
-  %path33 = getelementptr inbounds %struct.TWalkOpt, ptr %.compoundliteral28, i64 0, i32 6
+  %path33 = getelementptr inbounds i8, ptr %.compoundliteral28, i64 32
   store ptr %3, ptr %path33, align 8
   %call35 = tail call { i32, ptr } @v9fs_twalk(ptr noundef nonnull byval(%struct.TWalkOpt) align 8 %.compoundliteral28)
   %9 = extractvalue { i32, ptr } %call35, 0
@@ -3664,7 +3660,7 @@ if.then27:                                        ; preds = %if.end24
 
 if.end39:                                         ; preds = %if.then27, %if.end24
   %10 = phi i32 [ %9, %if.then27 ], [ %4, %if.end24 ]
-  %name = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opt, i64 40
   %11 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
   %cmp.i = icmp slt i64 %call.i, 65534
@@ -3680,15 +3676,15 @@ v9fs_string_size.exit:                            ; preds = %if.end39, %if.else.
   %conv2.i = add i32 %12, 2
   %conv42 = and i32 %conv2.i, 65535
   %add = add nuw nsw i32 %conv42, 8
-  %tag = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %13 = load i16, ptr %tag, align 8
   %call53 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 70, i16 noundef zeroext %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %7, ptr %le_val.i, align 4
   %14 = load ptr, ptr %call53, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call53, i64 24
   %15 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call53, i64 48
   %16 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %16, %15
   call void @qtest_memwrite(ptr noundef %14, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -3702,20 +3698,20 @@ v9fs_string_size.exit:                            ; preds = %if.end39, %if.else.
   store i64 %add2.i.i20, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i16)
   call void @v9fs_string_write(ptr noundef nonnull %call53, ptr noundef %11)
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call53, i64 8
   %17 = load ptr, ptr %v9p1.i, align 8
   %18 = load ptr, ptr @alloc, align 8
   %call.i21 = call i64 @guest_alloc(ptr noundef %18, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call53, i64 40
   store i64 %call.i21, ptr %r_msg.i, align 8
   %19 = load ptr, ptr %call53, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %17, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load ptr, ptr %vq.i, align 8
   %21 = load i64, ptr %t_msg.i.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call53, i64 32
   %22 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %19, ptr noundef %20, i64 noundef %21, i32 noundef %22, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call53, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %23 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %19, ptr noundef %23, i64 noundef %call.i21, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3723,7 +3719,7 @@ v9fs_string_size.exit:                            ; preds = %if.end39, %if.else.
   %25 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %19, ptr noundef %24, ptr noundef %25, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 7
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 48
   %26 = load i8, ptr %requestOnly, align 8
   %27 = and i8 %26, 1
   %tobool57.not = icmp eq i8 %27, 0
@@ -3733,7 +3729,7 @@ if.then58:                                        ; preds = %v9fs_string_size.ex
   %28 = load ptr, ptr %17, align 8
   %29 = load ptr, ptr %vq.i, align 8
   call void @qvirtio_wait_used_elem(ptr noundef %19, ptr noundef %28, ptr noundef %29, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
-  %expectErr = getelementptr inbounds %struct.TlinkOpt, ptr %opt, i64 0, i32 8
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 52
   %30 = load i32, ptr %expectErr, align 4
   %tobool59.not = icmp eq i32 %30, 0
   br i1 %tobool59.not, label %if.else75, label %if.then60
@@ -3742,7 +3738,7 @@ if.then60:                                        ; preds = %if.then58
   call void @v9fs_req_recv(ptr noundef nonnull %call53, i8 noundef zeroext 7)
   %31 = load ptr, ptr %call53, align 8
   %32 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call53, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call53, i64 56
   %33 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %33, %32
   call void @qtest_memread(ptr noundef %31, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -3787,11 +3783,11 @@ define dso_local void @v9fs_rlink(ptr noundef %req) local_unnamed_addr #1 {
 entry:
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 71)
   %0 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %0, i64 noundef %1) #13
   %2 = load ptr, ptr @alloc, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %3 = load i64, ptr %r_msg.i, align 8
   tail call void @guest_free(ptr noundef %2, i64 noundef %3) #13
   tail call void @g_free(ptr noundef %req) #13
@@ -3814,10 +3810,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %atPath = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 3
+  %atPath = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load ptr, ptr %atPath, align 8
   %tobool2 = icmp ne ptr %1, null
-  %dirfd = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 2
+  %dirfd = getelementptr inbounds i8, ptr %opt, i64 12
   %2 = load i32, ptr %dirfd, align 4
   %tobool3 = icmp ne i32 %2, 0
   %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
@@ -3834,7 +3830,7 @@ if.then10:                                        ; preds = %do.end7
   %3 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   store ptr %0, ptr %.compoundliteral, align 8
-  %path = getelementptr inbounds %struct.TWalkOpt, ptr %.compoundliteral, i64 0, i32 6
+  %path = getelementptr inbounds i8, ptr %.compoundliteral, i64 32
   store ptr %1, ptr %path, align 8
   %call = tail call { i32, ptr } @v9fs_twalk(ptr noundef nonnull byval(%struct.TWalkOpt) align 8 %.compoundliteral)
   %4 = extractvalue { i32, ptr } %call, 0
@@ -3842,7 +3838,7 @@ if.then10:                                        ; preds = %do.end7
 
 if.end15:                                         ; preds = %if.then10, %do.end7
   %5 = phi i32 [ %4, %if.then10 ], [ %2, %do.end7 ]
-  %name = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %opt, i64 24
   %6 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
   %cmp.i = icmp slt i64 %call.i, 65534
@@ -3858,15 +3854,15 @@ v9fs_string_size.exit:                            ; preds = %if.end15, %if.else.
   %conv2.i = add i32 %7, 2
   %conv18 = and i32 %conv2.i, 65535
   %add = add nuw nsw i32 %conv18, 8
-  %tag = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %8 = load i16, ptr %tag, align 8
   %call29 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 76, i16 noundef zeroext %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
   store i32 %5, ptr %le_val.i, align 4
   %9 = load ptr, ptr %call29, align 8
-  %t_msg.i.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 3
+  %t_msg.i.i = getelementptr inbounds i8, ptr %call29, i64 24
   %10 = load i64, ptr %t_msg.i.i, align 8
-  %t_off.i.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 6
+  %t_off.i.i = getelementptr inbounds i8, ptr %call29, i64 48
   %11 = load i64, ptr %t_off.i.i, align 8
   %add.i.i = add i64 %11, %10
   call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
@@ -3874,7 +3870,7 @@ v9fs_string_size.exit:                            ; preds = %if.end15, %if.else.
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @v9fs_string_write(ptr noundef nonnull %call29, ptr noundef %6)
-  %flags = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %opt, i64 32
   %12 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i15)
   store i32 %12, ptr %le_val.i15, align 4
@@ -3884,18 +3880,18 @@ v9fs_string_size.exit:                            ; preds = %if.end15, %if.else.
   %add.i.i18 = add i64 %15, %14
   call void @qtest_memwrite(ptr noundef %13, i64 noundef %add.i.i18, ptr noundef nonnull %le_val.i15, i64 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i15)
-  %v9p1.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 1
+  %v9p1.i = getelementptr inbounds i8, ptr %call29, i64 8
   %16 = load ptr, ptr %v9p1.i, align 8
   %17 = load ptr, ptr @alloc, align 8
   %call.i20 = call i64 @guest_alloc(ptr noundef %17, i64 noundef 4096) #13
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %call29, i64 40
   store i64 %call.i20, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds %struct.QVirtio9P, ptr %16, i64 0, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %vq.i, align 8
-  %t_size.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 4
+  %t_size.i = getelementptr inbounds i8, ptr %call29, i64 32
   %19 = load i32, ptr %t_size.i, align 8
   %call2.i = call i32 @qvirtqueue_add(ptr noundef %13, ptr noundef %18, i64 noundef %14, i32 noundef %19, i1 noundef zeroext false, i1 noundef zeroext true) #13
-  %free_head.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 8
+  %free_head.i = getelementptr inbounds i8, ptr %call29, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
   %20 = load ptr, ptr %vq.i, align 8
   %call6.i = call i32 @qvirtqueue_add(ptr noundef %13, ptr noundef %20, i64 noundef %call.i20, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -3903,7 +3899,7 @@ v9fs_string_size.exit:                            ; preds = %if.end15, %if.else.
   %22 = load ptr, ptr %vq.i, align 8
   call void @qvirtqueue_kick(ptr noundef %13, ptr noundef %21, ptr noundef %22, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  %requestOnly = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 6
+  %requestOnly = getelementptr inbounds i8, ptr %opt, i64 36
   %23 = load i8, ptr %requestOnly, align 4
   %24 = and i8 %23, 1
   %tobool32.not = icmp eq i8 %24, 0
@@ -3913,7 +3909,7 @@ if.then33:                                        ; preds = %v9fs_string_size.ex
   %25 = load ptr, ptr %16, align 8
   %26 = load ptr, ptr %vq.i, align 8
   call void @qvirtio_wait_used_elem(ptr noundef %13, ptr noundef %25, ptr noundef %26, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
-  %expectErr = getelementptr inbounds %struct.TunlinkatOpt, ptr %opt, i64 0, i32 7
+  %expectErr = getelementptr inbounds i8, ptr %opt, i64 40
   %27 = load i32, ptr %expectErr, align 8
   %tobool34.not = icmp eq i32 %27, 0
   br i1 %tobool34.not, label %if.else50, label %if.then35
@@ -3922,7 +3918,7 @@ if.then35:                                        ; preds = %if.then33
   call void @v9fs_req_recv(ptr noundef nonnull %call29, i8 noundef zeroext 7)
   %28 = load ptr, ptr %call29, align 8
   %29 = load i64, ptr %r_msg.i, align 8
-  %r_off.i.i.i = getelementptr inbounds %struct.P9Req, ptr %call29, i64 0, i32 7
+  %r_off.i.i.i = getelementptr inbounds i8, ptr %call29, i64 56
   %30 = load i64, ptr %r_off.i.i.i, align 8
   %add.i.i.i = add i64 %30, %29
   call void @qtest_memread(ptr noundef %28, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
@@ -3967,11 +3963,11 @@ define dso_local void @v9fs_runlinkat(ptr noundef %req) local_unnamed_addr #1 {
 entry:
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 77)
   %0 = load ptr, ptr @alloc, align 8
-  %t_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 3
+  %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
   %1 = load i64, ptr %t_msg.i, align 8
   tail call void @guest_free(ptr noundef %0, i64 noundef %1) #13
   %2 = load ptr, ptr @alloc, align 8
-  %r_msg.i = getelementptr inbounds %struct.P9Req, ptr %req, i64 0, i32 5
+  %r_msg.i = getelementptr inbounds i8, ptr %req, i64 40
   %3 = load i64, ptr %r_msg.i, align 8
   tail call void @guest_free(ptr noundef %2, i64 noundef %3) #13
   tail call void @g_free(ptr noundef %req) #13

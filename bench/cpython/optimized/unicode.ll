@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon }
-%struct.anon = type { i32 }
 
 @_testcapimodule = internal unnamed_addr global ptr null, align 8
 @TestMethods = internal global [86 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @codec_incrementalencoder, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @codec_incrementaldecoder, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @test_unicode_compare_with_ascii, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @test_string_from_format, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @test_widechar, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.5, ptr @unicode_new, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.6, ptr @unicode_fill, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.7, ptr @unicode_writechar, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.8, ptr @unicode_resize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.9, ptr @unicode_append, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.10, ptr @unicode_appendanddel, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.11, ptr @unicode_fromstringandsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.12, ptr @unicode_fromstring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.13, ptr @unicode_fromkindanddata, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.14, ptr @unicode_substring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.15, ptr @unicode_getlength, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.16, ptr @unicode_readchar, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.17, ptr @unicode_fromencodedobject, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.18, ptr @unicode_fromobject, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.19, ptr @unicode_interninplace, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.20, ptr @unicode_internfromstring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.21, ptr @unicode_fromwidechar, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.22, ptr @unicode_aswidechar, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.23, ptr @unicode_aswidechar_null, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.24, ptr @unicode_aswidecharstring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.25, ptr @unicode_aswidecharstring_null, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.26, ptr @unicode_asucs4, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.27, ptr @unicode_asucs4copy, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.28, ptr @unicode_fromordinal, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.29, ptr @unicode_asutf8, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.30, ptr @unicode_asutf8andsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.31, ptr @unicode_asutf8andsize_null, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.32, ptr @unicode_getdefaultencoding, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.33, ptr @unicode_decode, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.34, ptr @unicode_asencodedstring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.35, ptr @unicode_buildencodingmap, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.36, ptr @unicode_decodeutf7, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.37, ptr @unicode_decodeutf7stateful, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.38, ptr @unicode_decodeutf8, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.39, ptr @unicode_decodeutf8stateful, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.40, ptr @unicode_asutf8string, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.41, ptr @unicode_decodeutf16, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.42, ptr @unicode_decodeutf16stateful, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.43, ptr @unicode_asutf16string, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.44, ptr @unicode_decodeutf32, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.45, ptr @unicode_decodeutf32stateful, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.46, ptr @unicode_asutf32string, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.47, ptr @unicode_decodeunicodeescape, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.48, ptr @unicode_asunicodeescapestring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.49, ptr @unicode_decoderawunicodeescape, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.50, ptr @unicode_asrawunicodeescapestring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.51, ptr @unicode_decodelatin1, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.52, ptr @unicode_aslatin1string, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.53, ptr @unicode_decodeascii, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.54, ptr @unicode_asasciistring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.55, ptr @unicode_decodecharmap, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.56, ptr @unicode_ascharmapstring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.57, ptr @unicode_decodelocaleandsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.58, ptr @unicode_decodelocale, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.59, ptr @unicode_encodelocale, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.60, ptr @unicode_decodefsdefault, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.61, ptr @unicode_decodefsdefaultandsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.62, ptr @unicode_encodefsdefault, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.63, ptr @unicode_concat, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.64, ptr @unicode_splitlines, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.65, ptr @unicode_split, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.66, ptr @unicode_rsplit, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.67, ptr @unicode_partition, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.68, ptr @unicode_rpartition, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.69, ptr @unicode_translate, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.70, ptr @unicode_join, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.71, ptr @unicode_count, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.72, ptr @unicode_tailmatch, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.73, ptr @unicode_find, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.74, ptr @unicode_findchar, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.75, ptr @unicode_replace, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.76, ptr @unicode_compare, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.77, ptr @unicode_comparewithasciistring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.78, ptr @unicode_equaltoutf8, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.79, ptr @unicode_equaltoutf8andsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.80, ptr @unicode_richcompare, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.81, ptr @unicode_format, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.82, ptr @unicode_contains, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.83, ptr @unicode_isidentifier, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.84, ptr @unicode_copycharacters, i32 1, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
@@ -10932,9 +10930,9 @@ cond.false.i31:                                   ; preds = %PyUnicode_GET_LENGT
   unreachable
 
 PyUnicode_GET_LENGTH.exit32:                      ; preds = %PyUnicode_GET_LENGTH.exit
-  %length.i = getelementptr inbounds %struct.PyASCIIObject, ptr %call, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %call, i64 16
   %8 = load i64, ptr %length.i, align 8
-  %length.i30 = getelementptr inbounds %struct.PyASCIIObject, ptr %call1, i64 0, i32 1
+  %length.i30 = getelementptr inbounds i8, ptr %call1, i64 16
   %9 = load i64, ptr %length.i30, align 8
   %cmp7.not = icmp eq i64 %8, %9
   br i1 %cmp7.not, label %if.end9, label %if.then8
@@ -11330,7 +11328,7 @@ land.lhs.true16:                                  ; preds = %if.end14
 
 land.lhs.true20:                                  ; preds = %land.lhs.true16
   %11 = load i64, ptr %length, align 8
-  %length.i = getelementptr inbounds %struct.PyASCIIObject, ptr %7, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %7, i64 16
   %12 = load i64, ptr %length.i, align 8
   %cmp22 = icmp sgt i64 %11, %12
   br i1 %cmp22, label %PyUnicode_GET_LENGTH.exit10, label %if.end29
@@ -12109,7 +12107,7 @@ cond.false.i:                                     ; preds = %if.end6
   unreachable
 
 PyUnicode_GET_LENGTH.exit:                        ; preds = %if.end6
-  %length.i = getelementptr inbounds %struct.PyASCIIObject, ptr %2, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %length.i, align 8
   %add = add i64 %6, 1
   %call8 = call ptr @PyUnicode_FromKindAndData(i32 noundef 4, ptr noundef nonnull %call3, i64 noundef %add) #4
@@ -13966,9 +13964,9 @@ cond.false.i:                                     ; preds = %do.end
   unreachable
 
 PyUnicode_IS_ASCII.exit.i:                        ; preds = %do.end
-  %length.i = getelementptr inbounds %struct.PyASCIIObject, ptr %1, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %length.i, align 8
-  %state.i.i = getelementptr inbounds %struct.PyASCIIObject, ptr %1, i64 0, i32 3
+  %state.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %6 = and i32 %bf.load.i.i, 64
   %tobool.not.i11 = icmp eq i32 %6, 0
@@ -14013,7 +14011,7 @@ cond.false.i17:                                   ; preds = %if.end8
   unreachable
 
 PyUnicode_GET_LENGTH.exit18:                      ; preds = %if.end8
-  %length.i16 = getelementptr inbounds %struct.PyASCIIObject, ptr %call5, i64 0, i32 1
+  %length.i16 = getelementptr inbounds i8, ptr %call5, i64 16
   %10 = load i64, ptr %length.i16, align 8
   %call10 = call i64 @PyUnicode_Fill(ptr noundef nonnull %call5, i64 noundef 0, i64 noundef %10, i32 noundef 0) #4
   %cmp11 = icmp slt i64 %call10, 0
@@ -14191,9 +14189,9 @@ if.end.i19:                                       ; preds = %if.then3
   br label %return
 
 PyUnicode_IS_ASCII.exit.i:                        ; preds = %if.end
-  %length.i = getelementptr inbounds %struct.PyASCIIObject, ptr %unicode, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %unicode, i64 16
   %4 = load i64, ptr %length.i, align 8
-  %state.i.i = getelementptr inbounds %struct.PyASCIIObject, ptr %unicode, i64 0, i32 3
+  %state.i.i = getelementptr inbounds i8, ptr %unicode, i64 32
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %5 = and i32 %bf.load.i.i, 64
   %tobool.not.i15 = icmp eq i32 %5, 0

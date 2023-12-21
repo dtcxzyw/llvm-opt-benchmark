@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"struct.google::protobuf::json_internal::MessagePath::Component" = type <{ i32, [4 x i8], %"class.std::basic_string_view", %"class.std::basic_string_view", i32, [4 x i8] }>
-%"struct.std::_Vector_base<google::protobuf::json_internal::MessagePath::Component, std::allocator<google::protobuf::json_internal::MessagePath::Component>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -44,15 +43,15 @@ entry:
   %ref.tmp37 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp38 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %0 = load ptr, ptr %this, align 8
-  %type_name = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %0, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %0, i64 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %type_name, align 8
-  %agg.tmp.sroa.2.0.type_name.sroa_idx = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %0, i64 0, i32 2, i32 1
+  %agg.tmp.sroa.2.0.type_name.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.type_name.sroa_idx, align 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %ref.tmp, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
   call void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::json_internal::MessagePath::Component, std::allocator<google::protobuf::json_internal::MessagePath::Component>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -63,7 +62,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 3, ptr %ref.tmp4, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp4, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str, ptr %3, align 8
   call void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4)
   %4 = load ptr, ptr %_M_finish.i, align 8
@@ -76,13 +75,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp735, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %6 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp8, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   %pc.sroa.2.0.piece_.sroa_idx.i17 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
-  %7 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp18, i64 0, i32 1
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp19, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
   %sub.ptr.rhs.cast.i22 = ptrtoint ptr %digits_.i to i64
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp19, i64 0, i32 1
-  %8 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp23, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
+  %8 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -93,9 +92,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call.i.i.i.i16 = zext i1 %cmp9 to i64
   store i64 %call.i.i.i.i16, ptr %ref.tmp8, align 8
   store ptr %cond, ptr %6, align 8
-  %field_name = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %9, i64 %i.036, i32 3
+  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %9, i64 %i.036
+  %field_name = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %agg.tmp11.sroa.0.0.copyload = load i64, ptr %field_name, align 8
-  %agg.tmp11.sroa.2.0.field_name.sroa_idx = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %9, i64 %i.036, i32 3, i32 1
+  %agg.tmp11.sroa.2.0.field_name.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %agg.tmp11.sroa.2.0.copyload = load ptr, ptr %agg.tmp11.sroa.2.0.field_name.sroa_idx, align 8
   store i64 %agg.tmp11.sroa.0.0.copyload, ptr %ref.tmp10, align 8
   store ptr %agg.tmp11.sroa.2.0.copyload, ptr %pc.sroa.2.0.piece_.sroa_idx.i17, align 8
@@ -134,30 +134,30 @@ for.inc:                                          ; preds = %for.body, %if.then1
 
 for.end:                                          ; preds = %for.inc, %if.end
   %.lcssa = phi ptr [ %4, %if.end ], [ %14, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %.lcssa, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -48
   %15 = load i32, ptr %add.ptr.i.i, align 8
   %idxprom.i = zext i32 %15 to i64
   %arrayidx.i = getelementptr inbounds [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
   %16 = load ptr, ptr %arrayidx.i, align 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #6
   store i64 2, ptr %ref.tmp28, align 8
-  %17 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp28, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   store ptr @.str.5, ptr %17, align 8
   store i64 %call.i.i, ptr %ref.tmp29, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i26 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   store ptr %16, ptr %pc.sroa.2.0.piece_.sroa_idx.i26, align 8
   call void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29)
   %18 = load ptr, ptr %_M_finish.i, align 8
-  %type_name34 = getelementptr %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %18, i64 -1, i32 2
+  %type_name34 = getelementptr inbounds i8, ptr %18, i64 -40
   %type_name31.sroa.0.0.copyload = load i64, ptr %type_name34, align 8
   %cmp.i = icmp eq i64 %type_name31.sroa.0.0.copyload, 0
   br i1 %cmp.i, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %for.end
-  %type_name31.sroa.3.0.type_name34.sroa_idx = getelementptr %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %18, i64 -1, i32 2, i32 1
+  %type_name31.sroa.3.0.type_name34.sroa_idx = getelementptr inbounds i8, ptr %18, i64 -32
   %type_name31.sroa.3.0.copyload = load ptr, ptr %type_name31.sroa.3.0.type_name34.sroa_idx, align 8
   store i64 1, ptr %ref.tmp37, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp37, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   store ptr @.str.6, ptr %19, align 8
   store i64 %type_name31.sroa.0.0.copyload, ptr %ref.tmp38, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i30 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8

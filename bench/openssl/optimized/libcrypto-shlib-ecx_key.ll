@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ecx_key.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ecx_key_st = type { ptr, ptr, i8, [57 x i8], ptr, i64, i32, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/ec/ecx_key.c\00", align 1
 @__func__.ossl_ecx_compute_key = private unnamed_addr constant [21 x i8] c"ossl_ecx_compute_key\00", align 1
 @switch.table.ossl_ecx_key_new = private unnamed_addr constant [4 x i64] [i64 32, i64 56, i64 32, i64 57], align 8
@@ -19,7 +16,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %libctx, ptr %call, align 8
-  %haspubkey2 = getelementptr inbounds %struct.ecx_key_st, ptr %call, i64 0, i32 2
+  %haspubkey2 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = trunc i32 %haspubkey to i8
   %bf.load = load i8, ptr %haspubkey2, align 8
   %bf.value = and i8 %0, 1
@@ -33,21 +30,21 @@ switch.lookup:                                    ; preds = %if.end
   %2 = zext nneg i32 %type to i64
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.ossl_ecx_key_new, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %keylen8 = getelementptr inbounds %struct.ecx_key_st, ptr %call, i64 0, i32 5
+  %keylen8 = getelementptr inbounds i8, ptr %call, i64 88
   store i64 %switch.load, ptr %keylen8, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %switch.lookup
-  %type9 = getelementptr inbounds %struct.ecx_key_st, ptr %call, i64 0, i32 6
+  %type9 = getelementptr inbounds i8, ptr %call, i64 96
   store i32 %type, ptr %type9, align 8
-  %references = getelementptr inbounds %struct.ecx_key_st, ptr %call, i64 0, i32 7
+  %references = getelementptr inbounds i8, ptr %call, i64 100
   store atomic i32 1, ptr %references seq_cst, align 4
   %cmp13.not = icmp eq ptr %propq, null
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %sw.epilog
   %call15 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 50) #4
-  %propq16 = getelementptr inbounds %struct.ecx_key_st, ptr %call, i64 0, i32 1
+  %propq16 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call15, ptr %propq16, align 8
   %cmp18 = icmp eq ptr %call15, null
   br i1 %cmp18, label %if.then23, label %return
@@ -75,7 +72,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 7
+  %references = getelementptr inbounds i8, ptr %key, i64 100
   %0 = atomicrmw sub ptr %references, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -89,12 +86,12 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %propq = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 77) #4
-  %privkey = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 4
+  %privkey = getelementptr inbounds i8, ptr %key, i64 80
   %2 = load ptr, ptr %privkey, align 8
-  %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %key, i64 88
   %3 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 78) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %key, ptr noundef nonnull @.str, i32 noundef 80) #4
@@ -116,7 +113,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_ecx_key_up_ref(ptr nocapture noundef %key) local_unnamed_addr #3 {
 entry:
-  %references = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 7
+  %references = getelementptr inbounds i8, ptr %key, i64 100
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cmp1 = icmp sgt i32 %0, 0
   %cond = zext i1 %cmp1 to i32
@@ -126,10 +123,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_ecx_key_allocate_privkey(ptr nocapture noundef %key) local_unnamed_addr #0 {
 entry:
-  %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %key, i64 88
   %0 = load i64, ptr %keylen, align 8
   %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %0, ptr noundef nonnull @.str, i32 noundef 102) #4
-  %privkey = getelementptr inbounds %struct.ecx_key_st, ptr %key, i64 0, i32 4
+  %privkey = getelementptr inbounds i8, ptr %key, i64 80
   store ptr %call, ptr %privkey, align 8
   ret ptr %call
 }
@@ -143,7 +140,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %privkey = getelementptr inbounds %struct.ecx_key_st, ptr %priv, i64 0, i32 4
+  %privkey = getelementptr inbounds i8, ptr %priv, i64 80
   %0 = load ptr, ptr %privkey, align 8
   %cmp1 = icmp eq ptr %0, null
   %cmp3 = icmp eq ptr %peer, null
@@ -188,7 +185,7 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end17:                                         ; preds = %if.end13
-  %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %peer, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %peer, i64 17
   br i1 %cmp4, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end17

@@ -3,16 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-a_sign.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_md_st = type { i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_object_st = type { ptr, ptr, i32, i32, ptr, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/asn1/a_sign.c\00", align 1
 @__func__.ASN1_sign = private unnamed_addr constant [10 x i8] c"ASN1_sign\00", align 1
@@ -31,7 +22,7 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %pkey_type = getelementptr inbounds %struct.evp_md_st, ptr %type, i64 0, i32 1
+  %pkey_type = getelementptr inbounds i8, ptr %type, i64 4
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -49,7 +40,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end7:                                          ; preds = %for.body
   %0 = load i32, ptr %pkey_type, align 4
   %cmp8 = icmp eq i32 %0, 113
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %algor1.algor2, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %algor1.algor2, i64 8
   %1 = load ptr, ptr %parameter, align 8
   br i1 %cmp8, label %if.then9, label %if.else11
 
@@ -94,7 +85,7 @@ if.then33:                                        ; preds = %if.end27
   br label %err
 
 if.end34:                                         ; preds = %if.end27
-  %length = getelementptr inbounds %struct.asn1_object_st, ptr %call29, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %call29, i64 20
   %5 = load i32, ptr %length, align 4
   %cmp36 = icmp eq i32 %5, 0
   br i1 %cmp36, label %if.then37, label %for.inc
@@ -289,7 +280,7 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %call2, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %if.then4, label %if.else
@@ -318,7 +309,7 @@ if.then20:                                        ; preds = %lor.lhs.false, %if.
 if.end21:                                         ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %aid, i64 noundef 128) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx22 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp23) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx22, ptr noundef nonnull align 8 dereferenceable(40) %tmp23, i64 40, i1 false)
   %call25 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %call5, ptr noundef nonnull %params) #3
@@ -326,7 +317,7 @@ if.end21:                                         ; preds = %lor.lhs.false, %lor
   br i1 %cmp26, label %err, label %if.end28
 
 if.end28:                                         ; preds = %if.end21
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %params, i64 32
   %2 = load i64, ptr %return_size, align 16
   %cmp30 = icmp eq i64 %2, 0
   br i1 %cmp30, label %if.then31, label %if.end32
@@ -370,7 +361,7 @@ if.then47:                                        ; preds = %if.then42
   br label %err
 
 if.else:                                          ; preds = %if.end
-  %item_sign = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 27
+  %item_sign = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %item_sign, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then71, label %if.then51
@@ -435,7 +426,7 @@ if.then84:                                        ; preds = %cond.end
 
 if.end85:                                         ; preds = %cond.end
   %7 = load ptr, ptr %ameth, align 8
-  %pkey_flags = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %7, i64 0, i32 2
+  %pkey_flags = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %8, 4
   %tobool87.not = icmp eq i64 %and, 0

@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_pmp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
 %struct.pmp_entry_t = type { i64, i8 }
 %struct.pmp_addr_t = type { i64, i64 }
 %struct.timeval = type { i64, i64 }
@@ -45,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @pmp_get_num_rules(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
-  %num_rules = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 2
+  %num_rules = getelementptr inbounds i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules, align 16
   ret i32 %0
 }
@@ -53,13 +49,13 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @pmp_unlock_entries(ptr nocapture noundef %env) local_unnamed_addr #1 {
 entry:
-  %num_rules.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 2
+  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules.i, align 16
   %cmp4.not = icmp eq i32 %0, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -80,10 +76,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @pmp_update_rule_addr(ptr nocapture noundef %env, i32 noundef %pmp_index) local_unnamed_addr #2 {
 entry:
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
   %idxprom = zext i32 %pmp_index to i64
   %arrayidx = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom
-  %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom, i32 1
+  %cfg_reg = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i8, ptr %cfg_reg, align 8
   %1 = load i64, ptr %arrayidx, align 16
   %cmp.not = icmp eq i32 %pmp_index, 0
@@ -136,9 +132,10 @@ if.end.unreachabledefault:                        ; preds = %if.end
 sw.epilog:                                        ; preds = %sw.bb10, %if.end, %sw.bb20, %sw.bb17
   %sa.0 = phi i64 [ %and.i, %sw.bb20 ], [ %shl18, %sw.bb17 ], [ 0, %if.end ], [ %spec.select, %sw.bb10 ]
   %ea.0 = phi i64 [ %or2.i, %sw.bb20 ], [ %sub19, %sw.bb17 ], [ -1, %if.end ], [ %spec.select12, %sw.bb10 ]
-  %arrayidx23 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom
+  %addr = getelementptr inbounds i8, ptr %env, i64 8080
+  %arrayidx23 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr, i64 0, i64 %idxprom
   store i64 %sa.0, ptr %arrayidx23, align 16
-  %ea29 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom, i32 1
+  %ea29 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
   store i64 %ea.0, ptr %ea29, align 8
   ret void
 }
@@ -146,8 +143,8 @@ sw.epilog:                                        ; preds = %sw.bb10, %if.end, %
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @pmp_update_rule_nums(ptr nocapture noundef %env) local_unnamed_addr #1 {
 entry:
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
-  %num_rules = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 2
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
+  %num_rules = getelementptr inbounds i8, ptr %env, i64 8336
   store i32 0, ptr %num_rules, align 16
   br label %for.body
 
@@ -178,13 +175,13 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @pmp_hart_has_privs(ptr nocapture noundef readonly %env, i64 noundef %addr, i64 noundef %size, i32 noundef %privs, ptr nocapture noundef writeonly %allowed_privs, i64 noundef %mode) local_unnamed_addr #3 {
 entry:
-  %num_rules.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 2
+  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules.i, align 16
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mseccfg.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
+  %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
   %1 = load i64, ptr %mseccfg.i, align 8
   %2 = and i64 %1, 2
   %tobool.not.i = icmp eq i64 %2, 0
@@ -237,11 +234,12 @@ if.then5:                                         ; preds = %if.then3
 
 if.end9:                                          ; preds = %if.end, %if.then3, %if.then5
   %pmp_size.0 = phi i64 [ %conv, %if.then5 ], [ 8, %if.then3 ], [ %size, %if.end ]
+  %addr1.i = getelementptr inbounds i8, ptr %env, i64 8080
   %sext = shl i64 %pmp_size.0, 32
   %conv14 = ashr exact i64 %sext, 32
   %add = add i64 %addr, -1
   %sub15 = add i64 %add, %conv14
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
   br label %for.body
 
 for.cond:                                         ; preds = %if.end28
@@ -251,13 +249,13 @@ for.cond:                                         ; preds = %if.end28
 
 for.body:                                         ; preds = %if.end9, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %indvars.iv
+  %arrayidx.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr1.i, i64 0, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp ugt i64 %8, %addr
   br i1 %cmp.not.i, label %if.else.i52, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %ea.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %indvars.iv, i32 1
+  %ea.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %9 = load i64, ptr %ea.i, align 8
   %cmp6.not.i = icmp ult i64 %9, %addr
   br i1 %cmp6.not.i, label %if.else.i52, label %pmp_is_in_range.exit
@@ -267,29 +265,29 @@ if.else.i52:                                      ; preds = %land.lhs.true.i, %f
 
 pmp_is_in_range.exit:                             ; preds = %land.lhs.true.i, %if.else.i52
   %result.0.i = phi i32 [ 0, %if.else.i52 ], [ 1, %land.lhs.true.i ]
-  %cmp.not.i55 = icmp ugt i64 %8, %sub15
-  br i1 %cmp.not.i55, label %if.else.i60, label %land.lhs.true.i56
+  %cmp.not.i56 = icmp ugt i64 %8, %sub15
+  br i1 %cmp.not.i56, label %if.else.i61, label %land.lhs.true.i57
 
-land.lhs.true.i56:                                ; preds = %pmp_is_in_range.exit
-  %ea.i57 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %indvars.iv, i32 1
-  %10 = load i64, ptr %ea.i57, align 8
-  %cmp6.not.i58 = icmp ult i64 %10, %sub15
-  br i1 %cmp6.not.i58, label %if.else.i60, label %pmp_is_in_range.exit61
+land.lhs.true.i57:                                ; preds = %pmp_is_in_range.exit
+  %ea.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %10 = load i64, ptr %ea.i58, align 8
+  %cmp6.not.i59 = icmp ult i64 %10, %sub15
+  br i1 %cmp6.not.i59, label %if.else.i61, label %pmp_is_in_range.exit62
 
-if.else.i60:                                      ; preds = %land.lhs.true.i56, %pmp_is_in_range.exit
-  br label %pmp_is_in_range.exit61
+if.else.i61:                                      ; preds = %land.lhs.true.i57, %pmp_is_in_range.exit
+  br label %pmp_is_in_range.exit62
 
-pmp_is_in_range.exit61:                           ; preds = %land.lhs.true.i56, %if.else.i60
-  %result.0.i59 = phi i32 [ 0, %if.else.i60 ], [ 1, %land.lhs.true.i56 ]
-  %narrow = add nuw nsw i32 %result.0.i59, %result.0.i
+pmp_is_in_range.exit62:                           ; preds = %land.lhs.true.i57, %if.else.i61
+  %result.0.i60 = phi i32 [ 0, %if.else.i61 ], [ 1, %land.lhs.true.i57 ]
+  %narrow = add nuw nsw i32 %result.0.i60, %result.0.i
   %cmp19 = icmp eq i32 %narrow, 1
   br i1 %cmp19, label %do.body, label %if.end28
 
-do.body:                                          ; preds = %pmp_is_in_range.exit61
+do.body:                                          ; preds = %pmp_is_in_range.exit62
   %11 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %11, 2048
-  %cmp.i62.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i62.not, label %do.end, label %if.then26
+  %cmp.i63.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i63.not, label %do.end, label %if.then26
 
 if.then26:                                        ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str) #10
@@ -299,7 +297,7 @@ do.end:                                           ; preds = %do.body, %if.then26
   store i32 0, ptr %allowed_privs, align 4
   br label %return
 
-if.end28:                                         ; preds = %pmp_is_in_range.exit61
+if.end28:                                         ; preds = %pmp_is_in_range.exit62
   %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %indvars.iv, i32 1
   %12 = load i8, ptr %cfg_reg, align 8
   %cmp63 = icmp eq i32 %narrow, 2
@@ -309,7 +307,7 @@ if.end28:                                         ; preds = %pmp_is_in_range.exi
   br i1 %or.cond, label %if.then68, label %for.cond
 
 if.then68:                                        ; preds = %if.end28
-  %mseccfg = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
+  %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
   %14 = load i64, ptr %mseccfg, align 8
   %and69 = and i64 %14, 1
   %tobool70.not = icmp eq i64 %and69, 0
@@ -327,8 +325,8 @@ if.then71.if.then76_crit_edge:                    ; preds = %if.then71
 lor.lhs.false:                                    ; preds = %if.then71
   %15 = load i64, ptr %mseccfg, align 8
   %16 = and i64 %15, 4
-  %tobool.not.i64 = icmp eq i64 %16, 0
-  br i1 %tobool.not.i64, label %pmp_is_locked.exit, label %if.end109
+  %tobool.not.i65 = icmp eq i64 %16, 0
+  br i1 %tobool.not.i65, label %pmp_is_locked.exit, label %if.end109
 
 pmp_is_locked.exit:                               ; preds = %lor.lhs.false
   %17 = load i8, ptr %cfg_reg, align 8
@@ -353,7 +351,7 @@ if.else85:                                        ; preds = %if.then68
   %shr59.le = and i8 %and58.le, 1
   %or60.le = or disjoint i8 %or51.le, %shr59.le
   %cmp86 = icmp eq i64 %mode, 3
-  br i1 %cmp86, label %switch.lookup, label %switch.lookup100
+  br i1 %cmp86, label %switch.lookup, label %switch.lookup101
 
 switch.lookup:                                    ; preds = %if.else85
   %20 = zext nneg i8 %or60.le to i64
@@ -361,14 +359,14 @@ switch.lookup:                                    ; preds = %if.else85
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end109.sink.split
 
-switch.lookup100:                                 ; preds = %if.else85
+switch.lookup101:                                 ; preds = %if.else85
   %21 = zext nneg i8 %or60.le to i64
-  %switch.gep101 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %21
-  %switch.load102 = load i32, ptr %switch.gep101, align 4
+  %switch.gep102 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %21
+  %switch.load103 = load i32, ptr %switch.gep102, align 4
   br label %if.end109.sink.split
 
-if.end109.sink.split:                             ; preds = %switch.lookup100, %switch.lookup, %if.then76
-  %.sink = phi i32 [ %and83, %if.then76 ], [ %switch.load, %switch.lookup ], [ %switch.load102, %switch.lookup100 ]
+if.end109.sink.split:                             ; preds = %switch.lookup101, %switch.lookup, %if.then76
+  %.sink = phi i32 [ %and83, %if.then76 ], [ %switch.load, %switch.lookup ], [ %switch.load103, %switch.lookup101 ]
   store i32 %.sink, ptr %allowed_privs, align 4
   br label %if.end109
 
@@ -379,43 +377,43 @@ if.end109:                                        ; preds = %if.end109.sink.spli
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  %mseccfg.i67 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
-  %23 = load i64, ptr %mseccfg.i67, align 8
+  %mseccfg.i68 = getelementptr inbounds i8, ptr %env, i64 8344
+  %23 = load i64, ptr %mseccfg.i68, align 8
   %24 = and i64 %23, 2
-  %tobool.not.i68 = icmp eq i64 %24, 0
-  br i1 %tobool.not.i68, label %if.else.i71, label %pmp_hart_has_privs_default.exit86
+  %tobool.not.i69 = icmp eq i64 %24, 0
+  br i1 %tobool.not.i69, label %if.else.i72, label %pmp_hart_has_privs_default.exit87
 
-if.else.i71:                                      ; preds = %for.end
-  %and2.i72 = and i64 %23, 1
-  %tobool4.not.i73 = icmp eq i64 %and2.i72, 0
-  br i1 %tobool4.not.i73, label %if.end12.i80, label %if.then5.i74
+if.else.i72:                                      ; preds = %for.end
+  %and2.i73 = and i64 %23, 1
+  %tobool4.not.i74 = icmp eq i64 %and2.i73, 0
+  br i1 %tobool4.not.i74, label %if.end12.i81, label %if.then5.i75
 
-if.then5.i74:                                     ; preds = %if.else.i71
-  %cmp.i75 = icmp eq i64 %mode, 3
-  %and6.i76 = and i32 %privs, 4
-  %tobool7.not.i77 = icmp eq i32 %and6.i76, 0
-  %or.cond12.i78 = and i1 %tobool7.not.i77, %cmp.i75
-  %storemerge11.i79 = select i1 %or.cond12.i78, i32 3, i32 0
-  br label %pmp_hart_has_privs_default.exit86
+if.then5.i75:                                     ; preds = %if.else.i72
+  %cmp.i76 = icmp eq i64 %mode, 3
+  %and6.i77 = and i32 %privs, 4
+  %tobool7.not.i78 = icmp eq i32 %and6.i77, 0
+  %or.cond12.i79 = and i1 %tobool7.not.i78, %cmp.i76
+  %storemerge11.i80 = select i1 %or.cond12.i79, i32 3, i32 0
+  br label %pmp_hart_has_privs_default.exit87
 
-if.end12.i80:                                     ; preds = %if.else.i71
-  %pmp.i81 = getelementptr i8, ptr %env, i64 8977
-  %25 = load i8, ptr %pmp.i81, align 1
+if.end12.i81:                                     ; preds = %if.else.i72
+  %pmp.i82 = getelementptr i8, ptr %env, i64 8977
+  %25 = load i8, ptr %pmp.i82, align 1
   %26 = and i8 %25, 1
-  %tobool13.not10.i82 = icmp eq i8 %26, 0
-  %cmp14.i83 = icmp eq i64 %mode, 3
-  %or.cond.i84 = or i1 %cmp14.i83, %tobool13.not10.i82
-  %..i85 = select i1 %or.cond.i84, i32 7, i32 0
-  br label %pmp_hart_has_privs_default.exit86
+  %tobool13.not10.i83 = icmp eq i8 %26, 0
+  %cmp14.i84 = icmp eq i64 %mode, 3
+  %or.cond.i85 = or i1 %cmp14.i84, %tobool13.not10.i83
+  %..i86 = select i1 %or.cond.i85, i32 7, i32 0
+  br label %pmp_hart_has_privs_default.exit87
 
-pmp_hart_has_privs_default.exit86:                ; preds = %for.end, %if.then5.i74, %if.end12.i80
-  %..sink.i69 = phi i32 [ %..i85, %if.end12.i80 ], [ %storemerge11.i79, %if.then5.i74 ], [ 0, %for.end ]
-  %retval.0.i70 = phi i1 [ %or.cond.i84, %if.end12.i80 ], [ %or.cond12.i78, %if.then5.i74 ], [ false, %for.end ]
-  store i32 %..sink.i69, ptr %allowed_privs, align 4
+pmp_hart_has_privs_default.exit87:                ; preds = %for.end, %if.then5.i75, %if.end12.i81
+  %..sink.i70 = phi i32 [ %..i86, %if.end12.i81 ], [ %storemerge11.i80, %if.then5.i75 ], [ 0, %for.end ]
+  %retval.0.i71 = phi i1 [ %or.cond.i85, %if.end12.i81 ], [ %or.cond12.i79, %if.then5.i75 ], [ false, %for.end ]
+  store i32 %..sink.i70, ptr %allowed_privs, align 4
   br label %return
 
-return:                                           ; preds = %pmp_hart_has_privs_default.exit86, %if.end109, %do.end, %pmp_hart_has_privs_default.exit
-  %retval.0 = phi i1 [ %retval.0.i, %pmp_hart_has_privs_default.exit ], [ false, %do.end ], [ %cmp111, %if.end109 ], [ %retval.0.i70, %pmp_hart_has_privs_default.exit86 ]
+return:                                           ; preds = %pmp_hart_has_privs_default.exit87, %if.end109, %do.end, %pmp_hart_has_privs_default.exit
+  %retval.0 = phi i1 [ %retval.0.i, %pmp_hart_has_privs_default.exit ], [ false, %do.end ], [ %cmp111, %if.end109 ], [ %retval.0.i71, %pmp_hart_has_privs_default.exit87 ]
   ret i1 %retval.0
 }
 
@@ -428,7 +426,7 @@ entry:
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val = load i32, ptr %0, align 16
   %shl = shl i32 2, %env.val
-  %mhartid = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 32
+  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
   %1 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -454,7 +452,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %1, i32 noundef %reg_index, i64 noundef %val) #10
   br label %trace_pmpcfg_csr_write.exit
@@ -471,8 +469,9 @@ trace_pmpcfg_csr_write.exit:                      ; preds = %entry, %land.lhs.tr
 for.body.lr.ph:                                   ; preds = %trace_pmpcfg_csr_write.exit
   %mul1 = shl i32 %reg_index, 2
   %ext_smepmp.i = getelementptr i8, ptr %env, i64 8891
-  %mseccfg.i30.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
-  %pmp_state.i.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %mseccfg.i30.i = getelementptr inbounds i8, ptr %env, i64 8344
+  %pmp_state.i.i = getelementptr inbounds i8, ptr %env, i64 7824
+  %addr.i.i = getelementptr inbounds i8, ptr %env, i64 8080
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
 
@@ -614,9 +613,9 @@ if.end.unreachabledefault.i.i:                    ; preds = %if.end.i43.i
 pmp_update_rule_addr.exit.i:                      ; preds = %sw.bb20.i.i, %sw.bb17.i.i, %sw.bb10.i.i, %if.end.i43.i
   %sa.0.i.i = phi i64 [ %and.i.i.i13, %sw.bb20.i.i ], [ %shl18.i.i, %sw.bb17.i.i ], [ 0, %if.end.i43.i ], [ %spec.select.i44.i, %sw.bb10.i.i ]
   %ea.0.i.i = phi i64 [ %or2.i.i.i, %sw.bb20.i.i ], [ %sub19.i.i, %sw.bb17.i.i ], [ -1, %if.end.i43.i ], [ %spec.select12.i.i, %sw.bb10.i.i ]
-  %arrayidx23.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i
+  %arrayidx23.i.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i.i, i64 0, i64 %idxprom.i
   store i64 %sa.0.i.i, ptr %arrayidx23.i.i, align 16
-  %ea29.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i, i32 1
+  %ea29.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i, i64 8
   store i64 %ea.0.i.i, ptr %ea29.i.i, align 8
   br label %pmp_write_cfg.exit
 
@@ -641,7 +640,7 @@ for.end:                                          ; preds = %pmp_write_cfg.exit
   br i1 %or11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %num_rules.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 2
+  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
   store i32 0, ptr %num_rules.i, align 16
   br label %for.body.i
 
@@ -688,7 +687,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %mul = shl i32 %reg_index, 2
-  %pmp_state.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
 
@@ -719,7 +718,7 @@ pmp_read_cfg.exit:                                ; preds = %for.body, %if.then.
 
 for.end:                                          ; preds = %pmp_read_cfg.exit, %entry
   %cfg_val.0.lcssa = phi i64 [ 0, %entry ], [ %or, %pmp_read_cfg.exit ]
-  %mhartid = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 32
+  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
   %3 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -745,7 +744,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %3, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
   br label %trace_pmpcfg_csr_read.exit
@@ -763,7 +762,7 @@ trace_pmpcfg_csr_read.exit:                       ; preds = %for.end, %land.lhs.
 define dso_local void @pmpaddr_csr_write(ptr noundef %env, i32 noundef %addr_index, i64 noundef %val) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mhartid = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 32
+  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
   %0 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -789,7 +788,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %0, i32 noundef %addr_index, i64 noundef %val) #10
   br label %trace_pmpaddr_csr_write.exit
@@ -809,7 +808,7 @@ if.then:                                          ; preds = %trace_pmpaddr_csr_w
   br i1 %cmp1.not, label %if.end16, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
   %idxprom = zext nneg i32 %add to i64
   %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom, i32 1
   %8 = load i8, ptr %cfg_reg, align 8
@@ -831,7 +830,7 @@ if.then14:                                        ; preds = %do.body
 
 if.end16:                                         ; preds = %if.then2, %if.then
   %is_next_cfg_tor.0.shrunk = phi i1 [ %cmp4, %if.then2 ], [ false, %if.then ]
-  %mseccfg.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
+  %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
   %12 = load i64, ptr %mseccfg.i, align 8
   %13 = and i64 %12, 4
   %tobool.not.i = icmp eq i64 %13, 0
@@ -842,7 +841,7 @@ if.end16.if.then19_crit_edge:                     ; preds = %if.end16
   br label %if.then19
 
 pmp_is_locked.exit:                               ; preds = %if.end16
-  %pmp_state.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
   %idxprom.i = zext nneg i32 %addr_index to i64
   %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i, i64 0, i64 %idxprom.i, i32 1
   %14 = load i8, ptr %cfg_reg.i, align 8
@@ -851,7 +850,7 @@ pmp_is_locked.exit:                               ; preds = %if.end16
 
 if.then19:                                        ; preds = %if.end16.if.then19_crit_edge, %pmp_is_locked.exit
   %idxprom22.pre-phi = phi i64 [ %.pre, %if.end16.if.then19_crit_edge ], [ %idxprom.i, %pmp_is_locked.exit ]
-  %pmp_state20 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state20 = getelementptr inbounds i8, ptr %env, i64 7824
   %arrayidx23 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom22.pre-phi
   %15 = load i64, ptr %arrayidx23, align 16
   %cmp24.not = icmp eq i64 %15, %val
@@ -859,7 +858,7 @@ if.then19:                                        ; preds = %if.end16.if.then19_
 
 if.then26:                                        ; preds = %if.then19
   store i64 %val, ptr %arrayidx23, align 16
-  %cfg_reg.i22 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom22.pre-phi, i32 1
+  %cfg_reg.i22 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
   %16 = load i8, ptr %cfg_reg.i22, align 8
   %cmp.not.i = icmp eq i32 %addr_index, 0
   br i1 %cmp.not.i, label %if.end.i23, label %if.then.i
@@ -911,41 +910,42 @@ if.end.unreachabledefault.i:                      ; preds = %if.end.i23
 pmp_update_rule_addr.exit:                        ; preds = %if.end.i23, %sw.bb10.i, %sw.bb17.i, %sw.bb20.i
   %sa.0.i = phi i64 [ %and.i.i, %sw.bb20.i ], [ %shl18.i, %sw.bb17.i ], [ 0, %if.end.i23 ], [ %spec.select.i24, %sw.bb10.i ]
   %ea.0.i = phi i64 [ %or2.i.i, %sw.bb20.i ], [ %sub19.i, %sw.bb17.i ], [ -1, %if.end.i23 ], [ %spec.select12.i, %sw.bb10.i ]
-  %arrayidx23.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom22.pre-phi
+  %addr.i = getelementptr inbounds i8, ptr %env, i64 8080
+  %arrayidx23.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i, i64 0, i64 %idxprom22.pre-phi
   store i64 %sa.0.i, ptr %arrayidx23.i, align 16
-  %ea29.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom22.pre-phi, i32 1
+  %ea29.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 8
   store i64 %ea.0.i, ptr %ea29.i, align 8
   br i1 %is_next_cfg_tor.0.shrunk, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %pmp_update_rule_addr.exit
   %idxprom.i26 = zext nneg i32 %add to i64
   %arrayidx.i27 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom.i26
-  %cfg_reg.i28 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom.i26, i32 1
+  %cfg_reg.i28 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 8
   %21 = load i8, ptr %cfg_reg.i28, align 8
   %22 = load i64, ptr %arrayidx.i27, align 16
   %23 = lshr i8 %21, 3
   %24 = and i8 %23, 3
   %conv.i34 = zext nneg i8 %24 to i32
-  switch i32 %conv.i34, label %if.end.unreachabledefault.i54 [
-    i32 0, label %pmp_update_rule_addr.exit55
-    i32 1, label %sw.bb10.i48
-    i32 2, label %sw.bb17.i45
+  switch i32 %conv.i34, label %if.end.unreachabledefault.i55 [
+    i32 0, label %pmp_update_rule_addr.exit56
+    i32 1, label %sw.bb10.i49
+    i32 2, label %sw.bb17.i46
     i32 3, label %sw.bb20.i35
   ]
 
-sw.bb10.i48:                                      ; preds = %if.then33
+sw.bb10.i49:                                      ; preds = %if.then33
   %25 = shl i64 %val, 2
-  %shl11.i49 = shl i64 %22, 2
-  %sub12.i50 = add i64 %shl11.i49, -1
-  %cmp13.i51 = icmp ugt i64 %25, %sub12.i50
-  %spec.select.i52 = select i1 %cmp13.i51, i64 0, i64 %25
-  %spec.select12.i53 = select i1 %cmp13.i51, i64 0, i64 %sub12.i50
-  br label %pmp_update_rule_addr.exit55
+  %shl11.i50 = shl i64 %22, 2
+  %sub12.i51 = add i64 %shl11.i50, -1
+  %cmp13.i52 = icmp ugt i64 %25, %sub12.i51
+  %spec.select.i53 = select i1 %cmp13.i52, i64 0, i64 %25
+  %spec.select12.i54 = select i1 %cmp13.i52, i64 0, i64 %sub12.i51
+  br label %pmp_update_rule_addr.exit56
 
-sw.bb17.i45:                                      ; preds = %if.then33
-  %shl18.i46 = shl i64 %22, 2
-  %sub19.i47 = or disjoint i64 %shl18.i46, 3
-  br label %pmp_update_rule_addr.exit55
+sw.bb17.i46:                                      ; preds = %if.then33
+  %shl18.i47 = shl i64 %22, 2
+  %sub19.i48 = or disjoint i64 %shl18.i47, 3
+  br label %pmp_update_rule_addr.exit56
 
 sw.bb20.i35:                                      ; preds = %if.then33
   %shl.i.i36 = shl i64 %22, 2
@@ -953,30 +953,30 @@ sw.bb20.i35:                                      ; preds = %if.then33
   %and.i.i38 = and i64 %add.i.i37, %shl.i.i36
   %or.i.i39 = or i64 %shl.i.i36, %add.i.i37
   %or2.i.i40 = or disjoint i64 %or.i.i39, 3
-  br label %pmp_update_rule_addr.exit55
+  br label %pmp_update_rule_addr.exit56
 
-if.end.unreachabledefault.i54:                    ; preds = %if.then33
+if.end.unreachabledefault.i55:                    ; preds = %if.then33
   unreachable
 
-pmp_update_rule_addr.exit55:                      ; preds = %if.then33, %sw.bb10.i48, %sw.bb17.i45, %sw.bb20.i35
-  %sa.0.i41 = phi i64 [ %and.i.i38, %sw.bb20.i35 ], [ %shl18.i46, %sw.bb17.i45 ], [ 0, %if.then33 ], [ %spec.select.i52, %sw.bb10.i48 ]
-  %ea.0.i42 = phi i64 [ %or2.i.i40, %sw.bb20.i35 ], [ %sub19.i47, %sw.bb17.i45 ], [ -1, %if.then33 ], [ %spec.select12.i53, %sw.bb10.i48 ]
-  %arrayidx23.i43 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i26
-  store i64 %sa.0.i41, ptr %arrayidx23.i43, align 16
-  %ea29.i44 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i26, i32 1
-  store i64 %ea.0.i42, ptr %ea29.i44, align 8
+pmp_update_rule_addr.exit56:                      ; preds = %if.then33, %sw.bb10.i49, %sw.bb17.i46, %sw.bb20.i35
+  %sa.0.i41 = phi i64 [ %and.i.i38, %sw.bb20.i35 ], [ %shl18.i47, %sw.bb17.i46 ], [ 0, %if.then33 ], [ %spec.select.i53, %sw.bb10.i49 ]
+  %ea.0.i42 = phi i64 [ %or2.i.i40, %sw.bb20.i35 ], [ %sub19.i48, %sw.bb17.i46 ], [ -1, %if.then33 ], [ %spec.select12.i54, %sw.bb10.i49 ]
+  %arrayidx23.i44 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i, i64 0, i64 %idxprom.i26
+  store i64 %sa.0.i41, ptr %arrayidx23.i44, align 16
+  %ea29.i45 = getelementptr inbounds i8, ptr %arrayidx23.i44, i64 8
+  store i64 %ea.0.i42, ptr %ea29.i45, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %pmp_update_rule_addr.exit55, %pmp_update_rule_addr.exit
+if.end35:                                         ; preds = %pmp_update_rule_addr.exit56, %pmp_update_rule_addr.exit
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   tail call void @tlb_flush(ptr noundef %add.ptr.i) #10
   br label %if.end62
 
 do.body38:                                        ; preds = %pmp_is_locked.exit
   %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i56 = and i32 %26, 2048
-  %cmp.i57.not = icmp eq i32 %and.i56, 0
-  br i1 %cmp.i57.not, label %if.end62, label %if.then46
+  %and.i57 = and i32 %26, 2048
+  %cmp.i58.not = icmp eq i32 %and.i57, 0
+  br i1 %cmp.i58.not, label %if.end62, label %if.then46
 
 if.then46:                                        ; preds = %do.body38
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3) #10
@@ -984,9 +984,9 @@ if.then46:                                        ; preds = %do.body38
 
 do.body51:                                        ; preds = %trace_pmpaddr_csr_write.exit
   %27 = load i32, ptr @qemu_loglevel, align 4
-  %and.i58 = and i32 %27, 2048
-  %cmp.i59.not = icmp eq i32 %and.i58, 0
-  br i1 %cmp.i59.not, label %if.end62, label %if.then59
+  %and.i59 = and i32 %27, 2048
+  %cmp.i60.not = icmp eq i32 %and.i59, 0
+  br i1 %cmp.i60.not, label %if.end62, label %if.then59
 
 if.then59:                                        ; preds = %do.body51
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #10
@@ -1004,11 +1004,11 @@ entry:
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
   %idxprom = zext nneg i32 %addr_index to i64
   %arrayidx = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
-  %mhartid = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 32
+  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
   %1 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1034,7 +1034,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %1, i32 noundef %addr_index, i64 noundef %0) #10
   br label %trace_pmpaddr_csr_read.exit
@@ -1066,7 +1066,7 @@ if.end3:                                          ; preds = %if.then2, %do.body,
 define dso_local void @mseccfg_csr_write(ptr noundef %env, i64 noundef %val) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mhartid = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 32
+  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
   %0 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1092,7 +1092,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %0, i64 noundef %val) #10
   br label %trace_mseccfg_csr_write.exit
@@ -1103,14 +1103,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_mseccfg_csr_write.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %mseccfg = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
+  %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
   %8 = load i64, ptr %mseccfg, align 8
   %9 = and i64 %8, 4
   %tobool.not = icmp eq i64 %9, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.end4
 
 for.cond.preheader:                               ; preds = %trace_mseccfg_csr_write.exit
-  %pmp_state.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1164,9 +1164,9 @@ if.end17:                                         ; preds = %if.then7, %if.then1
 define dso_local i64 @mseccfg_csr_read(ptr nocapture noundef readonly %env) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mhartid = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 32
+  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
   %0 = load i64, ptr %mhartid, align 8
-  %mseccfg = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
+  %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
   %1 = load i64, ptr %mseccfg, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1192,7 +1192,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %0, i64 noundef %1) #10
   br label %trace_mseccfg_csr_read.exit
@@ -1219,13 +1219,14 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %num_rules.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 2
+  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
   %2 = load i32, ptr %num_rules.i, align 16
   %tobool2.not = icmp eq i32 %2, 0
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %pmp_state = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 103
+  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
+  %addr10 = getelementptr inbounds i8, ptr %env, i64 8080
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -1237,9 +1238,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp5, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %for.body
-  %arrayidx12 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %indvars.iv
+  %arrayidx12 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr10, i64 0, i64 %indvars.iv
   %5 = load i64, ptr %arrayidx12, align 16
-  %ea = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %indvars.iv, i32 1
+  %ea = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %6 = load i64, ptr %ea, align 8
   %cmp17.not = icmp ugt i64 %5, %and
   %cmp19.not = icmp ult i64 %6, %sub

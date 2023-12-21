@@ -7,20 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QemuInputHandler = type { ptr, i32, ptr, ptr }
 %union.anon.0 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.KeyValueList = type { ptr, ptr }
-%struct.KeyValue = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.IntWrapper }
-%struct.IntWrapper = type { i64 }
-%struct.QEMUPutKbdEntry = type { ptr, ptr, ptr }
-%struct.QEMUPutMouseEntry = type { ptr, ptr, i32, %struct.QemuInputHandler, ptr, [2 x i32], i32 }
-%struct.InputEvent = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.InputKeyEventWrapper }
-%struct.InputKeyEventWrapper = type { ptr }
-%struct.InputBtnEvent = type { i32, i8 }
-%struct.InputMoveEvent = type { i32, i64 }
-%struct.QEMUPutLEDEntry = type { ptr, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.InputKeyEvent = type { ptr, i8 }
 
 @QKeyCode_lookup = external constant %struct.QEnumLookup, align 8
 @legacy_kbd_handler = internal constant %struct.QemuInputHandler { ptr @.str, i32 1, ptr @legacy_kbd_event, ptr null }, align 8
@@ -85,7 +71,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %count.023 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %copy_key_value.exit19 ]
   %up.022 = phi ptr [ null, %for.body.lr.ph ], [ %call2, %copy_key_value.exit19 ]
   %p.021 = phi ptr [ %keys, %for.body.lr.ph ], [ %6, %copy_key_value.exit19 ]
-  %value = getelementptr inbounds %struct.KeyValueList, ptr %p.021, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %p.021, i64 8
   %0 = load ptr, ptr %value, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
@@ -94,7 +80,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp.i, label %if.then.i, label %copy_key_value.exit
 
 if.then.i:                                        ; preds = %for.body
-  %u.i = getelementptr inbounds %struct.KeyValue, ptr %call.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load i64, ptr %u.i, align 8
   %conv.i = trunc i64 %2 to i32
   %call1.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv.i) #6
@@ -117,7 +103,7 @@ copy_key_value.exit:                              ; preds = %for.body, %if.then.
   br i1 %cmp.i14, label %if.then.i15, label %copy_key_value.exit19
 
 if.then.i15:                                      ; preds = %copy_key_value.exit
-  %u.i16 = getelementptr inbounds %struct.KeyValue, ptr %call.i13, i64 0, i32 1
+  %u.i16 = getelementptr inbounds i8, ptr %call.i13, i64 8
   %5 = load i64, ptr %u.i16, align 8
   %conv.i17 = trunc i64 %5 to i32
   %call1.i18 = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv.i17) #6
@@ -163,10 +149,10 @@ define dso_local ptr @qemu_add_kbd_event_handler(ptr noundef %func, ptr noundef 
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #8
   store ptr %func, ptr %call, align 8
-  %opaque2 = getelementptr inbounds %struct.QEMUPutKbdEntry, ptr %call, i64 0, i32 1
+  %opaque2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %opaque, ptr %opaque2, align 8
   %call3 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %call, ptr noundef nonnull @legacy_kbd_handler) #6
-  %s = getelementptr inbounds %struct.QEMUPutKbdEntry, ptr %call, i64 0, i32 2
+  %s = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %s, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %call3) #6
   ret ptr %call
@@ -184,22 +170,22 @@ define dso_local ptr @qemu_add_mouse_event_handler(ptr noundef %func, ptr nounde
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #8
   store ptr %func, ptr %call, align 8
-  %qemu_put_mouse_event_opaque = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 1
+  %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %opaque, ptr %qemu_put_mouse_event_opaque, align 8
-  %qemu_put_mouse_event_absolute = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 2
+  %qemu_put_mouse_event_absolute = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %absolute, ptr %qemu_put_mouse_event_absolute, align 8
-  %h = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 3
+  %h = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %name, ptr %h, align 8
   %tobool.not = icmp eq i32 %absolute, 0
   %or = select i1 %tobool.not, i32 6, i32 10
-  %mask = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 3, i32 1
+  %mask = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %or, ptr %mask, align 8
-  %event = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 3, i32 2
+  %event = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @legacy_mouse_event, ptr %event, align 8
-  %sync = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 3, i32 3
+  %sync = getelementptr inbounds i8, ptr %call, i64 48
   store ptr @legacy_mouse_sync, ptr %sync, align 8
   %call6 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %call, ptr noundef nonnull %h) #6
-  %s7 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %call, i64 0, i32 4
+  %s7 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call6, ptr %s7, align 8
   ret ptr %call
 }
@@ -215,9 +201,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %1 = load ptr, ptr %u, align 8
-  %down = getelementptr inbounds %struct.InputBtnEvent, ptr %1, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i8, ptr %down, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -228,7 +214,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %buttons = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 6
+  %buttons = getelementptr inbounds i8, ptr %dev, i64 72
   %6 = load i32, ptr %buttons, align 8
   %or = or i32 %6, %5
   store i32 %or, ptr %buttons, align 8
@@ -236,7 +222,7 @@ if.then:                                          ; preds = %sw.bb
 
 if.else:                                          ; preds = %sw.bb
   %not = xor i32 %5, -1
-  %buttons4 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 6
+  %buttons4 = getelementptr inbounds i8, ptr %dev, i64 72
   %7 = load i32, ptr %buttons4, align 8
   %and = and i32 %7, %not
   store i32 %and, ptr %buttons4, align 8
@@ -256,11 +242,11 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end13:                                         ; preds = %land.lhs.true
   %12 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 1
+  %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %dev, i64 8
   %13 = load ptr, ptr %qemu_put_mouse_event_opaque, align 8
-  %axis = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5
+  %axis = getelementptr inbounds i8, ptr %dev, i64 64
   %14 = load i32, ptr %axis, align 8
-  %arrayidx11 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 1
+  %arrayidx11 = getelementptr i8, ptr %dev, i64 68
   %15 = load i32, ptr %arrayidx11, align 4
   tail call void %12(ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef -1, i32 noundef %8) #6
   %.pre = load i8, ptr %down, align 4
@@ -279,13 +265,13 @@ land.lhs.true16:                                  ; preds = %land.lhs.true, %lan
 
 if.end27:                                         ; preds = %land.lhs.true16
   %18 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque21 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 1
+  %qemu_put_mouse_event_opaque21 = getelementptr inbounds i8, ptr %dev, i64 8
   %19 = load ptr, ptr %qemu_put_mouse_event_opaque21, align 8
-  %axis22 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5
+  %axis22 = getelementptr inbounds i8, ptr %dev, i64 64
   %20 = load i32, ptr %axis22, align 8
-  %arrayidx25 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 1
+  %arrayidx25 = getelementptr i8, ptr %dev, i64 68
   %21 = load i32, ptr %arrayidx25, align 4
-  %buttons26 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 6
+  %buttons26 = getelementptr inbounds i8, ptr %dev, i64 72
   %22 = load i32, ptr %buttons26, align 8
   tail call void %18(ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef 1, i32 noundef %22) #6
   %.pre40 = load i8, ptr %down, align 4
@@ -300,13 +286,13 @@ land.lhs.true30:                                  ; preds = %land.lhs.true16, %i
 
 if.end41:                                         ; preds = %land.lhs.true30
   %25 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque35 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 1
+  %qemu_put_mouse_event_opaque35 = getelementptr inbounds i8, ptr %dev, i64 8
   %26 = load ptr, ptr %qemu_put_mouse_event_opaque35, align 8
-  %axis36 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5
+  %axis36 = getelementptr inbounds i8, ptr %dev, i64 64
   %27 = load i32, ptr %axis36, align 8
-  %arrayidx39 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 1
+  %arrayidx39 = getelementptr i8, ptr %dev, i64 68
   %28 = load i32, ptr %arrayidx39, align 4
-  %buttons40 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 6
+  %buttons40 = getelementptr inbounds i8, ptr %dev, i64 72
   %29 = load i32, ptr %buttons40, align 8
   tail call void %25(ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef -2, i32 noundef %29) #6
   %.pre41 = load i8, ptr %down, align 4
@@ -325,37 +311,39 @@ land.lhs.true44:                                  ; preds = %land.lhs.true30, %l
 
 if.then47:                                        ; preds = %land.lhs.true44
   %32 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque49 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 1
+  %qemu_put_mouse_event_opaque49 = getelementptr inbounds i8, ptr %dev, i64 8
   %33 = load ptr, ptr %qemu_put_mouse_event_opaque49, align 8
-  %axis50 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5
+  %axis50 = getelementptr inbounds i8, ptr %dev, i64 64
   %34 = load i32, ptr %axis50, align 8
-  %arrayidx53 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 1
+  %arrayidx53 = getelementptr i8, ptr %dev, i64 68
   %35 = load i32, ptr %arrayidx53, align 4
-  %buttons54 = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 6
+  %buttons54 = getelementptr inbounds i8, ptr %dev, i64 72
   %36 = load i32, ptr %buttons54, align 8
   tail call void %32(ptr noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef 2, i32 noundef %36) #6
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %entry
-  %u57 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u57 = getelementptr inbounds i8, ptr %evt, i64 8
   %37 = load ptr, ptr %u57, align 8
-  %value = getelementptr inbounds %struct.InputMoveEvent, ptr %37, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %value, align 8
   %conv = trunc i64 %38 to i32
+  %axis59 = getelementptr inbounds i8, ptr %dev, i64 64
   %39 = load i32, ptr %37, align 8
   %idxprom61 = zext i32 %39 to i64
-  %arrayidx62 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 %idxprom61
+  %arrayidx62 = getelementptr [2 x i32], ptr %axis59, i64 0, i64 %idxprom61
   store i32 %conv, ptr %arrayidx62, align 4
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %entry
-  %u64 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u64 = getelementptr inbounds i8, ptr %evt, i64 8
   %40 = load ptr, ptr %u64, align 8
-  %value66 = getelementptr inbounds %struct.InputMoveEvent, ptr %40, i64 0, i32 1
+  %value66 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i64, ptr %value66, align 8
+  %axis67 = getelementptr inbounds i8, ptr %dev, i64 64
   %42 = load i32, ptr %40, align 8
   %idxprom69 = zext i32 %42 to i64
-  %arrayidx70 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 %idxprom69
+  %arrayidx70 = getelementptr [2 x i32], ptr %axis67, i64 0, i64 %idxprom69
   %43 = load i32, ptr %arrayidx70, align 4
   %44 = trunc i64 %41 to i32
   %conv72 = add i32 %43, %44
@@ -370,16 +358,16 @@ sw.epilog:                                        ; preds = %if.end, %if.end13, 
 define internal void @legacy_mouse_sync(ptr nocapture noundef %dev) #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 1
+  %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %dev, i64 8
   %1 = load ptr, ptr %qemu_put_mouse_event_opaque, align 8
-  %axis = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5
+  %axis = getelementptr inbounds i8, ptr %dev, i64 64
   %2 = load i32, ptr %axis, align 8
-  %arrayidx2 = getelementptr %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 5, i64 1
+  %arrayidx2 = getelementptr i8, ptr %dev, i64 68
   %3 = load i32, ptr %arrayidx2, align 4
-  %buttons = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 6
+  %buttons = getelementptr inbounds i8, ptr %dev, i64 72
   %4 = load i32, ptr %buttons, align 8
   tail call void %0(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %4) #6
-  %qemu_put_mouse_event_absolute = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %dev, i64 0, i32 2
+  %qemu_put_mouse_event_absolute = getelementptr inbounds i8, ptr %dev, i64 16
   %5 = load i32, ptr %qemu_put_mouse_event_absolute, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -396,7 +384,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_activate_mouse_event_handler(ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
 entry:
-  %s = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %entry1, i64 0, i32 4
+  %s = getelementptr inbounds i8, ptr %entry1, i64 56
   %0 = load ptr, ptr %s, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %0) #6
   ret void
@@ -405,7 +393,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_remove_mouse_event_handler(ptr noundef %entry1) local_unnamed_addr #0 {
 entry:
-  %s = getelementptr inbounds %struct.QEMUPutMouseEntry, ptr %entry1, i64 0, i32 4
+  %s = getelementptr inbounds i8, ptr %entry1, i64 56
   %0 = load ptr, ptr %s, align 8
   tail call void @qemu_input_handler_unregister(ptr noundef %0) #6
   tail call void @g_free(ptr noundef %entry1) #6
@@ -419,12 +407,12 @@ define dso_local ptr @qemu_add_led_event_handler(ptr noundef %func, ptr noundef 
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
   store ptr %func, ptr %call, align 8
-  %opaque1 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %call, i64 0, i32 1
+  %opaque1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %opaque, ptr %opaque1, align 8
-  %next = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %call, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %next, align 8
   %0 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @led_handlers, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %call, i64 0, i32 2, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
   store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @led_handlers, i64 0, i32 0, i32 1), align 8
@@ -438,15 +426,15 @@ entry:
   br i1 %cmp, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %entry1, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %entry1, i64 16
   %0 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %0, null
-  %tql_prev9 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %entry1, i64 0, i32 2, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %entry1, i64 24
   %1 = load ptr, ptr %tql_prev9, align 8
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %tql_prev7 = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %0, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %tql_prev7, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end10
@@ -476,10 +464,10 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %cursor.06 = phi ptr [ %cursor.0, %for.body ], [ %cursor.04, %entry ]
   %0 = load ptr, ptr %cursor.06, align 8
-  %opaque = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %cursor.06, i64 0, i32 1
+  %opaque = getelementptr inbounds i8, ptr %cursor.06, i64 8
   %1 = load ptr, ptr %opaque, align 8
   tail call void %0(ptr noundef %1, i32 noundef %ledstate) #6
-  %next = getelementptr inbounds %struct.QEMUPutLEDEntry, ptr %cursor.06, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %cursor.06, i64 16
   %cursor.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cursor.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -500,7 +488,7 @@ declare i32 @qemu_input_key_number_to_qcode(i32 noundef) local_unnamed_addr #2
 define internal void @legacy_kbd_event(ptr noundef readonly %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #0 {
 entry:
   %scancodes = alloca [3 x i32], align 4
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %0 = load ptr, ptr %u, align 8
   %tobool.not = icmp eq ptr %dev, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
@@ -512,7 +500,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %0, align 8
-  %down = getelementptr inbounds %struct.InputKeyEvent, ptr %0, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %down, align 8
   %4 = and i8 %3, 1
   %tobool4 = icmp ne i8 %4, 0
@@ -521,7 +509,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.QEMUPutKbdEntry, ptr %dev, i64 0, i32 1
+  %opaque = getelementptr inbounds i8, ptr %dev, i64 8
   %wide.trip.count = zext nneg i32 %call to i64
   br label %for.body
 

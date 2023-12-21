@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/tcg-op-vec.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TCGOp = type { i32, i32, %union.anon, [2 x i32], [0 x i64] }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-
 @cpuinfo = external local_unnamed_addr global i32, align 4
 @tcg_ctx = external thread_local global ptr, align 8
 @.str = private unnamed_addr constant [25 x i8] c"../qemu/tcg/tcg-op-vec.c\00", align 1
@@ -94,7 +90,7 @@ sw.bb36:                                          ; preds = %if.end3, %if.end3, 
   br i1 %tobool38.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %sw.bb36, %sw.bb28, %lor.lhs.false31, %sw.bb20, %lor.lhs.false23, %land.lhs.true, %lor.lhs.false, %lor.lhs.false15, %sw.bb, %for.body
-  %incdec.ptr = getelementptr i32, ptr %list.addr.026, i64 1
+  %incdec.ptr = getelementptr i8, ptr %list.addr.026, i64 4
   %2 = load i32, ptr %incdec.ptr, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -119,9 +115,9 @@ entry:
   %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
   %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
   store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds %struct.TCGOp, ptr %call, i64 0, i32 4
+  %args = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %r, ptr %args, align 8
-  %arrayidx7 = getelementptr %struct.TCGOp, ptr %call, i64 1, i32 2
+  %arrayidx7 = getelementptr i8, ptr %call, i64 40
   store i64 %a, ptr %arrayidx7, align 8
   ret void
 }
@@ -141,11 +137,11 @@ entry:
   %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
   %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
   store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds %struct.TCGOp, ptr %call, i64 0, i32 4
+  %args = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %r, ptr %args, align 8
-  %arrayidx7 = getelementptr %struct.TCGOp, ptr %call, i64 1, i32 2
+  %arrayidx7 = getelementptr i8, ptr %call, i64 40
   store i64 %a, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr %struct.TCGOp, ptr %call, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9 = getelementptr i8, ptr %call, i64 48
   store i64 %b, ptr %arrayidx9, align 8
   ret void
 }
@@ -163,13 +159,13 @@ entry:
   %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
   %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
   store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds %struct.TCGOp, ptr %call, i64 0, i32 4
+  %args = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %r, ptr %args, align 8
-  %arrayidx7 = getelementptr %struct.TCGOp, ptr %call, i64 1, i32 2
+  %arrayidx7 = getelementptr i8, ptr %call, i64 40
   store i64 %a, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr %struct.TCGOp, ptr %call, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9 = getelementptr i8, ptr %call, i64 48
   store i64 %b, ptr %arrayidx9, align 8
-  %arrayidx11 = getelementptr %struct.TCGOp, ptr %call, i64 1, i32 3
+  %arrayidx11 = getelementptr i8, ptr %call, i64 56
   store i64 %c, ptr %arrayidx11, align 8
   ret void
 }
@@ -207,9 +203,9 @@ if.then:                                          ; preds = %entry
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %8, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %9, ptr %arrayidx7.i.i, align 8
   br label %if.end
 
@@ -257,9 +253,9 @@ if.then.i:                                        ; preds = %entry
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %11, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i.i, align 8
   br label %tcg_gen_mov_vec.exit
 
@@ -291,9 +287,9 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %6, ptr %arrayidx7.i, align 8
   ret void
 }
@@ -320,9 +316,9 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
   ret void
 }
@@ -349,11 +345,11 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
   store i64 %ofs, ptr %arrayidx9.i, align 8
   ret void
 }
@@ -378,11 +374,11 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %o, ptr %arrayidx9.i.i, align 8
   ret void
 }
@@ -407,11 +403,11 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %o, ptr %arrayidx9.i.i, align 8
   ret void
 }
@@ -443,11 +439,11 @@ entry:
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
   %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
   store i32 %bf.clear4.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
   store i64 %o, ptr %arrayidx9.i, align 8
   ret void
 }
@@ -490,11 +486,11 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %13, ptr %arrayidx9.i.i, align 8
   ret void
 }
@@ -537,11 +533,11 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %13, ptr %arrayidx9.i.i, align 8
   ret void
 }
@@ -584,11 +580,11 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %13, ptr %arrayidx9.i.i, align 8
   ret void
 }
@@ -631,11 +627,11 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %13, ptr %arrayidx9.i.i, align 8
   ret void
 }
@@ -684,11 +680,11 @@ if.then:                                          ; preds = %entry
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -726,9 +722,9 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %26, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
@@ -769,11 +765,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %39, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %40, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %41, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
@@ -813,11 +809,11 @@ tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else
   %bf.value.masked.i.i.i17 = and i32 %bf.value.i.i.i15, 16711680
   %bf.clear4.i.i.i18 = or disjoint i32 %bf.clear.i.i.i16, %bf.value.masked.i.i.i17
   store i32 %bf.clear4.i.i.i18, ptr %call.i.i.i12, align 8
-  %args.i.i.i19 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i12, i64 0, i32 4
+  %args.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i12, i64 32
   store i64 %51, ptr %args.i.i.i19, align 8
-  %arrayidx7.i.i.i20 = getelementptr %struct.TCGOp, ptr %call.i.i.i12, i64 1, i32 2
+  %arrayidx7.i.i.i20 = getelementptr i8, ptr %call.i.i.i12, i64 40
   store i64 %52, ptr %arrayidx7.i.i.i20, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i12, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i12, i64 48
   store i64 %53, ptr %arrayidx9.i.i.i, align 8
   tail call void @tcg_temp_free_vec(ptr noundef %call) #5
   br label %if.end
@@ -863,9 +859,9 @@ if.then:                                          ; preds = %entry
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %10, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx7.i.i, align 8
   br label %if.end
 
@@ -906,11 +902,11 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %23, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %24, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %25, ptr %arrayidx9.i.i.i, align 8
   br label %if.end
 
@@ -964,11 +960,11 @@ if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -978,11 +974,11 @@ if.else:                                          ; preds = %entry
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %13, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i.i, align 8
   %16 = load i32, ptr @cpuinfo, align 4
   %17 = and i32 %16, 6144
@@ -1002,9 +998,9 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i11, i64 0, i32 4
+  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
   store i64 %20, ptr %args.i.i.i18, align 8
-  %arrayidx7.i.i.i19 = getelementptr %struct.TCGOp, ptr %call.i.i.i11, i64 1, i32 2
+  %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %20, ptr %arrayidx7.i.i.i19, align 8
   br label %if.end
 
@@ -1034,11 +1030,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %27, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
   br label %if.end
 
@@ -1090,11 +1086,11 @@ if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -1104,11 +1100,11 @@ if.else:                                          ; preds = %entry
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %13, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i.i, align 8
   %16 = load i32, ptr @cpuinfo, align 4
   %17 = and i32 %16, 6144
@@ -1128,9 +1124,9 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i11, i64 0, i32 4
+  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
   store i64 %20, ptr %args.i.i.i18, align 8
-  %arrayidx7.i.i.i19 = getelementptr %struct.TCGOp, ptr %call.i.i.i11, i64 1, i32 2
+  %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %20, ptr %arrayidx7.i.i.i19, align 8
   br label %if.end
 
@@ -1160,11 +1156,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %27, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
   br label %if.end
 
@@ -1216,11 +1212,11 @@ if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -1230,11 +1226,11 @@ if.else:                                          ; preds = %entry
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %13, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %15, ptr %arrayidx9.i.i.i, align 8
   %16 = load i32, ptr @cpuinfo, align 4
   %17 = and i32 %16, 6144
@@ -1254,9 +1250,9 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i11, i64 0, i32 4
+  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
   store i64 %20, ptr %args.i.i.i18, align 8
-  %arrayidx7.i.i.i19 = getelementptr %struct.TCGOp, ptr %call.i.i.i11, i64 1, i32 2
+  %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %20, ptr %arrayidx7.i.i.i19, align 8
   br label %if.end
 
@@ -1286,11 +1282,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %27, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
   br label %if.end
 
@@ -1346,11 +1342,11 @@ if.then21.i.i.i:                                  ; preds = %entry
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_sub_vec.exit
 
@@ -1413,11 +1409,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -1471,9 +1467,9 @@ if.then10.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %4, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i, align 8
   br label %if.end15
 
@@ -1542,11 +1538,11 @@ if.then21.i.i.i.i:                                ; preds = %if.then7
   %bf.clear4.i.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i.i, %bf.clear.i.i.i.i.i
   %bf.set5.i.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i.i, %bf.value2.i.i.i.i.i
   store i32 %bf.set5.i.i.i.i.i, ptr %call.i.i.i.i.i, align 8
-  %args.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   store i64 %16, ptr %args.i.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
   store i64 %17, ptr %arrayidx7.i.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 48
   store i64 %18, ptr %arrayidx9.i.i.i.i.i, align 8
   br label %tcg_gen_neg_vec.exit
 
@@ -1619,13 +1615,13 @@ if.then21.i:                                      ; preds = %if.else11
   %bf.clear4.i.i44 = or disjoint i32 %bf.value.masked.i.i43, %bf.clear.i.i41
   %bf.set5.i.i45 = or disjoint i32 %bf.clear4.i.i44, %bf.value2.i.i42
   store i32 %bf.set5.i.i45, ptr %call.i.i37, align 8
-  %args.i.i46 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i37, i64 0, i32 4
+  %args.i.i46 = getelementptr inbounds i8, ptr %call.i.i37, i64 32
   store i64 %28, ptr %args.i.i46, align 8
-  %arrayidx7.i.i47 = getelementptr %struct.TCGOp, ptr %call.i.i37, i64 1, i32 2
+  %arrayidx7.i.i47 = getelementptr i8, ptr %call.i.i37, i64 40
   store i64 %29, ptr %arrayidx7.i.i47, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i37, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i37, i64 48
   store i64 %30, ptr %arrayidx9.i.i, align 8
-  %arrayidx11.i.i = getelementptr %struct.TCGOp, ptr %call.i.i37, i64 1, i32 3
+  %arrayidx11.i.i = getelementptr i8, ptr %call.i.i37, i64 56
   store i64 2, ptr %arrayidx11.i.i, align 8
   br label %if.end13
 
@@ -1668,11 +1664,11 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %44, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %45, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %46, ptr %arrayidx9.i.i.i, align 8
   %47 = load ptr, ptr %0, align 8
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %47, i64 %2
@@ -1704,11 +1700,11 @@ if.then21.i.i.i:                                  ; preds = %if.end13
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %48, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %48, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %49, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_sub_vec.exit
 
@@ -1795,13 +1791,13 @@ if.then21:                                        ; preds = %entry
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %5, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %6, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
   store i64 %7, ptr %arrayidx9.i, align 8
-  %arrayidx11.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 3
+  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 56
   store i64 %conv, ptr %arrayidx11.i, align 8
   br label %if.end30
 
@@ -1865,9 +1861,9 @@ if.then.i:                                        ; preds = %if.then17
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %4, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i.i, align 8
   br label %if.end31
 
@@ -1887,11 +1883,11 @@ if.then22:                                        ; preds = %if.end18
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %4, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
   store i64 %i, ptr %arrayidx9.i, align 8
   br label %if.end31
 
@@ -1983,11 +1979,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2050,11 +2046,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2117,11 +2113,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2184,11 +2180,11 @@ if.then21.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -2232,9 +2228,9 @@ if.then.i:                                        ; preds = %if.then
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %22, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %23, ptr %arrayidx7.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
@@ -2273,11 +2269,11 @@ if.else.i13:                                      ; preds = %if.then
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %33, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %34, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %35, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
@@ -2322,11 +2318,11 @@ if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exi
   %bf.clear4.i.i.i.i25 = or disjoint i32 %bf.value.masked.i.i.i.i24, %bf.clear.i.i.i.i23
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i25, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i19, align 8
-  %args.i.i.i.i26 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i19, i64 0, i32 4
+  %args.i.i.i.i26 = getelementptr inbounds i8, ptr %call.i.i.i.i19, i64 32
   store i64 %37, ptr %args.i.i.i.i26, align 8
-  %arrayidx7.i.i.i.i27 = getelementptr %struct.TCGOp, ptr %call.i.i.i.i19, i64 1, i32 2
+  %arrayidx7.i.i.i.i27 = getelementptr i8, ptr %call.i.i.i.i19, i64 40
   store i64 %38, ptr %arrayidx7.i.i.i.i27, align 8
-  %arrayidx9.i.i.i.i28 = getelementptr %struct.TCGOp, ptr %call.i.i.i.i19, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i28 = getelementptr i8, ptr %call.i.i.i.i19, i64 48
   store i64 %39, ptr %arrayidx9.i.i.i.i28, align 8
   br label %tcg_gen_add_vec.exit
 
@@ -2400,11 +2396,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2467,11 +2463,11 @@ if.then21.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -2525,11 +2521,11 @@ if.then21.i.i.i:                                  ; preds = %if.then
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %16, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %17, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %18, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_sub_vec.exit
 
@@ -2610,11 +2606,11 @@ if.then21.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
@@ -2679,11 +2675,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2746,11 +2742,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2813,11 +2809,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2880,11 +2876,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -2947,11 +2943,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
@@ -3008,11 +3004,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
@@ -3071,11 +3067,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
@@ -3134,11 +3130,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
@@ -3197,11 +3193,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %7, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
@@ -3274,13 +3270,13 @@ if.then28:                                        ; preds = %entry
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
   %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
   store i32 %bf.clear4.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %16, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %17, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
   store i64 %18, ptr %arrayidx9.i, align 8
-  %arrayidx11.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 3
+  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 56
   store i64 %19, ptr %arrayidx11.i, align 8
   br label %if.end34
 
@@ -3318,11 +3314,11 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i64 %28, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %29, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
   store i64 %30, ptr %arrayidx9.i.i.i, align 8
   %31 = load ptr, ptr %0, align 8
   %add.ptr.i.i.i.i21 = getelementptr i8, ptr %31, i64 %2
@@ -3355,11 +3351,11 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i37 = and i32 %bf.value.i.i.i35, 16711680
   %bf.clear4.i.i.i38 = or disjoint i32 %bf.clear.i.i.i36, %bf.value.masked.i.i.i37
   store i32 %bf.clear4.i.i.i38, ptr %call.i.i.i32, align 8
-  %args.i.i.i39 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i32, i64 0, i32 4
+  %args.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i32, i64 32
   store i64 %38, ptr %args.i.i.i39, align 8
-  %arrayidx7.i.i.i40 = getelementptr %struct.TCGOp, ptr %call.i.i.i32, i64 1, i32 2
+  %arrayidx7.i.i.i40 = getelementptr i8, ptr %call.i.i.i32, i64 40
   store i64 %39, ptr %arrayidx7.i.i.i40, align 8
-  %arrayidx9.i.i.i41 = getelementptr %struct.TCGOp, ptr %call.i.i.i32, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i41 = getelementptr i8, ptr %call.i.i.i32, i64 48
   store i64 %40, ptr %arrayidx9.i.i.i41, align 8
   %41 = load ptr, ptr %0, align 8
   %add.ptr.i.i.i.i42 = getelementptr i8, ptr %41, i64 %2
@@ -3384,11 +3380,11 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i58 = and i32 %bf.value.i.i.i56, 16711680
   %bf.clear4.i.i.i59 = or disjoint i32 %bf.value.masked.i.i.i58, %bf.clear.i.i.i57
   store i32 %bf.clear4.i.i.i59, ptr %call.i.i.i53, align 8
-  %args.i.i.i60 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i53, i64 0, i32 4
+  %args.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i53, i64 32
   store i64 %46, ptr %args.i.i.i60, align 8
-  %arrayidx7.i.i.i61 = getelementptr %struct.TCGOp, ptr %call.i.i.i53, i64 1, i32 2
+  %arrayidx7.i.i.i61 = getelementptr i8, ptr %call.i.i.i53, i64 40
   store i64 %46, ptr %arrayidx7.i.i.i61, align 8
-  %arrayidx9.i.i.i62 = getelementptr %struct.TCGOp, ptr %call.i.i.i53, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i.i62 = getelementptr i8, ptr %call.i.i.i53, i64 48
   store i64 %47, ptr %arrayidx9.i.i.i62, align 8
   tail call void @tcg_temp_free_vec(ptr noundef %call33) #5
   br label %if.end34
@@ -3461,17 +3457,17 @@ if.then44:                                        ; preds = %entry
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %7, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %8, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
   store i64 %9, ptr %arrayidx9.i, align 8
-  %arrayidx11.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 3
+  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 56
   store i64 %10, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr %struct.TCGOp, ptr %call.i, i64 2
+  %arrayidx13.i = getelementptr i8, ptr %call.i, i64 64
   store i64 %11, ptr %arrayidx13.i, align 8
-  %arrayidx15.i = getelementptr %struct.TCGOp, ptr %call.i, i64 2, i32 2
+  %arrayidx15.i = getelementptr i8, ptr %call.i, i64 72
   store i64 %conv, ptr %arrayidx15.i, align 8
   br label %if.end51
 
@@ -3525,13 +3521,13 @@ if.then21.i:                                      ; preds = %if.else48
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
+  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %24, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
+  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %25, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
   store i64 %26, ptr %arrayidx9.i.i, align 8
-  %arrayidx11.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 3
+  %arrayidx11.i.i = getelementptr i8, ptr %call.i.i, i64 56
   store i64 %conv.i, ptr %arrayidx11.i.i, align 8
   br label %tcg_gen_cmp_vec.exit
 

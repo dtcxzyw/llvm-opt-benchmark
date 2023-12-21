@@ -3,18 +3,6 @@ source_filename = "bench/openexr/original/string.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._internal_exr_context = type { i8, i8, i8, i8, i8, i8, i8, i8, %struct.exr_attr_string_t, %struct.exr_attr_string_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i32, %struct._internal_exr_part, ptr, ptr, %struct.exr_attribute_list, %union.pthread_mutex_t, i8, i8, [6 x i8] }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
-%struct._internal_exr_part = type { i32, i32, %struct.exr_attribute_list, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.exr_attr_box2i_t, %struct.exr_attr_box2i_t, i32, i32, i32, float, i32, i32, ptr, ptr, ptr, ptr, i64, i16, i16, i32, i64, i64 }
-%struct.exr_attr_box2i_t = type { %struct.exr_attr_v2i_t, %struct.exr_attr_v2i_t }
-%struct.exr_attr_v2i_t = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%struct.exr_attribute_list = type { i32, i32, ptr, ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [56 x i8] c"Received request to allocate negative sized string (%d)\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"Invalid reference to string object to initialize\00", align 1
 @.str.2 = private unnamed_addr constant [45 x i8] c"Invalid static string argument to initialize\00", align 1
@@ -34,7 +22,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %print_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 14
+  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %len) #4
   br label %return
@@ -44,32 +32,32 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool3.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end2
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error, align 8
   %call5 = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #4
   br label %return
 
 if.end6:                                          ; preds = %if.end2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
-  %alloc_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
   %2 = load ptr, ptr %alloc_fn, align 8
   %add = add nuw nsw i32 %len, 1
   %conv = zext nneg i32 %add to i64
   %call7 = tail call ptr %2(i64 noundef %conv) #4
-  %str = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call7, ptr %str, align 8
   %cmp9 = icmp eq ptr %call7, null
   br i1 %cmp9, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end6
-  %standard_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
+  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call12 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #4
   br label %return
 
 if.end13:                                         ; preds = %if.end6
   store i32 %len, ptr %s, align 8
-  %alloc_size = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size = getelementptr inbounds i8, ptr %s, i64 4
   store i32 %add, ptr %alloc_size, align 4
   br label %return
 
@@ -92,7 +80,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %print_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 14
+  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %len) #4
   br label %return
@@ -102,7 +90,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool3.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end2
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error, align 8
   %call5 = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2) #4
   br label %return
@@ -112,7 +100,7 @@ if.end6:                                          ; preds = %if.end2
   br i1 %tobool7.not, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end6
-  %report_error9 = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error9 = getelementptr inbounds i8, ptr %ctxt, i64 64
   %2 = load ptr, ptr %report_error9, align 8
   %call10 = tail call i32 %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #4
   br label %return
@@ -120,7 +108,7 @@ if.then8:                                         ; preds = %if.end6
 if.end11:                                         ; preds = %if.end6
   store i64 0, ptr %s, align 8
   store i32 %len, ptr %s, align 8
-  %str = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %v, ptr %str, align 8
   br label %return
 
@@ -140,7 +128,7 @@ entry.split:                                      ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry.split
-  %report_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error.i = getelementptr inbounds i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error.i, align 8
   %call5.i = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2) #4
   br label %return
@@ -155,7 +143,7 @@ if.then1:                                         ; preds = %if.then
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then1
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error, align 8
   %call4 = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.3) #4
   br label %return
@@ -170,7 +158,7 @@ if.end6.i:                                        ; preds = %if.end5.split
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %report_error9.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error9.i = getelementptr inbounds i8, ptr %ctxt, i64 64
   %2 = load ptr, ptr %report_error9.i, align 8
   %call10.i = tail call i32 %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #4
   br label %return
@@ -178,7 +166,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 if.end11.i:                                       ; preds = %if.end6.i
   store i64 0, ptr %s, align 8
   store i32 %conv, ptr %s, align 8
-  %str.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %v, ptr %str.i, align 8
   br label %return
 
@@ -201,7 +189,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end.i
 
 if.then2:                                         ; preds = %if.end
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.4) #4
   br label %return
@@ -211,32 +199,32 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then1.i, label %if.end6.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %print_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 14
+  %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error.i, align 8
   %call.i = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %len) #4
   br label %exr_attr_string_init.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
-  %alloc_fn.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   %2 = load ptr, ptr %alloc_fn.i, align 8
   %add.i = add nuw nsw i32 %len, 1
   %conv.i = zext nneg i32 %add.i to i64
   %call7.i = tail call ptr %2(i64 noundef %conv.i) #4
-  %str.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call7.i, ptr %str.i, align 8
   %cmp9.i = icmp eq ptr %call7.i, null
   br i1 %cmp9.i, label %if.then11.i, label %exr_attr_string_init.exit.thread
 
 if.then11.i:                                      ; preds = %if.end6.i
-  %standard_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
+  %standard_error.i = getelementptr inbounds i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error.i, align 8
   %call12.i = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #4
   br label %exr_attr_string_init.exit
 
 exr_attr_string_init.exit.thread:                 ; preds = %if.end6.i
   store i32 %len, ptr %s, align 8
-  %alloc_size.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size.i = getelementptr inbounds i8, ptr %s, i64 4
   store i32 %add.i, ptr %alloc_size.i, align 4
   br label %if.then5
 
@@ -246,7 +234,7 @@ exr_attr_string_init.exit:                        ; preds = %if.then1.i, %if.the
   br i1 %cmp, label %exr_attr_string_init.exit.if.then5_crit_edge, label %return
 
 exr_attr_string_init.exit.if.then5_crit_edge:     ; preds = %exr_attr_string_init.exit
-  %str.phi.trans.insert = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 8
   %.pre = load ptr, ptr %str.phi.trans.insert, align 8
   br label %if.then5
 
@@ -297,23 +285,23 @@ if.end.i:                                         ; preds = %entry.split
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end.i.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %report_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error.i = getelementptr inbounds i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error.i, align 8
   %call.i = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.4) #4
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
-  %alloc_fn.i.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn.i.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   %1 = load ptr, ptr %alloc_fn.i.i, align 8
   %call7.i.i = tail call ptr %1(i64 noundef 1) #4
-  %str.i.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.i.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call7.i.i, ptr %str.i.i, align 8
   %cmp9.i.i = icmp eq ptr %call7.i.i, null
   br i1 %cmp9.i.i, label %if.then11.i.i, label %exr_attr_string_init.exit.thread.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  %standard_error.i.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
+  %standard_error.i.i = getelementptr inbounds i8, ptr %ctxt, i64 56
   %2 = load ptr, ptr %standard_error.i.i, align 8
   %call12.i.i = tail call i32 %2(ptr noundef nonnull %ctxt, i32 noundef 1) #4
   %cmp.i = icmp eq i32 %call12.i.i, 0
@@ -321,7 +309,7 @@ if.then11.i.i:                                    ; preds = %if.end.i.i
 
 exr_attr_string_init.exit.thread.i:               ; preds = %if.end.i.i
   store i32 0, ptr %s, align 8
-  %alloc_size.i.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size.i.i = getelementptr inbounds i8, ptr %s, i64 4
   store i32 1, ptr %alloc_size.i.i, align 4
   br label %if.then5.i
 
@@ -344,7 +332,7 @@ if.then1:                                         ; preds = %if.then
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then1
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %4 = load ptr, ptr %report_error, align 8
   %call4 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.3) #4
   br label %return
@@ -359,31 +347,31 @@ if.end.i10:                                       ; preds = %if.end5.split
   br i1 %tobool1.not.i11, label %if.then2.i28, label %if.end6.i.i
 
 if.then2.i28:                                     ; preds = %if.end.i10
-  %report_error.i29 = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error.i29 = getelementptr inbounds i8, ptr %ctxt, i64 64
   %5 = load ptr, ptr %report_error.i29, align 8
   %call.i30 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.4) #4
   br label %return
 
 if.end6.i.i:                                      ; preds = %if.end.i10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
-  %alloc_fn.i.i13 = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn.i.i13 = getelementptr inbounds i8, ptr %ctxt, i64 88
   %6 = load ptr, ptr %alloc_fn.i.i13, align 8
   %add.i.i = add nuw nsw i32 %conv, 1
   %conv.i.i = zext nneg i32 %add.i.i to i64
   %call7.i.i14 = tail call ptr %6(i64 noundef %conv.i.i) #4
-  %str.i.i15 = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.i.i15 = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call7.i.i14, ptr %str.i.i15, align 8
   %cmp9.i.i16 = icmp eq ptr %call7.i.i14, null
   br i1 %cmp9.i.i16, label %exr_attr_string_init.exit.i, label %exr_attr_string_init.exit.thread.i17
 
 exr_attr_string_init.exit.thread.i17:             ; preds = %if.end6.i.i
   store i32 %conv, ptr %s, align 8
-  %alloc_size.i.i18 = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size.i.i18 = getelementptr inbounds i8, ptr %s, i64 4
   store i32 %add.i.i, ptr %alloc_size.i.i18, align 4
   br label %if.then5.i19
 
 exr_attr_string_init.exit.i:                      ; preds = %if.end6.i.i
-  %standard_error.i.i22 = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
+  %standard_error.i.i22 = getelementptr inbounds i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error.i.i22, align 8
   %call12.i.i23 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 1) #4
   %cmp.i24 = icmp eq i32 %call12.i.i23, 0
@@ -423,7 +411,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.5) #4
   br label %return
@@ -433,20 +421,20 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end3
-  %print_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 14
+  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call5 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %len) #4
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  %alloc_size = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size = getelementptr inbounds i8, ptr %s, i64 4
   %2 = load i32, ptr %alloc_size, align 4
   %cmp7 = icmp sgt i32 %2, %len
   br i1 %cmp7, label %if.then8, label %if.then2.i
 
 if.then8:                                         ; preds = %if.end6
   store i32 %len, ptr %s, align 8
-  %str = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load ptr, ptr %str, align 8
   %cmp9.not = icmp eq i32 %len, 0
   br i1 %cmp9.not, label %if.end16, label %if.then10
@@ -471,7 +459,7 @@ if.end16:                                         ; preds = %if.then8, %if.then1
   br label %return
 
 if.then2.i:                                       ; preds = %if.end6
-  %str.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.i = getelementptr inbounds i8, ptr %s, i64 8
   %4 = load ptr, ptr %str.i, align 8
   %tobool3.not.i = icmp ne ptr %4, null
   %cmp.i = icmp sgt i32 %2, 0
@@ -479,13 +467,13 @@ if.then2.i:                                       ; preds = %if.end6
   br i1 %or.cond, label %if.then4.i, label %if.end6.i.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %free_fn.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 17
+  %free_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 96
   %5 = load ptr, ptr %free_fn.i, align 8
   tail call void %5(ptr noundef nonnull %4) #4
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i, %if.then2.i
-  %alloc_fn.i.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %alloc_fn.i.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %alloc_fn.i.i, align 8
   %add.i.i = add nuw nsw i32 %len, 1
@@ -501,7 +489,7 @@ exr_attr_string_init.exit.thread.i:               ; preds = %if.end6.i.i
   br label %if.then5.i
 
 exr_attr_string_init.exit.i:                      ; preds = %if.end6.i.i
-  %standard_error.i.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
+  %standard_error.i.i = getelementptr inbounds i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error.i.i, align 8
   %call12.i.i = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 1) #4
   %cmp.i28 = icmp eq i32 %call12.i.i, 0
@@ -551,19 +539,19 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %str = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %str, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %alloc_size = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size = getelementptr inbounds i8, ptr %s, i64 4
   %1 = load i32, ptr %alloc_size, align 4
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %land.lhs.true
-  %free_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 17
+  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
   %2 = load ptr, ptr %free_fn, align 8
   tail call void %2(ptr noundef nonnull %0) #4
   br label %if.end6
@@ -592,27 +580,27 @@ if.end.i:                                         ; preds = %entry.split
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %report_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error.i = getelementptr inbounds i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error.i, align 8
   %call.i = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.5) #4
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %alloc_size.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 1
+  %alloc_size.i = getelementptr inbounds i8, ptr %s, i64 4
   %1 = load i32, ptr %alloc_size.i, align 4
   %cmp7.i = icmp sgt i32 %1, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.end6.i.i.i
 
 if.then8.i:                                       ; preds = %if.end3.i
   store i32 0, ptr %s, align 8
-  %str.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
+  %str.i = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load ptr, ptr %str.i, align 8
   store i8 0, ptr %2, align 1
   br label %return
 
 if.end6.i.i.i:                                    ; preds = %if.end3.i
-  %str.i.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %s, i64 0, i32 2
-  %alloc_fn.i.i.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
+  %str.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %alloc_fn.i.i.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %alloc_fn.i.i.i, align 8
   %call7.i.i.i = tail call ptr %3(i64 noundef 1) #4
@@ -626,7 +614,7 @@ exr_attr_string_init.exit.thread.i.i:             ; preds = %if.end6.i.i.i
   br label %if.then5.i.i
 
 exr_attr_string_init.exit.i.i:                    ; preds = %if.end6.i.i.i
-  %standard_error.i.i.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
+  %standard_error.i.i.i = getelementptr inbounds i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error.i.i.i, align 8
   %call12.i.i.i = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 1) #4
   %cmp.i28.i = icmp eq i32 %call12.i.i.i, 0
@@ -651,7 +639,7 @@ if.then1:                                         ; preds = %if.then
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then1
-  %report_error = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 13
+  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %6 = load ptr, ptr %report_error, align 8
   %call4 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.3) #4
   br label %return

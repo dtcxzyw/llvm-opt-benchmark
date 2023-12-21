@@ -3,17 +3,10 @@ source_filename = "bench/openssl/original/libcommon-lib-ciphercommon_gcm_hw.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.prov_gcm_ctx_st = type { i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i8, [128 x i8], [16 x i8], ptr, ptr, %struct.gcm128_context, ptr }
-%struct.gcm128_context = type { %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, [16 x %struct.u128], %struct.gcm_funcs_st, i32, i32, ptr, ptr, [48 x i8] }
-%union.anon = type { [2 x i64] }
-%struct.u128 = type { i64, i64 }
-%struct.gcm_funcs_st = type { ptr, ptr, ptr }
-%struct.prov_gcm_hw_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_gcm_setiv(ptr noundef %ctx, ptr noundef %iv, i64 noundef %ivlen) local_unnamed_addr #0 {
 entry:
-  %gcm = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm, ptr noundef %iv, i64 noundef %ivlen) #2
   ret i32 1
 }
@@ -23,7 +16,7 @@ declare void @CRYPTO_gcm128_setiv(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_gcm_aad_update(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) local_unnamed_addr #0 {
 entry:
-  %gcm = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %call = tail call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %gcm, ptr noundef %aad, i64 noundef %aad_len) #2
   %cmp = icmp eq i32 %call, 0
   %conv = zext i1 %cmp to i32
@@ -35,11 +28,11 @@ declare i32 @CRYPTO_gcm128_aad(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) local_unnamed_addr #0 {
 entry:
-  %enc = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %gcm3 = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm3 = getelementptr inbounds i8, ptr %ctx, i64 248
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -67,21 +60,21 @@ declare i32 @CRYPTO_gcm128_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 no
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_gcm_cipher_final(ptr noundef %ctx, ptr noundef %tag) local_unnamed_addr #0 {
 entry:
-  %enc = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %gcm1 = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm1 = getelementptr inbounds i8, ptr %ctx, i64 248
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @CRYPTO_gcm128_tag(ptr noundef nonnull %gcm1, ptr noundef %tag, i64 noundef 16) #2
-  %taglen = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 3
+  %taglen = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 16, ptr %taglen, align 8
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %taglen2 = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 3
+  %taglen2 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load i64, ptr %taglen2, align 8
   %call = tail call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %gcm1, ptr noundef %tag, i64 noundef %0) #2
   %cmp.not = icmp eq i32 %call, 0
@@ -102,9 +95,9 @@ declare i32 @CRYPTO_gcm128_finish(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_gcm_one_shot(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, ptr noundef %tag, i64 noundef %tag_len) local_unnamed_addr #0 {
 entry:
-  %hw = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 15
+  %hw = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %hw, align 8
-  %aadupdate = getelementptr inbounds %struct.prov_gcm_hw_st, ptr %0, i64 0, i32 2
+  %aadupdate = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %aadupdate, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -112,17 +105,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %hw, align 8
-  %cipherupdate = getelementptr inbounds %struct.prov_gcm_hw_st, ptr %2, i64 0, i32 3
+  %cipherupdate = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %cipherupdate, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %ctx, ptr noundef %in, i64 noundef %in_len, ptr noundef %out) #2
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %taglen = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 3
+  %taglen = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 16, ptr %taglen, align 8
   %4 = load ptr, ptr %hw, align 8
-  %cipherfinal = getelementptr inbounds %struct.prov_gcm_hw_st, ptr %4, i64 0, i32 4
+  %cipherfinal = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %cipherfinal, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctx, ptr noundef %tag) #2
   %tobool8.not = icmp ne i32 %call7, 0

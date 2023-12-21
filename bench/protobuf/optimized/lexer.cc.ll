@@ -13,19 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"struct.google::protobuf::json_internal::JsonLocation" = type { i64, i64, i64, ptr }
 %"class.absl::lts_20230802::StatusOr" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.base", [4 x i8] }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.base" = type <{ %union.anon.3, %union.anon.4 }>
 %union.anon.3 = type { %"class.absl::lts_20230802::Status" }
 %union.anon.4 = type { i32 }
-%"class.google::protobuf::json_internal::ZeroCopyBufferedStream" = type { ptr, %"class.std::basic_string_view", %"class.std::vector.5", i8, i64, i64, i8, i32 }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::lts_20230802::internal_statusor::StatusOrData" = type <{ %union.anon.3, %union.anon.4, [4 x i8] }>
-%"class.google::protobuf::json_internal::JsonLexer" = type { %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", %"struct.google::protobuf::json_internal::ParseOptions", %"struct.google::protobuf::json_internal::JsonLocation", ptr }
-%"struct.google::protobuf::json_internal::ParseOptions" = type <{ i8, i8, [2 x i8], i32, i8, [3 x i8] }>
 %"class.absl::lts_20230802::StatusOr.41" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.42" }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.42" = type { %union.anon.43, %union.anon.44 }
 %union.anon.43 = type { %"class.absl::lts_20230802::Status" }
@@ -48,6 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union.13" = type { %"struct.std::__detail::__variant::_Uninitialized.14" }
 %"struct.std::__detail::__variant::_Uninitialized.14" = type { %"struct.google::protobuf::json_internal::MaybeOwnedString::StreamOwned" }
 %"struct.google::protobuf::json_internal::MaybeOwnedString::StreamOwned" = type { ptr, i64, i64 }
+%"struct.google::protobuf::json_internal::JsonLocation" = type { i64, i64, i64, ptr }
 %"class.absl::lts_20230802::StatusOr.20" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.21" }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.21" = type { %union.anon.22, %union.anon.23 }
 %union.anon.22 = type { %"class.absl::lts_20230802::Status" }
@@ -69,18 +61,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.52" = type { %union.anon.53, %union.anon.54 }
 %union.anon.53 = type { %"class.absl::lts_20230802::Status" }
 %union.anon.54 = type { i64 }
-%"struct.std::__detail::__variant::_Variant_storage" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }>
 %"class.absl::lts_20230802::StatusOr.31" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.base.35", [6 x i8] }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.base.35" = type <{ %union.anon.33, %union.anon.34 }>
 %union.anon.33 = type { %"class.absl::lts_20230802::Status" }
 %union.anon.34 = type { i16 }
-%"class.absl::lts_20230802::internal_statusor::StatusOrData.32" = type <{ %union.anon.33, %union.anon.34, [6 x i8] }>
 %"class.absl::lts_20230802::StatusOr.75" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.76" }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.76" = type { %union.anon.77, %union.anon.78 }
 %union.anon.77 = type { %"class.absl::lts_20230802::Status" }
 %union.anon.78 = type { %"class.google::protobuf::json_internal::MaybeOwnedString" }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN4absl12lts_202308026StatusD2Ev = comdat any
@@ -231,7 +219,7 @@ entry:
   %to_obfuscate = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   store i64 %message.coerce0, ptr %message, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %message, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %message, i64 8
   store ptr %message.coerce1, ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %status_message)
@@ -254,14 +242,14 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %to_obfuscate) #18
-  %path = getelementptr inbounds %"struct.google::protobuf::json_internal::JsonLocation", ptr %this, i64 0, i32 3
+  %path = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %path, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %invoke.cont10, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store i64 4, ptr %ref.tmp2, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str.1, ptr %3, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %to_obfuscate, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2)
           to label %invoke.cont5 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
@@ -307,30 +295,30 @@ lpad3:                                            ; preds = %lpad3.loopexit.spli
   br label %eh.resume
 
 invoke.cont10:                                    ; preds = %invoke.cont, %invoke.cont7
-  %line = getelementptr inbounds %"struct.google::protobuf::json_internal::JsonLocation", ptr %this, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %line, align 8
   %add = add i64 %6, 1
-  %col = getelementptr inbounds %"struct.google::protobuf::json_internal::JsonLocation", ptr %this, i64 0, i32 2
+  %col = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %col, align 8
   %add13 = add i64 %7, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   %8 = inttoptr i64 %add to ptr
   store ptr %8, ptr %ref.tmp.i, align 8
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %9 = inttoptr i64 %add13 to ptr
   store ptr %9, ptr %arrayinit.element.i, align 8
-  %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8
-  %arrayinit.element9.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 2
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   %retval.sroa.0.0.copyload.i.i.i3.i = load ptr, ptr %this, align 8
   store ptr %retval.sroa.0.0.copyload.i.i.i3.i, ptr %arrayinit.element9.i, align 8
-  %dispatcher_.i.i4.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 2, i32 1
+  %dispatcher_.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i4.i, align 8
-  %arrayinit.element10.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 3
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store ptr %message, ptr %arrayinit.element10.i, align 8
-  %dispatcher_.i.i5.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 3, i32 1
+  %dispatcher_.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i5.i, align 8
   %call11.i3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080219str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %to_obfuscate, ptr nonnull @.str.2, i64 30, ptr nonnull %ref.tmp.i, i64 4)
           to label %invoke.cont14 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
@@ -524,25 +512,25 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup, %if.then.i
   br i1 %cmp.i, label %do.end, label %return
 
 do.end:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %cursor_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %cursor_.i.i, align 8
-  %last_chunk_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i.i.i = load i64, ptr %last_chunk_.i.i.i, align 8
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %view.sroa.4.0.copyload.i.i.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i, align 8
-  %using_buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i8, ptr %using_buf_.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i, label %while.end10.i.i.i, label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %do.end
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load i64, ptr %buffer_start_.i.i.i, align 8
   %sub.i.i.i = sub i64 %7, %10
-  %buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %buf_.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
@@ -586,43 +574,43 @@ _ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit: ; pr
   ]
 
 sw.bb:                                            ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %14 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %14, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 sw.bb4:                                           ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %15 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %15, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 sw.bb6:                                           ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %16 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %16, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit, %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %17 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 3, ptr %17, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 sw.bb10:                                          ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %18 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 4, ptr %18, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %19 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 5, ptr %19, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
-  %20 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 6, ptr %20, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
@@ -632,14 +620,14 @@ sw.default:                                       ; preds = %_ZN6google8protobuf
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %13 to i64
   %21 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %21, ptr %ref.tmp.i, align 8, !noalias !7
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !7
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp17, ptr nonnull @.str.3, i64 26, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call19 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #18
   %22 = extractvalue { i64, ptr } %call19, 0
   %23 = extractvalue { i64, ptr } %call19, 1
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 %22, ptr %23)
           to label %invoke.cont23 unwind label %lpad21
 
@@ -710,17 +698,17 @@ entry:
   br i1 %cmp.i.i.i53, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.lr.ph, label %return.sink.split
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.lr.ph: ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ref.tmp, i64 0, i32 1
-  %cursor_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
-  %last_chunk_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
-  %using_buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %json_loc_.i15 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
-  %col.i17 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2, i32 2
-  %line = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %cursor_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %last_chunk_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %using_buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %json_loc_.i15 = getelementptr inbounds i8, ptr %this, i64 96
+  %col.i17 = getelementptr inbounds i8, ptr %this, i64 112
+  %line = getelementptr inbounds i8, ptr %this, i64 104
   br label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.lr.ph, %sw.epilog
@@ -860,25 +848,25 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef signext i8 @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %cursor_.i, align 8
-  %last_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i.i = load i64, ptr %last_chunk_.i.i, align 8
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %view.sroa.4.0.copyload.i.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i.i, align 8
-  %using_buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %using_buf_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %while.end10.i.i, label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %entry
-  %buffer_start_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i64, ptr %buffer_start_.i.i, align 8
   %sub.i.i = sub i64 %0, %3
-  %buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %buf_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
@@ -959,7 +947,7 @@ if.then.i.i5:                                     ; preds = %_ZN4absl12lts_20230
   unreachable
 
 invoke.cont6:                                     ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %5 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %kind, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %kind, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %sw.epilog [
     i32 0, label %sw.bb
@@ -985,13 +973,13 @@ cleanup.i:                                        ; preds = %sw.bb
 
 do.body3.i:                                       ; preds = %cleanup.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %recursion_depth.i195 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 1, i32 3
+  %recursion_depth.i195 = getelementptr inbounds i8, ptr %this, i64 84
   %8 = load i32, ptr %recursion_depth.i195, align 4, !noalias !23
   %cmp.i196 = icmp eq i32 %8, 0
   br i1 %cmp.i196, label %if.then.i, label %cleanup11.i.thread
 
 if.then.i:                                        ; preds = %do.body3.i
-  %json_loc_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i.i, i64 34, ptr nonnull @.str.38)
           to label %cleanup11.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -1015,21 +1003,21 @@ call19.i.noexc:                                   ; preds = %do.end17.i
   br i1 %call19.i9, label %.noexc10, label %do.body22.i.preheader
 
 do.body22.i.preheader:                            ; preds = %call19.i.noexc
-  %cursor_.i.i155 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
-  %last_chunk_.i.i.i156 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i158 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
-  %using_buf_.i.i.i160 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
-  %buffer_start_.i.i.i163 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i.i165 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i.i166 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %allow_legacy_syntax.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 1, i32 4
-  %json_loc_.i125 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
-  %9 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ref.tmp.i, i64 0, i32 1
-  %token_.i.i.i.i137 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ref.tmp.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i143 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ref.tmp.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %10 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %key.i, i64 0, i32 1
-  %token_.i.i.i.i93 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %key.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i99 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %key.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %cursor_.i.i155 = getelementptr inbounds i8, ptr %this, i64 56
+  %last_chunk_.i.i.i156 = getelementptr inbounds i8, ptr %this, i64 8
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i158 = getelementptr inbounds i8, ptr %this, i64 16
+  %using_buf_.i.i.i160 = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_start_.i.i.i163 = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i.i165 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i.i166 = getelementptr inbounds i8, ptr %this, i64 32
+  %allow_legacy_syntax.i = getelementptr inbounds i8, ptr %this, i64 88
+  %json_loc_.i125 = getelementptr inbounds i8, ptr %this, i64 96
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %token_.i.i.i.i137 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %10 = getelementptr inbounds i8, ptr %key.i, i64 8
+  %token_.i.i.i.i93 = getelementptr inbounds i8, ptr %key.i, i64 48
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i99 = getelementptr inbounds i8, ptr %key.i, i64 40
   br label %do.body22.i
 
 .noexc10:                                         ; preds = %call19.i.noexc
@@ -1407,13 +1395,13 @@ cleanup.i25:                                      ; preds = %sw.bb9
 
 do.body3.i28:                                     ; preds = %cleanup.i25
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %recursion_depth.i234 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 1, i32 3
+  %recursion_depth.i234 = getelementptr inbounds i8, ptr %this, i64 84
   %59 = load i32, ptr %recursion_depth.i234, align 4, !noalias !33
   %cmp.i235 = icmp eq i32 %59, 0
   br i1 %cmp.i235, label %if.then.i238, label %cleanup11.i31.thread
 
 if.then.i238:                                     ; preds = %do.body3.i28
-  %json_loc_.i.i239 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i.i239 = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i.i239, i64 34, ptr nonnull @.str.38)
           to label %cleanup11.i31 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -1448,7 +1436,7 @@ do.body22.i42:                                    ; preds = %call46.i.noexc
 
 if.then23.i43.invoke:                             ; preds = %do.body22.i42, %do.end48.i
   %61 = phi ptr [ @.str.42, %do.end48.i ], [ @.str.34, %do.body22.i42 ]
-  %json_loc_.i208 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i208 = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i208, i64 12, ptr nonnull %61)
           to label %cleanup49 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -1473,7 +1461,7 @@ call46.i.noexc:                                   ; preds = %call44.i.noexc
   br i1 %call46.i58, label %do.end48.i, label %do.body22.i42, !llvm.loop !42
 
 do.end48.i:                                       ; preds = %call46.i.noexc
-  %allow_legacy_syntax.i44 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 1, i32 4
+  %allow_legacy_syntax.i44 = getelementptr inbounds i8, ptr %this, i64 88
   %63 = load i8, ptr %allow_legacy_syntax.i44, align 8, !noalias !43
   %64 = and i8 %63, 1
   %tobool49.not.i = icmp eq i8 %64, 0
@@ -1499,8 +1487,8 @@ invoke.cont14:                                    ; preds = %sw.bb13
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %invoke.cont14
   store i64 0, ptr %agg.result, align 8, !alias.scope !49
-  %67 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ref.tmp, i64 0, i32 1
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %68 = load ptr, ptr %token_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %68, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1521,7 +1509,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %71 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %71, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i.i
@@ -1699,25 +1687,25 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup, %if.then.i
   br i1 %cmp.i, label %do.end, label %return
 
 do.end:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %cursor_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %cursor_.i.i, align 8
-  %last_chunk_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i.i.i = load i64, ptr %last_chunk_.i.i.i, align 8
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %view.sroa.4.0.copyload.i.i.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i, align 8
-  %using_buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i8, ptr %using_buf_.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i, label %while.end10.i.i.i, label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %do.end
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load i64, ptr %buffer_start_.i.i.i, align 8
   %sub.i.i.i = sub i64 %7, %10
-  %buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %buf_.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
@@ -1739,12 +1727,12 @@ _ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit: ; pr
   %add.ptr.i.pn.i.i.i = getelementptr inbounds i8, ptr %view.sroa.4.0.i.i.i, i64 %start.addr.0.i.i.i
   %13 = load i8, ptr %add.ptr.i.pn.i.i.i, align 1
   %cmp = icmp ne i8 %13, 39
-  %allow_legacy_syntax = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 1, i32 4
+  %allow_legacy_syntax = getelementptr inbounds i8, ptr %this, i64 88
   %14 = load i8, ptr %allow_legacy_syntax, align 8
   %15 = and i8 %14, 1
   %tobool.not = icmp ne i8 %15, 0
   %brmerge = or i1 %cmp, %tobool.not
-  %json_loc_ = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_ = getelementptr inbounds i8, ptr %this, i64 96
   br i1 %brmerge, label %invoke.cont17, label %if.then5
 
 if.then5:                                         ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
@@ -1841,23 +1829,23 @@ do.end27:                                         ; preds = %_ZN4absl12lts_20230
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %27 = load i64, ptr %cursor_.i.i, align 8, !noalias !61
-  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   %28 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !61
   %cmp.i.i.i.i = icmp eq i32 %28, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.thread.i.i, label %if.then.i.i.i.i.i69
 
 if.then.i.i.i.thread.i.i:                         ; preds = %do.end27
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %27, ptr %buffer_start_.i.i.i.i, align 8, !noalias !61
   store i64 %27, ptr %mark, align 8, !alias.scope !61
-  %guard_.i1.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::Mark", ptr %mark, i64 0, i32 1
+  %guard_.i1.i.i = getelementptr inbounds i8, ptr %mark, i64 8
   store ptr %this, ptr %guard_.i1.i.i, align 8, !alias.scope !61
   store i32 2, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !61
   br label %if.then.i.i.i70
 
 if.then.i.i.i.i.i69:                              ; preds = %do.end27
   store i64 %27, ptr %mark, align 8, !alias.scope !61
-  %guard_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::Mark", ptr %mark, i64 0, i32 1
+  %guard_.i.i.i = getelementptr inbounds i8, ptr %mark, i64 8
   store ptr %this, ptr %guard_.i.i.i, align 8, !alias.scope !61
   %inc.i.i.i.i.i.i = add nsw i32 %28, 2
   store i32 %inc.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !61
@@ -1865,7 +1853,7 @@ if.then.i.i.i.i.i69:                              ; preds = %do.end27
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.then.i.i.i70
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i69
-  %buffer_start_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %27, ptr %buffer_start_.i.i.i.i.i.i, align 8, !noalias !61
   br label %if.then.i.i.i70
 
@@ -1881,23 +1869,23 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i70
   unreachable
 
 _ZN6google8protobuf13json_internal9JsonLexer9BeginMarkEv.exit: ; preds = %if.then.i.i.i70
-  %loc.i = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith.59", ptr %mark, i64 0, i32 1
+  %loc.i = getelementptr inbounds i8, ptr %mark, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_, i64 32, i1 false)
-  %31 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ref.tmp32, i64 0, i32 1
-  %buffer_start_.i.i.i105 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i.i107 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i.i108 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %col.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2, i32 2
-  %guard_.i = getelementptr inbounds %"class.google::protobuf::json_internal::Mark", ptr %mark, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
+  %buffer_start_.i.i.i105 = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i.i107 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i.i108 = getelementptr inbounds i8, ptr %this, i64 32
+  %col.i = getelementptr inbounds i8, ptr %this, i64 112
+  %guard_.i = getelementptr inbounds i8, ptr %mark, i64 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp99, i64 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp99, i64 16
-  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp99, i64 0, i32 1
-  %token_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp99, i64 0, i32 1
-  %32 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
-  %33 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ref.tmp116, i64 0, i32 1
-  %34 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.52", ptr %written, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp99, i64 32
+  %token_.i.i = getelementptr inbounds i8, ptr %ref.tmp99, i64 40
+  %32 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %33 = getelementptr inbounds i8, ptr %ref.tmp116, i64 8
+  %34 = getelementptr inbounds i8, ptr %written, i64 8
   %cond = select i1 %cmp, i32 34, i32 39
-  %35 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ref.tmp279, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %ref.tmp279, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN6google8protobuf13json_internal9JsonLexer9BeginMarkEv.exit, %sw.epilog340
@@ -2095,11 +2083,11 @@ if.end75:                                         ; preds = %sw.bb
 invoke.cont81:                                    ; preds = %if.end75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %on_heap) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp79) #18
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp78, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp78, i64 32
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp78, i64 0, i32 1
+  %token_.i = getelementptr inbounds i8, ptr %ref.tmp78, i64 40
   store ptr null, ptr %token_.i, align 8
-  %loc82 = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %ref.tmp78, i64 0, i32 1
+  %loc82 = getelementptr inbounds i8, ptr %ref.tmp78, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc82, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 32, i1 false)
   invoke void @_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IS7_TnNSt9enable_ifIXsr4absl11conjunctionINS0_11disjunctionIJSt7is_sameIS7_NS0_12remove_cvrefIOT_E4typeEENS0_8negationINSB_IJSC_IS8_SH_ESC_INS0_6StatusESH_ESC_ISt10in_place_tSH_ENS0_17internal_statusor31IsDirectInitializationAmbiguousIS7_SF_EEEEEEEEEESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_ENSB_IJSC_INSD_ISE_E4typeES7_ENS0_11conjunctionIJNSJ_ISX_ISF_SL_EEENSJ_INSP_31HasConversionOperatorToStatusOrIS7_SF_vEEEEEEEEEEEE5valueEiE4typeELi0EEESF_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp78)
           to label %invoke.cont84 unwind label %lpad83
@@ -2121,7 +2109,7 @@ if.end85:                                         ; preds = %if.end75
           to label %invoke.cont89 unwind label %lpad34.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont89:                                    ; preds = %if.end85
-  %loc90 = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %ref.tmp86, i64 0, i32 1
+  %loc90 = getelementptr inbounds i8, ptr %ref.tmp86, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc90, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 32, i1 false)
   invoke void @_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IS7_TnNSt9enable_ifIXsr4absl11conjunctionINS0_11disjunctionIJSt7is_sameIS7_NS0_12remove_cvrefIOT_E4typeEENS0_8negationINSB_IJSC_IS8_SH_ESC_INS0_6StatusESH_ESC_ISt10in_place_tSH_ENS0_17internal_statusor31IsDirectInitializationAmbiguousIS7_SF_EEEEEEEEEESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_ENSB_IJSC_INSD_ISE_E4typeES7_ENS0_11conjunctionIJNSJ_ISX_ISF_SL_EEENSJ_INSP_31HasConversionOperatorToStatusOrIS7_SF_vEEEEEEEEEEEE5valueEiE4typeELi0EEESF_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp86)
           to label %invoke.cont92 unwind label %lpad91
@@ -2144,17 +2132,17 @@ if.then96:                                        ; preds = %sw.bb94
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %63 = load ptr, ptr %guard_.i, align 8, !noalias !71
   %64 = load i64, ptr %mark, align 8, !noalias !71
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %63, i64 0, i32 4
+  %cursor_.i = getelementptr inbounds i8, ptr %63, i64 56
   %65 = load i64, ptr %cursor_.i, align 8, !noalias !71
   %.neg = xor i64 %64, -1
   %sub5.i = add i64 %65, %.neg
-  %outstanding_buffer_borrows_.i.i.i.i145 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %63, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i145 = getelementptr inbounds i8, ptr %63, i64 76
   %66 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i145, align 4, !noalias !71
   %cmp.i.i.i.i146 = icmp eq i32 %66, 0
   br i1 %cmp.i.i.i.i146, label %if.then.i.i.i.i150, label %if.then.i.i.i1.i
 
 if.then.i.i.i.i150:                               ; preds = %if.then96
-  %buffer_start_.i.i.i.i151 = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %63, i64 0, i32 5
+  %buffer_start_.i.i.i.i151 = getelementptr inbounds i8, ptr %63, i64 64
   store i64 %65, ptr %buffer_start_.i.i.i.i151, align 8, !noalias !71
   br label %if.then.i.i.i1.i
 
@@ -2170,7 +2158,7 @@ if.then.i.i.i1.i:                                 ; preds = %if.then.i.i.i.i150,
   br i1 %cmp.i.i.i.i.i147, label %if.then.i.i.i.i.i149, label %if.then.i.i148
 
 if.then.i.i.i.i.i149:                             ; preds = %if.then.i.i.i1.i
-  %buffer_start_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %63, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 64
   store i64 %65, ptr %buffer_start_.i.i.i.i.i, align 8, !noalias !71
   br label %if.then.i.i148
 
@@ -2590,7 +2578,7 @@ invoke.cont214:                                   ; preds = %land.lhs.true161, %
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %99 to i64
   %123 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %123, ptr %ref.tmp.i, align 8, !noalias !83
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !83
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp212, ptr nonnull @.str.22, i64 25, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont215 unwind label %lpad34.loopexit.split-lp.loopexit.split-lp
@@ -2649,7 +2637,7 @@ invoke.cont243:                                   ; preds = %land.lhs.true234
   %retval.sroa.0.0.insert.ext.i.i.i.i270 = zext i8 %51 to i64
   %131 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i270 to ptr
   store ptr %131, ptr %ref.tmp.i265, align 8, !noalias !86
-  %dispatcher_.i.i.i271 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i265, i64 0, i32 1
+  %dispatcher_.i.i.i271 = getelementptr inbounds i8, ptr %ref.tmp.i265, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i271, align 8, !noalias !86
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp241, ptr nonnull @.str.23, i64 42, ptr nonnull %ref.tmp.i265, i64 1)
           to label %invoke.cont244 unwind label %lpad34.loopexit.split-lp.loopexit.split-lp
@@ -3057,8 +3045,8 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1
-  %token_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %token_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %token_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i, label %if.then.i.i.i.i
@@ -3079,7 +3067,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i: ; preds = %invoke.cont.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i
@@ -3182,7 +3170,7 @@ do.end:                                           ; preds = %invoke.cont4
   br i1 %cmp.i.i.i.i, label %invoke.cont7, label %if.then.i.i32.invoke
 
 invoke.cont7:                                     ; preds = %do.end
-  %10 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %number, i64 8
   %call10 = invoke { i64, ptr } @_ZNK6google8protobuf13json_internal16MaybeOwnedString6AsViewEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %invoke.cont9 unwind label %lpad
 
@@ -3207,19 +3195,19 @@ if.then15:                                        ; preds = %lor.lhs.false, %inv
   br i1 %cmp.i.i.i.i13, label %invoke.cont23, label %if.then.i.i32.invoke
 
 invoke.cont23:                                    ; preds = %if.then15
-  %loc = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %number, i64 56
   %call27 = invoke { i64, ptr } @_ZNK6google8protobuf13json_internal16MaybeOwnedString6AsViewEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont23
   %17 = extractvalue { i64, ptr } %call27, 0
   store i64 %17, ptr %ref.tmp22, align 8
-  %18 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp22, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   %19 = extractvalue { i64, ptr } %call27, 1
   store ptr %19, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp22, ptr %ref.tmp.i, align 8, !noalias !101
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !101
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr nonnull @.str.14, i64 20, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont28 unwind label %lpad
@@ -3294,10 +3282,10 @@ if.then.i.i32.cont:                               ; preds = %if.then.i.i32.invok
   unreachable
 
 invoke.cont40:                                    ; preds = %if.end36
-  %loc42 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
-  %28 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.21", ptr %agg.result, i64 0, i32 1
+  %loc42 = getelementptr inbounds i8, ptr %number, i64 56
+  %28 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store double %13, ptr %28, align 8
-  %ref.tmp37.sroa.2.0..sroa_idx = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.21", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp37.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %loc42, i64 32, i1 false)
   store i64 0, ptr %agg.result, align 8
   br label %cleanup44
@@ -3308,8 +3296,8 @@ cleanup44:                                        ; preds = %cleanup, %if.then.i
   br i1 %cmp.i.i.i.i35, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup44
-  %30 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %number, i64 8
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %number, i64 48
   %31 = load ptr, ptr %token_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3330,7 +3318,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %number, i64 40
   %34 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %34, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit
@@ -3372,7 +3360,7 @@ cleanup:
   %buffering = alloca %"class.absl::lts_20230802::StatusOr.41", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i64 %literal.coerce0, ptr %literal, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %literal, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %literal, i64 8
   store ptr %literal.coerce1, ptr %0, align 8
   tail call void @_ZN6google8protobuf13json_internal9JsonLexer11SkipToTokenEv(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this)
   %1 = load i64, ptr %agg.result, align 8
@@ -3405,25 +3393,25 @@ cleanup15:                                        ; preds = %do.end, %if.then.i.
   br i1 %cmp.i7, label %_ZN4absl12lts_202308026StatusD2Ev.exit12, label %cleanup43
 
 _ZN4absl12lts_202308026StatusD2Ev.exit12:         ; preds = %cleanup15
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %cursor_.i, align 8
-  %last_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i.i = load i64, ptr %last_chunk_.i.i, align 8
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %view.sroa.4.0.copyload.i.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i.i, align 8
-  %using_buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i8, ptr %using_buf_.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i, label %while.end10.i.i, label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit12
-  %buffer_start_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load i64, ptr %buffer_start_.i.i, align 8
   %sub.i.i = sub i64 %7, %10
-  %buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %buf_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
@@ -3456,12 +3444,12 @@ invoke.cont30:                                    ; preds = %lor.rhs.i, %_ZN4abs
   br i1 %tobool.not.i.i, label %while.end10.i.i.i, label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %invoke.cont30
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load i64, ptr %buffer_start_.i.i.i, align 8
   %sub.i.i.i14 = sub i64 %7, %13
-  %buf_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %buf_.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
@@ -3491,11 +3479,11 @@ invoke.cont33:                                    ; preds = %while.end10.i.i.i
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %18 to i64
   %19 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %19, ptr %ref.tmp.i, align 8, !noalias !104
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !104
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %literal, ptr %arrayinit.element.i, align 8, !noalias !104
-  %dispatcher_.i.i1.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !104
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.26, i64 41, ptr nonnull %ref.tmp.i, i64 2)
           to label %invoke.cont35 unwind label %lpad5
@@ -3505,7 +3493,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   %call36 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %20 = extractvalue { i64, ptr } %call36, 0
   %21 = extractvalue { i64, ptr } %call36, 1
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 %20, ptr %21)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -3532,11 +3520,11 @@ if.end40:                                         ; preds = %invoke.cont23, %_ZN
 do.end.i:                                         ; preds = %.noexc20
   %sext.i = shl i64 %literal.coerce0, 32
   %conv2.i = ashr exact i64 %sext.i, 32
-  %json_loc_.i19 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i19 = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load i64, ptr %json_loc_.i19, align 8, !noalias !107
   %add.i = add i64 %24, %conv2.i
   store i64 %add.i, ptr %json_loc_.i19, align 8, !noalias !107
-  %col.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2, i32 2
+  %col.i = getelementptr inbounds i8, ptr %this, i64 112
   %25 = load i64, ptr %col.i, align 8, !noalias !107
   %add6.i = add i64 %25, %conv2.i
   store i64 %add6.i, ptr %col.i, align 8, !noalias !107
@@ -3549,7 +3537,7 @@ cleanup43:                                        ; preds = %do.end.i, %.noexc20
   br i1 %cmp.i.i.i.i21, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup43
-  %27 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %buffering, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %buffering, i64 8
   %28 = load ptr, ptr %27, align 8
   %cmp.not.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
@@ -3696,7 +3684,7 @@ if.then.i.i24:                                    ; preds = %do.end
   unreachable
 
 invoke.cont7:                                     ; preds = %do.end
-  %10 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %escape, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %escape, i64 8
   %call10 = invoke { i64, ptr } @_ZNK6google8protobuf13json_internal16MaybeOwnedString6AsViewEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %invoke.cont9 unwind label %lpad
 
@@ -3734,7 +3722,7 @@ if.then34:                                        ; preds = %if.else28
   br label %if.end48
 
 if.else39:                                        ; preds = %if.else28
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 22, ptr nonnull @.str.9)
           to label %invoke.cont43 unwind label %lpad
 
@@ -3784,7 +3772,7 @@ if.end48:                                         ; preds = %for.body, %if.then2
 
 for.end:                                          ; preds = %if.end48, %invoke.cont9
   %u16.0.lcssa = phi i16 [ 0, %invoke.cont9 ], [ %22, %if.end48 ]
-  %23 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.32", ptr %agg.result, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 %u16.0.lcssa, ptr %23, align 8
   br label %cleanup55.sink.split
 
@@ -3799,8 +3787,8 @@ cleanup55:                                        ; preds = %cleanup55.sink.spli
   br i1 %cmp.i.i.i.i37, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup55
-  %25 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %escape, i64 0, i32 1
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %escape, i64 0, i32 1, i32 0, i32 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %escape, i64 8
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %escape, i64 48
   %26 = load ptr, ptr %token_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3821,7 +3809,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %escape, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %escape, i64 40
   %29 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEED2Ev.exit
@@ -3862,7 +3850,7 @@ entry:
   %taken = alloca %"class.absl::lts_20230802::StatusOr.75", align 8
   %_status = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"struct.google::protobuf::json_internal::LocationWith", align 8
-  %json_loc_ = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_ = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_, i64 32, i1 false)
   call void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream4TakeEm(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.75") align 8 %taken, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len)
   %0 = load i64, ptr %taken, align 8
@@ -3931,10 +3919,10 @@ if.then.i.i10:                                    ; preds = %do.end
   unreachable
 
 invoke.cont7:                                     ; preds = %do.end
-  %10 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %taken, i64 8
+  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken, i64 40
   %11 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %switch.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i
@@ -3951,15 +3939,15 @@ sw.bb2.i.i.i.i.i.i.i.i:                           ; preds = %invoke.cont7
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i
   %12 = phi i8 [ %11, %sw.bb2.i.i.i.i.i.i.i.i ], [ %.pr22, %sw.bb.i.i.i.i.i.i.i.i ]
   store i8 %12, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  %token_.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp, i64 0, i32 1
-  %token_3.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken, i64 0, i32 1, i32 0, i32 1
+  %token_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %token_3.i = getelementptr inbounds i8, ptr %taken, i64 48
   %13 = load ptr, ptr %token_3.i, align 8
   store ptr %13, ptr %token_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %invoke.cont9, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i
-  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %13, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 76
   %14 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4
   %inc.i.i.i.i = add nsw i32 %14, 1
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4
@@ -3967,17 +3955,17 @@ if.then.i.i.i11:                                  ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i12, label %if.then.i.i.i.i13, label %invoke.cont9
 
 if.then.i.i.i.i13:                                ; preds = %if.then.i.i.i11
-  %cursor_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %13, i64 0, i32 4
+  %cursor_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i64, ptr %cursor_.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %13, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 64
   store i64 %15, ptr %buffer_start_.i.i.i.i, align 8
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then.i.i.i.i13, %if.then.i.i.i11, %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i
-  %loc10 = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %ref.tmp, i64 0, i32 1
+  %loc10 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc10, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 32, i1 false)
-  %16 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %agg.result, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3996,13 +3984,13 @@ _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8prot
   %17 = phi ptr [ %13, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre24, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i ]
   %18 = phi i8 [ %12, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i8 %18, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store ptr %17, ptr %token_.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %17, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 76
   %19 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i.i = add nsw i32 %19, 1
   store i32 %inc.i.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i, align 4
@@ -4010,20 +3998,20 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.then.i.i.i15
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  %cursor_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %17, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 56
   %20 = load i64, ptr %cursor_.i.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %17, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 64
   store i64 %20, ptr %buffer_start_.i.i.i.i.i.i.i.i, align 8
   br label %if.then.i.i.i15
 
 invoke.cont12:                                    ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i
-  %loc.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %loc10, i64 32, i1 false)
   store i64 0, ptr %agg.result, align 8
   br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %loc.i.i.i.i23 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(32) %loc10, i64 32, i1 false)
   store i64 0, ptr %agg.result, align 8
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %17)
@@ -4060,8 +4048,8 @@ cleanup13:                                        ; preds = %cleanup, %if.then.i
   br i1 %cmp.i.i.i.i17, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup13
-  %25 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken, i64 0, i32 1
-  %token_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken, i64 0, i32 1, i32 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %taken, i64 8
+  %token_.i.i.i = getelementptr inbounds i8, ptr %taken, i64 48
   %26 = load ptr, ptr %token_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i, label %if.then.i.i1.i.i
@@ -4082,7 +4070,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i1.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i: ; preds = %invoke.cont.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %taken, i64 40
   %29 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i18, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i19 = icmp eq i8 %29, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i19, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i20, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal16MaybeOwnedStringEED2Ev.exit
@@ -4119,7 +4107,7 @@ ehcleanup:                                        ; preds = %lpad.i.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK6google8protobuf13json_internal16MaybeOwnedString6AsViewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %0, label %if.then.i.i [
     i8 1, label %if.then
@@ -4128,27 +4116,27 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %start.i = getelementptr inbounds %"struct.google::protobuf::json_internal::MaybeOwnedString::StreamOwned", ptr %this, i64 0, i32 1
+  %start.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %start.i, align 8
-  %len.i = getelementptr inbounds %"struct.google::protobuf::json_internal::MaybeOwnedString::StreamOwned", ptr %this, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %len.i, align 8
-  %last_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %1, i64 0, i32 1
+  %last_chunk_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %view.sroa.0.0.copyload.i.i = load i64, ptr %last_chunk_.i.i, align 8
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %1, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %view.sroa.4.0.copyload.i.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i.i, align 8
-  %using_buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %1, i64 0, i32 3
+  %using_buf_.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i8, ptr %using_buf_.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i, label %while.end10.i.i, label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %if.then
-  %buffer_start_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %1, i64 0, i32 5
+  %buffer_start_.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load i64, ptr %buffer_start_.i.i, align 8
   %sub.i.i = sub i64 %2, %6
-  %buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %1, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %buf_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %1, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -4196,7 +4184,7 @@ _ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   store ptr @.str.28, ptr %_M_reason.i.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
   unreachable
@@ -4220,7 +4208,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal14BufferingGuardEED2Ev.exit, label %if.then.i.i
@@ -4340,17 +4328,17 @@ do.end:                                           ; preds = %_ZN4absl12lts_20230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %loc.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %taken.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 32, i1 false), !noalias !113
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %guard.i.i), !noalias !113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !113
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_status.i.i), !noalias !113
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp19.i.i), !noalias !113
-  %cursor_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %cursor_.i.i, align 8, !noalias !119
   store ptr %this, ptr %guard.i.i, align 8, !noalias !119
-  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   %8 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !119
   %inc.i.i.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !119
@@ -4358,18 +4346,18 @@ do.end:                                           ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i14, label %_ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i
 
 if.then.i.i.i.i14:                                ; preds = %do.end
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %7, ptr %buffer_start_.i.i.i.i, align 8, !noalias !119
   br label %_ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i
 
 _ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i: ; preds = %if.then.i.i.i.i14, %do.end
-  %9 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ref.tmp.i.i, i64 0, i32 1
-  %last_chunk_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
-  %using_buf_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
-  %buffer_start_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %last_chunk_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %using_buf_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_start_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %invoke.cont13.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i
@@ -4560,9 +4548,9 @@ if.then.i.i.i21.i.i:                              ; preds = %if.then.i.i.i18.i.i
   store i64 %7, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i44.i.i, align 8, !noalias !119
   %ref.tmp.sroa.3.0.this.sroa_idx.i45.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i, i64 16
   store i64 %sub2143.i.i, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i45.i.i, align 8, !noalias !119
-  %_M_index.i.i.i.i.i.i.i.i.i46.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp19.i.i, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i, i64 32
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i46.i.i, align 8, !noalias !119
-  %token_.i47.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp19.i.i, i64 0, i32 1
+  %token_.i47.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i, i64 40
   store ptr %this, ptr %token_.i47.i.i, align 8, !noalias !119
   %inc.i.i.i.i.i.i = add nsw i32 %38, 2
   store i32 %inc.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !119
@@ -4574,11 +4562,11 @@ if.then.i.i.i.i23.i.i:                            ; preds = %if.then.i.i.i21.i.i
   br label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i23.i.i, %if.then.i.i.i21.i.i
-  %39 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %taken.i, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19.i.i, i64 24, i1 false), !noalias !113
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !116, !noalias !113
-  %token_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 1
+  %token_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   store ptr %this, ptr %token_.i.i.i.i.i.i, align 8, !alias.scope !116, !noalias !113
   %inc.i.i.i.i.i.i.i.i.i = add nsw i32 %38, 3
   store i32 %inc.i.i.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !119
@@ -4678,10 +4666,10 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i8.i
   unreachable
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  %53 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp.i, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %taken.i, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !noalias !113
-  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 40
   %54 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !113
   %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %54, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i
@@ -4698,15 +4686,15 @@ sw.bb2.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont6.i
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i
   %55 = phi i8 [ %54, %sw.bb2.i.i.i.i.i.i.i.i.i ], [ %.pr42.i, %sw.bb.i.i.i.i.i.i.i.i.i ]
   store i8 %55, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !noalias !113
-  %token_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp.i, i64 0, i32 1
-  %token_3.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 1
+  %token_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %token_3.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   %56 = load ptr, ptr %token_3.i.i, align 8, !noalias !113
   store ptr %56, ptr %token_.i.i, align 8, !noalias !113
   %cmp.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont8.i, label %if.then.i.i.i15.i
 
 if.then.i.i.i15.i:                                ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %56, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 76
   %57 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i, align 4, !noalias !113
   %inc.i.i.i.i16.i = add nsw i32 %57, 1
   store i32 %inc.i.i.i.i16.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i, align 4, !noalias !113
@@ -4714,17 +4702,17 @@ if.then.i.i.i15.i:                                ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i17.i, label %if.then.i.i.i.i18.i, label %invoke.cont8.i
 
 if.then.i.i.i.i18.i:                              ; preds = %if.then.i.i.i15.i
-  %cursor_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %56, i64 0, i32 4
+  %cursor_.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 56
   %58 = load i64, ptr %cursor_.i.i.i.i.i, align 8, !noalias !113
-  %buffer_start_.i.i.i.i19.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %56, i64 0, i32 5
+  %buffer_start_.i.i.i.i19.i = getelementptr inbounds i8, ptr %56, i64 64
   store i64 %58, ptr %buffer_start_.i.i.i.i19.i, align 8, !noalias !113
   br label %invoke.cont8.i
 
 invoke.cont8.i:                                   ; preds = %if.then.i.i.i.i18.i, %if.then.i.i.i15.i, %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i
-  %loc9.i = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %ref.tmp.i, i64 0, i32 1
+  %loc9.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc9.i, ptr noundef nonnull align 8 dereferenceable(32) %loc.i, i64 32, i1 false), !noalias !113
-  %59 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %number, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds i8, ptr %number, i64 40
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i, align 8, !alias.scope !113
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %55, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4743,13 +4731,13 @@ _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8prot
   %60 = phi ptr [ %56, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre62.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %61 = phi i8 [ %55, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i8 %61, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i, align 8, !alias.scope !113
-  %token_.i.i.i.i.i21.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i21.i = getelementptr inbounds i8, ptr %number, i64 48
   store ptr %60, ptr %token_.i.i.i.i.i21.i, align 8, !alias.scope !113
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %60, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont11.i, label %if.then.i.i.i.i.i.i.i22.i
 
 if.then.i.i.i.i.i.i.i22.i:                        ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %60, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i = getelementptr inbounds i8, ptr %60, i64 76
   %62 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i, align 4
   %inc.i.i.i.i.i.i.i.i24.i = add nsw i32 %62, 1
   store i32 %inc.i.i.i.i.i.i.i.i24.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i, align 4
@@ -4757,20 +4745,20 @@ if.then.i.i.i.i.i.i.i22.i:                        ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i.i.i.i.i25.i, label %if.then.i.i.i.i.i.i.i.i26.i, label %if.then.i.i.i29.i
 
 if.then.i.i.i.i.i.i.i.i26.i:                      ; preds = %if.then.i.i.i.i.i.i.i22.i
-  %cursor_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %60, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %60, i64 56
   %63 = load i64, ptr %cursor_.i.i.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i.i27.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %60, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i.i27.i = getelementptr inbounds i8, ptr %60, i64 64
   store i64 %63, ptr %buffer_start_.i.i.i.i.i.i.i.i27.i, align 8
   br label %if.then.i.i.i29.i
 
 invoke.cont11.i:                                  ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i.i
-  %loc.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i.i = getelementptr inbounds i8, ptr %number, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %loc9.i, i64 32, i1 false)
   store i64 0, ptr %number, align 8, !alias.scope !113
   br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i31.i
 
 if.then.i.i.i29.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i26.i, %if.then.i.i.i.i.i.i.i22.i
-  %loc.i.i.i.i43.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i43.i = getelementptr inbounds i8, ptr %number, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i43.i, ptr noundef nonnull align 8 dereferenceable(32) %loc9.i, i64 32, i1 false)
   store i64 0, ptr %number, align 8, !alias.scope !113
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %60)
@@ -4807,8 +4795,8 @@ cleanup12.i:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i.i35.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i, label %if.else.i.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i:     ; preds = %cleanup12.i
-  %68 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %taken.i, i64 8
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   %69 = load ptr, ptr %token_.i.i.i.i, align 8, !noalias !113
   %cmp.not.i.i.i.i36.i = icmp eq ptr %69, null
   br i1 %cmp.not.i.i.i.i36.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i1.i.i.i
@@ -4829,7 +4817,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i1.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i37.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i38.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i38.i = getelementptr inbounds i8, ptr %taken.i, i64 40
   %72 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i38.i, align 8, !noalias !113
   %switch.i.i.i.i.i.i.i.i.i.i.i.i39.i = icmp eq i8 %72, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i39.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i40.i, label %"_ZN6google8protobuf13json_internal9JsonLexer9TakeWhileIZNS2_14ParseRawNumberEvE3$_0EEN4absl12lts_202308028StatusOrINS1_12LocationWithINS1_16MaybeOwnedStringEEEEET_.exit"
@@ -4917,14 +4905,14 @@ do.end19:                                         ; preds = %invoke.cont10
   br i1 %cmp.i.i.i.i40, label %invoke.cont20, label %if.then.i.i94.invoke
 
 invoke.cont20:                                    ; preds = %do.end19
-  %85 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1
+  %85 = getelementptr inbounds i8, ptr %number, i64 8
   %call23 = invoke { i64, ptr } @_ZNK6google8protobuf13json_internal16MaybeOwnedString6AsViewEv(ptr noundef nonnull align 8 dereferenceable(48) %85)
           to label %invoke.cont22 unwind label %lpad5
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   %86 = extractvalue { i64, ptr } %call23, 0
   store i64 %86, ptr %number_text, align 8
-  %87 = getelementptr inbounds { i64, ptr }, ptr %number_text, i64 0, i32 1
+  %87 = getelementptr inbounds i8, ptr %number_text, i64 8
   %88 = extractvalue { i64, ptr } %call23, 1
   store ptr %88, ptr %87, align 8
   switch i64 %86, label %if.end37 [
@@ -4943,7 +4931,7 @@ if.then28:                                        ; preds = %invoke.cont22, %_ZN
   br i1 %cmp.i.i.i.i46, label %invoke.cont29, label %if.then.i.i94.invoke
 
 invoke.cont29:                                    ; preds = %if.then28
-  %loc = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %number, i64 56
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 17, ptr nonnull @.str.11)
           to label %invoke.cont34 unwind label %lpad5
 
@@ -5010,7 +4998,7 @@ if.then50:                                        ; preds = %land.lhs.true46
   br i1 %cmp.i.i.i.i69, label %invoke.cont52, label %if.then.i.i94.invoke
 
 invoke.cont52:                                    ; preds = %if.then50
-  %loc54 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc54 = getelementptr inbounds i8, ptr %number, i64 56
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %loc54, i64 42, ptr nonnull @.str.12)
           to label %invoke.cont59 unwind label %lpad5
 
@@ -5041,7 +5029,7 @@ if.then66:                                        ; preds = %if.end62
   br i1 %cmp.i.i.i.i77, label %invoke.cont68, label %if.then.i.i94.invoke
 
 invoke.cont68:                                    ; preds = %if.then66
-  %loc70 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc70 = getelementptr inbounds i8, ptr %number, i64 56
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(32) %loc70, i64 34, ptr nonnull @.str.13)
           to label %invoke.cont75 unwind label %lpad5
 
@@ -5108,13 +5096,13 @@ if.then.i.i94.cont:                               ; preds = %if.then.i.i94.invok
 invoke.cont93:                                    ; preds = %if.then85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i97)
   store ptr %number_text, ptr %ref.tmp.i97, align 8, !noalias !121
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i97, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i97, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !121
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp91, ptr nonnull @.str.14, i64 20, ptr nonnull %ref.tmp.i97, i64 1)
           to label %invoke.cont94 unwind label %lpad5
 
 invoke.cont94:                                    ; preds = %invoke.cont93
-  %loc89 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 1
+  %loc89 = getelementptr inbounds i8, ptr %number, i64 56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i97)
   %call95 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #18
   %111 = extractvalue { i64, ptr } %call95, 0
@@ -5223,7 +5211,7 @@ invoke.cont135:                                   ; preds = %invoke.cont132
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %call136 to i64
   %120 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %120, ptr %ref.tmp.i112, align 8, !noalias !124
-  %dispatcher_.i.i.i116 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i112, i64 0, i32 1
+  %dispatcher_.i.i.i116 = getelementptr inbounds i8, ptr %ref.tmp.i112, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i116, align 8, !noalias !124
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp130, ptr nonnull @.str.3, i64 26, ptr nonnull %ref.tmp.i112, i64 1)
           to label %invoke.cont137 unwind label %lpad5
@@ -5271,8 +5259,8 @@ cleanup149:                                       ; preds = %invoke.cont75, %inv
   br i1 %cmp.i.i.i.i120, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup149
-  %126 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1
-  %token_.i.i.i.i121 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 0, i32 1
+  %126 = getelementptr inbounds i8, ptr %number, i64 8
+  %token_.i.i.i.i121 = getelementptr inbounds i8, ptr %number, i64 48
   %127 = load ptr, ptr %token_.i.i.i.i121, align 8
   %cmp.not.i.i.i.i.i122 = icmp eq ptr %127, null
   br i1 %cmp.not.i.i.i.i.i122, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i126, label %if.then.i.i.i.i.i123
@@ -5293,7 +5281,7 @@ terminate.lpad.i.i.i.i.i124:                      ; preds = %if.then.i.i.i.i.i12
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i126: ; preds = %invoke.cont.i.i.i.i.i125, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %number, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %number, i64 40
   %130 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i127 = icmp eq i8 %130, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i127, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i128, label %return
@@ -5401,7 +5389,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %agg.tmp.ensured, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 8
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal14BufferingGuardEED2Ev.exit, label %if.then.i.i.i
@@ -5434,7 +5422,7 @@ terminate.lpad.i5.i.i:                            ; preds = %if.then.i.i4.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal14BufferingGuardEED2Ev.exit: ; preds = %if.then.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.else.i.i, %if.then.i.i4.i.i
-  %eof_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 6
+  %eof_ = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i8, ptr %eof_, align 8
   %8 = and i8 %7, 1
   %tobool = icmp ne i8 %8, 0
@@ -5449,11 +5437,11 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %0, i64 0, i32 1
-  %3 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5469,15 +5457,15 @@ sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i8 %5, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %token_3.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %token_3.i.i.i.i.i, align 8
   store ptr %6, ptr %token_.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont2.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %6, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 76
   %7 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i.i = add nsw i32 %7, 1
   store i32 %inc.i.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i, align 4
@@ -5485,15 +5473,15 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %invoke.cont2.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  %cursor_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %6, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 56
   %8 = load i64, ptr %cursor_.i.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %6, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 64
   store i64 %8, ptr %buffer_start_.i.i.i.i.i.i.i.i, align 8
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i
-  %loc.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %loc3.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %loc3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %loc3.i.i.i.i, i64 32, i1 false)
   store i64 0, ptr %this, align 8
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEEC2EOS9_.exit
@@ -5580,7 +5568,7 @@ if.then.i.i51:                                    ; preds = %do.end
   unreachable
 
 invoke.cont7:                                     ; preds = %do.end
-  %10 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.32", ptr %hex, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %hex, i64 8
   %11 = load i16, ptr %10, align 8
   %conv = zext i16 %11 to i32
   %12 = and i16 %11, -1024
@@ -5711,14 +5699,14 @@ if.then.i.i102:                                   ; preds = %do.end49
   unreachable
 
 invoke.cont50:                                    ; preds = %do.end49
-  %30 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.32", ptr %hex29, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %hex29, i64 8
   %31 = load i16, ptr %30, align 8
   %32 = add i16 %31, 8192
   %or.cond4 = icmp ult i16 %32, -1024
   br i1 %or.cond4, label %if.then55, label %if.end63
 
 if.then55:                                        ; preds = %invoke.cont50
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 21, ptr nonnull @.str.16)
           to label %invoke.cont60 unwind label %lpad33
 
@@ -5794,7 +5782,7 @@ ehcleanup:                                        ; preds = %lpad.i.i110, %lpad.
   br label %ehcleanup158
 
 if.then71:                                        ; preds = %invoke.cont7
-  %json_loc_.i119 = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i119 = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i119, i64 22, ptr nonnull @.str.17)
           to label %invoke.cont77 unwind label %lpad
 
@@ -5906,7 +5894,7 @@ if.then124:                                       ; preds = %if.else102
 
 cleanup157.sink.split.sink.split:                 ; preds = %if.then124, %if.then104, %if.then90, %if.then84
   %.sink151 = phi i64 [ 1, %if.then84 ], [ 2, %if.then90 ], [ 3, %if.then104 ], [ 4, %if.then124 ]
-  %60 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.52", ptr %agg.result, i64 0, i32 1
+  %60 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %.sink151, ptr %60, align 8
   br label %cleanup157.sink.split
 
@@ -5973,10 +5961,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IS7_TnNSt9enable_ifIXsr4absl11conjunctionINS0_11disjunctionIJSt7is_sameIS7_NS0_12remove_cvrefIOT_E4typeEENS0_8negationINSB_IJSC_IS8_SH_ESC_INS0_6StatusESH_ESC_ISt10in_place_tSH_ENS0_17internal_statusor31IsDirectInitializationAmbiguousIS7_SF_EEEEEEEEEESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_ENSB_IJSC_INSD_ISE_E4typeES7_ENS0_11conjunctionIJNSJ_ISX_ISF_SL_EEENSJ_INSP_31HasConversionOperatorToStatusOrIS7_SF_vEEEEEEEEEEEE5valueEiE4typeELi0EEESF_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(80) %u) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %u, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %u, i64 32
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %1, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
@@ -5992,15 +5980,15 @@ sw.bb2.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %entry
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i
   %2 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i8 %2, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %u, i64 0, i32 1
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %token_3.i.i.i.i = getelementptr inbounds i8, ptr %u, i64 40
   %3 = load ptr, ptr %token_3.i.i.i.i, align 8
   store ptr %3, ptr %token_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IJS7_EEESt10in_place_tDpOT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %3, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 76
   %4 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i = add nsw i32 %4, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
@@ -6008,15 +5996,15 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IJS7_EEESt10in_place_tDpOT_.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %cursor_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %3, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load i64, ptr %cursor_.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %3, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %5, ptr %buffer_start_.i.i.i.i.i.i.i, align 8
   br label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IJS7_EEESt10in_place_tDpOT_.exit
 
 _ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithINS4_16MaybeOwnedStringEEEEC2IJS7_EEESt10in_place_tDpOT_.exit: ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %loc.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %loc3.i.i.i = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %u, i64 0, i32 1
+  %loc.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %loc3.i.i.i = getelementptr inbounds i8, ptr %u, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %loc3.i.i.i, i64 32, i1 false)
   store i64 0, ptr %this, align 8
   ret void
@@ -6025,7 +6013,7 @@ _ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal12LocationWithIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %token_.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %this, i64 0, i32 1
+  %token_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %token_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i, label %if.then.i.i
@@ -6046,7 +6034,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i: ; preds = %invoke.cont.i.i, %entry
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal16MaybeOwnedStringD2Ev.exit
@@ -6063,20 +6051,20 @@ _ZN6google8protobuf13json_internal16MaybeOwnedStringD2Ev.exit: ; preds = %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK6google8protobuf13json_internal4Mark10UpToUnreadEm(ptr noalias sret(%"class.google::protobuf::json_internal::MaybeOwnedString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %clip) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
-  %guard_ = getelementptr inbounds %"class.google::protobuf::json_internal::Mark", ptr %this, i64 0, i32 1
+  %guard_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_, align 8
   %1 = load i64, ptr %this, align 8
-  %cursor_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 4
+  %cursor_ = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i64, ptr %cursor_, align 8
   %3 = add i64 %1, %clip
   %sub5 = sub i64 %2, %3
-  %outstanding_buffer_borrows_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %outstanding_buffer_borrows_.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i1
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 5
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %2, ptr %buffer_start_.i.i.i, align 8
   br label %if.then.i.i.i1
 
@@ -6086,9 +6074,9 @@ if.then.i.i.i1:                                   ; preds = %if.then.i.i.i, %if.
   store i64 %1, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %sub5, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %agg.result, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %agg.result, i64 0, i32 1
+  %token_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %0, ptr %token_.i, align 8
   %inc.i.i.i.i = add nsw i32 %4, 2
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i, align 4
@@ -6096,7 +6084,7 @@ if.then.i.i.i1:                                   ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.then.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %0, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %2, ptr %buffer_start_.i.i.i.i, align 8
   br label %if.then.i
 
@@ -6121,7 +6109,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13json_internal16MaybeOwnedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %token_ = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %this, i64 0, i32 1
+  %token_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %token_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit, label %if.then.i
@@ -6142,7 +6130,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit: ; preds = %entry, %invoke.cont.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEED2Ev.exit
@@ -6189,7 +6177,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataImED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %guard_.i = getelementptr inbounds %"class.google::protobuf::json_internal::Mark", ptr %this, i64 0, i32 1
+  %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf13json_internal4MarkD2Ev.exit, label %if.then.i.i
@@ -6282,17 +6270,17 @@ do.end:                                           ; preds = %_ZN4absl12lts_20230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %loc.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %taken.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 32, i1 false), !noalias !127
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %guard.i.i), !noalias !127
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_status.i.i), !noalias !127
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp19.i.i), !noalias !127
-  %cursor_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %cursor_.i.i, align 8, !noalias !133
   store ptr %this, ptr %guard.i.i, align 8, !noalias !133
-  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   %8 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !133
   %inc.i.i.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !133
@@ -6300,18 +6288,18 @@ do.end:                                           ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i8, label %_ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i
 
 if.then.i.i.i.i8:                                 ; preds = %do.end
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %7, ptr %buffer_start_.i.i.i.i, align 8, !noalias !133
   br label %_ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i
 
 _ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i: ; preds = %if.then.i.i.i.i8, %do.end
-  %9 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ref.tmp.i.i, i64 0, i32 1
-  %last_chunk_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
-  %using_buf_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
-  %buffer_start_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
-  %buf_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %last_chunk_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %using_buf_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_start_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %buf_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %invoke.cont13.i.i, %_ZN6google8protobuf13json_internal14BufferingGuardC2EPNS1_22ZeroCopyBufferedStreamE.exit.i.i
@@ -6470,9 +6458,9 @@ if.then.i.i.i22.i.i:                              ; preds = %if.then.i.i.i19.i.i
   store i64 %7, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i37.i.i, align 8, !noalias !133
   %ref.tmp.sroa.3.0.this.sroa_idx.i38.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i, i64 16
   store i64 %sub2136.i.i, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i38.i.i, align 8, !noalias !133
-  %_M_index.i.i.i.i.i.i.i.i.i39.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp19.i.i, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i39.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i, i64 32
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i39.i.i, align 8, !noalias !133
-  %token_.i40.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp19.i.i, i64 0, i32 1
+  %token_.i40.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i, i64 40
   store ptr %this, ptr %token_.i40.i.i, align 8, !noalias !133
   %inc.i.i.i.i.i.i = add nsw i32 %32, 2
   store i32 %inc.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !133
@@ -6484,11 +6472,11 @@ if.then.i.i.i.i24.i.i:                            ; preds = %if.then.i.i.i22.i.i
   br label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i24.i.i, %if.then.i.i.i22.i.i
-  %33 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %taken.i, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19.i.i, i64 24, i1 false), !noalias !127
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !130, !noalias !127
-  %token_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 1
+  %token_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   store ptr %this, ptr %token_.i.i.i.i.i.i, align 8, !alias.scope !130, !noalias !127
   %inc.i.i.i.i.i.i.i.i.i = add nsw i32 %32, 3
   store i32 %inc.i.i.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !133
@@ -6588,10 +6576,10 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i8.i
   unreachable
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  %47 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp.i, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %taken.i, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !noalias !127
-  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 40
   %48 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !127
   %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i
@@ -6608,15 +6596,15 @@ sw.bb2.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont6.i
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i
   %49 = phi i8 [ %48, %sw.bb2.i.i.i.i.i.i.i.i.i ], [ %.pr42.i, %sw.bb.i.i.i.i.i.i.i.i.i ]
   store i8 %49, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !noalias !127
-  %token_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp.i, i64 0, i32 1
-  %token_3.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 1
+  %token_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %token_3.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   %50 = load ptr, ptr %token_3.i.i, align 8, !noalias !127
   store ptr %50, ptr %token_.i.i, align 8, !noalias !127
   %cmp.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont8.i, label %if.then.i.i.i15.i
 
 if.then.i.i.i15.i:                                ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %50, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 76
   %51 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i, align 4, !noalias !127
   %inc.i.i.i.i16.i = add nsw i32 %51, 1
   store i32 %inc.i.i.i.i16.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i, align 4, !noalias !127
@@ -6624,17 +6612,17 @@ if.then.i.i.i15.i:                                ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i17.i, label %if.then.i.i.i.i18.i, label %invoke.cont8.i
 
 if.then.i.i.i.i18.i:                              ; preds = %if.then.i.i.i15.i
-  %cursor_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %50, i64 0, i32 4
+  %cursor_.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 56
   %52 = load i64, ptr %cursor_.i.i.i.i.i, align 8, !noalias !127
-  %buffer_start_.i.i.i.i19.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %50, i64 0, i32 5
+  %buffer_start_.i.i.i.i19.i = getelementptr inbounds i8, ptr %50, i64 64
   store i64 %52, ptr %buffer_start_.i.i.i.i19.i, align 8, !noalias !127
   br label %invoke.cont8.i
 
 invoke.cont8.i:                                   ; preds = %if.then.i.i.i.i18.i, %if.then.i.i.i15.i, %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i
-  %loc9.i = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %ref.tmp.i, i64 0, i32 1
+  %loc9.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc9.i, ptr noundef nonnull align 8 dereferenceable(32) %loc.i, i64 32, i1 false), !noalias !127
-  %53 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %ident, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds i8, ptr %ident, i64 40
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i, align 8, !alias.scope !127
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %49, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -6653,13 +6641,13 @@ _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8prot
   %54 = phi ptr [ %50, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre62.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %55 = phi i8 [ %49, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i8 %55, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i20.i, align 8, !alias.scope !127
-  %token_.i.i.i.i.i21.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i21.i = getelementptr inbounds i8, ptr %ident, i64 48
   store ptr %54, ptr %token_.i.i.i.i.i21.i, align 8, !alias.scope !127
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont11.i, label %if.then.i.i.i.i.i.i.i22.i
 
 if.then.i.i.i.i.i.i.i22.i:                        ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %54, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i = getelementptr inbounds i8, ptr %54, i64 76
   %56 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i, align 4
   %inc.i.i.i.i.i.i.i.i24.i = add nsw i32 %56, 1
   store i32 %inc.i.i.i.i.i.i.i.i24.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i.i23.i, align 4
@@ -6667,20 +6655,20 @@ if.then.i.i.i.i.i.i.i22.i:                        ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i.i.i.i.i25.i, label %if.then.i.i.i.i.i.i.i.i26.i, label %if.then.i.i.i29.i
 
 if.then.i.i.i.i.i.i.i.i26.i:                      ; preds = %if.then.i.i.i.i.i.i.i22.i
-  %cursor_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %54, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 56
   %57 = load i64, ptr %cursor_.i.i.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i.i27.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %54, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i.i27.i = getelementptr inbounds i8, ptr %54, i64 64
   store i64 %57, ptr %buffer_start_.i.i.i.i.i.i.i.i27.i, align 8
   br label %if.then.i.i.i29.i
 
 invoke.cont11.i:                                  ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i.i.i
-  %loc.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i.i = getelementptr inbounds i8, ptr %ident, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %loc9.i, i64 32, i1 false)
   store i64 0, ptr %ident, align 8, !alias.scope !127
   br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i31.i
 
 if.then.i.i.i29.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i26.i, %if.then.i.i.i.i.i.i.i22.i
-  %loc.i.i.i.i43.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 1
+  %loc.i.i.i.i43.i = getelementptr inbounds i8, ptr %ident, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i.i43.i, ptr noundef nonnull align 8 dereferenceable(32) %loc9.i, i64 32, i1 false)
   store i64 0, ptr %ident, align 8, !alias.scope !127
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13DownRefBufferEv(ptr noundef nonnull align 8 dereferenceable(80) %54)
@@ -6717,8 +6705,8 @@ cleanup12.i:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i.i35.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i, label %if.else.i.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i:     ; preds = %cleanup12.i
-  %62 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 1
+  %62 = getelementptr inbounds i8, ptr %taken.i, i64 8
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   %63 = load ptr, ptr %token_.i.i.i.i, align 8, !noalias !127
   %cmp.not.i.i.i.i36.i = icmp eq ptr %63, null
   br i1 %cmp.not.i.i.i.i36.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i, label %if.then.i.i1.i.i.i
@@ -6739,7 +6727,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i1.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i37.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i38.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %taken.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i38.i = getelementptr inbounds i8, ptr %taken.i, i64 40
   %66 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i38.i, align 8, !noalias !127
   %switch.i.i.i.i.i.i.i.i.i.i.i.i39.i = icmp eq i8 %66, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i39.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i40.i, label %"_ZN6google8protobuf13json_internal9JsonLexer9TakeWhileIZNS2_13ParseBareWordEvE3$_0EEN4absl12lts_202308028StatusOrINS1_12LocationWithINS1_16MaybeOwnedStringEEEEET_.exit"
@@ -6827,7 +6815,7 @@ do.end19:                                         ; preds = %invoke.cont10
   br i1 %cmp.i.i.i.i34, label %invoke.cont20, label %if.then.i.i62.invoke
 
 invoke.cont20:                                    ; preds = %do.end19
-  %79 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1
+  %79 = getelementptr inbounds i8, ptr %ident, i64 8
   %call23 = invoke { i64, ptr } @_ZNK6google8protobuf13json_internal16MaybeOwnedString6AsViewEv(ptr noundef nonnull align 8 dereferenceable(48) %79)
           to label %invoke.cont22 unwind label %lpad5
 
@@ -6877,7 +6865,7 @@ if.then.i.i62.cont:                               ; preds = %if.then.i.i62.invok
   unreachable
 
 invoke.cont41:                                    ; preds = %if.then40
-  %loc = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %ident, i64 56
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 18, ptr nonnull @.str.25)
           to label %invoke.cont46 unwind label %lpad5
 
@@ -6926,8 +6914,8 @@ cleanup50:                                        ; preds = %invoke.cont46, %cle
   br i1 %cmp.i.i.i.i76, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup50
-  %91 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1
-  %token_.i.i.i.i77 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 0, i32 1
+  %91 = getelementptr inbounds i8, ptr %ident, i64 8
+  %token_.i.i.i.i77 = getelementptr inbounds i8, ptr %ident, i64 48
   %92 = load ptr, ptr %token_.i.i.i.i77, align 8
   %cmp.not.i.i.i.i.i78 = icmp eq ptr %92, null
   br i1 %cmp.not.i.i.i.i.i78, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82, label %if.then.i.i.i.i.i79
@@ -6948,7 +6936,7 @@ terminate.lpad.i.i.i.i.i80:                       ; preds = %if.then.i.i.i.i.i79
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i.i82: ; preds = %invoke.cont.i.i.i.i.i81, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %ident, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ident, i64 40
   %95 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i83 = icmp eq i8 %95, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i83, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %return
@@ -7068,7 +7056,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i9
   unreachable
 
 do.end:                                           ; preds = %invoke.cont3
-  %cursor_ = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_ = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load i64, ptr %cursor_, align 8
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream7AdvanceEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %_status7, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len)
           to label %invoke.cont10 unwind label %lpad
@@ -7133,13 +7121,13 @@ if.then.i.i37:                                    ; preds = %do.end20
   unreachable
 
 invoke.cont21:                                    ; preds = %do.end20
-  %18 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %buffering, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %buffering, i64 8
   %19 = load ptr, ptr %18, align 8
   %cmp.not.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf13json_internal16MaybeOwnedStringD2Ev.exit, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %invoke.cont21
-  %outstanding_buffer_borrows_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i = getelementptr inbounds i8, ptr %19, i64 76
   %20 = load i32, ptr %outstanding_buffer_borrows_.i.i.i, align 4
   %inc.i.i.i = add nsw i32 %20, 1
   store i32 %inc.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i, align 4
@@ -7147,9 +7135,9 @@ if.then.i.i38:                                    ; preds = %invoke.cont21
   br i1 %cmp.i.i.i39, label %if.then.i.i.i40, label %if.then.i.i.i41
 
 if.then.i.i.i40:                                  ; preds = %if.then.i.i38
-  %cursor_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 4
+  %cursor_.i.i.i = getelementptr inbounds i8, ptr %19, i64 56
   %21 = load i64, ptr %cursor_.i.i.i, align 8
-  %buffer_start_.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 5
+  %buffer_start_.i.i.i = getelementptr inbounds i8, ptr %19, i64 64
   store i64 %21, ptr %buffer_start_.i.i.i, align 8
   br label %if.then.i.i.i41
 
@@ -7159,9 +7147,9 @@ if.then.i.i.i41:                                  ; preds = %if.then.i.i.i40, %i
   store i64 %9, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i54, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i55 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %len, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i55, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i56 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i56, align 8
-  %token_.i57 = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp, i64 0, i32 1
+  %token_.i57 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %19, ptr %token_.i57, align 8
   %inc.i.i.i.i = add nsw i32 %20, 2
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i, align 4
@@ -7169,20 +7157,20 @@ if.then.i.i.i41:                                  ; preds = %if.then.i.i.i40, %i
   br i1 %cmp.i.i.i.i42, label %if.then.i.i.i.i43, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i43:                                ; preds = %if.then.i.i.i41
-  %cursor_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 4
+  %cursor_.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 56
   %22 = load i64, ptr %cursor_.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 64
   store i64 %22, ptr %buffer_start_.i.i.i.i, align 8
   br label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i41, %if.then.i.i.i.i43
-  %23 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %agg.result, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 24, i1 false)
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i65, align 8
-  %token_.i.i.i.i66 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %token_.i.i.i.i66 = getelementptr inbounds i8, ptr %agg.result, i64 48
   store ptr %19, ptr %token_.i.i.i.i66, align 8
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 76
   %24 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i = add nsw i32 %24, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
@@ -7190,9 +7178,9 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i41, %i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.then.i.i46
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %cursor_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 56
   %25 = load i64, ptr %cursor_.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %19, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 64
   store i64 %25, ptr %buffer_start_.i.i.i.i.i.i.i, align 8
   br label %if.then.i.i46
 
@@ -7224,14 +7212,14 @@ _ZN6google8protobuf13json_internal16MaybeOwnedStringD2Ev.exit: ; preds = %invoke
   store i64 %9, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %len, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp, i64 0, i32 1
-  %token_.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %ref.tmp, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %token_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr null, ptr %token_.i, align 8
-  %29 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %agg.result, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 24, i1 false)
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store ptr null, ptr %token_.i.i.i.i, align 8
   store i64 0, ptr %agg.result, align 8
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
@@ -7255,7 +7243,7 @@ cleanup28:                                        ; preds = %if.then.i, %_ZN6goo
   br i1 %cmp.i.i.i.i49, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup28
-  %33 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %buffering, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %buffering, i64 8
   %34 = load ptr, ptr %33, align 8
   %cmp.not.i.i.i50 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i50, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal14BufferingGuardEED2Ev.exit, label %if.then.i.i.i51
@@ -7304,8 +7292,8 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %this, i64 0, i32 1
-  %token_.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %token_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %token_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i, label %if.then.i.i1.i
@@ -7326,7 +7314,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i1.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i: ; preds = %invoke.cont.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.76", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal16MaybeOwnedStringD2Ev.exit.i
@@ -7416,7 +7404,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }
@@ -7566,25 +7554,25 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry, %if.then.i.i
   call void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13BufferAtLeastEm(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.41") align 8 %ignored, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %literal.coerce0)
-  %cursor_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 4
+  %cursor_.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i64, ptr %cursor_.i, align 8
-  %last_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1
+  %last_chunk_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i.i = load i64, ptr %last_chunk_.i.i, align 8
-  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 1, i32 1
+  %view.sroa.4.0.last_chunk_.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %view.sroa.4.0.copyload.i.i = load ptr, ptr %view.sroa.4.0.last_chunk_.sroa_idx.i.i, align 8
-  %using_buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 3
+  %using_buf_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i8, ptr %using_buf_.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i, label %while.end10.i.i, label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %buffer_start_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 5
+  %buffer_start_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i64, ptr %buffer_start_.i.i, align 8
   %sub.i.i = sub i64 %3, %6
-  %buf_.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %buf_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -7639,11 +7627,11 @@ if.end:                                           ; preds = %invoke.cont, %_ZN4a
 invoke.cont8.thread:                              ; preds = %.noexc2
   %sext.i = shl i64 %literal.coerce0, 32
   %conv2.i = ashr exact i64 %sext.i, 32
-  %json_loc_.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2
+  %json_loc_.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %json_loc_.i, align 8, !noalias !135
   %add.i = add i64 %11, %conv2.i
   store i64 %add.i, ptr %json_loc_.i, align 8, !noalias !135
-  %col.i = getelementptr inbounds %"class.google::protobuf::json_internal::JsonLexer", ptr %this, i64 0, i32 2, i32 2
+  %col.i = getelementptr inbounds i8, ptr %this, i64 112
   %12 = load i64, ptr %col.i, align 8, !noalias !135
   %add6.i = add i64 %12, %conv2.i
   store i64 %add6.i, ptr %col.i, align 8, !noalias !135
@@ -7673,7 +7661,7 @@ cleanup:                                          ; preds = %invoke.cont8.thread
   br i1 %cmp.i.i.i.i8, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
-  %17 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.42", ptr %ignored, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %ignored, i64 8
   %18 = load ptr, ptr %17, align 8
   %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal14BufferingGuardEED2Ev.exit, label %if.then.i.i.i
@@ -7764,7 +7752,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %2 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEE6AssignIS8_EEvOT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(80) %2)
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEEaSEOS9_.exit
 
@@ -7784,20 +7772,20 @@ entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load i64, ptr %this, align 8
   %cmp.i.i = icmp eq i64 %0, 0
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf13json_internal16MaybeOwnedStringaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %value)
-  %loc.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %loc3.i = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %value, i64 0, i32 1
+  %loc.i = getelementptr inbounds i8, ptr %this, i64 56
+  %loc3.i = getelementptr inbounds i8, ptr %value, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i, ptr noundef nonnull align 8 dereferenceable(32) %loc3.i, i64 32, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %value, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %2 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
@@ -7813,15 +7801,15 @@ sw.bb2.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.else
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i
   %3 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i8 %3, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %token_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %value, i64 0, i32 1
+  %token_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %token_3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 40
   %4 = load ptr, ptr %token_3.i.i.i.i, align 8
   store ptr %4, ptr %token_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEE9MakeValueIJS8_EEEvDpOT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i
-  %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %4, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 76
   %5 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i.i.i.i, align 4
@@ -7829,15 +7817,15 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7variantIJNSt7
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEE9MakeValueIJS8_EEEvDpOT_.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %cursor_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %4, i64 0, i32 4
+  %cursor_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load i64, ptr %cursor_.i.i.i.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %4, i64 0, i32 5
+  %buffer_start_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 64
   store i64 %6, ptr %buffer_start_.i.i.i.i.i.i.i, align 8
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEE9MakeValueIJS8_EEEvDpOT_.exit
 
 _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEE9MakeValueIJS8_EEEvDpOT_.exit: ; preds = %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEC2EOSB_.exit.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %loc.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %loc3.i.i.i = getelementptr inbounds %"struct.google::protobuf::json_internal::LocationWith", ptr %value, i64 0, i32 1
+  %loc.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %loc3.i.i.i = getelementptr inbounds i8, ptr %value, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %loc.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %loc3.i.i.i, i64 32, i1 false)
   %7 = load i64, ptr %this, align 8
   %cmp.not.i = icmp eq i64 %7, 0
@@ -7873,8 +7861,8 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEE5ClearEv.exit
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1
-  %token_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %token_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %token_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i, label %if.then.i.i.i.i
@@ -7895,7 +7883,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i: ; preds = %invoke.cont.i.i.i.i, %if.then.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.10", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12LocationWithINS1_16MaybeOwnedStringEED2Ev.exit.i
@@ -7968,10 +7956,10 @@ lpad:                                             ; preds = %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf13json_internal16MaybeOwnedStringaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i, align 8
   %switch.i.i.i.i.i = icmp eq i8 %1, 0
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   br i1 %switch.i.i.i.i.i, label %sw.bb.i.i.i.i.i, label %sw.bb2.i.i.i.i.i
 
@@ -8010,8 +7998,8 @@ _ZNSt8__detail9__variant9__emplaceILm1ELb0EJNSt7__cxx1112basic_stringIcSt11char_
   br label %_ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEaSEOSB_.exit
 
 _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEEaSEOSB_.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant9__emplaceILm0ELb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i7.i.i.i.i.i, %_ZNSt8__detail9__variant9__emplaceILm1ELb0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEJSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit.i.i.i.i.i.i.i.i.i
-  %token_ = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %this, i64 0, i32 1
-  %token_3 = getelementptr inbounds %"class.google::protobuf::json_internal::MaybeOwnedString", ptr %0, i64 0, i32 1
+  %token_ = getelementptr inbounds i8, ptr %this, i64 40
+  %token_3 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %token_, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i, label %if.then.i.i
@@ -8038,7 +8026,7 @@ _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i: ; preds = %invoke
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardaSERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i
-  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %6, i64 0, i32 7
+  %outstanding_buffer_borrows_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 76
   %7 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4
   %inc.i.i.i.i = add nsw i32 %7, 1
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4
@@ -8046,9 +8034,9 @@ if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6google8protobuf13json_internal14BufferingGuardaSERKS2_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %cursor_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %6, i64 0, i32 4
+  %cursor_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 56
   %8 = load i64, ptr %cursor_.i.i.i.i, align 8
-  %buffer_start_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ZeroCopyBufferedStream", ptr %6, i64 0, i32 5
+  %buffer_start_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 64
   store i64 %8, ptr %buffer_start_.i.i.i.i, align 8
   br label %_ZN6google8protobuf13json_internal14BufferingGuardaSERKS2_.exit
 

@@ -3,24 +3,6 @@ source_filename = "bench/qemu/original/ui_vnc-enc-hextile.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VncState = type { i64, ptr, ptr, i32, i32, [2048 x [3 x i64]], ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, [16 x i8], ptr, i8, i8, ptr, i64, i64, %struct.Buffer, %struct.Buffer, ptr, %struct.PixelFormat, i32, i8, ptr, %struct.audsettings, ptr, i64, i8, %struct.QemuMutex, ptr, %struct.Buffer, ptr, %struct.VncZlib, %struct.VncHextile, ptr, %struct.VncZywrle, %struct.Notifier, %struct.QemuClipboardPeer, ptr, i32, %union.anon }
-%struct.PixelFormat = type { i8, i8, i8, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.audsettings = type { i32, i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.Buffer = type { ptr, i64, i64, i64, ptr }
-%struct.VncZlib = type { %struct.Buffer, %struct.Buffer, %struct.z_stream_s, i32 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.VncHextile = type { ptr }
-%struct.VncZywrle = type { [4096 x i32] }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [53 x i8] c"vs->client_pf.bytes_per_pixel <= MAX_BYTES_PER_PIXEL\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"../qemu/ui/vnc-enc-hextile-template.h\00", align 1
 @__PRETTY_FUNCTION__.send_hextile_tile_32 = private unnamed_addr constant [88 x i8] c"void send_hextile_tile_32(VncState *, int, int, int, int, void *, void *, int *, int *)\00", align 1
@@ -42,7 +24,7 @@ entry:
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %add3 = add i32 %w, %x
   %cmp420 = icmp sgt i32 %add3, %x
-  %hextile = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 47
+  %hextile = getelementptr inbounds i8, ptr %vs, i64 49808
   br i1 %cmp420, label %for.cond2.preheader.us, label %for.end19
 
 for.cond2.preheader.us:                           ; preds = %for.cond2.preheader.lr.ph, %for.cond2.for.inc17_crit_edge.us
@@ -82,7 +64,7 @@ define dso_local void @vnc_hextile_set_pixel_conversion(ptr nocapture noundef wr
 entry:
   %tobool.not = icmp eq i32 %generic, 0
   %spec.select = select i1 %tobool.not, ptr @send_hextile_tile_32, ptr @send_hextile_tile_generic_32
-  %0 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 47
+  %0 = getelementptr inbounds i8, ptr %vs, i64 49808
   store ptr %spec.select, ptr %0, align 8
   ret void
 }
@@ -91,10 +73,10 @@ entry:
 define internal void @send_hextile_tile_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr nocapture noundef %has_bg, ptr nocapture noundef %has_fg) #0 {
 entry:
   %data = alloca [1536 x i8], align 16
-  %vd1 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 7
+  %vd1 = getelementptr inbounds i8, ptr %vs, i64 49192
   %0 = load ptr, ptr %vd1, align 8
   %call = tail call ptr @vnc_server_fb_ptr(ptr noundef %0, i32 noundef %x, i32 noundef %y) #7
-  %bytes_per_pixel = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 34, i32 1
+  %bytes_per_pixel = getelementptr inbounds i8, ptr %vs, i64 49417
   %1 = load i8, ptr %bytes_per_pixel, align 1
   %cmp = icmp ult i8 %1, 5
   br i1 %cmp, label %for.cond.preheader, label %if.else
@@ -522,7 +504,7 @@ if.end216:                                        ; preds = %for.end203, %sw.epi
   br i1 %cmp3215, label %for.body239.lr.ph, label %if.end248
 
 for.body239.lr.ph:                                ; preds = %if.end216
-  %write_pixels240 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 33
+  %write_pixels240 = getelementptr inbounds i8, ptr %vs, i64 49408
   %mul241 = shl i32 %w, 2
   br label %for.body239
 
@@ -537,7 +519,7 @@ if.then220:                                       ; preds = %for.cond82.preheade
   br i1 %tobool221.not, label %if.end223, label %if.then222
 
 if.then222:                                       ; preds = %if.then220
-  %write_pixels = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 33
+  %write_pixels = getelementptr inbounds i8, ptr %vs, i64 49408
   %20 = load ptr, ptr %write_pixels, align 8
   tail call void %20(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
   br label %if.end223
@@ -548,7 +530,7 @@ if.end223:                                        ; preds = %if.then222, %if.the
   br i1 %tobool225.not, label %if.end228, label %if.then226
 
 if.then226:                                       ; preds = %if.end223
-  %write_pixels227 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 33
+  %write_pixels227 = getelementptr inbounds i8, ptr %vs, i64 49408
   %21 = load ptr, ptr %write_pixels227, align 8
   tail call void %21(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
   br label %if.end228
@@ -584,10 +566,10 @@ if.end248:                                        ; preds = %for.body239, %if.en
 define internal void @send_hextile_tile_generic_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr nocapture noundef %has_bg, ptr nocapture noundef %has_fg) #0 {
 entry:
   %data = alloca [1536 x i8], align 16
-  %vd1 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 7
+  %vd1 = getelementptr inbounds i8, ptr %vs, i64 49192
   %0 = load ptr, ptr %vd1, align 8
   %call = tail call ptr @vnc_server_fb_ptr(ptr noundef %0, i32 noundef %x, i32 noundef %y) #7
-  %bytes_per_pixel = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 34, i32 1
+  %bytes_per_pixel = getelementptr inbounds i8, ptr %vs, i64 49417
   %1 = load i8, ptr %bytes_per_pixel, align 1
   %cmp = icmp ult i8 %1, 5
   br i1 %cmp, label %for.cond.preheader, label %if.else
@@ -1020,7 +1002,7 @@ if.end218:                                        ; preds = %for.end205, %sw.epi
   br i1 %cmp3220, label %for.body241.lr.ph, label %if.end250
 
 for.body241.lr.ph:                                ; preds = %if.end218
-  %write_pixels242 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 33
+  %write_pixels242 = getelementptr inbounds i8, ptr %vs, i64 49408
   %mul243 = shl i32 %w, 2
   br label %for.body241
 
@@ -1035,7 +1017,7 @@ if.then222:                                       ; preds = %for.cond82.preheade
   br i1 %tobool223.not, label %if.end225, label %if.then224
 
 if.then224:                                       ; preds = %if.then222
-  %write_pixels = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 33
+  %write_pixels = getelementptr inbounds i8, ptr %vs, i64 49408
   %23 = load ptr, ptr %write_pixels, align 8
   call void %23(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
   br label %if.end225
@@ -1046,7 +1028,7 @@ if.end225:                                        ; preds = %if.then224, %if.the
   br i1 %tobool227.not, label %if.end230, label %if.then228
 
 if.then228:                                       ; preds = %if.end225
-  %write_pixels229 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 33
+  %write_pixels229 = getelementptr inbounds i8, ptr %vs, i64 49408
   %24 = load ptr, ptr %write_pixels229, align 8
   call void %24(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
   br label %if.end230

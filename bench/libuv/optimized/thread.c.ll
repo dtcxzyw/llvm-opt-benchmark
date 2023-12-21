@@ -9,13 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpu_set_t = type { [16 x i64] }
 %union.pthread_mutexattr_t = type { i32 }
 %union.pthread_condattr_t = type { i32 }
-%struct.uv_semaphore_s = type { %union.pthread_mutex_t, %union.pthread_cond_t, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.timespec = type { i64, i64 }
 
 @glibc_version_check_once = internal global i32 0, align 4
@@ -86,7 +79,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %stack_size2 = getelementptr inbounds %struct.uv_thread_options_s, ptr %params, i64 0, i32 1
+  %stack_size2 = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load i64, ptr %stack_size2, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -783,7 +776,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cond.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %call.i3, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %call.i3, i64 40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i)
   %call.i9.i = call i32 @pthread_condattr_init(ptr noundef nonnull %attr.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i9.i, 0
@@ -806,7 +799,7 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
 
 uv_cond_init.exit.thread.i:                       ; preds = %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
-  %value10.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %call.i3, i64 0, i32 2
+  %value10.i = getelementptr inbounds i8, ptr %call.i3, i64 88
   store i32 %value, ptr %value10.i, align 8
   store ptr %call.i3, ptr %sem, align 8
   br label %return
@@ -888,7 +881,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sem.val = load ptr, ptr %sem, align 8
-  %cond.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %sem.val, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %sem.val, i64 40
   %call.i.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %uv_cond_destroy.exit.i, label %if.then.i.i
@@ -941,7 +934,7 @@ if.then.i.i:                                      ; preds = %if.then
   unreachable
 
 uv_mutex_lock.exit.i:                             ; preds = %if.then
-  %value.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %sem.val, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %sem.val, i64 88
   %1 = load i32, ptr %value.i, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %value.i, align 8
@@ -949,7 +942,7 @@ uv_mutex_lock.exit.i:                             ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %uv_mutex_lock.exit.i
-  %cond.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %sem.val, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %sem.val, i64 40
   %call.i5.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond.i) #11
   %tobool.not.i6.i = icmp eq i32 %call.i5.i, 0
   br i1 %tobool.not.i6.i, label %if.end.i, label %if.then.i7.i
@@ -994,8 +987,8 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %while.cond.preheader.i, label %if.then.i.i
 
 while.cond.preheader.i:                           ; preds = %if.then
-  %value.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %sem.val, i64 0, i32 2
-  %cond.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %sem.val, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %sem.val, i64 88
+  %cond.i = getelementptr inbounds i8, ptr %sem.val, i64 40
   br label %while.cond.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1069,7 +1062,7 @@ if.then2.i.i:                                     ; preds = %if.then
   unreachable
 
 if.end.i:                                         ; preds = %if.then
-  %value.i = getelementptr inbounds %struct.uv_semaphore_s, ptr %sem.val, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %sem.val, i64 88
   %1 = load i32, ptr %value.i, align 8
   %cmp1.i = icmp eq i32 %1, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
@@ -1260,7 +1253,7 @@ entry:
   %div = udiv i64 %add, 1000000000
   store i64 %div, ptr %ts, align 8
   %rem = urem i64 %add, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   store i64 %rem, ptr %tv_nsec, align 8
   %call1 = call i32 @pthread_cond_timedwait(ptr noundef %cond, ptr noundef %mutex, ptr noundef nonnull %ts) #11
   switch i32 %call1, label %if.end4 [

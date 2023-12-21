@@ -4,17 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
+%struct.ec_key_st = type { ptr, ptr, i32, ptr, ptr, ptr, i32, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, i64 }
 %struct.CRYPTO_REF_COUNT = type { i32 }
 %struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.ec_key_st = type { ptr, ptr, i32, ptr, ptr, ptr, i32, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, i64 }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.5, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr, i64, i8 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [3 x i8] c"EC\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"OpenSSL EC algorithm\00", align 1
@@ -101,7 +93,7 @@ entry:
   %pval = alloca ptr, align 8
   %ptype = alloca i32, align 4
   %p = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   store ptr null, ptr %pval, align 8
   %call = call fastcc i32 @eckey_param2type(ptr noundef nonnull %ptype, ptr noundef nonnull %pval, ptr noundef %0), !range !4
@@ -167,10 +159,10 @@ return:                                           ; preds = %if.end14, %if.end23
 ; Function Attrs: nounwind uwtable
 define internal i32 @eckey_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %b, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #4
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %a, i64 32
   %1 = load ptr, ptr %pkey1, align 8
   %call2 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %1) #4
   %2 = load ptr, ptr %pkey, align 8
@@ -198,7 +190,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind uwtable
 define internal i32 @eckey_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 1), !range !4
   ret i32 %call
@@ -211,7 +203,7 @@ entry:
   %ep = alloca ptr, align 8
   %ptype = alloca i32, align 4
   %pval = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %ec_key, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
   store ptr null, ptr %ep, align 8
@@ -276,7 +268,7 @@ return:                                           ; preds = %err, %if.then13, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @eckey_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 0), !range !4
   ret i32 %call
@@ -285,7 +277,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @int_ec_size(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @ECDSA_size(ptr noundef %0) #4
   ret i32 %call
@@ -294,7 +286,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #4
   %call2 = tail call i32 @EC_GROUP_order_bits(ptr noundef %call) #4
@@ -304,7 +296,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_security_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1.i, align 8
   %call.i = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #4
   %call2.i = tail call i32 @EC_GROUP_order_bits(ptr noundef %call.i) #4
@@ -356,7 +348,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @eckey_param_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @i2d_ECParameters(ptr noundef %0, ptr noundef %pder) #4
   ret i32 %call
@@ -365,7 +357,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_missing_parameters(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -384,7 +376,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #4
   %call1 = tail call ptr @EC_GROUP_dup(ptr noundef %call) #4
@@ -392,7 +384,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pkey2 = getelementptr inbounds %struct.evp_pkey_st, ptr %to, i64 0, i32 5
+  %pkey2 = getelementptr inbounds i8, ptr %to, i64 32
   %1 = load ptr, ptr %pkey2, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then4, label %if.end11
@@ -425,10 +417,10 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #4
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %b, i64 32
   %1 = load ptr, ptr %pkey1, align 8
   %call2 = tail call ptr @EC_KEY_get0_group(ptr noundef %1) #4
   %cmp = icmp eq ptr %call, null
@@ -450,7 +442,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind uwtable
 define internal i32 @eckey_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 2), !range !4
   ret i32 %call
@@ -459,7 +451,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @int_ec_free(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   tail call void @EC_KEY_free(ptr noundef %0) #4
   ret void
@@ -493,7 +485,7 @@ sw.bb1:                                           ; preds = %entry
   br i1 %cmp2.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.bb1
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
   %1 = load ptr, ptr %keymgmt, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.end7, label %return
@@ -534,7 +526,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @old_ec_priv_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @i2d_ECPrivateKey(ptr noundef %0, ptr noundef %pder) #4
   ret i32 %call
@@ -543,9 +535,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_pkey_check(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %priv_key = getelementptr inbounds %struct.ec_key_st, ptr %0, i64 0, i32 5
+  %priv_key = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %priv_key, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -568,7 +560,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_pkey_public_check(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @EC_KEY_check_key(ptr noundef %0) #4
   ret i32 %call
@@ -577,9 +569,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_pkey_param_check(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %0, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %group, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -602,9 +594,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @ec_pkey_dirty_cnt(ptr nocapture noundef readonly %pkey) #1 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %dirty_cnt = getelementptr inbounds %struct.ec_key_st, ptr %0, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i64, ptr %dirty_cnt, align 8
   ret i64 %1
 }
@@ -620,7 +612,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
@@ -722,9 +714,9 @@ return:                                           ; preds = %if.end, %entry, %lo
 define internal i32 @ec_pkey_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #4
-  %libctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %vpctx, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8
   %0 = load ptr, ptr %libctx, align 8
-  %propquery = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %vpctx, i64 0, i32 2
+  %propquery = getelementptr inbounds i8, ptr %vpctx, i64 16
   %1 = load ptr, ptr %propquery, align 8
   %call1 = tail call ptr @EC_KEY_new_ex(ptr noundef %0, ptr noundef %1) #4
   %cmp = icmp eq ptr %call1, null
@@ -768,7 +760,7 @@ return:                                           ; preds = %lor.lhs.false8, %if
 ; Function Attrs: nounwind uwtable
 define internal i32 @ec_pkey_copy(ptr noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -1028,7 +1020,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.else
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call13, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call13, i64 8
   %call17 = tail call i32 @i2d_ECParameters(ptr noundef nonnull %ec_key, ptr noundef nonnull %data) #4
   store i32 %call17, ptr %call13, align 8
   %cmp19 = icmp slt i32 %call17, 1

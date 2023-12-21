@@ -3,9 +3,6 @@ source_filename = "bench/assimp/original/Compression.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.Assimp::Compression::impl" = type <{ i8, [7 x i8], %struct.z_stream_s, i32, [4 x i8] }>
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -68,7 +65,7 @@ define hidden void @_ZN6Assimp11CompressionC2Ev(ptr nocapture noundef nonnull wr
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   store i8 0, ptr %call, align 8
-  %mZSstream.i = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %call, i64 0, i32 2
+  %mZSstream.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %mZSstream.i, i8 0, i64 116, i1 false)
   store ptr %call, ptr %this, align 8
   ret void
@@ -92,7 +89,7 @@ entry:
   br i1 %tobool.not, label %delete.notnull, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mZSstream.i = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %0, i64 0, i32 2
+  %mZSstream.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i1 = invoke i32 @inflateEnd(ptr noundef nonnull %mZSstream.i)
           to label %if.end unwind label %terminate.lpad
 
@@ -129,7 +126,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mZSstream = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %0, i64 0, i32 2
+  %mZSstream = getelementptr inbounds i8, ptr %0, i64 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %mZSstream)
   %3 = load ptr, ptr %this, align 8
   store i8 0, ptr %3, align 8
@@ -160,25 +157,25 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %opaque = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %0, i64 0, i32 2, i32 10
+  %opaque = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %opaque, align 8
   %3 = load ptr, ptr %this, align 8
-  %zalloc = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %3, i64 0, i32 2, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %3, i64 72
   store ptr null, ptr %zalloc, align 8
   %4 = load ptr, ptr %this, align 8
-  %zfree = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %4, i64 0, i32 2, i32 9
+  %zfree = getelementptr inbounds i8, ptr %4, i64 80
   store ptr null, ptr %zfree, align 8
   %5 = load ptr, ptr %this, align 8
-  %mFlushMode = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %5, i64 0, i32 3
+  %mFlushMode = getelementptr inbounds i8, ptr %5, i64 120
   store i32 %flush, ptr %mFlushMode, align 8
   %cmp = icmp ne i32 %format, 0
   %6 = load ptr, ptr %this, align 8
-  %data_type = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %6, i64 0, i32 2, i32 11
+  %data_type = getelementptr inbounds i8, ptr %6, i64 96
   %. = zext i1 %cmp to i32
   store i32 %., ptr %data_type, align 8
   %cmp15 = icmp eq i32 %windowBits, 0
   %7 = load ptr, ptr %this, align 8
-  %mZSstream18 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %7, i64 0, i32 2
+  %mZSstream18 = getelementptr inbounds i8, ptr %7, i64 8
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.end
@@ -218,14 +215,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %mZSstream = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %0, i64 0, i32 2
+  %mZSstream = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %data, ptr %mZSstream, align 8
   %conv = trunc i64 %in to i32
   %1 = load ptr, ptr %this, align 8
-  %avail_in = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %1, i64 0, i32 2, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %conv, ptr %avail_in, align 8
   %2 = load ptr, ptr %this, align 8
-  %mFlushMode = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %2, i64 0, i32 3
+  %mFlushMode = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load i32, ptr %mFlushMode, align 8
   switch i32 %3, label %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit [
     i32 4, label %if.then7
@@ -245,25 +242,25 @@ sw.bb3.i:                                         ; preds = %if.end
 
 _ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit: ; preds = %if.end, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i
   %z_flush.0.i = phi i32 [ 2, %sw.bb3.i ], [ 6, %sw.bb2.i ], [ 5, %sw.bb1.i ], [ 0, %if.end ]
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %uncompressed, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %uncompressed, i64 8
   br label %do.body
 
 if.then7:                                         ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %uncompressed, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %uncompressed, i64 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %uncompressed, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv9 = trunc i64 %sub.ptr.sub.i to i32
-  %avail_out = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %2, i64 0, i32 2, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %conv9, ptr %avail_out, align 8
   %6 = load ptr, ptr %uncompressed, align 8
   %7 = load ptr, ptr %this, align 8
-  %next_out = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %7, i64 0, i32 2, i32 3
+  %next_out = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %6, ptr %next_out, align 8
   %8 = load ptr, ptr %this, align 8
-  %mZSstream17 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %8, i64 0, i32 2
+  %mZSstream17 = getelementptr inbounds i8, ptr %8, i64 8
   %call18 = tail call i32 @inflate(ptr noundef nonnull %mZSstream17, i32 noundef 4)
   %or.cond1 = icmp ugt i32 %call18, 1
   br i1 %or.cond1, label %if.then21, label %if.end22
@@ -285,7 +282,7 @@ lpad:                                             ; preds = %if.then21
 
 if.end22:                                         ; preds = %if.then7
   %10 = load ptr, ptr %this, align 8
-  %avail_out25 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %10, i64 0, i32 2, i32 4
+  %avail_out25 = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load i32, ptr %avail_out25, align 8
   %conv26 = zext i32 %11 to i64
   br label %return
@@ -294,13 +291,13 @@ do.body:                                          ; preds = %_ZN6AssimpL12getFlu
   %total.0 = phi i64 [ 0, %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit ], [ %add, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32786) %block, i8 0, i64 32786, i1 false)
   %12 = load ptr, ptr %this, align 8
-  %avail_out29 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %12, i64 0, i32 2, i32 4
+  %avail_out29 = getelementptr inbounds i8, ptr %12, i64 40
   store i32 32786, ptr %avail_out29, align 8
   %13 = load ptr, ptr %this, align 8
-  %next_out32 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %13, i64 0, i32 2, i32 3
+  %next_out32 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %block, ptr %next_out32, align 8
   %14 = load ptr, ptr %this, align 8
-  %mZSstream34 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %14, i64 0, i32 2
+  %mZSstream34 = getelementptr inbounds i8, ptr %14, i64 8
   %call35 = call i32 @inflate(ptr noundef nonnull %mZSstream34, i32 noundef %z_flush.0.i)
   %or.cond2 = icmp ugt i32 %call35, 1
   br i1 %or.cond2, label %if.then39, label %if.end43
@@ -323,7 +320,7 @@ lpad41:                                           ; preds = %if.then39
 if.end43:                                         ; preds = %do.body
   %cmp36.not = icmp eq i32 %call35, 1
   %16 = load ptr, ptr %this, align 8
-  %avail_out46 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %16, i64 0, i32 2, i32 4
+  %avail_out46 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i32, ptr %avail_out46, align 8
   %conv47 = zext i32 %17 to i64
   %sub = sub nsw i64 32786, %conv47
@@ -425,21 +422,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %mZSstream = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %0, i64 0, i32 2
+  %mZSstream = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %data, ptr %mZSstream, align 8
   %conv = trunc i64 %in to i32
   %1 = load ptr, ptr %this, align 8
-  %avail_in = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %1, i64 0, i32 2, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %conv, ptr %avail_in, align 8
   %2 = load ptr, ptr %this, align 8
-  %next_out = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %2, i64 0, i32 2, i32 3
+  %next_out = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %out, ptr %next_out, align 8
   %conv11 = trunc i64 %availableOut to i32
   %3 = load ptr, ptr %this, align 8
-  %avail_out = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %3, i64 0, i32 2, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %3, i64 40
   store i32 %conv11, ptr %avail_out, align 8
   %4 = load ptr, ptr %this, align 8
-  %mZSstream15 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %4, i64 0, i32 2
+  %mZSstream15 = getelementptr inbounds i8, ptr %4, i64 8
   %call = tail call i32 @inflate(ptr noundef nonnull %mZSstream15, i32 noundef 2)
   %or.cond3 = icmp ugt i32 %call, 1
   br i1 %or.cond3, label %if.then18, label %if.end19
@@ -461,16 +458,16 @@ lpad:                                             ; preds = %if.then18
 
 if.end19:                                         ; preds = %if.end
   %6 = load ptr, ptr %this, align 8
-  %mZSstream21 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %6, i64 0, i32 2
+  %mZSstream21 = getelementptr inbounds i8, ptr %6, i64 8
   %call22 = tail call i32 @inflateReset(ptr noundef nonnull %mZSstream21)
   %7 = load ptr, ptr %this, align 8
-  %mZSstream24 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %7, i64 0, i32 2
-  %avail_out28 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %7, i64 0, i32 2, i32 4
+  %mZSstream24 = getelementptr inbounds i8, ptr %7, i64 8
+  %avail_out28 = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load i32, ptr %avail_out28, align 8
   %sub = sub i32 %conv11, %8
   %call29 = tail call i32 @inflateSetDictionary(ptr noundef nonnull %mZSstream24, ptr noundef nonnull %out, i32 noundef %sub)
   %9 = load ptr, ptr %this, align 8
-  %avail_out32 = getelementptr inbounds %"struct.Assimp::Compression::impl", ptr %9, i64 0, i32 2, i32 4
+  %avail_out32 = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load i32, ptr %avail_out32, align 8
   %conv33 = zext i32 %10 to i64
   %sub34 = sub i64 %availableOut, %conv33
@@ -698,13 +695,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i

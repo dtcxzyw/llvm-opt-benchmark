@@ -3,34 +3,7 @@ source_filename = "bench/qemu/original/hw_block_dataplane_virtio-blk.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VirtIOBlockDataPlane = type { i8, i8, ptr, ptr, ptr, ptr }
-%struct.VirtIOBlkConf = type { %struct.BlockConf, ptr, ptr, i32, i16, i16, i8, i8, i32, i32, i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtIOBlock = type { %struct.VirtIODevice, ptr, ptr, %struct.VirtIOBlkConf, i16, i8, ptr, i8, i8, ptr, i64, i64, %struct.BlockRAMRegistrar }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.BlockRAMRegistrar = type { ptr, %struct.RAMBlockNotifier, i8 }
-%struct.RAMBlockNotifier = type { ptr, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [40 x i8] c"../qemu/hw/block/dataplane/virtio-blk.c\00", align 1
 @__func__.virtio_blk_data_plane_create = private unnamed_addr constant [29 x i8] c"virtio_blk_data_plane_create\00", align 1
@@ -67,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_blk_data_plane_notify(ptr nocapture noundef readonly %s, ptr noundef %vq) local_unnamed_addr #0 {
 entry:
-  %vdev = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %s, i64 0, i32 3
+  %vdev = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load ptr, ptr %vdev, align 8
   tail call void @virtio_notify_irqfd(ptr noundef %0, ptr noundef %vq) #6
   ret void
@@ -84,19 +57,19 @@ entry:
   %call.i21 = tail call ptr @object_get_class(ptr noundef %call.i20) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i21, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
   store ptr null, ptr %dataplane, align 8
-  %iothread = getelementptr inbounds %struct.VirtIOBlkConf, ptr %conf, i64 0, i32 1
+  %iothread = getelementptr inbounds i8, ptr %conf, i64 88
   %0 = load ptr, ptr %iothread, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %1 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %ioeventfd_assign = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 19
+  %ioeventfd_assign = getelementptr inbounds i8, ptr %call1.i, i64 304
   %2 = load ptr, ptr %ioeventfd_assign, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.then6, label %if.end
@@ -128,16 +101,16 @@ if.end14:                                         ; preds = %if.end9, %entry
 
 if.end17:                                         ; preds = %if.end14
   %call18 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #7
-  %vdev19 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %call18, i64 0, i32 3
+  %vdev19 = getelementptr inbounds i8, ptr %call18, i64 16
   store ptr %vdev, ptr %vdev19, align 8
-  %conf20 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %call18, i64 0, i32 2
+  %conf20 = getelementptr inbounds i8, ptr %call18, i64 8
   store ptr %conf, ptr %conf20, align 8
   %4 = load ptr, ptr %iothread, align 8
   %tobool22.not = icmp eq ptr %4, null
   br i1 %tobool22.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %if.end17
-  %iothread25 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %call18, i64 0, i32 4
+  %iothread25 = getelementptr inbounds i8, ptr %call18, i64 24
   store ptr %4, ptr %iothread25, align 8
   %call27 = tail call ptr @object_ref(ptr noundef nonnull %4) #6
   %call29 = tail call ptr @iothread_get_aio_context(ptr noundef nonnull %4) #6
@@ -149,7 +122,7 @@ if.else:                                          ; preds = %if.end17
 
 if.end32:                                         ; preds = %if.else, %if.then23
   %call29.sink = phi ptr [ %call30, %if.else ], [ %call29, %if.then23 ]
-  %5 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %call18, i64 0, i32 5
+  %5 = getelementptr inbounds i8, ptr %call18, i64 32
   store ptr %call29.sink, ptr %5, align 8
   store ptr %call18, ptr %dataplane, align 8
   br label %return
@@ -185,10 +158,10 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vdev = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %s, i64 0, i32 3
+  %vdev = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load ptr, ptr %vdev, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_BLK) #6
-  %dataplane_started = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 8
+  %dataplane_started = getelementptr inbounds i8, ptr %call.i, i64 681
   %1 = load i8, ptr %dataplane_started, align 1
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
@@ -199,7 +172,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %iothread = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %s, i64 0, i32 4
+  %iothread = getelementptr inbounds i8, ptr %s, i64 24
   %3 = load ptr, ptr %iothread, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end7, label %if.then5
@@ -229,20 +202,20 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_BLK) #6
-  %dataplane = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 9
+  %dataplane = getelementptr inbounds i8, ptr %call.i, i64 688
   %0 = load ptr, ptr %dataplane, align 8
   %call.i56 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
   %call2 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i56) #6
   %call.i57 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #6
   %call.i58 = tail call ptr @object_get_class(ptr noundef %call.i57) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i58, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
-  %conf = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 2
+  %conf = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %conf, align 8
-  %num_queues = getelementptr inbounds %struct.VirtIOBlkConf, ptr %1, i64 0, i32 4
+  %num_queues = getelementptr inbounds i8, ptr %1, i64 108
   %2 = load i16, ptr %num_queues, align 4
   %conv = zext i16 %2 to i32
   store ptr null, ptr %local_err, align 8
-  %dataplane_started = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 8
+  %dataplane_started = getelementptr inbounds i8, ptr %call.i, i64 681
   %3 = load i8, ptr %dataplane_started, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -256,9 +229,9 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   store i8 1, ptr %0, align 8
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %7 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i57, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i57, i64 40
   %8 = load ptr, ptr %parent, align 8
   %call9 = tail call i32 %7(ptr noundef %8, i32 noundef %conv, i1 noundef zeroext true) #6
   %cmp.not = icmp eq i32 %call9, 0
@@ -341,7 +314,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %0) #6
   br label %trace_virtio_blk_data_plane_start.exit
@@ -358,7 +331,7 @@ trace_virtio_blk_data_plane_start.exit:           ; preds = %for.end, %land.lhs.
   tail call void @aio_context_acquire(ptr noundef %call33) #6
   %19 = load ptr, ptr %conf, align 8
   %20 = load ptr, ptr %19, align 8
-  %ctx = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 5
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %21 = load ptr, ptr %ctx, align 8
   %call37 = call i32 @blk_set_aio_context(ptr noundef %20, ptr noundef %21, ptr noundef nonnull %local_err) #6
   call void @aio_context_release(ptr noundef %call33) #6
@@ -369,7 +342,7 @@ for.cond42.preheader:                             ; preds = %trace_virtio_blk_da
   br i1 %cmp1366.not, label %for.end52, label %for.body45.lr.ph
 
 for.body45.lr.ph:                                 ; preds = %for.cond42.preheader
-  %vdev46 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 3
+  %vdev46 = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.body45
 
 if.then40:                                        ; preds = %trace_virtio_blk_data_plane_start.exit
@@ -408,7 +381,7 @@ if.then59:                                        ; preds = %for.end52
   br i1 %cmp1366.not, label %for.end71, label %for.body64.lr.ph
 
 for.body64.lr.ph:                                 ; preds = %if.then59
-  %vdev66 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 3
+  %vdev66 = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.body64
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %for.body64
@@ -453,7 +426,7 @@ fail_host_notifiers:                              ; preds = %while.body27, %for.
   br label %fail_guest_notifiers
 
 fail_guest_notifiers:                             ; preds = %fail_host_notifiers, %if.then11
-  %dataplane_disabled = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 7
+  %dataplane_disabled = getelementptr inbounds i8, ptr %call.i, i64 680
   store i8 1, ptr %dataplane_disabled, align 8
   store i8 0, ptr %0, align 8
   br label %return
@@ -501,32 +474,32 @@ define dso_local void @virtio_blk_data_plane_stop(ptr noundef %vdev) local_unnam
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_BLK) #6
-  %dataplane = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 9
+  %dataplane = getelementptr inbounds i8, ptr %call.i, i64 688
   %0 = load ptr, ptr %dataplane, align 8
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
   %call2 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i28) #6
   %call.i29 = tail call ptr @object_get_class(ptr noundef %call2) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i29, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
-  %conf = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 2
+  %conf = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %conf, align 8
-  %num_queues = getelementptr inbounds %struct.VirtIOBlkConf, ptr %1, i64 0, i32 4
+  %num_queues = getelementptr inbounds i8, ptr %1, i64 108
   %2 = load i16, ptr %num_queues, align 4
   %conv = zext i16 %2 to i32
-  %dataplane_started = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 8
+  %dataplane_started = getelementptr inbounds i8, ptr %call.i, i64 681
   %3 = load i8, ptr %dataplane_started, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %stopping = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 1
+  %stopping = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %stopping, align 1
   %6 = and i8 %5, 1
   %tobool4.not = icmp eq i8 %6, 0
   br i1 %tobool4.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %dataplane_disabled = getelementptr inbounds %struct.VirtIOBlock, ptr %call.i, i64 0, i32 7
+  %dataplane_disabled = getelementptr inbounds i8, ptr %call.i, i64 680
   %7 = load i8, ptr %dataplane_disabled, align 8
   %8 = and i8 %7, 1
   %tobool6.not = icmp eq i8 %8, 0
@@ -562,7 +535,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %0) #6
   br label %trace_virtio_blk_data_plane_stop.exit
@@ -579,7 +552,7 @@ trace_virtio_blk_data_plane_stop.exit:            ; preds = %if.end10, %land.lhs
   br i1 %call14, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %trace_virtio_blk_data_plane_stop.exit
-  %ctx = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 5
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %ctx, align 8
   tail call void @aio_wait_bh_oneshot(ptr noundef %18, ptr noundef nonnull @virtio_blk_data_plane_stop_bh, ptr noundef nonnull %0) #6
   br label %if.end16
@@ -615,7 +588,7 @@ for.body23:                                       ; preds = %for.end, %for.body2
 
 for.end27:                                        ; preds = %for.body23, %for.end.thread, %for.end
   store i8 0, ptr %dataplane_started, align 1
-  %ctx29 = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %0, i64 0, i32 5
+  %ctx29 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load ptr, ptr %ctx29, align 8
   tail call void @aio_context_acquire(ptr noundef %19) #6
   %20 = load ptr, ptr %conf, align 8
@@ -627,9 +600,9 @@ for.end27:                                        ; preds = %for.body23, %for.en
   %call37 = tail call i32 @blk_set_aio_context(ptr noundef %23, ptr noundef %call36, ptr noundef null) #6
   %24 = load ptr, ptr %ctx29, align 8
   tail call void @aio_context_release(ptr noundef %24) #6
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %25 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call2, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call2, i64 40
   %26 = load ptr, ptr %parent, align 8
   %call39 = tail call i32 %25(ptr noundef %26, i32 noundef %conv, i1 noundef zeroext false) #6
   br label %return.sink.split
@@ -648,16 +621,16 @@ declare void @aio_wait_bh_oneshot(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_blk_data_plane_stop_bh(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %conf = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %opaque, i64 0, i32 2
+  %conf = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %conf, align 8
-  %num_queues6 = getelementptr inbounds %struct.VirtIOBlkConf, ptr %0, i64 0, i32 4
+  %num_queues6 = getelementptr inbounds i8, ptr %0, i64 108
   %1 = load i16, ptr %num_queues6, align 4
   %cmp8.not = icmp eq i16 %1, 0
   br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %vdev = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %opaque, i64 0, i32 3
-  %ctx = getelementptr inbounds %struct.VirtIOBlockDataPlane, ptr %opaque, i64 0, i32 5
+  %vdev = getelementptr inbounds i8, ptr %opaque, i64 16
+  %ctx = getelementptr inbounds i8, ptr %opaque, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -670,7 +643,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @virtio_queue_host_notifier_read(ptr noundef %call2) #6
   %inc = add nuw nsw i32 %i.09, 1
   %4 = load ptr, ptr %conf, align 8
-  %num_queues = getelementptr inbounds %struct.VirtIOBlkConf, ptr %4, i64 0, i32 4
+  %num_queues = getelementptr inbounds i8, ptr %4, i64 108
   %5 = load i16, ptr %num_queues, align 4
   %conv = zext i16 %5 to i32
   %cmp = icmp ult i32 %inc, %conv

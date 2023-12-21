@@ -4,49 +4,17 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"class.node::tracing::NodeTraceWriter" = type <{ %"class.node::tracing::AsyncTraceWriter", ptr, %struct.uv_async_s, %struct.uv_async_s, %"class.node::MutexBase", %"class.node::MutexBase", %"class.node::ConditionVariableBase", %"class.node::ConditionVariableBase", i32, [4 x i8], %struct.uv_fs_s, %"class.std::queue", i32, i32, i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_ostringstream", %"class.std::unique_ptr", i8, [7 x i8] }>
-%"class.node::tracing::AsyncTraceWriter" = type { ptr }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon = type { [4 x ptr] }
-%struct.uv__queue = type { ptr, ptr }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::ConditionVariableBase" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
 %struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
 %struct.uv_timespec_t = type { i64, i64 }
 %struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
+%struct.uv__queue = type { ptr, ptr }
 %struct.uv_buf_t = type { ptr, i64 }
-%"class.std::queue" = type { %"class.std::deque" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl" }
-%"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl" = type { %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.3 = type { i64, [8 x i8] }
-%"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%"class.std::basic_ostream.base" = type { ptr }
-%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.std::locale" = type { ptr }
-%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.5" }
-%"struct.std::_Head_base.5" = type { ptr }
-%"struct.node::tracing::NodeTraceWriter::WriteRequest" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::allocator.0" = type { i8 }
+%"struct.node::tracing::NodeTraceWriter::WriteRequest" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
 $_ZNSt7__cxx119to_stringEi = comdat any
 
@@ -115,9 +83,9 @@ $_ZZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC1EvE4args = comdat any
 define dso_local void @_ZN4node7tracing15NodeTraceWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 1
+  %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %tracing_loop_, align 8
-  %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 4
+  %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
   %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %stream_mutex_) #12
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
@@ -128,7 +96,7 @@ do.body5.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
-  %request_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 5
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
   %call.i.i1 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %request_mutex_) #12
   %cmp.not.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %cmp.not.i2, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4, label %do.body5.i3
@@ -139,7 +107,7 @@ do.body5.i3:                                      ; preds = %_ZN4node9MutexBaseI
   unreachable
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
-  %request_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 6
+  %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
   %call.i.i5 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %request_cond_) #12
   %cmp.not.i6 = icmp eq i32 %call.i.i5, 0
   br i1 %cmp.not.i6, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i7
@@ -150,7 +118,7 @@ do.body5.i7:                                      ; preds = %_ZN4node9MutexBaseI
   unreachable
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4
-  %exit_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 7
+  %exit_cond_ = getelementptr inbounds i8, ptr %this, i64 400
   %call.i.i8 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %exit_cond_) #12
   %cmp.not.i9 = icmp eq i32 %call.i.i8, 0
   br i1 %cmp.not.i9, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit11, label %do.body5.i10
@@ -161,42 +129,42 @@ do.body5.i10:                                     ; preds = %_ZN4node21Condition
   unreachable
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit11: ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit
-  %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 8
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 448
   store i32 -1, ptr %fd_, align 8
-  %write_req_queue_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11
-  %_M_map_size.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 1
+  %write_req_queue_ = getelementptr inbounds i8, ptr %this, i64 896
+  %_M_map_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 904
   store i64 8, ptr %_M_map_size.i.i.i.i, align 8
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
   store ptr %call5.i.i.i.i.i.i.i, ptr %write_req_queue_, align 8
   %__cur.04.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #14
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %__cur.04.i.i.ptr.i.i.i, align 8
-  %_M_start.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_start.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 912
+  %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 936
   store ptr %__cur.04.i.i.ptr.i.i.i, ptr %_M_node.i.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 920
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_first.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  %_M_last.i.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 480
+  %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 928
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3
-  %_M_node.i9.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 944
+  %_M_node.i9.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
   store ptr %__cur.04.i.i.ptr.i.i.i, ptr %_M_node.i9.i.i.i.i, align 8
-  %_M_first.i10.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i10.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 952
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_first.i10.i.i.i.i, align 8
-  %_M_last.i12.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i12.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 960
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i12.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_start.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %num_write_requests_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 12
-  %log_file_pattern_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 16
+  %num_write_requests_ = getelementptr inbounds i8, ptr %this, i64 976
+  %log_file_pattern_ = getelementptr inbounds i8, ptr %this, i64 992
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %num_write_requests_, i8 0, i64 16, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern_, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern) #12
-  %stream_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 17
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 1024
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_) #12
-  %json_trace_writer_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 18
+  %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
   store ptr null, ptr %json_trace_writer_, align 8
-  %exited_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 19
+  %exited_ = getelementptr inbounds i8, ptr %this, i64 1408
   store i8 0, ptr %exited_, align 8
   ret void
 }
@@ -208,7 +176,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceWriter18InitializeOnThreadEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef %loop) unnamed_addr #0 align 2 {
 entry:
-  %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 1
+  %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracing_loop_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end5, label %do.body4
@@ -220,7 +188,7 @@ do.body4:                                         ; preds = %entry
 
 do.end5:                                          ; preds = %entry
   store ptr %loop, ptr %tracing_loop_, align 8
-  %flush_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 2
+  %flush_signal_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %this, ptr %flush_signal_, align 8
   %call9 = tail call i32 @uv_async_init(ptr noundef %loop, ptr noundef nonnull %flush_signal_, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceWriter18InitializeOnThreadEP9uv_loop_sEN3$_08__invokeEP10uv_async_s") #12
   %cmp11.not = icmp eq i32 %call9, 0
@@ -232,7 +200,7 @@ do.body16:                                        ; preds = %do.end5
   unreachable
 
 do.end19:                                         ; preds = %do.end5
-  %exit_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 3
+  %exit_signal_ = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %this, ptr %exit_signal_, align 8
   %1 = load ptr, ptr %tracing_loop_, align 8
   %call23 = tail call i32 @uv_async_init(ptr noundef %1, ptr noundef nonnull %exit_signal_, ptr noundef nonnull @_ZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_s) #12
@@ -261,7 +229,7 @@ entry:
   %0 = ptrtoint ptr %signal to i64
   %sub.i.i = add i64 %0, -144
   %1 = inttoptr i64 %sub.i.i to ptr
-  %flush_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %1, i64 0, i32 2
+  %flush_signal_ = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @uv_close(ptr noundef nonnull %flush_signal_, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_sEN3$_08__invokeEP11uv_handle_s") #12
   ret void
 }
@@ -269,9 +237,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv(ptr noundef nonnull align 8 dereferenceable(1409) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 4
+  %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
-  %total_traces_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 14
+  %total_traces_ = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end4.critedge
@@ -280,7 +248,7 @@ if.then:                                          ; preds = %entry
   store i32 524288, ptr %total_traces_, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %stream_mutex_) #12
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(1409) %this, i1 noundef zeroext true) #12
   br label %if.end4
@@ -298,9 +266,9 @@ define dso_local void @_ZN4node7tracing15NodeTraceWriterD2Ev(ptr noundef nonnull
 entry:
   %req = alloca %struct.uv_fs_s, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %stream_mutex_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 4
+  %stream_mutex_.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_.i) #12
-  %total_traces_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 14
+  %total_traces_.i = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end4.critedge.i
@@ -309,7 +277,7 @@ if.then.i:                                        ; preds = %entry
   store i32 524288, ptr %total_traces_.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %stream_mutex_.i) #12
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(1409) %this, i1 noundef zeroext true) #12
   br label %_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv.exit
@@ -319,7 +287,7 @@ if.end4.critedge.i:                               ; preds = %entry
   br label %_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv.exit
 
 _ZN4node7tracing15NodeTraceWriter11WriteSuffixEv.exit: ; preds = %if.then.i, %if.end4.critedge.i
-  %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 8
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 448
   %2 = load i32, ptr %fd_, align 8
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.end10, label %do.body
@@ -339,18 +307,18 @@ do.end9:                                          ; preds = %do.body
   br label %if.end10
 
 if.end10:                                         ; preds = %do.end9, %_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv.exit
-  %exit_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 3
+  %exit_signal_ = getelementptr inbounds i8, ptr %this, i64 144
   %call11 = call i32 @uv_async_send(ptr noundef nonnull %exit_signal_) #12
-  %request_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 5
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
   call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
-  %exited_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 19
+  %exited_ = getelementptr inbounds i8, ptr %this, i64 1408
   %3 = load i8, ptr %exited_, align 8
   %4 = and i8 %3, 1
   %tobool.not2 = icmp eq i8 %4, 0
   br i1 %tobool.not2, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end10
-  %exit_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 7
+  %exit_cond_ = getelementptr inbounds i8, ptr %this, i64 400
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -362,29 +330,29 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 while.end:                                        ; preds = %while.body, %if.end10
   call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_) #12
-  %json_trace_writer_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 18
+  %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
   %7 = load ptr, ptr %json_trace_writer_, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i: ; preds = %while.end
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   br label %_ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2Ev.exit: ; preds = %while.end, %_ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i
   store ptr null, ptr %json_trace_writer_, align 8
-  %stream_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 17
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 1024
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_) #12
-  %log_file_pattern_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 16
+  %log_file_pattern_ = getelementptr inbounds i8, ptr %this, i64 992
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern_) #12
-  %write_req_queue_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11
+  %write_req_queue_ = getelementptr inbounds i8, ptr %this, i64 896
   call void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %write_req_queue_) #12
-  %exit_cond_13 = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 7
+  %exit_cond_13 = getelementptr inbounds i8, ptr %this, i64 400
   call void @uv_cond_destroy(ptr noundef nonnull %exit_cond_13) #12
-  %request_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 6
+  %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
   call void @uv_cond_destroy(ptr noundef nonnull %request_cond_) #12
   call void @uv_mutex_destroy(ptr noundef nonnull %request_mutex_) #12
   call void @uv_mutex_destroy(ptr noundef nonnull %stream_mutex_.i) #12
@@ -454,11 +422,11 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.0", align 1
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %file_num_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 15
+  %file_num_ = getelementptr inbounds i8, ptr %this, i64 988
   %0 = load i32, ptr %file_num_, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %file_num_, align 4
-  %log_file_pattern_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 16
+  %log_file_pattern_ = getelementptr inbounds i8, ptr %this, i64 992
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern_) #12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
@@ -508,7 +476,7 @@ _ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
-  %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 8
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 448
   %2 = load i32, ptr %fd_, align 8
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.end17, label %do.body
@@ -683,17 +651,17 @@ declare ptr @uv_strerror(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceWriter16AppendTraceEventEPN2v88platform7tracing11TraceObjectE(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef %trace_event) unnamed_addr #0 align 2 {
 entry:
-  %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 4
+  %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
-  %total_traces_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 14
+  %total_traces_ = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN4node7tracing15NodeTraceWriter23OpenNewFileForStreamingEv(ptr noundef nonnull align 8 dereferenceable(1409) %this)
-  %json_trace_writer_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 18
-  %stream_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 17
+  %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 1024
   %call = tail call noundef ptr @_ZN2v88platform7tracing11TraceWriter21CreateJSONTraceWriterERSo(ptr noundef nonnull align 8 dereferenceable(8) %stream_) #12
   %1 = load ptr, ptr %json_trace_writer_, align 8
   store ptr %call, ptr %json_trace_writer_, align 8
@@ -702,7 +670,7 @@ if.then:                                          ; preds = %entry
 
 _ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i.i: ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
   br label %if.end
@@ -711,10 +679,10 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   %3 = load i32, ptr %total_traces_, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %total_traces_, align 8
-  %json_trace_writer_3 = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 18
+  %json_trace_writer_3 = getelementptr inbounds i8, ptr %this, i64 1400
   %4 = load ptr, ptr %json_trace_writer_3, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %trace_event) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %stream_mutex_) #12
@@ -731,16 +699,16 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.0", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #12
-  %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 4
+  %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
   call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
-  %total_traces_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 14
+  %total_traces_ = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_, align 8
   %cmp = icmp sgt i32 %0, 524287
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %total_traces_, align 8
-  %json_trace_writer_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 18
+  %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
   %1 = load ptr, ptr %json_trace_writer_, align 8
   store ptr null, ptr %json_trace_writer_, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -748,13 +716,13 @@ if.then:                                          ; preds = %entry
 
 _ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i.i: ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN2v88platform7tracing11TraceWriterEEclEPS3_.exit.i.i, %if.then, %entry
-  %stream_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 17
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 1024
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %stream_) #12
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
@@ -771,9 +739,9 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   %add.ptr = getelementptr inbounds i8, ptr %stream_, i64 %vbase.offset
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 0) #12
   call void @uv_mutex_unlock(ptr noundef nonnull %stream_mutex_) #12
-  %request_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 5
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
   call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
-  %num_write_requests_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 12
+  %num_write_requests_ = getelementptr inbounds i8, ptr %this, i64 976
   %3 = load i32, ptr %num_write_requests_, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_) #12
   call void @_ZN4node7tracing15NodeTraceWriter11WriteToFileEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %3)
@@ -798,48 +766,48 @@ define dso_local void @_ZN4node7tracing15NodeTraceWriter11WriteToFileEONSt7__cxx
 entry:
   %buf.i = alloca %struct.uv_buf_t, align 8
   %ref.tmp = alloca %"struct.node::tracing::NodeTraceWriter::WriteRequest", align 8
-  %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 8
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 448
   %0 = load i32, ptr %fd_, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.end24, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12
-  %request_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 5
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %str) #12
-  %highest_request_id3 = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %ref.tmp, i64 0, i32 1
+  %highest_request_id3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %highest_request_id, ptr %highest_request_id3, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 944
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 960
   %2 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %2, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -40
   %cmp.not.i.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
-  %highest_request_id.i.i.i.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %1, i64 0, i32 1
+  %highest_request_id.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i32, ptr %highest_request_id3, align 8
   store i32 %3, ptr %highest_request_id.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %4, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %write_req_queue_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11
+  %write_req_queue_ = getelementptr inbounds i8, ptr %this, i64 896
   call void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %write_req_queue_, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
-  %_M_first3.i.i.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 952
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
-  %_M_start.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 912
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %5 = load ptr, ptr %_M_node.i.i.i, align 8
-  %_M_node1.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i.i = getelementptr inbounds i8, ptr %this, i64 936
   %6 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
@@ -856,7 +824,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.div6.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i, 40
   %add.i.i.i = add nsw i64 %mul.i.i.i, %sub.ptr.div6.i.i.i
-  %_M_last.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 928
   %9 = load ptr, ptr %_M_last.i.i.i, align 8
   %10 = load ptr, ptr %_M_start.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i = ptrtoint ptr %9 to i64
@@ -889,11 +857,11 @@ if.then23:                                        ; preds = %if.end19
   %buf.sroa.4.0 = extractvalue { ptr, i64 } %call18.pn, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store ptr %buf.sroa.0.0, ptr %buf.i, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %buf.i, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %buf.i, i64 8
   store i64 %buf.sroa.4.0, ptr %13, align 8
-  %tracing_loop_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 1
+  %tracing_loop_.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %tracing_loop_.i, align 8
-  %write_req_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 10
+  %write_req_.i = getelementptr inbounds i8, ptr %this, i64 456
   %call2.i = call i32 @uv_fs_write(ptr noundef %14, ptr noundef nonnull %write_req_.i, i32 noundef %12, ptr noundef nonnull %buf.i, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_tEN3$_08__invokeEP7uv_fs_s") #12
   %cmp.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp.not.i, label %_ZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_t.exit, label %do.body5.i
@@ -914,22 +882,22 @@ if.end24:                                         ; preds = %entry, %_ZN4node7tr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceWriter5FlushEb(ptr noundef nonnull align 8 dereferenceable(1409) %this, i1 noundef zeroext %blocking) unnamed_addr #0 align 2 {
 entry:
-  %request_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 5
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
-  %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 4
+  %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
-  %json_trace_writer_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 18
+  %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
   %0 = load ptr, ptr %json_trace_writer_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   tail call void @uv_mutex_unlock(ptr noundef nonnull %stream_mutex_) #12
   br i1 %cmp.i.not, label %cleanup13, label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry
-  %num_write_requests_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 12
+  %num_write_requests_ = getelementptr inbounds i8, ptr %this, i64 976
   %1 = load i32, ptr %num_write_requests_, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %num_write_requests_, align 8
-  %flush_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 2
+  %flush_signal_ = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call i32 @uv_async_send(ptr noundef nonnull %flush_signal_) #12
   %cmp.not = icmp eq i32 %call2, 0
   br i1 %cmp.not, label %do.end9, label %do.body6
@@ -940,14 +908,14 @@ do.body6:                                         ; preds = %cleanup.cont
   unreachable
 
 do.end9:                                          ; preds = %cleanup.cont
-  %highest_request_id_completed_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 13
+  %highest_request_id_completed_ = getelementptr inbounds i8, ptr %this, i64 980
   %2 = load i32, ptr %highest_request_id_completed_, align 4
   %cmp11.not = icmp sge i32 %1, %2
   %or.cond.not = select i1 %blocking, i1 %cmp11.not, i1 false
   br i1 %or.cond.not, label %while.body.preheader, label %cleanup13
 
 while.body.preheader:                             ; preds = %do.end9
-  %request_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 6
+  %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -974,12 +942,12 @@ define dso_local void @_ZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_t(p
 entry:
   %buf = alloca %struct.uv_buf_t, align 8
   store ptr %buf.coerce0, ptr %buf, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %buf, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 %buf.coerce1, ptr %0, align 8
-  %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 1
+  %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %tracing_loop_, align 8
-  %write_req_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 10
-  %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 8
+  %write_req_ = getelementptr inbounds i8, ptr %this, i64 456
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 448
   %2 = load i32, ptr %fd_, align 8
   %call2 = call i32 @uv_fs_write(ptr noundef %1, ptr noundef nonnull %write_req_, i32 noundef %2, ptr noundef nonnull %buf, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_tEN3$_08__invokeEP7uv_fs_s") #12
   %cmp.not = icmp eq i32 %call2, 0
@@ -1000,7 +968,7 @@ declare i32 @uv_fs_write(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32
 define dso_local void @_ZN4node7tracing15NodeTraceWriter10AfterWriteEv(ptr noundef nonnull align 8 dereferenceable(1409) %this) local_unnamed_addr #0 align 2 {
 entry:
   %buf.i = alloca %struct.uv_buf_t, align 8
-  %result = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 10, i32 6
+  %result = getelementptr inbounds i8, ptr %this, i64 544
   %0 = load i64, ptr %result, align 8
   %cmp = icmp slt i64 %0, 0
   br i1 %cmp, label %do.body4, label %do.end5
@@ -1011,49 +979,49 @@ do.body4:                                         ; preds = %entry
   unreachable
 
 do.end5:                                          ; preds = %entry
-  %write_req_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 10
+  %write_req_ = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @uv_fs_req_cleanup(ptr noundef nonnull %write_req_) #12
   %call = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12
-  %request_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 5
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
-  %_M_start.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 912
   %1 = load ptr, ptr %_M_start.i.i.i, align 8
-  %highest_request_id8 = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %1, i64 0, i32 1
+  %highest_request_id8 = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %highest_request_id8, align 8
-  %_M_last.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 928
   %3 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %3, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -40
   %cmp.not.i.i = icmp eq ptr %1, %add.ptr.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end5
   %4 = load ptr, ptr %_M_start.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %4, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 40
   br label %_ZNSt5queueIN4node7tracing15NodeTraceWriter12WriteRequestESt5dequeIS3_SaIS3_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %do.end5
-  %_M_first.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first.i.i.i = getelementptr inbounds i8, ptr %this, i64 920
   %5 = load ptr, ptr %_M_first.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #15
-  %_M_node.i.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 936
   %6 = load ptr, ptr %_M_node.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node.i.i.i, align 8
   %7 = load ptr, ptr %add.ptr.i.i.i, align 8
   store ptr %7, ptr %_M_first.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %7, i64 12
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 480
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i, align 8
   br label %_ZNSt5queueIN4node7tracing15NodeTraceWriter12WriteRequestESt5dequeIS3_SaIS3_EEE3popEv.exit
 
 _ZNSt5queueIN4node7tracing15NodeTraceWriter12WriteRequestESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %7, %if.else.i.i ]
   store ptr %storemerge.i.i, ptr %_M_start.i.i.i, align 8
-  %highest_request_id_completed_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 13
+  %highest_request_id_completed_ = getelementptr inbounds i8, ptr %this, i64 980
   store i32 %2, ptr %highest_request_id_completed_, align 4
-  %request_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 6
+  %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
   tail call void @uv_cond_broadcast(ptr noundef nonnull %request_cond_) #12
-  %_M_finish.i.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 944
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %9 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, %9
@@ -1072,7 +1040,7 @@ if.end21:                                         ; preds = %if.then12, %_ZNSt5q
   %buf.sroa.0.0 = extractvalue { ptr, i64 } %call.pn, 0
   tail call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_) #12
   %cmp22.not = icmp eq ptr %buf.sroa.0.0, null
-  %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 8
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 448
   %11 = load i32, ptr %fd_, align 8
   %cmp23.not = icmp eq i32 %11, -1
   %or.cond = select i1 %cmp22.not, i1 true, i1 %cmp23.not
@@ -1082,9 +1050,9 @@ if.then24:                                        ; preds = %if.end21
   %buf.sroa.4.0 = extractvalue { ptr, i64 } %call.pn, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store ptr %buf.sroa.0.0, ptr %buf.i, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %buf.i, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %buf.i, i64 8
   store i64 %buf.sroa.4.0, ptr %12, align 8
-  %tracing_loop_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this, i64 0, i32 1
+  %tracing_loop_.i = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %tracing_loop_.i, align 8
   %call2.i = call i32 @uv_fs_write(ptr noundef %13, ptr noundef nonnull %write_req_, i32 noundef %11, ptr noundef nonnull %buf.i, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_tEN3$_08__invokeEP7uv_fs_s") #12
   %cmp.not.i = icmp eq i32 %call2.i, 0
@@ -1121,19 +1089,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !16
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !16
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !16
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !19
-  %_M_first3.i.i2 = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %_M_first3.i.i2, align 8, !noalias !19
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !19
-  %__node.022.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %__node.022.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp23.i.i = icmp ult ptr %__node.022.i.i, %5
   br i1 %cmp23.i.i, label %for.body.i.i, label %for.end.i.i
 
@@ -1151,7 +1119,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !22
 
 _ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %for.body.i.i.i.i.i
-  %__node.0.i.i = getelementptr inbounds ptr, ptr %__node.024.i.i, i64 1
+  %__node.0.i.i = getelementptr inbounds i8, ptr %__node.024.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__node.0.i.i, %5
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !23
 
@@ -1166,7 +1134,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i
 for.body.i.i.i4.i.i:                              ; preds = %if.then.i.i, %for.body.i.i.i4.i.i
   %__first.addr.04.i.i.i5.i.i = phi ptr [ %incdec.ptr.i.i.i6.i.i, %for.body.i.i.i4.i.i ], [ %0, %if.then.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i5.i.i) #12
-  %incdec.ptr.i.i.i6.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %__first.addr.04.i.i.i5.i.i, i64 1
+  %incdec.ptr.i.i.i6.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5.i.i, i64 40
   %cmp.not.i.i.i7.i.i = icmp eq ptr %incdec.ptr.i.i.i6.i.i, %1
   br i1 %cmp.not.i.i.i7.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !22
 
@@ -1177,7 +1145,7 @@ _ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.
 for.body.i.i.i10.i.i:                             ; preds = %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, %for.body.i.i.i10.i.i
   %__first.addr.04.i.i.i11.i.i = phi ptr [ %incdec.ptr.i.i.i12.i.i, %for.body.i.i.i10.i.i ], [ %4, %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i11.i.i) #12
-  %incdec.ptr.i.i.i12.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %__first.addr.04.i.i.i11.i.i, i64 1
+  %incdec.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i11.i.i, i64 40
   %cmp.not.i.i.i13.i.i = icmp eq ptr %incdec.ptr.i.i.i12.i.i, %3
   br i1 %cmp.not.i.i.i13.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i10.i.i, !llvm.loop !22
 
@@ -1188,7 +1156,7 @@ if.else.i.i:                                      ; preds = %for.end.i.i
 for.body.i.i.i16.i.i:                             ; preds = %if.else.i.i, %for.body.i.i.i16.i.i
   %__first.addr.04.i.i.i17.i.i = phi ptr [ %incdec.ptr.i.i.i18.i.i, %for.body.i.i.i16.i.i ], [ %0, %if.else.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i17.i.i) #12
-  %incdec.ptr.i.i.i18.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %__first.addr.04.i.i.i17.i.i, i64 1
+  %incdec.ptr.i.i.i18.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17.i.i, i64 40
   %cmp.not.i.i.i19.i.i = icmp eq ptr %incdec.ptr.i.i.i18.i.i, %3
   br i1 %cmp.not.i.i.i19.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i16.i.i, !llvm.loop !22
 
@@ -1200,7 +1168,7 @@ _ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_d
 if.then.i:                                        ; preds = %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit
   %8 = load ptr, ptr %_M_node5.i.i, align 8
   %9 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %cmp3.i.i = icmp ult ptr %8, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
@@ -1208,7 +1176,7 @@ for.body.i.i9:                                    ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i9 ], [ %8, %if.then.i ]
   %10 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %10) #15
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i10 = icmp ult ptr %__n.04.i.i, %9
   br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !24
 
@@ -1236,11 +1204,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(36) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1251,14 +1219,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 12
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 40
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1274,7 +1242,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1292,21 +1260,21 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #14
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %__args) #12
-  %highest_request_id.i.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %9, i64 0, i32 1
-  %highest_request_id3.i.i.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %__args, i64 0, i32 1
+  %highest_request_id.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
+  %highest_request_id3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %10 = load i32, ptr %highest_request_id3.i.i.i, align 8
   store i32 %10, ptr %highest_request_id.i.i.i, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %12, i64 12
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 480
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -1318,9 +1286,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1328,7 +1296,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -1342,7 +1310,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -1395,7 +1363,7 @@ _ZNSt11_Deque_baseIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_al
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPN4node7tracing15NodeTraceWriter12WriteRequestES5_ET0_T_S7_S6_.exit32, label %if.then.i.i.i.i.i29
 
@@ -1416,19 +1384,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4node7tracing15NodeTraceWriter12WriteRequestES5_ET0_T_S7_S6_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %5, i64 12
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 480
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds %"struct.node::tracing::NodeTraceWriter::WriteRequest", ptr %6, i64 12
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<node::tracing::NodeTraceWriter::WriteRequest, std::allocator<node::tracing::NodeTraceWriter::WriteRequest>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 480
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }
@@ -1461,7 +1429,7 @@ entry:
   %0 = ptrtoint ptr %signal to i64
   %sub.i.i.i = add i64 %0, -16
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  %exit_signal_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %1, i64 0, i32 3
+  %exit_signal_.i = getelementptr inbounds i8, ptr %1, i64 144
   tail call void @uv_close(ptr noundef nonnull %exit_signal_.i, ptr noundef nonnull @"_ZZZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_sENK3$_0clEP11uv_handle_sENUlS6_E_8__invokeES6_") #12
   ret void
 }
@@ -1472,11 +1440,11 @@ entry:
   %0 = ptrtoint ptr %signal to i64
   %sub.i.i.i = add i64 %0, -144
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  %request_mutex_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %1, i64 0, i32 5
+  %request_mutex_.i = getelementptr inbounds i8, ptr %1, i64 312
   tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_.i) #12
-  %exited_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %1, i64 0, i32 19
+  %exited_.i = getelementptr inbounds i8, ptr %1, i64 1408
   store i8 1, ptr %exited_.i, align 8
-  %exit_cond_.i = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %1, i64 0, i32 7
+  %exit_cond_.i = getelementptr inbounds i8, ptr %1, i64 400
   tail call void @uv_cond_signal(ptr noundef nonnull %exit_cond_.i) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_.i) #12
   ret void

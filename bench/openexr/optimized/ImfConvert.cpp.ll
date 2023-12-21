@@ -81,7 +81,7 @@ define i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef %ui) local_unnamed_addr #3 per
 entry:
   %conv = uitofp i32 %ui to float
   %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 31743
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 126972
   %1 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp olt float %1, %conv
   br i1 %cmp, label %return, label %if.end
@@ -168,13 +168,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @imath_half_to_float_table, align 8
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %1, i64 31743
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 126972
   %2 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp olt float %2, %f
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %arrayidx.i.i5 = getelementptr inbounds %union.imath_half_uif, ptr %1, i64 64511
+  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %1, i64 258044
   %3 = load float, ptr %arrayidx.i.i5, align 4
   %cmp10 = fcmp ogt float %3, %f
   br i1 %cmp10, label %return, label %if.end15

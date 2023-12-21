@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/pbetest-bin-pbetest.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_algor_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [23 x i8] c"test_pkcs5_pbe_rc4_md5\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"test_pkcs5_pbe_des_sha1\00", align 1
 @pbe_ciphertext_rc4_md5 = internal constant [24 x i8] c"!\90\FA\EE\95fYE\FA\1E\9F\E2%\D2\F9q\94\E4=\C9|\B0\07#", align 16
@@ -79,7 +77,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool10.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %call2, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load ptr, ptr %parameter, align 8
   %call11 = tail call i32 @PKCS5_PBE_keyivgen(ptr noundef %call, ptr noundef nonnull @pbe_password, i32 noundef 19, ptr noundef %0, ptr noundef %cipher, ptr noundef %md, i32 noundef 1) #2
   %cmp12 = icmp ne i32 %call11, 0

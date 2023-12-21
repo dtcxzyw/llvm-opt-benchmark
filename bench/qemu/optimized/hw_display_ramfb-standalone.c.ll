@@ -10,18 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.GraphicHwOps = type { ptr, ptr, ptr, i8, ptr, ptr, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.RAMFBStandaloneState = type { %struct.SysBusDevice, ptr, ptr, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
 
 @ramfb_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 840, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @ramfb_class_initfn, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [6 x i8] c"ramfb\00", align 1
@@ -65,17 +53,17 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @ramfb_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 32
   store i64 %or.i, ptr %categories, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @ramfb_dev_vmstate, ptr %vmsd, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @ramfb_realizefn, ptr %realize, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 1, ptr %user_creatable, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ramfb_properties) #2
   ret void
@@ -86,10 +74,10 @@ define internal void @ramfb_realizefn(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 13, ptr noundef nonnull @__func__.RAMFB) #2
   %call1 = tail call ptr @graphic_console_init(ptr noundef %dev, i32 noundef 0, ptr noundef nonnull @wrapper_ops, ptr noundef %dev) #2
-  %con = getelementptr inbounds %struct.RAMFBStandaloneState, ptr %call.i, i64 0, i32 1
+  %con = getelementptr inbounds i8, ptr %call.i, i64 816
   store ptr %call1, ptr %con, align 8
   %call2 = tail call ptr @ramfb_setup(ptr noundef %errp) #2
-  %state = getelementptr inbounds %struct.RAMFBStandaloneState, ptr %call.i, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %call.i, i64 824
   store ptr %call2, ptr %state, align 8
   ret void
 }
@@ -102,7 +90,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 define internal zeroext i1 @migrate_needed(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 13, ptr noundef nonnull @__func__.RAMFB) #2
-  %migrate = getelementptr inbounds %struct.RAMFBStandaloneState, ptr %call.i, i64 0, i32 3
+  %migrate = getelementptr inbounds i8, ptr %call.i, i64 832
   %0 = load i8, ptr %migrate, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -119,9 +107,9 @@ declare ptr @ramfb_setup(ptr noundef) local_unnamed_addr #1
 define internal void @display_update_wrapper(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 13, ptr noundef nonnull @__func__.RAMFB) #2
-  %con = getelementptr inbounds %struct.RAMFBStandaloneState, ptr %call.i, i64 0, i32 1
+  %con = getelementptr inbounds i8, ptr %call.i, i64 816
   %0 = load ptr, ptr %con, align 8
-  %state = getelementptr inbounds %struct.RAMFBStandaloneState, ptr %call.i, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %call.i, i64 824
   %1 = load ptr, ptr %state, align 8
   tail call void @ramfb_display_update(ptr noundef %0, ptr noundef %1) #2
   ret void

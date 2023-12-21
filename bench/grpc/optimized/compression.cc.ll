@@ -45,11 +45,11 @@ define i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slic
 entry:
   %0 = load ptr, ptr %name, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %name, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %name, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes2.i = getelementptr inbounds i8, ptr %name, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds %struct.grpc_slice, ptr %name, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %name, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -73,7 +73,7 @@ declare i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt1
 ; Function Attrs: mustprogress uwtable
 define i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then

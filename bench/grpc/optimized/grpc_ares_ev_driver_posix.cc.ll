@@ -11,18 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.grpc_core::GrpcPolledFdFactoryPosix" = type { %"class.grpc_core::GrpcPolledFdFactory", %struct.ares_socket_functions, %"class.std::unordered_set" }
-%"class.grpc_core::GrpcPolledFdFactory" = type { ptr }
-%struct.ares_socket_functions = type { ptr, ptr, ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.grpc_core::GrpcPolledFdPosix" = type { %"class.grpc_core::GrpcPolledFd", %"class.std::__cxx11::basic_string", i32, ptr, ptr }
-%"class.grpc_core::GrpcPolledFd" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -137,25 +128,25 @@ _ZNSt10unique_ptrIN9grpc_core24GrpcPolledFdFactoryPosixESt14default_deleteIS1_EE
   %1 = getelementptr inbounds i8, ptr %call.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %1, i8 0, i64 16, i1 false), !noalias !4
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
-  %kSockFuncs.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 1
+  %kSockFuncs.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix6SocketEiiiPv, ptr %kSockFuncs.i.i, align 8, !noalias !4
-  %aclose.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 1, i32 1
+  %aclose.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEiPv, ptr %aclose.i.i, align 8, !noalias !4
-  %aconnect.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 1, i32 2
+  %aconnect.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix7ConnectEiPK8sockaddrjPv, ptr %aconnect.i.i, align 8, !noalias !4
-  %arecvfrom.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 1, i32 3
+  %arecvfrom.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix8RecvFromEiPvmiP8sockaddrPjS1_, ptr %arecvfrom.i.i, align 8, !noalias !4
-  %asendv.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 1, i32 4
+  %asendv.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix6WriteVEiPK5ioveciPv, ptr %asendv.i.i, align 8, !noalias !4
-  %owned_fds_.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 2
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 2, i32 0, i32 5
+  %owned_fds_.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %_M_single_bucket.i.i.i.i, ptr %owned_fds_.i.i, align 8, !noalias !4
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !4
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 2, i32 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
   store float 1.000000e+00, ptr %1, align 8, !noalias !4
-  %_M_next_resize.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %call.i, i64 0, i32 2, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -193,13 +184,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEiPv(i32 noundef %as, ptr noundef %user_data) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %user_data, i64 0, i32 2, i32 0, i32 3
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %user_data, i64 72
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %user_data, i64 0, i32 2, i32 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %user_data, i64 64
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -215,9 +206,9 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i, label %return, label %for.cond.i.i, !llvm.loop !7
 
 if.end15.i.i:                                     ; preds = %entry
-  %owned_fds_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %user_data, i64 0, i32 2
+  %owned_fds_ = getelementptr inbounds i8, ptr %user_data, i64 48
   %conv.i.i.i.i = sext i32 %as to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %user_data, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %user_data, i64 56
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %owned_fds_, align 8
@@ -285,8 +276,8 @@ entry:
 define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %owned_fds_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %owned_fds_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
@@ -315,13 +306,13 @@ while.body.i.i.i.i:                               ; preds = %for.end, %while.bod
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %for.end
   %3 = load ptr, ptr %owned_fds_, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %4, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %owned_fds_, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -344,8 +335,8 @@ terminate.lpad:                                   ; preds = %for.body
 define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %owned_fds_.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %owned_fds_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %entry
@@ -374,13 +365,13 @@ while.body.i.i.i.i.i:                             ; preds = %for.end.i, %while.b
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %for.end.i
   %3 = load ptr, ptr %owned_fds_.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %4, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %owned_fds_.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i.i, label %_ZN9grpc_core24GrpcPolledFdFactoryPosixD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -406,7 +397,7 @@ entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %as.addr = alloca i32, align 4
   store i32 %as, ptr %as.addr, align 4
-  %owned_fds_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 2
+  %owned_fds_ = getelementptr inbounds i8, ptr %this, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %owned_fds_, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %owned_fds_, ptr noundef nonnull align 4 dereferenceable(4) %as.addr, ptr noundef nonnull align 4 dereferenceable(4) %as.addr, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
@@ -439,7 +430,7 @@ lpad:                                             ; preds = %do.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosix26ConfigureAresChannelLockedEP16ares_channeldata(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %channel) unnamed_addr #3 comdat align 2 {
 entry:
-  %kSockFuncs = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this, i64 0, i32 1
+  %kSockFuncs = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @ares_set_socket_functions(ptr noundef %channel, ptr noundef nonnull %kSockFuncs, ptr noundef nonnull %this)
   tail call void @ares_set_socket_configure_callback(ptr noundef %channel, ptr noundef nonnull @_ZN9grpc_core24GrpcPolledFdFactoryPosix15ConfigureSocketEiiPv, ptr noundef null)
   ret void
@@ -481,29 +472,29 @@ invoke.cont:
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 11, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.3, ptr %0, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i4 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %as, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2)
-  %as_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 2
+  %as_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %as, ptr %as_, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_) #14
   %call8 = invoke noundef ptr @_Z14grpc_fd_createiPKcb(i32 noundef %as, ptr noundef %call, i1 noundef zeroext false)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call8, ptr %fd_, align 8
-  %driver_pollset_set_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 4
+  %driver_pollset_set_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %driver_pollset_set, ptr %driver_pollset_set_, align 8
   invoke void @_Z23grpc_pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %driver_pollset_set, ptr noundef %call8)
           to label %invoke.cont11 unwind label %lpad6
@@ -521,7 +512,7 @@ lpad6:                                            ; preds = %invoke.cont7, %invo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %__k, ptr noundef nonnull align 4 dereferenceable(4) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end13.thread
@@ -529,7 +520,7 @@ entry:
 if.end13.thread:                                  ; preds = %entry
   %1 = load i32, ptr %__k, align 4
   %conv.i.i20 = sext i32 %1 to i64
-  %_M_bucket_count.i21 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i21 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i21, align 8
   %rem.i.i.i22 = urem i64 %conv.i.i20, %2
   %3 = load ptr, ptr %this, align 8
@@ -539,7 +530,7 @@ if.end13.thread:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %__k, align 4
   br label %for.cond
 
@@ -557,7 +548,7 @@ for.body:                                         ; preds = %for.cond
 
 if.end13:                                         ; preds = %for.cond
   %conv.i.i = sext i32 %5 to i64
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %conv.i.i, %7
   br label %if.end25
@@ -615,12 +606,12 @@ return:                                           ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -684,7 +675,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -735,7 +726,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -763,7 +754,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucke
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -814,7 +805,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -823,7 +814,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -846,9 +837,9 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixD2Ev(ptr noundef nonnu
 entry:
   %phony_release_fd = alloca i32, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %driver_pollset_set_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 4
+  %driver_pollset_set_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %driver_pollset_set_, align 8
-  %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %fd_, align 8
   invoke void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %0, ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -859,7 +850,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #14
   ret void
 
@@ -877,9 +868,9 @@ entry:
   %phony_release_fd.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %phony_release_fd.i)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %driver_pollset_set_.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 4
+  %driver_pollset_set_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %driver_pollset_set_.i, align 8
-  %fd_.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %fd_.i, align 8
   invoke void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %0, ptr noundef %1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -897,7 +888,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %ent
   unreachable
 
 _ZN9grpc_core17GrpcPolledFdPosixD2Ev.exit:        ; preds = %invoke.cont.i
-  %name_.i = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_.i) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %phony_release_fd.i)
   call void @_ZdlPv(ptr noundef nonnull %this) #15
@@ -907,7 +898,7 @@ _ZN9grpc_core17GrpcPolledFdPosixD2Ev.exit:        ; preds = %invoke.cont.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix27RegisterForOnReadableLockedEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %read_closure) unnamed_addr #3 comdat align 2 {
 entry:
-  %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fd_, align 8
   tail call void @_Z22grpc_fd_notify_on_readP7grpc_fdP12grpc_closure(ptr noundef %0, ptr noundef %read_closure)
   ret void
@@ -916,7 +907,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix28RegisterForOnWriteableLockedEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %write_closure) unnamed_addr #3 comdat align 2 {
 entry:
-  %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fd_, align 8
   tail call void @_Z23grpc_fd_notify_on_writeP7grpc_fdP12grpc_closure(ptr noundef %0, ptr noundef %write_closure)
   ret void
@@ -927,7 +918,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core17GrpcPolledFdPosix23IsFdSt
 entry:
   %bytes_available = alloca i64, align 8
   store i64 0, ptr %bytes_available, align 8
-  %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fd_, align 8
   %call = tail call noundef i32 @_Z18grpc_fd_wrapped_fdP7grpc_fd(ptr noundef %0)
   %call2 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 21531, ptr noundef nonnull %bytes_available) #14
@@ -942,7 +933,7 @@ entry:
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix14ShutdownLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %error) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fd_, align 8
   %1 = load i64, ptr %error, align 8
   store i64 %1, ptr %agg.tmp, align 8
@@ -990,7 +981,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN9grpc_core17GrpcPolledFdPosix26GetWrappedAresSocketLockedEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %as_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 2
+  %as_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %as_, align 8
   ret i32 %0
 }
@@ -998,7 +989,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK9grpc_core17GrpcPolledFdPosix7GetNameEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_) #14
   ret ptr %call
 }

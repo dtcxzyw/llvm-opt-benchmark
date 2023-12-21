@@ -189,7 +189,7 @@ if.end9:                                          ; preds = %for.body
   ]
 
 if.then17:                                        ; preds = %if.end9
-  %add.ptr = getelementptr inbounds i16, ptr %cur.026, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %cur.026, i64 2
   %cmp18 = icmp eq ptr %add.ptr, %add.ptr.i
   br i1 %cmp18, label %if.end33, label %lor.lhs.false
 
@@ -223,7 +223,7 @@ if.end33:                                         ; preds = %if.end9, %if.end33.
 
 for.inc:                                          ; preds = %if.end33, %if.then7
   %cur.2 = phi ptr [ %cur.026, %if.then7 ], [ %cur.1, %if.end33 ]
-  %incdec.ptr39 = getelementptr inbounds i16, ptr %cur.2, i64 1
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %cur.2, i64 2
   %inc = add nuw i64 %currNumCharacters.027, 1
   %cmp = icmp ult ptr %incdec.ptr39, %add.ptr.i
   %cmp4 = icmp ult i64 %inc, %spec.select
@@ -280,7 +280,7 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then
-  %incdec.ptr = getelementptr inbounds i16, ptr %__begin1.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.015, i64 2
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -375,9 +375,9 @@ entry:
   %ustr = alloca %"class.llvh::SmallVector", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ustr, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %ustr, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ustr, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %ustr, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ustr, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %ustr, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.i = icmp ugt i64 %input.coerce1, 8
   br i1 %cmp.i, label %if.then.i, label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
@@ -428,7 +428,7 @@ if.else.i.i:                                      ; preds = %_ZN6hermes10decodeU
   %4 = trunc i32 %shr.i.i to i16
   %5 = and i16 %4, 1023
   %conv1.i.i = or disjoint i16 %5, -10240
-  %incdec.ptr2.i.i = getelementptr inbounds i16, ptr %dest.addr.08.i, i64 1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %dest.addr.08.i, i64 2
   %6 = trunc i32 %retval.0.i.i to i16
   %7 = and i16 %6, 1023
   %conv5.i.i = or disjoint i16 %7, -9216
@@ -439,7 +439,7 @@ _ZN6hermes11encodeUTF16IPDsEEvRT_j.exit.i:        ; preds = %if.else.i.i, %if.th
   %conv1.i.sink.i = phi i16 [ %conv.i.i2, %if.then.i3.i ], [ %conv1.i.i, %if.else.i.i ]
   %dest.addr.1.i = phi ptr [ %dest.addr.08.i, %if.then.i3.i ], [ %incdec.ptr2.i.i, %if.else.i.i ]
   store i16 %conv1.i.sink.i, ptr %dest.addr.08.i, align 2
-  %storemerge.i.i = getelementptr inbounds i16, ptr %dest.addr.1.i, i64 1
+  %storemerge.i.i = getelementptr inbounds i8, ptr %dest.addr.1.i, i64 2
   %8 = load ptr, ptr %begin8.addr.i, align 8
   %cmp.i1 = icmp ult ptr %8, %add.ptr.i
   br i1 %cmp.i1, label %while.body.i, label %_ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit.loopexit, !llvm.loop !9
@@ -584,19 +584,19 @@ if.else68:                                        ; preds = %if.else
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.else68
-  %LHSKind.i69 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp133, i64 0, i32 2
-  %RHSKind.i70 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp133, i64 0, i32 3
+  %LHSKind.i69 = getelementptr inbounds i8, ptr %ref.tmp133, i64 16
+  %RHSKind.i70 = getelementptr inbounds i8, ptr %ref.tmp133, i64 17
   store i8 1, ptr %RHSKind.i70, align 1
   store ptr @.str.2, ptr %ref.tmp133, align 8
   store i8 3, ptr %LHSKind.i69, align 8
   %conv136 = zext nneg i32 %or123 to i64
   store i64 %conv136, ptr %ref.tmp135, align 8
   store ptr %ref.tmp135, ptr %ref.tmp134, align 8, !alias.scope !10
-  %RHS4.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp134, i64 0, i32 1
+  %RHS4.i.i = getelementptr inbounds i8, ptr %ref.tmp134, i64 8
   store ptr null, ptr %RHS4.i.i, align 8, !alias.scope !10
-  %LHSKind5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp134, i64 0, i32 2
+  %LHSKind5.i.i = getelementptr inbounds i8, ptr %ref.tmp134, i64 16
   store i8 15, ptr %LHSKind5.i.i, align 8, !alias.scope !10
-  %RHSKind6.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp134, i64 0, i32 3
+  %RHSKind6.i.i = getelementptr inbounds i8, ptr %ref.tmp134, i64 17
   store i8 1, ptr %RHSKind6.i.i, align 1, !alias.scope !10
   call void @_ZN4llvhplERKNS_5TwineES2_(ptr nonnull sret(%"class.llvh::Twine") align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp134)
   unreachable
@@ -616,21 +616,21 @@ return:                                           ; preds = %return.sink.split, 
 define linkonce_odr hidden void @_ZN4llvhplERKNS_5TwineES2_(ptr noalias sret(%"class.llvh::Twine") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %LHS, ptr noundef nonnull align 8 dereferenceable(18) %RHS) local_unnamed_addr #1 comdat {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %LHS, i64 0, i32 2
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %LHS, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i, align 8, !noalias !13
   %cmp.i.i = icmp eq i8 %0, 0
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %LHSKind.i.i7.i = getelementptr inbounds %"class.llvh::Twine", ptr %RHS, i64 0, i32 2
+  %LHSKind.i.i7.i = getelementptr inbounds i8, ptr %RHS, i64 16
   %1 = load i8, ptr %LHSKind.i.i7.i, align 8, !noalias !13
   %cmp.i8.i = icmp eq i8 %1, 0
   br i1 %cmp.i8.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %LHSKind.i.i, align 8, !alias.scope !13
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1, !alias.scope !13
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
@@ -651,24 +651,24 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %RHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %LHS, i64 0, i32 3
+  %RHSKind.i.i.i = getelementptr inbounds i8, ptr %LHS, i64 17
   %2 = load i8, ptr %RHSKind.i.i.i, align 1, !noalias !13
   %cmp.i13.i = icmp eq i8 %2, 1
   %NewLHS.sroa.0.0.copyload.i = load ptr, ptr %LHS, align 8, !noalias !13
   %spec.select.i = select i1 %cmp.i13.i, i8 %0, i8 2
   %spec.select20.i = select i1 %cmp.i13.i, ptr %NewLHS.sroa.0.0.copyload.i, ptr %LHS
-  %RHSKind.i.i15.i = getelementptr inbounds %"class.llvh::Twine", ptr %RHS, i64 0, i32 3
+  %RHSKind.i.i15.i = getelementptr inbounds i8, ptr %RHS, i64 17
   %3 = load i8, ptr %RHSKind.i.i15.i, align 1, !noalias !13
   %cmp.i16.i = icmp eq i8 %3, 1
   %NewRHS.sroa.0.0.copyload.i = load ptr, ptr %RHS, align 8, !noalias !13
   %NewRHSKind.0.i = select i1 %cmp.i16.i, i8 %1, i8 2
   %NewRHS.sroa.0.0.i = select i1 %cmp.i16.i, ptr %NewRHS.sroa.0.0.copyload.i, ptr %RHS
   store ptr %spec.select20.i, ptr %agg.result, align 8, !alias.scope !13
-  %RHS4.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 1
+  %RHS4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %NewRHS.sroa.0.0.i, ptr %RHS4.i.i, align 8, !alias.scope !13
-  %LHSKind5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 2
+  %LHSKind5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %spec.select.i, ptr %LHSKind5.i.i, align 8, !alias.scope !13
-  %RHSKind6.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %agg.result, i64 0, i32 3
+  %RHSKind6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   store i8 %NewRHSKind.0.i, ptr %RHSKind6.i.i, align 1, !alias.scope !13
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 

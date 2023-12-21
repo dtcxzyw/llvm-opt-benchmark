@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/chardev_char-hmp-cmds.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ChardevInfoList = type { ptr, ptr }
-%struct.ChardevInfo = type { ptr, ptr, i8 }
-%struct.ChardevBackendInfoList = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [17 x i8] c"%s: filename=%s\0A\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"device\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"data\00", align 1
@@ -34,10 +30,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %info.06 = phi ptr [ %3, %for.body ], [ %call, %entry ]
-  %value = getelementptr inbounds %struct.ChardevInfoList, ptr %info.06, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %info.06, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds %struct.ChardevInfo, ptr %0, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %filename, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %2) #3
   %3 = load ptr, ptr %info.06, align 8
@@ -278,7 +274,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %if.end5
   %list.08 = phi ptr [ %2, %if.end5 ], [ %call1, %if.end ]
-  %value = getelementptr inbounds %struct.ChardevBackendInfoList, ptr %list.08, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %list.08, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
   %call2 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %str, i64 noundef %call) #4
@@ -332,7 +328,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %if.end6
   %list.08 = phi ptr [ %2, %if.end6 ], [ %call1, %if.end ]
-  %value = getelementptr inbounds %struct.ChardevInfoList, ptr %list.08, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %list.08, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
   %call2 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %str, i64 noundef %call) #4
@@ -372,7 +368,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i:                                     ; preds = %if.end, %if.end11.i
   %list.010.i = phi ptr [ %3, %if.end11.i ], [ %call1.i, %if.end ]
-  %value.i = getelementptr inbounds %struct.ChardevInfoList, ptr %list.010.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %list.010.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call2.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef %str, i64 noundef %call.i) #4

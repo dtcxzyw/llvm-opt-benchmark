@@ -27,7 +27,7 @@ if.then:                                          ; preds = %entry
   %not = sub i64 0, %alignment
   %and = and i64 %sub4, %not
   %1 = inttoptr i64 %and to ptr
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 -1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 -8
   store ptr %call, ptr %arrayidx, align 8
   br label %if.end
 
@@ -39,7 +39,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @libdeflate_aligned_free(ptr nocapture noundef readonly %free_func, ptr nocapture noundef readonly %ptr) local_unnamed_addr #2 {
 entry:
-  %arrayidx = getelementptr inbounds ptr, ptr %ptr, i64 -1
+  %arrayidx = getelementptr inbounds i8, ptr %ptr, i64 -8
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void %free_func(ptr noundef %0) #4
   ret void

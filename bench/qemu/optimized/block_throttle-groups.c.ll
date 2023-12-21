@@ -9,29 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
 %struct.ThrottleParamInfo = type { ptr, i32, i32 }
-%struct.ThrottleGroup = type { %struct.Object, i8, ptr, %struct.QemuMutex, %struct.ThrottleState, %struct.anon, [2 x ptr], [2 x i8], i32, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
 %struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
 %struct.LeakyBucket = type { i64, i64, double, double, i64 }
-%struct.anon = type { ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.ThrottleGroupMember = type { ptr, %struct.CoMutex, [2 x %struct.CoQueue], i32, i32, ptr, %struct.ThrottleTimers, [2 x i32], %struct.anon.2 }
-%struct.CoMutex = type { i32, ptr, %struct.anon.0, %struct.anon.0, i32, i32, ptr }
-%struct.anon.0 = type { ptr }
+%struct.QemuLockable = type { ptr, ptr, ptr }
 %struct.CoQueue = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr, ptr }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.QemuLockable = type { ptr, ptr, ptr }
-%struct.RestartData = type { ptr, i32 }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.ThrottleLimits = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 
 @.str = private unnamed_addr constant [15 x i8] c"throttle-group\00", align 1
@@ -114,14 +96,14 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %iter.06.i = phi ptr [ %iter.0.i, %for.inc.i ], [ %iter.04.i, %entry ]
-  %name1.i = getelementptr inbounds %struct.ThrottleGroup, ptr %iter.06.i, i64 0, i32 2
+  %name1.i = getelementptr inbounds i8, ptr %iter.06.i, i64 48
   %0 = load ptr, ptr %name1.i, align 8
   %call.i = tail call i32 @g_strcmp0(ptr noundef %name, ptr noundef %0) #7
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %throttle_group_by_name.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %list.i = getelementptr inbounds %struct.ThrottleGroup, ptr %iter.06.i, i64 0, i32 9
+  %list.i = getelementptr inbounds i8, ptr %iter.06.i, i64 392
   %iter.0.i = load ptr, ptr %list.i, align 8
   %tobool.not.i = icmp eq ptr %iter.0.i, null
   br i1 %tobool.not.i, label %throttle_group_by_name.exit, label %for.body.i, !llvm.loop !5
@@ -140,14 +122,14 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %iter.06.i = phi ptr [ %iter.0.i, %for.inc.i ], [ %iter.04.i, %entry ]
-  %name1.i = getelementptr inbounds %struct.ThrottleGroup, ptr %iter.06.i, i64 0, i32 2
+  %name1.i = getelementptr inbounds i8, ptr %iter.06.i, i64 48
   %0 = load ptr, ptr %name1.i, align 8
   %call.i = tail call i32 @g_strcmp0(ptr noundef %name, ptr noundef %0) #7
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.then, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %list.i = getelementptr inbounds %struct.ThrottleGroup, ptr %iter.06.i, i64 0, i32 9
+  %list.i = getelementptr inbounds i8, ptr %iter.06.i, i64 392
   %iter.0.i = load ptr, ptr %list.i, align 8
   %tobool.not.i = icmp eq ptr %iter.0.i, null
   br i1 %tobool.not.i, label %if.else, label %for.body.i, !llvm.loop !5
@@ -160,7 +142,7 @@ if.else:                                          ; preds = %for.inc.i, %entry
   %call2 = tail call ptr @object_new(ptr noundef nonnull @.str) #7
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %name) #7
-  %name5 = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i6, i64 0, i32 2
+  %name5 = getelementptr inbounds i8, ptr %call.i6, i64 48
   store ptr %call4, ptr %name5, align 8
   %call6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.throttle_group_incref) #7
   tail call void @throttle_group_obj_complete(ptr noundef %call6, ptr noundef nonnull @error_abort)
@@ -168,7 +150,7 @@ if.else:                                          ; preds = %for.inc.i, %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %tg.0 = phi ptr [ %iter.06.i, %if.then ], [ %call.i6, %if.else ]
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %tg.0, i64 0, i32 4
+  %ts = getelementptr inbounds i8, ptr %tg.0, i64 104
   ret ptr %ts
 }
 
@@ -183,13 +165,13 @@ define internal void @throttle_group_obj_complete(ptr noundef %obj, ptr noundef 
 entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
-  %name = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %entry
-  %parent = getelementptr inbounds %struct.Object, ptr %call.i, i64 0, i32 4
+  %parent = getelementptr inbounds i8, ptr %call.i, i64 32
   %1 = load ptr, ptr %parent, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.else, label %if.end
@@ -213,14 +195,14 @@ if.end8:                                          ; preds = %entry, %if.end
 
 for.body.i.i:                                     ; preds = %if.end8, %for.inc.i.i
   %iter.06.i.i = phi ptr [ %iter.0.i.i, %for.inc.i.i ], [ %iter.04.i.i, %if.end8 ]
-  %name1.i.i = getelementptr inbounds %struct.ThrottleGroup, ptr %iter.06.i.i, i64 0, i32 2
+  %name1.i.i = getelementptr inbounds i8, ptr %iter.06.i.i, i64 48
   %3 = load ptr, ptr %name1.i.i, align 8
   %call.i.i = tail call i32 @g_strcmp0(ptr noundef nonnull %2, ptr noundef %3) #7
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then11, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %list.i.i = getelementptr inbounds %struct.ThrottleGroup, ptr %iter.06.i.i, i64 0, i32 9
+  %list.i.i = getelementptr inbounds i8, ptr %iter.06.i.i, i64 392
   %iter.0.i.i = load ptr, ptr %list.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %iter.0.i.i, null
   br i1 %tobool.not.i.i, label %if.end12, label %for.body.i.i, !llvm.loop !5
@@ -230,23 +212,23 @@ if.then11:                                        ; preds = %for.body.i.i
   br label %return
 
 if.end12:                                         ; preds = %for.inc.i.i, %if.end8
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4
+  %ts = getelementptr inbounds i8, ptr %call.i, i64 104
   call void @throttle_get_config(ptr noundef nonnull %ts, ptr noundef nonnull %cfg) #7
   %call13 = call zeroext i1 @throttle_is_valid(ptr noundef nonnull %cfg, ptr noundef %errp) #7
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %clock_type = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 8
+  %clock_type = getelementptr inbounds i8, ptr %call.i, i64 388
   %4 = load i32, ptr %clock_type, align 4
   call void @throttle_config(ptr noundef nonnull %ts, i32 noundef %4, ptr noundef nonnull %cfg) #7
-  %list = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 9
+  %list = getelementptr inbounds i8, ptr %call.i, i64 392
   store ptr null, ptr %list, align 8
   %5 = load ptr, ptr getelementptr inbounds (%union.anon.3, ptr @throttle_groups, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 9, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 400
   store ptr %5, ptr %tql_prev, align 8
   store ptr %call.i, ptr %5, align 8
   store ptr %list, ptr getelementptr inbounds (%union.anon.3, ptr @throttle_groups, i64 0, i32 0, i32 1), align 8
-  %is_initialized = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 1
+  %is_initialized = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 1, ptr %is_initialized, align 8
   br label %return
 
@@ -269,7 +251,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @throttle_group_get_name(ptr nocapture noundef readonly %tgm) local_unnamed_addr #2 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %name = getelementptr i8, ptr %0, i64 -56
   %1 = load ptr, ptr %name, align 8
@@ -280,7 +262,7 @@ entry:
 define dso_local void @throttle_group_co_io_limits_intercept(ptr noundef %tgm, i64 noundef %bytes, i32 noundef %direction) #0 {
 entry:
   %.compoundliteral = alloca %struct.QemuLockable, align 8
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %cmp = icmp sgt i64 %bytes, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -303,14 +285,15 @@ while.end:                                        ; preds = %if.end
   %lock = getelementptr i8, ptr %0, i64 -48
   tail call void %2(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 372) #7
   %3 = load ptr, ptr %throttle_state, align 8
+  %pending_reqs.i.i = getelementptr inbounds i8, ptr %tgm, i64 152
   %idxprom.i.i = zext nneg i32 %direction to i64
-  %arrayidx.i.i = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 7, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [2 x i32], ptr %pending_reqs.i.i, i64 0, i64 %idxprom.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %tobool.i.not.i = icmp eq i32 %4, 0
   br i1 %tobool.i.not.i, label %if.end.i, label %while.end.i
 
 while.end.i:                                      ; preds = %while.end
-  %io_limits_disabled.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 3
+  %io_limits_disabled.i = getelementptr inbounds i8, ptr %tgm, i64 88
   %5 = load atomic i32, ptr %io_limits_disabled.i monotonic, align 8
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %if.end.i, label %next_throttle_token.exit
@@ -319,13 +302,13 @@ if.end.i:                                         ; preds = %while.end.i, %while
   %tokens.i = getelementptr i8, ptr %3, i64 264
   %arrayidx.i = getelementptr [2 x ptr], ptr %tokens.i, i64 0, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %round_robin.i.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %6, i64 0, i32 8
+  %round_robin.i.i = getelementptr inbounds i8, ptr %6, i64 160
   %7 = load ptr, ptr %round_robin.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %throttle_group_next_tgm.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %throttle_state.i.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %6, i64 0, i32 5
+  %throttle_state.i.i = getelementptr inbounds i8, ptr %6, i64 96
   %8 = load ptr, ptr %throttle_state.i.i, align 8
   %head.i.i = getelementptr i8, ptr %8, i64 256
   %9 = load ptr, ptr %head.i.i, align 8
@@ -333,54 +316,57 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 throttle_group_next_tgm.exit.i:                   ; preds = %if.then.i.i, %if.end.i
   %next.0.i.i = phi ptr [ %7, %if.end.i ], [ %9, %if.then.i.i ]
-  %cmp.not36.i = icmp eq ptr %next.0.i.i, %6
-  br i1 %cmp.not36.i, label %land.lhs.true9.i, label %land.rhs.i
+  %cmp.not39.i = icmp eq ptr %next.0.i.i, %6
+  br i1 %cmp.not39.i, label %land.lhs.true9.i, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %throttle_group_next_tgm.exit.i, %throttle_group_next_tgm.exit28.i
-  %token.037.i = phi ptr [ %next.0.i24.i, %throttle_group_next_tgm.exit28.i ], [ %next.0.i.i, %throttle_group_next_tgm.exit.i ]
-  %arrayidx.i20.i = getelementptr %struct.ThrottleGroupMember, ptr %token.037.i, i64 0, i32 7, i64 %idxprom.i.i
-  %10 = load i32, ptr %arrayidx.i20.i, align 4
-  %tobool.i21.not.i = icmp eq i32 %10, 0
-  br i1 %tobool.i21.not.i, label %while.body5.i, label %if.end12.i
+land.rhs.i:                                       ; preds = %throttle_group_next_tgm.exit.i, %throttle_group_next_tgm.exit29.i
+  %token.040.i = phi ptr [ %next.0.i25.i, %throttle_group_next_tgm.exit29.i ], [ %next.0.i.i, %throttle_group_next_tgm.exit.i ]
+  %pending_reqs.i19.i = getelementptr inbounds i8, ptr %token.040.i, i64 152
+  %arrayidx.i21.i = getelementptr [2 x i32], ptr %pending_reqs.i19.i, i64 0, i64 %idxprom.i.i
+  %10 = load i32, ptr %arrayidx.i21.i, align 4
+  %tobool.i22.not.i = icmp eq i32 %10, 0
+  br i1 %tobool.i22.not.i, label %while.body5.i, label %if.end12.i
 
 while.body5.i:                                    ; preds = %land.rhs.i
-  %round_robin.i22.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %token.037.i, i64 0, i32 8
-  %11 = load ptr, ptr %round_robin.i22.i, align 8
-  %tobool.not.i23.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i23.i, label %if.then.i25.i, label %throttle_group_next_tgm.exit28.i
+  %round_robin.i23.i = getelementptr inbounds i8, ptr %token.040.i, i64 160
+  %11 = load ptr, ptr %round_robin.i23.i, align 8
+  %tobool.not.i24.i = icmp eq ptr %11, null
+  br i1 %tobool.not.i24.i, label %if.then.i26.i, label %throttle_group_next_tgm.exit29.i
 
-if.then.i25.i:                                    ; preds = %while.body5.i
-  %throttle_state.i26.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %token.037.i, i64 0, i32 5
-  %12 = load ptr, ptr %throttle_state.i26.i, align 8
-  %head.i27.i = getelementptr i8, ptr %12, i64 256
-  %13 = load ptr, ptr %head.i27.i, align 8
-  br label %throttle_group_next_tgm.exit28.i
+if.then.i26.i:                                    ; preds = %while.body5.i
+  %throttle_state.i27.i = getelementptr inbounds i8, ptr %token.040.i, i64 96
+  %12 = load ptr, ptr %throttle_state.i27.i, align 8
+  %head.i28.i = getelementptr i8, ptr %12, i64 256
+  %13 = load ptr, ptr %head.i28.i, align 8
+  br label %throttle_group_next_tgm.exit29.i
 
-throttle_group_next_tgm.exit28.i:                 ; preds = %if.then.i25.i, %while.body5.i
-  %next.0.i24.i = phi ptr [ %11, %while.body5.i ], [ %13, %if.then.i25.i ]
-  %cmp.not.i = icmp eq ptr %next.0.i24.i, %6
+throttle_group_next_tgm.exit29.i:                 ; preds = %if.then.i26.i, %while.body5.i
+  %next.0.i25.i = phi ptr [ %11, %while.body5.i ], [ %13, %if.then.i26.i ]
+  %cmp.not.i = icmp eq ptr %next.0.i25.i, %6
   br i1 %cmp.not.i, label %land.lhs.true9.i, label %land.rhs.i, !llvm.loop !7
 
-land.lhs.true9.i:                                 ; preds = %throttle_group_next_tgm.exit28.i, %throttle_group_next_tgm.exit.i
-  %arrayidx.i30.i = getelementptr %struct.ThrottleGroupMember, ptr %6, i64 0, i32 7, i64 %idxprom.i.i
-  %14 = load i32, ptr %arrayidx.i30.i, align 4
-  %tobool.i31.not.i = icmp eq i32 %14, 0
-  %spec.select.i = select i1 %tobool.i31.not.i, ptr %tgm, ptr %6
+land.lhs.true9.i:                                 ; preds = %throttle_group_next_tgm.exit29.i, %throttle_group_next_tgm.exit.i
+  %pending_reqs.i30.i = getelementptr inbounds i8, ptr %6, i64 152
+  %arrayidx.i32.i = getelementptr [2 x i32], ptr %pending_reqs.i30.i, i64 0, i64 %idxprom.i.i
+  %14 = load i32, ptr %arrayidx.i32.i, align 4
+  %tobool.i33.not.i = icmp eq i32 %14, 0
+  %spec.select.i = select i1 %tobool.i33.not.i, ptr %tgm, ptr %6
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %land.rhs.i, %land.lhs.true9.i
-  %token.1.i = phi ptr [ %spec.select.i, %land.lhs.true9.i ], [ %token.037.i, %land.rhs.i ]
+  %token.1.i = phi ptr [ %spec.select.i, %land.lhs.true9.i ], [ %token.040.i, %land.rhs.i ]
   %cmp13.i = icmp eq ptr %token.1.i, %tgm
   br i1 %cmp13.i, label %next_throttle_token.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end12.i
-  %arrayidx.i33.i = getelementptr %struct.ThrottleGroupMember, ptr %token.1.i, i64 0, i32 7, i64 %idxprom.i.i
-  %15 = load i32, ptr %arrayidx.i33.i, align 4
-  %tobool.i34.not.i = icmp eq i32 %15, 0
-  br i1 %tobool.i34.not.i, label %if.else.i, label %lor.lhs.false.i.next_throttle_token.exit_crit_edge
+  %pending_reqs.i34.i = getelementptr inbounds i8, ptr %token.1.i, i64 152
+  %arrayidx.i36.i = getelementptr [2 x i32], ptr %pending_reqs.i34.i, i64 0, i64 %idxprom.i.i
+  %15 = load i32, ptr %arrayidx.i36.i, align 4
+  %tobool.i37.not.i = icmp eq i32 %15, 0
+  br i1 %tobool.i37.not.i, label %if.else.i, label %lor.lhs.false.i.next_throttle_token.exit_crit_edge
 
 lor.lhs.false.i.next_throttle_token.exit_crit_edge: ; preds = %lor.lhs.false.i
-  %throttle_state.i24.phi.trans.insert = getelementptr inbounds %struct.ThrottleGroupMember, ptr %token.1.i, i64 0, i32 5
+  %throttle_state.i24.phi.trans.insert = getelementptr inbounds i8, ptr %token.1.i, i64 96
   %.pre = load ptr, ptr %throttle_state.i24.phi.trans.insert, align 8
   br label %next_throttle_token.exit
 
@@ -391,8 +377,8 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 next_throttle_token.exit:                         ; preds = %lor.lhs.false.i.next_throttle_token.exit_crit_edge, %while.end.i, %if.end12.i
   %16 = phi ptr [ %3, %while.end.i ], [ %3, %if.end12.i ], [ %.pre, %lor.lhs.false.i.next_throttle_token.exit_crit_edge ]
   %retval.0.i = phi ptr [ %tgm, %while.end.i ], [ %tgm, %if.end12.i ], [ %token.1.i, %lor.lhs.false.i.next_throttle_token.exit_crit_edge ]
-  %throttle_timers.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %retval.0.i, i64 0, i32 6
-  %io_limits_disabled.i25 = getelementptr inbounds %struct.ThrottleGroupMember, ptr %retval.0.i, i64 0, i32 3
+  %throttle_timers.i = getelementptr inbounds i8, ptr %retval.0.i, i64 104
+  %io_limits_disabled.i25 = getelementptr inbounds i8, ptr %retval.0.i, i64 88
   %17 = load atomic i32, ptr %io_limits_disabled.i25 monotonic, align 8
   %tobool.not.i26 = icmp eq i32 %17, 0
   br i1 %tobool.not.i26, label %if.end.i28, label %lor.lhs.false
@@ -431,13 +417,14 @@ if.then8:                                         ; preds = %if.then6.i, %if.end
   %inc = add i32 %21, 1
   store i32 %inc, ptr %arrayidx.i.i, align 4
   tail call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 381) #7
-  %throttled_reqs_lock = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 1
+  %throttled_reqs_lock = getelementptr inbounds i8, ptr %tgm, i64 8
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %throttled_reqs_lock) #7
-  %arrayidx14 = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 2, i64 %idxprom.i.i
+  %throttled_reqs = getelementptr inbounds i8, ptr %tgm, i64 56
+  %arrayidx14 = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %idxprom.i.i
   store ptr %throttled_reqs_lock, ptr %.compoundliteral, align 8
-  %lock17 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i64 0, i32 1
+  %lock17 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store ptr @qemu_co_mutex_lock, ptr %lock17, align 8
-  %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i64 0, i32 2
+  %unlock = getelementptr inbounds i8, ptr %.compoundliteral, i64 16
   store ptr @qemu_co_mutex_unlock, ptr %unlock, align 8
   call void @qemu_co_queue_wait_impl(ptr noundef %arrayidx14, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #7
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %throttled_reqs_lock) #7
@@ -473,16 +460,17 @@ declare void @throttle_account(ptr noundef, i32 noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @schedule_next_request(ptr noundef %tgm, i32 noundef %direction) #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
+  %pending_reqs.i.i = getelementptr inbounds i8, ptr %tgm, i64 152
   %idxprom.i.i = zext i32 %direction to i64
-  %arrayidx.i.i = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 7, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [2 x i32], ptr %pending_reqs.i.i, i64 0, i64 %idxprom.i.i
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %tobool.i.not.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i, label %if.end.i, label %while.end.i
 
 while.end.i:                                      ; preds = %entry
-  %io_limits_disabled.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 3
+  %io_limits_disabled.i = getelementptr inbounds i8, ptr %tgm, i64 88
   %2 = load atomic i32, ptr %io_limits_disabled.i monotonic, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end
@@ -491,13 +479,13 @@ if.end.i:                                         ; preds = %while.end.i, %entry
   %tokens.i = getelementptr i8, ptr %0, i64 264
   %arrayidx.i = getelementptr [2 x ptr], ptr %tokens.i, i64 0, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %round_robin.i.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %3, i64 0, i32 8
+  %round_robin.i.i = getelementptr inbounds i8, ptr %3, i64 160
   %4 = load ptr, ptr %round_robin.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %throttle_group_next_tgm.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %throttle_state.i.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %3, i64 0, i32 5
+  %throttle_state.i.i = getelementptr inbounds i8, ptr %3, i64 96
   %5 = load ptr, ptr %throttle_state.i.i, align 8
   %head.i.i = getelementptr i8, ptr %5, i64 256
   %6 = load ptr, ptr %head.i.i, align 8
@@ -505,51 +493,54 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 throttle_group_next_tgm.exit.i:                   ; preds = %if.then.i.i, %if.end.i
   %next.0.i.i = phi ptr [ %4, %if.end.i ], [ %6, %if.then.i.i ]
-  %cmp.not36.i = icmp eq ptr %next.0.i.i, %3
-  br i1 %cmp.not36.i, label %land.lhs.true9.i, label %land.rhs.i
+  %cmp.not39.i = icmp eq ptr %next.0.i.i, %3
+  br i1 %cmp.not39.i, label %land.lhs.true9.i, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %throttle_group_next_tgm.exit.i, %throttle_group_next_tgm.exit28.i
-  %token.037.i = phi ptr [ %next.0.i24.i, %throttle_group_next_tgm.exit28.i ], [ %next.0.i.i, %throttle_group_next_tgm.exit.i ]
-  %arrayidx.i20.i = getelementptr %struct.ThrottleGroupMember, ptr %token.037.i, i64 0, i32 7, i64 %idxprom.i.i
-  %7 = load i32, ptr %arrayidx.i20.i, align 4
-  %tobool.i21.not.i = icmp eq i32 %7, 0
-  br i1 %tobool.i21.not.i, label %while.body5.i, label %if.end12.i
+land.rhs.i:                                       ; preds = %throttle_group_next_tgm.exit.i, %throttle_group_next_tgm.exit29.i
+  %token.040.i = phi ptr [ %next.0.i25.i, %throttle_group_next_tgm.exit29.i ], [ %next.0.i.i, %throttle_group_next_tgm.exit.i ]
+  %pending_reqs.i19.i = getelementptr inbounds i8, ptr %token.040.i, i64 152
+  %arrayidx.i21.i = getelementptr [2 x i32], ptr %pending_reqs.i19.i, i64 0, i64 %idxprom.i.i
+  %7 = load i32, ptr %arrayidx.i21.i, align 4
+  %tobool.i22.not.i = icmp eq i32 %7, 0
+  br i1 %tobool.i22.not.i, label %while.body5.i, label %if.end12.i
 
 while.body5.i:                                    ; preds = %land.rhs.i
-  %round_robin.i22.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %token.037.i, i64 0, i32 8
-  %8 = load ptr, ptr %round_robin.i22.i, align 8
-  %tobool.not.i23.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i23.i, label %if.then.i25.i, label %throttle_group_next_tgm.exit28.i
+  %round_robin.i23.i = getelementptr inbounds i8, ptr %token.040.i, i64 160
+  %8 = load ptr, ptr %round_robin.i23.i, align 8
+  %tobool.not.i24.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i24.i, label %if.then.i26.i, label %throttle_group_next_tgm.exit29.i
 
-if.then.i25.i:                                    ; preds = %while.body5.i
-  %throttle_state.i26.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %token.037.i, i64 0, i32 5
-  %9 = load ptr, ptr %throttle_state.i26.i, align 8
-  %head.i27.i = getelementptr i8, ptr %9, i64 256
-  %10 = load ptr, ptr %head.i27.i, align 8
-  br label %throttle_group_next_tgm.exit28.i
+if.then.i26.i:                                    ; preds = %while.body5.i
+  %throttle_state.i27.i = getelementptr inbounds i8, ptr %token.040.i, i64 96
+  %9 = load ptr, ptr %throttle_state.i27.i, align 8
+  %head.i28.i = getelementptr i8, ptr %9, i64 256
+  %10 = load ptr, ptr %head.i28.i, align 8
+  br label %throttle_group_next_tgm.exit29.i
 
-throttle_group_next_tgm.exit28.i:                 ; preds = %if.then.i25.i, %while.body5.i
-  %next.0.i24.i = phi ptr [ %8, %while.body5.i ], [ %10, %if.then.i25.i ]
-  %cmp.not.i = icmp eq ptr %next.0.i24.i, %3
+throttle_group_next_tgm.exit29.i:                 ; preds = %if.then.i26.i, %while.body5.i
+  %next.0.i25.i = phi ptr [ %8, %while.body5.i ], [ %10, %if.then.i26.i ]
+  %cmp.not.i = icmp eq ptr %next.0.i25.i, %3
   br i1 %cmp.not.i, label %land.lhs.true9.i, label %land.rhs.i, !llvm.loop !7
 
-land.lhs.true9.i:                                 ; preds = %throttle_group_next_tgm.exit28.i, %throttle_group_next_tgm.exit.i
-  %arrayidx.i30.i = getelementptr %struct.ThrottleGroupMember, ptr %3, i64 0, i32 7, i64 %idxprom.i.i
-  %11 = load i32, ptr %arrayidx.i30.i, align 4
-  %tobool.i31.not.i = icmp eq i32 %11, 0
-  %spec.select.i = select i1 %tobool.i31.not.i, ptr %tgm, ptr %3
+land.lhs.true9.i:                                 ; preds = %throttle_group_next_tgm.exit29.i, %throttle_group_next_tgm.exit.i
+  %pending_reqs.i30.i = getelementptr inbounds i8, ptr %3, i64 152
+  %arrayidx.i32.i = getelementptr [2 x i32], ptr %pending_reqs.i30.i, i64 0, i64 %idxprom.i.i
+  %11 = load i32, ptr %arrayidx.i32.i, align 4
+  %tobool.i33.not.i = icmp eq i32 %11, 0
+  %spec.select.i = select i1 %tobool.i33.not.i, ptr %tgm, ptr %3
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %land.rhs.i, %land.lhs.true9.i
-  %token.1.i = phi ptr [ %spec.select.i, %land.lhs.true9.i ], [ %token.037.i, %land.rhs.i ]
+  %token.1.i = phi ptr [ %spec.select.i, %land.lhs.true9.i ], [ %token.040.i, %land.rhs.i ]
   %cmp13.i = icmp eq ptr %token.1.i, %tgm
   br i1 %cmp13.i, label %next_throttle_token.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end12.i
-  %arrayidx.i33.i = getelementptr %struct.ThrottleGroupMember, ptr %token.1.i, i64 0, i32 7, i64 %idxprom.i.i
-  %12 = load i32, ptr %arrayidx.i33.i, align 4
-  %tobool.i34.not.i = icmp eq i32 %12, 0
-  br i1 %tobool.i34.not.i, label %if.else.i, label %if.end
+  %pending_reqs.i34.i = getelementptr inbounds i8, ptr %token.1.i, i64 152
+  %arrayidx.i36.i = getelementptr [2 x i32], ptr %pending_reqs.i34.i, i64 0, i64 %idxprom.i.i
+  %12 = load i32, ptr %arrayidx.i36.i, align 4
+  %tobool.i37.not.i = icmp eq i32 %12, 0
+  br i1 %tobool.i37.not.i, label %if.else.i, label %if.end
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 252, ptr noundef nonnull @__PRETTY_FUNCTION__.next_throttle_token) #8
@@ -561,10 +552,10 @@ next_throttle_token.exit:                         ; preds = %if.end12.i
 
 if.end:                                           ; preds = %lor.lhs.false.i, %while.end.i, %next_throttle_token.exit
   %retval.0.i32 = phi ptr [ %tgm, %next_throttle_token.exit ], [ %token.1.i, %lor.lhs.false.i ], [ %tgm, %while.end.i ]
-  %throttle_state.i16 = getelementptr inbounds %struct.ThrottleGroupMember, ptr %retval.0.i32, i64 0, i32 5
+  %throttle_state.i16 = getelementptr inbounds i8, ptr %retval.0.i32, i64 96
   %13 = load ptr, ptr %throttle_state.i16, align 8
-  %throttle_timers.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %retval.0.i32, i64 0, i32 6
-  %io_limits_disabled.i17 = getelementptr inbounds %struct.ThrottleGroupMember, ptr %retval.0.i32, i64 0, i32 3
+  %throttle_timers.i = getelementptr inbounds i8, ptr %retval.0.i32, i64 104
+  %io_limits_disabled.i17 = getelementptr inbounds i8, ptr %retval.0.i32, i64 88
   %14 = load atomic i32, ptr %io_limits_disabled.i17 monotonic, align 8
   %tobool.not.i18 = icmp eq i32 %14, 0
   br i1 %tobool.not.i18, label %if.end.i20, label %if.then3
@@ -593,9 +584,10 @@ if.then3:                                         ; preds = %if.end4.i, %if.end
   br i1 %call4, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then3
-  %throttled_reqs_lock.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 1
+  %throttled_reqs_lock.i = getelementptr inbounds i8, ptr %tgm, i64 8
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %throttled_reqs_lock.i) #7
-  %arrayidx.i25 = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 2, i64 %idxprom.i.i
+  %throttled_reqs.i = getelementptr inbounds i8, ptr %tgm, i64 56
+  %arrayidx.i25 = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs.i, i64 0, i64 %idxprom.i.i
   %call.i26 = tail call zeroext i1 @qemu_co_queue_next(ptr noundef %arrayidx.i25) #7
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %throttled_reqs_lock.i) #7
   br i1 %call.i26, label %if.end10, label %if.else
@@ -626,14 +618,14 @@ if.end13:                                         ; preds = %if.then6.i, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_group_restart_tgm(ptr noundef %tgm) local_unnamed_addr #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end2, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %throttle_timers = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 6
-  %restart_pending.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 4
+  %throttle_timers = getelementptr inbounds i8, ptr %tgm, i64 104
+  %restart_pending.i = getelementptr inbounds i8, ptr %tgm, i64 92
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -653,7 +645,7 @@ if.then1:                                         ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #9
   store ptr %tgm, ptr %call.i, align 8
-  %direction2.i = getelementptr inbounds %struct.RestartData, ptr %call.i, i64 0, i32 1
+  %direction2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = trunc i64 %indvars.iv to i32
   store i32 %3, ptr %direction2.i, align 8
   %4 = load ptr, ptr %arrayidx, align 8
@@ -685,7 +677,7 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @timer_cb(ptr noundef %tgm, i32 noundef %direction) unnamed_addr #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -698,9 +690,9 @@ entry:
   tail call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef nonnull @.str.2, i32 noundef 516) #7
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #9
   store ptr %tgm, ptr %call.i, align 8
-  %direction2.i = getelementptr inbounds %struct.RestartData, ptr %call.i, i64 0, i32 1
+  %direction2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %direction, ptr %direction2.i, align 8
-  %throttle_timers.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 6
+  %throttle_timers.i = getelementptr inbounds i8, ptr %tgm, i64 104
   %arrayidx.i = getelementptr [2 x ptr], ptr %throttle_timers.i, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call3.i = tail call zeroext i1 @timer_pending(ptr noundef %3) #7
@@ -711,7 +703,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 throttle_group_restart_queue.exit:                ; preds = %entry
-  %restart_pending.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 4
+  %restart_pending.i = getelementptr inbounds i8, ptr %tgm, i64 92
   %4 = atomicrmw add ptr %restart_pending.i, i32 1 seq_cst, align 4
   %call4.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @throttle_group_restart_queue_entry, ptr noundef nonnull %call.i) #7
   %5 = load ptr, ptr %tgm, align 8
@@ -722,7 +714,7 @@ throttle_group_restart_queue.exit:                ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_group_config(ptr noundef %tgm, ptr noundef %cfg) local_unnamed_addr #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -741,7 +733,7 @@ declare void @throttle_config(ptr noundef, i32 noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_group_get_config(ptr nocapture noundef readonly %tgm, ptr noundef %cfg) local_unnamed_addr #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -758,16 +750,17 @@ declare void @throttle_get_config(ptr noundef, ptr noundef) local_unnamed_addr #
 define dso_local void @throttle_group_register_tgm(ptr noundef %tgm, ptr noundef %groupname, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @throttle_group_incref(ptr noundef %groupname)
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   store ptr %call, ptr %throttle_state, align 8
   store ptr %ctx, ptr %tgm, align 8
-  %restart_pending = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 4
+  %restart_pending = getelementptr inbounds i8, ptr %tgm, i64 92
   store atomic i32 0, ptr %restart_pending monotonic, align 4
   %lock = getelementptr i8, ptr %call, i64 -48
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %lock, ptr noundef nonnull @.str.12, i32 noundef 122) #7
   %tokens = getelementptr i8, ptr %call, i64 264
+  %throttled_reqs = getelementptr inbounds i8, ptr %tgm, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
@@ -783,33 +776,33 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %arrayidx11 = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx11 = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %indvars.iv
   tail call void @qemu_co_queue_init(ptr noundef %arrayidx11) #7
   br i1 %cmp, label %for.body, label %do.body12, !llvm.loop !9
 
 do.body12:                                        ; preds = %if.end
   %head = getelementptr i8, ptr %call, i64 256
   %3 = load ptr, ptr %head, align 8
-  %round_robin = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 8
+  %round_robin = getelementptr inbounds i8, ptr %tgm, i64 160
   store ptr %3, ptr %round_robin, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then14
 
 if.then14:                                        ; preds = %do.body12
-  %le_prev = getelementptr inbounds %struct.ThrottleGroupMember, ptr %3, i64 0, i32 8, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %3, i64 168
   store ptr %round_robin, ptr %le_prev, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then14, %do.body12
   store ptr %tgm, ptr %head, align 8
-  %le_prev26 = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 8, i32 1
+  %le_prev26 = getelementptr inbounds i8, ptr %tgm, i64 168
   store ptr %head, ptr %le_prev26, align 8
-  %throttle_timers = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 6
+  %throttle_timers = getelementptr inbounds i8, ptr %tgm, i64 104
   %4 = load ptr, ptr %tgm, align 8
   %clock_type = getelementptr i8, ptr %call, i64 284
   %5 = load i32, ptr %clock_type, align 4
   tail call void @throttle_timers_init(ptr noundef nonnull %throttle_timers, ptr noundef %4, i32 noundef %5, ptr noundef nonnull @read_timer_cb, ptr noundef nonnull @write_timer_cb, ptr noundef nonnull %tgm) #7
-  %throttled_reqs_lock = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 1
+  %throttled_reqs_lock = getelementptr inbounds i8, ptr %tgm, i64 8
   tail call void @qemu_co_mutex_init(ptr noundef nonnull %throttled_reqs_lock) #7
   tail call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef nonnull @.str.12, i32 noundef 132) #7
   ret void
@@ -838,7 +831,7 @@ declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_group_unregister_tgm(ptr noundef %tgm) local_unnamed_addr #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -865,7 +858,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %call4.i, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %if.then3.i, %land.lhs.true
-  %restart_pending = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 4
+  %restart_pending = getelementptr inbounds i8, ptr %tgm, i64 92
   %3 = load atomic i32, ptr %restart_pending monotonic, align 4
   %cmp.not46 = icmp eq i32 %3, 0
   br i1 %cmp.not46, label %for.cond45.preheader.us, label %while.body6
@@ -883,7 +876,7 @@ if.else:                                          ; preds = %if.end.i, %if.then3
   br i1 %cmp11, label %while.cond15.preheader, label %if.else13
 
 while.cond15.preheader:                           ; preds = %if.else
-  %restart_pending22 = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 4
+  %restart_pending22 = getelementptr inbounds i8, ptr %tgm, i64 92
   %5 = load atomic i32, ptr %restart_pending22 monotonic, align 4
   %cmp24.not47 = icmp eq i32 %5, 0
   br i1 %cmp24.not47, label %for.cond45.preheader.us, label %while.body25.lr.ph
@@ -917,10 +910,12 @@ for.cond45.preheader.us:                          ; preds = %while.body6, %while
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
   tail call void %10(ptr noundef %lock, ptr noundef nonnull @.str.12, i32 noundef 122) #7
-  %throttle_timers = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 6
+  %pending_reqs = getelementptr inbounds i8, ptr %tgm, i64 152
+  %throttled_reqs = getelementptr inbounds i8, ptr %tgm, i64 56
+  %throttle_timers = getelementptr inbounds i8, ptr %tgm, i64 104
   %tokens = getelementptr i8, ptr %0, i64 264
-  %round_robin.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 8
-  %le_prev = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 8, i32 1
+  %round_robin.i = getelementptr inbounds i8, ptr %tgm, i64 160
+  %le_prev = getelementptr inbounds i8, ptr %tgm, i64 168
   br label %for.body47.us
 
 do.body76.us:                                     ; preds = %for.inc.us
@@ -930,7 +925,7 @@ do.body76.us:                                     ; preds = %for.inc.us
   br i1 %cmp77.not.us, label %qemu_lockable_auto_unlock.exit.us, label %if.then78.us
 
 if.then78.us:                                     ; preds = %do.body76.us
-  %le_prev83.us = getelementptr inbounds %struct.ThrottleGroupMember, ptr %11, i64 0, i32 8, i32 1
+  %le_prev83.us = getelementptr inbounds i8, ptr %11, i64 168
   store ptr %.pre56, ptr %le_prev83.us, align 8
   %.pre = load ptr, ptr %round_robin.i, align 8
   br label %qemu_lockable_auto_unlock.exit.us
@@ -949,13 +944,13 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then78.us, %do.b
 for.body47.us:                                    ; preds = %for.inc.us, %for.cond45.preheader.us
   %cmp46.us = phi i1 [ false, %for.inc.us ], [ true, %for.cond45.preheader.us ]
   %indvars.iv = phi i64 [ 1, %for.inc.us ], [ 0, %for.cond45.preheader.us ]
-  %arrayidx.us = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx.us = getelementptr [2 x i32], ptr %pending_reqs, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %arrayidx.us, align 4
   %cmp48.us = icmp eq i32 %13, 0
   br i1 %cmp48.us, label %if.end51.us, label %if.else50
 
 if.end51.us:                                      ; preds = %for.body47.us
-  %arrayidx53.us = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx53.us = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %indvars.iv
   %call54.us = tail call zeroext i1 @qemu_co_queue_empty(ptr noundef %arrayidx53.us) #7
   br i1 %call54.us, label %if.end57.us, label %if.else56
 
@@ -1025,7 +1020,7 @@ declare void @throttle_timers_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_group_attach_aio_context(ptr noundef %tgm, ptr noundef %new_context) local_unnamed_addr #0 {
 entry:
-  %throttle_timers = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 6
+  %throttle_timers = getelementptr inbounds i8, ptr %tgm, i64 104
   tail call void @throttle_timers_attach_aio_context(ptr noundef nonnull %throttle_timers, ptr noundef %new_context) #7
   store ptr %new_context, ptr %tgm, align 8
   ret void
@@ -1036,9 +1031,11 @@ declare void @throttle_timers_attach_aio_context(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_group_detach_aio_context(ptr noundef %tgm) local_unnamed_addr #0 {
 entry:
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
-  %throttle_timers = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 6
+  %throttle_timers = getelementptr inbounds i8, ptr %tgm, i64 104
+  %pending_reqs = getelementptr inbounds i8, ptr %tgm, i64 152
+  %throttled_reqs = getelementptr inbounds i8, ptr %tgm, i64 56
   br label %for.body
 
 for.cond:                                         ; preds = %if.end
@@ -1047,7 +1044,7 @@ for.cond:                                         ; preds = %if.end
 for.body:                                         ; preds = %entry, %for.cond
   %cmp = phi i1 [ true, %entry ], [ false, %for.cond ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.cond ]
-  %arrayidx = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx = getelementptr [2 x i32], ptr %pending_reqs, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp eq i32 %1, 0
   br i1 %cmp1, label %if.end, label %if.else
@@ -1057,7 +1054,7 @@ if.else:                                          ; preds = %for.body
   unreachable
 
 if.end:                                           ; preds = %for.body
-  %arrayidx3 = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx3 = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %indvars.iv
   %call = tail call zeroext i1 @qemu_co_queue_empty(ptr noundef %arrayidx3) #7
   br i1 %call, label %for.cond, label %if.else5
 
@@ -1125,10 +1122,11 @@ declare zeroext i1 @qemu_in_coroutine() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @throttle_group_co_restart_queue(ptr noundef %tgm, i32 noundef %direction) #0 {
 entry:
-  %throttled_reqs_lock = getelementptr inbounds %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 1
+  %throttled_reqs_lock = getelementptr inbounds i8, ptr %tgm, i64 8
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %throttled_reqs_lock) #7
+  %throttled_reqs = getelementptr inbounds i8, ptr %tgm, i64 56
   %idxprom = zext i32 %direction to i64
-  %arrayidx = getelementptr %struct.ThrottleGroupMember, ptr %tgm, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs, i64 0, i64 %idxprom
   %call = tail call zeroext i1 @qemu_co_queue_next(ptr noundef %arrayidx) #7
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %throttled_reqs_lock) #7
   ret i1 %call
@@ -1149,14 +1147,15 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @throttle_group_restart_queue_entry(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %throttle_state = getelementptr inbounds %struct.ThrottleGroupMember, ptr %0, i64 0, i32 5
+  %throttle_state = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %throttle_state, align 8
-  %direction2 = getelementptr inbounds %struct.RestartData, ptr %opaque, i64 0, i32 1
+  %direction2 = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i32, ptr %direction2, align 8
-  %throttled_reqs_lock.i = getelementptr inbounds %struct.ThrottleGroupMember, ptr %0, i64 0, i32 1
+  %throttled_reqs_lock.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %throttled_reqs_lock.i) #7
+  %throttled_reqs.i = getelementptr inbounds i8, ptr %0, i64 56
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr %struct.ThrottleGroupMember, ptr %0, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x %struct.CoQueue], ptr %throttled_reqs.i, i64 0, i64 %idxprom.i
   %call.i = tail call zeroext i1 @qemu_co_queue_next(ptr noundef %arrayidx.i) #7
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %throttled_reqs_lock.i) #7
   br i1 %call.i, label %if.end, label %while.end
@@ -1172,7 +1171,7 @@ while.end:                                        ; preds = %entry
 
 if.end:                                           ; preds = %while.end, %entry
   tail call void @g_free(ptr noundef nonnull %opaque) #7
-  %restart_pending = getelementptr inbounds %struct.ThrottleGroupMember, ptr %0, i64 0, i32 4
+  %restart_pending = getelementptr inbounds i8, ptr %0, i64 92
   %5 = atomicrmw sub ptr %restart_pending, i32 1 seq_cst, align 4
   tail call void @aio_wait_kick() #7
   ret void
@@ -1198,18 +1197,18 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @throttle_group_obj_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
-  %clock_type = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 8
+  %clock_type = getelementptr inbounds i8, ptr %call.i, i64 388
   %0 = load i8, ptr @qtest_allowed, align 1
   %1 = and i8 %0, 1
   %spec.store.select = zext nneg i8 %1 to i32
   store i32 %spec.store.select, ptr %clock_type, align 4
-  %is_initialized = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 1
+  %is_initialized = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 0, ptr %is_initialized, align 8
-  %lock = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call.i, i64 56
   tail call void @qemu_mutex_init(ptr noundef nonnull %lock) #7
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4
+  %ts = getelementptr inbounds i8, ptr %call.i, i64 104
   tail call void @throttle_init(ptr noundef nonnull %ts) #7
-  %head = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 5
+  %head = getelementptr inbounds i8, ptr %call.i, i64 360
   store ptr null, ptr %head, align 8
   ret void
 }
@@ -1218,22 +1217,22 @@ entry:
 define internal void @throttle_group_obj_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
-  %is_initialized = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 1
+  %is_initialized = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %is_initialized, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end16, label %do.body
 
 do.body:                                          ; preds = %entry
-  %list = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 9
+  %list = getelementptr inbounds i8, ptr %call.i, i64 392
   %2 = load ptr, ptr %list, align 8
   %cmp.not = icmp eq ptr %2, null
-  %tql_prev7 = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 9, i32 0, i32 1
+  %tql_prev7 = getelementptr inbounds i8, ptr %call.i, i64 400
   %3 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  %tql_prev5 = getelementptr inbounds %struct.ThrottleGroup, ptr %2, i64 0, i32 9, i32 0, i32 1
+  %tql_prev5 = getelementptr inbounds i8, ptr %2, i64 400
   store ptr %3, ptr %tql_prev5, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end
@@ -1249,9 +1248,9 @@ if.end:                                           ; preds = %if.else, %if.then1
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %entry
-  %lock = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call.i, i64 56
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %lock) #7
-  %name = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call.i, i64 48
   %5 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %5) #7
   ret void
@@ -1261,9 +1260,9 @@ if.end16:                                         ; preds = %if.end, %entry
 define internal void @throttle_group_obj_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @throttle_group_obj_complete, ptr %complete, align 8
-  %can_be_deleted = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 2
+  %can_be_deleted = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @throttle_group_can_be_deleted, ptr %can_be_deleted, align 8
   br label %for.body
 
@@ -1290,7 +1289,7 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @throttle_group_can_be_deleted(ptr nocapture noundef readonly %uc) #5 {
 entry:
-  %ref = getelementptr inbounds %struct.Object, ptr %uc, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %uc, i64 24
   %0 = load i32, ptr %ref, align 8
   %cmp = icmp eq i32 %0, 1
   ret i1 %cmp
@@ -1304,9 +1303,9 @@ entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4
+  %ts = getelementptr inbounds i8, ptr %call.i, i64 104
   call void @throttle_get_config(ptr noundef nonnull %ts, ptr noundef nonnull %cfg) #7
-  %category = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 2
+  %category = getelementptr inbounds i8, ptr %opaque, i64 12
   %0 = load i32, ptr %category, align 4
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1316,7 +1315,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %type = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i32, ptr %type, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %idxprom
@@ -1325,7 +1324,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %type3 = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 1
+  %type3 = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i32, ptr %type3, align 8
   %idxprom4 = zext i32 %3 to i64
   %max = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %idxprom4, i32 1
@@ -1334,7 +1333,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %type8 = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 1
+  %type8 = getelementptr inbounds i8, ptr %opaque, i64 8
   %5 = load i32, ptr %type8, align 8
   %idxprom9 = zext i32 %5 to i64
   %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %idxprom9, i32 4
@@ -1343,7 +1342,7 @@ sw.bb6:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %op_size = getelementptr inbounds %struct.ThrottleConfig, ptr %cfg, i64 0, i32 1
+  %op_size = getelementptr inbounds i8, ptr %cfg, i64 240
   %7 = load i64, ptr %op_size, align 8
   store i64 %7, ptr %value, align 8
   br label %sw.epilog
@@ -1358,7 +1357,7 @@ define internal void @throttle_group_set(ptr noundef %obj, ptr noundef %v, ptr n
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
-  %is_initialized = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 1
+  %is_initialized = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %is_initialized, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1382,8 +1381,8 @@ if.then4:                                         ; preds = %if.end3
   br label %sw.epilog
 
 if.end5:                                          ; preds = %if.end3
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4
-  %category = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 2
+  %ts = getelementptr inbounds i8, ptr %call.i, i64 104
+  %category = getelementptr inbounds i8, ptr %opaque, i64 12
   %3 = load i32, ptr %category, align 4
   switch i32 %3, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1393,7 +1392,7 @@ if.end5:                                          ; preds = %if.end3
   ]
 
 sw.bb:                                            ; preds = %if.end5
-  %type = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %opaque, i64 8
   %4 = load i32, ptr %type, align 8
   %idxprom = zext i32 %4 to i64
   %arrayidx = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom
@@ -1401,7 +1400,7 @@ sw.bb:                                            ; preds = %if.end5
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end5
-  %type9 = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 1
+  %type9 = getelementptr inbounds i8, ptr %opaque, i64 8
   %5 = load i32, ptr %type9, align 8
   %idxprom10 = zext i32 %5 to i64
   %max = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom10, i32 1
@@ -1418,7 +1417,7 @@ if.then14:                                        ; preds = %sw.bb12
   br label %sw.epilog
 
 if.end16:                                         ; preds = %sw.bb12
-  %type18 = getelementptr inbounds %struct.ThrottleParamInfo, ptr %opaque, i64 0, i32 1
+  %type18 = getelementptr inbounds i8, ptr %opaque, i64 8
   %7 = load i32, ptr %type18, align 8
   %idxprom19 = zext i32 %7 to i64
   %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom19, i32 4
@@ -1426,7 +1425,7 @@ if.end16:                                         ; preds = %sw.bb12
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end5
-  %op_size = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4, i32 0, i32 1
+  %op_size = getelementptr inbounds i8, ptr %call.i, i64 344
   store i64 %2, ptr %op_size, align 8
   br label %sw.epilog
 
@@ -1445,9 +1444,9 @@ entry:
   store ptr %arg, ptr %argp, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call.i, i64 56
   call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 923) #7
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4
+  %ts = getelementptr inbounds i8, ptr %call.i, i64 104
   call void @throttle_get_config(ptr noundef nonnull %ts, ptr noundef nonnull %cfg) #7
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 925) #7
   call void @throttle_config_to_limits(ptr noundef nonnull %cfg, ptr noundef nonnull %arg) #7
@@ -1469,9 +1468,9 @@ entry:
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call.i, i64 56
   call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 899) #7
-  %ts = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 4
+  %ts = getelementptr inbounds i8, ptr %call.i, i64 104
   call void @throttle_get_config(ptr noundef nonnull %ts, ptr noundef nonnull %cfg) #7
   %2 = load ptr, ptr %argp, align 8
   call void @throttle_limits_to_config(ptr noundef %2, ptr noundef nonnull %cfg, ptr noundef nonnull %local_err) #7
@@ -1480,7 +1479,7 @@ while.end:                                        ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %unlock
 
 if.end3:                                          ; preds = %while.end
-  %clock_type = getelementptr inbounds %struct.ThrottleGroup, ptr %call.i, i64 0, i32 8
+  %clock_type = getelementptr inbounds i8, ptr %call.i, i64 388
   %4 = load i32, ptr %clock_type, align 4
   call void @throttle_config(ptr noundef nonnull %ts, i32 noundef %4, ptr noundef nonnull %cfg) #7
   br label %unlock

@@ -1087,7 +1087,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %if.then.i, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1041, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1041, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %5, null
   br i1 %tobool16.not, label %if.end37, label %if.then17
@@ -1127,7 +1127,7 @@ if.end33:                                         ; preds = %if.end29
 
 if.end37:                                         ; preds = %if.end33, %if.end14
   %encoding.0 = phi ptr [ %call26, %if.end33 ], [ null, %if.end14 ]
-  %arrayidx38 = getelementptr ptr, ptr %cond1041, i64 2
+  %arrayidx38 = getelementptr i8, ptr %cond1041, i64 16
   %11 = load ptr, ptr %arrayidx38, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %.val25 = load ptr, ptr %12, align 8
@@ -1213,7 +1213,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %if.then.i, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1041, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1041, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %5, null
   br i1 %tobool16.not, label %if.end37, label %if.then17
@@ -1253,7 +1253,7 @@ if.end33:                                         ; preds = %if.end29
 
 if.end37:                                         ; preds = %if.end33, %if.end14
   %encoding.0 = phi ptr [ %call26, %if.end33 ], [ null, %if.end14 ]
-  %arrayidx38 = getelementptr ptr, ptr %cond1041, i64 2
+  %arrayidx38 = getelementptr i8, ptr %cond1041, i64 16
   %11 = load ptr, ptr %arrayidx38, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %.val25 = load ptr, ptr %12, align 8
@@ -1336,7 +1336,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -1390,12 +1390,12 @@ if.end.i:                                         ; preds = %skip_optional
   br i1 %cmp2.i, label %_codecs_escape_encode_impl.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call1.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %cmp51.i = icmp sgt i64 %data.val.i, 0
   br i1 %cmp51.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else.i
-  %ob_sval.i32.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
+  %ob_sval.i32.i = getelementptr inbounds i8, ptr %1, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1480,7 +1480,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.else
   %p.0.lcssa.i = phi ptr [ %ob_sval.i.i, %if.else.i ], [ %p.1.i, %for.inc.i ]
   store i8 0, ptr %p.0.lcssa.i, align 1
   %19 = load ptr, ptr %v.i, align 8
-  %ob_sval.i33.i = getelementptr inbounds %struct.PyBytesObject, ptr %19, i64 0, i32 2
+  %ob_sval.i33.i = getelementptr inbounds i8, ptr %19, i64 32
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %ob_sval.i33.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1554,7 +1554,7 @@ if.end18:                                         ; preds = %if.else, %if.end10
   br i1 %cmp19, label %skip_optional, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %arrayidx22 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx22 = getelementptr i8, ptr %args, i64 8
   %7 = load ptr, ptr %arrayidx22, align 8
   %cmp23 = icmp eq ptr %7, @_Py_NoneStruct
   br i1 %cmp23, label %skip_optional, label %if.else25
@@ -1591,7 +1591,7 @@ if.else40:                                        ; preds = %if.else25
 skip_optional:                                    ; preds = %if.end21, %if.end35, %if.end18
   %errors.0 = phi ptr [ null, %if.end18 ], [ %call32, %if.end35 ], [ null, %if.end21 ]
   %13 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %14 = load i64, ptr %len.i, align 8
   %call.i = call ptr @PyBytes_DecodeEscape(ptr noundef %13, i64 noundef %14, ptr noundef %errors.0, i64 noundef 0, ptr noundef null) #5
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -1604,7 +1604,7 @@ if.end.i.i:                                       ; preds = %skip_optional
 
 exit:                                             ; preds = %if.end.i.i, %skip_optional, %if.then30, %if.else, %if.then5, %lor.lhs.false, %if.else40, %if.then38
   %return_value.0 = phi ptr [ null, %if.then5 ], [ null, %if.then30 ], [ null, %if.then38 ], [ null, %if.else40 ], [ null, %if.else ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end.i.i ], [ null, %skip_optional ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %16 = load ptr, ptr %obj, align 8
   %tobool45.not = icmp eq ptr %16, null
   br i1 %tobool45.not, label %if.end47, label %if.then46
@@ -1649,7 +1649,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -1727,7 +1727,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -1767,7 +1767,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -1814,7 +1814,7 @@ _codecs_utf_8_decode_impl.exit:                   ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_8_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_8_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -1859,7 +1859,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -1937,7 +1937,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -1977,7 +1977,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -2024,7 +2024,7 @@ _codecs_utf_7_decode_impl.exit:                   ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_7_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_7_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -2069,7 +2069,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %if.end32, label %if.else
@@ -2109,7 +2109,7 @@ if.end32:                                         ; preds = %if.end11, %if.end24
   br i1 %cmp33, label %skip_optional, label %if.end35
 
 if.end35:                                         ; preds = %if.end32
-  %arrayidx36 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx36 = getelementptr i8, ptr %args, i64 16
   %11 = load ptr, ptr %arrayidx36, align 8
   %call37 = call i32 @PyLong_AsInt(ptr noundef %11) #5
   %cmp38 = icmp eq i32 %call37, -1
@@ -2170,7 +2170,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -2253,7 +2253,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -2332,7 +2332,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -2372,7 +2372,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -2424,7 +2424,7 @@ _codecs_utf_16_decode_impl.exit:                  ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_16_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_16_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -2465,7 +2465,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -2505,7 +2505,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -2557,7 +2557,7 @@ _codecs_utf_16_le_decode_impl.exit:               ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_16_le_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_16_le_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -2598,7 +2598,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -2638,7 +2638,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -2690,7 +2690,7 @@ _codecs_utf_16_be_decode_impl.exit:               ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_16_be_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_16_be_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -2731,7 +2731,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -2771,7 +2771,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyLong_AsInt(ptr noundef %8) #5
   %cmp35 = icmp eq i32 %call34, -1
@@ -2787,7 +2787,7 @@ if.end40:                                         ; preds = %land.lhs.true36, %i
   br i1 %cmp41, label %skip_optional.thread, label %if.end43
 
 if.end43:                                         ; preds = %if.end40
-  %arrayidx44 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx44 = getelementptr i8, ptr %args, i64 24
   %9 = load ptr, ptr %arrayidx44, align 8
   %call45 = call i32 @PyObject_IsTrue(ptr noundef %9) #5
   %call45.fr = freeze i32 %call45
@@ -2841,7 +2841,7 @@ _codecs_utf_16_ex_decode_impl.exit:               ; preds = %12, %if.end.i
 
 exit:                                             ; preds = %if.end43, %land.lhs.true36, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_16_ex_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %_codecs_utf_16_ex_decode_impl.exit ], [ null, %land.lhs.true36 ], [ null, %if.end43 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %16 = load ptr, ptr %obj, align 8
   %tobool50.not = icmp eq ptr %16, null
   br i1 %tobool50.not, label %if.end52, label %if.then51
@@ -2886,7 +2886,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %if.end32, label %if.else
@@ -2926,7 +2926,7 @@ if.end32:                                         ; preds = %if.end11, %if.end24
   br i1 %cmp33, label %skip_optional, label %if.end35
 
 if.end35:                                         ; preds = %if.end32
-  %arrayidx36 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx36 = getelementptr i8, ptr %args, i64 16
   %11 = load ptr, ptr %arrayidx36, align 8
   %call37 = call i32 @PyLong_AsInt(ptr noundef %11) #5
   %cmp38 = icmp eq i32 %call37, -1
@@ -2987,7 +2987,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -3070,7 +3070,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -3149,7 +3149,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -3189,7 +3189,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -3241,7 +3241,7 @@ _codecs_utf_32_decode_impl.exit:                  ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_32_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_32_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -3282,7 +3282,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -3322,7 +3322,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -3374,7 +3374,7 @@ _codecs_utf_32_le_decode_impl.exit:               ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_32_le_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_32_le_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -3415,7 +3415,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -3455,7 +3455,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyObject_IsTrue(ptr noundef %8) #5
   %call34.fr = freeze i32 %call34
@@ -3507,7 +3507,7 @@ _codecs_utf_32_be_decode_impl.exit:               ; preds = %11, %if.end.i.i
 
 exit:                                             ; preds = %if.end32, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_32_be_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i.i, %_codecs_utf_32_be_decode_impl.exit ], [ null, %if.end32 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -3548,7 +3548,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional.thread, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -3588,7 +3588,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   %call34 = call i32 @PyLong_AsInt(ptr noundef %8) #5
   %cmp35 = icmp eq i32 %call34, -1
@@ -3604,7 +3604,7 @@ if.end40:                                         ; preds = %land.lhs.true36, %i
   br i1 %cmp41, label %skip_optional.thread, label %if.end43
 
 if.end43:                                         ; preds = %if.end40
-  %arrayidx44 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx44 = getelementptr i8, ptr %args, i64 24
   %9 = load ptr, ptr %arrayidx44, align 8
   %call45 = call i32 @PyObject_IsTrue(ptr noundef %9) #5
   %call45.fr = freeze i32 %call45
@@ -3658,7 +3658,7 @@ _codecs_utf_32_ex_decode_impl.exit:               ; preds = %12, %if.end.i
 
 exit:                                             ; preds = %if.end43, %land.lhs.true36, %if.then16, %if.end, %lor.lhs.false, %_codecs_utf_32_ex_decode_impl.exit, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %_codecs_utf_32_ex_decode_impl.exit ], [ null, %land.lhs.true36 ], [ null, %if.end43 ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %16 = load ptr, ptr %obj, align 8
   %tobool50.not = icmp eq ptr %16, null
   br i1 %tobool50.not, label %if.end52, label %if.then51
@@ -3703,7 +3703,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -3801,7 +3801,7 @@ if.end18:                                         ; preds = %if.else, %if.end10
   br i1 %cmp19, label %skip_optional.thread, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %arrayidx22 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx22 = getelementptr i8, ptr %args, i64 8
   %7 = load ptr, ptr %arrayidx22, align 8
   %cmp23 = icmp eq ptr %7, @_Py_NoneStruct
   br i1 %cmp23, label %if.end43, label %if.else25
@@ -3841,7 +3841,7 @@ if.end43:                                         ; preds = %if.end21, %if.end35
   br i1 %cmp44, label %skip_optional.thread, label %if.end46
 
 if.end46:                                         ; preds = %if.end43
-  %arrayidx47 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx47 = getelementptr i8, ptr %args, i64 16
   %13 = load ptr, ptr %arrayidx47, align 8
   %call48 = call i32 @PyObject_IsTrue(ptr noundef %13) #5
   %call48.fr = freeze i32 %call48
@@ -3888,7 +3888,7 @@ _codecs_unicode_escape_decode_impl.exit:          ; preds = %16, %if.end.i.i
 
 exit:                                             ; preds = %if.end46, %if.then30, %if.else, %if.then5, %lor.lhs.false, %_codecs_unicode_escape_decode_impl.exit, %if.else40, %if.then38
   %return_value.0 = phi ptr [ null, %if.then5 ], [ %retval.0.i.i, %_codecs_unicode_escape_decode_impl.exit ], [ null, %if.end46 ], [ null, %if.then30 ], [ null, %if.then38 ], [ null, %if.else40 ], [ null, %if.else ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %19 = load ptr, ptr %obj, align 8
   %tobool53.not = icmp eq ptr %19, null
   br i1 %tobool53.not, label %if.end55, label %if.then54
@@ -3933,7 +3933,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -4031,7 +4031,7 @@ if.end18:                                         ; preds = %if.else, %if.end10
   br i1 %cmp19, label %skip_optional.thread, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %arrayidx22 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx22 = getelementptr i8, ptr %args, i64 8
   %7 = load ptr, ptr %arrayidx22, align 8
   %cmp23 = icmp eq ptr %7, @_Py_NoneStruct
   br i1 %cmp23, label %if.end43, label %if.else25
@@ -4071,7 +4071,7 @@ if.end43:                                         ; preds = %if.end21, %if.end35
   br i1 %cmp44, label %skip_optional.thread, label %if.end46
 
 if.end46:                                         ; preds = %if.end43
-  %arrayidx47 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx47 = getelementptr i8, ptr %args, i64 16
   %13 = load ptr, ptr %arrayidx47, align 8
   %call48 = call i32 @PyObject_IsTrue(ptr noundef %13) #5
   %call48.fr = freeze i32 %call48
@@ -4118,7 +4118,7 @@ _codecs_raw_unicode_escape_decode_impl.exit:      ; preds = %16, %if.end.i.i
 
 exit:                                             ; preds = %if.end46, %if.then30, %if.else, %if.then5, %lor.lhs.false, %_codecs_raw_unicode_escape_decode_impl.exit, %if.else40, %if.then38
   %return_value.0 = phi ptr [ null, %if.then5 ], [ %retval.0.i.i, %_codecs_raw_unicode_escape_decode_impl.exit ], [ null, %if.end46 ], [ null, %if.then30 ], [ null, %if.then38 ], [ null, %if.else40 ], [ null, %if.else ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %19 = load ptr, ptr %obj, align 8
   %tobool53.not = icmp eq ptr %19, null
   br i1 %tobool53.not, label %if.end55, label %if.then54
@@ -4163,7 +4163,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -4240,7 +4240,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %skip_optional, label %if.else
@@ -4277,7 +4277,7 @@ if.else26:                                        ; preds = %if.else
 skip_optional:                                    ; preds = %if.end8, %if.end21, %if.end5
   %errors.0 = phi ptr [ null, %if.end5 ], [ %call18, %if.end21 ], [ null, %if.end8 ]
   %8 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %9 = load i64, ptr %len.i, align 8
   %call.i = call ptr @PyUnicode_DecodeLatin1(ptr noundef %8, i64 noundef %9, ptr noundef %errors.0) #5
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -4290,7 +4290,7 @@ if.end.i.i:                                       ; preds = %skip_optional
 
 exit:                                             ; preds = %if.end.i.i, %skip_optional, %if.then16, %if.end, %lor.lhs.false, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end.i.i ], [ null, %skip_optional ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %11 = load ptr, ptr %obj, align 8
   %tobool31.not = icmp eq ptr %11, null
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -4335,7 +4335,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %skip_optional, label %if.else
@@ -4412,7 +4412,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %skip_optional, label %if.else
@@ -4449,7 +4449,7 @@ if.else26:                                        ; preds = %if.else
 skip_optional:                                    ; preds = %if.end8, %if.end21, %if.end5
   %errors.0 = phi ptr [ null, %if.end5 ], [ %call18, %if.end21 ], [ null, %if.end8 ]
   %8 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %9 = load i64, ptr %len.i, align 8
   %call.i = call ptr @PyUnicode_DecodeASCII(ptr noundef %8, i64 noundef %9, ptr noundef %errors.0) #5
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -4462,7 +4462,7 @@ if.end.i.i:                                       ; preds = %skip_optional
 
 exit:                                             ; preds = %if.end.i.i, %skip_optional, %if.then16, %if.end, %lor.lhs.false, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end.i.i ], [ null, %skip_optional ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %11 = load ptr, ptr %obj, align 8
   %tobool31.not = icmp eq ptr %11, null
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -4507,7 +4507,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp13, label %if.end32, label %if.else
@@ -4547,7 +4547,7 @@ if.end32:                                         ; preds = %if.end11, %if.end24
   br i1 %cmp33, label %skip_optional, label %if.end35
 
 if.end35:                                         ; preds = %if.end32
-  %arrayidx36 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx36 = getelementptr i8, ptr %args, i64 16
   %11 = load ptr, ptr %arrayidx36, align 8
   br label %skip_optional
 
@@ -4597,7 +4597,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %skip_optional, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp10, label %if.end29, label %if.else
@@ -4637,7 +4637,7 @@ if.end29:                                         ; preds = %if.end8, %if.end21
   br i1 %cmp30, label %skip_optional, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %arrayidx33 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx33 = getelementptr i8, ptr %args, i64 16
   %8 = load ptr, ptr %arrayidx33, align 8
   br label %skip_optional
 
@@ -4647,7 +4647,7 @@ skip_optional:                                    ; preds = %if.end29, %if.end5,
   %cmp.i12 = icmp eq ptr %mapping.0, @_Py_NoneStruct
   %spec.store.select.i = select i1 %cmp.i12, ptr null, ptr %mapping.0
   %9 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %10 = load i64, ptr %len.i, align 8
   %call.i = call ptr @PyUnicode_DecodeCharmap(ptr noundef %9, i64 noundef %10, ptr noundef %spec.store.select.i, ptr noundef %errors.1) #5
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -4660,7 +4660,7 @@ if.end.i.i:                                       ; preds = %skip_optional
 
 exit:                                             ; preds = %if.end.i.i, %skip_optional, %if.then16, %if.end, %lor.lhs.false, %if.else26, %if.then24
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then16 ], [ null, %if.then24 ], [ null, %if.else26 ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end.i.i ], [ null, %skip_optional ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %12 = load ptr, ptr %obj, align 8
   %tobool35.not = icmp eq ptr %12, null
   br i1 %tobool35.not, label %if.end37, label %if.then36
@@ -4744,7 +4744,7 @@ if.end18:                                         ; preds = %if.else, %if.end10
   br i1 %cmp19, label %skip_optional, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %arrayidx22 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx22 = getelementptr i8, ptr %args, i64 8
   %7 = load ptr, ptr %arrayidx22, align 8
   %cmp23 = icmp eq ptr %7, @_Py_NoneStruct
   br i1 %cmp23, label %skip_optional, label %if.else25
@@ -4780,7 +4780,7 @@ if.else40:                                        ; preds = %if.else25
 
 skip_optional:                                    ; preds = %if.end21, %if.end35, %if.end18
   %13 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %14 = load i64, ptr %len.i, align 8
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %13, i64 noundef %14) #5
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -4793,7 +4793,7 @@ if.end.i.i:                                       ; preds = %skip_optional
 
 exit:                                             ; preds = %if.end.i.i, %skip_optional, %if.then30, %if.else, %if.then5, %lor.lhs.false, %if.else40, %if.then38
   %return_value.0 = phi ptr [ null, %if.then5 ], [ null, %if.then30 ], [ null, %if.then38 ], [ null, %if.else40 ], [ null, %if.else ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end.i.i ], [ null, %skip_optional ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %16 = load ptr, ptr %obj, align 8
   %tobool45.not = icmp eq ptr %16, null
   br i1 %tobool45.not, label %if.end47, label %if.then46
@@ -4849,7 +4849,7 @@ if.then15:                                        ; preds = %if.end12
   br label %exit
 
 if.end16:                                         ; preds = %if.end12
-  %arrayidx17 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx17 = getelementptr i8, ptr %args, i64 8
   %6 = load ptr, ptr %arrayidx17, align 8
   %call.i = call i32 @PyCodec_RegisterError(ptr noundef nonnull %call9, ptr noundef %6) #5
   %tobool.not.i = icmp eq i32 %call.i, 0

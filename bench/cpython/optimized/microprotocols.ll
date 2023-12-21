@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"adapters\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
@@ -17,7 +16,7 @@ define hidden i32 @pysqlite_microprotocols_init(ptr noundef %module) local_unnam
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #2
   %call1 = tail call ptr @PyDict_New() #2
-  %psyco_adapters = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 12
+  %psyco_adapters = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %call1, ptr %psyco_adapters, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -43,7 +42,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %psyco_adapters = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 12
+  %psyco_adapters = getelementptr inbounds i8, ptr %state, i64 96
   %0 = load ptr, ptr %psyco_adapters, align 8
   %call1 = tail call i32 @PyDict_SetItem(ptr noundef %0, ptr noundef nonnull %call, ptr noundef %cast) #2
   %1 = load i64, ptr %call, align 8
@@ -81,7 +80,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %psyco_adapters = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 12
+  %psyco_adapters = getelementptr inbounds i8, ptr %state, i64 96
   %1 = load ptr, ptr %psyco_adapters, align 8
   %call2 = call i32 @PyDict_GetItemRef(ptr noundef %1, ptr noundef nonnull %call1, ptr noundef nonnull %adapter) #2
   %cmp = icmp slt i32 %call2, 0
@@ -140,7 +139,7 @@ if.then1.i82:                                     ; preds = %if.end.i79
   br label %return
 
 if.end8:                                          ; preds = %Py_DECREF.exit93
-  %str___adapt__ = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 21
+  %str___adapt__ = getelementptr inbounds i8, ptr %state, i64 160
   %8 = load ptr, ptr %str___adapt__, align 8
   %call9 = call i32 @PyObject_GetOptionalAttr(ptr noundef %proto, ptr noundef %8, ptr noundef nonnull %adapter) #2
   %cmp10 = icmp slt i32 %call9, 0
@@ -204,7 +203,7 @@ if.else22:                                        ; preds = %lor.lhs.false
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else22, %if.then17, %if.then1.i64, %if.end.i61, %if.end12
-  %str___conform__ = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 22
+  %str___conform__ = getelementptr inbounds i8, ptr %state, i64 168
   %16 = load ptr, ptr %str___conform__, align 8
   %call26 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef %16, ptr noundef nonnull %adapter) #2
   %cmp27 = icmp slt i32 %call26, 0
@@ -282,7 +281,7 @@ if.end.i.i:                                       ; preds = %if.then46
   br label %return
 
 if.end48:                                         ; preds = %if.end44
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %state, i64 0, i32 8
+  %ProgrammingError = getelementptr inbounds i8, ptr %state, i64 64
   %25 = load ptr, ptr %ProgrammingError, align 8
   call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.1) #2
   br label %return

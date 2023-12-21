@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-t_spki.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Netscape_spkac_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.Netscape_spki_st = type { ptr, %struct.X509_algor_st, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [16 x i8] c"Netscape SPKI:\0A\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"  Public Key Algorithm: %s\0A\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
@@ -57,20 +52,20 @@ if.else:                                          ; preds = %cond.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %5 = load ptr, ptr %spki, align 8
-  %challenge = getelementptr inbounds %struct.Netscape_spkac_st, ptr %5, i64 0, i32 1
+  %challenge = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %challenge, align 8
   %7 = load i32, ptr %6, align 8
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %data, align 8
   %call14 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.4, i32 noundef %7, ptr noundef %8) #2
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.end
-  %sig_algor = getelementptr inbounds %struct.Netscape_spki_st, ptr %spki, i64 0, i32 1
+  %sig_algor = getelementptr inbounds i8, ptr %spki, i64 8
   %9 = load ptr, ptr %sig_algor, align 8
   %call16 = call i32 @OBJ_obj2nid(ptr noundef %9) #2
   %cmp17 = icmp eq i32 %call16, 0
@@ -83,10 +78,10 @@ cond.false19:                                     ; preds = %if.end15
 cond.end21:                                       ; preds = %if.end15, %cond.false19
   %cond22 = phi ptr [ %call20, %cond.false19 ], [ @.str.2, %if.end15 ]
   %call23 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.5, ptr noundef %cond22) #2
-  %signature = getelementptr inbounds %struct.Netscape_spki_st, ptr %spki, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %spki, i64 24
   %10 = load ptr, ptr %signature, align 8
   %11 = load i32, ptr %10, align 8
-  %data26 = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data26 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %data26, align 8
   %cmp2728 = icmp sgt i32 %11, 0
   br i1 %cmp2728, label %for.body.preheader, label %for.end

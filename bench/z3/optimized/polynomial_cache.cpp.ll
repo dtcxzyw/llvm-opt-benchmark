@@ -4,23 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.polynomial::cache::imp" = type { ptr, %class.chashtable, %class.chashtable.0, %class.chashtable.1, %class.ref_vector, %class.svector, ptr }
-%class.chashtable = type { %"struct.polynomial::poly_hash_proc", %"struct.polynomial::poly_eq_proc", ptr, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%"struct.polynomial::poly_hash_proc" = type { ptr }
-%"struct.polynomial::poly_eq_proc" = type { ptr }
-%class.chashtable.0 = type { ptr, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%class.chashtable.1 = type { ptr, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%class.ref_vector = type { %class.ref_vector_core }
-%class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector }
-%class.ref_manager_wrapper = type { ptr }
-%class.ptr_vector = type { %class.vector }
-%class.vector = type { ptr }
-%class.svector = type { %class.vector.2 }
-%class.vector.2 = type { ptr }
-%"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell" = type { ptr, ptr }
-%"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell" = type { ptr, ptr }
-%"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell" = type { ptr, ptr }
-%"struct.polynomial::psc_chain_entry" = type { ptr, ptr, i32, i32, i32, ptr }
 %"class.polynomial::manager::factors" = type <{ %class.vector.3, %class.svector.4, ptr, %class.mpz, i32, [4 x i8] }>
 %class.vector.3 = type { ptr }
 %class.svector.4 = type { %class.vector.5 }
@@ -28,14 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.mpz = type { i32, i8, ptr }
 %"struct.polynomial::factor_params" = type { i32, i32, i32 }
 %class.obj_ref = type { ptr, ptr }
-%"struct.polynomial::factor_entry" = type { ptr, i32, i32, ptr }
+%"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
 %struct._Guard = type { ptr }
+%"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell" = type { ptr, ptr }
+%"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell" = type { ptr, ptr }
 
 $_ZN10polynomial5cache3impC2ERNS_7managerE = comdat any
 
@@ -123,16 +106,16 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 define linkonce_odr hidden void @_ZN10polynomial5cache3impC2ERNS_7managerE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(8) %_m) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %_m, ptr %this, align 8
-  %m_poly_table = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1
+  %m_poly_table = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %_m to i64
   store i64 %0, ptr %m_poly_table, align 8
-  %1 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %0, ptr %1, align 8
-  %m_init_slots.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 4
+  %m_init_slots.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 8, ptr %m_init_slots.i, align 4
-  %m_init_cellar.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 5
+  %m_init_cellar.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 2, ptr %m_init_cellar.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 10, ptr %m_capacity.i.i, align 8
   %call.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
   br label %for.body.i.i.i.i
@@ -142,26 +125,26 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %curr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i.i, %entry ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i32 %i.07.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %curr.06.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i, i64 16
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 10
   br i1 %exitcond.not.i.i.i.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEEC2ERKS3_RKS4_jj.exit, label %for.body.i.i.i.i, !llvm.loop !4
 
 _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEEC2ERKS3_RKS4_jj.exit: ; preds = %for.body.i.i.i.i
-  %m_table.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 2
+  %m_table.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call.i.i.i.i, ptr %m_table.i.i, align 8
-  %m_slots.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 6
-  %add.ptr.i.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i.i.i, i64 8
-  %m_next_cell.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 10
+  %m_slots.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 128
+  %m_next_cell.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i.i, ptr %m_next_cell.i.i, align 8
-  %m_free_cell.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 11
+  %m_free_cell.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i, align 4
-  %m_psc_chain_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2
-  %m_init_slots.i4 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 2
+  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
+  %m_init_slots.i4 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 8, ptr %m_init_slots.i4, align 4
-  %m_init_cellar.i5 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 3
+  %m_init_cellar.i5 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 2, ptr %m_init_cellar.i5, align 8
-  %m_capacity.i.i6 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 1
+  %m_capacity.i.i6 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 10, ptr %m_capacity.i.i6, align 8
   %call.i.i.i.i721 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
           to label %for.body.i.i.i.i8 unwind label %lpad
@@ -171,25 +154,25 @@ for.body.i.i.i.i8:                                ; preds = %_ZN10chashtableIPN1
   %curr.06.i.i.i.i10 = phi ptr [ %incdec.ptr.i.i.i.i12, %for.body.i.i.i.i8 ], [ %call.i.i.i.i721, %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEEC2ERKS3_RKS4_jj.exit ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i10, align 8
   %inc.i.i.i.i11 = add nuw nsw i32 %i.07.i.i.i.i9, 1
-  %incdec.ptr.i.i.i.i12 = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %curr.06.i.i.i.i10, i64 1
+  %incdec.ptr.i.i.i.i12 = getelementptr inbounds i8, ptr %curr.06.i.i.i.i10, i64 16
   %exitcond.not.i.i.i.i13 = icmp eq i32 %inc.i.i.i.i11, 10
   br i1 %exitcond.not.i.i.i.i13, label %invoke.cont, label %for.body.i.i.i.i8, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i8
   store ptr %call.i.i.i.i721, ptr %m_psc_chain_cache, align 8
-  %m_slots.i.i14 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 4
-  %add.ptr.i.i17 = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i.i.i721, i64 8
-  %m_next_cell.i.i18 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 8
+  %m_slots.i.i14 = getelementptr inbounds i8, ptr %this, i64 108
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i.i721, i64 128
+  %m_next_cell.i.i18 = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %add.ptr.i.i17, ptr %m_next_cell.i.i18, align 8
-  %m_free_cell.i.i19 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 9
+  %m_free_cell.i.i19 = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i19, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i14, align 4
-  %m_factor_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3
-  %m_init_slots.i22 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 2
+  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
+  %m_init_slots.i22 = getelementptr inbounds i8, ptr %this, i64 164
   store i32 8, ptr %m_init_slots.i22, align 4
-  %m_init_cellar.i23 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 3
+  %m_init_cellar.i23 = getelementptr inbounds i8, ptr %this, i64 168
   store i32 2, ptr %m_init_cellar.i23, align 8
-  %m_capacity.i.i24 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 1
+  %m_capacity.i.i24 = getelementptr inbounds i8, ptr %this, i64 160
   store i32 10, ptr %m_capacity.i.i24, align 8
   %call.i.i.i.i2539 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
           to label %for.body.i.i.i.i26 unwind label %lpad9
@@ -199,30 +182,30 @@ for.body.i.i.i.i26:                               ; preds = %invoke.cont, %for.b
   %curr.06.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i30, %for.body.i.i.i.i26 ], [ %call.i.i.i.i2539, %invoke.cont ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i28, align 8
   %inc.i.i.i.i29 = add nuw nsw i32 %i.07.i.i.i.i27, 1
-  %incdec.ptr.i.i.i.i30 = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %curr.06.i.i.i.i28, i64 1
+  %incdec.ptr.i.i.i.i30 = getelementptr inbounds i8, ptr %curr.06.i.i.i.i28, i64 16
   %exitcond.not.i.i.i.i31 = icmp eq i32 %inc.i.i.i.i29, 10
   br i1 %exitcond.not.i.i.i.i31, label %invoke.cont13, label %for.body.i.i.i.i26, !llvm.loop !7
 
 invoke.cont13:                                    ; preds = %for.body.i.i.i.i26
   store ptr %call.i.i.i.i2539, ptr %m_factor_cache, align 8
-  %m_slots.i.i32 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 4
-  %add.ptr.i.i35 = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i.i.i2539, i64 8
-  %m_next_cell.i.i36 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 8
+  %m_slots.i.i32 = getelementptr inbounds i8, ptr %this, i64 172
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %call.i.i.i.i2539, i64 128
+  %m_next_cell.i.i36 = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %add.ptr.i.i35, ptr %m_next_cell.i.i36, align 8
-  %m_free_cell.i.i37 = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 9
+  %m_free_cell.i.i37 = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i37, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i32, align 4
-  %m_cached_polys = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 4
+  %m_cached_polys = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %this, align 8
   %3 = ptrtoint ptr %2 to i64
   store i64 %3, ptr %m_cached_polys, align 8
-  %m_nodes.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i, i8 0, i64 16, i1 false)
   %call = invoke noundef nonnull align 8 dereferenceable(520) ptr @_ZNK10polynomial7manager9allocatorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont13
-  %m_allocator = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 6
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 240
   store ptr %call, ptr %m_allocator, align 8
   ret void
 
@@ -239,7 +222,7 @@ lpad9:                                            ; preds = %invoke.cont
 lpad17:                                           ; preds = %invoke.cont13
   %6 = landingpad { ptr, i32 }
           cleanup
-  %m_in_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 5
+  %m_in_cache = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN7svectorIcjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_in_cache) #12
   tail call void @_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cached_polys) #12
   tail call void @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_factor_cache) #12
@@ -313,14 +296,14 @@ define linkonce_odr hidden noundef ptr @_ZN10polynomial5cache3imp9mk_uniqueEPNS_
 entry:
   %p.addr = alloca ptr, align 8
   store ptr %p, ptr %p.addr, align 8
-  %m_in_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 5
+  %m_in_cache = getelementptr inbounds i8, ptr %this, i64 232
   %call.i = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %p)
   %0 = load ptr, ptr %m_in_cache, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.end, label %_ZNK6vectorIcLb0EjE3getEjRKc.exit
 
 _ZNK6vectorIcLb0EjE3getEjRKc.exit:                ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i = icmp ugt i32 %1, %call.i
   br i1 %cmp.not.i, label %_ZNK6vectorIcLb0EjE3getEjRKc.exit.cont, label %if.end
@@ -333,7 +316,7 @@ _ZNK6vectorIcLb0EjE3getEjRKc.exit.cont:           ; preds = %_ZNK6vectorIcLb0EjE
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %_ZNK6vectorIcLb0EjE3getEjRKc.exit, %_ZNK6vectorIcLb0EjE3getEjRKc.exit.cont
-  %m_poly_table = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1
+  %m_poly_table = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %m_poly_table, ptr noundef nonnull align 8 dereferenceable(8) %p.addr)
   %2 = load ptr, ptr %call3, align 8
   %3 = load ptr, ptr %p.addr, align 8
@@ -341,18 +324,18 @@ if.end:                                           ; preds = %entry, %_ZNK6vector
   br i1 %cmp, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end
-  %m_cached_polys = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 4
+  %m_cached_polys = getelementptr inbounds i8, ptr %this, i64 216
   %4 = load ptr, ptr %m_cached_polys, align 8
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
-  %m_nodes.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 224
   %5 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i4 = icmp eq ptr %5, null
   br i1 %cmp.i.i4, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then4
-  %arrayidx.i.i5 = getelementptr inbounds i32, ptr %5, i64 -1
+  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i.i5, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %5, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %7 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %6, %7
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
@@ -360,7 +343,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then4
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then4
   call void @_ZN6vectorIPN10polynomial10polynomialELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i)
   %.pre.i.i = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
 
@@ -371,7 +354,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %9, i64 %idx.ext.i.i
   store ptr %2, ptr %add.ptr.i.i, align 8
   %10 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %10, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %11, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -381,7 +364,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   br i1 %cmp.i.i7, label %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i, label %_ZNK6vectorIcLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIcLb0EjE4sizeEv.exit.i:                ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
-  %arrayidx.i.i8 = getelementptr inbounds i32, ptr %12, i64 -1
+  %arrayidx.i.i8 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i.i8, align 4
   %cmp.not.i9 = icmp ugt i32 %13, %call.i6
   br i1 %cmp.not.i9, label %_ZN6vectorIcLb0EjE4setxEjRKcS2_.exit, label %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i
@@ -412,7 +395,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   br i1 %cmp.i10.i.i, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i, label %if.end.i11.i.i
 
 if.end.i11.i.i:                                   ; preds = %while.cond.i.i
-  %arrayidx.i12.i.i = getelementptr inbounds i32, ptr %14, i64 -2
+  %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load i32, ptr %arrayidx.i12.i.i, align 4
   br label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i
 
@@ -427,7 +410,7 @@ while.body.i.i:                                   ; preds = %_ZNK6vectorIcLb0EjE
   br label %while.cond.i.i, !llvm.loop !8
 
 while.end.i.i:                                    ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i
-  %arrayidx.i3.i = getelementptr inbounds i32, ptr %14, i64 -1
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %14, i64 -4
   store i32 %add8.i.ph, ptr %arrayidx.i3.i, align 4
   %cmp8.not17.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %add8.i.ph
   br i1 %cmp8.not17.i.i, label %_ZN6vectorIcLb0EjE4setxEjRKcS2_.exit, label %for.body.preheader.i.i
@@ -514,27 +497,27 @@ entry:
   %sub4.i.i = sub i32 %xor3.i.i, %sub1.i.i
   %shl5.i.i = shl i32 %sub1.i.i, 10
   %xor6.i.i = xor i32 %sub4.i.i, %shl5.i.i
-  %m_allocator = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 6
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load ptr, ptr %m_allocator, align 8
   %call7 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %4, i64 noundef 40)
   store ptr %call, ptr %call7, align 8
-  %m_q.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %call7, i64 0, i32 1
+  %m_q.i = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %call2, ptr %m_q.i, align 8
-  %m_x.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %call7, i64 0, i32 2
+  %m_x.i = getelementptr inbounds i8, ptr %call7, i64 16
   store i32 %x, ptr %m_x.i, align 8
-  %m_hash.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %call7, i64 0, i32 3
+  %m_hash.i = getelementptr inbounds i8, ptr %call7, i64 20
   store i32 %xor6.i.i, ptr %m_hash.i, align 4
-  %m_result_sz.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %call7, i64 0, i32 4
+  %m_result_sz.i = getelementptr inbounds i8, ptr %call7, i64 24
   store i32 0, ptr %m_result_sz.i, align 8
-  %m_result.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %call7, i64 0, i32 5
+  %m_result.i = getelementptr inbounds i8, ptr %call7, i64 32
   store ptr null, ptr %m_result.i, align 8
   store ptr %call7, ptr %entry6, align 8
-  %m_psc_chain_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2
+  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %m_psc_chain_cache, ptr noundef nonnull align 8 dereferenceable(8) %entry6)
   %5 = load ptr, ptr %call8, align 8
   %6 = load ptr, ptr %entry6, align 8
   %cmp.not = icmp eq ptr %6, %5
-  %m_nodes.i30 = getelementptr inbounds %class.ref_vector_core, ptr %S, i64 0, i32 1
+  %m_nodes.i30 = getelementptr inbounds i8, ptr %S, i64 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -545,7 +528,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i: ; preds = %if.then
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %8, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %10 = zext i32 %9 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %10
@@ -557,7 +540,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIPN10pol
   %11 = load ptr, ptr %it.04.i.i, align 8
   %12 = load ptr, ptr %S, align 8
   call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %11)
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %it.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, !llvm.loop !9
 
@@ -568,18 +551,18 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 
 if.then.i.i:                                      ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
   %13 = phi ptr [ %.pre.i, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i ], [ %8, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i ]
-  %arrayidx.i2.i = getelementptr inbounds i32, ptr %13, i64 -1
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %13, i64 -4
   store i32 0, ptr %arrayidx.i2.i, align 4
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit
 
 _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit: ; preds = %if.then, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, %if.then.i.i
-  %m_result_sz = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %5, i64 0, i32 4
+  %m_result_sz = getelementptr inbounds i8, ptr %5, i64 24
   %14 = load i32, ptr %m_result_sz, align 8
   %cmp1037.not = icmp eq i32 %14, 0
   br i1 %cmp1037.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit
-  %m_result = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %5, i64 0, i32 5
+  %m_result = getelementptr inbounds i8, ptr %5, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
@@ -594,9 +577,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i27, label %if.then.i.i29, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body
-  %arrayidx.i.i28 = getelementptr inbounds i32, ptr %18, i64 -1
+  %arrayidx.i.i28 = getelementptr inbounds i8, ptr %18, i64 -4
   %19 = load i32, ptr %arrayidx.i.i28, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %18, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %18, i64 -8
   %20 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %19, %20
   br i1 %cmp5.i.i, label %if.then.i.i29, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
@@ -604,7 +587,7 @@ lor.lhs.false.i.i:                                ; preds = %for.body
 if.then.i.i29:                                    ; preds = %lor.lhs.false.i.i, %for.body
   call void @_ZN6vectorIPN10polynomial10polynomialELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i30)
   %.pre.i.i = load ptr, ptr %m_nodes.i30, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
 
@@ -615,7 +598,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %22, i64 %idx.ext.i.i
   store ptr %16, ptr %add.ptr.i.i, align 8
   %23 = load ptr, ptr %m_nodes.i30, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %23, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %23, i64 -4
   %24 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %24, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -633,21 +616,21 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i31, label %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else
-  %arrayidx.i.i32 = getelementptr inbounds i32, ptr %28, i64 -1
+  %arrayidx.i.i32 = getelementptr inbounds i8, ptr %28, i64 -4
   %29 = load i32, ptr %arrayidx.i.i32, align 4
   br label %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit
 
 _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit: ; preds = %if.else, %if.end.i.i
   %retval.0.i.i = phi i32 [ %29, %if.end.i.i ], [ 0, %if.else ]
   %30 = load ptr, ptr %entry6, align 8
-  %m_result_sz13 = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %30, i64 0, i32 4
+  %m_result_sz13 = getelementptr inbounds i8, ptr %30, i64 24
   store i32 %retval.0.i.i, ptr %m_result_sz13, align 8
   %31 = load ptr, ptr %m_allocator, align 8
   %conv = zext i32 %retval.0.i.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call15 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %31, i64 noundef %mul)
   %32 = load ptr, ptr %entry6, align 8
-  %m_result16 = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %32, i64 0, i32 5
+  %m_result16 = getelementptr inbounds i8, ptr %32, i64 32
   store ptr %call15, ptr %m_result16, align 8
   %cmp1939.not = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp1939.not, label %if.end, label %for.body20
@@ -669,7 +652,7 @@ for.body20:                                       ; preds = %_ZNK15ref_vector_co
   %arrayidx.i4.i.i = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv43
   store ptr %call23, ptr %arrayidx.i4.i.i, align 8
   %40 = load ptr, ptr %entry6, align 8
-  %m_result24 = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %40, i64 0, i32 5
+  %m_result24 = getelementptr inbounds i8, ptr %40, i64 32
   %41 = load ptr, ptr %m_result24, align 8
   %arrayidx26 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv43
   store ptr %call23, ptr %arrayidx26, align 8
@@ -696,13 +679,13 @@ entry:
   %fs = alloca %"class.polynomial::manager::factors", align 8
   %ref.tmp = alloca %"struct.polynomial::factor_params", align 4
   %ref.tmp24 = alloca %class.obj_ref, align 8
-  %m_nodes.i = getelementptr inbounds %class.ref_vector_core, ptr %distinct_factors, i64 0, i32 1
+  %m_nodes.i = getelementptr inbounds i8, ptr %distinct_factors, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i: ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
@@ -714,7 +697,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIPN10pol
   %3 = load ptr, ptr %it.04.i.i, align 8
   %4 = load ptr, ptr %distinct_factors, align 8
   tail call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %3)
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %it.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, !llvm.loop !9
 
@@ -725,7 +708,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 
 if.then.i.i:                                      ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
   %5 = phi ptr [ %.pre.i, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i ], [ %0, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i ]
-  %arrayidx.i2.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %5, i64 -4
   store i32 0, ptr %arrayidx.i2.i, align 4
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit
 
@@ -750,18 +733,18 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %shr13.i = lshr i32 %add11.i, 16
   %7 = xor i32 %add11.i, %shr13.i
   %xor14.i = xor i32 %7, -1252372727
-  %m_allocator = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 6
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 240
   %8 = load ptr, ptr %m_allocator, align 8
   %call5 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %8, i64 noundef 24)
   store ptr %call, ptr %call5, align 8
-  %m_hash.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %call5, i64 0, i32 1
+  %m_hash.i = getelementptr inbounds i8, ptr %call5, i64 8
   store i32 %xor14.i, ptr %m_hash.i, align 8
-  %m_result_sz.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %call5, i64 0, i32 2
+  %m_result_sz.i = getelementptr inbounds i8, ptr %call5, i64 12
   store i32 0, ptr %m_result_sz.i, align 4
-  %m_result.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %call5, i64 0, i32 3
+  %m_result.i = getelementptr inbounds i8, ptr %call5, i64 16
   store ptr null, ptr %m_result.i, align 8
   store ptr %call5, ptr %entry4, align 8
-  %m_factor_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3
+  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %m_factor_cache, ptr noundef nonnull align 8 dereferenceable(8) %entry4)
   %9 = load ptr, ptr %call6, align 8
   %10 = load ptr, ptr %entry4, align 8
@@ -776,7 +759,7 @@ if.then:                                          ; preds = %_ZN15ref_vector_cor
   br i1 %cmp.i.i20, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i21
 
 _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i21: ; preds = %if.then
-  %arrayidx.i.i22 = getelementptr inbounds i32, ptr %12, i64 -1
+  %arrayidx.i.i22 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i.i22, align 4
   %14 = zext i32 %13 to i64
   %add.ptr.i23 = getelementptr inbounds ptr, ptr %12, i64 %14
@@ -788,7 +771,7 @@ for.body.i.i25:                                   ; preds = %_ZNK6vectorIPN10pol
   %15 = load ptr, ptr %it.04.i.i26, align 8
   %16 = load ptr, ptr %distinct_factors, align 8
   call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %15)
-  %incdec.ptr.i.i27 = getelementptr inbounds ptr, ptr %it.04.i.i26, i64 1
+  %incdec.ptr.i.i27 = getelementptr inbounds i8, ptr %it.04.i.i26, i64 8
   %cmp.i1.i28 = icmp ult ptr %incdec.ptr.i.i27, %add.ptr.i23
   br i1 %cmp.i1.i28, label %for.body.i.i25, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i29, !llvm.loop !9
 
@@ -799,18 +782,18 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 
 if.then.i.i32:                                    ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i29, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i21
   %17 = phi ptr [ %.pre.i30, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i29 ], [ %12, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i21 ]
-  %arrayidx.i2.i33 = getelementptr inbounds i32, ptr %17, i64 -1
+  %arrayidx.i2.i33 = getelementptr inbounds i8, ptr %17, i64 -4
   store i32 0, ptr %arrayidx.i2.i33, align 4
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34
 
 _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34: ; preds = %if.then, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i29, %if.then.i.i32
-  %m_result_sz = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %9, i64 0, i32 2
+  %m_result_sz = getelementptr inbounds i8, ptr %9, i64 12
   %18 = load i32, ptr %m_result_sz, align 4
   %cmp861.not = icmp eq i32 %18, 0
   br i1 %cmp861.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34
-  %m_result = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %9, i64 0, i32 3
+  %m_result = getelementptr inbounds i8, ptr %9, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
@@ -825,9 +808,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i36, label %if.then.i.i38, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body
-  %arrayidx.i.i37 = getelementptr inbounds i32, ptr %22, i64 -1
+  %arrayidx.i.i37 = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i.i37, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %22, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %23, %24
   br i1 %cmp5.i.i, label %if.then.i.i38, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
@@ -835,7 +818,7 @@ lor.lhs.false.i.i:                                ; preds = %for.body
 if.then.i.i38:                                    ; preds = %lor.lhs.false.i.i, %for.body
   call void @_ZN6vectorIPN10polynomial10polynomialELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i)
   %.pre.i.i = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
 
@@ -846,7 +829,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i.i
   store ptr %20, ptr %add.ptr.i.i, align 8
   %27 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %27, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %28, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -873,14 +856,14 @@ invoke.cont11:                                    ; preds = %invoke.cont
   br i1 %cmp.i.i39, label %invoke.cont12, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont11
-  %arrayidx.i.i40 = getelementptr inbounds i32, ptr %33, i64 -1
+  %arrayidx.i.i40 = getelementptr inbounds i8, ptr %33, i64 -4
   %34 = load i32, ptr %arrayidx.i.i40, align 4
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.end.i.i, %invoke.cont11
   %retval.0.i.i = phi i32 [ %34, %if.end.i.i ], [ 0, %invoke.cont11 ]
   %35 = load ptr, ptr %entry4, align 8
-  %m_result_sz14 = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %35, i64 0, i32 2
+  %m_result_sz14 = getelementptr inbounds i8, ptr %35, i64 12
   store i32 %retval.0.i.i, ptr %m_result_sz14, align 4
   %36 = load ptr, ptr %m_allocator, align 8
   %conv = zext i32 %retval.0.i.i to i64
@@ -890,13 +873,13 @@ invoke.cont12:                                    ; preds = %if.end.i.i, %invoke
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %37 = load ptr, ptr %entry4, align 8
-  %m_result18 = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %37, i64 0, i32 3
+  %m_result18 = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %call17, ptr %m_result18, align 8
   %cmp2163.not = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp2163.not, label %for.end38, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %invoke.cont16
-  %m_manager.i.i = getelementptr inbounds %class.obj_ref, ptr %ref.tmp24, i64 0, i32 1
+  %m_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %invoke.cont31
@@ -938,9 +921,9 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit: ; preds = %invoke
   br i1 %cmp.i.i44, label %if.then.i.i53, label %lor.lhs.false.i.i45
 
 lor.lhs.false.i.i45:                              ; preds = %.noexc
-  %arrayidx.i.i46 = getelementptr inbounds i32, ptr %45, i64 -1
+  %arrayidx.i.i46 = getelementptr inbounds i8, ptr %45, i64 -4
   %46 = load i32, ptr %arrayidx.i.i46, align 4
-  %arrayidx4.i.i47 = getelementptr inbounds i32, ptr %45, i64 -2
+  %arrayidx4.i.i47 = getelementptr inbounds i8, ptr %45, i64 -8
   %47 = load i32, ptr %arrayidx4.i.i47, align 4
   %cmp5.i.i48 = icmp eq i32 %46, %47
   br i1 %cmp5.i.i48, label %if.then.i.i53, label %invoke.cont31
@@ -951,7 +934,7 @@ if.then.i.i53:                                    ; preds = %lor.lhs.false.i.i45
 
 .noexc57:                                         ; preds = %if.then.i.i53
   %.pre.i.i54 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i55 = getelementptr inbounds i32, ptr %.pre.i.i54, i64 -1
+  %arrayidx8.phi.trans.insert.i.i55 = getelementptr inbounds i8, ptr %.pre.i.i54, i64 -4
   %.pre1.i.i56 = load i32, ptr %arrayidx8.phi.trans.insert.i.i55, align 4
   br label %invoke.cont31
 
@@ -962,12 +945,12 @@ invoke.cont31:                                    ; preds = %.noexc57, %lor.lhs.
   %add.ptr.i.i50 = getelementptr inbounds ptr, ptr %49, i64 %idx.ext.i.i49
   store ptr %call30, ptr %add.ptr.i.i50, align 8
   %50 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx10.i.i51 = getelementptr inbounds i32, ptr %50, i64 -1
+  %arrayidx10.i.i51 = getelementptr inbounds i8, ptr %50, i64 -4
   %51 = load i32, ptr %arrayidx10.i.i51, align 4
   %inc.i.i52 = add i32 %51, 1
   store i32 %inc.i.i52, ptr %arrayidx10.i.i51, align 4
   %52 = load ptr, ptr %entry4, align 8
-  %m_result33 = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %52, i64 0, i32 3
+  %m_result33 = getelementptr inbounds i8, ptr %52, i64 16
   %53 = load ptr, ptr %m_result33, align 8
   %arrayidx35 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv66
   store ptr %call30, ptr %arrayidx35, align 8
@@ -1027,7 +1010,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN6vectorIcLb0EjED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN6vectorIcLb0EjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1045,13 +1028,13 @@ _ZN6vectorIcLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_nodes.i = getelementptr inbounds %class.ref_vector_core, ptr %this, i64 0, i32 1
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEED2Ev.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i: ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
@@ -1066,7 +1049,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIPN10pol
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %it.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i1.i, label %for.body.i.i, label %invoke.cont8.i, !llvm.loop !9
 
@@ -1077,7 +1060,7 @@ invoke.cont8.i:                                   ; preds = %.noexc.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont8.i, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
   %5 = phi ptr [ %.pre.i, %invoke.cont8.i ], [ %0, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 -2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1146,7 +1129,7 @@ terminate.lpad:                                   ; preds = %for.cond.preheader.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_table.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 2
+  %m_table.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_table.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont, label %for.cond.preheader.i.i
@@ -1179,17 +1162,17 @@ declare void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_free_cell.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 11
+  %m_free_cell.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_free_cell.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit, label %if.end
 
 _ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit: ; preds = %entry
-  %m_next_cell.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 10
+  %m_next_cell.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %m_next_cell.i, align 8
-  %m_table.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 2
+  %m_table.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_table.i, align 8
-  %m_capacity.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %2, i64 %idx.ext.i
@@ -1201,14 +1184,14 @@ if.then:                                          ; preds = %_ZNK10chashtableIPN
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit
-  %m_slots = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 6
+  %m_slots = getelementptr inbounds i8, ptr %this, i64 36
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
   %6 = load ptr, ptr %this, align 8
   %call.i.i = tail call noundef i32 @_ZN10polynomial7manager4hashEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %5)
   %and = and i32 %call.i.i, %sub
-  %m_table = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 2
+  %m_table = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %m_table, align 8
   %idx.ext = zext i32 %and to i64
   %add.ptr = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %7, i64 %idx.ext
@@ -1220,23 +1203,23 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 do.body.preheader:                                ; preds = %if.end
   %add.ptr.i16 = getelementptr inbounds i8, ptr %this, i64 8
-  %m_collisions = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 9
+  %m_collisions = getelementptr inbounds i8, ptr %this, i64 48
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %m_used_slots = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 7
+  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load <2 x i32>, ptr %m_used_slots, align 8
   %11 = add <2 x i32> %10, <i32 1, i32 1>
   store <2 x i32> %11, ptr %m_used_slots, align 8
   %12 = load ptr, ptr %d, align 8
-  %m_data = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %7, i64 %idx.ext, i32 1
+  %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %12, ptr %m_data, align 8
   store ptr null, ptr %add.ptr, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %if.end11
   %it.0 = phi ptr [ %17, %if.end11 ], [ %add.ptr, %do.body.preheader ]
-  %m_data7 = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %it.0, i64 0, i32 1
+  %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
   %13 = load ptr, ptr %m_data7, align 8
   %14 = load ptr, ptr %d, align 8
   %15 = load ptr, ptr %add.ptr.i16, align 8
@@ -1252,7 +1235,7 @@ if.end11:                                         ; preds = %do.body
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %if.end11
-  %m_size14 = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 8
+  %m_size14 = getelementptr inbounds i8, ptr %this, i64 44
   %18 = load i32, ptr %m_size14, align 4
   %inc15 = add i32 %18, 1
   store i32 %inc15, ptr %m_size14, align 4
@@ -1266,9 +1249,9 @@ if.then.i:                                        ; preds = %do.end
   br label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
-  %m_next_cell.i20 = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 10
+  %m_next_cell.i20 = getelementptr inbounds i8, ptr %this, i64 56
   %21 = load ptr, ptr %m_next_cell.i20, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %21, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i, ptr %m_next_cell.i20, align 8
   br label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE13get_free_cellEv.exit
 
@@ -1276,13 +1259,13 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   %retval.0.i = phi ptr [ %19, %if.then.i ], [ %21, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   %22 = load ptr, ptr %d, align 8
-  %m_data17 = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %7, i64 %idx.ext, i32 1
+  %m_data17 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %22, ptr %m_data17, align 8
   store ptr %retval.0.i, ptr %add.ptr, align 8
   br label %return
 
 return.loopexit:                                  ; preds = %do.body
-  %m_data7.le = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %it.0, i64 0, i32 1
+  %m_data7.le = getelementptr inbounds i8, ptr %it.0, i64 8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE13get_free_cellEv.exit, %if.then4
@@ -1295,14 +1278,14 @@ declare noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef) 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 3
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_capacity, align 8
-  %m_slots = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 6
+  %m_slots = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %m_slots, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %1, 1
-  %m_table = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 2
-  %m_used_slots = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 7
+  %m_table = getelementptr inbounds i8, ptr %this, i64 16
+  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 40
   %sub.i = add i32 %mul, -1
   %idx.ext2.i = zext i32 %mul to i64
   br label %while.body
@@ -1322,7 +1305,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %curr.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
   br i1 %exitcond.not.i.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE11alloc_tableEj.exit, label %for.body.i.i, !llvm.loop !4
 
@@ -1349,7 +1332,7 @@ for.body.i:                                       ; preds = %_ZN10chashtableIPN1
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
   %list_it.0.i = phi ptr [ %13, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
   %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
-  %m_data.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %list_it.0.i, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %7 = load ptr, ptr %this, align 8
   %call.i.i.i = tail call noundef i32 @_ZN10polynomial7manager4hashEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %6)
@@ -1364,7 +1347,7 @@ do.body.i:                                        ; preds = %for.body.i, %if.end
 
 if.then10.i:                                      ; preds = %do.body.i
   %10 = load ptr, ptr %m_data.i, align 8
-  %m_data12.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i, i32 1
+  %m_data12.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
   store ptr %10, ptr %m_data12.i, align 8
   store ptr null, ptr %add.ptr8.i, align 8
   %11 = load i32, ptr %m_used_slots, align 8
@@ -1379,10 +1362,10 @@ if.else.i:                                        ; preds = %do.body.i
 if.end.i:                                         ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_cellar.1.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i, i64 16, i1 false)
   %12 = load ptr, ptr %m_data.i, align 8
-  %m_data16.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i, i32 1
+  %m_data16.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
   store ptr %12, ptr %m_data16.i, align 8
   store ptr %target_cellar.1.i, ptr %add.ptr8.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %target_cellar.1.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_cellar.1.i, i64 16
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i, %if.then10.i
@@ -1393,7 +1376,7 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
   %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %source_it.027.i, i64 1
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !16
 
@@ -1415,9 +1398,9 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   store ptr %call.i.i, ptr %m_table, align 8
   store i32 %add, ptr %m_capacity, align 8
   store i32 %mul, ptr %m_slots, align 4
-  %m_next_cell = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 10
+  %m_next_cell = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %retval.0.i, ptr %m_next_cell, align 8
-  %m_free_cell = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 11
+  %m_free_cell = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell, i8 0, i64 16, i1 false)
   ret void
 
@@ -1451,14 +1434,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -1482,7 +1465,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #14
           to label %unreachable unwind label %ehcleanup
@@ -1504,7 +1487,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1560,7 +1543,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #12
   ret void
 }
@@ -1694,14 +1677,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 10)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -1721,7 +1704,7 @@ if.then17:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #14
           to label %unreachable unwind label %ehcleanup
@@ -1743,7 +1726,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %if.else
   %conv24 = zext i32 %narrow to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1764,16 +1747,16 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_free_cell.i = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 9
+  %m_free_cell.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_free_cell.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   %.pre21 = load ptr, ptr %this, align 8
   br i1 %cmp.not.i, label %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit, label %if.end
 
 _ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit: ; preds = %entry
-  %m_next_cell.i = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 8
+  %m_next_cell.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_next_cell.i, align 8
-  %m_capacity.i = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 1
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %.pre21, i64 %idx.ext.i
@@ -1787,11 +1770,11 @@ if.then:                                          ; preds = %_ZNK10chashtableIPN
 
 if.end:                                           ; preds = %entry, %if.then, %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit
   %3 = phi ptr [ %.pre21, %entry ], [ %.pre, %if.then ], [ %.pre21, %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit ]
-  %m_slots = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 4
+  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
-  %m_hash.i.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %5, i64 0, i32 3
+  %m_hash.i.i = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %m_hash.i.i, align 4
   %and = and i32 %6, %sub
   %idx.ext = zext i32 %and to i64
@@ -1803,23 +1786,23 @@ if.end:                                           ; preds = %entry, %if.then, %_
   br i1 %cmp.i, label %if.then4, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %m_collisions = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 7
+  %m_collisions = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %m_used_slots = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 5
+  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load <2 x i32>, ptr %m_used_slots, align 8
   %10 = add <2 x i32> %9, <i32 1, i32 1>
   store <2 x i32> %10, ptr %m_used_slots, align 8
   %11 = load ptr, ptr %d, align 8
-  %m_data = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %3, i64 %idx.ext, i32 1
+  %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %11, ptr %m_data, align 8
   store ptr null, ptr %add.ptr, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %if.end11
   %it.0 = phi ptr [ %21, %if.end11 ], [ %add.ptr, %do.body.preheader ]
-  %m_data7 = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %it.0, i64 0, i32 1
+  %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
   %12 = load ptr, ptr %m_data7, align 8
   %13 = load ptr, ptr %d, align 8
   %14 = load ptr, ptr %12, align 8
@@ -1828,17 +1811,17 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end11
 
 land.lhs.true.i.i:                                ; preds = %do.body
-  %m_q.i.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %12, i64 0, i32 1
+  %m_q.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load ptr, ptr %m_q.i.i, align 8
-  %m_q3.i.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %13, i64 0, i32 1
+  %m_q3.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load ptr, ptr %m_q3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %16, %17
   br i1 %cmp4.i.i, label %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE6equalsERKS2_S7_.exit, label %if.end11
 
 _ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE6equalsERKS2_S7_.exit: ; preds = %land.lhs.true.i.i
-  %m_x.i.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %12, i64 0, i32 2
+  %m_x.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %18 = load i32, ptr %m_x.i.i, align 8
-  %m_x5.i.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %13, i64 0, i32 2
+  %m_x5.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %19 = load i32, ptr %m_x5.i.i, align 8
   %cmp6.i.i = icmp eq i32 %18, %19
   br i1 %cmp6.i.i, label %return.loopexit, label %if.end11
@@ -1852,7 +1835,7 @@ if.end11:                                         ; preds = %do.body, %land.lhs.
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !18
 
 do.end:                                           ; preds = %if.end11
-  %m_size14 = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 6
+  %m_size14 = getelementptr inbounds i8, ptr %this, i64 28
   %22 = load i32, ptr %m_size14, align 4
   %inc15 = add i32 %22, 1
   store i32 %inc15, ptr %m_size14, align 4
@@ -1866,9 +1849,9 @@ if.then.i:                                        ; preds = %do.end
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
-  %m_next_cell.i18 = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 8
+  %m_next_cell.i18 = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %m_next_cell.i18, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %25, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %incdec.ptr.i, ptr %m_next_cell.i18, align 8
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
@@ -1876,13 +1859,13 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13g
   %retval.0.i = phi ptr [ %23, %if.then.i ], [ %25, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   %26 = load ptr, ptr %d, align 8
-  %m_data17 = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %3, i64 %idx.ext, i32 1
+  %m_data17 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %26, ptr %m_data17, align 8
   store ptr %retval.0.i, ptr %add.ptr, align 8
   br label %return
 
 return.loopexit:                                  ; preds = %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE6equalsERKS2_S7_.exit
-  %m_data7.le = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %it.0, i64 0, i32 1
+  %m_data7.le = getelementptr inbounds i8, ptr %it.0, i64 8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit, %if.then4
@@ -1897,13 +1880,13 @@ declare void @_ZN10polynomial7manager9psc_chainEPKNS_10polynomialES3_jR10ref_vec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
-  %m_slots = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 4
+  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %m_slots, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %1, 1
-  %m_used_slots = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 5
+  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
   %sub.i = add i32 %mul, -1
   %idx.ext2.i = zext i32 %mul to i64
   br label %while.body
@@ -1923,7 +1906,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %curr.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
   br i1 %exitcond.not.i.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit, label %for.body.i.i, !llvm.loop !6
 
@@ -1950,9 +1933,9 @@ for.body.i:                                       ; preds = %_ZN10chashtableIPN1
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
   %list_it.0.i = phi ptr [ %12, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
   %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
-  %m_data.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %list_it.0.i, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
-  %m_hash.i.i.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %6, i64 0, i32 3
+  %m_hash.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %7 = load i32, ptr %m_hash.i.i.i, align 4
   %and.i = and i32 %7, %sub.i
   %idx.ext7.i = zext i32 %and.i to i64
@@ -1964,7 +1947,7 @@ do.body.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.i23.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %do.body.i
-  %m_data12.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i, i32 1
+  %m_data12.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
   store ptr %6, ptr %m_data12.i, align 8
   store ptr null, ptr %add.ptr8.i, align 8
   %10 = load i32, ptr %m_used_slots, align 8
@@ -1979,10 +1962,10 @@ if.else.i:                                        ; preds = %do.body.i
 if.end.i:                                         ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_cellar.1.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i, i64 16, i1 false)
   %11 = load ptr, ptr %m_data.i, align 8
-  %m_data16.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i, i32 1
+  %m_data16.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
   store ptr %11, ptr %m_data16.i, align 8
   store ptr %target_cellar.1.i, ptr %add.ptr8.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %target_cellar.1.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_cellar.1.i, i64 16
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i, %if.then10.i
@@ -1993,7 +1976,7 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
   %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %source_it.027.i, i64 1
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !20
 
@@ -2015,9 +1998,9 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12d
   store ptr %call.i.i, ptr %this, align 8
   store i32 %add, ptr %m_capacity, align 8
   store i32 %mul, ptr %m_slots, align 4
-  %m_next_cell = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 8
+  %m_next_cell = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %retval.0.i, ptr %m_next_cell, align 8
-  %m_free_cell = getelementptr inbounds %class.chashtable.0, ptr %this, i64 0, i32 9
+  %m_free_cell = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell, i8 0, i64 16, i1 false)
   ret void
 
@@ -2036,16 +2019,16 @@ for.cond.preheader.i:                             ; preds = %if.else.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_free_cell.i = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 9
+  %m_free_cell.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_free_cell.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   %.pre21 = load ptr, ptr %this, align 8
   br i1 %cmp.not.i, label %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit, label %if.end
 
 _ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit: ; preds = %entry
-  %m_next_cell.i = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 8
+  %m_next_cell.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_next_cell.i, align 8
-  %m_capacity.i = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 1
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %.pre21, i64 %idx.ext.i
@@ -2059,11 +2042,11 @@ if.then:                                          ; preds = %_ZNK10chashtableIPN
 
 if.end:                                           ; preds = %entry, %if.then, %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit
   %3 = phi ptr [ %.pre21, %entry ], [ %.pre, %if.then ], [ %.pre21, %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit ]
-  %m_slots = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 4
+  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
-  %m_hash.i.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %5, i64 0, i32 1
+  %m_hash.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %m_hash.i.i, align 8
   %and = and i32 %6, %sub
   %idx.ext = zext i32 %and to i64
@@ -2075,23 +2058,23 @@ if.end:                                           ; preds = %entry, %if.then, %_
   br i1 %cmp.i, label %if.then4, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %m_collisions = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 7
+  %m_collisions = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %m_used_slots = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 5
+  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load <2 x i32>, ptr %m_used_slots, align 8
   %10 = add <2 x i32> %9, <i32 1, i32 1>
   store <2 x i32> %10, ptr %m_used_slots, align 8
   %11 = load ptr, ptr %d, align 8
-  %m_data = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %3, i64 %idx.ext, i32 1
+  %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %11, ptr %m_data, align 8
   store ptr null, ptr %add.ptr, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %if.end11
   %it.0 = phi ptr [ %17, %if.end11 ], [ %add.ptr, %do.body.preheader ]
-  %m_data7 = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %it.0, i64 0, i32 1
+  %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
   %12 = load ptr, ptr %m_data7, align 8
   %13 = load ptr, ptr %d, align 8
   %14 = load ptr, ptr %12, align 8
@@ -2108,7 +2091,7 @@ if.end11:                                         ; preds = %do.body
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !22
 
 do.end:                                           ; preds = %if.end11
-  %m_size14 = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 6
+  %m_size14 = getelementptr inbounds i8, ptr %this, i64 28
   %18 = load i32, ptr %m_size14, align 4
   %inc15 = add i32 %18, 1
   store i32 %inc15, ptr %m_size14, align 4
@@ -2122,9 +2105,9 @@ if.then.i:                                        ; preds = %do.end
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
-  %m_next_cell.i18 = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 8
+  %m_next_cell.i18 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %m_next_cell.i18, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %21, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i, ptr %m_next_cell.i18, align 8
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
@@ -2132,13 +2115,13 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_
   %retval.0.i = phi ptr [ %19, %if.then.i ], [ %21, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   %22 = load ptr, ptr %d, align 8
-  %m_data17 = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %3, i64 %idx.ext, i32 1
+  %m_data17 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %22, ptr %m_data17, align 8
   store ptr %retval.0.i, ptr %add.ptr, align 8
   br label %return
 
 return.loopexit:                                  ; preds = %do.body
-  %m_data7.le = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %it.0, i64 0, i32 1
+  %m_data7.le = getelementptr inbounds i8, ptr %it.0, i64 8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit, %if.then4
@@ -2162,7 +2145,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %m_manager.i = getelementptr inbounds %class.obj_ref, ptr %this, i64 0, i32 1
+  %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_manager.i, align 8
   invoke void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2184,13 +2167,13 @@ declare void @_ZN10polynomial7manager7factorsD1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
-  %m_slots = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 4
+  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %m_slots, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %1, 1
-  %m_used_slots = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 5
+  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
   %sub.i = add i32 %mul, -1
   %idx.ext2.i = zext i32 %mul to i64
   br label %while.body
@@ -2210,7 +2193,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %curr.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
   br i1 %exitcond.not.i.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit, label %for.body.i.i, !llvm.loop !7
 
@@ -2237,9 +2220,9 @@ for.body.i:                                       ; preds = %_ZN10chashtableIPN1
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
   %list_it.0.i = phi ptr [ %12, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
   %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
-  %m_data.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %list_it.0.i, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
-  %m_hash.i.i.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %6, i64 0, i32 1
+  %m_hash.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %m_hash.i.i.i, align 8
   %and.i = and i32 %7, %sub.i
   %idx.ext7.i = zext i32 %and.i to i64
@@ -2251,7 +2234,7 @@ do.body.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.i23.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %do.body.i
-  %m_data12.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i, i32 1
+  %m_data12.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
   store ptr %6, ptr %m_data12.i, align 8
   store ptr null, ptr %add.ptr8.i, align 8
   %10 = load i32, ptr %m_used_slots, align 8
@@ -2266,10 +2249,10 @@ if.else.i:                                        ; preds = %do.body.i
 if.end.i:                                         ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_cellar.1.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i, i64 16, i1 false)
   %11 = load ptr, ptr %m_data.i, align 8
-  %m_data16.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i, i32 1
+  %m_data16.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
   store ptr %11, ptr %m_data16.i, align 8
   store ptr %target_cellar.1.i, ptr %add.ptr8.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %target_cellar.1.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_cellar.1.i, i64 16
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i, %if.then10.i
@@ -2280,7 +2263,7 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
   %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %source_it.027.i, i64 1
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !24
 
@@ -2302,9 +2285,9 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12dele
   store ptr %call.i.i, ptr %this, align 8
   store i32 %add, ptr %m_capacity, align 8
   store i32 %mul, ptr %m_slots, align 4
-  %m_next_cell = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 8
+  %m_next_cell = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %retval.0.i, ptr %m_next_cell, align 8
-  %m_free_cell = getelementptr inbounds %class.chashtable.1, ptr %this, i64 0, i32 9
+  %m_free_cell = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell, i8 0, i64 16, i1 false)
   ret void
 
@@ -2331,13 +2314,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_in_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 5
+  %m_in_cache = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %m_in_cache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIcjED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont2
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7svectorIcjED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -2349,14 +2332,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIcjED2Ev.exit:                         ; preds = %invoke.cont2, %if.then.i.i.i
-  %m_cached_polys = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 4
-  %m_nodes.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %m_cached_polys = getelementptr inbounds i8, ptr %this, i64 216
+  %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %3 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN7svectorIcjED2Ev.exit
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %3, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %5 = zext i32 %4 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %5
@@ -2371,7 +2354,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK6vectorIPN10pol
           to label %.noexc.i.i unwind label %terminate.lpad.i.i1
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %it.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i, i64 8
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %invoke.cont8.i.i, !llvm.loop !9
 
@@ -2382,7 +2365,7 @@ invoke.cont8.i.i:                                 ; preds = %.noexc.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont8.i.i, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i.i
   %8 = phi ptr [ %.pre.i.i, %invoke.cont8.i.i ], [ %3, %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i.i ]
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 -2
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i)
           to label %_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2401,7 +2384,7 @@ terminate.lpad.i.i1:                              ; preds = %for.body.i.i.i
   unreachable
 
 _ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit: ; preds = %_ZN7svectorIcjED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
-  %m_factor_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3
+  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
   %13 = load ptr, ptr %m_factor_cache, align 8
   %cmp.i.i.i2 = icmp eq ptr %13, null
   br i1 %cmp.i.i.i2, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i
@@ -2418,7 +2401,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   unreachable
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit: ; preds = %_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit, %for.cond.preheader.i.i.i
-  %m_psc_chain_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2
+  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %m_psc_chain_cache, align 8
   %cmp.i.i.i3 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i3, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i4
@@ -2435,7 +2418,7 @@ terminate.lpad.i5:                                ; preds = %for.cond.preheader.
   unreachable
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit: ; preds = %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit, %for.cond.preheader.i.i.i4
-  %m_table.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 1, i32 2
+  %m_table.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %19 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.i.i6 = icmp eq ptr %19, null
   br i1 %cmp.i.i.i6, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i7
@@ -2465,9 +2448,9 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10polynomial5cache3imp21reset_psc_chain_cacheEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_psc_chain_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2
+  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_psc_chain_cache, align 8, !noalias !26
-  %m_slots.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 4
+  %m_slots.i = getelementptr inbounds i8, ptr %this, i64 108
   %1 = load i32, ptr %m_slots.i, align 4, !noalias !26
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %0, i64 %idx.ext.i
@@ -2483,12 +2466,12 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %it.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !29
 
 for.body.lr.ph:                                   ; preds = %while.body.i.i.i
-  %m_allocator.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 6
+  %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 240
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
@@ -2497,9 +2480,9 @@ for.body.outer:                                   ; preds = %while.body.i.i, %fo
 
 for.body:                                         ; preds = %for.body.outer, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
   %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit ], [ %it.sroa.0.211.ph, %for.body.outer ]
-  %m_data.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %it.sroa.7.012, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.012, i64 8
   %4 = load ptr, ptr %m_data.i, align 8
-  %m_result_sz.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %4, i64 0, i32 4
+  %m_result_sz.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load i32, ptr %m_result_sz.i, align 8
   %cmp.not.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i, label %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit, label %if.then.i
@@ -2508,7 +2491,7 @@ if.then.i:                                        ; preds = %for.body
   %6 = load ptr, ptr %m_allocator.i, align 8
   %conv.i = zext i32 %5 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 3
-  %m_result.i = getelementptr inbounds %"struct.polynomial::psc_chain_entry", ptr %4, i64 0, i32 5
+  %m_result.i = getelementptr inbounds i8, ptr %4, i64 32
   %7 = load ptr, ptr %m_result.i, align 8
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %6, i64 noundef %mul.i, ptr noundef %7)
   br label %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
@@ -2521,7 +2504,7 @@ _ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit: ; pr
   br i1 %cmp.i3, label %if.then.i4, label %for.body, !llvm.loop !30
 
 if.then.i4:                                       ; preds = %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %it.sroa.0.211.ph, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.211.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 
@@ -2534,12 +2517,12 @@ while.body.i.i:                                   ; preds = %if.then.i4, %if.end
   br i1 %cmp.i.i.i, label %if.end.i.i, label %for.body.outer, !llvm.loop !30
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %it.sroa.0.3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.3, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i.i, label %for.end, label %while.body.i.i, !llvm.loop !29
 
 for.end:                                          ; preds = %if.end.i.i.i, %if.then.i4, %if.end.i.i, %entry
-  %m_size.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 6
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 116
   %12 = load i32, ptr %m_size.i, align 4
   %cmp.i6 = icmp eq i32 %12, 0
   br i1 %cmp.i6, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit, label %if.end.i
@@ -2554,12 +2537,12 @@ for.cond.preheader.i.i.i.i:                       ; preds = %if.end.i
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i: ; preds = %for.cond.preheader.i.i.i.i, %if.end.i
-  %m_init_slots.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 2
+  %m_init_slots.i.i = getelementptr inbounds i8, ptr %this, i64 100
   %14 = load i32, ptr %m_init_slots.i.i, align 4
-  %m_init_cellar.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 3
+  %m_init_cellar.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %15 = load i32, ptr %m_init_cellar.i.i, align 8
   %add.i.i.i = add i32 %15, %14
-  %m_capacity.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 1
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %add.i.i.i, ptr %m_capacity.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 4
@@ -2572,21 +2555,21 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN10chashtableIPN1
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
   %inc.i.i.i.i.i = add nuw i32 %i.07.i.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i.i, i64 16
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %add.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !6
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
   store ptr %call.i.i.i.i.i, ptr %m_psc_chain_cache, align 8
   store i32 %14, ptr %m_slots.i, align 4
-  %m_used_slots.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 5
+  %m_used_slots.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_used_slots.i.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
   %idx.ext.i.i.i = zext i32 %14 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i.i.i.i, i64 %idx.ext.i.i.i
-  %m_next_cell.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 8
+  %m_next_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %add.ptr.i.i.i, ptr %m_next_cell.i.i.i, align 8
-  %m_free_cell.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 2, i32 9
+  %m_free_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit
 
@@ -2597,9 +2580,9 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5re
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10polynomial5cache3imp18reset_factor_cacheEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_factor_cache = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3
+  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_factor_cache, align 8, !noalias !31
-  %m_slots.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 4
+  %m_slots.i = getelementptr inbounds i8, ptr %this, i64 172
   %1 = load i32, ptr %m_slots.i, align 4, !noalias !31
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %0, i64 %idx.ext.i
@@ -2615,12 +2598,12 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %it.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !34
 
 for.body.lr.ph:                                   ; preds = %while.body.i.i.i
-  %m_allocator.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 6
+  %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 240
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
@@ -2629,9 +2612,9 @@ for.body.outer:                                   ; preds = %while.body.i.i, %fo
 
 for.body:                                         ; preds = %for.body.outer, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
   %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit ], [ %it.sroa.0.211.ph, %for.body.outer ]
-  %m_data.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %it.sroa.7.012, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.012, i64 8
   %4 = load ptr, ptr %m_data.i, align 8
-  %m_result_sz.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %4, i64 0, i32 2
+  %m_result_sz.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i32, ptr %m_result_sz.i, align 4
   %cmp.not.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i, label %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit, label %if.then.i
@@ -2640,7 +2623,7 @@ if.then.i:                                        ; preds = %for.body
   %6 = load ptr, ptr %m_allocator.i, align 8
   %conv.i = zext i32 %5 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 3
-  %m_result.i = getelementptr inbounds %"struct.polynomial::factor_entry", ptr %4, i64 0, i32 3
+  %m_result.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %m_result.i, align 8
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %6, i64 noundef %mul.i, ptr noundef %7)
   br label %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
@@ -2653,7 +2636,7 @@ _ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit: ; preds = 
   br i1 %cmp.i3, label %if.then.i4, label %for.body, !llvm.loop !35
 
 if.then.i4:                                       ; preds = %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
-  %incdec.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %it.sroa.0.211.ph, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.211.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 
@@ -2666,12 +2649,12 @@ while.body.i.i:                                   ; preds = %if.then.i4, %if.end
   br i1 %cmp.i.i.i, label %if.end.i.i, label %for.body.outer, !llvm.loop !35
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %it.sroa.0.3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.3, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i.i, label %for.end, label %while.body.i.i, !llvm.loop !34
 
 for.end:                                          ; preds = %if.end.i.i.i, %if.then.i4, %if.end.i.i, %entry
-  %m_size.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 6
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 180
   %12 = load i32, ptr %m_size.i, align 4
   %cmp.i6 = icmp eq i32 %12, 0
   br i1 %cmp.i6, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit, label %if.end.i
@@ -2686,12 +2669,12 @@ for.cond.preheader.i.i.i.i:                       ; preds = %if.end.i
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i: ; preds = %for.cond.preheader.i.i.i.i, %if.end.i
-  %m_init_slots.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 2
+  %m_init_slots.i.i = getelementptr inbounds i8, ptr %this, i64 164
   %14 = load i32, ptr %m_init_slots.i.i, align 4
-  %m_init_cellar.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 3
+  %m_init_cellar.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %15 = load i32, ptr %m_init_cellar.i.i, align 8
   %add.i.i.i = add i32 %15, %14
-  %m_capacity.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 1
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 %add.i.i.i, ptr %m_capacity.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 4
@@ -2704,21 +2687,21 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN10chashtableIPN1
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
   %inc.i.i.i.i.i = add nuw i32 %i.07.i.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i.i, i64 16
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %add.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
   store ptr %call.i.i.i.i.i, ptr %m_factor_cache, align 8
   store i32 %14, ptr %m_slots.i, align 4
-  %m_used_slots.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 5
+  %m_used_slots.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %m_used_slots.i.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
   %idx.ext.i.i.i = zext i32 %14 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i.i.i.i, i64 %idx.ext.i.i.i
-  %m_next_cell.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 8
+  %m_next_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %add.ptr.i.i.i, ptr %m_next_cell.i.i.i, align 8
-  %m_free_cell.i.i.i = getelementptr inbounds %"struct.polynomial::cache::imp", ptr %this, i64 0, i32 3, i32 9
+  %m_free_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit
 

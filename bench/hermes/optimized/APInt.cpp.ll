@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %"struct.llvh::APInt::ms" = type { %"class.llvh::APInt", i32, [4 x i8] }
 %"struct.llvh::APInt::mu" = type { %"class.llvh::APInt", i8, i32 }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.3 = type { i64, [8 x i8] }
@@ -17,6 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallVectorImpl.0" = type { %"class.llvh::SmallVectorTemplateBase.1" }
 %"class.llvh::SmallVectorTemplateBase.1" = type { %"class.llvh::SmallVectorTemplateCommon.2" }
 %"class.llvh::SmallVectorTemplateCommon.2" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage.5" = type { [40 x %"struct.llvh::AlignedCharArrayUnion.6"] }
 %"struct.llvh::AlignedCharArrayUnion.6" = type { %"struct.llvh::AlignedCharArray.7" }
 %"struct.llvh::AlignedCharArray.7" = type { [1 x i8] }
@@ -64,7 +64,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APInt12initSlowCaseEmb(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %val, i1 noundef zeroext %isSigned) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -127,7 +127,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %for.cond.preheader,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APInt12initSlowCaseERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %that) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -146,7 +146,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APInt13initFromArrayENS_8ArrayRefImEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture readonly %bigVal.coerce0, i64 %bigVal.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else.i
@@ -193,7 +193,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %if.end.thread, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APIntC2EjNS_8ArrayRefImEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %numBits, ptr nocapture readonly %bigVal.coerce0, i64 %bigVal.coerce1) unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %numBits, ptr %BitWidth, align 8
   %cmp.i.i = icmp ult i32 %numBits, 65
   br i1 %cmp.i.i, label %if.end.thread.i, label %if.else.i.i
@@ -241,7 +241,7 @@ _ZN4llvh5APInt13initFromArrayENS_8ArrayRefImEE.exit: ; preds = %if.end.thread.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APIntC2EjjPKm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %numBits, i32 noundef %numWords, ptr nocapture noundef readonly %bigVal) unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %numBits, ptr %BitWidth, align 8
   %cmp.i.i = icmp ult i32 %numBits, 65
   br i1 %cmp.i.i, label %if.end.thread.i, label %if.else.i.i
@@ -288,7 +288,7 @@ _ZN4llvh5APInt13initFromArrayENS_8ArrayRefImEE.exit: ; preds = %if.end.thread.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APIntC2EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %numbits, ptr %Str.coerce0, i64 %Str.coerce1, i8 noundef zeroext %radix) unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %numbits, ptr %BitWidth, align 8
   tail call void @_ZN4llvh5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 poison, ptr %Str.coerce0, i64 %Str.coerce1, i8 noundef zeroext %radix)
   ret void
@@ -305,7 +305,7 @@ entry:
   %slen.0 = add i64 %dec, %str.coerce1
   %p.0.idx = zext i1 %or.cond to i64
   %p.0 = getelementptr inbounds i8, ptr %str.coerce0, i64 %p.0.idx
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %1, 65
   br i1 %cmp.i, label %if.end12, label %if.else
@@ -475,7 +475,7 @@ if.end41:                                         ; preds = %if.then40, %for.end
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APInt10reallocateEj(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %NewBitWidth) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -528,9 +528,9 @@ entry:
   br i1 %cmp, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth.i.i, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 63
@@ -590,7 +590,7 @@ if.end8:                                          ; preds = %entry, %if.else, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt7ProfileERNS_16FoldingSetNodeIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(144) %ID) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %0) #32
   %1 = load i32, ptr %BitWidth, align 8
@@ -629,7 +629,7 @@ declare void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntppEv(ptr noundef nonnull returned align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else
@@ -691,7 +691,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %if.end.thread, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmmEv(ptr noundef nonnull returned align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else
@@ -753,7 +753,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %if.end.thread, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #4 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else
@@ -870,7 +870,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLEm(ptr noundef nonnull returned align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else
@@ -963,7 +963,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #4 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else
@@ -1090,7 +1090,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmIEm(ptr noundef nonnull returned align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.end.thread, label %if.else
@@ -1183,7 +1183,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APIntmlERKS0_(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APIntC2Ejmb.exit, label %if.end
@@ -1192,7 +1192,7 @@ _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %2 = load i64, ptr %RHS, align 8
   %mul = mul i64 %2, %1
-  %BitWidth.i2 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i2, align 8
   %sub.i.i = add nuw nsw i32 %0, 63
   %rem.i.i = and i32 %sub.i.i, 63
@@ -1210,7 +1210,7 @@ if.end:                                           ; preds = %entry
   %conv1.i.i = trunc i64 %div1.i.i to i32
   %3 = shl nuw nsw i64 %div1.i.i, 3
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #30
-  %BitWidth.i6 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i6, align 8
   store ptr %call.i, ptr %agg.result, align 8
   %4 = load ptr, ptr %this, align 8
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %_ZN4llvh5APInt15cle
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh5APIntC2Ejmb(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %numBits, i64 noundef %val, i1 noundef zeroext %isSigned) unnamed_addr #0 comdat align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %numBits, ptr %BitWidth, align 8
   %cmp.i = icmp ult i32 %numBits, 65
   br i1 %cmp.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit, label %if.else
@@ -1381,7 +1381,7 @@ define hidden void @_ZN4llvh5APInt17AndAssignSlowCaseERKS0_(ptr nocapture nounde
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %RHS, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %2 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -1436,7 +1436,7 @@ define hidden void @_ZN4llvh5APInt16OrAssignSlowCaseERKS0_(ptr nocapture noundef
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %RHS, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %2 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -1491,7 +1491,7 @@ define hidden void @_ZN4llvh5APInt17XorAssignSlowCaseERKS0_(ptr nocapture nounde
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %RHS, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %2 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -1544,7 +1544,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit.thread, label %if.end.i
@@ -1619,7 +1619,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLEm(ptr noundef nonnull returned align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #7 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.else
@@ -1906,7 +1906,7 @@ return:                                           ; preds = %for.body65, %for.co
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh5APInt13EqualSlowCaseERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #8 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i.i.i, label %_ZSt5equalIPmS0_EbT_S1_T0_.exit, label %if.then.i.i.i.i
@@ -1930,7 +1930,7 @@ _ZSt5equalIPmS0_EbT_S1_T0_.exit:                  ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt7compareERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #9 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.end
@@ -2009,7 +2009,7 @@ return:                                           ; preds = %while.cond, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt13compareSignedERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #9 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.end
@@ -2041,7 +2041,7 @@ if.end:                                           ; preds = %entry
   %cond.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
   %and.i.i = and i64 %cond.i.i.i, %shl.i.i.i
   %cmp.i.i = icmp ne i64 %and.i.i, 0
-  %BitWidth.i12 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i12 = getelementptr inbounds i8, ptr %RHS, i64 8
   %4 = load i32, ptr %BitWidth.i12, align 8
   %sub.i13 = add i32 %4, -1
   %rem.i.i.i.i14 = and i32 %sub.i13, 63
@@ -2163,7 +2163,7 @@ for.end:                                          ; preds = %for.body, %if.end8
 define hidden void @_ZN4llvh5APInt19flipAllBitsSlowCaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -2240,7 +2240,7 @@ entry:
   %rem.i.i.i = and i32 %bitPosition, 63
   %sh_prom.i.i = zext nneg i32 %rem.i.i.i to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %0, 65
   %1 = load ptr, ptr %this, align 8
@@ -2262,9 +2262,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APInt10insertBitsERKS0_j(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %subBits, i32 noundef %bitPosition) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %subBits, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %subBits, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -2433,13 +2433,13 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntaSERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %RHS) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %BitWidth.i4 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i4 = getelementptr inbounds i8, ptr %RHS, i64 8
   %1 = load i32, ptr %BitWidth.i4, align 8
   %cmp.i5 = icmp ult i32 %1, 65
   br i1 %cmp.i5, label %if.then, label %if.end
@@ -2480,7 +2480,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.i7, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %6 = load i32, ptr %BitWidth.i.i, align 8
   %conv.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 63
@@ -2544,7 +2544,7 @@ return:                                           ; preds = %if.else.i12, %if.th
 define hidden void @_ZNK4llvh5APInt11extractBitsEjj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %numBits, i32 noundef %bitPosition) local_unnamed_addr #0 align 2 {
 entry:
   %Result = alloca %"class.llvh::APInt", align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.end
@@ -2553,7 +2553,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %sh_prom = zext nneg i32 %bitPosition to i64
   %shr = lshr i64 %1, %sh_prom
-  %BitWidth.i23 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i23 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %numBits, ptr %BitWidth.i23, align 8
   %cmp.i.i = icmp ult i32 %numBits, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
@@ -2607,7 +2607,7 @@ if.then5:                                         ; preds = %if.end
   %6 = load i64, ptr %arrayidx, align 8
   %sh_prom7 = zext nneg i32 %rem.i to i64
   %shr8 = lshr i64 %6, %sh_prom7
-  %BitWidth.i25 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i25 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %numBits, ptr %BitWidth.i25, align 8
   %cmp.i.i26 = icmp ult i32 %numBits, 65
   br i1 %cmp.i.i26, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i42, label %if.else.i27
@@ -2653,7 +2653,7 @@ if.then11:                                        ; preds = %if.end9
   %10 = load ptr, ptr %this, align 8
   %idx.ext = zext nneg i32 %div1.i to i64
   %add.ptr = getelementptr inbounds i64, ptr %10, i64 %idx.ext
-  %BitWidth.i50 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i50 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %numBits, ptr %BitWidth.i50, align 8
   %cmp.i.i.i = icmp ult i32 %numBits, 65
   br i1 %cmp.i.i.i, label %if.end.thread.i.i, label %if.else.i.i.i
@@ -2700,7 +2700,7 @@ _ZN4llvh5APIntC2EjNS_8ArrayRefImEE.exit:          ; preds = %if.end.thread.i.i, 
   br label %return
 
 if.end16:                                         ; preds = %if.end9
-  %BitWidth.i61 = getelementptr inbounds %"class.llvh::APInt", ptr %Result, i64 0, i32 1
+  %BitWidth.i61 = getelementptr inbounds i8, ptr %Result, i64 8
   store i32 %numBits, ptr %BitWidth.i61, align 8
   %cmp.i.i62 = icmp ult i32 %numBits, 65
   br i1 %cmp.i.i62, label %_ZN4llvh5APIntC2Ejmb.exit85, label %_ZN4llvh5APIntC2Ejmb.exit85.thread
@@ -2785,7 +2785,7 @@ _ZN4llvh5APIntC2ERKS0_.exit.critedge:             ; preds = %_ZN4llvh5APIntC2Ejm
   %shr.i.c = lshr i64 -1, %sh_prom.i.c
   %26 = load i64, ptr %Result, align 8
   %and6.i.c = and i64 %26, %shr.i.c
-  %BitWidth.i101.c = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i101.c = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %25, ptr %BitWidth.i101.c, align 8
   store i64 %and6.i.c, ptr %agg.result, align 8
   br label %return
@@ -2806,7 +2806,7 @@ delete.notnull.i:                                 ; preds = %for.end
   %28 = load i64, ptr %arrayidx.i, align 8
   %and6.i = and i64 %28, %shr.i
   store i64 %and6.i, ptr %arrayidx.i, align 8
-  %BitWidth.i101 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i101 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %.pre115, ptr %BitWidth.i101, align 8
   %29 = lshr i64 %sub.i.i.i99, 3
   %30 = and i64 %29, 1073741816
@@ -2882,7 +2882,7 @@ cond.false36:                                     ; preds = %cond.false33
 cond.end41:                                       ; preds = %cond.false36, %cond.false33, %cond.false, %cond.true
   %cond42 = phi i64 [ %div, %cond.false ], [ 4, %cond.true ], [ %div38, %cond.false36 ], [ 7, %cond.false33 ]
   %conv43 = trunc i64 %cond42 to i32
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %tmp, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store i32 %conv43, ptr %BitWidth.i, align 8
   call void @_ZN4llvh5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %tmp, i32 poison, ptr nonnull %p.0, i64 %slen.0, i8 noundef zeroext %radix)
   %3 = load i32, ptr %BitWidth.i, align 8
@@ -2963,7 +2963,7 @@ return:                                           ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i64 @_ZN4llvh10hash_valueERKNS_5APIntE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %Arg) local_unnamed_addr #0 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %Arg, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %Arg, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.end
@@ -3024,7 +3024,7 @@ define hidden noundef zeroext i1 @_ZNK4llvh5APInt7isSplatEj(ptr nocapture nounde
 entry:
   %ref.tmp = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh5APInt4rotlEj(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %SplatSizeInBits)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %_ZNK4llvh5APInt13EqualSlowCaseERKS0_.exit.i
@@ -3050,7 +3050,7 @@ _ZNK4llvh5APInt13EqualSlowCaseERKS0_.exit.i:      ; preds = %entry
 _ZNK4llvh5APInteqERKS0_.exit:                     ; preds = %if.then.i, %_ZNK4llvh5APInt13EqualSlowCaseERKS0_.exit.i
   %7 = phi ptr [ %3, %if.then.i ], [ %5, %_ZNK4llvh5APInt13EqualSlowCaseERKS0_.exit.i ]
   %retval.0.i = phi i1 [ %cmp.i, %if.then.i ], [ %tobool1.not.i.i.i.i.i.i, %_ZNK4llvh5APInt13EqualSlowCaseERKS0_.exit.i ]
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %8, 65
   %isnull.i = icmp eq ptr %7, null
@@ -3069,14 +3069,14 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %_ZNK4llvh5APInteqER
 define hidden void @_ZNK4llvh5APInt4rotlEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %rotateAmt) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::APInt", align 8
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %rem = urem i32 %rotateAmt, %0
   %cmp = icmp eq i32 %rem, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -3099,7 +3099,7 @@ if.else.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !30
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -3243,7 +3243,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %for.body.i.i.i.i, %if.then.i4.i
   %26 = phi ptr [ %13, %if.then.i4.i ], [ %23, %for.body.i.i.i.i ]
   %ref.tmp2.sroa.0.1 = phi i64 [ %or.i.i, %if.then.i4.i ], [ %16, %for.body.i.i.i.i ]
-  %BitWidth.i.i21 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %10, ptr %BitWidth.i.i21, align 8, !alias.scope !36
   store i64 %ref.tmp2.sroa.0.1, ptr %agg.result, align 8, !alias.scope !36
   %27 = load i32, ptr %BitWidth.i.i, align 8
@@ -3263,11 +3263,11 @@ return:                                           ; preds = %delete.notnull.i30,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt9getHiBitsEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %numBits) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %sub = sub i32 %0, %numBits
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !39
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %if.then.i4.i, label %if.end4.i.i
@@ -3373,10 +3373,10 @@ _ZNK4llvh5APInt4lshrEj.exit:                      ; preds = %if.then2.i.i, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt9getLoBitsEj(ptr noalias nocapture sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %numBits) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !42
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %_ZN4llvh5APIntC2Ejmb.exit.i, label %if.else.i.i
@@ -3492,7 +3492,7 @@ define hidden void @_ZN4llvh5APInt8getSplatEjRKS0_(ptr noalias nocapture writeon
 entry:
   %ref.tmp = alloca %"class.llvh::APInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %V, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %V, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, %NewLen
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -3535,7 +3535,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %for.body.lr.ph
 
 if.end.i:                                         ; preds = %entry
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !45
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -3558,10 +3558,10 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i, %_ZN4llvh5APIntC2Ejmb.exit.i.i
   %call.i.sink.i.i = phi ptr [ %2, %_ZN4llvh5APIntC2Ejmb.exit.i.i ], [ %call.i.i.i, %if.end.i.i ]
-  %9 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %NewLen, ptr %9, align 8, !alias.scope !51
   store ptr %call.i.sink.i.i, ptr %agg.result, align 8, !alias.scope !51
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %cmp.i.i.i.i = icmp ult i32 %NewLen, 65
   %conv.i.i.i.i.i.i = zext i32 %NewLen to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
@@ -3652,7 +3652,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN4llvh5APIntD2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt10zextOrSelfEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %width) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %cmp = icmp ult i32 %0, %width
   br i1 %cmp, label %if.then, label %if.end
@@ -3696,13 +3696,13 @@ if.end.i:                                         ; preds = %if.then
 
 _ZNK4llvh5APInt4zextEj.exit:                      ; preds = %_ZN4llvh5APIntC2Ejmb.exit.i, %if.end.i
   %call.i.sink.i = phi ptr [ %2, %_ZN4llvh5APIntC2Ejmb.exit.i ], [ %call.i.i, %if.end.i ]
-  %5 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %5, align 8, !alias.scope !60
   store ptr %call.i.sink.i, ptr %agg.result, align 8, !alias.scope !60
   br label %return
 
 if.end:                                           ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -3730,7 +3730,7 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -3778,7 +3778,7 @@ for.end:                                          ; preds = %if.then, %entry, %i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt24countLeadingOnesSlowCaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %rem = and i32 %0, 63
   %tobool.not = icmp eq i32 %rem, 0
@@ -3791,7 +3791,7 @@ entry:
   %div1.i.i = lshr i64 %sub.i.i, 6
   %1 = load ptr, ptr %this, align 8
   %2 = getelementptr i64, ptr %1, i64 %div1.i.i
-  %arrayidx = getelementptr i64, ptr %2, i64 -1
+  %arrayidx = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx, align 8
   %shl = shl i64 %3, %shift.0
   %not.i = xor i64 %shl, -1
@@ -3840,7 +3840,7 @@ if.end21:                                         ; preds = %if.then10, %if.else
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt26countTrailingZerosSlowCaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -3886,7 +3886,7 @@ if.end:                                           ; preds = %for.body, %entry, %
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt25countTrailingOnesSlowCaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -3932,7 +3932,7 @@ if.end:                                           ; preds = %for.body, %entry, %
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh5APInt23countPopulationSlowCaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -3964,7 +3964,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh5APInt18intersectsSlowCaseERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #9 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -4000,7 +4000,7 @@ return:                                           ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh5APInt18isSubsetOfSlowCaseERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #9 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -4037,7 +4037,7 @@ return:                                           ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt8byteSwapEv(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %1 = add i32 %0, -16
   %2 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %1, i32 28)
@@ -4053,7 +4053,7 @@ if.then:                                          ; preds = %entry
   %conv = trunc i64 %3 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv)
   %conv3 = zext i16 %rev.i.i to i64
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 16, ptr %BitWidth.i, align 8
   store i64 %conv3, ptr %agg.result, align 8
   br label %return
@@ -4063,7 +4063,7 @@ if.then6:                                         ; preds = %entry
   %conv9 = trunc i64 %4 to i32
   %5 = tail call noundef i32 @llvm.bswap.i32(i32 %conv9)
   %conv11 = zext i32 %5 to i64
-  %BitWidth.i9 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 32, ptr %BitWidth.i9, align 8
   store i64 %conv11, ptr %agg.result, align 8
   br label %return
@@ -4073,7 +4073,7 @@ if.then15:                                        ; preds = %entry
   %trunc = trunc i64 %6 to i48
   %rev = tail call i48 @llvm.bswap.i48(i48 %trunc)
   %or = zext i48 %rev to i64
-  %BitWidth.i12 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i12 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i12, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
@@ -4114,7 +4114,7 @@ if.else.i:                                        ; preds = %if.then15
 if.then28:                                        ; preds = %entry
   %10 = load i64, ptr %this, align 8
   %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
-  %BitWidth.i14 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 64, ptr %BitWidth.i14, align 8
   store i64 %11, ptr %agg.result, align 8
   br label %return
@@ -4125,7 +4125,7 @@ if.end32:                                         ; preds = %entry
   %div1.i.i = lshr i64 %sub.i.i17, 6
   %conv1.i.i = trunc i64 %div1.i.i to i32
   %mul = shl i32 %conv1.i.i, 6
-  %BitWidth.i18 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i18 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %mul, ptr %BitWidth.i18, align 8
   %cmp.i.i19 = icmp ult i32 %mul, 65
   br i1 %cmp.i.i19, label %_ZN4llvh5APIntC2Ejmb.exit39, label %if.else.i20
@@ -4272,7 +4272,7 @@ entry:
   %out.i3 = alloca [4 x i8], align 4
   %in.i = alloca [8 x i8], align 8
   %out.i = alloca [8 x i8], align 8
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %1 = add i32 %0, -8
   %2 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %1, i32 29)
@@ -4308,7 +4308,7 @@ _ZN4llvh11reverseBitsImEET_S1_.exit:              ; preds = %for.body.i
   %Val.addr.0.copyload4.i = load i64, ptr %out.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
@@ -4373,7 +4373,7 @@ _ZN4llvh11reverseBitsIjEET_S1_.exit:              ; preds = %for.body.i4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %in.i2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i3)
   %conv7 = zext i32 %Val.addr.0.copyload4.i13 to i64
-  %BitWidth.i14 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i14, align 8
   %cmp.i.i15 = icmp ult i32 %0, 65
   br i1 %cmp.i.i15, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i30, label %if.else.i16
@@ -4424,7 +4424,7 @@ sw.bb8:                                           ; preds = %entry
   %out.i39.sroa.4.0.insert.shift = shl nuw nsw i64 %out.i39.sroa.4.0.insert.ext, 8
   %out.i39.sroa.0.0.insert.ext = zext i8 %17 to i64
   %out.i39.sroa.0.0.insert.insert = or disjoint i64 %out.i39.sroa.4.0.insert.shift, %out.i39.sroa.0.0.insert.ext
-  %BitWidth.i48 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i48 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i48, align 8
   %cmp.i.i49 = icmp ult i32 %0, 65
   br i1 %cmp.i.i49, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i64, label %if.else.i50
@@ -4468,7 +4468,7 @@ sw.bb14:                                          ; preds = %entry
   %arrayidx2.i73 = getelementptr inbounds [256 x i8], ptr @_ZN4llvhL18BitReverseTable256E, i64 0, i64 %idxprom1.i72
   %22 = load i8, ptr %arrayidx2.i73, align 1
   %conv19 = zext i8 %22 to i64
-  %BitWidth.i74 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i74 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i74, align 8
   %cmp.i.i75 = icmp ult i32 %0, 65
   br i1 %cmp.i.i75, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i90, label %if.else.i76
@@ -4512,7 +4512,7 @@ sw.epilog:                                        ; preds = %entry
 
 _ZN4llvh5APInt15clearUnusedBitsEv.exit.i118:      ; preds = %sw.epilog
   %26 = load i64, ptr %this, align 8
-  %BitWidth.i102184 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i102184 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i102184, align 8
   %narrow = add nuw nsw i32 %0, 63
   %27 = lshr i32 %narrow, 6
@@ -4528,7 +4528,7 @@ if.else.i104:                                     ; preds = %sw.epilog
   %30 = ptrtoint ptr %call.i.i.i101 to i64
   %31 = load ptr, ptr %this, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i101, ptr align 8 %31, i64 %29, i1 false)
-  %BitWidth.i102 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i102 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i102, align 8
   %call.i.i.i107 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i107, i8 0, i64 %29, i1 false)
@@ -4570,7 +4570,7 @@ for.cond.outer:                                   ; preds = %if.then.i166, %_ZN4
   %Val.sroa.0.1.ph = phi i64 [ %spec.select, %if.then.i166 ], [ %Val.sroa.0.0185, %_ZN4llvh5APIntC2Ejmb.exit124 ]
   %S.0.ph = phi i32 [ %dec, %if.then.i166 ], [ %0, %_ZN4llvh5APIntC2Ejmb.exit124 ]
   %35 = inttoptr i64 %Val.sroa.0.1.ph to ptr
-  %invariant.gep = getelementptr i64, ptr %35, i64 1
+  %invariant.gep = getelementptr i8, ptr %35, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc.i.i.i, %for.cond.outer
@@ -4644,7 +4644,7 @@ if.end5.i:                                        ; preds = %for.body
   %shl.i14.i.i = shl i64 %43, 1
   %arrayidx5.i16.i.i = getelementptr inbounds i64, ptr %38, i64 %indvars.iv.next.i9.i.i
   store i64 %shl.i14.i.i, ptr %arrayidx5.i16.i.i, align 8
-  %invariant.gep.i.i = getelementptr i64, ptr %38, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %38, i64 -8
   br label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end16.i.i.i, %if.end5.i
@@ -4779,7 +4779,7 @@ return:                                           ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntlSEj(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %ShiftAmt) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit, label %if.end5
@@ -4916,7 +4916,7 @@ return:                                           ; preds = %_ZN4llvh5APInt11shl
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh8APIntOps21GreatestCommonDivisorENS_5APIntES1_(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef %A, ptr nocapture noundef %B) local_unnamed_addr #13 {
 entry:
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %A, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %A, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %_ZNK4llvh5APInteqERKS0_.exit
@@ -4942,7 +4942,7 @@ _ZNK4llvh5APInteqERKS0_.exit:                     ; preds = %entry
 
 if.then:                                          ; preds = %if.then.i, %_ZNK4llvh5APInteqERKS0_.exit
   %8 = phi i64 [ %1, %if.then.i ], [ %7, %_ZNK4llvh5APInteqERKS0_.exit ]
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   br label %return
 
@@ -4991,8 +4991,8 @@ _ZNK4llvh5APIntntEv.exit:                         ; preds = %if.then.i.i, %if.el
 
 if.then2:                                         ; preds = %if.then.i16, %_ZNK4llvh5APIntntEv.exit
   %15 = phi i64 [ %2, %if.then.i16 ], [ %6, %_ZNK4llvh5APIntntEv.exit ]
-  %BitWidth.i18 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
-  %BitWidth2.i19 = getelementptr inbounds %"class.llvh::APInt", ptr %B, i64 0, i32 1
+  %BitWidth.i18 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %BitWidth2.i19 = getelementptr inbounds i8, ptr %B, i64 8
   %16 = load i32, ptr %BitWidth2.i19, align 8
   store i32 %16, ptr %BitWidth.i18, align 8
   br label %return
@@ -5002,7 +5002,7 @@ if.end3:                                          ; preds = %if.then.i16, %_ZNK4
   %18 = phi ptr [ %9, %if.then.i16 ], [ %3, %_ZNK4llvh5APIntntEv.exit ]
   %19 = phi i64 [ %2, %if.then.i16 ], [ %6, %_ZNK4llvh5APIntntEv.exit ]
   %20 = phi ptr [ %10, %if.then.i16 ], [ %4, %_ZNK4llvh5APIntntEv.exit ]
-  %BitWidth.i.i20 = getelementptr inbounds %"class.llvh::APInt", ptr %B, i64 0, i32 1
+  %BitWidth.i.i20 = getelementptr inbounds i8, ptr %B, i64 8
   %21 = load i32, ptr %BitWidth.i.i20, align 8
   %cmp.i.i21 = icmp ult i32 %21, 65
   br i1 %cmp.i.i21, label %if.then.i48, label %if.end.i22
@@ -5051,7 +5051,7 @@ _ZNK4llvh5APIntntEv.exit50:                       ; preds = %if.then.i.i45, %if.
   br i1 %cmp3.i43, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then.i48, %_ZNK4llvh5APIntntEv.exit50
-  %BitWidth.i51 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i51 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i51, align 8
   br label %return
 
@@ -5781,7 +5781,7 @@ while.cond.backedge:                              ; preds = %if.end17.i.i.i362, 
 
 while.end:                                        ; preds = %_ZNK4llvh5APIntneERKS0_.exit.thread, %_ZNK4llvh5APIntneERKS0_.exit
   %104 = phi i64 [ %54, %_ZNK4llvh5APIntneERKS0_.exit.thread ], [ %49, %_ZNK4llvh5APIntneERKS0_.exit ]
-  %BitWidth.i404 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i404 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %48, ptr %BitWidth.i404, align 8
   br label %return
 
@@ -5806,7 +5806,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %width, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
@@ -5923,7 +5923,7 @@ if.else.i.i.i:                                    ; preds = %for.body.i.i.i5.i
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then4
-  %BitWidth.i39 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i39, align 8
   %cmp.i.i40 = icmp ult i32 %width, 65
   br i1 %cmp.i.i40, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i55, label %if.else.i41
@@ -5967,7 +5967,7 @@ cond.end:                                         ; preds = %if.else.i.i.i, %if.
   %arrayidx.sink3.i.i.i = phi ptr [ %arrayidx.i.i.i25, %if.else.i.i.i ], [ %agg.tmp.sroa.0, %if.end.thread.i.i ]
   %and6.i.i16.i = and i64 %14, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !74
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i.i, align 8, !alias.scope !74
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.240 = load i64, ptr %agg.tmp.sroa.0, align 8, !noalias !74
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.240, ptr %agg.result, align 8, !alias.scope !74
@@ -5981,7 +5981,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %BitWidth.i63 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i63 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i63, align 8
   br i1 %cmp.i.i87, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i79, label %if.else.i65
 
@@ -6012,7 +6012,7 @@ if.else.i65:                                      ; preds = %if.then13
   br label %return
 
 if.end14:                                         ; preds = %if.end10
-  %BitWidth.i86 = getelementptr inbounds %"class.llvh::APInt", ptr %Tmp, i64 0, i32 1
+  %BitWidth.i86 = getelementptr inbounds i8, ptr %Tmp, i64 8
   store i32 %width, ptr %BitWidth.i86, align 8
   br i1 %cmp.i.i87, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i102, label %if.else.i88
 
@@ -6094,7 +6094,7 @@ cleanup.done26.thread253:                         ; preds = %cond.true19
   %and6.i.i.i222 = and i64 %shr.i.i.i221, %xor.i.i216
   %inc.i.i214 = add i64 %and6.i.i.i222, 1
   %and6.i.i16.i212256 = and i64 %inc.i.i214, %shr.i.i.i221
-  %BitWidth.i.i115257 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i115257 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %23, ptr %BitWidth.i.i115257, align 8, !alias.scope !77
   store i64 %and6.i.i16.i212256, ptr %agg.result, align 8, !alias.scope !77
   br label %return
@@ -6126,7 +6126,7 @@ for.body.i.i.i5.i188:                             ; preds = %for.body.i.i.i5.i18
   br i1 %or.cond.i.i195, label %cleanup.done26, label %for.body.i.i.i5.i188, !llvm.loop !6
 
 cond.false22:                                     ; preds = %_ZN4llvh5APIntC2Ejmb.exit109
-  %BitWidth.i117 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i117 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %32 = load i32, ptr %BitWidth.i86, align 8
   store i32 %32, ptr %BitWidth.i117, align 8
   %cmp.i.i119 = icmp ult i32 %32, 65
@@ -6152,7 +6152,7 @@ cleanup.done26:                                   ; preds = %for.body.i.i.i5.i18
   %.pre = load i64, ptr %arrayidx.i2.i.i.i173, align 8, !noalias !77
   %and6.i.i16.i212 = and i64 %.pre, %shr.i.i.i.i180
   store i64 %and6.i.i16.i212, ptr %arrayidx.i2.i.i.i173, align 8, !noalias !77
-  %BitWidth.i.i115 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i115 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %23, ptr %BitWidth.i.i115, align 8, !alias.scope !77
   store i64 %26, ptr %agg.result, align 8, !alias.scope !77
   br label %if.then.i134
@@ -6173,7 +6173,7 @@ return:                                           ; preds = %cleanup.done26.thre
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK4llvh5APInt13roundToDoubleEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i1 noundef zeroext %isSigned) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.end.i.i
@@ -6412,13 +6412,13 @@ entry:
   br i1 %cmp, label %_ZN4llvh5APIntC2Ejmb.exit, label %for.body.lr.ph
 
 _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   %1 = load ptr, ptr %this, align 8
   %retval.0.i = select i1 %cmp.i.i, ptr %this, ptr %1
   %2 = load i64, ptr %retval.0.i, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i, align 8
   %sub.i.i = add nuw nsw i32 %width, 63
   %rem.i.i = and i32 %sub.i.i, 63
@@ -6435,7 +6435,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = lshr i64 %sub.i, 3
   %4 = and i64 %3, 1073741816
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #30
-  %BitWidth.i16 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i16, align 8
   store ptr %call.i, ptr %agg.result, align 8
   %div13 = lshr i32 %width, 6
@@ -6483,7 +6483,7 @@ entry:
 
 _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %0 = load i64, ptr %this, align 8
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth, align 8
   %sub.i = sub i32 64, %1
   %sh_prom.i = zext i32 %sub.i to i64
@@ -6504,7 +6504,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %entry
   %div1.i = lshr i64 %sub.i4, 6
   %3 = shl nuw nsw i64 %div1.i, 3
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #30
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i7 = icmp ult i32 %4, 65
   %5 = load ptr, ptr %this, align 8
@@ -6557,7 +6557,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %entry
 
 return:                                           ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit, %_ZN4llvh5APIntC2Ejmb.exit
   %call.i.sink = phi ptr [ %2, %_ZN4llvh5APIntC2Ejmb.exit ], [ %call.i, %_ZN4llvh5APInt15clearUnusedBitsEv.exit ]
-  %9 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %Width, ptr %9, align 8
   store ptr %call.i.sink, ptr %agg.result, align 8
   ret void
@@ -6589,7 +6589,7 @@ if.end:                                           ; preds = %entry
   %div1.i = lshr i64 %sub.i, 6
   %2 = shl nuw nsw i64 %div1.i, 3
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #30
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i6 = icmp ult i32 %3, 65
   %4 = load ptr, ptr %this, align 8
@@ -6608,7 +6608,7 @@ if.end:                                           ; preds = %entry
 
 return:                                           ; preds = %if.end, %_ZN4llvh5APIntC2Ejmb.exit
   %call.i.sink = phi ptr [ %1, %_ZN4llvh5APIntC2Ejmb.exit ], [ %call.i, %if.end ]
-  %5 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %5, align 8
   store ptr %call.i.sink, ptr %agg.result, align 8
   ret void
@@ -6617,7 +6617,7 @@ return:                                           ; preds = %if.end, %_ZN4llvh5A
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt11zextOrTruncEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %width) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %cmp = icmp ult i32 %0, %width
   br i1 %cmp, label %if.then, label %if.end
@@ -6661,7 +6661,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZNK4llvh5APInt4zextEj.exit:                      ; preds = %_ZN4llvh5APIntC2Ejmb.exit.i, %if.end.i
   %call.i.sink.i = phi ptr [ %2, %_ZN4llvh5APIntC2Ejmb.exit.i ], [ %call.i.i, %if.end.i ]
-  %5 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %5, align 8, !alias.scope !84
   store ptr %call.i.sink.i, ptr %agg.result, align 8, !alias.scope !84
   br label %return
@@ -6680,7 +6680,7 @@ _ZN4llvh5APIntC2Ejmb.exit.i9:                     ; preds = %if.then4
   %6 = load ptr, ptr %this, align 8, !noalias !87
   %retval.0.i.i11 = select i1 %cmp.i.i.i, ptr %this, ptr %6
   %7 = load i64, ptr %retval.0.i.i11, align 8, !noalias !87
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i.i, align 8, !alias.scope !87
   %sub.i.i.i12 = add nuw nsw i32 %width, 63
   %rem.i.i.i13 = and i32 %sub.i.i.i12, 63
@@ -6697,7 +6697,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then4
   %8 = lshr i64 %sub.i.i6, 3
   %9 = and i64 %8, 1073741816
   %call.i.i7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #30, !noalias !87
-  %BitWidth.i16.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i16.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i16.i, align 8, !alias.scope !87
   store ptr %call.i.i7, ptr %agg.result, align 8, !alias.scope !87
   %div13.i = lshr i32 %width, 6
@@ -6732,7 +6732,7 @@ if.then10.i:                                      ; preds = %for.end.i
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -6760,7 +6760,7 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt11sextOrTruncEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %width) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %cmp = icmp ult i32 %0, %width
   br i1 %cmp, label %if.then, label %if.end
@@ -6783,7 +6783,7 @@ _ZN4llvh5APIntC2Ejmb.exit.i:                      ; preds = %if.then4
   %1 = load ptr, ptr %this, align 8, !noalias !90
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %this, ptr %1
   %2 = load i64, ptr %retval.0.i.i, align 8, !noalias !90
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i.i, align 8, !alias.scope !90
   %sub.i.i.i = add nuw nsw i32 %width, 63
   %rem.i.i.i = and i32 %sub.i.i.i, 63
@@ -6800,7 +6800,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then4
   %3 = lshr i64 %sub.i.i, 3
   %4 = and i64 %3, 1073741816
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #30, !noalias !90
-  %BitWidth.i16.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i16.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %width, ptr %BitWidth.i16.i, align 8, !alias.scope !90
   store ptr %call.i.i, ptr %agg.result, align 8, !alias.scope !90
   %div13.i = lshr i32 %width, 6
@@ -6835,7 +6835,7 @@ if.then10.i:                                      ; preds = %for.end.i
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -6863,7 +6863,7 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt10sextOrSelfEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %width) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %cmp = icmp ult i32 %0, %width
   br i1 %cmp, label %if.then, label %if.end
@@ -6873,7 +6873,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -6901,10 +6901,10 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh5APInt11ashrInPlaceERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %shiftAmt) local_unnamed_addr #7 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %conv = zext i32 %0 to i64
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %shiftAmt, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %shiftAmt, i64 8
   %1 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %1, 65
   %.pre.i.i = load ptr, ptr %shiftAmt, align 8
@@ -7005,7 +7005,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -7147,10 +7147,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh5APInt11lshrInPlaceERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %shiftAmt) local_unnamed_addr #7 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %conv = zext i32 %0 to i64
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %shiftAmt, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %shiftAmt, i64 8
   %1 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %1, 65
   %.pre.i.i = load ptr, ptr %shiftAmt, align 8
@@ -7313,7 +7313,7 @@ _ZN4llvh5APInt11lshrInPlaceEj.exit:               ; preds = %if.then2.i, %if.els
 define hidden void @_ZN4llvh5APInt12lshrSlowCaseEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %ShiftAmt) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -7469,10 +7469,10 @@ return:                                           ; preds = %entry, %if.end17
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntlSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %shiftAmt) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %conv = zext i32 %0 to i64
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %shiftAmt, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %shiftAmt, i64 8
   %1 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %1, 65
   %.pre.i.i = load ptr, ptr %shiftAmt, align 8
@@ -7544,7 +7544,7 @@ _ZNK4llvh5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvh5APInt13ge
 define hidden void @_ZN4llvh5APInt11shlSlowCaseEj(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %ShiftAmt) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -7738,7 +7738,7 @@ return:                                           ; preds = %entry, %if.end17
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt4rotlERKS0_(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %rotateAmt) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %call = tail call fastcc noundef i32 @_ZL12rotateModulojRKN4llvh5APIntE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(12) %rotateAmt)
   tail call void @_ZNK4llvh5APInt4rotlEj(ptr sret(%"class.llvh::APInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %call)
@@ -7751,9 +7751,9 @@ entry:
   %rot = alloca %"class.llvh::APInt", align 8
   %ref.tmp2 = alloca %"class.llvh::APInt", align 8
   %ref.tmp3 = alloca %"class.llvh::APInt", align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %rotateAmt, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %rotateAmt, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
-  %BitWidth.i6 = getelementptr inbounds %"class.llvh::APInt", ptr %rot, i64 0, i32 1
+  %BitWidth.i6 = getelementptr inbounds i8, ptr %rot, i64 8
   store i32 %0, ptr %BitWidth.i6, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -7834,7 +7834,7 @@ if.end:                                           ; preds = %_ZN4llvh5APIntC2ERK
   %12 = phi ptr [ %11, %_ZN4llvh5APIntD2Ev.exit ], [ %8, %_ZN4llvh5APIntC2ERKS0_.exit ]
   %13 = phi i32 [ %BitWidth, %_ZN4llvh5APIntD2Ev.exit ], [ %0, %_ZN4llvh5APIntC2ERKS0_.exit ]
   %conv = zext i32 %BitWidth to i64
-  %BitWidth.i17 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp3, i64 0, i32 1
+  %BitWidth.i17 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i32 %13, ptr %BitWidth.i17, align 8
   %cmp.i.i18 = icmp ult i32 %13, 65
   br i1 %cmp.i.i18, label %_ZN4llvh5APIntD2Ev.exit43, label %if.then.i31
@@ -7867,7 +7867,7 @@ if.then.i31:                                      ; preds = %if.end
 if.then.i47.thread:                               ; preds = %if.then.i31
   %17 = load i64, ptr %ref.tmp2, align 8
   store i64 %17, ptr %rot, align 8
-  %BitWidth.i356470 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp2, i64 0, i32 1
+  %BitWidth.i356470 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %18 = load i32, ptr %BitWidth.i356470, align 8
   store i32 0, ptr %BitWidth.i356470, align 8
   br label %delete.notnull.i49
@@ -7883,7 +7883,7 @@ _ZN4llvh5APIntD2Ev.exit43:                        ; preds = %if.end
   call void @_ZNK4llvh5APInt4uremERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(12) %rot, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp3)
   %19 = load i64, ptr %ref.tmp2, align 8
   store i64 %19, ptr %rot, align 8
-  %BitWidth.i35 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp2, i64 0, i32 1
+  %BitWidth.i35 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %20 = load i32, ptr %BitWidth.i35, align 8
   store i32 0, ptr %BitWidth.i35, align 8
   br label %_ZN4llvh5APIntD2Ev.exit50
@@ -7893,7 +7893,7 @@ if.then.i47:                                      ; preds = %if.then.i31
   %.pre = load ptr, ptr %ref.tmp3, align 8
   %21 = load i64, ptr %ref.tmp2, align 8
   store i64 %21, ptr %rot, align 8
-  %BitWidth.i3564 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp2, i64 0, i32 1
+  %BitWidth.i3564 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %22 = load i32, ptr %BitWidth.i3564, align 8
   store i32 0, ptr %BitWidth.i3564, align 8
   %isnull.i48 = icmp eq ptr %.pre, null
@@ -7985,7 +7985,7 @@ _ZN4llvh5APIntD2Ev.exit62:                        ; preds = %_ZNK4llvh5APInt15ge
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt4rotrERKS0_(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %rotateAmt) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %call = tail call fastcc noundef i32 @_ZL12rotateModulojRKN4llvh5APIntE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(12) %rotateAmt)
   tail call void @_ZNK4llvh5APInt4rotrEj(ptr sret(%"class.llvh::APInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %call)
@@ -7996,14 +7996,14 @@ entry:
 define hidden void @_ZNK4llvh5APInt4rotrEj(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %rotateAmt) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.llvh::APInt", align 8
-  %BitWidth = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
   %rem = urem i32 %rotateAmt, %0
   %cmp = icmp eq i32 %rem, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
@@ -8032,7 +8032,7 @@ _ZNK4llvh5APInt4lshrEj.exit.thread:               ; preds = %if.end
   %5 = load i64, ptr %this, align 8, !noalias !97
   %sh_prom.i.i = zext nneg i32 %rem to i64
   %shr.i.i = lshr i64 %5, %sh_prom.i.i
-  %BitWidth.i.i735 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp2, i64 0, i32 1
+  %BitWidth.i.i735 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i32 %0, ptr %BitWidth.i.i735, align 8, !alias.scope !98
   store i64 %5, ptr %ref.tmp2, align 8, !alias.scope !101
   br label %_ZNK4llvh5APInt3shlEj.exit
@@ -8121,7 +8121,7 @@ _ZNK4llvh5APInt4lshrEj.exit:                      ; preds = %for.inc.i.i.i.i
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZNK4llvh5APInt4lshrEj.exit, %_ZNK4llvh5APInt4lshrEj.exit.thread42
-  %BitWidth.i.i7 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp2, i64 0, i32 1
+  %BitWidth.i.i7 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i32 %0, ptr %BitWidth.i.i7, align 8, !alias.scope !106
   %call.i.i.i.i12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #30, !noalias !101
   store ptr %call.i.i.i.i12, ptr %ref.tmp2, align 8, !alias.scope !101
@@ -8172,7 +8172,7 @@ _ZN4llvh5APIntoRERKS0_.exit.loopexit.i:           ; preds = %for.body.i.i.i.i
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %_ZN4llvh5APIntoRERKS0_.exit.loopexit.i, %if.then.i.i22
   %21 = phi i64 [ %.pre2.i, %_ZN4llvh5APIntoRERKS0_.exit.loopexit.i ], [ %or.i.i, %if.then.i.i22 ]
   %22 = phi i32 [ %.pre.i, %_ZN4llvh5APIntoRERKS0_.exit.loopexit.i ], [ %15, %if.then.i.i22 ]
-  %BitWidth.i.i21 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %22, ptr %BitWidth.i.i21, align 8, !alias.scope !108
   store i64 %21, ptr %agg.result, align 8, !alias.scope !108
   store i32 0, ptr %BitWidth.i.i740, align 8, !noalias !108
@@ -8204,7 +8204,7 @@ entry:
   %agg.tmp49.sroa.0 = alloca i64, align 8
   %agg.tmp50.sroa.0 = alloca i64, align 8
   %agg.tmp54.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.thread, label %if.end.i.i
@@ -8265,7 +8265,7 @@ if.then.thread:                                   ; preds = %_ZNK4llvh5APInt13ge
   %arrayidx4901 = getelementptr inbounds [32 x i8], ptr @_ZZNK4llvh5APInt4sqrtEvE7results, i64 0, i64 %cond900
   %9 = load i8, ptr %arrayidx4901, align 1
   %conv902 = zext i8 %9 to i64
-  %BitWidth.i6903 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i6903 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i6903, align 8
   br label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i
 
@@ -8274,7 +8274,7 @@ if.then:                                          ; preds = %_ZNK4llvh5APInt13ge
   %arrayidx4 = getelementptr inbounds [32 x i8], ptr @_ZZNK4llvh5APInt4sqrtEvE7results, i64 0, i64 %cond
   %10 = load i8, ptr %arrayidx4, align 1
   %conv = zext i8 %10 to i64
-  %BitWidth.i6 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i6, align 8
   br i1 %cmp.i.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
 
@@ -8327,7 +8327,7 @@ if.then6:                                         ; preds = %if.end.thread, %if.
   %sqrt = tail call double @llvm.sqrt.f64(double %conv16)
   %14 = tail call double @llvm.round.f64(double %sqrt)
   %conv18 = fptoui double %14 to i64
-  %BitWidth.i13 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i13 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i13, align 8
   br i1 %cmp.i.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i30, label %if.else.i15
 
@@ -8388,7 +8388,7 @@ _ZN4llvh5APIntC2Ejmb.exit136.thread:              ; preds = %if.end19
   %21 = load i64, ptr %arrayidx.i.i.i48, align 8
   %and6.i.i.i54 = and i64 %21, %shr.i.i.i53
   store i64 %and6.i.i.i54, ptr %arrayidx.i.i.i48, align 8
-  %BitWidth.i63 = getelementptr inbounds %"class.llvh::APInt", ptr %x_old, i64 0, i32 1
+  %BitWidth.i63 = getelementptr inbounds i8, ptr %x_old, i64 8
   store i32 %0, ptr %BitWidth.i63, align 8
   %call.i.i.i68 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i68, i8 0, i64 %19, i1 false)
@@ -8398,7 +8398,7 @@ _ZN4llvh5APIntC2Ejmb.exit136.thread:              ; preds = %if.end19
   %22 = load i64, ptr %arrayidx.i.i.i73, align 8
   %and6.i.i.i79 = and i64 %22, %shr.i.i.i53
   store i64 %and6.i.i.i79, ptr %arrayidx.i.i.i73, align 8
-  %BitWidth.i88 = getelementptr inbounds %"class.llvh::APInt", ptr %x_new, i64 0, i32 1
+  %BitWidth.i88 = getelementptr inbounds i8, ptr %x_new, i64 8
   store i32 %0, ptr %BitWidth.i88, align 8
   %call.i.i.i93 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i93, i8 0, i64 %19, i1 false)
@@ -8408,7 +8408,7 @@ _ZN4llvh5APIntC2Ejmb.exit136.thread:              ; preds = %if.end19
   %23 = load i64, ptr %arrayidx.i.i.i98, align 8
   %and6.i.i.i104 = and i64 %23, %shr.i.i.i53
   store i64 %and6.i.i.i104, ptr %arrayidx.i.i.i98, align 8
-  %BitWidth.i112 = getelementptr inbounds %"class.llvh::APInt", ptr %two, i64 0, i32 1
+  %BitWidth.i112 = getelementptr inbounds i8, ptr %two, i64 8
   store i32 %0, ptr %BitWidth.i112, align 8
   %call.i.i.i117 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i117, i8 0, i64 %19, i1 false)
@@ -8428,13 +8428,13 @@ _ZN4llvh5APIntC2Ejmb.exit136:                     ; preds = %if.end.thread, %if.
   %sh_prom.i.i59 = zext nneg i32 %sub2.i.i58 to i64
   %shr.i.i60 = lshr i64 -1, %sh_prom.i.i59
   %and6.i.i61 = and i64 %shr.i.i60, 16
-  %BitWidth.i63774 = getelementptr inbounds %"class.llvh::APInt", ptr %x_old, i64 0, i32 1
+  %BitWidth.i63774 = getelementptr inbounds i8, ptr %x_old, i64 8
   store i32 %0, ptr %BitWidth.i63774, align 8
   store i64 1, ptr %x_old, align 8
-  %BitWidth.i88781 = getelementptr inbounds %"class.llvh::APInt", ptr %x_new, i64 0, i32 1
+  %BitWidth.i88781 = getelementptr inbounds i8, ptr %x_new, i64 8
   store i32 %0, ptr %BitWidth.i88781, align 8
   store i64 0, ptr %x_new, align 8
-  %BitWidth.i112791 = getelementptr inbounds %"class.llvh::APInt", ptr %two, i64 0, i32 1
+  %BitWidth.i112791 = getelementptr inbounds i8, ptr %two, i64 8
   store i32 %0, ptr %BitWidth.i112791, align 8
   %and6.i.i135 = and i64 %shr.i.i60, 2
   %26 = inttoptr i64 %and6.i.i135 to ptr
@@ -8514,7 +8514,7 @@ if.then27:                                        ; preds = %_ZN4llvh5APIntD2Ev.
   %i.0846 = phi i32 [ 4, %_ZN4llvh5APIntC2Ejmb.exit136 ], [ %i.0858, %while.cond.i.i.i ], [ %add, %_ZN4llvh5APIntD2Ev.exit179 ], [ %i.0858, %if.then.i.i.i140 ], [ %i.0858, %if.then.i.i143 ]
   %div4 = lshr exact i32 %i.0846, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %42 = load i32, ptr %BitWidth.i63777782796917, align 8, !noalias !111
   store i32 %42, ptr %BitWidth.i.i, align 8, !alias.scope !111
   %cmp.i.i.i145 = icmp ult i32 %42, 65
@@ -8556,9 +8556,9 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %delete.notnull.i, %
   %49 = load i32, ptr %BitWidth.i.i, align 8
   store i32 %49, ptr %BitWidth.i63777782796917, align 8
   store i32 0, ptr %BitWidth.i.i, align 8
-  %BitWidth.i.i.i180 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp, i64 0, i32 1
-  %BitWidth.i.i202 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp34, i64 0, i32 1
-  %BitWidth.i208 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp33, i64 0, i32 1
+  %BitWidth.i.i.i180 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %BitWidth.i.i202 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
+  %BitWidth.i208 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   br label %for.cond32
 
 for.inc:                                          ; preds = %if.then.i.i143, %if.then.i.i.i140
@@ -8579,7 +8579,7 @@ if.end5.i:                                        ; preds = %for.inc
   %shl.i14.i.i = shl i64 %51, 2
   %arrayidx5.i16.i.i = getelementptr inbounds i64, ptr %call.i.i.i.i163, i64 %indvars.iv.next.i9.i.i
   store i64 %shl.i14.i.i, ptr %arrayidx5.i16.i.i, align 8
-  %invariant.gep.i.i = getelementptr i64, ptr %call.i.i.i.i163, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %call.i.i.i.i163, i64 -8
   br label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end16.i.i.i, %if.end5.i
@@ -8982,7 +8982,7 @@ _ZNK4llvh5APInt3ultERKS0_.exit:                   ; preds = %while.body.i.i.i428
   br i1 %cmp7.i.i.i433.not, label %if.end47, label %if.then46
 
 if.then46:                                        ; preds = %if.then.i.i435, %_ZNK4llvh5APInt3ultERKS0_.exit
-  %BitWidth.i437 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i437 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %114 = load i32, ptr %BitWidth.i63777782796917, align 8
   store i32 %114, ptr %BitWidth.i437, align 8
   %115 = load i64, ptr %x_old, align 8
@@ -9055,7 +9055,7 @@ _ZN4llvhmiENS_5APIntERKS0_.exit:                  ; preds = %if.end.thread.i.i48
   %arrayidx.sink3.i.i.i476 = phi ptr [ %arrayidx.i5.i.i475, %if.else.i4.i.i469 ], [ %agg.tmp49.sroa.0, %if.end.thread.i.i484 ]
   %and6.i.i.i481 = and i64 %123, %shr.i.i.i303.pre-phi938957976990
   store i64 %and6.i.i.i481, ptr %arrayidx.sink3.i.i.i476, align 8, !noalias !134
-  %BitWidth.i.i482 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp48, i64 0, i32 1
+  %BitWidth.i.i482 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   store i32 %75, ptr %BitWidth.i.i482, align 8, !alias.scope !134
   %agg.tmp49.sroa.0.0.agg.tmp49.sroa.0.0.agg.tmp49.sroa.0.0.agg.tmp49.sroa.0.0.732 = load i64, ptr %agg.tmp49.sroa.0, align 8
   store i64 %agg.tmp49.sroa.0.0.agg.tmp49.sroa.0.0.agg.tmp49.sroa.0.0.agg.tmp49.sroa.0.0.732, ptr %ref.tmp48, align 8, !alias.scope !134
@@ -9176,7 +9176,7 @@ _ZNK4llvh5APInt3ultERKS0_.exit581:                ; preds = %while.body.i.i.i572
   br i1 %cmp7.i.i.i577.not, label %if.end53, label %if.then52
 
 if.then52:                                        ; preds = %if.then.i.i579, %_ZNK4llvh5APInt3ultERKS0_.exit581
-  %BitWidth.i582 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i582 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %141 = load i32, ptr %BitWidth.i63777782796917, align 8
   store i32 %141, ptr %BitWidth.i582, align 8
   %142 = load i64, ptr %x_old, align 8
@@ -9238,7 +9238,7 @@ _ZN4llvh5APIntD2Ev.exit635:                       ; preds = %if.else.i.i.i611, %
   %shr.i.i.i623 = lshr i64 -1, %sh_prom.i.i.i622
   %and6.i.i.i624 = and i64 %150, %shr.i.i.i623
   store i64 %and6.i.i.i624, ptr %arrayidx.sink3.i.i.i618, align 8, !noalias !140
-  %BitWidth.i.i625 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i625 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %143, ptr %BitWidth.i.i625, align 8, !alias.scope !140
   %agg.tmp54.sroa.0.0.agg.tmp54.sroa.0.0.agg.tmp54.sroa.0.0.agg.tmp54.sroa.0.0.716 = load i64, ptr %agg.tmp54.sroa.0, align 8
   store i64 %agg.tmp54.sroa.0.0.agg.tmp54.sroa.0.0.agg.tmp54.sroa.0.0.agg.tmp54.sroa.0.0.716, ptr %agg.result, align 8, !alias.scope !140
@@ -9255,7 +9255,7 @@ delete.notnull.i641:                              ; preds = %cleanup
   br label %_ZN4llvh5APIntD2Ev.exit642
 
 _ZN4llvh5APIntD2Ev.exit642:                       ; preds = %cleanup, %delete.notnull.i641
-  %BitWidth.i.i.i643 = getelementptr inbounds %"class.llvh::APInt", ptr %midpoint, i64 0, i32 1
+  %BitWidth.i.i.i643 = getelementptr inbounds i8, ptr %midpoint, i64 8
   %152 = load i32, ptr %BitWidth.i.i.i643, align 8
   %cmp.i.i.i644 = icmp ugt i32 %152, 64
   br i1 %cmp.i.i.i644, label %if.then.i646, label %cleanup56
@@ -9349,7 +9349,7 @@ declare double @llvm.round.f64(double) #15
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt4udivERKS0_(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APIntC2Ejmb.exit, label %if.end.i.i
@@ -9358,7 +9358,7 @@ _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %2 = load i64, ptr %RHS, align 8
   %div = udiv i64 %1, %2
-  %BitWidth.i11 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i11, align 8
   %sub.i.i = add nuw nsw i32 %0, 63
   %rem.i.i = and i32 %sub.i.i, 63
@@ -9411,7 +9411,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %sub.i16 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i16, 6
   %conv1.i = trunc i64 %div1.i to i32
-  %BitWidth.i17 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i17 = getelementptr inbounds i8, ptr %RHS, i64 8
   %9 = load i32, ptr %BitWidth.i17, align 8
   %cmp.i.i.i18 = icmp ult i32 %9, 65
   br i1 %cmp.i.i.i18, label %if.then.i.i45, label %if.end.i.i19
@@ -9476,7 +9476,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit48:          ; preds = %if.then.i.i45, %_ZN
   br i1 %tobool.not, label %_ZN4llvh5APIntC2Ejmb.exit76, label %if.end9
 
 _ZN4llvh5APIntC2Ejmb.exit76:                      ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit48
-  %BitWidth.i53 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i53 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i53, align 8
   %20 = lshr i64 %sub.i.i.i.i.i, 3
   %21 = and i64 %20, 1073741816
@@ -9502,7 +9502,7 @@ if.end9:                                          ; preds = %_ZNK4llvh5APInt13ge
   br i1 %cmp, label %_ZN4llvh5APIntC2ERKS0_.exit, label %if.end11
 
 _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %if.end9
-  %BitWidth.i77 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i77 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i77, align 8
   %23 = lshr i64 %sub.i.i.i.i.i, 3
   %24 = and i64 %23, 1073741816
@@ -9534,7 +9534,7 @@ _ZNK4llvh5APInt3ultERKS0_.exit:                   ; preds = %while.body.i.i.i
   br i1 %cmp7.i.i.i.not, label %_ZNK4llvh5APInteqERKS0_.exit, label %_ZN4llvh5APIntC2Ejmb.exit113
 
 _ZN4llvh5APIntC2Ejmb.exit113:                     ; preds = %_ZNK4llvh5APInt3ultERKS0_.exit, %if.end11
-  %BitWidth.i90 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i90, align 8
   %28 = lshr i64 %sub.i.i.i.i.i, 3
   %29 = and i64 %28, 1073741816
@@ -9595,8 +9595,8 @@ entry:
   %r = alloca [2 x %"class.llvh::APInt"], align 16
   %t = alloca [2 x %"class.llvh::APInt"], align 16
   %q = alloca %"class.llvh::APInt", align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %r, i64 0, i32 1
-  %BitWidth2.i = getelementptr inbounds %"class.llvh::APInt", ptr %modulo, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %r, i64 8
+  %BitWidth2.i = getelementptr inbounds i8, ptr %modulo, i64 8
   %0 = load i32, ptr %BitWidth2.i, align 8
   store i32 %0, ptr %BitWidth.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
@@ -9620,9 +9620,9 @@ if.else.i:                                        ; preds = %entry
 _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %if.then.i, %if.else.i
   %call.i.i.i.sink = phi ptr [ %2, %if.then.i ], [ %call.i.i.i, %if.else.i ]
   store ptr %call.i.i.i.sink, ptr %r, align 16
-  %arrayinit.element = getelementptr inbounds %"class.llvh::APInt", ptr %r, i64 1
-  %BitWidth.i12 = getelementptr inbounds %"class.llvh::APInt", ptr %r, i64 1, i32 1
-  %BitWidth2.i13 = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %r, i64 16
+  %BitWidth.i12 = getelementptr inbounds i8, ptr %r, i64 24
+  %BitWidth2.i13 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %BitWidth2.i13, align 8
   store i32 %6, ptr %BitWidth.i12, align 8
   %cmp.i.i14 = icmp ult i32 %6, 65
@@ -9631,14 +9631,14 @@ _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %if.then.i, %if.else
 _ZN4llvh5APInt15clearUnusedBitsEv.exit.i64:       ; preds = %_ZN4llvh5APIntC2ERKS0_.exit
   %7 = load i64, ptr %this, align 8
   store i64 %7, ptr %arrayinit.element, align 16
-  %BitWidth.i21239 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 0, i32 1
+  %BitWidth.i21239 = getelementptr inbounds i8, ptr %t, i64 8
   store i32 %6, ptr %BitWidth.i21239, align 8
   store i64 0, ptr %t, align 16
-  %arrayinit.element3240 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 1
-  %BitWidth.i25241 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 1, i32 1
+  %arrayinit.element3240 = getelementptr inbounds i8, ptr %t, i64 16
+  %BitWidth.i25241 = getelementptr inbounds i8, ptr %t, i64 24
   store i32 %6, ptr %BitWidth.i25241, align 8
   store i64 1, ptr %arrayinit.element3240, align 16
-  %BitWidth.i48243 = getelementptr inbounds %"class.llvh::APInt", ptr %q, i64 0, i32 1
+  %BitWidth.i48243 = getelementptr inbounds i8, ptr %q, i64 8
   store i32 %6, ptr %BitWidth.i48243, align 8
   br label %_ZN4llvh5APIntC2Ejmb.exit70
 
@@ -9651,7 +9651,7 @@ if.else.i50:                                      ; preds = %_ZN4llvh5APIntC2ERK
   store ptr %call.i.i.i18, ptr %arrayinit.element, align 16
   %10 = load ptr, ptr %this, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i18, ptr align 8 %10, i64 %9, i1 false)
-  %BitWidth.i21 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 0, i32 1
+  %BitWidth.i21 = getelementptr inbounds i8, ptr %t, i64 8
   store i32 %6, ptr %BitWidth.i21, align 8
   %call.i.i.i24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i24, i8 0, i64 %9, i1 false)
@@ -9669,8 +9669,8 @@ if.else.i50:                                      ; preds = %_ZN4llvh5APIntC2ERK
   %11 = load i64, ptr %arrayidx.i.i.i, align 8
   %and6.i.i.i = and i64 %11, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.i.i.i, align 8
-  %arrayinit.element3 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 1
-  %BitWidth.i25 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 1, i32 1
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %t, i64 16
+  %BitWidth.i25 = getelementptr inbounds i8, ptr %t, i64 24
   store i32 %6, ptr %BitWidth.i25, align 8
   %call.i.i.i30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i30, i8 0, i64 %9, i1 false)
@@ -9680,7 +9680,7 @@ if.else.i50:                                      ; preds = %_ZN4llvh5APIntC2ERK
   %12 = load i64, ptr %arrayidx.i.i.i34, align 8
   %and6.i.i.i40 = and i64 %12, %shr.i.i.i
   store i64 %and6.i.i.i40, ptr %arrayidx.i.i.i34, align 8
-  %BitWidth.i48 = getelementptr inbounds %"class.llvh::APInt", ptr %q, i64 0, i32 1
+  %BitWidth.i48 = getelementptr inbounds i8, ptr %q, i64 8
   store i32 %6, ptr %BitWidth.i48, align 8
   %call.i.i.i53 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i.i.i53, i8 0, i64 %9, i1 false)
@@ -9702,7 +9702,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %xor = xor i32 %i.0, 1
   %idxprom = zext nneg i32 %xor to i64
   %arrayidx = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %r, i64 0, i64 %idxprom
-  %BitWidth.i.i.i = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %r, i64 0, i64 %idxprom, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %14 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %14, 65
   %.pre.i.i = load ptr, ptr %arrayidx, align 16
@@ -9763,7 +9763,7 @@ for.body:                                         ; preds = %_ZNK4llvh5APInt13ge
   %arrayidx7 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %r, i64 0, i64 %idxprom6
   call void @_ZN4llvh5APInt7udivremERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx7, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, ptr noundef nonnull align 8 dereferenceable(12) %q, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx7)
   %arrayidx15 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %t, i64 0, i64 %idxprom
-  %BitWidth.i.i = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %t, i64 0, i64 %idxprom, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   %21 = load i32, ptr %BitWidth.i.i, align 8, !noalias !143
   %cmp.i.i73 = icmp ult i32 %21, 65
   br i1 %cmp.i.i73, label %_ZN4llvh5APIntC2Ejmb.exit.i, label %if.end.i
@@ -9916,7 +9916,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i75:       ; preds = %_ZN4llvh5APInt14tcM
 _ZNK4llvh5APIntmlERKS0_.exit:                     ; preds = %_ZN4llvh5APIntC2Ejmb.exit.i, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i75
   %ref.tmp.sroa.0.0 = phi i64 [ %and6.i.i.i86, %_ZN4llvh5APIntC2Ejmb.exit.i ], [ %38, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i75 ]
   %arrayidx17 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %t, i64 0, i64 %idxprom6
-  %BitWidth.i.i87 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %t, i64 0, i64 %idxprom6, i32 1
+  %BitWidth.i.i87 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
   %40 = load i32, ptr %BitWidth.i.i87, align 8
   %cmp.i.i88 = icmp ult i32 %40, 65
   br i1 %cmp.i.i88, label %if.end.thread.i, label %if.else.i89
@@ -9996,7 +9996,7 @@ delete.notnull.i:                                 ; preds = %_ZN4llvh5APIntmIERK
 for.end:                                          ; preds = %_ZNK4llvh5APIntneEm.exit
   %idxprom20 = zext nneg i32 %i.0 to i64
   %arrayidx21 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %r, i64 0, i64 %idxprom20
-  %BitWidth.i.i.i115 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %r, i64 0, i64 %idxprom20, i32 1
+  %BitWidth.i.i.i115 = getelementptr inbounds i8, ptr %arrayidx21, i64 8
   %48 = load i32, ptr %BitWidth.i.i.i115, align 8
   %cmp.i.i.i116 = icmp ult i32 %48, 65
   %.pre.i.i117 = load ptr, ptr %arrayidx21, align 16
@@ -10054,7 +10054,7 @@ _ZNK4llvh5APIntneEm.exit149:                      ; preds = %for.end, %_ZNK4llvh
 
 if.then:                                          ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i132, %_ZNK4llvh5APIntneEm.exit149
   %55 = load i32, ptr %BitWidth2.i13, align 8
-  %BitWidth.i150 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i150 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %55, ptr %BitWidth.i150, align 8
   %cmp.i.i151 = icmp ult i32 %55, 65
   br i1 %cmp.i.i151, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i167, label %if.else.i152
@@ -10088,7 +10088,7 @@ if.else.i152:                                     ; preds = %if.then
 
 if.end:                                           ; preds = %_ZNK4llvh5APIntneEm.exit149
   %arrayidx25 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %t, i64 0, i64 %idxprom20
-  %BitWidth.i174 = getelementptr inbounds [2 x %"class.llvh::APInt"], ptr %t, i64 0, i64 %idxprom20, i32 1
+  %BitWidth.i174 = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   %59 = load i32, ptr %BitWidth.i174, align 8
   %sub.i175 = add i32 %59, -1
   %rem.i.i.i.i = and i32 %sub.i175, 63
@@ -10163,7 +10163,7 @@ _ZN4llvh5APIntpLERKS0_.exit:                      ; preds = %if.end.thread.i213,
 
 if.end31:                                         ; preds = %_ZN4llvh5APIntpLERKS0_.exit, %if.end
   %67 = phi i64 [ %.pre, %_ZN4llvh5APIntpLERKS0_.exit ], [ %61, %if.end ]
-  %BitWidth.i214 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i214 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %59, ptr %BitWidth.i214, align 8
   store i64 %67, ptr %agg.result, align 8
   store i32 0, ptr %BitWidth.i174, align 8
@@ -10184,13 +10184,13 @@ delete.notnull.i221:                              ; preds = %if.then.i219
   br label %_ZN4llvh5APIntD2Ev.exit222
 
 _ZN4llvh5APIntD2Ev.exit222:                       ; preds = %cleanup, %if.then.i219, %delete.notnull.i221
-  %70 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 2
+  %70 = getelementptr inbounds i8, ptr %t, i64 32
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZN4llvh5APIntD2Ev.exit229, %_ZN4llvh5APIntD2Ev.exit222
   %arraydestroy.elementPast = phi ptr [ %70, %_ZN4llvh5APIntD2Ev.exit222 ], [ %arraydestroy.element, %_ZN4llvh5APIntD2Ev.exit229 ]
-  %arraydestroy.element = getelementptr inbounds %"class.llvh::APInt", ptr %arraydestroy.elementPast, i64 -1
-  %BitWidth.i.i.i223 = getelementptr %"class.llvh::APInt", ptr %arraydestroy.elementPast, i64 -1, i32 1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
+  %BitWidth.i.i.i223 = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -8
   %71 = load i32, ptr %BitWidth.i.i.i223, align 8
   %cmp.i.i.i224 = icmp ugt i32 %71, 64
   br i1 %cmp.i.i.i224, label %if.then.i226, label %_ZN4llvh5APIntD2Ev.exit229
@@ -10209,13 +10209,13 @@ _ZN4llvh5APIntD2Ev.exit229:                       ; preds = %arraydestroy.body, 
   br i1 %arraydestroy.done, label %arraydestroy.done35, label %arraydestroy.body
 
 arraydestroy.done35:                              ; preds = %_ZN4llvh5APIntD2Ev.exit229
-  %73 = getelementptr inbounds %"class.llvh::APInt", ptr %r, i64 2
+  %73 = getelementptr inbounds i8, ptr %r, i64 32
   br label %arraydestroy.body38
 
 arraydestroy.body38:                              ; preds = %_ZN4llvh5APIntD2Ev.exit236, %arraydestroy.done35
   %arraydestroy.elementPast39 = phi ptr [ %73, %arraydestroy.done35 ], [ %arraydestroy.element40, %_ZN4llvh5APIntD2Ev.exit236 ]
-  %arraydestroy.element40 = getelementptr inbounds %"class.llvh::APInt", ptr %arraydestroy.elementPast39, i64 -1
-  %BitWidth.i.i.i230 = getelementptr %"class.llvh::APInt", ptr %arraydestroy.elementPast39, i64 -1, i32 1
+  %arraydestroy.element40 = getelementptr inbounds i8, ptr %arraydestroy.elementPast39, i64 -16
+  %BitWidth.i.i.i230 = getelementptr inbounds i8, ptr %arraydestroy.elementPast39, i64 -8
   %74 = load i32, ptr %BitWidth.i.i.i230, align 8
   %cmp.i.i.i231 = icmp ugt i32 %74, 64
   br i1 %cmp.i.i.i231, label %if.then.i233, label %_ZN4llvh5APIntD2Ev.exit236
@@ -10240,7 +10240,7 @@ arraydestroy.done42:                              ; preds = %_ZN4llvh5APIntD2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5APInt7udivremERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %LHS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS, ptr noundef nonnull align 8 dereferenceable(12) %Quotient, ptr noundef nonnull align 8 dereferenceable(12) %Remainder) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth1 = getelementptr inbounds %"class.llvh::APInt", ptr %LHS, i64 0, i32 1
+  %BitWidth1 = getelementptr inbounds i8, ptr %LHS, i64 8
   %0 = load i32, ptr %BitWidth1, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APIntC2Ejmb.exit, label %if.end.i.i
@@ -10256,7 +10256,7 @@ _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %sh_prom.i.i = zext nneg i32 %sub2.i.i to i64
   %shr.i.i = lshr i64 -1, %sh_prom.i.i
   %and6.i.i = and i64 %div, %shr.i.i
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %Quotient, i64 8
   %3 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i56 = icmp ult i32 %3, 65
   br i1 %cmp.i.i56, label %_ZN4llvh5APIntC2Ejmb.exit85, label %if.then.i
@@ -10274,7 +10274,7 @@ _ZN4llvh5APIntC2Ejmb.exit85:                      ; preds = %delete.notnull.i, %
   store i64 %and6.i.i, ptr %Quotient, align 8
   store i32 %0, ptr %BitWidth.i.i, align 8
   %and6.i.i84 = and i64 %rem, %shr.i.i
-  %BitWidth.i.i86 = getelementptr inbounds %"class.llvh::APInt", ptr %Remainder, i64 0, i32 1
+  %BitWidth.i.i86 = getelementptr inbounds i8, ptr %Remainder, i64 8
   %5 = load i32, ptr %BitWidth.i.i86, align 8
   %cmp.i.i87 = icmp ult i32 %5, 65
   br i1 %cmp.i.i87, label %_ZN4llvh5APIntD2Ev.exit98, label %if.then.i88
@@ -10335,7 +10335,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %sub.i104 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i104, 6
   %conv1.i = trunc i64 %div1.i to i32
-  %BitWidth.i105 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i105 = getelementptr inbounds i8, ptr %RHS, i64 8
   %13 = load i32, ptr %BitWidth.i105, align 8
   %cmp.i.i.i106 = icmp ult i32 %13, 65
   br i1 %cmp.i.i.i106, label %if.then.i.i133, label %if.end.i.i107
@@ -10415,7 +10415,7 @@ _ZN4llvh5APIntC2Ejmb.exit164:                     ; preds = %_ZNK4llvh5APInt13ge
   %25 = load i64, ptr %arrayidx.i.i.i151, align 8
   %and6.i.i.i157 = and i64 %25, %shr.i.i.i156
   store i64 %and6.i.i.i157, ptr %arrayidx.i.i.i151, align 8
-  %BitWidth.i.i165 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i165 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %26 = load i32, ptr %BitWidth.i.i165, align 8
   %cmp.i.i166 = icmp ult i32 %26, 65
   br i1 %cmp.i.i166, label %_ZN4llvh5APIntC2Ejmb.exit201, label %if.then.i167
@@ -10440,7 +10440,7 @@ _ZN4llvh5APIntC2Ejmb.exit201:                     ; preds = %delete.notnull.i169
   %29 = load i64, ptr %arrayidx.i.i.i188, align 8
   %and6.i.i.i194 = and i64 %29, %shr.i.i.i156
   store i64 %and6.i.i.i194, ptr %arrayidx.i.i.i188, align 8
-  %BitWidth.i.i202 = getelementptr inbounds %"class.llvh::APInt", ptr %Remainder, i64 0, i32 1
+  %BitWidth.i.i202 = getelementptr inbounds i8, ptr %Remainder, i64 8
   %30 = load i32, ptr %BitWidth.i.i202, align 8
   %cmp.i.i203 = icmp ult i32 %30, 65
   br i1 %cmp.i.i203, label %_ZN4llvh5APIntD2Ev.exit214, label %if.then.i204
@@ -10482,7 +10482,7 @@ _ZN4llvh5APIntC2Ejmb.exit238:                     ; preds = %if.end17
   %35 = load i64, ptr %arrayidx.i.i.i225, align 8
   %and6.i.i.i231 = and i64 %35, %shr.i.i.i230
   store i64 %and6.i.i.i231, ptr %arrayidx.i.i.i225, align 8
-  %BitWidth.i.i239 = getelementptr inbounds %"class.llvh::APInt", ptr %Remainder, i64 0, i32 1
+  %BitWidth.i.i239 = getelementptr inbounds i8, ptr %Remainder, i64 8
   %36 = load i32, ptr %BitWidth.i.i239, align 8
   %cmp.i.i240 = icmp ult i32 %36, 65
   br i1 %cmp.i.i240, label %_ZN4llvh5APIntD2Ev.exit251, label %if.then.i241
@@ -10561,7 +10561,7 @@ _ZN4llvh5APIntC2Ejmb.exit283:                     ; preds = %if.then.i.i258, %_Z
   %49 = load i64, ptr %arrayidx.i.i.i270, align 8
   %and6.i.i.i276 = and i64 %49, %shr.i.i.i275
   store i64 %and6.i.i.i276, ptr %arrayidx.i.i.i270, align 8
-  %BitWidth.i.i284 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i284 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %50 = load i32, ptr %BitWidth.i.i284, align 8
   %cmp.i.i285 = icmp ult i32 %50, 65
   br i1 %cmp.i.i285, label %_ZN4llvh5APIntD2Ev.exit296, label %if.then.i286
@@ -10609,7 +10609,7 @@ _ZN4llvh5APIntC2Ejmb.exit327:                     ; preds = %if.then.i301, %_ZNK
   %56 = load i64, ptr %arrayidx.i.i.i313, align 8
   %and6.i.i.i319 = and i64 %56, %shr.i.i.i318
   store i64 %and6.i.i.i319, ptr %arrayidx.i.i.i313, align 8
-  %BitWidth.i.i328 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i328 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %57 = load i32, ptr %BitWidth.i.i328, align 8
   %cmp.i.i329 = icmp ult i32 %57, 65
   br i1 %cmp.i.i329, label %_ZN4llvh5APIntC2Ejmb.exit364, label %if.then.i330
@@ -10634,7 +10634,7 @@ _ZN4llvh5APIntC2Ejmb.exit364:                     ; preds = %delete.notnull.i332
   %60 = load i64, ptr %arrayidx.i.i.i351, align 8
   %and6.i.i.i357 = and i64 %60, %shr.i.i.i318
   store i64 %and6.i.i.i357, ptr %arrayidx.i.i.i351, align 8
-  %BitWidth.i.i365 = getelementptr inbounds %"class.llvh::APInt", ptr %Remainder, i64 0, i32 1
+  %BitWidth.i.i365 = getelementptr inbounds i8, ptr %Remainder, i64 8
   %61 = load i32, ptr %BitWidth.i.i365, align 8
   %cmp.i.i366 = icmp ult i32 %61, 65
   br i1 %cmp.i.i366, label %_ZN4llvh5APIntD2Ev.exit377, label %if.then.i367
@@ -10654,7 +10654,7 @@ _ZN4llvh5APIntD2Ev.exit377:                       ; preds = %delete.notnull.i369
   br label %return
 
 if.end37:                                         ; preds = %if.then.i301, %_ZNK4llvh5APInteqERKS0_.exit
-  %BitWidth.i.i378 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i378 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %63 = load i32, ptr %BitWidth.i.i378, align 8
   %conv.i.i.i = zext i32 %63 to i64
   %sub.i.i.i379 = add nuw nsw i64 %conv.i.i.i, 63
@@ -10687,7 +10687,7 @@ if.then8.i:                                       ; preds = %if.end.i, %if.then4
   br label %_ZN4llvh5APInt10reallocateEj.exit
 
 _ZN4llvh5APInt10reallocateEj.exit:                ; preds = %if.then.i386, %if.then8.i
-  %BitWidth.i.i387 = getelementptr inbounds %"class.llvh::APInt", ptr %Remainder, i64 0, i32 1
+  %BitWidth.i.i387 = getelementptr inbounds i8, ptr %Remainder, i64 8
   %66 = load i32, ptr %BitWidth.i.i387, align 8
   %conv.i.i.i388 = zext i32 %66 to i64
   %sub.i.i.i389 = add nuw nsw i64 %conv.i.i.i388, 63
@@ -10774,15 +10774,15 @@ entry:
   %ref.tmp21.sroa.0 = alloca i64, align 8
   %agg.tmp48.sroa.0 = alloca i64, align 8
   %agg.tmp54.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %ad, i64 0, i32 1
-  %BitWidth.i8 = getelementptr inbounds %"class.llvh::APInt", ptr %anc, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %ad, i64 8
+  %BitWidth.i8 = getelementptr inbounds i8, ptr %anc, i64 8
   store i32 1, ptr %BitWidth.i8, align 8
   store i64 0, ptr %anc, align 8
-  %BitWidth.i14 = getelementptr inbounds %"class.llvh::APInt", ptr %t, i64 0, i32 1
-  %BitWidth.i15 = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i14 = getelementptr inbounds i8, ptr %t, i64 8
+  %BitWidth.i15 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i15, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %signedMin, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %signedMin, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !147
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %_ZN4llvh5APIntD2Ev.exit, label %if.else.i.i
@@ -10823,13 +10823,13 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %entry, %if.else.i.i
   %4 = load i64, ptr %arrayidx.sink3.i.i, align 8
   %or5.i.i = or i64 %4, %shl.i.i.i
   store i64 %or5.i.i, ptr %arrayidx.sink3.i.i, align 8
-  %BitWidth.i.i16 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %BitWidth.i.i16, align 8
   store i64 0, ptr %agg.result, align 8
   call void @_ZNK4llvh5APInt3absEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this)
   %5 = load i64, ptr %ref.tmp, align 8
   store i64 %5, ptr %ad, align 8
-  %BitWidth.i18 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i18 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i32, ptr %BitWidth.i18, align 8
   store i32 %6, ptr %BitWidth.i, align 8
   store i32 0, ptr %BitWidth.i18, align 8
@@ -11020,7 +11020,7 @@ _ZN4llvhmiENS_5APIntEm.exit:                      ; preds = %if.end.thread.i.i95
   store i64 %and6.i.i.i93, ptr %arrayidx.sink3.i.i.i88, align 8, !noalias !156
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1669 = load i64, ptr %agg.tmp.sroa.0, align 8
   call void @_ZNK4llvh5APInt4uremERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(12) %t, ptr noundef nonnull align 8 dereferenceable(12) %ad)
-  %BitWidth.i.i.i1066 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp9, i64 0, i32 1
+  %BitWidth.i.i.i1066 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %34 = load i32, ptr %BitWidth.i.i.i1066, align 8, !noalias !159
   %cmp.i.i.i1067 = icmp ult i32 %34, 65
   br i1 %cmp.i.i.i1067, label %_ZN4llvh5APInt11flipAllBitsEv.exit.thread.i, label %if.else.i.i1068
@@ -11222,7 +11222,7 @@ _ZN4llvh5APIntD2Ev.exit181:                       ; preds = %delete.notnull.i160
   %sub12 = add i32 %60, -1
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(12) %signedMin, ptr noundef nonnull align 8 dereferenceable(12) %anc)
   %61 = load i64, ptr %ref.tmp13, align 8
-  %BitWidth.i174 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp13, i64 0, i32 1
+  %BitWidth.i174 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %62 = load i32, ptr %BitWidth.i174, align 8
   store i32 0, ptr %BitWidth.i174, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
@@ -11371,7 +11371,7 @@ _ZN4llvh5APIntD2Ev.exit274:                       ; preds = %if.else.i4.i.i220, 
   %ref.tmp16.sroa.0.0.ref.tmp16.sroa.0.0.ref.tmp16.sroa.0.0.ref.tmp16.sroa.0.0.1655 = load i64, ptr %ref.tmp16.sroa.0, align 8
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(12) %signedMin, ptr noundef nonnull align 8 dereferenceable(12) %ad)
   %78 = load i64, ptr %ref.tmp18, align 8
-  %BitWidth.i266 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp18, i64 0, i32 1
+  %BitWidth.i266 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   %79 = load i32, ptr %BitWidth.i266, align 8
   store i32 0, ptr %BitWidth.i266, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
@@ -11594,7 +11594,7 @@ if.end5.i:                                        ; preds = %do.body
   %shl.i14.i.i = shl i64 %105, 1
   %arrayidx5.i16.i.i = getelementptr inbounds i64, ptr %call.i.i.i.i.i, i64 %indvars.iv.next.i9.i.i
   store i64 %shl.i14.i.i, ptr %arrayidx5.i16.i.i, align 8
-  %invariant.gep.i.i = getelementptr i64, ptr %call.i.i.i.i.i, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 -8
   br label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end16.i.i.i, %if.end5.i
@@ -11637,7 +11637,7 @@ if.end5.i1281:                                    ; preds = %_ZN4llvh5APIntlSEj.
   %shl.i14.i.i1313 = shl i64 %111, 1
   %arrayidx5.i16.i.i1314 = getelementptr inbounds i64, ptr %call.i.i.i.i.i402, i64 %indvars.iv.next.i9.i.i
   store i64 %shl.i14.i.i1313, ptr %arrayidx5.i16.i.i1314, align 8
-  %invariant.gep.i.i1317 = getelementptr i64, ptr %call.i.i.i.i.i402, i64 -1
+  %invariant.gep.i.i1317 = getelementptr i8, ptr %call.i.i.i.i.i402, i64 -8
   br label %if.end16.i.i.i1318
 
 if.end16.i.i.i1318:                               ; preds = %if.end16.i.i.i1318, %if.end5.i1281
@@ -11796,7 +11796,7 @@ if.end5.i1346:                                    ; preds = %if.end
   %shl.i14.i.i1378 = shl i64 %128, 1
   %arrayidx5.i16.i.i1379 = getelementptr inbounds i64, ptr %call.i.i.i.i.i569, i64 %indvars.iv.next.i9.i.i1374
   store i64 %shl.i14.i.i1378, ptr %arrayidx5.i16.i.i1379, align 8
-  %invariant.gep.i.i1382 = getelementptr i64, ptr %call.i.i.i.i.i569, i64 -1
+  %invariant.gep.i.i1382 = getelementptr i8, ptr %call.i.i.i.i.i569, i64 -8
   br label %if.end16.i.i.i1383
 
 if.end16.i.i.i1383:                               ; preds = %if.end16.i.i.i1383, %if.end5.i1346
@@ -11839,7 +11839,7 @@ if.end5.i1411:                                    ; preds = %_ZN4llvh5APIntlSEj.
   %shl.i14.i.i1443 = shl i64 %134, 1
   %arrayidx5.i16.i.i1444 = getelementptr inbounds i64, ptr %call.i.i.i.i.i595, i64 %indvars.iv.next.i9.i.i1374
   store i64 %shl.i14.i.i1443, ptr %arrayidx5.i16.i.i1444, align 8
-  %invariant.gep.i.i1447 = getelementptr i64, ptr %call.i.i.i.i.i595, i64 -1
+  %invariant.gep.i.i1447 = getelementptr i8, ptr %call.i.i.i.i.i595, i64 -8
   br label %if.end16.i.i.i1448
 
 if.end16.i.i.i1448:                               ; preds = %if.end16.i.i.i1448, %if.end5.i1411
@@ -12250,7 +12250,7 @@ _ZN4llvh5APIntD2Ev.exit1001:                      ; preds = %_ZN4llvh5APInt6nega
 if.end63:                                         ; preds = %_ZN4llvh5APIntD2Ev.exit1001, %_ZN4llvh5APIntD2Ev.exit957
   %177 = phi i32 [ %.pre1891, %_ZN4llvh5APIntD2Ev.exit1001 ], [ %169, %_ZN4llvh5APIntD2Ev.exit957 ]
   %sub65 = sub i32 %add, %177
-  %s = getelementptr inbounds %"struct.llvh::APInt::ms", ptr %agg.result, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %sub65, ptr %s, align 8
   %cmp.i.i.i1004 = icmp ult i32 %0, 65
   %isnull.i1007 = icmp eq ptr %25, null
@@ -12352,7 +12352,7 @@ _ZN4llvh5APIntD2Ev.exit1065:                      ; preds = %_ZN4llvh5APIntD2Ev.
 define linkonce_odr hidden void @_ZNK4llvh5APInt3absEv(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %agg.tmp.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -12444,14 +12444,14 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i.i.i, %if.
   %arrayidx.sink3.i.i.i = phi ptr [ %arrayidx.i2.i.i.i, %if.else.i.i.i ], [ %agg.tmp.sroa.0, %if.end.thread.i.i ]
   %and6.i.i16.i = and i64 %9, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !216
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !216
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.27 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.27, ptr %agg.result, align 8, !alias.scope !216
   br label %return
 
 if.end:                                           ; preds = %entry
-  %BitWidth.i4 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i4, align 8
   br i1 %cmp.i.i.i.i, label %if.then.i11, label %if.else.i7
 
@@ -12476,7 +12476,7 @@ return:                                           ; preds = %if.else.i7, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt4uremERKS0_(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APIntC2Ejmb.exit, label %if.end.i.i
@@ -12485,7 +12485,7 @@ _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %2 = load i64, ptr %RHS, align 8
   %rem = urem i64 %1, %2
-  %BitWidth.i11 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i11, align 8
   %sub.i.i = add nuw nsw i32 %0, 63
   %rem.i.i = and i32 %sub.i.i, 63
@@ -12538,7 +12538,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %sub.i16 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i16, 6
   %conv1.i = trunc i64 %div1.i to i32
-  %BitWidth.i17 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i17 = getelementptr inbounds i8, ptr %RHS, i64 8
   %9 = load i32, ptr %BitWidth.i17, align 8
   %cmp.i.i.i18 = icmp ult i32 %9, 65
   br i1 %cmp.i.i.i18, label %if.then.i.i45, label %if.end.i.i19
@@ -12603,7 +12603,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit48:          ; preds = %if.then.i.i45, %_ZN
   br i1 %cmp, label %_ZN4llvh5APIntC2Ejmb.exit76, label %if.end9
 
 _ZN4llvh5APIntC2Ejmb.exit76:                      ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit48
-  %BitWidth.i53 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i53 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i53, align 8
   %20 = lshr i64 %sub.i.i.i.i.i, 3
   %21 = and i64 %20, 1073741816
@@ -12629,7 +12629,7 @@ if.end9:                                          ; preds = %_ZNK4llvh5APInt13ge
   br i1 %cmp10, label %_ZN4llvh5APIntC2Ejmb.exit100, label %if.end13
 
 _ZN4llvh5APIntC2Ejmb.exit100:                     ; preds = %if.end9
-  %BitWidth.i77 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i77 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i77, align 8
   %23 = lshr i64 %sub.i.i.i.i.i, 3
   %24 = and i64 %23, 1073741816
@@ -12673,7 +12673,7 @@ _ZNK4llvh5APInt3ultERKS0_.exit:                   ; preds = %while.body.i.i.i
   br i1 %cmp7.i.i.i.not, label %_ZNK4llvh5APInteqERKS0_.exit, label %_ZN4llvh5APIntC2ERKS0_.exit
 
 _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %_ZNK4llvh5APInt3ultERKS0_.exit, %if.end13
-  %BitWidth.i108 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i108 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i108, align 8
   %29 = lshr i64 %sub.i.i.i.i.i, 3
   %30 = and i64 %29, 1073741816
@@ -12735,15 +12735,15 @@ entry:
   %agg.tmp69.sroa.0 = alloca i64, align 8
   %agg.tmp70.sroa.0 = alloca i64, align 8
   %agg.tmp79.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %nc, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %nc, i64 8
   store i32 1, ptr %BitWidth.i, align 8
   store i64 0, ptr %nc, align 8
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %BitWidth.i.i, align 8
   store i64 0, ptr %agg.result, align 8
-  %a = getelementptr inbounds %"struct.llvh::APInt::mu", ptr %agg.result, i64 0, i32 1
+  %a = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %a, align 8
-  %BitWidth.i20 = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i20 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i20, align 8
   %cmp.i.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i.i, label %_ZN4llvh5APIntD2Ev.exit.thread, label %if.end4.i.i
@@ -12758,7 +12758,7 @@ _ZN4llvh5APIntD2Ev.exit.thread:                   ; preds = %entry
   %sh_prom.i.i = zext nneg i32 %LeadingZeros to i64
   %shr.i.i = lshr i64 %shr.i.i.i, %sh_prom.i.i
   %allOnes.sroa.0.0.ph = select i1 %cmp.i.i, i64 0, i64 %shr.i.i
-  %BitWidth.i.i332466 = getelementptr inbounds %"class.llvh::APInt", ptr %signedMin, i64 0, i32 1
+  %BitWidth.i.i332466 = getelementptr inbounds i8, ptr %signedMin, i64 8
   store i32 %0, ptr %BitWidth.i.i332466, align 8, !alias.scope !219
   br label %_ZN4llvh5APInt17getSignedMinValueEj.exit
 
@@ -12866,7 +12866,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %_ZN4llvh5APIntD2Ev.
   tail call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i) #31
   %.pre = load i32, ptr %BitWidth.i20, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
-  %BitWidth.i.i33 = getelementptr inbounds %"class.llvh::APInt", ptr %signedMin, i64 0, i32 1
+  %BitWidth.i.i33 = getelementptr inbounds i8, ptr %signedMin, i64 8
   store i32 %.pre, ptr %BitWidth.i.i33, align 8, !alias.scope !228
   %cmp.i.i.i34 = icmp ult i32 %.pre, 65
   br i1 %cmp.i.i.i34, label %_ZN4llvh5APInt17getSignedMinValueEj.exit, label %if.else.i.i35
@@ -12913,7 +12913,7 @@ _ZN4llvh5APInt17getSignedMinValueEj.exit:         ; preds = %_ZN4llvh5APIntD2Ev.
   store i64 %or5.i.i, ptr %arrayidx.sink3.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %BitWidth.i.i.i49 = getelementptr inbounds %"class.llvh::APInt", ptr %signedMax, i64 0, i32 1
+  %BitWidth.i.i.i49 = getelementptr inbounds i8, ptr %signedMax, i64 8
   store i32 %15, ptr %BitWidth.i.i.i49, align 8, !alias.scope !236
   br i1 %cmp.i.i.i342470, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i, label %if.else.i.i.i
 
@@ -13031,12 +13031,12 @@ _ZN4llvhmiENS_5APIntERKS0_.exit:                  ; preds = %if.end.thread.i.i, 
   %shr.i.i.i83 = lshr i64 -1, %sh_prom.i.i.i82
   %and6.i.i.i = and i64 %32, %shr.i.i.i83
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !237
-  %BitWidth.i.i84 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp6, i64 0, i32 1
+  %BitWidth.i.i84 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store i32 %0, ptr %BitWidth.i.i84, align 8, !alias.scope !237
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.2145 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.2145, ptr %ref.tmp6, align 8, !alias.scope !237
   call void @_ZNK4llvh5APInt4uremERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(12) %this)
-  %BitWidth.i.i.i1766 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp5, i64 0, i32 1
+  %BitWidth.i.i.i1766 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %33 = load i32, ptr %BitWidth.i.i.i1766, align 8, !noalias !240
   %cmp.i.i.i1767 = icmp ult i32 %33, 65
   %34 = inttoptr i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.2145 to ptr
@@ -13238,7 +13238,7 @@ _ZN4llvh5APIntD2Ev.exit162:                       ; preds = %delete.notnull.i141
   %sub = add i32 %59, -1
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(12) %signedMin, ptr noundef nonnull align 8 dereferenceable(12) %nc)
   %60 = load i64, ptr %ref.tmp9, align 8
-  %BitWidth.i155 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp9, i64 0, i32 1
+  %BitWidth.i155 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %61 = load i32, ptr %BitWidth.i155, align 8
   store i32 0, ptr %BitWidth.i155, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !243)
@@ -13393,7 +13393,7 @@ _ZN4llvh5APIntD2Ev.exit255:                       ; preds = %if.else.i4.i.i201, 
   %ref.tmp12.sroa.0.0.ref.tmp12.sroa.0.0.ref.tmp12.sroa.0.0.ref.tmp12.sroa.0.0.2131 = load i64, ptr %ref.tmp12.sroa.0, align 8
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(12) %signedMax, ptr noundef nonnull align 8 dereferenceable(12) %this)
   %83 = load i64, ptr %ref.tmp14, align 8
-  %BitWidth.i247 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp14, i64 0, i32 1
+  %BitWidth.i247 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %84 = load i32, ptr %BitWidth.i247, align 8
   store i32 0, ptr %BitWidth.i247, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
@@ -14726,7 +14726,7 @@ _ZN4llvh5APIntD2Ev.exit1701:                      ; preds = %_ZN4llvhplENS_5APIn
   store i64 %agg.tmp79.sroa.0.0.agg.tmp79.sroa.0.0.agg.tmp79.sroa.0.0.agg.tmp79.sroa.0.0.1955, ptr %agg.result, align 8
   store i32 %84, ptr %BitWidth.i.i, align 8
   %sub82 = sub i32 %add, %258
-  %s = getelementptr inbounds %"struct.llvh::APInt::mu", ptr %agg.result, i64 0, i32 2
+  %s = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i32 %sub82, ptr %s, align 4
   %259 = load i32, ptr %BitWidth.i.i.i49, align 8
   %cmp.i.i.i1704 = icmp ult i32 %259, 65
@@ -15429,7 +15429,7 @@ define hidden void @_ZNK4llvh5APInt4udivEm(ptr noalias sret(%"class.llvh::APInt"
 entry:
   %RHS.addr = alloca i64, align 8
   store i64 %RHS, ptr %RHS.addr, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APIntC2Ejmb.exit, label %if.end.i.i
@@ -15437,7 +15437,7 @@ entry:
 _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %div = udiv i64 %1, %RHS
-  %BitWidth.i3 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i3, align 8
   %sub.i.i = add nuw nsw i32 %0, 63
   %rem.i.i = and i32 %sub.i.i, 63
@@ -15494,7 +15494,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   br i1 %tobool.not, label %_ZN4llvh5APIntC2Ejmb.exit32, label %if.end6
 
 _ZN4llvh5APIntC2Ejmb.exit32:                      ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit
-  %BitWidth.i9 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i9, align 8
   %8 = lshr i64 %sub.i.i.i.i.i, 3
   %9 = and i64 %8, 1073741816
@@ -15520,7 +15520,7 @@ if.end6:                                          ; preds = %_ZNK4llvh5APInt13ge
   br i1 %cmp, label %_ZN4llvh5APIntC2ERKS0_.exit, label %for.body.i.i.i.i
 
 _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %if.end6
-  %BitWidth.i33 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i33 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i33, align 8
   %11 = lshr i64 %sub.i.i.i.i.i, 3
   %12 = and i64 %11, 1073741816
@@ -15566,7 +15566,7 @@ for.body.i.i.i.i73.preheader:                     ; preds = %_ZNK4llvh5APInt13ge
   br label %for.body.i.i.i.i73
 
 _ZN4llvh5APIntC2Ejmb.exit64:                      ; preds = %_ZNK4llvh5APInt3ultEm.exit
-  %BitWidth.i41 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i41 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i41, align 8
   %17 = lshr i64 %sub.i.i.i.i.i, 3
   %18 = and i64 %17, 1073741816
@@ -15621,7 +15621,7 @@ _ZNK4llvh5APInteqEm.exit:                         ; preds = %_ZNK4llvh5APInt13ge
   br i1 %cmp4.i93, label %_ZN4llvh5APIntC2Ejmb.exit121, label %if.end16
 
 _ZN4llvh5APIntC2Ejmb.exit121:                     ; preds = %_ZNK4llvh5APInteqEm.exit
-  %BitWidth.i97 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i97 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i97, align 8
   %24 = lshr i64 %sub.i.i.i.i.i, 3
   %25 = and i64 %24, 1073741816
@@ -15676,7 +15676,7 @@ entry:
   %agg.tmp12 = alloca %"class.llvh::APInt", align 8
   %ref.tmp13 = alloca %"class.llvh::APInt", align 8
   %agg.tmp14.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -15692,7 +15692,7 @@ entry:
   %and.i.i = and i64 %shl.i.i.i, %cond.i.i.i
   %cmp.i.i.not = icmp eq i64 %and.i.i, 0
   %2 = ptrtoint ptr %1 to i64
-  %BitWidth.i82 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i82 = getelementptr inbounds i8, ptr %RHS, i64 8
   %3 = load i32, ptr %BitWidth.i82, align 8
   %sub.i83 = add i32 %3, -1
   %rem.i.i.i.i84 = and i32 %sub.i83, 63
@@ -15787,7 +15787,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %if.end.thread.i.i, 
   %arrayidx.sink3.i.i.i = phi ptr [ %agg.tmp.sroa.0, %if.end.thread.i.i ], [ %arrayidx.i2.i.i.i, %if.else.i.i.i ]
   %and6.i.i16.i = and i64 %12, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !331
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !331
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.536 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.536, ptr %ref.tmp, align 8, !alias.scope !331
@@ -15865,7 +15865,7 @@ _ZN4llvh5APInt6negateEv.exit207:                  ; preds = %if.end.thread.i.i19
   %arrayidx.sink3.i.i.i190 = phi ptr [ %agg.tmp5.sroa.0, %if.end.thread.i.i197 ], [ %arrayidx.i2.i.i.i157, %if.else.i.i.i183 ]
   %and6.i.i16.i196 = and i64 %20, %shr.i.i15.i195.pre-phi
   store i64 %and6.i.i16.i196, ptr %arrayidx.sink3.i.i.i190, align 8, !noalias !334
-  %BitWidth.i.i30 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp4, i64 0, i32 1
+  %BitWidth.i.i30 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i32 %3, ptr %BitWidth.i.i30, align 8, !alias.scope !334
   %agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.524 = load i64, ptr %agg.tmp5.sroa.0, align 8
   store i64 %agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.524, ptr %ref.tmp4, align 8, !alias.scope !334
@@ -15964,13 +15964,13 @@ _ZN4llvh5APInt6negateEv.exit279:                  ; preds = %if.end.thread.i.i26
   %arrayidx.sink3.i.i.i262 = phi ptr [ %agg.tmp8.sroa.0, %if.end.thread.i.i269 ], [ %arrayidx.i2.i.i.i229, %if.else.i.i.i255 ]
   %and6.i.i16.i268 = and i64 %28, %shr.i.i15.i267.pre-phi
   store i64 %and6.i.i16.i268, ptr %arrayidx.sink3.i.i.i262, align 8, !noalias !337
-  %BitWidth.i.i60 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp7, i64 0, i32 1
+  %BitWidth.i.i60 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store i32 %0, ptr %BitWidth.i.i60, align 8, !alias.scope !337
   %agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.512 = load i64, ptr %agg.tmp8.sroa.0, align 8
   store i64 %agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.512, ptr %ref.tmp7, align 8, !alias.scope !337
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(12) %RHS)
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
-  %BitWidth.i.i.i280 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp6, i64 0, i32 1
+  %BitWidth.i.i.i280 = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %29 = load i32, ptr %BitWidth.i.i.i280, align 8, !noalias !340
   %cmp.i.i.i281 = icmp ult i32 %29, 65
   %30 = inttoptr i64 %agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.agg.tmp8.sroa.0.0.512 to ptr
@@ -16089,7 +16089,7 @@ _ZN4llvh5APIntD2Ev.exit69:                        ; preds = %if.else.i.i.i327, %
   %42 = load i64, ptr %arrayidx.sink3.i.i.i334, align 8, !noalias !340
   %and6.i.i16.i340 = and i64 %shr.i.i15.i339, %42
   store i64 %and6.i.i16.i340, ptr %arrayidx.sink3.i.i.i334, align 8, !noalias !340
-  %BitWidth.i.i62 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i62 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %43 = load i32, ptr %BitWidth.i.i.i280, align 8, !noalias !340
   store i32 %43, ptr %BitWidth.i.i62, align 8, !alias.scope !340
   %44 = load i64, ptr %agg.tmp6, align 8, !noalias !340
@@ -16181,13 +16181,13 @@ _ZN4llvh5APInt6negateEv.exit423:                  ; preds = %if.end.thread.i.i41
   %arrayidx.sink3.i.i.i406 = phi ptr [ %agg.tmp14.sroa.0, %if.end.thread.i.i413 ], [ %arrayidx.i2.i.i.i373, %if.else.i.i.i399 ]
   %and6.i.i16.i412 = and i64 %51, %shr.i.i15.i411.pre-phi
   store i64 %and6.i.i16.i412, ptr %arrayidx.sink3.i.i.i406, align 8, !noalias !343
-  %BitWidth.i.i104 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp13, i64 0, i32 1
+  %BitWidth.i.i104 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store i32 %3, ptr %BitWidth.i.i104, align 8, !alias.scope !343
   %agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.500 = load i64, ptr %agg.tmp14.sroa.0, align 8
   store i64 %agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.500, ptr %ref.tmp13, align 8, !alias.scope !343
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp13)
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
-  %BitWidth.i.i.i424 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp12, i64 0, i32 1
+  %BitWidth.i.i.i424 = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
   %52 = load i32, ptr %BitWidth.i.i.i424, align 8, !noalias !346
   %cmp.i.i.i425 = icmp ult i32 %52, 65
   %53 = inttoptr i64 %agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.500 to ptr
@@ -16306,7 +16306,7 @@ _ZN4llvh5APIntD2Ev.exit113:                       ; preds = %if.else.i.i.i471, %
   %65 = load i64, ptr %arrayidx.sink3.i.i.i478, align 8, !noalias !346
   %and6.i.i16.i484 = and i64 %shr.i.i15.i483, %65
   store i64 %and6.i.i16.i484, ptr %arrayidx.sink3.i.i.i478, align 8, !noalias !346
-  %BitWidth.i.i106 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i106 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %66 = load i32, ptr %BitWidth.i.i.i424, align 8, !noalias !346
   store i32 %66, ptr %BitWidth.i.i106, align 8, !alias.scope !346
   %67 = load i64, ptr %agg.tmp12, align 8, !noalias !346
@@ -16338,7 +16338,7 @@ entry:
   %ref.tmp4 = alloca %"class.llvh::APInt", align 8
   %agg.tmp5.sroa.0 = alloca i64, align 8
   %agg.tmp9 = alloca %"class.llvh::APInt", align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -16434,7 +16434,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %if.end.thread.i.i, 
   %arrayidx.sink3.i.i.i = phi ptr [ %agg.tmp.sroa.0, %if.end.thread.i.i ], [ %arrayidx.i2.i.i.i, %if.else.i.i.i ]
   %and6.i.i16.i = and i64 %9, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !349
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !349
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.296 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.296, ptr %ref.tmp, align 8, !alias.scope !349
@@ -16524,13 +16524,13 @@ _ZN4llvh5APInt6negateEv.exit135:                  ; preds = %if.end.thread.i.i12
   %arrayidx.sink3.i.i.i118 = phi ptr [ %agg.tmp5.sroa.0, %if.end.thread.i.i125 ], [ %arrayidx.i2.i.i.i85, %if.else.i.i.i111 ]
   %and6.i.i16.i124 = and i64 %17, %shr.i.i15.i123.pre-phi
   store i64 %and6.i.i16.i124, ptr %arrayidx.sink3.i.i.i118, align 8, !noalias !352
-  %BitWidth.i.i24 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp4, i64 0, i32 1
+  %BitWidth.i.i24 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i32 %0, ptr %BitWidth.i.i24, align 8, !alias.scope !352
   %agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.284 = load i64, ptr %agg.tmp5.sroa.0, align 8
   store i64 %agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.284, ptr %ref.tmp4, align 8, !alias.scope !352
   call void @_ZNK4llvh5APInt4udivEm(ptr nonnull sret(%"class.llvh::APInt") align 8 %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp4, i64 noundef %RHS)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  %BitWidth.i.i.i136 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp3, i64 0, i32 1
+  %BitWidth.i.i.i136 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   %18 = load i32, ptr %BitWidth.i.i.i136, align 8, !noalias !355
   %cmp.i.i.i137 = icmp ult i32 %18, 65
   %19 = inttoptr i64 %agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.agg.tmp5.sroa.0.0.284 to ptr
@@ -16649,7 +16649,7 @@ _ZN4llvh5APIntD2Ev.exit33:                        ; preds = %if.else.i.i.i183, %
   %31 = load i64, ptr %arrayidx.sink3.i.i.i190, align 8, !noalias !355
   %and6.i.i16.i196 = and i64 %shr.i.i15.i195, %31
   store i64 %and6.i.i16.i196, ptr %arrayidx.sink3.i.i.i190, align 8, !noalias !355
-  %BitWidth.i.i26 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %32 = load i32, ptr %BitWidth.i.i.i136, align 8, !noalias !355
   store i32 %32, ptr %BitWidth.i.i26, align 8, !alias.scope !355
   %33 = load i64, ptr %agg.tmp3, align 8, !noalias !355
@@ -16671,7 +16671,7 @@ if.then8:                                         ; preds = %if.end6
   %sub10 = sub nsw i64 0, %RHS
   call void @_ZNK4llvh5APInt4udivEm(ptr nonnull sret(%"class.llvh::APInt") align 8 %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %sub10)
   call void @llvm.experimental.noalias.scope.decl(metadata !358)
-  %BitWidth.i.i.i208 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp9, i64 0, i32 1
+  %BitWidth.i.i.i208 = getelementptr inbounds i8, ptr %agg.tmp9, i64 8
   %34 = load i32, ptr %BitWidth.i.i.i208, align 8, !noalias !358
   %cmp.i.i.i209 = icmp ult i32 %34, 65
   br i1 %cmp.i.i.i209, label %_ZN4llvh5APInt11flipAllBitsEv.exit.thread.i271, label %if.else.i.i210
@@ -16789,7 +16789,7 @@ _ZN4llvh5APIntD2Ev.exit53:                        ; preds = %if.else.i.i.i255, %
   %46 = load i64, ptr %arrayidx.sink3.i.i.i262, align 8, !noalias !358
   %and6.i.i16.i268 = and i64 %shr.i.i15.i267, %46
   store i64 %and6.i.i16.i268, ptr %arrayidx.sink3.i.i.i262, align 8, !noalias !358
-  %BitWidth.i.i46 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i46 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %47 = load i32, ptr %BitWidth.i.i.i208, align 8, !noalias !358
   store i32 %47, ptr %BitWidth.i.i46, align 8, !alias.scope !358
   %48 = load i64, ptr %agg.tmp9, align 8, !noalias !358
@@ -16810,7 +16810,7 @@ entry:
   %RHS.addr = alloca i64, align 8
   %Remainder = alloca i64, align 8
   store i64 %RHS, ptr %RHS.addr, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %if.then, label %if.end.i.i
@@ -16968,7 +16968,7 @@ entry:
   %agg.tmp9.sroa.0 = alloca i64, align 8
   %ref.tmp13 = alloca %"class.llvh::APInt", align 8
   %agg.tmp14.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -16984,7 +16984,7 @@ entry:
   %and.i.i = and i64 %shl.i.i.i, %cond.i.i.i
   %cmp.i.i.not = icmp eq i64 %and.i.i, 0
   %2 = ptrtoint ptr %1 to i64
-  %BitWidth.i90 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i90 = getelementptr inbounds i8, ptr %RHS, i64 8
   %3 = load i32, ptr %BitWidth.i90, align 8
   %sub.i91 = add i32 %3, -1
   %rem.i.i.i.i92 = and i32 %sub.i91, 63
@@ -17079,7 +17079,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %if.end.thread.i.i, 
   %arrayidx.sink3.i.i.i = phi ptr [ %agg.tmp4.sroa.0, %if.end.thread.i.i ], [ %arrayidx.i2.i.i.i, %if.else.i.i.i ]
   %and6.i.i16.i = and i64 %12, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !361
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !361
   %agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.536 = load i64, ptr %agg.tmp4.sroa.0, align 8
   store i64 %agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.536, ptr %ref.tmp, align 8, !alias.scope !361
@@ -17157,13 +17157,13 @@ _ZN4llvh5APInt6negateEv.exit207:                  ; preds = %if.end.thread.i.i19
   %arrayidx.sink3.i.i.i190 = phi ptr [ %agg.tmp6.sroa.0, %if.end.thread.i.i197 ], [ %arrayidx.i2.i.i.i157, %if.else.i.i.i183 ]
   %and6.i.i16.i196 = and i64 %20, %shr.i.i15.i195.pre-phi
   store i64 %and6.i.i16.i196, ptr %arrayidx.sink3.i.i.i190, align 8, !noalias !364
-  %BitWidth.i.i30 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp5, i64 0, i32 1
+  %BitWidth.i.i30 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i32 %3, ptr %BitWidth.i.i30, align 8, !alias.scope !364
   %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.524 = load i64, ptr %agg.tmp6.sroa.0, align 8
   store i64 %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.524, ptr %ref.tmp5, align 8, !alias.scope !364
   call void @_ZNK4llvh5APInt4uremERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp5)
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
-  %BitWidth.i.i.i208 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp, i64 0, i32 1
+  %BitWidth.i.i.i208 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %21 = load i32, ptr %BitWidth.i.i.i208, align 8, !noalias !367
   %cmp.i.i.i209 = icmp ult i32 %21, 65
   %22 = inttoptr i64 %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.524 to ptr
@@ -17282,7 +17282,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i.i.i255, %
   %34 = load i64, ptr %arrayidx.sink3.i.i.i262, align 8, !noalias !367
   %and6.i.i16.i268 = and i64 %shr.i.i15.i267, %34
   store i64 %and6.i.i16.i268, ptr %arrayidx.sink3.i.i.i262, align 8, !noalias !367
-  %BitWidth.i.i32 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i32 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %35 = load i32, ptr %BitWidth.i.i.i208, align 8, !noalias !367
   store i32 %35, ptr %BitWidth.i.i32, align 8, !alias.scope !367
   %36 = load i64, ptr %agg.tmp, align 8, !noalias !367
@@ -17381,13 +17381,13 @@ _ZN4llvh5APInt6negateEv.exit351:                  ; preds = %if.end.thread.i.i34
   %arrayidx.sink3.i.i.i334 = phi ptr [ %agg.tmp9.sroa.0, %if.end.thread.i.i341 ], [ %arrayidx.i2.i.i.i301, %if.else.i.i.i327 ]
   %and6.i.i16.i340 = and i64 %43, %shr.i.i15.i339.pre-phi
   store i64 %and6.i.i16.i340, ptr %arrayidx.sink3.i.i.i334, align 8, !noalias !370
-  %BitWidth.i.i68 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp8, i64 0, i32 1
+  %BitWidth.i.i68 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store i32 %0, ptr %BitWidth.i.i68, align 8, !alias.scope !370
   %agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.512 = load i64, ptr %agg.tmp9.sroa.0, align 8
   store i64 %agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.512, ptr %ref.tmp8, align 8, !alias.scope !370
   call void @_ZNK4llvh5APInt4uremERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(12) %RHS)
   call void @llvm.experimental.noalias.scope.decl(metadata !373)
-  %BitWidth.i.i.i352 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp7, i64 0, i32 1
+  %BitWidth.i.i.i352 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %44 = load i32, ptr %BitWidth.i.i.i352, align 8, !noalias !373
   %cmp.i.i.i353 = icmp ult i32 %44, 65
   %45 = inttoptr i64 %agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.agg.tmp9.sroa.0.0.512 to ptr
@@ -17506,7 +17506,7 @@ _ZN4llvh5APIntD2Ev.exit77:                        ; preds = %if.else.i.i.i399, %
   %57 = load i64, ptr %arrayidx.sink3.i.i.i406, align 8, !noalias !373
   %and6.i.i16.i412 = and i64 %shr.i.i15.i411, %57
   store i64 %and6.i.i16.i412, ptr %arrayidx.sink3.i.i.i406, align 8, !noalias !373
-  %BitWidth.i.i70 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i70 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %58 = load i32, ptr %BitWidth.i.i.i352, align 8, !noalias !373
   store i32 %58, ptr %BitWidth.i.i70, align 8, !alias.scope !373
   %59 = load i64, ptr %agg.tmp7, align 8, !noalias !373
@@ -17598,7 +17598,7 @@ _ZN4llvh5APInt6negateEv.exit495:                  ; preds = %if.end.thread.i.i48
   %arrayidx.sink3.i.i.i478 = phi ptr [ %agg.tmp14.sroa.0, %if.end.thread.i.i485 ], [ %arrayidx.i2.i.i.i445, %if.else.i.i.i471 ]
   %and6.i.i16.i484 = and i64 %66, %shr.i.i15.i483.pre-phi
   store i64 %and6.i.i16.i484, ptr %arrayidx.sink3.i.i.i478, align 8, !noalias !376
-  %BitWidth.i.i112 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp13, i64 0, i32 1
+  %BitWidth.i.i112 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store i32 %3, ptr %BitWidth.i.i112, align 8, !alias.scope !376
   %agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.500 = load i64, ptr %agg.tmp14.sroa.0, align 8
   store i64 %agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.agg.tmp14.sroa.0.0.500, ptr %ref.tmp13, align 8, !alias.scope !376
@@ -17628,7 +17628,7 @@ entry:
   %agg.tmp.sroa.0 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.llvh::APInt", align 8
   %agg.tmp6.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -17724,7 +17724,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %if.end.thread.i.i, 
   %arrayidx.sink3.i.i.i = phi ptr [ %agg.tmp.sroa.0, %if.end.thread.i.i ], [ %arrayidx.i2.i.i.i, %if.else.i.i.i ]
   %and6.i.i16.i = and i64 %9, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !379
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !379
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.136 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.136, ptr %ref.tmp, align 8, !alias.scope !379
@@ -17815,7 +17815,7 @@ _ZN4llvh5APInt6negateEv.exit119:                  ; preds = %if.end.thread.i.i10
   %arrayidx.sink3.i.i.i102 = phi ptr [ %agg.tmp6.sroa.0, %if.end.thread.i.i109 ], [ %arrayidx.i2.i.i.i69, %if.else.i.i.i95 ]
   %and6.i.i16.i108 = and i64 %17, %shr.i.i15.i107.pre-phi
   store i64 %and6.i.i16.i108, ptr %arrayidx.sink3.i.i.i102, align 8, !noalias !382
-  %BitWidth.i.i24 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp5, i64 0, i32 1
+  %BitWidth.i.i24 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i32 %0, ptr %BitWidth.i.i24, align 8, !alias.scope !382
   %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.124 = load i64, ptr %agg.tmp6.sroa.0, align 8
   store i64 %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.124, ptr %ref.tmp5, align 8, !alias.scope !382
@@ -17851,7 +17851,7 @@ return:                                           ; preds = %_ZN4llvh5APInt6nega
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntaSEm(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit, label %if.else
@@ -17870,7 +17870,7 @@ if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   store i64 %RHS, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %2, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %BitWidth.i, align 8
   %conv.i.i = zext i32 %3 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
@@ -17889,7 +17889,7 @@ define hidden void @_ZN4llvh5APInt7udivremERKS0_mRS0_Rm(ptr noundef nonnull alig
 entry:
   %RHS.addr = alloca i64, align 8
   store i64 %RHS, ptr %RHS.addr, align 8
-  %BitWidth1 = getelementptr inbounds %"class.llvh::APInt", ptr %LHS, i64 0, i32 1
+  %BitWidth1 = getelementptr inbounds i8, ptr %LHS, i64 8
   %0 = load i32, ptr %BitWidth1, align 8
   %cmp.i = icmp ult i32 %0, 65
   br i1 %cmp.i, label %_ZN4llvh5APIntC2Ejmb.exit, label %if.end.i.i
@@ -17905,7 +17905,7 @@ _ZN4llvh5APIntC2Ejmb.exit:                        ; preds = %entry
   %sh_prom.i.i = zext nneg i32 %sub2.i.i to i64
   %shr.i.i = lshr i64 -1, %sh_prom.i.i
   %and6.i.i = and i64 %div, %shr.i.i
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %Quotient, i64 8
   %2 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i36 = icmp ult i32 %2, 65
   br i1 %cmp.i.i36, label %_ZN4llvh5APIntD2Ev.exit, label %if.then.i
@@ -17987,7 +17987,7 @@ _ZN4llvh5APIntC2Ejmb.exit70:                      ; preds = %_ZNK4llvh5APInt13ge
   %13 = load i64, ptr %arrayidx.i.i.i57, align 8
   %and6.i.i.i63 = and i64 %13, %shr.i.i.i62
   store i64 %and6.i.i.i63, ptr %arrayidx.i.i.i57, align 8
-  %BitWidth.i.i71 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i71 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %14 = load i32, ptr %BitWidth.i.i71, align 8
   %cmp.i.i72 = icmp ult i32 %14, 65
   br i1 %cmp.i.i72, label %_ZN4llvh5APIntD2Ev.exit83, label %if.then.i73
@@ -18071,7 +18071,7 @@ _ZN4llvh5APIntC2Ejmb.exit114:                     ; preds = %_ZNK4llvh5APInt3ult
   %23 = load i64, ptr %arrayidx.i.i.i101, align 8
   %and6.i.i.i107 = and i64 %23, %shr.i.i.i106
   store i64 %and6.i.i.i107, ptr %arrayidx.i.i.i101, align 8
-  %BitWidth.i.i115 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i115 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %24 = load i32, ptr %BitWidth.i.i115, align 8
   %cmp.i.i116 = icmp ult i32 %24, 65
   br i1 %cmp.i.i116, label %_ZN4llvh5APIntD2Ev.exit127, label %if.then.i117
@@ -18141,7 +18141,7 @@ _ZN4llvh5APIntC2Ejmb.exit184:                     ; preds = %_ZNK4llvh5APInteqEm
   %33 = load i64, ptr %arrayidx.i.i.i170, align 8
   %and6.i.i.i176 = and i64 %33, %shr.i.i.i175
   store i64 %and6.i.i.i176, ptr %arrayidx.i.i.i170, align 8
-  %BitWidth.i.i185 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i185 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %34 = load i32, ptr %BitWidth.i.i185, align 8
   %cmp.i.i186 = icmp ult i32 %34, 65
   br i1 %cmp.i.i186, label %_ZN4llvh5APIntD2Ev.exit197, label %if.then.i187
@@ -18162,7 +18162,7 @@ _ZN4llvh5APIntD2Ev.exit197:                       ; preds = %delete.notnull.i189
   br label %return
 
 if.end24:                                         ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i145, %_ZNK4llvh5APInteqEm.exit
-  %BitWidth.i.i198 = getelementptr inbounds %"class.llvh::APInt", ptr %Quotient, i64 0, i32 1
+  %BitWidth.i.i198 = getelementptr inbounds i8, ptr %Quotient, i64 8
   %36 = load i32, ptr %BitWidth.i.i198, align 8
   %conv.i.i.i = zext i32 %36 to i64
   %sub.i.i.i199 = add nuw nsw i64 %conv.i.i.i, 63
@@ -18233,7 +18233,7 @@ entry:
   %agg.tmp6.sroa.0 = alloca i64, align 8
   %ref.tmp10 = alloca %"class.llvh::APInt", align 8
   %agg.tmp11.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %LHS, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %LHS, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %0, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -18249,7 +18249,7 @@ entry:
   %and.i.i = and i64 %shl.i.i.i, %cond.i.i.i
   %cmp.i.i.not = icmp eq i64 %and.i.i, 0
   %2 = ptrtoint ptr %1 to i64
-  %BitWidth.i87 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i87 = getelementptr inbounds i8, ptr %RHS, i64 8
   %3 = load i32, ptr %BitWidth.i87, align 8
   %sub.i88 = add i32 %3, -1
   %rem.i.i.i.i89 = and i32 %sub.i88, 63
@@ -18344,7 +18344,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %if.end.thread.i.i, 
   %arrayidx.sink3.i.i.i = phi ptr [ %agg.tmp.sroa.0, %if.end.thread.i.i ], [ %arrayidx.i2.i.i.i, %if.else.i.i.i ]
   %and6.i.i16.i = and i64 %12, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !385
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !385
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.389 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.389, ptr %ref.tmp, align 8, !alias.scope !385
@@ -18421,7 +18421,7 @@ _ZN4llvh5APInt6negateEv.exit204:                  ; preds = %if.end.thread.i.i19
   %arrayidx.sink3.i.i.i187 = phi ptr [ %agg.tmp4.sroa.0, %if.end.thread.i.i194 ], [ %arrayidx.i2.i.i.i154, %if.else.i.i.i180 ]
   %and6.i.i16.i193 = and i64 %19, %shr.i.i15.i192.pre-phi
   store i64 %and6.i.i16.i193, ptr %arrayidx.sink3.i.i.i187, align 8, !noalias !388
-  %BitWidth.i.i43 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp3, i64 0, i32 1
+  %BitWidth.i.i43 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i32 %3, ptr %BitWidth.i.i43, align 8, !alias.scope !388
   %agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.377 = load i64, ptr %agg.tmp4.sroa.0, align 8
   store i64 %agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.agg.tmp4.sroa.0.0.377, ptr %ref.tmp3, align 8, !alias.scope !388
@@ -18524,7 +18524,7 @@ _ZN4llvh5APInt6negateEv.exit276:                  ; preds = %if.end.thread.i.i26
   %arrayidx.sink3.i.i.i259 = phi ptr [ %agg.tmp6.sroa.0, %if.end.thread.i.i266 ], [ %arrayidx.i2.i.i.i226, %if.else.i.i.i252 ]
   %and6.i.i16.i265 = and i64 %29, %shr.i.i15.i264.pre-phi
   store i64 %and6.i.i16.i265, ptr %arrayidx.sink3.i.i.i259, align 8, !noalias !391
-  %BitWidth.i.i73 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp5, i64 0, i32 1
+  %BitWidth.i.i73 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i32 %0, ptr %BitWidth.i.i73, align 8, !alias.scope !391
   %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.365 = load i64, ptr %agg.tmp6.sroa.0, align 8
   store i64 %agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.agg.tmp6.sroa.0.0.365, ptr %ref.tmp5, align 8, !alias.scope !391
@@ -18627,7 +18627,7 @@ _ZN4llvh5APInt6negateEv.exit348:                  ; preds = %if.end.thread.i.i33
   %arrayidx.sink3.i.i.i331 = phi ptr [ %agg.tmp11.sroa.0, %if.end.thread.i.i338 ], [ %arrayidx.i2.i.i.i298, %if.else.i.i.i324 ]
   %and6.i.i16.i337 = and i64 %38, %shr.i.i15.i336.pre-phi
   store i64 %and6.i.i16.i337, ptr %arrayidx.sink3.i.i.i331, align 8, !noalias !394
-  %BitWidth.i.i109 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp10, i64 0, i32 1
+  %BitWidth.i.i109 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   store i32 %3, ptr %BitWidth.i.i109, align 8, !alias.scope !394
   %agg.tmp11.sroa.0.0.agg.tmp11.sroa.0.0.agg.tmp11.sroa.0.0.agg.tmp11.sroa.0.0.353 = load i64, ptr %agg.tmp11.sroa.0, align 8
   store i64 %agg.tmp11.sroa.0.0.agg.tmp11.sroa.0.0.agg.tmp11.sroa.0.0.agg.tmp11.sroa.0.0.353, ptr %ref.tmp10, align 8, !alias.scope !394
@@ -18657,7 +18657,7 @@ if.end14:                                         ; preds = %_ZN4llvh5APIntD2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh5APInt6negateEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APInt11flipAllBitsEv.exit.thread, label %if.else.i
@@ -18785,7 +18785,7 @@ entry:
   %agg.tmp3.sroa.0 = alloca i64, align 8
   %0 = load i64, ptr %Remainder, align 8
   store i64 %0, ptr %R, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %LHS, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %LHS, i64 8
   %1 = load i32, ptr %BitWidth.i, align 8
   %sub.i = add i32 %1, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -18881,7 +18881,7 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %if.end.thread.i.i, 
   %arrayidx.sink3.i.i.i = phi ptr [ %agg.tmp.sroa.0, %if.end.thread.i.i ], [ %arrayidx.i2.i.i.i, %if.else.i.i.i ]
   %and6.i.i16.i = and i64 %10, %shr.i.i15.i.pre-phi
   store i64 %and6.i.i16.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !397
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %1, ptr %BitWidth.i.i, align 8, !alias.scope !397
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.146 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.146, ptr %ref.tmp, align 8, !alias.scope !397
@@ -18974,7 +18974,7 @@ _ZN4llvh5APInt6negateEv.exit129:                  ; preds = %if.end.thread.i.i11
   %arrayidx.sink3.i.i.i112 = phi ptr [ %agg.tmp3.sroa.0, %if.end.thread.i.i119 ], [ %arrayidx.i2.i.i.i79, %if.else.i.i.i105 ]
   %and6.i.i16.i118 = and i64 %19, %shr.i.i15.i117.pre-phi
   store i64 %and6.i.i16.i118, ptr %arrayidx.sink3.i.i.i112, align 8, !noalias !400
-  %BitWidth.i.i34 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp2, i64 0, i32 1
+  %BitWidth.i.i34 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i32 %1, ptr %BitWidth.i.i34, align 8, !alias.scope !400
   %agg.tmp3.sroa.0.0.agg.tmp3.sroa.0.0.agg.tmp3.sroa.0.0.agg.tmp3.sroa.0.0.134 = load i64, ptr %agg.tmp3.sroa.0, align 8
   store i64 %agg.tmp3.sroa.0.0.agg.tmp3.sroa.0.0.agg.tmp3.sroa.0.0.agg.tmp3.sroa.0.0.134, ptr %ref.tmp2, align 8, !alias.scope !400
@@ -19025,7 +19025,7 @@ if.end11:                                         ; preds = %if.then7, %if.else9
 define hidden void @_ZNK4llvh5APInt7sadd_ovERKS0_Rb(ptr noalias nocapture sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.sroa.0 = alloca i64, align 8
-  %BitWidth2.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth2.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.end.thread.i.i, label %if.else.i.i
@@ -19093,7 +19093,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i4.i.i, %if
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
   %and6.i.i.i = and i64 %14, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !403
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !403
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.50 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.50, ptr %agg.result, align 8, !alias.scope !403
@@ -19108,7 +19108,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i4.i.i, %if
   %cond.i.i.i.i = load i64, ptr %cond.in.i.i.i.i, align 8
   %and.i.i.i = and i64 %shl.i.i.i.i, %cond.i.i.i.i
   %cmp.i.i.not.i = icmp eq i64 %and.i.i.i, 0
-  %BitWidth.i.i9 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i.i9 = getelementptr inbounds i8, ptr %RHS, i64 8
   %15 = load i32, ptr %BitWidth.i.i9, align 8
   %sub.i.i10 = add i32 %15, -1
   %rem.i.i.i.i.i11 = and i32 %sub.i.i10, 63
@@ -19146,7 +19146,7 @@ land.end:                                         ; preds = %land.rhs, %_ZN4llvh
 define hidden void @_ZNK4llvh5APInt7uadd_ovERKS0_Rb(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.sroa.0 = alloca i64, align 8
-  %BitWidth2.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth2.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.end.thread.i.i, label %if.else.i.i
@@ -19214,7 +19214,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i4.i.i, %if
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
   %and6.i.i.i = and i64 %14, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !406
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !406
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.19 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.19, ptr %agg.result, align 8, !alias.scope !406
@@ -19260,7 +19260,7 @@ _ZNK4llvh5APInt3ultERKS0_.exit:                   ; preds = %while.cond.i.i.i, %
 define hidden void @_ZNK4llvh5APInt7ssub_ovERKS0_Rb(ptr noalias nocapture sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.sroa.0 = alloca i64, align 8
-  %BitWidth2.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth2.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.end.thread.i.i, label %if.else.i.i
@@ -19338,7 +19338,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i4.i.i, %if
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
   %and6.i.i.i = and i64 %14, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !409
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !409
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.51 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.51, ptr %agg.result, align 8, !alias.scope !409
@@ -19353,7 +19353,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i4.i.i, %if
   %cond.i.i.i.i = load i64, ptr %cond.in.i.i.i.i, align 8
   %and.i.i.i = and i64 %shl.i.i.i.i, %cond.i.i.i.i
   %cmp.i.i.not.i = icmp eq i64 %and.i.i.i, 0
-  %BitWidth.i.i10 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i.i10 = getelementptr inbounds i8, ptr %RHS, i64 8
   %15 = load i32, ptr %BitWidth.i.i10, align 8
   %sub.i.i11 = add i32 %15, -1
   %rem.i.i.i.i.i12 = and i32 %sub.i.i11, 63
@@ -19391,7 +19391,7 @@ land.end:                                         ; preds = %land.rhs, %_ZN4llvh
 define hidden void @_ZNK4llvh5APInt7usub_ovERKS0_Rb(ptr noalias nocapture writeonly sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.sroa.0 = alloca i64, align 8
-  %BitWidth2.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth2.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.end.thread.i.i, label %if.else.i.i
@@ -19469,7 +19469,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i4.i.i, %if
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
   %and6.i.i.i = and i64 %14, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !412
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i, align 8, !alias.scope !412
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.13 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.13, ptr %agg.result, align 8, !alias.scope !412
@@ -19514,7 +19514,7 @@ _ZNK4llvh5APInt3ugtERKS0_.exit:                   ; preds = %while.cond.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt7sdiv_ovERKS0_Rb(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %RHS, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
@@ -19579,7 +19579,7 @@ _ZNK4llvh5APInt16isMinSignedValueEv.exit:         ; preds = %for.body.i.i, %if.t
   br i1 %cmp6.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.then.i, %_ZNK4llvh5APInt16isMinSignedValueEv.exit
-  %BitWidth.i.i2 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i.i2 = getelementptr inbounds i8, ptr %RHS, i64 8
   %8 = load i32, ptr %BitWidth.i.i2, align 8
   %cmp.i.i3 = icmp ult i32 %8, 65
   br i1 %cmp.i.i3, label %if.then.i23, label %if.end.i4
@@ -19648,7 +19648,7 @@ entry:
   %ref.tmp = alloca %"class.llvh::APInt", align 8
   %ref.tmp4 = alloca %"class.llvh::APInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit.thread, label %if.end.i
@@ -19657,7 +19657,7 @@ _ZNK4llvh5APIntmlERKS0_.exit.thread:              ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %2 = load i64, ptr %RHS, align 8
   %mul.i = mul i64 %2, %1
-  %BitWidth.i2.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i2.i, align 8, !alias.scope !415
   %sub.i.i.i = add nuw nsw i32 %0, 63
   %rem.i.i.i = and i32 %sub.i.i.i, 63
@@ -19676,7 +19676,7 @@ if.end.i:                                         ; preds = %entry
   %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
   %4 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #30, !noalias !415
-  %BitWidth.i6.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i6.i, align 8, !alias.scope !415
   store ptr %call.i.i, ptr %agg.result, align 8, !alias.scope !415
   %5 = load ptr, ptr %this, align 8
@@ -19759,7 +19759,7 @@ _ZNK4llvh5APIntneEm.exit:                         ; preds = %_ZNK4llvh5APInt13ge
 
 land.lhs.true:                                    ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, %_ZNK4llvh5APIntneEm.exit
   %.pre.i.i9 = phi ptr [ %6, %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i ], [ %.pre.i.i987, %_ZNK4llvh5APIntneEm.exit ]
-  %BitWidth.i.i.i7 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i.i.i7 = getelementptr inbounds i8, ptr %RHS, i64 8
   %17 = load i32, ptr %BitWidth.i.i.i7, align 8
   %cmp.i.i.i8 = icmp ult i32 %17, 65
   %18 = ptrtoint ptr %.pre.i.i9 to i64
@@ -19816,7 +19816,7 @@ _ZNK4llvh5APIntneEm.exit41:                       ; preds = %land.lhs.true, %_ZN
 
 if.then:                                          ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i24, %_ZNK4llvh5APIntneEm.exit41
   call void @_ZNK4llvh5APInt4sdivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %RHS)
-  %BitWidth.i.i.i42 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %24 = load i32, ptr %BitWidth.i.i.i42, align 8
   %cmp.i.i.i43 = icmp ult i32 %24, 65
   br i1 %cmp.i.i.i43, label %if.then.i.i, label %_ZNK4llvh5APIntneERKS0_.exit
@@ -19840,7 +19840,7 @@ _ZNK4llvh5APIntneERKS0_.exit:                     ; preds = %if.then
 
 lor.rhs:                                          ; preds = %if.then.i.i, %_ZNK4llvh5APIntneERKS0_.exit
   call void @_ZNK4llvh5APInt4sdivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(12) %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this)
-  %BitWidth.i.i.i46 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp4, i64 0, i32 1
+  %BitWidth.i.i.i46 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %30 = load i32, ptr %BitWidth.i.i.i46, align 8
   %cmp.i.i.i47 = icmp ult i32 %30, 65
   br i1 %cmp.i.i.i47, label %_ZNK4llvh5APIntneERKS0_.exit58, label %if.then.i
@@ -19903,7 +19903,7 @@ entry:
   %ref.tmp = alloca %"class.llvh::APInt", align 8
   %ref.tmp4 = alloca %"class.llvh::APInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %0, 65
   br i1 %cmp.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit.thread, label %if.end.i
@@ -19912,7 +19912,7 @@ _ZNK4llvh5APIntmlERKS0_.exit.thread:              ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %2 = load i64, ptr %RHS, align 8
   %mul.i = mul i64 %2, %1
-  %BitWidth.i2.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i2.i, align 8, !alias.scope !418
   %sub.i.i.i = add nuw nsw i32 %0, 63
   %rem.i.i.i = and i32 %sub.i.i.i, 63
@@ -19931,7 +19931,7 @@ if.end.i:                                         ; preds = %entry
   %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
   %4 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #30, !noalias !418
-  %BitWidth.i6.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i6.i, align 8, !alias.scope !418
   store ptr %call.i.i, ptr %agg.result, align 8, !alias.scope !418
   %5 = load ptr, ptr %this, align 8
@@ -20014,7 +20014,7 @@ _ZNK4llvh5APIntneEm.exit:                         ; preds = %_ZNK4llvh5APInt13ge
 
 land.lhs.true:                                    ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, %_ZNK4llvh5APIntneEm.exit
   %.pre.i.i9 = phi ptr [ %6, %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i ], [ %.pre.i.i987, %_ZNK4llvh5APIntneEm.exit ]
-  %BitWidth.i.i.i7 = getelementptr inbounds %"class.llvh::APInt", ptr %RHS, i64 0, i32 1
+  %BitWidth.i.i.i7 = getelementptr inbounds i8, ptr %RHS, i64 8
   %17 = load i32, ptr %BitWidth.i.i.i7, align 8
   %cmp.i.i.i8 = icmp ult i32 %17, 65
   %18 = ptrtoint ptr %.pre.i.i9 to i64
@@ -20071,7 +20071,7 @@ _ZNK4llvh5APIntneEm.exit41:                       ; preds = %land.lhs.true, %_ZN
 
 if.then:                                          ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i24, %_ZNK4llvh5APIntneEm.exit41
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %RHS)
-  %BitWidth.i.i.i42 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %24 = load i32, ptr %BitWidth.i.i.i42, align 8
   %cmp.i.i.i43 = icmp ult i32 %24, 65
   br i1 %cmp.i.i.i43, label %if.then.i.i, label %_ZNK4llvh5APIntneERKS0_.exit
@@ -20095,7 +20095,7 @@ _ZNK4llvh5APIntneERKS0_.exit:                     ; preds = %if.then
 
 lor.rhs:                                          ; preds = %if.then.i.i, %_ZNK4llvh5APIntneERKS0_.exit
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(12) %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this)
-  %BitWidth.i.i.i46 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp4, i64 0, i32 1
+  %BitWidth.i.i.i46 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %30 = load i32, ptr %BitWidth.i.i.i46, align 8
   %cmp.i.i.i47 = icmp ult i32 %30, 65
   br i1 %cmp.i.i.i47, label %_ZNK4llvh5APIntneERKS0_.exit58, label %if.then.i
@@ -20155,10 +20155,10 @@ nrvo.skipdtor:                                    ; preds = %delete.notnull.i67,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt7sshl_ovERKS0_Rb(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %ShAmt, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv = zext i32 %0 to i64
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ShAmt, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ShAmt, i64 8
   %1 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %1, 65
   %.pre.i.i = load ptr, ptr %ShAmt, align 8
@@ -20222,7 +20222,7 @@ _ZNK4llvh5APInt3ugeEm.exit:                       ; preds = %entry, %_ZNK4llvh5A
 
 if.then:                                          ; preds = %_ZNK4llvh5APInt3ugeEm.exit.thread, %_ZNK4llvh5APInt3ugeEm.exit
   %8 = load i32, ptr %BitWidth.i, align 8
-  %BitWidth.i7 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %8, ptr %BitWidth.i7, align 8
   %cmp.i.i8 = icmp ult i32 %8, 65
   br i1 %cmp.i.i8, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
@@ -20401,7 +20401,7 @@ if.end.i52:                                       ; preds = %if.else
   %sub.i.i.i.i56 = add nuw nsw i64 %conv.i.i.i.i55, 63
   %div1.i.i.i.i57 = lshr i64 %sub.i.i.i.i56, 6
   %29 = getelementptr i64, ptr %13, i64 %div1.i.i.i.i57
-  %arrayidx.i.i58 = getelementptr i64, ptr %29, i64 -1
+  %arrayidx.i.i58 = getelementptr i8, ptr %29, i64 -8
   %30 = load i64, ptr %arrayidx.i.i58, align 8
   %shl.i.i = shl i64 %30, %shift.0.i.i
   %not.i.i.i = xor i64 %shl.i.i, -1
@@ -20504,7 +20504,7 @@ if.end13:                                         ; preds = %land.rhs.i.i92, %_Z
   store i8 %storemerge, ptr %Overflow, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  %BitWidth.i.i.i99 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i.i99 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %45 = load i32, ptr %BitWidth.i, align 8, !noalias !427
   store i32 %45, ptr %BitWidth.i.i.i99, align 8, !alias.scope !427
   %cmp.i.i.i.i = icmp ult i32 %45, 65
@@ -20603,10 +20603,10 @@ return:                                           ; preds = %if.else.i, %_ZN4llv
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5APInt7ushl_ovERKS0_Rb(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %ShAmt, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %Overflow) local_unnamed_addr #0 align 2 {
 entry:
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   %conv = zext i32 %0 to i64
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ShAmt, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ShAmt, i64 8
   %1 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %1, 65
   %.pre.i.i = load ptr, ptr %ShAmt, align 8
@@ -20670,7 +20670,7 @@ _ZNK4llvh5APInt3ugeEm.exit:                       ; preds = %entry, %_ZNK4llvh5A
 
 if.then:                                          ; preds = %_ZNK4llvh5APInt3ugeEm.exit.thread, %_ZNK4llvh5APInt3ugeEm.exit
   %8 = load i32, ptr %BitWidth.i, align 8
-  %BitWidth.i5 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %8, ptr %BitWidth.i5, align 8
   %cmp.i.i6 = icmp ult i32 %8, 65
   br i1 %cmp.i.i6, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i, label %if.else.i
@@ -20818,7 +20818,7 @@ _ZNK4llvh5APInt3ugtEm.exit:                       ; preds = %_ZNK4llvh5APInt13ge
   store i8 %frombool6, ptr %Overflow, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
-  %BitWidth.i.i.i13 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i.i13 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %29 = load i32, ptr %BitWidth.i, align 8, !noalias !434
   store i32 %29, ptr %BitWidth.i.i.i13, align 8, !alias.scope !434
   %cmp.i.i.i.i = icmp ult i32 %29, 65
@@ -20937,7 +20937,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %Prefix.0 = phi ptr [ @.str, %entry ], [ %switch.load, %if.then ]
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %this, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %4, 65
   %.pre.i = load ptr, ptr %this, align 8
@@ -20996,7 +20996,7 @@ _ZNK4llvh5APInteqEm.exit:                         ; preds = %_ZNK4llvh5APInteqEm
 while.cond.preheader:                             ; preds = %_ZNK4llvh5APInteqEm.exit
   %11 = load i8, ptr %Prefix.0, align 1
   %tobool7.not247 = icmp eq i8 %11, 0
-  %Size.i.i37.phi.trans.insert = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i.i37.phi.trans.insert = getelementptr inbounds i8, ptr %Str, i64 8
   br i1 %tobool7.not247, label %while.cond.preheader.while.end_crit_edge, label %while.body.lr.ph
 
 while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheader
@@ -21004,7 +21004,7 @@ while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheade
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %Str, i64 12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %Str, i64 16
   %.pre263 = load i32, ptr %Size.i.i37.phi.trans.insert, align 8
   br label %while.body
@@ -21038,8 +21038,8 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %while.bo
 
 while.end:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %while.cond.preheader.while.end_crit_edge
   %19 = phi i32 [ %.pre264, %while.cond.preheader.while.end_crit_edge ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
-  %Size.i.i37 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
-  %Capacity.i.i38 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Size.i.i37 = getelementptr inbounds i8, ptr %Str, i64 8
+  %Capacity.i.i38 = getelementptr inbounds i8, ptr %Str, i64 12
   %20 = load i32, ptr %Capacity.i.i38, align 4
   %cmp.not.i39 = icmp ult i32 %19, %20
   br i1 %cmp.not.i39, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit46, label %if.then.i40
@@ -21076,9 +21076,9 @@ _ZNK4llvh5APInt12getSExtValueEv.exit:             ; preds = %if.then10
   br i1 %cmp, label %if.end20, label %if.else17
 
 if.else17:                                        ; preds = %_ZNK4llvh5APInt12getSExtValueEv.exit
-  %Size.i.i56 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i.i56 = getelementptr inbounds i8, ptr %Str, i64 8
   %24 = load i32, ptr %Size.i.i56, align 8
-  %Capacity.i.i57 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i57 = getelementptr inbounds i8, ptr %Str, i64 12
   %25 = load i32, ptr %Capacity.i.i57, align 4
   %cmp.not.i58 = icmp ult i32 %24, %25
   br i1 %cmp.not.i58, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit66, label %if.then.i59
@@ -21108,8 +21108,8 @@ if.end20:                                         ; preds = %if.then10, %_ZNK4ll
   br i1 %tobool22.not240, label %while.cond26.preheader, label %while.body23.lr.ph
 
 while.body23.lr.ph:                               ; preds = %if.end20
-  %Size.i.i67 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
-  %Capacity.i.i68 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Size.i.i67 = getelementptr inbounds i8, ptr %Str, i64 8
+  %Capacity.i.i68 = getelementptr inbounds i8, ptr %Str, i64 12
   %add.ptr.i.i.i.i71 = getelementptr inbounds i8, ptr %Str, i64 16
   %.pre262 = load i32, ptr %Size.i.i67, align 8
   br label %while.body23
@@ -21166,10 +21166,10 @@ while.end31:                                      ; preds = %while.body28, %whil
   %BufPtr.0.idx.lcssa242 = phi i64 [ 65, %while.cond26.preheader ], [ %BufPtr.0.add, %while.body28 ]
   %BufPtr.0.ptr.le = getelementptr inbounds i8, ptr %Buffer, i64 %BufPtr.0.idx.lcssa242
   %gepdiff = sub nsw i64 65, %BufPtr.0.idx.lcssa242
-  %Capacity.i.i79 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i79 = getelementptr inbounds i8, ptr %Str, i64 12
   %38 = load i32, ptr %Capacity.i.i79, align 4
   %conv.i.i = zext i32 %38 to i64
-  %Size.i.i80 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i.i80 = getelementptr inbounds i8, ptr %Str, i64 8
   %39 = load i32, ptr %Size.i.i80, align 8
   %conv.i5.i = zext i32 %39 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
@@ -21204,7 +21204,7 @@ _ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit: ; preds = %if.end.i82, %if
   br label %return
 
 _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %if.end8
-  %BitWidth.i88 = getelementptr inbounds %"class.llvh::APInt", ptr %Tmp, i64 0, i32 1
+  %BitWidth.i88 = getelementptr inbounds i8, ptr %Tmp, i64 8
   store i32 %4, ptr %BitWidth.i88, align 8
   %conv.i.i.i.i = zext i32 %4 to i64
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 63
@@ -21275,9 +21275,9 @@ _ZN4llvh5APInt6negateEv.exit:                     ; preds = %for.body.i.i.i5.i
   %48 = load i64, ptr %arrayidx.i.i.i111, align 8
   %and6.i.i16.i = and i64 %shr.i.i.i.i, %48
   store i64 %and6.i.i16.i, ptr %arrayidx.i.i.i111, align 8
-  %Size.i.i113 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i.i113 = getelementptr inbounds i8, ptr %Str, i64 8
   %49 = load i32, ptr %Size.i.i113, align 8
-  %Capacity.i.i114 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i114 = getelementptr inbounds i8, ptr %Str, i64 12
   %50 = load i32, ptr %Capacity.i.i114, align 4
   %cmp.not.i115 = icmp ult i32 %49, %50
   br i1 %cmp.not.i115, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123, label %if.then.i116
@@ -21302,7 +21302,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123: ; preds = %_ZN4l
 if.end38:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit123, %land.lhs.true, %_ZN4llvh5APIntC2ERKS0_.exit
   %54 = load i8, ptr %Prefix.0, align 1
   %tobool40.not238 = icmp eq i8 %54, 0
-  %Size.i.phi.trans.insert = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i.phi.trans.insert = getelementptr inbounds i8, ptr %Str, i64 8
   br i1 %tobool40.not238, label %if.end38.while.end43_crit_edge, label %while.body41.lr.ph
 
 if.end38.while.end43_crit_edge:                   ; preds = %if.end38
@@ -21310,7 +21310,7 @@ if.end38.while.end43_crit_edge:                   ; preds = %if.end38
   br label %while.end43
 
 while.body41.lr.ph:                               ; preds = %if.end38
-  %Capacity.i.i125 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i125 = getelementptr inbounds i8, ptr %Str, i64 12
   %add.ptr.i.i.i.i128 = getelementptr inbounds i8, ptr %Str, i64 16
   %.pre = load i32, ptr %Size.i.phi.trans.insert, align 8
   br label %while.body41
@@ -21344,7 +21344,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit134: ; preds = %while
 
 while.end43:                                      ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit134, %if.end38.while.end43_crit_edge
   %62 = phi i32 [ %.pre258, %if.end38.while.end43_crit_edge ], [ %add.i133, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit134 ]
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %Str, i64 8
   %conv.i = zext i32 %62 to i64
   switch i32 %Radix, label %while.cond64.preheader [
     i32 16, label %if.then50
@@ -21354,7 +21354,7 @@ while.end43:                                      ; preds = %_ZN4llvh23SmallVect
 
 while.cond64.preheader:                           ; preds = %while.end43
   %conv68 = zext i32 %Radix to i64
-  %Capacity.i.i211 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i211 = getelementptr inbounds i8, ptr %Str, i64 12
   %add.ptr.i.i.i.i214 = getelementptr inbounds i8, ptr %Str, i64 16
   br label %while.cond64
 
@@ -21364,7 +21364,7 @@ if.then50:                                        ; preds = %while.end43, %while
   %cond = select i1 %cmp47, i32 3, i32 1
   %cond53 = select i1 %cmp49, i32 4, i32 %cond
   %sub54 = add nsw i32 %Radix, -1
-  %Capacity.i.i152 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i.i152 = getelementptr inbounds i8, ptr %Str, i64 12
   %add.ptr.i.i.i.i155 = getelementptr inbounds i8, ptr %Str, i64 16
   %sh_prom.i.i.i168 = zext nneg i32 %cond53 to i64
   %sub12.i.i.i = sub nuw nsw i32 64, %cond53
@@ -21377,7 +21377,7 @@ if.then50:                                        ; preds = %while.end43, %while
   %sub7.neg.i.i.i = or i32 %4, -64
   %cond.neg.i.i.i = select i1 %cmp6.not.i.i.i, i32 0, i32 %sub7.neg.i.i.i
   %div1.i.i.i.i166 = lshr i64 %sub.i.i.i.i, 6
-  %invariant.gep = getelementptr i64, ptr %call.i.i.i, i64 1
+  %invariant.gep = getelementptr i8, ptr %call.i.i.i, i64 8
   br label %if.end.i.i137
 
 if.end.i.i137.loopexit:                           ; preds = %for.inc.i.i.i
@@ -21594,9 +21594,9 @@ entry:
   %S = alloca %"class.llvh::SmallString", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %S, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %S, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %S, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %S, i64 12
   store i32 40, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %S, i32 noundef %Radix, i1 noundef zeroext %Signed, i1 noundef zeroext false)
   %0 = load ptr, ptr %S, align 8
@@ -21636,9 +21636,9 @@ entry:
   %S = alloca %"class.llvh::SmallString", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %S, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %S, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %S, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %S, i64 12
   store i32 40, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZNK4llvh5APInt8toStringERNS_15SmallVectorImplIcEEjbb(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %S, i32 noundef 10, i1 noundef zeroext %isSigned, i1 noundef zeroext false)
   %0 = load ptr, ptr %S, align 8
@@ -22429,10 +22429,10 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %Quo, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %Quo, i64 8
   store i32 1, ptr %BitWidth.i, align 8
   store i64 0, ptr %Quo, align 8
-  %BitWidth.i3 = getelementptr inbounds %"class.llvh::APInt", ptr %Rem, i64 0, i32 1
+  %BitWidth.i3 = getelementptr inbounds i8, ptr %Rem, i64 8
   store i32 1, ptr %BitWidth.i3, align 8
   store i64 0, ptr %Rem, align 8
   call void @_ZN4llvh5APInt7udivremERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %A, ptr noundef nonnull align 8 dereferenceable(12) %B, ptr noundef nonnull align 8 dereferenceable(12) %Quo, ptr noundef nonnull align 8 dereferenceable(12) %Rem)
@@ -22492,7 +22492,7 @@ _ZNK4llvh5APInteqEm.exit:                         ; preds = %_ZNK4llvh5APInteqEm
   br i1 %cmp4.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh5APInteqEm.exit
-  %BitWidth.i4 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %7 = load i32, ptr %BitWidth.i, align 8
   store i32 %7, ptr %BitWidth.i4, align 8
   %8 = load i64, ptr %Quo, align 8
@@ -22554,7 +22554,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i.i.i, %if.
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
   %and6.i.i.i = and i64 %16, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !455
-  %BitWidth.i.i12 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %9, ptr %BitWidth.i.i12, align 8, !alias.scope !455
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.30 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.30, ptr %agg.result, align 8, !alias.scope !455
@@ -22601,10 +22601,10 @@ entry:
   br i1 %switch, label %sw.bb18, label %sw.bb
 
 sw.bb:                                            ; preds = %entry
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %Quo, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %Quo, i64 8
   store i32 1, ptr %BitWidth.i, align 8
   store i64 0, ptr %Quo, align 8
-  %BitWidth.i6 = getelementptr inbounds %"class.llvh::APInt", ptr %Rem, i64 0, i32 1
+  %BitWidth.i6 = getelementptr inbounds i8, ptr %Rem, i64 8
   store i32 1, ptr %BitWidth.i6, align 8
   store i64 0, ptr %Rem, align 8
   call void @_ZN4llvh5APInt7sdivremERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %A, ptr noundef nonnull align 8 dereferenceable(12) %B, ptr noundef nonnull align 8 dereferenceable(12) %Quo, ptr noundef nonnull align 8 dereferenceable(12) %Rem)
@@ -22664,7 +22664,7 @@ _ZNK4llvh5APInteqEm.exit:                         ; preds = %_ZNK4llvh5APInteqEm
   br i1 %cmp4.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh5APInteqEm.exit
-  %BitWidth.i7 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %7 = load i32, ptr %BitWidth.i, align 8
   store i32 %7, ptr %BitWidth.i7, align 8
   %8 = load i64, ptr %Quo, align 8
@@ -22685,7 +22685,7 @@ if.end:                                           ; preds = %_ZNK4llvh5APInt13ge
   %cond.i.i.i = load i64, ptr %cond.in.i.i.i, align 8
   %and.i.i = and i64 %cond.i.i.i, %shl.i.i.i
   %cmp.i.i10 = icmp ne i64 %and.i.i, 0
-  %BitWidth.i11 = getelementptr inbounds %"class.llvh::APInt", ptr %B, i64 0, i32 1
+  %BitWidth.i11 = getelementptr inbounds i8, ptr %B, i64 8
   %9 = load i32, ptr %BitWidth.i11, align 8
   %sub.i12 = add i32 %9, -1
   %rem.i.i.i.i13 = and i32 %sub.i12, 63
@@ -22760,14 +22760,14 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.else.i.i.i, %if.
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i35
   %and6.i.i.i = and i64 %19, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !458
-  %BitWidth.i.i36 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i36 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %12, ptr %BitWidth.i.i36, align 8, !alias.scope !458
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.139 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.139, ptr %agg.result, align 8, !alias.scope !458
   br label %cleanup
 
 if.end7:                                          ; preds = %if.then1
-  %BitWidth.i41 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i41 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %20 = load i32, ptr %BitWidth.i, align 8
   store i32 %20, ptr %BitWidth.i41, align 8
   %21 = load i64, ptr %Quo, align 8
@@ -22779,7 +22779,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %11, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end8
-  %BitWidth.i69 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i69 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %22 = load i32, ptr %BitWidth.i, align 8
   store i32 %22, ptr %BitWidth.i69, align 8
   %23 = load i64, ptr %Quo, align 8
@@ -22841,7 +22841,7 @@ _ZN4llvh5APIntD2Ev.exit117:                       ; preds = %if.else.i.i.i96, %i
   %shr.i.i.i108 = lshr i64 -1, %sh_prom.i.i.i107
   %and6.i.i.i109 = and i64 %31, %shr.i.i.i108
   store i64 %and6.i.i.i109, ptr %arrayidx.sink3.i.i.i103, align 8, !noalias !461
-  %BitWidth.i.i110 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i110 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %24, ptr %BitWidth.i.i110, align 8, !alias.scope !461
   %agg.tmp16.sroa.0.0.agg.tmp16.sroa.0.0.agg.tmp16.sroa.0.0.agg.tmp16.sroa.0.0.132 = load i64, ptr %agg.tmp16.sroa.0, align 8
   store i64 %agg.tmp16.sroa.0.0.agg.tmp16.sroa.0.0.agg.tmp16.sroa.0.0.agg.tmp16.sroa.0.0.132, ptr %agg.result, align 8, !alias.scope !461
@@ -22914,10 +22914,10 @@ entry:
   %ref.tmp56 = alloca %"class.llvh::APInt", align 8
   %agg.tmp57.sroa.0 = alloca i64, align 8
   %agg.tmp70.sroa.0 = alloca i64, align 8
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %A, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %A, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
   call void @_ZNK4llvh5APInt11sextOrTruncEj(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %C, i32 noundef %RangeWidth)
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %1, 65
   br i1 %cmp.i.i.i, label %_ZNK4llvh5APInt11isNullValueEv.exit.thread, label %if.end.i.i
@@ -22997,9 +22997,9 @@ if.else.i:                                        ; preds = %do.end3
 
 _ZN4llvh5APIntD2Ev.exit22:                        ; preds = %do.end3, %if.else.i
   %ref.tmp4.sroa.0.0 = phi i64 [ %10, %if.else.i ], [ 0, %do.end3 ]
-  %hasVal.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %hasVal.i.i, align 8
-  %BitWidth.i.i.i16 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %0, ptr %BitWidth.i.i.i16, align 8
   store i64 %ref.tmp4.sroa.0.0, ptr %agg.result, align 8
   br label %return
@@ -23023,12 +23023,12 @@ delete.notnull.i26:                               ; preds = %if.then.i24
 _ZN4llvh5APIntD2Ev.exit33:                        ; preds = %delete.notnull.i26, %if.then.i24, %if.end
   %14 = load i64, ptr %ref.tmp5, align 8
   store i64 %14, ptr %A, align 8
-  %BitWidth.i27 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp5, i64 0, i32 1
+  %BitWidth.i27 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %15 = load i32, ptr %BitWidth.i27, align 8
   store i32 %15, ptr %BitWidth.i, align 8
   store i32 0, ptr %BitWidth.i27, align 8
   call void @_ZNK4llvh5APInt4sextEj(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(12) %B, i32 noundef %mul)
-  %BitWidth.i.i34 = getelementptr inbounds %"class.llvh::APInt", ptr %B, i64 0, i32 1
+  %BitWidth.i.i34 = getelementptr inbounds i8, ptr %B, i64 8
   %16 = load i32, ptr %BitWidth.i.i34, align 8
   %cmp.i.i35 = icmp ult i32 %16, 65
   br i1 %cmp.i.i35, label %_ZN4llvh5APIntD2Ev.exit46, label %if.then.i36
@@ -23045,12 +23045,12 @@ delete.notnull.i38:                               ; preds = %if.then.i36
 _ZN4llvh5APIntD2Ev.exit46:                        ; preds = %delete.notnull.i38, %if.then.i36, %_ZN4llvh5APIntD2Ev.exit33
   %18 = load i64, ptr %ref.tmp7, align 8
   store i64 %18, ptr %B, align 8
-  %BitWidth.i39 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp7, i64 0, i32 1
+  %BitWidth.i39 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %19 = load i32, ptr %BitWidth.i39, align 8
   store i32 %19, ptr %BitWidth.i.i34, align 8
   store i32 0, ptr %BitWidth.i39, align 8
   call void @_ZNK4llvh5APInt4sextEj(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(12) %C, i32 noundef %mul)
-  %BitWidth.i.i47 = getelementptr inbounds %"class.llvh::APInt", ptr %C, i64 0, i32 1
+  %BitWidth.i.i47 = getelementptr inbounds i8, ptr %C, i64 8
   %20 = load i32, ptr %BitWidth.i.i47, align 8
   %cmp.i.i48 = icmp ult i32 %20, 65
   br i1 %cmp.i.i48, label %_ZN4llvh5APIntD2Ev.exit59, label %if.then.i49
@@ -23067,7 +23067,7 @@ delete.notnull.i51:                               ; preds = %if.then.i49
 _ZN4llvh5APIntD2Ev.exit59:                        ; preds = %delete.notnull.i51, %if.then.i49, %_ZN4llvh5APIntD2Ev.exit46
   %22 = load i64, ptr %ref.tmp9, align 8
   store i64 %22, ptr %C, align 8
-  %BitWidth.i52 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp9, i64 0, i32 1
+  %BitWidth.i52 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %23 = load i32, ptr %BitWidth.i52, align 8
   store i32 %23, ptr %BitWidth.i.i47, align 8
   store i32 0, ptr %BitWidth.i52, align 8
@@ -23095,7 +23095,7 @@ if.then12:                                        ; preds = %_ZN4llvh5APIntD2Ev.
 
 if.end13:                                         ; preds = %if.then12, %_ZN4llvh5APIntD2Ev.exit59
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
-  %BitWidth.i.i65 = getelementptr inbounds %"class.llvh::APInt", ptr %R, i64 0, i32 1
+  %BitWidth.i.i65 = getelementptr inbounds i8, ptr %R, i64 8
   store i32 %mul, ptr %BitWidth.i.i65, align 8, !alias.scope !464
   %cmp.i.i.i66 = icmp ult i32 %mul, 65
   br i1 %cmp.i.i.i66, label %_ZN4llvh5APInt12getOneBitSetEjj.exit, label %if.else.i.i
@@ -23201,7 +23201,7 @@ _ZN4llvh5APIntD2Ev.exit81:                        ; preds = %if.else.i5.i, %if.e
   %shr.i.i1464 = lshr i64 -1, %sh_prom.i.i1463
   %and6.i.i1465 = and i64 %37, %shr.i.i1464
   store i64 %and6.i.i1465, ptr %arrayidx.sink3.i.i1459, align 8, !noalias !467
-  %BitWidth.i.i75 = getelementptr inbounds %"class.llvh::APInt", ptr %TwoA, i64 0, i32 1
+  %BitWidth.i.i75 = getelementptr inbounds i8, ptr %TwoA, i64 8
   store i32 %30, ptr %BitWidth.i.i75, align 8, !alias.scope !467
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.2213 = load i64, ptr %agg.tmp.sroa.0, align 8
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.2213, ptr %TwoA, align 8, !alias.scope !467
@@ -23214,7 +23214,7 @@ _ZN4llvh5APIntD2Ev.exit81:                        ; preds = %if.else.i5.i, %if.e
 _ZN4llvh5APIntC2Ejmb.exit.i:                      ; preds = %_ZN4llvh5APIntD2Ev.exit81
   %40 = load i64, ptr %B, align 8
   %mul.i = mul i64 %40, %40
-  %BitWidth.i2.i = getelementptr inbounds %"class.llvh::APInt", ptr %SqrB, i64 0, i32 1
+  %BitWidth.i2.i = getelementptr inbounds i8, ptr %SqrB, i64 8
   store i32 %38, ptr %BitWidth.i2.i, align 8, !alias.scope !470
   %sub.i.i.i95 = add nuw nsw i32 %38, 63
   %rem.i.i.i96 = and i32 %sub.i.i.i95, 63
@@ -23234,7 +23234,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %conv1.i.i.i = trunc i64 %div1.i.i.i84 to i32
   %43 = shl nuw nsw i64 %div1.i.i.i84, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #30, !noalias !470
-  %BitWidth.i6.i = getelementptr inbounds %"class.llvh::APInt", ptr %SqrB, i64 0, i32 1
+  %BitWidth.i6.i = getelementptr inbounds i8, ptr %SqrB, i64 8
   store i32 %38, ptr %BitWidth.i6.i, align 8, !alias.scope !470
   store ptr %call.i.i, ptr %SqrB, align 8, !alias.scope !470
   %44 = load ptr, ptr %B, align 8
@@ -23307,7 +23307,7 @@ delete.notnull.i111:                              ; preds = %if.then.i109
 _ZN4llvh5APIntD2Ev.exit121:                       ; preds = %delete.notnull.i111, %if.then.i109, %if.then15
   %56 = load i64, ptr %ref.tmp16, align 8
   store i64 %56, ptr %C, align 8
-  %BitWidth.i113 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp16, i64 0, i32 1
+  %BitWidth.i113 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %57 = load i32, ptr %BitWidth.i113, align 8
   store i32 %57, ptr %BitWidth.i.i47, align 8
   store i32 0, ptr %BitWidth.i113, align 8
@@ -23498,13 +23498,13 @@ _ZN4llvh5APIntmLEm.exit1517:                      ; preds = %if.end.i1498.thread
   %arrayidx.sink3.i.i1508 = phi ptr [ %arrayidx.i6.i1506, %if.else.i5.i1500 ], [ %agg.tmp24.sroa.0, %if.end.i1498.thread ]
   %and6.i.i1514 = and i64 %74, %shr.i.i1464
   store i64 %and6.i.i1514, ptr %arrayidx.sink3.i.i1508, align 8, !noalias !473
-  %BitWidth.i.i169 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp23, i64 0, i32 1
+  %BitWidth.i.i169 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
   store i32 %30, ptr %BitWidth.i.i169, align 8, !alias.scope !473
   %agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.2206 = load i64, ptr %agg.tmp24.sroa.0, align 8
   store i64 %agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.2206, ptr %ref.tmp23, align 8, !alias.scope !473
   call void @_ZNK4llvh5APInt4udivERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(12) %SqrB, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp23)
   call void @llvm.experimental.noalias.scope.decl(metadata !476)
-  %BitWidth.i.i.i1518 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp22, i64 0, i32 1
+  %BitWidth.i.i.i1518 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   %75 = load i32, ptr %BitWidth.i.i.i1518, align 8, !noalias !476
   %cmp.i.i.i1519 = icmp ult i32 %75, 65
   %76 = inttoptr i64 %agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.agg.tmp24.sroa.0.0.2206 to ptr
@@ -23688,7 +23688,7 @@ _ZN4llvh5APIntD2Ev.exit201:                       ; preds = %if.else.i4.i.i, %if
   %98 = load i64, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !476
   %and6.i.i.i193 = and i64 %shr.i.i.i192, %98
   store i64 %and6.i.i.i193, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !476
-  %BitWidth.i.i194 = getelementptr inbounds %"class.llvh::APInt", ptr %LowkR, i64 0, i32 1
+  %BitWidth.i.i194 = getelementptr inbounds i8, ptr %LowkR, i64 8
   %99 = load i32, ptr %BitWidth.i.i.i1518, align 8, !noalias !476
   store i32 %99, ptr %BitWidth.i.i194, align 8, !alias.scope !476
   %100 = load i64, ptr %ref.tmp22, align 8, !noalias !476
@@ -23721,7 +23721,7 @@ delete.notnull.i220:                              ; preds = %if.then.i218
 _ZN4llvh5APIntD2Ev.exit230:                       ; preds = %delete.notnull.i220, %if.then.i218, %_ZN4llvh5APIntD2Ev.exit215
   %103 = load i64, ptr %ref.tmp25, align 8
   store i64 %103, ptr %LowkR, align 8
-  %BitWidth.i222 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp25, i64 0, i32 1
+  %BitWidth.i222 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   %104 = load i32, ptr %BitWidth.i222, align 8
   store i32 %104, ptr %BitWidth.i.i194, align 8
   store i32 0, ptr %BitWidth.i222, align 8
@@ -23861,12 +23861,12 @@ _ZN4llvh5APInt6negateEv.exit1632:                 ; preds = %if.end.thread.i.i16
   %arrayidx.sink3.i.i.i1615 = phi ptr [ %agg.tmp32.sroa.0, %if.end.thread.i.i1622 ], [ %arrayidx.i2.i.i.i1582, %if.else.i.i.i1608 ]
   %and6.i.i16.i1621 = and i64 %119, %shr.i.i15.i1620.pre-phi
   store i64 %and6.i.i16.i1621, ptr %arrayidx.sink3.i.i.i1615, align 8, !noalias !479
-  %BitWidth.i.i260 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp31, i64 0, i32 1
+  %BitWidth.i.i260 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   store i32 %105, ptr %BitWidth.i.i260, align 8, !alias.scope !479
   %agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.2195 = load i64, ptr %agg.tmp32.sroa.0, align 8
   store i64 %agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.2195, ptr %ref.tmp31, align 8, !alias.scope !479
   call fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr noalias nonnull align 8 %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(12) %R)
-  %BitWidth.i.i.i1633 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.tmp30, i64 0, i32 1
+  %BitWidth.i.i.i1633 = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
   %120 = load i32, ptr %BitWidth.i.i.i1633, align 8, !noalias !482
   %cmp.i.i.i1634 = icmp ult i32 %120, 65
   br i1 %cmp.i.i.i1634, label %if.end.thread.i.i1694, label %if.else.i.i1635
@@ -24299,7 +24299,7 @@ _ZN4llvh5APIntD2Ev.exit490:                       ; preds = %if.else.i4.i.i466, 
   %arrayidx.sink3.i.i.i473 = phi ptr [ %arrayidx.i17.i425, %if.else.i4.i.i466 ], [ %ref.tmp40.sroa.0, %_ZNK4llvh5APIntmlERKS0_.exit441.thread ]
   %and6.i.i.i479 = and i64 %171, %shr.i.i1750
   store i64 %and6.i.i.i479, ptr %arrayidx.sink3.i.i.i473, align 8, !noalias !491
-  %BitWidth.i.i480 = getelementptr inbounds %"class.llvh::APInt", ptr %D, i64 0, i32 1
+  %BitWidth.i.i480 = getelementptr inbounds i8, ptr %D, i64 8
   store i32 %147, ptr %BitWidth.i.i480, align 8, !alias.scope !491
   %ref.tmp40.sroa.0.0.ref.tmp40.sroa.0.0.ref.tmp40.sroa.0.0.ref.tmp40.sroa.0.0.2180 = load i64, ptr %ref.tmp40.sroa.0, align 8
   store i64 %ref.tmp40.sroa.0.0.ref.tmp40.sroa.0.0.ref.tmp40.sroa.0.0.ref.tmp40.sroa.0.0.2180, ptr %D, align 8, !alias.scope !491
@@ -24315,7 +24315,7 @@ delete.notnull.i496:                              ; preds = %_ZN4llvh5APIntD2Ev.
 
 _ZN4llvh5APIntD2Ev.exit504:                       ; preds = %delete.notnull.i496, %_ZN4llvh5APIntD2Ev.exit490
   call void @_ZNK4llvh5APInt4sqrtEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %SQ, ptr noundef nonnull align 8 dereferenceable(12) %D)
-  %BitWidth.i.i505 = getelementptr inbounds %"class.llvh::APInt", ptr %SQ, i64 0, i32 1
+  %BitWidth.i.i505 = getelementptr inbounds i8, ptr %SQ, i64 8
   %174 = load i32, ptr %BitWidth.i.i505, align 8
   %cmp.i.i506 = icmp ult i32 %174, 65
   br i1 %cmp.i.i506, label %_ZNK4llvh5APIntmlERKS0_.exit542.thread, label %if.end.i507
@@ -24464,10 +24464,10 @@ _ZN4llvh5APIntmIEm.exit:                          ; preds = %if.end.thread.i635,
 if.end47:                                         ; preds = %while.cond.i.i.i.i581, %if.then14.i.i.i593, %_ZNK4llvh5APIntmlERKS0_.exit542.thread, %if.then.i.i.i.i588, %_ZN4llvh5APIntmIEm.exit
   %Q.sroa.0.0225522602271 = phi i64 [ %Q.sroa.0.02255226022792282, %_ZN4llvh5APIntmIEm.exit ], [ %182, %if.then.i.i.i.i588 ], [ %and6.i.i.i541, %_ZNK4llvh5APIntmlERKS0_.exit542.thread ], [ %182, %if.then14.i.i.i593 ], [ %182, %while.cond.i.i.i.i581 ]
   %lnot.i54822612270 = phi i1 [ %lnot.i548226122782284, %_ZN4llvh5APIntmIEm.exit ], [ %tobool1.not.i.i.i.i.i.i.i, %if.then.i.i.i.i588 ], [ %cmp.i.i550, %_ZNK4llvh5APIntmlERKS0_.exit542.thread ], [ %tobool1.not.i.i.i.i.i.i.i, %if.then14.i.i.i593 ], [ %tobool1.not.i.i.i.i.i.i.i, %while.cond.i.i.i.i581 ]
-  %BitWidth.i637 = getelementptr inbounds %"class.llvh::APInt", ptr %X, i64 0, i32 1
+  %BitWidth.i637 = getelementptr inbounds i8, ptr %X, i64 8
   store i32 1, ptr %BitWidth.i637, align 8
   store i64 0, ptr %X, align 8
-  %BitWidth.i638 = getelementptr inbounds %"class.llvh::APInt", ptr %Rem, i64 0, i32 1
+  %BitWidth.i638 = getelementptr inbounds i8, ptr %Rem, i64 8
   store i32 1, ptr %BitWidth.i638, align 8
   store i64 0, ptr %Rem, align 8
   %191 = load i32, ptr %BitWidth.i.i34, align 8
@@ -24694,7 +24694,7 @@ _ZN4llvhmiERKNS_5APIntEOS0_.exit733:              ; preds = %_ZN4llvh5APInt6nega
   %arrayidx.sink3.i.i.i723 = phi ptr [ %arrayidx.i2.i.i.i1920, %if.else.i4.i.i716 ], [ %ref.tmp52.sroa.0, %_ZN4llvh5APInt6negateEv.exit1970.thread ]
   %and6.i.i.i729 = and i64 %218, %shr.i.i.i687
   store i64 %and6.i.i.i729, ptr %arrayidx.sink3.i.i.i723, align 8, !noalias !503
-  %BitWidth.i.i730 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp49, i64 0, i32 1
+  %BitWidth.i.i730 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   store i32 %174, ptr %BitWidth.i.i730, align 8, !alias.scope !503
   %ref.tmp52.sroa.0.0.ref.tmp52.sroa.0.0.ref.tmp52.sroa.0.0.ref.tmp52.sroa.0.0.2136 = load i64, ptr %ref.tmp52.sroa.0, align 8
   store i64 %ref.tmp52.sroa.0.0.ref.tmp52.sroa.0.0.ref.tmp52.sroa.0.0.ref.tmp52.sroa.0.0.2136, ptr %ref.tmp49, align 8, !alias.scope !503
@@ -24844,7 +24844,7 @@ _ZN4llvhplENS_5APIntERKS0_.exit:                  ; preds = %if.end.thread.i.i82
   %arrayidx.sink3.i.i.i812 = phi ptr [ %arrayidx.i5.i.i811, %if.else.i4.i.i805 ], [ %agg.tmp57.sroa.0, %if.end.thread.i.i820 ]
   %and6.i.i.i818 = and i64 %236, %shr.i.i15.i2030.pre-phi2372
   store i64 %and6.i.i.i818, ptr %arrayidx.sink3.i.i.i812, align 8, !noalias !509
-  %BitWidth.i.i819 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp56, i64 0, i32 1
+  %BitWidth.i.i819 = getelementptr inbounds i8, ptr %ref.tmp56, i64 8
   store i32 %191, ptr %BitWidth.i.i819, align 8, !alias.scope !509
   %agg.tmp57.sroa.0.0.agg.tmp57.sroa.0.0.agg.tmp57.sroa.0.0.agg.tmp57.sroa.0.0.2118 = load i64, ptr %agg.tmp57.sroa.0, align 8
   store i64 %agg.tmp57.sroa.0.0.agg.tmp57.sroa.0.0.agg.tmp57.sroa.0.0.agg.tmp57.sroa.0.0.2118, ptr %ref.tmp56, align 8, !alias.scope !509
@@ -24917,9 +24917,9 @@ _ZNK4llvh5APInt11isNullValueEv.exit873:           ; preds = %if.then.i.i.i868, %
   br i1 %cmp3.i.i866, label %do.end65, label %if.end66
 
 do.end65:                                         ; preds = %if.then.i.i871, %_ZNK4llvh5APInt11isNullValueEv.exit873
-  %hasVal.i.i874 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i874 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %hasVal.i.i874, align 8
-  %BitWidth.i.i.i875 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i.i875 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %247 = load i32, ptr %BitWidth.i637, align 8
   store i32 %247, ptr %BitWidth.i.i.i875, align 8
   %248 = load i64, ptr %X, align 8
@@ -25402,7 +25402,7 @@ _ZNK4llvh5APInt11isNullValueEv.exit1329:          ; preds = %if.then.i.i1327, %_
   br i1 %cmp81, label %if.end88, label %do.end87
 
 do.end87:                                         ; preds = %_ZNK4llvh5APInt11isNullValueEv.exit1329
-  %hasVal.i.i1330 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i1330 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 0, ptr %hasVal.i.i1330, align 8
   br label %cleanup
 
@@ -25462,9 +25462,9 @@ _ZN4llvh5APIntpLEm.exit:                          ; preds = %if.end.thread.i1363
   %321 = load i64, ptr %arrayidx.sink3.i.i1356, align 8
   %and6.i.i1362 = and i64 %shr.i.i1361, %321
   store i64 %and6.i.i1362, ptr %arrayidx.sink3.i.i1356, align 8
-  %hasVal.i.i1364 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i1364 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %hasVal.i.i1364, align 8
-  %BitWidth.i.i.i1365 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i.i1365 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %322 = load i32, ptr %BitWidth.i637, align 8
   store i32 %322, ptr %BitWidth.i.i.i1365, align 8
   %323 = load i64, ptr %X, align 8
@@ -25555,7 +25555,7 @@ delete.notnull.i1414:                             ; preds = %if.then.i1412
   br label %_ZN4llvh5APIntD2Ev.exit1415
 
 _ZN4llvh5APIntD2Ev.exit1415:                      ; preds = %_ZN4llvh5APIntD2Ev.exit1408, %if.then.i1412, %delete.notnull.i1414
-  %BitWidth.i.i.i1416 = getelementptr inbounds %"class.llvh::APInt", ptr %SqrB, i64 0, i32 1
+  %BitWidth.i.i.i1416 = getelementptr inbounds i8, ptr %SqrB, i64 8
   %331 = load i32, ptr %BitWidth.i.i.i1416, align 8
   %cmp.i.i.i1417 = icmp ugt i32 %331, 64
   br i1 %cmp.i.i.i1417, label %if.then.i1419, label %_ZN4llvh5APIntD2Ev.exit1422
@@ -25611,7 +25611,7 @@ entry:
   %agg.tmp4.sroa.0 = alloca i64, align 8
   call void @_ZNK4llvh5APInt3absEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %V)
   call void @_ZNK4llvh5APInt4uremERKS0_(ptr nonnull sret(%"class.llvh::APInt") align 8 %T, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %A)
-  %BitWidth.i.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp, i64 0, i32 1
+  %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZN4llvh5APIntD2Ev.exit
@@ -25626,7 +25626,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
   br label %_ZN4llvh5APIntD2Ev.exit
 
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %entry, %if.then.i, %delete.notnull.i
-  %BitWidth.i.i.i6 = getelementptr inbounds %"class.llvh::APInt", ptr %T, i64 0, i32 1
+  %BitWidth.i.i.i6 = getelementptr inbounds i8, ptr %T, i64 8
   %2 = load i32, ptr %BitWidth.i.i.i6, align 8
   %cmp.i.i.i7 = icmp ult i32 %2, 65
   br i1 %cmp.i.i.i7, label %if.then.i.i, label %if.end.i.i
@@ -25679,8 +25679,8 @@ _ZNK4llvh5APInt11isNullValueEv.exit:              ; preds = %if.then.i.i.i, %if.
   br i1 %cmp3.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.then.i.i, %_ZNK4llvh5APInt11isNullValueEv.exit
-  %BitWidth.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
-  %BitWidth2.i = getelementptr inbounds %"class.llvh::APInt", ptr %V, i64 0, i32 1
+  %BitWidth.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %BitWidth2.i = getelementptr inbounds i8, ptr %V, i64 8
   %11 = load i32, ptr %BitWidth2.i, align 8
   store i32 %11, ptr %BitWidth.i, align 8
   %cmp.i.i8 = icmp ult i32 %11, 65
@@ -25705,7 +25705,7 @@ if.else.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %if.then.i.i, %_ZNK4llvh5APInt11isNullValueEv.exit
   %16 = phi i64 [ %3, %if.then.i.i ], [ %7, %_ZNK4llvh5APInt11isNullValueEv.exit ]
   %17 = phi ptr [ %4, %if.then.i.i ], [ %5, %_ZNK4llvh5APInt11isNullValueEv.exit ]
-  %BitWidth.i10 = getelementptr inbounds %"class.llvh::APInt", ptr %V, i64 0, i32 1
+  %BitWidth.i10 = getelementptr inbounds i8, ptr %V, i64 8
   %18 = load i32, ptr %BitWidth.i10, align 8
   %sub.i = add i32 %18, -1
   %rem.i.i.i.i = and i32 %sub.i, 63
@@ -25781,14 +25781,14 @@ _ZN4llvhplENS_5APIntERKS0_.exit:                  ; preds = %if.end.thread.i.i, 
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i37
   %and6.i.i.i = and i64 %26, %shr.i.i.i
   store i64 %and6.i.i.i, ptr %arrayidx.sink3.i.i.i, align 8, !noalias !536
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %18, ptr %BitWidth.i.i, align 8, !alias.scope !536
   %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.17 = load i64, ptr %agg.tmp.sroa.0, align 8, !noalias !536
   store i64 %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.17, ptr %agg.result, align 8, !alias.scope !536
   br label %cleanup
 
 cond.false:                                       ; preds = %if.end
-  %BitWidth2.i39 = getelementptr inbounds %"class.llvh::APInt", ptr %A, i64 0, i32 1
+  %BitWidth2.i39 = getelementptr inbounds i8, ptr %A, i64 8
   %27 = load i32, ptr %BitWidth2.i39, align 8
   %cmp.i.i40 = icmp ult i32 %27, 65
   br i1 %cmp.i.i40, label %if.end.thread.i.i81, label %if.else.i.i49
@@ -25909,7 +25909,7 @@ _ZN4llvhplERKNS_5APIntEOS0_.exit:                 ; preds = %if.end.thread.i.i12
   %arrayidx.sink3.i.i.i113 = phi ptr [ %arrayidx.i5.i.i112, %if.else.i4.i.i106 ], [ %ref.tmp3.sroa.0, %if.end.thread.i.i121 ]
   %and6.i.i.i119 = and i64 %39, %shr.i.i.i77
   store i64 %and6.i.i.i119, ptr %arrayidx.sink3.i.i.i113, align 8, !noalias !542
-  %BitWidth.i.i120 = getelementptr inbounds %"class.llvh::APInt", ptr %agg.result, i64 0, i32 1
+  %BitWidth.i.i120 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %27, ptr %BitWidth.i.i120, align 8, !alias.scope !542
   %ref.tmp3.sroa.0.0.ref.tmp3.sroa.0.0.ref.tmp3.sroa.0.0.ref.tmp3.sroa.0.0.10 = load i64, ptr %ref.tmp3.sroa.0, align 8, !noalias !542
   store i64 %ref.tmp3.sroa.0.0.ref.tmp3.sroa.0.0.ref.tmp3.sroa.0.0.ref.tmp3.sroa.0.0.10, ptr %agg.result, align 8, !alias.scope !542

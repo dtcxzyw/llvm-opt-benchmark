@@ -3,32 +3,9 @@ source_filename = "bench/icu/original/number_capi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"struct.icu_75::UFormattedValueImpl" = type { %"class.icu_75::IcuCApiHelper", ptr }
-%"class.icu_75::IcuCApiHelper" = type { i32 }
-%"struct.icu_75::number::impl::UFormattedNumberImpl" = type { %"struct.icu_75::UFormattedValueImpl", %"class.icu_75::IcuCApiHelper.0", [4 x i8], %"class.icu_75::number::FormattedNumber", %"class.icu_75::number::impl::UFormattedNumberData" }
-%"class.icu_75::IcuCApiHelper.0" = type { i32 }
-%"class.icu_75::number::FormattedNumber" = type <{ %"class.icu_75::FormattedValue", ptr, i32, [4 x i8] }>
-%"class.icu_75::FormattedValue" = type { ptr }
-%"class.icu_75::number::impl::UFormattedNumberData" = type { %"class.icu_75::FormattedValueStringBuilderImpl.base", [4 x i8], %"class.icu_75::number::impl::DecimalQuantity", %"class.icu_75::MeasureUnit", ptr }
-%"class.icu_75::FormattedValueStringBuilderImpl.base" = type <{ %"class.icu_75::FormattedValue", %"class.icu_75::FormattedStringBuilder", %"struct.icu_75::FormattedStringBuilder::Field", [7 x i8], %"class.icu_75::MaybeStackArray.3", i32 }>
-%"class.icu_75::FormattedStringBuilder" = type { i8, %"union.icu_75::FormattedStringBuilder::ValueOrHeapArray", %"union.icu_75::FormattedStringBuilder::ValueOrHeapArray.1", i32, i32 }
-%"union.icu_75::FormattedStringBuilder::ValueOrHeapArray" = type { %struct.anon, [64 x i8] }
-%struct.anon = type { ptr, i32 }
-%"union.icu_75::FormattedStringBuilder::ValueOrHeapArray.1" = type { %struct.anon.2, [24 x i8] }
-%struct.anon.2 = type { ptr, i32 }
-%"struct.icu_75::FormattedStringBuilder::Field" = type { i8 }
-%"class.icu_75::MaybeStackArray.3" = type { ptr, i32, i8, [8 x %"struct.icu_75::SpanInfo"] }
-%"struct.icu_75::SpanInfo" = type { i32, i32, i32, i32 }
-%"class.icu_75::number::impl::DecimalQuantity" = type <{ %"class.icu_75::IFixedDecimal", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], double, i32, i32, i32, i32, %union.anon, i8, i8, [6 x i8] }>
-%"class.icu_75::IFixedDecimal" = type { ptr }
-%union.anon = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr, i32 }
-%"class.icu_75::MeasureUnit" = type <{ %"class.icu_75::UObject", ptr, i16, i8, [5 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::FormattedValueStringBuilderImpl" = type <{ %"class.icu_75::FormattedValue", %"class.icu_75::FormattedStringBuilder", %"struct.icu_75::FormattedStringBuilder::Field", [7 x i8], %"class.icu_75::MaybeStackArray.3", i32, [4 x i8] }>
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.12, [32 x i8] }
 %struct.anon.12 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
@@ -38,6 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::number::Notation" = type { i32, %"union.icu_75::number::Notation::NotationUnion" }
 %"union.icu_75::number::Notation::NotationUnion" = type { %"struct.icu_75::number::Notation::NotationUnion::ScientificSettings" }
 %"struct.icu_75::number::Notation::NotationUnion::ScientificSettings" = type { i8, i8, i16, i32 }
+%"class.icu_75::MeasureUnit" = type <{ %"class.icu_75::UObject", ptr, i16, i8, [5 x i8] }>
 %"class.icu_75::number::Precision" = type <{ i32, [4 x i8], %"union.icu_75::number::Precision::PrecisionUnion", i32, [4 x i8] }>
 %"union.icu_75::number::Precision::PrecisionUnion" = type { %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings" }
 %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings" = type { i64, i16, i16 }
@@ -54,12 +32,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::number::UnlocalizedNumberFormatter" = type <{ %"class.icu_75::number::NumberFormatterSettings.13", [8 x i8] }>
 %"class.icu_75::number::NumberFormatterSettings.13" = type { %"struct.icu_75::number::impl::MacroProps" }
-%"struct.icu_75::number::impl::UNumberFormatterData" = type { %"class.icu_75::IcuCApiHelper.5", %"class.icu_75::number::LocalizedNumberFormatter" }
-%"class.icu_75::IcuCApiHelper.5" = type { i32 }
 %struct.UParseError = type { i32, i32, [16 x i16], [16 x i16] }
 %"class.icu_75::Char16Ptr" = type { ptr }
 %"class.icu_75::FieldPosition" = type <{ %"class.icu_75::UObject", i32, i32, i32, [4 x i8] }>
-%struct.UFieldPosition = type { i32, i32, i32 }
 %"class.icu_75::FieldPositionIteratorHandler" = type { %"class.icu_75::FieldPositionHandler.base", ptr, ptr, i32, i32 }
 %"class.icu_75::FieldPositionHandler.base" = type <{ ptr, i32 }>
 %"class.icu_75::CharStringByteSink" = type { %"class.icu_75::ByteSink", ptr }
@@ -69,12 +44,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.decNumber = type { i32, i32, i8, [1 x i8] }
 %struct.decContext = type { i32, i32, i32, i32, i32, i32, i8 }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::number::SimpleNumber" = type <{ ptr, i32, [4 x i8] }>
-%"struct.icu_75::number::impl::USimpleNumberData" = type { %"class.icu_75::IcuCApiHelper.14", [4 x i8], %"class.icu_75::number::SimpleNumber" }
-%"class.icu_75::IcuCApiHelper.14" = type { i32 }
 %"class.icu_75::number::SimpleNumberFormatter" = type { i32, ptr, ptr, ptr }
-%"struct.icu_75::number::impl::USimpleNumberFormatterData" = type { %"class.icu_75::IcuCApiHelper.15", %"class.icu_75::number::SimpleNumberFormatter" }
-%"class.icu_75::IcuCApiHelper.15" = type { i32 }
+%"class.icu_75::number::FormattedNumber" = type <{ %"class.icu_75::FormattedValue", ptr, i32, [4 x i8] }>
+%"class.icu_75::FormattedValue" = type { ptr }
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -133,11 +107,11 @@ $_ZN6icu_756number4impl10MacroPropsC2Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -145,11 +119,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -210,7 +184,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -220,7 +194,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -232,7 +206,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -245,7 +219,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -269,7 +243,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -299,21 +273,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -336,11 +310,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -348,7 +322,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -359,20 +333,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -400,7 +374,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -416,7 +390,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -448,7 +422,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -460,7 +434,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -475,7 +449,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -489,7 +463,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -506,9 +480,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -526,7 +500,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -538,7 +512,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -554,7 +528,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -571,28 +545,28 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_756number4impl20UFormattedNumberImplC2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1430672896, ptr %this, align 8
-  %fFormattedValue.i = getelementptr inbounds %"struct.icu_75::UFormattedValueImpl", ptr %this, i64 0, i32 1
+  %fFormattedValue.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fFormattedValue.i, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 1178881536, ptr %0, align 8
-  %fImpl = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 3
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 4
+  %fImpl = getelementptr inbounds i8, ptr %this, i64 24
+  %fData = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, inrange i32 0, i64 2), ptr %fImpl, align 8
-  %fData.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 3, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %fData, ptr %fData.i, align 8
-  %fErrorCode.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 3, i32 2
+  %fErrorCode.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %fErrorCode.i, align 8
   invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %fData, i8 0)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, inrange i32 0, i64 2), ptr %fData, align 8
-  %quantity.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 4, i32 2
+  %quantity.i = getelementptr inbounds i8, ptr %this, i64 352
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %outputUnit.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 4, i32 3
+  %outputUnit.i = getelementptr inbounds i8, ptr %this, i64 424
   invoke void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit.i)
           to label %invoke.cont4 unwind label %lpad2.i
 
@@ -613,7 +587,7 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   br label %lpad3.body
 
 invoke.cont4:                                     ; preds = %invoke.cont.i
-  %gender.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 4, i32 4
+  %gender.i = getelementptr inbounds i8, ptr %this, i64 448
   store ptr @.str, ptr %gender.i, align 8
   store ptr %fImpl, ptr %fFormattedValue.i, align 8
   ret void
@@ -637,10 +611,10 @@ declare void @_ZN6icu_756number15FormattedNumberD1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number4impl20UFormattedNumberImplD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #0 align 2 {
 entry:
-  %fImpl = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 3
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 3, i32 1
+  %fImpl = getelementptr inbounds i8, ptr %this, i64 24
+  %fData = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %fData, align 8
-  %fData2 = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 4
+  %fData2 = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN6icu_756number4impl20UFormattedNumberDataD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %fData2) #11
   tail call void @_ZN6icu_756number15FormattedNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fImpl) #11
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -655,9 +629,9 @@ declare void @_ZN6icu_756number4impl20UFormattedNumberDataD1Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl20UFormattedNumberImpl5setToENS0_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #1 align 2 {
 entry:
-  %fData = getelementptr inbounds %"class.icu_75::number::FormattedNumber", ptr %value, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %fData, align 8
-  %fData2 = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %this, i64 0, i32 4
+  %fData2 = getelementptr inbounds i8, ptr %this, i64 48
   %call = tail call noundef nonnull align 8 dereferenceable(408) ptr @_ZN6icu_756number4impl20UFormattedNumberDataaSEOS2_(ptr noundef nonnull align 8 dereferenceable(408) %fData2, ptr noundef nonnull align 8 dereferenceable(408) %0)
   ret void
 }
@@ -665,16 +639,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(408) ptr @_ZN6icu_756number4impl20UFormattedNumberDataaSEOS2_(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(408) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fString.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 1
-  %fString2.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 1
+  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString2.i = getelementptr inbounds i8, ptr %0, i64 8
   %call3.i = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilderaSERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 8 dereferenceable(136) %fString2.i)
-  %fNumericField.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 2
-  %fNumericField4.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 2
+  %fNumericField.i = getelementptr inbounds i8, ptr %this, i64 144
+  %fNumericField4.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %fNumericField4.i, align 8
   store i8 %1, ptr %fNumericField.i, align 8
-  %spanIndices.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4
-  %spanIndices5.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 4
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4, i32 2
+  %spanIndices.i = getelementptr inbounds i8, ptr %this, i64 152
+  %spanIndices5.i = getelementptr inbounds i8, ptr %0, i64 152
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 164
   %2 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont.i.i, label %if.then.i.i.i
@@ -685,20 +659,20 @@ if.then.i.i.i:                                    ; preds = %entry
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i, %entry
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 4, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load i32, ptr %capacity.i.i, align 8
-  %capacity2.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4, i32 1
+  %capacity2.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 %4, ptr %capacity2.i.i, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 4, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %0, i64 164
   %5 = load i8, ptr %needToRelease.i.i, align 4
   store i8 %5, ptr %needToRelease.i.i.i, align 4
   %6 = load ptr, ptr %spanIndices5.i, align 8
-  %stackArray.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 4, i32 3
+  %stackArray.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %cmp.i.i = icmp eq ptr %6, %stackArray.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i.i
-  %stackArray4.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4, i32 3
+  %stackArray4.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %stackArray4.i.i, ptr %spanIndices.i, align 8
   %7 = load i32, ptr %capacity.i.i, align 8
   %conv.i.i = sext i32 %7 to i64
@@ -721,19 +695,19 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_7531FormattedValueStringBuilderImplaSEOS0_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %spanIndicesCount.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %0, i64 0, i32 5
+  %spanIndicesCount.i = getelementptr inbounds i8, ptr %0, i64 296
   %10 = load i32, ptr %spanIndicesCount.i, align 8
-  %spanIndicesCount7.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 5
+  %spanIndicesCount7.i = getelementptr inbounds i8, ptr %this, i64 296
   store i32 %10, ptr %spanIndicesCount7.i, align 8
-  %quantity = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %this, i64 0, i32 2
-  %quantity2 = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %0, i64 0, i32 2
+  %quantity = getelementptr inbounds i8, ptr %this, i64 304
+  %quantity2 = getelementptr inbounds i8, ptr %0, i64 304
   %call3 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSEOS2_(ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 8 dereferenceable(66) %quantity2) #11
-  %outputUnit = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %this, i64 0, i32 3
-  %outputUnit4 = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %0, i64 0, i32 3
+  %outputUnit = getelementptr inbounds i8, ptr %this, i64 376
+  %outputUnit4 = getelementptr inbounds i8, ptr %0, i64 376
   %call5 = tail call noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSEOS0_(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit, ptr noundef nonnull align 8 dereferenceable(19) %outputUnit4) #11
-  %gender = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %0, i64 0, i32 4
+  %gender = getelementptr inbounds i8, ptr %0, i64 400
   %11 = load ptr, ptr %gender, align 8
-  %gender6 = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %this, i64 0, i32 4
+  %gender6 = getelementptr inbounds i8, ptr %this, i64 400
   store ptr %11, ptr %gender6, align 8
   ret ptr %this
 }
@@ -852,7 +826,7 @@ _ZN6icu_7513IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   %2 = phi i32 [ %0, %entry ], [ %0, %if.end2.i ], [ %.sink.i, %return.sink.split.i ]
   %retval.0.i = phi ptr [ null, %entry ], [ %uresult, %if.end2.i ], [ null, %return.sink.split.i ]
   %cmp.i2 = icmp slt i32 %2, 1
-  %quantity = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %retval.0.i, i64 0, i32 4, i32 2
+  %quantity = getelementptr inbounds i8, ptr %retval.0.i, i64 352
   %retval.0 = select i1 %cmp.i2, ptr %quantity, ptr null
   ret ptr %retval.0
 }
@@ -872,7 +846,7 @@ entry:
 new.notnull:                                      ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %call, i8 0, i64 504, i1 false)
   store i32 1313231360, ptr %call, align 4
-  %fFormatter.i = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %call, i64 0, i32 1
+  %fFormatter.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %fFormatter.i)
           to label %if.end unwind label %lpad.i
 
@@ -888,7 +862,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %new.notnull
-  %fCompiled.i.i = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %call, i64 0, i32 1, i32 1
+  %fCompiled.i.i = getelementptr inbounds i8, ptr %call, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCompiled.i.i, i8 0, i64 24, i1 false)
   %cmp1 = icmp eq i32 %skeletonLen, -1
   %conv = zext i1 %cmp1 to i8
@@ -914,19 +888,19 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %call12 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZN6icu_756number24LocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter.i, ptr noundef nonnull align 8 dereferenceable(496) %ref.tmp) #11
   call void @_ZN6icu_756number24LocalizedNumberFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %ref.tmp) #11
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp7) #11
-  %locale.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 21
+  %locale.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 248
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i) #11
-  %unitDisplayCase.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 16
+  %unitDisplayCase.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 208
   call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i) #11
-  %usage.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 15
+  %usage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i) #11
-  %scale.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 14
+  %scale.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 168
   call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i) #11
-  %symbols.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 9
+  %symbols.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 136
   call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i) #11
-  %perUnit.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 3
+  %perUnit.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 40
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i) #11
-  %unit.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 2
+  %unit.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i) #11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeletonString) #11
   br label %return
@@ -995,19 +969,19 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %locale.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 21
+  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i) #11
-  %unitDisplayCase.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 16
+  %unitDisplayCase.i.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i) #11
-  %usage.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 15
+  %usage.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i) #11
-  %scale.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 14
+  %scale.i.i = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i) #11
-  %symbols.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 9
+  %symbols.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i) #11
-  %perUnit.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 3
+  %perUnit.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i) #11
-  %unit.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 2
+  %unit.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i) #11
   ret void
 }
@@ -1031,7 +1005,7 @@ entry:
 new.notnull:                                      ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %call, i8 0, i64 504, i1 false)
   store i32 1313231360, ptr %call, align 4
-  %fFormatter.i = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %call, i64 0, i32 1
+  %fFormatter.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %fFormatter.i)
           to label %if.end unwind label %lpad.i
 
@@ -1047,7 +1021,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %new.notnull
-  %fCompiled.i.i = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %call, i64 0, i32 1, i32 1
+  %fCompiled.i.i = getelementptr inbounds i8, ptr %call, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCompiled.i.i, i8 0, i64 24, i1 false)
   %cmp1 = icmp eq i32 %skeletonLen, -1
   %conv = zext i1 %cmp1 to i8
@@ -1075,19 +1049,19 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %call13 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZN6icu_756number24LocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter.i, ptr noundef nonnull align 8 dereferenceable(496) %ref.tmp) #11
   call void @_ZN6icu_756number24LocalizedNumberFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %ref.tmp) #11
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp8) #11
-  %locale.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 21
+  %locale.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 248
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i) #11
-  %unitDisplayCase.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 16
+  %unitDisplayCase.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 208
   call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i) #11
-  %usage.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 15
+  %usage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i) #11
-  %scale.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 14
+  %scale.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 168
   call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i) #11
-  %symbols.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 9
+  %symbols.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 136
   call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i) #11
-  %perUnit.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 3
+  %perUnit.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 40
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i) #11
-  %unit.i.i.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %ref.tmp4, i64 0, i32 2
+  %unit.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i) #11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeletonString) #11
   br label %return
@@ -1172,12 +1146,12 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData = getelementptr inbounds i8, ptr %uresult, i64 48
   tail call void @_ZN6icu_7531FormattedValueStringBuilderImpl11resetStringEv(ptr noundef nonnull align 8 dereferenceable(300) %fData)
-  %quantity = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4, i32 2
+  %quantity = getelementptr inbounds i8, ptr %uresult, i64 352
   tail call void @_ZN6icu_756number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
   %call6 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull align 8 dereferenceable(66) %quantity, i64 noundef %value)
-  %fFormatter = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %uformatter, i64 0, i32 1
+  %fFormatter = getelementptr inbounds i8, ptr %uformatter, i64 8
   tail call void @_ZNK6icu_756number24LocalizedNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull %fData, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1230,12 +1204,12 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData = getelementptr inbounds i8, ptr %uresult, i64 48
   tail call void @_ZN6icu_7531FormattedValueStringBuilderImpl11resetStringEv(ptr noundef nonnull align 8 dereferenceable(300) %fData)
-  %quantity = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4, i32 2
+  %quantity = getelementptr inbounds i8, ptr %uresult, i64 352
   tail call void @_ZN6icu_756number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
   %call6 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %quantity, double noundef %value)
-  %fFormatter = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %uformatter, i64 0, i32 1
+  %fFormatter = getelementptr inbounds i8, ptr %uformatter, i64 8
   tail call void @_ZNK6icu_756number24LocalizedNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull %fData, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1282,9 +1256,9 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData = getelementptr inbounds i8, ptr %uresult, i64 48
   tail call void @_ZN6icu_7531FormattedValueStringBuilderImpl11resetStringEv(ptr noundef nonnull align 8 dereferenceable(300) %fData)
-  %quantity = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4, i32 2
+  %quantity = getelementptr inbounds i8, ptr %uresult, i64 352
   tail call void @_ZN6icu_756number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
   %call6 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr %value, i32 %valueLen, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %3 = load i32, ptr %ec, align 4
@@ -1292,7 +1266,7 @@ if.end:                                           ; preds = %if.end2.i.i
   br i1 %cmp.i11, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %fFormatter = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %uformatter, i64 0, i32 1
+  %fFormatter = getelementptr inbounds i8, ptr %uformatter, i64 8
   tail call void @_ZNK6icu_756number24LocalizedNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull %fData, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1343,7 +1317,7 @@ if.then4:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.end5:                                          ; preds = %cond.false, %cond.true
-  %fData9 = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData9 = getelementptr inbounds i8, ptr %uresult, i64 48
   call void @_ZNK6icu_7531FormattedValueStringBuilderImpl12toTempStringER10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(300) %fData9, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   store ptr %buffer, ptr %agg.tmp, align 8
   %call8 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bufferCapacity, ptr noundef nonnull align 4 dereferenceable(4) %ec)
@@ -1405,20 +1379,20 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
-  %fField.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 1
-  %fEndIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 3
+  %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
+  %fEndIndex.i = getelementptr inbounds i8, ptr %fp, i64 16
   %2 = load <2 x i32>, ptr %ufpos, align 4
   store <2 x i32> %2, ptr %fField.i, align 8
-  %endIndex = getelementptr inbounds %struct.UFieldPosition, ptr %ufpos, i64 0, i32 2
+  %endIndex = getelementptr inbounds i8, ptr %ufpos, i64 8
   %3 = load i32, ptr %endIndex, align 4
   store i32 %3, ptr %fEndIndex.i, align 8
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData = getelementptr inbounds i8, ptr %uresult, i64 48
   %call8 = invoke noundef signext i8 @_ZNK6icu_7531FormattedValueStringBuilderImpl17nextFieldPositionERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %fData, ptr noundef nonnull align 8 dereferenceable(20) %fp, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.end3
-  %beginIndex = getelementptr inbounds %struct.UFieldPosition, ptr %ufpos, i64 0, i32 1
-  %fBeginIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 2
+  %beginIndex = getelementptr inbounds i8, ptr %ufpos, i64 4
+  %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
   %tobool9 = icmp ne i8 %call8, 0
   %frombool = zext i1 %tobool9 to i8
   %4 = load <2 x i32>, ptr %fBeginIndex.i, align 4
@@ -1475,7 +1449,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   call void @_ZN6icu_7528FieldPositionIteratorHandlerC1EPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fpih, ptr noundef nonnull %ufpositer, ptr noundef nonnull align 4 dereferenceable(4) %ec)
-  %fData = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData = getelementptr inbounds i8, ptr %uresult, i64 48
   invoke void @_ZNK6icu_7531FormattedValueStringBuilderImpl20getAllFieldPositionsERNS_28FieldPositionIteratorHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %fData, ptr noundef nonnull align 8 dereferenceable(40) %fpih, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %invoke.cont unwind label %lpad
 
@@ -1527,7 +1501,7 @@ return.sink.split.i:                              ; preds = %if.end2.i, %if.end.
 
 if.end:                                           ; preds = %if.end2.i
   call void @_ZN6icu_756number4impl6DecNumC1Ev(ptr noundef nonnull align 8 dereferenceable(92) %decnum)
-  %quantity = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4, i32 2
+  %quantity = getelementptr inbounds i8, ptr %uresult, i64 352
   %call2 = invoke noundef nonnull align 8 dereferenceable(92) ptr @_ZNK6icu_756number4impl15DecimalQuantity8toDecNumERNS1_6DecNumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 8 dereferenceable(92) %decnum, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %invoke.cont unwind label %lpad
 
@@ -1537,7 +1511,7 @@ invoke.cont:                                      ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %len.i.i = getelementptr inbounds %"class.icu_75::CharString", ptr %ref.tmp, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i32 0, ptr %len.i.i, align 8, !alias.scope !6
   %2 = load ptr, ptr %ref.tmp, align 8, !alias.scope !6
   store i8 0, ptr %2, align 1
@@ -1572,7 +1546,7 @@ invoke.cont3:                                     ; preds = %invoke.cont.i
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #11
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::MaybeStackHeaderAndArray", ptr %decnum, i64 0, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum, i64 12
   %5 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
@@ -1619,7 +1593,7 @@ declare noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl6DecNumD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackHeaderAndArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EED2Ev.exit, label %if.then.i.i
@@ -1652,7 +1626,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp3.not.i.i, label %delete.notnull, label %delete.end
 
 delete.notnull:                                   ; preds = %if.end2.i.i
-  %fFormatter.i = getelementptr inbounds %"struct.icu_75::number::impl::UNumberFormatterData", ptr %f, i64 0, i32 1
+  %fFormatter.i = getelementptr inbounds i8, ptr %f, i64 8
   tail call void @_ZN6icu_756number24LocalizedNumberFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter.i) #11
   store i32 0, ptr %f, align 4
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %f) #11
@@ -1677,8 +1651,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   store i32 1397640448, ptr %call, align 4
-  %fNumber.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %call, i64 0, i32 2
-  %fSign.i.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %call, i64 0, i32 2, i32 1
+  %fNumber.i = getelementptr inbounds i8, ptr %call, i64 8
+  %fSign.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 1, ptr %fSign.i.i, align 8
   call void @_ZN6icu_756number12SimpleNumber8forInt64ElR10UErrorCode(ptr nonnull sret(%"class.icu_75::number::SimpleNumber") align 8 %ref.tmp, i64 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   invoke void @_ZN6icu_756number12SimpleNumber7cleanupEv(ptr noundef nonnull align 8 dereferenceable(12) %fNumber.i)
@@ -1694,7 +1668,7 @@ terminate.lpad.i:                                 ; preds = %if.end
 _ZN6icu_756number12SimpleNumberaSEOS1_.exit:      ; preds = %if.end
   %2 = load ptr, ptr %ref.tmp, align 8
   store ptr %2, ptr %fNumber.i, align 8
-  %fSign.i = getelementptr inbounds %"class.icu_75::number::SimpleNumber", ptr %ref.tmp, i64 0, i32 1
+  %fSign.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = load i32, ptr %fSign.i, align 8
   store i32 %3, ptr %fSign.i.i, align 8
   store ptr null, ptr %ref.tmp, align 8
@@ -1738,7 +1712,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
 
 if.end:                                           ; preds = %if.end2.i.i
   call void @_ZN6icu_756number12SimpleNumber8forInt64ElR10UErrorCode(ptr nonnull sret(%"class.icu_75::number::SimpleNumber") align 8 %ref.tmp, i64 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %ec)
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   invoke void @_ZN6icu_756number12SimpleNumber7cleanupEv(ptr noundef nonnull align 8 dereferenceable(12) %fNumber)
           to label %_ZN6icu_756number12SimpleNumberaSEOS1_.exit unwind label %terminate.lpad.i
 
@@ -1752,9 +1726,9 @@ terminate.lpad.i:                                 ; preds = %if.end
 _ZN6icu_756number12SimpleNumberaSEOS1_.exit:      ; preds = %if.end
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %fNumber, align 8
-  %fSign.i = getelementptr inbounds %"class.icu_75::number::SimpleNumber", ptr %ref.tmp, i64 0, i32 1
+  %fSign.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i32, ptr %fSign.i, align 8
-  %fSign3.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2, i32 1
+  %fSign3.i = getelementptr inbounds i8, ptr %unumber, i64 16
   store i32 %5, ptr %fSign3.i, align 8
   store ptr null, ptr %ref.tmp, align 8
   invoke void @_ZN6icu_756number12SimpleNumber7cleanupEv(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
@@ -1793,7 +1767,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   tail call void @_ZN6icu_756number12SimpleNumber20multiplyByPowerOfTenEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %fNumber, i32 noundef %power, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1825,7 +1799,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   tail call void @_ZN6icu_756number12SimpleNumber7roundToEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %fNumber, i32 noundef %position, i32 noundef %roundingMode, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1857,7 +1831,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   tail call void @_ZN6icu_756number12SimpleNumber23setMinimumIntegerDigitsEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %fNumber, i32 noundef %minimumIntegerDigits, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1889,7 +1863,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   tail call void @_ZN6icu_756number12SimpleNumber24setMinimumFractionDigitsEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %fNumber, i32 noundef %minimumFractionDigits, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1921,7 +1895,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   tail call void @_ZN6icu_756number12SimpleNumber13truncateStartEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %fNumber, i32 noundef %maximumIntegerDigits, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1953,7 +1927,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
   tail call void @_ZN6icu_756number12SimpleNumber7setSignE17USimpleNumberSignR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %fNumber, i32 noundef %sign, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %return
 
@@ -1979,9 +1953,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 16, i1 false)
   store i32 1397638656, ptr %call, align 4
-  %fFormatter.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1
+  %fFormatter.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %fFormatter.i, align 8
-  %fOwnedSymbols.i.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1, i32 1
+  %fOwnedSymbols.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fOwnedSymbols.i.i, i8 0, i64 24, i1 false)
   call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp1, ptr noundef %locale, ptr noundef null, ptr noundef null, ptr noundef null)
   invoke void @_ZN6icu_756number21SimpleNumberFormatter9forLocaleERKNS_6LocaleER10UErrorCode(ptr nonnull sret(%"class.icu_75::number::SimpleNumberFormatter") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(4) %ec)
@@ -2001,16 +1975,16 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
 _ZN6icu_756number21SimpleNumberFormatteraSEOS1_.exit: ; preds = %invoke.cont
   %2 = load i32, ptr %ref.tmp, align 8
   store i32 %2, ptr %fFormatter.i, align 8
-  %fOwnedSymbols.i = getelementptr inbounds %"class.icu_75::number::SimpleNumberFormatter", ptr %ref.tmp, i64 0, i32 1
+  %fOwnedSymbols.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = load ptr, ptr %fOwnedSymbols.i, align 8
   store ptr %3, ptr %fOwnedSymbols.i.i, align 8
-  %fMicros.i = getelementptr inbounds %"class.icu_75::number::SimpleNumberFormatter", ptr %ref.tmp, i64 0, i32 2
+  %fMicros.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load ptr, ptr %fMicros.i, align 8
-  %fMicros4.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1, i32 2
+  %fMicros4.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %4, ptr %fMicros4.i, align 8
-  %fPatternModifier.i = getelementptr inbounds %"class.icu_75::number::SimpleNumberFormatter", ptr %ref.tmp, i64 0, i32 3
+  %fPatternModifier.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %5 = load ptr, ptr %fPatternModifier.i, align 8
-  %fPatternModifier5.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1, i32 3
+  %fPatternModifier5.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %5, ptr %fPatternModifier5.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fOwnedSymbols.i, i8 0, i64 24, i1 false)
   invoke void @_ZN6icu_756number21SimpleNumberFormatter7cleanupEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -2055,9 +2029,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 16, i1 false)
   store i32 1397638656, ptr %call, align 4
-  %fFormatter.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1
+  %fFormatter.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %fFormatter.i, align 8
-  %fOwnedSymbols.i.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1, i32 1
+  %fOwnedSymbols.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fOwnedSymbols.i.i, i8 0, i64 24, i1 false)
   call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp1, ptr noundef %locale, ptr noundef null, ptr noundef null, ptr noundef null)
   invoke void @_ZN6icu_756number21SimpleNumberFormatter28forLocaleAndGroupingStrategyERKNS_6LocaleE23UNumberGroupingStrategyR10UErrorCode(ptr nonnull sret(%"class.icu_75::number::SimpleNumberFormatter") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp1, i32 noundef %groupingStrategy, ptr noundef nonnull align 4 dereferenceable(4) %ec)
@@ -2077,16 +2051,16 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
 _ZN6icu_756number21SimpleNumberFormatteraSEOS1_.exit: ; preds = %invoke.cont
   %2 = load i32, ptr %ref.tmp, align 8
   store i32 %2, ptr %fFormatter.i, align 8
-  %fOwnedSymbols.i = getelementptr inbounds %"class.icu_75::number::SimpleNumberFormatter", ptr %ref.tmp, i64 0, i32 1
+  %fOwnedSymbols.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = load ptr, ptr %fOwnedSymbols.i, align 8
   store ptr %3, ptr %fOwnedSymbols.i.i, align 8
-  %fMicros.i = getelementptr inbounds %"class.icu_75::number::SimpleNumberFormatter", ptr %ref.tmp, i64 0, i32 2
+  %fMicros.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load ptr, ptr %fMicros.i, align 8
-  %fMicros4.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1, i32 2
+  %fMicros4.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %4, ptr %fMicros4.i, align 8
-  %fPatternModifier.i = getelementptr inbounds %"class.icu_75::number::SimpleNumberFormatter", ptr %ref.tmp, i64 0, i32 3
+  %fPatternModifier.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %5 = load ptr, ptr %fPatternModifier.i, align 8
-  %fPatternModifier5.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %call, i64 0, i32 1, i32 3
+  %fPatternModifier5.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %5, ptr %fPatternModifier5.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fOwnedSymbols.i, i8 0, i64 24, i1 false)
   invoke void @_ZN6icu_756number21SimpleNumberFormatter7cleanupEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -2169,12 +2143,12 @@ return.sink.split.i.i14:                          ; preds = %if.end2.i.i12, %if.
   br label %cleanup.cont
 
 if.end:                                           ; preds = %if.end2.i.i12
-  %fFormatter = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %uformatter, i64 0, i32 1
-  %fNumber = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
-  %fSign.i = getelementptr inbounds %"class.icu_75::number::SimpleNumber", ptr %agg.tmp, i64 0, i32 1
+  %fFormatter = getelementptr inbounds i8, ptr %uformatter, i64 8
+  %fNumber = getelementptr inbounds i8, ptr %unumber, i64 8
+  %fSign.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load ptr, ptr %fNumber, align 8
   store ptr %4, ptr %agg.tmp, align 8
-  %fSign4.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2, i32 1
+  %fSign4.i = getelementptr inbounds i8, ptr %unumber, i64 16
   %5 = load i32, ptr %fSign4.i, align 8
   store i32 %5, ptr %fSign.i, align 8
   store ptr null, ptr %fNumber, align 8
@@ -2212,9 +2186,9 @@ terminate.lpad.i19:                               ; preds = %lpad
 
 if.end9:                                          ; preds = %_ZN6icu_756number12SimpleNumberD2Ev.exit
   call void @_ZN6icu_756number15FormattedNumberC1EOS1_(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(20) %localResult) #11
-  %fData.i = getelementptr inbounds %"class.icu_75::number::FormattedNumber", ptr %agg.tmp10, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
   %12 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData2.i = getelementptr inbounds i8, ptr %uresult, i64 48
   %call.i21 = invoke noundef nonnull align 8 dereferenceable(408) ptr @_ZN6icu_756number4impl20UFormattedNumberDataaSEOS2_(ptr noundef nonnull align 8 dereferenceable(408) %fData2.i, ptr noundef nonnull align 8 dereferenceable(408) %12)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -2286,7 +2260,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
   br label %return
 
 if.end:                                           ; preds = %if.end2.i.i
-  %fFormatter = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %uformatter, i64 0, i32 1
+  %fFormatter = getelementptr inbounds i8, ptr %uformatter, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZN6icu_756number12SimpleNumber8forInt64ElR10UErrorCode(ptr nonnull sret(%"class.icu_75::number::SimpleNumber") align 8 %agg.tmp.i, i64 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %ec), !noalias !9
   invoke void @_ZNK6icu_756number21SimpleNumberFormatter6formatENS0_12SimpleNumberER10UErrorCode(ptr nonnull sret(%"class.icu_75::number::FormattedNumber") align 8 %localResult, ptr noundef nonnull align 8 dereferenceable(32) %fFormatter, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %ec)
@@ -2323,9 +2297,9 @@ common.resume:                                    ; preds = %lpad.i, %lpad
 _ZNK6icu_756number21SimpleNumberFormatter11formatInt64ElR10UErrorCode.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZN6icu_756number15FormattedNumberC1EOS1_(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(20) %localResult) #11
-  %fData.i = getelementptr inbounds %"class.icu_75::number::FormattedNumber", ptr %agg.tmp, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %8 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %"struct.icu_75::number::impl::UFormattedNumberImpl", ptr %uresult, i64 0, i32 4
+  %fData2.i = getelementptr inbounds i8, ptr %uresult, i64 48
   %call.i6 = invoke noundef nonnull align 8 dereferenceable(408) ptr @_ZN6icu_756number4impl20UFormattedNumberDataaSEOS2_(ptr noundef nonnull align 8 dereferenceable(408) %fData2.i, ptr noundef nonnull align 8 dereferenceable(408) %8)
           to label %invoke.cont unwind label %lpad
 
@@ -2357,7 +2331,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp3.not.i.i, label %delete.notnull, label %delete.end
 
 delete.notnull:                                   ; preds = %if.end2.i.i
-  %fNumber.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberData", ptr %unumber, i64 0, i32 2
+  %fNumber.i = getelementptr inbounds i8, ptr %unumber, i64 8
   invoke void @_ZN6icu_756number12SimpleNumber7cleanupEv(ptr noundef nonnull align 8 dereferenceable(12) %fNumber.i)
           to label %_ZN6icu_756number4impl17USimpleNumberDataD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -2389,7 +2363,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp3.not.i.i, label %delete.notnull, label %delete.end
 
 delete.notnull:                                   ; preds = %if.end2.i.i
-  %fFormatter.i = getelementptr inbounds %"struct.icu_75::number::impl::USimpleNumberFormatterData", ptr %uformatter, i64 0, i32 1
+  %fFormatter.i = getelementptr inbounds i8, ptr %uformatter, i64 8
   invoke void @_ZN6icu_756number21SimpleNumberFormatter7cleanupEv(ptr noundef nonnull align 8 dereferenceable(32) %fFormatter.i)
           to label %_ZN6icu_756number4impl26USimpleNumberFormatterDataD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -2432,64 +2406,64 @@ declare noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %notation = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 1
+  %notation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 2, ptr %notation, align 4
-  %fUnion.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %fUnion.i, align 8
-  %unit = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 2
+  %unit = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit)
-  %perUnit = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 3
+  %perUnit = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %precision = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 4
+  %precision = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %precision, align 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 4, i32 3
+  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %roundingMode = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 5
+  %roundingMode = getelementptr inbounds i8, ptr %this, i64 96
   store i32 4, ptr %roundingMode, align 8
-  %grouper = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 6
+  %grouper = getelementptr inbounds i8, ptr %this, i64 100
   store i16 -3, ptr %grouper, align 4
-  %padder = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 7
+  %padder = getelementptr inbounds i8, ptr %this, i64 112
   store i32 -2, ptr %padder, align 8
-  %integerWidth = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 8
-  %fHasError.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 8, i32 1
+  %integerWidth = getelementptr inbounds i8, ptr %this, i64 124
+  %fHasError.i = getelementptr inbounds i8, ptr %this, i64 132
   store i8 0, ptr %fHasError.i, align 4
   store i16 -1, ptr %integerWidth, align 4
-  %symbols = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 9
+  %symbols = getelementptr inbounds i8, ptr %this, i64 136
   store i32 0, ptr %symbols, align 8
-  %fPtr.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 9, i32 1
+  %fPtr.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr null, ptr %fPtr.i, align 8
-  %unitWidth = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 10
+  %unitWidth = getelementptr inbounds i8, ptr %this, i64 152
   store i32 7, ptr %unitWidth, align 8
-  %sign = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 11
+  %sign = getelementptr inbounds i8, ptr %this, i64 156
   store i32 9, ptr %sign, align 4
-  %approximately = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 12
+  %approximately = getelementptr inbounds i8, ptr %this, i64 160
   store i8 0, ptr %approximately, align 8
-  %decimal = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 13
+  %decimal = getelementptr inbounds i8, ptr %this, i64 164
   store i32 2, ptr %decimal, align 4
-  %scale = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 14
+  %scale = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %scale, align 8
-  %fArbitrary.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 14, i32 2
+  %fArbitrary.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %fArbitrary.i, align 8
-  %fError.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 14, i32 3
+  %fError.i = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %fError.i, align 8
-  %usage = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 15
+  %usage = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %usage, align 8
-  %fLength.i = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 15, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 200
   store i16 0, ptr %fLength.i, align 8
-  %fError.i2 = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 15, i32 2
+  %fError.i2 = getelementptr inbounds i8, ptr %this, i64 204
   store i32 0, ptr %fError.i2, align 4
-  %unitDisplayCase = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 16
+  %unitDisplayCase = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %unitDisplayCase, align 8
-  %fLength.i3 = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 16, i32 1
+  %fLength.i3 = getelementptr inbounds i8, ptr %this, i64 216
   store i16 0, ptr %fLength.i3, align 8
-  %fError.i4 = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 16, i32 2
-  %threshold = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 19
+  %fError.i4 = getelementptr inbounds i8, ptr %this, i64 220
+  %threshold = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %fError.i4, i8 0, i64 20, i1 false)
   store i32 3, ptr %threshold, align 8
-  %locale = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %this, i64 0, i32 21
+  %locale = getelementptr inbounds i8, ptr %this, i64 248
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont15 unwind label %lpad14
 

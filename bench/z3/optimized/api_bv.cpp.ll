@@ -17,113 +17,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.37" }
 %"union.std::__detail::__variant::_Variadic_union.37" = type { %"struct.std::__detail::__variant::_Uninitialized.38" }
 %"struct.std::__detail::__variant::_Uninitialized.38" = type { ptr }
-%"class.api::context" = type { %class.tactic_manager, %class.ast_context_params, i8, i8, %class.scoped_ptr, %class.scoped_ptr.12, %"struct.api::context::add_plugins", %"class.std::mutex", %class.arith_util, %class.bv_util, %"class.datalog::dl_decl_util", %class.fpa_util, %class.seq_util, %"class.recfun::util", %struct.smt_params, %class.ptr_vector.18, %class.ptr_vector.18, %class.ptr_vector.20, %class.ptr_vector.20, %class.ref_vector.22, %class.ref, %class.u_map, %class.svector, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, %"class.std::__cxx11::basic_string", i32, ptr, %"class.std::__cxx11::basic_string", i32, %class.ptr_vector.30, %class.sbuffer, ptr, %class.reslimit, %"class.api::pmanager", %class.mpq_manager, %class.scoped_ptr.36 }
-%class.tactic_manager = type { %class.map, %class.map.0, %class.map.4, %class.ptr_vector, %class.ptr_vector.8, %class.ptr_vector.10 }
-%class.map = type { %class.table2map }
-%class.table2map = type { %class.core_hashtable }
-%class.core_hashtable = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%class.map.0 = type { %class.table2map.1 }
-%class.table2map.1 = type { %class.core_hashtable.2 }
-%class.core_hashtable.2 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%class.map.4 = type { %class.table2map.5 }
-%class.table2map.5 = type { %class.core_hashtable.6 }
-%class.core_hashtable.6 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%class.ptr_vector = type { %class.vector }
-%class.vector = type { ptr }
-%class.ptr_vector.8 = type { %class.vector.9 }
-%class.vector.9 = type { ptr }
-%class.ptr_vector.10 = type { %class.vector.11 }
-%class.vector.11 = type { ptr }
-%class.ast_context_params = type { %class.context_params, ptr }
-%class.context_params = type { i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string" }
-%class.scoped_ptr = type { ptr }
-%class.scoped_ptr.12 = type { ptr }
-%"struct.api::context::add_plugins" = type { i8 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%class.arith_util = type { ptr, ptr }
-%class.bv_util = type { %class.bv_recognizers, ptr, ptr }
-%class.bv_recognizers = type { i32 }
-%"class.datalog::dl_decl_util" = type <{ ptr, %class.scoped_ptr.13, %class.scoped_ptr.14, i32, [4 x i8] }>
-%class.scoped_ptr.13 = type { ptr }
-%class.scoped_ptr.14 = type { ptr }
-%class.fpa_util = type { ptr, ptr, i32, %class.arith_util, %class.bv_util }
-%class.seq_util = type { ptr, ptr, ptr, i32, [4 x i8], %"class.seq_util::str", %"class.seq_util::rex" }
-%"class.seq_util::str" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.seq_util::rex" = type { ptr, ptr, i32, %class.vector.15, %class.ref_vector, %"struct.seq_util::rex::info", %"struct.seq_util::rex::info" }
-%class.vector.15 = type { ptr }
-%class.ref_vector = type { %class.ref_vector_core }
-%class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector.16 }
-%class.ref_manager_wrapper = type { ptr }
-%class.ptr_vector.16 = type { %class.vector.17 }
-%class.vector.17 = type { ptr }
-%"struct.seq_util::rex::info" = type { i32, i8, i32, i32 }
-%"class.recfun::util" = type { ptr, i32, ptr }
-%struct.smt_params = type { %struct.preprocessor_params.base, %struct.dyn_ack_params, %struct.qi_params, %struct.theory_arith_params.base, i8, %struct.theory_array_params.base, %struct.theory_bv_params, %struct.theory_str_params.base, %struct.theory_seq_params, %struct.theory_pb_params.base, %struct.theory_datatype_params, i8, i8, i8, i8, i8, i8, i32, i8, i32, double, double, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i32, i8, i8, i8, i8, i8, %class.symbol, i32, i32, i8, i8, i8, i8, i32, i8, i32, i32, double, i8, double, double, i32, i8, i32, i32, double, i32, i32, i32, i32, i32, double, i8, i8, i8, %class.symbol, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, double, i8, %class.symbol }
-%struct.preprocessor_params.base = type <{ %struct.pattern_inference_params.base, %struct.bit_blaster_params, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%struct.pattern_inference_params.base = type <{ i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8 }>
-%struct.bit_blaster_params = type { i8, i8 }
-%struct.dyn_ack_params = type { i32, i8, double, i32, i32, double }
-%struct.qi_params = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", double, double, i32, i32, i8, i32, i32, i8, i8, i32, i8, i8, i8, i8, i32, i32, i32, i8, i32, ptr }
-%struct.theory_arith_params.base = type <{ i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i32, i8, i8, [2 x i8], i32, i32, i8, [3 x i8], i32, i32, i8, [3 x i8], double, double, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i8, i8, i8 }>
-%struct.theory_array_params.base = type <{ i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i32, i8 }>
-%struct.theory_bv_params = type { i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32 }
-%struct.theory_str_params.base = type <{ i8, i8, i8, i8, i8, i8, i8, i8, double, i32, i32, i32, i32, i32, i8, i8 }>
-%struct.theory_seq_params = type { i8, i8, i32, i32 }
-%struct.theory_pb_params.base = type <{ i32, i8 }>
-%struct.theory_datatype_params = type { i32 }
-%class.symbol = type { ptr }
-%class.ptr_vector.18 = type { %class.vector.19 }
-%class.vector.19 = type { ptr }
-%class.ptr_vector.20 = type { %class.vector.21 }
-%class.vector.21 = type { ptr }
-%class.ref_vector.22 = type { %class.ref_vector_core.23 }
-%class.ref_vector_core.23 = type { %class.ref_manager_wrapper.24, %class.ptr_vector.18 }
-%class.ref_manager_wrapper.24 = type { ptr }
-%class.ref = type { ptr }
-%class.u_map = type { %class.map.25 }
-%class.map.25 = type { %class.table2map.26 }
-%class.table2map.26 = type { %class.core_hashtable.27 }
-%class.core_hashtable.27 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%class.svector = type { %class.vector.29 }
-%class.vector.29 = type { ptr }
+%class.rational = type { %class.mpq }
+%class.mpq = type { %class.mpz, %class.mpz }
+%class.mpz = type { i32, i8, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%class.ptr_vector.30 = type { %class.vector.31 }
-%class.vector.31 = type { ptr }
-%class.sbuffer = type { %class.buffer }
-%class.buffer = type { ptr, i32, i32, [16 x %"union.std::aligned_storage<1, 1>::type"] }
-%"union.std::aligned_storage<1, 1>::type" = type { [1 x i8] }
-%class.reslimit = type { %"struct.std::atomic", i8, i64, i64, %class.svector.32, %class.ptr_vector.34 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%class.svector.32 = type { %class.vector.33 }
-%class.vector.33 = type { ptr }
-%class.ptr_vector.34 = type { %class.vector.35 }
-%class.vector.35 = type { ptr }
-%"class.api::pmanager" = type { %class.mpz_manager, %"class.polynomial::manager" }
-%class.mpz_manager = type { %class.small_object_allocator, %"class.std::recursive_mutex", %class.mpn_manager, i32, %class.mpz, %class.mpz }
-%class.small_object_allocator = type { [32 x ptr], [32 x ptr], i64 }
-%"class.std::recursive_mutex" = type { %"class.std::__recursive_mutex_base" }
-%"class.std::__recursive_mutex_base" = type { %union.pthread_mutex_t }
-%class.mpn_manager = type { i8 }
-%class.mpz = type { i32, i8, ptr }
-%"class.polynomial::manager" = type { ptr }
-%class.mpq_manager = type { %class.mpz_manager, %class.mpz, %class.mpz, %class.mpz, %class.mpz, %class.mpq, %class.mpq }
-%class.mpq = type { %class.mpz, %class.mpz }
-%class.scoped_ptr.36 = type { ptr }
-%"struct.std::__detail::__variant::_Variant_storage" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }>
-%class.rational = type { %class.mpq }
-%class.ast = type { i32, i24, i32, i32 }
-%class.decl = type { %class.ast, %class.symbol, ptr }
-%class.decl_info = type <{ i32, i32, %class.vector.83, i8, [7 x i8] }>
-%class.vector.83 = type { ptr }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -186,14 +85,14 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i11
 
 invoke.cont11:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store i32 %sz, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call18 = invoke noundef ptr @_ZN11ast_manager7mk_sortEiijPK9parameter(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %p)
           to label %invoke.cont17 unwind label %ehcleanup
@@ -323,12 +222,12 @@ lpad:                                             ; preds = %invoke.cont32, %if.
   br label %ehcleanup
 
 invoke.cont10:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call17 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 32, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont16 unwind label %lpad2
@@ -429,12 +328,12 @@ lpad:                                             ; preds = %invoke.cont32, %if.
   br label %ehcleanup
 
 invoke.cont10:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call17 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 43, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont16 unwind label %lpad2
@@ -531,12 +430,12 @@ lpad:                                             ; preds = %invoke.cont32, %if.
   br label %ehcleanup
 
 invoke.cont10:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call17 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 42, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont16 unwind label %lpad2
@@ -633,14 +532,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 30, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -737,14 +636,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 31, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -841,14 +740,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 33, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -945,14 +844,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 34, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1049,14 +948,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 35, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1153,14 +1052,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 36, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1257,14 +1156,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1361,14 +1260,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 6, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1465,14 +1364,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 8, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1569,14 +1468,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1673,14 +1572,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 10, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1777,14 +1676,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 9, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1881,14 +1780,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 11, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -1985,14 +1884,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 22, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2089,14 +1988,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 23, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2193,14 +2092,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 24, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2297,14 +2196,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 25, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2401,14 +2300,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 26, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2505,14 +2404,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 27, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2609,14 +2508,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 28, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2713,14 +2612,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 29, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2817,14 +2716,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 37, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -2921,14 +2820,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 45, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -3025,14 +2924,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 46, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -3129,14 +3028,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 47, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -3233,14 +3132,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 50, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -3337,14 +3236,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 51, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -3471,21 +3370,21 @@ invoke.cont17:                                    ; preds = %catch
   br label %return
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_n.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %params.i)
   store ptr %n, ptr %_n.i, align 8
   store i32 %high, ptr %params.i, align 16
-  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %params.i, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %params.i, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  %arrayinit.element.i = getelementptr inbounds %class.parameter, ptr %params.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %params.i, i64 16
   store i32 %low, ptr %arrayinit.element.i, align 16
-  %_M_index.i.i.i.i.i.i.i.i.i6.i = getelementptr inbounds %class.parameter, ptr %params.i, i64 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %params.i, i64 24
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i6.i, align 8
-  %m_manager.i.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i.i = getelementptr inbounds i8, ptr %c, i64 232
   %10 = load ptr, ptr %m_manager.i.i, align 8
-  %m_bv_fid.i.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i.i = getelementptr inbounds i8, ptr %c, i64 1484
   %11 = load i32, ptr %m_bv_fid.i.i, align 4
   %call10.i = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %10, i32 noundef %11, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %params.i, i32 noundef 1, ptr noundef nonnull %_n.i, ptr noundef null)
           to label %invoke.cont9.i unwind label %lpad4.i
@@ -3499,26 +3398,26 @@ invoke.cont12.i:                                  ; preds = %invoke.cont9.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont12.i
-  %12 = getelementptr inbounds %class.parameter, ptr %params.i, i64 2
+  %12 = getelementptr inbounds i8, ptr %params.i, i64 32
   br label %arraydestroy.body15.i
 
 lpad4.i:                                          ; preds = %invoke.cont12.i, %invoke.cont9.i, %if.end
   %13 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  %14 = getelementptr inbounds %class.parameter, ptr %params.i, i64 2
+  %14 = getelementptr inbounds i8, ptr %params.i, i64 32
   br label %arraydestroy.body21.i
 
 arraydestroy.body15.i:                            ; preds = %arraydestroy.body15.i, %invoke.cont13.i
   %arraydestroy.elementPast16.i = phi ptr [ %12, %invoke.cont13.i ], [ %arraydestroy.element17.i, %arraydestroy.body15.i ]
-  %arraydestroy.element17.i = getelementptr inbounds %class.parameter, ptr %arraydestroy.elementPast16.i, i64 -1
+  %arraydestroy.element17.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast16.i, i64 -16
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element17.i) #11
   %arraydestroy.done18.i = icmp eq ptr %arraydestroy.element17.i, %params.i
   br i1 %arraydestroy.done18.i, label %invoke.cont7, label %arraydestroy.body15.i
 
 arraydestroy.body21.i:                            ; preds = %arraydestroy.body21.i, %lpad4.i
   %arraydestroy.elementPast22.i = phi ptr [ %14, %lpad4.i ], [ %arraydestroy.element23.i, %arraydestroy.body21.i ]
-  %arraydestroy.element23.i = getelementptr inbounds %class.parameter, ptr %arraydestroy.elementPast22.i, i64 -1
+  %arraydestroy.element23.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast22.i, i64 -16
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element23.i) #11
   %arraydestroy.done24.i = icmp eq ptr %arraydestroy.element23.i, %params.i
   br i1 %arraydestroy.done24.i, label %lpad1.body, label %arraydestroy.body21.i
@@ -3582,15 +3481,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 38, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -3704,15 +3603,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 39, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -3826,15 +3725,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 41, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -3948,15 +3847,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 63, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -4070,15 +3969,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 48, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -4192,15 +4091,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 49, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -4314,15 +4213,15 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i16
 
 invoke.cont13:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
   store i32 %i, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 65, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont19 unwind label %ehcleanup
@@ -4439,7 +4338,7 @@ lpad1:                                            ; preds = %invoke.cont16, %inv
   br label %ehcleanup89
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %call8 = invoke ptr @Z3_mk_int_sort(ptr noundef nonnull %c)
           to label %invoke.cont7 unwind label %lpad1
@@ -4464,18 +4363,18 @@ invoke.cont14:                                    ; preds = %invoke.cont13
           to label %invoke.cont16 unwind label %lpad1
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  %m_kind.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4
-  %m_ptr.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp, i64 0, i32 2
+  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %m_ptr.i.i.i, align 8
-  %m_den.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1
+  %m_den.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 1, ptr %m_den.i.i, align 8
-  %m_kind.i1.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
   %bf.load.i2.i.i = load i8, ptr %m_kind.i1.i.i, align 4
   %bf.clear3.i3.i.i = and i8 %bf.load.i2.i.i, -4
   store i8 %bf.clear3.i3.i.i, ptr %m_kind.i1.i.i, align 4
-  %m_ptr.i4.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %3 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   store i32 2, ptr %ref.tmp, align 8
@@ -4488,19 +4387,19 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store i32 0, ptr %max_bound, align 8, !alias.scope !10
-  %m_kind.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %max_bound, i64 0, i32 1
+  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %max_bound, i64 4
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i, align 4, !alias.scope !10
   %bf.clear3.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, -4
   store i8 %bf.clear3.i.i.i.i.i, ptr %m_kind.i.i.i.i.i, align 4, !alias.scope !10
-  %m_ptr.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %max_bound, i64 0, i32 2
+  %m_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %max_bound, i64 8
   store ptr null, ptr %m_ptr.i.i.i.i.i, align 8, !alias.scope !10
-  %m_den.i.i.i.i = getelementptr inbounds %class.mpq, ptr %max_bound, i64 0, i32 1
+  %m_den.i.i.i.i = getelementptr inbounds i8, ptr %max_bound, i64 16
   store i32 1, ptr %m_den.i.i.i.i, align 8, !alias.scope !10
-  %m_kind.i1.i.i.i.i = getelementptr inbounds %class.mpq, ptr %max_bound, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i.i.i = getelementptr inbounds i8, ptr %max_bound, i64 20
   %bf.load.i2.i.i.i.i = load i8, ptr %m_kind.i1.i.i.i.i, align 4, !alias.scope !10
   %bf.clear3.i3.i.i.i.i = and i8 %bf.load.i2.i.i.i.i, -4
   store i8 %bf.clear3.i3.i.i.i.i, ptr %m_kind.i1.i.i.i.i, align 4, !alias.scope !10
-  %m_ptr.i4.i.i.i.i = getelementptr inbounds %class.mpq, ptr %max_bound, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %max_bound, i64 24
   store ptr null, ptr %m_ptr.i4.i.i.i.i, align 8, !alias.scope !10
   %4 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !10
   invoke void @_ZN11mpq_managerILb1EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %call17, ptr noundef nonnull align 8 dereferenceable(32) %max_bound)
@@ -4562,7 +4461,7 @@ invoke.cont31:                                    ; preds = %invoke.cont30
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   store ptr %call12, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call26, ptr %arrayinit.element, align 8
   %call35 = invoke ptr @Z3_mk_sub(ptr noundef nonnull %c, i32 noundef 2, ptr noundef nonnull %args)
           to label %invoke.cont34 unwind label %lpad24
@@ -4640,11 +4539,11 @@ ehcleanup:                                        ; preds = %lpad24, %lpad21
 invoke.cont58:                                    ; preds = %invoke.cont7
   store ptr %n, ptr %_n, align 8
   store ptr %call8, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %p, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %15 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %16 = load i32, ptr %m_bv_fid.i, align 4
   %call65 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %15, i32 noundef %16, i32 noundef 66, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont64 unwind label %lpad55
@@ -4787,40 +4686,40 @@ invoke.cont43:                                    ; preds = %catch
   br label %return
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %cmp = icmp eq ptr %t, null
   br i1 %cmp, label %if.end36.invoke, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_ref_count.i = getelementptr inbounds %class.ast, ptr %t, i64 0, i32 2
+  %m_ref_count.i = getelementptr inbounds i8, ptr %t, i64 8
   %13 = load i32, ptr %m_ref_count.i, align 4
   %cmp9.not = icmp eq i32 %13, 0
   br i1 %cmp9.not, label %if.end36.invoke, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false
-  %m_info.i = getelementptr inbounds %class.decl, ptr %t, i64 0, i32 2
+  %m_info.i = getelementptr inbounds i8, ptr %t, i64 24
   %14 = load ptr, ptr %m_info.i, align 8
   %cmp.i = icmp eq ptr %14, null
   br i1 %cmp.i, label %if.end36.invoke, label %invoke.cont17.thread
 
 invoke.cont17.thread:                             ; preds = %if.end14
   %15 = load i32, ptr %14, align 8
-  %m_bv_fid.i24 = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i24 = getelementptr inbounds i8, ptr %c, i64 1484
   %16 = load i32, ptr %m_bv_fid.i24, align 4
   %cmp2325 = icmp eq i32 %15, %16
   br i1 %cmp2325, label %invoke.cont26, label %if.end36.invoke
 
 invoke.cont26:                                    ; preds = %invoke.cont17.thread
-  %m_kind.i.i = getelementptr inbounds %class.decl_info, ptr %14, i64 0, i32 1
+  %m_kind.i.i = getelementptr inbounds i8, ptr %14, i64 4
   %17 = load i32, ptr %m_kind.i.i, align 4
   %cmp28 = icmp eq i32 %17, 0
   br i1 %cmp28, label %invoke.cont32, label %if.end36.invoke
 
 invoke.cont32:                                    ; preds = %invoke.cont26
-  %m_parameters.i.i = getelementptr inbounds %class.decl_info, ptr %14, i64 0, i32 2
+  %m_parameters.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr %m_parameters.i.i, align 8
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %18, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i8, ptr %_M_index.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i8 %19, 0
   br i1 %cmp.not.i.i.i, label %_ZNK9parameter7get_intEv.exit, label %if.then.i.i.i
@@ -4828,7 +4727,7 @@ invoke.cont32:                                    ; preds = %invoke.cont26
 if.then.i.i.i:                                    ; preds = %invoke.cont32
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #13
           to label %.noexc unwind label %lpad1
@@ -4883,7 +4782,7 @@ entry:
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %m_den.i = getelementptr inbounds %class.mpq, ptr %this, i64 0, i32 1
+  %m_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -4917,7 +4816,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define ptr @Z3_mk_bvmsb(ptr noundef %c, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %call3 = invoke i32 @Z3_get_bv_sort_size(ptr noundef nonnull %c, ptr noundef %s)
           to label %invoke.cont2 unwind label %lpad
@@ -5008,7 +4907,7 @@ declare ptr @Z3_mk_int64(ptr noundef, i64 noundef, ptr noundef) local_unnamed_ad
 define ptr @Z3_mk_bvadd_no_overflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2, i1 noundef zeroext %is_signed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [2 x ptr], align 16
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   br i1 %is_signed, label %if.then, label %if.else
 
@@ -5050,7 +4949,7 @@ invoke.cont13:                                    ; preds = %invoke.cont12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   store ptr %call11, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call14, ptr %arrayinit.element, align 8
   %call17 = invoke ptr @Z3_mk_and(ptr noundef nonnull %c, i32 noundef 2, ptr noundef nonnull %args)
           to label %invoke.cont16 unwind label %lpad
@@ -5205,7 +5104,7 @@ declare ptr @Z3_mk_eq(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 define ptr @Z3_mk_bvadd_no_underflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [2 x ptr], align 16
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %call3 = invoke ptr @Z3_get_sort(ptr noundef nonnull %c, ptr noundef %t1)
           to label %invoke.cont2 unwind label %lpad
@@ -5244,7 +5143,7 @@ invoke.cont13:                                    ; preds = %invoke.cont12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   store ptr %call11, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call14, ptr %arrayinit.element, align 8
   %call17 = invoke ptr @Z3_mk_and(ptr noundef nonnull %c, i32 noundef 2, ptr noundef nonnull %args)
           to label %invoke.cont16 unwind label %lpad
@@ -5332,7 +5231,7 @@ terminate.lpad:                                   ; preds = %lpad30
 ; Function Attrs: mustprogress uwtable
 define ptr @Z3_mk_bvsub_no_overflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %call3 = invoke ptr @Z3_mk_bvneg(ptr noundef nonnull %c, ptr noundef %t2)
           to label %invoke.cont2 unwind label %lpad
@@ -5479,12 +5378,12 @@ lpad1:                                            ; preds = %invoke.cont37, %if.
   br label %ehcleanup
 
 invoke.cont15:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n, ptr %_n, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %5 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %6 = load i32, ptr %m_bv_fid.i, align 4
   %call22 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %5, i32 noundef %6, i32 noundef 3, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %_n, ptr noundef null)
           to label %invoke.cont21 unwind label %lpad7
@@ -5593,7 +5492,7 @@ terminate.lpad:                                   ; preds = %lpad46, %lpad34
 ; Function Attrs: mustprogress uwtable
 define ptr @Z3_mk_bvsub_no_underflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2, i1 noundef zeroext %is_signed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   br i1 %is_signed, label %if.then, label %if.else
 
@@ -5717,15 +5616,15 @@ lpad:                                             ; preds = %invoke.cont89.invok
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   br i1 %is_signed, label %invoke.cont17, label %invoke.cont56
 
 invoke.cont17:                                    ; preds = %if.end
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
   %3 = load ptr, ptr %m_manager.i, align 8
   %4 = load i32, ptr %m_bv_fid.i, align 4
@@ -5770,7 +5669,7 @@ lpad36:                                           ; preds = %catch
 
 invoke.cont56:                                    ; preds = %if.end
   store ptr %n1, ptr %args46, align 16
-  %arrayinit.element50 = getelementptr inbounds ptr, ptr %args46, i64 1
+  %arrayinit.element50 = getelementptr inbounds i8, ptr %args46, i64 8
   store ptr %n2, ptr %arrayinit.element50, align 8
   %11 = load ptr, ptr %m_manager.i, align 8
   %12 = load i32, ptr %m_bv_fid.i, align 4
@@ -5869,14 +5768,14 @@ lpad:                                             ; preds = %invoke.cont34, %if.
   br label %ehcleanup
 
 invoke.cont12:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %3 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %4 = load i32, ptr %m_bv_fid.i, align 4
   %call19 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef 54, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont18 unwind label %lpad2
@@ -5957,7 +5856,7 @@ declare void @_Z28log_Z3_mk_bvmul_no_underflowP11_Z3_contextP7_Z3_astS2_(ptr nou
 ; Function Attrs: mustprogress uwtable
 define ptr @Z3_mk_bvneg_no_overflow(ptr noundef %c, ptr noundef %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %call3 = invoke ptr @Z3_get_sort(ptr noundef nonnull %c, ptr noundef %t)
           to label %invoke.cont2 unwind label %lpad
@@ -6038,7 +5937,7 @@ declare ptr @Z3_mk_not(ptr noundef, ptr noundef) local_unnamed_addr #0
 define ptr @Z3_mk_bvsdiv_no_overflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [2 x ptr], align 16
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %call3 = invoke ptr @Z3_get_sort(ptr noundef nonnull %c, ptr noundef %t1)
           to label %invoke.cont2 unwind label %lpad
@@ -6077,7 +5976,7 @@ invoke.cont13:                                    ; preds = %invoke.cont12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   store ptr %call8, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call14, ptr %arrayinit.element, align 8
   %call17 = invoke ptr @Z3_mk_and(ptr noundef nonnull %c, i32 noundef 2, ptr noundef nonnull %args)
           to label %invoke.cont16 unwind label %lpad
@@ -6172,14 +6071,14 @@ lpad1:                                            ; preds = %invoke.cont39, %if.
   br label %ehcleanup
 
 invoke.cont17:                                    ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 34
+  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   store ptr %n1, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %n2, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 4
+  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %5 = load ptr, ptr %m_manager.i, align 8
-  %m_bv_fid.i = getelementptr inbounds %"class.api::context", ptr %c, i64 0, i32 24
+  %m_bv_fid.i = getelementptr inbounds i8, ptr %c, i64 1484
   %6 = load i32, ptr %m_bv_fid.i, align 4
   %call24 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %5, i32 noundef %6, i32 noundef 5, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %args, ptr noundef null)
           to label %invoke.cont23 unwind label %lpad7
@@ -6321,7 +6220,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }

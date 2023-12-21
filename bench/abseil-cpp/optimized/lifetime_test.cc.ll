@@ -19,20 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.7" = type { i8 }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.18" }
-%"class.std::tuple.18" = type { %"struct.std::_Tuple_impl.19" }
-%"struct.std::_Tuple_impl.19" = type { %"struct.std::_Tuple_impl.20", %"struct.std::_Head_base.28" }
-%"struct.std::_Tuple_impl.20" = type { %"struct.std::_Tuple_impl.21", %"struct.std::_Head_base.27" }
-%"struct.std::_Tuple_impl.21" = type { %"struct.std::_Tuple_impl.22", %"struct.std::_Head_base.26" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Tuple_impl.23", %"struct.std::_Head_base.25" }
-%"struct.std::_Tuple_impl.23" = type { %"struct.std::_Head_base.24" }
-%"struct.std::_Head_base.24" = type { ptr }
-%"struct.std::_Head_base.25" = type { ptr }
-%"struct.std::_Head_base.26" = type { ptr }
-%"struct.std::_Head_base.27" = type { ptr }
-%"struct.std::_Head_base.28" = type { ptr }
 %"class.absl::log_internal::LogMessageFatal" = type { %"class.absl::log_internal::LogMessage" }
 %"class.absl::log_internal::LogMessage" = type { %"class.absl::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::base_internal::ErrnoSaver" = type { i32 }
@@ -154,7 +140,7 @@ entry:
   store i64 0, ptr %default_mutex, align 8
   store i64 0, ptr %default_condvar, align 8
   store i64 0, ptr %notification, align 8
-  %notified_yet_.i = getelementptr inbounds %"class.absl::Notification", ptr %notification, i64 0, i32 1
+  %notified_yet_.i = getelementptr inbounds i8, ptr %notification, i64 8
   store i8 0, ptr %notified_yet_.i, align 8
   %tobool.not = icmp eq ptr %mutex, null
   %spec.select = select i1 %tobool.not, ptr %default_mutex, ptr %mutex
@@ -168,15 +154,15 @@ entry:
 
 call.i.noexc:                                     ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i4, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i4, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %state, ptr %_M_func.i.i, align 8
-  %0 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %call.i4, i64 16
   store ptr %notification, ptr %0, align 8
-  %1 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i4, i64 24
   store ptr %condvar.addr.0, ptr %1, align 8
-  %2 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call.i4, i64 32
   store ptr %spec.select, ptr %2, align 8
-  %3 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i4, i64 0, i32 1, i32 0, i32 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %call.i4, i64 40
   store ptr @_ZN12_GLOBAL__N_19ThreadOneEPN4absl5MutexEPNS0_7CondVarEPNS0_12NotificationEPb, ptr %3, align 8
   store ptr %call.i4, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %thread_one, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -189,7 +175,7 @@ invoke.cont9.i:                                   ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont9.i
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   br label %invoke.cont7
@@ -203,7 +189,7 @@ lpad8.i:                                          ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad8.i
   %vtable.i.i4.i = load ptr, ptr %7, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %8 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   br label %ehcleanup15
@@ -217,15 +203,15 @@ invoke.cont7:                                     ; preds = %_ZNKSt14default_del
 
 call.i.noexc18:                                   ; preds = %invoke.cont7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i19, align 8
-  %_M_func.i.i6 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i19, i64 0, i32 1
+  %_M_func.i.i6 = getelementptr inbounds i8, ptr %call.i19, i64 8
   store ptr %state, ptr %_M_func.i.i6, align 8
-  %9 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i19, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %call.i19, i64 16
   store ptr %notification, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i19, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %call.i19, i64 24
   store ptr %condvar.addr.0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i19, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %call.i19, i64 32
   store ptr %spec.select, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i19, i64 0, i32 1, i32 0, i32 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %call.i19, i64 40
   store ptr @_ZN12_GLOBAL__N_19ThreadTwoEPN4absl5MutexEPNS0_7CondVarEPNS0_12NotificationEPb, ptr %12, align 8
   store ptr %call.i19, ptr %agg.tmp.i5, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %thread_two, ptr noundef nonnull %agg.tmp.i5, ptr noundef null)
@@ -238,7 +224,7 @@ invoke.cont9.i13:                                 ; preds = %call.i.noexc18
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i15: ; preds = %invoke.cont9.i13
   %vtable.i.i.i16 = load ptr, ptr %13, align 8
-  %vfn.i.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i.i16, i64 1
+  %vfn.i.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i.i16, i64 8
   %14 = load ptr, ptr %vfn.i.i.i17, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   br label %invoke.cont11
@@ -252,7 +238,7 @@ lpad8.i7:                                         ; preds = %call.i.noexc18
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i9: ; preds = %lpad8.i7
   %vtable.i.i4.i10 = load ptr, ptr %16, align 8
-  %vfn.i.i5.i11 = getelementptr inbounds ptr, ptr %vtable.i.i4.i10, i64 1
+  %vfn.i.i5.i11 = getelementptr inbounds i8, ptr %vtable.i.i4.i10, i64 8
   %17 = load ptr, ptr %vfn.i.i5.i11, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
   br label %ehcleanup
@@ -331,7 +317,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %ref.tmp15 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %ref.tmp39 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
-  %notified_yet_.i = getelementptr inbounds %"class.absl::Notification", ptr %notification, i64 0, i32 1
+  %notified_yet_.i = getelementptr inbounds i8, ptr %notification, i64 8
   %0 = load atomic i8, ptr %notified_yet_.i acquire, align 1
   %1 = and i8 %0, 1
   %tobool.i.i.i.i.not = icmp eq i8 %1, 0
@@ -479,7 +465,7 @@ lpad:                                             ; preds = %cond.false
 
 cleanup.done:                                     ; preds = %entry
   tail call void @_ZNK4absl12Notification19WaitForNotificationEv(ptr noundef nonnull align 8 dereferenceable(9) %notification)
-  %notified_yet_.i = getelementptr inbounds %"class.absl::Notification", ptr %notification, i64 0, i32 1
+  %notified_yet_.i = getelementptr inbounds i8, ptr %notification, i64 8
   %3 = load atomic i8, ptr %notified_yet_.i acquire, align 1
   %4 = and i8 %3, 1
   %tobool.i.i.i.i.not = icmp eq i8 %4, 0
@@ -587,11 +573,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i2.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i3.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i2.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %1 = load ptr, ptr %add.ptr.i.i.i1.i.i, align 8
   %2 = load ptr, ptr %add.ptr.i.i.i2.i.i, align 8

@@ -398,7 +398,7 @@ if.end55.i:                                       ; preds = %lor.lhs.false49.i
   br i1 %tobool60.not.i, label %test_x509_sig_aid.exit, label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.end55.i
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %params.i, i64 32
   %21 = load i64, ptr %return_size.i, align 16
   %22 = load ptr, ptr %algid_legacy.i, align 8
   %conv63.i = sext i32 %call27.i to i64
@@ -639,7 +639,7 @@ if.end38:                                         ; preds = %lor.lhs.false32
   br i1 %tobool44.not, label %end, label %if.end46
 
 if.end46:                                         ; preds = %if.end38
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %params, i64 32
   %6 = load i64, ptr %return_size, align 16
   %7 = load ptr, ptr %algid_legacy, align 8
   %conv47 = sext i32 %call5 to i64

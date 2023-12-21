@@ -3,10 +3,6 @@ source_filename = "bench/abseil-cpp/original/raw_hash_set.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::container_internal::CommonFields" = type { ptr, ptr, i64, i64 }
-%"struct.absl::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr }
-%"class.absl::container_internal::HashSetResizeHelper" = type <{ ptr, i64, i8, [7 x i8] }>
-
 $_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm = comdat any
 
 @_ZN4absl18container_internal11kEmptyGroupE = dso_local constant [32 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80", align 16
@@ -17,7 +13,7 @@ $_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Comm
 define weak_odr dso_local { i64, i64 } @_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %common, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %common, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8, !noalias !5
   %shr.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
@@ -177,7 +173,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %common, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %common, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !12
   %shr.i.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
@@ -220,9 +216,9 @@ _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Commo
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18container_internal24DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %common, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy, ptr noundef %tmp_space) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %slots_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %common, i64 0, i32 1
+  %slots_.i = getelementptr inbounds i8, ptr %common, i64 8
   %0 = load ptr, ptr %slots_.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %common, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %2 = load ptr, ptr %common, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %1
@@ -245,9 +241,9 @@ _ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_t
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(15) %2, i64 15, i1 false)
   store i8 -1, ptr %add.ptr.i, align 1
-  %hash_slot = getelementptr inbounds %"struct.absl::container_internal::PolicyFunctions", ptr %policy, i64 0, i32 1
+  %hash_slot = getelementptr inbounds i8, ptr %policy, i64 8
   %5 = load ptr, ptr %hash_slot, align 8
-  %transfer3 = getelementptr inbounds %"struct.absl::container_internal::PolicyFunctions", ptr %policy, i64 0, i32 2
+  %transfer3 = getelementptr inbounds i8, ptr %policy, i64 16
   %6 = load ptr, ptr %transfer3, align 8
   %7 = load i64, ptr %policy, align 8
   %cmp.not93 = icmp eq i64 %1, 0
@@ -372,13 +368,13 @@ for.inc:                                          ; preds = %if.then19, %if.else
 for.end:                                          ; preds = %for.inc, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit
   %29 = load i64, ptr %capacity_.i, align 8
   %div2.i.i = lshr i64 %29, 3
-  %size_.i.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %common, i64 0, i32 3
+  %size_.i.i = getelementptr inbounds i8, ptr %common, i64 24
   %30 = load i64, ptr %size_.i.i, align 8
   %shr.i.i = lshr i64 %30, 1
   %31 = add nuw i64 %div2.i.i, %shr.i.i
   %sub.i89 = sub i64 %29, %31
   %32 = load ptr, ptr %common, align 8
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %32, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 -8
   store i64 %sub.i89, ptr %add.ptr.i.i, align 8
   ret void
 }
@@ -386,7 +382,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4absl1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %it, i64 noundef %slot_size) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
   %sub.i = add i64 %0, -2
   store i64 %sub.i, ptr %size_.i, align 8
@@ -395,7 +391,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub = add i64 %sub.ptr.sub, -16
-  %capacity_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %c, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %and = and i64 %sub, %2
   %3 = load <16 x i8>, ptr %it, align 1
@@ -432,7 +428,7 @@ land.end.thread:                                  ; preds = %land.end, %entry
   %arrayidx7.i = getelementptr i8, ptr %11, i64 %and6.i
   store i8 %10, ptr %arrayidx7.i, align 1
   %12 = load ptr, ptr %c, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %12, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = load i64, ptr %add.ptr.i, align 8
   %add16 = add i64 %13, %conv15
   store i64 %add16, ptr %add.ptr.i, align 8
@@ -442,14 +438,14 @@ land.end.thread:                                  ; preds = %land.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEb(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy, i1 noundef zeroext %reuse) local_unnamed_addr #7 {
 entry:
-  %size_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
   %and.i = and i64 %0, 1
   store i64 %and.i, ptr %size_.i, align 8
   br i1 %reuse, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %capacity_.i.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %c, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8
   %2 = load ptr, ptr %c, align 8
   %add3.i = add i64 %1, 16
@@ -463,16 +459,16 @@ if.then:                                          ; preds = %entry
   %5 = add nuw i64 %div2.i.i, %shr.i.i
   %sub.i = sub i64 %3, %5
   %6 = load ptr, ptr %c, align 8
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %6, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   store i64 %sub.i, ptr %add.ptr.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %dealloc = getelementptr inbounds %"struct.absl::container_internal::PolicyFunctions", ptr %policy, i64 0, i32 3
+  %dealloc = getelementptr inbounds i8, ptr %policy, i64 24
   %7 = load ptr, ptr %dealloc, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy)
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), ptr %c, align 8
-  %slots_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 1
+  %slots_.i = getelementptr inbounds i8, ptr %c, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %slots_.i, i8 0, i64 16, i1 false)
   br label %if.end
 
@@ -483,7 +479,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #8 align 2 {
 entry:
-  %old_capacity_ = getelementptr inbounds %"class.absl::container_internal::HashSetResizeHelper", ptr %this, i64 0, i32 1
+  %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
   %div12 = lshr i64 %0, 1
   %1 = load ptr, ptr %this, align 8
@@ -515,7 +511,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvS2_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %old_slots, ptr nocapture noundef writeonly %new_slots, i64 noundef %slot_size) local_unnamed_addr #10 align 2 {
 entry:
-  %old_capacity_ = getelementptr inbounds %"class.absl::container_internal::HashSetResizeHelper", ptr %this, i64 0, i32 1
+  %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
   %div11 = lshr i64 %0, 1
   %add = add nuw i64 %div11, 1
@@ -532,9 +528,9 @@ entry:
 define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef readonly %old_slots, i64 noundef %slot_size) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %c, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %c, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
-  %old_capacity_.i = getelementptr inbounds %"class.absl::container_internal::HashSetResizeHelper", ptr %this, i64 0, i32 1
+  %old_capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %old_capacity_.i, align 8
   %div12.i = lshr i64 %2, 1
   %3 = load ptr, ptr %this, align 8
@@ -557,7 +553,7 @@ entry:
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 1
   store i64 %g.sroa.0.0.copyload.i, ptr %add.ptr10.i, align 1
   store i8 -1, ptr %add.ptr7.i, align 1
-  %slots_.i = getelementptr inbounds %"class.absl::container_internal::CommonFields", ptr %c, i64 0, i32 1
+  %slots_.i = getelementptr inbounds i8, ptr %c, i64 8
   %6 = load ptr, ptr %slots_.i, align 8
   %7 = load i64, ptr %old_capacity_.i, align 8
   %div11.i = lshr i64 %7, 1

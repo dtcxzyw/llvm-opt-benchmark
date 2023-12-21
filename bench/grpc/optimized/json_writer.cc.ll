@@ -8,28 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.grpc_core::(anonymous namespace)::JsonWriter" = type { i32, i32, i8, i8, %"class.std::__cxx11::basic_string" }
 %"class.std::allocator" = type { i8 }
-%"struct.std::__detail::__variant::_Variant_storage" = type { %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.0" }
-%"union.std::__detail::__variant::_Variadic_union.0" = type { %"union.std::__detail::__variant::_Variadic_union.2" }
-%"union.std::__detail::__variant::_Variadic_union.2" = type { %"union.std::__detail::__variant::_Variadic_union.4" }
-%"union.std::__detail::__variant::_Variadic_union.4" = type { %"union.std::__detail::__variant::_Variadic_union.7" }
-%"union.std::__detail::__variant::_Variadic_union.7" = type { %"struct.std::__detail::__variant::_Uninitialized.8" }
-%"struct.std::__detail::__variant::_Uninitialized.8" = type { %"struct.__gnu_cxx::__aligned_membuf.9" }
-%"struct.__gnu_cxx::__aligned_membuf.9" = type { [48 x i8] }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.20" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf.20" = type { [88 x i8] }
-%"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::experimental::Json" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
 
 $_ZNSt18bad_variant_accessD2Ev = comdat any
 
@@ -68,13 +46,13 @@ entry:
   %writer.i = alloca %"class.grpc_core::(anonymous namespace)::JsonWriter", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %writer.i)
   store i32 %indent, ptr %writer.i, align 8, !noalias !4
-  %depth_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %writer.i, i64 0, i32 1
+  %depth_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 4
   store i32 0, ptr %depth_.i.i, align 4, !noalias !4
-  %container_empty_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %writer.i, i64 0, i32 2
+  %container_empty_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 8
   store i8 1, ptr %container_empty_.i.i, align 8, !noalias !4
-  %got_key_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %writer.i, i64 0, i32 3
+  %got_key_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 9
   store i8 0, ptr %got_key_.i.i, align 1, !noalias !4
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %writer.i, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7, !noalias !4
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %writer.i, ptr noundef nonnull align 8 dereferenceable(56) %json)
           to label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter4DumpB5cxx11ERKNS_12experimental4JsonEi.exit unwind label %lpad.i, !noalias !4
@@ -101,7 +79,7 @@ entry:
   %ref.tmp15 = alloca %"class.std::allocator", align 1
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp24 = alloca %"class.std::allocator", align 1
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %value, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 48
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i, label %if.end.i.i
@@ -109,7 +87,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
-  %_M_reason.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
   unreachable
@@ -135,7 +113,7 @@ sw.bb:                                            ; preds = %if.end.i.i
 if.else.i.i.i.i:                                  ; preds = %sw.bb
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   store ptr @.str.13, ptr %_M_reason.i.i.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
   unreachable
@@ -149,13 +127,13 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %sw.bb
   br i1 %cmp.i.not73, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
-  %output_.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
-  %got_key_.i56 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 3
+  %output_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %got_key_.i56 = getelementptr inbounds i8, ptr %this, i64 9
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %__begin2.i.sroa.0.074 = phi ptr [ %1, %for.body.i.lr.ph ], [ %call.i54, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.i.sroa.0.074, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.074, i64 32
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter8ValueEndEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
@@ -173,7 +151,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i
 _ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %for.body.i, %if.end.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i, i8 noundef signext 58)
   store i8 1, ptr %got_key_.i56, align 1
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.i.sroa.0.074, i64 0, i32 1, i32 0, i64 32
+  %second.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.074, i64 64
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(56) %second.i)
   %call.i54 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.i.sroa.0.074) #9
   %cmp.i.not = icmp eq ptr %call.i54, %add.ptr.i.i
@@ -190,7 +168,7 @@ sw.bb3:                                           ; preds = %if.end.i.i
 if.else.i.i.i.i19:                                ; preds = %sw.bb3
   %exception.i.i.i.i.i17 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i17, align 8
-  %_M_reason.i.i.i.i.i.i18 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i17, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i17, i64 8
   store ptr @.str.13, ptr %_M_reason.i.i.i.i.i.i18, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i17, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
   unreachable
@@ -198,7 +176,7 @@ if.else.i.i.i.i19:                                ; preds = %sw.bb3
 _ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %sw.bb3
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter15ContainerBeginsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 5)
   %2 = load ptr, ptr %value, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %value, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %value, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i57.not71 = icmp eq ptr %2, %3
   br i1 %cmp.i57.not71, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit, label %for.body.i27
@@ -206,7 +184,7 @@ _ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %sw.bb3
 for.body.i27:                                     ; preds = %_ZNK9grpc_core12experimental4Json5arrayEv.exit, %for.body.i27
   %__begin2.i21.sroa.0.072 = phi ptr [ %incdec.ptr.i, %for.body.i27 ], [ %2, %_ZNK9grpc_core12experimental4Json5arrayEv.exit ]
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(56) %__begin2.i21.sroa.0.072)
-  %incdec.ptr.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__begin2.i21.sroa.0.072, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.i21.sroa.0.072, i64 56
   %cmp.i57.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i57.not, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit, label %for.body.i27
 
@@ -222,13 +200,13 @@ sw.bb5:                                           ; preds = %if.end.i.i
 if.else.i.i.i.i35:                                ; preds = %sw.bb5
   %exception.i.i.i.i.i33 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i33, align 8
-  %_M_reason.i.i.i.i.i.i34 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i33, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i33, i64 8
   store ptr @.str.13, ptr %_M_reason.i.i.i.i.i.i34, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i33, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
   unreachable
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %sw.bb5
-  %got_key_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 3
+  %got_key_.i = getelementptr inbounds i8, ptr %this, i64 9
   %5 = load i8, ptr %got_key_.i, align 1
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -252,7 +230,7 @@ sw.bb7:                                           ; preds = %if.end.i.i
 if.else.i.i.i.i43:                                ; preds = %sw.bb7
   %exception.i.i.i.i.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i41, align 8
-  %_M_reason.i.i.i.i.i.i42 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i41, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i41, i64 8
   store ptr @.str.13, ptr %_M_reason.i.i.i.i.i.i42, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i41, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
   unreachable
@@ -268,7 +246,7 @@ sw.bb9:                                           ; preds = %if.end.i.i
 if.else.i.i.i.i52:                                ; preds = %sw.bb9
   %exception.i.i.i.i.i50 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i50, align 8
-  %_M_reason.i.i.i.i.i.i51 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i50, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i50, i64 8
   store ptr @.str.13, ptr %_M_reason.i.i.i.i.i.i51, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i50, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
   unreachable
@@ -375,7 +353,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter8ValueRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %string) unnamed_addr #0 align 2 {
 entry:
-  %got_key_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 3
+  %got_key_ = getelementptr inbounds i8, ptr %this, i64 9
   %0 = load i8, ptr %got_key_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -389,7 +367,7 @@ if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #7
   %2 = extractvalue { i64, ptr } %call, 0
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %sub.i.i = sub i64 %call.i.i, %call3.i.i
@@ -445,7 +423,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }
@@ -459,7 +437,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter15ContainerBeginsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %type) unnamed_addr #0 align 2 {
 entry:
-  %got_key_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 3
+  %got_key_ = getelementptr inbounds i8, ptr %this, i64 9
   %0 = load i8, ptr %got_key_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -471,7 +449,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
@@ -487,10 +465,10 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %if.end, %
   %cmp = icmp eq i32 %type, 4
   %cond = select i1 %cmp, i8 123, i8 91
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i8 noundef signext %cond)
-  %container_empty_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 2
+  %container_empty_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %container_empty_, align 8
   store i8 0, ptr %got_key_, align 1
-  %depth_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 1
+  %depth_ = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %depth_, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %depth_, align 4
@@ -505,14 +483,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %container_empty_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 2
+  %container_empty_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %container_empty_, align 8
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
@@ -529,11 +507,11 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %if.then, 
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit, %land.lhs.true, %entry
-  %depth_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 1
+  %depth_ = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %depth_, align 4
   %dec = add nsw i32 %3, -1
   store i32 %dec, ptr %depth_, align 4
-  %container_empty_3 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 2
+  %container_empty_3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %container_empty_3, align 8
   %5 = and i8 %4, 1
   %tobool4.not = icmp eq i8 %5, 0
@@ -544,7 +522,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %output_.i.i1 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
   %call3.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
   %cmp.not.i.i4 = icmp eq i64 %call.i.i2, %call3.i.i3
@@ -561,7 +539,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8: ; preds = %if.end6,
   %cond = select i1 %cmp, i8 125, i8 93
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1, i8 noundef signext %cond)
   store i8 0, ptr %container_empty_3, align 8
-  %got_key_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 3
+  %got_key_ = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %got_key_, align 1
   ret void
 }
@@ -569,7 +547,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8: ; preds = %if.end6,
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter8ValueEndEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  %container_empty_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 2
+  %container_empty_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %container_empty_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -579,21 +557,21 @@ if.then:                                          ; preds = %entry
   store i8 0, ptr %container_empty_, align 8
   %2 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %2, 0
-  %depth_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 1
+  %depth_ = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %depth_, align 4
   %cmp3 = icmp eq i32 %3, 0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %if.end9, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
   br i1 %cmp.not.i.i, label %if.end9.sink.split.sink.split, label %if.end9.sink.split
 
 if.else:                                          ; preds = %entry
-  %output_.i.i1 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
   %call3.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
   %cmp.not.i.i4 = icmp eq i64 %call.i.i2, %call3.i.i3
@@ -641,10 +619,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %depth_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 1
+  %depth_ = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %depth_, align 4
   %mul = mul nsw i32 %1, %0
-  %got_key_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 3
+  %got_key_ = getelementptr inbounds i8, ptr %this, i64 9
   %2 = load i8, ptr %got_key_, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -655,11 +633,11 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp527, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %output_.i.i5 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 if.then3:                                         ; preds = %if.end
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
@@ -704,7 +682,7 @@ while.end:                                        ; preds = %_ZN9grpc_core12_GLO
 if.end8:                                          ; preds = %while.end
   %idx.neg = sub nsw i64 0, %conv.le
   %add.ptr = getelementptr inbounds i8, ptr getelementptr inbounds ([65 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEvE9spacesstr, i64 0, i64 64), i64 %idx.neg
-  %output_.i.i13 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #7
   %call3.i.i15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #7
   %sub.i.i16 = sub i64 %call.i.i14, %call3.i.i15
@@ -743,7 +721,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %string) unnamed_addr #0 align 2 {
 entry:
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
@@ -1018,7 +996,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16Et(ptr noundef nonnull align 8 dereferenceable(48) %this, i16 noundef zeroext %utf16) unnamed_addr #0 align 2 {
 entry:
-  %output_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::JsonWriter", ptr %this, i64 0, i32 4
+  %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
   %sub.i.i = sub i64 %call.i.i, %call3.i.i

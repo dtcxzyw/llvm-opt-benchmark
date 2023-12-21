@@ -11,16 +11,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QemuEvent = type { i32, i8 }
 %struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
-%struct.QSPEntry = type { ptr, ptr, i64, i64, i32 }
 %struct.QSPReport = type { ptr, i64, i64 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon, %struct.NotifierList }
-%struct.anon = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr }
-%struct.QSPSnapshot = type { %struct.rcu_head, %struct.qht }
-%struct.rcu_head = type { ptr, ptr }
 %struct.QSPReportEntry = type { ptr, ptr, ptr, double, double, i64, i32 }
 %struct.QSPCallSite = type { ptr, ptr, i32, i32 }
+%struct.QSPEntry = type { ptr, ptr, i64, i64, i32 }
 
 @qemu_bql_mutex_lock_func = dso_local local_unnamed_addr global ptr @qemu_mutex_lock_impl, align 8
 @qemu_mutex_lock_func = dso_local local_unnamed_addr global ptr @qemu_mutex_lock_impl, align 8
@@ -105,7 +99,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -115,7 +109,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -135,7 +129,7 @@ if.then.i7:                                       ; preds = %get_clock.exit
   %call.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i5) #16
   %6 = load i64, ptr %ts.i5, align 8
   %mul.i9 = mul i64 %6, 1000000000
-  %tv_nsec.i10 = getelementptr inbounds %struct.timespec, ptr %ts.i5, i64 0, i32 1
+  %tv_nsec.i10 = getelementptr inbounds i8, ptr %ts.i5, i64 8
   %7 = load i64, ptr %tv_nsec.i10, align 8
   %add.i11 = add i64 %mul.i9, %7
   br label %get_clock.exit19
@@ -145,7 +139,7 @@ if.else.i13:                                      ; preds = %get_clock.exit
   %call.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i4, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i4, align 8
   %mul.i.i15 = mul i64 %8, 1000000000
-  %tv_usec.i.i16 = getelementptr inbounds %struct.timeval, ptr %tv.i.i4, i64 0, i32 1
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i4, i64 8
   %9 = load i64, ptr %tv_usec.i.i16, align 8
   %mul1.i.i17 = mul i64 %9, 1000
   %add.i.i18 = add i64 %mul1.i.i17, %mul.i.i15
@@ -157,11 +151,11 @@ get_clock.exit19:                                 ; preds = %if.then.i7, %if.els
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i5)
   %call2 = call fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef 0)
   %sub = add i64 %retval.0.i12, %retval.0.i.neg21
-  %ns.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 3
+  %ns.i.i = getelementptr inbounds i8, ptr %call2, i64 24
   %10 = load i64, ptr %ns.i.i, align 8
   %add.i.i20 = add i64 %sub, %10
   store atomic i64 %add.i.i20, ptr %ns.i.i monotonic, align 8
-  %n_acqs.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 2
+  %n_acqs.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   %11 = load i64, ptr %n_acqs.i.i, align 8
   %add4.i.i = add i64 %11, 1
   store atomic i64 %add4.i.i, ptr %n_acqs.i.i monotonic, align 8
@@ -197,7 +191,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -207,7 +201,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -227,7 +221,7 @@ if.then.i8:                                       ; preds = %get_clock.exit
   %call.i9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i6) #16
   %6 = load i64, ptr %ts.i6, align 8
   %mul.i10 = mul i64 %6, 1000000000
-  %tv_nsec.i11 = getelementptr inbounds %struct.timespec, ptr %ts.i6, i64 0, i32 1
+  %tv_nsec.i11 = getelementptr inbounds i8, ptr %ts.i6, i64 8
   %7 = load i64, ptr %tv_nsec.i11, align 8
   %add.i12 = add i64 %mul.i10, %7
   br label %get_clock.exit20
@@ -237,7 +231,7 @@ if.else.i14:                                      ; preds = %get_clock.exit
   %call.i.i15 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i5, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i5, align 8
   %mul.i.i16 = mul i64 %8, 1000000000
-  %tv_usec.i.i17 = getelementptr inbounds %struct.timeval, ptr %tv.i.i5, i64 0, i32 1
+  %tv_usec.i.i17 = getelementptr inbounds i8, ptr %tv.i.i5, i64 8
   %9 = load i64, ptr %tv_usec.i.i17, align 8
   %mul1.i.i18 = mul i64 %9, 1000
   %add.i.i19 = add i64 %mul1.i.i18, %mul.i.i16
@@ -250,14 +244,14 @@ get_clock.exit20:                                 ; preds = %if.then.i8, %if.els
   %call3 = call fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef 0)
   %sub = add i64 %retval.0.i13, %retval.0.i.neg23
   %tobool.not = icmp eq i32 %call1, 0
-  %ns.i = getelementptr inbounds %struct.QSPEntry, ptr %call3, i64 0, i32 3
+  %ns.i = getelementptr inbounds i8, ptr %call3, i64 24
   %10 = load i64, ptr %ns.i, align 8
   %add.i21 = add i64 %sub, %10
   store atomic i64 %add.i21, ptr %ns.i monotonic, align 8
   br i1 %tobool.not, label %if.then.i22, label %do_qsp_entry_record.exit
 
 if.then.i22:                                      ; preds = %get_clock.exit20
-  %n_acqs.i = getelementptr inbounds %struct.QSPEntry, ptr %call3, i64 0, i32 2
+  %n_acqs.i = getelementptr inbounds i8, ptr %call3, i64 16
   %11 = load i64, ptr %n_acqs.i, align 8
   %add4.i = add i64 %11, 1
   store atomic i64 %add4.i, ptr %n_acqs.i monotonic, align 8
@@ -283,7 +277,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -293,7 +287,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -313,7 +307,7 @@ if.then.i7:                                       ; preds = %get_clock.exit
   %call.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i5) #16
   %6 = load i64, ptr %ts.i5, align 8
   %mul.i9 = mul i64 %6, 1000000000
-  %tv_nsec.i10 = getelementptr inbounds %struct.timespec, ptr %ts.i5, i64 0, i32 1
+  %tv_nsec.i10 = getelementptr inbounds i8, ptr %ts.i5, i64 8
   %7 = load i64, ptr %tv_nsec.i10, align 8
   %add.i11 = add i64 %mul.i9, %7
   br label %get_clock.exit19
@@ -323,7 +317,7 @@ if.else.i13:                                      ; preds = %get_clock.exit
   %call.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i4, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i4, align 8
   %mul.i.i15 = mul i64 %8, 1000000000
-  %tv_usec.i.i16 = getelementptr inbounds %struct.timeval, ptr %tv.i.i4, i64 0, i32 1
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i4, i64 8
   %9 = load i64, ptr %tv_usec.i.i16, align 8
   %mul1.i.i17 = mul i64 %9, 1000
   %add.i.i18 = add i64 %mul1.i.i17, %mul.i.i15
@@ -335,11 +329,11 @@ get_clock.exit19:                                 ; preds = %if.then.i7, %if.els
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i5)
   %call2 = call fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef 1)
   %sub = add i64 %retval.0.i12, %retval.0.i.neg21
-  %ns.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 3
+  %ns.i.i = getelementptr inbounds i8, ptr %call2, i64 24
   %10 = load i64, ptr %ns.i.i, align 8
   %add.i.i20 = add i64 %sub, %10
   store atomic i64 %add.i.i20, ptr %ns.i.i monotonic, align 8
-  %n_acqs.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 2
+  %n_acqs.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   %11 = load i64, ptr %n_acqs.i.i, align 8
   %add4.i.i = add i64 %11, 1
   store atomic i64 %add4.i.i, ptr %n_acqs.i.i monotonic, align 8
@@ -362,7 +356,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -372,7 +366,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -392,7 +386,7 @@ if.then.i7:                                       ; preds = %get_clock.exit
   %call.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i5) #16
   %6 = load i64, ptr %ts.i5, align 8
   %mul.i9 = mul i64 %6, 1000000000
-  %tv_nsec.i10 = getelementptr inbounds %struct.timespec, ptr %ts.i5, i64 0, i32 1
+  %tv_nsec.i10 = getelementptr inbounds i8, ptr %ts.i5, i64 8
   %7 = load i64, ptr %tv_nsec.i10, align 8
   %add.i11 = add i64 %mul.i9, %7
   br label %get_clock.exit19
@@ -402,7 +396,7 @@ if.else.i13:                                      ; preds = %get_clock.exit
   %call.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i4, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i4, align 8
   %mul.i.i15 = mul i64 %8, 1000000000
-  %tv_usec.i.i16 = getelementptr inbounds %struct.timeval, ptr %tv.i.i4, i64 0, i32 1
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i4, i64 8
   %9 = load i64, ptr %tv_usec.i.i16, align 8
   %mul1.i.i17 = mul i64 %9, 1000
   %add.i.i18 = add i64 %mul1.i.i17, %mul.i.i15
@@ -414,11 +408,11 @@ get_clock.exit19:                                 ; preds = %if.then.i7, %if.els
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i5)
   %call2 = call fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef 2)
   %sub = add i64 %retval.0.i12, %retval.0.i.neg21
-  %ns.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 3
+  %ns.i.i = getelementptr inbounds i8, ptr %call2, i64 24
   %10 = load i64, ptr %ns.i.i, align 8
   %add.i.i20 = add i64 %sub, %10
   store atomic i64 %add.i.i20, ptr %ns.i.i monotonic, align 8
-  %n_acqs.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 2
+  %n_acqs.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   %11 = load i64, ptr %n_acqs.i.i, align 8
   %add4.i.i = add i64 %11, 1
   store atomic i64 %add4.i.i, ptr %n_acqs.i.i monotonic, align 8
@@ -441,7 +435,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -451,7 +445,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -471,7 +465,7 @@ if.then.i8:                                       ; preds = %get_clock.exit
   %call.i9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i6) #16
   %6 = load i64, ptr %ts.i6, align 8
   %mul.i10 = mul i64 %6, 1000000000
-  %tv_nsec.i11 = getelementptr inbounds %struct.timespec, ptr %ts.i6, i64 0, i32 1
+  %tv_nsec.i11 = getelementptr inbounds i8, ptr %ts.i6, i64 8
   %7 = load i64, ptr %tv_nsec.i11, align 8
   %add.i12 = add i64 %mul.i10, %7
   br label %get_clock.exit20
@@ -481,7 +475,7 @@ if.else.i14:                                      ; preds = %get_clock.exit
   %call.i.i15 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i5, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i5, align 8
   %mul.i.i16 = mul i64 %8, 1000000000
-  %tv_usec.i.i17 = getelementptr inbounds %struct.timeval, ptr %tv.i.i5, i64 0, i32 1
+  %tv_usec.i.i17 = getelementptr inbounds i8, ptr %tv.i.i5, i64 8
   %9 = load i64, ptr %tv_usec.i.i17, align 8
   %mul1.i.i18 = mul i64 %9, 1000
   %add.i.i19 = add i64 %mul1.i.i18, %mul.i.i16
@@ -494,14 +488,14 @@ get_clock.exit20:                                 ; preds = %if.then.i8, %if.els
   %call3 = call fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef 2)
   %sub = add i64 %retval.0.i13, %retval.0.i.neg23
   %tobool.not = icmp eq i32 %call1, 0
-  %ns.i = getelementptr inbounds %struct.QSPEntry, ptr %call3, i64 0, i32 3
+  %ns.i = getelementptr inbounds i8, ptr %call3, i64 24
   %10 = load i64, ptr %ns.i, align 8
   %add.i21 = add i64 %sub, %10
   store atomic i64 %add.i21, ptr %ns.i monotonic, align 8
   br i1 %tobool.not, label %if.then.i22, label %do_qsp_entry_record.exit
 
 if.then.i22:                                      ; preds = %get_clock.exit20
-  %n_acqs.i = getelementptr inbounds %struct.QSPEntry, ptr %call3, i64 0, i32 2
+  %n_acqs.i = getelementptr inbounds i8, ptr %call3, i64 16
   %11 = load i64, ptr %n_acqs.i, align 8
   %add4.i = add i64 %11, 1
   store atomic i64 %add4.i, ptr %n_acqs.i monotonic, align 8
@@ -527,7 +521,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -537,7 +531,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -557,7 +551,7 @@ if.then.i7:                                       ; preds = %get_clock.exit
   %call.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i5) #16
   %6 = load i64, ptr %ts.i5, align 8
   %mul.i9 = mul i64 %6, 1000000000
-  %tv_nsec.i10 = getelementptr inbounds %struct.timespec, ptr %ts.i5, i64 0, i32 1
+  %tv_nsec.i10 = getelementptr inbounds i8, ptr %ts.i5, i64 8
   %7 = load i64, ptr %tv_nsec.i10, align 8
   %add.i11 = add i64 %mul.i9, %7
   br label %get_clock.exit19
@@ -567,7 +561,7 @@ if.else.i13:                                      ; preds = %get_clock.exit
   %call.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i4, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i4, align 8
   %mul.i.i15 = mul i64 %8, 1000000000
-  %tv_usec.i.i16 = getelementptr inbounds %struct.timeval, ptr %tv.i.i4, i64 0, i32 1
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i4, i64 8
   %9 = load i64, ptr %tv_usec.i.i16, align 8
   %mul1.i.i17 = mul i64 %9, 1000
   %add.i.i18 = add i64 %mul1.i.i17, %mul.i.i15
@@ -579,11 +573,11 @@ get_clock.exit19:                                 ; preds = %if.then.i7, %if.els
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i5)
   %call2 = call fastcc ptr @qsp_entry_get(ptr noundef %cond, ptr noundef %file, i32 noundef %line, i32 noundef 3)
   %sub = add i64 %retval.0.i12, %retval.0.i.neg21
-  %ns.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 3
+  %ns.i.i = getelementptr inbounds i8, ptr %call2, i64 24
   %10 = load i64, ptr %ns.i.i, align 8
   %add.i.i20 = add i64 %sub, %10
   store atomic i64 %add.i.i20, ptr %ns.i.i monotonic, align 8
-  %n_acqs.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 2
+  %n_acqs.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   %11 = load i64, ptr %n_acqs.i.i, align 8
   %add4.i.i = add i64 %11, 1
   store atomic i64 %add4.i.i, ptr %n_acqs.i.i monotonic, align 8
@@ -606,7 +600,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %1 = load i64, ptr %ts.i, align 8
   %mul.i.neg = mul i64 %1, -1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i.neg = sub i64 %mul.i.neg, %2
   br label %get_clock.exit
@@ -616,7 +610,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #16
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.neg = mul i64 %3, -1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i.neg = mul i64 %4, -1000
   %add.i.i.neg = add i64 %mul1.i.i.neg, %mul.i.i.neg
@@ -636,7 +630,7 @@ if.then.i7:                                       ; preds = %get_clock.exit
   %call.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i5) #16
   %6 = load i64, ptr %ts.i5, align 8
   %mul.i9 = mul i64 %6, 1000000000
-  %tv_nsec.i10 = getelementptr inbounds %struct.timespec, ptr %ts.i5, i64 0, i32 1
+  %tv_nsec.i10 = getelementptr inbounds i8, ptr %ts.i5, i64 8
   %7 = load i64, ptr %tv_nsec.i10, align 8
   %add.i11 = add i64 %mul.i9, %7
   br label %get_clock.exit19
@@ -646,7 +640,7 @@ if.else.i13:                                      ; preds = %get_clock.exit
   %call.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i4, ptr noundef null) #16
   %8 = load i64, ptr %tv.i.i4, align 8
   %mul.i.i15 = mul i64 %8, 1000000000
-  %tv_usec.i.i16 = getelementptr inbounds %struct.timeval, ptr %tv.i.i4, i64 0, i32 1
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i4, i64 8
   %9 = load i64, ptr %tv_usec.i.i16, align 8
   %mul1.i.i17 = mul i64 %9, 1000
   %add.i.i18 = add i64 %mul1.i.i17, %mul.i.i15
@@ -658,11 +652,11 @@ get_clock.exit19:                                 ; preds = %if.then.i7, %if.els
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i5)
   %call3 = call fastcc ptr @qsp_entry_get(ptr noundef %cond, ptr noundef %file, i32 noundef %line, i32 noundef 3)
   %sub = add i64 %retval.0.i12, %retval.0.i.neg21
-  %ns.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call3, i64 0, i32 3
+  %ns.i.i = getelementptr inbounds i8, ptr %call3, i64 24
   %10 = load i64, ptr %ns.i.i, align 8
   %add.i.i20 = add i64 %sub, %10
   store atomic i64 %add.i.i20, ptr %ns.i.i monotonic, align 8
-  %n_acqs.i.i = getelementptr inbounds %struct.QSPEntry, ptr %call3, i64 0, i32 2
+  %n_acqs.i.i = getelementptr inbounds i8, ptr %call3, i64 16
   %11 = load i64, ptr %n_acqs.i.i, align 8
   %add4.i.i = add i64 %11, 1
   store atomic i64 %add4.i.i, ptr %n_acqs.i.i monotonic, align 8
@@ -728,14 +722,14 @@ while.body26.i.i:                                 ; preds = %while.cond16.prehea
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
   %call1 = call noalias ptr @g_malloc0_n(i64 noundef %max, i64 noundef 56) #17
   store ptr %call1, ptr %rep, align 8
-  %n_entries = getelementptr inbounds %struct.QSPReport, ptr %rep, i64 0, i32 1
+  %n_entries = getelementptr inbounds i8, ptr %rep, i64 8
   store i64 0, ptr %n_entries, align 8
-  %max_n_entries = getelementptr inbounds %struct.QSPReport, ptr %rep, i64 0, i32 2
+  %max_n_entries = getelementptr inbounds i8, ptr %rep, i64 16
   store i64 %max, ptr %max_n_entries, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ht.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %coalesce_ht.i)
   %call.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i, i64 0, i32 2
+  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %11 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %11, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -760,13 +754,13 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %q
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i
   %14 = inttoptr i64 %13 to ptr
-  %ht2.i = getelementptr inbounds %struct.QSPSnapshot, ptr %14, i64 0, i32 1
+  %ht2.i = getelementptr inbounds i8, ptr %14, i64 16
   call void @qht_iter(ptr noundef nonnull %ht2.i, ptr noundef nonnull @qsp_iter_diff, ptr noundef nonnull %ht.i) #16
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %rcu_read_auto_lock.exit.i
   %call.i.i3.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i4.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i3.i, i64 0, i32 2
+  %depth.i.i4.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 12
   %15 = load i32, ptr %depth.i.i4.i, align 4
   %cmp.not.i.i5.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i.i5.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -785,7 +779,7 @@ while.end.i.i6.i:                                 ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i3.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i3.i, i64 0, i32 1
+  %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 8
   %16 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %17 = and i8 %16, 1
   %tobool.not.i.i.i = icmp eq i8 %17, 0
@@ -856,11 +850,12 @@ for.end.i:                                        ; preds = %for.body.i, %qsp_mk
 for.body16.i:                                     ; preds = %for.end.i, %if.end25.i
   %i.139.i = phi i64 [ %inc34.i, %if.end25.i ], [ 0, %for.end.i ]
   %22 = load ptr, ptr %rep, align 8
+  %arrayidx19.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i
   %call20.i = call ptr @g_string_new(ptr noundef null) #16
-  %typename.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i, i32 2
+  %typename.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 16
   %23 = load ptr, ptr %typename.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.18, ptr noundef %23) #16
-  %n_objs.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i, i32 6
+  %n_objs.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 48
   %24 = load i32, ptr %n_objs.i, align 8
   %cmp21.i = icmp ugt i32 %24, 1
   br i1 %cmp21.i, label %if.then23.i, label %if.else.i
@@ -870,22 +865,21 @@ if.then23.i:                                      ; preds = %for.body16.i
   br label %if.end25.i
 
 if.else.i:                                        ; preds = %for.body16.i
-  %arrayidx19.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i
   %25 = load ptr, ptr %arrayidx19.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.20, ptr noundef %25) #16
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.else.i, %if.then23.i
-  %callsite_at26.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i, i32 1
+  %callsite_at26.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 8
   %26 = load ptr, ptr %callsite_at26.i, align 8
   %call28.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #19
   %conv29.i = trunc i64 %call28.i to i32
   %sub30.i = sub i32 %conv.i, %conv29.i
-  %time_s.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i, i32 3
+  %time_s.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 24
   %27 = load double, ptr %time_s.i, align 8
-  %n_acqs.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i, i32 5
+  %n_acqs.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 40
   %28 = load i64, ptr %n_acqs.i, align 8
-  %ns_avg.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i, i32 4
+  %ns_avg.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 32
   %29 = load double, ptr %ns_avg.i, align 8
   %mul.i = fmul double %29, 1.000000e-03
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.21, ptr noundef %26, i32 noundef %sub30.i, ptr noundef nonnull @.str.16, double noundef %27, i64 noundef %28, double noundef %mul.i) #16
@@ -933,9 +927,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ns = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 3
+  %ns = getelementptr inbounds i8, ptr %ap, i64 24
   %1 = load i64, ptr %ns, align 8
-  %ns1 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 3
+  %ns1 = getelementptr inbounds i8, ptr %bp, i64 24
   %2 = load i64, ptr %ns1, align 8
   %cmp = icmp ugt i64 %1, %2
   br i1 %cmp, label %return, label %if.else
@@ -945,13 +939,13 @@ if.else:                                          ; preds = %sw.bb
   br i1 %cmp4, label %return, label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %n_acqs = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 2
+  %n_acqs = getelementptr inbounds i8, ptr %ap, i64 16
   %3 = load i64, ptr %n_acqs, align 8
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %sw.bb7
-  %ns8 = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 3
+  %ns8 = getelementptr inbounds i8, ptr %ap, i64 24
   %4 = load i64, ptr %ns8, align 8
   %div = udiv i64 %4, %3
   %5 = uitofp i64 %div to double
@@ -959,13 +953,13 @@ cond.true:                                        ; preds = %sw.bb7
 
 cond.end:                                         ; preds = %sw.bb7, %cond.true
   %cond = phi double [ %5, %cond.true ], [ 0.000000e+00, %sw.bb7 ]
-  %n_acqs10 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 2
+  %n_acqs10 = getelementptr inbounds i8, ptr %bp, i64 16
   %6 = load i64, ptr %n_acqs10, align 8
   %tobool11.not = icmp eq i64 %6, 0
   br i1 %tobool11.not, label %cond.end17, label %cond.true12
 
 cond.true12:                                      ; preds = %cond.end
-  %ns13 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 3
+  %ns13 = getelementptr inbounds i8, ptr %bp, i64 24
   %7 = load i64, ptr %ns13, align 8
   %div15 = udiv i64 %7, %6
   %8 = uitofp i64 %div15 to double
@@ -985,9 +979,9 @@ do.body:                                          ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %if.else23, %if.else
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %ap, i64 8
   %9 = load ptr, ptr %callsite, align 8
-  %callsite29 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 1
+  %callsite29 = getelementptr inbounds i8, ptr %bp, i64 8
   %10 = load ptr, ptr %callsite29, align 8
   %11 = load ptr, ptr %9, align 8
   %12 = load ptr, ptr %10, align 8
@@ -999,18 +993,18 @@ if.else34:                                        ; preds = %sw.epilog
   br i1 %cmp37, label %return, label %if.else40
 
 if.else40:                                        ; preds = %if.else34
-  %file = getelementptr inbounds %struct.QSPCallSite, ptr %9, i64 0, i32 1
+  %file = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %file, align 8
-  %file42 = getelementptr inbounds %struct.QSPCallSite, ptr %10, i64 0, i32 1
+  %file42 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %file42, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %14) #19
   %tobool43.not = icmp eq i32 %call, 0
   br i1 %tobool43.not, label %do.body46, label %return
 
 do.body46:                                        ; preds = %if.else40
-  %line = getelementptr inbounds %struct.QSPCallSite, ptr %9, i64 0, i32 2
+  %line = getelementptr inbounds i8, ptr %9, i64 16
   %15 = load i32, ptr %line, align 8
-  %line47 = getelementptr inbounds %struct.QSPCallSite, ptr %10, i64 0, i32 2
+  %line47 = getelementptr inbounds i8, ptr %10, i64 16
   %16 = load i32, ptr %line47, align 8
   %cmp48.not = icmp eq i32 %15, %16
   br i1 %cmp48.not, label %if.else51, label %do.end53
@@ -1028,9 +1022,9 @@ if.else59:                                        ; preds = %do.end53
   br i1 %cmp62, label %return, label %if.else65
 
 if.else65:                                        ; preds = %if.else59
-  %type = getelementptr inbounds %struct.QSPCallSite, ptr %10, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %10, i64 20
   %17 = load i32, ptr %type, align 4
-  %type66 = getelementptr inbounds %struct.QSPCallSite, ptr %9, i64 0, i32 3
+  %type66 = getelementptr inbounds i8, ptr %9, i64 20
   %18 = load i32, ptr %type66, align 4
   %sub = sub i32 %17, %18
   br label %return
@@ -1050,9 +1044,9 @@ declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qsp_tree_report(ptr nocapture noundef readonly %key, ptr nocapture readnone %value, ptr nocapture noundef %udata) #3 {
 entry:
-  %n_entries = getelementptr inbounds %struct.QSPReport, ptr %udata, i64 0, i32 1
+  %n_entries = getelementptr inbounds i8, ptr %udata, i64 8
   %0 = load i64, ptr %n_entries, align 8
-  %max_n_entries = getelementptr inbounds %struct.QSPReport, ptr %udata, i64 0, i32 2
+  %max_n_entries = getelementptr inbounds i8, ptr %udata, i64 16
   %1 = load i64, ptr %max_n_entries, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -1062,17 +1056,17 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0
   %inc = add i64 %0, 1
   store i64 %inc, ptr %n_entries, align 8
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %key, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %callsite, align 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %arrayidx, align 8
-  %n_objs = getelementptr inbounds %struct.QSPEntry, ptr %key, i64 0, i32 4
+  %n_objs = getelementptr inbounds i8, ptr %key, i64 32
   %5 = load i32, ptr %n_objs, align 8
-  %n_objs5 = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0, i32 6
+  %n_objs5 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i32 %5, ptr %n_objs5, align 8
   %6 = load ptr, ptr %callsite, align 8
   %call.i = tail call ptr @g_string_new(ptr noundef null) #16
-  %file.i = getelementptr inbounds %struct.QSPCallSite, ptr %6, i64 0, i32 1
+  %file.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %file.i, align 8
   %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
   %.b.i = load i1, ptr @qsp_qemu_path_len, align 8
@@ -1080,29 +1074,29 @@ if.end:                                           ; preds = %entry
   %cmp.i = icmp ult i64 %call1.i, %8
   %shortened.0.idx.i = select i1 %cmp.i, i64 0, i64 %8
   %shortened.0.i = getelementptr i8, ptr %7, i64 %shortened.0.idx.i
-  %line.i = getelementptr inbounds %struct.QSPCallSite, ptr %6, i64 0, i32 2
+  %line.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i32, ptr %line.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef %shortened.0.i, i32 noundef %9) #16
   %call5.i = tail call ptr @g_string_free(ptr noundef %call.i, i32 noundef 0) #16
-  %callsite_at = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0, i32 1
+  %callsite_at = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call5.i, ptr %callsite_at, align 8
   %10 = load ptr, ptr %callsite, align 8
-  %type = getelementptr inbounds %struct.QSPCallSite, ptr %10, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %idxprom = zext i32 %11 to i64
   %arrayidx8 = getelementptr [4 x ptr], ptr @qsp_typenames, i64 0, i64 %idxprom
   %12 = load ptr, ptr %arrayidx8, align 8
-  %typename = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0, i32 2
+  %typename = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %12, ptr %typename, align 8
-  %ns = getelementptr inbounds %struct.QSPEntry, ptr %key, i64 0, i32 3
+  %ns = getelementptr inbounds i8, ptr %key, i64 24
   %13 = load i64, ptr %ns, align 8
   %conv = uitofp i64 %13 to double
   %mul = fmul double %conv, 1.000000e-09
-  %time_s = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0, i32 3
+  %time_s = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store double %mul, ptr %time_s, align 8
-  %n_acqs = getelementptr inbounds %struct.QSPEntry, ptr %key, i64 0, i32 2
+  %n_acqs = getelementptr inbounds i8, ptr %key, i64 16
   %14 = load i64, ptr %n_acqs, align 8
-  %n_acqs9 = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0, i32 5
+  %n_acqs9 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i64 %14, ptr %n_acqs9, align 8
   %tobool.not = icmp eq i64 %14, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -1115,7 +1109,7 @@ cond.true:                                        ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi double [ %16, %cond.true ], [ 0.000000e+00, %if.end ]
-  %ns_avg = getelementptr %struct.QSPReportEntry, ptr %2, i64 %0, i32 4
+  %ns_avg = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store double %cond, ptr %ns_avg, align 8
   br label %return
 
@@ -1165,7 +1159,7 @@ while.body26.i.i:                                 ; preds = %while.cond16.prehea
   br i1 %tobool23.not.i.i, label %while.body26.i.i, label %qsp_init.exit, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
-  %ht = getelementptr inbounds %struct.QSPSnapshot, ptr %call, i64 0, i32 1
+  %ht = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @qht_init(ptr noundef nonnull %ht, ptr noundef nonnull @qsp_entry_cmp, i64 noundef 64, i32 noundef 3) #16
   tail call void @qht_iter(ptr noundef nonnull @qsp_ht, ptr noundef nonnull @qsp_aggregate, ptr noundef nonnull %ht) #16
   %11 = ptrtoint ptr %call to i64
@@ -1196,9 +1190,9 @@ entry:
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %ap, i64 8
   %2 = load ptr, ptr %callsite, align 8
-  %callsite2 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 1
+  %callsite2 = getelementptr inbounds i8, ptr %bp, i64 8
   %3 = load ptr, ptr %callsite2, align 8
   %cmp.i = icmp eq ptr %2, %3
   br i1 %cmp.i, label %land.end, label %lor.rhs.i
@@ -1210,25 +1204,25 @@ lor.rhs.i:                                        ; preds = %land.rhs
   br i1 %cmp2.i, label %land.lhs.true.i, label %land.end
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %line.i = getelementptr inbounds %struct.QSPCallSite, ptr %2, i64 0, i32 2
+  %line.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %line.i, align 8
-  %line3.i = getelementptr inbounds %struct.QSPCallSite, ptr %3, i64 0, i32 2
+  %line3.i = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i32, ptr %line3.i, align 8
   %cmp4.i = icmp eq i32 %6, %7
   br i1 %cmp4.i, label %land.lhs.true5.i, label %land.end
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %type.i = getelementptr inbounds %struct.QSPCallSite, ptr %2, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %2, i64 20
   %8 = load i32, ptr %type.i, align 4
-  %type6.i = getelementptr inbounds %struct.QSPCallSite, ptr %3, i64 0, i32 3
+  %type6.i = getelementptr inbounds i8, ptr %3, i64 20
   %9 = load i32, ptr %type6.i, align 4
   %cmp7.i = icmp eq i32 %8, %9
   br i1 %cmp7.i, label %land.rhs.i, label %land.end
 
 land.rhs.i:                                       ; preds = %land.lhs.true5.i
-  %file.i = getelementptr inbounds %struct.QSPCallSite, ptr %2, i64 0, i32 1
+  %file.i = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %file.i, align 8
-  %file8.i = getelementptr inbounds %struct.QSPCallSite, ptr %3, i64 0, i32 1
+  %file8.i = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %file8.i, align 8
   %cmp9.i = icmp eq ptr %10, %11
   br i1 %cmp9.i, label %land.end, label %lor.rhs10.i
@@ -1252,9 +1246,9 @@ entry:
   %p.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %p.val, align 8
   %2 = ptrtoint ptr %1 to i64
-  %line.i.i.i = getelementptr inbounds %struct.QSPCallSite, ptr %p.val, i64 0, i32 2
+  %line.i.i.i = getelementptr inbounds i8, ptr %p.val, i64 16
   %3 = load i32, ptr %line.i.i.i, align 8
-  %type.i.i.i = getelementptr inbounds %struct.QSPCallSite, ptr %p.val, i64 0, i32 3
+  %type.i.i.i = getelementptr inbounds i8, ptr %p.val, i64 20
   %4 = load i32, ptr %type.i.i.i, align 4
   %conv2.i.i.i.i = trunc i64 %2 to i32
   %shr3.i.i.i.i = lshr i64 %2, 32
@@ -1301,15 +1295,15 @@ if.then.i:                                        ; preds = %entry
 
 qsp_entry_find.exit:                              ; preds = %entry, %if.then.i
   %e.0.i = phi ptr [ %call2.i, %if.then.i ], [ %call.i, %entry ]
-  %ns = getelementptr inbounds %struct.QSPEntry, ptr %p, i64 0, i32 3
+  %ns = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load atomic i64, ptr %ns monotonic, align 8
-  %ns2 = getelementptr inbounds %struct.QSPEntry, ptr %e.0.i, i64 0, i32 3
+  %ns2 = getelementptr inbounds i8, ptr %e.0.i, i64 24
   %6 = load i64, ptr %ns2, align 8
   %add = add i64 %6, %5
   store i64 %add, ptr %ns2, align 8
-  %n_acqs = getelementptr inbounds %struct.QSPEntry, ptr %p, i64 0, i32 2
+  %n_acqs = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load atomic i64, ptr %n_acqs monotonic, align 8
-  %n_acqs4 = getelementptr inbounds %struct.QSPEntry, ptr %e.0.i, i64 0, i32 2
+  %n_acqs4 = getelementptr inbounds i8, ptr %e.0.i, i64 16
   %8 = load i64, ptr %n_acqs4, align 8
   %add5 = add i64 %8, %7
   store i64 %add5, ptr %n_acqs4, align 8
@@ -1321,7 +1315,7 @@ declare void @call_rcu1(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qsp_snapshot_destroy(ptr noundef %snap) #3 {
 entry:
-  %ht = getelementptr inbounds %struct.QSPSnapshot, ptr %snap, i64 0, i32 1
+  %ht = getelementptr inbounds i8, ptr %snap, i64 16
   tail call void @qht_iter(ptr noundef nonnull %ht, ptr noundef nonnull @qsp_ht_delete, ptr noundef null) #16
   tail call void @qht_destroy(ptr noundef nonnull %ht) #16
   tail call void @g_free(ptr noundef %snap) #16
@@ -1334,11 +1328,11 @@ entry:
   %callsite = alloca %struct.QSPCallSite, align 8
   %orig = alloca %struct.QSPEntry, align 8
   store ptr %obj, ptr %callsite, align 8
-  %file2 = getelementptr inbounds %struct.QSPCallSite, ptr %callsite, i64 0, i32 1
+  %file2 = getelementptr inbounds i8, ptr %callsite, i64 8
   store ptr %file, ptr %file2, align 8
-  %line3 = getelementptr inbounds %struct.QSPCallSite, ptr %callsite, i64 0, i32 2
+  %line3 = getelementptr inbounds i8, ptr %callsite, i64 16
   store i32 %line, ptr %line3, align 8
-  %type4 = getelementptr inbounds %struct.QSPCallSite, ptr %callsite, i64 0, i32 3
+  %type4 = getelementptr inbounds i8, ptr %callsite, i64 20
   store i32 %type, ptr %type4, align 4
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
   %1 = and i8 %0, 1
@@ -1377,7 +1371,7 @@ while.body26.i.i:                                 ; preds = %while.cond16.prehea
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
   %11 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @qsp_thread)
   store ptr %11, ptr %orig, align 8
-  %callsite5 = getelementptr inbounds %struct.QSPEntry, ptr %orig, i64 0, i32 1
+  %callsite5 = getelementptr inbounds i8, ptr %orig, i64 8
   store ptr %callsite, ptr %callsite5, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = load ptr, ptr %callsite, align 8
@@ -1467,14 +1461,14 @@ entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #17
   %0 = load ptr, ptr %entry1, align 8
   store ptr %0, ptr %call, align 8
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %entry1, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %entry1, i64 8
   %1 = load ptr, ptr %callsite, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %existing.i)
   %2 = load ptr, ptr %1, align 8
   %3 = ptrtoint ptr %2 to i64
-  %line.i.i.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 2
+  %line.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %line.i.i.i, align 8
-  %type.i.i.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 3
+  %type.i.i.i = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %type.i.i.i, align 4
   %conv2.i.i.i.i = trunc i64 %3 to i32
   %shr3.i.i.i.i = lshr i64 %3, 32
@@ -1532,7 +1526,7 @@ if.then6.i:                                       ; preds = %if.then.i
 qsp_callsite_find.exit:                           ; preds = %entry, %if.then.i, %if.then6.i
   %callsite.0.i = phi ptr [ %7, %if.then6.i ], [ %call2.i, %if.then.i ], [ %call1.i, %entry ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %existing.i)
-  %callsite4 = getelementptr inbounds %struct.QSPEntry, ptr %call, i64 0, i32 1
+  %callsite4 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %callsite.0.i, ptr %callsite4, align 8
   %call5 = call zeroext i1 @qht_insert(ptr noundef %ht, ptr noundef nonnull %call, i32 noundef %hash, ptr noundef nonnull %existing) #16
   %8 = load ptr, ptr %existing, align 8
@@ -1570,25 +1564,25 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp2, label %land.lhs.true, label %lor.end13
 
 land.lhs.true:                                    ; preds = %lor.rhs
-  %line = getelementptr inbounds %struct.QSPCallSite, ptr %ap, i64 0, i32 2
+  %line = getelementptr inbounds i8, ptr %ap, i64 16
   %2 = load i32, ptr %line, align 8
-  %line3 = getelementptr inbounds %struct.QSPCallSite, ptr %bp, i64 0, i32 2
+  %line3 = getelementptr inbounds i8, ptr %bp, i64 16
   %3 = load i32, ptr %line3, align 8
   %cmp4 = icmp eq i32 %2, %3
   br i1 %cmp4, label %land.lhs.true5, label %lor.end13
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %type = getelementptr inbounds %struct.QSPCallSite, ptr %ap, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %ap, i64 20
   %4 = load i32, ptr %type, align 4
-  %type6 = getelementptr inbounds %struct.QSPCallSite, ptr %bp, i64 0, i32 3
+  %type6 = getelementptr inbounds i8, ptr %bp, i64 20
   %5 = load i32, ptr %type6, align 4
   %cmp7 = icmp eq i32 %4, %5
   br i1 %cmp7, label %land.rhs, label %lor.end13
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %file = getelementptr inbounds %struct.QSPCallSite, ptr %ap, i64 0, i32 1
+  %file = getelementptr inbounds i8, ptr %ap, i64 8
   %6 = load ptr, ptr %file, align 8
-  %file8 = getelementptr inbounds %struct.QSPCallSite, ptr %bp, i64 0, i32 1
+  %file8 = getelementptr inbounds i8, ptr %bp, i64 8
   %7 = load ptr, ptr %file8, align 8
   %cmp9 = icmp eq ptr %6, %7
   br i1 %cmp9, label %lor.end13, label %lor.rhs10
@@ -1606,9 +1600,9 @@ lor.end13:                                        ; preds = %lor.rhs, %land.lhs.
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @qsp_entry_no_thread_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #5 {
 entry:
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = load ptr, ptr %callsite, align 8
-  %callsite1 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 1
+  %callsite1 = getelementptr inbounds i8, ptr %bp, i64 8
   %1 = load ptr, ptr %callsite1, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %qsp_callsite_cmp.exit, label %lor.rhs.i
@@ -1620,25 +1614,25 @@ lor.rhs.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %land.lhs.true.i, label %qsp_callsite_cmp.exit
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %line.i = getelementptr inbounds %struct.QSPCallSite, ptr %0, i64 0, i32 2
+  %line.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %line.i, align 8
-  %line3.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 2
+  %line3.i = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %line3.i, align 8
   %cmp4.i = icmp eq i32 %4, %5
   br i1 %cmp4.i, label %land.lhs.true5.i, label %qsp_callsite_cmp.exit
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %type.i = getelementptr inbounds %struct.QSPCallSite, ptr %0, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %type.i, align 4
-  %type6.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 3
+  %type6.i = getelementptr inbounds i8, ptr %1, i64 20
   %7 = load i32, ptr %type6.i, align 4
   %cmp7.i = icmp eq i32 %6, %7
   br i1 %cmp7.i, label %land.rhs.i, label %qsp_callsite_cmp.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true5.i
-  %file.i = getelementptr inbounds %struct.QSPCallSite, ptr %0, i64 0, i32 1
+  %file.i = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %file.i, align 8
-  %file8.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 1
+  %file8.i = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %file8.i, align 8
   %cmp9.i = icmp eq ptr %8, %9
   br i1 %cmp9.i, label %qsp_callsite_cmp.exit, label %lor.rhs10.i
@@ -1656,33 +1650,33 @@ qsp_callsite_cmp.exit:                            ; preds = %entry, %lor.rhs.i, 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @qsp_entry_no_thread_obj_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #5 {
 entry:
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %ap, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = load ptr, ptr %callsite, align 8
-  %callsite1 = getelementptr inbounds %struct.QSPEntry, ptr %bp, i64 0, i32 1
+  %callsite1 = getelementptr inbounds i8, ptr %bp, i64 8
   %1 = load ptr, ptr %callsite1, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %qsp_callsite_no_obj_cmp.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
-  %line.i = getelementptr inbounds %struct.QSPCallSite, ptr %0, i64 0, i32 2
+  %line.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i32, ptr %line.i, align 8
-  %line1.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 2
+  %line1.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i32, ptr %line1.i, align 8
   %cmp2.i = icmp eq i32 %2, %3
   br i1 %cmp2.i, label %land.lhs.true.i, label %qsp_callsite_no_obj_cmp.exit
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %type.i = getelementptr inbounds %struct.QSPCallSite, ptr %0, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %type.i, align 4
-  %type3.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 3
+  %type3.i = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %type3.i, align 4
   %cmp4.i = icmp eq i32 %4, %5
   br i1 %cmp4.i, label %land.rhs.i, label %qsp_callsite_no_obj_cmp.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %file.i = getelementptr inbounds %struct.QSPCallSite, ptr %0, i64 0, i32 1
+  %file.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %file.i, align 8
-  %file5.i = getelementptr inbounds %struct.QSPCallSite, ptr %1, i64 0, i32 1
+  %file5.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %file5.i, align 8
   %cmp6.i = icmp eq ptr %6, %7
   br i1 %cmp6.i, label %qsp_callsite_no_obj_cmp.exit, label %lor.rhs7.i
@@ -1702,12 +1696,12 @@ define internal void @qsp_iter_callsite_coalesce(ptr noundef %p, i32 %h, ptr nou
 entry:
   %0 = getelementptr i8, ptr %p, i64 8
   %p.val = load ptr, ptr %0, align 8
-  %file.i = getelementptr inbounds %struct.QSPCallSite, ptr %p.val, i64 0, i32 1
+  %file.i = getelementptr inbounds i8, ptr %p.val, i64 8
   %1 = load ptr, ptr %file.i, align 8
   %call.i = tail call i32 @g_str_hash(ptr noundef %1) #16
-  %line.i = getelementptr inbounds %struct.QSPCallSite, ptr %p.val, i64 0, i32 2
+  %line.i = getelementptr inbounds i8, ptr %p.val, i64 16
   %2 = load i32, ptr %line.i, align 8
-  %type.i = getelementptr inbounds %struct.QSPCallSite, ptr %p.val, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %p.val, i64 20
   %3 = load i32, ptr %type.i, align 4
   %mul.i.i.i = mul i32 %call.i, -2048144777
   %add.i.i.i = add i32 %mul.i.i.i, 606290985
@@ -1751,12 +1745,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call fastcc ptr @qsp_entry_create(ptr noundef %htp, ptr noundef nonnull %p, i32 noundef %xor51.i.i.i)
-  %n_objs = getelementptr inbounds %struct.QSPEntry, ptr %call2, i64 0, i32 4
+  %n_objs = getelementptr inbounds i8, ptr %call2, i64 32
   store i32 1, ptr %n_objs, align 8
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %callsite = getelementptr inbounds %struct.QSPEntry, ptr %call1, i64 0, i32 1
+  %callsite = getelementptr inbounds i8, ptr %call1, i64 8
   %4 = load ptr, ptr %callsite, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -1765,7 +1759,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %n_objs7 = getelementptr inbounds %struct.QSPEntry, ptr %call1, i64 0, i32 4
+  %n_objs7 = getelementptr inbounds i8, ptr %call1, i64 32
   %8 = load i32, ptr %n_objs7, align 8
   %inc = add i32 %8, 1
   store i32 %inc, ptr %n_objs7, align 8
@@ -1773,15 +1767,15 @@ if.then6:                                         ; preds = %if.else
 
 if.end8:                                          ; preds = %if.else, %if.then6, %if.then
   %e.0 = phi ptr [ %call2, %if.then ], [ %call1, %if.then6 ], [ %call1, %if.else ]
-  %ns = getelementptr inbounds %struct.QSPEntry, ptr %p, i64 0, i32 3
+  %ns = getelementptr inbounds i8, ptr %p, i64 24
   %9 = load i64, ptr %ns, align 8
-  %ns9 = getelementptr inbounds %struct.QSPEntry, ptr %e.0, i64 0, i32 3
+  %ns9 = getelementptr inbounds i8, ptr %e.0, i64 24
   %10 = load i64, ptr %ns9, align 8
   %add = add i64 %10, %9
   store i64 %add, ptr %ns9, align 8
-  %n_acqs = getelementptr inbounds %struct.QSPEntry, ptr %p, i64 0, i32 2
+  %n_acqs = getelementptr inbounds i8, ptr %p, i64 16
   %11 = load i64, ptr %n_acqs, align 8
-  %n_acqs10 = getelementptr inbounds %struct.QSPEntry, ptr %e.0, i64 0, i32 2
+  %n_acqs10 = getelementptr inbounds i8, ptr %e.0, i64 16
   %12 = load i64, ptr %n_acqs10, align 8
   %add11 = add i64 %12, %11
   store i64 %add11, ptr %n_acqs10, align 8
@@ -1818,9 +1812,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %n_acqs = getelementptr inbounds %struct.QSPEntry, ptr %call, i64 0, i32 2
+  %n_acqs = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i64, ptr %n_acqs, align 8
-  %n_acqs2 = getelementptr inbounds %struct.QSPEntry, ptr %p, i64 0, i32 2
+  %n_acqs2 = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i64, ptr %n_acqs2, align 8
   %cmp3.not = icmp ult i64 %0, %1
   br i1 %cmp3.not, label %if.else5, label %do.body8
@@ -1830,9 +1824,9 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %ns = getelementptr inbounds %struct.QSPEntry, ptr %call, i64 0, i32 3
+  %ns = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load i64, ptr %ns, align 8
-  %ns9 = getelementptr inbounds %struct.QSPEntry, ptr %p, i64 0, i32 3
+  %ns9 = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load i64, ptr %ns9, align 8
   %cmp10.not = icmp ult i64 %2, %3
   br i1 %cmp10.not, label %if.else12, label %do.end14

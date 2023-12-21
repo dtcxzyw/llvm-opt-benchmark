@@ -13,10 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::NoDestruct.147" = type { [8 x i8] }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.grpc_core::json_detail::FinishedJsonObjectLoader" = type { %"class.grpc_core::json_detail::LoaderInterface", %"class.grpc_core::json_detail::Vec" }
-%"class.grpc_core::json_detail::LoaderInterface" = type { ptr }
-%"class.grpc_core::json_detail::Vec" = type { [11 x %"struct.grpc_core::json_detail::Element"] }
-%"struct.grpc_core::json_detail::Element" = type { ptr, i16, i8, ptr, ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -27,23 +23,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.grpc_core::ValidationErrors::ScopedField" = type { ptr }
-%"struct.std::__detail::__variant::_Variant_storage" = type { %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.23" }
-%"union.std::__detail::__variant::_Variadic_union.23" = type { %"union.std::__detail::__variant::_Variadic_union.25" }
-%"union.std::__detail::__variant::_Variadic_union.25" = type { %"union.std::__detail::__variant::_Variadic_union.27" }
-%"union.std::__detail::__variant::_Variadic_union.27" = type { %"union.std::__detail::__variant::_Variadic_union.30" }
-%"union.std::__detail::__variant::_Variadic_union.30" = type { %"struct.std::__detail::__variant::_Uninitialized.31" }
-%"struct.std::__detail::__variant::_Uninitialized.31" = type { %"struct.__gnu_cxx::__aligned_membuf.32" }
-%"struct.__gnu_cxx::__aligned_membuf.32" = type { [48 x i8] }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8, [7 x i8] }>
-%"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, %"class.grpc_core::Duration", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8] }>
-%"class.grpc_core::Duration" = type { i64 }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.grpc_core::json_detail::FinishedJsonObjectLoader.51" = type { %"class.grpc_core::json_detail::LoaderInterface", %"class.grpc_core::json_detail::Vec.19" }
-%"class.grpc_core::json_detail::Vec.19" = type { [1 x %"struct.grpc_core::json_detail::Element"] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -63,85 +44,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.119" = type { %"struct.std::_Tuple_impl.120" }
 %"struct.std::_Tuple_impl.120" = type { %"struct.std::_Head_base.123" }
 %"struct.std::_Head_base.123" = type { ptr }
-%"class.grpc_core::CoreConfiguration::Builder" = type { %"class.grpc_core::ChannelArgsPreconditioning::Builder", [8 x i8], %"class.grpc_core::ChannelInit::Builder", %"class.grpc_core::HandshakerRegistry::Builder", %"class.grpc_core::ChannelCredsRegistry<>::Builder", %"class.grpc_core::ServiceConfigParser::Builder", %"class.grpc_core::ResolverRegistry::Builder", %"class.grpc_core::LoadBalancingPolicyRegistry::Builder", %"class.grpc_core::ProxyMapperRegistry::Builder", %"class.grpc_core::CertificateProviderRegistry::Builder" }
-%"class.grpc_core::ChannelArgsPreconditioning::Builder" = type { %"class.std::vector.73" }
-%"class.std::vector.73" = type { %"struct.std::_Vector_base.74" }
-%"struct.std::_Vector_base.74" = type { %"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelInit::Builder" = type { [6 x %"class.std::vector.78"], [6 x [2 x %"class.absl::lts_20230802::AnyInvocable"]] }
-%"class.std::vector.78" = type { %"struct.std::_Vector_base.79" }
-%"struct.std::_Vector_base.79" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::lts_20230802::AnyInvocable" = type { %"class.absl::lts_20230802::internal_any_invocable::Impl" }
-%"class.absl::lts_20230802::internal_any_invocable::Impl" = type { %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" }
-%"class.absl::lts_20230802::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
-%"union.absl::lts_20230802::internal_any_invocable::TypeErasedState" = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
-%"class.grpc_core::HandshakerRegistry::Builder" = type { [2 x %"class.std::vector.83"] }
-%"class.std::vector.83" = type { %"struct.std::_Vector_base.84" }
-%"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelCredsRegistry<>::Builder" = type { %"class.std::map.88" }
-%"class.std::map.88" = type { %"class.std::_Rb_tree.89" }
-%"class.std::_Rb_tree.89" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.93", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.93" = type { %"struct.std::less.94" }
-%"struct.std::less.94" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.grpc_core::ServiceConfigParser::Builder" = type { %"class.std::vector.68" }
-%"class.std::vector.68" = type { %"struct.std::_Vector_base.69" }
-%"struct.std::_Vector_base.69" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ResolverRegistry::Builder" = type { %"struct.grpc_core::ResolverRegistry::State" }
-%"struct.grpc_core::ResolverRegistry::State" = type { %"class.std::map.96", %"class.std::__cxx11::basic_string" }
-%"class.std::map.96" = type { %"class.std::_Rb_tree.97" }
-%"class.std::_Rb_tree.97" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.93", %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::LoadBalancingPolicyRegistry::Builder" = type { %"class.std::map.101" }
-%"class.std::map.101" = type { %"class.std::_Rb_tree.102" }
-%"class.std::_Rb_tree.102" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.93", %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::ProxyMapperRegistry::Builder" = type { %"class.std::vector.106" }
-%"class.std::vector.106" = type { %"struct.std::_Vector_base.107" }
-%"struct.std::_Vector_base.107" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::CertificateProviderRegistry::Builder" = type { %"class.std::map.111" }
-%"class.std::map.111" = type { %"class.std::_Rb_tree.112" }
-%"class.std::_Rb_tree.112" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.93", %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::CoreConfiguration" = type { %"class.grpc_core::ChannelArgsPreconditioning", %"class.grpc_core::ChannelInit", %"class.grpc_core::HandshakerRegistry", %"class.grpc_core::ChannelCredsRegistry", %"class.grpc_core::ServiceConfigParser", %"class.grpc_core::ResolverRegistry", %"class.grpc_core::LoadBalancingPolicyRegistry", %"class.grpc_core::ProxyMapperRegistry", %"class.grpc_core::CertificateProviderRegistry" }
-%"class.grpc_core::ChannelArgsPreconditioning" = type { %"class.std::vector.73" }
-%"class.grpc_core::ChannelInit" = type { [6 x %"struct.grpc_core::ChannelInit::StackConfig"] }
-%"struct.grpc_core::ChannelInit::StackConfig" = type { %"class.std::vector.132", %"class.std::vector.132", %"class.std::vector.137" }
-%"class.std::vector.132" = type { %"struct.std::_Vector_base.133" }
-%"struct.std::_Vector_base.133" = type { %"struct.std::_Vector_base<grpc_core::ChannelInit::Filter, std::allocator<grpc_core::ChannelInit::Filter>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::ChannelInit::Filter, std::allocator<grpc_core::ChannelInit::Filter>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::ChannelInit::Filter, std::allocator<grpc_core::ChannelInit::Filter>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::ChannelInit::Filter, std::allocator<grpc_core::ChannelInit::Filter>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.137" = type { %"struct.std::_Vector_base.138" }
-%"struct.std::_Vector_base.138" = type { %"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>, std::allocator<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>>>::_Vector_impl" }
-%"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>, std::allocator<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>, std::allocator<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>, std::allocator<absl::lts_20230802::AnyInvocable<void (grpc_core::ChannelStackBuilder &) const>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::HandshakerRegistry" = type { [2 x %"class.std::vector.83"] }
-%"class.grpc_core::ChannelCredsRegistry" = type { %"class.std::map.88" }
-%"class.grpc_core::ServiceConfigParser" = type { %"class.std::vector.68" }
-%"class.grpc_core::ResolverRegistry" = type { %"struct.grpc_core::ResolverRegistry::State" }
-%"class.grpc_core::LoadBalancingPolicyRegistry" = type { %"class.std::map.101" }
-%"class.grpc_core::ProxyMapperRegistry" = type { %"class.std::vector.106" }
-%"class.grpc_core::CertificateProviderRegistry" = type { %"class.std::map.111" }
-%"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, %"class.grpc_core::Duration", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8] }>
+%"class.grpc_core::Duration" = type { i64 }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
-%"class.grpc_core::FaultInjectionMethodParsedConfig" = type { %"class.grpc_core::ServiceConfigParser::ParsedConfig", %"class.std::vector.152" }
-%"class.grpc_core::ServiceConfigParser::ParsedConfig" = type { ptr }
-%"class.std::vector.152" = type { %"struct.std::_Vector_base.153" }
-%"struct.std::_Vector_base.153" = type { %"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl_data" }
 
 $_ZN9grpc_core19LoadJsonObjectFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt8optionalIT_ERKSt3mapIS6_NS_12experimental4JsonESt4lessIS6_ESaISt4pairIKS6_SC_EEERKNS_8JsonArgsESt17basic_string_viewIcS4_EPNS_16ValidationErrorsEb = comdat any
 
@@ -436,115 +342,115 @@ invoke.cont22:                                    ; preds = %init.check
 
 invoke.cont23:                                    ; preds = %invoke.cont22
   store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_32FaultInjectionMethodParsedConfig20FaultInjectionPolicyELm11EvEE, i64 0, inrange i32 0, i64 2), ptr %call.i46, align 8
-  %elements_.i.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1
+  %elements_.i.i = getelementptr inbounds i8, ptr %call.i46, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %elements_.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 0, i32 1
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 16
   store i16 8, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 0, i32 2
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 0, i32 3
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 24
   store ptr @.str, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 0, i32 4
+  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 32
   store ptr null, ptr %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 1
+  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 1, i32 1
+  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 48
   store i16 40, ptr %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 1, i32 2
+  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 50
   store i8 1, ptr %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 1, i32 3
+  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 56
   store ptr @.str.1, ptr %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.12.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 1, i32 4
+  %ref.tmp.sroa.12.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 64
   store ptr null, ptr %ref.tmp.sroa.12.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.13.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp.sroa.13.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %ref.tmp.sroa.13.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.14.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 2, i32 1
+  %ref.tmp.sroa.14.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 80
   store i16 72, ptr %ref.tmp.sroa.14.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.15.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 2, i32 2
+  %ref.tmp.sroa.15.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 82
   store i8 1, ptr %ref.tmp.sroa.15.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.17.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 2, i32 3
+  %ref.tmp.sroa.17.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 88
   store ptr @.str.2, ptr %ref.tmp.sroa.17.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.18.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 2, i32 4
+  %ref.tmp.sroa.18.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 96
   store ptr null, ptr %ref.tmp.sroa.18.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.19.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 3
+  %ref.tmp.sroa.19.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 104
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %ref.tmp.sroa.19.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.20.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 3, i32 1
+  %ref.tmp.sroa.20.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 112
   store i16 104, ptr %ref.tmp.sroa.20.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.21.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 3, i32 2
+  %ref.tmp.sroa.21.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 114
   store i8 1, ptr %ref.tmp.sroa.21.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.23.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 3, i32 3
+  %ref.tmp.sroa.23.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 120
   store ptr @.str.3, ptr %ref.tmp.sroa.23.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.24.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 3, i32 4
+  %ref.tmp.sroa.24.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 128
   store ptr null, ptr %ref.tmp.sroa.24.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.25.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 4
+  %ref.tmp.sroa.25.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 136
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %ref.tmp.sroa.25.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.26.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 4, i32 1
+  %ref.tmp.sroa.26.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 144
   store i16 108, ptr %ref.tmp.sroa.26.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.27.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 4, i32 2
+  %ref.tmp.sroa.27.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 146
   store i8 1, ptr %ref.tmp.sroa.27.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.29.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 4, i32 3
+  %ref.tmp.sroa.29.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 152
   store ptr @.str.4, ptr %ref.tmp.sroa.29.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.30.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 4, i32 4
+  %ref.tmp.sroa.30.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 160
   store ptr null, ptr %ref.tmp.sroa.30.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.31.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 5
+  %ref.tmp.sroa.31.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 168
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %ref.tmp.sroa.31.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.32.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 5, i32 1
+  %ref.tmp.sroa.32.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 176
   store i16 112, ptr %ref.tmp.sroa.32.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.33.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 5, i32 2
+  %ref.tmp.sroa.33.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 178
   store i8 1, ptr %ref.tmp.sroa.33.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.35.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 5, i32 3
+  %ref.tmp.sroa.35.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 184
   store ptr @.str.5, ptr %ref.tmp.sroa.35.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.36.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 5, i32 4
+  %ref.tmp.sroa.36.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 192
   store ptr null, ptr %ref.tmp.sroa.36.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.37.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 6
+  %ref.tmp.sroa.37.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 200
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %ref.tmp.sroa.37.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.38.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 6, i32 1
+  %ref.tmp.sroa.38.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 208
   store i16 120, ptr %ref.tmp.sroa.38.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.39.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 6, i32 2
+  %ref.tmp.sroa.39.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 210
   store i8 1, ptr %ref.tmp.sroa.39.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.41.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 6, i32 3
+  %ref.tmp.sroa.41.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 216
   store ptr @.str.6, ptr %ref.tmp.sroa.41.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 6, i32 4
+  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 224
   store ptr null, ptr %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.43.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 7
+  %ref.tmp.sroa.43.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 232
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %ref.tmp.sroa.43.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.44.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 7, i32 1
+  %ref.tmp.sroa.44.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 240
   store i16 152, ptr %ref.tmp.sroa.44.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.45.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 7, i32 2
+  %ref.tmp.sroa.45.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 242
   store i8 1, ptr %ref.tmp.sroa.45.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.47.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 7, i32 3
+  %ref.tmp.sroa.47.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 248
   store ptr @.str.7, ptr %ref.tmp.sroa.47.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.48.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 7, i32 4
+  %ref.tmp.sroa.48.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 256
   store ptr null, ptr %ref.tmp.sroa.48.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.49.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 8
+  %ref.tmp.sroa.49.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 264
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %ref.tmp.sroa.49.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.50.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 8, i32 1
+  %ref.tmp.sroa.50.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 272
   store i16 184, ptr %ref.tmp.sroa.50.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.51.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 8, i32 2
+  %ref.tmp.sroa.51.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 274
   store i8 1, ptr %ref.tmp.sroa.51.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.53.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 8, i32 3
+  %ref.tmp.sroa.53.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 280
   store ptr @.str.8, ptr %ref.tmp.sroa.53.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.54.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 8, i32 4
+  %ref.tmp.sroa.54.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 288
   store ptr null, ptr %ref.tmp.sroa.54.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.55.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 9
+  %ref.tmp.sroa.55.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 296
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %ref.tmp.sroa.55.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.56.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 9, i32 1
+  %ref.tmp.sroa.56.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 304
   store i16 188, ptr %ref.tmp.sroa.56.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.57.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 9, i32 2
+  %ref.tmp.sroa.57.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 306
   store i8 1, ptr %ref.tmp.sroa.57.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.59.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 9, i32 3
+  %ref.tmp.sroa.59.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 312
   store ptr @.str.9, ptr %ref.tmp.sroa.59.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.60.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 9, i32 4
+  %ref.tmp.sroa.60.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 320
   store ptr null, ptr %ref.tmp.sroa.60.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.61.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 10
+  %ref.tmp.sroa.61.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 328
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %ref.tmp.sroa.61.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.62.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 10, i32 1
+  %ref.tmp.sroa.62.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 336
   store i16 192, ptr %ref.tmp.sroa.62.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.63.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 10, i32 2
+  %ref.tmp.sroa.63.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 338
   store i8 1, ptr %ref.tmp.sroa.63.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.6457.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 10, i32 3
+  %ref.tmp.sroa.6457.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 344
   store ptr @.str.10, ptr %ref.tmp.sroa.6457.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.65.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %call.i46, i64 0, i32 1, i32 0, i64 10, i32 4
+  %ref.tmp.sroa.65.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i46, i64 352
   store ptr null, ptr %ref.tmp.sroa.65.0.elements_.i.i.sroa_idx, align 8
   store ptr %call.i46, ptr @_ZZN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicy10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicy10JsonLoaderERKNS_8JsonArgsEE6loader) #16
@@ -579,7 +485,7 @@ entry:
   %field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %field18 = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %field33 = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 48
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i8 %0, 4
   br i1 %cmp.not.i.i.i, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit, label %if.then.i.i.i
@@ -588,7 +494,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %cmp.i.not.i.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -603,7 +509,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %entry
   call void @_ZN9grpc_core19LoadJsonObjectFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt8optionalIT_ERKSt3mapIS6_NS_12experimental4JsonESt4lessIS6_ESaISt4pairIKS6_SC_EEERKNS_8JsonArgsESt17basic_string_viewIcS4_EPNS_16ValidationErrorsEb(ptr nonnull sret(%"class.std::optional") align 8 %abort_code_string, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 9, ptr nonnull @.str.11, ptr noundef %errors, i1 noundef zeroext false)
-  %_M_engaged.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %abort_code_string, i64 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %abort_code_string, i64 32
   %1 = load i8, ptr %_M_engaged.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -649,7 +555,7 @@ lpad9:                                            ; preds = %invoke.cont7
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then.i, %invoke.cont, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
-  %abort_percentage_denominator = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 6
+  %abort_percentage_denominator = getelementptr inbounds i8, ptr %this, i64 108
   %7 = load i32, ptr %abort_percentage_denominator, align 4
   switch i32 %7, label %if.then17 [
     i32 100, label %if.end24
@@ -684,7 +590,7 @@ lpad22:                                           ; preds = %invoke.cont20
   br label %ehcleanup
 
 if.end24:                                         ; preds = %if.then.i19, %if.end, %if.end, %if.end
-  %delay_percentage_denominator = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 11
+  %delay_percentage_denominator = getelementptr inbounds i8, ptr %this, i64 188
   %11 = load i32, ptr %delay_percentage_denominator, align 4
   switch i32 %11, label %if.then32 [
     i32 100, label %if.end39
@@ -757,7 +663,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %result = alloca %"class.std::__cxx11::basic_string", align 8
   store i64 1, ptr %ref.tmp1, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr @.str.30, ptr %0, align 8
   store i64 %field.coerce0, ptr %ref.tmp2, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
@@ -780,7 +686,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   br i1 %cmp, label %if.then, label %invoke.cont12
 
 if.then:                                          ; preds = %invoke.cont6
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %cleanup21
 
@@ -821,7 +727,7 @@ if.end20:                                         ; preds = %invoke.cont14
 
 cleanup:                                          ; preds = %invoke.cont14, %if.end20
   %.sink = phi i8 [ 1, %if.end20 ], [ 0, %invoke.cont14 ]
-  %9 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 %.sink, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #16
   br label %cleanup21
@@ -902,15 +808,15 @@ invoke.cont2:                                     ; preds = %init.check
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_32FaultInjectionMethodParsedConfigELm1EvEE, i64 0, inrange i32 0, i64 2), ptr %call.i1, align 8
-  %elements_.i.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1, i64 0, i32 1
+  %elements_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS5_EEEEE6value_E, ptr %elements_.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1, i64 0, i32 1, i32 0, i64 0, i32 1
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 16
   store i16 8, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1, i64 0, i32 1, i32 0, i64 0, i32 2
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1, i64 0, i32 1, i32 0, i64 0, i32 3
+  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 24
   store ptr @.str.17, ptr %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1, i64 0, i32 1, i32 0, i64 0, i32 4
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 32
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx, align 8
   store ptr %call.i1, ptr @_ZZN9grpc_core32FaultInjectionMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core32FaultInjectionMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #16
@@ -955,7 +861,7 @@ lpad.i:                                           ; preds = %if.end
 
 _ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i: ; preds = %lpad.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   br label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i
@@ -988,7 +894,7 @@ entry:
 define void @_ZN9grpc_core33FaultInjectionServiceConfigParser8RegisterEPNS_17CoreConfiguration7BuilderE(ptr noundef %builder) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.116", align 8
-  %service_config_parser_.i = getelementptr inbounds %"class.grpc_core::CoreConfiguration::Builder", ptr %builder, i64 0, i32 5
+  %service_config_parser_.i = getelementptr inbounds i8, ptr %builder, i64 656
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17, !noalias !8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core33FaultInjectionServiceConfigParserE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -1002,7 +908,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   br label %_ZNSt10unique_ptrIN9grpc_core33FaultInjectionServiceConfigParserESt14default_deleteIS1_EED2Ev.exit
@@ -1019,7 +925,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i3: ; preds = %lpad
   %vtable.i.i4 = load ptr, ptr %3, align 8
-  %vfn.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i4, i64 1
+  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
   %4 = load ptr, ptr %vfn.i.i5, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %_ZNSt10unique_ptrIN9grpc_core33FaultInjectionServiceConfigParserESt14default_deleteIS1_EED2Ev.exit9
@@ -1044,7 +950,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %service_config_parser_.i = getelementptr inbounds %"class.grpc_core::CoreConfiguration", ptr %retval.0.i, i64 0, i32 4
+  %service_config_parser_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 552
   %call3 = tail call noundef i64 @_ZNK9grpc_core19ServiceConfigParser14GetParserIndexESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %service_config_parser_.i, i64 15, ptr nonnull @.str.28)
   ret i64 %call3
 }
@@ -1211,7 +1117,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }
@@ -1303,7 +1209,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail24FinishedJsonObjectLoaderINS_32FaultInjectionMethodParsedConfig20FaultInjectionPolicyELm11EvE8LoadIntoERKNS_12experimental4JsonERKNS_8JsonArgsEPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %dst, ptr noundef %errors) unnamed_addr #3 comdat align 2 {
 entry:
-  %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %this, i64 0, i32 1
+  %elements_ = getelementptr inbounds i8, ptr %this, i64 8
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core11json_detail10LoadObjectERKNS_12experimental4JsonERKNS_8JsonArgsEPKNS0_7ElementEmPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %elements_, i64 noundef 11, ptr noundef %dst, ptr noundef %errors)
   br i1 %call4, label %if.then, label %if.end
 
@@ -1342,9 +1248,9 @@ declare void @_ZNK9grpc_core11json_detail10LoadVector8LoadIntoERKNS_12experiment
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt6vectorINS_32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS4_EEE11EmplaceBackEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl_data", ptr %dst, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %dst, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl_data", ptr %dst, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %dst, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1353,7 +1259,7 @@ if.then.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   tail call void @_ZN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyC2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 200
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -1364,7 +1270,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZNSt6vectorIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i, %if.else.i
   %3 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %3, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -200
   ret ptr %add.ptr.i.i
 }
 
@@ -1377,7 +1283,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1418,7 +1324,7 @@ _ZNSt12_Vector_baseIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectio
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE11_M_allocateEm.exit
   %call3.i.i = tail call noundef ptr @_ZSt14__relocate_a_1IPN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %1, ptr noundef %__position.coerce, ptr noundef nonnull %cond.i17, ptr noundef nonnull align 1 dereferenceable(1) %this) #16
-  %incdec.ptr = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %call3.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call3.i.i, i64 200
   %call3.i.i18 = tail call noundef ptr @_ZSt14__relocate_a_1IPN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull align 1 dereferenceable(1) %this) #16
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i19
@@ -1428,7 +1334,7 @@ if.then.i19:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %invoke.cont, %if.then.i19
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy, std::allocator<grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %call3.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %cond.i17, i64 %cond.i
@@ -1469,7 +1375,7 @@ define linkonce_odr void @_ZN9grpc_core32FaultInjectionMethodParsedConfig20Fault
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %this, align 8
-  %abort_message = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 2
+  %abort_message = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %abort_message)
           to label %call.i.noexc unwind label %lpad
@@ -1490,25 +1396,25 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  %abort_code_header = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 3
+  %abort_code_header = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_code_header) #16
-  %abort_percentage_header = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 4
+  %abort_percentage_header = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_percentage_header) #16
-  %abort_percentage_numerator = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 5
+  %abort_percentage_numerator = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %abort_percentage_numerator, align 8
-  %abort_percentage_denominator = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 6
+  %abort_percentage_denominator = getelementptr inbounds i8, ptr %this, i64 108
   store i32 100, ptr %abort_percentage_denominator, align 4
-  %delay = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 7
+  %delay = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %delay, align 8
-  %delay_header = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 8
+  %delay_header = getelementptr inbounds i8, ptr %this, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_header) #16
-  %delay_percentage_header = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 9
+  %delay_percentage_header = getelementptr inbounds i8, ptr %this, i64 152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header) #16
-  %delay_percentage_numerator = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 10
+  %delay_percentage_numerator = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %delay_percentage_numerator, align 8
-  %delay_percentage_denominator = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 11
+  %delay_percentage_denominator = getelementptr inbounds i8, ptr %this, i64 188
   store i32 100, ptr %delay_percentage_denominator, align 4
-  %max_faults = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %this, i64 0, i32 12
+  %max_faults = getelementptr inbounds i8, ptr %this, i64 192
   store i32 -1, ptr %max_faults, align 8
   ret void
 
@@ -1645,34 +1551,34 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %0 = load i32, ptr %__first.addr.06, align 8, !alias.scope !14, !noalias !11
   store i32 %0, ptr %__cur.07, align 8, !alias.scope !11, !noalias !14
-  %abort_message.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 2
-  %abort_message3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 2
+  %abort_message.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 8
+  %abort_message3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %abort_message.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %abort_message3.i.i.i.i) #16
-  %abort_code_header.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 3
-  %abort_code_header4.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 3
+  %abort_code_header.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 40
+  %abort_code_header4.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %abort_code_header.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %abort_code_header4.i.i.i.i) #16
-  %abort_percentage_header.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 4
-  %abort_percentage_header5.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 4
+  %abort_percentage_header.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 72
+  %abort_percentage_header5.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %abort_percentage_header.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %abort_percentage_header5.i.i.i.i) #16
-  %abort_percentage_numerator.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 5
-  %abort_percentage_numerator6.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 5
+  %abort_percentage_numerator.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 104
+  %abort_percentage_numerator6.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %abort_percentage_numerator.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %abort_percentage_numerator6.i.i.i.i, i64 16, i1 false), !alias.scope !16
-  %delay_header.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 8
-  %delay_header7.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 8
+  %delay_header.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 120
+  %delay_header7.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %delay_header.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %delay_header7.i.i.i.i) #16
-  %delay_percentage_header.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 9
-  %delay_percentage_header8.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 9
+  %delay_percentage_header.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 152
+  %delay_percentage_header8.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header8.i.i.i.i) #16
-  %delay_percentage_numerator.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 0, i32 10
-  %delay_percentage_numerator9.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 0, i32 10
+  %delay_percentage_numerator.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 184
+  %delay_percentage_numerator9.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %delay_percentage_numerator.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %delay_percentage_numerator9.i.i.i.i, i64 12, i1 false), !alias.scope !16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header8.i.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_header7.i.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_percentage_header5.i.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_code_header4.i.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_message3.i.i.i.i) #16
-  %incdec.ptr = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.06, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__cur.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.06, i64 200
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.07, i64 200
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
@@ -1684,7 +1590,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail24FinishedJsonObjectLoaderINS_32FaultInjectionMethodParsedConfigELm1EvE8LoadIntoERKNS_12experimental4JsonERKNS_8JsonArgsEPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %dst, ptr noundef %errors) unnamed_addr #3 comdat align 2 {
 entry:
-  %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %this, i64 0, i32 1
+  %elements_ = getelementptr inbounds i8, ptr %this, i64 8
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core11json_detail10LoadObjectERKNS_12experimental4JsonERKNS_8JsonArgsEPKNS0_7ElementEmPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %elements_, i64 noundef 1, ptr noundef %dst, ptr noundef %errors)
   ret void
 }
@@ -1707,15 +1613,15 @@ invoke.cont2.i:                                   ; preds = %init.check.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
   store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_32FaultInjectionMethodParsedConfigELm1EvEE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8
-  %elements_.i.i.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1.i, i64 0, i32 1
+  %elements_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_32FaultInjectionMethodParsedConfig20FaultInjectionPolicyESaIS5_EEEEE6value_E, ptr %elements_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1.i, i64 0, i32 1, i32 0, i64 0, i32 1
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   store i16 8, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1.i, i64 0, i32 1, i32 0, i64 0, i32 2
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i, align 2
-  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1.i, i64 0, i32 1, i32 0, i64 0, i32 3
+  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 24
   store ptr @.str.17, ptr %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.51", ptr %call.i1.i, i64 0, i32 1, i32 0, i64 0, i32 4
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 32
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core32FaultInjectionMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core32FaultInjectionMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #16
@@ -1742,7 +1648,7 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10uni
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17, !noalias !19
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core32FaultInjectionMethodParsedConfigE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !19
-  %fault_injection_policies_.i.i = getelementptr inbounds %"class.grpc_core::FaultInjectionMethodParsedConfig", ptr %call.i, i64 0, i32 1
+  %fault_injection_policies_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fault_injection_policies_.i.i, i8 0, i64 24, i1 false), !noalias !19
   %0 = load ptr, ptr %dst, align 8
   store ptr %call.i, ptr %dst, align 8
@@ -1751,7 +1657,7 @@ entry:
 
 _ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %.pre = load ptr, ptr %dst, align 8
@@ -1772,7 +1678,7 @@ entry:
 
 _ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   br label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EE5resetEPS1_.exit
@@ -1791,26 +1697,26 @@ entry:
 define linkonce_odr void @_ZN9grpc_core32FaultInjectionMethodParsedConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core32FaultInjectionMethodParsedConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fault_injection_policies_ = getelementptr inbounds %"class.grpc_core::FaultInjectionMethodParsedConfig", ptr %this, i64 0, i32 1
+  %fault_injection_policies_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fault_injection_policies_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::FaultInjectionMethodParsedConfig", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
-  %delay_percentage_header.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i, i64 0, i32 9
+  %delay_percentage_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header.i.i.i.i.i.i) #16
-  %delay_header.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i, i64 0, i32 8
+  %delay_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_header.i.i.i.i.i.i) #16
-  %abort_percentage_header.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i, i64 0, i32 4
+  %abort_percentage_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_percentage_header.i.i.i.i.i.i) #16
-  %abort_code_header.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i, i64 0, i32 3
+  %abort_code_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_code_header.i.i.i.i.i.i) #16
-  %abort_message.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %abort_message.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_message.i.i.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 200
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !22
 
@@ -1835,26 +1741,26 @@ _ZNSt6vectorIN9grpc_core32FaultInjectionMethodParsedConfig20FaultInjectionPolicy
 define linkonce_odr void @_ZN9grpc_core32FaultInjectionMethodParsedConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core32FaultInjectionMethodParsedConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fault_injection_policies_.i = getelementptr inbounds %"class.grpc_core::FaultInjectionMethodParsedConfig", ptr %this, i64 0, i32 1
+  %fault_injection_policies_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fault_injection_policies_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.grpc_core::FaultInjectionMethodParsedConfig", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
-  %delay_percentage_header.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 9
+  %delay_percentage_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header.i.i.i.i.i.i.i) #16
-  %delay_header.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 8
+  %delay_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delay_header.i.i.i.i.i.i.i) #16
-  %abort_percentage_header.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 4
+  %abort_percentage_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_percentage_header.i.i.i.i.i.i.i) #16
-  %abort_code_header.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 3
+  %abort_code_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_code_header.i.i.i.i.i.i.i) #16
-  %abort_message.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 2
+  %abort_message.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abort_message.i.i.i.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 200
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !22
 

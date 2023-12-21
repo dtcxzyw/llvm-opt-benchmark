@@ -13,31 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ParallelsHeader = type <{ [16 x i8], i32, i32, i32, i32, i32, i64, i32, i32, i32, i64 }>
 %struct.BdrvCheckResult = type { i32, i32, i32, i32, i32, i64, %struct.BlockFragInfo }
 %struct.BlockFragInfo = type { i64, i64, i64, i64 }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon.1, %union.anon.2, %union.anon.3, i32, [16 x %struct.anon.4], ptr, %struct.anon.5, ptr, ptr, %struct.anon.6, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.7, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.8, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.8 = type { ptr }
-%struct.CoQueue = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.10, %struct.anon.10, i32, i32, ptr }
-%struct.anon.10 = type { ptr }
-%struct.BDRVParallelsState = type { %struct.CoMutex, ptr, i32, i8, ptr, i32, ptr, i64, ptr, i32, i64, i64, i64, i32, i32, i32, i32, ptr }
-%struct.BlockdevCreateOptions = type { i32, %union.anon.13 }
-%union.anon.13 = type { %struct.BlockdevCreateOptionsQcow2 }
-%struct.BlockdevCreateOptionsQcow2 = type { ptr, ptr, i8, i8, i8, i8, i64, i8, i32, ptr, i8, i32, ptr, i8, i64, i8, i32, i8, i8, i8, i64, i8, i32 }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.QEMUIOVector = type { ptr, i32, %union.anon.15 }
 %union.anon.15 = type { %struct.anon.16 }
 %struct.anon.16 = type { i32, %struct.iovec }
@@ -140,7 +115,7 @@ entry:
   %ph = alloca %struct.ParallelsHeader, align 1
   %data_start = alloca i32, align 4
   %res = alloca %struct.BdrvCheckResult, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
@@ -159,11 +134,11 @@ if.end.i:                                         ; preds = %entry
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call i64 @qemu_opt_get_size_del(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.19, i64 noundef 0) #15
   %shr.i = ashr i64 %call4.i, 9
-  %prealloc_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 12
+  %prealloc_size.i = getelementptr inbounds i8, ptr %0, i64 128
   store i64 %shr.i, ptr %prealloc_size.i, align 8
   %call5.i = tail call ptr @qemu_opt_get_del(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.20) #15
   %call6.i = call i32 @qapi_enum_parse(ptr noundef nonnull @prealloc_mode_lookup, ptr noundef %call5.i, i32 noundef 0, ptr noundef nonnull %local_err.i) #15
-  %prealloc_mode.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 13
+  %prealloc_mode.i = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %call6.i, ptr %prealloc_mode.i, align 8
   call void @g_free(ptr noundef %call5.i) #15
   %1 = load ptr, ptr %local_err.i, align 8
@@ -188,7 +163,7 @@ if.end:                                           ; preds = %if.end3.i
 
 if.end4:                                          ; preds = %if.end
   call void @bdrv_graph_rdlock_main_loop() #15
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %2, align 8
   %call7 = call i64 @bdrv_nb_sectors(ptr noundef %3) #15
@@ -202,11 +177,11 @@ if.end10:                                         ; preds = %if.end4
   br i1 %cmp13, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %nb_sectors = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 6
+  %nb_sectors = getelementptr inbounds i8, ptr %ph, i64 36
   %5 = load i64, ptr %nb_sectors, align 1
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %5, ptr %total_sectors, align 8
-  %version = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %ph, i64 16
   %6 = load i32, ptr %version, align 1
   %cmp18.not = icmp eq i32 %6, 2
   br i1 %cmp18.not, label %if.end20, label %fail_format
@@ -217,12 +192,12 @@ if.end20:                                         ; preds = %if.end15
   br i1 %tobool.not, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %if.end20
-  %off_multiplier = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 16
+  %off_multiplier = getelementptr inbounds i8, ptr %0, i64 148
   store i32 1, ptr %off_multiplier, align 4
   %7 = load i64, ptr %total_sectors, align 8
   %and = and i64 %7, 4294967295
   store i64 %and, ptr %total_sectors, align 8
-  %tracks35.phi.trans.insert = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 4
+  %tracks35.phi.trans.insert = getelementptr inbounds i8, ptr %ph, i64 28
   %.pre = load i32, ptr %tracks35.phi.trans.insert, align 1
   br label %if.end34
 
@@ -232,15 +207,15 @@ if.else:                                          ; preds = %if.end20
   br i1 %tobool28.not, label %if.then29, label %fail_format
 
 if.then29:                                        ; preds = %if.else
-  %tracks = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 4
+  %tracks = getelementptr inbounds i8, ptr %ph, i64 28
   %8 = load i32, ptr %tracks, align 1
-  %off_multiplier31 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 16
+  %off_multiplier31 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 %8, ptr %off_multiplier31, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then29, %if.then22
   %9 = phi i32 [ %8, %if.then29 ], [ %.pre, %if.then22 ]
-  %tracks37 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 14
+  %tracks37 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 %9, ptr %tracks37, align 4
   %cmp39 = icmp eq i32 %9, 0
   br i1 %cmp39, label %if.then40, label %if.end41
@@ -263,11 +238,11 @@ if.end45:                                         ; preds = %if.end41
   %cond = call i64 @llvm.umax.i64(i64 %10, i64 %conv)
   store i64 %cond, ptr %prealloc_size.i, align 8
   %shl = shl nuw nsw i32 %9, 9
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %shl, ptr %cluster_size, align 8
-  %bat_entries = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 5
+  %bat_entries = getelementptr inbounds i8, ptr %ph, i64 32
   %11 = load i32, ptr %bat_entries, align 1
-  %bat_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
+  %bat_size = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %11, ptr %bat_size, align 8
   %cmp54 = icmp ugt i32 %11, 536870911
   br i1 %cmp54, label %if.then56, label %if.end57
@@ -291,13 +266,13 @@ if.end57:                                         ; preds = %if.end45
   %sub67 = sub i64 0, %call66
   %and68 = and i64 %sub, %sub67
   %conv69 = trunc i64 %and68 to i32
-  %header_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 2
+  %header_size = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %conv69, ptr %header_size, align 8
   %17 = load ptr, ptr %file, align 8
   %18 = load ptr, ptr %17, align 8
   %conv73 = and i64 %and68, 4294967295
   %call74 = call ptr @qemu_try_blockalign(ptr noundef %18, i64 noundef %conv73) #15
-  %header = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call74, ptr %header, align 8
   %cmp76 = icmp eq ptr %call74, null
   br i1 %cmp76, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end79
@@ -312,16 +287,16 @@ if.end79:                                         ; preds = %if.end57
 
 if.end88:                                         ; preds = %if.end79
   %21 = load ptr, ptr %header, align 8
-  %add.ptr = getelementptr %struct.ParallelsHeader, ptr %21, i64 1
-  %bat_bitmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 8
+  %add.ptr = getelementptr i8, ptr %21, i64 64
+  %bat_bitmap = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %add.ptr, ptr %bat_bitmap, align 8
-  %inuse = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 7
+  %inuse = getelementptr inbounds i8, ptr %ph, i64 44
   %22 = load i32, ptr %inuse, align 1
   %cmp91 = icmp ne i32 %22, 1953459801
   br i1 %cmp91, label %if.end94, label %if.then93
 
 if.then93:                                        ; preds = %if.end88
-  %header_unclean = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 3
+  %header_unclean = getelementptr inbounds i8, ptr %0, i64 60
   store i8 1, ptr %header_unclean, align 4
   br label %if.end94
 
@@ -330,9 +305,9 @@ if.end94:                                         ; preds = %if.then93, %if.end8
   %.not = select i1 %cmp91, i1 %call95, i1 false
   %23 = load i32, ptr %data_start, align 4
   %conv100 = zext i32 %23 to i64
-  %data_start101 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 10
+  %data_start101 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %conv100, ptr %data_start101, align 8
-  %data_end = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %conv100, ptr %data_end, align 8
   %24 = load i32, ptr %header_size, align 8
   %shr = lshr i32 %24, 9
@@ -344,7 +319,7 @@ if.then108:                                       ; preds = %if.end94
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then108, %if.end94
-  %ext_off = getelementptr inbounds %struct.ParallelsHeader, ptr %ph, i64 0, i32 10
+  %ext_off = getelementptr inbounds i8, ptr %ph, i64 56
   %25 = load i64, ptr %ext_off, align 1
   %tobool111.not = icmp eq i64 %25, 0
   br i1 %tobool111.not, label %if.end126, label %if.then112
@@ -371,7 +346,7 @@ if.end126:                                        ; preds = %if.then115, %if.els
 
 if.then131:                                       ; preds = %if.end126
   %27 = load ptr, ptr %header, align 8
-  %inuse134 = getelementptr inbounds %struct.ParallelsHeader, ptr %27, i64 0, i32 7
+  %inuse134 = getelementptr inbounds i8, ptr %27, i64 44
   store i32 1953459801, ptr %inuse134, align 1
   %call135 = call fastcc i32 @parallels_update_header(ptr noundef nonnull %bs)
   %cmp136 = icmp slt i32 %call135, 0
@@ -380,7 +355,7 @@ if.then131:                                       ; preds = %if.end126
 if.end140:                                        ; preds = %if.then131, %if.end126
   %call.i109 = tail call i32 @getpagesize() #16
   %conv142 = shl i32 %call.i109, 2
-  %bat_dirty_block = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 5
+  %bat_dirty_block = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %conv142, ptr %bat_dirty_block, align 8
   %28 = load i32, ptr %header_size, align 8
   %add145 = add i32 %conv142, -1
@@ -388,9 +363,9 @@ if.end140:                                        ; preds = %if.then131, %if.end
   %div = udiv i32 %sub146, %conv142
   %conv148 = zext i32 %div to i64
   %call149 = call fastcc ptr @bitmap_new(i64 noundef %conv148)
-  %bat_dirty_bmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
+  %bat_dirty_bmap = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %call149, ptr %bat_dirty_bmap, align 8
-  %migration_blocker = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 17
+  %migration_blocker = getelementptr inbounds i8, ptr %0, i64 152
   %call150 = call ptr @bdrv_get_device_or_node_name(ptr noundef nonnull %bs) #15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.11, i32 noundef 1366, ptr noundef nonnull @__func__.parallels_open, ptr noundef nonnull @.str.16, ptr noundef %call150) #15
   %call152 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #15
@@ -408,21 +383,21 @@ for.body.lr.ph:                                   ; preds = %if.end156
   %data_end.promoted = load i64, ptr %data_end, align 8
   %.val.pre = load ptr, ptr %bat_bitmap, align 8
   %.val107.pre = load i32, ptr %30, align 4
-  %.pre122 = load i32, ptr %tracks37, align 4
+  %.pre120 = load i32, ptr %tracks37, align 4
   %conv1.i = zext i32 %.val107.pre to i64
-  %conv162 = zext i32 %.pre122 to i64
+  %conv162 = zext i32 %.pre120 to i64
   %31 = zext i32 %29 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %add163120 = phi i64 [ %data_end.promoted, %for.body.lr.ph ], [ %add163119, %for.inc ]
+  %32 = phi i64 [ %data_end.promoted, %for.body.lr.ph ], [ %34, %for.inc ]
   %arrayidx.i = getelementptr i32, ptr %.val.pre, i64 %indvars.iv
-  %32 = load i32, ptr %arrayidx.i, align 4
-  %conv.i110 = zext i32 %32 to i64
+  %33 = load i32, ptr %arrayidx.i, align 4
+  %conv.i110 = zext i32 %33 to i64
   %mul.i111 = mul nuw i64 %conv.i110, %conv1.i
   %add163 = add nuw i64 %mul.i111, %conv162
-  %cmp165 = icmp sgt i64 %add163, %add163120
+  %cmp165 = icmp sgt i64 %add163, %32
   br i1 %cmp165, label %if.then167, label %for.inc
 
 if.then167:                                       ; preds = %for.body
@@ -430,7 +405,7 @@ if.then167:                                       ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then167
-  %add163119 = phi i64 [ %add163120, %for.body ], [ %add163, %if.then167 ]
+  %34 = phi i64 [ %32, %for.body ], [ %add163, %if.then167 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp158 = icmp ult i64 %indvars.iv.next, %31
   br i1 %cmp158, label %for.body, label %for.end, !llvm.loop !5
@@ -439,8 +414,8 @@ for.end:                                          ; preds = %for.inc, %if.end156
   br i1 %.not, label %lor.end179, label %if.end195
 
 lor.end179:                                       ; preds = %for.end
-  %33 = load i64, ptr %data_end, align 8
-  %cmp177 = icmp sgt i64 %33, %call7
+  %35 = load i64, ptr %data_end, align 8
+  %cmp177 = icmp sgt i64 %35, %call7
   br i1 %cmp177, label %if.end195, label %if.then182
 
 if.then182:                                       ; preds = %lor.end179
@@ -449,13 +424,13 @@ if.then182:                                       ; preds = %lor.end179
   br i1 %cmp184, label %fail, label %if.end187
 
 if.end187:                                        ; preds = %if.then182
-  %34 = icmp sgt i32 %call183, -1
+  %36 = icmp sgt i32 %call183, -1
   br label %if.end195
 
 if.end195:                                        ; preds = %for.end, %if.end187, %lor.end179
-  %need_check.1 = phi i1 [ false, %lor.end179 ], [ %34, %if.end187 ], [ false, %for.end ]
-  %35 = and i32 %flags, 6146
-  %brmerge = icmp ne i32 %35, 2
+  %need_check.1 = phi i1 [ false, %lor.end179 ], [ %36, %if.end187 ], [ false, %for.end ]
+  %37 = and i32 %flags, 6146
+  %brmerge = icmp ne i32 %37, 2
   %brmerge106 = or i1 %brmerge, %need_check.1
   br i1 %brmerge106, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then203
 
@@ -477,16 +452,16 @@ fail_format:                                      ; preds = %if.else, %if.end15
 fail:                                             ; preds = %if.then182, %if.end140, %if.then131, %if.else116, %if.end79, %if.then207
   %ret.0 = phi i32 [ %call84, %if.end79 ], [ %call152, %if.end140 ], [ %call204, %if.then207 ], [ -12, %if.then182 ], [ %call135, %if.then131 ], [ %call120, %if.else116 ]
   %bs.val = load ptr, ptr %opaque, align 8
-  %used_bmap_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 7
+  %used_bmap_size.i = getelementptr inbounds i8, ptr %bs.val, i64 88
   store i64 0, ptr %used_bmap_size.i, align 8
-  %used_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 6
-  %36 = load ptr, ptr %used_bmap.i, align 8
-  call void @g_free(ptr noundef %36) #15
-  %bat_dirty_bmap212 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
-  %37 = load ptr, ptr %bat_dirty_bmap212, align 8
-  call void @g_free(ptr noundef %37) #15
-  %38 = load ptr, ptr %header, align 8
-  call void @qemu_vfree(ptr noundef %38) #15
+  %used_bmap.i = getelementptr inbounds i8, ptr %bs.val, i64 80
+  %38 = load ptr, ptr %used_bmap.i, align 8
+  call void @g_free(ptr noundef %38) #15
+  %bat_dirty_bmap212 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = load ptr, ptr %bat_dirty_bmap212, align 8
+  call void @g_free(ptr noundef %39) #15
+  %40 = load ptr, ptr %header, align 8
+  call void @qemu_vfree(ptr noundef %40) #15
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end195, %if.then203, %if.end57, %if.end10, %if.end4, %fail, %fail_format, %if.then56, %if.then44, %if.then40
@@ -502,7 +477,7 @@ return:                                           ; preds = %parallels_opts_prea
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @parallels_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_graph_rdlock_main_loop() #15
   %1 = load i32, ptr %bs, align 8
@@ -511,27 +486,27 @@ entry:
   br i1 %or.cond, label %if.then, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then:                                          ; preds = %entry
-  %header = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %header, align 8
-  %inuse = getelementptr inbounds %struct.ParallelsHeader, ptr %3, i64 0, i32 7
+  %inuse = getelementptr inbounds i8, ptr %3, i64 44
   store i32 0, ptr %inuse, align 1
   %4 = load ptr, ptr %opaque, align 8
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %5 = load ptr, ptr %file.i, align 8
   %6 = load ptr, ptr %5, align 8
   %call.i = tail call i64 @bdrv_opt_mem_align(ptr noundef %6) #15
   %cond.i = tail call i64 @llvm.umax.i64(i64 %call.i, i64 64)
   %conv.i = trunc i64 %cond.i to i32
-  %header_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %4, i64 0, i32 2
+  %header_size.i = getelementptr inbounds i8, ptr %4, i64 56
   %7 = load i32, ptr %header_size.i, align 8
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %7, i32 %conv.i)
   %8 = load ptr, ptr %file.i, align 8
   %conv6.i = zext i32 %spec.select.i to i64
-  %header.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %4, i64 0, i32 1
+  %header.i = getelementptr inbounds i8, ptr %4, i64 48
   %9 = load ptr, ptr %header.i, align 8
   %call7.i = tail call i32 @bdrv_pwrite_sync(ptr noundef %8, i64 noundef 0, i64 noundef %conv6.i, ptr noundef %9, i32 noundef 0) #15
   %10 = load ptr, ptr %file.i, align 8
-  %data_end = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end = getelementptr inbounds i8, ptr %0, i64 120
   %11 = load i64, ptr %data_end, align 8
   %shl = shl i64 %11, 9
   %call5 = tail call i32 @bdrv_truncate(ptr noundef %10, i64 noundef %shl, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null) #15
@@ -539,18 +514,18 @@ if.then:                                          ; preds = %entry
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %entry
   %bs.val = load ptr, ptr %opaque, align 8
-  %used_bmap_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 7
+  %used_bmap_size.i = getelementptr inbounds i8, ptr %bs.val, i64 88
   store i64 0, ptr %used_bmap_size.i, align 8
-  %used_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 6
+  %used_bmap.i = getelementptr inbounds i8, ptr %bs.val, i64 80
   %12 = load ptr, ptr %used_bmap.i, align 8
   tail call void @g_free(ptr noundef %12) #15
-  %bat_dirty_bmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
+  %bat_dirty_bmap = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load ptr, ptr %bat_dirty_bmap, align 8
   tail call void @g_free(ptr noundef %13) #15
-  %header6 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 1
+  %header6 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load ptr, ptr %header6, align 8
   tail call void @qemu_vfree(ptr noundef %14) #15
-  %migration_blocker = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 17
+  %migration_blocker = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #15
   tail call void @bdrv_graph_rdunlock_main_loop() #15
   ret void
@@ -569,17 +544,17 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1
-  %size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 1
+  %u = getelementptr inbounds i8, ptr %opts, i64 8
+  %size = getelementptr inbounds i8, ptr %opts, i64 16
   %1 = load i64, ptr %size, align 8
-  %has_cluster_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 2
+  %has_cluster_size = getelementptr inbounds i8, ptr %opts, i64 24
   %2 = load i8, ptr %has_cluster_size, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end6, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 6
+  %cluster_size = getelementptr inbounds i8, ptr %opts, i64 32
   %4 = load i64, ptr %cluster_size, align 8
   %cmp4 = icmp ugt i64 %4, 2147483646
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -718,7 +693,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end4
   tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str) #15
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %call5, i64 0, i32 22
+  %node_name = getelementptr inbounds i8, ptr %call5, i64 16600
   tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.8, ptr noundef nonnull %node_name) #15
   %call9 = tail call ptr @qobject_input_visitor_new_flat_confused(ptr noundef %call, ptr noundef %errp) #15
   %tobool.not = icmp eq ptr %call9, null
@@ -732,12 +707,12 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool13.not, label %done, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %size = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %size, align 8
   %sub = add i64 %1, 511
   %and = and i64 %sub, -512
   store i64 %and, ptr %size, align 8
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %0, i64 0, i32 1, i32 0, i32 6
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %cluster_size, align 8
   %sub20 = add i64 %2, 511
   %and21 = and i64 %sub20, -512
@@ -752,7 +727,7 @@ done:                                             ; preds = %if.end11, %if.end8,
   br i1 %tobool28.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %done
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -799,7 +774,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool5.not, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
-  %version = getelementptr inbounds %struct.ParallelsHeader, ptr %buf, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i32, ptr %version, align 1
   %cmp7 = icmp eq i32 %0, 2
   br i1 %cmp7, label %return, label %if.end10
@@ -816,21 +791,21 @@ return:                                           ; preds = %land.lhs.true, %ent
 define internal i32 @parallels_co_readv(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   %1 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %hd_qiov, i32 noundef %1) #15
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %cmp20 = icmp sgt i32 %nb_sectors, 0
   br i1 %cmp20, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tracks.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 14
-  %bat_size.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
-  %bat_bitmap.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 8
+  %tracks.i.i = getelementptr inbounds i8, ptr %0, i64 140
+  %bat_size.i.i = getelementptr inbounds i8, ptr %0, i64 104
+  %bat_bitmap.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %2 = getelementptr i8, ptr %0, i64 148
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
@@ -953,16 +928,16 @@ define internal i32 @parallels_co_writev(ptr noundef %bs, i64 noundef %sector_nu
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %n = alloca i32, align 4
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   %1 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %hd_qiov, i32 noundef %1) #15
   %cmp14 = icmp sgt i32 %nb_sectors, 0
   br i1 %cmp14, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
@@ -1015,15 +990,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @parallels_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %1 = load ptr, ptr %backing, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   %2 = load i32, ptr %cluster_size, align 8
   %conv = zext i32 %2 to i64
   %rem = srem i64 %offset, %conv
@@ -1040,7 +1015,7 @@ if.else:                                          ; preds = %if.end
 if.end10:                                         ; preds = %if.else
   %conv17 = trunc i64 %div16 to i32
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %0) #15
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %cmp18.not30 = icmp eq i32 %conv17, 0
   br i1 %cmp18.not30, label %done, label %for.body.lr.ph
 
@@ -1048,9 +1023,9 @@ for.body.lr.ph:                                   ; preds = %if.end10
   %conv13 = trunc i64 %div to i32
   %3 = getelementptr i8, ptr %0, i64 96
   %4 = getelementptr i8, ptr %0, i64 148
-  %bat_dirty_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
-  %bat_dirty_block.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 5
-  %used_bmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 6
+  %bat_dirty_bmap.i = getelementptr inbounds i8, ptr %0, i64 64
+  %bat_dirty_block.i = getelementptr inbounds i8, ptr %0, i64 72
+  %used_bmap = getelementptr inbounds i8, ptr %0, i64 80
   %5 = getelementptr i8, ptr %0, i64 112
   br label %for.body
 
@@ -1130,15 +1105,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qemu_co_mutex_lock(ptr noundef %0) #15
   %shr = ashr i64 %offset, 9
   %shr1 = lshr i64 %bytes, 9
   %conv = trunc i64 %shr1 to i32
-  %tracks.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 14
-  %bat_size.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
-  %bat_bitmap.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 8
+  %tracks.i.i = getelementptr inbounds i8, ptr %0, i64 140
+  %bat_size.i.i = getelementptr inbounds i8, ptr %0, i64 104
+  %bat_bitmap.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = getelementptr i8, ptr %0, i64 148
   %2 = load i32, ptr %tracks.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
@@ -1214,7 +1189,7 @@ block_status.exit:                                ; preds = %if.else.i, %if.end5
 if.end7:                                          ; preds = %block_status.exit
   %mul8 = shl i64 %start_off.0.lcssa.i, 9
   store i64 %mul8, ptr %map, align 8
-  %file9 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file9 = getelementptr inbounds i8, ptr %bs, i64 16840
   %8 = load ptr, ptr %file9, align 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %file, align 8
@@ -1229,18 +1204,18 @@ return:                                           ; preds = %block_status.exit, 
 define internal i32 @parallels_co_flush_to_os(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %header_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 2
+  %header_size = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %header_size, align 8
-  %bat_dirty_block = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 5
+  %bat_dirty_block = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load i32, ptr %bat_dirty_block, align 8
   %add = add i32 %1, -1
   %sub = add i32 %add, %2
   %div = udiv i32 %sub, %2
   %conv = zext i32 %div to i64
   tail call void @qemu_co_mutex_lock(ptr noundef %0) #15
-  %bat_dirty_bmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
+  %bat_dirty_bmap = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %bat_dirty_bmap, align 8
   %cmp10.not.i = icmp ugt i32 %2, %sub
   br i1 %cmp10.not.i, label %find_first_bit.exit, label %for.body.i
@@ -1259,7 +1234,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %find_first_bit.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr i64, ptr %addr.addr.011.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %addr.addr.011.i, i64 8
   %add3.i = add nuw nsw i64 %result.012.i, 64
   %cmp.i = icmp ult i64 %add3.i, %conv
   br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !14
@@ -1270,12 +1245,12 @@ find_first_bit.exit:                              ; preds = %entry, %if.then.i
   br i1 %cmp29, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %find_first_bit.exit
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %header = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 1
-  %6 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %header = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
@@ -1341,17 +1316,17 @@ return:                                           ; preds = %while.body, %if.els
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @parallels_co_check(ptr noundef %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qemu_co_mutex_lock(ptr noundef %0) #15
-  %corruptions_fixed.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
-  %bfi.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6
-  %total_clusters.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6, i32 1
-  %compressed_clusters.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6, i32 3
-  %image_end_offset.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 5
-  %fragmented_clusters.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 6, i32 2
+  %corruptions_fixed.i = getelementptr inbounds i8, ptr %res, i64 12
+  %bfi.i = getelementptr inbounds i8, ptr %res, i64 32
+  %total_clusters.i = getelementptr inbounds i8, ptr %res, i64 40
+  %compressed_clusters.i = getelementptr inbounds i8, ptr %res, i64 56
+  %image_end_offset.i = getelementptr inbounds i8, ptr %res, i64 24
+  %fragmented_clusters.i = getelementptr inbounds i8, ptr %res, i64 48
   %bs.val = load ptr, ptr %opaque, align 8
-  %header_unclean.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 3
+  %header_unclean.i = getelementptr inbounds i8, ptr %bs.val, i64 60
   %1 = load i8, ptr %header_unclean.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -1397,7 +1372,7 @@ if.end10:                                         ; preds = %if.end6
 
 if.end14:                                         ; preds = %if.end10
   %bs.val28 = load ptr, ptr %opaque, align 8
-  %bat_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val28, i64 0, i32 9
+  %bat_size.i = getelementptr inbounds i8, ptr %bs.val28, i64 104
   %6 = load i32, ptr %bat_size.i, align 8
   %conv.i = zext i32 %6 to i64
   store i64 %conv.i, ptr %total_clusters.i, align 8
@@ -1409,7 +1384,7 @@ if.end14:                                         ; preds = %if.end10
 for.body.lr.ph.i:                                 ; preds = %if.end14
   %8 = getelementptr i8, ptr %bs.val28, i64 96
   %9 = getelementptr i8, ptr %bs.val28, i64 148
-  %cluster_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val28, i64 0, i32 15
+  %cluster_size.i = getelementptr inbounds i8, ptr %bs.val28, i64 144
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1475,7 +1450,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %parallels_check_unc
   br label %return
 
 if.then17:                                        ; preds = %qemu_lockable_auto_unlock.exit
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %18 = load i32, ptr %check_errors, align 8
   %inc = add i32 %18, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -1507,11 +1482,11 @@ declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef %file_nb_sectors, ptr noundef writeonly %correct_offset) unnamed_addr #4 {
 entry:
-  %header = getelementptr inbounds %struct.BDRVParallelsState, ptr %s, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %header, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @.str.9, i64 16)
   %tobool.not.not = icmp eq i32 %bcmp, 0
-  %bat_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %s, i64 0, i32 9
+  %bat_size = getelementptr inbounds i8, ptr %s, i64 104
   %1 = load i32, ptr %bat_size, align 8
   %mul.i = shl i32 %1, 2
   %add.i = add i32 %mul.i, 64
@@ -1521,7 +1496,7 @@ entry:
   br i1 %tobool.not.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %s, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %s, i64 144
   %2 = load i32, ptr %cluster_size, align 8
   %3 = lshr i32 %2, 9
   %div6 = zext nneg i32 %3 to i64
@@ -1544,7 +1519,7 @@ if.then15:                                        ; preds = %if.end
 
 if.end16:                                         ; preds = %if.then15, %if.end
   %4 = phi ptr [ %.pre, %if.then15 ], [ %0, %if.end ]
-  %data_off18 = getelementptr inbounds %struct.ParallelsHeader, ptr %4, i64 0, i32 8
+  %data_off18 = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load i32, ptr %data_off18, align 1
   %6 = or i32 %5, %bcmp
   %brmerge.not = icmp eq i32 %6, 0
@@ -1575,20 +1550,20 @@ declare i32 @parallels_read_format_extension(ptr noundef, i64 noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @parallels_update_header(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_opt_mem_align(ptr noundef %2) #15
   %cond = tail call i64 @llvm.umax.i64(i64 %call, i64 64)
   %conv = trunc i64 %cond to i32
-  %header_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 2
+  %header_size = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %header_size, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %conv)
   %4 = load ptr, ptr %file, align 8
   %conv6 = zext i32 %spec.select to i64
-  %header = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %header, align 8
   %call7 = tail call i32 @bdrv_pwrite_sync(ptr noundef %4, i64 noundef 0, i64 noundef %conv6, ptr noundef %5, i32 noundef 0) #15
   ret i32 %call7
@@ -1621,9 +1596,9 @@ declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @parallels_fill_used_bitmap(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_getlength(ptr noundef %2) #15
@@ -1635,7 +1610,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_start = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 10
+  %data_start = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %data_start, align 8
   %mul = shl i64 %3, 9
   %sub = sub i64 %call, %mul
@@ -1643,13 +1618,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i32, ptr %cluster_size, align 8
   %conv6 = zext i32 %4 to i64
   %add = add nsw i64 %sub, -1
   %sub7 = add i64 %add, %conv6
   %div = sdiv i64 %sub7, %conv6
-  %used_bmap_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 7
+  %used_bmap_size = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %div, ptr %used_bmap_size, align 8
   %cmp11 = icmp eq i64 %div, 0
   br i1 %cmp11, label %return, label %if.end14
@@ -1659,13 +1634,13 @@ if.end14:                                         ; preds = %if.end5
   %5 = lshr i64 %sub.i, 3
   %mul.i = and i64 %5, 2305843009213693944
   %call.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i) #19
-  %used_bmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 6
+  %used_bmap = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %call.i, ptr %used_bmap, align 8
   %cmp18 = icmp eq ptr %call.i, null
   br i1 %cmp18, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end14
-  %bat_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
+  %bat_size = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i32, ptr %bat_size, align 8
   %cmp2228.not = icmp eq i32 %6, 0
   br i1 %cmp2228.not, label %return, label %for.body.lr.ph
@@ -1853,12 +1828,12 @@ define internal i64 @allocate_clusters(ptr noundef %bs, i64 noundef %sector_num,
 entry:
   %qiov.i111 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store i32 0, ptr %pnum, align 4
-  %tracks.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 14
-  %bat_size.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
-  %bat_bitmap.i.i = getelementptr %struct.BDRVParallelsState, ptr %0, i64 0, i32 8
+  %tracks.i.i = getelementptr inbounds i8, ptr %0, i64 140
+  %bat_size.i.i = getelementptr inbounds i8, ptr %0, i64 104
+  %bat_bitmap.i.i = getelementptr i8, ptr %0, i64 96
   %1 = getelementptr i8, ptr %0, i64 148
   br label %while.body.i
 
@@ -1950,9 +1925,9 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end18:                                         ; preds = %if.end
-  %used_bmap = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 6
+  %used_bmap = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load ptr, ptr %used_bmap, align 8
-  %used_bmap_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 7
+  %used_bmap_size = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i64, ptr %used_bmap_size, align 8
   %call.i = tail call i64 @find_next_zero_bit(ptr noundef %12, i64 noundef %13, i64 noundef 0) #15
   %14 = load i64, ptr %used_bmap_size, align 8
@@ -1960,24 +1935,24 @@ if.end18:                                         ; preds = %if.end
   br i1 %cmp21, label %if.then23, label %if.else64
 
 if.then23:                                        ; preds = %if.end18
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   %15 = load i32, ptr %cluster_size, align 8
   %conv24 = zext i32 %15 to i64
   %mul = mul i64 %sub8, %conv24
-  %prealloc_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 12
+  %prealloc_size = getelementptr inbounds i8, ptr %0, i64 128
   %16 = load i64, ptr %prealloc_size, align 8
   %mul25 = shl i64 %16, 9
   %add26 = add i64 %mul, %mul25
-  %data_end = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end = getelementptr inbounds i8, ptr %0, i64 120
   %17 = load i64, ptr %data_end, align 8
   %mul27 = shl i64 %17, 9
-  %prealloc_mode = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 13
+  %prealloc_mode = getelementptr inbounds i8, ptr %0, i64 136
   %18 = load i32, ptr %prealloc_mode, align 8
   %cmp28 = icmp eq i32 %18, 1
   br i1 %cmp28, label %if.then30, label %if.end38
 
 if.then30:                                        ; preds = %if.then23
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %19 = load ptr, ptr %file, align 8
   %add31 = add i64 %mul27, %add26
   %call32 = tail call i32 @bdrv_co_truncate(ptr noundef %19, i64 noundef %add31, i1 noundef zeroext false, i32 noundef 0, i32 noundef 2, ptr noundef null) #15
@@ -1999,7 +1974,7 @@ if.end38:                                         ; preds = %if.end38thread-pre-
   br i1 %cmp40, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %if.end38.thread, %if.end38
-  %file43 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file43 = getelementptr inbounds i8, ptr %bs, i64 16840
   %21 = load ptr, ptr %file43, align 8
   %call44 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %21, i64 noundef %mul27, i64 noundef %add26, i32 noundef 0) #15
   br label %if.end45
@@ -2050,28 +2025,28 @@ if.then71:                                        ; preds = %if.else64
 
 if.end79:                                         ; preds = %if.then71, %if.else64
   %to_allocate.0 = phi i64 [ %sub68, %if.then71 ], [ %sub8, %if.else64 ]
-  %data_start = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 10
+  %data_start = getelementptr inbounds i8, ptr %0, i64 112
   %28 = load i64, ptr %data_start, align 8
   %mul80 = shl i64 %28, 9
-  %cluster_size81 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size81 = getelementptr inbounds i8, ptr %0, i64 144
   %29 = load i32, ptr %cluster_size81, align 8
   %conv82 = zext i32 %29 to i64
   %mul83 = mul i64 %call.i, %conv82
   %add84 = add i64 %mul83, %mul80
-  %prealloc_mode85 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 13
+  %prealloc_mode85 = getelementptr inbounds i8, ptr %0, i64 136
   %30 = load i32, ptr %prealloc_mode85, align 8
   %cmp86 = icmp eq i32 %30, 0
   br i1 %cmp86, label %land.lhs.true88, label %if.end105
 
 land.lhs.true88:                                  ; preds = %if.end79
-  %data_end89 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end89 = getelementptr inbounds i8, ptr %0, i64 120
   %31 = load i64, ptr %data_end89, align 8
   %mul90 = shl i64 %31, 9
   %cmp91 = icmp ult i64 %add84, %mul90
   br i1 %cmp91, label %if.then93, label %if.end105
 
 if.then93:                                        ; preds = %land.lhs.true88
-  %file94 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file94 = getelementptr inbounds i8, ptr %bs, i64 16840
   %32 = load ptr, ptr %file94, align 8
   %mul97 = mul i64 %to_allocate.0, %conv82
   %call98 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %32, i64 noundef %add84, i64 noundef %mul97, i32 noundef 0) #15
@@ -2085,7 +2060,7 @@ if.then101:                                       ; preds = %if.then93
 if.end105:                                        ; preds = %if.end79, %land.lhs.true88, %if.then93, %if.end50
   %host_off.0 = phi i64 [ %mul27, %if.end50 ], [ %add84, %if.then93 ], [ %add84, %land.lhs.true88 ], [ %add84, %if.end79 ]
   %to_allocate.1 = phi i64 [ %sub8, %if.end50 ], [ %to_allocate.0, %if.then93 ], [ %to_allocate.0, %land.lhs.true88 ], [ %to_allocate.0, %if.end79 ]
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %33 = load ptr, ptr %backing, align 8
   %tobool.not = icmp eq ptr %33, null
   br i1 %tobool.not, label %if.end131, label %if.then106
@@ -2102,14 +2077,14 @@ if.then106:                                       ; preds = %if.end105
   %mul114 = shl i64 %div, 9
   %mul115 = mul i64 %mul114, %conv113
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %37 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %37, align 8
   store ptr %call110, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %shl, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #15
   %call.i110 = call i32 @bdrv_co_preadv(ptr noundef %35, i64 noundef %mul115, i64 noundef %shl, ptr noundef nonnull %qiov.i, i32 noundef 0) #15
@@ -2123,20 +2098,20 @@ if.then119:                                       ; preds = %if.then106
   br label %return
 
 if.end121:                                        ; preds = %if.then106
-  %file122 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file122 = getelementptr inbounds i8, ptr %bs, i64 16840
   %38 = load ptr, ptr %file122, align 8
-  %data_end123 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end123 = getelementptr inbounds i8, ptr %0, i64 120
   %39 = load i64, ptr %data_end123, align 8
   %mul124 = shl i64 %39, 9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i111)
-  %40 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i111, i64 0, i32 2
-  %local_iov.i112 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i111, i64 0, i32 2, i32 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %qiov.i111, i64 16
+  %local_iov.i112 = getelementptr inbounds i8, ptr %qiov.i111, i64 24
   store ptr %local_iov.i112, ptr %qiov.i111, align 8
-  %niov.i113 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i111, i64 0, i32 1
+  %niov.i113 = getelementptr inbounds i8, ptr %qiov.i111, i64 8
   store i32 1, ptr %niov.i113, align 8
   store i32 -1, ptr %40, align 8
   store ptr %call110, ptr %local_iov.i112, align 8
-  %iov_len.i114 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i111, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i114 = getelementptr inbounds i8, ptr %qiov.i111, i64 32
   store i64 %shl, ptr %iov_len.i114, align 8
   call void @assert_bdrv_graph_readable() #15
   %call.i115 = call i32 @bdrv_co_pwritev(ptr noundef %38, i64 noundef %mul124, i64 noundef %shl, ptr noundef nonnull %qiov.i111, i32 noundef 0) #15
@@ -2183,9 +2158,9 @@ mark_used.exit:                                   ; preds = %if.end.i
   br i1 %cmp142134, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %mark_used.exit
-  %bat_dirty_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
-  %bat_dirty_block.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 5
-  %cluster_size150 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %bat_dirty_bmap.i = getelementptr inbounds i8, ptr %0, i64 64
+  %bat_dirty_block.i = getelementptr inbounds i8, ptr %0, i64 72
+  %cluster_size150 = getelementptr inbounds i8, ptr %0, i64 144
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2218,7 +2193,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %mark_used.exit
   %host_off.1.lcssa = phi i64 [ %host_off.0, %mark_used.exit ], [ %add152, %for.body ]
-  %data_end153 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end153 = getelementptr inbounds i8, ptr %0, i64 120
   %50 = load i64, ptr %data_end153, align 8
   %mul154 = shl i64 %50, 9
   %cmp155 = icmp ugt i64 %host_off.1.lcssa, %mul154
@@ -2261,14 +2236,14 @@ declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #15
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #15
@@ -2279,14 +2254,14 @@ entry:
 define internal i32 @bdrv_co_pwrite(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #15
   %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #15
@@ -2309,9 +2284,9 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @parallels_check_data_off(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_co_nb_sectors(ptr noundef %2) #15
@@ -2319,7 +2294,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %3 = load i32, ptr %check_errors, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -2327,11 +2302,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %header.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 1
+  %header.i = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %header.i, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @.str.9, i64 16)
   %tobool.not.not.i = icmp eq i32 %bcmp.i, 0
-  %bat_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
+  %bat_size.i = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i32, ptr %bat_size.i, align 8
   %mul.i.i = shl i32 %5, 2
   %add.i.i = add i32 %mul.i.i, 64
@@ -2341,7 +2316,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %cluster_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size.i = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load i32, ptr %cluster_size.i, align 8
   %7 = lshr i32 %6, 9
   %div6.i = zext nneg i32 %7 to i64
@@ -2354,7 +2329,7 @@ if.then.i:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %min_off.0.in.i = phi i64 [ %div14.i, %if.end ], [ %and.i, %if.then.i ]
   %min_off.0.i = trunc i64 %min_off.0.in.i to i32
-  %data_off18.i = getelementptr inbounds %struct.ParallelsHeader, ptr %4, i64 0, i32 8
+  %data_off18.i = getelementptr inbounds i8, ptr %4, i64 48
   %8 = load i32, ptr %data_off18.i, align 1
   %9 = or i32 %8, %bcmp.i
   %brmerge.not.i = icmp eq i32 %9, 0
@@ -2377,15 +2352,15 @@ if.end4:                                          ; preds = %if.end24.i
 
 if.then6:                                         ; preds = %if.end4
   %11 = load ptr, ptr %header.i, align 8
-  %data_off8 = getelementptr inbounds %struct.ParallelsHeader, ptr %11, i64 0, i32 8
+  %data_off8 = getelementptr inbounds i8, ptr %11, i64 48
   store i32 %min_off.0.i, ptr %data_off8, align 1
   %conv9 = and i64 %min_off.0.in.i, 4294967295
-  %data_start = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 10
+  %data_start = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %conv9, ptr %data_start, align 8
   %bs.val = load ptr, ptr %opaque, align 8
-  %used_bmap_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 7
+  %used_bmap_size.i = getelementptr inbounds i8, ptr %bs.val, i64 88
   store i64 0, ptr %used_bmap_size.i, align 8
-  %used_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %bs.val, i64 0, i32 6
+  %used_bmap.i = getelementptr inbounds i8, ptr %bs.val, i64 80
   %12 = load ptr, ptr %used_bmap.i, align 8
   tail call void @g_free(ptr noundef %12) #15
   %call10 = tail call fastcc i32 @parallels_fill_used_bitmap(ptr noundef nonnull %bs)
@@ -2393,14 +2368,14 @@ if.then6:                                         ; preds = %if.end4
   br i1 %cmp11, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.then6
-  %check_errors14 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors14 = getelementptr inbounds i8, ptr %res, i64 8
   %13 = load i32, ptr %check_errors14, align 8
   %inc15 = add i32 %13, 1
   store i32 %inc15, ptr %check_errors14, align 8
   br label %return
 
 if.end16:                                         ; preds = %if.then6
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
   %14 = load i32, ptr %corruptions_fixed, align 4
   %inc17 = add i32 %14, 1
   store i32 %inc17, ptr %corruptions_fixed, align 4
@@ -2420,9 +2395,9 @@ return:                                           ; preds = %if.end24.i, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @parallels_check_outside_image(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %2) #15
@@ -2430,7 +2405,7 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %bat_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
+  %bat_size = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %bat_size, align 8
   %cmp228.not = icmp eq i32 %3, 0
   br i1 %cmp228.not, label %if.then24, label %for.body.lr.ph
@@ -2438,13 +2413,13 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %4 = getelementptr i8, ptr %0, i64 96
   %5 = getelementptr i8, ptr %0, i64 148
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   %and = and i32 %fix, 2
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @.str.41, ptr @.str.40
-  %bat_dirty_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
-  %bat_dirty_block.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 5
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
+  %bat_dirty_bmap.i = getelementptr inbounds i8, ptr %0, i64 64
+  %bat_dirty_block.i = getelementptr inbounds i8, ptr %0, i64 72
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -2488,7 +2463,7 @@ for.inc.us:                                       ; preds = %if.then8.us, %if.en
   br i1 %cmp2.us, label %for.body.us, label %for.end, !llvm.loop !19
 
 if.then:                                          ; preds = %entry
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %14 = load i32, ptr %check_errors, align 8
   %inc = add i32 %14, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -2554,22 +2529,22 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   br i1 %cmp22, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %for.cond.preheader, %for.end
-  %data_end = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end = getelementptr inbounds i8, ptr %0, i64 120
   %27 = load i64, ptr %data_end, align 8
   %shl25 = shl i64 %27, 9
-  %image_end_offset = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 5
+  %image_end_offset = getelementptr inbounds i8, ptr %res, i64 24
   store i64 %shl25, ptr %image_end_offset, align 8
   br label %return
 
 if.else:                                          ; preds = %for.end
-  %cluster_size26 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size26 = getelementptr inbounds i8, ptr %0, i64 144
   %28 = load i32, ptr %cluster_size26, align 8
   %conv27 = zext i32 %28 to i64
   %add28 = add nuw i64 %high_off.0.lcssa, %conv27
-  %image_end_offset29 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 5
+  %image_end_offset29 = getelementptr inbounds i8, ptr %res, i64 24
   store i64 %add28, ptr %image_end_offset29, align 8
   %shr = ashr i64 %add28, 9
-  %data_end31 = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 11
+  %data_end31 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %shr, ptr %data_end31, align 8
   br label %return
 
@@ -2582,9 +2557,9 @@ return:                                           ; preds = %if.then24, %if.else
 define internal i32 @parallels_check_leak(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix, i1 noundef zeroext %explicit) #0 {
 entry:
   %local_err = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %2) #15
@@ -2592,7 +2567,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %check_errors = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
   %3 = load i32, ptr %check_errors, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %check_errors, align 8
@@ -2600,14 +2575,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %image_end_offset = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 5
+  %image_end_offset = getelementptr inbounds i8, ptr %res, i64 24
   %4 = load i64, ptr %image_end_offset, align 8
   %cmp2 = icmp sgt i64 %call, %4
   br i1 %cmp2, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end
   %sub = sub i64 %call, %4
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load i32, ptr %cluster_size, align 8
   %conv6 = zext i32 %5 to i64
   %add = add i64 %sub, -1
@@ -2625,7 +2600,7 @@ if.then10:                                        ; preds = %if.then4
   %tobool11.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool11.not, ptr @.str.41, ptr @.str.40
   %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.44, ptr noundef nonnull %cond, i64 noundef %sub) #18
-  %leaks = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 1
+  %leaks = getelementptr inbounds i8, ptr %res, i64 4
   %7 = load i32, ptr %leaks, align 4
   %8 = trunc i64 %div to i32
   %conv17 = add i32 %7, %8
@@ -2648,7 +2623,7 @@ if.then21:                                        ; preds = %if.end18
 if.then27:                                        ; preds = %if.then21
   %11 = load ptr, ptr %local_err, align 8
   call void @error_report_err(ptr noundef %11) #15
-  %check_errors28 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors28 = getelementptr inbounds i8, ptr %res, i64 8
   %12 = load i32, ptr %check_errors28, align 8
   %inc29 = add i32 %12, 1
   store i32 %inc29, ptr %check_errors28, align 8
@@ -2658,7 +2633,7 @@ if.end30:                                         ; preds = %if.then21
   br i1 %explicit, label %if.then32, label %return
 
 if.then32:                                        ; preds = %if.end30
-  %leaks_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 4
+  %leaks_fixed = getelementptr inbounds i8, ptr %res, i64 16
   %13 = load i32, ptr %leaks_fixed, align 8
   %14 = trunc i64 %div to i32
   %conv35 = add i32 %13, %14
@@ -2677,9 +2652,9 @@ entry:
   %qiov.i77 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %n = alloca i32, align 4
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %image_end_offset = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 5
+  %image_end_offset = getelementptr inbounds i8, ptr %res, i64 24
   %1 = load i64, ptr %image_end_offset, align 8
   %2 = getelementptr i8, ptr %0, i64 112
   %.val61 = load i64, ptr %2, align 8
@@ -2714,7 +2689,7 @@ bitmap_new.exit:                                  ; preds = %if.end
   %5 = load i32, ptr %3, align 8
   %conv7 = zext i32 %5 to i64
   %call8 = tail call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef %conv7) #15
-  %bat_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 9
+  %bat_size = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i32, ptr %bat_size, align 8
   %cmp9141.not = icmp eq i32 %6, 0
   br i1 %cmp9141.not, label %out_free, label %for.body.lr.ph
@@ -2725,19 +2700,19 @@ for.body.lr.ph:                                   ; preds = %bitmap_new.exit
   %and = and i32 %fix, 2
   %tobool25.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool25.not, ptr @.str.41, ptr @.str.40
-  %bat_dirty_bmap.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 4
-  %bat_dirty_block.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 5
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %9 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
-  %tracks = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 14
-  %10 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i77, i64 0, i32 2
-  %local_iov.i78 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i77, i64 0, i32 2, i32 0, i32 1
-  %niov.i79 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i77, i64 0, i32 1
-  %iov_len.i80 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i77, i64 0, i32 2, i32 0, i32 1, i32 1
-  %corruptions_fixed = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 3
+  %bat_dirty_bmap.i = getelementptr inbounds i8, ptr %0, i64 64
+  %bat_dirty_block.i = getelementptr inbounds i8, ptr %0, i64 72
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %9 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %tracks = getelementptr inbounds i8, ptr %0, i64 140
+  %10 = getelementptr inbounds i8, ptr %qiov.i77, i64 16
+  %local_iov.i78 = getelementptr inbounds i8, ptr %qiov.i77, i64 24
+  %niov.i79 = getelementptr inbounds i8, ptr %qiov.i77, i64 8
+  %iov_len.i80 = getelementptr inbounds i8, ptr %qiov.i77, i64 32
+  %corruptions_fixed = getelementptr inbounds i8, ptr %res, i64 12
   br i1 %tobool25.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -2963,7 +2938,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then82:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %47 = load ptr, ptr %file.i, align 8
   %48 = load ptr, ptr %47, align 8
   %call.i98 = call i64 @bdrv_co_getlength(ptr noundef %48) #15
@@ -2971,7 +2946,7 @@ if.then82:                                        ; preds = %for.end
   br i1 %cmp.i99, label %if.then.i105, label %if.end.i100
 
 if.then.i105:                                     ; preds = %if.then82
-  %check_errors.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors.i = getelementptr inbounds i8, ptr %res, i64 8
   %49 = load i32, ptr %check_errors.i, align 8
   %inc.i = add i32 %49, 1
   store i32 %inc.i, ptr %check_errors.i, align 8
@@ -2996,7 +2971,7 @@ if.then21.i:                                      ; preds = %if.end.i100
 if.then27.i:                                      ; preds = %if.then21.i
   %52 = load ptr, ptr %local_err.i, align 8
   call void @error_report_err(ptr noundef %52) #15
-  %check_errors28.i = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors28.i = getelementptr inbounds i8, ptr %res, i64 8
   %53 = load i32, ptr %check_errors28.i, align 8
   %inc29.i = add i32 %53, 1
   store i32 %inc29.i, ptr %check_errors28.i, align 8
@@ -3015,7 +2990,7 @@ out_free:                                         ; preds = %for.inc.us, %bitmap
 
 out_repair_bat:                                   ; preds = %if.end.i89, %if.end49, %if.end39, %if.end24
   %ret.3 = phi i32 [ %call.i, %if.end24 ], [ %call.i, %if.end39 ], [ %call.i81, %if.end49 ], [ -16, %if.end.i89 ]
-  %check_errors76 = getelementptr inbounds %struct.BdrvCheckResult, ptr %res, i64 0, i32 2
+  %check_errors76 = getelementptr inbounds i8, ptr %res, i64 8
   %54 = load i32, ptr %check_errors76, align 8
   %inc77 = add i32 %54, 1
   store i32 %inc77, ptr %check_errors76, align 8

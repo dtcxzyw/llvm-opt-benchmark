@@ -3,31 +3,6 @@ source_filename = "bench/qemu/original/hw_usb_combined-packet.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.1, %union.anon.2 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.USBCombinedPacket = type { ptr, %union.anon.3, %struct.QEMUIOVector }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon.6, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon.5 }
-%union.anon.5 = type { %struct.QTailQLink }
-%struct.anon.6 = type { ptr }
-%struct.USBPort = type { ptr, i32, i32, [16 x i8], ptr, ptr, i32, %union.anon.4 }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.USBPortOps = type { ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [62 x i8] c"combined->first == p && p == QTAILQ_FIRST(&combined->packets)\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"../qemu/hw/usb/combined-packet.c\00", align 1
 @__PRETTY_FUNCTION__.usb_combined_input_packet_complete = private unnamed_addr constant [66 x i8] c"void usb_combined_input_packet_complete(USBDevice *, USBPacket *)\00", align 1
@@ -43,9 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @usb_combined_input_packet_complete(ptr noundef %dev, ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %combined1 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 11
+  %combined1 = getelementptr inbounds i8, ptr %p, i64 96
   %0 = load ptr, ptr %combined1, align 8
-  %ep2 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep2 = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %ep2, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -60,7 +35,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %packets = getelementptr inbounds %struct.USBCombinedPacket, ptr %0, i64 0, i32 1
+  %packets = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %packets, align 8
   %cmp4 = icmp eq ptr %3, %p
   br i1 %cmp4, label %land.rhs.lr.ph, label %if.else
@@ -70,27 +45,27 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   unreachable
 
 land.rhs.lr.ph:                                   ; preds = %land.lhs.true
-  %status8 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status8 = getelementptr inbounds i8, ptr %p, i64 84
   %4 = load i32, ptr %status8, align 4
-  %tql_prev = getelementptr inbounds %struct.USBCombinedPacket, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %tql_prev, align 8
-  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %5, i64 0, i32 1
+  %tql_prev12 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %tql_prev12, align 8
   %7 = load ptr, ptr %6, align 8
-  %short_not_ok13 = getelementptr inbounds %struct.USBPacket, ptr %7, i64 0, i32 6
+  %short_not_ok13 = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load i8, ptr %short_not_ok13, align 8
   %9 = and i8 %8, 1
-  %actual_length10 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length10 = getelementptr inbounds i8, ptr %p, i64 88
   %10 = load i32, ptr %actual_length10, align 8
-  %port = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 1
-  %iov.i = getelementptr inbounds %struct.USBCombinedPacket, ptr %0, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %dev, i64 160
+  %iov.i = getelementptr inbounds i8, ptr %0, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %done.046 = phi i8 [ 0, %land.rhs.lr.ph ], [ %done.2, %for.inc ]
   %p.addr.045 = phi ptr [ %p, %land.rhs.lr.ph ], [ %11, %for.inc ]
   %actual_length.043 = phi i32 [ %10, %land.rhs.lr.ph ], [ %actual_length.1, %for.inc ]
-  %combined_entry = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 13
+  %combined_entry = getelementptr inbounds i8, ptr %p.addr.045, i64 120
   %11 = load ptr, ptr %combined_entry, align 8
   %12 = and i8 %done.046, 1
   %tobool16.not = icmp eq i8 %12, 0
@@ -98,19 +73,19 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 if.then17:                                        ; preds = %land.rhs
   %conv = sext i32 %actual_length.043 to i64
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %p.addr.045, i64 64
   %13 = load i64, ptr %size, align 8
   %cmp18.not = icmp ugt i64 %13, %conv
   br i1 %cmp18.not, label %if.end27.thread, label %if.end27
 
 if.end27.thread:                                  ; preds = %if.then17
-  %actual_length26 = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 9
+  %actual_length26 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
   store i32 %actual_length.043, ptr %actual_length26, align 8
   br label %if.end36
 
 if.end27:                                         ; preds = %if.then17
   %conv23 = trunc i64 %13 to i32
-  %actual_length24 = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 9
+  %actual_length24 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
   store i32 %conv23, ptr %actual_length24, align 8
   %cmp30 = icmp eq ptr %11, null
   %spec.select = select i1 %cmp30, i32 %4, i32 0
@@ -119,11 +94,11 @@ if.end27:                                         ; preds = %if.then17
 if.end36:                                         ; preds = %if.end27, %if.end27.thread
   %.sink = phi i32 [ %4, %if.end27.thread ], [ %spec.select, %if.end27 ]
   %done.140 = phi i8 [ 1, %if.end27.thread ], [ %done.046, %if.end27 ]
-  %status35 = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 8
+  %status35 = getelementptr inbounds i8, ptr %p.addr.045, i64 84
   store i32 %.sink, ptr %status35, align 4
-  %short_not_ok38 = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 6
+  %short_not_ok38 = getelementptr inbounds i8, ptr %p.addr.045, i64 80
   store i8 %9, ptr %short_not_ok38, align 8
-  %combined1.i = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 11
+  %combined1.i = getelementptr inbounds i8, ptr %p.addr.045, i64 96
   %14 = load ptr, ptr %combined1.i, align 8
   %cmp.i = icmp eq ptr %14, %0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -135,9 +110,9 @@ if.else.i:                                        ; preds = %if.end36
 if.end.i:                                         ; preds = %if.end36
   store ptr null, ptr %combined1.i, align 8
   %cmp3.not.i = icmp eq ptr %11, null
-  %tql_prev11.i = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 13, i32 0, i32 1
+  %tql_prev11.i = getelementptr inbounds i8, ptr %p.addr.045, i64 128
   %15 = load ptr, ptr %tql_prev11.i, align 8
-  %tql_prev8.i = getelementptr inbounds %struct.USBPacket, ptr %11, i64 0, i32 13, i32 0, i32 1
+  %tql_prev8.i = getelementptr inbounds i8, ptr %11, i64 128
   %tql_prev12.sink.i = select i1 %cmp3.not.i, ptr %tql_prev, ptr %tql_prev8.i
   store ptr %15, ptr %tql_prev12.sink.i, align 8
   %16 = load ptr, ptr %combined_entry, align 8
@@ -154,18 +129,18 @@ if.then24.i:                                      ; preds = %if.end.i
 
 usb_combined_packet_remove.exit:                  ; preds = %if.end.i, %if.then24.i
   tail call void @usb_packet_complete_one(ptr noundef %dev, ptr noundef nonnull %p.addr.045) #5
-  %actual_length40 = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 9
+  %actual_length40 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
   %18 = load i32, ptr %actual_length40, align 8
   %sub = sub i32 %actual_length.043, %18
   br label %for.inc
 
 if.else41:                                        ; preds = %land.rhs
-  %status42 = getelementptr inbounds %struct.USBPacket, ptr %p.addr.045, i64 0, i32 8
+  %status42 = getelementptr inbounds i8, ptr %p.addr.045, i64 84
   store i32 -8, ptr %status42, align 4
   %19 = load ptr, ptr %port, align 8
-  %ops = getelementptr inbounds %struct.USBPort, ptr %19, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %19, i64 32
   %20 = load ptr, ptr %ops, align 8
-  %complete = getelementptr inbounds %struct.USBPortOps, ptr %20, i64 0, i32 4
+  %complete = getelementptr inbounds i8, ptr %20, i64 32
   %21 = load ptr, ptr %complete, align 8
   tail call void %21(ptr noundef %19, ptr noundef nonnull %p.addr.045) #5
   br label %for.inc
@@ -189,11 +164,11 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @usb_ep_combine_input_packets(ptr nocapture noundef readonly %ep) local_unnamed_addr #0 {
 entry:
-  %dev = getelementptr inbounds %struct.USBEndpoint, ptr %ep, i64 0, i32 8
+  %dev = getelementptr inbounds i8, ptr %ep, i64 16
   %0 = load ptr, ptr %dev, align 8
-  %port1 = getelementptr inbounds %struct.USBDevice, ptr %0, i64 0, i32 1
+  %port1 = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %port1, align 8
-  %pipeline = getelementptr inbounds %struct.USBEndpoint, ptr %ep, i64 0, i32 6
+  %pipeline = getelementptr inbounds i8, ptr %ep, i64 12
   %2 = load i8, ptr %pipeline, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -204,7 +179,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %pid = getelementptr inbounds %struct.USBEndpoint, ptr %ep, i64 0, i32 1
+  %pid = getelementptr inbounds i8, ptr %ep, i64 1
   %4 = load i8, ptr %pid, align 1
   %cmp = icmp eq i8 %4, 105
   br i1 %cmp, label %if.end5, label %if.else4
@@ -214,22 +189,22 @@ if.else4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %queue = getelementptr inbounds %struct.USBEndpoint, ptr %ep, i64 0, i32 9
+  %queue = getelementptr inbounds i8, ptr %ep, i64 24
   %5 = load ptr, ptr %queue, align 8
   %tobool6.not56 = icmp eq ptr %5, null
   br i1 %tobool6.not56, label %for.end83, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end5
-  %halted = getelementptr inbounds %struct.USBEndpoint, ptr %ep, i64 0, i32 7
-  %ops = getelementptr inbounds %struct.USBPort, ptr %1, i64 0, i32 4
-  %max_packet_size = getelementptr inbounds %struct.USBEndpoint, ptr %ep, i64 0, i32 4
+  %halted = getelementptr inbounds i8, ptr %ep, i64 13
+  %ops = getelementptr inbounds i8, ptr %1, i64 32
+  %max_packet_size = getelementptr inbounds i8, ptr %ep, i64 4
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc82
   %p.059 = phi ptr [ %5, %land.rhs.lr.ph ], [ %6, %for.inc82 ]
   %prev.058 = phi ptr [ null, %land.rhs.lr.ph ], [ %prev.1, %for.inc82 ]
   %first.057 = phi ptr [ null, %land.rhs.lr.ph ], [ %first.2, %for.inc82 ]
-  %queue7 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 12
+  %queue7 = getelementptr inbounds i8, ptr %p.059, i64 104
   %6 = load ptr, ptr %queue7, align 8
   %7 = load i8, ptr %halted, align 1
   %8 = and i8 %7, 1
@@ -237,16 +212,16 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %land.rhs
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p.059, i64 84
   store i32 -8, ptr %status, align 4
   %9 = load ptr, ptr %ops, align 8
-  %complete = getelementptr inbounds %struct.USBPortOps, ptr %9, i64 0, i32 4
+  %complete = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load ptr, ptr %complete, align 8
   tail call void %10(ptr noundef %1, ptr noundef nonnull %p.059) #5
   br label %for.inc82
 
 if.end10:                                         ; preds = %land.rhs
-  %state = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 10
+  %state = getelementptr inbounds i8, ptr %p.059, i64 92
   %11 = load i32, ptr %state, align 4
   %cmp11 = icmp eq i32 %11, 3
   br i1 %cmp11, label %for.inc82, label %if.end14
@@ -257,7 +232,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %tobool15.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %short_not_ok = getelementptr inbounds %struct.USBPacket, ptr %prev.058, i64 0, i32 6
+  %short_not_ok = getelementptr inbounds i8, ptr %prev.058, i64 80
   %12 = load i8, ptr %short_not_ok, align 8
   %13 = and i8 %12, 1
   %tobool16.not = icmp eq i8 %13, 0
@@ -268,12 +243,12 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool20.not, label %if.end19.if.end32_crit_edge, label %if.then21
 
 if.end19.if.end32_crit_edge:                      ; preds = %if.end19
-  %combined33.phi.trans.insert = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 11
+  %combined33.phi.trans.insert = getelementptr inbounds i8, ptr %p.059, i64 96
   %.pre = load ptr, ptr %combined33.phi.trans.insert, align 8
   br label %if.end32
 
 if.then21:                                        ; preds = %if.end19
-  %combined = getelementptr inbounds %struct.USBPacket, ptr %first.057, i64 0, i32 11
+  %combined = getelementptr inbounds i8, ptr %first.057, i64 96
   %14 = load ptr, ptr %combined, align 8
   %cmp22 = icmp eq ptr %14, null
   br i1 %cmp22, label %if.then24, label %if.end29
@@ -281,20 +256,20 @@ if.then21:                                        ; preds = %if.end19
 if.then24:                                        ; preds = %if.then21
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #7
   store ptr %first.057, ptr %call, align 8
-  %packets = getelementptr inbounds %struct.USBCombinedPacket, ptr %call, i64 0, i32 1
+  %packets = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %packets, align 8
-  %tql_prev = getelementptr inbounds %struct.USBCombinedPacket, ptr %call, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %packets, ptr %tql_prev, align 8
-  %iov = getelementptr inbounds %struct.USBCombinedPacket, ptr %call, i64 0, i32 2
+  %iov = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @qemu_iovec_init(ptr noundef nonnull %iov, i32 noundef 2) #5
-  %iov1.i = getelementptr inbounds %struct.USBPacket, ptr %first.057, i64 0, i32 4
-  %size.i = getelementptr inbounds %struct.USBPacket, ptr %first.057, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %iov1.i = getelementptr inbounds i8, ptr %first.057, i64 32
+  %size.i = getelementptr inbounds i8, ptr %first.057, i64 64
   %15 = load i64, ptr %size.i, align 8
   tail call void @qemu_iovec_concat(ptr noundef nonnull %iov, ptr noundef nonnull %iov1.i, i64 noundef 0, i64 noundef %15) #5
-  %combined_entry.i = getelementptr inbounds %struct.USBPacket, ptr %first.057, i64 0, i32 13
+  %combined_entry.i = getelementptr inbounds i8, ptr %first.057, i64 120
   store ptr null, ptr %combined_entry.i, align 8
   %16 = load ptr, ptr %tql_prev, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.USBPacket, ptr %first.057, i64 0, i32 13, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %first.057, i64 128
   store ptr %16, ptr %tql_prev4.i, align 8
   store ptr %first.057, ptr %16, align 8
   store ptr %combined_entry.i, ptr %tql_prev, align 8
@@ -303,20 +278,20 @@ if.then24:                                        ; preds = %if.then21
 
 if.end29:                                         ; preds = %if.then24, %if.then21
   %17 = phi ptr [ %call, %if.then24 ], [ %14, %if.then21 ]
-  %iov.i45 = getelementptr inbounds %struct.USBCombinedPacket, ptr %17, i64 0, i32 2
-  %iov1.i46 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 4
-  %size.i47 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %iov.i45 = getelementptr inbounds i8, ptr %17, i64 24
+  %iov1.i46 = getelementptr inbounds i8, ptr %p.059, i64 32
+  %size.i47 = getelementptr inbounds i8, ptr %p.059, i64 64
   %18 = load i64, ptr %size.i47, align 8
   tail call void @qemu_iovec_concat(ptr noundef nonnull %iov.i45, ptr noundef nonnull %iov1.i46, i64 noundef 0, i64 noundef %18) #5
-  %combined_entry.i48 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 13
+  %combined_entry.i48 = getelementptr inbounds i8, ptr %p.059, i64 120
   store ptr null, ptr %combined_entry.i48, align 8
-  %tql_prev.i49 = getelementptr inbounds %struct.USBCombinedPacket, ptr %17, i64 0, i32 1, i32 0, i32 1
+  %tql_prev.i49 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %tql_prev.i49, align 8
-  %tql_prev4.i50 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 13, i32 0, i32 1
+  %tql_prev4.i50 = getelementptr inbounds i8, ptr %p.059, i64 128
   store ptr %19, ptr %tql_prev4.i50, align 8
   store ptr %p.059, ptr %19, align 8
   store ptr %combined_entry.i48, ptr %tql_prev.i49, align 8
-  %combined10.i51 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 11
+  %combined10.i51 = getelementptr inbounds i8, ptr %p.059, i64 96
   store ptr %17, ptr %combined10.i51, align 8
   br label %if.end32
 
@@ -324,8 +299,8 @@ if.end32:                                         ; preds = %if.end19.if.end32_c
   %20 = phi ptr [ %17, %if.end29 ], [ %.pre, %if.end19.if.end32_crit_edge ]
   %first.1 = phi ptr [ %first.057, %if.end29 ], [ %p.059, %if.end19.if.end32_crit_edge ]
   %tobool34.not = icmp eq ptr %20, null
-  %size = getelementptr inbounds %struct.USBCombinedPacket, ptr %20, i64 0, i32 2, i32 2, i32 0, i32 1, i32 1
-  %size38 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %20, i64 56
+  %size38 = getelementptr inbounds i8, ptr %p.059, i64 64
   %cond.in = select i1 %tobool34.not, ptr %size38, ptr %size
   %cond = load i64, ptr %cond.in, align 8
   %21 = load i64, ptr %size38, align 8
@@ -336,7 +311,7 @@ if.end32:                                         ; preds = %if.end19.if.end32_c
   br i1 %cmp43.not, label %lor.lhs.false, label %if.then63
 
 lor.lhs.false:                                    ; preds = %if.end32
-  %short_not_ok45 = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 6
+  %short_not_ok45 = getelementptr inbounds i8, ptr %p.059, i64 80
   %23 = load i8, ptr %short_not_ok45, align 8
   %24 = and i8 %23, 1
   %tobool46.not44 = icmp eq i8 %24, 0
@@ -351,7 +326,7 @@ lor.lhs.false50:                                  ; preds = %lor.lhs.false
   br i1 %cmp52, label %land.lhs.true54, label %lor.lhs.false57
 
 land.lhs.true54:                                  ; preds = %lor.lhs.false50
-  %int_req = getelementptr inbounds %struct.USBPacket, ptr %p.059, i64 0, i32 7
+  %int_req = getelementptr inbounds i8, ptr %p.059, i64 81
   %25 = load i8, ptr %int_req, align 1
   %26 = and i8 %25, 1
   %tobool55.not = icmp ne i8 %26, 0
@@ -368,7 +343,7 @@ lor.lhs.false57:                                  ; preds = %lor.lhs.false50
 if.then63:                                        ; preds = %lor.lhs.false57, %land.lhs.true54, %lor.lhs.false, %if.end32
   %27 = load ptr, ptr %dev, align 8
   tail call void @usb_device_handle_data(ptr noundef %27, ptr noundef nonnull %first.1) #5
-  %status65 = getelementptr inbounds %struct.USBPacket, ptr %first.1, i64 0, i32 8
+  %status65 = getelementptr inbounds i8, ptr %first.1, i64 84
   %28 = load i32, ptr %status65, align 4
   %cmp66 = icmp eq i32 %28, -6
   br i1 %cmp66, label %if.end70, label %if.else69
@@ -378,13 +353,13 @@ if.else69:                                        ; preds = %if.then63
   unreachable
 
 if.end70:                                         ; preds = %if.then63
-  %combined71 = getelementptr inbounds %struct.USBPacket, ptr %first.1, i64 0, i32 11
+  %combined71 = getelementptr inbounds i8, ptr %first.1, i64 96
   %29 = load ptr, ptr %combined71, align 8
   %tobool72.not = icmp eq ptr %29, null
   br i1 %tobool72.not, label %if.else79, label %if.then73
 
 if.then73:                                        ; preds = %if.end70
-  %packets75 = getelementptr inbounds %struct.USBCombinedPacket, ptr %29, i64 0, i32 1
+  %packets75 = getelementptr inbounds i8, ptr %29, i64 8
   %u.053 = load ptr, ptr %packets75, align 8
   %tobool77.not54 = icmp eq ptr %u.053, null
   br i1 %tobool77.not54, label %for.inc82, label %for.body78
@@ -392,7 +367,7 @@ if.then73:                                        ; preds = %if.end70
 for.body78:                                       ; preds = %if.then73, %for.body78
   %u.055 = phi ptr [ %u.0, %for.body78 ], [ %u.053, %if.then73 ]
   tail call void @usb_packet_set_state(ptr noundef nonnull %u.055, i32 noundef 3) #5
-  %combined_entry = getelementptr inbounds %struct.USBPacket, ptr %u.055, i64 0, i32 13
+  %combined_entry = getelementptr inbounds i8, ptr %u.055, i64 120
   %u.0 = load ptr, ptr %combined_entry, align 8
   %tobool77.not = icmp eq ptr %u.0, null
   br i1 %tobool77.not, label %for.inc82, label %for.body78, !llvm.loop !7
@@ -414,7 +389,7 @@ for.end83:                                        ; preds = %land.lhs.true, %for
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @usb_combined_packet_cancel(ptr noundef %dev, ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %combined1 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 11
+  %combined1 = getelementptr inbounds i8, ptr %p, i64 96
   %0 = load ptr, ptr %combined1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.end.i
@@ -426,25 +401,25 @@ if.else:                                          ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   store ptr null, ptr %combined1, align 8
-  %combined_entry.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 13
+  %combined_entry.i = getelementptr inbounds i8, ptr %p, i64 120
   %2 = load ptr, ptr %combined_entry.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
-  %tql_prev11.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 13, i32 0, i32 1
+  %tql_prev11.i = getelementptr inbounds i8, ptr %p, i64 128
   %3 = load ptr, ptr %tql_prev11.i, align 8
-  %tql_prev12.i = getelementptr inbounds %struct.USBCombinedPacket, ptr %0, i64 0, i32 1, i32 0, i32 1
-  %tql_prev8.i = getelementptr inbounds %struct.USBPacket, ptr %2, i64 0, i32 13, i32 0, i32 1
+  %tql_prev12.i = getelementptr inbounds i8, ptr %0, i64 16
+  %tql_prev8.i = getelementptr inbounds i8, ptr %2, i64 128
   %tql_prev12.sink.i = select i1 %cmp3.not.i, ptr %tql_prev12.i, ptr %tql_prev8.i
   store ptr %3, ptr %tql_prev12.sink.i, align 8
   %4 = load ptr, ptr %combined_entry.i, align 8
   store ptr %4, ptr %3, align 8
-  %packets22.i = getelementptr inbounds %struct.USBCombinedPacket, ptr %0, i64 0, i32 1
+  %packets22.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %combined_entry.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %packets22.i, align 8
   %cmp23.i = icmp eq ptr %5, null
   br i1 %cmp23.i, label %if.then24.i, label %usb_combined_packet_remove.exit
 
 if.then24.i:                                      ; preds = %if.end.i
-  %iov.i = getelementptr inbounds %struct.USBCombinedPacket, ptr %0, i64 0, i32 2
+  %iov.i = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_iovec_destroy(ptr noundef nonnull %iov.i) #5
   tail call void @g_free(ptr noundef nonnull %0) #5
   br label %usb_combined_packet_remove.exit

@@ -32,7 +32,7 @@ if.then3:                                         ; preds = %if.else
   br label %return
 
 if.end5:                                          ; preds = %if.else
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %0 = load i64, ptr %st_size, align 8
   %add = add nsw i64 %0, 1
   %call6 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add) #9
@@ -45,7 +45,7 @@ if.end5:                                          ; preds = %if.else
   br i1 %cmp13.not55, label %while.end, label %for.cond.preheader
 
 while.cond:                                       ; preds = %if.end67
-  %incdec.ptr = getelementptr inbounds %struct.auth_entry, ptr %entry_cur.057, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %entry_cur.057, i64 32
   %sub.ptr.rhs.cast = ptrtoint ptr %arrayidx69 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cond = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub, i64 256)
@@ -58,8 +58,8 @@ for.cond.preheader:                               ; preds = %if.end5, %while.con
   %used.058 = phi i32 [ %inc63, %while.cond ], [ 0, %if.end5 ]
   %entry_cur.057 = phi ptr [ %incdec.ptr, %while.cond ], [ %auth_entries, %if.end5 ]
   %auth_cur.056 = phi ptr [ %arrayidx69, %while.cond ], [ %call6, %if.end5 ]
-  %ulen = getelementptr inbounds %struct.auth_entry, ptr %entry_cur.057, i64 0, i32 1
-  %pass = getelementptr inbounds %struct.auth_entry, ptr %entry_cur.057, i64 0, i32 2
+  %ulen = getelementptr inbounds i8, ptr %entry_cur.057, i64 8
+  %pass = getelementptr inbounds i8, ptr %entry_cur.057, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.cond.preheader
@@ -94,7 +94,7 @@ for.end.thread40:                                 ; preds = %if.else36, %if.else
   %3 = load i64, ptr %ulen, align 8
   %add56.neg = xor i64 %3, -1
   %sub = add i64 %indvars.iv, %add56.neg
-  %plen = getelementptr inbounds %struct.auth_entry, ptr %entry_cur.057, i64 0, i32 3
+  %plen = getelementptr inbounds i8, ptr %entry_cur.057, i64 24
   store i64 %sub, ptr %plen, align 8
   br label %if.end62
 
@@ -189,13 +189,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds [8 x %struct.auth_entry], ptr @main_auth_entries, i64 0, i64 %indvars.iv
-  %ulen2 = getelementptr inbounds [8 x %struct.auth_entry], ptr @main_auth_entries, i64 0, i64 %indvars.iv, i32 1
+  %ulen2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %ulen2, align 8
   %cmp3 = icmp eq i64 %call, %1
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %plen4 = getelementptr inbounds [8 x %struct.auth_entry], ptr @main_auth_entries, i64 0, i64 %indvars.iv, i32 3
+  %plen4 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %plen4, align 8
   %cmp5 = icmp eq i64 %call1, %2
   br i1 %cmp5, label %land.lhs.true6, label %for.inc
@@ -206,7 +206,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %call9, label %land.lhs.true10, label %for.inc
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
-  %pass11 = getelementptr inbounds [8 x %struct.auth_entry], ptr @main_auth_entries, i64 0, i64 %indvars.iv, i32 2
+  %pass11 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %pass11, align 16
   %5 = load i64, ptr %plen4, align 8
   %call13 = tail call zeroext i1 @safe_memcmp(ptr noundef %pass, ptr noundef %4, i64 noundef %5) #8

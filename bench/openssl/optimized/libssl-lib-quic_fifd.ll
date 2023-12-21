@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libssl-lib-quic_fifd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_fifd_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.quic_txpim_pkt_st = type { %struct.ossl_ackm_tx_pkt_st, ptr, ptr, i8 }
-%struct.ossl_ackm_tx_pkt_st = type { i64, i64, %struct.OSSL_TIME, i64, i8, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon = type { ptr, ptr }
-%struct.quic_cfq_item_st = type { ptr, ptr }
 %struct.quic_txpim_chunk_st = type { i64, i64, i64, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -27,25 +21,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %cfq, ptr %fifd, align 8
-  %ackm9 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 1
+  %ackm9 = getelementptr inbounds i8, ptr %fifd, i64 8
   store ptr %ackm, ptr %ackm9, align 8
-  %txpim10 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 2
+  %txpim10 = getelementptr inbounds i8, ptr %fifd, i64 16
   store ptr %txpim, ptr %txpim10, align 8
-  %get_sstream_by_id11 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 3
+  %get_sstream_by_id11 = getelementptr inbounds i8, ptr %fifd, i64 24
   store ptr %get_sstream_by_id, ptr %get_sstream_by_id11, align 8
-  %get_sstream_by_id_arg12 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 4
+  %get_sstream_by_id_arg12 = getelementptr inbounds i8, ptr %fifd, i64 32
   store ptr %get_sstream_by_id_arg, ptr %get_sstream_by_id_arg12, align 8
-  %regen_frame13 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 5
+  %regen_frame13 = getelementptr inbounds i8, ptr %fifd, i64 40
   store ptr %regen_frame, ptr %regen_frame13, align 8
-  %regen_frame_arg14 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 6
+  %regen_frame_arg14 = getelementptr inbounds i8, ptr %fifd, i64 48
   store ptr %regen_frame_arg, ptr %regen_frame_arg14, align 8
-  %confirm_frame15 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 7
+  %confirm_frame15 = getelementptr inbounds i8, ptr %fifd, i64 56
   store ptr %confirm_frame, ptr %confirm_frame15, align 8
-  %confirm_frame_arg16 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 8
+  %confirm_frame_arg16 = getelementptr inbounds i8, ptr %fifd, i64 64
   store ptr %confirm_frame_arg, ptr %confirm_frame_arg16, align 8
-  %sstream_updated17 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 9
+  %sstream_updated17 = getelementptr inbounds i8, ptr %fifd, i64 72
   store ptr %sstream_updated, ptr %sstream_updated17, align 8
-  %sstream_updated_arg18 = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 10
+  %sstream_updated_arg18 = getelementptr inbounds i8, ptr %fifd, i64 80
   store ptr %sstream_updated_arg, ptr %sstream_updated_arg18, align 8
   br label %return
 
@@ -63,18 +57,18 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %fifd, ptr noundef %pkt) local_unnamed_addr #2 {
 entry:
-  %fifd1 = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %pkt, i64 0, i32 2
+  %fifd1 = getelementptr inbounds i8, ptr %pkt, i64 112
   store ptr %fifd, ptr %fifd1, align 8
-  %on_lost = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 5
+  %on_lost = getelementptr inbounds i8, ptr %pkt, i64 40
   store ptr @on_lost, ptr %on_lost, align 8
-  %on_acked = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 6
+  %on_acked = getelementptr inbounds i8, ptr %pkt, i64 48
   store ptr @on_acked, ptr %on_acked, align 8
-  %on_discarded = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 7
+  %on_discarded = getelementptr inbounds i8, ptr %pkt, i64 56
   store ptr @on_discarded, ptr %on_discarded, align 8
-  %cb_arg = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 8
+  %cb_arg = getelementptr inbounds i8, ptr %pkt, i64 64
   store ptr %pkt, ptr %cb_arg, align 8
-  %ossl_list_tx_history.i = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 9
-  %retx_head = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %pkt, i64 0, i32 1
+  %ossl_list_tx_history.i = getelementptr inbounds i8, ptr %pkt, i64 72
+  %retx_head = getelementptr inbounds i8, ptr %pkt, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ossl_list_tx_history.i, i8 0, i64 32, i1 false)
   %cfq_item.037 = load ptr, ptr %retx_head, align 8
   %cmp.not38 = icmp eq ptr %cfq_item.037, null
@@ -84,7 +78,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cfq_item.039 = phi ptr [ %cfq_item.0, %for.body ], [ %cfq_item.037, %entry ]
   %0 = load ptr, ptr %fifd, align 8
   tail call void @ossl_quic_cfq_mark_tx(ptr noundef %0, ptr noundef nonnull %cfq_item.039) #5
-  %pkt_next = getelementptr inbounds %struct.quic_cfq_item_st, ptr %cfq_item.039, i64 0, i32 1
+  %pkt_next = getelementptr inbounds i8, ptr %cfq_item.039, i64 8
   %cfq_item.0 = load ptr, ptr %pkt_next, align 8
   %cmp.not = icmp eq ptr %cfq_item.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
@@ -96,9 +90,9 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp1040.not, label %for.end38, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %for.end
-  %get_sstream_by_id = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 3
-  %pkt_space = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 4
-  %get_sstream_by_id_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 4
+  %get_sstream_by_id = getelementptr inbounds i8, ptr %fifd, i64 24
+  %pkt_space = getelementptr inbounds i8, ptr %pkt, i64 32
+  %get_sstream_by_id_arg = getelementptr inbounds i8, ptr %fifd, i64 32
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.inc37
@@ -115,9 +109,9 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   br i1 %cmp14, label %for.inc37, label %if.end
 
 if.end:                                           ; preds = %for.body11
-  %end = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.041, i32 2
+  %end = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %end, align 8
-  %start = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.041, i32 1
+  %start = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %start, align 8
   %cmp17.not = icmp ult i64 %4, %5
   br i1 %cmp17.not, label %if.end24, label %land.lhs.true
@@ -128,7 +122,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end24
 
 if.end24:                                         ; preds = %land.lhs.true, %if.end
-  %has_fin = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.041, i32 3
+  %has_fin = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %bf.load26 = load i8, ptr %has_fin, align 8
   %bf.clear27 = and i8 %bf.load26, 1
   %tobool29.not = icmp eq i8 %bf.clear27, 0
@@ -147,7 +141,7 @@ for.inc37:                                        ; preds = %if.end24, %land.lhs
   br i1 %exitcond.not, label %for.end38, label %for.body11, !llvm.loop !6
 
 for.end38:                                        ; preds = %for.inc37, %for.end
-  %ackm = getelementptr inbounds %struct.quic_fifd_st, ptr %fifd, i64 0, i32 1
+  %ackm = getelementptr inbounds i8, ptr %fifd, i64 8
   %7 = load ptr, ptr %ackm, align 8
   %call40 = tail call i32 @ossl_ackm_on_tx_packet(ptr noundef %7, ptr noundef %pkt) #5
   br label %return
@@ -160,7 +154,7 @@ return:                                           ; preds = %land.lhs.true30, %l
 ; Function Attrs: nounwind uwtable
 define internal void @on_lost(ptr noundef %arg) #2 {
 entry:
-  %fifd1 = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 2
+  %fifd1 = getelementptr inbounds i8, ptr %arg, i64 112
   %0 = load ptr, ptr %fifd1, align 8
   %call = tail call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef %arg) #5
   %call2 = tail call i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef %arg) #5
@@ -168,13 +162,13 @@ entry:
   br i1 %cmp80.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %get_sstream_by_id = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 3
-  %pkt_space = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %arg, i64 0, i32 4
-  %get_sstream_by_id_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 4
-  %regen_frame = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 5
-  %regen_frame_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 6
-  %sstream_updated64 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 9
-  %sstream_updated_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 10
+  %get_sstream_by_id = getelementptr inbounds i8, ptr %0, i64 24
+  %pkt_space = getelementptr inbounds i8, ptr %arg, i64 32
+  %get_sstream_by_id_arg = getelementptr inbounds i8, ptr %0, i64 32
+  %regen_frame = getelementptr inbounds i8, ptr %0, i64 40
+  %regen_frame_arg = getelementptr inbounds i8, ptr %0, i64 48
+  %sstream_updated64 = getelementptr inbounds i8, ptr %0, i64 72
+  %sstream_updated_arg = getelementptr inbounds i8, ptr %0, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -191,9 +185,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %end = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.081, i32 2
+  %end = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %end, align 8
-  %start = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.081, i32 1
+  %start = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %start, align 8
   %cmp7.not = icmp ult i64 %4, %5
   br i1 %cmp7.not, label %if.end14, label %if.then8
@@ -204,7 +198,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end14:                                         ; preds = %if.then8, %if.end
   %sstream_updated.0 = phi i32 [ 1, %if.then8 ], [ 0, %if.end ]
-  %has_fin = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.081, i32 3
+  %has_fin = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %bf.load16 = load i8, ptr %has_fin, align 8
   %bf.clear17 = and i8 %bf.load16, 1
   %tobool.not = icmp eq i8 %bf.clear17, 0
@@ -285,14 +279,14 @@ for.inc:                                          ; preds = %if.end53, %land.lhs
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
-  %retx_head = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 1
+  %retx_head = getelementptr inbounds i8, ptr %arg, i64 104
   %18 = load ptr, ptr %retx_head, align 8
   %cmp69.not82 = icmp eq ptr %18, null
   br i1 %cmp69.not82, label %for.end72, label %for.body70
 
 for.body70:                                       ; preds = %for.end, %for.body70
   %cfq_item.083 = phi ptr [ %19, %for.body70 ], [ %18, %for.end ]
-  %pkt_next = getelementptr inbounds %struct.quic_cfq_item_st, ptr %cfq_item.083, i64 0, i32 1
+  %pkt_next = getelementptr inbounds i8, ptr %cfq_item.083, i64 8
   %19 = load ptr, ptr %pkt_next, align 8
   %20 = load ptr, ptr %0, align 8
   tail call void @ossl_quic_cfq_mark_lost(ptr noundef %20, ptr noundef nonnull %cfq_item.083, i32 noundef -1) #5
@@ -300,16 +294,16 @@ for.body70:                                       ; preds = %for.end, %for.body7
   br i1 %cmp69.not, label %for.end72, label %for.body70, !llvm.loop !8
 
 for.end72:                                        ; preds = %for.body70, %for.end
-  %had_handshake_done_frame = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 3
+  %had_handshake_done_frame = getelementptr inbounds i8, ptr %arg, i64 120
   %bf.load73 = load i8, ptr %had_handshake_done_frame, align 8
   %bf.clear74 = and i8 %bf.load73, 1
   %tobool76.not = icmp eq i8 %bf.clear74, 0
   br i1 %tobool76.not, label %if.end80, label %if.then77
 
 if.then77:                                        ; preds = %for.end72
-  %regen_frame78 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 5
+  %regen_frame78 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load ptr, ptr %regen_frame78, align 8
-  %regen_frame_arg79 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 6
+  %regen_frame_arg79 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load ptr, ptr %regen_frame_arg79, align 8
   tail call void %21(i64 noundef 30, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef %22) #5
   %bf.load81.pre = load i8, ptr %had_handshake_done_frame, align 8
@@ -322,9 +316,9 @@ if.end80:                                         ; preds = %if.then77, %for.end
   br i1 %tobool85.not, label %if.end89, label %if.then86
 
 if.then86:                                        ; preds = %if.end80
-  %regen_frame87 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 5
+  %regen_frame87 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load ptr, ptr %regen_frame87, align 8
-  %regen_frame_arg88 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 6
+  %regen_frame_arg88 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load ptr, ptr %regen_frame_arg88, align 8
   tail call void %24(i64 noundef 16, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef %25) #5
   %bf.load90.pre = load i8, ptr %had_handshake_done_frame, align 8
@@ -337,9 +331,9 @@ if.end89:                                         ; preds = %if.then86, %if.end8
   br i1 %tobool94.not, label %if.end98, label %if.then95
 
 if.then95:                                        ; preds = %if.end89
-  %regen_frame96 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 5
+  %regen_frame96 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load ptr, ptr %regen_frame96, align 8
-  %regen_frame_arg97 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 6
+  %regen_frame_arg97 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load ptr, ptr %regen_frame_arg97, align 8
   tail call void %27(i64 noundef 18, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef %28) #5
   %bf.load99.pre = load i8, ptr %had_handshake_done_frame, align 8
@@ -352,9 +346,9 @@ if.end98:                                         ; preds = %if.then95, %if.end8
   br i1 %tobool103.not, label %if.end107, label %if.then104
 
 if.then104:                                       ; preds = %if.end98
-  %regen_frame105 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 5
+  %regen_frame105 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = load ptr, ptr %regen_frame105, align 8
-  %regen_frame_arg106 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 6
+  %regen_frame_arg106 = getelementptr inbounds i8, ptr %0, i64 48
   %31 = load ptr, ptr %regen_frame_arg106, align 8
   tail call void %30(i64 noundef 19, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef %31) #5
   %bf.load108.pre = load i8, ptr %had_handshake_done_frame, align 8
@@ -367,15 +361,15 @@ if.end107:                                        ; preds = %if.then104, %if.end
   br i1 %tobool112.not, label %if.end116, label %if.then113
 
 if.then113:                                       ; preds = %if.end107
-  %regen_frame114 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 5
+  %regen_frame114 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %regen_frame114, align 8
-  %regen_frame_arg115 = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 6
+  %regen_frame_arg115 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = load ptr, ptr %regen_frame_arg115, align 8
   tail call void %33(i64 noundef 3, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef %34) #5
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then113, %if.end107
-  %txpim = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 2
+  %txpim = getelementptr inbounds i8, ptr %0, i64 16
   %35 = load ptr, ptr %txpim, align 8
   tail call void @ossl_quic_txpim_pkt_release(ptr noundef %35, ptr noundef nonnull %arg) #5
   ret void
@@ -384,7 +378,7 @@ if.end116:                                        ; preds = %if.then113, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @on_acked(ptr noundef %arg) #2 {
 entry:
-  %fifd1 = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 2
+  %fifd1 = getelementptr inbounds i8, ptr %arg, i64 112
   %0 = load ptr, ptr %fifd1, align 8
   %call = tail call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef %arg) #5
   %call2 = tail call i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef %arg) #5
@@ -392,13 +386,13 @@ entry:
   br i1 %cmp53.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %get_sstream_by_id = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 3
-  %pkt_space = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %arg, i64 0, i32 4
-  %get_sstream_by_id_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 4
-  %confirm_frame = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 7
-  %confirm_frame_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 8
-  %sstream_updated = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 9
-  %sstream_updated_arg = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 10
+  %get_sstream_by_id = getelementptr inbounds i8, ptr %0, i64 24
+  %pkt_space = getelementptr inbounds i8, ptr %arg, i64 32
+  %get_sstream_by_id_arg = getelementptr inbounds i8, ptr %0, i64 32
+  %confirm_frame = getelementptr inbounds i8, ptr %0, i64 56
+  %confirm_frame_arg = getelementptr inbounds i8, ptr %0, i64 64
+  %sstream_updated = getelementptr inbounds i8, ptr %0, i64 72
+  %sstream_updated_arg = getelementptr inbounds i8, ptr %0, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -415,9 +409,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %end = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.054, i32 2
+  %end = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %end, align 8
-  %start = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.054, i32 1
+  %start = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %start, align 8
   %cmp7.not = icmp ult i64 %4, %5
   br i1 %cmp7.not, label %if.end14, label %if.then8
@@ -427,7 +421,7 @@ if.then8:                                         ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then8, %if.end
-  %has_fin = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call, i64 %i.054, i32 3
+  %has_fin = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %bf.load16 = load i8, ptr %has_fin, align 8
   %bf.clear17 = and i8 %bf.load16, 1
   %tobool.not = icmp eq i8 %bf.clear17, 0
@@ -496,14 +490,14 @@ for.inc:                                          ; preds = %if.end53, %if.then5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
-  %retx_head = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 1
+  %retx_head = getelementptr inbounds i8, ptr %arg, i64 104
   %18 = load ptr, ptr %retx_head, align 8
   %cmp61.not55 = icmp eq ptr %18, null
   br i1 %cmp61.not55, label %for.end64, label %for.body62
 
 for.body62:                                       ; preds = %for.end, %for.body62
   %cfq_item.056 = phi ptr [ %19, %for.body62 ], [ %18, %for.end ]
-  %pkt_next = getelementptr inbounds %struct.quic_cfq_item_st, ptr %cfq_item.056, i64 0, i32 1
+  %pkt_next = getelementptr inbounds i8, ptr %cfq_item.056, i64 8
   %19 = load ptr, ptr %pkt_next, align 8
   %20 = load ptr, ptr %0, align 8
   tail call void @ossl_quic_cfq_release(ptr noundef %20, ptr noundef nonnull %cfq_item.056) #5
@@ -511,7 +505,7 @@ for.body62:                                       ; preds = %for.end, %for.body6
   br i1 %cmp61.not, label %for.end64, label %for.body62, !llvm.loop !10
 
 for.end64:                                        ; preds = %for.body62, %for.end
-  %txpim = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 2
+  %txpim = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %txpim, align 8
   tail call void @ossl_quic_txpim_pkt_release(ptr noundef %21, ptr noundef %arg) #5
   ret void
@@ -520,16 +514,16 @@ for.end64:                                        ; preds = %for.body62, %for.en
 ; Function Attrs: nounwind uwtable
 define internal void @on_discarded(ptr noundef %arg) #2 {
 entry:
-  %fifd1 = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 2
+  %fifd1 = getelementptr inbounds i8, ptr %arg, i64 112
   %0 = load ptr, ptr %fifd1, align 8
-  %retx_head = getelementptr inbounds %struct.quic_txpim_pkt_st, ptr %arg, i64 0, i32 1
+  %retx_head = getelementptr inbounds i8, ptr %arg, i64 104
   %1 = load ptr, ptr %retx_head, align 8
   %cmp.not6 = icmp eq ptr %1, null
   br i1 %cmp.not6, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %cfq_item.07 = phi ptr [ %2, %for.body ], [ %1, %entry ]
-  %pkt_next = getelementptr inbounds %struct.quic_cfq_item_st, ptr %cfq_item.07, i64 0, i32 1
+  %pkt_next = getelementptr inbounds i8, ptr %cfq_item.07, i64 8
   %2 = load ptr, ptr %pkt_next, align 8
   %3 = load ptr, ptr %0, align 8
   tail call void @ossl_quic_cfq_release(ptr noundef %3, ptr noundef nonnull %cfq_item.07) #5
@@ -537,7 +531,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
-  %txpim = getelementptr inbounds %struct.quic_fifd_st, ptr %0, i64 0, i32 2
+  %txpim = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %txpim, align 8
   tail call void @ossl_quic_txpim_pkt_release(ptr noundef %4, ptr noundef %arg) #5
   ret void

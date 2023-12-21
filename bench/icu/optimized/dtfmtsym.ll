@@ -7,23 +7,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
 %"struct.std::__atomic_base.2" = type { ptr }
 %"struct.icu_75::ContextUsageTypeNameToEnumValue" = type { ptr, i32 }
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"class.icu_75::SharedDateFormatSymbols" = type { %"class.icu_75::SharedObject", %"class.icu_75::DateFormatSymbols" }
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
+%"class.icu_75::LocaleCacheKey" = type { %"class.icu_75::CacheKey.base", [3 x i8], %"class.icu_75::Locale" }
+%"class.icu_75::CacheKey.base" = type { %"class.icu_75::CacheKeyBase.base" }
+%"class.icu_75::CacheKeyBase.base" = type <{ %"class.icu_75::UObject", i32, i8 }>
 %"class.icu_75::UObject" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.icu_75::DateFormatSymbols" = type <{ %"class.icu_75::UObject", ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], %"class.icu_75::UnicodeString", ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, i32, i32, %"class.icu_75::Locale", %"class.icu_75::UnicodeString", [14 x [2 x i8]], [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, [157 x i8], [157 x i8], [2 x i8] }>
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_75::ConstChar16Ptr" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::LocaleCacheKey" = type { %"class.icu_75::CacheKey.base", [3 x i8], %"class.icu_75::Locale" }
-%"class.icu_75::CacheKey.base" = type { %"class.icu_75::CacheKeyBase.base" }
-%"class.icu_75::CacheKeyBase.base" = type <{ %"class.icu_75::UObject", i32, i8 }>
-%"class.icu_75::CacheKeyBase" = type <{ %"class.icu_75::UObject", i32, i8, [3 x i8] }>
-%"class.icu_75::ConstChar16Ptr" = type { ptr }
 %"struct.icu_75::(anonymous namespace)::CalendarDataSink" = type { %"class.icu_75::ResourceSink", %"class.icu_75::Hashtable", %"class.icu_75::Hashtable", %"class.icu_75::Hashtable", %"class.icu_75::MemoryPool", %"class.icu_75::UVector", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::LocalPointer", %"class.icu_75::UnicodeString" }
 %"class.icu_75::ResourceSink" = type { %"class.icu_75::UObject" }
 %"class.icu_75::Hashtable" = type { ptr, %struct.UHashtable }
@@ -34,6 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.6" }
 %"class.icu_75::LocalPointerBase.6" = type { ptr }
 %"class.icu_75::LocaleBased" = type { ptr, ptr }
@@ -42,7 +36,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::ResourceArray" = type <{ ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
 %"class.icu_75::LocalArray" = type { %"class.icu_75::LocalPointerBase.8" }
 %"class.icu_75::LocalPointerBase.8" = type { ptr }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -221,6 +214,18 @@ $_ZTIN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE = comdat any
 @_ZTIN6icu_758CacheKeyINS_23SharedDateFormatSymbolsEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_758CacheKeyINS_23SharedDateFormatSymbolsEEE, ptr @_ZTIN6icu_7512CacheKeyBaseE }, comdat, align 8
 @_ZTIN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, ptr @_ZTIN6icu_758CacheKeyINS_23SharedDateFormatSymbolsEEE }, comdat, align 8
 @_ZTVN6icu_7512CacheKeyBaseE = external unnamed_addr constant { [10 x ptr] }, align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE = private unnamed_addr constant [4 x i64] [i64 80, i64 64, i64 96, i64 80], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.5 = private unnamed_addr constant [4 x i64] [i64 72, i64 56, i64 88, i64 72], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6 = private unnamed_addr constant [4 x i64] [i64 128, i64 112, i64 144, i64 128], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7 = private unnamed_addr constant [4 x i64] [i64 120, i64 104, i64 136, i64 120], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE = private unnamed_addr constant [4 x i64] [i64 176, i64 160, i64 208, i64 192], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.8 = private unnamed_addr constant [4 x i64] [i64 168, i64 152, i64 200, i64 184], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9 = private unnamed_addr constant [4 x i64] [i64 240, i64 224, i64 272, i64 256], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10 = private unnamed_addr constant [4 x i64] [i64 232, i64 216, i64 264, i64 248], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE = private unnamed_addr constant [4 x i64] [i64 400, i64 384, i64 416, i64 400], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.11 = private unnamed_addr constant [4 x i64] [i64 392, i64 376, i64 408, i64 392], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12 = private unnamed_addr constant [4 x i64] [i64 448, i64 432, i64 464, i64 448], align 8
+@switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13 = private unnamed_addr constant [4 x i64] [i64 440, i64 424, i64 456, i64 440], align 8
 
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode
@@ -237,11 +242,11 @@ $_ZTIN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -249,11 +254,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -314,7 +319,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -324,7 +329,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -336,7 +341,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -349,7 +354,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -373,7 +378,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -403,21 +408,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -440,11 +445,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -452,7 +457,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -463,20 +468,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -504,7 +509,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -520,7 +525,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -552,7 +557,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -564,7 +569,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -579,7 +584,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -593,7 +598,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -610,9 +615,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -630,7 +635,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -642,7 +647,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -658,7 +663,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -675,7 +680,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_7523SharedDateFormatSymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(1296) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7523SharedDateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %dfs = getelementptr inbounds %"class.icu_75::SharedDateFormatSymbols", ptr %this, i64 0, i32 1
+  %dfs = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_7517DateFormatSymbolsD1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %dfs) #16
   tail call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
   ret void
@@ -699,7 +704,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
 define noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEE12createObjectEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture readnone %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca [256 x i8], align 16
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZN6icu_758Calendar25getCalendarTypeFromLocaleERKNS_6LocaleEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull %type, i32 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
@@ -711,10 +716,10 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then5, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %softRefCount.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %call2, i64 0, i32 1
+  %softRefCount.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7523SharedDateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
-  %dfs.i = getelementptr inbounds %"class.icu_75::SharedDateFormatSymbols", ptr %call2, i64 0, i32 1
+  %dfs.i = getelementptr inbounds i8, ptr %call2, i64 24
   invoke void @_ZN6icu_7517DateFormatSymbolsC1ERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %dfs.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end6 unwind label %lpad.i
 
@@ -736,7 +741,7 @@ if.end6:                                          ; preds = %new.notnull
 
 delete.notnull:                                   ; preds = %if.end6
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(1296) %call2) #16
   br label %return
@@ -786,7 +791,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then4, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %dfs.i = getelementptr inbounds %"class.icu_75::SharedDateFormatSymbols", ptr %1, i64 0, i32 1
+  %dfs.i = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @_ZN6icu_7517DateFormatSymbolsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1272) %call1, ptr noundef nonnull align 8 dereferenceable(1272) %dfs.i)
           to label %new.cont unwind label %lpad
 
@@ -821,12 +826,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fCreationStatus.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %ref.tmp, i64 0, i32 1
+  %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %fCreationStatus.i.i.i, align 8
-  %fIsPrimary.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %ref.tmp, i64 0, i32 2
+  %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %ref.tmp, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %_ZN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEC2ERKNS_6LocaleE.exit unwind label %lpad.i
 
@@ -867,18 +872,18 @@ declare void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 
 define void @_ZN6icu_7517DateFormatSymbolsC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fTimeSeparator, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i16 2, ptr %fUnion2.i, align 8
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fLocalPatternChars, align 8
-  %fUnion2.i4 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91, i32 1
+  %fUnion2.i4 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i4, align 8
   invoke void @_ZN6icu_7517DateFormatSymbols14initializeDataERKNS_6LocaleEPKcR10UErrorCodea(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status, i8 noundef signext 0)
           to label %invoke.cont7 unwind label %lpad6
@@ -982,148 +987,148 @@ entry:
   %standaloneNarrowWeeksEC = alloca i32, align 4
   %agg.tmp871 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store i32 0, ptr %len, align 4
-  %fEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 1
+  %fEras = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fEras, align 8
-  %fErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 2
+  %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %fErasCount, align 8
-  %fEraNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 4
+  %fEraNames = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %fEraNames, align 8
-  %fEraNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 5
+  %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %fEraNamesCount, align 8
-  %fNarrowEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 7
+  %fNarrowEras = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %fNarrowEras, align 8
-  %fNarrowErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 8
+  %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %fNarrowErasCount, align 8
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %fMonths, align 8
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
+  %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %fMonthsCount, align 8
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
   store ptr null, ptr %fShortMonths, align 8
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
+  %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %fShortMonthsCount, align 8
-  %fNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 16
+  %fNarrowMonths = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %fNarrowMonths, align 8
-  %fNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 17
+  %fNarrowMonthsCount = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %fNarrowMonthsCount, align 8
-  %fStandaloneMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 19
+  %fStandaloneMonths = getelementptr inbounds i8, ptr %this, i64 104
   store ptr null, ptr %fStandaloneMonths, align 8
-  %fStandaloneMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 20
+  %fStandaloneMonthsCount = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %fStandaloneMonthsCount, align 8
-  %fStandaloneShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 22
+  %fStandaloneShortMonths = getelementptr inbounds i8, ptr %this, i64 120
   store ptr null, ptr %fStandaloneShortMonths, align 8
-  %fStandaloneShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 23
+  %fStandaloneShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %fStandaloneShortMonthsCount, align 8
-  %fStandaloneNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 25
+  %fStandaloneNarrowMonths = getelementptr inbounds i8, ptr %this, i64 136
   store ptr null, ptr %fStandaloneNarrowMonths, align 8
-  %fStandaloneNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 26
+  %fStandaloneNarrowMonthsCount = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %fStandaloneNarrowMonthsCount, align 8
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %fWeekdays, align 8
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
+  %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %fWeekdaysCount, align 8
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %fShortWeekdays, align 8
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
+  %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %fShortWeekdaysCount, align 8
-  %fShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 34
+  %fShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 184
   store ptr null, ptr %fShorterWeekdays, align 8
-  %fShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 35
+  %fShorterWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %fShorterWeekdaysCount, align 8
-  %fNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 37
+  %fNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %fNarrowWeekdays, align 8
-  %fNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 38
+  %fNarrowWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 208
   store i32 0, ptr %fNarrowWeekdaysCount, align 8
-  %fStandaloneWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 40
+  %fStandaloneWeekdays = getelementptr inbounds i8, ptr %this, i64 216
   store ptr null, ptr %fStandaloneWeekdays, align 8
-  %fStandaloneWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 41
+  %fStandaloneWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %fStandaloneWeekdaysCount, align 8
-  %fStandaloneShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 43
+  %fStandaloneShortWeekdays = getelementptr inbounds i8, ptr %this, i64 232
   store ptr null, ptr %fStandaloneShortWeekdays, align 8
-  %fStandaloneShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 44
+  %fStandaloneShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 240
   store i32 0, ptr %fStandaloneShortWeekdaysCount, align 8
-  %fStandaloneShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 46
+  %fStandaloneShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 248
   store ptr null, ptr %fStandaloneShorterWeekdays, align 8
-  %fStandaloneShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 47
+  %fStandaloneShorterWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %fStandaloneShorterWeekdaysCount, align 8
-  %fStandaloneNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 49
+  %fStandaloneNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 264
   store ptr null, ptr %fStandaloneNarrowWeekdays, align 8
-  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 50
+  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 272
   store i32 0, ptr %fStandaloneNarrowWeekdaysCount, align 8
-  %fAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 52
+  %fAmPms = getelementptr inbounds i8, ptr %this, i64 280
   store ptr null, ptr %fAmPms, align 8
-  %fAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 53
+  %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
   store i32 0, ptr %fAmPmsCount, align 8
-  %fNarrowAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 55
+  %fNarrowAmPms = getelementptr inbounds i8, ptr %this, i64 296
   store ptr null, ptr %fNarrowAmPms, align 8
-  %fNarrowAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 56
+  %fNarrowAmPmsCount = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %fNarrowAmPmsCount, align 8
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator)
-  %fQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 59
+  %fQuarters = getelementptr inbounds i8, ptr %this, i64 376
   store ptr null, ptr %fQuarters, align 8
-  %fQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 60
+  %fQuartersCount = getelementptr inbounds i8, ptr %this, i64 384
   store i32 0, ptr %fQuartersCount, align 8
-  %fShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 62
+  %fShortQuarters = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %fShortQuarters, align 8
-  %fShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 63
+  %fShortQuartersCount = getelementptr inbounds i8, ptr %this, i64 400
   store i32 0, ptr %fShortQuartersCount, align 8
-  %fNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 65
+  %fNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 408
   store ptr null, ptr %fNarrowQuarters, align 8
-  %fNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 66
+  %fNarrowQuartersCount = getelementptr inbounds i8, ptr %this, i64 416
   store i32 0, ptr %fNarrowQuartersCount, align 8
-  %fStandaloneQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 68
+  %fStandaloneQuarters = getelementptr inbounds i8, ptr %this, i64 424
   store ptr null, ptr %fStandaloneQuarters, align 8
-  %fStandaloneQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 69
+  %fStandaloneQuartersCount = getelementptr inbounds i8, ptr %this, i64 432
   store i32 0, ptr %fStandaloneQuartersCount, align 8
-  %fStandaloneShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 71
+  %fStandaloneShortQuarters = getelementptr inbounds i8, ptr %this, i64 440
   store ptr null, ptr %fStandaloneShortQuarters, align 8
-  %fStandaloneShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 72
+  %fStandaloneShortQuartersCount = getelementptr inbounds i8, ptr %this, i64 448
   store i32 0, ptr %fStandaloneShortQuartersCount, align 8
-  %fStandaloneNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 74
+  %fStandaloneNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 456
   store ptr null, ptr %fStandaloneNarrowQuarters, align 8
-  %fStandaloneNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 75
+  %fStandaloneNarrowQuartersCount = getelementptr inbounds i8, ptr %this, i64 464
   store i32 0, ptr %fStandaloneNarrowQuartersCount, align 8
-  %fLeapMonthPatterns = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 77
+  %fLeapMonthPatterns = getelementptr inbounds i8, ptr %this, i64 472
   store ptr null, ptr %fLeapMonthPatterns, align 8
-  %fLeapMonthPatternsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 78
+  %fLeapMonthPatternsCount = getelementptr inbounds i8, ptr %this, i64 480
   store i32 0, ptr %fLeapMonthPatternsCount, align 8
-  %fShortYearNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 80
+  %fShortYearNames = getelementptr inbounds i8, ptr %this, i64 488
   store ptr null, ptr %fShortYearNames, align 8
-  %fShortYearNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 81
+  %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
   store i32 0, ptr %fShortYearNamesCount, align 8
-  %fShortZodiacNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 83
+  %fShortZodiacNames = getelementptr inbounds i8, ptr %this, i64 504
   store ptr null, ptr %fShortZodiacNames, align 8
-  %fShortZodiacNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 84
+  %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %fShortZodiacNamesCount, align 8
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
-  %fAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 94
+  %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
+  %fAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 864
   store ptr null, ptr %fAbbreviatedDayPeriods, align 8
-  %fAbbreviatedDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 95
+  %fAbbreviatedDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 872
   store i32 0, ptr %fAbbreviatedDayPeriodsCount, align 8
-  %fWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 97
+  %fWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 880
   store ptr null, ptr %fWideDayPeriods, align 8
-  %fWideDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 98
+  %fWideDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 888
   store i32 0, ptr %fWideDayPeriodsCount, align 8
-  %fNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 100
+  %fNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 896
   store ptr null, ptr %fNarrowDayPeriods, align 8
-  %fNarrowDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 101
+  %fNarrowDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 904
   store i32 0, ptr %fNarrowDayPeriodsCount, align 8
-  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 103
+  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 912
   store ptr null, ptr %fStandaloneAbbreviatedDayPeriods, align 8
-  %fStandaloneAbbreviatedDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 104
+  %fStandaloneAbbreviatedDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 920
   store i32 0, ptr %fStandaloneAbbreviatedDayPeriodsCount, align 8
-  %fStandaloneWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 106
+  %fStandaloneWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 928
   store ptr null, ptr %fStandaloneWideDayPeriods, align 8
-  %fStandaloneWideDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 107
+  %fStandaloneWideDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 936
   store i32 0, ptr %fStandaloneWideDayPeriodsCount, align 8
-  %fStandaloneNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 109
+  %fStandaloneNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 944
   store ptr null, ptr %fStandaloneNarrowDayPeriods, align 8
-  %fStandaloneNarrowDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 110
+  %fStandaloneNarrowDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 952
   store i32 0, ptr %fStandaloneNarrowDayPeriodsCount, align 8
-  %fCapitalization = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 92
+  %fCapitalization = getelementptr inbounds i8, ptr %this, i64 832
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %fCapitalization, i8 0, i64 28, i1 false)
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fZoneStrings, i8 0, i64 24, i1 false)
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale, ptr noundef nonnull align 8 dereferenceable(217) %locale)
   %0 = load i32, ptr %status, align 4
@@ -1132,9 +1137,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_116CalendarDataSinkE, i64 0, inrange i32 0, i64 2), ptr %calendarSink, align 8
-  %arrays.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 1
+  %arrays.i = getelementptr inbounds i8, ptr %calendarSink, i64 8
   store ptr null, ptr %arrays.i, align 8
-  %hashObj.i.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 1, i32 1
+  %hashObj.i.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 16
   %call2.i.i13.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc.i unwind label %lpad.i
 
@@ -1144,7 +1149,7 @@ call2.i.i.noexc.i:                                ; preds = %if.end
   br i1 %cmp.i3.i.i.i, label %invoke.cont.i.thread, label %if.then5.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %call2.i.i.noexc.i
-  %arraySizes.i2379 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 2
+  %arraySizes.i2379 = getelementptr inbounds i8, ptr %calendarSink, i64 96
   store ptr null, ptr %arraySizes.i2379, align 8
   br label %invoke.cont3.i.thread
 
@@ -1155,13 +1160,13 @@ if.then5.i.i.i:                                   ; preds = %call2.i.i.noexc.i
 
 invoke.cont.i:                                    ; preds = %if.then5.i.i.i
   %.pr = load i32, ptr %status, align 4
-  %arraySizes.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 2
+  %arraySizes.i = getelementptr inbounds i8, ptr %calendarSink, i64 96
   store ptr null, ptr %arraySizes.i, align 8
   %cmp.i.i.i15.i = icmp slt i32 %.pr, 1
   br i1 %cmp.i.i.i15.i, label %if.end.i.i16.i, label %invoke.cont3.i.thread
 
 if.end.i.i16.i:                                   ; preds = %invoke.cont.i
-  %hashObj.i.i17.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 2, i32 1
+  %hashObj.i.i17.i = getelementptr inbounds i8, ptr %calendarSink, i64 104
   %call2.i.i21.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i17.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc20.i unwind label %lpad2.i
 
@@ -1177,19 +1182,19 @@ if.then5.i.i19.i:                                 ; preds = %call2.i.i.noexc20.i
 
 invoke.cont3.i.thread:                            ; preds = %invoke.cont.i.thread, %call2.i.i.noexc20.i, %invoke.cont.i
   %arraySizes.i2381.ph = phi ptr [ %arraySizes.i, %invoke.cont.i ], [ %arraySizes.i, %call2.i.i.noexc20.i ], [ %arraySizes.i2379, %invoke.cont.i.thread ]
-  %maps.i2384 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 3
+  %maps.i2384 = getelementptr inbounds i8, ptr %calendarSink, i64 184
   store ptr null, ptr %maps.i2384, align 8
   br label %invoke.cont7.i
 
 invoke.cont3.i:                                   ; preds = %if.then5.i.i19.i
   %.pr2382 = load i32, ptr %status, align 4
-  %maps.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 3
+  %maps.i = getelementptr inbounds i8, ptr %calendarSink, i64 184
   store ptr null, ptr %maps.i, align 8
   %cmp.i.i.i25.i = icmp slt i32 %.pr2382, 1
   br i1 %cmp.i.i.i25.i, label %if.end.i.i26.i, label %invoke.cont7.i
 
 if.end.i.i26.i:                                   ; preds = %invoke.cont3.i
-  %hashObj.i.i27.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 3, i32 1
+  %hashObj.i.i27.i = getelementptr inbounds i8, ptr %calendarSink, i64 192
   %call2.i.i31.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i27.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc30.i unwind label %lpad4.i
 
@@ -1206,16 +1211,16 @@ if.then5.i.i29.i:                                 ; preds = %call2.i.i.noexc30.i
 invoke.cont7.i:                                   ; preds = %invoke.cont3.i.thread, %if.then5.i.i29.i, %call2.i.i.noexc30.i, %invoke.cont3.i
   %maps.i2388 = phi ptr [ %maps.i2384, %invoke.cont3.i.thread ], [ %maps.i, %if.then5.i.i29.i ], [ %maps.i, %call2.i.i.noexc30.i ], [ %maps.i, %invoke.cont3.i ]
   %arraySizes.i23812387 = phi ptr [ %arraySizes.i2381.ph, %invoke.cont3.i.thread ], [ %arraySizes.i, %if.then5.i.i29.i ], [ %arraySizes.i, %call2.i.i.noexc30.i ], [ %arraySizes.i, %invoke.cont3.i ]
-  %mapRefs.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 4
+  %mapRefs.i = getelementptr inbounds i8, ptr %calendarSink, i64 272
   store i32 0, ptr %mapRefs.i, align 8
-  %fPool.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 4, i32 1
-  %stackArray.i.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 4, i32 1, i32 3
+  %fPool.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 280
+  %stackArray.i.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 296
   store ptr %stackArray.i.i.i, ptr %fPool.i.i, align 8
-  %capacity.i.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 4, i32 1, i32 1
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 288
   store i32 8, ptr %capacity.i.i.i, align 8
-  %needToRelease.i.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 4, i32 1, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 292
   store i8 0, ptr %needToRelease.i.i.i, align 4
-  %aliasPathPairs.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 5
+  %aliasPathPairs.i = getelementptr inbounds i8, ptr %calendarSink, i64 360
   invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %aliasPathPairs.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkC2ER10UErrorCode.exit unwind label %lpad8.i
 
@@ -1262,19 +1267,19 @@ ehcleanup24.i:                                    ; preds = %ehcleanup23.i, %lpa
   br label %common.resume
 
 _ZN6icu_7512_GLOBAL__N_116CalendarDataSinkC2ER10UErrorCode.exit: ; preds = %invoke.cont7.i
-  %currentCalendarType.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 6
+  %currentCalendarType.i = getelementptr inbounds i8, ptr %calendarSink, i64 400
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %currentCalendarType.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 6, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 408
   store i16 2, ptr %fUnion2.i.i, align 8
-  %nextCalendarType.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 7
+  %nextCalendarType.i = getelementptr inbounds i8, ptr %calendarSink, i64 464
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nextCalendarType.i, align 8
-  %fUnion2.i35.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 7, i32 1
+  %fUnion2.i35.i = getelementptr inbounds i8, ptr %calendarSink, i64 472
   store i16 2, ptr %fUnion2.i35.i, align 8
-  %resourcesToVisit.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 8
+  %resourcesToVisit.i = getelementptr inbounds i8, ptr %calendarSink, i64 528
   store ptr null, ptr %resourcesToVisit.i, align 8
-  %aliasRelativePath.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 9
+  %aliasRelativePath.i = getelementptr inbounds i8, ptr %calendarSink, i64 536
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %aliasRelativePath.i, align 8
-  %fUnion2.i36.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %calendarSink, i64 0, i32 9, i32 1
+  %fUnion2.i36.i = getelementptr inbounds i8, ptr %calendarSink, i64 544
   store i16 2, ptr %fUnion2.i36.i, align 8
   %call3 = invoke noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont unwind label %lpad
@@ -1313,14 +1318,14 @@ cond.end:                                         ; preds = %land.lhs.true, %if.
           to label %while.cond.preheader unwind label %lpad
 
 while.cond.preheader:                             ; preds = %cond.end
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %calendarType, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %calendarType, i64 8
   %11 = load i16, ptr %fUnion.i, align 8
   %conv2.i24542513 = and i16 %11, 1
   %tobool18.not2514 = icmp eq i16 %conv2.i24542513, 0
   br i1 %tobool18.not2514, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %calendarTypeBuffer, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %calendarTypeBuffer, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
@@ -1387,7 +1392,7 @@ invoke.cont40:                                    ; preds = %if.then37
 
 delete.notnull.i.i:                               ; preds = %invoke.cont40
   %vtable.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %19 = load ptr, ptr %vfn.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(40) %18) #16
   br label %invoke.cont42
@@ -1458,7 +1463,7 @@ invoke.cont66:                                    ; preds = %if.then62
 
 delete.notnull.i.i223:                            ; preds = %invoke.cont66
   %vtable.i.i224 = load ptr, ptr %25, align 8
-  %vfn.i.i225 = getelementptr inbounds ptr, ptr %vtable.i.i224, i64 1
+  %vfn.i.i225 = getelementptr inbounds i8, ptr %vtable.i.i224, i64 8
   %26 = load ptr, ptr %vfn.i.i225, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(40) %25) #16
   br label %_ZN6icu_7512_GLOBAL__N_116CalendarDataSink17visitAllResourcesEv.exit226
@@ -1495,7 +1500,7 @@ while.end:                                        ; preds = %cleanup, %while.con
           to label %invoke.cont70 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont70:                                    ; preds = %while.end
-  %len.i227 = getelementptr inbounds %"class.icu_75::CharString", ptr %path, i64 0, i32 1
+  %len.i227 = getelementptr inbounds i8, ptr %path, i64 56
   store i32 0, ptr %len.i227, align 8
   %30 = load ptr, ptr %path, align 8
   store i8 0, ptr %30, align 1
@@ -1517,7 +1522,7 @@ invoke.cont.i230:                                 ; preds = %invoke.cont.i230, %
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i230 ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i231 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i231 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i231, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 456
@@ -1727,13 +1732,13 @@ invoke.cont105:                                   ; preds = %invoke.cont103
   br i1 %cmp.i303, label %if.else, label %if.then109
 
 if.then109:                                       ; preds = %invoke.cont105
-  %fUnion.i305 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %46, i64 1, i32 1
+  %fUnion.i305 = getelementptr inbounds i8, ptr %46, i64 72
   %47 = load i16, ptr %fUnion.i305, align 8
   %cmp.i306 = icmp ugt i16 %47, 31
   br i1 %cmp.i306, label %if.end121, label %if.then114
 
 if.then114:                                       ; preds = %if.then109
-  %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %46, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %46, i64 64
   %call.i308309 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %46, i8 noundef signext 0)
           to label %if.then114.if.end121_crit_edge unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1843,14 +1848,14 @@ lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
 
 if.end121:                                        ; preds = %if.then114.if.end121_crit_edge, %if.then109
   %48 = phi ptr [ %.pre, %if.then114.if.end121_crit_edge ], [ %46, %if.then109 ]
-  %fUnion.i310 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %48, i64 2, i32 1
+  %fUnion.i310 = getelementptr inbounds i8, ptr %48, i64 136
   %49 = load i16, ptr %fUnion.i310, align 8
   %cmp.i311 = icmp ugt i16 %49, 31
   br i1 %cmp.i311, label %if.end134, label %if.then127
 
 if.then127:                                       ; preds = %if.end121
-  %arrayidx123 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %48, i64 2
-  %arrayidx131 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %48, i64 5
+  %arrayidx123 = getelementptr inbounds i8, ptr %48, i64 128
+  %arrayidx131 = getelementptr inbounds i8, ptr %48, i64 320
   %call.i313314 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx123, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx131, i8 noundef signext 0)
           to label %if.then127.if.end134_crit_edge unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1860,13 +1865,13 @@ if.then127.if.end134_crit_edge:                   ; preds = %if.then127
 
 if.end134:                                        ; preds = %if.then127.if.end134_crit_edge, %if.end121
   %50 = phi ptr [ %.pre2524, %if.then127.if.end134_crit_edge ], [ %48, %if.end121 ]
-  %fUnion.i316 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %50, i64 3, i32 1
+  %fUnion.i316 = getelementptr inbounds i8, ptr %50, i64 200
   %51 = load i16, ptr %fUnion.i316, align 8
   %cmp.i317 = icmp ugt i16 %51, 31
   br i1 %cmp.i317, label %if.end147, label %if.then140
 
 if.then140:                                       ; preds = %if.end134
-  %arrayidx136 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %50, i64 3
+  %arrayidx136 = getelementptr inbounds i8, ptr %50, i64 192
   %call.i319320 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx136, ptr noundef nonnull align 8 dereferenceable(64) %50, i8 noundef signext 0)
           to label %if.then140.if.end147_crit_edge unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1876,14 +1881,14 @@ if.then140.if.end147_crit_edge:                   ; preds = %if.then140
 
 if.end147:                                        ; preds = %if.then140.if.end147_crit_edge, %if.end134
   %52 = phi ptr [ %.pre2525, %if.then140.if.end147_crit_edge ], [ %50, %if.end134 ]
-  %fUnion.i322 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %52, i64 4, i32 1
+  %fUnion.i322 = getelementptr inbounds i8, ptr %52, i64 264
   %53 = load i16, ptr %fUnion.i322, align 8
   %cmp.i323 = icmp ugt i16 %53, 31
   br i1 %cmp.i323, label %if.end160, label %if.then153
 
 if.then153:                                       ; preds = %if.end147
-  %arrayidx149 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %52, i64 4
-  %arrayidx157 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %52, i64 1
+  %arrayidx149 = getelementptr inbounds i8, ptr %52, i64 256
+  %arrayidx157 = getelementptr inbounds i8, ptr %52, i64 64
   %call.i325326 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx149, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx157, i8 noundef signext 0)
           to label %if.end160 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1907,7 +1912,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %46
   br i1 %arraydestroy.done, label %arraydestroy.done163, label %arraydestroy.body
@@ -2082,7 +2087,7 @@ if.end.i372:                                      ; preds = %if.else.i373, %invo
 invoke.cont177:                                   ; preds = %if.end.i372, %invoke.cont175
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i359)
   store i32 0, ptr %tempStatus, align 4
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
   %69 = load ptr, ptr %fullName.i, align 8
   %call181 = invoke ptr @ures_open_75(ptr noundef null, ptr noundef %69, ptr noundef nonnull %tempStatus)
           to label %invoke.cont180 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2139,7 +2144,7 @@ land.rhs:                                         ; preds = %invoke.cont207, %wh
   br i1 %cmp215, label %while.body216, label %while.end217
 
 while.body216:                                    ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds %"struct.icu_75::ContextUsageTypeNameToEnumValue", ptr %typeMapPtr.02515, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %typeMapPtr.02515, i64 16
   %75 = load ptr, ptr %incdec.ptr, align 8
   %cmp212.not = icmp eq ptr %75, null
   br i1 %cmp212.not, label %if.end237, label %land.rhs, !llvm.loop !7
@@ -2151,15 +2156,15 @@ while.end217:                                     ; preds = %land.rhs
 if.then222:                                       ; preds = %while.end217
   %76 = load i32, ptr %call198, align 4
   %conv224 = trunc i32 %76 to i8
-  %usageTypeEnumValue = getelementptr inbounds %"struct.icu_75::ContextUsageTypeNameToEnumValue", ptr %typeMapPtr.02515, i64 0, i32 1
+  %usageTypeEnumValue = getelementptr inbounds i8, ptr %typeMapPtr.02515, i64 8
   %77 = load i32, ptr %usageTypeEnumValue, align 8
   %idxprom = zext i32 %77 to i64
-  %arrayidx226 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 92, i64 %idxprom
+  %arrayidx226 = getelementptr inbounds [14 x [2 x i8]], ptr %fCapitalization, i64 0, i64 %idxprom
   store i8 %conv224, ptr %arrayidx226, align 2
-  %arrayidx228 = getelementptr inbounds i32, ptr %call198, i64 1
+  %arrayidx228 = getelementptr inbounds i8, ptr %call198, i64 4
   %78 = load i32, ptr %arrayidx228, align 4
   %conv229 = trunc i32 %78 to i8
-  %arrayidx234 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 92, i64 %idxprom, i64 1
+  %arrayidx234 = getelementptr inbounds [14 x [2 x i8]], ptr %fCapitalization, i64 0, i64 %idxprom, i64 1
   store i8 %conv229, ptr %arrayidx234, align 1
   br label %if.end237
 
@@ -2216,7 +2221,7 @@ invoke.cont268:                                   ; preds = %invoke.cont262
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i390)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !9
-  %fUnion2.i.i391 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion2.i.i391 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i.i391, align 8, !alias.scope !9
   store i32 0, ptr %len.i390, align 4, !noalias !9
   %call.i392 = invoke ptr @ures_getStringByKey_75(ptr noundef %call267, ptr noundef nonnull @_ZN6icu_75L17gTimeSeparatorTagE, ptr noundef nonnull %len.i390, ptr noundef nonnull %tempStatus)
@@ -2363,7 +2368,7 @@ invoke.cont286:                                   ; preds = %if.end285
 
 delete.notnull.i:                                 ; preds = %invoke.cont286
   %vtable.i = load ptr, ptr %call243, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %97 = load ptr, ptr %vfn.i, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(86) %call243) #16
   br label %if.end288
@@ -2375,13 +2380,13 @@ ehcleanup287:                                     ; preds = %ehcleanup284, %lpad
 
 delete.notnull.i415:                              ; preds = %ehcleanup287
   %vtable.i416 = load ptr, ptr %call243, align 8
-  %vfn.i417 = getelementptr inbounds ptr, ptr %vtable.i416, i64 1
+  %vfn.i417 = getelementptr inbounds i8, ptr %vtable.i416, i64 8
   %98 = load ptr, ptr %vfn.i417, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(86) %call243) #16
   br label %ehcleanup881
 
 if.end288:                                        ; preds = %delete.notnull.i, %invoke.cont286, %invoke.cont180
-  %fUnion.i419 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1
+  %fUnion.i419 = getelementptr inbounds i8, ptr %this, i64 320
   %99 = load i16, ptr %fUnion.i419, align 8
   %conv2.i4202456 = and i16 %99, 1
   %tobool292.not = icmp eq i16 %conv2.i4202456, 0
@@ -2398,7 +2403,7 @@ if.then293:                                       ; preds = %if.end288
   %cmp.i.i.i = icmp slt i16 %100, 0
   %101 = ashr i16 %100, 5
   %shr.i.i.i = sext i16 %101 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 324
   %102 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %102, i32 %shr.i.i.i
   %call2.i422 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %srcChar.addr.i, i32 noundef 0, i32 noundef 1)
@@ -2603,14 +2608,14 @@ land.lhs.true342:                                 ; preds = %for.body
   br i1 %cmp344.not, label %if.end361, label %land.lhs.true345
 
 land.lhs.true345:                                 ; preds = %land.lhs.true342
-  %fUnion.i491 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %113, i64 %indvars.iv, i32 1
+  %arrayidx348 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %113, i64 %indvars.iv
+  %fUnion.i491 = getelementptr inbounds i8, ptr %arrayidx348, i64 8
   %114 = load i16, ptr %fUnion.i491, align 8
   %conv2.i4922457 = and i16 %114, 1
   %tobool351.not = icmp eq i16 %conv2.i4922457, 0
   br i1 %tobool351.not, label %if.end361, label %if.then352
 
 if.then352:                                       ; preds = %land.lhs.true345
-  %arrayidx348 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %113, i64 %indvars.iv
   %115 = load ptr, ptr %fAbbreviatedDayPeriods, align 8
   %arrayidx358 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %115, i64 %indvars.iv
   %call360 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx348, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx358)
@@ -2628,14 +2633,14 @@ land.lhs.true364:                                 ; preds = %if.end361
   br i1 %cmp366.not, label %if.end383, label %land.lhs.true367
 
 land.lhs.true367:                                 ; preds = %land.lhs.true364
-  %fUnion.i493 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %118, i64 %indvars.iv, i32 1
+  %arrayidx370 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %118, i64 %indvars.iv
+  %fUnion.i493 = getelementptr inbounds i8, ptr %arrayidx370, i64 8
   %119 = load i16, ptr %fUnion.i493, align 8
   %conv2.i4942458 = and i16 %119, 1
   %tobool373.not = icmp eq i16 %conv2.i4942458, 0
   br i1 %tobool373.not, label %if.end383, label %if.then374
 
 if.then374:                                       ; preds = %land.lhs.true367
-  %arrayidx370 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %118, i64 %indvars.iv
   %120 = load ptr, ptr %fAbbreviatedDayPeriods, align 8
   %arrayidx380 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %120, i64 %indvars.iv
   %call382 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx370, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx380)
@@ -2653,14 +2658,14 @@ land.lhs.true386:                                 ; preds = %if.end383
   br i1 %cmp388.not, label %if.end405, label %land.lhs.true389
 
 land.lhs.true389:                                 ; preds = %land.lhs.true386
-  %fUnion.i495 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %123, i64 %indvars.iv, i32 1
+  %arrayidx392 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %123, i64 %indvars.iv
+  %fUnion.i495 = getelementptr inbounds i8, ptr %arrayidx392, i64 8
   %124 = load i16, ptr %fUnion.i495, align 8
   %conv2.i4962459 = and i16 %124, 1
   %tobool395.not = icmp eq i16 %conv2.i4962459, 0
   br i1 %tobool395.not, label %if.end405, label %if.then396
 
 if.then396:                                       ; preds = %land.lhs.true389
-  %arrayidx392 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %123, i64 %indvars.iv
   %125 = load ptr, ptr %fAbbreviatedDayPeriods, align 8
   %arrayidx402 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %125, i64 %indvars.iv
   %call404 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx392, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx402)
@@ -2678,14 +2683,14 @@ land.lhs.true408:                                 ; preds = %if.end405
   br i1 %cmp410.not, label %if.end427, label %land.lhs.true411
 
 land.lhs.true411:                                 ; preds = %land.lhs.true408
-  %fUnion.i497 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %128, i64 %indvars.iv, i32 1
+  %arrayidx414 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %128, i64 %indvars.iv
+  %fUnion.i497 = getelementptr inbounds i8, ptr %arrayidx414, i64 8
   %129 = load i16, ptr %fUnion.i497, align 8
   %conv2.i4982460 = and i16 %129, 1
   %tobool417.not = icmp eq i16 %conv2.i4982460, 0
   br i1 %tobool417.not, label %if.end427, label %if.then418
 
 if.then418:                                       ; preds = %land.lhs.true411
-  %arrayidx414 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %128, i64 %indvars.iv
   %130 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods, align 8
   %arrayidx424 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %130, i64 %indvars.iv
   %call426 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx414, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx424)
@@ -2703,14 +2708,14 @@ land.lhs.true430:                                 ; preds = %if.end427
   br i1 %cmp432.not, label %for.inc, label %land.lhs.true433
 
 land.lhs.true433:                                 ; preds = %land.lhs.true430
-  %fUnion.i499 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %133, i64 %indvars.iv, i32 1
+  %arrayidx436 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %133, i64 %indvars.iv
+  %fUnion.i499 = getelementptr inbounds i8, ptr %arrayidx436, i64 8
   %134 = load i16, ptr %fUnion.i499, align 8
   %conv2.i5002461 = and i16 %134, 1
   %tobool439.not = icmp eq i16 %conv2.i5002461, 0
   br i1 %tobool439.not, label %for.inc, label %if.then440
 
 if.then440:                                       ; preds = %land.lhs.true433
-  %arrayidx436 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %133, i64 %indvars.iv
   %135 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods, align 8
   %arrayidx446 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %135, i64 %indvars.iv
   %call448 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx436, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx446)
@@ -2724,10 +2729,10 @@ for.inc:                                          ; preds = %if.end427, %land.lh
   br i1 %cmp339, label %for.body, label %if.end450, !llvm.loop !12
 
 if.end450:                                        ; preds = %for.inc, %invoke.cont331
-  %validLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 111
-  %actualLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 112
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 956
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 1113
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   %call455 = invoke ptr @ures_getLocaleByType_75(ptr noundef %call7, i32 noundef 1, ptr noundef nonnull %status)
           to label %invoke.cont454 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2907,7 +2912,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i, %n
   %arrayctor.cur.idx.i.i = phi i64 [ 8, %new.notnull.i.i ], [ %arrayctor.cur.add.i.i, %invoke.cont.i.i ]
   %arrayctor.cur.ptr.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.idx.i.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i, align 8
-  %fUnion2.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i, i64 0, i32 1
+  %fUnion2.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i, i64 8
   store i16 2, ptr %fUnion2.i.i.i, align 8
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 64
   %arrayctor.next.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.add.i.i
@@ -3043,7 +3048,7 @@ invoke.cont.i.i590:                               ; preds = %invoke.cont.i.i590,
   %arrayctor.cur.idx.i.i591 = phi i64 [ 8, %new.notnull.i.i587 ], [ %arrayctor.cur.add.i.i594, %invoke.cont.i.i590 ]
   %arrayctor.cur.ptr.ptr.i.i592 = getelementptr inbounds i8, ptr %call.i.i585, i64 %arrayctor.cur.idx.i.i591
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i592, align 8
-  %fUnion2.i.i.i593 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i592, i64 0, i32 1
+  %fUnion2.i.i.i593 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i592, i64 8
   store i16 2, ptr %fUnion2.i.i.i593, align 8
   %arrayctor.cur.add.i.i594 = add nuw nsw i64 %arrayctor.cur.idx.i.i591, 64
   %arrayctor.next.ptr.i.i595 = getelementptr inbounds i8, ptr %call.i.i585, i64 %arrayctor.cur.add.i.i594
@@ -3328,7 +3333,7 @@ invoke.cont.i.i710:                               ; preds = %invoke.cont.i.i710,
   %arrayctor.cur.idx.i.i711 = phi i64 [ 8, %new.notnull.i.i707 ], [ %arrayctor.cur.add.i.i714, %invoke.cont.i.i710 ]
   %arrayctor.cur.ptr.ptr.i.i712 = getelementptr inbounds i8, ptr %call.i.i705, i64 %arrayctor.cur.idx.i.i711
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i712, align 8
-  %fUnion2.i.i.i713 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i712, i64 0, i32 1
+  %fUnion2.i.i.i713 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i712, i64 8
   store i16 2, ptr %fUnion2.i.i.i713, align 8
   %arrayctor.cur.add.i.i714 = add nuw nsw i64 %arrayctor.cur.idx.i.i711, 64
   %arrayctor.next.ptr.i.i715 = getelementptr inbounds i8, ptr %call.i.i705, i64 %arrayctor.cur.add.i.i714
@@ -3471,7 +3476,7 @@ invoke.cont.i.i770:                               ; preds = %invoke.cont.i.i770,
   %arrayctor.cur.idx.i.i771 = phi i64 [ 8, %new.notnull.i.i767 ], [ %arrayctor.cur.add.i.i774, %invoke.cont.i.i770 ]
   %arrayctor.cur.ptr.ptr.i.i772 = getelementptr inbounds i8, ptr %call.i.i765, i64 %arrayctor.cur.idx.i.i771
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i772, align 8
-  %fUnion2.i.i.i773 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i772, i64 0, i32 1
+  %fUnion2.i.i.i773 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i772, i64 8
   store i16 2, ptr %fUnion2.i.i.i773, align 8
   %arrayctor.cur.add.i.i774 = add nuw nsw i64 %arrayctor.cur.idx.i.i771, 64
   %arrayctor.next.ptr.i.i775 = getelementptr inbounds i8, ptr %call.i.i765, i64 %arrayctor.cur.add.i.i774
@@ -3683,7 +3688,7 @@ invoke.cont.i.i860:                               ; preds = %invoke.cont.i.i860,
   %arrayctor.cur.idx.i.i861 = phi i64 [ 8, %new.notnull.i.i857 ], [ %arrayctor.cur.add.i.i864, %invoke.cont.i.i860 ]
   %arrayctor.cur.ptr.ptr.i.i862 = getelementptr inbounds i8, ptr %call.i.i855, i64 %arrayctor.cur.idx.i.i861
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i862, align 8
-  %fUnion2.i.i.i863 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i862, i64 0, i32 1
+  %fUnion2.i.i.i863 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i862, i64 8
   store i16 2, ptr %fUnion2.i.i.i863, align 8
   %arrayctor.cur.add.i.i864 = add nuw nsw i64 %arrayctor.cur.idx.i.i861, 64
   %arrayctor.next.ptr.i.i865 = getelementptr inbounds i8, ptr %call.i.i855, i64 %arrayctor.cur.add.i.i864
@@ -3746,7 +3751,7 @@ invoke.cont.i.i890:                               ; preds = %invoke.cont.i.i890,
   %arrayctor.cur.idx.i.i891 = phi i64 [ 8, %new.notnull.i.i887 ], [ %arrayctor.cur.add.i.i894, %invoke.cont.i.i890 ]
   %arrayctor.cur.ptr.ptr.i.i892 = getelementptr inbounds i8, ptr %call.i.i885, i64 %arrayctor.cur.idx.i.i891
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i892, align 8
-  %fUnion2.i.i.i893 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i892, i64 0, i32 1
+  %fUnion2.i.i.i893 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i892, i64 8
   store i16 2, ptr %fUnion2.i.i.i893, align 8
   %arrayctor.cur.add.i.i894 = add nuw nsw i64 %arrayctor.cur.idx.i.i891, 64
   %arrayctor.next.ptr.i.i895 = getelementptr inbounds i8, ptr %call.i.i885, i64 %arrayctor.cur.add.i.i894
@@ -4080,7 +4085,7 @@ invoke.cont.i.i1014:                              ; preds = %invoke.cont.i.i1014
   %arrayctor.cur.idx.i.i1015 = phi i64 [ 8, %new.notnull.i.i1011 ], [ %arrayctor.cur.add.i.i1018, %invoke.cont.i.i1014 ]
   %arrayctor.cur.ptr.ptr.i.i1016 = getelementptr inbounds i8, ptr %call.i.i1009, i64 %arrayctor.cur.idx.i.i1015
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1016, align 8
-  %fUnion2.i.i.i1017 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1016, i64 0, i32 1
+  %fUnion2.i.i.i1017 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1016, i64 8
   store i16 2, ptr %fUnion2.i.i.i1017, align 8
   %arrayctor.cur.add.i.i1018 = add nuw nsw i64 %arrayctor.cur.idx.i.i1015, 64
   %arrayctor.next.ptr.i.i1019 = getelementptr inbounds i8, ptr %call.i.i1009, i64 %arrayctor.cur.add.i.i1018
@@ -4294,7 +4299,7 @@ invoke.cont.i.i1104:                              ; preds = %invoke.cont.i.i1104
   %arrayctor.cur.idx.i.i1105 = phi i64 [ 8, %new.notnull.i.i1101 ], [ %arrayctor.cur.add.i.i1108, %invoke.cont.i.i1104 ]
   %arrayctor.cur.ptr.ptr.i.i1106 = getelementptr inbounds i8, ptr %call.i.i1099, i64 %arrayctor.cur.idx.i.i1105
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1106, align 8
-  %fUnion2.i.i.i1107 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1106, i64 0, i32 1
+  %fUnion2.i.i.i1107 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1106, i64 8
   store i16 2, ptr %fUnion2.i.i.i1107, align 8
   %arrayctor.cur.add.i.i1108 = add nuw nsw i64 %arrayctor.cur.idx.i.i1105, 64
   %arrayctor.next.ptr.i.i1109 = getelementptr inbounds i8, ptr %call.i.i1099, i64 %arrayctor.cur.add.i.i1108
@@ -4437,7 +4442,7 @@ invoke.cont.i.i1164:                              ; preds = %invoke.cont.i.i1164
   %arrayctor.cur.idx.i.i1165 = phi i64 [ 8, %new.notnull.i.i1161 ], [ %arrayctor.cur.add.i.i1168, %invoke.cont.i.i1164 ]
   %arrayctor.cur.ptr.ptr.i.i1166 = getelementptr inbounds i8, ptr %call.i.i1159, i64 %arrayctor.cur.idx.i.i1165
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1166, align 8
-  %fUnion2.i.i.i1167 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1166, i64 0, i32 1
+  %fUnion2.i.i.i1167 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1166, i64 8
   store i16 2, ptr %fUnion2.i.i.i1167, align 8
   %arrayctor.cur.add.i.i1168 = add nuw nsw i64 %arrayctor.cur.idx.i.i1165, 64
   %arrayctor.next.ptr.i.i1169 = getelementptr inbounds i8, ptr %call.i.i1159, i64 %arrayctor.cur.add.i.i1168
@@ -4580,7 +4585,7 @@ invoke.cont.i.i1224:                              ; preds = %invoke.cont.i.i1224
   %arrayctor.cur.idx.i.i1225 = phi i64 [ 8, %new.notnull.i.i1221 ], [ %arrayctor.cur.add.i.i1228, %invoke.cont.i.i1224 ]
   %arrayctor.cur.ptr.ptr.i.i1226 = getelementptr inbounds i8, ptr %call.i.i1219, i64 %arrayctor.cur.idx.i.i1225
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1226, align 8
-  %fUnion2.i.i.i1227 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1226, i64 0, i32 1
+  %fUnion2.i.i.i1227 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1226, i64 8
   store i16 2, ptr %fUnion2.i.i.i1227, align 8
   %arrayctor.cur.add.i.i1228 = add nuw nsw i64 %arrayctor.cur.idx.i.i1225, 64
   %arrayctor.next.ptr.i.i1229 = getelementptr inbounds i8, ptr %call.i.i1219, i64 %arrayctor.cur.add.i.i1228
@@ -4794,7 +4799,7 @@ invoke.cont.i.i1314:                              ; preds = %invoke.cont.i.i1314
   %arrayctor.cur.idx.i.i1315 = phi i64 [ 8, %new.notnull.i.i1311 ], [ %arrayctor.cur.add.i.i1318, %invoke.cont.i.i1314 ]
   %arrayctor.cur.ptr.ptr.i.i1316 = getelementptr inbounds i8, ptr %call.i.i1309, i64 %arrayctor.cur.idx.i.i1315
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1316, align 8
-  %fUnion2.i.i.i1317 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1316, i64 0, i32 1
+  %fUnion2.i.i.i1317 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1316, i64 8
   store i16 2, ptr %fUnion2.i.i.i1317, align 8
   %arrayctor.cur.add.i.i1318 = add nuw nsw i64 %arrayctor.cur.idx.i.i1315, 64
   %arrayctor.next.ptr.i.i1319 = getelementptr inbounds i8, ptr %call.i.i1309, i64 %arrayctor.cur.add.i.i1318
@@ -4828,7 +4833,7 @@ if.end7.sink.split.i1331:                         ; preds = %if.end.i1307, %if.t
   br label %if.end673
 
 if.end673:                                        ; preds = %call6.i.noexc1333, %if.end7.sink.split.i1331, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1321, %invoke.cont665
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   store ptr @_ZL13gPatternChars, ptr %agg.tmp674, align 8
   %call678 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars, i8 noundef signext 1, ptr noundef nonnull %agg.tmp674, i32 noundef 37)
           to label %invoke.cont677 unwind label %lpad676
@@ -4957,7 +4962,7 @@ invoke.cont.i.i1377:                              ; preds = %invoke.cont.i.i1377
   %arrayctor.cur.idx.i.i1378 = phi i64 [ 8, %new.notnull.i.i1374 ], [ %arrayctor.cur.add.i.i1381, %invoke.cont.i.i1377 ]
   %arrayctor.cur.ptr.ptr.i.i1379 = getelementptr inbounds i8, ptr %call.i.i1372, i64 %arrayctor.cur.idx.i.i1378
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1379, align 8
-  %fUnion2.i.i.i1380 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1379, i64 0, i32 1
+  %fUnion2.i.i.i1380 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1379, i64 8
   store i16 2, ptr %fUnion2.i.i.i1380, align 8
   %arrayctor.cur.add.i.i1381 = add nuw nsw i64 %arrayctor.cur.idx.i.i1378, 64
   %arrayctor.next.ptr.i.i1382 = getelementptr inbounds i8, ptr %call.i.i1372, i64 %arrayctor.cur.add.i.i1381
@@ -5063,7 +5068,7 @@ invoke.cont.i.i1418:                              ; preds = %invoke.cont.i.i1418
   %arrayctor.cur.idx.i.i1419 = phi i64 [ 8, %new.notnull.i.i1415 ], [ %arrayctor.cur.add.i.i1422, %invoke.cont.i.i1418 ]
   %arrayctor.cur.ptr.ptr.i.i1420 = getelementptr inbounds i8, ptr %call.i.i1413, i64 %arrayctor.cur.idx.i.i1419
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1420, align 8
-  %fUnion2.i.i.i1421 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1420, i64 0, i32 1
+  %fUnion2.i.i.i1421 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1420, i64 8
   store i16 2, ptr %fUnion2.i.i.i1421, align 8
   %arrayctor.cur.add.i.i1422 = add nuw nsw i64 %arrayctor.cur.idx.i.i1419, 64
   %arrayctor.next.ptr.i.i1423 = getelementptr inbounds i8, ptr %call.i.i1413, i64 %arrayctor.cur.add.i.i1422
@@ -5162,7 +5167,7 @@ invoke.cont.i.i1459:                              ; preds = %invoke.cont.i.i1459
   %arrayctor.cur.idx.i.i1460 = phi i64 [ 8, %new.notnull.i.i1456 ], [ %arrayctor.cur.add.i.i1463, %invoke.cont.i.i1459 ]
   %arrayctor.cur.ptr.ptr.i.i1461 = getelementptr inbounds i8, ptr %call.i.i1454, i64 %arrayctor.cur.idx.i.i1460
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1461, align 8
-  %fUnion2.i.i.i1462 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1461, i64 0, i32 1
+  %fUnion2.i.i.i1462 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1461, i64 8
   store i16 2, ptr %fUnion2.i.i.i1462, align 8
   %arrayctor.cur.add.i.i1463 = add nuw nsw i64 %arrayctor.cur.idx.i.i1460, 64
   %arrayctor.next.ptr.i.i1464 = getelementptr inbounds i8, ptr %call.i.i1454, i64 %arrayctor.cur.add.i.i1463
@@ -5261,7 +5266,7 @@ invoke.cont.i.i1500:                              ; preds = %invoke.cont.i.i1500
   %arrayctor.cur.idx.i.i1501 = phi i64 [ 8, %new.notnull.i.i1497 ], [ %arrayctor.cur.add.i.i1504, %invoke.cont.i.i1500 ]
   %arrayctor.cur.ptr.ptr.i.i1502 = getelementptr inbounds i8, ptr %call.i.i1495, i64 %arrayctor.cur.idx.i.i1501
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1502, align 8
-  %fUnion2.i.i.i1503 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1502, i64 0, i32 1
+  %fUnion2.i.i.i1503 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1502, i64 8
   store i16 2, ptr %fUnion2.i.i.i1503, align 8
   %arrayctor.cur.add.i.i1504 = add nuw nsw i64 %arrayctor.cur.idx.i.i1501, 64
   %arrayctor.next.ptr.i.i1505 = getelementptr inbounds i8, ptr %call.i.i1495, i64 %arrayctor.cur.add.i.i1504
@@ -5390,7 +5395,7 @@ invoke.cont.i.i1552:                              ; preds = %invoke.cont.i.i1552
   %arrayctor.cur.idx.i.i1553 = phi i64 [ 8, %new.notnull.i.i1549 ], [ %arrayctor.cur.add.i.i1556, %invoke.cont.i.i1552 ]
   %arrayctor.cur.ptr.ptr.i.i1554 = getelementptr inbounds i8, ptr %call.i.i1547, i64 %arrayctor.cur.idx.i.i1553
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1554, align 8
-  %fUnion2.i.i.i1555 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1554, i64 0, i32 1
+  %fUnion2.i.i.i1555 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1554, i64 8
   store i16 2, ptr %fUnion2.i.i.i1555, align 8
   %arrayctor.cur.add.i.i1556 = add nuw nsw i64 %arrayctor.cur.idx.i.i1553, 64
   %arrayctor.next.ptr.i.i1557 = getelementptr inbounds i8, ptr %call.i.i1547, i64 %arrayctor.cur.add.i.i1556
@@ -5453,7 +5458,7 @@ invoke.cont.i.i1582:                              ; preds = %invoke.cont.i.i1582
   %arrayctor.cur.idx.i.i1583 = phi i64 [ 8, %new.notnull.i.i1579 ], [ %arrayctor.cur.add.i.i1586, %invoke.cont.i.i1582 ]
   %arrayctor.cur.ptr.ptr.i.i1584 = getelementptr inbounds i8, ptr %call.i.i1577, i64 %arrayctor.cur.idx.i.i1583
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1584, align 8
-  %fUnion2.i.i.i1585 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1584, i64 0, i32 1
+  %fUnion2.i.i.i1585 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1584, i64 8
   store i16 2, ptr %fUnion2.i.i.i1585, align 8
   %arrayctor.cur.add.i.i1586 = add nuw nsw i64 %arrayctor.cur.idx.i.i1583, 64
   %arrayctor.next.ptr.i.i1587 = getelementptr inbounds i8, ptr %call.i.i1577, i64 %arrayctor.cur.add.i.i1586
@@ -5532,7 +5537,7 @@ invoke.cont.i.i1614:                              ; preds = %invoke.cont.i.i1614
   %arrayctor.cur.idx.i.i1615 = phi i64 [ 8, %new.notnull.i.i1611 ], [ %arrayctor.cur.add.i.i1618, %invoke.cont.i.i1614 ]
   %arrayctor.cur.ptr.ptr.i.i1616 = getelementptr inbounds i8, ptr %call.i.i1609, i64 %arrayctor.cur.idx.i.i1615
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1616, align 8
-  %fUnion2.i.i.i1617 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1616, i64 0, i32 1
+  %fUnion2.i.i.i1617 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1616, i64 8
   store i16 2, ptr %fUnion2.i.i.i1617, align 8
   %arrayctor.cur.add.i.i1618 = add nuw nsw i64 %arrayctor.cur.idx.i.i1615, 64
   %arrayctor.done.i.i1620 = icmp eq i64 %arrayctor.cur.add.i.i1618, 136
@@ -5600,7 +5605,7 @@ invoke.cont.i.i1640:                              ; preds = %invoke.cont.i.i1640
   %arrayctor.cur.idx.i.i1641 = phi i64 [ 8, %new.notnull.i.i1637 ], [ %arrayctor.cur.add.i.i1644, %invoke.cont.i.i1640 ]
   %arrayctor.cur.ptr.ptr.i.i1642 = getelementptr inbounds i8, ptr %call.i.i1635, i64 %arrayctor.cur.idx.i.i1641
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1642, align 8
-  %fUnion2.i.i.i1643 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1642, i64 0, i32 1
+  %fUnion2.i.i.i1643 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1642, i64 8
   store i16 2, ptr %fUnion2.i.i.i1643, align 8
   %arrayctor.cur.add.i.i1644 = add nuw nsw i64 %arrayctor.cur.idx.i.i1641, 64
   %arrayctor.done.i.i1646 = icmp eq i64 %arrayctor.cur.add.i.i1644, 136
@@ -5671,7 +5676,7 @@ invoke.cont.i.i1671:                              ; preds = %invoke.cont.i.i1671
   %arrayctor.cur.idx.i.i1672 = phi i64 [ 8, %new.notnull.i.i1668 ], [ %arrayctor.cur.add.i.i1675, %invoke.cont.i.i1671 ]
   %arrayctor.cur.ptr.ptr.i.i1673 = getelementptr inbounds i8, ptr %call.i.i1666, i64 %arrayctor.cur.idx.i.i1672
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1673, align 8
-  %fUnion2.i.i.i1674 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1673, i64 0, i32 1
+  %fUnion2.i.i.i1674 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1673, i64 8
   store i16 2, ptr %fUnion2.i.i.i1674, align 8
   %arrayctor.cur.add.i.i1675 = add nuw nsw i64 %arrayctor.cur.idx.i.i1672, 64
   %arrayctor.done.i.i1677 = icmp eq i64 %arrayctor.cur.add.i.i1675, 136
@@ -5742,7 +5747,7 @@ invoke.cont.i.i1702:                              ; preds = %invoke.cont.i.i1702
   %arrayctor.cur.idx.i.i1703 = phi i64 [ 8, %new.notnull.i.i1699 ], [ %arrayctor.cur.add.i.i1706, %invoke.cont.i.i1702 ]
   %arrayctor.cur.ptr.ptr.i.i1704 = getelementptr inbounds i8, ptr %call.i.i1697, i64 %arrayctor.cur.idx.i.i1703
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1704, align 8
-  %fUnion2.i.i.i1705 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1704, i64 0, i32 1
+  %fUnion2.i.i.i1705 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1704, i64 8
   store i16 2, ptr %fUnion2.i.i.i1705, align 8
   %arrayctor.cur.add.i.i1706 = add nuw nsw i64 %arrayctor.cur.idx.i.i1703, 64
   %arrayctor.done.i.i1708 = icmp eq i64 %arrayctor.cur.add.i.i1706, 840
@@ -5813,7 +5818,7 @@ invoke.cont.i.i1733:                              ; preds = %invoke.cont.i.i1733
   %arrayctor.cur.idx.i.i1734 = phi i64 [ 8, %new.notnull.i.i1730 ], [ %arrayctor.cur.add.i.i1737, %invoke.cont.i.i1733 ]
   %arrayctor.cur.ptr.ptr.i.i1735 = getelementptr inbounds i8, ptr %call.i.i1728, i64 %arrayctor.cur.idx.i.i1734
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1735, align 8
-  %fUnion2.i.i.i1736 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1735, i64 0, i32 1
+  %fUnion2.i.i.i1736 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1735, i64 8
   store i16 2, ptr %fUnion2.i.i.i1736, align 8
   %arrayctor.cur.add.i.i1737 = add nuw nsw i64 %arrayctor.cur.idx.i.i1734, 64
   %arrayctor.done.i.i1739 = icmp eq i64 %arrayctor.cur.add.i.i1737, 840
@@ -5884,7 +5889,7 @@ invoke.cont.i.i1764:                              ; preds = %invoke.cont.i.i1764
   %arrayctor.cur.idx.i.i1765 = phi i64 [ 8, %new.notnull.i.i1761 ], [ %arrayctor.cur.add.i.i1768, %invoke.cont.i.i1764 ]
   %arrayctor.cur.ptr.ptr.i.i1766 = getelementptr inbounds i8, ptr %call.i.i1759, i64 %arrayctor.cur.idx.i.i1765
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1766, align 8
-  %fUnion2.i.i.i1767 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1766, i64 0, i32 1
+  %fUnion2.i.i.i1767 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1766, i64 8
   store i16 2, ptr %fUnion2.i.i.i1767, align 8
   %arrayctor.cur.add.i.i1768 = add nuw nsw i64 %arrayctor.cur.idx.i.i1765, 64
   %arrayctor.done.i.i1770 = icmp eq i64 %arrayctor.cur.add.i.i1768, 840
@@ -5955,7 +5960,7 @@ invoke.cont.i.i1795:                              ; preds = %invoke.cont.i.i1795
   %arrayctor.cur.idx.i.i1796 = phi i64 [ 8, %new.notnull.i.i1792 ], [ %arrayctor.cur.add.i.i1799, %invoke.cont.i.i1795 ]
   %arrayctor.cur.ptr.ptr.i.i1797 = getelementptr inbounds i8, ptr %call.i.i1790, i64 %arrayctor.cur.idx.i.i1796
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1797, align 8
-  %fUnion2.i.i.i1798 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1797, i64 0, i32 1
+  %fUnion2.i.i.i1798 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1797, i64 8
   store i16 2, ptr %fUnion2.i.i.i1798, align 8
   %arrayctor.cur.add.i.i1799 = add nuw nsw i64 %arrayctor.cur.idx.i.i1796, 64
   %arrayctor.done.i.i1801 = icmp eq i64 %arrayctor.cur.add.i.i1799, 840
@@ -6026,7 +6031,7 @@ invoke.cont.i.i1826:                              ; preds = %invoke.cont.i.i1826
   %arrayctor.cur.idx.i.i1827 = phi i64 [ 8, %new.notnull.i.i1823 ], [ %arrayctor.cur.add.i.i1830, %invoke.cont.i.i1826 ]
   %arrayctor.cur.ptr.ptr.i.i1828 = getelementptr inbounds i8, ptr %call.i.i1821, i64 %arrayctor.cur.idx.i.i1827
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1828, align 8
-  %fUnion2.i.i.i1829 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1828, i64 0, i32 1
+  %fUnion2.i.i.i1829 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1828, i64 8
   store i16 2, ptr %fUnion2.i.i.i1829, align 8
   %arrayctor.cur.add.i.i1830 = add nuw nsw i64 %arrayctor.cur.idx.i.i1827, 64
   %arrayctor.done.i.i1832 = icmp eq i64 %arrayctor.cur.add.i.i1830, 840
@@ -6097,7 +6102,7 @@ invoke.cont.i.i1857:                              ; preds = %invoke.cont.i.i1857
   %arrayctor.cur.idx.i.i1858 = phi i64 [ 8, %new.notnull.i.i1854 ], [ %arrayctor.cur.add.i.i1861, %invoke.cont.i.i1857 ]
   %arrayctor.cur.ptr.ptr.i.i1859 = getelementptr inbounds i8, ptr %call.i.i1852, i64 %arrayctor.cur.idx.i.i1858
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1859, align 8
-  %fUnion2.i.i.i1860 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1859, i64 0, i32 1
+  %fUnion2.i.i.i1860 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1859, i64 8
   store i16 2, ptr %fUnion2.i.i.i1860, align 8
   %arrayctor.cur.add.i.i1861 = add nuw nsw i64 %arrayctor.cur.idx.i.i1858, 64
   %arrayctor.done.i.i1863 = icmp eq i64 %arrayctor.cur.add.i.i1861, 840
@@ -6168,7 +6173,7 @@ invoke.cont.i.i1888:                              ; preds = %invoke.cont.i.i1888
   %arrayctor.cur.idx.i.i1889 = phi i64 [ 8, %new.notnull.i.i1885 ], [ %arrayctor.cur.add.i.i1892, %invoke.cont.i.i1888 ]
   %arrayctor.cur.ptr.ptr.i.i1890 = getelementptr inbounds i8, ptr %call.i.i1883, i64 %arrayctor.cur.idx.i.i1889
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1890, align 8
-  %fUnion2.i.i.i1891 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1890, i64 0, i32 1
+  %fUnion2.i.i.i1891 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1890, i64 8
   store i16 2, ptr %fUnion2.i.i.i1891, align 8
   %arrayctor.cur.add.i.i1892 = add nuw nsw i64 %arrayctor.cur.idx.i.i1889, 64
   %arrayctor.done.i.i1894 = icmp eq i64 %arrayctor.cur.add.i.i1892, 520
@@ -6239,7 +6244,7 @@ invoke.cont.i.i1919:                              ; preds = %invoke.cont.i.i1919
   %arrayctor.cur.idx.i.i1920 = phi i64 [ 8, %new.notnull.i.i1916 ], [ %arrayctor.cur.add.i.i1923, %invoke.cont.i.i1919 ]
   %arrayctor.cur.ptr.ptr.i.i1921 = getelementptr inbounds i8, ptr %call.i.i1914, i64 %arrayctor.cur.idx.i.i1920
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1921, align 8
-  %fUnion2.i.i.i1922 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1921, i64 0, i32 1
+  %fUnion2.i.i.i1922 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1921, i64 8
   store i16 2, ptr %fUnion2.i.i.i1922, align 8
   %arrayctor.cur.add.i.i1923 = add nuw nsw i64 %arrayctor.cur.idx.i.i1920, 64
   %arrayctor.done.i.i1925 = icmp eq i64 %arrayctor.cur.add.i.i1923, 520
@@ -6310,7 +6315,7 @@ invoke.cont.i.i1950:                              ; preds = %invoke.cont.i.i1950
   %arrayctor.cur.idx.i.i1951 = phi i64 [ 8, %new.notnull.i.i1947 ], [ %arrayctor.cur.add.i.i1954, %invoke.cont.i.i1950 ]
   %arrayctor.cur.ptr.ptr.i.i1952 = getelementptr inbounds i8, ptr %call.i.i1945, i64 %arrayctor.cur.idx.i.i1951
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1952, align 8
-  %fUnion2.i.i.i1953 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1952, i64 0, i32 1
+  %fUnion2.i.i.i1953 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1952, i64 8
   store i16 2, ptr %fUnion2.i.i.i1953, align 8
   %arrayctor.cur.add.i.i1954 = add nuw nsw i64 %arrayctor.cur.idx.i.i1951, 64
   %arrayctor.done.i.i1956 = icmp eq i64 %arrayctor.cur.add.i.i1954, 520
@@ -6381,7 +6386,7 @@ invoke.cont.i.i1981:                              ; preds = %invoke.cont.i.i1981
   %arrayctor.cur.idx.i.i1982 = phi i64 [ 8, %new.notnull.i.i1978 ], [ %arrayctor.cur.add.i.i1985, %invoke.cont.i.i1981 ]
   %arrayctor.cur.ptr.ptr.i.i1983 = getelementptr inbounds i8, ptr %call.i.i1976, i64 %arrayctor.cur.idx.i.i1982
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1983, align 8
-  %fUnion2.i.i.i1984 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1983, i64 0, i32 1
+  %fUnion2.i.i.i1984 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1983, i64 8
   store i16 2, ptr %fUnion2.i.i.i1984, align 8
   %arrayctor.cur.add.i.i1985 = add nuw nsw i64 %arrayctor.cur.idx.i.i1982, 64
   %arrayctor.done.i.i1987 = icmp eq i64 %arrayctor.cur.add.i.i1985, 520
@@ -6452,7 +6457,7 @@ invoke.cont.i.i2012:                              ; preds = %invoke.cont.i.i2012
   %arrayctor.cur.idx.i.i2013 = phi i64 [ 8, %new.notnull.i.i2009 ], [ %arrayctor.cur.add.i.i2016, %invoke.cont.i.i2012 ]
   %arrayctor.cur.ptr.ptr.i.i2014 = getelementptr inbounds i8, ptr %call.i.i2007, i64 %arrayctor.cur.idx.i.i2013
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2014, align 8
-  %fUnion2.i.i.i2015 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2014, i64 0, i32 1
+  %fUnion2.i.i.i2015 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2014, i64 8
   store i16 2, ptr %fUnion2.i.i.i2015, align 8
   %arrayctor.cur.add.i.i2016 = add nuw nsw i64 %arrayctor.cur.idx.i.i2013, 64
   %arrayctor.done.i.i2018 = icmp eq i64 %arrayctor.cur.add.i.i2016, 520
@@ -6523,7 +6528,7 @@ invoke.cont.i.i2043:                              ; preds = %invoke.cont.i.i2043
   %arrayctor.cur.idx.i.i2044 = phi i64 [ 8, %new.notnull.i.i2040 ], [ %arrayctor.cur.add.i.i2047, %invoke.cont.i.i2043 ]
   %arrayctor.cur.ptr.ptr.i.i2045 = getelementptr inbounds i8, ptr %call.i.i2038, i64 %arrayctor.cur.idx.i.i2044
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2045, align 8
-  %fUnion2.i.i.i2046 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2045, i64 0, i32 1
+  %fUnion2.i.i.i2046 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2045, i64 8
   store i16 2, ptr %fUnion2.i.i.i2046, align 8
   %arrayctor.cur.add.i.i2047 = add nuw nsw i64 %arrayctor.cur.idx.i.i2044, 64
   %arrayctor.done.i.i2049 = icmp eq i64 %arrayctor.cur.add.i.i2047, 520
@@ -6594,7 +6599,7 @@ invoke.cont.i.i2074:                              ; preds = %invoke.cont.i.i2074
   %arrayctor.cur.idx.i.i2075 = phi i64 [ 8, %new.notnull.i.i2071 ], [ %arrayctor.cur.add.i.i2078, %invoke.cont.i.i2074 ]
   %arrayctor.cur.ptr.ptr.i.i2076 = getelementptr inbounds i8, ptr %call.i.i2069, i64 %arrayctor.cur.idx.i.i2075
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2076, align 8
-  %fUnion2.i.i.i2077 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2076, i64 0, i32 1
+  %fUnion2.i.i.i2077 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2076, i64 8
   store i16 2, ptr %fUnion2.i.i.i2077, align 8
   %arrayctor.cur.add.i.i2078 = add nuw nsw i64 %arrayctor.cur.idx.i.i2075, 64
   %arrayctor.done.i.i2080 = icmp eq i64 %arrayctor.cur.add.i.i2078, 520
@@ -6665,7 +6670,7 @@ invoke.cont.i.i2105:                              ; preds = %invoke.cont.i.i2105
   %arrayctor.cur.idx.i.i2106 = phi i64 [ 8, %new.notnull.i.i2102 ], [ %arrayctor.cur.add.i.i2109, %invoke.cont.i.i2105 ]
   %arrayctor.cur.ptr.ptr.i.i2107 = getelementptr inbounds i8, ptr %call.i.i2100, i64 %arrayctor.cur.idx.i.i2106
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2107, align 8
-  %fUnion2.i.i.i2108 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2107, i64 0, i32 1
+  %fUnion2.i.i.i2108 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2107, i64 8
   store i16 2, ptr %fUnion2.i.i.i2108, align 8
   %arrayctor.cur.add.i.i2109 = add nuw nsw i64 %arrayctor.cur.idx.i.i2106, 64
   %arrayctor.done.i.i2111 = icmp eq i64 %arrayctor.cur.add.i.i2109, 520
@@ -6736,7 +6741,7 @@ invoke.cont.i.i2136:                              ; preds = %invoke.cont.i.i2136
   %arrayctor.cur.idx.i.i2137 = phi i64 [ 8, %new.notnull.i.i2133 ], [ %arrayctor.cur.add.i.i2140, %invoke.cont.i.i2136 ]
   %arrayctor.cur.ptr.ptr.i.i2138 = getelementptr inbounds i8, ptr %call.i.i2131, i64 %arrayctor.cur.idx.i.i2137
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2138, align 8
-  %fUnion2.i.i.i2139 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2138, i64 0, i32 1
+  %fUnion2.i.i.i2139 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2138, i64 8
   store i16 2, ptr %fUnion2.i.i.i2139, align 8
   %arrayctor.cur.add.i.i2140 = add nuw nsw i64 %arrayctor.cur.idx.i.i2137, 64
   %arrayctor.done.i.i2142 = icmp eq i64 %arrayctor.cur.add.i.i2140, 136
@@ -6807,7 +6812,7 @@ invoke.cont.i.i2167:                              ; preds = %invoke.cont.i.i2167
   %arrayctor.cur.idx.i.i2168 = phi i64 [ 8, %new.notnull.i.i2164 ], [ %arrayctor.cur.add.i.i2171, %invoke.cont.i.i2167 ]
   %arrayctor.cur.ptr.ptr.i.i2169 = getelementptr inbounds i8, ptr %call.i.i2162, i64 %arrayctor.cur.idx.i.i2168
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2169, align 8
-  %fUnion2.i.i.i2170 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2169, i64 0, i32 1
+  %fUnion2.i.i.i2170 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2169, i64 8
   store i16 2, ptr %fUnion2.i.i.i2170, align 8
   %arrayctor.cur.add.i.i2171 = add nuw nsw i64 %arrayctor.cur.idx.i.i2168, 64
   %arrayctor.done.i.i2173 = icmp eq i64 %arrayctor.cur.add.i.i2171, 136
@@ -6878,7 +6883,7 @@ invoke.cont.i.i2198:                              ; preds = %invoke.cont.i.i2198
   %arrayctor.cur.idx.i.i2199 = phi i64 [ 8, %new.notnull.i.i2195 ], [ %arrayctor.cur.add.i.i2202, %invoke.cont.i.i2198 ]
   %arrayctor.cur.ptr.ptr.i.i2200 = getelementptr inbounds i8, ptr %call.i.i2193, i64 %arrayctor.cur.idx.i.i2199
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2200, align 8
-  %fUnion2.i.i.i2201 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2200, i64 0, i32 1
+  %fUnion2.i.i.i2201 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2200, i64 8
   store i16 2, ptr %fUnion2.i.i.i2201, align 8
   %arrayctor.cur.add.i.i2202 = add nuw nsw i64 %arrayctor.cur.idx.i.i2199, 64
   %arrayctor.done.i.i2204 = icmp eq i64 %arrayctor.cur.add.i.i2202, 264
@@ -6949,7 +6954,7 @@ invoke.cont.i.i2229:                              ; preds = %invoke.cont.i.i2229
   %arrayctor.cur.idx.i.i2230 = phi i64 [ 8, %new.notnull.i.i2226 ], [ %arrayctor.cur.add.i.i2233, %invoke.cont.i.i2229 ]
   %arrayctor.cur.ptr.ptr.i.i2231 = getelementptr inbounds i8, ptr %call.i.i2224, i64 %arrayctor.cur.idx.i.i2230
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2231, align 8
-  %fUnion2.i.i.i2232 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2231, i64 0, i32 1
+  %fUnion2.i.i.i2232 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2231, i64 8
   store i16 2, ptr %fUnion2.i.i.i2232, align 8
   %arrayctor.cur.add.i.i2233 = add nuw nsw i64 %arrayctor.cur.idx.i.i2230, 64
   %arrayctor.done.i.i2235 = icmp eq i64 %arrayctor.cur.add.i.i2233, 264
@@ -7020,7 +7025,7 @@ invoke.cont.i.i2260:                              ; preds = %invoke.cont.i.i2260
   %arrayctor.cur.idx.i.i2261 = phi i64 [ 8, %new.notnull.i.i2257 ], [ %arrayctor.cur.add.i.i2264, %invoke.cont.i.i2260 ]
   %arrayctor.cur.ptr.ptr.i.i2262 = getelementptr inbounds i8, ptr %call.i.i2255, i64 %arrayctor.cur.idx.i.i2261
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2262, align 8
-  %fUnion2.i.i.i2263 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2262, i64 0, i32 1
+  %fUnion2.i.i.i2263 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2262, i64 8
   store i16 2, ptr %fUnion2.i.i.i2263, align 8
   %arrayctor.cur.add.i.i2264 = add nuw nsw i64 %arrayctor.cur.idx.i.i2261, 64
   %arrayctor.done.i.i2266 = icmp eq i64 %arrayctor.cur.add.i.i2264, 264
@@ -7091,7 +7096,7 @@ invoke.cont.i.i2291:                              ; preds = %invoke.cont.i.i2291
   %arrayctor.cur.idx.i.i2292 = phi i64 [ 8, %new.notnull.i.i2288 ], [ %arrayctor.cur.add.i.i2295, %invoke.cont.i.i2291 ]
   %arrayctor.cur.ptr.ptr.i.i2293 = getelementptr inbounds i8, ptr %call.i.i2286, i64 %arrayctor.cur.idx.i.i2292
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2293, align 8
-  %fUnion2.i.i.i2294 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2293, i64 0, i32 1
+  %fUnion2.i.i.i2294 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2293, i64 8
   store i16 2, ptr %fUnion2.i.i.i2294, align 8
   %arrayctor.cur.add.i.i2295 = add nuw nsw i64 %arrayctor.cur.idx.i.i2292, 64
   %arrayctor.done.i.i2297 = icmp eq i64 %arrayctor.cur.add.i.i2295, 264
@@ -7162,7 +7167,7 @@ invoke.cont.i.i2322:                              ; preds = %invoke.cont.i.i2322
   %arrayctor.cur.idx.i.i2323 = phi i64 [ 8, %new.notnull.i.i2319 ], [ %arrayctor.cur.add.i.i2326, %invoke.cont.i.i2322 ]
   %arrayctor.cur.ptr.ptr.i.i2324 = getelementptr inbounds i8, ptr %call.i.i2317, i64 %arrayctor.cur.idx.i.i2323
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2324, align 8
-  %fUnion2.i.i.i2325 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2324, i64 0, i32 1
+  %fUnion2.i.i.i2325 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2324, i64 8
   store i16 2, ptr %fUnion2.i.i.i2325, align 8
   %arrayctor.cur.add.i.i2326 = add nuw nsw i64 %arrayctor.cur.idx.i.i2323, 64
   %arrayctor.done.i.i2328 = icmp eq i64 %arrayctor.cur.add.i.i2326, 264
@@ -7233,7 +7238,7 @@ invoke.cont.i.i2353:                              ; preds = %invoke.cont.i.i2353
   %arrayctor.cur.idx.i.i2354 = phi i64 [ 8, %new.notnull.i.i2350 ], [ %arrayctor.cur.add.i.i2357, %invoke.cont.i.i2353 ]
   %arrayctor.cur.ptr.ptr.i.i2355 = getelementptr inbounds i8, ptr %call.i.i2348, i64 %arrayctor.cur.idx.i.i2354
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i2355, align 8
-  %fUnion2.i.i.i2356 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i2355, i64 0, i32 1
+  %fUnion2.i.i.i2356 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i2355, i64 8
   store i16 2, ptr %fUnion2.i.i.i2356, align 8
   %arrayctor.cur.add.i.i2357 = add nuw nsw i64 %arrayctor.cur.idx.i.i2354, 64
   %arrayctor.done.i.i2359 = icmp eq i64 %arrayctor.cur.add.i.i2357, 264
@@ -7346,18 +7351,18 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7517DateFormatSymbolsC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fTimeSeparator, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i16 2, ptr %fUnion2.i, align 8
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fLocalPatternChars, align 8
-  %fUnion2.i4 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91, i32 1
+  %fUnion2.i4 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i4, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont7 unwind label %lpad6
@@ -7394,18 +7399,18 @@ declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10get
 define void @_ZN6icu_7517DateFormatSymbolsC2ERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fTimeSeparator, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i16 2, ptr %fUnion2.i, align 8
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fLocalPatternChars, align 8
-  %fUnion2.i4 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91, i32 1
+  %fUnion2.i4 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i4, align 8
   invoke void @_ZN6icu_7517DateFormatSymbols14initializeDataERKNS_6LocaleEPKcR10UErrorCodea(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status, i8 noundef signext 0)
           to label %invoke.cont7 unwind label %lpad6
@@ -7436,18 +7441,18 @@ ehcleanup8:                                       ; preds = %lpad6, %lpad2
 define void @_ZN6icu_7517DateFormatSymbolsC2EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fTimeSeparator, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i16 2, ptr %fUnion2.i, align 8
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fLocalPatternChars, align 8
-  %fUnion2.i4 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91, i32 1
+  %fUnion2.i4 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i4, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont7 unwind label %lpad6
@@ -7482,18 +7487,18 @@ ehcleanup9:                                       ; preds = %lpad6, %lpad2
 define void @_ZN6icu_7517DateFormatSymbolsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(1272) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fTimeSeparator, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i16 2, ptr %fUnion2.i, align 8
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fLocalPatternChars, align 8
-  %fUnion2.i5 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91, i32 1
+  %fUnion2.i5 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i5, align 8
   invoke void @_ZN6icu_7517DateFormatSymbols8copyDataERKS0_(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(1272) %other)
           to label %invoke.cont7 unwind label %lpad6
@@ -7530,22 +7535,22 @@ entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   %ref.tmp3 = alloca %"class.icu_75::Locale", align 8
   store i32 0, ptr %status, align 4
-  %validLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 111
-  %actualLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 112
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 956
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 1113
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %locBased.i)
-  %validLocale.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 111
-  %actualLocale.i = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 112
+  %validLocale.i = getelementptr inbounds i8, ptr %other, i64 956
+  %actualLocale.i = getelementptr inbounds i8, ptr %other, i64 1113
   store ptr %validLocale.i, ptr %locBased.i, align 8, !noalias !15
-  %actual.i.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased.i, i64 0, i32 1
+  %actual.i.i = getelementptr inbounds i8, ptr %locBased.i, i64 8
   store ptr %actualLocale.i, ptr %actual.i.i, align 8, !noalias !15
   call void @_ZNK6icu_7511LocaleBased9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr nonnull sret(%"class.icu_75::Locale") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %locBased.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %locBased.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %locBased.i84)
   store ptr %validLocale.i, ptr %locBased.i84, align 8, !noalias !18
-  %actual.i.i87 = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased.i84, i64 0, i32 1
+  %actual.i.i87 = getelementptr inbounds i8, ptr %locBased.i84, i64 8
   store ptr %actualLocale.i, ptr %actual.i.i87, align 8, !noalias !18
   invoke void @_ZNK6icu_7511LocaleBased9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr nonnull sret(%"class.icu_75::Locale") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %locBased.i84, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -7558,11 +7563,11 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp3) #16
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #16
-  %fEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 1
-  %fErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 2
-  %fEras6 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 1
+  %fEras = getelementptr inbounds i8, ptr %this, i64 8
+  %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
+  %fEras6 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %fEras6, align 8
-  %fErasCount7 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 2
+  %fErasCount7 = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load i32, ptr %fErasCount7, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -7593,7 +7598,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i, %n
   %arrayctor.cur.idx.i.i = phi i64 [ 8, %new.notnull.i.i ], [ %arrayctor.cur.add.i.i, %invoke.cont.i.i ]
   %arrayctor.cur.ptr.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.idx.i.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i, align 8
-  %fUnion2.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i, i64 0, i32 1
+  %fUnion2.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i, i64 8
   store i16 2, ptr %fUnion2.i.i.i, align 8
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 64
   %arrayctor.next.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.add.i.i
@@ -7624,11 +7629,11 @@ if.end7.sink.split.i:                             ; preds = %if.end.i, %if.then.
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit: ; preds = %for.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i, %if.end7.sink.split.i
-  %fEraNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 4
-  %fEraNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 5
-  %fEraNames8 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 4
+  %fEraNames = getelementptr inbounds i8, ptr %this, i64 24
+  %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
+  %fEraNames8 = getelementptr inbounds i8, ptr %other, i64 24
   %8 = load ptr, ptr %fEraNames8, align 8
-  %fEraNamesCount9 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 5
+  %fEraNamesCount9 = getelementptr inbounds i8, ptr %other, i64 32
   %9 = load i32, ptr %fEraNamesCount9, align 8
   %cmp.i88 = icmp eq ptr %8, null
   br i1 %cmp.i88, label %if.then.i115, label %if.end.i89
@@ -7659,7 +7664,7 @@ invoke.cont.i.i96:                                ; preds = %invoke.cont.i.i96, 
   %arrayctor.cur.idx.i.i97 = phi i64 [ 8, %new.notnull.i.i93 ], [ %arrayctor.cur.add.i.i100, %invoke.cont.i.i96 ]
   %arrayctor.cur.ptr.ptr.i.i98 = getelementptr inbounds i8, ptr %call.i.i91, i64 %arrayctor.cur.idx.i.i97
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i98, align 8
-  %fUnion2.i.i.i99 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i98, i64 0, i32 1
+  %fUnion2.i.i.i99 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i98, i64 8
   store i16 2, ptr %fUnion2.i.i.i99, align 8
   %arrayctor.cur.add.i.i100 = add nuw nsw i64 %arrayctor.cur.idx.i.i97, 64
   %arrayctor.next.ptr.i.i101 = getelementptr inbounds i8, ptr %call.i.i91, i64 %arrayctor.cur.add.i.i100
@@ -7690,11 +7695,11 @@ if.end7.sink.split.i114:                          ; preds = %if.end.i89, %if.the
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit116
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit116: ; preds = %for.body.i107, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i103, %if.end7.sink.split.i114
-  %fNarrowEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 7
-  %fNarrowErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 8
-  %fNarrowEras10 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 7
+  %fNarrowEras = getelementptr inbounds i8, ptr %this, i64 40
+  %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
+  %fNarrowEras10 = getelementptr inbounds i8, ptr %other, i64 40
   %16 = load ptr, ptr %fNarrowEras10, align 8
-  %fNarrowErasCount11 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 8
+  %fNarrowErasCount11 = getelementptr inbounds i8, ptr %other, i64 48
   %17 = load i32, ptr %fNarrowErasCount11, align 8
   %cmp.i117 = icmp eq ptr %16, null
   br i1 %cmp.i117, label %if.then.i144, label %if.end.i118
@@ -7725,7 +7730,7 @@ invoke.cont.i.i125:                               ; preds = %invoke.cont.i.i125,
   %arrayctor.cur.idx.i.i126 = phi i64 [ 8, %new.notnull.i.i122 ], [ %arrayctor.cur.add.i.i129, %invoke.cont.i.i125 ]
   %arrayctor.cur.ptr.ptr.i.i127 = getelementptr inbounds i8, ptr %call.i.i120, i64 %arrayctor.cur.idx.i.i126
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i127, align 8
-  %fUnion2.i.i.i128 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i127, i64 0, i32 1
+  %fUnion2.i.i.i128 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i127, i64 8
   store i16 2, ptr %fUnion2.i.i.i128, align 8
   %arrayctor.cur.add.i.i129 = add nuw nsw i64 %arrayctor.cur.idx.i.i126, 64
   %arrayctor.next.ptr.i.i130 = getelementptr inbounds i8, ptr %call.i.i120, i64 %arrayctor.cur.add.i.i129
@@ -7756,11 +7761,11 @@ if.end7.sink.split.i143:                          ; preds = %if.end.i118, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit145
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit145: ; preds = %for.body.i136, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i132, %if.end7.sink.split.i143
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
-  %fMonths12 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
+  %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
+  %fMonths12 = getelementptr inbounds i8, ptr %other, i64 56
   %24 = load ptr, ptr %fMonths12, align 8
-  %fMonthsCount13 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 11
+  %fMonthsCount13 = getelementptr inbounds i8, ptr %other, i64 64
   %25 = load i32, ptr %fMonthsCount13, align 8
   %cmp.i146 = icmp eq ptr %24, null
   br i1 %cmp.i146, label %if.then.i173, label %if.end.i147
@@ -7791,7 +7796,7 @@ invoke.cont.i.i154:                               ; preds = %invoke.cont.i.i154,
   %arrayctor.cur.idx.i.i155 = phi i64 [ 8, %new.notnull.i.i151 ], [ %arrayctor.cur.add.i.i158, %invoke.cont.i.i154 ]
   %arrayctor.cur.ptr.ptr.i.i156 = getelementptr inbounds i8, ptr %call.i.i149, i64 %arrayctor.cur.idx.i.i155
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i156, align 8
-  %fUnion2.i.i.i157 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i156, i64 0, i32 1
+  %fUnion2.i.i.i157 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i156, i64 8
   store i16 2, ptr %fUnion2.i.i.i157, align 8
   %arrayctor.cur.add.i.i158 = add nuw nsw i64 %arrayctor.cur.idx.i.i155, 64
   %arrayctor.next.ptr.i.i159 = getelementptr inbounds i8, ptr %call.i.i149, i64 %arrayctor.cur.add.i.i158
@@ -7822,11 +7827,11 @@ if.end7.sink.split.i172:                          ; preds = %if.end.i147, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit174
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit174: ; preds = %for.body.i165, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i161, %if.end7.sink.split.i172
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
-  %fShortMonths14 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
+  %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
+  %fShortMonths14 = getelementptr inbounds i8, ptr %other, i64 72
   %32 = load ptr, ptr %fShortMonths14, align 8
-  %fShortMonthsCount15 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 14
+  %fShortMonthsCount15 = getelementptr inbounds i8, ptr %other, i64 80
   %33 = load i32, ptr %fShortMonthsCount15, align 8
   %cmp.i175 = icmp eq ptr %32, null
   br i1 %cmp.i175, label %if.then.i202, label %if.end.i176
@@ -7857,7 +7862,7 @@ invoke.cont.i.i183:                               ; preds = %invoke.cont.i.i183,
   %arrayctor.cur.idx.i.i184 = phi i64 [ 8, %new.notnull.i.i180 ], [ %arrayctor.cur.add.i.i187, %invoke.cont.i.i183 ]
   %arrayctor.cur.ptr.ptr.i.i185 = getelementptr inbounds i8, ptr %call.i.i178, i64 %arrayctor.cur.idx.i.i184
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i185, align 8
-  %fUnion2.i.i.i186 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i185, i64 0, i32 1
+  %fUnion2.i.i.i186 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i185, i64 8
   store i16 2, ptr %fUnion2.i.i.i186, align 8
   %arrayctor.cur.add.i.i187 = add nuw nsw i64 %arrayctor.cur.idx.i.i184, 64
   %arrayctor.next.ptr.i.i188 = getelementptr inbounds i8, ptr %call.i.i178, i64 %arrayctor.cur.add.i.i187
@@ -7888,11 +7893,11 @@ if.end7.sink.split.i201:                          ; preds = %if.end.i176, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit203
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit203: ; preds = %for.body.i194, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i190, %if.end7.sink.split.i201
-  %fNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 16
-  %fNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 17
-  %fNarrowMonths16 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 16
+  %fNarrowMonths = getelementptr inbounds i8, ptr %this, i64 88
+  %fNarrowMonthsCount = getelementptr inbounds i8, ptr %this, i64 96
+  %fNarrowMonths16 = getelementptr inbounds i8, ptr %other, i64 88
   %40 = load ptr, ptr %fNarrowMonths16, align 8
-  %fNarrowMonthsCount17 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 17
+  %fNarrowMonthsCount17 = getelementptr inbounds i8, ptr %other, i64 96
   %41 = load i32, ptr %fNarrowMonthsCount17, align 8
   %cmp.i204 = icmp eq ptr %40, null
   br i1 %cmp.i204, label %if.then.i231, label %if.end.i205
@@ -7923,7 +7928,7 @@ invoke.cont.i.i212:                               ; preds = %invoke.cont.i.i212,
   %arrayctor.cur.idx.i.i213 = phi i64 [ 8, %new.notnull.i.i209 ], [ %arrayctor.cur.add.i.i216, %invoke.cont.i.i212 ]
   %arrayctor.cur.ptr.ptr.i.i214 = getelementptr inbounds i8, ptr %call.i.i207, i64 %arrayctor.cur.idx.i.i213
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i214, align 8
-  %fUnion2.i.i.i215 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i214, i64 0, i32 1
+  %fUnion2.i.i.i215 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i214, i64 8
   store i16 2, ptr %fUnion2.i.i.i215, align 8
   %arrayctor.cur.add.i.i216 = add nuw nsw i64 %arrayctor.cur.idx.i.i213, 64
   %arrayctor.next.ptr.i.i217 = getelementptr inbounds i8, ptr %call.i.i207, i64 %arrayctor.cur.add.i.i216
@@ -7954,11 +7959,11 @@ if.end7.sink.split.i230:                          ; preds = %if.end.i205, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit232
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit232: ; preds = %for.body.i223, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i219, %if.end7.sink.split.i230
-  %fStandaloneMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 19
-  %fStandaloneMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 20
-  %fStandaloneMonths18 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 19
+  %fStandaloneMonths = getelementptr inbounds i8, ptr %this, i64 104
+  %fStandaloneMonthsCount = getelementptr inbounds i8, ptr %this, i64 112
+  %fStandaloneMonths18 = getelementptr inbounds i8, ptr %other, i64 104
   %48 = load ptr, ptr %fStandaloneMonths18, align 8
-  %fStandaloneMonthsCount19 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 20
+  %fStandaloneMonthsCount19 = getelementptr inbounds i8, ptr %other, i64 112
   %49 = load i32, ptr %fStandaloneMonthsCount19, align 8
   %cmp.i233 = icmp eq ptr %48, null
   br i1 %cmp.i233, label %if.then.i260, label %if.end.i234
@@ -7989,7 +7994,7 @@ invoke.cont.i.i241:                               ; preds = %invoke.cont.i.i241,
   %arrayctor.cur.idx.i.i242 = phi i64 [ 8, %new.notnull.i.i238 ], [ %arrayctor.cur.add.i.i245, %invoke.cont.i.i241 ]
   %arrayctor.cur.ptr.ptr.i.i243 = getelementptr inbounds i8, ptr %call.i.i236, i64 %arrayctor.cur.idx.i.i242
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i243, align 8
-  %fUnion2.i.i.i244 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i243, i64 0, i32 1
+  %fUnion2.i.i.i244 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i243, i64 8
   store i16 2, ptr %fUnion2.i.i.i244, align 8
   %arrayctor.cur.add.i.i245 = add nuw nsw i64 %arrayctor.cur.idx.i.i242, 64
   %arrayctor.next.ptr.i.i246 = getelementptr inbounds i8, ptr %call.i.i236, i64 %arrayctor.cur.add.i.i245
@@ -8020,11 +8025,11 @@ if.end7.sink.split.i259:                          ; preds = %if.end.i234, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit261
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit261: ; preds = %for.body.i252, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i248, %if.end7.sink.split.i259
-  %fStandaloneShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 22
-  %fStandaloneShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 23
-  %fStandaloneShortMonths20 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 22
+  %fStandaloneShortMonths = getelementptr inbounds i8, ptr %this, i64 120
+  %fStandaloneShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 128
+  %fStandaloneShortMonths20 = getelementptr inbounds i8, ptr %other, i64 120
   %56 = load ptr, ptr %fStandaloneShortMonths20, align 8
-  %fStandaloneShortMonthsCount21 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 23
+  %fStandaloneShortMonthsCount21 = getelementptr inbounds i8, ptr %other, i64 128
   %57 = load i32, ptr %fStandaloneShortMonthsCount21, align 8
   %cmp.i262 = icmp eq ptr %56, null
   br i1 %cmp.i262, label %if.then.i289, label %if.end.i263
@@ -8055,7 +8060,7 @@ invoke.cont.i.i270:                               ; preds = %invoke.cont.i.i270,
   %arrayctor.cur.idx.i.i271 = phi i64 [ 8, %new.notnull.i.i267 ], [ %arrayctor.cur.add.i.i274, %invoke.cont.i.i270 ]
   %arrayctor.cur.ptr.ptr.i.i272 = getelementptr inbounds i8, ptr %call.i.i265, i64 %arrayctor.cur.idx.i.i271
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i272, align 8
-  %fUnion2.i.i.i273 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i272, i64 0, i32 1
+  %fUnion2.i.i.i273 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i272, i64 8
   store i16 2, ptr %fUnion2.i.i.i273, align 8
   %arrayctor.cur.add.i.i274 = add nuw nsw i64 %arrayctor.cur.idx.i.i271, 64
   %arrayctor.next.ptr.i.i275 = getelementptr inbounds i8, ptr %call.i.i265, i64 %arrayctor.cur.add.i.i274
@@ -8086,11 +8091,11 @@ if.end7.sink.split.i288:                          ; preds = %if.end.i263, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit290
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit290: ; preds = %for.body.i281, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i277, %if.end7.sink.split.i288
-  %fStandaloneNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 25
-  %fStandaloneNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 26
-  %fStandaloneNarrowMonths22 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 25
+  %fStandaloneNarrowMonths = getelementptr inbounds i8, ptr %this, i64 136
+  %fStandaloneNarrowMonthsCount = getelementptr inbounds i8, ptr %this, i64 144
+  %fStandaloneNarrowMonths22 = getelementptr inbounds i8, ptr %other, i64 136
   %64 = load ptr, ptr %fStandaloneNarrowMonths22, align 8
-  %fStandaloneNarrowMonthsCount23 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 26
+  %fStandaloneNarrowMonthsCount23 = getelementptr inbounds i8, ptr %other, i64 144
   %65 = load i32, ptr %fStandaloneNarrowMonthsCount23, align 8
   %cmp.i291 = icmp eq ptr %64, null
   br i1 %cmp.i291, label %if.then.i318, label %if.end.i292
@@ -8121,7 +8126,7 @@ invoke.cont.i.i299:                               ; preds = %invoke.cont.i.i299,
   %arrayctor.cur.idx.i.i300 = phi i64 [ 8, %new.notnull.i.i296 ], [ %arrayctor.cur.add.i.i303, %invoke.cont.i.i299 ]
   %arrayctor.cur.ptr.ptr.i.i301 = getelementptr inbounds i8, ptr %call.i.i294, i64 %arrayctor.cur.idx.i.i300
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i301, align 8
-  %fUnion2.i.i.i302 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i301, i64 0, i32 1
+  %fUnion2.i.i.i302 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i301, i64 8
   store i16 2, ptr %fUnion2.i.i.i302, align 8
   %arrayctor.cur.add.i.i303 = add nuw nsw i64 %arrayctor.cur.idx.i.i300, 64
   %arrayctor.next.ptr.i.i304 = getelementptr inbounds i8, ptr %call.i.i294, i64 %arrayctor.cur.add.i.i303
@@ -8152,11 +8157,11 @@ if.end7.sink.split.i317:                          ; preds = %if.end.i292, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit319
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit319: ; preds = %for.body.i310, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i306, %if.end7.sink.split.i317
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
-  %fWeekdays24 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
+  %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
+  %fWeekdays24 = getelementptr inbounds i8, ptr %other, i64 152
   %72 = load ptr, ptr %fWeekdays24, align 8
-  %fWeekdaysCount25 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 29
+  %fWeekdaysCount25 = getelementptr inbounds i8, ptr %other, i64 160
   %73 = load i32, ptr %fWeekdaysCount25, align 8
   %cmp.i320 = icmp eq ptr %72, null
   br i1 %cmp.i320, label %if.then.i347, label %if.end.i321
@@ -8187,7 +8192,7 @@ invoke.cont.i.i328:                               ; preds = %invoke.cont.i.i328,
   %arrayctor.cur.idx.i.i329 = phi i64 [ 8, %new.notnull.i.i325 ], [ %arrayctor.cur.add.i.i332, %invoke.cont.i.i328 ]
   %arrayctor.cur.ptr.ptr.i.i330 = getelementptr inbounds i8, ptr %call.i.i323, i64 %arrayctor.cur.idx.i.i329
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i330, align 8
-  %fUnion2.i.i.i331 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i330, i64 0, i32 1
+  %fUnion2.i.i.i331 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i330, i64 8
   store i16 2, ptr %fUnion2.i.i.i331, align 8
   %arrayctor.cur.add.i.i332 = add nuw nsw i64 %arrayctor.cur.idx.i.i329, 64
   %arrayctor.next.ptr.i.i333 = getelementptr inbounds i8, ptr %call.i.i323, i64 %arrayctor.cur.add.i.i332
@@ -8218,11 +8223,11 @@ if.end7.sink.split.i346:                          ; preds = %if.end.i321, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit348
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit348: ; preds = %for.body.i339, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i335, %if.end7.sink.split.i346
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
-  %fShortWeekdays26 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
+  %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
+  %fShortWeekdays26 = getelementptr inbounds i8, ptr %other, i64 168
   %80 = load ptr, ptr %fShortWeekdays26, align 8
-  %fShortWeekdaysCount27 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 32
+  %fShortWeekdaysCount27 = getelementptr inbounds i8, ptr %other, i64 176
   %81 = load i32, ptr %fShortWeekdaysCount27, align 8
   %cmp.i349 = icmp eq ptr %80, null
   br i1 %cmp.i349, label %if.then.i376, label %if.end.i350
@@ -8253,7 +8258,7 @@ invoke.cont.i.i357:                               ; preds = %invoke.cont.i.i357,
   %arrayctor.cur.idx.i.i358 = phi i64 [ 8, %new.notnull.i.i354 ], [ %arrayctor.cur.add.i.i361, %invoke.cont.i.i357 ]
   %arrayctor.cur.ptr.ptr.i.i359 = getelementptr inbounds i8, ptr %call.i.i352, i64 %arrayctor.cur.idx.i.i358
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i359, align 8
-  %fUnion2.i.i.i360 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i359, i64 0, i32 1
+  %fUnion2.i.i.i360 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i359, i64 8
   store i16 2, ptr %fUnion2.i.i.i360, align 8
   %arrayctor.cur.add.i.i361 = add nuw nsw i64 %arrayctor.cur.idx.i.i358, 64
   %arrayctor.next.ptr.i.i362 = getelementptr inbounds i8, ptr %call.i.i352, i64 %arrayctor.cur.add.i.i361
@@ -8284,11 +8289,11 @@ if.end7.sink.split.i375:                          ; preds = %if.end.i350, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit377
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit377: ; preds = %for.body.i368, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i364, %if.end7.sink.split.i375
-  %fShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 34
-  %fShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 35
-  %fShorterWeekdays28 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 34
+  %fShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 184
+  %fShorterWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 192
+  %fShorterWeekdays28 = getelementptr inbounds i8, ptr %other, i64 184
   %88 = load ptr, ptr %fShorterWeekdays28, align 8
-  %fShorterWeekdaysCount29 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 35
+  %fShorterWeekdaysCount29 = getelementptr inbounds i8, ptr %other, i64 192
   %89 = load i32, ptr %fShorterWeekdaysCount29, align 8
   %cmp.i378 = icmp eq ptr %88, null
   br i1 %cmp.i378, label %if.then.i405, label %if.end.i379
@@ -8319,7 +8324,7 @@ invoke.cont.i.i386:                               ; preds = %invoke.cont.i.i386,
   %arrayctor.cur.idx.i.i387 = phi i64 [ 8, %new.notnull.i.i383 ], [ %arrayctor.cur.add.i.i390, %invoke.cont.i.i386 ]
   %arrayctor.cur.ptr.ptr.i.i388 = getelementptr inbounds i8, ptr %call.i.i381, i64 %arrayctor.cur.idx.i.i387
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i388, align 8
-  %fUnion2.i.i.i389 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i388, i64 0, i32 1
+  %fUnion2.i.i.i389 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i388, i64 8
   store i16 2, ptr %fUnion2.i.i.i389, align 8
   %arrayctor.cur.add.i.i390 = add nuw nsw i64 %arrayctor.cur.idx.i.i387, 64
   %arrayctor.next.ptr.i.i391 = getelementptr inbounds i8, ptr %call.i.i381, i64 %arrayctor.cur.add.i.i390
@@ -8350,11 +8355,11 @@ if.end7.sink.split.i404:                          ; preds = %if.end.i379, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit406
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit406: ; preds = %for.body.i397, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i393, %if.end7.sink.split.i404
-  %fNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 37
-  %fNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 38
-  %fNarrowWeekdays30 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 37
+  %fNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 200
+  %fNarrowWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 208
+  %fNarrowWeekdays30 = getelementptr inbounds i8, ptr %other, i64 200
   %96 = load ptr, ptr %fNarrowWeekdays30, align 8
-  %fNarrowWeekdaysCount31 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 38
+  %fNarrowWeekdaysCount31 = getelementptr inbounds i8, ptr %other, i64 208
   %97 = load i32, ptr %fNarrowWeekdaysCount31, align 8
   %cmp.i407 = icmp eq ptr %96, null
   br i1 %cmp.i407, label %if.then.i434, label %if.end.i408
@@ -8385,7 +8390,7 @@ invoke.cont.i.i415:                               ; preds = %invoke.cont.i.i415,
   %arrayctor.cur.idx.i.i416 = phi i64 [ 8, %new.notnull.i.i412 ], [ %arrayctor.cur.add.i.i419, %invoke.cont.i.i415 ]
   %arrayctor.cur.ptr.ptr.i.i417 = getelementptr inbounds i8, ptr %call.i.i410, i64 %arrayctor.cur.idx.i.i416
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i417, align 8
-  %fUnion2.i.i.i418 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i417, i64 0, i32 1
+  %fUnion2.i.i.i418 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i417, i64 8
   store i16 2, ptr %fUnion2.i.i.i418, align 8
   %arrayctor.cur.add.i.i419 = add nuw nsw i64 %arrayctor.cur.idx.i.i416, 64
   %arrayctor.next.ptr.i.i420 = getelementptr inbounds i8, ptr %call.i.i410, i64 %arrayctor.cur.add.i.i419
@@ -8416,11 +8421,11 @@ if.end7.sink.split.i433:                          ; preds = %if.end.i408, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit435
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit435: ; preds = %for.body.i426, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i422, %if.end7.sink.split.i433
-  %fStandaloneWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 40
-  %fStandaloneWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 41
-  %fStandaloneWeekdays32 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 40
+  %fStandaloneWeekdays = getelementptr inbounds i8, ptr %this, i64 216
+  %fStandaloneWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 224
+  %fStandaloneWeekdays32 = getelementptr inbounds i8, ptr %other, i64 216
   %104 = load ptr, ptr %fStandaloneWeekdays32, align 8
-  %fStandaloneWeekdaysCount33 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 41
+  %fStandaloneWeekdaysCount33 = getelementptr inbounds i8, ptr %other, i64 224
   %105 = load i32, ptr %fStandaloneWeekdaysCount33, align 8
   %cmp.i436 = icmp eq ptr %104, null
   br i1 %cmp.i436, label %if.then.i463, label %if.end.i437
@@ -8451,7 +8456,7 @@ invoke.cont.i.i444:                               ; preds = %invoke.cont.i.i444,
   %arrayctor.cur.idx.i.i445 = phi i64 [ 8, %new.notnull.i.i441 ], [ %arrayctor.cur.add.i.i448, %invoke.cont.i.i444 ]
   %arrayctor.cur.ptr.ptr.i.i446 = getelementptr inbounds i8, ptr %call.i.i439, i64 %arrayctor.cur.idx.i.i445
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i446, align 8
-  %fUnion2.i.i.i447 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i446, i64 0, i32 1
+  %fUnion2.i.i.i447 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i446, i64 8
   store i16 2, ptr %fUnion2.i.i.i447, align 8
   %arrayctor.cur.add.i.i448 = add nuw nsw i64 %arrayctor.cur.idx.i.i445, 64
   %arrayctor.next.ptr.i.i449 = getelementptr inbounds i8, ptr %call.i.i439, i64 %arrayctor.cur.add.i.i448
@@ -8482,11 +8487,11 @@ if.end7.sink.split.i462:                          ; preds = %if.end.i437, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit464
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit464: ; preds = %for.body.i455, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i451, %if.end7.sink.split.i462
-  %fStandaloneShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 43
-  %fStandaloneShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 44
-  %fStandaloneShortWeekdays34 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 43
+  %fStandaloneShortWeekdays = getelementptr inbounds i8, ptr %this, i64 232
+  %fStandaloneShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 240
+  %fStandaloneShortWeekdays34 = getelementptr inbounds i8, ptr %other, i64 232
   %112 = load ptr, ptr %fStandaloneShortWeekdays34, align 8
-  %fStandaloneShortWeekdaysCount35 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 44
+  %fStandaloneShortWeekdaysCount35 = getelementptr inbounds i8, ptr %other, i64 240
   %113 = load i32, ptr %fStandaloneShortWeekdaysCount35, align 8
   %cmp.i465 = icmp eq ptr %112, null
   br i1 %cmp.i465, label %if.then.i492, label %if.end.i466
@@ -8517,7 +8522,7 @@ invoke.cont.i.i473:                               ; preds = %invoke.cont.i.i473,
   %arrayctor.cur.idx.i.i474 = phi i64 [ 8, %new.notnull.i.i470 ], [ %arrayctor.cur.add.i.i477, %invoke.cont.i.i473 ]
   %arrayctor.cur.ptr.ptr.i.i475 = getelementptr inbounds i8, ptr %call.i.i468, i64 %arrayctor.cur.idx.i.i474
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i475, align 8
-  %fUnion2.i.i.i476 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i475, i64 0, i32 1
+  %fUnion2.i.i.i476 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i475, i64 8
   store i16 2, ptr %fUnion2.i.i.i476, align 8
   %arrayctor.cur.add.i.i477 = add nuw nsw i64 %arrayctor.cur.idx.i.i474, 64
   %arrayctor.next.ptr.i.i478 = getelementptr inbounds i8, ptr %call.i.i468, i64 %arrayctor.cur.add.i.i477
@@ -8548,11 +8553,11 @@ if.end7.sink.split.i491:                          ; preds = %if.end.i466, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit493
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit493: ; preds = %for.body.i484, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i480, %if.end7.sink.split.i491
-  %fStandaloneShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 46
-  %fStandaloneShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 47
-  %fStandaloneShorterWeekdays36 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 46
+  %fStandaloneShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 248
+  %fStandaloneShorterWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 256
+  %fStandaloneShorterWeekdays36 = getelementptr inbounds i8, ptr %other, i64 248
   %120 = load ptr, ptr %fStandaloneShorterWeekdays36, align 8
-  %fStandaloneShorterWeekdaysCount37 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 47
+  %fStandaloneShorterWeekdaysCount37 = getelementptr inbounds i8, ptr %other, i64 256
   %121 = load i32, ptr %fStandaloneShorterWeekdaysCount37, align 8
   %cmp.i494 = icmp eq ptr %120, null
   br i1 %cmp.i494, label %if.then.i521, label %if.end.i495
@@ -8583,7 +8588,7 @@ invoke.cont.i.i502:                               ; preds = %invoke.cont.i.i502,
   %arrayctor.cur.idx.i.i503 = phi i64 [ 8, %new.notnull.i.i499 ], [ %arrayctor.cur.add.i.i506, %invoke.cont.i.i502 ]
   %arrayctor.cur.ptr.ptr.i.i504 = getelementptr inbounds i8, ptr %call.i.i497, i64 %arrayctor.cur.idx.i.i503
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i504, align 8
-  %fUnion2.i.i.i505 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i504, i64 0, i32 1
+  %fUnion2.i.i.i505 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i504, i64 8
   store i16 2, ptr %fUnion2.i.i.i505, align 8
   %arrayctor.cur.add.i.i506 = add nuw nsw i64 %arrayctor.cur.idx.i.i503, 64
   %arrayctor.next.ptr.i.i507 = getelementptr inbounds i8, ptr %call.i.i497, i64 %arrayctor.cur.add.i.i506
@@ -8614,11 +8619,11 @@ if.end7.sink.split.i520:                          ; preds = %if.end.i495, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit522
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit522: ; preds = %for.body.i513, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i509, %if.end7.sink.split.i520
-  %fStandaloneNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 49
-  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 50
-  %fStandaloneNarrowWeekdays38 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 49
+  %fStandaloneNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 264
+  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 272
+  %fStandaloneNarrowWeekdays38 = getelementptr inbounds i8, ptr %other, i64 264
   %128 = load ptr, ptr %fStandaloneNarrowWeekdays38, align 8
-  %fStandaloneNarrowWeekdaysCount39 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 50
+  %fStandaloneNarrowWeekdaysCount39 = getelementptr inbounds i8, ptr %other, i64 272
   %129 = load i32, ptr %fStandaloneNarrowWeekdaysCount39, align 8
   %cmp.i523 = icmp eq ptr %128, null
   br i1 %cmp.i523, label %if.then.i550, label %if.end.i524
@@ -8649,7 +8654,7 @@ invoke.cont.i.i531:                               ; preds = %invoke.cont.i.i531,
   %arrayctor.cur.idx.i.i532 = phi i64 [ 8, %new.notnull.i.i528 ], [ %arrayctor.cur.add.i.i535, %invoke.cont.i.i531 ]
   %arrayctor.cur.ptr.ptr.i.i533 = getelementptr inbounds i8, ptr %call.i.i526, i64 %arrayctor.cur.idx.i.i532
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i533, align 8
-  %fUnion2.i.i.i534 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i533, i64 0, i32 1
+  %fUnion2.i.i.i534 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i533, i64 8
   store i16 2, ptr %fUnion2.i.i.i534, align 8
   %arrayctor.cur.add.i.i535 = add nuw nsw i64 %arrayctor.cur.idx.i.i532, 64
   %arrayctor.next.ptr.i.i536 = getelementptr inbounds i8, ptr %call.i.i526, i64 %arrayctor.cur.add.i.i535
@@ -8680,11 +8685,11 @@ if.end7.sink.split.i549:                          ; preds = %if.end.i524, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit551
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit551: ; preds = %for.body.i542, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i538, %if.end7.sink.split.i549
-  %fAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 52
-  %fAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 53
-  %fAmPms40 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 52
+  %fAmPms = getelementptr inbounds i8, ptr %this, i64 280
+  %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
+  %fAmPms40 = getelementptr inbounds i8, ptr %other, i64 280
   %136 = load ptr, ptr %fAmPms40, align 8
-  %fAmPmsCount41 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 53
+  %fAmPmsCount41 = getelementptr inbounds i8, ptr %other, i64 288
   %137 = load i32, ptr %fAmPmsCount41, align 8
   %cmp.i552 = icmp eq ptr %136, null
   br i1 %cmp.i552, label %if.then.i579, label %if.end.i553
@@ -8715,7 +8720,7 @@ invoke.cont.i.i560:                               ; preds = %invoke.cont.i.i560,
   %arrayctor.cur.idx.i.i561 = phi i64 [ 8, %new.notnull.i.i557 ], [ %arrayctor.cur.add.i.i564, %invoke.cont.i.i560 ]
   %arrayctor.cur.ptr.ptr.i.i562 = getelementptr inbounds i8, ptr %call.i.i555, i64 %arrayctor.cur.idx.i.i561
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i562, align 8
-  %fUnion2.i.i.i563 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i562, i64 0, i32 1
+  %fUnion2.i.i.i563 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i562, i64 8
   store i16 2, ptr %fUnion2.i.i.i563, align 8
   %arrayctor.cur.add.i.i564 = add nuw nsw i64 %arrayctor.cur.idx.i.i561, 64
   %arrayctor.next.ptr.i.i565 = getelementptr inbounds i8, ptr %call.i.i555, i64 %arrayctor.cur.add.i.i564
@@ -8746,11 +8751,11 @@ if.end7.sink.split.i578:                          ; preds = %if.end.i553, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit580
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit580: ; preds = %for.body.i571, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i567, %if.end7.sink.split.i578
-  %fNarrowAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 55
-  %fNarrowAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 56
-  %fNarrowAmPms42 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 55
+  %fNarrowAmPms = getelementptr inbounds i8, ptr %this, i64 296
+  %fNarrowAmPmsCount = getelementptr inbounds i8, ptr %this, i64 304
+  %fNarrowAmPms42 = getelementptr inbounds i8, ptr %other, i64 296
   %144 = load ptr, ptr %fNarrowAmPms42, align 8
-  %fNarrowAmPmsCount43 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 56
+  %fNarrowAmPmsCount43 = getelementptr inbounds i8, ptr %other, i64 304
   %145 = load i32, ptr %fNarrowAmPmsCount43, align 8
   %cmp.i581 = icmp eq ptr %144, null
   br i1 %cmp.i581, label %if.then.i608, label %if.end.i582
@@ -8781,7 +8786,7 @@ invoke.cont.i.i589:                               ; preds = %invoke.cont.i.i589,
   %arrayctor.cur.idx.i.i590 = phi i64 [ 8, %new.notnull.i.i586 ], [ %arrayctor.cur.add.i.i593, %invoke.cont.i.i589 ]
   %arrayctor.cur.ptr.ptr.i.i591 = getelementptr inbounds i8, ptr %call.i.i584, i64 %arrayctor.cur.idx.i.i590
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i591, align 8
-  %fUnion2.i.i.i592 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i591, i64 0, i32 1
+  %fUnion2.i.i.i592 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i591, i64 8
   store i16 2, ptr %fUnion2.i.i.i592, align 8
   %arrayctor.cur.add.i.i593 = add nuw nsw i64 %arrayctor.cur.idx.i.i590, 64
   %arrayctor.next.ptr.i.i594 = getelementptr inbounds i8, ptr %call.i.i584, i64 %arrayctor.cur.add.i.i593
@@ -8812,14 +8817,14 @@ if.end7.sink.split.i607:                          ; preds = %if.end.i582, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit609
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit609: ; preds = %for.body.i600, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i596, %if.end7.sink.split.i607
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
-  %fTimeSeparator44 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
+  %fTimeSeparator44 = getelementptr inbounds i8, ptr %other, i64 312
   %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator, ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator44)
-  %fQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 59
-  %fQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 60
-  %fQuarters45 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 59
+  %fQuarters = getelementptr inbounds i8, ptr %this, i64 376
+  %fQuartersCount = getelementptr inbounds i8, ptr %this, i64 384
+  %fQuarters45 = getelementptr inbounds i8, ptr %other, i64 376
   %152 = load ptr, ptr %fQuarters45, align 8
-  %fQuartersCount46 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 60
+  %fQuartersCount46 = getelementptr inbounds i8, ptr %other, i64 384
   %153 = load i32, ptr %fQuartersCount46, align 8
   %cmp.i610 = icmp eq ptr %152, null
   br i1 %cmp.i610, label %if.then.i637, label %if.end.i611
@@ -8850,7 +8855,7 @@ invoke.cont.i.i618:                               ; preds = %invoke.cont.i.i618,
   %arrayctor.cur.idx.i.i619 = phi i64 [ 8, %new.notnull.i.i615 ], [ %arrayctor.cur.add.i.i622, %invoke.cont.i.i618 ]
   %arrayctor.cur.ptr.ptr.i.i620 = getelementptr inbounds i8, ptr %call.i.i613, i64 %arrayctor.cur.idx.i.i619
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i620, align 8
-  %fUnion2.i.i.i621 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i620, i64 0, i32 1
+  %fUnion2.i.i.i621 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i620, i64 8
   store i16 2, ptr %fUnion2.i.i.i621, align 8
   %arrayctor.cur.add.i.i622 = add nuw nsw i64 %arrayctor.cur.idx.i.i619, 64
   %arrayctor.next.ptr.i.i623 = getelementptr inbounds i8, ptr %call.i.i613, i64 %arrayctor.cur.add.i.i622
@@ -8881,11 +8886,11 @@ if.end7.sink.split.i636:                          ; preds = %if.end.i611, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit638
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit638: ; preds = %for.body.i629, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i625, %if.end7.sink.split.i636
-  %fShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 62
-  %fShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 63
-  %fShortQuarters47 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 62
+  %fShortQuarters = getelementptr inbounds i8, ptr %this, i64 392
+  %fShortQuartersCount = getelementptr inbounds i8, ptr %this, i64 400
+  %fShortQuarters47 = getelementptr inbounds i8, ptr %other, i64 392
   %160 = load ptr, ptr %fShortQuarters47, align 8
-  %fShortQuartersCount48 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 63
+  %fShortQuartersCount48 = getelementptr inbounds i8, ptr %other, i64 400
   %161 = load i32, ptr %fShortQuartersCount48, align 8
   %cmp.i639 = icmp eq ptr %160, null
   br i1 %cmp.i639, label %if.then.i666, label %if.end.i640
@@ -8916,7 +8921,7 @@ invoke.cont.i.i647:                               ; preds = %invoke.cont.i.i647,
   %arrayctor.cur.idx.i.i648 = phi i64 [ 8, %new.notnull.i.i644 ], [ %arrayctor.cur.add.i.i651, %invoke.cont.i.i647 ]
   %arrayctor.cur.ptr.ptr.i.i649 = getelementptr inbounds i8, ptr %call.i.i642, i64 %arrayctor.cur.idx.i.i648
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i649, align 8
-  %fUnion2.i.i.i650 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i649, i64 0, i32 1
+  %fUnion2.i.i.i650 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i649, i64 8
   store i16 2, ptr %fUnion2.i.i.i650, align 8
   %arrayctor.cur.add.i.i651 = add nuw nsw i64 %arrayctor.cur.idx.i.i648, 64
   %arrayctor.next.ptr.i.i652 = getelementptr inbounds i8, ptr %call.i.i642, i64 %arrayctor.cur.add.i.i651
@@ -8947,11 +8952,11 @@ if.end7.sink.split.i665:                          ; preds = %if.end.i640, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit667
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit667: ; preds = %for.body.i658, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i654, %if.end7.sink.split.i665
-  %fNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 65
-  %fNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 66
-  %fNarrowQuarters49 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 65
+  %fNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 408
+  %fNarrowQuartersCount = getelementptr inbounds i8, ptr %this, i64 416
+  %fNarrowQuarters49 = getelementptr inbounds i8, ptr %other, i64 408
   %168 = load ptr, ptr %fNarrowQuarters49, align 8
-  %fNarrowQuartersCount50 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 66
+  %fNarrowQuartersCount50 = getelementptr inbounds i8, ptr %other, i64 416
   %169 = load i32, ptr %fNarrowQuartersCount50, align 8
   %cmp.i668 = icmp eq ptr %168, null
   br i1 %cmp.i668, label %if.then.i695, label %if.end.i669
@@ -8982,7 +8987,7 @@ invoke.cont.i.i676:                               ; preds = %invoke.cont.i.i676,
   %arrayctor.cur.idx.i.i677 = phi i64 [ 8, %new.notnull.i.i673 ], [ %arrayctor.cur.add.i.i680, %invoke.cont.i.i676 ]
   %arrayctor.cur.ptr.ptr.i.i678 = getelementptr inbounds i8, ptr %call.i.i671, i64 %arrayctor.cur.idx.i.i677
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i678, align 8
-  %fUnion2.i.i.i679 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i678, i64 0, i32 1
+  %fUnion2.i.i.i679 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i678, i64 8
   store i16 2, ptr %fUnion2.i.i.i679, align 8
   %arrayctor.cur.add.i.i680 = add nuw nsw i64 %arrayctor.cur.idx.i.i677, 64
   %arrayctor.next.ptr.i.i681 = getelementptr inbounds i8, ptr %call.i.i671, i64 %arrayctor.cur.add.i.i680
@@ -9013,11 +9018,11 @@ if.end7.sink.split.i694:                          ; preds = %if.end.i669, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit696
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit696: ; preds = %for.body.i687, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i683, %if.end7.sink.split.i694
-  %fStandaloneQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 68
-  %fStandaloneQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 69
-  %fStandaloneQuarters51 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 68
+  %fStandaloneQuarters = getelementptr inbounds i8, ptr %this, i64 424
+  %fStandaloneQuartersCount = getelementptr inbounds i8, ptr %this, i64 432
+  %fStandaloneQuarters51 = getelementptr inbounds i8, ptr %other, i64 424
   %176 = load ptr, ptr %fStandaloneQuarters51, align 8
-  %fStandaloneQuartersCount52 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 69
+  %fStandaloneQuartersCount52 = getelementptr inbounds i8, ptr %other, i64 432
   %177 = load i32, ptr %fStandaloneQuartersCount52, align 8
   %cmp.i697 = icmp eq ptr %176, null
   br i1 %cmp.i697, label %if.then.i724, label %if.end.i698
@@ -9048,7 +9053,7 @@ invoke.cont.i.i705:                               ; preds = %invoke.cont.i.i705,
   %arrayctor.cur.idx.i.i706 = phi i64 [ 8, %new.notnull.i.i702 ], [ %arrayctor.cur.add.i.i709, %invoke.cont.i.i705 ]
   %arrayctor.cur.ptr.ptr.i.i707 = getelementptr inbounds i8, ptr %call.i.i700, i64 %arrayctor.cur.idx.i.i706
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i707, align 8
-  %fUnion2.i.i.i708 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i707, i64 0, i32 1
+  %fUnion2.i.i.i708 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i707, i64 8
   store i16 2, ptr %fUnion2.i.i.i708, align 8
   %arrayctor.cur.add.i.i709 = add nuw nsw i64 %arrayctor.cur.idx.i.i706, 64
   %arrayctor.next.ptr.i.i710 = getelementptr inbounds i8, ptr %call.i.i700, i64 %arrayctor.cur.add.i.i709
@@ -9079,11 +9084,11 @@ if.end7.sink.split.i723:                          ; preds = %if.end.i698, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit725
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit725: ; preds = %for.body.i716, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i712, %if.end7.sink.split.i723
-  %fStandaloneShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 71
-  %fStandaloneShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 72
-  %fStandaloneShortQuarters53 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 71
+  %fStandaloneShortQuarters = getelementptr inbounds i8, ptr %this, i64 440
+  %fStandaloneShortQuartersCount = getelementptr inbounds i8, ptr %this, i64 448
+  %fStandaloneShortQuarters53 = getelementptr inbounds i8, ptr %other, i64 440
   %184 = load ptr, ptr %fStandaloneShortQuarters53, align 8
-  %fStandaloneShortQuartersCount54 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 72
+  %fStandaloneShortQuartersCount54 = getelementptr inbounds i8, ptr %other, i64 448
   %185 = load i32, ptr %fStandaloneShortQuartersCount54, align 8
   %cmp.i726 = icmp eq ptr %184, null
   br i1 %cmp.i726, label %if.then.i753, label %if.end.i727
@@ -9114,7 +9119,7 @@ invoke.cont.i.i734:                               ; preds = %invoke.cont.i.i734,
   %arrayctor.cur.idx.i.i735 = phi i64 [ 8, %new.notnull.i.i731 ], [ %arrayctor.cur.add.i.i738, %invoke.cont.i.i734 ]
   %arrayctor.cur.ptr.ptr.i.i736 = getelementptr inbounds i8, ptr %call.i.i729, i64 %arrayctor.cur.idx.i.i735
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i736, align 8
-  %fUnion2.i.i.i737 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i736, i64 0, i32 1
+  %fUnion2.i.i.i737 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i736, i64 8
   store i16 2, ptr %fUnion2.i.i.i737, align 8
   %arrayctor.cur.add.i.i738 = add nuw nsw i64 %arrayctor.cur.idx.i.i735, 64
   %arrayctor.next.ptr.i.i739 = getelementptr inbounds i8, ptr %call.i.i729, i64 %arrayctor.cur.add.i.i738
@@ -9145,11 +9150,11 @@ if.end7.sink.split.i752:                          ; preds = %if.end.i727, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit754
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit754: ; preds = %for.body.i745, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i741, %if.end7.sink.split.i752
-  %fStandaloneNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 74
-  %fStandaloneNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 75
-  %fStandaloneNarrowQuarters55 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 74
+  %fStandaloneNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 456
+  %fStandaloneNarrowQuartersCount = getelementptr inbounds i8, ptr %this, i64 464
+  %fStandaloneNarrowQuarters55 = getelementptr inbounds i8, ptr %other, i64 456
   %192 = load ptr, ptr %fStandaloneNarrowQuarters55, align 8
-  %fStandaloneNarrowQuartersCount56 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 75
+  %fStandaloneNarrowQuartersCount56 = getelementptr inbounds i8, ptr %other, i64 464
   %193 = load i32, ptr %fStandaloneNarrowQuartersCount56, align 8
   %cmp.i755 = icmp eq ptr %192, null
   br i1 %cmp.i755, label %if.then.i782, label %if.end.i756
@@ -9180,7 +9185,7 @@ invoke.cont.i.i763:                               ; preds = %invoke.cont.i.i763,
   %arrayctor.cur.idx.i.i764 = phi i64 [ 8, %new.notnull.i.i760 ], [ %arrayctor.cur.add.i.i767, %invoke.cont.i.i763 ]
   %arrayctor.cur.ptr.ptr.i.i765 = getelementptr inbounds i8, ptr %call.i.i758, i64 %arrayctor.cur.idx.i.i764
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i765, align 8
-  %fUnion2.i.i.i766 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i765, i64 0, i32 1
+  %fUnion2.i.i.i766 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i765, i64 8
   store i16 2, ptr %fUnion2.i.i.i766, align 8
   %arrayctor.cur.add.i.i767 = add nuw nsw i64 %arrayctor.cur.idx.i.i764, 64
   %arrayctor.next.ptr.i.i768 = getelementptr inbounds i8, ptr %call.i.i758, i64 %arrayctor.cur.add.i.i767
@@ -9211,11 +9216,11 @@ if.end7.sink.split.i781:                          ; preds = %if.end.i756, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit783
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit783: ; preds = %for.body.i774, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i770, %if.end7.sink.split.i781
-  %fWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 97
-  %fWideDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 98
-  %fWideDayPeriods57 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 97
+  %fWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 880
+  %fWideDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 888
+  %fWideDayPeriods57 = getelementptr inbounds i8, ptr %other, i64 880
   %200 = load ptr, ptr %fWideDayPeriods57, align 8
-  %fWideDayPeriodsCount58 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 98
+  %fWideDayPeriodsCount58 = getelementptr inbounds i8, ptr %other, i64 888
   %201 = load i32, ptr %fWideDayPeriodsCount58, align 8
   %cmp.i784 = icmp eq ptr %200, null
   br i1 %cmp.i784, label %if.then.i811, label %if.end.i785
@@ -9246,7 +9251,7 @@ invoke.cont.i.i792:                               ; preds = %invoke.cont.i.i792,
   %arrayctor.cur.idx.i.i793 = phi i64 [ 8, %new.notnull.i.i789 ], [ %arrayctor.cur.add.i.i796, %invoke.cont.i.i792 ]
   %arrayctor.cur.ptr.ptr.i.i794 = getelementptr inbounds i8, ptr %call.i.i787, i64 %arrayctor.cur.idx.i.i793
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i794, align 8
-  %fUnion2.i.i.i795 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i794, i64 0, i32 1
+  %fUnion2.i.i.i795 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i794, i64 8
   store i16 2, ptr %fUnion2.i.i.i795, align 8
   %arrayctor.cur.add.i.i796 = add nuw nsw i64 %arrayctor.cur.idx.i.i793, 64
   %arrayctor.next.ptr.i.i797 = getelementptr inbounds i8, ptr %call.i.i787, i64 %arrayctor.cur.add.i.i796
@@ -9277,11 +9282,11 @@ if.end7.sink.split.i810:                          ; preds = %if.end.i785, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit812
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit812: ; preds = %for.body.i803, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i799, %if.end7.sink.split.i810
-  %fNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 100
-  %fNarrowDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 101
-  %fNarrowDayPeriods59 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 100
+  %fNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 896
+  %fNarrowDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 904
+  %fNarrowDayPeriods59 = getelementptr inbounds i8, ptr %other, i64 896
   %208 = load ptr, ptr %fNarrowDayPeriods59, align 8
-  %fNarrowDayPeriodsCount60 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 101
+  %fNarrowDayPeriodsCount60 = getelementptr inbounds i8, ptr %other, i64 904
   %209 = load i32, ptr %fNarrowDayPeriodsCount60, align 8
   %cmp.i813 = icmp eq ptr %208, null
   br i1 %cmp.i813, label %if.then.i840, label %if.end.i814
@@ -9312,7 +9317,7 @@ invoke.cont.i.i821:                               ; preds = %invoke.cont.i.i821,
   %arrayctor.cur.idx.i.i822 = phi i64 [ 8, %new.notnull.i.i818 ], [ %arrayctor.cur.add.i.i825, %invoke.cont.i.i821 ]
   %arrayctor.cur.ptr.ptr.i.i823 = getelementptr inbounds i8, ptr %call.i.i816, i64 %arrayctor.cur.idx.i.i822
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i823, align 8
-  %fUnion2.i.i.i824 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i823, i64 0, i32 1
+  %fUnion2.i.i.i824 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i823, i64 8
   store i16 2, ptr %fUnion2.i.i.i824, align 8
   %arrayctor.cur.add.i.i825 = add nuw nsw i64 %arrayctor.cur.idx.i.i822, 64
   %arrayctor.next.ptr.i.i826 = getelementptr inbounds i8, ptr %call.i.i816, i64 %arrayctor.cur.add.i.i825
@@ -9343,11 +9348,11 @@ if.end7.sink.split.i839:                          ; preds = %if.end.i814, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit841
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit841: ; preds = %for.body.i832, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i828, %if.end7.sink.split.i839
-  %fAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 94
-  %fAbbreviatedDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 95
-  %fAbbreviatedDayPeriods61 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 94
+  %fAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 864
+  %fAbbreviatedDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 872
+  %fAbbreviatedDayPeriods61 = getelementptr inbounds i8, ptr %other, i64 864
   %216 = load ptr, ptr %fAbbreviatedDayPeriods61, align 8
-  %fAbbreviatedDayPeriodsCount62 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 95
+  %fAbbreviatedDayPeriodsCount62 = getelementptr inbounds i8, ptr %other, i64 872
   %217 = load i32, ptr %fAbbreviatedDayPeriodsCount62, align 8
   %cmp.i842 = icmp eq ptr %216, null
   br i1 %cmp.i842, label %if.then.i869, label %if.end.i843
@@ -9378,7 +9383,7 @@ invoke.cont.i.i850:                               ; preds = %invoke.cont.i.i850,
   %arrayctor.cur.idx.i.i851 = phi i64 [ 8, %new.notnull.i.i847 ], [ %arrayctor.cur.add.i.i854, %invoke.cont.i.i850 ]
   %arrayctor.cur.ptr.ptr.i.i852 = getelementptr inbounds i8, ptr %call.i.i845, i64 %arrayctor.cur.idx.i.i851
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i852, align 8
-  %fUnion2.i.i.i853 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i852, i64 0, i32 1
+  %fUnion2.i.i.i853 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i852, i64 8
   store i16 2, ptr %fUnion2.i.i.i853, align 8
   %arrayctor.cur.add.i.i854 = add nuw nsw i64 %arrayctor.cur.idx.i.i851, 64
   %arrayctor.next.ptr.i.i855 = getelementptr inbounds i8, ptr %call.i.i845, i64 %arrayctor.cur.add.i.i854
@@ -9409,11 +9414,11 @@ if.end7.sink.split.i868:                          ; preds = %if.end.i843, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit870
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit870: ; preds = %for.body.i861, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i857, %if.end7.sink.split.i868
-  %fStandaloneWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 106
-  %fStandaloneWideDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 107
-  %fStandaloneWideDayPeriods63 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 106
+  %fStandaloneWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 928
+  %fStandaloneWideDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 936
+  %fStandaloneWideDayPeriods63 = getelementptr inbounds i8, ptr %other, i64 928
   %224 = load ptr, ptr %fStandaloneWideDayPeriods63, align 8
-  %fStandaloneWideDayPeriodsCount64 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 107
+  %fStandaloneWideDayPeriodsCount64 = getelementptr inbounds i8, ptr %other, i64 936
   %225 = load i32, ptr %fStandaloneWideDayPeriodsCount64, align 8
   %cmp.i871 = icmp eq ptr %224, null
   br i1 %cmp.i871, label %if.then.i898, label %if.end.i872
@@ -9444,7 +9449,7 @@ invoke.cont.i.i879:                               ; preds = %invoke.cont.i.i879,
   %arrayctor.cur.idx.i.i880 = phi i64 [ 8, %new.notnull.i.i876 ], [ %arrayctor.cur.add.i.i883, %invoke.cont.i.i879 ]
   %arrayctor.cur.ptr.ptr.i.i881 = getelementptr inbounds i8, ptr %call.i.i874, i64 %arrayctor.cur.idx.i.i880
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i881, align 8
-  %fUnion2.i.i.i882 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i881, i64 0, i32 1
+  %fUnion2.i.i.i882 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i881, i64 8
   store i16 2, ptr %fUnion2.i.i.i882, align 8
   %arrayctor.cur.add.i.i883 = add nuw nsw i64 %arrayctor.cur.idx.i.i880, 64
   %arrayctor.next.ptr.i.i884 = getelementptr inbounds i8, ptr %call.i.i874, i64 %arrayctor.cur.add.i.i883
@@ -9475,11 +9480,11 @@ if.end7.sink.split.i897:                          ; preds = %if.end.i872, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit899
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit899: ; preds = %for.body.i890, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i886, %if.end7.sink.split.i897
-  %fStandaloneNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 109
-  %fStandaloneNarrowDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 110
-  %fStandaloneNarrowDayPeriods65 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 109
+  %fStandaloneNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 944
+  %fStandaloneNarrowDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 952
+  %fStandaloneNarrowDayPeriods65 = getelementptr inbounds i8, ptr %other, i64 944
   %232 = load ptr, ptr %fStandaloneNarrowDayPeriods65, align 8
-  %fStandaloneNarrowDayPeriodsCount66 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 110
+  %fStandaloneNarrowDayPeriodsCount66 = getelementptr inbounds i8, ptr %other, i64 952
   %233 = load i32, ptr %fStandaloneNarrowDayPeriodsCount66, align 8
   %cmp.i900 = icmp eq ptr %232, null
   br i1 %cmp.i900, label %if.then.i927, label %if.end.i901
@@ -9510,7 +9515,7 @@ invoke.cont.i.i908:                               ; preds = %invoke.cont.i.i908,
   %arrayctor.cur.idx.i.i909 = phi i64 [ 8, %new.notnull.i.i905 ], [ %arrayctor.cur.add.i.i912, %invoke.cont.i.i908 ]
   %arrayctor.cur.ptr.ptr.i.i910 = getelementptr inbounds i8, ptr %call.i.i903, i64 %arrayctor.cur.idx.i.i909
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i910, align 8
-  %fUnion2.i.i.i911 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i910, i64 0, i32 1
+  %fUnion2.i.i.i911 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i910, i64 8
   store i16 2, ptr %fUnion2.i.i.i911, align 8
   %arrayctor.cur.add.i.i912 = add nuw nsw i64 %arrayctor.cur.idx.i.i909, 64
   %arrayctor.next.ptr.i.i913 = getelementptr inbounds i8, ptr %call.i.i903, i64 %arrayctor.cur.add.i.i912
@@ -9541,11 +9546,11 @@ if.end7.sink.split.i926:                          ; preds = %if.end.i901, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit928
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit928: ; preds = %for.body.i919, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i915, %if.end7.sink.split.i926
-  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 103
-  %fStandaloneAbbreviatedDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 104
-  %fStandaloneAbbreviatedDayPeriods67 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 103
+  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 912
+  %fStandaloneAbbreviatedDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 920
+  %fStandaloneAbbreviatedDayPeriods67 = getelementptr inbounds i8, ptr %other, i64 912
   %240 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods67, align 8
-  %fStandaloneAbbreviatedDayPeriodsCount68 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 104
+  %fStandaloneAbbreviatedDayPeriodsCount68 = getelementptr inbounds i8, ptr %other, i64 920
   %241 = load i32, ptr %fStandaloneAbbreviatedDayPeriodsCount68, align 8
   %cmp.i929 = icmp eq ptr %240, null
   br i1 %cmp.i929, label %if.then.i956, label %if.end.i930
@@ -9576,7 +9581,7 @@ invoke.cont.i.i937:                               ; preds = %invoke.cont.i.i937,
   %arrayctor.cur.idx.i.i938 = phi i64 [ 8, %new.notnull.i.i934 ], [ %arrayctor.cur.add.i.i941, %invoke.cont.i.i937 ]
   %arrayctor.cur.ptr.ptr.i.i939 = getelementptr inbounds i8, ptr %call.i.i932, i64 %arrayctor.cur.idx.i.i938
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i939, align 8
-  %fUnion2.i.i.i940 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i939, i64 0, i32 1
+  %fUnion2.i.i.i940 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i939, i64 8
   store i16 2, ptr %fUnion2.i.i.i940, align 8
   %arrayctor.cur.add.i.i941 = add nuw nsw i64 %arrayctor.cur.idx.i.i938, 64
   %arrayctor.next.ptr.i.i942 = getelementptr inbounds i8, ptr %call.i.i932, i64 %arrayctor.cur.add.i.i941
@@ -9607,15 +9612,15 @@ if.end7.sink.split.i955:                          ; preds = %if.end.i930, %if.th
   br label %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit957
 
 _ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit957: ; preds = %for.body.i948, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i944, %if.end7.sink.split.i955
-  %fLeapMonthPatterns = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 77
+  %fLeapMonthPatterns = getelementptr inbounds i8, ptr %other, i64 472
   %248 = load ptr, ptr %fLeapMonthPatterns, align 8
   %cmp.not = icmp eq ptr %248, null
-  %fLeapMonthPatterns72 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 77
+  %fLeapMonthPatterns72 = getelementptr inbounds i8, ptr %this, i64 472
   br i1 %cmp.not, label %if.else, label %if.end.i959
 
 if.end.i959:                                      ; preds = %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit957
-  %fLeapMonthPatternsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 78
-  %fLeapMonthPatternsCount71 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 78
+  %fLeapMonthPatternsCount = getelementptr inbounds i8, ptr %this, i64 480
+  %fLeapMonthPatternsCount71 = getelementptr inbounds i8, ptr %other, i64 480
   %249 = load i32, ptr %fLeapMonthPatternsCount71, align 8
   store i32 %249, ptr %fLeapMonthPatternsCount, align 8
   %250 = call i32 @llvm.umax.i32(i32 %249, i32 1)
@@ -9638,7 +9643,7 @@ invoke.cont.i.i966:                               ; preds = %invoke.cont.i.i966,
   %arrayctor.cur.idx.i.i967 = phi i64 [ 8, %new.notnull.i.i963 ], [ %arrayctor.cur.add.i.i970, %invoke.cont.i.i966 ]
   %arrayctor.cur.ptr.ptr.i.i968 = getelementptr inbounds i8, ptr %call.i.i961, i64 %arrayctor.cur.idx.i.i967
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i968, align 8
-  %fUnion2.i.i.i969 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i968, i64 0, i32 1
+  %fUnion2.i.i.i969 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i968, i64 8
   store i16 2, ptr %fUnion2.i.i.i969, align 8
   %arrayctor.cur.add.i.i970 = add nuw nsw i64 %arrayctor.cur.idx.i.i967, 64
   %arrayctor.next.ptr.i.i971 = getelementptr inbounds i8, ptr %call.i.i961, i64 %arrayctor.cur.add.i.i970
@@ -9686,20 +9691,20 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 
 if.else:                                          ; preds = %_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i.exit957
   store ptr null, ptr %fLeapMonthPatterns72, align 8
-  %fLeapMonthPatternsCount73 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 78
+  %fLeapMonthPatternsCount73 = getelementptr inbounds i8, ptr %this, i64 480
   store i32 0, ptr %fLeapMonthPatternsCount73, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i977, %if.end7.sink.split.i984, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i973, %if.else
-  %fShortYearNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 80
+  %fShortYearNames = getelementptr inbounds i8, ptr %other, i64 488
   %258 = load ptr, ptr %fShortYearNames, align 8
   %cmp74.not = icmp eq ptr %258, null
-  %fShortYearNames80 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 80
+  %fShortYearNames80 = getelementptr inbounds i8, ptr %this, i64 488
   br i1 %cmp74.not, label %if.else79, label %if.end.i988
 
 if.end.i988:                                      ; preds = %if.end
-  %fShortYearNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 81
-  %fShortYearNamesCount78 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 81
+  %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
+  %fShortYearNamesCount78 = getelementptr inbounds i8, ptr %other, i64 496
   %259 = load i32, ptr %fShortYearNamesCount78, align 8
   store i32 %259, ptr %fShortYearNamesCount, align 8
   %260 = call i32 @llvm.umax.i32(i32 %259, i32 1)
@@ -9722,7 +9727,7 @@ invoke.cont.i.i995:                               ; preds = %invoke.cont.i.i995,
   %arrayctor.cur.idx.i.i996 = phi i64 [ 8, %new.notnull.i.i992 ], [ %arrayctor.cur.add.i.i999, %invoke.cont.i.i995 ]
   %arrayctor.cur.ptr.ptr.i.i997 = getelementptr inbounds i8, ptr %call.i.i990, i64 %arrayctor.cur.idx.i.i996
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i997, align 8
-  %fUnion2.i.i.i998 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i997, i64 0, i32 1
+  %fUnion2.i.i.i998 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i997, i64 8
   store i16 2, ptr %fUnion2.i.i.i998, align 8
   %arrayctor.cur.add.i.i999 = add nuw nsw i64 %arrayctor.cur.idx.i.i996, 64
   %arrayctor.next.ptr.i.i1000 = getelementptr inbounds i8, ptr %call.i.i990, i64 %arrayctor.cur.add.i.i999
@@ -9754,20 +9759,20 @@ if.end7.sink.split.i1013:                         ; preds = %if.end.i988
 
 if.else79:                                        ; preds = %if.end
   store ptr null, ptr %fShortYearNames80, align 8
-  %fShortYearNamesCount81 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 81
+  %fShortYearNamesCount81 = getelementptr inbounds i8, ptr %this, i64 496
   store i32 0, ptr %fShortYearNamesCount81, align 8
   br label %if.end82
 
 if.end82:                                         ; preds = %for.body.i1006, %if.end7.sink.split.i1013, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1002, %if.else79
-  %fShortZodiacNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 83
+  %fShortZodiacNames = getelementptr inbounds i8, ptr %other, i64 504
   %266 = load ptr, ptr %fShortZodiacNames, align 8
   %cmp83.not = icmp eq ptr %266, null
-  %fShortZodiacNames89 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 83
+  %fShortZodiacNames89 = getelementptr inbounds i8, ptr %this, i64 504
   br i1 %cmp83.not, label %if.else88, label %if.end.i1017
 
 if.end.i1017:                                     ; preds = %if.end82
-  %fShortZodiacNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 84
-  %fShortZodiacNamesCount87 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 84
+  %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
+  %fShortZodiacNamesCount87 = getelementptr inbounds i8, ptr %other, i64 512
   %267 = load i32, ptr %fShortZodiacNamesCount87, align 8
   store i32 %267, ptr %fShortZodiacNamesCount, align 8
   %268 = call i32 @llvm.umax.i32(i32 %267, i32 1)
@@ -9790,7 +9795,7 @@ invoke.cont.i.i1024:                              ; preds = %invoke.cont.i.i1024
   %arrayctor.cur.idx.i.i1025 = phi i64 [ 8, %new.notnull.i.i1021 ], [ %arrayctor.cur.add.i.i1028, %invoke.cont.i.i1024 ]
   %arrayctor.cur.ptr.ptr.i.i1026 = getelementptr inbounds i8, ptr %call.i.i1019, i64 %arrayctor.cur.idx.i.i1025
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i.i1026, align 8
-  %fUnion2.i.i.i1027 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i.i1026, i64 0, i32 1
+  %fUnion2.i.i.i1027 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i.i1026, i64 8
   store i16 2, ptr %fUnion2.i.i.i1027, align 8
   %arrayctor.cur.add.i.i1028 = add nuw nsw i64 %arrayctor.cur.idx.i.i1025, 64
   %arrayctor.next.ptr.i.i1029 = getelementptr inbounds i8, ptr %call.i.i1019, i64 %arrayctor.cur.add.i.i1028
@@ -9822,48 +9827,48 @@ if.end7.sink.split.i1042:                         ; preds = %if.end.i1017
 
 if.else88:                                        ; preds = %if.end82
   store ptr null, ptr %fShortZodiacNames89, align 8
-  %fShortZodiacNamesCount90 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 84
+  %fShortZodiacNamesCount90 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %fShortZodiacNamesCount90, align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %for.body.i1035, %if.end7.sink.split.i1042, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1031, %if.else88
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 86
+  %fZoneStrings = getelementptr inbounds i8, ptr %other, i64 520
   %274 = load ptr, ptr %fZoneStrings, align 8
   %cmp92.not = icmp eq ptr %274, null
-  %fZoneStringsColCount99 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 89
+  %fZoneStringsColCount99 = getelementptr inbounds i8, ptr %this, i64 540
   br i1 %cmp92.not, label %if.else97, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
-  %fZoneStringsColCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 89
+  %fZoneStringsColCount = getelementptr inbounds i8, ptr %other, i64 540
   %275 = load i32, ptr %fZoneStringsColCount, align 4
   store i32 %275, ptr %fZoneStringsColCount99, align 4
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %other, i64 536
   %276 = load i32, ptr %fZoneStringsRowCount, align 8
-  %fZoneStringsRowCount95 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount95 = getelementptr inbounds i8, ptr %this, i64 536
   store i32 %276, ptr %fZoneStringsRowCount95, align 8
   %277 = load ptr, ptr %fZoneStrings, align 8
   call void @_ZN6icu_7517DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %277)
   br label %if.end101
 
 if.else97:                                        ; preds = %if.end91
-  %fZoneStrings98 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
+  %fZoneStrings98 = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %fZoneStrings98, align 8
   store i32 0, ptr %fZoneStringsColCount99, align 4
-  %fZoneStringsRowCount100 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount100 = getelementptr inbounds i8, ptr %this, i64 536
   store i32 0, ptr %fZoneStringsRowCount100, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.else97, %if.then93
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 90
-  %fZSFLocale102 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %other, i64 544
+  %fZSFLocale102 = getelementptr inbounds i8, ptr %this, i64 544
   %call103 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale102, ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale)
-  %fLocaleZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 87
+  %fLocaleZoneStrings = getelementptr inbounds i8, ptr %this, i64 528
   store ptr null, ptr %fLocaleZoneStrings, align 8
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
-  %fLocalPatternChars104 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
+  %fLocalPatternChars104 = getelementptr inbounds i8, ptr %other, i64 768
   %call105 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars, ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars104)
-  %fCapitalization = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 92
-  %fCapitalization107 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 92
+  %fCapitalization = getelementptr inbounds i8, ptr %this, i64 832
+  %fCapitalization107 = getelementptr inbounds i8, ptr %other, i64 832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %fCapitalization, ptr noundef nonnull align 8 dereferenceable(28) %fCapitalization107, i64 28, i1 false)
   ret void
 }
@@ -9900,7 +9905,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -9939,12 +9944,12 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeStringE(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr nocapture noundef readonly %otherStrings) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %fZoneStringsRowCount, align 8
   %conv = sext i32 %0 to i64
   %mul = shl nsw i64 %conv, 3
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #17
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
+  %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
   store ptr %call, ptr %fZoneStrings, align 8
   %cmp.not = icmp ne ptr %call, null
   %1 = load i32, ptr %fZoneStringsRowCount, align 8
@@ -9953,7 +9958,7 @@ entry:
   br i1 %or.cond, label %for.body.lr.ph, label %if.end44
 
 for.body.lr.ph:                                   ; preds = %entry
-  %fZoneStringsColCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 89
+  %fZoneStringsColCount = getelementptr inbounds i8, ptr %this, i64 540
   %.pre = load i32, ptr %fZoneStringsColCount, align 4
   br label %for.body
 
@@ -9980,7 +9985,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -10050,7 +10055,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %22
   br i1 %arraydestroy.done, label %arraydestroy.done38, label %arraydestroy.body
@@ -10083,10 +10088,10 @@ declare void @_ZN6icu_7511LocaleBased12setLocaleIDsERKNS_6LocaleES3_(ptr noundef
 define void @_ZNK6icu_7517DateFormatSymbols9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr noalias sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1272) %this, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 111
-  %actualLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 112
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 956
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 1113
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   call void @_ZNK6icu_7511LocaleBased9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %locBased, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -10112,7 +10117,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols7disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 1
+  %fEras = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fEras, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end3, label %delete.notnull
@@ -10129,7 +10134,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
@@ -10139,7 +10144,7 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %delete.end3
 
 delete.end3:                                      ; preds = %arraydestroy.done2, %entry
-  %fEraNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 4
+  %fEraNames = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %fEraNames, align 8
   %isnull4 = icmp eq ptr %3, null
   br i1 %isnull4, label %delete.end13, label %delete.notnull5
@@ -10156,7 +10161,7 @@ arraydestroy.body8.preheader:                     ; preds = %delete.notnull5
 
 arraydestroy.body8:                               ; preds = %arraydestroy.body8.preheader, %arraydestroy.body8
   %arraydestroy.elementPast9 = phi ptr [ %arraydestroy.element10, %arraydestroy.body8 ], [ %delete.end6, %arraydestroy.body8.preheader ]
-  %arraydestroy.element10 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast9, i64 -1
+  %arraydestroy.element10 = getelementptr inbounds i8, ptr %arraydestroy.elementPast9, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element10) #16
   %arraydestroy.done11 = icmp eq ptr %arraydestroy.element10, %3
   br i1 %arraydestroy.done11, label %arraydestroy.done12, label %arraydestroy.body8
@@ -10166,7 +10171,7 @@ arraydestroy.done12:                              ; preds = %arraydestroy.body8,
   br label %delete.end13
 
 delete.end13:                                     ; preds = %arraydestroy.done12, %delete.end3
-  %fNarrowEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 7
+  %fNarrowEras = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %fNarrowEras, align 8
   %isnull14 = icmp eq ptr %6, null
   br i1 %isnull14, label %delete.end23, label %delete.notnull15
@@ -10183,7 +10188,7 @@ arraydestroy.body18.preheader:                    ; preds = %delete.notnull15
 
 arraydestroy.body18:                              ; preds = %arraydestroy.body18.preheader, %arraydestroy.body18
   %arraydestroy.elementPast19 = phi ptr [ %arraydestroy.element20, %arraydestroy.body18 ], [ %delete.end16, %arraydestroy.body18.preheader ]
-  %arraydestroy.element20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast19, i64 -1
+  %arraydestroy.element20 = getelementptr inbounds i8, ptr %arraydestroy.elementPast19, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element20) #16
   %arraydestroy.done21 = icmp eq ptr %arraydestroy.element20, %6
   br i1 %arraydestroy.done21, label %arraydestroy.done22, label %arraydestroy.body18
@@ -10193,7 +10198,7 @@ arraydestroy.done22:                              ; preds = %arraydestroy.body18
   br label %delete.end23
 
 delete.end23:                                     ; preds = %arraydestroy.done22, %delete.end13
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %fMonths, align 8
   %isnull24 = icmp eq ptr %9, null
   br i1 %isnull24, label %delete.end33, label %delete.notnull25
@@ -10210,7 +10215,7 @@ arraydestroy.body28.preheader:                    ; preds = %delete.notnull25
 
 arraydestroy.body28:                              ; preds = %arraydestroy.body28.preheader, %arraydestroy.body28
   %arraydestroy.elementPast29 = phi ptr [ %arraydestroy.element30, %arraydestroy.body28 ], [ %delete.end26, %arraydestroy.body28.preheader ]
-  %arraydestroy.element30 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast29, i64 -1
+  %arraydestroy.element30 = getelementptr inbounds i8, ptr %arraydestroy.elementPast29, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element30) #16
   %arraydestroy.done31 = icmp eq ptr %arraydestroy.element30, %9
   br i1 %arraydestroy.done31, label %arraydestroy.done32, label %arraydestroy.body28
@@ -10220,7 +10225,7 @@ arraydestroy.done32:                              ; preds = %arraydestroy.body28
   br label %delete.end33
 
 delete.end33:                                     ; preds = %arraydestroy.done32, %delete.end23
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %fShortMonths, align 8
   %isnull34 = icmp eq ptr %12, null
   br i1 %isnull34, label %delete.end43, label %delete.notnull35
@@ -10237,7 +10242,7 @@ arraydestroy.body38.preheader:                    ; preds = %delete.notnull35
 
 arraydestroy.body38:                              ; preds = %arraydestroy.body38.preheader, %arraydestroy.body38
   %arraydestroy.elementPast39 = phi ptr [ %arraydestroy.element40, %arraydestroy.body38 ], [ %delete.end36, %arraydestroy.body38.preheader ]
-  %arraydestroy.element40 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast39, i64 -1
+  %arraydestroy.element40 = getelementptr inbounds i8, ptr %arraydestroy.elementPast39, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element40) #16
   %arraydestroy.done41 = icmp eq ptr %arraydestroy.element40, %12
   br i1 %arraydestroy.done41, label %arraydestroy.done42, label %arraydestroy.body38
@@ -10247,7 +10252,7 @@ arraydestroy.done42:                              ; preds = %arraydestroy.body38
   br label %delete.end43
 
 delete.end43:                                     ; preds = %arraydestroy.done42, %delete.end33
-  %fNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 16
+  %fNarrowMonths = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %fNarrowMonths, align 8
   %isnull44 = icmp eq ptr %15, null
   br i1 %isnull44, label %delete.end53, label %delete.notnull45
@@ -10264,7 +10269,7 @@ arraydestroy.body48.preheader:                    ; preds = %delete.notnull45
 
 arraydestroy.body48:                              ; preds = %arraydestroy.body48.preheader, %arraydestroy.body48
   %arraydestroy.elementPast49 = phi ptr [ %arraydestroy.element50, %arraydestroy.body48 ], [ %delete.end46, %arraydestroy.body48.preheader ]
-  %arraydestroy.element50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast49, i64 -1
+  %arraydestroy.element50 = getelementptr inbounds i8, ptr %arraydestroy.elementPast49, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element50) #16
   %arraydestroy.done51 = icmp eq ptr %arraydestroy.element50, %15
   br i1 %arraydestroy.done51, label %arraydestroy.done52, label %arraydestroy.body48
@@ -10274,7 +10279,7 @@ arraydestroy.done52:                              ; preds = %arraydestroy.body48
   br label %delete.end53
 
 delete.end53:                                     ; preds = %arraydestroy.done52, %delete.end43
-  %fStandaloneMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 19
+  %fStandaloneMonths = getelementptr inbounds i8, ptr %this, i64 104
   %18 = load ptr, ptr %fStandaloneMonths, align 8
   %isnull54 = icmp eq ptr %18, null
   br i1 %isnull54, label %delete.end63, label %delete.notnull55
@@ -10291,7 +10296,7 @@ arraydestroy.body58.preheader:                    ; preds = %delete.notnull55
 
 arraydestroy.body58:                              ; preds = %arraydestroy.body58.preheader, %arraydestroy.body58
   %arraydestroy.elementPast59 = phi ptr [ %arraydestroy.element60, %arraydestroy.body58 ], [ %delete.end56, %arraydestroy.body58.preheader ]
-  %arraydestroy.element60 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast59, i64 -1
+  %arraydestroy.element60 = getelementptr inbounds i8, ptr %arraydestroy.elementPast59, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element60) #16
   %arraydestroy.done61 = icmp eq ptr %arraydestroy.element60, %18
   br i1 %arraydestroy.done61, label %arraydestroy.done62, label %arraydestroy.body58
@@ -10301,7 +10306,7 @@ arraydestroy.done62:                              ; preds = %arraydestroy.body58
   br label %delete.end63
 
 delete.end63:                                     ; preds = %arraydestroy.done62, %delete.end53
-  %fStandaloneShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 22
+  %fStandaloneShortMonths = getelementptr inbounds i8, ptr %this, i64 120
   %21 = load ptr, ptr %fStandaloneShortMonths, align 8
   %isnull64 = icmp eq ptr %21, null
   br i1 %isnull64, label %delete.end73, label %delete.notnull65
@@ -10318,7 +10323,7 @@ arraydestroy.body68.preheader:                    ; preds = %delete.notnull65
 
 arraydestroy.body68:                              ; preds = %arraydestroy.body68.preheader, %arraydestroy.body68
   %arraydestroy.elementPast69 = phi ptr [ %arraydestroy.element70, %arraydestroy.body68 ], [ %delete.end66, %arraydestroy.body68.preheader ]
-  %arraydestroy.element70 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast69, i64 -1
+  %arraydestroy.element70 = getelementptr inbounds i8, ptr %arraydestroy.elementPast69, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element70) #16
   %arraydestroy.done71 = icmp eq ptr %arraydestroy.element70, %21
   br i1 %arraydestroy.done71, label %arraydestroy.done72, label %arraydestroy.body68
@@ -10328,7 +10333,7 @@ arraydestroy.done72:                              ; preds = %arraydestroy.body68
   br label %delete.end73
 
 delete.end73:                                     ; preds = %arraydestroy.done72, %delete.end63
-  %fStandaloneNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 25
+  %fStandaloneNarrowMonths = getelementptr inbounds i8, ptr %this, i64 136
   %24 = load ptr, ptr %fStandaloneNarrowMonths, align 8
   %isnull74 = icmp eq ptr %24, null
   br i1 %isnull74, label %delete.end83, label %delete.notnull75
@@ -10345,7 +10350,7 @@ arraydestroy.body78.preheader:                    ; preds = %delete.notnull75
 
 arraydestroy.body78:                              ; preds = %arraydestroy.body78.preheader, %arraydestroy.body78
   %arraydestroy.elementPast79 = phi ptr [ %arraydestroy.element80, %arraydestroy.body78 ], [ %delete.end76, %arraydestroy.body78.preheader ]
-  %arraydestroy.element80 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast79, i64 -1
+  %arraydestroy.element80 = getelementptr inbounds i8, ptr %arraydestroy.elementPast79, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element80) #16
   %arraydestroy.done81 = icmp eq ptr %arraydestroy.element80, %24
   br i1 %arraydestroy.done81, label %arraydestroy.done82, label %arraydestroy.body78
@@ -10355,7 +10360,7 @@ arraydestroy.done82:                              ; preds = %arraydestroy.body78
   br label %delete.end83
 
 delete.end83:                                     ; preds = %arraydestroy.done82, %delete.end73
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
   %27 = load ptr, ptr %fWeekdays, align 8
   %isnull84 = icmp eq ptr %27, null
   br i1 %isnull84, label %delete.end93, label %delete.notnull85
@@ -10372,7 +10377,7 @@ arraydestroy.body88.preheader:                    ; preds = %delete.notnull85
 
 arraydestroy.body88:                              ; preds = %arraydestroy.body88.preheader, %arraydestroy.body88
   %arraydestroy.elementPast89 = phi ptr [ %arraydestroy.element90, %arraydestroy.body88 ], [ %delete.end86, %arraydestroy.body88.preheader ]
-  %arraydestroy.element90 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast89, i64 -1
+  %arraydestroy.element90 = getelementptr inbounds i8, ptr %arraydestroy.elementPast89, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element90) #16
   %arraydestroy.done91 = icmp eq ptr %arraydestroy.element90, %27
   br i1 %arraydestroy.done91, label %arraydestroy.done92, label %arraydestroy.body88
@@ -10382,7 +10387,7 @@ arraydestroy.done92:                              ; preds = %arraydestroy.body88
   br label %delete.end93
 
 delete.end93:                                     ; preds = %arraydestroy.done92, %delete.end83
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
   %30 = load ptr, ptr %fShortWeekdays, align 8
   %isnull94 = icmp eq ptr %30, null
   br i1 %isnull94, label %delete.end103, label %delete.notnull95
@@ -10399,7 +10404,7 @@ arraydestroy.body98.preheader:                    ; preds = %delete.notnull95
 
 arraydestroy.body98:                              ; preds = %arraydestroy.body98.preheader, %arraydestroy.body98
   %arraydestroy.elementPast99 = phi ptr [ %arraydestroy.element100, %arraydestroy.body98 ], [ %delete.end96, %arraydestroy.body98.preheader ]
-  %arraydestroy.element100 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast99, i64 -1
+  %arraydestroy.element100 = getelementptr inbounds i8, ptr %arraydestroy.elementPast99, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element100) #16
   %arraydestroy.done101 = icmp eq ptr %arraydestroy.element100, %30
   br i1 %arraydestroy.done101, label %arraydestroy.done102, label %arraydestroy.body98
@@ -10409,7 +10414,7 @@ arraydestroy.done102:                             ; preds = %arraydestroy.body98
   br label %delete.end103
 
 delete.end103:                                    ; preds = %arraydestroy.done102, %delete.end93
-  %fShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 34
+  %fShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 184
   %33 = load ptr, ptr %fShorterWeekdays, align 8
   %isnull104 = icmp eq ptr %33, null
   br i1 %isnull104, label %delete.end113, label %delete.notnull105
@@ -10426,7 +10431,7 @@ arraydestroy.body108.preheader:                   ; preds = %delete.notnull105
 
 arraydestroy.body108:                             ; preds = %arraydestroy.body108.preheader, %arraydestroy.body108
   %arraydestroy.elementPast109 = phi ptr [ %arraydestroy.element110, %arraydestroy.body108 ], [ %delete.end106, %arraydestroy.body108.preheader ]
-  %arraydestroy.element110 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast109, i64 -1
+  %arraydestroy.element110 = getelementptr inbounds i8, ptr %arraydestroy.elementPast109, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element110) #16
   %arraydestroy.done111 = icmp eq ptr %arraydestroy.element110, %33
   br i1 %arraydestroy.done111, label %arraydestroy.done112, label %arraydestroy.body108
@@ -10436,7 +10441,7 @@ arraydestroy.done112:                             ; preds = %arraydestroy.body10
   br label %delete.end113
 
 delete.end113:                                    ; preds = %arraydestroy.done112, %delete.end103
-  %fNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 37
+  %fNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 200
   %36 = load ptr, ptr %fNarrowWeekdays, align 8
   %isnull114 = icmp eq ptr %36, null
   br i1 %isnull114, label %delete.end123, label %delete.notnull115
@@ -10453,7 +10458,7 @@ arraydestroy.body118.preheader:                   ; preds = %delete.notnull115
 
 arraydestroy.body118:                             ; preds = %arraydestroy.body118.preheader, %arraydestroy.body118
   %arraydestroy.elementPast119 = phi ptr [ %arraydestroy.element120, %arraydestroy.body118 ], [ %delete.end116, %arraydestroy.body118.preheader ]
-  %arraydestroy.element120 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast119, i64 -1
+  %arraydestroy.element120 = getelementptr inbounds i8, ptr %arraydestroy.elementPast119, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element120) #16
   %arraydestroy.done121 = icmp eq ptr %arraydestroy.element120, %36
   br i1 %arraydestroy.done121, label %arraydestroy.done122, label %arraydestroy.body118
@@ -10463,7 +10468,7 @@ arraydestroy.done122:                             ; preds = %arraydestroy.body11
   br label %delete.end123
 
 delete.end123:                                    ; preds = %arraydestroy.done122, %delete.end113
-  %fStandaloneWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 40
+  %fStandaloneWeekdays = getelementptr inbounds i8, ptr %this, i64 216
   %39 = load ptr, ptr %fStandaloneWeekdays, align 8
   %isnull124 = icmp eq ptr %39, null
   br i1 %isnull124, label %delete.end133, label %delete.notnull125
@@ -10480,7 +10485,7 @@ arraydestroy.body128.preheader:                   ; preds = %delete.notnull125
 
 arraydestroy.body128:                             ; preds = %arraydestroy.body128.preheader, %arraydestroy.body128
   %arraydestroy.elementPast129 = phi ptr [ %arraydestroy.element130, %arraydestroy.body128 ], [ %delete.end126, %arraydestroy.body128.preheader ]
-  %arraydestroy.element130 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast129, i64 -1
+  %arraydestroy.element130 = getelementptr inbounds i8, ptr %arraydestroy.elementPast129, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element130) #16
   %arraydestroy.done131 = icmp eq ptr %arraydestroy.element130, %39
   br i1 %arraydestroy.done131, label %arraydestroy.done132, label %arraydestroy.body128
@@ -10490,7 +10495,7 @@ arraydestroy.done132:                             ; preds = %arraydestroy.body12
   br label %delete.end133
 
 delete.end133:                                    ; preds = %arraydestroy.done132, %delete.end123
-  %fStandaloneShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 43
+  %fStandaloneShortWeekdays = getelementptr inbounds i8, ptr %this, i64 232
   %42 = load ptr, ptr %fStandaloneShortWeekdays, align 8
   %isnull134 = icmp eq ptr %42, null
   br i1 %isnull134, label %delete.end143, label %delete.notnull135
@@ -10507,7 +10512,7 @@ arraydestroy.body138.preheader:                   ; preds = %delete.notnull135
 
 arraydestroy.body138:                             ; preds = %arraydestroy.body138.preheader, %arraydestroy.body138
   %arraydestroy.elementPast139 = phi ptr [ %arraydestroy.element140, %arraydestroy.body138 ], [ %delete.end136, %arraydestroy.body138.preheader ]
-  %arraydestroy.element140 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast139, i64 -1
+  %arraydestroy.element140 = getelementptr inbounds i8, ptr %arraydestroy.elementPast139, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element140) #16
   %arraydestroy.done141 = icmp eq ptr %arraydestroy.element140, %42
   br i1 %arraydestroy.done141, label %arraydestroy.done142, label %arraydestroy.body138
@@ -10517,7 +10522,7 @@ arraydestroy.done142:                             ; preds = %arraydestroy.body13
   br label %delete.end143
 
 delete.end143:                                    ; preds = %arraydestroy.done142, %delete.end133
-  %fStandaloneShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 46
+  %fStandaloneShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 248
   %45 = load ptr, ptr %fStandaloneShorterWeekdays, align 8
   %isnull144 = icmp eq ptr %45, null
   br i1 %isnull144, label %delete.end153, label %delete.notnull145
@@ -10534,7 +10539,7 @@ arraydestroy.body148.preheader:                   ; preds = %delete.notnull145
 
 arraydestroy.body148:                             ; preds = %arraydestroy.body148.preheader, %arraydestroy.body148
   %arraydestroy.elementPast149 = phi ptr [ %arraydestroy.element150, %arraydestroy.body148 ], [ %delete.end146, %arraydestroy.body148.preheader ]
-  %arraydestroy.element150 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast149, i64 -1
+  %arraydestroy.element150 = getelementptr inbounds i8, ptr %arraydestroy.elementPast149, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element150) #16
   %arraydestroy.done151 = icmp eq ptr %arraydestroy.element150, %45
   br i1 %arraydestroy.done151, label %arraydestroy.done152, label %arraydestroy.body148
@@ -10544,7 +10549,7 @@ arraydestroy.done152:                             ; preds = %arraydestroy.body14
   br label %delete.end153
 
 delete.end153:                                    ; preds = %arraydestroy.done152, %delete.end143
-  %fStandaloneNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 49
+  %fStandaloneNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 264
   %48 = load ptr, ptr %fStandaloneNarrowWeekdays, align 8
   %isnull154 = icmp eq ptr %48, null
   br i1 %isnull154, label %delete.end163, label %delete.notnull155
@@ -10561,7 +10566,7 @@ arraydestroy.body158.preheader:                   ; preds = %delete.notnull155
 
 arraydestroy.body158:                             ; preds = %arraydestroy.body158.preheader, %arraydestroy.body158
   %arraydestroy.elementPast159 = phi ptr [ %arraydestroy.element160, %arraydestroy.body158 ], [ %delete.end156, %arraydestroy.body158.preheader ]
-  %arraydestroy.element160 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast159, i64 -1
+  %arraydestroy.element160 = getelementptr inbounds i8, ptr %arraydestroy.elementPast159, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element160) #16
   %arraydestroy.done161 = icmp eq ptr %arraydestroy.element160, %48
   br i1 %arraydestroy.done161, label %arraydestroy.done162, label %arraydestroy.body158
@@ -10571,7 +10576,7 @@ arraydestroy.done162:                             ; preds = %arraydestroy.body15
   br label %delete.end163
 
 delete.end163:                                    ; preds = %arraydestroy.done162, %delete.end153
-  %fAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 52
+  %fAmPms = getelementptr inbounds i8, ptr %this, i64 280
   %51 = load ptr, ptr %fAmPms, align 8
   %isnull164 = icmp eq ptr %51, null
   br i1 %isnull164, label %delete.end173, label %delete.notnull165
@@ -10588,7 +10593,7 @@ arraydestroy.body168.preheader:                   ; preds = %delete.notnull165
 
 arraydestroy.body168:                             ; preds = %arraydestroy.body168.preheader, %arraydestroy.body168
   %arraydestroy.elementPast169 = phi ptr [ %arraydestroy.element170, %arraydestroy.body168 ], [ %delete.end166, %arraydestroy.body168.preheader ]
-  %arraydestroy.element170 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast169, i64 -1
+  %arraydestroy.element170 = getelementptr inbounds i8, ptr %arraydestroy.elementPast169, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element170) #16
   %arraydestroy.done171 = icmp eq ptr %arraydestroy.element170, %51
   br i1 %arraydestroy.done171, label %arraydestroy.done172, label %arraydestroy.body168
@@ -10598,7 +10603,7 @@ arraydestroy.done172:                             ; preds = %arraydestroy.body16
   br label %delete.end173
 
 delete.end173:                                    ; preds = %arraydestroy.done172, %delete.end163
-  %fNarrowAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 55
+  %fNarrowAmPms = getelementptr inbounds i8, ptr %this, i64 296
   %54 = load ptr, ptr %fNarrowAmPms, align 8
   %isnull174 = icmp eq ptr %54, null
   br i1 %isnull174, label %delete.end183, label %delete.notnull175
@@ -10615,7 +10620,7 @@ arraydestroy.body178.preheader:                   ; preds = %delete.notnull175
 
 arraydestroy.body178:                             ; preds = %arraydestroy.body178.preheader, %arraydestroy.body178
   %arraydestroy.elementPast179 = phi ptr [ %arraydestroy.element180, %arraydestroy.body178 ], [ %delete.end176, %arraydestroy.body178.preheader ]
-  %arraydestroy.element180 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast179, i64 -1
+  %arraydestroy.element180 = getelementptr inbounds i8, ptr %arraydestroy.elementPast179, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element180) #16
   %arraydestroy.done181 = icmp eq ptr %arraydestroy.element180, %54
   br i1 %arraydestroy.done181, label %arraydestroy.done182, label %arraydestroy.body178
@@ -10625,7 +10630,7 @@ arraydestroy.done182:                             ; preds = %arraydestroy.body17
   br label %delete.end183
 
 delete.end183:                                    ; preds = %arraydestroy.done182, %delete.end173
-  %fQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 59
+  %fQuarters = getelementptr inbounds i8, ptr %this, i64 376
   %57 = load ptr, ptr %fQuarters, align 8
   %isnull184 = icmp eq ptr %57, null
   br i1 %isnull184, label %delete.end193, label %delete.notnull185
@@ -10642,7 +10647,7 @@ arraydestroy.body188.preheader:                   ; preds = %delete.notnull185
 
 arraydestroy.body188:                             ; preds = %arraydestroy.body188.preheader, %arraydestroy.body188
   %arraydestroy.elementPast189 = phi ptr [ %arraydestroy.element190, %arraydestroy.body188 ], [ %delete.end186, %arraydestroy.body188.preheader ]
-  %arraydestroy.element190 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast189, i64 -1
+  %arraydestroy.element190 = getelementptr inbounds i8, ptr %arraydestroy.elementPast189, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element190) #16
   %arraydestroy.done191 = icmp eq ptr %arraydestroy.element190, %57
   br i1 %arraydestroy.done191, label %arraydestroy.done192, label %arraydestroy.body188
@@ -10652,7 +10657,7 @@ arraydestroy.done192:                             ; preds = %arraydestroy.body18
   br label %delete.end193
 
 delete.end193:                                    ; preds = %arraydestroy.done192, %delete.end183
-  %fShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 62
+  %fShortQuarters = getelementptr inbounds i8, ptr %this, i64 392
   %60 = load ptr, ptr %fShortQuarters, align 8
   %isnull194 = icmp eq ptr %60, null
   br i1 %isnull194, label %delete.end203, label %delete.notnull195
@@ -10669,7 +10674,7 @@ arraydestroy.body198.preheader:                   ; preds = %delete.notnull195
 
 arraydestroy.body198:                             ; preds = %arraydestroy.body198.preheader, %arraydestroy.body198
   %arraydestroy.elementPast199 = phi ptr [ %arraydestroy.element200, %arraydestroy.body198 ], [ %delete.end196, %arraydestroy.body198.preheader ]
-  %arraydestroy.element200 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast199, i64 -1
+  %arraydestroy.element200 = getelementptr inbounds i8, ptr %arraydestroy.elementPast199, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element200) #16
   %arraydestroy.done201 = icmp eq ptr %arraydestroy.element200, %60
   br i1 %arraydestroy.done201, label %arraydestroy.done202, label %arraydestroy.body198
@@ -10679,7 +10684,7 @@ arraydestroy.done202:                             ; preds = %arraydestroy.body19
   br label %delete.end203
 
 delete.end203:                                    ; preds = %arraydestroy.done202, %delete.end193
-  %fNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 65
+  %fNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 408
   %63 = load ptr, ptr %fNarrowQuarters, align 8
   %isnull204 = icmp eq ptr %63, null
   br i1 %isnull204, label %delete.end213, label %delete.notnull205
@@ -10696,7 +10701,7 @@ arraydestroy.body208.preheader:                   ; preds = %delete.notnull205
 
 arraydestroy.body208:                             ; preds = %arraydestroy.body208.preheader, %arraydestroy.body208
   %arraydestroy.elementPast209 = phi ptr [ %arraydestroy.element210, %arraydestroy.body208 ], [ %delete.end206, %arraydestroy.body208.preheader ]
-  %arraydestroy.element210 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast209, i64 -1
+  %arraydestroy.element210 = getelementptr inbounds i8, ptr %arraydestroy.elementPast209, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element210) #16
   %arraydestroy.done211 = icmp eq ptr %arraydestroy.element210, %63
   br i1 %arraydestroy.done211, label %arraydestroy.done212, label %arraydestroy.body208
@@ -10706,7 +10711,7 @@ arraydestroy.done212:                             ; preds = %arraydestroy.body20
   br label %delete.end213
 
 delete.end213:                                    ; preds = %arraydestroy.done212, %delete.end203
-  %fStandaloneQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 68
+  %fStandaloneQuarters = getelementptr inbounds i8, ptr %this, i64 424
   %66 = load ptr, ptr %fStandaloneQuarters, align 8
   %isnull214 = icmp eq ptr %66, null
   br i1 %isnull214, label %delete.end223, label %delete.notnull215
@@ -10723,7 +10728,7 @@ arraydestroy.body218.preheader:                   ; preds = %delete.notnull215
 
 arraydestroy.body218:                             ; preds = %arraydestroy.body218.preheader, %arraydestroy.body218
   %arraydestroy.elementPast219 = phi ptr [ %arraydestroy.element220, %arraydestroy.body218 ], [ %delete.end216, %arraydestroy.body218.preheader ]
-  %arraydestroy.element220 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast219, i64 -1
+  %arraydestroy.element220 = getelementptr inbounds i8, ptr %arraydestroy.elementPast219, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element220) #16
   %arraydestroy.done221 = icmp eq ptr %arraydestroy.element220, %66
   br i1 %arraydestroy.done221, label %arraydestroy.done222, label %arraydestroy.body218
@@ -10733,7 +10738,7 @@ arraydestroy.done222:                             ; preds = %arraydestroy.body21
   br label %delete.end223
 
 delete.end223:                                    ; preds = %arraydestroy.done222, %delete.end213
-  %fStandaloneShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 71
+  %fStandaloneShortQuarters = getelementptr inbounds i8, ptr %this, i64 440
   %69 = load ptr, ptr %fStandaloneShortQuarters, align 8
   %isnull224 = icmp eq ptr %69, null
   br i1 %isnull224, label %delete.end233, label %delete.notnull225
@@ -10750,7 +10755,7 @@ arraydestroy.body228.preheader:                   ; preds = %delete.notnull225
 
 arraydestroy.body228:                             ; preds = %arraydestroy.body228.preheader, %arraydestroy.body228
   %arraydestroy.elementPast229 = phi ptr [ %arraydestroy.element230, %arraydestroy.body228 ], [ %delete.end226, %arraydestroy.body228.preheader ]
-  %arraydestroy.element230 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast229, i64 -1
+  %arraydestroy.element230 = getelementptr inbounds i8, ptr %arraydestroy.elementPast229, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element230) #16
   %arraydestroy.done231 = icmp eq ptr %arraydestroy.element230, %69
   br i1 %arraydestroy.done231, label %arraydestroy.done232, label %arraydestroy.body228
@@ -10760,7 +10765,7 @@ arraydestroy.done232:                             ; preds = %arraydestroy.body22
   br label %delete.end233
 
 delete.end233:                                    ; preds = %arraydestroy.done232, %delete.end223
-  %fStandaloneNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 74
+  %fStandaloneNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 456
   %72 = load ptr, ptr %fStandaloneNarrowQuarters, align 8
   %isnull234 = icmp eq ptr %72, null
   br i1 %isnull234, label %delete.end243, label %delete.notnull235
@@ -10777,7 +10782,7 @@ arraydestroy.body238.preheader:                   ; preds = %delete.notnull235
 
 arraydestroy.body238:                             ; preds = %arraydestroy.body238.preheader, %arraydestroy.body238
   %arraydestroy.elementPast239 = phi ptr [ %arraydestroy.element240, %arraydestroy.body238 ], [ %delete.end236, %arraydestroy.body238.preheader ]
-  %arraydestroy.element240 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast239, i64 -1
+  %arraydestroy.element240 = getelementptr inbounds i8, ptr %arraydestroy.elementPast239, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element240) #16
   %arraydestroy.done241 = icmp eq ptr %arraydestroy.element240, %72
   br i1 %arraydestroy.done241, label %arraydestroy.done242, label %arraydestroy.body238
@@ -10787,7 +10792,7 @@ arraydestroy.done242:                             ; preds = %arraydestroy.body23
   br label %delete.end243
 
 delete.end243:                                    ; preds = %arraydestroy.done242, %delete.end233
-  %fLeapMonthPatterns = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 77
+  %fLeapMonthPatterns = getelementptr inbounds i8, ptr %this, i64 472
   %75 = load ptr, ptr %fLeapMonthPatterns, align 8
   %isnull244 = icmp eq ptr %75, null
   br i1 %isnull244, label %delete.end253, label %delete.notnull245
@@ -10804,7 +10809,7 @@ arraydestroy.body248.preheader:                   ; preds = %delete.notnull245
 
 arraydestroy.body248:                             ; preds = %arraydestroy.body248.preheader, %arraydestroy.body248
   %arraydestroy.elementPast249 = phi ptr [ %arraydestroy.element250, %arraydestroy.body248 ], [ %delete.end246, %arraydestroy.body248.preheader ]
-  %arraydestroy.element250 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast249, i64 -1
+  %arraydestroy.element250 = getelementptr inbounds i8, ptr %arraydestroy.elementPast249, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element250) #16
   %arraydestroy.done251 = icmp eq ptr %arraydestroy.element250, %75
   br i1 %arraydestroy.done251, label %arraydestroy.done252, label %arraydestroy.body248
@@ -10814,7 +10819,7 @@ arraydestroy.done252:                             ; preds = %arraydestroy.body24
   br label %delete.end253
 
 delete.end253:                                    ; preds = %arraydestroy.done252, %delete.end243
-  %fShortYearNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 80
+  %fShortYearNames = getelementptr inbounds i8, ptr %this, i64 488
   %78 = load ptr, ptr %fShortYearNames, align 8
   %isnull254 = icmp eq ptr %78, null
   br i1 %isnull254, label %delete.end263, label %delete.notnull255
@@ -10831,7 +10836,7 @@ arraydestroy.body258.preheader:                   ; preds = %delete.notnull255
 
 arraydestroy.body258:                             ; preds = %arraydestroy.body258.preheader, %arraydestroy.body258
   %arraydestroy.elementPast259 = phi ptr [ %arraydestroy.element260, %arraydestroy.body258 ], [ %delete.end256, %arraydestroy.body258.preheader ]
-  %arraydestroy.element260 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast259, i64 -1
+  %arraydestroy.element260 = getelementptr inbounds i8, ptr %arraydestroy.elementPast259, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element260) #16
   %arraydestroy.done261 = icmp eq ptr %arraydestroy.element260, %78
   br i1 %arraydestroy.done261, label %arraydestroy.done262, label %arraydestroy.body258
@@ -10841,7 +10846,7 @@ arraydestroy.done262:                             ; preds = %arraydestroy.body25
   br label %delete.end263
 
 delete.end263:                                    ; preds = %arraydestroy.done262, %delete.end253
-  %fShortZodiacNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 83
+  %fShortZodiacNames = getelementptr inbounds i8, ptr %this, i64 504
   %81 = load ptr, ptr %fShortZodiacNames, align 8
   %isnull264 = icmp eq ptr %81, null
   br i1 %isnull264, label %delete.end273, label %delete.notnull265
@@ -10858,7 +10863,7 @@ arraydestroy.body268.preheader:                   ; preds = %delete.notnull265
 
 arraydestroy.body268:                             ; preds = %arraydestroy.body268.preheader, %arraydestroy.body268
   %arraydestroy.elementPast269 = phi ptr [ %arraydestroy.element270, %arraydestroy.body268 ], [ %delete.end266, %arraydestroy.body268.preheader ]
-  %arraydestroy.element270 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast269, i64 -1
+  %arraydestroy.element270 = getelementptr inbounds i8, ptr %arraydestroy.elementPast269, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element270) #16
   %arraydestroy.done271 = icmp eq ptr %arraydestroy.element270, %81
   br i1 %arraydestroy.done271, label %arraydestroy.done272, label %arraydestroy.body268
@@ -10868,7 +10873,7 @@ arraydestroy.done272:                             ; preds = %arraydestroy.body26
   br label %delete.end273
 
 delete.end273:                                    ; preds = %arraydestroy.done272, %delete.end263
-  %fAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 94
+  %fAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 864
   %84 = load ptr, ptr %fAbbreviatedDayPeriods, align 8
   %isnull274 = icmp eq ptr %84, null
   br i1 %isnull274, label %delete.end283, label %delete.notnull275
@@ -10885,7 +10890,7 @@ arraydestroy.body278.preheader:                   ; preds = %delete.notnull275
 
 arraydestroy.body278:                             ; preds = %arraydestroy.body278.preheader, %arraydestroy.body278
   %arraydestroy.elementPast279 = phi ptr [ %arraydestroy.element280, %arraydestroy.body278 ], [ %delete.end276, %arraydestroy.body278.preheader ]
-  %arraydestroy.element280 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast279, i64 -1
+  %arraydestroy.element280 = getelementptr inbounds i8, ptr %arraydestroy.elementPast279, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element280) #16
   %arraydestroy.done281 = icmp eq ptr %arraydestroy.element280, %84
   br i1 %arraydestroy.done281, label %arraydestroy.done282, label %arraydestroy.body278
@@ -10895,7 +10900,7 @@ arraydestroy.done282:                             ; preds = %arraydestroy.body27
   br label %delete.end283
 
 delete.end283:                                    ; preds = %arraydestroy.done282, %delete.end273
-  %fWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 97
+  %fWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 880
   %87 = load ptr, ptr %fWideDayPeriods, align 8
   %isnull284 = icmp eq ptr %87, null
   br i1 %isnull284, label %delete.end293, label %delete.notnull285
@@ -10912,7 +10917,7 @@ arraydestroy.body288.preheader:                   ; preds = %delete.notnull285
 
 arraydestroy.body288:                             ; preds = %arraydestroy.body288.preheader, %arraydestroy.body288
   %arraydestroy.elementPast289 = phi ptr [ %arraydestroy.element290, %arraydestroy.body288 ], [ %delete.end286, %arraydestroy.body288.preheader ]
-  %arraydestroy.element290 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast289, i64 -1
+  %arraydestroy.element290 = getelementptr inbounds i8, ptr %arraydestroy.elementPast289, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element290) #16
   %arraydestroy.done291 = icmp eq ptr %arraydestroy.element290, %87
   br i1 %arraydestroy.done291, label %arraydestroy.done292, label %arraydestroy.body288
@@ -10922,7 +10927,7 @@ arraydestroy.done292:                             ; preds = %arraydestroy.body28
   br label %delete.end293
 
 delete.end293:                                    ; preds = %arraydestroy.done292, %delete.end283
-  %fNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 100
+  %fNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 896
   %90 = load ptr, ptr %fNarrowDayPeriods, align 8
   %isnull294 = icmp eq ptr %90, null
   br i1 %isnull294, label %delete.end303, label %delete.notnull295
@@ -10939,7 +10944,7 @@ arraydestroy.body298.preheader:                   ; preds = %delete.notnull295
 
 arraydestroy.body298:                             ; preds = %arraydestroy.body298.preheader, %arraydestroy.body298
   %arraydestroy.elementPast299 = phi ptr [ %arraydestroy.element300, %arraydestroy.body298 ], [ %delete.end296, %arraydestroy.body298.preheader ]
-  %arraydestroy.element300 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast299, i64 -1
+  %arraydestroy.element300 = getelementptr inbounds i8, ptr %arraydestroy.elementPast299, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element300) #16
   %arraydestroy.done301 = icmp eq ptr %arraydestroy.element300, %90
   br i1 %arraydestroy.done301, label %arraydestroy.done302, label %arraydestroy.body298
@@ -10949,7 +10954,7 @@ arraydestroy.done302:                             ; preds = %arraydestroy.body29
   br label %delete.end303
 
 delete.end303:                                    ; preds = %arraydestroy.done302, %delete.end293
-  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 103
+  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 912
   %93 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods, align 8
   %isnull304 = icmp eq ptr %93, null
   br i1 %isnull304, label %delete.end313, label %delete.notnull305
@@ -10966,7 +10971,7 @@ arraydestroy.body308.preheader:                   ; preds = %delete.notnull305
 
 arraydestroy.body308:                             ; preds = %arraydestroy.body308.preheader, %arraydestroy.body308
   %arraydestroy.elementPast309 = phi ptr [ %arraydestroy.element310, %arraydestroy.body308 ], [ %delete.end306, %arraydestroy.body308.preheader ]
-  %arraydestroy.element310 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast309, i64 -1
+  %arraydestroy.element310 = getelementptr inbounds i8, ptr %arraydestroy.elementPast309, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element310) #16
   %arraydestroy.done311 = icmp eq ptr %arraydestroy.element310, %93
   br i1 %arraydestroy.done311, label %arraydestroy.done312, label %arraydestroy.body308
@@ -10976,7 +10981,7 @@ arraydestroy.done312:                             ; preds = %arraydestroy.body30
   br label %delete.end313
 
 delete.end313:                                    ; preds = %arraydestroy.done312, %delete.end303
-  %fStandaloneWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 106
+  %fStandaloneWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 928
   %96 = load ptr, ptr %fStandaloneWideDayPeriods, align 8
   %isnull314 = icmp eq ptr %96, null
   br i1 %isnull314, label %delete.end323, label %delete.notnull315
@@ -10993,7 +10998,7 @@ arraydestroy.body318.preheader:                   ; preds = %delete.notnull315
 
 arraydestroy.body318:                             ; preds = %arraydestroy.body318.preheader, %arraydestroy.body318
   %arraydestroy.elementPast319 = phi ptr [ %arraydestroy.element320, %arraydestroy.body318 ], [ %delete.end316, %arraydestroy.body318.preheader ]
-  %arraydestroy.element320 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast319, i64 -1
+  %arraydestroy.element320 = getelementptr inbounds i8, ptr %arraydestroy.elementPast319, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element320) #16
   %arraydestroy.done321 = icmp eq ptr %arraydestroy.element320, %96
   br i1 %arraydestroy.done321, label %arraydestroy.done322, label %arraydestroy.body318
@@ -11003,7 +11008,7 @@ arraydestroy.done322:                             ; preds = %arraydestroy.body31
   br label %delete.end323
 
 delete.end323:                                    ; preds = %arraydestroy.done322, %delete.end313
-  %fStandaloneNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 109
+  %fStandaloneNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 944
   %99 = load ptr, ptr %fStandaloneNarrowDayPeriods, align 8
   %isnull324 = icmp eq ptr %99, null
   br i1 %isnull324, label %delete.end333, label %delete.notnull325
@@ -11020,7 +11025,7 @@ arraydestroy.body328.preheader:                   ; preds = %delete.notnull325
 
 arraydestroy.body328:                             ; preds = %arraydestroy.body328.preheader, %arraydestroy.body328
   %arraydestroy.elementPast329 = phi ptr [ %arraydestroy.element330, %arraydestroy.body328 ], [ %delete.end326, %arraydestroy.body328.preheader ]
-  %arraydestroy.element330 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast329, i64 -1
+  %arraydestroy.element330 = getelementptr inbounds i8, ptr %arraydestroy.elementPast329, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element330) #16
   %arraydestroy.done331 = icmp eq ptr %arraydestroy.element330, %99
   br i1 %arraydestroy.done331, label %arraydestroy.done332, label %arraydestroy.body328
@@ -11041,11 +11046,11 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars) #16
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale) #16
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator) #16
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
@@ -11069,13 +11074,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols18disposeZoneStringsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
+  %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load ptr, ptr %fZoneStrings, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   %1 = load i32, ptr %fZoneStringsRowCount, align 8
   %cmp6 = icmp sgt i32 %1, 0
   br i1 %cmp6, label %for.body, label %for.end
@@ -11101,7 +11106,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %4
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -11128,13 +11133,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %fLocaleZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 87
+  %fLocaleZoneStrings = getelementptr inbounds i8, ptr %this, i64 528
   %10 = load ptr, ptr %fLocaleZoneStrings, align 8
   %tobool6.not = icmp eq ptr %10, null
   br i1 %tobool6.not, label %if.end30, label %for.cond9.preheader
 
 for.cond9.preheader:                              ; preds = %if.end
-  %fZoneStringsRowCount10 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount10 = getelementptr inbounds i8, ptr %this, i64 536
   %11 = load i32, ptr %fZoneStringsRowCount10, align 8
   %cmp118 = icmp sgt i32 %11, 0
   br i1 %cmp118, label %for.body12, label %for.end28
@@ -11160,7 +11165,7 @@ arraydestroy.body20.preheader:                    ; preds = %delete.notnull17
 
 arraydestroy.body20:                              ; preds = %arraydestroy.body20.preheader, %arraydestroy.body20
   %arraydestroy.elementPast21 = phi ptr [ %arraydestroy.element22, %arraydestroy.body20 ], [ %delete.end18, %arraydestroy.body20.preheader ]
-  %arraydestroy.element22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast21, i64 -1
+  %arraydestroy.element22 = getelementptr inbounds i8, ptr %arraydestroy.elementPast21, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element22) #16
   %arraydestroy.done23 = icmp eq ptr %arraydestroy.element22, %14
   br i1 %arraydestroy.done23, label %arraydestroy.done24, label %arraydestroy.body20
@@ -11208,14 +11213,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = add nsw i64 %indvars.iv11, -1
   %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array1, i64 %1
   %arrayidx3 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array2, i64 %1
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array1, i64 %1, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i16, ptr %fUnion.i.i.i, align 8
   %conv2.i14.i.i = and i16 %2, 1
   %tobool.not.i.i = icmp eq i16 %conv2.i14.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %fUnion.i5.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array2, i64 %1, i32 1
+  %fUnion.i5.i.i = getelementptr inbounds i8, ptr %arrayidx3, i64 8
   %3 = load i16, ptr %fUnion.i5.i.i, align 8
   %conv2.i615.i.i = and i16 %3, 1
   %tobool3.i.i.not = icmp eq i16 %conv2.i615.i.i, 0
@@ -11225,15 +11230,15 @@ if.else.i.i:                                      ; preds = %while.body
   %cmp.i.i.i.i = icmp slt i16 %2, 0
   %4 = ashr i16 %2, 5
   %shr.i.i.i.i = sext i16 %4 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array1, i64 %1, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %5 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %5, i32 %shr.i.i.i.i
-  %fUnion.i.i7.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array2, i64 %1, i32 1
+  %fUnion.i.i7.i.i = getelementptr inbounds i8, ptr %arrayidx3, i64 8
   %6 = load i16, ptr %fUnion.i.i7.i.i, align 8
   %cmp.i.i8.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i9.i.i = sext i16 %7 to i32
-  %fLength.i10.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array2, i64 %1, i32 1, i32 0, i32 1
+  %fLength.i10.i.i = getelementptr inbounds i8, ptr %arrayidx3, i64 12
   %8 = load i32, ptr %fLength.i10.i.i, align 4
   %cond.i11.i.i = select i1 %cmp.i.i8.i.i, i32 %8, i32 %shr.i.i9.i.i
   %conv2.i1316.i.i = and i16 %6, 1
@@ -11260,14 +11265,14 @@ return:                                           ; preds = %if.then.i.i, %_ZNK6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK6icu_7513UnicodeStringneERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %text) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %0, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %text, i64 8
   %1 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %1, 1
   %tobool3.i = icmp ne i16 %conv2.i615.i, 0
@@ -11277,15 +11282,15 @@ if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %2 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %3, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %text, i64 8
   %4 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i9.i = sext i16 %5 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %text, i64 12
   %6 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %6, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %4, 1
@@ -11312,297 +11317,297 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 2
+  %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %fErasCount, align 8
-  %fErasCount2 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 2
+  %fErasCount2 = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load i32, ptr %fErasCount2, align 8
   %cmp3 = icmp eq i32 %0, %1
   br i1 %cmp3, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %fEraNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 5
+  %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %fEraNamesCount, align 8
-  %fEraNamesCount4 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 5
+  %fEraNamesCount4 = getelementptr inbounds i8, ptr %other, i64 32
   %3 = load i32, ptr %fEraNamesCount4, align 8
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true6, label %return
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %fNarrowErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 8
+  %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i32, ptr %fNarrowErasCount, align 8
-  %fNarrowErasCount7 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 8
+  %fNarrowErasCount7 = getelementptr inbounds i8, ptr %other, i64 48
   %5 = load i32, ptr %fNarrowErasCount7, align 8
   %cmp8 = icmp eq i32 %4, %5
   br i1 %cmp8, label %land.lhs.true9, label %return
 
 land.lhs.true9:                                   ; preds = %land.lhs.true6
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
+  %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i32, ptr %fMonthsCount, align 8
-  %fMonthsCount10 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 11
+  %fMonthsCount10 = getelementptr inbounds i8, ptr %other, i64 64
   %7 = load i32, ptr %fMonthsCount10, align 8
   %cmp11 = icmp eq i32 %6, %7
   br i1 %cmp11, label %land.lhs.true12, label %return
 
 land.lhs.true12:                                  ; preds = %land.lhs.true9
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
+  %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load i32, ptr %fShortMonthsCount, align 8
-  %fShortMonthsCount13 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 14
+  %fShortMonthsCount13 = getelementptr inbounds i8, ptr %other, i64 80
   %9 = load i32, ptr %fShortMonthsCount13, align 8
   %cmp14 = icmp eq i32 %8, %9
   br i1 %cmp14, label %land.lhs.true15, label %return
 
 land.lhs.true15:                                  ; preds = %land.lhs.true12
-  %fNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 17
+  %fNarrowMonthsCount = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load i32, ptr %fNarrowMonthsCount, align 8
-  %fNarrowMonthsCount16 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 17
+  %fNarrowMonthsCount16 = getelementptr inbounds i8, ptr %other, i64 96
   %11 = load i32, ptr %fNarrowMonthsCount16, align 8
   %cmp17 = icmp eq i32 %10, %11
   br i1 %cmp17, label %land.lhs.true18, label %return
 
 land.lhs.true18:                                  ; preds = %land.lhs.true15
-  %fStandaloneMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 20
+  %fStandaloneMonthsCount = getelementptr inbounds i8, ptr %this, i64 112
   %12 = load i32, ptr %fStandaloneMonthsCount, align 8
-  %fStandaloneMonthsCount19 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 20
+  %fStandaloneMonthsCount19 = getelementptr inbounds i8, ptr %other, i64 112
   %13 = load i32, ptr %fStandaloneMonthsCount19, align 8
   %cmp20 = icmp eq i32 %12, %13
   br i1 %cmp20, label %land.lhs.true21, label %return
 
 land.lhs.true21:                                  ; preds = %land.lhs.true18
-  %fStandaloneShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 23
+  %fStandaloneShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 128
   %14 = load i32, ptr %fStandaloneShortMonthsCount, align 8
-  %fStandaloneShortMonthsCount22 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 23
+  %fStandaloneShortMonthsCount22 = getelementptr inbounds i8, ptr %other, i64 128
   %15 = load i32, ptr %fStandaloneShortMonthsCount22, align 8
   %cmp23 = icmp eq i32 %14, %15
   br i1 %cmp23, label %land.lhs.true24, label %return
 
 land.lhs.true24:                                  ; preds = %land.lhs.true21
-  %fStandaloneNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 26
+  %fStandaloneNarrowMonthsCount = getelementptr inbounds i8, ptr %this, i64 144
   %16 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
-  %fStandaloneNarrowMonthsCount25 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 26
+  %fStandaloneNarrowMonthsCount25 = getelementptr inbounds i8, ptr %other, i64 144
   %17 = load i32, ptr %fStandaloneNarrowMonthsCount25, align 8
   %cmp26 = icmp eq i32 %16, %17
   br i1 %cmp26, label %land.lhs.true27, label %return
 
 land.lhs.true27:                                  ; preds = %land.lhs.true24
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
+  %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load i32, ptr %fWeekdaysCount, align 8
-  %fWeekdaysCount28 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 29
+  %fWeekdaysCount28 = getelementptr inbounds i8, ptr %other, i64 160
   %19 = load i32, ptr %fWeekdaysCount28, align 8
   %cmp29 = icmp eq i32 %18, %19
   br i1 %cmp29, label %land.lhs.true30, label %return
 
 land.lhs.true30:                                  ; preds = %land.lhs.true27
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
+  %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
   %20 = load i32, ptr %fShortWeekdaysCount, align 8
-  %fShortWeekdaysCount31 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 32
+  %fShortWeekdaysCount31 = getelementptr inbounds i8, ptr %other, i64 176
   %21 = load i32, ptr %fShortWeekdaysCount31, align 8
   %cmp32 = icmp eq i32 %20, %21
   br i1 %cmp32, label %land.lhs.true33, label %return
 
 land.lhs.true33:                                  ; preds = %land.lhs.true30
-  %fShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 35
+  %fShorterWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 192
   %22 = load i32, ptr %fShorterWeekdaysCount, align 8
-  %fShorterWeekdaysCount34 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 35
+  %fShorterWeekdaysCount34 = getelementptr inbounds i8, ptr %other, i64 192
   %23 = load i32, ptr %fShorterWeekdaysCount34, align 8
   %cmp35 = icmp eq i32 %22, %23
   br i1 %cmp35, label %land.lhs.true36, label %return
 
 land.lhs.true36:                                  ; preds = %land.lhs.true33
-  %fNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 38
+  %fNarrowWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 208
   %24 = load i32, ptr %fNarrowWeekdaysCount, align 8
-  %fNarrowWeekdaysCount37 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 38
+  %fNarrowWeekdaysCount37 = getelementptr inbounds i8, ptr %other, i64 208
   %25 = load i32, ptr %fNarrowWeekdaysCount37, align 8
   %cmp38 = icmp eq i32 %24, %25
   br i1 %cmp38, label %land.lhs.true39, label %return
 
 land.lhs.true39:                                  ; preds = %land.lhs.true36
-  %fStandaloneWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 41
+  %fStandaloneWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 224
   %26 = load i32, ptr %fStandaloneWeekdaysCount, align 8
-  %fStandaloneWeekdaysCount40 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 41
+  %fStandaloneWeekdaysCount40 = getelementptr inbounds i8, ptr %other, i64 224
   %27 = load i32, ptr %fStandaloneWeekdaysCount40, align 8
   %cmp41 = icmp eq i32 %26, %27
   br i1 %cmp41, label %land.lhs.true42, label %return
 
 land.lhs.true42:                                  ; preds = %land.lhs.true39
-  %fStandaloneShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 44
+  %fStandaloneShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 240
   %28 = load i32, ptr %fStandaloneShortWeekdaysCount, align 8
-  %fStandaloneShortWeekdaysCount43 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 44
+  %fStandaloneShortWeekdaysCount43 = getelementptr inbounds i8, ptr %other, i64 240
   %29 = load i32, ptr %fStandaloneShortWeekdaysCount43, align 8
   %cmp44 = icmp eq i32 %28, %29
   br i1 %cmp44, label %land.lhs.true45, label %return
 
 land.lhs.true45:                                  ; preds = %land.lhs.true42
-  %fStandaloneShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 47
+  %fStandaloneShorterWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 256
   %30 = load i32, ptr %fStandaloneShorterWeekdaysCount, align 8
-  %fStandaloneShorterWeekdaysCount46 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 47
+  %fStandaloneShorterWeekdaysCount46 = getelementptr inbounds i8, ptr %other, i64 256
   %31 = load i32, ptr %fStandaloneShorterWeekdaysCount46, align 8
   %cmp47 = icmp eq i32 %30, %31
   br i1 %cmp47, label %land.lhs.true48, label %return
 
 land.lhs.true48:                                  ; preds = %land.lhs.true45
-  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 50
+  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 272
   %32 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
-  %fStandaloneNarrowWeekdaysCount49 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 50
+  %fStandaloneNarrowWeekdaysCount49 = getelementptr inbounds i8, ptr %other, i64 272
   %33 = load i32, ptr %fStandaloneNarrowWeekdaysCount49, align 8
   %cmp50 = icmp eq i32 %32, %33
   br i1 %cmp50, label %land.lhs.true51, label %return
 
 land.lhs.true51:                                  ; preds = %land.lhs.true48
-  %fAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 53
+  %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
   %34 = load i32, ptr %fAmPmsCount, align 8
-  %fAmPmsCount52 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 53
+  %fAmPmsCount52 = getelementptr inbounds i8, ptr %other, i64 288
   %35 = load i32, ptr %fAmPmsCount52, align 8
   %cmp53 = icmp eq i32 %34, %35
   br i1 %cmp53, label %land.lhs.true54, label %return
 
 land.lhs.true54:                                  ; preds = %land.lhs.true51
-  %fNarrowAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 56
+  %fNarrowAmPmsCount = getelementptr inbounds i8, ptr %this, i64 304
   %36 = load i32, ptr %fNarrowAmPmsCount, align 8
-  %fNarrowAmPmsCount55 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 56
+  %fNarrowAmPmsCount55 = getelementptr inbounds i8, ptr %other, i64 304
   %37 = load i32, ptr %fNarrowAmPmsCount55, align 8
   %cmp56 = icmp eq i32 %36, %37
   br i1 %cmp56, label %land.lhs.true57, label %return
 
 land.lhs.true57:                                  ; preds = %land.lhs.true54
-  %fQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 60
+  %fQuartersCount = getelementptr inbounds i8, ptr %this, i64 384
   %38 = load i32, ptr %fQuartersCount, align 8
-  %fQuartersCount58 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 60
+  %fQuartersCount58 = getelementptr inbounds i8, ptr %other, i64 384
   %39 = load i32, ptr %fQuartersCount58, align 8
   %cmp59 = icmp eq i32 %38, %39
   br i1 %cmp59, label %land.lhs.true60, label %return
 
 land.lhs.true60:                                  ; preds = %land.lhs.true57
-  %fShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 63
+  %fShortQuartersCount = getelementptr inbounds i8, ptr %this, i64 400
   %40 = load i32, ptr %fShortQuartersCount, align 8
-  %fShortQuartersCount61 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 63
+  %fShortQuartersCount61 = getelementptr inbounds i8, ptr %other, i64 400
   %41 = load i32, ptr %fShortQuartersCount61, align 8
   %cmp62 = icmp eq i32 %40, %41
   br i1 %cmp62, label %land.lhs.true63, label %return
 
 land.lhs.true63:                                  ; preds = %land.lhs.true60
-  %fNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 66
+  %fNarrowQuartersCount = getelementptr inbounds i8, ptr %this, i64 416
   %42 = load i32, ptr %fNarrowQuartersCount, align 8
-  %fNarrowQuartersCount64 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 66
+  %fNarrowQuartersCount64 = getelementptr inbounds i8, ptr %other, i64 416
   %43 = load i32, ptr %fNarrowQuartersCount64, align 8
   %cmp65 = icmp eq i32 %42, %43
   br i1 %cmp65, label %land.lhs.true66, label %return
 
 land.lhs.true66:                                  ; preds = %land.lhs.true63
-  %fStandaloneQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 69
+  %fStandaloneQuartersCount = getelementptr inbounds i8, ptr %this, i64 432
   %44 = load i32, ptr %fStandaloneQuartersCount, align 8
-  %fStandaloneQuartersCount67 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 69
+  %fStandaloneQuartersCount67 = getelementptr inbounds i8, ptr %other, i64 432
   %45 = load i32, ptr %fStandaloneQuartersCount67, align 8
   %cmp68 = icmp eq i32 %44, %45
   br i1 %cmp68, label %land.lhs.true69, label %return
 
 land.lhs.true69:                                  ; preds = %land.lhs.true66
-  %fStandaloneShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 72
+  %fStandaloneShortQuartersCount = getelementptr inbounds i8, ptr %this, i64 448
   %46 = load i32, ptr %fStandaloneShortQuartersCount, align 8
-  %fStandaloneShortQuartersCount70 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 72
+  %fStandaloneShortQuartersCount70 = getelementptr inbounds i8, ptr %other, i64 448
   %47 = load i32, ptr %fStandaloneShortQuartersCount70, align 8
   %cmp71 = icmp eq i32 %46, %47
   br i1 %cmp71, label %land.lhs.true72, label %return
 
 land.lhs.true72:                                  ; preds = %land.lhs.true69
-  %fStandaloneNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 75
+  %fStandaloneNarrowQuartersCount = getelementptr inbounds i8, ptr %this, i64 464
   %48 = load i32, ptr %fStandaloneNarrowQuartersCount, align 8
-  %fStandaloneNarrowQuartersCount73 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 75
+  %fStandaloneNarrowQuartersCount73 = getelementptr inbounds i8, ptr %other, i64 464
   %49 = load i32, ptr %fStandaloneNarrowQuartersCount73, align 8
   %cmp74 = icmp eq i32 %48, %49
   br i1 %cmp74, label %land.lhs.true75, label %return
 
 land.lhs.true75:                                  ; preds = %land.lhs.true72
-  %fLeapMonthPatternsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 78
+  %fLeapMonthPatternsCount = getelementptr inbounds i8, ptr %this, i64 480
   %50 = load i32, ptr %fLeapMonthPatternsCount, align 8
-  %fLeapMonthPatternsCount76 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 78
+  %fLeapMonthPatternsCount76 = getelementptr inbounds i8, ptr %other, i64 480
   %51 = load i32, ptr %fLeapMonthPatternsCount76, align 8
   %cmp77 = icmp eq i32 %50, %51
   br i1 %cmp77, label %land.lhs.true78, label %return
 
 land.lhs.true78:                                  ; preds = %land.lhs.true75
-  %fShortYearNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 81
+  %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
   %52 = load i32, ptr %fShortYearNamesCount, align 8
-  %fShortYearNamesCount79 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 81
+  %fShortYearNamesCount79 = getelementptr inbounds i8, ptr %other, i64 496
   %53 = load i32, ptr %fShortYearNamesCount79, align 8
   %cmp80 = icmp eq i32 %52, %53
   br i1 %cmp80, label %land.lhs.true81, label %return
 
 land.lhs.true81:                                  ; preds = %land.lhs.true78
-  %fShortZodiacNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 84
+  %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
   %54 = load i32, ptr %fShortZodiacNamesCount, align 8
-  %fShortZodiacNamesCount82 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 84
+  %fShortZodiacNamesCount82 = getelementptr inbounds i8, ptr %other, i64 512
   %55 = load i32, ptr %fShortZodiacNamesCount82, align 8
   %cmp83 = icmp eq i32 %54, %55
   br i1 %cmp83, label %land.lhs.true84, label %return
 
 land.lhs.true84:                                  ; preds = %land.lhs.true81
-  %fAbbreviatedDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 95
+  %fAbbreviatedDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 872
   %56 = load i32, ptr %fAbbreviatedDayPeriodsCount, align 8
-  %fAbbreviatedDayPeriodsCount85 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 95
+  %fAbbreviatedDayPeriodsCount85 = getelementptr inbounds i8, ptr %other, i64 872
   %57 = load i32, ptr %fAbbreviatedDayPeriodsCount85, align 8
   %cmp86 = icmp eq i32 %56, %57
   br i1 %cmp86, label %land.lhs.true87, label %return
 
 land.lhs.true87:                                  ; preds = %land.lhs.true84
-  %fWideDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 98
+  %fWideDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 888
   %58 = load i32, ptr %fWideDayPeriodsCount, align 8
-  %fWideDayPeriodsCount88 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 98
+  %fWideDayPeriodsCount88 = getelementptr inbounds i8, ptr %other, i64 888
   %59 = load i32, ptr %fWideDayPeriodsCount88, align 8
   %cmp89 = icmp eq i32 %58, %59
   br i1 %cmp89, label %land.lhs.true90, label %return
 
 land.lhs.true90:                                  ; preds = %land.lhs.true87
-  %fNarrowDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 101
+  %fNarrowDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 904
   %60 = load i32, ptr %fNarrowDayPeriodsCount, align 8
-  %fNarrowDayPeriodsCount91 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 101
+  %fNarrowDayPeriodsCount91 = getelementptr inbounds i8, ptr %other, i64 904
   %61 = load i32, ptr %fNarrowDayPeriodsCount91, align 8
   %cmp92 = icmp eq i32 %60, %61
   br i1 %cmp92, label %land.lhs.true93, label %return
 
 land.lhs.true93:                                  ; preds = %land.lhs.true90
-  %fStandaloneAbbreviatedDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 104
+  %fStandaloneAbbreviatedDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 920
   %62 = load i32, ptr %fStandaloneAbbreviatedDayPeriodsCount, align 8
-  %fStandaloneAbbreviatedDayPeriodsCount94 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 104
+  %fStandaloneAbbreviatedDayPeriodsCount94 = getelementptr inbounds i8, ptr %other, i64 920
   %63 = load i32, ptr %fStandaloneAbbreviatedDayPeriodsCount94, align 8
   %cmp95 = icmp eq i32 %62, %63
   br i1 %cmp95, label %land.lhs.true96, label %return
 
 land.lhs.true96:                                  ; preds = %land.lhs.true93
-  %fStandaloneWideDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 107
+  %fStandaloneWideDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 936
   %64 = load i32, ptr %fStandaloneWideDayPeriodsCount, align 8
-  %fStandaloneWideDayPeriodsCount97 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 107
+  %fStandaloneWideDayPeriodsCount97 = getelementptr inbounds i8, ptr %other, i64 936
   %65 = load i32, ptr %fStandaloneWideDayPeriodsCount97, align 8
   %cmp98 = icmp eq i32 %64, %65
   br i1 %cmp98, label %land.lhs.true99, label %return
 
 land.lhs.true99:                                  ; preds = %land.lhs.true96
-  %fStandaloneNarrowDayPeriodsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 110
+  %fStandaloneNarrowDayPeriodsCount = getelementptr inbounds i8, ptr %this, i64 952
   %66 = load i32, ptr %fStandaloneNarrowDayPeriodsCount, align 8
-  %fStandaloneNarrowDayPeriodsCount100 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 110
+  %fStandaloneNarrowDayPeriodsCount100 = getelementptr inbounds i8, ptr %other, i64 952
   %67 = load i32, ptr %fStandaloneNarrowDayPeriodsCount100, align 8
   %cmp101 = icmp eq i32 %66, %67
   br i1 %cmp101, label %land.lhs.true102, label %return
 
 land.lhs.true102:                                 ; preds = %land.lhs.true99
-  %fCapitalization = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 92
-  %fCapitalization103 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 92
+  %fCapitalization = getelementptr inbounds i8, ptr %this, i64 832
+  %fCapitalization103 = getelementptr inbounds i8, ptr %other, i64 832
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %fCapitalization, ptr noundef nonnull dereferenceable(28) %fCapitalization103, i64 28)
   %cmp105 = icmp eq i32 %bcmp, 0
   br i1 %cmp105, label %if.then106, label %return
 
 if.then106:                                       ; preds = %land.lhs.true102
-  %fEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 1
+  %fEras = getelementptr inbounds i8, ptr %this, i64 8
   %68 = load ptr, ptr %fEras, align 8
-  %fEras107 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 1
+  %fEras107 = getelementptr inbounds i8, ptr %other, i64 8
   %69 = load ptr, ptr %fEras107, align 8
   %call109 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %68, ptr noundef %69, i32 noundef %0), !range !27
   %tobool.not = icmp eq i8 %call109, 0
   br i1 %tobool.not, label %return, label %land.lhs.true110
 
 land.lhs.true110:                                 ; preds = %if.then106
-  %fEraNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 4
+  %fEraNames = getelementptr inbounds i8, ptr %this, i64 24
   %70 = load ptr, ptr %fEraNames, align 8
-  %fEraNames111 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 4
+  %fEraNames111 = getelementptr inbounds i8, ptr %other, i64 24
   %71 = load ptr, ptr %fEraNames111, align 8
   %72 = load i32, ptr %fEraNamesCount, align 8
   %call113 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %70, ptr noundef %71, i32 noundef %72), !range !27
@@ -11610,9 +11615,9 @@ land.lhs.true110:                                 ; preds = %if.then106
   br i1 %tobool114.not, label %return, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %land.lhs.true110
-  %fNarrowEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 7
+  %fNarrowEras = getelementptr inbounds i8, ptr %this, i64 40
   %73 = load ptr, ptr %fNarrowEras, align 8
-  %fNarrowEras116 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 7
+  %fNarrowEras116 = getelementptr inbounds i8, ptr %other, i64 40
   %74 = load ptr, ptr %fNarrowEras116, align 8
   %75 = load i32, ptr %fNarrowErasCount, align 8
   %call118 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %73, ptr noundef %74, i32 noundef %75), !range !27
@@ -11620,9 +11625,9 @@ land.lhs.true115:                                 ; preds = %land.lhs.true110
   br i1 %tobool119.not, label %return, label %land.lhs.true120
 
 land.lhs.true120:                                 ; preds = %land.lhs.true115
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
   %76 = load ptr, ptr %fMonths, align 8
-  %fMonths121 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 10
+  %fMonths121 = getelementptr inbounds i8, ptr %other, i64 56
   %77 = load ptr, ptr %fMonths121, align 8
   %78 = load i32, ptr %fMonthsCount, align 8
   %call123 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %76, ptr noundef %77, i32 noundef %78), !range !27
@@ -11630,9 +11635,9 @@ land.lhs.true120:                                 ; preds = %land.lhs.true115
   br i1 %tobool124.not, label %return, label %land.lhs.true125
 
 land.lhs.true125:                                 ; preds = %land.lhs.true120
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
   %79 = load ptr, ptr %fShortMonths, align 8
-  %fShortMonths126 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 13
+  %fShortMonths126 = getelementptr inbounds i8, ptr %other, i64 72
   %80 = load ptr, ptr %fShortMonths126, align 8
   %81 = load i32, ptr %fShortMonthsCount, align 8
   %call128 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %79, ptr noundef %80, i32 noundef %81), !range !27
@@ -11640,9 +11645,9 @@ land.lhs.true125:                                 ; preds = %land.lhs.true120
   br i1 %tobool129.not, label %return, label %land.lhs.true130
 
 land.lhs.true130:                                 ; preds = %land.lhs.true125
-  %fNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 16
+  %fNarrowMonths = getelementptr inbounds i8, ptr %this, i64 88
   %82 = load ptr, ptr %fNarrowMonths, align 8
-  %fNarrowMonths131 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 16
+  %fNarrowMonths131 = getelementptr inbounds i8, ptr %other, i64 88
   %83 = load ptr, ptr %fNarrowMonths131, align 8
   %84 = load i32, ptr %fNarrowMonthsCount, align 8
   %call133 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %82, ptr noundef %83, i32 noundef %84), !range !27
@@ -11650,9 +11655,9 @@ land.lhs.true130:                                 ; preds = %land.lhs.true125
   br i1 %tobool134.not, label %return, label %land.lhs.true135
 
 land.lhs.true135:                                 ; preds = %land.lhs.true130
-  %fStandaloneMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 19
+  %fStandaloneMonths = getelementptr inbounds i8, ptr %this, i64 104
   %85 = load ptr, ptr %fStandaloneMonths, align 8
-  %fStandaloneMonths136 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 19
+  %fStandaloneMonths136 = getelementptr inbounds i8, ptr %other, i64 104
   %86 = load ptr, ptr %fStandaloneMonths136, align 8
   %87 = load i32, ptr %fStandaloneMonthsCount, align 8
   %call138 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %85, ptr noundef %86, i32 noundef %87), !range !27
@@ -11660,9 +11665,9 @@ land.lhs.true135:                                 ; preds = %land.lhs.true130
   br i1 %tobool139.not, label %return, label %land.lhs.true140
 
 land.lhs.true140:                                 ; preds = %land.lhs.true135
-  %fStandaloneShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 22
+  %fStandaloneShortMonths = getelementptr inbounds i8, ptr %this, i64 120
   %88 = load ptr, ptr %fStandaloneShortMonths, align 8
-  %fStandaloneShortMonths141 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 22
+  %fStandaloneShortMonths141 = getelementptr inbounds i8, ptr %other, i64 120
   %89 = load ptr, ptr %fStandaloneShortMonths141, align 8
   %90 = load i32, ptr %fStandaloneShortMonthsCount, align 8
   %call143 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %88, ptr noundef %89, i32 noundef %90), !range !27
@@ -11670,9 +11675,9 @@ land.lhs.true140:                                 ; preds = %land.lhs.true135
   br i1 %tobool144.not, label %return, label %land.lhs.true145
 
 land.lhs.true145:                                 ; preds = %land.lhs.true140
-  %fStandaloneNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 25
+  %fStandaloneNarrowMonths = getelementptr inbounds i8, ptr %this, i64 136
   %91 = load ptr, ptr %fStandaloneNarrowMonths, align 8
-  %fStandaloneNarrowMonths146 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 25
+  %fStandaloneNarrowMonths146 = getelementptr inbounds i8, ptr %other, i64 136
   %92 = load ptr, ptr %fStandaloneNarrowMonths146, align 8
   %93 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
   %call148 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %91, ptr noundef %92, i32 noundef %93), !range !27
@@ -11680,9 +11685,9 @@ land.lhs.true145:                                 ; preds = %land.lhs.true140
   br i1 %tobool149.not, label %return, label %land.lhs.true150
 
 land.lhs.true150:                                 ; preds = %land.lhs.true145
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
   %94 = load ptr, ptr %fWeekdays, align 8
-  %fWeekdays151 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 28
+  %fWeekdays151 = getelementptr inbounds i8, ptr %other, i64 152
   %95 = load ptr, ptr %fWeekdays151, align 8
   %96 = load i32, ptr %fWeekdaysCount, align 8
   %call153 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %94, ptr noundef %95, i32 noundef %96), !range !27
@@ -11690,9 +11695,9 @@ land.lhs.true150:                                 ; preds = %land.lhs.true145
   br i1 %tobool154.not, label %return, label %land.lhs.true155
 
 land.lhs.true155:                                 ; preds = %land.lhs.true150
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
   %97 = load ptr, ptr %fShortWeekdays, align 8
-  %fShortWeekdays156 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 31
+  %fShortWeekdays156 = getelementptr inbounds i8, ptr %other, i64 168
   %98 = load ptr, ptr %fShortWeekdays156, align 8
   %99 = load i32, ptr %fShortWeekdaysCount, align 8
   %call158 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %97, ptr noundef %98, i32 noundef %99), !range !27
@@ -11700,9 +11705,9 @@ land.lhs.true155:                                 ; preds = %land.lhs.true150
   br i1 %tobool159.not, label %return, label %land.lhs.true160
 
 land.lhs.true160:                                 ; preds = %land.lhs.true155
-  %fShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 34
+  %fShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 184
   %100 = load ptr, ptr %fShorterWeekdays, align 8
-  %fShorterWeekdays161 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 34
+  %fShorterWeekdays161 = getelementptr inbounds i8, ptr %other, i64 184
   %101 = load ptr, ptr %fShorterWeekdays161, align 8
   %102 = load i32, ptr %fShorterWeekdaysCount, align 8
   %call163 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %100, ptr noundef %101, i32 noundef %102), !range !27
@@ -11710,9 +11715,9 @@ land.lhs.true160:                                 ; preds = %land.lhs.true155
   br i1 %tobool164.not, label %return, label %land.lhs.true165
 
 land.lhs.true165:                                 ; preds = %land.lhs.true160
-  %fNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 37
+  %fNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 200
   %103 = load ptr, ptr %fNarrowWeekdays, align 8
-  %fNarrowWeekdays166 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 37
+  %fNarrowWeekdays166 = getelementptr inbounds i8, ptr %other, i64 200
   %104 = load ptr, ptr %fNarrowWeekdays166, align 8
   %105 = load i32, ptr %fNarrowWeekdaysCount, align 8
   %call168 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %103, ptr noundef %104, i32 noundef %105), !range !27
@@ -11720,9 +11725,9 @@ land.lhs.true165:                                 ; preds = %land.lhs.true160
   br i1 %tobool169.not, label %return, label %land.lhs.true170
 
 land.lhs.true170:                                 ; preds = %land.lhs.true165
-  %fStandaloneWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 40
+  %fStandaloneWeekdays = getelementptr inbounds i8, ptr %this, i64 216
   %106 = load ptr, ptr %fStandaloneWeekdays, align 8
-  %fStandaloneWeekdays171 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 40
+  %fStandaloneWeekdays171 = getelementptr inbounds i8, ptr %other, i64 216
   %107 = load ptr, ptr %fStandaloneWeekdays171, align 8
   %108 = load i32, ptr %fStandaloneWeekdaysCount, align 8
   %call173 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %106, ptr noundef %107, i32 noundef %108), !range !27
@@ -11730,9 +11735,9 @@ land.lhs.true170:                                 ; preds = %land.lhs.true165
   br i1 %tobool174.not, label %return, label %land.lhs.true175
 
 land.lhs.true175:                                 ; preds = %land.lhs.true170
-  %fStandaloneShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 43
+  %fStandaloneShortWeekdays = getelementptr inbounds i8, ptr %this, i64 232
   %109 = load ptr, ptr %fStandaloneShortWeekdays, align 8
-  %fStandaloneShortWeekdays176 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 43
+  %fStandaloneShortWeekdays176 = getelementptr inbounds i8, ptr %other, i64 232
   %110 = load ptr, ptr %fStandaloneShortWeekdays176, align 8
   %111 = load i32, ptr %fStandaloneShortWeekdaysCount, align 8
   %call178 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %109, ptr noundef %110, i32 noundef %111), !range !27
@@ -11740,9 +11745,9 @@ land.lhs.true175:                                 ; preds = %land.lhs.true170
   br i1 %tobool179.not, label %return, label %land.lhs.true180
 
 land.lhs.true180:                                 ; preds = %land.lhs.true175
-  %fStandaloneShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 46
+  %fStandaloneShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 248
   %112 = load ptr, ptr %fStandaloneShorterWeekdays, align 8
-  %fStandaloneShorterWeekdays181 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 46
+  %fStandaloneShorterWeekdays181 = getelementptr inbounds i8, ptr %other, i64 248
   %113 = load ptr, ptr %fStandaloneShorterWeekdays181, align 8
   %114 = load i32, ptr %fStandaloneShorterWeekdaysCount, align 8
   %call183 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %112, ptr noundef %113, i32 noundef %114), !range !27
@@ -11750,9 +11755,9 @@ land.lhs.true180:                                 ; preds = %land.lhs.true175
   br i1 %tobool184.not, label %return, label %land.lhs.true185
 
 land.lhs.true185:                                 ; preds = %land.lhs.true180
-  %fStandaloneNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 49
+  %fStandaloneNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 264
   %115 = load ptr, ptr %fStandaloneNarrowWeekdays, align 8
-  %fStandaloneNarrowWeekdays186 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 49
+  %fStandaloneNarrowWeekdays186 = getelementptr inbounds i8, ptr %other, i64 264
   %116 = load ptr, ptr %fStandaloneNarrowWeekdays186, align 8
   %117 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
   %call188 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %115, ptr noundef %116, i32 noundef %117), !range !27
@@ -11760,9 +11765,9 @@ land.lhs.true185:                                 ; preds = %land.lhs.true180
   br i1 %tobool189.not, label %return, label %land.lhs.true190
 
 land.lhs.true190:                                 ; preds = %land.lhs.true185
-  %fAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 52
+  %fAmPms = getelementptr inbounds i8, ptr %this, i64 280
   %118 = load ptr, ptr %fAmPms, align 8
-  %fAmPms191 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 52
+  %fAmPms191 = getelementptr inbounds i8, ptr %other, i64 280
   %119 = load ptr, ptr %fAmPms191, align 8
   %120 = load i32, ptr %fAmPmsCount, align 8
   %call193 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %118, ptr noundef %119, i32 noundef %120), !range !27
@@ -11770,9 +11775,9 @@ land.lhs.true190:                                 ; preds = %land.lhs.true185
   br i1 %tobool194.not, label %return, label %land.lhs.true195
 
 land.lhs.true195:                                 ; preds = %land.lhs.true190
-  %fNarrowAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 55
+  %fNarrowAmPms = getelementptr inbounds i8, ptr %this, i64 296
   %121 = load ptr, ptr %fNarrowAmPms, align 8
-  %fNarrowAmPms196 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 55
+  %fNarrowAmPms196 = getelementptr inbounds i8, ptr %other, i64 296
   %122 = load ptr, ptr %fNarrowAmPms196, align 8
   %123 = load i32, ptr %fNarrowAmPmsCount, align 8
   %call198 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %121, ptr noundef %122, i32 noundef %123), !range !27
@@ -11780,15 +11785,15 @@ land.lhs.true195:                                 ; preds = %land.lhs.true190
   br i1 %tobool199.not, label %return, label %land.lhs.true200
 
 land.lhs.true200:                                 ; preds = %land.lhs.true195
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
-  %fTimeSeparator201 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
+  %fTimeSeparator201 = getelementptr inbounds i8, ptr %other, i64 312
   %call202 = tail call noundef zeroext i1 @_ZNK6icu_7513UnicodeStringeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator, ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator201)
   br i1 %call202, label %land.lhs.true203, label %return
 
 land.lhs.true203:                                 ; preds = %land.lhs.true200
-  %fQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 59
+  %fQuarters = getelementptr inbounds i8, ptr %this, i64 376
   %124 = load ptr, ptr %fQuarters, align 8
-  %fQuarters204 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 59
+  %fQuarters204 = getelementptr inbounds i8, ptr %other, i64 376
   %125 = load ptr, ptr %fQuarters204, align 8
   %126 = load i32, ptr %fQuartersCount, align 8
   %call206 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %124, ptr noundef %125, i32 noundef %126), !range !27
@@ -11796,9 +11801,9 @@ land.lhs.true203:                                 ; preds = %land.lhs.true200
   br i1 %tobool207.not, label %return, label %land.lhs.true208
 
 land.lhs.true208:                                 ; preds = %land.lhs.true203
-  %fShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 62
+  %fShortQuarters = getelementptr inbounds i8, ptr %this, i64 392
   %127 = load ptr, ptr %fShortQuarters, align 8
-  %fShortQuarters209 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 62
+  %fShortQuarters209 = getelementptr inbounds i8, ptr %other, i64 392
   %128 = load ptr, ptr %fShortQuarters209, align 8
   %129 = load i32, ptr %fShortQuartersCount, align 8
   %call211 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %127, ptr noundef %128, i32 noundef %129), !range !27
@@ -11806,9 +11811,9 @@ land.lhs.true208:                                 ; preds = %land.lhs.true203
   br i1 %tobool212.not, label %return, label %land.lhs.true213
 
 land.lhs.true213:                                 ; preds = %land.lhs.true208
-  %fNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 65
+  %fNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 408
   %130 = load ptr, ptr %fNarrowQuarters, align 8
-  %fNarrowQuarters214 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 65
+  %fNarrowQuarters214 = getelementptr inbounds i8, ptr %other, i64 408
   %131 = load ptr, ptr %fNarrowQuarters214, align 8
   %132 = load i32, ptr %fNarrowQuartersCount, align 8
   %call216 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %130, ptr noundef %131, i32 noundef %132), !range !27
@@ -11816,9 +11821,9 @@ land.lhs.true213:                                 ; preds = %land.lhs.true208
   br i1 %tobool217.not, label %return, label %land.lhs.true218
 
 land.lhs.true218:                                 ; preds = %land.lhs.true213
-  %fStandaloneQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 68
+  %fStandaloneQuarters = getelementptr inbounds i8, ptr %this, i64 424
   %133 = load ptr, ptr %fStandaloneQuarters, align 8
-  %fStandaloneQuarters219 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 68
+  %fStandaloneQuarters219 = getelementptr inbounds i8, ptr %other, i64 424
   %134 = load ptr, ptr %fStandaloneQuarters219, align 8
   %135 = load i32, ptr %fStandaloneQuartersCount, align 8
   %call221 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %133, ptr noundef %134, i32 noundef %135), !range !27
@@ -11826,9 +11831,9 @@ land.lhs.true218:                                 ; preds = %land.lhs.true213
   br i1 %tobool222.not, label %return, label %land.lhs.true223
 
 land.lhs.true223:                                 ; preds = %land.lhs.true218
-  %fStandaloneShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 71
+  %fStandaloneShortQuarters = getelementptr inbounds i8, ptr %this, i64 440
   %136 = load ptr, ptr %fStandaloneShortQuarters, align 8
-  %fStandaloneShortQuarters224 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 71
+  %fStandaloneShortQuarters224 = getelementptr inbounds i8, ptr %other, i64 440
   %137 = load ptr, ptr %fStandaloneShortQuarters224, align 8
   %138 = load i32, ptr %fStandaloneShortQuartersCount, align 8
   %call226 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %136, ptr noundef %137, i32 noundef %138), !range !27
@@ -11836,9 +11841,9 @@ land.lhs.true223:                                 ; preds = %land.lhs.true218
   br i1 %tobool227.not, label %return, label %land.lhs.true228
 
 land.lhs.true228:                                 ; preds = %land.lhs.true223
-  %fStandaloneNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 74
+  %fStandaloneNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 456
   %139 = load ptr, ptr %fStandaloneNarrowQuarters, align 8
-  %fStandaloneNarrowQuarters229 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 74
+  %fStandaloneNarrowQuarters229 = getelementptr inbounds i8, ptr %other, i64 456
   %140 = load ptr, ptr %fStandaloneNarrowQuarters229, align 8
   %141 = load i32, ptr %fStandaloneNarrowQuartersCount, align 8
   %call231 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %139, ptr noundef %140, i32 noundef %141), !range !27
@@ -11846,9 +11851,9 @@ land.lhs.true228:                                 ; preds = %land.lhs.true223
   br i1 %tobool232.not, label %return, label %land.lhs.true233
 
 land.lhs.true233:                                 ; preds = %land.lhs.true228
-  %fLeapMonthPatterns = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 77
+  %fLeapMonthPatterns = getelementptr inbounds i8, ptr %this, i64 472
   %142 = load ptr, ptr %fLeapMonthPatterns, align 8
-  %fLeapMonthPatterns234 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 77
+  %fLeapMonthPatterns234 = getelementptr inbounds i8, ptr %other, i64 472
   %143 = load ptr, ptr %fLeapMonthPatterns234, align 8
   %144 = load i32, ptr %fLeapMonthPatternsCount, align 8
   %call236 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %142, ptr noundef %143, i32 noundef %144), !range !27
@@ -11856,9 +11861,9 @@ land.lhs.true233:                                 ; preds = %land.lhs.true228
   br i1 %tobool237.not, label %return, label %land.lhs.true238
 
 land.lhs.true238:                                 ; preds = %land.lhs.true233
-  %fShortYearNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 80
+  %fShortYearNames = getelementptr inbounds i8, ptr %this, i64 488
   %145 = load ptr, ptr %fShortYearNames, align 8
-  %fShortYearNames239 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 80
+  %fShortYearNames239 = getelementptr inbounds i8, ptr %other, i64 488
   %146 = load ptr, ptr %fShortYearNames239, align 8
   %147 = load i32, ptr %fShortYearNamesCount, align 8
   %call241 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %145, ptr noundef %146, i32 noundef %147), !range !27
@@ -11866,9 +11871,9 @@ land.lhs.true238:                                 ; preds = %land.lhs.true233
   br i1 %tobool242.not, label %return, label %land.lhs.true243
 
 land.lhs.true243:                                 ; preds = %land.lhs.true238
-  %fShortZodiacNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 83
+  %fShortZodiacNames = getelementptr inbounds i8, ptr %this, i64 504
   %148 = load ptr, ptr %fShortZodiacNames, align 8
-  %fShortZodiacNames244 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 83
+  %fShortZodiacNames244 = getelementptr inbounds i8, ptr %other, i64 504
   %149 = load ptr, ptr %fShortZodiacNames244, align 8
   %150 = load i32, ptr %fShortZodiacNamesCount, align 8
   %call246 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %148, ptr noundef %149, i32 noundef %150), !range !27
@@ -11876,9 +11881,9 @@ land.lhs.true243:                                 ; preds = %land.lhs.true238
   br i1 %tobool247.not, label %return, label %land.lhs.true248
 
 land.lhs.true248:                                 ; preds = %land.lhs.true243
-  %fAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 94
+  %fAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 864
   %151 = load ptr, ptr %fAbbreviatedDayPeriods, align 8
-  %fAbbreviatedDayPeriods249 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 94
+  %fAbbreviatedDayPeriods249 = getelementptr inbounds i8, ptr %other, i64 864
   %152 = load ptr, ptr %fAbbreviatedDayPeriods249, align 8
   %153 = load i32, ptr %fAbbreviatedDayPeriodsCount, align 8
   %call251 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %151, ptr noundef %152, i32 noundef %153), !range !27
@@ -11886,9 +11891,9 @@ land.lhs.true248:                                 ; preds = %land.lhs.true243
   br i1 %tobool252.not, label %return, label %land.lhs.true253
 
 land.lhs.true253:                                 ; preds = %land.lhs.true248
-  %fWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 97
+  %fWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 880
   %154 = load ptr, ptr %fWideDayPeriods, align 8
-  %fWideDayPeriods254 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 97
+  %fWideDayPeriods254 = getelementptr inbounds i8, ptr %other, i64 880
   %155 = load ptr, ptr %fWideDayPeriods254, align 8
   %156 = load i32, ptr %fWideDayPeriodsCount, align 8
   %call256 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %154, ptr noundef %155, i32 noundef %156), !range !27
@@ -11896,9 +11901,9 @@ land.lhs.true253:                                 ; preds = %land.lhs.true248
   br i1 %tobool257.not, label %return, label %land.lhs.true258
 
 land.lhs.true258:                                 ; preds = %land.lhs.true253
-  %fNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 100
+  %fNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 896
   %157 = load ptr, ptr %fNarrowDayPeriods, align 8
-  %fNarrowDayPeriods259 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 100
+  %fNarrowDayPeriods259 = getelementptr inbounds i8, ptr %other, i64 896
   %158 = load ptr, ptr %fNarrowDayPeriods259, align 8
   %159 = load i32, ptr %fNarrowDayPeriodsCount, align 8
   %call261 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %157, ptr noundef %158, i32 noundef %159), !range !27
@@ -11906,9 +11911,9 @@ land.lhs.true258:                                 ; preds = %land.lhs.true253
   br i1 %tobool262.not, label %return, label %land.lhs.true263
 
 land.lhs.true263:                                 ; preds = %land.lhs.true258
-  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 103
+  %fStandaloneAbbreviatedDayPeriods = getelementptr inbounds i8, ptr %this, i64 912
   %160 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods, align 8
-  %fStandaloneAbbreviatedDayPeriods264 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 103
+  %fStandaloneAbbreviatedDayPeriods264 = getelementptr inbounds i8, ptr %other, i64 912
   %161 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods264, align 8
   %162 = load i32, ptr %fStandaloneAbbreviatedDayPeriodsCount, align 8
   %call266 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %160, ptr noundef %161, i32 noundef %162), !range !27
@@ -11916,9 +11921,9 @@ land.lhs.true263:                                 ; preds = %land.lhs.true258
   br i1 %tobool267.not, label %return, label %land.lhs.true268
 
 land.lhs.true268:                                 ; preds = %land.lhs.true263
-  %fStandaloneWideDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 106
+  %fStandaloneWideDayPeriods = getelementptr inbounds i8, ptr %this, i64 928
   %163 = load ptr, ptr %fStandaloneWideDayPeriods, align 8
-  %fStandaloneWideDayPeriods269 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 106
+  %fStandaloneWideDayPeriods269 = getelementptr inbounds i8, ptr %other, i64 928
   %164 = load ptr, ptr %fStandaloneWideDayPeriods269, align 8
   %165 = load i32, ptr %fStandaloneWideDayPeriodsCount, align 8
   %call271 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %163, ptr noundef %164, i32 noundef %165), !range !27
@@ -11926,9 +11931,9 @@ land.lhs.true268:                                 ; preds = %land.lhs.true263
   br i1 %tobool272.not, label %return, label %land.lhs.true273
 
 land.lhs.true273:                                 ; preds = %land.lhs.true268
-  %fStandaloneNarrowDayPeriods = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 109
+  %fStandaloneNarrowDayPeriods = getelementptr inbounds i8, ptr %this, i64 944
   %166 = load ptr, ptr %fStandaloneNarrowDayPeriods, align 8
-  %fStandaloneNarrowDayPeriods274 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 109
+  %fStandaloneNarrowDayPeriods274 = getelementptr inbounds i8, ptr %other, i64 944
   %167 = load ptr, ptr %fStandaloneNarrowDayPeriods274, align 8
   %168 = load i32, ptr %fStandaloneWideDayPeriodsCount, align 8
   %call276 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %166, ptr noundef %167, i32 noundef %168), !range !27
@@ -11936,18 +11941,18 @@ land.lhs.true273:                                 ; preds = %land.lhs.true268
   br i1 %tobool277.not, label %return, label %if.then278
 
 if.then278:                                       ; preds = %land.lhs.true273
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
+  %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
   %169 = load ptr, ptr %fZoneStrings, align 8
   %cmp279 = icmp eq ptr %169, null
-  %fZoneStrings281 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 86
+  %fZoneStrings281 = getelementptr inbounds i8, ptr %other, i64 520
   %170 = load ptr, ptr %fZoneStrings281, align 8
   %cmp282 = icmp eq ptr %170, null
   %or.cond = select i1 %cmp279, i1 %cmp282, i1 false
   br i1 %or.cond, label %if.then283, label %if.else
 
 if.then283:                                       ; preds = %if.then278
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
-  %fZSFLocale284 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
+  %fZSFLocale284 = getelementptr inbounds i8, ptr %other, i64 544
   %call285 = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale, ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale284)
   br i1 %call285, label %return, label %if.end313
 
@@ -11956,17 +11961,17 @@ if.else:                                          ; preds = %if.then278
   br i1 %brmerge, label %if.end313, label %if.then293
 
 if.then293:                                       ; preds = %if.else
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   %171 = load i32, ptr %fZoneStringsRowCount, align 8
-  %fZoneStringsRowCount294 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 88
+  %fZoneStringsRowCount294 = getelementptr inbounds i8, ptr %other, i64 536
   %172 = load i32, ptr %fZoneStringsRowCount294, align 8
   %cmp295 = icmp eq i32 %171, %172
   br i1 %cmp295, label %land.lhs.true296, label %if.end313
 
 land.lhs.true296:                                 ; preds = %if.then293
-  %fZoneStringsColCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 89
+  %fZoneStringsColCount = getelementptr inbounds i8, ptr %this, i64 540
   %173 = load i32, ptr %fZoneStringsColCount, align 4
-  %fZoneStringsColCount297 = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %other, i64 0, i32 89
+  %fZoneStringsColCount297 = getelementptr inbounds i8, ptr %other, i64 540
   %174 = load i32, ptr %fZoneStringsColCount297, align 4
   %cmp298 = icmp eq i32 %173, %174
   br i1 %cmp298, label %for.cond.preheader, label %if.end313
@@ -12004,14 +12009,14 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK6icu_7513UnicodeStringeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %text) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv2.i14 = and i16 %0, 1
   %tobool.not = icmp eq i16 %conv2.i14, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fUnion.i5 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i5 = getelementptr inbounds i8, ptr %text, i64 8
   %1 = load i16, ptr %fUnion.i5, align 8
   %conv2.i615 = and i16 %1, 1
   %tobool3 = icmp ne i16 %conv2.i615, 0
@@ -12021,15 +12026,15 @@ if.else:                                          ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %fUnion.i.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i.i7 = getelementptr inbounds i8, ptr %text, i64 8
   %4 = load i16, ptr %fUnion.i.i7, align 8
   %cmp.i.i8 = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i9 = sext i16 %5 to i32
-  %fLength.i10 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10 = getelementptr inbounds i8, ptr %text, i64 12
   %6 = load i32, ptr %fLength.i10, align 4
   %cond.i11 = select i1 %cmp.i.i8, i32 %6, i32 %shr.i.i9
   %conv2.i1316 = and i16 %4, 1
@@ -12053,10 +12058,10 @@ declare noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 2
+  %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %fErasCount, align 8
   store i32 %0, ptr %count, align 4
-  %fEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 1
+  %fEras = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fEras, align 8
   ret ptr %1
 }
@@ -12064,10 +12069,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fEraNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 5
+  %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %fEraNamesCount, align 8
   store i32 %0, ptr %count, align 4
-  %fEraNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 4
+  %fEraNames = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %fEraNames, align 8
   ret ptr %1
 }
@@ -12075,10 +12080,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols13getNarrowErasERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fNarrowErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 8
+  %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fNarrowErasCount, align 8
   store i32 %0, ptr %count, align 4
-  %fNarrowEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 7
+  %fNarrowEras = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %fNarrowEras, align 8
   ret ptr %1
 }
@@ -12086,10 +12091,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
+  %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %fMonthsCount, align 8
   store i32 %0, ptr %count, align 4
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %fMonths, align 8
   ret ptr %1
 }
@@ -12097,10 +12102,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
+  %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %fShortMonthsCount, align 8
   store i32 %0, ptr %count, align 4
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %fShortMonths, align 8
   ret ptr %1
 }
@@ -12114,81 +12119,41 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  switch i32 %width, label %sw.epilog13 [
-    i32 1, label %sw.bb2
-    i32 0, label %sw.bb3
-    i32 3, label %sw.bb3
-    i32 2, label %sw.bb4
-  ]
-
-sw.bb2:                                           ; preds = %sw.bb
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
-  %0 = load i32, ptr %fMonthsCount, align 8
-  store i32 %0, ptr %count, align 4
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
-  %1 = load ptr, ptr %fMonths, align 8
-  br label %sw.epilog13
-
-sw.bb3:                                           ; preds = %sw.bb, %sw.bb
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
-  %2 = load i32, ptr %fShortMonthsCount, align 8
-  store i32 %2, ptr %count, align 4
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
-  %3 = load ptr, ptr %fShortMonths, align 8
-  br label %sw.epilog13
-
-sw.bb4:                                           ; preds = %sw.bb
-  %fNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 17
-  %4 = load i32, ptr %fNarrowMonthsCount, align 8
-  store i32 %4, ptr %count, align 4
-  %fNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 16
-  %5 = load ptr, ptr %fNarrowMonths, align 8
-  br label %sw.epilog13
+  %0 = icmp ult i32 %width, 4
+  br i1 %0, label %sw.epilog13.sink.split, label %sw.epilog13
 
 sw.bb6:                                           ; preds = %entry
-  switch i32 %width, label %sw.epilog13 [
-    i32 1, label %sw.bb7
-    i32 0, label %sw.bb8
-    i32 3, label %sw.bb8
-    i32 2, label %sw.bb9
-  ]
+  %1 = icmp ult i32 %width, 4
+  br i1 %1, label %sw.epilog13.sink.split, label %sw.epilog13
 
-sw.bb7:                                           ; preds = %sw.bb6
-  %fStandaloneMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 20
-  %6 = load i32, ptr %fStandaloneMonthsCount, align 8
-  store i32 %6, ptr %count, align 4
-  %fStandaloneMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 19
-  %7 = load ptr, ptr %fStandaloneMonths, align 8
+sw.epilog13.sink.split:                           ; preds = %sw.bb6, %sw.bb
+  %switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink = phi ptr [ @switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %sw.bb ], [ @switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6, %sw.bb6 ]
+  %switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink = phi ptr [ @switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.5, %sw.bb ], [ @switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7, %sw.bb6 ]
+  %2 = sext i32 %width to i64
+  %switch.gep12 = getelementptr inbounds [4 x i64], ptr %switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink, i64 0, i64 %2
+  %switch.load13 = load i64, ptr %switch.gep12, align 8
+  %3 = sext i32 %width to i64
+  %switch.gep14 = getelementptr inbounds [4 x i64], ptr %switch.table._ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink, i64 0, i64 %3
+  %switch.load15 = load i64, ptr %switch.gep14, align 8
+  %fStandaloneMonthsCount = getelementptr inbounds i8, ptr %this, i64 %switch.load13
+  %4 = load i32, ptr %fStandaloneMonthsCount, align 8
+  store i32 %4, ptr %count, align 4
+  %fStandaloneMonths = getelementptr inbounds i8, ptr %this, i64 %switch.load15
+  %5 = load ptr, ptr %fStandaloneMonths, align 8
   br label %sw.epilog13
 
-sw.bb8:                                           ; preds = %sw.bb6, %sw.bb6
-  %fStandaloneShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 23
-  %8 = load i32, ptr %fStandaloneShortMonthsCount, align 8
-  store i32 %8, ptr %count, align 4
-  %fStandaloneShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 22
-  %9 = load ptr, ptr %fStandaloneShortMonths, align 8
-  br label %sw.epilog13
-
-sw.bb9:                                           ; preds = %sw.bb6
-  %fStandaloneNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 26
-  %10 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
-  store i32 %10, ptr %count, align 4
-  %fStandaloneNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 25
-  %11 = load ptr, ptr %fStandaloneNarrowMonths, align 8
-  br label %sw.epilog13
-
-sw.epilog13:                                      ; preds = %sw.bb6, %sw.bb7, %sw.bb8, %sw.bb9, %sw.bb, %sw.bb2, %sw.bb3, %sw.bb4, %entry
-  %returnValue.0 = phi ptr [ null, %entry ], [ null, %sw.bb6 ], [ %11, %sw.bb9 ], [ %9, %sw.bb8 ], [ %7, %sw.bb7 ], [ null, %sw.bb ], [ %5, %sw.bb4 ], [ %3, %sw.bb3 ], [ %1, %sw.bb2 ]
+sw.epilog13:                                      ; preds = %sw.bb6, %sw.bb, %sw.epilog13.sink.split, %entry
+  %returnValue.0 = phi ptr [ null, %entry ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ %5, %sw.epilog13.sink.split ]
   ret ptr %returnValue.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
+  %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load i32, ptr %fWeekdaysCount, align 8
   store i32 %0, ptr %count, align 4
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %fWeekdays, align 8
   ret ptr %1
 }
@@ -12196,10 +12161,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
+  %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %fShortWeekdaysCount, align 8
   store i32 %0, ptr %count, align 4
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %fShortWeekdays, align 8
   ret ptr %1
 }
@@ -12213,87 +12178,31 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  switch i32 %width, label %sw.epilog15 [
-    i32 1, label %sw.bb2
-    i32 0, label %sw.bb3
-    i32 3, label %sw.bb4
-    i32 2, label %sw.bb5
-  ]
-
-sw.bb2:                                           ; preds = %sw.bb
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
-  %0 = load i32, ptr %fWeekdaysCount, align 8
-  store i32 %0, ptr %count, align 4
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
-  %1 = load ptr, ptr %fWeekdays, align 8
-  br label %sw.epilog15
-
-sw.bb3:                                           ; preds = %sw.bb
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
-  %2 = load i32, ptr %fShortWeekdaysCount, align 8
-  store i32 %2, ptr %count, align 4
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
-  %3 = load ptr, ptr %fShortWeekdays, align 8
-  br label %sw.epilog15
-
-sw.bb4:                                           ; preds = %sw.bb
-  %fShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 35
-  %4 = load i32, ptr %fShorterWeekdaysCount, align 8
-  store i32 %4, ptr %count, align 4
-  %fShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 34
-  %5 = load ptr, ptr %fShorterWeekdays, align 8
-  br label %sw.epilog15
-
-sw.bb5:                                           ; preds = %sw.bb
-  %fNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 38
-  %6 = load i32, ptr %fNarrowWeekdaysCount, align 8
-  store i32 %6, ptr %count, align 4
-  %fNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 37
-  %7 = load ptr, ptr %fNarrowWeekdays, align 8
-  br label %sw.epilog15
+  %0 = icmp ult i32 %width, 4
+  br i1 %0, label %sw.epilog15.sink.split, label %sw.epilog15
 
 sw.bb7:                                           ; preds = %entry
-  switch i32 %width, label %sw.epilog15 [
-    i32 1, label %sw.bb8
-    i32 0, label %sw.bb9
-    i32 3, label %sw.bb10
-    i32 2, label %sw.bb11
-  ]
+  %1 = icmp ult i32 %width, 4
+  br i1 %1, label %sw.epilog15.sink.split, label %sw.epilog15
 
-sw.bb8:                                           ; preds = %sw.bb7
-  %fStandaloneWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 41
-  %8 = load i32, ptr %fStandaloneWeekdaysCount, align 8
-  store i32 %8, ptr %count, align 4
-  %fStandaloneWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 40
-  %9 = load ptr, ptr %fStandaloneWeekdays, align 8
+sw.epilog15.sink.split:                           ; preds = %sw.bb7, %sw.bb
+  %switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink = phi ptr [ @switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %sw.bb ], [ @switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9, %sw.bb7 ]
+  %switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink = phi ptr [ @switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.8, %sw.bb ], [ @switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10, %sw.bb7 ]
+  %2 = sext i32 %width to i64
+  %switch.gep14 = getelementptr inbounds [4 x i64], ptr %switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink, i64 0, i64 %2
+  %switch.load15 = load i64, ptr %switch.gep14, align 8
+  %3 = sext i32 %width to i64
+  %switch.gep16 = getelementptr inbounds [4 x i64], ptr %switch.table._ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink, i64 0, i64 %3
+  %switch.load17 = load i64, ptr %switch.gep16, align 8
+  %fStandaloneWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 %switch.load15
+  %4 = load i32, ptr %fStandaloneWeekdaysCount, align 8
+  store i32 %4, ptr %count, align 4
+  %fStandaloneWeekdays = getelementptr inbounds i8, ptr %this, i64 %switch.load17
+  %5 = load ptr, ptr %fStandaloneWeekdays, align 8
   br label %sw.epilog15
 
-sw.bb9:                                           ; preds = %sw.bb7
-  %fStandaloneShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 44
-  %10 = load i32, ptr %fStandaloneShortWeekdaysCount, align 8
-  store i32 %10, ptr %count, align 4
-  %fStandaloneShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 43
-  %11 = load ptr, ptr %fStandaloneShortWeekdays, align 8
-  br label %sw.epilog15
-
-sw.bb10:                                          ; preds = %sw.bb7
-  %fStandaloneShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 47
-  %12 = load i32, ptr %fStandaloneShorterWeekdaysCount, align 8
-  store i32 %12, ptr %count, align 4
-  %fStandaloneShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 46
-  %13 = load ptr, ptr %fStandaloneShorterWeekdays, align 8
-  br label %sw.epilog15
-
-sw.bb11:                                          ; preds = %sw.bb7
-  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 50
-  %14 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
-  store i32 %14, ptr %count, align 4
-  %fStandaloneNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 49
-  %15 = load ptr, ptr %fStandaloneNarrowWeekdays, align 8
-  br label %sw.epilog15
-
-sw.epilog15:                                      ; preds = %sw.bb7, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %sw.bb, %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %entry
-  %returnValue.0 = phi ptr [ null, %entry ], [ null, %sw.bb7 ], [ %15, %sw.bb11 ], [ %13, %sw.bb10 ], [ %11, %sw.bb9 ], [ %9, %sw.bb8 ], [ null, %sw.bb ], [ %7, %sw.bb5 ], [ %5, %sw.bb4 ], [ %3, %sw.bb3 ], [ %1, %sw.bb2 ]
+sw.epilog15:                                      ; preds = %sw.bb7, %sw.bb, %sw.epilog15.sink.split, %entry
+  %returnValue.0 = phi ptr [ null, %entry ], [ null, %sw.bb7 ], [ null, %sw.bb ], [ %5, %sw.epilog15.sink.split ]
   ret ptr %returnValue.0
 }
 
@@ -12306,78 +12215,38 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  switch i32 %width, label %sw.epilog13 [
-    i32 1, label %sw.bb2
-    i32 0, label %sw.bb3
-    i32 3, label %sw.bb3
-    i32 2, label %sw.bb4
-  ]
-
-sw.bb2:                                           ; preds = %sw.bb
-  %fQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 60
-  %0 = load i32, ptr %fQuartersCount, align 8
-  store i32 %0, ptr %count, align 4
-  %fQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 59
-  %1 = load ptr, ptr %fQuarters, align 8
-  br label %sw.epilog13
-
-sw.bb3:                                           ; preds = %sw.bb, %sw.bb
-  %fShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 63
-  %2 = load i32, ptr %fShortQuartersCount, align 8
-  store i32 %2, ptr %count, align 4
-  %fShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 62
-  %3 = load ptr, ptr %fShortQuarters, align 8
-  br label %sw.epilog13
-
-sw.bb4:                                           ; preds = %sw.bb
-  %fNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 66
-  %4 = load i32, ptr %fNarrowQuartersCount, align 8
-  store i32 %4, ptr %count, align 4
-  %fNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 65
-  %5 = load ptr, ptr %fNarrowQuarters, align 8
-  br label %sw.epilog13
+  %0 = icmp ult i32 %width, 4
+  br i1 %0, label %sw.epilog13.sink.split, label %sw.epilog13
 
 sw.bb6:                                           ; preds = %entry
-  switch i32 %width, label %sw.epilog13 [
-    i32 1, label %sw.bb7
-    i32 0, label %sw.bb8
-    i32 3, label %sw.bb8
-    i32 2, label %sw.bb9
-  ]
+  %1 = icmp ult i32 %width, 4
+  br i1 %1, label %sw.epilog13.sink.split, label %sw.epilog13
 
-sw.bb7:                                           ; preds = %sw.bb6
-  %fStandaloneQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 69
-  %6 = load i32, ptr %fStandaloneQuartersCount, align 8
-  store i32 %6, ptr %count, align 4
-  %fStandaloneQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 68
-  %7 = load ptr, ptr %fStandaloneQuarters, align 8
+sw.epilog13.sink.split:                           ; preds = %sw.bb6, %sw.bb
+  %switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink = phi ptr [ @switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %sw.bb ], [ @switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12, %sw.bb6 ]
+  %switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink = phi ptr [ @switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.11, %sw.bb ], [ @switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13, %sw.bb6 ]
+  %2 = sext i32 %width to i64
+  %switch.gep12 = getelementptr inbounds [4 x i64], ptr %switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink, i64 0, i64 %2
+  %switch.load13 = load i64, ptr %switch.gep12, align 8
+  %3 = sext i32 %width to i64
+  %switch.gep14 = getelementptr inbounds [4 x i64], ptr %switch.table._ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink, i64 0, i64 %3
+  %switch.load15 = load i64, ptr %switch.gep14, align 8
+  %fStandaloneQuartersCount = getelementptr inbounds i8, ptr %this, i64 %switch.load13
+  %4 = load i32, ptr %fStandaloneQuartersCount, align 8
+  store i32 %4, ptr %count, align 4
+  %fStandaloneQuarters = getelementptr inbounds i8, ptr %this, i64 %switch.load15
+  %5 = load ptr, ptr %fStandaloneQuarters, align 8
   br label %sw.epilog13
 
-sw.bb8:                                           ; preds = %sw.bb6, %sw.bb6
-  %fStandaloneShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 72
-  %8 = load i32, ptr %fStandaloneShortQuartersCount, align 8
-  store i32 %8, ptr %count, align 4
-  %fStandaloneShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 71
-  %9 = load ptr, ptr %fStandaloneShortQuarters, align 8
-  br label %sw.epilog13
-
-sw.bb9:                                           ; preds = %sw.bb6
-  %fStandaloneNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 75
-  %10 = load i32, ptr %fStandaloneNarrowQuartersCount, align 8
-  store i32 %10, ptr %count, align 4
-  %fStandaloneNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 74
-  %11 = load ptr, ptr %fStandaloneNarrowQuarters, align 8
-  br label %sw.epilog13
-
-sw.epilog13:                                      ; preds = %sw.bb6, %sw.bb7, %sw.bb8, %sw.bb9, %sw.bb, %sw.bb2, %sw.bb3, %sw.bb4, %entry
-  %returnValue.0 = phi ptr [ null, %entry ], [ null, %sw.bb6 ], [ %11, %sw.bb9 ], [ %9, %sw.bb8 ], [ %7, %sw.bb7 ], [ null, %sw.bb ], [ %5, %sw.bb4 ], [ %3, %sw.bb3 ], [ %1, %sw.bb2 ]
+sw.epilog13:                                      ; preds = %sw.bb6, %sw.bb, %sw.epilog13.sink.split, %entry
+  %returnValue.0 = phi ptr [ null, %entry ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ %5, %sw.epilog13.sink.split ]
   ret ptr %returnValue.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517DateFormatSymbols22getTimeSeparatorStringERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(64) %result) local_unnamed_addr #1 align 2 {
 entry:
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator)
   ret ptr %call
 }
@@ -12385,10 +12254,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 53
+  %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i32, ptr %fAmPmsCount, align 8
   store i32 %0, ptr %count, align 4
-  %fAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 52
+  %fAmPms = getelementptr inbounds i8, ptr %this, i64 280
   %1 = load ptr, ptr %fAmPms, align 8
   ret ptr %1
 }
@@ -12396,10 +12265,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols20getLeapMonthPatternsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #9 align 2 {
 entry:
-  %fLeapMonthPatternsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 78
+  %fLeapMonthPatternsCount = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load i32, ptr %fLeapMonthPatternsCount, align 8
   store i32 %0, ptr %count, align 4
-  %fLeapMonthPatterns = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 77
+  %fLeapMonthPatterns = getelementptr inbounds i8, ptr %this, i64 472
   %1 = load ptr, ptr %fLeapMonthPatterns, align 8
   ret ptr %1
 }
@@ -12407,10 +12276,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count, i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
 entry:
-  %fShortYearNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 81
+  %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
   %2 = load i32, ptr %fShortYearNamesCount, align 8
   store i32 %2, ptr %count, align 4
-  %fShortYearNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 80
+  %fShortYearNames = getelementptr inbounds i8, ptr %this, i64 488
   %3 = load ptr, ptr %fShortYearNames, align 8
   ret ptr %3
 }
@@ -12423,7 +12292,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %fShortYearNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 80
+  %fShortYearNames = getelementptr inbounds i8, ptr %this, i64 488
   %1 = load ptr, ptr %fShortYearNames, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12440,7 +12309,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %1
   br i1 %arraydestroy.done, label %arraydestroy.done5, label %arraydestroy.body
@@ -12470,7 +12339,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12488,14 +12357,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %9, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %yearNames, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fShortYearNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 81
+  %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
   store i32 %count, ptr %fShortYearNamesCount, align 8
   br label %if.end9
 
@@ -12506,10 +12375,10 @@ if.end9:                                          ; preds = %_ZL14uprv_arrayCopy
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count, i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
 entry:
-  %fShortZodiacNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 84
+  %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
   %2 = load i32, ptr %fShortZodiacNamesCount, align 8
   store i32 %2, ptr %count, align 4
-  %fShortZodiacNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 83
+  %fShortZodiacNames = getelementptr inbounds i8, ptr %this, i64 504
   %3 = load ptr, ptr %fShortZodiacNames, align 8
   ret ptr %3
 }
@@ -12522,7 +12391,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %fShortZodiacNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 83
+  %fShortZodiacNames = getelementptr inbounds i8, ptr %this, i64 504
   %1 = load ptr, ptr %fShortZodiacNames, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12539,7 +12408,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %1
   br i1 %arraydestroy.done, label %arraydestroy.done5, label %arraydestroy.body
@@ -12569,7 +12438,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12587,14 +12456,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %9, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %zodiacNames, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fShortZodiacNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 84
+  %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
   store i32 %count, ptr %fShortZodiacNamesCount, align 8
   br label %if.end9
 
@@ -12605,7 +12474,7 @@ if.end9:                                          ; preds = %_ZL14uprv_arrayCopy
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols7setErasEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %erasArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 1
+  %fEras = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fEras, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12622,7 +12491,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -12652,7 +12521,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12670,14 +12539,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %erasArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 2
+  %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %count, ptr %fErasCount, align 8
   ret void
 }
@@ -12685,7 +12554,7 @@ _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols11setEraNamesEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %eraNamesArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fEraNames = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 4
+  %fEraNames = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fEraNames, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12702,7 +12571,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -12732,7 +12601,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12750,14 +12619,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %eraNamesArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fEraNamesCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 5
+  %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %count, ptr %fEraNamesCount, align 8
   ret void
 }
@@ -12765,7 +12634,7 @@ _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols13setNarrowErasEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %narrowErasArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fNarrowEras = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 7
+  %fNarrowEras = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %fNarrowEras, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12782,7 +12651,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -12812,7 +12681,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12830,14 +12699,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %narrowErasArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fNarrowErasCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 8
+  %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %count, ptr %fNarrowErasCount, align 8
   ret void
 }
@@ -12845,7 +12714,7 @@ _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols9setMonthsEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %monthsArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %fMonths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12862,7 +12731,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -12892,7 +12761,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12910,14 +12779,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
+  %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %count, ptr %fMonthsCount, align 8
   ret void
 }
@@ -12925,7 +12794,7 @@ _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols14setShortMonthsEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %shortMonthsArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %fShortMonths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -12942,7 +12811,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -12972,7 +12841,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -12990,14 +12859,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %shortMonthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
+  %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %count, ptr %fShortMonthsCount, align 8
   ret void
 }
@@ -13018,7 +12887,7 @@ sw.bb:                                            ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %sw.bb
-  %fMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 10
+  %fMonths = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %fMonths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -13035,7 +12904,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done4, label %arraydestroy.body
@@ -13065,7 +12934,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -13076,25 +12945,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit:        ; preds = %invoke.cont.i, %if.
   %8 = phi ptr [ null, %if.end ], [ %.ptr.i, %invoke.cont.i ]
   store ptr %8, ptr %fMonths, align 8
   %cmp1.i = icmp sgt i32 %count, 0
-  br i1 %cmp1.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit
+  br i1 %cmp1.i, label %while.body.i, label %sw.epilog107.sink.split
 
 while.body.i:                                     ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit, %while.body.i
   %count.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 11
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb8:                                           ; preds = %sw.bb
-  %fShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 13
+  %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load ptr, ptr %fShortMonths, align 8
   %tobool9.not = icmp eq ptr %9, null
   br i1 %tobool9.not, label %if.end22, label %delete.notnull13
@@ -13111,7 +12976,7 @@ arraydestroy.body16.preheader:                    ; preds = %delete.notnull13
 
 arraydestroy.body16:                              ; preds = %arraydestroy.body16.preheader, %arraydestroy.body16
   %arraydestroy.elementPast17 = phi ptr [ %arraydestroy.element18, %arraydestroy.body16 ], [ %delete.end14, %arraydestroy.body16.preheader ]
-  %arraydestroy.element18 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast17, i64 -1
+  %arraydestroy.element18 = getelementptr inbounds i8, ptr %arraydestroy.elementPast17, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element18) #16
   %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %9
   br i1 %arraydestroy.done19, label %arraydestroy.done20, label %arraydestroy.body16
@@ -13141,7 +13006,7 @@ invoke.cont.i36:                                  ; preds = %invoke.cont.i36, %n
   %arrayctor.cur.idx.i37 = phi i64 [ 8, %new.notnull.i33 ], [ %arrayctor.cur.add.i40, %invoke.cont.i36 ]
   %arrayctor.cur.ptr.ptr.i38 = getelementptr inbounds i8, ptr %call.i31, i64 %arrayctor.cur.idx.i37
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i38, align 8
-  %fUnion2.i.i39 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i38, i64 0, i32 1
+  %fUnion2.i.i39 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i38, i64 8
   store i16 2, ptr %fUnion2.i.i39, align 8
   %arrayctor.cur.add.i40 = add nuw nsw i64 %arrayctor.cur.idx.i37, 64
   %arrayctor.next.ptr.i41 = getelementptr inbounds i8, ptr %call.i31, i64 %arrayctor.cur.add.i40
@@ -13152,25 +13017,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit43:      ; preds = %invoke.cont.i36, %i
   %17 = phi ptr [ null, %if.end22 ], [ %.ptr.i34, %invoke.cont.i36 ]
   store ptr %17, ptr %fShortMonths, align 8
   %cmp1.i44 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i44, label %while.body.i45, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54
+  br i1 %cmp1.i44, label %while.body.i45, label %sw.epilog107.sink.split
 
 while.body.i45:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %while.body.i45
   %count.addr.04.i46 = phi i32 [ %dec.i49, %while.body.i45 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ]
   %dst.addr.03.i47 = phi ptr [ %incdec.ptr1.i51, %while.body.i45 ], [ %17, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ]
   %src.addr.02.i48 = phi ptr [ %incdec.ptr.i50, %while.body.i45 ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ]
   %dec.i49 = add nsw i32 %count.addr.04.i46, -1
-  %incdec.ptr.i50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i48, i64 1
-  %incdec.ptr1.i51 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i47, i64 1
+  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %src.addr.02.i48, i64 64
+  %incdec.ptr1.i51 = getelementptr inbounds i8, ptr %dst.addr.03.i47, i64 64
   %call.i52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i47, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i48)
   %cmp.i53 = icmp ugt i32 %count.addr.04.i46, 1
-  br i1 %cmp.i53, label %while.body.i45, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54: ; preds = %while.body.i45, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43
-  %fShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 14
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb27:                                          ; preds = %sw.bb
-  %fNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 16
+  %fNarrowMonths = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load ptr, ptr %fNarrowMonths, align 8
   %tobool28.not = icmp eq ptr %18, null
   br i1 %tobool28.not, label %if.end41, label %delete.notnull32
@@ -13187,7 +13048,7 @@ arraydestroy.body35.preheader:                    ; preds = %delete.notnull32
 
 arraydestroy.body35:                              ; preds = %arraydestroy.body35.preheader, %arraydestroy.body35
   %arraydestroy.elementPast36 = phi ptr [ %arraydestroy.element37, %arraydestroy.body35 ], [ %delete.end33, %arraydestroy.body35.preheader ]
-  %arraydestroy.element37 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast36, i64 -1
+  %arraydestroy.element37 = getelementptr inbounds i8, ptr %arraydestroy.elementPast36, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element37) #16
   %arraydestroy.done38 = icmp eq ptr %arraydestroy.element37, %18
   br i1 %arraydestroy.done38, label %arraydestroy.done39, label %arraydestroy.body35
@@ -13217,7 +13078,7 @@ invoke.cont.i61:                                  ; preds = %invoke.cont.i61, %n
   %arrayctor.cur.idx.i62 = phi i64 [ 8, %new.notnull.i58 ], [ %arrayctor.cur.add.i65, %invoke.cont.i61 ]
   %arrayctor.cur.ptr.ptr.i63 = getelementptr inbounds i8, ptr %call.i56, i64 %arrayctor.cur.idx.i62
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i63, align 8
-  %fUnion2.i.i64 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i63, i64 0, i32 1
+  %fUnion2.i.i64 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i63, i64 8
   store i16 2, ptr %fUnion2.i.i64, align 8
   %arrayctor.cur.add.i65 = add nuw nsw i64 %arrayctor.cur.idx.i62, 64
   %arrayctor.next.ptr.i66 = getelementptr inbounds i8, ptr %call.i56, i64 %arrayctor.cur.add.i65
@@ -13228,22 +13089,18 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit68:      ; preds = %invoke.cont.i61, %i
   %26 = phi ptr [ null, %if.end41 ], [ %.ptr.i59, %invoke.cont.i61 ]
   store ptr %26, ptr %fNarrowMonths, align 8
   %cmp1.i69 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i69, label %while.body.i70, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79
+  br i1 %cmp1.i69, label %while.body.i70, label %sw.epilog107.sink.split
 
 while.body.i70:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %while.body.i70
   %count.addr.04.i71 = phi i32 [ %dec.i74, %while.body.i70 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ]
   %dst.addr.03.i72 = phi ptr [ %incdec.ptr1.i76, %while.body.i70 ], [ %26, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ]
   %src.addr.02.i73 = phi ptr [ %incdec.ptr.i75, %while.body.i70 ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ]
   %dec.i74 = add nsw i32 %count.addr.04.i71, -1
-  %incdec.ptr.i75 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i73, i64 1
-  %incdec.ptr1.i76 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i72, i64 1
+  %incdec.ptr.i75 = getelementptr inbounds i8, ptr %src.addr.02.i73, i64 64
+  %incdec.ptr1.i76 = getelementptr inbounds i8, ptr %dst.addr.03.i72, i64 64
   %call.i77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i72, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i73)
   %cmp.i78 = icmp ugt i32 %count.addr.04.i71, 1
-  br i1 %cmp.i78, label %while.body.i70, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79: ; preds = %while.body.i70, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68
-  %fNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 17
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb46:                                          ; preds = %entry
   switch i32 %width, label %sw.epilog107 [
@@ -13253,7 +13110,7 @@ sw.bb46:                                          ; preds = %entry
   ]
 
 sw.bb47:                                          ; preds = %sw.bb46
-  %fStandaloneMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 19
+  %fStandaloneMonths = getelementptr inbounds i8, ptr %this, i64 104
   %27 = load ptr, ptr %fStandaloneMonths, align 8
   %tobool48.not = icmp eq ptr %27, null
   br i1 %tobool48.not, label %if.end61, label %delete.notnull52
@@ -13270,7 +13127,7 @@ arraydestroy.body55.preheader:                    ; preds = %delete.notnull52
 
 arraydestroy.body55:                              ; preds = %arraydestroy.body55.preheader, %arraydestroy.body55
   %arraydestroy.elementPast56 = phi ptr [ %arraydestroy.element57, %arraydestroy.body55 ], [ %delete.end53, %arraydestroy.body55.preheader ]
-  %arraydestroy.element57 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast56, i64 -1
+  %arraydestroy.element57 = getelementptr inbounds i8, ptr %arraydestroy.elementPast56, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element57) #16
   %arraydestroy.done58 = icmp eq ptr %arraydestroy.element57, %27
   br i1 %arraydestroy.done58, label %arraydestroy.done59, label %arraydestroy.body55
@@ -13300,7 +13157,7 @@ invoke.cont.i86:                                  ; preds = %invoke.cont.i86, %n
   %arrayctor.cur.idx.i87 = phi i64 [ 8, %new.notnull.i83 ], [ %arrayctor.cur.add.i90, %invoke.cont.i86 ]
   %arrayctor.cur.ptr.ptr.i88 = getelementptr inbounds i8, ptr %call.i81, i64 %arrayctor.cur.idx.i87
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i88, align 8
-  %fUnion2.i.i89 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i88, i64 0, i32 1
+  %fUnion2.i.i89 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i88, i64 8
   store i16 2, ptr %fUnion2.i.i89, align 8
   %arrayctor.cur.add.i90 = add nuw nsw i64 %arrayctor.cur.idx.i87, 64
   %arrayctor.next.ptr.i91 = getelementptr inbounds i8, ptr %call.i81, i64 %arrayctor.cur.add.i90
@@ -13311,25 +13168,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit93:      ; preds = %invoke.cont.i86, %i
   %35 = phi ptr [ null, %if.end61 ], [ %.ptr.i84, %invoke.cont.i86 ]
   store ptr %35, ptr %fStandaloneMonths, align 8
   %cmp1.i94 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i94, label %while.body.i95, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104
+  br i1 %cmp1.i94, label %while.body.i95, label %sw.epilog107.sink.split
 
 while.body.i95:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %while.body.i95
   %count.addr.04.i96 = phi i32 [ %dec.i99, %while.body.i95 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ]
   %dst.addr.03.i97 = phi ptr [ %incdec.ptr1.i101, %while.body.i95 ], [ %35, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ]
   %src.addr.02.i98 = phi ptr [ %incdec.ptr.i100, %while.body.i95 ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ]
   %dec.i99 = add nsw i32 %count.addr.04.i96, -1
-  %incdec.ptr.i100 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i98, i64 1
-  %incdec.ptr1.i101 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i97, i64 1
+  %incdec.ptr.i100 = getelementptr inbounds i8, ptr %src.addr.02.i98, i64 64
+  %incdec.ptr1.i101 = getelementptr inbounds i8, ptr %dst.addr.03.i97, i64 64
   %call.i102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i97, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i98)
   %cmp.i103 = icmp ugt i32 %count.addr.04.i96, 1
-  br i1 %cmp.i103, label %while.body.i95, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104: ; preds = %while.body.i95, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93
-  %fStandaloneMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 20
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb66:                                          ; preds = %sw.bb46
-  %fStandaloneShortMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 22
+  %fStandaloneShortMonths = getelementptr inbounds i8, ptr %this, i64 120
   %36 = load ptr, ptr %fStandaloneShortMonths, align 8
   %tobool67.not = icmp eq ptr %36, null
   br i1 %tobool67.not, label %if.end80, label %delete.notnull71
@@ -13346,7 +13199,7 @@ arraydestroy.body74.preheader:                    ; preds = %delete.notnull71
 
 arraydestroy.body74:                              ; preds = %arraydestroy.body74.preheader, %arraydestroy.body74
   %arraydestroy.elementPast75 = phi ptr [ %arraydestroy.element76, %arraydestroy.body74 ], [ %delete.end72, %arraydestroy.body74.preheader ]
-  %arraydestroy.element76 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast75, i64 -1
+  %arraydestroy.element76 = getelementptr inbounds i8, ptr %arraydestroy.elementPast75, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element76) #16
   %arraydestroy.done77 = icmp eq ptr %arraydestroy.element76, %36
   br i1 %arraydestroy.done77, label %arraydestroy.done78, label %arraydestroy.body74
@@ -13376,7 +13229,7 @@ invoke.cont.i111:                                 ; preds = %invoke.cont.i111, %
   %arrayctor.cur.idx.i112 = phi i64 [ 8, %new.notnull.i108 ], [ %arrayctor.cur.add.i115, %invoke.cont.i111 ]
   %arrayctor.cur.ptr.ptr.i113 = getelementptr inbounds i8, ptr %call.i106, i64 %arrayctor.cur.idx.i112
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i113, align 8
-  %fUnion2.i.i114 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i113, i64 0, i32 1
+  %fUnion2.i.i114 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i113, i64 8
   store i16 2, ptr %fUnion2.i.i114, align 8
   %arrayctor.cur.add.i115 = add nuw nsw i64 %arrayctor.cur.idx.i112, 64
   %arrayctor.next.ptr.i116 = getelementptr inbounds i8, ptr %call.i106, i64 %arrayctor.cur.add.i115
@@ -13387,25 +13240,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit118:     ; preds = %invoke.cont.i111, %
   %44 = phi ptr [ null, %if.end80 ], [ %.ptr.i109, %invoke.cont.i111 ]
   store ptr %44, ptr %fStandaloneShortMonths, align 8
   %cmp1.i119 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i119, label %while.body.i120, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129
+  br i1 %cmp1.i119, label %while.body.i120, label %sw.epilog107.sink.split
 
 while.body.i120:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %while.body.i120
   %count.addr.04.i121 = phi i32 [ %dec.i124, %while.body.i120 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ]
   %dst.addr.03.i122 = phi ptr [ %incdec.ptr1.i126, %while.body.i120 ], [ %44, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ]
   %src.addr.02.i123 = phi ptr [ %incdec.ptr.i125, %while.body.i120 ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ]
   %dec.i124 = add nsw i32 %count.addr.04.i121, -1
-  %incdec.ptr.i125 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i123, i64 1
-  %incdec.ptr1.i126 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i122, i64 1
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %src.addr.02.i123, i64 64
+  %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %dst.addr.03.i122, i64 64
   %call.i127 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i122, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i123)
   %cmp.i128 = icmp ugt i32 %count.addr.04.i121, 1
-  br i1 %cmp.i128, label %while.body.i120, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129: ; preds = %while.body.i120, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118
-  %fStandaloneShortMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 23
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb85:                                          ; preds = %sw.bb46
-  %fStandaloneNarrowMonths = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 25
+  %fStandaloneNarrowMonths = getelementptr inbounds i8, ptr %this, i64 136
   %45 = load ptr, ptr %fStandaloneNarrowMonths, align 8
   %tobool86.not = icmp eq ptr %45, null
   br i1 %tobool86.not, label %if.end99, label %delete.notnull90
@@ -13422,7 +13271,7 @@ arraydestroy.body93.preheader:                    ; preds = %delete.notnull90
 
 arraydestroy.body93:                              ; preds = %arraydestroy.body93.preheader, %arraydestroy.body93
   %arraydestroy.elementPast94 = phi ptr [ %arraydestroy.element95, %arraydestroy.body93 ], [ %delete.end91, %arraydestroy.body93.preheader ]
-  %arraydestroy.element95 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast94, i64 -1
+  %arraydestroy.element95 = getelementptr inbounds i8, ptr %arraydestroy.elementPast94, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element95) #16
   %arraydestroy.done96 = icmp eq ptr %arraydestroy.element95, %45
   br i1 %arraydestroy.done96, label %arraydestroy.done97, label %arraydestroy.body93
@@ -13452,7 +13301,7 @@ invoke.cont.i136:                                 ; preds = %invoke.cont.i136, %
   %arrayctor.cur.idx.i137 = phi i64 [ 8, %new.notnull.i133 ], [ %arrayctor.cur.add.i140, %invoke.cont.i136 ]
   %arrayctor.cur.ptr.ptr.i138 = getelementptr inbounds i8, ptr %call.i131, i64 %arrayctor.cur.idx.i137
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i138, align 8
-  %fUnion2.i.i139 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i138, i64 0, i32 1
+  %fUnion2.i.i139 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i138, i64 8
   store i16 2, ptr %fUnion2.i.i139, align 8
   %arrayctor.cur.add.i140 = add nuw nsw i64 %arrayctor.cur.idx.i137, 64
   %arrayctor.next.ptr.i141 = getelementptr inbounds i8, ptr %call.i131, i64 %arrayctor.cur.add.i140
@@ -13463,26 +13312,23 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit143:     ; preds = %invoke.cont.i136, %
   %53 = phi ptr [ null, %if.end99 ], [ %.ptr.i134, %invoke.cont.i136 ]
   store ptr %53, ptr %fStandaloneNarrowMonths, align 8
   %cmp1.i144 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i144, label %while.body.i145, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154
+  br i1 %cmp1.i144, label %while.body.i145, label %sw.epilog107.sink.split
 
 while.body.i145:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %while.body.i145
   %count.addr.04.i146 = phi i32 [ %dec.i149, %while.body.i145 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ]
   %dst.addr.03.i147 = phi ptr [ %incdec.ptr1.i151, %while.body.i145 ], [ %53, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ]
   %src.addr.02.i148 = phi ptr [ %incdec.ptr.i150, %while.body.i145 ], [ %monthsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ]
   %dec.i149 = add nsw i32 %count.addr.04.i146, -1
-  %incdec.ptr.i150 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i148, i64 1
-  %incdec.ptr1.i151 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i147, i64 1
+  %incdec.ptr.i150 = getelementptr inbounds i8, ptr %src.addr.02.i148, i64 64
+  %incdec.ptr1.i151 = getelementptr inbounds i8, ptr %dst.addr.03.i147, i64 64
   %call.i152 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i147, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i148)
   %cmp.i153 = icmp ugt i32 %count.addr.04.i146, 1
-  br i1 %cmp.i153, label %while.body.i145, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154, !llvm.loop !29
+  br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !29
 
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154: ; preds = %while.body.i145, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143
-  %fStandaloneNarrowMonthsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 26
-  br label %sw.epilog107.sink.split
-
-sw.epilog107.sink.split:                          ; preds = %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104
-  %fStandaloneMonthsCount.sink = phi ptr [ %fStandaloneMonthsCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104 ], [ %fStandaloneShortMonthsCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129 ], [ %fStandaloneNarrowMonthsCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154 ], [ %fMonthsCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit ], [ %fShortMonthsCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54 ], [ %fNarrowMonthsCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79 ]
-  store i32 %count, ptr %fStandaloneMonthsCount.sink, align 8
+sw.epilog107.sink.split:                          ; preds = %while.body.i145, %while.body.i120, %while.body.i95, %while.body.i70, %while.body.i45, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
+  %.sink = phi i64 [ 64, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ], [ 80, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ], [ 96, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ], [ 112, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ], [ 128, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ], [ 144, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ], [ 64, %while.body.i ], [ 80, %while.body.i45 ], [ 96, %while.body.i70 ], [ 112, %while.body.i95 ], [ 128, %while.body.i120 ], [ 144, %while.body.i145 ]
+  %fStandaloneMonthsCount = getelementptr inbounds i8, ptr %this, i64 %.sink
+  store i32 %count, ptr %fStandaloneMonthsCount, align 8
   br label %sw.epilog107
 
 sw.epilog107:                                     ; preds = %sw.epilog107.sink.split, %sw.bb46, %sw.bb, %entry
@@ -13492,7 +13338,7 @@ sw.epilog107:                                     ; preds = %sw.epilog107.sink.s
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols11setWeekdaysEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %weekdaysArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %fWeekdays, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -13509,7 +13355,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -13539,7 +13385,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -13557,14 +13403,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
+  %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
   store i32 %count, ptr %fWeekdaysCount, align 8
   ret void
 }
@@ -13572,7 +13418,7 @@ _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols16setShortWeekdaysEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %shortWeekdaysArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %fShortWeekdays, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -13589,7 +13435,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -13619,7 +13465,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -13637,14 +13483,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %shortWeekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
+  %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
   store i32 %count, ptr %fShortWeekdaysCount, align 8
   ret void
 }
@@ -13666,7 +13512,7 @@ sw.bb:                                            ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %sw.bb
-  %fWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 28
+  %fWeekdays = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %fWeekdays, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -13683,7 +13529,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done4, label %arraydestroy.body
@@ -13713,7 +13559,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -13724,25 +13570,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit:        ; preds = %invoke.cont.i, %if.
   %8 = phi ptr [ null, %if.end ], [ %.ptr.i, %invoke.cont.i ]
   store ptr %8, ptr %fWeekdays, align 8
   %cmp1.i = icmp sgt i32 %count, 0
-  br i1 %cmp1.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit
+  br i1 %cmp1.i, label %while.body.i, label %sw.epilog146.sink.split
 
 while.body.i:                                     ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit, %while.body.i
   %count.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i39 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 29
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i, label %while.body.i, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb8:                                           ; preds = %sw.bb
-  %fShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 31
+  %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
   %9 = load ptr, ptr %fShortWeekdays, align 8
   %tobool9.not = icmp eq ptr %9, null
   br i1 %tobool9.not, label %if.end22, label %delete.notnull13
@@ -13759,7 +13601,7 @@ arraydestroy.body16.preheader:                    ; preds = %delete.notnull13
 
 arraydestroy.body16:                              ; preds = %arraydestroy.body16.preheader, %arraydestroy.body16
   %arraydestroy.elementPast17 = phi ptr [ %arraydestroy.element18, %arraydestroy.body16 ], [ %delete.end14, %arraydestroy.body16.preheader ]
-  %arraydestroy.element18 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast17, i64 -1
+  %arraydestroy.element18 = getelementptr inbounds i8, ptr %arraydestroy.elementPast17, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element18) #16
   %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %9
   br i1 %arraydestroy.done19, label %arraydestroy.done20, label %arraydestroy.body16
@@ -13789,7 +13631,7 @@ invoke.cont.i46:                                  ; preds = %invoke.cont.i46, %n
   %arrayctor.cur.idx.i47 = phi i64 [ 8, %new.notnull.i43 ], [ %arrayctor.cur.add.i50, %invoke.cont.i46 ]
   %arrayctor.cur.ptr.ptr.i48 = getelementptr inbounds i8, ptr %call.i41, i64 %arrayctor.cur.idx.i47
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i48, align 8
-  %fUnion2.i.i49 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i48, i64 0, i32 1
+  %fUnion2.i.i49 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i48, i64 8
   store i16 2, ptr %fUnion2.i.i49, align 8
   %arrayctor.cur.add.i50 = add nuw nsw i64 %arrayctor.cur.idx.i47, 64
   %arrayctor.next.ptr.i51 = getelementptr inbounds i8, ptr %call.i41, i64 %arrayctor.cur.add.i50
@@ -13800,25 +13642,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit53:      ; preds = %invoke.cont.i46, %i
   %17 = phi ptr [ null, %if.end22 ], [ %.ptr.i44, %invoke.cont.i46 ]
   store ptr %17, ptr %fShortWeekdays, align 8
   %cmp1.i54 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i54, label %while.body.i55, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit64
+  br i1 %cmp1.i54, label %while.body.i55, label %sw.epilog146.sink.split
 
 while.body.i55:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit53, %while.body.i55
   %count.addr.04.i56 = phi i32 [ %dec.i59, %while.body.i55 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53 ]
   %dst.addr.03.i57 = phi ptr [ %incdec.ptr1.i61, %while.body.i55 ], [ %17, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53 ]
   %src.addr.02.i58 = phi ptr [ %incdec.ptr.i60, %while.body.i55 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53 ]
   %dec.i59 = add nsw i32 %count.addr.04.i56, -1
-  %incdec.ptr.i60 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i58, i64 1
-  %incdec.ptr1.i61 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i57, i64 1
+  %incdec.ptr.i60 = getelementptr inbounds i8, ptr %src.addr.02.i58, i64 64
+  %incdec.ptr1.i61 = getelementptr inbounds i8, ptr %dst.addr.03.i57, i64 64
   %call.i62 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i57, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i58)
   %cmp.i63 = icmp ugt i32 %count.addr.04.i56, 1
-  br i1 %cmp.i63, label %while.body.i55, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit64, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit64: ; preds = %while.body.i55, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53
-  %fShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 32
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i63, label %while.body.i55, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb27:                                          ; preds = %sw.bb
-  %fShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 34
+  %fShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 184
   %18 = load ptr, ptr %fShorterWeekdays, align 8
   %tobool28.not = icmp eq ptr %18, null
   br i1 %tobool28.not, label %if.end41, label %delete.notnull32
@@ -13835,7 +13673,7 @@ arraydestroy.body35.preheader:                    ; preds = %delete.notnull32
 
 arraydestroy.body35:                              ; preds = %arraydestroy.body35.preheader, %arraydestroy.body35
   %arraydestroy.elementPast36 = phi ptr [ %arraydestroy.element37, %arraydestroy.body35 ], [ %delete.end33, %arraydestroy.body35.preheader ]
-  %arraydestroy.element37 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast36, i64 -1
+  %arraydestroy.element37 = getelementptr inbounds i8, ptr %arraydestroy.elementPast36, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element37) #16
   %arraydestroy.done38 = icmp eq ptr %arraydestroy.element37, %18
   br i1 %arraydestroy.done38, label %arraydestroy.done39, label %arraydestroy.body35
@@ -13865,7 +13703,7 @@ invoke.cont.i71:                                  ; preds = %invoke.cont.i71, %n
   %arrayctor.cur.idx.i72 = phi i64 [ 8, %new.notnull.i68 ], [ %arrayctor.cur.add.i75, %invoke.cont.i71 ]
   %arrayctor.cur.ptr.ptr.i73 = getelementptr inbounds i8, ptr %call.i66, i64 %arrayctor.cur.idx.i72
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i73, align 8
-  %fUnion2.i.i74 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i73, i64 0, i32 1
+  %fUnion2.i.i74 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i73, i64 8
   store i16 2, ptr %fUnion2.i.i74, align 8
   %arrayctor.cur.add.i75 = add nuw nsw i64 %arrayctor.cur.idx.i72, 64
   %arrayctor.next.ptr.i76 = getelementptr inbounds i8, ptr %call.i66, i64 %arrayctor.cur.add.i75
@@ -13876,25 +13714,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit78:      ; preds = %invoke.cont.i71, %i
   %26 = phi ptr [ null, %if.end41 ], [ %.ptr.i69, %invoke.cont.i71 ]
   store ptr %26, ptr %fShorterWeekdays, align 8
   %cmp1.i79 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i79, label %while.body.i80, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit89
+  br i1 %cmp1.i79, label %while.body.i80, label %sw.epilog146.sink.split
 
 while.body.i80:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit78, %while.body.i80
   %count.addr.04.i81 = phi i32 [ %dec.i84, %while.body.i80 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78 ]
   %dst.addr.03.i82 = phi ptr [ %incdec.ptr1.i86, %while.body.i80 ], [ %26, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78 ]
   %src.addr.02.i83 = phi ptr [ %incdec.ptr.i85, %while.body.i80 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78 ]
   %dec.i84 = add nsw i32 %count.addr.04.i81, -1
-  %incdec.ptr.i85 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i83, i64 1
-  %incdec.ptr1.i86 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i82, i64 1
+  %incdec.ptr.i85 = getelementptr inbounds i8, ptr %src.addr.02.i83, i64 64
+  %incdec.ptr1.i86 = getelementptr inbounds i8, ptr %dst.addr.03.i82, i64 64
   %call.i87 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i82, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i83)
   %cmp.i88 = icmp ugt i32 %count.addr.04.i81, 1
-  br i1 %cmp.i88, label %while.body.i80, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit89, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit89: ; preds = %while.body.i80, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78
-  %fShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 35
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i88, label %while.body.i80, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb46:                                          ; preds = %sw.bb
-  %fNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 37
+  %fNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 200
   %27 = load ptr, ptr %fNarrowWeekdays, align 8
   %tobool47.not = icmp eq ptr %27, null
   br i1 %tobool47.not, label %if.end60, label %delete.notnull51
@@ -13911,7 +13745,7 @@ arraydestroy.body54.preheader:                    ; preds = %delete.notnull51
 
 arraydestroy.body54:                              ; preds = %arraydestroy.body54.preheader, %arraydestroy.body54
   %arraydestroy.elementPast55 = phi ptr [ %arraydestroy.element56, %arraydestroy.body54 ], [ %delete.end52, %arraydestroy.body54.preheader ]
-  %arraydestroy.element56 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast55, i64 -1
+  %arraydestroy.element56 = getelementptr inbounds i8, ptr %arraydestroy.elementPast55, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element56) #16
   %arraydestroy.done57 = icmp eq ptr %arraydestroy.element56, %27
   br i1 %arraydestroy.done57, label %arraydestroy.done58, label %arraydestroy.body54
@@ -13941,7 +13775,7 @@ invoke.cont.i96:                                  ; preds = %invoke.cont.i96, %n
   %arrayctor.cur.idx.i97 = phi i64 [ 8, %new.notnull.i93 ], [ %arrayctor.cur.add.i100, %invoke.cont.i96 ]
   %arrayctor.cur.ptr.ptr.i98 = getelementptr inbounds i8, ptr %call.i91, i64 %arrayctor.cur.idx.i97
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i98, align 8
-  %fUnion2.i.i99 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i98, i64 0, i32 1
+  %fUnion2.i.i99 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i98, i64 8
   store i16 2, ptr %fUnion2.i.i99, align 8
   %arrayctor.cur.add.i100 = add nuw nsw i64 %arrayctor.cur.idx.i97, 64
   %arrayctor.next.ptr.i101 = getelementptr inbounds i8, ptr %call.i91, i64 %arrayctor.cur.add.i100
@@ -13952,22 +13786,18 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit103:     ; preds = %invoke.cont.i96, %i
   %35 = phi ptr [ null, %if.end60 ], [ %.ptr.i94, %invoke.cont.i96 ]
   store ptr %35, ptr %fNarrowWeekdays, align 8
   %cmp1.i104 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i104, label %while.body.i105, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit114
+  br i1 %cmp1.i104, label %while.body.i105, label %sw.epilog146.sink.split
 
 while.body.i105:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit103, %while.body.i105
   %count.addr.04.i106 = phi i32 [ %dec.i109, %while.body.i105 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103 ]
   %dst.addr.03.i107 = phi ptr [ %incdec.ptr1.i111, %while.body.i105 ], [ %35, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103 ]
   %src.addr.02.i108 = phi ptr [ %incdec.ptr.i110, %while.body.i105 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103 ]
   %dec.i109 = add nsw i32 %count.addr.04.i106, -1
-  %incdec.ptr.i110 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i108, i64 1
-  %incdec.ptr1.i111 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i107, i64 1
+  %incdec.ptr.i110 = getelementptr inbounds i8, ptr %src.addr.02.i108, i64 64
+  %incdec.ptr1.i111 = getelementptr inbounds i8, ptr %dst.addr.03.i107, i64 64
   %call.i112 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i107, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i108)
   %cmp.i113 = icmp ugt i32 %count.addr.04.i106, 1
-  br i1 %cmp.i113, label %while.body.i105, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit114, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit114: ; preds = %while.body.i105, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103
-  %fNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 38
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i113, label %while.body.i105, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb66:                                          ; preds = %entry
   switch i32 %width, label %sw.epilog146 [
@@ -13978,7 +13808,7 @@ sw.bb66:                                          ; preds = %entry
   ]
 
 sw.bb67:                                          ; preds = %sw.bb66
-  %fStandaloneWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 40
+  %fStandaloneWeekdays = getelementptr inbounds i8, ptr %this, i64 216
   %36 = load ptr, ptr %fStandaloneWeekdays, align 8
   %tobool68.not = icmp eq ptr %36, null
   br i1 %tobool68.not, label %if.end81, label %delete.notnull72
@@ -13995,7 +13825,7 @@ arraydestroy.body75.preheader:                    ; preds = %delete.notnull72
 
 arraydestroy.body75:                              ; preds = %arraydestroy.body75.preheader, %arraydestroy.body75
   %arraydestroy.elementPast76 = phi ptr [ %arraydestroy.element77, %arraydestroy.body75 ], [ %delete.end73, %arraydestroy.body75.preheader ]
-  %arraydestroy.element77 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast76, i64 -1
+  %arraydestroy.element77 = getelementptr inbounds i8, ptr %arraydestroy.elementPast76, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element77) #16
   %arraydestroy.done78 = icmp eq ptr %arraydestroy.element77, %36
   br i1 %arraydestroy.done78, label %arraydestroy.done79, label %arraydestroy.body75
@@ -14025,7 +13855,7 @@ invoke.cont.i121:                                 ; preds = %invoke.cont.i121, %
   %arrayctor.cur.idx.i122 = phi i64 [ 8, %new.notnull.i118 ], [ %arrayctor.cur.add.i125, %invoke.cont.i121 ]
   %arrayctor.cur.ptr.ptr.i123 = getelementptr inbounds i8, ptr %call.i116, i64 %arrayctor.cur.idx.i122
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i123, align 8
-  %fUnion2.i.i124 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i123, i64 0, i32 1
+  %fUnion2.i.i124 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i123, i64 8
   store i16 2, ptr %fUnion2.i.i124, align 8
   %arrayctor.cur.add.i125 = add nuw nsw i64 %arrayctor.cur.idx.i122, 64
   %arrayctor.next.ptr.i126 = getelementptr inbounds i8, ptr %call.i116, i64 %arrayctor.cur.add.i125
@@ -14036,25 +13866,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit128:     ; preds = %invoke.cont.i121, %
   %44 = phi ptr [ null, %if.end81 ], [ %.ptr.i119, %invoke.cont.i121 ]
   store ptr %44, ptr %fStandaloneWeekdays, align 8
   %cmp1.i129 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i129, label %while.body.i130, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit139
+  br i1 %cmp1.i129, label %while.body.i130, label %sw.epilog146.sink.split
 
 while.body.i130:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit128, %while.body.i130
   %count.addr.04.i131 = phi i32 [ %dec.i134, %while.body.i130 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128 ]
   %dst.addr.03.i132 = phi ptr [ %incdec.ptr1.i136, %while.body.i130 ], [ %44, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128 ]
   %src.addr.02.i133 = phi ptr [ %incdec.ptr.i135, %while.body.i130 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128 ]
   %dec.i134 = add nsw i32 %count.addr.04.i131, -1
-  %incdec.ptr.i135 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i133, i64 1
-  %incdec.ptr1.i136 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i132, i64 1
+  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %src.addr.02.i133, i64 64
+  %incdec.ptr1.i136 = getelementptr inbounds i8, ptr %dst.addr.03.i132, i64 64
   %call.i137 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i132, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i133)
   %cmp.i138 = icmp ugt i32 %count.addr.04.i131, 1
-  br i1 %cmp.i138, label %while.body.i130, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit139, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit139: ; preds = %while.body.i130, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128
-  %fStandaloneWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 41
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i138, label %while.body.i130, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb86:                                          ; preds = %sw.bb66
-  %fStandaloneShortWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 43
+  %fStandaloneShortWeekdays = getelementptr inbounds i8, ptr %this, i64 232
   %45 = load ptr, ptr %fStandaloneShortWeekdays, align 8
   %tobool87.not = icmp eq ptr %45, null
   br i1 %tobool87.not, label %if.end100, label %delete.notnull91
@@ -14071,7 +13897,7 @@ arraydestroy.body94.preheader:                    ; preds = %delete.notnull91
 
 arraydestroy.body94:                              ; preds = %arraydestroy.body94.preheader, %arraydestroy.body94
   %arraydestroy.elementPast95 = phi ptr [ %arraydestroy.element96, %arraydestroy.body94 ], [ %delete.end92, %arraydestroy.body94.preheader ]
-  %arraydestroy.element96 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast95, i64 -1
+  %arraydestroy.element96 = getelementptr inbounds i8, ptr %arraydestroy.elementPast95, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element96) #16
   %arraydestroy.done97 = icmp eq ptr %arraydestroy.element96, %45
   br i1 %arraydestroy.done97, label %arraydestroy.done98, label %arraydestroy.body94
@@ -14101,7 +13927,7 @@ invoke.cont.i146:                                 ; preds = %invoke.cont.i146, %
   %arrayctor.cur.idx.i147 = phi i64 [ 8, %new.notnull.i143 ], [ %arrayctor.cur.add.i150, %invoke.cont.i146 ]
   %arrayctor.cur.ptr.ptr.i148 = getelementptr inbounds i8, ptr %call.i141, i64 %arrayctor.cur.idx.i147
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i148, align 8
-  %fUnion2.i.i149 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i148, i64 0, i32 1
+  %fUnion2.i.i149 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i148, i64 8
   store i16 2, ptr %fUnion2.i.i149, align 8
   %arrayctor.cur.add.i150 = add nuw nsw i64 %arrayctor.cur.idx.i147, 64
   %arrayctor.next.ptr.i151 = getelementptr inbounds i8, ptr %call.i141, i64 %arrayctor.cur.add.i150
@@ -14112,25 +13938,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit153:     ; preds = %invoke.cont.i146, %
   %53 = phi ptr [ null, %if.end100 ], [ %.ptr.i144, %invoke.cont.i146 ]
   store ptr %53, ptr %fStandaloneShortWeekdays, align 8
   %cmp1.i154 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i154, label %while.body.i155, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit164
+  br i1 %cmp1.i154, label %while.body.i155, label %sw.epilog146.sink.split
 
 while.body.i155:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit153, %while.body.i155
   %count.addr.04.i156 = phi i32 [ %dec.i159, %while.body.i155 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153 ]
   %dst.addr.03.i157 = phi ptr [ %incdec.ptr1.i161, %while.body.i155 ], [ %53, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153 ]
   %src.addr.02.i158 = phi ptr [ %incdec.ptr.i160, %while.body.i155 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153 ]
   %dec.i159 = add nsw i32 %count.addr.04.i156, -1
-  %incdec.ptr.i160 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i158, i64 1
-  %incdec.ptr1.i161 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i157, i64 1
+  %incdec.ptr.i160 = getelementptr inbounds i8, ptr %src.addr.02.i158, i64 64
+  %incdec.ptr1.i161 = getelementptr inbounds i8, ptr %dst.addr.03.i157, i64 64
   %call.i162 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i157, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i158)
   %cmp.i163 = icmp ugt i32 %count.addr.04.i156, 1
-  br i1 %cmp.i163, label %while.body.i155, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit164, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit164: ; preds = %while.body.i155, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153
-  %fStandaloneShortWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 44
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i163, label %while.body.i155, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb105:                                         ; preds = %sw.bb66
-  %fStandaloneShorterWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 46
+  %fStandaloneShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 248
   %54 = load ptr, ptr %fStandaloneShorterWeekdays, align 8
   %tobool106.not = icmp eq ptr %54, null
   br i1 %tobool106.not, label %if.end119, label %delete.notnull110
@@ -14147,7 +13969,7 @@ arraydestroy.body113.preheader:                   ; preds = %delete.notnull110
 
 arraydestroy.body113:                             ; preds = %arraydestroy.body113.preheader, %arraydestroy.body113
   %arraydestroy.elementPast114 = phi ptr [ %arraydestroy.element115, %arraydestroy.body113 ], [ %delete.end111, %arraydestroy.body113.preheader ]
-  %arraydestroy.element115 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast114, i64 -1
+  %arraydestroy.element115 = getelementptr inbounds i8, ptr %arraydestroy.elementPast114, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element115) #16
   %arraydestroy.done116 = icmp eq ptr %arraydestroy.element115, %54
   br i1 %arraydestroy.done116, label %arraydestroy.done117, label %arraydestroy.body113
@@ -14177,7 +13999,7 @@ invoke.cont.i171:                                 ; preds = %invoke.cont.i171, %
   %arrayctor.cur.idx.i172 = phi i64 [ 8, %new.notnull.i168 ], [ %arrayctor.cur.add.i175, %invoke.cont.i171 ]
   %arrayctor.cur.ptr.ptr.i173 = getelementptr inbounds i8, ptr %call.i166, i64 %arrayctor.cur.idx.i172
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i173, align 8
-  %fUnion2.i.i174 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i173, i64 0, i32 1
+  %fUnion2.i.i174 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i173, i64 8
   store i16 2, ptr %fUnion2.i.i174, align 8
   %arrayctor.cur.add.i175 = add nuw nsw i64 %arrayctor.cur.idx.i172, 64
   %arrayctor.next.ptr.i176 = getelementptr inbounds i8, ptr %call.i166, i64 %arrayctor.cur.add.i175
@@ -14188,25 +14010,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit178:     ; preds = %invoke.cont.i171, %
   %62 = phi ptr [ null, %if.end119 ], [ %.ptr.i169, %invoke.cont.i171 ]
   store ptr %62, ptr %fStandaloneShorterWeekdays, align 8
   %cmp1.i179 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i179, label %while.body.i180, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit189
+  br i1 %cmp1.i179, label %while.body.i180, label %sw.epilog146.sink.split
 
 while.body.i180:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit178, %while.body.i180
   %count.addr.04.i181 = phi i32 [ %dec.i184, %while.body.i180 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178 ]
   %dst.addr.03.i182 = phi ptr [ %incdec.ptr1.i186, %while.body.i180 ], [ %62, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178 ]
   %src.addr.02.i183 = phi ptr [ %incdec.ptr.i185, %while.body.i180 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178 ]
   %dec.i184 = add nsw i32 %count.addr.04.i181, -1
-  %incdec.ptr.i185 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i183, i64 1
-  %incdec.ptr1.i186 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i182, i64 1
+  %incdec.ptr.i185 = getelementptr inbounds i8, ptr %src.addr.02.i183, i64 64
+  %incdec.ptr1.i186 = getelementptr inbounds i8, ptr %dst.addr.03.i182, i64 64
   %call.i187 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i182, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i183)
   %cmp.i188 = icmp ugt i32 %count.addr.04.i181, 1
-  br i1 %cmp.i188, label %while.body.i180, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit189, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit189: ; preds = %while.body.i180, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178
-  %fStandaloneShorterWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 47
-  br label %sw.epilog146.sink.split
+  br i1 %cmp.i188, label %while.body.i180, label %sw.epilog146.sink.split, !llvm.loop !29
 
 sw.bb124:                                         ; preds = %sw.bb66
-  %fStandaloneNarrowWeekdays = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 49
+  %fStandaloneNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 264
   %63 = load ptr, ptr %fStandaloneNarrowWeekdays, align 8
   %tobool125.not = icmp eq ptr %63, null
   br i1 %tobool125.not, label %if.end138, label %delete.notnull129
@@ -14223,7 +14041,7 @@ arraydestroy.body132.preheader:                   ; preds = %delete.notnull129
 
 arraydestroy.body132:                             ; preds = %arraydestroy.body132.preheader, %arraydestroy.body132
   %arraydestroy.elementPast133 = phi ptr [ %arraydestroy.element134, %arraydestroy.body132 ], [ %delete.end130, %arraydestroy.body132.preheader ]
-  %arraydestroy.element134 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast133, i64 -1
+  %arraydestroy.element134 = getelementptr inbounds i8, ptr %arraydestroy.elementPast133, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element134) #16
   %arraydestroy.done135 = icmp eq ptr %arraydestroy.element134, %63
   br i1 %arraydestroy.done135, label %arraydestroy.done136, label %arraydestroy.body132
@@ -14253,7 +14071,7 @@ invoke.cont.i196:                                 ; preds = %invoke.cont.i196, %
   %arrayctor.cur.idx.i197 = phi i64 [ 8, %new.notnull.i193 ], [ %arrayctor.cur.add.i200, %invoke.cont.i196 ]
   %arrayctor.cur.ptr.ptr.i198 = getelementptr inbounds i8, ptr %call.i191, i64 %arrayctor.cur.idx.i197
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i198, align 8
-  %fUnion2.i.i199 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i198, i64 0, i32 1
+  %fUnion2.i.i199 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i198, i64 8
   store i16 2, ptr %fUnion2.i.i199, align 8
   %arrayctor.cur.add.i200 = add nuw nsw i64 %arrayctor.cur.idx.i197, 64
   %arrayctor.next.ptr.i201 = getelementptr inbounds i8, ptr %call.i191, i64 %arrayctor.cur.add.i200
@@ -14264,26 +14082,23 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit203:     ; preds = %invoke.cont.i196, %
   %71 = phi ptr [ null, %if.end138 ], [ %.ptr.i194, %invoke.cont.i196 ]
   store ptr %71, ptr %fStandaloneNarrowWeekdays, align 8
   %cmp1.i204 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i204, label %while.body.i205, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit214
+  br i1 %cmp1.i204, label %while.body.i205, label %sw.epilog146.sink.split
 
 while.body.i205:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit203, %while.body.i205
   %count.addr.04.i206 = phi i32 [ %dec.i209, %while.body.i205 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203 ]
   %dst.addr.03.i207 = phi ptr [ %incdec.ptr1.i211, %while.body.i205 ], [ %71, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203 ]
   %src.addr.02.i208 = phi ptr [ %incdec.ptr.i210, %while.body.i205 ], [ %weekdaysArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203 ]
   %dec.i209 = add nsw i32 %count.addr.04.i206, -1
-  %incdec.ptr.i210 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i208, i64 1
-  %incdec.ptr1.i211 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i207, i64 1
+  %incdec.ptr.i210 = getelementptr inbounds i8, ptr %src.addr.02.i208, i64 64
+  %incdec.ptr1.i211 = getelementptr inbounds i8, ptr %dst.addr.03.i207, i64 64
   %call.i212 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i207, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i208)
   %cmp.i213 = icmp ugt i32 %count.addr.04.i206, 1
-  br i1 %cmp.i213, label %while.body.i205, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit214, !llvm.loop !29
+  br i1 %cmp.i213, label %while.body.i205, label %sw.epilog146.sink.split, !llvm.loop !29
 
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit214: ; preds = %while.body.i205, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203
-  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 50
-  br label %sw.epilog146.sink.split
-
-sw.epilog146.sink.split:                          ; preds = %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit114, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit89, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit64, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit214, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit189, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit164, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit139
-  %fStandaloneWeekdaysCount.sink = phi ptr [ %fStandaloneWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit139 ], [ %fStandaloneShortWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit164 ], [ %fStandaloneShorterWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit189 ], [ %fStandaloneNarrowWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit214 ], [ %fWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit ], [ %fShortWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit64 ], [ %fShorterWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit89 ], [ %fNarrowWeekdaysCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit114 ]
-  store i32 %count, ptr %fStandaloneWeekdaysCount.sink, align 8
+sw.epilog146.sink.split:                          ; preds = %while.body.i205, %while.body.i180, %while.body.i155, %while.body.i130, %while.body.i105, %while.body.i80, %while.body.i55, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
+  %.sink = phi i64 [ 160, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ], [ 176, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53 ], [ 192, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78 ], [ 208, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103 ], [ 224, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128 ], [ 240, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153 ], [ 256, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178 ], [ 272, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203 ], [ 160, %while.body.i ], [ 176, %while.body.i55 ], [ 192, %while.body.i80 ], [ 208, %while.body.i105 ], [ 224, %while.body.i130 ], [ 240, %while.body.i155 ], [ 256, %while.body.i180 ], [ 272, %while.body.i205 ]
+  %fStandaloneWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 %.sink
+  store i32 %count, ptr %fStandaloneWeekdaysCount, align 8
   br label %sw.epilog146
 
 sw.epilog146:                                     ; preds = %sw.epilog146.sink.split, %sw.bb66, %sw.bb, %entry
@@ -14306,7 +14121,7 @@ sw.bb:                                            ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %sw.bb
-  %fQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 59
+  %fQuarters = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load ptr, ptr %fQuarters, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -14323,7 +14138,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done4, label %arraydestroy.body
@@ -14353,7 +14168,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -14364,25 +14179,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit:        ; preds = %invoke.cont.i, %if.
   %8 = phi ptr [ null, %if.end ], [ %.ptr.i, %invoke.cont.i ]
   store ptr %8, ptr %fQuarters, align 8
   %cmp1.i = icmp sgt i32 %count, 0
-  br i1 %cmp1.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit
+  br i1 %cmp1.i, label %while.body.i, label %sw.epilog107.sink.split
 
 while.body.i:                                     ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit, %while.body.i
   %count.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %quartersArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 60
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb8:                                           ; preds = %sw.bb
-  %fShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 62
+  %fShortQuarters = getelementptr inbounds i8, ptr %this, i64 392
   %9 = load ptr, ptr %fShortQuarters, align 8
   %tobool9.not = icmp eq ptr %9, null
   br i1 %tobool9.not, label %if.end22, label %delete.notnull13
@@ -14399,7 +14210,7 @@ arraydestroy.body16.preheader:                    ; preds = %delete.notnull13
 
 arraydestroy.body16:                              ; preds = %arraydestroy.body16.preheader, %arraydestroy.body16
   %arraydestroy.elementPast17 = phi ptr [ %arraydestroy.element18, %arraydestroy.body16 ], [ %delete.end14, %arraydestroy.body16.preheader ]
-  %arraydestroy.element18 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast17, i64 -1
+  %arraydestroy.element18 = getelementptr inbounds i8, ptr %arraydestroy.elementPast17, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element18) #16
   %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %9
   br i1 %arraydestroy.done19, label %arraydestroy.done20, label %arraydestroy.body16
@@ -14429,7 +14240,7 @@ invoke.cont.i36:                                  ; preds = %invoke.cont.i36, %n
   %arrayctor.cur.idx.i37 = phi i64 [ 8, %new.notnull.i33 ], [ %arrayctor.cur.add.i40, %invoke.cont.i36 ]
   %arrayctor.cur.ptr.ptr.i38 = getelementptr inbounds i8, ptr %call.i31, i64 %arrayctor.cur.idx.i37
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i38, align 8
-  %fUnion2.i.i39 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i38, i64 0, i32 1
+  %fUnion2.i.i39 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i38, i64 8
   store i16 2, ptr %fUnion2.i.i39, align 8
   %arrayctor.cur.add.i40 = add nuw nsw i64 %arrayctor.cur.idx.i37, 64
   %arrayctor.next.ptr.i41 = getelementptr inbounds i8, ptr %call.i31, i64 %arrayctor.cur.add.i40
@@ -14440,25 +14251,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit43:      ; preds = %invoke.cont.i36, %i
   %17 = phi ptr [ null, %if.end22 ], [ %.ptr.i34, %invoke.cont.i36 ]
   store ptr %17, ptr %fShortQuarters, align 8
   %cmp1.i44 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i44, label %while.body.i45, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54
+  br i1 %cmp1.i44, label %while.body.i45, label %sw.epilog107.sink.split
 
 while.body.i45:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %while.body.i45
   %count.addr.04.i46 = phi i32 [ %dec.i49, %while.body.i45 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ]
   %dst.addr.03.i47 = phi ptr [ %incdec.ptr1.i51, %while.body.i45 ], [ %17, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ]
   %src.addr.02.i48 = phi ptr [ %incdec.ptr.i50, %while.body.i45 ], [ %quartersArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ]
   %dec.i49 = add nsw i32 %count.addr.04.i46, -1
-  %incdec.ptr.i50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i48, i64 1
-  %incdec.ptr1.i51 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i47, i64 1
+  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %src.addr.02.i48, i64 64
+  %incdec.ptr1.i51 = getelementptr inbounds i8, ptr %dst.addr.03.i47, i64 64
   %call.i52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i47, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i48)
   %cmp.i53 = icmp ugt i32 %count.addr.04.i46, 1
-  br i1 %cmp.i53, label %while.body.i45, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54: ; preds = %while.body.i45, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43
-  %fShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 63
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb27:                                          ; preds = %sw.bb
-  %fNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 65
+  %fNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 408
   %18 = load ptr, ptr %fNarrowQuarters, align 8
   %tobool28.not = icmp eq ptr %18, null
   br i1 %tobool28.not, label %if.end41, label %delete.notnull32
@@ -14475,7 +14282,7 @@ arraydestroy.body35.preheader:                    ; preds = %delete.notnull32
 
 arraydestroy.body35:                              ; preds = %arraydestroy.body35.preheader, %arraydestroy.body35
   %arraydestroy.elementPast36 = phi ptr [ %arraydestroy.element37, %arraydestroy.body35 ], [ %delete.end33, %arraydestroy.body35.preheader ]
-  %arraydestroy.element37 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast36, i64 -1
+  %arraydestroy.element37 = getelementptr inbounds i8, ptr %arraydestroy.elementPast36, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element37) #16
   %arraydestroy.done38 = icmp eq ptr %arraydestroy.element37, %18
   br i1 %arraydestroy.done38, label %arraydestroy.done39, label %arraydestroy.body35
@@ -14505,7 +14312,7 @@ invoke.cont.i61:                                  ; preds = %invoke.cont.i61, %n
   %arrayctor.cur.idx.i62 = phi i64 [ 8, %new.notnull.i58 ], [ %arrayctor.cur.add.i65, %invoke.cont.i61 ]
   %arrayctor.cur.ptr.ptr.i63 = getelementptr inbounds i8, ptr %call.i56, i64 %arrayctor.cur.idx.i62
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i63, align 8
-  %fUnion2.i.i64 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i63, i64 0, i32 1
+  %fUnion2.i.i64 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i63, i64 8
   store i16 2, ptr %fUnion2.i.i64, align 8
   %arrayctor.cur.add.i65 = add nuw nsw i64 %arrayctor.cur.idx.i62, 64
   %arrayctor.next.ptr.i66 = getelementptr inbounds i8, ptr %call.i56, i64 %arrayctor.cur.add.i65
@@ -14516,22 +14323,18 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit68:      ; preds = %invoke.cont.i61, %i
   %26 = phi ptr [ null, %if.end41 ], [ %.ptr.i59, %invoke.cont.i61 ]
   store ptr %26, ptr %fNarrowQuarters, align 8
   %cmp1.i69 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i69, label %while.body.i70, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79
+  br i1 %cmp1.i69, label %while.body.i70, label %sw.epilog107.sink.split
 
 while.body.i70:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %while.body.i70
   %count.addr.04.i71 = phi i32 [ %dec.i74, %while.body.i70 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ]
   %dst.addr.03.i72 = phi ptr [ %incdec.ptr1.i76, %while.body.i70 ], [ %26, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ]
   %src.addr.02.i73 = phi ptr [ %incdec.ptr.i75, %while.body.i70 ], [ %quartersArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ]
   %dec.i74 = add nsw i32 %count.addr.04.i71, -1
-  %incdec.ptr.i75 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i73, i64 1
-  %incdec.ptr1.i76 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i72, i64 1
+  %incdec.ptr.i75 = getelementptr inbounds i8, ptr %src.addr.02.i73, i64 64
+  %incdec.ptr1.i76 = getelementptr inbounds i8, ptr %dst.addr.03.i72, i64 64
   %call.i77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i72, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i73)
   %cmp.i78 = icmp ugt i32 %count.addr.04.i71, 1
-  br i1 %cmp.i78, label %while.body.i70, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79: ; preds = %while.body.i70, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68
-  %fNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 66
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb46:                                          ; preds = %entry
   switch i32 %width, label %sw.epilog107 [
@@ -14541,7 +14344,7 @@ sw.bb46:                                          ; preds = %entry
   ]
 
 sw.bb47:                                          ; preds = %sw.bb46
-  %fStandaloneQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 68
+  %fStandaloneQuarters = getelementptr inbounds i8, ptr %this, i64 424
   %27 = load ptr, ptr %fStandaloneQuarters, align 8
   %tobool48.not = icmp eq ptr %27, null
   br i1 %tobool48.not, label %if.end61, label %delete.notnull52
@@ -14558,7 +14361,7 @@ arraydestroy.body55.preheader:                    ; preds = %delete.notnull52
 
 arraydestroy.body55:                              ; preds = %arraydestroy.body55.preheader, %arraydestroy.body55
   %arraydestroy.elementPast56 = phi ptr [ %arraydestroy.element57, %arraydestroy.body55 ], [ %delete.end53, %arraydestroy.body55.preheader ]
-  %arraydestroy.element57 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast56, i64 -1
+  %arraydestroy.element57 = getelementptr inbounds i8, ptr %arraydestroy.elementPast56, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element57) #16
   %arraydestroy.done58 = icmp eq ptr %arraydestroy.element57, %27
   br i1 %arraydestroy.done58, label %arraydestroy.done59, label %arraydestroy.body55
@@ -14588,7 +14391,7 @@ invoke.cont.i86:                                  ; preds = %invoke.cont.i86, %n
   %arrayctor.cur.idx.i87 = phi i64 [ 8, %new.notnull.i83 ], [ %arrayctor.cur.add.i90, %invoke.cont.i86 ]
   %arrayctor.cur.ptr.ptr.i88 = getelementptr inbounds i8, ptr %call.i81, i64 %arrayctor.cur.idx.i87
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i88, align 8
-  %fUnion2.i.i89 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i88, i64 0, i32 1
+  %fUnion2.i.i89 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i88, i64 8
   store i16 2, ptr %fUnion2.i.i89, align 8
   %arrayctor.cur.add.i90 = add nuw nsw i64 %arrayctor.cur.idx.i87, 64
   %arrayctor.next.ptr.i91 = getelementptr inbounds i8, ptr %call.i81, i64 %arrayctor.cur.add.i90
@@ -14599,25 +14402,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit93:      ; preds = %invoke.cont.i86, %i
   %35 = phi ptr [ null, %if.end61 ], [ %.ptr.i84, %invoke.cont.i86 ]
   store ptr %35, ptr %fStandaloneQuarters, align 8
   %cmp1.i94 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i94, label %while.body.i95, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104
+  br i1 %cmp1.i94, label %while.body.i95, label %sw.epilog107.sink.split
 
 while.body.i95:                                   ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %while.body.i95
   %count.addr.04.i96 = phi i32 [ %dec.i99, %while.body.i95 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ]
   %dst.addr.03.i97 = phi ptr [ %incdec.ptr1.i101, %while.body.i95 ], [ %35, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ]
   %src.addr.02.i98 = phi ptr [ %incdec.ptr.i100, %while.body.i95 ], [ %quartersArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ]
   %dec.i99 = add nsw i32 %count.addr.04.i96, -1
-  %incdec.ptr.i100 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i98, i64 1
-  %incdec.ptr1.i101 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i97, i64 1
+  %incdec.ptr.i100 = getelementptr inbounds i8, ptr %src.addr.02.i98, i64 64
+  %incdec.ptr1.i101 = getelementptr inbounds i8, ptr %dst.addr.03.i97, i64 64
   %call.i102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i97, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i98)
   %cmp.i103 = icmp ugt i32 %count.addr.04.i96, 1
-  br i1 %cmp.i103, label %while.body.i95, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104: ; preds = %while.body.i95, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93
-  %fStandaloneQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 69
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb66:                                          ; preds = %sw.bb46
-  %fStandaloneShortQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 71
+  %fStandaloneShortQuarters = getelementptr inbounds i8, ptr %this, i64 440
   %36 = load ptr, ptr %fStandaloneShortQuarters, align 8
   %tobool67.not = icmp eq ptr %36, null
   br i1 %tobool67.not, label %if.end80, label %delete.notnull71
@@ -14634,7 +14433,7 @@ arraydestroy.body74.preheader:                    ; preds = %delete.notnull71
 
 arraydestroy.body74:                              ; preds = %arraydestroy.body74.preheader, %arraydestroy.body74
   %arraydestroy.elementPast75 = phi ptr [ %arraydestroy.element76, %arraydestroy.body74 ], [ %delete.end72, %arraydestroy.body74.preheader ]
-  %arraydestroy.element76 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast75, i64 -1
+  %arraydestroy.element76 = getelementptr inbounds i8, ptr %arraydestroy.elementPast75, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element76) #16
   %arraydestroy.done77 = icmp eq ptr %arraydestroy.element76, %36
   br i1 %arraydestroy.done77, label %arraydestroy.done78, label %arraydestroy.body74
@@ -14664,7 +14463,7 @@ invoke.cont.i111:                                 ; preds = %invoke.cont.i111, %
   %arrayctor.cur.idx.i112 = phi i64 [ 8, %new.notnull.i108 ], [ %arrayctor.cur.add.i115, %invoke.cont.i111 ]
   %arrayctor.cur.ptr.ptr.i113 = getelementptr inbounds i8, ptr %call.i106, i64 %arrayctor.cur.idx.i112
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i113, align 8
-  %fUnion2.i.i114 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i113, i64 0, i32 1
+  %fUnion2.i.i114 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i113, i64 8
   store i16 2, ptr %fUnion2.i.i114, align 8
   %arrayctor.cur.add.i115 = add nuw nsw i64 %arrayctor.cur.idx.i112, 64
   %arrayctor.next.ptr.i116 = getelementptr inbounds i8, ptr %call.i106, i64 %arrayctor.cur.add.i115
@@ -14675,25 +14474,21 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit118:     ; preds = %invoke.cont.i111, %
   %44 = phi ptr [ null, %if.end80 ], [ %.ptr.i109, %invoke.cont.i111 ]
   store ptr %44, ptr %fStandaloneShortQuarters, align 8
   %cmp1.i119 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i119, label %while.body.i120, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129
+  br i1 %cmp1.i119, label %while.body.i120, label %sw.epilog107.sink.split
 
 while.body.i120:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %while.body.i120
   %count.addr.04.i121 = phi i32 [ %dec.i124, %while.body.i120 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ]
   %dst.addr.03.i122 = phi ptr [ %incdec.ptr1.i126, %while.body.i120 ], [ %44, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ]
   %src.addr.02.i123 = phi ptr [ %incdec.ptr.i125, %while.body.i120 ], [ %quartersArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ]
   %dec.i124 = add nsw i32 %count.addr.04.i121, -1
-  %incdec.ptr.i125 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i123, i64 1
-  %incdec.ptr1.i126 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i122, i64 1
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %src.addr.02.i123, i64 64
+  %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %dst.addr.03.i122, i64 64
   %call.i127 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i122, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i123)
   %cmp.i128 = icmp ugt i32 %count.addr.04.i121, 1
-  br i1 %cmp.i128, label %while.body.i120, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129, !llvm.loop !29
-
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129: ; preds = %while.body.i120, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118
-  %fStandaloneShortQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 72
-  br label %sw.epilog107.sink.split
+  br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !29
 
 sw.bb85:                                          ; preds = %sw.bb46
-  %fStandaloneNarrowQuarters = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 74
+  %fStandaloneNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 456
   %45 = load ptr, ptr %fStandaloneNarrowQuarters, align 8
   %tobool86.not = icmp eq ptr %45, null
   br i1 %tobool86.not, label %if.end99, label %delete.notnull90
@@ -14710,7 +14505,7 @@ arraydestroy.body93.preheader:                    ; preds = %delete.notnull90
 
 arraydestroy.body93:                              ; preds = %arraydestroy.body93.preheader, %arraydestroy.body93
   %arraydestroy.elementPast94 = phi ptr [ %arraydestroy.element95, %arraydestroy.body93 ], [ %delete.end91, %arraydestroy.body93.preheader ]
-  %arraydestroy.element95 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast94, i64 -1
+  %arraydestroy.element95 = getelementptr inbounds i8, ptr %arraydestroy.elementPast94, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element95) #16
   %arraydestroy.done96 = icmp eq ptr %arraydestroy.element95, %45
   br i1 %arraydestroy.done96, label %arraydestroy.done97, label %arraydestroy.body93
@@ -14740,7 +14535,7 @@ invoke.cont.i136:                                 ; preds = %invoke.cont.i136, %
   %arrayctor.cur.idx.i137 = phi i64 [ 8, %new.notnull.i133 ], [ %arrayctor.cur.add.i140, %invoke.cont.i136 ]
   %arrayctor.cur.ptr.ptr.i138 = getelementptr inbounds i8, ptr %call.i131, i64 %arrayctor.cur.idx.i137
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i138, align 8
-  %fUnion2.i.i139 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i138, i64 0, i32 1
+  %fUnion2.i.i139 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i138, i64 8
   store i16 2, ptr %fUnion2.i.i139, align 8
   %arrayctor.cur.add.i140 = add nuw nsw i64 %arrayctor.cur.idx.i137, 64
   %arrayctor.next.ptr.i141 = getelementptr inbounds i8, ptr %call.i131, i64 %arrayctor.cur.add.i140
@@ -14751,26 +14546,23 @@ _ZN6icu_75L21newUnicodeStringArrayEm.exit143:     ; preds = %invoke.cont.i136, %
   %53 = phi ptr [ null, %if.end99 ], [ %.ptr.i134, %invoke.cont.i136 ]
   store ptr %53, ptr %fStandaloneNarrowQuarters, align 8
   %cmp1.i144 = icmp sgt i32 %count, 0
-  br i1 %cmp1.i144, label %while.body.i145, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154
+  br i1 %cmp1.i144, label %while.body.i145, label %sw.epilog107.sink.split
 
 while.body.i145:                                  ; preds = %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %while.body.i145
   %count.addr.04.i146 = phi i32 [ %dec.i149, %while.body.i145 ], [ %count, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ]
   %dst.addr.03.i147 = phi ptr [ %incdec.ptr1.i151, %while.body.i145 ], [ %53, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ]
   %src.addr.02.i148 = phi ptr [ %incdec.ptr.i150, %while.body.i145 ], [ %quartersArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ]
   %dec.i149 = add nsw i32 %count.addr.04.i146, -1
-  %incdec.ptr.i150 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i148, i64 1
-  %incdec.ptr1.i151 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i147, i64 1
+  %incdec.ptr.i150 = getelementptr inbounds i8, ptr %src.addr.02.i148, i64 64
+  %incdec.ptr1.i151 = getelementptr inbounds i8, ptr %dst.addr.03.i147, i64 64
   %call.i152 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i147, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i148)
   %cmp.i153 = icmp ugt i32 %count.addr.04.i146, 1
-  br i1 %cmp.i153, label %while.body.i145, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154, !llvm.loop !29
+  br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !29
 
-_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154: ; preds = %while.body.i145, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143
-  %fStandaloneNarrowQuartersCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 75
-  br label %sw.epilog107.sink.split
-
-sw.epilog107.sink.split:                          ; preds = %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104
-  %fStandaloneQuartersCount.sink = phi ptr [ %fStandaloneQuartersCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit104 ], [ %fStandaloneShortQuartersCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit129 ], [ %fStandaloneNarrowQuartersCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit154 ], [ %fQuartersCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit ], [ %fShortQuartersCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit54 ], [ %fNarrowQuartersCount, %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit79 ]
-  store i32 %count, ptr %fStandaloneQuartersCount.sink, align 8
+sw.epilog107.sink.split:                          ; preds = %while.body.i145, %while.body.i120, %while.body.i95, %while.body.i70, %while.body.i45, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
+  %.sink = phi i64 [ 384, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ], [ 400, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ], [ 416, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ], [ 432, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ], [ 448, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ], [ 464, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ], [ 384, %while.body.i ], [ 400, %while.body.i45 ], [ 416, %while.body.i70 ], [ 432, %while.body.i95 ], [ 448, %while.body.i120 ], [ 464, %while.body.i145 ]
+  %fStandaloneQuartersCount = getelementptr inbounds i8, ptr %this, i64 %.sink
+  store i32 %count, ptr %fStandaloneQuartersCount, align 8
   br label %sw.epilog107
 
 sw.epilog107:                                     ; preds = %sw.epilog107.sink.split, %sw.bb46, %sw.bb, %entry
@@ -14780,7 +14572,7 @@ sw.epilog107:                                     ; preds = %sw.epilog107.sink.s
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols14setAmPmStringsEPKNS_13UnicodeStringEi(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %amPmsArray, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fAmPms = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 52
+  %fAmPms = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %fAmPms, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -14797,7 +14589,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done3, label %arraydestroy.body
@@ -14827,7 +14619,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.notnull.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -14845,14 +14637,14 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %dst.addr.03.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %8, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %src.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %amPmsArray, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ]
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
-  %fAmPmsCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 53
+  %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %count, ptr %fAmPmsCount, align 8
   ret void
 }
@@ -14860,7 +14652,7 @@ _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols22setTimeSeparatorStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(64) %newTimeSeparator) local_unnamed_addr #1 align 2 {
 entry:
-  %fTimeSeparator = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 58
+  %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator, ptr noundef nonnull align 8 dereferenceable(64) %newTimeSeparator)
   ret void
 }
@@ -14871,13 +14663,13 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZoneStringsERiS1_(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rowCount, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %columnCount) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7517DateFormatSymbols14getZoneStringsERiS1_E4LOCK)
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
+  %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load ptr, ptr %fZoneStrings, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %fLocaleZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 87
+  %fLocaleZoneStrings = getelementptr inbounds i8, ptr %this, i64 528
   %1 = load ptr, ptr %fLocaleZoneStrings, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.end6
@@ -14889,10 +14681,10 @@ if.then3:                                         ; preds = %if.then
 
 if.end6:                                          ; preds = %if.then, %if.then3, %entry
   %result.0 = phi ptr [ %0, %entry ], [ %.pre, %if.then3 ], [ %1, %if.then ]
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   %2 = load i32, ptr %fZoneStringsRowCount, align 8
   store i32 %2, ptr %rowCount, align 4
-  %fZoneStringsColCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 89
+  %fZoneStringsColCount = getelementptr inbounds i8, ptr %this, i64 540
   %3 = load i32, ptr %fZoneStringsColCount, align 4
   store i32 %3, ptr %columnCount, align 4
   tail call void @umtx_unlock_75(ptr noundef nonnull @_ZZNK6icu_7517DateFormatSymbols14getZoneStringsERiS1_E4LOCK)
@@ -14906,13 +14698,13 @@ define void @_ZN6icu_7517DateFormatSymbols20initZoneStringsArrayEv(ptr noundef n
 entry:
   %status = alloca i32, align 4
   %tzDispName = alloca %"class.icu_75::UnicodeString", align 8
-  %fZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 86
+  %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load ptr, ptr %fZoneStrings, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %fLocaleZoneStrings = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 87
+  %fLocaleZoneStrings = getelementptr inbounds i8, ptr %this, i64 528
   %1 = load ptr, ptr %fLocaleZoneStrings, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end, label %return
@@ -14921,7 +14713,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store i32 0, ptr %status, align 4
   %call = call noundef ptr @_ZN6icu_758TimeZone27createTimeZoneIDEnumerationE19USystemTimeZoneTypePKcPKiR10UErrorCode(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   %call3 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -14941,10 +14733,10 @@ if.then11:                                        ; preds = %if.end6
 
 if.end12:                                         ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call9, i8 0, i64 %conv8, i1 false)
-  %fZSFLocale = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 90
+  %fZSFLocale = getelementptr inbounds i8, ptr %this, i64 544
   %call14 = call noundef ptr @_ZN6icu_7513TimeZoneNames14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %fZSFLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable15 = load ptr, ptr %call14, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 13
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 104
   %4 = load ptr, ptr %vfn16, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
@@ -14954,14 +14746,14 @@ if.end12:                                         ; preds = %if.end6
 if.end20:                                         ; preds = %if.end12
   %call21 = call noundef double @_ZN6icu_758Calendar6getNowEv()
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tzDispName, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tzDispName, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %tzDispName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont54, %if.end20
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont54 ], [ 0, %if.end20 ]
   %vtable22 = load ptr, ptr %call, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 7
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 56
   %6 = load ptr, ptr %vfn23, align 8
   %call24 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -14992,7 +14784,7 @@ invoke.cont35:                                    ; preds = %new.notnull, %invok
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont35 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call31, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i34 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i34 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i34, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 328
@@ -15014,9 +14806,9 @@ if.end44:                                         ; preds = %invoke.cont35
 
 invoke.cont48:                                    ; preds = %if.end44
   %9 = load ptr, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %9, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 64
   %vtable52 = load ptr, ptr %call14, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 14
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 112
   %10 = load ptr, ptr %vfn53, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 8 dereferenceable(64) %call24, ptr noundef nonnull @_ZZN6icu_7517DateFormatSymbols20initZoneStringsArrayEvE5TYPES, i32 noundef 4, double noundef %call21, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont54 unwind label %lpad
@@ -15058,7 +14850,7 @@ arraydestroy.body69.preheader:                    ; preds = %delete.notnull
 
 arraydestroy.body69:                              ; preds = %arraydestroy.body69.preheader, %arraydestroy.body69
   %arraydestroy.elementPast70 = phi ptr [ %arraydestroy.element71, %arraydestroy.body69 ], [ %delete.end, %arraydestroy.body69.preheader ]
-  %arraydestroy.element71 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast70, i64 -1
+  %arraydestroy.element71 = getelementptr inbounds i8, ptr %arraydestroy.elementPast70, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element71) #16
   %arraydestroy.done72 = icmp eq ptr %arraydestroy.element71, %12
   br i1 %arraydestroy.done72, label %arraydestroy.done73, label %arraydestroy.body69
@@ -15079,7 +14871,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 delete.notnull82:                                 ; preds = %do.end, %for.end
   %zarray.1 = phi ptr [ null, %for.end ], [ %call9, %do.end ]
   %vtable83 = load ptr, ptr %call14, align 8
-  %vfn84 = getelementptr inbounds ptr, ptr %vtable83, i64 1
+  %vfn84 = getelementptr inbounds i8, ptr %vtable83, i64 8
   %15 = load ptr, ptr %vfn84, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call14) #16
   br label %delete.notnull90
@@ -15087,13 +14879,13 @@ delete.notnull82:                                 ; preds = %do.end, %for.end
 delete.notnull90:                                 ; preds = %if.end, %if.then11, %delete.notnull82
   %zarray.151 = phi ptr [ %zarray.1, %delete.notnull82 ], [ null, %if.then11 ], [ null, %if.end ]
   %vtable91 = load ptr, ptr %call, align 8
-  %vfn92 = getelementptr inbounds ptr, ptr %vtable91, i64 1
+  %vfn92 = getelementptr inbounds i8, ptr %vtable91, i64 8
   %16 = load ptr, ptr %vfn92, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(116) %call) #16
   store ptr %zarray.151, ptr %fLocaleZoneStrings, align 8
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   store i32 %call3, ptr %fZoneStringsRowCount, align 8
-  %fZoneStringsColCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 89
+  %fZoneStringsColCount = getelementptr inbounds i8, ptr %this, i64 540
   store i32 5, ptr %fZoneStringsColCount, align 4
   br label %return
 
@@ -15116,9 +14908,9 @@ declare noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef) local_unnamed_addr #6
 define void @_ZN6icu_7517DateFormatSymbols14setZoneStringsEPKPKNS_13UnicodeStringEii(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr nocapture noundef readonly %strings, i32 noundef %rowCount, i32 noundef %columnCount) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517DateFormatSymbols18disposeZoneStringsEv(ptr noundef nonnull align 8 dereferenceable(1272) %this)
-  %fZoneStringsRowCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 88
+  %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   store i32 %rowCount, ptr %fZoneStringsRowCount, align 8
-  %fZoneStringsColCount = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 89
+  %fZoneStringsColCount = getelementptr inbounds i8, ptr %this, i64 540
   store i32 %columnCount, ptr %fZoneStringsColCount, align 4
   tail call void @_ZN6icu_7517DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %strings)
   ret void
@@ -15213,7 +15005,7 @@ _ZN6icu_7517DateFormatSymbols14isNumericFieldE16UDateFormatFieldi.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(64) %result) local_unnamed_addr #1 align 2 {
 entry:
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars)
   ret ptr %call
 }
@@ -15221,7 +15013,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517DateFormatSymbols20setLocalPatternCharsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(64) %newLocalPatternChars) local_unnamed_addr #1 align 2 {
 entry:
-  %fLocalPatternChars = getelementptr inbounds %"class.icu_75::DateFormatSymbols", ptr %this, i64 0, i32 91
+  %fLocalPatternChars = getelementptr inbounds i8, ptr %this, i64 768
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars, ptr noundef nonnull align 8 dereferenceable(64) %newLocalPatternChars)
   ret void
 }
@@ -15257,7 +15049,7 @@ entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %field, i64 %idxprom
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %field, i64 %idxprom, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i3.i = and i16 %0, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
@@ -15271,7 +15063,7 @@ entry:
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %path, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %pathUString, ptr noundef %3, i32 noundef -1, i32 noundef 0)
-  %maps = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %sink, i64 0, i32 3
+  %maps = getelementptr inbounds i8, ptr %sink, i64 184
   %4 = load ptr, ptr %maps, align 8
   %call.i9 = invoke noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull %pathUString)
           to label %invoke.cont unwind label %lpad
@@ -15389,7 +15181,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %pathUString, ptr noundef %path.0.val, i32 noundef -1, i32 noundef 0)
-  %maps = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %sink, i64 0, i32 3
+  %maps = getelementptr inbounds i8, ptr %sink, i64 184
   %1 = load ptr, ptr %maps, align 8
   %call.i18 = invoke noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull %pathUString)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -15408,7 +15200,7 @@ invoke.cont8:                                     ; preds = %new.notnull, %invok
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont8 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call3, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 648
@@ -15527,7 +15319,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %keyUString, ptr noundef %key.0.val, i32 noundef -1, i32 noundef 0)
-  %arrays = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %sink, i64 0, i32 1
+  %arrays = getelementptr inbounds i8, ptr %sink, i64 8
   %1 = load ptr, ptr %arrays, align 8
   %call.i12 = invoke noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull %keyUString)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -15537,7 +15329,7 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %cmp.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %invoke.cont
-  %arraySizes = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %sink, i64 0, i32 2
+  %arraySizes = getelementptr inbounds i8, ptr %sink, i64 96
   %2 = load ptr, ptr %arraySizes, align 8
   %call.i13 = invoke noundef i32 @uhash_geti_75(ptr noundef %2, ptr noundef nonnull %keyUString)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
@@ -15572,7 +15364,7 @@ invoke.cont11:                                    ; preds = %new.ctorloop, %invo
   %arrayctor.cur.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur.add, %invoke.cont11 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call6, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call6, i64 %arrayctor.cur.add
@@ -15608,12 +15400,12 @@ while.body.i.i:                                   ; preds = %if.end, %call.i.i.n
   %count.addr.04.i.i = phi i32 [ %dec.i.i, %call.i.i.noexc ], [ %call.i13, %if.end ]
   %dst.addr.03.i.pn.i = phi ptr [ %dst.addr.03.i.i, %call.i.i.noexc ], [ %.ptr, %if.end ]
   %src.addr.02.i.i = phi ptr [ %incdec.ptr.i.i, %call.i.i.noexc ], [ %call.i12, %if.end ]
-  %dst.addr.03.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i.pn.i, i64 1
+  %dst.addr.03.i.i = getelementptr inbounds i8, ptr %dst.addr.03.i.pn.i, i64 64
   %call.i.i14 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i.i)
           to label %call.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.noexc:                                   ; preds = %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %src.addr.02.i.i, i64 64
   %dec.i.i = add nsw i32 %count.addr.04.i.i, -1
   %cmp.i.i = icmp ugt i32 %count.addr.04.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %cleanup, !llvm.loop !29
@@ -15635,40 +15427,40 @@ if.end20:                                         ; preds = %cleanup, %entry
 define internal void @_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_116CalendarDataSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %arrays = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 1
+  %arrays = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %arrays, align 8
   %call.i1 = invoke noundef ptr @uhash_setValueDeleter_75(ptr noundef %0, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_116CalendarDataSink24deleteUnicodeStringArrayEPv)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %aliasRelativePath = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 9
+  %aliasRelativePath = getelementptr inbounds i8, ptr %this, i64 536
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %aliasRelativePath) #16
-  %resourcesToVisit = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 8
+  %resourcesToVisit = getelementptr inbounds i8, ptr %this, i64 528
   %1 = load ptr, ptr %resourcesToVisit, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %1) #16
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %invoke.cont, %delete.notnull.i
-  %nextCalendarType = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 7
+  %nextCalendarType = getelementptr inbounds i8, ptr %this, i64 464
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType) #16
-  %currentCalendarType = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 6
+  %currentCalendarType = getelementptr inbounds i8, ptr %this, i64 400
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currentCalendarType) #16
-  %aliasPathPairs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 5
+  %aliasPathPairs = getelementptr inbounds i8, ptr %this, i64 360
   tail call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %aliasPathPairs) #16
-  %mapRefs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 4
+  %mapRefs = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load i32, ptr %mapRefs, align 8
   %cmp4.i = icmp sgt i32 %3, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
-  %fPool.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 4, i32 1
+  %fPool.i = getelementptr inbounds i8, ptr %this, i64 280
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -15709,13 +15501,13 @@ for.inc.i:                                        ; preds = %_ZN6icu_759Hashtabl
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
-  %needToRelease.i.i.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 4, i32 1, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 292
   %12 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_7510MemoryPoolINS_9HashtableELi8EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end.i
-  %fPool2.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 4, i32 1
+  %fPool2.i = getelementptr inbounds i8, ptr %this, i64 280
   %13 = load ptr, ptr %fPool2.i, align 8
   invoke void @uprv_free_75(ptr noundef %13)
           to label %_ZN6icu_7510MemoryPoolINS_9HashtableELi8EED2Ev.exit unwind label %terminate.lpad.i3.i
@@ -15728,7 +15520,7 @@ terminate.lpad.i3.i:                              ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_7510MemoryPoolINS_9HashtableELi8EED2Ev.exit: ; preds = %for.end.i, %if.then.i.i.i
-  %maps = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 3
+  %maps = getelementptr inbounds i8, ptr %this, i64 184
   %16 = load ptr, ptr %maps, align 8
   %cmp.not.i = icmp eq ptr %16, null
   br i1 %cmp.not.i, label %_ZN6icu_759HashtableD2Ev.exit, label %if.then.i
@@ -15745,7 +15537,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %_ZN6icu_7510MemoryPoolINS_9HashtableELi8EED2Ev.exit, %if.then.i
-  %arraySizes = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 2
+  %arraySizes = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load ptr, ptr %arraySizes, align 8
   %cmp.not.i4 = icmp eq ptr %19, null
   br i1 %cmp.not.i4, label %_ZN6icu_759HashtableD2Ev.exit7, label %if.then.i5
@@ -15814,7 +15606,7 @@ entry:
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %fPool = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1
+  %fPool = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -15855,13 +15647,13 @@ for.inc:                                          ; preds = %for.body, %_ZN6icu_
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !34
 
 for.end:                                          ; preds = %for.inc, %entry
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %9 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPNS_9HashtableELi8EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
-  %fPool2 = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1
+  %fPool2 = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %fPool2, align 8
   invoke void @uprv_free_75(ptr noundef %10)
           to label %_ZN6icu_7515MaybeStackArrayIPNS_9HashtableELi8EED2Ev.exit unwind label %terminate.lpad.i3
@@ -15926,7 +15718,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %calendarData, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %3 = load i32, ptr %errorCode, align 4
@@ -15934,13 +15726,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i65, label %for.cond.preheader, label %cleanup.cont340
 
 for.cond.preheader:                               ; preds = %if.end
-  %arrays = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 1
-  %aliasRelativePath49 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 9
-  %maps = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 3
-  %aliasPathPairs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 5
-  %resourcesToVisit = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 8
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %resourceArray, i64 0, i32 2
-  %arraySizes = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 2
+  %arrays = getelementptr inbounds i8, ptr %this, i64 8
+  %aliasRelativePath49 = getelementptr inbounds i8, ptr %this, i64 536
+  %maps = getelementptr inbounds i8, ptr %this, i64 184
+  %aliasPathPairs = getelementptr inbounds i8, ptr %this, i64 360
+  %resourcesToVisit = getelementptr inbounds i8, ptr %this, i64 528
+  %length.i = getelementptr inbounds i8, ptr %resourceArray, i64 16
+  %arraySizes = getelementptr inbounds i8, ptr %this, i64 96
   br label %for.cond
 
 lpad.loopexit287:                                 ; preds = %if.then316, %invoke.cont319, %for.body208, %invoke.cont210, %if.then216, %invoke.cont218, %if.then224, %if.else289, %if.then294, %invoke.cont298, %new.cont.i226
@@ -15964,7 +15756,7 @@ invoke.cont6:                                     ; preds = %for.cond
   br i1 %tobool8.not, label %do.body.preheader, label %for.body
 
 do.body.preheader:                                ; preds = %invoke.cont6
-  %count.i158 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 5, i32 1
+  %count.i158 = getelementptr inbounds i8, ptr %this, i64 368
   %4 = load i32, ptr %count.i158, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %do.body, label %do.end
@@ -16025,7 +15817,7 @@ if.then3.i:                                       ; preds = %new.cont.thread
 
 invoke.cont27:                                    ; preds = %new.cont
   %vtable6.i = load ptr, ptr %call24, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 1
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 8
   %11 = load ptr, ptr %vfn7.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(40) %call24) #16
   %.pre = load i32, ptr %errorCode, align 4
@@ -16150,7 +15942,7 @@ if.end88:                                         ; preds = %if.end16
   br i1 %cmp.i131.not, label %if.end110, label %land.lhs.true92
 
 land.lhs.true92:                                  ; preds = %if.end88
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %24, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i32, ptr %count.i, align 8
   %cmp.i133.not = icmp eq i32 %25, 0
   br i1 %cmp.i133.not, label %if.end110, label %land.lhs.true99
@@ -16196,7 +15988,7 @@ invoke.cont120:                                   ; preds = %if.then118
 
 if.then123:                                       ; preds = %invoke.cont120
   %vtable124 = load ptr, ptr %value, align 8
-  %vfn125 = getelementptr inbounds ptr, ptr %vtable124, i64 10
+  %vfn125 = getelementptr inbounds i8, ptr %vtable124, i64 80
   %29 = load ptr, ptr %vfn125, align 8
   invoke void %29(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %resourceArray, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont126 unwind label %lpad10
@@ -16226,7 +16018,7 @@ invoke.cont138:                                   ; preds = %new.ctorloop, %invo
   %arrayctor.cur.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur.add, %invoke.cont138 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call129, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call129, i64 %arrayctor.cur.add
@@ -16250,7 +16042,7 @@ if.then.i143:                                     ; preds = %new.cont148
 invoke.cont149:                                   ; preds = %if.then.i143, %new.cont148, %new.cont148.thread
   %36 = phi ptr [ %.ptr59, %new.cont148.thread ], [ null, %new.cont148 ], [ null, %if.then.i143 ]
   %vtable153 = load ptr, ptr %value, align 8
-  %vfn154 = getelementptr inbounds ptr, ptr %vtable153, i64 13
+  %vfn154 = getelementptr inbounds i8, ptr %vtable153, i64 104
   %37 = load ptr, ptr %vfn154, align 8
   %call156 = invoke noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef %36, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont155 unwind label %lpad150
@@ -16430,7 +16222,7 @@ invoke.cont244:                                   ; preds = %new.ctorloop236, %i
   %arrayctor.cur239.idx = phi i64 [ 8, %new.ctorloop236 ], [ %arrayctor.cur239.add, %invoke.cont244 ]
   %arrayctor.cur239.ptr.ptr = getelementptr inbounds i8, ptr %call229, i64 %arrayctor.cur239.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur239.ptr.ptr, align 8
-  %fUnion2.i172 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur239.ptr.ptr, i64 0, i32 1
+  %fUnion2.i172 = getelementptr inbounds i8, ptr %arrayctor.cur239.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i172, align 8
   %arrayctor.cur239.add = add nuw nsw i64 %arrayctor.cur239.idx, 64
   %arrayctor.next255.ptr = getelementptr inbounds i8, ptr %call229, i64 %arrayctor.cur239.add
@@ -16471,8 +16263,8 @@ while.body.i:                                     ; preds = %if.end267, %call.i1
           to label %call.i180.noexc unwind label %lpad268.loopexit
 
 call.i180.noexc:                                  ; preds = %while.body.i
-  %incdec.ptr1.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst.addr.03.i, i64 1
-  %incdec.ptr.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src.addr.02.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %dec.i = add nsw i32 %count.addr.04.i, -1
   %cmp.i181 = icmp ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i181, label %while.body.i, label %invoke.cont271.loopexit, !llvm.loop !29
@@ -16540,7 +16332,7 @@ arraydestroy.body.preheader.i203:                 ; preds = %delete.notnull.i201
 
 arraydestroy.body.i205:                           ; preds = %arraydestroy.body.i205, %arraydestroy.body.preheader.i203
   %arraydestroy.elementPast.i206 = phi ptr [ %arraydestroy.element.i207, %arraydestroy.body.i205 ], [ %delete.end.i204, %arraydestroy.body.preheader.i203 ]
-  %arraydestroy.element.i207 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast.i206, i64 -1
+  %arraydestroy.element.i207 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i206, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.i207) #16
   %arraydestroy.done.i208 = icmp eq ptr %arraydestroy.element.i207, %58
   br i1 %arraydestroy.done.i208, label %arraydestroy.done2.i209, label %arraydestroy.body.i205
@@ -16654,7 +16446,7 @@ if.then334:                                       ; preds = %do.end
 
 delete.notnull.i238:                              ; preds = %if.then334
   %vtable.i239 = load ptr, ptr %68, align 8
-  %vfn.i240 = getelementptr inbounds ptr, ptr %vtable.i239, i64 1
+  %vfn.i240 = getelementptr inbounds i8, ptr %vtable.i239, i64 8
   %69 = load ptr, ptr %vfn.i240, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(40) %68) #16
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEEaSEOS2_.exit
@@ -16674,7 +16466,7 @@ cleanup338:                                       ; preds = %if.end308, %if.end2
 
 delete.notnull.i243:                              ; preds = %cleanup338
   %vtable.i244 = load ptr, ptr %resourcesToVisitNext.sroa.0.8, align 8
-  %vfn.i245 = getelementptr inbounds ptr, ptr %vtable.i244, i64 1
+  %vfn.i245 = getelementptr inbounds i8, ptr %vtable.i244, i64 8
   %70 = load ptr, ptr %vfn.i245, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.8) #16
   br label %cleanup.cont340
@@ -16690,7 +16482,7 @@ ehcleanup341:                                     ; preds = %lpad.loopexit287, %
 
 delete.notnull.i248:                              ; preds = %ehcleanup341
   %vtable.i249 = load ptr, ptr %resourcesToVisitNext.sroa.0.9, align 8
-  %vfn.i250 = getelementptr inbounds ptr, ptr %vtable.i249, i64 1
+  %vfn.i250 = getelementptr inbounds i8, ptr %vtable.i249, i64 8
   %71 = load ptr, ptr %vfn.i250, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.9) #16
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit252
@@ -16726,7 +16518,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp = icmp eq i32 %call2, 3
@@ -16734,7 +16526,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %vtable4 = load ptr, ptr %value, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 5
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %aliasPathSize, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %3 = load i32, ptr %errorCode, align 4
@@ -16752,12 +16544,12 @@ invoke.cont12:                                    ; preds = %if.end10
   br i1 %tobool14.not, label %if.end69.critedge, label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %aliasPath, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %aliasPath, i64 8
   %5 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i = sext i16 %6 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %aliasPath, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %aliasPath, i64 12
   %7 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
   %cmp17 = icmp sgt i32 %cond.i, 17
@@ -16786,7 +16578,7 @@ if.then22:                                        ; preds = %invoke.cont19
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %if.then22
-  %aliasRelativePath = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 9
+  %aliasRelativePath = getelementptr inbounds i8, ptr %this, i64 536
   %10 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i16 = icmp slt i16 %10, 0
   %11 = ashr i16 %10, 5
@@ -16798,7 +16590,7 @@ invoke.cont25:                                    ; preds = %if.then22
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %currentCalendarType = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 6
+  %currentCalendarType = getelementptr inbounds i8, ptr %this, i64 400
   %call30 = invoke noundef zeroext i1 @_ZNK6icu_7513UnicodeStringeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %currentCalendarType, ptr noundef nonnull align 8 dereferenceable(64) %aliasCalendarType)
           to label %invoke.cont29 unwind label %lpad24
 
@@ -16861,8 +16653,8 @@ lpad45:                                           ; preds = %if.then42
   br label %ehcleanup
 
 if.else50:                                        ; preds = %invoke.cont46
-  %nextCalendarType = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 7
-  %fUnion.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 7, i32 1
+  %nextCalendarType = getelementptr inbounds i8, ptr %this, i64 464
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 472
   %19 = load i16, ptr %fUnion.i, align 8
   %conv2.i25 = and i16 %19, 1
   %tobool53.not = icmp eq i16 %conv2.i25, 0
@@ -16985,7 +16777,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
@@ -17017,7 +16809,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %table, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
@@ -17030,17 +16822,17 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %tobool7.not262, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %keyUString, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %keyUString, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %path, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %path, i64 0, i32 1, i32 0, i32 1
-  %arrays = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 1
-  %maps130 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 3
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %rDataArray, i64 0, i32 2
-  %arraySizes = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 2
-  %aliasRelativePath = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 9
-  %aliasPathPairs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 5
-  %mapRefs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CalendarDataSink", ptr %this, i64 0, i32 4
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %keyUString, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %keyUString, i64 12
+  %fUnion.i.i = getelementptr inbounds i8, ptr %path, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %path, i64 12
+  %arrays = getelementptr inbounds i8, ptr %this, i64 8
+  %maps130 = getelementptr inbounds i8, ptr %this, i64 184
+  %length.i = getelementptr inbounds i8, ptr %rDataArray, i64 16
+  %arraySizes = getelementptr inbounds i8, ptr %this, i64 96
+  %aliasRelativePath = getelementptr inbounds i8, ptr %this, i64 536
+  %aliasPathPairs = getelementptr inbounds i8, ptr %this, i64 360
+  %mapRefs = getelementptr inbounds i8, ptr %this, i64 272
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -17076,7 +16868,7 @@ lpad8:                                            ; preds = %for.body
 
 if.end13:                                         ; preds = %invoke.cont9
   %vtable14 = load ptr, ptr %value, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 3
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 24
   %9 = load ptr, ptr %vfn15, align 8
   %call17 = invoke noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %value)
           to label %invoke.cont16 unwind label %lpad
@@ -17135,7 +16927,7 @@ if.end31:                                         ; preds = %invoke.cont26
 if.end34:                                         ; preds = %if.end31, %if.then18
   %stringMap.1 = phi ptr [ %stringMap.0266, %if.then18 ], [ %call22, %if.end31 ]
   %vtable35 = load ptr, ptr %value, align 8
-  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 4
+  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 32
   %14 = load ptr, ptr %vfn36, align 8
   %call38 = invoke noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %valueStringSize, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont37 unwind label %lpad
@@ -17460,7 +17252,7 @@ lpad150:                                          ; preds = %if.end155, %invoke.
 
 if.end155:                                        ; preds = %invoke.cont151
   %vtable156 = load ptr, ptr %path, align 8
-  %vfn157 = getelementptr inbounds ptr, ptr %vtable156, i64 7
+  %vfn157 = getelementptr inbounds i8, ptr %vtable156, i64 56
   %56 = load ptr, ptr %vfn157, align 8
   %call159 = invoke noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(64) %path)
           to label %invoke.cont158 unwind label %lpad150
@@ -17496,7 +17288,7 @@ if.end168:                                        ; preds = %invoke.cont164
 
 if.end175:                                        ; preds = %if.end143
   %vtable176 = load ptr, ptr %value, align 8
-  %vfn177 = getelementptr inbounds ptr, ptr %vtable176, i64 3
+  %vfn177 = getelementptr inbounds i8, ptr %vtable176, i64 24
   %60 = load ptr, ptr %vfn177, align 8
   %call179 = invoke noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(8) %value)
           to label %invoke.cont178 unwind label %lpad
@@ -17507,7 +17299,7 @@ invoke.cont178:                                   ; preds = %if.end175
   br i1 %cmp180, label %if.then181, label %if.else
 
 if.then181:                                       ; preds = %invoke.cont178
-  %vfn183 = getelementptr inbounds ptr, ptr %vtable182, i64 10
+  %vfn183 = getelementptr inbounds i8, ptr %vtable182, i64 80
   %61 = load ptr, ptr %vfn183, align 8
   invoke void %61(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %rDataArray, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont184 unwind label %lpad
@@ -17537,7 +17329,7 @@ invoke.cont196:                                   ; preds = %new.ctorloop, %invo
   %arrayctor.cur.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur.add, %invoke.cont196 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call187, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call187, i64 %arrayctor.cur.add
@@ -17561,7 +17353,7 @@ if.then.i219:                                     ; preds = %new.cont206
 invoke.cont207:                                   ; preds = %if.then.i219, %new.cont206, %new.cont206.thread
   %68 = phi ptr [ %.ptr, %new.cont206.thread ], [ null, %new.cont206 ], [ null, %if.then.i219 ]
   %vtable209 = load ptr, ptr %value, align 8
-  %vfn210 = getelementptr inbounds ptr, ptr %vtable209, i64 13
+  %vfn210 = getelementptr inbounds i8, ptr %vtable209, i64 104
   %69 = load ptr, ptr %vfn210, align 8
   %call213 = invoke noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef %68, i32 noundef %62, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont212 unwind label %lpad211
@@ -17589,7 +17381,7 @@ lpad211:                                          ; preds = %invoke.cont216, %in
   br label %ehcleanup244
 
 if.else:                                          ; preds = %invoke.cont178
-  %vfn227 = getelementptr inbounds ptr, ptr %vtable182, i64 3
+  %vfn227 = getelementptr inbounds i8, ptr %vtable182, i64 24
   %73 = load ptr, ptr %vfn227, align 8
   %call229 = invoke noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %value)
           to label %invoke.cont228 unwind label %lpad
@@ -17650,12 +17442,12 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dere
 define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %srcText, i32 noundef %srcStart, i32 noundef %srcLength) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %call2 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef 0, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(64) %srcText, i32 noundef %srcStart, i32 noundef %srcLength)
@@ -17665,12 +17457,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef signext i8 @_ZNK6icu_7513UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %srcChars, i32 noundef %srcLength) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %3 = load ptr, ptr %srcChars, align 8
@@ -17703,8 +17495,8 @@ declare i32 @uhash_puti_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6icu_7510MemoryPoolINS_9HashtableELi8EE6createIJbR10UErrorCodeEEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fPool = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1
-  %capacity.i = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1, i32 1
+  %fPool = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %capacity.i, align 8
   %1 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %1, %0
@@ -17739,7 +17531,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then5.i, %if.then3.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPNS_9HashtableELi8EE6resizeEii.exit, label %if.then.i.i
@@ -17772,7 +17564,7 @@ if.end.i.i:                                       ; preds = %new.notnull
   %tobool.not.i = icmp eq i8 %8, 0
   %cond-lvalue6.i = select i1 %tobool.not.i, ptr @uhash_compareUnicodeString_75, ptr @uhash_compareCaselessUnicodeString_75
   %uhash_hashCaselessUnicodeString_75.uhash_hashUnicodeString_75.i = select i1 %tobool.not.i, ptr @uhash_hashUnicodeString_75, ptr @uhash_hashCaselessUnicodeString_75
-  %hashObj.i.i = getelementptr inbounds %"class.icu_75::Hashtable", ptr %call9, i64 0, i32 1
+  %hashObj.i.i = getelementptr inbounds i8, ptr %call9, i64 8
   %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull %uhash_hashCaselessUnicodeString_75.uhash_hashUnicodeString_75.i, ptr noundef nonnull %cond-lvalue6.i, ptr noundef null, ptr noundef nonnull %args1)
           to label %call2.i.i.noexc unwind label %lpad
 
@@ -17812,7 +17604,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString13retainBetweenEii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i5.i = and i16 %0, 1
   %tobool.i = icmp ne i16 %conv2.i5.i, 0
@@ -17828,7 +17620,7 @@ if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %1 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %2, i32 %shr.i.i.i
   %cmp3.i = icmp ugt i32 %cond.i.i, %limit
@@ -17897,7 +17689,7 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #16
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %uArray
   br i1 %arraydestroy.done, label %arraydestroy.done1, label %arraydestroy.body
@@ -17984,7 +17776,7 @@ _ZNK6icu_7512UnifiedCache3getINS_23SharedDateFormatSymbolsEEEvRKNS_8CacheKeyIT_E
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #16
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #16
   ret void
@@ -17998,7 +17790,7 @@ declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferencea
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEED0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #16
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
@@ -18010,7 +17802,7 @@ define linkonce_odr noundef i32 @_ZNK6icu_7514LocaleCacheKeyINS_23SharedDateForm
 entry:
   %call3.i = tail call noundef i32 @ustr_hashCharsN_75(ptr noundef nonnull @_ZTSN6icu_7523SharedDateFormatSymbolsE, i32 noundef 34)
   %mul = mul i32 %call3.i, 37
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call noundef i32 @_ZNK6icu_756Locale8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(217) %fLoc)
   %add = add i32 %mul, %call2
   ret i32 %add
@@ -18025,15 +17817,15 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fCreationStatus.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call, i64 0, i32 1
-  %fCreationStatus2.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this, i64 0, i32 1
+  %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %fCreationStatus2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i, align 8
-  %fIsPrimary.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call, i64 0, i32 2
+  %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %call, i64 0, i32 2
-  %fLoc2.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %call, i64 16
+  %fLoc2.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)
           to label %new.cont unwind label %lpad.i
 
@@ -18051,7 +17843,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEE16writeDescriptionEPci(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %buffer, i32 noundef %bufLen) unnamed_addr #0 comdat align 2 {
 entry:
-  %fullName.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %fullName.i, align 8
   %conv = sext i32 %bufLen to i64
   %call2 = tail call ptr @strncpy(ptr noundef %buffer, ptr noundef %0, i64 noundef %conv) #16
@@ -18069,14 +17861,14 @@ entry:
 
 typeid.end.i:                                     ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable.i, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2.i = load ptr, ptr %other, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2.i, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2.i, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end, label %if.end.i.i
@@ -18096,8 +17888,8 @@ _ZNK6icu_758CacheKeyINS_23SharedDateFormatSymbolsEE6equalsERKNS_12CacheKeyBaseE.
   br i1 %cmp7.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %typeid.end.i, %entry, %_ZNK6icu_758CacheKeyINS_23SharedDateFormatSymbolsEE6equalsERKNS_12CacheKeyBaseE.exit
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
-  %fLoc2.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %other, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fLoc2.i = getelementptr inbounds i8, ptr %other, i64 16
   %call.i = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)
   br label %return
 

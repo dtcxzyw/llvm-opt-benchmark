@@ -9,45 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.CPUTailQ = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.GenericLoaderState = type { %struct.DeviceState, ptr, i64, i64, i8, i32, ptr, i8, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.3 }
-%struct.anon.3 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.4 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
 
 @generic_loader_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 208, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @generic_loader_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"loader\00", align 1
@@ -111,14 +72,14 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @generic_loader_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @generic_loader_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @generic_loader_unrealize, ptr %unrealize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @generic_loader_props) #4
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
@@ -130,28 +91,28 @@ define internal void @generic_loader_realize(ptr noundef %dev, ptr noundef %errp
 entry:
   %entry1 = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 45, ptr noundef nonnull @__func__.GENERIC_LOADER) #4
-  %set_pc = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 9
+  %set_pc = getelementptr inbounds i8, ptr %call.i, i64 202
   store i8 0, ptr %set_pc, align 2
-  %data = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call.i, i64 176
   %0 = load i64, ptr %data, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_len = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 4
+  %data_len = getelementptr inbounds i8, ptr %call.i, i64 184
   %1 = load i8, ptr %data_len, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %data_be = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 8
+  %data_be = getelementptr inbounds i8, ptr %call.i, i64 201
   %2 = load i8, ptr %data_be, align 1
   %3 = and i8 %2, 1
   %tobool4.not = icmp eq i8 %3, 0
   br i1 %tobool4.not, label %if.else22, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false3, %lor.lhs.false, %entry
-  %file = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 6
+  %file = getelementptr inbounds i8, ptr %call.i, i64 192
   %4 = load ptr, ptr %file, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.else, label %if.then7
@@ -161,7 +122,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end143
 
 if.else:                                          ; preds = %if.then
-  %force_raw = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 7
+  %force_raw = getelementptr inbounds i8, ptr %call.i, i64 200
   %5 = load i8, ptr %force_raw, align 8
   %6 = and i8 %5, 1
   %tobool8.not = icmp eq i8 %6, 0
@@ -172,7 +133,7 @@ if.then9:                                         ; preds = %if.else
   br label %if.end143
 
 if.else10:                                        ; preds = %if.else
-  %data_len11 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 4
+  %data_len11 = getelementptr inbounds i8, ptr %call.i, i64 184
   %7 = load i8, ptr %data_len11, align 8
   %tobool12.not = icmp eq i8 %7, 0
   br i1 %tobool12.not, label %if.then13, label %if.else14
@@ -190,32 +151,32 @@ if.then18:                                        ; preds = %if.else14
   br label %if.end143
 
 if.else22:                                        ; preds = %lor.lhs.false3
-  %file23 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 6
+  %file23 = getelementptr inbounds i8, ptr %call.i, i64 192
   %8 = load ptr, ptr %file23, align 8
   %tobool24.not = icmp eq ptr %8, null
   br i1 %tobool24.not, label %lor.lhs.false25, label %if.end41
 
 lor.lhs.false25:                                  ; preds = %if.else22
-  %force_raw26 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 7
+  %force_raw26 = getelementptr inbounds i8, ptr %call.i, i64 200
   %9 = load i8, ptr %force_raw26, align 8
   %10 = and i8 %9, 1
   %tobool27.not = icmp eq i8 %10, 0
   br i1 %tobool27.not, label %if.else47, label %if.end41
 
 if.end41:                                         ; preds = %if.else22, %lor.lhs.false25
-  %cpu_num = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 5
+  %cpu_num = getelementptr inbounds i8, ptr %call.i, i64 188
   %11 = load i32, ptr %cpu_num, align 4
   %cmp42.not = icmp eq i32 %11, -1
   br i1 %cmp42.not, label %if.end72, label %if.end72.sink.split
 
 if.else47:                                        ; preds = %lor.lhs.false25
-  %addr = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 168
   %12 = load i64, ptr %addr, align 8
   %tobool48.not = icmp eq i64 %12, 0
   br i1 %tobool48.not, label %if.else69, label %if.else61
 
 if.else61:                                        ; preds = %if.else47
-  %cpu_num62 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 5
+  %cpu_num62 = getelementptr inbounds i8, ptr %call.i, i64 188
   %13 = load i32, ptr %cpu_num62, align 4
   %cmp63 = icmp eq i32 %13, -1
   br i1 %cmp63, label %if.then65, label %if.end72.sink.split
@@ -234,14 +195,14 @@ if.end72.sink.split:                              ; preds = %if.else61, %if.end4
 
 if.end72:                                         ; preds = %if.end72.sink.split, %if.end41, %if.else14
   tail call void @qemu_register_reset(ptr noundef nonnull @generic_loader_reset, ptr noundef %dev) #4
-  %cpu_num73 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 5
+  %cpu_num73 = getelementptr inbounds i8, ptr %call.i, i64 188
   %14 = load i32, ptr %cpu_num73, align 4
   %cmp74.not = icmp eq i32 %14, -1
   br i1 %cmp74.not, label %while.end, label %if.then76
 
 if.then76:                                        ; preds = %if.end72
   %call78 = tail call ptr @qemu_get_cpu(i32 noundef %14) #4
-  %cpu = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
+  %cpu = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %call78, ptr %cpu, align 8
   %tobool80.not = icmp eq ptr %call78, null
   br i1 %tobool80.not, label %if.then81, label %if.end86
@@ -255,32 +216,32 @@ while.end:                                        ; preds = %if.end72
   %16 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
-  %cpu85 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
+  %cpu85 = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %17, ptr %cpu85, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then76, %while.end
   %call87 = tail call zeroext i1 @target_words_bigendian() #4
   %conv88 = zext i1 %call87 to i32
-  %file89 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 6
+  %file89 = getelementptr inbounds i8, ptr %call.i, i64 192
   %18 = load ptr, ptr %file89, align 8
   %tobool90.not = icmp eq ptr %18, null
   br i1 %tobool90.not, label %if.end132, label %if.then91
 
 if.then91:                                        ; preds = %if.end86
-  %cpu92 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
+  %cpu92 = getelementptr inbounds i8, ptr %call.i, i64 160
   %19 = load ptr, ptr %cpu92, align 8
   %tobool93.not = icmp eq ptr %19, null
   br i1 %tobool93.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then91
-  %as95 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 29
+  %as95 = getelementptr inbounds i8, ptr %19, i64 528
   %20 = load ptr, ptr %as95, align 16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then91, %cond.true
   %cond = phi ptr [ %20, %cond.true ], [ null, %if.then91 ]
-  %force_raw96 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 7
+  %force_raw96 = getelementptr inbounds i8, ptr %call.i, i64 200
   %21 = load i8, ptr %force_raw96, align 8
   %22 = and i8 %21, 1
   %tobool97.not = icmp eq i8 %22, 0
@@ -311,10 +272,10 @@ lor.lhs.false116:                                 ; preds = %cond.end, %if.then1
 
 if.then120:                                       ; preds = %lor.lhs.false116, %if.then109
   %29 = load ptr, ptr %file89, align 8
-  %addr122 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
+  %addr122 = getelementptr inbounds i8, ptr %call.i, i64 168
   %30 = load i64, ptr %addr122, align 8
   %31 = load ptr, ptr @current_machine, align 8
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %31, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %31, i64 144
   %32 = load i64, ptr %ram_size, align 8
   %call123 = call i64 @load_image_targphys_as(ptr noundef %29, i64 noundef %30, i64 noundef %32, ptr noundef %cond) #4
   %33 = icmp slt i64 %call123, 0
@@ -322,7 +283,7 @@ if.then120:                                       ; preds = %lor.lhs.false116, %
 
 if.else124:                                       ; preds = %lor.lhs.false116
   %34 = load i64, ptr %entry1, align 8
-  %addr125 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
+  %addr125 = getelementptr inbounds i8, ptr %call.i, i64 168
   store i64 %34, ptr %addr125, align 8
   br label %if.end132
 
@@ -332,7 +293,7 @@ if.then129:                                       ; preds = %if.then120
   br label %if.end143
 
 if.end132:                                        ; preds = %if.else124, %if.then120, %if.end86
-  %data_be133 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 8
+  %data_be133 = getelementptr inbounds i8, ptr %call.i, i64 201
   %36 = load i8, ptr %data_be133, align 1
   %37 = and i8 %36, 1
   %tobool134.not = icmp eq i8 %37, 0
@@ -367,14 +328,14 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal void @generic_loader_reset(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 45, ptr noundef nonnull @__func__.GENERIC_LOADER) #4
-  %set_pc = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 9
+  %set_pc = getelementptr inbounds i8, ptr %call.i, i64 202
   %0 = load i8, ptr %set_pc, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cpu = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
+  %cpu = getelementptr inbounds i8, ptr %call.i, i64 160
   %2 = load ptr, ptr %cpu, align 8
   %call.i22 = tail call ptr @object_get_class(ptr noundef %2) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i22, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #4
@@ -384,16 +345,16 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %set_pc5 = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 8
+  %set_pc5 = getelementptr inbounds i8, ptr %call1.i, i64 232
   %4 = load ptr, ptr %set_pc5, align 8
   %5 = load ptr, ptr %cpu, align 8
-  %addr = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 168
   %6 = load i64, ptr %addr, align 8
   tail call void %4(ptr noundef %5, i64 noundef %6) #4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then4, %entry
-  %data_len = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 4
+  %data_len = getelementptr inbounds i8, ptr %call.i, i64 184
   %7 = load i8, ptr %data_len, align 8
   %tobool8.not = icmp eq i8 %7, 0
   br i1 %tobool8.not, label %if.end46, label %if.then9
@@ -408,13 +369,13 @@ if.else:                                          ; preds = %if.then9
 
 if.end13:                                         ; preds = %if.then9
   %conv = zext nneg i8 %7 to i64
-  %cpu14 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
+  %cpu14 = getelementptr inbounds i8, ptr %call.i, i64 160
   %8 = load ptr, ptr %cpu14, align 8
-  %as = getelementptr inbounds %struct.CPUState, ptr %8, i64 0, i32 29
+  %as = getelementptr inbounds i8, ptr %8, i64 528
   %9 = load ptr, ptr %as, align 16
-  %addr15 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
+  %addr15 = getelementptr inbounds i8, ptr %call.i, i64 168
   %10 = load i64, ptr %addr15, align 8
-  %data = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call.i, i64 176
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   fence seq_cst
   %call.i.i.i = tail call i32 @address_space_rw(ptr noundef %9, i64 noundef %10, i32 1, ptr noundef nonnull %data, i64 noundef %conv, i1 noundef zeroext true) #4

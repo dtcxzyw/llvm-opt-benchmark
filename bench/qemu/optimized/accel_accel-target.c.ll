@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.AccelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.AccelCPUClass = type { %struct.ObjectClass, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"%s-accel\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"accel\00", align 1
@@ -56,7 +51,7 @@ entry:
   %call = tail call ptr @current_accel() #3
   %call1 = tail call ptr @object_get_class(ptr noundef %call) #3
   %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 55, ptr noundef nonnull @__func__.current_accel_name) #3
-  %name = getelementptr inbounds %struct.AccelClass, ptr %call2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call2, i64 96
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -96,13 +91,13 @@ define dso_local void @accel_cpu_instance_init(ptr noundef %cpu) local_unnamed_a
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %accel_cpu = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 18
+  %accel_cpu = getelementptr inbounds i8, ptr %call1.i, i64 312
   %0 = load ptr, ptr %accel_cpu, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cpu_instance_init = getelementptr inbounds %struct.AccelCPUClass, ptr %0, i64 0, i32 2
+  %cpu_instance_init = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %cpu_instance_init, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -123,13 +118,13 @@ entry:
   %call1 = tail call ptr @current_accel() #3
   %call2 = tail call ptr @object_get_class(ptr noundef %call1) #3
   %call3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.accel_cpu_common_realize) #3
-  %accel_cpu = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 18
+  %accel_cpu = getelementptr inbounds i8, ptr %call1.i, i64 312
   %0 = load ptr, ptr %accel_cpu, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cpu_target_realize = getelementptr inbounds %struct.AccelCPUClass, ptr %0, i64 0, i32 3
+  %cpu_target_realize = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %cpu_target_realize, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end, label %land.lhs.true6
@@ -139,7 +134,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %call9, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true6, %land.lhs.true, %entry
-  %cpu_common_realize = getelementptr inbounds %struct.AccelClass, ptr %call3, i64 0, i32 3
+  %cpu_common_realize = getelementptr inbounds i8, ptr %call3, i64 112
   %2 = load ptr, ptr %cpu_common_realize, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %if.end15, label %land.lhs.true11
@@ -162,7 +157,7 @@ entry:
   %call = tail call ptr @current_accel() #3
   %call1 = tail call ptr @object_get_class(ptr noundef %call) #3
   %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @__func__.accel_cpu_common_unrealize) #3
-  %cpu_common_unrealize = getelementptr inbounds %struct.AccelClass, ptr %call2, i64 0, i32 4
+  %cpu_common_unrealize = getelementptr inbounds i8, ptr %call2, i64 120
   %0 = load ptr, ptr %cpu_common_unrealize, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -181,7 +176,7 @@ entry:
   %call = tail call ptr @current_accel() #3
   %call1 = tail call ptr @object_get_class(ptr noundef %call) #3
   %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 156, ptr noundef nonnull @__func__.accel_supported_gdbstub_sstep_flags) #3
-  %gdbstub_supported_sstep_flags = getelementptr inbounds %struct.AccelClass, ptr %call2, i64 0, i32 5
+  %gdbstub_supported_sstep_flags = getelementptr inbounds i8, ptr %call2, i64 128
   %0 = load ptr, ptr %gdbstub_supported_sstep_flags, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -225,9 +220,9 @@ declare void @object_class_foreach(ptr noundef, ptr noundef, i1 noundef zeroext,
 define internal void @accel_init_cpu_int_aux(ptr noundef %klass, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #3
-  %accel_cpu1 = getelementptr inbounds %struct.CPUClass, ptr %call.i, i64 0, i32 18
+  %accel_cpu1 = getelementptr inbounds i8, ptr %call.i, i64 312
   store ptr %opaque, ptr %accel_cpu1, align 8
-  %cpu_class_init = getelementptr inbounds %struct.AccelCPUClass, ptr %opaque, i64 0, i32 1
+  %cpu_class_init = getelementptr inbounds i8, ptr %opaque, i64 96
   %0 = load ptr, ptr %cpu_class_init, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -237,7 +232,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %init_accel_cpu = getelementptr inbounds %struct.CPUClass, ptr %call.i, i64 0, i32 21
+  %init_accel_cpu = getelementptr inbounds i8, ptr %call.i, i64 336
   %1 = load ptr, ptr %init_accel_cpu, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end6, label %if.then4

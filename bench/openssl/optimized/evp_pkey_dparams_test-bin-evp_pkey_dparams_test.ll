@@ -50,9 +50,9 @@ entry:
   %idxprom = sext i32 %id to i64
   %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %param_bin = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom, i32 1
+  %param_bin = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %param_bin, align 8
-  %param_bin_len = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom, i32 2
+  %param_bin_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %param_bin_len, align 8
   %conv = trunc i64 %2 to i32
   %call = tail call ptr @BIO_new_mem_buf(ptr noundef %1, i32 noundef %conv) #2
@@ -117,8 +117,8 @@ entry:
   %idxprom = sext i32 %id to i64
   %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %keys4 = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom, i32 3
-  %key_bin = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 0, i32 1
+  %keys4 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %key_bin = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %1 = load ptr, ptr %key_bin, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -128,9 +128,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %param_bin = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom, i32 1
+  %param_bin = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %param_bin, align 8
-  %param_bin_len = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom, i32 2
+  %param_bin_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load i64, ptr %param_bin_len, align 8
   %conv = trunc i64 %3 to i32
   %call10 = tail call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %conv) #2
@@ -146,13 +146,13 @@ land.end:                                         ; preds = %if.end
 
 land.rhs18:                                       ; preds = %land.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.end ]
-  %key_bin21 = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 %indvars.iv, i32 1
+  %arrayidx20 = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 %indvars.iv
+  %key_bin21 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   %4 = load ptr, ptr %key_bin21, align 8
   %cmp22.not = icmp eq ptr %4, null
   br i1 %cmp22.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs18
-  %arrayidx20 = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx20, align 8
   %tobool28.not = icmp eq i32 %5, 0
   br i1 %tobool28.not, label %land.rhs45, label %if.then29
@@ -160,7 +160,7 @@ for.body:                                         ; preds = %land.rhs18
 if.then29:                                        ; preds = %for.body
   %call30 = call i32 @ERR_set_mark() #2
   %6 = load ptr, ptr %in_key, align 8
-  %key_bin_len = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 %indvars.iv, i32 2
+  %key_bin_len = getelementptr inbounds i8, ptr %arrayidx20, i64 16
   %7 = load i64, ptr %key_bin_len, align 8
   %call38 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %6, ptr noundef nonnull %4, i64 noundef %7) #2
   %call39 = call i32 @test_int_le(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef %call38, i32 noundef 0) #2
@@ -169,7 +169,7 @@ if.then29:                                        ; preds = %for.body
 
 land.rhs45:                                       ; preds = %for.body
   %8 = load ptr, ptr %in_key, align 8
-  %key_bin_len51 = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 %indvars.iv, i32 2
+  %key_bin_len51 = getelementptr inbounds i8, ptr %arrayidx20, i64 16
   %9 = load i64, ptr %key_bin_len51, align 8
   %call52 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %8, ptr noundef nonnull %4, i64 noundef %9) #2
   %call53 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 303, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef %call52, i32 noundef 0) #2

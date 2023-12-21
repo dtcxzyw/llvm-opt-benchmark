@@ -7,235 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
 %"class.node::errors::TryCatchScope" = type <{ %"class.v8::TryCatch.base", [7 x i8], ptr, i32, [4 x i8] }>
 %"class.v8::TryCatch.base" = type <{ ptr, ptr, ptr, ptr, i64, i8 }>
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.59", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.84", %"class.std::unordered_set.89", %"class.std::unique_ptr", %"class.std::unique_ptr.111", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.123", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.131", %"class.std::shared_ptr.134", %"class.std::vector", %"class.std::vector", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.59", %"class.node::AliasedBufferBase.48", i32, %"class.std::unique_ptr.137", %"class.node::AliasedBufferBase.59", i64, double, i64, %"class.std::unique_ptr.145", i8, i64, i64, %"class.std::unordered_set.153", %"class.std::unique_ptr.173", i8, %"class.std::__cxx11::list.181", %"class.node::ListHead", %"class.node::ListHead.186", %"class.std::__cxx11::list.188", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.193", %"class.std::__cxx11::list.198", %"class.node::MutexBase", %"class.std::__cxx11::list.203", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.218", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.220", %"class.std::function", %"class.std::unique_ptr.235", %"class.node::builtins::BuiltinLoader", %"class.std::function.249", %"class.std::unordered_map.251" }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable.22" }
-%"class.std::_Hashtable.22" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.41, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon.41 = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.43, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.43 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.44, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.44 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.42, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.42 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.45, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.45 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.48", %"class.node::AliasedBufferBase", %"class.v8::Global.51", %"class.std::vector.53", ptr, %"struct.std::array.58" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.46", ptr }
-%"class.v8::Global.46" = type { %"class.v8::PersistentBase.47" }
-%"class.v8::PersistentBase.47" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.v8::Global.51" = type { %"class.v8::PersistentBase.52" }
-%"class.v8::PersistentBase.52" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector.53" = type { %"struct.std::_Vector_base.54" }
-%"struct.std::_Vector_base.54" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.58" = type { [4 x %"class.v8::Global.11"] }
-%"class.v8::Global.11" = type { %"class.v8::PersistentBase.12" }
-%"class.v8::PersistentBase.12" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.48" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.62" }
-%"class.node::AliasedBufferBase.62" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.63", ptr }
-%"class.v8::Global.63" = type { %"class.v8::PersistentBase.64" }
-%"class.v8::PersistentBase.64" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.65" }
-%"class.std::_Hashtable.65" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.84" = type { %"struct.std::_Vector_base.85" }
-%"struct.std::_Vector_base.85" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set.89" = type { %"class.std::_Hashtable.90" }
-%"class.std::_Hashtable.90" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.110" }
-%"struct.std::_Head_base.110" = type { ptr }
-%"class.std::unique_ptr.111" = type { %"struct.std::__uniq_ptr_data.112" }
-%"struct.std::__uniq_ptr_data.112" = type { %"class.std::__uniq_ptr_impl.113" }
-%"class.std::__uniq_ptr_impl.113" = type { %"class.std::tuple.114" }
-%"class.std::tuple.114" = type { %"struct.std::_Tuple_impl.115" }
-%"struct.std::_Tuple_impl.115" = type { %"struct.std::_Head_base.118" }
-%"struct.std::_Head_base.118" = type { ptr }
-%"class.std::unique_ptr.123" = type { %"struct.std::__uniq_ptr_data.124" }
-%"struct.std::__uniq_ptr_data.124" = type { %"class.std::__uniq_ptr_impl.125" }
-%"class.std::__uniq_ptr_impl.125" = type { %"class.std::tuple.126" }
-%"class.std::tuple.126" = type { %"struct.std::_Tuple_impl.127" }
-%"struct.std::_Tuple_impl.127" = type { %"struct.std::_Head_base.130" }
-%"struct.std::_Head_base.130" = type { ptr }
-%"class.std::shared_ptr.131" = type { %"class.std::__shared_ptr.132" }
-%"class.std::__shared_ptr.132" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.134" = type { %"class.std::__shared_ptr.135" }
-%"class.std::__shared_ptr.135" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.122 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.122 = type { i64, [8 x i8] }
-%"class.node::AliasedBufferBase.48" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.49", ptr }
-%"class.v8::Global.49" = type { %"class.v8::PersistentBase.50" }
-%"class.v8::PersistentBase.50" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.137" = type { %"struct.std::__uniq_ptr_data.138" }
-%"struct.std::__uniq_ptr_data.138" = type { %"class.std::__uniq_ptr_impl.139" }
-%"class.std::__uniq_ptr_impl.139" = type { %"class.std::tuple.140" }
-%"class.std::tuple.140" = type { %"struct.std::_Tuple_impl.141" }
-%"struct.std::_Tuple_impl.141" = type { %"struct.std::_Head_base.144" }
-%"struct.std::_Head_base.144" = type { ptr }
-%"class.node::AliasedBufferBase.59" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.60", ptr }
-%"class.v8::Global.60" = type { %"class.v8::PersistentBase.61" }
-%"class.v8::PersistentBase.61" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.145" = type { %"struct.std::__uniq_ptr_data.146" }
-%"struct.std::__uniq_ptr_data.146" = type { %"class.std::__uniq_ptr_impl.147" }
-%"class.std::__uniq_ptr_impl.147" = type { %"class.std::tuple.148" }
-%"class.std::tuple.148" = type { %"struct.std::_Tuple_impl.149" }
-%"struct.std::_Tuple_impl.149" = type { %"struct.std::_Head_base.152" }
-%"struct.std::_Head_base.152" = type { ptr }
-%"class.std::unordered_set.153" = type { %"class.std::_Hashtable.154" }
-%"class.std::_Hashtable.154" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.173" = type { %"struct.std::__uniq_ptr_data.174" }
-%"struct.std::__uniq_ptr_data.174" = type { %"class.std::__uniq_ptr_impl.175" }
-%"class.std::__uniq_ptr_impl.175" = type { %"class.std::tuple.176" }
-%"class.std::tuple.176" = type { %"struct.std::_Tuple_impl.177" }
-%"struct.std::_Tuple_impl.177" = type { %"struct.std::_Head_base.180" }
-%"struct.std::_Head_base.180" = type { ptr }
-%"class.std::__cxx11::list.181" = type { %"class.std::__cxx11::_List_base.182" }
-%"class.std::__cxx11::_List_base.182" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.186" = type { %"class.node::ListNode.187" }
-%"class.node::ListNode.187" = type { ptr, ptr }
-%"class.std::__cxx11::list.188" = type { %"class.std::__cxx11::_List_base.189" }
-%"class.std::__cxx11::_List_base.189" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.193" = type { %"struct.std::_Vector_base.194" }
-%"struct.std::_Vector_base.194" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.198" = type { %"class.std::__cxx11::_List_base.199" }
-%"class.std::__cxx11::_List_base.199" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.203" = type { %"class.std::__cxx11::_List_base.204" }
-%"class.std::__cxx11::_List_base.204" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.208", %"class.std::unique_ptr.210", ptr }
-%"struct.std::atomic.208" = type { %"struct.std::__atomic_base.209" }
-%"struct.std::__atomic_base.209" = type { i64 }
-%"class.std::unique_ptr.210" = type { %"struct.std::__uniq_ptr_data.211" }
-%"struct.std::__uniq_ptr_data.211" = type { %"class.std::__uniq_ptr_impl.212" }
-%"class.std::__uniq_ptr_impl.212" = type { %"class.std::tuple.213" }
-%"class.std::tuple.213" = type { %"struct.std::_Tuple_impl.214" }
-%"struct.std::_Tuple_impl.214" = type { %"struct.std::_Head_base.217" }
-%"struct.std::_Head_base.217" = type { ptr }
-%"struct.std::atomic.218" = type { %"struct.std::__atomic_base.219" }
-%"struct.std::__atomic_base.219" = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set", i64 }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.220" = type { %"class.std::_Hashtable.221" }
-%"class.std::_Hashtable.221" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.235" = type { %"struct.std::__uniq_ptr_data.236" }
-%"struct.std::__uniq_ptr_data.236" = type { %"class.std::__uniq_ptr_impl.237" }
-%"class.std::__uniq_ptr_impl.237" = type { %"class.std::tuple.238" }
-%"class.std::tuple.238" = type { %"struct.std::_Tuple_impl.239" }
-%"struct.std::_Tuple_impl.239" = type { %"struct.std::_Head_base.242" }
-%"struct.std::_Head_base.242" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.246" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.243" }
-%"class.std::shared_ptr.243" = type { %"class.std::__shared_ptr.244" }
-%"class.std::__shared_ptr.244" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.246" = type { %"class.std::__shared_ptr.247" }
-%"class.std::__shared_ptr.247" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.249" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.251" = type { %"class.std::_Hashtable.252" }
-%"class.std::_Hashtable.252" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.v8::EscapableHandleScope" = type { %"class.v8::HandleScope", ptr }
 %"class.v8::HandleScope" = type { ptr, ptr, ptr }
 %"class.node::CleanupQueue::CleanupHookCallback" = type { ptr, ptr, i64 }
-%"class.v8::WeakCallbackInfo" = type { ptr, ptr, ptr, [2 x ptr] }
-%"class.node::Realm" = type { %"class.node::MemoryRetainer", %"class.std::set", %"class.std::set.0", %"class.std::set.0", %"class.std::vector", ptr, ptr, %"class.v8::Global", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.13", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.13", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.13", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", %"class.v8::Global.11", i32, i8, i64, i64, %"struct.std::array", %"class.node::CleanupQueue" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<node::node_module *, node::node_module *, std::_Identity<node::node_module *>, std::less<node::node_module *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<node::node_module *, node::node_module *, std::_Identity<node::node_module *>, std::less<node::node_module *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set.0" = type { %"class.std::_Rb_tree.1" }
-%"class.std::_Rb_tree.1" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.5", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.5" = type { %"struct.std::less.6" }
-%"struct.std::less.6" = type { i8 }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Global.13" = type { %"class.v8::PersistentBase.14" }
-%"class.v8::PersistentBase.14" = type { %"class.v8::IndirectHandleBase" }
-%"struct.std::array" = type { [12 x %"class.node::BaseObjectPtrImpl"] }
-%"class.node::BaseObjectPtrImpl" = type { %union.anon }
-%union.anon = type { ptr }
-%"class.node::CallbackQueue<void, node::Environment *>::Callback" = type { ptr, i32, %"class.std::unique_ptr.210" }
-%"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl" = type { %"class.node::CallbackQueue<void, node::Environment *>::Callback", %class.anon }
-%class.anon = type { ptr }
-%"class.node::IsolateData" = type { %"class.node::MemoryRetainer", i64, %"class.std::unordered_map.280", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.300", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.301", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal.302", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.302", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"class.v8::Eternal.303", %"struct.std::array.304", ptr, ptr, ptr, ptr, ptr, %"class.std::optional", %"class.std::unique_ptr.317", %"class.std::shared_ptr.325", ptr, ptr }
-%"class.std::unordered_map.280" = type { %"class.std::_Hashtable.281" }
-%"class.std::_Hashtable.281" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.v8::Eternal.300" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.301" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.302" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.303" = type { %"class.v8::IndirectHandleBase" }
-%"struct.std::array.304" = type { [64 x %"class.v8::Eternal.301"] }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base.314", [7 x i8] }
-%"struct.std::_Optional_payload.base.314" = type { %"struct.std::_Optional_payload_base.base.313" }
-%"struct.std::_Optional_payload_base.base.313" = type <{ %"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage" = type { %"struct.node::SnapshotConfig" }
-%"struct.node::SnapshotConfig" = type { i32, [4 x i8], %"class.std::optional.306" }
-%"class.std::optional.306" = type { %"struct.std::_Optional_base.307" }
-%"struct.std::_Optional_base.307" = type { %"struct.std::_Optional_payload.309" }
-%"struct.std::_Optional_payload.309" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr.317" = type { %"struct.std::__uniq_ptr_data.318" }
-%"struct.std::__uniq_ptr_data.318" = type { %"class.std::__uniq_ptr_impl.319" }
-%"class.std::__uniq_ptr_impl.319" = type { %"class.std::tuple.320" }
-%"class.std::tuple.320" = type { %"struct.std::_Tuple_impl.321" }
-%"struct.std::_Tuple_impl.321" = type { %"struct.std::_Head_base.324" }
-%"struct.std::_Head_base.324" = type { ptr }
-%"class.std::shared_ptr.325" = type { %"class.std::__shared_ptr.326" }
-%"class.std::__shared_ptr.326" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNK4node12shadow_realm11ShadowRealm14MemoryInfoNameEv = comdat any
 
@@ -296,23 +70,23 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #12
   tail call void @_ZN4node12shadow_realm11ShadowRealmC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(872) %call, ptr noundef %env)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call ptr %0(ptr noundef nonnull align 8 dereferenceable(872) %call) #13
-  %principal_realm_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i = getelementptr inbounds i8, ptr %env, i64 2728
   %1 = load ptr, ptr %principal_realm_.i, align 8
   %vtable7 = load ptr, ptr %1, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 8
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 64
   %2 = load ptr, ptr %vfn8, align 8
   %call9 = tail call ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %1) #13
   %call14 = tail call ptr @_ZN2v87Context16GetSecurityTokenEv(ptr noundef nonnull align 1 dereferenceable(1) %call9) #13
   tail call void @_ZN2v87Context16SetSecurityTokenENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call1, ptr %call14) #13
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %3) #13
-  %env_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 2
+  %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %env_.i, align 8
-  %mode_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 3
+  %mode_.i = getelementptr inbounds i8, ptr %try_catch, i64 56
   store i32 1, ptr %mode_.i, align 8
   %call22 = call ptr @_ZN4node5Realm16RunBootstrappingEv(ptr noundef nonnull align 8 dereferenceable(872) %call) #13
   %cmp.i = icmp eq ptr %call22, null
@@ -320,7 +94,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable28 = load ptr, ptr %call, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 1
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 8
   %4 = load ptr, ptr %vfn29, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(872) %call) #13
   br label %cleanup
@@ -378,14 +152,14 @@ if.end.i:                                         ; preds = %_ZN4node18ContextEm
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i
   %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ], [ null, %if.end.i.i ]
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 88
   %10 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %10) #13
   %11 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %11) #13
-  %env_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 2
+  %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %retval.0.i, ptr %env_.i, align 8
-  %mode_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 3
+  %mode_.i = getelementptr inbounds i8, ptr %try_catch, i64 56
   store i32 1, ptr %mode_.i, align 8
   %call7 = call noundef ptr @_ZN4node12shadow_realm11ShadowRealm3NewEPNS_11EnvironmentE(ptr noundef nonnull %retval.0.i)
   %cmp.not = icmp eq ptr %call7, null
@@ -393,7 +167,7 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %en
 
 if.then:                                          ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
   %vtable = load ptr, ptr %call7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call10 = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %call7) #13
   %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call10) #13
@@ -412,9 +186,9 @@ declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull a
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) #3 align 2 {
 entry:
   %search.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
-  %parameter_.i = getelementptr inbounds %"class.v8::WeakCallbackInfo", ptr %data, i64 0, i32 1
+  %parameter_.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %parameter_.i, align 8
-  %context_ = getelementptr inbounds %"class.node::Realm", ptr %0, i64 0, i32 7
+  %context_ = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load ptr, ptr %context_, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit, label %if.end.i
@@ -425,19 +199,19 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit: ; preds = %entry, %if.end.i
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %0, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load ptr, ptr %env_.i, align 8
   %3 = ptrtoint ptr %0 to i64
-  %native_immediates_.i = getelementptr inbounds %"class.node::Environment", ptr %2, i64 0, i32 79
+  %native_immediates_.i = getelementptr inbounds i8, ptr %2, i64 2432
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !5
-  %flags_.i.i.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %call.i.i.i, i64 0, i32 1
+  %flags_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !5
-  %next_.i.i.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %call.i.i.i, i64 0, i32 2
+  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !5
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !5
-  %callback_.i.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %call.i.i.i, i64 0, i32 1
+  %callback_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store i64 %3, ptr %callback_.i.i.i.i, align 8, !noalias !5
-  %tail_.i.i = getelementptr inbounds %"class.node::Environment", ptr %2, i64 0, i32 79, i32 2
+  %tail_.i.i = getelementptr inbounds i8, ptr %2, i64 2448
   %4 = load ptr, ptr %tail_.i.i, align 8
   %5 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
   store ptr %call.i.i.i, ptr %tail_.i.i, align 8
@@ -445,14 +219,14 @@ _ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit: ; preds = %entry, %if.end.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
-  %next_.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %4, i64 0, i32 2
+  %next_.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %call.i.i.i, ptr %next_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
-  %head_.i.i = getelementptr inbounds %"class.node::Environment", ptr %2, i64 0, i32 79, i32 1
+  %head_.i.i = getelementptr inbounds i8, ptr %2, i64 2440
   %7 = load ptr, ptr %head_.i.i, align 8
   store ptr %call.i.i.i, ptr %head_.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -461,15 +235,15 @@ if.else.i.i:                                      ; preds = %_ZN2v814PersistentB
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %if.then.i.i
   %.sink4.i.i = phi ptr [ %6, %if.then.i.i ], [ %7, %if.else.i.i ]
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink4.i.i, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #13
   br label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %if.else.i.i, %if.then.i.i
-  %buffer_.i.i.i.i = getelementptr inbounds %"class.node::Environment", ptr %2, i64 0, i32 15, i32 1, i32 4
+  %buffer_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 1168
   %9 = load ptr, ptr %buffer_.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i5 = icmp eq i32 %10, 0
   br i1 %cmp.i5, label %if.then4.i, label %"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
@@ -477,24 +251,24 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
 if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   tail call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %2, i1 noundef zeroext true) #13
   %.pre.i = load ptr, ptr %buffer_.i.i.i.i, align 8
-  %arrayidx.i.i.i5.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.i, i64 1
+  %arrayidx.i.i.i5.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 4
   %.pre2.i = load i32, ptr %arrayidx.i.i.i5.phi.trans.insert.i, align 4
   br label %"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
 "_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
   %11 = phi i32 [ %10, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre2.i, %if.then4.i ]
   %12 = phi ptr [ %9, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i ]
-  %arrayidx.i.i.i5.i = getelementptr inbounds i32, ptr %12, i64 1
+  %arrayidx.i.i.i5.i = getelementptr inbounds i8, ptr %12, i64 4
   %add.i.i.i = add i32 %11, 1
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
   %13 = load ptr, ptr %env_.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %search.i.i)
   store ptr @_ZN4node12shadow_realm11ShadowRealm8DeleteMeEPv, ptr %search.i.i, align 8
-  %arg_.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %search.i.i, i64 0, i32 1
+  %arg_.i.i.i = getelementptr inbounds i8, ptr %search.i.i, i64 8
   store ptr %0, ptr %arg_.i.i.i, align 8
-  %insertion_order_counter_.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %search.i.i, i64 0, i32 2
+  %insertion_order_counter_.i.i.i = getelementptr inbounds i8, ptr %search.i.i, i64 16
   store i64 0, ptr %insertion_order_counter_.i.i.i, align 8
-  %cleanup_hooks_.i.i = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 85, i32 1
+  %cleanup_hooks_.i.i = getelementptr inbounds i8, ptr %13, i64 2568
   %call.i.i.i.i = call noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %search.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %search.i.i)
   ret void
@@ -508,7 +282,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %data, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(872) %data) #13
   br label %delete.end
@@ -523,12 +297,12 @@ entry:
   %cb.addr.i.i = alloca ptr, align 8
   %arg.addr.i.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca i64, align 8
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   %call5 = tail call ptr @_ZN4node10NewContextEPN2v87IsolateENS0_5LocalINS0_14ObjectTemplateEEE(ptr noundef %0, ptr null) #13
   tail call void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef nonnull %env, ptr %call5, i32 noundef 1) #13
   store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %context_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 7
+  %context_ = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %context_, align 8
   tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %1, ptr noundef nonnull %this, ptr noundef nonnull @_ZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EE, i32 noundef 0) #13
   tail call void @_ZN4node5Realm16CreatePropertiesEv(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
@@ -538,8 +312,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   store ptr @_ZN4node12shadow_realm11ShadowRealm8DeleteMeEPv, ptr %cb.addr.i.i, align 8
   store ptr %this, ptr %arg.addr.i.i, align 8
-  %cleanup_hooks_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 85, i32 1
-  %cleanup_hook_counter_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 85, i32 2
+  %cleanup_hooks_.i.i = getelementptr inbounds i8, ptr %env, i64 2568
+  %cleanup_hook_counter_.i.i = getelementptr inbounds i8, ptr %env, i64 2624
   %2 = load i64, ptr %cleanup_hook_counter_.i.i, align 8
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %cleanup_hook_counter_.i.i, align 8
@@ -578,7 +352,7 @@ define dso_local void @_ZN4node12shadow_realm11ShadowRealmD2Ev(ptr noundef nonnu
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_element_count.i.i.i.i.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 73, i32 1, i32 0, i32 3
+  %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   %0 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
   %cmp.i.i.i.i.not1 = icmp eq i64 %0, 0
   br i1 %cmp.i.i.i.i.not1, label %while.end, label %while.body
@@ -590,21 +364,21 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.i.i.i.i.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %entry
-  %env_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_ = getelementptr inbounds i8, ptr %this, i64 176
   %2 = load ptr, ptr %env_, align 8
   tail call void @_ZN4node11Environment18UntrackShadowRealmEPNS_12shadow_realm11ShadowRealmE(ptr noundef nonnull align 8 dereferenceable(2872) %2, ptr noundef nonnull %this) #13
-  %context_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 7
+  %context_ = getelementptr inbounds i8, ptr %this, i64 192
   %3 = load ptr, ptr %context_, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %while.end
-  %isolate_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_.i = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %4) #13
   %5 = load ptr, ptr %env_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %6 = load ptr, ptr %vfn, align 8
   %call5 = call ptr %6(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %5, ptr %call5) #13
@@ -644,9 +418,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm7contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %context_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 7
+  %context_ = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %context_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -671,9 +445,9 @@ _ZN4node17PersistentToLocal7DefaultIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm26async_hooks_after_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_after_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 8
+  %async_hooks_after_function_ = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load ptr, ptr %async_hooks_after_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -699,10 +473,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm30set_async_hooks_after_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_after_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 8
+  %async_hooks_after_function_ = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_after_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -719,15 +493,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_after_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 360
+  %per_realm_async_hooks_after_function_.i = getelementptr inbounds i8, ptr %5, i64 2928
   %6 = load ptr, ptr %per_realm_async_hooks_after_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -743,16 +517,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %async_hooks_after_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_after_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_after_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 360
+  %per_realm_async_hooks_after_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2928
   %15 = load ptr, ptr %per_realm_async_hooks_after_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -775,9 +549,9 @@ declare i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27async_hooks_before_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_before_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 9
+  %async_hooks_before_function_ = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %async_hooks_before_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -803,10 +577,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm31set_async_hooks_before_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_before_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 9
+  %async_hooks_before_function_ = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_before_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -823,15 +597,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_before_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 361
+  %per_realm_async_hooks_before_function_.i = getelementptr inbounds i8, ptr %5, i64 2936
   %6 = load ptr, ptr %per_realm_async_hooks_before_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -847,16 +621,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %async_hooks_before_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_before_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_before_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 361
+  %per_realm_async_hooks_before_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2936
   %15 = load ptr, ptr %per_realm_async_hooks_before_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -875,9 +649,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31async_hooks_callback_trampolineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_callback_trampoline_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 10
+  %async_hooks_callback_trampoline_ = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load ptr, ptr %async_hooks_callback_trampoline_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -903,10 +677,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm35set_async_hooks_callback_trampolineEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_callback_trampoline_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 10
+  %async_hooks_callback_trampoline_ = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_callback_trampoline_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -923,15 +697,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_callback_trampoline_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 362
+  %per_realm_async_hooks_callback_trampoline_.i = getelementptr inbounds i8, ptr %5, i64 2944
   %6 = load ptr, ptr %per_realm_async_hooks_callback_trampoline_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -947,16 +721,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %async_hooks_callback_trampoline_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_callback_trampoline_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_callback_trampoline_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 362
+  %per_realm_async_hooks_callback_trampoline_.i9 = getelementptr inbounds i8, ptr %14, i64 2944
   %15 = load ptr, ptr %per_realm_async_hooks_callback_trampoline_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -975,9 +749,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm19async_hooks_bindingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_binding_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 11
+  %async_hooks_binding_ = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %async_hooks_binding_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1003,10 +777,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm23set_async_hooks_bindingEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_binding_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 11
+  %async_hooks_binding_ = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_binding_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -1023,15 +797,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_binding_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 363
+  %per_realm_async_hooks_binding_.i = getelementptr inbounds i8, ptr %5, i64 2952
   %6 = load ptr, ptr %per_realm_async_hooks_binding_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1047,16 +821,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %async_hooks_binding_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_binding_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_binding_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 363
+  %per_realm_async_hooks_binding_.i9 = getelementptr inbounds i8, ptr %14, i64 2952
   %15 = load ptr, ptr %per_realm_async_hooks_binding_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1075,9 +849,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28async_hooks_destroy_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_destroy_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 12
+  %async_hooks_destroy_function_ = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load ptr, ptr %async_hooks_destroy_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1103,10 +877,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm32set_async_hooks_destroy_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_destroy_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 12
+  %async_hooks_destroy_function_ = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_destroy_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1123,15 +897,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_destroy_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 364
+  %per_realm_async_hooks_destroy_function_.i = getelementptr inbounds i8, ptr %5, i64 2960
   %6 = load ptr, ptr %per_realm_async_hooks_destroy_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1147,16 +921,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %async_hooks_destroy_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_destroy_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_destroy_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 364
+  %per_realm_async_hooks_destroy_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2960
   %15 = load ptr, ptr %per_realm_async_hooks_destroy_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1175,9 +949,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm25async_hooks_init_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_init_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 13
+  %async_hooks_init_function_ = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %async_hooks_init_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1203,10 +977,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm29set_async_hooks_init_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_init_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 13
+  %async_hooks_init_function_ = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_init_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1223,15 +997,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_init_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 365
+  %per_realm_async_hooks_init_function_.i = getelementptr inbounds i8, ptr %5, i64 2968
   %6 = load ptr, ptr %per_realm_async_hooks_init_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1247,16 +1021,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %async_hooks_init_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_init_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_init_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 365
+  %per_realm_async_hooks_init_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2968
   %15 = load ptr, ptr %per_realm_async_hooks_init_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1275,9 +1049,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36async_hooks_promise_resolve_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %async_hooks_promise_resolve_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 14
+  %async_hooks_promise_resolve_function_ = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %async_hooks_promise_resolve_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1303,10 +1077,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm40set_async_hooks_promise_resolve_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %async_hooks_promise_resolve_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 14
+  %async_hooks_promise_resolve_function_ = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %async_hooks_promise_resolve_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1323,15 +1097,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_async_hooks_promise_resolve_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 366
+  %per_realm_async_hooks_promise_resolve_function_.i = getelementptr inbounds i8, ptr %5, i64 2976
   %6 = load ptr, ptr %per_realm_async_hooks_promise_resolve_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1347,16 +1121,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %async_hooks_promise_resolve_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_promise_resolve_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_promise_resolve_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 366
+  %per_realm_async_hooks_promise_resolve_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2976
   %15 = load ptr, ptr %per_realm_async_hooks_promise_resolve_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1375,9 +1149,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23buffer_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %buffer_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 15
+  %buffer_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %buffer_prototype_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1403,10 +1177,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm27set_buffer_prototype_objectEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %buffer_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 15
+  %buffer_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %buffer_prototype_object_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -1423,15 +1197,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_buffer_prototype_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 367
+  %per_realm_buffer_prototype_object_.i = getelementptr inbounds i8, ptr %5, i64 2984
   %6 = load ptr, ptr %per_realm_buffer_prototype_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1447,16 +1221,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %buffer_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %buffer_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_buffer_prototype_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 367
+  %per_realm_buffer_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 2984
   %15 = load ptr, ptr %per_realm_buffer_prototype_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1475,9 +1249,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29crypto_key_object_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %crypto_key_object_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 16
+  %crypto_key_object_constructor_ = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load ptr, ptr %crypto_key_object_constructor_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1503,10 +1277,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm33set_crypto_key_object_constructorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %crypto_key_object_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 16
+  %crypto_key_object_constructor_ = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %crypto_key_object_constructor_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1523,15 +1297,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_crypto_key_object_constructor_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 368
+  %per_realm_crypto_key_object_constructor_.i = getelementptr inbounds i8, ptr %5, i64 2992
   %6 = load ptr, ptr %per_realm_crypto_key_object_constructor_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1547,16 +1321,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %crypto_key_object_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_constructor_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 368
+  %per_realm_crypto_key_object_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 2992
   %15 = load ptr, ptr %per_realm_crypto_key_object_constructor_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1575,9 +1349,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37crypto_key_object_private_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %crypto_key_object_private_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 17
+  %crypto_key_object_private_constructor_ = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %crypto_key_object_private_constructor_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1603,10 +1377,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm41set_crypto_key_object_private_constructorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %crypto_key_object_private_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 17
+  %crypto_key_object_private_constructor_ = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %crypto_key_object_private_constructor_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1623,15 +1397,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_crypto_key_object_private_constructor_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 369
+  %per_realm_crypto_key_object_private_constructor_.i = getelementptr inbounds i8, ptr %5, i64 3000
   %6 = load ptr, ptr %per_realm_crypto_key_object_private_constructor_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1647,16 +1421,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %crypto_key_object_private_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_private_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_private_constructor_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 369
+  %per_realm_crypto_key_object_private_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3000
   %15 = load ptr, ptr %per_realm_crypto_key_object_private_constructor_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1675,9 +1449,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36crypto_key_object_public_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %crypto_key_object_public_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 18
+  %crypto_key_object_public_constructor_ = getelementptr inbounds i8, ptr %this, i64 280
   %1 = load ptr, ptr %crypto_key_object_public_constructor_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1703,10 +1477,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm40set_crypto_key_object_public_constructorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %crypto_key_object_public_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 18
+  %crypto_key_object_public_constructor_ = getelementptr inbounds i8, ptr %this, i64 280
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %crypto_key_object_public_constructor_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1723,15 +1497,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_crypto_key_object_public_constructor_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 370
+  %per_realm_crypto_key_object_public_constructor_.i = getelementptr inbounds i8, ptr %5, i64 3008
   %6 = load ptr, ptr %per_realm_crypto_key_object_public_constructor_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1747,16 +1521,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %crypto_key_object_public_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_public_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_public_constructor_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 370
+  %per_realm_crypto_key_object_public_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3008
   %15 = load ptr, ptr %per_realm_crypto_key_object_public_constructor_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1775,9 +1549,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36crypto_key_object_secret_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %crypto_key_object_secret_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 19
+  %crypto_key_object_secret_constructor_ = getelementptr inbounds i8, ptr %this, i64 288
   %1 = load ptr, ptr %crypto_key_object_secret_constructor_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1803,10 +1577,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm40set_crypto_key_object_secret_constructorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %crypto_key_object_secret_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 19
+  %crypto_key_object_secret_constructor_ = getelementptr inbounds i8, ptr %this, i64 288
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %crypto_key_object_secret_constructor_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1823,15 +1597,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_crypto_key_object_secret_constructor_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 371
+  %per_realm_crypto_key_object_secret_constructor_.i = getelementptr inbounds i8, ptr %5, i64 3016
   %6 = load ptr, ptr %per_realm_crypto_key_object_secret_constructor_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1847,16 +1621,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %crypto_key_object_secret_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_secret_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_secret_constructor_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 371
+  %per_realm_crypto_key_object_secret_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3016
   %15 = load ptr, ptr %per_realm_crypto_key_object_secret_constructor_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1875,9 +1649,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm21domexception_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %domexception_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 20
+  %domexception_function_ = getelementptr inbounds i8, ptr %this, i64 296
   %1 = load ptr, ptr %domexception_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -1903,10 +1677,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm25set_domexception_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %domexception_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 20
+  %domexception_function_ = getelementptr inbounds i8, ptr %this, i64 296
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %domexception_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -1923,15 +1697,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_domexception_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 372
+  %per_realm_domexception_function_.i = getelementptr inbounds i8, ptr %5, i64 3024
   %6 = load ptr, ptr %per_realm_domexception_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -1947,16 +1721,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %domexception_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %domexception_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_domexception_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 372
+  %per_realm_domexception_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3024
   %15 = load ptr, ptr %per_realm_domexception_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -1975,9 +1749,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm35enhance_fatal_stack_after_inspectorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %enhance_fatal_stack_after_inspector_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 21
+  %enhance_fatal_stack_after_inspector_ = getelementptr inbounds i8, ptr %this, i64 304
   %1 = load ptr, ptr %enhance_fatal_stack_after_inspector_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2003,10 +1777,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm39set_enhance_fatal_stack_after_inspectorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %enhance_fatal_stack_after_inspector_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 21
+  %enhance_fatal_stack_after_inspector_ = getelementptr inbounds i8, ptr %this, i64 304
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %enhance_fatal_stack_after_inspector_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2023,15 +1797,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_enhance_fatal_stack_after_inspector_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 373
+  %per_realm_enhance_fatal_stack_after_inspector_.i = getelementptr inbounds i8, ptr %5, i64 3032
   %6 = load ptr, ptr %per_realm_enhance_fatal_stack_after_inspector_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2047,16 +1821,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %enhance_fatal_stack_after_inspector_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %enhance_fatal_stack_after_inspector_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_enhance_fatal_stack_after_inspector_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 373
+  %per_realm_enhance_fatal_stack_after_inspector_.i9 = getelementptr inbounds i8, ptr %14, i64 3032
   %15 = load ptr, ptr %per_realm_enhance_fatal_stack_after_inspector_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2075,9 +1849,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36enhance_fatal_stack_before_inspectorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %enhance_fatal_stack_before_inspector_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 22
+  %enhance_fatal_stack_before_inspector_ = getelementptr inbounds i8, ptr %this, i64 312
   %1 = load ptr, ptr %enhance_fatal_stack_before_inspector_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2103,10 +1877,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm40set_enhance_fatal_stack_before_inspectorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %enhance_fatal_stack_before_inspector_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 22
+  %enhance_fatal_stack_before_inspector_ = getelementptr inbounds i8, ptr %this, i64 312
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %enhance_fatal_stack_before_inspector_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2123,15 +1897,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_enhance_fatal_stack_before_inspector_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 374
+  %per_realm_enhance_fatal_stack_before_inspector_.i = getelementptr inbounds i8, ptr %5, i64 3040
   %6 = load ptr, ptr %per_realm_enhance_fatal_stack_before_inspector_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2147,16 +1921,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %enhance_fatal_stack_before_inspector_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %enhance_fatal_stack_before_inspector_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_enhance_fatal_stack_before_inspector_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 374
+  %per_realm_enhance_fatal_stack_before_inspector_.i9 = getelementptr inbounds i8, ptr %14, i64 3040
   %15 = load ptr, ptr %per_realm_enhance_fatal_stack_before_inspector_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2175,9 +1949,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27get_source_map_error_sourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %get_source_map_error_source_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 23
+  %get_source_map_error_source_ = getelementptr inbounds i8, ptr %this, i64 320
   %1 = load ptr, ptr %get_source_map_error_source_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2203,10 +1977,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm31set_get_source_map_error_sourceEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %get_source_map_error_source_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 23
+  %get_source_map_error_source_ = getelementptr inbounds i8, ptr %this, i64 320
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %get_source_map_error_source_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2223,15 +1997,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_get_source_map_error_source_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 375
+  %per_realm_get_source_map_error_source_.i = getelementptr inbounds i8, ptr %5, i64 3048
   %6 = load ptr, ptr %per_realm_get_source_map_error_source_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2247,16 +2021,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %get_source_map_error_source_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %get_source_map_error_source_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_get_source_map_error_source_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 375
+  %per_realm_get_source_map_error_source_.i9 = getelementptr inbounds i8, ptr %14, i64 3048
   %15 = load ptr, ptr %per_realm_get_source_map_error_source_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2275,9 +2049,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm39host_import_module_dynamically_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %host_import_module_dynamically_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 24
+  %host_import_module_dynamically_callback_ = getelementptr inbounds i8, ptr %this, i64 328
   %1 = load ptr, ptr %host_import_module_dynamically_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2303,10 +2077,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm43set_host_import_module_dynamically_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %host_import_module_dynamically_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 24
+  %host_import_module_dynamically_callback_ = getelementptr inbounds i8, ptr %this, i64 328
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %host_import_module_dynamically_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2323,15 +2097,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_host_import_module_dynamically_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 376
+  %per_realm_host_import_module_dynamically_callback_.i = getelementptr inbounds i8, ptr %5, i64 3056
   %6 = load ptr, ptr %per_realm_host_import_module_dynamically_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2347,16 +2121,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %host_import_module_dynamically_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %host_import_module_dynamically_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_host_import_module_dynamically_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 376
+  %per_realm_host_import_module_dynamically_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3056
   %15 = load ptr, ptr %per_realm_host_import_module_dynamically_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2375,9 +2149,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm43host_initialize_import_meta_object_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %host_initialize_import_meta_object_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 25
+  %host_initialize_import_meta_object_callback_ = getelementptr inbounds i8, ptr %this, i64 336
   %1 = load ptr, ptr %host_initialize_import_meta_object_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2403,10 +2177,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm47set_host_initialize_import_meta_object_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %host_initialize_import_meta_object_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 25
+  %host_initialize_import_meta_object_callback_ = getelementptr inbounds i8, ptr %this, i64 336
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %host_initialize_import_meta_object_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2423,15 +2197,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_host_initialize_import_meta_object_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 377
+  %per_realm_host_initialize_import_meta_object_callback_.i = getelementptr inbounds i8, ptr %5, i64 3064
   %6 = load ptr, ptr %per_realm_host_initialize_import_meta_object_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2447,16 +2221,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %host_initialize_import_meta_object_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %host_initialize_import_meta_object_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_host_initialize_import_meta_object_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 377
+  %per_realm_host_initialize_import_meta_object_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3064
   %15 = load ptr, ptr %per_realm_host_initialize_import_meta_object_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2475,9 +2249,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31http2session_on_altsvc_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_altsvc_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 26
+  %http2session_on_altsvc_function_ = getelementptr inbounds i8, ptr %this, i64 344
   %1 = load ptr, ptr %http2session_on_altsvc_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2503,10 +2277,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm35set_http2session_on_altsvc_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_altsvc_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 26
+  %http2session_on_altsvc_function_ = getelementptr inbounds i8, ptr %this, i64 344
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_altsvc_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2523,15 +2297,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_altsvc_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 378
+  %per_realm_http2session_on_altsvc_function_.i = getelementptr inbounds i8, ptr %5, i64 3072
   %6 = load ptr, ptr %per_realm_http2session_on_altsvc_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2547,16 +2321,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_altsvc_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_altsvc_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_altsvc_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 378
+  %per_realm_http2session_on_altsvc_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3072
   %15 = load ptr, ptr %per_realm_http2session_on_altsvc_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2575,9 +2349,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm30http2session_on_error_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_error_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 27
+  %http2session_on_error_function_ = getelementptr inbounds i8, ptr %this, i64 352
   %1 = load ptr, ptr %http2session_on_error_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2603,10 +2377,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm34set_http2session_on_error_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_error_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 27
+  %http2session_on_error_function_ = getelementptr inbounds i8, ptr %this, i64 352
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_error_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2623,15 +2397,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_error_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 379
+  %per_realm_http2session_on_error_function_.i = getelementptr inbounds i8, ptr %5, i64 3080
   %6 = load ptr, ptr %per_realm_http2session_on_error_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2647,16 +2421,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_error_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_error_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_error_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 379
+  %per_realm_http2session_on_error_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3080
   %15 = load ptr, ptr %per_realm_http2session_on_error_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2675,9 +2449,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36http2session_on_frame_error_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_frame_error_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 28
+  %http2session_on_frame_error_function_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %http2session_on_frame_error_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2703,10 +2477,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm40set_http2session_on_frame_error_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_frame_error_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 28
+  %http2session_on_frame_error_function_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_frame_error_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2723,15 +2497,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_frame_error_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 380
+  %per_realm_http2session_on_frame_error_function_.i = getelementptr inbounds i8, ptr %5, i64 3088
   %6 = load ptr, ptr %per_realm_http2session_on_frame_error_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2747,16 +2521,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_frame_error_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_frame_error_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_frame_error_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 380
+  %per_realm_http2session_on_frame_error_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3088
   %15 = load ptr, ptr %per_realm_http2session_on_frame_error_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2775,9 +2549,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36http2session_on_goaway_data_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_goaway_data_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 29
+  %http2session_on_goaway_data_function_ = getelementptr inbounds i8, ptr %this, i64 368
   %1 = load ptr, ptr %http2session_on_goaway_data_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2803,10 +2577,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm40set_http2session_on_goaway_data_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_goaway_data_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 29
+  %http2session_on_goaway_data_function_ = getelementptr inbounds i8, ptr %this, i64 368
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_goaway_data_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2823,15 +2597,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_goaway_data_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 381
+  %per_realm_http2session_on_goaway_data_function_.i = getelementptr inbounds i8, ptr %5, i64 3096
   %6 = load ptr, ptr %per_realm_http2session_on_goaway_data_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2847,16 +2621,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_goaway_data_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_goaway_data_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_goaway_data_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 381
+  %per_realm_http2session_on_goaway_data_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3096
   %15 = load ptr, ptr %per_realm_http2session_on_goaway_data_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2875,9 +2649,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm32http2session_on_headers_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_headers_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 30
+  %http2session_on_headers_function_ = getelementptr inbounds i8, ptr %this, i64 376
   %1 = load ptr, ptr %http2session_on_headers_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -2903,10 +2677,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm36set_http2session_on_headers_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_headers_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 30
+  %http2session_on_headers_function_ = getelementptr inbounds i8, ptr %this, i64 376
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_headers_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -2923,15 +2697,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_headers_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 382
+  %per_realm_http2session_on_headers_function_.i = getelementptr inbounds i8, ptr %5, i64 3104
   %6 = load ptr, ptr %per_realm_http2session_on_headers_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -2947,16 +2721,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_headers_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_headers_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_headers_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 382
+  %per_realm_http2session_on_headers_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3104
   %15 = load ptr, ptr %per_realm_http2session_on_headers_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -2975,9 +2749,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31http2session_on_origin_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_origin_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 31
+  %http2session_on_origin_function_ = getelementptr inbounds i8, ptr %this, i64 384
   %1 = load ptr, ptr %http2session_on_origin_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3003,10 +2777,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm35set_http2session_on_origin_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_origin_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 31
+  %http2session_on_origin_function_ = getelementptr inbounds i8, ptr %this, i64 384
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_origin_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3023,15 +2797,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_origin_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 383
+  %per_realm_http2session_on_origin_function_.i = getelementptr inbounds i8, ptr %5, i64 3112
   %6 = load ptr, ptr %per_realm_http2session_on_origin_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3047,16 +2821,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_origin_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_origin_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_origin_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 383
+  %per_realm_http2session_on_origin_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3112
   %15 = load ptr, ptr %per_realm_http2session_on_origin_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3075,9 +2849,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29http2session_on_ping_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_ping_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 32
+  %http2session_on_ping_function_ = getelementptr inbounds i8, ptr %this, i64 392
   %1 = load ptr, ptr %http2session_on_ping_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3103,10 +2877,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm33set_http2session_on_ping_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_ping_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 32
+  %http2session_on_ping_function_ = getelementptr inbounds i8, ptr %this, i64 392
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_ping_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3123,15 +2897,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_ping_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 384
+  %per_realm_http2session_on_ping_function_.i = getelementptr inbounds i8, ptr %5, i64 3120
   %6 = load ptr, ptr %per_realm_http2session_on_ping_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3147,16 +2921,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_ping_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_ping_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_ping_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 384
+  %per_realm_http2session_on_ping_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3120
   %15 = load ptr, ptr %per_realm_http2session_on_ping_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3175,9 +2949,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33http2session_on_priority_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_priority_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 33
+  %http2session_on_priority_function_ = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load ptr, ptr %http2session_on_priority_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3203,10 +2977,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm37set_http2session_on_priority_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_priority_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 33
+  %http2session_on_priority_function_ = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_priority_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3223,15 +2997,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_priority_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 385
+  %per_realm_http2session_on_priority_function_.i = getelementptr inbounds i8, ptr %5, i64 3128
   %6 = load ptr, ptr %per_realm_http2session_on_priority_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3247,16 +3021,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_priority_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_priority_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_priority_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 385
+  %per_realm_http2session_on_priority_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3128
   %15 = load ptr, ptr %per_realm_http2session_on_priority_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3275,9 +3049,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33http2session_on_settings_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_settings_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 34
+  %http2session_on_settings_function_ = getelementptr inbounds i8, ptr %this, i64 408
   %1 = load ptr, ptr %http2session_on_settings_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3303,10 +3077,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm37set_http2session_on_settings_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_settings_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 34
+  %http2session_on_settings_function_ = getelementptr inbounds i8, ptr %this, i64 408
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_settings_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3323,15 +3097,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_settings_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 386
+  %per_realm_http2session_on_settings_function_.i = getelementptr inbounds i8, ptr %5, i64 3136
   %6 = load ptr, ptr %per_realm_http2session_on_settings_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3347,16 +3121,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_settings_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_settings_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_settings_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 386
+  %per_realm_http2session_on_settings_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3136
   %15 = load ptr, ptr %per_realm_http2session_on_settings_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3375,9 +3149,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37http2session_on_stream_close_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_stream_close_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 35
+  %http2session_on_stream_close_function_ = getelementptr inbounds i8, ptr %this, i64 416
   %1 = load ptr, ptr %http2session_on_stream_close_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3403,10 +3177,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm41set_http2session_on_stream_close_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_stream_close_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 35
+  %http2session_on_stream_close_function_ = getelementptr inbounds i8, ptr %this, i64 416
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_stream_close_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3423,15 +3197,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_stream_close_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 387
+  %per_realm_http2session_on_stream_close_function_.i = getelementptr inbounds i8, ptr %5, i64 3144
   %6 = load ptr, ptr %per_realm_http2session_on_stream_close_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3447,16 +3221,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_stream_close_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_stream_close_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_stream_close_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 387
+  %per_realm_http2session_on_stream_close_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3144
   %15 = load ptr, ptr %per_realm_http2session_on_stream_close_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3475,9 +3249,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm40http2session_on_stream_trailers_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %http2session_on_stream_trailers_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 36
+  %http2session_on_stream_trailers_function_ = getelementptr inbounds i8, ptr %this, i64 424
   %1 = load ptr, ptr %http2session_on_stream_trailers_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3503,10 +3277,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm44set_http2session_on_stream_trailers_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %http2session_on_stream_trailers_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 36
+  %http2session_on_stream_trailers_function_ = getelementptr inbounds i8, ptr %this, i64 424
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %http2session_on_stream_trailers_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3523,15 +3297,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_http2session_on_stream_trailers_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 388
+  %per_realm_http2session_on_stream_trailers_function_.i = getelementptr inbounds i8, ptr %5, i64 3152
   %6 = load ptr, ptr %per_realm_http2session_on_stream_trailers_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3547,16 +3321,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %http2session_on_stream_trailers_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_stream_trailers_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_stream_trailers_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 388
+  %per_realm_http2session_on_stream_trailers_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3152
   %15 = load ptr, ptr %per_realm_http2session_on_stream_trailers_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3575,9 +3349,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23internal_binding_loaderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %internal_binding_loader_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 37
+  %internal_binding_loader_ = getelementptr inbounds i8, ptr %this, i64 432
   %1 = load ptr, ptr %internal_binding_loader_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3603,10 +3377,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm27set_internal_binding_loaderEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %internal_binding_loader_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 37
+  %internal_binding_loader_ = getelementptr inbounds i8, ptr %this, i64 432
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %internal_binding_loader_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3623,15 +3397,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_internal_binding_loader_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 389
+  %per_realm_internal_binding_loader_.i = getelementptr inbounds i8, ptr %5, i64 3160
   %6 = load ptr, ptr %per_realm_internal_binding_loader_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3647,16 +3421,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %internal_binding_loader_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %internal_binding_loader_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_internal_binding_loader_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 389
+  %per_realm_internal_binding_loader_.i9 = getelementptr inbounds i8, ptr %14, i64 3160
   %15 = load ptr, ptr %per_realm_internal_binding_loader_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3675,9 +3449,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27immediate_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %immediate_callback_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 38
+  %immediate_callback_function_ = getelementptr inbounds i8, ptr %this, i64 440
   %1 = load ptr, ptr %immediate_callback_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3703,10 +3477,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm31set_immediate_callback_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %immediate_callback_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 38
+  %immediate_callback_function_ = getelementptr inbounds i8, ptr %this, i64 440
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %immediate_callback_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3723,15 +3497,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_immediate_callback_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 390
+  %per_realm_immediate_callback_function_.i = getelementptr inbounds i8, ptr %5, i64 3168
   %6 = load ptr, ptr %per_realm_immediate_callback_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3747,16 +3521,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %immediate_callback_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %immediate_callback_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_immediate_callback_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 390
+  %per_realm_immediate_callback_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3168
   %15 = load ptr, ptr %per_realm_immediate_callback_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3775,9 +3549,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37inspector_console_extension_installerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %inspector_console_extension_installer_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 39
+  %inspector_console_extension_installer_ = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %inspector_console_extension_installer_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3803,10 +3577,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm41set_inspector_console_extension_installerEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %inspector_console_extension_installer_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 39
+  %inspector_console_extension_installer_ = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %inspector_console_extension_installer_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3823,15 +3597,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_inspector_console_extension_installer_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 391
+  %per_realm_inspector_console_extension_installer_.i = getelementptr inbounds i8, ptr %5, i64 3176
   %6 = load ptr, ptr %per_realm_inspector_console_extension_installer_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3847,16 +3621,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %inspector_console_extension_installer_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %inspector_console_extension_installer_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_inspector_console_extension_installer_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 391
+  %per_realm_inspector_console_extension_installer_.i9 = getelementptr inbounds i8, ptr %14, i64 3176
   %15 = load ptr, ptr %per_realm_inspector_console_extension_installer_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3875,9 +3649,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29inspector_disable_async_hooksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %inspector_disable_async_hooks_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 40
+  %inspector_disable_async_hooks_ = getelementptr inbounds i8, ptr %this, i64 456
   %1 = load ptr, ptr %inspector_disable_async_hooks_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -3903,10 +3677,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm33set_inspector_disable_async_hooksEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %inspector_disable_async_hooks_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 40
+  %inspector_disable_async_hooks_ = getelementptr inbounds i8, ptr %this, i64 456
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %inspector_disable_async_hooks_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -3923,15 +3697,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_inspector_disable_async_hooks_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 392
+  %per_realm_inspector_disable_async_hooks_.i = getelementptr inbounds i8, ptr %5, i64 3184
   %6 = load ptr, ptr %per_realm_inspector_disable_async_hooks_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -3947,16 +3721,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %inspector_disable_async_hooks_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %inspector_disable_async_hooks_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_inspector_disable_async_hooks_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 392
+  %per_realm_inspector_disable_async_hooks_.i9 = getelementptr inbounds i8, ptr %14, i64 3184
   %15 = load ptr, ptr %per_realm_inspector_disable_async_hooks_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -3975,9 +3749,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28inspector_enable_async_hooksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %inspector_enable_async_hooks_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 41
+  %inspector_enable_async_hooks_ = getelementptr inbounds i8, ptr %this, i64 464
   %1 = load ptr, ptr %inspector_enable_async_hooks_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4003,10 +3777,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm32set_inspector_enable_async_hooksEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %inspector_enable_async_hooks_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 41
+  %inspector_enable_async_hooks_ = getelementptr inbounds i8, ptr %this, i64 464
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %inspector_enable_async_hooks_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -4023,15 +3797,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_inspector_enable_async_hooks_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 393
+  %per_realm_inspector_enable_async_hooks_.i = getelementptr inbounds i8, ptr %5, i64 3192
   %6 = load ptr, ptr %per_realm_inspector_enable_async_hooks_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4047,16 +3821,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %inspector_enable_async_hooks_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %inspector_enable_async_hooks_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_inspector_enable_async_hooks_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 393
+  %per_realm_inspector_enable_async_hooks_.i9 = getelementptr inbounds i8, ptr %14, i64 3192
   %15 = load ptr, ptr %per_realm_inspector_enable_async_hooks_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4075,9 +3849,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm32maybe_cache_generated_source_mapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %maybe_cache_generated_source_map_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 42
+  %maybe_cache_generated_source_map_ = getelementptr inbounds i8, ptr %this, i64 472
   %1 = load ptr, ptr %maybe_cache_generated_source_map_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4103,10 +3877,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm36set_maybe_cache_generated_source_mapEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %maybe_cache_generated_source_map_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 42
+  %maybe_cache_generated_source_map_ = getelementptr inbounds i8, ptr %this, i64 472
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %maybe_cache_generated_source_map_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -4123,15 +3897,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_maybe_cache_generated_source_map_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 394
+  %per_realm_maybe_cache_generated_source_map_.i = getelementptr inbounds i8, ptr %5, i64 3200
   %6 = load ptr, ptr %per_realm_maybe_cache_generated_source_map_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4147,16 +3921,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %maybe_cache_generated_source_map_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %maybe_cache_generated_source_map_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_maybe_cache_generated_source_map_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 394
+  %per_realm_maybe_cache_generated_source_map_.i9 = getelementptr inbounds i8, ptr %14, i64 3200
   %15 = load ptr, ptr %per_realm_maybe_cache_generated_source_map_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4175,9 +3949,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm35messaging_deserialize_create_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %messaging_deserialize_create_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 43
+  %messaging_deserialize_create_object_ = getelementptr inbounds i8, ptr %this, i64 480
   %1 = load ptr, ptr %messaging_deserialize_create_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4203,10 +3977,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm39set_messaging_deserialize_create_objectEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %messaging_deserialize_create_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 43
+  %messaging_deserialize_create_object_ = getelementptr inbounds i8, ptr %this, i64 480
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %messaging_deserialize_create_object_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -4223,15 +3997,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_messaging_deserialize_create_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 395
+  %per_realm_messaging_deserialize_create_object_.i = getelementptr inbounds i8, ptr %5, i64 3208
   %6 = load ptr, ptr %per_realm_messaging_deserialize_create_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4247,16 +4021,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %messaging_deserialize_create_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %messaging_deserialize_create_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_messaging_deserialize_create_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 395
+  %per_realm_messaging_deserialize_create_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3208
   %15 = load ptr, ptr %per_realm_messaging_deserialize_create_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4275,9 +4049,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm12message_portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %message_port_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 44
+  %message_port_ = getelementptr inbounds i8, ptr %this, i64 488
   %1 = load ptr, ptr %message_port_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4303,10 +4077,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm16set_message_portEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %message_port_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 44
+  %message_port_ = getelementptr inbounds i8, ptr %this, i64 488
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %message_port_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -4323,15 +4097,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_message_port_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 396
+  %per_realm_message_port_.i = getelementptr inbounds i8, ptr %5, i64 3216
   %6 = load ptr, ptr %per_realm_message_port_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4347,16 +4121,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %message_port_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %message_port_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_message_port_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 396
+  %per_realm_message_port_.i9 = getelementptr inbounds i8, ptr %14, i64 3216
   %15 = load ptr, ptr %per_realm_message_port_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4375,9 +4149,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm22builtin_module_requireEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %builtin_module_require_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 45
+  %builtin_module_require_ = getelementptr inbounds i8, ptr %this, i64 496
   %1 = load ptr, ptr %builtin_module_require_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4403,10 +4177,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm26set_builtin_module_requireEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %builtin_module_require_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 45
+  %builtin_module_require_ = getelementptr inbounds i8, ptr %this, i64 496
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %builtin_module_require_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -4423,15 +4197,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_builtin_module_require_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 397
+  %per_realm_builtin_module_require_.i = getelementptr inbounds i8, ptr %5, i64 3224
   %6 = load ptr, ptr %per_realm_builtin_module_require_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4447,16 +4221,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %builtin_module_require_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %builtin_module_require_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_builtin_module_require_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 397
+  %per_realm_builtin_module_require_.i9 = getelementptr inbounds i8, ptr %14, i64 3224
   %15 = load ptr, ptr %per_realm_builtin_module_require_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4475,9 +4249,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm26performance_entry_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %performance_entry_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 46
+  %performance_entry_callback_ = getelementptr inbounds i8, ptr %this, i64 504
   %1 = load ptr, ptr %performance_entry_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4503,10 +4277,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm30set_performance_entry_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %performance_entry_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 46
+  %performance_entry_callback_ = getelementptr inbounds i8, ptr %this, i64 504
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %performance_entry_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -4523,15 +4297,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_performance_entry_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 398
+  %per_realm_performance_entry_callback_.i = getelementptr inbounds i8, ptr %5, i64 3232
   %6 = load ptr, ptr %per_realm_performance_entry_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4547,16 +4321,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %performance_entry_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %performance_entry_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_performance_entry_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 398
+  %per_realm_performance_entry_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3232
   %15 = load ptr, ptr %per_realm_performance_entry_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4575,9 +4349,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28prepare_stack_trace_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %prepare_stack_trace_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 47
+  %prepare_stack_trace_callback_ = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %prepare_stack_trace_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4603,10 +4377,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm32set_prepare_stack_trace_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %prepare_stack_trace_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 47
+  %prepare_stack_trace_callback_ = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %prepare_stack_trace_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -4623,15 +4397,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_prepare_stack_trace_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 399
+  %per_realm_prepare_stack_trace_callback_.i = getelementptr inbounds i8, ptr %5, i64 3240
   %6 = load ptr, ptr %per_realm_prepare_stack_trace_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4647,16 +4421,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %prepare_stack_trace_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %prepare_stack_trace_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_prepare_stack_trace_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 399
+  %per_realm_prepare_stack_trace_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3240
   %15 = load ptr, ptr %per_realm_prepare_stack_trace_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4675,9 +4449,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm14process_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %process_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 48
+  %process_object_ = getelementptr inbounds i8, ptr %this, i64 520
   %1 = load ptr, ptr %process_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4703,10 +4477,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm18set_process_objectEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %process_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 48
+  %process_object_ = getelementptr inbounds i8, ptr %this, i64 520
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %process_object_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -4723,15 +4497,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_process_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 400
+  %per_realm_process_object_.i = getelementptr inbounds i8, ptr %5, i64 3248
   %6 = load ptr, ptr %per_realm_process_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4747,16 +4521,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %process_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %process_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_process_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 400
+  %per_realm_process_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3248
   %15 = load ptr, ptr %per_realm_process_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4775,9 +4549,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm11primordialsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %primordials_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 49
+  %primordials_ = getelementptr inbounds i8, ptr %this, i64 528
   %1 = load ptr, ptr %primordials_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4803,10 +4577,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm15set_primordialsEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %primordials_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 49
+  %primordials_ = getelementptr inbounds i8, ptr %this, i64 528
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %primordials_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -4823,15 +4597,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_primordials_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 401
+  %per_realm_primordials_.i = getelementptr inbounds i8, ptr %5, i64 3256
   %6 = load ptr, ptr %per_realm_primordials_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4847,16 +4621,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %primordials_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 401
+  %per_realm_primordials_.i9 = getelementptr inbounds i8, ptr %14, i64 3256
   %15 = load ptr, ptr %per_realm_primordials_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4875,9 +4649,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37primordials_safe_map_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %primordials_safe_map_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 50
+  %primordials_safe_map_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 536
   %1 = load ptr, ptr %primordials_safe_map_prototype_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -4903,10 +4677,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm41set_primordials_safe_map_prototype_objectEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %primordials_safe_map_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 50
+  %primordials_safe_map_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 536
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %primordials_safe_map_prototype_object_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -4923,15 +4697,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_primordials_safe_map_prototype_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 402
+  %per_realm_primordials_safe_map_prototype_object_.i = getelementptr inbounds i8, ptr %5, i64 3264
   %6 = load ptr, ptr %per_realm_primordials_safe_map_prototype_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -4947,16 +4721,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %primordials_safe_map_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_map_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_map_prototype_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 402
+  %per_realm_primordials_safe_map_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3264
   %15 = load ptr, ptr %per_realm_primordials_safe_map_prototype_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -4975,9 +4749,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37primordials_safe_set_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %primordials_safe_set_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 51
+  %primordials_safe_set_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 544
   %1 = load ptr, ptr %primordials_safe_set_prototype_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5003,10 +4777,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm41set_primordials_safe_set_prototype_objectEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %primordials_safe_set_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 51
+  %primordials_safe_set_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 544
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %primordials_safe_set_prototype_object_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -5023,15 +4797,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_primordials_safe_set_prototype_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 403
+  %per_realm_primordials_safe_set_prototype_object_.i = getelementptr inbounds i8, ptr %5, i64 3272
   %6 = load ptr, ptr %per_realm_primordials_safe_set_prototype_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5047,16 +4821,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %primordials_safe_set_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_set_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_set_prototype_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 403
+  %per_realm_primordials_safe_set_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3272
   %15 = load ptr, ptr %per_realm_primordials_safe_set_prototype_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5075,9 +4849,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm42primordials_safe_weak_map_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %primordials_safe_weak_map_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 52
+  %primordials_safe_weak_map_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 552
   %1 = load ptr, ptr %primordials_safe_weak_map_prototype_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5103,10 +4877,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm46set_primordials_safe_weak_map_prototype_objectEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %primordials_safe_weak_map_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 52
+  %primordials_safe_weak_map_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 552
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %primordials_safe_weak_map_prototype_object_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -5123,15 +4897,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_primordials_safe_weak_map_prototype_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 404
+  %per_realm_primordials_safe_weak_map_prototype_object_.i = getelementptr inbounds i8, ptr %5, i64 3280
   %6 = load ptr, ptr %per_realm_primordials_safe_weak_map_prototype_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5147,16 +4921,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %primordials_safe_weak_map_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_weak_map_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_weak_map_prototype_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 404
+  %per_realm_primordials_safe_weak_map_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3280
   %15 = load ptr, ptr %per_realm_primordials_safe_weak_map_prototype_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5175,9 +4949,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm42primordials_safe_weak_set_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %primordials_safe_weak_set_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 53
+  %primordials_safe_weak_set_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 560
   %1 = load ptr, ptr %primordials_safe_weak_set_prototype_object_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5203,10 +4977,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateER
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm46set_primordials_safe_weak_set_prototype_objectEN2v85LocalINS2_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %primordials_safe_weak_set_prototype_object_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 53
+  %primordials_safe_weak_set_prototype_object_ = getelementptr inbounds i8, ptr %this, i64 560
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %primordials_safe_weak_set_prototype_object_, align 8
   %cmp.i.i174 = icmp eq ptr %2, null
@@ -5223,15 +4997,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i175
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_primordials_safe_weak_set_prototype_object_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 405
+  %per_realm_primordials_safe_weak_set_prototype_object_.i = getelementptr inbounds i8, ptr %5, i64 3288
   %6 = load ptr, ptr %per_realm_primordials_safe_weak_set_prototype_object_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5247,16 +5021,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i181, ptr %primordials_safe_weak_set_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_weak_set_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_weak_set_prototype_object_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 405
+  %per_realm_primordials_safe_weak_set_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3288
   %15 = load ptr, ptr %per_realm_primordials_safe_weak_set_prototype_object_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5275,9 +5049,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm20promise_hook_handlerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %promise_hook_handler_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 54
+  %promise_hook_handler_ = getelementptr inbounds i8, ptr %this, i64 568
   %1 = load ptr, ptr %promise_hook_handler_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5303,10 +5077,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm24set_promise_hook_handlerEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %promise_hook_handler_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 54
+  %promise_hook_handler_ = getelementptr inbounds i8, ptr %this, i64 568
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %promise_hook_handler_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5323,15 +5097,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_promise_hook_handler_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 406
+  %per_realm_promise_hook_handler_.i = getelementptr inbounds i8, ptr %5, i64 3296
   %6 = load ptr, ptr %per_realm_promise_hook_handler_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5347,16 +5121,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %promise_hook_handler_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %promise_hook_handler_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_promise_hook_handler_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 406
+  %per_realm_promise_hook_handler_.i9 = getelementptr inbounds i8, ptr %14, i64 3296
   %15 = load ptr, ptr %per_realm_promise_hook_handler_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5375,9 +5149,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23promise_reject_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %promise_reject_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 55
+  %promise_reject_callback_ = getelementptr inbounds i8, ptr %this, i64 576
   %1 = load ptr, ptr %promise_reject_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5403,10 +5177,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm27set_promise_reject_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %promise_reject_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 55
+  %promise_reject_callback_ = getelementptr inbounds i8, ptr %this, i64 576
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %promise_reject_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5423,15 +5197,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_promise_reject_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 407
+  %per_realm_promise_reject_callback_.i = getelementptr inbounds i8, ptr %5, i64 3304
   %6 = load ptr, ptr %per_realm_promise_reject_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5447,16 +5221,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %promise_reject_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %promise_reject_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_promise_reject_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 407
+  %per_realm_promise_reject_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3304
   %15 = load ptr, ptr %per_realm_promise_reject_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5475,9 +5249,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27snapshot_serialize_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %snapshot_serialize_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 56
+  %snapshot_serialize_callback_ = getelementptr inbounds i8, ptr %this, i64 584
   %1 = load ptr, ptr %snapshot_serialize_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5503,10 +5277,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm31set_snapshot_serialize_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %snapshot_serialize_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 56
+  %snapshot_serialize_callback_ = getelementptr inbounds i8, ptr %this, i64 584
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %snapshot_serialize_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5523,15 +5297,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_snapshot_serialize_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 408
+  %per_realm_snapshot_serialize_callback_.i = getelementptr inbounds i8, ptr %5, i64 3312
   %6 = load ptr, ptr %per_realm_snapshot_serialize_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5547,16 +5321,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %snapshot_serialize_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %snapshot_serialize_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_snapshot_serialize_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 408
+  %per_realm_snapshot_serialize_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3312
   %15 = load ptr, ptr %per_realm_snapshot_serialize_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5575,9 +5349,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29snapshot_deserialize_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %snapshot_deserialize_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 57
+  %snapshot_deserialize_callback_ = getelementptr inbounds i8, ptr %this, i64 592
   %1 = load ptr, ptr %snapshot_deserialize_callback_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5603,10 +5377,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm33set_snapshot_deserialize_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %snapshot_deserialize_callback_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 57
+  %snapshot_deserialize_callback_ = getelementptr inbounds i8, ptr %this, i64 592
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %snapshot_deserialize_callback_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5623,15 +5397,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_snapshot_deserialize_callback_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 409
+  %per_realm_snapshot_deserialize_callback_.i = getelementptr inbounds i8, ptr %5, i64 3320
   %6 = load ptr, ptr %per_realm_snapshot_deserialize_callback_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5647,16 +5421,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %snapshot_deserialize_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %snapshot_deserialize_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_snapshot_deserialize_callback_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 409
+  %per_realm_snapshot_deserialize_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3320
   %15 = load ptr, ptr %per_realm_snapshot_deserialize_callback_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5675,9 +5449,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm25snapshot_deserialize_mainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %snapshot_deserialize_main_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 58
+  %snapshot_deserialize_main_ = getelementptr inbounds i8, ptr %this, i64 600
   %1 = load ptr, ptr %snapshot_deserialize_main_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5703,10 +5477,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm29set_snapshot_deserialize_mainEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %snapshot_deserialize_main_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 58
+  %snapshot_deserialize_main_ = getelementptr inbounds i8, ptr %this, i64 600
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %snapshot_deserialize_main_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5723,15 +5497,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_snapshot_deserialize_main_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 410
+  %per_realm_snapshot_deserialize_main_.i = getelementptr inbounds i8, ptr %5, i64 3328
   %6 = load ptr, ptr %per_realm_snapshot_deserialize_main_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5747,16 +5521,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %snapshot_deserialize_main_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %snapshot_deserialize_main_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_snapshot_deserialize_main_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 410
+  %per_realm_snapshot_deserialize_main_.i9 = getelementptr inbounds i8, ptr %14, i64 3328
   %15 = load ptr, ptr %per_realm_snapshot_deserialize_main_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5775,9 +5549,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23source_map_cache_getterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %source_map_cache_getter_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 59
+  %source_map_cache_getter_ = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load ptr, ptr %source_map_cache_getter_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5803,10 +5577,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm27set_source_map_cache_getterEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %source_map_cache_getter_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 59
+  %source_map_cache_getter_ = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %source_map_cache_getter_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5823,15 +5597,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_source_map_cache_getter_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 411
+  %per_realm_source_map_cache_getter_.i = getelementptr inbounds i8, ptr %5, i64 3336
   %6 = load ptr, ptr %per_realm_source_map_cache_getter_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5847,16 +5621,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %source_map_cache_getter_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %source_map_cache_getter_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_source_map_cache_getter_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 411
+  %per_realm_source_map_cache_getter_.i9 = getelementptr inbounds i8, ptr %14, i64 3336
   %15 = load ptr, ptr %per_realm_source_map_cache_getter_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5875,9 +5649,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm22tick_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %tick_callback_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 60
+  %tick_callback_function_ = getelementptr inbounds i8, ptr %this, i64 616
   %1 = load ptr, ptr %tick_callback_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -5903,10 +5677,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm26set_tick_callback_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %tick_callback_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 60
+  %tick_callback_function_ = getelementptr inbounds i8, ptr %this, i64 616
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %tick_callback_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -5923,15 +5697,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_tick_callback_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 412
+  %per_realm_tick_callback_function_.i = getelementptr inbounds i8, ptr %5, i64 3344
   %6 = load ptr, ptr %per_realm_tick_callback_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -5947,16 +5721,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %tick_callback_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %tick_callback_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_tick_callback_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 412
+  %per_realm_tick_callback_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3344
   %15 = load ptr, ptr %per_realm_tick_callback_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -5975,9 +5749,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24timers_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %timers_callback_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 61
+  %timers_callback_function_ = getelementptr inbounds i8, ptr %this, i64 624
   %1 = load ptr, ptr %timers_callback_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6003,10 +5777,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm28set_timers_callback_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %timers_callback_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 61
+  %timers_callback_function_ = getelementptr inbounds i8, ptr %this, i64 624
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %timers_callback_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6023,15 +5797,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_timers_callback_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 413
+  %per_realm_timers_callback_function_.i = getelementptr inbounds i8, ptr %5, i64 3352
   %6 = load ptr, ptr %per_realm_timers_callback_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6047,16 +5821,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %timers_callback_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %timers_callback_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_timers_callback_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 413
+  %per_realm_timers_callback_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3352
   %15 = load ptr, ptr %per_realm_timers_callback_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6075,9 +5849,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29tls_wrap_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %tls_wrap_constructor_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 62
+  %tls_wrap_constructor_function_ = getelementptr inbounds i8, ptr %this, i64 632
   %1 = load ptr, ptr %tls_wrap_constructor_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6103,10 +5877,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm33set_tls_wrap_constructor_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %tls_wrap_constructor_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 62
+  %tls_wrap_constructor_function_ = getelementptr inbounds i8, ptr %this, i64 632
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %tls_wrap_constructor_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6123,15 +5897,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_tls_wrap_constructor_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 414
+  %per_realm_tls_wrap_constructor_function_.i = getelementptr inbounds i8, ptr %5, i64 3360
   %6 = load ptr, ptr %per_realm_tls_wrap_constructor_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6147,16 +5921,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %tls_wrap_constructor_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %tls_wrap_constructor_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_tls_wrap_constructor_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 414
+  %per_realm_tls_wrap_constructor_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3360
   %15 = load ptr, ptr %per_realm_tls_wrap_constructor_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6175,9 +5949,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29trace_category_state_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %trace_category_state_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 63
+  %trace_category_state_function_ = getelementptr inbounds i8, ptr %this, i64 640
   %1 = load ptr, ptr %trace_category_state_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6203,10 +5977,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm33set_trace_category_state_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %trace_category_state_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 63
+  %trace_category_state_function_ = getelementptr inbounds i8, ptr %this, i64 640
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %trace_category_state_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6223,15 +5997,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_trace_category_state_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 415
+  %per_realm_trace_category_state_function_.i = getelementptr inbounds i8, ptr %5, i64 3368
   %6 = load ptr, ptr %per_realm_trace_category_state_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6247,16 +6021,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %trace_category_state_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %trace_category_state_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_trace_category_state_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 415
+  %per_realm_trace_category_state_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3368
   %15 = load ptr, ptr %per_realm_trace_category_state_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6275,9 +6049,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24udp_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %udp_constructor_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 64
+  %udp_constructor_function_ = getelementptr inbounds i8, ptr %this, i64 648
   %1 = load ptr, ptr %udp_constructor_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6303,10 +6077,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm28set_udp_constructor_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %udp_constructor_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 64
+  %udp_constructor_function_ = getelementptr inbounds i8, ptr %this, i64 648
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %udp_constructor_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6323,15 +6097,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_udp_constructor_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 416
+  %per_realm_udp_constructor_function_.i = getelementptr inbounds i8, ptr %5, i64 3376
   %6 = load ptr, ptr %per_realm_udp_constructor_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6347,16 +6121,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %udp_constructor_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %udp_constructor_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_udp_constructor_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 416
+  %per_realm_udp_constructor_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3376
   %15 = load ptr, ptr %per_realm_udp_constructor_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6375,9 +6149,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24url_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %url_constructor_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 65
+  %url_constructor_function_ = getelementptr inbounds i8, ptr %this, i64 656
   %1 = load ptr, ptr %url_constructor_function_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6403,10 +6177,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm28set_url_constructor_functionEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %url_constructor_function_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 65
+  %url_constructor_function_ = getelementptr inbounds i8, ptr %this, i64 656
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %url_constructor_function_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6423,15 +6197,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_url_constructor_function_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 417
+  %per_realm_url_constructor_function_.i = getelementptr inbounds i8, ptr %5, i64 3384
   %6 = load ptr, ptr %per_realm_url_constructor_function_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6447,16 +6221,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %url_constructor_function_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %url_constructor_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_url_constructor_function_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 417
+  %per_realm_url_constructor_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3384
   %15 = load ptr, ptr %per_realm_url_constructor_function_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6475,9 +6249,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31wasm_streaming_compilation_implEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %wasm_streaming_compilation_impl_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 66
+  %wasm_streaming_compilation_impl_ = getelementptr inbounds i8, ptr %this, i64 664
   %1 = load ptr, ptr %wasm_streaming_compilation_impl_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6503,10 +6277,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm35set_wasm_streaming_compilation_implEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %wasm_streaming_compilation_impl_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 66
+  %wasm_streaming_compilation_impl_ = getelementptr inbounds i8, ptr %this, i64 664
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %wasm_streaming_compilation_impl_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6523,15 +6297,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_wasm_streaming_compilation_impl_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 418
+  %per_realm_wasm_streaming_compilation_impl_.i = getelementptr inbounds i8, ptr %5, i64 3392
   %6 = load ptr, ptr %per_realm_wasm_streaming_compilation_impl_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6547,16 +6321,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %wasm_streaming_compilation_impl_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %wasm_streaming_compilation_impl_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_wasm_streaming_compilation_impl_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 418
+  %per_realm_wasm_streaming_compilation_impl_.i9 = getelementptr inbounds i8, ptr %14, i64 3392
   %15 = load ptr, ptr %per_realm_wasm_streaming_compilation_impl_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6575,9 +6349,9 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33wasm_streaming_object_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
-  %wasm_streaming_object_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 67
+  %wasm_streaming_object_constructor_ = getelementptr inbounds i8, ptr %this, i64 672
   %1 = load ptr, ptr %wasm_streaming_object_constructor_, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit, label %if.end.i.i
@@ -6603,10 +6377,10 @@ _ZN4node17PersistentToLocal7DefaultIN2v88FunctionEEENS2_5LocalIT_EEPNS2_7Isolate
 define dso_local void @_ZN4node12shadow_realm11ShadowRealm37set_wasm_streaming_object_constructorEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %wasm_streaming_object_constructor_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 67
+  %wasm_streaming_object_constructor_ = getelementptr inbounds i8, ptr %this, i64 672
   %1 = load ptr, ptr %isolate_, align 8
   %2 = load ptr, ptr %wasm_streaming_object_constructor_, align 8
   %cmp.i.i151 = icmp eq ptr %2, null
@@ -6623,15 +6397,15 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %entry, %if.end.i1
 
 if.then:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 8
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call11 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %per_realm_wasm_streaming_object_constructor_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 419
+  %per_realm_wasm_streaming_object_constructor_.i = getelementptr inbounds i8, ptr %5, i64 3400
   %6 = load ptr, ptr %per_realm_wasm_streaming_object_constructor_.i, align 8
   %7 = load ptr, ptr %isolate_, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -6647,16 +6421,16 @@ if.else:                                          ; preds = %_ZN2v814PersistentB
   %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
   store ptr %call2.i158, ptr %wasm_streaming_object_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %wasm_streaming_object_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
-  %env_.i7 = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 4
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_wasm_streaming_object_constructor_.i9 = getelementptr inbounds %"class.node::IsolateData", ptr %14, i64 0, i32 419
+  %per_realm_wasm_streaming_object_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3400
   %15 = load ptr, ptr %per_realm_wasm_streaming_object_constructor_.i9, align 8
   %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
   %16 = and i16 %call73, 1
@@ -6676,12 +6450,12 @@ if.end:                                           ; preds = %if.end.sink.split, 
 define dso_local ptr @_ZN4node12shadow_realm11ShadowRealm14BootstrapRealmEv(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %isolate_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 6
+  %isolate_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #13
-  %env_ = getelementptr inbounds %"class.node::Realm", ptr %this, i64 0, i32 5
+  %env_ = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %env_, align 8
-  %flags_.i = getelementptr inbounds %"class.node::Environment", ptr %1, i64 0, i32 63
+  %flags_.i = getelementptr inbounds i8, ptr %1, i64 2064
   %2 = load i64, ptr %flags_.i, align 8
   %and.i = and i64 %2, 256
   %tobool.i.not5 = icmp eq i64 %and.i, 0
@@ -6709,12 +6483,12 @@ if.then.i.i.i:                                    ; preds = %if.end17
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %if.end17, %if.then.i.i.i
   %4 = load ptr, ptr %env_, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %4, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %env_proxy_template_.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 324
+  %env_proxy_template_.i = getelementptr inbounds i8, ptr %5, i64 2640
   %6 = load ptr, ptr %env_proxy_template_.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %7 = load ptr, ptr %vfn, align 8
   %call31 = call ptr %7(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call38 = call ptr @_ZN2v814ObjectTemplate11NewInstanceENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call31) #13
@@ -6723,11 +6497,11 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT
 
 lor.rhs:                                          ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
   %vtable46 = load ptr, ptr %this, align 8
-  %vfn47 = getelementptr inbounds ptr, ptr %vtable46, i64 89
+  %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 712
   %8 = load ptr, ptr %vfn47, align 8
   %call48 = call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %vtable54 = load ptr, ptr %this, align 8
-  %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 8
+  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 64
   %9 = load ptr, ptr %vfn55, align 8
   %call56 = call ptr %9(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call79 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %call56, ptr %call.i.i, ptr nonnull %call38) #13
@@ -6801,13 +6575,13 @@ declare void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_before_begin.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %return, label %for.body.i.preheader
@@ -6831,7 +6605,7 @@ if.end4.i:                                        ; preds = %for.body.i.preheade
 if.end:                                           ; preds = %for.body.i, %for.body.i.preheader
   %__prev_p.06.i.lcssa = phi ptr [ %_M_before_begin.i, %for.body.i.preheader ], [ %__p.07.i32, %for.body.i ]
   %3 = load ptr, ptr %__prev_p.06.i.lcssa, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load i64, ptr %add.ptr.i.i, align 8
@@ -6840,7 +6614,7 @@ if.end:                                           ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %entry
   %call2.i = tail call noundef i64 @_ZNK4node12CleanupQueue19CleanupHookCallback4HashclERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k) #13
-  %_M_bucket_count.i10 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %call2.i, %6
   %7 = load ptr, ptr %this, align 8
@@ -6900,7 +6674,7 @@ if.then.i:                                        ; preds = %if.end13
   br i1 %tobool.not.i17, label %if.end.i.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i
-  %_M_bucket_count.i.i19 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i64, ptr %_M_bucket_count.i.i19, align 8
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %17, i64 32
   %19 = load i64, ptr %add.ptr.i.i.i20, align 8
@@ -6919,7 +6693,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i
   %20 = phi ptr [ %__prev_n.0, %if.then.i ], [ %.pre24.i, %if.then3.i.i ]
   %21 = phi ptr [ %15, %if.then.i ], [ %.pre.i22, %if.then3.i.i ]
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx7.i.i = getelementptr inbounds ptr, ptr %21, i64 %__bkt.0
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %20
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
@@ -6936,7 +6710,7 @@ if.else.i:                                        ; preds = %if.end13
   br i1 %tobool.not.i17, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %_M_bucket_count.i13.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i13.i = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i64, ptr %_M_bucket_count.i13.i, align 8
   %add.ptr.i.i14.i = getelementptr inbounds i8, ptr %17, i64 32
   %23 = load i64, ptr %add.ptr.i.i14.i, align 8
@@ -6986,13 +6760,13 @@ entry:
   store ptr %1, ptr %arg_.i.i.i.i.i, align 8
   %insertion_order_counter_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 24
   store i64 %2, ptr %insertion_order_counter_.i.i.i.i.i, align 8
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %3, 0
   br i1 %cmp.not.not, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -7008,7 +6782,7 @@ for.body:                                         ; preds = %for.cond
 
 if.end21:                                         ; preds = %for.cond, %entry
   %call2.i = tail call noundef i64 @_ZNK4node12CleanupQueue19CleanupHookCallback4HashclERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i) #13
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call2.i, %4
   %5 = load i64, ptr %_M_element_count.i, align 8
@@ -7059,7 +6833,7 @@ _ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__det
   br i1 %tobool.not, label %if.end33, label %if.then.i22
 
 if.end33:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %if.then27, %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, %if.end21
-  %_M_rehash_policy.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
+  %_M_rehash_policy.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %_M_bucket_count.i, align 8
   %15 = load i64, ptr %_M_element_count.i, align 8
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %14, i64 noundef %15, i64 noundef 1) #13
@@ -7093,7 +6867,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %cleanup
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %_M_before_begin.i.i15 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %_M_before_begin.i.i15, align 8
   store ptr %24, ptr %call5.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_before_begin.i.i15, align 8
@@ -7150,7 +6924,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -7178,7 +6952,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4node12CleanupQueue19Cleanu
 
 _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4node12CleanupQueue19CleanupHookCallbackELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4node12CleanupQueue19CleanupHookCallbackELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -7228,7 +7002,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -7237,7 +7011,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -7255,14 +7029,14 @@ declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull al
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %next_.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this, i64 0, i32 2
+  %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
@@ -7276,14 +7050,14 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %next_.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this, i64 0, i32 2
+  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev.exit"
@@ -7296,14 +7070,14 @@ _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0E4CallES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture readnone %args) unnamed_addr #3 align 2 {
 entry:
-  %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this, i64 0, i32 1
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   %isnull.i = icmp eq ptr %callback_.val, null
   br i1 %isnull.i, label %"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %callback_.val, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(872) %callback_.val) #13
   br label %"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.exit"
@@ -7316,14 +7090,14 @@ delete.notnull.i:                                 ; preds = %entry
 define linkonce_odr dso_local void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this, i64 0, i32 2
+  %next_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i
 
 _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit

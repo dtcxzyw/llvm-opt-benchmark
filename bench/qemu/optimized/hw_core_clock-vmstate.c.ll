@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Clock = type { %struct.Object, i64, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.anon, %struct.anon.0 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"clock/muldiv\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"multiplier\00", align 1
@@ -27,13 +23,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @muldiv_needed(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %multiplier = getelementptr inbounds %struct.Clock, ptr %opaque, i64 0, i32 6
+  %multiplier = getelementptr inbounds i8, ptr %opaque, i64 76
   %0 = load i32, ptr %multiplier, align 4
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %divider = getelementptr inbounds %struct.Clock, ptr %opaque, i64 0, i32 7
+  %divider = getelementptr inbounds i8, ptr %opaque, i64 80
   %1 = load i32, ptr %divider, align 8
   %cmp1 = icmp ne i32 %1, 1
   br label %lor.end
@@ -46,9 +42,9 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @clock_pre_load(ptr nocapture noundef writeonly %opaque) #1 {
 entry:
-  %multiplier = getelementptr inbounds %struct.Clock, ptr %opaque, i64 0, i32 6
+  %multiplier = getelementptr inbounds i8, ptr %opaque, i64 76
   store i32 1, ptr %multiplier, align 4
-  %divider = getelementptr inbounds %struct.Clock, ptr %opaque, i64 0, i32 7
+  %divider = getelementptr inbounds i8, ptr %opaque, i64 80
   store i32 1, ptr %divider, align 8
   ret i32 0
 }

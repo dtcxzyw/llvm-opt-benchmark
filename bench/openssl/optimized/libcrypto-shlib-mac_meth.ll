@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-mac_meth.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
-%struct.evp_mac_st = type { ptr, i32, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.ossl_dispatch_st = type { i32, ptr }
-%struct.evp_mac_ctx_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/evp/mac_meth.c\00", align 1
 @__func__.evp_mac_from_algorithm = private unnamed_addr constant [23 x i8] c"evp_mac_from_algorithm\00", align 1
 
@@ -24,7 +18,7 @@ declare ptr @evp_generic_fetch(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @evp_mac_from_algorithm(i32 noundef %name_id, ptr noundef %algodef, ptr noundef %prov) #0 {
 entry:
-  %implementation = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algodef, i64 0, i32 2
+  %implementation = getelementptr inbounds i8, ptr %algodef, i64 16
   %0 = load ptr, ptr %implementation, align 8
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 136, ptr noundef nonnull @.str, i32 noundef 49) #4
   %cmp.i = icmp eq ptr %call.i, null
@@ -37,12 +31,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %name_id1 = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 1
+  %name_id1 = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %name_id, ptr %name_id1, align 8
   %call2 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #4
-  %type_name = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %type_name, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end.i, label %if.end5
@@ -70,22 +64,22 @@ if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exi
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %algorithm_description = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algodef, i64 0, i32 3
+  %algorithm_description = getelementptr inbounds i8, ptr %algodef, i64 24
   %4 = load ptr, ptr %algorithm_description, align 8
-  %description = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 3
+  %description = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %4, ptr %description, align 8
-  %set_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 16
-  %get_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 15
-  %get_params = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 14
-  %settable_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 13
-  %gettable_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 12
-  %gettable_params = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 11
-  %final = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 10
-  %update = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 9
-  %init = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 8
-  %freectx = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 7
-  %dupctx = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 6
-  %newctx = getelementptr inbounds %struct.evp_mac_st, ptr %call.i, i64 0, i32 5
+  %set_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 128
+  %get_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 120
+  %get_params = getelementptr inbounds i8, ptr %call.i, i64 112
+  %settable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 104
+  %gettable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 96
+  %gettable_params = getelementptr inbounds i8, ptr %call.i, i64 88
+  %final = getelementptr inbounds i8, ptr %call.i, i64 80
+  %update = getelementptr inbounds i8, ptr %call.i, i64 72
+  %init = getelementptr inbounds i8, ptr %call.i, i64 64
+  %freectx = getelementptr inbounds i8, ptr %call.i, i64 56
+  %dupctx = getelementptr inbounds i8, ptr %call.i, i64 48
+  %newctx = getelementptr inbounds i8, ptr %call.i, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end5
@@ -249,7 +243,7 @@ if.end80:                                         ; preds = %sw.bb77
 for.inc:                                          ; preds = %for.cond, %if.end10, %if.end16, %if.end22, %if.end29, %if.end36, %if.end43, %if.end50, %if.end56, %if.end62, %if.end68, %if.end74, %if.end80, %sw.bb, %sw.bb13, %sw.bb19, %sw.bb26, %sw.bb33, %sw.bb40, %sw.bb47, %sw.bb53, %sw.bb59, %sw.bb65, %sw.bb71, %sw.bb77
   %fnmaccnt.1 = phi i32 [ %fnmaccnt.0, %sw.bb77 ], [ %fnmaccnt.0, %if.end80 ], [ %fnmaccnt.0, %sw.bb71 ], [ %fnmaccnt.0, %if.end74 ], [ %fnmaccnt.0, %sw.bb65 ], [ %fnmaccnt.0, %if.end68 ], [ %fnmaccnt.0, %sw.bb59 ], [ %fnmaccnt.0, %if.end62 ], [ %fnmaccnt.0, %sw.bb53 ], [ %fnmaccnt.0, %if.end56 ], [ %fnmaccnt.0, %sw.bb47 ], [ %fnmaccnt.0, %if.end50 ], [ %fnmaccnt.0, %sw.bb40 ], [ %inc46, %if.end43 ], [ %fnmaccnt.0, %sw.bb33 ], [ %inc39, %if.end36 ], [ %fnmaccnt.0, %sw.bb26 ], [ %inc32, %if.end29 ], [ %fnmaccnt.0, %sw.bb19 ], [ %fnmaccnt.0, %if.end22 ], [ %fnmaccnt.0, %sw.bb13 ], [ %fnmaccnt.0, %if.end16 ], [ %fnmaccnt.0, %sw.bb ], [ %fnmaccnt.0, %if.end10 ], [ %fnmaccnt.0, %for.cond ]
   %fnctxcnt.1 = phi i32 [ %fnctxcnt.0, %sw.bb77 ], [ %fnctxcnt.0, %if.end80 ], [ %fnctxcnt.0, %sw.bb71 ], [ %fnctxcnt.0, %if.end74 ], [ %fnctxcnt.0, %sw.bb65 ], [ %fnctxcnt.0, %if.end68 ], [ %fnctxcnt.0, %sw.bb59 ], [ %fnctxcnt.0, %if.end62 ], [ %fnctxcnt.0, %sw.bb53 ], [ %fnctxcnt.0, %if.end56 ], [ %fnctxcnt.0, %sw.bb47 ], [ %fnctxcnt.0, %if.end50 ], [ %fnctxcnt.0, %sw.bb40 ], [ %fnctxcnt.0, %if.end43 ], [ %fnctxcnt.0, %sw.bb33 ], [ %fnctxcnt.0, %if.end36 ], [ %fnctxcnt.0, %sw.bb26 ], [ %fnctxcnt.0, %if.end29 ], [ %fnctxcnt.0, %sw.bb19 ], [ %inc25, %if.end22 ], [ %fnctxcnt.0, %sw.bb13 ], [ %fnctxcnt.0, %if.end16 ], [ %fnctxcnt.0, %sw.bb ], [ %inc, %if.end10 ], [ %fnctxcnt.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -303,7 +297,7 @@ return:                                           ; preds = %if.end3.i, %CRYPTO_
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @evp_mac_up_ref(ptr nocapture noundef %vmac) #2 {
 entry:
-  %refcnt = getelementptr inbounds %struct.evp_mac_st, ptr %vmac, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %vmac, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -315,7 +309,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.evp_mac_st, ptr %vmac, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %vmac, i64 32
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -329,7 +323,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %type_name = getelementptr inbounds %struct.evp_mac_st, ptr %vmac, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %vmac, i64 16
   %1 = load ptr, ptr %type_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 39) #4
   %2 = load ptr, ptr %vmac, align 8
@@ -344,7 +338,7 @@ return:                                           ; preds = %CRYPTO_DOWN_REF.exi
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @EVP_MAC_up_ref(ptr nocapture noundef %mac) local_unnamed_addr #2 {
 entry:
-  %refcnt.i = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %mac, i64 32
   %0 = atomicrmw add ptr %refcnt.i, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -356,7 +350,7 @@ entry:
   br i1 %cmp.i, label %evp_mac_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %mac, i64 32
   %0 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -370,7 +364,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %evp_mac_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 2
+  %type_name.i = getelementptr inbounds i8, ptr %mac, i64 16
   %1 = load ptr, ptr %type_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 39) #4
   %2 = load ptr, ptr %mac, align 8
@@ -392,7 +386,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_gettable_params(ptr nocapture noundef readonly %mac) local_unnamed_addr #0 {
 entry:
-  %gettable_params = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 11
+  %gettable_params = getelementptr inbounds i8, ptr %mac, i64 88
   %0 = load ptr, ptr %gettable_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -413,7 +407,7 @@ declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_gettable_ctx_params(ptr nocapture noundef readonly %mac) local_unnamed_addr #0 {
 entry:
-  %gettable_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 12
+  %gettable_ctx_params = getelementptr inbounds i8, ptr %mac, i64 96
   %0 = load ptr, ptr %gettable_ctx_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -433,7 +427,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_settable_ctx_params(ptr nocapture noundef readonly %mac) local_unnamed_addr #0 {
 entry:
-  %settable_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 13
+  %settable_ctx_params = getelementptr inbounds i8, ptr %mac, i64 104
   %0 = load ptr, ptr %settable_ctx_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -454,7 +448,7 @@ return:                                           ; preds = %entry, %if.end
 define ptr @EVP_MAC_CTX_gettable_params(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %gettable_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 12
+  %gettable_ctx_params = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %gettable_ctx_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -463,9 +457,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %0, align 8
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %2) #4
   %3 = load ptr, ptr %ctx, align 8
-  %gettable_ctx_params4 = getelementptr inbounds %struct.evp_mac_st, ptr %3, i64 0, i32 12
+  %gettable_ctx_params4 = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %gettable_ctx_params4, align 8
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %algctx, align 8
   %call5 = tail call ptr %4(ptr noundef %5, ptr noundef %call2) #4
   br label %return
@@ -479,7 +473,7 @@ return:                                           ; preds = %entry, %if.end
 define ptr @EVP_MAC_CTX_settable_params(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %settable_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 13
+  %settable_ctx_params = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %settable_ctx_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -488,9 +482,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %0, align 8
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %2) #4
   %3 = load ptr, ptr %ctx, align 8
-  %settable_ctx_params4 = getelementptr inbounds %struct.evp_mac_st, ptr %3, i64 0, i32 13
+  %settable_ctx_params4 = getelementptr inbounds i8, ptr %3, i64 104
   %4 = load ptr, ptr %settable_ctx_params4, align 8
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %algctx, align 8
   %call5 = tail call ptr %4(ptr noundef %5, ptr noundef %call2) #4
   br label %return

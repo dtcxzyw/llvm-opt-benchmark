@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.kmac_data_st = type { ptr, ptr, %struct.PROV_DIGEST, i64, i64, i64, i32, [672 x i8], [516 x i8] }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_kmac128_functions = local_unnamed_addr constant [11 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @kmac128_new }, %struct.ossl_dispatch_st { i32 2, ptr @kmac_dup }, %struct.ossl_dispatch_st { i32 3, ptr @kmac_free }, %struct.ossl_dispatch_st { i32 4, ptr @kmac_init }, %struct.ossl_dispatch_st { i32 5, ptr @kmac_update }, %struct.ossl_dispatch_st { i32 6, ptr @kmac_final }, %struct.ossl_dispatch_st { i32 11, ptr @kmac_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 8, ptr @kmac_get_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @kmac_settable_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @kmac_set_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_kmac256_functions = local_unnamed_addr constant [11 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @kmac256_new }, %struct.ossl_dispatch_st { i32 2, ptr @kmac_dup }, %struct.ossl_dispatch_st { i32 3, ptr @kmac_free }, %struct.ossl_dispatch_st { i32 4, ptr @kmac_init }, %struct.ossl_dispatch_st { i32 5, ptr @kmac_update }, %struct.ossl_dispatch_st { i32 6, ptr @kmac_final }, %struct.ossl_dispatch_st { i32 11, ptr @kmac_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 8, ptr @kmac_get_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @kmac_settable_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @kmac_set_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -53,17 +51,17 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %ctx = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %ctx, align 8
-  %ctx4 = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 1
+  %ctx4 = getelementptr inbounds i8, ptr %vsrc, i64 8
   %2 = load ptr, ptr %ctx4, align 8
   %call5 = tail call i32 @EVP_MD_CTX_copy(ptr noundef %1, ptr noundef %2) #7
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %kmac_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %digest = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 2
-  %digest7 = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %call1, i64 16
+  %digest7 = getelementptr inbounds i8, ptr %vsrc, i64 16
   %call8 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest, ptr noundef nonnull %digest7) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %kmac_free.exit, label %if.end11
@@ -71,42 +69,42 @@ lor.lhs.false:                                    ; preds = %if.end3
 kmac_free.exit:                                   ; preds = %lor.lhs.false, %if.end3
   %3 = load ptr, ptr %ctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %3) #7
-  %digest.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 2
+  %digest.i = getelementptr inbounds i8, ptr %call1, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #7
-  %key.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 7
-  %key_len.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 4
+  %key.i = getelementptr inbounds i8, ptr %call1, i64 68
+  %key_len.i = getelementptr inbounds i8, ptr %call1, i64 48
   %4 = load i64, ptr %key_len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %key.i, i64 noundef %4) #7
-  %custom.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 8
-  %custom_len.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 5
+  %custom.i = getelementptr inbounds i8, ptr %call1, i64 740
+  %custom_len.i = getelementptr inbounds i8, ptr %call1, i64 56
   %5 = load i64, ptr %custom_len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %custom.i, i64 noundef %5) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str.2, i32 noundef 153) #7
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %out_len = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 3
+  %out_len = getelementptr inbounds i8, ptr %vsrc, i64 40
   %6 = load i64, ptr %out_len, align 8
-  %out_len12 = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 3
+  %out_len12 = getelementptr inbounds i8, ptr %call1, i64 40
   store i64 %6, ptr %out_len12, align 8
-  %key_len = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %vsrc, i64 48
   %7 = load i64, ptr %key_len, align 8
-  %key_len13 = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 4
+  %key_len13 = getelementptr inbounds i8, ptr %call1, i64 48
   store i64 %7, ptr %key_len13, align 8
-  %custom_len = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 5
+  %custom_len = getelementptr inbounds i8, ptr %vsrc, i64 56
   %8 = load i64, ptr %custom_len, align 8
-  %custom_len14 = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 5
+  %custom_len14 = getelementptr inbounds i8, ptr %call1, i64 56
   store i64 %8, ptr %custom_len14, align 8
-  %xof_mode = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 6
+  %xof_mode = getelementptr inbounds i8, ptr %vsrc, i64 64
   %9 = load i32, ptr %xof_mode, align 8
-  %xof_mode15 = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 6
+  %xof_mode15 = getelementptr inbounds i8, ptr %call1, i64 64
   store i32 %9, ptr %xof_mode15, align 8
-  %key = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 7
-  %key16 = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 7
+  %key = getelementptr inbounds i8, ptr %call1, i64 68
+  %key16 = getelementptr inbounds i8, ptr %vsrc, i64 68
   %10 = load i64, ptr %key_len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %key, ptr nonnull align 4 %key16, i64 %10, i1 false)
-  %custom = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 8
-  %custom20 = getelementptr inbounds %struct.kmac_data_st, ptr %vsrc, i64 0, i32 8
+  %custom = getelementptr inbounds i8, ptr %call1, i64 740
+  %custom20 = getelementptr inbounds i8, ptr %vsrc, i64 740
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %custom, ptr nonnull align 4 %custom20, i64 %8, i1 false)
   br label %return
 
@@ -122,17 +120,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctx = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %0) #7
-  %digest = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #7
-  %key = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 7
-  %key_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %key = getelementptr inbounds i8, ptr %vmacctx, i64 68
+  %key_len = getelementptr inbounds i8, ptr %vmacctx, i64 48
   %1 = load i64, ptr %key_len, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %key, i64 noundef %1) #7
-  %custom = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 8
-  %custom_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 5
+  %custom = getelementptr inbounds i8, ptr %vmacctx, i64 740
+  %custom_len = getelementptr inbounds i8, ptr %vmacctx, i64 56
   %2 = load i64, ptr %custom_len, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %custom, i64 noundef %2) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %vmacctx, ptr noundef nonnull @.str.2, i32 noundef 153) #7
@@ -146,7 +144,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @kmac_init(ptr noundef %vmacctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %cparams = alloca [2 x %struct.ossl_param_st], align 16
-  %ctx1 = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx1 = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx1, align 8
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -167,7 +165,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool6.not, label %return, label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %key_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %vmacctx, i64 48
   %1 = load i64, ptr %key_len, align 8
   %cmp9 = icmp eq i64 %1, 0
   br i1 %cmp9, label %if.then10, label %if.end12
@@ -180,7 +178,7 @@ if.then10:                                        ; preds = %if.else
 
 if.end12:                                         ; preds = %if.else, %if.then4
   %2 = load ptr, ptr %ctx1, align 8
-  %digest = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call14 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %call15 = tail call i32 @EVP_DigestInit_ex(ptr noundef %2, ptr noundef %call14, ptr noundef null) #7
   %tobool16.not = icmp eq i32 %call15, 0
@@ -200,7 +198,7 @@ if.then23:                                        ; preds = %if.end18
 
 if.end24:                                         ; preds = %if.end18
   %conv = zext nneg i32 %call21 to i64
-  %custom_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 5
+  %custom_len = getelementptr inbounds i8, ptr %vmacctx, i64 56
   %3 = load i64, ptr %custom_len, align 8
   %cmp25 = icmp eq i64 %3, 0
   br i1 %cmp25, label %if.then27, label %if.end35
@@ -213,7 +211,7 @@ if.then27:                                        ; preds = %if.end24
 
 if.end35:                                         ; preds = %if.end24, %if.then27
   %4 = phi i64 [ %3, %if.end24 ], [ %.pre, %if.then27 ]
-  %custom = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 8
+  %custom = getelementptr inbounds i8, ptr %vmacctx, i64 740
   %add7.i = shl i64 %4, 32
   %sext35.i = add i64 %add7.i, 34359738368
   %conv9.i = ashr exact i64 %sext35.i, 32
@@ -275,8 +273,8 @@ land.lhs.true:                                    ; preds = %if.then38.i, %if.en
   br i1 %tobool47.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %key48 = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 7
-  %key_len50 = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %key48 = getelementptr inbounds i8, ptr %vmacctx, i64 68
+  %key_len50 = getelementptr inbounds i8, ptr %vmacctx, i64 48
   %8 = load i64, ptr %key_len50, align 8
   %call51 = call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef nonnull %key48, i64 noundef %8) #7
   %tobool52 = icmp ne i32 %call51, 0
@@ -296,7 +294,7 @@ return:                                           ; preds = %if.end35, %if.end12
 ; Function Attrs: nounwind uwtable
 define internal i32 @kmac_update(ptr nocapture noundef readonly %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef %data, i64 noundef %datalen) #7
   ret i32 %call
@@ -306,20 +304,20 @@ entry:
 define internal i32 @kmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %encoded_outlen = alloca [4 x i8], align 1
-  %ctx1 = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx1 = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx1, align 8
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %xof_mode = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 6
+  %xof_mode = getelementptr inbounds i8, ptr %vmacctx, i64 64
   %1 = load i32, ptr %xof_mode, align 8
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %cond.end, label %for.body.preheader.i
 
 cond.end:                                         ; preds = %if.end
-  %out_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %out_len = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %2 = load i64, ptr %out_len, align 8
   %mul = shl i64 %2, 3
   %tobool5.not.i.i = icmp eq i64 %mul, 0
@@ -377,7 +375,7 @@ land.lhs.true:                                    ; preds = %for.body.i
   br i1 %tobool7.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %out_len8 = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %out_len8 = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %5 = load i64, ptr %out_len8, align 8
   %call9 = call i32 @EVP_DigestFinalXOF(ptr noundef %0, ptr noundef %out, i64 noundef %5) #7
   %tobool10 = icmp ne i32 %call9, 0
@@ -386,7 +384,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 
 land.end:                                         ; preds = %right_encode.exit.thread, %land.rhs, %land.lhs.true
   %land.ext = phi i32 [ 0, %land.lhs.true ], [ %6, %land.rhs ], [ 0, %right_encode.exit.thread ]
-  %out_len11 = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %out_len11 = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %7 = load i64, ptr %out_len11, align 8
   store i64 %7, ptr %outl, align 8
   br label %return
@@ -410,7 +408,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %out_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %out_len = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %0 = load i64, ptr %out_len, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call, i64 noundef %0) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -422,7 +420,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp3.not, label %if.end11, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %digest = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call5 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %call6 = tail call i32 @EVP_MD_get_block_size(ptr noundef %call5) #7
   %call7 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call2, i32 noundef %call6) #7
@@ -456,7 +454,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %xof_mode = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 6
+  %xof_mode = getelementptr inbounds i8, ptr %vmacctx, i64 64
   %call2 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call, ptr noundef nonnull %xof_mode) #7
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -484,7 +482,7 @@ if.then13:                                        ; preds = %if.end11
   br label %return
 
 if.end14:                                         ; preds = %if.end11
-  %out_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %out_len = getelementptr inbounds i8, ptr %vmacctx, i64 40
   store i64 %0, ptr %out_len, align 8
   br label %if.end15
 
@@ -494,9 +492,9 @@ if.end15:                                         ; preds = %if.end14, %if.end4
   br i1 %cmp17.not, label %if.end22, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end15
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call16, i64 16
   %1 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call16, i64 24
   %2 = load i64, ptr %data_size, align 8
   %call19 = call fastcc i32 @kmac_setkey(ptr noundef %vmacctx, ptr noundef %1, i64 noundef %2), !range !4
   %tobool20.not = icmp eq i32 %call19, 0
@@ -508,7 +506,7 @@ if.end22:                                         ; preds = %land.lhs.true18, %i
   br i1 %cmp24.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %data_size26 = getelementptr inbounds %struct.ossl_param_st, ptr %call23, i64 0, i32 3
+  %data_size26 = getelementptr inbounds i8, ptr %call23, i64 24
   %3 = load i64, ptr %data_size26, align 8
   %cmp27 = icmp ugt i64 %3, 512
   br i1 %cmp27, label %if.then28, label %if.end29
@@ -520,9 +518,9 @@ if.then28:                                        ; preds = %if.then25
   br label %return
 
 if.end29:                                         ; preds = %if.then25
-  %custom = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 8
-  %custom_len = getelementptr inbounds %struct.kmac_data_st, ptr %vmacctx, i64 0, i32 5
-  %data30 = getelementptr inbounds %struct.ossl_param_st, ptr %call23, i64 0, i32 2
+  %custom = getelementptr inbounds i8, ptr %vmacctx, i64 740
+  %custom_len = getelementptr inbounds i8, ptr %vmacctx, i64 56
+  %data30 = getelementptr inbounds i8, ptr %call23, i64 16
   %4 = load ptr, ptr %data30, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %encode_string.exit, label %if.else.i
@@ -604,23 +602,23 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %call, i64 16
   %call1 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
   %call2 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef %params, ptr noundef %call1) #7
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %kmac_free.exit, label %if.end4
 
 kmac_free.exit:                                   ; preds = %if.end
-  %ctx.i = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %ctx.i, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %0) #7
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #7
-  %key.i = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 7
-  %key_len.i = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 4
+  %key.i = getelementptr inbounds i8, ptr %call, i64 68
+  %key_len.i = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load i64, ptr %key_len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %key.i, i64 noundef %1) #7
-  %custom.i = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 8
-  %custom_len.i = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 5
+  %custom.i = getelementptr inbounds i8, ptr %call, i64 740
+  %custom_len.i = getelementptr inbounds i8, ptr %call, i64 56
   %2 = load i64, ptr %custom_len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %custom.i, i64 noundef %2) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, i32 noundef 153) #7
@@ -630,7 +628,7 @@ if.end4:                                          ; preds = %if.end
   %call6 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %call7 = tail call i32 @EVP_MD_get_size(ptr noundef %call6) #7
   %conv = sext i32 %call7 to i64
-  %out_len = getelementptr inbounds %struct.kmac_data_st, ptr %call, i64 0, i32 3
+  %out_len = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %conv, ptr %out_len, align 8
   br label %return
 
@@ -653,21 +651,21 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %call2 = tail call ptr @EVP_MD_CTX_new() #7
-  %ctx = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call2, ptr %ctx, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %kmac_free.exit, label %if.end5
 
 kmac_free.exit:                                   ; preds = %lor.lhs.false
   tail call void @EVP_MD_CTX_free(ptr noundef null) #7
-  %digest.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 2
+  %digest.i = getelementptr inbounds i8, ptr %call1, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #7
-  %key.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 7
-  %key_len.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 4
+  %key.i = getelementptr inbounds i8, ptr %call1, i64 68
+  %key_len.i = getelementptr inbounds i8, ptr %call1, i64 48
   %0 = load i64, ptr %key_len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %key.i, i64 noundef %0) #7
-  %custom.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 8
-  %custom_len.i = getelementptr inbounds %struct.kmac_data_st, ptr %call1, i64 0, i32 5
+  %custom.i = getelementptr inbounds i8, ptr %call1, i64 740
+  %custom_len.i = getelementptr inbounds i8, ptr %call1, i64 56
   %1 = load i64, ptr %custom_len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %custom.i, i64 noundef %1) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str.2, i32 noundef 153) #7
@@ -715,7 +713,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define internal fastcc i32 @kmac_setkey(ptr noundef %kctx, ptr noundef readonly %key, i64 noundef %keylen) unnamed_addr #0 {
 entry:
   %tmp.i = alloca [516 x i8], align 16
-  %digest1 = getelementptr inbounds %struct.kmac_data_st, ptr %kctx, i64 0, i32 2
+  %digest1 = getelementptr inbounds i8, ptr %kctx, i64 16
   %call = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest1) #7
   %call2 = tail call i32 @EVP_MD_get_block_size(ptr noundef %call) #7
   %0 = add i64 %keylen, -513
@@ -739,8 +737,8 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %key7 = getelementptr inbounds %struct.kmac_data_st, ptr %kctx, i64 0, i32 7
-  %key_len = getelementptr inbounds %struct.kmac_data_st, ptr %kctx, i64 0, i32 4
+  %key7 = getelementptr inbounds i8, ptr %kctx, i64 68
+  %key_len = getelementptr inbounds i8, ptr %kctx, i64 48
   %conv = zext nneg i32 %call2 to i64
   call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %tmp.i)
   %cmp.i.i = icmp eq ptr %key, null
@@ -808,10 +806,10 @@ if.end.i:                                         ; preds = %for.end.i.i, %if.en
   br i1 %or.cond8, label %if.end19.i.i, label %5
 
 if.end19.i.i:                                     ; preds = %if.end.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.kmac_data_st, ptr %kctx, i64 0, i32 7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %kctx, i64 69
   store i8 1, ptr %key7, align 1
   %conv20.i.i = trunc i32 %call2 to i8
-  %incdec.ptr21.i.i = getelementptr inbounds %struct.kmac_data_st, ptr %kctx, i64 0, i32 7, i64 2
+  %incdec.ptr21.i.i = getelementptr inbounds i8, ptr %kctx, i64 70
   store i8 %conv20.i.i, ptr %incdec.ptr.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr21.i.i, ptr nonnull align 16 %tmp.i, i64 %tmp_len.0.ph.i, i1 false)
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %incdec.ptr21.i.i, i64 %tmp_len.0.ph.i

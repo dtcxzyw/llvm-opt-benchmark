@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_conv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_conv.c\00", align 1
 @Hex = internal unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 16
@@ -24,7 +22,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %mul2 = shl nsw i32 %0, 4
   %add = or disjoint i32 %mul2, 2
@@ -34,7 +32,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load i32, ptr %neg, align 8
   %tobool7.not = icmp eq i32 %1, 0
   br i1 %tobool7.not, label %if.end9, label %if.then8
@@ -190,14 +188,14 @@ if.end33:                                         ; preds = %while.body
   br i1 %cmp35, label %if.end71.critedge, label %if.end38
 
 if.end38:                                         ; preds = %if.end33
-  %incdec.ptr39 = getelementptr inbounds i64, ptr %lp.043, i64 1
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %lp.043, i64 8
   %call27 = tail call i32 @BN_is_zero(ptr noundef nonnull %call14) #3
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end38, %if.end26
   %lp.0.lcssa = phi ptr [ %call8, %if.end26 ], [ %incdec.ptr39, %if.end38 ]
-  %incdec.ptr40 = getelementptr inbounds i64, ptr %lp.0.lcssa, i64 -1
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %lp.0.lcssa, i64 -8
   %sub.ptr.lhs.cast42 = ptrtoint ptr %p.0 to i64
   %sub.ptr.rhs.cast43 = ptrtoint ptr %call10 to i64
   %sub.ptr.sub44.neg = add i64 %conv9, %sub.ptr.rhs.cast43
@@ -219,7 +217,7 @@ while.body53.lr.ph:                               ; preds = %if.end49
 while.body53:                                     ; preds = %while.body53.lr.ph, %if.end64
   %lp.146 = phi ptr [ %incdec.ptr40, %while.body53.lr.ph ], [ %incdec.ptr54, %if.end64 ]
   %p.145 = phi ptr [ %add.ptr, %while.body53.lr.ph ], [ %add.ptr66, %if.end64 ]
-  %incdec.ptr54 = getelementptr inbounds i64, ptr %lp.146, i64 -1
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %lp.146, i64 -8
   %sub.ptr.lhs.cast56 = ptrtoint ptr %p.145 to i64
   %sub59 = sub i64 %sub.ptr.sub44.neg, %sub.ptr.lhs.cast56
   %1 = load i64, ptr %incdec.ptr54, align 8
@@ -344,7 +342,7 @@ if.end.i:                                         ; preds = %if.end34
   %mul = shl nuw nsw i32 %2, 2
   %sub.i = add nuw nsw i32 %mul, 63
   %div.i3940 = lshr i32 %sub.i, 6
-  %dmax.i = getelementptr inbounds %struct.bignum_st, ptr %ret.0, i64 0, i32 2
+  %dmax.i = getelementptr inbounds i8, ptr %ret.0, i64 12
   %4 = load i32, ptr %dmax.i, align 4
   %cmp1.not.i = icmp sgt i32 %div.i3940, %4
   br i1 %cmp1.not.i, label %if.end3.i, label %while.body.preheader
@@ -390,7 +388,7 @@ if.then57:                                        ; preds = %for.cond44
 
 while.end:                                        ; preds = %if.then57
   %10 = trunc i64 %indvars.iv.next54 to i32
-  %top = getelementptr inbounds %struct.bignum_st, ptr %ret.0, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %ret.0, i64 8
   store i32 %10, ptr %top, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %ret.0) #3
   store ptr %ret.0, ptr %bn, align 8
@@ -399,7 +397,7 @@ while.end:                                        ; preds = %if.then57
   br i1 %cmp65.not, label %return, label %if.then67
 
 if.then67:                                        ; preds = %while.end
-  %neg68 = getelementptr inbounds %struct.bignum_st, ptr %ret.0, i64 0, i32 3
+  %neg68 = getelementptr inbounds i8, ptr %ret.0, i64 16
   store i32 %neg.0, ptr %neg68, align 8
   br label %return
 
@@ -504,7 +502,7 @@ if.end.i:                                         ; preds = %if.end30
   %mul = shl nuw nsw i32 %2, 2
   %sub.i = add nuw nsw i32 %mul, 63
   %div.i3839 = lshr i32 %sub.i, 6
-  %dmax.i = getelementptr inbounds %struct.bignum_st, ptr %ret.0, i64 0, i32 2
+  %dmax.i = getelementptr inbounds i8, ptr %ret.0, i64 12
   %4 = load i32, ptr %dmax.i, align 4
   %cmp1.not.i = icmp sgt i32 %div.i3839, %4
   br i1 %cmp1.not.i, label %bn_expand.exit, label %if.end35
@@ -556,13 +554,13 @@ if.end59:                                         ; preds = %lor.lhs.false54, %w
 while.end:                                        ; preds = %if.end59
   tail call void @bn_correct_top(ptr noundef nonnull %ret.0) #3
   store ptr %ret.0, ptr %bn, align 8
-  %top = getelementptr inbounds %struct.bignum_st, ptr %ret.0, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %ret.0, i64 8
   %6 = load i32, ptr %top, align 8
   %cmp60.not = icmp eq i32 %6, 0
   br i1 %cmp60.not, label %return, label %if.then62
 
 if.then62:                                        ; preds = %while.end
-  %neg63 = getelementptr inbounds %struct.bignum_st, ptr %ret.0, i64 0, i32 3
+  %neg63 = getelementptr inbounds i8, ptr %ret.0, i64 16
   store i32 %neg.0, ptr %neg63, align 8
   br label %return
 
@@ -624,13 +622,13 @@ if.end20:                                         ; preds = %if.else, %if.then13
 
 land.lhs.true24:                                  ; preds = %if.end20
   %4 = load ptr, ptr %bn, align 8
-  %top = getelementptr inbounds %struct.bignum_st, ptr %4, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %top, align 8
   %cmp25.not = icmp eq i32 %5, 0
   br i1 %cmp25.not, label %return, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true24
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %4, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %neg, align 8
   br label %return
 

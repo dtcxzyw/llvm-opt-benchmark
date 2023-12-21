@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
-%struct._PyNamespaceObject = type { %struct._object, ptr }
 
 @PyType_Type = external global %struct._typeobject, align 8
 @.str = private unnamed_addr constant [22 x i8] c"types.SimpleNamespace\00", align 1
@@ -34,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal void @namespace_dealloc(ptr noundef %ns) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %ns) #2
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %ns, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %ns, i64 16
   %0 = load ptr, ptr %ns_dict, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -59,7 +58,7 @@ if.then1.i:                                       ; preds = %if.end.i
 do.end:                                           ; preds = %entry, %if.then, %if.then1.i, %if.end.i
   %3 = getelementptr i8, ptr %ns, i64 8
   %ns.val = load ptr, ptr %3, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %ns.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %ns.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
   tail call void %4(ptr noundef nonnull %ns) #2
   ret void
@@ -74,7 +73,7 @@ entry:
   br i1 %cmp.i37.not, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %ns.val36, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %ns.val36, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   br label %cond.end
 
@@ -98,7 +97,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp10, label %Py_XDECREF.exit68, label %if.end12
 
 if.end12:                                         ; preds = %if.end
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %ns, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %ns, i64 16
   %2 = load ptr, ptr %ns_dict, align 8
   %3 = load i32, ptr %2, align 8
   %add.i.i = add i32 %3, 1
@@ -327,7 +326,7 @@ declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @namespace_traverse(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %ns, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %ns, i64 16
   %0 = load ptr, ptr %ns_dict, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -348,7 +347,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @namespace_clear(ptr nocapture noundef %ns) #0 {
 entry:
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %ns, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %ns, i64 16
   %0 = load ptr, ptr %ns_dict, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -399,9 +398,9 @@ PyObject_TypeCheck.exit8:                         ; preds = %land.lhs.true
   br i1 %tobool3.i6.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.exit8
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %self, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %ns_dict, align 8
-  %ns_dict3 = getelementptr inbounds %struct._PyNamespaceObject, ptr %other, i64 0, i32 1
+  %ns_dict3 = getelementptr inbounds i8, ptr %other, i64 16
   %3 = load ptr, ptr %ns_dict3, align 8
   %call4 = tail call ptr @PyObject_RichCompare(ptr noundef %2, ptr noundef %3, i32 noundef %op) #2
   br label %return
@@ -434,7 +433,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %ns, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %ns, i64 16
   %2 = load ptr, ptr %ns_dict, align 8
   %call8 = tail call i32 @PyDict_Update(ptr noundef %2, ptr noundef nonnull %kwds) #2
   br label %return
@@ -449,7 +448,7 @@ declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @namespace_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
 entry:
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #2
   %cmp.not = icmp eq ptr %call, null
@@ -457,7 +456,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @PyDict_New() #2
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %call, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %ns_dict, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %return
@@ -495,7 +494,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call ptr @PyDict_New() #2
-  %ns_dict.i = getelementptr inbounds %struct._PyNamespaceObject, ptr %call.i, i64 0, i32 1
+  %ns_dict.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %ns_dict.i, align 8
   %cmp3.i = icmp eq ptr %call1.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end
@@ -584,7 +583,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %ns, i64 8
   %ns.val = load ptr, ptr %0, align 8
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %ns, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %ns, i64 16
   %1 = load ptr, ptr %ns_dict, align 8
   %call2 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef %ns.val, ptr noundef nonnull %call, ptr noundef %1) #2
   %2 = load i64, ptr %call, align 8
@@ -626,9 +625,9 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %ns_dict = getelementptr inbounds %struct._PyNamespaceObject, ptr %call2, i64 0, i32 1
+  %ns_dict = getelementptr inbounds i8, ptr %call2, i64 16
   %1 = load ptr, ptr %ns_dict, align 8
-  %ns_dict6 = getelementptr inbounds %struct._PyNamespaceObject, ptr %self, i64 0, i32 1
+  %ns_dict6 = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %ns_dict6, align 8
   %call7 = tail call i32 @PyDict_Update(ptr noundef %1, ptr noundef %2) #2
   %cmp8 = icmp slt i32 %call7, 0

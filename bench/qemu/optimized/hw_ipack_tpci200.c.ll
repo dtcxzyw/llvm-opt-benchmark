@@ -11,39 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.4 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.TPCI200State = type { %struct.PCIDevice, %struct.IPackBus, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, [3 x i8], [4 x i8], i16, i8 }
-%struct.IPackBus = type { %struct.BusState, i8, i8, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.IPackDevice = type { %struct.DeviceState, i32, ptr }
-%struct.IPackDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @tpci200_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 4400, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @tpci200_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"tpci200\00", align 1
@@ -117,25 +84,25 @@ define internal void @tpci200_class_init(ptr noundef %klass, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #7
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
   store ptr @tpci200_realize, ptr %realize, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i9, i64 208
   store i16 5272, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i9, i64 210
   store i16 12488, ptr %device_id, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i9, i64 214
   store i16 1664, ptr %class_id, align 2
-  %subsystem_vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 9
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call.i9, i64 216
   store i16 5272, ptr %subsystem_vendor_id, align 8
-  %subsystem_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 10
+  %subsystem_id = getelementptr inbounds i8, ptr %call.i9, i64 218
   store i16 12298, ptr %subsystem_id, align 2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_tpci200, ptr %vmsd, align 8
   ret void
 }
@@ -144,7 +111,7 @@ entry:
 define internal void @tpci200_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, i32 noundef 75, ptr noundef nonnull @__func__.TPCI200) #7
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 4
   store i16 3, ptr %add.ptr, align 1
@@ -160,17 +127,17 @@ entry:
   store i32 150534, ptr %add.ptr5, align 1
   %add.ptr6 = getelementptr i8, ptr %0, i64 76
   store i32 3, ptr %add.ptr6, align 1
-  %mmio = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 2
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 2752
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %call.i, ptr noundef nonnull @tpci200_cfg_ops, ptr noundef %call.i, ptr noundef nonnull @.str.7, i64 noundef 128) #7
-  %io = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 3
+  %io = getelementptr inbounds i8, ptr %call.i, i64 3024
   tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %call.i, ptr noundef nonnull @tpci200_cfg_ops, ptr noundef %call.i, ptr noundef nonnull @.str.8, i64 noundef 128) #7
-  %las0 = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 4
+  %las0 = getelementptr inbounds i8, ptr %call.i, i64 3296
   tail call void @memory_region_init_io(ptr noundef nonnull %las0, ptr noundef %call.i, ptr noundef nonnull @tpci200_las0_ops, ptr noundef %call.i, ptr noundef nonnull @.str.9, i64 noundef 256) #7
-  %las1 = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 5
+  %las1 = getelementptr inbounds i8, ptr %call.i, i64 3568
   tail call void @memory_region_init_io(ptr noundef nonnull %las1, ptr noundef %call.i, ptr noundef nonnull @tpci200_las1_ops, ptr noundef %call.i, ptr noundef nonnull @.str.10, i64 noundef 1024) #7
-  %las2 = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 6
+  %las2 = getelementptr inbounds i8, ptr %call.i, i64 3840
   tail call void @memory_region_init_io(ptr noundef nonnull %las2, ptr noundef %call.i, ptr noundef nonnull @tpci200_las2_ops, ptr noundef %call.i, ptr noundef nonnull @.str.11, i64 noundef 33554432) #7
-  %las3 = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 7
+  %las3 = getelementptr inbounds i8, ptr %call.i, i64 4112
   tail call void @memory_region_init_io(ptr noundef nonnull %las3, ptr noundef %call.i, ptr noundef nonnull @tpci200_las3_ops, ptr noundef %call.i, ptr noundef nonnull @.str.12, i64 noundef 16777216) #7
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #7
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io) #7
@@ -178,7 +145,7 @@ entry:
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 3, i8 noundef zeroext 0, ptr noundef nonnull %las1) #7
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 4, i8 noundef zeroext 0, ptr noundef nonnull %las2) #7
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 5, i8 noundef zeroext 0, ptr noundef nonnull %las3) #7
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %call.i, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 2608
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
   tail call void @ipack_bus_init(ptr noundef nonnull %bus, i64 noundef 136, ptr noundef %call.i39, i8 noundef zeroext 4, ptr noundef nonnull @tpci200_set_irq) #7
   ret void
@@ -199,13 +166,13 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #7
   %call.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, i32 noundef 19, ptr noundef nonnull @__func__.IPACK_BUS) #7
   %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i36, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.5, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #7
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i37, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i37, i64 40
   %0 = load ptr, ptr %parent, align 8
   %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #7
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, i32 noundef 75, ptr noundef nonnull @__func__.TPCI200) #7
-  %slot = getelementptr inbounds %struct.IPackDevice, ptr %opaque, i64 0, i32 1
+  %slot = getelementptr inbounds i8, ptr %opaque, i64 160
   %1 = load i32, ptr %slot, align 8
-  %status = getelementptr inbounds %struct.TPCI200State, ptr %call.i39, i64 0, i32 10
+  %status = getelementptr inbounds i8, ptr %call.i39, i64 4392
   %2 = load i16, ptr %status, align 8
   %or.cond = icmp ult i32 %1, 4
   br i1 %or.cond, label %if.end, label %if.else
@@ -215,8 +182,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
+  %ctrl = getelementptr inbounds i8, ptr %call.i39, i64 4387
   %idxprom = zext nneg i32 %1 to i64
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %call.i39, i64 0, i32 9, i64 %idxprom
+  %arrayidx = getelementptr [4 x i8], ptr %ctrl, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %3 to i64
   %add = add i32 %intno, 6
@@ -255,7 +223,7 @@ if.then45:                                        ; preds = %do.end
   br i1 %tobool11.not, label %if.end103, label %if.then47
 
 if.then47:                                        ; preds = %if.then45
-  %int_set = getelementptr inbounds %struct.TPCI200State, ptr %call.i39, i64 0, i32 11
+  %int_set = getelementptr inbounds i8, ptr %call.i39, i64 4394
   %7 = load i8, ptr %int_set, align 2
   %tobool49.not = icmp eq i8 %7, 0
   %lnot.ext = zext i1 %tobool49.not to i32
@@ -268,7 +236,7 @@ if.then47:                                        ; preds = %if.then45
 for.cond58.preheader:                             ; preds = %do.end, %for.inc81
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.inc81 ], [ 0, %do.end ]
   %level_status.043 = phi i16 [ %level_status.2, %for.inc81 ], [ %storemerge, %do.end ]
-  %arrayidx64 = getelementptr %struct.TPCI200State, ptr %call.i39, i64 0, i32 9, i64 %indvars.iv46
+  %arrayidx64 = getelementptr [4 x i8], ptr %ctrl, i64 0, i64 %indvars.iv46
   %9 = load i8, ptr %arrayidx64, align 1
   %conv65 = zext i8 %9 to i64
   %10 = shl nuw nsw i64 %indvars.iv46, 1
@@ -297,7 +265,7 @@ for.inc81:                                        ; preds = %for.body61
 
 for.end83:                                        ; preds = %for.inc81
   %cond = icmp eq i16 %level_status.2, 0
-  %int_set95 = getelementptr inbounds %struct.TPCI200State, ptr %call.i39, i64 0, i32 11
+  %int_set95 = getelementptr inbounds i8, ptr %call.i39, i64 4394
   %15 = load i8, ptr %int_set95, align 2
   %tobool97.not = icmp eq i8 %15, 0
   br i1 %cond, label %land.lhs.true94, label %land.lhs.true86
@@ -344,21 +312,21 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 land.lhs.true:                                    ; preds = %if.end
-  %big_endian = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 8
+  %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %1 = load i8, ptr %big_endian, align 16
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %do.end, label %if.then14
 
 land.lhs.true4:                                   ; preds = %if.end
-  %arrayidx6 = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 1
+  %arrayidx6 = getelementptr i8, ptr %opaque, i64 4385
   %3 = load i8, ptr %arrayidx6, align 1
   %4 = and i8 %3, 1
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %do.end, label %if.then14
 
 land.lhs.true10:                                  ; preds = %if.end
-  %arrayidx12 = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 2
+  %arrayidx12 = getelementptr i8, ptr %opaque, i64 4386
   %5 = load i8, ptr %arrayidx12, align 2
   %6 = and i8 %5, 1
   %tobool13.not = icmp eq i8 %6, 0
@@ -386,8 +354,9 @@ entry:
 if.then:                                          ; preds = %entry, %entry, %entry
   %sub = add nuw nsw i64 %addr, 17179869141
   %div5 = lshr i64 %sub, 2
+  %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %idxprom = and i64 %div5, 4294967295
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr [3 x i8], ptr %big_endian, i64 0, i64 %idxprom
   %0 = trunc i64 %val to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %arrayidx, align 1
@@ -411,21 +380,22 @@ entry:
 sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry
   %div4 = lshr i64 %addr, 1
   %conv = add nuw nsw i64 %div4, 4294967295
+  %ctrl = getelementptr inbounds i8, ptr %opaque, i64 4387
   %idxprom = and i64 %conv, 4294967295
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 9, i64 %idxprom
+  %arrayidx = getelementptr [4 x i8], ptr %ctrl, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv2 = zext i8 %0 to i64
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %status = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 10
+  %status = getelementptr inbounds i8, ptr %opaque, i64 4392
   %1 = load i16, ptr %status, align 8
   %conv9 = zext i16 %1 to i64
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb8, %sw.bb1
   %ret.0 = phi i64 [ 0, %entry ], [ %conv2, %sw.bb1 ], [ %conv9, %sw.bb8 ]
-  %big_endian = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 8
+  %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %2 = load i8, ptr %big_endian, align 16
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -441,7 +411,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb8, %sw
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tpci200_write_las0(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
-  %big_endian = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 8
+  %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %0 = load i8, ptr %big_endian, align 16
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -460,16 +430,17 @@ entry:
   ]
 
 for.cond.preheader:                               ; preds = %entry
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
-  %status = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 10
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
+  %status = getelementptr inbounds i8, ptr %opaque, i64 4392
   br label %for.body
 
 sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry
   %div13 = lshr i64 %addr, 1
   %conv = add nuw nsw i64 %div13, 4294967295
   %conv2 = trunc i64 %val.addr.0 to i8
+  %ctrl = getelementptr inbounds i8, ptr %opaque, i64 4387
   %idxprom = and i64 %conv, 4294967295
-  %arrayidx3 = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 9, i64 %idxprom
+  %arrayidx3 = getelementptr [4 x i8], ptr %ctrl, i64 0, i64 %idxprom
   store i8 %conv2, ptr %arrayidx3, align 1
   br label %sw.epilog
 
@@ -488,7 +459,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool14.not, label %if.end, label %do.end17
 
 do.end17:                                         ; preds = %if.then
-  %irq = getelementptr inbounds %struct.IPackDevice, ptr %call11, i64 0, i32 2
+  %irq = getelementptr inbounds i8, ptr %call11, i64 168
   %5 = load ptr, ptr %irq, align 8
   %6 = load ptr, ptr %5, align 8
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef 0) #7
@@ -502,9 +473,9 @@ if.end:                                           ; preds = %do.end17, %if.then
   br i1 %tobool24.not, label %if.end31, label %do.end27
 
 do.end27:                                         ; preds = %if.end
-  %irq28 = getelementptr inbounds %struct.IPackDevice, ptr %call11, i64 0, i32 2
+  %irq28 = getelementptr inbounds i8, ptr %call11, i64 168
   %8 = load ptr, ptr %irq28, align 8
-  %arrayidx29 = getelementptr ptr, ptr %8, i64 1
+  %arrayidx29 = getelementptr i8, ptr %8, i64 8
   %9 = load ptr, ptr %arrayidx29, align 8
   tail call void @qemu_set_irq(ptr noundef %9, i32 noundef 0) #7
   br label %if.end31
@@ -543,7 +514,7 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tpci200_read_las1(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 1
+  %arrayidx = getelementptr i8, ptr %opaque, i64 4385
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -553,7 +524,7 @@ entry:
   %spec.select = xor i64 %xor.i, %addr
   %shr = lshr i64 %addr, 8
   %conv = trunc i64 %shr to i32
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end56, label %if.else
@@ -570,7 +541,7 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.else
-  %id_read = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 5
+  %id_read = getelementptr inbounds i8, ptr %call1.i, i64 208
   %4 = load ptr, ptr %id_read, align 8
   %tobool7.not = icmp eq ptr %4, null
   br i1 %tobool7.not, label %if.end56, label %if.then8
@@ -591,7 +562,7 @@ sw.bb12:                                          ; preds = %if.else
 if.then21:                                        ; preds = %sw.bb12
   %8 = lshr exact i8 %conv14, 1
   %div = zext nneg i8 %8 to i32
-  %status = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 10
+  %status = getelementptr inbounds i8, ptr %opaque, i64 4392
   %9 = load i16, ptr %status, align 8
   %conv23 = zext i16 %9 to i64
   %mul = shl i32 %conv, 1
@@ -606,8 +577,9 @@ land.lhs.true:                                    ; preds = %if.then21
   %add28 = or disjoint i32 %div, 4
   %sh_prom29 = zext nneg i32 %add28 to i64
   %shl30 = shl nuw nsw i64 1, %sh_prom29
+  %ctrl = getelementptr inbounds i8, ptr %opaque, i64 4387
   %idxprom = and i64 %shr, 4294967295
-  %arrayidx26 = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 9, i64 %idxprom
+  %arrayidx26 = getelementptr [4 x i8], ptr %ctrl, i64 0, i64 %idxprom
   %10 = load i8, ptr %arrayidx26, align 1
   %conv27 = zext i8 %10 to i64
   %and31 = and i64 %shl30, %conv27
@@ -615,7 +587,7 @@ land.lhs.true:                                    ; preds = %if.then21
   br i1 %tobool32.not, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %land.lhs.true
-  %irq = getelementptr inbounds %struct.IPackDevice, ptr %call, i64 0, i32 2
+  %irq = getelementptr inbounds i8, ptr %call, i64 168
   %11 = load ptr, ptr %irq, align 8
   %idxprom38 = zext nneg i8 %8 to i64
   %arrayidx39 = getelementptr ptr, ptr %11, i64 %idxprom38
@@ -624,7 +596,7 @@ if.then37:                                        ; preds = %land.lhs.true
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then21, %land.lhs.true, %if.then37, %sw.bb12
-  %int_read = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 7
+  %int_read = getelementptr inbounds i8, ptr %call1.i, i64 224
   %13 = load ptr, ptr %int_read, align 8
   %tobool42.not = icmp eq ptr %13, null
   br i1 %tobool42.not, label %if.end56, label %if.then43
@@ -634,7 +606,7 @@ if.then43:                                        ; preds = %if.end41
   br label %if.end56
 
 sw.default:                                       ; preds = %if.else
-  %io_read = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 3
+  %io_read = getelementptr inbounds i8, ptr %call1.i, i64 192
   %14 = load ptr, ptr %io_read, align 8
   %tobool50.not = icmp eq ptr %14, null
   br i1 %tobool50.not, label %if.end56, label %if.then51
@@ -661,7 +633,7 @@ if.end56:                                         ; preds = %if.then8, %sw.bb, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tpci200_write_las1(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 1
+  %arrayidx = getelementptr i8, ptr %opaque, i64 4385
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -689,7 +661,7 @@ adjust_value.exit:                                ; preds = %adjust_addr.exit.th
   %val.addr.0 = phi i64 [ %conv1.i, %if.then.i19 ], [ %val, %adjust_addr.exit ], [ %val, %adjust_addr.exit.thread ]
   %shr = lshr i64 %addr.addr.030, 8
   %conv = trunc i64 %shr to i32
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call6 = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #7
   %cmp = icmp eq ptr %call6, null
   br i1 %cmp, label %if.end30, label %if.else
@@ -706,19 +678,19 @@ if.else:                                          ; preds = %adjust_value.exit
   ]
 
 sw.bb:                                            ; preds = %if.else
-  %id_write = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 6
+  %id_write = getelementptr inbounds i8, ptr %call1.i, i64 216
   %5 = load ptr, ptr %id_write, align 8
   %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %if.end30, label %if.end30.sink.split
 
 sw.bb15:                                          ; preds = %if.else
-  %int_write = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 8
+  %int_write = getelementptr inbounds i8, ptr %call1.i, i64 232
   %6 = load ptr, ptr %int_write, align 8
   %tobool18.not = icmp eq ptr %6, null
   br i1 %tobool18.not, label %if.end30, label %if.end30.sink.split
 
 sw.default:                                       ; preds = %if.else
-  %io_write = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 4
+  %io_write = getelementptr inbounds i8, ptr %call1.i, i64 200
   %7 = load ptr, ptr %io_write, align 8
   %tobool25.not = icmp eq ptr %7, null
   br i1 %tobool25.not, label %if.end30, label %if.end30.sink.split
@@ -741,7 +713,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tpci200_read_las2(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 2
+  %arrayidx = getelementptr i8, ptr %opaque, i64 4386
   %0 = load i8, ptr %arrayidx, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -753,7 +725,7 @@ entry:
   %conv = trunc i64 %shr to i32
   %2 = trunc i64 %spec.select to i32
   %conv1 = and i32 %2, 8388607
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end9, label %if.else
@@ -761,7 +733,7 @@ entry:
 if.else:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #7
-  %mem_read16 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 9
+  %mem_read16 = getelementptr inbounds i8, ptr %call1.i, i64 240
   %3 = load ptr, ptr %mem_read16, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
@@ -788,7 +760,7 @@ if.end9:                                          ; preds = %if.else, %if.then5,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tpci200_write_las2(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
-  %arrayidx = getelementptr %struct.TPCI200State, ptr %opaque, i64 0, i32 8, i64 2
+  %arrayidx = getelementptr i8, ptr %opaque, i64 4386
   %0 = load i8, ptr %arrayidx, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -818,7 +790,7 @@ adjust_value.exit:                                ; preds = %adjust_addr.exit.th
   %conv = trunc i64 %shr to i32
   %3 = trunc i64 %addr.addr.015 to i32
   %conv4 = and i32 %3, 8388607
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call5 = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #7
   %cmp = icmp eq ptr %call5, null
   br i1 %cmp, label %if.end12, label %if.else
@@ -826,7 +798,7 @@ adjust_value.exit:                                ; preds = %adjust_addr.exit.th
 if.else:                                          ; preds = %adjust_value.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call5) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #7
-  %mem_write16 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 10
+  %mem_write16 = getelementptr inbounds i8, ptr %call1.i, i64 248
   %4 = load ptr, ptr %mem_write16, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end12, label %if.then9
@@ -847,7 +819,7 @@ entry:
   %conv = trunc i64 %shr to i32
   %0 = trunc i64 %addr to i32
   %conv1 = and i32 %0, 4194303
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end8, label %if.else
@@ -855,7 +827,7 @@ entry:
 if.else:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #7
-  %mem_read8 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 11
+  %mem_read8 = getelementptr inbounds i8, ptr %call1.i, i64 256
   %1 = load ptr, ptr %mem_read8, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end8, label %if.then4
@@ -877,7 +849,7 @@ entry:
   %conv = trunc i64 %shr to i32
   %0 = trunc i64 %addr to i32
   %conv1 = and i32 %0, 4194303
-  %bus = getelementptr inbounds %struct.TPCI200State, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
   %call = tail call ptr @ipack_device_find(ptr noundef nonnull %bus, i32 noundef %conv) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end7, label %if.else
@@ -885,7 +857,7 @@ entry:
 if.else:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #7
-  %mem_write8 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 12
+  %mem_write8 = getelementptr inbounds i8, ptr %call1.i, i64 264
   %1 = load ptr, ptr %mem_write8, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end7, label %if.then4

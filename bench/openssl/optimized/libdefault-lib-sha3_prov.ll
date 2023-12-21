@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.prov_sha3_meth_st = type { ptr, ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.keccak_st = type { [5 x [5 x i64]], [168 x i8], i64, i64, i64, i8, %struct.prov_sha3_meth_st, i32 }
 
 @ossl_sha3_224_functions = local_unnamed_addr constant [9 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sha3_224_newctx }, %struct.ossl_dispatch_st { i32 3, ptr @keccak_update }, %struct.ossl_dispatch_st { i32 4, ptr @keccak_final }, %struct.ossl_dispatch_st { i32 6, ptr @keccak_freectx }, %struct.ossl_dispatch_st { i32 7, ptr @keccak_dupctx }, %struct.ossl_dispatch_st { i32 8, ptr @sha3_224_get_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_digest_default_gettable_params }, %struct.ossl_dispatch_st { i32 2, ptr @keccak_init }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_sha3_256_functions = local_unnamed_addr constant [9 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sha3_256_newctx }, %struct.ossl_dispatch_st { i32 3, ptr @keccak_update }, %struct.ossl_dispatch_st { i32 4, ptr @keccak_final }, %struct.ossl_dispatch_st { i32 6, ptr @keccak_freectx }, %struct.ossl_dispatch_st { i32 7, ptr @keccak_dupctx }, %struct.ossl_dispatch_st { i32 8, ptr @sha3_256_get_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_digest_default_gettable_params }, %struct.ossl_dispatch_st { i32 2, ptr @keccak_init }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -41,7 +40,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 6, i64 noundef 224) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -53,13 +52,13 @@ return:                                           ; preds = %entry, %cond.end, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @keccak_update(ptr noundef %vctx, ptr noundef %inp, i64 noundef %len) #0 {
 entry:
-  %block_size = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 2
+  %block_size = getelementptr inbounds i8, ptr %vctx, i64 368
   %0 = load i64, ptr %block_size, align 8
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bufsz = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 4
+  %bufsz = getelementptr inbounds i8, ptr %vctx, i64 384
   %1 = load i64, ptr %bufsz, align 8
   %cmp1.not = icmp eq i64 %1, 0
   br i1 %cmp1.not, label %if.end15, label %if.then2
@@ -67,7 +66,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %sub = sub i64 %0, %1
   %cmp3 = icmp ugt i64 %sub, %len
-  %buf = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %vctx, i64 200
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %1
   br i1 %cmp3, label %if.then4, label %if.end6
 
@@ -81,7 +80,7 @@ if.end6:                                          ; preds = %if.then2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %inp, i64 %sub, i1 false)
   %add.ptr10 = getelementptr inbounds i8, ptr %inp, i64 %sub
   %sub11 = sub i64 %len, %sub
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %vctx, i64 400
   %3 = load ptr, ptr %meth, align 8
   %call = tail call i64 %3(ptr noundef nonnull %vctx, ptr noundef nonnull %buf, i64 noundef %0) #4
   store i64 0, ptr %bufsz, align 8
@@ -90,14 +89,14 @@ if.end6:                                          ; preds = %if.then2
 if.end15:                                         ; preds = %if.end6, %if.end
   %len.addr.0 = phi i64 [ %sub11, %if.end6 ], [ %len, %if.end ]
   %inp.addr.0 = phi ptr [ %add.ptr10, %if.end6 ], [ %inp, %if.end ]
-  %meth16 = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 6
+  %meth16 = getelementptr inbounds i8, ptr %vctx, i64 400
   %4 = load ptr, ptr %meth16, align 8
   %call18 = tail call i64 %4(ptr noundef nonnull %vctx, ptr noundef %inp.addr.0, i64 noundef %len.addr.0) #4
   %tobool.not = icmp eq i64 %call18, 0
   br i1 %tobool.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %buf20 = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 1
+  %buf20 = getelementptr inbounds i8, ptr %vctx, i64 200
   %add.ptr22 = getelementptr inbounds i8, ptr %inp.addr.0, i64 %len.addr.0
   %idx.neg = sub i64 0, %call18
   %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr22, i64 %idx.neg
@@ -125,16 +124,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %final = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 6, i32 1
+  %final = getelementptr inbounds i8, ptr %vctx, i64 408
   %0 = load ptr, ptr %final, align 8
-  %md_size = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 3
+  %md_size = getelementptr inbounds i8, ptr %vctx, i64 376
   %1 = load i64, ptr %md_size, align 8
   %call2 = tail call i32 %0(ptr noundef %vctx, ptr noundef %out, i64 noundef %1) #4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end
   %ret.0 = phi i32 [ %call2, %if.then1 ], [ 1, %if.end ]
-  %md_size4 = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 3
+  %md_size4 = getelementptr inbounds i8, ptr %vctx, i64 376
   %2 = load i64, ptr %md_size4, align 8
   store i64 %2, ptr %outl, align 8
   br label %return
@@ -211,7 +210,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 6, i64 noundef 256) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -241,7 +240,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 6, i64 noundef 384) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -271,7 +270,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 6, i64 noundef 512) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -301,7 +300,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 1, i64 noundef 224) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -331,7 +330,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 1, i64 noundef 256) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -361,7 +360,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 1, i64 noundef 384) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -391,7 +390,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 1, i64 noundef 512) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -421,7 +420,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 31, i64 noundef 128) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @shake_generic_md, i64 24, i1 false)
   br label %return
 
@@ -445,7 +444,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %squeeze = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 6, i32 2
+  %squeeze = getelementptr inbounds i8, ptr %vctx, i64 416
   %0 = load ptr, ptr %squeeze, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end2
@@ -490,7 +489,7 @@ if.end3.i:                                        ; preds = %if.end.i2
   br i1 %cmp4.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
-  %md_size.i = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 3
+  %md_size.i = getelementptr inbounds i8, ptr %vctx, i64 376
   %call5.i = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call.i3, ptr noundef nonnull %md_size.i) #4
   %tobool.not.i4 = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i4, label %if.then6.i, label %land.end
@@ -522,7 +521,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %md_size = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 3
+  %md_size = getelementptr inbounds i8, ptr %vctx, i64 376
   %call5 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call, ptr noundef nonnull %md_size) #4
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.then6, label %return
@@ -558,7 +557,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_sha3_init(ptr noundef nonnull %call1, i8 noundef zeroext 31, i64 noundef 256) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @shake_generic_md, i64 24, i1 false)
   br label %return
 
@@ -588,7 +587,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_keccak_kmac_init(ptr noundef nonnull %call1, i8 noundef zeroext 4, i64 noundef 128) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -618,7 +617,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %call2 = tail call i32 @ossl_keccak_kmac_init(ptr noundef nonnull %call1, i8 noundef zeroext 4, i64 noundef 256) #4
-  %meth = getelementptr inbounds %struct.keccak_st, ptr %call1, i64 0, i32 6
+  %meth = getelementptr inbounds i8, ptr %call1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %meth, ptr noundef nonnull align 8 dereferenceable(24) @sha3_generic_md, i64 24, i1 false)
   br label %return
 
@@ -646,14 +645,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal i64 @generic_sha3_absorb(ptr noundef %vctx, ptr noundef %inp, i64 noundef %len) #0 {
 entry:
-  %xof_state = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 7
+  %xof_state = getelementptr inbounds i8, ptr %vctx, i64 424
   %0 = load i32, ptr %xof_state, align 8
   %switch = icmp ult i32 %0, 2
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i32 1, ptr %xof_state, align 8
-  %block_size = getelementptr inbounds %struct.keccak_st, ptr %vctx, i64 0, i32 2
+  %block_size = getelementptr inbounds i8, ptr %vctx, i64 368
   %1 = load i64, ptr %block_size, align 8
   %call = tail call i64 @SHA3_absorb(ptr noundef nonnull %vctx, ptr noundef %inp, i64 noundef %len, i64 noundef %1) #4
   br label %return

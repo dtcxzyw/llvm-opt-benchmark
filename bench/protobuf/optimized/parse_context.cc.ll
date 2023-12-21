@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache" = type { i64, i64, ptr, [8 x i8] }
-%"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
-%"class.google::protobuf::internal::ParseContext" = type { %"class.google::protobuf::internal::EpsCopyInputStream", i32, i32, %"struct.google::protobuf::internal::ParseContext::Data" }
-%"struct.google::protobuf::internal::ParseContext::Data" = type { ptr, ptr }
 %"class.google::protobuf::internal::UnknownFieldLiteParserHelper" = type { ptr }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
@@ -18,40 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.16" }
 %"struct.std::_Head_base.16" = type { ptr }
-%"class.google::protobuf::RepeatedField" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<int>::Rep" = type { %union.anon.17 }
-%union.anon.17 = type { ptr }
-%"class.google::protobuf::internal::SerialArena" = type { %"struct.std::atomic.20", ptr, ptr, ptr, %"struct.std::atomic.22", %"struct.std::atomic.24", %"struct.std::atomic.26", %"struct.std::atomic.24", %"struct.std::atomic.24", ptr, i8, ptr }
-%"struct.std::atomic.20" = type { %"struct.std::__atomic_base.21" }
-%"struct.std::__atomic_base.21" = type { ptr }
-%"struct.std::atomic.22" = type { %"struct.std::__atomic_base.23" }
-%"struct.std::__atomic_base.23" = type { ptr }
-%"struct.std::atomic.26" = type { %"struct.std::__atomic_base.27" }
-%"struct.std::__atomic_base.27" = type { ptr }
-%"struct.std::atomic.24" = type { %"struct.std::__atomic_base.25" }
-%"struct.std::__atomic_base.25" = type { i64 }
-%"class.google::protobuf::RepeatedField.31" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<unsigned int>::Rep" = type { %union.anon.33 }
-%union.anon.33 = type { ptr }
-%"class.google::protobuf::RepeatedField.37" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<long>::Rep" = type { %union.anon.39 }
-%union.anon.39 = type { ptr }
-%"class.google::protobuf::RepeatedField.43" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<unsigned long>::Rep" = type { %union.anon.45 }
-%union.anon.45 = type { ptr }
-%"class.google::protobuf::RepeatedField.55" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<bool>::Rep" = type { %union.anon.57 }
-%union.anon.57 = type { ptr }
 %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20230802::Span" = type { ptr, i64 }
-%"class.google::protobuf::RepeatedField.61" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<float>::Rep" = type { %union.anon.63 }
-%union.anon.63 = type { ptr }
-%"class.google::protobuf::RepeatedField.65" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<double>::Rep" = type { %union.anon.67 }
-%union.anon.67 = type { ptr }
 
 $_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii = comdat any
 
@@ -341,12 +308,12 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr 
 entry:
   %call = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 0, i32 noundef -1)
   %cmp = icmp eq ptr %call, null
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i, align 8
   br label %return
 
@@ -354,7 +321,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %limit_, align 4
   %2 = trunc i64 %sub.ptr.sub.neg to i32
   %conv3 = add i32 %1, %2
@@ -374,26 +341,26 @@ return:                                           ; preds = %if.end, %if.then
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %overrun, i32 noundef %depth) local_unnamed_addr #4 comdat align 2 {
 entry:
   %data = alloca ptr, align 8
-  %next_chunk_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_chunk_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %patch_buffer_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6
+  %patch_buffer_ = getelementptr inbounds i8, ptr %this, i64 40
   %cmp3.not = icmp eq ptr %0, %patch_buffer_
   br i1 %cmp3.not, label %if.end15, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %size_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %size_, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr6, ptr %buffer_end_, align 8
   store ptr %patch_buffer_, ptr %next_chunk_, align 8
-  %aliasing_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %aliasing_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i64, ptr %aliasing_, align 8
   %cmp11 = icmp eq i64 %2, 1
   br i1 %cmp11, label %if.then12, label %return
@@ -403,10 +370,10 @@ if.then12:                                        ; preds = %if.then4
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %buffer_end_18 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_18 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %buffer_end_18, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
-  %overall_limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_ = getelementptr inbounds i8, ptr %this, i64 84
   %4 = load i32, ptr %overall_limit_, align 4
   %cmp19 = icmp sgt i32 %4, 0
   br i1 %cmp19, label %land.lhs.true, label %if.end69
@@ -420,14 +387,14 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %call, label %if.end69, label %if.then23
 
 if.then23:                                        ; preds = %lor.lhs.false, %land.lhs.true
-  %zcis_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 5
-  %size_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %zcis_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %if.else, %if.then23
   %5 = load ptr, ptr %zcis_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %data, ptr noundef nonnull %size_.i)
   br i1 %call.i, label %while.body, label %while.end
@@ -441,12 +408,12 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %while.body
-  %add.ptr30 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6, i64 16
+  %add.ptr30 = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %data, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30, ptr noundef nonnull align 1 dereferenceable(16) %9, i64 16, i1 false)
   store ptr %9, ptr %next_chunk_, align 8
   store ptr %add.ptr30, ptr %buffer_end_18, align 8
-  %aliasing_36 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %aliasing_36 = getelementptr inbounds i8, ptr %this, i64 72
   %10 = load i64, ptr %aliasing_36, align 8
   %cmp37 = icmp ugt i64 %10, 1
   br i1 %cmp37, label %if.then38, label %return
@@ -460,14 +427,14 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp44, label %if.then45, label %while.cond, !llvm.loop !9
 
 if.then45:                                        ; preds = %if.else
-  %add.ptr48 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6, i64 16
+  %add.ptr48 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load ptr, ptr %data, align 8
   %conv = zext nneg i32 %7 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr48, ptr align 1 %11, i64 %conv, i1 false)
   store ptr %0, ptr %next_chunk_, align 8
   %add.ptr57 = getelementptr inbounds i8, ptr %0, i64 %conv
   store ptr %add.ptr57, ptr %buffer_end_18, align 8
-  %aliasing_59 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %aliasing_59 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load i64, ptr %aliasing_59, align 8
   %cmp60 = icmp ugt i64 %12, 1
   br i1 %cmp60, label %if.then61, label %return
@@ -481,7 +448,7 @@ while.end:                                        ; preds = %while.cond
   br label %if.end69
 
 if.end69:                                         ; preds = %while.end, %lor.lhs.false, %if.end15
-  %aliasing_70 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %aliasing_70 = getelementptr inbounds i8, ptr %this, i64 72
   %13 = load i64, ptr %aliasing_70, align 8
   %cmp71 = icmp eq i64 %13, 2
   br i1 %cmp71, label %if.then72, label %if.end77
@@ -496,9 +463,9 @@ if.then72:                                        ; preds = %if.end69
 
 if.end77:                                         ; preds = %if.then72, %if.end69
   store ptr null, ptr %next_chunk_, align 8
-  %add.ptr81 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6, i64 16
+  %add.ptr81 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr81, ptr %buffer_end_18, align 8
-  %size_83 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %size_83 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %size_83, align 8
   br label %return
 
@@ -509,13 +476,13 @@ return:                                           ; preds = %if.then45, %if.then
 ; Function Attrs: mustprogress uwtable
 define { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %overrun, i32 noundef %depth) local_unnamed_addr #4 align 2 {
 entry:
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %limit_, align 4
   %cmp = icmp slt i32 %0, %overrun
   br i1 %cmp, label %return, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
-  %buffer_end_25 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_25 = getelementptr inbounds i8, ptr %this, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end24
@@ -531,7 +498,7 @@ if.then11:                                        ; preds = %do.body
 while.end21:                                      ; preds = %if.then11
   %1 = load ptr, ptr %buffer_end_25, align 8
   store ptr %1, ptr %this, align 8
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i, align 8
   br label %return
 
@@ -570,15 +537,15 @@ return:                                           ; preds = %if.then11, %entry, 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream12SkipFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %ptr, i32 noundef %size) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %ptr to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
-  %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %next_chunk_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %limit_.i = getelementptr inbounds i8, ptr %this, i64 28
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end8.i, %entry
@@ -601,7 +568,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %if.end8.i
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %if.end5.i
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i, align 8
   store ptr %3, ptr %this, align 8
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit"
@@ -642,12 +609,12 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadString
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #18
   %conv = sext i32 %size to i64
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %limit_, align 4
   %conv2 = sext i32 %1 to i64
   %add = add nsw i64 %sub.ptr.sub, %conv2
@@ -669,7 +636,7 @@ if.end:                                           ; preds = %if.then, %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end8.i, %if.end
@@ -695,7 +662,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %if.end8.i
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %if.end5.i
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i, align 8
   store ptr %5, ptr %this, align 8
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EES5_S5_iRKT_.exit"
@@ -744,12 +711,12 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream20AppendStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %ptr, i32 noundef %size, ptr noundef %str) local_unnamed_addr #4 align 2 {
 entry:
   %conv = sext i32 %size to i64
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %limit_, align 4
   %conv2 = sext i32 %1 to i64
   %add = add nsw i64 %sub.ptr.sub, %conv2
@@ -771,7 +738,7 @@ if.end:                                           ; preds = %if.then, %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end8.i, %if.end
@@ -797,7 +764,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %if.end8.i
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %if.end5.i
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i, align 8
   store ptr %5, ptr %this, align 8
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_20AppendStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EES5_S5_iRKT_.exit"
@@ -839,10 +806,10 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadCordFa
 entry:
   %data.i = alloca ptr, align 8
   %size.i = alloca i32, align 4
-  %zcis_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 5
+  %zcis_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %zcis_, align 8
   %cmp = icmp eq ptr %0, null
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -866,8 +833,8 @@ if.end:                                           ; preds = %if.then
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
-  %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %next_chunk_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %limit_.i = getelementptr inbounds i8, ptr %this, i64 28
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end8.i, %if.end
@@ -893,7 +860,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %if.end8.i
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %if.end5.i
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i, align 8
   store ptr %5, ptr %this, align 8
   br label %return
@@ -926,7 +893,7 @@ do.end.i:                                         ; preds = %if.end8.i
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   %8 = load i32, ptr %limit_, align 4
   %9 = trunc i64 %sub.ptr.sub to i32
   %conv13 = add i32 %8, %9
@@ -936,7 +903,7 @@ if.end6:                                          ; preds = %entry
 if.end16:                                         ; preds = %if.end6
   %sub = sub nsw i32 %conv13, %size
   %conv23 = add i32 %9, 16
-  %patch_buffer_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6
+  %patch_buffer_ = getelementptr inbounds i8, ptr %this, i64 40
   %cmp26 = icmp slt i32 %conv23, 33
   %10 = ptrtoint ptr %patch_buffer_ to i64
   %sub24 = sub i64 %sub.ptr.rhs.cast, %10
@@ -948,10 +915,10 @@ if.then27:                                        ; preds = %if.end16
   tail call void @_ZN4absl12lts_202308024Cord5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %11 = load ptr, ptr %zcis_, align 8
   %vtable.i = load ptr, ptr %11, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %12 = load ptr, ptr %vfn.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %conv23)
-  %overall_limit_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_.i = getelementptr inbounds i8, ptr %this, i64 84
   %13 = load i32, ptr %overall_limit_.i, align 4
   %add.i = add nsw i32 %13, %conv23
   store i32 %add.i, ptr %overall_limit_.i, align 4
@@ -962,7 +929,7 @@ if.else:                                          ; preds = %if.end16
   br i1 %cmp28, label %land.lhs.true, label %if.else36
 
 land.lhs.true:                                    ; preds = %if.else
-  %next_chunk_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_ = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %next_chunk_, align 8
   %cmp29.not = icmp eq ptr %14, null
   %cmp34.not = icmp eq ptr %14, %patch_buffer_
@@ -971,14 +938,14 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then35:                                        ; preds = %land.lhs.true
   tail call void @_ZN4absl12lts_202308024Cord5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %cord)
-  %size_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load i32, ptr %size_, align 8
   %16 = load ptr, ptr %zcis_, align 8
   %vtable.i34 = load ptr, ptr %16, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 3
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 24
   %17 = load ptr, ptr %vfn.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %15)
-  %overall_limit_.i36 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_.i36 = getelementptr inbounds i8, ptr %this, i64 84
   %18 = load i32, ptr %overall_limit_.i36, align 4
   %add.i37 = add nsw i32 %18, %15
   store i32 %add.i37, ptr %overall_limit_.i36, align 4
@@ -988,13 +955,13 @@ if.else36:                                        ; preds = %land.lhs.true, %if.
   %sub37 = sub nsw i32 %size, %conv23
   %conv41 = sext i32 %conv23 to i64
   %call42 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_202308024CordaSESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %cord, i64 %conv41, ptr %ptr)
-  %next_chunk_43 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_43 = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load ptr, ptr %next_chunk_43, align 8
   %cmp46 = icmp eq ptr %19, %patch_buffer_
   br i1 %cmp46, label %if.else36.if.end58_crit_edge, label %if.else48
 
 if.else36.if.end58_crit_edge:                     ; preds = %if.else36
-  %overall_limit_.phi.trans.insert = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 84
   %.pre = load i32, ptr %overall_limit_.phi.trans.insert, align 4
   br label %if.end58
 
@@ -1003,20 +970,20 @@ if.else48:                                        ; preds = %if.else36
   br i1 %cmp50, label %if.then51, label %if.else52
 
 if.then51:                                        ; preds = %if.else48
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i, align 8
   br label %return
 
 if.else52:                                        ; preds = %if.else48
-  %size_53 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %size_53 = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load i32, ptr %size_53, align 8
   %sub54 = add nsw i32 %20, -16
   %21 = load ptr, ptr %zcis_, align 8
   %vtable.i40 = load ptr, ptr %21, align 8
-  %vfn.i41 = getelementptr inbounds ptr, ptr %vtable.i40, i64 3
+  %vfn.i41 = getelementptr inbounds i8, ptr %vtable.i40, i64 24
   %22 = load ptr, ptr %vfn.i41, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %sub54)
-  %overall_limit_.i42 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_.i42 = getelementptr inbounds i8, ptr %this, i64 84
   %23 = load i32, ptr %overall_limit_.i42, align 4
   %add.i43 = add nsw i32 %23, %sub54
   store i32 %add.i43, ptr %overall_limit_.i42, align 4
@@ -1025,7 +992,7 @@ if.else52:                                        ; preds = %if.else48
 if.end58:                                         ; preds = %if.else36.if.end58_crit_edge, %if.then35, %if.else52, %if.then27
   %24 = phi i32 [ %add.i, %if.then27 ], [ %add.i37, %if.then35 ], [ %.pre, %if.else36.if.end58_crit_edge ], [ %add.i43, %if.else52 ]
   %size.addr.0 = phi i32 [ %size, %if.then27 ], [ %size, %if.then35 ], [ %sub37, %if.else36.if.end58_crit_edge ], [ %sub37, %if.else52 ]
-  %overall_limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_ = getelementptr inbounds i8, ptr %this, i64 84
   %cmp59 = icmp sgt i32 %size.addr.0, %24
   br i1 %cmp59, label %return, label %if.end61
 
@@ -1034,7 +1001,7 @@ if.end61:                                         ; preds = %if.end58
   store i32 %sub63, ptr %overall_limit_, align 4
   %25 = load ptr, ptr %zcis_, align 8
   %vtable = load ptr, ptr %25, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %26 = load ptr, ptr %vfn, align 8
   %call65 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %cord, i32 noundef %size.addr.0)
   br i1 %call65, label %if.end67, label %return
@@ -1045,7 +1012,7 @@ if.end67:                                         ; preds = %if.end61
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
   store i32 2147483647, ptr %limit_, align 4
   %vtable.i46 = load ptr, ptr %27, align 8
-  %vfn.i47 = getelementptr inbounds ptr, ptr %vtable.i46, i64 2
+  %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 16
   %28 = load ptr, ptr %vfn.i47, align 8
   %call.i = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %data.i, ptr noundef nonnull %size.i)
   br i1 %call.i, label %if.then.i, label %if.end24.i
@@ -1064,9 +1031,9 @@ if.then2.i:                                       ; preds = %if.then.i
   %add.ptr.i52 = getelementptr inbounds i8, ptr %31, i64 %idx.ext.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 -16
   store ptr %add.ptr6.i, ptr %buffer_end_, align 8
-  %next_chunk_.i54 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_.i54 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %patch_buffer_, ptr %next_chunk_.i54, align 8
-  %aliasing_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %aliasing_.i = getelementptr inbounds i8, ptr %this, i64 72
   %32 = load i64, ptr %aliasing_.i, align 8
   %cmp7.i = icmp eq i64 %32, 1
   br i1 %cmp7.i, label %if.then8.i, label %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit
@@ -1076,12 +1043,12 @@ if.then8.i:                                       ; preds = %if.then2.i
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %add.ptr12.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6, i64 16
+  %add.ptr12.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr12.i, ptr %buffer_end_, align 8
   store ptr %add.ptr12.i, ptr %this, align 8
-  %next_chunk_17.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_17.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %patch_buffer_, ptr %next_chunk_17.i, align 8
-  %add.ptr21.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %add.ptr21.i = getelementptr inbounds i8, ptr %this, i64 72
   %idx.ext22.i = sext i32 %29 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext22.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 %idx.neg.i
@@ -1092,9 +1059,9 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.end24.i:                                       ; preds = %if.end67
   store i32 0, ptr %overall_limit_, align 4
-  %next_chunk_26.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_26.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %next_chunk_26.i, align 8
-  %size_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %size_.i, align 8
   store ptr %patch_buffer_, ptr %buffer_end_, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit
@@ -1130,19 +1097,19 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPN
 entry:
   %data = alloca ptr, align 8
   %size = alloca i32, align 4
-  %zcis_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 5
+  %zcis_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %zcis, ptr %zcis_, align 8
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 2147483647, ptr %limit_, align 4
   %vtable = load ptr, ptr %zcis, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %zcis, ptr noundef nonnull %data, ptr noundef nonnull %size)
   br i1 %call, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %size, align 4
-  %overall_limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_ = getelementptr inbounds i8, ptr %this, i64 84
   %2 = load i32, ptr %overall_limit_, align 4
   %sub = sub nsw i32 %2, %1
   store i32 %sub, ptr %overall_limit_, align 4
@@ -1158,13 +1125,13 @@ if.then2:                                         ; preds = %if.then
   %idx.ext = zext nneg i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr6, ptr %buffer_end_, align 8
   store ptr %add.ptr6, ptr %this, align 8
-  %patch_buffer_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6
-  %next_chunk_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %patch_buffer_ = getelementptr inbounds i8, ptr %this, i64 40
+  %next_chunk_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %patch_buffer_, ptr %next_chunk_, align 8
-  %aliasing_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %aliasing_ = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i64, ptr %aliasing_, align 8
   %cmp7 = icmp eq i64 %5, 1
   br i1 %cmp7, label %if.then8, label %return
@@ -1174,14 +1141,14 @@ if.then8:                                         ; preds = %if.then2
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %patch_buffer_10 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6
-  %add.ptr12 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6, i64 16
-  %buffer_end_13 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %patch_buffer_10 = getelementptr inbounds i8, ptr %this, i64 40
+  %add.ptr12 = getelementptr inbounds i8, ptr %this, i64 56
+  %buffer_end_13 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr12, ptr %buffer_end_13, align 8
   store ptr %add.ptr12, ptr %this, align 8
-  %next_chunk_17 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_17 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %patch_buffer_10, ptr %next_chunk_17, align 8
-  %add.ptr21 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 7
+  %add.ptr21 = getelementptr inbounds i8, ptr %this, i64 72
   %idx.ext22 = sext i32 %1 to i64
   %idx.neg = sub nsw i64 0, %idx.ext22
   %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr21, i64 %idx.neg
@@ -1190,14 +1157,14 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end24:                                         ; preds = %entry
-  %overall_limit_25 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 9
+  %overall_limit_25 = getelementptr inbounds i8, ptr %this, i64 84
   store i32 0, ptr %overall_limit_25, align 4
-  %next_chunk_26 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 2
+  %next_chunk_26 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %next_chunk_26, align 8
-  %size_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %size_, align 8
-  %patch_buffer_27 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 6
-  %buffer_end_29 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %patch_buffer_27 = getelementptr inbounds i8, ptr %this, i64 40
+  %buffer_end_29 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %patch_buffer_27, ptr %buffer_end_29, align 8
   store ptr %patch_buffer_27, ptr %this, align 8
   br label %return
@@ -1264,13 +1231,13 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 lor.lhs.false.i:                                  ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %this, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i32, ptr %depth_.i, align 8
   %cmp.i = icmp slt i32 %5, 1
   br i1 %cmp.i, label %_ZN6google8protobuf8internal12ParseContext35ReadSizeAndPushLimitAndDepthInlinedEPKcPNS1_18EpsCopyInputStream10LimitTokenE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %buffer_end_.i, align 8, !noalias !15
   %sub.ptr.lhs.cast.i = ptrtoint ptr %storemerge.i.ph to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
@@ -1281,7 +1248,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %idx.ext.i = sext i32 %.sroa.speculated.i to i64
   %add.ptr.i3 = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i
   store ptr %add.ptr.i3, ptr %this, align 8, !noalias !15
-  %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_.i = getelementptr inbounds i8, ptr %this, i64 28
   %7 = load i32, ptr %limit_.i, align 4, !noalias !15
   store i32 %add.i, ptr %limit_.i, align 4, !noalias !15
   %sub.i = sub nsw i32 %7, %add.i
@@ -1350,13 +1317,13 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
 lor.lhs.false.i.i:                                ; preds = %if.end12.i.i.i, %if.then.i.i.i, %if.then.i.i
   %storemerge.i.ph.i = phi ptr [ %add.ptr23.i.i.i, %if.end12.i.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i, %if.then.i.i ]
   %retval.0.i.ph.i = phi i32 [ %add15.i.i.i, %if.end12.i.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %conv.i.i, %if.then.i.i ]
-  %depth_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %this, i64 0, i32 1
+  %depth_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i32, ptr %depth_.i.i, align 8
   %cmp.i.i = icmp slt i32 %5, 1
   br i1 %cmp.i.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false.i.i
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %buffer_end_.i.i, align 8, !noalias !18
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %storemerge.i.ph.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -1367,14 +1334,14 @@ if.end:                                           ; preds = %lor.lhs.false.i.i
   %idx.ext.i.i = sext i32 %.sroa.speculated.i.i to i64
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i.i
   store ptr %add.ptr.i3.i, ptr %this, align 8, !noalias !18
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %7 = load i32, ptr %limit_.i.i, align 4, !noalias !18
   store i32 %add.i.i, ptr %limit_.i.i, align 4, !noalias !18
   %sub.i.i = sub nsw i32 %7, %add.i.i
   %dec.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i, ptr %depth_.i.i, align 8
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %8 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %storemerge.i.ph.i, ptr noundef nonnull %this)
   %9 = load i32, ptr %depth_.i.i, align 8
@@ -1383,7 +1350,7 @@ if.end:                                           ; preds = %lor.lhs.false.i.i
   %10 = load i32, ptr %limit_.i.i, align 4
   %add.i = add nsw i32 %10, %sub.i.i
   store i32 %add.i, ptr %limit_.i.i, align 4
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load i32, ptr %last_tag_minus_1_.i.i, align 8
   %cmp.i.i7 = icmp eq i32 %11, 0
   br i1 %cmp.i.i7, label %if.end.i, label %cleanup
@@ -1753,7 +1720,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
   %conv.i1 = sext i32 %retval.0.i.ph to i64
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i2 = getelementptr inbounds i8, ptr %5, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i2 to i64
@@ -2206,9 +2173,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_28UnknownFieldLiteParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %field_parser, ptr noundef %ptr, ptr noundef %ctx) local_unnamed_addr #4 comdat {
 entry:
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end5, %entry
@@ -2230,7 +2197,7 @@ if.end.i.i:                                       ; preds = %while.cond
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp sgt i32 %conv.i.i, 0
-  %next_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %next_chunk_.i.i, align 8
   %cmp5.i.i = icmp eq ptr %4, null
   %or.cond.i.i = select i1 %cmp4.i.i, i1 %cmp5.i.i, i1 false
@@ -2254,7 +2221,7 @@ if.then11.i.i.i:                                  ; preds = %do.body.i.i.i
 while.end21.i.i.i:                                ; preds = %if.then11.i.i.i
   %5 = load ptr, ptr %buffer_end_.i.i, align 8
   store ptr %5, ptr %ctx, align 8
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i.i, align 8
   br label %return
 
@@ -2338,7 +2305,7 @@ if.end:                                           ; preds = %while.body, %if.the
 
 if.then4:                                         ; preds = %if.end
   %sub.i4 = add i32 %tag.0.ph, -1
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i4, ptr %last_tag_minus_1_.i, align 8
   br label %return
 
@@ -2636,7 +2603,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -2646,9 +2613,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp159, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -2843,7 +2810,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i67, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -2878,8 +2845,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i71, label %while.body.lr.ph.i73, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113
 
 while.body.lr.ph.i73:                             ; preds = %while.end68
-  %total_size_.i.i.i74 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i75 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i74 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i75 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i76
 
 while.body.i76:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %while.body.lr.ph.i73
@@ -2975,10 +2942,10 @@ declare void @llvm.assume(i1 noundef) #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -3026,7 +2993,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %3 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 2
@@ -3051,11 +3018,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i24:                                      ; preds = %if.end33
   %7 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %9 = load i64, ptr %6, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, %9
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -3064,7 +3031,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -3072,7 +3039,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr i64 %add.i21, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -3104,7 +3071,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -3114,7 +3081,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i24, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i26 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i26, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -3190,7 +3157,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -3200,9 +3167,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp159, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -3397,7 +3364,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i67, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -3432,8 +3399,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i71, label %while.body.lr.ph.i73, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113
 
 while.body.lr.ph.i73:                             ; preds = %while.end68
-  %total_size_.i.i.i74 = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i75 = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i74 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i75 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i76
 
 while.body.i76:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %while.body.lr.ph.i73
@@ -3517,10 +3484,10 @@ return:                                           ; preds = %if.end46, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -3568,7 +3535,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<unsigned int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %3 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 2
@@ -3593,11 +3560,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i24:                                      ; preds = %if.end33
   %7 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %9 = load i64, ptr %6, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, %9
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -3606,7 +3573,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -3614,7 +3581,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr i64 %add.i21, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -3646,7 +3613,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -3656,7 +3623,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i24, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i26 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<unsigned int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i26, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -3716,7 +3683,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -3726,9 +3693,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp156, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -3921,7 +3888,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i65, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -3956,8 +3923,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i69, label %while.body.lr.ph.i71, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110
 
 while.body.lr.ph.i71:                             ; preds = %while.end68
-  %total_size_.i.i.i72 = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i73 = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i72 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i73 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i74
 
 while.body.i74:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97, %while.body.lr.ph.i71
@@ -4040,10 +4007,10 @@ return:                                           ; preds = %if.end46, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -4091,7 +4058,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<long>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %4 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 3
@@ -4116,11 +4083,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i23:                                      ; preds = %if.end33
   %8 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %8, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %10 = load i64, ptr %7, align 8
   %cmp.i.i.i.i = icmp eq i64 %9, %10
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %8, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -4129,7 +4096,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %12 = tail call i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %12
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %13 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -4137,7 +4104,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr exact i64 %add.i, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -4169,7 +4136,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   %17 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.i.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -4179,7 +4146,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i23, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i25 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<long>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i25, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -4239,7 +4206,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -4249,9 +4216,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp156, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -4444,7 +4411,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i65, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -4479,8 +4446,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i69, label %while.body.lr.ph.i71, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110
 
 while.body.lr.ph.i71:                             ; preds = %while.end68
-  %total_size_.i.i.i72 = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i73 = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i72 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i73 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i74
 
 while.body.i74:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97, %while.body.lr.ph.i71
@@ -4563,10 +4530,10 @@ return:                                           ; preds = %if.end46, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -4614,7 +4581,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<unsigned long>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %4 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 3
@@ -4639,11 +4606,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i23:                                      ; preds = %if.end33
   %8 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %8, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %10 = load i64, ptr %7, align 8
   %cmp.i.i.i.i = icmp eq i64 %9, %10
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %8, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -4652,7 +4619,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %12 = tail call i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %12
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %13 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -4660,7 +4627,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr exact i64 %add.i, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -4692,7 +4659,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   %17 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.i.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -4702,7 +4669,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i23, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i25 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<unsigned long>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i25, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -4762,7 +4729,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -4772,9 +4739,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp167, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -4977,7 +4944,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i71, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -5012,8 +4979,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i75, label %while.body.lr.ph.i77, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121
 
 while.body.lr.ph.i77:                             ; preds = %while.end68
-  %total_size_.i.i.i78 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i79 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i78 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i79 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i80
 
 while.body.i80:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i103, %while.body.lr.ph.i77
@@ -5153,7 +5120,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -5163,9 +5130,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp164, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -5366,7 +5333,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i69, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -5401,8 +5368,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i73, label %while.body.lr.ph.i75, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118
 
 while.body.lr.ph.i75:                             ; preds = %while.end68
-  %total_size_.i.i.i76 = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i77 = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i76 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i77 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i78
 
 while.body.i78:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i101, %while.body.lr.ph.i75
@@ -5541,7 +5508,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i
 if.end:                                           ; preds = %if.then.i, %if.then.i.i, %if.end12.i.i
   %storemerge.i.ph = phi ptr [ %add.ptr23.i.i, %if.end12.i.i ], [ %add.ptr3.i.i, %if.then.i.i ], [ %add.ptr.i, %if.then.i ]
   %retval.0.i.ph = phi i32 [ %add15.i.i, %if.end12.i.i ], [ %add.i.i, %if.then.i.i ], [ %conv.i, %if.then.i ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i.ph to i64
@@ -5551,9 +5518,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
   br i1 %cmp160, label %while.body.lr.ph, label %while.end68
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %add.coerce, i64 0, i32 2
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %add.coerce, i64 8
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end60
@@ -5750,7 +5717,7 @@ if.end56:                                         ; preds = %if.end46
   br i1 %cmp.i67, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end60
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end56
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %31, ptr %this, align 8
   br label %return
@@ -5785,8 +5752,8 @@ while.end68:                                      ; preds = %if.end60, %if.end
   br i1 %cmp13.i71, label %while.body.lr.ph.i73, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114
 
 while.body.lr.ph.i73:                             ; preds = %while.end68
-  %total_size_.i.i.i74 = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %add.coerce, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i75 = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %add.coerce, i64 0, i32 2
+  %total_size_.i.i.i74 = getelementptr inbounds i8, ptr %add.coerce, i64 4
+  %arena_or_elements_.i.i.i.i75 = getelementptr inbounds i8, ptr %add.coerce, i64 8
   br label %while.body.i76
 
 while.body.i76:                                   ; preds = %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %while.body.lr.ph.i73
@@ -5871,10 +5838,10 @@ return:                                           ; preds = %if.end46, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIbE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -5921,7 +5888,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<bool>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %3 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %3, i64 %conv31, i1 false)
@@ -5944,11 +5911,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i22:                                      ; preds = %if.end33
   %7 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %9 = load i64, ptr %6, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, %9
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -5957,7 +5924,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i22
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i19, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -5965,7 +5932,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i22
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr i64 %add.i19, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -5997,7 +5964,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -6007,7 +5974,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i22, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i24 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<bool>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i24 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i24, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -6023,7 +5990,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -6034,9 +6001,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %out, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %out, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
+  %total_size_.i = getelementptr inbounds i8, ptr %out, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %out, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -6082,7 +6049,7 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i31, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end14
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end10
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %6, ptr %this, align 8
   br label %return
@@ -6127,7 +6094,7 @@ if.then33:                                        ; preds = %while.end
 if.end35:                                         ; preds = %while.end
   %9 = load i32, ptr %out, align 8
   %add38 = add nsw i32 %9, %conv27
-  %total_size_.i35 = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %out, i64 0, i32 1
+  %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
   %cmp.i36 = icmp slt i32 %10, %add38
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit39
@@ -6141,7 +6108,7 @@ if.then.i38:                                      ; preds = %if.end35
 _ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit39: ; preds = %if.end35, %if.then.i38
   %add.i41.pre-phi = phi i32 [ %add38, %if.end35 ], [ %.pre63, %if.then.i38 ]
   %11 = phi i32 [ %9, %if.end35 ], [ %.pre61, %if.then.i38 ]
-  %arena_or_elements_.i.i40 = getelementptr inbounds %"class.google::protobuf::RepeatedField.31", ptr %out, i64 0, i32 2
+  %arena_or_elements_.i.i40 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load ptr, ptr %arena_or_elements_.i.i40, align 8
   store i32 %add.i41.pre-phi, ptr %out, align 8
   %cmp41.not = icmp eq ptr %12, null
@@ -6192,7 +6159,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPN6google8protobuf13RepeatedFieldIjEETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -6236,7 +6203,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -6247,9 +6214,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %out, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %out, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
+  %total_size_.i = getelementptr inbounds i8, ptr %out, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %out, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -6295,7 +6262,7 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i31, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end14
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end10
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %6, ptr %this, align 8
   br label %return
@@ -6340,7 +6307,7 @@ if.then33:                                        ; preds = %while.end
 if.end35:                                         ; preds = %while.end
   %9 = load i32, ptr %out, align 8
   %add38 = add nsw i32 %9, %conv27
-  %total_size_.i35 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %out, i64 0, i32 1
+  %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
   %cmp.i36 = icmp slt i32 %10, %add38
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit39
@@ -6354,7 +6321,7 @@ if.then.i38:                                      ; preds = %if.end35
 _ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit39: ; preds = %if.end35, %if.then.i38
   %add.i41.pre-phi = phi i32 [ %add38, %if.end35 ], [ %.pre63, %if.then.i38 ]
   %11 = phi i32 [ %9, %if.end35 ], [ %.pre61, %if.then.i38 ]
-  %arena_or_elements_.i.i40 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %out, i64 0, i32 2
+  %arena_or_elements_.i.i40 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load ptr, ptr %arena_or_elements_.i.i40, align 8
   store i32 %add.i41.pre-phi, ptr %out, align 8
   %cmp41.not = icmp eq ptr %12, null
@@ -6405,7 +6372,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPN6google8protobuf13RepeatedFieldIiEETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -6438,7 +6405,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -6449,9 +6416,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %out, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %out, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
+  %total_size_.i = getelementptr inbounds i8, ptr %out, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %out, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -6497,7 +6464,7 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i31, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end14
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end10
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %6, ptr %this, align 8
   br label %return
@@ -6542,7 +6509,7 @@ if.then33:                                        ; preds = %while.end
 if.end35:                                         ; preds = %while.end
   %9 = load i32, ptr %out, align 8
   %add38 = add nsw i32 %9, %conv27
-  %total_size_.i35 = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %out, i64 0, i32 1
+  %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
   %cmp.i36 = icmp slt i32 %10, %add38
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit39
@@ -6556,7 +6523,7 @@ if.then.i38:                                      ; preds = %if.end35
 _ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit39: ; preds = %if.end35, %if.then.i38
   %add.i41.pre-phi = phi i32 [ %add38, %if.end35 ], [ %.pre63, %if.then.i38 ]
   %11 = phi i32 [ %9, %if.end35 ], [ %.pre61, %if.then.i38 ]
-  %arena_or_elements_.i.i40 = getelementptr inbounds %"class.google::protobuf::RepeatedField.43", ptr %out, i64 0, i32 2
+  %arena_or_elements_.i.i40 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load ptr, ptr %arena_or_elements_.i.i40, align 8
   store i32 %add.i41.pre-phi, ptr %out, align 8
   %cmp41.not = icmp eq ptr %12, null
@@ -6607,7 +6574,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPN6google8protobuf13RepeatedFieldImEETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -6640,7 +6607,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -6651,9 +6618,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %out, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %out, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
+  %total_size_.i = getelementptr inbounds i8, ptr %out, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %out, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -6699,7 +6666,7 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i31, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end14
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end10
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %6, ptr %this, align 8
   br label %return
@@ -6744,7 +6711,7 @@ if.then33:                                        ; preds = %while.end
 if.end35:                                         ; preds = %while.end
   %9 = load i32, ptr %out, align 8
   %add38 = add nsw i32 %9, %conv27
-  %total_size_.i35 = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %out, i64 0, i32 1
+  %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
   %cmp.i36 = icmp slt i32 %10, %add38
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit39
@@ -6758,7 +6725,7 @@ if.then.i38:                                      ; preds = %if.end35
 _ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit39: ; preds = %if.end35, %if.then.i38
   %add.i41.pre-phi = phi i32 [ %add38, %if.end35 ], [ %.pre63, %if.then.i38 ]
   %11 = phi i32 [ %9, %if.end35 ], [ %.pre61, %if.then.i38 ]
-  %arena_or_elements_.i.i40 = getelementptr inbounds %"class.google::protobuf::RepeatedField.37", ptr %out, i64 0, i32 2
+  %arena_or_elements_.i.i40 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load ptr, ptr %arena_or_elements_.i.i40, align 8
   store i32 %add.i41.pre-phi, ptr %out, align 8
   %cmp41.not = icmp eq ptr %12, null
@@ -6809,7 +6776,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPN6google8protobuf13RepeatedFieldIlEETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -6842,7 +6809,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -6853,9 +6820,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %out, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %out, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
+  %total_size_.i = getelementptr inbounds i8, ptr %out, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %out, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -6901,7 +6868,7 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i31, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end14
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end10
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %6, ptr %this, align 8
   br label %return
@@ -6946,7 +6913,7 @@ if.then33:                                        ; preds = %while.end
 if.end35:                                         ; preds = %while.end
   %9 = load i32, ptr %out, align 8
   %add38 = add nsw i32 %9, %conv27
-  %total_size_.i35 = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %out, i64 0, i32 1
+  %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
   %cmp.i36 = icmp slt i32 %10, %add38
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit39
@@ -6960,7 +6927,7 @@ if.then.i38:                                      ; preds = %if.end35
 _ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit39: ; preds = %if.end35, %if.then.i38
   %add.i41.pre-phi = phi i32 [ %add38, %if.end35 ], [ %.pre63, %if.then.i38 ]
   %11 = phi i32 [ %9, %if.end35 ], [ %.pre61, %if.then.i38 ]
-  %arena_or_elements_.i.i40 = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %out, i64 0, i32 2
+  %arena_or_elements_.i.i40 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load ptr, ptr %arena_or_elements_.i.i40, align 8
   store i32 %add.i41.pre-phi, ptr %out, align 8
   %cmp41.not = icmp eq ptr %12, null
@@ -7011,7 +6978,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPN6google8protobuf13RepeatedFieldIfEETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -7036,10 +7003,10 @@ lpad:                                             ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIfE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -7087,7 +7054,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<float>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %3 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 2
@@ -7112,11 +7079,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i24:                                      ; preds = %if.end33
   %7 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %9 = load i64, ptr %6, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, %9
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -7125,7 +7092,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -7133,7 +7100,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr i64 %add.i21, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -7165,7 +7132,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -7175,7 +7142,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i24, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i26 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<float>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i26, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -7191,7 +7158,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -7202,9 +7169,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.65", ptr %out, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.65", ptr %out, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
+  %total_size_.i = getelementptr inbounds i8, ptr %out, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %out, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -7250,7 +7217,7 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i31, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %if.end14
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %if.end10
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i, align 8
   store ptr %6, ptr %this, align 8
   br label %return
@@ -7295,7 +7262,7 @@ if.then33:                                        ; preds = %while.end
 if.end35:                                         ; preds = %while.end
   %9 = load i32, ptr %out, align 8
   %add38 = add nsw i32 %9, %conv27
-  %total_size_.i35 = getelementptr inbounds %"class.google::protobuf::RepeatedField.65", ptr %out, i64 0, i32 1
+  %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
   %cmp.i36 = icmp slt i32 %10, %add38
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit39
@@ -7309,7 +7276,7 @@ if.then.i38:                                      ; preds = %if.end35
 _ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit39: ; preds = %if.end35, %if.then.i38
   %add.i41.pre-phi = phi i32 [ %add38, %if.end35 ], [ %.pre63, %if.then.i38 ]
   %11 = phi i32 [ %9, %if.end35 ], [ %.pre61, %if.then.i38 ]
-  %arena_or_elements_.i.i40 = getelementptr inbounds %"class.google::protobuf::RepeatedField.65", ptr %out, i64 0, i32 2
+  %arena_or_elements_.i.i40 = getelementptr inbounds i8, ptr %out, i64 8
   %12 = load ptr, ptr %arena_or_elements_.i.i40, align 8
   store i32 %add.i41.pre-phi, ptr %out, align 8
   %cmp41.not = icmp eq ptr %12, null
@@ -7360,7 +7327,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPN6google8protobuf13RepeatedFieldIdEETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -7385,10 +7352,10 @@ lpad:                                             ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.65", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.65", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -7436,7 +7403,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<double>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %4 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 3
@@ -7461,11 +7428,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i23:                                      ; preds = %if.end33
   %8 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %8, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %10 = load i64, ptr %7, align 8
   %cmp.i.i.i.i = icmp eq i64 %9, %10
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %8, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -7474,7 +7441,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %12 = tail call i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !27
   %sub.i.i.i.i = sub nuw nsw i64 59, %12
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %13 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -7482,7 +7449,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr exact i64 %add.i, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -7514,7 +7481,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %11, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   %17 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.i.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -7524,7 +7491,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i23, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i25 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<double>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i25, ptr %arena_or_elements_.i, align 8
   ret void
 }
@@ -7589,7 +7556,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 
 if.then2:                                         ; preds = %if.end
   %conv.i5 = sext i32 %retval.0.i.ph to i64
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i6 = getelementptr inbounds i8, ptr %6, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i6 to i64
@@ -7604,8 +7571,8 @@ if.then.i7:                                       ; preds = %if.then2
 
 if.end.i:                                         ; preds = %if.then2
   %conv.i.i.i = trunc i64 %sub.ptr.sub.i to i32
-  %next_chunk_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
-  %limit_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %next_chunk_.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %limit_.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end8.i.i.i, %if.end.i
@@ -7628,7 +7595,7 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i, label %if.end8.i.i.i
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i: ; preds = %if.end5.i.i.i
-  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i.i.i, align 8
   store ptr %9, ptr %ctx, align 8
   br label %return
@@ -7698,7 +7665,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %conv1.i13 = trunc i64 %val.addr.0.lcssa.i12 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef signext %conv1.i13)
   %15 = load ptr, ptr %this, align 8
-  %buffer_end_.i21 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i21 = getelementptr inbounds i8, ptr %ctx, i64 8
   %16 = load ptr, ptr %buffer_end_.i21, align 8
   %add.ptr.i22 = getelementptr inbounds i8, ptr %16, i64 16
   %sub.ptr.lhs.cast.i23 = ptrtoint ptr %add.ptr.i22 to i64
@@ -7751,7 +7718,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %2 = load i32, ptr %depth_.i, align 8
   %dec.i = add nsw i32 %2, -1
   store i32 %dec.i, ptr %depth_.i, align 8
@@ -7760,7 +7727,7 @@ if.end:                                           ; preds = %entry, %_ZN6google8
 
 if.end.i:                                         ; preds = %if.end
   %add4 = or disjoint i32 %.pre, 3
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   %3 = load i32, ptr %group_depth_.i, align 4
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %group_depth_.i, align 4
@@ -7768,7 +7735,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = load <2 x i32>, ptr %depth_.i, align 8
   %5 = add nsw <2 x i32> %4, <i32 1, i32 -1>
   store <2 x i32> %5, ptr %depth_.i, align 8
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %6 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i10 = icmp ne i32 %6, %add4
   store i32 0, ptr %last_tag_minus_1_.i, align 8

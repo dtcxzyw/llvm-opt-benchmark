@@ -10,13 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyLongValue = type { i64, [1 x i32] }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyDateTime_DateTime = type { %struct._object, i64, i8, [10 x i8], i8, ptr }
-%struct._PyDateTime_BaseTZInfo = type { %struct._object, i64, i8 }
-%struct.PyDateTime_Delta = type { %struct._object, i64, i32, i32, i32 }
-%struct.PyDateTime_Date = type { %struct._object, i64, i8, [4 x i8] }
-%struct.PyDateTime_Time = type { %struct._object, i64, i8, [6 x i8], i8, ptr }
-%struct.PyDateTime_CAPI = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 
 @test_methods = internal global [22 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @test_PyDateTime_DATE_GET, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @test_PyDateTime_DELTA_GET, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @test_PyDateTime_GET, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @test_PyDateTime_TIME_GET, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @datetime_check_date, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.5, ptr @datetime_check_datetime, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.6, ptr @datetime_check_delta, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.7, ptr @datetime_check_time, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.8, ptr @datetime_check_tzinfo, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.9, ptr @get_date_fromdate, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.10, ptr @get_date_fromtimestamp, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.11, ptr @get_datetime_fromdateandtime, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.12, ptr @get_datetime_fromdateandtimeandfold, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.13, ptr @get_datetime_fromtimestamp, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.14, ptr @get_delta_fromdsu, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.15, ptr @get_time_fromtime, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.16, ptr @get_time_fromtimeandfold, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.17, ptr @get_timezone_utc_capi, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.18, ptr @get_timezones_offset_zero, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.19, ptr @make_timezones_capi, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.20, ptr @test_datetime_capi, i32 4, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
 @.str = private unnamed_addr constant [20 x i8] c"PyDateTime_DATE_GET\00", align 1
@@ -84,25 +77,25 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @test_PyDateTime_DATE_GET(ptr nocapture readnone %self, ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 3, i64 4
+  %arrayidx = getelementptr i8, ptr %obj, i64 29
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 3, i64 5
+  %arrayidx2 = getelementptr i8, ptr %obj, i64 30
   %1 = load i8, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 3, i64 6
+  %arrayidx5 = getelementptr i8, ptr %obj, i64 31
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 3, i64 7
+  %arrayidx8 = getelementptr i8, ptr %obj, i64 32
   %3 = load i8, ptr %arrayidx8, align 1
-  %arrayidx11 = getelementptr %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 3, i64 8
+  %arrayidx11 = getelementptr i8, ptr %obj, i64 33
   %4 = load i8, ptr %arrayidx11, align 1
-  %arrayidx15 = getelementptr %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 3, i64 9
+  %arrayidx15 = getelementptr i8, ptr %obj, i64 34
   %5 = load i8, ptr %arrayidx15, align 1
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %obj, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %obj, i64 24
   %6 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo19 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %obj, i64 0, i32 5
+  %tzinfo19 = getelementptr inbounds i8, ptr %obj, i64 40
   %7 = load ptr, ptr %tzinfo19, align 8
   br label %cond.end
 
@@ -125,11 +118,11 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define internal ptr @test_PyDateTime_DELTA_GET(ptr nocapture readnone %self, ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %days1 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %obj, i64 0, i32 2
+  %days1 = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load i32, ptr %days1, align 8
-  %seconds2 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %obj, i64 0, i32 3
+  %seconds2 = getelementptr inbounds i8, ptr %obj, i64 28
   %1 = load i32, ptr %seconds2, align 4
-  %microseconds3 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %obj, i64 0, i32 4
+  %microseconds3 = getelementptr inbounds i8, ptr %obj, i64 32
   %2 = load i32, ptr %microseconds3, align 8
   %call = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.22, i32 noundef %0, i32 noundef %1, i32 noundef %2) #3
   ret ptr %call
@@ -138,18 +131,18 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @test_PyDateTime_GET(ptr nocapture readnone %self, ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %obj, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %obj, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %obj, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %obj, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %obj, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %obj, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %obj, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %obj, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %call = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.22, i32 noundef %or, i32 noundef %conv6, i32 noundef %conv9) #3
@@ -159,25 +152,25 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @test_PyDateTime_TIME_GET(ptr nocapture readnone %self, ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %obj, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %obj, i64 25
   %0 = load i8, ptr %data, align 1
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %obj, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %obj, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr %struct.PyDateTime_Time, ptr %obj, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %obj, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_Time, ptr %obj, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %obj, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
-  %arrayidx11 = getelementptr %struct.PyDateTime_Time, ptr %obj, i64 0, i32 3, i64 4
+  %arrayidx11 = getelementptr i8, ptr %obj, i64 29
   %4 = load i8, ptr %arrayidx11, align 1
-  %arrayidx15 = getelementptr %struct.PyDateTime_Time, ptr %obj, i64 0, i32 3, i64 5
+  %arrayidx15 = getelementptr i8, ptr %obj, i64 30
   %5 = load i8, ptr %arrayidx15, align 1
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %obj, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %obj, i64 24
   %6 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo19 = getelementptr inbounds %struct.PyDateTime_Time, ptr %obj, i64 0, i32 5
+  %tzinfo19 = getelementptr inbounds i8, ptr %obj, i64 32
   %7 = load ptr, ptr %tzinfo19, align 8
   br label %cond.end
 
@@ -252,7 +245,7 @@ if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq i32 %0, 0
   %1 = load ptr, ptr %obj, align 8
   %2 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTimeType3 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %2, i64 0, i32 1
+  %DateTimeType3 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %DateTimeType3, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %4, align 8
@@ -293,7 +286,7 @@ if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq i32 %0, 0
   %1 = load ptr, ptr %obj, align 8
   %2 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DeltaType3 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %2, i64 0, i32 3
+  %DeltaType3 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %DeltaType3, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %4, align 8
@@ -334,7 +327,7 @@ if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq i32 %0, 0
   %1 = load ptr, ptr %obj, align 8
   %2 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeType3 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %2, i64 0, i32 2
+  %TimeType3 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %TimeType3, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %4, align 8
@@ -375,7 +368,7 @@ if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq i32 %0, 0
   %1 = load ptr, ptr %obj, align 8
   %2 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TZInfoType3 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %2, i64 0, i32 4
+  %TZInfoType3 = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %TZInfoType3, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %4, align 8
@@ -414,7 +407,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Date_FromDate4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 6
+  %Date_FromDate4 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %Date_FromDate4, align 8
   %2 = load i32, ptr %year, align 4
   %3 = load i32, ptr %month, align 4
@@ -447,7 +440,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %1 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Date_FromTimestamp7 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %1, i64 0, i32 12
+  %Date_FromTimestamp7 = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load ptr, ptr %Date_FromTimestamp7, align 8
   %3 = load ptr, ptr %1, align 8
   %call9 = call ptr %2(ptr noundef %3, ptr noundef nonnull %call1) #3
@@ -488,7 +481,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTime_FromDateAndTime4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 7
+  %DateTime_FromDateAndTime4 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %DateTime_FromDateAndTime4, align 8
   %2 = load i32, ptr %year, align 4
   %3 = load i32, ptr %month, align 4
@@ -497,7 +490,7 @@ if.end:                                           ; preds = %entry
   %6 = load i32, ptr %minute, align 4
   %7 = load i32, ptr %second, align 4
   %8 = load i32, ptr %microsecond, align 4
-  %DateTimeType5 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 1
+  %DateTimeType5 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %DateTimeType5, align 8
   %call6 = call ptr %1(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %9) #3
   br label %return
@@ -525,7 +518,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTime_FromDateAndTimeAndFold4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 13
+  %DateTime_FromDateAndTimeAndFold4 = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %DateTime_FromDateAndTimeAndFold4, align 8
   %2 = load i32, ptr %year, align 4
   %3 = load i32, ptr %month, align 4
@@ -535,7 +528,7 @@ if.end:                                           ; preds = %entry
   %7 = load i32, ptr %second, align 4
   %8 = load i32, ptr %microsecond, align 4
   %9 = load i32, ptr %fold, align 4
-  %DateTimeType5 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 1
+  %DateTimeType5 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %DateTimeType5, align 8
   %call6 = call ptr %1(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %9, ptr noundef %10) #3
   br label %return
@@ -582,9 +575,9 @@ if.end5:                                          ; preds = %if.else, %if.then2
 
 if.end7:                                          ; preds = %if.end5
   %3 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTime_FromTimestamp12 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %3, i64 0, i32 11
+  %DateTime_FromTimestamp12 = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load ptr, ptr %DateTime_FromTimestamp12, align 8
-  %DateTimeType13 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %3, i64 0, i32 1
+  %DateTimeType13 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %DateTimeType13, align 8
   %call14 = call ptr %4(ptr noundef %5, ptr noundef nonnull %tsargs.0, ptr noundef null) #3
   %6 = load i64, ptr %tsargs.0, align 8
@@ -620,12 +613,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Delta_FromDelta4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 9
+  %Delta_FromDelta4 = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %Delta_FromDelta4, align 8
   %2 = load i32, ptr %days, align 4
   %3 = load i32, ptr %seconds, align 4
   %4 = load i32, ptr %microseconds, align 4
-  %DeltaType5 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 3
+  %DeltaType5 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %DeltaType5, align 8
   %call6 = call ptr %1(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5) #3
   br label %return
@@ -649,13 +642,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Time_FromTime4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 8
+  %Time_FromTime4 = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %Time_FromTime4, align 8
   %2 = load i32, ptr %hour, align 4
   %3 = load i32, ptr %minute, align 4
   %4 = load i32, ptr %second, align 4
   %5 = load i32, ptr %microsecond, align 4
-  %TimeType5 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 2
+  %TimeType5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %TimeType5, align 8
   %call6 = call ptr %1(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %6) #3
   br label %return
@@ -680,14 +673,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Time_FromTimeAndFold4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 14
+  %Time_FromTimeAndFold4 = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %Time_FromTimeAndFold4, align 8
   %2 = load i32, ptr %hour, align 4
   %3 = load i32, ptr %minute, align 4
   %4 = load i32, ptr %second, align 4
   %5 = load i32, ptr %microsecond, align 4
   %6 = load i32, ptr %fold, align 4
-  %TimeType5 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 2
+  %TimeType5 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %TimeType5, align 8
   %call6 = call ptr %1(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %6, ptr noundef %7) #3
   br label %return
@@ -708,7 +701,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_UTC5 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 5
+  %TimeZone_UTC5 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %TimeZone_UTC5, align 8
   %2 = load i32, ptr %1, align 8
   %add.i.i1 = add i32 %2, 1
@@ -728,9 +721,9 @@ return:                                           ; preds = %if.end, %return.sin
 define internal ptr @get_timezones_offset_zero(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
 entry:
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Delta_FromDelta = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 9
+  %Delta_FromDelta = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %Delta_FromDelta, align 8
-  %DeltaType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 3
+  %DeltaType = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %DeltaType, align 8
   %call = tail call ptr %1(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef %2) #3
   %call1 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.31) #3
@@ -779,273 +772,17 @@ if.then1.i.i33:                                   ; preds = %if.end.i.i30
 
 if.end:                                           ; preds = %entry
   %7 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_FromTimeZone = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %7, i64 0, i32 10
+  %TimeZone_FromTimeZone = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load ptr, ptr %TimeZone_FromTimeZone, align 8
   %call3 = tail call ptr %8(ptr noundef nonnull %call, ptr noundef null) #3
   %9 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_FromTimeZone4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %9, i64 0, i32 10
+  %TimeZone_FromTimeZone4 = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %TimeZone_FromTimeZone4, align 8
   %call5 = tail call ptr %10(ptr noundef nonnull %call, ptr noundef null) #3
   %11 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_FromTimeZone6 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %11, i64 0, i32 10
+  %TimeZone_FromTimeZone6 = getelementptr inbounds i8, ptr %11, i64 80
   %12 = load ptr, ptr %TimeZone_FromTimeZone6, align 8
   %call7 = tail call ptr %12(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
-  %13 = load i64, ptr %call, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i29.not = icmp eq i64 %14, 0
-  br i1 %cmp.i29.not, label %if.end.i22, label %Py_DECREF.exit27
-
-if.end.i22:                                       ; preds = %if.end
-  %dec.i23 = add i64 %13, -1
-  store i64 %dec.i23, ptr %call, align 8
-  %cmp.i24 = icmp eq i64 %dec.i23, 0
-  br i1 %cmp.i24, label %if.then1.i25, label %Py_DECREF.exit27
-
-if.then1.i25:                                     ; preds = %if.end.i22
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #3
-  br label %Py_DECREF.exit27
-
-Py_DECREF.exit27:                                 ; preds = %if.end, %if.then1.i25, %if.end.i22
-  %15 = load i64, ptr %call1, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i32.not = icmp eq i64 %16, 0
-  br i1 %cmp.i32.not, label %if.end.i, label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %Py_DECREF.exit27
-  %dec.i = add i64 %15, -1
-  store i64 %dec.i, ptr %call1, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #3
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit27, %if.then1.i, %if.end.i
-  %cmp8 = icmp eq ptr %call3, null
-  %cmp10 = icmp eq ptr %call5, null
-  %or.cond1 = select i1 %cmp8, i1 true, i1 %cmp10
-  %cmp12 = icmp eq ptr %call7, null
-  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp12
-  br i1 %or.cond2, label %error, label %if.end14
-
-if.end14:                                         ; preds = %Py_DECREF.exit
-  %call15 = tail call ptr @PyTuple_New(i64 noundef 3) #3
-  %cmp16 = icmp eq ptr %call15, null
-  br i1 %cmp16, label %if.then.i68, label %if.end18
-
-if.end18:                                         ; preds = %if.end14
-  %17 = getelementptr i8, ptr %call15, i64 8
-  %op.val.i = load ptr, ptr %17, align 8
-  %18 = getelementptr i8, ptr %op.val.i, i64 168
-  %call.val.i = load i64, ptr %18, align 8
-  %19 = and i64 %call.val.i, 67108864
-  %tobool.not.i = icmp eq i64 %19, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %cond.end4.i
-
-cond.false.i:                                     ; preds = %if.end18
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
-  unreachable
-
-cond.end4.i:                                      ; preds = %if.end18
-  %cmp.not.i.i = icmp eq ptr %op.val.i, @PyLong_Type
-  br i1 %cmp.not.i.i, label %cond.false.i.i, label %cond.end.i.i
-
-cond.false.i.i:                                   ; preds = %cond.end4.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 337, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #4
-  unreachable
-
-cond.end.i.i:                                     ; preds = %cond.end4.i
-  %cmp2.not.i.i = icmp eq ptr %op.val.i, @PyBool_Type
-  br i1 %cmp2.not.i.i, label %cond.false4.i.i, label %Py_SIZE.exit.i
-
-cond.false4.i.i:                                  ; preds = %cond.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.37, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #4
-  unreachable
-
-Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call15, i64 0, i32 1
-  %20 = load i64, ptr %ob_size.i.i, align 8
-  %cmp6.i = icmp sgt i64 %20, 0
-  br i1 %cmp6.i, label %PyTuple_SET_ITEM.exit, label %cond.false8.i
-
-cond.false8.i:                                    ; preds = %Py_SIZE.exit.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
-  unreachable
-
-PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call15, i64 0, i32 1, i64 0
-  store ptr %call3, ptr %arrayidx.i, align 8
-  %call.val.i36 = load i64, ptr %18, align 8
-  %21 = and i64 %call.val.i36, 67108864
-  %tobool.not.i37 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i37, label %cond.false.i49, label %Py_SIZE.exit.i42
-
-cond.false.i49:                                   ; preds = %PyTuple_SET_ITEM.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
-  unreachable
-
-Py_SIZE.exit.i42:                                 ; preds = %PyTuple_SET_ITEM.exit
-  %cmp6.i44.not = icmp eq i64 %20, 1
-  br i1 %cmp6.i44.not, label %cond.false8.i45, label %PyTuple_SET_ITEM.exit50
-
-cond.false8.i45:                                  ; preds = %Py_SIZE.exit.i42
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
-  unreachable
-
-PyTuple_SET_ITEM.exit50:                          ; preds = %Py_SIZE.exit.i42
-  %arrayidx.i46 = getelementptr %struct.PyTupleObject, ptr %call15, i64 0, i32 1, i64 1
-  store ptr %call5, ptr %arrayidx.i46, align 8
-  %call.val.i52 = load i64, ptr %18, align 8
-  %22 = and i64 %call.val.i52, 67108864
-  %tobool.not.i53 = icmp eq i64 %22, 0
-  br i1 %tobool.not.i53, label %cond.false.i65, label %Py_SIZE.exit.i58
-
-cond.false.i65:                                   ; preds = %PyTuple_SET_ITEM.exit50
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
-  unreachable
-
-Py_SIZE.exit.i58:                                 ; preds = %PyTuple_SET_ITEM.exit50
-  %cmp6.i60 = icmp ugt i64 %20, 2
-  br i1 %cmp6.i60, label %PyTuple_SET_ITEM.exit66, label %cond.false8.i61
-
-cond.false8.i61:                                  ; preds = %Py_SIZE.exit.i58
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
-  unreachable
-
-PyTuple_SET_ITEM.exit66:                          ; preds = %Py_SIZE.exit.i58
-  %arrayidx.i62 = getelementptr %struct.PyTupleObject, ptr %call15, i64 0, i32 1, i64 2
-  store ptr %call7, ptr %arrayidx.i62, align 8
-  br label %return
-
-error:                                            ; preds = %Py_DECREF.exit
-  br i1 %cmp8, label %Py_XDECREF.exit75, label %if.then.i68
-
-if.then.i68:                                      ; preds = %if.end14, %error
-  %23 = load i64, ptr %call3, align 8
-  %24 = and i64 %23, 2147483648
-  %cmp.i2.not.i69 = icmp eq i64 %24, 0
-  br i1 %cmp.i2.not.i69, label %if.end.i.i71, label %Py_XDECREF.exit75
-
-if.end.i.i71:                                     ; preds = %if.then.i68
-  %dec.i.i72 = add i64 %23, -1
-  store i64 %dec.i.i72, ptr %call3, align 8
-  %cmp.i.i73 = icmp eq i64 %dec.i.i72, 0
-  br i1 %cmp.i.i73, label %if.then1.i.i74, label %Py_XDECREF.exit75
-
-if.then1.i.i74:                                   ; preds = %if.end.i.i71
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call3) #3
-  br label %Py_XDECREF.exit75
-
-Py_XDECREF.exit75:                                ; preds = %error, %if.then.i68, %if.end.i.i71, %if.then1.i.i74
-  br i1 %cmp10, label %Py_XDECREF.exit84, label %if.then.i77
-
-if.then.i77:                                      ; preds = %Py_XDECREF.exit75
-  %25 = load i64, ptr %call5, align 8
-  %26 = and i64 %25, 2147483648
-  %cmp.i2.not.i78 = icmp eq i64 %26, 0
-  br i1 %cmp.i2.not.i78, label %if.end.i.i80, label %Py_XDECREF.exit84
-
-if.end.i.i80:                                     ; preds = %if.then.i77
-  %dec.i.i81 = add i64 %25, -1
-  store i64 %dec.i.i81, ptr %call5, align 8
-  %cmp.i.i82 = icmp eq i64 %dec.i.i81, 0
-  br i1 %cmp.i.i82, label %if.then1.i.i83, label %Py_XDECREF.exit84
-
-if.then1.i.i83:                                   ; preds = %if.end.i.i80
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call5) #3
-  br label %Py_XDECREF.exit84
-
-Py_XDECREF.exit84:                                ; preds = %Py_XDECREF.exit75, %if.then.i77, %if.end.i.i80, %if.then1.i.i83
-  br i1 %cmp12, label %return, label %if.then.i86
-
-if.then.i86:                                      ; preds = %Py_XDECREF.exit84
-  %27 = load i64, ptr %call7, align 8
-  %28 = and i64 %27, 2147483648
-  %cmp.i2.not.i87 = icmp eq i64 %28, 0
-  br i1 %cmp.i2.not.i87, label %if.end.i.i89, label %return
-
-if.end.i.i89:                                     ; preds = %if.then.i86
-  %dec.i.i90 = add i64 %27, -1
-  store i64 %dec.i.i90, ptr %call7, align 8
-  %cmp.i.i91 = icmp eq i64 %dec.i.i90, 0
-  br i1 %cmp.i.i91, label %if.then1.i.i92, label %return
-
-if.then1.i.i92:                                   ; preds = %if.end.i.i89
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call7) #3
-  br label %return
-
-return:                                           ; preds = %if.then1.i.i92, %if.end.i.i89, %if.then.i86, %Py_XDECREF.exit84, %if.then1.i.i33, %if.end.i.i30, %if.then.i27, %Py_XDECREF.exit, %PyTuple_SET_ITEM.exit66
-  %retval.0 = phi ptr [ %call15, %PyTuple_SET_ITEM.exit66 ], [ null, %Py_XDECREF.exit ], [ null, %if.then.i27 ], [ null, %if.end.i.i30 ], [ null, %if.then1.i.i33 ], [ null, %Py_XDECREF.exit84 ], [ null, %if.then.i86 ], [ null, %if.end.i.i89 ], [ null, %if.then1.i.i92 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @make_timezones_capi(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
-entry:
-  %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Delta_FromDelta = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 9
-  %1 = load ptr, ptr %Delta_FromDelta, align 8
-  %DeltaType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 3
-  %2 = load ptr, ptr %DeltaType, align 8
-  %call = tail call ptr %1(i32 noundef 0, i32 noundef -18000, i32 noundef 0, i32 noundef 1, ptr noundef %2) #3
-  %call1 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.39) #3
-  %cmp = icmp eq ptr %call, null
-  %cmp2 = icmp eq ptr %call1, null
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br i1 %cmp, label %Py_XDECREF.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %if.then
-  %3 = load i64, ptr %call, align 8
-  %4 = and i64 %3, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %4, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i, label %Py_XDECREF.exit
-
-if.end.i.i:                                       ; preds = %if.then.i
-  %dec.i.i = add i64 %3, -1
-  store i64 %dec.i.i, ptr %call, align 8
-  %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %Py_XDECREF.exit
-
-if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #3
-  br label %Py_XDECREF.exit
-
-Py_XDECREF.exit:                                  ; preds = %if.then, %if.then.i, %if.end.i.i, %if.then1.i.i
-  br i1 %cmp2, label %return, label %if.then.i28
-
-if.then.i28:                                      ; preds = %Py_XDECREF.exit
-  %5 = load i64, ptr %call1, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i2.not.i29 = icmp eq i64 %6, 0
-  br i1 %cmp.i2.not.i29, label %if.end.i.i31, label %return
-
-if.end.i.i31:                                     ; preds = %if.then.i28
-  %dec.i.i32 = add i64 %5, -1
-  store i64 %dec.i.i32, ptr %call1, align 8
-  %cmp.i.i33 = icmp eq i64 %dec.i.i32, 0
-  br i1 %cmp.i.i33, label %if.then1.i.i34, label %return
-
-if.then1.i.i34:                                   ; preds = %if.end.i.i31
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #3
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_FromTimeZone = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %7, i64 0, i32 10
-  %8 = load ptr, ptr %TimeZone_FromTimeZone, align 8
-  %call3 = tail call ptr %8(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
-  %9 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_FromTimeZone4 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %9, i64 0, i32 10
-  %10 = load ptr, ptr %TimeZone_FromTimeZone4, align 8
-  %call5 = tail call ptr %10(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
-  %11 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TimeZone_FromTimeZone6 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %11, i64 0, i32 10
-  %12 = load ptr, ptr %TimeZone_FromTimeZone6, align 8
-  %call7 = tail call ptr %12(ptr noundef nonnull %call, ptr noundef null) #3
   %13 = load i64, ptr %call, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i29.not = icmp eq i64 %14, 0
@@ -1120,7 +857,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call15, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %call15, i64 16
   %20 = load i64, ptr %ob_size.i.i, align 8
   %cmp6.i = icmp sgt i64 %20, 0
   br i1 %cmp6.i, label %PyTuple_SET_ITEM.exit, label %cond.false8.i
@@ -1130,47 +867,47 @@ cond.false8.i:                                    ; preds = %Py_SIZE.exit.i
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call15, i64 0, i32 1, i64 0
-  store ptr %call3, ptr %arrayidx.i, align 8
-  %call.val.i37 = load i64, ptr %18, align 8
-  %21 = and i64 %call.val.i37, 67108864
-  %tobool.not.i38 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i38, label %cond.false.i50, label %Py_SIZE.exit.i43
+  %ob_item.i = getelementptr inbounds i8, ptr %call15, i64 24
+  store ptr %call3, ptr %ob_item.i, align 8
+  %call.val.i36 = load i64, ptr %18, align 8
+  %21 = and i64 %call.val.i36, 67108864
+  %tobool.not.i37 = icmp eq i64 %21, 0
+  br i1 %tobool.not.i37, label %cond.false.i49, label %Py_SIZE.exit.i42
 
-cond.false.i50:                                   ; preds = %PyTuple_SET_ITEM.exit
+cond.false.i49:                                   ; preds = %PyTuple_SET_ITEM.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
   unreachable
 
-Py_SIZE.exit.i43:                                 ; preds = %PyTuple_SET_ITEM.exit
-  %cmp6.i45.not = icmp eq i64 %20, 1
-  br i1 %cmp6.i45.not, label %cond.false8.i46, label %PyTuple_SET_ITEM.exit51
+Py_SIZE.exit.i42:                                 ; preds = %PyTuple_SET_ITEM.exit
+  %cmp6.i44.not = icmp eq i64 %20, 1
+  br i1 %cmp6.i44.not, label %cond.false8.i45, label %PyTuple_SET_ITEM.exit50
 
-cond.false8.i46:                                  ; preds = %Py_SIZE.exit.i43
+cond.false8.i45:                                  ; preds = %Py_SIZE.exit.i42
   tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
   unreachable
 
-PyTuple_SET_ITEM.exit51:                          ; preds = %Py_SIZE.exit.i43
-  %arrayidx.i47 = getelementptr %struct.PyTupleObject, ptr %call15, i64 0, i32 1, i64 1
-  store ptr %call5, ptr %arrayidx.i47, align 8
-  %call.val.i53 = load i64, ptr %18, align 8
-  %22 = and i64 %call.val.i53, 67108864
-  %tobool.not.i54 = icmp eq i64 %22, 0
-  br i1 %tobool.not.i54, label %cond.false.i66, label %Py_SIZE.exit.i59
+PyTuple_SET_ITEM.exit50:                          ; preds = %Py_SIZE.exit.i42
+  %arrayidx.i = getelementptr i8, ptr %call15, i64 32
+  store ptr %call5, ptr %arrayidx.i, align 8
+  %call.val.i52 = load i64, ptr %18, align 8
+  %22 = and i64 %call.val.i52, 67108864
+  %tobool.not.i53 = icmp eq i64 %22, 0
+  br i1 %tobool.not.i53, label %cond.false.i66, label %Py_SIZE.exit.i58
 
-cond.false.i66:                                   ; preds = %PyTuple_SET_ITEM.exit51
+cond.false.i66:                                   ; preds = %PyTuple_SET_ITEM.exit50
   tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
   unreachable
 
-Py_SIZE.exit.i59:                                 ; preds = %PyTuple_SET_ITEM.exit51
-  %cmp6.i61 = icmp ugt i64 %20, 2
-  br i1 %cmp6.i61, label %PyTuple_SET_ITEM.exit67, label %cond.false8.i62
+Py_SIZE.exit.i58:                                 ; preds = %PyTuple_SET_ITEM.exit50
+  %cmp6.i60 = icmp ugt i64 %20, 2
+  br i1 %cmp6.i60, label %PyTuple_SET_ITEM.exit67, label %cond.false8.i61
 
-cond.false8.i62:                                  ; preds = %Py_SIZE.exit.i59
+cond.false8.i61:                                  ; preds = %Py_SIZE.exit.i58
   tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
   unreachable
 
-PyTuple_SET_ITEM.exit67:                          ; preds = %Py_SIZE.exit.i59
-  %arrayidx.i63 = getelementptr %struct.PyTupleObject, ptr %call15, i64 0, i32 1, i64 2
+PyTuple_SET_ITEM.exit67:                          ; preds = %Py_SIZE.exit.i58
+  %arrayidx.i63 = getelementptr i8, ptr %call15, i64 40
   store ptr %call7, ptr %arrayidx.i63, align 8
   br label %return
 
@@ -1231,8 +968,264 @@ if.then1.i.i93:                                   ; preds = %if.end.i.i90
   tail call void @_Py_Dealloc(ptr noundef nonnull %call7) #3
   br label %return
 
-return:                                           ; preds = %if.then1.i.i93, %if.end.i.i90, %if.then.i87, %Py_XDECREF.exit85, %if.then1.i.i34, %if.end.i.i31, %if.then.i28, %Py_XDECREF.exit, %PyTuple_SET_ITEM.exit67
-  %retval.0 = phi ptr [ %call15, %PyTuple_SET_ITEM.exit67 ], [ null, %Py_XDECREF.exit ], [ null, %if.then.i28 ], [ null, %if.end.i.i31 ], [ null, %if.then1.i.i34 ], [ null, %Py_XDECREF.exit85 ], [ null, %if.then.i87 ], [ null, %if.end.i.i90 ], [ null, %if.then1.i.i93 ]
+return:                                           ; preds = %if.then1.i.i93, %if.end.i.i90, %if.then.i87, %Py_XDECREF.exit85, %if.then1.i.i33, %if.end.i.i30, %if.then.i27, %Py_XDECREF.exit, %PyTuple_SET_ITEM.exit67
+  %retval.0 = phi ptr [ %call15, %PyTuple_SET_ITEM.exit67 ], [ null, %Py_XDECREF.exit ], [ null, %if.then.i27 ], [ null, %if.end.i.i30 ], [ null, %if.then1.i.i33 ], [ null, %Py_XDECREF.exit85 ], [ null, %if.then.i87 ], [ null, %if.end.i.i90 ], [ null, %if.then1.i.i93 ]
+  ret ptr %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @make_timezones_capi(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+entry:
+  %0 = load ptr, ptr @PyDateTimeAPI, align 8
+  %Delta_FromDelta = getelementptr inbounds i8, ptr %0, i64 72
+  %1 = load ptr, ptr %Delta_FromDelta, align 8
+  %DeltaType = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = load ptr, ptr %DeltaType, align 8
+  %call = tail call ptr %1(i32 noundef 0, i32 noundef -18000, i32 noundef 0, i32 noundef 1, ptr noundef %2) #3
+  %call1 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.39) #3
+  %cmp = icmp eq ptr %call, null
+  %cmp2 = icmp eq ptr %call1, null
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  br i1 %cmp, label %Py_XDECREF.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
+  %3 = load i64, ptr %call, align 8
+  %4 = and i64 %3, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %4, 0
+  br i1 %cmp.i2.not.i, label %if.end.i.i, label %Py_XDECREF.exit
+
+if.end.i.i:                                       ; preds = %if.then.i
+  %dec.i.i = add i64 %3, -1
+  store i64 %dec.i.i, ptr %call, align 8
+  %cmp.i.i = icmp eq i64 %dec.i.i, 0
+  br i1 %cmp.i.i, label %if.then1.i.i, label %Py_XDECREF.exit
+
+if.then1.i.i:                                     ; preds = %if.end.i.i
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #3
+  br label %Py_XDECREF.exit
+
+Py_XDECREF.exit:                                  ; preds = %if.then, %if.then.i, %if.end.i.i, %if.then1.i.i
+  br i1 %cmp2, label %return, label %if.then.i28
+
+if.then.i28:                                      ; preds = %Py_XDECREF.exit
+  %5 = load i64, ptr %call1, align 8
+  %6 = and i64 %5, 2147483648
+  %cmp.i2.not.i29 = icmp eq i64 %6, 0
+  br i1 %cmp.i2.not.i29, label %if.end.i.i31, label %return
+
+if.end.i.i31:                                     ; preds = %if.then.i28
+  %dec.i.i32 = add i64 %5, -1
+  store i64 %dec.i.i32, ptr %call1, align 8
+  %cmp.i.i33 = icmp eq i64 %dec.i.i32, 0
+  br i1 %cmp.i.i33, label %if.then1.i.i34, label %return
+
+if.then1.i.i34:                                   ; preds = %if.end.i.i31
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #3
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %7 = load ptr, ptr @PyDateTimeAPI, align 8
+  %TimeZone_FromTimeZone = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = load ptr, ptr %TimeZone_FromTimeZone, align 8
+  %call3 = tail call ptr %8(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
+  %9 = load ptr, ptr @PyDateTimeAPI, align 8
+  %TimeZone_FromTimeZone4 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = load ptr, ptr %TimeZone_FromTimeZone4, align 8
+  %call5 = tail call ptr %10(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
+  %11 = load ptr, ptr @PyDateTimeAPI, align 8
+  %TimeZone_FromTimeZone6 = getelementptr inbounds i8, ptr %11, i64 80
+  %12 = load ptr, ptr %TimeZone_FromTimeZone6, align 8
+  %call7 = tail call ptr %12(ptr noundef nonnull %call, ptr noundef null) #3
+  %13 = load i64, ptr %call, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i29.not = icmp eq i64 %14, 0
+  br i1 %cmp.i29.not, label %if.end.i22, label %Py_DECREF.exit27
+
+if.end.i22:                                       ; preds = %if.end
+  %dec.i23 = add i64 %13, -1
+  store i64 %dec.i23, ptr %call, align 8
+  %cmp.i24 = icmp eq i64 %dec.i23, 0
+  br i1 %cmp.i24, label %if.then1.i25, label %Py_DECREF.exit27
+
+if.then1.i25:                                     ; preds = %if.end.i22
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #3
+  br label %Py_DECREF.exit27
+
+Py_DECREF.exit27:                                 ; preds = %if.end, %if.then1.i25, %if.end.i22
+  %15 = load i64, ptr %call1, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i32.not = icmp eq i64 %16, 0
+  br i1 %cmp.i32.not, label %if.end.i, label %Py_DECREF.exit
+
+if.end.i:                                         ; preds = %Py_DECREF.exit27
+  %dec.i = add i64 %15, -1
+  store i64 %dec.i, ptr %call1, align 8
+  %cmp.i = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
+
+if.then1.i:                                       ; preds = %if.end.i
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #3
+  br label %Py_DECREF.exit
+
+Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit27, %if.then1.i, %if.end.i
+  %cmp8 = icmp eq ptr %call3, null
+  %cmp10 = icmp eq ptr %call5, null
+  %or.cond1 = select i1 %cmp8, i1 true, i1 %cmp10
+  %cmp12 = icmp eq ptr %call7, null
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp12
+  br i1 %or.cond2, label %error, label %if.end14
+
+if.end14:                                         ; preds = %Py_DECREF.exit
+  %call15 = tail call ptr @PyTuple_New(i64 noundef 3) #3
+  %cmp16 = icmp eq ptr %call15, null
+  br i1 %cmp16, label %if.then.i70, label %if.end18
+
+if.end18:                                         ; preds = %if.end14
+  %17 = getelementptr i8, ptr %call15, i64 8
+  %op.val.i = load ptr, ptr %17, align 8
+  %18 = getelementptr i8, ptr %op.val.i, i64 168
+  %call.val.i = load i64, ptr %18, align 8
+  %19 = and i64 %call.val.i, 67108864
+  %tobool.not.i = icmp eq i64 %19, 0
+  br i1 %tobool.not.i, label %cond.false.i, label %cond.end4.i
+
+cond.false.i:                                     ; preds = %if.end18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
+  unreachable
+
+cond.end4.i:                                      ; preds = %if.end18
+  %cmp.not.i.i = icmp eq ptr %op.val.i, @PyLong_Type
+  br i1 %cmp.not.i.i, label %cond.false.i.i, label %cond.end.i.i
+
+cond.false.i.i:                                   ; preds = %cond.end4.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 337, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #4
+  unreachable
+
+cond.end.i.i:                                     ; preds = %cond.end4.i
+  %cmp2.not.i.i = icmp eq ptr %op.val.i, @PyBool_Type
+  br i1 %cmp2.not.i.i, label %cond.false4.i.i, label %Py_SIZE.exit.i
+
+cond.false4.i.i:                                  ; preds = %cond.end.i.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.37, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #4
+  unreachable
+
+Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i
+  %ob_size.i.i = getelementptr inbounds i8, ptr %call15, i64 16
+  %20 = load i64, ptr %ob_size.i.i, align 8
+  %cmp6.i = icmp sgt i64 %20, 0
+  br i1 %cmp6.i, label %PyTuple_SET_ITEM.exit, label %cond.false8.i
+
+cond.false8.i:                                    ; preds = %Py_SIZE.exit.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
+  unreachable
+
+PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
+  %ob_item.i = getelementptr inbounds i8, ptr %call15, i64 24
+  store ptr %call3, ptr %ob_item.i, align 8
+  %call.val.i37 = load i64, ptr %18, align 8
+  %21 = and i64 %call.val.i37, 67108864
+  %tobool.not.i38 = icmp eq i64 %21, 0
+  br i1 %tobool.not.i38, label %cond.false.i50, label %Py_SIZE.exit.i43
+
+cond.false.i50:                                   ; preds = %PyTuple_SET_ITEM.exit
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
+  unreachable
+
+Py_SIZE.exit.i43:                                 ; preds = %PyTuple_SET_ITEM.exit
+  %cmp6.i45.not = icmp eq i64 %20, 1
+  br i1 %cmp6.i45.not, label %cond.false8.i46, label %PyTuple_SET_ITEM.exit51
+
+cond.false8.i46:                                  ; preds = %Py_SIZE.exit.i43
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
+  unreachable
+
+PyTuple_SET_ITEM.exit51:                          ; preds = %Py_SIZE.exit.i43
+  %arrayidx.i = getelementptr i8, ptr %call15, i64 32
+  store ptr %call5, ptr %arrayidx.i, align 8
+  %call.val.i53 = load i64, ptr %18, align 8
+  %22 = and i64 %call.val.i53, 67108864
+  %tobool.not.i54 = icmp eq i64 %22, 0
+  br i1 %tobool.not.i54, label %cond.false.i67, label %Py_SIZE.exit.i59
+
+cond.false.i67:                                   ; preds = %PyTuple_SET_ITEM.exit51
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
+  unreachable
+
+Py_SIZE.exit.i59:                                 ; preds = %PyTuple_SET_ITEM.exit51
+  %cmp6.i61 = icmp ugt i64 %20, 2
+  br i1 %cmp6.i61, label %PyTuple_SET_ITEM.exit68, label %cond.false8.i62
+
+cond.false8.i62:                                  ; preds = %Py_SIZE.exit.i59
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #4
+  unreachable
+
+PyTuple_SET_ITEM.exit68:                          ; preds = %Py_SIZE.exit.i59
+  %arrayidx.i64 = getelementptr i8, ptr %call15, i64 40
+  store ptr %call7, ptr %arrayidx.i64, align 8
+  br label %return
+
+error:                                            ; preds = %Py_DECREF.exit
+  br i1 %cmp8, label %Py_XDECREF.exit77, label %if.then.i70
+
+if.then.i70:                                      ; preds = %if.end14, %error
+  %23 = load i64, ptr %call3, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i2.not.i71 = icmp eq i64 %24, 0
+  br i1 %cmp.i2.not.i71, label %if.end.i.i73, label %Py_XDECREF.exit77
+
+if.end.i.i73:                                     ; preds = %if.then.i70
+  %dec.i.i74 = add i64 %23, -1
+  store i64 %dec.i.i74, ptr %call3, align 8
+  %cmp.i.i75 = icmp eq i64 %dec.i.i74, 0
+  br i1 %cmp.i.i75, label %if.then1.i.i76, label %Py_XDECREF.exit77
+
+if.then1.i.i76:                                   ; preds = %if.end.i.i73
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call3) #3
+  br label %Py_XDECREF.exit77
+
+Py_XDECREF.exit77:                                ; preds = %error, %if.then.i70, %if.end.i.i73, %if.then1.i.i76
+  br i1 %cmp10, label %Py_XDECREF.exit86, label %if.then.i79
+
+if.then.i79:                                      ; preds = %Py_XDECREF.exit77
+  %25 = load i64, ptr %call5, align 8
+  %26 = and i64 %25, 2147483648
+  %cmp.i2.not.i80 = icmp eq i64 %26, 0
+  br i1 %cmp.i2.not.i80, label %if.end.i.i82, label %Py_XDECREF.exit86
+
+if.end.i.i82:                                     ; preds = %if.then.i79
+  %dec.i.i83 = add i64 %25, -1
+  store i64 %dec.i.i83, ptr %call5, align 8
+  %cmp.i.i84 = icmp eq i64 %dec.i.i83, 0
+  br i1 %cmp.i.i84, label %if.then1.i.i85, label %Py_XDECREF.exit86
+
+if.then1.i.i85:                                   ; preds = %if.end.i.i82
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call5) #3
+  br label %Py_XDECREF.exit86
+
+Py_XDECREF.exit86:                                ; preds = %Py_XDECREF.exit77, %if.then.i79, %if.end.i.i82, %if.then1.i.i85
+  br i1 %cmp12, label %return, label %if.then.i88
+
+if.then.i88:                                      ; preds = %Py_XDECREF.exit86
+  %27 = load i64, ptr %call7, align 8
+  %28 = and i64 %27, 2147483648
+  %cmp.i2.not.i89 = icmp eq i64 %28, 0
+  br i1 %cmp.i2.not.i89, label %if.end.i.i91, label %return
+
+if.end.i.i91:                                     ; preds = %if.then.i88
+  %dec.i.i92 = add i64 %27, -1
+  store i64 %dec.i.i92, ptr %call7, align 8
+  %cmp.i.i93 = icmp eq i64 %dec.i.i92, 0
+  br i1 %cmp.i.i93, label %if.then1.i.i94, label %return
+
+if.then1.i.i94:                                   ; preds = %if.end.i.i91
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call7) #3
+  br label %return
+
+return:                                           ; preds = %if.then1.i.i94, %if.end.i.i91, %if.then.i88, %Py_XDECREF.exit86, %if.then1.i.i34, %if.end.i.i31, %if.then.i28, %Py_XDECREF.exit, %PyTuple_SET_ITEM.exit68
+  %retval.0 = phi ptr [ %call15, %PyTuple_SET_ITEM.exit68 ], [ null, %Py_XDECREF.exit ], [ null, %if.then.i28 ], [ null, %if.end.i.i31 ], [ null, %if.then1.i.i34 ], [ null, %Py_XDECREF.exit86 ], [ null, %if.then.i88 ], [ null, %if.end.i.i91 ], [ null, %if.then1.i.i94 ]
   ret ptr %retval.0
 }
 

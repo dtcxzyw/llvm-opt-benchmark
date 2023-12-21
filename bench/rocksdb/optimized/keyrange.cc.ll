@@ -3,22 +3,21 @@ source_filename = "bench/rocksdb/original/keyrange.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.toku::keyrange" = type <{ %struct.__toku_dbt, %struct.__toku_dbt, ptr, ptr, i8, [7 x i8] }>
 %struct.__toku_dbt = type { ptr, i64, i64, i32 }
-%"class.toku::comparator" = type <{ ptr, ptr, i8, [7 x i8] }>
+%"class.toku::keyrange" = type <{ %struct.__toku_dbt, %struct.__toku_dbt, ptr, ptr, i8, [7 x i8] }>
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8keyrange6createEPK10__toku_dbtS3_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %left, ptr noundef %right) local_unnamed_addr #0 align 2 {
 entry:
-  %m_left_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_key.i, i8 0, i64 16, i1 false)
   %call.i = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %this)
-  %m_right_key_copy.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy.i = getelementptr inbounds i8, ptr %this, i64 32
   %call2.i = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy.i)
-  %m_point_range.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_point_range.i, align 8
   store ptr %left, ptr %m_left_key.i, align 8
-  %m_right_key = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %right, ptr %m_right_key, align 8
   ret void
 }
@@ -26,12 +25,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8keyrange10init_emptyEv(ptr noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_left_key = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_key, i8 0, i64 16, i1 false)
   %call = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %this)
-  %m_right_key_copy = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
   %call2 = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy)
-  %m_point_range = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_point_range, align 8
   ret void
 }
@@ -40,7 +39,7 @@ entry:
 define void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %this)
-  %m_right_key_copy = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy)
   ret void
 }
@@ -50,21 +49,21 @@ declare void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8keyrange11create_copyERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #0 align 2 {
 entry:
-  %m_left_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_key.i, i8 0, i64 16, i1 false)
   %call.i = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %this)
-  %m_right_key_copy.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy.i = getelementptr inbounds i8, ptr %this, i64 32
   %call2.i = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy.i)
-  %m_point_range.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_point_range.i, align 8
-  %m_left_key.i5 = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 2
+  %m_left_key.i5 = getelementptr inbounds i8, ptr %range, i64 64
   %0 = load ptr, ptr %m_left_key.i5, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %this..i = select i1 %tobool.not.i, ptr %range, ptr %0
-  %m_right_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 3
+  %m_right_key.i = getelementptr inbounds i8, ptr %range, i64 72
   %1 = load ptr, ptr %m_right_key.i, align 8
   %tobool.not.i6 = icmp eq ptr %1, null
-  %m_right_key_copy.i7 = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 1
+  %m_right_key_copy.i7 = getelementptr inbounds i8, ptr %range, i64 32
   %retval.0.i = select i1 %tobool.not.i6, ptr %m_right_key_copy.i7, ptr %1
   %call3 = tail call noundef zeroext i1 @_Z15toku_dbt_equalsPK10__toku_dbtS1_(ptr noundef nonnull %this..i, ptr noundef nonnull %retval.0.i)
   %2 = load ptr, ptr %m_left_key.i5, align 8
@@ -78,7 +77,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   store ptr %this..i10, ptr %m_left_key.i, align 8
-  %m_right_key.i16 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key.i16 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %this..i10, ptr %m_right_key.i16, align 8
   br label %if.end
 
@@ -126,7 +125,7 @@ if.else.i32:                                      ; preds = %_ZN4toku8keyrange16
 
 _ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit: ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, %if.else.i32
   %.sink.i34 = phi ptr [ null, %if.else.i32 ], [ %retval.0.i29, %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit ]
-  %6 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %.sink.i34, ptr %6, align 8
   br label %if.end
 
@@ -141,7 +140,7 @@ declare noundef zeroext i1 @_Z15toku_dbt_equalsPK10__toku_dbtS1_(ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @_ZNK4toku8keyrange12get_left_keyEv(ptr noundef nonnull readonly align 8 dereferenceable(81) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %m_left_key = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_left_key, align 8
   %tobool.not = icmp eq ptr %0, null
   %this. = select i1 %tobool.not, ptr %this, ptr %0
@@ -151,10 +150,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @_ZNK4toku8keyrange13get_right_keyEv(ptr noundef nonnull readonly align 8 dereferenceable(81) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %m_right_key = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_right_key, align 8
   %tobool.not = icmp eq ptr %0, null
-  %m_right_key_copy = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
   %retval.0 = select i1 %tobool.not, ptr %m_right_key_copy, ptr %0
   ret ptr %retval.0
 }
@@ -166,20 +165,20 @@ entry:
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_left_key = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %key, ptr %m_left_key, align 8
-  %m_right_key = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %key, ptr %m_right_key, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %call2 = tail call noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  %m_right_key_copy = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
   %call4 = tail call noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef nonnull %m_right_key_copy, ptr noundef nonnull byval(%struct.__toku_dbt) align 8 %this)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_point_range = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %m_point_range, align 8
   ret void
 }
@@ -187,14 +186,14 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %key) local_unnamed_addr #0 align 2 {
 entry:
-  %m_point_range = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %m_point_range, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_right_key_copy = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_right_key_copy, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
   br label %if.end
 
@@ -212,7 +211,7 @@ if.else4:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end, %if.else4
   %.sink = phi ptr [ null, %if.else4 ], [ %key, %if.end ]
-  %2 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %.sink, ptr %2, align 8
   store i8 0, ptr %m_point_range, align 8
   ret void
@@ -221,7 +220,7 @@ if.end8:                                          ; preds = %if.end, %if.else4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %key) local_unnamed_addr #0 align 2 {
 entry:
-  %m_right_key_copy = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy)
   %call = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef %key)
   br i1 %call, label %if.end, label %if.else
@@ -232,9 +231,9 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.else
   %.sink = phi ptr [ null, %if.else ], [ %key, %entry ]
-  %0 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %.sink, ptr %0, align 8
-  %m_point_range = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_point_range, align 8
   ret void
 }
@@ -242,16 +241,16 @@ if.end:                                           ; preds = %entry, %if.else
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8keyrange6extendERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #0 align 2 {
 entry:
-  %m_left_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 2
+  %m_left_key.i = getelementptr inbounds i8, ptr %range, i64 64
   %0 = load ptr, ptr %m_left_key.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %this..i = select i1 %tobool.not.i, ptr %range, ptr %0
-  %m_right_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 3
+  %m_right_key.i = getelementptr inbounds i8, ptr %range, i64 72
   %1 = load ptr, ptr %m_right_key.i, align 8
   %tobool.not.i5 = icmp eq ptr %1, null
-  %m_right_key_copy.i = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 1
+  %m_right_key_copy.i = getelementptr inbounds i8, ptr %range, i64 32
   %retval.0.i = select i1 %tobool.not.i5, ptr %m_right_key_copy.i, ptr %1
-  %m_left_key.i6 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key.i6 = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %m_left_key.i6, align 8
   %tobool.not.i7 = icmp eq ptr %2, null
   %this..i8 = select i1 %tobool.not.i7, ptr %this, ptr %2
@@ -267,7 +266,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %entry
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
 
 if.else.i:                                        ; preds = %lor.rhs.i
-  %_memcmp_magic.i = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 2
+  %_memcmp_magic.i = getelementptr inbounds i8, ptr %cmp, i64 16
   %3 = load i8, ptr %_memcmp_magic.i, align 8
   %cmp.not.i = icmp eq i8 %3, 0
   br i1 %cmp.not.i, label %if.else10.i, label %land.lhs.true.i
@@ -292,7 +291,7 @@ if.then8.i:                                       ; preds = %land.lhs.true5.i
 
 if.else10.i:                                      ; preds = %land.lhs.true5.i, %land.lhs.true.i, %if.else.i
   %8 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 1
+  %_cmp_arg.i = getelementptr inbounds i8, ptr %cmp, i64 8
   %9 = load ptr, ptr %_cmp_arg.i, align 8
   %call11.i = tail call noundef i32 %8(ptr noundef %9, ptr noundef nonnull %this..i, ptr noundef nonnull %this..i8)
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
@@ -303,14 +302,14 @@ _ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit:   ; preds = %if.then.i, %if.then
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
-  %m_point_range.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range.i = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load i8, ptr %m_point_range.i, align 8
   %11 = and i8 %10, 1
   %tobool.not.i10 = icmp eq i8 %11, 0
   br i1 %tobool.not.i10, label %if.else.i14, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.then
-  %m_right_key_copy.i12 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy.i12 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_right_key_copy.i12, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
   br label %if.end.i
 
@@ -333,10 +332,10 @@ _ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit: ; preds = %if.end.i, %i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4toku8keyrange16replace_left_keyEPK10__toku_dbt.exit, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
-  %m_right_key.i15 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key.i15 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %m_right_key.i15, align 8
   %tobool.not.i16 = icmp eq ptr %12, null
-  %m_right_key_copy.i17 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy.i17 = getelementptr inbounds i8, ptr %this, i64 32
   %retval.0.i18 = select i1 %tobool.not.i16, ptr %m_right_key_copy.i17, ptr %12
   %call.i19 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %retval.0.i)
   br i1 %call.i19, label %if.then.i37, label %lor.rhs.i20
@@ -350,7 +349,7 @@ if.then.i37:                                      ; preds = %lor.rhs.i20, %if.en
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
 
 if.else.i22:                                      ; preds = %lor.rhs.i20
-  %_memcmp_magic.i23 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 2
+  %_memcmp_magic.i23 = getelementptr inbounds i8, ptr %cmp, i64 16
   %13 = load i8, ptr %_memcmp_magic.i23, align 8
   %cmp.not.i24 = icmp eq i8 %13, 0
   br i1 %cmp.not.i24, label %if.else10.i29, label %land.lhs.true.i25
@@ -375,7 +374,7 @@ if.then8.i35:                                     ; preds = %land.lhs.true5.i33
 
 if.else10.i29:                                    ; preds = %land.lhs.true5.i33, %land.lhs.true.i25, %if.else.i22
   %18 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i30 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 1
+  %_cmp_arg.i30 = getelementptr inbounds i8, ptr %cmp, i64 8
   %19 = load ptr, ptr %_cmp_arg.i30, align 8
   %call11.i31 = tail call noundef i32 %18(ptr noundef %19, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %retval.0.i18)
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit39
@@ -397,7 +396,7 @@ if.else.i42:                                      ; preds = %if.then9
 _ZN4toku8keyrange17replace_right_keyEPK10__toku_dbt.exit: ; preds = %if.then9, %if.else.i42
   %.sink.i45 = phi ptr [ null, %if.else.i42 ], [ %retval.0.i, %if.then9 ]
   store ptr %.sink.i45, ptr %m_right_key.i15, align 8
-  %m_point_range.i46 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 4
+  %m_point_range.i46 = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_point_range.i46, align 8
   br label %if.end10
 
@@ -408,18 +407,18 @@ if.end10:                                         ; preds = %_ZN4toku8keyrange17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_left_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_left_key.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %this..i = select i1 %tobool.not.i, ptr %this, ptr %0
-  %m_right_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %m_right_key.i, align 8
   %tobool.not.i1 = icmp eq ptr %1, null
-  %m_right_key_copy.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.0.i = select i1 %tobool.not.i1, ptr %m_right_key_copy.i, ptr %1
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %this..i, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %this..i, i64 8
   %2 = load i64, ptr %size, align 8
-  %size3 = getelementptr inbounds %struct.__toku_dbt, ptr %retval.0.i, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %3 = load i64, ptr %size3, align 8
   %add = add i64 %2, 88
   %add4 = add i64 %add, %3
@@ -429,12 +428,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #0 align 2 {
 entry:
-  %m_right_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 3
+  %m_right_key.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_right_key.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %m_right_key_copy.i = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 1
+  %m_right_key_copy.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.0.i = select i1 %tobool.not.i, ptr %m_right_key_copy.i, ptr %0
-  %m_left_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 2
+  %m_left_key.i = getelementptr inbounds i8, ptr %range, i64 64
   %1 = load ptr, ptr %m_left_key.i, align 8
   %tobool.not.i7 = icmp eq ptr %1, null
   %this..i = select i1 %tobool.not.i7, ptr %range, ptr %1
@@ -450,7 +449,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %entry
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
 
 if.else.i:                                        ; preds = %lor.rhs.i
-  %_memcmp_magic.i = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 2
+  %_memcmp_magic.i = getelementptr inbounds i8, ptr %cmp, i64 16
   %2 = load i8, ptr %_memcmp_magic.i, align 8
   %cmp.not.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i, label %if.else10.i, label %land.lhs.true.i
@@ -475,7 +474,7 @@ if.then8.i:                                       ; preds = %land.lhs.true5.i
 
 if.else10.i:                                      ; preds = %land.lhs.true5.i, %land.lhs.true.i, %if.else.i
   %7 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 1
+  %_cmp_arg.i = getelementptr inbounds i8, ptr %cmp, i64 8
   %8 = load ptr, ptr %_cmp_arg.i, align 8
   %call11.i = tail call noundef i32 %7(ptr noundef %8, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %this..i)
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
@@ -486,14 +485,14 @@ _ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit:   ; preds = %if.then.i, %if.then
   br i1 %cmp4, label %return, label %if.else
 
 if.else:                                          ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
-  %m_left_key.i9 = getelementptr inbounds %"class.toku::keyrange", ptr %this, i64 0, i32 2
+  %m_left_key.i9 = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load ptr, ptr %m_left_key.i9, align 8
   %tobool.not.i10 = icmp eq ptr %9, null
   %this..i11 = select i1 %tobool.not.i10, ptr %this, ptr %9
-  %m_right_key.i12 = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 3
+  %m_right_key.i12 = getelementptr inbounds i8, ptr %range, i64 72
   %10 = load ptr, ptr %m_right_key.i12, align 8
   %tobool.not.i13 = icmp eq ptr %10, null
-  %m_right_key_copy.i14 = getelementptr inbounds %"class.toku::keyrange", ptr %range, i64 0, i32 1
+  %m_right_key_copy.i14 = getelementptr inbounds i8, ptr %range, i64 32
   %retval.0.i15 = select i1 %tobool.not.i13, ptr %m_right_key_copy.i14, ptr %10
   %call.i16 = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %this..i11)
   br i1 %call.i16, label %if.then.i34, label %lor.rhs.i17
@@ -507,7 +506,7 @@ if.then.i34:                                      ; preds = %lor.rhs.i17, %if.el
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit36
 
 if.else.i19:                                      ; preds = %lor.rhs.i17
-  %_memcmp_magic.i20 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 2
+  %_memcmp_magic.i20 = getelementptr inbounds i8, ptr %cmp, i64 16
   %11 = load i8, ptr %_memcmp_magic.i20, align 8
   %cmp.not.i21 = icmp eq i8 %11, 0
   br i1 %cmp.not.i21, label %if.else10.i26, label %land.lhs.true.i22
@@ -532,7 +531,7 @@ if.then8.i32:                                     ; preds = %land.lhs.true5.i30
 
 if.else10.i26:                                    ; preds = %land.lhs.true5.i30, %land.lhs.true.i22, %if.else.i19
   %16 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i27 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 1
+  %_cmp_arg.i27 = getelementptr inbounds i8, ptr %cmp, i64 8
   %17 = load ptr, ptr %_cmp_arg.i27, align 8
   %call11.i28 = tail call noundef i32 %16(ptr noundef %17, ptr noundef nonnull %this..i11, ptr noundef nonnull %retval.0.i15)
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit36
@@ -561,7 +560,7 @@ if.then.i61:                                      ; preds = %lor.rhs.i44, %if.el
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63
 
 if.else.i46:                                      ; preds = %lor.rhs.i44
-  %_memcmp_magic.i47 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 2
+  %_memcmp_magic.i47 = getelementptr inbounds i8, ptr %cmp, i64 16
   %20 = load i8, ptr %_memcmp_magic.i47, align 8
   %cmp.not.i48 = icmp eq i8 %20, 0
   br i1 %cmp.not.i48, label %if.else10.i53, label %land.lhs.true.i49
@@ -586,7 +585,7 @@ if.then8.i59:                                     ; preds = %land.lhs.true5.i57
 
 if.else10.i53:                                    ; preds = %land.lhs.true5.i57, %land.lhs.true.i49, %if.else.i46
   %25 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i54 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 1
+  %_cmp_arg.i54 = getelementptr inbounds i8, ptr %cmp, i64 8
   %26 = load ptr, ptr %_cmp_arg.i54, align 8
   %call11.i55 = tail call noundef i32 %25(ptr noundef %26, ptr noundef nonnull %this..i39, ptr noundef nonnull %this..i42)
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63
@@ -615,7 +614,7 @@ if.then.i90:                                      ; preds = %lor.rhs.i73, %land.
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92
 
 if.else.i75:                                      ; preds = %lor.rhs.i73
-  %_memcmp_magic.i76 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 2
+  %_memcmp_magic.i76 = getelementptr inbounds i8, ptr %cmp, i64 16
   %29 = load i8, ptr %_memcmp_magic.i76, align 8
   %cmp.not.i77 = icmp eq i8 %29, 0
   br i1 %cmp.not.i77, label %if.else10.i82, label %land.lhs.true.i78
@@ -640,7 +639,7 @@ if.then8.i88:                                     ; preds = %land.lhs.true5.i86
 
 if.else10.i82:                                    ; preds = %land.lhs.true5.i86, %land.lhs.true.i78, %if.else.i75
   %34 = load ptr, ptr %cmp, align 8
-  %_cmp_arg.i83 = getelementptr inbounds %"class.toku::comparator", ptr %cmp, i64 0, i32 1
+  %_cmp_arg.i83 = getelementptr inbounds i8, ptr %cmp, i64 8
   %35 = load ptr, ptr %_cmp_arg.i83, align 8
   %call11.i84 = tail call noundef i32 %34(ptr noundef %35, ptr noundef nonnull %retval.0.i67, ptr noundef nonnull %retval.0.i71)
   br label %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92
@@ -673,15 +672,15 @@ define void @_ZN4toku8keyrange18get_infinite_rangeEv(ptr noalias sret(%"class.to
 entry:
   %call = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
   %call1 = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %m_left_key.i.i = getelementptr inbounds %"class.toku::keyrange", ptr %agg.result, i64 0, i32 2
+  %m_left_key.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_key.i.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %agg.result)
-  %m_right_key_copy.i.i = getelementptr inbounds %"class.toku::keyrange", ptr %agg.result, i64 0, i32 1
+  %m_right_key_copy.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %call2.i.i = tail call noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef nonnull %m_right_key_copy.i.i)
-  %m_point_range.i.i = getelementptr inbounds %"class.toku::keyrange", ptr %agg.result, i64 0, i32 4
+  %m_point_range.i.i = getelementptr inbounds i8, ptr %agg.result, i64 80
   store i8 0, ptr %m_point_range.i.i, align 8
   store ptr %call, ptr %m_left_key.i.i, align 8
-  %m_right_key.i = getelementptr inbounds %"class.toku::keyrange", ptr %agg.result, i64 0, i32 3
+  %m_right_key.i = getelementptr inbounds i8, ptr %agg.result, i64 72
   store ptr %call1, ptr %m_right_key.i, align 8
   ret void
 }

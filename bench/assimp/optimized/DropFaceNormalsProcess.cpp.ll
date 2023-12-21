@@ -3,11 +3,6 @@ source_filename = "bench/assimp/original/DropFaceNormalsProcess.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%class.aiVector3t = type { float, float, float }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -78,13 +73,13 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 2
+  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %1 = load i32, ptr %mNumMeshes, align 8
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %if.else, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -109,7 +104,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %4 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  %mNormals.i = getelementptr inbounds %struct.aiMesh, ptr %5, i64 0, i32 4
+  %mNormals.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mNormals.i, align 8
   %cmp.i = icmp ne ptr %6, null
   br i1 %cmp.i, label %delete.notnull.i, label %_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh.exit
@@ -189,7 +184,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef %mesh) local_unnamed_addr #3 align 2 {
 entry:
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 4
+  %mNormals = getelementptr inbounds i8, ptr %mesh, i64 24
   %0 = load ptr, ptr %mNormals, align 8
   %cmp = icmp ne ptr %0, null
   br i1 %cmp, label %delete.notnull, label %return

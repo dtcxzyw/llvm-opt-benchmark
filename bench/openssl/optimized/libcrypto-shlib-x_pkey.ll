@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x_pkey.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.private_key_st = type { i32, ptr, ptr, ptr, i32, ptr, i32, %struct.evp_cipher_info_st }
-%struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/asn1/x_pkey.c\00", align 1
 @__func__.X509_PKEY_new = private unnamed_addr constant [14 x i8] c"X509_PKEY_new\00", align 1
 
@@ -18,10 +15,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @X509_ALGOR_new() #2
-  %enc_algor = getelementptr inbounds %struct.private_key_st, ptr %call, i64 0, i32 1
+  %enc_algor = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %enc_algor, align 8
   %call2 = tail call ptr @ASN1_OCTET_STRING_new() #2
-  %enc_pkey = getelementptr inbounds %struct.private_key_st, ptr %call, i64 0, i32 2
+  %enc_pkey = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call2, ptr %enc_pkey, align 8
   %cmp4 = icmp eq ptr %call1, null
   %cmp6 = icmp eq ptr %call2, null
@@ -31,16 +28,16 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   tail call void @X509_ALGOR_free(ptr noundef %call1) #2
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %call2) #2
-  %dec_pkey.i = getelementptr inbounds %struct.private_key_st, ptr %call, i64 0, i32 3
+  %dec_pkey.i = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load ptr, ptr %dec_pkey.i, align 8
   tail call void @EVP_PKEY_free(ptr noundef %0) #2
-  %key_free.i = getelementptr inbounds %struct.private_key_st, ptr %call, i64 0, i32 6
+  %key_free.i = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load i32, ptr %key_free.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %X509_PKEY_free.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %key_data.i = getelementptr inbounds %struct.private_key_st, ptr %call, i64 0, i32 5
+  %key_data.i = getelementptr inbounds i8, ptr %call, i64 40
   %2 = load ptr, ptr %key_data.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 44) #2
   br label %X509_PKEY_free.exit
@@ -70,22 +67,22 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enc_algor = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 1
+  %enc_algor = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %enc_algor, align 8
   tail call void @X509_ALGOR_free(ptr noundef %0) #2
-  %enc_pkey = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 2
+  %enc_pkey = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %enc_pkey, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %1) #2
-  %dec_pkey = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 3
+  %dec_pkey = getelementptr inbounds i8, ptr %x, i64 24
   %2 = load ptr, ptr %dec_pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %2) #2
-  %key_free = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 6
+  %key_free = getelementptr inbounds i8, ptr %x, i64 48
   %3 = load i32, ptr %key_free, align 8
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %key_data = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 5
+  %key_data = getelementptr inbounds i8, ptr %x, i64 40
   %4 = load ptr, ptr %key_data, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 44) #2
   br label %if.end2

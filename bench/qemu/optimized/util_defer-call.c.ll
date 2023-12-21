@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr, ptr }
 %struct.DeferCallThreadState = type { i32, ptr }
 %struct.DeferredCall = type { ptr, ptr }
-%struct._GArray = type { ptr, i32 }
 
 @defer_call_atexit_notifier = internal thread_local global %struct.Notifier zeroinitializer, align 8
 @.str = private unnamed_addr constant [41 x i8] c"thread_state->nesting_level < UINT32_MAX\00", align 1
@@ -37,7 +36,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %deferred_call_array = getelementptr inbounds %struct.DeferCallThreadState, ptr %1, i64 0, i32 1
+  %deferred_call_array = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %deferred_call_array, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then1, label %if.end4
@@ -54,9 +53,9 @@ if.end4:                                          ; preds = %if.then1, %if.end
   %array.0 = phi ptr [ %3, %if.end ], [ %call2, %if.then1 ]
   %5 = load ptr, ptr %array.0, align 8
   store ptr %fn, ptr %new_fn, align 8
-  %opaque6 = getelementptr inbounds %struct.DeferredCall, ptr %new_fn, i64 0, i32 1
+  %opaque6 = getelementptr inbounds i8, ptr %new_fn, i64 8
   store ptr %opaque, ptr %opaque6, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %array.0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %array.0, i64 8
   %6 = load i32, ptr %len, align 8
   %cmp711.not = icmp eq i32 %6, 0
   br i1 %cmp711.not, label %for.end, label %for.body.preheader
@@ -97,7 +96,7 @@ entry:
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %0) #6, !srcloc !5
   %1 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %deferred_call_array = getelementptr inbounds %struct.DeferCallThreadState, ptr %1, i64 0, i32 1
+  %deferred_call_array = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %deferred_call_array, align 8
   %call1 = call ptr @g_array_free(ptr noundef %2, i32 noundef 1) #6
   ret void
@@ -162,14 +161,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %deferred_call_array = getelementptr inbounds %struct.DeferCallThreadState, ptr %1, i64 0, i32 1
+  %deferred_call_array = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %deferred_call_array, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end4
   %4 = load ptr, ptr %3, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %3, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %len, align 8
   %cmp711.not = icmp eq i32 %5, 0
   br i1 %cmp711.not, label %for.end, label %for.body
@@ -178,7 +177,7 @@ for.body:                                         ; preds = %if.end6, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end6 ]
   %arrayidx = getelementptr %struct.DeferredCall, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
-  %opaque = getelementptr %struct.DeferredCall, ptr %4, i64 %indvars.iv, i32 1
+  %opaque = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %opaque, align 8
   call void %6(ptr noundef %7) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

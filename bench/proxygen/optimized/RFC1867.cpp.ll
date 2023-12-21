@@ -22,27 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
-%"class.proxygen::RFC1867Codec" = type <{ %"class.proxygen::HTTPCodec::Callback", %"class.std::__cxx11::basic_string", ptr, i32, [4 x i8], %"class.proxygen::HTTP1xCodec", %"class.std::__cxx11::basic_string", %"class.folly::IOBufQueue", %"class.folly::IOBufQueue", %"class.std::unique_ptr", i64, i8, [7 x i8] }>
-%"class.proxygen::HTTPCodec::Callback" = type { ptr }
-%"class.proxygen::HTTP1xCodec" = type <{ %"class.proxygen::HTTPCodec", %"class.std::__cxx11::basic_string", ptr, i64, i64, %"struct.proxygen::http_parser", ptr, %"class.std::unique_ptr.2", %"class.std::unique_ptr.2", %"class.std::unique_ptr.10", %"class.std::__cxx11::basic_string", %"class.folly::Range", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.proxygen::HTTPHeaderSize", i8, i8, i8, i8, %"struct.std::pair.18", i32, [4 x i8] }>
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"struct.proxygen::http_parser" = type { i8, i8, i8, i8, i32, i64, i16, i16, i16, i8, i8, ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.folly::Range" = type { ptr, ptr }
-%"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
-%"struct.std::pair.18" = type { i8, %"class.std::__cxx11::basic_string" }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
 %"class.folly::Optional.61" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.62, i8, [7 x i8] }>
 %union.anon.62 = type { %"class.std::__cxx11::basic_string" }
@@ -50,58 +29,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.proxygen::HTTPMessage" = type { %"class.std::chrono::time_point", %"class.folly::SocketAddress", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.proxygen::HTTPMessage::Fields", %"class.std::map", %"class.std::map.34", %"class.proxygen::HTTPHeaders", %"class.std::unique_ptr.10", %"struct.proxygen::HTTPHeaderSize", i32, %"class.std::unique_ptr.10", i32, i32, ptr, ptr, %"class.std::unique_ptr.23", i8, [7 x i8], %"class.folly::Optional.50", %"struct.std::pair.59", i8, i32 }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.proxygen::HTTPMessage::Fields" = type { i8, %"union.proxygen::HTTPMessage::Fields::Data" }
-%"union.proxygen::HTTPMessage::Fields::Data" = type { %"struct.proxygen::HTTPMessage::Response", [136 x i8] }
-%"struct.proxygen::HTTPMessage::Response" = type { i16, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map.34" = type { %"class.std::_Rb_tree.35" }
-%"class.std::_Rb_tree.35" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.39", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.39" = type { %"struct.std::less.40" }
-%"struct.std::less.40" = type { i8 }
-%"class.proxygen::HTTPHeaders" = type { %"class.std::unique_ptr.42", i64, i64, i64 }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
-%"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
-%"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
-%"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
-%"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
-%"struct.std::_Head_base.30" = type { ptr }
-%"class.folly::Optional.50" = type { %"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" = type <{ %union.anon.51, i8, [7 x i8] }>
-%union.anon.51 = type { %"class.std::tuple.52" }
-%"class.std::tuple.52" = type { %"struct.std::_Tuple_impl.53" }
-%"struct.std::_Tuple_impl.53" = type { %"struct.std::_Tuple_impl.54", %"struct.std::_Head_base.58" }
-%"struct.std::_Tuple_impl.54" = type { %"struct.std::_Tuple_impl.55", %"struct.std::_Head_base.57" }
-%"struct.std::_Tuple_impl.55" = type { %"struct.std::_Head_base.56" }
-%"struct.std::_Head_base.56" = type { i8 }
-%"struct.std::_Head_base.57" = type { i8 }
-%"struct.std::_Head_base.58" = type { i64 }
-%"struct.std::pair.59" = type { i8, i8 }
+%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
+%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
+%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
+%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
+%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
+%"struct.std::_Head_base.9" = type { ptr }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.65 }
 %union.anon.65 = type { ptr }
 %"class.std::allocator" = type { i8 }
-%class.anon = type { ptr, ptr }
 %struct._Guard = type { ptr }
 
 $_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev = comdat any
@@ -286,37 +225,37 @@ init.end:                                         ; preds = %invoke.cont, %init.
   store i8 1, ptr %ref.tmp, align 1
   call void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   store i8 0, ptr %foundBoundary, align 1
-  %input_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7
+  %input_ = getelementptr inbounds i8, ptr %this, i64 520
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %input_, ptr noundef nonnull align 8 dereferenceable(8) %data, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %while.cond.preheader unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %init.end
-  %head_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 536
   %3 = load ptr, ptr %head_.i, align 8
   %cmp.i.not.i552 = icmp eq ptr %3, null
   br i1 %cmp.i.not.i552, label %while.end309, label %lor.rhs.i.lr.ph
 
 lor.rhs.i.lr.ph:                                  ; preds = %while.cond.preheader
-  %cachePtr_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 4
-  %tailStart_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 3
-  %state_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 3
-  %value_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8
-  %tailStart_.i.i.i150 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %result, i64 0, i32 3
-  %cachePtr_.i.i.i151 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %result, i64 0, i32 4
-  %head_.i.i.i154 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %result, i64 0, i32 2
-  %chainLength_.i162 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %result, i64 0, i32 1
-  %reusableTail_5.i.i.i.i.i163 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %result, i64 0, i32 6
-  %head_.i166 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8, i32 2
-  %cachePtr_.i170 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8, i32 4
-  %tailStart_.i171 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8, i32 3
-  %callback_211 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 2
-  %chainLength_.i188 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8, i32 1
-  %reusableTail_5.i.i.i.i.i189 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8, i32 6
-  %bytesProcessed_217 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 10
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 1
-  %boundary_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 1
-  %headerParser_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
-  %parseError_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 11
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 552
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 544
+  %state_ = getelementptr inbounds i8, ptr %this, i64 48
+  %value_ = getelementptr inbounds i8, ptr %this, i64 592
+  %tailStart_.i.i.i150 = getelementptr inbounds i8, ptr %result, i64 24
+  %cachePtr_.i.i.i151 = getelementptr inbounds i8, ptr %result, i64 32
+  %head_.i.i.i154 = getelementptr inbounds i8, ptr %result, i64 16
+  %chainLength_.i162 = getelementptr inbounds i8, ptr %result, i64 8
+  %reusableTail_5.i.i.i.i.i163 = getelementptr inbounds i8, ptr %result, i64 64
+  %head_.i166 = getelementptr inbounds i8, ptr %this, i64 608
+  %cachePtr_.i170 = getelementptr inbounds i8, ptr %this, i64 624
+  %tailStart_.i171 = getelementptr inbounds i8, ptr %this, i64 616
+  %callback_211 = getelementptr inbounds i8, ptr %this, i64 40
+  %chainLength_.i188 = getelementptr inbounds i8, ptr %this, i64 600
+  %reusableTail_5.i.i.i.i.i189 = getelementptr inbounds i8, ptr %this, i64 656
+  %bytesProcessed_217 = getelementptr inbounds i8, ptr %this, i64 672
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 528
+  %boundary_ = getelementptr inbounds i8, ptr %this, i64 8
+  %headerParser_ = getelementptr inbounds i8, ptr %this, i64 56
+  %parseError_ = getelementptr inbounds i8, ptr %this, i64 680
   br label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.rhs.i.lr.ph, %sw.epilog
@@ -379,7 +318,7 @@ sw.bb:                                            ; preds = %while.body
 
 if.then.i.i:                                      ; preds = %sw.bb
   %13 = load ptr, ptr %head_.i, align 8
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %13, i64 0, i32 5
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load ptr, ptr %prev_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
@@ -408,7 +347,7 @@ do.body.i:                                        ; preds = %if.else.i, %invoke.
   %boundary.addr.0.i = phi ptr [ %add.ptr, %invoke.cont10 ], [ %add.ptr6.i, %if.else.i ]
   %crtBuf.0.i = phi ptr [ %18, %invoke.cont10 ], [ %21, %if.else.i ]
   %19 = load i64, ptr %crtBuf.0.i, align 8
-  %data_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %crtBuf.0.i, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %crtBuf.0.i, i64 8
   %20 = load ptr, ptr %data_.i.i, align 8
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %boundarylen.addr.0.i, i64 %19)
   %bcmp.i = call i32 @bcmp(ptr %20, ptr %boundary.addr.0.i, i64 %.sroa.speculated.i)
@@ -422,7 +361,7 @@ if.then.i:                                        ; preds = %do.body.i
 if.else.i:                                        ; preds = %if.then.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %boundary.addr.0.i, i64 %.sroa.speculated.i
   %sub7.i = sub i64 %boundarylen.addr.0.i, %.sroa.speculated.i
-  %next_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %crtBuf.0.i, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %crtBuf.0.i, i64 32
   %21 = load ptr, ptr %next_.i.i, align 8
   %cmp11.not.i = icmp eq ptr %21, %18
   br i1 %cmp11.not.i, label %if.then30, label %do.body.i, !llvm.loop !5
@@ -448,7 +387,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp19) #18
   %23 = load ptr, ptr %callback_211, align 8
   %vtable = load ptr, ptr %23, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %24 = load ptr, ptr %vfn, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %if.end unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
@@ -474,7 +413,7 @@ if.then30:                                        ; preds = %if.else.i
 
 if.then.i.i.i:                                    ; preds = %if.then30
   %29 = load ptr, ptr %head_.i, align 8, !noalias !10
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %29, i64 0, i32 5
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 40
   %30 = load ptr, ptr %prev_.i.i.i.i, align 8, !noalias !10
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %26 to i64
@@ -489,7 +428,7 @@ _ZN5folly10IOBufQueue4moveEv.exit:                ; preds = %if.then30, %if.then
   %32 = phi ptr [ %27, %if.then30 ], [ %.pre.i, %if.then.i.i.i ]
   %33 = load i64, ptr %head_.i, align 8, !noalias !7
   store i64 %33, ptr %agg.result, align 8, !alias.scope !7
-  %reusableTail_5.i.i.i.i.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 6
+  %reusableTail_5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 584
   store ptr null, ptr %reusableTail_5.i.i.i.i.i, align 8, !noalias !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !noalias !7
@@ -546,7 +485,7 @@ if.then49:                                        ; preds = %invoke.cont46
 
 if.then.i.i.i28:                                  ; preds = %if.then49
   %42 = load ptr, ptr %head_.i, align 8, !noalias !16
-  %prev_.i.i.i.i30 = getelementptr inbounds %"class.folly::IOBuf", ptr %42, i64 0, i32 5
+  %prev_.i.i.i.i30 = getelementptr inbounds i8, ptr %42, i64 40
   %43 = load ptr, ptr %prev_.i.i.i.i30, align 8, !noalias !16
   %sub.ptr.sub.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %44 = load i64, ptr %43, align 8, !noalias !16
@@ -559,7 +498,7 @@ _ZN5folly10IOBufQueue4moveEv.exit39:              ; preds = %if.then49, %if.then
   %45 = phi ptr [ %39, %if.then49 ], [ %.pre.i35, %if.then.i.i.i28 ]
   %46 = load i64, ptr %head_.i, align 8, !noalias !13
   store i64 %46, ptr %agg.result, align 8, !alias.scope !13
-  %reusableTail_5.i.i.i.i.i38 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 6
+  %reusableTail_5.i.i.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 584
   store ptr null, ptr %reusableTail_5.i.i.i.i.i38, align 8, !noalias !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false), !noalias !13
@@ -571,7 +510,7 @@ if.end52:                                         ; preds = %invoke.cont46
 
 if.then.i.i43:                                    ; preds = %if.end52
   %47 = load ptr, ptr %head_.i, align 8
-  %prev_.i.i.i45 = getelementptr inbounds %"class.folly::IOBuf", ptr %47, i64 0, i32 5
+  %prev_.i.i.i45 = getelementptr inbounds i8, ptr %47, i64 40
   %48 = load ptr, ptr %prev_.i.i.i45, align 8
   %sub.ptr.sub.i.i48 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %49 = load i64, ptr %48, align 8
@@ -593,7 +532,7 @@ invoke.cont54:                                    ; preds = %if.then.i.i43, %if.
   br i1 %tobool.not.i.i, label %invoke.cont56, label %if.then.i.i55
 
 if.then.i.i55:                                    ; preds = %invoke.cont54
-  %data_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %54, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %54, i64 8
   %55 = load ptr, ptr %data_.i.i.i, align 8
   %56 = load i64, ptr %54, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %55, i64 %56
@@ -637,13 +576,13 @@ if.then.i239:                                     ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %if.then.i239, %for.body.i
   %copied.1.i = phi i64 [ %add.i240, %if.then.i239 ], [ %copied.040.i, %for.body.i ]
-  %next_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %c.sroa.0.0, i64 0, i32 4
+  %next_.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.0, i64 32
   %60 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %60, %54
   br i1 %cmp.i.i, label %call.i.i.noexc, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %data_.i.i.i242 = getelementptr inbounds %"class.folly::IOBuf", ptr %60, i64 0, i32 1
+  %data_.i.i.i242 = getelementptr inbounds i8, ptr %60, i64 8
   %61 = load ptr, ptr %data_.i.i.i242, align 8
   %62 = load i64, ptr %60, align 8
   %add.ptr.i.i.i243 = getelementptr inbounds i8, ptr %61, i64 %62
@@ -677,13 +616,13 @@ if.end11.i:                                       ; preds = %if.then8.i, %for.en
   br i1 %cmp.i23.i, label %if.then.i25.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 if.then.i25.i:                                    ; preds = %if.end11.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %c.sroa.0.1391, i64 0, i32 4
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.1391, i64 32
   %63 = load ptr, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %63, %54
   br i1 %cmp.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i25.i
-  %data_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %63, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load ptr, ptr %data_.i.i.i.i, align 8
   %65 = load i64, ptr %63, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 %65
@@ -755,13 +694,13 @@ if.then.i305:                                     ; preds = %for.body.i299
 
 if.end.i307:                                      ; preds = %if.then.i305, %for.body.i299
   %copied.1.i308 = phi i64 [ %add.i306, %if.then.i305 ], [ %copied.040.i301, %for.body.i299 ]
-  %next_.i.i.i309 = getelementptr inbounds %"class.folly::IOBuf", ptr %c.sroa.0.6, i64 0, i32 4
+  %next_.i.i.i309 = getelementptr inbounds i8, ptr %c.sroa.0.6, i64 32
   %70 = load ptr, ptr %next_.i.i.i309, align 8
   %cmp.i.i310 = icmp eq ptr %70, %54
   br i1 %cmp.i.i310, label %call.i.i.i.noexc, label %if.end6.i329
 
 if.end6.i329:                                     ; preds = %if.end.i307
-  %data_.i.i.i319 = getelementptr inbounds %"class.folly::IOBuf", ptr %70, i64 0, i32 1
+  %data_.i.i.i319 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %data_.i.i.i319, align 8
   %72 = load i64, ptr %70, align 8
   %add.ptr.i.i.i320 = getelementptr inbounds i8, ptr %71, i64 %72
@@ -795,13 +734,13 @@ if.end11.i263:                                    ; preds = %if.then8.i260, %for
   br i1 %cmp.i23.i264, label %if.then.i25.i268, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i265
 
 if.then.i25.i268:                                 ; preds = %if.end11.i263
-  %next_.i.i.i.i269 = getelementptr inbounds %"class.folly::IOBuf", ptr %c.sroa.0.7419, i64 0, i32 4
+  %next_.i.i.i.i269 = getelementptr inbounds i8, ptr %c.sroa.0.7419, i64 32
   %73 = load ptr, ptr %next_.i.i.i.i269, align 8
   %cmp.i.i.i271 = icmp eq ptr %73, %54
   br i1 %cmp.i.i.i271, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i265, label %if.end.i.i.i275
 
 if.end.i.i.i275:                                  ; preds = %if.then.i25.i268
-  %data_.i.i.i.i282 = getelementptr inbounds %"class.folly::IOBuf", ptr %73, i64 0, i32 1
+  %data_.i.i.i.i282 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load ptr, ptr %data_.i.i.i.i282, align 8
   %75 = load i64, ptr %73, align 8
   %add.ptr.i.i.i.i283 = getelementptr inbounds i8, ptr %74, i64 %75
@@ -884,7 +823,7 @@ if.then79:                                        ; preds = %invoke.cont75
   br i1 %cmp.not.i.i.i91, label %_ZN5folly10IOBufQueue4moveEv.exit103, label %if.then.i.i.i92
 
 if.then.i.i.i92:                                  ; preds = %if.then79
-  %prev_.i.i.i.i94 = getelementptr inbounds %"class.folly::IOBuf", ptr %54, i64 0, i32 5
+  %prev_.i.i.i.i94 = getelementptr inbounds i8, ptr %54, i64 40
   %83 = load ptr, ptr %prev_.i.i.i.i94, align 8, !noalias !23
   %sub.ptr.sub.i.i.i97 = sub i64 %sub.ptr.lhs.cast.i77, %sub.ptr.rhs.cast.i78
   %84 = load i64, ptr %83, align 8, !noalias !23
@@ -898,7 +837,7 @@ _ZN5folly10IOBufQueue4moveEv.exit103:             ; preds = %if.then79, %if.then
   %85 = phi i64 [ %82, %if.then79 ], [ %.pre629, %if.then.i.i.i92 ]
   %86 = phi ptr [ %80, %if.then79 ], [ %.pre.i99, %if.then.i.i.i92 ]
   store i64 %85, ptr %agg.result, align 8, !alias.scope !20
-  %reusableTail_5.i.i.i.i.i102 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 6
+  %reusableTail_5.i.i.i.i.i102 = getelementptr inbounds i8, ptr %this, i64 584
   store ptr null, ptr %reusableTail_5.i.i.i.i.i102, align 8, !noalias !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false), !noalias !20
@@ -965,7 +904,7 @@ land.lhs.true:                                    ; preds = %sw.bb113, %invoke.c
 
 if.then.i.i107:                                   ; preds = %land.lhs.true
   %96 = load ptr, ptr %head_.i, align 8
-  %prev_.i.i.i109 = getelementptr inbounds %"class.folly::IOBuf", ptr %96, i64 0, i32 5
+  %prev_.i.i.i109 = getelementptr inbounds i8, ptr %96, i64 40
   %97 = load ptr, ptr %prev_.i.i.i109, align 8
   %sub.ptr.lhs.cast.i.i110 = ptrtoint ptr %95 to i64
   %sub.ptr.rhs.cast.i.i111 = ptrtoint ptr %93 to i64
@@ -997,7 +936,7 @@ while.body123:                                    ; preds = %invoke.cont118
   br i1 %cmp.not.i.i121, label %invoke.cont126, label %if.then.i.i122
 
 if.then.i.i122:                                   ; preds = %while.body123
-  %prev_.i.i.i124 = getelementptr inbounds %"class.folly::IOBuf", ptr %102, i64 0, i32 5
+  %prev_.i.i.i124 = getelementptr inbounds i8, ptr %102, i64 40
   %106 = load ptr, ptr %prev_.i.i.i124, align 8
   %sub.ptr.lhs.cast.i.i125 = ptrtoint ptr %105 to i64
   %sub.ptr.rhs.cast.i.i126 = ptrtoint ptr %101 to i64
@@ -1090,7 +1029,7 @@ invoke.cont163:                                   ; preds = %invoke.cont160
 
 if.then.i.i137:                                   ; preds = %invoke.cont163
   %120 = load ptr, ptr %head_.i, align 8
-  %prev_.i.i.i139 = getelementptr inbounds %"class.folly::IOBuf", ptr %120, i64 0, i32 5
+  %prev_.i.i.i139 = getelementptr inbounds i8, ptr %120, i64 40
   %121 = load ptr, ptr %prev_.i.i.i139, align 8
   %sub.ptr.lhs.cast.i.i140 = ptrtoint ptr %119 to i64
   %sub.ptr.rhs.cast.i.i141 = ptrtoint ptr %117 to i64
@@ -1123,7 +1062,7 @@ cleanup.action177:                                ; preds = %invoke.cont169
 cleanup.done184:                                  ; preds = %cond.false151, %cond.end153, %cleanup.action177
   %126 = load ptr, ptr %callback_211, align 8
   %vtable189 = load ptr, ptr %126, align 8
-  %vfn190 = getelementptr inbounds ptr, ptr %vtable189, i64 5
+  %vfn190 = getelementptr inbounds i8, ptr %vtable189, i64 40
   %127 = load ptr, ptr %vfn190, align 8
   invoke void %127(ptr noundef nonnull align 8 dereferenceable(8) %126)
           to label %if.end192 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
@@ -1174,7 +1113,7 @@ invoke.cont199:                                   ; preds = %invoke.cont197
 
 if.then.i.i.i153:                                 ; preds = %invoke.cont199
   %134 = load ptr, ptr %head_.i.i.i154, align 8, !noalias !31
-  %prev_.i.i.i.i155 = getelementptr inbounds %"class.folly::IOBuf", ptr %134, i64 0, i32 5
+  %prev_.i.i.i.i155 = getelementptr inbounds i8, ptr %134, i64 40
   %135 = load ptr, ptr %prev_.i.i.i.i155, align 8, !noalias !31
   %sub.ptr.lhs.cast.i.i.i156 = ptrtoint ptr %133 to i64
   %sub.ptr.rhs.cast.i.i.i157 = ptrtoint ptr %131 to i64
@@ -1240,7 +1179,7 @@ if.then213:                                       ; preds = %land.lhs.true210
 
 if.then.i.i.i179:                                 ; preds = %if.then213
   %148 = load ptr, ptr %head_.i166, align 8, !noalias !37
-  %prev_.i.i.i.i181 = getelementptr inbounds %"class.folly::IOBuf", ptr %148, i64 0, i32 5
+  %prev_.i.i.i.i181 = getelementptr inbounds i8, ptr %148, i64 40
   %149 = load ptr, ptr %prev_.i.i.i.i181, align 8, !noalias !37
   %sub.ptr.lhs.cast.i.i.i182 = ptrtoint ptr %147 to i64
   %sub.ptr.rhs.cast.i.i.i183 = ptrtoint ptr %145 to i64
@@ -1260,7 +1199,7 @@ invoke.cont216:                                   ; preds = %if.then.i.i.i179, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false), !noalias !34
   %153 = load i64, ptr %bytesProcessed_217, align 8
   %vtable218 = load ptr, ptr %144, align 8
-  %vfn219 = getelementptr inbounds ptr, ptr %vtable218, i64 3
+  %vfn219 = getelementptr inbounds i8, ptr %vtable218, i64 24
   %154 = load ptr, ptr %vfn219, align 8
   %call222 = invoke noundef i32 %154(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull %agg.tmp, i64 noundef %153)
           to label %invoke.cont221 unwind label %lpad220
@@ -1336,7 +1275,7 @@ if.then238:                                       ; preds = %if.end236
 if.then241:                                       ; preds = %if.then238
   %163 = load i64, ptr %bytesProcessed_217, align 8
   %vtable244 = load ptr, ptr %162, align 8
-  %vfn245 = getelementptr inbounds ptr, ptr %vtable244, i64 4
+  %vfn245 = getelementptr inbounds i8, ptr %vtable244, i64 32
   %164 = load ptr, ptr %vfn245, align 8
   invoke void %164(ptr noundef nonnull align 8 dereferenceable(8) %162, i1 noundef zeroext true, i64 noundef %163)
           to label %sw.epilog.sink.split unwind label %lpad4.loopexit.split-lp.loopexit
@@ -1449,7 +1388,7 @@ if.end304:                                        ; preds = %cond.false261, %con
 
 if.then.i.i.i215:                                 ; preds = %if.end304
   %180 = load ptr, ptr %head_.i, align 8, !noalias !43
-  %prev_.i.i.i.i217 = getelementptr inbounds %"class.folly::IOBuf", ptr %180, i64 0, i32 5
+  %prev_.i.i.i.i217 = getelementptr inbounds i8, ptr %180, i64 40
   %181 = load ptr, ptr %prev_.i.i.i.i217, align 8, !noalias !43
   %sub.ptr.lhs.cast.i.i.i218 = ptrtoint ptr %179 to i64
   %sub.ptr.rhs.cast.i.i.i219 = ptrtoint ptr %177 to i64
@@ -1464,7 +1403,7 @@ _ZN5folly10IOBufQueue4moveEv.exit226:             ; preds = %if.end304, %if.then
   %183 = phi ptr [ %178, %if.end304 ], [ %.pre.i222, %if.then.i.i.i215 ]
   %184 = load i64, ptr %head_.i, align 8, !noalias !40
   store i64 %184, ptr %agg.result, align 8, !alias.scope !40
-  %reusableTail_5.i.i.i.i.i225 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 6
+  %reusableTail_5.i.i.i.i.i225 = getelementptr inbounds i8, ptr %this, i64 584
   store ptr null, ptr %reusableTail_5.i.i.i.i.i225, align 8, !noalias !40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, i8 0, i64 16, i1 false), !noalias !40
@@ -1543,18 +1482,18 @@ declare void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5folly10IOBufQueue5frontEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tailStart_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %this, i64 0, i32 3
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tailStart_.i, align 8
-  %cachePtr_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %this, i64 0, i32 4
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %cachePtr_.i, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %0, %2
   br i1 %cmp.not.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %head_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %this, i64 0, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %head_.i, align 8
-  %prev_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %3, i64 0, i32 5
+  %prev_.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %prev_.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -1562,7 +1501,7 @@ if.then.i:                                        ; preds = %entry
   %5 = load i64, ptr %4, align 8
   %add.i.i = add i64 %5, %sub.ptr.sub.i
   store i64 %add.i.i, ptr %4, align 8
-  %chainLength_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %this, i64 0, i32 1
+  %chainLength_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %chainLength_.i, align 8
   %add.i = add i64 %6, %sub.ptr.sub.i
   store i64 %add.i, ptr %chainLength_.i, align 8
@@ -1572,7 +1511,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK5folly10IOBufQueue10flushCacheEv.exit
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit:        ; preds = %entry, %if.then.i
-  %head_ = getelementptr inbounds %"class.folly::IOBufQueue", ptr %this, i64 0, i32 2
+  %head_ = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %head_, align 8
   ret ptr %8
 }
@@ -1619,19 +1558,19 @@ entry:
   %ref.tmp159 = alloca %"class.std::unique_ptr", align 8
   store i8 1, ptr %ref.tmp, align 1
   call void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %input_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7
-  %head_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 520
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load ptr, ptr %head_.i, align 8
   %cmp.i.not.i270 = icmp eq ptr %0, null
   br i1 %cmp.i.not.i270, label %cleanup, label %lor.rhs.i.lr.ph
 
 lor.rhs.i.lr.ph:                                  ; preds = %entry
-  %cachePtr_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 4
-  %tailStart_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 3
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7, i32 1
-  %boundary_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 1
-  %pendingCR_84 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 9
-  %bytesProcessed_165 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 10
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 552
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 544
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 528
+  %boundary_ = getelementptr inbounds i8, ptr %this, i64 8
+  %pendingCR_84 = getelementptr inbounds i8, ptr %this, i64 664
+  %bytesProcessed_165 = getelementptr inbounds i8, ptr %this, i64 672
   br label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.rhs.i.lr.ph, %if.end164
@@ -1665,7 +1604,7 @@ while.body:                                       ; preds = %invoke.cont
 
 if.then.i.i:                                      ; preds = %while.body
   %9 = load ptr, ptr %head_.i, align 8
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %9, i64 0, i32 5
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load ptr, ptr %prev_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -1684,7 +1623,7 @@ if.then.i.i:                                      ; preds = %while.body
 invoke.cont4:                                     ; preds = %if.then.i.i, %while.body
   %14 = load ptr, ptr %head_.i, align 8
   %15 = load i64, ptr %14, align 8
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %14, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %data_.i, align 8
   %cmp11.not265 = icmp eq i64 %15, 0
   br i1 %cmp11.not265, label %while.end, label %land.rhs12
@@ -1721,7 +1660,7 @@ do.body.i:                                        ; preds = %if.else.i, %while.b
   %offset.addr.0.i = phi i64 [ %20, %while.body17 ], [ 0, %if.else.i ]
   %21 = load i64, ptr %crtBuf.0.i, align 8
   %sub.i = sub i64 %21, %offset.addr.0.i
-  %data_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %crtBuf.0.i, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %crtBuf.0.i, i64 8
   %22 = load ptr, ptr %data_.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %22, i64 %offset.addr.0.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %boundarylen.addr.0.i, i64 %sub.i)
@@ -1736,7 +1675,7 @@ if.then.i:                                        ; preds = %do.body.i
 if.else.i:                                        ; preds = %if.then.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %boundary.addr.0.i, i64 %.sroa.speculated.i
   %sub7.i = sub i64 %boundarylen.addr.0.i, %.sroa.speculated.i
-  %next_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %crtBuf.0.i, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %crtBuf.0.i, i64 32
   %23 = load ptr, ptr %next_.i.i, align 8
   %cmp11.not.i = icmp eq ptr %23, %14
   br i1 %cmp11.not.i, label %while.end, label %do.body.i, !llvm.loop !5
@@ -1817,14 +1756,14 @@ if.else.i44:                                      ; preds = %invoke.cont53
   br i1 %cmp32.i, label %for.body.i.preheader, label %for.end.i
 
 for.body.i.preheader:                             ; preds = %if.else.i44
-  %next_.i.i.i272 = getelementptr inbounds %"class.folly::IOBuf", ptr %14, i64 0, i32 4
+  %next_.i.i.i272 = getelementptr inbounds i8, ptr %14, i64 32
   %30 = load ptr, ptr %next_.i.i.i272, align 8
   %cmp.i.i273 = icmp eq ptr %30, %14
   br i1 %cmp.i.i273, label %call.i.i.noexc, label %if.end.i
 
 for.body.i:                                       ; preds = %if.end.i
   %add.i89 = add i64 %add.i89278, %33
-  %next_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %32, i64 0, i32 4
+  %next_.i.i.i = getelementptr inbounds i8, ptr %32, i64 32
   %31 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %31, %14
   br i1 %cmp.i.i, label %call.i.i.noexc.loopexit, label %if.end.i, !llvm.loop !47
@@ -1840,7 +1779,7 @@ if.end.i:                                         ; preds = %for.body.i.preheade
   br i1 %cmp.i96, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !47
 
 for.end.i.loopexit:                               ; preds = %if.end.i
-  %data_.i.i.i91.le355 = getelementptr inbounds %"class.folly::IOBuf", ptr %32, i64 0, i32 1
+  %data_.i.i.i91.le355 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %data_.i.i.i91.le355, align 8
   %add.ptr.i.i.i92.le350 = getelementptr inbounds i8, ptr %34, i64 %33
   br label %for.end.i
@@ -1856,13 +1795,13 @@ for.end.i:                                        ; preds = %for.end.i.loopexit,
   br i1 %cmp.i14.i, label %if.then.i16.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 if.then.i16.i:                                    ; preds = %for.end.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %c.sroa.0.1, i64 0, i32 4
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.1, i64 32
   %35 = load ptr, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %35, %14
   br i1 %cmp.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i16.i
-  %data_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %35, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load ptr, ptr %data_.i.i.i.i, align 8
   %37 = load i64, ptr %35, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 %37
@@ -1876,7 +1815,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv
   br label %call.i.i.noexc
 
 call.i.i.noexc.loopexit:                          ; preds = %for.body.i
-  %data_.i.i.i91.le = getelementptr inbounds %"class.folly::IOBuf", ptr %32, i64 0, i32 1
+  %data_.i.i.i91.le = getelementptr inbounds i8, ptr %32, i64 8
   %38 = load ptr, ptr %data_.i.i.i91.le, align 8
   %add.ptr.i.i.i92.le = getelementptr inbounds i8, ptr %38, i64 %33
   br label %call.i.i.noexc
@@ -1930,13 +1869,13 @@ if.then.i135:                                     ; preds = %for.body.i134
 
 if.end.i137:                                      ; preds = %if.then.i135, %for.body.i134
   %copied.1.i = phi i64 [ %add.i136, %if.then.i135 ], [ %copied.040.i, %for.body.i134 ]
-  %next_.i.i.i138 = getelementptr inbounds %"class.folly::IOBuf", ptr %c.sroa.0.5, i64 0, i32 4
+  %next_.i.i.i138 = getelementptr inbounds i8, ptr %c.sroa.0.5, i64 32
   %43 = load ptr, ptr %next_.i.i.i138, align 8
   %cmp.i.i139 = icmp eq ptr %43, %14
   br i1 %cmp.i.i139, label %call.i.i.i.noexc, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i137
-  %data_.i.i.i143 = getelementptr inbounds %"class.folly::IOBuf", ptr %43, i64 0, i32 1
+  %data_.i.i.i143 = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %data_.i.i.i143, align 8
   %45 = load i64, ptr %43, align 8
   %add.ptr.i.i.i144 = getelementptr inbounds i8, ptr %44, i64 %45
@@ -2239,14 +2178,14 @@ entry:
   %agg.tmp25 = alloca %"class.std::unique_ptr.2", align 8
   %ref.tmp44 = alloca %"class.google::LogMessage", align 8
   %1 = load ptr, ptr %msg, align 8
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %1, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %1, i64 480
   %2 = load ptr, ptr %headers_.i, align 8
   %tobool.not12.i.i = icmp eq ptr %2, null
   br i1 %tobool.not12.i.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %entry
-  %length_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %1, i64 0, i32 9, i32 1
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %1, i64 0, i32 9, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %1, i64 488
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %1, i64 496
   %3 = load i64, ptr %capacity_.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %3, 40
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i.i.i
@@ -2284,13 +2223,13 @@ _ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx11
   %cmp.i = icmp eq ptr %res.1.i, null
   %_ZN8proxygen12empty_stringB5cxx11E..i = select i1 %cmp.i, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #18
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %filename, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %filename, i64 32
   store i8 0, ptr %hasValue.i.i, align 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i) #18
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i) #18
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp4, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp4, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   store ptr %name, ptr %agg.tmp4, align 8
   %ref.tmp5.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
   store ptr %filename, ptr %ref.tmp5.sroa.2.0.agg.tmp4.sroa_idx, align 8
@@ -2320,7 +2259,7 @@ _ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit: ; preds = %invoke.cont7, %if
   br i1 %call8, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit
-  %callback_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 2
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %callback_, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then9
@@ -2341,7 +2280,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #18
   %9 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %10 = load ptr, ptr %vfn, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %if.end unwind label %lpad
@@ -2376,19 +2315,19 @@ lpad12:                                           ; preds = %invoke.cont13, %inv
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont15, %if.then
-  %state_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 48
   br label %cleanup.sink.split
 
 if.else:                                          ; preds = %_ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit
-  %state_19 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 3
+  %state_19 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 3, ptr %state_19, align 8
-  %callback_20 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 2
+  %callback_20 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %callback_20, align 8
   %tobool21.not.not = icmp eq ptr %17, null
   br i1 %tobool21.not.not, label %cleanup, label %land.rhs
 
 land.rhs:                                         ; preds = %if.else
-  %hasValue.i.i9 = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %agg.tmp23, i64 0, i32 1
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %agg.tmp23, i64 32
   store i8 0, ptr %hasValue.i.i9, align 8
   %18 = load i8, ptr %hasValue.i.i, align 8
   %19 = and i8 %18, 1
@@ -2420,10 +2359,10 @@ invoke.cont24:                                    ; preds = %_ZN5folly8OptionalI
   %23 = load i64, ptr %msg, align 8
   store i64 %23, ptr %agg.tmp25, align 8
   store ptr null, ptr %msg, align 8
-  %bytesProcessed_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 10
+  %bytesProcessed_ = getelementptr inbounds i8, ptr %this, i64 672
   %24 = load i64, ptr %bytesProcessed_, align 8
   %vtable27 = load ptr, ptr %17, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 2
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 16
   %25 = load ptr, ptr %vfn28, align 8
   %call31 = invoke noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull %agg.tmp25, i64 noundef %24)
           to label %cleanup.action unwind label %lpad29
@@ -2455,7 +2394,7 @@ cleanup.done37:                                   ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp, label %if.then41, label %cleanup
 
 if.then41:                                        ; preds = %if.then.i.i.i, %cleanup.done37
-  %field_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 6
+  %field_ = getelementptr inbounds i8, ptr %this, i64 488
   %call43 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %field_, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont42 unwind label %lpad
 
@@ -2569,7 +2508,7 @@ define void @_ZN8proxygen12RFC1867Codec12onIngressEOMEv(ptr nocapture noundef no
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp18 = alloca %"class.google::LogMessage", align 8
-  %state_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.then, label %if.end6
@@ -2585,16 +2524,16 @@ invoke.cont:                                      ; preds = %if.then
 
 invoke.cont2:                                     ; preds = %invoke.cont
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #18
-  %callback_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 2
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %callback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end6thread-pre-split, label %if.then4
 
 if.then4:                                         ; preds = %invoke.cont2
-  %bytesProcessed_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 10
+  %bytesProcessed_ = getelementptr inbounds i8, ptr %this, i64 672
   %2 = load i64, ptr %bytesProcessed_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false, i64 noundef %2)
   br label %if.end6thread-pre-split
@@ -2617,7 +2556,7 @@ if.end6:                                          ; preds = %if.end6thread-pre-s
   ]
 
 if.then14:                                        ; preds = %if.end6
-  %callback_15 = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 2
+  %callback_15 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %callback_15, align 8
   %tobool16.not = icmp eq ptr %6, null
   br i1 %tobool16.not, label %if.end31, label %if.then17
@@ -2641,7 +2580,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp18) #18
   %8 = load ptr, ptr %callback_15, align 8
   %vtable28 = load ptr, ptr %8, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 5
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 40
   %9 = load ptr, ptr %vfn29, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %if.end31
@@ -2685,9 +2624,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen12RFC1867Codec6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr noundef nonnull align 8 dereferenceable(681) %this, i64 noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #3 comdat align 2 {
 entry:
-  %parseError_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 11
+  %parseError_ = getelementptr inbounds i8, ptr %this, i64 680
   store i8 1, ptr %parseError_, align 8
-  %headerParser_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
+  %headerParser_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN8proxygen11HTTP1xCodec15setParserPausedEb(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_, i1 noundef zeroext true)
   ret void
 }
@@ -2707,9 +2646,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen12RFC1867Codec18onTrailersCompleteEmSt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(681) %this, i64 noundef %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
 entry:
-  %parseError_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 11
+  %parseError_ = getelementptr inbounds i8, ptr %this, i64 680
   store i8 1, ptr %parseError_, align 8
-  %headerParser_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
+  %headerParser_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN8proxygen11HTTP1xCodec15setParserPausedEb(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_, i1 noundef zeroext true)
   ret void
 }
@@ -2717,7 +2656,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen12RFC1867Codec17onMessageCompleteEmb(ptr noundef nonnull align 8 dereferenceable(681) %this, i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #3 comdat align 2 {
 entry:
-  %headerParser_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
+  %headerParser_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN8proxygen11HTTP1xCodec15setParserPausedEb(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_, i1 noundef zeroext true)
   ret void
 }
@@ -2725,9 +2664,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen12RFC1867Codec7onErrorEmRKNS_13HTTPExceptionEb(ptr noundef nonnull align 8 dereferenceable(681) %this, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) unnamed_addr #3 comdat align 2 {
 entry:
-  %parseError_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 11
+  %parseError_ = getelementptr inbounds i8, ptr %this, i64 680
   store i8 1, ptr %parseError_, align 8
-  %headerParser_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
+  %headerParser_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN8proxygen11HTTP1xCodec15setParserPausedEb(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_, i1 noundef zeroext true)
   ret void
 }
@@ -2844,7 +2783,7 @@ entry:
 define linkonce_odr void @_ZN8proxygen12RFC1867CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(681) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen12RFC1867CodecE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %pendingCR_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 9
+  %pendingCR_ = getelementptr inbounds i8, ptr %this, i64 664
   %0 = load ptr, ptr %pendingCR_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -2856,15 +2795,15 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %pendingCR_, align 8
-  %value_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8
+  %value_ = getelementptr inbounds i8, ptr %this, i64 592
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %value_) #18
-  %input_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7
+  %input_ = getelementptr inbounds i8, ptr %this, i64 520
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %input_) #18
-  %field_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 6
+  %field_ = getelementptr inbounds i8, ptr %this, i64 488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_) #18
-  %headerParser_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
+  %headerParser_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN8proxygen11HTTP1xCodecD1Ev(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_) #18
-  %boundary_ = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 1
+  %boundary_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boundary_) #18
   ret void
 }
@@ -2873,7 +2812,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 define linkonce_odr void @_ZN8proxygen12RFC1867CodecD0Ev(ptr noundef nonnull align 8 dereferenceable(681) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen12RFC1867CodecE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %pendingCR_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 9
+  %pendingCR_.i = getelementptr inbounds i8, ptr %this, i64 664
   %0 = load ptr, ptr %pendingCR_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN8proxygen12RFC1867CodecD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -2885,15 +2824,15 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %entry
 
 _ZN8proxygen12RFC1867CodecD2Ev.exit:              ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %pendingCR_.i, align 8
-  %value_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 8
+  %value_.i = getelementptr inbounds i8, ptr %this, i64 592
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %value_.i) #18
-  %input_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 7
+  %input_.i = getelementptr inbounds i8, ptr %this, i64 520
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %input_.i) #18
-  %field_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 6
+  %field_.i = getelementptr inbounds i8, ptr %this, i64 488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_.i) #18
-  %headerParser_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 5
+  %headerParser_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN8proxygen11HTTP1xCodecD1Ev(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_.i) #18
-  %boundary_.i = getelementptr inbounds %"class.proxygen::RFC1867Codec", ptr %this, i64 0, i32 1
+  %boundary_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boundary_.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
@@ -3137,9 +3076,9 @@ lpad.i.i27.i.i.i:                                 ; preds = %if.then16.i.i.i
 _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit28.i.i.i:  ; preds = %if.then16.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i22.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i22.i.i.i), !noalias !56
-  %9 = getelementptr inbounds %class.anon, ptr %__functor, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %__functor, i64 8
   %10 = load ptr, ptr %9, align 8
-  %hasValue.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %10, i64 0, i32 1
+  %hasValue.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load i8, ptr %hasValue.i.i.i.i.i.i.i, align 8
   %12 = and i8 %11, 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %12, 0

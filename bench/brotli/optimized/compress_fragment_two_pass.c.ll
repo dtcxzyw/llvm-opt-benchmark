@@ -3,9 +3,6 @@ source_filename = "bench/brotli/original/compress_fragment_two_pass.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BrotliTwoPassArena = type { [256 x i32], [256 x i8], [256 x i16], [128 x i32], [128 x i8], [128 x i16], [513 x %struct.HuffmanTree], [704 x i8], [64 x i16] }
-%struct.HuffmanTree = type { i32, i16, i16 }
-
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 @StoreCommands.kNumExtraBits = internal unnamed_addr constant [128 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 12, i32 14, i32 24, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 24, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15, i32 16, i32 16, i32 17, i32 17, i32 18, i32 18, i32 19, i32 19, i32 20, i32 20, i32 21, i32 21, i32 22, i32 22, i32 23, i32 23, i32 24, i32 24], align 16
 @StoreCommands.kInsertOffset = internal unnamed_addr constant [24 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 8, i32 10, i32 14, i32 18, i32 26, i32 34, i32 50, i32 66, i32 98, i32 130, i32 194, i32 322, i32 578, i32 1090, i32 2114, i32 6210, i32 22594], align 16
@@ -306,7 +303,7 @@ if.else39.i.i:                                    ; preds = %if.else31.i.i
 EmitInsertLen.exit.i:                             ; preds = %if.else39.i.i, %if.then34.i.i, %if.then26.i183.i, %if.then11.i184.i, %if.then2.i.i, %FindMatchLengthWithLimit.exit177.i
   %or.i.sink.i = phi i32 [ %or.i.i, %if.then2.i.i ], [ %or30.i.i, %if.then26.i183.i ], [ %or43.i.i, %if.else39.i.i ], [ %or38.i.i, %if.then34.i.i ], [ %or22.i.i, %if.then11.i184.i ], [ %conv71.i.i, %FindMatchLengthWithLimit.exit177.i ]
   store i32 %or.i.sink.i, ptr %commands.i.0.i, align 4
-  %incdec.ptr.i182.i = getelementptr inbounds i32, ptr %commands.i.0.i, i64 1
+  %incdec.ptr.i182.i = getelementptr inbounds i8, ptr %commands.i.0.i, i64 4
   %sext.i = shl i64 %sub.ptr.sub70.i.i, 32
   %conv73.i.i = ashr exact i64 %sext.i, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i, ptr align 1 %next_emit.i.0.i, i64 %conv73.i.i, i1 false)
@@ -334,7 +331,7 @@ if.end80.i.i:                                     ; preds = %if.else.i12.i, %Emi
   %storemerge.i = phi i32 [ %or.i302.i, %if.else.i12.i ], [ 64, %EmitInsertLen.exit.i ]
   %last_distance.i.1.i = phi i32 [ %conv67.i.i, %if.else.i12.i ], [ %last_distance.i.0.fr.i, %EmitInsertLen.exit.i ]
   store i32 %storemerge.i, ptr %incdec.ptr.i182.i, align 4
-  %commands.i.1.i = getelementptr inbounds i32, ptr %commands.i.0.i, i64 2
+  %commands.i.1.i = getelementptr inbounds i8, ptr %commands.i.0.i, i64 8
   %cmp.i311.i = icmp ult i64 %add.i.i, 12
   br i1 %cmp.i311.i, label %if.then.i329.i, label %if.else.i312.i
 
@@ -379,7 +376,7 @@ if.then16.i.i:                                    ; preds = %if.else13.i.i
   %or24.i.i = or i64 %add21.i.i, %shl23.i.i
   %conv25.i.i = trunc i64 %or24.i.i to i32
   store i32 %conv25.i.i, ptr %commands.i.1.i, align 4
-  %incdec.ptr26.i.i = getelementptr inbounds i32, ptr %commands.i.0.i, i64 3
+  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %commands.i.0.i, i64 12
   store i32 64, ptr %incdec.ptr26.i.i, align 4
   br label %EmitCopyLenLastDistance.exit.i
 
@@ -400,7 +397,7 @@ if.then31.i.i:                                    ; preds = %if.else28.i.i
   %or43.i320.i = or disjoint i64 %shl42.i319.i, %add38.i.i
   %conv44.i.i = trunc i64 %or43.i320.i to i32
   store i32 %conv44.i.i, ptr %commands.i.1.i, align 4
-  %incdec.ptr45.i.i = getelementptr inbounds i32, ptr %commands.i.0.i, i64 3
+  %incdec.ptr45.i.i = getelementptr inbounds i8, ptr %commands.i.0.i, i64 12
   store i32 64, ptr %incdec.ptr45.i.i, align 4
   br label %EmitCopyLenLastDistance.exit.i
 
@@ -409,13 +406,13 @@ if.else47.i.i:                                    ; preds = %if.else28.i.i
   %14 = shl i32 %retval.i135.0.tr.i, 8
   %conv52.i.i = add i32 %14, -541633
   store i32 %conv52.i.i, ptr %commands.i.1.i, align 4
-  %incdec.ptr53.i.i = getelementptr inbounds i32, ptr %commands.i.0.i, i64 3
+  %incdec.ptr53.i.i = getelementptr inbounds i8, ptr %commands.i.0.i, i64 12
   store i32 64, ptr %incdec.ptr53.i.i, align 4
   br label %EmitCopyLenLastDistance.exit.i
 
 EmitCopyLenLastDistance.exit.i:                   ; preds = %if.else47.i.i, %if.then31.i.i, %if.then16.i.i, %if.then3.i322.i, %if.then.i329.i
-  %.sink.i = phi i64 [ 3, %if.then3.i322.i ], [ 4, %if.then31.i.i ], [ 4, %if.else47.i.i ], [ 4, %if.then16.i.i ], [ 3, %if.then.i329.i ]
-  %incdec.ptr12.i.i = getelementptr inbounds i32, ptr %commands.i.0.i, i64 %.sink.i
+  %.sink.i = phi i64 [ 12, %if.then3.i322.i ], [ 16, %if.then31.i.i ], [ 16, %if.else47.i.i ], [ 16, %if.then16.i.i ], [ 12, %if.then.i329.i ]
+  %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %commands.i.0.i, i64 %.sink.i
   %cmp81.i.not.i = icmp ult ptr %add.ptr72.i.i, %add.ptr4.i.i
   br i1 %cmp81.i.not.i, label %if.then89.i.i, label %emit_remainder.i.i
 
@@ -602,7 +599,7 @@ if.else29.i.i:                                    ; preds = %if.else12.i.i
 EmitCopyLen.exit.i:                               ; preds = %if.else29.i.i, %if.then15.i.i, %if.then3.i629.i, %if.then.i642.i
   %conv11.i641.sink.i = phi i32 [ %conv11.i641.i, %if.then3.i629.i ], [ %conv34.i.i, %if.else29.i.i ], [ %conv28.i.i, %if.then15.i.i ], [ %conv.i644.i, %if.then.i642.i ]
   store i32 %conv11.i641.sink.i, ptr %commands.i.3582.i5885, align 4
-  %incdec.ptr.i626.i = getelementptr inbounds i32, ptr %commands.i.3582.i5885, i64 1
+  %incdec.ptr.i626.i = getelementptr inbounds i8, ptr %commands.i.3582.i5885, i64 4
   %add.i266.i = add i32 %conv195.i.i, 3
   %27 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i, i1 true), !range !4
   %sub.i270.i = sub nsw i32 30, %27
@@ -617,7 +614,7 @@ EmitCopyLen.exit.i:                               ; preds = %if.else29.i.i, %if.
   %shl6.i.i = shl i32 %sub5.i.i, 8
   %or.i276.i = or i32 %shl6.i.i, %add4.i275.i
   store i32 %or.i276.i, ptr %incdec.ptr.i626.i, align 4
-  %incdec.ptr.i277.i = getelementptr inbounds i32, ptr %commands.i.3582.i5885, i64 2
+  %incdec.ptr.i277.i = getelementptr inbounds i8, ptr %commands.i.3582.i5885, i64 8
   %cmp196.i.not.i = icmp ult ptr %add.ptr191.i.i, %add.ptr4.i.i
   br i1 %cmp196.i.not.i, label %if.then207.i.i, label %emit_remainder.i.i
 
@@ -733,7 +730,7 @@ if.else39.i218.i:                                 ; preds = %if.else31.i216.i
 EmitInsertLen.exit260.i:                          ; preds = %if.else39.i218.i, %if.then34.i227.i, %if.then26.i231.i, %if.then11.i235.i, %if.then2.i245.i, %if.then297.i.i
   %or.i258.sink.i = phi i32 [ %or.i258.i, %if.then2.i245.i ], [ %or30.i234.i, %if.then26.i231.i ], [ %or43.i221.i, %if.else39.i218.i ], [ %or38.i230.i, %if.then34.i227.i ], [ %or22.i244.i, %if.then11.i235.i ], [ %conv302.i.i, %if.then297.i.i ]
   store i32 %or.i258.sink.i, ptr %commands.i.4.i, align 4
-  %incdec.ptr.i226.i = getelementptr inbounds i32, ptr %commands.i.4.i, i64 1
+  %incdec.ptr.i226.i = getelementptr inbounds i8, ptr %commands.i.4.i, i64 4
   %conv303.i.i = and i64 %sub.ptr.sub301.i.i, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i, ptr align 1 %next_emit.i.2.i, i64 %conv303.i.i, i1 false)
   %add.ptr305.i.i = getelementptr inbounds i8, ptr %literals.i.1.i, i64 %conv303.i.i
@@ -1148,7 +1145,7 @@ if.else39.i.i347:                                 ; preds = %if.else31.i.i344
 EmitInsertLen.exit.i349:                          ; preds = %if.else39.i.i347, %if.then34.i.i591, %if.then26.i183.i593, %if.then11.i184.i596, %if.then2.i.i604, %FindMatchLengthWithLimit.exit177.i329
   %or.i.sink.i350 = phi i32 [ %or.i.i614, %if.then2.i.i604 ], [ %or30.i.i595, %if.then26.i183.i593 ], [ %or43.i.i348, %if.else39.i.i347 ], [ %or38.i.i592, %if.then34.i.i591 ], [ %or22.i.i603, %if.then11.i184.i596 ], [ %conv71.i.i335, %FindMatchLengthWithLimit.exit177.i329 ]
   store i32 %or.i.sink.i350, ptr %commands.i.0.i260, align 4
-  %incdec.ptr.i182.i351 = getelementptr inbounds i32, ptr %commands.i.0.i260, i64 1
+  %incdec.ptr.i182.i351 = getelementptr inbounds i8, ptr %commands.i.0.i260, i64 4
   %sext.i352 = shl i64 %sub.ptr.sub70.i.i334, 32
   %conv73.i.i353 = ashr exact i64 %sext.i352, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i261, ptr align 1 %next_emit.i.0.i263, i64 %conv73.i.i353, i1 false)
@@ -1176,7 +1173,7 @@ if.end80.i.i368:                                  ; preds = %if.else.i12.i356, %
   %storemerge.i369 = phi i32 [ %or.i302.i367, %if.else.i12.i356 ], [ 64, %EmitInsertLen.exit.i349 ]
   %last_distance.i.1.i370 = phi i32 [ %conv67.i.i332, %if.else.i12.i356 ], [ %last_distance.i.0.fr.i264, %EmitInsertLen.exit.i349 ]
   store i32 %storemerge.i369, ptr %incdec.ptr.i182.i351, align 4
-  %commands.i.1.i371 = getelementptr inbounds i32, ptr %commands.i.0.i260, i64 2
+  %commands.i.1.i371 = getelementptr inbounds i8, ptr %commands.i.0.i260, i64 8
   %cmp.i311.i372 = icmp ult i64 %add.i.i331, 12
   br i1 %cmp.i311.i372, label %if.then.i329.i589, label %if.else.i312.i373
 
@@ -1221,7 +1218,7 @@ if.then16.i.i566:                                 ; preds = %if.else13.i.i375
   %or24.i.i572 = or i64 %add21.i.i569, %shl23.i.i571
   %conv25.i.i573 = trunc i64 %or24.i.i572 to i32
   store i32 %conv25.i.i573, ptr %commands.i.1.i371, align 4
-  %incdec.ptr26.i.i574 = getelementptr inbounds i32, ptr %commands.i.0.i260, i64 3
+  %incdec.ptr26.i.i574 = getelementptr inbounds i8, ptr %commands.i.0.i260, i64 12
   store i32 64, ptr %incdec.ptr26.i.i574, align 4
   br label %EmitCopyLenLastDistance.exit.i383
 
@@ -1242,7 +1239,7 @@ if.then31.i.i554:                                 ; preds = %if.else28.i.i377
   %or43.i320.i563 = or disjoint i64 %shl42.i319.i562, %add38.i.i559
   %conv44.i.i564 = trunc i64 %or43.i320.i563 to i32
   store i32 %conv44.i.i564, ptr %commands.i.1.i371, align 4
-  %incdec.ptr45.i.i565 = getelementptr inbounds i32, ptr %commands.i.0.i260, i64 3
+  %incdec.ptr45.i.i565 = getelementptr inbounds i8, ptr %commands.i.0.i260, i64 12
   store i32 64, ptr %incdec.ptr45.i.i565, align 4
   br label %EmitCopyLenLastDistance.exit.i383
 
@@ -1251,13 +1248,13 @@ if.else47.i.i379:                                 ; preds = %if.else28.i.i377
   %69 = shl i32 %retval.i135.0.tr.i380, 8
   %conv52.i.i381 = add i32 %69, -541633
   store i32 %conv52.i.i381, ptr %commands.i.1.i371, align 4
-  %incdec.ptr53.i.i382 = getelementptr inbounds i32, ptr %commands.i.0.i260, i64 3
+  %incdec.ptr53.i.i382 = getelementptr inbounds i8, ptr %commands.i.0.i260, i64 12
   store i32 64, ptr %incdec.ptr53.i.i382, align 4
   br label %EmitCopyLenLastDistance.exit.i383
 
 EmitCopyLenLastDistance.exit.i383:                ; preds = %if.else47.i.i379, %if.then31.i.i554, %if.then16.i.i566, %if.then3.i322.i575, %if.then.i329.i589
-  %.sink.i384 = phi i64 [ 3, %if.then3.i322.i575 ], [ 4, %if.then31.i.i554 ], [ 4, %if.else47.i.i379 ], [ 4, %if.then16.i.i566 ], [ 3, %if.then.i329.i589 ]
-  %incdec.ptr12.i.i385 = getelementptr inbounds i32, ptr %commands.i.0.i260, i64 %.sink.i384
+  %.sink.i384 = phi i64 [ 12, %if.then3.i322.i575 ], [ 16, %if.then31.i.i554 ], [ 16, %if.else47.i.i379 ], [ 16, %if.then16.i.i566 ], [ 12, %if.then.i329.i589 ]
+  %incdec.ptr12.i.i385 = getelementptr inbounds i8, ptr %commands.i.0.i260, i64 %.sink.i384
   %cmp81.i.not.i386 = icmp ult ptr %add.ptr72.i.i336, %add.ptr4.i.i256
   br i1 %cmp81.i.not.i386, label %if.then89.i.i387, label %emit_remainder.i.i118
 
@@ -1444,7 +1441,7 @@ if.else29.i.i456:                                 ; preds = %if.else12.i.i454
 EmitCopyLen.exit.i459:                            ; preds = %if.else29.i.i456, %if.then15.i.i503, %if.then3.i629.i514, %if.then.i642.i528
   %conv11.i641.sink.i460 = phi i32 [ %conv11.i641.i527, %if.then3.i629.i514 ], [ %conv34.i.i458, %if.else29.i.i456 ], [ %conv28.i.i513, %if.then15.i.i503 ], [ %conv.i644.i529, %if.then.i642.i528 ]
   store i32 %conv11.i641.sink.i460, ptr %commands.i.3582.i4205871, align 4
-  %incdec.ptr.i626.i461 = getelementptr inbounds i32, ptr %commands.i.3582.i4205871, i64 1
+  %incdec.ptr.i626.i461 = getelementptr inbounds i8, ptr %commands.i.3582.i4205871, i64 4
   %add.i266.i462 = add i32 %conv195.i.i450, 3
   %82 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i462, i1 true), !range !4
   %sub.i270.i463 = sub nsw i32 30, %82
@@ -1459,7 +1456,7 @@ EmitCopyLen.exit.i459:                            ; preds = %if.else29.i.i456, %
   %shl6.i.i471 = shl i32 %sub5.i.i470, 8
   %or.i276.i472 = or i32 %shl6.i.i471, %add4.i275.i469
   store i32 %or.i276.i472, ptr %incdec.ptr.i626.i461, align 4
-  %incdec.ptr.i277.i473 = getelementptr inbounds i32, ptr %commands.i.3582.i4205871, i64 2
+  %incdec.ptr.i277.i473 = getelementptr inbounds i8, ptr %commands.i.3582.i4205871, i64 8
   %cmp196.i.not.i474 = icmp ult ptr %add.ptr191.i.i449, %add.ptr4.i.i256
   br i1 %cmp196.i.not.i474, label %if.then207.i.i475, label %emit_remainder.i.i118
 
@@ -1575,7 +1572,7 @@ if.else39.i218.i221:                              ; preds = %if.else31.i216.i218
 EmitInsertLen.exit260.i223:                       ; preds = %if.else39.i218.i221, %if.then34.i227.i228, %if.then26.i231.i230, %if.then11.i235.i233, %if.then2.i245.i241, %if.then297.i.i206
   %or.i258.sink.i224 = phi i32 [ %or.i258.i251, %if.then2.i245.i241 ], [ %or30.i234.i232, %if.then26.i231.i230 ], [ %or43.i221.i222, %if.else39.i218.i221 ], [ %or38.i230.i229, %if.then34.i227.i228 ], [ %or22.i244.i240, %if.then11.i235.i233 ], [ %conv302.i.i210, %if.then297.i.i206 ]
   store i32 %or.i258.sink.i224, ptr %commands.i.4.i119, align 4
-  %incdec.ptr.i226.i225 = getelementptr inbounds i32, ptr %commands.i.4.i119, i64 1
+  %incdec.ptr.i226.i225 = getelementptr inbounds i8, ptr %commands.i.4.i119, i64 4
   %conv303.i.i226 = and i64 %sub.ptr.sub301.i.i209, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i120, ptr align 1 %next_emit.i.2.i121, i64 %conv303.i.i226, i1 false)
   %add.ptr305.i.i227 = getelementptr inbounds i8, ptr %literals.i.1.i120, i64 %conv303.i.i226
@@ -1990,7 +1987,7 @@ if.else39.i.i929:                                 ; preds = %if.else31.i.i926
 EmitInsertLen.exit.i931:                          ; preds = %if.else39.i.i929, %if.then34.i.i1173, %if.then26.i183.i1175, %if.then11.i184.i1178, %if.then2.i.i1186, %FindMatchLengthWithLimit.exit177.i911
   %or.i.sink.i932 = phi i32 [ %or.i.i1196, %if.then2.i.i1186 ], [ %or30.i.i1177, %if.then26.i183.i1175 ], [ %or43.i.i930, %if.else39.i.i929 ], [ %or38.i.i1174, %if.then34.i.i1173 ], [ %or22.i.i1185, %if.then11.i184.i1178 ], [ %conv71.i.i917, %FindMatchLengthWithLimit.exit177.i911 ]
   store i32 %or.i.sink.i932, ptr %commands.i.0.i842, align 4
-  %incdec.ptr.i182.i933 = getelementptr inbounds i32, ptr %commands.i.0.i842, i64 1
+  %incdec.ptr.i182.i933 = getelementptr inbounds i8, ptr %commands.i.0.i842, i64 4
   %sext.i934 = shl i64 %sub.ptr.sub70.i.i916, 32
   %conv73.i.i935 = ashr exact i64 %sext.i934, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i843, ptr align 1 %next_emit.i.0.i845, i64 %conv73.i.i935, i1 false)
@@ -2018,7 +2015,7 @@ if.end80.i.i950:                                  ; preds = %if.else.i12.i938, %
   %storemerge.i951 = phi i32 [ %or.i302.i949, %if.else.i12.i938 ], [ 64, %EmitInsertLen.exit.i931 ]
   %last_distance.i.1.i952 = phi i32 [ %conv67.i.i914, %if.else.i12.i938 ], [ %last_distance.i.0.fr.i846, %EmitInsertLen.exit.i931 ]
   store i32 %storemerge.i951, ptr %incdec.ptr.i182.i933, align 4
-  %commands.i.1.i953 = getelementptr inbounds i32, ptr %commands.i.0.i842, i64 2
+  %commands.i.1.i953 = getelementptr inbounds i8, ptr %commands.i.0.i842, i64 8
   %cmp.i311.i954 = icmp ult i64 %add.i.i913, 12
   br i1 %cmp.i311.i954, label %if.then.i329.i1171, label %if.else.i312.i955
 
@@ -2063,7 +2060,7 @@ if.then16.i.i1148:                                ; preds = %if.else13.i.i957
   %or24.i.i1154 = or i64 %add21.i.i1151, %shl23.i.i1153
   %conv25.i.i1155 = trunc i64 %or24.i.i1154 to i32
   store i32 %conv25.i.i1155, ptr %commands.i.1.i953, align 4
-  %incdec.ptr26.i.i1156 = getelementptr inbounds i32, ptr %commands.i.0.i842, i64 3
+  %incdec.ptr26.i.i1156 = getelementptr inbounds i8, ptr %commands.i.0.i842, i64 12
   store i32 64, ptr %incdec.ptr26.i.i1156, align 4
   br label %EmitCopyLenLastDistance.exit.i965
 
@@ -2084,7 +2081,7 @@ if.then31.i.i1136:                                ; preds = %if.else28.i.i959
   %or43.i320.i1145 = or disjoint i64 %shl42.i319.i1144, %add38.i.i1141
   %conv44.i.i1146 = trunc i64 %or43.i320.i1145 to i32
   store i32 %conv44.i.i1146, ptr %commands.i.1.i953, align 4
-  %incdec.ptr45.i.i1147 = getelementptr inbounds i32, ptr %commands.i.0.i842, i64 3
+  %incdec.ptr45.i.i1147 = getelementptr inbounds i8, ptr %commands.i.0.i842, i64 12
   store i32 64, ptr %incdec.ptr45.i.i1147, align 4
   br label %EmitCopyLenLastDistance.exit.i965
 
@@ -2093,13 +2090,13 @@ if.else47.i.i961:                                 ; preds = %if.else28.i.i959
   %124 = shl i32 %retval.i135.0.tr.i962, 8
   %conv52.i.i963 = add i32 %124, -541633
   store i32 %conv52.i.i963, ptr %commands.i.1.i953, align 4
-  %incdec.ptr53.i.i964 = getelementptr inbounds i32, ptr %commands.i.0.i842, i64 3
+  %incdec.ptr53.i.i964 = getelementptr inbounds i8, ptr %commands.i.0.i842, i64 12
   store i32 64, ptr %incdec.ptr53.i.i964, align 4
   br label %EmitCopyLenLastDistance.exit.i965
 
 EmitCopyLenLastDistance.exit.i965:                ; preds = %if.else47.i.i961, %if.then31.i.i1136, %if.then16.i.i1148, %if.then3.i322.i1157, %if.then.i329.i1171
-  %.sink.i966 = phi i64 [ 3, %if.then3.i322.i1157 ], [ 4, %if.then31.i.i1136 ], [ 4, %if.else47.i.i961 ], [ 4, %if.then16.i.i1148 ], [ 3, %if.then.i329.i1171 ]
-  %incdec.ptr12.i.i967 = getelementptr inbounds i32, ptr %commands.i.0.i842, i64 %.sink.i966
+  %.sink.i966 = phi i64 [ 12, %if.then3.i322.i1157 ], [ 16, %if.then31.i.i1136 ], [ 16, %if.else47.i.i961 ], [ 16, %if.then16.i.i1148 ], [ 12, %if.then.i329.i1171 ]
+  %incdec.ptr12.i.i967 = getelementptr inbounds i8, ptr %commands.i.0.i842, i64 %.sink.i966
   %cmp81.i.not.i968 = icmp ult ptr %add.ptr72.i.i918, %add.ptr4.i.i838
   br i1 %cmp81.i.not.i968, label %if.then89.i.i969, label %emit_remainder.i.i700
 
@@ -2286,7 +2283,7 @@ if.else29.i.i1038:                                ; preds = %if.else12.i.i1036
 EmitCopyLen.exit.i1041:                           ; preds = %if.else29.i.i1038, %if.then15.i.i1085, %if.then3.i629.i1096, %if.then.i642.i1110
   %conv11.i641.sink.i1042 = phi i32 [ %conv11.i641.i1109, %if.then3.i629.i1096 ], [ %conv34.i.i1040, %if.else29.i.i1038 ], [ %conv28.i.i1095, %if.then15.i.i1085 ], [ %conv.i644.i1111, %if.then.i642.i1110 ]
   store i32 %conv11.i641.sink.i1042, ptr %commands.i.3582.i10025857, align 4
-  %incdec.ptr.i626.i1043 = getelementptr inbounds i32, ptr %commands.i.3582.i10025857, i64 1
+  %incdec.ptr.i626.i1043 = getelementptr inbounds i8, ptr %commands.i.3582.i10025857, i64 4
   %add.i266.i1044 = add i32 %conv195.i.i1032, 3
   %137 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i1044, i1 true), !range !4
   %sub.i270.i1045 = sub nsw i32 30, %137
@@ -2301,7 +2298,7 @@ EmitCopyLen.exit.i1041:                           ; preds = %if.else29.i.i1038, 
   %shl6.i.i1053 = shl i32 %sub5.i.i1052, 8
   %or.i276.i1054 = or i32 %shl6.i.i1053, %add4.i275.i1051
   store i32 %or.i276.i1054, ptr %incdec.ptr.i626.i1043, align 4
-  %incdec.ptr.i277.i1055 = getelementptr inbounds i32, ptr %commands.i.3582.i10025857, i64 2
+  %incdec.ptr.i277.i1055 = getelementptr inbounds i8, ptr %commands.i.3582.i10025857, i64 8
   %cmp196.i.not.i1056 = icmp ult ptr %add.ptr191.i.i1031, %add.ptr4.i.i838
   br i1 %cmp196.i.not.i1056, label %if.then207.i.i1057, label %emit_remainder.i.i700
 
@@ -2417,7 +2414,7 @@ if.else39.i218.i803:                              ; preds = %if.else31.i216.i800
 EmitInsertLen.exit260.i805:                       ; preds = %if.else39.i218.i803, %if.then34.i227.i810, %if.then26.i231.i812, %if.then11.i235.i815, %if.then2.i245.i823, %if.then297.i.i788
   %or.i258.sink.i806 = phi i32 [ %or.i258.i833, %if.then2.i245.i823 ], [ %or30.i234.i814, %if.then26.i231.i812 ], [ %or43.i221.i804, %if.else39.i218.i803 ], [ %or38.i230.i811, %if.then34.i227.i810 ], [ %or22.i244.i822, %if.then11.i235.i815 ], [ %conv302.i.i792, %if.then297.i.i788 ]
   store i32 %or.i258.sink.i806, ptr %commands.i.4.i701, align 4
-  %incdec.ptr.i226.i807 = getelementptr inbounds i32, ptr %commands.i.4.i701, i64 1
+  %incdec.ptr.i226.i807 = getelementptr inbounds i8, ptr %commands.i.4.i701, i64 4
   %conv303.i.i808 = and i64 %sub.ptr.sub301.i.i791, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i702, ptr align 1 %next_emit.i.2.i703, i64 %conv303.i.i808, i1 false)
   %add.ptr305.i.i809 = getelementptr inbounds i8, ptr %literals.i.1.i702, i64 %conv303.i.i808
@@ -2832,7 +2829,7 @@ if.else39.i.i1511:                                ; preds = %if.else31.i.i1508
 EmitInsertLen.exit.i1513:                         ; preds = %if.else39.i.i1511, %if.then34.i.i1755, %if.then26.i183.i1757, %if.then11.i184.i1760, %if.then2.i.i1768, %FindMatchLengthWithLimit.exit177.i1493
   %or.i.sink.i1514 = phi i32 [ %or.i.i1778, %if.then2.i.i1768 ], [ %or30.i.i1759, %if.then26.i183.i1757 ], [ %or43.i.i1512, %if.else39.i.i1511 ], [ %or38.i.i1756, %if.then34.i.i1755 ], [ %or22.i.i1767, %if.then11.i184.i1760 ], [ %conv71.i.i1499, %FindMatchLengthWithLimit.exit177.i1493 ]
   store i32 %or.i.sink.i1514, ptr %commands.i.0.i1424, align 4
-  %incdec.ptr.i182.i1515 = getelementptr inbounds i32, ptr %commands.i.0.i1424, i64 1
+  %incdec.ptr.i182.i1515 = getelementptr inbounds i8, ptr %commands.i.0.i1424, i64 4
   %sext.i1516 = shl i64 %sub.ptr.sub70.i.i1498, 32
   %conv73.i.i1517 = ashr exact i64 %sext.i1516, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i1425, ptr align 1 %next_emit.i.0.i1427, i64 %conv73.i.i1517, i1 false)
@@ -2860,7 +2857,7 @@ if.end80.i.i1532:                                 ; preds = %if.else.i12.i1520, 
   %storemerge.i1533 = phi i32 [ %or.i302.i1531, %if.else.i12.i1520 ], [ 64, %EmitInsertLen.exit.i1513 ]
   %last_distance.i.1.i1534 = phi i32 [ %conv67.i.i1496, %if.else.i12.i1520 ], [ %last_distance.i.0.fr.i1428, %EmitInsertLen.exit.i1513 ]
   store i32 %storemerge.i1533, ptr %incdec.ptr.i182.i1515, align 4
-  %commands.i.1.i1535 = getelementptr inbounds i32, ptr %commands.i.0.i1424, i64 2
+  %commands.i.1.i1535 = getelementptr inbounds i8, ptr %commands.i.0.i1424, i64 8
   %cmp.i311.i1536 = icmp ult i64 %add.i.i1495, 12
   br i1 %cmp.i311.i1536, label %if.then.i329.i1753, label %if.else.i312.i1537
 
@@ -2905,7 +2902,7 @@ if.then16.i.i1730:                                ; preds = %if.else13.i.i1539
   %or24.i.i1736 = or i64 %add21.i.i1733, %shl23.i.i1735
   %conv25.i.i1737 = trunc i64 %or24.i.i1736 to i32
   store i32 %conv25.i.i1737, ptr %commands.i.1.i1535, align 4
-  %incdec.ptr26.i.i1738 = getelementptr inbounds i32, ptr %commands.i.0.i1424, i64 3
+  %incdec.ptr26.i.i1738 = getelementptr inbounds i8, ptr %commands.i.0.i1424, i64 12
   store i32 64, ptr %incdec.ptr26.i.i1738, align 4
   br label %EmitCopyLenLastDistance.exit.i1547
 
@@ -2926,7 +2923,7 @@ if.then31.i.i1718:                                ; preds = %if.else28.i.i1541
   %or43.i320.i1727 = or disjoint i64 %shl42.i319.i1726, %add38.i.i1723
   %conv44.i.i1728 = trunc i64 %or43.i320.i1727 to i32
   store i32 %conv44.i.i1728, ptr %commands.i.1.i1535, align 4
-  %incdec.ptr45.i.i1729 = getelementptr inbounds i32, ptr %commands.i.0.i1424, i64 3
+  %incdec.ptr45.i.i1729 = getelementptr inbounds i8, ptr %commands.i.0.i1424, i64 12
   store i32 64, ptr %incdec.ptr45.i.i1729, align 4
   br label %EmitCopyLenLastDistance.exit.i1547
 
@@ -2935,13 +2932,13 @@ if.else47.i.i1543:                                ; preds = %if.else28.i.i1541
   %179 = shl i32 %retval.i135.0.tr.i1544, 8
   %conv52.i.i1545 = add i32 %179, -541633
   store i32 %conv52.i.i1545, ptr %commands.i.1.i1535, align 4
-  %incdec.ptr53.i.i1546 = getelementptr inbounds i32, ptr %commands.i.0.i1424, i64 3
+  %incdec.ptr53.i.i1546 = getelementptr inbounds i8, ptr %commands.i.0.i1424, i64 12
   store i32 64, ptr %incdec.ptr53.i.i1546, align 4
   br label %EmitCopyLenLastDistance.exit.i1547
 
 EmitCopyLenLastDistance.exit.i1547:               ; preds = %if.else47.i.i1543, %if.then31.i.i1718, %if.then16.i.i1730, %if.then3.i322.i1739, %if.then.i329.i1753
-  %.sink.i1548 = phi i64 [ 3, %if.then3.i322.i1739 ], [ 4, %if.then31.i.i1718 ], [ 4, %if.else47.i.i1543 ], [ 4, %if.then16.i.i1730 ], [ 3, %if.then.i329.i1753 ]
-  %incdec.ptr12.i.i1549 = getelementptr inbounds i32, ptr %commands.i.0.i1424, i64 %.sink.i1548
+  %.sink.i1548 = phi i64 [ 12, %if.then3.i322.i1739 ], [ 16, %if.then31.i.i1718 ], [ 16, %if.else47.i.i1543 ], [ 16, %if.then16.i.i1730 ], [ 12, %if.then.i329.i1753 ]
+  %incdec.ptr12.i.i1549 = getelementptr inbounds i8, ptr %commands.i.0.i1424, i64 %.sink.i1548
   %cmp81.i.not.i1550 = icmp ult ptr %add.ptr72.i.i1500, %add.ptr4.i.i1420
   br i1 %cmp81.i.not.i1550, label %if.then89.i.i1551, label %emit_remainder.i.i1282
 
@@ -3128,7 +3125,7 @@ if.else29.i.i1620:                                ; preds = %if.else12.i.i1618
 EmitCopyLen.exit.i1623:                           ; preds = %if.else29.i.i1620, %if.then15.i.i1667, %if.then3.i629.i1678, %if.then.i642.i1692
   %conv11.i641.sink.i1624 = phi i32 [ %conv11.i641.i1691, %if.then3.i629.i1678 ], [ %conv34.i.i1622, %if.else29.i.i1620 ], [ %conv28.i.i1677, %if.then15.i.i1667 ], [ %conv.i644.i1693, %if.then.i642.i1692 ]
   store i32 %conv11.i641.sink.i1624, ptr %commands.i.3582.i15845843, align 4
-  %incdec.ptr.i626.i1625 = getelementptr inbounds i32, ptr %commands.i.3582.i15845843, i64 1
+  %incdec.ptr.i626.i1625 = getelementptr inbounds i8, ptr %commands.i.3582.i15845843, i64 4
   %add.i266.i1626 = add i32 %conv195.i.i1614, 3
   %192 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i1626, i1 true), !range !4
   %sub.i270.i1627 = sub nsw i32 30, %192
@@ -3143,7 +3140,7 @@ EmitCopyLen.exit.i1623:                           ; preds = %if.else29.i.i1620, 
   %shl6.i.i1635 = shl i32 %sub5.i.i1634, 8
   %or.i276.i1636 = or i32 %shl6.i.i1635, %add4.i275.i1633
   store i32 %or.i276.i1636, ptr %incdec.ptr.i626.i1625, align 4
-  %incdec.ptr.i277.i1637 = getelementptr inbounds i32, ptr %commands.i.3582.i15845843, i64 2
+  %incdec.ptr.i277.i1637 = getelementptr inbounds i8, ptr %commands.i.3582.i15845843, i64 8
   %cmp196.i.not.i1638 = icmp ult ptr %add.ptr191.i.i1613, %add.ptr4.i.i1420
   br i1 %cmp196.i.not.i1638, label %if.then207.i.i1639, label %emit_remainder.i.i1282
 
@@ -3259,7 +3256,7 @@ if.else39.i218.i1385:                             ; preds = %if.else31.i216.i138
 EmitInsertLen.exit260.i1387:                      ; preds = %if.else39.i218.i1385, %if.then34.i227.i1392, %if.then26.i231.i1394, %if.then11.i235.i1397, %if.then2.i245.i1405, %if.then297.i.i1370
   %or.i258.sink.i1388 = phi i32 [ %or.i258.i1415, %if.then2.i245.i1405 ], [ %or30.i234.i1396, %if.then26.i231.i1394 ], [ %or43.i221.i1386, %if.else39.i218.i1385 ], [ %or38.i230.i1393, %if.then34.i227.i1392 ], [ %or22.i244.i1404, %if.then11.i235.i1397 ], [ %conv302.i.i1374, %if.then297.i.i1370 ]
   store i32 %or.i258.sink.i1388, ptr %commands.i.4.i1283, align 4
-  %incdec.ptr.i226.i1389 = getelementptr inbounds i32, ptr %commands.i.4.i1283, i64 1
+  %incdec.ptr.i226.i1389 = getelementptr inbounds i8, ptr %commands.i.4.i1283, i64 4
   %conv303.i.i1390 = and i64 %sub.ptr.sub301.i.i1373, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i1284, ptr align 1 %next_emit.i.2.i1285, i64 %conv303.i.i1390, i1 false)
   %add.ptr305.i.i1391 = getelementptr inbounds i8, ptr %literals.i.1.i1284, i64 %conv303.i.i1390
@@ -3674,7 +3671,7 @@ if.else39.i.i2093:                                ; preds = %if.else31.i.i2090
 EmitInsertLen.exit.i2095:                         ; preds = %if.else39.i.i2093, %if.then34.i.i2337, %if.then26.i183.i2339, %if.then11.i184.i2342, %if.then2.i.i2350, %FindMatchLengthWithLimit.exit177.i2075
   %or.i.sink.i2096 = phi i32 [ %or.i.i2360, %if.then2.i.i2350 ], [ %or30.i.i2341, %if.then26.i183.i2339 ], [ %or43.i.i2094, %if.else39.i.i2093 ], [ %or38.i.i2338, %if.then34.i.i2337 ], [ %or22.i.i2349, %if.then11.i184.i2342 ], [ %conv71.i.i2081, %FindMatchLengthWithLimit.exit177.i2075 ]
   store i32 %or.i.sink.i2096, ptr %commands.i.0.i2006, align 4
-  %incdec.ptr.i182.i2097 = getelementptr inbounds i32, ptr %commands.i.0.i2006, i64 1
+  %incdec.ptr.i182.i2097 = getelementptr inbounds i8, ptr %commands.i.0.i2006, i64 4
   %sext.i2098 = shl i64 %sub.ptr.sub70.i.i2080, 32
   %conv73.i.i2099 = ashr exact i64 %sext.i2098, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i2007, ptr align 1 %next_emit.i.0.i2009, i64 %conv73.i.i2099, i1 false)
@@ -3702,7 +3699,7 @@ if.end80.i.i2114:                                 ; preds = %if.else.i12.i2102, 
   %storemerge.i2115 = phi i32 [ %or.i302.i2113, %if.else.i12.i2102 ], [ 64, %EmitInsertLen.exit.i2095 ]
   %last_distance.i.1.i2116 = phi i32 [ %conv67.i.i2078, %if.else.i12.i2102 ], [ %last_distance.i.0.fr.i2010, %EmitInsertLen.exit.i2095 ]
   store i32 %storemerge.i2115, ptr %incdec.ptr.i182.i2097, align 4
-  %commands.i.1.i2117 = getelementptr inbounds i32, ptr %commands.i.0.i2006, i64 2
+  %commands.i.1.i2117 = getelementptr inbounds i8, ptr %commands.i.0.i2006, i64 8
   %cmp.i311.i2118 = icmp ult i64 %add.i.i2077, 12
   br i1 %cmp.i311.i2118, label %if.then.i329.i2335, label %if.else.i312.i2119
 
@@ -3747,7 +3744,7 @@ if.then16.i.i2312:                                ; preds = %if.else13.i.i2121
   %or24.i.i2318 = or i64 %add21.i.i2315, %shl23.i.i2317
   %conv25.i.i2319 = trunc i64 %or24.i.i2318 to i32
   store i32 %conv25.i.i2319, ptr %commands.i.1.i2117, align 4
-  %incdec.ptr26.i.i2320 = getelementptr inbounds i32, ptr %commands.i.0.i2006, i64 3
+  %incdec.ptr26.i.i2320 = getelementptr inbounds i8, ptr %commands.i.0.i2006, i64 12
   store i32 64, ptr %incdec.ptr26.i.i2320, align 4
   br label %EmitCopyLenLastDistance.exit.i2129
 
@@ -3768,7 +3765,7 @@ if.then31.i.i2300:                                ; preds = %if.else28.i.i2123
   %or43.i320.i2309 = or disjoint i64 %shl42.i319.i2308, %add38.i.i2305
   %conv44.i.i2310 = trunc i64 %or43.i320.i2309 to i32
   store i32 %conv44.i.i2310, ptr %commands.i.1.i2117, align 4
-  %incdec.ptr45.i.i2311 = getelementptr inbounds i32, ptr %commands.i.0.i2006, i64 3
+  %incdec.ptr45.i.i2311 = getelementptr inbounds i8, ptr %commands.i.0.i2006, i64 12
   store i32 64, ptr %incdec.ptr45.i.i2311, align 4
   br label %EmitCopyLenLastDistance.exit.i2129
 
@@ -3777,13 +3774,13 @@ if.else47.i.i2125:                                ; preds = %if.else28.i.i2123
   %234 = shl i32 %retval.i135.0.tr.i2126, 8
   %conv52.i.i2127 = add i32 %234, -541633
   store i32 %conv52.i.i2127, ptr %commands.i.1.i2117, align 4
-  %incdec.ptr53.i.i2128 = getelementptr inbounds i32, ptr %commands.i.0.i2006, i64 3
+  %incdec.ptr53.i.i2128 = getelementptr inbounds i8, ptr %commands.i.0.i2006, i64 12
   store i32 64, ptr %incdec.ptr53.i.i2128, align 4
   br label %EmitCopyLenLastDistance.exit.i2129
 
 EmitCopyLenLastDistance.exit.i2129:               ; preds = %if.else47.i.i2125, %if.then31.i.i2300, %if.then16.i.i2312, %if.then3.i322.i2321, %if.then.i329.i2335
-  %.sink.i2130 = phi i64 [ 3, %if.then3.i322.i2321 ], [ 4, %if.then31.i.i2300 ], [ 4, %if.else47.i.i2125 ], [ 4, %if.then16.i.i2312 ], [ 3, %if.then.i329.i2335 ]
-  %incdec.ptr12.i.i2131 = getelementptr inbounds i32, ptr %commands.i.0.i2006, i64 %.sink.i2130
+  %.sink.i2130 = phi i64 [ 12, %if.then3.i322.i2321 ], [ 16, %if.then31.i.i2300 ], [ 16, %if.else47.i.i2125 ], [ 16, %if.then16.i.i2312 ], [ 12, %if.then.i329.i2335 ]
+  %incdec.ptr12.i.i2131 = getelementptr inbounds i8, ptr %commands.i.0.i2006, i64 %.sink.i2130
   %cmp81.i.not.i2132 = icmp ult ptr %add.ptr72.i.i2082, %add.ptr4.i.i2002
   br i1 %cmp81.i.not.i2132, label %if.then89.i.i2133, label %emit_remainder.i.i1864
 
@@ -3970,7 +3967,7 @@ if.else29.i.i2202:                                ; preds = %if.else12.i.i2200
 EmitCopyLen.exit.i2205:                           ; preds = %if.else29.i.i2202, %if.then15.i.i2249, %if.then3.i629.i2260, %if.then.i642.i2274
   %conv11.i641.sink.i2206 = phi i32 [ %conv11.i641.i2273, %if.then3.i629.i2260 ], [ %conv34.i.i2204, %if.else29.i.i2202 ], [ %conv28.i.i2259, %if.then15.i.i2249 ], [ %conv.i644.i2275, %if.then.i642.i2274 ]
   store i32 %conv11.i641.sink.i2206, ptr %commands.i.3582.i21665829, align 4
-  %incdec.ptr.i626.i2207 = getelementptr inbounds i32, ptr %commands.i.3582.i21665829, i64 1
+  %incdec.ptr.i626.i2207 = getelementptr inbounds i8, ptr %commands.i.3582.i21665829, i64 4
   %add.i266.i2208 = add i32 %conv195.i.i2196, 3
   %247 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i2208, i1 true), !range !4
   %sub.i270.i2209 = sub nsw i32 30, %247
@@ -3985,7 +3982,7 @@ EmitCopyLen.exit.i2205:                           ; preds = %if.else29.i.i2202, 
   %shl6.i.i2217 = shl i32 %sub5.i.i2216, 8
   %or.i276.i2218 = or i32 %shl6.i.i2217, %add4.i275.i2215
   store i32 %or.i276.i2218, ptr %incdec.ptr.i626.i2207, align 4
-  %incdec.ptr.i277.i2219 = getelementptr inbounds i32, ptr %commands.i.3582.i21665829, i64 2
+  %incdec.ptr.i277.i2219 = getelementptr inbounds i8, ptr %commands.i.3582.i21665829, i64 8
   %cmp196.i.not.i2220 = icmp ult ptr %add.ptr191.i.i2195, %add.ptr4.i.i2002
   br i1 %cmp196.i.not.i2220, label %if.then207.i.i2221, label %emit_remainder.i.i1864
 
@@ -4101,7 +4098,7 @@ if.else39.i218.i1967:                             ; preds = %if.else31.i216.i196
 EmitInsertLen.exit260.i1969:                      ; preds = %if.else39.i218.i1967, %if.then34.i227.i1974, %if.then26.i231.i1976, %if.then11.i235.i1979, %if.then2.i245.i1987, %if.then297.i.i1952
   %or.i258.sink.i1970 = phi i32 [ %or.i258.i1997, %if.then2.i245.i1987 ], [ %or30.i234.i1978, %if.then26.i231.i1976 ], [ %or43.i221.i1968, %if.else39.i218.i1967 ], [ %or38.i230.i1975, %if.then34.i227.i1974 ], [ %or22.i244.i1986, %if.then11.i235.i1979 ], [ %conv302.i.i1956, %if.then297.i.i1952 ]
   store i32 %or.i258.sink.i1970, ptr %commands.i.4.i1865, align 4
-  %incdec.ptr.i226.i1971 = getelementptr inbounds i32, ptr %commands.i.4.i1865, i64 1
+  %incdec.ptr.i226.i1971 = getelementptr inbounds i8, ptr %commands.i.4.i1865, i64 4
   %conv303.i.i1972 = and i64 %sub.ptr.sub301.i.i1955, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i1866, ptr align 1 %next_emit.i.2.i1867, i64 %conv303.i.i1972, i1 false)
   %add.ptr305.i.i1973 = getelementptr inbounds i8, ptr %literals.i.1.i1866, i64 %conv303.i.i1972
@@ -4516,7 +4513,7 @@ if.else39.i.i2675:                                ; preds = %if.else31.i.i2672
 EmitInsertLen.exit.i2677:                         ; preds = %if.else39.i.i2675, %if.then34.i.i2919, %if.then26.i183.i2921, %if.then11.i184.i2924, %if.then2.i.i2932, %FindMatchLengthWithLimit.exit177.i2657
   %or.i.sink.i2678 = phi i32 [ %or.i.i2942, %if.then2.i.i2932 ], [ %or30.i.i2923, %if.then26.i183.i2921 ], [ %or43.i.i2676, %if.else39.i.i2675 ], [ %or38.i.i2920, %if.then34.i.i2919 ], [ %or22.i.i2931, %if.then11.i184.i2924 ], [ %conv71.i.i2663, %FindMatchLengthWithLimit.exit177.i2657 ]
   store i32 %or.i.sink.i2678, ptr %commands.i.0.i2588, align 4
-  %incdec.ptr.i182.i2679 = getelementptr inbounds i32, ptr %commands.i.0.i2588, i64 1
+  %incdec.ptr.i182.i2679 = getelementptr inbounds i8, ptr %commands.i.0.i2588, i64 4
   %sext.i2680 = shl i64 %sub.ptr.sub70.i.i2662, 32
   %conv73.i.i2681 = ashr exact i64 %sext.i2680, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i2589, ptr align 1 %next_emit.i.0.i2591, i64 %conv73.i.i2681, i1 false)
@@ -4544,7 +4541,7 @@ if.end80.i.i2696:                                 ; preds = %if.else.i12.i2684, 
   %storemerge.i2697 = phi i32 [ %or.i302.i2695, %if.else.i12.i2684 ], [ 64, %EmitInsertLen.exit.i2677 ]
   %last_distance.i.1.i2698 = phi i32 [ %conv67.i.i2660, %if.else.i12.i2684 ], [ %last_distance.i.0.fr.i2592, %EmitInsertLen.exit.i2677 ]
   store i32 %storemerge.i2697, ptr %incdec.ptr.i182.i2679, align 4
-  %commands.i.1.i2699 = getelementptr inbounds i32, ptr %commands.i.0.i2588, i64 2
+  %commands.i.1.i2699 = getelementptr inbounds i8, ptr %commands.i.0.i2588, i64 8
   %cmp.i311.i2700 = icmp ult i64 %add.i.i2659, 12
   br i1 %cmp.i311.i2700, label %if.then.i329.i2917, label %if.else.i312.i2701
 
@@ -4589,7 +4586,7 @@ if.then16.i.i2894:                                ; preds = %if.else13.i.i2703
   %or24.i.i2900 = or i64 %add21.i.i2897, %shl23.i.i2899
   %conv25.i.i2901 = trunc i64 %or24.i.i2900 to i32
   store i32 %conv25.i.i2901, ptr %commands.i.1.i2699, align 4
-  %incdec.ptr26.i.i2902 = getelementptr inbounds i32, ptr %commands.i.0.i2588, i64 3
+  %incdec.ptr26.i.i2902 = getelementptr inbounds i8, ptr %commands.i.0.i2588, i64 12
   store i32 64, ptr %incdec.ptr26.i.i2902, align 4
   br label %EmitCopyLenLastDistance.exit.i2711
 
@@ -4610,7 +4607,7 @@ if.then31.i.i2882:                                ; preds = %if.else28.i.i2705
   %or43.i320.i2891 = or disjoint i64 %shl42.i319.i2890, %add38.i.i2887
   %conv44.i.i2892 = trunc i64 %or43.i320.i2891 to i32
   store i32 %conv44.i.i2892, ptr %commands.i.1.i2699, align 4
-  %incdec.ptr45.i.i2893 = getelementptr inbounds i32, ptr %commands.i.0.i2588, i64 3
+  %incdec.ptr45.i.i2893 = getelementptr inbounds i8, ptr %commands.i.0.i2588, i64 12
   store i32 64, ptr %incdec.ptr45.i.i2893, align 4
   br label %EmitCopyLenLastDistance.exit.i2711
 
@@ -4619,13 +4616,13 @@ if.else47.i.i2707:                                ; preds = %if.else28.i.i2705
   %289 = shl i32 %retval.i135.0.tr.i2708, 8
   %conv52.i.i2709 = add i32 %289, -541633
   store i32 %conv52.i.i2709, ptr %commands.i.1.i2699, align 4
-  %incdec.ptr53.i.i2710 = getelementptr inbounds i32, ptr %commands.i.0.i2588, i64 3
+  %incdec.ptr53.i.i2710 = getelementptr inbounds i8, ptr %commands.i.0.i2588, i64 12
   store i32 64, ptr %incdec.ptr53.i.i2710, align 4
   br label %EmitCopyLenLastDistance.exit.i2711
 
 EmitCopyLenLastDistance.exit.i2711:               ; preds = %if.else47.i.i2707, %if.then31.i.i2882, %if.then16.i.i2894, %if.then3.i322.i2903, %if.then.i329.i2917
-  %.sink.i2712 = phi i64 [ 3, %if.then3.i322.i2903 ], [ 4, %if.then31.i.i2882 ], [ 4, %if.else47.i.i2707 ], [ 4, %if.then16.i.i2894 ], [ 3, %if.then.i329.i2917 ]
-  %incdec.ptr12.i.i2713 = getelementptr inbounds i32, ptr %commands.i.0.i2588, i64 %.sink.i2712
+  %.sink.i2712 = phi i64 [ 12, %if.then3.i322.i2903 ], [ 16, %if.then31.i.i2882 ], [ 16, %if.else47.i.i2707 ], [ 16, %if.then16.i.i2894 ], [ 12, %if.then.i329.i2917 ]
+  %incdec.ptr12.i.i2713 = getelementptr inbounds i8, ptr %commands.i.0.i2588, i64 %.sink.i2712
   %cmp81.i.not.i2714 = icmp ult ptr %add.ptr72.i.i2664, %add.ptr4.i.i2584
   br i1 %cmp81.i.not.i2714, label %if.then89.i.i2715, label %emit_remainder.i.i2446
 
@@ -4812,7 +4809,7 @@ if.else29.i.i2784:                                ; preds = %if.else12.i.i2782
 EmitCopyLen.exit.i2787:                           ; preds = %if.else29.i.i2784, %if.then15.i.i2831, %if.then3.i629.i2842, %if.then.i642.i2856
   %conv11.i641.sink.i2788 = phi i32 [ %conv11.i641.i2855, %if.then3.i629.i2842 ], [ %conv34.i.i2786, %if.else29.i.i2784 ], [ %conv28.i.i2841, %if.then15.i.i2831 ], [ %conv.i644.i2857, %if.then.i642.i2856 ]
   store i32 %conv11.i641.sink.i2788, ptr %commands.i.3582.i27485815, align 4
-  %incdec.ptr.i626.i2789 = getelementptr inbounds i32, ptr %commands.i.3582.i27485815, i64 1
+  %incdec.ptr.i626.i2789 = getelementptr inbounds i8, ptr %commands.i.3582.i27485815, i64 4
   %add.i266.i2790 = add i32 %conv195.i.i2778, 3
   %302 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i2790, i1 true), !range !4
   %sub.i270.i2791 = sub nsw i32 30, %302
@@ -4827,7 +4824,7 @@ EmitCopyLen.exit.i2787:                           ; preds = %if.else29.i.i2784, 
   %shl6.i.i2799 = shl i32 %sub5.i.i2798, 8
   %or.i276.i2800 = or i32 %shl6.i.i2799, %add4.i275.i2797
   store i32 %or.i276.i2800, ptr %incdec.ptr.i626.i2789, align 4
-  %incdec.ptr.i277.i2801 = getelementptr inbounds i32, ptr %commands.i.3582.i27485815, i64 2
+  %incdec.ptr.i277.i2801 = getelementptr inbounds i8, ptr %commands.i.3582.i27485815, i64 8
   %cmp196.i.not.i2802 = icmp ult ptr %add.ptr191.i.i2777, %add.ptr4.i.i2584
   br i1 %cmp196.i.not.i2802, label %if.then207.i.i2803, label %emit_remainder.i.i2446
 
@@ -4943,7 +4940,7 @@ if.else39.i218.i2549:                             ; preds = %if.else31.i216.i254
 EmitInsertLen.exit260.i2551:                      ; preds = %if.else39.i218.i2549, %if.then34.i227.i2556, %if.then26.i231.i2558, %if.then11.i235.i2561, %if.then2.i245.i2569, %if.then297.i.i2534
   %or.i258.sink.i2552 = phi i32 [ %or.i258.i2579, %if.then2.i245.i2569 ], [ %or30.i234.i2560, %if.then26.i231.i2558 ], [ %or43.i221.i2550, %if.else39.i218.i2549 ], [ %or38.i230.i2557, %if.then34.i227.i2556 ], [ %or22.i244.i2568, %if.then11.i235.i2561 ], [ %conv302.i.i2538, %if.then297.i.i2534 ]
   store i32 %or.i258.sink.i2552, ptr %commands.i.4.i2447, align 4
-  %incdec.ptr.i226.i2553 = getelementptr inbounds i32, ptr %commands.i.4.i2447, i64 1
+  %incdec.ptr.i226.i2553 = getelementptr inbounds i8, ptr %commands.i.4.i2447, i64 4
   %conv303.i.i2554 = and i64 %sub.ptr.sub301.i.i2537, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i2448, ptr align 1 %next_emit.i.2.i2449, i64 %conv303.i.i2554, i1 false)
   %add.ptr305.i.i2555 = getelementptr inbounds i8, ptr %literals.i.1.i2448, i64 %conv303.i.i2554
@@ -5358,7 +5355,7 @@ if.else39.i.i3257:                                ; preds = %if.else31.i.i3254
 EmitInsertLen.exit.i3259:                         ; preds = %if.else39.i.i3257, %if.then34.i.i3501, %if.then26.i183.i3503, %if.then11.i184.i3506, %if.then2.i.i3514, %FindMatchLengthWithLimit.exit177.i3239
   %or.i.sink.i3260 = phi i32 [ %or.i.i3524, %if.then2.i.i3514 ], [ %or30.i.i3505, %if.then26.i183.i3503 ], [ %or43.i.i3258, %if.else39.i.i3257 ], [ %or38.i.i3502, %if.then34.i.i3501 ], [ %or22.i.i3513, %if.then11.i184.i3506 ], [ %conv71.i.i3245, %FindMatchLengthWithLimit.exit177.i3239 ]
   store i32 %or.i.sink.i3260, ptr %commands.i.0.i3170, align 4
-  %incdec.ptr.i182.i3261 = getelementptr inbounds i32, ptr %commands.i.0.i3170, i64 1
+  %incdec.ptr.i182.i3261 = getelementptr inbounds i8, ptr %commands.i.0.i3170, i64 4
   %sext.i3262 = shl i64 %sub.ptr.sub70.i.i3244, 32
   %conv73.i.i3263 = ashr exact i64 %sext.i3262, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i3171, ptr align 1 %next_emit.i.0.i3173, i64 %conv73.i.i3263, i1 false)
@@ -5386,7 +5383,7 @@ if.end80.i.i3278:                                 ; preds = %if.else.i12.i3266, 
   %storemerge.i3279 = phi i32 [ %or.i302.i3277, %if.else.i12.i3266 ], [ 64, %EmitInsertLen.exit.i3259 ]
   %last_distance.i.1.i3280 = phi i32 [ %conv67.i.i3242, %if.else.i12.i3266 ], [ %last_distance.i.0.fr.i3174, %EmitInsertLen.exit.i3259 ]
   store i32 %storemerge.i3279, ptr %incdec.ptr.i182.i3261, align 4
-  %commands.i.1.i3281 = getelementptr inbounds i32, ptr %commands.i.0.i3170, i64 2
+  %commands.i.1.i3281 = getelementptr inbounds i8, ptr %commands.i.0.i3170, i64 8
   %cmp.i311.i3282 = icmp ult i64 %add.i.i3241, 12
   br i1 %cmp.i311.i3282, label %if.then.i329.i3499, label %if.else.i312.i3283
 
@@ -5431,7 +5428,7 @@ if.then16.i.i3476:                                ; preds = %if.else13.i.i3285
   %or24.i.i3482 = or i64 %add21.i.i3479, %shl23.i.i3481
   %conv25.i.i3483 = trunc i64 %or24.i.i3482 to i32
   store i32 %conv25.i.i3483, ptr %commands.i.1.i3281, align 4
-  %incdec.ptr26.i.i3484 = getelementptr inbounds i32, ptr %commands.i.0.i3170, i64 3
+  %incdec.ptr26.i.i3484 = getelementptr inbounds i8, ptr %commands.i.0.i3170, i64 12
   store i32 64, ptr %incdec.ptr26.i.i3484, align 4
   br label %EmitCopyLenLastDistance.exit.i3293
 
@@ -5452,7 +5449,7 @@ if.then31.i.i3464:                                ; preds = %if.else28.i.i3287
   %or43.i320.i3473 = or disjoint i64 %shl42.i319.i3472, %add38.i.i3469
   %conv44.i.i3474 = trunc i64 %or43.i320.i3473 to i32
   store i32 %conv44.i.i3474, ptr %commands.i.1.i3281, align 4
-  %incdec.ptr45.i.i3475 = getelementptr inbounds i32, ptr %commands.i.0.i3170, i64 3
+  %incdec.ptr45.i.i3475 = getelementptr inbounds i8, ptr %commands.i.0.i3170, i64 12
   store i32 64, ptr %incdec.ptr45.i.i3475, align 4
   br label %EmitCopyLenLastDistance.exit.i3293
 
@@ -5461,13 +5458,13 @@ if.else47.i.i3289:                                ; preds = %if.else28.i.i3287
   %344 = shl i32 %retval.i135.0.tr.i3290, 8
   %conv52.i.i3291 = add i32 %344, -541633
   store i32 %conv52.i.i3291, ptr %commands.i.1.i3281, align 4
-  %incdec.ptr53.i.i3292 = getelementptr inbounds i32, ptr %commands.i.0.i3170, i64 3
+  %incdec.ptr53.i.i3292 = getelementptr inbounds i8, ptr %commands.i.0.i3170, i64 12
   store i32 64, ptr %incdec.ptr53.i.i3292, align 4
   br label %EmitCopyLenLastDistance.exit.i3293
 
 EmitCopyLenLastDistance.exit.i3293:               ; preds = %if.else47.i.i3289, %if.then31.i.i3464, %if.then16.i.i3476, %if.then3.i322.i3485, %if.then.i329.i3499
-  %.sink.i3294 = phi i64 [ 3, %if.then3.i322.i3485 ], [ 4, %if.then31.i.i3464 ], [ 4, %if.else47.i.i3289 ], [ 4, %if.then16.i.i3476 ], [ 3, %if.then.i329.i3499 ]
-  %incdec.ptr12.i.i3295 = getelementptr inbounds i32, ptr %commands.i.0.i3170, i64 %.sink.i3294
+  %.sink.i3294 = phi i64 [ 12, %if.then3.i322.i3485 ], [ 16, %if.then31.i.i3464 ], [ 16, %if.else47.i.i3289 ], [ 16, %if.then16.i.i3476 ], [ 12, %if.then.i329.i3499 ]
+  %incdec.ptr12.i.i3295 = getelementptr inbounds i8, ptr %commands.i.0.i3170, i64 %.sink.i3294
   %cmp81.i.not.i3296 = icmp ult ptr %add.ptr72.i.i3246, %add.ptr4.i.i3166
   br i1 %cmp81.i.not.i3296, label %if.then89.i.i3297, label %emit_remainder.i.i3028
 
@@ -5654,7 +5651,7 @@ if.else29.i.i3366:                                ; preds = %if.else12.i.i3364
 EmitCopyLen.exit.i3369:                           ; preds = %if.else29.i.i3366, %if.then15.i.i3413, %if.then3.i629.i3424, %if.then.i642.i3438
   %conv11.i641.sink.i3370 = phi i32 [ %conv11.i641.i3437, %if.then3.i629.i3424 ], [ %conv34.i.i3368, %if.else29.i.i3366 ], [ %conv28.i.i3423, %if.then15.i.i3413 ], [ %conv.i644.i3439, %if.then.i642.i3438 ]
   store i32 %conv11.i641.sink.i3370, ptr %commands.i.3582.i33305801, align 4
-  %incdec.ptr.i626.i3371 = getelementptr inbounds i32, ptr %commands.i.3582.i33305801, i64 1
+  %incdec.ptr.i626.i3371 = getelementptr inbounds i8, ptr %commands.i.3582.i33305801, i64 4
   %add.i266.i3372 = add i32 %conv195.i.i3360, 3
   %357 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i3372, i1 true), !range !4
   %sub.i270.i3373 = sub nsw i32 30, %357
@@ -5669,7 +5666,7 @@ EmitCopyLen.exit.i3369:                           ; preds = %if.else29.i.i3366, 
   %shl6.i.i3381 = shl i32 %sub5.i.i3380, 8
   %or.i276.i3382 = or i32 %shl6.i.i3381, %add4.i275.i3379
   store i32 %or.i276.i3382, ptr %incdec.ptr.i626.i3371, align 4
-  %incdec.ptr.i277.i3383 = getelementptr inbounds i32, ptr %commands.i.3582.i33305801, i64 2
+  %incdec.ptr.i277.i3383 = getelementptr inbounds i8, ptr %commands.i.3582.i33305801, i64 8
   %cmp196.i.not.i3384 = icmp ult ptr %add.ptr191.i.i3359, %add.ptr4.i.i3166
   br i1 %cmp196.i.not.i3384, label %if.then207.i.i3385, label %emit_remainder.i.i3028
 
@@ -5785,7 +5782,7 @@ if.else39.i218.i3131:                             ; preds = %if.else31.i216.i312
 EmitInsertLen.exit260.i3133:                      ; preds = %if.else39.i218.i3131, %if.then34.i227.i3138, %if.then26.i231.i3140, %if.then11.i235.i3143, %if.then2.i245.i3151, %if.then297.i.i3116
   %or.i258.sink.i3134 = phi i32 [ %or.i258.i3161, %if.then2.i245.i3151 ], [ %or30.i234.i3142, %if.then26.i231.i3140 ], [ %or43.i221.i3132, %if.else39.i218.i3131 ], [ %or38.i230.i3139, %if.then34.i227.i3138 ], [ %or22.i244.i3150, %if.then11.i235.i3143 ], [ %conv302.i.i3120, %if.then297.i.i3116 ]
   store i32 %or.i258.sink.i3134, ptr %commands.i.4.i3029, align 4
-  %incdec.ptr.i226.i3135 = getelementptr inbounds i32, ptr %commands.i.4.i3029, i64 1
+  %incdec.ptr.i226.i3135 = getelementptr inbounds i8, ptr %commands.i.4.i3029, i64 4
   %conv303.i.i3136 = and i64 %sub.ptr.sub301.i.i3119, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i3030, ptr align 1 %next_emit.i.2.i3031, i64 %conv303.i.i3136, i1 false)
   %add.ptr305.i.i3137 = getelementptr inbounds i8, ptr %literals.i.1.i3030, i64 %conv303.i.i3136
@@ -6200,7 +6197,7 @@ if.else39.i.i3839:                                ; preds = %if.else31.i.i3836
 EmitInsertLen.exit.i3841:                         ; preds = %if.else39.i.i3839, %if.then34.i.i4083, %if.then26.i183.i4085, %if.then11.i184.i4088, %if.then2.i.i4096, %FindMatchLengthWithLimit.exit177.i3821
   %or.i.sink.i3842 = phi i32 [ %or.i.i4106, %if.then2.i.i4096 ], [ %or30.i.i4087, %if.then26.i183.i4085 ], [ %or43.i.i3840, %if.else39.i.i3839 ], [ %or38.i.i4084, %if.then34.i.i4083 ], [ %or22.i.i4095, %if.then11.i184.i4088 ], [ %conv71.i.i3827, %FindMatchLengthWithLimit.exit177.i3821 ]
   store i32 %or.i.sink.i3842, ptr %commands.i.0.i3752, align 4
-  %incdec.ptr.i182.i3843 = getelementptr inbounds i32, ptr %commands.i.0.i3752, i64 1
+  %incdec.ptr.i182.i3843 = getelementptr inbounds i8, ptr %commands.i.0.i3752, i64 4
   %sext.i3844 = shl i64 %sub.ptr.sub70.i.i3826, 32
   %conv73.i.i3845 = ashr exact i64 %sext.i3844, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i3753, ptr align 1 %next_emit.i.0.i3755, i64 %conv73.i.i3845, i1 false)
@@ -6228,7 +6225,7 @@ if.end80.i.i3860:                                 ; preds = %if.else.i12.i3848, 
   %storemerge.i3861 = phi i32 [ %or.i302.i3859, %if.else.i12.i3848 ], [ 64, %EmitInsertLen.exit.i3841 ]
   %last_distance.i.1.i3862 = phi i32 [ %conv67.i.i3824, %if.else.i12.i3848 ], [ %last_distance.i.0.fr.i3756, %EmitInsertLen.exit.i3841 ]
   store i32 %storemerge.i3861, ptr %incdec.ptr.i182.i3843, align 4
-  %commands.i.1.i3863 = getelementptr inbounds i32, ptr %commands.i.0.i3752, i64 2
+  %commands.i.1.i3863 = getelementptr inbounds i8, ptr %commands.i.0.i3752, i64 8
   %cmp.i311.i3864 = icmp ult i64 %add.i.i3823, 12
   br i1 %cmp.i311.i3864, label %if.then.i329.i4081, label %if.else.i312.i3865
 
@@ -6273,7 +6270,7 @@ if.then16.i.i4058:                                ; preds = %if.else13.i.i3867
   %or24.i.i4064 = or i64 %add21.i.i4061, %shl23.i.i4063
   %conv25.i.i4065 = trunc i64 %or24.i.i4064 to i32
   store i32 %conv25.i.i4065, ptr %commands.i.1.i3863, align 4
-  %incdec.ptr26.i.i4066 = getelementptr inbounds i32, ptr %commands.i.0.i3752, i64 3
+  %incdec.ptr26.i.i4066 = getelementptr inbounds i8, ptr %commands.i.0.i3752, i64 12
   store i32 64, ptr %incdec.ptr26.i.i4066, align 4
   br label %EmitCopyLenLastDistance.exit.i3875
 
@@ -6294,7 +6291,7 @@ if.then31.i.i4046:                                ; preds = %if.else28.i.i3869
   %or43.i320.i4055 = or disjoint i64 %shl42.i319.i4054, %add38.i.i4051
   %conv44.i.i4056 = trunc i64 %or43.i320.i4055 to i32
   store i32 %conv44.i.i4056, ptr %commands.i.1.i3863, align 4
-  %incdec.ptr45.i.i4057 = getelementptr inbounds i32, ptr %commands.i.0.i3752, i64 3
+  %incdec.ptr45.i.i4057 = getelementptr inbounds i8, ptr %commands.i.0.i3752, i64 12
   store i32 64, ptr %incdec.ptr45.i.i4057, align 4
   br label %EmitCopyLenLastDistance.exit.i3875
 
@@ -6303,13 +6300,13 @@ if.else47.i.i3871:                                ; preds = %if.else28.i.i3869
   %399 = shl i32 %retval.i135.0.tr.i3872, 8
   %conv52.i.i3873 = add i32 %399, -541633
   store i32 %conv52.i.i3873, ptr %commands.i.1.i3863, align 4
-  %incdec.ptr53.i.i3874 = getelementptr inbounds i32, ptr %commands.i.0.i3752, i64 3
+  %incdec.ptr53.i.i3874 = getelementptr inbounds i8, ptr %commands.i.0.i3752, i64 12
   store i32 64, ptr %incdec.ptr53.i.i3874, align 4
   br label %EmitCopyLenLastDistance.exit.i3875
 
 EmitCopyLenLastDistance.exit.i3875:               ; preds = %if.else47.i.i3871, %if.then31.i.i4046, %if.then16.i.i4058, %if.then3.i322.i4067, %if.then.i329.i4081
-  %.sink.i3876 = phi i64 [ 3, %if.then3.i322.i4067 ], [ 4, %if.then31.i.i4046 ], [ 4, %if.else47.i.i3871 ], [ 4, %if.then16.i.i4058 ], [ 3, %if.then.i329.i4081 ]
-  %incdec.ptr12.i.i3877 = getelementptr inbounds i32, ptr %commands.i.0.i3752, i64 %.sink.i3876
+  %.sink.i3876 = phi i64 [ 12, %if.then3.i322.i4067 ], [ 16, %if.then31.i.i4046 ], [ 16, %if.else47.i.i3871 ], [ 16, %if.then16.i.i4058 ], [ 12, %if.then.i329.i4081 ]
+  %incdec.ptr12.i.i3877 = getelementptr inbounds i8, ptr %commands.i.0.i3752, i64 %.sink.i3876
   %cmp81.i.not.i3878 = icmp ult ptr %add.ptr72.i.i3828, %add.ptr4.i.i3748
   br i1 %cmp81.i.not.i3878, label %if.then89.i.i3879, label %emit_remainder.i.i3610
 
@@ -6496,7 +6493,7 @@ if.else29.i.i3948:                                ; preds = %if.else12.i.i3946
 EmitCopyLen.exit.i3951:                           ; preds = %if.else29.i.i3948, %if.then15.i.i3995, %if.then3.i629.i4006, %if.then.i642.i4020
   %conv11.i641.sink.i3952 = phi i32 [ %conv11.i641.i4019, %if.then3.i629.i4006 ], [ %conv34.i.i3950, %if.else29.i.i3948 ], [ %conv28.i.i4005, %if.then15.i.i3995 ], [ %conv.i644.i4021, %if.then.i642.i4020 ]
   store i32 %conv11.i641.sink.i3952, ptr %commands.i.3582.i39125787, align 4
-  %incdec.ptr.i626.i3953 = getelementptr inbounds i32, ptr %commands.i.3582.i39125787, i64 1
+  %incdec.ptr.i626.i3953 = getelementptr inbounds i8, ptr %commands.i.3582.i39125787, i64 4
   %add.i266.i3954 = add i32 %conv195.i.i3942, 3
   %412 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i3954, i1 true), !range !4
   %sub.i270.i3955 = sub nsw i32 30, %412
@@ -6511,7 +6508,7 @@ EmitCopyLen.exit.i3951:                           ; preds = %if.else29.i.i3948, 
   %shl6.i.i3963 = shl i32 %sub5.i.i3962, 8
   %or.i276.i3964 = or i32 %shl6.i.i3963, %add4.i275.i3961
   store i32 %or.i276.i3964, ptr %incdec.ptr.i626.i3953, align 4
-  %incdec.ptr.i277.i3965 = getelementptr inbounds i32, ptr %commands.i.3582.i39125787, i64 2
+  %incdec.ptr.i277.i3965 = getelementptr inbounds i8, ptr %commands.i.3582.i39125787, i64 8
   %cmp196.i.not.i3966 = icmp ult ptr %add.ptr191.i.i3941, %add.ptr4.i.i3748
   br i1 %cmp196.i.not.i3966, label %if.then207.i.i3967, label %emit_remainder.i.i3610
 
@@ -6627,7 +6624,7 @@ if.else39.i218.i3713:                             ; preds = %if.else31.i216.i371
 EmitInsertLen.exit260.i3715:                      ; preds = %if.else39.i218.i3713, %if.then34.i227.i3720, %if.then26.i231.i3722, %if.then11.i235.i3725, %if.then2.i245.i3733, %if.then297.i.i3698
   %or.i258.sink.i3716 = phi i32 [ %or.i258.i3743, %if.then2.i245.i3733 ], [ %or30.i234.i3724, %if.then26.i231.i3722 ], [ %or43.i221.i3714, %if.else39.i218.i3713 ], [ %or38.i230.i3721, %if.then34.i227.i3720 ], [ %or22.i244.i3732, %if.then11.i235.i3725 ], [ %conv302.i.i3702, %if.then297.i.i3698 ]
   store i32 %or.i258.sink.i3716, ptr %commands.i.4.i3611, align 4
-  %incdec.ptr.i226.i3717 = getelementptr inbounds i32, ptr %commands.i.4.i3611, i64 1
+  %incdec.ptr.i226.i3717 = getelementptr inbounds i8, ptr %commands.i.4.i3611, i64 4
   %conv303.i.i3718 = and i64 %sub.ptr.sub301.i.i3701, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i3612, ptr align 1 %next_emit.i.2.i3613, i64 %conv303.i.i3718, i1 false)
   %add.ptr305.i.i3719 = getelementptr inbounds i8, ptr %literals.i.1.i3612, i64 %conv303.i.i3718
@@ -7103,7 +7100,7 @@ if.else39.i.i4406:                                ; preds = %if.else31.i.i4403
 EmitInsertLen.exit.i4408:                         ; preds = %if.else39.i.i4406, %if.then34.i.i4588, %if.then26.i183.i4590, %if.then11.i184.i4593, %if.then2.i.i4600, %FindMatchLengthWithLimit.exit177.i4388
   %or.i.sink.i4409 = phi i32 [ %or.i.i4610, %if.then2.i.i4600 ], [ %or30.i.i4592, %if.then26.i183.i4590 ], [ %or43.i.i4407, %if.else39.i.i4406 ], [ %or38.i.i4589, %if.then34.i.i4588 ], [ %or22.i.i4599, %if.then11.i184.i4593 ], [ %conv71.i.i4394, %FindMatchLengthWithLimit.exit177.i4388 ]
   store i32 %or.i.sink.i4409, ptr %commands.i.0.i4330, align 4
-  %incdec.ptr.i182.i4410 = getelementptr inbounds i32, ptr %commands.i.0.i4330, i64 1
+  %incdec.ptr.i182.i4410 = getelementptr inbounds i8, ptr %commands.i.0.i4330, i64 4
   %sext.i4411 = shl i64 %sub.ptr.sub70.i.i4393, 32
   %conv73.i.i4412 = ashr exact i64 %sext.i4411, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i4331, ptr align 1 %next_emit.i.0.i4333, i64 %conv73.i.i4412, i1 false)
@@ -7131,7 +7128,7 @@ if.end80.i.i4426:                                 ; preds = %if.else.i12.i4415, 
   %storemerge.i4427 = phi i32 [ %or.i302.i4425, %if.else.i12.i4415 ], [ 64, %EmitInsertLen.exit.i4408 ]
   %last_distance.i.1.i4428 = phi i32 [ %conv67.i.i4391, %if.else.i12.i4415 ], [ %last_distance.i.0.fr.i4334, %EmitInsertLen.exit.i4408 ]
   store i32 %storemerge.i4427, ptr %incdec.ptr.i182.i4410, align 4
-  %commands.i.1.i4429 = getelementptr inbounds i32, ptr %commands.i.0.i4330, i64 2
+  %commands.i.1.i4429 = getelementptr inbounds i8, ptr %commands.i.0.i4330, i64 8
   %cmp.i311.i4430 = icmp ult i64 %add.i.i4390, 12
   br i1 %cmp.i311.i4430, label %if.then.i329.i4586, label %if.else.i312.i4431
 
@@ -7176,7 +7173,7 @@ if.then16.i.i4563:                                ; preds = %if.else13.i.i4433
   %or24.i.i4569 = or i64 %add21.i.i4566, %shl23.i.i4568
   %conv25.i.i4570 = trunc i64 %or24.i.i4569 to i32
   store i32 %conv25.i.i4570, ptr %commands.i.1.i4429, align 4
-  %incdec.ptr26.i.i4571 = getelementptr inbounds i32, ptr %commands.i.0.i4330, i64 3
+  %incdec.ptr26.i.i4571 = getelementptr inbounds i8, ptr %commands.i.0.i4330, i64 12
   store i32 64, ptr %incdec.ptr26.i.i4571, align 4
   br label %EmitCopyLenLastDistance.exit.i4441
 
@@ -7197,7 +7194,7 @@ if.then31.i.i4551:                                ; preds = %if.else28.i.i4435
   %or43.i320.i4560 = or disjoint i64 %shl42.i319.i4559, %add38.i.i4556
   %conv44.i.i4561 = trunc i64 %or43.i320.i4560 to i32
   store i32 %conv44.i.i4561, ptr %commands.i.1.i4429, align 4
-  %incdec.ptr45.i.i4562 = getelementptr inbounds i32, ptr %commands.i.0.i4330, i64 3
+  %incdec.ptr45.i.i4562 = getelementptr inbounds i8, ptr %commands.i.0.i4330, i64 12
   store i32 64, ptr %incdec.ptr45.i.i4562, align 4
   br label %EmitCopyLenLastDistance.exit.i4441
 
@@ -7206,13 +7203,13 @@ if.else47.i.i4437:                                ; preds = %if.else28.i.i4435
   %468 = shl i32 %retval.i135.0.tr.i4438, 8
   %conv52.i.i4439 = add i32 %468, -541121
   store i32 %conv52.i.i4439, ptr %commands.i.1.i4429, align 4
-  %incdec.ptr53.i.i4440 = getelementptr inbounds i32, ptr %commands.i.0.i4330, i64 3
+  %incdec.ptr53.i.i4440 = getelementptr inbounds i8, ptr %commands.i.0.i4330, i64 12
   store i32 64, ptr %incdec.ptr53.i.i4440, align 4
   br label %EmitCopyLenLastDistance.exit.i4441
 
 EmitCopyLenLastDistance.exit.i4441:               ; preds = %if.else47.i.i4437, %if.then31.i.i4551, %if.then16.i.i4563, %if.then3.i322.i4572, %if.then.i329.i4586
-  %.sink.i4442 = phi i64 [ 3, %if.then3.i322.i4572 ], [ 4, %if.then31.i.i4551 ], [ 4, %if.else47.i.i4437 ], [ 4, %if.then16.i.i4563 ], [ 3, %if.then.i329.i4586 ]
-  %incdec.ptr12.i.i4443 = getelementptr inbounds i32, ptr %commands.i.0.i4330, i64 %.sink.i4442
+  %.sink.i4442 = phi i64 [ 12, %if.then3.i322.i4572 ], [ 16, %if.then31.i.i4551 ], [ 16, %if.else47.i.i4437 ], [ 16, %if.then16.i.i4563 ], [ 12, %if.then.i329.i4586 ]
+  %incdec.ptr12.i.i4443 = getelementptr inbounds i8, ptr %commands.i.0.i4330, i64 %.sink.i4442
   %cmp81.i.not.i4444 = icmp ult ptr %add.ptr72.i.i4395, %add.ptr4.i.i4326
   br i1 %cmp81.i.not.i4444, label %if.else117.i.i, label %emit_remainder.i.i4189
 
@@ -7442,7 +7439,7 @@ if.else29.i.i4479:                                ; preds = %if.else12.i.i4477
 EmitCopyLen.exit.i4482:                           ; preds = %if.else29.i.i4479, %if.then15.i.i4504, %if.then3.i629.i4515, %if.then.i642.i4528
   %conv11.i641.sink.i4483 = phi i32 [ %conv11.i641.i4527, %if.then3.i629.i4515 ], [ %conv34.i.i4481, %if.else29.i.i4479 ], [ %conv28.i.i4514, %if.then15.i.i4504 ], [ %conv.i644.i4529, %if.then.i642.i4528 ]
   store i32 %conv11.i641.sink.i4483, ptr %commands.i.3619.i57677137, align 4
-  %incdec.ptr.i626.i4484 = getelementptr inbounds i32, ptr %commands.i.3619.i57677137, i64 1
+  %incdec.ptr.i626.i4484 = getelementptr inbounds i8, ptr %commands.i.3619.i57677137, i64 4
   %add.i266.i4485 = add i32 %conv195.i.i4473, 3
   %486 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i4485, i1 true), !range !4
   %sub.i270.i4486 = sub nsw i32 30, %486
@@ -7457,7 +7454,7 @@ EmitCopyLen.exit.i4482:                           ; preds = %if.else29.i.i4479, 
   %shl6.i.i4494 = shl i32 %sub5.i.i4493, 8
   %or.i276.i4495 = or i32 %shl6.i.i4494, %add4.i275.i4492
   store i32 %or.i276.i4495, ptr %incdec.ptr.i626.i4484, align 4
-  %incdec.ptr.i277.i4496 = getelementptr inbounds i32, ptr %commands.i.3619.i57677137, i64 2
+  %incdec.ptr.i277.i4496 = getelementptr inbounds i8, ptr %commands.i.3619.i57677137, i64 8
   %cmp196.i.not.i4497 = icmp ult ptr %add.ptr191.i.i4472, %add.ptr4.i.i4326
   br i1 %cmp196.i.not.i4497, label %if.else235.i.i, label %emit_remainder.i.i4189
 
@@ -7585,7 +7582,7 @@ if.else39.i218.i4292:                             ; preds = %if.else31.i216.i428
 EmitInsertLen.exit260.i4294:                      ; preds = %if.else39.i218.i4292, %if.then34.i227.i4299, %if.then26.i231.i4301, %if.then11.i235.i4304, %if.then2.i245.i4311, %if.then297.i.i4277
   %or.i258.sink.i4295 = phi i32 [ %or.i258.i4321, %if.then2.i245.i4311 ], [ %or30.i234.i4303, %if.then26.i231.i4301 ], [ %or43.i221.i4293, %if.else39.i218.i4292 ], [ %or38.i230.i4300, %if.then34.i227.i4299 ], [ %or22.i244.i4310, %if.then11.i235.i4304 ], [ %conv302.i.i4281, %if.then297.i.i4277 ]
   store i32 %or.i258.sink.i4295, ptr %commands.i.4.i4190, align 4
-  %incdec.ptr.i226.i4296 = getelementptr inbounds i32, ptr %commands.i.4.i4190, i64 1
+  %incdec.ptr.i226.i4296 = getelementptr inbounds i8, ptr %commands.i.4.i4190, i64 4
   %conv303.i.i4297 = and i64 %sub.ptr.sub301.i.i4280, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i4191, ptr align 1 %next_emit.i.2.i4192, i64 %conv303.i.i4297, i1 false)
   %add.ptr305.i.i4298 = getelementptr inbounds i8, ptr %literals.i.1.i4191, i64 %conv303.i.i4297
@@ -8061,7 +8058,7 @@ if.else39.i.i4892:                                ; preds = %if.else31.i.i4889
 EmitInsertLen.exit.i4894:                         ; preds = %if.else39.i.i4892, %if.then34.i.i5170, %if.then26.i183.i5172, %if.then11.i184.i5175, %if.then2.i.i5183, %FindMatchLengthWithLimit.exit177.i4874
   %or.i.sink.i4895 = phi i32 [ %or.i.i5193, %if.then2.i.i5183 ], [ %or30.i.i5174, %if.then26.i183.i5172 ], [ %or43.i.i4893, %if.else39.i.i4892 ], [ %or38.i.i5171, %if.then34.i.i5170 ], [ %or22.i.i5182, %if.then11.i184.i5175 ], [ %conv71.i.i4880, %FindMatchLengthWithLimit.exit177.i4874 ]
   store i32 %or.i.sink.i4895, ptr %commands.i.0.i4803, align 4
-  %incdec.ptr.i182.i4896 = getelementptr inbounds i32, ptr %commands.i.0.i4803, i64 1
+  %incdec.ptr.i182.i4896 = getelementptr inbounds i8, ptr %commands.i.0.i4803, i64 4
   %sext.i4897 = shl i64 %sub.ptr.sub70.i.i4879, 32
   %conv73.i.i4898 = ashr exact i64 %sext.i4897, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.0.i4804, ptr align 1 %next_emit.i.0.i4806, i64 %conv73.i.i4898, i1 false)
@@ -8089,7 +8086,7 @@ if.end80.i.i4913:                                 ; preds = %if.else.i12.i4901, 
   %storemerge.i4914 = phi i32 [ %or.i302.i4912, %if.else.i12.i4901 ], [ 64, %EmitInsertLen.exit.i4894 ]
   %last_distance.i.1.i4915 = phi i32 [ %conv67.i.i4877, %if.else.i12.i4901 ], [ %last_distance.i.0.fr.i4807, %EmitInsertLen.exit.i4894 ]
   store i32 %storemerge.i4914, ptr %incdec.ptr.i182.i4896, align 4
-  %commands.i.1.i4916 = getelementptr inbounds i32, ptr %commands.i.0.i4803, i64 2
+  %commands.i.1.i4916 = getelementptr inbounds i8, ptr %commands.i.0.i4803, i64 8
   %cmp.i311.i4917 = icmp ult i64 %add.i.i4876, 12
   br i1 %cmp.i311.i4917, label %if.then.i329.i5168, label %if.else.i312.i4918
 
@@ -8134,7 +8131,7 @@ if.then16.i.i5145:                                ; preds = %if.else13.i.i4920
   %or24.i.i5151 = or i64 %add21.i.i5148, %shl23.i.i5150
   %conv25.i.i5152 = trunc i64 %or24.i.i5151 to i32
   store i32 %conv25.i.i5152, ptr %commands.i.1.i4916, align 4
-  %incdec.ptr26.i.i5153 = getelementptr inbounds i32, ptr %commands.i.0.i4803, i64 3
+  %incdec.ptr26.i.i5153 = getelementptr inbounds i8, ptr %commands.i.0.i4803, i64 12
   store i32 64, ptr %incdec.ptr26.i.i5153, align 4
   br label %EmitCopyLenLastDistance.exit.i4928
 
@@ -8155,7 +8152,7 @@ if.then31.i.i5133:                                ; preds = %if.else28.i.i4922
   %or43.i320.i5142 = or disjoint i64 %shl42.i319.i5141, %add38.i.i5138
   %conv44.i.i5143 = trunc i64 %or43.i320.i5142 to i32
   store i32 %conv44.i.i5143, ptr %commands.i.1.i4916, align 4
-  %incdec.ptr45.i.i5144 = getelementptr inbounds i32, ptr %commands.i.0.i4803, i64 3
+  %incdec.ptr45.i.i5144 = getelementptr inbounds i8, ptr %commands.i.0.i4803, i64 12
   store i32 64, ptr %incdec.ptr45.i.i5144, align 4
   br label %EmitCopyLenLastDistance.exit.i4928
 
@@ -8164,13 +8161,13 @@ if.else47.i.i4924:                                ; preds = %if.else28.i.i4922
   %541 = shl i32 %retval.i135.0.tr.i4925, 8
   %conv52.i.i4926 = add i32 %541, -541121
   store i32 %conv52.i.i4926, ptr %commands.i.1.i4916, align 4
-  %incdec.ptr53.i.i4927 = getelementptr inbounds i32, ptr %commands.i.0.i4803, i64 3
+  %incdec.ptr53.i.i4927 = getelementptr inbounds i8, ptr %commands.i.0.i4803, i64 12
   store i32 64, ptr %incdec.ptr53.i.i4927, align 4
   br label %EmitCopyLenLastDistance.exit.i4928
 
 EmitCopyLenLastDistance.exit.i4928:               ; preds = %if.else47.i.i4924, %if.then31.i.i5133, %if.then16.i.i5145, %if.then3.i322.i5154, %if.then.i329.i5168
-  %.sink.i4929 = phi i64 [ 3, %if.then3.i322.i5154 ], [ 4, %if.then31.i.i5133 ], [ 4, %if.else47.i.i4924 ], [ 4, %if.then16.i.i5145 ], [ 3, %if.then.i329.i5168 ]
-  %incdec.ptr12.i.i4930 = getelementptr inbounds i32, ptr %commands.i.0.i4803, i64 %.sink.i4929
+  %.sink.i4929 = phi i64 [ 12, %if.then3.i322.i5154 ], [ 16, %if.then31.i.i5133 ], [ 16, %if.else47.i.i4924 ], [ 16, %if.then16.i.i5145 ], [ 12, %if.then.i329.i5168 ]
+  %incdec.ptr12.i.i4930 = getelementptr inbounds i8, ptr %commands.i.0.i4803, i64 %.sink.i4929
   %cmp81.i.not.i4931 = icmp ult ptr %add.ptr72.i.i4881, %add.ptr4.i.i4799
   br i1 %cmp81.i.not.i4931, label %if.else117.i.i4932, label %emit_remainder.i.i4661
 
@@ -8400,7 +8397,7 @@ if.else29.i.i5025:                                ; preds = %if.else12.i.i5023
 EmitCopyLen.exit.i5028:                           ; preds = %if.else29.i.i5025, %if.then15.i.i5083, %if.then3.i629.i5094, %if.then.i642.i5107
   %conv11.i641.sink.i5029 = phi i32 [ %conv11.i641.i5106, %if.then3.i629.i5094 ], [ %conv34.i.i5027, %if.else29.i.i5025 ], [ %conv28.i.i5093, %if.then15.i.i5083 ], [ %conv.i644.i5108, %if.then.i642.i5107 ]
   store i32 %conv11.i641.sink.i5029, ptr %commands.i.3619.i498157477117, align 4
-  %incdec.ptr.i626.i5030 = getelementptr inbounds i32, ptr %commands.i.3619.i498157477117, i64 1
+  %incdec.ptr.i626.i5030 = getelementptr inbounds i8, ptr %commands.i.3619.i498157477117, i64 4
   %add.i266.i5031 = add i32 %conv195.i.i5019, 3
   %559 = tail call i32 @llvm.ctlz.i32(i32 %add.i266.i5031, i1 true), !range !4
   %sub.i270.i5032 = sub nsw i32 30, %559
@@ -8415,7 +8412,7 @@ EmitCopyLen.exit.i5028:                           ; preds = %if.else29.i.i5025, 
   %shl6.i.i5040 = shl i32 %sub5.i.i5039, 8
   %or.i276.i5041 = or i32 %shl6.i.i5040, %add4.i275.i5038
   store i32 %or.i276.i5041, ptr %incdec.ptr.i626.i5030, align 4
-  %incdec.ptr.i277.i5042 = getelementptr inbounds i32, ptr %commands.i.3619.i498157477117, i64 2
+  %incdec.ptr.i277.i5042 = getelementptr inbounds i8, ptr %commands.i.3619.i498157477117, i64 8
   %cmp196.i.not.i5043 = icmp ult ptr %add.ptr191.i.i5018, %add.ptr4.i.i4799
   br i1 %cmp196.i.not.i5043, label %if.else235.i.i5044, label %emit_remainder.i.i4661
 
@@ -8543,7 +8540,7 @@ if.else39.i218.i4764:                             ; preds = %if.else31.i216.i476
 EmitInsertLen.exit260.i4766:                      ; preds = %if.else39.i218.i4764, %if.then34.i227.i4771, %if.then26.i231.i4773, %if.then11.i235.i4776, %if.then2.i245.i4784, %if.then297.i.i4749
   %or.i258.sink.i4767 = phi i32 [ %or.i258.i4794, %if.then2.i245.i4784 ], [ %or30.i234.i4775, %if.then26.i231.i4773 ], [ %or43.i221.i4765, %if.else39.i218.i4764 ], [ %or38.i230.i4772, %if.then34.i227.i4771 ], [ %or22.i244.i4783, %if.then11.i235.i4776 ], [ %conv302.i.i4753, %if.then297.i.i4749 ]
   store i32 %or.i258.sink.i4767, ptr %commands.i.4.i4662, align 4
-  %incdec.ptr.i226.i4768 = getelementptr inbounds i32, ptr %commands.i.4.i4662, i64 1
+  %incdec.ptr.i226.i4768 = getelementptr inbounds i8, ptr %commands.i.4.i4662, i64 4
   %conv303.i.i4769 = and i64 %sub.ptr.sub301.i.i4752, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %literals.i.1.i4663, ptr align 1 %next_emit.i.2.i4664, i64 %conv303.i.i4769, i1 false)
   %add.ptr305.i.i4770 = getelementptr inbounds i8, ptr %literals.i.1.i4663, i64 %conv303.i.i4769
@@ -8922,9 +8919,9 @@ return:                                           ; preds = %entry, %ShannonEntr
 define internal fastcc void @StoreCommands(ptr noundef %s, ptr nocapture noundef readonly %literals, i64 noundef %num_literals, ptr nocapture noundef readonly %commands, i64 noundef %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %s, i8 0, i64 1024, i1 false)
-  %cmd_depth = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4
-  %cmd_bits = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5
-  %cmd_histo = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 3
+  %cmd_depth = getelementptr inbounds i8, ptr %s, i64 2304
+  %cmd_bits = getelementptr inbounds i8, ptr %s, i64 2432
+  %cmd_histo = getelementptr inbounds i8, ptr %s, i64 1792
   %cmp62.not = icmp eq i64 %num_literals, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(896) %cmd_histo, i8 0, i64 896, i1 false)
   br i1 %cmp62.not, label %for.end, label %for.body
@@ -8943,9 +8940,9 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %entry
-  %tmp_tree = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 6
-  %lit_depth = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 1
-  %lit_bits = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 2
+  %tmp_tree = getelementptr inbounds i8, ptr %s, i64 2688
+  %lit_depth = getelementptr inbounds i8, ptr %s, i64 1024
+  %lit_bits = getelementptr inbounds i8, ptr %s, i64 1280
   tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %tmp_tree, ptr noundef nonnull %s, i64 noundef %num_literals, i64 noundef 8, ptr noundef nonnull %lit_depth, ptr noundef nonnull %lit_bits, ptr noundef %storage_ix, ptr noundef %storage) #8
   %cmp1364.not = icmp eq i64 %num_commands, 0
   br i1 %cmp1364.not, label %for.end22, label %for.body14
@@ -8956,7 +8953,7 @@ for.body14:                                       ; preds = %for.end, %for.body1
   %2 = load i32, ptr %arrayidx15, align 4
   %and = and i32 %2, 255
   %idxprom17 = zext nneg i32 %and to i64
-  %arrayidx18 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 3, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds [128 x i32], ptr %cmd_histo, i64 0, i64 %idxprom17
   %3 = load i32, ptr %arrayidx18, align 4
   %inc19 = add i32 %3, 1
   store i32 %inc19, ptr %arrayidx18, align 4
@@ -8965,103 +8962,103 @@ for.body14:                                       ; preds = %for.end, %for.body1
   br i1 %exitcond72.not, label %for.end22, label %for.body14, !llvm.loop !16
 
 for.end22:                                        ; preds = %for.body14, %for.end
-  %arrayidx24 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 3, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %s, i64 1796
   %4 = load <2 x i32>, ptr %arrayidx24, align 4
   %5 = add <2 x i32> %4, <i32 1, i32 1>
   store <2 x i32> %5, ptr %arrayidx24, align 4
-  %arrayidx29 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 3, i64 64
+  %arrayidx29 = getelementptr inbounds i8, ptr %s, i64 2048
   %6 = load i32, ptr %arrayidx29, align 4
   %add30 = add i32 %6, 1
   store i32 %add30, ptr %arrayidx29, align 4
-  %arrayidx32 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 3, i64 84
+  %arrayidx32 = getelementptr inbounds i8, ptr %s, i64 2128
   %7 = load i32, ptr %arrayidx32, align 4
   %add33 = add i32 %7, 1
   store i32 %add33, ptr %arrayidx32, align 4
-  %tmp_depth.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7
+  %tmp_depth.i = getelementptr inbounds i8, ptr %s, i64 6792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(704) %tmp_depth.i, i8 0, i64 704, i1 false)
   tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %cmd_histo, i64 noundef 64, i32 noundef 15, ptr noundef nonnull %tmp_tree, ptr noundef nonnull %cmd_depth) #8
-  %arrayidx8.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 64
+  %arrayidx8.i = getelementptr inbounds i8, ptr %s, i64 2368
   tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %arrayidx29, i64 noundef 64, i32 noundef 14, ptr noundef nonnull %tmp_tree, ptr noundef nonnull %arrayidx8.i) #8
-  %add.ptr.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %s, i64 2328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %tmp_depth.i, ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i64 24, i1 false)
-  %add.ptr15.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 24
+  %add.ptr15.i = getelementptr inbounds i8, ptr %s, i64 6816
   %8 = load i64, ptr %cmd_depth, align 4
   store i64 %8, ptr %add.ptr15.i, align 1
-  %add.ptr20.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 32
-  %add.ptr23.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 48
+  %add.ptr20.i = getelementptr inbounds i8, ptr %s, i64 6824
+  %add.ptr23.i = getelementptr inbounds i8, ptr %s, i64 2352
   %9 = load i64, ptr %add.ptr23.i, align 1
   store i64 %9, ptr %add.ptr20.i, align 1
-  %add.ptr26.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 40
-  %add.ptr29.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 8
+  %add.ptr26.i = getelementptr inbounds i8, ptr %s, i64 6832
+  %add.ptr29.i = getelementptr inbounds i8, ptr %s, i64 2312
   %10 = load i64, ptr %add.ptr29.i, align 1
   store i64 %10, ptr %add.ptr26.i, align 1
-  %add.ptr32.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 48
-  %add.ptr35.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 56
+  %add.ptr32.i = getelementptr inbounds i8, ptr %s, i64 6840
+  %add.ptr35.i = getelementptr inbounds i8, ptr %s, i64 2360
   %11 = load i64, ptr %add.ptr35.i, align 1
   store i64 %11, ptr %add.ptr32.i, align 1
-  %add.ptr38.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 56
-  %add.ptr41.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 16
+  %add.ptr38.i = getelementptr inbounds i8, ptr %s, i64 6848
+  %add.ptr41.i = getelementptr inbounds i8, ptr %s, i64 2320
   %12 = load i64, ptr %add.ptr41.i, align 1
   store i64 %12, ptr %add.ptr38.i, align 1
-  %tmp_bits.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 8
+  %tmp_bits.i = getelementptr inbounds i8, ptr %s, i64 7496
   tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %tmp_depth.i, i64 noundef 64, ptr noundef nonnull %tmp_bits.i) #8
-  %add.ptr48.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 8, i64 24
+  %add.ptr48.i = getelementptr inbounds i8, ptr %s, i64 7544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %cmd_bits, ptr noundef nonnull align 2 dereferenceable(16) %add.ptr48.i, i64 16, i1 false)
-  %add.ptr51.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 8
-  %add.ptr54.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 8, i64 40
+  %add.ptr51.i = getelementptr inbounds i8, ptr %s, i64 2448
+  %add.ptr54.i = getelementptr inbounds i8, ptr %s, i64 7576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr51.i, ptr noundef nonnull align 2 dereferenceable(16) %add.ptr54.i, i64 16, i1 false)
-  %add.ptr57.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 16
-  %add.ptr60.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 8, i64 56
+  %add.ptr57.i = getelementptr inbounds i8, ptr %s, i64 2464
+  %add.ptr60.i = getelementptr inbounds i8, ptr %s, i64 7608
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr57.i, ptr noundef nonnull align 2 dereferenceable(16) %add.ptr60.i, i64 16, i1 false)
-  %add.ptr63.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 24
+  %add.ptr63.i = getelementptr inbounds i8, ptr %s, i64 2480
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %add.ptr63.i, ptr noundef nonnull align 4 dereferenceable(48) %tmp_bits.i, i64 48, i1 false)
-  %add.ptr68.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 48
-  %add.ptr71.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 8, i64 32
+  %add.ptr68.i = getelementptr inbounds i8, ptr %s, i64 2528
+  %add.ptr71.i = getelementptr inbounds i8, ptr %s, i64 7560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr68.i, ptr noundef nonnull align 2 dereferenceable(16) %add.ptr71.i, i64 16, i1 false)
-  %add.ptr74.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 56
-  %add.ptr77.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 8, i64 48
+  %add.ptr74.i = getelementptr inbounds i8, ptr %s, i64 2544
+  %add.ptr77.i = getelementptr inbounds i8, ptr %s, i64 7592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr74.i, ptr noundef nonnull align 2 dereferenceable(16) %add.ptr77.i, i64 16, i1 false)
-  %arrayidx81.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 64
+  %arrayidx81.i = getelementptr inbounds i8, ptr %s, i64 2560
   tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %arrayidx8.i, i64 noundef 64, ptr noundef nonnull %arrayidx81.i) #8
-  %13 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 8
+  %13 = getelementptr inbounds i8, ptr %s, i64 6800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, i8 0, i64 56, i1 false)
   %14 = load i64, ptr %add.ptr.i, align 1
   store i64 %14, ptr %tmp_depth.i, align 4
-  %add.ptr91.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 64
-  %add.ptr94.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 32
+  %add.ptr91.i = getelementptr inbounds i8, ptr %s, i64 6856
+  %add.ptr94.i = getelementptr inbounds i8, ptr %s, i64 2336
   %15 = load i64, ptr %add.ptr94.i, align 1
   store i64 %15, ptr %add.ptr91.i, align 1
-  %add.ptr97.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 128
-  %add.ptr100.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 40
+  %add.ptr97.i = getelementptr inbounds i8, ptr %s, i64 6920
+  %add.ptr100.i = getelementptr inbounds i8, ptr %s, i64 2344
   %16 = load i64, ptr %add.ptr100.i, align 1
   store i64 %16, ptr %add.ptr97.i, align 1
-  %add.ptr103.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 192
+  %add.ptr103.i = getelementptr inbounds i8, ptr %s, i64 6984
   %17 = load i64, ptr %add.ptr23.i, align 1
   store i64 %17, ptr %add.ptr103.i, align 1
-  %add.ptr109.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 384
+  %add.ptr109.i = getelementptr inbounds i8, ptr %s, i64 7176
   %18 = load i64, ptr %add.ptr35.i, align 1
   store i64 %18, ptr %add.ptr109.i, align 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.end22
   %i.065.i = phi i64 [ 0, %for.end22 ], [ %inc.i, %for.body.i ]
-  %arrayidx114.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 %i.065.i
+  %arrayidx114.i = getelementptr inbounds [128 x i8], ptr %cmd_depth, i64 0, i64 %i.065.i
   %19 = load i8, ptr %arrayidx114.i, align 1
   %mul.i = shl nuw nsw i64 %i.065.i, 3
   %add.i61 = or disjoint i64 %mul.i, 128
-  %arrayidx116.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 %add.i61
+  %arrayidx116.i = getelementptr inbounds [704 x i8], ptr %tmp_depth.i, i64 0, i64 %add.i61
   store i8 %19, ptr %arrayidx116.i, align 1
   %add118.i = or disjoint i64 %i.065.i, 8
-  %arrayidx119.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 %add118.i
+  %arrayidx119.i = getelementptr inbounds [128 x i8], ptr %cmd_depth, i64 0, i64 %add118.i
   %20 = load i8, ptr %arrayidx119.i, align 1
   %add122.i = or disjoint i64 %mul.i, 256
-  %arrayidx123.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 %add122.i
+  %arrayidx123.i = getelementptr inbounds [704 x i8], ptr %tmp_depth.i, i64 0, i64 %add122.i
   store i8 %20, ptr %arrayidx123.i, align 1
   %add125.i = or disjoint i64 %i.065.i, 16
-  %arrayidx126.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 %add125.i
+  %arrayidx126.i = getelementptr inbounds [128 x i8], ptr %cmd_depth, i64 0, i64 %add125.i
   %21 = load i8, ptr %arrayidx126.i, align 1
   %add129.i = or disjoint i64 %mul.i, 448
-  %arrayidx130.i = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 7, i64 %add129.i
+  %arrayidx130.i = getelementptr inbounds [704 x i8], ptr %tmp_depth.i, i64 0, i64 %add129.i
   store i8 %21, ptr %arrayidx130.i, align 1
   %inc.i = add nuw nsw i64 %i.065.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
@@ -9085,10 +9082,10 @@ for.body36:                                       ; preds = %for.body36.preheade
   %and39 = and i32 %23, 255
   %shr = lshr i32 %23, 8
   %idxprom41 = zext nneg i32 %and39 to i64
-  %arrayidx42 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 4, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds [128 x i8], ptr %cmd_depth, i64 0, i64 %idxprom41
   %24 = load i8, ptr %arrayidx42, align 1
   %conv = zext i8 %24 to i64
-  %arrayidx45 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 5, i64 %idxprom41
+  %arrayidx45 = getelementptr inbounds [128 x i16], ptr %cmd_bits, i64 0, i64 %idxprom41
   %25 = load i16, ptr %arrayidx45, align 2
   %conv46 = zext i16 %25 to i64
   %shr.i93 = lshr i64 %22, 3
@@ -9133,10 +9130,10 @@ for.body59:                                       ; preds = %if.then, %for.body5
   %j.067 = phi i32 [ %inc69, %for.body59 ], [ 0, %if.then ]
   %33 = load i8, ptr %literals.addr.168, align 1
   %idxprom61 = zext i8 %33 to i64
-  %arrayidx62 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 1, i64 %idxprom61
+  %arrayidx62 = getelementptr inbounds [256 x i8], ptr %lit_depth, i64 0, i64 %idxprom61
   %34 = load i8, ptr %arrayidx62, align 1
   %conv63 = zext i8 %34 to i64
-  %arrayidx66 = getelementptr inbounds %struct.BrotliTwoPassArena, ptr %s, i64 0, i32 2, i64 %idxprom61
+  %arrayidx66 = getelementptr inbounds [256 x i16], ptr %lit_bits, i64 0, i64 %idxprom61
   %35 = load i16, ptr %arrayidx66, align 2
   %conv67 = zext i16 %35 to i64
   %shr.i = lshr i64 %32, 3

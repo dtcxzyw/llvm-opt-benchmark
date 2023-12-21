@@ -3,125 +3,9 @@ source_filename = "bench/folly/original/EventBaseBackendBase.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, ptr, %union.anon.2, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.7 }
-%union.anon.7 = type { ptr }
-%"class.folly::EventBase" = type { %"class.folly::TimeoutManager", %"class.folly::DrivableExecutor", %"class.folly::IOExecutor", %"class.folly::SequencedExecutor", %"class.folly::ScheduledExecutor", %"class.folly::GetThreadIdCollector", %"class.std::chrono::duration", i8, i8, %"struct.std::atomic", %"class.std::unique_ptr.10", %"class.boost::intrusive::list", %"class.boost::intrusive::list", %"struct.folly::Synchronized", %"struct.folly::Synchronized", ptr, %"struct.std::atomic.25", %"class.std::unique_ptr.27", i64, %"struct.std::atomic.35", i8, %"class.std::chrono::duration.37", %"class.folly::EventBase::SmoothLoopTime", %"class.folly::EventBase::SmoothLoopTime", i8, [15 x i8], %"class.folly::Function", i64, i64, %"class.std::chrono::time_point", %"class.std::shared_ptr", i32, %"class.boost::intrusive::list.40", %"class.std::__cxx11::basic_string", %"class.folly::F14FastMap", %"struct.folly::Synchronized.50", %"class.folly::basic_once_flag", %"class.std::unique_ptr.69", %"class.std::unique_ptr.77", %"class.std::unique_ptr.85", [8 x i8] }
-%"class.folly::TimeoutManager" = type { ptr, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.folly::DrivableExecutor" = type { %"class.folly::Executor" }
-%"class.folly::Executor" = type { ptr }
-%"class.folly::IOExecutor" = type { %"class.folly::Executor" }
-%"class.folly::SequencedExecutor" = type { %"class.folly::Executor" }
-%"class.folly::ScheduledExecutor" = type { %"class.folly::Executor" }
-%"class.folly::GetThreadIdCollector" = type { ptr }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.std::atomic" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"struct.folly::Synchronized" = type <{ %"class.boost::intrusive::list.19", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.boost::intrusive::list.19" = type { %"class.boost::intrusive::list_impl.20" }
-%"class.boost::intrusive::list_impl.20" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder.23", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder.23" = type { i64 }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.24" }
-%"struct.std::atomic.24" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::atomic.25" = type { %"struct.std::__atomic_base.26" }
-%"struct.std::__atomic_base.26" = type { i8 }
-%"class.std::unique_ptr.27" = type { %"struct.std::__uniq_ptr_data.28" }
-%"struct.std::__uniq_ptr_data.28" = type { %"class.std::__uniq_ptr_impl.29" }
-%"class.std::__uniq_ptr_impl.29" = type { %"class.std::tuple.30" }
-%"class.std::tuple.30" = type { %"struct.std::_Tuple_impl.31" }
-%"struct.std::_Tuple_impl.31" = type { %"struct.std::_Head_base.34" }
-%"struct.std::_Head_base.34" = type { ptr }
-%"struct.std::atomic.35" = type { %"struct.std::__atomic_base.36" }
-%"struct.std::__atomic_base.36" = type { i64 }
-%"class.std::chrono::duration.37" = type { i64 }
-%"class.folly::EventBase::SmoothLoopTime" = type { double, double, %"class.std::chrono::duration.37", %"class.std::chrono::duration.37", i64 }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.39" }
-%"class.std::chrono::duration.39" = type { i64 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.boost::intrusive::list.40" = type { %"class.boost::intrusive::list_impl.41" }
-%"class.boost::intrusive::list_impl.41" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.44 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.44 = type { i64, [8 x i8] }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"struct.folly::Synchronized.50" = type <{ %"class.folly::F14FastSet", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.folly::F14FastSet" = type { %"class.folly::F14ValueSet" }
-%"class.folly::F14ValueSet" = type { %"class.folly::f14::detail::F14BasicSet" }
-%"class.folly::f14::detail::F14BasicSet" = type { %"class.folly::f14::detail::F14Table.53" }
-%"class.folly::f14::detail::F14Table.53" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.67" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.67" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.folly::basic_once_flag" = type { %"struct.std::atomic.25", %"class.folly::SharedMutexImpl" }
-%"class.std::unique_ptr.69" = type { %"struct.std::__uniq_ptr_data.70" }
-%"struct.std::__uniq_ptr_data.70" = type { %"class.std::__uniq_ptr_impl.71" }
-%"class.std::__uniq_ptr_impl.71" = type { %"class.std::tuple.72" }
-%"class.std::tuple.72" = type { %"struct.std::_Tuple_impl.73" }
-%"struct.std::_Tuple_impl.73" = type { %"struct.std::_Head_base.76" }
-%"struct.std::_Head_base.76" = type { ptr }
-%"class.std::unique_ptr.77" = type { %"struct.std::__uniq_ptr_data.78" }
-%"struct.std::__uniq_ptr_data.78" = type { %"class.std::__uniq_ptr_impl.79" }
-%"class.std::__uniq_ptr_impl.79" = type { %"class.std::tuple.80" }
-%"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
-%"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
-%"struct.std::_Head_base.84" = type { ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
 %"class.google::LogMessage" = type { ptr, ptr }
-%struct.event_base = type { ptr, ptr }
-%struct.epollop = type { ptr, i32, ptr, i32, i32 }
-%struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
-%"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot" = type { %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", i32, i64, i64 }
-%"class.folly::Range" = type { ptr, ptr }
-%struct.H = type { i32, i32, i32, i32 }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -149,7 +33,7 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 1
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %evb, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %evb, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -160,7 +44,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %cond.true, %entry
   %cond = phi ptr [ %call, %cond.true ], [ null, %entry ]
-  %ev_base = getelementptr inbounds %struct.event, ptr %this, i64 0, i32 3
+  %ev_base = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %cond, ptr %ev_base, align 8, !tbaa !21
   ret void
 }
@@ -170,7 +54,7 @@ declare noundef ptr @_ZNK5folly9EventBase15getLibeventBaseEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 1
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %evb, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %evb, null
   br i1 %tobool.not, label %cleanup, label %cond.end
@@ -200,20 +84,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %timeout) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 1
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %evb_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 38
+  %evb_.i = getelementptr inbounds i8, ptr %0, i64 568
   %1 = load ptr, ptr %evb_.i, align 8, !tbaa !22
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %cond.end
   %vtable = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %timeout)
   br label %cleanup
@@ -226,20 +110,20 @@ cleanup:                                          ; preds = %if.then, %cond.end,
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 1
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %evb_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 38
+  %evb_.i = getelementptr inbounds i8, ptr %0, i64 568
   %1 = load ptr, ptr %evb_.i, align 8, !tbaa !22
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %cond.end
   %vtable = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %this)
   br label %cleanup
@@ -252,20 +136,20 @@ cleanup:                                          ; preds = %if.then, %cond.end,
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5folly14EventBaseEvent15eb_event_activeEi(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %res) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 1
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %evb_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 38
+  %evb_.i = getelementptr inbounds i8, ptr %0, i64 568
   %1 = load ptr, ptr %evb_.i, align 8, !tbaa !22
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %cond.end
   %vtable = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %res)
   br label %cleanup
@@ -314,7 +198,7 @@ lpad:                                             ; preds = %init
   br label %eh.resume
 
 if.end:                                           ; preds = %init.end
-  %evb_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 1
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   %5 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %return, label %cond.end
@@ -331,18 +215,18 @@ lor.lhs.false:                                    ; preds = %cond.end
   br i1 %tobool11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %evbase = getelementptr inbounds %struct.event_base, ptr %call7, i64 0, i32 1
+  %evbase = getelementptr inbounds i8, ptr %call7, i64 8
   %6 = load ptr, ptr %evbase, align 8, !tbaa !30
-  %epfd14 = getelementptr inbounds %struct.epollop, ptr %6, i64 0, i32 4
+  %epfd14 = getelementptr inbounds i8, ptr %6, i64 28
   %7 = load i32, ptr %epfd14, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %epev) #10
   %8 = getelementptr inbounds i8, ptr %epev, i64 8
   store i32 0, ptr %8, align 4
-  %ev_fd.i = getelementptr inbounds %struct.event, ptr %this, i64 0, i32 2
+  %ev_fd.i = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load i32, ptr %ev_fd.i, align 8, !tbaa !34
-  %data = getelementptr inbounds %struct.epoll_event, ptr %epev, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %epev, i64 4
   store i32 %9, ptr %data, align 4, !tbaa !35
-  %ev_events.i = getelementptr inbounds %struct.event, ptr %this, i64 0, i32 5
+  %ev_events.i = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load i16, ptr %ev_events.i, align 8, !tbaa !36
   %11 = and i16 %10, 2
   %tobool17.not = icmp eq i16 %11, 0
@@ -439,11 +323,11 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 define noundef zeroext i1 @_ZN5folly29EventRecvmsgMultishotCallback21parseRecvmsgMultishotENS_5RangeIPKhEERK6msghdrRNS0_22ParsedRecvMsgMultishotE(ptr %total.coerce0, ptr %total.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %msghdr, ptr nocapture noundef nonnull align 8 dereferenceable(72) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp36 = alloca %"class.google::LogMessage", align 8
-  %msg_namelen = getelementptr inbounds %struct.msghdr, ptr %msghdr, i64 0, i32 1
+  %msg_namelen = getelementptr inbounds i8, ptr %msghdr, i64 8
   %0 = load i32, ptr %msg_namelen, align 8, !tbaa !38
   %conv = zext i32 %0 to i64
   %add = add nuw nsw i64 %conv, 16
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msghdr, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msghdr, i64 40
   %1 = load i64, ptr %msg_controllen, align 8, !tbaa !40
   %add1 = add i64 %add, %1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %total.coerce1 to i64
@@ -455,7 +339,7 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %total.coerce0, align 4, !tbaa !41
   %conv3 = zext i32 %2 to i64
-  %realNameLength = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 5
+  %realNameLength = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %conv3, ptr %realNameLength, align 8, !tbaa !43
   %cmp6.not = icmp ult i32 %0, %2
   %cmp.i78 = icmp ult i64 %sub.ptr.sub.i, 16
@@ -481,9 +365,9 @@ if.end17:                                         ; preds = %if.else, %if.then7
   %sub.i80 = add i64 %sub.ptr.sub.i, -16
   %.sroa.speculated.i81 = tail call i64 @llvm.umin.i64(i64 %sub.i80, i64 %conv.sink)
   %add.ptr.i.i82 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 %.sroa.speculated.i81
-  %name16 = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 1
+  %name16 = getelementptr inbounds i8, ptr %out, i64 16
   store ptr %add.ptr.i79, ptr %name16, align 8
-  %ref.tmp12.sroa.4.0.name16.sroa_idx = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 1, i32 1
+  %ref.tmp12.sroa.4.0.name16.sroa_idx = getelementptr inbounds i8, ptr %out, i64 24
   store ptr %add.ptr.i.i82, ptr %ref.tmp12.sroa.4.0.name16.sroa_idx, align 8
   %3 = load i32, ptr %msg_namelen, align 8, !tbaa !38
   %conv20 = zext i32 %3 to i64
@@ -496,30 +380,30 @@ if.then.i98:                                      ; preds = %if.end17
   unreachable
 
 _ZNK5folly5RangeIPKhE8subpieceEmm.exit111:        ; preds = %if.end17
-  %control = getelementptr inbounds %struct.H, ptr %total.coerce0, i64 0, i32 1
+  %control = getelementptr inbounds i8, ptr %total.coerce0, i64 4
   %4 = load i32, ptr %control, align 4, !tbaa !47
   %conv22 = zext i32 %4 to i64
   %add.ptr.i92 = getelementptr inbounds i8, ptr %total.coerce0, i64 %add21
   %sub.i93 = sub i64 %sub.ptr.sub.i, %add21
   %.sroa.speculated.i94 = tail call i64 @llvm.umin.i64(i64 %sub.i93, i64 %conv22)
   %add.ptr.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i92, i64 %.sroa.speculated.i94
-  %control24 = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 2
+  %control24 = getelementptr inbounds i8, ptr %out, i64 32
   store ptr %add.ptr.i92, ptr %control24, align 8, !tbaa.struct !48
-  %ref.tmp18.sroa.4.0.control24.sroa_idx = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 2, i32 1
+  %ref.tmp18.sroa.4.0.control24.sroa_idx = getelementptr inbounds i8, ptr %out, i64 40
   store ptr %add.ptr.i.i95, ptr %ref.tmp18.sroa.4.0.control24.sroa_idx, align 8, !tbaa.struct !49
   %add.ptr.i105 = getelementptr inbounds i8, ptr %total.coerce0, i64 %add1
   %add.ptr.i.i107 = getelementptr inbounds i8, ptr %total.coerce0, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i105, ptr %out, align 8, !tbaa.struct !48
   %ref.tmp25.sroa.4.0.payload.sroa_idx = getelementptr inbounds i8, ptr %out, i64 8
   store ptr %add.ptr.i.i107, ptr %ref.tmp25.sroa.4.0.payload.sroa_idx, align 8, !tbaa.struct !49
-  %payload27 = getelementptr inbounds %struct.H, ptr %total.coerce0, i64 0, i32 2
+  %payload27 = getelementptr inbounds i8, ptr %total.coerce0, i64 8
   %5 = load i32, ptr %payload27, align 4, !tbaa !50
   %conv28 = zext i32 %5 to i64
-  %realPayloadLength = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 4
+  %realPayloadLength = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %conv28, ptr %realPayloadLength, align 8, !tbaa !51
-  %flags = getelementptr inbounds %struct.H, ptr %total.coerce0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %total.coerce0, i64 12
   %6 = load i32, ptr %flags, align 4, !tbaa !52
-  %flags29 = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 3
+  %flags29 = getelementptr inbounds i8, ptr %out, i64 48
   store i32 %6, ptr %flags29, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i113 = ptrtoint ptr %add.ptr.i.i107 to i64
   %sub.ptr.rhs.cast.i114 = ptrtoint ptr %add.ptr.i105 to i64

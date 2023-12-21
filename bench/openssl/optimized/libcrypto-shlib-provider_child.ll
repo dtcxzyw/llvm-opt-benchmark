@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-provider_child.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.child_prov_globals = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_dispatch_st = type { i32, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/provider_child.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -20,7 +17,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define void @ossl_child_prov_ctx_free(ptr noundef %vgbl) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.child_prov_globals, ptr %vgbl, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %vgbl, i64 16
   %0 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #2
   tail call void @CRYPTO_free(ptr noundef %vgbl, ptr noundef nonnull @.str, i32 noundef 47) #2
@@ -44,14 +41,14 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   store ptr %handle, ptr %call, align 8
-  %c_prov_free = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 10
-  %c_prov_up_ref = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 9
-  %c_prov_get0_dispatch = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 8
-  %c_prov_get0_provider_ctx = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 7
-  %c_prov_name = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 6
-  %c_provider_deregister_child_cb = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 5
-  %c_provider_register_child_cb = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 4
-  %c_get_libctx = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 3
+  %c_prov_free = getelementptr inbounds i8, ptr %call, i64 80
+  %c_prov_up_ref = getelementptr inbounds i8, ptr %call, i64 72
+  %c_prov_get0_dispatch = getelementptr inbounds i8, ptr %call, i64 64
+  %c_prov_get0_provider_ctx = getelementptr inbounds i8, ptr %call, i64 56
+  %c_prov_name = getelementptr inbounds i8, ptr %call, i64 48
+  %c_provider_deregister_child_cb = getelementptr inbounds i8, ptr %call, i64 40
+  %c_provider_register_child_cb = getelementptr inbounds i8, ptr %call, i64 32
+  %c_get_libctx = getelementptr inbounds i8, ptr %call, i64 24
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end3
@@ -98,7 +95,7 @@ for.inc.sink.split:                               ; preds = %for.cond, %sw.bb20,
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -138,7 +135,7 @@ lor.lhs.false38:                                  ; preds = %lor.lhs.false35
 
 if.end42:                                         ; preds = %lor.lhs.false38
   %call43 = tail call ptr @CRYPTO_THREAD_lock_new() #2
-  %lock = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call43, ptr %lock, align 8
   %cmp45 = icmp eq ptr %call43, null
   br i1 %cmp45, label %return, label %if.end47
@@ -168,17 +165,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %lock, align 8
   %call1 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #2
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %c_prov_name = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 6
+  %c_prov_name = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load ptr, ptr %c_prov_name, align 8
   %call4 = tail call ptr %1(ptr noundef %prov) #2
-  %curr_prov = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 1
+  %curr_prov = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %prov, ptr %curr_prov, align 8
   %call5 = tail call ptr @ossl_provider_find(ptr noundef %cbdata, ptr noundef %call4, i32 noundef 1) #2
   %cmp6.not = icmp eq ptr %call5, null
@@ -241,7 +238,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %c_prov_name = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 6
+  %c_prov_name = getelementptr inbounds i8, ptr %call, i64 48
   %0 = load ptr, ptr %c_prov_name, align 8
   %call1 = tail call ptr %0(ptr noundef %prov) #2
   %call2 = tail call ptr @ossl_provider_find(ptr noundef %cbdata, ptr noundef %call1, i32 noundef 1) #2
@@ -282,7 +279,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %c_provider_deregister_child_cb = getelementptr inbounds %struct.child_prov_globals, ptr %call, i64 0, i32 5
+  %c_provider_deregister_child_cb = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %c_provider_deregister_child_cb, align 8
   %1 = load ptr, ptr %call, align 8
   tail call void %0(ptr noundef %1) #2
@@ -307,7 +304,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %c_prov_up_ref = getelementptr inbounds %struct.child_prov_globals, ptr %call1, i64 0, i32 9
+  %c_prov_up_ref = getelementptr inbounds i8, ptr %call1, i64 72
   %1 = load ptr, ptr %c_prov_up_ref, align 8
   %call6 = tail call i32 %1(ptr noundef %call2, i32 noundef %activate) #2
   br label %return
@@ -336,7 +333,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %c_prov_free = getelementptr inbounds %struct.child_prov_globals, ptr %call1, i64 0, i32 10
+  %c_prov_free = getelementptr inbounds i8, ptr %call1, i64 80
   %1 = load ptr, ptr %c_prov_free, align 8
   %call6 = tail call ptr @ossl_provider_get_parent(ptr noundef %prov) #2
   %call7 = tail call i32 %1(ptr noundef %call6, i32 noundef %deactivate) #2
@@ -378,7 +375,7 @@ sw.bb:                                            ; preds = %for.cond
 
 for.inc:                                          ; preds = %for.cond, %sw.bb
   %c_get_libctx.1 = phi ptr [ %in.addr.0.val, %sw.bb ], [ %c_get_libctx.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
@@ -392,13 +389,13 @@ if.end:                                           ; preds = %for.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %c_prov_get0_provider_ctx = getelementptr inbounds %struct.child_prov_globals, ptr %call4, i64 0, i32 7
+  %c_prov_get0_provider_ctx = getelementptr inbounds i8, ptr %call4, i64 56
   %2 = load ptr, ptr %c_prov_get0_provider_ctx, align 8
-  %curr_prov = getelementptr inbounds %struct.child_prov_globals, ptr %call4, i64 0, i32 1
+  %curr_prov = getelementptr inbounds i8, ptr %call4, i64 8
   %3 = load ptr, ptr %curr_prov, align 8
   %call8 = tail call ptr %2(ptr noundef %3) #2
   store ptr %call8, ptr %provctx, align 8
-  %c_prov_get0_dispatch = getelementptr inbounds %struct.child_prov_globals, ptr %call4, i64 0, i32 8
+  %c_prov_get0_dispatch = getelementptr inbounds i8, ptr %call4, i64 64
   %4 = load ptr, ptr %c_prov_get0_dispatch, align 8
   %5 = load ptr, ptr %curr_prov, align 8
   %call10 = tail call ptr %4(ptr noundef %5) #2

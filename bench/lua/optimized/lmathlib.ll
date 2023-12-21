@@ -78,9 +78,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   br i1 %exitcond.not.i.i.i, label %setrandfunc.exit, label %for.body.i.i.i, !llvm.loop !5
 
 setrandfunc.exit:                                 ; preds = %for.body.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %call.i, i64 3
-  %arrayidx2.i.i.i = getelementptr inbounds i64, ptr %call.i, i64 2
-  %arrayidx1.i.i.i = getelementptr inbounds i64, ptr %call.i, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %xor6.i.i.i.i, ptr %call.i, align 8
   store i64 %xor8.i.i.i.i, ptr %arrayidx1.i.i.i, align 8
   store i64 %xor10.i.i.i.i, ptr %arrayidx2.i.i.i, align 8
@@ -625,12 +625,12 @@ define internal i32 @math_random(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1001001) #6
   %0 = load i64, ptr %call, align 8
-  %arrayidx1.i = getelementptr inbounds i64, ptr %call, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
-  %arrayidx2.i = getelementptr inbounds i64, ptr %call, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load i64, ptr %arrayidx2.i, align 8
   %xor.i = xor i64 %2, %0
-  %arrayidx3.i = getelementptr inbounds i64, ptr %call, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i64, ptr %arrayidx3.i, align 8
   %xor4.i = xor i64 %3, %1
   %mul.i = mul i64 %1, 5
@@ -822,9 +822,9 @@ if.end:                                           ; preds = %for.body.i, %for.bo
   %or.i16.i.i.lcssa.sink = phi i64 [ %or.i16.i.i.i, %for.body.i.i ], [ %or.i16.i.i, %for.body.i ]
   %call2.sink = phi i64 [ %call.i, %for.body.i.i ], [ %call2, %for.body.i ]
   %call3.sink = phi i64 [ %0, %for.body.i.i ], [ %call3, %for.body.i ]
-  %arrayidx3.i = getelementptr inbounds i64, ptr %call, i64 3
-  %arrayidx2.i = getelementptr inbounds i64, ptr %call, i64 2
-  %arrayidx1.i = getelementptr inbounds i64, ptr %call, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %call, i64 24
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 16
+  %arrayidx1.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %xor6.i.i.lcssa.sink, ptr %call, align 8
   store i64 %xor8.i.i.lcssa.sink, ptr %arrayidx1.i, align 8
   store i64 %xor10.i.i.lcssa.sink, ptr %arrayidx2.i, align 8

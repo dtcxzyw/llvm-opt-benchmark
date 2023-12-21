@@ -7,13 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.3, i32, ptr, i32, ptr }
 %union.anon.3 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.IDEBus = type { %struct.BusState, ptr, ptr, [2 x %struct.IDEState], ptr, i32, i32, ptr, i8, i8, ptr, i32, i8, i64, i32, %struct.PortioList, %struct.PortioList, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
 %struct.IDEState = type { ptr, i8, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, [512 x i8], i32, [21 x i8], [41 x i8], i64, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, [9 x i8], %struct.unreported_events, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, %struct.BlockAcctCookie, ptr, %struct.QEMUIOVector, %struct.anon.1, i64, i32, %struct.QEMUSGList, i32, ptr, ptr, ptr, ptr, i32, i32, i32, i8, ptr, i32, i8, i32, ptr, i32, i32, i8, i8, i32, i8, ptr, i32 }
 %struct.unreported_events = type { i8, i8 }
 %struct.BlockAcctCookie = type { i64, i64, i32 }
@@ -23,20 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 %struct.anon.1 = type { ptr }
 %struct.QEMUSGList = type { ptr, i32, i32, i64, ptr, ptr }
-%struct.PortioList = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i8 }
-%struct.DriveInfo = type { i32, i32, i32, i32, i8, i32, ptr, %union.anon.2 }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.IDEDeviceClass = type { %struct.DeviceClass, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.IDEDevice = type { %struct.DeviceState, i32, %struct.BlockConf, i32, ptr, ptr, ptr, i64, i16 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"IDE\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"ide-cd\00", align 1
@@ -125,9 +104,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @ide_bus_init(ptr noundef %idebus, i64 noundef %idebus_size, ptr noundef %dev, i32 noundef %bus_id, i32 noundef %max_units) local_unnamed_addr #0 {
 entry:
   tail call void @qbus_init(ptr noundef %idebus, i64 noundef %idebus_size, ptr noundef nonnull @.str, ptr noundef %dev, ptr noundef null) #6
-  %bus_id1 = getelementptr inbounds %struct.IDEBus, ptr %idebus, i64 0, i32 5
+  %bus_id1 = getelementptr inbounds i8, ptr %idebus, i64 2112
   store i32 %bus_id, ptr %bus_id1, align 8
-  %max_units2 = getelementptr inbounds %struct.IDEBus, ptr %idebus, i64 0, i32 6
+  %max_units2 = getelementptr inbounds i8, ptr %idebus, i64 2116
   store i32 %max_units, ptr %max_units2, align 4
   ret void
 }
@@ -137,7 +116,7 @@ declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @ide_bus_create_drive(ptr noundef %bus, i32 noundef %unit, ptr noundef %drive) local_unnamed_addr #0 {
 entry:
-  %media_cd = getelementptr inbounds %struct.DriveInfo, ptr %drive, i64 0, i32 5
+  %media_cd = getelementptr inbounds i8, ptr %drive, i64 20
   %0 = load i32, ptr %media_cd, align 4
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.2, ptr @.str.1
@@ -162,28 +141,30 @@ declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @ide_get_geometry(ptr nocapture noundef readonly %bus, i32 noundef %unit, ptr nocapture noundef writeonly %cyls, ptr nocapture noundef writeonly %heads, ptr nocapture noundef writeonly %secs) local_unnamed_addr #2 {
 entry:
+  %ifs = getelementptr inbounds i8, ptr %bus, i64 136
   %idxprom = sext i32 %unit to i64
-  %drive_kind = getelementptr %struct.IDEBus, ptr %bus, i64 0, i32 3, i64 %idxprom, i32 2
+  %arrayidx = getelementptr [2 x %struct.IDEState], ptr %ifs, i64 0, i64 %idxprom
+  %drive_kind = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %0 = load i32, ptr %drive_kind, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %blk = getelementptr %struct.IDEBus, ptr %bus, i64 0, i32 3, i64 %idxprom, i32 33
+  %blk = getelementptr inbounds i8, ptr %arrayidx, i64 672
   %1 = load ptr, ptr %blk, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cylinders = getelementptr %struct.IDEBus, ptr %bus, i64 0, i32 3, i64 %idxprom, i32 5
+  %cylinders = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i32, ptr %cylinders, align 8
   %conv = trunc i32 %2 to i16
   store i16 %conv, ptr %cyls, align 2
-  %heads2 = getelementptr %struct.IDEBus, ptr %bus, i64 0, i32 3, i64 %idxprom, i32 6
+  %heads2 = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %3 = load i32, ptr %heads2, align 4
   %conv3 = trunc i32 %3 to i8
   store i8 %conv3, ptr %heads, align 1
-  %sectors = getelementptr %struct.IDEBus, ptr %bus, i64 0, i32 3, i64 %idxprom, i32 7
+  %sectors = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %4 = load i32, ptr %sectors, align 8
   %conv4 = trunc i32 %4 to i8
   store i8 %conv4, ptr %secs, align 1
@@ -197,8 +178,9 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @ide_get_bios_chs_trans(ptr nocapture noundef readonly %bus, i32 noundef %unit) local_unnamed_addr #3 {
 entry:
+  %ifs = getelementptr inbounds i8, ptr %bus, i64 136
   %idxprom = sext i32 %unit to i64
-  %chs_trans = getelementptr %struct.IDEBus, ptr %bus, i64 0, i32 3, i64 %idxprom, i32 8
+  %chs_trans = getelementptr [2 x %struct.IDEState], ptr %ifs, i64 0, i64 %idxprom, i32 8
   %0 = load i32, ptr %chs_trans, align 4
   ret i32 %0
 }
@@ -229,9 +211,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @ide_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #6
-  %get_fw_dev_path = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 3
+  %get_fw_dev_path = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @idebus_get_fw_dev_path, ptr %get_fw_dev_path, align 8
-  %unrealize = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 7
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @idebus_unrealize, ptr %unrealize, align 8
   ret void
 }
@@ -241,9 +223,9 @@ define internal noalias ptr @idebus_get_fw_dev_path(ptr noundef %dev) #0 {
 entry:
   %path = alloca [30 x i8], align 16
   %call = tail call ptr @qdev_fw_name(ptr noundef %dev) #6
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %bus_id = getelementptr inbounds %struct.IDEBus, ptr %0, i64 0, i32 5
+  %bus_id = getelementptr inbounds i8, ptr %0, i64 2112
   %1 = load i32, ptr %bus_id, align 8
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path, i64 noundef 30, ptr noundef nonnull @.str.7, ptr noundef %call, i32 noundef %1) #6
   %call3 = call noalias ptr @g_strdup(ptr noundef nonnull %path) #6
@@ -254,7 +236,7 @@ entry:
 define internal void @idebus_unrealize(ptr noundef %bus) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 25, ptr noundef nonnull @__func__.IDE_BUS) #6
-  %vmstate = getelementptr inbounds %struct.IDEBus, ptr %call.i, i64 0, i32 17
+  %vmstate = getelementptr inbounds i8, ptr %call.i, i64 2296
   %0 = load ptr, ptr %vmstate, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -285,11 +267,11 @@ define internal void @ide_hd_class_init(ptr noundef %klass, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_CLASS) #6
-  %realize = getelementptr inbounds %struct.IDEDeviceClass, ptr %call.i4, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i4, i64 176
   store ptr @ide_hd_realize, ptr %realize, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.4, ptr %fw_name, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.10, ptr %desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ide_hd_properties) #6
   ret void
@@ -307,14 +289,14 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ide_dev_initfn(ptr noundef %dev, i32 noundef %kind, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %ifs = getelementptr inbounds %struct.IDEBus, ptr %0, i64 0, i32 3
-  %unit = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 1
+  %ifs = getelementptr inbounds i8, ptr %0, i64 136
+  %unit = getelementptr inbounds i8, ptr %dev, i64 160
   %1 = load i32, ptr %unit, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr2 = getelementptr %struct.IDEState, ptr %ifs, i64 %idx.ext
-  %conf = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2
+  %conf = getelementptr inbounds i8, ptr %dev, i64 168
   %2 = load ptr, ptr %conf, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then, label %if.end15
@@ -340,7 +322,7 @@ if.else13:                                        ; preds = %if.else
   unreachable
 
 if.end15:                                         ; preds = %if.else, %entry
-  %discard_granularity = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 7
+  %discard_granularity = getelementptr inbounds i8, ptr %dev, i64 200
   %3 = load i32, ptr %discard_granularity, align 8
   switch i32 %3, label %if.then28 [
     i32 -1, label %if.then18
@@ -361,7 +343,7 @@ if.end30:                                         ; preds = %if.end15, %if.end15
   br i1 %call32, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.end30
-  %logical_block_size = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 3
+  %logical_block_size = getelementptr inbounds i8, ptr %dev, i64 184
   %4 = load i32, ptr %logical_block_size, align 8
   %cmp36.not = icmp eq i32 %4, 512
   br i1 %cmp36.not, label %if.end38, label %if.then37
@@ -375,7 +357,7 @@ if.end38:                                         ; preds = %if.end34
   br i1 %cmp39, label %if.then40, label %if.end45
 
 if.then40:                                        ; preds = %if.end38
-  %chs_trans = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 3
+  %chs_trans = getelementptr inbounds i8, ptr %dev, i64 256
   %call42 = tail call zeroext i1 @blkconf_geometry(ptr noundef nonnull %conf, ptr noundef nonnull %chs_trans, i32 noundef 65535, i32 noundef 16, i32 noundef 255, ptr noundef %errp) #6
   br i1 %call42, label %if.end45, label %return
 
@@ -386,21 +368,21 @@ if.end45:                                         ; preds = %if.then40, %if.end3
 
 if.end51:                                         ; preds = %if.end45
   %5 = load ptr, ptr %conf, align 8
-  %version = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 4
+  %version = getelementptr inbounds i8, ptr %dev, i64 264
   %6 = load ptr, ptr %version, align 8
-  %serial = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 5
+  %serial = getelementptr inbounds i8, ptr %dev, i64 272
   %7 = load ptr, ptr %serial, align 8
-  %model = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 6
+  %model = getelementptr inbounds i8, ptr %dev, i64 280
   %8 = load ptr, ptr %model, align 8
-  %wwn = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 7
+  %wwn = getelementptr inbounds i8, ptr %dev, i64 288
   %9 = load i64, ptr %wwn, align 8
-  %cyls = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 8
+  %cyls = getelementptr inbounds i8, ptr %dev, i64 204
   %10 = load i32, ptr %cyls, align 4
-  %heads = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 9
+  %heads = getelementptr inbounds i8, ptr %dev, i64 208
   %11 = load i32, ptr %heads, align 8
-  %secs = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 10
+  %secs = getelementptr inbounds i8, ptr %dev, i64 212
   %12 = load i32, ptr %secs, align 4
-  %chs_trans57 = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 3
+  %chs_trans57 = getelementptr inbounds i8, ptr %dev, i64 256
   %13 = load i32, ptr %chs_trans57, align 8
   %call58 = tail call i32 @ide_init_drive(ptr noundef %add.ptr2, ptr noundef %5, i32 noundef %kind, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %errp) #6
   %cmp59 = icmp slt i32 %call58, 0
@@ -412,8 +394,8 @@ if.end61:                                         ; preds = %if.end51
   br i1 %tobool63.not, label %if.then64, label %if.end69
 
 if.then64:                                        ; preds = %if.end61
-  %version65 = getelementptr %struct.IDEState, ptr %ifs, i64 %idx.ext, i32 34
-  %call67 = tail call noalias ptr @g_strdup(ptr noundef %version65) #6
+  %version65 = getelementptr inbounds i8, ptr %add.ptr2, i64 680
+  %call67 = tail call noalias ptr @g_strdup(ptr noundef nonnull %version65) #6
   store ptr %call67, ptr %version, align 8
   br label %if.end69
 
@@ -423,13 +405,13 @@ if.end69:                                         ; preds = %if.then64, %if.end6
   br i1 %tobool71.not, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %if.end69
-  %drive_serial_str = getelementptr %struct.IDEState, ptr %ifs, i64 %idx.ext, i32 14
-  %call74 = tail call noalias ptr @g_strdup(ptr noundef %drive_serial_str) #6
+  %drive_serial_str = getelementptr inbounds i8, ptr %add.ptr2, i64 572
+  %call74 = tail call noalias ptr @g_strdup(ptr noundef nonnull %drive_serial_str) #6
   store ptr %call74, ptr %serial, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then72, %if.end69
-  %bootindex = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 6
+  %bootindex = getelementptr inbounds i8, ptr %dev, i64 196
   %16 = load i32, ptr %bootindex, align 4
   %17 = load i32, ptr %unit, align 8
   %tobool80.not = icmp eq i32 %17, 0
@@ -438,11 +420,11 @@ if.end76:                                         ; preds = %if.then72, %if.end6
   %18 = load i32, ptr %unit, align 8
   %tobool83.not = icmp eq i32 %18, 0
   %cond84 = select i1 %tobool83.not, ptr @.str.18, ptr @.str.17
-  %lcyls = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 11
+  %lcyls = getelementptr inbounds i8, ptr %dev, i64 216
   %19 = load i32, ptr %lcyls, align 8
-  %lheads = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 12
+  %lheads = getelementptr inbounds i8, ptr %dev, i64 220
   %20 = load i32, ptr %lheads, align 4
-  %lsecs = getelementptr inbounds %struct.IDEDevice, ptr %dev, i64 0, i32 2, i32 13
+  %lsecs = getelementptr inbounds i8, ptr %dev, i64 224
   %21 = load i32, ptr %lsecs, align 8
   tail call void @add_boot_device_lchs(ptr noundef nonnull %dev, ptr noundef nonnull %cond84, i32 noundef %19, i32 noundef %20, i32 noundef %21) #6
   br label %return
@@ -479,11 +461,11 @@ define internal void @ide_cd_class_init(ptr noundef %klass, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_CLASS) #6
-  %realize = getelementptr inbounds %struct.IDEDeviceClass, ptr %call.i4, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i4, i64 176
   store ptr @ide_cd_realize, ptr %realize, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.4, ptr %fw_name, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.43, ptr %desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ide_cd_properties) #6
   ret void
@@ -501,11 +483,11 @@ define internal void @ide_cf_class_init(ptr noundef %klass, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_CLASS) #6
-  %realize = getelementptr inbounds %struct.IDEDeviceClass, ptr %call.i4, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i4, i64 176
   store ptr @ide_cf_realize, ptr %realize, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.4, ptr %fw_name, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.45, ptr %desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ide_cf_properties) #6
   ret void
@@ -530,13 +512,13 @@ entry:
 define internal void @ide_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @ide_qdev_realize, ptr %realize, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str, ptr %bus_type, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ide_props) #6
   ret void
@@ -548,7 +530,7 @@ declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal void @ide_dev_get_bootindex(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE) #6
-  %bootindex = getelementptr inbounds %struct.IDEDevice, ptr %call.i, i64 0, i32 2, i32 6
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 196
   %call1 = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %bootindex, ptr noundef %errp) #6
   ret void
 }
@@ -572,9 +554,9 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %2 = load i32, ptr %boot_index, align 4
-  %bootindex = getelementptr inbounds %struct.IDEDevice, ptr %call.i, i64 0, i32 2, i32 6
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 196
   store i32 %2, ptr %bootindex, align 4
-  %unit = getelementptr inbounds %struct.IDEDevice, ptr %call.i, i64 0, i32 1
+  %unit = getelementptr inbounds i8, ptr %call.i, i64 160
   %3 = load i32, ptr %unit, align 8
   %cmp.not = icmp eq i32 %3, -1
   br i1 %cmp.not, label %out, label %if.then4
@@ -609,15 +591,15 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE) #6
   %call.i24 = tail call ptr @object_get_class(ptr noundef %call.i) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i24, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_GET_CLASS) #6
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %qdev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %qdev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %unit = getelementptr inbounds %struct.IDEDevice, ptr %call.i, i64 0, i32 1
+  %unit = getelementptr inbounds i8, ptr %call.i, i64 160
   %1 = load i32, ptr %unit, align 8
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %master = getelementptr inbounds %struct.IDEBus, ptr %0, i64 0, i32 1
+  %master = getelementptr inbounds i8, ptr %0, i64 120
   %2 = load ptr, ptr %master, align 8
   %tobool.not = icmp ne ptr %2, null
   %cond = zext i1 %tobool.not to i32
@@ -626,7 +608,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %3 = phi i32 [ %cond, %if.then ], [ %1, %entry ]
-  %max_units = getelementptr inbounds %struct.IDEBus, ptr %0, i64 0, i32 6
+  %max_units = getelementptr inbounds i8, ptr %0, i64 2116
   %4 = load i32, ptr %max_units, align 4
   %cmp5.not = icmp ult i32 %3, %4
   br i1 %cmp5.not, label %if.end9, label %if.then6
@@ -642,7 +624,7 @@ if.end9:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end9
-  %master11 = getelementptr inbounds %struct.IDEBus, ptr %0, i64 0, i32 1
+  %master11 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %master11, align 8
   %tobool12.not = icmp eq ptr %5, null
   br i1 %tobool12.not, label %sw.epilog, label %if.then13
@@ -652,7 +634,7 @@ if.then13:                                        ; preds = %sw.bb
   br label %return
 
 sw.bb17:                                          ; preds = %if.end9
-  %slave = getelementptr inbounds %struct.IDEBus, ptr %0, i64 0, i32 2
+  %slave = getelementptr inbounds i8, ptr %0, i64 128
   %6 = load ptr, ptr %slave, align 8
   %tobool18.not = icmp eq ptr %6, null
   br i1 %tobool18.not, label %sw.epilog, label %if.then19
@@ -668,7 +650,7 @@ sw.default:                                       ; preds = %if.end9
 sw.epilog:                                        ; preds = %sw.bb17, %sw.bb
   %slave.sink = phi ptr [ %master11, %sw.bb ], [ %slave, %sw.bb17 ]
   store ptr %call.i, ptr %slave.sink, align 8
-  %realize = getelementptr inbounds %struct.IDEDeviceClass, ptr %call1.i, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
   %7 = load ptr, ptr %realize, align 8
   tail call void %7(ptr noundef nonnull %call.i, ptr noundef %errp) #6
   br label %return

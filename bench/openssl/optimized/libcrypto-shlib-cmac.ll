@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cmac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CMAC_CTX_st = type { ptr, [32 x i8], [32 x i8], [32 x i8], [32 x i8], i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/cmac/cmac.c\00", align 1
 @CMAC_Init.zero_iv = internal constant [32 x i8] zeroinitializer, align 16
 
@@ -26,7 +24,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %call, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %call, i64 136
   store i32 -1, ptr %nlast_block, align 8
   br label %return
 
@@ -46,15 +44,15 @@ define void @CMAC_CTX_cleanup(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %0) #6
-  %tbl = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl = getelementptr inbounds i8, ptr %ctx, i64 72
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %tbl, i64 noundef 32) #6
-  %k1 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 1
+  %k1 = getelementptr inbounds i8, ptr %ctx, i64 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k1, i64 noundef 32) #6
-  %k2 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 2
+  %k2 = getelementptr inbounds i8, ptr %ctx, i64 40
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k2, i64 noundef 32) #6
-  %last_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4
+  %last_block = getelementptr inbounds i8, ptr %ctx, i64 104
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %last_block, i64 noundef 32) #6
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
   store i32 -1, ptr %nlast_block, align 8
   ret void
 }
@@ -79,15 +77,15 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
   %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %0) #6
-  %tbl.i = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl.i = getelementptr inbounds i8, ptr %ctx, i64 72
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %tbl.i, i64 noundef 32) #6
-  %k1.i = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 1
+  %k1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k1.i, i64 noundef 32) #6
-  %k2.i = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 2
+  %k2.i = getelementptr inbounds i8, ptr %ctx, i64 40
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k2.i, i64 noundef 32) #6
-  %last_block.i = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4
+  %last_block.i = getelementptr inbounds i8, ptr %ctx, i64 104
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %last_block.i, i64 noundef 32) #6
-  %nlast_block.i = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block.i = getelementptr inbounds i8, ptr %ctx, i64 136
   store i32 -1, ptr %nlast_block.i, align 8
   %1 = load ptr, ptr %ctx, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %1) #6
@@ -103,7 +101,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @CMAC_CTX_copy(ptr nocapture noundef %out, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
 entry:
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %in, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %in, i64 136
   %0 = load i32, ptr %nlast_block, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -122,21 +120,21 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end3
-  %k1 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %out, i64 0, i32 1
-  %k19 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %in, i64 0, i32 1
+  %k1 = getelementptr inbounds i8, ptr %out, i64 8
+  %k19 = getelementptr inbounds i8, ptr %in, i64 8
   %conv = zext nneg i32 %call to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %k1, ptr nonnull align 8 %k19, i64 %conv, i1 false)
-  %k2 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %out, i64 0, i32 2
-  %k212 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %in, i64 0, i32 2
+  %k2 = getelementptr inbounds i8, ptr %out, i64 40
+  %k212 = getelementptr inbounds i8, ptr %in, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %k2, ptr nonnull align 8 %k212, i64 %conv, i1 false)
-  %tbl = getelementptr inbounds %struct.CMAC_CTX_st, ptr %out, i64 0, i32 3
-  %tbl16 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %in, i64 0, i32 3
+  %tbl = getelementptr inbounds i8, ptr %out, i64 72
+  %tbl16 = getelementptr inbounds i8, ptr %in, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %tbl, ptr nonnull align 8 %tbl16, i64 %conv, i1 false)
-  %last_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %out, i64 0, i32 4
-  %last_block20 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %in, i64 0, i32 4
+  %last_block = getelementptr inbounds i8, ptr %out, i64 104
+  %last_block20 = getelementptr inbounds i8, ptr %in, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %last_block, ptr nonnull align 8 %last_block20, i64 %conv, i1 false)
   %4 = load i32, ptr %nlast_block, align 8
-  %nlast_block24 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %out, i64 0, i32 5
+  %nlast_block24 = getelementptr inbounds i8, ptr %out, i64 136
   store i32 %4, ptr %nlast_block24, align 8
   br label %return
 
@@ -165,7 +163,7 @@ entry:
   br i1 %or.cond2.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
   %2 = load i32, ptr %nlast_block, align 8
   %cmp5 = icmp eq i32 %2, -1
   br i1 %cmp5, label %return, label %if.end
@@ -177,7 +175,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %tbl = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl = getelementptr inbounds i8, ptr %ctx, i64 72
   %4 = load ptr, ptr %ctx, align 8
   %call11 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %4) #6
   %conv = sext i32 %call11 to i64
@@ -188,7 +186,7 @@ if.end13:                                         ; preds = %entry
   br i1 %tobool1, label %if.then16, label %if.end23
 
 if.then16:                                        ; preds = %if.end13
-  %nlast_block17 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block17 = getelementptr inbounds i8, ptr %ctx, i64 136
   store i32 -1, ptr %nlast_block17, align 8
   %5 = load ptr, ptr %ctx, align 8
   %call19 = tail call i32 @EVP_EncryptInit_ex(ptr noundef %5, ptr noundef nonnull %cipher, ptr noundef %impl, ptr noundef null, ptr noundef null) #6
@@ -201,7 +199,7 @@ if.end23:                                         ; preds = %if.end13
   br i1 %tobool, label %if.then26, label %return
 
 if.then26:                                        ; preds = %if.then16, %if.end23
-  %nlast_block27 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block27 = getelementptr inbounds i8, ptr %ctx, i64 136
   store i32 -1, ptr %nlast_block27, align 8
   %6 = load ptr, ptr %ctx, align 8
   %call29 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %6) #6
@@ -229,13 +227,13 @@ if.end45:                                         ; preds = %if.end40
 
 if.end51:                                         ; preds = %if.end45
   %10 = load ptr, ptr %ctx, align 8
-  %tbl53 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl53 = getelementptr inbounds i8, ptr %ctx, i64 72
   %call55 = tail call i32 @EVP_Cipher(ptr noundef %10, ptr noundef nonnull %tbl53, ptr noundef nonnull @CMAC_Init.zero_iv, i32 noundef %call47) #6
   %cmp56 = icmp slt i32 %call55, 1
   br i1 %cmp56, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end51
-  %k1 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 1
+  %k1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %11 = load i8, ptr %tbl53, align 1
   %sub.i = add nsw i32 %call47, -1
   %cmp10.i = icmp ugt i32 %call47, 1
@@ -268,7 +266,7 @@ make_kn.exit:                                     ; preds = %for.body.i, %if.end
   %xor.i = xor i8 %shl11.i, %and.i
   %arrayidx18.i = getelementptr inbounds i8, ptr %k1, i64 %i.0.lcssa.i
   store i8 %xor.i, ptr %arrayidx18.i, align 1
-  %k2 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 2
+  %k2 = getelementptr inbounds i8, ptr %ctx, i64 40
   %13 = load i8, ptr %k1, align 1
   br i1 %cmp10.i, label %for.body.preheader.i45, label %make_kn.exit56
 
@@ -333,7 +331,7 @@ declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loca
 define i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %dlen) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2048 x i8], align 16
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load i32, ptr %nlast_block, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -357,7 +355,7 @@ if.then9:                                         ; preds = %if.end6
   %sub = sub nsw i32 %call, %2
   %conv = sext i32 %sub to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %conv, i64 %dlen)
-  %last_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4
+  %last_block = getelementptr inbounds i8, ptr %ctx, i64 104
   %idx.ext = zext nneg i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %last_block, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %spec.select, i1 false)
@@ -372,7 +370,7 @@ if.then9:                                         ; preds = %if.end6
 if.end23:                                         ; preds = %if.then9
   %add.ptr24 = getelementptr inbounds i8, ptr %in, i64 %spec.select
   %5 = load ptr, ptr %ctx, align 8
-  %tbl = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl = getelementptr inbounds i8, ptr %ctx, i64 72
   %call29 = tail call i32 @EVP_Cipher(ptr noundef %5, ptr noundef nonnull %tbl, ptr noundef nonnull %last_block, i32 noundef %call) #6
   %cmp30 = icmp slt i32 %call29, 1
   br i1 %cmp30, label %return, label %if.end34
@@ -402,7 +400,7 @@ while.cond.preheader:                             ; preds = %if.end34
   br i1 %cmp4378, label %while.body.lr.ph, label %if.end104
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %tbl46 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl46 = getelementptr inbounds i8, ptr %ctx, i64 72
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
@@ -453,7 +451,7 @@ if.then80:                                        ; preds = %while.end77
 if.end90:                                         ; preds = %if.then80
   %sub93 = sub i64 %dlen.addr.2.lcssa, %mul84
   %add.ptr96 = getelementptr inbounds i8, ptr %data.2.lcssa, i64 %mul84
-  %tbl97 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl97 = getelementptr inbounds i8, ptr %ctx, i64 72
   %sub99 = add nsw i64 %cipher_blocks.0.lcssa, -1
   %mul101 = mul i64 %sub99, %conv37
   %arrayidx = getelementptr inbounds [2048 x i8], ptr %buf, i64 0, i64 %mul101
@@ -463,7 +461,7 @@ if.end90:                                         ; preds = %if.then80
 if.end104:                                        ; preds = %if.end52, %while.cond.preheader, %while.end77, %if.end90
   %data.3 = phi ptr [ %add.ptr96, %if.end90 ], [ %data.2.lcssa, %while.end77 ], [ %data.0, %while.cond.preheader ], [ %add.ptr56, %if.end52 ]
   %dlen.addr.3 = phi i64 [ %sub93, %if.end90 ], [ %dlen.addr.2.lcssa, %while.end77 ], [ %dlen.addr.0, %while.cond.preheader ], [ %sub54, %if.end52 ]
-  %last_block105 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4
+  %last_block105 = getelementptr inbounds i8, ptr %ctx, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %last_block105, ptr align 1 %data.3, i64 %dlen.addr.3, i1 false)
   %conv107 = trunc i64 %dlen.addr.3 to i32
   store i32 %conv107, ptr %nlast_block, align 8
@@ -477,7 +475,7 @@ return:                                           ; preds = %while.body60, %whil
 ; Function Attrs: nounwind uwtable
 define i32 @CMAC_Final(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef writeonly %poutlen) local_unnamed_addr #0 {
 entry:
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load i32, ptr %nlast_block, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -508,17 +506,19 @@ if.end8:                                          ; preds = %if.end6
 
 for.cond.preheader:                               ; preds = %if.end8
   %cmp1341.not = icmp eq i32 %call, 0
-  br i1 %cmp1341.not, label %if.end52, label %for.body.preheader
+  br i1 %cmp1341.not, label %if.end52, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %last_block = getelementptr inbounds i8, ptr %ctx, i64 104
+  %k1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %wide.trip.count49 = zext nneg i32 %call to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv45 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next46, %for.body ]
-  %arrayidx = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4, i64 %indvars.iv45
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv45 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next46, %for.body ]
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %last_block, i64 0, i64 %indvars.iv45
   %3 = load i8, ptr %arrayidx, align 1
-  %arrayidx17 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 1, i64 %indvars.iv45
+  %arrayidx17 = getelementptr inbounds [32 x i8], ptr %k1, i64 0, i64 %indvars.iv45
   %4 = load i8, ptr %arrayidx17, align 1
   %xor37 = xor i8 %4, %3
   %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv45
@@ -528,17 +528,16 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond50.not, label %if.end52, label %for.body, !llvm.loop !8
 
 if.else:                                          ; preds = %if.end8
+  %last_block22 = getelementptr inbounds i8, ptr %ctx, i64 104
   %idxprom23 = sext i32 %2 to i64
-  %arrayidx24 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds [32 x i8], ptr %last_block22, i64 0, i64 %idxprom23
   store i8 -128, ptr %arrayidx24, align 1
   %sub = sub nsw i32 %call, %2
   %cmp25 = icmp sgt i32 %sub, 1
   br i1 %cmp25, label %if.then27, label %if.end33
 
 if.then27:                                        ; preds = %if.else
-  %last_block22 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4
-  %add.ptr = getelementptr inbounds i8, ptr %last_block22, i64 %idxprom23
-  %add.ptr29 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr29 = getelementptr inbounds i8, ptr %arrayidx24, i64 1
   %sub31 = add nsw i32 %sub, -1
   %conv32 = zext nneg i32 %sub31 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr29, i8 0, i64 %conv32, i1 false)
@@ -546,17 +545,18 @@ if.then27:                                        ; preds = %if.else
 
 if.end33:                                         ; preds = %if.then27, %if.else
   %cmp3539.not = icmp eq i32 %call, 0
-  br i1 %cmp3539.not, label %if.end52, label %for.body37.preheader
+  br i1 %cmp3539.not, label %if.end52, label %for.body37.lr.ph
 
-for.body37.preheader:                             ; preds = %if.end33
+for.body37.lr.ph:                                 ; preds = %if.end33
+  %k2 = getelementptr inbounds i8, ptr %ctx, i64 40
   %wide.trip.count = zext nneg i32 %call to i64
   br label %for.body37
 
-for.body37:                                       ; preds = %for.body37.preheader, %for.body37
-  %indvars.iv = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next, %for.body37 ]
-  %arrayidx40 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 4, i64 %indvars.iv
+for.body37:                                       ; preds = %for.body37.lr.ph, %for.body37
+  %indvars.iv = phi i64 [ 0, %for.body37.lr.ph ], [ %indvars.iv.next, %for.body37 ]
+  %arrayidx40 = getelementptr inbounds [32 x i8], ptr %last_block22, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx40, align 1
-  %arrayidx43 = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx43 = getelementptr inbounds [32 x i8], ptr %k2, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx43, align 1
   %xor4536 = xor i8 %6, %5
   %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv
@@ -584,14 +584,14 @@ return:                                           ; preds = %if.end52, %if.end6,
 ; Function Attrs: nounwind uwtable
 define i32 @CMAC_resume(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %nlast_block = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 5
+  %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load i32, ptr %nlast_block, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
-  %tbl = getelementptr inbounds %struct.CMAC_CTX_st, ptr %ctx, i64 0, i32 3
+  %tbl = getelementptr inbounds i8, ptr %ctx, i64 72
   %call = tail call i32 @EVP_EncryptInit_ex(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %tbl) #6
   br label %return
 

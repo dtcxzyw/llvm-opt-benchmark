@@ -170,11 +170,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %argc = getelementptr inbounds %struct.SemihostingConfig, ptr %opaque, i64 0, i32 4
+  %argc = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load i32, ptr %argc, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %argc, align 8
-  %argv = getelementptr inbounds %struct.SemihostingConfig, ptr %opaque, i64 0, i32 3
+  %argv = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %argv, align 8
   %add = add i32 %0, 2
   %conv = sext i32 %add to i64

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ClientData = type { ptr, i64, i64, i64, i32, i32, i32 }
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
-%union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.FLAC__StreamMetadata_SeekTable = type { i32, ptr }
 %struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
 
 @.str = private unnamed_addr constant [34 x i8] c"out of memory allocating iterator\00", align 1
@@ -50,9 +46,9 @@ do.body:                                          ; preds = %land.rhs, %if.end
   ]
 
 if.then3:                                         ; preds = %do.body
-  %sample_rate4 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate4 = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load i32, ptr %sample_rate4, align 8
-  %total_samples6 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples6 = getelementptr inbounds i8, ptr %call1, i64 48
   %2 = load i64, ptr %total_samples6, align 8
   br label %land.rhs
 
@@ -121,13 +117,13 @@ if.then33:                                        ; preds = %if.end30
 
 if.end35:                                         ; preds = %if.end30
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %client_data.i)
-  %data.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %block.0, i64 16
   store ptr %data.i, ptr %client_data.i, align 8
-  %samples_written.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 1
+  %samples_written.i = getelementptr inbounds i8, ptr %client_data.i, i64 8
   store i64 0, ptr %samples_written.i, align 8
-  %first_seekpoint_to_check.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 4
+  %first_seekpoint_to_check.i = getelementptr inbounds i8, ptr %client_data.i, i64 32
   store i32 0, ptr %first_seekpoint_to_check.i, align 8
-  %error_occurred.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 5
+  %error_occurred.i = getelementptr inbounds i8, ptr %client_data.i, i64 36
   store i32 0, ptr %error_occurred.i, align 4
   %call.i = tail call ptr @FLAC__stream_decoder_new() #5
   %cmp.i = icmp eq ptr %call.i, null
@@ -164,7 +160,7 @@ if.then12.i:                                      ; preds = %land.lhs.true.i
   br label %if.end22.i
 
 land.lhs.true17.critedge.i:                       ; preds = %land.lhs.true.i
-  %audio_offset.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 2
+  %audio_offset.i = getelementptr inbounds i8, ptr %client_data.i, i64 16
   %call18.i = call i32 @FLAC__stream_decoder_get_decode_position(ptr noundef nonnull %call.i, ptr noundef nonnull %audio_offset.i) #5
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %if.then20.i, label %land.lhs.true25.critedge.i
@@ -175,15 +171,15 @@ if.then20.i:                                      ; preds = %land.lhs.true17.cri
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then20.i, %if.then12.i, %if.then6.i
-  %audio_offset23.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 2
+  %audio_offset23.i = getelementptr inbounds i8, ptr %client_data.i, i64 16
   %9 = load i64, ptr %audio_offset23.i, align 8
-  %last_offset.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 3
+  %last_offset.i = getelementptr inbounds i8, ptr %client_data.i, i64 24
   store i64 %9, ptr %last_offset.i, align 8
   br label %populate_seekpoint_values.exit.thread48
 
 land.lhs.true25.critedge.i:                       ; preds = %land.lhs.true17.critedge.i
   %10 = load i64, ptr %audio_offset.i, align 8
-  %last_offset.c.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 3
+  %last_offset.c.i = getelementptr inbounds i8, ptr %client_data.i, i64 24
   store i64 %10, ptr %last_offset.c.i, align 8
   %call26.i = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef nonnull %call.i) #5
   %tobool27.not.i = icmp eq i32 %call26.i, 0
@@ -202,7 +198,7 @@ if.end31.i:                                       ; preds = %land.lhs.true25.cri
 
 if.then36.i:                                      ; preds = %if.end31.i
   %13 = load ptr, ptr @stderr, align 8
-  %error_status.i = getelementptr inbounds %struct.ClientData, ptr %client_data.i, i64 0, i32 6
+  %error_status.i = getelementptr inbounds i8, ptr %client_data.i, i64 40
   %14 = load i32, ptr %error_status.i, align 8
   %idxprom.i = zext i32 %14 to i64
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr @FLAC__StreamDecoderErrorStatusString, i64 0, i64 %idxprom.i
@@ -268,19 +264,19 @@ declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @write_callback_(ptr noundef %decoder, ptr nocapture noundef readonly %frame, ptr nocapture readnone %buffer, ptr noundef %client_data) #0 {
 entry:
-  %error_occurred = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 5
+  %error_occurred = getelementptr inbounds i8, ptr %client_data, i64 36
   %0 = load i32, ptr %error_occurred, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %frame, align 8
-  %samples_written = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 1
+  %samples_written = getelementptr inbounds i8, ptr %client_data, i64 8
   %2 = load i64, ptr %samples_written, align 8
   %conv = zext i32 %1 to i64
   %add = add nsw i64 %conv, -1
   %sub = add i64 %add, %2
-  %first_seekpoint_to_check = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 4
+  %first_seekpoint_to_check = getelementptr inbounds i8, ptr %client_data, i64 32
   %3 = load i32, ptr %first_seekpoint_to_check, align 8
   %4 = load ptr, ptr %client_data, align 8
   %5 = load i32, ptr %4, align 8
@@ -288,8 +284,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp25, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %last_offset = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 3
-  %audio_offset = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 2
+  %last_offset = getelementptr inbounds i8, ptr %client_data, i64 24
+  %audio_offset = getelementptr inbounds i8, ptr %client_data, i64 16
   %6 = zext i32 %3 to i64
   br label %for.body
 
@@ -297,7 +293,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = phi ptr [ %4, %for.body.lr.ph ], [ %16, %for.inc ]
   %storemerge.in28 = phi i32 [ %3, %for.body.lr.ph ], [ %storemerge, %for.inc ]
   %indvars.iv = phi i64 [ %6, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %points = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %7, i64 0, i32 1
+  %points = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %points, align 8
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %8, i64 %indvars.iv
   %9 = load i64, ptr %arrayidx, align 8
@@ -314,12 +310,12 @@ if.then9:                                         ; preds = %if.else
   %11 = load i64, ptr %audio_offset, align 8
   %sub15 = sub i64 %10, %11
   %12 = load ptr, ptr %client_data, align 8
-  %points17 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %12, i64 0, i32 1
+  %points17 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %points17, align 8
   %stream_offset = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %13, i64 %indvars.iv, i32 1
   store i64 %sub15, ptr %stream_offset, align 8
   %14 = load ptr, ptr %client_data, align 8
-  %points21 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekTable, ptr %14, i64 0, i32 1
+  %points21 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %points21, align 8
   %frame_samples = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %15, i64 %indvars.iv, i32 2
   store i32 %1, ptr %frame_samples, align 8
@@ -346,7 +342,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %19 = phi i64 [ %.pre30, %for.end.loopexit ], [ %2, %if.then ]
   %add32 = add i64 %19, %conv
   store i64 %add32, ptr %samples_written, align 8
-  %last_offset33 = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 3
+  %last_offset33 = getelementptr inbounds i8, ptr %client_data, i64 24
   %call = tail call i32 @FLAC__stream_decoder_get_decode_position(ptr noundef %decoder, ptr noundef nonnull %last_offset33) #5
   %tobool34.not = icmp eq i32 %call, 0
   %. = zext i1 %tobool34.not to i32
@@ -360,14 +356,14 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @error_callback_(ptr nocapture readnone %decoder, i32 noundef %status, ptr nocapture noundef %client_data) #3 {
 entry:
-  %error_occurred = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 5
+  %error_occurred = getelementptr inbounds i8, ptr %client_data, i64 36
   %0 = load i32, ptr %error_occurred, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %error_occurred, align 4
-  %error_status = getelementptr inbounds %struct.ClientData, ptr %client_data, i64 0, i32 6
+  %error_status = getelementptr inbounds i8, ptr %client_data, i64 40
   store i32 %status, ptr %error_status, align 8
   br label %if.end
 

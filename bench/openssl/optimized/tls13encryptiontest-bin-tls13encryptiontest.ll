@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.RECORD_DATA = type { [3 x ptr], [3 x ptr], ptr, ptr, ptr }
 %struct.ossl_record_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
-%struct.ossl_record_layer_st = type { ptr, ptr, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, ptr, i64, i32, [33 x %struct.tls_buffer_st], i64, i64, %struct.tls_buffer_st, [32 x %struct.tls_rl_record_st], i64, i64, i64, i32, ptr, i64, [8 x i8], i32, i32, i64, i32, ptr, i64, ptr, ptr, i32, i32, i32, i64, i64, [64 x i8], i32, i32, i32, [16 x i8], i32, i32, i64, %struct.record_pqueue_st, %struct.record_pqueue_st, %struct.dtls_bitmap_st, %struct.dtls_bitmap_st, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
-%struct.record_pqueue_st = type { i16, ptr }
-%struct.dtls_bitmap_st = type { i64, [8 x i8] }
-%struct.record_functions_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"test_tls13_encryption\00", align 1
 @refdata = internal global [7 x %struct.RECORD_DATA] [%struct.RECORD_DATA { [3 x ptr] [ptr @.str.15, ptr @.str.16, ptr @.str.17], [3 x ptr] [ptr @.str.18, ptr @.str.19, ptr @.str.20], ptr @.str.21, ptr @.str.22, ptr @.str.23 }, %struct.RECORD_DATA { [3 x ptr] [ptr @.str.24, ptr @.str.25, ptr @.str.25], [3 x ptr] [ptr @.str.26, ptr @.str.25, ptr @.str.25], ptr @.str.27, ptr @.str.28, ptr @.str.23 }, %struct.RECORD_DATA { [3 x ptr] [ptr @.str.29, ptr @.str.25, ptr @.str.25], [3 x ptr] [ptr @.str.30, ptr @.str.25, ptr @.str.25], ptr @.str.31, ptr @.str.32, ptr @.str.23 }, %struct.RECORD_DATA { [3 x ptr] [ptr @.str.33, ptr @.str.25, ptr @.str.25], [3 x ptr] [ptr @.str.34, ptr @.str.25, ptr @.str.25], ptr @.str.35, ptr @.str.36, ptr @.str.23 }, %struct.RECORD_DATA { [3 x ptr] [ptr @.str.33, ptr @.str.25, ptr @.str.25], [3 x ptr] [ptr @.str.37, ptr @.str.25, ptr @.str.25], ptr @.str.31, ptr @.str.32, ptr @.str.38 }, %struct.RECORD_DATA { [3 x ptr] [ptr @.str.39, ptr @.str.25, ptr @.str.25], [3 x ptr] [ptr @.str.40, ptr @.str.25, ptr @.str.25], ptr @.str.35, ptr @.str.36, ptr @.str.38 }, %struct.RECORD_DATA { [3 x ptr] [ptr @.str.39, ptr @.str.25, ptr @.str.25], [3 x ptr] [ptr @.str.41, ptr @.str.25, ptr @.str.25], ptr @.str.31, ptr @.str.32, ptr @.str.42 }], align 16
@@ -83,13 +78,13 @@ entry:
   %call = tail call ptr @EVP_aes_128_gcm() #5
   store ptr null, ptr %rrl, align 8
   store ptr null, ptr %wrl, align 8
-  %data = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %rec, i64 32
   store ptr null, ptr %data, align 8
-  %type = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %rec, i64 4
   store i32 23, ptr %type, align 4
   store i32 771, ptr %rec, align 8
-  %input.i = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 6
-  %length.i = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %input.i = getelementptr inbounds i8, ptr %rec, i64 40
+  %length.i = getelementptr inbounds i8, ptr %rec, i64 8
   %0 = load ptr, ptr @ossl_tls_record_method, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.ossl_record_method_st, ptr @ossl_tls_record_method, i64 0, i32 1), align 8
   br label %for.body
@@ -100,13 +95,13 @@ for.body:                                         ; preds = %entry, %if.end55
   %conv = sext i32 %call1 to i64
   %arrayidx = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.068
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptlen.i)
-  %key1.i = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.068, i32 2
+  %key1.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %2 = load ptr, ptr %key1.i, align 8
   %call.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %2, ptr noundef null) #5
-  %iv2.i = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.068, i32 3
+  %iv2.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %3 = load ptr, ptr %iv2.i, align 8
   %call3.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %3, ptr noundef null) #5
-  %seq4.i = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.068, i32 4
+  %seq4.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %4 = load ptr, ptr %seq4.i, align 8
   %call5.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %4, ptr noundef null) #5
   %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %arrayidx, ptr noundef nonnull %ptlen.i)
@@ -157,11 +152,11 @@ if.end:                                           ; preds = %if.end.i
 
 if.end12:                                         ; preds = %if.end
   %13 = load ptr, ptr %wrl, align 8
-  %sequence = getelementptr inbounds %struct.ossl_record_layer_st, ptr %13, i64 0, i32 25
+  %sequence = getelementptr inbounds i8, ptr %13, i64 4096
   store i64 %12, ptr %sequence, align 8
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %13, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %13, i64 4424
   %14 = load ptr, ptr %funcs, align 8
-  %cipher = getelementptr inbounds %struct.record_functions_st, ptr %14, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %cipher, align 8
   %call15 = call i32 %15(ptr noundef %13, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0) #5
   %conv16 = sext i32 %call15 to i64
@@ -176,7 +171,7 @@ if.then19:                                        ; preds = %if.end12
 if.end20:                                         ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i)
   store i64 0, ptr %refdatalen.i, align 8
-  %ciphertext.i = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.068, i32 1
+  %ciphertext.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %call.i12 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %ciphertext.i, ptr noundef nonnull %refdatalen.i)
   %call3.i14 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call.i12) #5
   %tobool4.not.i = icmp eq i32 %call3.i14, 0
@@ -218,11 +213,11 @@ if.end28:                                         ; preds = %test_record.exit
 
 if.end37:                                         ; preds = %if.end28
   %19 = load ptr, ptr %rrl, align 8
-  %sequence38 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %19, i64 0, i32 25
+  %sequence38 = getelementptr inbounds i8, ptr %19, i64 4096
   store i64 %12, ptr %sequence38, align 8
-  %funcs41 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %19, i64 0, i32 58
+  %funcs41 = getelementptr inbounds i8, ptr %19, i64 4424
   %20 = load ptr, ptr %funcs41, align 8
-  %cipher42 = getelementptr inbounds %struct.record_functions_st, ptr %20, i64 0, i32 1
+  %cipher42 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %cipher42, align 8
   %call43 = call i32 %21(ptr noundef %19, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0) #5
   %call44 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i32 noundef %call43, i32 noundef 1) #5

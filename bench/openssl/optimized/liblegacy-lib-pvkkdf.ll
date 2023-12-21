@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KDF_PVK = type { ptr, ptr, i64, ptr, i64, %struct.PROV_DIGEST }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_kdf_pvk_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @kdf_pvk_new }, %struct.ossl_dispatch_st { i32 2, ptr @kdf_pvk_dup }, %struct.ossl_dispatch_st { i32 3, ptr @kdf_pvk_free }, %struct.ossl_dispatch_st { i32 4, ptr @kdf_pvk_reset }, %struct.ossl_dispatch_st { i32 5, ptr @kdf_pvk_derive }, %struct.ossl_dispatch_st { i32 8, ptr @kdf_pvk_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @kdf_pvk_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @kdf_pvk_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @kdf_pvk_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [51 x i8] c"../openssl/providers/implementations/kdfs/pvkkdf.c\00", align 1
@@ -43,7 +41,7 @@ if.end3:                                          ; preds = %if.end
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %digest.i = getelementptr inbounds %struct.KDF_PVK, ptr %call1, i64 0, i32 5
+  %digest.i = getelementptr inbounds i8, ptr %call1, i64 40
   %call2.i = call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest.i, ptr noundef nonnull %params.i, ptr noundef %call.i) #6
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %kdf_pvk_init.exit
@@ -71,42 +69,42 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %salt = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 3
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 24
   %1 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 4
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 32
   %2 = load i64, ptr %salt_len, align 8
-  %salt1 = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 3
-  %salt_len2 = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 4
+  %salt1 = getelementptr inbounds i8, ptr %call, i64 24
+  %salt_len2 = getelementptr inbounds i8, ptr %call, i64 32
   %call3 = tail call i32 @ossl_prov_memdup(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %salt1, ptr noundef nonnull %salt_len2) #6
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %kdf_pvk_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %pass = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 8
   %3 = load ptr, ptr %pass, align 8
-  %pass_len = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 2
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 16
   %4 = load i64, ptr %pass_len, align 8
-  %pass4 = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 1
-  %pass_len5 = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 2
+  %pass4 = getelementptr inbounds i8, ptr %call, i64 8
+  %pass_len5 = getelementptr inbounds i8, ptr %call, i64 16
   %call6 = tail call i32 @ossl_prov_memdup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %pass4, ptr noundef nonnull %pass_len5) #6
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %kdf_pvk_free.exit, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %digest = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 5
-  %digest9 = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 5
+  %digest = getelementptr inbounds i8, ptr %call, i64 40
+  %digest9 = getelementptr inbounds i8, ptr %vctx, i64 40
   %call10 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest, ptr noundef nonnull %digest9) #6
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %kdf_pvk_free.exit, label %return
 
 kdf_pvk_free.exit:                                ; preds = %if.then, %lor.lhs.false, %lor.lhs.false8
-  %digest.i.i = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 5
+  %digest.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i.i) #6
   %5 = load ptr, ptr %salt1, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 59) #6
-  %pass.i.i = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 1
+  %pass.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %pass.i.i, align 8
-  %pass_len.i.i = getelementptr inbounds %struct.KDF_PVK, ptr %call, i64 0, i32 2
+  %pass_len.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %7 = load i64, ptr %pass_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %6, i64 noundef %7, ptr noundef nonnull @.str, i32 noundef 60) #6
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %call, i64 noundef 64) #6
@@ -125,14 +123,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %digest.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 5
+  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 40
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #6
-  %salt.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 3
+  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 24
   %0 = load ptr, ptr %salt.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 59) #6
-  %pass.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 1
+  %pass.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %pass.i, align 8
-  %pass_len.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 2
+  %pass_len.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %2 = load i64, ptr %pass_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 60) #6
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %vctx, i64 noundef 64) #6
@@ -149,14 +147,14 @@ entry:
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i = alloca %struct.ossl_param_st, align 8
   %0 = load ptr, ptr %vctx, align 8
-  %digest.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 5
+  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 40
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #6
-  %salt.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 3
+  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 24
   %1 = load ptr, ptr %salt.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 59) #6
-  %pass.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 1
+  %pass.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %2 = load ptr, ptr %pass.i, align 8
-  %pass_len.i = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 2
+  %pass_len.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %3 = load i64, ptr %pass_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 60) #6
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %vctx, i64 noundef 64) #6
@@ -195,7 +193,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pass = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %pass, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %if.end4
@@ -207,7 +205,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %salt = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 3
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 24
   %1 = load ptr, ptr %salt, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -219,7 +217,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %digest = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 5
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 40
   %call8 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #6
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then10, label %if.end11
@@ -264,7 +262,7 @@ land.lhs.true:                                    ; preds = %if.end19
 
 land.lhs.true25:                                  ; preds = %land.lhs.true
   %2 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 4
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 32
   %3 = load i64, ptr %salt_len, align 8
   %call27 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call20, ptr noundef %2, i64 noundef %3) #6
   %tobool28.not = icmp eq i32 %call27, 0
@@ -272,7 +270,7 @@ land.lhs.true25:                                  ; preds = %land.lhs.true
 
 land.lhs.true29:                                  ; preds = %land.lhs.true25
   %4 = load ptr, ptr %pass, align 8
-  %pass_len = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 2
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 16
   %5 = load i64, ptr %pass_len, align 8
   %call31 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call20, ptr noundef %4, i64 noundef %5) #6
   %tobool32.not = icmp eq i32 %call31, 0
@@ -309,7 +307,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 5
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 40
   %call2 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -320,12 +318,12 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %pass = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 1
-  %pass_len = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 8
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 16
   %1 = load ptr, ptr %pass, align 8
   %2 = load i64, ptr %pass_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 119) #6
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call5, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pass, i8 0, i64 16, i1 false)
   %3 = load i64, ptr %data_size.i, align 8
   %cmp.i = icmp eq i64 %3, 0
@@ -338,7 +336,7 @@ if.then.i:                                        ; preds = %if.then7
   br i1 %cmp1.i, label %return, label %if.end12
 
 if.else.i:                                        ; preds = %if.then7
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call5, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call5, i64 16
   %4 = load ptr, ptr %data.i, align 8
   %cmp3.not.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i, label %if.end12, label %if.then4.i
@@ -354,12 +352,12 @@ if.end12:                                         ; preds = %if.then4.i, %if.els
   br i1 %cmp14.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %salt = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 3
-  %salt_len = getelementptr inbounds %struct.KDF_PVK, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 24
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 32
   %5 = load ptr, ptr %salt, align 8
   %6 = load i64, ptr %salt_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 119) #6
-  %data_size.i10 = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 3
+  %data_size.i10 = getelementptr inbounds i8, ptr %call13, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %salt, i8 0, i64 16, i1 false)
   %7 = load i64, ptr %data_size.i10, align 8
   %cmp.i11 = icmp eq i64 %7, 0
@@ -372,7 +370,7 @@ if.then.i20:                                      ; preds = %if.then15
   br i1 %cmp1.i22, label %pvk_set_membuf.exit23.thread, label %return
 
 if.else.i12:                                      ; preds = %if.then15
-  %data.i13 = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 2
+  %data.i13 = getelementptr inbounds i8, ptr %call13, i64 16
   %8 = load ptr, ptr %data.i13, align 8
   %cmp3.not.i14 = icmp eq ptr %8, null
   br i1 %cmp3.not.i14, label %return, label %if.then4.i15

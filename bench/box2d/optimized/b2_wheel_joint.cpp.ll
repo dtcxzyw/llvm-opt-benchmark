@@ -3,22 +3,8 @@ source_filename = "bench/box2d/original/b2_wheel_joint.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.b2JointDef = type <{ i32, [4 x i8], %struct.b2JointUserData, ptr, ptr, i8, [7 x i8] }>
-%struct.b2JointUserData = type { i64 }
-%class.b2Body = type { i32, i16, i32, %struct.b2Transform, %struct.b2Sweep, %struct.b2Vec2, float, %struct.b2Vec2, float, ptr, ptr, ptr, ptr, i32, ptr, ptr, float, float, float, float, float, float, float, float, %struct.b2BodyUserData }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
-%struct.b2Vec2 = type { float, float }
-%struct.b2BodyUserData = type { i64 }
-%struct.b2WheelJointDef = type { %struct.b2JointDef.base, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, i8, float, float, i8, float, float, float, float, [4 x i8] }
-%struct.b2JointDef.base = type <{ i32, [4 x i8], %struct.b2JointUserData, ptr, ptr, i8 }>
-%class.b2WheelJoint = type <{ %class.b2Joint, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, float, float, i8, i8, [2 x i8], float, float, i32, i32, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, float, float, [4 x i8] }>
-%class.b2Joint = type { ptr, i32, ptr, ptr, %struct.b2JointEdge, %struct.b2JointEdge, ptr, ptr, i32, i8, i8, %struct.b2JointUserData }
-%struct.b2JointEdge = type { ptr, ptr, ptr, ptr }
-%struct.b2SolverData = type { %struct.b2TimeStep, ptr, ptr }
-%struct.b2TimeStep = type { float, float, float, i32, i32, i8 }
 %struct.b2Position = type { %struct.b2Vec2, float }
+%struct.b2Vec2 = type { float, float }
 %struct.b2Velocity = type { %struct.b2Vec2, float }
 %struct.b2Color = type { float, float, float, float }
 
@@ -52,20 +38,20 @@ $_ZN12b2WheelJointD0Ev = comdat any
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN15b2WheelJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %axis) local_unnamed_addr #0 align 2 {
 entry:
-  %bodyA = getelementptr inbounds %struct.b2JointDef, ptr %this, i64 0, i32 3
+  %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
-  %bodyB = getelementptr inbounds %struct.b2JointDef, ptr %this, i64 0, i32 4
+  %bodyB = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %bB, ptr %bodyB, align 8
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %bA, i64 0, i32 3
+  %m_xf.i = getelementptr inbounds i8, ptr %bA, i64 12
   %0 = load float, ptr %anchor, align 4
   %1 = load float, ptr %m_xf.i, align 4
   %sub.i.i = fsub float %0, %1
-  %y.i.i = getelementptr inbounds %struct.b2Vec2, ptr %anchor, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %anchor, i64 4
   %2 = load float, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %class.b2Body, ptr %bA, i64 0, i32 3, i32 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %bA, i64 16
   %3 = load float, ptr %y3.i.i, align 4
   %sub4.i.i = fsub float %2, %3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %bA, i64 0, i32 3, i32 1
+  %q.i.i = getelementptr inbounds i8, ptr %bA, i64 20
   %4 = load <2 x float>, ptr %q.i.i, align 4
   %5 = extractelement <2 x float> %4, i64 0
   %fneg.i.i = fneg float %5
@@ -77,17 +63,17 @@ entry:
   %11 = insertelement <2 x float> poison, float %sub.i.i, i64 0
   %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
   %13 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %10, <2 x float> %12, <2 x float> %8)
-  %localAnchorA = getelementptr inbounds %struct.b2WheelJointDef, ptr %this, i64 0, i32 1
+  %localAnchorA = getelementptr inbounds i8, ptr %this, i64 36
   store <2 x float> %13, ptr %localAnchorA, align 4
-  %m_xf.i2 = getelementptr inbounds %class.b2Body, ptr %bB, i64 0, i32 3
+  %m_xf.i2 = getelementptr inbounds i8, ptr %bB, i64 12
   %14 = load float, ptr %anchor, align 4
   %15 = load float, ptr %m_xf.i2, align 4
   %sub.i.i3 = fsub float %14, %15
   %16 = load float, ptr %y.i.i, align 4
-  %y3.i.i5 = getelementptr inbounds %class.b2Body, ptr %bB, i64 0, i32 3, i32 0, i32 1
+  %y3.i.i5 = getelementptr inbounds i8, ptr %bB, i64 16
   %17 = load float, ptr %y3.i.i5, align 4
   %sub4.i.i6 = fsub float %16, %17
-  %q.i.i7 = getelementptr inbounds %class.b2Body, ptr %bB, i64 0, i32 3, i32 1
+  %q.i.i7 = getelementptr inbounds i8, ptr %bB, i64 20
   %18 = load <2 x float>, ptr %q.i.i7, align 4
   %19 = extractelement <2 x float> %18, i64 0
   %fneg.i.i10 = fneg float %19
@@ -99,10 +85,10 @@ entry:
   %25 = insertelement <2 x float> poison, float %sub.i.i3, i64 0
   %26 = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> zeroinitializer
   %27 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> %26, <2 x float> %22)
-  %localAnchorB = getelementptr inbounds %struct.b2WheelJointDef, ptr %this, i64 0, i32 2
+  %localAnchorB = getelementptr inbounds i8, ptr %this, i64 44
   store <2 x float> %27, ptr %localAnchorB, align 4
   %28 = load float, ptr %axis, align 4
-  %y.i.i15 = getelementptr inbounds %struct.b2Vec2, ptr %axis, i64 0, i32 1
+  %y.i.i15 = getelementptr inbounds i8, ptr %axis, i64 4
   %29 = load float, ptr %y.i.i15, align 4
   %30 = load <2 x float>, ptr %q.i.i, align 4
   %31 = extractelement <2 x float> %30, i64 0
@@ -115,7 +101,7 @@ entry:
   %37 = insertelement <2 x float> poison, float %28, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %36, <2 x float> %38, <2 x float> %34)
-  %localAxisA = getelementptr inbounds %struct.b2WheelJointDef, ptr %this, i64 0, i32 3
+  %localAxisA = getelementptr inbounds i8, ptr %this, i64 52
   store <2 x float> %39, ptr %localAxisA, align 4
   ret void
 }
@@ -125,16 +111,16 @@ define void @_ZN12b2WheelJointC2EPK15b2WheelJointDef(ptr noundef nonnull align 8
 invoke.cont:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12b2WheelJoint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 1
-  %m_localAnchorA2 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
+  %localAnchorA = getelementptr inbounds i8, ptr %def, i64 36
+  %m_localAnchorA2 = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %localAnchorA, align 4
   store i64 %0, ptr %m_localAnchorA2, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 2
-  %m_localAnchorB3 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
+  %localAnchorB = getelementptr inbounds i8, ptr %def, i64 44
+  %m_localAnchorB3 = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i64, ptr %localAnchorB, align 4
   store i64 %1, ptr %m_localAnchorB3, align 8
-  %localAxisA = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 3
-  %m_localXAxisA4 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
+  %localAxisA = getelementptr inbounds i8, ptr %def, i64 52
+  %m_localXAxisA4 = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load i64, ptr %localAxisA, align 4
   store i64 %2, ptr %m_localXAxisA4, align 8
   %3 = lshr i64 %2, 32
@@ -145,49 +131,49 @@ invoke.cont:
   %7 = bitcast i32 %6 to float
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %7, i64 1
-  %m_localYAxisA6 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4
+  %m_localYAxisA6 = getelementptr inbounds i8, ptr %this, i64 152
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %m_localYAxisA6, align 8
-  %m_mass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 34
-  %m_impulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 5
-  %lowerTranslation = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 5
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 284
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
+  %lowerTranslation = getelementptr inbounds i8, ptr %def, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_impulse, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_mass, i8 0, i64 16, i1 false)
   %8 = load float, ptr %lowerTranslation, align 8
-  %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 11
+  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   store float %8, ptr %m_lowerTranslation, align 8
-  %upperTranslation = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 6
+  %upperTranslation = getelementptr inbounds i8, ptr %def, i64 68
   %9 = load float, ptr %upperTranslation, align 4
-  %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 12
+  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   store float %9, ptr %m_upperTranslation, align 4
-  %enableLimit = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 4
+  %enableLimit = getelementptr inbounds i8, ptr %def, i64 60
   %10 = load i8, ptr %enableLimit, align 4
   %11 = and i8 %10, 1
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   store i8 %11, ptr %m_enableLimit, align 8
-  %maxMotorTorque = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 8
+  %maxMotorTorque = getelementptr inbounds i8, ptr %def, i64 76
   %12 = load float, ptr %maxMotorTorque, align 4
-  %m_maxMotorTorque = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 13
+  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
   store float %12, ptr %m_maxMotorTorque, align 8
-  %motorSpeed = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 9
+  %motorSpeed = getelementptr inbounds i8, ptr %def, i64 80
   %13 = load float, ptr %motorSpeed, align 8
-  %m_motorSpeed = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 14
+  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
   store float %13, ptr %m_motorSpeed, align 4
-  %enableMotor = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 7
+  %enableMotor = getelementptr inbounds i8, ptr %def, i64 72
   %14 = load i8, ptr %enableMotor, align 8
   %15 = and i8 %14, 1
-  %m_enableMotor = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 16
+  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
   store i8 %15, ptr %m_enableMotor, align 1
-  %m_bias = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 38
+  %m_bias = getelementptr inbounds i8, ptr %this, i64 300
   store <2 x float> zeroinitializer, ptr %m_bias, align 4
-  %m_ax9 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 28
-  %stiffness = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 10
+  %m_ax9 = getelementptr inbounds i8, ptr %this, i64 252
+  %stiffness = getelementptr inbounds i8, ptr %def, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_ax9, i8 0, i64 16, i1 false)
   %16 = load float, ptr %stiffness, align 4
-  %m_stiffness = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 18
+  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
   store float %16, ptr %m_stiffness, align 4
-  %damping = getelementptr inbounds %struct.b2WheelJointDef, ptr %def, i64 0, i32 11
+  %damping = getelementptr inbounds i8, ptr %def, i64 88
   %17 = load float, ptr %damping, align 8
-  %m_damping = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 19
+  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
   store float %17, ptr %m_damping, align 8
   ret void
 }
@@ -199,43 +185,43 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN12b2WheelJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_islandIndex = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 2
+  %m_islandIndex = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %m_islandIndex, align 8
-  %m_indexA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 20
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 212
   store i32 %1, ptr %m_indexA, align 4
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_islandIndex2 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 2
+  %m_islandIndex2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %m_islandIndex2, align 8
-  %m_indexB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 21
+  %m_indexB = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %3, ptr %m_indexB, align 8
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4
-  %m_localCenterA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 22
+  %m_sweep = getelementptr inbounds i8, ptr %0, i64 28
+  %m_localCenterA = getelementptr inbounds i8, ptr %this, i64 220
   %4 = load i64, ptr %m_sweep, align 4
   store i64 %4, ptr %m_localCenterA, align 4
-  %m_sweep5 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 4
-  %m_localCenterB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 23
+  %m_sweep5 = getelementptr inbounds i8, ptr %2, i64 28
+  %m_localCenterB = getelementptr inbounds i8, ptr %this, i64 228
   %5 = load i64, ptr %m_sweep5, align 4
   store i64 %5, ptr %m_localCenterB, align 4
-  %m_invMass = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 17
+  %m_invMass = getelementptr inbounds i8, ptr %0, i64 148
   %6 = load float, ptr %m_invMass, align 4
-  %m_invMassA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 24
+  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
   store float %6, ptr %m_invMassA, align 4
-  %m_invMass9 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 17
+  %m_invMass9 = getelementptr inbounds i8, ptr %2, i64 148
   %7 = load float, ptr %m_invMass9, align 4
-  %m_invMassB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 25
+  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
   store float %7, ptr %m_invMassB, align 8
-  %m_invI = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 19
+  %m_invI = getelementptr inbounds i8, ptr %0, i64 156
   %8 = load float, ptr %m_invI, align 4
-  %m_invIA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 26
+  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   store float %8, ptr %m_invIA, align 4
-  %m_invI12 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 19
+  %m_invI12 = getelementptr inbounds i8, ptr %2, i64 156
   %9 = load float, ptr %m_invI12, align 4
-  %m_invIB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 27
+  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   store float %9, ptr %m_invIB, align 8
-  %positions = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 1
+  %positions = getelementptr inbounds i8, ptr %data, i64 24
   %10 = load ptr, ptr %positions, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom
@@ -244,7 +230,7 @@ entry:
   %12 = load float, ptr %arrayidx.sroa_idx, align 4
   %a = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom, i32 1
   %13 = load float, ptr %a, align 4
-  %velocities = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 2
+  %velocities = getelementptr inbounds i8, ptr %data, i64 32
   %14 = load ptr, ptr %velocities, align 8
   %arrayidx24 = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom
   %w = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom, i32 1
@@ -260,19 +246,19 @@ entry:
   %19 = load <2 x float>, ptr %arrayidx42, align 4
   %w48 = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom31, i32 1
   %20 = load float, ptr %w48, align 4
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %y.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
-  %y2.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 22, i32 1
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %y.i43 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
-  %y2.i44 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 23, i32 1
-  %m_localYAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4
-  %y.i71 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4, i32 1
-  %m_ay = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 29
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %y.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y2.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %y.i43 = getelementptr inbounds i8, ptr %this, i64 140
+  %y2.i44 = getelementptr inbounds i8, ptr %this, i64 232
+  %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
+  %y.i71 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_ay = getelementptr inbounds i8, ptr %this, i64 260
   %add = fadd float %6, %7
-  %m_mass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 34
-  %m_localXAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
-  %y.i88 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3, i32 1
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 284
+  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %y.i88 = getelementptr inbounds i8, ptr %this, i64 148
   %21 = load <2 x float>, ptr %arrayidx24, align 4
   %call.i = tail call float @sinf(float noundef %13) #18
   %call2.i = tail call float @cosf(float noundef %13) #18
@@ -325,11 +311,11 @@ entry:
   %49 = fmul <2 x float> %48, %40
   %50 = shufflevector <4 x float> %46, <4 x float> poison, <2 x i32> zeroinitializer
   %51 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %43, <2 x float> %50, <2 x float> %49)
-  %m_ax = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 28
+  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
   store <2 x float> %51, ptr %m_ax, align 4
   %52 = extractelement <2 x float> %51, i64 0
   %53 = extractelement <2 x float> %51, i64 1
-  %m_sAx = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 30
+  %m_sAx = getelementptr inbounds i8, ptr %this, i64 268
   %54 = insertelement <2 x float> poison, float %35, i64 0
   %55 = insertelement <2 x float> %54, float %add3.i79, i64 1
   %56 = fneg <2 x float> %55
@@ -367,31 +353,31 @@ entry:
   br i1 %83, label %if.end99, label %if.end99.thread
 
 if.end99.thread:                                  ; preds = %entry
-  %m_axialMass98 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 36
+  %m_axialMass98 = getelementptr inbounds i8, ptr %this, i64 292
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_axialMass98, i8 0, i64 16, i1 false)
   br label %if.else134
 
 if.end99:                                         ; preds = %entry
   %84 = extractelement <2 x float> %79, i64 0
   %div97 = fdiv float 1.000000e+00, %84
-  %m_axialMass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 36
+  %m_axialMass = getelementptr inbounds i8, ptr %this, i64 292
   store float %div97, ptr %m_axialMass, align 4
-  %m_springMass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 37
+  %m_springMass = getelementptr inbounds i8, ptr %this, i64 296
   store <2 x float> zeroinitializer, ptr %m_springMass, align 8
-  %m_gamma = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 39
+  %m_gamma = getelementptr inbounds i8, ptr %this, i64 304
   store float 0.000000e+00, ptr %m_gamma, align 8
-  %m_stiffness = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 18
+  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
   %85 = load float, ptr %m_stiffness, align 4
   %cmp100 = fcmp ogt float %85, 0.000000e+00
   br i1 %cmp100, label %if.then102, label %if.else134
 
 if.then102:                                       ; preds = %if.end99
-  %m_bias = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 38
+  %m_bias = getelementptr inbounds i8, ptr %this, i64 300
   store float %div97, ptr %m_springMass, align 8
   %mul3.i = fmul float %sub3.i67, %53
   %86 = tail call noundef float @llvm.fmuladd.f32(float %sub.i64, float %52, float %mul3.i)
   %87 = load float, ptr %data, align 8
-  %m_damping = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 19
+  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
   %88 = load float, ptr %m_damping, align 8
   %89 = tail call float @llvm.fmuladd.f32(float %87, float %85, float %88)
   %mul109 = fmul float %87, %89
@@ -414,12 +400,12 @@ if.then129:                                       ; preds = %if.then102
   br label %if.end135
 
 if.else134:                                       ; preds = %if.end99.thread, %if.end99
-  %m_springImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 7
+  %m_springImpulse = getelementptr inbounds i8, ptr %this, i64 168
   store float 0.000000e+00, ptr %m_springImpulse, align 8
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then102, %if.then129, %if.else134
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %90 = load i8, ptr %m_enableLimit, align 8
   %91 = and i8 %90, 1
   %tobool.not = icmp eq i8 %91, 0
@@ -428,17 +414,17 @@ if.end135:                                        ; preds = %if.then102, %if.the
 if.then136:                                       ; preds = %if.end135
   %mul3.i109 = fmul float %sub3.i67, %53
   %92 = tail call noundef float @llvm.fmuladd.f32(float %52, float %sub.i64, float %mul3.i109)
-  %m_translation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 10
+  %m_translation = getelementptr inbounds i8, ptr %this, i64 180
   store float %92, ptr %m_translation, align 4
   br label %if.end140
 
 if.else139:                                       ; preds = %if.end135
-  %m_lowerImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 8
+  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
   store <2 x float> zeroinitializer, ptr %m_lowerImpulse, align 4
   br label %if.end140
 
 if.end140:                                        ; preds = %if.else139, %if.then136
-  %m_enableMotor = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 16
+  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
   %93 = load i8, ptr %m_enableMotor, align 1
   %94 = and i8 %93, 1
   %tobool141.not = icmp eq i8 %94, 0
@@ -446,7 +432,7 @@ if.end140:                                        ; preds = %if.else139, %if.the
 
 if.then142:                                       ; preds = %if.end140
   %add143 = fadd float %8, %9
-  %m_motorMass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 35
+  %m_motorMass = getelementptr inbounds i8, ptr %this, i64 288
   store float %add143, ptr %m_motorMass, align 8
   %cmp145 = fcmp ogt float %add143, 0.000000e+00
   br i1 %cmp145, label %if.then146, label %if.end153
@@ -457,40 +443,40 @@ if.then146:                                       ; preds = %if.then142
   br label %if.end153
 
 if.else151:                                       ; preds = %if.end140
-  %m_motorMass152 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 35
+  %m_motorMass152 = getelementptr inbounds i8, ptr %this, i64 288
   store float 0.000000e+00, ptr %m_motorMass152, align 8
-  %m_motorImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 6
+  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
   store float 0.000000e+00, ptr %m_motorImpulse, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then142, %if.then146, %if.else151
-  %warmStarting = getelementptr inbounds %struct.b2TimeStep, ptr %data, i64 0, i32 5
+  %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
   %95 = load i8, ptr %warmStarting, align 4
   %96 = and i8 %95, 1
   %tobool155.not = icmp eq i8 %96, 0
   br i1 %tobool155.not, label %if.else203, label %if.then156
 
 if.then156:                                       ; preds = %if.end153
-  %dtRatio = getelementptr inbounds %struct.b2TimeStep, ptr %data, i64 0, i32 2
+  %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
   %97 = load float, ptr %dtRatio, align 8
-  %m_impulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 5
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
   %98 = load float, ptr %m_impulse, align 8
   %mul158 = fmul float %97, %98
   store float %mul158, ptr %m_impulse, align 8
   %99 = load float, ptr %dtRatio, align 8
-  %m_springImpulse161 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 7
+  %m_springImpulse161 = getelementptr inbounds i8, ptr %this, i64 168
   %100 = load float, ptr %m_springImpulse161, align 8
   %mul162 = fmul float %99, %100
   store float %mul162, ptr %m_springImpulse161, align 8
   %101 = load float, ptr %dtRatio, align 8
-  %m_motorImpulse165 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 6
+  %m_motorImpulse165 = getelementptr inbounds i8, ptr %this, i64 164
   %102 = load float, ptr %m_motorImpulse165, align 4
   %mul166 = fmul float %101, %102
   store float %mul166, ptr %m_motorImpulse165, align 4
-  %m_lowerImpulse168 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 8
+  %m_lowerImpulse168 = getelementptr inbounds i8, ptr %this, i64 172
   %103 = load float, ptr %m_lowerImpulse168, align 4
   %add169 = fadd float %mul162, %103
-  %m_upperImpulse170 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 9
+  %m_upperImpulse170 = getelementptr inbounds i8, ptr %this, i64 176
   %104 = load float, ptr %m_upperImpulse170, align 8
   %sub = fsub float %add169, %104
   %105 = insertelement <2 x float> poison, float %sub, i64 0
@@ -524,7 +510,7 @@ if.then156:                                       ; preds = %if.end153
   br label %if.end209
 
 if.else203:                                       ; preds = %if.end153
-  %m_impulse204 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 5
+  %m_impulse204 = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_impulse204, i8 0, i64 20, i1 false)
   %132 = insertelement <2 x float> poison, float %20, i64 0
   %133 = insertelement <2 x float> %132, float %15, i64 1
@@ -565,38 +551,38 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint24SolveVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #5 align 2 {
 entry:
-  %m_invMassA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 24
+  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
   %0 = load <4 x float>, ptr %m_invMassA, align 4
-  %m_invMassB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 25
+  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load <4 x float>, ptr %m_invMassB, align 8
-  %m_invIA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 26
+  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   %2 = load float, ptr %m_invIA, align 4
-  %m_invIB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 27
+  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   %3 = load float, ptr %m_invIB, align 8
-  %velocities = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 2
+  %velocities = getelementptr inbounds i8, ptr %data, i64 32
   %4 = load ptr, ptr %velocities, align 8
-  %m_indexA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 20
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 212
   %5 = load i32, ptr %m_indexA, align 4
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom
   %w = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom, i32 1
   %6 = load float, ptr %w, align 4
-  %m_indexB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 21
+  %m_indexB = getelementptr inbounds i8, ptr %this, i64 216
   %7 = load i32, ptr %m_indexB, align 8
   %idxprom7 = sext i32 %7 to i64
   %arrayidx8 = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom7
   %w14 = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom7, i32 1
   %8 = load float, ptr %w14, align 4
-  %m_ax = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 28
-  %m_sAx = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 30
-  %m_springMass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 37
+  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
+  %m_sAx = getelementptr inbounds i8, ptr %this, i64 268
+  %m_springMass = getelementptr inbounds i8, ptr %this, i64 296
   %9 = load float, ptr %m_springMass, align 8
   %fneg = fneg float %9
-  %m_bias = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 38
+  %m_bias = getelementptr inbounds i8, ptr %this, i64 300
   %10 = load float, ptr %m_bias, align 4
-  %m_gamma = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 39
+  %m_gamma = getelementptr inbounds i8, ptr %this, i64 304
   %11 = load float, ptr %m_gamma, align 8
-  %m_springImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 7
+  %m_springImpulse = getelementptr inbounds i8, ptr %this, i64 168
   %12 = load float, ptr %m_springImpulse, align 8
   %13 = load <2 x float>, ptr %arrayidx, align 4
   %14 = load <2 x float>, ptr %m_ax, align 4
@@ -638,15 +624,15 @@ entry:
   %shift = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %42 = fsub <2 x float> %shift, %41
   %sub = extractelement <2 x float> %42, i64 0
-  %m_motorSpeed = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 14
+  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
   %43 = load float, ptr %m_motorSpeed, align 4
   %sub32 = fsub float %sub, %43
-  %m_motorMass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 35
+  %m_motorMass = getelementptr inbounds i8, ptr %this, i64 288
   %44 = load float, ptr %m_motorMass, align 8
-  %m_motorImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 6
+  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
   %45 = load float, ptr %m_motorImpulse, align 4
   %46 = load float, ptr %data, align 8
-  %m_maxMotorTorque = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 13
+  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
   %47 = load float, ptr %m_maxMotorTorque, align 8
   %mul36 = fmul float %46, %47
   %48 = fmul float %44, %sub32
@@ -661,16 +647,16 @@ entry:
   %49 = insertelement <2 x float> poison, float %sub43, i64 0
   %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
   %51 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %50, <2 x float> %41)
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %52 = load i8, ptr %m_enableLimit, align 8
   %53 = and i8 %52, 1
   %tobool.not = icmp eq i8 %53, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_translation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 10
+  %m_translation = getelementptr inbounds i8, ptr %this, i64 180
   %54 = load float, ptr %m_translation, align 4
-  %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 11
+  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   %55 = load float, ptr %m_lowerTranslation, align 8
   %sub47 = fsub float %54, %55
   %56 = fsub <2 x float> %36, %34
@@ -683,14 +669,14 @@ if.then:                                          ; preds = %entry
   %61 = tail call float @llvm.fmuladd.f32(float %25, float %60, float %59)
   %62 = extractelement <2 x float> %51, i64 0
   %63 = tail call float @llvm.fmuladd.f32(float %neg, float %62, float %61)
-  %m_axialMass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 36
+  %m_axialMass = getelementptr inbounds i8, ptr %this, i64 292
   %64 = load float, ptr %m_axialMass, align 4
   %cmp.i = fcmp ogt float %sub47, 0.000000e+00
   %cond.i = select i1 %cmp.i, float %sub47, float 0.000000e+00
-  %inv_dt = getelementptr inbounds %struct.b2TimeStep, ptr %data, i64 0, i32 1
+  %inv_dt = getelementptr inbounds i8, ptr %data, i64 4
   %65 = load float, ptr %inv_dt, align 4
   %66 = tail call float @llvm.fmuladd.f32(float %cond.i, float %65, float %63)
-  %m_lowerImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 8
+  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
   %67 = load float, ptr %m_lowerImpulse, align 4
   %68 = fmul float %64, %66
   %add66 = fsub float %67, %68
@@ -698,14 +684,14 @@ if.then:                                          ; preds = %entry
   %cond.i89 = select i1 %cmp.i88, float %add66, float 0.000000e+00
   store float %cond.i89, ptr %m_lowerImpulse, align 4
   %sub70 = fsub float %cond.i89, %67
-  %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 12
+  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %69 = load float, ptr %m_upperTranslation, align 4
   %sub89 = fsub float %69, %54
   %neg99 = fneg float %25
   %cmp.i122 = fcmp ogt float %sub89, 0.000000e+00
   %cond.i123 = select i1 %cmp.i122, float %sub89, float 0.000000e+00
   %70 = load float, ptr %inv_dt, align 4
-  %m_upperImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 9
+  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
   %71 = load float, ptr %m_upperImpulse, align 8
   %72 = insertelement <2 x float> poison, float %sub70, i64 0
   %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
@@ -751,19 +737,19 @@ if.end:                                           ; preds = %if.then, %entry
   %102 = phi <2 x float> [ %34, %entry ], [ %96, %if.then ]
   %103 = phi <2 x float> [ %36, %entry ], [ %98, %if.then ]
   %104 = phi <2 x float> [ %51, %entry ], [ %101, %if.then ]
-  %m_ay = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 29
+  %m_ay = getelementptr inbounds i8, ptr %this, i64 260
   %105 = fsub <2 x float> %103, %102
   %sub.i149 = extractelement <2 x float> %105, i64 0
   %106 = fsub <2 x float> %103, %102
-  %m_sBy = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 33
+  %m_sBy = getelementptr inbounds i8, ptr %this, i64 280
   %107 = load float, ptr %m_sBy, align 8
-  %m_sAy = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 32
+  %m_sAy = getelementptr inbounds i8, ptr %this, i64 276
   %108 = load float, ptr %m_sAy, align 4
   %neg137 = fneg float %108
-  %m_mass = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 34
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 284
   %109 = load float, ptr %m_mass, align 4
   %fneg139 = fneg float %109
-  %m_impulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 5
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
   %110 = load float, ptr %m_impulse, align 8
   %111 = load <2 x float>, ptr %m_ay, align 4
   %112 = fmul <2 x float> %106, %111
@@ -812,23 +798,23 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN12b2WheelJoint24SolvePositionConstraintsERK12b2SolverData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
-  %positions = getelementptr inbounds %struct.b2SolverData, ptr %data, i64 0, i32 1
+  %positions = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load ptr, ptr %positions, align 8
-  %m_indexA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 20
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 212
   %1 = load i32, ptr %m_indexA, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom
   %2 = load <2 x float>, ptr %arrayidx, align 4
   %a = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom, i32 1
   %3 = load float, ptr %a, align 4
-  %m_indexB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 21
+  %m_indexB = getelementptr inbounds i8, ptr %this, i64 216
   %4 = load i32, ptr %m_indexB, align 8
   %idxprom7 = sext i32 %4 to i64
   %arrayidx8 = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom7
   %5 = load <2 x float>, ptr %arrayidx8, align 4
   %a14 = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom7, i32 1
   %6 = load float, ptr %a14, align 4
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load i8, ptr %m_enableLimit, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -839,14 +825,14 @@ if.then:                                          ; preds = %entry
   %call2.i = tail call float @cosf(float noundef %3) #18
   %call.i37 = tail call float @sinf(float noundef %6) #18
   %call2.i38 = tail call float @cosf(float noundef %6) #18
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %m_localCenterA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 22
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_localCenterA = getelementptr inbounds i8, ptr %this, i64 220
   %9 = load float, ptr %m_localAnchorA, align 8
   %10 = load float, ptr %m_localCenterA, align 4
   %sub.i = fsub float %9, %10
-  %y.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 132
   %11 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 22, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %this, i64 224
   %12 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %11, %12
   %13 = fneg float %call.i
@@ -854,14 +840,14 @@ if.then:                                          ; preds = %entry
   %14 = tail call float @llvm.fmuladd.f32(float %call2.i, float %sub.i, float %neg.i)
   %mul6.i = fmul float %call2.i, %sub3.i
   %15 = tail call float @llvm.fmuladd.f32(float %call.i, float %sub.i, float %mul6.i)
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %m_localCenterB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 23
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_localCenterB = getelementptr inbounds i8, ptr %this, i64 228
   %16 = load float, ptr %m_localAnchorB, align 8
   %17 = load float, ptr %m_localCenterB, align 4
   %sub.i44 = fsub float %16, %17
-  %y.i45 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y.i45 = getelementptr inbounds i8, ptr %this, i64 140
   %18 = load float, ptr %y.i45, align 4
-  %y2.i46 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 23, i32 1
+  %y2.i46 = getelementptr inbounds i8, ptr %this, i64 232
   %19 = load float, ptr %y2.i46, align 8
   %sub3.i47 = fsub float %18, %19
   %20 = fneg float %call.i37
@@ -877,9 +863,9 @@ if.then:                                          ; preds = %entry
   %add3.i = fadd float %sub3.i59, %22
   %sub.i66 = fsub float %add.i, %14
   %sub3.i69 = fsub float %add3.i, %15
-  %m_localXAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
+  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
   %25 = load <4 x float>, ptr %m_localXAxisA, align 8
-  %y.i73 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3, i32 1
+  %y.i73 = getelementptr inbounds i8, ptr %this, i64 148
   %26 = load <4 x float>, ptr %y.i73, align 4
   %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> zeroinitializer
   %28 = insertelement <2 x float> poison, float %13, i64 0
@@ -891,8 +877,8 @@ if.then:                                          ; preds = %entry
   %34 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %33, <2 x float> %30)
   %add.i78 = fadd float %14, %sub.i66
   %add3.i81 = fadd float %15, %sub3.i69
-  %m_ax = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 28
-  %y.i84 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 28, i32 1
+  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
+  %y.i84 = getelementptr inbounds i8, ptr %this, i64 256
   %35 = load float, ptr %y.i84, align 8
   %36 = load float, ptr %m_ax, align 4
   %37 = fneg float %add3.i81
@@ -905,9 +891,9 @@ if.then:                                          ; preds = %entry
   %mul3.i = fmul float %41, %sub3.i69
   %42 = extractelement <2 x float> %34, i64 0
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %sub.i66, float %mul3.i)
-  %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 12
+  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %44 = load float, ptr %m_upperTranslation, align 4
-  %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 11
+  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   %45 = load float, ptr %m_lowerTranslation, align 8
   %sub = fsub float %44, %45
   %cmp.i = fcmp ogt float %sub, 0.000000e+00
@@ -938,16 +924,16 @@ if.end47:                                         ; preds = %if.else39, %if.then
   br i1 %cmp48, label %if.then49, label %if.end71
 
 if.then49:                                        ; preds = %if.end47
-  %m_invMassA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 24
+  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
   %46 = load <2 x float>, ptr %m_invMassA, align 4
   %shift = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %47 = fadd <2 x float> %46, %shift
   %add = extractelement <2 x float> %47, i64 0
-  %m_invIA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 26
+  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   %48 = load float, ptr %m_invIA, align 4
   %mul = fmul float %38, %48
   %49 = tail call float @llvm.fmuladd.f32(float %mul, float %38, float %add)
-  %m_invIB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 27
+  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   %50 = load float, ptr %m_invIB, align 8
   %mul51 = fmul float %40, %50
   %51 = tail call float @llvm.fmuladd.f32(float %mul51, float %40, float %49)
@@ -983,14 +969,14 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %call2.i117 = tail call float @cosf(float noundef %aA.0) #18
   %call.i119 = tail call float @sinf(float noundef %aB.0) #18
   %call2.i120 = tail call float @cosf(float noundef %aB.0) #18
-  %m_localAnchorA76 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %m_localCenterA77 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 22
+  %m_localAnchorA76 = getelementptr inbounds i8, ptr %this, i64 128
+  %m_localCenterA77 = getelementptr inbounds i8, ptr %this, i64 220
   %65 = load float, ptr %m_localAnchorA76, align 8
   %66 = load float, ptr %m_localCenterA77, align 4
   %sub.i122 = fsub float %65, %66
-  %y.i123 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y.i123 = getelementptr inbounds i8, ptr %this, i64 132
   %67 = load float, ptr %y.i123, align 4
-  %y2.i124 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 22, i32 1
+  %y2.i124 = getelementptr inbounds i8, ptr %this, i64 224
   %68 = load float, ptr %y2.i124, align 8
   %sub3.i125 = fsub float %67, %68
   %69 = fneg float %call.i116
@@ -998,14 +984,14 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %70 = tail call float @llvm.fmuladd.f32(float %call2.i117, float %sub.i122, float %neg.i130)
   %mul6.i131 = fmul float %call2.i117, %sub3.i125
   %71 = tail call float @llvm.fmuladd.f32(float %call.i116, float %sub.i122, float %mul6.i131)
-  %m_localAnchorB82 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %m_localCenterB83 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 23
+  %m_localAnchorB82 = getelementptr inbounds i8, ptr %this, i64 136
+  %m_localCenterB83 = getelementptr inbounds i8, ptr %this, i64 228
   %72 = load float, ptr %m_localAnchorB82, align 8
   %73 = load float, ptr %m_localCenterB83, align 4
   %sub.i134 = fsub float %72, %73
-  %y.i135 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y.i135 = getelementptr inbounds i8, ptr %this, i64 140
   %74 = load float, ptr %y.i135, align 4
-  %y2.i136 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 23, i32 1
+  %y2.i136 = getelementptr inbounds i8, ptr %this, i64 232
   %75 = load float, ptr %y2.i136, align 8
   %sub3.i137 = fsub float %74, %75
   %76 = fneg float %call.i119
@@ -1021,28 +1007,28 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %add3.i155 = fadd float %sub3.i149, %78
   %sub.i158 = fsub float %add.i152, %70
   %sub3.i161 = fsub float %add3.i155, %71
-  %m_localYAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4
+  %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
   %81 = load <4 x float>, ptr %m_localYAxisA, align 8
-  %y.i165 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4, i32 1
+  %y.i165 = getelementptr inbounds i8, ptr %this, i64 156
   %82 = load <4 x float>, ptr %y.i165, align 4
   %add.i170 = fadd float %70, %sub.i158
   %add3.i173 = fadd float %71, %sub3.i161
   %83 = fneg float %add3.i173
   %84 = fneg float %78
-  %m_invMassA100 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 24
+  %m_invMassA100 = getelementptr inbounds i8, ptr %this, i64 236
   %85 = load <2 x float>, ptr %m_invMassA100, align 4
   %shift282 = shufflevector <2 x float> %85, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %86 = fadd <2 x float> %85, %shift282
   %add102 = extractelement <2 x float> %86, i64 0
-  %m_invIA103 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 26
+  %m_invIA103 = getelementptr inbounds i8, ptr %this, i64 244
   %87 = load float, ptr %m_invIA103, align 4
-  %m_sAy = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 32
+  %m_sAy = getelementptr inbounds i8, ptr %this, i64 276
   %88 = load float, ptr %m_sAy, align 4
   %mul104 = fmul float %87, %88
   %89 = tail call float @llvm.fmuladd.f32(float %mul104, float %88, float %add102)
-  %m_invIB107 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 27
+  %m_invIB107 = getelementptr inbounds i8, ptr %this, i64 248
   %90 = load float, ptr %m_invIB107, align 8
-  %m_sBy = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 33
+  %m_sBy = getelementptr inbounds i8, ptr %this, i64 280
   %91 = load float, ptr %m_sBy, align 8
   %mul108 = fmul float %90, %91
   %92 = tail call float @llvm.fmuladd.f32(float %mul108, float %91, float %89)
@@ -1111,13 +1097,13 @@ if.end71:                                         ; preds = %if.else39, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define <2 x float> @_ZNK12b2WheelJoint10GetAnchorAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load <4 x float>, ptr %m_localAnchorA, align 8
-  %y.i.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load <4 x float>, ptr %y.i.i, align 4
   %3 = load <2 x float>, ptr %q.i.i, align 4
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -1136,13 +1122,13 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define <2 x float> @_ZNK12b2WheelJoint10GetAnchorBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load <4 x float>, ptr %m_localAnchorB, align 8
-  %y.i.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 140
   %2 = load <4 x float>, ptr %y.i.i, align 4
   %3 = load <2 x float>, ptr %q.i.i, align 4
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -1161,18 +1147,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK12b2WheelJoint16GetReactionForceEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %inv_dt) unnamed_addr #7 align 2 {
 entry:
-  %m_impulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 5
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load <4 x float>, ptr %m_impulse, align 8
-  %m_ay = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 29
-  %m_springImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 7
+  %m_ay = getelementptr inbounds i8, ptr %this, i64 260
+  %m_springImpulse = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load float, ptr %m_springImpulse, align 8
-  %m_lowerImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 8
+  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
   %2 = load float, ptr %m_lowerImpulse, align 4
   %add = fadd float %1, %2
-  %m_upperImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 9
+  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load float, ptr %m_upperImpulse, align 8
   %sub = fsub float %add, %3
-  %m_ax = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 28
+  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
   %4 = load <2 x float>, ptr %m_ay, align 4
   %5 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
   %6 = fmul <2 x float> %5, %4
@@ -1190,7 +1176,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint17GetReactionTorqueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %inv_dt) unnamed_addr #8 align 2 {
 entry:
-  %m_motorImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 6
+  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
   %0 = load float, ptr %m_motorImpulse, align 4
   %mul = fmul float %0, %inv_dt
   ret float %mul
@@ -1199,31 +1185,31 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint19GetJointTranslationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %q.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
-  %c.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1, i32 1
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
+  %c.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load float, ptr %c.i.i, align 4
   %3 = load float, ptr %m_localAnchorA, align 8
   %4 = load float, ptr %q.i.i, align 4
-  %y.i.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %5 = load float, ptr %y.i.i, align 4
   %6 = load float, ptr %m_xf.i, align 4
-  %y14.i.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 0, i32 1
+  %y14.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load float, ptr %y14.i.i, align 4
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %m_xf.i2 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3
-  %q.i.i3 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3, i32 1
-  %c.i.i4 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3, i32 1, i32 1
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_xf.i2 = getelementptr inbounds i8, ptr %1, i64 12
+  %q.i.i3 = getelementptr inbounds i8, ptr %1, i64 20
+  %c.i.i4 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load float, ptr %c.i.i4, align 4
   %9 = load <4 x float>, ptr %m_localAnchorB, align 8
   %10 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %11 = load float, ptr %q.i.i3, align 4
-  %y.i.i5 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y.i.i5 = getelementptr inbounds i8, ptr %this, i64 140
   %12 = load <4 x float>, ptr %y.i.i5, align 4
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %14 = load float, ptr %m_xf.i2, align 4
@@ -1239,7 +1225,7 @@ entry:
   %24 = insertelement <2 x float> poison, float %14, i64 0
   %25 = insertelement <2 x float> %24, float %6, i64 1
   %26 = fadd <2 x float> %25, %23
-  %y14.i.i9 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3, i32 0, i32 1
+  %y14.i.i9 = getelementptr inbounds i8, ptr %1, i64 16
   %27 = load float, ptr %y14.i.i9, align 4
   %28 = fmul <2 x float> %21, %18
   %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> %22, <2 x float> %28)
@@ -1252,9 +1238,9 @@ entry:
   %shift20 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %34 = fsub <2 x float> %32, %shift20
   %sub3.i = extractelement <2 x float> %34, i64 0
-  %m_localXAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
+  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
   %35 = load float, ptr %m_localXAxisA, align 8
-  %y.i.i14 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3, i32 1
+  %y.i.i14 = getelementptr inbounds i8, ptr %this, i64 148
   %36 = load float, ptr %y.i.i14, align 4
   %37 = extractelement <2 x float> %17, i64 1
   %neg.i.i15 = fmul float %36, %37
@@ -1269,41 +1255,41 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint19GetJointLinearSpeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %q = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4
+  %q = getelementptr inbounds i8, ptr %0, i64 20
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_sweep = getelementptr inbounds i8, ptr %0, i64 28
   %2 = load float, ptr %m_localAnchorA, align 8
   %3 = load float, ptr %m_sweep, align 4
-  %y.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4, i32 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load float, ptr %y2.i, align 4
-  %c.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1, i32 1
+  %c.i = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load float, ptr %c.i, align 4
   %7 = load float, ptr %q, align 4
-  %q4 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3, i32 1
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %m_sweep6 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 4
+  %q4 = getelementptr inbounds i8, ptr %1, i64 20
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_sweep6 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = load <4 x float>, ptr %m_localAnchorB, align 8
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %10 = load float, ptr %m_sweep6, align 4
-  %y.i15 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y.i15 = getelementptr inbounds i8, ptr %this, i64 140
   %11 = load <4 x float>, ptr %y.i15, align 4
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y2.i16 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 4, i32 0, i32 1
+  %y2.i16 = getelementptr inbounds i8, ptr %1, i64 32
   %13 = load float, ptr %y2.i16, align 4
-  %c.i20 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3, i32 1, i32 1
+  %c.i20 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load float, ptr %c.i20, align 4
   %15 = load float, ptr %q4, align 4
-  %c = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4, i32 2
+  %c = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load float, ptr %c, align 4
-  %y.i26 = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4, i32 2, i32 1
+  %y.i26 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load float, ptr %y.i26, align 4
-  %c13 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 4, i32 2
+  %c13 = getelementptr inbounds i8, ptr %1, i64 44
   %18 = load float, ptr %c13, align 4
   %19 = insertelement <2 x float> %12, float %4, i64 1
   %20 = insertelement <2 x float> poison, float %13, i64 0
@@ -1323,7 +1309,7 @@ entry:
   %34 = insertelement <2 x float> poison, float %18, i64 0
   %35 = insertelement <2 x float> %34, float %16, i64 1
   %36 = fadd <2 x float> %33, %35
-  %y.i31 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 4, i32 2, i32 1
+  %y.i31 = getelementptr inbounds i8, ptr %1, i64 48
   %37 = load float, ptr %y.i31, align 4
   %38 = fmul <2 x float> %32, %22
   %39 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %28, <2 x float> %26, <2 x float> %38)
@@ -1336,26 +1322,26 @@ entry:
   %shift98 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %44 = fsub <2 x float> %42, %shift98
   %sub3.i39 = extractelement <2 x float> %44, i64 0
-  %m_localXAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
+  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
   %45 = load float, ptr %m_localXAxisA, align 8
-  %y.i43 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3, i32 1
+  %y.i43 = getelementptr inbounds i8, ptr %this, i64 148
   %46 = load float, ptr %y.i43, align 4
   %47 = extractelement <2 x float> %29, i64 1
   %neg.i44 = fmul float %46, %47
   %48 = tail call float @llvm.fmuladd.f32(float %6, float %45, float %neg.i44)
   %mul6.i45 = fmul float %6, %46
   %49 = tail call float @llvm.fmuladd.f32(float %7, float %45, float %mul6.i45)
-  %m_linearVelocity = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 5
+  %m_linearVelocity = getelementptr inbounds i8, ptr %0, i64 64
   %50 = load float, ptr %m_linearVelocity, align 8
-  %m_linearVelocity.sroa_idx = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 5, i32 1
+  %m_linearVelocity.sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
   %51 = load float, ptr %m_linearVelocity.sroa_idx, align 4
-  %m_linearVelocity19 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 5
+  %m_linearVelocity19 = getelementptr inbounds i8, ptr %1, i64 64
   %52 = load float, ptr %m_linearVelocity19, align 8
-  %m_linearVelocity19.sroa_idx = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 5, i32 1
+  %m_linearVelocity19.sroa_idx = getelementptr inbounds i8, ptr %1, i64 68
   %53 = load float, ptr %m_linearVelocity19.sroa_idx, align 4
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 6
+  %m_angularVelocity = getelementptr inbounds i8, ptr %0, i64 72
   %54 = load float, ptr %m_angularVelocity, align 8
-  %m_angularVelocity20 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 6
+  %m_angularVelocity20 = getelementptr inbounds i8, ptr %1, i64 72
   %55 = load float, ptr %m_angularVelocity20, align 8
   %fneg.i = fneg float %54
   %mul.i = fmul float %49, %fneg.i
@@ -1385,13 +1371,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint13GetJointAngleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %a = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 4, i32 4
+  %a = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load float, ptr %a, align 4
-  %a3 = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 4, i32 4
+  %a3 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load float, ptr %a3, align 4
   %sub = fsub float %2, %3
   ret float %sub
@@ -1400,13 +1386,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint20GetJointAngularSpeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_angularVelocity = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 6
+  %m_angularVelocity = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load float, ptr %m_angularVelocity, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_angularVelocity2 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 6
+  %m_angularVelocity2 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load float, ptr %m_angularVelocity2, align 8
   %sub = fsub float %3, %1
   ret float %sub
@@ -1415,7 +1401,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK12b2WheelJoint14IsLimitEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i8, ptr %m_enableLimit, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1425,7 +1411,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint11EnableLimitEb(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext %flag) local_unnamed_addr #10 align 2 {
 entry:
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i8, ptr %m_enableLimit, align 8
   %1 = and i8 %0, 1
   %2 = icmp eq i8 %1, 0
@@ -1434,32 +1420,32 @@ entry:
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %flag to i8
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %3 = load ptr, ptr %m_bodyA, align 8
   %4 = load i32, ptr %3, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %3, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds %class.b2Body, ptr %3, i64 0, i32 23
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %3, i64 172
   %6 = or i16 %5, 2
   store i16 %6, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load ptr, ptr %m_bodyB, align 8
   %8 = load i32, ptr %7, align 8
   %cmp.i2 = icmp eq i32 %8, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds %class.b2Body, ptr %7, i64 0, i32 1
+  %m_flags.i4 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds %class.b2Body, ptr %7, i64 0, i32 23
+  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %7, i64 172
   %10 = or i16 %9, 2
   store i16 %10, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1467,7 +1453,7 @@ if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwake
 
 _ZN6b2Body8SetAwakeEb.exit6:                      ; preds = %_ZN6b2Body8SetAwakeEb.exit, %if.end.i3
   store i8 %frombool, ptr %m_enableLimit, align 8
-  %m_lowerImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 8
+  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
   store <2 x float> zeroinitializer, ptr %m_lowerImpulse, align 4
   br label %if.end
 
@@ -1478,7 +1464,7 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint13GetLowerLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 11
+  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load float, ptr %m_lowerTranslation, align 8
   ret float %0
 }
@@ -1486,7 +1472,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint13GetUpperLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 12
+  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %0 = load float, ptr %m_upperTranslation, align 4
   ret float %0
 }
@@ -1494,42 +1480,42 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint9SetLimitsEff(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, float noundef %lower, float noundef %upper) local_unnamed_addr #10 align 2 {
 entry:
-  %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 11
+  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load float, ptr %m_lowerTranslation, align 8
   %cmp = fcmp une float %0, %lower
-  %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 12
+  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %1 = load float, ptr %m_upperTranslation, align 4
   %cmp2 = fcmp une float %1, %upper
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %m_bodyA, align 8
   %3 = load i32, ptr %2, align 8
   %cmp.i = icmp eq i32 %3, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 23
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %2, i64 172
   %5 = or i16 %4, 2
   store i16 %5, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %m_bodyB, align 8
   %7 = load i32, ptr %6, align 8
   %cmp.i3 = icmp eq i32 %7, 0
   br i1 %cmp.i3, label %_ZN6b2Body8SetAwakeEb.exit7, label %if.end.i4
 
 if.end.i4:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i5 = getelementptr inbounds %class.b2Body, ptr %6, i64 0, i32 1
+  %m_flags.i5 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i16, ptr %m_flags.i5, align 4
-  %m_sleepTime.i6 = getelementptr inbounds %class.b2Body, ptr %6, i64 0, i32 23
+  %m_sleepTime.i6 = getelementptr inbounds i8, ptr %6, i64 172
   %9 = or i16 %8, 2
   store i16 %9, ptr %m_flags.i5, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i6, align 4
@@ -1538,7 +1524,7 @@ if.end.i4:                                        ; preds = %_ZN6b2Body8SetAwake
 _ZN6b2Body8SetAwakeEb.exit7:                      ; preds = %_ZN6b2Body8SetAwakeEb.exit, %if.end.i4
   store float %lower, ptr %m_lowerTranslation, align 8
   store float %upper, ptr %m_upperTranslation, align 4
-  %m_lowerImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 8
+  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
   store <2 x float> zeroinitializer, ptr %m_lowerImpulse, align 4
   br label %if.end
 
@@ -1549,7 +1535,7 @@ if.end:                                           ; preds = %entry, %_ZN6b2Body8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK12b2WheelJoint14IsMotorEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_enableMotor = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 16
+  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
   %0 = load i8, ptr %m_enableMotor, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1559,7 +1545,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint11EnableMotorEb(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext %flag) local_unnamed_addr #10 align 2 {
 entry:
-  %m_enableMotor = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 16
+  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
   %0 = load i8, ptr %m_enableMotor, align 1
   %1 = and i8 %0, 1
   %2 = icmp eq i8 %1, 0
@@ -1568,32 +1554,32 @@ entry:
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %flag to i8
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %3 = load ptr, ptr %m_bodyA, align 8
   %4 = load i32, ptr %3, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %3, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds %class.b2Body, ptr %3, i64 0, i32 23
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %3, i64 172
   %6 = or i16 %5, 2
   store i16 %6, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load ptr, ptr %m_bodyB, align 8
   %8 = load i32, ptr %7, align 8
   %cmp.i2 = icmp eq i32 %8, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds %class.b2Body, ptr %7, i64 0, i32 1
+  %m_flags.i4 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds %class.b2Body, ptr %7, i64 0, i32 23
+  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %7, i64 172
   %10 = or i16 %9, 2
   store i16 %10, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1610,38 +1596,38 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint13SetMotorSpeedEf(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, float noundef %speed) local_unnamed_addr #10 align 2 {
 entry:
-  %m_motorSpeed = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 14
+  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load float, ptr %m_motorSpeed, align 4
   %cmp = fcmp une float %0, %speed
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %m_bodyA, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 23
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %1, i64 172
   %4 = or i16 %3, 2
   store i16 %4, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load ptr, ptr %m_bodyB, align 8
   %6 = load i32, ptr %5, align 8
   %cmp.i2 = icmp eq i32 %6, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds %class.b2Body, ptr %5, i64 0, i32 1
+  %m_flags.i4 = getelementptr inbounds i8, ptr %5, i64 4
   %7 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds %class.b2Body, ptr %5, i64 0, i32 23
+  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %5, i64 172
   %8 = or i16 %7, 2
   store i16 %8, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1658,38 +1644,38 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint17SetMaxMotorTorqueEf(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, float noundef %torque) local_unnamed_addr #10 align 2 {
 entry:
-  %m_maxMotorTorque = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 13
+  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load float, ptr %m_maxMotorTorque, align 8
   %cmp = fcmp une float %0, %torque
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %m_bodyA, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 23
+  %m_sleepTime.i = getelementptr inbounds i8, ptr %1, i64 172
   %4 = or i16 %3, 2
   store i16 %4, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load ptr, ptr %m_bodyB, align 8
   %6 = load i32, ptr %5, align 8
   %cmp.i2 = icmp eq i32 %6, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds %class.b2Body, ptr %5, i64 0, i32 1
+  %m_flags.i4 = getelementptr inbounds i8, ptr %5, i64 4
   %7 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds %class.b2Body, ptr %5, i64 0, i32 23
+  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %5, i64 172
   %8 = or i16 %7, 2
   store i16 %8, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1706,7 +1692,7 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint14GetMotorTorqueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %inv_dt) local_unnamed_addr #8 align 2 {
 entry:
-  %m_motorImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 6
+  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
   %0 = load float, ptr %m_motorImpulse, align 4
   %mul = fmul float %0, %inv_dt
   ret float %mul
@@ -1715,7 +1701,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12b2WheelJoint12SetStiffnessEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) %this, float noundef %stiffness) local_unnamed_addr #11 align 2 {
 entry:
-  %m_stiffness = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 18
+  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
   store float %stiffness, ptr %m_stiffness, align 4
   ret void
 }
@@ -1723,7 +1709,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint12GetStiffnessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_stiffness = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 18
+  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
   %0 = load float, ptr %m_stiffness, align 4
   ret float %0
 }
@@ -1731,7 +1717,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12b2WheelJoint10SetDampingEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) %this, float noundef %damping) local_unnamed_addr #11 align 2 {
 entry:
-  %m_damping = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 19
+  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
   store float %damping, ptr %m_damping, align 8
   ret void
 }
@@ -1739,7 +1725,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint10GetDampingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_damping = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 19
+  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load float, ptr %m_damping, align 8
   ret float %0
 }
@@ -1747,65 +1733,65 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2WheelJoint4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #12 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_islandIndex = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 2
+  %m_islandIndex = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %m_islandIndex, align 8
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_islandIndex2 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 2
+  %m_islandIndex2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %m_islandIndex2, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.1, i32 noundef %1)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.2, i32 noundef %3)
-  %m_collideConnected = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 10
+  %m_collideConnected = getelementptr inbounds i8, ptr %this, i64 117
   %4 = load i8, ptr %m_collideConnected, align 1
   %5 = and i8 %4, 1
   %conv = zext nneg i8 %5 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.3, i32 noundef %conv)
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
   %6 = load float, ptr %m_localAnchorA, align 8
   %conv3 = fpext float %6 to double
-  %y = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 132
   %7 = load float, ptr %y, align 4
   %conv5 = fpext float %7 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.4, double noundef %conv3, double noundef %conv5)
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
   %8 = load float, ptr %m_localAnchorB, align 8
   %conv7 = fpext float %8 to double
-  %y9 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y9 = getelementptr inbounds i8, ptr %this, i64 140
   %9 = load float, ptr %y9, align 4
   %conv10 = fpext float %9 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.5, double noundef %conv7, double noundef %conv10)
-  %m_localXAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
+  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
   %10 = load float, ptr %m_localXAxisA, align 8
   %conv12 = fpext float %10 to double
-  %y14 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3, i32 1
+  %y14 = getelementptr inbounds i8, ptr %this, i64 148
   %11 = load float, ptr %y14, align 4
   %conv15 = fpext float %11 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.6, double noundef %conv12, double noundef %conv15)
-  %m_enableMotor = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 16
+  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
   %12 = load i8, ptr %m_enableMotor, align 1
   %13 = and i8 %12, 1
   %conv17 = zext nneg i8 %13 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.7, i32 noundef %conv17)
-  %m_motorSpeed = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 14
+  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
   %14 = load float, ptr %m_motorSpeed, align 4
   %conv18 = fpext float %14 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.8, double noundef %conv18)
-  %m_maxMotorTorque = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 13
+  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
   %15 = load float, ptr %m_maxMotorTorque, align 8
   %conv19 = fpext float %15 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.9, double noundef %conv19)
-  %m_stiffness = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 18
+  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
   %16 = load float, ptr %m_stiffness, align 4
   %conv20 = fpext float %16 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.10, double noundef %conv20)
-  %m_damping = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 19
+  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
   %17 = load float, ptr %m_damping, align 8
   %conv21 = fpext float %17 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.11, double noundef %conv21)
-  %m_index = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 8
+  %m_index = getelementptr inbounds i8, ptr %this, i64 112
   %18 = load i32, ptr %m_index, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.12, i32 noundef %18)
   ret void
@@ -1831,21 +1817,21 @@ entry:
   %ref.tmp29 = alloca %struct.b2Vec2, align 8
   %ref.tmp35 = alloca %struct.b2Vec2, align 8
   %ref.tmp39 = alloca %struct.b2Vec2, align 8
-  %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 6
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_xf.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3
-  %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this, i64 0, i32 7
+  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %m_xf.i9 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3
-  %m_localAnchorA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1
-  %q.i = getelementptr inbounds %class.b2Body, ptr %0, i64 0, i32 3, i32 1
+  %m_xf.i9 = getelementptr inbounds i8, ptr %1, i64 12
+  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %q.i = getelementptr inbounds i8, ptr %0, i64 20
   %2 = load <4 x float>, ptr %m_localAnchorA, align 8
-  %y.i = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load <4 x float>, ptr %y.i, align 4
-  %m_localAnchorB = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2
-  %q.i10 = getelementptr inbounds %class.b2Body, ptr %1, i64 0, i32 3, i32 1
+  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %q.i10 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load <4 x float>, ptr %m_localAnchorB, align 8
-  %y.i12 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 2, i32 1
+  %y.i12 = getelementptr inbounds i8, ptr %this, i64 140
   %5 = load <4 x float>, ptr %y.i12, align 4
   %6 = load <2 x float>, ptr %q.i10, align 4
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -1859,9 +1845,9 @@ entry:
   %15 = load <2 x float>, ptr %m_xf.i9, align 4
   %16 = fadd <2 x float> %15, %14
   store <2 x float> %16, ptr %pB, align 8
-  %m_localXAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3
+  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
   %17 = load <4 x float>, ptr %m_localXAxisA, align 8
-  %y.i21 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 3, i32 1
+  %y.i21 = getelementptr inbounds i8, ptr %this, i64 148
   %18 = load <4 x float>, ptr %y.i21, align 4
   %19 = load <2 x float>, ptr %q.i, align 4
   %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -1887,35 +1873,35 @@ entry:
   store <4 x float> <float 0x3FD3333340000000, float 0x3FD3333340000000, float 0x3FECCCCCC0000000, float 1.000000e+00>, ptr %c4, align 16
   store <4 x float> <float 0x3FD99999A0000000, float 0x3FD99999A0000000, float 0x3FD99999A0000000, float 1.000000e+00>, ptr %c5, align 16
   %vtable = load ptr, ptr %draw, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %36 = load ptr, ptr %vfn, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, ptr noundef nonnull align 4 dereferenceable(8) %pB, ptr noundef nonnull align 4 dereferenceable(16) %c5)
-  %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 15
+  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %37 = load i8, ptr %m_enableLimit, align 8
   %38 = and i8 %37, 1
   %tobool.not = icmp eq i8 %38, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 11
+  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   %39 = load <4 x float>, ptr %m_lowerTranslation, align 8
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <2 x i32> zeroinitializer
   %41 = fmul <2 x float> %35, %40
   %42 = load <2 x float>, ptr %pA, align 8
   %43 = fadd <2 x float> %42, %41
   store <2 x float> %43, ptr %lower, align 8
-  %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 12
+  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %44 = load <4 x float>, ptr %m_upperTranslation, align 4
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <2 x i32> zeroinitializer
   %46 = fmul <2 x float> %35, %45
   %47 = fadd <2 x float> %42, %46
   store <2 x float> %47, ptr %upper, align 8
-  %m_localYAxisA = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4
+  %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
   %48 = load <4 x float>, ptr %m_localYAxisA, align 8
-  %y.i56 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4, i32 1
+  %y.i56 = getelementptr inbounds i8, ptr %this, i64 156
   %49 = load <4 x float>, ptr %y.i56, align 4
   %vtable13 = load ptr, ptr %draw, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 6
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
   %50 = load ptr, ptr %vfn14, align 8
   %51 = load <2 x float>, ptr %q.i, align 4
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -1934,7 +1920,7 @@ if.then:                                          ; preds = %entry
   %63 = fadd <2 x float> %60, %61
   store <2 x float> %63, ptr %ref.tmp19, align 8
   %vtable23 = load ptr, ptr %draw, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 6
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 48
   %64 = load ptr, ptr %vfn24, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(16) %c2)
   %65 = load <2 x float>, ptr %upper, align 8
@@ -1943,7 +1929,7 @@ if.then:                                          ; preds = %entry
   %67 = fadd <2 x float> %60, %65
   store <2 x float> %67, ptr %ref.tmp29, align 8
   %vtable33 = load ptr, ptr %draw, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 6
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 48
   %68 = load ptr, ptr %vfn34, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(16) %c3)
   br label %if.end
@@ -1955,18 +1941,18 @@ if.else:                                          ; preds = %entry
   %71 = fadd <2 x float> %35, %69
   store <2 x float> %71, ptr %ref.tmp39, align 8
   %vtable43 = load ptr, ptr %draw, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 6
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 48
   %72 = load ptr, ptr %vfn44, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp39, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %vtable45 = load ptr, ptr %draw, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 8
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 64
   %73 = load ptr, ptr %vfn46, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   %vtable47 = load ptr, ptr %draw, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 8
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 64
   %74 = load ptr, ptr %vfn48, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pB, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c4)
   ret void

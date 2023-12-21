@@ -5,23 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.IOThreadParamInfo = type { ptr, i64 }
-%struct.IOThread = type { %struct.EventLoopBase, %struct.QemuThread, ptr, i8, ptr, ptr, %struct.QemuSemaphore, i8, i8, i32, i64, i64, i64 }
-%struct.EventLoopBase = type { %struct.Object, i64, i64, i64 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuThread = type { i64 }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.IOThreadInfo = type { ptr, i64, i64, i64, i64, i64 }
-%struct.IOThreadInfoList = type { ptr, ptr }
-%struct.EventLoopBaseClass = type { %struct.ObjectClass, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"iothread_stop_bh\00", align 1
@@ -53,13 +36,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @iothread_stop(ptr noundef %iothread) local_unnamed_addr #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %iothread, i64 72
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %stopping = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 7
+  %stopping = getelementptr inbounds i8, ptr %iothread, i64 216
   %1 = load i8, ptr %stopping, align 8
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
@@ -68,7 +51,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   store i8 1, ptr %stopping, align 8
   tail call void @aio_bh_schedule_oneshot_full(ptr noundef nonnull %0, ptr noundef nonnull @iothread_stop_bh, ptr noundef nonnull %iothread, ptr noundef nonnull @.str) #6
-  %thread = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 1
+  %thread = getelementptr inbounds i8, ptr %iothread, i64 64
   %call = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread) #6
   br label %return
 
@@ -81,9 +64,9 @@ declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @iothread_stop_bh(ptr nocapture noundef %opaque) #0 {
 entry:
-  %running = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 8
+  %running = getelementptr inbounds i8, ptr %opaque, i64 217
   store i8 0, ptr %running, align 1
-  %main_loop = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 5
+  %main_loop = getelementptr inbounds i8, ptr %opaque, i64 96
   %0 = load ptr, ptr %main_loop, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -129,7 +112,7 @@ declare ptr @object_get_canonical_path_component(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @iothread_get_aio_context(ptr nocapture noundef readonly %iothread) local_unnamed_addr #2 {
 entry:
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %iothread, i64 72
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
 }
@@ -163,33 +146,33 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @object_get_canonical_path_component(ptr noundef nonnull %call) #6
   %call1.i = tail call noalias ptr @g_strdup(ptr noundef %call.i) #6
   store ptr %call1.i, ptr %call1, align 8
-  %thread_id = getelementptr inbounds %struct.IOThread, ptr %call, i64 0, i32 9
+  %thread_id = getelementptr inbounds i8, ptr %call, i64 220
   %0 = load i32, ptr %thread_id, align 4
   %conv = sext i32 %0 to i64
-  %thread_id3 = getelementptr inbounds %struct.IOThreadInfo, ptr %call1, i64 0, i32 1
+  %thread_id3 = getelementptr inbounds i8, ptr %call1, i64 8
   store i64 %conv, ptr %thread_id3, align 8
-  %poll_max_ns = getelementptr inbounds %struct.IOThread, ptr %call, i64 0, i32 10
+  %poll_max_ns = getelementptr inbounds i8, ptr %call, i64 224
   %1 = load i64, ptr %poll_max_ns, align 8
-  %poll_max_ns4 = getelementptr inbounds %struct.IOThreadInfo, ptr %call1, i64 0, i32 2
+  %poll_max_ns4 = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 %1, ptr %poll_max_ns4, align 8
-  %poll_grow = getelementptr inbounds %struct.IOThread, ptr %call, i64 0, i32 11
+  %poll_grow = getelementptr inbounds i8, ptr %call, i64 232
   %2 = load i64, ptr %poll_grow, align 8
-  %poll_grow5 = getelementptr inbounds %struct.IOThreadInfo, ptr %call1, i64 0, i32 3
+  %poll_grow5 = getelementptr inbounds i8, ptr %call1, i64 24
   store i64 %2, ptr %poll_grow5, align 8
-  %poll_shrink = getelementptr inbounds %struct.IOThread, ptr %call, i64 0, i32 12
+  %poll_shrink = getelementptr inbounds i8, ptr %call, i64 240
   %3 = load i64, ptr %poll_shrink, align 8
-  %poll_shrink6 = getelementptr inbounds %struct.IOThreadInfo, ptr %call1, i64 0, i32 4
+  %poll_shrink6 = getelementptr inbounds i8, ptr %call1, i64 32
   store i64 %3, ptr %poll_shrink6, align 8
-  %aio_max_batch = getelementptr inbounds %struct.EventLoopBase, ptr %call, i64 0, i32 1
+  %aio_max_batch = getelementptr inbounds i8, ptr %call, i64 40
   %4 = load i64, ptr %aio_max_batch, align 8
-  %aio_max_batch7 = getelementptr inbounds %struct.IOThreadInfo, ptr %call1, i64 0, i32 5
+  %aio_max_batch7 = getelementptr inbounds i8, ptr %call1, i64 40
   store i64 %4, ptr %aio_max_batch7, align 8
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #8
   %5 = load ptr, ptr %opaque, align 8
   store ptr %call8, ptr %5, align 8
   %6 = load ptr, ptr %opaque, align 8
   %7 = load ptr, ptr %6, align 8
-  %value = getelementptr inbounds %struct.IOThreadInfoList, ptr %7, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call1, ptr %value, align 8
   %8 = load ptr, ptr %opaque, align 8
   %9 = load ptr, ptr %8, align 8
@@ -203,12 +186,12 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @iothread_get_g_main_context(ptr nocapture noundef %iothread) local_unnamed_addr #0 {
 entry:
-  %run_gcontext = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 3
+  %run_gcontext = getelementptr inbounds i8, ptr %iothread, i64 80
   store atomic i8 1, ptr %run_gcontext monotonic, align 8
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %iothread, i64 72
   %0 = load ptr, ptr %ctx, align 8
   tail call void @aio_notify(ptr noundef %0) #6
-  %worker_context = getelementptr inbounds %struct.IOThread, ptr %iothread, i64 0, i32 4
+  %worker_context = getelementptr inbounds i8, ptr %iothread, i64 88
   %1 = load ptr, ptr %worker_context, align 8
   ret ptr %1
 }
@@ -268,13 +251,13 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @iothread_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
-  %poll_max_ns = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 10
+  %poll_max_ns = getelementptr inbounds i8, ptr %call.i, i64 224
   store i64 32768, ptr %poll_max_ns, align 8
-  %thread_id = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 9
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 220
   store i32 -1, ptr %thread_id, align 4
-  %init_done_sem = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 6
+  %init_done_sem = getelementptr inbounds i8, ptr %call.i, i64 104
   tail call void @qemu_sem_init(ptr noundef nonnull %init_done_sem, i32 noundef 0) #6
-  %run_gcontext = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 3
+  %run_gcontext = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i8 0, ptr %run_gcontext monotonic, align 8
   ret void
 }
@@ -283,13 +266,13 @@ entry:
 define internal void @iothread_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
-  %ctx.i = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 2
+  %ctx.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %stopping.i = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 7
+  %stopping.i = getelementptr inbounds i8, ptr %call.i, i64 216
   %1 = load i8, ptr %stopping.i, align 8
   %2 = and i8 %1, 1
   %tobool1.not.i = icmp eq i8 %2, 0
@@ -298,7 +281,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 iothread_stop.exit:                               ; preds = %lor.lhs.false.i
   store i8 1, ptr %stopping.i, align 8
   tail call void @aio_bh_schedule_oneshot_full(ptr noundef nonnull %0, ptr noundef nonnull @iothread_stop_bh, ptr noundef nonnull %call.i, ptr noundef nonnull @.str) #6
-  %thread.i = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 1
+  %thread.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %call.i11 = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread.i) #6
   %.pr.pre = load ptr, ptr %ctx.i, align 8
   %tobool.not = icmp eq ptr %.pr.pre, null
@@ -311,7 +294,7 @@ if.then:                                          ; preds = %lor.lhs.false.i, %i
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %iothread_stop.exit
-  %worker_context = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 4
+  %worker_context = getelementptr inbounds i8, ptr %call.i, i64 88
   %3 = load ptr, ptr %worker_context, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
@@ -319,14 +302,14 @@ if.end:                                           ; preds = %entry, %if.then, %i
 if.then4:                                         ; preds = %if.end
   tail call void @g_main_context_unref(ptr noundef nonnull %3) #6
   store ptr null, ptr %worker_context, align 8
-  %main_loop = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 5
+  %main_loop = getelementptr inbounds i8, ptr %call.i, i64 96
   %4 = load ptr, ptr %main_loop, align 8
   tail call void @g_main_loop_unref(ptr noundef %4) #6
   store ptr null, ptr %main_loop, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.end
-  %init_done_sem = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 6
+  %init_done_sem = getelementptr inbounds i8, ptr %call.i, i64 104
   tail call void @qemu_sem_destroy(ptr noundef nonnull %init_done_sem) #6
   ret void
 }
@@ -335,9 +318,9 @@ if.end8:                                          ; preds = %if.then4, %if.end
 define internal void @iothread_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE_CLASS) #6
-  %init = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call.i, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @iothread_init, ptr %init, align 8
-  %update_params = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call.i, i64 0, i32 2
+  %update_params = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @iothread_set_aio_context_params, ptr %update_params, align 8
   %call1 = tail call ptr @object_class_property_add(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @iothread_get_poll_param, ptr noundef nonnull @iothread_set_poll_param, ptr noundef null, ptr noundef nonnull @poll_max_ns_info) #6
   %call2 = tail call ptr @object_class_property_add(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, ptr noundef nonnull @iothread_get_poll_param, ptr noundef nonnull @iothread_set_poll_param, ptr noundef null, ptr noundef nonnull @poll_grow_info) #6
@@ -361,12 +344,12 @@ entry:
   %local_error = alloca ptr, align 8
   store ptr null, ptr %local_error, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %base, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
-  %stopping = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 7
+  %stopping = getelementptr inbounds i8, ptr %call.i, i64 216
   store i8 0, ptr %stopping, align 8
-  %running = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 8
+  %running = getelementptr inbounds i8, ptr %call.i, i64 217
   store i8 1, ptr %running, align 1
   %call1 = tail call ptr @aio_context_new(ptr noundef %errp) #6
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call1, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %cleanup, label %if.end
@@ -376,7 +359,7 @@ if.end:                                           ; preds = %entry
   %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.9, ptr noundef %call3) #6
   %call.i14 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %call4) #6
   %call1.i = tail call ptr @g_main_context_new() #6
-  %worker_context.i = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 4
+  %worker_context.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %call1.i, ptr %worker_context.i, align 8
   %0 = load ptr, ptr %ctx, align 8
   %call3.i = tail call ptr @aio_get_g_source(ptr noundef %0) #6
@@ -386,7 +369,7 @@ if.end:                                           ; preds = %entry
   tail call void @g_source_unref(ptr noundef %call3.i) #6
   %2 = load ptr, ptr %worker_context.i, align 8
   %call7.i = tail call ptr @g_main_loop_new(ptr noundef %2, i32 noundef 1) #6
-  %main_loop.i = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 5
+  %main_loop.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %call7.i, ptr %main_loop.i, align 8
   tail call void @g_free(ptr noundef %call.i14) #6
   call void @iothread_set_aio_context_params(ptr noundef %base, ptr noundef nonnull %local_error)
@@ -402,15 +385,15 @@ if.then6:                                         ; preds = %if.end
   br label %cleanup
 
 if.end9:                                          ; preds = %if.end
-  %thread = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 1
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 64
   call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef %call4, ptr noundef nonnull @iothread_run, ptr noundef nonnull %call.i, i32 noundef 0) #6
-  %thread_id = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 9
+  %thread_id = getelementptr inbounds i8, ptr %call.i, i64 220
   %5 = load i32, ptr %thread_id, align 4
   %cmp15 = icmp eq i32 %5, -1
   br i1 %cmp15, label %while.body.lr.ph, label %cleanup
 
 while.body.lr.ph:                                 ; preds = %if.end9
-  %init_done_sem = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 6
+  %init_done_sem = getelementptr inbounds i8, ptr %call.i, i64 104
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -430,24 +413,24 @@ define internal void @iothread_set_aio_context_params(ptr noundef %base, ptr nou
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %base, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %ctx, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %cleanup, label %if.end5
 
 if.end5:                                          ; preds = %entry
-  %poll_max_ns = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 10
+  %poll_max_ns = getelementptr inbounds i8, ptr %call.i, i64 224
   %1 = load i64, ptr %poll_max_ns, align 8
-  %poll_grow = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 11
+  %poll_grow = getelementptr inbounds i8, ptr %call.i, i64 232
   %2 = load i64, ptr %poll_grow, align 8
-  %poll_shrink = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 12
+  %poll_shrink = getelementptr inbounds i8, ptr %call.i, i64 240
   %3 = load i64, ptr %poll_shrink, align 8
   call void @aio_context_set_poll_params(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull %spec.select) #6
   %4 = load ptr, ptr %spec.select, align 8
@@ -456,13 +439,13 @@ if.end5:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.end5
   %5 = load ptr, ptr %ctx, align 8
-  %aio_max_batch = getelementptr inbounds %struct.EventLoopBase, ptr %call.i, i64 0, i32 1
+  %aio_max_batch = getelementptr inbounds i8, ptr %call.i, i64 40
   %6 = load i64, ptr %aio_max_batch, align 8
   call void @aio_context_set_aio_params(ptr noundef %5, i64 noundef %6, ptr noundef nonnull %spec.select) #6
   %7 = load ptr, ptr %ctx, align 8
-  %thread_pool_min = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 2
+  %thread_pool_min = getelementptr inbounds i8, ptr %base, i64 48
   %8 = load i64, ptr %thread_pool_min, align 8
-  %thread_pool_max = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 3
+  %thread_pool_max = getelementptr inbounds i8, ptr %base, i64 56
   %9 = load i64, ptr %thread_pool_max, align 8
   call void @aio_context_set_thread_pool_params(ptr noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %spec.select) #6
   br label %cleanup
@@ -480,7 +463,7 @@ declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @iothread_get_poll_param(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
-  %offset.i = getelementptr inbounds %struct.IOThreadParamInfo, ptr %opaque, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i64, ptr %offset.i, align 8
   %add.ptr.i = getelementptr i8, ptr %call.i.i, i64 %0
   %call1.i = tail call zeroext i1 @visit_type_int64(ptr noundef %v, ptr noundef %name, ptr noundef %add.ptr.i, ptr noundef %errp) #6
@@ -494,7 +477,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, i32 noundef 45, ptr noundef nonnull @__func__.IOTHREAD) #6
-  %offset.i = getelementptr inbounds %struct.IOThreadParamInfo, ptr %opaque, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i64, ptr %offset.i, align 8
   %add.ptr.i = getelementptr i8, ptr %call.i.i, i64 %0
   %call1.i = call zeroext i1 @visit_type_int64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #6
@@ -517,17 +500,17 @@ iothread_set_param.exit.thread:                   ; preds = %if.then2.i, %entry
 if.end:                                           ; preds = %if.end.i
   store i64 %1, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call.i, i64 72
   %3 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %poll_max_ns = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 10
+  %poll_max_ns = getelementptr inbounds i8, ptr %call.i, i64 224
   %4 = load i64, ptr %poll_max_ns, align 8
-  %poll_grow = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 11
+  %poll_grow = getelementptr inbounds i8, ptr %call.i, i64 232
   %5 = load i64, ptr %poll_grow, align 8
-  %poll_shrink = getelementptr inbounds %struct.IOThread, ptr %call.i, i64 0, i32 12
+  %poll_shrink = getelementptr inbounds i8, ptr %call.i, i64 240
   %6 = load i64, ptr %poll_shrink, align 8
   call void @aio_context_set_poll_params(ptr noundef nonnull %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %errp) #6
   br label %if.end4
@@ -550,26 +533,26 @@ declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noalias ptr @iothread_run(ptr noundef %opaque) #0 {
 entry:
   tail call void @rcu_register_thread() #6
-  %worker_context = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 4
+  %worker_context = getelementptr inbounds i8, ptr %opaque, i64 88
   %0 = load ptr, ptr %worker_context, align 8
   tail call void @g_main_context_push_thread_default(ptr noundef %0) #6
-  %ctx = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %opaque, i64 72
   %1 = load ptr, ptr %ctx, align 8
   tail call void @qemu_set_current_aio_context(ptr noundef %1) #6
   %call = tail call i32 @qemu_get_thread_id() #6
-  %thread_id = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 9
+  %thread_id = getelementptr inbounds i8, ptr %opaque, i64 220
   store i32 %call, ptr %thread_id, align 4
-  %init_done_sem = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 6
+  %init_done_sem = getelementptr inbounds i8, ptr %opaque, i64 104
   tail call void @qemu_sem_post(ptr noundef nonnull %init_done_sem) #6
-  %running = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 8
+  %running = getelementptr inbounds i8, ptr %opaque, i64 217
   %2 = load i8, ptr %running, align 1
   %3 = and i8 %2, 1
   %tobool.not10 = icmp eq i8 %3, 0
   br i1 %tobool.not10, label %while.end9, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %run_gcontext = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 3
-  %main_loop = getelementptr inbounds %struct.IOThread, ptr %opaque, i64 0, i32 5
+  %run_gcontext = getelementptr inbounds i8, ptr %opaque, i64 80
+  %main_loop = getelementptr inbounds i8, ptr %opaque, i64 96
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end

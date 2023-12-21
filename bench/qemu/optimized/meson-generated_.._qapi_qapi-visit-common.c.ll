@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.StrOrNull = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.StringList = type { ptr, ptr }
 
 @IoOperationType_lookup = external constant %struct.QEnumLookup, align 8
 @OnOffAuto_lookup = external constant %struct.QEnumLookup, align 8
@@ -176,7 +173,7 @@ if.end5:                                          ; preds = %if.end
   ]
 
 sw.bb7:                                           ; preds = %if.end5
-  %u8 = getelementptr inbounds %struct.StrOrNull, ptr %0, i64 0, i32 1
+  %u8 = getelementptr inbounds i8, ptr %0, i64 8
   %call9 = tail call zeroext i1 @visit_type_null(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u8, ptr noundef %errp) #3
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #3
   br i1 %call9, label %return, label %land.lhs.true
@@ -204,7 +201,7 @@ out_obj.thread25:                                 ; preds = %sw.default
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %u = getelementptr inbounds %struct.StrOrNull, ptr %0, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %0, i64 8
   %call6 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u, ptr noundef %errp) #3
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #3
   br i1 %call6, label %return, label %land.lhs.true
@@ -384,7 +381,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.StringList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_String(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

@@ -647,7 +647,7 @@ if.then79:                                        ; preds = %if.end76
 
 if.end80:                                         ; preds = %if.then79, %if.end76
   %cmp81 = icmp eq i32 %type, 1
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %timeout, i64 8
   br i1 %cmp81, label %for.cond.us, label %for.cond
 
 for.cond.us:                                      ; preds = %if.end80, %do.end124.us

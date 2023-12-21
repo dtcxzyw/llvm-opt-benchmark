@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-txt_db.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.txt_db_st = type { i32, ptr, ptr, ptr, i64, i64, i64, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/txt_db/txt_db.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -27,11 +24,11 @@ if.end3:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end3
   store i32 %num, ptr %call4, align 8
-  %index = getelementptr inbounds %struct.txt_db_st, ptr %call4, i64 0, i32 2
-  %qual = getelementptr inbounds %struct.txt_db_st, ptr %call4, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %call4, i64 16
+  %qual = getelementptr inbounds i8, ptr %call4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index, i8 0, i64 16, i1 false)
   %call.i = tail call ptr @OPENSSL_sk_new_null() #5
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %call4, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %call.i, ptr %data, align 8
   %cmp10 = icmp eq ptr %call.i, null
   br i1 %cmp10, label %err.thread, label %if.end13
@@ -71,7 +68,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %add35 = shl i32 %num, 3
   %mul37 = add i32 %add35, 8
-  %data39 = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data39 = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %data39, align 8
   %arrayidx41 = getelementptr inbounds i8, ptr %0, i64 511
   store i8 0, ptr %arrayidx41, align 1
@@ -219,7 +216,7 @@ lor.lhs.false:                                    ; preds = %for.end137
 
 if.then144:                                       ; preds = %lor.lhs.false, %for.end137
   tail call void @CRYPTO_free(ptr noundef nonnull %call98, ptr noundef nonnull @.str, i32 noundef 104) #5
-  %error = getelementptr inbounds %struct.txt_db_st, ptr %call4, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %call4, i64 32
   store i64 6, ptr %error, align 8
   br label %err.thread
 
@@ -292,7 +289,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %index = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 2
+  %index = getelementptr inbounds i8, ptr %db, i64 16
   %1 = load ptr, ptr %index, align 8
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
@@ -307,7 +304,7 @@ if.end4:                                          ; preds = %if.end
 return:                                           ; preds = %if.end, %entry, %if.end4
   %.sink = phi i64 [ 0, %if.end4 ], [ 3, %entry ], [ 4, %if.end ]
   %retval.0 = phi ptr [ %call6, %if.end4 ], [ null, %entry ], [ null, %if.end ]
-  %error7 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error7 = getelementptr inbounds i8, ptr %db, i64 32
   store i64 %.sink, ptr %error7, align 8
   ret ptr %retval.0
 }
@@ -322,7 +319,7 @@ entry:
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %error = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %db, i64 32
   store i64 3, ptr %error, align 8
   br label %return
 
@@ -332,12 +329,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %error4 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error4 = getelementptr inbounds i8, ptr %db, i64 32
   store i64 1, ptr %error4, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %db, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp732 = icmp sgt i32 %call.i, 0
@@ -381,15 +378,15 @@ if.end14:                                         ; preds = %for.body
 if.then19:                                        ; preds = %if.end14, %for.body.us
   %.us-phi = phi ptr [ %call17.us, %for.body.us ], [ %call17, %if.end14 ]
   %.us-phi34 = phi i32 [ %i.033.us, %for.body.us ], [ %i.033, %if.end14 ]
-  %error20 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error20 = getelementptr inbounds i8, ptr %db, i64 32
   store i64 2, ptr %error20, align 8
   %4 = load ptr, ptr %data, align 8
   %call.i28 = tail call i32 @OPENSSL_sk_find(ptr noundef %4, ptr noundef nonnull %.us-phi) #5
   %conv = sext i32 %call.i28 to i64
-  %arg1 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 5
+  %arg1 = getelementptr inbounds i8, ptr %db, i64 40
   store i64 %conv, ptr %arg1, align 8
   %conv23 = zext nneg i32 %.us-phi34 to i64
-  %arg2 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 6
+  %arg2 = getelementptr inbounds i8, ptr %db, i64 48
   store i64 %conv23, ptr %arg2, align 8
   tail call void @OPENSSL_LH_free(ptr noundef nonnull %call) #5
   br label %return
@@ -400,7 +397,7 @@ if.end25:                                         ; preds = %if.end14
   br i1 %cmp29, label %if.then31, label %for.inc
 
 if.then31:                                        ; preds = %if.end25, %if.end25.us
-  %error32 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error32 = getelementptr inbounds i8, ptr %db, i64 32
   store i64 1, ptr %error32, align 8
   tail call void @OPENSSL_LH_free(ptr noundef nonnull %call) #5
   br label %return
@@ -411,7 +408,7 @@ for.inc:                                          ; preds = %if.end25, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end5
-  %index = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 2
+  %index = getelementptr inbounds i8, ptr %db, i64 16
   %5 = load ptr, ptr %index, align 8
   %idxprom = sext i32 %field to i64
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
@@ -420,7 +417,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   %7 = load ptr, ptr %index, align 8
   %arrayidx38 = getelementptr inbounds ptr, ptr %7, i64 %idxprom
   store ptr %call, ptr %arrayidx38, align 8
-  %qual39 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 3
+  %qual39 = getelementptr inbounds i8, ptr %db, i64 24
   %8 = load ptr, ptr %qual39, align 8
   %arrayidx41 = getelementptr inbounds ptr, ptr %8, i64 %idxprom
   store ptr %qual, ptr %arrayidx41, align 8
@@ -445,7 +442,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %db, i64 8
   %0 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #5
   %conv = sext i32 %call.i to i64
@@ -457,7 +454,7 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %cmp933 = icmp sgt i32 %.fr, 0
-  %data24 = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data24 = getelementptr inbounds i8, ptr %call, i64 8
   br i1 %cmp933, label %for.body.us.us, label %for.body
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph, %if.end61.us.us
@@ -603,8 +600,8 @@ entry:
   br i1 %cmp50, label %for.body.lr.ph, label %for.end64
 
 for.body.lr.ph:                                   ; preds = %entry
-  %index = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 2
-  %qual = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %db, i64 16
+  %qual = getelementptr inbounds i8, ptr %db, i64 24
   br label %for.body
 
 for.cond20.preheader:                             ; preds = %for.inc
@@ -612,8 +609,8 @@ for.cond20.preheader:                             ; preds = %for.inc
   br i1 %1, label %for.body24.lr.ph, label %for.end64
 
 for.body24.lr.ph:                                 ; preds = %for.cond20.preheader
-  %index25 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 2
-  %qual31 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 3
+  %index25 = getelementptr inbounds i8, ptr %db, i64 16
+  %qual31 = getelementptr inbounds i8, ptr %db, i64 24
   br label %for.body24
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -649,11 +646,11 @@ if.end:                                           ; preds = %land.lhs.true.if.en
   br i1 %cmp16.not, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %if.end
-  %error = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %db, i64 32
   store i64 2, ptr %error, align 8
-  %arg1 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 5
+  %arg1 = getelementptr inbounds i8, ptr %db, i64 40
   store i64 %indvars.iv, ptr %arg1, align 8
-  %arg_row = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 7
+  %arg_row = getelementptr inbounds i8, ptr %db, i64 56
   store ptr %call15, ptr %arg_row, align 8
   br label %return
 
@@ -713,7 +710,7 @@ for.end64.loopexit:                               ; preds = %for.inc62
 
 for.end64:                                        ; preds = %entry, %for.end64.loopexit, %for.cond20.preheader
   %i.1.lcssa = phi i32 [ 0, %for.cond20.preheader ], [ %18, %for.end64.loopexit ], [ 0, %entry ]
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %db, i64 8
   %19 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @OPENSSL_sk_push(ptr noundef %19, ptr noundef %row) #5
   %tobool.not = icmp eq i32 %call.i, 0
@@ -725,14 +722,14 @@ err1.loopexit:                                    ; preds = %if.end44
 
 err1:                                             ; preds = %err1.loopexit, %for.end64
   %i.149 = phi i32 [ %i.1.lcssa, %for.end64 ], [ %20, %err1.loopexit ]
-  %error68 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 4
+  %error68 = getelementptr inbounds i8, ptr %db, i64 32
   store i64 1, ptr %error68, align 8
   %cmp6955 = icmp sgt i32 %i.149, 0
   br i1 %cmp6955, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %err1
-  %index71 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 2
-  %qual77 = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 3
+  %index71 = getelementptr inbounds i8, ptr %db, i64 16
+  %qual77 = getelementptr inbounds i8, ptr %db, i64 24
   %21 = zext nneg i32 %i.149 to i64
   br label %while.body
 
@@ -786,7 +783,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %index = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 2
+  %index = getelementptr inbounds i8, ptr %db, i64 16
   %0 = load ptr, ptr %index, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end6, label %if.then2
@@ -820,10 +817,10 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %if.end6
 
 if.end6:                                          ; preds = %for.end, %if.end
-  %qual = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 3
+  %qual = getelementptr inbounds i8, ptr %db, i64 24
   %6 = load ptr, ptr %qual, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 291) #5
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %db, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %db, i64 8
   %7 = load ptr, ptr %data, align 8
   %cmp7.not = icmp eq ptr %7, null
   br i1 %cmp7.not, label %if.end54, label %if.then8

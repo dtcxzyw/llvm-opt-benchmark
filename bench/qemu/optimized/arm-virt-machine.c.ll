@@ -3,15 +3,6 @@ source_filename = "bench/qemu/original/arm-virt-machine.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QVirtMachine = type { %struct.QOSGraphObject, %struct.QGuestAllocator, %struct.QVirtioMMIODevice, %struct.QGenericPCIHost }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.QVirtioMMIODevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, i64, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QGenericPCIHost = type { %struct.QOSGraphObject, %struct.QGenericPCIBus }
-%struct.QGenericPCIBus = type { %struct.QOSGraphObject, %struct.QPCIBus, i64, i64 }
-%struct.QPCIBus = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i8, i8 }
-
 @.str = private unnamed_addr constant [9 x i8] c"arm/virt\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"virtio-mmio\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"aarch64/virt\00", align 1
@@ -51,16 +42,16 @@ declare void @qos_node_create_machine(ptr noundef, ptr noundef) local_unnamed_ad
 define internal ptr @qos_create_machine_arm_virt(ptr noundef %qts) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(464) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 464) #6
-  %alloc = getelementptr inbounds %struct.QVirtMachine, ptr %call, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @alloc_init(ptr noundef nonnull %alloc, i32 noundef 0, i64 noundef 1073741824, i64 noundef 1610612736, i64 noundef 4096) #5
-  %virtio_mmio = getelementptr inbounds %struct.QVirtMachine, ptr %call, i64 0, i32 2
+  %virtio_mmio = getelementptr inbounds i8, ptr %call, i64 88
   tail call void @qvirtio_mmio_init_device(ptr noundef nonnull %virtio_mmio, ptr noundef %qts, i64 noundef 167788032, i32 noundef 512) #5
-  %bridge = getelementptr inbounds %struct.QVirtMachine, ptr %call, i64 0, i32 3
+  %bridge = getelementptr inbounds i8, ptr %call, i64 192
   tail call void @qos_create_generic_pcihost(ptr noundef nonnull %bridge, ptr noundef %qts, ptr noundef nonnull %alloc) #5
-  %get_device = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 1
+  %get_device = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @virt_get_device, ptr %get_device, align 8
   store ptr @virt_get_driver, ptr %call, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @virt_destructor, ptr %destructor, align 8
   ret ptr %call
 }
@@ -83,20 +74,12 @@ define internal nonnull ptr @virt_get_device(ptr noundef readnone %obj, ptr noun
 entry:
   %call = tail call i32 @g_strcmp0(ptr noundef %device, ptr noundef nonnull @.str.4) #5
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %bridge = getelementptr inbounds %struct.QVirtMachine, ptr %obj, i64 0, i32 3
-  br label %do.end
+  br i1 %tobool.not, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
   %call2 = tail call i32 @g_strcmp0(ptr noundef %device, ptr noundef nonnull @.str.1) #5
   %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.else
-  %virtio_mmio = getelementptr inbounds %struct.QVirtMachine, ptr %obj, i64 0, i32 2
-  br label %do.end
+  br i1 %tobool3.not, label %do.end, label %if.end6
 
 if.end6:                                          ; preds = %if.else
   %0 = load ptr, ptr @stderr, align 8
@@ -104,9 +87,10 @@ if.end6:                                          ; preds = %if.else
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.virt_get_device, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; preds = %if.then4, %if.then
-  %retval.0 = phi ptr [ %virtio_mmio, %if.then4 ], [ %bridge, %if.then ]
-  ret ptr %retval.0
+do.end:                                           ; preds = %if.else, %entry
+  %.sink = phi i64 [ 192, %entry ], [ 88, %if.else ]
+  %virtio_mmio = getelementptr inbounds i8, ptr %obj, i64 %.sink
+  ret ptr %virtio_mmio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -117,7 +101,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %alloc = getelementptr inbounds %struct.QVirtMachine, ptr %object, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %object, i64 40
   ret ptr %alloc
 
 if.end:                                           ; preds = %entry
@@ -130,7 +114,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virt_destructor(ptr noundef %obj) #0 {
 entry:
-  %alloc = getelementptr inbounds %struct.QVirtMachine, ptr %obj, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %obj, i64 40
   tail call void @alloc_destroy(ptr noundef nonnull %alloc) #5
   ret void
 }

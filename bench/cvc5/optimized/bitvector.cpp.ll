@@ -7,10 +7,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.cvc5::internal::Integer" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpz_struct] }
 %struct.__mpz_struct = type { i32, i32, ptr }
-%"class.cvc5::internal::BitVector" = type { i32, %"class.cvc5::internal::Integer" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.cvc5::internal::BitVector" = type { i32, %"class.cvc5::internal::Integer" }
 
 $_ZN4cvc58internal9BitVectorC2Ejj = comdat any
 
@@ -35,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal9BitVectorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %num, i32 noundef %base) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init(ptr noundef nonnull %d_value) #11
   invoke void @_ZN4cvc58internal7IntegerC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %num, i32 noundef %base)
           to label %invoke.cont unwind label %lpad
@@ -140,14 +140,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal9BitVector8getValueEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %d_value
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal9BitVector9toIntegerEv(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %d_value)
   ret void
 }
@@ -161,7 +161,7 @@ entry:
   %ref.tmp4 = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp7 = alloca %"class.cvc5::internal::Integer", align 8
   %0 = load i32, ptr %this, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %sub = add i32 %0, -1
   call void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %sign_bit, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef 1, i32 noundef %sub)
   invoke void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %val, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %sub, i32 noundef 0)
@@ -343,7 +343,7 @@ define hidden void @_ZNK4cvc58internal9BitVector8toStringB5cxx11Ej(ptr noalias s
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %zeroes = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %str, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %base)
   %cmp = icmp eq i32 %base, 2
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -437,7 +437,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK4cvc58internal9BitVector4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   %0 = load i32, ptr %this, align 8
   %conv.i = zext i32 %0 to i64
@@ -453,7 +453,7 @@ declare noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal9BitVector6setBitEjb(ptr noundef nonnull returned align 8 dereferenceable(24) %this, i32 noundef %i, i1 noundef zeroext %value) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4cvc58internal7Integer6setBitEjb(ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %i, i1 noundef zeroext %value)
   ret ptr %this
 }
@@ -463,7 +463,7 @@ declare void @_ZN4cvc58internal7Integer6setBitEjb(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal9BitVector8isBitSetEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7Integer8isBitSetEj(ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %i)
   ret i1 %call
 }
@@ -473,7 +473,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7Integer8isBitSetEj(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK4cvc58internal9BitVector6isPow2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZNK4cvc58internal7Integer6isPow2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   ret i32 %call
 }
@@ -487,16 +487,16 @@ entry:
   %ref.tmp3 = alloca %"class.cvc5::internal::Integer", align 8
   %0 = load i32, ptr %this, align 8
   %1 = load i32, ptr %other, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal7Integer14multiplyByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %1)
-  %d_value5 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %other, i64 0, i32 1
+  %d_value5 = getelementptr inbounds i8, ptr %other, i64 8
   invoke void @_ZNK4cvc58internal7IntegerplERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %d_value5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %add = add i32 %1, %0
   store i32 %add, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %add)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -565,10 +565,10 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %sub = sub i32 %high, %low
   %add = add i32 %sub, 1
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %add, i32 noundef %low)
   store i32 %add, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %add)
           to label %invoke.cont unwind label %lpad
 
@@ -612,8 +612,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i3 = getelementptr inbounds i8, ptr %b, i64 8
   %call4 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i3)
   br label %return
 
@@ -633,8 +633,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i3 = getelementptr inbounds i8, ptr %b, i64 8
   %call4 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i3)
   br label %return
 
@@ -648,8 +648,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalltERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #3 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i1 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i1 = getelementptr inbounds i8, ptr %b, i64 8
   %call2 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
   ret i1 %call2
 }
@@ -659,8 +659,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalleERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #3 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i1 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i1 = getelementptr inbounds i8, ptr %b, i64 8
   %call2 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
   ret i1 %call2
 }
@@ -670,8 +670,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalgtERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #3 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i1 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i1 = getelementptr inbounds i8, ptr %b, i64 8
   %call2 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
   ret i1 %call2
 }
@@ -681,8 +681,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalgeERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #3 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i1 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i1 = getelementptr inbounds i8, ptr %b, i64 8
   %call2 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
   ret i1 %call2
 }
@@ -692,8 +692,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %y) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value2 = getelementptr inbounds i8, ptr %y, i64 8
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value2)
   ret i1 %call
 }
@@ -701,8 +701,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %y) local_unnamed_addr #3 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value2 = getelementptr inbounds i8, ptr %y, i64 8
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value2)
   ret i1 %call
 }
@@ -856,11 +856,11 @@ define hidden void @_ZN4cvc58internaleoERKNS0_9BitVectorES3_(ptr noalias sret(%"
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %0 = load i32, ptr %a, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i2 = getelementptr inbounds i8, ptr %b, i64 8
   call void @_ZNK4cvc58internal7Integer10bitwiseXorERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -902,11 +902,11 @@ define hidden void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr noalias sret(%"
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %0 = load i32, ptr %a, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i2 = getelementptr inbounds i8, ptr %b, i64 8
   call void @_ZNK4cvc58internal7Integer9bitwiseOrERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -948,11 +948,11 @@ define hidden void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr noalias sret(%"
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %0 = load i32, ptr %a, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i2 = getelementptr inbounds i8, ptr %b, i64 8
   call void @_ZNK4cvc58internal7Integer10bitwiseAndERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -994,10 +994,10 @@ define hidden void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr noalias sret(%"cla
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %0 = load i32, ptr %a, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
   call void @_ZNK4cvc58internal7Integer10bitwiseNotEv(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -1038,12 +1038,12 @@ declare void @_ZNK4cvc58internal7Integer10bitwiseNotEv(ptr sret(%"class.cvc5::in
 define hidden void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sum = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i2 = getelementptr inbounds i8, ptr %b, i64 8
   call void @_ZNK4cvc58internal7IntegerplERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %sum, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
   %0 = load i32, ptr %a, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3, ptr noundef nonnull align 8 dereferenceable(16) %sum, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -1091,7 +1091,7 @@ entry:
   %0 = load i32, ptr %a, align 8
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef 1)
   store i32 %0, ptr %one, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %one, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %one, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -1110,13 +1110,13 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %3 = load i32, ptr %b, align 8, !noalias !6
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %b, i64 8
   invoke void @_ZNK4cvc58internal7Integer10bitwiseNotEv(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   store i32 %3, ptr %ref.tmp2, align 8, !alias.scope !6
-  %d_value.i2.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp2, i64 0, i32 1
+  %d_value.i2.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i2.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %3)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1148,14 +1148,14 @@ invoke.cont4:                                     ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sum.i)
-  %d_value.i.i5 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
+  %d_value.i.i5 = getelementptr inbounds i8, ptr %a, i64 8
   invoke void @_ZNK4cvc58internal7IntegerplERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %sum.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2.i)
           to label %.noexc10 unwind label %lpad5
 
 .noexc10:                                         ; preds = %invoke.cont4
   %9 = load i32, ptr %a, align 8, !noalias !9
   store i32 %9, ptr %ref.tmp1, align 8, !alias.scope !9
-  %d_value.i3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp1, i64 0, i32 1
+  %d_value.i3.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3.i, ptr noundef nonnull align 8 dereferenceable(16) %sum.i, i32 noundef %9)
           to label %invoke.cont.i8 unwind label %lpad.i7
 
@@ -1193,7 +1193,7 @@ invoke.cont6:                                     ; preds = %invoke.cont.i8
 .noexc21:                                         ; preds = %invoke.cont6
   %15 = load i32, ptr %ref.tmp1, align 8, !noalias !12
   store i32 %15, ptr %agg.result, align 8, !alias.scope !12
-  %d_value.i3.i15 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3.i15, ptr noundef nonnull align 8 dereferenceable(16) %sum.i12, i32 noundef %15)
           to label %invoke.cont.i19 unwind label %lpad.i16
 
@@ -1338,7 +1338,7 @@ entry:
   %0 = load i32, ptr %a, align 8
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef 1)
   store i32 %0, ptr %one, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %one, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %one, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -1357,13 +1357,13 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %3 = load i32, ptr %a, align 8, !noalias !15
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %a, i64 8
   invoke void @_ZNK4cvc58internal7Integer10bitwiseNotEv(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   store i32 %3, ptr %ref.tmp1, align 8, !alias.scope !15
-  %d_value.i2.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp1, i64 0, i32 1
+  %d_value.i2.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i2.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %3)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1401,7 +1401,7 @@ invoke.cont3:                                     ; preds = %invoke.cont.i
 .noexc9:                                          ; preds = %invoke.cont3
   %9 = load i32, ptr %ref.tmp1, align 8, !noalias !18
   store i32 %9, ptr %agg.result, align 8, !alias.scope !18
-  %d_value.i3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3.i, ptr noundef nonnull align 8 dereferenceable(16) %sum.i, i32 noundef %9)
           to label %invoke.cont.i7 unwind label %lpad.i6
 
@@ -1511,12 +1511,12 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 define hidden void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %prod = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %a, i64 0, i32 1
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %b, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %a, i64 8
+  %d_value.i2 = getelementptr inbounds i8, ptr %b, i64 8
   call void @_ZNK4cvc58internal7IntegermlERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %prod, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
   %0 = load i32, ptr %a, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i3, ptr noundef nonnull align 8 dereferenceable(16) %prod, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
 
@@ -1558,7 +1558,7 @@ entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp3 = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp10 = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 8
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp) #11
   %call = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1587,7 +1587,7 @@ if.then:                                          ; preds = %_ZN4cvc58internal7I
 
 invoke.cont6:                                     ; preds = %if.then
   store i32 %2, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i32 noundef %2)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -1657,10 +1657,10 @@ terminate.lpad.i.i12:                             ; preds = %ehcleanup
   unreachable
 
 if.end:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %d_value11 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value11 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal7Integer19floorDivideQuotientERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %d_value11, ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   store i32 %2, ptr %agg.result, align 8
-  %d_value.i14 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, i32 noundef %2)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -1705,7 +1705,7 @@ define hidden void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr noa
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp4 = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 8
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp) #11
   %call = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1723,12 +1723,12 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont
   %2 = load i32, ptr %this, align 8
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value2 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   store i32 %2, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2, i32 noundef %2)
   br label %return
 
@@ -1748,7 +1748,7 @@ terminate.lpad.i.i3:                              ; preds = %lpad
 if.end:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   call void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   store i32 %2, ptr %agg.result, align 8
-  %d_value.i5 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i32 noundef %2)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -1791,9 +1791,9 @@ define hidden void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr noalias sret(
 entry:
   %0 = load i32, ptr %this, align 8
   %add = add i32 %0, %n
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %add, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %add)
   ret void
 }
@@ -1804,7 +1804,7 @@ invoke.cont:
   %sign_bit = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %val = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %this, align 8
   %sub = add i32 %0, -1
   call void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %sign_bit, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef 1, i32 noundef %sub)
@@ -1830,7 +1830,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont3
 if.then:                                          ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   %add = add i32 %3, %n
   store i32 %add, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %add)
           to label %cleanup unwind label %lpad
 
@@ -1860,7 +1860,7 @@ invoke.cont9:                                     ; preds = %if.end
   %8 = load i32, ptr %this, align 8
   %add11 = add i32 %8, %n
   store i32 %add11, ptr %agg.result, align 8
-  %d_value.i6 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i6, ptr noundef nonnull align 8 dereferenceable(16) %val, i32 noundef %add11)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -1925,7 +1925,7 @@ entry:
   %ref.tmp3 = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp7 = alloca %"class.cvc5::internal::Integer", align 8
   %res = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 8
   %0 = load i32, ptr %this, align 8
   %conv.i.i = zext i32 %0 to i64
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef %conv.i.i)
@@ -1950,7 +1950,7 @@ if.then:                                          ; preds = %_ZN4cvc58internal7I
   %3 = load i32, ptr %this, align 8
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp3) #11
   store i32 %3, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef %3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -2013,8 +2013,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %invoke.cont9
 if.then11:                                        ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13
   %14 = load i32, ptr %this, align 8
   store i32 %14, ptr %agg.result, align 8
-  %d_value.i14 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull %d_value.i14, ptr noundef nonnull %d_value3.i)
   br label %return
 
@@ -2033,11 +2033,11 @@ terminate.lpad.i.i15:                             ; preds = %lpad8
 
 if.end12:                                         ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13
   %call14 = call noundef i32 @_ZNK4cvc58internal7Integer13toUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
-  %d_value15 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value15 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal7Integer14multiplyByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %res, ptr noundef nonnull align 8 dereferenceable(16) %d_value15, i32 noundef %call14)
   %18 = load i32, ptr %this, align 8
   store i32 %18, ptr %agg.result, align 8
-  %d_value.i17 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i17, ptr noundef nonnull align 8 dereferenceable(16) %res, i32 noundef %18)
           to label %invoke.cont18 unwind label %lpad17
 
@@ -2081,7 +2081,7 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp3 = alloca %"class.cvc5::internal::Integer", align 8
   %res = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 8
   %0 = load i32, ptr %this, align 8
   %conv.i.i = zext i32 %0 to i64
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef %conv.i.i)
@@ -2106,7 +2106,7 @@ if.then:                                          ; preds = %_ZN4cvc58internal7I
   %3 = load i32, ptr %this, align 8
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp3) #11
   store i32 %3, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef %3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -2149,11 +2149,11 @@ terminate.lpad.i.i8:                              ; preds = %lpad4
 
 if.end:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   %call7 = call noundef i32 @_ZNK4cvc58internal7Integer13toUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
-  %d_value8 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value8 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal7Integer9divByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %res, ptr noundef nonnull align 8 dereferenceable(16) %d_value8, i32 noundef %call7)
   %12 = load i32, ptr %this, align 8
   store i32 %12, ptr %agg.result, align 8
-  %d_value.i10 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i10, ptr noundef nonnull align 8 dereferenceable(16) %res, i32 noundef %12)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -2206,11 +2206,11 @@ entry:
   %rest = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp50 = alloca %"class.cvc5::internal::Integer", align 8
   %res = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %this, align 8
   %sub = add i32 %0, -1
   call void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %sign_bit, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef 1, i32 noundef %sub)
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %y, i64 0, i32 1
+  %d_value2 = getelementptr inbounds i8, ptr %y, i64 8
   %1 = load i32, ptr %this, align 8
   %conv.i.i = zext i32 %1 to i64
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef %conv.i.i)
@@ -2257,7 +2257,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit14:             ; preds = %invoke.cont9
 invoke.cont14:                                    ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit14
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp13) #11
   store i32 %6, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, i32 noundef %6)
           to label %invoke.cont16 unwind label %lpad15
 
@@ -2336,7 +2336,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   store i32 %6, ptr %agg.result, align 8
-  %d_value.i34 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i34 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i34, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18, i32 noundef %6)
           to label %invoke.cont32 unwind label %lpad31
 
@@ -2470,7 +2470,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit55:             ; preds = %invoke.cont39
 if.then42:                                        ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit55
   %42 = load i32, ptr %this, align 8
   store i32 %42, ptr %agg.result, align 8
-  %d_value.i56 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i56, ptr noundef nonnull %d_value)
           to label %cleanup69 unwind label %lpad
 
@@ -2517,7 +2517,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit62:             ; preds = %invoke.cont54
 
 if.then57:                                        ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit62
   store i32 %48, ptr %agg.result, align 8
-  %d_value.i63 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i63 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i63, ptr noundef nonnull align 8 dereferenceable(16) %rest, i32 noundef %48)
           to label %cleanup unwind label %lpad51
 
@@ -2547,7 +2547,7 @@ if.end60:                                         ; preds = %_ZN4cvc58internal7I
 invoke.cont63:                                    ; preds = %if.end60
   %53 = load i32, ptr %this, align 8
   store i32 %53, ptr %agg.result, align 8
-  %d_value.i68 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i68 = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i68, ptr noundef nonnull align 8 dereferenceable(16) %res, i32 noundef %53)
           to label %invoke.cont66 unwind label %lpad65
 
@@ -2634,7 +2634,7 @@ declare void @_ZNK4cvc58internal7IntegermiERKS1_(ptr sret(%"class.cvc5::internal
 define hidden void @_ZN4cvc58internal9BitVector6mkZeroEj(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, i32 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   store i32 %size, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @__gmpz_init(ptr noundef nonnull %d_value.i) #11
   ret void
 }
@@ -2651,7 +2651,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef no
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   store i32 %size, ptr %this, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %conv.i.i = zext i32 %z to i64
   tail call void @__gmpz_init_set_ui(ptr noundef nonnull %d_value, i64 noundef %conv.i.i)
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %size)
@@ -2716,7 +2716,7 @@ entry:
   %ref.tmp1 = alloca %"class.cvc5::internal::Integer", align 8
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp1, i64 noundef 1)
   store i32 1, ptr %ref.tmp, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
@@ -2788,7 +2788,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %ehcleanup
 define hidden void @_ZN4cvc58internal9BitVector11mkMinSignedEj(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, i32 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %size, ptr %agg.result, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @__gmpz_init(ptr noundef nonnull %d_value.i) #11
   %sub = add i32 %size, -1
   invoke void @_ZN4cvc58internal7Integer6setBitEjb(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, i32 noundef %sub, i1 noundef zeroext true)
@@ -2820,7 +2820,7 @@ entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
   store i32 %size, ptr %ref.tmp, align 8, !alias.scope !21
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @__gmpz_init(ptr noundef nonnull %d_value.i.i) #11
   %sub.i = add i32 %size, -1
   invoke void @_ZN4cvc58internal7Integer6setBitEjb(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i, i32 noundef %sub.i, i1 noundef zeroext true)
@@ -2852,7 +2852,7 @@ _ZN4cvc58internal9BitVector11mkMinSignedEj.exit:  ; preds = %entry
 
 .noexc:                                           ; preds = %_ZN4cvc58internal9BitVector11mkMinSignedEj.exit
   store i32 %3, ptr %agg.result, align 8, !alias.scope !24
-  %d_value.i2.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
+  %d_value.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i2.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %3)
           to label %invoke.cont.i unwind label %lpad.i2
 

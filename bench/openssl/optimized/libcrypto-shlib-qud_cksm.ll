@@ -8,7 +8,7 @@ define i32 @DES_quad_cksum(ptr nocapture noundef readonly %input, ptr noundef wr
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %out_count, i32 1)
   %0 = load i32, ptr %seed, align 1
-  %arrayidx13 = getelementptr inbounds [8 x i8], ptr %seed, i64 0, i64 4
+  %arrayidx13 = getelementptr inbounds i8, ptr %seed, i64 4
   %1 = load i32, ptr %arrayidx13, align 1
   %invariant.umin = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 4)
   %cmp3128 = icmp sgt i64 %length, 0
@@ -22,9 +22,9 @@ while.cond.preheader.us:                          ; preds = %entry, %for.inc.us
   br label %while.body.us
 
 if.then65.us:                                     ; preds = %while.cond.while.end_crit_edge.us
-  %incdec.ptr66.us = getelementptr inbounds i32, ptr %lp.037.us, i64 1
+  %incdec.ptr66.us = getelementptr inbounds i8, ptr %lp.037.us, i64 4
   store i32 %5, ptr %lp.037.us, align 4
-  %incdec.ptr67.us = getelementptr inbounds i32, ptr %lp.037.us, i64 2
+  %incdec.ptr67.us = getelementptr inbounds i8, ptr %lp.037.us, i64 8
   store i32 %6, ptr %incdec.ptr66.us, align 4
   br label %for.inc.us
 
@@ -82,9 +82,9 @@ while.cond.preheader:                             ; preds = %entry, %for.inc
   br i1 %cmp63.not, label %for.inc, label %if.then65
 
 if.then65:                                        ; preds = %while.cond.preheader
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %lp.037, i64 1
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %lp.037, i64 4
   store i32 %0, ptr %lp.037, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %lp.037, i64 2
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %lp.037, i64 8
   store i32 %1, ptr %incdec.ptr66, align 4
   br label %for.inc
 

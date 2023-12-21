@@ -8,53 +8,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.5 = type { i64 }
 %struct.VhostDevConfigOps = type { ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VhostUserGPU = type { %struct.VirtIOGPUBase, ptr, i32, %struct.CharBackend, [16 x %struct.QemuDmaBuf], i8 }
-%struct.VirtIOGPUBase = type { %struct.VirtIODevice, ptr, %struct.virtio_gpu_base_conf, %struct.virtio_gpu_config, ptr, i32, i32, %struct.MemoryRegion, [16 x %struct.virtio_gpu_scanout], i32, [16 x %struct.virtio_gpu_requested_state] }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.virtio_gpu_base_conf = type { i32, i32, i32, i32, i64 }
-%struct.virtio_gpu_config = type { i32, i32, i32, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.virtio_gpu_scanout = type { ptr, ptr, i32, i32, i32, i32, i32, i32, %struct.virtio_gpu_update_cursor, ptr }
-%struct.virtio_gpu_update_cursor = type { %struct.virtio_gpu_ctrl_hdr, %struct.virtio_gpu_cursor_pos, i32, i32, i32, i32 }
-%struct.virtio_gpu_ctrl_hdr = type { i32, i32, i64, i32, i8, [3 x i8] }
-%struct.virtio_gpu_cursor_pos = type { i32, i32, i32, i32 }
-%struct.virtio_gpu_requested_state = type { i16, i16, i32, i32, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.QemuDmaBuf = type { i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i8, ptr, i32, i8, i8 }
-%struct.VirtIOGPUBaseClass = type { %struct.VirtioDeviceClass, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.VhostUserGpuMsg = type <{ i32, i32, i32, %union.anon.6 }>
 %union.anon.6 = type { %struct.virtio_gpu_resp_edid, [15352 x i8] }
 %struct.virtio_gpu_resp_edid = type { %struct.virtio_gpu_ctrl_hdr, i32, i32, [1024 x i8] }
-%struct.VhostUserBackend = type { %struct.Object, ptr, %struct.CharBackend, %struct.VhostUserState, %struct.vhost_dev, ptr, i8, i8 }
-%struct.VhostUserState = type { ptr, ptr, i32, i8 }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.7, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
+%struct.virtio_gpu_ctrl_hdr = type { i32, i32, i64, i32, i8, [3 x i8] }
 %struct.virtio_gpu_resp_display_info = type { %struct.virtio_gpu_ctrl_hdr, [16 x %struct.virtio_gpu_display_one] }
 %struct.virtio_gpu_display_one = type { %struct.virtio_gpu_rect, i32, i32 }
 %struct.virtio_gpu_rect = type { i32, i32, i32, i32 }
-%struct.QEMUCursor = type { i16, i16, i32, i32, i32, [0 x i32] }
+%struct.virtio_gpu_scanout = type { ptr, ptr, i32, i32, i32, i32, i32, i32, %struct.virtio_gpu_update_cursor, ptr }
+%struct.virtio_gpu_update_cursor = type { %struct.virtio_gpu_ctrl_hdr, %struct.virtio_gpu_cursor_pos, i32, i32, i32, i32 }
+%struct.virtio_gpu_cursor_pos = type { i32, i32, i32, i32 }
+%struct.QemuDmaBuf = type { i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i8, ptr, i32, i8, i8 }
 
 @vhost_user_gpu_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 4160, i64 0, ptr @vhost_user_gpu_instance_init, ptr null, ptr @vhost_user_gpu_instance_finalize, i8 0, i64 0, ptr @vhost_user_gpu_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [15 x i8] c"vhost-user-gpu\00", align 1
@@ -127,7 +91,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
   %call1 = tail call ptr @object_new(ptr noundef nonnull @.str.2) #7
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BACKEND) #7
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   store ptr %call.i3, ptr %vhost, align 16
   %call4 = tail call ptr @object_property_add_alias(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef %call.i3, ptr noundef nonnull @.str.3) #7
   ret void
@@ -137,7 +101,7 @@ entry:
 define internal void @vhost_user_gpu_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
   tail call void @object_unref(ptr noundef %0) #7
   ret void
@@ -149,23 +113,23 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #7
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE_CLASS) #7
-  %gl_flushed = getelementptr inbounds %struct.VirtIOGPUBaseClass, ptr %call.i11, i64 0, i32 1
+  %gl_flushed = getelementptr inbounds i8, ptr %call.i11, i64 368
   store ptr @vhost_user_gpu_gl_flushed, ptr %gl_flushed, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @vhost_user_gpu_device_realize, ptr %realize, align 8
-  %reset = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 9
+  %reset = getelementptr inbounds i8, ptr %call.i10, i64 240
   store ptr @vhost_user_gpu_reset, ptr %reset, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i10, i64 248
   store ptr @vhost_user_gpu_set_status, ptr %set_status, align 8
-  %guest_notifier_mask = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 15
+  %guest_notifier_mask = getelementptr inbounds i8, ptr %call.i10, i64 288
   store ptr @vhost_user_gpu_guest_notifier_mask, ptr %guest_notifier_mask, align 8
-  %guest_notifier_pending = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 14
+  %guest_notifier_pending = getelementptr inbounds i8, ptr %call.i10, i64 280
   store ptr @vhost_user_gpu_guest_notifier_pending, ptr %guest_notifier_pending, align 8
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call.i10, i64 224
   store ptr @vhost_user_gpu_get_config, ptr %get_config, align 8
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call.i10, i64 232
   store ptr @vhost_user_gpu_set_config, ptr %set_config, align 8
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i10, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call.i10, i64 352
   store ptr @vhost_user_gpu_get_vhost, ptr %get_vhost, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vhost_user_gpu_properties) #7
   ret void
@@ -184,7 +148,7 @@ define internal void @vhost_user_gpu_gl_flushed(ptr noundef %b) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserGpuMsg, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
-  %backend_blocked = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 5
+  %backend_blocked = getelementptr inbounds i8, ptr %call.i, i64 4152
   %0 = load i8, ptr %backend_blocked, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -195,16 +159,16 @@ if.then:                                          ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %msg.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %2, i8 0, i64 16412, i1 false)
   store i32 10, ptr %msg.i, align 4
-  %3 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %msg.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %msg.i, i64 4
   store i32 4, ptr %3, align 4
-  %vhost_chr.i.i = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 3
+  %vhost_chr.i.i = getelementptr inbounds i8, ptr %call.i, i64 2944
   %call.i.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr.i.i, ptr noundef nonnull %msg.i, i32 noundef 12) #7
   call void @llvm.lifetime.end.p0(i64 16420, ptr nonnull %msg.i)
   store i8 0, ptr %backend_blocked, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %vhost_gpu_fd.i = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 2
+  %vhost_gpu_fd.i = getelementptr inbounds i8, ptr %call.i, i64 2936
   %4 = load i32, ptr %vhost_gpu_fd.i, align 8
   call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef nonnull @vhost_user_gpu_chr_read, ptr noundef null, ptr noundef nonnull %call.i) #7
   ret void
@@ -215,9 +179,9 @@ define internal void @vhost_user_gpu_device_realize(ptr noundef %qdev, ptr nound
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #7
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %0, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @vhost_dev_set_config_notifier(ptr noundef nonnull %dev, ptr noundef nonnull @config_ops) #7
   %1 = load ptr, ptr %vhost, align 16
   %call3 = tail call i32 @vhost_user_backend_dev_init(ptr noundef %1, ptr noundef %call.i12, i32 noundef 2, ptr noundef %errp) #7
@@ -225,12 +189,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.VirtIOGPUBase, ptr %call.i, i64 0, i32 2, i32 1
+  %flags = getelementptr inbounds i8, ptr %call.i, i64 532
   %2 = load i32, ptr %flags, align 4
   %or = or i32 %2, 16
   store i32 %or, ptr %flags, align 4
   %3 = load ptr, ptr %vhost, align 16
-  %features = getelementptr inbounds %struct.VhostUserBackend, ptr %3, i64 0, i32 4, i32 13
+  %features = getelementptr inbounds i8, ptr %3, i64 584
   %4 = load i64, ptr %features, align 8
   %and.i = and i64 %4, 1
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -266,7 +230,7 @@ if.end25:                                         ; preds = %if.else, %if.then17
   br i1 %call26, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end25
-  %vhost_gpu_fd = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 2
+  %vhost_gpu_fd = getelementptr inbounds i8, ptr %call.i, i64 2936
   store i32 -1, ptr %vhost_gpu_fd, align 8
   br label %return
 
@@ -280,7 +244,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
   %call.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
   tail call void @virtio_gpu_base_reset(ptr noundef %call.i2) #7
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
   tail call void @vhost_user_backend_stop(ptr noundef %0) #7
   ret void
@@ -298,7 +262,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %1 = load i8, ptr %vm_running, align 2
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
@@ -333,15 +297,15 @@ if.then6.i:                                       ; preds = %lor.lhs.false.i, %i
   br label %err.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %vhost_chr.i = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 3
+  %vhost_chr.i = getelementptr inbounds i8, ptr %call.i, i64 2944
   %call8.i = call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %vhost_chr.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %err) #7
   br i1 %call8.i, label %if.end10.i, label %err.i
 
 if.end10.i:                                       ; preds = %if.end7.i
-  %vhost.i = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost.i = getelementptr inbounds i8, ptr %call.i, i64 2928
   %5 = load ptr, ptr %vhost.i, align 16
-  %dev.i = getelementptr inbounds %struct.VhostUserBackend, ptr %5, i64 0, i32 4
-  %arrayidx11.i = getelementptr inbounds [2 x i32], ptr %sv.i, i64 0, i64 1
+  %dev.i = getelementptr inbounds i8, ptr %5, i64 128
+  %arrayidx11.i = getelementptr inbounds i8, ptr %sv.i, i64 4
   %6 = load i32, ptr %arrayidx11.i, align 4
   %call12.i = call i32 @vhost_user_gpu_set_socket(ptr noundef nonnull %dev.i, i32 noundef %6) #7
   %cmp13.i = icmp slt i32 %call12.i, 0
@@ -355,7 +319,7 @@ if.then14.i:                                      ; preds = %if.end10.i
 err.i:                                            ; preds = %if.then14.i, %if.end7.i, %if.then6.i
   %7 = load i32, ptr %sv.i, align 4
   %call21.i = call i32 @close(i32 noundef %7) #7
-  %arrayidx22.i = getelementptr inbounds [2 x i32], ptr %sv.i, i64 0, i64 1
+  %arrayidx22.i = getelementptr inbounds i8, ptr %sv.i, i64 4
   %8 = load i32, ptr %arrayidx22.i, align 4
   %call23.i = call i32 @close(i32 noundef %8) #7
   br i1 %tobool.not.i, label %if.then4, label %if.then25.i
@@ -372,7 +336,7 @@ if.then4:                                         ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.end10.i
   %10 = load i32, ptr %sv.i, align 4
-  %vhost_gpu_fd.i = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 2
+  %vhost_gpu_fd.i = getelementptr inbounds i8, ptr %call.i, i64 2936
   store i32 %10, ptr %vhost_gpu_fd.i, align 8
   call void @qemu_set_fd_handler(i32 noundef %10, ptr noundef nonnull @vhost_user_gpu_chr_read, ptr noundef null, ptr noundef nonnull %call.i) #7
   %11 = load i32, ptr %arrayidx11.i, align 4
@@ -383,20 +347,20 @@ if.end:                                           ; preds = %if.end10.i
   br label %if.end10
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %vhost_gpu_fd = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 2
+  %vhost_gpu_fd = getelementptr inbounds i8, ptr %call.i, i64 2936
   %13 = load i32, ptr %vhost_gpu_fd, align 8
   %cmp.not = icmp eq i32 %13, -1
   br i1 %cmp.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.else
   tail call void @qemu_set_fd_handler(i32 noundef %13, ptr noundef null, ptr noundef null, ptr noundef nonnull %call.i) #7
-  %vhost_chr = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 3
+  %vhost_chr = getelementptr inbounds i8, ptr %call.i, i64 2944
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %vhost_chr, i1 noundef zeroext true) #7
   store i32 -1, ptr %vhost_gpu_fd, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.else
-  %vhost9 = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost9 = getelementptr inbounds i8, ptr %call.i, i64 2928
   %14 = load ptr, ptr %vhost9, align 16
   tail call void @vhost_user_backend_stop(ptr noundef %14) #7
   br label %if.end10
@@ -413,9 +377,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %0, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @vhost_virtqueue_mask(ptr noundef nonnull %dev, ptr noundef %vdev, i32 noundef %idx, i1 noundef zeroext %mask) #7
   br label %return
 
@@ -431,9 +395,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %0, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %0, i64 128
   %call1 = tail call zeroext i1 @vhost_virtqueue_pending(ptr noundef nonnull %dev, i32 noundef %idx) #7
   br label %return
 
@@ -450,9 +414,9 @@ entry:
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
   store ptr null, ptr %local_err, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %config_data, i8 0, i64 16, i1 false)
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %0, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %0, i64 128
   %call2 = call i32 @vhost_dev_get_config(ptr noundef nonnull %dev, ptr noundef %config_data, i32 noundef 16, ptr noundef nonnull %local_err) #7
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -463,16 +427,16 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %virtio_config = getelementptr inbounds %struct.VirtIOGPUBase, ptr %call.i8, i64 0, i32 3
-  %num_scanouts = getelementptr inbounds %struct.VirtIOGPUBase, ptr %call.i8, i64 0, i32 3, i32 2
+  %virtio_config = getelementptr inbounds i8, ptr %call.i8, i64 552
+  %num_scanouts = getelementptr inbounds i8, ptr %call.i8, i64 560
   %2 = load i32, ptr %num_scanouts, align 8
-  %num_scanouts3 = getelementptr inbounds %struct.virtio_gpu_config, ptr %config_data, i64 0, i32 2
+  %num_scanouts3 = getelementptr inbounds i8, ptr %config_data, i64 8
   store i32 %2, ptr %num_scanouts3, align 4
   %3 = load i32, ptr %virtio_config, align 8
   store i32 %3, ptr %config_data, align 4
-  %events_clear = getelementptr inbounds %struct.VirtIOGPUBase, ptr %call.i8, i64 0, i32 3, i32 1
+  %events_clear = getelementptr inbounds i8, ptr %call.i8, i64 556
   %4 = load i32, ptr %events_clear, align 4
-  %events_clear7 = getelementptr inbounds %struct.virtio_gpu_config, ptr %config_data, i64 0, i32 1
+  %events_clear7 = getelementptr inbounds i8, ptr %config_data, i64 4
   store i32 %4, ptr %events_clear7, align 4
   br label %return
 
@@ -485,23 +449,23 @@ define internal void @vhost_user_gpu_set_config(ptr noundef %vdev, ptr noundef %
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
-  %events_clear = getelementptr inbounds %struct.virtio_gpu_config, ptr %config_data, i64 0, i32 1
+  %events_clear = getelementptr inbounds i8, ptr %config_data, i64 4
   %0 = load i32, ptr %events_clear, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %not = xor i32 %0, -1
-  %virtio_config = getelementptr inbounds %struct.VirtIOGPUBase, ptr %call.i4, i64 0, i32 3
+  %virtio_config = getelementptr inbounds i8, ptr %call.i4, i64 552
   %1 = load i32, ptr %virtio_config, align 8
   %and = and i32 %1, %not
   store i32 %and, ptr %virtio_config, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %2 = load ptr, ptr %vhost, align 16
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %2, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %2, i64 128
   %call3 = tail call i32 @vhost_dev_set_config(ptr noundef nonnull %dev, ptr noundef nonnull %config_data, i32 noundef 0, i32 noundef 16, i32 noundef 0) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
@@ -518,9 +482,9 @@ if.end6:                                          ; preds = %if.then5, %if.end
 define internal nonnull ptr @vhost_user_gpu_get_vhost(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7
-  %vhost = getelementptr inbounds %struct.VhostUserGPU, ptr %call.i, i64 0, i32 1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 2928
   %0 = load ptr, ptr %vhost, align 16
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %0, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %0, i64 128
   ret ptr %dev
 }
 
@@ -548,7 +512,7 @@ entry:
   %request = alloca i32, align 4
   %size = alloca i32, align 4
   %flags = alloca i32, align 4
-  %vhost_chr = getelementptr inbounds %struct.VhostUserGPU, ptr %opaque, i64 0, i32 3
+  %vhost_chr = getelementptr inbounds i8, ptr %opaque, i64 2944
   %call = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %request, i32 noundef 4) #7
   %cmp.not = icmp eq i32 %call, 4
   br i1 %cmp.not, label %if.end, label %if.then
@@ -582,7 +546,7 @@ if.end16:                                         ; preds = %if.end9
   %conv17 = zext i32 %1 to i64
   %add = add nuw nsw i64 %conv17, 12
   %call18 = call noalias ptr @g_malloc(i64 noundef %add) #9
-  %payload = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3
+  %payload = getelementptr inbounds i8, ptr %call18, i64 12
   %2 = load i32, ptr %size, align 4
   %call20 = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %payload, i32 noundef %2) #7
   %3 = load i32, ptr %size, align 4
@@ -596,9 +560,9 @@ if.then23:                                        ; preds = %if.end16
 if.end24:                                         ; preds = %if.end16
   %4 = load i32, ptr %request, align 4
   store i32 %4, ptr %call18, align 1
-  %flags26 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 1
+  %flags26 = getelementptr inbounds i8, ptr %call18, i64 4
   store i32 %call20, ptr %flags26, align 1
-  %size27 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 2
+  %size27 = getelementptr inbounds i8, ptr %call18, i64 8
   store i32 %call20, ptr %size27, align 1
   %.off = add i32 %4, -4
   %switch = icmp ult i32 %.off, 3
@@ -606,19 +570,20 @@ if.end24:                                         ; preds = %if.end16
 
 if.then35:                                        ; preds = %if.end24
   %5 = load i32, ptr %payload, align 1
-  %conf.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 2
+  %conf.i = getelementptr inbounds i8, ptr %opaque, i64 528
   %6 = load i32, ptr %conf.i, align 16
   %cmp.not.i = icmp ult i32 %5, %6
   br i1 %cmp.not.i, label %if.end.i, label %end
 
 if.end.i:                                         ; preds = %if.then35
+  %scanout.i = getelementptr inbounds i8, ptr %opaque, i64 864
   %idxprom.i = zext i32 %5 to i64
-  %arrayidx.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom.i
+  %arrayidx.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout.i, i64 0, i64 %idxprom.i
   %cmp3.i = icmp eq i32 %4, 6
   br i1 %cmp3.i, label %if.then4.i, label %if.end17.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %current_cursor.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom.i, i32 9
+  %current_cursor.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 96
   %7 = load ptr, ptr %current_cursor.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.then6.i, label %if.end8.i
@@ -632,16 +597,16 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   %8 = phi ptr [ %call.i, %if.then6.i ], [ %7, %if.then4.i ]
   %hot_x.i = getelementptr inbounds i8, ptr %call18, i64 24
   %9 = load i32, ptr %hot_x.i, align 1
-  %hot_x10.i = getelementptr inbounds %struct.QEMUCursor, ptr %8, i64 0, i32 2
+  %hot_x10.i = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %9, ptr %hot_x10.i, align 4
-  %hot_y.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 3
+  %hot_y.i = getelementptr inbounds i8, ptr %call18, i64 28
   %10 = load i32, ptr %hot_y.i, align 1
   %11 = load ptr, ptr %current_cursor.i, align 8
-  %hot_y12.i = getelementptr inbounds %struct.QEMUCursor, ptr %11, i64 0, i32 3
+  %hot_y12.i = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %10, ptr %hot_y12.i, align 4
   %12 = load ptr, ptr %current_cursor.i, align 8
-  %data.i = getelementptr inbounds %struct.QEMUCursor, ptr %12, i64 0, i32 5
-  %data14.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 4
+  %data.i = getelementptr inbounds i8, ptr %12, i64 16
+  %data14.i = getelementptr inbounds i8, ptr %call18, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16384) %data.i, ptr noundef nonnull align 1 dereferenceable(16384) %data14.i, i64 16384, i1 false)
   %13 = load ptr, ptr %arrayidx.i, align 8
   %14 = load ptr, ptr %current_cursor.i, align 8
@@ -652,9 +617,9 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
 if.end17.i:                                       ; preds = %if.end8.i, %if.end.i
   %15 = phi i32 [ %.pre.i, %if.end8.i ], [ %4, %if.end.i ]
   %16 = load ptr, ptr %arrayidx.i, align 8
-  %x.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 1
+  %x.i = getelementptr inbounds i8, ptr %call18, i64 16
   %17 = load i32, ptr %x.i, align 1
-  %y.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 2
+  %y.i = getelementptr inbounds i8, ptr %call18, i64 20
   %18 = load i32, ptr %y.i, align 1
   %cmp20.i = icmp ne i32 %15, 5
   %conv.i = zext i1 %cmp20.i to i32
@@ -683,12 +648,12 @@ sw.bb.i:                                          ; preds = %if.else
   %19 = getelementptr inbounds i8, ptr %reply.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %19, i8 0, i64 16400, i1 false)
   store i32 1, ptr %reply.i, align 4
-  %flags.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %reply.i, i64 4
   store i32 4, ptr %flags.i, align 4
-  %size.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %reply.i, i64 8
   store i32 8, ptr %size.i, align 4
-  %payload.i25 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply.i, i64 0, i32 3
-  store i64 3, ptr %payload.i25, align 4
+  %payload.i26 = getelementptr inbounds i8, ptr %reply.i, i64 12
+  store i64 3, ptr %payload.i26, align 4
   %call.i.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %reply.i, i32 noundef 20) #7
   br label %vhost_user_gpu_handle_display.exit
 
@@ -697,14 +662,14 @@ sw.bb4.i:                                         ; preds = %if.else
   %20 = getelementptr inbounds i8, ptr %reply5.i, i64 420
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %20, i8 0, i64 16000, i1 false)
   store i32 3, ptr %reply5.i, align 4
-  %flags8.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply5.i, i64 0, i32 1
+  %flags8.i = getelementptr inbounds i8, ptr %reply5.i, i64 4
   store i32 4, ptr %flags8.i, align 4
-  %size9.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply5.i, i64 0, i32 2
+  %size9.i = getelementptr inbounds i8, ptr %reply5.i, i64 8
   store i32 408, ptr %size9.i, align 4
   store i32 4353, ptr %display_info.i, align 8
   %call.i103.i = call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
   call void @virtio_gpu_base_fill_display_info(ptr noundef %call.i103.i, ptr noundef nonnull %display_info.i) #7
-  %payload11.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply5.i, i64 0, i32 3
+  %payload11.i = getelementptr inbounds i8, ptr %reply5.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(408) %payload11.i, ptr noundef nonnull align 8 dereferenceable(408) %display_info.i, i64 408, i1 false)
   %call.i107.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %reply5.i, i32 noundef 420) #7
   br label %vhost_user_gpu_handle_display.exit
@@ -714,44 +679,45 @@ sw.bb12.i:                                        ; preds = %if.else
   %21 = getelementptr inbounds i8, ptr %reply14.i, i64 1068
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %21, i8 0, i64 15352, i1 false)
   store i32 11, ptr %reply14.i, align 4
-  %flags17.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply14.i, i64 0, i32 1
+  %flags17.i = getelementptr inbounds i8, ptr %reply14.i, i64 4
   store i32 4, ptr %flags17.i, align 4
-  %size18.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply14.i, i64 0, i32 2
+  %size18.i = getelementptr inbounds i8, ptr %reply14.i, i64 8
   store i32 1056, ptr %size18.i, align 4
   %22 = load i32, ptr %payload, align 1
-  %conf.i22 = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 2
-  %23 = load i32, ptr %conf.i22, align 16
-  %cmp.not.i23 = icmp ult i32 %22, %23
-  br i1 %cmp.not.i23, label %if.end.i24, label %if.then.i
+  %conf.i23 = getelementptr inbounds i8, ptr %opaque, i64 528
+  %23 = load i32, ptr %conf.i23, align 16
+  %cmp.not.i24 = icmp ult i32 %22, %23
+  br i1 %cmp.not.i24, label %if.end.i25, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb12.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14, i32 noundef %22) #7
   br label %vhost_user_gpu_handle_display.exit
 
-if.end.i24:                                       ; preds = %sw.bb12.i
+if.end.i25:                                       ; preds = %sw.bb12.i
   store i32 4356, ptr %resp.i, align 8
   %call.i108.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
   %24 = load i32, ptr %payload, align 1
   call void @virtio_gpu_base_generate_edid(ptr noundef %call.i108.i, i32 noundef %24, ptr noundef nonnull %resp.i) #7
-  %payload25.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %reply14.i, i64 0, i32 3
+  %payload25.i = getelementptr inbounds i8, ptr %reply14.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1056) %payload25.i, ptr noundef nonnull align 8 dereferenceable(1056) %resp.i, i64 1056, i1 false)
   %call.i112.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %reply14.i, i32 noundef 1068) #7
   br label %vhost_user_gpu_handle_display.exit
 
 sw.bb26.i:                                        ; preds = %if.else
   %25 = load i32, ptr %payload, align 1
-  %conf31.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 2
+  %conf31.i = getelementptr inbounds i8, ptr %opaque, i64 528
   %26 = load i32, ptr %conf31.i, align 16
   %cmp33.not.i = icmp ult i32 %25, %26
   br i1 %cmp33.not.i, label %if.end35.i, label %vhost_user_gpu_handle_display.exit
 
 if.end35.i:                                       ; preds = %sw.bb26.i
-  %enable.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 6
+  %enable.i = getelementptr inbounds i8, ptr %opaque, i64 580
   store i32 1, ptr %enable.i, align 4
-  %idxprom.i20 = zext i32 %25 to i64
-  %arrayidx.i21 = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom.i20
-  %27 = load ptr, ptr %arrayidx.i21, align 8
-  %width.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 1
+  %scanout.i20 = getelementptr inbounds i8, ptr %opaque, i64 864
+  %idxprom.i21 = zext i32 %25 to i64
+  %arrayidx.i22 = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout.i20, i64 0, i64 %idxprom.i21
+  %27 = load ptr, ptr %arrayidx.i22, align 8
+  %width.i = getelementptr inbounds i8, ptr %call18, i64 16
   %28 = load i32, ptr %width.i, align 1
   %cmp40.i = icmp eq i32 %28, 0
   br i1 %cmp40.i, label %if.then41.i, label %if.else.i
@@ -761,17 +727,17 @@ if.then41.i:                                      ; preds = %if.end35.i
   br label %sw.epilog.i
 
 if.else.i:                                        ; preds = %if.end35.i
-  %height.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %call18, i64 20
   %29 = load i32, ptr %height.i, align 1
   %call43.i = call ptr @qemu_create_displaysurface(i32 noundef %28, i32 noundef %29) #7
-  %ds.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom.i20, i32 1
+  %ds.i = getelementptr inbounds i8, ptr %arrayidx.i22, i64 8
   store ptr %call43.i, ptr %ds.i, align 8
   br label %sw.epilog.i
 
 sw.bb45.i:                                        ; preds = %if.else, %if.else
   %call48.i = call i32 @qemu_chr_fe_get_msgfd(ptr noundef nonnull %vhost_chr) #7
   %30 = load i32, ptr %payload, align 1
-  %conf51.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 2
+  %conf51.i = getelementptr inbounds i8, ptr %opaque, i64 528
   %31 = load i32, ptr %conf51.i, align 16
   %cmp53.not.i = icmp ult i32 %30, %31
   br i1 %cmp53.not.i, label %if.end60.i, label %if.then54.i
@@ -786,12 +752,14 @@ if.then57.i:                                      ; preds = %if.then54.i
   br label %vhost_user_gpu_handle_display.exit
 
 if.end60.i:                                       ; preds = %sw.bb45.i
-  %enable62.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 6
+  %enable62.i = getelementptr inbounds i8, ptr %opaque, i64 580
   store i32 1, ptr %enable62.i, align 4
+  %scanout64.i = getelementptr inbounds i8, ptr %opaque, i64 864
   %idxprom66.i = zext i32 %30 to i64
-  %arrayidx67.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom66.i
+  %arrayidx67.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout64.i, i64 0, i64 %idxprom66.i
   %32 = load ptr, ptr %arrayidx67.i, align 8
-  %arrayidx72.i = getelementptr %struct.VhostUserGPU, ptr %opaque, i64 0, i32 4, i64 %idxprom66.i
+  %dmabuf69.i = getelementptr inbounds i8, ptr %opaque, i64 3000
+  %arrayidx72.i = getelementptr [16 x %struct.QemuDmaBuf], ptr %dmabuf69.i, i64 0, i64 %idxprom66.i
   %33 = load i32, ptr %arrayidx72.i, align 8
   %cmp74.i = icmp sgt i32 %33, -1
   br i1 %cmp74.i, label %if.then75.i, label %if.end79.i
@@ -811,12 +779,12 @@ if.then81.i:                                      ; preds = %if.end79.i
   br label %sw.epilog.i
 
 if.end82.i:                                       ; preds = %if.end79.i
-  %fd_width.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 4
-  %fd_stride.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 2
+  %fd_width.i = getelementptr inbounds i8, ptr %call18, i64 32
+  %fd_stride.i = getelementptr inbounds i8, ptr %call18, i64 40
   %34 = load i32, ptr %fd_stride.i, align 1
-  %fd_drm_fourcc.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 3, i64 4
+  %fd_drm_fourcc.i = getelementptr inbounds i8, ptr %call18, i64 48
   %35 = load i32, ptr %fd_drm_fourcc.i, align 1
-  %fd_flags.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 3
+  %fd_flags.i = getelementptr inbounds i8, ptr %call18, i64 44
   %36 = load i32, ptr %fd_flags.i, align 1
   %37 = trunc i32 %36 to i8
   %frombool.i = and i8 %37, 1
@@ -839,7 +807,7 @@ if.end82.i:                                       ; preds = %if.end79.i
   br i1 %cmp87.i, label %if.then88.i, label %if.end92.i
 
 if.then88.i:                                      ; preds = %if.end82.i
-  %modifier90.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 3, i64 8
+  %modifier90.i = getelementptr inbounds i8, ptr %call18, i64 52
   %40 = load i64, ptr %modifier90.i, align 1
   store i64 %40, ptr %.compoundliteral.sroa.622.0..sroa_idx.i, align 8
   br label %if.end92.i
@@ -850,14 +818,15 @@ if.end92.i:                                       ; preds = %if.then88.i, %if.en
 
 sw.bb93.i:                                        ; preds = %if.else
   %41 = load i32, ptr %payload, align 1
-  %conf98.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 2
+  %conf98.i = getelementptr inbounds i8, ptr %opaque, i64 528
   %42 = load i32, ptr %conf98.i, align 16
   %cmp100.not.i = icmp ult i32 %41, %42
   br i1 %cmp100.not.i, label %lor.lhs.false.i, label %if.then108.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb93.i
+  %scanout102.i = getelementptr inbounds i8, ptr %opaque, i64 864
   %idxprom104.i = zext i32 %41 to i64
-  %arrayidx105.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom104.i
+  %arrayidx105.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout102.i, i64 0, i64 %idxprom104.i
   %43 = load ptr, ptr %arrayidx105.i, align 8
   %tobool107.not.i = icmp eq ptr %43, null
   br i1 %tobool107.not.i, label %if.then108.i, label %if.end110.i
@@ -868,7 +837,7 @@ if.then108.i:                                     ; preds = %lor.lhs.false.i, %s
   %44 = getelementptr inbounds i8, ptr %msg.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %44, i8 0, i64 16412, i1 false)
   store i32 10, ptr %msg.i.i, align 4
-  %45 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %msg.i.i, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %msg.i.i, i64 4
   store i32 4, ptr %45, align 4
   %call.i.i.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %msg.i.i, i32 noundef 12) #7
   call void @llvm.lifetime.end.p0(i64 16420, ptr nonnull %msg.i.i)
@@ -884,51 +853,52 @@ if.then118.i:                                     ; preds = %if.end110.i
   %46 = getelementptr inbounds i8, ptr %msg.i113.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16420) %46, i8 0, i64 16412, i1 false)
   store i32 10, ptr %msg.i113.i, align 4
-  %47 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %msg.i113.i, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %msg.i113.i, i64 4
   store i32 4, ptr %47, align 4
   %call.i.i115.i = call i32 @qemu_chr_fe_write(ptr noundef nonnull %vhost_chr, ptr noundef nonnull %msg.i113.i, i32 noundef 12) #7
   call void @llvm.lifetime.end.p0(i64 16420, ptr nonnull %msg.i113.i)
   br label %land.lhs.true.i
 
 if.end119.i:                                      ; preds = %if.end110.i
-  %backend_blocked.i = getelementptr inbounds %struct.VhostUserGPU, ptr %opaque, i64 0, i32 5
+  %backend_blocked.i = getelementptr inbounds i8, ptr %opaque, i64 4152
   store i8 1, ptr %backend_blocked.i, align 8
-  %x120.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 1
+  %x120.i = getelementptr inbounds i8, ptr %call18, i64 16
   %48 = load i32, ptr %x120.i, align 1
-  %y121.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 2
+  %y121.i = getelementptr inbounds i8, ptr %call18, i64 20
   %49 = load i32, ptr %y121.i, align 1
   %width122.i = getelementptr inbounds i8, ptr %call18, i64 24
   %50 = load i32, ptr %width122.i, align 1
-  %height123.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 3
+  %height123.i = getelementptr inbounds i8, ptr %call18, i64 28
   %51 = load i32, ptr %height123.i, align 1
   call void @dpy_gl_update(ptr noundef nonnull %43, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51) #7
   br label %land.lhs.true.i
 
 sw.bb124.i:                                       ; preds = %if.else
   %52 = load i32, ptr %payload, align 1
-  %conf129.i = getelementptr inbounds %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 2
+  %conf129.i = getelementptr inbounds i8, ptr %opaque, i64 528
   %53 = load i32, ptr %conf129.i, align 16
   %cmp131.not.i = icmp ult i32 %52, %53
   br i1 %cmp131.not.i, label %if.end133.i, label %vhost_user_gpu_handle_display.exit
 
 if.end133.i:                                      ; preds = %sw.bb124.i
+  %scanout135.i = getelementptr inbounds i8, ptr %opaque, i64 864
   %idxprom137.i = zext i32 %52 to i64
-  %arrayidx138.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom137.i
+  %arrayidx138.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout135.i, i64 0, i64 %idxprom137.i
   %54 = load ptr, ptr %arrayidx138.i, align 8
   %width140.i = getelementptr inbounds i8, ptr %call18, i64 24
   %55 = load i32, ptr %width140.i, align 1
-  %height141.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 3
+  %height141.i = getelementptr inbounds i8, ptr %call18, i64 28
   %56 = load i32, ptr %height141.i, align 1
-  %data.i18 = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 4
+  %data.i18 = getelementptr inbounds i8, ptr %call18, i64 32
   %mul.i = shl i32 %55, 2
   %call143.i = call ptr @pixman_image_create_bits(i32 noundef 537004168, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %data.i18, i32 noundef %mul.i) #7
-  %ds144.i = getelementptr %struct.VirtIOGPUBase, ptr %opaque, i64 0, i32 8, i64 %idxprom137.i, i32 1
+  %ds144.i = getelementptr inbounds i8, ptr %arrayidx138.i, i64 8
   %57 = load ptr, ptr %ds144.i, align 8
   %58 = load ptr, ptr %57, align 8
-  %x146.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 1
+  %x146.i = getelementptr inbounds i8, ptr %call18, i64 16
   %59 = load i32, ptr %x146.i, align 1
   %conv.i19 = trunc i32 %59 to i16
-  %y147.i = getelementptr inbounds %struct.VhostUserGpuMsg, ptr %call18, i64 0, i32 3, i32 0, i32 0, i32 2
+  %y147.i = getelementptr inbounds i8, ptr %call18, i64 20
   %60 = load i32, ptr %y147.i, align 1
   %conv148.i = trunc i32 %60 to i16
   %61 = load i32, ptr %width140.i, align 1
@@ -969,12 +939,12 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i, %if.en
   br i1 %call169.i, label %if.then171.i, label %vhost_user_gpu_handle_display.exit
 
 if.then171.i:                                     ; preds = %land.lhs.true.i
-  %vhost_gpu_fd.i.i = getelementptr inbounds %struct.VhostUserGPU, ptr %opaque, i64 0, i32 2
+  %vhost_gpu_fd.i.i = getelementptr inbounds i8, ptr %opaque, i64 2936
   %68 = load i32, ptr %vhost_gpu_fd.i.i, align 8
   call void @qemu_set_fd_handler(i32 noundef %68, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #7
   br label %vhost_user_gpu_handle_display.exit
 
-vhost_user_gpu_handle_display.exit:               ; preds = %if.else, %sw.bb.i, %sw.bb4.i, %if.then.i, %if.end.i24, %sw.bb26.i, %if.then54.i, %if.then57.i, %if.then108.i, %sw.bb124.i, %sw.default.i, %sw.epilog.i, %land.lhs.true.i, %if.then171.i
+vhost_user_gpu_handle_display.exit:               ; preds = %if.else, %sw.bb.i, %sw.bb4.i, %if.then.i, %if.end.i25, %sw.bb26.i, %if.then54.i, %if.then57.i, %if.then108.i, %sw.bb124.i, %sw.default.i, %sw.epilog.i, %land.lhs.true.i, %if.then171.i
   call void @llvm.lifetime.end.p0(i64 16420, ptr nonnull %reply.i)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %display_info.i)
   call void @llvm.lifetime.end.p0(i64 16420, ptr nonnull %reply5.i)

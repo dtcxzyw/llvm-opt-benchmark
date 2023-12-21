@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.stanza_st = type { ptr, ptr, i32, i32, i32, i32, i32, i32, [150 x %struct.pair_st], ptr, [4096 x i8] }
-%struct.pair_st = type { ptr, ptr }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -173,7 +171,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.then5, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %fp = getelementptr inbounds %struct.stanza_st, ptr %call1, i64 0, i32 1
+  %fp = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %fp, align 8
   %call7156 = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
   %1 = and i64 %call7156, 4294967295
@@ -181,9 +179,9 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool9.not157, label %while.body.lr.ph, label %end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %numpairs = getelementptr inbounds %struct.stanza_st, ptr %call1, i64 0, i32 7
-  %pairs.i = getelementptr inbounds %struct.stanza_st, ptr %call1, i64 0, i32 8
-  %curr102.i = getelementptr inbounds %struct.stanza_st, ptr %call1, i64 0, i32 2
+  %numpairs = getelementptr inbounds i8, ptr %call1, i64 36
+  %pairs.i = getelementptr inbounds i8, ptr %call1, i64 40
+  %curr102.i = getelementptr inbounds i8, ptr %call1, i64 16
   br label %while.body
 
 if.then5:                                         ; preds = %if.end
@@ -242,7 +240,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end.i:                                         ; preds = %if.then.i
-  %value.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %call4.i = call ptr @OSSL_PARAM_locate(ptr noundef nonnull @param_conversion_load_stanza.params, ptr noundef %5) #7
   %cmp6.i = icmp eq ptr %call4.i, null
@@ -269,7 +267,7 @@ if.then14.i:                                      ; preds = %if.then13.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end16.i:                                       ; preds = %if.then13.i
-  %value17.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 0, i32 1
+  %value17.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 8
   %9 = load ptr, ptr %value17.i, align 8
   %call18.i = call i32 @OPENSSL_strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.28) #7
   %cmp19.not.i = icmp eq i32 %call18.i, 0
@@ -297,7 +295,7 @@ if.then32.i:                                      ; preds = %if.then29.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end34.i:                                       ; preds = %if.then29.i
-  %value35.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 0, i32 1
+  %value35.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 8
   %13 = load ptr, ptr %value35.i, align 8
   %call36.i = call i32 @OPENSSL_strcasecmp(ptr noundef %13, ptr noundef nonnull @.str.28) #7
   %cmp37.not.i = icmp eq i32 %call36.i, 0
@@ -324,7 +322,7 @@ if.then51.i:                                      ; preds = %if.then48.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end53.i:                                       ; preds = %if.then48.i
-  %value54.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 0, i32 1
+  %value54.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 8
   %17 = load ptr, ptr %value54.i, align 8
   %call55.i = call i32 @OPENSSL_strcasecmp(ptr noundef %17, ptr noundef nonnull @.str.28) #7
   %cmp56.not.i = icmp eq i32 %call55.i, 0
@@ -352,7 +350,7 @@ if.then71.i:                                      ; preds = %if.then68.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end73.i:                                       ; preds = %if.then68.i
-  %value74.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 0, i32 1
+  %value74.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 8
   %21 = load ptr, ptr %value74.i, align 8
   %call75.i = call i32 @OPENSSL_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.28) #7
   %cmp76.not.i = icmp eq i32 %call75.i, 0
@@ -379,7 +377,7 @@ if.then90.i:                                      ; preds = %if.then87.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end92.i:                                       ; preds = %if.then87.i
-  %value93.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 0, i32 1
+  %value93.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 8
   %25 = load ptr, ptr %value93.i, align 8
   %call94.i = call i32 @OPENSSL_strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.28) #7
   %cmp95.not.i = icmp eq i32 %call94.i, 0
@@ -427,7 +425,7 @@ if.then113.i:                                     ; preds = %if.end109.i
 
 for.inc.i:                                        ; preds = %if.end109.i
   %inc117.i = add nuw nsw i32 %i.0157.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.pair_st, ptr %pp.0155.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %pp.0155.i, i64 16
   %33 = load i32, ptr %numpairs, align 4
   %cmp.i = icmp slt i32 %inc117.i, %33
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5

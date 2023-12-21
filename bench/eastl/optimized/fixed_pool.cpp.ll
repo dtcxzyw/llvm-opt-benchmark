@@ -3,8 +3,6 @@ source_filename = "bench/eastl/original/fixed_pool.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.eastl::fixed_pool_base" = type { ptr, ptr, ptr, i64 }
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %pMemory, i64 noundef %memorySize, i64 noundef %nodeSize, i64 noundef %alignment, i64 noundef %0) local_unnamed_addr #0 align 2 {
 entry:
@@ -19,7 +17,7 @@ if.then:                                          ; preds = %entry
   %not = sub i64 0, %spec.store.select
   %and = and i64 %add, %not
   %2 = inttoptr i64 %and to ptr
-  %mpNext = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %this, i64 0, i32 1
+  %mpNext = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %2, ptr %mpNext, align 8
   %sub5.neg = sub i64 %1, %and
   %sub6 = add i64 %sub5.neg, %memorySize
@@ -31,10 +29,10 @@ if.then:                                          ; preds = %entry
   %mul = add i64 %1, %memorySize
   %add16 = sub i64 %mul, %3
   %4 = inttoptr i64 %add16 to ptr
-  %mpCapacity = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %this, i64 0, i32 2
+  %mpCapacity = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %4, ptr %mpCapacity, align 8
   store ptr null, ptr %this, align 8
-  %mnNodeSize = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %this, i64 0, i32 3
+  %mnNodeSize = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %nodeSize.addr.0, ptr %mnNodeSize, align 8
   br label %if.end17
 

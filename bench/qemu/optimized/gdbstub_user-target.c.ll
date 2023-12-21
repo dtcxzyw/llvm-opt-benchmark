@@ -4,54 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.GDBState = type { i8, ptr, ptr, ptr, i32, [4096 x i8], i32, i32, i32, ptr, i32, i8, ptr, i32, ptr, ptr, i32, i32, i8 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.TaskState = type { i32, i32, i64, i64, i64, i64, i32, ptr, ptr, %struct.emulated_sigtable, [64 x %struct.emulated_sigtable], %struct.__sigset_t, %struct.__sigset_t, i32, i32, %struct.target_sigaltstack, i64 }
-%struct.emulated_sigtable = type { i32, %struct.target_siginfo }
-%struct.target_siginfo = type { i32, i32, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.anon.10, [80 x i8] }
-%struct.anon.10 = type { i32, i32, i32, i64, i64 }
-%struct.target_sigaltstack = type { i64, i32, i64 }
-%struct.image_info = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i8, i64, i64, i64, i16, ptr, i64, i64, i64, ptr, i32 }
-%struct._GArray = type { ptr, i32 }
-%union.GdbCmdVariant = type { ptr, [8 x i8] }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct._GString = type { ptr, i64, i64 }
-%struct.linux_binprm = type { [1024 x i8], %struct.ImageSource, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, [8 x i8] }
-%struct.ImageSource = type { ptr, i32, i32 }
 
 @gdb_signal_table = internal unnamed_addr constant [151 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 -1, i32 8, i32 9, i32 7, i32 11, i32 31, i32 13, i32 14, i32 15, i32 23, i32 19, i32 20, i32 18, i32 17, i32 21, i32 22, i32 29, i32 24, i32 25, i32 26, i32 27, i32 28, i32 -1, i32 10, i32 12, i32 30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63, i32 -1, i32 32, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 79, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 95, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 111, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126, i32 127, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], align 16
 @gdbserver_state = external local_unnamed_addr global %struct.GDBState, align 8
@@ -118,7 +70,7 @@ return:                                           ; preds = %for.inc, %return.sp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @gdb_get_cpu_index(ptr nocapture noundef readonly %cpu) local_unnamed_addr #2 {
 entry:
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %cpu, i64 624
   %0 = load ptr, ptr %opaque, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -136,14 +88,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 define dso_local void @gdb_handle_query_offsets(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %0, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %0, i64 624
   %1 = load ptr, ptr %opaque, align 16
   %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %info = getelementptr inbounds %struct.TaskState, ptr %1, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %info, align 8
-  %code_offset = getelementptr inbounds %struct.image_info, ptr %3, i64 0, i32 11
+  %code_offset = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load i64, ptr %code_offset, align 8
-  %data_offset = getelementptr inbounds %struct.image_info, ptr %3, i64 0, i32 12
+  %data_offset = getelementptr inbounds i8, ptr %3, i64 96
   %5 = load i64, ptr %data_offset, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef %4, i64 noundef %5, i64 noundef %5) #9
   tail call void @gdb_put_strbuf() #9
@@ -157,7 +109,7 @@ declare void @gdb_put_strbuf() local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_query_xfer_auxv(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
 entry:
-  %len1 = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
   %cmp = icmp ult i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -170,11 +122,11 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %2 = load i64, ptr %1, align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %3, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %3, i64 624
   %4 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds %struct.TaskState, ptr %4, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %info, align 8
-  %auxv_len6 = getelementptr inbounds %struct.image_info, ptr %5, i64 0, i32 14
+  %auxv_len6 = getelementptr inbounds i8, ptr %5, i64 112
   %6 = load i64, ptr %auxv_len6, align 8
   %cmp7.not = icmp ult i64 %2, %6
   br i1 %cmp7.not, label %if.end10, label %if.then8
@@ -184,9 +136,9 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %saved_auxv4 = getelementptr inbounds %struct.image_info, ptr %5, i64 0, i32 13
+  %saved_auxv4 = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load i64, ptr %saved_auxv4, align 8
-  %arrayidx3 = getelementptr %union.GdbCmdVariant, ptr %1, i64 1
+  %arrayidx3 = getelementptr i8, ptr %1, i64 16
   %8 = load i64, ptr %arrayidx3, align 8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %8, i64 2045)
   %sub = sub i64 %6, %2
@@ -204,7 +156,7 @@ if.end10:                                         ; preds = %if.end
   %13 = load ptr, ptr %12, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef %11) #9
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #9
-  %memory_rw_debug.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 4
+  %memory_rw_debug.i = getelementptr inbounds i8, ptr %call1.i.i, i64 200
   %14 = load ptr, ptr %memory_rw_debug.i, align 8
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -233,7 +185,7 @@ if.end26:                                         ; preds = %target_memory_rw_de
   tail call void @gdb_memtox(ptr noundef %15, ptr noundef %17, i32 noundef %conv) #9
   %18 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %19 = load ptr, ptr %18, align 8
-  %len29 = getelementptr inbounds %struct._GString, ptr %18, i64 0, i32 1
+  %len29 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i64, ptr %len29, align 8
   %conv30 = trunc i64 %20 to i32
   %call31 = tail call i32 @gdb_put_packet_binary(ptr noundef %19, i32 noundef %conv30, i1 noundef zeroext true) #9
@@ -268,12 +220,12 @@ entry:
   %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %params, align 8
-  %arrayidx = getelementptr %union.GdbCmdVariant, ptr %4, i64 1
+  %arrayidx = getelementptr i8, ptr %4, i64 16
   %5 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %4, i64 2
+  %arrayidx2 = getelementptr i8, ptr %4, i64 32
   %6 = load i64, ptr %arrayidx2, align 8
   %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %7, i64 1
+  %add.ptr.i = getelementptr i8, ptr %7, i64 10176
   %conv = trunc i64 %5 to i32
   %conv4 = trunc i64 %6 to i32
   %call5 = tail call i32 @do_guest_openat(ptr noundef %add.ptr.i, i32 noundef 0, ptr noundef %3, i32 noundef %conv, i32 noundef %conv4, i1 noundef zeroext false) #9
@@ -334,9 +286,9 @@ define dso_local void @gdb_handle_v_file_pread(ptr nocapture noundef readonly %p
 entry:
   %0 = load ptr, ptr %params, align 8
   %1 = load i64, ptr %0, align 8
-  %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %0, i64 1
+  %arrayidx2 = getelementptr i8, ptr %0, i64 16
   %2 = load i64, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr %union.GdbCmdVariant, ptr %0, i64 2
+  %arrayidx4 = getelementptr i8, ptr %0, i64 32
   %3 = load i64, ptr %arrayidx4, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %2, i64 8192)
   %call = tail call noalias ptr @g_try_malloc(i64 noundef %cond) #12
@@ -368,7 +320,7 @@ if.end14:                                         ; preds = %if.end
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call, i32 noundef %conv.i) #9
   %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %8 = load ptr, ptr %7, align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %len.i, align 8
   %conv1.i = trunc i64 %9 to i32
   %call.i = tail call i32 @gdb_put_packet_binary(ptr noundef %8, i32 noundef %conv1.i, i1 noundef zeroext true) #9
@@ -426,7 +378,7 @@ if.end7:                                          ; preds = %if.end
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call1, i32 noundef %conv.i2) #9
   %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %8 = load ptr, ptr %7, align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %len.i, align 8
   %conv1.i = trunc i64 %9 to i32
   %call.i3 = tail call i32 @gdb_put_packet_binary(ptr noundef %8, i32 noundef %conv1.i, i1 noundef zeroext true) #9
@@ -445,9 +397,9 @@ entry:
   %0 = load ptr, ptr %params, align 8
   %1 = load i64, ptr %0, align 8
   %conv = trunc i64 %1 to i32
-  %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %0, i64 1
+  %arrayidx2 = getelementptr i8, ptr %0, i64 16
   %2 = load i64, ptr %arrayidx2, align 8
-  %arrayidx5 = getelementptr %union.GdbCmdVariant, ptr %0, i64 2
+  %arrayidx5 = getelementptr i8, ptr %0, i64 32
   %3 = load i64, ptr %arrayidx5, align 8
   %call = tail call ptr @gdb_get_process(i32 noundef %conv) #9
   %tobool.not = icmp eq ptr %call, null
@@ -467,19 +419,19 @@ if.then10:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %call8, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %call8, i64 624
   %4 = load ptr, ptr %opaque, align 16
   %tobool13.not = icmp eq ptr %4, null
   br i1 %tobool13.not, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end12
-  %bprm = getelementptr inbounds %struct.TaskState, ptr %4, i64 0, i32 8
+  %bprm = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load ptr, ptr %bprm, align 8
   %tobool14.not = icmp eq ptr %5, null
   br i1 %tobool14.not, label %if.then18, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false
-  %filename = getelementptr inbounds %struct.linux_binprm, ptr %5, i64 0, i32 9
+  %filename = getelementptr inbounds i8, ptr %5, i64 1080
   %6 = load ptr, ptr %filename, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.then18, label %if.end20

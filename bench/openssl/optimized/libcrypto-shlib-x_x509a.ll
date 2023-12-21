@@ -5,16 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.x509_cert_aux_st = type { ptr, ptr, ptr, ptr, ptr }
 
 @X509_CERT_AUX_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_CERT_AUX_seq_tt, i64 5, ptr null, i64 40, ptr @.str }, align 8
 @X509_CERT_AUX_seq_tt = internal constant [5 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 5, i64 0, i64 0, ptr @.str.1, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 141, i64 0, i64 8, ptr @.str.2, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 16, ptr @.str.3, ptr @ASN1_UTF8STRING_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 24, ptr @.str.4, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 141, i64 1, i64 32, ptr @.str.5, ptr @X509_ALGOR_it }], align 16
@@ -70,7 +60,7 @@ declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_trusted(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %tobool.not = icmp ne ptr %0, null
   %cond = zext i1 %tobool.not to i32
@@ -88,13 +78,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %aux2 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux2 = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux2, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %alias = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 2
+  %alias = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %alias, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %return, label %if.end
@@ -102,7 +92,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 if.end:                                           ; preds = %lor.lhs.false4
   tail call void @ASN1_UTF8STRING_free(ptr noundef nonnull %1) #6
   %2 = load ptr, ptr %aux2, align 8
-  %alias11 = getelementptr inbounds %struct.x509_cert_aux_st, ptr %2, i64 0, i32 2
+  %alias11 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %alias11, align 8
   br label %return
 
@@ -110,7 +100,7 @@ if.end12:                                         ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  %aux.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux.i = getelementptr inbounds i8, ptr %x, i64 336
   %3 = load ptr, ptr %aux.i, align 8
   %cmp1.i = icmp eq ptr %3, null
   br i1 %cmp1.i, label %aux_get.exit, label %if.end14
@@ -123,7 +113,7 @@ aux_get.exit:                                     ; preds = %if.end.i
 
 if.end14:                                         ; preds = %if.end.i, %aux_get.exit
   %retval.0.i15 = phi ptr [ %call1.i.i, %aux_get.exit ], [ %3, %if.end.i ]
-  %alias15 = getelementptr inbounds %struct.x509_cert_aux_st, ptr %retval.0.i15, i64 0, i32 2
+  %alias15 = getelementptr inbounds i8, ptr %retval.0.i15, i64 16
   %4 = load ptr, ptr %alias15, align 8
   %cmp16 = icmp eq ptr %4, null
   br i1 %cmp16, label %land.lhs.true, label %if.end21
@@ -161,13 +151,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %aux2 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux2 = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux2, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %keyid = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 3
+  %keyid = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %keyid, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %return, label %if.end
@@ -175,7 +165,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 if.end:                                           ; preds = %lor.lhs.false4
   tail call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %1) #6
   %2 = load ptr, ptr %aux2, align 8
-  %keyid11 = getelementptr inbounds %struct.x509_cert_aux_st, ptr %2, i64 0, i32 3
+  %keyid11 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr null, ptr %keyid11, align 8
   br label %return
 
@@ -183,7 +173,7 @@ if.end12:                                         ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  %aux.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux.i = getelementptr inbounds i8, ptr %x, i64 336
   %3 = load ptr, ptr %aux.i, align 8
   %cmp1.i = icmp eq ptr %3, null
   br i1 %cmp1.i, label %aux_get.exit, label %if.end14
@@ -196,7 +186,7 @@ aux_get.exit:                                     ; preds = %if.end.i
 
 if.end14:                                         ; preds = %if.end.i, %aux_get.exit
   %retval.0.i15 = phi ptr [ %call1.i.i, %aux_get.exit ], [ %3, %if.end.i ]
-  %keyid15 = getelementptr inbounds %struct.x509_cert_aux_st, ptr %retval.0.i15, i64 0, i32 3
+  %keyid15 = getelementptr inbounds i8, ptr %retval.0.i15, i64 24
   %4 = load ptr, ptr %keyid15, align 8
   %cmp16 = icmp eq ptr %4, null
   br i1 %cmp16, label %land.lhs.true, label %if.end21
@@ -224,13 +214,13 @@ declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @X509_alias_get0(ptr nocapture noundef readonly %x, ptr noundef writeonly %len) local_unnamed_addr #4 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %alias = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 2
+  %alias = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %alias, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.end
@@ -243,13 +233,13 @@ if.then4:                                         ; preds = %if.end
   %2 = load i32, ptr %1, align 8
   store i32 %2, ptr %len, align 4
   %.pre = load ptr, ptr %aux, align 8
-  %alias9.phi.trans.insert = getelementptr inbounds %struct.x509_cert_aux_st, ptr %.pre, i64 0, i32 2
+  %alias9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre6 = load ptr, ptr %alias9.phi.trans.insert, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
   %3 = phi ptr [ %.pre6, %if.then4 ], [ %1, %if.end ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   br label %return
 
@@ -261,13 +251,13 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @X509_keyid_get0(ptr nocapture noundef readonly %x, ptr noundef writeonly %len) local_unnamed_addr #4 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %keyid = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 3
+  %keyid = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %keyid, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.end
@@ -280,13 +270,13 @@ if.then4:                                         ; preds = %if.end
   %2 = load i32, ptr %1, align 8
   store i32 %2, ptr %len, align 4
   %.pre = load ptr, ptr %aux, align 8
-  %keyid9.phi.trans.insert = getelementptr inbounds %struct.x509_cert_aux_st, ptr %.pre, i64 0, i32 3
+  %keyid9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre6 = load ptr, ptr %keyid9.phi.trans.insert, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
   %3 = phi ptr [ %.pre6, %if.then4 ], [ %1, %if.end ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   br label %return
 
@@ -312,7 +302,7 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %aux.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux.i = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %aux_get.exit, label %if.end6
@@ -374,7 +364,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then18, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %aux.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux.i = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %aux_get.exit, label %if.end4
@@ -387,7 +377,7 @@ aux_get.exit:                                     ; preds = %if.end.i
 
 if.end4:                                          ; preds = %if.end.i, %aux_get.exit
   %retval.0.i11 = phi ptr [ %call1.i.i, %aux_get.exit ], [ %0, %if.end.i ]
-  %reject = getelementptr inbounds %struct.x509_cert_aux_st, ptr %retval.0.i11, i64 0, i32 1
+  %reject = getelementptr inbounds i8, ptr %retval.0.i11, i64 8
   %1 = load ptr, ptr %reject, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %land.lhs.true, label %err
@@ -416,7 +406,7 @@ return:                                           ; preds = %err, %if.then18, %e
 ; Function Attrs: nounwind uwtable
 define void @X509_trust_clear(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -437,17 +427,17 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define void @X509_reject_clear(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %reject = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 1
+  %reject = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reject, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @ASN1_OBJECT_free) #6
   %2 = load ptr, ptr %aux, align 8
-  %reject4 = getelementptr inbounds %struct.x509_cert_aux_st, ptr %2, i64 0, i32 1
+  %reject4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %reject4, align 8
   br label %if.end
 
@@ -458,7 +448,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @X509_get0_trust_objects(ptr nocapture noundef readonly %x) local_unnamed_addr #5 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
@@ -475,13 +465,13 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @X509_get0_reject_objects(ptr nocapture noundef readonly %x) local_unnamed_addr #5 {
 entry:
-  %aux = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 21
+  %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %reject = getelementptr inbounds %struct.x509_cert_aux_st, ptr %0, i64 0, i32 1
+  %reject = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reject, align 8
   br label %return
 

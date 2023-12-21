@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/cipherlist_test-bin-cipherlist_test.ll
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.cipherlist_test_fixture = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"test_default_cipherlist_implicit\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"test_default_cipherlist_explicit\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"test_default_cipherlist_clear\00", align 1
@@ -55,14 +53,14 @@ entry:
   br i1 %cmp, label %return, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %server.i = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 1
+  %server.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %server.i, align 8
   %call.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %0), !range !5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %tear_down.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then2
-  %client.i = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %client.i, align 8
   %call1.i = tail call fastcc i32 @test_default_cipherlist(ptr noundef %1), !range !5
   br label %tear_down.exit
@@ -71,7 +69,7 @@ tear_down.exit:                                   ; preds = %if.then2, %land.rhs
   %land.ext.i = phi i32 [ 0, %if.then2 ], [ %call1.i, %land.rhs.i ]
   %2 = load ptr, ptr %server.i, align 8
   tail call void @SSL_CTX_free(ptr noundef %2) #3
-  %client.i5 = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client.i5 = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %client.i5, align 8
   tail call void @SSL_CTX_free(ptr noundef %3) #3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %server.i, i8 0, i64 16, i1 false)
@@ -91,7 +89,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %server = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 1
+  %server = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %server, align 8
   %call1 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull @.str.16) #3
   %cmp2 = icmp ne i32 %call1, 0
@@ -101,7 +99,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end10.thread, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %client = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %client, align 8
   %call4 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %1, ptr noundef nonnull @.str.16) #3
   %cmp5 = icmp ne i32 %call4, 0
@@ -113,7 +111,7 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end10.thread:                                  ; preds = %if.end, %lor.lhs.false
   %2 = load ptr, ptr %server, align 8
   tail call void @SSL_CTX_free(ptr noundef %2) #3
-  %client.i = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %call, i64 16
   br label %return.sink.split
 
 if.then13:                                        ; preds = %lor.lhs.false
@@ -155,7 +153,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %server = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 1
+  %server = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %server, align 8
   %call1 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull @.str.20) #3
   %call2 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 222, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %call1, i32 noundef 0) #3
@@ -174,7 +172,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool8.not, label %tear_down.exit, label %if.end10
 
 if.end10:                                         ; preds = %if.end4
-  %client = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %client, align 8
   %call11 = tail call ptr @SSL_new(ptr noundef %2) #3
   %call12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 230, ptr noundef nonnull @.str.23, ptr noundef %call11) #3
@@ -205,7 +203,7 @@ tear_down.exit:                                   ; preds = %if.end20, %if.end15
   tail call void @SSL_free(ptr noundef %s.0) #3
   %4 = load ptr, ptr %server, align 8
   tail call void @SSL_CTX_free(ptr noundef %4) #3
-  %client.i = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load ptr, ptr %client.i, align 8
   tail call void @SSL_CTX_free(ptr noundef %5) #3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %server, i8 0, i64 16, i1 false)
@@ -225,7 +223,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %server = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 1
+  %server = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %server, align 8
   %call1 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull @.str.26) #3
   %cmp2 = icmp ne i32 %call1, 0
@@ -235,7 +233,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %tear_down.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %client = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %client, align 8
   %call4 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %1, ptr noundef nonnull @.str.26) #3
   %cmp5 = icmp ne i32 %call4, 0
@@ -249,7 +247,7 @@ tear_down.exit:                                   ; preds = %lor.lhs.false, %if.
   %result.0 = phi i32 [ 0, %if.end ], [ %spec.select, %lor.lhs.false ]
   %2 = load ptr, ptr %server, align 8
   tail call void @SSL_CTX_free(ptr noundef %2) #3
-  %client.i = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %client.i, align 8
   tail call void @SSL_CTX_free(ptr noundef %3) #3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %server, i8 0, i64 16, i1 false)
@@ -273,7 +271,7 @@ if.end:                                           ; preds = %entry
   store ptr %test_case_name, ptr %call, align 8
   %call3 = tail call ptr @TLS_server_method() #3
   %call4 = tail call ptr @SSL_CTX_new(ptr noundef %call3) #3
-  %server = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 1
+  %server = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %server, align 8
   %call5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 48, ptr noundef nonnull @.str.6, ptr noundef %call4) #3
   %tobool6.not = icmp eq i32 %call5, 0
@@ -282,7 +280,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %call7 = tail call ptr @TLS_client_method() #3
   %call8 = tail call ptr @SSL_CTX_new(ptr noundef %call7) #3
-  %client = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call8, ptr %client, align 8
   %call9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 49, ptr noundef nonnull @.str.7, ptr noundef %call8) #3
   %tobool10.not = icmp eq i32 %call9, 0
@@ -291,7 +289,7 @@ lor.lhs.false:                                    ; preds = %if.end
 tear_down.exit:                                   ; preds = %lor.lhs.false, %if.end
   %0 = load ptr, ptr %server, align 8
   tail call void @SSL_CTX_free(ptr noundef %0) #3
-  %client.i = getelementptr inbounds %struct.cipherlist_test_fixture, ptr %call, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %client.i, align 8
   tail call void @SSL_CTX_free(ptr noundef %1) #3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %server, i8 0, i64 16, i1 false)

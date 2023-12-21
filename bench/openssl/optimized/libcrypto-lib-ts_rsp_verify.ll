@@ -4,21 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { i32, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.pkcs7_signed_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.TS_resp_st = type { ptr, ptr, ptr }
-%struct.TS_status_info_st = type { ptr, ptr, ptr }
-%struct.TS_tst_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.TS_verify_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.TS_msg_imprint_st = type { ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon.1 }
-%union.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [37 x i8] c"../openssl/crypto/ts/ts_rsp_verify.c\00", align 1
 @__func__.TS_RESP_verify_signature = private unnamed_addr constant [25 x i8] c"TS_RESP_verify_signature\00", align 1
@@ -67,7 +52,7 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %token, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %token, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
   %cmp = icmp eq i32 %call, 22
@@ -120,9 +105,9 @@ lor.lhs.false18:                                  ; preds = %if.end15
 if.end23:                                         ; preds = %lor.lhs.false18
   %call25 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call16, i32 noundef 0) #7
   %call28 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #7
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %token, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %token, i64 32
   %1 = load ptr, ptr %d, align 8
-  %cert = getelementptr inbounds %struct.pkcs7_signed_st, ptr %1, i64 0, i32 2
+  %cert = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %cert, align 8
   %call30 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #7
   %add = add nsw i32 %call30, %call28
@@ -137,7 +122,7 @@ lor.lhs.false33:                                  ; preds = %if.end23
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false33
   %3 = load ptr, ptr %d, align 8
-  %cert38 = getelementptr inbounds %struct.pkcs7_signed_st, ptr %3, i64 0, i32 2
+  %cert38 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %cert38, align 8
   %call39 = tail call i32 @X509_add_certs(ptr noundef nonnull %call31, ptr noundef %4, i32 noundef 0) #7
   %tobool40.not = icmp eq i32 %call39, 0
@@ -274,9 +259,9 @@ entry:
   br i1 %cmp.i, label %ossl_ess_get_signing_cert.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %call.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data.i, align 8
   store ptr %1, ptr %p.i, align 8
   %2 = load i32, ptr %0, align 8
@@ -293,9 +278,9 @@ ossl_ess_get_signing_cert.exit:                   ; preds = %entry, %if.end.i
   br i1 %cmp.i6, label %ossl_ess_get_signing_cert_v2.exit, label %if.end.i7
 
 if.end.i7:                                        ; preds = %ossl_ess_get_signing_cert.exit
-  %value.i8 = getelementptr inbounds %struct.asn1_type_st, ptr %call.i5, i64 0, i32 1
+  %value.i8 = getelementptr inbounds i8, ptr %call.i5, i64 8
   %3 = load ptr, ptr %value.i8, align 8
-  %data.i9 = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data.i9 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data.i9, align 8
   store ptr %4, ptr %p.i4, align 8
   %5 = load i32, ptr %3, align 8
@@ -332,9 +317,9 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 define i32 @TS_RESP_verify_response(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %response) local_unnamed_addr #0 {
 entry:
   %failure_text.i = alloca [256 x i8], align 16
-  %token1 = getelementptr inbounds %struct.TS_resp_st, ptr %response, i64 0, i32 1
+  %token1 = getelementptr inbounds i8, ptr %response, i64 8
   %0 = load ptr, ptr %token1, align 8
-  %tst_info2 = getelementptr inbounds %struct.TS_resp_st, ptr %response, i64 0, i32 2
+  %tst_info2 = getelementptr inbounds i8, ptr %response, i64 16
   %1 = load ptr, ptr %tst_info2, align 8
   %response.val = load ptr, ptr %response, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %failure_text.i)
@@ -355,7 +340,7 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
   %status_text.0.i = phi ptr [ %3, %if.then5.i ], [ @.str.2, %if.end.i ]
-  %text.i = getelementptr inbounds %struct.TS_status_info_st, ptr %response.val, i64 0, i32 1
+  %text.i = getelementptr inbounds i8, ptr %response.val, i64 8
   %4 = load ptr, ptr %text.i, align 8
   %call8.i = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #7
   %cmp9.i = icmp sgt i32 %call8.i, 0
@@ -369,7 +354,7 @@ land.lhs.true10.i:                                ; preds = %if.end6.i
 
 if.end15.i:                                       ; preds = %land.lhs.true10.i, %if.end6.i
   %embedded_status_text.0.i = phi ptr [ %call.i.i, %land.lhs.true10.i ], [ null, %if.end6.i ]
-  %failure_info.i = getelementptr inbounds %struct.TS_status_info_st, ptr %response.val, i64 0, i32 2
+  %failure_info.i = getelementptr inbounds i8, ptr %response.val, i64 16
   %6 = load ptr, ptr %failure_info.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.then38.i, label %for.body.i
@@ -395,7 +380,7 @@ if.then24.i:                                      ; preds = %if.then22.i
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then24.i, %if.then22.i
-  %text31.i = getelementptr inbounds [8 x %struct.anon], ptr @ts_failure_info, i64 0, i64 %indvars.iv.i, i32 1
+  %text31.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 8
   %9 = load ptr, ptr %text31.i, align 8
   %call32.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %failure_text.i, ptr noundef nonnull dereferenceable(1) %9) #7
   br label %for.inc.i
@@ -445,7 +430,7 @@ entry:
   %name.i = alloca [50 x i8], align 16
   %signer = alloca ptr, align 8
   store ptr null, ptr %signer, align 8
-  %tsa = getelementptr inbounds %struct.TS_tst_info_st, ptr %tst_info, i64 0, i32 8
+  %tsa = getelementptr inbounds i8, ptr %tst_info, i64 64
   %0 = load ptr, ptr %tsa, align 8
   %1 = load i32, ptr %ctx, align 8
   %and = and i32 %1, 64
@@ -458,9 +443,9 @@ entry:
   br i1 %flags.0.narrow, label %land.lhs.true6, label %if.end9
 
 land.lhs.true6:                                   ; preds = %entry
-  %certs = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 2
+  %certs = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %certs, align 8
-  %store = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 1
+  %store = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %store, align 8
   %call = call i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %signer), !range !4
   %tobool7.not = icmp eq i32 %call, 0
@@ -488,7 +473,7 @@ if.end16:                                         ; preds = %land.lhs.true12, %i
   br i1 %tobool18.not, label %if.end23, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.end16
-  %policy = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 3
+  %policy = getelementptr inbounds i8, ptr %ctx, i64 24
   %6 = load ptr, ptr %policy, align 8
   %7 = getelementptr i8, ptr %tst_info, i64 8
   %tst_info.val = load ptr, ptr %7, align 8
@@ -508,11 +493,11 @@ if.end23:                                         ; preds = %land.lhs.true19, %i
   br i1 %tobool25.not, label %if.end33, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %if.end23
-  %md_alg27 = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 4
+  %md_alg27 = getelementptr inbounds i8, ptr %ctx, i64 32
   %8 = load ptr, ptr %md_alg27, align 8
-  %imprint28 = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 5
+  %imprint28 = getelementptr inbounds i8, ptr %ctx, i64 40
   %9 = load ptr, ptr %imprint28, align 8
-  %imprint_len29 = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 6
+  %imprint_len29 = getelementptr inbounds i8, ptr %ctx, i64 48
   %10 = load i32, ptr %imprint_len29, align 8
   %11 = getelementptr i8, ptr %tst_info, i64 16
   %tst_info.val30 = load ptr, ptr %11, align 8
@@ -526,7 +511,7 @@ if.end33:                                         ; preds = %land.lhs.true26, %i
   br i1 %tobool35.not, label %if.end43, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.end33
-  %data = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 7
+  %data = getelementptr inbounds i8, ptr %ctx, i64 56
   %12 = load ptr, ptr %data, align 8
   %13 = getelementptr i8, ptr %tst_info, i64 16
   %tst_info.val32 = load ptr, ptr %13, align 8
@@ -638,7 +623,7 @@ land.lhs.true46:                                  ; preds = %if.end43
   br i1 %tobool.not.i36, label %ts_check_nonces.exit.thread, label %if.end.i37
 
 if.end.i37:                                       ; preds = %land.lhs.true46
-  %nonce = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 8
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 64
   %16 = load ptr, ptr %nonce, align 8
   %call.i38 = call i32 @ASN1_INTEGER_cmp(ptr noundef %16, ptr noundef nonnull %tst_info.val33) #7
   %cmp.not.i39 = icmp eq i32 %call.i38, 0
@@ -673,7 +658,7 @@ if.end59:                                         ; preds = %land.lhs.true55, %i
   br i1 %tobool61.not, label %err, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end59
-  %tsa_name63 = getelementptr inbounds %struct.TS_verify_ctx, ptr %ctx, i64 0, i32 9
+  %tsa_name63 = getelementptr inbounds i8, ptr %ctx, i64 72
   %18 = load ptr, ptr %tsa_name63, align 8
   %19 = load ptr, ptr %signer, align 8
   %call64 = call fastcc i32 @ts_check_signer_name(ptr noundef %18, ptr noundef %19), !range !4
@@ -763,7 +748,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then24
 
 if.end:                                           ; preds = %if.then
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %algor_a, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %algor_a, i64 8
   %3 = load ptr, ptr %parameter, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %lor.lhs.false, label %land.lhs.true
@@ -774,7 +759,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.not, label %lor.lhs.false, label %if.then24
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end
-  %parameter7 = getelementptr inbounds %struct.X509_algor_st, ptr %0, i64 0, i32 1
+  %parameter7 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %parameter7, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end15, label %land.lhs.true9
@@ -785,7 +770,7 @@ land.lhs.true9:                                   ; preds = %lor.lhs.false
   br i1 %cmp12.not, label %if.end15, label %if.then24
 
 if.end15:                                         ; preds = %lor.lhs.false, %land.lhs.true9, %entry
-  %hashed_msg = getelementptr inbounds %struct.TS_msg_imprint_st, ptr %tst_info.16.val, i64 0, i32 1
+  %hashed_msg = getelementptr inbounds i8, ptr %tst_info.16.val, i64 8
   %5 = load ptr, ptr %hashed_msg, align 8
   %call16 = tail call i32 @ASN1_STRING_length(ptr noundef %5) #7
   %cmp17 = icmp eq i32 %call16, %len_a
@@ -820,7 +805,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %tsa_name, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %tsa_name, i64 8
   %1 = load ptr, ptr %d, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %signer) #7
   %call1 = tail call i32 @X509_NAME_cmp(ptr noundef %1, ptr noundef %call) #7

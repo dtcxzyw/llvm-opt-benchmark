@@ -3,13 +3,11 @@ source_filename = "bench/qemu/original/ui_kbd-state.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QKbdState = type { ptr, i32, [3 x i64], [1 x i64] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qkbd_state_modifier_get(ptr nocapture noundef readonly %kbd, i32 noundef %mod) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %mod to i64
-  %mods = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods = getelementptr inbounds i8, ptr %kbd, i64 40
   %div2.i = lshr i64 %conv, 6
   %arrayidx.i = getelementptr i64, ptr %mods, i64 %div2.i
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -24,7 +22,7 @@ entry:
 define dso_local zeroext i1 @qkbd_state_key_get(ptr nocapture noundef readonly %kbd, i32 noundef %qcode) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %qcode to i64
-  %keys = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 2
+  %keys = getelementptr inbounds i8, ptr %kbd, i64 16
   %div2.i = lshr i64 %conv, 6
   %arrayidx.i = getelementptr i64, ptr %keys, i64 %div2.i
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -39,7 +37,7 @@ entry:
 define dso_local void @qkbd_state_key_event(ptr nocapture noundef %kbd, i32 noundef %qcode, i1 noundef zeroext %down) local_unnamed_addr #1 {
 entry:
   %conv = zext i32 %qcode to i64
-  %keys = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 2
+  %keys = getelementptr inbounds i8, ptr %kbd, i64 16
   %div2.i = lshr i64 %conv, 6
   %arrayidx.i = getelementptr i64, ptr %keys, i64 %div2.i
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -71,7 +69,7 @@ sw.bb:                                            ; preds = %if.end, %if.end
   %3 = load i64, ptr %keys, align 8
   %4 = and i64 %3, 6
   %or.cond61 = icmp eq i64 %4, 0
-  %mods9.i = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods9.i = getelementptr inbounds i8, ptr %kbd, i64 40
   %5 = load i64, ptr %mods9.i, align 8
   br i1 %or.cond61, label %if.else.i, label %if.then.i
 
@@ -89,7 +87,7 @@ sw.bb18:                                          ; preds = %if.end, %if.end
   %6 = load i64, ptr %keys, align 8
   %7 = and i64 %6, 96
   %or.cond62 = icmp eq i64 %7, 0
-  %mods9.i35 = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods9.i35 = getelementptr inbounds i8, ptr %kbd, i64 40
   %8 = load i64, ptr %mods9.i35, align 8
   br i1 %or.cond62, label %if.else.i34, label %if.then.i29
 
@@ -107,7 +105,7 @@ sw.bb19:                                          ; preds = %if.end
   %9 = load i64, ptr %keys, align 8
   %10 = and i64 %9, 8
   %tobool.not.i39 = icmp eq i64 %10, 0
-  %mods9.i46 = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods9.i46 = getelementptr inbounds i8, ptr %kbd, i64 40
   %11 = load i64, ptr %mods9.i46, align 8
   br i1 %tobool.not.i39, label %if.else.i45, label %if.then.i40
 
@@ -125,7 +123,7 @@ sw.bb20:                                          ; preds = %if.end
   %12 = load i64, ptr %keys, align 8
   %13 = and i64 %12, 16
   %tobool.not.i50 = icmp eq i64 %13, 0
-  %mods9.i57 = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods9.i57 = getelementptr inbounds i8, ptr %kbd, i64 40
   %14 = load i64, ptr %mods9.i57, align 8
   br i1 %tobool.not.i50, label %if.else.i56, label %if.then.i51
 
@@ -143,7 +141,7 @@ sw.bb21:                                          ; preds = %if.end
   br i1 %down, label %if.then23, label %sw.epilog
 
 if.then23:                                        ; preds = %sw.bb21
-  %mods = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods = getelementptr inbounds i8, ptr %kbd, i64 40
   %15 = load i64, ptr %mods, align 8
   %xor.i = xor i64 %15, 64
   store i64 %xor.i, ptr %mods, align 8
@@ -153,7 +151,7 @@ sw.bb26:                                          ; preds = %if.end
   br i1 %down, label %if.then28, label %sw.epilog
 
 if.then28:                                        ; preds = %sw.bb26
-  %mods29 = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 3
+  %mods29 = getelementptr inbounds i8, ptr %kbd, i64 40
   %16 = load i64, ptr %mods29, align 8
   %xor.i60 = xor i64 %16, 32
   store i64 %xor.i60, ptr %mods29, align 8
@@ -167,7 +165,7 @@ sw.epilog:                                        ; preds = %if.else.i56, %if.th
 if.then33:                                        ; preds = %sw.epilog
   %18 = load ptr, ptr %kbd, align 8
   tail call void @qemu_input_event_send_key_qcode(ptr noundef %18, i32 noundef %qcode, i1 noundef zeroext %down) #5
-  %key_delay_ms = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 1
+  %key_delay_ms = getelementptr inbounds i8, ptr %kbd, i64 8
   %19 = load i32, ptr %key_delay_ms, align 8
   %tobool36.not = icmp eq i32 %19, 0
   br i1 %tobool36.not, label %if.end40, label %if.then37
@@ -189,7 +187,7 @@ declare void @qemu_input_event_send_key_delay(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qkbd_state_lift_all_keys(ptr nocapture noundef %kbd) local_unnamed_addr #1 {
 entry:
-  %keys = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 2
+  %keys = getelementptr inbounds i8, ptr %kbd, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -220,7 +218,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @qkbd_state_set_delay(ptr nocapture noundef writeonly %kbd, i32 noundef %delay_ms) local_unnamed_addr #3 {
 entry:
-  %key_delay_ms = getelementptr inbounds %struct.QKbdState, ptr %kbd, i64 0, i32 1
+  %key_delay_ms = getelementptr inbounds i8, ptr %kbd, i64 8
   store i32 %delay_ms, ptr %key_delay_ms, align 8
   ret void
 }

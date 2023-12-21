@@ -7,11 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.InterfaceInfo = type { ptr }
 %struct.timeval = type { i64, i64 }
 %struct.PRManagerData = type { ptr, ptr, i32 }
-%struct.sg_io_hdr = type { i32, i32, i8, i8, i16, i32, ptr, ptr, ptr, i32, i32, i32, ptr, i8, i8, i8, i8, i16, i16, i32, i32, i32 }
-%struct.PRManagerClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PRManagerInfo = type { ptr, i8 }
-%struct.PRManagerInfoList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/scsi/pr-manager.c\00", align 1
 @__func__.pr_manager_lookup = private unnamed_addr constant [18 x i8] c"pr_manager_lookup\00", align 1
@@ -46,11 +41,11 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %data = alloca %struct.PRManagerData, align 8
   store ptr %pr_mgr, ptr %data, align 8
-  %hdr2 = getelementptr inbounds %struct.PRManagerData, ptr %data, i64 0, i32 1
+  %hdr2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %hdr, ptr %hdr2, align 8
-  %fd3 = getelementptr inbounds %struct.PRManagerData, ptr %data, i64 0, i32 2
+  %fd3 = getelementptr inbounds i8, ptr %data, i64 16
   store i32 %fd, ptr %fd3, align 8
-  %cmdp = getelementptr inbounds %struct.sg_io_hdr, ptr %hdr, i64 0, i32 7
+  %cmdp = getelementptr inbounds i8, ptr %hdr, i64 24
   %0 = load ptr, ptr %cmdp, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
@@ -81,7 +76,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %fd, i32 noundef %conv, i32 noundef %conv6) #6
   br label %trace_pr_manager_execute.exit
@@ -108,11 +103,11 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.PR_MANAGER_GET_CLASS) #6
-  %hdr2 = getelementptr inbounds %struct.PRManagerData, ptr %opaque, i64 0, i32 1
+  %hdr2 = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %hdr2, align 8
-  %fd3 = getelementptr inbounds %struct.PRManagerData, ptr %opaque, i64 0, i32 2
+  %fd3 = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i32, ptr %fd3, align 8
-  %cmdp = getelementptr inbounds %struct.sg_io_hdr, ptr %1, i64 0, i32 7
+  %cmdp = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %cmdp, align 8
   %4 = load i8, ptr %3, align 1
   %conv = zext i8 %4 to i32
@@ -143,7 +138,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %2, i32 noundef %conv, i32 noundef %conv6) #6
   br label %trace_pr_manager_run.exit
@@ -154,7 +149,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pr_manager_run.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %run = getelementptr inbounds %struct.PRManagerClass, ptr %call1.i, i64 0, i32 1
+  %run = getelementptr inbounds i8, ptr %call1.i, i64 96
   %13 = load ptr, ptr %run, align 8
   %call7 = tail call i32 %13(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %1) #6
   tail call void @object_unref(ptr noundef %0) #6
@@ -166,7 +161,7 @@ define dso_local zeroext i1 @pr_manager_is_connected(ptr noundef %pr_mgr) local_
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %pr_mgr) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.PR_MANAGER_GET_CLASS) #6
-  %is_connected = getelementptr inbounds %struct.PRManagerClass, ptr %call1.i, i64 0, i32 2
+  %is_connected = getelementptr inbounds i8, ptr %call1.i, i64 104
   %0 = load ptr, ptr %is_connected, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.end, label %lor.rhs
@@ -248,7 +243,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %call1, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #6
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.PR_MANAGER_GET_CLASS) #6
-  %is_connected.i = getelementptr inbounds %struct.PRManagerClass, ptr %call1.i.i, i64 0, i32 2
+  %is_connected.i = getelementptr inbounds i8, ptr %call1.i.i, i64 104
   %0 = load ptr, ptr %is_connected.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %pr_manager_is_connected.exit, label %lor.rhs.i
@@ -260,14 +255,14 @@ lor.rhs.i:                                        ; preds = %if.end
 
 pr_manager_is_connected.exit:                     ; preds = %if.end, %lor.rhs.i
   %frombool = phi i8 [ 1, %if.end ], [ %1, %lor.rhs.i ]
-  %connected = getelementptr inbounds %struct.PRManagerInfo, ptr %call1, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %call1, i64 8
   store i8 %frombool, ptr %connected, align 8
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #8
   %2 = load ptr, ptr %opaque, align 8
   store ptr %call5, ptr %2, align 8
   %3 = load ptr, ptr %opaque, align 8
   %4 = load ptr, ptr %3, align 8
-  %value = getelementptr inbounds %struct.PRManagerInfoList, ptr %4, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %call1, ptr %value, align 8
   %5 = load ptr, ptr %opaque, align 8
   %6 = load ptr, ptr %5, align 8

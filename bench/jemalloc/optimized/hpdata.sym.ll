@@ -3,16 +3,6 @@ source_filename = "bench/jemalloc/original/hpdata.sym.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ph_s = type { ptr, i64 }
-%struct.hpdata_s = type { ptr, i64, i8, i8, i8, i8, i8, %struct.nstime_t, i8, i8, i8, i8, i8, %union.anon, %struct.anon.0, %struct.anon.1, i64, i64, [8 x i64], i64, [8 x i64] }
-%struct.nstime_t = type { i64 }
-%union.anon = type { %struct.hpdata_age_heap_link_t }
-%struct.hpdata_age_heap_link_t = type { %struct.phn_link_s }
-%struct.phn_link_s = type { ptr, ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.hpdata_purge_state_s = type { i64, i64, [8 x i64], i64 }
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @hpdata_age_heap_new(ptr nocapture noundef writeonly %ph) local_unnamed_addr #0 {
 entry:
@@ -36,7 +26,7 @@ entry:
   br i1 %cmp1.i, label %ph_first.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %next.i, align 8
@@ -374,7 +364,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %add.ptr.i45 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %phn, ptr %add.ptr.i45, align 8
   store ptr %phn, ptr %ph, align 8
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   br label %ph_insert.exit
 
@@ -400,7 +390,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   %8 = load ptr, ptr %ph, align 8
   %next1.i = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %phn, ptr %next1.i, align 8
-  %auxcount21.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount21.i = getelementptr inbounds i8, ptr %ph, i64 8
   %9 = load i64, ptr %auxcount21.i, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %auxcount21.i, align 8
@@ -516,7 +506,7 @@ entry:
   br i1 %cmp1.i, label %ph_remove_first.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %next.i, align 8
@@ -1053,7 +1043,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %ph_remove.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i13 = getelementptr inbounds i8, ptr %phn, i64 48
   %3 = load ptr, ptr %next.i13, align 8
@@ -1855,17 +1845,17 @@ if.end:                                           ; preds = %entry, %if.end.i.i
 define hidden void @hpdata_init(ptr nocapture noundef writeonly %hpdata, ptr noundef %addr, i64 noundef %age) local_unnamed_addr #0 {
 entry:
   store ptr %addr, ptr %hpdata, align 8
-  %h_age.i = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 1
+  %h_age.i = getelementptr inbounds i8, ptr %hpdata, i64 8
   store i64 %age, ptr %h_age.i, align 8
-  %h_huge = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 2
+  %h_huge = getelementptr inbounds i8, ptr %hpdata, i64 16
   store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %h_huge, align 8
-  %h_hugify_allowed = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 6
+  %h_hugify_allowed = getelementptr inbounds i8, ptr %hpdata, i64 20
   store i8 0, ptr %h_hugify_allowed, align 4
-  %h_in_psset_hugify_container = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 8
-  %h_longest_free_range.i = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 16
+  %h_in_psset_hugify_container = getelementptr inbounds i8, ptr %hpdata, i64 32
+  %h_longest_free_range.i = getelementptr inbounds i8, ptr %hpdata, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %h_in_psset_hugify_container, i8 0, i64 5, i1 false)
   store i64 512, ptr %h_longest_free_range.i, align 8
-  %h_nactive = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 17
+  %h_nactive = getelementptr inbounds i8, ptr %hpdata, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %h_nactive, i8 0, i64 144, i1 false)
   ret void
 }
@@ -1874,7 +1864,7 @@ entry:
 define hidden ptr @hpdata_reserve_alloc(ptr nocapture noundef %hpdata, i64 noundef %sz) local_unnamed_addr #5 {
 entry:
   %shr = lshr i64 %sz, 12
-  %active_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 18
+  %active_pages = getelementptr inbounds i8, ptr %hpdata, i64 112
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
@@ -2016,11 +2006,11 @@ fb_assign_visitor.exit36.i:                       ; preds = %while.end.i.i71
   br label %fb_set_range.exit
 
 fb_set_range.exit:                                ; preds = %while.end.i.i71, %fb_assign_visitor.exit36.i
-  %h_nactive = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 17
+  %h_nactive = getelementptr inbounds i8, ptr %hpdata, i64 104
   %20 = load i64, ptr %h_nactive, align 8
   %add16 = add i64 %20, %shr
   store i64 %add16, ptr %h_nactive, align 8
-  %touched_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 20
+  %touched_pages = getelementptr inbounds i8, ptr %hpdata, i64 184
   %arrayidx.i.i = getelementptr inbounds i64, ptr %touched_pages, i64 %div.i22.i
   %21 = load i64, ptr %arrayidx.i.i, align 8
   %and.i = and i64 %21, %shl.i.i68
@@ -2101,7 +2091,7 @@ fb_assign_visitor.exit36.i96:                     ; preds = %while.end.i.i92
   br label %fb_set_range.exit104
 
 fb_set_range.exit104:                             ; preds = %while.end.i.i92, %fb_assign_visitor.exit36.i96
-  %h_ntouched = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 19
+  %h_ntouched = getelementptr inbounds i8, ptr %hpdata, i64 176
   %40 = load i64, ptr %h_ntouched, align 8
   %add21 = add i64 %sub.i210, %40
   store i64 %add21, ptr %h_ntouched, align 8
@@ -2221,7 +2211,7 @@ entry:
   %shr7 = lshr i64 %sz, 12
   %2 = getelementptr i8, ptr %hpdata, i64 96
   %hpdata.val = load i64, ptr %2, align 8
-  %active_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 18
+  %active_pages = getelementptr inbounds i8, ptr %hpdata, i64 112
   %div.i22.i = lshr i64 %sub, 18
   %rem.i.i = and i64 %shr, 63
   %add.i.i = add nuw nsw i64 %rem.i.i, %shr7
@@ -2350,7 +2340,7 @@ if.then:                                          ; preds = %fb_ffs.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %fb_ffs.exit
-  %h_nactive = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 17
+  %h_nactive = getelementptr inbounds i8, ptr %hpdata, i64 104
   %25 = load i64, ptr %h_nactive, align 8
   %sub18 = sub i64 %25, %shr7
   store i64 %sub18, ptr %h_nactive, align 8
@@ -2362,10 +2352,10 @@ define hidden i64 @hpdata_purge_begin(ptr nocapture noundef readonly %hpdata, pt
 entry:
   %dirty_pages = alloca [8 x i64], align 16
   store i64 0, ptr %purge_state, align 8
-  %next_purge_search_begin = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 3
+  %next_purge_search_begin = getelementptr inbounds i8, ptr %purge_state, i64 80
   store i64 0, ptr %next_purge_search_begin, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %dirty_pages, i8 0, i64 64, i1 false)
-  %active_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 18
+  %active_pages = getelementptr inbounds i8, ptr %hpdata, i64 112
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -2380,7 +2370,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %fb_bit_not.exit, label %for.body.i, !llvm.loop !12
 
 fb_bit_not.exit:                                  ; preds = %for.body.i
-  %touched_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 20
+  %touched_pages = getelementptr inbounds i8, ptr %hpdata, i64 184
   br label %for.body.i17
 
 for.body.i17:                                     ; preds = %for.body.i17, %fb_bit_not.exit
@@ -2396,9 +2386,9 @@ for.body.i17:                                     ; preds = %for.body.i17, %fb_b
   br i1 %exitcond.not.i21, label %fb_bit_and.exit, label %for.body.i17, !llvm.loop !13
 
 fb_bit_and.exit:                                  ; preds = %for.body.i17
-  %to_purge = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 2
+  %to_purge = getelementptr inbounds i8, ptr %purge_state, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %to_purge, i8 0, i64 64, i1 false)
-  %invariant.gep = getelementptr %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 2, i64 1
+  %invariant.gep = getelementptr i8, ptr %purge_state, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %fb_bit_and.exit, %fb_set_range.exit
@@ -2555,12 +2545,12 @@ fb_set_range.exit:                                ; preds = %while.end.i.i, %fb_
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %fb_ffs.exit, %fb_set_range.exit, %while.body.i.i
-  %h_ntouched = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 19
+  %h_ntouched = getelementptr inbounds i8, ptr %hpdata, i64 176
   %26 = load i64, ptr %h_ntouched, align 8
-  %h_nactive = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 17
+  %h_nactive = getelementptr inbounds i8, ptr %hpdata, i64 104
   %27 = load i64, ptr %h_nactive, align 8
   %sub24 = sub i64 %26, %27
-  %ndirty_to_purge = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 1
+  %ndirty_to_purge = getelementptr inbounds i8, ptr %purge_state, i64 8
   store i64 %sub24, ptr %ndirty_to_purge, align 8
   ret i64 %sub24
 }
@@ -2568,13 +2558,13 @@ while.end:                                        ; preds = %fb_ffs.exit, %fb_se
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define hidden zeroext i1 @hpdata_purge_next(ptr nocapture noundef readonly %hpdata, ptr nocapture noundef %purge_state, ptr nocapture noundef writeonly %r_purge_addr, ptr nocapture noundef writeonly %r_purge_size) local_unnamed_addr #5 {
 entry:
-  %next_purge_search_begin = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 3
+  %next_purge_search_begin = getelementptr inbounds i8, ptr %purge_state, i64 80
   %0 = load i64, ptr %next_purge_search_begin, align 8
   %cmp = icmp eq i64 %0, 512
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %to_purge = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 2
+  %to_purge = getelementptr inbounds i8, ptr %purge_state, i64 16
   %div2.i3968.i = lshr i64 %0, 6
   %arrayidx.i43.i = getelementptr inbounds i64, ptr %to_purge, i64 %div2.i3968.i
   %1 = load i64, ptr %arrayidx.i43.i, align 8
@@ -2663,7 +2653,7 @@ return:                                           ; preds = %while.body.i75.i, %
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @hpdata_purge_end(ptr nocapture noundef %hpdata, ptr nocapture noundef %purge_state) local_unnamed_addr #6 {
 entry:
-  %to_purge = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 2
+  %to_purge = getelementptr inbounds i8, ptr %purge_state, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -2677,7 +2667,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %fb_bit_not.exit, label %for.body.i, !llvm.loop !12
 
 fb_bit_not.exit:                                  ; preds = %for.body.i
-  %touched_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 20
+  %touched_pages = getelementptr inbounds i8, ptr %hpdata, i64 184
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %for.body.i8, %fb_bit_not.exit
@@ -2693,9 +2683,9 @@ for.body.i8:                                      ; preds = %for.body.i8, %fb_bi
   br i1 %exitcond.not.i12, label %fb_bit_and.exit, label %for.body.i8, !llvm.loop !13
 
 fb_bit_and.exit:                                  ; preds = %for.body.i8
-  %ndirty_to_purge = getelementptr inbounds %struct.hpdata_purge_state_s, ptr %purge_state, i64 0, i32 1
+  %ndirty_to_purge = getelementptr inbounds i8, ptr %purge_state, i64 8
   %3 = load i64, ptr %ndirty_to_purge, align 8
-  %h_ntouched = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 19
+  %h_ntouched = getelementptr inbounds i8, ptr %hpdata, i64 176
   %4 = load i64, ptr %h_ntouched, align 8
   %sub = sub i64 %4, %3
   store i64 %sub, ptr %h_ntouched, align 8
@@ -2705,10 +2695,10 @@ fb_bit_and.exit:                                  ; preds = %for.body.i8
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @hpdata_hugify(ptr nocapture noundef writeonly %hpdata) local_unnamed_addr #0 {
 entry:
-  %h_huge = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 2
+  %h_huge = getelementptr inbounds i8, ptr %hpdata, i64 16
   store i8 1, ptr %h_huge, align 8
-  %touched_pages = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 20
-  %h_ntouched = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 19
+  %touched_pages = getelementptr inbounds i8, ptr %hpdata, i64 184
+  %h_ntouched = getelementptr inbounds i8, ptr %hpdata, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %touched_pages, i8 -1, i64 64, i1 false)
   store i64 512, ptr %h_ntouched, align 8
   ret void
@@ -2717,7 +2707,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @hpdata_dehugify(ptr nocapture noundef writeonly %hpdata) local_unnamed_addr #7 {
 entry:
-  %h_huge = getelementptr inbounds %struct.hpdata_s, ptr %hpdata, i64 0, i32 2
+  %h_huge = getelementptr inbounds i8, ptr %hpdata, i64 16
   store i8 0, ptr %h_huge, align 8
   ret void
 }

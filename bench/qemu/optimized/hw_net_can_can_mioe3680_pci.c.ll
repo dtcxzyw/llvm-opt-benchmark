@@ -10,37 +10,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { i32, i32, i8, ptr }
 %struct.anon.5 = type { i32, i32, i8 }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.Mioe3680PCIState = type { %struct.PCIDevice, [2 x %struct.MemoryRegion], [2 x %struct.CanSJA1000State], ptr, ptr, [2 x ptr] }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
 %struct.CanSJA1000State = type { i8, i8, i8, i8, i8, i8, i8, [8 x i8], [13 x i8], [64 x i8], i32, i32, i8, i8, i8, i8, i8, [4 x %struct.qemu_can_filter], ptr, %struct.CanBusClientState }
 %struct.qemu_can_filter = type { i32, i32 }
 %struct.CanBusClientState = type { ptr, ptr, i32, %union.anon.4, ptr, ptr, ptr, ptr, i8 }
 %union.anon.4 = type { %struct.QTailQLink }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
+%struct.QTailQLink = type { ptr, ptr }
 
 @mioe3680_pci_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 3648, i64 0, ptr @mioe3680_pci_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @mioe3680_pci_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"mioe3680_pci\00", align 1
@@ -95,9 +69,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @mioe3680_pci_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 48, ptr noundef nonnull @__func__.MIOe3680_PCI_DEV) #2
-  %canbus = getelementptr inbounds %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 5
+  %canbus = getelementptr inbounds i8, ptr %call.i, i64 3632
   %call1 = tail call ptr @object_property_add_link(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %canbus, ptr noundef nonnull @qdev_prop_allow_set_link_before_realize, i32 noundef 0) #2
-  %arrayidx3 = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 5, i64 1
+  %arrayidx3 = getelementptr i8, ptr %call.i, i64 3640
   %call4 = tail call ptr @object_property_add_link(ptr noundef %obj, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, ptr noundef %arrayidx3, ptr noundef nonnull @qdev_prop_allow_set_link_before_realize, i32 noundef 0) #2
   ret void
 }
@@ -107,31 +81,31 @@ define internal void @mioe3680_pci_class_init(ptr noundef %klass, ptr nocapture 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #2
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i12, i64 176
   store ptr @mioe3680_pci_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i12, i64 184
   store ptr @mioe3680_pci_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 208
   store i16 5118, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i12, i64 210
   store i16 -15614, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i12, i64 212
   store i8 0, ptr %revision, align 4
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i12, i64 214
   store i16 3081, ptr %class_id, align 2
-  %subsystem_vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 9
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 216
   store i16 5118, ptr %subsystem_vendor_id, align 8
-  %subsystem_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 10
+  %subsystem_id = getelementptr inbounds i8, ptr %call.i12, i64 218
   store i16 -15614, ptr %subsystem_id, align 2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.7, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_mioe3680_pci, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @mioe3680_pci_reset, ptr %reset, align 8
   ret void
 }
@@ -146,28 +120,29 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @mioe3680_pci_realize(ptr noundef %pci_dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 48, ptr noundef nonnull @__func__.MIOe3680_PCI_DEV) #2
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx, align 1
   %call1 = tail call ptr @pci_allocate_irq(ptr noundef %call.i) #2
-  %irq = getelementptr inbounds %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 3
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 3616
   store ptr %call1, ptr %irq, align 16
-  %arrayidx2 = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 0
-  %call4 = tail call i32 @can_sja_init(ptr noundef %arrayidx2, ptr noundef %call1) #2
-  %arrayidx2.c = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 1
+  %sja_state = getelementptr inbounds i8, ptr %call.i, i64 3152
+  %call4 = tail call i32 @can_sja_init(ptr noundef nonnull %sja_state, ptr noundef %call1) #2
+  %arrayidx2.c = getelementptr i8, ptr %call.i, i64 3384
   %1 = load ptr, ptr %irq, align 16
   %call4.c = tail call i32 @can_sja_init(ptr noundef %arrayidx2.c, ptr noundef %1) #2
+  %canbus = getelementptr inbounds i8, ptr %call.i, i64 3632
   br label %for.body7
 
 for.cond5:                                        ; preds = %for.body7
   br i1 %cmp6, label %for.body7, label %for.end17, !llvm.loop !5
 
 for.body7:                                        ; preds = %entry, %for.cond5
-  %cmp6 = phi i1 [ false, %for.cond5 ], [ true, %entry ]
-  %indvars.iv29 = phi i64 [ 1, %for.cond5 ], [ 0, %entry ]
-  %arrayidx10 = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 %indvars.iv29
-  %arrayidx12 = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 5, i64 %indvars.iv29
+  %cmp6 = phi i1 [ true, %entry ], [ false, %for.cond5 ]
+  %indvars.iv29 = phi i64 [ 0, %entry ], [ 1, %for.cond5 ]
+  %arrayidx10 = getelementptr [2 x %struct.CanSJA1000State], ptr %sja_state, i64 0, i64 %indvars.iv29
+  %arrayidx12 = getelementptr [2 x ptr], ptr %canbus, i64 0, i64 %indvars.iv29
   %2 = load ptr, ptr %arrayidx12, align 8
   %call13 = tail call i32 @can_sja_connect_to_bus(ptr noundef %arrayidx10, ptr noundef %2) #2
   %cmp14 = icmp slt i32 %call13, 0
@@ -178,13 +153,12 @@ if.then:                                          ; preds = %for.body7
   br label %for.end30
 
 for.end17:                                        ; preds = %for.cond5
-  %sja_io = getelementptr inbounds %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 1
+  %sja_io = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %sja_io, ptr noundef nonnull %call.i, ptr noundef nonnull @mioe3680_pci_sja1_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.12, i64 noundef 1024) #2
-  %arrayidx20 = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 1, i64 1
+  %arrayidx20 = getelementptr i8, ptr %call.i, i64 2880
   tail call void @memory_region_init_io(ptr noundef %arrayidx20, ptr noundef nonnull %call.i, ptr noundef nonnull @mioe3680_pci_sja2_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, i64 noundef 1024) #2
-  %arrayidx27 = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 1, i64 0
-  tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef %arrayidx27) #2
-  %arrayidx27.c = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 1, i64 1
+  tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %sja_io) #2
+  %arrayidx27.c = getelementptr i8, ptr %call.i, i64 2880
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 1, i8 noundef zeroext 1, ptr noundef %arrayidx27.c) #2
   br label %for.end30
 
@@ -196,11 +170,11 @@ for.end30:                                        ; preds = %for.end17, %if.then
 define internal void @mioe3680_pci_exit(ptr noundef %pci_dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 48, ptr noundef nonnull @__func__.MIOe3680_PCI_DEV) #2
-  %arrayidx = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 0
-  tail call void @can_sja_disconnect(ptr noundef %arrayidx) #2
-  %arrayidx.c = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 1
+  %sja_state = getelementptr inbounds i8, ptr %call.i, i64 3152
+  tail call void @can_sja_disconnect(ptr noundef nonnull %sja_state) #2
+  %arrayidx.c = getelementptr i8, ptr %call.i, i64 3384
   tail call void @can_sja_disconnect(ptr noundef %arrayidx.c) #2
-  %irq = getelementptr inbounds %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 3
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 3616
   %0 = load ptr, ptr %irq, align 16
   tail call void @qemu_free_irq(ptr noundef %0) #2
   ret void
@@ -210,9 +184,9 @@ entry:
 define internal void @mioe3680_pci_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 48, ptr noundef nonnull @__func__.MIOe3680_PCI_DEV) #2
-  %arrayidx = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 0
-  tail call void @can_sja_hardware_reset(ptr noundef %arrayidx) #2
-  %arrayidx.c = getelementptr %struct.Mioe3680PCIState, ptr %call.i, i64 0, i32 2, i64 1
+  %sja_state = getelementptr inbounds i8, ptr %call.i, i64 3152
+  tail call void @can_sja_hardware_reset(ptr noundef nonnull %sja_state) #2
+  %arrayidx.c = getelementptr i8, ptr %call.i, i64 3384
   tail call void @can_sja_hardware_reset(ptr noundef %arrayidx.c) #2
   ret void
 }
@@ -238,7 +212,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sja_state = getelementptr inbounds %struct.Mioe3680PCIState, ptr %opaque, i64 0, i32 2
+  %sja_state = getelementptr inbounds i8, ptr %opaque, i64 3152
   %shr = lshr i64 %addr, 2
   %call = tail call i64 @can_sja_mem_read(ptr noundef nonnull %sja_state, i64 noundef %shr, i32 noundef %size) #2
   br label %return
@@ -255,7 +229,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sja_state = getelementptr inbounds %struct.Mioe3680PCIState, ptr %opaque, i64 0, i32 2
+  %sja_state = getelementptr inbounds i8, ptr %opaque, i64 3152
   %shr = lshr i64 %addr, 2
   tail call void @can_sja_mem_write(ptr noundef nonnull %sja_state, i64 noundef %shr, i64 noundef %data, i32 noundef %size) #2
   br label %return
@@ -275,7 +249,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr %struct.Mioe3680PCIState, ptr %opaque, i64 0, i32 2, i64 1
+  %arrayidx = getelementptr i8, ptr %opaque, i64 3384
   %shr = lshr i64 %addr, 2
   %call = tail call i64 @can_sja_mem_read(ptr noundef %arrayidx, i64 noundef %shr, i32 noundef %size) #2
   br label %return
@@ -292,7 +266,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr %struct.Mioe3680PCIState, ptr %opaque, i64 0, i32 2, i64 1
+  %arrayidx = getelementptr i8, ptr %opaque, i64 3384
   %shr = lshr i64 %addr, 2
   tail call void @can_sja_mem_write(ptr noundef %arrayidx, i64 noundef %shr, i64 noundef %data, i32 noundef %size) #2
   br label %return

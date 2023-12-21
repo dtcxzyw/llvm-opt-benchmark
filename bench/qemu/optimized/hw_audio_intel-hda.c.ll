@@ -15,43 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.HDACodecBus = type { %struct.BusState, i32, ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.BusChild = type { %struct.rcu_head, ptr, i32, %union.anon }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.HDACodecDevice = type { %struct.DeviceState, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.1, %union.anon.2 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.3, %union.anon.4, %union.anon.5, ptr, i32, ptr, ptr, i8 }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%union.anon.5 = type { %struct.QTailQLink }
-%struct.IntelHDAState = type { %struct.PCIDevice, ptr, %struct.HDACodecBus, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [8 x %struct.IntelHDAStream], %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, i32, i64, ptr, i32, i32, i32, i32, i32, i32, i8 }
 %struct.IntelHDAStream = type { i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32 }
 %struct.bpl = type { i64, i32, i32 }
-%struct.HDACodecDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"HDA\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"hda-codec\00", align 1
@@ -301,9 +266,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @hda_codec_bus_init(ptr noundef %dev, ptr noundef %bus, i64 noundef %bus_size, ptr noundef %response, ptr noundef %xfer) local_unnamed_addr #0 {
 entry:
   tail call void @qbus_init(ptr noundef %bus, i64 noundef %bus_size, ptr noundef nonnull @.str, ptr noundef %dev, ptr noundef null) #10
-  %response1 = getelementptr inbounds %struct.HDACodecBus, ptr %bus, i64 0, i32 2
+  %response1 = getelementptr inbounds i8, ptr %bus, i64 128
   store ptr %response, ptr %response1, align 8
-  %xfer2 = getelementptr inbounds %struct.HDACodecBus, ptr %bus, i64 0, i32 3
+  %xfer2 = getelementptr inbounds i8, ptr %bus, i64 136
   store ptr %xfer, ptr %xfer2, align 8
   ret void
 }
@@ -313,23 +278,23 @@ declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @hda_codec_find(ptr nocapture noundef readonly %bus, i32 noundef %cad) local_unnamed_addr #0 {
 entry:
-  %children = getelementptr inbounds %struct.BusState, ptr %bus, i64 0, i32 8
+  %children = getelementptr inbounds i8, ptr %bus, i64 80
   %kid.04 = load ptr, ptr %children, align 8
   %tobool.not5 = icmp eq ptr %kid.04, null
   br i1 %tobool.not5, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.06, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.06, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %entry, %for.cond
   %kid.06 = phi ptr [ %kid.0, %for.cond ], [ %kid.04, %entry ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.06, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.06, i64 16
   %0 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
-  %cad1 = getelementptr inbounds %struct.HDACodecDevice, ptr %call.i, i64 0, i32 1
+  %cad1 = getelementptr inbounds i8, ptr %call.i, i64 160
   %1 = load i32, ptr %cad1, align 8
   %cmp = icmp eq i32 %1, %cad
   br i1 %cmp, label %return, label %for.cond
@@ -342,10 +307,10 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hda_codec_response(ptr noundef %dev, i1 noundef zeroext %solicited, i32 noundef %response) local_unnamed_addr #0 {
 entry:
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 15, ptr noundef nonnull @__func__.HDA_BUS) #10
-  %response1 = getelementptr inbounds %struct.HDACodecBus, ptr %call.i, i64 0, i32 2
+  %response1 = getelementptr inbounds i8, ptr %call.i, i64 128
   %1 = load ptr, ptr %response1, align 8
   tail call void %1(ptr noundef %dev, i1 noundef zeroext %solicited, i32 noundef %response) #10
   ret void
@@ -354,10 +319,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @hda_codec_xfer(ptr noundef %dev, i32 noundef %stnr, i1 noundef zeroext %output, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 15, ptr noundef nonnull @__func__.HDA_BUS) #10
-  %xfer = getelementptr inbounds %struct.HDACodecBus, ptr %call.i, i64 0, i32 3
+  %xfer = getelementptr inbounds i8, ptr %call.i, i64 136
   %1 = load ptr, ptr %xfer, align 8
   %call1 = tail call zeroext i1 %1(ptr noundef %dev, i32 noundef %stnr, i1 noundef zeroext %output, ptr noundef %buf, i32 noundef %len) #10
   ret i1 %call1
@@ -395,7 +360,7 @@ define internal i32 @intel_hda_and_codec_init(ptr noundef %bus, ptr noundef %aud
 entry:
   %call = tail call ptr @pci_create_simple(ptr noundef %bus, i32 noundef -1, ptr noundef nonnull @.str.17) #10
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %child_bus = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 12
+  %child_bus = getelementptr inbounds i8, ptr %call.i, i64 112
   %0 = load ptr, ptr %child_bus, align 8
   %call2 = tail call ptr @qdev_new(ptr noundef nonnull @.str.204) #10
   tail call void @qdev_prop_set_string(ptr noundef %call2, ptr noundef nonnull @.str.205, ptr noundef %audiodev) #10
@@ -408,17 +373,17 @@ define internal void @intel_hda_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #10
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i7, i64 176
   store ptr @intel_hda_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i7, i64 184
   store ptr @intel_hda_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i7, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i7, i64 214
   store i16 1027, ptr %class_id, align 2
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @intel_hda_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_intel_hda, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @intel_hda_properties) #10
   ret void
@@ -429,23 +394,23 @@ define internal void @intel_hda_realize(ptr noundef %pci, ptr noundef %errp) #0 
 entry:
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13, i32 noundef 206, ptr noundef nonnull @__func__.INTEL_HDA) #10
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
   store ptr null, ptr %err, align 8
   %call2 = tail call ptr @object_get_typename(ptr noundef %call.i) #10
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call.i, i64 2608
   store ptr %call2, ptr %name, align 16
   %arrayidx.i = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx.i, align 1
   %arrayidx = getelementptr i8, ptr %0, i64 64
   store i8 1, ptr %arrayidx, align 1
-  %msi = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 40
+  %msi = getelementptr inbounds i8, ptr %call.i, i64 4172
   %1 = load i32, ptr %msi, align 4
   %cmp.not = icmp eq i32 %1, 2
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %old_msi_addr = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 41
+  %old_msi_addr = getelementptr inbounds i8, ptr %call.i, i64 4176
   %2 = load i8, ptr %old_msi_addr, align 16
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -490,21 +455,21 @@ if.end22:                                         ; preds = %if.end14, %lor.lhs.
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end22, %entry
-  %container = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 29
+  %container = getelementptr inbounds i8, ptr %call.i, i64 3312
   call void @memory_region_init(ptr noundef nonnull %container, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.16, i64 noundef 16384) #10
-  %mmio = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 30
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 3584
   call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef nonnull %call.i, ptr noundef nonnull @intel_hda_mmio_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.17, i64 noundef 8192) #10
   call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 0, ptr noundef nonnull %mmio) #10
-  %alias = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 31
+  %alias = getelementptr inbounds i8, ptr %call.i, i64 3856
   call void @memory_region_init_alias(ptr noundef nonnull %alias, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.18, ptr noundef nonnull %mmio, i64 noundef 0, i64 noundef 8192) #10
   call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 8192, ptr noundef nonnull %alias) #10
   call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %container) #10
   %call.i27 = call ptr @object_dynamic_cast_assert(ptr noundef %pci, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %codecs = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 2
+  %codecs = getelementptr inbounds i8, ptr %call.i, i64 2616
   call void @qbus_init(ptr noundef nonnull %codecs, i64 noundef 144, ptr noundef nonnull @.str, ptr noundef %call.i27, ptr noundef null) #10
-  %response1.i = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 2, i32 2
+  %response1.i = getelementptr inbounds i8, ptr %call.i, i64 2744
   store ptr @intel_hda_response, ptr %response1.i, align 8
-  %xfer2.i = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 2, i32 3
+  %xfer2.i = getelementptr inbounds i8, ptr %call.i, i64 2752
   store ptr @intel_hda_xfer, ptr %xfer2.i, align 8
   br label %return
 
@@ -534,7 +499,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   br i1 %cmp2.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %offset.i = getelementptr [381 x %struct.IntelHDAReg], ptr @regtab, i64 0, i64 %indvars.iv.i, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %1 = load i32, ptr %offset.i, align 8
   %cmp6.i = icmp eq i32 %1, 0
   br i1 %cmp6.i, label %for.inc.i, label %if.end9.i
@@ -542,7 +507,7 @@ if.end.i:                                         ; preds = %for.body.i
 if.end9.i:                                        ; preds = %if.end.i
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr i8, ptr %call.i, i64 %idx.ext.i.i
-  %reset.i = getelementptr [381 x %struct.IntelHDAReg], ptr @regtab, i64 0, i64 %indvars.iv.i, i32 2
+  %reset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %2 = load i32, ptr %reset.i, align 4
   store i32 %2, ptr %add.ptr.i.i, align 4
   br label %for.inc.i
@@ -554,29 +519,29 @@ for.inc.i:                                        ; preds = %if.end9.i, %if.end.
 
 intel_hda_regs_reset.exit:                        ; preds = %for.inc.i
   %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %wall_base_ns = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 33
+  %wall_base_ns = getelementptr inbounds i8, ptr %call.i, i64 4136
   store i64 %call1, ptr %wall_base_ns, align 8
-  %children = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 2, i32 0, i32 8
+  %children = getelementptr inbounds i8, ptr %call.i, i64 2696
   %kid.08 = load ptr, ptr %children, align 8
   %tobool.not9 = icmp eq ptr %kid.08, null
   br i1 %tobool.not9, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %intel_hda_regs_reset.exit
-  %state_sts = getelementptr inbounds %struct.IntelHDAState, ptr %call.i, i64 0, i32 5
+  %state_sts = getelementptr inbounds i8, ptr %call.i, i64 2768
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %kid.010 = phi ptr [ %kid.08, %for.body.lr.ph ], [ %kid.0, %for.body ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.010, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.010, i64 16
   %3 = load ptr, ptr %child, align 8
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
-  %cad = getelementptr inbounds %struct.HDACodecDevice, ptr %call.i7, i64 0, i32 1
+  %cad = getelementptr inbounds i8, ptr %call.i7, i64 160
   %4 = load i32, ptr %cad, align 8
   %shl = shl nuw i32 1, %4
   %5 = load i32, ptr %state_sts, align 16
   %or = or i32 %5, %shl
   store i32 %or, ptr %state_sts, align 16
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.010, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.010, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -618,7 +583,7 @@ define internal void @intel_hda_response(ptr nocapture noundef readonly %dev, i1
 entry:
   %val.addr.i.i52 = alloca i32, align 4
   %val.addr.i.i = alloca i32, align 4
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 15, ptr noundef nonnull @__func__.HDA_BUS) #10
   %add.ptr = getelementptr i8, ptr %call.i, i64 -2616
@@ -640,7 +605,7 @@ if.then1:                                         ; preds = %do.body
   %4 = load ptr, ptr %name, align 16
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %4) #12
   %5 = load ptr, ptr @stderr, align 8
-  %cad = getelementptr inbounds %struct.HDACodecDevice, ptr %dev, i64 0, i32 1
+  %cad = getelementptr inbounds i8, ptr %dev, i64 160
   %6 = load i32, ptr %cad, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.150, ptr noundef nonnull @__func__.intel_hda_response, i32 noundef %response, i32 noundef %6) #12
   %.pre = load i32, ptr %ics, align 8
@@ -652,7 +617,7 @@ do.end:                                           ; preds = %do.body, %if.then1
   store i32 %response, ptr %irr, align 4
   %and5 = and i32 %7, -242
   store i32 %and5, ptr %ics, align 8
-  %cad6 = getelementptr inbounds %struct.HDACodecDevice, ptr %dev, i64 0, i32 1
+  %cad6 = getelementptr inbounds i8, ptr %dev, i64 160
   %8 = load i32, ptr %cad6, align 8
   %shl = shl i32 %8, 4
   %or = or i32 %shl, %and5
@@ -684,7 +649,7 @@ if.then16:                                        ; preds = %do.body13
 
 if.end22:                                         ; preds = %if.end9
   %cond = select i1 %solicited, i32 0, i32 16
-  %cad24 = getelementptr inbounds %struct.HDACodecDevice, ptr %dev, i64 0, i32 1
+  %cad24 = getelementptr inbounds i8, ptr %dev, i64 160
   %14 = load i32, ptr %cad24, align 8
   %or25 = or i32 %14, %cond
   %rirb_wp = getelementptr i8, ptr %call.i, i64 204
@@ -830,7 +795,7 @@ if.end104:                                        ; preds = %if.else, %if.then99
 define internal zeroext i1 @intel_hda_xfer(ptr nocapture noundef readonly %dev, i32 noundef %stnr, i1 noundef zeroext %output, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
   %val.addr.i.i = alloca i32, align 4
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 15, ptr noundef nonnull @__func__.HDA_BUS) #10
   %add.ptr = getelementptr i8, ptr %call.i, i64 -2616
@@ -854,22 +819,22 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
 if.end9:                                          ; preds = %for.body
-  %bpl = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 7
+  %bpl = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %2 = load ptr, ptr %bpl, align 8
   %cmp10 = icmp eq ptr %2, null
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %bentries = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 8
+  %bentries = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %cmp13.not74 = icmp eq i32 %len, 0
   br i1 %cmp13.not74, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end12
   %3 = load i32, ptr %bentries, align 8
-  %bsize = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 9
-  %lpib = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 1
-  %be = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 10
-  %bp = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 11
+  %bsize = getelementptr inbounds i8, ptr %arrayidx, i64 44
+  %lpib = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %be = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %bp = getelementptr inbounds i8, ptr %arrayidx, i64 52
   %debug = getelementptr i8, ptr %call.i, i64 1552
   %name = getelementptr i8, ptr %call.i, i64 -8
   %lnot = xor i1 %output, true
@@ -943,13 +908,14 @@ do.end:                                           ; preds = %while.body, %if.the
   %23 = load ptr, ptr %bpl, align 8
   %24 = load i32, ptr %be, align 8
   %idxprom66 = zext i32 %24 to i64
-  %len68 = getelementptr %struct.bpl, ptr %23, i64 %idxprom66, i32 1
+  %arrayidx67 = getelementptr %struct.bpl, ptr %23, i64 %idxprom66
+  %len68 = getelementptr inbounds i8, ptr %arrayidx67, i64 8
   %25 = load i32, ptr %len68, align 8
   %cmp70 = icmp eq i32 %25, %add60
   br i1 %cmp70, label %if.then72, label %if.end92
 
 if.then72:                                        ; preds = %do.end
-  %flags = getelementptr %struct.bpl, ptr %23, i64 %idxprom66, i32 2
+  %flags = getelementptr inbounds i8, ptr %arrayidx67, i64 12
   %26 = load i32, ptr %flags, align 4
   %and77 = and i32 %26, 1
   %tobool78.not = icmp eq i32 %and77, 0
@@ -1000,7 +966,7 @@ if.then95:                                        ; preds = %while.end
   %conv103 = and i64 %mul, 4294967288
   %or.i = add nuw nsw i64 %conv103, %conv1.i
   %add104 = add i64 %or.i, %shl.i
-  %lpib105 = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv, i32 1
+  %lpib105 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %32 = load i32, ptr %lpib105, align 4
   %bus_master_as.i.i68 = getelementptr i8, ptr %call.i, i64 -2040
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i)
@@ -1054,14 +1020,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %do.body.i, label %intel_hda_reg_find.exit
 
 do.body.i:                                        ; preds = %if.end.i, %entry
-  %debug.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 39
+  %debug.i = getelementptr inbounds i8, ptr %opaque, i64 4168
   %1 = load i32, ptr %debug.i, align 8
   %cmp4.not.i = icmp eq i32 %1, 0
   br i1 %cmp4.not.i, label %intel_hda_reg_read.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.body.i
   %2 = load ptr, ptr @stderr, align 8
-  %name6.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name6.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %3 = load ptr, ptr %name6.i, align 16
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef %3) #12
   %4 = load ptr, ptr @stderr, align 8
@@ -1075,7 +1041,7 @@ intel_hda_reg_find.exit:                          ; preds = %if.end.i
   %sh_prom = zext nneg i32 %sub to i64
   %shr = lshr i64 -1, %sh_prom
   %conv = trunc i64 %shr to i32
-  %rhandler.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 9
+  %rhandler.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %5 = load ptr, ptr %rhandler.i, align 8
   %tobool1.not.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i, label %if.end4.i, label %if.then2.i
@@ -1085,13 +1051,13 @@ if.then2.i:                                       ; preds = %intel_hda_reg_find.
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %intel_hda_reg_find.exit
-  %offset.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %6 = load i32, ptr %offset.i, align 8
   %cmp.i3 = icmp eq i32 %6, 0
   br i1 %cmp.i3, label %if.then5.i8, label %if.else.i
 
 if.then5.i8:                                      ; preds = %if.end4.i
-  %reset.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 2
+  %reset.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %7 = load i32, ptr %reset.i, align 4
   br label %if.end10.i
 
@@ -1099,7 +1065,7 @@ if.else.i:                                        ; preds = %if.end4.i
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr i8, ptr %opaque, i64 %idx.ext.i.i
   %8 = load i32, ptr %add.ptr.i.i, align 4
-  %shift.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 6
+  %shift.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
   %9 = load i32, ptr %shift.i, align 4
   %shr.i = lshr i32 %8, %9
   %and.i = and i32 %shr.i, %conv
@@ -1107,36 +1073,36 @@ if.else.i:                                        ; preds = %if.end4.i
 
 if.end10.i:                                       ; preds = %if.else.i, %if.then5.i8
   %ret.1.i = phi i32 [ %7, %if.then5.i8 ], [ %and.i, %if.else.i ]
-  %debug.i4 = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 39
+  %debug.i4 = getelementptr inbounds i8, ptr %opaque, i64 4168
   %10 = load i32, ptr %debug.i4, align 8
   %tobool11.not.i = icmp eq i32 %10, 0
   br i1 %tobool11.not.i, label %intel_hda_reg_read.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end10.i
   %call13.i = tail call i64 @time(ptr noundef null) #10
-  %last_write.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 36
+  %last_write.i = getelementptr inbounds i8, ptr %opaque, i64 4156
   %11 = load i32, ptr %last_write.i, align 4
   %tobool14.not.i = icmp eq i32 %11, 0
   br i1 %tobool14.not.i, label %land.lhs.true.i, label %if.else34.i
 
 land.lhs.true.i:                                  ; preds = %if.then12.i
-  %last_reg.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 34
+  %last_reg.i = getelementptr inbounds i8, ptr %opaque, i64 4144
   %12 = load ptr, ptr %last_reg.i, align 16
   %cmp15.i = icmp eq ptr %12, %add.ptr.i
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.else34.i
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
-  %last_val.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 35
+  %last_val.i = getelementptr inbounds i8, ptr %opaque, i64 4152
   %13 = load i32, ptr %last_val.i, align 8
   %cmp17.i = icmp eq i32 %13, %ret.1.i
   br i1 %cmp17.i, label %if.then18.i, label %if.else34.i
 
 if.then18.i:                                      ; preds = %land.lhs.true16.i
-  %repeat_count.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 38
+  %repeat_count.i = getelementptr inbounds i8, ptr %opaque, i64 4164
   %14 = load i32, ptr %repeat_count.i, align 4
   %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %repeat_count.i, align 4
-  %last_sec.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 37
+  %last_sec.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   %15 = load i32, ptr %last_sec.i, align 16
   %conv.i6 = zext i32 %15 to i64
   %cmp19.not.i = icmp eq i64 %call13.i, %conv.i6
@@ -1149,7 +1115,7 @@ do.body.i7:                                       ; preds = %if.then18.i
 
 if.then25.i:                                      ; preds = %do.body.i7
   %17 = load ptr, ptr @stderr, align 8
-  %name.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %18 = load ptr, ptr %name.i, align 16
   %call26.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.19, ptr noundef %18) #12
   %19 = load ptr, ptr @stderr, align 8
@@ -1163,7 +1129,7 @@ do.end.i:                                         ; preds = %if.then25.i, %do.bo
   br label %return.sink.split.i
 
 if.else34.i:                                      ; preds = %land.lhs.true16.i, %land.lhs.true.i, %if.then12.i
-  %repeat_count35.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 38
+  %repeat_count35.i = getelementptr inbounds i8, ptr %opaque, i64 4164
   %21 = load i32, ptr %repeat_count35.i, align 4
   %tobool36.not.i = icmp eq i32 %21, 0
   br i1 %tobool36.not.i, label %do.body50.i, label %do.body38.i
@@ -1175,7 +1141,7 @@ do.body38.i:                                      ; preds = %if.else34.i
 
 if.then42.i:                                      ; preds = %do.body38.i
   %23 = load ptr, ptr @stderr, align 8
-  %name43.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name43.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %24 = load ptr, ptr %name43.i, align 16
   %call44.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.19, ptr noundef %24) #12
   %25 = load ptr, ptr @stderr, align 8
@@ -1190,7 +1156,7 @@ do.body50.i:                                      ; preds = %if.then42.i, %if.el
 
 if.then54.i:                                      ; preds = %do.body50.i
   %27 = load ptr, ptr @stderr, align 8
-  %name55.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name55.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %28 = load ptr, ptr %name55.i, align 16
   %call56.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.19, ptr noundef %28) #12
   %29 = load ptr, ptr @stderr, align 8
@@ -1199,12 +1165,12 @@ if.then54.i:                                      ; preds = %do.body50.i
 
 do.end60.i:                                       ; preds = %if.then54.i, %do.body50.i, %do.body38.i
   store i32 0, ptr %last_write.i, align 4
-  %last_reg62.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 34
+  %last_reg62.i = getelementptr inbounds i8, ptr %opaque, i64 4144
   store ptr %add.ptr.i, ptr %last_reg62.i, align 16
-  %last_val63.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 35
+  %last_val63.i = getelementptr inbounds i8, ptr %opaque, i64 4152
   store i32 %ret.1.i, ptr %last_val63.i, align 8
   %conv64.i = trunc i64 %call13.i to i32
-  %last_sec65.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 37
+  %last_sec65.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   store i32 %conv64.i, ptr %last_sec65.i, align 16
   br label %return.sink.split.i
 
@@ -1232,14 +1198,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %do.body.i, label %intel_hda_reg_find.exit
 
 do.body.i:                                        ; preds = %if.end.i, %entry
-  %debug.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 39
+  %debug.i = getelementptr inbounds i8, ptr %opaque, i64 4168
   %1 = load i32, ptr %debug.i, align 8
   %cmp4.not.i = icmp eq i32 %1, 0
   br i1 %cmp4.not.i, label %intel_hda_reg_write.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.body.i
   %2 = load ptr, ptr @stderr, align 8
-  %name6.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name6.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %3 = load ptr, ptr %name6.i, align 16
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef %3) #12
   %4 = load ptr, ptr @stderr, align 8
@@ -1254,7 +1220,7 @@ intel_hda_reg_find.exit:                          ; preds = %if.end.i
   %sh_prom = zext nneg i32 %sub to i64
   %shr = lshr i64 -1, %sh_prom
   %conv1 = trunc i64 %shr to i32
-  %wmask1.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 3
+  %wmask1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %5 = load i32, ptr %wmask1.i, align 8
   %tobool2.not.i = icmp eq i32 %5, 0
   br i1 %tobool2.not.i, label %do.body.i5, label %if.end8.i
@@ -1270,36 +1236,36 @@ if.then6.i:                                       ; preds = %do.body.i5
   br label %intel_hda_reg_write.exit
 
 if.end8.i:                                        ; preds = %intel_hda_reg_find.exit
-  %debug.i3 = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 39
+  %debug.i3 = getelementptr inbounds i8, ptr %opaque, i64 4168
   %7 = load i32, ptr %debug.i3, align 8
   %tobool9.not.i = icmp eq i32 %7, 0
   br i1 %tobool9.not.i, label %if.end70.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   %call11.i = tail call i64 @time(ptr noundef null) #10
-  %last_write.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 36
+  %last_write.i = getelementptr inbounds i8, ptr %opaque, i64 4156
   %8 = load i32, ptr %last_write.i, align 4
   %tobool12.not.i = icmp eq i32 %8, 0
   br i1 %tobool12.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then10.i
-  %last_reg.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 34
+  %last_reg.i = getelementptr inbounds i8, ptr %opaque, i64 4144
   %9 = load ptr, ptr %last_reg.i, align 16
   %cmp.i4 = icmp eq ptr %9, %add.ptr.i
   br i1 %cmp.i4, label %land.lhs.true14.i, label %if.else.i
 
 land.lhs.true14.i:                                ; preds = %land.lhs.true.i
-  %last_val.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 35
+  %last_val.i = getelementptr inbounds i8, ptr %opaque, i64 4152
   %10 = load i32, ptr %last_val.i, align 8
   %cmp15.i = icmp eq i32 %10, %conv
   br i1 %cmp15.i, label %if.then17.i, label %if.else.i
 
 if.then17.i:                                      ; preds = %land.lhs.true14.i
-  %repeat_count.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 38
+  %repeat_count.i = getelementptr inbounds i8, ptr %opaque, i64 4164
   %11 = load i32, ptr %repeat_count.i, align 4
   %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %repeat_count.i, align 4
-  %last_sec.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 37
+  %last_sec.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   %12 = load i32, ptr %last_sec.i, align 16
   %conv18.i = zext i32 %12 to i64
   %cmp19.not.i = icmp eq i64 %call11.i, %conv18.i
@@ -1312,7 +1278,7 @@ do.body22.i:                                      ; preds = %if.then17.i
 
 if.then26.i:                                      ; preds = %do.body22.i
   %14 = load ptr, ptr @stderr, align 8
-  %name27.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name27.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %15 = load ptr, ptr %name27.i, align 16
   %call28.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.19, ptr noundef %15) #12
   %16 = load ptr, ptr @stderr, align 8
@@ -1326,7 +1292,7 @@ do.end32.i:                                       ; preds = %if.then26.i, %do.bo
   br label %if.end70.sink.split.i
 
 if.else.i:                                        ; preds = %land.lhs.true14.i, %land.lhs.true.i, %if.then10.i
-  %repeat_count37.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 38
+  %repeat_count37.i = getelementptr inbounds i8, ptr %opaque, i64 4164
   %18 = load i32, ptr %repeat_count37.i, align 4
   %tobool38.not.i = icmp eq i32 %18, 0
   br i1 %tobool38.not.i, label %do.body52.i, label %do.body40.i
@@ -1338,7 +1304,7 @@ do.body40.i:                                      ; preds = %if.else.i
 
 if.then44.i:                                      ; preds = %do.body40.i
   %20 = load ptr, ptr @stderr, align 8
-  %name45.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name45.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %21 = load ptr, ptr %name45.i, align 16
   %call46.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.19, ptr noundef %21) #12
   %22 = load ptr, ptr @stderr, align 8
@@ -1353,7 +1319,7 @@ do.body52.i:                                      ; preds = %if.then44.i, %if.el
 
 if.then56.i:                                      ; preds = %do.body52.i
   %24 = load ptr, ptr @stderr, align 8
-  %name57.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name57.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %25 = load ptr, ptr %name57.i, align 16
   %call58.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.19, ptr noundef %25) #12
   %26 = load ptr, ptr @stderr, align 8
@@ -1362,12 +1328,12 @@ if.then56.i:                                      ; preds = %do.body52.i
 
 do.end62.i:                                       ; preds = %if.then56.i, %do.body52.i, %do.body40.i
   store i32 1, ptr %last_write.i, align 4
-  %last_reg64.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 34
+  %last_reg64.i = getelementptr inbounds i8, ptr %opaque, i64 4144
   store ptr %add.ptr.i, ptr %last_reg64.i, align 16
-  %last_val65.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 35
+  %last_val65.i = getelementptr inbounds i8, ptr %opaque, i64 4152
   store i32 %conv, ptr %last_val65.i, align 8
   %conv66.i = trunc i64 %call11.i to i32
-  %last_sec67.i = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 37
+  %last_sec67.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   store i32 %conv66.i, ptr %last_sec67.i, align 16
   br label %if.end70.sink.split.i
 
@@ -1377,7 +1343,7 @@ if.end70.sink.split.i:                            ; preds = %do.end62.i, %do.end
   br label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.end70.sink.split.i, %if.then17.i, %if.end8.i
-  %offset.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %27 = load i32, ptr %offset.i, align 8
   %cmp71.not.i = icmp eq i32 %27, 0
   br i1 %cmp71.not.i, label %if.else74.i, label %if.end75.i
@@ -1390,7 +1356,7 @@ if.end75.i:                                       ; preds = %if.end70.i
   %idx.ext.i.i = zext i32 %27 to i64
   %add.ptr.i.i = getelementptr i8, ptr %opaque, i64 %idx.ext.i.i
   %28 = load i32, ptr %add.ptr.i.i, align 4
-  %shift.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 6
+  %shift.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
   %29 = load i32, ptr %shift.i, align 4
   %shl.i = shl i32 %conv, %29
   %shl81.i = shl i32 %conv1, %29
@@ -1399,13 +1365,13 @@ if.end75.i:                                       ; preds = %if.end70.i
   %and84.i = and i32 %28, %not.i
   %and85.i = and i32 %and.i, %shl.i
   %or.i = or i32 %and84.i, %and85.i
-  %wclear.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 4
+  %wclear.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
   %30 = load i32, ptr %wclear.i, align 4
   %and86.i = and i32 %30, %shl.i
   %not87.i = xor i32 %and86.i, -1
   %and88.i = and i32 %or.i, %not87.i
   store i32 %and88.i, ptr %add.ptr.i.i, align 4
-  %whandler.i = getelementptr %struct.IntelHDAReg, ptr @regtab, i64 %addr, i32 8
+  %whandler.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %31 = load ptr, ptr %whandler.i, align 8
   %tobool89.not.i = icmp eq ptr %31, null
   br i1 %tobool89.not.i, label %intel_hda_reg_write.exit, label %if.then90.i
@@ -1424,7 +1390,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @intel_hda_set_g_ctl(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
 entry:
-  %g_ctl = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 3
+  %g_ctl = getelementptr inbounds i8, ptr %d, i64 2760
   %0 = load i32, ptr %g_ctl, align 8
   %and = and i32 %0, 1
   %cmp = icmp eq i32 %and, 0
@@ -1464,13 +1430,13 @@ entry:
 define internal void @intel_hda_get_wall_clk(ptr nocapture noundef %d, ptr nocapture readnone %reg) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %wall_base_ns = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 33
+  %wall_base_ns = getelementptr inbounds i8, ptr %d, i64 4136
   %0 = load i64, ptr %wall_base_ns, align 8
   %sub = sub i64 %call, %0
   %mul = mul i64 %sub, 24
   %div = sdiv i64 %mul, 1000
   %conv = trunc i64 %div to i32
-  %wall_clk = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 8
+  %wall_clk = getelementptr inbounds i8, ptr %d, i64 2780
   store i32 %conv, ptr %wall_clk, align 4
   ret void
 }
@@ -1492,7 +1458,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @intel_hda_set_rirb_wp(ptr nocapture noundef %d, ptr nocapture readnone %reg, i32 %old) #4 {
 entry:
-  %rirb_wp = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 18
+  %rirb_wp = getelementptr inbounds i8, ptr %d, i64 2820
   %0 = load i32, ptr %rirb_wp, align 4
   %and = and i32 %0, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -1515,14 +1481,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %rirb_sts = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 21
+  %rirb_sts = getelementptr inbounds i8, ptr %d, i64 2832
   %0 = load i32, ptr %rirb_sts, align 16
   %and1 = and i32 %0, 1
   %tobool2.not = icmp eq i32 %and1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %rirb_count = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 32
+  %rirb_count = getelementptr inbounds i8, ptr %d, i64 4128
   store i32 0, ptr %rirb_count, align 16
   tail call fastcc void @intel_hda_corb_run(ptr noundef nonnull %d)
   br label %if.end
@@ -1534,7 +1500,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @intel_hda_set_ics(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
 entry:
-  %ics = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 27
+  %ics = getelementptr inbounds i8, ptr %d, i64 2856
   %0 = load i32, ptr %ics, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -1551,10 +1517,10 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @intel_hda_set_st_ctl(ptr noundef %d, ptr nocapture noundef readonly %reg, i32 noundef %old) #0 {
 entry:
-  %stream = getelementptr inbounds %struct.IntelHDAReg, ptr %reg, i64 0, i32 7
+  %stream = getelementptr inbounds i8, ptr %reg, i64 32
   %0 = load i32, ptr %stream, align 8
   %cmp = icmp ugt i32 %0, 3
-  %st1 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 28
+  %st1 = getelementptr inbounds i8, ptr %d, i64 2864
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr %struct.IntelHDAStream, ptr %st1, i64 %idx.ext
   %1 = load i32, ptr %add.ptr, align 8
@@ -1563,14 +1529,14 @@ entry:
   br i1 %tobool.not, label %if.end8, label %do.body
 
 do.body:                                          ; preds = %entry
-  %debug = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug = getelementptr inbounds i8, ptr %d, i64 4168
   %2 = load i32, ptr %debug, align 8
   %cmp3.not = icmp eq i32 %2, 0
   br i1 %cmp3.not, label %do.end, label %if.then4
 
 if.then4:                                         ; preds = %do.body
   %3 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %d, i64 2608
   %4 = load ptr, ptr %name, align 16
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %4) #12
   %5 = load ptr, ptr @stderr, align 8
@@ -1593,7 +1559,7 @@ if.then13:                                        ; preds = %if.end8
   %shr = lshr i32 %7, 20
   %and15 = and i32 %shr, 15
   %tobool18.not = icmp eq i32 %and10, 0
-  %debug32 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug32 = getelementptr inbounds i8, ptr %d, i64 4168
   %8 = load i32, ptr %debug32, align 8
   %cmp33.not = icmp eq i32 %8, 0
   br i1 %tobool18.not, label %do.body31, label %do.body20
@@ -1603,31 +1569,31 @@ do.body20:                                        ; preds = %if.then13
 
 if.then23:                                        ; preds = %do.body20
   %9 = load ptr, ptr @stderr, align 8
-  %name24 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name24 = getelementptr inbounds i8, ptr %d, i64 2608
   %10 = load ptr, ptr %name24, align 16
   %call25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef %10) #12
   %11 = load ptr, ptr @stderr, align 8
   %12 = load i32, ptr %stream, align 8
-  %cbl = getelementptr %struct.IntelHDAStream, ptr %st1, i64 %idx.ext, i32 2
+  %cbl = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %13 = load i32, ptr %cbl, align 8
   %call27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.142, i32 noundef %12, i32 noundef %and15, i32 noundef %13) #12
   br label %do.end29
 
 do.end29:                                         ; preds = %do.body20, %if.then23
   tail call fastcc void @intel_hda_parse_bdl(ptr noundef nonnull %d, ptr noundef nonnull %add.ptr)
-  %children.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 2, i32 0, i32 8
+  %children.i = getelementptr inbounds i8, ptr %d, i64 2696
   %kid.06.i = load ptr, ptr %children.i, align 8
   %tobool.not7.i = icmp eq ptr %kid.06.i, null
   br i1 %tobool.not7.i, label %if.end43, label %for.body.i
 
 for.body.i:                                       ; preds = %do.end29, %for.inc.i
   %kid.08.i = phi ptr [ %kid.0.i, %for.inc.i ], [ %kid.06.i, %do.end29 ]
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %kid.08.i, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %kid.08.i, i64 16
   %14 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
   %call.i5.i = tail call ptr @object_get_class(ptr noundef %call.i.i) #10
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_GET_CLASS) #10
-  %stream3.i = getelementptr inbounds %struct.HDACodecDeviceClass, ptr %call1.i.i, i64 0, i32 4
+  %stream3.i = getelementptr inbounds i8, ptr %call1.i.i, i64 200
   %15 = load ptr, ptr %stream3.i, align 8
   %tobool4.not.i = icmp eq ptr %15, null
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then.i
@@ -1637,7 +1603,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %sibling.i = getelementptr inbounds %struct.BusChild, ptr %kid.08.i, i64 0, i32 3
+  %sibling.i = getelementptr inbounds i8, ptr %kid.08.i, i64 32
   %kid.0.i = load ptr, ptr %sibling.i, align 8
   %tobool.not.i = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i, label %if.end43, label %for.body.i, !llvm.loop !12
@@ -1647,7 +1613,7 @@ do.body31:                                        ; preds = %if.then13
 
 if.then34:                                        ; preds = %do.body31
   %16 = load ptr, ptr @stderr, align 8
-  %name35 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name35 = getelementptr inbounds i8, ptr %d, i64 2608
   %17 = load ptr, ptr %name35, align 16
   %call36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.19, ptr noundef %17) #12
   %18 = load ptr, ptr @stderr, align 8
@@ -1656,19 +1622,19 @@ if.then34:                                        ; preds = %do.body31
   br label %do.end40
 
 do.end40:                                         ; preds = %do.body31, %if.then34
-  %children.i25 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 2, i32 0, i32 8
+  %children.i25 = getelementptr inbounds i8, ptr %d, i64 2696
   %kid.06.i26 = load ptr, ptr %children.i25, align 8
   %tobool.not7.i27 = icmp eq ptr %kid.06.i26, null
   br i1 %tobool.not7.i27, label %if.end43, label %for.body.i28
 
 for.body.i28:                                     ; preds = %do.end40, %for.inc.i37
   %kid.08.i29 = phi ptr [ %kid.0.i39, %for.inc.i37 ], [ %kid.06.i26, %do.end40 ]
-  %child.i30 = getelementptr inbounds %struct.BusChild, ptr %kid.08.i29, i64 0, i32 1
+  %child.i30 = getelementptr inbounds i8, ptr %kid.08.i29, i64 16
   %20 = load ptr, ptr %child.i30, align 8
   %call.i.i31 = tail call ptr @object_dynamic_cast_assert(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
   %call.i5.i32 = tail call ptr @object_get_class(ptr noundef %call.i.i31) #10
   %call1.i.i33 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5.i32, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_GET_CLASS) #10
-  %stream3.i34 = getelementptr inbounds %struct.HDACodecDeviceClass, ptr %call1.i.i33, i64 0, i32 4
+  %stream3.i34 = getelementptr inbounds i8, ptr %call1.i.i33, i64 200
   %21 = load ptr, ptr %stream3.i34, align 8
   %tobool4.not.i35 = icmp eq ptr %21, null
   br i1 %tobool4.not.i35, label %for.inc.i37, label %if.then.i36
@@ -1678,7 +1644,7 @@ if.then.i36:                                      ; preds = %for.body.i28
   br label %for.inc.i37
 
 for.inc.i37:                                      ; preds = %if.then.i36, %for.body.i28
-  %sibling.i38 = getelementptr inbounds %struct.BusChild, ptr %kid.08.i29, i64 0, i32 3
+  %sibling.i38 = getelementptr inbounds i8, ptr %kid.08.i29, i64 32
   %kid.0.i39 = load ptr, ptr %sibling.i38, align 8
   %tobool.not.i40 = icmp eq ptr %kid.0.i39, null
   br i1 %tobool.not.i40, label %if.end43, label %for.body.i28, !llvm.loop !12
@@ -1694,26 +1660,27 @@ declare void @device_cold_reset(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @intel_hda_update_irq(ptr noundef %d) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @msi_enabled(ptr noundef %d) #10
-  %rirb_sts.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 21
+  %rirb_sts.i = getelementptr inbounds i8, ptr %d, i64 2832
   %0 = load i32, ptr %rirb_sts.i, align 16
   %and.i = shl i32 %0, 30
   %spec.select.i = and i32 %and.i, 1073741824
   %and2.i = and i32 %0, 4
   %tobool3.not.i = icmp eq i32 %and2.i, 0
-  %state_sts.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 5
+  %state_sts.i = getelementptr inbounds i8, ptr %d, i64 2768
   %1 = load i32, ptr %state_sts.i, align 16
-  %wake_en.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 4
+  %wake_en.i = getelementptr inbounds i8, ptr %d, i64 2764
   %2 = load i32, ptr %wake_en.i, align 4
   %and7.i = and i32 %2, %1
   %tobool8.not.i = icmp eq i32 %and7.i, 0
   %3 = select i1 %tobool8.not.i, i1 %tobool3.not.i, i1 false
   %sts.2.i = select i1 %3, i32 %spec.select.i, i32 1073741824
+  %st.i = getelementptr inbounds i8, ptr %d, i64 2864
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %sts.317.i = phi i32 [ %sts.2.i, %entry ], [ %sts.4.i, %for.body.i ]
-  %arrayidx.i = getelementptr %struct.IntelHDAState, ptr %d, i64 0, i32 28, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [8 x %struct.IntelHDAStream], ptr %st.i, i64 0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %and12.i = and i32 %4, 67108864
   %tobool13.not.i = icmp eq i32 %and12.i, 0
@@ -1726,25 +1693,25 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %intel_hda_update_int_sts.exit, label %for.body.i, !llvm.loop !13
 
 intel_hda_update_int_sts.exit:                    ; preds = %for.body.i
-  %int_ctl.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 6
+  %int_ctl.i = getelementptr inbounds i8, ptr %d, i64 2772
   %6 = load i32, ptr %int_ctl.i, align 4
   %and17.i = and i32 %6, %sts.4.i
   %tobool18.not.i = icmp eq i32 %and17.i, 0
   %or20.i = or i32 %sts.4.i, -2147483648
   %spec.select16.i = select i1 %tobool18.not.i, i32 %sts.4.i, i32 %or20.i
-  %int_sts.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 7
+  %int_sts.i = getelementptr inbounds i8, ptr %d, i64 2776
   store i32 %spec.select16.i, ptr %int_sts.i, align 8
   %7 = and i32 %spec.select16.i, %6
   %or.cond = icmp slt i32 %7, 0
   %.lobit = lshr i32 %7, 31
-  %debug = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug = getelementptr inbounds i8, ptr %d, i64 4168
   %8 = load i32, ptr %debug, align 8
   %cmp = icmp ugt i32 %8, 1
   br i1 %cmp, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %intel_hda_update_int_sts.exit
   %9 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %d, i64 2608
   %10 = load ptr, ptr %name, align 16
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef %10) #12
   %11 = load ptr, ptr @stderr, align 8
@@ -1782,62 +1749,62 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 define internal fastcc void @intel_hda_corb_run(ptr noundef %d) unnamed_addr #0 {
 entry:
   %verb = alloca i32, align 4
-  %ics = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 27
+  %ics = getelementptr inbounds i8, ptr %d, i64 2856
   %0 = load i32, ptr %ics, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %for.cond.preheader, label %do.body
 
 for.cond.preheader:                               ; preds = %entry
-  %corb_ctl = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 13
+  %corb_ctl = getelementptr inbounds i8, ptr %d, i64 2800
   %1 = load i32, ptr %corb_ctl, align 16
   %and637 = and i32 %1, 2
   %tobool7.not38 = icmp eq i32 %and637, 0
   br i1 %tobool7.not38, label %do.body9, label %if.end18.lr.ph
 
 if.end18.lr.ph:                                   ; preds = %for.cond.preheader
-  %corb_rp = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 11
-  %corb_wp = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 12
-  %rirb_count = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 32
-  %rirb_cnt = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 19
-  %corb_lbase = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 9
-  %bus_master_as.i.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 12
-  %debug78 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
-  %name82 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %corb_rp = getelementptr inbounds i8, ptr %d, i64 2792
+  %corb_wp = getelementptr inbounds i8, ptr %d, i64 2796
+  %rirb_count = getelementptr inbounds i8, ptr %d, i64 4128
+  %rirb_cnt = getelementptr inbounds i8, ptr %d, i64 2824
+  %corb_lbase = getelementptr inbounds i8, ptr %d, i64 2784
+  %bus_master_as.i.i = getelementptr inbounds i8, ptr %d, i64 576
+  %debug78 = getelementptr inbounds i8, ptr %d, i64 4168
+  %name82 = getelementptr inbounds i8, ptr %d, i64 2608
   br label %if.end18
 
 do.body:                                          ; preds = %entry
-  %debug = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug = getelementptr inbounds i8, ptr %d, i64 4168
   %2 = load i32, ptr %debug, align 8
   %cmp = icmp ugt i32 %2, 1
   br i1 %cmp, label %if.then1, label %do.end
 
 if.then1:                                         ; preds = %do.body
   %3 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %d, i64 2608
   %4 = load ptr, ptr %name, align 16
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %4) #12
   %5 = load ptr, ptr @stderr, align 8
-  %icw = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 25
+  %icw = getelementptr inbounds i8, ptr %d, i64 2848
   %6 = load i32, ptr %icw, align 16
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.134, ptr noundef nonnull @__func__.intel_hda_corb_run, i32 noundef %6) #12
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then1
-  %icw3 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 25
+  %icw3 = getelementptr inbounds i8, ptr %d, i64 2848
   %7 = load i32, ptr %icw3, align 16
   tail call fastcc void @intel_hda_send_command(ptr noundef nonnull %d, i32 noundef %7)
   br label %return
 
 do.body9:                                         ; preds = %do.end86, %for.cond.preheader
-  %debug10 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug10 = getelementptr inbounds i8, ptr %d, i64 4168
   %8 = load i32, ptr %debug10, align 8
   %cmp11 = icmp ugt i32 %8, 1
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %do.body9
   %9 = load ptr, ptr @stderr, align 8
-  %name13 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name13 = getelementptr inbounds i8, ptr %d, i64 2608
   %10 = load ptr, ptr %name13, align 16
   %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef %10) #12
   %11 = load ptr, ptr @stderr, align 8
@@ -1927,14 +1894,14 @@ entry:
   br i1 %tobool.not, label %if.end4, label %do.body
 
 do.body:                                          ; preds = %entry
-  %debug = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug = getelementptr inbounds i8, ptr %d, i64 4168
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %do.body
   %1 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %d, i64 2608
   %2 = load ptr, ptr %name, align 16
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %2) #12
   %3 = load ptr, ptr @stderr, align 8
@@ -1943,36 +1910,36 @@ if.then2:                                         ; preds = %do.body
 
 if.end4:                                          ; preds = %entry
   %shr = lshr i32 %verb, 28
-  %children.i = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 2, i32 0, i32 8
+  %children.i = getelementptr inbounds i8, ptr %d, i64 2696
   %kid.04.i = load ptr, ptr %children.i, align 8
   %tobool.not5.i = icmp eq ptr %kid.04.i, null
   br i1 %tobool.not5.i, label %do.body11, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %sibling.i = getelementptr inbounds %struct.BusChild, ptr %kid.06.i, i64 0, i32 3
+  %sibling.i = getelementptr inbounds i8, ptr %kid.06.i, i64 32
   %kid.0.i = load ptr, ptr %sibling.i, align 8
   %tobool.not.i = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i, label %do.body11, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %if.end4, %for.cond.i
   %kid.06.i = phi ptr [ %kid.0.i, %for.cond.i ], [ %kid.04.i, %if.end4 ]
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %kid.06.i, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %kid.06.i, i64 16
   %4 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
-  %cad1.i = getelementptr inbounds %struct.HDACodecDevice, ptr %call.i.i, i64 0, i32 1
+  %cad1.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   %5 = load i32, ptr %cad1.i, align 8
   %cmp.i = icmp eq i32 %5, %shr
   br i1 %cmp.i, label %if.end20, label %for.cond.i
 
 do.body11:                                        ; preds = %for.cond.i, %if.end4
-  %debug12 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
+  %debug12 = getelementptr inbounds i8, ptr %d, i64 4168
   %6 = load i32, ptr %debug12, align 8
   %cmp13.not = icmp eq i32 %6, 0
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %do.body11
   %7 = load ptr, ptr @stderr, align 8
-  %name15 = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %name15 = getelementptr inbounds i8, ptr %d, i64 2608
   %8 = load ptr, ptr %name15, align 16
   %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.19, ptr noundef %8) #12
   %9 = load ptr, ptr @stderr, align 8
@@ -1985,7 +1952,7 @@ if.end20:                                         ; preds = %for.body.i
   %and6 = and i32 %shr5, 127
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_GET_CLASS) #10
-  %command = getelementptr inbounds %struct.HDACodecDeviceClass, ptr %call1.i, i64 0, i32 3
+  %command = getelementptr inbounds i8, ptr %call1.i, i64 192
   %10 = load ptr, ptr %command, align 8
   tail call void %10(ptr noundef nonnull %call.i.i, i32 noundef %and6, i32 noundef %and7) #10
   br label %return
@@ -2002,14 +1969,14 @@ declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 no
 define internal fastcc void @intel_hda_parse_bdl(ptr noundef %d, ptr nocapture noundef %st) unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
-  %bdlp_lbase = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 5
+  %bdlp_lbase = getelementptr inbounds i8, ptr %st, i64 20
   %0 = load i64, ptr %bdlp_lbase, align 4
-  %lvi = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 3
+  %lvi = getelementptr inbounds i8, ptr %st, i64 12
   %1 = load i32, ptr %lvi, align 4
   %add = add i32 %1, 1
-  %bentries = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 8
+  %bentries = getelementptr inbounds i8, ptr %st, i64 40
   store i32 %add, ptr %bentries, align 8
-  %bpl = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 7
+  %bpl = getelementptr inbounds i8, ptr %st, i64 32
   %2 = load ptr, ptr %bpl, align 8
   tail call void @g_free(ptr noundef %2) #10
   %3 = load i32, ptr %bentries, align 8
@@ -2021,11 +1988,11 @@ entry:
   br i1 %cmp30.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %d, i64 576
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr17 = getelementptr inbounds i8, ptr %buf, i64 12
-  %debug = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 39
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %d, i64 0, i32 1
+  %debug = getelementptr inbounds i8, ptr %d, i64 4168
+  %name = getelementptr inbounds i8, ptr %d, i64 2608
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2058,9 +2025,9 @@ if.then:                                          ; preds = %for.body
   %15 = load ptr, ptr %bpl, align 8
   %arrayidx27 = getelementptr %struct.bpl, ptr %15, i64 %indvars.iv
   %16 = load i64, ptr %arrayidx27, align 8
-  %len32 = getelementptr %struct.bpl, ptr %15, i64 %indvars.iv, i32 1
+  %len32 = getelementptr inbounds i8, ptr %arrayidx27, i64 8
   %17 = load i32, ptr %len32, align 8
-  %flags36 = getelementptr %struct.bpl, ptr %15, i64 %indvars.iv, i32 2
+  %flags36 = getelementptr inbounds i8, ptr %arrayidx27, i64 12
   %18 = load i32, ptr %flags36, align 4
   %19 = trunc i64 %indvars.iv to i32
   %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.144, i32 noundef %19, i64 noundef %16, i32 noundef %17, i32 noundef %18) #12
@@ -2075,15 +2042,15 @@ for.inc:                                          ; preds = %if.then, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
-  %cbl = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 2
+  %cbl = getelementptr inbounds i8, ptr %st, i64 8
   %22 = load i32, ptr %cbl, align 8
-  %bsize = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 9
+  %bsize = getelementptr inbounds i8, ptr %st, i64 44
   store i32 %22, ptr %bsize, align 4
-  %lpib = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 1
+  %lpib = getelementptr inbounds i8, ptr %st, i64 4
   store i32 0, ptr %lpib, align 4
-  %be = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 10
+  %be = getelementptr inbounds i8, ptr %st, i64 48
   store i32 0, ptr %be, align 8
-  %bp = getelementptr inbounds %struct.IntelHDAStream, ptr %st, i64 0, i32 11
+  %bp = getelementptr inbounds i8, ptr %st, i64 52
   store i32 0, ptr %bp, align 4
   ret void
 }
@@ -2103,26 +2070,27 @@ declare void @msi_uninit(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @intel_hda_post_load(ptr noundef %opaque, i32 %version) #0 {
 entry:
-  %debug = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 39
+  %debug = getelementptr inbounds i8, ptr %opaque, i64 4168
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
-  br i1 %cmp.not, label %for.body.preheader, label %if.then
+  br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds %struct.IntelHDAState, ptr %opaque, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %opaque, i64 2608
   %2 = load ptr, ptr %name, align 16
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %2) #12
   %3 = load ptr, ptr @stderr, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.187, ptr noundef nonnull @__func__.intel_hda_post_load) #12
-  br label %for.body.preheader
+  br label %do.end
 
-for.body.preheader:                               ; preds = %entry, %if.then
+do.end:                                           ; preds = %entry, %if.then
+  %st = getelementptr inbounds i8, ptr %opaque, i64 2864
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr %struct.IntelHDAState, ptr %opaque, i64 0, i32 28, i64 %indvars.iv
+for.body:                                         ; preds = %do.end, %for.inc
+  %indvars.iv = phi i64 [ 0, %do.end ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx = getelementptr [8 x %struct.IntelHDAStream], ptr %st, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 8
   %and = and i32 %4, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -2147,15 +2115,15 @@ define internal void @intel_hda_class_init_ich6(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #10
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i4, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i4, i64 210
   store i16 9832, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i4, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i4, i64 212
   store i8 1, ptr %revision, align 4
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.199, ptr %desc, align 8
   ret void
 }
@@ -2165,15 +2133,15 @@ define internal void @intel_hda_class_init_ich9(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #10
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i4, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i4, i64 210
   store i16 10558, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i4, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i4, i64 212
   store i8 3, ptr %revision, align 4
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.201, ptr %desc, align 8
   ret void
 }
@@ -2182,15 +2150,15 @@ entry:
 define internal void @hda_codec_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @hda_codec_dev_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @hda_codec_dev_unrealize, ptr %unrealize, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str, ptr %bus_type, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @hda_props) #10
   ret void
@@ -2199,19 +2167,19 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_codec_dev_realize(ptr noundef %qdev, ptr noundef %errp) #0 {
 entry:
-  %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %qdev, i64 0, i32 9
+  %parent_bus = getelementptr inbounds i8, ptr %qdev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 15, ptr noundef nonnull @__func__.HDA_BUS) #10
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
   %call.i10 = tail call ptr @object_get_class(ptr noundef %call.i9) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_GET_CLASS) #10
-  %cad = getelementptr inbounds %struct.HDACodecDevice, ptr %call.i9, i64 0, i32 1
+  %cad = getelementptr inbounds i8, ptr %call.i9, i64 160
   %1 = load i32, ptr %cad, align 8
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next_cad = getelementptr inbounds %struct.HDACodecBus, ptr %call.i, i64 0, i32 1
+  %next_cad = getelementptr inbounds i8, ptr %call.i, i64 120
   %2 = load i32, ptr %next_cad, align 8
   store i32 %2, ptr %cad, align 8
   br label %if.end
@@ -2227,9 +2195,9 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %add = add nuw nsw i32 %3, 1
-  %next_cad9 = getelementptr inbounds %struct.HDACodecBus, ptr %call.i, i64 0, i32 1
+  %next_cad9 = getelementptr inbounds i8, ptr %call.i, i64 120
   store i32 %add, ptr %next_cad9, align 8
-  %init = getelementptr inbounds %struct.HDACodecDeviceClass, ptr %call1.i, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %call1.i, i64 176
   %4 = load ptr, ptr %init, align 8
   tail call void %4(ptr noundef nonnull %call.i9, ptr noundef %errp) #10
   br label %return
@@ -2244,7 +2212,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE) #10
   %call.i3 = tail call ptr @object_get_class(ptr noundef %call.i) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_GET_CLASS) #10
-  %exit = getelementptr inbounds %struct.HDACodecDeviceClass, ptr %call1.i, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %exit, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bignum_st = type opaque
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @ossl_bn_inv_sqrt_2 = external constant %struct.bignum_st, align 1
 @.str = private unnamed_addr constant [44 x i8] c"../openssl/crypto/rsa/rsa_sp800_56b_check.c\00", align 1
@@ -18,10 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rsa_check_crt_components(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 80
   %0 = load ptr, ptr %dmp1, align 8
   %cmp = icmp eq ptr %0, null
-  %dmq17 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %dmq17 = getelementptr inbounds i8, ptr %rsa, i64 88
   %1 = load ptr, ptr %dmq17, align 8
   %cmp8.not = icmp eq ptr %1, null
   br i1 %cmp, label %lor.lhs.false6, label %lor.lhs.false
@@ -30,7 +25,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp8.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 96
   %2 = load ptr, ptr %iqmp, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %return, label %if.end13
@@ -39,7 +34,7 @@ lor.lhs.false6:                                   ; preds = %entry
   br i1 %cmp8.not, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %iqmp10 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 12
+  %iqmp10 = getelementptr inbounds i8, ptr %rsa, i64 96
   %3 = load ptr, ptr %iqmp10, align 8
   %cmp11.not = icmp eq ptr %3, null
   %spec.select = zext i1 %cmp11.not to i32
@@ -57,7 +52,7 @@ if.then17:                                        ; preds = %if.end13
   tail call void @BN_set_flags(ptr noundef %call, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef %call14, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef nonnull %call15, i32 noundef 4) #2
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %4 = load ptr, ptr %p, align 8
   %call19 = tail call ptr @BN_copy(ptr noundef %call14, ptr noundef %4) #2
   %cmp20.not = icmp eq ptr %call19, null
@@ -69,7 +64,7 @@ land.lhs.true21:                                  ; preds = %if.then17
   br i1 %tobool23.not, label %land.end, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true21
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %5 = load ptr, ptr %q, align 8
   %call25 = tail call ptr @BN_copy(ptr noundef nonnull %call15, ptr noundef %5) #2
   %cmp26.not = icmp eq ptr %call25, null
@@ -122,7 +117,7 @@ land.lhs.true53:                                  ; preds = %land.lhs.true48
 
 land.lhs.true58:                                  ; preds = %land.lhs.true53
   %13 = load ptr, ptr %dmp1, align 8
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %rsa, i64 48
   %14 = load ptr, ptr %e, align 8
   %call60 = tail call i32 @BN_mod_mul(ptr noundef %call, ptr noundef %13, ptr noundef %14, ptr noundef %call14, ptr noundef %ctx) #2
   %tobool61.not = icmp eq i32 %call60, 0
@@ -312,7 +307,7 @@ declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rsa_check_private_exponent(ptr nocapture noundef readonly %rsa, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %0 = load ptr, ptr %d, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %0) #2
   %shr = ashr i32 %nbits, 1
@@ -337,9 +332,9 @@ if.then8:                                         ; preds = %if.end
   tail call void @BN_set_flags(ptr noundef %call4, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef %call5, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef nonnull %call6, i32 noundef 4) #2
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %1 = load ptr, ptr %p, align 8
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %2 = load ptr, ptr %q, align 8
   %call10 = tail call i32 @ossl_rsa_get_lcm(ptr noundef %ctx, ptr noundef %1, ptr noundef %2, ptr noundef %call4, ptr noundef nonnull %call6, ptr noundef %call2, ptr noundef %call3, ptr noundef %call5), !range !4
   %cmp11.not = icmp eq i32 %call10, 0
@@ -352,7 +347,7 @@ land.lhs.true12:                                  ; preds = %if.then8
   br i1 %cmp15, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %land.lhs.true12
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %rsa, i64 48
   %4 = load ptr, ptr %e, align 8
   %5 = load ptr, ptr %d, align 8
   %call18 = tail call i32 @BN_mod_mul(ptr noundef %call1, ptr noundef %4, ptr noundef %5, ptr noundef %call4, ptr noundef %ctx) #2
@@ -481,13 +476,13 @@ declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 define i32 @ossl_rsa_sp800_56b_check_public(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %rsa, i64 48
   %1 = load ptr, ptr %e, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -524,7 +519,7 @@ if.then10:                                        ; preds = %if.end6, %ossl_rsa_
   br label %return
 
 if.end11:                                         ; preds = %ossl_rsa_check_public_exponent.exit
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %4 = load ptr, ptr %libctx, align 8
   %call12 = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #2
   %call13 = tail call ptr @BN_new() #2
@@ -606,13 +601,13 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rsa_sp800_56b_check_private(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %0 = load ptr, ptr %d, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %1 = load ptr, ptr %n, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -638,31 +633,31 @@ return:                                           ; preds = %if.end, %land.rhs, 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rsa_sp800_56b_check_keypair(ptr nocapture noundef readonly %rsa, ptr noundef %efixed, i32 noundef %strength, i32 noundef %nbits) local_unnamed_addr #0 {
 entry:
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %0 = load ptr, ptr %p, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %1 = load ptr, ptr %q, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %rsa, i64 48
   %2 = load ptr, ptr %e, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %3 = load ptr, ptr %d, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %4 = load ptr, ptr %n, align 8
   %cmp7 = icmp eq ptr %4, null
   br i1 %cmp7, label %if.then, label %if.end
@@ -738,7 +733,7 @@ if.then31:                                        ; preds = %if.end27
   br label %return
 
 if.end32:                                         ; preds = %if.end27
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %8 = load ptr, ptr %libctx, align 8
   %call33 = tail call ptr @BN_CTX_new_ex(ptr noundef %8) #2
   %cmp34 = icmp eq ptr %call33, null

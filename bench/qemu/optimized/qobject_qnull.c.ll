@@ -24,7 +24,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %q, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

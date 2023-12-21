@@ -236,7 +236,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load i64, ptr %rl.i, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rl.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %rl.i, i64 8
   %4 = load i64, ptr %3, align 8
   %call.i.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.8, i64 noundef %2, i64 noundef %4) #6
   br label %resource_getrlimit_impl.exit
@@ -296,7 +296,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %tobool.not, label %if.end10, label %exit
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end4
-  %arrayidx11 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx11 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx11, align 8
   %call12 = tail call i32 @PyLong_AsInt(ptr noundef %3) #6
   %cmp13 = icmp eq i32 %call12, -1
@@ -312,7 +312,7 @@ if.end19:                                         ; preds = %land.lhs.true15, %i
   br i1 %cmp20, label %skip_optional, label %if.end23
 
 if.end23:                                         ; preds = %if.end19
-  %arrayidx24 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx24 = getelementptr i8, ptr %args, i64 16
   %4 = load ptr, ptr %arrayidx24, align 8
   br label %skip_optional
 
@@ -375,7 +375,7 @@ if.else20.i:                                      ; preds = %if.then16.i
 
 if.end23.i:                                       ; preds = %if.end14.i
   %9 = load i64, ptr %old_limit.i, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %old_limit.i, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %old_limit.i, i64 8
   %11 = load i64, ptr %10, align 8
   %call.i.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %11) #6
   br label %resource_prlimit_impl.exit
@@ -409,7 +409,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %land.lhs.true, label %if.end.split
 
 if.end.split:                                     ; preds = %if.end
-  %arrayidx64 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx64 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx64, align 8
   %call75 = tail call fastcc ptr @resource_setrlimit_impl(i32 noundef %call1, ptr noundef %2)
   br label %exit
@@ -489,74 +489,74 @@ if.end5:                                          ; preds = %entry
 if.end9:                                          ; preds = %if.end5
   %4 = load i64, ptr %ru, align 8
   %conv = sitofp i64 %4 to double
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %ru, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %ru, i64 8
   %5 = load i64, ptr %tv_usec, align 8
   %conv11 = sitofp i64 %5 to double
   %6 = call double @llvm.fmuladd.f64(double %conv11, double 0x3EB0C6F7A0B5ED8D, double %conv)
   %call12 = call ptr @PyFloat_FromDouble(double noundef %6) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 0, ptr noundef %call12) #6
-  %ru_stime = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 1
+  %ru_stime = getelementptr inbounds i8, ptr %ru, i64 16
   %7 = load i64, ptr %ru_stime, align 8
   %conv14 = sitofp i64 %7 to double
-  %tv_usec16 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 1, i32 1
+  %tv_usec16 = getelementptr inbounds i8, ptr %ru, i64 24
   %8 = load i64, ptr %tv_usec16, align 8
   %conv17 = sitofp i64 %8 to double
   %9 = call double @llvm.fmuladd.f64(double %conv17, double 0x3EB0C6F7A0B5ED8D, double %conv14)
   %call18 = call ptr @PyFloat_FromDouble(double noundef %9) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 1, ptr noundef %call18) #6
-  %10 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %ru, i64 32
   %11 = load i64, ptr %10, align 8
   %call19 = call ptr @PyLong_FromLong(i64 noundef %11) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 2, ptr noundef %call19) #6
-  %12 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 3
+  %12 = getelementptr inbounds i8, ptr %ru, i64 40
   %13 = load i64, ptr %12, align 8
   %call20 = call ptr @PyLong_FromLong(i64 noundef %13) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 3, ptr noundef %call20) #6
-  %14 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 4
+  %14 = getelementptr inbounds i8, ptr %ru, i64 48
   %15 = load i64, ptr %14, align 8
   %call21 = call ptr @PyLong_FromLong(i64 noundef %15) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 4, ptr noundef %call21) #6
-  %16 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 5
+  %16 = getelementptr inbounds i8, ptr %ru, i64 56
   %17 = load i64, ptr %16, align 8
   %call22 = call ptr @PyLong_FromLong(i64 noundef %17) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 5, ptr noundef %call22) #6
-  %18 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 6
+  %18 = getelementptr inbounds i8, ptr %ru, i64 64
   %19 = load i64, ptr %18, align 8
   %call23 = call ptr @PyLong_FromLong(i64 noundef %19) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 6, ptr noundef %call23) #6
-  %20 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 7
+  %20 = getelementptr inbounds i8, ptr %ru, i64 72
   %21 = load i64, ptr %20, align 8
   %call24 = call ptr @PyLong_FromLong(i64 noundef %21) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 7, ptr noundef %call24) #6
-  %22 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 8
+  %22 = getelementptr inbounds i8, ptr %ru, i64 80
   %23 = load i64, ptr %22, align 8
   %call25 = call ptr @PyLong_FromLong(i64 noundef %23) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 8, ptr noundef %call25) #6
-  %24 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 9
+  %24 = getelementptr inbounds i8, ptr %ru, i64 88
   %25 = load i64, ptr %24, align 8
   %call26 = call ptr @PyLong_FromLong(i64 noundef %25) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 9, ptr noundef %call26) #6
-  %26 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 10
+  %26 = getelementptr inbounds i8, ptr %ru, i64 96
   %27 = load i64, ptr %26, align 8
   %call27 = call ptr @PyLong_FromLong(i64 noundef %27) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 10, ptr noundef %call27) #6
-  %28 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 11
+  %28 = getelementptr inbounds i8, ptr %ru, i64 104
   %29 = load i64, ptr %28, align 8
   %call28 = call ptr @PyLong_FromLong(i64 noundef %29) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 11, ptr noundef %call28) #6
-  %30 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 12
+  %30 = getelementptr inbounds i8, ptr %ru, i64 112
   %31 = load i64, ptr %30, align 8
   %call29 = call ptr @PyLong_FromLong(i64 noundef %31) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 12, ptr noundef %call29) #6
-  %32 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 13
+  %32 = getelementptr inbounds i8, ptr %ru, i64 120
   %33 = load i64, ptr %32, align 8
   %call30 = call ptr @PyLong_FromLong(i64 noundef %33) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 13, ptr noundef %call30) #6
-  %34 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 14
+  %34 = getelementptr inbounds i8, ptr %ru, i64 128
   %35 = load i64, ptr %34, align 8
   %call31 = call ptr @PyLong_FromLong(i64 noundef %35) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 14, ptr noundef %call31) #6
-  %36 = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 15
+  %36 = getelementptr inbounds i8, ptr %ru, i64 136
   %37 = load i64, ptr %36, align 8
   %call32 = call ptr @PyLong_FromLong(i64 noundef %37) #6
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call7, i64 noundef 15, ptr noundef %call32) #6
@@ -641,7 +641,7 @@ land.lhs.true:                                    ; preds = %if.end3
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end3
   %call13 = tail call i64 @PyLong_AsLong(ptr noundef %call5) #6
-  %rlim_max = getelementptr inbounds %struct.rlimit, ptr %rl_out, i64 0, i32 1
+  %rlim_max = getelementptr inbounds i8, ptr %rl_out, i64 8
   store i64 %call13, ptr %rlim_max, align 8
   %cmp15 = icmp eq i64 %call13, -1
   br i1 %cmp15, label %land.lhs.true16, label %return.sink.split

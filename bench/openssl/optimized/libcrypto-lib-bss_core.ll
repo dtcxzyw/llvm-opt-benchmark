@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BIO_CORE_GLOBALS = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_dispatch_st = type { i32, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/bio/bss_core.c\00", align 1
 @corebiometh = internal constant %struct.bio_method_st { i32 1049, ptr @.str.1, ptr @bio_core_write_ex, ptr null, ptr @bio_core_read_ex, ptr null, ptr @bio_core_puts, ptr @bio_core_gets, ptr @bio_core_ctrl, ptr @bio_core_new, ptr @bio_core_free, ptr null, ptr null, ptr null }, align 8
@@ -43,7 +41,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_write_ex = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 1
+  %c_bio_write_ex = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %c_bio_write_ex, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %land.lhs.true, label %if.end
@@ -59,7 +57,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %c_bio_up_ref = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 5
+  %c_bio_up_ref = getelementptr inbounds i8, ptr %call.i, i64 40
   %2 = load ptr, ptr %c_bio_up_ref, align 8
   %call8 = tail call i32 %2(ptr noundef %corebio) #3
   %tobool.not = icmp eq i32 %call8, 0
@@ -92,12 +90,12 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %c_bio_free = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 6
-  %c_bio_up_ref = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 5
-  %c_bio_ctrl = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 4
-  %c_bio_puts = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 3
-  %c_bio_gets = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 2
-  %c_bio_write_ex = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 1
+  %c_bio_free = getelementptr inbounds i8, ptr %call.i, i64 48
+  %c_bio_up_ref = getelementptr inbounds i8, ptr %call.i, i64 40
+  %c_bio_ctrl = getelementptr inbounds i8, ptr %call.i, i64 32
+  %c_bio_puts = getelementptr inbounds i8, ptr %call.i, i64 24
+  %c_bio_gets = getelementptr inbounds i8, ptr %call.i, i64 16
+  %c_bio_write_ex = getelementptr inbounds i8, ptr %call.i, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -157,7 +155,7 @@ for.inc.sink.split:                               ; preds = %sw.bb38, %sw.bb32, 
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.cond, %sw.bb, %sw.bb8, %sw.bb14, %sw.bb20, %sw.bb26, %sw.bb32, %sw.bb38
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 return:                                           ; preds = %for.cond, %entry
@@ -174,7 +172,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_write_ex = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 1
+  %c_bio_write_ex = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %c_bio_write_ex, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -221,7 +219,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_puts = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 3
+  %c_bio_puts = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %c_bio_puts, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -245,7 +243,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_gets = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 2
+  %c_bio_gets = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %c_bio_gets, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -269,7 +267,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_ctrl = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 4
+  %c_bio_ctrl = getelementptr inbounds i8, ptr %call.i, i64 32
   %1 = load ptr, ptr %c_bio_ctrl, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -302,7 +300,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @BIO_set_init(ptr noundef nonnull %bio, i32 noundef 0) #3
-  %c_bio_free = getelementptr inbounds %struct.BIO_CORE_GLOBALS, ptr %call.i, i64 0, i32 6
+  %c_bio_free = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %c_bio_free, align 8
   %call1 = tail call ptr @BIO_get_data(ptr noundef nonnull %bio) #3
   %call2 = tail call i32 %1(ptr noundef %call1) #3

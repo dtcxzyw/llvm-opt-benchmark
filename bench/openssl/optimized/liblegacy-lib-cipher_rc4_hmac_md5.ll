@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.prov_rc4_hmac_md5_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, %struct.MD5state_st, %struct.MD5state_st, %struct.MD5state_st, i64, i64 }
-%union.anon.0 = type { double, [1024 x i8] }
-%struct.MD5state_st = type { i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
-%struct.prov_cipher_hw_rc4_hmac_md5_st = type { %struct.prov_cipher_hw_st, ptr, ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @ossl_rc4_hmac_ossl_md5_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @rc4_hmac_md5_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @rc4_hmac_md5_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @rc4_hmac_md5_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @rc4_hmac_md5_einit }, %struct.ossl_dispatch_st { i32 3, ptr @rc4_hmac_md5_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_cipher_generic_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_cipher_generic_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @rc4_hmac_md5_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @rc4_hmac_md5_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @rc4_hmac_md5_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @rc4_hmac_md5_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @rc4_hmac_md5_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [67 x i8] c"../openssl/providers/implementations/ciphers/cipher_rc4_hmac_md5.c\00", align 1
@@ -126,7 +119,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %keylen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen = getelementptr inbounds i8, ptr %vctx, i64 72
   %0 = load i64, ptr %keylen, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call, i64 noundef %0) #3
   %tobool.not = icmp eq i32 %call1, 0
@@ -138,7 +131,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp3.not, label %if.end9, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
-  %ivlen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %ivlen = getelementptr inbounds i8, ptr %vctx, i64 80
   %1 = load i64, ptr %ivlen, align 8
   %call6 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call2, i64 noundef %1) #3
   %tobool7.not = icmp eq i32 %call6, 0
@@ -150,7 +143,7 @@ if.end9:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp11.not, label %return, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end9
-  %tls_aad_pad_sz = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %vctx, i64 0, i32 6
+  %tls_aad_pad_sz = getelementptr inbounds i8, ptr %vctx, i64 1512
   %2 = load i64, ptr %tls_aad_pad_sz, align 8
   %call13 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call10, i64 noundef %2) #3
   %tobool14.not = icmp eq i32 %call13, 0
@@ -192,7 +185,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %keylen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen = getelementptr inbounds i8, ptr %vctx, i64 72
   %0 = load i64, ptr %keylen, align 8
   %1 = load i64, ptr %sz, align 8
   %cmp6.not = icmp eq i64 %0, %1
@@ -209,7 +202,7 @@ if.then12:                                        ; preds = %if.end9
   br i1 %tobool14.not, label %return.sink.split, label %if.end16
 
 if.end16:                                         ; preds = %if.then12
-  %ivlen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %ivlen = getelementptr inbounds i8, ptr %vctx, i64 80
   %2 = load i64, ptr %ivlen, align 8
   %3 = load i64, ptr %sz, align 8
   %cmp18.not = icmp eq i64 %2, %3
@@ -221,19 +214,19 @@ if.end21:                                         ; preds = %if.end16, %if.end9
   br i1 %cmp23.not, label %if.end35, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call22, i64 8
   %4 = load i32, ptr %data_type, align 8
   %cmp25.not = icmp eq i32 %4, 5
   br i1 %cmp25.not, label %if.end27, label %return.sink.split
 
 if.end27:                                         ; preds = %if.then24
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %5 = load ptr, ptr %hw, align 8
-  %tls_init = getelementptr inbounds %struct.prov_cipher_hw_rc4_hmac_md5_st, ptr %5, i64 0, i32 1
+  %tls_init = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %tls_init, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call22, i64 16
   %7 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call22, i64 24
   %8 = load i64, ptr %data_size, align 8
   %call30 = call i32 %6(ptr noundef %vctx, ptr noundef %7, i64 noundef %8) #3
   %conv = sext i32 %call30 to i64
@@ -242,7 +235,7 @@ if.end27:                                         ; preds = %if.then24
   br i1 %cmp31, label %return.sink.split, label %if.end34
 
 if.end34:                                         ; preds = %if.end27
-  %tls_aad_pad_sz = getelementptr inbounds %struct.prov_rc4_hmac_md5_ctx_st, ptr %vctx, i64 0, i32 6
+  %tls_aad_pad_sz = getelementptr inbounds i8, ptr %vctx, i64 1512
   store i64 %conv, ptr %tls_aad_pad_sz, align 8
   br label %if.end35
 
@@ -252,19 +245,19 @@ if.end35:                                         ; preds = %if.end34, %if.end21
   br i1 %cmp37.not, label %if.end50, label %if.then39
 
 if.then39:                                        ; preds = %if.end35
-  %data_type40 = getelementptr inbounds %struct.ossl_param_st, ptr %call36, i64 0, i32 1
+  %data_type40 = getelementptr inbounds i8, ptr %call36, i64 8
   %9 = load i32, ptr %data_type40, align 8
   %cmp41.not = icmp eq i32 %9, 5
   br i1 %cmp41.not, label %if.end44, label %return.sink.split
 
 if.end44:                                         ; preds = %if.then39
-  %hw46 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw46 = getelementptr inbounds i8, ptr %vctx, i64 168
   %10 = load ptr, ptr %hw46, align 8
-  %init_mackey = getelementptr inbounds %struct.prov_cipher_hw_rc4_hmac_md5_st, ptr %10, i64 0, i32 2
+  %init_mackey = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load ptr, ptr %init_mackey, align 8
-  %data48 = getelementptr inbounds %struct.ossl_param_st, ptr %call36, i64 0, i32 2
+  %data48 = getelementptr inbounds i8, ptr %call36, i64 16
   %12 = load ptr, ptr %data48, align 8
-  %data_size49 = getelementptr inbounds %struct.ossl_param_st, ptr %call36, i64 0, i32 3
+  %data_size49 = getelementptr inbounds i8, ptr %call36, i64 24
   %13 = load i64, ptr %data_size49, align 8
   call void %11(ptr noundef %vctx, ptr noundef %12, i64 noundef %13) #3
   br label %if.end50
@@ -275,7 +268,7 @@ if.end50:                                         ; preds = %if.end44, %if.end35
   br i1 %cmp52.not, label %return, label %if.then54
 
 if.then54:                                        ; preds = %if.end50
-  %tlsversion = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 12
+  %tlsversion = getelementptr inbounds i8, ptr %vctx, i64 112
   %call56 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call51, ptr noundef nonnull %tlsversion) #3
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return.sink.split, label %return

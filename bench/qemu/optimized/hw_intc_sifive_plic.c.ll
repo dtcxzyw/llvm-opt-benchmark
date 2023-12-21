@@ -13,24 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.4 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.SiFivePLICState = type { %struct.SysBusDevice, %struct.MemoryRegion, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.PLICAddr = type { i32, i32, i32 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"riscv.sifive.plic\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"enable_stride == (enable_stride & -enable_stride)\00", align 1
@@ -145,13 +128,13 @@ if.end6:                                          ; preds = %if.end
   %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
   tail call void @sysbus_mmio_map(ptr noundef %call.i35, i32 noundef 0, i64 noundef %addr) #8
   %call.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #8
-  %num_addrs = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i36, i64 0, i32 2
+  %num_addrs = getelementptr inbounds i8, ptr %call.i36, i64 1088
   %2 = load i32, ptr %num_addrs, align 16
   %cmp1139.not = icmp eq i32 %2, 0
   br i1 %cmp1139.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end6
-  %addr_config = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i36, i64 0, i32 6
+  %addr_config = getelementptr inbounds i8, ptr %call.i36, i64 1104
   %sub18 = sub i32 %num_harts, %hartid_base
   br label %for.body
 
@@ -225,12 +208,12 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_plic_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sifive_plic_reset, ptr %reset, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_plic_properties) #8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_plic_realize, ptr %realize, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_sifive_plic, ptr %vmsd, align 8
   ret void
 }
@@ -239,48 +222,48 @@ entry:
 define internal void @sifive_plic_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #8
-  %source_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 7
+  %source_priority = getelementptr inbounds i8, ptr %call.i, i64 1112
   %0 = load ptr, ptr %source_priority, align 8
-  %num_sources = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 14
+  %num_sources = getelementptr inbounds i8, ptr %call.i, i64 1164
   %1 = load i32, ptr %num_sources, align 4
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %mul, i1 false)
-  %target_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 8
+  %target_priority = getelementptr inbounds i8, ptr %call.i, i64 1120
   %2 = load ptr, ptr %target_priority, align 16
-  %num_addrs = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 2
+  %num_addrs = getelementptr inbounds i8, ptr %call.i, i64 1088
   %3 = load i32, ptr %num_addrs, align 16
   %conv1 = zext i32 %3 to i64
   %mul2 = shl nuw nsw i64 %conv1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %mul2, i1 false)
-  %pending = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 9
+  %pending = getelementptr inbounds i8, ptr %call.i, i64 1128
   %4 = load ptr, ptr %pending, align 8
-  %bitfield_words = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 4
+  %bitfield_words = getelementptr inbounds i8, ptr %call.i, i64 1096
   %5 = load i32, ptr %bitfield_words, align 8
   %conv3 = zext i32 %5 to i64
   %mul4 = shl nuw nsw i64 %conv3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %mul4, i1 false)
-  %claimed = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 10
+  %claimed = getelementptr inbounds i8, ptr %call.i, i64 1136
   %6 = load ptr, ptr %claimed, align 16
   %7 = load i32, ptr %bitfield_words, align 8
   %conv6 = zext i32 %7 to i64
   %mul7 = shl nuw nsw i64 %conv6, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %mul7, i1 false)
-  %enable = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 11
+  %enable = getelementptr inbounds i8, ptr %call.i, i64 1144
   %8 = load ptr, ptr %enable, align 8
-  %num_enables = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 5
+  %num_enables = getelementptr inbounds i8, ptr %call.i, i64 1100
   %9 = load i32, ptr %num_enables, align 4
   %conv8 = zext i32 %9 to i64
   %mul9 = shl nuw nsw i64 %conv8, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %mul9, i1 false)
-  %num_harts = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 3
+  %num_harts = getelementptr inbounds i8, ptr %call.i, i64 1092
   %10 = load i32, ptr %num_harts, align 4
   %cmp16.not = icmp eq i32 %10, 0
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_external_irqs = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 23
-  %s_external_irqs = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 24
+  %m_external_irqs = getelementptr inbounds i8, ptr %call.i, i64 1200
+  %s_external_irqs = getelementptr inbounds i8, ptr %call.i, i64 1208
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -309,14 +292,14 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @sifive_plic_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #8
-  %mmio = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 1
-  %aperture_size = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 22
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
+  %aperture_size = getelementptr inbounds i8, ptr %call.i, i64 1196
   %0 = load i32, ptr %aperture_size, align 4
   %conv = zext i32 %0 to i64
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @sifive_plic_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef %conv) #8
   %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
   tail call void @sysbus_init_mmio(ptr noundef %call.i40, ptr noundef nonnull %mmio) #8
-  %hart_config.i = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 12
+  %hart_config.i = getelementptr inbounds i8, ptr %call.i, i64 1152
   %1 = load ptr, ptr %hart_config.i, align 16
   br label %while.cond.i.outer
 
@@ -398,15 +381,15 @@ if.then15.i:                                      ; preds = %while.end.i
 if.end20.i:                                       ; preds = %if.then15.i, %while.end.i
   %addrid.2.i = phi i32 [ %add18.i, %if.then15.i ], [ %addrid.0.i.ph, %while.end.i ]
   %hartid.2.i = phi i32 [ %inc19.i, %if.then15.i ], [ %hartid.0.i.ph, %while.end.i ]
-  %num_addrs.i = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 2
+  %num_addrs.i = getelementptr inbounds i8, ptr %call.i, i64 1088
   store i32 %addrid.2.i, ptr %num_addrs.i, align 16
-  %num_harts.i = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 3
+  %num_harts.i = getelementptr inbounds i8, ptr %call.i, i64 1092
   store i32 %hartid.2.i, ptr %num_harts.i, align 4
   %conv22.i = zext i32 %addrid.2.i to i64
   %call23.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv22.i, i64 noundef 12) #10
-  %addr_config.i = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 6
+  %addr_config.i = getelementptr inbounds i8, ptr %call.i, i64 1104
   store ptr %call23.i, ptr %addr_config.i, align 16
-  %hartid_base.i = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 13
+  %hartid_base.i = getelementptr inbounds i8, ptr %call.i, i64 1160
   %7 = load i32, ptr %hartid_base.i, align 8
   %8 = load ptr, ptr %hart_config.i, align 16
   br label %while.cond25.i.outer
@@ -472,7 +455,7 @@ char_to_mode.exit44.i:                            ; preds = %sw.bb2.i40.i, %sw.b
   br label %while.cond25.i.outer, !llvm.loop !11
 
 parse_hart_config.exit:                           ; preds = %while.cond25.i
-  %num_sources = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 14
+  %num_sources = getelementptr inbounds i8, ptr %call.i, i64 1164
   %13 = load i32, ptr %num_sources, align 4
   %tobool.not = icmp eq i32 %13, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -484,35 +467,35 @@ if.then:                                          ; preds = %parse_hart_config.e
 if.end:                                           ; preds = %parse_hart_config.exit
   %add = add i32 %13, 31
   %shr = lshr i32 %add, 5
-  %bitfield_words = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 4
+  %bitfield_words = getelementptr inbounds i8, ptr %call.i, i64 1096
   store i32 %shr, ptr %bitfield_words, align 8
   %14 = load i32, ptr %num_addrs.i, align 16
   %mul = mul i32 %14, %shr
-  %num_enables = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 5
+  %num_enables = getelementptr inbounds i8, ptr %call.i, i64 1100
   store i32 %mul, ptr %num_enables, align 4
   %conv6 = zext i32 %13 to i64
   %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 4) #10
-  %source_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 7
+  %source_priority = getelementptr inbounds i8, ptr %call.i, i64 1112
   store ptr %call7, ptr %source_priority, align 8
   %15 = load i32, ptr %num_addrs.i, align 16
   %conv9 = zext i32 %15 to i64
   %call10 = tail call noalias ptr @g_malloc_n(i64 noundef %conv9, i64 noundef 4) #10
-  %target_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 8
+  %target_priority = getelementptr inbounds i8, ptr %call.i, i64 1120
   store ptr %call10, ptr %target_priority, align 16
   %16 = load i32, ptr %bitfield_words, align 8
   %conv12 = zext i32 %16 to i64
   %call13 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv12, i64 noundef 4) #10
-  %pending = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 9
+  %pending = getelementptr inbounds i8, ptr %call.i, i64 1128
   store ptr %call13, ptr %pending, align 8
   %17 = load i32, ptr %bitfield_words, align 8
   %conv15 = zext i32 %17 to i64
   %call16 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv15, i64 noundef 4) #10
-  %claimed = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 10
+  %claimed = getelementptr inbounds i8, ptr %call.i, i64 1136
   store ptr %call16, ptr %claimed, align 16
   %18 = load i32, ptr %num_enables, align 4
   %conv18 = zext i32 %18 to i64
   %call19 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv18, i64 noundef 4) #10
-  %enable = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 11
+  %enable = getelementptr inbounds i8, ptr %call.i, i64 1144
   store ptr %call19, ptr %enable, align 8
   %19 = load i32, ptr %num_sources, align 4
   tail call void @qdev_init_gpio_in(ptr noundef %dev, ptr noundef nonnull @sifive_plic_irq_request, i32 noundef %19) #8
@@ -520,7 +503,7 @@ if.end:                                           ; preds = %parse_hart_config.e
   %conv21 = zext i32 %20 to i64
   %mul22 = shl nuw nsw i64 %conv21, 3
   %call23 = tail call noalias ptr @g_malloc(i64 noundef %mul22) #11
-  %s_external_irqs = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 24
+  %s_external_irqs = getelementptr inbounds i8, ptr %call.i, i64 1208
   store ptr %call23, ptr %s_external_irqs, align 8
   %21 = load i32, ptr %num_harts.i, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call23, i32 noundef %21) #8
@@ -528,7 +511,7 @@ if.end:                                           ; preds = %parse_hart_config.e
   %conv27 = zext i32 %22 to i64
   %mul28 = shl nuw nsw i64 %conv27, 3
   %call29 = tail call noalias ptr @g_malloc(i64 noundef %mul28) #11
-  %m_external_irqs = getelementptr inbounds %struct.SiFivePLICState, ptr %call.i, i64 0, i32 23
+  %m_external_irqs = getelementptr inbounds i8, ptr %call.i, i64 1200
   store ptr %call29, ptr %m_external_irqs, align 16
   %23 = load i32, ptr %num_harts.i, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call29, i32 noundef %23) #8
@@ -589,7 +572,7 @@ declare void @qdev_init_gpio_in(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal void @sifive_plic_irq_request(ptr nocapture noundef readonly %opaque, i32 noundef %irq, i32 noundef %level) #0 {
 entry:
   %cmp = icmp sgt i32 %level, 0
-  %pending.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 9
+  %pending.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   %0 = load ptr, ptr %pending.i, align 8
   %shr.i = ashr i32 %irq, 5
   %idxprom.i = sext i32 %shr.i to i64
@@ -626,9 +609,9 @@ declare i32 @riscv_cpu_claim_interrupts(ptr noundef, i64 noundef) local_unnamed_
 define internal i64 @sifive_plic_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %conv = trunc i64 %addr to i32
-  %priority_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 16
+  %priority_base = getelementptr inbounds i8, ptr %opaque, i64 1172
   %0 = load i32, ptr %priority_base, align 4
-  %num_sources = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 14
+  %num_sources = getelementptr inbounds i8, ptr %opaque, i64 1164
   %1 = load i32, ptr %num_sources, align 4
   %shl = shl i32 %1, 2
   %cmp.not.i = icmp ule i32 %0, %conv
@@ -641,7 +624,7 @@ if.then:                                          ; preds = %entry
   %conv2 = zext i32 %0 to i64
   %sub = sub i64 %addr, %conv2
   %shr = lshr i64 %sub, 2
-  %source_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 7
+  %source_priority = getelementptr inbounds i8, ptr %opaque, i64 1112
   %3 = load ptr, ptr %source_priority, align 8
   %idxprom = and i64 %shr, 4294967295
   %arrayidx = getelementptr i32, ptr %3, i64 %idxprom
@@ -649,7 +632,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %pending_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 17
+  %pending_base = getelementptr inbounds i8, ptr %opaque, i64 1176
   %5 = load i32, ptr %pending_base, align 8
   %add = add i32 %1, 31
   %shr7 = lshr i32 %add, 3
@@ -663,7 +646,7 @@ if.then9:                                         ; preds = %if.else
   %conv11 = zext i32 %5 to i64
   %sub12 = sub i64 %addr, %conv11
   %shr13 = lshr i64 %sub12, 2
-  %pending = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 9
+  %pending = getelementptr inbounds i8, ptr %opaque, i64 1128
   %7 = load ptr, ptr %pending, align 8
   %idxprom15 = and i64 %shr13, 4294967295
   %arrayidx16 = getelementptr i32, ptr %7, i64 %idxprom15
@@ -671,11 +654,11 @@ if.then9:                                         ; preds = %if.else
   br label %return
 
 if.else18:                                        ; preds = %if.else
-  %enable_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 18
+  %enable_base = getelementptr inbounds i8, ptr %opaque, i64 1180
   %9 = load i32, ptr %enable_base, align 4
-  %num_addrs = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 2
+  %num_addrs = getelementptr inbounds i8, ptr %opaque, i64 1088
   %10 = load i32, ptr %num_addrs, align 16
-  %enable_stride = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 19
+  %enable_stride = getelementptr inbounds i8, ptr %opaque, i64 1184
   %11 = load i32, ptr %enable_stride, align 16
   %mul = mul i32 %11, %10
   %cmp.not.i47 = icmp ule i32 %9, %conv
@@ -690,7 +673,7 @@ if.then21:                                        ; preds = %if.else18
   %and = and i64 %conv30, %addr
   %shr31 = lshr i64 %and, 2
   %conv32 = trunc i64 %shr31 to i32
-  %bitfield_words = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 4
+  %bitfield_words = getelementptr inbounds i8, ptr %opaque, i64 1096
   %13 = load i32, ptr %bitfield_words, align 8
   %cmp = icmp ugt i32 %13, %conv32
   br i1 %cmp, label %if.then34, label %do.body
@@ -701,7 +684,7 @@ if.then34:                                        ; preds = %if.then21
   %conv26 = zext i32 %11 to i64
   %div = udiv i64 %sub24, %conv26
   %conv27 = trunc i64 %div to i32
-  %enable = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 11
+  %enable = getelementptr inbounds i8, ptr %opaque, i64 1144
   %14 = load ptr, ptr %enable, align 8
   %mul36 = mul i32 %13, %conv27
   %add37 = add i32 %mul36, %conv32
@@ -711,9 +694,9 @@ if.then34:                                        ; preds = %if.then21
   br label %return
 
 if.else41:                                        ; preds = %if.else18
-  %context_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 20
+  %context_base = getelementptr inbounds i8, ptr %opaque, i64 1188
   %16 = load i32, ptr %context_base, align 4
-  %context_stride = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 21
+  %context_stride = getelementptr inbounds i8, ptr %opaque, i64 1192
   %17 = load i32, ptr %context_stride, align 8
   %mul44 = mul i32 %17, %10
   %cmp.not.i50 = icmp ule i32 %16, %conv
@@ -736,7 +719,7 @@ if.then46:                                        ; preds = %if.else41
   ]
 
 if.then62:                                        ; preds = %if.then46
-  %target_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 8
+  %target_priority = getelementptr inbounds i8, ptr %opaque, i64 1120
   %19 = load ptr, ptr %target_priority, align 16
   %idxprom63 = and i64 %div53, 4294967295
   %arrayidx64 = getelementptr i32, ptr %19, i64 %idxprom63
@@ -744,27 +727,27 @@ if.then62:                                        ; preds = %if.then46
   br label %return
 
 if.then69:                                        ; preds = %if.then46
-  %bitfield_words.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 4
+  %bitfield_words.i = getelementptr inbounds i8, ptr %opaque, i64 1096
   %21 = load i32, ptr %bitfield_words.i, align 8
   %cmp29.not.i = icmp eq i32 %21, 0
   br i1 %cmp29.not.i, label %if.end72, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then69
-  %target_priority.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 8
+  %target_priority.i = getelementptr inbounds i8, ptr %opaque, i64 1120
   %22 = load ptr, ptr %target_priority.i, align 16
   %idxprom.i = and i64 %div53, 4294967295
   %arrayidx.i = getelementptr i32, ptr %22, i64 %idxprom.i
   %23 = load i32, ptr %arrayidx.i, align 4
-  %pending.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 9
+  %pending.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   %24 = load ptr, ptr %pending.i, align 8
-  %claimed.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 10
+  %claimed.i = getelementptr inbounds i8, ptr %opaque, i64 1136
   %25 = load ptr, ptr %claimed.i, align 16
-  %enable.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 11
+  %enable.i = getelementptr inbounds i8, ptr %opaque, i64 1144
   %26 = load ptr, ptr %enable.i, align 8
   %mul.i = mul i32 %21, %conv54
   %sub.i53 = add i32 %21, -1
   %shl.i = shl i32 %sub.i53, 5
-  %source_priority.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 7
+  %source_priority.i = getelementptr inbounds i8, ptr %opaque, i64 1112
   %sub14.i = sub i32 %1, %shl.i
   br label %for.body.i
 
@@ -889,9 +872,9 @@ return:                                           ; preds = %if.then84, %do.body
 define internal void @sifive_plic_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
 entry:
   %conv = trunc i64 %addr to i32
-  %priority_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 16
+  %priority_base = getelementptr inbounds i8, ptr %opaque, i64 1172
   %0 = load i32, ptr %priority_base, align 4
-  %num_sources = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 14
+  %num_sources = getelementptr inbounds i8, ptr %opaque, i64 1164
   %1 = load i32, ptr %num_sources, align 4
   %shl = shl i32 %1, 2
   %cmp.not.i = icmp ule i32 %0, %conv
@@ -904,7 +887,7 @@ if.then:                                          ; preds = %entry
   %conv2 = zext i32 %0 to i64
   %sub = sub i64 %addr, %conv2
   %shr = lshr i64 %sub, 2
-  %num_priorities = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 15
+  %num_priorities = getelementptr inbounds i8, ptr %opaque, i64 1168
   %3 = load i32, ptr %num_priorities, align 16
   %add = add i32 %3, 1
   %and = and i32 %add, %3
@@ -915,7 +898,7 @@ if.then6:                                         ; preds = %if.then
   %conv9 = zext i32 %add to i64
   %rem = urem i64 %value, %conv9
   %conv10 = trunc i64 %rem to i32
-  %source_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 7
+  %source_priority = getelementptr inbounds i8, ptr %opaque, i64 1112
   %4 = load ptr, ptr %source_priority, align 8
   %idxprom = and i64 %shr, 4294967295
   %arrayidx = getelementptr i32, ptr %4, i64 %idxprom
@@ -930,7 +913,7 @@ if.else:                                          ; preds = %if.then
 
 if.then15:                                        ; preds = %if.else
   %conv16 = trunc i64 %value to i32
-  %source_priority17 = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 7
+  %source_priority17 = getelementptr inbounds i8, ptr %opaque, i64 1112
   %5 = load ptr, ptr %source_priority17, align 8
   %idxprom18 = and i64 %shr, 4294967295
   %arrayidx19 = getelementptr i32, ptr %5, i64 %idxprom18
@@ -939,7 +922,7 @@ if.then15:                                        ; preds = %if.else
   br label %if.end159
 
 if.else21:                                        ; preds = %entry
-  %pending_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 17
+  %pending_base = getelementptr inbounds i8, ptr %opaque, i64 1176
   %6 = load i32, ptr %pending_base, align 8
   %add24 = add i32 %1, 31
   %shr25 = lshr i32 %add24, 3
@@ -960,11 +943,11 @@ if.then31:                                        ; preds = %do.body
   br label %if.end159
 
 if.else33:                                        ; preds = %if.else21
-  %enable_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 18
+  %enable_base = getelementptr inbounds i8, ptr %opaque, i64 1180
   %9 = load i32, ptr %enable_base, align 4
-  %num_addrs = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 2
+  %num_addrs = getelementptr inbounds i8, ptr %opaque, i64 1088
   %10 = load i32, ptr %num_addrs, align 16
-  %enable_stride = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 19
+  %enable_stride = getelementptr inbounds i8, ptr %opaque, i64 1184
   %11 = load i32, ptr %enable_stride, align 16
   %mul = mul i32 %11, %10
   %cmp.not.i66 = icmp ule i32 %9, %conv
@@ -979,7 +962,7 @@ if.then36:                                        ; preds = %if.else33
   %and46 = and i64 %conv45, %addr
   %shr47 = lshr i64 %and46, 2
   %conv48 = trunc i64 %shr47 to i32
-  %bitfield_words = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 4
+  %bitfield_words = getelementptr inbounds i8, ptr %opaque, i64 1096
   %13 = load i32, ptr %bitfield_words, align 8
   %cmp49 = icmp ugt i32 %13, %conv48
   br i1 %cmp49, label %if.then51, label %do.body59
@@ -991,7 +974,7 @@ if.then51:                                        ; preds = %if.then36
   %div = udiv i64 %sub39, %conv41
   %conv42 = trunc i64 %div to i32
   %conv52 = trunc i64 %value to i32
-  %enable = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 11
+  %enable = getelementptr inbounds i8, ptr %opaque, i64 1144
   %14 = load ptr, ptr %enable, align 8
   %mul54 = mul i32 %13, %conv42
   %add55 = add i32 %mul54, %conv48
@@ -1011,9 +994,9 @@ if.then67:                                        ; preds = %do.body59
   br label %if.end159
 
 if.else71:                                        ; preds = %if.else33
-  %context_base = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 20
+  %context_base = getelementptr inbounds i8, ptr %opaque, i64 1188
   %16 = load i32, ptr %context_base, align 4
-  %context_stride = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 21
+  %context_stride = getelementptr inbounds i8, ptr %opaque, i64 1192
   %17 = load i32, ptr %context_stride, align 8
   %mul74 = mul i32 %17, %10
   %cmp.not.i71 = icmp ule i32 %16, %conv
@@ -1035,7 +1018,7 @@ if.then76:                                        ; preds = %if.else71
   ]
 
 if.then92:                                        ; preds = %if.then76
-  %num_priorities93 = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 15
+  %num_priorities93 = getelementptr inbounds i8, ptr %opaque, i64 1168
   %19 = load i32, ptr %num_priorities93, align 16
   %add94 = add i32 %19, 1
   %and96 = and i32 %add94, %19
@@ -1046,7 +1029,7 @@ if.then99:                                        ; preds = %if.then92
   %conv102 = zext i32 %add94 to i64
   %rem103 = urem i64 %value, %conv102
   %conv104 = trunc i64 %rem103 to i32
-  %target_priority = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 8
+  %target_priority = getelementptr inbounds i8, ptr %opaque, i64 1120
   %20 = load ptr, ptr %target_priority, align 16
   %idxprom105 = and i64 %div83, 4294967295
   %arrayidx106 = getelementptr i32, ptr %20, i64 %idxprom105
@@ -1061,7 +1044,7 @@ if.else107:                                       ; preds = %if.then92
 
 if.then112:                                       ; preds = %if.else107
   %conv113 = trunc i64 %value to i32
-  %target_priority114 = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 8
+  %target_priority114 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %21 = load ptr, ptr %target_priority114, align 16
   %idxprom115 = and i64 %div83, 4294967295
   %arrayidx116 = getelementptr i32, ptr %21, i64 %idxprom115
@@ -1076,7 +1059,7 @@ if.then122:                                       ; preds = %if.then76
 
 if.then127:                                       ; preds = %if.then122
   %conv128 = trunc i64 %value to i32
-  %claimed.i = getelementptr inbounds %struct.SiFivePLICState, ptr %opaque, i64 0, i32 10
+  %claimed.i = getelementptr inbounds i8, ptr %opaque, i64 1136
   %22 = load ptr, ptr %claimed.i, align 16
   %shr.i = ashr i32 %conv128, 5
   %idxprom.i = sext i32 %shr.i to i64
@@ -1126,32 +1109,33 @@ if.end159:                                        ; preds = %do.body, %if.then31
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @sifive_plic_update(ptr nocapture noundef readonly %plic) unnamed_addr #0 {
 entry:
-  %num_addrs = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 2
+  %num_addrs = getelementptr inbounds i8, ptr %plic, i64 1088
   %0 = load i32, ptr %num_addrs, align 16
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %addr_config = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 6
-  %bitfield_words.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 4
-  %target_priority.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 8
-  %pending.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 9
-  %claimed.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 10
-  %enable.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 11
-  %num_sources.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 14
-  %source_priority.i = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 7
-  %s_external_irqs = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 24
-  %hartid_base11 = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 13
-  %m_external_irqs = getelementptr inbounds %struct.SiFivePLICState, ptr %plic, i64 0, i32 23
+  %addr_config = getelementptr inbounds i8, ptr %plic, i64 1104
+  %bitfield_words.i = getelementptr inbounds i8, ptr %plic, i64 1096
+  %target_priority.i = getelementptr inbounds i8, ptr %plic, i64 1120
+  %pending.i = getelementptr inbounds i8, ptr %plic, i64 1128
+  %claimed.i = getelementptr inbounds i8, ptr %plic, i64 1136
+  %enable.i = getelementptr inbounds i8, ptr %plic, i64 1144
+  %num_sources.i = getelementptr inbounds i8, ptr %plic, i64 1164
+  %source_priority.i = getelementptr inbounds i8, ptr %plic, i64 1112
+  %s_external_irqs = getelementptr inbounds i8, ptr %plic, i64 1208
+  %hartid_base11 = getelementptr inbounds i8, ptr %plic, i64 1160
+  %m_external_irqs = getelementptr inbounds i8, ptr %plic, i64 1200
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %addrid.015 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %addr_config, align 16
   %idxprom = sext i32 %addrid.015 to i64
-  %hartid1 = getelementptr %struct.PLICAddr, ptr %1, i64 %idxprom, i32 1
+  %arrayidx = getelementptr %struct.PLICAddr, ptr %1, i64 %idxprom
+  %hartid1 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %2 = load i32, ptr %hartid1, align 4
-  %mode5 = getelementptr %struct.PLICAddr, ptr %1, i64 %idxprom, i32 2
+  %mode5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i32, ptr %mode5, align 4
   %4 = load i32, ptr %bitfield_words.i, align 8
   %cmp29.not.i = icmp eq i32 %4, 0

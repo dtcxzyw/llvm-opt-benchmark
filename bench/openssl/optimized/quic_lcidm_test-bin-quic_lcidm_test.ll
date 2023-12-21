@@ -253,7 +253,7 @@ lor.lhs.false118:                                 ; preds = %lor.lhs.false115
   br i1 %tobool120.not, label %err, label %lor.lhs.false121
 
 lor.lhs.false121:                                 ; preds = %lor.lhs.false118
-  %conn_id = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %ncid_frame_1, i64 0, i32 2
+  %conn_id = getelementptr inbounds i8, ptr %ncid_frame_1, i64 16
   %call122 = call i32 @ossl_quic_lcidm_lookup(ptr noundef %call, ptr noundef nonnull %conn_id, ptr noundef nonnull %seq_num, ptr noundef nonnull %opaque) #3
   %cmp123 = icmp ne i32 %call122, 0
   %conv124 = zext i1 %cmp123 to i32
@@ -274,7 +274,7 @@ lor.lhs.false130:                                 ; preds = %lor.lhs.false127
   br i1 %tobool132.not, label %err, label %lor.lhs.false133
 
 lor.lhs.false133:                                 ; preds = %lor.lhs.false130
-  %conn_id134 = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %ncid_frame_2, i64 0, i32 2
+  %conn_id134 = getelementptr inbounds i8, ptr %ncid_frame_2, i64 16
   %call135 = call i32 @ossl_quic_lcidm_lookup(ptr noundef %call, ptr noundef nonnull %conn_id134, ptr noundef nonnull %seq_num, ptr noundef nonnull %opaque) #3
   %cmp136 = icmp ne i32 %call135, 0
   %conv137 = zext i1 %cmp136 to i32
@@ -295,7 +295,7 @@ lor.lhs.false143:                                 ; preds = %lor.lhs.false140
   br i1 %tobool145.not, label %err, label %lor.lhs.false146
 
 lor.lhs.false146:                                 ; preds = %lor.lhs.false143
-  %conn_id147 = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %ncid_frame_3, i64 0, i32 2
+  %conn_id147 = getelementptr inbounds i8, ptr %ncid_frame_3, i64 16
   %call148 = call i32 @ossl_quic_lcidm_lookup(ptr noundef %call, ptr noundef nonnull %conn_id147, ptr noundef nonnull %seq_num, ptr noundef nonnull %opaque) #3
   %cmp149 = icmp ne i32 %call148, 0
   %conv150 = zext i1 %cmp149 to i32

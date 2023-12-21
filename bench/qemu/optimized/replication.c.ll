@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon.0 = type { ptr }
-%struct.ReplicationState = type { ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.ReplicationOps = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"ops != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"../qemu/replication.c\00", align 1
@@ -26,22 +23,22 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
   store ptr %opaque, ptr %call, align 8
-  %ops2 = getelementptr inbounds %struct.ReplicationState, ptr %call, i64 0, i32 1
+  %ops2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %ops, ptr %ops2, align 8
   %0 = load ptr, ptr @replication_states, align 8
-  %node = getelementptr inbounds %struct.ReplicationState, ptr %call, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %0, ptr %node, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds %struct.ReplicationState, ptr %0, i64 0, i32 2, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %node, ptr %le_prev, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.end
   store ptr %call, ptr @replication_states, align 8
-  %le_prev10 = getelementptr inbounds %struct.ReplicationState, ptr %call, i64 0, i32 2, i32 1
+  %le_prev10 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @replication_states, ptr %le_prev10, align 8
   ret ptr %call
 }
@@ -59,15 +56,15 @@ entry:
   br i1 %tobool.not, label %if.end15, label %do.body
 
 do.body:                                          ; preds = %entry
-  %node = getelementptr inbounds %struct.ReplicationState, ptr %rs, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %rs, i64 16
   %0 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %0, null
-  %le_prev10.phi.trans.insert = getelementptr inbounds %struct.ReplicationState, ptr %rs, i64 0, i32 2, i32 1
+  %le_prev10.phi.trans.insert = getelementptr inbounds i8, ptr %rs, i64 24
   %.pre9 = load ptr, ptr %le_prev10.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  %le_prev6 = getelementptr inbounds %struct.ReplicationState, ptr %0, i64 0, i32 2, i32 1
+  %le_prev6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.pre9, ptr %le_prev6, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -99,9 +96,9 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %tobool.not, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond
-  %node = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %rs.0, i64 16
   %1 = load ptr, ptr %node, align 8
-  %ops = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 1
+  %ops = getelementptr inbounds i8, ptr %rs.0, i64 8
   %2 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
@@ -145,15 +142,15 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %tobool.not, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond
-  %node = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %rs.0, i64 16
   %1 = load ptr, ptr %node, align 8
-  %ops = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 1
+  %ops = getelementptr inbounds i8, ptr %rs.0, i64 8
   %2 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %checkpoint = getelementptr inbounds %struct.ReplicationOps, ptr %2, i64 0, i32 2
+  %checkpoint = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %checkpoint, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end, label %if.then
@@ -190,15 +187,15 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %tobool.not, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond
-  %node = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %rs.0, i64 16
   %1 = load ptr, ptr %node, align 8
-  %ops = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 1
+  %ops = getelementptr inbounds i8, ptr %rs.0, i64 8
   %2 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %get_error = getelementptr inbounds %struct.ReplicationOps, ptr %2, i64 0, i32 3
+  %get_error = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %get_error, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end, label %if.then
@@ -235,15 +232,15 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %tobool.not, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond
-  %node = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %rs.0, i64 16
   %1 = load ptr, ptr %node, align 8
-  %ops = getelementptr inbounds %struct.ReplicationState, ptr %rs.0, i64 0, i32 1
+  %ops = getelementptr inbounds i8, ptr %rs.0, i64 8
   %2 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %stop = getelementptr inbounds %struct.ReplicationOps, ptr %2, i64 0, i32 1
+  %stop = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %stop, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end, label %if.then

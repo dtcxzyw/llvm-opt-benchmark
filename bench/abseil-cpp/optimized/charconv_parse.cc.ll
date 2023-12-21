@@ -19,7 +19,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi10EEENS
 entry:
   %begin146 = ptrtoint ptr %begin to i64
   %end145 = ptrtoint ptr %end to i64
-  %subrange_begin.i = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 4
+  %subrange_begin.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subrange_begin.i, i8 0, i64 24, i1 false)
   %cmp = icmp eq ptr %begin, %end
@@ -370,13 +370,13 @@ if.end68:                                         ; preds = %land.lhs.true64, %i
 
 if.then69:                                        ; preds = %if.end68
   store ptr %begin, ptr %subrange_begin.i, align 8
-  %subrange_end = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 5
+  %subrange_end = getelementptr inbounds i8, ptr %agg.result, i64 32
   store ptr %begin.addr.3, ptr %subrange_end, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then69, %if.end68
   store i64 %mantissa.0, ptr %agg.result, align 8
-  %literal_exponent = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 2
+  %literal_exponent = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 0, ptr %literal_exponent, align 4
   %29 = and i32 %format_flags, 3
   %30 = icmp ne i32 %29, 2
@@ -435,16 +435,16 @@ land.lhs.true110:                                 ; preds = %if.end70, %land.lhs
 
 if.end113:                                        ; preds = %if.end108.thread132, %land.lhs.true110, %if.end108
   %begin.addr.5131 = phi ptr [ %begin.addr.3, %land.lhs.true110 ], [ %add.ptr97, %if.end108 ], [ %add.ptr97, %if.end108.thread132 ]
-  %type = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 0, ptr %type, align 8
   %37 = load i64, ptr %agg.result, align 8
   %cmp115.not = icmp eq i64 %37, 0
   %38 = load i32, ptr %literal_exponent, align 4
   %add = add nsw i32 %38, %exponent_adjustment.2
   %add.sink = select i1 %cmp115.not, i32 0, i32 %add
-  %39 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %add.sink, ptr %39, align 8
-  %end122 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 6
+  %end122 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %begin.addr.5131, ptr %end122, align 8
   br label %return
 
@@ -478,7 +478,7 @@ sw.bb:                                            ; preds = %if.end, %if.end
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %sw.bb
-  %type = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %out, i64 16
   store i32 1, ptr %type, align 8
   %cmp7 = icmp ugt i64 %sub.ptr.sub, 7
   br i1 %cmp7, label %land.lhs.true, label %if.else
@@ -491,13 +491,13 @@ land.lhs.true:                                    ; preds = %if.end3
 
 if.then11:                                        ; preds = %land.lhs.true
   %add.ptr12 = getelementptr inbounds i8, ptr %begin, i64 8
-  %end13 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 6
+  %end13 = getelementptr inbounds i8, ptr %out, i64 40
   store ptr %add.ptr12, ptr %end13, align 8
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end3
   %add.ptr14 = getelementptr inbounds i8, ptr %begin, i64 3
-  %end15 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 6
+  %end15 = getelementptr inbounds i8, ptr %out, i64 40
   store ptr %add.ptr14, ptr %end15, align 8
   br label %return
 
@@ -508,10 +508,10 @@ sw.bb17:                                          ; preds = %if.end, %if.end
   br i1 %cmp20.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %sw.bb17
-  %type23 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 3
+  %type23 = getelementptr inbounds i8, ptr %out, i64 16
   store i32 2, ptr %type23, align 8
   %add.ptr24 = getelementptr inbounds i8, ptr %begin, i64 3
-  %end25 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 6
+  %end25 = getelementptr inbounds i8, ptr %out, i64 40
   store ptr %add.ptr24, ptr %end25, align 8
   %cmp27 = icmp ult ptr %add.ptr24, %end
   br i1 %cmp27, label %land.lhs.true28, label %return
@@ -553,9 +553,9 @@ land.lhs.true36:                                  ; preds = %land.rhs
   br i1 %cmp38, label %if.then39, label %return
 
 if.then39:                                        ; preds = %land.lhs.true36
-  %subrange_begin = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 4
+  %subrange_begin = getelementptr inbounds i8, ptr %out, i64 24
   store ptr %add.ptr32, ptr %subrange_begin, align 8
-  %subrange_end = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %out, i64 0, i32 5
+  %subrange_end = getelementptr inbounds i8, ptr %out, i64 32
   store ptr %nan_begin.034, ptr %subrange_end, align 8
   %add.ptr41 = getelementptr inbounds i8, ptr %nan_begin.034, i64 1
   store ptr %add.ptr41, ptr %end25, align 8
@@ -675,7 +675,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
 entry:
   %begin152 = ptrtoint ptr %begin to i64
   %end151 = ptrtoint ptr %end to i64
-  %subrange_begin.i = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 4
+  %subrange_begin.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subrange_begin.i, i8 0, i64 24, i1 false)
   %cmp = icmp eq ptr %begin, %end
@@ -1030,7 +1030,7 @@ if.end68:                                         ; preds = %land.lhs.true64, %i
   %23 = zext nneg i8 %22 to i64
   %spec.select142 = or i64 %mantissa.0, %23
   store i64 %spec.select142, ptr %agg.result, align 8
-  %literal_exponent = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 2
+  %literal_exponent = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 0, ptr %literal_exponent, align 4
   %24 = and i32 %format_flags, 3
   %25 = icmp ne i32 %24, 2
@@ -1089,7 +1089,7 @@ land.lhs.true110:                                 ; preds = %if.end68, %land.lhs
 
 if.end113:                                        ; preds = %if.end108.thread137, %land.lhs.true110, %if.end108
   %begin.addr.5136 = phi ptr [ %begin.addr.3, %land.lhs.true110 ], [ %add.ptr97, %if.end108 ], [ %add.ptr97, %if.end108.thread137 ]
-  %type = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 0, ptr %type, align 8
   %32 = load i64, ptr %agg.result, align 8
   %cmp115.not = icmp eq i64 %32, 0
@@ -1097,9 +1097,9 @@ if.end113:                                        ; preds = %if.end108.thread137
   %mul = shl nsw i32 %exponent_adjustment.2, 2
   %add = add nsw i32 %33, %mul
   %add.sink = select i1 %cmp115.not, i32 0, i32 %add
-  %34 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %add.sink, ptr %34, align 8
-  %end122 = getelementptr inbounds %"struct.absl::strings_internal::ParsedFloat", ptr %agg.result, i64 0, i32 6
+  %end122 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %begin.addr.5136, ptr %end122, align 8
   br label %return
 

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.quic_srt_gen_st = type { ptr, ptr }
-%struct.quic_conn_id_st = type { i8, [20 x i8] }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/quic/quic_srt_gen.c\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"HMAC\00", align 1
@@ -31,26 +29,26 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.end.ossl_quic_srt_gen_free.exit_crit_edge, label %if.end4
 
 if.end.ossl_quic_srt_gen_free.exit_crit_edge:     ; preds = %if.end
-  %mac_ctx.i.phi.trans.insert = getelementptr inbounds %struct.quic_srt_gen_st, ptr %call, i64 0, i32 1
+  %mac_ctx.i.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 8
   %.pre = load ptr, ptr %mac_ctx.i.phi.trans.insert, align 8
   br label %ossl_quic_srt_gen_free.exit
 
 if.end4:                                          ; preds = %if.end
   %call6 = tail call ptr @EVP_MAC_CTX_new(ptr noundef nonnull %call1) #3
-  %mac_ctx = getelementptr inbounds %struct.quic_srt_gen_st, ptr %call, i64 0, i32 1
+  %mac_ctx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call6, ptr %mac_ctx, align 8
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %ossl_quic_srt_gen_free.exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef 7) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %cmp10.not = icmp eq ptr %propq, null
   br i1 %cmp10.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %incdec.ptr12 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp13, ptr noundef nonnull @.str.4, ptr noundef nonnull %propq, i64 noundef 0) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp13, i64 40, i1 false)
   br label %if.end14
@@ -97,7 +95,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mac_ctx = getelementptr inbounds %struct.quic_srt_gen_st, ptr %srt_gen, i64 0, i32 1
+  %mac_ctx = getelementptr inbounds i8, ptr %srt_gen, i64 8
   %0 = load ptr, ptr %mac_ctx, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %0) #3
   %1 = load ptr, ptr %srt_gen, align 8
@@ -121,7 +119,7 @@ entry:
   %outl = alloca i64, align 8
   %mac = alloca [32 x i8], align 16
   store i64 0, ptr %outl, align 8
-  %mac_ctx = getelementptr inbounds %struct.quic_srt_gen_st, ptr %srt_gen, i64 0, i32 1
+  %mac_ctx = getelementptr inbounds i8, ptr %srt_gen, i64 8
   %0 = load ptr, ptr %mac_ctx, align 8
   %call = tail call i32 @EVP_MAC_init(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef null) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -129,7 +127,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %mac_ctx, align 8
-  %id = getelementptr inbounds %struct.quic_conn_id_st, ptr %dcid, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %dcid, i64 1
   %2 = load i8, ptr %dcid, align 1
   %conv = zext i8 %2 to i64
   %call2 = tail call i32 @EVP_MAC_update(ptr noundef %1, ptr noundef nonnull %id, i64 noundef %conv) #3

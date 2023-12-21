@@ -51,7 +51,7 @@ entry:
   %sc = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext8", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %pDestination, ptr %sc, align 8
-  %mbEndFound.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext8", ptr %sc, i64 0, i32 1
+  %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
   call void @llvm.va_start(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef nonnull %arguments)
@@ -87,7 +87,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7VsscanfEPKcS2_P13__va_list_tag(ptr nou
 entry:
   %sc = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext8", align 8
   store ptr %pDestination, ptr %sc, align 8
-  %mbEndFound.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext8", ptr %sc, i64 0, i32 1
+  %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   ret i32 %call
@@ -131,7 +131,7 @@ entry:
   %sc = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext16", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %pDestination, ptr %sc, align 8
-  %mbEndFound.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext16", ptr %sc, i64 0, i32 1
+  %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
   call void @llvm.va_start(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef nonnull %arguments)
@@ -167,7 +167,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7VsscanfEPKDsS2_P13__va_list_tag(ptr no
 entry:
   %sc = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext16", align 8
   store ptr %pDestination, ptr %sc, align 8
-  %mbEndFound.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext16", ptr %sc, i64 0, i32 1
+  %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   ret i32 %call
@@ -211,7 +211,7 @@ entry:
   %sc = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext32", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %pDestination, ptr %sc, align 8
-  %mbEndFound.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %sc, i64 0, i32 1
+  %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
   call void @llvm.va_start(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef nonnull %arguments)
@@ -247,7 +247,7 @@ define dso_local noundef i32 @_ZN2EA4StdC7VsscanfEPKDiS2_P13__va_list_tag(ptr no
 entry:
   %sc = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext32", align 8
   store ptr %pDestination, ptr %sc, align 8
-  %mbEndFound.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %sc, i64 0, i32 1
+  %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   ret i32 %call
@@ -317,7 +317,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %arguments)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sc.i.i)
   store ptr %pTextBuffer, ptr %sc.i.i, align 8
-  %mbEndFound.i.i.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %sc.i.i, i64 0, i32 1
+  %mbEndFound.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 8
   store i32 0, ptr %mbEndFound.i.i.i, align 8
   %call.i.i = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv, ptr noundef nonnull %sc.i.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sc.i.i)
@@ -331,7 +331,7 @@ entry:
   %sc.i = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext32", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sc.i)
   store ptr %pTextBuffer, ptr %sc.i, align 8
-  %mbEndFound.i.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %sc.i, i64 0, i32 1
+  %mbEndFound.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i32 0, ptr %mbEndFound.i.i, align 8
   %call.i = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sc.i)

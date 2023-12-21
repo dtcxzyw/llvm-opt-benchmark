@@ -11,15 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.keytype_desc_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.xorkey_st = type { [32 x i8], [32 x i8], i32, i32, ptr, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.xor_gen_ctx = type { i32, ptr }
-%struct.PROV_XORKEMKEX_CTX = type { ptr, ptr, ptr }
-%struct.key2any_ctx_st = type { ptr, i32, i32, ptr, ptr, ptr }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.der2key_ctx_st = type { ptr, ptr, i32, i8 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.PROV_XORSIG_CTX = type { ptr, ptr, ptr, i8, [50 x i8], ptr, i64, ptr, ptr, i32 }
 
 @xor_group = internal global %struct.tls_group_st { i32 0, i32 128, i32 772, i32 0, i32 -1, i32 -1, i32 0 }, align 4
 @xor_kemgroup = internal global %struct.tls_group_st { i32 0, i32 128, i32 772, i32 0, i32 -1, i32 -1, i32 1 }, align 4
@@ -409,7 +401,7 @@ sw.bb10:                                          ; preds = %for.cond
 for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb10
   %c_obj_create.1 = phi ptr [ %c_obj_create.0, %sw.bb10 ], [ %in.addr.0.val, %sw.bb ], [ %c_obj_create.0, %for.cond ]
   %c_obj_add_sigid.1 = phi ptr [ %in.addr.0.val18, %sw.bb10 ], [ %c_obj_add_sigid.0, %sw.bb ], [ %c_obj_add_sigid.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
@@ -532,8 +524,8 @@ if.then:                                          ; preds = %entry
   %call2 = tail call i32 %cb(ptr noundef nonnull @xor_group_params, ptr noundef %arg) #14
   %call3 = tail call i32 %cb(ptr noundef nonnull @xor_kemgroup_params, ptr noundef %arg) #14
   %and = and i32 %call3, %call2
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %dummygroup, i64 0, i32 2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %dummygroup, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %dummygroup, i64 16
+  %data_size = getelementptr inbounds i8, ptr %dummygroup, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %if.end17
@@ -598,7 +590,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.xorkey_st, ptr %call, i64 0, i32 5
+  %references = getelementptr inbounds i8, ptr %call, i64 80
   store atomic i32 1, ptr %references seq_cst, align 4
   br label %return
 
@@ -626,20 +618,20 @@ if.end.split:                                     ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   store i32 %selection, ptr %call, align 8
   %1 = load ptr, ptr %provctx, align 8
-  %libctx58 = getelementptr inbounds %struct.xor_gen_ctx, ptr %call, i64 0, i32 1
+  %libctx58 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %1, ptr %libctx58, align 8
   %call.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.9) #14
   %cmp1.not.i = icmp eq ptr %call.i, null
   br i1 %cmp1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load i32, ptr %data_type.i, align 8
   %cmp3.not.i = icmp eq i32 %2, 4
   br i1 %cmp3.not.i, label %lor.lhs.false.i, label %if.then7
 
 lor.lhs.false.i:                                  ; preds = %if.then2.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %data.i, align 8
   %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.10) #15
   %cmp5.not.i = icmp eq i32 %call4.i, 0
@@ -671,13 +663,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp3.not = icmp eq i32 %0, 4
   br i1 %cmp3.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then2
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.10) #15
   %cmp5.not = icmp eq i32 %call4, 0
@@ -710,7 +702,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %0 = load i32, ptr %genctx, align 8
   %and = and i32 %0, 3
@@ -718,33 +710,37 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.xor_gen_ctx, ptr %genctx, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %genctx, i64 8
   %1 = load ptr, ptr %libctx, align 8
   %call3 = tail call i32 @RAND_bytes_ex(ptr noundef %1, ptr noundef nonnull %call.i, i64 noundef 32, i32 noundef 0) #14
   %cmp4 = icmp slt i32 %call3, 1
-  br i1 %cmp4, label %if.then5, label %for.body
+  br i1 %cmp4, label %if.then5, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %if.then2
+  %pubkey = getelementptr inbounds i8, ptr %call.i, i64 32
+  br label %for.body
 
 if.then5:                                         ; preds = %if.then2
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, i32 noundef 979) #14
   br label %return
 
-for.body:                                         ; preds = %if.then2, %for.body
-  %i.014 = phi i64 [ %inc, %for.body ], [ 0, %if.then2 ]
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %i.014 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.body ]
   %arrayidx = getelementptr inbounds [32 x i8], ptr %call.i, i64 0, i64 %i.014
   %2 = load i8, ptr %arrayidx, align 1
   %arrayidx9 = getelementptr inbounds [32 x i8], ptr @private_constant, i64 0, i64 %i.014
   %3 = load i8, ptr %arrayidx9, align 1
   %xor13 = xor i8 %3, %2
-  %arrayidx12 = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 1, i64 %i.014
+  %arrayidx12 = getelementptr inbounds [32 x i8], ptr %pubkey, i64 0, i64 %i.014
   store i8 %xor13, ptr %arrayidx12, align 1
   %inc = add nuw nsw i64 %i.014, 1
   %exitcond.not = icmp eq i64 %inc, 32
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 1, ptr %hasprivkey, align 8
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %call.i, i64 68
   store i32 1, ptr %haspubkey, align 4
   br label %return
 
@@ -789,27 +785,27 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call9, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call9, i64 8
   %1 = load i32, ptr %data_type, align 8
   %cmp12.not = icmp eq i32 %1, 5
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then11
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %call9, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %call9, i64 32
   store i64 32, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call9, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call9, i64 16
   %2 = load ptr, ptr %data, align 8
   %cmp15.not = icmp eq ptr %2, null
   br i1 %cmp15.not, label %return, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.end14
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call9, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call9, i64 24
   %3 = load i64, ptr %data_size, align 8
   %cmp17 = icmp ugt i64 %3, 31
   br i1 %cmp17, label %if.then18, label %return
 
 if.then18:                                        ; preds = %land.lhs.true16
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %vkey, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %pubkey, i64 32, i1 false)
   br label %return
 
@@ -832,23 +828,23 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 5
   br i1 %cmp1.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %data_size, align 8
   %cmp2.not = icmp eq i64 %1, 32
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 1
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %pubkey = getelementptr inbounds i8, ptr %vkey, i64 32
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %data, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pubkey, ptr noundef nonnull align 1 dereferenceable(32) %2, i64 32, i1 false)
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %vkey, i64 68
   store i32 1, ptr %haspubkey, align 4
   br label %return
 
@@ -875,7 +871,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end.thread, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %vkey, i64 68
   %0 = load i32, ptr %haspubkey, align 4
   %tobool3 = icmp ne i32 %0, 0
   %and4 = and i32 %selection, 1
@@ -891,7 +887,7 @@ if.end.thread:                                    ; preds = %if.then
   br i1 %cmp5.not8, label %if.end13, label %land.rhs8
 
 land.rhs8:                                        ; preds = %if.end, %if.end.thread
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %vkey, i64 64
   %1 = load i32, ptr %hasprivkey, align 8
   %tobool9 = icmp ne i32 %1, 0
   br label %if.end13
@@ -910,7 +906,7 @@ entry:
   br i1 %cmp.i, label %if.end32, label %xor_newkey.exit
 
 xor_newkey.exit:                                  ; preds = %entry
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %cmp1 = icmp eq ptr %vfromkey, null
   br i1 %cmp1, label %if.end.i18, label %if.then
@@ -921,20 +917,20 @@ if.then:                                          ; preds = %xor_newkey.exit
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %vfromkey, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %vfromkey, i64 68
   %0 = load i32, ptr %haspubkey, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end9.sink.split, label %if.then4
 
 if.then4:                                         ; preds = %if.then3
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 1
-  %pubkey5 = getelementptr inbounds %struct.xorkey_st, ptr %vfromkey, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %call.i, i64 32
+  %pubkey5 = getelementptr inbounds i8, ptr %vfromkey, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pubkey, ptr noundef nonnull align 8 dereferenceable(32) %pubkey5, i64 32, i1 false)
   br label %if.end9.sink.split
 
 if.end9.sink.split:                               ; preds = %if.then3, %if.then4
   %.sink = phi i32 [ 1, %if.then4 ], [ 0, %if.then3 ]
-  %haspubkey7 = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 3
+  %haspubkey7 = getelementptr inbounds i8, ptr %call.i, i64 68
   store i32 %.sink, ptr %haspubkey7, align 4
   br label %if.end9
 
@@ -944,7 +940,7 @@ if.end9:                                          ; preds = %if.end9.sink.split,
   br i1 %cmp11.not, label %if.end22, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %vfromkey, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %vfromkey, i64 64
   %1 = load i32, ptr %hasprivkey, align 8
   %tobool13.not = icmp eq i32 %1, 0
   br i1 %tobool13.not, label %if.end22.sink.split, label %if.then14
@@ -955,19 +951,19 @@ if.then14:                                        ; preds = %if.then12
 
 if.end22.sink.split:                              ; preds = %if.then12, %if.then14
   %.sink22 = phi i32 [ 1, %if.then14 ], [ 0, %if.then12 ]
-  %hasprivkey18 = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 2
+  %hasprivkey18 = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %.sink22, ptr %hasprivkey18, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end22.sink.split, %if.end9
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %vfromkey, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %vfromkey, i64 72
   %2 = load ptr, ptr %tls_name, align 8
   %cmp23.not = icmp eq ptr %2, null
   br i1 %cmp23.not, label %if.end32, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
   %call26 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, i32 noundef 774) #14
-  %tls_name27 = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 4
+  %tls_name27 = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call26, ptr %tls_name27, align 8
   br label %if.end32
 
@@ -985,7 +981,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i18
   br i1 %cmp4.i, label %if.end32, label %if.then8.i
 
 if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %tls_name.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 4
+  %tls_name.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %4 = load ptr, ptr %tls_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i, align 8
@@ -1004,7 +1000,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.xorkey_st, ptr %keydata, i64 0, i32 5
+  %references = getelementptr inbounds i8, ptr %keydata, i64 80
   %0 = atomicrmw sub ptr %references, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -1018,7 +1014,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp4, label %return, label %if.then8
 
 if.then8:                                         ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %keydata, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %keydata, i64 72
   %1 = load ptr, ptr %tls_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name, align 8
@@ -1077,7 +1073,7 @@ if.end14:                                         ; preds = %land.lhs.true10, %l
 
 if.then16:                                        ; preds = %if.end14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %vkey, ptr nonnull align 16 %privkey, i64 %0, i1 false)
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %vkey, i64 64
   store i32 1, ptr %hasprivkey, align 8
   br label %if.end20
 
@@ -1087,9 +1083,9 @@ if.end20:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %pubkey23 = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 1
+  %pubkey23 = getelementptr inbounds i8, ptr %vkey, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pubkey23, ptr nonnull align 16 %pubkey, i64 %1, i1 false)
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %vkey, i64 68
   store i32 1, ptr %haspubkey, align 4
   br label %return
 
@@ -1132,11 +1128,11 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.15, ptr noundef nonnull %vkey, i64 noundef 32) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr3 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %vkey, i64 0, i32 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %params, i64 80
+  %pubkey = getelementptr inbounds i8, ptr %vkey, i64 32
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4, ptr noundef nonnull @.str.16, ptr noundef nonnull %pubkey, i64 noundef 32) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7) #14
@@ -1202,7 +1198,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %references.i.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 5
+  %references.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store atomic i32 1, ptr %references.i.i seq_cst, align 4
   %0 = load i32, ptr %genctx, align 8
   %and.i = and i32 %0, 3
@@ -1210,35 +1206,39 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.not.i, label %if.end, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %libctx.i = getelementptr inbounds %struct.xor_gen_ctx, ptr %genctx, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %genctx, i64 8
   %1 = load ptr, ptr %libctx.i, align 8
   %call3.i = tail call i32 @RAND_bytes_ex(ptr noundef %1, ptr noundef nonnull %call.i.i, i64 noundef 32, i32 noundef 0) #14
   %cmp4.i = icmp slt i32 %call3.i, 1
-  br i1 %cmp4.i, label %return.sink.split, label %for.body.i
+  br i1 %cmp4.i, label %return.sink.split, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %if.then2.i, %for.body.i
-  %i.014.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then2.i ]
+for.cond.preheader.i:                             ; preds = %if.then2.i
+  %pubkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
+  %i.014.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32 x i8], ptr %call.i.i, i64 0, i64 %i.014.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %arrayidx9.i = getelementptr inbounds [32 x i8], ptr @private_constant, i64 0, i64 %i.014.i
   %3 = load i8, ptr %arrayidx9.i, align 1
   %xor13.i = xor i8 %3, %2
-  %arrayidx12.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 1, i64 %i.014.i
+  %arrayidx12.i = getelementptr inbounds [32 x i8], ptr %pubkey.i, i64 0, i64 %i.014.i
   store i8 %xor13.i, ptr %arrayidx12.i, align 1
   %inc.i = add nuw nsw i64 %i.014.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 32
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i
-  %hasprivkey.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 2
+  %hasprivkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   store i32 1, ptr %hasprivkey.i, align 8
-  %haspubkey.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 3
+  %haspubkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 68
   store i32 1, ptr %haspubkey.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.end.i
   %call1 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1119) #14
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %call.i.i, i64 72
   store ptr %call1, ptr %tls_name, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.end.i5, label %return
@@ -1292,13 +1292,13 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @xor_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
 entry:
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %keydata1, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %keydata1, i64 72
   %0 = load ptr, ptr %tls_name, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %tls_name1 = getelementptr inbounds %struct.xorkey_st, ptr %keydata2, i64 0, i32 4
+  %tls_name1 = getelementptr inbounds i8, ptr %keydata2, i64 72
   %1 = load ptr, ptr %tls_name1, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end, label %if.then
@@ -1316,10 +1316,10 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp7.not, label %if.end39, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %keydata1, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %keydata1, i64 64
   %2 = load i32, ptr %hasprivkey, align 8
   %tobool.not = icmp eq i32 %2, 0
-  %hasprivkey27 = getelementptr inbounds %struct.xorkey_st, ptr %keydata2, i64 0, i32 2
+  %hasprivkey27 = getelementptr inbounds i8, ptr %keydata2, i64 64
   %3 = load i32, ptr %hasprivkey27, align 8
   %tobool28.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.else26, label %if.then10
@@ -1334,7 +1334,7 @@ if.then13:                                        ; preds = %if.then10
   br label %if.end39
 
 if.else:                                          ; preds = %if.then10
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %keydata2, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %keydata2, i64 32
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1363,7 +1363,7 @@ if.else26:                                        ; preds = %if.then9
   br i1 %tobool28.not, label %if.end39, label %if.then29
 
 if.then29:                                        ; preds = %if.else26
-  %pubkey32 = getelementptr inbounds %struct.xorkey_st, ptr %keydata1, i64 0, i32 1
+  %pubkey32 = getelementptr inbounds i8, ptr %keydata1, i64 32
   br label %for.body.i30
 
 for.cond.i38:                                     ; preds = %for.body.i30
@@ -1395,20 +1395,20 @@ if.end39:                                         ; preds = %if.else26, %xor_rec
   br i1 %cmp41.not, label %if.end78, label %if.then43
 
 if.then43:                                        ; preds = %if.end39
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %keydata1, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %keydata1, i64 68
   %10 = load i32, ptr %haspubkey, align 4
   %tobool44.not = icmp eq i32 %10, 0
-  %haspubkey66 = getelementptr inbounds %struct.xorkey_st, ptr %keydata2, i64 0, i32 3
+  %haspubkey66 = getelementptr inbounds i8, ptr %keydata2, i64 68
   %11 = load i32, ptr %haspubkey66, align 4
   %tobool67.not = icmp eq i32 %11, 0
   br i1 %tobool44.not, label %if.else65, label %if.then45
 
 if.then45:                                        ; preds = %if.then43
-  %pubkey58 = getelementptr inbounds %struct.xorkey_st, ptr %keydata1, i64 0, i32 1
+  %pubkey58 = getelementptr inbounds i8, ptr %keydata1, i64 32
   br i1 %tobool67.not, label %for.body.i42, label %if.then48
 
 if.then48:                                        ; preds = %if.then45
-  %pubkey51 = getelementptr inbounds %struct.xorkey_st, ptr %keydata2, i64 0, i32 1
+  %pubkey51 = getelementptr inbounds i8, ptr %keydata2, i64 32
   %call53 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %pubkey58, ptr noundef nonnull %pubkey51, i64 noundef 32) #14
   %cmp54 = icmp eq i32 %call53, 0
   %and56 = select i1 %cmp54, i32 %ok.1, i32 0
@@ -1440,7 +1440,7 @@ if.else65:                                        ; preds = %if.then43
   br i1 %tobool67.not, label %if.end78, label %if.then68
 
 if.then68:                                        ; preds = %if.else65
-  %pubkey69 = getelementptr inbounds %struct.xorkey_st, ptr %keydata2, i64 0, i32 1
+  %pubkey69 = getelementptr inbounds i8, ptr %keydata2, i64 32
   br label %for.body.i54
 
 for.cond.i62:                                     ; preds = %for.body.i54
@@ -1480,7 +1480,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %references.i.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 5
+  %references.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store atomic i32 1, ptr %references.i.i seq_cst, align 4
   %0 = load i32, ptr %genctx, align 8
   %and.i = and i32 %0, 3
@@ -1488,35 +1488,39 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.not.i, label %if.end, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %libctx.i = getelementptr inbounds %struct.xor_gen_ctx, ptr %genctx, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %genctx, i64 8
   %1 = load ptr, ptr %libctx.i, align 8
   %call3.i = tail call i32 @RAND_bytes_ex(ptr noundef %1, ptr noundef nonnull %call.i.i, i64 noundef 32, i32 noundef 0) #14
   %cmp4.i = icmp slt i32 %call3.i, 1
-  br i1 %cmp4.i, label %return.sink.split, label %for.body.i
+  br i1 %cmp4.i, label %return.sink.split, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %if.then2.i, %for.body.i
-  %i.014.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then2.i ]
+for.cond.preheader.i:                             ; preds = %if.then2.i
+  %pubkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
+  %i.014.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32 x i8], ptr %call.i.i, i64 0, i64 %i.014.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %arrayidx9.i = getelementptr inbounds [32 x i8], ptr @private_constant, i64 0, i64 %i.014.i
   %3 = load i8, ptr %arrayidx9.i, align 1
   %xor13.i = xor i8 %3, %2
-  %arrayidx12.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 1, i64 %i.014.i
+  %arrayidx12.i = getelementptr inbounds [32 x i8], ptr %pubkey.i, i64 0, i64 %i.014.i
   store i8 %xor13.i, ptr %arrayidx12.i, align 1
   %inc.i = add nuw nsw i64 %i.014.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 32
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i
-  %hasprivkey.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 2
+  %hasprivkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   store i32 1, ptr %hasprivkey.i, align 8
-  %haspubkey.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 3
+  %haspubkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 68
   store i32 1, ptr %haspubkey.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.end.i
   %call1 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 1133) #14
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %call.i.i, i64 72
   store ptr %call1, ptr %tls_name, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.end.i5, label %return
@@ -1559,7 +1563,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %provctx1 = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %call, i64 0, i32 2
+  %provctx1 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %provctx, ptr %provctx1, align 8
   br label %return
 
@@ -1592,7 +1596,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %peerkey = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %vpxorctx, i64 0, i32 1
+  %peerkey = getelementptr inbounds i8, ptr %vpxorctx, i64 8
   %1 = load ptr, ptr %peerkey, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -1612,7 +1616,8 @@ for.body:                                         ; preds = %if.end4, %for.body
   %arrayidx = getelementptr inbounds [32 x i8], ptr %2, i64 0, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
   %4 = load ptr, ptr %peerkey, align 8
-  %arrayidx12 = getelementptr inbounds %struct.xorkey_st, ptr %4, i64 0, i32 1, i64 %indvars.iv
+  %pubkey = getelementptr inbounds i8, ptr %4, i64 32
+  %arrayidx12 = getelementptr inbounds [32 x i8], ptr %pubkey, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx12, align 1
   %xor9 = xor i8 %5, %3
   %arrayidx16 = getelementptr inbounds i8, ptr %secret, i64 %indvars.iv
@@ -1635,7 +1640,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %peerkey = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %vpxorctx, i64 0, i32 1
+  %peerkey = getelementptr inbounds i8, ptr %vpxorctx, i64 8
   store ptr %vpeerkey, ptr %peerkey, align 8
   br label %return
 
@@ -1695,19 +1700,19 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end11:                                         ; preds = %entry
-  %provctx = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %vpxorctx, i64 0, i32 2
+  %provctx = getelementptr inbounds i8, ptr %vpxorctx, i64 16
   %0 = load ptr, ptr %provctx, align 8
   %call = tail call ptr @xor_gen_init(ptr noundef %0, i32 noundef 3, ptr noundef null)
   %cmp12 = icmp eq ptr %call, null
-  br i1 %cmp12, label %end.thread59, label %if.end14
+  br i1 %cmp12, label %end.thread60, label %if.end14
 
 if.end14:                                         ; preds = %if.end11
   %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 685) #14
   %cmp.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i, label %end.thread59, label %if.end.i
+  br i1 %cmp.i.i, label %end.thread60, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end14
-  %references.i.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 5
+  %references.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store atomic i32 1, ptr %references.i.i seq_cst, align 4
   %1 = load i32, ptr %call, align 8
   %and.i = and i32 %1, 3
@@ -1715,107 +1720,112 @@ if.end.i:                                         ; preds = %if.end14
   br i1 %cmp1.not.i, label %if.end18, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %libctx.i = getelementptr inbounds %struct.xor_gen_ctx, ptr %call, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
   %call3.i = tail call i32 @RAND_bytes_ex(ptr noundef %2, ptr noundef nonnull %call.i.i, i64 noundef 32, i32 noundef 0) #14
   %cmp4.i = icmp slt i32 %call3.i, 1
-  br i1 %cmp4.i, label %if.then5.i, label %for.body.i
+  br i1 %cmp4.i, label %if.then5.i, label %for.cond.preheader.i
+
+for.cond.preheader.i:                             ; preds = %if.then2.i
+  %pubkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  br label %for.body.i
 
 if.then5.i:                                       ; preds = %if.then2.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.2, i32 noundef 979) #14
-  br label %end.thread59
+  br label %end.thread60
 
-for.body.i:                                       ; preds = %if.then2.i, %for.body.i
-  %i.014.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then2.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
+  %i.014.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32 x i8], ptr %call.i.i, i64 0, i64 %i.014.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %arrayidx9.i = getelementptr inbounds [32 x i8], ptr @private_constant, i64 0, i64 %i.014.i
   %4 = load i8, ptr %arrayidx9.i, align 1
   %xor13.i = xor i8 %4, %3
-  %arrayidx12.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 1, i64 %i.014.i
+  %arrayidx12.i = getelementptr inbounds [32 x i8], ptr %pubkey.i, i64 0, i64 %i.014.i
   store i8 %xor13.i, ptr %arrayidx12.i, align 1
   %inc.i = add nuw nsw i64 %i.014.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 32
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i
-  %hasprivkey.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 2
+  %hasprivkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   store i32 1, ptr %hasprivkey.i, align 8
-  %haspubkey.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 3
+  %haspubkey.i = getelementptr inbounds i8, ptr %call.i.i, i64 68
   store i32 1, ptr %haspubkey.i, align 4
   br label %if.end18
 
 if.end18:                                         ; preds = %for.end.i, %if.end.i
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %ct, ptr noundef nonnull align 8 dereferenceable(32) %pubkey, i64 32, i1 false)
   store i64 32, ptr %ctlen, align 8
   %5 = load ptr, ptr %provctx, align 8
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 461) #14
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.end.i40, label %lor.lhs.false24
+  br i1 %cmp.i, label %if.end.i41, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %if.end18
-  %provctx1.i = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %call.i, i64 0, i32 2
+  %provctx1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %5, ptr %provctx1.i, align 8
   store ptr %call.i.i, ptr %call.i, align 8
   %6 = load ptr, ptr %vpxorctx, align 8
   %cmp1.i26 = icmp eq ptr %6, null
-  br i1 %cmp1.i26, label %if.end.i40, label %if.end4.i
+  br i1 %cmp1.i26, label %if.end.i41, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false24
-  %peerkey.i = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %call.i, i64 0, i32 1
+  %peerkey.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %6, ptr %peerkey.i, align 8
   store i64 32, ptr %sslen, align 8
+  %pubkey.i36 = getelementptr inbounds i8, ptr %6, i64 32
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.body.i34, %if.end4.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i34 ], [ 0, %if.end4.i ]
   %arrayidx.i35 = getelementptr inbounds [32 x i8], ptr %call.i.i, i64 0, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx.i35, align 1
-  %arrayidx12.i36 = getelementptr inbounds %struct.xorkey_st, ptr %6, i64 0, i32 1, i64 %indvars.iv.i
-  %8 = load i8, ptr %arrayidx12.i36, align 1
+  %arrayidx12.i37 = getelementptr inbounds [32 x i8], ptr %pubkey.i36, i64 0, i64 %indvars.iv.i
+  %8 = load i8, ptr %arrayidx12.i37, align 1
   %xor9.i = xor i8 %8, %7
   %arrayidx16.i = getelementptr inbounds i8, ptr %ss, i64 %indvars.iv.i
   store i8 %xor9.i, ptr %arrayidx16.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i37, label %if.end.i40, label %for.body.i34, !llvm.loop !12
+  %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i, 32
+  br i1 %exitcond.not.i38, label %if.end.i41, label %for.body.i34, !llvm.loop !12
 
-end.thread59:                                     ; preds = %if.end11, %if.then5.i, %if.end14
+end.thread60:                                     ; preds = %if.end11, %if.then5.i, %if.end14
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.2, i32 noundef 1085) #14
   br label %xor_freekey.exit
 
-if.end.i40:                                       ; preds = %for.body.i34, %lor.lhs.false24, %if.end18
-  %rv.053 = phi i32 [ 0, %if.end18 ], [ 0, %lor.lhs.false24 ], [ 1, %for.body.i34 ]
+if.end.i41:                                       ; preds = %for.body.i34, %lor.lhs.false24, %if.end18
+  %rv.054 = phi i32 [ 0, %if.end18 ], [ 0, %lor.lhs.false24 ], [ 1, %for.body.i34 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, i32 noundef 1085) #14
   %9 = atomicrmw sub ptr %references.i.i, i32 1 monotonic, align 4
-  %cmp.i.i41 = icmp eq i32 %9, 1
-  br i1 %cmp.i.i41, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
+  %cmp.i.i42 = icmp eq i32 %9, 1
+  br i1 %cmp.i.i42, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
-CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i40
+CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i41
   fence acquire
   br label %if.then8.i
 
-CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i40
-  %cmp4.i42 = icmp sgt i32 %9, 1
-  br i1 %cmp4.i42, label %xor_freekey.exit, label %if.then8.i
+CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i41
+  %cmp4.i43 = icmp sgt i32 %9, 1
+  br i1 %cmp4.i43, label %xor_freekey.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %tls_name.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i.i, i64 0, i32 4
+  %tls_name.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   %10 = load ptr, ptr %tls_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.2, i32 noundef 718) #14
   br label %xor_freekey.exit
 
-xor_freekey.exit:                                 ; preds = %end.thread59, %CRYPTO_DOWN_REF.exit.i, %if.then8.i
-  %derivectx.056 = phi ptr [ %call.i, %CRYPTO_DOWN_REF.exit.i ], [ %call.i, %if.then8.i ], [ null, %end.thread59 ]
-  %rv.054 = phi i32 [ %rv.053, %CRYPTO_DOWN_REF.exit.i ], [ %rv.053, %if.then8.i ], [ 0, %end.thread59 ]
-  tail call void @CRYPTO_free(ptr noundef %derivectx.056, ptr noundef nonnull @.str.2, i32 noundef 516) #14
+xor_freekey.exit:                                 ; preds = %end.thread60, %CRYPTO_DOWN_REF.exit.i, %if.then8.i
+  %derivectx.057 = phi ptr [ %call.i, %CRYPTO_DOWN_REF.exit.i ], [ %call.i, %if.then8.i ], [ null, %end.thread60 ]
+  %rv.055 = phi i32 [ %rv.054, %CRYPTO_DOWN_REF.exit.i ], [ %rv.054, %if.then8.i ], [ 0, %end.thread60 ]
+  tail call void @CRYPTO_free(ptr noundef %derivectx.057, ptr noundef nonnull @.str.2, i32 noundef 516) #14
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then9, %if.then, %xor_freekey.exit
-  %retval.0 = phi i32 [ %rv.054, %xor_freekey.exit ], [ 0, %if.then ], [ 1, %if.then9 ], [ 1, %if.end7 ]
+  %retval.0 = phi i32 [ %rv.055, %xor_freekey.exit ], [ 0, %if.then ], [ 1, %if.then9 ], [ 1, %if.end7 ]
   ret i32 %retval.0
 }
 
@@ -1843,10 +1853,10 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp.i, label %xor_freekey.exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %provctx = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %vpxorctx, i64 0, i32 2
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %provctx = getelementptr inbounds i8, ptr %vpxorctx, i64 16
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pubkey, ptr noundef nonnull align 1 dereferenceable(32) %ct, i64 32, i1 false)
   %0 = load ptr, ptr %provctx, align 8
   %call.i13 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 461) #14
@@ -1854,7 +1864,7 @@ if.end9:                                          ; preds = %if.end6
   br i1 %cmp.i14, label %if.end.i29, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %provctx1.i = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %call.i13, i64 0, i32 2
+  %provctx1.i = getelementptr inbounds i8, ptr %call.i13, i64 16
   store ptr %0, ptr %provctx1.i, align 8
   %1 = load ptr, ptr %vpxorctx, align 8
   %cmp1.i = icmp eq ptr %1, null
@@ -1862,7 +1872,7 @@ lor.lhs.false:                                    ; preds = %if.end9
 
 if.end4.i:                                        ; preds = %lor.lhs.false
   store ptr %1, ptr %call.i13, align 8
-  %peerkey.i = getelementptr inbounds %struct.PROV_XORKEMKEX_CTX, ptr %call.i13, i64 0, i32 1
+  %peerkey.i = getelementptr inbounds i8, ptr %call.i13, i64 8
   store ptr %call.i, ptr %peerkey.i, align 8
   store i64 32, ptr %sslen, align 8
   br label %for.body.i
@@ -1871,7 +1881,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end4.i ]
   %arrayidx.i = getelementptr inbounds [32 x i8], ptr %1, i64 0, i64 %indvars.iv.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx12.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 1, i64 %indvars.iv.i
+  %arrayidx12.i = getelementptr inbounds [32 x i8], ptr %pubkey, i64 0, i64 %indvars.iv.i
   %3 = load i8, ptr %arrayidx12.i, align 1
   %xor9.i = xor i8 %3, %2
   %arrayidx16.i = getelementptr inbounds i8, ptr %ss, i64 %indvars.iv.i
@@ -1895,7 +1905,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i29
   br i1 %cmp4.i, label %xor_freekey.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %tls_name.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 4
+  %tls_name.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %5 = load ptr, ptr %tls_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i, align 8
@@ -1922,7 +1932,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr %provctx, ptr %call, align 8
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %call, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %save_parameters, align 8
   br label %if.end
 
@@ -1933,7 +1943,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @key2any_freectx(ptr noundef %vctx) #0 {
 entry:
-  %cipher = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %cipher, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %0) #14
   tail call void @CRYPTO_free(ptr noundef %vctx, ptr noundef nonnull @.str.2, i32 noundef 1741) #14
@@ -1976,14 +1986,14 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
-  %cipher = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %vctx, i64 16
   %2 = load ptr, ptr %cipher, align 8
   call void @EVP_CIPHER_free(ptr noundef %2) #14
   store ptr null, ptr %cipher, align 8
   %3 = load ptr, ptr %ciphername, align 8
   %cmp12 = icmp ne ptr %3, null
   %conv = zext i1 %cmp12 to i32
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %vctx, i64 12
   store i32 %conv, ptr %cipher_intent, align 4
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end22, label %land.lhs.true15
@@ -2000,7 +2010,7 @@ if.end22:                                         ; preds = %if.end10, %land.lhs
   br i1 %cmp23.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %vctx, i64 8
   %call26 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call3, ptr noundef nonnull %save_parameters) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end30
@@ -2061,7 +2071,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -2077,7 +2087,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -2094,7 +2104,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -2123,7 +2133,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -2178,9 +2188,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   %call9.i = tail call fastcc i32 @key_to_pki_der_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
@@ -2218,7 +2228,7 @@ entry:
   %strtype = alloca i32, align 4
   store ptr null, ptr %str, align 8
   store i32 -1, ptr %strtype, align 4
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %cipher_intent, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end.i
@@ -2232,7 +2242,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.end3.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %1, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #14
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -2270,7 +2280,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load i32, ptr %save_parameters, align 8
   %call1 = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %4, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #14
   %tobool2.not = icmp eq i32 %call1, 0
@@ -2314,7 +2324,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define internal i32 @prepare_xorx_params(ptr nocapture noundef readonly %xorxkey, i32 noundef %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
 entry:
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %xorxkey, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %xorxkey, i64 72
   %0 = load ptr, ptr %tls_name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -2383,10 +2393,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef 1686) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %vecxkey, i64 32, i1 false)
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   store ptr %call, ptr %data, align 8
   store i32 32, ptr %oct, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %oct, i64 16
   store i64 0, ptr %flags, align 8
   %call1 = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %oct, ptr noundef %pder) #14
   %cmp2 = icmp slt i32 %call1, 0
@@ -2482,19 +2492,19 @@ if.else:                                          ; preds = %entry
   store i64 0, ptr %klen.i, align 8
   %0 = load ptr, ptr %ctx, align 8
   %1 = load ptr, ptr %0, align 8
-  %cipher.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 3
+  %cipher.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %cipher.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %p8info_to_encp8.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %pwcb.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %pwcb.i, align 8
   %cmp2.i = icmp eq ptr %3, null
   br i1 %cmp2.i, label %p8info_to_encp8.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pwcbarg.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load ptr, ptr %pwcbarg.i, align 8
   %call.i = call i32 %3(ptr noundef nonnull %kstr.i, i64 noundef 1024, ptr noundef nonnull %klen.i, ptr noundef null, ptr noundef %4) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2601,7 +2611,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -2617,7 +2627,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -2634,7 +2644,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -2663,7 +2673,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -2718,9 +2728,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   %call9.i = tail call fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
@@ -2750,7 +2760,7 @@ entry:
   %strtype = alloca i32, align 4
   store ptr null, ptr %str, align 8
   store i32 -1, ptr %strtype, align 4
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %cipher_intent, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end.i
@@ -2764,7 +2774,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.end3.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %1, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #14
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -2802,7 +2812,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load i32, ptr %save_parameters, align 8
   %call1 = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %4, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #14
   %tobool2.not = icmp eq i32 %call1, 0
@@ -2895,7 +2905,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -2911,7 +2921,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -2928,7 +2938,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -2957,7 +2967,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -3014,15 +3024,15 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %2 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %key_to_epki_der_priv_bio.exit, label %if.end.i1
@@ -3118,7 +3128,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -3134,7 +3144,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -3151,7 +3161,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -3180,7 +3190,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -3237,15 +3247,15 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %2 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %key_to_epki_pem_priv_bio.exit, label %if.end.i1
@@ -3341,7 +3351,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -3357,7 +3367,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -3374,7 +3384,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -3403,7 +3413,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -3460,9 +3470,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
@@ -3520,7 +3530,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %vecxkey, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %vecxkey, i64 32
   %call = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %pubkey, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef 1664) #14
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -3633,7 +3643,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -3649,7 +3659,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -3666,7 +3676,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -3695,7 +3705,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -3752,9 +3762,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
@@ -3866,7 +3876,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -3882,7 +3892,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -3899,7 +3909,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -3928,7 +3938,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -3983,9 +3993,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   %call9.i = tail call fastcc i32 @key_to_pki_der_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
@@ -4054,7 +4064,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -4070,7 +4080,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -4087,7 +4097,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -4116,7 +4126,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -4171,9 +4181,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   %call9.i = tail call fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
@@ -4242,7 +4252,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -4258,7 +4268,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -4275,7 +4285,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -4304,7 +4314,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -4361,15 +4371,15 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %2 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %key_to_epki_der_priv_bio.exit, label %if.end.i1
@@ -4465,7 +4475,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -4481,7 +4491,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -4498,7 +4508,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -4527,7 +4537,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -4584,15 +4594,15 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %2 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %key_to_epki_pem_priv_bio.exit, label %if.end.i1
@@ -4688,7 +4698,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -4704,7 +4714,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -4721,7 +4731,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -4750,7 +4760,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -4807,9 +4817,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
@@ -4902,7 +4912,7 @@ if.then.i11.i:                                    ; preds = %for.cond.i9.i
   br label %xor_prov_get_keymgmt_free.exit.i
 
 for.inc.i14.i:                                    ; preds = %for.cond.i9.i
-  %incdec.ptr.i15.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %fns.addr.0.i10.i, i64 16
   br label %for.cond.i9.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.then.i11.i
@@ -4918,7 +4928,7 @@ for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor
   ]
 
 for.inc.i21.i:                                    ; preds = %for.cond.i16.i
-  %incdec.ptr.i22.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %fns.addr.0.i17.i, i64 16
   br label %for.cond.i16.i, !llvm.loop !15
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %for.cond.i16.i
@@ -4935,7 +4945,7 @@ if.then.i:                                        ; preds = %xor_prov_get_keymgm
   br i1 %cmp.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %call8.i = tail call i32 %fns.addr.0.val.i19.i(ptr noundef nonnull %call.i, i32 noundef %selection, ptr noundef %params) #14
   %tobool.not.i = icmp eq i32 %call8.i, 0
@@ -4964,7 +4974,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   ]
 
 for.inc.i.i:                                      ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %fns.addr.0.i.i, i64 16
   br label %for.cond.i.i, !llvm.loop !14
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i.i
@@ -5021,9 +5031,9 @@ if.else.i:                                        ; preds = %if.then2
   br i1 %cmp5.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %pwcb7.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwcb7.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %cb, ptr %pwcb7.i, align 8
-  %pwcbarg8.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 5
+  %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
@@ -5094,7 +5104,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.der2key_ctx_st, ptr %call.i, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PrivateKeyInfo_xorhmacsig_desc, ptr %desc2.i, align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 0, i32 3), align 8
   %cmp3.i = icmp eq i32 %0, 0
@@ -5160,15 +5170,15 @@ entry:
   %tmp102 = alloca %struct.ossl_param_st, align 8
   %tmp104 = alloca %struct.ossl_param_st, align 8
   store ptr null, ptr %key, align 8
-  %selection1 = getelementptr inbounds %struct.der2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %selection1 = getelementptr inbounds i8, ptr %vctx, i64 16
   store i32 %selection, ptr %selection1, align 8
   %cmp = icmp eq i32 %selection, 0
-  %desc = getelementptr inbounds %struct.der2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %desc, align 8
-  %selection_mask = getelementptr inbounds %struct.keytype_desc_st, ptr %0, i64 0, i32 4
+  %selection_mask = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i32, ptr %selection_mask, align 4
   %.selection = select i1 %cmp, i32 %1, i32 %selection
-  %desc2 = getelementptr inbounds %struct.der2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc2 = getelementptr inbounds i8, ptr %vctx, i64 8
   %and = and i32 %1, %.selection
   %cmp4 = icmp eq i32 %and, 0
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -5196,7 +5206,7 @@ xor_read_der.exit.thread:                         ; preds = %if.end6
 
 if.end8:                                          ; preds = %if.end6
   %3 = load ptr, ptr %mem.i, align 8
-  %data2.i = getelementptr inbounds %struct.buf_mem_st, ptr %3, i64 0, i32 1
+  %data2.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data2.i, align 8
   %5 = load i64, ptr %3, align 8
   call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, i32 noundef 2209) #14
@@ -5209,7 +5219,7 @@ if.end8:                                          ; preds = %if.end6
 if.then11:                                        ; preds = %if.end8
   store ptr %4, ptr %derp, align 8
   %6 = load ptr, ptr %desc2, align 8
-  %d2i_PKCS8 = getelementptr inbounds %struct.keytype_desc_st, ptr %6, i64 0, i32 8
+  %d2i_PKCS8 = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %d2i_PKCS8, align 8
   %cmp13.not = icmp eq ptr %7, null
   br i1 %cmp13.not, label %if.else, label %if.then14
@@ -5217,14 +5227,14 @@ if.then11:                                        ; preds = %if.end8
 if.then14:                                        ; preds = %if.then11
   %call17 = call ptr %7(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %5, ptr noundef nonnull %vctx) #14
   store ptr %call17, ptr %key, align 8
-  %flag_fatal = getelementptr inbounds %struct.der2key_ctx_st, ptr %vctx, i64 0, i32 3
+  %flag_fatal = getelementptr inbounds i8, ptr %vctx, i64 20
   %bf.load = load i8, ptr %flag_fatal, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool18.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool18.not, label %if.end28, label %end
 
 if.else:                                          ; preds = %if.then11
-  %d2i_private_key = getelementptr inbounds %struct.keytype_desc_st, ptr %6, i64 0, i32 5
+  %d2i_private_key = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %d2i_private_key, align 8
   %cmp22.not = icmp eq ptr %8, null
   br i1 %cmp22.not, label %land.lhs.true, label %if.then23
@@ -5252,13 +5262,13 @@ if.end34:                                         ; preds = %land.lhs.true, %if.
 if.then39:                                        ; preds = %if.end34
   store ptr %4, ptr %derp, align 8
   %11 = load ptr, ptr %desc2, align 8
-  %d2i_PUBKEY = getelementptr inbounds %struct.keytype_desc_st, ptr %11, i64 0, i32 9
+  %d2i_PUBKEY = getelementptr inbounds i8, ptr %11, i64 64
   %12 = load ptr, ptr %d2i_PUBKEY, align 8
   %cmp41.not = icmp eq ptr %12, null
   br i1 %cmp41.not, label %if.else46, label %if.end49
 
 if.else46:                                        ; preds = %if.then39
-  %d2i_public_key = getelementptr inbounds %struct.keytype_desc_st, ptr %11, i64 0, i32 6
+  %d2i_public_key = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %d2i_public_key, align 8
   br label %if.end49
 
@@ -5285,7 +5295,7 @@ if.end56:                                         ; preds = %if.end34
 if.then61:                                        ; preds = %land.lhs.true51, %if.end56
   store ptr %4, ptr %derp, align 8
   %15 = load ptr, ptr %desc2, align 8
-  %d2i_key_params = getelementptr inbounds %struct.keytype_desc_st, ptr %15, i64 0, i32 7
+  %d2i_key_params = getelementptr inbounds i8, ptr %15, i64 48
   %16 = load ptr, ptr %d2i_key_params, align 8
   %cmp63.not = icmp eq ptr %16, null
   br i1 %cmp63.not, label %next.thread, label %if.end68
@@ -5299,7 +5309,7 @@ if.end68:                                         ; preds = %if.then61
 land.lhs.true77:                                  ; preds = %if.end28, %if.end49, %if.end68
   %17 = phi ptr [ %call67, %if.end68 ], [ %call48, %if.end49 ], [ %9, %if.end28 ]
   %18 = load ptr, ptr %desc2, align 8
-  %check_key = getelementptr inbounds %struct.keytype_desc_st, ptr %18, i64 0, i32 10
+  %check_key = getelementptr inbounds i8, ptr %18, i64 72
   %19 = load ptr, ptr %check_key, align 8
   %cmp79.not = icmp eq ptr %19, null
   br i1 %cmp79.not, label %land.lhs.true89, label %land.lhs.true80
@@ -5312,7 +5322,7 @@ land.lhs.true80:                                  ; preds = %land.lhs.true77
 
 if.end87.thread:                                  ; preds = %land.lhs.true80
   %20 = load ptr, ptr %desc2, align 8
-  %free_key = getelementptr inbounds %struct.keytype_desc_st, ptr %20, i64 0, i32 12
+  %free_key = getelementptr inbounds i8, ptr %20, i64 88
   %21 = load ptr, ptr %free_key, align 8
   call void %21(ptr noundef %.pr57.pre) #14
   store ptr null, ptr %key, align 8
@@ -5325,7 +5335,7 @@ if.end87:                                         ; preds = %land.lhs.true80
 land.lhs.true89:                                  ; preds = %land.lhs.true77, %if.end87
   %.pr5784 = phi ptr [ %.pr57.pre, %if.end87 ], [ %17, %land.lhs.true77 ]
   %22 = load ptr, ptr %desc2, align 8
-  %adjust_key = getelementptr inbounds %struct.keytype_desc_st, ptr %22, i64 0, i32 11
+  %adjust_key = getelementptr inbounds i8, ptr %22, i64 80
   %23 = load ptr, ptr %adjust_key, align 8
   %cmp91.not = icmp eq ptr %23, null
   br i1 %cmp91.not, label %next.thread87, label %next
@@ -5350,15 +5360,15 @@ if.then97:                                        ; preds = %next.thread87, %nex
   store i32 2, ptr %object_type, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.33, ptr noundef nonnull %object_type) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx98 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx98 = getelementptr inbounds i8, ptr %params, i64 40
   %25 = load ptr, ptr %desc2, align 8
   %26 = load ptr, ptr %25, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp99, ptr noundef nonnull @.str.34, ptr noundef %26, i64 noundef 0) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx98, ptr noundef nonnull align 8 dereferenceable(40) %tmp99, i64 40, i1 false)
-  %arrayidx101 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx101 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp102, ptr noundef nonnull @.str.35, ptr noundef nonnull %key, i64 noundef 8) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx101, ptr noundef nonnull align 8 dereferenceable(40) %tmp102, i64 40, i1 false)
-  %arrayidx103 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 3
+  %arrayidx103 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp104) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx103, ptr noundef nonnull align 8 dereferenceable(40) %tmp104, i64 40, i1 false)
   %call105 = call i32 %data_cb(ptr noundef nonnull %params, ptr noundef %data_cbarg) #14
@@ -5370,7 +5380,7 @@ end:                                              ; preds = %next.thread, %next,
   %der.1 = phi ptr [ null, %next ], [ null, %if.then97 ], [ %4, %if.then14 ], [ null, %next.thread ]
   %ok.0 = phi i32 [ 1, %next ], [ %call105, %if.then97 ], [ 0, %if.then14 ], [ 1, %next.thread ]
   %28 = load ptr, ptr %desc2, align 8
-  %free_key108 = getelementptr inbounds %struct.keytype_desc_st, ptr %28, i64 0, i32 12
+  %free_key108 = getelementptr inbounds i8, ptr %28, i64 88
   %29 = load ptr, ptr %free_key108, align 8
   call void %29(ptr noundef %27) #14
   call void @CRYPTO_free(ptr noundef %der.1, ptr noundef nonnull @.str.2, i32 noundef 2435) #14
@@ -5384,9 +5394,9 @@ return:                                           ; preds = %end, %if.then5
 ; Function Attrs: nounwind uwtable
 define internal i32 @der2key_export_object(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readonly %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) #0 {
 entry:
-  %desc = getelementptr inbounds %struct.der2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %desc, align 8
-  %fns = getelementptr inbounds %struct.keytype_desc_st, ptr %0, i64 0, i32 1
+  %fns = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %fns, align 8
   br label %for.cond.i
 
@@ -5399,7 +5409,7 @@ for.cond.i:                                       ; preds = %for.inc.i, %entry
   ]
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %fns.addr.0.i, i64 16
   br label %for.cond.i, !llvm.loop !17
 
 xor_prov_get_keymgmt_export.exit:                 ; preds = %for.cond.i
@@ -5412,7 +5422,7 @@ xor_prov_get_keymgmt_export.exit:                 ; preds = %for.cond.i
 
 if.then:                                          ; preds = %xor_prov_get_keymgmt_export.exit
   %4 = load ptr, ptr %reference, align 8
-  %selection = getelementptr inbounds %struct.der2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %selection = getelementptr inbounds i8, ptr %vctx, i64 16
   %5 = load i32, ptr %selection, align 8
   %call2 = tail call i32 %fns.addr.0.val.i(ptr noundef %4, i32 noundef %5, ptr noundef %export_cb, ptr noundef %export_cbarg) #14
   br label %return
@@ -5444,9 +5454,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #14
-  %desc.i = getelementptr inbounds %struct.der2key_ctx_st, ptr %ctx, i64 0, i32 1
+  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds %struct.keytype_desc_st, ptr %2, i64 0, i32 3
+  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %xor_der2key_decode_p8.exit
@@ -5567,7 +5577,7 @@ if.then15:                                        ; preds = %if.end12
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %cmp17.not = icmp eq i32 %plen, 32
   br i1 %cmp17.not, label %if.end19, label %if.then18
@@ -5583,22 +5593,22 @@ if.end19:                                         ; preds = %if.end16
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end19
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 1
+  %pubkey = getelementptr inbounds i8, ptr %call.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pubkey, ptr noundef nonnull align 1 dereferenceable(32) %p, i64 32, i1 false)
-  %haspubkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 3
+  %haspubkey = getelementptr inbounds i8, ptr %call.i, i64 68
   store i32 1, ptr %haspubkey, align 4
   br label %if.end24
 
 if.else:                                          ; preds = %if.end19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 1 dereferenceable(32) %p, i64 32, i1 false)
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 1, ptr %hasprivkey, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then21
   %call25 = call ptr @OBJ_nid2sn(i32 noundef %call) #14
   %call26 = call noalias ptr @CRYPTO_strdup(ptr noundef %call25, ptr noundef nonnull @.str.2, i32 noundef 1241) #14
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call26, ptr %tls_name, align 8
   %cmp28 = icmp eq ptr %call26, null
   br i1 %cmp28, label %if.end.i20, label %return
@@ -5617,7 +5627,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i20
   br i1 %cmp4.i, label %return, label %if.then8.i
 
 if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %tls_name.i = getelementptr inbounds %struct.xorkey_st, ptr %call.i, i64 0, i32 4
+  %tls_name.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %3 = load ptr, ptr %tls_name.i, align 8
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i, align 8
@@ -5650,7 +5660,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.der2key_ctx_st, ptr %call.i, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @SubjectPublicKeyInfo_xorhmacsig_desc, ptr %desc2.i, align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 0, i32 3), align 8
   %cmp3.i = icmp eq i32 %0, 0
@@ -5756,7 +5766,7 @@ if.then3:                                         ; preds = %xor_key_from_x509pu
   br i1 %cmp.i10, label %xor_freekey.exit, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.then3
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %3, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = atomicrmw sub ptr %references.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -5770,7 +5780,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i11
   br i1 %cmp4.i, label %xor_freekey.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %tls_name.i = getelementptr inbounds %struct.xorkey_st, ptr %3, i64 0, i32 4
+  %tls_name.i = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load ptr, ptr %tls_name.i, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i, align 8
@@ -5805,7 +5815,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.der2key_ctx_st, ptr %call.i, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PrivateKeyInfo_xorhmacsha2sig_desc, ptr %desc2.i, align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 0, i32 3), align 8
   %cmp3.i = icmp eq i32 %0, 0
@@ -5860,7 +5870,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.der2key_ctx_st, ptr %call.i, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, ptr %desc2.i, align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.keytype_desc_st, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 0, i32 3), align 8
   %cmp3.i = icmp eq i32 %0, 0
@@ -5916,7 +5926,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %provctx, align 8
   store ptr %0, ptr %call, align 8
-  %flag_allow_md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %call, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %call, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_allow_md, align 8
@@ -5925,7 +5935,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %call3 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str.2, i32 noundef 2654) #14
-  %propq4 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %call, i64 0, i32 1
+  %propq4 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call3, ptr %propq4, align 8
   %cmp5 = icmp eq ptr %call3, null
   br i1 %cmp5, label %if.then6, label %return
@@ -5951,13 +5961,13 @@ entry:
   br i1 %or.cond.i, label %xor_sig_signverify_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sig.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %0 = load ptr, ptr %sig.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %xor_freekey.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %references.i.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 5
+  %references.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = atomicrmw sub ptr %references.i.i, i32 1 monotonic, align 4
   %cmp.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i, label %CRYPTO_DOWN_REF.exit.thread.i.i, label %CRYPTO_DOWN_REF.exit.i.i
@@ -5971,7 +5981,7 @@ CRYPTO_DOWN_REF.exit.i.i:                         ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %xor_freekey.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %CRYPTO_DOWN_REF.exit.i.i, %CRYPTO_DOWN_REF.exit.thread.i.i
-  %tls_name.i.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 4
+  %tls_name.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %tls_name.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i.i, align 8
@@ -5979,14 +5989,14 @@ if.then8.i.i:                                     ; preds = %CRYPTO_DOWN_REF.exi
   br label %xor_freekey.exit.i
 
 xor_freekey.exit.i:                               ; preds = %if.then8.i.i, %CRYPTO_DOWN_REF.exit.i.i, %if.end.i
-  %references.i10.i = getelementptr inbounds %struct.xorkey_st, ptr %vxorsig, i64 0, i32 5
+  %references.i10.i = getelementptr inbounds i8, ptr %vxorsig, i64 80
   %3 = atomicrmw add ptr %references.i10.i, i32 1 monotonic, align 4
   %cmp1.i.i = icmp slt i32 %3, 1
   br i1 %cmp1.i.i, label %xor_sig_signverify_init.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %xor_freekey.exit.i
   store ptr %vxorsig, ptr %sig.i, align 8
-  %operation5.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 9
+  %operation5.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 112
   store i32 16, ptr %operation5.i, align 8
   br label %xor_sig_signverify_init.exit
 
@@ -5999,14 +6009,14 @@ xor_sig_signverify_init.exit:                     ; preds = %entry, %xor_freekey
 define internal i32 @xor_sig_sign(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef %sig, ptr nocapture noundef %siglen, i64 %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %xor_sig_len = alloca i64, align 8
-  %sig1 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig1 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %0 = load ptr, ptr %sig1, align 8
   store i64 0, ptr %xor_sig_len, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %hasprivkey = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 2
+  %hasprivkey = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i32, ptr %hasprivkey, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -6067,13 +6077,13 @@ entry:
   br i1 %or.cond.i, label %xor_sig_signverify_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sig.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %0 = load ptr, ptr %sig.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %xor_freekey.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %references.i.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 5
+  %references.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = atomicrmw sub ptr %references.i.i, i32 1 monotonic, align 4
   %cmp.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i, label %CRYPTO_DOWN_REF.exit.thread.i.i, label %CRYPTO_DOWN_REF.exit.i.i
@@ -6087,7 +6097,7 @@ CRYPTO_DOWN_REF.exit.i.i:                         ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %xor_freekey.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %CRYPTO_DOWN_REF.exit.i.i, %CRYPTO_DOWN_REF.exit.thread.i.i
-  %tls_name.i.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 4
+  %tls_name.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %tls_name.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i.i, align 8
@@ -6095,14 +6105,14 @@ if.then8.i.i:                                     ; preds = %CRYPTO_DOWN_REF.exi
   br label %xor_freekey.exit.i
 
 xor_freekey.exit.i:                               ; preds = %if.then8.i.i, %CRYPTO_DOWN_REF.exit.i.i, %if.end.i
-  %references.i10.i = getelementptr inbounds %struct.xorkey_st, ptr %vxorsig, i64 0, i32 5
+  %references.i10.i = getelementptr inbounds i8, ptr %vxorsig, i64 80
   %3 = atomicrmw add ptr %references.i10.i, i32 1 monotonic, align 4
   %cmp1.i.i = icmp slt i32 %3, 1
   br i1 %cmp1.i.i, label %xor_sig_signverify_init.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %xor_freekey.exit.i
   store ptr %vxorsig, ptr %sig.i, align 8
-  %operation5.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 9
+  %operation5.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 112
   store i32 32, ptr %operation5.i, align 8
   br label %xor_sig_signverify_init.exit
 
@@ -6116,14 +6126,18 @@ define internal i32 @xor_sig_verify(ptr nocapture noundef readonly %vpxor_sigctx
 entry:
   %resignature = alloca [64 x i8], align 16
   %resiglen = alloca i64, align 8
-  %sig1 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig1 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %0 = load ptr, ptr %sig1, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %sig, null
   %or.cond = or i1 %cmp2, %cmp
   %cmp4 = icmp eq ptr %tbs, null
   %or.cond1 = or i1 %cmp4, %or.cond
-  br i1 %or.cond1, label %if.then, label %for.body
+  br i1 %or.cond1, label %if.then, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %entry
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 32
+  br label %for.body
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #14
@@ -6131,9 +6145,9 @@ if.then:                                          ; preds = %entry
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 13, ptr noundef null) #14
   br label %return
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 1, i64 %indvars.iv
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %pubkey, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   %arrayidx7 = getelementptr inbounds [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx7, align 1
@@ -6191,7 +6205,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %0 = load ptr, ptr %mdctx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -6215,13 +6229,13 @@ entry:
   br i1 %cmp.not, label %entry.split, label %if.then
 
 entry.split:                                      ; preds = %entry
-  %sig1.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig1.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %0 = load ptr, ptr %sig1.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry.split
-  %hasprivkey.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 2
+  %hasprivkey.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i32, ptr %hasprivkey.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -6241,7 +6255,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %2 = load ptr, ptr %mdctx, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %if.end
@@ -6252,7 +6266,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %flag_allow_md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 8
@@ -6283,7 +6297,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %0 = load ptr, ptr %mdctx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -6294,7 +6308,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %flag_allow_md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 8
@@ -6311,24 +6325,24 @@ return:                                           ; preds = %if.end, %entry, %lo
 ; Function Attrs: nounwind uwtable
 define internal void @xor_sig_freectx(ptr noundef %vpxor_sigctx) #0 {
 entry:
-  %propq = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 2910) #14
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %1 = load ptr, ptr %mdctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %1) #14
-  %md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 7
+  %md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 96
   %2 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %2) #14
   store ptr null, ptr %propq, align 8
-  %sig = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %sig, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %xor_freekey.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %3, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = atomicrmw sub ptr %references.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -6342,7 +6356,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp4.i, label %xor_freekey.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %tls_name.i = getelementptr inbounds %struct.xorkey_st, ptr %3, i64 0, i32 4
+  %tls_name.i = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load ptr, ptr %tls_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i, align 8
@@ -6351,7 +6365,7 @@ if.then8.i:                                       ; preds = %CRYPTO_DOWN_REF.exi
 
 xor_freekey.exit:                                 ; preds = %entry, %CRYPTO_DOWN_REF.exit.i, %if.then8.i
   store ptr null, ptr %sig, align 8
-  %aid = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 5
+  %aid = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 80
   %6 = load ptr, ptr %aid, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 2918) #14
   tail call void @CRYPTO_free(ptr noundef nonnull %vpxor_sigctx, ptr noundef nonnull @.str.2, i32 noundef 2919) #14
@@ -6367,20 +6381,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(120) %vpxor_sigctx, i64 120, i1 false)
-  %sig = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %call, i64 0, i32 2
+  %sig = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %sig, align 8
-  %md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %call, i64 0, i32 7
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %call, i64 0, i32 8
-  %aid = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %call, i64 0, i32 5
+  %md = getelementptr inbounds i8, ptr %call, i64 96
+  %mdctx = getelementptr inbounds i8, ptr %call, i64 104
+  %aid = getelementptr inbounds i8, ptr %call, i64 80
   store ptr null, ptr %aid, align 8
-  %sig1 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig1 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %sig1, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %references.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 5
+  %references.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = atomicrmw add ptr %references.i, i32 1 monotonic, align 4
   %cmp1.i = icmp slt i32 %1, 1
   br i1 %cmp1.i, label %err, label %land.lhs.true.if.end6_crit_edge
@@ -6392,7 +6406,7 @@ land.lhs.true.if.end6_crit_edge:                  ; preds = %land.lhs.true
 if.end6:                                          ; preds = %land.lhs.true.if.end6_crit_edge, %if.end
   %2 = phi ptr [ %.pre, %land.lhs.true.if.end6_crit_edge ], [ null, %if.end ]
   store ptr %2, ptr %sig, align 8
-  %md9 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 7
+  %md9 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 96
   %3 = load ptr, ptr %md9, align 8
   %cmp10.not = icmp eq ptr %3, null
   br i1 %cmp10.not, label %if.end16, label %land.lhs.true11
@@ -6409,7 +6423,7 @@ land.lhs.true11.if.end16_crit_edge:               ; preds = %land.lhs.true11
 if.end16:                                         ; preds = %land.lhs.true11.if.end16_crit_edge, %if.end6
   %4 = phi ptr [ %.pre22, %land.lhs.true11.if.end16_crit_edge ], [ null, %if.end6 ]
   store ptr %4, ptr %md, align 8
-  %mdctx19 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx19 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %5 = load ptr, ptr %mdctx19, align 8
   %cmp20.not = icmp eq ptr %5, null
   br i1 %cmp20.not, label %return, label %if.then21
@@ -6445,15 +6459,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef nonnull %params, ptr noundef nonnull @.str.45) #14
-  %aid = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 5
+  %aid = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 80
   %0 = load ptr, ptr %aid, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end
-  %sig = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %1 = load ptr, ptr %sig, align 8
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %1, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %tls_name, align 8
   %call.i = tail call ptr @X509_ALGOR_new() #14
   %call1.i = tail call ptr @OBJ_txt2obj(ptr noundef %2, i32 noundef 0) #14
@@ -6461,7 +6475,7 @@ if.then3:                                         ; preds = %if.end
   %call3.i = tail call i32 @i2d_X509_ALGOR(ptr noundef %call.i, ptr noundef nonnull %aid) #14
   tail call void @X509_ALGOR_free(ptr noundef %call.i) #14
   %conv = sext i32 %call3.i to i64
-  %aid_len = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 6
+  %aid_len = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 88
   store i64 %conv, ptr %aid_len, align 8
   br label %if.end6
 
@@ -6471,7 +6485,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 
 land.lhs.true:                                    ; preds = %if.end6
   %3 = load ptr, ptr %aid, align 8
-  %aid_len10 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 6
+  %aid_len10 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 88
   %4 = load i64, ptr %aid_len10, align 8
   %call11 = tail call i32 @OSSL_PARAM_set_octet_string(ptr noundef nonnull %call, ptr noundef %3, i64 noundef %4) #14
   %tobool.not = icmp eq i32 %call11, 0
@@ -6483,7 +6497,7 @@ if.end13:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp15.not, label %if.end21, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end13
-  %mdname = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 4
+  %mdname = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 25
   %call18 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call14, ptr noundef nonnull %mdname) #14
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end21
@@ -6520,7 +6534,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %flag_allow_md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -6567,7 +6581,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @xor_sig_get_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef %params) #0 {
 entry:
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -6584,7 +6598,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @xor_sig_gettable_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx) #0 {
 entry:
-  %md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 7
+  %md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 96
   %0 = load ptr, ptr %md, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -6601,7 +6615,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @xor_sig_set_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef %params) #0 {
 entry:
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -6618,7 +6632,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @xor_sig_settable_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx) #0 {
 entry:
-  %md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 7
+  %md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 96
   %0 = load ptr, ptr %md, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -6637,7 +6651,7 @@ declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @xor_sig_digest_signverify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, i32 noundef %operation) unnamed_addr #0 {
 entry:
-  %flag_allow_md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_allow_md, align 8
@@ -6647,13 +6661,13 @@ entry:
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sig.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 2
+  %sig.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 16
   %0 = load ptr, ptr %sig.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %xor_freekey.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %references.i.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 5
+  %references.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = atomicrmw sub ptr %references.i.i, i32 1 monotonic, align 4
   %cmp.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i, label %CRYPTO_DOWN_REF.exit.thread.i.i, label %CRYPTO_DOWN_REF.exit.i.i
@@ -6667,7 +6681,7 @@ CRYPTO_DOWN_REF.exit.i.i:                         ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %xor_freekey.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %CRYPTO_DOWN_REF.exit.i.i, %CRYPTO_DOWN_REF.exit.thread.i.i
-  %tls_name.i.i = getelementptr inbounds %struct.xorkey_st, ptr %0, i64 0, i32 4
+  %tls_name.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %tls_name.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 714) #14
   store ptr null, ptr %tls_name.i.i, align 8
@@ -6675,14 +6689,14 @@ if.then8.i.i:                                     ; preds = %CRYPTO_DOWN_REF.exi
   br label %xor_freekey.exit.i
 
 xor_freekey.exit.i:                               ; preds = %if.then8.i.i, %CRYPTO_DOWN_REF.exit.i.i, %if.end.i
-  %references.i10.i = getelementptr inbounds %struct.xorkey_st, ptr %vxorsig, i64 0, i32 5
+  %references.i10.i = getelementptr inbounds i8, ptr %vxorsig, i64 80
   %3 = atomicrmw add ptr %references.i10.i, i32 1 monotonic, align 4
   %cmp1.i.i = icmp slt i32 %3, 1
   br i1 %cmp1.i.i, label %return, label %if.end2
 
 if.end2:                                          ; preds = %xor_freekey.exit.i
   store ptr %vxorsig, ptr %sig.i, align 8
-  %operation5.i = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 9
+  %operation5.i = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 112
   store i32 %operation, ptr %operation5.i, align 8
   %cmp = icmp eq ptr %mdname, null
   %spec.store.select = select i1 %cmp, ptr @.str.43, ptr %mdname
@@ -6692,13 +6706,13 @@ if.end2:                                          ; preds = %xor_freekey.exit.i
 
 if.end6:                                          ; preds = %if.end2
   %call7 = tail call ptr @EVP_MD_CTX_new() #14
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 104
   store ptr %call7, ptr %mdctx, align 8
   %cmp9 = icmp eq ptr %call7, null
   br i1 %cmp9, label %error, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %md = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 7
+  %md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 96
   %4 = load ptr, ptr %md, align 8
   %call13 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call7, ptr noundef %4, ptr noundef null) #14
   %tobool14.not = icmp eq i32 %call13, 0
@@ -6711,7 +6725,7 @@ if.end11.error_crit_edge:                         ; preds = %if.end11
 error:                                            ; preds = %if.end11.error_crit_edge, %if.end6
   %5 = phi ptr [ %.pre, %if.end11.error_crit_edge ], [ null, %if.end6 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %5) #14
-  %md18 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %vpxor_sigctx, i64 0, i32 7
+  %md18 = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 96
   %6 = load ptr, ptr %md18, align 8
   tail call void @EVP_MD_free(ptr noundef %6) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md18, i8 0, i64 16, i1 false)
@@ -6729,7 +6743,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %propq = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   br label %if.end
 
@@ -6756,21 +6770,21 @@ if.end7:                                          ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %mdctx = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 8
+  %mdctx = getelementptr inbounds i8, ptr %ctx, i64 104
   %2 = load ptr, ptr %mdctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %2) #14
   store ptr null, ptr %mdctx, align 8
-  %md10 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 7
+  %md10 = getelementptr inbounds i8, ptr %ctx, i64 96
   %3 = load ptr, ptr %md10, align 8
   tail call void @EVP_MD_free(ptr noundef %3) #14
   store ptr null, ptr %md10, align 8
-  %aid = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 5
+  %aid = getelementptr inbounds i8, ptr %ctx, i64 80
   %4 = load ptr, ptr %aid, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.2, i32 noundef 2685) #14
   store ptr null, ptr %aid, align 8
-  %sig = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 2
+  %sig = getelementptr inbounds i8, ptr %ctx, i64 16
   %5 = load ptr, ptr %sig, align 8
-  %tls_name = getelementptr inbounds %struct.xorkey_st, ptr %5, i64 0, i32 4
+  %tls_name = getelementptr inbounds i8, ptr %5, i64 72
   %6 = load ptr, ptr %tls_name, align 8
   %call.i = tail call ptr @X509_ALGOR_new() #14
   %call1.i = tail call ptr @OBJ_txt2obj(ptr noundef %6, i32 noundef 0) #14
@@ -6778,11 +6792,11 @@ if.end8:                                          ; preds = %lor.lhs.false
   %call3.i = tail call i32 @i2d_X509_ALGOR(ptr noundef %call.i, ptr noundef nonnull %aid) #14
   tail call void @X509_ALGOR_free(ptr noundef %call.i) #14
   %conv = sext i32 %call3.i to i64
-  %aid_len = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 6
+  %aid_len = getelementptr inbounds i8, ptr %ctx, i64 88
   store i64 %conv, ptr %aid_len, align 8
   store ptr null, ptr %mdctx, align 8
   store ptr %call, ptr %md10, align 8
-  %mdname17 = getelementptr inbounds %struct.PROV_XORSIG_CTX, ptr %ctx, i64 0, i32 4
+  %mdname17 = getelementptr inbounds i8, ptr %ctx, i64 25
   %call18 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mdname17, ptr noundef %mdname, i64 noundef 50) #14
   br label %return
 

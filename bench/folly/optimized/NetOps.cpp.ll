@@ -3,9 +3,6 @@ source_filename = "bench/folly/original/NetOps.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
-
 $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
@@ -291,7 +288,7 @@ define void @_ZN5folly6netops9Msgheader7setNameEP16sockaddr_storagem(ptr nocaptu
 entry:
   store ptr %addrStorage, ptr %this, align 8, !tbaa !15
   %conv = trunc i64 %len to i32
-  %msg_namelen = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 1
+  %msg_namelen = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv, ptr %msg_namelen, align 8, !tbaa !20
   ret void
 }
@@ -299,9 +296,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly6netops9Msgheader9setIovecsEPK5iovecm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %vec, i64 noundef %iovec_len) local_unnamed_addr #6 align 2 {
 entry:
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %vec, ptr %msg_iov, align 8, !tbaa !21
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %iovec_len, ptr %msg_iovlen, align 8, !tbaa !22
   ret void
 }
@@ -309,7 +306,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly6netops9Msgheader10setCmsgPtrEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %ctrlBuf) local_unnamed_addr #6 align 2 {
 entry:
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %ctrlBuf, ptr %msg_control, align 8, !tbaa !23
   ret void
 }
@@ -317,7 +314,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly6netops9Msgheader10setCmsgLenEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %len) local_unnamed_addr #6 align 2 {
 entry:
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %len, ptr %msg_controllen, align 8, !tbaa !24
   ret void
 }
@@ -325,7 +322,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly6netops9Msgheader8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %flags) local_unnamed_addr #6 align 2 {
 entry:
-  %msg_flags = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 6
+  %msg_flags = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %flags, ptr %msg_flags, align 8, !tbaa !25
   ret void
 }
@@ -336,7 +333,7 @@ entry:
   %sub = add i64 %val, 7
   %and = and i64 %sub, -8
   %add2 = add i64 %and, 16
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %msg_controllen, align 8, !tbaa !24
   %add3 = add i64 %add2, %0
   store i64 %add3, ptr %msg_controllen, align 8, !tbaa !24
@@ -358,10 +355,10 @@ if.end.i.i:                                       ; preds = %cond.true
   %sub.i.i = add i64 %0, 7
   %and.i.i = and i64 %sub.i.i, -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cm, i64 %and.i.i
-  %add.ptr2.i.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i.i, i64 1
-  %msg_control.i.i = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 4
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
+  %msg_control.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %msg_control.i.i, align 8, !tbaa !27
-  %msg_controllen.i.i = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 5
+  %msg_controllen.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %msg_controllen.i.i, align 8, !tbaa !28
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %1, i64 %2
   %cmp4.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr3.i.i
@@ -377,10 +374,10 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 5
+  %msg_controllen.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %msg_controllen.i, align 8, !tbaa !24
   %cmp.i = icmp ugt i64 %4, 15
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 4
+  %msg_control.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %msg_control.i, align 8
   %cond.i = select i1 %cmp.i, ptr %5, ptr null
   br label %cond.end
@@ -401,10 +398,10 @@ if.end.i:                                         ; preds = %entry
   %sub.i = add i64 %0, 7
   %and.i = and i64 %sub.i, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %cm, i64 %and.i
-  %add.ptr2.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 1
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 4
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %msg_control.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %msg_control.i, align 8, !tbaa !27
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 5
+  %msg_controllen.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %msg_controllen.i, align 8, !tbaa !28
   %add.ptr3.i = getelementptr inbounds i8, ptr %1, i64 %2
   %cmp4.i = icmp ugt ptr %add.ptr2.i, %add.ptr3.i
@@ -427,10 +424,10 @@ __cmsg_nxthdr.exit:                               ; preds = %lor.lhs.false.i, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN5folly6netops9Msgheader12cmsgFirstHrdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %msg_controllen, align 8, !tbaa !24
   %cmp = icmp ugt i64 %0, 15
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %this, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %msg_control, align 8
   %cond = select i1 %cmp, ptr %1, ptr null
   ret ptr %cond

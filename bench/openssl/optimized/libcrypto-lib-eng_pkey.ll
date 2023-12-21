@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-eng_pkey.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/engine/eng_pkey.c\00", align 1
 @__func__.ENGINE_load_private_key = private unnamed_addr constant [24 x i8] c"ENGINE_load_private_key\00", align 1
 @global_engine_lock = external local_unnamed_addr global ptr, align 8
@@ -16,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_load_privkey_function(ptr nocapture noundef writeonly %e, ptr noundef %loadpriv_f) local_unnamed_addr #0 {
 entry:
-  %load_privkey = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 15
+  %load_privkey = getelementptr inbounds i8, ptr %e, i64 120
   store ptr %loadpriv_f, ptr %load_privkey, align 8
   ret i32 1
 }
@@ -24,7 +20,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_load_pubkey_function(ptr nocapture noundef writeonly %e, ptr noundef %loadpub_f) local_unnamed_addr #0 {
 entry:
-  %load_pubkey = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 16
+  %load_pubkey = getelementptr inbounds i8, ptr %e, i64 128
   store ptr %loadpub_f, ptr %load_pubkey, align 8
   ret i32 1
 }
@@ -32,7 +28,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_load_ssl_client_cert_function(ptr nocapture noundef writeonly %e, ptr noundef %loadssl_f) local_unnamed_addr #0 {
 entry:
-  %load_ssl_client_cert = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 17
+  %load_ssl_client_cert = getelementptr inbounds i8, ptr %e, i64 136
   store ptr %loadssl_f, ptr %load_ssl_client_cert, align 8
   ret i32 1
 }
@@ -40,7 +36,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_load_privkey_function(ptr nocapture noundef readonly %e) local_unnamed_addr #1 {
 entry:
-  %load_privkey = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 15
+  %load_privkey = getelementptr inbounds i8, ptr %e, i64 120
   %0 = load ptr, ptr %load_privkey, align 8
   ret ptr %0
 }
@@ -48,7 +44,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_load_pubkey_function(ptr nocapture noundef readonly %e) local_unnamed_addr #1 {
 entry:
-  %load_pubkey = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 16
+  %load_pubkey = getelementptr inbounds i8, ptr %e, i64 128
   %0 = load ptr, ptr %load_pubkey, align 8
   ret ptr %0
 }
@@ -56,7 +52,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_ssl_client_cert_function(ptr nocapture noundef readonly %e) local_unnamed_addr #1 {
 entry:
-  %load_ssl_client_cert = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 17
+  %load_ssl_client_cert = getelementptr inbounds i8, ptr %e, i64 136
   %0 = load ptr, ptr %load_ssl_client_cert, align 8
   ret ptr %0
 }
@@ -80,7 +76,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %funct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 21
+  %funct_ref = getelementptr inbounds i8, ptr %e, i64 160
   %1 = load i32, ptr %funct_ref, align 8
   %cmp3 = icmp eq i32 %1, 0
   %2 = load ptr, ptr @global_engine_lock, align 8
@@ -94,7 +90,7 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end6:                                          ; preds = %if.end2
-  %load_privkey = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 15
+  %load_privkey = getelementptr inbounds i8, ptr %e, i64 120
   %3 = load ptr, ptr %load_privkey, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.then9, label %if.end10
@@ -204,7 +200,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %funct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 21
+  %funct_ref = getelementptr inbounds i8, ptr %e, i64 160
   %1 = load i32, ptr %funct_ref, align 8
   %cmp3 = icmp eq i32 %1, 0
   %2 = load ptr, ptr @global_engine_lock, align 8
@@ -212,7 +208,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp3, label %return.sink.split, label %if.end6
 
 if.end6:                                          ; preds = %if.end2
-  %load_pubkey = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 16
+  %load_pubkey = getelementptr inbounds i8, ptr %e, i64 128
   %3 = load ptr, ptr %load_pubkey, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %return.sink.split, label %if.end10
@@ -254,7 +250,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %funct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 21
+  %funct_ref = getelementptr inbounds i8, ptr %e, i64 160
   %1 = load i32, ptr %funct_ref, align 8
   %cmp3 = icmp eq i32 %1, 0
   %2 = load ptr, ptr @global_engine_lock, align 8
@@ -268,7 +264,7 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end6:                                          ; preds = %if.end2
-  %load_ssl_client_cert = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 17
+  %load_ssl_client_cert = getelementptr inbounds i8, ptr %e, i64 136
   %3 = load ptr, ptr %load_ssl_client_cert, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.then9, label %if.end10

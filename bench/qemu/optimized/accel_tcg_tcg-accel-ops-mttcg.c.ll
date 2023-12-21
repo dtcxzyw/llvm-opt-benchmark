@@ -3,42 +3,6 @@ source_filename = "bench/qemu/original/accel_tcg_tcg-accel-ops-mttcg.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 %struct.MttcgForceRcuNotifier = type { %struct.Notifier, ptr }
 %struct.Notifier = type { ptr, %struct.anon.6 }
 %struct.anon.6 = type { ptr, ptr }
@@ -79,18 +43,18 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %2 = load ptr, ptr @current_machine, align 8
-  %max_cpus = getelementptr inbounds %struct.MachineState, ptr %2, i64 0, i32 29, i32 8
+  %max_cpus = getelementptr inbounds i8, ptr %2, i64 320
   %3 = load i32, ptr %max_cpus, align 8
   %cmp = icmp ugt i32 %3, 1
   tail call void @tcg_cpu_init_cflags(ptr noundef %cpu, i1 noundef zeroext %cmp) #9
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #11
-  %thread = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %cpu, i64 176
   store ptr %call, ptr %thread, align 16
   %call1 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #12
-  %halt_cond = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 8
+  %halt_cond = getelementptr inbounds i8, ptr %cpu, i64 192
   store ptr %call1, ptr %halt_cond, align 16
   tail call void @qemu_cond_init(ptr noundef %call1) #9
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %4 = load i32, ptr %cpu_index, align 8
   %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %thread_name, i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %4) #9
   %5 = load ptr, ptr %thread, align 16
@@ -141,28 +105,28 @@ if.else3:                                         ; preds = %do.body
 do.end:                                           ; preds = %do.body
   tail call void @rcu_register_thread() #9
   store ptr @mttcg_force_rcu, ptr %force_rcu, align 8
-  %cpu5 = getelementptr inbounds %struct.MttcgForceRcuNotifier, ptr %force_rcu, i64 0, i32 1
+  %cpu5 = getelementptr inbounds i8, ptr %force_rcu, i64 24
   store ptr %arg, ptr %cpu5, align 8
   call void @rcu_add_force_rcu_notifier(ptr noundef nonnull %force_rcu) #9
   call void @tcg_register_thread() #9
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 79) #9
-  %thread = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %arg, i64 176
   %3 = load ptr, ptr %thread, align 16
   call void @qemu_thread_get_self(ptr noundef %3) #9
   %call = call i32 @qemu_get_thread_id() #9
-  %thread_id = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 5
+  %thread_id = getelementptr inbounds i8, ptr %arg, i64 184
   store i32 %call, ptr %thread_id, align 8
-  %can_do_io = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 65, i32 2
+  %can_do_io = getelementptr inbounds i8, ptr %arg, i64 10164
   store i8 1, ptr %can_do_io, align 4
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   store ptr %arg, ptr %4, align 8
   call void @cpu_thread_signal_created(ptr noundef %arg) #9
-  %random_seed = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 23
+  %random_seed = getelementptr inbounds i8, ptr %arg, i64 240
   %5 = load i64, ptr %random_seed, align 16
   call void @qemu_guest_random_seed_thread_part2(i64 noundef %5) #9
-  %exit_request = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 16
+  %exit_request = getelementptr inbounds i8, ptr %arg, i64 207
   store i8 1, ptr %exit_request, align 1
-  %unplug = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 14
+  %unplug = getelementptr inbounds i8, ptr %arg, i64 205
   br label %do.body7
 
 do.body7:                                         ; preds = %do.body7.backedge, %do.end
@@ -220,7 +184,7 @@ declare void @rcu_register_thread() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mttcg_force_rcu(ptr nocapture noundef readonly %notify, ptr nocapture readnone %data) #0 {
 entry:
-  %cpu1 = getelementptr inbounds %struct.MttcgForceRcuNotifier, ptr %notify, i64 0, i32 1
+  %cpu1 = getelementptr inbounds i8, ptr %notify, i64 24
   %0 = load ptr, ptr %cpu1, align 8
   tail call void @async_run_on_cpu(ptr noundef %0, ptr noundef nonnull @do_nothing, i64 0) #9
   ret void

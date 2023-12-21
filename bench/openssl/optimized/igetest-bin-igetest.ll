@@ -133,7 +133,7 @@ entry:
   %call = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %iv, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 10240, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %arrayidx = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 5120
+  %arrayidx = getelementptr inbounds i8, ptr %ciphertext, i64 5120
   %0 = load i8, ptr %arrayidx, align 16
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 16
@@ -197,7 +197,7 @@ entry:
   %call = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   %call1 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %key2) #3
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 10240, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %arrayidx = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 5120
+  %arrayidx = getelementptr inbounds i8, ptr %ciphertext, i64 5120
   %0 = load i8, ptr %arrayidx, align 16
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 16
@@ -237,7 +237,7 @@ entry:
   %call = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   %call1 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %key2) #3
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 10240, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %arrayidx = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 10239
+  %arrayidx = getelementptr inbounds i8, ptr %ciphertext, i64 10239
   %0 = load i8, ptr %arrayidx, align 1
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 1
@@ -319,7 +319,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %encrypt = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 5
+  %encrypt = getelementptr inbounds i8, ptr %arrayidx, i64 184
   %0 = load i32, ptr %encrypt, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then2, label %if.else
@@ -333,11 +333,11 @@ if.else:                                          ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then2
-  %iv10 = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 1
+  %iv10 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %iv, ptr noundef nonnull align 16 dereferenceable(32) %iv10, i64 32, i1 false)
-  %in = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 2
+  %in = getelementptr inbounds i8, ptr %arrayidx, i64 48
   call void @AES_ige_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %buf, i64 noundef 32, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef %0) #3
-  %out = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 3
+  %out = getelementptr inbounds i8, ptr %arrayidx, i64 112
   %call21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 167, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %out, i64 noundef 32, ptr noundef nonnull %buf, i64 noundef 32) #3
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then23, label %if.end31
@@ -378,7 +378,7 @@ entry:
   %buf = alloca [64 x i8], align 16
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom
-  %length = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 6
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 264
   %0 = load i64, ptr %length, align 8
   %conv = trunc i64 %0 to i32
   %call = tail call i32 @test_int_le(ptr noundef nonnull @.str.10, i32 noundef 198, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef %conv, i32 noundef 64) #3
@@ -386,17 +386,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %keysize = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 5
+  %keysize = getelementptr inbounds i8, ptr %arrayidx, i64 256
   %1 = load i64, ptr %keysize, align 8
   %.tr23 = trunc i64 %1 to i32
   %conv4 = shl i32 %.tr23, 3
   %call5 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %arrayidx, i32 noundef %conv4, ptr noundef nonnull %key1) #3
-  %key26 = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 1
+  %key26 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %call11 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %key26, i32 noundef %conv4, ptr noundef nonnull %key2) #3
-  %in = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 3
-  %iv = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 2
+  %in = getelementptr inbounds i8, ptr %arrayidx, i64 128
+  %iv = getelementptr inbounds i8, ptr %arrayidx, i64 64
   call void @AES_bi_ige_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %buf, i64 noundef %0, ptr noundef nonnull %key1, ptr noundef nonnull %key2, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %out = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 4
+  %out = getelementptr inbounds i8, ptr %arrayidx, i64 192
   %call34 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 212, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %out, i64 noundef %0, ptr noundef nonnull %buf, i64 noundef %0) #3
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %return

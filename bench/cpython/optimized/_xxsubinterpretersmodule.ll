@@ -15,23 +15,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
-%struct.module_state = type { i32, ptr }
 %struct.PyInterpreterConfig = type { i32, i32, i32, i32, i32, i32, i32 }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
 %struct.xi_session = type { ptr, ptr, i32, i32, ptr, ptr, ptr, %struct._sharedexception, i32 }
 %struct._sharedexception = type { ptr, i32, %struct._excinfo }
 %struct._excinfo = type { %struct._excinfo_type, ptr, ptr }
 %struct._excinfo_type = type { ptr, ptr, ptr, ptr }
-%struct.PyNumberMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.XIBufferViewObject = type { %struct._object, ptr, i64 }
-%struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct._xid = type { ptr, ptr, i64, ptr, ptr }
 
 @moduledef = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 16, ptr @module_functions, ptr @module_slots, ptr @module_traverse, ptr @module_clear, ptr @module_free }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"_xxsubinterpreters\00", align 1
@@ -157,7 +146,7 @@ traverse_module_state.exit:                       ; preds = %if.then.i, %entry
 define internal i32 @module_clear(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #7
-  %XIBufferViewType.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 1
+  %XIBufferViewType.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %XIBufferViewType.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %clear_module_state.exit, label %if.then.i
@@ -187,7 +176,7 @@ clear_module_state.exit:                          ; preds = %entry, %if.then.i, 
 define internal void @module_free(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #7
-  %XIBufferViewType.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 1
+  %XIBufferViewType.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %XIBufferViewType.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %clear_module_state.exit, label %if.then.i
@@ -234,17 +223,17 @@ if.end:                                           ; preds = %entry
   %.sink7 = zext i1 %not.tobool2.not to i32
   %.sink = select i1 %tobool2.not, i32 1, i32 2
   store i32 %.sink11, ptr %config, align 4
-  %1 = getelementptr inbounds %struct.PyInterpreterConfig, ptr %config, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %config, i64 4
   store i32 %.sink11, ptr %1, align 4
-  %2 = getelementptr inbounds %struct.PyInterpreterConfig, ptr %config, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %config, i64 8
   store i32 %.sink11, ptr %2, align 4
-  %3 = getelementptr inbounds %struct.PyInterpreterConfig, ptr %config, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %config, i64 12
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds %struct.PyInterpreterConfig, ptr %config, i64 0, i32 4
+  %4 = getelementptr inbounds i8, ptr %config, i64 16
   store i32 %.sink11, ptr %4, align 4
-  %5 = getelementptr inbounds %struct.PyInterpreterConfig, ptr %config, i64 0, i32 5
+  %5 = getelementptr inbounds i8, ptr %config, i64 20
   store i32 %.sink7, ptr %5, align 4
-  %6 = getelementptr inbounds %struct.PyInterpreterConfig, ptr %config, i64 0, i32 6
+  %6 = getelementptr inbounds i8, ptr %config, i64 24
   store i32 %.sink, ptr %6, align 4
   store ptr null, ptr %tstate, align 8
   call void @Py_NewInterpreterFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %tstate, ptr noundef nonnull %config) #7
@@ -342,7 +331,7 @@ if.then13:                                        ; preds = %if.end10
 
 if.end15:                                         ; preds = %if.end10
   %call16 = call ptr @PyThreadState_New(ptr noundef nonnull %call1) #7
-  %_whence = getelementptr inbounds %struct._ts, ptr %call16, i64 0, i32 4
+  %_whence = getelementptr inbounds i8, ptr %call16, i64 28
   store i32 1, ptr %_whence, align 4
   %call17 = call ptr @PyThreadState_Swap(ptr noundef %call16) #7
   call void @Py_EndInterpreter(ptr noundef %call16) #7
@@ -941,7 +930,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.else.i, label %_PyIndex_Check.exit.i
 
 _PyIndex_Check.exit.i:                            ; preds = %entry
-  %nb_index.i.i = getelementptr inbounds %struct.PyNumberMethods, ptr %arg.val8.val.i, i64 0, i32 33
+  %nb_index.i.i = getelementptr inbounds i8, ptr %arg.val8.val.i, i64 264
   %2 = load ptr, ptr %nb_index.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %2, null
   br i1 %cmp2.i.not.i, label %if.else.i, label %if.then.i
@@ -999,7 +988,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.else.i:                                        ; preds = %_PyIndex_Check.exit.i, %entry
   %9 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %arg.val8.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %arg.val8.i, i64 24
   %10 = load ptr, ptr %tp_name.i, align 8
   %call8.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.21, ptr noundef %10) #7
   br label %return
@@ -1109,56 +1098,56 @@ if.else19:                                        ; preds = %if.else14
 if.end21:                                         ; preds = %if.end.i.i, %if.then17, %if.end.i31, %if.end13
   %kind.0 = phi ptr [ @.str.36, %if.end13 ], [ @.str.36, %if.end.i31 ], [ @.str.37, %if.then17 ], [ @.str.37, %if.end.i.i ]
   %code.0 = phi ptr [ %call4, %if.end13 ], [ %call4, %if.end.i31 ], [ %arg, %if.then17 ], [ %arg, %if.end.i.i ]
-  %co_argcount.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 5
+  %co_argcount.i = getelementptr inbounds i8, ptr %code.0, i64 52
   %5 = load i32, ptr %co_argcount.i, align 4
   %cmp.i23 = icmp sgt i32 %5, 0
   br i1 %cmp.i23, label %if.then24, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end21
-  %co_posonlyargcount.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 6
+  %co_posonlyargcount.i = getelementptr inbounds i8, ptr %code.0, i64 56
   %6 = load i32, ptr %co_posonlyargcount.i, align 8
   %cmp1.i = icmp sgt i32 %6, 0
   br i1 %cmp1.i, label %if.then24, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %co_kwonlyargcount.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 7
+  %co_kwonlyargcount.i = getelementptr inbounds i8, ptr %code.0, i64 60
   %7 = load i32, ptr %co_kwonlyargcount.i, align 4
   %cmp3.i = icmp sgt i32 %7, 0
   br i1 %cmp3.i, label %if.then24, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false2.i
-  %co_flags.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 4
+  %co_flags.i = getelementptr inbounds i8, ptr %code.0, i64 48
   %8 = load i32, ptr %co_flags.i, align 8
   %and.i = and i32 %8, 12
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i24, label %if.then24
 
 if.end.i24:                                       ; preds = %lor.lhs.false4.i
-  %co_ncellvars.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 13
+  %co_ncellvars.i = getelementptr inbounds i8, ptr %code.0, i64 84
   %9 = load i32, ptr %co_ncellvars.i, align 4
   %cmp5.i = icmp sgt i32 %9, 0
   br i1 %cmp5.i, label %if.then24, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i24
-  %co_executors.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 23
+  %co_executors.i = getelementptr inbounds i8, ptr %code.0, i64 152
   %10 = load ptr, ptr %co_executors.i, align 8
   %cmp8.not.i = icmp eq ptr %10, null
   br i1 %cmp8.not.i, label %lor.lhs.false9.i, label %if.then24
 
 lor.lhs.false9.i:                                 ; preds = %if.end7.i
-  %_co_instrumentation_version.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 25
+  %_co_instrumentation_version.i = getelementptr inbounds i8, ptr %code.0, i64 168
   %11 = load i64, ptr %_co_instrumentation_version.i, align 8
   %cmp10.not.i = icmp eq i64 %11, 0
   br i1 %cmp10.not.i, label %if.end12.i, label %if.then24
 
 if.end12.i:                                       ; preds = %lor.lhs.false9.i
-  %_co_monitoring.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 26
+  %_co_monitoring.i = getelementptr inbounds i8, ptr %code.0, i64 176
   %12 = load ptr, ptr %_co_monitoring.i, align 8
   %cmp13.not.i = icmp eq ptr %12, null
   br i1 %cmp13.not.i, label %if.end15.i, label %if.then24
 
 if.end15.i:                                       ; preds = %if.end12.i
-  %co_extra.i = getelementptr inbounds %struct.PyCodeObject, ptr %code.0, i64 0, i32 28
+  %co_extra.i = getelementptr inbounds i8, ptr %code.0, i64 192
   %13 = load ptr, ptr %co_extra.i, align 8
   %cmp16.not.i = icmp eq ptr %13, null
   br i1 %cmp16.not.i, label %return, label %if.then24
@@ -1232,7 +1221,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp9.i, label %get_code_str.exit.thread, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.else.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call8.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call8.i, i64 32
   %5 = getelementptr i8, ptr %call8.i, i64 16
   %call8.val.i = load i64, ptr %5, align 8
   br label %if.end4
@@ -1253,7 +1242,7 @@ if.end4:                                          ; preds = %if.end11.i, %if.end
   br i1 %cmp.i3, label %if.then.i5, label %if.end4.i
 
 if.then.i5:                                       ; preds = %if.end4
-  %error.i = getelementptr inbounds %struct.xi_session, ptr %session.i, i64 0, i32 6
+  %error.i = getelementptr inbounds i8, ptr %session.i, i64 40
   %6 = load ptr, ptr %error.i, align 8
   %call1.i = call ptr @_PyXI_ApplyError(ptr noundef %6) #7
   %cmp2.not.i = icmp eq ptr %call1.i, null
@@ -1264,7 +1253,7 @@ if.then3.i:                                       ; preds = %if.then.i5
   br label %_run_in_interpreter.exit
 
 if.end4.i:                                        ; preds = %if.end4
-  %main_ns.i = getelementptr inbounds %struct.xi_session, ptr %session.i, i64 0, i32 4
+  %main_ns.i = getelementptr inbounds i8, ptr %session.i, i64 24
   %7 = load ptr, ptr %main_ns.i, align 8
   br i1 %tobool.not.i, label %if.else.i.i, label %if.then.i.i
 
@@ -1418,7 +1407,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %XIBufferViewType = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 1
+  %XIBufferViewType = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i4 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @XIBufferViewType_spec, ptr noundef null) #7
   %cmp.i = icmp eq ptr %call.i4, null
   br i1 %cmp.i, label %error, label %if.end.i
@@ -1483,7 +1472,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   tail call void @_PyCrossInterpreterData_Init(ptr noundef %data, ptr noundef %0, ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull @_memoryview_from_xid) #7
   br label %return
@@ -1496,10 +1485,10 @@ return:                                           ; preds = %entry, %if.end4, %i
 ; Function Attrs: nounwind uwtable
 define internal void @xibufferview_dealloc(ptr noundef %self) #0 {
 entry:
-  %interpid = getelementptr inbounds %struct.XIBufferViewObject, ptr %self, i64 0, i32 2
+  %interpid = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %interpid, align 8
   %call = tail call ptr @_PyInterpreterState_LookUpID(i64 noundef %0) #7
-  %view = getelementptr inbounds %struct.XIBufferViewObject, ptr %self, i64 0, i32 1
+  %view = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %view, align 8
   %call1 = tail call i32 @_PyBuffer_ReleaseInInterpreterAndRawFree(ptr noundef %call, ptr noundef %1) #7
   %cmp = icmp slt i32 %call1, 0
@@ -1512,7 +1501,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %2 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %2, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %3 = load ptr, ptr %tp_free, align 8
   tail call void %3(ptr noundef nonnull %self) #7
   %4 = load i64, ptr %self.val, align 8
@@ -1537,12 +1526,12 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @xibufferview_getbuf(ptr noundef %self, ptr nocapture noundef writeonly %view, i32 %flags) #4 {
 entry:
-  %view1 = getelementptr inbounds %struct.XIBufferViewObject, ptr %self, i64 0, i32 1
+  %view1 = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %view1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %view, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 72, i1 false)
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %view, i64 8
   store ptr %self, ptr %obj, align 8
-  %internal = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 10
+  %internal = getelementptr inbounds i8, ptr %view, i64 72
   store ptr null, ptr %internal, align 8
   ret i32 0
 }
@@ -1615,7 +1604,7 @@ _get_current_module_state.exit.i:                 ; preds = %if.then1.i.i.i, %if
   br i1 %cmp.i, label %return, label %_get_current_xibufferview_type.exit
 
 _get_current_xibufferview_type.exit:              ; preds = %_get_current_module_state.exit.i
-  %XIBufferViewType.i = getelementptr inbounds %struct.module_state, ptr %call.i7.i.i, i64 0, i32 1
+  %XIBufferViewType.i = getelementptr inbounds i8, ptr %call.i7.i.i, i64 8
   %5 = load ptr, ptr %XIBufferViewType.i, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %return, label %if.end
@@ -1628,11 +1617,11 @@ if.end:                                           ; preds = %_get_current_xibuff
 if.end4:                                          ; preds = %if.end
   %call1.i = tail call ptr @PyObject_Init(ptr noundef nonnull %call.i, ptr noundef nonnull %5) #7
   %6 = load ptr, ptr %data, align 8
-  %view.i = getelementptr inbounds %struct.XIBufferViewObject, ptr %call.i, i64 0, i32 1
+  %view.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %6, ptr %view.i, align 8
-  %interpid.i = getelementptr inbounds %struct._xid, ptr %data, i64 0, i32 2
+  %interpid.i = getelementptr inbounds i8, ptr %data, i64 16
   %7 = load i64, ptr %interpid.i, align 8
-  %interpid3.i = getelementptr inbounds %struct.XIBufferViewObject, ptr %call.i, i64 0, i32 2
+  %interpid3.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %7, ptr %interpid3.i, align 8
   %call5 = tail call ptr @PyMemoryView_FromObject(ptr noundef nonnull %call.i) #7
   br label %return

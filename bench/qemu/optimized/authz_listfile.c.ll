@@ -5,16 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.QAuthZListFile = type { %struct.QAuthZ, ptr, ptr, i8, ptr, i64 }
-%struct.QAuthZ = type { %struct.Object }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.QAuthZClass = type { %struct.ObjectClass, ptr }
 %struct.timeval = type { i64, i64 }
-%struct._GError = type { i32, i32, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [16 x i8] c"authz-list-file\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"filename\00", align 1
@@ -95,9 +86,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qauthz_list_file_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %file_watch = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 5
+  %file_watch = getelementptr inbounds i8, ptr %call.i, i64 72
   store i64 -1, ptr %file_watch, align 8
-  %refresh = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 3
+  %refresh = getelementptr inbounds i8, ptr %call.i, i64 56
   store i8 1, ptr %refresh, align 8
   ret void
 }
@@ -106,13 +97,13 @@ entry:
 define internal void @qauthz_list_file_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %list = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %list, align 8
   tail call void @object_unref(ptr noundef %0) #5
-  %filename = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %1) #5
-  %file_monitor = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 4
+  %file_monitor = getelementptr inbounds i8, ptr %call.i, i64 64
   %2 = load ptr, ptr %file_monitor, align 8
   tail call void @qemu_file_monitor_free(ptr noundef %2) #5
   ret void
@@ -123,11 +114,11 @@ define internal void @qauthz_list_file_class_init(ptr noundef %oc, ptr nocapture
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #5
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_CLASS) #5
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qauthz_list_file_complete, ptr %complete, align 8
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @qauthz_list_file_prop_get_filename, ptr noundef nonnull @qauthz_list_file_prop_set_filename) #5
   %call3 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @qauthz_list_file_prop_get_refresh, ptr noundef nonnull @qauthz_list_file_prop_set_refresh) #5
-  %is_allowed = getelementptr inbounds %struct.QAuthZClass, ptr %call.i4, i64 0, i32 1
+  %is_allowed = getelementptr inbounds i8, ptr %call.i4, i64 96
   store ptr @qauthz_list_file_is_allowed, ptr %is_allowed, align 8
   ret void
 }
@@ -142,7 +133,7 @@ declare void @qemu_file_monitor_free(ptr noundef) local_unnamed_addr #1
 define internal void @qauthz_list_file_complete(ptr noundef %uc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %filename = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %filename, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -153,13 +144,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call fastcc ptr @qauthz_list_file_load(ptr noundef nonnull %call.i, ptr noundef %errp)
-  %list = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call1, ptr %list, align 8
   %tobool3.not = icmp eq ptr %call1, null
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %refresh = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 3
+  %refresh = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load i8, ptr %refresh, align 8
   %2 = and i8 %1, 1
   %tobool6.not = icmp eq i8 %2, 0
@@ -167,7 +158,7 @@ if.end5:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end5
   %call9 = tail call ptr @qemu_file_monitor_new(ptr noundef %errp) #5
-  %file_monitor = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 4
+  %file_monitor = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call9, ptr %file_monitor, align 8
   %tobool11.not = icmp eq ptr %call9, null
   br i1 %tobool11.not, label %return, label %if.end13
@@ -197,7 +188,7 @@ if.then24:                                        ; preds = %if.end19
 if.end25:                                         ; preds = %if.end19
   %5 = load ptr, ptr %file_monitor, align 8
   %call27 = tail call i64 @qemu_file_monitor_add_watch(ptr noundef %5, ptr noundef %call15, ptr noundef %call21, ptr noundef nonnull @qauthz_list_file_event, ptr noundef nonnull %call.i, ptr noundef %errp) #5
-  %file_watch = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 5
+  %file_watch = getelementptr inbounds i8, ptr %call.i, i64 72
   store i64 %call27, ptr %file_watch, align 8
   br label %cleanup
 
@@ -217,7 +208,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qauthz_list_file_prop_get_filename(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %filename = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %filename, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -227,7 +218,7 @@ entry:
 define internal void @qauthz_list_file_prop_set_filename(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %filename = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %0) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
@@ -241,7 +232,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @qauthz_list_file_prop_get_refresh(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %refresh = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 3
+  %refresh = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %refresh, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -253,7 +244,7 @@ define internal void @qauthz_list_file_prop_set_refresh(ptr noundef %obj, i1 nou
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %refresh = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 3
+  %refresh = getelementptr inbounds i8, ptr %call.i, i64 56
   store i8 %frombool, ptr %refresh, align 8
   ret void
 }
@@ -262,7 +253,7 @@ entry:
 define internal zeroext i1 @qauthz_list_file_is_allowed(ptr noundef %authz, ptr noundef %identity, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %authz, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
-  %list = getelementptr inbounds %struct.QAuthZListFile, ptr %call.i, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -289,7 +280,7 @@ entry:
   %len = alloca i64, align 8
   store ptr null, ptr %err, align 8
   store ptr null, ptr %content, align 8
-  %filename = getelementptr inbounds %struct.QAuthZListFile, ptr %fauthz, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %fauthz, i64 48
   %0 = load ptr, ptr %filename, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -315,7 +306,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %fauthz, ptr noundef %0) #5
   br label %trace_qauthz_list_file_load.exit
@@ -334,7 +325,7 @@ trace_qauthz_list_file_load.exit:                 ; preds = %entry, %land.lhs.tr
 if.then:                                          ; preds = %trace_qauthz_list_file_load.exit
   %9 = load ptr, ptr %filename, align 8
   %10 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %10, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 64, ptr noundef nonnull @__func__.qauthz_list_file_load, ptr noundef nonnull @.str.15, ptr noundef %9, ptr noundef %11) #5
   br label %cleanup.thread
@@ -377,7 +368,7 @@ lor.lhs.false.i:                                  ; preds = %if.then9, %if.end11
   %ret.0 = phi ptr [ %call13, %if.end11 ], [ null, %if.then9 ]
   %v.0 = phi ptr [ %call12, %if.end11 ], [ null, %if.then9 ]
   call void @visit_free(ptr noundef %v.0) #5
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call3, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call3, i64 8
   %15 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %15, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -432,12 +423,12 @@ entry:
   br i1 %or.cond, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %list = getelementptr inbounds %struct.QAuthZListFile, ptr %opaque, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %list, align 8
   tail call void @object_unref(ptr noundef %0) #5
   %call = call fastcc ptr @qauthz_list_file_load(ptr noundef %opaque, ptr noundef nonnull %err)
   store ptr %call, ptr %list, align 8
-  %filename = getelementptr inbounds %struct.QAuthZListFile, ptr %opaque, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %opaque, i64 48
   %1 = load ptr, ptr %filename, align 8
   %tobool.not = icmp ne ptr %call, null
   %cond = zext i1 %tobool.not to i32
@@ -465,7 +456,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %opaque, ptr noundef %1, i32 noundef %cond) #5
   br label %trace_qauthz_list_file_refresh.exit

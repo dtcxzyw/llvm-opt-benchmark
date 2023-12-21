@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union._GMutex = type { ptr }
-%struct.qemu_info_t = type { ptr, %struct.anon, i8, %union.anon }
-%struct.anon = type { i32, i32 }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { i32, i32 }
-%struct._GString = type { ptr, i64, i64 }
-%struct._GList = type { ptr, ptr, ptr }
-%struct.DeviceCounts = type { ptr, i64, %struct.IOCounts, ptr }
-%struct.IOCounts = type { i64, i64, i64, i64 }
-%struct.IOLocationCounts = type { i64, %struct.IOCounts }
 
 @qemu_plugin_version = local_unnamed_addr global i32 1, align 4
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -73,7 +64,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp4, label %if.then, label %if.else17
 
 if.then:                                          ; preds = %for.body
-  %arrayidx5 = getelementptr inbounds ptr, ptr %call1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.3) #6
   %cmp7 = icmp eq i32 %call6, 0
@@ -107,7 +98,7 @@ if.else17:                                        ; preds = %for.body
   br i1 %cmp20, label %if.then21, label %if.else28
 
 if.then21:                                        ; preds = %if.else17
-  %arrayidx23 = getelementptr inbounds ptr, ptr %call1, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %call1, i64 8
   %8 = load ptr, ptr %arrayidx23, align 8
   %call24 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %7, ptr noundef %8, ptr noundef nonnull @pattern) #6
   br i1 %call24, label %glib_auto_cleanup_GStrv.exit, label %if.then25
@@ -124,7 +115,7 @@ if.else28:                                        ; preds = %if.else17
   br i1 %cmp31, label %if.then32, label %if.else39
 
 if.then32:                                        ; preds = %if.else28
-  %arrayidx34 = getelementptr inbounds ptr, ptr %call1, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %call1, i64 8
   %11 = load ptr, ptr %arrayidx34, align 8
   %call35 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %10, ptr noundef %11, ptr noundef nonnull @source) #6
   br i1 %call35, label %glib_auto_cleanup_GStrv.exit, label %if.then36
@@ -141,7 +132,7 @@ if.else39:                                        ; preds = %if.else28
 
 if.then43:                                        ; preds = %if.else39
   store i1 true, ptr @check_match, align 1
-  %arrayidx44 = getelementptr inbounds ptr, ptr %call1, i64 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %call1, i64 8
   %13 = load ptr, ptr %arrayidx44, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef %13) #6
   br label %glib_auto_cleanup_GStrv.exit
@@ -185,7 +176,7 @@ if.then56:                                        ; preds = %land.lhs.true
   br label %cleanup68
 
 if.end58:                                         ; preds = %land.lhs.true, %if.end53
-  %system_emulation = getelementptr inbounds %struct.qemu_info_t, ptr %info, i64 0, i32 2
+  %system_emulation = getelementptr inbounds i8, ptr %info, i64 16
   %22 = load i8, ptr %system_emulation, align 8
   %23 = and i8 %22, 1
   %tobool59.not = icmp eq i8 %23, 0
@@ -197,13 +188,13 @@ if.then60:                                        ; preds = %if.end58
   br label %cleanup68
 
 if.end62:                                         ; preds = %if.end58
-  %26 = getelementptr inbounds %struct.qemu_info_t, ptr %info, i64 0, i32 3
+  %26 = getelementptr inbounds i8, ptr %info, i64 20
   %27 = load i32, ptr %26, align 4
   %cmp63 = icmp sgt i32 %27, 64
   br i1 %cmp63, label %if.then65, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end62
-  %max_vcpus = getelementptr inbounds %struct.qemu_info_t, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %max_vcpus = getelementptr inbounds i8, ptr %info, i64 24
   %28 = load i32, ptr %max_vcpus, align 4
   %cmp64 = icmp sgt i32 %28, 64
   br i1 %cmp64, label %if.then65, label %if.end67
@@ -324,10 +315,10 @@ if.then5:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %len.i = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %call, i64 8
   %10 = load i64, ptr %len.i, align 8
   %add.i = add i64 %10, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %call, i64 16
   %11 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %11
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -354,7 +345,7 @@ if.end8:                                          ; preds = %if.else.i, %if.then
   br i1 %tobool10.not, label %glib_autoptr_cleanup_GString.exit, label %cond.true
 
 cond.true:                                        ; preds = %if.end8
-  %next = getelementptr inbounds %struct._GList, ptr %call9, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call9, i64 8
   %16 = load ptr, ptr %next, align 8
   %tobool12.not = icmp eq ptr %16, null
   br i1 %tobool12.not, label %glib_autoptr_cleanup_GString.exit, label %if.then13
@@ -365,14 +356,14 @@ if.then13:                                        ; preds = %cond.true
   br i1 %tobool15.not36, label %while.end31, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then13
-  %len.i15 = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 1
-  %allocated_len.i17 = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 2
+  %len.i15 = getelementptr inbounds i8, ptr %call, i64 8
+  %allocated_len.i17 = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end29
   %it.037 = phi ptr [ %call14, %while.body.lr.ph ], [ %41, %if.end29 ]
   %17 = load ptr, ptr %it.037, align 8
-  %detail = getelementptr inbounds %struct.DeviceCounts, ptr %17, i64 0, i32 3
+  %detail = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load ptr, ptr %detail, align 8
   %tobool16.not = icmp eq ptr %18, null
   br i1 %tobool16.not, label %if.else, label %if.then17
@@ -385,7 +376,7 @@ if.then17:                                        ; preds = %while.body
   %tobool21.not = icmp eq i8 %20, 0
   %cond = select i1 %tobool21.not, ptr @.str.24, ptr @.str.23
   %21 = load ptr, ptr %17, align 8
-  %base = getelementptr inbounds %struct.DeviceCounts, ptr %17, i64 0, i32 1
+  %base = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load i64, ptr %base, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.25, ptr noundef %21, i64 noundef %22) #6
   %tobool23.not34 = icmp eq ptr %call20, null
@@ -402,9 +393,9 @@ while.body24:                                     ; preds = %if.then17, %g_strin
   br i1 %27, label %if.then.i14, label %if.end.i
 
 if.then.i14:                                      ; preds = %while.body24
-  %counts26 = getelementptr inbounds %struct.IOLocationCounts, ptr %23, i64 0, i32 1
+  %counts26 = getelementptr inbounds i8, ptr %23, i64 8
   %28 = load i64, ptr %counts26, align 8
-  %reads.i = getelementptr inbounds %struct.IOLocationCounts, ptr %23, i64 0, i32 1, i32 2
+  %reads.i = getelementptr inbounds i8, ptr %23, i64 24
   %29 = load i64, ptr %reads.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.19, i64 noundef %28, i64 noundef %29) #6
   %.pre.i = load i32, ptr @rw, align 4
@@ -417,9 +408,9 @@ if.end.i:                                         ; preds = %if.then.i14, %while
   br i1 %32, label %if.then2.i, label %fmt_iocount_record.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cpu_write.i = getelementptr inbounds %struct.IOLocationCounts, ptr %23, i64 0, i32 1, i32 1
+  %cpu_write.i = getelementptr inbounds i8, ptr %23, i64 16
   %33 = load i64, ptr %cpu_write.i, align 8
-  %writes.i = getelementptr inbounds %struct.IOLocationCounts, ptr %23, i64 0, i32 1, i32 3
+  %writes.i = getelementptr inbounds i8, ptr %23, i64 32
   %34 = load i64, ptr %writes.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.19, i64 noundef %33, i64 noundef %34) #6
   br label %fmt_iocount_record.exit
@@ -447,7 +438,7 @@ if.else.i19:                                      ; preds = %fmt_iocount_record.
   br label %g_string_append_c_inline.exit25
 
 g_string_append_c_inline.exit25:                  ; preds = %if.then.i22, %if.else.i19
-  %next28 = getelementptr inbounds %struct._GList, ptr %io_it.035, i64 0, i32 1
+  %next28 = getelementptr inbounds i8, ptr %io_it.035, i64 8
   %40 = load ptr, ptr %next28, align 8
   %tobool23.not = icmp eq ptr %40, null
   br i1 %tobool23.not, label %if.end29, label %while.body24, !llvm.loop !7
@@ -457,7 +448,7 @@ if.else:                                          ; preds = %while.body
   br label %if.end29
 
 if.end29:                                         ; preds = %g_string_append_c_inline.exit25, %if.then17, %if.else
-  %next30 = getelementptr inbounds %struct._GList, ptr %it.037, i64 0, i32 1
+  %next30 = getelementptr inbounds i8, ptr %it.037, i64 8
   %41 = load ptr, ptr %next30, align 8
   %tobool15.not = icmp eq ptr %41, null
   br i1 %tobool15.not, label %while.end31, label %while.body, !llvm.loop !8
@@ -512,7 +503,7 @@ if.then7:                                         ; preds = %if.else
   %sub = sub i64 %vaddr, %call3
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #8
   store ptr %call2, ptr %call.i, align 8
-  %base2.i = getelementptr inbounds %struct.DeviceCounts, ptr %call.i, i64 0, i32 1
+  %base2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %sub, ptr %base2.i, align 8
   %1 = load i8, ptr @pattern, align 1
   %2 = and i8 %1, 1
@@ -527,7 +518,7 @@ lor.lhs.false.i:                                  ; preds = %if.then7
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then7
   %call4.i = tail call ptr @g_hash_table_new(ptr noundef null, ptr noundef null) #6
-  %detail.i = getelementptr inbounds %struct.DeviceCounts, ptr %call.i, i64 0, i32 3
+  %detail.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %call4.i, ptr %detail.i, align 8
   br label %new_count.exit
 
@@ -558,16 +549,16 @@ if.then14:                                        ; preds = %if.then10
   br i1 %call4, label %if.then.i23, label %if.else.i
 
 if.then.i23:                                      ; preds = %if.then14
-  %writes.i = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2, i32 3
+  %writes.i = getelementptr inbounds i8, ptr %counts.0, i64 40
   %9 = load i64, ptr %writes.i, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %writes.i, align 8
-  %cpu_write.i = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2, i32 1
+  %cpu_write.i = getelementptr inbounds i8, ptr %counts.0, i64 24
   br label %if.end20.sink.split
 
 if.else.i:                                        ; preds = %if.then14
-  %totals = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2
-  %reads.i = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2, i32 2
+  %totals = getelementptr inbounds i8, ptr %counts.0, i64 16
+  %reads.i = getelementptr inbounds i8, ptr %counts.0, i64 32
   %10 = load i64, ptr %reads.i, align 8
   %inc1.i = add i64 %10, 1
   store i64 %inc1.i, ptr %reads.i, align 8
@@ -577,16 +568,16 @@ if.else17:                                        ; preds = %if.end
   br i1 %call4, label %if.then.i31, label %if.else.i24
 
 if.then.i31:                                      ; preds = %if.else17
-  %writes.i32 = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2, i32 3
+  %writes.i32 = getelementptr inbounds i8, ptr %counts.0, i64 40
   %11 = load i64, ptr %writes.i32, align 8
   %inc.i33 = add i64 %11, 1
   store i64 %inc.i33, ptr %writes.i32, align 8
-  %cpu_write.i34 = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2, i32 1
+  %cpu_write.i34 = getelementptr inbounds i8, ptr %counts.0, i64 24
   br label %if.end20.sink.split
 
 if.else.i24:                                      ; preds = %if.else17
-  %totals18 = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2
-  %reads.i25 = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 2, i32 2
+  %totals18 = getelementptr inbounds i8, ptr %counts.0, i64 16
+  %reads.i25 = getelementptr inbounds i8, ptr %counts.0, i64 32
   %12 = load i64, ptr %reads.i25, align 8
   %inc1.i26 = add i64 %12, 1
   store i64 %inc1.i26, ptr %reads.i25, align 8
@@ -614,7 +605,7 @@ if.end20:                                         ; preds = %if.end20.sink.split
   br i1 %brmerge, label %if.then27, label %if.end36
 
 if.then27:                                        ; preds = %if.end20
-  %detail = getelementptr inbounds %struct.DeviceCounts, ptr %counts.0, i64 0, i32 3
+  %detail = getelementptr inbounds i8, ptr %counts.0, i64 48
   %19 = load ptr, ptr %detail, align 8
   %20 = inttoptr i64 %spec.select to ptr
   %call28 = tail call ptr @g_hash_table_lookup(ptr noundef %19, ptr noundef %20) #6
@@ -633,16 +624,16 @@ if.end33:                                         ; preds = %if.then30, %if.then
   br i1 %call4, label %if.then.i44, label %if.else.i37
 
 if.then.i44:                                      ; preds = %if.end33
-  %writes.i45 = getelementptr inbounds %struct.IOLocationCounts, ptr %io_count.0, i64 0, i32 1, i32 3
+  %writes.i45 = getelementptr inbounds i8, ptr %io_count.0, i64 32
   %22 = load i64, ptr %writes.i45, align 8
   %inc.i46 = add i64 %22, 1
   store i64 %inc.i46, ptr %writes.i45, align 8
-  %cpu_write.i47 = getelementptr inbounds %struct.IOLocationCounts, ptr %io_count.0, i64 0, i32 1, i32 1
+  %cpu_write.i47 = getelementptr inbounds i8, ptr %io_count.0, i64 16
   br label %inc_count.exit48
 
 if.else.i37:                                      ; preds = %if.end33
-  %counts34 = getelementptr inbounds %struct.IOLocationCounts, ptr %io_count.0, i64 0, i32 1
-  %reads.i38 = getelementptr inbounds %struct.IOLocationCounts, ptr %io_count.0, i64 0, i32 1, i32 2
+  %counts34 = getelementptr inbounds i8, ptr %io_count.0, i64 8
+  %reads.i38 = getelementptr inbounds i8, ptr %io_count.0, i64 24
   %23 = load i64, ptr %reads.i38, align 8
   %inc1.i39 = add i64 %23, 1
   store i64 %inc1.i39, ptr %reads.i38, align 8
@@ -692,7 +683,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 define internal fastcc void @fmt_dev_record(ptr noundef %s, ptr nocapture noundef readonly %rec) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rec, align 8
-  %base = getelementptr inbounds %struct.DeviceCounts, ptr %rec, i64 0, i32 1
+  %base = getelementptr inbounds i8, ptr %rec, i64 8
   %1 = load i64, ptr %base, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %s, ptr noundef nonnull @.str.18, ptr noundef %0, i64 noundef %1) #6
   %2 = load i32, ptr @rw, align 4
@@ -701,9 +692,9 @@ entry:
   br i1 %4, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %totals = getelementptr inbounds %struct.DeviceCounts, ptr %rec, i64 0, i32 2
+  %totals = getelementptr inbounds i8, ptr %rec, i64 16
   %5 = load i64, ptr %totals, align 8
-  %reads.i = getelementptr inbounds %struct.DeviceCounts, ptr %rec, i64 0, i32 2, i32 2
+  %reads.i = getelementptr inbounds i8, ptr %rec, i64 32
   %6 = load i64, ptr %reads.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %s, ptr noundef nonnull @.str.19, i64 noundef %5, i64 noundef %6) #6
   %.pre.i = load i32, ptr @rw, align 4
@@ -716,18 +707,18 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %9, label %if.then2.i, label %fmt_iocount_record.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cpu_write.i = getelementptr inbounds %struct.DeviceCounts, ptr %rec, i64 0, i32 2, i32 1
+  %cpu_write.i = getelementptr inbounds i8, ptr %rec, i64 24
   %10 = load i64, ptr %cpu_write.i, align 8
-  %writes.i = getelementptr inbounds %struct.DeviceCounts, ptr %rec, i64 0, i32 2, i32 3
+  %writes.i = getelementptr inbounds i8, ptr %rec, i64 40
   %11 = load i64, ptr %writes.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %s, ptr noundef nonnull @.str.19, i64 noundef %10, i64 noundef %11) #6
   br label %fmt_iocount_record.exit
 
 fmt_iocount_record.exit:                          ; preds = %if.end.i, %if.then2.i
-  %len.i = getelementptr inbounds %struct._GString, ptr %s, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %s, i64 8
   %12 = load i64, ptr %len.i, align 8
   %add.i = add i64 %12, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %s, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %s, i64 16
   %13 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %13
   br i1 %cmp.i, label %if.then.i6, label %if.else.i
@@ -764,14 +755,14 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sort_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
-  %reads = getelementptr inbounds %struct.DeviceCounts, ptr %a, i64 0, i32 2, i32 2
+  %reads = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load i64, ptr %reads, align 8
-  %writes = getelementptr inbounds %struct.DeviceCounts, ptr %a, i64 0, i32 2, i32 3
+  %writes = getelementptr inbounds i8, ptr %a, i64 40
   %1 = load i64, ptr %writes, align 8
   %add = add i64 %1, %0
-  %reads3 = getelementptr inbounds %struct.DeviceCounts, ptr %b, i64 0, i32 2, i32 2
+  %reads3 = getelementptr inbounds i8, ptr %b, i64 32
   %2 = load i64, ptr %reads3, align 8
-  %writes5 = getelementptr inbounds %struct.DeviceCounts, ptr %b, i64 0, i32 2, i32 3
+  %writes5 = getelementptr inbounds i8, ptr %b, i64 40
   %3 = load i64, ptr %writes5, align 8
   %add6 = add i64 %3, %2
   %cmp = icmp ugt i64 %add, %add6

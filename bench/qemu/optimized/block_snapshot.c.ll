@@ -7,35 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
 %struct.QEMUSnapshotInfo = type { [128 x i8], [256 x i8], i64, i32, i32, i64, i64 }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon.0, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.10, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.10 = type { ptr, ptr }
-%struct.BdrvChild = type { ptr, ptr, ptr, i32, ptr, i64, i64, i8, i8, %struct.anon.11, %struct.anon.12 }
-%struct.anon.11 = type { ptr, ptr }
-%struct.anon.12 = type { ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
-%struct._GList = type { ptr, ptr, ptr }
 %struct.BdrvNextIterator = type { i32, ptr, ptr }
-%struct.strList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"snapshot\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"snapshot.id\00", align 1
@@ -134,13 +106,13 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %name5 = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre, i64 %indvars.iv
+  %name5 = getelementptr inbounds i8, ptr %arrayidx, i64 128
   %call6 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then7, label %for.cond
 
 if.then7:                                         ; preds = %for.body
-  %arrayidx = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn_info, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx, i64 416, i1 false)
   br label %for.end
 
@@ -171,14 +143,14 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %drv2 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv2 = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv2, align 8
   %call3 = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef %bs)
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end5
 
 if.end5:                                          ; preds = %do.end
-  %bdrv_snapshot_list = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 38
+  %bdrv_snapshot_list = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load ptr, ptr %bdrv_snapshot_list, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -261,7 +233,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool17.not, label %land.lhs.true18, label %for.inc
 
 land.lhs.true18:                                  ; preds = %for.body
-  %name19 = getelementptr %struct.QEMUSnapshotInfo, ptr %0, i64 %indvars.iv51, i32 1
+  %name19 = getelementptr inbounds i8, ptr %arrayidx, i64 128
   %call21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name19, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end61.sink.split, label %for.inc
@@ -306,17 +278,14 @@ for.cond45:                                       ; preds = %for.body47
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.cond45
   %indvars.iv = phi i64 [ 0, %for.body47.lr.ph ], [ %indvars.iv.next, %for.cond45 ]
-  %name50 = getelementptr %struct.QEMUSnapshotInfo, ptr %2, i64 %indvars.iv, i32 1
+  %arrayidx49 = getelementptr %struct.QEMUSnapshotInfo, ptr %2, i64 %indvars.iv
+  %name50 = getelementptr inbounds i8, ptr %arrayidx49, i64 128
   %call52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name50, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool53.not = icmp eq i32 %call52, 0
-  br i1 %tobool53.not, label %if.then54, label %for.cond45
+  br i1 %tobool53.not, label %if.end61.sink.split, label %for.cond45
 
-if.then54:                                        ; preds = %for.body47
-  %arrayidx49 = getelementptr %struct.QEMUSnapshotInfo, ptr %2, i64 %indvars.iv
-  br label %if.end61.sink.split
-
-if.end61.sink.split:                              ; preds = %for.body30, %land.lhs.true18, %if.then54
-  %arrayidx32.lcssa.sink = phi ptr [ %arrayidx49, %if.then54 ], [ %arrayidx, %land.lhs.true18 ], [ %arrayidx32, %for.body30 ]
+if.end61.sink.split:                              ; preds = %for.body47, %for.body30, %land.lhs.true18
+  %arrayidx32.lcssa.sink = phi ptr [ %arrayidx, %land.lhs.true18 ], [ %arrayidx32, %for.body30 ], [ %arrayidx49, %for.body47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn_info, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx32.lcssa.sink, i64 416, i1 false)
   br label %if.end61
 
@@ -340,7 +309,7 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then8, %entry
   %bs.tr = phi ptr [ %bs, %entry ], [ %call9, %if.then8 ]
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs.tr, i64 16
   %0 = load ptr, ptr %drv1, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call, label %do.end, label %if.else
@@ -362,7 +331,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false3
-  %bdrv_snapshot_create = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 35
+  %bdrv_snapshot_create = getelementptr inbounds i8, ptr %0, i64 240
   %1 = load ptr, ptr %bdrv_snapshot_create, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %if.then8, label %return
@@ -406,20 +375,20 @@ do.end.i:                                         ; preds = %do.end
   br i1 %tobool.not.i, label %child_bs.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %do.end.i
-  %children.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 29
+  %children.i = getelementptr inbounds i8, ptr %bs, i64 16824
   %child.07.i = load ptr, ptr %children.i, align 8
   %tobool4.not8.i = icmp eq ptr %child.07.i, null
   br i1 %tobool4.not8.i, label %cond.true.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.BdrvChild, ptr %child.09.i, i64 0, i32 9
+  %next.i = getelementptr inbounds i8, ptr %child.09.i, i64 64
   %child.0.i = load ptr, ptr %next.i, align 8
   %tobool4.not.i = icmp eq ptr %child.0.i, null
   br i1 %tobool4.not.i, label %cond.true.i, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end3.i, %for.cond.i
   %child.09.i = phi ptr [ %child.0.i, %for.cond.i ], [ %child.07.i, %if.end3.i ]
-  %role.i = getelementptr inbounds %struct.BdrvChild, ptr %child.09.i, i64 0, i32 3
+  %role.i = getelementptr inbounds i8, ptr %child.09.i, i64 24
   %0 = load i32, ptr %role.i, align 8
   %and.i = and i32 %0, 7
   %tobool5.not.i = icmp eq i32 %and.i, 0
@@ -443,7 +412,7 @@ entry:
 
 tailrecurse:                                      ; preds = %if.end9, %entry
   %bs.tr = phi ptr [ %bs, %entry ], [ %call, %if.end9 ]
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs.tr, i64 16
   %0 = load ptr, ptr %drv1, align 8
   %call = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef %bs.tr)
   %call2 = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -458,7 +427,7 @@ do.end:                                           ; preds = %tailrecurse
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %do.end
-  %bdrv_snapshot_create = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 35
+  %bdrv_snapshot_create = getelementptr inbounds i8, ptr %0, i64 240
   %1 = load ptr, ptr %bdrv_snapshot_create, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
@@ -481,7 +450,7 @@ define dso_local i32 @bdrv_snapshot_goto(ptr noundef %bs, ptr noundef %snapshot_
 entry:
   %file_options = alloca ptr, align 8
   %local_err = alloca ptr, align 8
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv1, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call, label %do.end, label %if.else
@@ -499,7 +468,7 @@ if.then2:                                         ; preds = %do.end
   br label %return
 
 if.end3:                                          ; preds = %do.end
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %1 = load ptr, ptr %dirty_bitmaps, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.end5, label %if.then4
@@ -509,7 +478,7 @@ if.then4:                                         ; preds = %if.end3
   br label %return
 
 if.end5:                                          ; preds = %if.end3
-  %bdrv_snapshot_goto = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 36
+  %bdrv_snapshot_goto = getelementptr inbounds i8, ptr %0, i64 248
   %2 = load ptr, ptr %bdrv_snapshot_goto, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.end13, label %if.then7
@@ -540,20 +509,20 @@ do.end.i:                                         ; preds = %if.end13
   br i1 %tobool.not.i, label %bdrv_snapshot_fallback_child.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %do.end.i
-  %children.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 29
+  %children.i = getelementptr inbounds i8, ptr %bs, i64 16824
   %child.07.i = load ptr, ptr %children.i, align 8
   %tobool4.not8.i = icmp eq ptr %child.07.i, null
   br i1 %tobool4.not8.i, label %if.then16, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.BdrvChild, ptr %child.09.i, i64 0, i32 9
+  %next.i = getelementptr inbounds i8, ptr %child.09.i, i64 64
   %child.0.i = load ptr, ptr %next.i, align 8
   %tobool4.not.i = icmp eq ptr %child.0.i, null
   br i1 %tobool4.not.i, label %if.then16, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end3.i, %for.cond.i
   %child.09.i = phi ptr [ %child.0.i, %for.cond.i ], [ %child.07.i, %if.end3.i ]
-  %role.i = getelementptr inbounds %struct.BdrvChild, ptr %child.09.i, i64 0, i32 3
+  %role.i = getelementptr inbounds i8, ptr %child.09.i, i64 24
   %3 = load i32, ptr %role.i, align 8
   %and.i = and i32 %3, 7
   %tobool5.not.i = icmp eq i32 %and.i, 0
@@ -570,10 +539,10 @@ if.then16:                                        ; preds = %for.cond.i, %if.end
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   store ptr null, ptr %local_err, align 8
   %4 = load ptr, ptr %call.i, align 8
-  %name = getelementptr inbounds %struct.BdrvChild, ptr %call.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load ptr, ptr %name, align 8
   %call18 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.13, ptr noundef %5) #6
-  %options19 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 33
+  %options19 = getelementptr inbounds i8, ptr %bs, i64 16856
   %6 = load ptr, ptr %options19, align 8
   %call20 = tail call ptr @qdict_clone_shallow(ptr noundef %6) #6
   tail call void @bdrv_ref(ptr noundef %4) #6
@@ -583,7 +552,7 @@ if.then16:                                        ; preds = %for.cond.i, %if.end
   br i1 %tobool21.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then16
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %7, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %8, 0
   br i1 %tobool1.not.i, label %if.else.i48, label %land.lhs.true.i
@@ -607,7 +576,7 @@ qobject_unref_impl.exit:                          ; preds = %if.then16, %land.lh
   %9 = load ptr, ptr %name, align 8
   %call24 = call ptr @bdrv_get_node_name(ptr noundef %4) #6
   call void @qdict_put_str(ptr noundef %call20, ptr noundef %9, ptr noundef %call24) #6
-  %bdrv_close = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 25
+  %bdrv_close = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load ptr, ptr %bdrv_close, align 8
   %tobool25.not = icmp eq ptr %10, null
   br i1 %tobool25.not, label %if.end28, label %if.then26
@@ -621,7 +590,7 @@ if.end28:                                         ; preds = %if.then26, %qobject
   call void @bdrv_unref_child(ptr noundef nonnull %bs, ptr noundef nonnull %call.i) #6
   call void @bdrv_graph_wrunlock(ptr noundef null) #6
   %call29 = call i32 @bdrv_snapshot_goto(ptr noundef %4, ptr noundef %snapshot_id, ptr noundef %errp)
-  %bdrv_open = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 23
+  %bdrv_open = getelementptr inbounds i8, ptr %0, i64 144
   %11 = load ptr, ptr %bdrv_open, align 8
   %12 = load i32, ptr %bs, align 8
   %call30 = call i32 %11(ptr noundef nonnull %bs, ptr noundef %call20, i32 noundef %12, ptr noundef nonnull %local_err) #6
@@ -629,7 +598,7 @@ if.end28:                                         ; preds = %if.then26, %qobject
   br i1 %tobool32.not, label %qobject_unref_impl.exit57, label %lor.lhs.false.i49
 
 lor.lhs.false.i49:                                ; preds = %if.end28
-  %refcnt.i50 = getelementptr inbounds %struct.QObjectBase_, ptr %call20, i64 0, i32 1
+  %refcnt.i50 = getelementptr inbounds i8, ptr %call20, i64 8
   %13 = load i64, ptr %refcnt.i50, align 8
   %tobool1.not.i51 = icmp eq i64 %13, 0
   br i1 %tobool1.not.i51, label %if.else.i56, label %land.lhs.true.i52
@@ -721,7 +690,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @bdrv_snapshot_delete(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv1, align 8
   %call = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef %bs)
   %call2 = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -752,7 +721,7 @@ if.then8:                                         ; preds = %if.end5
 
 if.end9:                                          ; preds = %if.end5
   tail call void @bdrv_drained_begin(ptr noundef nonnull %bs) #6
-  %bdrv_snapshot_delete = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 37
+  %bdrv_snapshot_delete = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %bdrv_snapshot_delete, align 8
   %tobool10.not = icmp eq ptr %1, null
   br i1 %tobool10.not, label %if.else14, label %if.then11
@@ -794,7 +763,7 @@ declare void @bdrv_drained_end(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @bdrv_snapshot_load_tmp(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv1, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call, label %do.end, label %if.else
@@ -832,7 +801,7 @@ if.then11:                                        ; preds = %if.end9
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end12:                                         ; preds = %if.end9
-  %bdrv_snapshot_load_tmp = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 39
+  %bdrv_snapshot_load_tmp = getelementptr inbounds i8, ptr %0, i64 272
   %1 = load ptr, ptr %bdrv_snapshot_load_tmp, align 8
   %tobool13.not = icmp eq ptr %1, null
   br i1 %tobool13.not, label %if.end17, label %if.then14
@@ -941,7 +910,7 @@ if.end4.i.us:                                     ; preds = %lor.lhs.false.i.us
   br i1 %call5.i.us, label %tailrecurse.i.us.preheader, label %bdrv_all_snapshots_includes_bs.exit.us
 
 bdrv_all_snapshots_includes_bs.exit.us:           ; preds = %if.end4.i.us
-  %parents.i.us = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 32
+  %parents.i.us = getelementptr inbounds i8, ptr %0, i64 16848
   %1 = load ptr, ptr %parents.i.us, align 8
   %cmp.i.us = icmp eq ptr %1, null
   br i1 %cmp.i.us, label %tailrecurse.i.us.preheader, label %if.end17.us
@@ -951,7 +920,7 @@ tailrecurse.i.us.preheader:                       ; preds = %bdrv_all_snapshots_
 
 tailrecurse.i.us:                                 ; preds = %tailrecurse.i.us.preheader, %if.then8.i.us
   %bs.tr.i.us = phi ptr [ %call9.i.us, %if.then8.i.us ], [ %0, %tailrecurse.i.us.preheader ]
-  %drv1.i.us = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i.us, i64 0, i32 6
+  %drv1.i.us = getelementptr inbounds i8, ptr %bs.tr.i.us, i64 16
   %2 = load ptr, ptr %drv1.i.us, align 8
   %call.i9.us = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call.i9.us, label %do.end.i11.us, label %if.else.i10
@@ -969,7 +938,7 @@ lor.lhs.false3.i.us:                              ; preds = %lor.lhs.false.i12.u
   br i1 %call4.i.us, label %if.then15, label %if.end6.i.us
 
 if.end6.i.us:                                     ; preds = %lor.lhs.false3.i.us
-  %bdrv_snapshot_create.i.us = getelementptr inbounds %struct.BlockDriver, ptr %2, i64 0, i32 35
+  %bdrv_snapshot_create.i.us = getelementptr inbounds i8, ptr %2, i64 240
   %3 = load ptr, ptr %bdrv_snapshot_create.i.us, align 8
   %tobool7.not.i.us = icmp eq ptr %3, null
   br i1 %tobool7.not.i.us, label %if.then8.i.us, label %if.end17.us
@@ -981,7 +950,7 @@ if.then8.i.us:                                    ; preds = %if.end6.i.us
 
 if.end17.us:                                      ; preds = %if.end6.i.us, %do.end.i.us, %lor.lhs.false.i.us, %bdrv_all_snapshots_includes_bs.exit.us
   tail call void @aio_context_release(ptr noundef %call6.us) #6
-  %next.us = getelementptr inbounds %struct._GList, ptr %iterbdrvs.028.us, i64 0, i32 1
+  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.028.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
   br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !12
@@ -999,7 +968,7 @@ if.else.i:                                        ; preds = %while.body.us
 
 tailrecurse.i:                                    ; preds = %if.then8.i, %while.body
   %bs.tr.i = phi ptr [ %4, %while.body ], [ %call9.i, %if.then8.i ]
-  %drv1.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i, i64 0, i32 6
+  %drv1.i = getelementptr inbounds i8, ptr %bs.tr.i, i64 16
   %5 = load ptr, ptr %drv1.i, align 8
   %call.i9 = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call.i9, label %do.end.i11, label %if.else.i10
@@ -1021,7 +990,7 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i12
   br i1 %call4.i, label %if.then15, label %if.end6.i
 
 if.end6.i:                                        ; preds = %lor.lhs.false3.i
-  %bdrv_snapshot_create.i = getelementptr inbounds %struct.BlockDriver, ptr %5, i64 0, i32 35
+  %bdrv_snapshot_create.i = getelementptr inbounds i8, ptr %5, i64 240
   %6 = load ptr, ptr %bdrv_snapshot_create.i, align 8
   %tobool7.not.i = icmp eq ptr %6, null
   br i1 %tobool7.not.i, label %if.then8.i, label %bdrv_can_snapshot.exit
@@ -1033,7 +1002,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 bdrv_can_snapshot.exit:                           ; preds = %if.end6.i
   tail call void @aio_context_release(ptr noundef %call6) #6
-  %next = getelementptr inbounds %struct._GList, ptr %iterbdrvs.028, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.028, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !12
@@ -1078,7 +1047,7 @@ if.then2:                                         ; preds = %if.then
 while.body:                                       ; preds = %if.then, %if.end7
   %devices.addr.020 = phi ptr [ %1, %if.end7 ], [ %devices, %if.then ]
   %bdrvs.019 = phi ptr [ %call8, %if.end7 ], [ null, %if.then ]
-  %value = getelementptr inbounds %struct.strList, ptr %devices.addr.020, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %devices.addr.020, i64 8
   %0 = load ptr, ptr %value, align 8
   %call = tail call ptr @bdrv_find_node(ptr noundef %0) #6
   %tobool4.not = icmp eq ptr %call, null
@@ -1109,7 +1078,7 @@ if.end14:                                         ; preds = %for.body, %if.end7,
   br label %glib_autoptr_cleanup_GList.exit
 
 cleanup:                                          ; preds = %while.body
-  %value.le = getelementptr inbounds %struct.strList, ptr %devices.addr.020, i64 0, i32 1
+  %value.le = getelementptr inbounds i8, ptr %devices.addr.020, i64 8
   %2 = load ptr, ptr %value.le, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 495, ptr noundef nonnull @__func__.bdrv_all_get_snapshot_devices, ptr noundef nonnull @.str.32, ptr noundef %2) #6
   %tobool.not.i.i = icmp eq ptr %bdrvs.019, null
@@ -1163,7 +1132,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.pr
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool7.not = icmp eq ptr %devices, null
-  %name12 = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 1
+  %name12 = getelementptr inbounds i8, ptr %sn1, i64 128
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end19
@@ -1195,7 +1164,7 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
   br i1 %call5.i, label %land.lhs.true, label %bdrv_all_snapshots_includes_bs.exit
 
 bdrv_all_snapshots_includes_bs.exit:              ; preds = %if.end4.i
-  %parents.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 32
+  %parents.i = getelementptr inbounds i8, ptr %0, i64 16848
   %1 = load ptr, ptr %parents.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %land.lhs.true, label %if.end15.thread
@@ -1234,7 +1203,8 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %name5.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i
+  %name5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
   %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %if.end15, label %for.cond.i
@@ -1249,7 +1219,6 @@ if.end15.thread:                                  ; preds = %bdrv_all_snapshots_
   br label %if.end19
 
 if.end15:                                         ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn1, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx.i, i64 416, i1 false)
   call void @g_free(ptr noundef %.pre.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
@@ -1264,7 +1233,7 @@ if.then17:                                        ; preds = %if.end15
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end19:                                         ; preds = %if.end15.thread, %if.end15
-  %next = getelementptr inbounds %struct._GList, ptr %iterbdrvs.037, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.037, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !15
@@ -1344,7 +1313,7 @@ bdrv_all_snapshots_includes_bs.exit.us:           ; preds = %if.end4.i.us, %lor.
   br i1 %cmp11.us, label %if.then12, label %if.end14.us
 
 if.end14.us:                                      ; preds = %bdrv_all_snapshots_includes_bs.exit.us
-  %next.us = getelementptr inbounds %struct._GList, ptr %iterbdrvs.017.us, i64 0, i32 1
+  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.017.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool4.not.us = icmp eq ptr %iterbdrvs.0.us, null
   br i1 %tobool4.not.us, label %cleanup, label %while.body.us, !llvm.loop !16
@@ -1376,7 +1345,7 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
   br i1 %call5.i, label %cond.end.critedge, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.end4.i
-  %parents.i = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 32
+  %parents.i = getelementptr inbounds i8, ptr %1, i64 16848
   %2 = load ptr, ptr %parents.i, align 8
   %cmp.i = icmp eq ptr %2, null
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -1409,7 +1378,7 @@ if.then12:                                        ; preds = %bdrv_all_snapshots_
   br label %cleanup
 
 if.end14:                                         ; preds = %cond.end.thread, %cond.end
-  %next = getelementptr inbounds %struct._GList, ptr %iterbdrvs.017, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.017, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool4.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool4.not, label %cleanup, label %while.body, !llvm.loop !16
@@ -1482,7 +1451,7 @@ if.end4.i.us:                                     ; preds = %lor.lhs.false.i.us
   br i1 %call5.i.us, label %if.then9.us, label %bdrv_all_snapshots_includes_bs.exit.us
 
 bdrv_all_snapshots_includes_bs.exit.us:           ; preds = %if.end4.i.us
-  %parents.i.us = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 32
+  %parents.i.us = getelementptr inbounds i8, ptr %0, i64 16848
   %1 = load ptr, ptr %parents.i.us, align 8
   %cmp.i.us = icmp eq ptr %1, null
   br i1 %cmp.i.us, label %if.then9.us, label %if.end19.us
@@ -1525,7 +1494,7 @@ if.end11.us:                                      ; preds = %for.body.i.us
 
 if.end19.us:                                      ; preds = %do.end.i.us, %lor.lhs.false.i.us, %bdrv_all_snapshots_includes_bs.exit.us, %if.end11.us
   call void @aio_context_release(ptr noundef %call6.us) #6
-  %next.us = getelementptr inbounds %struct._GList, ptr %iterbdrvs.040.us, i64 0, i32 1
+  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.040.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
   br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !17
@@ -1582,7 +1551,7 @@ if.end11:                                         ; preds = %for.body.i
   call void @g_free(ptr noundef %.pre.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   call void @aio_context_release(ptr noundef %call6) #6
-  %next = getelementptr inbounds %struct._GList, ptr %iterbdrvs.040, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.040, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !17
@@ -1643,7 +1612,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.pr
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool12.not = icmp eq ptr %devices, null
-  %vm_state_size15 = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn, i64 0, i32 2
+  %vm_state_size15 = getelementptr inbounds i8, ptr %sn, i64 384
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
@@ -1660,7 +1629,7 @@ if.then8:                                         ; preds = %while.body
 
 tailrecurse.i:                                    ; preds = %if.end9.i, %if.then8
   %bs.tr.i = phi ptr [ %vm_state_bs, %if.then8 ], [ %call.i, %if.end9.i ]
-  %drv1.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i, i64 0, i32 6
+  %drv1.i = getelementptr inbounds i8, ptr %bs.tr.i, i64 16
   %1 = load ptr, ptr %drv1.i, align 8
   %call.i = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef %bs.tr.i)
   %call2.i = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -1675,7 +1644,7 @@ do.end.i:                                         ; preds = %tailrecurse.i
   br i1 %tobool.not.i, label %if.end18.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %do.end.i
-  %bdrv_snapshot_create.i = getelementptr inbounds %struct.BlockDriver, ptr %1, i64 0, i32 35
+  %bdrv_snapshot_create.i = getelementptr inbounds i8, ptr %1, i64 240
   %2 = load ptr, ptr %bdrv_snapshot_create.i, align 8
   %tobool5.not.i = icmp eq ptr %2, null
   br i1 %tobool5.not.i, label %if.end9.i, label %if.then6.i
@@ -1713,7 +1682,7 @@ if.end4.i20:                                      ; preds = %lor.lhs.false.i
   br i1 %call5.i, label %if.then14, label %bdrv_all_snapshots_includes_bs.exit
 
 bdrv_all_snapshots_includes_bs.exit:              ; preds = %if.end4.i20
-  %parents.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 32
+  %parents.i = getelementptr inbounds i8, ptr %0, i64 16848
   %3 = load ptr, ptr %parents.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %if.then14, label %if.end18.thread46
@@ -1724,7 +1693,7 @@ if.then14:                                        ; preds = %if.end4.i20, %bdrv_
 
 tailrecurse.i21:                                  ; preds = %if.end9.i35, %if.then14
   %bs.tr.i22 = phi ptr [ %0, %if.then14 ], [ %call.i24, %if.end9.i35 ]
-  %drv1.i23 = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i22, i64 0, i32 6
+  %drv1.i23 = getelementptr inbounds i8, ptr %bs.tr.i22, i64 16
   %4 = load ptr, ptr %drv1.i23, align 8
   %call.i24 = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef %bs.tr.i22)
   %call2.i25 = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -1739,7 +1708,7 @@ do.end.i27:                                       ; preds = %tailrecurse.i21
   br i1 %tobool.not.i28, label %if.end18.thread, label %if.end4.i29
 
 if.end4.i29:                                      ; preds = %do.end.i27
-  %bdrv_snapshot_create.i30 = getelementptr inbounds %struct.BlockDriver, ptr %4, i64 0, i32 35
+  %bdrv_snapshot_create.i30 = getelementptr inbounds i8, ptr %4, i64 240
   %5 = load ptr, ptr %bdrv_snapshot_create.i30, align 8
   %tobool5.not.i31 = icmp eq ptr %5, null
   br i1 %tobool5.not.i31, label %if.end9.i35, label %if.then6.i32
@@ -1769,13 +1738,13 @@ if.end18:                                         ; preds = %if.then6.i32, %if.t
 
 if.then20:                                        ; preds = %if.end18, %if.end18.thread
   %7 = phi ptr [ %6, %if.end18.thread ], [ %0, %if.end18 ]
-  %name = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %sn, i64 128
   %call21 = tail call ptr @bdrv_get_device_or_node_name(ptr noundef %7) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 732, ptr noundef nonnull @__func__.bdrv_all_create_snapshot, ptr noundef nonnull @.str.25, ptr noundef nonnull %name, ptr noundef %call21) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end22:                                         ; preds = %if.end18.thread46, %if.end18
-  %next = getelementptr inbounds %struct._GList, ptr %iterbdrvs.069, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.069, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !18
@@ -1848,7 +1817,7 @@ if.end4.i.us.us:                                  ; preds = %lor.lhs.false.i.us.
   br i1 %call5.i.us.us, label %tailrecurse.i.us.us.preheader, label %bdrv_all_snapshots_includes_bs.exit.us.us
 
 bdrv_all_snapshots_includes_bs.exit.us.us:        ; preds = %if.end4.i.us.us
-  %parents.i.us.us = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 32
+  %parents.i.us.us = getelementptr inbounds i8, ptr %0, i64 16848
   %1 = load ptr, ptr %parents.i.us.us, align 8
   %cmp.i.us.us = icmp eq ptr %1, null
   br i1 %cmp.i.us.us, label %tailrecurse.i.us.us.preheader, label %if.end26.us.us
@@ -1858,7 +1827,7 @@ tailrecurse.i.us.us.preheader:                    ; preds = %bdrv_all_snapshots_
 
 tailrecurse.i.us.us:                              ; preds = %tailrecurse.i.us.us.preheader, %if.then8.i.us.us
   %bs.tr.i.us.us = phi ptr [ %call9.i.us.us, %if.then8.i.us.us ], [ %0, %tailrecurse.i.us.us.preheader ]
-  %drv1.i.us.us = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i.us.us, i64 0, i32 6
+  %drv1.i.us.us = getelementptr inbounds i8, ptr %bs.tr.i.us.us, i64 16
   %2 = load ptr, ptr %drv1.i.us.us, align 8
   %call.i18.us.us = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call.i18.us.us, label %do.end.i20.us.us, label %if.else.i19
@@ -1876,7 +1845,7 @@ lor.lhs.false3.i.us.us:                           ; preds = %lor.lhs.false.i21.u
   br i1 %call4.i.us.us, label %if.end26.us.us, label %if.end6.i.us.us
 
 if.end6.i.us.us:                                  ; preds = %lor.lhs.false3.i.us.us
-  %bdrv_snapshot_create.i.us.us = getelementptr inbounds %struct.BlockDriver, ptr %2, i64 0, i32 35
+  %bdrv_snapshot_create.i.us.us = getelementptr inbounds i8, ptr %2, i64 240
   %3 = load ptr, ptr %bdrv_snapshot_create.i.us.us, align 8
   %tobool7.not.i.us.us = icmp eq ptr %3, null
   br i1 %tobool7.not.i.us.us, label %if.then8.i.us.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.us.split.us.critedge
@@ -1888,7 +1857,7 @@ if.then8.i.us.us:                                 ; preds = %if.end6.i.us.us
 
 if.end26.us.us:                                   ; preds = %do.end.i20.us.us, %lor.lhs.false.i21.us.us, %lor.lhs.false3.i.us.us, %if.then8.i.us.us, %bdrv_all_snapshots_includes_bs.exit.us.us, %lor.lhs.false.i.us.us, %do.end.i.us.us
   tail call void @aio_context_release(ptr noundef %call6.us.us) #6
-  %next.us.us = getelementptr inbounds %struct._GList, ptr %iterbdrvs.036.us.us, i64 0, i32 1
+  %next.us.us = getelementptr inbounds i8, ptr %iterbdrvs.036.us.us, i64 8
   %iterbdrvs.0.us.us = load ptr, ptr %next.us.us, align 8
   %tobool5.not.us.us = icmp eq ptr %iterbdrvs.0.us.us, null
   br i1 %tobool5.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !19
@@ -1919,7 +1888,7 @@ if.end4.i.us:                                     ; preds = %lor.lhs.false.i.us
   br i1 %call5.i.us, label %tailrecurse.i.us.preheader, label %bdrv_all_snapshots_includes_bs.exit.us
 
 bdrv_all_snapshots_includes_bs.exit.us:           ; preds = %if.end4.i.us
-  %parents.i.us = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 32
+  %parents.i.us = getelementptr inbounds i8, ptr %4, i64 16848
   %5 = load ptr, ptr %parents.i.us, align 8
   %cmp.i.us = icmp eq ptr %5, null
   br i1 %cmp.i.us, label %tailrecurse.i.us.preheader, label %land.end.us
@@ -1929,7 +1898,7 @@ tailrecurse.i.us.preheader:                       ; preds = %bdrv_all_snapshots_
 
 tailrecurse.i.us:                                 ; preds = %tailrecurse.i.us.preheader, %if.then8.i.us
   %bs.tr.i.us = phi ptr [ %call9.i.us, %if.then8.i.us ], [ %4, %tailrecurse.i.us.preheader ]
-  %drv1.i.us = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i.us, i64 0, i32 6
+  %drv1.i.us = getelementptr inbounds i8, ptr %bs.tr.i.us, i64 16
   %6 = load ptr, ptr %drv1.i.us, align 8
   %call.i18.us = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call.i18.us, label %do.end.i20.us, label %if.else.i19
@@ -1947,7 +1916,7 @@ lor.lhs.false3.i.us:                              ; preds = %lor.lhs.false.i21.u
   br i1 %call4.i.us, label %land.end.us, label %if.end6.i.us
 
 if.end6.i.us:                                     ; preds = %lor.lhs.false3.i.us
-  %bdrv_snapshot_create.i.us = getelementptr inbounds %struct.BlockDriver, ptr %6, i64 0, i32 35
+  %bdrv_snapshot_create.i.us = getelementptr inbounds i8, ptr %6, i64 240
   %7 = load ptr, ptr %bdrv_snapshot_create.i.us, align 8
   %tobool7.not.i.us = icmp eq ptr %7, null
   br i1 %tobool7.not.i.us, label %if.then8.i.us, label %land.end.us
@@ -1966,7 +1935,7 @@ land.end.us:                                      ; preds = %do.end.i20.us, %lor
   br i1 %tobool16.not.us, label %if.end26.us, label %if.then17
 
 if.end26.us:                                      ; preds = %land.end.us
-  %next.us = getelementptr inbounds %struct._GList, ptr %iterbdrvs.036.us, i64 0, i32 1
+  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.036.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
   br i1 %tobool5.not.us, label %while.end, label %while.body.us, !llvm.loop !19
@@ -1983,7 +1952,7 @@ while.body.us39:                                  ; preds = %while.body.lr.ph.sp
 
 tailrecurse.i.us42:                               ; preds = %if.then8.i.us55, %while.body.us39
   %bs.tr.i.us43 = phi ptr [ %9, %while.body.us39 ], [ %call9.i.us56, %if.then8.i.us55 ]
-  %drv1.i.us44 = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i.us43, i64 0, i32 6
+  %drv1.i.us44 = getelementptr inbounds i8, ptr %bs.tr.i.us43, i64 16
   %10 = load ptr, ptr %drv1.i.us44, align 8
   %call.i18.us45 = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call.i18.us45, label %do.end.i20.us46, label %if.else.i19
@@ -2001,7 +1970,7 @@ lor.lhs.false3.i.us50:                            ; preds = %lor.lhs.false.i21.u
   br i1 %call4.i.us51, label %land.end.loopexit.us63, label %if.end6.i.us52
 
 if.end6.i.us52:                                   ; preds = %lor.lhs.false3.i.us50
-  %bdrv_snapshot_create.i.us53 = getelementptr inbounds %struct.BlockDriver, ptr %10, i64 0, i32 35
+  %bdrv_snapshot_create.i.us53 = getelementptr inbounds i8, ptr %10, i64 240
   %11 = load ptr, ptr %bdrv_snapshot_create.i.us53, align 8
   %tobool7.not.i.us54 = icmp eq ptr %11, null
   br i1 %tobool7.not.i.us54, label %if.then8.i.us55, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.split.us.critedge
@@ -2013,7 +1982,7 @@ if.then8.i.us55:                                  ; preds = %if.end6.i.us52
 
 land.end.loopexit.us63:                           ; preds = %if.then8.i.us55, %lor.lhs.false3.i.us50, %lor.lhs.false.i21.us48, %do.end.i20.us46
   tail call void @aio_context_release(ptr noundef %call6.us41) #6
-  %next.us60 = getelementptr inbounds %struct._GList, ptr %iterbdrvs.036.us40, i64 0, i32 1
+  %next.us60 = getelementptr inbounds i8, ptr %iterbdrvs.036.us40, i64 8
   %iterbdrvs.0.us61 = load ptr, ptr %next.us60, align 8
   %tobool5.not.us62 = icmp eq ptr %iterbdrvs.0.us61, null
   br i1 %tobool5.not.us62, label %while.end, label %while.body.us39, !llvm.loop !19
@@ -2035,7 +2004,7 @@ if.else.i:                                        ; preds = %while.body.us, %whi
 
 tailrecurse.i:                                    ; preds = %if.then8.i, %while.body
   %bs.tr.i = phi ptr [ %12, %while.body ], [ %call9.i, %if.then8.i ]
-  %drv1.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs.tr.i, i64 0, i32 6
+  %drv1.i = getelementptr inbounds i8, ptr %bs.tr.i, i64 16
   %13 = load ptr, ptr %drv1.i, align 8
   %call.i18 = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call.i18, label %do.end.i20, label %if.else.i19
@@ -2057,7 +2026,7 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i21
   br i1 %call4.i, label %land.end.loopexit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %lor.lhs.false3.i
-  %bdrv_snapshot_create.i = getelementptr inbounds %struct.BlockDriver, ptr %13, i64 0, i32 35
+  %bdrv_snapshot_create.i = getelementptr inbounds i8, ptr %13, i64 240
   %14 = load ptr, ptr %bdrv_snapshot_create.i, align 8
   %tobool7.not.i = icmp eq ptr %14, null
   br i1 %tobool7.not.i, label %if.then8.i, label %land.end.loopexit
@@ -2085,7 +2054,7 @@ if.else20:                                        ; preds = %if.then17
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end26:                                         ; preds = %land.end.loopexit
-  %next = getelementptr inbounds %struct._GList, ptr %iterbdrvs.036, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.036, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %while.end, label %while.body, !llvm.loop !19

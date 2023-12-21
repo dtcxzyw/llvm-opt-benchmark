@@ -27,7 +27,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph, %
   br i1 %cmp1.not.us.us, label %if.end.us.us, label %while.end
 
 if.end.us.us:                                     ; preds = %while.body.us.us
-  %incdec.ptr.us.us = getelementptr inbounds i32, ptr %source.025.us.us, i64 1
+  %incdec.ptr.us.us = getelementptr inbounds i8, ptr %source.025.us.us, i64 4
   %2 = load i32, ptr %source.025.us.us, align 4
   %cmp2.us.us = icmp ult i32 %2, 65536
   br i1 %cmp2.us.us, label %if.then3.us.us, label %if.else15.us.us
@@ -37,7 +37,7 @@ if.else15.us.us:                                  ; preds = %if.end.us.us
   br i1 %cmp16.us.us, label %if.end34.us.us, label %if.else23.us.us
 
 if.else23.us.us:                                  ; preds = %if.else15.us.us
-  %add.ptr.us.us = getelementptr inbounds i16, ptr %target.026.us.us, i64 1
+  %add.ptr.us.us = getelementptr inbounds i8, ptr %target.026.us.us, i64 2
   %cmp24.not.us.us = icmp ult ptr %add.ptr.us.us, %targetEnd
   br i1 %cmp24.not.us.us, label %if.end27.us.us, label %while.end
 
@@ -50,7 +50,7 @@ if.end27.us.us:                                   ; preds = %if.else23.us.us
   %4 = trunc i32 %2 to i16
   %5 = and i16 %4, 1023
   %conv31.us.us = or disjoint i16 %5, -9216
-  %incdec.ptr32.us.us = getelementptr inbounds i16, ptr %target.026.us.us, i64 2
+  %incdec.ptr32.us.us = getelementptr inbounds i8, ptr %target.026.us.us, i64 4
   store i16 %conv31.us.us, ptr %add.ptr.us.us, align 2
   br label %if.end34.us.us
 
@@ -61,7 +61,7 @@ if.then3.us.us:                                   ; preds = %if.end.us.us
 
 if.else12.us.us:                                  ; preds = %if.then3.us.us
   %conv.us.us = trunc i32 %2 to i16
-  %incdec.ptr13.us.us = getelementptr inbounds i16, ptr %target.026.us.us, i64 1
+  %incdec.ptr13.us.us = getelementptr inbounds i8, ptr %target.026.us.us, i64 2
   store i16 %conv.us.us, ptr %target.026.us.us, align 2
   br label %if.end34.us.us
 
@@ -78,7 +78,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp1.not, label %if.end, label %while.end
 
 if.end:                                           ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i32, ptr %source.025, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.025, i64 4
   %7 = load i32, ptr %source.025, align 4
   %cmp2 = icmp ult i32 %7, 65536
   br i1 %cmp2, label %if.then3, label %if.else15
@@ -89,19 +89,19 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond, label %if.then6, label %if.else12
 
 if.then6:                                         ; preds = %if.then3
-  %incdec.ptr10 = getelementptr inbounds i16, ptr %target.026, i64 1
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %target.026, i64 2
   store i16 -3, ptr %target.026, align 2
   br label %if.end34
 
 if.else12:                                        ; preds = %if.then3
   %conv = trunc i32 %7 to i16
-  %incdec.ptr13 = getelementptr inbounds i16, ptr %target.026, i64 1
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %target.026, i64 2
   store i16 %conv, ptr %target.026, align 2
   br label %if.end34
 
 if.else15:                                        ; preds = %if.end
   %cmp16 = icmp ugt i32 %7, 1114111
-  %incdec.ptr21 = getelementptr inbounds i16, ptr %target.026, i64 1
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %target.026, i64 2
   br i1 %cmp16, label %if.then17, label %if.else23
 
 if.then17:                                        ; preds = %if.else15
@@ -121,7 +121,7 @@ if.end27:                                         ; preds = %if.else23
   %10 = trunc i32 %7 to i16
   %11 = and i16 %10, 1023
   %conv31 = or disjoint i16 %11, -9216
-  %incdec.ptr32 = getelementptr inbounds i16, ptr %target.026, i64 2
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %target.026, i64 4
   store i16 %conv31, ptr %incdec.ptr21, align 2
   br label %if.end34
 
@@ -154,7 +154,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end33.us
   %source.028.us = phi ptr [ %source.1.us, %if.end33.us ], [ %0, %while.body.lr.ph ]
   %target.027.us = phi ptr [ %incdec.ptr34.us, %if.end33.us ], [ %1, %while.body.lr.ph ]
-  %incdec.ptr.us = getelementptr inbounds i16, ptr %source.028.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %source.028.us, i64 2
   %2 = load i16, ptr %source.028.us, align 2
   %conv.us = zext i16 %2 to i32
   %3 = and i16 %2, -1024
@@ -176,7 +176,7 @@ if.then9.us:                                      ; preds = %if.then4.us
   %sub.us = shl nuw nsw i32 %conv.us, 10
   %sub10.us = add nsw i32 %sub.us, -56613888
   %add11.us = add nuw nsw i32 %sub10.us, %conv5.us
-  %incdec.ptr12.us = getelementptr inbounds i16, ptr %source.028.us, i64 2
+  %incdec.ptr12.us = getelementptr inbounds i8, ptr %source.028.us, i64 4
   br label %if.end30.us
 
 if.end30.us:                                      ; preds = %if.then4.us, %while.body.us, %if.then9.us
@@ -186,7 +186,7 @@ if.end30.us:                                      ; preds = %if.then4.us, %while
   br i1 %cmp31.not.us, label %if.end33.us, label %while.end
 
 if.end33.us:                                      ; preds = %if.end30.us
-  %incdec.ptr34.us = getelementptr inbounds i32, ptr %target.027.us, i64 1
+  %incdec.ptr34.us = getelementptr inbounds i8, ptr %target.027.us, i64 4
   store i32 %ch.0.us, ptr %target.027.us, align 4
   %cmp.us = icmp ult ptr %source.1.us, %sourceEnd
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !6
@@ -194,7 +194,7 @@ if.end33.us:                                      ; preds = %if.end30.us
 while.body.us54:                                  ; preds = %while.body.lr.ph, %if.end33.us76
   %source.028.us55 = phi ptr [ %source.1.us74, %if.end33.us76 ], [ %0, %while.body.lr.ph ]
   %target.027.us56 = phi ptr [ %incdec.ptr34.us77, %if.end33.us76 ], [ %1, %while.body.lr.ph ]
-  %incdec.ptr.us57 = getelementptr inbounds i16, ptr %source.028.us55, i64 1
+  %incdec.ptr.us57 = getelementptr inbounds i8, ptr %source.028.us55, i64 2
   %6 = load i16, ptr %source.028.us55, align 2
   %conv.us58 = zext i16 %6 to i32
   %7 = and i16 %6, -1024
@@ -218,7 +218,7 @@ if.then9.us66:                                    ; preds = %if.then4.us63
   %sub.us68 = shl nuw nsw i32 %conv.us58, 10
   %sub10.us69 = add nsw i32 %sub.us68, -56613888
   %add11.us70 = add nsw i32 %sub10.us69, %conv5.us67
-  %incdec.ptr12.us71 = getelementptr inbounds i16, ptr %source.028.us55, i64 2
+  %incdec.ptr12.us71 = getelementptr inbounds i8, ptr %source.028.us55, i64 4
   br label %if.end30.us72
 
 if.end30.us72:                                    ; preds = %while.body.us54, %if.then9.us66
@@ -228,7 +228,7 @@ if.end30.us72:                                    ; preds = %while.body.us54, %i
   br i1 %cmp31.not.us75, label %if.end33.us76, label %while.end
 
 if.end33.us76:                                    ; preds = %if.end30.us72
-  %incdec.ptr34.us77 = getelementptr inbounds i32, ptr %target.027.us56, i64 1
+  %incdec.ptr34.us77 = getelementptr inbounds i8, ptr %target.027.us56, i64 4
   store i32 %ch.0.us73, ptr %target.027.us56, align 4
   %cmp.us78 = icmp ult ptr %source.1.us74, %sourceEnd
   br i1 %cmp.us78, label %while.body.us54, label %while.end, !llvm.loop !6
@@ -257,7 +257,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %source.048 = phi ptr [ %0, %while.body.lr.ph ], [ %source.1, %sw.epilog ]
   %target.047 = phi ptr [ %1, %while.body.lr.ph ], [ %add.ptr76, %sw.epilog ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %source.048, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.048, i64 2
   %2 = load i16, ptr %source.048, align 2
   %conv = zext i16 %2 to i32
   %3 = and i16 %2, -1024
@@ -279,7 +279,7 @@ if.then9:                                         ; preds = %if.then4
   %sub = shl nuw nsw i32 %conv, 10
   %sub10 = add nsw i32 %sub, -56613888
   %add11 = add nuw nsw i32 %sub10, %conv5
-  %incdec.ptr12 = getelementptr inbounds i16, ptr %source.048, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %source.048, i64 4
   br label %if.end30
 
 if.else:                                          ; preds = %if.then4
@@ -394,7 +394,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %result.036.us = phi i32 [ %result.1.us, %sw.epilog.us ], [ 0, %while.body.lr.ph ]
   %source.035.us = phi ptr [ %incdec.ptr.us, %sw.epilog.us ], [ %0, %while.body.lr.ph ]
   %target.034.us = phi ptr [ %add.ptr51.us, %sw.epilog.us ], [ %1, %while.body.lr.ph ]
-  %incdec.ptr.us = getelementptr inbounds i32, ptr %source.035.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %source.035.us, i64 4
   %2 = load i32, ptr %source.035.us, align 4
   %cmp7.us = icmp ult i32 %2, 128
   br i1 %cmp7.us, label %if.end21.us, label %if.else.us
@@ -484,7 +484,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %result.036 = phi i32 [ %result.1, %sw.epilog ], [ 0, %while.body.lr.ph ]
   %source.035 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %0, %while.body.lr.ph ]
   %target.034 = phi ptr [ %add.ptr51, %sw.epilog ], [ %1, %while.body.lr.ph ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %source.035, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.035, i64 4
   %11 = load i32, ptr %source.035, align 4
   %12 = and i32 %11, -2048
   %or.cond = icmp eq i32 %12, 55296
@@ -876,13 +876,13 @@ if.then46:                                        ; preds = %if.then44
   br label %while.end
 
 if.else:                                          ; preds = %if.then44
-  %incdec.ptr52 = getelementptr inbounds i16, ptr %target.070, i64 1
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %target.070, i64 2
   store i16 -3, ptr %target.070, align 2
   br label %if.end89
 
 if.else54:                                        ; preds = %if.then41
   %conv55 = trunc i32 %sub to i16
-  %incdec.ptr56 = getelementptr inbounds i16, ptr %target.070, i64 1
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %target.070, i64 2
   store i16 %conv55, ptr %target.070, align 2
   br label %if.end89
 
@@ -900,12 +900,12 @@ if.then62:                                        ; preds = %if.then60
   br label %while.end
 
 if.else68:                                        ; preds = %if.then60
-  %incdec.ptr69 = getelementptr inbounds i16, ptr %target.070, i64 1
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %target.070, i64 2
   store i16 -3, ptr %target.070, align 2
   br label %if.end89
 
 if.else71:                                        ; preds = %if.else58
-  %add.ptr72 = getelementptr inbounds i16, ptr %target.070, i64 1
+  %add.ptr72 = getelementptr inbounds i8, ptr %target.070, i64 2
   %cmp73.not = icmp ult ptr %add.ptr72, %targetEnd
   br i1 %cmp73.not, label %if.end80, label %if.then74
 
@@ -924,7 +924,7 @@ if.end80:                                         ; preds = %if.else71
   %12 = trunc i32 %sub to i16
   %13 = and i16 %12, 1023
   %conv86 = or disjoint i16 %13, -9216
-  %incdec.ptr87 = getelementptr inbounds i16, ptr %target.070, i64 2
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %target.070, i64 4
   store i16 %conv86, ptr %add.ptr72, align 2
   br label %if.end89
 
@@ -1095,7 +1095,7 @@ while.cond.backedge:                              ; preds = %if.then51, %sw.epil
   %source.0.be = phi ptr [ %add.ptr, %_ZN4llvhL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit ], [ %add.ptr17, %_ZN4llvhL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit97 ], [ %source.6, %if.then51 ], [ %source.6, %sw.epilog ]
   %result.0.be = phi i32 [ 3, %_ZN4llvhL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit ], [ 3, %_ZN4llvhL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit97 ], [ %result.0104, %if.then51 ], [ 3, %sw.epilog ]
   store i32 %.sink, ptr %target.0103, align 4
-  %target.0.be = getelementptr inbounds i32, ptr %target.0103, i64 1
+  %target.0.be = getelementptr inbounds i8, ptr %target.0103, i64 4
   %cmp = icmp ult ptr %source.0.be, %sourceEnd
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
 

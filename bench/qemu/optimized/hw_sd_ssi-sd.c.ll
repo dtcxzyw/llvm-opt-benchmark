@@ -7,23 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.SSIPeripheralClass = type { %struct.DeviceClass, ptr, ptr, ptr, i32, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ssi_sd_state = type { %struct.SSIPeripheral, i32, i32, [4 x i8], [5 x i8], i16, i32, i32, i32, i32, i32, %struct.SDBus }
-%struct.SSIPeripheral = type { %struct.DeviceState, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.SDBus = type { %struct.BusState }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
 %struct.SDRequest = type { i8, i32, i8 }
 
 @ssi_sd_types = internal constant [1 x %struct.TypeInfo] [%struct.TypeInfo { ptr @.str, ptr @.str.1, i64 336, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @ssi_sd_class_init, ptr null, ptr null, ptr null }], align 16
@@ -84,17 +67,17 @@ define internal void @ssi_sd_class_init(ptr noundef %klass, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL_CLASS) #6
-  %realize = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call.i6, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i6, i64 176
   store ptr @ssi_sd_realize, ptr %realize, align 8
-  %transfer = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call.i6, i64 0, i32 2
+  %transfer = getelementptr inbounds i8, ptr %call.i6, i64 184
   store ptr @ssi_sd_transfer, ptr %transfer, align 8
-  %cs_polarity = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call.i6, i64 0, i32 4
+  %cs_polarity = getelementptr inbounds i8, ptr %call.i6, i64 200
   store i32 1, ptr %cs_polarity, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_ssi_sd, ptr %vmsd, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @ssi_sd_reset, ptr %reset, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
 }
@@ -103,7 +86,7 @@ entry:
 define internal void @ssi_sd_realize(ptr noundef %d, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 71, ptr noundef nonnull @__func__.SSI_SD) #6
-  %sdbus = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 11
+  %sdbus = getelementptr inbounds i8, ptr %call.i, i64 216
   %call.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
   tail call void @qbus_init(ptr noundef nonnull %sdbus, i64 noundef 120, ptr noundef nonnull @.str.5, ptr noundef %call.i2, ptr noundef nonnull @.str.5) #6
   ret void
@@ -116,7 +99,7 @@ entry:
   %request = alloca %struct.SDRequest, align 4
   %longresp = alloca [16 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 71, ptr noundef nonnull @__func__.SSI_SD) #6
-  %mode = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %call.i, i64 176
   %0 = load i32, ptr %mode, align 8
   %cmp = icmp ugt i32 %0, 3
   br i1 %cmp, label %land.lhs.true, label %if.end6
@@ -128,7 +111,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %sw.bb.thread, label %if.end6
 
 sw.bb.thread:                                     ; preds = %land.lhs.true
-  %stopping = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 10
+  %stopping = getelementptr inbounds i8, ptr %call.i, i64 212
   store i32 1, ptr %stopping, align 4
   br label %sw.epilog
 
@@ -160,14 +143,14 @@ do.end11:                                         ; preds = %sw.bb, %sw.bb
 
 do.end15:                                         ; preds = %sw.bb
   store i8 12, ptr %request, align 4
-  %arg = getelementptr inbounds %struct.SDRequest, ptr %request, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %request, i64 4
   store i32 0, ptr %arg, align 4
-  %sdbus = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 11
+  %sdbus = getelementptr inbounds i8, ptr %call.i, i64 216
   %call16 = call i32 @sdbus_do_command(ptr noundef nonnull %sdbus, ptr noundef nonnull %request, ptr noundef nonnull %longresp) #6
-  %arglen = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 8
+  %arglen = getelementptr inbounds i8, ptr %call.i, i64 204
   %cmp18 = icmp slt i32 %call16, 1
   store i32 1, ptr %arglen, align 4
-  %response = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4
+  %response = getelementptr inbounds i8, ptr %call.i, i64 188
   br i1 %cmp18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %do.end15
@@ -180,30 +163,30 @@ if.else:                                          ; preds = %do.end15
 
 sw.epilog:                                        ; preds = %sw.bb.thread, %sw.bb
   %and = and i32 %val, 63
-  %cmd27 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 2
+  %cmd27 = getelementptr inbounds i8, ptr %call.i, i64 180
   store i32 %and, ptr %cmd27, align 4
   store i32 1, ptr %mode, align 8
-  %arglen29 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 8
+  %arglen29 = getelementptr inbounds i8, ptr %call.i, i64 204
   store i32 0, ptr %arglen29, align 4
   br label %return
 
 sw.bb30:                                          ; preds = %if.end6
-  %arglen31 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 8
+  %arglen31 = getelementptr inbounds i8, ptr %call.i, i64 204
   %1 = load i32, ptr %arglen31, align 4
   %cmp32 = icmp eq i32 %1, 4
   br i1 %cmp32, label %if.then33, label %if.else222
 
 if.then33:                                        ; preds = %sw.bb30
-  %cmd34 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 2
+  %cmd34 = getelementptr inbounds i8, ptr %call.i, i64 180
   %2 = load i32, ptr %cmd34, align 4
   %conv = trunc i32 %2 to i8
   store i8 %conv, ptr %request, align 4
-  %cmdarg = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 3
+  %cmdarg = getelementptr inbounds i8, ptr %call.i, i64 184
   %cmdarg.val = load i32, ptr %cmdarg, align 1
   %3 = tail call i32 @llvm.bswap.i32(i32 %cmdarg.val)
-  %arg38 = getelementptr inbounds %struct.SDRequest, ptr %request, i64 0, i32 1
+  %arg38 = getelementptr inbounds i8, ptr %request, i64 4
   store i32 %3, ptr %arg38, align 4
-  %sdbus41 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 11
+  %sdbus41 = getelementptr inbounds i8, ptr %call.i, i64 216
   %call43 = call i32 @sdbus_do_command(ptr noundef nonnull %sdbus41, ptr noundef nonnull %request, ptr noundef nonnull %longresp) #6
   store i32 %call43, ptr %arglen31, align 4
   %cmp46 = icmp slt i32 %call43, 1
@@ -211,7 +194,7 @@ if.then33:                                        ; preds = %sw.bb30
 
 if.then48:                                        ; preds = %if.then33
   store i32 1, ptr %arglen31, align 4
-  %response50 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4
+  %response50 = getelementptr inbounds i8, ptr %call.i, i64 188
   store i8 4, ptr %response50, align 4
   br label %if.end220
 
@@ -224,9 +207,9 @@ if.else54:                                        ; preds = %if.then33
 
 do.end63:                                         ; preds = %if.else54, %if.else54
   store i32 5, ptr %arglen31, align 4
-  %response65 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4
+  %response65 = getelementptr inbounds i8, ptr %call.i, i64 188
   store i8 1, ptr %response65, align 4
-  %arrayidx68 = getelementptr %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4, i64 1
+  %arrayidx68 = getelementptr i8, ptr %call.i, i64 189
   %5 = load i32, ptr %longresp, align 16
   store i32 %5, ptr %arrayidx68, align 1
   br label %if.end220
@@ -239,7 +222,7 @@ do.body75:                                        ; preds = %if.else70
   %6 = load ptr, ptr @stderr, align 8
   %call77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.7, i32 noundef %4) #7
   store i32 1, ptr %arglen31, align 4
-  %response80 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4
+  %response80 = getelementptr inbounds i8, ptr %call.i, i64 188
   store i8 4, ptr %response80, align 4
   br label %if.end220
 
@@ -254,7 +237,7 @@ if.else82:                                        ; preds = %if.else70
   ]
 
 if.then98:                                        ; preds = %if.else82, %if.else82, %if.else82
-  %stopping99 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 10
+  %stopping99 = getelementptr inbounds i8, ptr %call.i, i64 212
   store i32 1, ptr %stopping99, align 4
   br label %if.end100
 
@@ -304,25 +287,26 @@ if.end100:                                        ; preds = %if.else82, %if.then
   %status.14 = select i1 %tobool202.not, i16 %status.13, i16 %or205
   %25 = lshr i16 %status.14, 8
   %conv210 = trunc i16 %25 to i8
-  %response211 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4
+  %response211 = getelementptr inbounds i8, ptr %call.i, i64 188
   store i8 %conv210, ptr %response211, align 4
   %conv213 = trunc i16 %status.14 to i8
-  %arrayidx215 = getelementptr %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4, i64 1
+  %arrayidx215 = getelementptr i8, ptr %call.i, i64 189
   store i8 %conv213, ptr %arrayidx215, align 1
   br label %if.end220
 
 if.end220:                                        ; preds = %do.end63, %if.end100, %do.body75, %if.then48
   store i32 2, ptr %mode, align 8
-  %response_pos = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 9
+  %response_pos = getelementptr inbounds i8, ptr %call.i, i64 208
   store i32 0, ptr %response_pos, align 8
   br label %return
 
 if.else222:                                       ; preds = %sw.bb30
   %conv223 = trunc i32 %val to i8
+  %cmdarg224 = getelementptr inbounds i8, ptr %call.i, i64 184
   %inc = add i32 %1, 1
   store i32 %inc, ptr %arglen31, align 4
   %idxprom = sext i32 %1 to i64
-  %arrayidx226 = getelementptr %struct.ssi_sd_state, ptr %call.i, i64 0, i32 3, i64 %idxprom
+  %arrayidx226 = getelementptr [4 x i8], ptr %cmdarg224, i64 0, i64 %idxprom
   store i8 %conv223, ptr %arrayidx226, align 1
   br label %return
 
@@ -331,24 +315,25 @@ do.end230:                                        ; preds = %if.end6
   br label %return
 
 sw.bb232:                                         ; preds = %if.end6
-  %response_pos233 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 9
+  %response_pos233 = getelementptr inbounds i8, ptr %call.i, i64 208
   %26 = load i32, ptr %response_pos233, align 8
-  %arglen234 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 8
+  %arglen234 = getelementptr inbounds i8, ptr %call.i, i64 204
   %27 = load i32, ptr %arglen234, align 4
   %cmp235 = icmp slt i32 %26, %27
   br i1 %cmp235, label %do.end239, label %if.end246
 
 do.end239:                                        ; preds = %sw.bb232
+  %response240 = getelementptr inbounds i8, ptr %call.i, i64 188
   %inc242 = add nsw i32 %26, 1
   store i32 %inc242, ptr %response_pos233, align 8
   %idxprom243 = sext i32 %26 to i64
-  %arrayidx244 = getelementptr %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4, i64 %idxprom243
+  %arrayidx244 = getelementptr [5 x i8], ptr %response240, i64 0, i64 %idxprom243
   %28 = load i8, ptr %arrayidx244, align 1
   %conv245 = zext i8 %28 to i32
   br label %return
 
 if.end246:                                        ; preds = %sw.bb232
-  %stopping247 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 10
+  %stopping247 = getelementptr inbounds i8, ptr %call.i, i64 212
   %29 = load i32, ptr %stopping247, align 4
   %tobool248.not = icmp eq i32 %29, 0
   br i1 %tobool248.not, label %if.end252, label %if.then249
@@ -359,7 +344,7 @@ if.then249:                                       ; preds = %if.end246
   br label %return
 
 if.end252:                                        ; preds = %if.end246
-  %sdbus253 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 11
+  %sdbus253 = getelementptr inbounds i8, ptr %call.i, i64 216
   %call254 = tail call zeroext i1 @sdbus_data_ready(ptr noundef nonnull %sdbus253) #6
   %. = select i1 %call254, i32 5, i32 0
   store i32 %., ptr %mode, align 8
@@ -371,20 +356,20 @@ do.end266:                                        ; preds = %if.end6
 
 do.end270:                                        ; preds = %if.end6
   store i32 6, ptr %mode, align 8
-  %response_pos272 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 9
+  %response_pos272 = getelementptr inbounds i8, ptr %call.i, i64 208
   store i32 0, ptr %response_pos272, align 8
   br label %return
 
 sw.bb273:                                         ; preds = %if.end6
-  %sdbus274 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 11
+  %sdbus274 = getelementptr inbounds i8, ptr %call.i, i64 216
   %call275 = tail call zeroext i8 @sdbus_read_byte(ptr noundef nonnull %sdbus274) #6
   %conv276 = zext i8 %call275 to i32
   store i32 %conv276, ptr %val.addr, align 4
-  %read_bytes = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 6
+  %read_bytes = getelementptr inbounds i8, ptr %call.i, i64 196
   %30 = load i32, ptr %read_bytes, align 4
   %inc277 = add i32 %30, 1
   store i32 %inc277, ptr %read_bytes, align 4
-  %crc16 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 5
+  %crc16 = getelementptr inbounds i8, ptr %call.i, i64 194
   %31 = load i16, ptr %crc16, align 2
   %call278 = call zeroext i16 @crc_ccitt_false(i16 noundef zeroext %31, ptr noundef nonnull %val.addr, i64 noundef 1) #6
   store i16 %call278, ptr %crc16, align 2
@@ -405,13 +390,13 @@ if.end290:                                        ; preds = %do.end288, %lor.lhs
   br label %return
 
 sw.bb291:                                         ; preds = %if.end6
-  %crc16292 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 5
+  %crc16292 = getelementptr inbounds i8, ptr %call.i, i64 194
   %34 = load i16, ptr %crc16292, align 2
   %35 = lshr i16 %34, 8
   %shr295 = zext nneg i16 %35 to i32
   %shl = shl i16 %34, 8
   store i16 %shl, ptr %crc16292, align 2
-  %response_pos299 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 9
+  %response_pos299 = getelementptr inbounds i8, ptr %call.i, i64 208
   %36 = load i32, ptr %response_pos299, align 8
   %inc300 = add i32 %36, 1
   store i32 %inc300, ptr %response_pos299, align 8
@@ -419,13 +404,13 @@ sw.bb291:                                         ; preds = %if.end6
   br i1 %cmp302, label %do.end306, label %return
 
 do.end306:                                        ; preds = %sw.bb291
-  %read_bytes307 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 6
+  %read_bytes307 = getelementptr inbounds i8, ptr %call.i, i64 196
   %37 = load i32, ptr %read_bytes307, align 4
   %cmp308 = icmp eq i32 %37, 512
   br i1 %cmp308, label %land.lhs.true310, label %if.else316
 
 land.lhs.true310:                                 ; preds = %do.end306
-  %cmd311 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 2
+  %cmd311 = getelementptr inbounds i8, ptr %call.i, i64 180
   %38 = load i32, ptr %cmd311, align 4
   %cmp312.not = icmp eq i32 %38, 17
   br i1 %cmp312.not, label %if.else316, label %if.end318
@@ -441,10 +426,10 @@ if.end318:                                        ; preds = %land.lhs.true310, %
   br label %return
 
 sw.bb322:                                         ; preds = %if.end6
-  %sdbus323 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 11
+  %sdbus323 = getelementptr inbounds i8, ptr %call.i, i64 216
   %conv324 = trunc i32 %val to i8
   tail call void @sdbus_write_byte(ptr noundef nonnull %sdbus323, i8 noundef zeroext %conv324) #6
-  %write_bytes = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 7
+  %write_bytes = getelementptr inbounds i8, ptr %call.i, i64 200
   %39 = load i32, ptr %write_bytes, align 8
   %inc325 = add i32 %39, 1
   store i32 %inc325, ptr %write_bytes, align 8
@@ -458,12 +443,12 @@ lor.lhs.false328:                                 ; preds = %sw.bb322
 
 do.end334:                                        ; preds = %lor.lhs.false328, %sw.bb322
   store i32 9, ptr %mode, align 8
-  %response_pos336 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 9
+  %response_pos336 = getelementptr inbounds i8, ptr %call.i, i64 208
   store i32 0, ptr %response_pos336, align 8
   br label %return
 
 sw.bb338:                                         ; preds = %if.end6
-  %response_pos339 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 9
+  %response_pos339 = getelementptr inbounds i8, ptr %call.i, i64 208
   %41 = load i32, ptr %response_pos339, align 8
   %inc340 = add i32 %41, 1
   store i32 %inc340, ptr %response_pos339, align 8
@@ -472,11 +457,11 @@ sw.bb338:                                         ; preds = %if.end6
 
 do.end346:                                        ; preds = %sw.bb338
   store i32 3, ptr %mode, align 8
-  %write_bytes348 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 7
+  %write_bytes348 = getelementptr inbounds i8, ptr %call.i, i64 200
   store i32 0, ptr %write_bytes348, align 8
-  %arglen349 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 8
+  %arglen349 = getelementptr inbounds i8, ptr %call.i, i64 204
   store i32 1, ptr %arglen349, align 4
-  %response350 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 4
+  %response350 = getelementptr inbounds i8, ptr %call.i, i64 188
   store i8 5, ptr %response350, align 4
   store i32 0, ptr %response_pos339, align 8
   br label %return
@@ -490,8 +475,8 @@ return:                                           ; preds = %lor.lhs.false328, %
 define internal void @ssi_sd_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 71, ptr noundef nonnull @__func__.SSI_SD) #6
-  %mode = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 1
-  %crc16 = getelementptr inbounds %struct.ssi_sd_state, ptr %call.i, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %call.i, i64 176
+  %crc16 = getelementptr inbounds i8, ptr %call.i, i64 194
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mode, i8 0, i64 17, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %crc16, i8 0, i64 22, i1 false)
   ret void
@@ -524,7 +509,7 @@ declare i32 @llvm.bswap.i32(i32) #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @ssi_sd_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #4 {
 entry:
-  %mode = getelementptr inbounds %struct.ssi_sd_state, ptr %opaque, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %opaque, i64 176
   %0 = load i32, ptr %mode, align 8
   %cmp = icmp ugt i32 %0, 9
   br i1 %cmp, label %return, label %if.end
@@ -536,25 +521,25 @@ if.end:                                           ; preds = %entry
   ]
 
 land.lhs.true:                                    ; preds = %if.end
-  %arglen = getelementptr inbounds %struct.ssi_sd_state, ptr %opaque, i64 0, i32 8
+  %arglen = getelementptr inbounds i8, ptr %opaque, i64 204
   %1 = load i32, ptr %arglen, align 4
   %cmp5 = icmp ugt i32 %1, 3
   br i1 %cmp5, label %return, label %if.end27
 
 land.lhs.true12:                                  ; preds = %if.end
-  %response_pos = getelementptr inbounds %struct.ssi_sd_state, ptr %opaque, i64 0, i32 9
+  %response_pos = getelementptr inbounds i8, ptr %opaque, i64 208
   %2 = load i32, ptr %response_pos, align 8
   %cmp18 = icmp ugt i32 %2, 4
   br i1 %cmp18, label %return, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %land.lhs.true12
-  %stopping = getelementptr inbounds %struct.ssi_sd_state, ptr %opaque, i64 0, i32 10
+  %stopping = getelementptr inbounds i8, ptr %opaque, i64 212
   %3 = load i32, ptr %stopping, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %land.lhs.true21, label %if.end27
 
 land.lhs.true21:                                  ; preds = %lor.lhs.false20
-  %arglen22 = getelementptr inbounds %struct.ssi_sd_state, ptr %opaque, i64 0, i32 8
+  %arglen22 = getelementptr inbounds i8, ptr %opaque, i64 204
   %4 = load i32, ptr %arglen22, align 4
   %cmp24 = icmp ugt i32 %4, 5
   br i1 %cmp24, label %return, label %if.end27

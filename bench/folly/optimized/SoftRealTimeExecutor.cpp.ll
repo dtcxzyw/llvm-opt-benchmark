@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.folly::Executor::KeepAlive" = type { i64 }
-%"class.folly::(anonymous namespace)::DeadlineExecutor" = type { %"class.folly::Executor", %"struct.std::atomic", i64, %"class.folly::Executor::KeepAlive.0" }
-%"class.folly::Executor" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.folly::Executor::KeepAlive.0" = type { i64 }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
@@ -38,7 +33,7 @@ entry:
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !10
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   %vtable1.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !7, !noalias !10
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable1.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable1.i, i64 40
   %0 = load ptr, ptr %vfn.i, align 8, !noalias !10
   %call.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i) #11, !noalias !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
@@ -51,11 +46,11 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %en
   %1 = ptrtoint ptr %this to i64
   %spec.select.i = or disjoint i64 %or.i.i.i, %1
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, inrange i32 0, i64 2), ptr %call.i34, align 8, !tbaa !7, !noalias !13
-  %keepAliveCount_.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %call.i34, i64 0, i32 1
+  %keepAliveCount_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   store i64 1, ptr %keepAliveCount_.i.i, align 8, !tbaa !16, !noalias !13
-  %deadline_.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %call.i34, i64 0, i32 2
+  %deadline_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 16
   store i64 %deadline, ptr %deadline_.i.i, align 8, !tbaa !20, !noalias !13
-  %executor_.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %call.i34, i64 0, i32 3
+  %executor_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 24
   store i64 %spec.select.i, ptr %executor_.i.i, align 8, !tbaa !25, !noalias !13
   %2 = ptrtoint ptr %call.i34 to i64
   store i64 %2, ptr %agg.result, align 8, !tbaa !26, !alias.scope !13
@@ -72,7 +67,7 @@ if.then5.i.i12:                                   ; preds = %lpad
   %vbase.offset.i.i9 = load i64, ptr %vbase.offset.ptr.i.i8, align 8
   %add.ptr.i.i13 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i.i9
   %vtable6.i.i14 = load ptr, ptr %add.ptr.i.i13, align 8, !tbaa !7
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable6.i.i14, i64 6
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable6.i.i14, i64 48
   %4 = load ptr, ptr %vfn.i.i15, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i13) #11
   br label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16
@@ -99,7 +94,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %executor_ = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %this, i64 0, i32 3
+  %executor_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %executor_, align 8, !tbaa !28
   %and.i.i.i = and i64 %0, -4
   %1 = icmp eq i64 %and.i.i.i, 0
@@ -118,7 +113,7 @@ cast.end.i.i:                                     ; preds = %entry
 if.then5.i.i:                                     ; preds = %cast.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i
   %vtable6.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !7
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 6
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 48
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i) #11
   br label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit
@@ -131,7 +126,7 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %if
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %executor_.i = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %this, i64 0, i32 3
+  %executor_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %executor_.i, align 8, !tbaa !28
   %and.i.i.i.i = and i64 %0, -4
   %1 = icmp eq i64 %and.i.i.i.i, 0
@@ -150,7 +145,7 @@ cast.end.i.i.i:                                   ; preds = %entry
 if.then5.i.i.i:                                   ; preds = %cast.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i.i
   %vtable6.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !7
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable6.i.i.i, i64 48
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i) #11
   br label %_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev.exit
@@ -165,17 +160,17 @@ define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutor3addENS_8Function
 entry:
   %agg.tmp.i = alloca %"class.folly::Function", align 16
   %agg.tmp = alloca %"class.folly::Function", align 16
-  %executor_ = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %this, i64 0, i32 3
+  %executor_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %executor_, align 8, !tbaa !25
   %and.i.i = and i64 %0, -4
   %1 = inttoptr i64 %and.i.i to ptr
   store ptr null, ptr %agg.tmp, align 16, !tbaa !29
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %call_2.i = getelementptr inbounds %"class.folly::Function", ptr %f, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %call_2.i = getelementptr inbounds i8, ptr %f, i64 48
   %2 = load ptr, ptr %call_2.i, align 16, !tbaa !30
   store ptr %2, ptr %call_.i, align 16, !tbaa !30
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
-  %exec_3.i = getelementptr inbounds %"class.folly::Function", ptr %f, i64 0, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
+  %exec_3.i = getelementptr inbounds i8, ptr %f, i64 56
   %3 = load ptr, ptr %exec_3.i, align 8, !tbaa !33
   store ptr %3, ptr %exec_.i, align 8, !tbaa !33
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !30
@@ -192,13 +187,13 @@ if.end.i.i:                                       ; preds = %entry
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   %4 = phi ptr [ null, %entry ], [ %.pre12, %if.end.i.i ]
   %5 = phi ptr [ %2, %entry ], [ %.pre, %if.end.i.i ]
-  %deadline_ = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %this, i64 0, i32 2
+  %deadline_ = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i64, ptr %deadline_, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i)
   store ptr null, ptr %agg.tmp.i, align 16, !tbaa !29
-  %call_.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i, i64 0, i32 1
+  %call_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   store ptr %5, ptr %call_.i.i, align 16, !tbaa !30
-  %exec_.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i, i64 0, i32 2
+  %exec_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 56
   store ptr %4, ptr %exec_.i.i, align 8, !tbaa !33
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_.i, align 16, !tbaa !30
   store ptr null, ptr %exec_.i, align 8, !tbaa !33
@@ -211,7 +206,7 @@ if.end.i.i.i:                                     ; preds = %_ZN5folly8FunctionI
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i:           ; preds = %if.end.i.i.i, %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %7 = load ptr, ptr %vfn.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %agg.tmp.i, i64 noundef 1, i64 noundef %6)
           to label %invoke.cont.i unwind label %lpad.i
@@ -273,7 +268,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @_ZN5folly12_GLOBAL__N_116DeadlineExecutor16keepAliveAcquireEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %keepAliveCount_ = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %this, i64 0, i32 1
+  %keepAliveCount_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %keepAliveCount_, i64 1 monotonic, align 8
   ret i1 true
 }
@@ -281,14 +276,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutor16keepAliveReleaseEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %keepAliveCount_ = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %this, i64 0, i32 1
+  %keepAliveCount_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %keepAliveCount_, i64 1 acq_rel, align 8
   %cmp.not = icmp eq i64 %0, 1
   br i1 %cmp.not, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   br label %if.end

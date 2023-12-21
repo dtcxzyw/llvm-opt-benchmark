@@ -12,23 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::Histogram_80_10" = type { [10 x i64] }
 %"class.grpc_core::Histogram_10000_20" = type { [20 x i64] }
 %"struct.grpc_core::HistogramView" = type { ptr, ptr, i32, ptr }
-%"struct.grpc_core::GlobalStats" = type { %union.anon, %"class.grpc_core::Histogram_65536_26", %"class.grpc_core::Histogram_16777216_20", %"class.grpc_core::Histogram_80_10", %"class.grpc_core::Histogram_16777216_20", %"class.grpc_core::Histogram_16777216_20", %"class.grpc_core::Histogram_80_10", %"class.grpc_core::Histogram_16777216_20", %"class.grpc_core::Histogram_65536_26", %"class.grpc_core::Histogram_10000_20", %"class.grpc_core::Histogram_10000_20", %"class.grpc_core::Histogram_100000_20", %"class.grpc_core::Histogram_100000_20", %"class.grpc_core::Histogram_100000_20", %"class.grpc_core::Histogram_10000_20" }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.grpc_core::PerCpu" = type { %"class.grpc_core::PerCpuShardingHelper", i64, %"class.std::unique_ptr.2" }
-%"class.grpc_core::PerCpuShardingHelper" = type { i8 }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
 %"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20" }
 %"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic"] }
 %"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic"] }
@@ -122,6 +111,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E = internal constant [21 x i32] [i32 0, i32 1, i32 2, i32 4, i32 7, i32 12, i32 19, i32 30, i32 47, i32 74, i32 116, i32 182, i32 285, i32 445, i32 695, i32 1084, i32 1691, i32 2637, i32 4113, i32 6414, i32 10000], align 16
 @.str.70 = private unnamed_addr constant [23 x i8] c"return HistogramView()\00", align 1
 @.str.71 = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/debug/stats_data.cc\00", align 1
+@switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE = private unnamed_addr constant [14 x ptr] [ptr @_ZN9grpc_core18Histogram_65536_269BucketForEi, ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr @_ZN9grpc_core15Histogram_80_109BucketForEi, ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr @_ZN9grpc_core15Histogram_80_109BucketForEi, ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr @_ZN9grpc_core18Histogram_65536_269BucketForEi, ptr @_ZN9grpc_core18Histogram_10000_209BucketForEi, ptr @_ZN9grpc_core18Histogram_10000_209BucketForEi, ptr @_ZN9grpc_core19Histogram_100000_209BucketForEi, ptr @_ZN9grpc_core19Histogram_100000_209BucketForEi, ptr @_ZN9grpc_core19Histogram_100000_209BucketForEi, ptr @_ZN9grpc_core18Histogram_10000_209BucketForEi], align 8
+@switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.1 = private unnamed_addr constant [14 x ptr] [ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E], align 8
+@switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.2 = private unnamed_addr constant [14 x i32] [i32 26, i32 20, i32 10, i32 20, i32 20, i32 10, i32 20, i32 26, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20], align 4
+@switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.3 = private unnamed_addr constant [14 x i64] [i64 168, i64 376, i64 536, i64 616, i64 776, i64 936, i64 1016, i64 1176, i64 1384, i64 1544, i64 1704, i64 1864, i64 2024, i64 2184], align 8
 
 @_ZN9grpc_core11GlobalStatsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core11GlobalStatsC2Ev
 
@@ -540,182 +533,34 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE(ptr noalias nocapture writeonly sret(%"struct.grpc_core::HistogramView") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2344) %this, i32 noundef %which) local_unnamed_addr #4 align 2 {
 entry:
-  switch i32 %which, label %do.body [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb8
-    i32 3, label %sw.bb14
-    i32 4, label %sw.bb20
-    i32 5, label %sw.bb26
-    i32 6, label %sw.bb32
-    i32 7, label %sw.bb38
-    i32 8, label %sw.bb44
-    i32 9, label %sw.bb50
-    i32 10, label %sw.bb56
-    i32 11, label %sw.bb62
-    i32 12, label %sw.bb68
-    i32 13, label %sw.bb74
-  ]
+  %0 = icmp ult i32 %which, 14
+  br i1 %0, label %switch.lookup, label %do.body
 
 do.body:                                          ; preds = %entry
   tail call void @gpr_unreachable_code(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 343) #12
   unreachable
 
-sw.bb:                                            ; preds = %entry
-  store ptr @_ZN9grpc_core18Histogram_65536_269BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, ptr %bucket_boundaries, align 8
-  %num_buckets = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 26, ptr %num_buckets, align 8
-  %buckets = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %call_initial_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 1
-  store ptr %call_initial_size, ptr %buckets, align 8
-  br label %return
-
-sw.bb2:                                           ; preds = %entry
-  store ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries4 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr %bucket_boundaries4, align 8
-  %num_buckets5 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets5, align 8
-  %buckets6 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %tcp_write_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 2
-  store ptr %tcp_write_size, ptr %buckets6, align 8
-  br label %return
-
-sw.bb8:                                           ; preds = %entry
-  store ptr @_ZN9grpc_core15Histogram_80_109BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries10 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, ptr %bucket_boundaries10, align 8
-  %num_buckets11 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 10, ptr %num_buckets11, align 8
-  %buckets12 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %tcp_write_iov_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 3
-  store ptr %tcp_write_iov_size, ptr %buckets12, align 8
-  br label %return
-
-sw.bb14:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries16 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr %bucket_boundaries16, align 8
-  %num_buckets17 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets17, align 8
-  %buckets18 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %tcp_read_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 4
-  store ptr %tcp_read_size, ptr %buckets18, align 8
-  br label %return
-
-sw.bb20:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries22 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr %bucket_boundaries22, align 8
-  %num_buckets23 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets23, align 8
-  %buckets24 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %tcp_read_offer = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 5
-  store ptr %tcp_read_offer, ptr %buckets24, align 8
-  br label %return
-
-sw.bb26:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core15Histogram_80_109BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries28 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, ptr %bucket_boundaries28, align 8
-  %num_buckets29 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 10, ptr %num_buckets29, align 8
-  %buckets30 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %tcp_read_offer_iov_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 6
-  store ptr %tcp_read_offer_iov_size, ptr %buckets30, align 8
-  br label %return
-
-sw.bb32:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core21Histogram_16777216_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries34 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, ptr %bucket_boundaries34, align 8
-  %num_buckets35 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets35, align 8
-  %buckets36 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %http2_send_message_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 7
-  store ptr %http2_send_message_size, ptr %buckets36, align 8
-  br label %return
-
-sw.bb38:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core18Histogram_65536_269BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries40 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, ptr %bucket_boundaries40, align 8
-  %num_buckets41 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 26, ptr %num_buckets41, align 8
-  %buckets42 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %http2_metadata_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 8
-  store ptr %http2_metadata_size, ptr %buckets42, align 8
-  br label %return
-
-sw.bb44:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core18Histogram_10000_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries46 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, ptr %bucket_boundaries46, align 8
-  %num_buckets47 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets47, align 8
-  %buckets48 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %wrr_subchannel_list_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 9
-  store ptr %wrr_subchannel_list_size, ptr %buckets48, align 8
-  br label %return
-
-sw.bb50:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core18Histogram_10000_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries52 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, ptr %bucket_boundaries52, align 8
-  %num_buckets53 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets53, align 8
-  %buckets54 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %wrr_subchannel_ready_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 10
-  store ptr %wrr_subchannel_ready_size, ptr %buckets54, align 8
-  br label %return
-
-sw.bb56:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core19Histogram_100000_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries58 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, ptr %bucket_boundaries58, align 8
-  %num_buckets59 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets59, align 8
-  %buckets60 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %work_serializer_run_time_ms = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 11
-  store ptr %work_serializer_run_time_ms, ptr %buckets60, align 8
-  br label %return
-
-sw.bb62:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core19Histogram_100000_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries64 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, ptr %bucket_boundaries64, align 8
-  %num_buckets65 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets65, align 8
-  %buckets66 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %work_serializer_work_time_ms = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 12
-  store ptr %work_serializer_work_time_ms, ptr %buckets66, align 8
-  br label %return
-
-sw.bb68:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core19Histogram_100000_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries70 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, ptr %bucket_boundaries70, align 8
-  %num_buckets71 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets71, align 8
-  %buckets72 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %work_serializer_work_time_per_item_ms = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 13
-  store ptr %work_serializer_work_time_per_item_ms, ptr %buckets72, align 8
-  br label %return
-
-sw.bb74:                                          ; preds = %entry
-  store ptr @_ZN9grpc_core18Histogram_10000_209BucketForEi, ptr %agg.result, align 8
-  %bucket_boundaries76 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 1
-  store ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, ptr %bucket_boundaries76, align 8
-  %num_buckets77 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 2
-  store i32 20, ptr %num_buckets77, align 8
-  %buckets78 = getelementptr inbounds %"struct.grpc_core::HistogramView", ptr %agg.result, i64 0, i32 3
-  %work_serializer_items_per_run = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 14
+switch.lookup:                                    ; preds = %entry
+  %1 = zext nneg i32 %which to i64
+  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE, i64 0, i64 %1
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %2 = zext nneg i32 %which to i64
+  %switch.gep2 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.1, i64 0, i64 %2
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %3 = zext nneg i32 %which to i64
+  %switch.gep4 = getelementptr inbounds [14 x i32], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.2, i64 0, i64 %3
+  %switch.load5 = load i32, ptr %switch.gep4, align 4
+  %4 = zext nneg i32 %which to i64
+  %switch.gep6 = getelementptr inbounds [14 x i64], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.3, i64 0, i64 %4
+  %switch.load7 = load i64, ptr %switch.gep6, align 8
+  store ptr %switch.load, ptr %agg.result, align 8
+  %bucket_boundaries76 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %switch.load3, ptr %bucket_boundaries76, align 8
+  %num_buckets77 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store i32 %switch.load5, ptr %num_buckets77, align 8
+  %buckets78 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %work_serializer_items_per_run = getelementptr inbounds i8, ptr %this, i64 %switch.load7
   store ptr %work_serializer_items_per_run, ptr %buckets78, align 8
-  br label %return
-
-return:                                           ; preds = %sw.bb74, %sw.bb68, %sw.bb62, %sw.bb56, %sw.bb50, %sw.bb44, %sw.bb38, %sw.bb32, %sw.bb26, %sw.bb20, %sw.bb14, %sw.bb8, %sw.bb2, %sw.bb
   ret void
 }
 
@@ -738,49 +583,49 @@ lpad.i:                                           ; preds = %entry
 
 _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %entry
   store ptr %call.i59, ptr %agg.result, align 8, !alias.scope !15
-  %data_.i = getelementptr inbounds %"class.grpc_core::PerCpu", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %data_.i, align 8
-  %shards_.i = getelementptr inbounds %"class.grpc_core::PerCpu", ptr %this, i64 0, i32 1
+  %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %shards_.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %1, i64 %2
   %cmp.not161 = icmp eq i64 %2, 0
   br i1 %cmp.not161, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %server_calls_created9 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 1
-  %client_channels_created13 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 2
-  %client_subchannels_created17 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 3
-  %server_channels_created21 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 4
-  %insecure_connections_created25 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 5
-  %syscall_write29 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 6
-  %syscall_read33 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 7
-  %tcp_read_alloc_8k37 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 8
-  %tcp_read_alloc_64k41 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 9
-  %http2_settings_writes45 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 10
-  %http2_pings_sent49 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 11
-  %http2_writes_begun53 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 12
-  %http2_transport_stalls57 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 13
-  %http2_stream_stalls61 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 14
-  %cq_pluck_creates65 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 15
-  %cq_next_creates69 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 16
-  %cq_callback_creates73 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 17
-  %wrr_updates77 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 18
-  %work_serializer_items_enqueued81 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 19
-  %work_serializer_items_dequeued85 = getelementptr inbounds %struct.anon, ptr %call.i59, i64 0, i32 20
-  %call_initial_size88 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 1
-  %tcp_write_size90 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 2
-  %tcp_write_iov_size92 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 3
-  %tcp_read_size94 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 4
-  %tcp_read_offer96 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 5
-  %tcp_read_offer_iov_size98 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 6
-  %http2_send_message_size100 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 7
-  %http2_metadata_size102 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 8
-  %wrr_subchannel_list_size104 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 9
-  %wrr_subchannel_ready_size106 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 10
-  %work_serializer_run_time_ms108 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 11
-  %work_serializer_work_time_ms110 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 12
-  %work_serializer_work_time_per_item_ms112 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 13
-  %work_serializer_items_per_run114 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i59, i64 0, i32 14
+  %server_calls_created9 = getelementptr inbounds i8, ptr %call.i59, i64 8
+  %client_channels_created13 = getelementptr inbounds i8, ptr %call.i59, i64 16
+  %client_subchannels_created17 = getelementptr inbounds i8, ptr %call.i59, i64 24
+  %server_channels_created21 = getelementptr inbounds i8, ptr %call.i59, i64 32
+  %insecure_connections_created25 = getelementptr inbounds i8, ptr %call.i59, i64 40
+  %syscall_write29 = getelementptr inbounds i8, ptr %call.i59, i64 48
+  %syscall_read33 = getelementptr inbounds i8, ptr %call.i59, i64 56
+  %tcp_read_alloc_8k37 = getelementptr inbounds i8, ptr %call.i59, i64 64
+  %tcp_read_alloc_64k41 = getelementptr inbounds i8, ptr %call.i59, i64 72
+  %http2_settings_writes45 = getelementptr inbounds i8, ptr %call.i59, i64 80
+  %http2_pings_sent49 = getelementptr inbounds i8, ptr %call.i59, i64 88
+  %http2_writes_begun53 = getelementptr inbounds i8, ptr %call.i59, i64 96
+  %http2_transport_stalls57 = getelementptr inbounds i8, ptr %call.i59, i64 104
+  %http2_stream_stalls61 = getelementptr inbounds i8, ptr %call.i59, i64 112
+  %cq_pluck_creates65 = getelementptr inbounds i8, ptr %call.i59, i64 120
+  %cq_next_creates69 = getelementptr inbounds i8, ptr %call.i59, i64 128
+  %cq_callback_creates73 = getelementptr inbounds i8, ptr %call.i59, i64 136
+  %wrr_updates77 = getelementptr inbounds i8, ptr %call.i59, i64 144
+  %work_serializer_items_enqueued81 = getelementptr inbounds i8, ptr %call.i59, i64 152
+  %work_serializer_items_dequeued85 = getelementptr inbounds i8, ptr %call.i59, i64 160
+  %call_initial_size88 = getelementptr inbounds i8, ptr %call.i59, i64 168
+  %tcp_write_size90 = getelementptr inbounds i8, ptr %call.i59, i64 376
+  %tcp_write_iov_size92 = getelementptr inbounds i8, ptr %call.i59, i64 536
+  %tcp_read_size94 = getelementptr inbounds i8, ptr %call.i59, i64 616
+  %tcp_read_offer96 = getelementptr inbounds i8, ptr %call.i59, i64 776
+  %tcp_read_offer_iov_size98 = getelementptr inbounds i8, ptr %call.i59, i64 936
+  %http2_send_message_size100 = getelementptr inbounds i8, ptr %call.i59, i64 1016
+  %http2_metadata_size102 = getelementptr inbounds i8, ptr %call.i59, i64 1176
+  %wrr_subchannel_list_size104 = getelementptr inbounds i8, ptr %call.i59, i64 1384
+  %wrr_subchannel_ready_size106 = getelementptr inbounds i8, ptr %call.i59, i64 1544
+  %work_serializer_run_time_ms108 = getelementptr inbounds i8, ptr %call.i59, i64 1704
+  %work_serializer_work_time_ms110 = getelementptr inbounds i8, ptr %call.i59, i64 1864
+  %work_serializer_work_time_per_item_ms112 = getelementptr inbounds i8, ptr %call.i59, i64 2024
+  %work_serializer_items_per_run114 = getelementptr inbounds i8, ptr %call.i59, i64 2184
   %.pre = load i64, ptr %server_calls_created9, align 8
   %.pre163 = load i64, ptr %client_channels_created13, align 8
   %.pre164 = load i64, ptr %client_subchannels_created17, align 8
@@ -827,88 +672,88 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %23 = load i64, ptr %call.i59, align 8
   %add = add i64 %23, %22
   store i64 %add, ptr %call.i59, align 8
-  %server_calls_created = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 1
+  %server_calls_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 8
   %24 = load atomic i64, ptr %server_calls_created monotonic, align 8
   %add10 = add i64 %21, %24
   store i64 %add10, ptr %server_calls_created9, align 8
-  %client_channels_created = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 2
+  %client_channels_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 16
   %25 = load atomic i64, ptr %client_channels_created monotonic, align 8
   %add14 = add i64 %20, %25
   store i64 %add14, ptr %client_channels_created13, align 8
-  %client_subchannels_created = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 3
+  %client_subchannels_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 24
   %26 = load atomic i64, ptr %client_subchannels_created monotonic, align 8
   %add18 = add i64 %19, %26
   store i64 %add18, ptr %client_subchannels_created17, align 8
-  %server_channels_created = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 4
+  %server_channels_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 32
   %27 = load atomic i64, ptr %server_channels_created monotonic, align 8
   %add22 = add i64 %18, %27
   store i64 %add22, ptr %server_channels_created21, align 8
-  %insecure_connections_created = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 5
+  %insecure_connections_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 40
   %28 = load atomic i64, ptr %insecure_connections_created monotonic, align 8
   %add26 = add i64 %17, %28
   store i64 %add26, ptr %insecure_connections_created25, align 8
-  %syscall_write = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 6
+  %syscall_write = getelementptr inbounds i8, ptr %__begin1.0162, i64 48
   %29 = load atomic i64, ptr %syscall_write monotonic, align 8
   %add30 = add i64 %16, %29
   store i64 %add30, ptr %syscall_write29, align 8
-  %syscall_read = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 7
+  %syscall_read = getelementptr inbounds i8, ptr %__begin1.0162, i64 56
   %30 = load atomic i64, ptr %syscall_read monotonic, align 8
   %add34 = add i64 %15, %30
   store i64 %add34, ptr %syscall_read33, align 8
-  %tcp_read_alloc_8k = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 8
+  %tcp_read_alloc_8k = getelementptr inbounds i8, ptr %__begin1.0162, i64 64
   %31 = load atomic i64, ptr %tcp_read_alloc_8k monotonic, align 8
   %add38 = add i64 %14, %31
   store i64 %add38, ptr %tcp_read_alloc_8k37, align 8
-  %tcp_read_alloc_64k = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 9
+  %tcp_read_alloc_64k = getelementptr inbounds i8, ptr %__begin1.0162, i64 72
   %32 = load atomic i64, ptr %tcp_read_alloc_64k monotonic, align 8
   %add42 = add i64 %13, %32
   store i64 %add42, ptr %tcp_read_alloc_64k41, align 8
-  %http2_settings_writes = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 10
+  %http2_settings_writes = getelementptr inbounds i8, ptr %__begin1.0162, i64 80
   %33 = load atomic i64, ptr %http2_settings_writes monotonic, align 8
   %add46 = add i64 %12, %33
   store i64 %add46, ptr %http2_settings_writes45, align 8
-  %http2_pings_sent = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 11
+  %http2_pings_sent = getelementptr inbounds i8, ptr %__begin1.0162, i64 88
   %34 = load atomic i64, ptr %http2_pings_sent monotonic, align 8
   %add50 = add i64 %11, %34
   store i64 %add50, ptr %http2_pings_sent49, align 8
-  %http2_writes_begun = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 12
+  %http2_writes_begun = getelementptr inbounds i8, ptr %__begin1.0162, i64 96
   %35 = load atomic i64, ptr %http2_writes_begun monotonic, align 8
   %add54 = add i64 %10, %35
   store i64 %add54, ptr %http2_writes_begun53, align 8
-  %http2_transport_stalls = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 13
+  %http2_transport_stalls = getelementptr inbounds i8, ptr %__begin1.0162, i64 104
   %36 = load atomic i64, ptr %http2_transport_stalls monotonic, align 8
   %add58 = add i64 %9, %36
   store i64 %add58, ptr %http2_transport_stalls57, align 8
-  %http2_stream_stalls = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 14
+  %http2_stream_stalls = getelementptr inbounds i8, ptr %__begin1.0162, i64 112
   %37 = load atomic i64, ptr %http2_stream_stalls monotonic, align 8
   %add62 = add i64 %8, %37
   store i64 %add62, ptr %http2_stream_stalls61, align 8
-  %cq_pluck_creates = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 15
+  %cq_pluck_creates = getelementptr inbounds i8, ptr %__begin1.0162, i64 120
   %38 = load atomic i64, ptr %cq_pluck_creates monotonic, align 8
   %add66 = add i64 %7, %38
   store i64 %add66, ptr %cq_pluck_creates65, align 8
-  %cq_next_creates = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 16
+  %cq_next_creates = getelementptr inbounds i8, ptr %__begin1.0162, i64 128
   %39 = load atomic i64, ptr %cq_next_creates monotonic, align 8
   %add70 = add i64 %6, %39
   store i64 %add70, ptr %cq_next_creates69, align 8
-  %cq_callback_creates = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 17
+  %cq_callback_creates = getelementptr inbounds i8, ptr %__begin1.0162, i64 136
   %40 = load atomic i64, ptr %cq_callback_creates monotonic, align 8
   %add74 = add i64 %5, %40
   store i64 %add74, ptr %cq_callback_creates73, align 8
-  %wrr_updates = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 18
+  %wrr_updates = getelementptr inbounds i8, ptr %__begin1.0162, i64 144
   %41 = load atomic i64, ptr %wrr_updates monotonic, align 8
   %add78 = add i64 %4, %41
   store i64 %add78, ptr %wrr_updates77, align 8
-  %work_serializer_items_enqueued = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 19
+  %work_serializer_items_enqueued = getelementptr inbounds i8, ptr %__begin1.0162, i64 152
   %42 = load atomic i64, ptr %work_serializer_items_enqueued monotonic, align 8
   %add82 = add i64 %3, %42
   store i64 %add82, ptr %work_serializer_items_enqueued81, align 8
-  %work_serializer_items_dequeued = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 20
+  %work_serializer_items_dequeued = getelementptr inbounds i8, ptr %__begin1.0162, i64 160
   %43 = load atomic i64, ptr %work_serializer_items_dequeued monotonic, align 8
   %44 = load i64, ptr %work_serializer_items_dequeued85, align 8
   %add86 = add i64 %44, %43
   store i64 %add86, ptr %work_serializer_items_dequeued85, align 8
-  %call_initial_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 21
+  %call_initial_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 168
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body
@@ -924,7 +769,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit, label %for.body.i, !llvm.loop !7
 
 _ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit: ; preds = %for.body.i
-  %tcp_write_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 22
+  %tcp_write_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 376
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %for.body.i61, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit
@@ -940,7 +785,7 @@ for.body.i61:                                     ; preds = %for.body.i61, %_ZNK
   br i1 %exitcond.not.i67, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit, label %for.body.i61, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit: ; preds = %for.body.i61
-  %tcp_write_iov_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 23
+  %tcp_write_iov_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 536
   br label %for.body.i68
 
 for.body.i68:                                     ; preds = %for.body.i68, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit
@@ -956,7 +801,7 @@ for.body.i68:                                     ; preds = %for.body.i68, %_ZNK
   br i1 %exitcond.not.i74, label %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit, label %for.body.i68, !llvm.loop !11
 
 _ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit: ; preds = %for.body.i68
-  %tcp_read_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 24
+  %tcp_read_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 616
   br label %for.body.i75
 
 for.body.i75:                                     ; preds = %for.body.i75, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit
@@ -972,7 +817,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %_ZNK
   br i1 %exitcond.not.i81, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82, label %for.body.i75, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82: ; preds = %for.body.i75
-  %tcp_read_offer = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 25
+  %tcp_read_offer = getelementptr inbounds i8, ptr %__begin1.0162, i64 776
   br label %for.body.i83
 
 for.body.i83:                                     ; preds = %for.body.i83, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82
@@ -988,7 +833,7 @@ for.body.i83:                                     ; preds = %for.body.i83, %_ZNK
   br i1 %exitcond.not.i89, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90, label %for.body.i83, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90: ; preds = %for.body.i83
-  %tcp_read_offer_iov_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 26
+  %tcp_read_offer_iov_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 936
   br label %for.body.i91
 
 for.body.i91:                                     ; preds = %for.body.i91, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90
@@ -1004,7 +849,7 @@ for.body.i91:                                     ; preds = %for.body.i91, %_ZNK
   br i1 %exitcond.not.i97, label %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98, label %for.body.i91, !llvm.loop !11
 
 _ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98: ; preds = %for.body.i91
-  %http2_send_message_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 27
+  %http2_send_message_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1016
   br label %for.body.i99
 
 for.body.i99:                                     ; preds = %for.body.i99, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98
@@ -1020,7 +865,7 @@ for.body.i99:                                     ; preds = %for.body.i99, %_ZNK
   br i1 %exitcond.not.i105, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106, label %for.body.i99, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106: ; preds = %for.body.i99
-  %http2_metadata_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 28
+  %http2_metadata_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1176
   br label %for.body.i107
 
 for.body.i107:                                    ; preds = %for.body.i107, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106
@@ -1036,7 +881,7 @@ for.body.i107:                                    ; preds = %for.body.i107, %_ZN
   br i1 %exitcond.not.i113, label %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114, label %for.body.i107, !llvm.loop !7
 
 _ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114: ; preds = %for.body.i107
-  %wrr_subchannel_list_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 29
+  %wrr_subchannel_list_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1384
   br label %for.body.i115
 
 for.body.i115:                                    ; preds = %for.body.i115, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114
@@ -1052,7 +897,7 @@ for.body.i115:                                    ; preds = %for.body.i115, %_ZN
   br i1 %exitcond.not.i121, label %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit, label %for.body.i115, !llvm.loop !13
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit: ; preds = %for.body.i115
-  %wrr_subchannel_ready_size = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 30
+  %wrr_subchannel_ready_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1544
   br label %for.body.i122
 
 for.body.i122:                                    ; preds = %for.body.i122, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit
@@ -1068,7 +913,7 @@ for.body.i122:                                    ; preds = %for.body.i122, %_ZN
   br i1 %exitcond.not.i128, label %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129, label %for.body.i122, !llvm.loop !13
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129: ; preds = %for.body.i122
-  %work_serializer_run_time_ms = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 31
+  %work_serializer_run_time_ms = getelementptr inbounds i8, ptr %__begin1.0162, i64 1704
   br label %for.body.i130
 
 for.body.i130:                                    ; preds = %for.body.i130, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129
@@ -1084,7 +929,7 @@ for.body.i130:                                    ; preds = %for.body.i130, %_ZN
   br i1 %exitcond.not.i136, label %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit, label %for.body.i130, !llvm.loop !4
 
 _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit: ; preds = %for.body.i130
-  %work_serializer_work_time_ms = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 32
+  %work_serializer_work_time_ms = getelementptr inbounds i8, ptr %__begin1.0162, i64 1864
   br label %for.body.i137
 
 for.body.i137:                                    ; preds = %for.body.i137, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit
@@ -1100,7 +945,7 @@ for.body.i137:                                    ; preds = %for.body.i137, %_ZN
   br i1 %exitcond.not.i143, label %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144, label %for.body.i137, !llvm.loop !4
 
 _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144: ; preds = %for.body.i137
-  %work_serializer_work_time_per_item_ms = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 33
+  %work_serializer_work_time_per_item_ms = getelementptr inbounds i8, ptr %__begin1.0162, i64 2024
   br label %for.body.i145
 
 for.body.i145:                                    ; preds = %for.body.i145, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144
@@ -1116,7 +961,7 @@ for.body.i145:                                    ; preds = %for.body.i145, %_ZN
   br i1 %exitcond.not.i151, label %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152, label %for.body.i145, !llvm.loop !4
 
 _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152: ; preds = %for.body.i145
-  %work_serializer_items_per_run = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 0, i32 34
+  %work_serializer_items_per_run = getelementptr inbounds i8, ptr %__begin1.0162, i64 2184
   br label %for.body.i153
 
 for.body.i153:                                    ; preds = %for.body.i153, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152
@@ -1132,7 +977,7 @@ for.body.i153:                                    ; preds = %for.body.i153, %_ZN
   br i1 %exitcond.not.i159, label %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit160, label %for.body.i153, !llvm.loop !13
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit160: ; preds = %for.body.i153
-  %incdec.ptr = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %__begin1.0162, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0162, i64 2344
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
@@ -1176,78 +1021,78 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
   %2 = load <2 x i64>, ptr %other, align 8
   %3 = sub <2 x i64> %1, %2
   store <2 x i64> %3, ptr %call.i, align 8
-  %client_channels_created = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 2
-  %client_channels_created8 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 2
-  %client_channels_created11 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 2
+  %client_channels_created = getelementptr inbounds i8, ptr %this, i64 16
+  %client_channels_created8 = getelementptr inbounds i8, ptr %other, i64 16
+  %client_channels_created11 = getelementptr inbounds i8, ptr %call.i, i64 16
   %4 = load <2 x i64>, ptr %client_channels_created, align 8
   %5 = load <2 x i64>, ptr %client_channels_created8, align 8
   %6 = sub <2 x i64> %4, %5
   store <2 x i64> %6, ptr %client_channels_created11, align 8
-  %server_channels_created = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 4
-  %server_channels_created16 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 4
-  %server_channels_created19 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 4
+  %server_channels_created = getelementptr inbounds i8, ptr %this, i64 32
+  %server_channels_created16 = getelementptr inbounds i8, ptr %other, i64 32
+  %server_channels_created19 = getelementptr inbounds i8, ptr %call.i, i64 32
   %7 = load <2 x i64>, ptr %server_channels_created, align 8
   %8 = load <2 x i64>, ptr %server_channels_created16, align 8
   %9 = sub <2 x i64> %7, %8
   store <2 x i64> %9, ptr %server_channels_created19, align 8
-  %syscall_write = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 6
-  %syscall_write24 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 6
-  %syscall_write27 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 6
+  %syscall_write = getelementptr inbounds i8, ptr %this, i64 48
+  %syscall_write24 = getelementptr inbounds i8, ptr %other, i64 48
+  %syscall_write27 = getelementptr inbounds i8, ptr %call.i, i64 48
   %10 = load <2 x i64>, ptr %syscall_write, align 8
   %11 = load <2 x i64>, ptr %syscall_write24, align 8
   %12 = sub <2 x i64> %10, %11
   store <2 x i64> %12, ptr %syscall_write27, align 8
-  %tcp_read_alloc_8k = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 8
-  %tcp_read_alloc_8k32 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 8
-  %tcp_read_alloc_8k35 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 8
+  %tcp_read_alloc_8k = getelementptr inbounds i8, ptr %this, i64 64
+  %tcp_read_alloc_8k32 = getelementptr inbounds i8, ptr %other, i64 64
+  %tcp_read_alloc_8k35 = getelementptr inbounds i8, ptr %call.i, i64 64
   %13 = load <2 x i64>, ptr %tcp_read_alloc_8k, align 8
   %14 = load <2 x i64>, ptr %tcp_read_alloc_8k32, align 8
   %15 = sub <2 x i64> %13, %14
   store <2 x i64> %15, ptr %tcp_read_alloc_8k35, align 8
-  %http2_settings_writes = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 10
-  %http2_settings_writes40 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 10
-  %http2_settings_writes43 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 10
+  %http2_settings_writes = getelementptr inbounds i8, ptr %this, i64 80
+  %http2_settings_writes40 = getelementptr inbounds i8, ptr %other, i64 80
+  %http2_settings_writes43 = getelementptr inbounds i8, ptr %call.i, i64 80
   %16 = load <2 x i64>, ptr %http2_settings_writes, align 8
   %17 = load <2 x i64>, ptr %http2_settings_writes40, align 8
   %18 = sub <2 x i64> %16, %17
   store <2 x i64> %18, ptr %http2_settings_writes43, align 8
-  %http2_writes_begun = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 12
-  %http2_writes_begun48 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 12
-  %http2_writes_begun51 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 12
+  %http2_writes_begun = getelementptr inbounds i8, ptr %this, i64 96
+  %http2_writes_begun48 = getelementptr inbounds i8, ptr %other, i64 96
+  %http2_writes_begun51 = getelementptr inbounds i8, ptr %call.i, i64 96
   %19 = load <2 x i64>, ptr %http2_writes_begun, align 8
   %20 = load <2 x i64>, ptr %http2_writes_begun48, align 8
   %21 = sub <2 x i64> %19, %20
   store <2 x i64> %21, ptr %http2_writes_begun51, align 8
-  %http2_stream_stalls = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 14
-  %http2_stream_stalls56 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 14
-  %http2_stream_stalls59 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 14
+  %http2_stream_stalls = getelementptr inbounds i8, ptr %this, i64 112
+  %http2_stream_stalls56 = getelementptr inbounds i8, ptr %other, i64 112
+  %http2_stream_stalls59 = getelementptr inbounds i8, ptr %call.i, i64 112
   %22 = load <2 x i64>, ptr %http2_stream_stalls, align 8
   %23 = load <2 x i64>, ptr %http2_stream_stalls56, align 8
   %24 = sub <2 x i64> %22, %23
   store <2 x i64> %24, ptr %http2_stream_stalls59, align 8
-  %cq_next_creates = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 16
-  %cq_next_creates64 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 16
-  %cq_next_creates67 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 16
+  %cq_next_creates = getelementptr inbounds i8, ptr %this, i64 128
+  %cq_next_creates64 = getelementptr inbounds i8, ptr %other, i64 128
+  %cq_next_creates67 = getelementptr inbounds i8, ptr %call.i, i64 128
   %25 = load <2 x i64>, ptr %cq_next_creates, align 8
   %26 = load <2 x i64>, ptr %cq_next_creates64, align 8
   %27 = sub <2 x i64> %25, %26
   store <2 x i64> %27, ptr %cq_next_creates67, align 8
-  %wrr_updates = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 18
-  %wrr_updates72 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 18
-  %wrr_updates75 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 18
+  %wrr_updates = getelementptr inbounds i8, ptr %this, i64 144
+  %wrr_updates72 = getelementptr inbounds i8, ptr %other, i64 144
+  %wrr_updates75 = getelementptr inbounds i8, ptr %call.i, i64 144
   %28 = load <2 x i64>, ptr %wrr_updates, align 8
   %29 = load <2 x i64>, ptr %wrr_updates72, align 8
   %30 = sub <2 x i64> %28, %29
   store <2 x i64> %30, ptr %wrr_updates75, align 8
-  %work_serializer_items_dequeued = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 20
+  %work_serializer_items_dequeued = getelementptr inbounds i8, ptr %this, i64 160
   %31 = load i64, ptr %work_serializer_items_dequeued, align 8
-  %work_serializer_items_dequeued80 = getelementptr inbounds %struct.anon, ptr %other, i64 0, i32 20
+  %work_serializer_items_dequeued80 = getelementptr inbounds i8, ptr %other, i64 160
   %32 = load i64, ptr %work_serializer_items_dequeued80, align 8
   %sub81 = sub i64 %31, %32
-  %work_serializer_items_dequeued83 = getelementptr inbounds %struct.anon, ptr %call.i, i64 0, i32 20
+  %work_serializer_items_dequeued83 = getelementptr inbounds i8, ptr %call.i, i64 160
   store i64 %sub81, ptr %work_serializer_items_dequeued83, align 8
-  %call_initial_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 1
-  %call_initial_size84 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 1
+  %call_initial_size = getelementptr inbounds i8, ptr %this, i64 168
+  %call_initial_size84 = getelementptr inbounds i8, ptr %other, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp, i8 0, i64 208, i1 false), !alias.scope !21
   br label %for.body.i
@@ -1266,10 +1111,10 @@ for.body.i:                                       ; preds = %for.body.i, %_ZSt11
   br i1 %exitcond.not.i, label %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit, label %for.body.i, !llvm.loop !8
 
 _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit: ; preds = %for.body.i
-  %call_initial_size86 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 1
+  %call_initial_size86 = getelementptr inbounds i8, ptr %call.i, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %call_initial_size86, ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp, i64 208, i1 false)
-  %tcp_write_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 2
-  %tcp_write_size88 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 2
+  %tcp_write_size = getelementptr inbounds i8, ptr %this, i64 376
+  %tcp_write_size88 = getelementptr inbounds i8, ptr %other, i64 376
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp87, i8 0, i64 160, i1 false), !alias.scope !24
   br label %for.body.i35
@@ -1288,10 +1133,10 @@ for.body.i35:                                     ; preds = %for.body.i35, %_ZN9
   br i1 %exitcond.not.i42, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit, label %for.body.i35, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit: ; preds = %for.body.i35
-  %tcp_write_size90 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 2
+  %tcp_write_size90 = getelementptr inbounds i8, ptr %call.i, i64 376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %tcp_write_size90, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp87, i64 160, i1 false)
-  %tcp_write_iov_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 3
-  %tcp_write_iov_size92 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 3
+  %tcp_write_iov_size = getelementptr inbounds i8, ptr %this, i64 536
+  %tcp_write_iov_size92 = getelementptr inbounds i8, ptr %other, i64 536
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp91, i8 0, i64 80, i1 false), !alias.scope !27
   br label %for.body.i43
@@ -1310,10 +1155,10 @@ for.body.i43:                                     ; preds = %for.body.i43, %_ZN9
   br i1 %exitcond.not.i50, label %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit, label %for.body.i43, !llvm.loop !12
 
 _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit:  ; preds = %for.body.i43
-  %tcp_write_iov_size94 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 3
+  %tcp_write_iov_size94 = getelementptr inbounds i8, ptr %call.i, i64 536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tcp_write_iov_size94, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp91, i64 80, i1 false)
-  %tcp_read_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 4
-  %tcp_read_size96 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 4
+  %tcp_read_size = getelementptr inbounds i8, ptr %this, i64 616
+  %tcp_read_size96 = getelementptr inbounds i8, ptr %other, i64 616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp95, i8 0, i64 160, i1 false), !alias.scope !30
   br label %for.body.i51
@@ -1332,10 +1177,10 @@ for.body.i51:                                     ; preds = %for.body.i51, %_ZN9
   br i1 %exitcond.not.i58, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59, label %for.body.i51, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59: ; preds = %for.body.i51
-  %tcp_read_size98 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 4
+  %tcp_read_size98 = getelementptr inbounds i8, ptr %call.i, i64 616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %tcp_read_size98, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp95, i64 160, i1 false)
-  %tcp_read_offer = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 5
-  %tcp_read_offer100 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 5
+  %tcp_read_offer = getelementptr inbounds i8, ptr %this, i64 776
+  %tcp_read_offer100 = getelementptr inbounds i8, ptr %other, i64 776
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp99, i8 0, i64 160, i1 false), !alias.scope !33
   br label %for.body.i60
@@ -1354,10 +1199,10 @@ for.body.i60:                                     ; preds = %for.body.i60, %_ZN9
   br i1 %exitcond.not.i67, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68, label %for.body.i60, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68: ; preds = %for.body.i60
-  %tcp_read_offer102 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 5
+  %tcp_read_offer102 = getelementptr inbounds i8, ptr %call.i, i64 776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %tcp_read_offer102, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp99, i64 160, i1 false)
-  %tcp_read_offer_iov_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 6
-  %tcp_read_offer_iov_size104 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 6
+  %tcp_read_offer_iov_size = getelementptr inbounds i8, ptr %this, i64 936
+  %tcp_read_offer_iov_size104 = getelementptr inbounds i8, ptr %other, i64 936
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp103, i8 0, i64 80, i1 false), !alias.scope !36
   br label %for.body.i69
@@ -1376,10 +1221,10 @@ for.body.i69:                                     ; preds = %for.body.i69, %_ZN9
   br i1 %exitcond.not.i76, label %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77, label %for.body.i69, !llvm.loop !12
 
 _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77: ; preds = %for.body.i69
-  %tcp_read_offer_iov_size106 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 6
+  %tcp_read_offer_iov_size106 = getelementptr inbounds i8, ptr %call.i, i64 936
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tcp_read_offer_iov_size106, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp103, i64 80, i1 false)
-  %http2_send_message_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 7
-  %http2_send_message_size108 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 7
+  %http2_send_message_size = getelementptr inbounds i8, ptr %this, i64 1016
+  %http2_send_message_size108 = getelementptr inbounds i8, ptr %other, i64 1016
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107, i8 0, i64 160, i1 false), !alias.scope !39
   br label %for.body.i78
@@ -1398,10 +1243,10 @@ for.body.i78:                                     ; preds = %for.body.i78, %_ZN9
   br i1 %exitcond.not.i85, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86, label %for.body.i78, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86: ; preds = %for.body.i78
-  %http2_send_message_size110 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 7
+  %http2_send_message_size110 = getelementptr inbounds i8, ptr %call.i, i64 1016
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %http2_send_message_size110, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107, i64 160, i1 false)
-  %http2_metadata_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 8
-  %http2_metadata_size112 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 8
+  %http2_metadata_size = getelementptr inbounds i8, ptr %this, i64 1176
+  %http2_metadata_size112 = getelementptr inbounds i8, ptr %other, i64 1176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp111, i8 0, i64 208, i1 false), !alias.scope !42
   br label %for.body.i87
@@ -1420,10 +1265,10 @@ for.body.i87:                                     ; preds = %for.body.i87, %_ZN9
   br i1 %exitcond.not.i94, label %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95, label %for.body.i87, !llvm.loop !8
 
 _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95: ; preds = %for.body.i87
-  %http2_metadata_size114 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 8
+  %http2_metadata_size114 = getelementptr inbounds i8, ptr %call.i, i64 1176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %http2_metadata_size114, ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp111, i64 208, i1 false)
-  %wrr_subchannel_list_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 9
-  %wrr_subchannel_list_size116 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 9
+  %wrr_subchannel_list_size = getelementptr inbounds i8, ptr %this, i64 1384
+  %wrr_subchannel_list_size116 = getelementptr inbounds i8, ptr %other, i64 1384
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp115, i8 0, i64 160, i1 false), !alias.scope !45
   br label %for.body.i96
@@ -1442,10 +1287,10 @@ for.body.i96:                                     ; preds = %for.body.i96, %_ZN9
   br i1 %exitcond.not.i103, label %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit, label %for.body.i96, !llvm.loop !14
 
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit: ; preds = %for.body.i96
-  %wrr_subchannel_list_size118 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 9
+  %wrr_subchannel_list_size118 = getelementptr inbounds i8, ptr %call.i, i64 1384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %wrr_subchannel_list_size118, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp115, i64 160, i1 false)
-  %wrr_subchannel_ready_size = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 10
-  %wrr_subchannel_ready_size120 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 10
+  %wrr_subchannel_ready_size = getelementptr inbounds i8, ptr %this, i64 1544
+  %wrr_subchannel_ready_size120 = getelementptr inbounds i8, ptr %other, i64 1544
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp119, i8 0, i64 160, i1 false), !alias.scope !48
   br label %for.body.i104
@@ -1464,10 +1309,10 @@ for.body.i104:                                    ; preds = %for.body.i104, %_ZN
   br i1 %exitcond.not.i111, label %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112, label %for.body.i104, !llvm.loop !14
 
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112: ; preds = %for.body.i104
-  %wrr_subchannel_ready_size122 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 10
+  %wrr_subchannel_ready_size122 = getelementptr inbounds i8, ptr %call.i, i64 1544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %wrr_subchannel_ready_size122, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp119, i64 160, i1 false)
-  %work_serializer_run_time_ms = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 11
-  %work_serializer_run_time_ms124 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 11
+  %work_serializer_run_time_ms = getelementptr inbounds i8, ptr %this, i64 1704
+  %work_serializer_run_time_ms124 = getelementptr inbounds i8, ptr %other, i64 1704
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp123, i8 0, i64 160, i1 false), !alias.scope !51
   br label %for.body.i113
@@ -1486,10 +1331,10 @@ for.body.i113:                                    ; preds = %for.body.i113, %_ZN
   br i1 %exitcond.not.i120, label %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit, label %for.body.i113, !llvm.loop !6
 
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit: ; preds = %for.body.i113
-  %work_serializer_run_time_ms126 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 11
+  %work_serializer_run_time_ms126 = getelementptr inbounds i8, ptr %call.i, i64 1704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_run_time_ms126, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp123, i64 160, i1 false)
-  %work_serializer_work_time_ms = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 12
-  %work_serializer_work_time_ms128 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 12
+  %work_serializer_work_time_ms = getelementptr inbounds i8, ptr %this, i64 1864
+  %work_serializer_work_time_ms128 = getelementptr inbounds i8, ptr %other, i64 1864
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp127, i8 0, i64 160, i1 false), !alias.scope !54
   br label %for.body.i121
@@ -1508,10 +1353,10 @@ for.body.i121:                                    ; preds = %for.body.i121, %_ZN
   br i1 %exitcond.not.i128, label %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129, label %for.body.i121, !llvm.loop !6
 
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129: ; preds = %for.body.i121
-  %work_serializer_work_time_ms130 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 12
+  %work_serializer_work_time_ms130 = getelementptr inbounds i8, ptr %call.i, i64 1864
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_work_time_ms130, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp127, i64 160, i1 false)
-  %work_serializer_work_time_per_item_ms = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 13
-  %work_serializer_work_time_per_item_ms132 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 13
+  %work_serializer_work_time_per_item_ms = getelementptr inbounds i8, ptr %this, i64 2024
+  %work_serializer_work_time_per_item_ms132 = getelementptr inbounds i8, ptr %other, i64 2024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp131, i8 0, i64 160, i1 false), !alias.scope !57
   br label %for.body.i130
@@ -1530,10 +1375,10 @@ for.body.i130:                                    ; preds = %for.body.i130, %_ZN
   br i1 %exitcond.not.i137, label %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138, label %for.body.i130, !llvm.loop !6
 
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138: ; preds = %for.body.i130
-  %work_serializer_work_time_per_item_ms134 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 13
+  %work_serializer_work_time_per_item_ms134 = getelementptr inbounds i8, ptr %call.i, i64 2024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_work_time_per_item_ms134, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp131, i64 160, i1 false)
-  %work_serializer_items_per_run = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %this, i64 0, i32 14
-  %work_serializer_items_per_run136 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %other, i64 0, i32 14
+  %work_serializer_items_per_run = getelementptr inbounds i8, ptr %this, i64 2184
+  %work_serializer_items_per_run136 = getelementptr inbounds i8, ptr %other, i64 2184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp135, i8 0, i64 160, i1 false), !alias.scope !60
   br label %for.body.i139
@@ -1552,7 +1397,7 @@ for.body.i139:                                    ; preds = %for.body.i139, %_ZN
   br i1 %exitcond.not.i146, label %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit147, label %for.body.i139, !llvm.loop !14
 
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit147: ; preds = %for.body.i139
-  %work_serializer_items_per_run138 = getelementptr inbounds %"struct.grpc_core::GlobalStats", ptr %call.i, i64 0, i32 14
+  %work_serializer_items_per_run138 = getelementptr inbounds i8, ptr %call.i, i64 2184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_items_per_run138, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp135, i64 160, i1 false)
   ret void
 }

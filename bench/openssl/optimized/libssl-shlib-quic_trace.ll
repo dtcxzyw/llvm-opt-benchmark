@@ -137,7 +137,7 @@ sw.bb2:                                           ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb2
   store ptr %buf, ptr %pkt, align 8
-  %remaining.i = getelementptr inbounds %struct.PACKET, ptr %pkt, i64 0, i32 1
+  %remaining.i = getelementptr inbounds i8, ptr %pkt, i64 8
   store i64 %msglen, ptr %remaining.i, align 8
   %call5 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %pkt, i64 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %hdr, ptr noundef null) #3
   %cmp.not = icmp eq i32 %call5, 1
@@ -169,7 +169,7 @@ packet_type.exit:                                 ; preds = %if.end7, %switch.lo
   br i1 %cmp16.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %packet_type.exit
-  %version18 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 1
+  %version18 = getelementptr inbounds i8, ptr %hdr, i64 4
   %2 = load i32, ptr %version18, align 4
   %conv = zext i32 %2 to i64
   %call19 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.5, i64 noundef %conv) #3
@@ -177,7 +177,7 @@ if.then17:                                        ; preds = %packet_type.exit
 
 if.end20:                                         ; preds = %if.then17, %packet_type.exit
   %call21 = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.6) #3
-  %dst_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2
+  %dst_conn_id = getelementptr inbounds i8, ptr %hdr, i64 8
   %3 = load i8, ptr %dst_conn_id, align 8
   %cmp.i31 = icmp eq i8 %3, 0
   br i1 %cmp.i31, label %if.then.i, label %if.end.i32
@@ -188,7 +188,7 @@ if.then.i:                                        ; preds = %if.end20
 
 if.end.i32:                                       ; preds = %if.end20
   %call2.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.23) #3
-  %id3.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2, i32 1
+  %id3.i = getelementptr inbounds i8, ptr %hdr, i64 9
   %4 = load i8, ptr %dst_conn_id, align 8
   %conv5.i = zext i8 %4 to i64
   %cmp3.not.i.i = icmp eq i8 %4, 0
@@ -213,7 +213,7 @@ put_conn_id.exit:                                 ; preds = %for.body.i.i, %if.t
 
 if.then27:                                        ; preds = %put_conn_id.exit
   %call28 = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.8) #3
-  %src_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3
+  %src_conn_id = getelementptr inbounds i8, ptr %hdr, i64 29
   %6 = load i8, ptr %src_conn_id, align 1
   %cmp.i33 = icmp eq i8 %6, 0
   br i1 %cmp.i33, label %if.then.i46, label %if.end.i34
@@ -224,7 +224,7 @@ if.then.i46:                                      ; preds = %if.then27
 
 if.end.i34:                                       ; preds = %if.then27
   %call2.i35 = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.23) #3
-  %id3.i36 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3, i32 1
+  %id3.i36 = getelementptr inbounds i8, ptr %hdr, i64 30
   %7 = load i8, ptr %src_conn_id, align 1
   %conv5.i37 = zext i8 %7 to i64
   %cmp3.not.i.i38 = icmp eq i8 %7, 0
@@ -245,7 +245,7 @@ put_conn_id.exit48:                               ; preds = %for.body.i.i39, %if
   br label %if.end30
 
 if.end30:                                         ; preds = %put_conn_id.exit48, %put_conn_id.exit
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %hdr, i64 72
   %9 = load i64, ptr %len, align 8
   %call31 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.9, i64 noundef %9) #3
   %bf.load32 = load i32, ptr %hdr, align 8
@@ -255,9 +255,9 @@ if.end30:                                         ; preds = %put_conn_id.exit48,
 
 if.then36:                                        ; preds = %if.end30
   %call37 = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.10) #3
-  %token = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 5
+  %token = getelementptr inbounds i8, ptr %hdr, i64 56
   %10 = load ptr, ptr %token, align 8
-  %token_len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 6
+  %token_len = getelementptr inbounds i8, ptr %hdr, i64 64
   %11 = load i64, ptr %token_len, align 8
   %cmp.i49 = icmp eq i64 %11, 0
   br i1 %cmp.i49, label %if.then.i58, label %for.body.i.i50
@@ -294,11 +294,15 @@ if.then48:                                        ; preds = %if.end39
   %bf.load5080 = load i32, ptr %hdr, align 8
   %13 = and i32 %bf.load5080, 15360
   %cmp5384.not = icmp eq i32 %13, 0
-  br i1 %cmp5384.not, label %for.end, label %for.body
+  br i1 %cmp5384.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.then48, %for.body
-  %i.085 = phi i64 [ %inc, %for.body ], [ 0, %if.then48 ]
-  %arrayidx = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4, i64 %i.085
+for.body.lr.ph:                                   ; preds = %if.then48
+  %pn = getelementptr inbounds i8, ptr %hdr, i64 50
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.085 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %pn, i64 0, i64 %i.085
   %14 = load i8, ptr %arrayidx, align 1
   %conv55 = zext i8 %14 to i32
   %call56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.12, i32 noundef %conv55) #3
@@ -324,7 +328,7 @@ sw.bb59:                                          ; preds = %entry, %entry, %ent
 
 if.end67:                                         ; preds = %sw.bb59
   store ptr %buf, ptr %pkt, align 8
-  %remaining.i62 = getelementptr inbounds %struct.PACKET, ptr %pkt, i64 0, i32 1
+  %remaining.i62 = getelementptr inbounds i8, ptr %pkt, i64 8
   store i64 %msglen, ptr %remaining.i62, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frame_type.i)
   %call.i65 = call i32 @ossl_quic_wire_peek_frame_header(ptr noundef nonnull %pkt, ptr noundef nonnull %frame_type.i, ptr noundef null) #3
@@ -403,7 +407,7 @@ lor.lhs.false1.i.i:                               ; preds = %sw.bb9.i
 if.end.i.i:                                       ; preds = %lor.lhs.false1.i.i
   store ptr %call2.i.i, ptr %ack.i.i, align 8
   %18 = load i64, ptr %total_ranges.i.i, align 8
-  %num_ack_ranges.i.i = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %ack.i.i, i64 0, i32 1
+  %num_ack_ranges.i.i = getelementptr inbounds i8, ptr %ack.i.i, i64 8
   store i64 %18, ptr %num_ack_ranges.i.i, align 8
   %call5.i.i = call i32 @ossl_quic_wire_decode_frame_ack(ptr noundef nonnull %pkt, i32 noundef 0, ptr noundef nonnull %ack.i.i, ptr noundef null) #3
   %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
@@ -411,17 +415,17 @@ if.end.i.i:                                       ; preds = %lor.lhs.false1.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %19 = load ptr, ptr %ack.i.i, align 8
-  %end.i.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %19, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %end.i.i, align 8
   %call10.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.52, i64 noundef %20) #3
-  %delay_time.i.i = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %ack.i.i, i64 0, i32 2
+  %delay_time.i.i = getelementptr inbounds i8, ptr %ack.i.i, i64 16
   %21 = load i64, ptr %delay_time.i.i, align 8
   %call12.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.53, i64 noundef %21) #3
   %22 = load i64, ptr %total_ranges.i.i, align 8
   %sub.i.i = add i64 %22, -1
   %call13.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.54, i64 noundef %sub.i.i) #3
   %23 = load ptr, ptr %ack.i.i, align 8
-  %end16.i.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %23, i64 0, i32 1
+  %end16.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %end16.i.i, align 8
   %25 = load i64, ptr %23, align 8
   %sub19.i.i = sub i64 %24, %25
@@ -434,7 +438,7 @@ for.body.i.i70:                                   ; preds = %if.end8.i.i, %for.b
   %i.014.i.i = phi i64 [ %inc.i.i71, %for.body.i.i70 ], [ 1, %if.end8.i.i ]
   %27 = load ptr, ptr %ack.i.i, align 8
   %28 = getelementptr %struct.ossl_quic_ack_range_st, ptr %27, i64 %i.014.i.i
-  %arrayidx24.i.i = getelementptr %struct.ossl_quic_ack_range_st, ptr %28, i64 -1
+  %arrayidx24.i.i = getelementptr i8, ptr %28, i64 -16
   %29 = load i64, ptr %arrayidx24.i.i, align 8
   %end28.i.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %27, i64 %i.014.i.i, i32 1
   %30 = load i64, ptr %end28.i.i, align 8
@@ -443,7 +447,7 @@ for.body.i.i70:                                   ; preds = %if.end8.i.i, %for.b
   %call31.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.56, i64 noundef %sub30.i.i) #3
   %31 = load ptr, ptr %ack.i.i, align 8
   %arrayidx33.i.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %31, i64 %i.014.i.i
-  %end34.i.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %31, i64 %i.014.i.i, i32 1
+  %end34.i.i = getelementptr inbounds i8, ptr %arrayidx33.i.i, i64 8
   %32 = load i64, ptr %end34.i.i, align 8
   %33 = load i64, ptr %arrayidx33.i.i, align 8
   %sub38.i.i = sub i64 %32, %33
@@ -506,17 +510,17 @@ switch.lookup87:                                  ; preds = %sw.bb43.i
 if.end.i67.i:                                     ; preds = %switch.lookup87
   %36 = load i64, ptr %frame_data.i.i, align 8
   %call17.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.58, i64 noundef %36) #3
-  %offset.i.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i.i, i64 0, i32 1
+  %offset.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 8
   %37 = load i64, ptr %offset.i.i, align 8
   %call18.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.61, i64 noundef %37) #3
-  %has_explicit_len.i.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i.i, i64 0, i32 4
+  %has_explicit_len.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 32
   %bf.load.i.i = load i8, ptr %has_explicit_len.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool19.not.i.i = icmp eq i8 %bf.clear.i.i, 0
   br i1 %tobool19.not.i.i, label %if.else.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end.i67.i
-  %len.i.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i.i, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 16
   %38 = load i64, ptr %len.i.i, align 8
   %call21.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.62, i64 noundef %38) #3
   br label %frame_stream.exit.i
@@ -641,13 +645,13 @@ frame_conn_closed.exit.thread.i:                  ; preds = %sw.bb120.i
   br label %if.then70
 
 if.end.i81.i:                                     ; preds = %sw.bb120.i
-  %error_code.i.i = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %frame_data.i78.i, i64 0, i32 1
+  %error_code.i.i = getelementptr inbounds i8, ptr %frame_data.i78.i, i64 8
   %44 = load i64, ptr %error_code.i.i, align 8
   %call1.i82.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.81, i64 noundef %44) #3
   %call2.i83.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.82) #3
-  %reason.i.i = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %frame_data.i78.i, i64 0, i32 3
+  %reason.i.i = getelementptr inbounds i8, ptr %frame_data.i78.i, i64 24
   %45 = load ptr, ptr %reason.i.i, align 8
-  %reason_len.i.i = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %frame_data.i78.i, i64 0, i32 4
+  %reason_len.i.i = getelementptr inbounds i8, ptr %frame_data.i78.i, i64 32
   %46 = load i64, ptr %reason_len.i.i, align 8
   %cmp3.not.i.i.i = icmp eq i64 %46, 0
   br i1 %cmp3.not.i.i.i, label %frame_conn_closed.exit.i, label %for.body.i.i.i
@@ -719,10 +723,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %frame_data, align 8
   %call1 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.58, i64 noundef %0) #3
-  %app_error_code = getelementptr inbounds %struct.ossl_quic_frame_reset_stream_st, ptr %frame_data, i64 0, i32 1
+  %app_error_code = getelementptr inbounds i8, ptr %frame_data, i64 8
   %1 = load i64, ptr %app_error_code, align 8
   %call2 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.59, i64 noundef %1) #3
-  %final_size = getelementptr inbounds %struct.ossl_quic_frame_reset_stream_st, ptr %frame_data, i64 0, i32 2
+  %final_size = getelementptr inbounds i8, ptr %frame_data, i64 16
   %2 = load i64, ptr %final_size, align 8
   %call3 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.60, i64 noundef %2) #3
   br label %return
@@ -743,7 +747,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %frame_data, align 8
   %call1 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.58, i64 noundef %0) #3
-  %app_error_code = getelementptr inbounds %struct.ossl_quic_frame_stop_sending_st, ptr %frame_data, i64 0, i32 1
+  %app_error_code = getelementptr inbounds i8, ptr %frame_data, i64 8
   %1 = load i64, ptr %app_error_code, align 8
   %call2 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.59, i64 noundef %1) #3
   br label %return
@@ -764,7 +768,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %frame_data, align 8
   %call1 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.61, i64 noundef %0) #3
-  %len = getelementptr inbounds %struct.ossl_quic_frame_crypto_st, ptr %frame_data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %frame_data, i64 8
   %1 = load i64, ptr %len, align 8
   %call2 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.62, i64 noundef %1) #3
   br label %return
@@ -906,11 +910,11 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %frame_data, align 8
   %call1 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.76, i64 noundef %0) #3
-  %retire_prior_to = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %frame_data, i64 0, i32 1
+  %retire_prior_to = getelementptr inbounds i8, ptr %frame_data, i64 8
   %1 = load i64, ptr %retire_prior_to, align 8
   %call2 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.77, i64 noundef %1) #3
   %call3 = call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.78) #3
-  %conn_id = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %frame_data, i64 0, i32 2
+  %conn_id = getelementptr inbounds i8, ptr %frame_data, i64 16
   %2 = load i8, ptr %conn_id, align 8
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -921,7 +925,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %call2.i = call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.23) #3
-  %id3.i = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %frame_data, i64 0, i32 2, i32 1
+  %id3.i = getelementptr inbounds i8, ptr %frame_data, i64 17
   %3 = load i8, ptr %conn_id, align 8
   %conv5.i = zext i8 %3 to i64
   %cmp3.not.i.i = icmp eq i8 %3, 0
@@ -939,7 +943,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.body
 
 put_conn_id.exit:                                 ; preds = %for.body.i.i, %if.then.i, %if.end.i
   %call4 = call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.79) #3
-  %stateless_reset = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %frame_data, i64 0, i32 3
+  %stateless_reset = getelementptr inbounds i8, ptr %frame_data, i64 37
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %put_conn_id.exit

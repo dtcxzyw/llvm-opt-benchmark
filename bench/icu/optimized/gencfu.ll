@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 %struct.UOption = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
 %struct.UParseError = type { i32, i32, [16 x i16], [16 x i16] }
-%"struct.icu_75::SpoofDataHeader" = type { i32, [4 x i8], i32, i32, i32, i32, i32, i32, i32, [15 x i32] }
 
 @.str = private unnamed_addr constant [66 x i8] c"Usage: %s [-v] [-options] -r confusablesRules.txt -o output-file\0A\00", align 1
 @_ZL8progName = internal unnamed_addr global ptr null, align 8
@@ -185,7 +184,7 @@ if.end34:                                         ; preds = %if.end.i
   %conv.i34 = trunc i64 %call2.i33 to i32
   %call14.i = call i32 @fclose(ptr noundef nonnull %call.i30)
   store i32 0, ptr %parseError, align 4
-  %offset = getelementptr inbounds %struct.UParseError, ptr %parseError, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %parseError, i64 4
   store i32 0, ptr %offset, align 4
   %call35 = call ptr @uspoof_openFromSource_75(ptr noundef nonnull %call4.i, i32 noundef %conv.i34, ptr noundef null, i32 noundef 0, ptr noundef nonnull %errType, ptr noundef nonnull %parseError, ptr noundef nonnull %status)
   %23 = load i32, ptr %status, align 4
@@ -221,7 +220,7 @@ if.end49:                                         ; preds = %if.end43
   %conv = zext i32 %call44 to i64
   %call50 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #10
   %call51 = call i32 @uspoof_serialize_75(ptr noundef %call35, ptr noundef nonnull %call50, i32 noundef %call44, ptr noundef nonnull %status)
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call50, i64 0, i32 1
+  %fFormatVersion = getelementptr inbounds i8, ptr %call50, i64 4
   %31 = load i32, ptr %fFormatVersion, align 4
   store i32 %31, ptr getelementptr inbounds (%struct.DataHeader, ptr @dh, i64 0, i32 1, i32 7), align 2
   %call52 = call ptr @udata_create(ptr noundef %spec.select, ptr noundef null, ptr noundef %13, ptr noundef nonnull getelementptr inbounds (%struct.DataHeader, ptr @dh, i64 0, i32 1), ptr noundef %copyright.0, ptr noundef nonnull %status)

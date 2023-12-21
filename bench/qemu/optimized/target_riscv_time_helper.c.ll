@@ -3,64 +3,14 @@ source_filename = "bench/qemu/original/target_riscv_time_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.RISCVAclintMTimerState = type { %struct.SysBusDevice, i64, ptr, ptr, %struct.MemoryRegion, i32, i32, i32, i32, i32, i32, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.2, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.3, %union.anon.4, %union.anon.5, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%union.anon.5 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.6 }
-%struct.anon.6 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.7 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.7 = type { %struct.anon.8 }
-%struct.anon.8 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_timer_write_timecmp(ptr noundef %env, ptr noundef %timer, i64 noundef %timecmp, i64 noundef %delta, i32 noundef %timer_irq) local_unnamed_addr #0 {
 entry:
-  %rdtime_fn_arg = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 115
+  %rdtime_fn_arg = getelementptr inbounds i8, ptr %env, i64 8480
   %0 = load ptr, ptr %rdtime_fn_arg, align 16
-  %timebase_freq1 = getelementptr inbounds %struct.RISCVAclintMTimerState, ptr %0, i64 0, i32 10
+  %timebase_freq1 = getelementptr inbounds i8, ptr %0, i64 1140
   %1 = load i32, ptr %timebase_freq1, align 4
-  %rdtime_fn = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 114
+  %rdtime_fn = getelementptr inbounds i8, ptr %env, i64 8472
   %2 = load ptr, ptr %rdtime_fn, align 8
   %call = tail call i64 %2(ptr noundef %0) #4
   %add = add i64 %call, %delta
@@ -72,7 +22,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  %vstime_irq = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 136
+  %vstime_irq = getelementptr inbounds i8, ptr %env, i64 8768
   store i8 1, ptr %vstime_irq, align 16
   %call5 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env, i64 noundef 0, i64 noundef -1) #4
   br label %return
@@ -85,7 +35,7 @@ if.end7:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else12
 
 if.then9:                                         ; preds = %if.end7
-  %vstime_irq10 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 136
+  %vstime_irq10 = getelementptr inbounds i8, ptr %env, i64 8768
   store i8 0, ptr %vstime_irq10, align 16
   br label %if.end14
 
@@ -149,15 +99,15 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #5
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_stimer_cb, ptr noundef nonnull %cpu) #4
-  %stimer = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 134
+  %stimer = getelementptr inbounds i8, ptr %cpu, i64 18928
   store ptr %call.i.i.i, ptr %stimer, align 16
-  %stimecmp = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 101
+  %stimecmp = getelementptr inbounds i8, ptr %cpu, i64 17984
   store i64 0, ptr %stimecmp, align 16
   %call.i.i.i7 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #5
   tail call void @timer_init_full(ptr noundef %call.i.i.i7, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_vstimer_cb, ptr noundef nonnull %cpu) #4
-  %vstimer = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 135
+  %vstimer = getelementptr inbounds i8, ptr %cpu, i64 18936
   store ptr %call.i.i.i7, ptr %vstimer, align 8
-  %vstimecmp = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 102
+  %vstimecmp = getelementptr inbounds i8, ptr %cpu, i64 17992
   store i64 0, ptr %vstimecmp, align 8
   br label %return
 
@@ -168,7 +118,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_stimer_cb(ptr noundef %opaque) #0 {
 entry:
-  %env = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1
+  %env = getelementptr inbounds i8, ptr %opaque, i64 10176
   %call = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env, i64 noundef 32, i64 noundef -1) #4
   ret void
 }
@@ -176,8 +126,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_vstimer_cb(ptr noundef %opaque) #0 {
 entry:
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1
-  %vstime_irq = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 136
+  %env1 = getelementptr inbounds i8, ptr %opaque, i64 10176
+  %vstime_irq = getelementptr inbounds i8, ptr %opaque, i64 18944
   store i8 1, ptr %vstime_irq, align 16
   %call = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 0, i64 noundef -1) #4
   ret void

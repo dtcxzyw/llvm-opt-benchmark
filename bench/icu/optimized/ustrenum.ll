@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.icu_75::StringEnumeration" = type <{ %"class.icu_75::UObject", %"class.icu_75::UnicodeString", [32 x i8], ptr, i32, [4 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.icu_75::UStringEnumeration" = type { %"class.icu_75::StringEnumeration.base", ptr }
-%"class.icu_75::StringEnumeration.base" = type <{ %"class.icu_75::UObject", %"class.icu_75::UnicodeString", [32 x i8], ptr, i32 }>
-%struct.UCharStringEnumeration = type { %struct.UEnumeration, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -39,14 +29,14 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %unistr = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %unistr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
-  %chars = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
-  %charsBuffer = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 2
+  %chars = getelementptr inbounds i8, ptr %this, i64 104
+  %charsBuffer = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %charsBuffer, ptr %chars, align 8
-  %charsCapacity = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 4
+  %charsCapacity = getelementptr inbounds i8, ptr %this, i64 112
   store i32 32, ptr %charsCapacity, align 8
   ret void
 }
@@ -60,10 +50,10 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chars = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
+  %chars = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %chars, align 8
   %cmp.not = icmp eq ptr %0, null
-  %charsBuffer = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 2
+  %charsBuffer = getelementptr inbounds i8, ptr %this, i64 72
   %cmp3.not = icmp eq ptr %0, %charsBuffer
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp3.not
   br i1 %or.cond, label %if.end, label %if.then
@@ -73,7 +63,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %unistr = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unistr) #16
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
@@ -122,7 +112,7 @@ entry:
 define noundef ptr @_ZN6icu_7517StringEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef writeonly %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -132,14 +122,14 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %unistr = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %unistr, ptr noundef nonnull align 8 dereferenceable(64) %call)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %add = add nsw i32 %cond.i, 1
@@ -148,7 +138,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i6, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %charsCapacity.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 4
+  %charsCapacity.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load i32, ptr %charsCapacity.i, align 8
   %cmp.i7.not = icmp sgt i32 %6, %cond.i
   br i1 %cmp.i7.not, label %if.then8, label %if.then.i
@@ -157,9 +147,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %div.i = sdiv i32 %6, 2
   %add.i = add nsw i32 %div.i, %6
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %add)
-  %chars.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
+  %chars.i = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load ptr, ptr %chars.i, align 8
-  %charsBuffer.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 2
+  %charsBuffer.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp10.not.i = icmp eq ptr %7, %charsBuffer.i
   br i1 %cmp10.not.i, label %if.end13.i, label %if.then11.i
 
@@ -201,9 +191,9 @@ if.then10:                                        ; preds = %if.then8
   br label %if.end
 
 if.end:                                           ; preds = %if.then10, %if.then8
-  %chars = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
+  %chars = getelementptr inbounds i8, ptr %this, i64 104
   %12 = load ptr, ptr %chars, align 8
-  %charsCapacity = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 4
+  %charsCapacity = getelementptr inbounds i8, ptr %this, i64 112
   %13 = load i32, ptr %charsCapacity, align 8
   %call14 = tail call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %unistr, i32 noundef 0, i32 noundef 2147483647, ptr noundef %12, i32 noundef %13, i32 noundef 0)
   %14 = load ptr, ptr %chars, align 8
@@ -224,7 +214,7 @@ entry:
   br i1 %cmp.i, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %charsCapacity = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 4
+  %charsCapacity = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load i32, ptr %charsCapacity, align 8
   %cmp = icmp slt i32 %1, %capacity
   br i1 %cmp, label %if.then, label %if.end25
@@ -233,9 +223,9 @@ if.then:                                          ; preds = %land.lhs.true
   %div = sdiv i32 %1, 2
   %add = add nsw i32 %div, %1
   %spec.select = tail call i32 @llvm.smax.i32(i32 %add, i32 %capacity)
-  %chars = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
+  %chars = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %chars, align 8
-  %charsBuffer = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 2
+  %charsBuffer = getelementptr inbounds i8, ptr %this, i64 72
   %cmp10.not = icmp eq ptr %2, %charsBuffer
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
@@ -270,7 +260,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(p
 define noundef ptr @_ZN6icu_7517StringEnumeration5unextEPiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef writeonly %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -280,18 +270,18 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %unistr = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %unistr, ptr noundef nonnull align 8 dereferenceable(64) %call)
   %cmp4.not = icmp eq ptr %resultLength, null
   br i1 %cmp4.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   store i32 %cond.i, ptr %resultLength, align 4
@@ -313,7 +303,7 @@ define noundef ptr @_ZN6icu_7517StringEnumeration5snextER10UErrorCode(ptr nounde
 entry:
   %length = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull %length, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -334,7 +324,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
   %length.addr.0.i = phi i32 [ %conv.i, %if.then3.i ], [ %2, %if.then.i ]
-  %unistr.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.i = add nsw i32 %length.addr.0.i, 1
   %call5.i = call noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %unistr.i, i32 noundef %add.i)
   %cmp6.not.i = icmp eq ptr %call5.i, null
@@ -377,7 +367,7 @@ if.then3:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then3, %if.then
   %length.addr.0 = phi i32 [ %conv, %if.then3 ], [ %length, %if.then ]
-  %unistr = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr = getelementptr inbounds i8, ptr %this, i64 8
   %add = add nsw i32 %length.addr.0, 1
   %call5 = tail call noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %unistr, i32 noundef %add)
   %cmp6.not = icmp eq ptr %call5, null
@@ -416,14 +406,14 @@ declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull ali
 define noundef zeroext i1 @_ZNK6icu_7517StringEnumerationeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %that) unnamed_addr #11 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %that, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i, align 8
-  %__name2.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i, align 8
   %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit, label %if.end.i
@@ -451,7 +441,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %entry, %if.end.i, %
 define noundef zeroext i1 @_ZNK6icu_7517StringEnumerationneERKS0_(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(116) %that) unnamed_addr #8 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(116) %that)
   %lnot = xor i1 %call, true
@@ -504,17 +494,17 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7518UStringEnumerationC2EP12UEnumeration(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %_uenum) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unistr.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %unistr.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
-  %chars.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
-  %charsBuffer.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 2
+  %chars.i = getelementptr inbounds i8, ptr %this, i64 104
+  %charsBuffer.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %charsBuffer.i, ptr %chars.i, align 8
-  %charsCapacity.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 4
+  %charsCapacity.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 32, ptr %charsCapacity.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %uenum = getelementptr inbounds %"class.icu_75::UStringEnumeration", ptr %this, i64 0, i32 1
+  %uenum = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %_uenum, ptr %uenum, align 8
   ret void
 }
@@ -523,17 +513,17 @@ entry:
 define void @_ZN6icu_7518UStringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %uenum = getelementptr inbounds %"class.icu_75::UStringEnumeration", ptr %this, i64 0, i32 1
+  %uenum = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %uenum, align 8
   invoke void @uenum_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chars.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 3
+  %chars.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %chars.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
-  %charsBuffer.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 2
+  %charsBuffer.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp3.not.i = icmp eq ptr %1, %charsBuffer.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %_ZN6icu_7517StringEnumerationD2Ev.exit, label %if.then.i
@@ -550,7 +540,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_7517StringEnumerationD2Ev.exit:           ; preds = %invoke.cont, %if.then.i
-  %unistr.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unistr.i) #16
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
@@ -574,7 +564,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7518UStringEnumeration5countER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
-  %uenum = getelementptr inbounds %"class.icu_75::UStringEnumeration", ptr %this, i64 0, i32 1
+  %uenum = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %uenum, align 8
   %call = tail call i32 @uenum_count_75(ptr noundef %0, ptr noundef nonnull %status)
   ret i32 %call
@@ -585,7 +575,7 @@ declare i32 @uenum_count_75(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7518UStringEnumeration4nextEPiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
-  %uenum = getelementptr inbounds %"class.icu_75::UStringEnumeration", ptr %this, i64 0, i32 1
+  %uenum = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %uenum, align 8
   %call = tail call ptr @uenum_next_75(ptr noundef %0, ptr noundef %resultLength, ptr noundef nonnull %status)
   ret ptr %call
@@ -597,7 +587,7 @@ declare ptr @uenum_next_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define noundef ptr @_ZN6icu_7518UStringEnumeration5snextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
   %length = alloca i32, align 4
-  %uenum = getelementptr inbounds %"class.icu_75::UStringEnumeration", ptr %this, i64 0, i32 1
+  %uenum = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %uenum, align 8
   %call = call ptr @uenum_unext_75(ptr noundef %0, ptr noundef nonnull %length, ptr noundef nonnull %status)
   %cmp = icmp ne ptr %call, null
@@ -607,15 +597,15 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %unistr = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1
+  %unistr = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %length, align 4
   call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %unistr)
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
   %shr.i.i.i = sext i16 %4 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::StringEnumeration", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %5, i32 %shr.i.i.i
   %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %unistr, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %call, i32 noundef 0, i32 noundef %2)
@@ -631,7 +621,7 @@ declare ptr @uenum_unext_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518UStringEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
-  %uenum = getelementptr inbounds %"class.icu_75::UStringEnumeration", ptr %this, i64 0, i32 1
+  %uenum = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %uenum, align 8
   tail call void @uenum_reset_75(ptr noundef %0, ptr noundef nonnull %status)
   ret void
@@ -671,7 +661,7 @@ if.end4.thread14:                                 ; preds = %if.then
 
 if.end4.thread:                                   ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1, ptr noundef nonnull align 8 dereferenceable(56) @_ZL11USTRENUM_VT, i64 56, i1 false)
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call1, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %adopted, ptr %context, align 8
   br label %if.end7
 
@@ -681,7 +671,7 @@ if.end4:                                          ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.end4.thread14, %if.end4
   %vtable = load ptr, ptr %adopted, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(116) %adopted) #16
   br label %if.end7
@@ -720,11 +710,11 @@ if.then6:                                         ; preds = %if.then
 
 do.body:                                          ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4, ptr noundef nonnull align 8 dereferenceable(56) @_ZL15UCHARSTRENUM_VT, i64 56, i1 false)
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call4, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %strings, ptr %context, align 8
-  %index = getelementptr inbounds %struct.UCharStringEnumeration, ptr %call4, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %call4, i64 56
   store i32 0, ptr %index, align 8
-  %count7 = getelementptr inbounds %struct.UCharStringEnumeration, ptr %call4, i64 0, i32 2
+  %count7 = getelementptr inbounds i8, ptr %call4, i64 60
   store i32 %count, ptr %count7, align 4
   br label %if.end8
 
@@ -759,11 +749,11 @@ if.then6:                                         ; preds = %if.then
 
 do.body:                                          ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4, ptr noundef nonnull align 8 dereferenceable(56) @_ZL17UCHARSTRENUM_U_VT, i64 56, i1 false)
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call4, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %strings, ptr %context, align 8
-  %index = getelementptr inbounds %struct.UCharStringEnumeration, ptr %call4, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %call4, i64 56
   store i32 0, ptr %index, align 8
-  %count7 = getelementptr inbounds %struct.UCharStringEnumeration, ptr %call4, i64 0, i32 2
+  %count7 = getelementptr inbounds i8, ptr %call4, i64 60
   store i32 %count, ptr %count7, align 4
   br label %if.end8
 
@@ -786,14 +776,14 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL14ustrenum_closeP12UEnumeration(ptr noundef %en) #8 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(116) %0) #16
   br label %delete.end
@@ -806,10 +796,10 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL14ustrenum_countP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef %ec) #8 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   ret i32 %call
@@ -818,10 +808,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL14ustrenum_unextP12UEnumerationPiP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef %resultLength, ptr noundef %ec) #8 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   ret ptr %call
@@ -830,10 +820,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL13ustrenum_nextP12UEnumerationPiP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef %resultLength, ptr noundef %ec) #8 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   ret ptr %call
@@ -842,10 +832,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL14ustrenum_resetP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef %ec) #8 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   ret void
@@ -861,7 +851,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL18ucharstrenum_countP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #13 {
 entry:
-  %count = getelementptr inbounds %struct.UCharStringEnumeration, ptr %en, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %en, i64 60
   %1 = load i32, ptr %count, align 4
   ret i32 %1
 }
@@ -871,15 +861,15 @@ declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZL17ucharstrenum_nextP12UEnumerationPiP10UErrorCode(ptr nocapture noundef %en, ptr noundef writeonly %resultLength, ptr nocapture readnone %0) #14 {
 entry:
-  %index = getelementptr inbounds %struct.UCharStringEnumeration, ptr %en, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %en, i64 56
   %1 = load i32, ptr %index, align 8
-  %count = getelementptr inbounds %struct.UCharStringEnumeration, ptr %en, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %en, i64 60
   %2 = load i32, ptr %count, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %3 = load ptr, ptr %context, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %index, align 8
@@ -903,7 +893,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL18ucharstrenum_resetP12UEnumerationP10UErrorCode(ptr nocapture noundef writeonly %en, ptr nocapture readnone %0) #0 {
 entry:
-  %index = getelementptr inbounds %struct.UCharStringEnumeration, ptr %en, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %en, i64 56
   store i32 0, ptr %index, align 8
   ret void
 }
@@ -911,15 +901,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL18ucharstrenum_unextP12UEnumerationPiP10UErrorCode(ptr nocapture noundef %en, ptr noundef writeonly %resultLength, ptr nocapture readnone %0) #8 {
 entry:
-  %index = getelementptr inbounds %struct.UCharStringEnumeration, ptr %en, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %en, i64 56
   %1 = load i32, ptr %index, align 8
-  %count = getelementptr inbounds %struct.UCharStringEnumeration, ptr %en, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %en, i64 60
   %2 = load i32, ptr %count, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %3 = load ptr, ptr %context, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %index, align 8

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-params_from_text.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [37 x i8] c"../openssl/crypto/params_from_text.c\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"hex\00", align 1
 @__func__.prepare_from_text = private unnamed_addr constant [18 x i8] c"prepare_from_text\00", align 1
@@ -40,7 +38,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
   br i1 %cmp4.i, label %err, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call1.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   switch i32 %0, label %if.end3 [
     i32 1, label %sw.bb.i
@@ -125,7 +123,7 @@ if.end35.i:                                       ; preds = %land.lhs.true31.if.
   %buf_bits.0.i = select i1 %or.cond.i, i64 %add.i, i64 %conv37.i
   %add46.i = add nsw i64 %buf_bits.0.i, 7
   %div32.i = lshr i64 %add46.i, 3
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call1.i, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %6 = load i64, ptr %data_size.i, align 8
   %cmp47.not.i = icmp eq i64 %6, 0
   br i1 %cmp47.not.i, label %if.end3, label %if.then49.i
@@ -229,11 +227,11 @@ if.else.i11:                                      ; preds = %sw.bb16.i
 construct_from_text.exit:                         ; preds = %for.body.i, %if.end8, %if.then2.i, %sw.bb.i12, %land.lhs.true.i16, %sw.bb13.i, %if.then18.i, %if.else.i11
   %buf_n.addr.0.i = phi i64 [ %buf_n.0, %if.then2.i ], [ %buf_n.0, %if.then18.i ], [ %buf_n.0, %if.else.i11 ], [ %dec15.i, %sw.bb13.i ], [ %buf_n.0, %land.lhs.true.i16 ], [ %buf_n.0, %sw.bb.i12 ], [ 0, %if.end8 ], [ %buf_n.0, %for.body.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %to, ptr noundef nonnull align 8 dereferenceable(40) %call1.i, i64 16, i1 false)
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %to, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %to, i64 16
   store ptr %call5, ptr %data.i, align 8
-  %data_size.i9 = getelementptr inbounds %struct.ossl_param_st, ptr %to, i64 0, i32 3
+  %data_size.i9 = getelementptr inbounds i8, ptr %to, i64 24
   store i64 %buf_n.addr.0.i, ptr %data_size.i9, align 8
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %to, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %to, i64 32
   store i64 -1, ptr %return_size.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
   %12 = load ptr, ptr %tmpbn, align 8

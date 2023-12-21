@@ -23,8 +23,8 @@ define internal fastcc void @sc_montmul(ptr nocapture noundef %out, ptr nocaptur
 entry:
   %accum = alloca [8 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %accum, i8 0, i64 64, i1 false)
-  %arrayidx17 = getelementptr inbounds [8 x i64], ptr %accum, i64 0, i64 7
-  %arrayidx50 = getelementptr inbounds [8 x i64], ptr %accum, i64 0, i64 6
+  %arrayidx17 = getelementptr inbounds i8, ptr %accum, i64 56
+  %arrayidx50 = getelementptr inbounds i8, ptr %accum, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.end40
@@ -627,7 +627,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   br i1 %exitcond34.not, label %for.end29, label %for.body15, !llvm.loop !18
 
 for.end29:                                        ; preds = %for.body15
-  %arrayidx32 = getelementptr inbounds [7 x i64], ptr %out, i64 0, i64 6
+  %arrayidx32 = getelementptr inbounds i8, ptr %out, i64 48
   %7 = load i64, ptr %arrayidx32, align 8
   %or36 = tail call i64 @llvm.fshl.i64(i64 %.us-phi.off0, i64 %7, i64 63)
   store i64 %or36, ptr %arrayidx32, align 8

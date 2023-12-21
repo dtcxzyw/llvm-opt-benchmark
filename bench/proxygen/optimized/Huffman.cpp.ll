@@ -6,28 +6,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Indestructible" = type { %"struct.folly::Indestructible<proxygen::huffman::HuffTree>::Storage" }
 %"struct.folly::Indestructible<proxygen::huffman::HuffTree>::Storage" = type { %"union.std::aligned_storage<23576, 8>::type" }
 %"union.std::aligned_storage<23576, 8>::type" = type { [23576 x i8] }
-%"class.proxygen::huffman::HuffTree" = type { i32, ptr, ptr, [46 x %"struct.proxygen::huffman::SuperHuffNode"] }
-%"struct.proxygen::huffman::SuperHuffNode" = type { [256 x %"struct.proxygen::huffman::HuffNode"] }
 %"struct.proxygen::huffman::HuffNode" = type { %union.anon, %struct.anon }
 %union.anon = type { i8 }
 %struct.anon = type { i8 }
-%"struct.std::pair" = type { ptr, ptr }
-%"class.folly::IOBufQueue::WritableRangeCache" = type { %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
-%"class.folly::io::QueueAppender" = type { %"class.folly::IOBufQueue::WritableRangeCache", i64 }
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::Options" = type { i8 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.8" }
-%"struct.std::_Head_base.8" = type { ptr }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
+%"struct.proxygen::huffman::SuperHuffNode" = type { [256 x %"struct.proxygen::huffman::HuffNode"] }
+%"class.proxygen::huffman::HuffTree" = type { i32, ptr, ptr, [46 x %"struct.proxygen::huffman::SuperHuffNode"] }
 %struct.Initializer = type { i8 }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic", [1 x i8], [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.std::length_error" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -36,6 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Initializer.5 = type { i8 }
 %struct.Initializer.4 = type { i8 }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
+%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 %"class.folly::fbstring_core" = type { %union.anon.0 }
 %union.anon.0 = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 
@@ -120,9 +105,9 @@ $_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = comdat any
 define void @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef %codes, ptr noundef %bits) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %codes_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 1
+  %codes_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %codes, ptr %codes_, align 8
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bits, ptr %bits_, align 8
   br label %arrayctor.loop
 
@@ -135,7 +120,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   %arrayctor.cur.idx.i = phi i64 [ 0, %arrayctor.loop ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 %arrayctor.cur.idx.i
   store i8 0, ptr %arrayctor.cur.ptr.i, align 2
-  %metadata.i.i = getelementptr inbounds %"struct.proxygen::huffman::HuffNode", ptr %arrayctor.cur.ptr.i, i64 0, i32 1
+  %metadata.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 1
   %bf.load.i.i = load i8, ptr %metadata.i.i, align 1
   %bf.clear3.i.i = and i8 %bf.load.i.i, -32
   store i8 %bf.clear3.i.i, ptr %metadata.i.i, align 1
@@ -149,7 +134,7 @@ _ZN8proxygen7huffman13SuperHuffNodeC2Ev.exit:     ; preds = %arrayctor.loop.i
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %_ZN8proxygen7huffman13SuperHuffNodeC2Ev.exit
-  %table_.i.i = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3
+  %table_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i, %arrayctor.cont
@@ -175,7 +160,7 @@ while.body.i.i:                                   ; preds = %for.body.i, %if.end
   %shr.i.i = lshr i32 %and.i.i, %sub.i.i
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx5.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i.i, i64 0, i64 %idxprom.i.i
-  %metadata.i.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i.i, i64 0, i64 %idxprom.i.i, i32 1
+  %metadata.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 1
   %bf.load.i.i.i = load i8, ptr %metadata.i.i.i, align 1
   %4 = and i8 %bf.load.i.i.i, 16
   %bf.cast.not.i.i.i = icmp eq i8 %4, 0
@@ -200,7 +185,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.if.end_crit_edge.i.i
   %7 = phi i8 [ %.pre.i.i, %while.body.if.end_crit_edge.i.i ], [ %conv10.i.i, %if.then.i.i ]
   %idxprom16.i.i = zext i8 %7 to i64
-  %arrayidx17.i.i = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3, i64 %idxprom16.i.i
+  %arrayidx17.i.i = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_.i.i, i64 0, i64 %idxprom16.i.i
   %conv20.i.i = trunc i32 %sub.i.i to i8
   %not.i.i = xor i32 %shl.i.i, -1
   %and21.i.i = and i32 %code.addr.018.i.i, %not.i.i
@@ -223,9 +208,9 @@ _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffma
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen7huffman8HuffTree9buildTreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %codes_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 1
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
-  %table_.i = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3
+  %codes_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit
@@ -251,7 +236,7 @@ while.body.i:                                     ; preds = %for.body, %if.end.i
   %shr.i = lshr i32 %and.i, %sub.i
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx5.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i, i64 0, i64 %idxprom.i
-  %metadata.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i, i64 0, i64 %idxprom.i, i32 1
+  %metadata.i.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 1
   %bf.load.i.i = load i8, ptr %metadata.i.i, align 1
   %4 = and i8 %bf.load.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %4, 0
@@ -276,7 +261,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.if.end_crit_edge.i
   %7 = phi i8 [ %.pre.i, %while.body.if.end_crit_edge.i ], [ %conv10.i, %if.then.i ]
   %idxprom16.i = zext i8 %7 to i64
-  %arrayidx17.i = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3, i64 %idxprom16.i
+  %arrayidx17.i = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_.i, i64 0, i64 %idxprom16.i
   %conv20.i = trunc i32 %sub.i to i8
   %not.i = xor i32 %shl.i, -1
   %and21.i = and i32 %code.addr.018.i, %not.i
@@ -300,12 +285,12 @@ for.end:                                          ; preds = %_ZN8proxygen7huffma
 define void @_ZN8proxygen7huffman8HuffTreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %tree) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %codes_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 1
-  %codes_2 = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %tree, i64 0, i32 1
+  %codes_ = getelementptr inbounds i8, ptr %this, i64 8
+  %codes_2 = getelementptr inbounds i8, ptr %tree, i64 8
   %0 = load ptr, ptr %codes_2, align 8
   store ptr %0, ptr %codes_, align 8
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
-  %bits_3 = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %tree, i64 0, i32 2
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bits_3 = getelementptr inbounds i8, ptr %tree, i64 16
   %1 = load ptr, ptr %bits_3, align 8
   store ptr %1, ptr %bits_, align 8
   br label %arrayctor.loop
@@ -319,7 +304,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   %arrayctor.cur.idx.i = phi i64 [ 0, %arrayctor.loop ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 %arrayctor.cur.idx.i
   store i8 0, ptr %arrayctor.cur.ptr.i, align 2
-  %metadata.i.i = getelementptr inbounds %"struct.proxygen::huffman::HuffNode", ptr %arrayctor.cur.ptr.i, i64 0, i32 1
+  %metadata.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 1
   %bf.load.i.i = load i8, ptr %metadata.i.i, align 1
   %bf.clear3.i.i = and i8 %bf.load.i.i, -32
   store i8 %bf.clear3.i.i, ptr %metadata.i.i, align 1
@@ -333,7 +318,7 @@ _ZN8proxygen7huffman13SuperHuffNodeC2Ev.exit:     ; preds = %arrayctor.loop.i
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %_ZN8proxygen7huffman13SuperHuffNodeC2Ev.exit
-  %table_.i.i = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3
+  %table_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i, %arrayctor.cont
@@ -359,7 +344,7 @@ while.body.i.i:                                   ; preds = %for.body.i, %if.end
   %shr.i.i = lshr i32 %and.i.i, %sub.i.i
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx5.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i.i, i64 0, i64 %idxprom.i.i
-  %metadata.i.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i.i, i64 0, i64 %idxprom.i.i, i32 1
+  %metadata.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 1
   %bf.load.i.i.i = load i8, ptr %metadata.i.i.i, align 1
   %6 = and i8 %bf.load.i.i.i, 16
   %bf.cast.not.i.i.i = icmp eq i8 %6, 0
@@ -384,7 +369,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.if.end_crit_edge.i.i
   %9 = phi i8 [ %.pre.i.i, %while.body.if.end_crit_edge.i.i ], [ %conv10.i.i, %if.then.i.i ]
   %idxprom16.i.i = zext i8 %9 to i64
-  %arrayidx17.i.i = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3, i64 %idxprom16.i.i
+  %arrayidx17.i.i = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_.i.i, i64 0, i64 %idxprom16.i.i
   %conv20.i.i = trunc i32 %sub.i.i to i8
   %not.i.i = xor i32 %shl.i.i, -1
   %and21.i.i = and i32 %code.addr.018.i.i, %not.i.i
@@ -407,7 +392,7 @@ _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffma
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8proxygen7huffman8HuffTree6decodeEPKhjRN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS4_13fbstring_coreIcEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, ptr nocapture noundef readonly %buf, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %literal) local_unnamed_addr #1 align 2 {
 entry:
-  %table_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3
+  %table_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp30.not = icmp eq i32 %size, 0
   br i1 %cmp30.not, label %while.end, label %while.body
 
@@ -459,7 +444,7 @@ if.end16:                                         ; preds = %if.else, %if.then7
   %w.2 = phi i32 [ %w.129, %if.then7 ], [ %or15, %if.else ]
   %idxprom17 = zext i32 %key.0 to i64
   %arrayidx18 = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.034, i64 0, i64 %idxprom17
-  %metadata.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.034, i64 0, i64 %idxprom17, i32 1
+  %metadata.i = getelementptr inbounds i8, ptr %arrayidx18, i64 1
   %bf.load.i = load i8, ptr %metadata.i, align 1
   %1 = and i8 %bf.load.i, 16
   %bf.cast.not.i = icmp eq i8 %1, 0
@@ -479,7 +464,7 @@ if.else24:                                        ; preds = %if.end16
   %sub25 = add i32 %wbits.2, -8
   %3 = load i8, ptr %arrayidx18, align 1
   %idxprom28 = zext i8 %3 to i64
-  %arrayidx29 = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_, i64 0, i64 %idxprom28
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else24, %if.then19
@@ -500,7 +485,7 @@ while.end:                                        ; preds = %if.end30, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen7huffman8HuffTree6insertEjhh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch) local_unnamed_addr #0 align 2 {
 entry:
-  %table_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3
+  %table_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp15 = icmp ugt i8 %bits, 8
   br i1 %cmp15, label %while.body, label %while.end
 
@@ -515,7 +500,7 @@ while.body:                                       ; preds = %entry, %if.end
   %shr = lshr i32 %and, %sub
   %idxprom = zext nneg i32 %shr to i64
   %arrayidx5 = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016, i64 0, i64 %idxprom
-  %metadata.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016, i64 0, i64 %idxprom, i32 1
+  %metadata.i = getelementptr inbounds i8, ptr %arrayidx5, i64 1
   %bf.load.i = load i8, ptr %metadata.i, align 1
   %0 = and i8 %bf.load.i, 16
   %bf.cast.not.i = icmp eq i8 %0, 0
@@ -540,7 +525,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %while.body.if.end_crit_edge, %if.then
   %3 = phi i8 [ %.pre, %while.body.if.end_crit_edge ], [ %conv10, %if.then ]
   %idxprom16 = zext i8 %3 to i64
-  %arrayidx17 = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 3, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_, i64 0, i64 %idxprom16
   %conv20 = trunc i32 %sub to i8
   %not = xor i32 %shl, -1
   %and21 = and i32 %code.addr.018, %not
@@ -570,7 +555,7 @@ if.then:                                          ; preds = %tailrecurse
   %idxprom = zext i32 %code.tr to i64
   %arrayidx = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode, i64 0, i64 %idxprom
   store i8 %ch, ptr %arrayidx, align 1
-  %metadata = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode, i64 0, i64 %idxprom, i32 1
+  %metadata = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %bf.load = load i8, ptr %metadata, align 1
   %bf.value = and i8 %bits, 15
   %bf.clear = and i8 %bf.load, -16
@@ -589,7 +574,7 @@ if.end:                                           ; preds = %tailrecurse
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK8proxygen7huffman8HuffTree10codesTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %codes_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 1
+  %codes_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codes_, align 8
   ret ptr %0
 }
@@ -597,7 +582,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK8proxygen7huffman8HuffTree9bitsTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %bits_, align 8
   ret ptr %0
 }
@@ -613,12 +598,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %codes_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 1
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %buf, i64 0, i32 1
-  %queue_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue::WritableRangeCache", ptr %buf, i64 0, i32 1
-  %growth_.i.i.i = getelementptr inbounds %"class.folly::io::QueueAppender", ptr %buf, i64 0, i32 1
-  %attached3.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %buf, i64 0, i32 1
+  %codes_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %queue_.i.i.i.i = getelementptr inbounds i8, ptr %buf, i64 24
+  %growth_.i.i.i = getelementptr inbounds i8, ptr %buf, i64 32
+  %attached3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
@@ -672,14 +657,14 @@ if.then.i.i:                                      ; preds = %if.else
 if.else.i.i:                                      ; preds = %if.else
   %8 = load ptr, ptr %queue_.i.i.i.i, align 8
   %9 = load i64, ptr %growth_.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %8, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %11 = load ptr, ptr %10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.else.i.i
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %10, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %second.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
@@ -690,7 +675,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.else.i.i
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i.i.i, %if.else.i.i
   %call9.i.i.i.i = tail call { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 noundef 4, i64 noundef %9, i64 noundef -1)
   %.pre.i.i.i = load ptr, ptr %queue_.i.i.i.i, align 8
-  %cachePtr_.i.i2.phi.trans.insert.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %.pre.i.i.i, i64 0, i32 4
+  %cachePtr_.i.i2.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 32
   %.pre3.i.i.i = load ptr, ptr %cachePtr_.i.i2.phi.trans.insert.i.i.i, align 8
   br label %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
 
@@ -701,13 +686,13 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i: ; preds = %if.end.i.i.i.i, %l
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %cachePtr_.i.i2.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %14, i64 0, i32 4
+  %cachePtr_.i.i2.i.i.i = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load ptr, ptr %13, align 8
   store ptr %15, ptr %buf, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
   store ptr %16, ptr %second.i.i.i.i, align 8
-  %attached.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %13, i64 0, i32 1
+  %attached.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load i8, ptr %attached.i.i.i.i.i.i, align 8
   %18 = and i8 %17, 1
   store i8 %18, ptr %attached3.i.i.i.i.i.i, align 8
@@ -769,7 +754,7 @@ if.then46:                                        ; preds = %if.end43
   %call53 = tail call i32 @htonl(i32 noundef %shl52) #25
   store i32 %call53, ptr %w, align 4
   %conv54 = zext nneg i8 %shr48 to i64
-  %second.i.i.i.i28 = getelementptr inbounds %"struct.std::pair", ptr %buf, i64 0, i32 1
+  %second.i.i.i.i28 = getelementptr inbounds i8, ptr %buf, i64 8
   %23 = load ptr, ptr %second.i.i.i.i28, align 8
   %24 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast.i.i.i.i29 = ptrtoint ptr %23 to i64
@@ -794,8 +779,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i32, %if.
   br i1 %cmp4.not29.i.i, label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
-  %queue_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue::WritableRangeCache", ptr %buf, i64 0, i32 1
-  %growth_.i.i = getelementptr inbounds %"class.folly::io::QueueAppender", ptr %buf, i64 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %buf, i64 24
+  %growth_.i.i = getelementptr inbounds i8, ptr %buf, i64 32
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i, %while.body.lr.ph.i.i
@@ -804,14 +789,14 @@ while.body.i.i:                                   ; preds = %_ZN5folly10IOBufQue
   %26 = load ptr, ptr %queue_.i.i.i, align 8
   %27 = load i64, ptr %growth_.i.i, align 8
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %storemerge30.i.i)
-  %cachePtr_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %26, i64 0, i32 4
+  %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 32
   %28 = load ptr, ptr %cachePtr_.i.i.i.i, align 8
   %29 = load ptr, ptr %28, align 8
   %cmp.not.i.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i
-  %second.i.i13.i.i = getelementptr inbounds %"struct.std::pair", ptr %28, i64 0, i32 1
+  %second.i.i13.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %second.i.i13.i.i, align 8
   %sub.ptr.lhs.cast.i.i14.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i15.i.i = ptrtoint ptr %29 to i64
@@ -835,7 +820,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %if.end.i.i.i, %if.t
   %32 = extractvalue { ptr, i64 } %call8.pn.i.i.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %buf.addr.131.i.i, i64 %32, i1 false)
   %33 = load ptr, ptr %queue_.i.i.i, align 8
-  %cachePtr_13.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %33, i64 0, i32 4
+  %cachePtr_13.i.i.i = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %cachePtr_13.i.i.i, align 8
   %35 = load ptr, ptr %34, align 8
   %add.ptr16.i.i.i = getelementptr inbounds i8, ptr %35, i64 %32
@@ -868,7 +853,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %bits_, align 8
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
@@ -900,11 +885,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @_ZNK8proxygen7huffman8HuffTree7getCodeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, i8 noundef zeroext %ch) local_unnamed_addr #6 align 2 {
 entry:
-  %codes_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 1
+  %codes_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codes_, align 8
   %idxprom = zext i8 %ch to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
-  %bits_ = getelementptr inbounds %"class.proxygen::huffman::HuffTree", ptr %this, i64 0, i32 2
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %bits_, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %1, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
@@ -967,7 +952,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
 entry:
   %newSz = alloca i64, align 8
   %ref.tmp15 = alloca i64, align 8
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, 0
@@ -998,7 +983,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end23
 
 if.else:                                          ; preds = %entry
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %size_, align 8
   %add9 = add i64 %3, %delta
   store i64 %add9, ptr %newSz, align 8
@@ -1017,7 +1002,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit
 
 sw.epilog.i:                                      ; preds = %if.else, %sw.bb2.i
-  %capacity_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %capacity_.i.i, align 8
   %and.i.i = and i64 %7, 4611686018427387903
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit
@@ -1051,7 +1036,7 @@ if.then.i20:                                      ; preds = %sw.bb2.i13
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 sw.epilog.i16:                                    ; preds = %sw.bb2.i13, %cond.true14
-  %capacity_.i.i17 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i17 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %capacity_.i.i17, align 8
   %and.i.i18 = and i64 %12, 4611686018427387903
   %13 = lshr i64 %12, 56
@@ -1099,7 +1084,7 @@ sw.default.i:                                     ; preds = %cond.end20
 if.end23:                                         ; preds = %sw.bb3.i, %sw.bb2.i27, %sw.bb.i, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit, %if.end
   %sz.0 = phi i64 [ %sub.i, %if.end ], [ %3, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ], [ %3, %sw.bb.i ], [ %3, %sw.bb2.i27 ], [ %3, %sw.bb3.i ]
   %newSz.0.newSz.0.newSz.0. = load i64, ptr %newSz, align 8
-  %size_24 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_24 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %newSz.0.newSz.0.newSz.0., ptr %size_24, align 8
   %17 = load ptr, ptr %this, align 8
   %arrayidx = getelementptr inbounds i8, ptr %17, i64 %newSz.0.newSz.0.newSz.0.
@@ -1170,7 +1155,7 @@ if.then.i:                                        ; preds = %_ZN5folly14goodMall
   unreachable
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %4 to i64
   %sub.i = sub nsw i64 23, %conv.i
@@ -1181,7 +1166,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 8 %this, i64 %sub.ptr.sub.i, i1 false)
   store ptr %call.i, ptr %this, align 8
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %sub.i, ptr %size_, align 8
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
@@ -1189,19 +1174,19 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.else8:                                         ; preds = %if.else
   %call9 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %minCapacity.addr)
-  %arrayidx.i7 = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 23
   %5 = load i8, ptr %arrayidx.i7, align 1
   %conv.i8 = sext i8 %5 to i64
   %sub.i9 = sub nsw i64 23, %conv.i8
   %add.ptr14 = getelementptr inbounds i8, ptr %this, i64 %sub.i9
   %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr14, i64 1
-  %data_16 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call9, i64 0, i32 1
+  %data_16 = getelementptr inbounds i8, ptr %call9, i64 8
   %sub.ptr.lhs.cast.i10 = ptrtoint ptr %add.ptr15 to i64
   %sub.ptr.rhs.cast.i11 = ptrtoint ptr %this to i64
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_16, ptr nonnull align 8 %this, i64 %sub.ptr.sub.i12, i1 false)
   store ptr %data_16, ptr %this, align 8
-  %size_21 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_21 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %sub.i9, ptr %size_21, align 8
   %6 = load i64, ptr %minCapacity.addr, align 8
   %or.i13 = or i64 %6, 4611686018427387904
@@ -1209,7 +1194,7 @@ if.else8:                                         ; preds = %if.else
 
 if.end22.sink.split:                              ; preds = %if.else8, %_ZN5folly13checkedMallocEm.exit
   %or.i.sink = phi i64 [ %or.i, %_ZN5folly13checkedMallocEm.exit ], [ %or.i13, %if.else8 ]
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i.sink, ptr %capacity_.i, align 8
   br label %if.end22
 
@@ -1623,7 +1608,7 @@ entry:
   %t.i = alloca %"struct.folly::fbstring_core<char>::MediumLarge", align 8
   %ref.tmp.i.i.i.i = alloca %struct.Initializer, align 1
   %nascent = alloca %"class.folly::fbstring_core", align 8
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_.i, align 8
   %and.i = and i64 %0, 4611686018427387903
   %cmp.not = icmp ult i64 %and.i, %minCapacity
@@ -1668,7 +1653,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
   %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %5 = load ptr, ptr %this, align 8
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %size_, align 8
   %add5 = add i64 %6, 1
   %7 = load i64, ptr %capacity_.i, align 8
@@ -1710,16 +1695,16 @@ _ZN5folly12smartReallocEPvmmm.exit:               ; preds = %_ZN5folly13checkedM
   br label %if.end20
 
 sw.bb.i:                                          ; preds = %if.end
-  %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %nascent, i64 0, i64 23
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %nascent, i64 23
   store i8 23, ptr %arrayidx.i.i.i, align 1
   store i8 0, ptr %nascent, align 8
   invoke void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr noundef nonnull align 8 dereferenceable(24) %nascent, i64 noundef %minCapacity, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb.i
-  %size_12 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_12 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %size_12, align 8
-  %size_13 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %nascent, i64 0, i32 1
+  %size_13 = getelementptr inbounds i8, ptr %nascent, i64 8
   store i64 %8, ptr %size_13, align 8
   %9 = load ptr, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %8
@@ -1783,18 +1768,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i)
-  %capacity_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %capacity_.i.i, align 8
   %and.i.i = and i64 %3, 4611686018427387903
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %and.i.i, i64 %2)
   store i64 %.sroa.speculated.i, ptr %effectiveCapacity.i, align 8
   %call3.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i)
   %4 = load ptr, ptr %this, align 8
-  %size_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %size_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %5
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  %data_6.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call3.i, i64 0, i32 1
+  %data_6.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1818,7 +1803,7 @@ _ZN5folly13fbstring_coreIcE7unshareEm.exit:       ; preds = %if.then, %if.then.i
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %capacity_.i, align 8
   %and.i = and i64 %9, 4611686018427387903
   %cmp3 = icmp ugt i64 %2, %and.i
@@ -1826,10 +1811,10 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %10 = load ptr, ptr %this, align 8
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i64, ptr %size_, align 8
   %call7 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted10reallocateEPcmmPm(ptr noundef %10, i64 noundef %11, i64 noundef %and.i, ptr noundef nonnull %minCapacity.addr)
-  %data_8 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call7, i64 0, i32 1
+  %data_8 = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %data_8, ptr %this, align 8
   %12 = load i64, ptr %minCapacity.addr, align 8
   %or.i = or i64 %12, 4611686018427387904
@@ -1843,7 +1828,7 @@ if.end10:                                         ; preds = %if.else, %if.then4,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, 0

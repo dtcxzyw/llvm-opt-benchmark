@@ -9,18 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
 %union.anon = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%union.TValue = type { i64 }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon.1, %struct.MRef, i32 }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
 %struct.itimerval = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
 
@@ -29,10 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_profile_interpreter(ptr noundef %L) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
-  %hookmask = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 5
+  %hookmask = getelementptr inbounds i8, ptr %1, i64 145
   %2 = load i8, ptr %hookmask, align 1
   %3 = and i8 %2, 127
   %4 = and i8 %2, 32
@@ -72,7 +60,7 @@ entry:
   br i1 %tobool.not27, label %while.end13, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -141,7 +129,7 @@ if.then15:                                        ; preds = %while.end13
   br i1 %tobool17.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %while.end13
-  %glref21 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref21 = getelementptr inbounds i8, ptr %L, i64 16
   %12 = load i64, ptr %glref21, align 8
   %13 = inttoptr i64 %12 to ptr
   store ptr %13, ptr @profile_state, align 8
@@ -157,20 +145,20 @@ if.end20:                                         ; preds = %if.then15, %while.e
   %div.i = sdiv i32 %interval.0.lcssa, 1000
   %conv.i = sext i32 %div.i to i64
   store i64 %conv.i, ptr %tm.i, align 8
-  %it_value.i = getelementptr inbounds %struct.itimerval, ptr %tm.i, i64 0, i32 1
+  %it_value.i = getelementptr inbounds i8, ptr %tm.i, i64 16
   store i64 %conv.i, ptr %it_value.i, align 8
   %rem.i = srem i32 %interval.0.lcssa, 1000
   %mul.i = mul nsw i32 %rem.i, 1000
   %conv3.i = sext i32 %mul.i to i64
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tm.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tm.i, i64 8
   store i64 %conv3.i, ptr %tv_usec.i, align 8
-  %tv_usec6.i = getelementptr inbounds %struct.itimerval, ptr %tm.i, i64 0, i32 1, i32 1
+  %tv_usec6.i = getelementptr inbounds i8, ptr %tm.i, i64 24
   store i64 %conv3.i, ptr %tv_usec6.i, align 8
   %call.i = call i32 @setitimer(i32 noundef 2, ptr noundef nonnull %tm.i, ptr noundef null) #7
-  %sa_flags.i = getelementptr inbounds %struct.sigaction, ptr %sa.i, i64 0, i32 2
+  %sa_flags.i = getelementptr inbounds i8, ptr %sa.i, i64 136
   store i32 268435456, ptr %sa_flags.i, align 8
   store ptr @profile_signal, ptr %sa.i, align 8
-  %sa_mask.i = getelementptr inbounds %struct.sigaction, ptr %sa.i, i64 0, i32 1
+  %sa_mask.i = getelementptr inbounds i8, ptr %sa.i, i64 8
   %call7.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #7
   %call8.i = call i32 @sigaction(i32 noundef 27, ptr noundef nonnull %sa.i, ptr noundef nonnull getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 7)) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tm.i)
@@ -188,7 +176,7 @@ define dso_local void @luaJIT_profile_stop(ptr noundef %L) local_unnamed_addr #0
 entry:
   %tm.i = alloca %struct.itimerval, align 8
   %0 = load ptr, ptr @profile_state, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp = icmp eq ptr %0, %2
@@ -200,7 +188,7 @@ if.then:                                          ; preds = %entry
   %call.i16 = call i32 @setitimer(i32 noundef 2, ptr noundef nonnull %tm.i, ptr noundef null) #7
   %call5.i = tail call i32 @sigaction(i32 noundef 27, ptr noundef nonnull getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 7), ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tm.i)
-  %hookmask = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 5
+  %hookmask = getelementptr inbounds i8, ptr %0, i64 145
   %3 = load i8, ptr %hookmask, align 1
   %4 = and i8 %3, 127
   store i8 %4, ptr %hookmask, align 1
@@ -214,12 +202,12 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 2
+  %gc.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %gc.i, align 8
   %sub.i = sub i64 %7, %conv2.i
   store i64 %sub.i, ptr %gc.i, align 8
   %8 = load ptr, ptr %0, align 8
-  %allocd.i = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %allocd.i = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %allocd.i, align 8
   %call.i = tail call ptr %8(ptr noundef %9, ptr noundef %5, i64 noundef %conv2.i, i64 noundef 0) #7
   store ptr null, ptr @profile_state, align 8
@@ -261,13 +249,13 @@ entry:
   %1 = load i32, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
-  %hookmask.i = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 5
+  %hookmask.i = getelementptr inbounds i8, ptr %0, i64 145
   %2 = load i8, ptr %hookmask.i, align 1
   %tobool.not.i = icmp ult i8 %2, 32
   br i1 %tobool.not.i, label %if.then.i, label %profile_trigger.exit
 
 if.then.i:                                        ; preds = %entry
-  %vmstate.i = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 9
+  %vmstate.i = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load volatile i32, ptr %vmstate.i, align 8
   %cmp.i = icmp sgt i32 %3, -1
   br i1 %cmp.i, label %cond.end16.i, label %cond.false.i

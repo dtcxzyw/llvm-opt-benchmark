@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-poly1305.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.poly1305_context = type { [24 x double], [4 x i32], [16 x i8], i64, %struct.anon }
-%struct.anon = type { ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @Poly1305_ctx_size() local_unnamed_addr #0 {
 entry:
@@ -17,33 +14,33 @@ define void @Poly1305_Init(ptr noundef %ctx, ptr noundef %key) local_unnamed_add
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load i32, ptr %arrayidx, align 1
-  %nonce = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 192
   store i32 %0, ptr %nonce, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 20
   %1 = load i32, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %ctx, i64 196
   store i32 %1, ptr %arrayidx5, align 4
   %arrayidx6 = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load i32, ptr %arrayidx6, align 1
-  %arrayidx9 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 1, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %ctx, i64 200
   store i32 %2, ptr %arrayidx9, align 8
   %arrayidx10 = getelementptr inbounds i8, ptr %key, i64 28
   %3 = load i32, ptr %arrayidx10, align 1
-  %arrayidx13 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 1, i64 3
+  %arrayidx13 = getelementptr inbounds i8, ptr %ctx, i64 204
   store i32 %3, ptr %arrayidx13, align 4
-  %func = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 4
+  %func = getelementptr inbounds i8, ptr %ctx, i64 232
   %call14 = tail call i32 @poly1305_init(ptr noundef %ctx, ptr noundef %key, ptr noundef nonnull %func) #5
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store ptr @poly1305_blocks, ptr %func, align 8
-  %emit = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 4, i32 1
+  %emit = getelementptr inbounds i8, ptr %ctx, i64 240
   store ptr @poly1305_emit, ptr %emit, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %num = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 3
+  %num = getelementptr inbounds i8, ptr %ctx, i64 224
   store i64 0, ptr %num, align 8
   ret void
 }
@@ -57,9 +54,9 @@ declare void @poly1305_emit(ptr noundef, ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define void @Poly1305_Update(ptr noundef %ctx, ptr noundef %inp, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %func = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 4
+  %func = getelementptr inbounds i8, ptr %ctx, i64 232
   %0 = load ptr, ptr %func, align 8
-  %num1 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 3
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 224
   %1 = load i64, ptr %num1, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end12, label %if.then
@@ -67,7 +64,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub i64 16, %1
   %cmp.not = icmp ugt i64 %sub, %len
-  %data8 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 2
+  %data8 = getelementptr inbounds i8, ptr %ctx, i64 208
   %add.ptr10 = getelementptr inbounds i8, ptr %data8, i64 %1
   br i1 %cmp.not, label %if.else, label %if.then2
 
@@ -102,7 +99,7 @@ if.end20:                                         ; preds = %if.then16, %if.end1
   br i1 %tobool21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %data23 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 2
+  %data23 = getelementptr inbounds i8, ptr %ctx, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data23, ptr align 1 %inp.addr.1, i64 %rem13, i1 false)
   br label %return
 
@@ -118,18 +115,18 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @Poly1305_Final(ptr noundef %ctx, ptr noundef %mac) local_unnamed_addr #1 {
 entry:
-  %func = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 4
+  %func = getelementptr inbounds i8, ptr %ctx, i64 232
   %0 = load ptr, ptr %func, align 8
-  %emit = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 4, i32 1
+  %emit = getelementptr inbounds i8, ptr %ctx, i64 240
   %1 = load ptr, ptr %emit, align 8
-  %num2 = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 3
+  %num2 = getelementptr inbounds i8, ptr %ctx, i64 224
   %2 = load i64, ptr %num2, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 2
-  %arrayidx = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 2, i64 %2
+  %data = getelementptr inbounds i8, ptr %ctx, i64 208
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %data, i64 0, i64 %2
   store i8 1, ptr %arrayidx, align 1
   %num.012 = add i64 %2, 1
   %cmp13 = icmp ult i64 %num.012, 16
@@ -147,7 +144,7 @@ while.end:                                        ; preds = %while.body.preheade
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %entry
-  %nonce = getelementptr inbounds %struct.poly1305_context, ptr %ctx, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 192
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef %mac, ptr noundef nonnull %nonce) #5
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 248) #5
   ret void

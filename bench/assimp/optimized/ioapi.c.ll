@@ -3,10 +3,6 @@ source_filename = "bench/assimp/original/ioapi.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.zlib_filefunc64_32_def_s = type { %struct.zlib_filefunc64_def_s, ptr, ptr, ptr }
-%struct.zlib_filefunc64_def_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.zlib_filefunc_def_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"r+b\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
@@ -19,13 +15,13 @@ entry:
   br i1 %cmp.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %zopen32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %pfilefunc, i64 0, i32 1
+  %zopen32_file = getelementptr inbounds i8, ptr %pfilefunc, i64 64
   %1 = load ptr, ptr %zopen32_file, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.else
   %.sink7 = phi ptr [ %1, %if.else ], [ %0, %entry ]
-  %opaque5 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pfilefunc, i64 0, i32 7
+  %opaque5 = getelementptr inbounds i8, ptr %pfilefunc, i64 56
   %2 = load ptr, ptr %opaque5, align 8
   %call6 = tail call ptr %.sink7(ptr noundef %2, ptr noundef %filename, i32 noundef %mode) #8
   ret ptr %call6
@@ -34,19 +30,19 @@ return:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind uwtable
 define i64 @call_zseek64(ptr nocapture noundef readonly %pfilefunc, ptr noundef %filestream, i64 noundef %offset, i32 noundef %origin) local_unnamed_addr #0 {
 entry:
-  %zseek64_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pfilefunc, i64 0, i32 4
+  %zseek64_file = getelementptr inbounds i8, ptr %pfilefunc, i64 32
   %0 = load ptr, ptr %zseek64_file, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else6, label %return
 
 if.else6:                                         ; preds = %entry
-  %zseek32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %pfilefunc, i64 0, i32 3
+  %zseek32_file = getelementptr inbounds i8, ptr %pfilefunc, i64 80
   %1 = load ptr, ptr %zseek32_file, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.else6
   %.sink10 = phi ptr [ %1, %if.else6 ], [ %0, %entry ]
-  %opaque8 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pfilefunc, i64 0, i32 7
+  %opaque8 = getelementptr inbounds i8, ptr %pfilefunc, i64 56
   %2 = load ptr, ptr %opaque8, align 8
   %call9 = tail call i64 %.sink10(ptr noundef %2, ptr noundef %filestream, i64 noundef %offset, i32 noundef %origin) #8
   ret i64 %call9
@@ -55,21 +51,21 @@ return:                                           ; preds = %entry, %if.else6
 ; Function Attrs: nounwind uwtable
 define i64 @call_ztell64(ptr nocapture noundef readonly %pfilefunc, ptr noundef %filestream) local_unnamed_addr #0 {
 entry:
-  %zseek64_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pfilefunc, i64 0, i32 4
+  %zseek64_file = getelementptr inbounds i8, ptr %pfilefunc, i64 32
   %0 = load ptr, ptr %zseek64_file, align 8
   %cmp.not = icmp eq ptr %0, null
-  %opaque4 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pfilefunc, i64 0, i32 7
+  %opaque4 = getelementptr inbounds i8, ptr %pfilefunc, i64 56
   %1 = load ptr, ptr %opaque4, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ztell64_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pfilefunc, i64 0, i32 3
+  %ztell64_file = getelementptr inbounds i8, ptr %pfilefunc, i64 24
   %2 = load ptr, ptr %ztell64_file, align 8
   %call = tail call i64 %2(ptr noundef %1, ptr noundef %filestream) #8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %ztell32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %pfilefunc, i64 0, i32 2
+  %ztell32_file = getelementptr inbounds i8, ptr %pfilefunc, i64 72
   %3 = load ptr, ptr %ztell32_file, align 8
   %call5 = tail call i64 %3(ptr noundef %1, ptr noundef %filestream) #8
   %cmp6 = icmp eq i64 %call5, 4294967295
@@ -86,39 +82,39 @@ define void @fill_zlib_filefunc64_32_def_from_filefunc32(ptr nocapture noundef w
 entry:
   store ptr null, ptr %p_filefunc64_32, align 8
   %0 = load ptr, ptr %p_filefunc32, align 8
-  %zopen32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %p_filefunc64_32, i64 0, i32 1
+  %zopen32_file = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 64
   store ptr %0, ptr %zopen32_file, align 8
-  %zerror_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 6
+  %zerror_file = getelementptr inbounds i8, ptr %p_filefunc32, i64 48
   %1 = load ptr, ptr %zerror_file, align 8
-  %zerror_file2 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %p_filefunc64_32, i64 0, i32 6
+  %zerror_file2 = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 48
   store ptr %1, ptr %zerror_file2, align 8
-  %zread_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 1
+  %zread_file = getelementptr inbounds i8, ptr %p_filefunc32, i64 8
   %2 = load ptr, ptr %zread_file, align 8
-  %zread_file4 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %p_filefunc64_32, i64 0, i32 1
+  %zread_file4 = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 8
   store ptr %2, ptr %zread_file4, align 8
-  %zwrite_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 2
+  %zwrite_file = getelementptr inbounds i8, ptr %p_filefunc32, i64 16
   %3 = load ptr, ptr %zwrite_file, align 8
-  %zwrite_file6 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %p_filefunc64_32, i64 0, i32 2
+  %zwrite_file6 = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 16
   store ptr %3, ptr %zwrite_file6, align 8
-  %ztell64_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %p_filefunc64_32, i64 0, i32 3
-  %zclose_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 5
+  %ztell64_file = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 24
+  %zclose_file = getelementptr inbounds i8, ptr %p_filefunc32, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ztell64_file, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %zclose_file, align 8
-  %zclose_file10 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %p_filefunc64_32, i64 0, i32 5
+  %zclose_file10 = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 40
   store ptr %4, ptr %zclose_file10, align 8
   %5 = load ptr, ptr %zerror_file, align 8
   store ptr %5, ptr %zerror_file2, align 8
-  %opaque = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %p_filefunc32, i64 56
   %6 = load ptr, ptr %opaque, align 8
-  %opaque15 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %p_filefunc64_32, i64 0, i32 7
+  %opaque15 = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 56
   store ptr %6, ptr %opaque15, align 8
-  %zseek_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 4
+  %zseek_file = getelementptr inbounds i8, ptr %p_filefunc32, i64 32
   %7 = load ptr, ptr %zseek_file, align 8
-  %zseek32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %p_filefunc64_32, i64 0, i32 3
+  %zseek32_file = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 80
   store ptr %7, ptr %zseek32_file, align 8
-  %ztell_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %p_filefunc32, i64 0, i32 3
+  %ztell_file = getelementptr inbounds i8, ptr %p_filefunc32, i64 24
   %8 = load ptr, ptr %ztell_file, align 8
-  %ztell32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %p_filefunc64_32, i64 0, i32 2
+  %ztell32_file = getelementptr inbounds i8, ptr %p_filefunc64_32, i64 72
   store ptr %8, ptr %ztell32_file, align 8
   ret void
 }
@@ -127,19 +123,19 @@ entry:
 define void @fill_fopen_filefunc(ptr nocapture noundef writeonly %pzlib_filefunc_def) local_unnamed_addr #2 {
 entry:
   store ptr @fopen_file_func, ptr %pzlib_filefunc_def, align 8
-  %zread_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 1
+  %zread_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 8
   store ptr @fread_file_func, ptr %zread_file, align 8
-  %zwrite_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 2
+  %zwrite_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 16
   store ptr @fwrite_file_func, ptr %zwrite_file, align 8
-  %ztell_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 3
+  %ztell_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 24
   store ptr @ftell_file_func, ptr %ztell_file, align 8
-  %zseek_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 4
+  %zseek_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 32
   store ptr @fseek_file_func, ptr %zseek_file, align 8
-  %zclose_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 5
+  %zclose_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 40
   store ptr @fclose_file_func, ptr %zclose_file, align 8
-  %zerror_file = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   store ptr @ferror_file_func, ptr %zerror_file, align 8
-  %opaque = getelementptr inbounds %struct.zlib_filefunc_def_s, ptr %pzlib_filefunc_def, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 56
   store ptr null, ptr %opaque, align 8
   ret void
 }
@@ -234,19 +230,19 @@ entry:
 define void @fill_fopen64_filefunc(ptr nocapture noundef writeonly %pzlib_filefunc_def) local_unnamed_addr #2 {
 entry:
   store ptr @fopen64_file_func, ptr %pzlib_filefunc_def, align 8
-  %zread_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 1
+  %zread_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 8
   store ptr @fread_file_func, ptr %zread_file, align 8
-  %zwrite_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 2
+  %zwrite_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 16
   store ptr @fwrite_file_func, ptr %zwrite_file, align 8
-  %ztell64_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 3
+  %ztell64_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 24
   store ptr @ftell64_file_func, ptr %ztell64_file, align 8
-  %zseek64_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 4
+  %zseek64_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 32
   store ptr @fseek64_file_func, ptr %zseek64_file, align 8
-  %zclose_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 5
+  %zclose_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 40
   store ptr @fclose_file_func, ptr %zclose_file, align 8
-  %zerror_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   store ptr @ferror_file_func, ptr %zerror_file, align 8
-  %opaque = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 56
   store ptr null, ptr %opaque, align 8
   ret void
 }

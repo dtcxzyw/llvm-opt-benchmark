@@ -3,23 +3,6 @@ source_filename = "bench/redis/original/bin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
-%struct.malloc_mutex_s = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %struct.mutex_prof_data_t, %union.pthread_mutex_t, %struct.atomic_b_t }
-%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
-%struct.nstime_t = type { i64 }
-%struct.atomic_u32_t = type { i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.atomic_b_t = type { i8 }
-%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.edata_list_active_t = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr }
-
 @.str = private unnamed_addr constant [4 x i8] c"bin\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
@@ -129,13 +112,13 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %slabcur = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 2
+  %slabcur = getelementptr inbounds i8, ptr %bin, i64 192
   store ptr null, ptr %slabcur, align 8
-  %slabs_nonfull = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 3
+  %slabs_nonfull = getelementptr inbounds i8, ptr %bin, i64 200
   tail call void @edata_heap_new(ptr noundef nonnull %slabs_nonfull) #7
-  %slabs_full = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 4
+  %slabs_full = getelementptr inbounds i8, ptr %bin, i64 216
   store ptr null, ptr %slabs_full, align 8
-  %stats = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 1
+  %stats = getelementptr inbounds i8, ptr %bin, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stats, i8 0, i64 80, i1 false)
   br label %return
 

@@ -4,19 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.aiImporterDesc = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr }
-%"class.Assimp::FBXImporter" = type <{ %"class.Assimp::BaseImporter", %"struct.Assimp::FBX::ImportSettings", i8 }>
-%"class.Assimp::BaseImporter" = type { ptr, double, double, %"class.std::__cxx11::basic_string", %"class.std::__exception_ptr::exception_ptr", ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"struct.Assimp::FBX::ImportSettings" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -75,8 +71,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
 %"struct.std::_Tuple_impl.47" = type { %"struct.std::_Head_base.50" }
 %"struct.std::_Head_base.50" = type { ptr }
-%"class.Assimp::FBX::TypedProperty" = type <{ %"class.Assimp::FBX::Property", float, [4 x i8] }>
-%"class.Assimp::FBX::Property" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZNK6Assimp3FBX18FileGlobalSettings15UnitScaleFactorEv = comdat any
@@ -200,43 +194,43 @@ define hidden void @_ZN6Assimp11FBXImporter15SetupPropertiesEPKNS_8ImporterE(ptr
 entry:
   %call.i = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.2, i32 noundef 1)
   %cmp.i = icmp ne i32 %call.i, 0
-  %mSettings = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1
-  %readAllLayers = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 1
+  %mSettings = getelementptr inbounds i8, ptr %this, i64 72
+  %readAllLayers = getelementptr inbounds i8, ptr %this, i64 73
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %readAllLayers, align 1
   %call.i15 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.3, i32 noundef 0)
   %cmp.i16 = icmp ne i32 %call.i15, 0
-  %readAllMaterials = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 2
+  %readAllMaterials = getelementptr inbounds i8, ptr %this, i64 74
   %frombool4 = zext i1 %cmp.i16 to i8
   store i8 %frombool4, ptr %readAllMaterials, align 2
   %call.i17 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.4, i32 noundef 1)
   %cmp.i18 = icmp ne i32 %call.i17, 0
-  %readMaterials = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 3
+  %readMaterials = getelementptr inbounds i8, ptr %this, i64 75
   %frombool7 = zext i1 %cmp.i18 to i8
   store i8 %frombool7, ptr %readMaterials, align 1
   %call.i19 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.5, i32 noundef 1)
   %cmp.i20 = icmp ne i32 %call.i19, 0
-  %readTextures = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 4
+  %readTextures = getelementptr inbounds i8, ptr %this, i64 76
   %frombool10 = zext i1 %cmp.i20 to i8
   store i8 %frombool10, ptr %readTextures, align 4
   %call.i21 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.6, i32 noundef 1)
   %cmp.i22 = icmp ne i32 %call.i21, 0
-  %readCameras = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 5
+  %readCameras = getelementptr inbounds i8, ptr %this, i64 77
   %frombool13 = zext i1 %cmp.i22 to i8
   store i8 %frombool13, ptr %readCameras, align 1
   %call.i23 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.7, i32 noundef 1)
   %cmp.i24 = icmp ne i32 %call.i23, 0
-  %readLights = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 6
+  %readLights = getelementptr inbounds i8, ptr %this, i64 78
   %frombool16 = zext i1 %cmp.i24 to i8
   store i8 %frombool16, ptr %readLights, align 2
   %call.i25 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.8, i32 noundef 1)
   %cmp.i26 = icmp ne i32 %call.i25, 0
-  %readAnimations = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 7
+  %readAnimations = getelementptr inbounds i8, ptr %this, i64 79
   %frombool19 = zext i1 %cmp.i26 to i8
   store i8 %frombool19, ptr %readAnimations, align 1
   %call.i27 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.9, i32 noundef 1)
   %cmp.i28 = icmp ne i32 %call.i27, 0
-  %readWeights = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 8
+  %readWeights = getelementptr inbounds i8, ptr %this, i64 80
   %frombool22 = zext i1 %cmp.i28 to i8
   store i8 %frombool22, ptr %readWeights, align 8
   %call.i29 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.10, i32 noundef 0)
@@ -245,32 +239,32 @@ entry:
   store i8 %frombool25, ptr %mSettings, align 8
   %call.i31 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.11, i32 noundef 1)
   %cmp.i32 = icmp ne i32 %call.i31, 0
-  %preservePivots = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 10
+  %preservePivots = getelementptr inbounds i8, ptr %this, i64 82
   %frombool28 = zext i1 %cmp.i32 to i8
   store i8 %frombool28, ptr %preservePivots, align 2
   %call.i33 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.12, i32 noundef 1)
   %cmp.i34 = icmp ne i32 %call.i33, 0
-  %optimizeEmptyAnimationCurves = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 11
+  %optimizeEmptyAnimationCurves = getelementptr inbounds i8, ptr %this, i64 83
   %frombool31 = zext i1 %cmp.i34 to i8
   store i8 %frombool31, ptr %optimizeEmptyAnimationCurves, align 1
   %call.i35 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.13, i32 noundef 0)
   %cmp.i36 = icmp ne i32 %call.i35, 0
-  %useLegacyEmbeddedTextureNaming = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 12
+  %useLegacyEmbeddedTextureNaming = getelementptr inbounds i8, ptr %this, i64 84
   %frombool34 = zext i1 %cmp.i36 to i8
   store i8 %frombool34, ptr %useLegacyEmbeddedTextureNaming, align 4
   %call.i37 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.14, i32 noundef 1)
   %cmp.i38 = icmp ne i32 %call.i37, 0
-  %removeEmptyBones = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 13
+  %removeEmptyBones = getelementptr inbounds i8, ptr %this, i64 85
   %frombool37 = zext i1 %cmp.i38 to i8
   store i8 %frombool37, ptr %removeEmptyBones, align 1
   %call.i39 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.15, i32 noundef 0)
   %cmp.i40 = icmp ne i32 %call.i39, 0
-  %convertToMeters = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 14
+  %convertToMeters = getelementptr inbounds i8, ptr %this, i64 86
   %frombool40 = zext i1 %cmp.i40 to i8
   store i8 %frombool40, ptr %convertToMeters, align 2
   %call.i41 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.16, i32 noundef 0)
   %cmp.i42 = icmp ne i32 %call.i41, 0
-  %useSkeleton = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 9
+  %useSkeleton = getelementptr inbounds i8, ptr %this, i64 81
   %frombool43 = zext i1 %cmp.i42 to i8
   store i8 %frombool43, ptr %useSkeleton, align 1
   ret void
@@ -315,7 +309,7 @@ invoke.cont:                                      ; preds = %.noexc
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %pFile) #17
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %vtable.i = load ptr, ptr %pIOHandler, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   %call3.i12 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %pIOHandler, ptr noundef %call.i, ptr noundef %call2.i)
           to label %invoke.cont4 unwind label %lpad3
@@ -409,14 +403,14 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %contents) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents, i8 0, i64 24, i1 false)
   %vtable = load ptr, ptr %call3.i12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %11 = load ptr, ptr %vfn, align 8
   %call14 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %call3.i12)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %add = add i64 %call14, 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contents, i64 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %contents, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -427,7 +421,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
 
 if.then.i:                                        ; preds = %invoke.cont13
   %sub.i = sub i64 %add, %sub.ptr.sub.i.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %contents, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %contents, i64 16
   %14 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i55 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i56 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.lhs.cast.i.i
@@ -540,7 +534,7 @@ invoke.cont15:                                    ; preds = %invoke.cont.i.i, %i
   %17 = xor i64 %sub.ptr.rhs.cast.i, -1
   %sub = add i64 %sub.ptr.lhs.cast.i, %17
   %vtable21 = load ptr, ptr %call3.i12, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 2
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
   %18 = load ptr, ptr %vfn22, align 8
   %call24 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %call3.i12, ptr noundef nonnull %16, i64 noundef 1, i64 noundef %sub)
           to label %invoke.cont23 unwind label %lpad12
@@ -553,9 +547,9 @@ invoke.cont23:                                    ; preds = %invoke.cont15
   %20 = load ptr, ptr %contents, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens, i8 0, i64 24, i1 false)
   store i64 16384, ptr %tempAllocator, align 8
-  %m_subIndex.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %tempAllocator, i64 0, i32 1
+  %m_subIndex.i = getelementptr inbounds i8, ptr %tempAllocator, i64 8
   store i64 67108864, ptr %m_subIndex.i, align 8
-  %m_storageBlocks.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %tempAllocator, i64 0, i32 2
+  %m_storageBlocks.i = getelementptr inbounds i8, ptr %tempAllocator, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks.i, i8 0, i64 24, i1 false)
   %call34 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(19) @.str.20, i64 noundef 18) #21
   %tobool.not = icmp eq i32 %call34, 0
@@ -589,12 +583,12 @@ if.end40:                                         ; preds = %if.else, %if.then35
           to label %invoke.cont42 unwind label %lpad37
 
 invoke.cont42:                                    ; preds = %if.end40
-  %mSettings = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1
+  %mSettings = getelementptr inbounds i8, ptr %this, i64 72
   invoke void @_ZN6Assimp3FBX8DocumentC1ERNS0_6ParserERKNS0_14ImportSettingsE(ptr noundef nonnull align 8 dereferenceable(336) %doc, ptr noundef nonnull align 8 dereferenceable(49) %parser, ptr noundef nonnull align 1 dereferenceable(15) %mSettings)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
-  %removeEmptyBones = getelementptr inbounds %"class.Assimp::FBXImporter", ptr %this, i64 0, i32 1, i32 13
+  %removeEmptyBones = getelementptr inbounds i8, ptr %this, i64 85
   %25 = load i8, ptr %removeEmptyBones, align 1
   %26 = and i8 %25, 1
   %tobool46 = icmp ne i8 %26, 0
@@ -602,7 +596,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont44
-  %globals.i = getelementptr inbounds %"class.Assimp::FBX::Document", ptr %doc, i64 0, i32 11
+  %globals.i = getelementptr inbounds i8, ptr %doc, i64 328
   %27 = load ptr, ptr %globals.i, align 8
   %call52 = invoke noundef float @_ZNK6Assimp3FBX18FileGlobalSettings15UnitScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(24) %27)
           to label %invoke.cont51 unwind label %lpad47
@@ -671,11 +665,11 @@ lpad47.body:                                      ; preds = %lpad.i30.body, %lpa
 invoke.cont66:                                    ; preds = %invoke.cont51
   %mul = fmul float %call52, 0x3F847AE140000000
   %conv56 = fpext float %mul to double
-  %fileScale.i = getelementptr inbounds %"class.Assimp::BaseImporter", ptr %this, i64 0, i32 2
+  %fileScale.i = getelementptr inbounds i8, ptr %this, i64 16
   store double %conv56, ptr %fileScale.i, align 8
   call void @_ZN6Assimp3FBX8DocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %doc) #17
   call void @_ZN6Assimp3FBX6ParserD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %parser) #17
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %tempAllocator, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %tempAllocator, i64 24
   %32 = load ptr, ptr %_M_finish.i.i.i, align 8
   %33 = load ptr, ptr %m_storageBlocks.i, align 8
   %cmp8.not.i.i = icmp eq ptr %32, %33
@@ -753,7 +747,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorIcSaIcE
   %call2.val.i = load ptr, ptr %stream, align 8
   %call2.val.val.i = load ptr, ptr %call2.val.i, align 8
   %vtable.i.i = load ptr, ptr %call2.val.val.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %42 = load ptr, ptr %vfn.i.i, align 8
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(32) %call2.val.val.i, ptr noundef nonnull %41)
           to label %"_ZNSt10unique_ptrIN6Assimp8IOStreamEZNS0_11FBXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS0_8IOSystemEE3$_0ED2Ev.exit" unwind label %terminate.lpad.i
@@ -901,7 +895,7 @@ call.i.noexc3:                                    ; preds = %invoke.cont
 if.end.i:                                         ; preds = %call.i.noexc3
   %2 = call noundef ptr @__dynamic_cast(ptr nonnull %call.i4, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyIfEE, i64 0) #17
   %cmp2.i = icmp eq ptr %2, null
-  %value.i.i = getelementptr inbounds %"class.Assimp::FBX::TypedProperty", ptr %2, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %spec.select.i = select i1 %cmp2.i, ptr %ref.tmp3, ptr %value.i.i
   %retval.0.i.pre = load float, ptr %spec.select.i, align 4
   br label %invoke.cont5
@@ -956,8 +950,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp14StackAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_storageBlocks.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_storageBlocks.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %m_storageBlocks.i, align 8
   %cmp8.not.i = icmp eq ptr %0, %1
@@ -993,7 +987,7 @@ for.end.i:                                        ; preds = %for.inc.i, %entry
   %.lcssa.i = phi ptr [ %0, %entry ], [ %5, %for.inc.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks.i, i8 0, i64 24, i1 false)
   store i64 16384, ptr %this, align 8
-  %m_subIndex.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 1
+  %m_subIndex.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 67108864, ptr %m_subIndex.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.lcssa.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %_ZN6Assimp14StackAllocator7FreeAllEv.exit
@@ -1040,7 +1034,7 @@ if.then:                                          ; preds = %entry
   %call2.val = load ptr, ptr %this, align 8
   %call2.val.val = load ptr, ptr %call2.val, align 8
   %vtable.i = load ptr, ptr %call2.val.val, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(32) %call2.val.val, ptr noundef nonnull %0)
           to label %if.end unwind label %terminate.lpad

@@ -23,10 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.hermes::hbc::DebugInfoHeader" = type { i32, i32, i32, i32, i32, i32, i32 }
 %"struct.hermes::hbc::BytecodeFileFooter" = type { [20 x i8] }
 %"struct.std::array" = type { [20 x i8] }
-%"struct.std::_Vector_base<hermes::hbc::SimpleBytecodeBuilder::SimpleFunction, std::allocator<hermes::hbc::SimpleBytecodeBuilder::SimpleFunction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction" = type { i32, i32, i32, %"class.std::vector" }
-%"class.hermes::Buffer" = type { ptr, ptr, i64 }
-%class.VectorBuffer = type { %"class.hermes::Buffer", %"class.std::vector" }
 
 $_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE = comdat any
 
@@ -55,7 +52,7 @@ entry:
   %ref.tmp78 = alloca %"struct.hermes::hbc::BytecodeFileFooter", align 1
   %ref.tmp79 = alloca %"struct.std::array", align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::hbc::SimpleBytecodeBuilder::SimpleFunction, std::allocator<hermes::hbc::SimpleBytecodeBuilder::SimpleFunction>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -80,7 +77,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %currentSize.090, ptr %add.ptr.i, align 8
   %4 = load ptr, ptr %this, align 8
   %opcodes = getelementptr inbounds %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction", ptr %4, i64 %indvars.iv, i32 3
-  %_M_finish.i20 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %opcodes, i64 0, i32 1
+  %_M_finish.i20 = getelementptr inbounds i8, ptr %opcodes, i64 8
   %5 = load ptr, ptr %_M_finish.i20, align 8
   %6 = load ptr, ptr %opcodes, align 8
   %sub.ptr.lhs.cast.i21 = ptrtoint ptr %5 to i64
@@ -97,39 +94,39 @@ for.end:                                          ; preds = %for.body, %entry
   %sub1.i = add i32 %currentSize.0.lcssa, 3
   %add2.i = and i32 %sub1.i, -4
   %conv20 = add i32 %add2.i, 48
-  %sourceHash5.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 2
+  %sourceHash5.i = getelementptr inbounds i8, ptr %header, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %sourceHash5.i, i8 0, i64 20, i1 false)
   store i64 2240826417119764422, ptr %header, align 8
-  %version4.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 1
+  %version4.i = getelementptr inbounds i8, ptr %header, i64 8
   store i32 96, ptr %version4.i, align 8
-  %fileLength6.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 3
+  %fileLength6.i = getelementptr inbounds i8, ptr %header, i64 32
   store i32 %conv20, ptr %fileLength6.i, align 8
-  %globalCodeIndex7.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 4
+  %globalCodeIndex7.i = getelementptr inbounds i8, ptr %header, i64 36
   store i32 0, ptr %globalCodeIndex7.i, align 4
-  %functionCount8.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 5
+  %functionCount8.i = getelementptr inbounds i8, ptr %header, i64 40
   store i32 %conv, ptr %functionCount8.i, align 8
-  %stringKindCount9.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 6
-  %debugInfoOffset24.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 21
+  %stringKindCount9.i = getelementptr inbounds i8, ptr %header, i64 44
+  %debugInfoOffset24.i = getelementptr inbounds i8, ptr %header, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %stringKindCount9.i, i8 0, i64 60, i1 false)
   store i32 %add2.i, ptr %debugInfoOffset24.i, align 8
-  %options25.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 22
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bytecode, i64 0, i32 1
-  %add.ptr.i24 = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 1
+  %options25.i = getelementptr inbounds i8, ptr %header, i64 108
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bytecode, i64 8
+  %add.ptr.i24 = getelementptr inbounds i8, ptr %header, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %options25.i, i8 0, i64 20, i1 false)
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr null, ptr noundef nonnull %header, ptr noundef nonnull %add.ptr.i24)
   br i1 %cmp88.not, label %for.end75, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %for.end
-  %paramCount2.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 1
-  %bytecodeSizeInBytes.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 2
-  %functionName.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 3
-  %infoOffset.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 4
-  %frameSize3.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 5
-  %environmentSize.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 6
-  %highestReadCacheIndex.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 7
-  %highestWriteCacheIndex.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 8
-  %flags.i = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %funcHeader, i64 0, i32 9
-  %add.ptr.i34 = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %small, i64 1
+  %paramCount2.i = getelementptr inbounds i8, ptr %funcHeader, i64 4
+  %bytecodeSizeInBytes.i = getelementptr inbounds i8, ptr %funcHeader, i64 8
+  %functionName.i = getelementptr inbounds i8, ptr %funcHeader, i64 12
+  %infoOffset.i = getelementptr inbounds i8, ptr %funcHeader, i64 16
+  %frameSize3.i = getelementptr inbounds i8, ptr %funcHeader, i64 20
+  %environmentSize.i = getelementptr inbounds i8, ptr %funcHeader, i64 24
+  %highestReadCacheIndex.i = getelementptr inbounds i8, ptr %funcHeader, i64 28
+  %highestWriteCacheIndex.i = getelementptr inbounds i8, ptr %funcHeader, i64 29
+  %flags.i = getelementptr inbounds i8, ptr %funcHeader, i64 30
+  %add.ptr.i34 = getelementptr inbounds i8, ptr %small, i64 16
   %wide.trip.count99 = and i64 %sub.ptr.div.i, 4294967295
   br label %for.body25
 
@@ -144,17 +141,17 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   %indvars.iv96 = phi i64 [ 0, %for.body25.lr.ph ], [ %indvars.iv.next97, %for.body25 ]
   %8 = load ptr, ptr %this, align 8
   %add.ptr.i25 = getelementptr inbounds %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction", ptr %8, i64 %indvars.iv96
-  %opcodes29 = getelementptr inbounds %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction", ptr %8, i64 %indvars.iv96, i32 3
-  %_M_finish.i26 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %opcodes29, i64 0, i32 1
+  %opcodes29 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 16
+  %_M_finish.i26 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 24
   %9 = load ptr, ptr %_M_finish.i26, align 8
   %10 = load ptr, ptr %opcodes29, align 8
   %sub.ptr.lhs.cast.i27 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i28 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i27, %sub.ptr.rhs.cast.i28
   %conv31 = trunc i64 %sub.ptr.sub.i29 to i32
-  %paramCount = getelementptr inbounds %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction", ptr %8, i64 %indvars.iv96, i32 1
+  %paramCount = getelementptr inbounds i8, ptr %add.ptr.i25, i64 4
   %11 = load i32, ptr %paramCount, align 4
-  %frameSize = getelementptr inbounds %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction", ptr %8, i64 %indvars.iv96, i32 2
+  %frameSize = getelementptr inbounds i8, ptr %add.ptr.i25, i64 8
   %12 = load i32, ptr %frameSize, align 8
   store i32 0, ptr %funcHeader, align 4
   store i32 %11, ptr %paramCount2.i, align 4
@@ -187,7 +184,7 @@ for.body49:                                       ; preds = %for.body49.preheade
   %17 = load ptr, ptr %this, align 8
   %opcodes58 = getelementptr inbounds %"struct.hermes::hbc::SimpleBytecodeBuilder::SimpleFunction", ptr %17, i64 %indvars.iv101, i32 3
   %18 = load ptr, ptr %opcodes58, align 8
-  %_M_finish.i42 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %opcodes58, i64 0, i32 1
+  %_M_finish.i42 = getelementptr inbounds i8, ptr %opcodes58, i64 8
   %19 = load ptr, ptr %_M_finish.i42, align 8
   %20 = load ptr, ptr %bytecode, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
@@ -212,7 +209,7 @@ for.end75:                                        ; preds = %for.body49, %for.en
 
 if.then.i:                                        ; preds = %for.end75
   %sub.i = sub i64 %add2.i50, %sub.ptr.sub.i46
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bytecode, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %bytecode, i64 16
   %23 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i80 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i81 = sub i64 %sub.ptr.lhs.cast.i80, %sub.ptr.lhs.cast.i44
@@ -318,7 +315,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i.i, %if.th
   %24 = phi ptr [ %cond.i17.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ %.pre, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i ], [ %22, %if.else.i ], [ %22, %if.then5.i ], [ %22, %if.then.i.i ]
   %25 = phi ptr [ %add.ptr33.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ %__first.addr.0.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i ], [ %21, %if.else.i ], [ %21, %if.then5.i ], [ %add.ptr.i55, %if.then.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %debugInfoHeader, i8 0, i64 28, i1 false)
-  %add.ptr.i57 = getelementptr inbounds %"struct.hermes::hbc::DebugInfoHeader", ptr %debugInfoHeader, i64 1
+  %add.ptr.i57 = getelementptr inbounds i8, ptr %debugInfoHeader, i64 28
   %sub.ptr.lhs.cast.i.i.i58 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i.i.i59 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i.i60 = sub i64 %sub.ptr.lhs.cast.i.i.i58, %sub.ptr.rhs.cast.i.i.i59
@@ -332,7 +329,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i.i, %if.th
   call void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr nonnull sret(%"struct.std::array") align 1 %ref.tmp79, ptr %26, i64 %sub.ptr.sub.i.i65) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp78, ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp79, i64 20, i1 false)
   %28 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i67 = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFooter", ptr %ref.tmp78, i64 1
+  %add.ptr.i67 = getelementptr inbounds i8, ptr %ref.tmp78, i64 20
   %29 = load ptr, ptr %bytecode, align 8
   %sub.ptr.lhs.cast.i.i.i68 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i.i69 = ptrtoint ptr %29 to i64
@@ -340,23 +337,23 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i.i, %if.th
   %add.ptr.i.i.i71 = getelementptr inbounds i8, ptr %29, i64 %sub.ptr.sub.i.i.i70
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i71, ptr noundef nonnull %ref.tmp78, ptr noundef nonnull %add.ptr.i67)
   %call81 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
-  %data_.i.i = getelementptr inbounds %"class.hermes::Buffer", ptr %call81, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %call81, i64 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12VectorBuffer, i64 0, inrange i32 0, i64 2), ptr %call81, align 8
-  %bytecode_.i = getelementptr inbounds %class.VectorBuffer, ptr %call81, i64 0, i32 1
+  %bytecode_.i = getelementptr inbounds i8, ptr %call81, i64 24
   %30 = load ptr, ptr %bytecode, align 8
   store ptr %30, ptr %bytecode_.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %class.VectorBuffer, ptr %call81, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call81, i64 32
   %31 = load ptr, ptr %_M_finish.i.i, align 8
   store ptr %31, ptr %_M_finish.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %class.VectorBuffer, ptr %call81, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %bytecode, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call81, i64 40
+  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %bytecode, i64 16
   %32 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %32, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   store ptr %30, ptr %data_.i.i, align 8
   %sub.ptr.lhs.cast.i.i72 = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i.i73 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i72, %sub.ptr.rhs.cast.i.i73
-  %size_.i = getelementptr inbounds %"class.hermes::Buffer", ptr %call81, i64 0, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %call81, i64 16
   store i64 %sub.ptr.sub.i.i74, ptr %size_.i, align 8
   store ptr %call81, ptr %agg.result, align 8
   ret void
@@ -371,9 +368,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(31) %large) unnamed_addr #0 comdat align 2 {
 entry:
-  %flags = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %this, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %this, i64 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %flags2 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 9
+  %flags2 = getelementptr inbounds i8, ptr %large, i64 30
   %0 = load i8, ptr %flags2, align 1
   store i8 %0, ptr %flags, align 1
   %1 = load i32, ptr %large, align 1
@@ -381,7 +378,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %infoOffset = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset = getelementptr inbounds i8, ptr %large, i64 16
   %2 = load i32, ptr %infoOffset, align 1
   %bf.set.i = or i8 %0, 32
   store i8 %bf.set.i, ptr %flags, align 1
@@ -396,13 +393,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %5 = zext nneg i32 %1 to i120
   store i120 %5, ptr %this, align 1
-  %paramCount = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 1
+  %paramCount = getelementptr inbounds i8, ptr %large, i64 4
   %6 = load i32, ptr %paramCount, align 1
   %cmp5 = icmp ugt i32 %6, 127
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
-  %infoOffset7 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset7 = getelementptr inbounds i8, ptr %large, i64 16
   %7 = load i32, ptr %infoOffset7, align 1
   %bf.set.i36 = or i8 %0, 32
   store i8 %bf.set.i36, ptr %flags, align 1
@@ -419,13 +416,13 @@ if.end8:                                          ; preds = %if.end
   %bf.set1394 = or disjoint i32 %1, %10
   %bf.set13 = zext i32 %bf.set1394 to i120
   store i120 %bf.set13, ptr %this, align 1
-  %bytecodeSizeInBytes = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 2
+  %bytecodeSizeInBytes = getelementptr inbounds i8, ptr %large, i64 8
   %11 = load i32, ptr %bytecodeSizeInBytes, align 1
   %cmp14 = icmp ugt i32 %11, 32767
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end8
-  %infoOffset16 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset16 = getelementptr inbounds i8, ptr %large, i64 16
   %12 = load i32, ptr %infoOffset16, align 1
   %bf.set.i46 = or i8 %0, 32
   store i8 %bf.set.i46, ptr %flags, align 1
@@ -444,13 +441,13 @@ if.end17:                                         ; preds = %if.end8
   %bf.shl21 = shl nuw nsw i120 %15, 32
   %bf.set23 = or disjoint i120 %bf.shl21, %bf.set13
   store i120 %bf.set23, ptr %this, align 1
-  %functionName = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 3
+  %functionName = getelementptr inbounds i8, ptr %large, i64 12
   %16 = load i32, ptr %functionName, align 1
   %cmp24 = icmp ugt i32 %16, 131071
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end17
-  %infoOffset26 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset26 = getelementptr inbounds i8, ptr %large, i64 16
   %17 = load i32, ptr %infoOffset26, align 1
   %bf.set.i56 = or i8 %0, 32
   store i8 %bf.set.i56, ptr %flags, align 1
@@ -469,7 +466,7 @@ if.end27:                                         ; preds = %if.end17
   %bf.shl31 = shl nuw nsw i120 %20, 47
   %bf.set33 = or disjoint i120 %bf.shl31, %bf.set23
   store i120 %bf.set33, ptr %this, align 1
-  %infoOffset34 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset34 = getelementptr inbounds i8, ptr %large, i64 16
   %21 = load i32, ptr %infoOffset34, align 1
   %cmp35 = icmp ugt i32 %21, 33554431
   br i1 %cmp35, label %if.then36, label %if.end38
@@ -492,7 +489,7 @@ if.end38:                                         ; preds = %if.end27
   %bf.shl42 = shl nuw nsw i120 %24, 64
   %bf.set44 = or disjoint i120 %bf.shl42, %bf.set33
   store i120 %bf.set44, ptr %this, align 1
-  %frameSize = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 5
+  %frameSize = getelementptr inbounds i8, ptr %large, i64 20
   %25 = load i32, ptr %frameSize, align 1
   %cmp45 = icmp ugt i32 %25, 127
   br i1 %cmp45, label %if.then46, label %if.end48
@@ -516,7 +513,7 @@ if.end48:                                         ; preds = %if.end38
   %bf.shl52 = shl nuw nsw i120 %29, 89
   %bf.set54 = or disjoint i120 %bf.shl52, %bf.set44
   store i120 %bf.set54, ptr %this, align 1
-  %environmentSize = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 6
+  %environmentSize = getelementptr inbounds i8, ptr %large, i64 24
   %30 = load i32, ptr %environmentSize, align 1
   %cmp55 = icmp ugt i32 %30, 255
   br i1 %cmp55, label %if.then56, label %if.end58
@@ -541,14 +538,14 @@ if.end58:                                         ; preds = %if.end48
   %bf.clear63 = and i120 %bf.set54, 664593794711016799045817176432836607
   %bf.set64 = or disjoint i120 %bf.shl62, %bf.clear63
   store i120 %bf.set64, ptr %this, align 1
-  %highestReadCacheIndex = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 7
+  %highestReadCacheIndex = getelementptr inbounds i8, ptr %large, i64 28
   %35 = load i8, ptr %highestReadCacheIndex, align 1
   %36 = zext i8 %35 to i120
   %bf.shl73 = shl nuw nsw i120 %36, 104
   %bf.clear74 = and i120 %bf.set64, 659441983443526760493796981062238207
   %bf.set75 = or disjoint i120 %bf.shl73, %bf.clear74
   store i120 %bf.set75, ptr %this, align 1
-  %highestWriteCacheIndex = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 8
+  %highestWriteCacheIndex = getelementptr inbounds i8, ptr %large, i64 29
   %37 = load i8, ptr %highestWriteCacheIndex, align 1
   %38 = zext i8 %37 to i120
   %bf.shl84 = shl nuw i120 %38, 112
@@ -572,7 +569,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12VectorBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %bytecode_ = getelementptr inbounds %class.VectorBuffer, ptr %this, i64 0, i32 1
+  %bytecode_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %bytecode_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -589,7 +586,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12VectorBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %bytecode_.i = getelementptr inbounds %class.VectorBuffer, ptr %this, i64 0, i32 1
+  %bytecode_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %bytecode_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN12VectorBufferD2Ev.exit, label %if.then.i.i.i.i
@@ -620,9 +617,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -776,9 +773,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64

@@ -215,7 +215,7 @@ entry:
   br i1 %cmp.not5, label %return, label %for.body
 
 for.cond:                                         ; preds = %if.end.i
-  %incdec.ptr = getelementptr inbounds %struct.v3_ext_method, ptr %extlist.addr.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %extlist.addr.06, i64 104
   %1 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !4
@@ -309,7 +309,7 @@ if.end:                                           ; preds = %X509V3_EXT_get_nid.
 if.end4:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1, ptr noundef nonnull align 8 dereferenceable(104) %retval.0.i, i64 104, i1 false)
   store i32 %nid_to, ptr %call1, align 8
-  %ext_flags = getelementptr inbounds %struct.v3_ext_method, ptr %call1, i64 0, i32 1
+  %ext_flags = getelementptr inbounds i8, ptr %call1, i64 4
   %4 = load i32, ptr %ext_flags, align 4
   %or = or i32 %4, 1
   store i32 %or, ptr %ext_flags, align 4
@@ -364,7 +364,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal void @ext_list_free(ptr noundef %ext) #0 {
 entry:
-  %ext_flags = getelementptr inbounds %struct.v3_ext_method, ptr %ext, i64 0, i32 1
+  %ext_flags = getelementptr inbounds i8, ptr %ext, i64 4
   %0 = load i32, ptr %ext_flags, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -397,7 +397,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %call1) #7
   store ptr %call2, ptr %p, align 8
   %call3 = tail call i32 @ASN1_STRING_length(ptr noundef %call1) #7
-  %it = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %it, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then4
@@ -409,7 +409,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %d2i = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 5
+  %d2i = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %d2i, align 8
   %conv9 = sext i32 %call3 to i64
   %call10 = call ptr %1(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv9) #7
@@ -541,7 +541,7 @@ if.end.i:                                         ; preds = %if.end36
   %call2.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %call1.i) #7
   store ptr %call2.i, ptr %p.i, align 8
   %call3.i = tail call i32 @ASN1_STRING_length(ptr noundef %call1.i) #7
-  %it.i = getelementptr inbounds %struct.v3_ext_method, ptr %call.i, i64 0, i32 2
+  %it.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %it.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end8.i, label %if.then4.i
@@ -553,7 +553,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %X509V3_EXT_d2i.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %d2i.i = getelementptr inbounds %struct.v3_ext_method, ptr %call.i, i64 0, i32 5
+  %d2i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %2 = load ptr, ptr %d2i.i, align 8
   %conv9.i = sext i32 %call3.i to i64
   %call10.i = call ptr %2(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef %conv9.i) #7

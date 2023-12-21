@@ -3,12 +3,7 @@ source_filename = "bench/icu/original/unames.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::UCharNames" = type { i32, i32, i32, i32 }
-%"struct.icu_75::AlgorithmicRange" = type { i32, i32, i8, i8, i16 }
 %"struct.icu_75::FindName" = type { ptr, i32 }
-%struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 
 @_ZN6icu_75L10uCharNamesE = internal unnamed_addr global ptr null, align 8
 @_ZN6icu_75L12charCatNamesE = internal unnamed_addr constant [33 x ptr] [ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41], align 16
@@ -105,7 +100,7 @@ if.then13:                                        ; preds = %lor.lhs.false10, %i
 
 if.end15:                                         ; preds = %lor.lhs.false10
   %1 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
-  %algNamesOffset = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %1, i64 0, i32 3
+  %algNamesOffset = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %algNamesOffset, align 4
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -114,7 +109,7 @@ if.end15:                                         ; preds = %lor.lhs.false10
   br i1 %cmp17.not39, label %if.then29, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end15
-  %add.ptr16 = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end24
@@ -125,13 +120,13 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp18.not, label %if.end24, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %while.body
-  %end = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.040, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %algRange.040, i64 4
   %5 = load i32, ptr %end, align 4
   %cmp20.not = icmp ult i32 %5, %code
   br i1 %cmp20.not, label %if.end24, label %while.end
 
 if.end24:                                         ; preds = %land.lhs.true19, %while.body
-  %size = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.040, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %algRange.040, i64 10
   %6 = load i16, ptr %size, align 2
   %idx.ext26 = zext i16 %6 to i64
   %add.ptr27 = getelementptr inbounds i8, ptr %algRange.040, i64 %idx.ext26
@@ -248,7 +243,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %type = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %range, i64 8
   %1 = load i8, ptr %type, align 4
   switch i8 %1, label %sw.default [
     i8 0, label %sw.bb
@@ -256,7 +251,7 @@ if.end4:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %add.ptr = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %range, i64 12
   %2 = load i8, ptr %add.ptr, align 1
   %cmp7.not49 = icmp eq i8 %2, 0
   br i1 %cmp7.not49, label %while.end, label %do.body.preheader
@@ -293,7 +288,7 @@ while.end:                                        ; preds = %if.end12, %sw.bb
   %bufferPos.0.lcssa = phi i16 [ 0, %sw.bb ], [ %inc, %if.end12 ]
   %bufferLength.addr.0.lcssa = phi i16 [ %bufferLength, %sw.bb ], [ %bufferLength.addr.1, %if.end12 ]
   %buffer.addr.0.lcssa = phi ptr [ %buffer, %sw.bb ], [ %buffer.addr.1, %if.end12 ]
-  %variant = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 0, i32 3
+  %variant = getelementptr inbounds i8, ptr %range, i64 9
   %5 = load i8, ptr %variant, align 1
   %conv13 = zext i8 %5 to i16
   %cmp16 = icmp ugt i16 %bufferLength.addr.0.lcssa, %conv13
@@ -342,8 +337,8 @@ for.end:                                          ; preds = %if.end38, %if.end18
   br label %return
 
 sw.bb43:                                          ; preds = %if.end4
-  %add.ptr44 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 1
-  %variant46 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 0, i32 3
+  %add.ptr44 = getelementptr inbounds i8, ptr %range, i64 12
+  %variant46 = getelementptr inbounds i8, ptr %range, i64 9
   %10 = load i8, ptr %variant46, align 1
   %conv47 = zext i8 %10 to i16
   %idx.ext = zext i8 %10 to i64
@@ -543,11 +538,11 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_75L7getNameEPNS_10UCharNames
 entry:
   %offsets.i = alloca [34 x i16], align 16
   %lengths.i = alloca [34 x i16], align 16
-  %groupsOffset.i = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %names, i64 0, i32 1
+  %groupsOffset.i = getelementptr inbounds i8, ptr %names, i64 4
   %0 = load i32, ptr %groupsOffset.i, align 4
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %names, i64 %idx.ext.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %1 = load i16, ptr %add.ptr.i, align 2
   %cmp12.i = icmp ugt i16 %1, 1
   br i1 %cmp12.i, label %while.body.lr.ph.i, label %entry._ZN6icu_75L8getGroupEPNS_10UCharNamesEj.exit_crit_edge
@@ -606,7 +601,7 @@ if.then:                                          ; preds = %_ZN6icu_75L8getGrou
   %call.val7 = load i16, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %offsets.i)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %lengths.i)
-  %groupStringOffset.i = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %names, i64 0, i32 2
+  %groupStringOffset.i = getelementptr inbounds i8, ptr %names, i64 8
   %10 = load i32, ptr %groupStringOffset.i, align 4
   %idx.ext.i8 = zext i32 %10 to i64
   %add.ptr.i9 = getelementptr inbounds i8, ptr %names, i64 %idx.ext.i8
@@ -652,9 +647,9 @@ if.end23.i.i:                                     ; preds = %if.else.i.i
   %18 = and i8 %11, 63
   %narrow.i.i = add nuw nsw i8 %18, 12
   %conv15.i.i = zext nneg i8 %narrow.i.i to i16
-  %incdec.ptr24.i.i = getelementptr inbounds i16, ptr %offsets.addr.035.i.i, i64 1
+  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %offsets.addr.035.i.i, i64 2
   store i16 %offset.038.i.i, ptr %offsets.addr.035.i.i, align 2
-  %incdec.ptr25.i.i = getelementptr inbounds i16, ptr %lengths.addr.036.i.i, i64 1
+  %incdec.ptr25.i.i = getelementptr inbounds i8, ptr %lengths.addr.036.i.i, i64 2
   store i16 %conv15.i.i, ptr %lengths.addr.036.i.i, align 2
   %add28.i.i = add i16 %offset.038.i.i, %conv15.i.i
   %inc.i.i = add nuw nsw i16 %i.037.i.i, 1
@@ -663,9 +658,9 @@ if.end23.i.i:                                     ; preds = %if.else.i.i
 if.then33.i.i:                                    ; preds = %if.else16.i.i, %if.then.i.i
   %length.1.ph.i.i = phi i16 [ %conv19.i.i, %if.else16.i.i ], [ %conv5.i.i, %if.then.i.i ]
   %lengthByte.0.ph.i.i = and i8 %11, 15
-  %incdec.ptr2424.i.i = getelementptr inbounds i16, ptr %offsets.addr.035.i.i, i64 1
+  %incdec.ptr2424.i.i = getelementptr inbounds i8, ptr %offsets.addr.035.i.i, i64 2
   store i16 %offset.038.i.i, ptr %offsets.addr.035.i.i, align 2
-  %incdec.ptr2525.i.i = getelementptr inbounds i16, ptr %lengths.addr.036.i.i, i64 1
+  %incdec.ptr2525.i.i = getelementptr inbounds i8, ptr %lengths.addr.036.i.i, i64 2
   store i16 %length.1.ph.i.i, ptr %lengths.addr.036.i.i, align 2
   %add2826.i.i = add i16 %length.1.ph.i.i, %offset.038.i.i
   %inc27.i.i = add nuw nsw i16 %i.037.i.i, 1
@@ -674,9 +669,9 @@ if.then33.i.i:                                    ; preds = %if.else16.i.i, %if.
   br i1 %cmp36.i.i, label %if.then37.i.i, label %if.end47.i.i
 
 if.then37.i.i:                                    ; preds = %if.then33.i.i
-  %incdec.ptr38.i.i = getelementptr inbounds i16, ptr %offsets.addr.035.i.i, i64 2
+  %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %offsets.addr.035.i.i, i64 4
   store i16 %add2826.i.i, ptr %incdec.ptr2424.i.i, align 2
-  %incdec.ptr39.i.i = getelementptr inbounds i16, ptr %lengths.addr.036.i.i, i64 2
+  %incdec.ptr39.i.i = getelementptr inbounds i8, ptr %lengths.addr.036.i.i, i64 4
   store i16 %conv34.i.i, ptr %incdec.ptr2525.i.i, align 2
   %add42.i.i = add i16 %add2826.i.i, %conv34.i.i
   %inc44.i.i = add nuw nsw i16 %i.037.i.i, 2
@@ -1089,7 +1084,7 @@ for.inc121:                                       ; preds = %for.body110
 
 if.end126:                                        ; preds = %if.end29
   %19 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
-  %algNamesOffset = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %19, i64 0, i32 3
+  %algNamesOffset = getelementptr inbounds i8, ptr %19, i64 12
   %20 = load i32, ptr %algNamesOffset, align 4
   %idx.ext = zext i32 %20 to i64
   %add.ptr127 = getelementptr inbounds i8, ptr %19, i64 %idx.ext
@@ -1101,7 +1096,7 @@ if.end126:                                        ; preds = %if.end29
   br i1 %or.cond127, label %while.body131.us.preheader, label %while.end141
 
 while.body131.us.preheader:                       ; preds = %if.end126
-  %add.ptr128 = getelementptr inbounds i32, ptr %add.ptr127, i64 1
+  %add.ptr128 = getelementptr inbounds i8, ptr %add.ptr127, i64 4
   br label %while.body131.us
 
 while.body131.us:                                 ; preds = %while.body131.us.preheader, %if.end136.us
@@ -1111,7 +1106,7 @@ while.body131.us:                                 ; preds = %while.body131.us.pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %indexes.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %elementBases.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %elements.i)
-  %type.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 0, i32 2
+  %type.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 8
   %23 = load i8, ptr %type.i.us, align 4
   switch i8 %23, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us [
     i8 0, label %sw.bb.i.us
@@ -1119,8 +1114,8 @@ while.body131.us:                                 ; preds = %while.body131.us.pr
   ]
 
 sw.bb43.i.us:                                     ; preds = %while.body131.us
-  %add.ptr44.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 1
-  %variant46.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 0, i32 3
+  %add.ptr44.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 12
+  %variant46.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 9
   %24 = load i8, ptr %variant46.i.us, align 1
   %conv47.i.us = zext i8 %24 to i16
   %idx.ext.i.us = zext i8 %24 to i64
@@ -1143,7 +1138,7 @@ while.body58.i.us:                                ; preds = %while.cond54.i.us
 
 while.end65.i.us:                                 ; preds = %while.cond54.i.us
   %27 = load i32, ptr %algRange.087.us, align 4
-  %end67.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 0, i32 1
+  %end67.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 4
   %28 = load i32, ptr %end67.i.us, align 4
   %add68.i.us = add i32 %28, 1
   %dec.i.i.us = add nsw i16 %conv47.i.us, -1
@@ -1177,7 +1172,7 @@ for.cond9.i.i.us:                                 ; preds = %while.end62.i.i.us,
   br i1 %cmp10.not.i.i.us, label %if.end.i.i.us, label %if.then.i.i.us
 
 if.then.i.i.us:                                   ; preds = %for.cond9.i.i.us
-  %incdec.ptr.i.i.us = getelementptr inbounds ptr, ptr %elementBases.addr.0.i.i.us, i64 1
+  %incdec.ptr.i.i.us = getelementptr inbounds i8, ptr %elementBases.addr.0.i.i.us, i64 8
   store ptr %s.addr.0.i.i.us, ptr %elementBases.addr.0.i.i.us, align 8
   br label %if.end.i.i.us
 
@@ -1211,7 +1206,7 @@ while.end21.i.i.us:                               ; preds = %while.end.i.i.us, %
   br i1 %cmp22.not.i.i.us, label %if.end25.i.i.us, label %if.then23.i.i.us
 
 if.then23.i.i.us:                                 ; preds = %while.end21.i.i.us
-  %incdec.ptr24.i.i.us = getelementptr inbounds ptr, ptr %elements.addr.0.i.i.us, i64 1
+  %incdec.ptr24.i.i.us = getelementptr inbounds i8, ptr %elements.addr.0.i.i.us, i64 8
   store ptr %s.addr.1.lcssa.i.i.us, ptr %elements.addr.0.i.i.us, align 8
   br label %if.end25.i.i.us
 
@@ -1402,7 +1397,7 @@ if.end140.i.us:                                   ; preds = %land.lhs.true136.i.
   br i1 %exitcond.not.i.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us, label %for.cond81.preheader.i.us, !llvm.loop !31
 
 sw.bb.i.us:                                       ; preds = %while.body131.us
-  %add.ptr.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 1
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 12
   br label %while.cond.i.us
 
 while.cond.i.us:                                  ; preds = %while.body.i.us, %sw.bb.i.us
@@ -1420,7 +1415,7 @@ while.body.i.us:                                  ; preds = %while.cond.i.us
   br i1 %cmp7.not.i.us, label %while.cond.i.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us, !llvm.loop !32
 
 while.end.i.us:                                   ; preds = %while.cond.i.us
-  %variant.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 0, i32 3
+  %variant.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 9
   %59 = load i8, ptr %variant.i.us, align 1
   %60 = zext i8 %59 to i16
   %cmp1388.not.i.us = icmp eq i8 %59, 0
@@ -1464,7 +1459,7 @@ land.lhs.true37.i.us:                             ; preds = %for.end.i.us
   br i1 %cmp38.not.i.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us, label %land.lhs.true39.i.us
 
 land.lhs.true39.i.us:                             ; preds = %land.lhs.true37.i.us
-  %end.i.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 0, i32 1
+  %end.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 4
   %66 = load i32, ptr %end.i.us, align 4
   %cmp40.not.i.us = icmp ugt i32 %code.0.lcssa.i.us, %66
   br i1 %cmp40.not.i.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us
@@ -1486,7 +1481,7 @@ _ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread
   br label %if.end136.us
 
 if.end136.us:                                     ; preds = %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us, %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us
-  %size.us = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.087.us, i64 0, i32 4
+  %size.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 10
   %67 = load i16, ptr %size.us, align 2
   %idx.ext138.us = zext i16 %67 to i64
   %add.ptr139.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 %idx.ext138.us
@@ -1501,7 +1496,7 @@ while.end141.loopexit:                            ; preds = %if.end136.us
 while.end141:                                     ; preds = %while.end141.loopexit, %if.end126
   %68 = phi ptr [ %.pre, %while.end141.loopexit ], [ %19, %if.end126 ]
   store ptr %upper, ptr %findName, align 8
-  %code = getelementptr inbounds %"struct.icu_75::FindName", ptr %findName, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %findName, i64 8
   store i32 65535, ptr %code, align 8
   %call143 = call fastcc noundef signext i8 @_ZN6icu_75L9enumNamesEPNS_10UCharNamesEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef %68, i32 noundef 0, i32 noundef 1114112, ptr noundef null, ptr noundef nonnull %findName, i32 noundef %nameChoice), !range !4
   %69 = load i32, ptr %code, align 8
@@ -1569,11 +1564,11 @@ entry:
   %shr = lshr i32 %start, 5
   %sub = add nsw i32 %limit, -1
   %shr1 = lshr i32 %sub, 5
-  %groupsOffset.i = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %names, i64 0, i32 1
+  %groupsOffset.i = getelementptr inbounds i8, ptr %names, i64 4
   %0 = load i32, ptr %groupsOffset.i, align 4
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %names, i64 %idx.ext.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %1 = load i16, ptr %add.ptr.i, align 2
   %cmp12.i = icmp ugt i16 %1, 1
   br i1 %cmp12.i, label %while.body.lr.ph.i, label %entry._ZN6icu_75L8getGroupEPNS_10UCharNamesEj.exit_crit_edge
@@ -1687,7 +1682,7 @@ if.else:                                          ; preds = %if.end14
   %10 = load i32, ptr %groupsOffset.i, align 4
   %idx.ext = zext i32 %10 to i64
   %add.ptr = getelementptr inbounds i8, ptr %names, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %11 = load i16, ptr %add.ptr, align 2
   %conv27 = zext i16 %11 to i64
   %mul = mul nuw nsw i64 %conv27, 3
@@ -1714,7 +1709,7 @@ if.then37:                                        ; preds = %if.then34
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.then37
-  %add.ptr47 = getelementptr inbounds i16, ptr %add.ptr14.i, i64 3
+  %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr14.i, i64 6
   br label %if.end78
 
 if.else49:                                        ; preds = %if.else
@@ -1722,7 +1717,7 @@ if.else49:                                        ; preds = %if.else
   br i1 %cmp53, label %if.then54, label %if.end78
 
 if.then54:                                        ; preds = %if.else49
-  %add.ptr55 = getelementptr inbounds i16, ptr %add.ptr14.i, i64 3
+  %add.ptr55 = getelementptr inbounds i8, ptr %add.ptr14.i, i64 6
   %cmp56 = icmp ult ptr %add.ptr55, %add.ptr29
   br i1 %cmp56, label %land.lhs.true57, label %if.end78
 
@@ -1803,7 +1798,7 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %la
   br i1 %tobool93.not, label %return, label %if.end95
 
 if.end95:                                         ; preds = %while.body
-  %add.ptr96 = getelementptr inbounds i16, ptr %group.1185226, i64 3
+  %add.ptr96 = getelementptr inbounds i8, ptr %group.1185226, i64 6
   %cmp97 = icmp ult ptr %add.ptr96, %add.ptr29
   br i1 %cmp97, label %land.lhs.true98, label %if.else138
 
@@ -1884,7 +1879,7 @@ if.else138:                                       ; preds = %if.end95, %if.end12
   br i1 %or.cond98, label %if.end154.thread, label %return
 
 if.end154.thread:                                 ; preds = %if.else138
-  %add.ptr143 = getelementptr inbounds i16, ptr %add.ptr29, i64 -3
+  %add.ptr143 = getelementptr inbounds i8, ptr %add.ptr29, i64 -6
   %29 = load i16, ptr %add.ptr143, align 2
   %conv145 = zext i16 %29 to i32
   %add146 = shl nuw nsw i32 %conv145, 5
@@ -1968,7 +1963,7 @@ if.end11:                                         ; preds = %if.end5
 
 if.end15:                                         ; preds = %if.end11
   %1 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
-  %algNamesOffset = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %1, i64 0, i32 3
+  %algNamesOffset = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %algNamesOffset, align 4
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -1977,7 +1972,7 @@ if.end15:                                         ; preds = %if.end11
   br i1 %cmp17.not51, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end15
-  %add.ptr16 = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end48
@@ -2008,7 +2003,7 @@ if.end30:                                         ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.end30, %while.body
   %start.addr.1 = phi i32 [ %6, %if.end30 ], [ %start.addr.053, %while.body ]
-  %end = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.052, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %algRange.052, i64 4
   %7 = load i32, ptr %end, align 4
   %cmp33.not = icmp ugt i32 %start.addr.1, %7
   br i1 %cmp33.not, label %if.end48, label %if.then34
@@ -2034,7 +2029,7 @@ if.end45:                                         ; preds = %if.end39
 
 if.end48:                                         ; preds = %if.end45, %if.end32
   %start.addr.2 = phi i32 [ %add47, %if.end45 ], [ %start.addr.1, %if.end32 ]
-  %size = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %algRange.052, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %algRange.052, i64 10
   %9 = load i16, ptr %size, align 2
   %idx.ext49 = zext i16 %9 to i64
   %add.ptr50 = getelementptr inbounds i8, ptr %algRange.052, i64 %idx.ext49
@@ -2068,7 +2063,7 @@ entry:
   br i1 %or.cond.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %range, i64 8
   %1 = load i8, ptr %type, align 4
   switch i8 %1, label %return [
     i8 0, label %sw.bb
@@ -2149,8 +2144,8 @@ for.end:                                          ; preds = %if.else, %if.then28
   br i1 %tobool44.not, label %return, label %while.cond14, !llvm.loop !40
 
 sw.bb48:                                          ; preds = %if.end
-  %add.ptr = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 1
-  %variant = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range, i64 0, i32 3
+  %add.ptr = getelementptr inbounds i8, ptr %range, i64 12
+  %variant = getelementptr inbounds i8, ptr %range, i64 9
   %10 = load i8, ptr %variant, align 1
   %conv49 = zext i8 %10 to i16
   %idx.ext = zext i8 %10 to i64
@@ -2223,7 +2218,7 @@ for.cond9.i:                                      ; preds = %while.end62.i, %for
   br i1 %cmp10.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.cond9.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %elementBases.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %elementBases.addr.0.i, i64 8
   store ptr %s.addr.0.i, ptr %elementBases.addr.0.i, align 8
   br label %if.end.i
 
@@ -2257,7 +2252,7 @@ while.end21.i:                                    ; preds = %while.end.i, %if.en
   br i1 %cmp22.not.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %while.end21.i
-  %incdec.ptr24.i = getelementptr inbounds ptr, ptr %elements.addr.0.i, i64 1
+  %incdec.ptr24.i = getelementptr inbounds i8, ptr %elements.addr.0.i, i64 8
   store ptr %s.addr.1.lcssa.i, ptr %elements.addr.0.i, align 8
   br label %if.end25.i
 
@@ -2495,7 +2490,7 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body
   %3 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
-  %algNamesOffset.i = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %3, i64 0, i32 3
+  %algNamesOffset.i = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %algNamesOffset.i, align 4
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i
@@ -2504,14 +2499,14 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.not71.i, label %for.body.i5.preheader, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %for.end
-  %add.ptr1.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %sw.epilog.i, %while.body.preheader.i
   %maxNameLength.addr.074.i = phi i32 [ %maxNameLength.addr.1.i, %sw.epilog.i ], [ 0, %while.body.preheader.i ]
   %range.073.i = phi ptr [ %add.ptr35.i, %sw.epilog.i ], [ %add.ptr1.i, %while.body.preheader.i ]
   %rangeCount.072.i = phi i32 [ %dec36.i, %sw.epilog.i ], [ %5, %while.body.preheader.i ]
-  %type.i = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range.073.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %range.073.i, i64 8
   %6 = load i8, ptr %type.i, align 4
   switch i8 %6, label %sw.epilog.i [
     i8 0, label %sw.bb.i
@@ -2519,7 +2514,7 @@ while.body.i:                                     ; preds = %sw.epilog.i, %while
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i
-  %add.ptr2.i = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range.073.i, i64 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %range.073.i, i64 12
   %7 = load i8, ptr %add.ptr2.i, align 1
   %cmp.not1.i.i = icmp eq i8 %7, 0
   br i1 %cmp.not1.i.i, label %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i, label %while.body.i.i
@@ -2545,7 +2540,7 @@ while.body.i.i:                                   ; preds = %sw.bb.i, %while.bod
 
 _ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i:    ; preds = %while.body.i.i, %sw.bb.i
   %length.0.lcssa.i.i = phi i32 [ 0, %sw.bb.i ], [ %inc.i.i, %while.body.i.i ]
-  %variant.i = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range.073.i, i64 0, i32 3
+  %variant.i = getelementptr inbounds i8, ptr %range.073.i, i64 9
   %11 = load i8, ptr %variant.i, align 1
   %conv3.i = zext i8 %11 to i32
   %add.i = add nsw i32 %length.0.lcssa.i.i, %conv3.i
@@ -2553,8 +2548,8 @@ _ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i:    ; preds = %while.body.i.i, %sw
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %while.body.i
-  %add.ptr6.i = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range.073.i, i64 1
-  %variant7.i = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range.073.i, i64 0, i32 3
+  %add.ptr6.i = getelementptr inbounds i8, ptr %range.073.i, i64 12
+  %variant7.i = getelementptr inbounds i8, ptr %range.073.i, i64 9
   %12 = load i8, ptr %variant7.i, align 1
   %idx.ext9.i = zext i8 %12 to i64
   %add.ptr10.i = getelementptr inbounds i16, ptr %add.ptr6.i, i64 %idx.ext9.i
@@ -2657,7 +2652,7 @@ for.end29.i:                                      ; preds = %for.end.i, %_ZN6icu
 
 sw.epilog.i:                                      ; preds = %for.end29.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i, %while.body.i
   %maxNameLength.addr.1.i = phi i32 [ %maxNameLength.addr.074.i, %while.body.i ], [ %spec.select.i, %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i ], [ %spec.select28.i, %for.end29.i ]
-  %size.i = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %range.073.i, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %range.073.i, i64 10
   %24 = load i16, ptr %size.i, align 2
   %idx.ext34.i = zext i16 %24 to i64
   %add.ptr35.i = getelementptr inbounds i8, ptr %range.073.i, i64 %idx.ext34.i
@@ -2708,8 +2703,8 @@ _ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22:  ; preds = %while.body.i.i9, %f
 _ZN6icu_75L22calcExtNameSetsLengthsEi.exit:       ; preds = %_ZN6icu_75L19calcStringSetLengthEPjPKc.exit.i22
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %offsets.i)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %lengths.i)
-  %add.ptr.i29 = getelementptr inbounds i16, ptr %3, i64 8
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %3, i64 9
+  %add.ptr.i29 = getelementptr inbounds i8, ptr %3, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 18
   %30 = load i16, ptr %add.ptr.i29, align 2
   %31 = load i32, ptr %3, align 4
   %idx.ext.i30 = zext i32 %31 to i64
@@ -2725,7 +2720,7 @@ if.then.i:                                        ; preds = %_ZN6icu_75L22calcEx
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN6icu_75L22calcExtNameSetsLengthsEi.exit
   %32 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
-  %groupsOffset.i = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %32, i64 0, i32 1
+  %groupsOffset.i = getelementptr inbounds i8, ptr %32, i64 4
   %33 = load i32, ptr %groupsOffset.i, align 4
   %idx.ext3.i = zext i32 %33 to i64
   %add.ptr4.i = getelementptr inbounds i8, ptr %32, i64 %idx.ext3.i
@@ -2735,7 +2730,7 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN6icu
 
 while.body.preheader.i33:                         ; preds = %if.end.i
   %conv6.i = zext i16 %34 to i32
-  %incdec.ptr5.i = getelementptr inbounds i16, ptr %add.ptr4.i, i64 1
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 2
   br label %while.body.i34
 
 while.body.i34:                                   ; preds = %for.end.i50, %while.body.preheader.i33
@@ -2743,15 +2738,15 @@ while.body.i34:                                   ; preds = %for.end.i50, %while
   %maxNameLength.addr.0200.i = phi i32 [ %maxNameLength.addr.3.i, %for.end.i50 ], [ %spec.select.i25, %while.body.preheader.i33 ]
   %group.0199.i = phi ptr [ %add.ptr45.i, %for.end.i50 ], [ %incdec.ptr5.i, %while.body.preheader.i33 ]
   %35 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
-  %groupStringOffset.i = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %35, i64 0, i32 2
+  %groupStringOffset.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i32, ptr %groupStringOffset.i, align 4
   %idx.ext8.i = zext i32 %36 to i64
   %add.ptr9.i = getelementptr inbounds i8, ptr %35, i64 %idx.ext8.i
-  %arrayidx.i35 = getelementptr inbounds i16, ptr %group.0199.i, i64 1
+  %arrayidx.i35 = getelementptr inbounds i8, ptr %group.0199.i, i64 2
   %37 = load i16, ptr %arrayidx.i35, align 2
   %conv10.i = zext i16 %37 to i32
   %shl.i = shl nuw i32 %conv10.i, 16
-  %arrayidx11.i = getelementptr inbounds i16, ptr %group.0199.i, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %group.0199.i, i64 4
   %38 = load i16, ptr %arrayidx11.i, align 2
   %conv12.i = zext i16 %38 to i32
   %or.i = or disjoint i32 %shl.i, %conv12.i
@@ -2793,9 +2788,9 @@ if.end23.i.i:                                     ; preds = %if.else.i.i
   %46 = and i8 %39, 63
   %narrow.i.i = add nuw nsw i8 %46, 12
   %conv15.i.i = zext nneg i8 %narrow.i.i to i16
-  %incdec.ptr24.i.i = getelementptr inbounds i16, ptr %offsets.addr.035.i.i, i64 1
+  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %offsets.addr.035.i.i, i64 2
   store i16 %offset.038.i.i, ptr %offsets.addr.035.i.i, align 2
-  %incdec.ptr25.i.i = getelementptr inbounds i16, ptr %lengths.addr.036.i.i, i64 1
+  %incdec.ptr25.i.i = getelementptr inbounds i8, ptr %lengths.addr.036.i.i, i64 2
   store i16 %conv15.i.i, ptr %lengths.addr.036.i.i, align 2
   %add28.i.i = add i16 %offset.038.i.i, %conv15.i.i
   %inc.i.i57 = add nuw nsw i16 %i.037.i.i, 1
@@ -2804,9 +2799,9 @@ if.end23.i.i:                                     ; preds = %if.else.i.i
 if.then33.i.i:                                    ; preds = %if.else16.i.i, %if.then.i.i
   %length.1.ph.i.i = phi i16 [ %conv19.i.i, %if.else16.i.i ], [ %conv5.i.i, %if.then.i.i ]
   %lengthByte.0.ph.i.i = and i8 %39, 15
-  %incdec.ptr2424.i.i = getelementptr inbounds i16, ptr %offsets.addr.035.i.i, i64 1
+  %incdec.ptr2424.i.i = getelementptr inbounds i8, ptr %offsets.addr.035.i.i, i64 2
   store i16 %offset.038.i.i, ptr %offsets.addr.035.i.i, align 2
-  %incdec.ptr2525.i.i = getelementptr inbounds i16, ptr %lengths.addr.036.i.i, i64 1
+  %incdec.ptr2525.i.i = getelementptr inbounds i8, ptr %lengths.addr.036.i.i, i64 2
   store i16 %length.1.ph.i.i, ptr %lengths.addr.036.i.i, align 2
   %add2826.i.i = add i16 %length.1.ph.i.i, %offset.038.i.i
   %inc27.i.i = add nuw nsw i16 %i.037.i.i, 1
@@ -2815,9 +2810,9 @@ if.then33.i.i:                                    ; preds = %if.else16.i.i, %if.
   br i1 %cmp36.i.i, label %if.then37.i.i, label %if.end47.i.i
 
 if.then37.i.i:                                    ; preds = %if.then33.i.i
-  %incdec.ptr38.i.i = getelementptr inbounds i16, ptr %offsets.addr.035.i.i, i64 2
+  %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %offsets.addr.035.i.i, i64 4
   store i16 %add2826.i.i, ptr %incdec.ptr2424.i.i, align 2
-  %incdec.ptr39.i.i = getelementptr inbounds i16, ptr %lengths.addr.036.i.i, i64 2
+  %incdec.ptr39.i.i = getelementptr inbounds i8, ptr %lengths.addr.036.i.i, i64 4
   store i16 %conv34.i.i, ptr %incdec.ptr2525.i.i, align 2
   %add42.i.i = add i16 %add2826.i.i, %conv34.i.i
   %inc44.i.i = add nuw nsw i16 %i.037.i.i, 2
@@ -3312,7 +3307,7 @@ for.inc.i:                                        ; preds = %_ZN6icu_75L17calcNa
   br i1 %exitcond.not.i49, label %for.end.i50, label %for.body.i39, !llvm.loop !54
 
 for.end.i50:                                      ; preds = %for.inc.i
-  %add.ptr45.i = getelementptr inbounds i16, ptr %group.0199.i, i64 3
+  %add.ptr45.i = getelementptr inbounds i8, ptr %group.0199.i, i64 6
   %dec.i51 = add nsw i32 %groupCount.0201.i, -1
   %cmp7.i = icmp sgt i32 %groupCount.0201.i, 1
   br i1 %cmp7.i, label %while.body.i34, label %while.end.i, !llvm.loop !55
@@ -3383,7 +3378,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %cmp143.i, label %for.body15.lr.ph.i, label %_ZL13charSetToUSetPjPK9USetAdder.exit
 
 for.body15.lr.ph.i:                               ; preds = %for.end.i
-  %add.i = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add.i = getelementptr inbounds i8, ptr %sa, i64 8
   %wide.trip.count.i = zext nneg i32 %length.1.i to i64
   br label %for.body15.i
 
@@ -3496,9 +3491,9 @@ if.else:                                          ; preds = %if.end37
   br i1 %cmp46, label %if.then52, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.else
-  %readUInt3248 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt3248 = getelementptr inbounds i8, ptr %ds, i64 16
   %10 = load ptr, ptr %readUInt3248, align 8
-  %arrayidx49 = getelementptr inbounds i32, ptr %add.ptr38, i64 3
+  %arrayidx49 = getelementptr inbounds i8, ptr %add.ptr38, i64 12
   %11 = load i32, ptr %arrayidx49, align 4
   %call50 = tail call noundef i32 %10(i32 noundef %11)
   %cmp51 = icmp ult i32 %sub, %call50
@@ -3510,9 +3505,9 @@ if.then52:                                        ; preds = %lor.lhs.false47, %i
   br label %return
 
 if.then56:                                        ; preds = %if.end37
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
   %12 = load ptr, ptr %readUInt32, align 8
-  %arrayidx44 = getelementptr inbounds i32, ptr %add.ptr38, i64 3
+  %arrayidx44 = getelementptr inbounds i8, ptr %add.ptr38, i64 12
   %13 = load i32, ptr %arrayidx44, align 4
   %call45 = tail call noundef i32 %12(i32 noundef %13)
   %14 = load ptr, ptr %readUInt32, align 8
@@ -3521,12 +3516,12 @@ if.then56:                                        ; preds = %if.end37
   %15 = load i32, ptr %add.ptr59, align 4
   %call60 = tail call noundef i32 %14(i32 noundef %15)
   %add = add i32 %call45, 4
-  %invariant.gep = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr38, i64 0, i32 4
+  %invariant.gep = getelementptr inbounds i8, ptr %add.ptr38, i64 10
   %cmp61271.not = icmp eq i32 %call60, 0
   br i1 %cmp61271.not, label %if.end326, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then56
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
+  %readUInt16 = getelementptr inbounds i8, ptr %ds, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3557,23 +3552,23 @@ if.end71:                                         ; preds = %do.body, %if.else67
   %19 = load i32, ptr %add.ptr38, align 4
   %call74 = tail call noundef i32 %18(i32 noundef %19)
   %20 = load ptr, ptr %readUInt3248, align 8
-  %arrayidx76 = getelementptr inbounds i32, ptr %add.ptr38, i64 1
+  %arrayidx76 = getelementptr inbounds i8, ptr %add.ptr38, i64 4
   %21 = load i32, ptr %arrayidx76, align 4
   %call77 = tail call noundef i32 %20(i32 noundef %21)
   %22 = load ptr, ptr %readUInt3248, align 8
-  %arrayidx79 = getelementptr inbounds i32, ptr %add.ptr38, i64 2
+  %arrayidx79 = getelementptr inbounds i8, ptr %add.ptr38, i64 8
   %23 = load i32, ptr %arrayidx79, align 4
   %call80 = tail call noundef i32 %22(i32 noundef %23)
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %24 = load ptr, ptr %swapArray32, align 8
   %call81 = tail call noundef i32 %24(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr38, i32 noundef 16, ptr noundef %cond, ptr noundef nonnull %pErrorCode)
   %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr38, i64 16
   %add.ptr83 = getelementptr inbounds i8, ptr %cond, i64 16
-  %readUInt1684 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
+  %readUInt1684 = getelementptr inbounds i8, ptr %ds, i64 8
   %25 = load ptr, ptr %readUInt1684, align 8
   %26 = load i16, ptr %add.ptr82, align 2
   %call85 = tail call noundef zeroext i16 %25(i16 noundef zeroext %26)
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %27 = load ptr, ptr %swapArray16, align 8
   %call86 = tail call noundef i32 %27(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr82, i32 noundef 2, ptr noundef nonnull %add.ptr83, ptr noundef nonnull %pErrorCode)
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr38, i64 18
@@ -3617,7 +3612,7 @@ for.body96:                                       ; preds = %for.body96.preheade
 
 for.end111:                                       ; preds = %for.body106.preheader, %for.cond104.preheader
   call fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef %ds, ptr noundef nonnull %tokens, i16 noundef zeroext %call85, ptr noundef nonnull %map, ptr noundef nonnull %pErrorCode)
-  %add.ptr114 = getelementptr inbounds i16, ptr %tokens, i64 256
+  %add.ptr114 = getelementptr inbounds i8, ptr %tokens, i64 512
   %conv123 = tail call i16 @llvm.usub.sat.i16(i16 %call85, i16 256)
   call fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef %ds, ptr noundef nonnull %add.ptr114, i16 noundef zeroext %conv123, ptr noundef nonnull %trailMap, ptr noundef nonnull %pErrorCode)
   %34 = load i32, ptr %pErrorCode, align 4
@@ -3712,9 +3707,9 @@ if.end186:                                        ; preds = %do.body172
   %mul197 = add nuw nsw i32 %add196, 2
   %add.ptr199 = getelementptr inbounds i8, ptr %cond, i64 %idx.ext188
   %call200 = tail call noundef i32 %43(ptr noundef %ds, ptr noundef nonnull %add.ptr189, i32 noundef %mul197, ptr noundef %add.ptr199, ptr noundef nonnull %pErrorCode)
-  %inCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 1
+  %inCharset = getelementptr inbounds i8, ptr %ds, i64 1
   %44 = load i8, ptr %inCharset, align 1
-  %outCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 3
+  %outCharset = getelementptr inbounds i8, ptr %ds, i64 3
   %45 = load i8, ptr %outCharset, align 1
   %cmp203.not = icmp eq i8 %44, %45
   br i1 %cmp203.not, label %if.end246, label %if.then204
@@ -3728,8 +3723,8 @@ while.body.lr.ph:                                 ; preds = %if.then204
   %idx.ext205 = zext i32 %call80 to i64
   %add.ptr208 = getelementptr inbounds i8, ptr %cond, i64 %idx.ext205
   %add.ptr206 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext205
-  %arrayidx220 = getelementptr inbounds [33 x i16], ptr %offsets, i64 0, i64 31
-  %arrayidx222 = getelementptr inbounds [33 x i16], ptr %lengths, i64 0, i64 31
+  %arrayidx220 = getelementptr inbounds i8, ptr %offsets, i64 62
+  %arrayidx222 = getelementptr inbounds i8, ptr %lengths, i64 62
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %if.end244, %while.body
@@ -3806,7 +3801,7 @@ if.end246:                                        ; preds = %while.cond.loopexit
   br i1 %cmp259267.not, label %if.end326, label %for.body260.lr.ph
 
 for.body260.lr.ph:                                ; preds = %if.end246
-  %swapInvChars319 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 12
+  %swapInvChars319 = getelementptr inbounds i8, ptr %ds, i64 72
   br label %for.body260
 
 for.body260:                                      ; preds = %for.body260.lr.ph, %for.inc323
@@ -3825,7 +3820,7 @@ if.end263:                                        ; preds = %for.body260
   %add.ptr265 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext264
   %add.ptr267 = getelementptr inbounds i8, ptr %cond, i64 %idx.ext264
   %57 = load ptr, ptr %readUInt1684, align 8
-  %size269 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr265, i64 0, i32 4
+  %size269 = getelementptr inbounds i8, ptr %add.ptr265, i64 10
   %58 = load i16, ptr %size269, align 2
   %call270 = tail call noundef zeroext i16 %57(i16 noundef zeroext %58)
   %conv271 = zext i16 %call270 to i32
@@ -3833,9 +3828,9 @@ if.end263:                                        ; preds = %for.body260
   %59 = load ptr, ptr %swapArray32, align 8
   %call274 = tail call noundef i32 %59(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr265, i32 noundef 8, ptr noundef %add.ptr267, ptr noundef nonnull %pErrorCode)
   %60 = load ptr, ptr %swapArray16, align 8
-  %size277 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr267, i64 0, i32 4
+  %size277 = getelementptr inbounds i8, ptr %add.ptr267, i64 10
   %call278 = tail call noundef i32 %60(ptr noundef nonnull %ds, ptr noundef nonnull %size269, i32 noundef 2, ptr noundef nonnull %size277, ptr noundef nonnull %pErrorCode)
-  %type = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr265, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %add.ptr265, i64 8
   %61 = load i8, ptr %type, align 4
   switch i8 %61, label %sw.default [
     i8 0, label %sw.bb
@@ -3844,10 +3839,10 @@ if.end263:                                        ; preds = %for.body260
 
 sw.bb:                                            ; preds = %if.end263
   %62 = load ptr, ptr %swapInvChars319, align 8
-  %add.ptr280 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr265, i64 1
+  %add.ptr280 = getelementptr inbounds i8, ptr %add.ptr265, i64 12
   %call282 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr280) #11
   %conv283 = trunc i64 %call282 to i32
-  %add.ptr284 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr267, i64 1
+  %add.ptr284 = getelementptr inbounds i8, ptr %add.ptr267, i64 12
   %call285 = tail call noundef i32 %62(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr280, i32 noundef %conv283, ptr noundef nonnull %add.ptr284, ptr noundef nonnull %pErrorCode)
   %63 = load i32, ptr %pErrorCode, align 4
   %cmp.i235 = icmp slt i32 %63, 1
@@ -3858,11 +3853,11 @@ if.then288:                                       ; preds = %sw.bb
   br label %return
 
 sw.bb290:                                         ; preds = %if.end263
-  %variant = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr265, i64 0, i32 3
+  %variant = getelementptr inbounds i8, ptr %add.ptr265, i64 9
   %64 = load i8, ptr %variant, align 1
   %conv291 = zext i8 %64 to i32
-  %add.ptr292 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr265, i64 1
-  %add.ptr293 = getelementptr inbounds %"struct.icu_75::AlgorithmicRange", ptr %add.ptr267, i64 1
+  %add.ptr292 = getelementptr inbounds i8, ptr %add.ptr265, i64 12
+  %add.ptr293 = getelementptr inbounds i8, ptr %add.ptr267, i64 12
   %65 = load ptr, ptr %swapArray16, align 8
   %mul295 = shl nuw nsw i32 %conv291, 1
   %call296 = tail call noundef i32 %65(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr292, i32 noundef %mul295, ptr noundef nonnull %add.ptr293, ptr noundef nonnull %pErrorCode)
@@ -3937,9 +3932,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end59
 
 if.end:                                           ; preds = %entry
-  %inCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 1
+  %inCharset = getelementptr inbounds i8, ptr %ds, i64 1
   %1 = load i8, ptr %inCharset, align 1
-  %outCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 3
+  %outCharset = getelementptr inbounds i8, ptr %ds, i64 3
   %2 = load i8, ptr %outCharset, align 1
   %cmp = icmp eq i8 %1, %2
   br i1 %cmp, label %for.body, label %if.else
@@ -3961,7 +3956,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp1332, label %for.body14.lr.ph, label %if.end59
 
 for.body14.lr.ph:                                 ; preds = %if.else
-  %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 12
+  %swapInvChars = getelementptr inbounds i8, ptr %ds, i64 72
   %wide.trip.count = zext nneg i16 %spec.store.select to i64
   br label %for.body14
 
@@ -4090,9 +4085,9 @@ if.end23:                                         ; preds = %if.else
   %7 = and i8 %0, 63
   %narrow = add nuw nsw i8 %7, 12
   %conv15 = zext nneg i8 %narrow to i16
-  %incdec.ptr24 = getelementptr inbounds i16, ptr %offsets.addr.035, i64 1
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %offsets.addr.035, i64 2
   store i16 %offset.038, ptr %offsets.addr.035, align 2
-  %incdec.ptr25 = getelementptr inbounds i16, ptr %lengths.addr.036, i64 1
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %lengths.addr.036, i64 2
   store i16 %conv15, ptr %lengths.addr.036, align 2
   %add28 = add i16 %offset.038, %conv15
   %inc = add nuw nsw i16 %i.037, 1
@@ -4101,9 +4096,9 @@ if.end23:                                         ; preds = %if.else
 if.then33:                                        ; preds = %if.then, %if.else16
   %length.1.ph = phi i16 [ %conv19, %if.else16 ], [ %conv5, %if.then ]
   %lengthByte.0.ph = and i8 %0, 15
-  %incdec.ptr2424 = getelementptr inbounds i16, ptr %offsets.addr.035, i64 1
+  %incdec.ptr2424 = getelementptr inbounds i8, ptr %offsets.addr.035, i64 2
   store i16 %offset.038, ptr %offsets.addr.035, align 2
-  %incdec.ptr2525 = getelementptr inbounds i16, ptr %lengths.addr.036, i64 1
+  %incdec.ptr2525 = getelementptr inbounds i8, ptr %lengths.addr.036, i64 2
   store i16 %length.1.ph, ptr %lengths.addr.036, align 2
   %add2826 = add i16 %length.1.ph, %offset.038
   %inc27 = add nuw nsw i16 %i.037, 1
@@ -4112,9 +4107,9 @@ if.then33:                                        ; preds = %if.then, %if.else16
   br i1 %cmp36, label %if.then37, label %if.end47
 
 if.then37:                                        ; preds = %if.then33
-  %incdec.ptr38 = getelementptr inbounds i16, ptr %offsets.addr.035, i64 2
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %offsets.addr.035, i64 4
   store i16 %add2826, ptr %incdec.ptr2424, align 2
-  %incdec.ptr39 = getelementptr inbounds i16, ptr %lengths.addr.036, i64 2
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %lengths.addr.036, i64 4
   store i16 %conv34, ptr %incdec.ptr2525, align 2
   %add42 = add i16 %add2826, %conv34
   %inc44 = add nuw nsw i16 %i.037, 2
@@ -4152,43 +4147,43 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %isBigEndian = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian, align 2
   %cmp4 = icmp eq i8 %4, 0
   br i1 %cmp4, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %charsetFamily = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp7 = icmp eq i8 %5, 0
   br i1 %cmp7, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %dataFormat = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6
+  %dataFormat = getelementptr inbounds i8, ptr %pInfo, i64 8
   %6 = load i8, ptr %dataFormat, align 2
   %cmp10 = icmp eq i8 %6, 117
   br i1 %cmp10, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %arrayidx13 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %pInfo, i64 9
   %7 = load i8, ptr %arrayidx13, align 1
   %cmp15 = icmp eq i8 %7, 110
   br i1 %cmp15, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %land.lhs.true11
-  %arrayidx18 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %pInfo, i64 10
   %8 = load i8, ptr %arrayidx18, align 2
   %cmp20 = icmp eq i8 %8, 97
   br i1 %cmp20, label %land.lhs.true21, label %land.end
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %arrayidx23 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %pInfo, i64 11
   %9 = load i8, ptr %arrayidx23, align 1
   %cmp25 = icmp eq i8 %9, 109
   br i1 %cmp25, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true21
-  %formatVersion = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 7
+  %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %10 = load i8, ptr %formatVersion, align 2
   %cmp28 = icmp eq i8 %10, 1
   %11 = zext i1 %cmp28 to i8
@@ -4235,8 +4230,8 @@ declare void @udata_close_75(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr nocapture noundef readonly %names, ptr nocapture noundef readonly %name, i16 noundef zeroext %nameLength, i32 noundef %nameChoice, ptr nocapture noundef writeonly %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
 entry:
-  %add.ptr = getelementptr inbounds i16, ptr %names, i64 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %names, i64 9
+  %add.ptr = getelementptr inbounds i8, ptr %names, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %names, i64 18
   %0 = load i16, ptr %add.ptr, align 2
   %1 = load i32, ptr %names, align 4
   %idx.ext = zext i32 %1 to i64
@@ -4250,7 +4245,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %do.body.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %arrayidx = getelementptr inbounds i16, ptr %names, i64 68
+  %arrayidx = getelementptr inbounds i8, ptr %names, i64 136
   %3 = load i16, ptr %arrayidx, align 2
   %cmp5 = icmp eq i16 %3, -1
   br i1 %cmp5, label %do.body.preheader, label %while.end106
@@ -4291,7 +4286,7 @@ if.end17:                                         ; preds = %do.cond, %entry
 
 while.body21.lr.ph.lr.ph:                         ; preds = %if.end17
   %cmp72 = icmp eq i32 %nameChoice, 2
-  %arrayidx77 = getelementptr inbounds i16, ptr %names, i64 68
+  %arrayidx77 = getelementptr inbounds i8, ptr %names, i64 136
   br i1 %cmp72, label %while.body21.lr.ph.us, label %while.body21.lr.ph
 
 while.body21.lr.ph.us:                            ; preds = %while.body21.lr.ph.lr.ph, %if.end105.us
@@ -4570,7 +4565,7 @@ entry:
   %offsets = alloca [34 x i16], align 16
   %lengths = alloca [34 x i16], align 16
   %buffer = alloca [200 x i8], align 16
-  %groupStringOffset = getelementptr inbounds %"struct.icu_75::UCharNames", ptr %names, i64 0, i32 2
+  %groupStringOffset = getelementptr inbounds i8, ptr %names, i64 8
   %0 = load i32, ptr %groupStringOffset, align 4
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %names, i64 %idx.ext
@@ -4616,9 +4611,9 @@ if.end23.i:                                       ; preds = %if.else.i
   %8 = and i8 %1, 63
   %narrow.i = add nuw nsw i8 %8, 12
   %conv15.i = zext nneg i8 %narrow.i to i16
-  %incdec.ptr24.i = getelementptr inbounds i16, ptr %offsets.addr.035.i, i64 1
+  %incdec.ptr24.i = getelementptr inbounds i8, ptr %offsets.addr.035.i, i64 2
   store i16 %offset.038.i, ptr %offsets.addr.035.i, align 2
-  %incdec.ptr25.i = getelementptr inbounds i16, ptr %lengths.addr.036.i, i64 1
+  %incdec.ptr25.i = getelementptr inbounds i8, ptr %lengths.addr.036.i, i64 2
   store i16 %conv15.i, ptr %lengths.addr.036.i, align 2
   %add28.i = add i16 %offset.038.i, %conv15.i
   %inc.i = add nuw nsw i16 %i.037.i, 1
@@ -4627,9 +4622,9 @@ if.end23.i:                                       ; preds = %if.else.i
 if.then33.i:                                      ; preds = %if.else16.i, %if.then.i
   %length.1.ph.i = phi i16 [ %conv19.i, %if.else16.i ], [ %conv5.i, %if.then.i ]
   %lengthByte.0.ph.i = and i8 %1, 15
-  %incdec.ptr2424.i = getelementptr inbounds i16, ptr %offsets.addr.035.i, i64 1
+  %incdec.ptr2424.i = getelementptr inbounds i8, ptr %offsets.addr.035.i, i64 2
   store i16 %offset.038.i, ptr %offsets.addr.035.i, align 2
-  %incdec.ptr2525.i = getelementptr inbounds i16, ptr %lengths.addr.036.i, i64 1
+  %incdec.ptr2525.i = getelementptr inbounds i8, ptr %lengths.addr.036.i, i64 2
   store i16 %length.1.ph.i, ptr %lengths.addr.036.i, align 2
   %add2826.i = add i16 %length.1.ph.i, %offset.038.i
   %inc27.i = add nuw nsw i16 %i.037.i, 1
@@ -4638,9 +4633,9 @@ if.then33.i:                                      ; preds = %if.else16.i, %if.th
   br i1 %cmp36.i, label %if.then37.i, label %if.end47.i
 
 if.then37.i:                                      ; preds = %if.then33.i
-  %incdec.ptr38.i = getelementptr inbounds i16, ptr %offsets.addr.035.i, i64 2
+  %incdec.ptr38.i = getelementptr inbounds i8, ptr %offsets.addr.035.i, i64 4
   store i16 %add2826.i, ptr %incdec.ptr2424.i, align 2
-  %incdec.ptr39.i = getelementptr inbounds i16, ptr %lengths.addr.036.i, i64 2
+  %incdec.ptr39.i = getelementptr inbounds i8, ptr %lengths.addr.036.i, i64 4
   store i16 %conv34.i, ptr %incdec.ptr2525.i, align 2
   %add42.i = add i16 %add2826.i, %conv34.i
   %inc44.i = add nuw nsw i16 %i.037.i, 2
@@ -4732,8 +4727,8 @@ if.else:                                          ; preds = %_ZN6icu_75L18expand
   br i1 %cmp34.not27, label %return, label %while.body35.lr.ph
 
 while.body35.lr.ph:                               ; preds = %if.else
-  %add.ptr.i = getelementptr inbounds i16, ptr %names, i64 8
-  %incdec.ptr.i26 = getelementptr inbounds i16, ptr %names, i64 9
+  %add.ptr.i = getelementptr inbounds i8, ptr %names, i64 16
+  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %names, i64 18
   %16 = load i16, ptr %add.ptr.i, align 2
   %17 = load i32, ptr %names, align 4
   %idx.ext.i = zext i32 %17 to i64
@@ -4741,7 +4736,7 @@ while.body35.lr.ph:                               ; preds = %if.else
   %18 = and i32 %nameChoice, -3
   %or.cond.not.i = icmp eq i32 %18, 0
   %cmp3.i = icmp ult i16 %16, 60
-  %arrayidx.i = getelementptr inbounds i16, ptr %names, i64 68
+  %arrayidx.i = getelementptr inbounds i8, ptr %names, i64 136
   %cmp66.i = icmp eq i32 %nameChoice, 2
   br label %while.body35
 
@@ -4948,7 +4943,7 @@ _ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit: ; preds
   br i1 %cmp98.i.not, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %_ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit
-  %code = getelementptr inbounds %"struct.icu_75::FindName", ptr %context, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %context, i64 8
   store i32 %start.addr.128, ptr %code, align 8
   br label %return
 

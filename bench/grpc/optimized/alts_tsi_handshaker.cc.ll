@@ -16,30 +16,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.alts_tsi_handshaker_result = type { %struct.tsi_handshaker_result, ptr, ptr, ptr, i64, %struct.grpc_slice, i8, %struct.grpc_slice, i64 }
-%struct.tsi_handshaker_result = type { ptr }
-%struct.upb_Map = type { i8, i8, %struct.upb_strtable }
-%struct.upb_strtable = type { %struct.upb_table }
-%struct.upb_table = type { i64, i32, i32, i8, ptr }
-%struct._upb_ArenaHead = type { ptr, ptr }
 %struct._upb_tabent = type { i64, %struct.upb_tabval, ptr }
 %struct.upb_tabval = type { i64 }
-%struct.alts_tsi_handshaker = type { %struct.tsi_handshaker, %struct.grpc_slice, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i8, %"class.absl::lts_20230802::Mutex", ptr, i8, i64 }
-%struct.tsi_handshaker = type { ptr, i8, i8, i8 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%struct.tsi_peer_property = type { ptr, %struct.anon }
-%struct.anon = type { ptr, i64 }
 %"class.grpc_core::GsecKeyFactory" = type <{ %"class.grpc_core::GsecKeyFactoryInterface", %"class.std::vector", i8, [7 x i8] }>
 %"class.grpc_core::GsecKeyFactoryInterface" = type { ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic.2", ptr }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i64 }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.grpc_core::ScopedTimeCache", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -54,25 +38,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::Timestamp" = type { i64 }
 %"class.grpc_core::DebugLocation" = type { i8 }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%struct.alts_tsi_handshaker_continue_handshaker_next_args = type { ptr, %"class.std::unique_ptr.9", i64, ptr, ptr, %struct.grpc_closure, ptr }
-%"class.std::unique_ptr.9" = type { %"struct.std::__uniq_ptr_data.10" }
-%"struct.std::__uniq_ptr_data.10" = type { %"class.std::__uniq_ptr_impl.11" }
-%"class.std::__uniq_ptr_impl.11" = type { %"class.std::tuple.12" }
-%"class.std::tuple.12" = type { %"struct.std::_Tuple_impl.13" }
-%"struct.std::_Tuple_impl.13" = type { %"struct.std::_Head_base.16" }
-%"struct.std::_Head_base.16" = type { ptr }
-%struct.grpc_closure = type { %union.anon.17, ptr, ptr, %union.anon.18 }
-%union.anon.17 = type { ptr }
-%union.anon.18 = type { i64 }
 %struct.grpc_arg = type { i32, ptr, %"union.(anonymous struct)::grpc_arg_value" }
 %"union.(anonymous struct)::grpc_arg_value" = type { %"struct.(anonymous struct)::grpc_arg_value::grpc_arg_pointer" }
 %"struct.(anonymous struct)::grpc_arg_value::grpc_arg_pointer" = type { ptr, ptr }
 %struct.grpc_channel_args = type { i64, ptr }
-%struct.alts_shared_resource_dedicated = type { %"class.grpc_core::Thread", ptr, ptr, %struct.grpc_cq_completion, i64, ptr }
-%"class.grpc_core::Thread" = type { i32, ptr, %"class.grpc_core::Thread::Options" }
-%"class.grpc_core::Thread::Options" = type { i8, i8, i64 }
-%struct.grpc_cq_completion = type { %"class.grpc_core::ManualConstructor", ptr, ptr, ptr, i64 }
-%"class.grpc_core::ManualConstructor" = type { [8 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -318,21 +287,21 @@ grpc_gcp_Identity_service_account.exit76:         ; preds = %if.end32, %_upb_Min
   %retval.sroa.0.2.i68 = phi ptr [ %retval.sroa.0.0.copyload34.i73, %_upb_MiniTable_CopyFieldData.exit27.i71 ], [ @.str.16, %if.end32 ]
   %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 120)
   %call35 = tail call ptr @gpr_zalloc(i64 noundef 44)
-  %key_data36 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %call.i, i64 0, i32 2
+  %key_data36 = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call35, ptr %key_data36, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %call35, ptr noundef nonnull align 1 dereferenceable(44) %retval.sroa.0.0.copyload34.i47, i64 44, i1 false)
   %add = add i64 %retval.sroa.9.0.copyload35.i, 1
   %call39 = tail call ptr @gpr_zalloc(i64 noundef %add)
-  %peer_identity = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %call.i, i64 0, i32 1
+  %peer_identity = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call39, ptr %peer_identity, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call39, ptr align 1 %retval.sroa.0.0.copyload34.i, i64 %retval.sroa.9.0.copyload35.i, i1 false)
   %add.ptr.i.i77 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %add.ptr.i.i77, align 1
   %conv = zext i32 %10 to i64
-  %max_frame_size = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %call.i, i64 0, i32 8
+  %max_frame_size = getelementptr inbounds i8, ptr %call.i, i64 112
   store i64 %conv, ptr %max_frame_size, align 8
   %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %rpc_versions = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %call.i, i64 0, i32 5
+  %rpc_versions = getelementptr inbounds i8, ptr %call.i, i64 40
   %call46 = invoke noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef nonnull %6, ptr noundef %call.i.i, ptr noundef nonnull %rpc_versions)
           to label %invoke.cont45 unwind label %lpad
 
@@ -419,7 +388,7 @@ if.end70:                                         ; preds = %invoke.cont51
 
 invoke.cont71:                                    ; preds = %if.end70
   %16 = inttoptr i64 %15 to ptr
-  %table.i.i = getelementptr inbounds %struct.upb_Map, ptr %16, i64 0, i32 2
+  %table.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %table.i.i, align 8
   %cmp73.not = icmp eq i64 %17, 0
   br i1 %cmp73.not, label %if.end90, label %if.then74
@@ -435,8 +404,8 @@ while.cond.preheader:                             ; preds = %if.then74
 
 invoke.cont80.lr.ph:                              ; preds = %while.cond.preheader
   %add.ptr.i.i.i97 = getelementptr inbounds i8, ptr %call56, i64 80
-  %end.i.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %call.i.i7879, i64 0, i32 1
-  %index.i.i = getelementptr inbounds %struct.upb_strtable_iter, ptr %it.i.i, i64 0, i32 1
+  %end.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7879, i64 8
+  %index.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 8
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %invoke.cont80.lr.ph, %grpc_gcp_Identity_attributes_nextmutable.exit
@@ -446,7 +415,7 @@ invoke.cont80:                                    ; preds = %invoke.cont80.lr.ph
   %add.ptr.i.i.i91 = getelementptr inbounds i8, ptr %19, i64 4
   %20 = load i32, ptr %19, align 1
   %conv.i.i = zext i32 %20 to i64
-  %val2.i.i = getelementptr inbounds %struct._upb_tabent, ptr %peer_attributes_entry.0148, i64 0, i32 1
+  %val2.i.i = getelementptr inbounds i8, ptr %peer_attributes_entry.0148, i64 8
   %21 = load i64, ptr %val2.i.i, align 8
   %22 = inttoptr i64 %21 to ptr
   %retval.sroa.0.0.copyload.i = load ptr, ptr %22, align 8
@@ -494,7 +463,7 @@ if.end.i.i.i:                                     ; preds = %upb_Arena_Malloc.ex
   store ptr %retval.sroa.0.0.copyload.i, ptr %retval.0.i.i.i.i, align 8
   %val.sroa.2.0.retval.0.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store i64 %retval.sroa.2.0.copyload.i, ptr %val.sroa.2.0.retval.0.i.i.i.sroa_idx.i, align 8
-  %table.i.i98 = getelementptr inbounds %struct.upb_Map, ptr %map.3.i.i, i64 0, i32 2
+  %table.i.i98 = getelementptr inbounds i8, ptr %map.3.i.i, i64 8
   %call2.i.i102 = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i98, ptr noundef nonnull %add.ptr.i.i.i91, i64 noundef %conv.i.i, ptr noundef null)
           to label %call2.i.i.noexc unwind label %lpad52.thread
 
@@ -511,7 +480,7 @@ invoke.cont86:                                    ; preds = %upb_Arena_Malloc.ex
 if.end.i:                                         ; preds = %invoke.cont86
   %30 = inttoptr i64 %29 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i.i)
-  %table.i.i106 = getelementptr inbounds %struct.upb_Map, ptr %30, i64 0, i32 2
+  %table.i.i106 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %table.i.i106, ptr %it.i.i, align 8
   %31 = load i64, ptr %iter, align 8
   store i64 %31, ptr %index.i.i, align 8
@@ -533,7 +502,7 @@ grpc_gcp_Identity_attributes_nextmutable.exit.thread151: ; preds = %call.i.i107.
 
 grpc_gcp_Identity_attributes_nextmutable.exit:    ; preds = %call.i.i107.noexc
   %33 = load ptr, ptr %it.i.i, align 8
-  %entries.i.i.i = getelementptr inbounds %struct.upb_table, ptr %33, i64 0, i32 4
+  %entries.i.i.i = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load ptr, ptr %entries.i.i.i, align 8
   %35 = load i64, ptr %index.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %struct._upb_tabent, ptr %34, i64 %35
@@ -562,9 +531,9 @@ if.end98:                                         ; preds = %invoke.cont93
           to label %invoke.cont99 unwind label %lpad52.loopexit.split-lp
 
 invoke.cont99:                                    ; preds = %if.end98
-  %serialized_context = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %call.i, i64 0, i32 7
+  %serialized_context = getelementptr inbounds i8, ptr %call.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialized_context, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  %is_client101 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %call.i, i64 0, i32 6
+  %is_client101 = getelementptr inbounds i8, ptr %call.i, i64 72
   store i8 %frombool, ptr %is_client101, align 8
   store ptr @_ZL13result_vtable, ptr %call.i, align 8
   store ptr %call.i, ptr %result, align 8
@@ -645,7 +614,7 @@ entry:
   %add.i.i = add nuw nsw i64 %conv.i.i, 8
   %sub.i.i = add nuw nsw i64 %conv.i.i, 23
   %div7.i.i = and i64 %sub.i.i, 131064
-  %end.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %1 = load ptr, ptr %end.i.i.i, align 8
   %2 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -690,10 +659,10 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i)
-  %table.i = getelementptr inbounds %struct.upb_Map, ptr %1, i64 0, i32 2
+  %table.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %table.i, ptr %it.i, align 8
   %2 = load i64, ptr %iter, align 8
-  %index.i = getelementptr inbounds %struct.upb_strtable_iter, ptr %it.i, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %it.i, i64 8
   store i64 %2, ptr %index.i, align 8
   call void @upb_strtable_next(ptr noundef nonnull %it.i)
   %3 = load i64, ptr %index.i, align 8
@@ -703,7 +672,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %4 = load ptr, ptr %it.i, align 8
-  %entries.i.i = getelementptr inbounds %struct.upb_table, ptr %4, i64 0, i32 4
+  %entries.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %entries.i.i, align 8
   %6 = load i64, ptr %index.i, align 8
   %arrayidx.i.i = getelementptr inbounds %struct._upb_tabent, ptr %5, i64 %6
@@ -732,9 +701,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %mu = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 11
+  %mu = getelementptr inbounds i8, ptr %handshaker, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu)
-  %shutdown = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 13
+  %shutdown = getelementptr inbounds i8, ptr %handshaker, i64 120
   %0 = load i8, ptr %shutdown, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -795,23 +764,23 @@ cond.false:                                       ; preds = %invoke.cont
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %target_name11 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 1
+  %target_name11 = getelementptr inbounds i8, ptr %call, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %target_name11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  %is_client13 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 2
+  %is_client13 = getelementptr inbounds i8, ptr %call, i64 48
   store i8 %frombool, ptr %is_client13, align 8
   %call15 = call ptr @gpr_strdup(ptr noundef nonnull %handshaker_service_url)
-  %handshaker_service_url16 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 5
+  %handshaker_service_url16 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call15, ptr %handshaker_service_url16, align 8
-  %interested_parties17 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 6
+  %interested_parties17 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %interested_parties, ptr %interested_parties17, align 8
   %call18 = call noundef ptr @_Z34grpc_alts_credentials_options_copyPK29grpc_alts_credentials_options(ptr noundef nonnull %options)
-  %options19 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 7
+  %options19 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call18, ptr %options19, align 8
-  %use_dedicated_cq21 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 10
+  %use_dedicated_cq21 = getelementptr inbounds i8, ptr %call, i64 96
   store i8 %frombool7, ptr %use_dedicated_cq21, align 8
   %cmp23.not = icmp eq i64 %user_specified_max_frame_size, 0
   %cond27 = select i1 %cmp23.not, i64 1048576, i64 %user_specified_max_frame_size
-  %max_frame_size = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %call, i64 0, i32 14
+  %max_frame_size = getelementptr inbounds i8, ptr %call, i64 128
   store i64 %cond27, ptr %max_frame_size, align 8
   store ptr %call, ptr %self, align 8
   br label %return
@@ -853,7 +822,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %recv_bytes, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data2 = getelementptr inbounds %struct.grpc_slice, ptr %recv_bytes, i64 0, i32 1
+  %data2 = getelementptr inbounds i8, ptr %recv_bytes, i64 8
   br i1 %tobool.not, label %cond.end, label %cond.end.thread
 
 cond.end:                                         ; preds = %do.end
@@ -870,17 +839,17 @@ cond.end.thread:                                  ; preds = %do.end
 cond.end16:                                       ; preds = %cond.end, %cond.end.thread
   %cond17 = phi i64 [ %2, %cond.end.thread ], [ %conv, %cond.end ]
   %sub = sub i64 %cond17, %bytes_consumed
-  %unused_bytes_size = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %result, i64 0, i32 4
+  %unused_bytes_size = getelementptr inbounds i8, ptr %result, i64 32
   store i64 %sub, ptr %unused_bytes_size, align 8
   %call = tail call ptr @gpr_zalloc(i64 noundef %sub)
-  %unused_bytes = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %result, i64 0, i32 3
+  %unused_bytes = getelementptr inbounds i8, ptr %result, i64 24
   store ptr %call, ptr %unused_bytes, align 8
   %3 = load ptr, ptr %recv_bytes, align 8
   %tobool21.not = icmp eq ptr %3, null
   br i1 %tobool21.not, label %cond.false24, label %cond.true22
 
 cond.true22:                                      ; preds = %cond.end16
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %recv_bytes, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %recv_bytes, i64 16
   %4 = load ptr, ptr %bytes, align 8
   br label %cond.end27
 
@@ -910,7 +879,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %has_sent_start_message = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 3
+  %has_sent_start_message = getelementptr inbounds i8, ptr %handshaker, i64 49
   %0 = load i8, ptr %has_sent_start_message, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -928,7 +897,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %client_vtable_for_testing = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 8
+  %client_vtable_for_testing = getelementptr inbounds i8, ptr %handshaker, i64 80
   store ptr %vtable, ptr %client_vtable_for_testing, align 8
   ret void
 }
@@ -944,7 +913,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %is_client = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 2
+  %is_client = getelementptr inbounds i8, ptr %handshaker, i64 48
   %0 = load i8, ptr %is_client, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -954,7 +923,7 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN9grpc_core8internal42alts_tsi_handshaker_get_client_for_testingEP19alts_tsi_handshaker(ptr nocapture noundef readonly %handshaker) local_unnamed_addr #9 {
 entry:
-  %client = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 12
+  %client = getelementptr inbounds i8, ptr %handshaker, i64 112
   %0 = load ptr, ptr %client, align 8
   ret ptr %0
 }
@@ -1046,8 +1015,8 @@ if.then15:                                        ; preds = %do.end9
 
 do.end25:                                         ; preds = %do.end9
   %1 = load ptr, ptr %peer, align 8
-  %arrayidx20 = getelementptr inbounds %struct.tsi_peer_property, ptr %1, i64 1
-  %peer_identity = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %1, i64 24
+  %peer_identity = getelementptr inbounds i8, ptr %self, i64 8
   %2 = load ptr, ptr %peer_identity, align 8
   %call29 = tail call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull %arrayidx20)
   %cmp30.not = icmp eq i32 %call29, 0
@@ -1059,21 +1028,21 @@ if.then31:                                        ; preds = %do.end25
   br label %do.end42
 
 do.end42:                                         ; preds = %do.end25, %if.then31
-  %rpc_versions = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 5
+  %rpc_versions = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %rpc_versions, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %cond.false53, label %cond.true50
 
 cond.true50:                                      ; preds = %do.end42
-  %bytes = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 5, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %self, i64 56
   %4 = load ptr, ptr %bytes, align 8
-  %data52 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 5, i32 1
+  %data52 = getelementptr inbounds i8, ptr %self, i64 48
   %5 = load i64, ptr %data52, align 8
   br label %cond.end57
 
 cond.false53:                                     ; preds = %do.end42
   %bytes46 = getelementptr inbounds i8, ptr %self, i64 49
-  %data55 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 5, i32 1
+  %data55 = getelementptr inbounds i8, ptr %self, i64 48
   %6 = load i8, ptr %data55, align 8
   %conv = zext i8 %6 to i64
   br label %cond.end57
@@ -1082,7 +1051,7 @@ cond.end57:                                       ; preds = %cond.false53, %cond
   %cond53 = phi ptr [ %4, %cond.true50 ], [ %bytes46, %cond.false53 ]
   %cond58 = phi i64 [ %5, %cond.true50 ], [ %conv, %cond.false53 ]
   %7 = load ptr, ptr %peer, align 8
-  %arrayidx61 = getelementptr inbounds %struct.tsi_peer_property, ptr %7, i64 2
+  %arrayidx61 = getelementptr inbounds i8, ptr %7, i64 48
   %call62 = tail call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.24, ptr noundef %cond53, i64 noundef %cond58, ptr noundef nonnull %arrayidx61)
   %cmp63.not = icmp eq i32 %call62, 0
   br i1 %cmp63.not, label %do.end76, label %if.then64
@@ -1093,21 +1062,21 @@ if.then64:                                        ; preds = %cond.end57
   br label %do.end76
 
 do.end76:                                         ; preds = %cond.end57, %if.then64
-  %serialized_context = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 7
+  %serialized_context = getelementptr inbounds i8, ptr %self, i64 80
   %8 = load ptr, ptr %serialized_context, align 8
   %tobool78.not = icmp eq ptr %8, null
   br i1 %tobool78.not, label %cond.false97, label %cond.true93
 
 cond.true93:                                      ; preds = %do.end76
-  %bytes82 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 7, i32 1, i32 0, i32 1
+  %bytes82 = getelementptr inbounds i8, ptr %self, i64 96
   %9 = load ptr, ptr %bytes82, align 8
-  %data95 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 7, i32 1
+  %data95 = getelementptr inbounds i8, ptr %self, i64 88
   %10 = load i64, ptr %data95, align 8
   br label %cond.end102
 
 cond.false97:                                     ; preds = %do.end76
   %bytes86 = getelementptr inbounds i8, ptr %self, i64 89
-  %data99 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 7, i32 1
+  %data99 = getelementptr inbounds i8, ptr %self, i64 88
   %11 = load i8, ptr %data99, align 8
   %conv101 = zext i8 %11 to i64
   br label %cond.end102
@@ -1116,7 +1085,7 @@ cond.end102:                                      ; preds = %cond.false97, %cond
   %cond8956 = phi ptr [ %9, %cond.true93 ], [ %bytes86, %cond.false97 ]
   %cond103 = phi i64 [ %10, %cond.true93 ], [ %conv101, %cond.false97 ]
   %12 = load ptr, ptr %peer, align 8
-  %arrayidx106 = getelementptr inbounds %struct.tsi_peer_property, ptr %12, i64 3
+  %arrayidx106 = getelementptr inbounds i8, ptr %12, i64 72
   %call107 = tail call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.25, ptr noundef %cond8956, i64 noundef %cond103, ptr noundef nonnull %arrayidx106)
   %cmp108.not = icmp eq i32 %call107, 0
   br i1 %cmp108.not, label %do.end121, label %if.then109
@@ -1129,7 +1098,7 @@ if.then109:                                       ; preds = %cond.end102
 do.end121:                                        ; preds = %cond.end102, %if.then109
   %call122 = tail call noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef 2)
   %13 = load ptr, ptr %peer, align 8
-  %arrayidx125 = getelementptr inbounds %struct.tsi_peer_property, ptr %13, i64 4
+  %arrayidx125 = getelementptr inbounds i8, ptr %13, i64 96
   %call126 = tail call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.26, ptr noundef %call122, ptr noundef nonnull %arrayidx125)
   %cmp127.not = icmp eq i32 %call126, 0
   br i1 %cmp127.not, label %return, label %if.then128
@@ -1167,7 +1136,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i64 16384, ptr %max_frame_size, align 8
-  %max_frame_size2 = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 8
+  %max_frame_size2 = getelementptr inbounds i8, ptr %self, i64 112
   %0 = load i64, ptr %max_frame_size2, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end7, label %if.then3
@@ -1184,10 +1153,10 @@ if.then3:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.then3, %if.end
   %3 = phi i64 [ %2, %if.then3 ], [ 16384, %if.end ]
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 187, i32 noundef 0, ptr noundef nonnull @.str.29, i64 noundef %3)
-  %key_data = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 2
+  %key_data = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %key_data, align 8
   call void @_ZN9grpc_core14GsecKeyFactoryC1EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp, ptr %4, i64 44, i1 noundef zeroext true)
-  %is_client = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 6
+  %is_client = getelementptr inbounds i8, ptr %self, i64 72
   %5 = load i8, ptr %is_client, align 8
   %6 = and i8 %5, 1
   %tobool8 = icmp ne i8 %6, 0
@@ -1196,7 +1165,7 @@ if.end7:                                          ; preds = %if.then3, %if.end
 
 invoke.cont:                                      ; preds = %if.end7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %key_.i = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %ref.tmp, i64 0, i32 1
+  %key_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %7 = load ptr, ptr %key_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core14GsecKeyFactoryD2Ev.exit, label %if.then.i.i.i.i
@@ -1217,7 +1186,7 @@ lpad:                                             ; preds = %if.end7
   %8 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %key_.i12 = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %ref.tmp, i64 0, i32 1
+  %key_.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load ptr, ptr %key_.i12, align 8
   %tobool.not.i.i.i.i13 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i13, label %_ZN9grpc_core14GsecKeyFactoryD2Ev.exit15, label %if.then.i.i.i.i14
@@ -1247,9 +1216,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %key_data = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 2
+  %key_data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %key_data, align 8
-  %is_client = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 6
+  %is_client = getelementptr inbounds i8, ptr %self, i64 72
   %1 = load i8, ptr %is_client, align 8
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
@@ -1281,10 +1250,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %unused_bytes = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 3
+  %unused_bytes = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %unused_bytes, align 8
   store ptr %0, ptr %bytes, align 8
-  %unused_bytes_size = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 4
+  %unused_bytes_size = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load i64, ptr %unused_bytes_size, align 8
   store i64 %1, ptr %bytes_size, align 8
   br label %return
@@ -1301,16 +1270,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %peer_identity = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 1
+  %peer_identity = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load ptr, ptr %peer_identity, align 8
   tail call void @gpr_free(ptr noundef %0)
-  %key_data = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 2
+  %key_data = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %key_data, align 8
   tail call void @gpr_free(ptr noundef %1)
-  %unused_bytes = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 3
+  %unused_bytes = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load ptr, ptr %unused_bytes, align 8
   tail call void @gpr_free(ptr noundef %2)
-  %rpc_versions = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 5
+  %rpc_versions = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %rpc_versions, align 8
   %cmp.i = icmp ugt ptr %3, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -1321,13 +1290,13 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %3, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i, align 8
   tail call void %5(ptr noundef nonnull %3)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %if.end, %if.then.i, %if.then.i.i
-  %serialized_context = getelementptr inbounds %struct.alts_tsi_handshaker_result, ptr %self, i64 0, i32 7
+  %serialized_context = getelementptr inbounds i8, ptr %self, i64 80
   %6 = load ptr, ptr %serialized_context, align 8
   %cmp.i7 = icmp ugt ptr %6, inttoptr (i64 1 to ptr)
   br i1 %cmp.i7, label %if.then.i8, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit12
@@ -1338,7 +1307,7 @@ if.then.i8:                                       ; preds = %_ZN9grpc_core11CSli
   br i1 %cmp.i.i9, label %if.then.i.i10, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit12
 
 if.then.i.i10:                                    ; preds = %if.then.i8
-  %destroyer_fn_.i.i11 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %6, i64 0, i32 1
+  %destroyer_fn_.i.i11 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i11, align 8
   tail call void %8(ptr noundef nonnull %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit12
@@ -1380,10 +1349,10 @@ entry:
   br i1 %cmp, label %delete.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %client = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 12
+  %client = getelementptr inbounds i8, ptr %self, i64 112
   %0 = load ptr, ptr %client, align 8
   tail call void @_Z30alts_handshaker_client_destroyP22alts_handshaker_client(ptr noundef %0)
-  %target_name = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 1
+  %target_name = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %target_name, align 8
   %cmp.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -1394,16 +1363,16 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %1, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i, align 8
   tail call void %3(ptr noundef nonnull %1)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %if.end, %if.then.i, %if.then.i.i
-  %options = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %self, i64 72
   %4 = load ptr, ptr %options, align 8
   tail call void @grpc_alts_credentials_options_destroy(ptr noundef %4)
-  %channel = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 9
+  %channel = getelementptr inbounds i8, ptr %self, i64 88
   %5 = load ptr, ptr %channel, align 8
   %cmp1.not = icmp eq ptr %5, null
   br i1 %cmp1.not, label %if.end4, label %if.then2
@@ -1413,10 +1382,10 @@ if.then2:                                         ; preds = %_ZN9grpc_core11CSli
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
-  %handshaker_service_url = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 5
+  %handshaker_service_url = getelementptr inbounds i8, ptr %self, i64 56
   %6 = load ptr, ptr %handshaker_service_url, align 8
   tail call void @gpr_free(ptr noundef %6)
-  %mu.i = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 11
+  %mu.i = getelementptr inbounds i8, ptr %self, i64 104
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu.i) #25
   tail call void @_ZdlPv(ptr noundef nonnull %self) #26
   br label %delete.end
@@ -1430,12 +1399,12 @@ define internal noundef i32 @_ZL25handshaker_next_dedicatedP14tsi_handshakerPKhm
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %exec_ctx, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 1
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 3
+  %closure_list_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 8
+  %flags_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 0, i32 1
+  %time_cache_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 48
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 56
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
 
 0:                                                ; preds = %entry
@@ -1455,7 +1424,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %0, 
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %3, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
   store ptr %time_cache_.i, ptr %1, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %4, label %invoke.cont.i
 
@@ -1466,7 +1435,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %3, %_ZTWN9grpc_core
 invoke.cont.i:                                    ; preds = %4, %_ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i
   %5 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %6 = load ptr, ptr %5, align 8
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 80
   store ptr %6, ptr %last_exec_ctx_.i, align 8
   %7 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %8 = and i8 %7, 1
@@ -1579,16 +1548,16 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %mu = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 11
+  %mu = getelementptr inbounds i8, ptr %self, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu)
-  %shutdown = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 13
+  %shutdown = getelementptr inbounds i8, ptr %self, i64 120
   %0 = load i8, ptr %shutdown, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end2, label %cleanup
 
 if.end2:                                          ; preds = %do.end
-  %client = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 12
+  %client = getelementptr inbounds i8, ptr %self, i64 112
   %2 = load ptr, ptr %client, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end6, label %if.then4
@@ -1661,9 +1630,9 @@ if.then5:                                         ; preds = %if.then
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %mu = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 11
+  %mu = getelementptr inbounds i8, ptr %self, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu)
-  %shutdown = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 13
+  %shutdown = getelementptr inbounds i8, ptr %self, i64 120
   %3 = load i8, ptr %shutdown, align 8
   %4 = and i8 %3, 1
   %tobool.not.not = icmp eq i8 %4, 0
@@ -1709,13 +1678,13 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit33:      ; preds = %cleanup
   br i1 %tobool.not.not, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit33
-  %channel = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 9
+  %channel = getelementptr inbounds i8, ptr %self, i64 88
   %10 = load ptr, ptr %channel, align 8
   %cmp14 = icmp eq ptr %10, null
   br i1 %cmp14, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %cleanup.cont
-  %use_dedicated_cq = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %self, i64 0, i32 10
+  %use_dedicated_cq = getelementptr inbounds i8, ptr %self, i64 96
   %11 = load i8, ptr %use_dedicated_cq, align 8
   %12 = and i8 %11, 1
   %tobool15.not = icmp eq i8 %12, 0
@@ -1723,13 +1692,13 @@ land.lhs.true:                                    ; preds = %cleanup.cont
 
 _ZNSt10unique_ptrIhSt14default_deleteIhEEaSEDn.exit: ; preds = %land.lhs.true
   %call17 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
-  %received_bytes.i = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 1
-  %error.i = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 6
+  %received_bytes.i = getelementptr inbounds i8, ptr %call17, i64 8
+  %error.i = getelementptr inbounds i8, ptr %call17, i64 72
   %13 = getelementptr inbounds i8, ptr %call17, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   store ptr %self, ptr %call17, align 8
   store ptr null, ptr %received_bytes.i, align 8
-  %received_bytes_size21 = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 2
+  %received_bytes_size21 = getelementptr inbounds i8, ptr %call17, i64 16
   store i64 %received_bytes_size, ptr %received_bytes_size21, align 8
   store ptr %error, ptr %error.i, align 8
   %cmp23.not = icmp eq i64 %received_bytes_size, 0
@@ -1742,16 +1711,16 @@ _ZNSt10unique_ptrIhSt14default_deleteIhEED2Ev.exit: ; preds = %_ZNSt10unique_ptr
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZNSt10unique_ptrIhSt14default_deleteIhEED2Ev.exit, %_ZNSt10unique_ptrIhSt14default_deleteIhEEaSEDn.exit
-  %cb31 = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 3
+  %cb31 = getelementptr inbounds i8, ptr %call17, i64 24
   store ptr %cb, ptr %cb31, align 8
-  %user_data32 = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 4
+  %user_data32 = getelementptr inbounds i8, ptr %call17, i64 32
   store ptr %user_data, ptr %user_data32, align 8
-  %closure = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 5
-  %cb1.i = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 5, i32 1
+  %closure = getelementptr inbounds i8, ptr %call17, i64 40
+  %cb1.i = getelementptr inbounds i8, ptr %call17, i64 48
   store ptr @_ZL34alts_tsi_handshaker_create_channelPvN4absl12lts_202308026StatusE, ptr %cb1.i, align 8
-  %cb_arg2.i = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 5, i32 2
+  %cb_arg2.i = getelementptr inbounds i8, ptr %call17, i64 56
   store ptr %call17, ptr %cb_arg2.i, align 8
-  %error_data.i = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %call17, i64 0, i32 5, i32 3
+  %error_data.i = getelementptr inbounds i8, ptr %call17, i64 64
   store i64 0, ptr %error_data.i, align 8
   store i64 0, ptr %agg.tmp, align 8, !alias.scope !5
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34, ptr noundef nonnull %closure, ptr noundef nonnull %agg.tmp)
@@ -1802,7 +1771,7 @@ eh.resume:                                        ; preds = %lpad, %lpad36
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
   store i64 %or, ptr %flags_, align 8
@@ -1810,7 +1779,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2
 
@@ -1837,9 +1806,9 @@ if.then.i:                                        ; preds = %if.then
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
-  %time_cache_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_, align 8
-  %previous_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit
 
@@ -1864,7 +1833,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %2, %ent
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -1872,7 +1841,7 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2.i
 
@@ -1899,9 +1868,9 @@ if.then.i.i:                                      ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -1934,10 +1903,10 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this, i64 0, i32 1
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %previous_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -1956,7 +1925,7 @@ entry:
   %disable_retries_arg = alloca %struct.grpc_arg, align 8
   %args = alloca %struct.grpc_channel_args, align 8
   %1 = load ptr, ptr %arg, align 8
-  %channel = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %1, i64 0, i32 9
+  %channel = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %channel, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1969,23 +1938,23 @@ do.end:                                           ; preds = %entry
   %call = tail call ptr @grpc_insecure_credentials_create()
   call void @_Z31grpc_channel_arg_integer_createPci(ptr nonnull sret(%struct.grpc_arg) align 8 %disable_retries_arg, ptr noundef nonnull @.str.40, i32 noundef 0)
   store i64 1, ptr %args, align 8
-  %args2 = getelementptr inbounds %struct.grpc_channel_args, ptr %args, i64 0, i32 1
+  %args2 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %disable_retries_arg, ptr %args2, align 8
   %3 = load ptr, ptr %arg, align 8
-  %handshaker_service_url = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %3, i64 0, i32 5
+  %handshaker_service_url = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %handshaker_service_url, align 8
   %call4 = call ptr @grpc_channel_create(ptr noundef %4, ptr noundef %call, ptr noundef nonnull %args)
   store ptr %call4, ptr %channel, align 8
   call void @grpc_channel_credentials_release(ptr noundef %call)
-  %received_bytes = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %arg, i64 0, i32 1
+  %received_bytes = getelementptr inbounds i8, ptr %arg, i64 8
   %5 = load ptr, ptr %received_bytes, align 8
-  %received_bytes_size = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %arg, i64 0, i32 2
+  %received_bytes_size = getelementptr inbounds i8, ptr %arg, i64 16
   %6 = load i64, ptr %received_bytes_size, align 8
-  %cb = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %arg, i64 0, i32 3
+  %cb = getelementptr inbounds i8, ptr %arg, i64 24
   %7 = load ptr, ptr %cb, align 8
-  %user_data = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %arg, i64 0, i32 4
+  %user_data = getelementptr inbounds i8, ptr %arg, i64 32
   %8 = load ptr, ptr %user_data, align 8
-  %error = getelementptr inbounds %struct.alts_tsi_handshaker_continue_handshaker_next_args, ptr %arg, i64 0, i32 6
+  %error = getelementptr inbounds i8, ptr %arg, i64 72
   %9 = load ptr, ptr %error, align 8
   %call7 = call fastcc noundef i32 @_ZL44alts_tsi_handshaker_continue_handshaker_nextP19alts_tsi_handshakerPKhmPFv10tsi_resultPvS2_mP21tsi_handshaker_resultES4_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %1, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %cmp8.not = icmp eq i32 %call7, 0
@@ -2040,26 +2009,26 @@ terminate.lpad:                                   ; preds = %if.then.i
 define internal fastcc noundef i32 @_ZL44alts_tsi_handshaker_continue_handshaker_nextP19alts_tsi_handshakerPKhmPFv10tsi_resultPvS2_mP21tsi_handshaker_resultES4_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %slice = alloca %struct.grpc_slice, align 8
-  %has_created_handshaker_client = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 4
+  %has_created_handshaker_client = getelementptr inbounds i8, ptr %handshaker, i64 50
   %0 = load i8, ptr %has_created_handshaker_client, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end47
 
 if.then:                                          ; preds = %entry
-  %channel = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 9
+  %channel = getelementptr inbounds i8, ptr %handshaker, i64 88
   %2 = load ptr, ptr %channel, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then1, label %cond.end17
 
 if.then1:                                         ; preds = %if.then
-  %handshaker_service_url = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 5
+  %handshaker_service_url = getelementptr inbounds i8, ptr %handshaker, i64 56
   %3 = load ptr, ptr %handshaker_service_url, align 8
   tail call void @_Z41grpc_alts_shared_resource_dedicated_startPKc(ptr noundef %3)
   %call = tail call noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv()
-  %interested_parties = getelementptr inbounds %struct.alts_shared_resource_dedicated, ptr %call, i64 0, i32 2
+  %interested_parties = getelementptr inbounds i8, ptr %call, i64 40
   %4 = load ptr, ptr %interested_parties, align 8
-  %interested_parties2 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 6
+  %interested_parties2 = getelementptr inbounds i8, ptr %handshaker, i64 64
   store ptr %4, ptr %interested_parties2, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %if.then5, label %if.end6
@@ -2075,27 +2044,27 @@ if.end6:                                          ; preds = %if.then1
 
 cond.true12:                                      ; preds = %if.end6
   %call13 = tail call noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv()
-  %channel14 = getelementptr inbounds %struct.alts_shared_resource_dedicated, ptr %call13, i64 0, i32 5
+  %channel14 = getelementptr inbounds i8, ptr %call13, i64 96
   %5 = load ptr, ptr %channel14, align 8
   br label %cond.end17
 
 cond.end17:                                       ; preds = %if.then, %if.end6, %cond.true12
   %_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusE._ZL31on_handshaker_service_resp_recvPvN4absl12lts_202308026StatusE42 = phi ptr [ @_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusE, %cond.true12 ], [ @_ZL31on_handshaker_service_resp_recvPvN4absl12lts_202308026StatusE, %if.end6 ], [ @_ZL31on_handshaker_service_resp_recvPvN4absl12lts_202308026StatusE, %if.then ]
   %cond = phi ptr [ %5, %cond.true12 ], [ %.pr, %if.end6 ], [ %2, %if.then ]
-  %handshaker_service_url18 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 5
+  %handshaker_service_url18 = getelementptr inbounds i8, ptr %handshaker, i64 56
   %6 = load ptr, ptr %handshaker_service_url18, align 8
-  %interested_parties19 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 6
+  %interested_parties19 = getelementptr inbounds i8, ptr %handshaker, i64 64
   %7 = load ptr, ptr %interested_parties19, align 8
-  %options = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %handshaker, i64 72
   %8 = load ptr, ptr %options, align 8
-  %target_name = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 1
-  %client_vtable_for_testing = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 8
+  %target_name = getelementptr inbounds i8, ptr %handshaker, i64 16
+  %client_vtable_for_testing = getelementptr inbounds i8, ptr %handshaker, i64 80
   %9 = load ptr, ptr %client_vtable_for_testing, align 8
-  %is_client = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 2
+  %is_client = getelementptr inbounds i8, ptr %handshaker, i64 48
   %10 = load i8, ptr %is_client, align 8
   %11 = and i8 %10, 1
   %tobool20 = icmp ne i8 %11, 0
-  %max_frame_size = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 14
+  %max_frame_size = getelementptr inbounds i8, ptr %handshaker, i64 128
   %12 = load i64, ptr %max_frame_size, align 8
   %call21 = tail call noundef ptr @_Z34alts_grpc_handshaker_client_createP19alts_tsi_handshakerP12grpc_channelPKcP16grpc_pollset_setP29grpc_alts_credentials_optionsRK10grpc_slicePFvPvN4absl12lts_202308026StatusEEPFv10tsi_resultSC_PKhmP21tsi_handshaker_resultESC_P29alts_handshaker_client_vtablebmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %handshaker, ptr noundef %cond, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %target_name, ptr noundef nonnull %_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusE._ZL31on_handshaker_service_resp_recvPvN4absl12lts_202308026StatusE42, ptr noundef %cb, ptr noundef %user_data, ptr noundef %9, i1 noundef zeroext %tobool20, i64 noundef %12, ptr noundef %error)
   %cmp22 = icmp eq ptr %call21, null
@@ -2111,9 +2080,9 @@ if.then25:                                        ; preds = %if.then23
   br label %return
 
 if.end28:                                         ; preds = %cond.end17
-  %mu = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 11
+  %mu = getelementptr inbounds i8, ptr %handshaker, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu)
-  %client30 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 12
+  %client30 = getelementptr inbounds i8, ptr %handshaker, i64 112
   %13 = load ptr, ptr %client30, align 8
   %cmp31.not = icmp eq ptr %13, null
   br i1 %cmp31.not, label %do.end35, label %if.then33
@@ -2143,7 +2112,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
 
 do.end35:                                         ; preds = %if.end28
   store ptr %call21, ptr %client30, align 8
-  %shutdown = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 13
+  %shutdown = getelementptr inbounds i8, ptr %handshaker, i64 120
   %17 = load i8, ptr %shutdown, align 8
   %18 = and i8 %17, 1
   %tobool37.not.not = icmp eq i8 %18, 0
@@ -2180,22 +2149,22 @@ cleanup.cont:                                     ; preds = %_ZN4absl12lts_20230
   br label %if.end47
 
 if.end47:                                         ; preds = %cleanup.cont, %entry
-  %channel48 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 9
+  %channel48 = getelementptr inbounds i8, ptr %handshaker, i64 88
   %21 = load ptr, ptr %channel48, align 8
   %cmp49 = icmp eq ptr %21, null
   br i1 %cmp49, label %land.lhs.true, label %if.end62
 
 land.lhs.true:                                    ; preds = %if.end47
-  %client_vtable_for_testing50 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 8
+  %client_vtable_for_testing50 = getelementptr inbounds i8, ptr %handshaker, i64 80
   %22 = load ptr, ptr %client_vtable_for_testing50, align 8
   %cmp51 = icmp eq ptr %22, null
   br i1 %cmp51, label %do.body53, label %if.end62
 
 do.body53:                                        ; preds = %land.lhs.true
   %call54 = tail call noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv()
-  %cq = getelementptr inbounds %struct.alts_shared_resource_dedicated, ptr %call54, i64 0, i32 1
+  %cq = getelementptr inbounds i8, ptr %call54, i64 32
   %23 = load ptr, ptr %cq, align 8
-  %client55 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 12
+  %client55 = getelementptr inbounds i8, ptr %handshaker, i64 112
   %24 = load ptr, ptr %client55, align 8
   %call56 = tail call noundef zeroext i1 @_Z16grpc_cq_begin_opP21grpc_completion_queuePv(ptr noundef %23, ptr noundef %24)
   br i1 %call56, label %if.end62, label %if.then58
@@ -2219,7 +2188,7 @@ cond.false66:                                     ; preds = %if.end62
   br label %cond.end67
 
 cond.end67:                                       ; preds = %cond.false66, %cond.true65
-  %has_sent_start_message = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 3
+  %has_sent_start_message = getelementptr inbounds i8, ptr %handshaker, i64 49
   %25 = load i8, ptr %has_sent_start_message, align 1
   %26 = and i8 %25, 1
   %tobool68.not = icmp eq i8 %26, 0
@@ -2227,11 +2196,11 @@ cond.end67:                                       ; preds = %cond.false66, %cond
 
 if.then69:                                        ; preds = %cond.end67
   store i8 1, ptr %has_sent_start_message, align 1
-  %is_client71 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 2
+  %is_client71 = getelementptr inbounds i8, ptr %handshaker, i64 48
   %27 = load i8, ptr %is_client71, align 8
   %28 = and i8 %27, 1
   %tobool72.not = icmp eq i8 %28, 0
-  %client77 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 12
+  %client77 = getelementptr inbounds i8, ptr %handshaker, i64 112
   %29 = load ptr, ptr %client77, align 8
   br i1 %tobool72.not, label %cond.false76, label %cond.true73
 
@@ -2244,7 +2213,7 @@ cond.false76:                                     ; preds = %if.then69
   br label %if.end83
 
 if.else:                                          ; preds = %cond.end67
-  %client81 = getelementptr inbounds %struct.alts_tsi_handshaker, ptr %handshaker, i64 0, i32 12
+  %client81 = getelementptr inbounds i8, ptr %handshaker, i64 112
   %30 = load ptr, ptr %client81, align 8
   %call82 = call noundef i32 @_Z27alts_handshaker_client_nextP22alts_handshaker_clientP10grpc_slice(ptr noundef %30, ptr noundef nonnull %slice)
   br label %if.end83
@@ -2261,7 +2230,7 @@ if.then.i:                                        ; preds = %if.end83
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %31, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %33(ptr noundef nonnull %31)
   br label %return
@@ -2290,10 +2259,10 @@ define internal void @_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lt
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %call = tail call noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv()
-  %cq = getelementptr inbounds %struct.alts_shared_resource_dedicated, ptr %call, i64 0, i32 1
+  %cq = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %cq, align 8
   store i64 0, ptr %agg.tmp, align 8, !alias.scope !8
-  %storage = getelementptr inbounds %struct.alts_shared_resource_dedicated, ptr %call, i64 0, i32 3
+  %storage = getelementptr inbounds i8, ptr %call, i64 48
   invoke void @_Z14grpc_cq_end_opP21grpc_completion_queuePvN4absl12lts_202308026StatusEPFvS1_P18grpc_cq_completionES1_S6_b(ptr noundef %1, ptr noundef %arg, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @"_ZZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusEEN3$_08__invokeES_P18grpc_cq_completion", ptr noundef null, ptr noundef nonnull %storage, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 

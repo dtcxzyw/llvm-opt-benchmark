@@ -80,10 +80,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.71 = type { %struct.EC_CURVE_DATA, [384 x i8] }
 %struct.anon.72 = type { %struct.EC_CURVE_DATA, [384 x i8] }
 %struct.anon.73 = type { %struct.EC_CURVE_DATA, [192 x i8] }
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.EC_builtin_curve = type { i32, ptr }
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/ec/ec_curve.c\00", align 1
 @__func__.EC_GROUP_new_by_curve_name_ex = private unnamed_addr constant [30 x i8] c"EC_GROUP_new_by_curve_name_ex\00", align 1
@@ -262,11 +259,11 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp7.i, label %if.then118.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %seed_len11.i = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %retval.0.i2.sroa.45.0.copyload, i64 0, i32 1
+  %seed_len11.i = getelementptr inbounds i8, ptr %retval.0.i2.sroa.45.0.copyload, i64 4
   %1 = load i32, ptr %seed_len11.i, align 4
-  %param_len12.i = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %retval.0.i2.sroa.45.0.copyload, i64 0, i32 2
+  %param_len12.i = getelementptr inbounds i8, ptr %retval.0.i2.sroa.45.0.copyload, i64 8
   %2 = load i32, ptr %param_len12.i, align 4
-  %add.ptr.i = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %retval.0.i2.sroa.45.0.copyload, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i2.sroa.45.0.copyload, i64 16
   %idx.ext.i = sext i32 %1 to i64
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
   %call16.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr13.i, i32 noundef %2, ptr noundef null) #6
@@ -300,7 +297,7 @@ if.then33.i:                                      ; preds = %if.end30.i
 
 lor.lhs.false38.i:                                ; preds = %if.then33.i
   %3 = load ptr, ptr %call36.i, align 8
-  %group_set_curve.i = getelementptr inbounds %struct.ec_method_st, ptr %3, i64 0, i32 6
+  %group_set_curve.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %group_set_curve.i, align 8
   %call40.i = tail call i32 %4(ptr noundef nonnull %call36.i, ptr noundef nonnull %call16.i, ptr noundef nonnull %call21.i, ptr noundef nonnull %call27.i, ptr noundef nonnull %call6.i) #6
   %tobool.not.i = icmp eq i32 %call40.i, 0
@@ -358,7 +355,7 @@ if.end76.i:                                       ; preds = %if.end72.i
   br i1 %cmp81.i, label %if.then118.i, label %lor.lhs.false82.i
 
 lor.lhs.false82.i:                                ; preds = %if.end76.i
-  %cofactor.i = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %retval.0.i2.sroa.45.0.copyload, i64 0, i32 3
+  %cofactor.i = getelementptr inbounds i8, ptr %retval.0.i2.sroa.45.0.copyload, i64 12
   %6 = load i32, ptr %cofactor.i, align 4
   %conv.i = zext i32 %6 to i64
   %call83.i = tail call i32 @BN_set_word(ptr noundef nonnull %call63.i, i64 noundef %conv.i) #6
@@ -488,9 +485,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load i32, ptr %arrayidx, align 16
   %arrayidx4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %r, i64 %i.011
   store i32 %0, ptr %arrayidx4, align 8
-  %comment = getelementptr inbounds [82 x %struct._ec_list_element_st], ptr @curve_list, i64 0, i64 %i.011, i32 3
+  %comment = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load ptr, ptr %comment, align 8
-  %comment8 = getelementptr inbounds %struct.EC_builtin_curve, ptr %r, i64 %i.011, i32 1
+  %comment8 = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   store ptr %1, ptr %comment8, align 8
   %inc = add nuw nsw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %inc, %cond
@@ -530,12 +527,12 @@ entry:
   %call3 = tail call ptr @EC_GROUP_get0_seed(ptr noundef %group) #6
   %call4 = tail call ptr @EC_GROUP_get0_cofactor(ptr noundef %group) #6
   tail call void @BN_CTX_start(ptr noundef %ctx) #6
-  %order = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 2
+  %order = getelementptr inbounds i8, ptr %group, i64 16
   %0 = load ptr, ptr %order, align 8
   %call5 = tail call i32 @BN_num_bits(ptr noundef %0) #6
   %add = add nsw i32 %call5, 7
   %div = sdiv i32 %add, 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %1 = load ptr, ptr %field, align 8
   %call6 = tail call i32 @BN_num_bits(ptr noundef %1) #6
   %add7 = add nsw i32 %call6, 7
@@ -562,9 +559,9 @@ for.body:                                         ; preds = %entry, %for.cond
 
 for.end:                                          ; preds = %for.cond
   %2 = load ptr, ptr %bn, align 16
-  %arrayidx22 = getelementptr inbounds [6 x ptr], ptr %bn, i64 0, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %bn, i64 8
   %3 = load ptr, ptr %arrayidx22, align 8
-  %arrayidx23 = getelementptr inbounds [6 x ptr], ptr %bn, i64 0, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %bn, i64 16
   %4 = load ptr, ptr %arrayidx23, align 16
   %call24 = tail call i32 @EC_GROUP_get_curve(ptr noundef %group, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %ctx) #6
   %tobool.not = icmp eq i32 %call24, 0
@@ -576,16 +573,16 @@ land.lhs.true:                                    ; preds = %for.end
   br i1 %cmp26.not, label %end, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true
-  %arrayidx29 = getelementptr inbounds [6 x ptr], ptr %bn, i64 0, i64 3
+  %arrayidx29 = getelementptr inbounds i8, ptr %bn, i64 24
   %5 = load ptr, ptr %arrayidx29, align 8
-  %arrayidx30 = getelementptr inbounds [6 x ptr], ptr %bn, i64 0, i64 4
+  %arrayidx30 = getelementptr inbounds i8, ptr %bn, i64 32
   %6 = load ptr, ptr %arrayidx30, align 16
   %call31 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef %group, ptr noundef nonnull %call25, ptr noundef %5, ptr noundef %6, ptr noundef %ctx) #6
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %end, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %land.lhs.true28
-  %arrayidx34 = getelementptr inbounds [6 x ptr], ptr %bn, i64 0, i64 5
+  %arrayidx34 = getelementptr inbounds i8, ptr %bn, i64 40
   %7 = load ptr, ptr %arrayidx34, align 8
   %call35 = tail call i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %7, ptr noundef %ctx) #6
   %tobool36.not = icmp eq i32 %call35, 0
@@ -611,8 +608,8 @@ for.body58.us:                                    ; preds = %for.cond55.preheade
   %curve.sroa.0.0.copyload.us = load i32, ptr %arrayidx59.us, align 16
   %curve.sroa.32.0.arrayidx59.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx59.us, i64 8
   %curve.sroa.32.0.copyload.us = load ptr, ptr %curve.sroa.32.0.arrayidx59.sroa_idx.us, align 8
-  %add.ptr.us = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload.us, i64 1
-  %seed_len61.us = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload.us, i64 0, i32 1
+  %add.ptr.us = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload.us, i64 16
+  %seed_len61.us = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload.us, i64 4
   %8 = load i32, ptr %seed_len61.us, align 4
   %idx.ext.us = sext i32 %8 to i64
   %add.ptr62.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 %idx.ext.us
@@ -621,7 +618,7 @@ for.body58.us:                                    ; preds = %for.cond55.preheade
   br i1 %cmp64.us, label %land.lhs.true66.us, label %for.inc110.us
 
 land.lhs.true66.us:                               ; preds = %for.body58.us
-  %param_len67.us = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload.us, i64 0, i32 2
+  %param_len67.us = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload.us, i64 8
   %10 = load i32, ptr %param_len67.us, align 4
   %cmp68.us = icmp eq i32 %spec.select, %10
   %cmp74.us = icmp eq i32 %call, %curve.sroa.0.0.copyload.us
@@ -635,7 +632,7 @@ land.lhs.true76.us:                               ; preds = %land.lhs.true66.us
   br i1 %tobool78.not.us, label %lor.lhs.false79.us, label %land.lhs.true85.us
 
 lor.lhs.false79.us:                               ; preds = %land.lhs.true76.us
-  %cofactor81.us = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload.us, i64 0, i32 3
+  %cofactor81.us = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload.us, i64 12
   %11 = load i32, ptr %cofactor81.us, align 4
   %conv82.us = zext i32 %11 to i64
   %call83.us = tail call i32 @BN_is_word(ptr noundef %call4, i64 noundef %conv82.us) #6
@@ -668,8 +665,8 @@ for.body58:                                       ; preds = %for.cond55.preheade
   %curve.sroa.0.0.copyload = load i32, ptr %arrayidx59, align 16
   %curve.sroa.32.0.arrayidx59.sroa_idx = getelementptr inbounds i8, ptr %arrayidx59, i64 8
   %curve.sroa.32.0.copyload = load ptr, ptr %curve.sroa.32.0.arrayidx59.sroa_idx, align 8
-  %add.ptr = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload, i64 1
-  %seed_len61 = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload, i64 0, i32 1
+  %add.ptr = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload, i64 16
+  %seed_len61 = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload, i64 4
   %13 = load i32, ptr %seed_len61, align 4
   %idx.ext = sext i32 %13 to i64
   %add.ptr62 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
@@ -678,7 +675,7 @@ for.body58:                                       ; preds = %for.cond55.preheade
   br i1 %cmp64, label %land.lhs.true66, label %for.inc110
 
 land.lhs.true66:                                  ; preds = %for.body58
-  %param_len67 = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload, i64 0, i32 2
+  %param_len67 = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload, i64 8
   %15 = load i32, ptr %param_len67, align 4
   %cmp68 = icmp eq i32 %spec.select, %15
   %cmp74 = icmp eq i32 %call, %curve.sroa.0.0.copyload
@@ -692,7 +689,7 @@ land.lhs.true76:                                  ; preds = %land.lhs.true66
   br i1 %tobool78.not, label %lor.lhs.false79, label %land.lhs.true85
 
 lor.lhs.false79:                                  ; preds = %land.lhs.true76
-  %cofactor81 = getelementptr inbounds %struct.EC_CURVE_DATA, ptr %curve.sroa.32.0.copyload, i64 0, i32 3
+  %cofactor81 = getelementptr inbounds i8, ptr %curve.sroa.32.0.copyload, i64 12
   %16 = load i32, ptr %cofactor81, align 4
   %conv82 = zext i32 %16 to i64
   %call83 = tail call i32 @BN_is_word(ptr noundef %call4, i64 noundef %conv82) #6

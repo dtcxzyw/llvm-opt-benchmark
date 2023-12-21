@@ -104,9 +104,9 @@ if.end.i28:                                       ; preds = %lor.lhs.false
 for.inc.i:                                        ; preds = %if.end.i28, %for.inc.i
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end.i28 ]
   %f.08.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @functions, %if.end.i28 ]
-  %incdec.ptr.i = getelementptr inbounds %struct.function_st, ptr %f.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %f.08.i, i64 48
   %inc.i = add i64 %i.09.i, 1
-  %name.i = getelementptr inbounds %struct.function_st, ptr %f.08.i, i64 1, i32 1
+  %name.i = getelementptr inbounds i8, ptr %f.08.i, i64 56
   %1 = load ptr, ptr %name.i, align 8
   %cmp.not.i29 = icmp eq ptr %1, null
   br i1 %cmp.not.i29, label %for.end.i, label %for.inc.i, !llvm.loop !5
@@ -128,8 +128,8 @@ for.body7.i:                                      ; preds = %for.cond4.preheader
   %f.111.i = phi ptr [ %incdec.ptr10.i, %for.body7.i ], [ @functions, %for.cond4.preheader.i ]
   %3 = load ptr, ptr @prog_init.ret, align 8
   %call.i6.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %f.111.i) #10
-  %incdec.ptr10.i = getelementptr inbounds %struct.function_st, ptr %f.111.i, i64 1
-  %name5.i = getelementptr inbounds %struct.function_st, ptr %f.111.i, i64 1, i32 1
+  %incdec.ptr10.i = getelementptr inbounds i8, ptr %f.111.i, i64 48
+  %name5.i = getelementptr inbounds i8, ptr %f.111.i, i64 56
   %4 = load ptr, ptr %name5.i, align 8
   %cmp6.not.i = icmp eq ptr %4, null
   br i1 %cmp6.not.i, label %prog_init.exit, label %for.body7.i, !llvm.loop !7
@@ -162,7 +162,7 @@ if.then11:                                        ; preds = %if.end
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end
-  %name = getelementptr inbounds %struct.function_st, ptr %f, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %f, i64 8
   store ptr %call8, ptr %name, align 8
   %call.i31 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %retval.0.i3041, ptr noundef nonnull %f) #10
   %cmp14 = icmp eq ptr %call.i31, null
@@ -173,7 +173,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %cmp16, label %land.rhs, label %land.end49
 
 land.rhs:                                         ; preds = %if.then15
-  %arrayidx17 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %argv, i64 8
   %9 = load ptr, ptr %arrayidx17, align 8
   %call18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.4) #11
   %cmp19 = icmp eq i32 %call18, 0
@@ -226,7 +226,7 @@ land.end49:                                       ; preds = %if.then15, %lor.rhs
   %10 = phi i1 [ %.ph, %lor.rhs44 ], [ false, %if.then15 ]
   %11 = phi i1 [ %cmp47, %lor.rhs44 ], [ false, %if.then15 ]
   %dec = add nsw i32 %argc, -1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   %cmp51 = icmp eq i32 %dec, 1
   %or.cond = select i1 %cmp51, i1 true, i1 %10
   %brmerge = select i1 %or.cond, i1 true, i1 %11
@@ -318,7 +318,7 @@ declare ptr @opt_appname(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @do_cmd(ptr noundef %prog, i32 noundef %argc, ptr noundef %argv) unnamed_addr #3 {
 entry:
   %f = alloca %struct.function_st, align 8
-  %f.sroa.gep20 = getelementptr inbounds %struct.function_st, ptr %f, i64 0, i32 4
+  %f.sroa.gep20 = getelementptr inbounds i8, ptr %f, i64 32
   %cmp = icmp slt i32 %argc, 1
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -329,10 +329,10 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %f, i8 0, i64 48, i1 false)
-  %name = getelementptr inbounds %struct.function_st, ptr %f, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %f, i64 8
   store ptr %0, ptr %name, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %prog, ptr noundef nonnull %f) #10
-  %call.i.sroa.gep = getelementptr inbounds %struct.function_st, ptr %call.i, i64 0, i32 4
+  %call.i.sroa.gep = getelementptr inbounds i8, ptr %call.i, i64 32
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %if.then4, label %if.then18
 
@@ -352,7 +352,7 @@ if.then18.sink.split:                             ; preds = %if.else, %if.then4
   %storemerge = phi i32 [ 2, %if.then4 ], [ 3, %if.else ]
   %dgst_main.sink = phi ptr [ @dgst_main, %if.then4 ], [ @enc_main, %if.else ]
   store i32 %storemerge, ptr %f, align 8
-  %func = getelementptr inbounds %struct.function_st, ptr %f, i64 0, i32 2
+  %func = getelementptr inbounds i8, ptr %f, i64 16
   store ptr %dgst_main.sink, ptr %func, align 8
   br label %if.then18
 
@@ -364,11 +364,11 @@ if.then18:                                        ; preds = %if.then18.sink.spli
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  %deprecated_version.i = getelementptr inbounds %struct.function_st, ptr %fp.0.ph, i64 0, i32 5
+  %deprecated_version.i = getelementptr inbounds i8, ptr %fp.0.ph, i64 40
   %4 = load ptr, ptr %deprecated_version.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   %5 = load ptr, ptr @bio_err, align 8
-  %name2.i = getelementptr inbounds %struct.function_st, ptr %fp.0.ph, i64 0, i32 1
+  %name2.i = getelementptr inbounds i8, ptr %fp.0.ph, i64 8
   %6 = load ptr, ptr %name2.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -397,7 +397,7 @@ warn_deprecated.exit:                             ; preds = %if.end.i, %if.then6
   br label %if.end21
 
 if.end21:                                         ; preds = %warn_deprecated.exit, %if.then18
-  %func22 = getelementptr inbounds %struct.function_st, ptr %fp.0.ph, i64 0, i32 2
+  %func22 = getelementptr inbounds i8, ptr %fp.0.ph, i64 16
   %10 = load ptr, ptr %func22, align 8
   %call23 = call i32 %10(i32 noundef %argc, ptr noundef nonnull %argv) #10
   br label %return
@@ -500,9 +500,9 @@ if.then:                                          ; preds = %while.end
   %call6 = tail call ptr @opt_rest() #10
   %1 = load ptr, ptr %call6, align 8
   store ptr %1, ptr %new_argv, align 16
-  %arrayidx8 = getelementptr inbounds [3 x ptr], ptr %new_argv, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %new_argv, i64 8
   store ptr @.str.5, ptr %arrayidx8, align 8
-  %arrayidx9 = getelementptr inbounds [3 x ptr], ptr %new_argv, i64 0, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %new_argv, i64 16
   store ptr null, ptr %arrayidx9, align 16
   %.b.i = load i1, ptr @prog_init.prog_inited, align 4
   br i1 %.b.i, label %if.then.i, label %if.end.i
@@ -520,9 +520,9 @@ if.end.i:                                         ; preds = %if.then
 for.inc.i:                                        ; preds = %if.end.i, %for.inc.i
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end.i ]
   %f.08.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @functions, %if.end.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.function_st, ptr %f.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %f.08.i, i64 48
   %inc.i = add i64 %i.09.i, 1
-  %name.i = getelementptr inbounds %struct.function_st, ptr %f.08.i, i64 1, i32 1
+  %name.i = getelementptr inbounds i8, ptr %f.08.i, i64 56
   %4 = load ptr, ptr %name.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %for.end.i, label %for.inc.i, !llvm.loop !5
@@ -544,8 +544,8 @@ for.body7.i:                                      ; preds = %for.cond4.preheader
   %f.111.i = phi ptr [ %incdec.ptr10.i, %for.body7.i ], [ @functions, %for.cond4.preheader.i ]
   %6 = load ptr, ptr @prog_init.ret, align 8
   %call.i6.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %6, ptr noundef nonnull %f.111.i) #10
-  %incdec.ptr10.i = getelementptr inbounds %struct.function_st, ptr %f.111.i, i64 1
-  %name5.i = getelementptr inbounds %struct.function_st, ptr %f.111.i, i64 1, i32 1
+  %incdec.ptr10.i = getelementptr inbounds i8, ptr %f.111.i, i64 48
+  %name5.i = getelementptr inbounds i8, ptr %f.111.i, i64 56
   %7 = load ptr, ptr %name5.i, align 8
   %cmp6.not.i = icmp eq ptr %7, null
   br i1 %cmp6.not.i, label %for.end11.loopexit.i, label %for.body7.i, !llvm.loop !7
@@ -578,7 +578,7 @@ if.end15:                                         ; preds = %if.end
   br i1 %cmp17.not10, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end15
-  %width = getelementptr inbounds %struct.DISPLAY_COLUMNS, ptr %dc, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %dc, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
@@ -632,8 +632,8 @@ if.end37:                                         ; preds = %if.end37.sink.split
   %19 = load i32, ptr %width, align 4
   %20 = load ptr, ptr %name14, align 8
   %call39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.27, i32 noundef %19, ptr noundef %20) #10
-  %incdec.ptr = getelementptr inbounds %struct.function_st, ptr %fp.013, i64 1
-  %name = getelementptr inbounds %struct.function_st, ptr %fp.013, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fp.013, i64 48
+  %name = getelementptr inbounds i8, ptr %fp.013, i64 56
   %21 = load ptr, ptr %name, align 8
   %cmp17.not = icmp eq ptr %21, null
   br i1 %cmp17.not, label %for.end, label %for.body, !llvm.loop !8
@@ -720,9 +720,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.function_st, ptr %_f1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %_f1, i64 8
   %2 = load ptr, ptr %name, align 8
-  %name4 = getelementptr inbounds %struct.function_st, ptr %_f2, i64 0, i32 1
+  %name4 = getelementptr inbounds i8, ptr %_f2, i64 8
   %3 = load ptr, ptr %name4, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #11
   br label %return
@@ -735,7 +735,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i64 @function_hash(ptr nocapture noundef readonly %a) #3 {
 entry:
-  %name = getelementptr inbounds %struct.function_st, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
   %call = tail call i64 @OPENSSL_LH_strhash(ptr noundef %0) #10
   ret i64 %call
@@ -744,9 +744,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @function_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
 entry:
-  %name = getelementptr inbounds %struct.function_st, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
-  %name1 = getelementptr inbounds %struct.function_st, ptr %b, i64 0, i32 1
+  %name1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load ptr, ptr %name1, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 8) #11
   ret i32 %call

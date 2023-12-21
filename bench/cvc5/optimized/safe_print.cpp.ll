@@ -3,8 +3,6 @@ source_filename = "bench/cvc5/original/safe_print.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.timespec = type { i64, i64 }
-
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c".\00", align 1
@@ -463,7 +461,7 @@ if.then.i5:                                       ; preds = %_ZN4cvc58internal10
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %t, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %tv_nsec, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf.i6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %buf.i6, i8 48, i64 9, i1 false)

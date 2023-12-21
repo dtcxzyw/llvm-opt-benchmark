@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/sslapitest-bin-ssltestlib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mempacket_st = type { ptr, i32, i32, i32 }
-%struct.mempacket_test_ctx_st = type { ptr, i16, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.fd_set = type { [16 x i64] }
 %struct.timeval = type { i64, i64 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
@@ -571,9 +569,9 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %num = getelementptr inbounds %struct.mempacket_st, ptr %call.i, i64 0, i32 2
+  %num = getelementptr inbounds i8, ptr %call.i, i64 12
   %1 = load i32, ptr %num, align 4
-  %currpkt = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 3
+  %currpkt = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load i32, ptr %currpkt, align 8
   %cmp2.not = icmp eq i32 %1, %2
   br i1 %cmp2.not, label %if.end, label %if.then
@@ -588,22 +586,22 @@ if.end:                                           ; preds = %lor.lhs.false
   %4 = load i32, ptr %currpkt, align 8
   %inc = add i32 %4, 1
   store i32 %inc, ptr %currpkt, align 8
-  %len6 = getelementptr inbounds %struct.mempacket_st, ptr %call.i, i64 0, i32 1
+  %len6 = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load i32, ptr %len6, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %5, i32 %outl)
-  %type = getelementptr inbounds %struct.mempacket_st, ptr %call.i, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load i32, ptr %type, align 8
   %cmp11.not = icmp eq i32 %6, 2
   br i1 %cmp11.not, label %if.end72, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %injected = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 5
+  %injected = getelementptr inbounds i8, ptr %call, i64 24
   %7 = load i32, ptr %injected, align 8
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %lor.lhs.false12, label %if.then14
 
 lor.lhs.false12:                                  ; preds = %land.lhs.true
-  %droprec = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 8
+  %droprec = getelementptr inbounds i8, ptr %call, i64 36
   %8 = load i32, ptr %droprec, align 4
   %cmp13 = icmp sgt i32 %8, -1
   %cmp1654 = icmp sgt i32 %5, 0
@@ -616,10 +614,10 @@ if.then14:                                        ; preds = %land.lhs.true
 
 for.body.lr.ph:                                   ; preds = %lor.lhs.false12, %if.then14
   %9 = load ptr, ptr %call.i, align 8
-  %epoch22 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 1
-  %currrec = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 2
-  %droprec46 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 8
-  %dropepoch = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 7
+  %epoch22 = getelementptr inbounds i8, ptr %call, i64 8
+  %currrec = getelementptr inbounds i8, ptr %call, i64 12
+  %droprec46 = getelementptr inbounds i8, ptr %call, i64 36
+  %dropepoch = getelementptr inbounds i8, ptr %call, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end68
@@ -808,7 +806,7 @@ sw.bb9:                                           ; preds = %entry
   br i1 %cmp12, label %sw.epilog, label %if.else
 
 if.else:                                          ; preds = %sw.bb9
-  %len = getelementptr inbounds %struct.mempacket_st, ptr %call.i12, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %call.i12, i64 8
   %2 = load i32, ptr %len, align 8
   %conv14 = sext i32 %2 to i64
   br label %sw.epilog
@@ -818,25 +816,25 @@ sw.bb15:                                          ; preds = %entry
 
 sw.bb16:                                          ; preds = %entry
   %conv17 = trunc i64 %num to i32
-  %dropepoch = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 7
+  %dropepoch = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %conv17, ptr %dropepoch, align 8
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
   %conv19 = trunc i64 %num to i32
-  %droprec = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 8
+  %droprec = getelementptr inbounds i8, ptr %call, i64 36
   store i32 %conv19, ptr %droprec, align 4
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
-  %droprec21 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 8
+  %droprec21 = getelementptr inbounds i8, ptr %call, i64 36
   %3 = load i32, ptr %droprec21, align 4
   %conv22 = sext i32 %3 to i64
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
   %conv24 = trunc i64 %num to i32
-  %duprec = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 9
+  %duprec = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %conv24, ptr %duprec, align 8
   br label %sw.epilog
 
@@ -865,9 +863,9 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %dropepoch = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 7
+  %dropepoch = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %dropepoch, align 8
-  %droprec = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 8
+  %droprec = getelementptr inbounds i8, ptr %call, i64 36
   store i32 -1, ptr %droprec, align 4
   tail call void @BIO_set_init(ptr noundef %bio, i32 noundef 1) #13
   tail call void @BIO_set_data(ptr noundef %bio, ptr noundef nonnull %call) #13
@@ -915,14 +913,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %len7 = getelementptr inbounds %struct.mempacket_st, ptr %call.i39, i64 0, i32 1
+  %len7 = getelementptr inbounds i8, ptr %call.i39, i64 8
   %2 = load i32, ptr %len7, align 8
   %cmp945 = icmp slt i32 %2, 13
   br i1 %cmp945, label %return, label %if.end11.lr.ph
 
 if.end11.lr.ph:                                   ; preds = %if.end6
   %3 = load ptr, ptr %call.i39, align 8
-  %epoch24 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 1
+  %epoch24 = getelementptr inbounds i8, ptr %call, i64 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.lr.ph, %if.end58
@@ -973,7 +971,7 @@ if.end38:                                         ; preds = %if.end32
   %9 = load i32, ptr %len7, align 8
   %sub42 = sub nsw i32 %9, %prevlen.046
   store i32 %sub42, ptr %len7, align 8
-  %num = getelementptr inbounds %struct.mempacket_st, ptr %call.i39, i64 0, i32 2
+  %num = getelementptr inbounds i8, ptr %call.i39, i64 12
   %10 = load i32, ptr %num, align 4
   %call43 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.1, i32 noundef 469) #13
   %cmp44 = icmp eq ptr %call43, null
@@ -984,13 +982,13 @@ if.then46:                                        ; preds = %if.end38
   br label %return
 
 if.end47:                                         ; preds = %if.end38
-  %type = getelementptr inbounds %struct.mempacket_st, ptr %call43, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %call43, i64 16
   store i32 1, ptr %type, align 8
   store ptr %call34, ptr %call43, align 8
-  %len49 = getelementptr inbounds %struct.mempacket_st, ptr %call43, i64 0, i32 1
+  %len49 = getelementptr inbounds i8, ptr %call43, i64 8
   store i32 %prevlen.046, ptr %len49, align 8
   %add50 = add nsw i32 %10, 1
-  %num51 = getelementptr inbounds %struct.mempacket_st, ptr %call43, i64 0, i32 2
+  %num51 = getelementptr inbounds i8, ptr %call43, i64 12
   store i32 %add50, ptr %num51, align 4
   %11 = load ptr, ptr %call, align 8
   %call.i40 = tail call i32 @OPENSSL_sk_insert(ptr noundef %11, ptr noundef nonnull %call43, i32 noundef %call.i) #13
@@ -1051,7 +1049,7 @@ if.end9:                                          ; preds = %if.end4
 
 if.end14:                                         ; preds = %if.end9
   %sub.neg = sub i32 %d, %s
-  %num = getelementptr inbounds %struct.mempacket_st, ptr %call.i19, i64 0, i32 2
+  %num = getelementptr inbounds i8, ptr %call.i19, i64 12
   %3 = load i32, ptr %num, align 4
   %sub15 = add i32 %sub.neg, %3
   store i32 %sub15, ptr %num, align 4
@@ -1065,7 +1063,7 @@ for.body:                                         ; preds = %if.end14, %for.body
   %i.0 = add nsw i32 %i.0.in24, 1
   %5 = load ptr, ptr %call, align 8
   %call.i22 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %i.0) #13
-  %num24 = getelementptr inbounds %struct.mempacket_st, ptr %call.i22, i64 0, i32 2
+  %num24 = getelementptr inbounds i8, ptr %call.i22, i64 12
   %6 = load i32, ptr %num24, align 4
   %inc = add i32 %6, 1
   store i32 %inc, ptr %num24, align 4
@@ -1104,7 +1102,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp11, label %if.end21, label %if.end17
 
 if.end17:                                         ; preds = %if.end9
-  %duprec14 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 9
+  %duprec14 = getelementptr inbounds i8, ptr %call, i64 40
   %2 = load i32, ptr %duprec14, align 8
   %cmp15 = icmp sgt i32 %2, 0
   %cmp18 = icmp ne i32 %pktnum, -1
@@ -1114,7 +1112,7 @@ if.end17:                                         ; preds = %if.end9
 if.end21:                                         ; preds = %if.end9, %if.end17
   %duprec.082 = phi i1 [ %cmp15, %if.end17 ], [ false, %if.end9 ]
   %cmp22 = icmp sgt i32 %pktnum, -1
-  %noinject = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 6
+  %noinject = getelementptr inbounds i8, ptr %call, i64 28
   br i1 %cmp22, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.end21
@@ -1123,7 +1121,7 @@ if.then24:                                        ; preds = %if.end21
   br i1 %tobool25.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then24
-  %injected = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 5
+  %injected = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %injected, align 8
   br label %if.end30
 
@@ -1135,19 +1133,19 @@ if.end30:                                         ; preds = %if.else28, %if.end2
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %add
   %sub = sub nsw i64 %conv5, %add
   %conv57 = trunc i64 %sub to i32
-  %lastpkt = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 4
+  %lastpkt = getelementptr inbounds i8, ptr %call, i64 20
   %wide.trip.count = select i1 %duprec.082, i64 3, i64 1
   br label %for.body
 
 for.cond69.preheader:                             ; preds = %cond.end
-  %num.le = getelementptr inbounds %struct.mempacket_st, ptr %call34, i64 0, i32 2
+  %num.le = getelementptr inbounds i8, ptr %call34, i64 12
   %4 = load ptr, ptr %call, align 8
   %call.i92 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #13
   %cmp7193 = icmp sgt i32 %call.i92, 0
   br i1 %cmp7193, label %for.body73.lr.ph, label %for.cond131.preheader
 
 for.body73.lr.ph:                                 ; preds = %for.cond69.preheader
-  %noinject118 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 6
+  %noinject118 = getelementptr inbounds i8, ptr %call, i64 28
   br label %for.body73
 
 for.body:                                         ; preds = %if.end30, %cond.end
@@ -1182,7 +1180,7 @@ if.else59:                                        ; preds = %if.end47
 
 if.end63:                                         ; preds = %if.else59, %if.then52
   %inl.sink = phi i32 [ %conv57, %if.then52 ], [ %inl, %if.else59 ]
-  %6 = getelementptr inbounds %struct.mempacket_st, ptr %call34, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %call34, i64 8
   store i32 %inl.sink, ptr %6, align 8
   br i1 %cmp22, label %cond.end, label %cond.false
 
@@ -1194,9 +1192,9 @@ cond.false:                                       ; preds = %if.end63
 
 cond.end:                                         ; preds = %if.end63, %cond.false
   %cond67 = phi i32 [ %add66, %cond.false ], [ %pktnum, %if.end63 ]
-  %num = getelementptr inbounds %struct.mempacket_st, ptr %call34, i64 0, i32 2
+  %num = getelementptr inbounds i8, ptr %call34, i64 12
   store i32 %cond67, ptr %num, align 4
-  %type68 = getelementptr inbounds %struct.mempacket_st, ptr %call34, i64 0, i32 3
+  %type68 = getelementptr inbounds i8, ptr %call34, i64 16
   store i32 %type, ptr %type68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1232,7 +1230,7 @@ for.body73:                                       ; preds = %for.body73.lr.ph, %
   br i1 %tobool77.not, label %err, label %if.end79
 
 if.end79:                                         ; preds = %for.body73
-  %num80 = getelementptr inbounds %struct.mempacket_st, ptr %call.i75, i64 0, i32 2
+  %num80 = getelementptr inbounds i8, ptr %call.i75, i64 12
   %13 = load i32, ptr %num80, align 4
   %14 = load i32, ptr %num.le, align 4
   %cmp82 = icmp ugt i32 %13, %14
@@ -1263,7 +1261,7 @@ do.body:                                          ; preds = %land.lhs.true102, %
   br i1 %cmp100.not, label %return, label %land.lhs.true102
 
 land.lhs.true102:                                 ; preds = %do.body
-  %num103 = getelementptr inbounds %struct.mempacket_st, ptr %call.i77, i64 0, i32 2
+  %num103 = getelementptr inbounds i8, ptr %call.i77, i64 12
   %18 = load i32, ptr %num103, align 4
   %19 = load i32, ptr %lastpkt, align 4
   %cmp105 = icmp eq i32 %18, %19
@@ -1308,7 +1306,7 @@ if.end143:                                        ; preds = %for.body136
   br i1 %exitcond114.not, label %return, label %for.body136, !llvm.loop !13
 
 err:                                              ; preds = %if.end39, %for.body, %if.then117, %for.body73, %for.body136, %for.body136.us, %if.then84
-  %duprec154 = getelementptr inbounds %struct.mempacket_test_ctx_st, ptr %call, i64 0, i32 9
+  %duprec154 = getelementptr inbounds i8, ptr %call, i64 40
   br label %for.body160
 
 for.body160:                                      ; preds = %err, %mempacket_free.exit
@@ -1883,7 +1881,7 @@ entry:
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx4, align 8
   store i64 10, ptr %timeout, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %timeout, i64 8
   store i64 0, ptr %tv_usec, align 8
   %call = call i32 @select(i32 noundef %add, ptr noundef nonnull %readfds, ptr noundef null, ptr noundef null, ptr noundef nonnull %timeout) #13
   %1 = load i64, ptr %arrayidx4, align 8
@@ -1904,7 +1902,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin, i8 0, i64 16, i1 false)
   store i16 2, ptr %sin, align 4
   %call = tail call i32 @inet_addr(ptr noundef nonnull @.str.40) #13
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %sin, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %sin, i64 4
   store i32 %call, ptr %sin_addr, align 4
   %cmp = icmp eq i32 %socktype, 1
   %cond = select i1 %cmp, i32 6, i32 17
@@ -1929,7 +1927,7 @@ if.end10:                                         ; preds = %if.end6
 land.lhs.true:                                    ; preds = %if.end10
   %0 = load i16, ptr %sin, align 4
   %conv = zext i16 %0 to i32
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %sin, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %sin, i64 2
   %1 = load i16, ptr %sin_port, align 2
   %call14 = call i32 @BIO_ADDR_rawmake(ptr noundef nonnull %saddr, i32 noundef %conv, ptr noundef nonnull %sin_addr, i64 noundef 4, i16 noundef zeroext %1) #13
   %tobool.not = icmp eq i32 %call14, 0
@@ -2156,14 +2154,14 @@ lor.lhs.false47:                                  ; preds = %lor.lhs.false44
   br i1 %tobool50.not, label %error, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false47
-  %value = getelementptr inbounds %struct.bio_poll_descriptor_st, ptr %rdesc, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %rdesc, i64 8
   %5 = load i32, ptr %value, align 8
   %call52 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1110, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %5, i32 noundef %cfd) #13
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %error, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %lor.lhs.false51
-  %value55 = getelementptr inbounds %struct.bio_poll_descriptor_st, ptr %wdesc, i64 0, i32 1
+  %value55 = getelementptr inbounds i8, ptr %wdesc, i64 8
   %6 = load i32, ptr %value55, align 8
   %call56 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.52, i32 noundef %6, i32 noundef %cfd) #13
   %tobool57.not = icmp eq i32 %call56, 0

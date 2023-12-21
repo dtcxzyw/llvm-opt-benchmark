@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_aes_ocb_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, %union.anon.1, %struct.ocb128_context, i32, i8, i64, i64, i64, [16 x i8], [16 x i8], [16 x i8] }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [240 x i8] }
-%union.anon.1 = type { double, [240 x i8] }
-%struct.ocb128_context = type { ptr, ptr, ptr, ptr, ptr, i64, i64, %union.OCB_BLOCK, %union.OCB_BLOCK, ptr, %struct.anon }
-%union.OCB_BLOCK = type { [2 x i64] }
-%struct.anon = type { i64, i64, %union.OCB_BLOCK, %union.OCB_BLOCK, %union.OCB_BLOCK, %union.OCB_BLOCK }
 
 @OPENSSL_ia32cap_P = external local_unnamed_addr global [0 x i32], align 4
 @aesni_ocb = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_aes_ocb_aesni_initkey, ptr null, ptr null }, align 8
@@ -30,15 +22,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_aes_ocb_aesni_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ocb = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 3
+  %ocb = getelementptr inbounds i8, ptr %vctx, i64 688
   tail call void @CRYPTO_ocb128_cleanup(ptr noundef nonnull %ocb) #3
   %keylen.tr = trunc i64 %keylen to i32
   %conv = shl i32 %keylen.tr, 3
-  %ksenc = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 1
+  %ksenc = getelementptr inbounds i8, ptr %vctx, i64 192
   %call = tail call i32 @aesni_set_encrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ksenc) #3
-  %ksdec = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 2
+  %ksdec = getelementptr inbounds i8, ptr %vctx, i64 440
   %call3 = tail call i32 @aesni_set_decrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ksdec) #3
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
@@ -48,7 +40,7 @@ entry:
   br i1 %tobool8.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key_set = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 5
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 868
   %bf.load9 = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load9, 1
   store i8 %bf.set, ptr %key_set, align 4
@@ -81,12 +73,12 @@ entry:
   %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
-  %ocb13 = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 3
+  %ocb13 = getelementptr inbounds i8, ptr %vctx, i64 688
   tail call void @CRYPTO_ocb128_cleanup(ptr noundef nonnull %ocb13) #3
   %keylen.tr = trunc i64 %keylen to i32
   %conv15 = shl i32 %keylen.tr, 3
-  %ksenc16 = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 1
-  %ksdec20 = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 2
+  %ksenc16 = getelementptr inbounds i8, ptr %vctx, i64 192
+  %ksdec20 = getelementptr inbounds i8, ptr %vctx, i64 440
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -104,7 +96,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool34.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %if.then
-  %key_set37 = getelementptr inbounds %struct.prov_aes_ocb_ctx_st, ptr %vctx, i64 0, i32 5
+  %key_set37 = getelementptr inbounds i8, ptr %vctx, i64 868
   %bf.load11 = load i8, ptr %key_set37, align 4
   %bf.set = or i8 %bf.load11, 1
   store i8 %bf.set, ptr %key_set37, align 4

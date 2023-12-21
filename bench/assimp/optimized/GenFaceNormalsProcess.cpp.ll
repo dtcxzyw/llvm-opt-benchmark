@@ -3,10 +3,6 @@ source_filename = "bench/assimp/original/GenFaceNormalsProcess.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::GenFaceNormalsProcess" = type <{ %"class.Assimp::BaseProcess", i8, i8, i8, [5 x i8] }>
-%"class.Assimp::BaseProcess" = type { ptr, ptr, ptr }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -19,10 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%class.aiVector3t = type { float, float, float }
 %struct.aiFace = type { i32, ptr }
+%class.aiVector3t = type { float, float, float }
 
 $_ZN17DeadlyImportErrorC2EPKc = comdat any
 
@@ -66,17 +60,17 @@ $_ZTV17DeadlyImportError = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp21GenFaceNormalsProcess8IsActiveEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(27) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
-  %force_ = getelementptr inbounds %"class.Assimp::GenFaceNormalsProcess", ptr %this, i64 0, i32 1
+  %force_ = getelementptr inbounds i8, ptr %this, i64 24
   %and = lshr i32 %pFlags, 29
   %0 = trunc i32 %and to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %force_, align 8
-  %flippedWindingOrder_ = getelementptr inbounds %"class.Assimp::GenFaceNormalsProcess", ptr %this, i64 0, i32 2
+  %flippedWindingOrder_ = getelementptr inbounds i8, ptr %this, i64 25
   %and2 = lshr i32 %pFlags, 24
   %1 = trunc i32 %and2 to i8
   %frombool4 = and i8 %1, 1
   store i8 %frombool4, ptr %flippedWindingOrder_, align 1
-  %leftHanded_ = getelementptr inbounds %"class.Assimp::GenFaceNormalsProcess", ptr %this, i64 0, i32 3
+  %leftHanded_ = getelementptr inbounds i8, ptr %this, i64 26
   %2 = trunc i32 %pFlags to i8
   %3 = lshr i8 %2, 2
   %frombool7 = and i8 %3, 1
@@ -97,13 +91,13 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 2
+  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %1 = load i32, ptr %mNumMeshes, align 8
   %cmp5.not = icmp eq i32 %1, 0
   br i1 %cmp5.not, label %if.else, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -198,13 +192,13 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6Assimp21GenFaceNormalsProcess18GenMeshFaceNormalsEP6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this, ptr nocapture noundef %pMesh) local_unnamed_addr #4 align 2 {
 entry:
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 4
+  %mNormals = getelementptr inbounds i8, ptr %pMesh, i64 24
   %0 = load ptr, ptr %mNormals, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %force_ = getelementptr inbounds %"class.Assimp::GenFaceNormalsProcess", ptr %this, i64 0, i32 1
+  %force_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %force_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -226,7 +220,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %pMesh, i64 4
   %4 = load i32, ptr %mNumVertices, align 4
   %conv = zext i32 %4 to i64
   %5 = mul nuw nsw i64 %conv, 12
@@ -244,16 +238,16 @@ new.ctorloop:                                     ; preds = %if.end7
 
 arrayctor.cont:                                   ; preds = %new.ctorloop, %if.end7
   store ptr %call8, ptr %mNormals, align 8
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 2
+  %mNumFaces = getelementptr inbounds i8, ptr %pMesh, i64 8
   %10 = load i32, ptr %mNumFaces, align 8
   %cmp1159.not = icmp eq i32 %10, 0
   br i1 %cmp1159.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %arrayctor.cont
-  %mFaces = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 10
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 3
-  %flippedWindingOrder_ = getelementptr inbounds %"class.Assimp::GenFaceNormalsProcess", ptr %this, i64 0, i32 2
-  %leftHanded_ = getelementptr inbounds %"class.Assimp::GenFaceNormalsProcess", ptr %this, i64 0, i32 3
+  %mFaces = getelementptr inbounds i8, ptr %pMesh, i64 208
+  %mVertices = getelementptr inbounds i8, ptr %pMesh, i64 16
+  %flippedWindingOrder_ = getelementptr inbounds i8, ptr %this, i64 25
+  %leftHanded_ = getelementptr inbounds i8, ptr %this, i64 26
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc70
@@ -269,7 +263,7 @@ for.cond14.preheader:                             ; preds = %for.body
   br i1 %cmp1657.not, label %for.inc70, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %for.cond14.preheader
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %11, i64 %indvars.iv66, i32 1
+  %mIndices = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
@@ -291,12 +285,12 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 
 if.end23:                                         ; preds = %for.body
   %18 = load ptr, ptr %mVertices, align 8
-  %mIndices24 = getelementptr inbounds %struct.aiFace, ptr %11, i64 %indvars.iv66, i32 1
+  %mIndices24 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %19 = load ptr, ptr %mIndices24, align 8
   %20 = load i32, ptr %19, align 4
   %idxprom26 = zext i32 %20 to i64
   %arrayidx27 = getelementptr inbounds %class.aiVector3t, ptr %18, i64 %idxprom26
-  %arrayidx30 = getelementptr inbounds i32, ptr %19, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %arrayidx30, align 4
   %idxprom31 = zext i32 %21 to i64
   %arrayidx32 = getelementptr inbounds %class.aiVector3t, ptr %18, i64 %idxprom31
@@ -316,12 +310,12 @@ if.end23:                                         ; preds = %for.body
   %27 = load float, ptr %spec.select53, align 4
   %28 = load float, ptr %arrayidx27, align 4
   %sub.i = fsub float %27, %28
-  %y.i29 = getelementptr inbounds %class.aiVector3t, ptr %spec.select53, i64 0, i32 1
-  %y2.i = getelementptr inbounds %class.aiVector3t, ptr %18, i64 %idxprom26, i32 1
+  %y.i29 = getelementptr inbounds i8, ptr %spec.select53, i64 4
+  %y2.i = getelementptr inbounds i8, ptr %arrayidx27, i64 4
   %29 = load float, ptr %spec.select, align 4
-  %y.i32 = getelementptr inbounds %class.aiVector3t, ptr %spec.select, i64 0, i32 1
+  %y.i32 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %30 = load float, ptr %y.i32, align 4
-  %z.i35 = getelementptr inbounds %class.aiVector3t, ptr %spec.select, i64 0, i32 2
+  %z.i35 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %31 = load float, ptr %z.i35, align 4
   %32 = load <2 x float>, ptr %y.i29, align 4
   %33 = load <2 x float>, ptr %y2.i, align 4

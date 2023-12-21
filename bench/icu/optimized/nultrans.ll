@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%struct.UTransPosition = type { i32, i32, i32, i32 }
 
 @_ZZN6icu_7518NullTransliterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @.str = private unnamed_addr constant [9 x i16] [i16 65, i16 110, i16 121, i16 45, i16 78, i16 117, i16 108, i16 108, i16 0], align 2
@@ -129,9 +128,9 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_7518NullTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 4 dereferenceable(16) %offsets, i8 signext %1) unnamed_addr #5 align 2 {
 entry:
-  %limit = getelementptr inbounds %struct.UTransPosition, ptr %offsets, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %offsets, i64 12
   %2 = load i32, ptr %limit, align 4
-  %start = getelementptr inbounds %struct.UTransPosition, ptr %offsets, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %offsets, i64 8
   store i32 %2, ptr %start, align 4
   ret void
 }

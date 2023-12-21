@@ -3,17 +3,15 @@ source_filename = "bench/coremark/original/core_matrix.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MAT_PARAMS_S = type { i32, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @core_bench_matrix(ptr nocapture noundef readonly %p, i16 noundef signext %seed, i16 noundef zeroext %crc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 8
-  %C2 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 3
+  %C2 = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load ptr, ptr %C2, align 8
-  %A3 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 1
+  %A3 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load ptr, ptr %A3, align 8
-  %B4 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 2
+  %B4 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %B4, align 8
   %call = tail call signext i16 @matrix_test(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef signext %seed)
   %call5 = tail call zeroext i16 @crc16(i16 noundef signext %call, i16 noundef zeroext %crc) #6
@@ -715,7 +713,7 @@ while.end.thread:                                 ; preds = %entry
   %add49 = add i64 %0, 3
   %conv50 = and i64 %add49, 4294967292
   %1 = inttoptr i64 %conv50 to ptr
-  %add.ptr53 = getelementptr inbounds i16, ptr %1, i64 1
+  %add.ptr53 = getelementptr inbounds i8, ptr %1, i64 2
   br label %for.cond8.preheader.preheader
 
 while.body:                                       ; preds = %entry, %while.body
@@ -785,16 +783,16 @@ for.end34:                                        ; preds = %for.inc32, %while.e
   %idx.ext58 = phi i64 [ %idx.ext, %while.end ], [ %idx.ext57, %for.inc32 ]
   %7 = phi ptr [ %3, %while.end ], [ %4, %for.inc32 ]
   %i.0.lcssa56 = phi i32 [ 0, %while.end ], [ %i.0.lcssa55, %for.inc32 ]
-  %A35 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 1
+  %A35 = getelementptr inbounds i8, ptr %p, i64 8
   store ptr %7, ptr %A35, align 8
-  %B36 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 2
+  %B36 = getelementptr inbounds i8, ptr %p, i64 16
   store ptr %add.ptr60, ptr %B36, align 8
   %add.ptr39 = getelementptr inbounds i16, ptr %add.ptr60, i64 %idx.ext58
   %8 = ptrtoint ptr %add.ptr39 to i64
   %add42 = add nuw nsw i64 %8, 3
   %conv43 = and i64 %add42, 4294967292
   %9 = inttoptr i64 %conv43 to ptr
-  %C = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 3
+  %C = getelementptr inbounds i8, ptr %p, i64 24
   store ptr %9, ptr %C, align 8
   store i32 %i.0.lcssa56, ptr %p, align 8
   ret i32 %i.0.lcssa56

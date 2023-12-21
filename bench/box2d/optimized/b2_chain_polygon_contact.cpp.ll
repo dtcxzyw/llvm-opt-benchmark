@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.b2EdgeShape = type <{ %class.b2Shape, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, i8, [7 x i8] }>
 %class.b2Shape = type { ptr, i32, float }
 %struct.b2Vec2 = type { float, float }
-%class.b2Contact = type { ptr, i32, ptr, ptr, %struct.b2ContactEdge, %struct.b2ContactEdge, ptr, ptr, i32, i32, %struct.b2Manifold, i32, float, float, float, float, float }
-%struct.b2ContactEdge = type { ptr, ptr, ptr, ptr }
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%union.b2ContactID = type { i32 }
-%class.b2Fixture = type { float, ptr, ptr, ptr, float, float, float, ptr, i32, %struct.b2Filter, i8, %struct.b2FixtureUserData }
-%struct.b2Filter = type { i16, i16, i16 }
-%struct.b2FixtureUserData = type { i64 }
 
 $_ZN24b2ChainAndPolygonContactD2Ev = comdat any
 
@@ -49,7 +41,7 @@ declare noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 
 define hidden void @_ZN24b2ChainAndPolygonContact7DestroyEP9b2ContactP16b2BlockAllocator(ptr noundef %contact, ptr noundef %allocator) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %contact, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(208) %contact) #5
   tail call void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, ptr noundef nonnull %contact, i32 noundef 208)
@@ -72,23 +64,23 @@ declare void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 deref
 define hidden void @_ZN24b2ChainAndPolygonContact8EvaluateEP10b2ManifoldRK11b2TransformS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef %manifold, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef nonnull align 4 dereferenceable(16) %xfB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %edge = alloca %class.b2EdgeShape, align 8
-  %m_fixtureA = getelementptr inbounds %class.b2Contact, ptr %this, i64 0, i32 6
+  %m_fixtureA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_fixtureA, align 8
-  %m_shape.i = getelementptr inbounds %class.b2Fixture, ptr %0, i64 0, i32 3
+  %m_shape.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_shape.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i64 0, inrange i32 0, i64 2), ptr %edge, align 8
-  %m_type.i = getelementptr inbounds %class.b2Shape, ptr %edge, i64 0, i32 1
+  %m_type.i = getelementptr inbounds i8, ptr %edge, i64 8
   store i32 1, ptr %m_type.i, align 8
-  %m_radius.i = getelementptr inbounds %class.b2Shape, ptr %edge, i64 0, i32 2
+  %m_radius.i = getelementptr inbounds i8, ptr %edge, i64 12
   store float 0x3F847AE140000000, ptr %m_radius.i, align 4
-  %m_vertex02.i = getelementptr inbounds %class.b2EdgeShape, ptr %edge, i64 0, i32 3
+  %m_vertex02.i = getelementptr inbounds i8, ptr %edge, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_vertex02.i, i8 0, i64 17, i1 false)
-  %m_indexA = getelementptr inbounds %class.b2Contact, ptr %this, i64 0, i32 8
+  %m_indexA = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load i32, ptr %m_indexA, align 8
   call void @_ZNK12b2ChainShape12GetChildEdgeEP11b2EdgeShapei(ptr noundef nonnull align 8 dereferenceable(44) %1, ptr noundef nonnull %edge, i32 noundef %2)
-  %m_fixtureB = getelementptr inbounds %class.b2Contact, ptr %this, i64 0, i32 7
+  %m_fixtureB = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %m_fixtureB, align 8
-  %m_shape.i1 = getelementptr inbounds %class.b2Fixture, ptr %3, i64 0, i32 3
+  %m_shape.i1 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %m_shape.i1, align 8
   call void @_Z23b2CollideEdgeAndPolygonP10b2ManifoldPK11b2EdgeShapeRK11b2TransformPK14b2PolygonShapeS6_(ptr noundef %manifold, ptr noundef nonnull %edge, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %xfB)
   ret void

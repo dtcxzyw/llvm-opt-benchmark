@@ -59,7 +59,7 @@ while.cond.preheader:                             ; preds = %if.end4
   br i1 %cmp11.not407, label %err, label %if.end16.lr.ph
 
 if.end16.lr.ph:                                   ; preds = %while.cond.preheader
-  %id.i253 = getelementptr inbounds %struct.quic_conn_id_st, ptr %arg_cid, i64 0, i32 1
+  %id.i253 = getelementptr inbounds i8, ptr %arg_cid, i64 1
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %sw.epilog

@@ -20,14 +20,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %srctime, i8 0, i64 32, i1 false)
-  %st_atim = getelementptr inbounds %struct.stat, ptr %srcstat, i64 0, i32 11
+  %st_atim = getelementptr inbounds i8, ptr %srcstat, i64 72
   %0 = load i64, ptr %st_atim, align 8
   store i64 %0, ptr %srctime, align 16
-  %st_mtim = getelementptr inbounds %struct.stat, ptr %srcstat, i64 0, i32 12
+  %st_mtim = getelementptr inbounds i8, ptr %srcstat, i64 88
   %1 = load i64, ptr %st_mtim, align 8
-  %arrayidx3 = getelementptr inbounds [2 x %struct.timespec], ptr %srctime, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %srctime, i64 16
   store i64 %1, ptr %arrayidx3, align 16
-  %st_mode = getelementptr inbounds %struct.stat, ptr %srcstat, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %srcstat, i64 24
   %2 = load i32, ptr %st_mode, align 8
   %call5 = tail call i32 @chmod(ptr noundef %destpath, i32 noundef %2) #9
   %call6 = call i32 @utimensat(i32 noundef -100, ptr noundef %destpath, ptr noundef nonnull %srctime, i32 noundef 0) #9
@@ -55,7 +55,7 @@ entry:
   %srcstat = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %srcpath, ptr noundef nonnull %srcstat) #9
   %cmp = icmp eq i32 %call, 0
-  %st_size = getelementptr inbounds %struct.stat, ptr %srcstat, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %srcstat, i64 48
   %0 = load i64, ptr %st_size, align 8
   %retval.0 = select i1 %cmp, i64 %0, i64 -1
   ret i64 %retval.0
@@ -84,7 +84,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool.not = icmp eq i32 %read_only, 0
-  %st_mode6 = getelementptr inbounds %struct.stat, ptr %stats, i64 0, i32 3
+  %st_mode6 = getelementptr inbounds i8, ptr %stats, i64 24
   %0 = load i32, ptr %st_mode6, align 8
   %or = or i32 %0, 128
   %and5 = and i32 %0, -147
@@ -120,9 +120,9 @@ land.lhs.true3:                                   ; preds = %land.lhs.true2
   br i1 %cmp5, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true3
-  %st_ino = getelementptr inbounds %struct.stat, ptr %s1, i64 0, i32 1
+  %st_ino = getelementptr inbounds i8, ptr %s1, i64 8
   %0 = load i64, ptr %st_ino, align 8
-  %st_ino7 = getelementptr inbounds %struct.stat, ptr %s2, i64 0, i32 1
+  %st_ino7 = getelementptr inbounds i8, ptr %s2, i64 8
   %1 = load i64, ptr %st_ino7, align 8
   %cmp8 = icmp eq i64 %0, %1
   br i1 %cmp8, label %land.rhs, label %land.end
@@ -153,7 +153,7 @@ grabbag__file_change_stats.exit.thread:           ; preds = %entry
   br label %land.end
 
 grabbag__file_change_stats.exit:                  ; preds = %entry
-  %st_mode6.i = getelementptr inbounds %struct.stat, ptr %stats.i, i64 0, i32 3
+  %st_mode6.i = getelementptr inbounds i8, ptr %stats.i, i64 24
   %0 = load i32, ptr %st_mode6.i, align 8
   %or.i = or i32 %0, 128
   %call8.i = tail call i32 @chmod(ptr noundef %filename, i32 noundef %or.i) #9

@@ -169,20 +169,20 @@ entry:
   %dp = alloca i32, align 4
   %sn = alloca ptr, align 8
   %tobool35.not = icmp eq ptr %callback, null
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %va, i64 8
+  %0 = getelementptr inbounds i8, ptr %va, i64 16
   %add.ptr1105.ptr = getelementptr inbounds i8, ptr %num, i64 512
   %invariant.gep = getelementptr i8, ptr %num, i64 -8
   %arrayidx7.i662 = getelementptr inbounds i8, ptr %lead, i64 1
   %sub.ptr.lhs.cast1189 = ptrtoint ptr %add.ptr1105.ptr to i64
-  %arrayidx941 = getelementptr inbounds [8 x i8], ptr %lead, i64 0, i64 2
-  %fp_offset_p595 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 1
+  %arrayidx941 = getelementptr inbounds i8, ptr %lead, i64 2
+  %fp_offset_p595 = getelementptr inbounds i8, ptr %va, i64 4
   %add.ptr645 = getelementptr inbounds i8, ptr %num, i64 64
   %sub.ptr.rhs.cast777 = ptrtoint ptr %add.ptr645 to i64
   %incdec.ptr649 = getelementptr inbounds i8, ptr %num, i64 65
   %incdec.ptr652 = getelementptr inbounds i8, ptr %num, i64 66
-  %arrayidx844 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 1
-  %arrayidx574 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 2
+  %arrayidx844 = getelementptr inbounds i8, ptr %tail, i64 1
+  %arrayidx574 = getelementptr inbounds i8, ptr %tail, i64 2
   %add.ptr241 = getelementptr inbounds i8, ptr %num, i64 511
   %1 = sub i64 0, %num1060
   %scevgep = getelementptr i8, ptr %num, i64 %1
@@ -3395,11 +3395,11 @@ declare void @llvm.va_end(ptr) #5
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @stbsp__clamp_callback(ptr noundef readonly %buf, ptr noundef %user, i32 noundef %len) #4 {
 entry:
-  %length = getelementptr inbounds %struct.stbsp__context, ptr %user, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %user, i64 12
   %0 = load i32, ptr %length, align 4
   %add = add nsw i32 %0, %len
   store i32 %add, ptr %length, align 4
-  %count = getelementptr inbounds %struct.stbsp__context, ptr %user, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %user, i64 8
   %1 = load i32, ptr %count, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %len)
   %tobool.not = icmp eq i32 %spec.select, 0
@@ -3445,7 +3445,7 @@ if.end14:                                         ; preds = %if.end9, %entry
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14
-  %tmp = getelementptr inbounds %struct.stbsp__context, ptr %user, i64 0, i32 3
+  %tmp = getelementptr inbounds i8, ptr %user, i64 16
   br label %return
 
 if.end18:                                         ; preds = %if.end14
@@ -3457,7 +3457,7 @@ cond.true:                                        ; preds = %if.end18
   br label %return
 
 cond.false:                                       ; preds = %if.end18
-  %tmp22 = getelementptr inbounds %struct.stbsp__context, ptr %user, i64 0, i32 3
+  %tmp22 = getelementptr inbounds i8, ptr %user, i64 16
   br label %return
 
 return:                                           ; preds = %cond.true, %cond.false, %if.then17
@@ -3468,11 +3468,11 @@ return:                                           ; preds = %cond.true, %cond.fa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define nonnull ptr @stbsp__count_clamp_callback(ptr nocapture readnone %buf, ptr noundef %user, i32 noundef %len) #6 {
 entry:
-  %length = getelementptr inbounds %struct.stbsp__context, ptr %user, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %user, i64 12
   %0 = load i32, ptr %length, align 4
   %add = add nsw i32 %0, %len
   store i32 %add, ptr %length, align 4
-  %tmp = getelementptr inbounds %struct.stbsp__context, ptr %user, i64 0, i32 3
+  %tmp = getelementptr inbounds i8, ptr %user, i64 16
   ret ptr %tmp
 }
 
@@ -3486,17 +3486,17 @@ entry:
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %length = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %c, i64 12
   store i32 0, ptr %length, align 4
-  %tmp = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 3
+  %tmp = getelementptr inbounds i8, ptr %c, i64 16
   %call = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__count_clamp_callback, ptr noundef nonnull %c, ptr noundef nonnull %tmp, ptr noundef %fmt, ptr noundef %va)
   br label %if.end10
 
 if.else:                                          ; preds = %entry
   store ptr %buf, ptr %c, align 8
-  %count2 = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 1
+  %count2 = getelementptr inbounds i8, ptr %c, i64 8
   store i32 %count, ptr %count2, align 8
-  %length3 = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 2
+  %length3 = getelementptr inbounds i8, ptr %c, i64 12
   store i32 0, ptr %length3, align 4
   %tobool.not.i = icmp sgt i32 %count, -1
   br i1 %tobool.not.i, label %if.end14.i, label %if.end14.i.thread
@@ -3515,12 +3515,12 @@ if.end14.i:                                       ; preds = %if.else
   br i1 %cmp16.i, label %if.then17.i, label %if.end18.i
 
 if.then17.i:                                      ; preds = %if.end14.i.thread, %if.end14.i
-  %tmp.i = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 3
+  %tmp.i = getelementptr inbounds i8, ptr %c, i64 16
   br label %stbsp__clamp_callback.exit
 
 if.end18.i:                                       ; preds = %if.end14.i
   %cmp20.i = icmp ugt i32 %count, 511
-  %tmp22.i = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 3
+  %tmp22.i = getelementptr inbounds i8, ptr %c, i64 16
   %spec.select11 = select i1 %cmp20.i, ptr %buf, ptr %tmp22.i
   br label %stbsp__clamp_callback.exit
 
@@ -3541,7 +3541,7 @@ stbsp__clamp_callback.exit:                       ; preds = %if.end18.i, %if.the
   br label %if.end10
 
 if.end10:                                         ; preds = %stbsp__clamp_callback.exit, %if.then
-  %length11 = getelementptr inbounds %struct.stbsp__context, ptr %c, i64 0, i32 2
+  %length11 = getelementptr inbounds i8, ptr %c, i64 12
   %1 = load i32, ptr %length11, align 4
   ret i32 %1
 }
@@ -3559,17 +3559,17 @@ entry:
   br i1 %or.cond.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %length.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %c.i, i64 12
   store i32 0, ptr %length.i, align 4
-  %tmp.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 3
+  %tmp.i = getelementptr inbounds i8, ptr %c.i, i64 16
   %call.i = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__count_clamp_callback, ptr noundef nonnull %c.i, ptr noundef nonnull %tmp.i, ptr noundef %fmt, ptr noundef nonnull %va)
   br label %stbsp_vsnprintf.exit
 
 if.else.i:                                        ; preds = %entry
   store ptr %buf, ptr %c.i, align 8
-  %count2.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 1
+  %count2.i = getelementptr inbounds i8, ptr %c.i, i64 8
   store i32 %count, ptr %count2.i, align 8
-  %length3.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 2
+  %length3.i = getelementptr inbounds i8, ptr %c.i, i64 12
   store i32 0, ptr %length3.i, align 4
   %tobool.not.i.i = icmp sgt i32 %count, -1
   br i1 %tobool.not.i.i, label %if.end14.i.i, label %if.end14.i.thread.i
@@ -3588,12 +3588,12 @@ if.end14.i.i:                                     ; preds = %if.else.i
   br i1 %cmp16.i.i, label %if.then17.i.i, label %if.end18.i.i
 
 if.then17.i.i:                                    ; preds = %if.end14.i.i, %if.end14.i.thread.i
-  %tmp.i.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 3
+  %tmp.i.i = getelementptr inbounds i8, ptr %c.i, i64 16
   br label %stbsp__clamp_callback.exit.i
 
 if.end18.i.i:                                     ; preds = %if.end14.i.i
   %cmp20.i.i = icmp ugt i32 %count, 511
-  %tmp22.i.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 3
+  %tmp22.i.i = getelementptr inbounds i8, ptr %c.i, i64 16
   %spec.select11.i = select i1 %cmp20.i.i, ptr %buf, ptr %tmp22.i.i
   br label %stbsp__clamp_callback.exit.i
 
@@ -3614,7 +3614,7 @@ stbsp__clamp_callback.exit.i:                     ; preds = %if.end18.i.i, %if.t
   br label %stbsp_vsnprintf.exit
 
 stbsp_vsnprintf.exit:                             ; preds = %if.then.i, %stbsp__clamp_callback.exit.i
-  %length11.i = getelementptr inbounds %struct.stbsp__context, ptr %c.i, i64 0, i32 2
+  %length11.i = getelementptr inbounds i8, ptr %c.i, i64 12
   %1 = load i32, ptr %length11.i, align 4
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %c.i)
   call void @llvm.va_end(ptr nonnull %va)

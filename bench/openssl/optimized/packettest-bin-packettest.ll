@@ -1047,7 +1047,7 @@ entry:
   %buf2 = alloca [10 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf1, i8 120, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf2, i8 121, i64 10, i1 false)
-  %arrayidx = getelementptr inbounds [10 x i8], ptr %buf2, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %buf2, i64 5
   store i8 0, ptr %arrayidx, align 1
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 252, ptr noundef nonnull @.str.94, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call3, 0
@@ -1113,7 +1113,7 @@ entry:
   %buf2 = alloca [10 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf1, i8 120, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf2, i8 121, i64 10, i1 false)
-  %arrayidx = getelementptr inbounds [10 x i8], ptr %buf2, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %buf2, i64 5
   store i8 0, ptr %arrayidx, align 1
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 277, ptr noundef nonnull @.str.94, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call3, 0
@@ -1583,12 +1583,12 @@ for.cond:                                         ; preds = %lor.lhs.false12
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.08 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %i.08
   %call2 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 509, ptr noundef nonnull @.str.126, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %arrayidx = getelementptr inbounds [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %i.08
   %0 = load i8, ptr %arrayidx, align 16
   %1 = lshr i8 %0, 6
   %shr.i.i = zext nneg i8 %1 to i32
@@ -1601,14 +1601,14 @@ if.end.i:                                         ; preds = %for.body
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end.i
-  %value = getelementptr inbounds [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %i.08, i32 2
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %value, align 8
   %call10 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.25, i32 noundef 511, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, i64 noundef %call7.i, i64 noundef %2) #6
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false8
-  %expected_read_count = getelementptr inbounds [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %i.08, i32 1
+  %expected_read_count = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load i64, ptr %expected_read_count, align 16
   %sub = sub i64 16, %3
   %call15 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 513, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.130, i64 noundef %sub.i.i, i64 noundef %sub) #6
@@ -1630,13 +1630,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %subpkt.sroa.3.050 = phi i64 [ 0, %entry ], [ %subpkt.sroa.3.13944, %for.inc ]
   %subpkt.sroa.0.049 = phi ptr [ null, %entry ], [ %subpkt.sroa.0.13846, %for.inc ]
   %arrayidx = getelementptr inbounds [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %i.051
-  %fail = getelementptr inbounds [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %i.051, i32 3
+  %fail = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %0 = load i32, ptr %fail, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %cond.end, label %PACKET_buf_init.exit.thread
 
 cond.end:                                         ; preds = %for.body
-  %len = getelementptr inbounds [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %i.051, i32 2
+  %len = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %len, align 8
   %add = add i64 %1, 1
   %cmp.i = icmp sgt i64 %add, -1
@@ -1710,7 +1710,7 @@ if.end26:                                         ; preds = %PACKET_get_quic_len
   br i1 %tobool34.not, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end26
-  %len38 = getelementptr inbounds [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %i.051, i32 2
+  %len38 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load i64, ptr %len38, align 8
   %call39 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 567, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %subpkt.sroa.3.13943, i64 noundef %4) #6
   %tobool40.not = icmp eq i32 %call39, 0

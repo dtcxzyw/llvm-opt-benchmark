@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-a_print.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_PRINTABLE_type(ptr noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
@@ -62,7 +60,7 @@ declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_UNIVERSALSTRING_to_string(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %s, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 28
   br i1 %cmp.not, label %if.end, label %return
@@ -74,7 +72,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %s, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load ptr, ptr %data, align 8
   %cmp522 = icmp sgt i32 %1, 0
   br i1 %cmp522, label %for.body, label %for.end34
@@ -188,7 +186,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %v, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %v, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %v, align 8
   %cmp122 = icmp sgt i32 %1, 0

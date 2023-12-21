@@ -14,13 +14,13 @@ define dso_local i32 @main() local_unnamed_addr #0 {
 entry:
   %stats = alloca %struct.bench_stats, align 8
   %putchar = tail call i32 @putchar(i32 10)
-  %run_count = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 1
-  %loop_count = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 2
+  %run_count = getelementptr inbounds i8, ptr %stats, i64 8
+  %loop_count = getelementptr inbounds i8, ptr %stats, i64 12
   store i32 2, ptr @bench_order, align 4
-  %min_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 3
-  %median_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 5
-  %mean_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 4
-  %max_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 6
+  %min_time = getelementptr inbounds i8, ptr %stats, i64 16
+  %median_time = getelementptr inbounds i8, ptr %stats, i64 32
+  %mean_time = getelementptr inbounds i8, ptr %stats, i64 24
+  %max_time = getelementptr inbounds i8, ptr %stats, i64 40
   %0 = getelementptr inbounds i8, ptr %stats, i64 16
   %1 = getelementptr inbounds i8, ptr %stats, i64 16
   br label %for.body

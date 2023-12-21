@@ -88,7 +88,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load double, ptr %complex, align 8
-  %1 = getelementptr inbounds { double, double }, ptr %complex, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %complex, i64 8
   %2 = load double, ptr %1, align 8
   %call1 = call ptr @PyComplex_FromCComplex(double %0, double %2) #3
   br label %return
@@ -203,10 +203,10 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds { double, double }, ptr %num, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds { double, double }, ptr %exp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_sum(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
@@ -237,10 +237,10 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds { double, double }, ptr %num, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds { double, double }, ptr %exp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_diff(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
@@ -297,10 +297,10 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds { double, double }, ptr %num, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds { double, double }, ptr %exp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_prod(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
@@ -331,10 +331,10 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds { double, double }, ptr %num, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds { double, double }, ptr %exp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_quot(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
@@ -365,10 +365,10 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds { double, double }, ptr %num, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds { double, double }, ptr %exp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_pow(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0

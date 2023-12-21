@@ -3,24 +3,17 @@ source_filename = "bench/zstd/original/zstd_fast.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ZSTD_matchState_t = type { %struct.ZSTD_window_t, i32, i32, i32, i32, ptr, [8 x i32], i64, i32, ptr, ptr, ptr, i32, i32, %struct.optState_t, ptr, %struct.ZSTD_compressionParameters, ptr, i32, i32 }
-%struct.ZSTD_window_t = type { ptr, ptr, ptr, i32, i32, i32 }
-%struct.optState_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
-%struct.ZSTD_compressionParameters = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.seqStore_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32 }
-%struct.seqDef_s = type { i32, i16, i16 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ZSTD_fillHashTable(ptr nocapture noundef readonly %ms, ptr noundef readnone %end, i32 noundef %dtlm, i32 noundef %tfp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %tfp, 1
-  %hashTable2.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %hashTable2.i = getelementptr inbounds i8, ptr %ms, i64 112
   %0 = load ptr, ptr %hashTable2.i, align 8
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %ms, i64 272
   %1 = load i32, ptr %minMatch.i, align 4
-  %base3.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base3.i = getelementptr inbounds i8, ptr %ms, i64 8
   %2 = load ptr, ptr %base3.i, align 8
-  %nextToUpdate.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 2
+  %nextToUpdate.i = getelementptr inbounds i8, ptr %ms, i64 44
   %3 = load i32, ptr %nextToUpdate.i, align 4
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i
@@ -33,7 +26,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp86.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %ms, i64 264
   %4 = load i32, ptr %hashLog.i, align 4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.i.i51.i = sub i32 56, %4
@@ -278,7 +271,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp86.i, label %for.body.lr.ph.i11, label %if.end
 
 for.body.lr.ph.i11:                               ; preds = %if.else
-  %hashLog.i12 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i12 = getelementptr inbounds i8, ptr %ms, i64 264
   %14 = load i32, ptr %hashLog.i12, align 4
   %sub.ptr.rhs.cast.i13 = ptrtoint ptr %2 to i64
   %sub.i.i51.i14 = sub i32 64, %14
@@ -548,20 +541,20 @@ if.end:                                           ; preds = %for.inc22.loopexit.
 ; Function Attrs: nofree nosync nounwind uwtable
 define i64 @ZSTD_compressBlock_fast(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
-  %minMatch = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
-  %targetLength = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 5
+  %targetLength = getelementptr inbounds i8, ptr %ms, i64 276
   %1 = load i32, ptr %targetLength, align 4
   %cmp = icmp ugt i32 %1, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cParams1.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
-  %hashTable2.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %cParams1.i.i = getelementptr inbounds i8, ptr %ms, i64 256
+  %hashTable2.i.i = getelementptr inbounds i8, ptr %ms, i64 112
   %2 = load ptr, ptr %hashTable2.i.i, align 8
   %add.i.i = add i32 %1, 1
   %conv.i.i = zext i32 %add.i.i to i64
-  %base6.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base6.i.i = getelementptr inbounds i8, ptr %ms, i64 8
   %3 = load ptr, ptr %base6.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %src to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -585,7 +578,7 @@ if.then:                                          ; preds = %entry
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -8
   %8 = load i32, ptr %rep, align 4
-  %arrayidx11.i.i = getelementptr inbounds i32, ptr %rep, i64 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %rep, i64 4
   %9 = load i32, ptr %arrayidx11.i.i, align 4
   %cmp.i.i = icmp eq ptr %add.ptr.i.i, %src
   %idx.ext13.i.i = zext i1 %cmp.i.i to i64
@@ -617,18 +610,18 @@ sw.bb:                                            ; preds = %if.then
   br i1 %cmp31.i.not574.i, label %sw.bb.i332.i.lr.ph.i, label %ZSTD_compressBlock_fast_noDict_4_1.exit
 
 sw.bb.i332.i.lr.ph.i:                             ; preds = %sw.bb
-  %hashLog.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i = getelementptr inbounds i8, ptr %ms, i64 264
   %11 = load i32, ptr %hashLog.i.i, align 4
   %sub.i.i.i = sub i32 32, %11
   %add.ptr.i365.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -7
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -3
   %add.ptr34.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -1
   %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -32
-  %lit.i63.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i378.i = ptrtoint ptr %add.ptr.i23.i to i64
-  %longLengthType.i54.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb.i332.i.i
 
 sw.bb.i332.i.i:                                   ; preds = %if.end239.i.i, %sw.bb.i332.i.lr.ph.i
@@ -1153,7 +1146,7 @@ if.then12.i53.i:                                  ; preds = %if.end8.i28.i
 if.end13.i32.i:                                   ; preds = %if.then12.i53.i, %if.end8.i28.i, %if.end8.i28.thread.i
   %31 = phi ptr [ %.pre.i, %if.end8.i28.thread.i ], [ %.pre646.i, %if.then12.i53.i ], [ %.pre646.i, %if.end8.i28.i ]
   %conv14.i33.i = trunc i64 %sub.ptr.sub188.i.i to i16
-  %litLength16.i35.i = getelementptr inbounds %struct.seqDef_s, ptr %31, i64 0, i32 1
+  %litLength16.i35.i = getelementptr inbounds i8, ptr %31, i64 4
   store i16 %conv14.i33.i, ptr %litLength16.i35.i, align 4
   %32 = load ptr, ptr %sequences.i55.i, align 8
   store i32 %offcode.i.0.i, ptr %32, align 4
@@ -1175,10 +1168,10 @@ if.then23.i44.i:                                  ; preds = %if.end13.i32.i
 
 ZSTD_storeSeq.exit71.i:                           ; preds = %if.then23.i44.i, %if.end13.i32.i
   %conv34.i39.i = trunc i64 %sub20.i37.i to i16
-  %mlBase37.i41.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre647.i, i64 0, i32 2
+  %mlBase37.i41.i = getelementptr inbounds i8, ptr %.pre647.i, i64 6
   store i16 %conv34.i39.i, ptr %mlBase37.i41.i, align 2
   %34 = load ptr, ptr %sequences.i55.i, align 8
-  %incdec.ptr.i43.i = getelementptr inbounds %struct.seqDef_s, ptr %34, i64 1
+  %incdec.ptr.i43.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %incdec.ptr.i43.i, ptr %sequences.i55.i, align 8
   %add.ptr189.i.i = getelementptr inbounds i8, ptr %ip0.i.4.i, i64 %add185.i.i
   %cmp190.i.not.i = icmp ugt ptr %add.ptr189.i.i, %add.ptr10.i.i
@@ -1339,7 +1332,7 @@ if.then.i11.i:                                    ; preds = %ZSTD_count.exit454.
 
 if.end13.i.i:                                     ; preds = %if.then.i11.i, %ZSTD_count.exit454.i
   %40 = load ptr, ptr %sequences.i55.i, align 8
-  %litLength16.i.i = getelementptr inbounds %struct.seqDef_s, ptr %40, i64 0, i32 1
+  %litLength16.i.i = getelementptr inbounds i8, ptr %40, i64 4
   store i16 0, ptr %litLength16.i.i, align 4
   %41 = load ptr, ptr %sequences.i55.i, align 8
   store i32 1, ptr %41, align 4
@@ -1361,10 +1354,10 @@ if.then23.i.i:                                    ; preds = %if.end13.i.i
 
 ZSTD_storeSeq.exit.i:                             ; preds = %if.then23.i.i, %if.end13.i.i
   %conv34.i.i = trunc i64 %sub20.i.i to i16
-  %mlBase37.i.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre648.i, i64 0, i32 2
+  %mlBase37.i.i = getelementptr inbounds i8, ptr %.pre648.i, i64 6
   store i16 %conv34.i.i, ptr %mlBase37.i.i, align 2
   %43 = load ptr, ptr %sequences.i55.i, align 8
-  %incdec.ptr.i6.i = getelementptr inbounds %struct.seqDef_s, ptr %43, i64 1
+  %incdec.ptr.i6.i = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %incdec.ptr.i6.i, ptr %sequences.i55.i, align 8
   %cmp211.i.not.i = icmp ugt ptr %add.ptr236.i.i, %add.ptr10.i.i
   br i1 %cmp211.i.not.i, label %if.end239.i.i, label %land.rhs213.i.i, !llvm.loop !15
@@ -1399,7 +1392,7 @@ sw.bb2:                                           ; preds = %if.then
   br i1 %cmp31.i.not574.i, label %sw.bb1.i330.i.lr.ph.i, label %ZSTD_compressBlock_fast_noDict_5_1.exit
 
 sw.bb1.i330.i.lr.ph.i:                            ; preds = %sw.bb2
-  %hashLog.i.i94 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i94 = getelementptr inbounds i8, ptr %ms, i64 264
   %44 = load i32, ptr %hashLog.i.i94, align 4
   %sub.i.i.i95 = sub i32 64, %44
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i.i95 to i64
@@ -1407,11 +1400,11 @@ sw.bb1.i330.i.lr.ph.i:                            ; preds = %sw.bb2
   %add.ptr22.i.i96 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -3
   %add.ptr34.i.i97 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -1
   %add.ptr.i23.i98 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -32
-  %lit.i63.i99 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i99 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i = ptrtoint ptr %add.ptr.i23.i98 to i64
-  %longLengthType.i54.i100 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i101 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i102 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i100 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i101 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i102 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb1.i330.i.i
 
 sw.bb1.i330.i.i:                                  ; preds = %if.end239.i.i264, %sw.bb1.i330.i.lr.ph.i
@@ -1932,7 +1925,7 @@ if.then12.i53.i326:                               ; preds = %if.end8.i28.i323
 if.end13.i32.i230:                                ; preds = %if.then12.i53.i326, %if.end8.i28.i323, %if.end8.i28.thread.i228
   %64 = phi ptr [ %.pre.i229, %if.end8.i28.thread.i228 ], [ %.pre645.i, %if.then12.i53.i326 ], [ %.pre645.i, %if.end8.i28.i323 ]
   %conv14.i33.i231 = trunc i64 %sub.ptr.sub188.i.i221 to i16
-  %litLength16.i35.i232 = getelementptr inbounds %struct.seqDef_s, ptr %64, i64 0, i32 1
+  %litLength16.i35.i232 = getelementptr inbounds i8, ptr %64, i64 4
   store i16 %conv14.i33.i231, ptr %litLength16.i35.i232, align 4
   %65 = load ptr, ptr %sequences.i55.i101, align 8
   store i32 %offcode.i.0.i196, ptr %65, align 4
@@ -1954,10 +1947,10 @@ if.then23.i44.i300:                               ; preds = %if.end13.i32.i230
 
 ZSTD_storeSeq.exit71.i236:                        ; preds = %if.then23.i44.i300, %if.end13.i32.i230
   %conv34.i39.i237 = trunc i64 %sub20.i37.i233 to i16
-  %mlBase37.i41.i238 = getelementptr inbounds %struct.seqDef_s, ptr %.pre646.i235, i64 0, i32 2
+  %mlBase37.i41.i238 = getelementptr inbounds i8, ptr %.pre646.i235, i64 6
   store i16 %conv34.i39.i237, ptr %mlBase37.i41.i238, align 2
   %67 = load ptr, ptr %sequences.i55.i101, align 8
-  %incdec.ptr.i43.i239 = getelementptr inbounds %struct.seqDef_s, ptr %67, i64 1
+  %incdec.ptr.i43.i239 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %incdec.ptr.i43.i239, ptr %sequences.i55.i101, align 8
   %add.ptr189.i.i240 = getelementptr inbounds i8, ptr %ip0.i.4.i192, i64 %add185.i.i218
   %cmp190.i.not.i241 = icmp ugt ptr %add.ptr189.i.i240, %add.ptr10.i.i
@@ -2116,7 +2109,7 @@ if.then.i11.i282:                                 ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i284:                                  ; preds = %if.then.i11.i282, %ZSTD_count.exit453.i
   %73 = load ptr, ptr %sequences.i55.i101, align 8
-  %litLength16.i.i285 = getelementptr inbounds %struct.seqDef_s, ptr %73, i64 0, i32 1
+  %litLength16.i.i285 = getelementptr inbounds i8, ptr %73, i64 4
   store i16 0, ptr %litLength16.i.i285, align 4
   %74 = load ptr, ptr %sequences.i55.i101, align 8
   store i32 1, ptr %74, align 4
@@ -2138,10 +2131,10 @@ if.then23.i.i294:                                 ; preds = %if.end13.i.i284
 
 ZSTD_storeSeq.exit.i289:                          ; preds = %if.then23.i.i294, %if.end13.i.i284
   %conv34.i.i290 = trunc i64 %sub20.i.i286 to i16
-  %mlBase37.i.i291 = getelementptr inbounds %struct.seqDef_s, ptr %.pre647.i288, i64 0, i32 2
+  %mlBase37.i.i291 = getelementptr inbounds i8, ptr %.pre647.i288, i64 6
   store i16 %conv34.i.i290, ptr %mlBase37.i.i291, align 2
   %76 = load ptr, ptr %sequences.i55.i101, align 8
-  %incdec.ptr.i6.i292 = getelementptr inbounds %struct.seqDef_s, ptr %76, i64 1
+  %incdec.ptr.i6.i292 = getelementptr inbounds i8, ptr %76, i64 8
   store ptr %incdec.ptr.i6.i292, ptr %sequences.i55.i101, align 8
   %cmp211.i.not.i293 = icmp ugt ptr %add.ptr236.i.i280, %add.ptr10.i.i
   br i1 %cmp211.i.not.i293, label %if.end239.i.i264, label %land.rhs213.i.i257, !llvm.loop !15
@@ -2176,7 +2169,7 @@ sw.bb4:                                           ; preds = %if.then
   br i1 %cmp31.i.not574.i, label %sw.bb3.i328.i.lr.ph.i, label %ZSTD_compressBlock_fast_noDict_6_1.exit
 
 sw.bb3.i328.i.lr.ph.i:                            ; preds = %sw.bb4
-  %hashLog.i.i554 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i554 = getelementptr inbounds i8, ptr %ms, i64 264
   %77 = load i32, ptr %hashLog.i.i554, align 4
   %sub.i.i.i555 = sub i32 64, %77
   %sh_prom.i.i.i556 = zext nneg i32 %sub.i.i.i555 to i64
@@ -2184,11 +2177,11 @@ sw.bb3.i328.i.lr.ph.i:                            ; preds = %sw.bb4
   %add.ptr22.i.i558 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -3
   %add.ptr34.i.i559 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -1
   %add.ptr.i23.i560 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -32
-  %lit.i63.i561 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i561 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i562 = ptrtoint ptr %add.ptr.i23.i560 to i64
-  %longLengthType.i54.i563 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i564 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i565 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i563 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i564 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i565 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb3.i328.i.i
 
 sw.bb3.i328.i.i:                                  ; preds = %if.end239.i.i750, %sw.bb3.i328.i.lr.ph.i
@@ -2709,7 +2702,7 @@ if.then12.i53.i877:                               ; preds = %if.end8.i28.i873
 if.end13.i32.i711:                                ; preds = %if.then12.i53.i877, %if.end8.i28.i873, %if.end8.i28.thread.i709
   %97 = phi ptr [ %.pre.i710, %if.end8.i28.thread.i709 ], [ %.pre645.i876, %if.then12.i53.i877 ], [ %.pre645.i876, %if.end8.i28.i873 ]
   %conv14.i33.i712 = trunc i64 %sub.ptr.sub188.i.i702 to i16
-  %litLength16.i35.i713 = getelementptr inbounds %struct.seqDef_s, ptr %97, i64 0, i32 1
+  %litLength16.i35.i713 = getelementptr inbounds i8, ptr %97, i64 4
   store i16 %conv14.i33.i712, ptr %litLength16.i35.i713, align 4
   %98 = load ptr, ptr %sequences.i55.i564, align 8
   store i32 %offcode.i.0.i674, ptr %98, align 4
@@ -2731,10 +2724,10 @@ if.then23.i44.i850:                               ; preds = %if.end13.i32.i711
 
 ZSTD_storeSeq.exit71.i717:                        ; preds = %if.then23.i44.i850, %if.end13.i32.i711
   %conv34.i39.i718 = trunc i64 %sub20.i37.i714 to i16
-  %mlBase37.i41.i719 = getelementptr inbounds %struct.seqDef_s, ptr %.pre646.i716, i64 0, i32 2
+  %mlBase37.i41.i719 = getelementptr inbounds i8, ptr %.pre646.i716, i64 6
   store i16 %conv34.i39.i718, ptr %mlBase37.i41.i719, align 2
   %100 = load ptr, ptr %sequences.i55.i564, align 8
-  %incdec.ptr.i43.i720 = getelementptr inbounds %struct.seqDef_s, ptr %100, i64 1
+  %incdec.ptr.i43.i720 = getelementptr inbounds i8, ptr %100, i64 8
   store ptr %incdec.ptr.i43.i720, ptr %sequences.i55.i564, align 8
   %add.ptr189.i.i721 = getelementptr inbounds i8, ptr %ip0.i.4.i670, i64 %add185.i.i699
   %cmp190.i.not.i722 = icmp ugt ptr %add.ptr189.i.i721, %add.ptr10.i.i
@@ -2893,7 +2886,7 @@ if.then.i11.i790:                                 ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i792:                                  ; preds = %if.then.i11.i790, %ZSTD_count.exit453.i778
   %106 = load ptr, ptr %sequences.i55.i564, align 8
-  %litLength16.i.i793 = getelementptr inbounds %struct.seqDef_s, ptr %106, i64 0, i32 1
+  %litLength16.i.i793 = getelementptr inbounds i8, ptr %106, i64 4
   store i16 0, ptr %litLength16.i.i793, align 4
   %107 = load ptr, ptr %sequences.i55.i564, align 8
   store i32 1, ptr %107, align 4
@@ -2915,10 +2908,10 @@ if.then23.i.i802:                                 ; preds = %if.end13.i.i792
 
 ZSTD_storeSeq.exit.i797:                          ; preds = %if.then23.i.i802, %if.end13.i.i792
   %conv34.i.i798 = trunc i64 %sub20.i.i794 to i16
-  %mlBase37.i.i799 = getelementptr inbounds %struct.seqDef_s, ptr %.pre647.i796, i64 0, i32 2
+  %mlBase37.i.i799 = getelementptr inbounds i8, ptr %.pre647.i796, i64 6
   store i16 %conv34.i.i798, ptr %mlBase37.i.i799, align 2
   %109 = load ptr, ptr %sequences.i55.i564, align 8
-  %incdec.ptr.i6.i800 = getelementptr inbounds %struct.seqDef_s, ptr %109, i64 1
+  %incdec.ptr.i6.i800 = getelementptr inbounds i8, ptr %109, i64 8
   store ptr %incdec.ptr.i6.i800, ptr %sequences.i55.i564, align 8
   %cmp211.i.not.i801 = icmp ugt ptr %add.ptr236.i.i788, %add.ptr10.i.i
   br i1 %cmp211.i.not.i801, label %if.end239.i.i750, label %land.rhs213.i.i740, !llvm.loop !15
@@ -2953,7 +2946,7 @@ sw.bb6:                                           ; preds = %if.then
   br i1 %cmp31.i.not574.i, label %sw.bb5.i326.i.lr.ph.i, label %ZSTD_compressBlock_fast_noDict_7_1.exit
 
 sw.bb5.i326.i.lr.ph.i:                            ; preds = %sw.bb6
-  %hashLog.i.i1125 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i1125 = getelementptr inbounds i8, ptr %ms, i64 264
   %110 = load i32, ptr %hashLog.i.i1125, align 4
   %sub.i.i.i1126 = sub i32 64, %110
   %sh_prom.i.i.i1127 = zext nneg i32 %sub.i.i.i1126 to i64
@@ -2961,11 +2954,11 @@ sw.bb5.i326.i.lr.ph.i:                            ; preds = %sw.bb6
   %add.ptr22.i.i1129 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -3
   %add.ptr34.i.i1130 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -1
   %add.ptr.i23.i1131 = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 -32
-  %lit.i63.i1132 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i1132 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i1133 = ptrtoint ptr %add.ptr.i23.i1131 to i64
-  %longLengthType.i54.i1134 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i1135 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i1136 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i1134 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i1135 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i1136 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb5.i326.i.i
 
 sw.bb5.i326.i.i:                                  ; preds = %if.end239.i.i1321, %sw.bb5.i326.i.lr.ph.i
@@ -3486,7 +3479,7 @@ if.then12.i53.i1448:                              ; preds = %if.end8.i28.i1444
 if.end13.i32.i1282:                               ; preds = %if.then12.i53.i1448, %if.end8.i28.i1444, %if.end8.i28.thread.i1280
   %130 = phi ptr [ %.pre.i1281, %if.end8.i28.thread.i1280 ], [ %.pre645.i1447, %if.then12.i53.i1448 ], [ %.pre645.i1447, %if.end8.i28.i1444 ]
   %conv14.i33.i1283 = trunc i64 %sub.ptr.sub188.i.i1273 to i16
-  %litLength16.i35.i1284 = getelementptr inbounds %struct.seqDef_s, ptr %130, i64 0, i32 1
+  %litLength16.i35.i1284 = getelementptr inbounds i8, ptr %130, i64 4
   store i16 %conv14.i33.i1283, ptr %litLength16.i35.i1284, align 4
   %131 = load ptr, ptr %sequences.i55.i1135, align 8
   store i32 %offcode.i.0.i1245, ptr %131, align 4
@@ -3508,10 +3501,10 @@ if.then23.i44.i1421:                              ; preds = %if.end13.i32.i1282
 
 ZSTD_storeSeq.exit71.i1288:                       ; preds = %if.then23.i44.i1421, %if.end13.i32.i1282
   %conv34.i39.i1289 = trunc i64 %sub20.i37.i1285 to i16
-  %mlBase37.i41.i1290 = getelementptr inbounds %struct.seqDef_s, ptr %.pre646.i1287, i64 0, i32 2
+  %mlBase37.i41.i1290 = getelementptr inbounds i8, ptr %.pre646.i1287, i64 6
   store i16 %conv34.i39.i1289, ptr %mlBase37.i41.i1290, align 2
   %133 = load ptr, ptr %sequences.i55.i1135, align 8
-  %incdec.ptr.i43.i1291 = getelementptr inbounds %struct.seqDef_s, ptr %133, i64 1
+  %incdec.ptr.i43.i1291 = getelementptr inbounds i8, ptr %133, i64 8
   store ptr %incdec.ptr.i43.i1291, ptr %sequences.i55.i1135, align 8
   %add.ptr189.i.i1292 = getelementptr inbounds i8, ptr %ip0.i.4.i1241, i64 %add185.i.i1270
   %cmp190.i.not.i1293 = icmp ugt ptr %add.ptr189.i.i1292, %add.ptr10.i.i
@@ -3670,7 +3663,7 @@ if.then.i11.i1361:                                ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i1363:                                 ; preds = %if.then.i11.i1361, %ZSTD_count.exit453.i1349
   %139 = load ptr, ptr %sequences.i55.i1135, align 8
-  %litLength16.i.i1364 = getelementptr inbounds %struct.seqDef_s, ptr %139, i64 0, i32 1
+  %litLength16.i.i1364 = getelementptr inbounds i8, ptr %139, i64 4
   store i16 0, ptr %litLength16.i.i1364, align 4
   %140 = load ptr, ptr %sequences.i55.i1135, align 8
   store i32 1, ptr %140, align 4
@@ -3692,10 +3685,10 @@ if.then23.i.i1373:                                ; preds = %if.end13.i.i1363
 
 ZSTD_storeSeq.exit.i1368:                         ; preds = %if.then23.i.i1373, %if.end13.i.i1363
   %conv34.i.i1369 = trunc i64 %sub20.i.i1365 to i16
-  %mlBase37.i.i1370 = getelementptr inbounds %struct.seqDef_s, ptr %.pre647.i1367, i64 0, i32 2
+  %mlBase37.i.i1370 = getelementptr inbounds i8, ptr %.pre647.i1367, i64 6
   store i16 %conv34.i.i1369, ptr %mlBase37.i.i1370, align 2
   %142 = load ptr, ptr %sequences.i55.i1135, align 8
-  %incdec.ptr.i6.i1371 = getelementptr inbounds %struct.seqDef_s, ptr %142, i64 1
+  %incdec.ptr.i6.i1371 = getelementptr inbounds i8, ptr %142, i64 8
   store ptr %incdec.ptr.i6.i1371, ptr %sequences.i55.i1135, align 8
   %cmp211.i.not.i1372 = icmp ugt ptr %add.ptr236.i.i1359, %add.ptr10.i.i
   br i1 %cmp211.i.not.i1372, label %if.end239.i.i1321, label %land.rhs213.i.i1311, !llvm.loop !15
@@ -3727,10 +3720,10 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %if.end239.i.i1321, 
   br label %return
 
 if.else:                                          ; preds = %entry
-  %hashTable2.i.i1635 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %hashTable2.i.i1635 = getelementptr inbounds i8, ptr %ms, i64 112
   %143 = load ptr, ptr %hashTable2.i.i1635, align 8
-  %cParams1.i.i1636 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
-  %base6.i.i1637 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %cParams1.i.i1636 = getelementptr inbounds i8, ptr %ms, i64 256
+  %base6.i.i1637 = getelementptr inbounds i8, ptr %ms, i64 8
   %144 = load ptr, ptr %base6.i.i1637, align 8
   %sub.ptr.lhs.cast.i.i1638 = ptrtoint ptr %src to i64
   %sub.ptr.rhs.cast.i.i1639 = ptrtoint ptr %144 to i64
@@ -3754,7 +3747,7 @@ if.else:                                          ; preds = %entry
   %add.ptr9.i.i1653 = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr10.i.i1654 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -8
   %149 = load i32, ptr %rep, align 4
-  %arrayidx11.i.i1655 = getelementptr inbounds i32, ptr %rep, i64 1
+  %arrayidx11.i.i1655 = getelementptr inbounds i8, ptr %rep, i64 4
   %150 = load i32, ptr %arrayidx11.i.i1655, align 4
   %cmp.i.i1656 = icmp eq ptr %add.ptr.i.i1652, %src
   %idx.ext13.i.i1657 = zext i1 %cmp.i.i1656 to i64
@@ -3785,18 +3778,18 @@ sw.bb9:                                           ; preds = %if.else
   br i1 %cmp31.i.not572.i, label %sw.bb.i332.i.lr.ph.i1687, label %ZSTD_compressBlock_fast_noDict_4_0.exit
 
 sw.bb.i332.i.lr.ph.i1687:                         ; preds = %sw.bb9
-  %hashLog.i.i1688 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i1688 = getelementptr inbounds i8, ptr %ms, i64 264
   %152 = load i32, ptr %hashLog.i.i1688, align 4
   %sub.i.i.i1689 = sub i32 32, %152
   %add.ptr.i364.i1690 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -7
   %add.ptr22.i.i1691 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -3
   %add.ptr34.i.i1692 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -1
   %add.ptr.i23.i1693 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -32
-  %lit.i63.i1694 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i1694 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i1695 = ptrtoint ptr %add.ptr.i23.i1693 to i64
-  %longLengthType.i54.i1696 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i1697 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i1698 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i1696 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i1697 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i1698 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb.i332.i.i1699
 
 sw.bb.i332.i.i1699:                               ; preds = %if.end239.i.i1875, %sw.bb.i332.i.lr.ph.i1687
@@ -4321,7 +4314,7 @@ if.then12.i53.i1998:                              ; preds = %if.end8.i28.i1995
 if.end13.i32.i1839:                               ; preds = %if.then12.i53.i1998, %if.end8.i28.i1995, %if.end8.i28.thread.i1837
   %172 = phi ptr [ %.pre.i1838, %if.end8.i28.thread.i1837 ], [ %.pre643.i, %if.then12.i53.i1998 ], [ %.pre643.i, %if.end8.i28.i1995 ]
   %conv14.i33.i1840 = trunc i64 %sub.ptr.sub188.i.i1830 to i16
-  %litLength16.i35.i1841 = getelementptr inbounds %struct.seqDef_s, ptr %172, i64 0, i32 1
+  %litLength16.i35.i1841 = getelementptr inbounds i8, ptr %172, i64 4
   store i16 %conv14.i33.i1840, ptr %litLength16.i35.i1841, align 4
   %173 = load ptr, ptr %sequences.i55.i1697, align 8
   store i32 %offcode.i.0.i1802, ptr %173, align 4
@@ -4343,10 +4336,10 @@ if.then23.i44.i1972:                              ; preds = %if.end13.i32.i1839
 
 ZSTD_storeSeq.exit71.i1844:                       ; preds = %if.then23.i44.i1972, %if.end13.i32.i1839
   %conv34.i39.i1845 = trunc i64 %sub20.i37.i1842 to i16
-  %mlBase37.i41.i1846 = getelementptr inbounds %struct.seqDef_s, ptr %.pre644.i, i64 0, i32 2
+  %mlBase37.i41.i1846 = getelementptr inbounds i8, ptr %.pre644.i, i64 6
   store i16 %conv34.i39.i1845, ptr %mlBase37.i41.i1846, align 2
   %175 = load ptr, ptr %sequences.i55.i1697, align 8
-  %incdec.ptr.i43.i1847 = getelementptr inbounds %struct.seqDef_s, ptr %175, i64 1
+  %incdec.ptr.i43.i1847 = getelementptr inbounds i8, ptr %175, i64 8
   store ptr %incdec.ptr.i43.i1847, ptr %sequences.i55.i1697, align 8
   %add.ptr189.i.i1848 = getelementptr inbounds i8, ptr %ip0.i.4.i1798, i64 %add185.i.i1827
   %cmp190.i.not.i1849 = icmp ugt ptr %add.ptr189.i.i1848, %add.ptr10.i.i1654
@@ -4507,7 +4500,7 @@ if.then.i11.i1912:                                ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i1914:                                 ; preds = %if.then.i11.i1912, %ZSTD_count.exit453.i1902
   %181 = load ptr, ptr %sequences.i55.i1697, align 8
-  %litLength16.i.i1915 = getelementptr inbounds %struct.seqDef_s, ptr %181, i64 0, i32 1
+  %litLength16.i.i1915 = getelementptr inbounds i8, ptr %181, i64 4
   store i16 0, ptr %litLength16.i.i1915, align 4
   %182 = load ptr, ptr %sequences.i55.i1697, align 8
   store i32 1, ptr %182, align 4
@@ -4529,10 +4522,10 @@ if.then23.i.i1924:                                ; preds = %if.end13.i.i1914
 
 ZSTD_storeSeq.exit.i1919:                         ; preds = %if.then23.i.i1924, %if.end13.i.i1914
   %conv34.i.i1920 = trunc i64 %sub20.i.i1916 to i16
-  %mlBase37.i.i1921 = getelementptr inbounds %struct.seqDef_s, ptr %.pre645.i1918, i64 0, i32 2
+  %mlBase37.i.i1921 = getelementptr inbounds i8, ptr %.pre645.i1918, i64 6
   store i16 %conv34.i.i1920, ptr %mlBase37.i.i1921, align 2
   %184 = load ptr, ptr %sequences.i55.i1697, align 8
-  %incdec.ptr.i6.i1922 = getelementptr inbounds %struct.seqDef_s, ptr %184, i64 1
+  %incdec.ptr.i6.i1922 = getelementptr inbounds i8, ptr %184, i64 8
   store ptr %incdec.ptr.i6.i1922, ptr %sequences.i55.i1697, align 8
   %cmp211.i.not.i1923 = icmp ugt ptr %add.ptr236.i.i1910, %add.ptr10.i.i1654
   br i1 %cmp211.i.not.i1923, label %if.end239.i.i1875, label %land.rhs213.i.i1865, !llvm.loop !15
@@ -4566,7 +4559,7 @@ sw.bb11:                                          ; preds = %if.else
   br i1 %cmp31.i.not572.i, label %sw.bb1.i330.i.lr.ph.i2239, label %ZSTD_compressBlock_fast_noDict_5_0.exit
 
 sw.bb1.i330.i.lr.ph.i2239:                        ; preds = %sw.bb11
-  %hashLog.i.i2240 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i2240 = getelementptr inbounds i8, ptr %ms, i64 264
   %185 = load i32, ptr %hashLog.i.i2240, align 4
   %sub.i.i.i2241 = sub i32 64, %185
   %sh_prom.i.i.i2242 = zext nneg i32 %sub.i.i.i2241 to i64
@@ -4574,11 +4567,11 @@ sw.bb1.i330.i.lr.ph.i2239:                        ; preds = %sw.bb11
   %add.ptr22.i.i2244 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -3
   %add.ptr34.i.i2245 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -1
   %add.ptr.i23.i2246 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -32
-  %lit.i63.i2247 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i2247 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i2248 = ptrtoint ptr %add.ptr.i23.i2246 to i64
-  %longLengthType.i54.i2249 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i2250 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i2251 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i2249 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i2250 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i2251 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb1.i330.i.i2252
 
 sw.bb1.i330.i.i2252:                              ; preds = %if.end239.i.i2437, %sw.bb1.i330.i.lr.ph.i2239
@@ -5099,7 +5092,7 @@ if.then12.i53.i2563:                              ; preds = %if.end8.i28.i2559
 if.end13.i32.i2398:                               ; preds = %if.then12.i53.i2563, %if.end8.i28.i2559, %if.end8.i28.thread.i2396
   %205 = phi ptr [ %.pre.i2397, %if.end8.i28.thread.i2396 ], [ %.pre643.i2562, %if.then12.i53.i2563 ], [ %.pre643.i2562, %if.end8.i28.i2559 ]
   %conv14.i33.i2399 = trunc i64 %sub.ptr.sub188.i.i2389 to i16
-  %litLength16.i35.i2400 = getelementptr inbounds %struct.seqDef_s, ptr %205, i64 0, i32 1
+  %litLength16.i35.i2400 = getelementptr inbounds i8, ptr %205, i64 4
   store i16 %conv14.i33.i2399, ptr %litLength16.i35.i2400, align 4
   %206 = load ptr, ptr %sequences.i55.i2250, align 8
   store i32 %offcode.i.0.i2361, ptr %206, align 4
@@ -5121,10 +5114,10 @@ if.then23.i44.i2536:                              ; preds = %if.end13.i32.i2398
 
 ZSTD_storeSeq.exit71.i2404:                       ; preds = %if.then23.i44.i2536, %if.end13.i32.i2398
   %conv34.i39.i2405 = trunc i64 %sub20.i37.i2401 to i16
-  %mlBase37.i41.i2406 = getelementptr inbounds %struct.seqDef_s, ptr %.pre644.i2403, i64 0, i32 2
+  %mlBase37.i41.i2406 = getelementptr inbounds i8, ptr %.pre644.i2403, i64 6
   store i16 %conv34.i39.i2405, ptr %mlBase37.i41.i2406, align 2
   %208 = load ptr, ptr %sequences.i55.i2250, align 8
-  %incdec.ptr.i43.i2407 = getelementptr inbounds %struct.seqDef_s, ptr %208, i64 1
+  %incdec.ptr.i43.i2407 = getelementptr inbounds i8, ptr %208, i64 8
   store ptr %incdec.ptr.i43.i2407, ptr %sequences.i55.i2250, align 8
   %add.ptr189.i.i2408 = getelementptr inbounds i8, ptr %ip0.i.4.i2357, i64 %add185.i.i2386
   %cmp190.i.not.i2409 = icmp ugt ptr %add.ptr189.i.i2408, %add.ptr10.i.i1654
@@ -5283,7 +5276,7 @@ if.then.i11.i2476:                                ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i2478:                                 ; preds = %if.then.i11.i2476, %ZSTD_count.exit453.i2464
   %214 = load ptr, ptr %sequences.i55.i2250, align 8
-  %litLength16.i.i2479 = getelementptr inbounds %struct.seqDef_s, ptr %214, i64 0, i32 1
+  %litLength16.i.i2479 = getelementptr inbounds i8, ptr %214, i64 4
   store i16 0, ptr %litLength16.i.i2479, align 4
   %215 = load ptr, ptr %sequences.i55.i2250, align 8
   store i32 1, ptr %215, align 4
@@ -5305,10 +5298,10 @@ if.then23.i.i2488:                                ; preds = %if.end13.i.i2478
 
 ZSTD_storeSeq.exit.i2483:                         ; preds = %if.then23.i.i2488, %if.end13.i.i2478
   %conv34.i.i2484 = trunc i64 %sub20.i.i2480 to i16
-  %mlBase37.i.i2485 = getelementptr inbounds %struct.seqDef_s, ptr %.pre645.i2482, i64 0, i32 2
+  %mlBase37.i.i2485 = getelementptr inbounds i8, ptr %.pre645.i2482, i64 6
   store i16 %conv34.i.i2484, ptr %mlBase37.i.i2485, align 2
   %217 = load ptr, ptr %sequences.i55.i2250, align 8
-  %incdec.ptr.i6.i2486 = getelementptr inbounds %struct.seqDef_s, ptr %217, i64 1
+  %incdec.ptr.i6.i2486 = getelementptr inbounds i8, ptr %217, i64 8
   store ptr %incdec.ptr.i6.i2486, ptr %sequences.i55.i2250, align 8
   %cmp211.i.not.i2487 = icmp ugt ptr %add.ptr236.i.i2474, %add.ptr10.i.i1654
   br i1 %cmp211.i.not.i2487, label %if.end239.i.i2437, label %land.rhs213.i.i2427, !llvm.loop !15
@@ -5342,7 +5335,7 @@ sw.bb13:                                          ; preds = %if.else
   br i1 %cmp31.i.not572.i, label %sw.bb3.i328.i.lr.ph.i2804, label %ZSTD_compressBlock_fast_noDict_6_0.exit
 
 sw.bb3.i328.i.lr.ph.i2804:                        ; preds = %sw.bb13
-  %hashLog.i.i2805 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i2805 = getelementptr inbounds i8, ptr %ms, i64 264
   %218 = load i32, ptr %hashLog.i.i2805, align 4
   %sub.i.i.i2806 = sub i32 64, %218
   %sh_prom.i.i.i2807 = zext nneg i32 %sub.i.i.i2806 to i64
@@ -5350,11 +5343,11 @@ sw.bb3.i328.i.lr.ph.i2804:                        ; preds = %sw.bb13
   %add.ptr22.i.i2809 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -3
   %add.ptr34.i.i2810 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -1
   %add.ptr.i23.i2811 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -32
-  %lit.i63.i2812 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i2812 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i2813 = ptrtoint ptr %add.ptr.i23.i2811 to i64
-  %longLengthType.i54.i2814 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i2815 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i2816 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i2814 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i2815 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i2816 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb3.i328.i.i2817
 
 sw.bb3.i328.i.i2817:                              ; preds = %if.end239.i.i3002, %sw.bb3.i328.i.lr.ph.i2804
@@ -5875,7 +5868,7 @@ if.then12.i53.i3128:                              ; preds = %if.end8.i28.i3124
 if.end13.i32.i2963:                               ; preds = %if.then12.i53.i3128, %if.end8.i28.i3124, %if.end8.i28.thread.i2961
   %238 = phi ptr [ %.pre.i2962, %if.end8.i28.thread.i2961 ], [ %.pre643.i3127, %if.then12.i53.i3128 ], [ %.pre643.i3127, %if.end8.i28.i3124 ]
   %conv14.i33.i2964 = trunc i64 %sub.ptr.sub188.i.i2954 to i16
-  %litLength16.i35.i2965 = getelementptr inbounds %struct.seqDef_s, ptr %238, i64 0, i32 1
+  %litLength16.i35.i2965 = getelementptr inbounds i8, ptr %238, i64 4
   store i16 %conv14.i33.i2964, ptr %litLength16.i35.i2965, align 4
   %239 = load ptr, ptr %sequences.i55.i2815, align 8
   store i32 %offcode.i.0.i2926, ptr %239, align 4
@@ -5897,10 +5890,10 @@ if.then23.i44.i3101:                              ; preds = %if.end13.i32.i2963
 
 ZSTD_storeSeq.exit71.i2969:                       ; preds = %if.then23.i44.i3101, %if.end13.i32.i2963
   %conv34.i39.i2970 = trunc i64 %sub20.i37.i2966 to i16
-  %mlBase37.i41.i2971 = getelementptr inbounds %struct.seqDef_s, ptr %.pre644.i2968, i64 0, i32 2
+  %mlBase37.i41.i2971 = getelementptr inbounds i8, ptr %.pre644.i2968, i64 6
   store i16 %conv34.i39.i2970, ptr %mlBase37.i41.i2971, align 2
   %241 = load ptr, ptr %sequences.i55.i2815, align 8
-  %incdec.ptr.i43.i2972 = getelementptr inbounds %struct.seqDef_s, ptr %241, i64 1
+  %incdec.ptr.i43.i2972 = getelementptr inbounds i8, ptr %241, i64 8
   store ptr %incdec.ptr.i43.i2972, ptr %sequences.i55.i2815, align 8
   %add.ptr189.i.i2973 = getelementptr inbounds i8, ptr %ip0.i.4.i2922, i64 %add185.i.i2951
   %cmp190.i.not.i2974 = icmp ugt ptr %add.ptr189.i.i2973, %add.ptr10.i.i1654
@@ -6059,7 +6052,7 @@ if.then.i11.i3041:                                ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i3043:                                 ; preds = %if.then.i11.i3041, %ZSTD_count.exit453.i3029
   %247 = load ptr, ptr %sequences.i55.i2815, align 8
-  %litLength16.i.i3044 = getelementptr inbounds %struct.seqDef_s, ptr %247, i64 0, i32 1
+  %litLength16.i.i3044 = getelementptr inbounds i8, ptr %247, i64 4
   store i16 0, ptr %litLength16.i.i3044, align 4
   %248 = load ptr, ptr %sequences.i55.i2815, align 8
   store i32 1, ptr %248, align 4
@@ -6081,10 +6074,10 @@ if.then23.i.i3053:                                ; preds = %if.end13.i.i3043
 
 ZSTD_storeSeq.exit.i3048:                         ; preds = %if.then23.i.i3053, %if.end13.i.i3043
   %conv34.i.i3049 = trunc i64 %sub20.i.i3045 to i16
-  %mlBase37.i.i3050 = getelementptr inbounds %struct.seqDef_s, ptr %.pre645.i3047, i64 0, i32 2
+  %mlBase37.i.i3050 = getelementptr inbounds i8, ptr %.pre645.i3047, i64 6
   store i16 %conv34.i.i3049, ptr %mlBase37.i.i3050, align 2
   %250 = load ptr, ptr %sequences.i55.i2815, align 8
-  %incdec.ptr.i6.i3051 = getelementptr inbounds %struct.seqDef_s, ptr %250, i64 1
+  %incdec.ptr.i6.i3051 = getelementptr inbounds i8, ptr %250, i64 8
   store ptr %incdec.ptr.i6.i3051, ptr %sequences.i55.i2815, align 8
   %cmp211.i.not.i3052 = icmp ugt ptr %add.ptr236.i.i3039, %add.ptr10.i.i1654
   br i1 %cmp211.i.not.i3052, label %if.end239.i.i3002, label %land.rhs213.i.i2992, !llvm.loop !15
@@ -6118,7 +6111,7 @@ sw.bb15:                                          ; preds = %if.else
   br i1 %cmp31.i.not572.i, label %sw.bb5.i326.i.lr.ph.i3369, label %ZSTD_compressBlock_fast_noDict_7_0.exit
 
 sw.bb5.i326.i.lr.ph.i3369:                        ; preds = %sw.bb15
-  %hashLog.i.i3370 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i3370 = getelementptr inbounds i8, ptr %ms, i64 264
   %251 = load i32, ptr %hashLog.i.i3370, align 4
   %sub.i.i.i3371 = sub i32 64, %251
   %sh_prom.i.i.i3372 = zext nneg i32 %sub.i.i.i3371 to i64
@@ -6126,11 +6119,11 @@ sw.bb5.i326.i.lr.ph.i3369:                        ; preds = %sw.bb15
   %add.ptr22.i.i3374 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -3
   %add.ptr34.i.i3375 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -1
   %add.ptr.i23.i3376 = getelementptr inbounds i8, ptr %add.ptr9.i.i1653, i64 -32
-  %lit.i63.i3377 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i63.i3377 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i377.i3378 = ptrtoint ptr %add.ptr.i23.i3376 to i64
-  %longLengthType.i54.i3379 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i55.i3380 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i61.i3381 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i54.i3379 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i55.i3380 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i61.i3381 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %sw.bb5.i326.i.i3382
 
 sw.bb5.i326.i.i3382:                              ; preds = %if.end239.i.i3567, %sw.bb5.i326.i.lr.ph.i3369
@@ -6651,7 +6644,7 @@ if.then12.i53.i3693:                              ; preds = %if.end8.i28.i3689
 if.end13.i32.i3528:                               ; preds = %if.then12.i53.i3693, %if.end8.i28.i3689, %if.end8.i28.thread.i3526
   %271 = phi ptr [ %.pre.i3527, %if.end8.i28.thread.i3526 ], [ %.pre643.i3692, %if.then12.i53.i3693 ], [ %.pre643.i3692, %if.end8.i28.i3689 ]
   %conv14.i33.i3529 = trunc i64 %sub.ptr.sub188.i.i3519 to i16
-  %litLength16.i35.i3530 = getelementptr inbounds %struct.seqDef_s, ptr %271, i64 0, i32 1
+  %litLength16.i35.i3530 = getelementptr inbounds i8, ptr %271, i64 4
   store i16 %conv14.i33.i3529, ptr %litLength16.i35.i3530, align 4
   %272 = load ptr, ptr %sequences.i55.i3380, align 8
   store i32 %offcode.i.0.i3491, ptr %272, align 4
@@ -6673,10 +6666,10 @@ if.then23.i44.i3666:                              ; preds = %if.end13.i32.i3528
 
 ZSTD_storeSeq.exit71.i3534:                       ; preds = %if.then23.i44.i3666, %if.end13.i32.i3528
   %conv34.i39.i3535 = trunc i64 %sub20.i37.i3531 to i16
-  %mlBase37.i41.i3536 = getelementptr inbounds %struct.seqDef_s, ptr %.pre644.i3533, i64 0, i32 2
+  %mlBase37.i41.i3536 = getelementptr inbounds i8, ptr %.pre644.i3533, i64 6
   store i16 %conv34.i39.i3535, ptr %mlBase37.i41.i3536, align 2
   %274 = load ptr, ptr %sequences.i55.i3380, align 8
-  %incdec.ptr.i43.i3537 = getelementptr inbounds %struct.seqDef_s, ptr %274, i64 1
+  %incdec.ptr.i43.i3537 = getelementptr inbounds i8, ptr %274, i64 8
   store ptr %incdec.ptr.i43.i3537, ptr %sequences.i55.i3380, align 8
   %add.ptr189.i.i3538 = getelementptr inbounds i8, ptr %ip0.i.4.i3487, i64 %add185.i.i3516
   %cmp190.i.not.i3539 = icmp ugt ptr %add.ptr189.i.i3538, %add.ptr10.i.i1654
@@ -6835,7 +6828,7 @@ if.then.i11.i3606:                                ; preds = %ZSTD_count.exit453.
 
 if.end13.i.i3608:                                 ; preds = %if.then.i11.i3606, %ZSTD_count.exit453.i3594
   %280 = load ptr, ptr %sequences.i55.i3380, align 8
-  %litLength16.i.i3609 = getelementptr inbounds %struct.seqDef_s, ptr %280, i64 0, i32 1
+  %litLength16.i.i3609 = getelementptr inbounds i8, ptr %280, i64 4
   store i16 0, ptr %litLength16.i.i3609, align 4
   %281 = load ptr, ptr %sequences.i55.i3380, align 8
   store i32 1, ptr %281, align 4
@@ -6857,10 +6850,10 @@ if.then23.i.i3618:                                ; preds = %if.end13.i.i3608
 
 ZSTD_storeSeq.exit.i3613:                         ; preds = %if.then23.i.i3618, %if.end13.i.i3608
   %conv34.i.i3614 = trunc i64 %sub20.i.i3610 to i16
-  %mlBase37.i.i3615 = getelementptr inbounds %struct.seqDef_s, ptr %.pre645.i3612, i64 0, i32 2
+  %mlBase37.i.i3615 = getelementptr inbounds i8, ptr %.pre645.i3612, i64 6
   store i16 %conv34.i.i3614, ptr %mlBase37.i.i3615, align 2
   %283 = load ptr, ptr %sequences.i55.i3380, align 8
-  %incdec.ptr.i6.i3616 = getelementptr inbounds %struct.seqDef_s, ptr %283, i64 1
+  %incdec.ptr.i6.i3616 = getelementptr inbounds i8, ptr %283, i64 8
   store ptr %incdec.ptr.i6.i3616, ptr %sequences.i55.i3380, align 8
   %cmp211.i.not.i3617 = icmp ugt ptr %add.ptr236.i.i3604, %add.ptr10.i.i1654
   br i1 %cmp211.i.not.i3617, label %if.end239.i.i3567, label %land.rhs213.i.i3557, !llvm.loop !15
@@ -6902,36 +6895,36 @@ return:                                           ; preds = %ZSTD_compressBlock_
 ; Function Attrs: nofree nosync nounwind uwtable
 define i64 @ZSTD_compressBlock_fast_dictMatchState(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
-  %minMatch = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
-  %hashTable2.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %hashTable2.i.i = getelementptr inbounds i8, ptr %ms, i64 112
   %1 = load ptr, ptr %hashTable2.i.i, align 8
-  %hashLog.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog.i.i = getelementptr inbounds i8, ptr %ms, i64 264
   %2 = load i32, ptr %hashLog.i.i, align 4
-  %targetLength.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 5
+  %targetLength.i.i = getelementptr inbounds i8, ptr %ms, i64 276
   %3 = load i32, ptr %targetLength.i.i, align 4
   %tobool.i.not.i = icmp eq i32 %3, 0
   %lnot.ext.i.i = zext i1 %tobool.i.not.i to i32
   %add.i.i = add i32 %3, %lnot.ext.i.i
-  %base4.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base4.i.i = getelementptr inbounds i8, ptr %ms, i64 8
   %4 = load ptr, ptr %base4.i.i, align 8
   %idx.ext.i.i = zext i32 %add.i.i to i64
-  %dictLimit.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit.i.i = getelementptr inbounds i8, ptr %ms, i64 24
   %5 = load i32, ptr %dictLimit.i.i, align 8
   %idx.ext6.i.i = zext i32 %5 to i64
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext6.i.i
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -8
   %6 = load i32, ptr %rep, align 4
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %rep, i64 1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %rep, i64 4
   %7 = load i32, ptr %arrayidx10.i.i, align 4
-  %dictMatchState.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 15
+  %dictMatchState.i.i = getelementptr inbounds i8, ptr %ms, i64 248
   %8 = load ptr, ptr %dictMatchState.i.i, align 8
-  %hashTable12.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %8, i64 0, i32 9
+  %hashTable12.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = load ptr, ptr %hashTable12.i.i, align 8
-  %dictLimit14.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %8, i64 0, i32 3
+  %dictLimit14.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load i32, ptr %dictLimit14.i.i, align 8
-  %base16.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %8, i64 0, i32 1
+  %base16.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load ptr, ptr %base16.i.i, align 8
   %idx.ext17.i.i = zext i32 %10 to i64
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext17.i.i
@@ -6948,10 +6941,10 @@ entry:
   %sub.ptr.lhs.cast24.i.i = ptrtoint ptr %add.ptr23.i.i to i64
   %sub.ptr.rhs.cast25.i.i = ptrtoint ptr %add.ptr18.i.i to i64
   %sub.ptr.sub26.i.i = sub i64 %sub.ptr.lhs.cast24.i.i, %sub.ptr.rhs.cast25.i.i
-  %hashLog28.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %8, i64 0, i32 16, i32 2
+  %hashLog28.i.i = getelementptr inbounds i8, ptr %8, i64 264
   %13 = load i32, ptr %hashLog28.i.i, align 4
   %sub.ptr.rhs.cast31.i.i = ptrtoint ptr %4 to i64
-  %prefetchCDictTables.i.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 18
+  %prefetchCDictTables.i.i = getelementptr inbounds i8, ptr %ms, i64 296
   %14 = load i32, ptr %prefetchCDictTables.i.i, align 8
   %tobool35.i.not.i = icmp eq i32 %14, 0
   switch i32 %0, label %sw.bb [
@@ -6992,11 +6985,11 @@ sw.bb.i373.i.lr.ph.i:                             ; preds = %if.end.i.i
   %sub.i.i455.i = sub i32 24, %13
   %sub76.i.i = add i32 %5, -1
   %add.ptr.i444.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -32
-  %lit.i484.i.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i484.i.i = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i483.i = ptrtoint ptr %add.ptr.i444.i.i to i64
-  %longLengthType.i475.i.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i476.i.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i482.i.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i475.i.i = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i476.i.i = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i482.i.i = getelementptr inbounds i8, ptr %seqStore, i64 76
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -7
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -3
   %add.ptr34.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -1
@@ -7194,7 +7187,7 @@ if.then12.i532.i.i:                               ; preds = %if.end8.i507.i.i
 if.end13.i511.i.i:                                ; preds = %if.then12.i532.i.i, %if.end8.i507.i.i, %if.end8.i507.i.thread.i
   %25 = phi ptr [ %.pre729.i, %if.end8.i507.i.thread.i ], [ %.pre730.i, %if.then12.i532.i.i ], [ %.pre730.i, %if.end8.i507.i.i ]
   %conv14.i512.i.i = trunc i64 %sub.ptr.sub99.i.i to i16
-  %litLength16.i514.i.i = getelementptr inbounds %struct.seqDef_s, ptr %25, i64 0, i32 1
+  %litLength16.i514.i.i = getelementptr inbounds i8, ptr %25, i64 4
   store i16 %conv14.i512.i.i, ptr %litLength16.i514.i.i, align 4
   %26 = load ptr, ptr %sequences.i476.i.i, align 8
   store i32 1, ptr %26, align 4
@@ -7382,7 +7375,7 @@ if.then12.i474.i.i:                               ; preds = %if.end8.i449.i.i
 if.end13.i453.i.i:                                ; preds = %if.then12.i474.i.i, %if.end8.i449.i.i, %if.end8.i449.i.thread.i
   %36 = phi ptr [ %.pre.i, %if.end8.i449.i.thread.i ], [ %.pre724.i, %if.then12.i474.i.i ], [ %.pre724.i, %if.end8.i449.i.i ]
   %conv14.i454.i.i = trunc i64 %sub.ptr.sub140.i.i to i16
-  %litLength16.i456.i.i = getelementptr inbounds %struct.seqDef_s, ptr %36, i64 0, i32 1
+  %litLength16.i456.i.i = getelementptr inbounds i8, ptr %36, i64 4
   store i16 %conv14.i454.i.i, ptr %litLength16.i456.i.i, align 4
   %37 = load ptr, ptr %sequences.i476.i.i, align 8
   store i32 %add141.i.i, ptr %37, align 4
@@ -7657,7 +7650,7 @@ if.then12.i416.i.i:                               ; preds = %if.end8.i391.i.i
 if.end13.i395.i.i:                                ; preds = %if.then12.i416.i.i, %if.end8.i391.i.i, %if.end8.i391.i.thread.i
   %50 = phi ptr [ %.pre726.i, %if.end8.i391.i.thread.i ], [ %.pre727.i, %if.then12.i416.i.i ], [ %.pre727.i, %if.end8.i391.i.i ]
   %conv14.i396.i.i = trunc i64 %sub.ptr.sub184.i.i to i16
-  %litLength16.i398.i.i = getelementptr inbounds %struct.seqDef_s, ptr %50, i64 0, i32 1
+  %litLength16.i398.i.i = getelementptr inbounds i8, ptr %50, i64 4
   store i16 %conv14.i396.i.i, ptr %litLength16.i398.i.i, align 4
   %51 = load ptr, ptr %sequences.i476.i.i, align 8
   store i32 %add185.i.i, ptr %51, align 4
@@ -7706,10 +7699,10 @@ while.end207.i.i:                                 ; preds = %while.end207.i.sink
   %offset_1.i.1.i = phi i32 [ %offset_1.i.0688.i, %if.end13.i511.i.i ], [ %sub118.i.i, %if.end13.i453.i.i ], [ %conv157.i.i, %if.end13.i395.i.i ], [ %offset_1.i.1.ph.i, %while.end207.i.sink.split.i ]
   %ip0.i.4.i = phi ptr [ %add.ptr81.i.i.le, %if.end13.i511.i.i ], [ %ip0.i.2.lcssa.i, %if.end13.i453.i.i ], [ %ip0.i.3.lcssa.i, %if.end13.i395.i.i ], [ %ip0.i.4.ph.i, %while.end207.i.sink.split.i ]
   %conv34.i402.i.i = trunc i64 %sub20.i400.i.sink.i to i16
-  %mlBase37.i404.i.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre728.sink.i, i64 0, i32 2
+  %mlBase37.i404.i.i = getelementptr inbounds i8, ptr %.pre728.sink.i, i64 6
   store i16 %conv34.i402.i.i, ptr %mlBase37.i404.i.i, align 2
   %56 = load ptr, ptr %sequences.i476.i.i, align 8
-  %incdec.ptr.i406.i.i = getelementptr inbounds %struct.seqDef_s, ptr %56, i64 1
+  %incdec.ptr.i406.i.i = getelementptr inbounds i8, ptr %56, i64 8
   store ptr %incdec.ptr.i406.i.i, ptr %sequences.i476.i.i, align 8
   %add.ptr208.i.i = getelementptr inbounds i8, ptr %ip0.i.4.i, i64 %mLength.i.2.i
   %cmp209.i.not.i = icmp ugt ptr %add.ptr208.i.i, %add.ptr9.i.i
@@ -7776,7 +7769,7 @@ if.then.i.i.i:                                    ; preds = %if.then256.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.then.i.i.i, %if.then256.i.i
   %58 = load ptr, ptr %sequences.i476.i.i, align 8
-  %litLength16.i.i.i = getelementptr inbounds %struct.seqDef_s, ptr %58, i64 0, i32 1
+  %litLength16.i.i.i = getelementptr inbounds i8, ptr %58, i64 4
   store i16 0, ptr %litLength16.i.i.i, align 4
   %59 = load ptr, ptr %sequences.i476.i.i, align 8
   store i32 1, ptr %59, align 4
@@ -7798,10 +7791,10 @@ if.then23.i.i.i:                                  ; preds = %if.end13.i.i.i
 
 ZSTD_storeSeq.exit.i.i:                           ; preds = %if.then23.i.i.i, %if.end13.i.i.i
   %conv34.i.i.i = trunc i64 %sub20.i.i.i to i16
-  %mlBase37.i.i.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre732.i, i64 0, i32 2
+  %mlBase37.i.i.i = getelementptr inbounds i8, ptr %.pre732.i, i64 6
   store i16 %conv34.i.i.i, ptr %mlBase37.i.i.i, align 2
   %61 = load ptr, ptr %sequences.i476.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.seqDef_s, ptr %61, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %sequences.i476.i.i, align 8
   %ip0.i.5.val450.i = load i32, ptr %ip0.i.5684.i, align 1
   %mul.i.i608.i = mul i32 %ip0.i.5.val450.i, -1640531535
@@ -7855,11 +7848,11 @@ sw.bb1.i371.i.lr.ph.i:                            ; preds = %if.end.i.i62
   %sh_prom.i.i456.i = zext nneg i32 %sub.i.i455.i70 to i64
   %sub76.i.i71 = add i32 %5, -1
   %add.ptr.i444.i.i72 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -32
-  %lit.i484.i.i73 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i484.i.i73 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i483.i74 = ptrtoint ptr %add.ptr.i444.i.i72 to i64
-  %longLengthType.i475.i.i75 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i476.i.i76 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i482.i.i77 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i475.i.i75 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i476.i.i76 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i482.i.i77 = getelementptr inbounds i8, ptr %seqStore, i64 76
   %add.ptr.i.i78 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -7
   %add.ptr22.i.i79 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -3
   %add.ptr34.i.i80 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -1
@@ -8056,7 +8049,7 @@ if.then12.i532.i.i571:                            ; preds = %if.end8.i507.i.i567
 if.end13.i511.i.i544:                             ; preds = %if.then12.i532.i.i571, %if.end8.i507.i.i567, %if.end8.i507.i.thread.i542
   %71 = phi ptr [ %.pre729.i543, %if.end8.i507.i.thread.i542 ], [ %.pre730.i570, %if.then12.i532.i.i571 ], [ %.pre730.i570, %if.end8.i507.i.i567 ]
   %conv14.i512.i.i545 = trunc i64 %sub.ptr.sub99.i.i535 to i16
-  %litLength16.i514.i.i546 = getelementptr inbounds %struct.seqDef_s, ptr %71, i64 0, i32 1
+  %litLength16.i514.i.i546 = getelementptr inbounds i8, ptr %71, i64 4
   store i16 %conv14.i512.i.i545, ptr %litLength16.i514.i.i546, align 4
   %72 = load ptr, ptr %sequences.i476.i.i76, align 8
   store i32 1, ptr %72, align 4
@@ -8244,7 +8237,7 @@ if.then12.i474.i.i459:                            ; preds = %if.end8.i449.i.i455
 if.end13.i453.i.i432:                             ; preds = %if.then12.i474.i.i459, %if.end8.i449.i.i455, %if.end8.i449.i.thread.i430
   %82 = phi ptr [ %.pre.i431, %if.end8.i449.i.thread.i430 ], [ %.pre724.i458, %if.then12.i474.i.i459 ], [ %.pre724.i458, %if.end8.i449.i.i455 ]
   %conv14.i454.i.i433 = trunc i64 %sub.ptr.sub140.i.i422 to i16
-  %litLength16.i456.i.i434 = getelementptr inbounds %struct.seqDef_s, ptr %82, i64 0, i32 1
+  %litLength16.i456.i.i434 = getelementptr inbounds i8, ptr %82, i64 4
   store i16 %conv14.i454.i.i433, ptr %litLength16.i456.i.i434, align 4
   %83 = load ptr, ptr %sequences.i476.i.i76, align 8
   store i32 %add141.i.i423, ptr %83, align 4
@@ -8519,7 +8512,7 @@ if.then12.i416.i.i301:                            ; preds = %if.end8.i391.i.i297
 if.end13.i395.i.i183:                             ; preds = %if.then12.i416.i.i301, %if.end8.i391.i.i297, %if.end8.i391.i.thread.i181
   %96 = phi ptr [ %.pre726.i182, %if.end8.i391.i.thread.i181 ], [ %.pre727.i300, %if.then12.i416.i.i301 ], [ %.pre727.i300, %if.end8.i391.i.i297 ]
   %conv14.i396.i.i184 = trunc i64 %sub.ptr.sub184.i.i173 to i16
-  %litLength16.i398.i.i185 = getelementptr inbounds %struct.seqDef_s, ptr %96, i64 0, i32 1
+  %litLength16.i398.i.i185 = getelementptr inbounds i8, ptr %96, i64 4
   store i16 %conv14.i396.i.i184, ptr %litLength16.i398.i.i185, align 4
   %97 = load ptr, ptr %sequences.i476.i.i76, align 8
   store i32 %add185.i.i174, ptr %97, align 4
@@ -8568,10 +8561,10 @@ while.end207.i.i189:                              ; preds = %while.end207.i.sink
   %offset_1.i.1.i194 = phi i32 [ %offset_1.i.0688.i87, %if.end13.i511.i.i544 ], [ %sub118.i.i411, %if.end13.i453.i.i432 ], [ %conv157.i.i143, %if.end13.i395.i.i183 ], [ %offset_1.i.1.ph.i273, %while.end207.i.sink.split.i268 ]
   %ip0.i.4.i195 = phi ptr [ %add.ptr81.i.i523.le, %if.end13.i511.i.i544 ], [ %ip0.i.2.lcssa.i420, %if.end13.i453.i.i432 ], [ %ip0.i.3.lcssa.i171, %if.end13.i395.i.i183 ], [ %ip0.i.4.ph.i274, %while.end207.i.sink.split.i268 ]
   %conv34.i402.i.i196 = trunc i64 %sub20.i400.i.sink.i190 to i16
-  %mlBase37.i404.i.i197 = getelementptr inbounds %struct.seqDef_s, ptr %.pre728.sink.i191, i64 0, i32 2
+  %mlBase37.i404.i.i197 = getelementptr inbounds i8, ptr %.pre728.sink.i191, i64 6
   store i16 %conv34.i402.i.i196, ptr %mlBase37.i404.i.i197, align 2
   %101 = load ptr, ptr %sequences.i476.i.i76, align 8
-  %incdec.ptr.i406.i.i198 = getelementptr inbounds %struct.seqDef_s, ptr %101, i64 1
+  %incdec.ptr.i406.i.i198 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %incdec.ptr.i406.i.i198, ptr %sequences.i476.i.i76, align 8
   %add.ptr208.i.i199 = getelementptr inbounds i8, ptr %ip0.i.4.i195, i64 %mLength.i.2.i192
   %cmp209.i.not.i200 = icmp ugt ptr %add.ptr208.i.i199, %add.ptr9.i.i
@@ -8636,7 +8629,7 @@ if.then.i.i.i246:                                 ; preds = %if.then256.i.i239
 
 if.end13.i.i.i248:                                ; preds = %if.then.i.i.i246, %if.then256.i.i239
   %103 = load ptr, ptr %sequences.i476.i.i76, align 8
-  %litLength16.i.i.i249 = getelementptr inbounds %struct.seqDef_s, ptr %103, i64 0, i32 1
+  %litLength16.i.i.i249 = getelementptr inbounds i8, ptr %103, i64 4
   store i16 0, ptr %litLength16.i.i.i249, align 4
   %104 = load ptr, ptr %sequences.i476.i.i76, align 8
   store i32 1, ptr %104, align 4
@@ -8658,10 +8651,10 @@ if.then23.i.i.i262:                               ; preds = %if.end13.i.i.i248
 
 ZSTD_storeSeq.exit.i.i253:                        ; preds = %if.then23.i.i.i262, %if.end13.i.i.i248
   %conv34.i.i.i254 = trunc i64 %sub20.i.i.i250 to i16
-  %mlBase37.i.i.i255 = getelementptr inbounds %struct.seqDef_s, ptr %.pre732.i252, i64 0, i32 2
+  %mlBase37.i.i.i255 = getelementptr inbounds i8, ptr %.pre732.i252, i64 6
   store i16 %conv34.i.i.i254, ptr %mlBase37.i.i.i255, align 2
   %106 = load ptr, ptr %sequences.i476.i.i76, align 8
-  %incdec.ptr.i.i.i256 = getelementptr inbounds %struct.seqDef_s, ptr %106, i64 1
+  %incdec.ptr.i.i.i256 = getelementptr inbounds i8, ptr %106, i64 8
   store ptr %incdec.ptr.i.i.i256, ptr %sequences.i476.i.i76, align 8
   %ip0.i.5.val450.i257 = load i64, ptr %ip0.i.5684.i216, align 1
   %mul.i.i608.i258 = mul i64 %ip0.i.5.val450.i257, -3523014627271114752
@@ -8714,11 +8707,11 @@ sw.bb3.i369.i.lr.ph.i:                            ; preds = %if.end.i.i655
   %sh_prom.i.i456.i665 = zext nneg i32 %sub.i.i455.i664 to i64
   %sub76.i.i666 = add i32 %5, -1
   %add.ptr.i444.i.i667 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -32
-  %lit.i484.i.i668 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i484.i.i668 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i483.i669 = ptrtoint ptr %add.ptr.i444.i.i667 to i64
-  %longLengthType.i475.i.i670 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i476.i.i671 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i482.i.i672 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i475.i.i670 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i476.i.i671 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i482.i.i672 = getelementptr inbounds i8, ptr %seqStore, i64 76
   %add.ptr.i.i673 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -7
   %add.ptr22.i.i674 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -3
   %add.ptr34.i.i675 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -1
@@ -8915,7 +8908,7 @@ if.then12.i532.i.i1174:                           ; preds = %if.end8.i507.i.i117
 if.end13.i511.i.i1147:                            ; preds = %if.then12.i532.i.i1174, %if.end8.i507.i.i1170, %if.end8.i507.i.thread.i1145
   %116 = phi ptr [ %.pre729.i1146, %if.end8.i507.i.thread.i1145 ], [ %.pre730.i1173, %if.then12.i532.i.i1174 ], [ %.pre730.i1173, %if.end8.i507.i.i1170 ]
   %conv14.i512.i.i1148 = trunc i64 %sub.ptr.sub99.i.i1138 to i16
-  %litLength16.i514.i.i1149 = getelementptr inbounds %struct.seqDef_s, ptr %116, i64 0, i32 1
+  %litLength16.i514.i.i1149 = getelementptr inbounds i8, ptr %116, i64 4
   store i16 %conv14.i512.i.i1148, ptr %litLength16.i514.i.i1149, align 4
   %117 = load ptr, ptr %sequences.i476.i.i671, align 8
   store i32 1, ptr %117, align 4
@@ -9103,7 +9096,7 @@ if.then12.i474.i.i1062:                           ; preds = %if.end8.i449.i.i105
 if.end13.i453.i.i1035:                            ; preds = %if.then12.i474.i.i1062, %if.end8.i449.i.i1058, %if.end8.i449.i.thread.i1033
   %127 = phi ptr [ %.pre.i1034, %if.end8.i449.i.thread.i1033 ], [ %.pre724.i1061, %if.then12.i474.i.i1062 ], [ %.pre724.i1061, %if.end8.i449.i.i1058 ]
   %conv14.i454.i.i1036 = trunc i64 %sub.ptr.sub140.i.i1025 to i16
-  %litLength16.i456.i.i1037 = getelementptr inbounds %struct.seqDef_s, ptr %127, i64 0, i32 1
+  %litLength16.i456.i.i1037 = getelementptr inbounds i8, ptr %127, i64 4
   store i16 %conv14.i454.i.i1036, ptr %litLength16.i456.i.i1037, align 4
   %128 = load ptr, ptr %sequences.i476.i.i671, align 8
   store i32 %add141.i.i1026, ptr %128, align 4
@@ -9378,7 +9371,7 @@ if.then12.i416.i.i904:                            ; preds = %if.end8.i391.i.i900
 if.end13.i395.i.i783:                             ; preds = %if.then12.i416.i.i904, %if.end8.i391.i.i900, %if.end8.i391.i.thread.i781
   %141 = phi ptr [ %.pre726.i782, %if.end8.i391.i.thread.i781 ], [ %.pre727.i903, %if.then12.i416.i.i904 ], [ %.pre727.i903, %if.end8.i391.i.i900 ]
   %conv14.i396.i.i784 = trunc i64 %sub.ptr.sub184.i.i773 to i16
-  %litLength16.i398.i.i785 = getelementptr inbounds %struct.seqDef_s, ptr %141, i64 0, i32 1
+  %litLength16.i398.i.i785 = getelementptr inbounds i8, ptr %141, i64 4
   store i16 %conv14.i396.i.i784, ptr %litLength16.i398.i.i785, align 4
   %142 = load ptr, ptr %sequences.i476.i.i671, align 8
   store i32 %add185.i.i774, ptr %142, align 4
@@ -9427,10 +9420,10 @@ while.end207.i.i789:                              ; preds = %while.end207.i.sink
   %offset_1.i.1.i794 = phi i32 [ %offset_1.i.0688.i682, %if.end13.i511.i.i1147 ], [ %sub118.i.i1014, %if.end13.i453.i.i1035 ], [ %conv157.i.i743, %if.end13.i395.i.i783 ], [ %offset_1.i.1.ph.i876, %while.end207.i.sink.split.i871 ]
   %ip0.i.4.i795 = phi ptr [ %add.ptr81.i.i1126.le, %if.end13.i511.i.i1147 ], [ %ip0.i.2.lcssa.i1023, %if.end13.i453.i.i1035 ], [ %ip0.i.3.lcssa.i771, %if.end13.i395.i.i783 ], [ %ip0.i.4.ph.i877, %while.end207.i.sink.split.i871 ]
   %conv34.i402.i.i796 = trunc i64 %sub20.i400.i.sink.i790 to i16
-  %mlBase37.i404.i.i797 = getelementptr inbounds %struct.seqDef_s, ptr %.pre728.sink.i791, i64 0, i32 2
+  %mlBase37.i404.i.i797 = getelementptr inbounds i8, ptr %.pre728.sink.i791, i64 6
   store i16 %conv34.i402.i.i796, ptr %mlBase37.i404.i.i797, align 2
   %146 = load ptr, ptr %sequences.i476.i.i671, align 8
-  %incdec.ptr.i406.i.i798 = getelementptr inbounds %struct.seqDef_s, ptr %146, i64 1
+  %incdec.ptr.i406.i.i798 = getelementptr inbounds i8, ptr %146, i64 8
   store ptr %incdec.ptr.i406.i.i798, ptr %sequences.i476.i.i671, align 8
   %add.ptr208.i.i799 = getelementptr inbounds i8, ptr %ip0.i.4.i795, i64 %mLength.i.2.i792
   %cmp209.i.not.i800 = icmp ugt ptr %add.ptr208.i.i799, %add.ptr9.i.i
@@ -9495,7 +9488,7 @@ if.then.i.i.i848:                                 ; preds = %if.then256.i.i841
 
 if.end13.i.i.i850:                                ; preds = %if.then.i.i.i848, %if.then256.i.i841
   %148 = load ptr, ptr %sequences.i476.i.i671, align 8
-  %litLength16.i.i.i851 = getelementptr inbounds %struct.seqDef_s, ptr %148, i64 0, i32 1
+  %litLength16.i.i.i851 = getelementptr inbounds i8, ptr %148, i64 4
   store i16 0, ptr %litLength16.i.i.i851, align 4
   %149 = load ptr, ptr %sequences.i476.i.i671, align 8
   store i32 1, ptr %149, align 4
@@ -9517,10 +9510,10 @@ if.then23.i.i.i865:                               ; preds = %if.end13.i.i.i850
 
 ZSTD_storeSeq.exit.i.i855:                        ; preds = %if.then23.i.i.i865, %if.end13.i.i.i850
   %conv34.i.i.i856 = trunc i64 %sub20.i.i.i852 to i16
-  %mlBase37.i.i.i857 = getelementptr inbounds %struct.seqDef_s, ptr %.pre732.i854, i64 0, i32 2
+  %mlBase37.i.i.i857 = getelementptr inbounds i8, ptr %.pre732.i854, i64 6
   store i16 %conv34.i.i.i856, ptr %mlBase37.i.i.i857, align 2
   %151 = load ptr, ptr %sequences.i476.i.i671, align 8
-  %incdec.ptr.i.i.i858 = getelementptr inbounds %struct.seqDef_s, ptr %151, i64 1
+  %incdec.ptr.i.i.i858 = getelementptr inbounds i8, ptr %151, i64 8
   store ptr %incdec.ptr.i.i.i858, ptr %sequences.i476.i.i671, align 8
   %ip0.i.5.val450.i859 = load i64, ptr %ip0.i.5684.i818, align 1
   %mul.i.i608.i860 = mul i64 %ip0.i.5.val450.i859, -3523014627193847808
@@ -9573,11 +9566,11 @@ sw.bb5.i367.i.lr.ph.i:                            ; preds = %if.end.i.i1258
   %sh_prom.i.i456.i1268 = zext nneg i32 %sub.i.i455.i1267 to i64
   %sub76.i.i1269 = add i32 %5, -1
   %add.ptr.i444.i.i1270 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -32
-  %lit.i484.i.i1271 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i484.i.i1271 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i483.i1272 = ptrtoint ptr %add.ptr.i444.i.i1270 to i64
-  %longLengthType.i475.i.i1273 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i476.i.i1274 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i482.i.i1275 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i475.i.i1273 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i476.i.i1274 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i482.i.i1275 = getelementptr inbounds i8, ptr %seqStore, i64 76
   %add.ptr.i.i1276 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -7
   %add.ptr22.i.i1277 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -3
   %add.ptr34.i.i1278 = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 -1
@@ -9774,7 +9767,7 @@ if.then12.i532.i.i1777:                           ; preds = %if.end8.i507.i.i177
 if.end13.i511.i.i1750:                            ; preds = %if.then12.i532.i.i1777, %if.end8.i507.i.i1773, %if.end8.i507.i.thread.i1748
   %161 = phi ptr [ %.pre729.i1749, %if.end8.i507.i.thread.i1748 ], [ %.pre730.i1776, %if.then12.i532.i.i1777 ], [ %.pre730.i1776, %if.end8.i507.i.i1773 ]
   %conv14.i512.i.i1751 = trunc i64 %sub.ptr.sub99.i.i1741 to i16
-  %litLength16.i514.i.i1752 = getelementptr inbounds %struct.seqDef_s, ptr %161, i64 0, i32 1
+  %litLength16.i514.i.i1752 = getelementptr inbounds i8, ptr %161, i64 4
   store i16 %conv14.i512.i.i1751, ptr %litLength16.i514.i.i1752, align 4
   %162 = load ptr, ptr %sequences.i476.i.i1274, align 8
   store i32 1, ptr %162, align 4
@@ -9962,7 +9955,7 @@ if.then12.i474.i.i1665:                           ; preds = %if.end8.i449.i.i166
 if.end13.i453.i.i1638:                            ; preds = %if.then12.i474.i.i1665, %if.end8.i449.i.i1661, %if.end8.i449.i.thread.i1636
   %172 = phi ptr [ %.pre.i1637, %if.end8.i449.i.thread.i1636 ], [ %.pre724.i1664, %if.then12.i474.i.i1665 ], [ %.pre724.i1664, %if.end8.i449.i.i1661 ]
   %conv14.i454.i.i1639 = trunc i64 %sub.ptr.sub140.i.i1628 to i16
-  %litLength16.i456.i.i1640 = getelementptr inbounds %struct.seqDef_s, ptr %172, i64 0, i32 1
+  %litLength16.i456.i.i1640 = getelementptr inbounds i8, ptr %172, i64 4
   store i16 %conv14.i454.i.i1639, ptr %litLength16.i456.i.i1640, align 4
   %173 = load ptr, ptr %sequences.i476.i.i1274, align 8
   store i32 %add141.i.i1629, ptr %173, align 4
@@ -10237,7 +10230,7 @@ if.then12.i416.i.i1507:                           ; preds = %if.end8.i391.i.i150
 if.end13.i395.i.i1386:                            ; preds = %if.then12.i416.i.i1507, %if.end8.i391.i.i1503, %if.end8.i391.i.thread.i1384
   %186 = phi ptr [ %.pre726.i1385, %if.end8.i391.i.thread.i1384 ], [ %.pre727.i1506, %if.then12.i416.i.i1507 ], [ %.pre727.i1506, %if.end8.i391.i.i1503 ]
   %conv14.i396.i.i1387 = trunc i64 %sub.ptr.sub184.i.i1376 to i16
-  %litLength16.i398.i.i1388 = getelementptr inbounds %struct.seqDef_s, ptr %186, i64 0, i32 1
+  %litLength16.i398.i.i1388 = getelementptr inbounds i8, ptr %186, i64 4
   store i16 %conv14.i396.i.i1387, ptr %litLength16.i398.i.i1388, align 4
   %187 = load ptr, ptr %sequences.i476.i.i1274, align 8
   store i32 %add185.i.i1377, ptr %187, align 4
@@ -10286,10 +10279,10 @@ while.end207.i.i1392:                             ; preds = %while.end207.i.sink
   %offset_1.i.1.i1397 = phi i32 [ %offset_1.i.0688.i1285, %if.end13.i511.i.i1750 ], [ %sub118.i.i1617, %if.end13.i453.i.i1638 ], [ %conv157.i.i1346, %if.end13.i395.i.i1386 ], [ %offset_1.i.1.ph.i1479, %while.end207.i.sink.split.i1474 ]
   %ip0.i.4.i1398 = phi ptr [ %add.ptr81.i.i1729.le, %if.end13.i511.i.i1750 ], [ %ip0.i.2.lcssa.i1626, %if.end13.i453.i.i1638 ], [ %ip0.i.3.lcssa.i1374, %if.end13.i395.i.i1386 ], [ %ip0.i.4.ph.i1480, %while.end207.i.sink.split.i1474 ]
   %conv34.i402.i.i1399 = trunc i64 %sub20.i400.i.sink.i1393 to i16
-  %mlBase37.i404.i.i1400 = getelementptr inbounds %struct.seqDef_s, ptr %.pre728.sink.i1394, i64 0, i32 2
+  %mlBase37.i404.i.i1400 = getelementptr inbounds i8, ptr %.pre728.sink.i1394, i64 6
   store i16 %conv34.i402.i.i1399, ptr %mlBase37.i404.i.i1400, align 2
   %191 = load ptr, ptr %sequences.i476.i.i1274, align 8
-  %incdec.ptr.i406.i.i1401 = getelementptr inbounds %struct.seqDef_s, ptr %191, i64 1
+  %incdec.ptr.i406.i.i1401 = getelementptr inbounds i8, ptr %191, i64 8
   store ptr %incdec.ptr.i406.i.i1401, ptr %sequences.i476.i.i1274, align 8
   %add.ptr208.i.i1402 = getelementptr inbounds i8, ptr %ip0.i.4.i1398, i64 %mLength.i.2.i1395
   %cmp209.i.not.i1403 = icmp ugt ptr %add.ptr208.i.i1402, %add.ptr9.i.i
@@ -10354,7 +10347,7 @@ if.then.i.i.i1451:                                ; preds = %if.then256.i.i1444
 
 if.end13.i.i.i1453:                               ; preds = %if.then.i.i.i1451, %if.then256.i.i1444
   %193 = load ptr, ptr %sequences.i476.i.i1274, align 8
-  %litLength16.i.i.i1454 = getelementptr inbounds %struct.seqDef_s, ptr %193, i64 0, i32 1
+  %litLength16.i.i.i1454 = getelementptr inbounds i8, ptr %193, i64 4
   store i16 0, ptr %litLength16.i.i.i1454, align 4
   %194 = load ptr, ptr %sequences.i476.i.i1274, align 8
   store i32 1, ptr %194, align 4
@@ -10376,10 +10369,10 @@ if.then23.i.i.i1468:                              ; preds = %if.end13.i.i.i1453
 
 ZSTD_storeSeq.exit.i.i1458:                       ; preds = %if.then23.i.i.i1468, %if.end13.i.i.i1453
   %conv34.i.i.i1459 = trunc i64 %sub20.i.i.i1455 to i16
-  %mlBase37.i.i.i1460 = getelementptr inbounds %struct.seqDef_s, ptr %.pre732.i1457, i64 0, i32 2
+  %mlBase37.i.i.i1460 = getelementptr inbounds i8, ptr %.pre732.i1457, i64 6
   store i16 %conv34.i.i.i1459, ptr %mlBase37.i.i.i1460, align 2
   %196 = load ptr, ptr %sequences.i476.i.i1274, align 8
-  %incdec.ptr.i.i.i1461 = getelementptr inbounds %struct.seqDef_s, ptr %196, i64 1
+  %incdec.ptr.i.i.i1461 = getelementptr inbounds i8, ptr %196, i64 8
   store ptr %incdec.ptr.i.i.i1461, ptr %sequences.i476.i.i1274, align 8
   %ip0.i.5.val450.i1462 = load i64, ptr %ip0.i.5684.i1421, align 1
   %mul.i.i608.i1463 = mul i64 %ip0.i.5.val450.i1462, -3523014627193167104
@@ -10413,7 +10406,7 @@ return:                                           ; preds = %if.end272.i.i831, %
 ; Function Attrs: nofree nosync nounwind uwtable
 define i64 @ZSTD_compressBlock_fast_extDict(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
 entry:
-  %minMatch = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
   %switch.tableidx = add i32 %0, -5
   %1 = icmp ult i32 %switch.tableidx, 3
@@ -10652,21 +10645,21 @@ return:                                           ; preds = %ZSTD_count.exit, %Z
 ; Function Attrs: nofree nosync nounwind uwtable
 define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %mls) unnamed_addr #1 {
 entry:
-  %cParams1 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
-  %hashTable2 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %cParams1 = getelementptr inbounds i8, ptr %ms, i64 256
+  %hashTable2 = getelementptr inbounds i8, ptr %ms, i64 112
   %0 = load ptr, ptr %hashTable2, align 8
-  %hashLog = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 2
+  %hashLog = getelementptr inbounds i8, ptr %ms, i64 264
   %1 = load i32, ptr %hashLog, align 4
-  %targetLength = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 5
+  %targetLength = getelementptr inbounds i8, ptr %ms, i64 276
   %2 = load i32, ptr %targetLength, align 4
   %tobool.not = icmp eq i32 %2, 0
   %lnot.ext = zext i1 %tobool.not to i32
   %add = add i32 %2, 1
   %add4 = add i32 %add, %lnot.ext
   %conv = zext i32 %add4 to i64
-  %base5 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base5 = getelementptr inbounds i8, ptr %ms, i64 8
   %3 = load ptr, ptr %base5, align 8
-  %dictBase7 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 2
+  %dictBase7 = getelementptr inbounds i8, ptr %ms, i64 16
   %4 = load ptr, ptr %dictBase7, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %src to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
@@ -10687,7 +10680,7 @@ entry:
   %cond6.i = select i1 %8, i32 %sub1.i, i32 %ms.val
   %idx.ext = zext i32 %cond6.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %idx.ext
-  %dictLimit11 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit11 = getelementptr inbounds i8, ptr %ms, i64 24
   %9 = load i32, ptr %dictLimit11, align 8
   %cond = tail call i32 @llvm.umax.i32(i32 %9, i32 %cond6.i)
   %idx.ext13 = zext i32 %cond to i64
@@ -10695,7 +10688,7 @@ entry:
   %add.ptr16 = getelementptr inbounds i8, ptr %4, i64 %idx.ext13
   %add.ptr17 = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr17, i64 -8
-  %arrayidx19 = getelementptr inbounds i32, ptr %rep, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %rep, i64 4
   %cmp20.not = icmp ult i32 %cond6.i, %9
   br i1 %cmp20.not, label %if.end, label %if.then
 
@@ -10725,11 +10718,11 @@ if.end42.lr.ph:                                   ; preds = %if.end
   %sh_prom.i.i414 = zext nneg i32 %sub.i.i413 to i64
   %sub.i.i = sub i32 32, %1
   %add.ptr.i416 = getelementptr inbounds i8, ptr %add.ptr17, i64 -32
-  %lit.i456 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit.i456 = getelementptr inbounds i8, ptr %seqStore, i64 24
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i416 to i64
-  %longLengthType.i447 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
-  %sequences.i448 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
-  %longLengthPos.i454 = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthType.i447 = getelementptr inbounds i8, ptr %seqStore, i64 72
+  %sequences.i448 = getelementptr inbounds i8, ptr %seqStore, i64 8
+  %longLengthPos.i454 = getelementptr inbounds i8, ptr %seqStore, i64 76
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end42.lr.ph, %if.end310
@@ -11187,7 +11180,7 @@ if.then12.i446:                                   ; preds = %if.end8.i421
 if.end13.i425:                                    ; preds = %if.end8.i421.thread, %if.then12.i446, %if.end8.i421
   %25 = phi ptr [ %.pre, %if.end8.i421.thread ], [ %.pre677, %if.then12.i446 ], [ %.pre677, %if.end8.i421 ]
   %conv14.i426 = trunc i64 %sub.ptr.sub230 to i16
-  %litLength16.i428 = getelementptr inbounds %struct.seqDef_s, ptr %25, i64 0, i32 1
+  %litLength16.i428 = getelementptr inbounds i8, ptr %25, i64 4
   store i16 %conv14.i426, ptr %litLength16.i428, align 4
   %26 = load ptr, ptr %sequences.i448, align 8
   store i32 %offcode.0, ptr %26, align 4
@@ -11209,10 +11202,10 @@ if.then23.i437:                                   ; preds = %if.end13.i425
 
 ZSTD_storeSeq.exit464:                            ; preds = %if.then23.i437, %if.end13.i425
   %conv34.i432 = trunc i64 %sub20.i430 to i16
-  %mlBase37.i434 = getelementptr inbounds %struct.seqDef_s, ptr %.pre678, i64 0, i32 2
+  %mlBase37.i434 = getelementptr inbounds i8, ptr %.pre678, i64 6
   store i16 %conv34.i432, ptr %mlBase37.i434, align 2
   %28 = load ptr, ptr %sequences.i448, align 8
-  %incdec.ptr.i436 = getelementptr inbounds %struct.seqDef_s, ptr %28, i64 1
+  %incdec.ptr.i436 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %incdec.ptr.i436, ptr %sequences.i448, align 8
   %add.ptr231 = getelementptr inbounds i8, ptr %ip0.4, i64 %add227
   %cmp232 = icmp ult ptr %ip1.2, %add.ptr231
@@ -11341,7 +11334,7 @@ if.then.i:                                        ; preds = %if.then290
 
 if.end13.i:                                       ; preds = %if.then290, %if.then.i
   %31 = load ptr, ptr %sequences.i448, align 8
-  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %31, i64 0, i32 1
+  %litLength16.i = getelementptr inbounds i8, ptr %31, i64 4
   store i16 0, ptr %litLength16.i, align 4
   %32 = load ptr, ptr %sequences.i448, align 8
   store i32 1, ptr %32, align 4
@@ -11363,10 +11356,10 @@ if.then23.i:                                      ; preds = %if.end13.i
 
 ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.end13.i
   %conv34.i = trunc i64 %sub20.i to i16
-  %mlBase37.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre679, i64 0, i32 2
+  %mlBase37.i = getelementptr inbounds i8, ptr %.pre679, i64 6
   store i16 %conv34.i, ptr %mlBase37.i, align 2
   %34 = load ptr, ptr %sequences.i448, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.seqDef_s, ptr %34, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %incdec.ptr.i, ptr %sequences.i448, align 8
   switch i32 %mls, label %sw.bb.i [
     i32 7, label %sw.bb5.i

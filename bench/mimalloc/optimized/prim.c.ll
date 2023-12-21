@@ -3,7 +3,6 @@ source_filename = "bench/mimalloc/original/prim.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mi_os_mem_config_s = type { i64, i64, i64, i8, i8, i8 }
 %struct.timespec = type { i64, i64 }
 %struct.rusage = type { %struct.timeval, %struct.timeval, %union.anon, %union.anon.0, %union.anon.1, %union.anon.2, %union.anon.3, %union.anon.4, %union.anon.5, %union.anon.6, %union.anon.7, %union.anon.8, %union.anon.9, %union.anon.10, %union.anon.11, %union.anon.12 }
 %struct.timeval = type { i64, i64 }
@@ -21,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.10 = type { i64 }
 %union.anon.11 = type { i64 }
 %union.anon.12 = type { i64 }
-%struct.mi_process_info_s = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 
 @_mi_prim_reset.advice = internal unnamed_addr global i64 8, align 8
 @.str = private unnamed_addr constant [69 x i8] c"failed to bind huge (1GiB) pages to numa node %d (error: %d (0x%x))\0A\00", align 1
@@ -47,12 +45,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %call, ptr %config, align 8
-  %alloc_granularity = getelementptr inbounds %struct.mi_os_mem_config_s, ptr %config, i64 0, i32 2
+  %alloc_granularity = getelementptr inbounds i8, ptr %config, i64 16
   store i64 %call, ptr %alloc_granularity, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %large_page_size = getelementptr inbounds %struct.mi_os_mem_config_s, ptr %config, i64 0, i32 1
+  %large_page_size = getelementptr inbounds i8, ptr %config, i64 8
   store i64 2097152, ptr %large_page_size, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
   %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0) #8
@@ -76,11 +74,11 @@ if.then4.i:                                       ; preds = %if.then.i
 unix_detect_overcommit.exit:                      ; preds = %if.end, %if.then.i, %if.then4.i
   %os_overcommit.0.i = phi i8 [ %3, %if.then4.i ], [ 1, %if.then.i ], [ 1, %if.end ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i)
-  %has_overcommit = getelementptr inbounds %struct.mi_os_mem_config_s, ptr %config, i64 0, i32 3
+  %has_overcommit = getelementptr inbounds i8, ptr %config, i64 24
   store i8 %os_overcommit.0.i, ptr %has_overcommit, align 8
-  %must_free_whole = getelementptr inbounds %struct.mi_os_mem_config_s, ptr %config, i64 0, i32 4
+  %must_free_whole = getelementptr inbounds i8, ptr %config, i64 25
   store i8 0, ptr %must_free_whole, align 1
-  %has_virtual_reserve = getelementptr inbounds %struct.mi_os_mem_config_s, ptr %config, i64 0, i32 5
+  %has_virtual_reserve = getelementptr inbounds i8, ptr %config, i64 26
   store i8 1, ptr %has_virtual_reserve, align 2
   ret void
 }
@@ -441,7 +439,7 @@ entry:
   %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t) #8
   %0 = load i64, ptr %t, align 8
   %mul = mul nsw i64 %0, 1000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %t, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %t, i64 8
   %1 = load i64, ptr %tv_nsec, align 8
   %div = sdiv i64 %1, 1000000
   %add = add nsw i64 %div, %mul
@@ -462,25 +460,25 @@ entry:
   %mul.i = mul nsw i64 %rusage.val, 1000
   %div.i = sdiv i64 %rusage.val4, 1000
   %add.i = add nsw i64 %div.i, %mul.i
-  %utime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 1
+  %utime = getelementptr inbounds i8, ptr %pinfo, i64 8
   store i64 %add.i, ptr %utime, align 8
-  %ru_stime = getelementptr inbounds %struct.rusage, ptr %rusage, i64 0, i32 1
+  %ru_stime = getelementptr inbounds i8, ptr %rusage, i64 16
   %ru_stime.val = load i64, ptr %ru_stime, align 8
-  %1 = getelementptr inbounds %struct.rusage, ptr %rusage, i64 0, i32 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %rusage, i64 24
   %ru_stime.val5 = load i64, ptr %1, align 8
   %mul.i6 = mul nsw i64 %ru_stime.val, 1000
   %div.i7 = sdiv i64 %ru_stime.val5, 1000
   %add.i8 = add nsw i64 %div.i7, %mul.i6
-  %stime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 2
+  %stime = getelementptr inbounds i8, ptr %pinfo, i64 16
   store i64 %add.i8, ptr %stime, align 8
-  %2 = getelementptr inbounds %struct.rusage, ptr %rusage, i64 0, i32 7
+  %2 = getelementptr inbounds i8, ptr %rusage, i64 72
   %3 = load i64, ptr %2, align 8
-  %page_faults = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 7
+  %page_faults = getelementptr inbounds i8, ptr %pinfo, i64 56
   store i64 %3, ptr %page_faults, align 8
-  %4 = getelementptr inbounds %struct.rusage, ptr %rusage, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %rusage, i64 32
   %5 = load i64, ptr %4, align 8
   %mul = shl nsw i64 %5, 10
-  %peak_rss = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 4
+  %peak_rss = getelementptr inbounds i8, ptr %pinfo, i64 32
   store i64 %mul, ptr %peak_rss, align 8
   ret void
 }

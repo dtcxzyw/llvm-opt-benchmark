@@ -3,14 +3,6 @@ source_filename = "bench/abseil-cpp/original/examine_stack.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ucontext_t = type { i64, ptr, %struct.stack_t, %struct.mcontext_t, %struct.__sigset_t, %struct._libc_fpstate, [4 x i64] }
-%struct.stack_t = type { ptr, i32, i64 }
-%struct.mcontext_t = type { [23 x i64], ptr, [8 x i64] }
-%struct.__sigset_t = type { [16 x i64] }
-%struct._libc_fpstate = type { i16, i16, i16, i16, i64, i64, i32, i32, [8 x %struct._libc_fpxreg], [16 x %struct._libc_xmmreg], [24 x i32] }
-%struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
-%struct._libc_xmmreg = type { [4 x i32] }
-
 @_ZN4absl18debugging_internal12_GLOBAL__N_122debug_stack_trace_hookE = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [5 x i8] c"PC: \00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"    \00", align 1
@@ -44,7 +36,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds %struct.ucontext_t, ptr %vuc, i64 0, i32 3, i32 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %vuc, i64 168
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
   br label %return

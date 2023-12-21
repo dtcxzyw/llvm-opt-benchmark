@@ -168,23 +168,23 @@ entry:
   %K.sroa.0.0.copyload = load i64, ptr %arrayidx, align 16
   %K.sroa.2.0.K1.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %K.sroa.2.0.copyload = load ptr, ptr %K.sroa.2.0.K1.sroa_idx, align 8
-  %IV4 = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom, i32 1
+  %IV4 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %IV.sroa.0.0.copyload = load i64, ptr %IV4, align 16
-  %IV.sroa.3.0.IV4.sroa_idx = getelementptr inbounds i8, ptr %IV4, i64 8
+  %IV.sroa.3.0.IV4.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %IV.sroa.3.0.copyload = load ptr, ptr %IV.sroa.3.0.IV4.sroa_idx, align 8
-  %A7 = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom, i32 2
+  %A7 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %A.sroa.0.0.copyload = load i64, ptr %A7, align 16
-  %A.sroa.4.0.A7.sroa_idx = getelementptr inbounds i8, ptr %A7, i64 8
+  %A.sroa.4.0.A7.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %A.sroa.4.0.copyload = load ptr, ptr %A.sroa.4.0.A7.sroa_idx, align 8
-  %P10 = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom, i32 3
+  %P10 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %P.sroa.0.0.copyload = load i64, ptr %P10, align 16
-  %P.sroa.10.0.P10.sroa_idx = getelementptr inbounds i8, ptr %P10, i64 8
+  %P.sroa.10.0.P10.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %P.sroa.10.0.copyload = load ptr, ptr %P.sroa.10.0.P10.sroa_idx, align 8
-  %C13 = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom, i32 4
+  %C13 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %C.sroa.0.0.copyload = load i64, ptr %C13, align 16
-  %C.sroa.2.0.C13.sroa_idx = getelementptr inbounds i8, ptr %C13, i64 8
+  %C.sroa.2.0.C13.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %C.sroa.2.0.copyload = load ptr, ptr %C.sroa.2.0.C13.sroa_idx, align 8
-  %T.sroa.1.0.T16.sroa_idx = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom, i32 5, i32 1
+  %T.sroa.1.0.T16.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %T.sroa.1.0.copyload = load ptr, ptr %T.sroa.1.0.T16.sroa_idx, align 8
   %cmp = icmp eq i64 %A.sroa.0.0.copyload, 1
   %spec.select = select i1 %cmp, ptr null, ptr %A.sroa.4.0.copyload
@@ -300,7 +300,7 @@ entry:
   %vector = alloca [64 x i8], align 16
   %idxprom = sext i32 %num to i64
   %arrayidx = getelementptr inbounds [6 x %struct.SIZED_DATA], ptr @aes_cts128_vectors, i64 0, i64 %idxprom
-  %data = getelementptr inbounds [6 x %struct.SIZED_DATA], ptr @aes_cts128_vectors, i64 0, i64 %idxprom, i32 1
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %arrayidx, align 16
   %.b.i = load i1, ptr @cts128_encrypt_key_schedule.init_key, align 4
@@ -323,11 +323,11 @@ if.then.i45:                                      ; preds = %cts128_encrypt_key_
 cts128_decrypt_key_schedule.exit:                 ; preds = %cts128_encrypt_key_schedule.exit, %if.then.i45
   %2 = load ptr, ptr %fixture, align 8
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 197, ptr noundef nonnull @.str.5, ptr noundef %2, i64 noundef %1) #5
-  %last_blocks_correction = getelementptr inbounds %struct.CTS128_FIXTURE, ptr %fixture, i64 0, i32 1
+  %last_blocks_correction = getelementptr inbounds i8, ptr %fixture, i64 8
   %3 = load ptr, ptr %last_blocks_correction, align 8
   %call5 = call i64 %3(ptr noundef %0, ptr noundef nonnull %vector, i64 noundef %1) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv, i8 0, i64 16, i1 false)
-  %encrypt_block = getelementptr inbounds %struct.CTS128_FIXTURE, ptr %fixture, i64 0, i32 2
+  %encrypt_block = getelementptr inbounds i8, ptr %fixture, i64 16
   %4 = load ptr, ptr %encrypt_block, align 8
   %call9 = call i64 %4(ptr noundef nonnull @cts128_test_input, ptr noundef nonnull %ciphertext, i64 noundef %1, ptr noundef nonnull @cts128_encrypt_key_schedule.ks, ptr noundef nonnull %iv, ptr noundef nonnull @AES_encrypt) #5
   %call10 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.4, i32 noundef 205, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %call9, i64 noundef %1) #5
@@ -349,7 +349,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %lor.lhs.false15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv, i8 0, i64 16, i1 false)
-  %decrypt_block = getelementptr inbounds %struct.CTS128_FIXTURE, ptr %fixture, i64 0, i32 4
+  %decrypt_block = getelementptr inbounds i8, ptr %fixture, i64 32
   %5 = load ptr, ptr %decrypt_block, align 8
   %call25 = call i64 %5(ptr noundef nonnull %ciphertext, ptr noundef nonnull %cleartext, i64 noundef %1, ptr noundef nonnull @cts128_decrypt_key_schedule.ks, ptr noundef nonnull %iv, ptr noundef nonnull @AES_decrypt) #5
   %cmp = icmp eq i64 %1, %call25
@@ -373,7 +373,7 @@ lor.lhs.false34:                                  ; preds = %lor.lhs.false30
 
 if.end43:                                         ; preds = %lor.lhs.false34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv, i8 0, i64 16, i1 false)
-  %encrypt_stream = getelementptr inbounds %struct.CTS128_FIXTURE, ptr %fixture, i64 0, i32 3
+  %encrypt_stream = getelementptr inbounds i8, ptr %fixture, i64 24
   %7 = load ptr, ptr %encrypt_stream, align 8
   %call47 = call i64 %7(ptr noundef nonnull @cts128_test_input, ptr noundef nonnull %ciphertext, i64 noundef %1, ptr noundef nonnull @cts128_encrypt_key_schedule.ks, ptr noundef nonnull %iv, ptr noundef nonnull @AES_cbc_encrypt) #5
   %call48 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.4, i32 noundef 225, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.7, i64 noundef %call47, i64 noundef %1) #5
@@ -392,7 +392,7 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false50
 
 if.end64:                                         ; preds = %lor.lhs.false55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv, i8 0, i64 16, i1 false)
-  %decrypt_stream = getelementptr inbounds %struct.CTS128_FIXTURE, ptr %fixture, i64 0, i32 5
+  %decrypt_stream = getelementptr inbounds i8, ptr %fixture, i64 40
   %8 = load ptr, ptr %decrypt_stream, align 8
   %call69 = call i64 %8(ptr noundef nonnull %ciphertext, ptr noundef nonnull %cleartext, i64 noundef %1, ptr noundef nonnull @cts128_decrypt_key_schedule.ks, ptr noundef nonnull %iv, ptr noundef nonnull @AES_cbc_encrypt) #5
   %call70 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.4, i32 noundef 235, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i64 noundef %call69, i64 noundef %1) #5

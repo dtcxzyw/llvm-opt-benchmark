@@ -3,11 +3,8 @@ source_filename = "bench/openssl/original/libdefault-lib-drbg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.prov_drbg_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.anon = type { ptr, i32 }
-%struct.prov_drbg_nonce_global_st = type { ptr, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_dispatch_st = type { i32, ptr }
 
 @.str = private unnamed_addr constant [50 x i8] c"../openssl/providers/implementations/rands/drbg.c\00", align 1
 @__func__.ossl_drbg_get_seed = private unnamed_addr constant [19 x i8] c"ossl_drbg_get_seed\00", align 1
@@ -65,7 +62,7 @@ entry:
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %entry
-  %strength = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 17
+  %strength = getelementptr inbounds i8, ptr %vdrbg, i64 128
   %0 = load i32, ptr %strength, align 8
   %call11 = call i32 @ossl_prov_drbg_generate(ptr noundef %vdrbg, ptr noundef nonnull %call, i64 noundef %bytes_needed.1, i32 noundef %0, i32 noundef %prediction_resistance, ptr noundef nonnull %drbg, i64 noundef 8), !range !4
   %tobool.not = icmp eq i32 %call11, 0
@@ -107,7 +104,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %state = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 33
+  %state = getelementptr inbounds i8, ptr %drbg, i64 240
   %1 = load i32, ptr %state, align 8
   switch i32 %1, label %if.end.i [
     i32 1, label %if.end17
@@ -115,7 +112,7 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   ]
 
 if.then.i:                                        ; preds = %if.end5
-  %uninstantiate.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 3
+  %uninstantiate.i = getelementptr inbounds i8, ptr %drbg, i64 24
   %2 = load ptr, ptr %uninstantiate.i, align 8
   %call.i = tail call i32 %2(ptr noundef nonnull %drbg) #8
   %.pr.i = load i32, ptr %state, align 8
@@ -127,7 +124,7 @@ if.end.i:                                         ; preds = %if.end5, %if.then.i
   br i1 %cmp2.i, label %if.then3.i, label %rand_drbg_restart.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %strength.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength.i = getelementptr inbounds i8, ptr %drbg, i64 128
   %4 = load i32, ptr %strength.i, align 8
   %call4.i = tail call i32 @ossl_prov_drbg_instantiate(ptr noundef nonnull %drbg, i32 noundef %4, i32 noundef 0, ptr noundef null, i64 noundef 0), !range !4
   %.pre = load i32, ptr %state, align 8
@@ -153,7 +150,7 @@ if.then15:                                        ; preds = %rand_drbg_restart.e
   br label %err
 
 if.end17:                                         ; preds = %if.end5, %rand_drbg_restart.exit
-  %strength18 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength18 = getelementptr inbounds i8, ptr %drbg, i64 128
   %6 = load i32, ptr %strength18, align 8
   %cmp19 = icmp ult i32 %6, %strength
   br i1 %cmp19, label %if.then20, label %if.end21
@@ -165,7 +162,7 @@ if.then20:                                        ; preds = %if.end17
   br label %err
 
 if.end21:                                         ; preds = %if.end17
-  %max_request = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 18
+  %max_request = getelementptr inbounds i8, ptr %drbg, i64 136
   %7 = load i64, ptr %max_request, align 8
   %cmp22 = icmp ult i64 %7, %outlen
   br i1 %cmp22, label %if.then23, label %if.end24
@@ -177,7 +174,7 @@ if.then23:                                        ; preds = %if.end21
   br label %err
 
 if.end24:                                         ; preds = %if.end21
-  %max_adinlen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 24
+  %max_adinlen = getelementptr inbounds i8, ptr %drbg, i64 184
   %8 = load i64, ptr %max_adinlen, align 8
   %cmp25 = icmp ult i64 %8, %adinlen
   br i1 %cmp25, label %if.then26, label %if.end27
@@ -190,7 +187,7 @@ if.then26:                                        ; preds = %if.end24
 
 if.end27:                                         ; preds = %if.end24
   %call28 = tail call i32 @openssl_get_fork_id() #8
-  %fork_id29 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 15
+  %fork_id29 = getelementptr inbounds i8, ptr %drbg, i64 120
   %9 = load i32, ptr %fork_id29, align 8
   %cmp30.not = icmp eq i32 %9, %call28
   br i1 %cmp30.not, label %if.end33, label %if.then31
@@ -201,13 +198,13 @@ if.then31:                                        ; preds = %if.end27
 
 if.end33:                                         ; preds = %if.then31, %if.end27
   %reseed_required.0 = phi i32 [ 1, %if.then31 ], [ 0, %if.end27 ]
-  %reseed_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 26
+  %reseed_interval = getelementptr inbounds i8, ptr %drbg, i64 196
   %10 = load i32, ptr %reseed_interval, align 4
   %cmp34.not = icmp eq i32 %10, 0
   br i1 %cmp34.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %generate_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 25
+  %generate_counter = getelementptr inbounds i8, ptr %drbg, i64 192
   %11 = load i32, ptr %generate_counter, align 8
   %cmp37.not = icmp ult i32 %11, %10
   %spec.select = select i1 %cmp37.not, i32 %reseed_required.0, i32 1
@@ -215,14 +212,14 @@ if.then35:                                        ; preds = %if.end33
 
 if.end40:                                         ; preds = %if.then35, %if.end33
   %reseed_required.1 = phi i32 [ %reseed_required.0, %if.end33 ], [ %spec.select, %if.then35 ]
-  %reseed_time_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 28
+  %reseed_time_interval = getelementptr inbounds i8, ptr %drbg, i64 208
   %12 = load i64, ptr %reseed_time_interval, align 8
   %cmp41 = icmp sgt i64 %12, 0
   br i1 %cmp41, label %if.then42, label %if.end50
 
 if.then42:                                        ; preds = %if.end40
   %call43 = tail call i64 @time(ptr noundef null) #8
-  %reseed_time = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 27
+  %reseed_time = getelementptr inbounds i8, ptr %drbg, i64 200
   %13 = load i64, ptr %reseed_time, align 8
   %cmp44 = icmp slt i64 %call43, %13
   br i1 %cmp44, label %if.then48, label %lor.lhs.false
@@ -238,14 +235,14 @@ if.then48:                                        ; preds = %lor.lhs.false, %if.
 
 if.end50:                                         ; preds = %lor.lhs.false, %if.then48, %if.end40
   %reseed_required.2 = phi i32 [ 1, %if.then48 ], [ %reseed_required.1, %lor.lhs.false ], [ %reseed_required.1, %if.end40 ]
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %drbg, i64 48
   %15 = load ptr, ptr %parent, align 8
   %cmp51.not = icmp eq ptr %15, null
   br i1 %cmp51.not, label %if.end56, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end50
   %call53 = tail call fastcc i32 @get_parent_reseed_count(ptr noundef nonnull %drbg)
-  %parent_reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 31
+  %parent_reseed_counter = getelementptr inbounds i8, ptr %drbg, i64 224
   %16 = load i32, ptr %parent_reseed_counter, align 8
   %cmp54.not = icmp eq i32 %call53, %16
   %spec.select39 = select i1 %cmp54.not, i32 %reseed_required.2, i32 1
@@ -271,7 +268,7 @@ if.then63:                                        ; preds = %if.then60
 if.end65:                                         ; preds = %if.then60, %if.end56
   %adinlen.addr.0 = phi i64 [ %adinlen, %if.end56 ], [ 0, %if.then60 ]
   %adin.addr.0 = phi ptr [ %adin, %if.end56 ], [ null, %if.then60 ]
-  %generate = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 5
+  %generate = getelementptr inbounds i8, ptr %drbg, i64 40
   %18 = load ptr, ptr %generate, align 8
   %call66 = tail call i32 %18(ptr noundef nonnull %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin.addr.0, i64 noundef %adinlen.addr.0) #8
   %tobool67.not = icmp eq i32 %call66, 0
@@ -285,7 +282,7 @@ if.then68:                                        ; preds = %if.end65
   br label %err
 
 if.end70:                                         ; preds = %if.end65
-  %generate_counter71 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 25
+  %generate_counter71 = getelementptr inbounds i8, ptr %drbg, i64 192
   %19 = load i32, ptr %generate_counter71, align 8
   %inc = add i32 %19, 1
   store i32 %inc, ptr %generate_counter71, align 8
@@ -374,7 +371,7 @@ entry:
   %entropy = alloca ptr, align 8
   store ptr null, ptr %nonce, align 8
   store ptr null, ptr %entropy, align 8
-  %strength1 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength1 = getelementptr inbounds i8, ptr %drbg, i64 128
   %0 = load i32, ptr %strength1, align 8
   %cmp = icmp ult i32 %0, %strength
   br i1 %cmp, label %if.then, label %if.end
@@ -386,14 +383,14 @@ if.then:                                          ; preds = %entry
   br label %end
 
 if.end:                                           ; preds = %entry
-  %min_entropylen3 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 19
+  %min_entropylen3 = getelementptr inbounds i8, ptr %drbg, i64 144
   %1 = load i64, ptr %min_entropylen3, align 8
-  %max_entropylen4 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 20
+  %max_entropylen4 = getelementptr inbounds i8, ptr %drbg, i64 152
   %2 = load i64, ptr %max_entropylen4, align 8
   %cmp5 = icmp eq ptr %pers, null
   %spec.select = select i1 %cmp5, i64 29, i64 %perslen
   %spec.select70 = select i1 %cmp5, ptr @ossl_pers_string, ptr %pers
-  %max_perslen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 23
+  %max_perslen = getelementptr inbounds i8, ptr %drbg, i64 176
   %3 = load i64, ptr %max_perslen, align 8
   %cmp9 = icmp ugt i64 %spec.select, %3
   br i1 %cmp9, label %if.then11, label %if.end12
@@ -405,7 +402,7 @@ if.then11:                                        ; preds = %if.end
   br label %end
 
 if.end12:                                         ; preds = %if.end
-  %state = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 33
+  %state = getelementptr inbounds i8, ptr %drbg, i64 240
   %4 = load i32, ptr %state, align 8
   switch i32 %4, label %if.else [
     i32 0, label %if.end21
@@ -426,21 +423,21 @@ if.else:                                          ; preds = %if.end12
 
 if.end21:                                         ; preds = %if.end12
   store i32 2, ptr %state, align 8
-  %min_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 21
+  %min_noncelen = getelementptr inbounds i8, ptr %drbg, i64 160
   %5 = load i64, ptr %min_noncelen, align 8
   %cmp23.not = icmp eq i64 %5, 0
   br i1 %cmp23.not, label %if.end76, label %if.then25
 
 if.then25:                                        ; preds = %if.end21
-  %parent_nonce = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 11
+  %parent_nonce = getelementptr inbounds i8, ptr %drbg, i64 88
   %6 = load ptr, ptr %parent_nonce, align 8
   %cmp26.not = icmp eq ptr %6, null
-  %parent52 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent52 = getelementptr inbounds i8, ptr %drbg, i64 48
   %7 = load ptr, ptr %parent52, align 8
   br i1 %cmp26.not, label %if.else51, label %if.then28
 
 if.then28:                                        ; preds = %if.then25
-  %max_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen = getelementptr inbounds i8, ptr %drbg, i64 168
   %8 = load i64, ptr %max_noncelen, align 8
   %call = tail call i64 %6(ptr noundef %7, ptr noundef null, i32 noundef %0, i64 noundef %5, i64 noundef %8) #8
   %cmp32 = icmp eq i64 %call, 0
@@ -488,13 +485,13 @@ if.then55:                                        ; preds = %if.else51
   %div69 = lshr i32 %0, 1
   %add = add i32 %div69, %0
   %add59 = add i64 %5, %1
-  %max_noncelen60 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen60 = getelementptr inbounds i8, ptr %drbg, i64 168
   %14 = load i64, ptr %max_noncelen60, align 8
   %add61 = add i64 %14, %2
   br label %if.end76
 
 if.else62:                                        ; preds = %if.else51
-  %max_noncelen64 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen64 = getelementptr inbounds i8, ptr %drbg, i64 168
   %15 = load i64, ptr %max_noncelen64, align 8
   %call65 = call fastcc i64 @prov_drbg_get_nonce(ptr noundef nonnull %drbg, ptr noundef nonnull %nonce, i64 noundef %5, i64 noundef %15)
   %16 = load i64, ptr %min_noncelen, align 8
@@ -517,9 +514,9 @@ if.end76:                                         ; preds = %if.end40, %lor.lhs.
   %min_entropy.0 = phi i32 [ %0, %if.end40 ], [ %add, %if.then55 ], [ %0, %lor.lhs.false ], [ %0, %if.end21 ]
   %min_entropylen.0 = phi i64 [ %1, %if.end40 ], [ %add59, %if.then55 ], [ %1, %lor.lhs.false ], [ %1, %if.end21 ]
   %max_entropylen.0 = phi i64 [ %2, %if.end40 ], [ %add61, %if.then55 ], [ %2, %lor.lhs.false ], [ %2, %if.end21 ]
-  %reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 29
+  %reseed_counter = getelementptr inbounds i8, ptr %drbg, i64 216
   %18 = load atomic i32, ptr %reseed_counter monotonic, align 8
-  %reseed_next_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 30
+  %reseed_next_counter = getelementptr inbounds i8, ptr %drbg, i64 220
   %tobool.not = icmp eq i32 %18, 0
   %inc = add i32 %18, 1
   %spec.store.select = call i32 @llvm.umax.i32(i32 %inc, i32 1)
@@ -538,7 +535,7 @@ if.then93:                                        ; preds = %if.end76
   br label %end
 
 if.end94:                                         ; preds = %if.end76
-  %instantiate = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 2
+  %instantiate = getelementptr inbounds i8, ptr %drbg, i64 16
   %19 = load ptr, ptr %instantiate, align 8
   %20 = load ptr, ptr %entropy, align 8
   %21 = load ptr, ptr %nonce, align 8
@@ -556,10 +553,10 @@ if.then97:                                        ; preds = %if.end94
 
 if.end98:                                         ; preds = %if.end94
   store i32 1, ptr %state, align 8
-  %generate_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 25
+  %generate_counter = getelementptr inbounds i8, ptr %drbg, i64 192
   store i32 1, ptr %generate_counter, align 8
   %call100 = call i64 @time(ptr noundef null) #8
-  %reseed_time = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 27
+  %reseed_time = getelementptr inbounds i8, ptr %drbg, i64 200
   store i64 %call100, ptr %reseed_time, align 8
   %23 = load i32, ptr %reseed_next_counter, align 4
   store atomic i32 %23, ptr %reseed_counter monotonic, align 8
@@ -572,13 +569,13 @@ end:                                              ; preds = %if.then19, %if.else
   br i1 %cmp103.not, label %if.end106, label %if.then105
 
 if.then105:                                       ; preds = %end
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %25 = load ptr, ptr %provctx, align 8
   call void @ossl_prov_cleanup_nonce(ptr noundef %25, ptr noundef nonnull %24, i64 noundef %noncelen.1) #8
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then105, %end
-  %state107 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 33
+  %state107 = getelementptr inbounds i8, ptr %drbg, i64 240
   %26 = load i32, ptr %state107, align 8
   %cmp108 = icmp eq i32 %26, 1
   %. = zext i1 %cmp108 to i32
@@ -591,7 +588,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 define internal fastcc i64 @prov_drbg_get_nonce(ptr noundef %drbg, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len) unnamed_addr #1 {
 entry:
   %data = alloca %struct.anon, align 8
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %0 = load ptr, ptr %provctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #8
   %call1 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %call, i32 noundef 6) #8
@@ -599,21 +596,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %drbg, i64 48
   %1 = load ptr, ptr %parent, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end22, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %parent_nonce = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 11
+  %parent_nonce = getelementptr inbounds i8, ptr %drbg, i64 88
   %2 = load ptr, ptr %parent_nonce, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end22, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %min_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 21
+  %min_noncelen = getelementptr inbounds i8, ptr %drbg, i64 160
   %3 = load i64, ptr %min_noncelen, align 8
-  %max_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen = getelementptr inbounds i8, ptr %drbg, i64 168
   %4 = load i64, ptr %max_noncelen, align 8
   %call7 = tail call i64 %2(ptr noundef nonnull %1, ptr noundef null, i32 noundef 0, i64 noundef %3, i64 noundef %4) #8
   %cmp8.not = icmp eq i64 %call7, 0
@@ -645,8 +642,8 @@ if.end22:                                         ; preds = %if.then4, %land.lhs
   %9 = getelementptr inbounds i8, ptr %data, i64 8
   store i64 0, ptr %9, align 8
   store ptr %drbg, ptr %data, align 8
-  %rand_nonce_count = getelementptr inbounds %struct.prov_drbg_nonce_global_st, ptr %call1, i64 0, i32 1
-  %count = getelementptr inbounds %struct.anon, ptr %data, i64 0, i32 1
+  %rand_nonce_count = getelementptr inbounds i8, ptr %call1, i64 8
+  %count = getelementptr inbounds i8, ptr %data, i64 8
   %10 = load ptr, ptr %call1, align 8
   %call24 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %rand_nonce_count, i32 noundef 1, ptr noundef nonnull %count, ptr noundef %10) #8
   %tobool.not = icmp eq i32 %call24, 0
@@ -668,19 +665,19 @@ entry:
   %drbg.addr = alloca ptr, align 8
   %p_str = alloca i32, align 4
   store ptr %drbg, ptr %drbg.addr, align 8
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %drbg, i64 48
   %0 = load ptr, ptr %parent, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %1 = load ptr, ptr %provctx, align 8
   %call = tail call i64 @ossl_prov_get_entropy(ptr noundef %1, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %parent_get_seed = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 12
+  %parent_get_seed = getelementptr inbounds i8, ptr %drbg, i64 96
   %2 = load ptr, ptr %parent_get_seed, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -697,7 +694,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %strength = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength = getelementptr inbounds i8, ptr %drbg, i64 128
   %3 = load i32, ptr %strength, align 8
   %4 = load i32, ptr %p_str, align 4
   %cmp7 = icmp ugt i32 %3, %4
@@ -715,7 +712,7 @@ if.end9:                                          ; preds = %if.end6
   br i1 %cmp.not.i, label %if.end13, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end9
-  %parent_lock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 8
+  %parent_lock.i = getelementptr inbounds i8, ptr %drbg, i64 64
   %6 = load ptr, ptr %parent_lock.i, align 8
   %cmp2.not.i = icmp eq ptr %6, null
   br i1 %cmp2.not.i, label %if.end13, label %land.lhs.true3.i
@@ -742,13 +739,13 @@ if.end13:                                         ; preds = %land.lhs.true3.i.if
   %9 = load ptr, ptr %parent_get_seed, align 8
   %call17 = call i64 %9(ptr noundef %8, ptr noundef %pout, i32 noundef %7, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef nonnull %drbg.addr, i64 noundef 8) #8
   %10 = load ptr, ptr %drbg.addr, align 8
-  %parent1.i4 = getelementptr inbounds %struct.prov_drbg_st, ptr %10, i64 0, i32 6
+  %parent1.i4 = getelementptr inbounds i8, ptr %10, i64 48
   %11 = load ptr, ptr %parent1.i4, align 8
   %cmp.not.i5 = icmp eq ptr %11, null
   br i1 %cmp.not.i5, label %return, label %land.lhs.true.i6
 
 land.lhs.true.i6:                                 ; preds = %if.end13
-  %parent_unlock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %10, i64 0, i32 9
+  %parent_unlock.i = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load ptr, ptr %parent_unlock.i, align 8
   %cmp2.not.i7 = icmp eq ptr %12, null
   br i1 %cmp2.not.i7, label %return, label %if.then.i8
@@ -765,25 +762,25 @@ return:                                           ; preds = %if.then.i8, %land.l
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cleanup_entropy(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen) unnamed_addr #1 {
 entry:
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %drbg, i64 48
   %0 = load ptr, ptr %parent, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %1 = load ptr, ptr %provctx, align 8
   tail call void @ossl_prov_cleanup_entropy(ptr noundef %1, ptr noundef %out, i64 noundef %outlen) #8
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %parent_clear_seed = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 13
+  %parent_clear_seed = getelementptr inbounds i8, ptr %drbg, i64 104
   %2 = load ptr, ptr %parent_clear_seed, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %if.end7, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %parent_lock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 8
+  %parent_lock.i = getelementptr inbounds i8, ptr %drbg, i64 64
   %3 = load ptr, ptr %parent_lock.i, align 8
   %cmp2.not.i = icmp eq ptr %3, null
   br i1 %cmp2.not.i, label %if.end, label %land.lhs.true3.i
@@ -813,7 +810,7 @@ if.end:                                           ; preds = %land.lhs.true3.i.if
   br i1 %cmp.not.i10, label %if.end7, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.end
-  %parent_unlock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 9
+  %parent_unlock.i = getelementptr inbounds i8, ptr %drbg, i64 72
   %7 = load ptr, ptr %parent_unlock.i, align 8
   %cmp2.not.i12 = icmp eq ptr %7, null
   br i1 %cmp2.not.i12, label %if.end7, label %if.then.i13
@@ -834,7 +831,7 @@ declare void @ossl_prov_cleanup_nonce(ptr noundef, ptr noundef, i64 noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ossl_prov_drbg_uninstantiate(ptr nocapture noundef writeonly %drbg) local_unnamed_addr #4 {
 entry:
-  %state = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 33
+  %state = getelementptr inbounds i8, ptr %drbg, i64 240
   store i32 0, ptr %state, align 8
   ret i32 1
 }
@@ -878,7 +875,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 33
+  %state = getelementptr inbounds i8, ptr %drbg, i64 240
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %if.end.i [
     i32 1, label %if.end11
@@ -886,7 +883,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %uninstantiate.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 3
+  %uninstantiate.i = getelementptr inbounds i8, ptr %drbg, i64 24
   %1 = load ptr, ptr %uninstantiate.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %drbg) #8
   %.pr.i = load i32, ptr %state, align 8
@@ -898,7 +895,7 @@ if.end.i:                                         ; preds = %if.end, %if.then.i
   br i1 %cmp2.i, label %if.then3.i, label %rand_drbg_restart.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %strength.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength.i = getelementptr inbounds i8, ptr %drbg, i64 128
   %3 = load i32, ptr %strength.i, align 8
   %call4.i = tail call i32 @ossl_prov_drbg_instantiate(ptr noundef nonnull %drbg, i32 noundef %3, i32 noundef 0, ptr noundef null, i64 noundef 0), !range !4
   %.pre = load i32, ptr %state, align 8
@@ -928,7 +925,7 @@ if.end11:                                         ; preds = %if.end, %rand_drbg_
   br i1 %cmp12.not, label %if.end22, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %min_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 19
+  %min_entropylen = getelementptr inbounds i8, ptr %drbg, i64 144
   %5 = load i64, ptr %min_entropylen, align 8
   %cmp14 = icmp ugt i64 %5, %ent_len
   br i1 %cmp14, label %if.then15, label %if.end17
@@ -941,7 +938,7 @@ if.then15:                                        ; preds = %if.then13
   br label %return
 
 if.end17:                                         ; preds = %if.then13
-  %max_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 20
+  %max_entropylen = getelementptr inbounds i8, ptr %drbg, i64 152
   %6 = load i64, ptr %max_entropylen, align 8
   %cmp18 = icmp ult i64 %6, %ent_len
   br i1 %cmp18, label %if.then19, label %if.end22
@@ -958,7 +955,7 @@ if.end22:                                         ; preds = %if.end17, %if.end11
   br i1 %cmp23, label %if.end28, label %if.else
 
 if.else:                                          ; preds = %if.end22
-  %max_adinlen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 24
+  %max_adinlen = getelementptr inbounds i8, ptr %drbg, i64 184
   %7 = load i64, ptr %max_adinlen, align 8
   %cmp25 = icmp ult i64 %7, %adinlen
   br i1 %cmp25, label %if.then26, label %if.end28
@@ -972,9 +969,9 @@ if.then26:                                        ; preds = %if.else
 if.end28:                                         ; preds = %if.end22, %if.else
   %adinlen.addr.0 = phi i64 [ %adinlen, %if.else ], [ 0, %if.end22 ]
   store i32 2, ptr %state, align 8
-  %reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 29
+  %reseed_counter = getelementptr inbounds i8, ptr %drbg, i64 216
   %8 = load atomic i32, ptr %reseed_counter monotonic, align 8
-  %reseed_next_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 30
+  %reseed_next_counter = getelementptr inbounds i8, ptr %drbg, i64 220
   %tobool31.not = icmp eq i32 %8, 0
   %inc = add i32 %8, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %inc, i32 1)
@@ -983,7 +980,7 @@ if.end28:                                         ; preds = %if.end22, %if.else
   br i1 %cmp12.not, label %if.end46, label %if.then41
 
 if.then41:                                        ; preds = %if.end28
-  %reseed = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 4
+  %reseed = getelementptr inbounds i8, ptr %drbg, i64 32
   %9 = load ptr, ptr %reseed, align 8
   %call42 = tail call i32 %9(ptr noundef nonnull %drbg, ptr noundef nonnull %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adinlen.addr.0) #8
   %tobool43.not = icmp eq i32 %call42, 0
@@ -998,11 +995,11 @@ if.then44:                                        ; preds = %if.then41
 if.end46:                                         ; preds = %if.then41, %if.end28
   %adinlen.addr.1 = phi i64 [ %adinlen.addr.0, %if.end28 ], [ 0, %if.then41 ]
   %adin.addr.0 = phi ptr [ %adin, %if.end28 ], [ null, %if.then41 ]
-  %strength = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength = getelementptr inbounds i8, ptr %drbg, i64 128
   %10 = load i32, ptr %strength, align 8
-  %min_entropylen47 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 19
+  %min_entropylen47 = getelementptr inbounds i8, ptr %drbg, i64 144
   %11 = load i64, ptr %min_entropylen47, align 8
-  %max_entropylen48 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 20
+  %max_entropylen48 = getelementptr inbounds i8, ptr %drbg, i64 152
   %12 = load i64, ptr %max_entropylen48, align 8
   %call49 = call fastcc i64 @get_entropy(ptr noundef nonnull %drbg, ptr noundef nonnull %entropy, i32 noundef %10, i64 noundef %11, i64 noundef %12, i32 noundef %prediction_resistance)
   %13 = load i64, ptr %min_entropylen47, align 8
@@ -1021,7 +1018,7 @@ if.then54:                                        ; preds = %lor.lhs.false, %if.
   br label %end
 
 if.end55:                                         ; preds = %lor.lhs.false
-  %reseed56 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 4
+  %reseed56 = getelementptr inbounds i8, ptr %drbg, i64 32
   %15 = load ptr, ptr %reseed56, align 8
   %16 = load ptr, ptr %entropy, align 8
   %call57 = call i32 %15(ptr noundef nonnull %drbg, ptr noundef %16, i64 noundef %call49, ptr noundef %adin.addr.0, i64 noundef %adinlen.addr.1) #8
@@ -1030,21 +1027,21 @@ if.end55:                                         ; preds = %lor.lhs.false
 
 if.end60:                                         ; preds = %if.end55
   store i32 1, ptr %state, align 8
-  %generate_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 25
+  %generate_counter = getelementptr inbounds i8, ptr %drbg, i64 192
   store i32 1, ptr %generate_counter, align 8
   %call62 = call i64 @time(ptr noundef null) #8
-  %reseed_time = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 27
+  %reseed_time = getelementptr inbounds i8, ptr %drbg, i64 200
   store i64 %call62, ptr %reseed_time, align 8
   %17 = load i32, ptr %reseed_next_counter, align 4
   store atomic i32 %17, ptr %reseed_counter monotonic, align 8
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %drbg, i64 48
   %18 = load ptr, ptr %parent, align 8
   %cmp65.not = icmp eq ptr %18, null
   br i1 %cmp65.not, label %end, label %if.then66
 
 if.then66:                                        ; preds = %if.end60
   %call67 = call fastcc i32 @get_parent_reseed_count(ptr noundef nonnull %drbg)
-  %parent_reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 31
+  %parent_reseed_counter = getelementptr inbounds i8, ptr %drbg, i64 224
   store i32 %call67, ptr %parent_reseed_counter, align 8
   br label %end
 
@@ -1075,7 +1072,7 @@ entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %0 = getelementptr inbounds i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
-  %parent1 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent1 = getelementptr inbounds i8, ptr %drbg, i64 48
   %1 = load ptr, ptr %parent1, align 8
   store i32 0, ptr %r, align 4
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull %r) #8
@@ -1085,7 +1082,7 @@ entry:
   br i1 %cmp.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %parent_lock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 8
+  %parent_lock.i = getelementptr inbounds i8, ptr %drbg, i64 64
   %3 = load ptr, ptr %parent_lock.i, align 8
   %cmp2.not.i = icmp eq ptr %3, null
   br i1 %cmp2.not.i, label %if.end, label %land.lhs.true3.i
@@ -1102,7 +1099,7 @@ if.then:                                          ; preds = %land.lhs.true3.i
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 118, ptr noundef nonnull @__func__.get_parent_reseed_count) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 201, ptr noundef null) #8
-  %reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 29
+  %reseed_counter = getelementptr inbounds i8, ptr %drbg, i64 216
   %4 = load atomic i32, ptr %reseed_counter monotonic, align 8
   %sub = add i32 %4, -2
   %cmp = icmp eq i32 %sub, 0
@@ -1110,7 +1107,7 @@ if.then:                                          ; preds = %land.lhs.true3.i
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry
-  %parent_get_ctx_params = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 10
+  %parent_get_ctx_params = getelementptr inbounds i8, ptr %drbg, i64 80
   %5 = load ptr, ptr %parent_get_ctx_params, align 8
   %call3 = call i32 %5(ptr noundef %1, ptr noundef nonnull %params) #8
   %tobool4.not = icmp eq i32 %call3, 0
@@ -1126,7 +1123,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
   br i1 %cmp.not.i6, label %ossl_drbg_unlock_parent.exit, label %land.lhs.true.i7
 
 land.lhs.true.i7:                                 ; preds = %if.end6
-  %parent_unlock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 9
+  %parent_unlock.i = getelementptr inbounds i8, ptr %drbg, i64 72
   %7 = load ptr, ptr %parent_unlock.i, align 8
   %cmp2.not.i8 = icmp eq ptr %7, null
   br i1 %cmp2.not.i8, label %ossl_drbg_unlock_parent.exit, label %if.then.i9
@@ -1156,13 +1153,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %parent_enable_locking = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 7
+  %parent_enable_locking = getelementptr inbounds i8, ptr %vctx, i64 56
   %1 = load ptr, ptr %parent_enable_locking, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %vctx, i64 48
   %2 = load ptr, ptr %parent, align 8
   %call = tail call i32 %1(ptr noundef %2) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -1201,20 +1198,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %provctx4 = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 1
+  %provctx4 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %provctx, ptr %provctx4, align 8
-  %instantiate5 = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 2
+  %instantiate5 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %instantiate, ptr %instantiate5, align 8
-  %uninstantiate6 = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 3
+  %uninstantiate6 = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %uninstantiate, ptr %uninstantiate6, align 8
-  %reseed7 = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 4
+  %reseed7 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %reseed, ptr %reseed7, align 8
-  %generate8 = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 5
+  %generate8 = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %generate, ptr %generate8, align 8
   %call9 = tail call i32 @openssl_get_fork_id() #8
-  %fork_id = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 15
+  %fork_id = getelementptr inbounds i8, ptr %call1, i64 120
   store i32 %call9, ptr %fork_id, align 8
-  %parent10 = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 6
+  %parent10 = getelementptr inbounds i8, ptr %call1, i64 48
   store ptr %parent, ptr %parent10, align 8
   %cmp.not.i = icmp eq ptr %p_dispatch, null
   br i1 %cmp.not.i, label %if.end45, label %while.cond.preheader.i
@@ -1231,7 +1228,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   br i1 %cmp3.i, label %if.then13, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %dispatch.addr.06.i, i64 16
   %2 = load i32, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq i32 %2, 0
   br i1 %cmp1.not.i, label %while.body.i44.preheader, label %while.body.i, !llvm.loop !5
@@ -1239,7 +1236,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.then13:                                        ; preds = %while.body.i
   %3 = getelementptr i8, ptr %dispatch.addr.06.i, i64 8
   %call11.val = load ptr, ptr %3, align 8
-  %parent_enable_locking = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 7
+  %parent_enable_locking = getelementptr inbounds i8, ptr %call1, i64 56
   store ptr %call11.val, ptr %parent_enable_locking, align 8
   br label %while.body.i44.preheader
 
@@ -1253,7 +1250,7 @@ while.body.i44:                                   ; preds = %while.body.i44.preh
   br i1 %cmp3.i46, label %if.then18, label %if.end.i47
 
 if.end.i47:                                       ; preds = %while.body.i44
-  %incdec.ptr.i48 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i45, i64 1
+  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %dispatch.addr.06.i45, i64 16
   %5 = load i32, ptr %incdec.ptr.i48, align 8
   %cmp1.not.i49 = icmp eq i32 %5, 0
   br i1 %cmp1.not.i49, label %while.body.i55.preheader, label %while.body.i44, !llvm.loop !5
@@ -1261,7 +1258,7 @@ if.end.i47:                                       ; preds = %while.body.i44
 if.then18:                                        ; preds = %while.body.i44
   %6 = getelementptr i8, ptr %dispatch.addr.06.i45, i64 8
   %call16.val = load ptr, ptr %6, align 8
-  %parent_lock = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 8
+  %parent_lock = getelementptr inbounds i8, ptr %call1, i64 64
   store ptr %call16.val, ptr %parent_lock, align 8
   br label %while.body.i55.preheader
 
@@ -1275,7 +1272,7 @@ while.body.i55:                                   ; preds = %while.body.i55.preh
   br i1 %cmp3.i57, label %if.then23, label %if.end.i58
 
 if.end.i58:                                       ; preds = %while.body.i55
-  %incdec.ptr.i59 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i56, i64 1
+  %incdec.ptr.i59 = getelementptr inbounds i8, ptr %dispatch.addr.06.i56, i64 16
   %8 = load i32, ptr %incdec.ptr.i59, align 8
   %cmp1.not.i60 = icmp eq i32 %8, 0
   br i1 %cmp1.not.i60, label %while.body.i66.preheader, label %while.body.i55, !llvm.loop !5
@@ -1283,7 +1280,7 @@ if.end.i58:                                       ; preds = %while.body.i55
 if.then23:                                        ; preds = %while.body.i55
   %9 = getelementptr i8, ptr %dispatch.addr.06.i56, i64 8
   %call21.val = load ptr, ptr %9, align 8
-  %parent_unlock = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 9
+  %parent_unlock = getelementptr inbounds i8, ptr %call1, i64 72
   store ptr %call21.val, ptr %parent_unlock, align 8
   br label %while.body.i66.preheader
 
@@ -1297,7 +1294,7 @@ while.body.i66:                                   ; preds = %while.body.i66.preh
   br i1 %cmp3.i68, label %if.then28, label %if.end.i69
 
 if.end.i69:                                       ; preds = %while.body.i66
-  %incdec.ptr.i70 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i67, i64 1
+  %incdec.ptr.i70 = getelementptr inbounds i8, ptr %dispatch.addr.06.i67, i64 16
   %11 = load i32, ptr %incdec.ptr.i70, align 8
   %cmp1.not.i71 = icmp eq i32 %11, 0
   br i1 %cmp1.not.i71, label %while.body.i77.preheader, label %while.body.i66, !llvm.loop !5
@@ -1305,7 +1302,7 @@ if.end.i69:                                       ; preds = %while.body.i66
 if.then28:                                        ; preds = %while.body.i66
   %12 = getelementptr i8, ptr %dispatch.addr.06.i67, i64 8
   %call26.val = load ptr, ptr %12, align 8
-  %parent_get_ctx_params = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 10
+  %parent_get_ctx_params = getelementptr inbounds i8, ptr %call1, i64 80
   store ptr %call26.val, ptr %parent_get_ctx_params, align 8
   br label %while.body.i77.preheader
 
@@ -1319,7 +1316,7 @@ while.body.i77:                                   ; preds = %while.body.i77.preh
   br i1 %cmp3.i79, label %if.then33, label %if.end.i80
 
 if.end.i80:                                       ; preds = %while.body.i77
-  %incdec.ptr.i81 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i78, i64 1
+  %incdec.ptr.i81 = getelementptr inbounds i8, ptr %dispatch.addr.06.i78, i64 16
   %14 = load i32, ptr %incdec.ptr.i81, align 8
   %cmp1.not.i82 = icmp eq i32 %14, 0
   br i1 %cmp1.not.i82, label %while.body.i88.preheader, label %while.body.i77, !llvm.loop !5
@@ -1327,7 +1324,7 @@ if.end.i80:                                       ; preds = %while.body.i77
 if.then33:                                        ; preds = %while.body.i77
   %15 = getelementptr i8, ptr %dispatch.addr.06.i78, i64 8
   %call31.val = load ptr, ptr %15, align 8
-  %parent_nonce = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 11
+  %parent_nonce = getelementptr inbounds i8, ptr %call1, i64 88
   store ptr %call31.val, ptr %parent_nonce, align 8
   br label %while.body.i88.preheader
 
@@ -1341,7 +1338,7 @@ while.body.i88:                                   ; preds = %while.body.i88.preh
   br i1 %cmp3.i90, label %if.then38, label %if.end.i91
 
 if.end.i91:                                       ; preds = %while.body.i88
-  %incdec.ptr.i92 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i89, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %dispatch.addr.06.i89, i64 16
   %17 = load i32, ptr %incdec.ptr.i92, align 8
   %cmp1.not.i93 = icmp eq i32 %17, 0
   br i1 %cmp1.not.i93, label %while.body.i99.preheader, label %while.body.i88, !llvm.loop !5
@@ -1349,7 +1346,7 @@ if.end.i91:                                       ; preds = %while.body.i88
 if.then38:                                        ; preds = %while.body.i88
   %18 = getelementptr i8, ptr %dispatch.addr.06.i89, i64 8
   %call36.val = load ptr, ptr %18, align 8
-  %parent_get_seed = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 12
+  %parent_get_seed = getelementptr inbounds i8, ptr %call1, i64 96
   store ptr %call36.val, ptr %parent_get_seed, align 8
   br label %while.body.i99.preheader
 
@@ -1363,7 +1360,7 @@ while.body.i99:                                   ; preds = %while.body.i99.preh
   br i1 %cmp3.i101, label %if.then43, label %if.end.i102
 
 if.end.i102:                                      ; preds = %while.body.i99
-  %incdec.ptr.i103 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %dispatch.addr.06.i100, i64 1
+  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %dispatch.addr.06.i100, i64 16
   %20 = load i32, ptr %incdec.ptr.i103, align 8
   %cmp1.not.i104 = icmp eq i32 %20, 0
   br i1 %cmp1.not.i104, label %if.end45, label %while.body.i99, !llvm.loop !5
@@ -1371,26 +1368,26 @@ if.end.i102:                                      ; preds = %while.body.i99
 if.then43:                                        ; preds = %while.body.i99
   %21 = getelementptr i8, ptr %dispatch.addr.06.i100, i64 8
   %call41.val = load ptr, ptr %21, align 8
-  %parent_clear_seed = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 13
+  %parent_clear_seed = getelementptr inbounds i8, ptr %call1, i64 104
   store ptr %call41.val, ptr %parent_clear_seed, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end.i102, %while.cond.preheader.i, %if.end3, %if.then43
-  %max_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 20
+  %max_entropylen = getelementptr inbounds i8, ptr %call1, i64 152
   store i64 2147483647, ptr %max_entropylen, align 8
-  %max_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 22
+  %max_noncelen = getelementptr inbounds i8, ptr %call1, i64 168
   store i64 2147483647, ptr %max_noncelen, align 8
-  %max_perslen = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 23
+  %max_perslen = getelementptr inbounds i8, ptr %call1, i64 176
   store i64 2147483647, ptr %max_perslen, align 8
-  %max_adinlen = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 24
+  %max_adinlen = getelementptr inbounds i8, ptr %call1, i64 184
   store i64 2147483647, ptr %max_adinlen, align 8
-  %generate_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 25
+  %generate_counter = getelementptr inbounds i8, ptr %call1, i64 192
   store i32 1, ptr %generate_counter, align 8
-  %reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 29
+  %reseed_counter = getelementptr inbounds i8, ptr %call1, i64 216
   store atomic i32 1, ptr %reseed_counter seq_cst, align 4
-  %reseed_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 26
+  %reseed_interval = getelementptr inbounds i8, ptr %call1, i64 196
   store i32 256, ptr %reseed_interval, align 4
-  %reseed_time_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 28
+  %reseed_time_interval = getelementptr inbounds i8, ptr %call1, i64 208
   store i64 3600, ptr %reseed_time_interval, align 8
   %call46 = tail call i32 %dnew(ptr noundef %call1) #8
   %tobool47.not = icmp eq i32 %call46, 0
@@ -1406,7 +1403,7 @@ if.then51:                                        ; preds = %if.end49
   br i1 %tobool53.not, label %ossl_rand_drbg_free.exit, label %if.end55
 
 if.end55:                                         ; preds = %if.then51
-  %strength = getelementptr inbounds %struct.prov_drbg_st, ptr %call1, i64 0, i32 17
+  %strength = getelementptr inbounds i8, ptr %call1, i64 128
   %22 = load i32, ptr %strength, align 8
   %23 = load i32, ptr %p_str, align 4
   %cmp56 = icmp ugt i32 %22, %23
@@ -1436,9 +1433,9 @@ entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %0 = getelementptr inbounds i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
-  %parent1 = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 6
+  %parent1 = getelementptr inbounds i8, ptr %drbg, i64 48
   %1 = load ptr, ptr %parent1, align 8
-  %parent_get_ctx_params = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 10
+  %parent_get_ctx_params = getelementptr inbounds i8, ptr %drbg, i64 80
   %2 = load ptr, ptr %parent_get_ctx_params, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1457,7 +1454,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end3, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %parent_lock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 8
+  %parent_lock.i = getelementptr inbounds i8, ptr %drbg, i64 64
   %4 = load ptr, ptr %parent_lock.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %if.end3, label %land.lhs.true3.i
@@ -1484,7 +1481,7 @@ if.end3:                                          ; preds = %land.lhs.true3.i, %
   br i1 %cmp.not.i6, label %ossl_drbg_unlock_parent.exit, label %land.lhs.true.i7
 
 land.lhs.true.i7:                                 ; preds = %if.end3
-  %parent_unlock.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 9
+  %parent_unlock.i = getelementptr inbounds i8, ptr %drbg, i64 72
   %7 = load ptr, ptr %parent_unlock.i, align 8
   %cmp2.not.i8 = icmp eq ptr %7, null
   br i1 %cmp2.not.i8, label %ossl_drbg_unlock_parent.exit, label %if.then.i9
@@ -1532,7 +1529,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %state = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 33
+  %state = getelementptr inbounds i8, ptr %drbg, i64 240
   %0 = load i32, ptr %state, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call, i32 noundef %0) #8
   %tobool.not = icmp eq i32 %call1, 0
@@ -1544,7 +1541,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp3.not, label %if.end8, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
-  %strength = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 17
+  %strength = getelementptr inbounds i8, ptr %drbg, i64 128
   %1 = load i32, ptr %strength, align 8
   %call5 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call2, i32 noundef %1) #8
   %tobool6.not = icmp eq i32 %call5, 0
@@ -1556,7 +1553,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp10.not, label %if.end15, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
-  %min_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 19
+  %min_entropylen = getelementptr inbounds i8, ptr %drbg, i64 144
   %2 = load i64, ptr %min_entropylen, align 8
   %call12 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call9, i64 noundef %2) #8
   %tobool13.not = icmp eq i32 %call12, 0
@@ -1568,7 +1565,7 @@ if.end15:                                         ; preds = %land.lhs.true11, %i
   br i1 %cmp17.not, label %if.end22, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end15
-  %max_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 20
+  %max_entropylen = getelementptr inbounds i8, ptr %drbg, i64 152
   %3 = load i64, ptr %max_entropylen, align 8
   %call19 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call16, i64 noundef %3) #8
   %tobool20.not = icmp eq i32 %call19, 0
@@ -1580,7 +1577,7 @@ if.end22:                                         ; preds = %land.lhs.true18, %i
   br i1 %cmp24.not, label %if.end29, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %if.end22
-  %min_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 21
+  %min_noncelen = getelementptr inbounds i8, ptr %drbg, i64 160
   %4 = load i64, ptr %min_noncelen, align 8
   %call26 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call23, i64 noundef %4) #8
   %tobool27.not = icmp eq i32 %call26, 0
@@ -1592,7 +1589,7 @@ if.end29:                                         ; preds = %land.lhs.true25, %i
   br i1 %cmp31.not, label %if.end36, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %if.end29
-  %max_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen = getelementptr inbounds i8, ptr %drbg, i64 168
   %5 = load i64, ptr %max_noncelen, align 8
   %call33 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call30, i64 noundef %5) #8
   %tobool34.not = icmp eq i32 %call33, 0
@@ -1604,7 +1601,7 @@ if.end36:                                         ; preds = %land.lhs.true32, %i
   br i1 %cmp38.not, label %if.end43, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %if.end36
-  %max_perslen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 23
+  %max_perslen = getelementptr inbounds i8, ptr %drbg, i64 176
   %6 = load i64, ptr %max_perslen, align 8
   %call40 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call37, i64 noundef %6) #8
   %tobool41.not = icmp eq i32 %call40, 0
@@ -1616,7 +1613,7 @@ if.end43:                                         ; preds = %land.lhs.true39, %i
   br i1 %cmp45.not, label %if.end50, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %if.end43
-  %max_adinlen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 24
+  %max_adinlen = getelementptr inbounds i8, ptr %drbg, i64 184
   %7 = load i64, ptr %max_adinlen, align 8
   %call47 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call44, i64 noundef %7) #8
   %tobool48.not = icmp eq i32 %call47, 0
@@ -1628,7 +1625,7 @@ if.end50:                                         ; preds = %land.lhs.true46, %i
   br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end50
-  %reseed_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 26
+  %reseed_interval = getelementptr inbounds i8, ptr %drbg, i64 196
   %8 = load i32, ptr %reseed_interval, align 4
   %call54 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call51, i32 noundef %8) #8
   %tobool55.not = icmp eq i32 %call54, 0
@@ -1640,7 +1637,7 @@ if.end57:                                         ; preds = %land.lhs.true53, %i
   br i1 %cmp59.not, label %if.end64, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %if.end57
-  %reseed_time = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 27
+  %reseed_time = getelementptr inbounds i8, ptr %drbg, i64 200
   %9 = load i64, ptr %reseed_time, align 8
   %call61 = tail call i32 @OSSL_PARAM_set_time_t(ptr noundef nonnull %call58, i64 noundef %9) #8
   %tobool62.not = icmp eq i32 %call61, 0
@@ -1652,7 +1649,7 @@ if.end64:                                         ; preds = %land.lhs.true60, %i
   br i1 %cmp66.not, label %if.end71, label %land.lhs.true67
 
 land.lhs.true67:                                  ; preds = %if.end64
-  %reseed_time_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 28
+  %reseed_time_interval = getelementptr inbounds i8, ptr %drbg, i64 208
   %10 = load i64, ptr %reseed_time_interval, align 8
   %call68 = tail call i32 @OSSL_PARAM_set_time_t(ptr noundef nonnull %call65, i64 noundef %10) #8
   %tobool69.not = icmp eq i32 %call68, 0
@@ -1684,7 +1681,7 @@ entry:
   br i1 %cmp.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %max_request = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 18
+  %max_request = getelementptr inbounds i8, ptr %drbg, i64 136
   %0 = load i64, ptr %max_request, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call, i64 noundef %0) #8
   %tobool.not = icmp eq i32 %call1, 0
@@ -1697,7 +1694,7 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp5.not, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  %reseed_counter = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 29
+  %reseed_counter = getelementptr inbounds i8, ptr %drbg, i64 216
   %1 = load atomic i32, ptr %reseed_counter monotonic, align 8
   %call7 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call4, i32 noundef %1) #8
   %tobool8.not = icmp eq i32 %call7, 0
@@ -1733,7 +1730,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %reseed_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 26
+  %reseed_interval = getelementptr inbounds i8, ptr %drbg, i64 196
   %call2 = tail call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call, ptr noundef nonnull %reseed_interval) #8
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -1744,7 +1741,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp6.not, label %if.end11, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end4
-  %reseed_time_interval = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 28
+  %reseed_time_interval = getelementptr inbounds i8, ptr %drbg, i64 208
   %call8 = tail call i32 @OSSL_PARAM_get_time_t(ptr noundef nonnull %call5, ptr noundef nonnull %reseed_time_interval) #8
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11

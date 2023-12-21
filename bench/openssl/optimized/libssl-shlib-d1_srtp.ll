@@ -4,24 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.srtp_protection_profile_st = type { ptr, i64 }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.0, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon.1, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.3, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon.1 = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.2, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.2 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.3 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.4, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.4 = type { ptr, ptr, ptr, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
 
 @.str = private unnamed_addr constant [25 x i8] c"../openssl/ssl/d1_srtp.c\00", align 1
 @__func__.ssl_ctx_make_profiles = private unnamed_addr constant [22 x i8] c"ssl_ctx_make_profiles\00", align 1
@@ -42,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 1
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %call = tail call ptr @OSSL_QUIC_client_method() #5
   %cmp = icmp eq ptr %0, %call
@@ -55,7 +37,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %srtp_profiles = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 68
+  %srtp_profiles = getelementptr inbounds i8, ptr %ctx, i64 960
   %call4 = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles), !range !4
   br label %return
 
@@ -116,7 +98,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp4.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.srtp_protection_profile_st, ptr %p.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.08.i, i64 16
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %err, label %while.body.i, !llvm.loop !5
@@ -167,7 +149,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.false
-  %srtp_profiles = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 88
+  %srtp_profiles = getelementptr inbounds i8, ptr %s, i64 2800
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles), !range !4
   br label %return
 
@@ -188,19 +170,19 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %cond.false
-  %srtp_profiles = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 88
+  %srtp_profiles = getelementptr inbounds i8, ptr %s, i64 2800
   %1 = load ptr, ptr %srtp_profiles, align 8
   %cmp7.not = icmp eq ptr %1, null
   br i1 %cmp7.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.then
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %s, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load ptr, ptr %ctx, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %srtp_profiles12 = getelementptr inbounds %struct.ssl_ctx_st, ptr %2, i64 0, i32 68
+  %srtp_profiles12 = getelementptr inbounds i8, ptr %2, i64 960
   %3 = load ptr, ptr %srtp_profiles12, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end18, label %return
@@ -225,7 +207,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.false
-  %srtp_profile = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 89
+  %srtp_profile = getelementptr inbounds i8, ptr %s, i64 2808
   %1 = load ptr, ptr %srtp_profile, align 8
   br label %return
 

@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/meson-generated_.._qapi_qapi-visit-rdma.c
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.q_obj_RDMA_GID_STATUS_CHANGED_arg = type { ptr, i8, i64, i64 }
-
 @.str = private unnamed_addr constant [7 x i8] c"netdev\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"gid-status\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"subnet-prefix\00", align 1
@@ -18,17 +16,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %gid_status = getelementptr inbounds %struct.q_obj_RDMA_GID_STATUS_CHANGED_arg, ptr %obj, i64 0, i32 1
+  %gid_status = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %gid_status, ptr noundef %errp) #2
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %subnet_prefix = getelementptr inbounds %struct.q_obj_RDMA_GID_STATUS_CHANGED_arg, ptr %obj, i64 0, i32 2
+  %subnet_prefix = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %subnet_prefix, ptr noundef %errp) #2
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %interface_id = getelementptr inbounds %struct.q_obj_RDMA_GID_STATUS_CHANGED_arg, ptr %obj, i64 0, i32 3
+  %interface_id = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %interface_id, ptr noundef %errp) #2
   br label %return
 

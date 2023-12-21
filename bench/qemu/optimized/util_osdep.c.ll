@@ -275,13 +275,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fl.i)
   %conv.i = zext i1 %exclusive to i16
   store i16 %conv.i, ptr %fl.i, align 8
-  %l_whence.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 1
+  %l_whence.i = getelementptr inbounds i8, ptr %fl.i, i64 2
   store i16 0, ptr %l_whence.i, align 2
-  %l_start.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 2
+  %l_start.i = getelementptr inbounds i8, ptr %fl.i, i64 8
   store i64 %start, ptr %l_start.i, align 8
-  %l_len.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 3
+  %l_len.i = getelementptr inbounds i8, ptr %fl.i, i64 16
   store i64 %len, ptr %l_len.i, align 8
-  %l_pid.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 4
+  %l_pid.i = getelementptr inbounds i8, ptr %fl.i, i64 24
   store i32 0, ptr %l_pid.i, align 8
   tail call fastcc void @qemu_probe_lock_ops()
   br label %do.body.i
@@ -314,13 +314,13 @@ entry:
   %fl.i = alloca %struct.flock, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fl.i)
   store i16 2, ptr %fl.i, align 8
-  %l_whence.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 1
+  %l_whence.i = getelementptr inbounds i8, ptr %fl.i, i64 2
   store i16 0, ptr %l_whence.i, align 2
-  %l_start.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 2
+  %l_start.i = getelementptr inbounds i8, ptr %fl.i, i64 8
   store i64 %start, ptr %l_start.i, align 8
-  %l_len.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 3
+  %l_len.i = getelementptr inbounds i8, ptr %fl.i, i64 16
   store i64 %len, ptr %l_len.i, align 8
-  %l_pid.i = getelementptr inbounds %struct.flock, ptr %fl.i, i64 0, i32 4
+  %l_pid.i = getelementptr inbounds i8, ptr %fl.i, i64 24
   store i32 0, ptr %l_pid.i, align 8
   tail call fastcc void @qemu_probe_lock_ops()
   br label %do.body.i
@@ -353,13 +353,13 @@ entry:
   %fl = alloca %struct.flock, align 8
   %conv = zext i1 %exclusive to i16
   store i16 %conv, ptr %fl, align 8
-  %l_whence = getelementptr inbounds %struct.flock, ptr %fl, i64 0, i32 1
+  %l_whence = getelementptr inbounds i8, ptr %fl, i64 2
   store i16 0, ptr %l_whence, align 2
-  %l_start = getelementptr inbounds %struct.flock, ptr %fl, i64 0, i32 2
+  %l_start = getelementptr inbounds i8, ptr %fl, i64 8
   store i64 %start, ptr %l_start, align 8
-  %l_len = getelementptr inbounds %struct.flock, ptr %fl, i64 0, i32 3
+  %l_len = getelementptr inbounds i8, ptr %fl, i64 16
   store i64 %len, ptr %l_len, align 8
-  %l_pid = getelementptr inbounds %struct.flock, ptr %fl, i64 0, i32 4
+  %l_pid = getelementptr inbounds i8, ptr %fl, i64 24
   store i32 0, ptr %l_pid, align 8
   tail call fastcc void @qemu_probe_lock_ops()
   %0 = load i32, ptr @fcntl_op_getlk, align 4
@@ -511,7 +511,7 @@ if.then:                                          ; preds = %entry
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
   %1 = zext nneg i32 %gp_offset to i64
   %2 = getelementptr i8, ptr %reg_save_area, i64 %1
@@ -520,7 +520,7 @@ vaarg.in_reg:                                     ; preds = %if.then
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8

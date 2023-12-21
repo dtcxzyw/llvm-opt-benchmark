@@ -46,7 +46,7 @@ define dso_local i32 @qcrypto_hash_bytes(i32 noundef %alg, ptr noundef %buf, i64
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   %0 = load ptr, ptr @qcrypto_hash_lib_driver, align 8
   %call.i = call i32 %0(i32 noundef %alg, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %result, ptr noundef %resultlen, ptr noundef %errp) #6
@@ -135,7 +135,7 @@ entry:
   %resultlen.i = alloca i64, align 8
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultlen.i)
@@ -241,7 +241,7 @@ entry:
   %resultlen.i = alloca i64, align 8
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultlen.i)

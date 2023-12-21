@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mi_stats_s = type { %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s }
 %struct.mi_stat_count_s = type { i64, i64, i64, i64 }
 %struct.mi_stat_counter_s = type { i64, i64 }
-%struct.mi_tld_s = type { i64, i8, ptr, ptr, %struct.mi_segments_tld_s, %struct.mi_os_tld_s, %struct.mi_stats_s }
-%struct.mi_segments_tld_s = type { [36 x %struct.mi_span_queue_s], i64, i64, i64, i64, ptr, ptr }
-%struct.mi_span_queue_s = type { ptr, ptr, i64 }
-%struct.mi_os_tld_s = type { i64, ptr }
 %struct.mi_process_info_s = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.buffered_s = type { ptr, ptr, ptr, i64, i64 }
 
@@ -80,7 +76,7 @@ entry:
   br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %count = getelementptr inbounds %struct.mi_stat_counter_s, ptr %stat, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %stat, i64 8
   %1 = atomicrmw add ptr %count, i64 1 monotonic, align 8
   %2 = atomicrmw add ptr %stat, i64 %amount monotonic, align 8
   br label %if.end
@@ -106,12 +102,12 @@ if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp uge ptr %stat, @_mi_stats_main
   %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 1, i32 0, i32 0)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
-  %current2.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 3
+  %current2.i = getelementptr inbounds i8, ptr %stat, i64 24
   br i1 %0, label %if.then1.i, label %if.else9.i
 
 if.then1.i:                                       ; preds = %if.end.i
   %1 = atomicrmw add ptr %current2.i, i64 %amount monotonic, align 8
-  %peak.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 2
+  %peak.i = getelementptr inbounds i8, ptr %stat, i64 16
   %add.i = add nsw i64 %1, %amount
   %2 = load atomic i64, ptr %peak.i monotonic, align 8
   br label %while.cond.i.i
@@ -136,7 +132,7 @@ if.then5.i:                                       ; preds = %mi_atomic_maxi64_re
   br label %mi_stat_update.exit
 
 if.else.i:                                        ; preds = %mi_atomic_maxi64_relaxed.exit.i
-  %freed.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 1
+  %freed.i = getelementptr inbounds i8, ptr %stat, i64 8
   %sub.i = sub nsw i64 0, %amount
   %7 = atomicrmw add ptr %freed.i, i64 %sub.i monotonic, align 8
   br label %mi_stat_update.exit
@@ -145,7 +141,7 @@ if.else9.i:                                       ; preds = %if.end.i
   %8 = load i64, ptr %current2.i, align 8
   %add11.i = add nsw i64 %8, %amount
   store i64 %add11.i, ptr %current2.i, align 8
-  %peak13.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 2
+  %peak13.i = getelementptr inbounds i8, ptr %stat, i64 16
   %9 = load i64, ptr %peak13.i, align 8
   %cmp14.i = icmp sgt i64 %add11.i, %9
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
@@ -165,7 +161,7 @@ if.then20.i:                                      ; preds = %if.end18.i
   br label %mi_stat_update.exit
 
 if.else23.i:                                      ; preds = %if.end18.i
-  %freed25.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 1
+  %freed25.i = getelementptr inbounds i8, ptr %stat, i64 8
   %11 = load i64, ptr %freed25.i, align 8
   %add26.i = sub i64 %11, %amount
   store i64 %add26.i, ptr %freed25.i, align 8
@@ -186,12 +182,12 @@ if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp uge ptr %stat, @_mi_stats_main
   %cmp1.i.i = icmp ult ptr %stat, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 1, i32 0, i32 0)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
-  %current2.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 3
+  %current2.i = getelementptr inbounds i8, ptr %stat, i64 24
   br i1 %0, label %if.then1.i, label %if.else9.i
 
 if.then1.i:                                       ; preds = %if.end.i
   %1 = atomicrmw add ptr %current2.i, i64 %sub monotonic, align 8
-  %peak.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 2
+  %peak.i = getelementptr inbounds i8, ptr %stat, i64 16
   %add.i = sub i64 %1, %amount
   %2 = load atomic i64, ptr %peak.i monotonic, align 8
   br label %while.cond.i.i
@@ -216,7 +212,7 @@ if.then5.i:                                       ; preds = %mi_atomic_maxi64_re
   br label %mi_stat_update.exit
 
 if.else.i:                                        ; preds = %mi_atomic_maxi64_relaxed.exit.i
-  %freed.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 1
+  %freed.i = getelementptr inbounds i8, ptr %stat, i64 8
   %7 = atomicrmw add ptr %freed.i, i64 %amount monotonic, align 8
   br label %mi_stat_update.exit
 
@@ -224,7 +220,7 @@ if.else9.i:                                       ; preds = %if.end.i
   %8 = load i64, ptr %current2.i, align 8
   %add11.i = sub i64 %8, %amount
   store i64 %add11.i, ptr %current2.i, align 8
-  %peak13.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 2
+  %peak13.i = getelementptr inbounds i8, ptr %stat, i64 16
   %9 = load i64, ptr %peak13.i, align 8
   %cmp14.i = icmp sgt i64 %add11.i, %9
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
@@ -244,7 +240,7 @@ if.then20.i:                                      ; preds = %if.end18.i
   br label %mi_stat_update.exit
 
 if.else23.i:                                      ; preds = %if.end18.i
-  %freed25.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 1
+  %freed25.i = getelementptr inbounds i8, ptr %stat, i64 8
   %11 = load i64, ptr %freed25.i, align 8
   %add26.i = add i64 %11, %amount
   store i64 %add26.i, ptr %freed25.i, align 8
@@ -259,7 +255,7 @@ define void @mi_stats_reset() local_unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @mi_heap_get_default() #9
   %0 = load ptr, ptr %call.i, align 8
-  %stats.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 6
+  %stats.i = getelementptr inbounds i8, ptr %0, i64 960
   %cmp.not = icmp eq ptr %stats.i, @_mi_stats_main
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -321,7 +317,7 @@ define void @mi_stats_merge() local_unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @mi_heap_get_default() #9
   %0 = load ptr, ptr %call.i, align 8
-  %stats.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 6
+  %stats.i = getelementptr inbounds i8, ptr %0, i64 960
   tail call fastcc void @mi_stats_merge_from(ptr noundef nonnull %stats.i) #10
   ret void
 }
@@ -338,435 +334,561 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp1.i.i, label %land.lhs.true.i.i, label %if.end4.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %freed.i.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stats, i64 0, i32 1
+  %freed.i.i = getelementptr inbounds i8, ptr %stats, i64 8
   %1 = load i64, ptr %freed.i.i, align 8
   %cmp2.i.i = icmp eq i64 %1, 0
-  br i1 %cmp2.i.i, label %if.end.i52.i, label %if.end4.i.i
+  br i1 %cmp2.i.i, label %mi_stat_add.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
   %2 = atomicrmw add ptr @_mi_stats_main, i64 %0 monotonic, align 8
-  %current7.i.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stats, i64 0, i32 3
+  %current7.i.i = getelementptr inbounds i8, ptr %stats, i64 24
   %3 = load i64, ptr %current7.i.i, align 8
   %4 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 0, i32 3), i64 %3 monotonic, align 8
-  %freed11.i.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stats, i64 0, i32 1
+  %freed11.i.i = getelementptr inbounds i8, ptr %stats, i64 8
   %5 = load i64, ptr %freed11.i.i, align 8
   %6 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 0, i32 1), i64 %5 monotonic, align 8
-  %peak14.i.i = getelementptr inbounds %struct.mi_stat_count_s, ptr %stats, i64 0, i32 2
+  %peak14.i.i = getelementptr inbounds i8, ptr %stats, i64 16
   %7 = load i64, ptr %peak14.i.i, align 8
   %8 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 0, i32 2), i64 %7 monotonic, align 8
-  br label %if.end.i52.i
+  br label %mi_stat_add.exit.i
 
-if.end.i52.i:                                     ; preds = %if.end4.i.i, %land.lhs.true.i.i
-  %pages2.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 1
+mi_stat_add.exit.i:                               ; preds = %if.end4.i.i, %land.lhs.true.i.i
+  %pages2.i = getelementptr inbounds i8, ptr %stats, i64 32
+  %cmp.i51.i = icmp eq ptr %pages2.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 1)
+  br i1 %cmp.i51.i, label %mi_stat_add.exit61.i, label %if.end.i52.i
+
+if.end.i52.i:                                     ; preds = %mi_stat_add.exit.i
   %9 = load i64, ptr %pages2.i, align 8
   %cmp1.i53.i = icmp eq i64 %9, 0
   br i1 %cmp1.i53.i, label %land.lhs.true.i58.i, label %if.end4.i54.i
 
 land.lhs.true.i58.i:                              ; preds = %if.end.i52.i
-  %freed.i59.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 1, i32 1
+  %freed.i59.i = getelementptr inbounds i8, ptr %stats, i64 40
   %10 = load i64, ptr %freed.i59.i, align 8
   %cmp2.i60.i = icmp eq i64 %10, 0
-  br i1 %cmp2.i60.i, label %if.end.i63.i, label %if.end4.i54.i
+  br i1 %cmp2.i60.i, label %mi_stat_add.exit61.i, label %if.end4.i54.i
 
 if.end4.i54.i:                                    ; preds = %land.lhs.true.i58.i, %if.end.i52.i
   %11 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 1), i64 %9 monotonic, align 8
-  %current7.i55.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 1, i32 3
+  %current7.i55.i = getelementptr inbounds i8, ptr %stats, i64 56
   %12 = load i64, ptr %current7.i55.i, align 8
   %13 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 1, i32 3), i64 %12 monotonic, align 8
-  %freed11.i56.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 1, i32 1
+  %freed11.i56.i = getelementptr inbounds i8, ptr %stats, i64 40
   %14 = load i64, ptr %freed11.i56.i, align 8
   %15 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 1, i32 1), i64 %14 monotonic, align 8
-  %peak14.i57.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 1, i32 2
+  %peak14.i57.i = getelementptr inbounds i8, ptr %stats, i64 48
   %16 = load i64, ptr %peak14.i57.i, align 8
   %17 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 1, i32 2), i64 %16 monotonic, align 8
-  br label %if.end.i63.i
+  br label %mi_stat_add.exit61.i
 
-if.end.i63.i:                                     ; preds = %if.end4.i54.i, %land.lhs.true.i58.i
-  %reserved3.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 2
+mi_stat_add.exit61.i:                             ; preds = %if.end4.i54.i, %land.lhs.true.i58.i, %mi_stat_add.exit.i
+  %reserved3.i = getelementptr inbounds i8, ptr %stats, i64 64
+  %cmp.i62.i = icmp eq ptr %reserved3.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2)
+  br i1 %cmp.i62.i, label %mi_stat_add.exit72.i, label %if.end.i63.i
+
+if.end.i63.i:                                     ; preds = %mi_stat_add.exit61.i
   %18 = load i64, ptr %reserved3.i, align 8
   %cmp1.i64.i = icmp eq i64 %18, 0
   br i1 %cmp1.i64.i, label %land.lhs.true.i69.i, label %if.end4.i65.i
 
 land.lhs.true.i69.i:                              ; preds = %if.end.i63.i
-  %freed.i70.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 2, i32 1
+  %freed.i70.i = getelementptr inbounds i8, ptr %stats, i64 72
   %19 = load i64, ptr %freed.i70.i, align 8
   %cmp2.i71.i = icmp eq i64 %19, 0
-  br i1 %cmp2.i71.i, label %if.end.i74.i, label %if.end4.i65.i
+  br i1 %cmp2.i71.i, label %mi_stat_add.exit72.i, label %if.end4.i65.i
 
 if.end4.i65.i:                                    ; preds = %land.lhs.true.i69.i, %if.end.i63.i
   %20 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 %18 monotonic, align 8
-  %current7.i66.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 2, i32 3
+  %current7.i66.i = getelementptr inbounds i8, ptr %stats, i64 88
   %21 = load i64, ptr %current7.i66.i, align 8
   %22 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2, i32 3), i64 %21 monotonic, align 8
-  %freed11.i67.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 2, i32 1
+  %freed11.i67.i = getelementptr inbounds i8, ptr %stats, i64 72
   %23 = load i64, ptr %freed11.i67.i, align 8
   %24 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2, i32 1), i64 %23 monotonic, align 8
-  %peak14.i68.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 2, i32 2
+  %peak14.i68.i = getelementptr inbounds i8, ptr %stats, i64 80
   %25 = load i64, ptr %peak14.i68.i, align 8
   %26 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2, i32 2), i64 %25 monotonic, align 8
-  br label %if.end.i74.i
+  br label %mi_stat_add.exit72.i
 
-if.end.i74.i:                                     ; preds = %if.end4.i65.i, %land.lhs.true.i69.i
-  %committed4.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 3
+mi_stat_add.exit72.i:                             ; preds = %if.end4.i65.i, %land.lhs.true.i69.i, %mi_stat_add.exit61.i
+  %committed4.i = getelementptr inbounds i8, ptr %stats, i64 96
+  %cmp.i73.i = icmp eq ptr %committed4.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3)
+  br i1 %cmp.i73.i, label %mi_stat_add.exit83.i, label %if.end.i74.i
+
+if.end.i74.i:                                     ; preds = %mi_stat_add.exit72.i
   %27 = load i64, ptr %committed4.i, align 8
   %cmp1.i75.i = icmp eq i64 %27, 0
   br i1 %cmp1.i75.i, label %land.lhs.true.i80.i, label %if.end4.i76.i
 
 land.lhs.true.i80.i:                              ; preds = %if.end.i74.i
-  %freed.i81.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 3, i32 1
+  %freed.i81.i = getelementptr inbounds i8, ptr %stats, i64 104
   %28 = load i64, ptr %freed.i81.i, align 8
   %cmp2.i82.i = icmp eq i64 %28, 0
-  br i1 %cmp2.i82.i, label %if.end.i85.i, label %if.end4.i76.i
+  br i1 %cmp2.i82.i, label %mi_stat_add.exit83.i, label %if.end4.i76.i
 
 if.end4.i76.i:                                    ; preds = %land.lhs.true.i80.i, %if.end.i74.i
   %29 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 %27 monotonic, align 8
-  %current7.i77.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 3, i32 3
+  %current7.i77.i = getelementptr inbounds i8, ptr %stats, i64 120
   %30 = load i64, ptr %current7.i77.i, align 8
   %31 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 3), i64 %30 monotonic, align 8
-  %freed11.i78.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 3, i32 1
+  %freed11.i78.i = getelementptr inbounds i8, ptr %stats, i64 104
   %32 = load i64, ptr %freed11.i78.i, align 8
   %33 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 1), i64 %32 monotonic, align 8
-  %peak14.i79.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 3, i32 2
+  %peak14.i79.i = getelementptr inbounds i8, ptr %stats, i64 112
   %34 = load i64, ptr %peak14.i79.i, align 8
   %35 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 2), i64 %34 monotonic, align 8
-  br label %if.end.i85.i
+  br label %mi_stat_add.exit83.i
 
-if.end.i85.i:                                     ; preds = %if.end4.i76.i, %land.lhs.true.i80.i
-  %reset5.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4
+mi_stat_add.exit83.i:                             ; preds = %if.end4.i76.i, %land.lhs.true.i80.i, %mi_stat_add.exit72.i
+  %reset5.i = getelementptr inbounds i8, ptr %stats, i64 128
+  %cmp.i84.i = icmp eq ptr %reset5.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 4)
+  br i1 %cmp.i84.i, label %mi_stat_add.exit94.i, label %if.end.i85.i
+
+if.end.i85.i:                                     ; preds = %mi_stat_add.exit83.i
   %36 = load i64, ptr %reset5.i, align 8
   %cmp1.i86.i = icmp eq i64 %36, 0
   br i1 %cmp1.i86.i, label %land.lhs.true.i91.i, label %if.end4.i87.i
 
 land.lhs.true.i91.i:                              ; preds = %if.end.i85.i
-  %freed.i92.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4, i32 1
+  %freed.i92.i = getelementptr inbounds i8, ptr %stats, i64 136
   %37 = load i64, ptr %freed.i92.i, align 8
   %cmp2.i93.i = icmp eq i64 %37, 0
-  br i1 %cmp2.i93.i, label %if.end.i96.i, label %if.end4.i87.i
+  br i1 %cmp2.i93.i, label %mi_stat_add.exit94.i, label %if.end4.i87.i
 
 if.end4.i87.i:                                    ; preds = %land.lhs.true.i91.i, %if.end.i85.i
   %38 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 4), i64 %36 monotonic, align 8
-  %current7.i88.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4, i32 3
+  %current7.i88.i = getelementptr inbounds i8, ptr %stats, i64 152
   %39 = load i64, ptr %current7.i88.i, align 8
   %40 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 4, i32 3), i64 %39 monotonic, align 8
-  %freed11.i89.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4, i32 1
+  %freed11.i89.i = getelementptr inbounds i8, ptr %stats, i64 136
   %41 = load i64, ptr %freed11.i89.i, align 8
   %42 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 4, i32 1), i64 %41 monotonic, align 8
-  %peak14.i90.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4, i32 2
+  %peak14.i90.i = getelementptr inbounds i8, ptr %stats, i64 144
   %43 = load i64, ptr %peak14.i90.i, align 8
   %44 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 4, i32 2), i64 %43 monotonic, align 8
-  br label %if.end.i96.i
+  br label %mi_stat_add.exit94.i
 
-if.end.i96.i:                                     ; preds = %if.end4.i87.i, %land.lhs.true.i91.i
-  %purged6.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5
+mi_stat_add.exit94.i:                             ; preds = %if.end4.i87.i, %land.lhs.true.i91.i, %mi_stat_add.exit83.i
+  %purged6.i = getelementptr inbounds i8, ptr %stats, i64 160
+  %cmp.i95.i = icmp eq ptr %purged6.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 5)
+  br i1 %cmp.i95.i, label %mi_stat_add.exit105.i, label %if.end.i96.i
+
+if.end.i96.i:                                     ; preds = %mi_stat_add.exit94.i
   %45 = load i64, ptr %purged6.i, align 8
   %cmp1.i97.i = icmp eq i64 %45, 0
   br i1 %cmp1.i97.i, label %land.lhs.true.i102.i, label %if.end4.i98.i
 
 land.lhs.true.i102.i:                             ; preds = %if.end.i96.i
-  %freed.i103.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5, i32 1
+  %freed.i103.i = getelementptr inbounds i8, ptr %stats, i64 168
   %46 = load i64, ptr %freed.i103.i, align 8
   %cmp2.i104.i = icmp eq i64 %46, 0
-  br i1 %cmp2.i104.i, label %if.end.i107.i, label %if.end4.i98.i
+  br i1 %cmp2.i104.i, label %mi_stat_add.exit105.i, label %if.end4.i98.i
 
 if.end4.i98.i:                                    ; preds = %land.lhs.true.i102.i, %if.end.i96.i
   %47 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 5), i64 %45 monotonic, align 8
-  %current7.i99.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5, i32 3
+  %current7.i99.i = getelementptr inbounds i8, ptr %stats, i64 184
   %48 = load i64, ptr %current7.i99.i, align 8
   %49 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 5, i32 3), i64 %48 monotonic, align 8
-  %freed11.i100.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5, i32 1
+  %freed11.i100.i = getelementptr inbounds i8, ptr %stats, i64 168
   %50 = load i64, ptr %freed11.i100.i, align 8
   %51 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 5, i32 1), i64 %50 monotonic, align 8
-  %peak14.i101.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5, i32 2
+  %peak14.i101.i = getelementptr inbounds i8, ptr %stats, i64 176
   %52 = load i64, ptr %peak14.i101.i, align 8
   %53 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 5, i32 2), i64 %52 monotonic, align 8
-  br label %if.end.i107.i
+  br label %mi_stat_add.exit105.i
 
-if.end.i107.i:                                    ; preds = %if.end4.i98.i, %land.lhs.true.i102.i
-  %page_committed7.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 6
+mi_stat_add.exit105.i:                            ; preds = %if.end4.i98.i, %land.lhs.true.i102.i, %mi_stat_add.exit94.i
+  %page_committed7.i = getelementptr inbounds i8, ptr %stats, i64 192
+  %cmp.i106.i = icmp eq ptr %page_committed7.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 6)
+  br i1 %cmp.i106.i, label %mi_stat_add.exit116.i, label %if.end.i107.i
+
+if.end.i107.i:                                    ; preds = %mi_stat_add.exit105.i
   %54 = load i64, ptr %page_committed7.i, align 8
   %cmp1.i108.i = icmp eq i64 %54, 0
   br i1 %cmp1.i108.i, label %land.lhs.true.i113.i, label %if.end4.i109.i
 
 land.lhs.true.i113.i:                             ; preds = %if.end.i107.i
-  %freed.i114.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 6, i32 1
+  %freed.i114.i = getelementptr inbounds i8, ptr %stats, i64 200
   %55 = load i64, ptr %freed.i114.i, align 8
   %cmp2.i115.i = icmp eq i64 %55, 0
-  br i1 %cmp2.i115.i, label %if.end.i118.i, label %if.end4.i109.i
+  br i1 %cmp2.i115.i, label %mi_stat_add.exit116.i, label %if.end4.i109.i
 
 if.end4.i109.i:                                   ; preds = %land.lhs.true.i113.i, %if.end.i107.i
   %56 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 6), i64 %54 monotonic, align 8
-  %current7.i110.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 6, i32 3
+  %current7.i110.i = getelementptr inbounds i8, ptr %stats, i64 216
   %57 = load i64, ptr %current7.i110.i, align 8
   %58 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 6, i32 3), i64 %57 monotonic, align 8
-  %freed11.i111.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 6, i32 1
+  %freed11.i111.i = getelementptr inbounds i8, ptr %stats, i64 200
   %59 = load i64, ptr %freed11.i111.i, align 8
   %60 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 6, i32 1), i64 %59 monotonic, align 8
-  %peak14.i112.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 6, i32 2
+  %peak14.i112.i = getelementptr inbounds i8, ptr %stats, i64 208
   %61 = load i64, ptr %peak14.i112.i, align 8
   %62 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 6, i32 2), i64 %61 monotonic, align 8
-  br label %if.end.i118.i
+  br label %mi_stat_add.exit116.i
 
-if.end.i118.i:                                    ; preds = %if.end4.i109.i, %land.lhs.true.i113.i
-  %pages_abandoned8.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 8
+mi_stat_add.exit116.i:                            ; preds = %if.end4.i109.i, %land.lhs.true.i113.i, %mi_stat_add.exit105.i
+  %pages_abandoned8.i = getelementptr inbounds i8, ptr %stats, i64 256
+  %cmp.i117.i = icmp eq ptr %pages_abandoned8.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 8)
+  br i1 %cmp.i117.i, label %mi_stat_add.exit127.i, label %if.end.i118.i
+
+if.end.i118.i:                                    ; preds = %mi_stat_add.exit116.i
   %63 = load i64, ptr %pages_abandoned8.i, align 8
   %cmp1.i119.i = icmp eq i64 %63, 0
   br i1 %cmp1.i119.i, label %land.lhs.true.i124.i, label %if.end4.i120.i
 
 land.lhs.true.i124.i:                             ; preds = %if.end.i118.i
-  %freed.i125.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 8, i32 1
+  %freed.i125.i = getelementptr inbounds i8, ptr %stats, i64 264
   %64 = load i64, ptr %freed.i125.i, align 8
   %cmp2.i126.i = icmp eq i64 %64, 0
-  br i1 %cmp2.i126.i, label %if.end.i129.i, label %if.end4.i120.i
+  br i1 %cmp2.i126.i, label %mi_stat_add.exit127.i, label %if.end4.i120.i
 
 if.end4.i120.i:                                   ; preds = %land.lhs.true.i124.i, %if.end.i118.i
   %65 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 8), i64 %63 monotonic, align 8
-  %current7.i121.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 8, i32 3
+  %current7.i121.i = getelementptr inbounds i8, ptr %stats, i64 280
   %66 = load i64, ptr %current7.i121.i, align 8
   %67 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 8, i32 3), i64 %66 monotonic, align 8
-  %freed11.i122.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 8, i32 1
+  %freed11.i122.i = getelementptr inbounds i8, ptr %stats, i64 264
   %68 = load i64, ptr %freed11.i122.i, align 8
   %69 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 8, i32 1), i64 %68 monotonic, align 8
-  %peak14.i123.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 8, i32 2
+  %peak14.i123.i = getelementptr inbounds i8, ptr %stats, i64 272
   %70 = load i64, ptr %peak14.i123.i, align 8
   %71 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 8, i32 2), i64 %70 monotonic, align 8
-  br label %if.end.i129.i
+  br label %mi_stat_add.exit127.i
 
-if.end.i129.i:                                    ; preds = %if.end4.i120.i, %land.lhs.true.i124.i
-  %segments_abandoned9.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 7
+mi_stat_add.exit127.i:                            ; preds = %if.end4.i120.i, %land.lhs.true.i124.i, %mi_stat_add.exit116.i
+  %segments_abandoned9.i = getelementptr inbounds i8, ptr %stats, i64 224
+  %cmp.i128.i = icmp eq ptr %segments_abandoned9.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 7)
+  br i1 %cmp.i128.i, label %mi_stat_add.exit138.i, label %if.end.i129.i
+
+if.end.i129.i:                                    ; preds = %mi_stat_add.exit127.i
   %72 = load i64, ptr %segments_abandoned9.i, align 8
   %cmp1.i130.i = icmp eq i64 %72, 0
   br i1 %cmp1.i130.i, label %land.lhs.true.i135.i, label %if.end4.i131.i
 
 land.lhs.true.i135.i:                             ; preds = %if.end.i129.i
-  %freed.i136.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 7, i32 1
+  %freed.i136.i = getelementptr inbounds i8, ptr %stats, i64 232
   %73 = load i64, ptr %freed.i136.i, align 8
   %cmp2.i137.i = icmp eq i64 %73, 0
-  br i1 %cmp2.i137.i, label %if.end.i140.i, label %if.end4.i131.i
+  br i1 %cmp2.i137.i, label %mi_stat_add.exit138.i, label %if.end4.i131.i
 
 if.end4.i131.i:                                   ; preds = %land.lhs.true.i135.i, %if.end.i129.i
   %74 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 7), i64 %72 monotonic, align 8
-  %current7.i132.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 7, i32 3
+  %current7.i132.i = getelementptr inbounds i8, ptr %stats, i64 248
   %75 = load i64, ptr %current7.i132.i, align 8
   %76 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 7, i32 3), i64 %75 monotonic, align 8
-  %freed11.i133.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 7, i32 1
+  %freed11.i133.i = getelementptr inbounds i8, ptr %stats, i64 232
   %77 = load i64, ptr %freed11.i133.i, align 8
   %78 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 7, i32 1), i64 %77 monotonic, align 8
-  %peak14.i134.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 7, i32 2
+  %peak14.i134.i = getelementptr inbounds i8, ptr %stats, i64 240
   %79 = load i64, ptr %peak14.i134.i, align 8
   %80 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 7, i32 2), i64 %79 monotonic, align 8
-  br label %if.end.i140.i
+  br label %mi_stat_add.exit138.i
 
-if.end.i140.i:                                    ; preds = %if.end4.i131.i, %land.lhs.true.i135.i
-  %threads10.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 9
+mi_stat_add.exit138.i:                            ; preds = %if.end4.i131.i, %land.lhs.true.i135.i, %mi_stat_add.exit127.i
+  %threads10.i = getelementptr inbounds i8, ptr %stats, i64 288
+  %cmp.i139.i = icmp eq ptr %threads10.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9)
+  br i1 %cmp.i139.i, label %mi_stat_add.exit149.i, label %if.end.i140.i
+
+if.end.i140.i:                                    ; preds = %mi_stat_add.exit138.i
   %81 = load i64, ptr %threads10.i, align 8
   %cmp1.i141.i = icmp eq i64 %81, 0
   br i1 %cmp1.i141.i, label %land.lhs.true.i146.i, label %if.end4.i142.i
 
 land.lhs.true.i146.i:                             ; preds = %if.end.i140.i
-  %freed.i147.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 9, i32 1
+  %freed.i147.i = getelementptr inbounds i8, ptr %stats, i64 296
   %82 = load i64, ptr %freed.i147.i, align 8
   %cmp2.i148.i = icmp eq i64 %82, 0
-  br i1 %cmp2.i148.i, label %if.end.i151.i, label %if.end4.i142.i
+  br i1 %cmp2.i148.i, label %mi_stat_add.exit149.i, label %if.end4.i142.i
 
 if.end4.i142.i:                                   ; preds = %land.lhs.true.i146.i, %if.end.i140.i
   %83 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9), i64 %81 monotonic, align 8
-  %current7.i143.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 9, i32 3
+  %current7.i143.i = getelementptr inbounds i8, ptr %stats, i64 312
   %84 = load i64, ptr %current7.i143.i, align 8
   %85 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9, i32 3), i64 %84 monotonic, align 8
-  %freed11.i144.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 9, i32 1
+  %freed11.i144.i = getelementptr inbounds i8, ptr %stats, i64 296
   %86 = load i64, ptr %freed11.i144.i, align 8
   %87 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9, i32 1), i64 %86 monotonic, align 8
-  %peak14.i145.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 9, i32 2
+  %peak14.i145.i = getelementptr inbounds i8, ptr %stats, i64 304
   %88 = load i64, ptr %peak14.i145.i, align 8
   %89 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9, i32 2), i64 %88 monotonic, align 8
-  br label %if.end.i151.i
+  br label %mi_stat_add.exit149.i
 
-if.end.i151.i:                                    ; preds = %if.end4.i142.i, %land.lhs.true.i146.i
-  %malloc11.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 13
+mi_stat_add.exit149.i:                            ; preds = %if.end4.i142.i, %land.lhs.true.i146.i, %mi_stat_add.exit138.i
+  %malloc11.i = getelementptr inbounds i8, ptr %stats, i64 416
+  %cmp.i150.i = icmp eq ptr %malloc11.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 13)
+  br i1 %cmp.i150.i, label %mi_stat_add.exit160.i, label %if.end.i151.i
+
+if.end.i151.i:                                    ; preds = %mi_stat_add.exit149.i
   %90 = load i64, ptr %malloc11.i, align 8
   %cmp1.i152.i = icmp eq i64 %90, 0
   br i1 %cmp1.i152.i, label %land.lhs.true.i157.i, label %if.end4.i153.i
 
 land.lhs.true.i157.i:                             ; preds = %if.end.i151.i
-  %freed.i158.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 13, i32 1
+  %freed.i158.i = getelementptr inbounds i8, ptr %stats, i64 424
   %91 = load i64, ptr %freed.i158.i, align 8
   %cmp2.i159.i = icmp eq i64 %91, 0
-  br i1 %cmp2.i159.i, label %if.end.i162.i, label %if.end4.i153.i
+  br i1 %cmp2.i159.i, label %mi_stat_add.exit160.i, label %if.end4.i153.i
 
 if.end4.i153.i:                                   ; preds = %land.lhs.true.i157.i, %if.end.i151.i
   %92 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 13), i64 %90 monotonic, align 8
-  %current7.i154.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 13, i32 3
+  %current7.i154.i = getelementptr inbounds i8, ptr %stats, i64 440
   %93 = load i64, ptr %current7.i154.i, align 8
   %94 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 13, i32 3), i64 %93 monotonic, align 8
-  %freed11.i155.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 13, i32 1
+  %freed11.i155.i = getelementptr inbounds i8, ptr %stats, i64 424
   %95 = load i64, ptr %freed11.i155.i, align 8
   %96 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 13, i32 1), i64 %95 monotonic, align 8
-  %peak14.i156.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 13, i32 2
+  %peak14.i156.i = getelementptr inbounds i8, ptr %stats, i64 432
   %97 = load i64, ptr %peak14.i156.i, align 8
   %98 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 13, i32 2), i64 %97 monotonic, align 8
-  br label %if.end.i162.i
+  br label %mi_stat_add.exit160.i
 
-if.end.i162.i:                                    ; preds = %if.end4.i153.i, %land.lhs.true.i157.i
-  %segments_cache12.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 14
+mi_stat_add.exit160.i:                            ; preds = %if.end4.i153.i, %land.lhs.true.i157.i, %mi_stat_add.exit149.i
+  %segments_cache12.i = getelementptr inbounds i8, ptr %stats, i64 448
+  %cmp.i161.i = icmp eq ptr %segments_cache12.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 14)
+  br i1 %cmp.i161.i, label %mi_stat_add.exit171.i, label %if.end.i162.i
+
+if.end.i162.i:                                    ; preds = %mi_stat_add.exit160.i
   %99 = load i64, ptr %segments_cache12.i, align 8
   %cmp1.i163.i = icmp eq i64 %99, 0
   br i1 %cmp1.i163.i, label %land.lhs.true.i168.i, label %if.end4.i164.i
 
 land.lhs.true.i168.i:                             ; preds = %if.end.i162.i
-  %freed.i169.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 14, i32 1
+  %freed.i169.i = getelementptr inbounds i8, ptr %stats, i64 456
   %100 = load i64, ptr %freed.i169.i, align 8
   %cmp2.i170.i = icmp eq i64 %100, 0
-  br i1 %cmp2.i170.i, label %if.end.i173.i, label %if.end4.i164.i
+  br i1 %cmp2.i170.i, label %mi_stat_add.exit171.i, label %if.end4.i164.i
 
 if.end4.i164.i:                                   ; preds = %land.lhs.true.i168.i, %if.end.i162.i
   %101 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 14), i64 %99 monotonic, align 8
-  %current7.i165.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 14, i32 3
+  %current7.i165.i = getelementptr inbounds i8, ptr %stats, i64 472
   %102 = load i64, ptr %current7.i165.i, align 8
   %103 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 14, i32 3), i64 %102 monotonic, align 8
-  %freed11.i166.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 14, i32 1
+  %freed11.i166.i = getelementptr inbounds i8, ptr %stats, i64 456
   %104 = load i64, ptr %freed11.i166.i, align 8
   %105 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 14, i32 1), i64 %104 monotonic, align 8
-  %peak14.i167.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 14, i32 2
+  %peak14.i167.i = getelementptr inbounds i8, ptr %stats, i64 464
   %106 = load i64, ptr %peak14.i167.i, align 8
   %107 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 14, i32 2), i64 %106 monotonic, align 8
-  br label %if.end.i173.i
+  br label %mi_stat_add.exit171.i
 
-if.end.i173.i:                                    ; preds = %if.end4.i164.i, %land.lhs.true.i168.i
-  %normal13.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 10
+mi_stat_add.exit171.i:                            ; preds = %if.end4.i164.i, %land.lhs.true.i168.i, %mi_stat_add.exit160.i
+  %normal13.i = getelementptr inbounds i8, ptr %stats, i64 320
+  %cmp.i172.i = icmp eq ptr %normal13.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 10)
+  br i1 %cmp.i172.i, label %mi_stat_add.exit182.i, label %if.end.i173.i
+
+if.end.i173.i:                                    ; preds = %mi_stat_add.exit171.i
   %108 = load i64, ptr %normal13.i, align 8
   %cmp1.i174.i = icmp eq i64 %108, 0
   br i1 %cmp1.i174.i, label %land.lhs.true.i179.i, label %if.end4.i175.i
 
 land.lhs.true.i179.i:                             ; preds = %if.end.i173.i
-  %freed.i180.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 10, i32 1
+  %freed.i180.i = getelementptr inbounds i8, ptr %stats, i64 328
   %109 = load i64, ptr %freed.i180.i, align 8
   %cmp2.i181.i = icmp eq i64 %109, 0
-  br i1 %cmp2.i181.i, label %if.end.i184.i, label %if.end4.i175.i
+  br i1 %cmp2.i181.i, label %mi_stat_add.exit182.i, label %if.end4.i175.i
 
 if.end4.i175.i:                                   ; preds = %land.lhs.true.i179.i, %if.end.i173.i
   %110 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 10), i64 %108 monotonic, align 8
-  %current7.i176.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 10, i32 3
+  %current7.i176.i = getelementptr inbounds i8, ptr %stats, i64 344
   %111 = load i64, ptr %current7.i176.i, align 8
   %112 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 10, i32 3), i64 %111 monotonic, align 8
-  %freed11.i177.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 10, i32 1
+  %freed11.i177.i = getelementptr inbounds i8, ptr %stats, i64 328
   %113 = load i64, ptr %freed11.i177.i, align 8
   %114 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 10, i32 1), i64 %113 monotonic, align 8
-  %peak14.i178.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 10, i32 2
+  %peak14.i178.i = getelementptr inbounds i8, ptr %stats, i64 336
   %115 = load i64, ptr %peak14.i178.i, align 8
   %116 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 10, i32 2), i64 %115 monotonic, align 8
-  br label %if.end.i184.i
+  br label %mi_stat_add.exit182.i
 
-if.end.i184.i:                                    ; preds = %if.end4.i175.i, %land.lhs.true.i179.i
-  %huge14.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 11
+mi_stat_add.exit182.i:                            ; preds = %if.end4.i175.i, %land.lhs.true.i179.i, %mi_stat_add.exit171.i
+  %huge14.i = getelementptr inbounds i8, ptr %stats, i64 352
+  %cmp.i183.i = icmp eq ptr %huge14.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 11)
+  br i1 %cmp.i183.i, label %mi_stat_add.exit193.i, label %if.end.i184.i
+
+if.end.i184.i:                                    ; preds = %mi_stat_add.exit182.i
   %117 = load i64, ptr %huge14.i, align 8
   %cmp1.i185.i = icmp eq i64 %117, 0
   br i1 %cmp1.i185.i, label %land.lhs.true.i190.i, label %if.end4.i186.i
 
 land.lhs.true.i190.i:                             ; preds = %if.end.i184.i
-  %freed.i191.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 11, i32 1
+  %freed.i191.i = getelementptr inbounds i8, ptr %stats, i64 360
   %118 = load i64, ptr %freed.i191.i, align 8
   %cmp2.i192.i = icmp eq i64 %118, 0
-  br i1 %cmp2.i192.i, label %if.end.i195.i, label %if.end4.i186.i
+  br i1 %cmp2.i192.i, label %mi_stat_add.exit193.i, label %if.end4.i186.i
 
 if.end4.i186.i:                                   ; preds = %land.lhs.true.i190.i, %if.end.i184.i
   %119 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 11), i64 %117 monotonic, align 8
-  %current7.i187.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 11, i32 3
+  %current7.i187.i = getelementptr inbounds i8, ptr %stats, i64 376
   %120 = load i64, ptr %current7.i187.i, align 8
   %121 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 11, i32 3), i64 %120 monotonic, align 8
-  %freed11.i188.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 11, i32 1
+  %freed11.i188.i = getelementptr inbounds i8, ptr %stats, i64 360
   %122 = load i64, ptr %freed11.i188.i, align 8
   %123 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 11, i32 1), i64 %122 monotonic, align 8
-  %peak14.i189.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 11, i32 2
+  %peak14.i189.i = getelementptr inbounds i8, ptr %stats, i64 368
   %124 = load i64, ptr %peak14.i189.i, align 8
   %125 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 11, i32 2), i64 %124 monotonic, align 8
-  br label %if.end.i195.i
+  br label %mi_stat_add.exit193.i
 
-if.end.i195.i:                                    ; preds = %if.end4.i186.i, %land.lhs.true.i190.i
-  %large15.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 12
+mi_stat_add.exit193.i:                            ; preds = %if.end4.i186.i, %land.lhs.true.i190.i, %mi_stat_add.exit182.i
+  %large15.i = getelementptr inbounds i8, ptr %stats, i64 384
+  %cmp.i194.i = icmp eq ptr %large15.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 12)
+  br i1 %cmp.i194.i, label %mi_stat_add.exit204.i, label %if.end.i195.i
+
+if.end.i195.i:                                    ; preds = %mi_stat_add.exit193.i
   %126 = load i64, ptr %large15.i, align 8
   %cmp1.i196.i = icmp eq i64 %126, 0
   br i1 %cmp1.i196.i, label %land.lhs.true.i201.i, label %if.end4.i197.i
 
 land.lhs.true.i201.i:                             ; preds = %if.end.i195.i
-  %freed.i202.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 12, i32 1
+  %freed.i202.i = getelementptr inbounds i8, ptr %stats, i64 392
   %127 = load i64, ptr %freed.i202.i, align 8
   %cmp2.i203.i = icmp eq i64 %127, 0
-  br i1 %cmp2.i203.i, label %mi_stats_add.exit, label %if.end4.i197.i
+  br i1 %cmp2.i203.i, label %mi_stat_add.exit204.i, label %if.end4.i197.i
 
 if.end4.i197.i:                                   ; preds = %land.lhs.true.i201.i, %if.end.i195.i
   %128 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 12), i64 %126 monotonic, align 8
-  %current7.i198.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 12, i32 3
+  %current7.i198.i = getelementptr inbounds i8, ptr %stats, i64 408
   %129 = load i64, ptr %current7.i198.i, align 8
   %130 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 12, i32 3), i64 %129 monotonic, align 8
-  %freed11.i199.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 12, i32 1
+  %freed11.i199.i = getelementptr inbounds i8, ptr %stats, i64 392
   %131 = load i64, ptr %freed11.i199.i, align 8
   %132 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 12, i32 1), i64 %131 monotonic, align 8
-  %peak14.i200.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 12, i32 2
+  %peak14.i200.i = getelementptr inbounds i8, ptr %stats, i64 400
   %133 = load i64, ptr %peak14.i200.i, align 8
   %134 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 12, i32 2), i64 %133 monotonic, align 8
-  br label %mi_stats_add.exit
+  br label %mi_stat_add.exit204.i
 
-mi_stats_add.exit:                                ; preds = %land.lhs.true.i201.i, %if.end4.i197.i
-  %pages_extended16.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 15
+mi_stat_add.exit204.i:                            ; preds = %if.end4.i197.i, %land.lhs.true.i201.i, %mi_stat_add.exit193.i
+  %pages_extended16.i = getelementptr inbounds i8, ptr %stats, i64 480
+  %cmp.i205.i = icmp eq ptr %pages_extended16.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 15)
+  br i1 %cmp.i205.i, label %mi_stat_counter_add.exit.i, label %if.end.i206.i
+
+if.end.i206.i:                                    ; preds = %mi_stat_add.exit204.i
   %135 = load i64, ptr %pages_extended16.i, align 8
   %136 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 15), i64 %135 monotonic, align 8
-  %count2.i.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 15, i32 1
+  %count2.i.i = getelementptr inbounds i8, ptr %stats, i64 488
   %137 = load i64, ptr %count2.i.i, align 8
   %138 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 15, i32 1), i64 %137 monotonic, align 8
-  %mmap_calls17.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 16
+  br label %mi_stat_counter_add.exit.i
+
+mi_stat_counter_add.exit.i:                       ; preds = %if.end.i206.i, %mi_stat_add.exit204.i
+  %mmap_calls17.i = getelementptr inbounds i8, ptr %stats, i64 496
+  %cmp.i207.i = icmp eq ptr %mmap_calls17.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 16)
+  br i1 %cmp.i207.i, label %mi_stat_counter_add.exit210.i, label %if.end.i208.i
+
+if.end.i208.i:                                    ; preds = %mi_stat_counter_add.exit.i
   %139 = load i64, ptr %mmap_calls17.i, align 8
   %140 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 16), i64 %139 monotonic, align 8
-  %count2.i209.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 16, i32 1
+  %count2.i209.i = getelementptr inbounds i8, ptr %stats, i64 504
   %141 = load i64, ptr %count2.i209.i, align 8
   %142 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 16, i32 1), i64 %141 monotonic, align 8
-  %commit_calls18.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 17
+  br label %mi_stat_counter_add.exit210.i
+
+mi_stat_counter_add.exit210.i:                    ; preds = %if.end.i208.i, %mi_stat_counter_add.exit.i
+  %commit_calls18.i = getelementptr inbounds i8, ptr %stats, i64 512
+  %cmp.i211.i = icmp eq ptr %commit_calls18.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 17)
+  br i1 %cmp.i211.i, label %mi_stat_counter_add.exit214.i, label %if.end.i212.i
+
+if.end.i212.i:                                    ; preds = %mi_stat_counter_add.exit210.i
   %143 = load i64, ptr %commit_calls18.i, align 8
   %144 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 17), i64 %143 monotonic, align 8
-  %count2.i213.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 17, i32 1
+  %count2.i213.i = getelementptr inbounds i8, ptr %stats, i64 520
   %145 = load i64, ptr %count2.i213.i, align 8
   %146 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 17, i32 1), i64 %145 monotonic, align 8
-  %reset_calls19.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18
+  br label %mi_stat_counter_add.exit214.i
+
+mi_stat_counter_add.exit214.i:                    ; preds = %if.end.i212.i, %mi_stat_counter_add.exit210.i
+  %reset_calls19.i = getelementptr inbounds i8, ptr %stats, i64 528
+  %cmp.i215.i = icmp eq ptr %reset_calls19.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 18)
+  br i1 %cmp.i215.i, label %mi_stat_counter_add.exit218.i, label %if.end.i216.i
+
+if.end.i216.i:                                    ; preds = %mi_stat_counter_add.exit214.i
   %147 = load i64, ptr %reset_calls19.i, align 8
   %148 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 18), i64 %147 monotonic, align 8
-  %count2.i217.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18, i32 1
+  %count2.i217.i = getelementptr inbounds i8, ptr %stats, i64 536
   %149 = load i64, ptr %count2.i217.i, align 8
   %150 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 18, i32 1), i64 %149 monotonic, align 8
-  %purge_calls20.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 19
+  br label %mi_stat_counter_add.exit218.i
+
+mi_stat_counter_add.exit218.i:                    ; preds = %if.end.i216.i, %mi_stat_counter_add.exit214.i
+  %purge_calls20.i = getelementptr inbounds i8, ptr %stats, i64 544
+  %cmp.i219.i = icmp eq ptr %purge_calls20.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 19)
+  br i1 %cmp.i219.i, label %mi_stat_counter_add.exit222.i, label %if.end.i220.i
+
+if.end.i220.i:                                    ; preds = %mi_stat_counter_add.exit218.i
   %151 = load i64, ptr %purge_calls20.i, align 8
   %152 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 19), i64 %151 monotonic, align 8
-  %count2.i221.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 19, i32 1
+  %count2.i221.i = getelementptr inbounds i8, ptr %stats, i64 552
   %153 = load i64, ptr %count2.i221.i, align 8
   %154 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 19, i32 1), i64 %153 monotonic, align 8
-  %page_no_retire21.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 20
+  br label %mi_stat_counter_add.exit222.i
+
+mi_stat_counter_add.exit222.i:                    ; preds = %if.end.i220.i, %mi_stat_counter_add.exit218.i
+  %page_no_retire21.i = getelementptr inbounds i8, ptr %stats, i64 560
+  %cmp.i223.i = icmp eq ptr %page_no_retire21.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 20)
+  br i1 %cmp.i223.i, label %mi_stat_counter_add.exit226.i, label %if.end.i224.i
+
+if.end.i224.i:                                    ; preds = %mi_stat_counter_add.exit222.i
   %155 = load i64, ptr %page_no_retire21.i, align 8
   %156 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 20), i64 %155 monotonic, align 8
-  %count2.i225.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 20, i32 1
+  %count2.i225.i = getelementptr inbounds i8, ptr %stats, i64 568
   %157 = load i64, ptr %count2.i225.i, align 8
   %158 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 20, i32 1), i64 %157 monotonic, align 8
-  %searches22.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 21
+  br label %mi_stat_counter_add.exit226.i
+
+mi_stat_counter_add.exit226.i:                    ; preds = %if.end.i224.i, %mi_stat_counter_add.exit222.i
+  %searches22.i = getelementptr inbounds i8, ptr %stats, i64 576
+  %cmp.i227.i = icmp eq ptr %searches22.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 21)
+  br i1 %cmp.i227.i, label %mi_stat_counter_add.exit230.i, label %if.end.i228.i
+
+if.end.i228.i:                                    ; preds = %mi_stat_counter_add.exit226.i
   %159 = load i64, ptr %searches22.i, align 8
   %160 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 21), i64 %159 monotonic, align 8
-  %count2.i229.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 21, i32 1
+  %count2.i229.i = getelementptr inbounds i8, ptr %stats, i64 584
   %161 = load i64, ptr %count2.i229.i, align 8
   %162 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 21, i32 1), i64 %161 monotonic, align 8
-  %normal_count23.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 22
+  br label %mi_stat_counter_add.exit230.i
+
+mi_stat_counter_add.exit230.i:                    ; preds = %if.end.i228.i, %mi_stat_counter_add.exit226.i
+  %normal_count23.i = getelementptr inbounds i8, ptr %stats, i64 592
+  %cmp.i231.i = icmp eq ptr %normal_count23.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 22)
+  br i1 %cmp.i231.i, label %mi_stat_counter_add.exit234.i, label %if.end.i232.i
+
+if.end.i232.i:                                    ; preds = %mi_stat_counter_add.exit230.i
   %163 = load i64, ptr %normal_count23.i, align 8
   %164 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 22), i64 %163 monotonic, align 8
-  %count2.i233.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 22, i32 1
+  %count2.i233.i = getelementptr inbounds i8, ptr %stats, i64 600
   %165 = load i64, ptr %count2.i233.i, align 8
   %166 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 22, i32 1), i64 %165 monotonic, align 8
-  %huge_count24.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 23
+  br label %mi_stat_counter_add.exit234.i
+
+mi_stat_counter_add.exit234.i:                    ; preds = %if.end.i232.i, %mi_stat_counter_add.exit230.i
+  %huge_count24.i = getelementptr inbounds i8, ptr %stats, i64 608
+  %cmp.i235.i = icmp eq ptr %huge_count24.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 23)
+  br i1 %cmp.i235.i, label %mi_stat_counter_add.exit238.i, label %if.end.i236.i
+
+if.end.i236.i:                                    ; preds = %mi_stat_counter_add.exit234.i
   %167 = load i64, ptr %huge_count24.i, align 8
   %168 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 23), i64 %167 monotonic, align 8
-  %count2.i237.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 23, i32 1
+  %count2.i237.i = getelementptr inbounds i8, ptr %stats, i64 616
   %169 = load i64, ptr %count2.i237.i, align 8
   %170 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 23, i32 1), i64 %169 monotonic, align 8
-  %large_count25.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 24
+  br label %mi_stat_counter_add.exit238.i
+
+mi_stat_counter_add.exit238.i:                    ; preds = %if.end.i236.i, %mi_stat_counter_add.exit234.i
+  %large_count25.i = getelementptr inbounds i8, ptr %stats, i64 624
+  %cmp.i239.i = icmp eq ptr %large_count25.i, getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 24)
+  br i1 %cmp.i239.i, label %mi_stats_add.exit, label %if.end.i240.i
+
+if.end.i240.i:                                    ; preds = %mi_stat_counter_add.exit238.i
   %171 = load i64, ptr %large_count25.i, align 8
   %172 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 24), i64 %171 monotonic, align 8
-  %count2.i241.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 24, i32 1
+  %count2.i241.i = getelementptr inbounds i8, ptr %stats, i64 632
   %173 = load i64, ptr %count2.i241.i, align 8
   %174 = atomicrmw add ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 24, i32 1), i64 %173 monotonic, align 8
+  br label %mi_stats_add.exit
+
+mi_stats_add.exit:                                ; preds = %mi_stat_counter_add.exit238.i, %if.end.i240.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %stats, i8 0, i64 640, i1 false)
   br label %if.end
 
@@ -786,7 +908,7 @@ define void @mi_stats_print_out(ptr noundef %out, ptr noundef %arg) local_unname
 entry:
   %call.i = tail call ptr @mi_heap_get_default() #9
   %0 = load ptr, ptr %call.i, align 8
-  %stats.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 6
+  %stats.i = getelementptr inbounds i8, ptr %0, i64 960
   tail call fastcc void @mi_stats_merge_from(ptr noundef nonnull %stats.i) #10
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull @_mi_stats_main, ptr noundef %out, ptr noundef %arg) #10
   ret void
@@ -799,79 +921,79 @@ entry:
   %buf = alloca [256 x i8], align 16
   %buffer = alloca %struct.buffered_s, align 8
   store ptr %out0, ptr %buffer, align 8
-  %arg = getelementptr inbounds %struct.buffered_s, ptr %buffer, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %buffer, i64 8
   store ptr %arg0, ptr %arg, align 8
-  %buf1 = getelementptr inbounds %struct.buffered_s, ptr %buffer, i64 0, i32 2
-  %count = getelementptr inbounds %struct.buffered_s, ptr %buffer, i64 0, i32 4
-  %0 = getelementptr inbounds %struct.buffered_s, ptr %buffer, i64 0, i32 3
+  %buf1 = getelementptr inbounds i8, ptr %buffer, i64 16
+  %count = getelementptr inbounds i8, ptr %buffer, i64 32
+  %0 = getelementptr inbounds i8, ptr %buffer, i64 24
   store i64 0, ptr %0, align 8
   store i64 255, ptr %count, align 8
   store ptr %buf, ptr %buf1, align 8
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #9
-  %reserved = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 2
+  %reserved = getelementptr inbounds i8, ptr %stats, i64 64
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %reserved, ptr noundef nonnull @.str, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.1) #10
-  %committed = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 3
+  %committed = getelementptr inbounds i8, ptr %stats, i64 96
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %committed, ptr noundef nonnull @.str.2, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.1) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.3) #9
-  %peak.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4, i32 2
+  %peak.i = getelementptr inbounds i8, ptr %stats, i64 144
   %1 = load i64, ptr %peak.i, align 8
   call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.4) #9
-  %peak.i68 = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5, i32 2
+  %peak.i68 = getelementptr inbounds i8, ptr %stats, i64 176
   %2 = load i64, ptr %peak.i68, align 8
   call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 6
+  %page_committed = getelementptr inbounds i8, ptr %stats, i64 192
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %page_committed, ptr noundef nonnull @.str.5, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call fastcc void @mi_stat_print_ex(ptr noundef %stats, ptr noundef nonnull @.str.6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  %segments_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 7
+  %segments_abandoned = getelementptr inbounds i8, ptr %stats, i64 224
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %segments_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  %segments_cache = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 14
+  %segments_cache = getelementptr inbounds i8, ptr %stats, i64 448
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %segments_cache, ptr noundef nonnull @.str.8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  %pages = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 1
+  %pages = getelementptr inbounds i8, ptr %stats, i64 32
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %pages, ptr noundef nonnull @.str.9, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 8
+  %pages_abandoned = getelementptr inbounds i8, ptr %stats, i64 256
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %pages_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  %pages_extended = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 15
+  %pages_extended = getelementptr inbounds i8, ptr %stats, i64 480
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.10) #9
   %3 = load i64, ptr %pages_extended, align 8
   call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %page_no_retire = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 20
+  %page_no_retire = getelementptr inbounds i8, ptr %stats, i64 560
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11) #9
   %4 = load i64, ptr %page_no_retire, align 8
   call fastcc void @mi_printf_amount(i64 noundef %4, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %mmap_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 16
+  %mmap_calls = getelementptr inbounds i8, ptr %stats, i64 496
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.12) #9
   %5 = load i64, ptr %mmap_calls, align 8
   call fastcc void @mi_printf_amount(i64 noundef %5, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %commit_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 17
+  %commit_calls = getelementptr inbounds i8, ptr %stats, i64 512
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.13) #9
   %6 = load i64, ptr %commit_calls, align 8
   call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %reset_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18
+  %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.14) #9
   %7 = load i64, ptr %reset_calls, align 8
   call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %purge_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 19
+  %purge_calls = getelementptr inbounds i8, ptr %stats, i64 544
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.15) #9
   %8 = load i64, ptr %purge_calls, align 8
   call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
-  %threads = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 9
+  %threads = getelementptr inbounds i8, ptr %stats, i64 288
   call fastcc void @mi_stat_print_ex(ptr noundef nonnull %threads, ptr noundef nonnull @.str.16, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  %count.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 21, i32 1
+  %count.i = getelementptr inbounds i8, ptr %stats, i64 584
   %9 = load i64, ptr %count.i, align 8
   %cmp.i = icmp eq i64 %9, 0
   br i1 %cmp.i, label %mi_stat_counter_print_avg.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  %searches = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 21
+  %searches = getelementptr inbounds i8, ptr %stats, i64 576
   %10 = load i64, ptr %searches, align 8
   %mul.i = mul nsw i64 %10, 10
   %div.i = sdiv i64 %mul.i, %9
@@ -903,17 +1025,17 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   %sub1.i.i = sub i64 %call.i.i.i, %15
   store i64 %sub1.i.i, ptr %pinfo.i, align 8
   %16 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 3) monotonic, align 8
-  %current_commit1.i = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo.i, i64 0, i32 5
+  %current_commit1.i = getelementptr inbounds i8, ptr %pinfo.i, i64 40
   store i64 %16, ptr %current_commit1.i, align 8
   %17 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 2) monotonic, align 16
-  %peak_commit3.i = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo.i, i64 0, i32 6
+  %peak_commit3.i = getelementptr inbounds i8, ptr %pinfo.i, i64 48
   store i64 %17, ptr %peak_commit3.i, align 8
-  %current_rss5.i = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo.i, i64 0, i32 3
+  %current_rss5.i = getelementptr inbounds i8, ptr %pinfo.i, i64 24
   store i64 %16, ptr %current_rss5.i, align 8
-  %peak_rss7.i = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo.i, i64 0, i32 4
+  %peak_rss7.i = getelementptr inbounds i8, ptr %pinfo.i, i64 32
   store i64 %17, ptr %peak_rss7.i, align 8
-  %stime.i = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo.i, i64 0, i32 2
-  %page_faults8.i = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo.i, i64 0, i32 7
+  %stime.i = getelementptr inbounds i8, ptr %pinfo.i, i64 16
+  %page_faults8.i = getelementptr inbounds i8, ptr %pinfo.i, i64 56
   store i64 0, ptr %page_faults8.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @_mi_prim_process_info(ptr noundef nonnull %pinfo.i) #9
@@ -954,7 +1076,7 @@ define void @mi_stats_print(ptr noundef %out) local_unnamed_addr #2 {
 entry:
   %call.i.i = tail call ptr @mi_heap_get_default() #9
   %0 = load ptr, ptr %call.i.i, align 8
-  %stats.i.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 6
+  %stats.i.i = getelementptr inbounds i8, ptr %0, i64 960
   tail call fastcc void @mi_stats_merge_from(ptr noundef nonnull %stats.i.i) #10
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull @_mi_stats_main, ptr noundef %out, ptr noundef null) #10
   ret void
@@ -965,7 +1087,7 @@ define void @mi_thread_stats_print_out(ptr noundef %out, ptr noundef %arg) local
 entry:
   %call.i = tail call ptr @mi_heap_get_default() #9
   %0 = load ptr, ptr %call.i, align 8
-  %stats.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 6
+  %stats.i = getelementptr inbounds i8, ptr %0, i64 960
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull %stats.i, ptr noundef %out, ptr noundef %arg) #10
   ret void
 }
@@ -1002,18 +1124,18 @@ entry:
   %sub1.i = sub i64 %call.i.i, %3
   store i64 %sub1.i, ptr %pinfo, align 8
   %4 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 3) monotonic, align 8
-  %current_commit1 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 5
+  %current_commit1 = getelementptr inbounds i8, ptr %pinfo, i64 40
   store i64 %4, ptr %current_commit1, align 8
   %5 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3, i32 2) monotonic, align 16
-  %peak_commit3 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 6
+  %peak_commit3 = getelementptr inbounds i8, ptr %pinfo, i64 48
   store i64 %5, ptr %peak_commit3, align 8
-  %current_rss5 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 3
+  %current_rss5 = getelementptr inbounds i8, ptr %pinfo, i64 24
   store i64 %4, ptr %current_rss5, align 8
-  %peak_rss7 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 4
+  %peak_rss7 = getelementptr inbounds i8, ptr %pinfo, i64 32
   store i64 %5, ptr %peak_rss7, align 8
-  %utime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 1
-  %stime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 2
-  %page_faults8 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i64 0, i32 7
+  %utime = getelementptr inbounds i8, ptr %pinfo, i64 8
+  %stime = getelementptr inbounds i8, ptr %pinfo, i64 16
+  %page_faults8 = getelementptr inbounds i8, ptr %pinfo, i64 56
   store i64 0, ptr %page_faults8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %utime, i8 0, i64 16, i1 false)
   call void @_mi_prim_process_info(ptr noundef nonnull %pinfo) #9
@@ -1113,10 +1235,10 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp2.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %used = getelementptr inbounds %struct.buffered_s, ptr %arg, i64 0, i32 3
-  %count = getelementptr inbounds %struct.buffered_s, ptr %arg, i64 0, i32 4
-  %buf1.i = getelementptr inbounds %struct.buffered_s, ptr %arg, i64 0, i32 2
-  %arg.i = getelementptr inbounds %struct.buffered_s, ptr %arg, i64 0, i32 1
+  %used = getelementptr inbounds i8, ptr %arg, i64 24
+  %count = getelementptr inbounds i8, ptr %arg, i64 32
+  %buf1.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %arg.i = getelementptr inbounds i8, ptr %arg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1178,15 +1300,15 @@ entry:
   br i1 %cmp, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %entry
-  %peak = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 2
+  %peak = getelementptr inbounds i8, ptr %stat, i64 16
   %0 = load i64, ptr %peak, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
   %1 = load i64, ptr %stat, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
-  %freed = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 1
+  %freed = getelementptr inbounds i8, ptr %stat, i64 8
   %2 = load i64, ptr %freed, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
-  %current = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 3
+  %current = getelementptr inbounds i8, ptr %stat, i64 24
   %3 = load i64, ptr %current, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
@@ -1213,7 +1335,7 @@ if.else:                                          ; preds = %if.then
 
 if.else7:                                         ; preds = %entry
   %cmp8 = icmp slt i64 %unit, 0
-  %peak10 = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 2
+  %peak10 = getelementptr inbounds i8, ptr %stat, i64 16
   %6 = load i64, ptr %peak10, align 8
   br i1 %cmp8, label %if.then9, label %if.else26
 
@@ -1221,10 +1343,10 @@ if.then9:                                         ; preds = %if.else7
   tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
   %7 = load i64, ptr %stat, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
-  %freed12 = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 1
+  %freed12 = getelementptr inbounds i8, ptr %stat, i64 8
   %8 = load i64, ptr %freed12, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
-  %current13 = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 3
+  %current13 = getelementptr inbounds i8, ptr %stat, i64 24
   %9 = load i64, ptr %current13, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %9, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef %arg, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1) #9
@@ -1246,7 +1368,7 @@ if.else26:                                        ; preds = %if.else7
   %12 = load i64, ptr %stat, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef %arg, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #9
-  %current29 = getelementptr inbounds %struct.mi_stat_count_s, ptr %stat, i64 0, i32 3
+  %current29 = getelementptr inbounds i8, ptr %stat, i64 24
   %13 = load i64, ptr %current29, align 8
   tail call fastcc void @mi_printf_amount(i64 noundef %13, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef %arg, ptr noundef nonnull @.str.26) #9

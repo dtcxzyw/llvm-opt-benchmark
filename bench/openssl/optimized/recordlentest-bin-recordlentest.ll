@@ -165,7 +165,7 @@ if.then31.split:                                  ; preds = %if.then31
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i, i8 0, i64 256, i1 false)
   store <4 x i8> <i8 22, i8 3, i8 1, i8 64>, ptr %header.i, align 4
-  %arrayidx11.i = getelementptr inbounds [5 x i8], ptr %header.i, i64 0, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %header.i, i64 4
   store i8 0, ptr %arrayidx11.i, align 4
   %call.i = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %header.i, i64 noundef 5, ptr noundef nonnull %written.i) #6
   %tobool.i = icmp eq i32 %call.i, 0
@@ -202,7 +202,7 @@ if.then34.split:                                  ; preds = %if.then31
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i23, i8 0, i64 256, i1 false)
   store <4 x i8> <i8 22, i8 3, i8 1, i8 64>, ptr %header.i21, align 4
-  %arrayidx11.i27 = getelementptr inbounds [5 x i8], ptr %header.i21, i64 0, i64 4
+  %arrayidx11.i27 = getelementptr inbounds i8, ptr %header.i21, i64 4
   store i8 1, ptr %arrayidx11.i27, align 4
   %call.i28 = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %header.i21, i64 noundef 5, ptr noundef nonnull %written.i22) #6
   %tobool.i29 = icmp eq i32 %call.i28, 0
@@ -283,16 +283,16 @@ if.end71:                                         ; preds = %if.end62, %if.then6
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i50)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i50, i8 0, i64 256, i1 false)
   store i8 23, ptr %header.i48, align 1
-  %arrayidx1.i51 = getelementptr inbounds [5 x i8], ptr %header.i48, i64 0, i64 1
+  %arrayidx1.i51 = getelementptr inbounds i8, ptr %header.i48, i64 1
   store i8 3, ptr %arrayidx1.i51, align 1
-  %arrayidx4.i52 = getelementptr inbounds [5 x i8], ptr %header.i48, i64 0, i64 2
+  %arrayidx4.i52 = getelementptr inbounds i8, ptr %header.i48, i64 2
   store i8 3, ptr %arrayidx4.i52, align 1
   %shr5.i = lshr i64 %len.2, 8
   %conv7.i = trunc i64 %shr5.i to i8
-  %arrayidx8.i53 = getelementptr inbounds [5 x i8], ptr %header.i48, i64 0, i64 3
+  %arrayidx8.i53 = getelementptr inbounds i8, ptr %header.i48, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i53, align 1
   %conv10.i = trunc i64 %len.2 to i8
-  %arrayidx11.i54 = getelementptr inbounds [5 x i8], ptr %header.i48, i64 0, i64 4
+  %arrayidx11.i54 = getelementptr inbounds i8, ptr %header.i48, i64 4
   store i8 %conv10.i, ptr %arrayidx11.i54, align 1
   %call.i55 = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %header.i48, i64 noundef 5, ptr noundef nonnull %written.i49) #6
   %tobool.i56 = icmp eq i32 %call.i55, 0

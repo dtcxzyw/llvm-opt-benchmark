@@ -15,9 +15,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.llvh::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
+%"class.llvh::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
 %"class.llvh::SmallString" = type { %"class.llvh::SmallVector.7" }
 %"class.llvh::SmallVector.7" = type { %"class.llvh::SmallVectorImpl.8", %"struct.llvh::SmallVectorStorage.11" }
 %"class.llvh::SmallVectorImpl.8" = type { %"class.llvh::SmallVectorTemplateBase.9" }
@@ -664,21 +664,21 @@ entry:
   %Components = alloca %"class.llvh::SmallVector", align 8
   %ref.tmp = alloca %"class.llvh::StringRef", align 8
   tail call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %this, ptr noundef nonnull align 8 dereferenceable(18) %Str) #13
-  %Arch = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Vendor = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 3
-  %OS = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
-  %Environment = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
-  %ObjectFormat = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 6
+  %Arch = getelementptr inbounds i8, ptr %this, i64 32
+  %Vendor = getelementptr inbounds i8, ptr %this, i64 40
+  %OS = getelementptr inbounds i8, ptr %this, i64 44
+  %Environment = getelementptr inbounds i8, ptr %this, i64 48
+  %ObjectFormat = getelementptr inbounds i8, ptr %this, i64 52
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %Components, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch, i8 0, i64 24, i1 false)
   store ptr %add.ptr.i.i.i.i.i, ptr %Components, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Components, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %Components, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Components, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %Components, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i, ptr %ref.tmp, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i, ptr %Length.i, align 8
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %Components, i8 noundef signext 45, i32 noundef 3, i1 noundef zeroext true) #13
@@ -687,7 +687,7 @@ entry:
   br i1 %cmp.not, label %if.end55thread-pre-split, label %if.then
 
 if.then:                                          ; preds = %entry
-  %SubArch = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 2
+  %SubArch = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load ptr, ptr %Components, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %agg.tmp.sroa.2.0.arrayidx.i94.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -706,9 +706,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then
-  %arrayidx.i84 = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 1
+  %arrayidx.i84 = getelementptr inbounds i8, ptr %4, i64 16
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %arrayidx.i84, align 8
-  %agg.tmp13.sroa.2.0.arrayidx.i84.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 1, i32 1
+  %agg.tmp13.sroa.2.0.arrayidx.i84.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   %agg.tmp13.sroa.2.0.copyload = load i64, ptr %agg.tmp13.sroa.2.0.arrayidx.i84.sroa_idx, align 8
   %call15 = call fastcc noundef i32 @_ZL11parseVendorN4llvh9StringRefE(ptr %agg.tmp13.sroa.0.0.copyload, i64 %agg.tmp13.sroa.2.0.copyload)
   store i32 %call15, ptr %Vendor, align 8
@@ -716,9 +716,9 @@ if.then12:                                        ; preds = %if.then
   br i1 %cmp18.not, label %if.end55thread-pre-split, label %if.then19
 
 if.then19:                                        ; preds = %if.then12
-  %arrayidx.i79 = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 2
+  %arrayidx.i79 = getelementptr inbounds i8, ptr %4, i64 32
   %agg.tmp20.sroa.0.0.copyload = load ptr, ptr %arrayidx.i79, align 8
-  %agg.tmp20.sroa.2.0.arrayidx.i79.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 2, i32 1
+  %agg.tmp20.sroa.2.0.arrayidx.i79.sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   %agg.tmp20.sroa.2.0.copyload = load i64, ptr %agg.tmp20.sroa.2.0.arrayidx.i79.sroa_idx, align 8
   %call22 = call fastcc noundef i32 @_ZL7parseOSN4llvh9StringRefE(ptr %agg.tmp20.sroa.0.0.copyload, i64 %agg.tmp20.sroa.2.0.copyload)
   store i32 %call22, ptr %OS, align 4
@@ -726,9 +726,9 @@ if.then19:                                        ; preds = %if.then12
   br i1 %cmp25, label %if.then26, label %if.end55thread-pre-split
 
 if.then26:                                        ; preds = %if.then19
-  %arrayidx.i74 = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 3
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %4, i64 48
   %agg.tmp27.sroa.0.0.copyload = load ptr, ptr %arrayidx.i74, align 8
-  %agg.tmp27.sroa.2.0.arrayidx.i74.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 3, i32 1
+  %agg.tmp27.sroa.2.0.arrayidx.i74.sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
   %agg.tmp27.sroa.2.0.copyload = load i64, ptr %agg.tmp27.sroa.2.0.arrayidx.i74.sroa_idx, align 8
   %call29 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvh9StringRefE(ptr %agg.tmp27.sroa.0.0.copyload, i64 %agg.tmp27.sroa.2.0.copyload)
   store i32 %call29, ptr %Environment, align 8
@@ -2222,7 +2222,7 @@ entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ArchStr, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ArchStr, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !11
   switch i8 %0, label %if.end8.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
@@ -2231,42 +2231,39 @@ entry:
 
 if.then4.i.i:                                     ; preds = %entry
   store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4, align 8
-  %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
-  store i8 8, ptr %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx, align 8
-  %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
-  store i8 1, ptr %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx, align 1
   br label %lor.lhs.false.i.i12
 
 if.end8.i.i:                                      ; preds = %entry
-  %RHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ArchStr, i64 0, i32 3
+  %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ArchStr, i64 17
   %1 = load i8, ptr %RHSKind.i.i.i.i, align 1, !noalias !11
   %cmp.i13.i.i = icmp eq i8 %1, 1
   %NewLHS.sroa.0.0.copyload.i.i = load ptr, ptr %ArchStr, align 8, !noalias !11
   %spec.select.i.i = select i1 %cmp.i13.i.i, i8 %0, i8 2
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %ArchStr
   store ptr %spec.select20.i.i, ptr %ref.tmp4, align 8, !alias.scope !11
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i, align 8, !alias.scope !11
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
-  store i8 %spec.select.i.i, ptr %LHSKind5.i.i.i, align 8, !alias.scope !11
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
-  store i8 8, ptr %RHSKind6.i.i.i, align 1, !alias.scope !11
   br label %lor.lhs.false.i.i12
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 0, ptr %LHSKind.i.i.i, align 8, !alias.scope !11
-  %RHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 1, ptr %RHSKind.i.i.i, align 1, !alias.scope !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   br label %if.then.i.i35
 
 lor.lhs.false.i.i12:                              ; preds = %if.then4.i.i, %if.end8.i.i
-  %NewLHS.sroa.0.0.copyload.i.i22.ph = phi ptr [ %spec.select20.i.i, %if.end8.i.i ], [ inttoptr (i64 45 to ptr), %if.then4.i.i ]
-  %cmp.i13.i.i21.ph = phi i1 [ false, %if.end8.i.i ], [ true, %if.then4.i.i ]
-  %.ph = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 8, %if.then4.i.i ]
-  %LHSKind.i.i7.i.i13 = getelementptr inbounds %"class.llvh::Twine", ptr %VendorStr, i64 0, i32 2
+  %.sink114 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 8, %if.end8.i.i ]
+  %NewLHS.sroa.0.0.copyload.i.i22.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i ], [ %spec.select20.i.i, %if.end8.i.i ]
+  %cmp.i13.i.i21.ph = phi i1 [ true, %if.then4.i.i ], [ false, %if.end8.i.i ]
+  %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  store i8 %.sink114, ptr %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx, align 8
+  %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
+  store i8 %.sink, ptr %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx, align 1
+  %LHSKind.i.i7.i.i13 = getelementptr inbounds i8, ptr %VendorStr, i64 16
   %2 = load i8, ptr %LHSKind.i.i7.i.i13, align 8, !noalias !18
   switch i8 %2, label %if.end8.i.i19 [
     i8 0, label %if.then.i.i35
@@ -2274,9 +2271,9 @@ lor.lhs.false.i.i12:                              ; preds = %if.then4.i.i, %if.e
   ]
 
 if.then.i.i35:                                    ; preds = %lor.lhs.false.i.i12, %_ZN4llvhplERKNS_5TwineES2_.exit
-  %LHSKind.i.i.i36 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i.i.i36 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 0, ptr %LHSKind.i.i.i36, align 8, !alias.scope !18
-  %RHSKind.i.i.i37 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind.i.i.i37 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 1, ptr %RHSKind.i.i.i37, align 1, !alias.scope !18
   br label %_ZN4llvhplERKNS_5TwineES2_.exit38
 
@@ -2285,27 +2282,27 @@ if.then7.i.i33:                                   ; preds = %lor.lhs.false.i.i12
   br label %_ZN4llvhplERKNS_5TwineES2_.exit38
 
 if.end8.i.i19:                                    ; preds = %lor.lhs.false.i.i12
-  %spec.select.i.i23 = select i1 %cmp.i13.i.i21.ph, i8 %.ph, i8 2
+  %spec.select.i.i23 = select i1 %cmp.i13.i.i21.ph, i8 %.sink114, i8 2
   %spec.select20.i.i24 = select i1 %cmp.i13.i.i21.ph, ptr %NewLHS.sroa.0.0.copyload.i.i22.ph, ptr %ref.tmp4
-  %RHSKind.i.i15.i.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %VendorStr, i64 0, i32 3
+  %RHSKind.i.i15.i.i25 = getelementptr inbounds i8, ptr %VendorStr, i64 17
   %3 = load i8, ptr %RHSKind.i.i15.i.i25, align 1, !noalias !18
   %cmp.i16.i.i26 = icmp eq i8 %3, 1
   %NewRHS.sroa.0.0.copyload.i.i27 = load ptr, ptr %VendorStr, align 8, !noalias !18
   %NewRHSKind.0.i.i28 = select i1 %cmp.i16.i.i26, i8 %2, i8 2
   %NewRHS.sroa.0.0.i.i29 = select i1 %cmp.i16.i.i26, ptr %NewRHS.sroa.0.0.copyload.i.i27, ptr %VendorStr
   store ptr %spec.select20.i.i24, ptr %ref.tmp3, align 8, !alias.scope !18
-  %RHS4.i.i.i30 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %NewRHS.sroa.0.0.i.i29, ptr %RHS4.i.i.i30, align 8, !alias.scope !18
-  %LHSKind5.i.i.i31 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 %spec.select.i.i23, ptr %LHSKind5.i.i.i31, align 8, !alias.scope !18
-  %RHSKind6.i.i.i32 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i32 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 %NewRHSKind.0.i.i28, ptr %RHSKind6.i.i.i32, align 1, !alias.scope !18
   br label %_ZN4llvhplERKNS_5TwineES2_.exit38
 
 _ZN4llvhplERKNS_5TwineES2_.exit38:                ; preds = %if.then.i.i35, %if.then7.i.i33, %if.end8.i.i19
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %LHSKind.i.i.i.i41 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %4 = load i8, ptr %LHSKind.i.i.i.i41, align 8, !noalias !25
   switch i8 %4, label %if.end8.i.i50 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit69
@@ -2314,42 +2311,39 @@ _ZN4llvhplERKNS_5TwineES2_.exit38:                ; preds = %if.then.i.i35, %if.
 
 if.then4.i.i65:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
   store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2, align 8
-  %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store i8 8, ptr %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx, align 8
-  %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
-  store i8 1, ptr %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx, align 1
   br label %lor.lhs.false.i.i72
 
 if.end8.i.i50:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
-  %RHSKind.i.i.i.i51 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind.i.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   %5 = load i8, ptr %RHSKind.i.i.i.i51, align 1, !noalias !25
   %cmp.i13.i.i52 = icmp eq i8 %5, 1
   %NewLHS.sroa.0.0.copyload.i.i53 = load ptr, ptr %ref.tmp3, align 8, !noalias !25
   %spec.select.i.i54 = select i1 %cmp.i13.i.i52, i8 %4, i8 2
   %spec.select20.i.i55 = select i1 %cmp.i13.i.i52, ptr %NewLHS.sroa.0.0.copyload.i.i53, ptr %ref.tmp3
   store ptr %spec.select20.i.i55, ptr %ref.tmp2, align 8, !alias.scope !25
-  %RHS4.i.i.i61 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i61, align 8, !alias.scope !25
-  %LHSKind5.i.i.i62 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
-  store i8 %spec.select.i.i54, ptr %LHSKind5.i.i.i62, align 8, !alias.scope !25
-  %RHSKind6.i.i.i63 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
-  store i8 8, ptr %RHSKind6.i.i.i63, align 1, !alias.scope !25
   br label %lor.lhs.false.i.i72
 
 _ZN4llvhplERKNS_5TwineES2_.exit69:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
-  %LHSKind.i.i.i67 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind.i.i.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 0, ptr %LHSKind.i.i.i67, align 8, !alias.scope !25
-  %RHSKind.i.i.i68 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind.i.i.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 1, ptr %RHSKind.i.i.i68, align 1, !alias.scope !25
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   br label %if.then.i.i95
 
 lor.lhs.false.i.i72:                              ; preds = %if.then4.i.i65, %if.end8.i.i50
-  %NewLHS.sroa.0.0.copyload.i.i82.ph = phi ptr [ %spec.select20.i.i55, %if.end8.i.i50 ], [ inttoptr (i64 45 to ptr), %if.then4.i.i65 ]
-  %cmp.i13.i.i81.ph = phi i1 [ false, %if.end8.i.i50 ], [ true, %if.then4.i.i65 ]
-  %.ph108 = phi i8 [ %spec.select.i.i54, %if.end8.i.i50 ], [ 8, %if.then4.i.i65 ]
-  %LHSKind.i.i7.i.i73 = getelementptr inbounds %"class.llvh::Twine", ptr %OSStr, i64 0, i32 2
+  %.sink116 = phi i8 [ 8, %if.then4.i.i65 ], [ %spec.select.i.i54, %if.end8.i.i50 ]
+  %.sink115 = phi i8 [ 1, %if.then4.i.i65 ], [ 8, %if.end8.i.i50 ]
+  %NewLHS.sroa.0.0.copyload.i.i82.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i65 ], [ %spec.select20.i.i55, %if.end8.i.i50 ]
+  %cmp.i13.i.i81.ph = phi i1 [ true, %if.then4.i.i65 ], [ false, %if.end8.i.i50 ]
+  %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store i8 %.sink116, ptr %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx, align 8
+  %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
+  store i8 %.sink115, ptr %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx, align 1
+  %LHSKind.i.i7.i.i73 = getelementptr inbounds i8, ptr %OSStr, i64 16
   %6 = load i8, ptr %LHSKind.i.i7.i.i73, align 8, !noalias !32
   switch i8 %6, label %if.end8.i.i79 [
     i8 0, label %if.then.i.i95
@@ -2357,9 +2351,9 @@ lor.lhs.false.i.i72:                              ; preds = %if.then4.i.i65, %if
   ]
 
 if.then.i.i95:                                    ; preds = %lor.lhs.false.i.i72, %_ZN4llvhplERKNS_5TwineES2_.exit69
-  %LHSKind.i.i.i96 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i.i.i96 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 0, ptr %LHSKind.i.i.i96, align 8, !alias.scope !32
-  %RHSKind.i.i.i97 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i.i.i97 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i.i.i97, align 1, !alias.scope !32
   br label %_ZN4llvhplERKNS_5TwineES2_.exit98
 
@@ -2368,56 +2362,56 @@ if.then7.i.i93:                                   ; preds = %lor.lhs.false.i.i72
   br label %_ZN4llvhplERKNS_5TwineES2_.exit98
 
 if.end8.i.i79:                                    ; preds = %lor.lhs.false.i.i72
-  %spec.select.i.i83 = select i1 %cmp.i13.i.i81.ph, i8 %.ph108, i8 2
+  %spec.select.i.i83 = select i1 %cmp.i13.i.i81.ph, i8 %.sink116, i8 2
   %spec.select20.i.i84 = select i1 %cmp.i13.i.i81.ph, ptr %NewLHS.sroa.0.0.copyload.i.i82.ph, ptr %ref.tmp2
-  %RHSKind.i.i15.i.i85 = getelementptr inbounds %"class.llvh::Twine", ptr %OSStr, i64 0, i32 3
+  %RHSKind.i.i15.i.i85 = getelementptr inbounds i8, ptr %OSStr, i64 17
   %7 = load i8, ptr %RHSKind.i.i15.i.i85, align 1, !noalias !32
   %cmp.i16.i.i86 = icmp eq i8 %7, 1
   %NewRHS.sroa.0.0.copyload.i.i87 = load ptr, ptr %OSStr, align 8, !noalias !32
   %NewRHSKind.0.i.i88 = select i1 %cmp.i16.i.i86, i8 %6, i8 2
   %NewRHS.sroa.0.0.i.i89 = select i1 %cmp.i16.i.i86, ptr %NewRHS.sroa.0.0.copyload.i.i87, ptr %OSStr
   store ptr %spec.select20.i.i84, ptr %ref.tmp, align 8, !alias.scope !32
-  %RHS4.i.i.i90 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i90 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %NewRHS.sroa.0.0.i.i89, ptr %RHS4.i.i.i90, align 8, !alias.scope !32
-  %LHSKind5.i.i.i91 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 %spec.select.i.i83, ptr %LHSKind5.i.i.i91, align 8, !alias.scope !32
-  %RHSKind6.i.i.i92 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i92 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 %NewRHSKind.0.i.i88, ptr %RHSKind6.i.i.i92, align 1, !alias.scope !32
   br label %_ZN4llvhplERKNS_5TwineES2_.exit98
 
 _ZN4llvhplERKNS_5TwineES2_.exit98:                ; preds = %if.then.i.i95, %if.then7.i.i93, %if.end8.i.i79
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %this, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp) #13
-  %Arch = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(18) %ArchStr) #13
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #13
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #13
   %call = call fastcc noundef i32 @_ZL9parseArchN4llvh9StringRefE(ptr %call.i, i64 %call2.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #13
   store i32 %call, ptr %Arch, align 8
-  %SubArch = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 2
+  %SubArch = getelementptr inbounds i8, ptr %this, i64 36
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(18) %ArchStr) #13
   %call.i22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13
   %call2.i24 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13
   %call10 = call fastcc noundef i32 @_ZL12parseSubArchN4llvh9StringRefE(ptr %call.i22, i64 %call2.i24)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13
   store i32 %call10, ptr %SubArch, align 4
-  %Vendor = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 3
+  %Vendor = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(18) %VendorStr) #13
   %call.i28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #13
   %call2.i30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #13
   %call13 = call fastcc noundef i32 @_ZL11parseVendorN4llvh9StringRefE(ptr %call.i28, i64 %call2.i30)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #13
   store i32 %call13, ptr %Vendor, align 8
-  %OS = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS = getelementptr inbounds i8, ptr %this, i64 44
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(18) %OSStr) #13
   %call.i34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   %call2.i36 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   %call16 = call fastcc noundef i32 @_ZL7parseOSN4llvh9StringRefE(ptr %call.i34, i64 %call2.i36)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   store i32 %call16, ptr %OS, align 4
-  %Environment = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %Environment, align 8
-  %ObjectFormat = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 6
+  %ObjectFormat = getelementptr inbounds i8, ptr %this, i64 52
   %this.val = load i32, ptr %Arch, align 8
   %call17 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %this.val, i32 %call16)
   store i32 %call17, ptr %ObjectFormat, align 4
@@ -2444,7 +2438,7 @@ entry:
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ArchStr, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ArchStr, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !39
   switch i8 %0, label %if.end8.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
@@ -2453,42 +2447,39 @@ entry:
 
 if.then4.i.i:                                     ; preds = %entry
   store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp6, align 8
-  %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  store i8 8, ptr %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx, align 8
-  %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
-  store i8 1, ptr %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx, align 1
   br label %lor.lhs.false.i.i16
 
 if.end8.i.i:                                      ; preds = %entry
-  %RHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ArchStr, i64 0, i32 3
+  %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ArchStr, i64 17
   %1 = load i8, ptr %RHSKind.i.i.i.i, align 1, !noalias !39
   %cmp.i13.i.i = icmp eq i8 %1, 1
   %NewLHS.sroa.0.0.copyload.i.i = load ptr, ptr %ArchStr, align 8, !noalias !39
   %spec.select.i.i = select i1 %cmp.i13.i.i, i8 %0, i8 2
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %ArchStr
   store ptr %spec.select20.i.i, ptr %ref.tmp6, align 8, !alias.scope !39
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i, align 8, !alias.scope !39
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 2
-  store i8 %spec.select.i.i, ptr %LHSKind5.i.i.i, align 8, !alias.scope !39
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 3
-  store i8 8, ptr %RHSKind6.i.i.i, align 1, !alias.scope !39
   br label %lor.lhs.false.i.i16
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 2
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store i8 0, ptr %LHSKind.i.i.i, align 8, !alias.scope !39
-  %RHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 3
+  %RHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
   store i8 1, ptr %RHSKind.i.i.i, align 1, !alias.scope !39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   br label %if.then.i.i39
 
 lor.lhs.false.i.i16:                              ; preds = %if.then4.i.i, %if.end8.i.i
-  %NewLHS.sroa.0.0.copyload.i.i26.ph = phi ptr [ %spec.select20.i.i, %if.end8.i.i ], [ inttoptr (i64 45 to ptr), %if.then4.i.i ]
-  %cmp.i13.i.i25.ph = phi i1 [ false, %if.end8.i.i ], [ true, %if.then4.i.i ]
-  %.ph = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 8, %if.then4.i.i ]
-  %LHSKind.i.i7.i.i17 = getelementptr inbounds %"class.llvh::Twine", ptr %VendorStr, i64 0, i32 2
+  %.sink186 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 8, %if.end8.i.i ]
+  %NewLHS.sroa.0.0.copyload.i.i26.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i ], [ %spec.select20.i.i, %if.end8.i.i ]
+  %cmp.i13.i.i25.ph = phi i1 [ true, %if.then4.i.i ], [ false, %if.end8.i.i ]
+  %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
+  store i8 %.sink186, ptr %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx, align 8
+  %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
+  store i8 %.sink, ptr %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx, align 1
+  %LHSKind.i.i7.i.i17 = getelementptr inbounds i8, ptr %VendorStr, i64 16
   %2 = load i8, ptr %LHSKind.i.i7.i.i17, align 8, !noalias !46
   switch i8 %2, label %if.end8.i.i23 [
     i8 0, label %if.then.i.i39
@@ -2496,9 +2487,9 @@ lor.lhs.false.i.i16:                              ; preds = %if.then4.i.i, %if.e
   ]
 
 if.then.i.i39:                                    ; preds = %lor.lhs.false.i.i16, %_ZN4llvhplERKNS_5TwineES2_.exit
-  %LHSKind.i.i.i40 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i8 0, ptr %LHSKind.i.i.i40, align 8, !alias.scope !46
-  %RHSKind.i.i.i41 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
+  %RHSKind.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   store i8 1, ptr %RHSKind.i.i.i41, align 1, !alias.scope !46
   br label %_ZN4llvhplERKNS_5TwineES2_.exit42
 
@@ -2507,27 +2498,27 @@ if.then7.i.i37:                                   ; preds = %lor.lhs.false.i.i16
   br label %_ZN4llvhplERKNS_5TwineES2_.exit42
 
 if.end8.i.i23:                                    ; preds = %lor.lhs.false.i.i16
-  %spec.select.i.i27 = select i1 %cmp.i13.i.i25.ph, i8 %.ph, i8 2
+  %spec.select.i.i27 = select i1 %cmp.i13.i.i25.ph, i8 %.sink186, i8 2
   %spec.select20.i.i28 = select i1 %cmp.i13.i.i25.ph, ptr %NewLHS.sroa.0.0.copyload.i.i26.ph, ptr %ref.tmp6
-  %RHSKind.i.i15.i.i29 = getelementptr inbounds %"class.llvh::Twine", ptr %VendorStr, i64 0, i32 3
+  %RHSKind.i.i15.i.i29 = getelementptr inbounds i8, ptr %VendorStr, i64 17
   %3 = load i8, ptr %RHSKind.i.i15.i.i29, align 1, !noalias !46
   %cmp.i16.i.i30 = icmp eq i8 %3, 1
   %NewRHS.sroa.0.0.copyload.i.i31 = load ptr, ptr %VendorStr, align 8, !noalias !46
   %NewRHSKind.0.i.i32 = select i1 %cmp.i16.i.i30, i8 %2, i8 2
   %NewRHS.sroa.0.0.i.i33 = select i1 %cmp.i16.i.i30, ptr %NewRHS.sroa.0.0.copyload.i.i31, ptr %VendorStr
   store ptr %spec.select20.i.i28, ptr %ref.tmp5, align 8, !alias.scope !46
-  %RHS4.i.i.i34 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 1
+  %RHS4.i.i.i34 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %NewRHS.sroa.0.0.i.i33, ptr %RHS4.i.i.i34, align 8, !alias.scope !46
-  %LHSKind5.i.i.i35 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind5.i.i.i35 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i8 %spec.select.i.i27, ptr %LHSKind5.i.i.i35, align 8, !alias.scope !46
-  %RHSKind6.i.i.i36 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
+  %RHSKind6.i.i.i36 = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   store i8 %NewRHSKind.0.i.i32, ptr %RHSKind6.i.i.i36, align 1, !alias.scope !46
   br label %_ZN4llvhplERKNS_5TwineES2_.exit42
 
 _ZN4llvhplERKNS_5TwineES2_.exit42:                ; preds = %if.then.i.i39, %if.then7.i.i37, %if.end8.i.i23
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %LHSKind.i.i.i.i45 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %4 = load i8, ptr %LHSKind.i.i.i.i45, align 8, !noalias !53
   switch i8 %4, label %if.end8.i.i54 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit73
@@ -2536,42 +2527,39 @@ _ZN4llvhplERKNS_5TwineES2_.exit42:                ; preds = %if.then.i.i39, %if.
 
 if.then4.i.i69:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
   store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4, align 8
-  %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
-  store i8 8, ptr %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx, align 8
-  %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
-  store i8 1, ptr %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx, align 1
   br label %lor.lhs.false.i.i76
 
 if.end8.i.i54:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
-  %RHSKind.i.i.i.i55 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
+  %RHSKind.i.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   %5 = load i8, ptr %RHSKind.i.i.i.i55, align 1, !noalias !53
   %cmp.i13.i.i56 = icmp eq i8 %5, 1
   %NewLHS.sroa.0.0.copyload.i.i57 = load ptr, ptr %ref.tmp5, align 8, !noalias !53
   %spec.select.i.i58 = select i1 %cmp.i13.i.i56, i8 %4, i8 2
   %spec.select20.i.i59 = select i1 %cmp.i13.i.i56, ptr %NewLHS.sroa.0.0.copyload.i.i57, ptr %ref.tmp5
   store ptr %spec.select20.i.i59, ptr %ref.tmp4, align 8, !alias.scope !53
-  %RHS4.i.i.i65 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i65 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i65, align 8, !alias.scope !53
-  %LHSKind5.i.i.i66 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
-  store i8 %spec.select.i.i58, ptr %LHSKind5.i.i.i66, align 8, !alias.scope !53
-  %RHSKind6.i.i.i67 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
-  store i8 8, ptr %RHSKind6.i.i.i67, align 1, !alias.scope !53
   br label %lor.lhs.false.i.i76
 
 _ZN4llvhplERKNS_5TwineES2_.exit73:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
-  %LHSKind.i.i.i71 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i.i.i71 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 0, ptr %LHSKind.i.i.i71, align 8, !alias.scope !53
-  %RHSKind.i.i.i72 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind.i.i.i72 = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 1, ptr %RHSKind.i.i.i72, align 1, !alias.scope !53
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   br label %if.then.i.i99
 
 lor.lhs.false.i.i76:                              ; preds = %if.then4.i.i69, %if.end8.i.i54
-  %NewLHS.sroa.0.0.copyload.i.i86.ph = phi ptr [ %spec.select20.i.i59, %if.end8.i.i54 ], [ inttoptr (i64 45 to ptr), %if.then4.i.i69 ]
-  %cmp.i13.i.i85.ph = phi i1 [ false, %if.end8.i.i54 ], [ true, %if.then4.i.i69 ]
-  %.ph174 = phi i8 [ %spec.select.i.i58, %if.end8.i.i54 ], [ 8, %if.then4.i.i69 ]
-  %LHSKind.i.i7.i.i77 = getelementptr inbounds %"class.llvh::Twine", ptr %OSStr, i64 0, i32 2
+  %.sink188 = phi i8 [ 8, %if.then4.i.i69 ], [ %spec.select.i.i58, %if.end8.i.i54 ]
+  %.sink187 = phi i8 [ 1, %if.then4.i.i69 ], [ 8, %if.end8.i.i54 ]
+  %NewLHS.sroa.0.0.copyload.i.i86.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i69 ], [ %spec.select20.i.i59, %if.end8.i.i54 ]
+  %cmp.i13.i.i85.ph = phi i1 [ true, %if.then4.i.i69 ], [ false, %if.end8.i.i54 ]
+  %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  store i8 %.sink188, ptr %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx, align 8
+  %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
+  store i8 %.sink187, ptr %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx, align 1
+  %LHSKind.i.i7.i.i77 = getelementptr inbounds i8, ptr %OSStr, i64 16
   %6 = load i8, ptr %LHSKind.i.i7.i.i77, align 8, !noalias !60
   switch i8 %6, label %if.end8.i.i83 [
     i8 0, label %if.then.i.i99
@@ -2579,9 +2567,9 @@ lor.lhs.false.i.i76:                              ; preds = %if.then4.i.i69, %if
   ]
 
 if.then.i.i99:                                    ; preds = %lor.lhs.false.i.i76, %_ZN4llvhplERKNS_5TwineES2_.exit73
-  %LHSKind.i.i.i100 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i.i.i100 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 0, ptr %LHSKind.i.i.i100, align 8, !alias.scope !60
-  %RHSKind.i.i.i101 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind.i.i.i101 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 1, ptr %RHSKind.i.i.i101, align 1, !alias.scope !60
   br label %_ZN4llvhplERKNS_5TwineES2_.exit102
 
@@ -2590,27 +2578,27 @@ if.then7.i.i97:                                   ; preds = %lor.lhs.false.i.i76
   br label %_ZN4llvhplERKNS_5TwineES2_.exit102
 
 if.end8.i.i83:                                    ; preds = %lor.lhs.false.i.i76
-  %spec.select.i.i87 = select i1 %cmp.i13.i.i85.ph, i8 %.ph174, i8 2
+  %spec.select.i.i87 = select i1 %cmp.i13.i.i85.ph, i8 %.sink188, i8 2
   %spec.select20.i.i88 = select i1 %cmp.i13.i.i85.ph, ptr %NewLHS.sroa.0.0.copyload.i.i86.ph, ptr %ref.tmp4
-  %RHSKind.i.i15.i.i89 = getelementptr inbounds %"class.llvh::Twine", ptr %OSStr, i64 0, i32 3
+  %RHSKind.i.i15.i.i89 = getelementptr inbounds i8, ptr %OSStr, i64 17
   %7 = load i8, ptr %RHSKind.i.i15.i.i89, align 1, !noalias !60
   %cmp.i16.i.i90 = icmp eq i8 %7, 1
   %NewRHS.sroa.0.0.copyload.i.i91 = load ptr, ptr %OSStr, align 8, !noalias !60
   %NewRHSKind.0.i.i92 = select i1 %cmp.i16.i.i90, i8 %6, i8 2
   %NewRHS.sroa.0.0.i.i93 = select i1 %cmp.i16.i.i90, ptr %NewRHS.sroa.0.0.copyload.i.i91, ptr %OSStr
   store ptr %spec.select20.i.i88, ptr %ref.tmp3, align 8, !alias.scope !60
-  %RHS4.i.i.i94 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i94 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %NewRHS.sroa.0.0.i.i93, ptr %RHS4.i.i.i94, align 8, !alias.scope !60
-  %LHSKind5.i.i.i95 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i95 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 %spec.select.i.i87, ptr %LHSKind5.i.i.i95, align 8, !alias.scope !60
-  %RHSKind6.i.i.i96 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i96 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 %NewRHSKind.0.i.i92, ptr %RHSKind6.i.i.i96, align 1, !alias.scope !60
   br label %_ZN4llvhplERKNS_5TwineES2_.exit102
 
 _ZN4llvhplERKNS_5TwineES2_.exit102:               ; preds = %if.then.i.i99, %if.then7.i.i97, %if.end8.i.i83
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %LHSKind.i.i.i.i105 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i.i.i.i105 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %8 = load i8, ptr %LHSKind.i.i.i.i105, align 8, !noalias !67
   switch i8 %8, label %if.end8.i.i114 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit133
@@ -2619,42 +2607,39 @@ _ZN4llvhplERKNS_5TwineES2_.exit102:               ; preds = %if.then.i.i99, %if.
 
 if.then4.i.i129:                                  ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
   store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2, align 8
-  %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store i8 8, ptr %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx, align 8
-  %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
-  store i8 1, ptr %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx, align 1
   br label %lor.lhs.false.i.i136
 
 if.end8.i.i114:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
-  %RHSKind.i.i.i.i115 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind.i.i.i.i115 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   %9 = load i8, ptr %RHSKind.i.i.i.i115, align 1, !noalias !67
   %cmp.i13.i.i116 = icmp eq i8 %9, 1
   %NewLHS.sroa.0.0.copyload.i.i117 = load ptr, ptr %ref.tmp3, align 8, !noalias !67
   %spec.select.i.i118 = select i1 %cmp.i13.i.i116, i8 %8, i8 2
   %spec.select20.i.i119 = select i1 %cmp.i13.i.i116, ptr %NewLHS.sroa.0.0.copyload.i.i117, ptr %ref.tmp3
   store ptr %spec.select20.i.i119, ptr %ref.tmp2, align 8, !alias.scope !67
-  %RHS4.i.i.i125 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i125, align 8, !alias.scope !67
-  %LHSKind5.i.i.i126 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
-  store i8 %spec.select.i.i118, ptr %LHSKind5.i.i.i126, align 8, !alias.scope !67
-  %RHSKind6.i.i.i127 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
-  store i8 8, ptr %RHSKind6.i.i.i127, align 1, !alias.scope !67
   br label %lor.lhs.false.i.i136
 
 _ZN4llvhplERKNS_5TwineES2_.exit133:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
-  %LHSKind.i.i.i131 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind.i.i.i131 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 0, ptr %LHSKind.i.i.i131, align 8, !alias.scope !67
-  %RHSKind.i.i.i132 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind.i.i.i132 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 1, ptr %RHSKind.i.i.i132, align 1, !alias.scope !67
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   br label %if.then.i.i159
 
 lor.lhs.false.i.i136:                             ; preds = %if.then4.i.i129, %if.end8.i.i114
-  %NewLHS.sroa.0.0.copyload.i.i146.ph = phi ptr [ %spec.select20.i.i119, %if.end8.i.i114 ], [ inttoptr (i64 45 to ptr), %if.then4.i.i129 ]
-  %cmp.i13.i.i145.ph = phi i1 [ false, %if.end8.i.i114 ], [ true, %if.then4.i.i129 ]
-  %.ph180 = phi i8 [ %spec.select.i.i118, %if.end8.i.i114 ], [ 8, %if.then4.i.i129 ]
-  %LHSKind.i.i7.i.i137 = getelementptr inbounds %"class.llvh::Twine", ptr %EnvironmentStr, i64 0, i32 2
+  %.sink190 = phi i8 [ 8, %if.then4.i.i129 ], [ %spec.select.i.i118, %if.end8.i.i114 ]
+  %.sink189 = phi i8 [ 1, %if.then4.i.i129 ], [ 8, %if.end8.i.i114 ]
+  %NewLHS.sroa.0.0.copyload.i.i146.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i129 ], [ %spec.select20.i.i119, %if.end8.i.i114 ]
+  %cmp.i13.i.i145.ph = phi i1 [ true, %if.then4.i.i129 ], [ false, %if.end8.i.i114 ]
+  %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store i8 %.sink190, ptr %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx, align 8
+  %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
+  store i8 %.sink189, ptr %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx, align 1
+  %LHSKind.i.i7.i.i137 = getelementptr inbounds i8, ptr %EnvironmentStr, i64 16
   %10 = load i8, ptr %LHSKind.i.i7.i.i137, align 8, !noalias !74
   switch i8 %10, label %if.end8.i.i143 [
     i8 0, label %if.then.i.i159
@@ -2662,9 +2647,9 @@ lor.lhs.false.i.i136:                             ; preds = %if.then4.i.i129, %i
   ]
 
 if.then.i.i159:                                   ; preds = %lor.lhs.false.i.i136, %_ZN4llvhplERKNS_5TwineES2_.exit133
-  %LHSKind.i.i.i160 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i.i.i160 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 0, ptr %LHSKind.i.i.i160, align 8, !alias.scope !74
-  %RHSKind.i.i.i161 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i.i.i161 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i.i.i161, align 1, !alias.scope !74
   br label %_ZN4llvhplERKNS_5TwineES2_.exit162
 
@@ -2673,61 +2658,61 @@ if.then7.i.i157:                                  ; preds = %lor.lhs.false.i.i13
   br label %_ZN4llvhplERKNS_5TwineES2_.exit162
 
 if.end8.i.i143:                                   ; preds = %lor.lhs.false.i.i136
-  %spec.select.i.i147 = select i1 %cmp.i13.i.i145.ph, i8 %.ph180, i8 2
+  %spec.select.i.i147 = select i1 %cmp.i13.i.i145.ph, i8 %.sink190, i8 2
   %spec.select20.i.i148 = select i1 %cmp.i13.i.i145.ph, ptr %NewLHS.sroa.0.0.copyload.i.i146.ph, ptr %ref.tmp2
-  %RHSKind.i.i15.i.i149 = getelementptr inbounds %"class.llvh::Twine", ptr %EnvironmentStr, i64 0, i32 3
+  %RHSKind.i.i15.i.i149 = getelementptr inbounds i8, ptr %EnvironmentStr, i64 17
   %11 = load i8, ptr %RHSKind.i.i15.i.i149, align 1, !noalias !74
   %cmp.i16.i.i150 = icmp eq i8 %11, 1
   %NewRHS.sroa.0.0.copyload.i.i151 = load ptr, ptr %EnvironmentStr, align 8, !noalias !74
   %NewRHSKind.0.i.i152 = select i1 %cmp.i16.i.i150, i8 %10, i8 2
   %NewRHS.sroa.0.0.i.i153 = select i1 %cmp.i16.i.i150, ptr %NewRHS.sroa.0.0.copyload.i.i151, ptr %EnvironmentStr
   store ptr %spec.select20.i.i148, ptr %ref.tmp, align 8, !alias.scope !74
-  %RHS4.i.i.i154 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i154 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %NewRHS.sroa.0.0.i.i153, ptr %RHS4.i.i.i154, align 8, !alias.scope !74
-  %LHSKind5.i.i.i155 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i155 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 %spec.select.i.i147, ptr %LHSKind5.i.i.i155, align 8, !alias.scope !74
-  %RHSKind6.i.i.i156 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i156 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 %NewRHSKind.0.i.i152, ptr %RHSKind6.i.i.i156, align 1, !alias.scope !74
   br label %_ZN4llvhplERKNS_5TwineES2_.exit162
 
 _ZN4llvhplERKNS_5TwineES2_.exit162:               ; preds = %if.then.i.i159, %if.then7.i.i157, %if.end8.i.i143
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %this, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp) #13
-  %Arch = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(18) %ArchStr) #13
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #13
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #13
   %call = call fastcc noundef i32 @_ZL9parseArchN4llvh9StringRefE(ptr %call.i, i64 %call2.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #13
   store i32 %call, ptr %Arch, align 8
-  %SubArch = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 2
+  %SubArch = getelementptr inbounds i8, ptr %this, i64 36
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(18) %ArchStr) #13
   %call.i32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #13
   %call2.i34 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #13
   %call13 = call fastcc noundef i32 @_ZL12parseSubArchN4llvh9StringRefE(ptr %call.i32, i64 %call2.i34)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #13
   store i32 %call13, ptr %SubArch, align 4
-  %Vendor = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 3
+  %Vendor = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(18) %VendorStr) #13
   %call.i38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   %call2.i40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   %call16 = call fastcc noundef i32 @_ZL11parseVendorN4llvh9StringRefE(ptr %call.i38, i64 %call2.i40)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   store i32 %call16, ptr %Vendor, align 8
-  %OS = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS = getelementptr inbounds i8, ptr %this, i64 44
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(18) %OSStr) #13
   %call.i44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #13
   %call2.i46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #13
   %call19 = call fastcc noundef i32 @_ZL7parseOSN4llvh9StringRefE(ptr %call.i44, i64 %call2.i46)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #13
   store i32 %call19, ptr %OS, align 4
-  %Environment = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(18) %EnvironmentStr) #13
   %call.i50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #13
   %call2.i52 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #13
   %call22 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvh9StringRefE(ptr %call.i50, i64 %call2.i52)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #13
   store i32 %call22, ptr %Environment, align 8
-  %ObjectFormat = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 6
+  %ObjectFormat = getelementptr inbounds i8, ptr %this, i64 52
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(18) %EnvironmentStr) #13
   %call.i56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #13
   %call2.i58 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #13
@@ -2759,13 +2744,13 @@ entry:
   %ref.tmp204 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp205 = alloca %"class.llvh::Twine", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %Components, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %Components, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Components, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %Components, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Components, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %Components, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %Str, ptr noundef nonnull align 8 dereferenceable(16) %Components, i8 noundef signext 45, i32 noundef -1, i1 noundef zeroext true) #13
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -2784,18 +2769,18 @@ if.end:                                           ; preds = %entry
 
 if.end9:                                          ; preds = %if.end
   %3 = load ptr, ptr %Components, align 8
-  %arrayidx.i570 = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 1
+  %arrayidx.i570 = getelementptr inbounds i8, ptr %3, i64 16
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %arrayidx.i570, align 8
-  %agg.tmp6.sroa.2.0.arrayidx.i570.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 1, i32 1
+  %agg.tmp6.sroa.2.0.arrayidx.i570.sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.arrayidx.i570.sroa_idx, align 8
   %call8 = call fastcc noundef i32 @_ZL11parseVendorN4llvh9StringRefE(ptr %agg.tmp6.sroa.0.0.copyload, i64 %agg.tmp6.sroa.2.0.copyload)
   %cmp11.not = icmp eq i32 %.pre, 2
   br i1 %cmp11.not, label %if.end37, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %arrayidx.i565 = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 2
+  %arrayidx.i565 = getelementptr inbounds i8, ptr %3, i64 32
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %arrayidx.i565, align 8
-  %agg.tmp13.sroa.2.0.arrayidx.i565.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 2, i32 1
+  %agg.tmp13.sroa.2.0.arrayidx.i565.sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   %agg.tmp13.sroa.2.0.copyload = load i64, ptr %agg.tmp13.sroa.2.0.arrayidx.i565.sroa_idx, align 8
   %call15 = call fastcc noundef i32 @_ZL7parseOSN4llvh9StringRefE(ptr %agg.tmp13.sroa.0.0.copyload, i64 %agg.tmp13.sroa.2.0.copyload)
   %cmp.i618 = icmp ugt i64 %agg.tmp13.sroa.2.0.copyload, 5
@@ -2824,18 +2809,18 @@ if.end23:                                         ; preds = %_ZNK4llvh9StringRef
   br i1 %cmp25, label %if.end30, label %if.end37
 
 if.end30:                                         ; preds = %if.end23
-  %arrayidx.i550 = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 3
+  %arrayidx.i550 = getelementptr inbounds i8, ptr %3, i64 48
   %agg.tmp27.sroa.0.0.copyload = load ptr, ptr %arrayidx.i550, align 8
-  %agg.tmp27.sroa.2.0.arrayidx.i550.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 3, i32 1
+  %agg.tmp27.sroa.2.0.arrayidx.i550.sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
   %agg.tmp27.sroa.2.0.copyload = load i64, ptr %agg.tmp27.sroa.2.0.arrayidx.i550.sroa_idx, align 8
   %call29 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvh9StringRefE(ptr %agg.tmp27.sroa.0.0.copyload, i64 %agg.tmp27.sroa.2.0.copyload)
   %cmp32.not = icmp eq i32 %.pre, 4
   br i1 %cmp32.not, label %if.end37, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  %arrayidx.i545 = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 4
+  %arrayidx.i545 = getelementptr inbounds i8, ptr %3, i64 64
   %agg.tmp34.sroa.0.0.copyload = load ptr, ptr %arrayidx.i545, align 8
-  %agg.tmp34.sroa.2.0.arrayidx.i545.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 4, i32 1
+  %agg.tmp34.sroa.2.0.arrayidx.i545.sroa_idx = getelementptr inbounds i8, ptr %3, i64 72
   %agg.tmp34.sroa.2.0.copyload = load i64, ptr %agg.tmp34.sroa.2.0.arrayidx.i545.sroa_idx, align 8
   %call36 = call fastcc noundef i32 @_ZL11parseFormatN4llvh9StringRefE(ptr %agg.tmp34.sroa.0.0.copyload, i64 %agg.tmp34.sroa.2.0.copyload)
   br label %if.end37
@@ -2853,15 +2838,15 @@ if.end37:                                         ; preds = %entry, %if.end, %if
   %frombool39 = zext i1 %cmp38 to i8
   store i8 %frombool39, ptr %Found, align 1
   %cmp40 = icmp ne i32 %Vendor.0248258271, 0
-  %arrayidx41 = getelementptr inbounds [4 x i8], ptr %Found, i64 0, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %Found, i64 1
   %frombool42 = zext i1 %cmp40 to i8
   store i8 %frombool42, ptr %arrayidx41, align 1
   %cmp43 = icmp ne i32 %OS.0259270, 0
-  %arrayidx44 = getelementptr inbounds [4 x i8], ptr %Found, i64 0, i64 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %Found, i64 2
   %frombool45 = zext i1 %cmp43 to i8
   store i8 %frombool45, ptr %arrayidx44, align 1
   %cmp46 = icmp ne i32 %Environment.0272, 0
-  %arrayidx47 = getelementptr inbounds [4 x i8], ptr %Found, i64 0, i64 3
+  %arrayidx47 = getelementptr inbounds i8, ptr %Found, i64 3
   %frombool48 = zext i1 %cmp46 to i8
   store i8 %frombool48, ptr %arrayidx47, align 1
   br label %for.body
@@ -3214,8 +3199,8 @@ for.end190:                                       ; preds = %for.inc188, %for.en
 
 land.lhs.true192:                                 ; preds = %for.end190
   %45 = load ptr, ptr %Components, align 8
-  %arrayidx.i510 = getelementptr inbounds %"class.llvh::StringRef", ptr %45, i64 3
-  %Length.i578 = getelementptr inbounds %"class.llvh::StringRef", ptr %45, i64 3, i32 1
+  %arrayidx.i510 = getelementptr inbounds i8, ptr %45, i64 48
+  %Length.i578 = getelementptr inbounds i8, ptr %45, i64 56
   %46 = load i64, ptr %Length.i578, align 8
   %cmp.i = icmp ugt i64 %46, 10
   br i1 %cmp.i, label %if.end.i689, label %if.end217
@@ -3230,7 +3215,7 @@ if.then196:                                       ; preds = %if.end.i689
   %add.ptr.i = getelementptr inbounds i8, ptr %47, i64 11
   %sub.i = add i64 %46, -11
   store ptr %add.ptr.i, ptr %AndroidVersion, align 8
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %AndroidVersion, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %AndroidVersion, i64 8
   store i64 %sub.i, ptr %48, align 8
   %cmp.i627 = icmp eq i64 %sub.i, 0
   br i1 %cmp.i627, label %_ZN4llvh9StringRefC2EPKc.exit367, label %if.else203
@@ -3241,12 +3226,12 @@ _ZN4llvh9StringRefC2EPKc.exit367:                 ; preds = %if.then196
   br label %if.end217
 
 if.else203:                                       ; preds = %if.then196
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp205, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp205, i64 16
   store i8 3, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp205, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp205, i64 17
   store i8 5, ptr %RHSKind.i, align 1
   store ptr @.str.115, ptr %ref.tmp205, align 8
-  %RHS5.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp205, i64 0, i32 1
+  %RHS5.i = getelementptr inbounds i8, ptr %ref.tmp205, i64 8
   store ptr %AndroidVersion, ptr %RHS5.i, align 8
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp204, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp205) #13
   %call206 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %NormalizedEnvironment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #13
@@ -3254,9 +3239,9 @@ if.else203:                                       ; preds = %if.then196
   %call.i441 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %NormalizedEnvironment) #13
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %NormalizedEnvironment) #13
   %49 = load ptr, ptr %Components, align 8
-  %arrayidx.i495 = getelementptr inbounds %"class.llvh::StringRef", ptr %49, i64 3
+  %arrayidx.i495 = getelementptr inbounds i8, ptr %49, i64 48
   store ptr %call.i441, ptr %arrayidx.i495, align 8
-  %ref.tmp207.sroa.2.0.arrayidx.i495.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %49, i64 3, i32 1
+  %ref.tmp207.sroa.2.0.arrayidx.i495.sroa_idx = getelementptr inbounds i8, ptr %49, i64 56
   store i64 %call2.i, ptr %ref.tmp207.sroa.2.0.arrayidx.i495.sroa_idx, align 8
   br label %if.end217
 
@@ -3268,9 +3253,9 @@ if.end210:                                        ; preds = %for.end190
 
 _ZN4llvh9StringRefC2EPKc.exit377:                 ; preds = %if.end210
   %50 = load ptr, ptr %Components, align 8
-  %arrayidx.i490 = getelementptr inbounds %"class.llvh::StringRef", ptr %50, i64 3
+  %arrayidx.i490 = getelementptr inbounds i8, ptr %50, i64 48
   store ptr @.str.109, ptr %arrayidx.i490, align 8
-  %ref.tmp215.sroa.2.0.arrayidx.i490.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %50, i64 3, i32 1
+  %ref.tmp215.sroa.2.0.arrayidx.i490.sroa_idx = getelementptr inbounds i8, ptr %50, i64 56
   store i64 9, ptr %ref.tmp215.sroa.2.0.arrayidx.i490.sroa_idx, align 8
   br label %if.end217
 
@@ -3314,9 +3299,9 @@ if.end15.sink.split.i:                            ; preds = %for.body.preheader.
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit: ; preds = %if.else.i, %if.end15.sink.split.i
   %56 = load ptr, ptr %Components, align 8
-  %arrayidx.i485 = getelementptr inbounds %"class.llvh::StringRef", ptr %56, i64 2
+  %arrayidx.i485 = getelementptr inbounds i8, ptr %56, i64 32
   store ptr @.str.88, ptr %arrayidx.i485, align 8
-  %ref.tmp220.sroa.2.0.arrayidx.i485.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %56, i64 2, i32 1
+  %ref.tmp220.sroa.2.0.arrayidx.i485.sroa_idx = getelementptr inbounds i8, ptr %56, i64 40
   store i64 7, ptr %ref.tmp220.sroa.2.0.arrayidx.i485.sroa_idx, align 8
   %cmp222 = icmp eq i32 %Environment.5, 0
   br i1 %cmp222, label %if.then223, label %if.end252
@@ -3382,9 +3367,9 @@ if.end15.sink.split.i161:                         ; preds = %for.body.preheader.
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit166: ; preds = %if.else.i145, %if.end15.sink.split.i161
   %63 = load ptr, ptr %Components, align 8
-  %arrayidx.i470 = getelementptr inbounds %"class.llvh::StringRef", ptr %63, i64 2
+  %arrayidx.i470 = getelementptr inbounds i8, ptr %63, i64 32
   store ptr @.str.88, ptr %arrayidx.i470, align 8
-  %ref.tmp239.sroa.2.0.arrayidx.i470.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %63, i64 2, i32 1
+  %ref.tmp239.sroa.2.0.arrayidx.i470.sroa_idx = getelementptr inbounds i8, ptr %63, i64 40
   store i64 7, ptr %ref.tmp239.sroa.2.0.arrayidx.i470.sroa_idx, align 8
   br label %if.end252.sink.split
 
@@ -3429,9 +3414,9 @@ if.end15.sink.split.i186:                         ; preds = %for.body.preheader.
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit191: ; preds = %if.else.i170, %if.end15.sink.split.i186
   %70 = load ptr, ptr %Components, align 8
-  %arrayidx.i460 = getelementptr inbounds %"class.llvh::StringRef", ptr %70, i64 2
+  %arrayidx.i460 = getelementptr inbounds i8, ptr %70, i64 32
   store ptr @.str.88, ptr %arrayidx.i460, align 8
-  %ref.tmp246.sroa.2.0.arrayidx.i460.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %70, i64 2, i32 1
+  %ref.tmp246.sroa.2.0.arrayidx.i460.sroa_idx = getelementptr inbounds i8, ptr %70, i64 40
   store i64 7, ptr %ref.tmp246.sroa.2.0.arrayidx.i460.sroa_idx, align 8
   br label %if.end252.sink.split
 
@@ -3439,9 +3424,9 @@ if.end252.sink.split:                             ; preds = %_ZN4llvh9StringRefC
   %.sink434 = phi ptr [ %63, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit166 ], [ %70, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit191 ], [ %56, %if.then223 ], [ %56, %if.else230 ], [ %56, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ %56, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
   %.str.106.sink = phi ptr [ @.str.106, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit166 ], [ @.str.121, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit191 ], [ @.str.119, %if.then223 ], [ @.str.187, %if.else230 ], [ @.str.188, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ @.str.56, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
   %.sink = phi i64 [ 3, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit166 ], [ 6, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit191 ], [ 4, %if.then223 ], [ 3, %if.else230 ], [ 5, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
-  %arrayidx.i465 = getelementptr inbounds %"class.llvh::StringRef", ptr %.sink434, i64 3
+  %arrayidx.i465 = getelementptr inbounds i8, ptr %.sink434, i64 48
   store ptr %.str.106.sink, ptr %arrayidx.i465, align 8
-  %ref.tmp241.sroa.2.0.arrayidx.i465.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %.sink434, i64 3, i32 1
+  %ref.tmp241.sroa.2.0.arrayidx.i465.sroa_idx = getelementptr inbounds i8, ptr %.sink434, i64 56
   store i64 %.sink, ptr %ref.tmp241.sroa.2.0.arrayidx.i465.sroa_idx, align 8
   br label %if.end252
 
@@ -3501,9 +3486,9 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit216: ; preds = %if.else.i
   %switch.gep444 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8, i64 0, i64 %79
   %switch.load445 = load ptr, ptr %switch.gep444, align 8
   %80 = load ptr, ptr %Components, align 8
-  %arrayidx.i450 = getelementptr inbounds %"class.llvh::StringRef", ptr %80, i64 4
+  %arrayidx.i450 = getelementptr inbounds i8, ptr %80, i64 64
   store ptr %switch.load445, ptr %arrayidx.i450, align 8
-  %ref.tmp265.sroa.2.0.arrayidx.i450.sroa_idx = getelementptr inbounds %"class.llvh::StringRef", ptr %80, i64 4, i32 1
+  %ref.tmp265.sroa.2.0.arrayidx.i450.sroa_idx = getelementptr inbounds i8, ptr %80, i64 72
   store i64 %switch.load, ptr %ref.tmp265.sroa.2.0.arrayidx.i450.sroa_idx, align 8
   br label %if.end269
 
@@ -3566,7 +3551,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::StringRef", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i, ptr %ref.tmp2, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i, ptr %Length.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i)
@@ -3592,7 +3577,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::StringRef", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i, ptr %ref.tmp2, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i, ptr %Length.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i)
@@ -3641,7 +3626,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::StringRef", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i, ptr %ref.tmp2, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i, ptr %Length.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i)
@@ -3711,7 +3696,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::StringRef", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i, ptr %ref.tmp2, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i, ptr %Length.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i)
@@ -3790,7 +3775,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::StringRef", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i, ptr %ref.tmp2, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i, ptr %Length.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i)
@@ -3846,7 +3831,7 @@ entry:
   %call = tail call { ptr, i64 } @_ZNK4llvh6Triple18getEnvironmentNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %0 = extractvalue { ptr, i64 } %call, 0
   %1 = extractvalue { ptr, i64 } %call, 1
-  %Environment.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %Environment.i, align 8
   %3 = sext i32 %2 to i64
   %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.14, i64 0, i64 %3
@@ -3875,9 +3860,9 @@ if.end:                                           ; preds = %entry, %if.then, %i
   store i32 0, ptr %Minor, align 4
   store i32 0, ptr %Major, align 4
   store ptr %Major, ptr %Components.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %Components.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %Components.i, i64 8
   store ptr %Minor, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds ptr, ptr %Components.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %Components.i, i64 16
   store ptr %Micro, ptr %arrayinit.element1.i, align 16
   %cmp.i2030.i = icmp eq i64 %EnvironmentName.sroa.5.0, 0
   br i1 %cmp.i2030.i, label %_ZL20parseVersionFromNameN4llvh9StringRefERjS1_S1_.exit, label %lor.lhs.false.i
@@ -3945,7 +3930,7 @@ entry:
   %call = tail call { ptr, i64 } @_ZNK4llvh6Triple9getOSNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %0 = extractvalue { ptr, i64 } %call, 0
   %1 = extractvalue { ptr, i64 } %call, 1
-  %OS.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i32, ptr %OS.i, align 4
   %3 = sext i32 %2 to i64
   %switch.gep = getelementptr inbounds [33 x i64], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 0, i64 %3
@@ -3990,9 +3975,9 @@ if.end11:                                         ; preds = %if.end.i32, %if.els
   store i32 0, ptr %Minor, align 4
   store i32 0, ptr %Major, align 4
   store ptr %Major, ptr %Components.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %Components.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %Components.i, i64 8
   store ptr %Minor, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds ptr, ptr %Components.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %Components.i, i64 16
   store ptr %Micro, ptr %arrayinit.element1.i, align 16
   %cmp.i2030.i = icmp eq i64 %OSName.sroa.8.0, 0
   br i1 %cmp.i2030.i, label %_ZL20parseVersionFromNameN4llvh9StringRefERjS1_S1_.exit, label %lor.lhs.false.i
@@ -4057,7 +4042,7 @@ _ZL20parseVersionFromNameN4llvh9StringRefERjS1_S1_.exit: ; preds = %lor.lhs.fals
 define hidden noundef zeroext i1 @_ZNK4llvh6Triple16getMacOSXVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %Major, ptr noundef nonnull align 4 dereferenceable(4) %Minor, ptr noundef nonnull align 4 dereferenceable(4) %Micro) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK4llvh6Triple12getOSVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %Major, ptr noundef nonnull align 4 dereferenceable(4) %Minor, ptr noundef nonnull align 4 dereferenceable(4) %Micro)
-  %OS.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %OS.i, align 4
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4124,7 +4109,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh6Triple13getiOSVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %Major, ptr noundef nonnull align 4 dereferenceable(4) %Minor, ptr noundef nonnull align 4 dereferenceable(4) %Micro) local_unnamed_addr #4 align 2 {
 entry:
-  %OS.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %OS.i, align 4
   %1 = add i32 %0, -3
   %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 30)
@@ -4151,7 +4136,7 @@ sw.bb2:                                           ; preds = %entry, %entry
   br i1 %cmp, label %if.then, label %sw.epilog
 
 if.then:                                          ; preds = %sw.bb2
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %Arch.i, align 8
   %cmp4 = icmp eq i32 %4, 3
   %cond = select i1 %cmp4, i32 7, i32 5
@@ -4165,7 +4150,7 @@ sw.epilog:                                        ; preds = %sw.bb2, %if.then, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh6Triple17getWatchOSVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %Major, ptr noundef nonnull align 4 dereferenceable(4) %Minor, ptr noundef nonnull align 4 dereferenceable(4) %Micro) local_unnamed_addr #4 align 2 {
 entry:
-  %OS.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %OS.i, align 4
   %switch = icmp eq i32 %0, 28
   br i1 %switch, label %sw.bb2, label %sw.bb
@@ -4196,8 +4181,8 @@ entry:
   %ref.tmp = alloca %"class.llvh::Triple", align 8
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %Str)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   ret void
@@ -4221,9 +4206,9 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Triple, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Triple, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Triple, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Triple, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Triple, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Triple, i64 12
   store i32 64, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i64 %Str.coerce1, 64
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
@@ -4364,16 +4349,16 @@ _ZN4llvh11SmallStringILj64EEpLENS_9StringRefE.exit79: ; preds = %if.end.i.i.i67,
   %21 = trunc i64 %16 to i32
   %conv.i12.i.i.i74 = add i32 %20, %21
   store i32 %conv.i12.i.i.i74, ptr %Size.i.i.i.i.i.i, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 6, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %Triple, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp)
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
-  %Arch.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp.i, i64 0, i32 1
+  %Arch.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
@@ -4416,12 +4401,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
   %ref.tmp5 = alloca %"class.llvh::StringRef", align 8
   %ref.tmp9 = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i.i, ptr %ref.tmp2.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i.i, ptr %Length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i)
@@ -4435,47 +4420,47 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %Separator.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   store ptr %ref.tmp.sroa.0.0.i, ptr %ref.tmp5, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i64 %ref.tmp.sroa.3.0.i, ptr %2, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 5, ptr %LHSKind.i.i, align 8, !alias.scope !160
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind.i.i, align 1, !alias.scope !160
   store ptr %ref.tmp5, ptr %ref.tmp4, align 8, !alias.scope !160
-  %RHS5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS5.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str.140, ptr %RHS5.i.i, align 8, !alias.scope !160
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !163
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %Str, ptr %RHS4.i.i.i, align 8, !alias.scope !163
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !163
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 5, ptr %RHSKind6.i.i.i, align 1, !alias.scope !163
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8, !alias.scope !168
-  %RHS4.i.i.i24 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i24, align 8, !alias.scope !168
-  %LHSKind5.i.i.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind5.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 2, ptr %LHSKind5.i.i.i25, align 8, !alias.scope !168
-  %RHSKind6.i.i.i26 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind6.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 3, ptr %RHSKind6.i.i.i26, align 1, !alias.scope !168
   %call10 = call { ptr, i64 } @_ZNK4llvh6Triple23getOSAndEnvironmentNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %3 = extractvalue { ptr, i64 } %call10, 0
   store ptr %3, ptr %ref.tmp9, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp9, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %5 = extractvalue { ptr, i64 } %call10, 1
   store i64 %5, ptr %4, align 8
   store ptr %ref.tmp2, ptr %ref.tmp, align 8, !alias.scope !173
-  %RHS4.i.i.i55 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %ref.tmp9, ptr %RHS4.i.i.i55, align 8, !alias.scope !173
-  %LHSKind5.i.i.i56 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 2, ptr %LHSKind5.i.i.i56, align 8, !alias.scope !173
-  %RHSKind6.i.i.i57 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 5, ptr %RHSKind6.i.i.i57, align 1, !alias.scope !173
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp)
   %call.i.i64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
-  %Arch.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp.i, i64 0, i32 1
+  %Arch.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
@@ -4521,7 +4506,7 @@ entry:
   %ref.tmp22 = alloca %"class.llvh::StringRef", align 8
   %ref.tmp25 = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   %call.i = tail call { ptr, i64 } @_ZNK4llvh6Triple18getEnvironmentNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %1 = extractvalue { ptr, i64 } %call.i, 1
@@ -4532,7 +4517,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit126:               ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i.i, ptr %ref.tmp2.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i.i, ptr %Length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i)
@@ -4546,67 +4531,67 @@ _ZN4llvhplERKNS_5TwineES2_.exit126:               ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %Separator.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   store ptr %ref.tmp.sroa.0.0.i, ptr %ref.tmp7, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store i64 %ref.tmp.sroa.3.0.i, ptr %3, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store i8 5, ptr %LHSKind.i.i, align 8, !alias.scope !184
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
   store i8 3, ptr %RHSKind.i.i, align 1, !alias.scope !184
   store ptr %ref.tmp7, ptr %ref.tmp6, align 8, !alias.scope !184
-  %RHS5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 1
+  %RHS5.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.140, ptr %RHS5.i.i, align 8, !alias.scope !184
   %call11 = call { ptr, i64 } @_ZNK4llvh6Triple13getVendorNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %4 = extractvalue { ptr, i64 } %call11, 0
   store ptr %4, ptr %ref.tmp10, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp10, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %6 = extractvalue { ptr, i64 } %call11, 1
   store i64 %6, ptr %5, align 8
   store ptr %ref.tmp6, ptr %ref.tmp5, align 8, !alias.scope !187
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %ref.tmp10, ptr %RHS4.i.i.i, align 8, !alias.scope !187
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !187
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   store i8 5, ptr %RHSKind6.i.i.i, align 1, !alias.scope !187
   store ptr %ref.tmp5, ptr %ref.tmp4, align 8, !alias.scope !192
-  %RHS4.i.i.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i25, align 8, !alias.scope !192
-  %LHSKind5.i.i.i26 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind5.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 2, ptr %LHSKind5.i.i.i26, align 8, !alias.scope !192
-  %RHSKind6.i.i.i27 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind6.i.i.i27 = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i27, align 1, !alias.scope !192
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !197
-  %RHS4.i.i.i56 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %Str, ptr %RHS4.i.i.i56, align 8, !alias.scope !197
-  %LHSKind5.i.i.i57 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 2, ptr %LHSKind5.i.i.i57, align 8, !alias.scope !197
-  %RHSKind6.i.i.i58 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 5, ptr %RHSKind6.i.i.i58, align 1, !alias.scope !197
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8, !alias.scope !202
-  %RHS4.i.i.i87 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i87, align 8, !alias.scope !202
-  %LHSKind5.i.i.i88 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind5.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 2, ptr %LHSKind5.i.i.i88, align 8, !alias.scope !202
-  %RHSKind6.i.i.i89 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind6.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 3, ptr %RHSKind6.i.i.i89, align 1, !alias.scope !202
   %call17 = call { ptr, i64 } @_ZNK4llvh6Triple18getEnvironmentNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %7 = extractvalue { ptr, i64 } %call17, 0
   store ptr %7, ptr %ref.tmp16, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp16, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %9 = extractvalue { ptr, i64 } %call17, 1
   store i64 %9, ptr %8, align 8
   store ptr %ref.tmp2, ptr %ref.tmp, align 8, !alias.scope !207
-  %RHS4.i.i.i118 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i118 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %ref.tmp16, ptr %RHS4.i.i.i118, align 8, !alias.scope !207
-  %LHSKind5.i.i.i119 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i119 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 2, ptr %LHSKind5.i.i.i119, align 8, !alias.scope !207
-  %RHSKind6.i.i.i120 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i120 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 5, ptr %RHSKind6.i.i.i120, align 1, !alias.scope !207
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp)
   %call.i.i127 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
-  %Arch.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp.i, i64 0, i32 1
+  %Arch.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
@@ -4616,7 +4601,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit235:               ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i129)
   %call.i.i130 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i.i130, ptr %ref.tmp2.i129, align 8
-  %Length.i.i131 = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2.i129, i64 0, i32 1
+  %Length.i.i131 = getelementptr inbounds i8, ptr %ref.tmp2.i129, i64 8
   %call2.i.i132 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i.i132, ptr %Length.i.i131, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i128)
@@ -4630,47 +4615,47 @@ _ZN4llvhplERKNS_5TwineES2_.exit235:               ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %Separator.addr.i.i128)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i129)
   store ptr %ref.tmp.sroa.0.0.i137, ptr %ref.tmp22, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp22, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store i64 %ref.tmp.sroa.3.0.i136, ptr %11, align 8
-  %LHSKind.i.i140 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp21, i64 0, i32 2
+  %LHSKind.i.i140 = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
   store i8 5, ptr %LHSKind.i.i140, align 8, !alias.scope !218
-  %RHSKind.i.i141 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp21, i64 0, i32 3
+  %RHSKind.i.i141 = getelementptr inbounds i8, ptr %ref.tmp21, i64 17
   store i8 3, ptr %RHSKind.i.i141, align 1, !alias.scope !218
   store ptr %ref.tmp22, ptr %ref.tmp21, align 8, !alias.scope !218
-  %RHS5.i.i142 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp21, i64 0, i32 1
+  %RHS5.i.i142 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   store ptr @.str.140, ptr %RHS5.i.i142, align 8, !alias.scope !218
   %call26 = call { ptr, i64 } @_ZNK4llvh6Triple13getVendorNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %12 = extractvalue { ptr, i64 } %call26, 0
   store ptr %12, ptr %ref.tmp25, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp25, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   %14 = extractvalue { ptr, i64 } %call26, 1
   store i64 %14, ptr %13, align 8
   store ptr %ref.tmp21, ptr %ref.tmp20, align 8, !alias.scope !221
-  %RHS4.i.i.i165 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp20, i64 0, i32 1
+  %RHS4.i.i.i165 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   store ptr %ref.tmp25, ptr %RHS4.i.i.i165, align 8, !alias.scope !221
-  %LHSKind5.i.i.i166 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp20, i64 0, i32 2
+  %LHSKind5.i.i.i166 = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   store i8 2, ptr %LHSKind5.i.i.i166, align 8, !alias.scope !221
-  %RHSKind6.i.i.i167 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp20, i64 0, i32 3
+  %RHSKind6.i.i.i167 = getelementptr inbounds i8, ptr %ref.tmp20, i64 17
   store i8 5, ptr %RHSKind6.i.i.i167, align 1, !alias.scope !221
   store ptr %ref.tmp20, ptr %ref.tmp19, align 8, !alias.scope !226
-  %RHS4.i.i.i196 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp19, i64 0, i32 1
+  %RHS4.i.i.i196 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i196, align 8, !alias.scope !226
-  %LHSKind5.i.i.i197 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp19, i64 0, i32 2
+  %LHSKind5.i.i.i197 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
   store i8 2, ptr %LHSKind5.i.i.i197, align 8, !alias.scope !226
-  %RHSKind6.i.i.i198 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp19, i64 0, i32 3
+  %RHSKind6.i.i.i198 = getelementptr inbounds i8, ptr %ref.tmp19, i64 17
   store i8 3, ptr %RHSKind6.i.i.i198, align 1, !alias.scope !226
   store ptr %ref.tmp19, ptr %ref.tmp18, align 8, !alias.scope !231
-  %RHS4.i.i.i227 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp18, i64 0, i32 1
+  %RHS4.i.i.i227 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store ptr %Str, ptr %RHS4.i.i.i227, align 8, !alias.scope !231
-  %LHSKind5.i.i.i228 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp18, i64 0, i32 2
+  %LHSKind5.i.i.i228 = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   store i8 2, ptr %LHSKind5.i.i.i228, align 8, !alias.scope !231
-  %RHSKind6.i.i.i229 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp18, i64 0, i32 3
+  %RHSKind6.i.i.i229 = getelementptr inbounds i8, ptr %ref.tmp18, i64 17
   store i8 5, ptr %RHSKind6.i.i.i229, align 1, !alias.scope !231
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i236)
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i236, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp18)
   %call.i.i237 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i236) #13
-  %Arch.i.i238 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i.i239 = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp.i236, i64 0, i32 1
+  %Arch.i.i238 = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i.i239 = getelementptr inbounds i8, ptr %ref.tmp.i236, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i.i238, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i.i239, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i236) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i236)
@@ -4688,7 +4673,7 @@ entry:
   %ref.tmp5 = alloca %"class.llvh::Twine", align 8
   %ref.tmp7 = alloca %"class.llvh::StringRef", align 8
   %ref.tmp11 = alloca %"class.llvh::StringRef", align 8
-  %ObjectFormat = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 6
+  %ObjectFormat = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %ObjectFormat, align 4
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   %this.val = load i32, ptr %1, align 8
@@ -4716,14 +4701,14 @@ switch.lookup68:                                  ; preds = %entry
   %switch.gep71 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %6
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   store ptr %switch.load72, ptr %ref.tmp7, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store i64 %switch.load70, ptr %7, align 8
   store ptr %ref.tmp7, ptr %ref.tmp5, align 8, !alias.scope !236
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i, align 8, !alias.scope !236
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i8 5, ptr %LHSKind5.i.i.i, align 8, !alias.scope !236
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !236
   %8 = sext i32 %0 to i64
   %switch.gep74 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.19, i64 0, i64 %8
@@ -4732,14 +4717,14 @@ switch.lookup68:                                  ; preds = %entry
   %switch.gep76 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %9
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   store ptr %switch.load77, ptr %ref.tmp11, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp11, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 %switch.load75, ptr %10, align 8
   store ptr %ref.tmp5, ptr %ref.tmp4, align 8, !alias.scope !241
-  %RHS4.i.i.i56 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %ref.tmp11, ptr %RHS4.i.i.i56, align 8, !alias.scope !241
-  %LHSKind5.i.i.i57 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind5.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 2, ptr %LHSKind5.i.i.i57, align 8, !alias.scope !241
-  %RHSKind6.i.i.i58 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind6.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 5, ptr %RHSKind6.i.i.i58, align 1, !alias.scope !241
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4) #13
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
@@ -4769,12 +4754,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit125:
   %ref.tmp9 = alloca %"class.llvh::StringRef", align 8
   %ref.tmp13 = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i.i, ptr %ref.tmp2.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i.i, ptr %Length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i)
@@ -4788,67 +4773,67 @@ _ZN4llvhplERKNS_5TwineES2_.exit125:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %Separator.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   store ptr %ref.tmp.sroa.0.0.i, ptr %ref.tmp7, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store i64 %ref.tmp.sroa.3.0.i, ptr %2, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store i8 5, ptr %LHSKind.i.i, align 8, !alias.scope !252
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
   store i8 3, ptr %RHSKind.i.i, align 1, !alias.scope !252
   store ptr %ref.tmp7, ptr %ref.tmp6, align 8, !alias.scope !252
-  %RHS5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 1
+  %RHS5.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.140, ptr %RHS5.i.i, align 8, !alias.scope !252
   %call10 = call { ptr, i64 } @_ZNK4llvh6Triple13getVendorNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %3 = extractvalue { ptr, i64 } %call10, 0
   store ptr %3, ptr %ref.tmp9, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp9, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %5 = extractvalue { ptr, i64 } %call10, 1
   store i64 %5, ptr %4, align 8
   store ptr %ref.tmp6, ptr %ref.tmp5, align 8, !alias.scope !255
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %ref.tmp9, ptr %RHS4.i.i.i, align 8, !alias.scope !255
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !255
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   store i8 5, ptr %RHSKind6.i.i.i, align 1, !alias.scope !255
   store ptr %ref.tmp5, ptr %ref.tmp4, align 8, !alias.scope !260
-  %RHS4.i.i.i24 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i24, align 8, !alias.scope !260
-  %LHSKind5.i.i.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind5.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 2, ptr %LHSKind5.i.i.i25, align 8, !alias.scope !260
-  %RHSKind6.i.i.i26 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind6.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i26, align 1, !alias.scope !260
   %call14 = call { ptr, i64 } @_ZNK4llvh6Triple9getOSNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %6 = extractvalue { ptr, i64 } %call14, 0
   store ptr %6, ptr %ref.tmp13, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp13, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %8 = extractvalue { ptr, i64 } %call14, 1
   store i64 %8, ptr %7, align 8
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !265
-  %RHS4.i.i.i55 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %ref.tmp13, ptr %RHS4.i.i.i55, align 8, !alias.scope !265
-  %LHSKind5.i.i.i56 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 2, ptr %LHSKind5.i.i.i56, align 8, !alias.scope !265
-  %RHSKind6.i.i.i57 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 5, ptr %RHSKind6.i.i.i57, align 1, !alias.scope !265
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8, !alias.scope !270
-  %RHS4.i.i.i86 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i86 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i86, align 8, !alias.scope !270
-  %LHSKind5.i.i.i87 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind5.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 2, ptr %LHSKind5.i.i.i87, align 8, !alias.scope !270
-  %RHSKind6.i.i.i88 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind6.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 3, ptr %RHSKind6.i.i.i88, align 1, !alias.scope !270
   store ptr %ref.tmp2, ptr %ref.tmp, align 8, !alias.scope !275
-  %RHS4.i.i.i117 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i117 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %Str, ptr %RHS4.i.i.i117, align 8, !alias.scope !275
-  %LHSKind5.i.i.i118 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i118 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 2, ptr %LHSKind5.i.i.i118, align 8, !alias.scope !275
-  %RHSKind6.i.i.i119 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i119 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 5, ptr %RHSKind6.i.i.i119, align 1, !alias.scope !275
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp)
   %call.i.i126 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
-  %Arch.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp.i, i64 0, i32 1
+  %Arch.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
@@ -4863,7 +4848,7 @@ entry:
   %ref.tmp4 = alloca %"class.llvh::Twine", align 8
   %ref.tmp6 = alloca %"class.llvh::StringRef", align 8
   %ref.tmp11 = alloca %"class.llvh::StringRef", align 8
-  %Environment = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %Environment, align 8
   switch i32 %0, label %sw.epilog.i6 [
     i32 0, label %switch.lookup
@@ -4955,14 +4940,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %_ZN4llvh9St
   %retval.sroa.20.0.i = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit198.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit188.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit178.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit168.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit158.i ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit148.i ], [ 8, %_ZN4llvh9StringRefC2EPKc.exit138.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit128.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit118.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit108.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit98.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit88.i ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit78.i ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit68.i ], [ 9, %_ZN4llvh9StringRefC2EPKc.exit58.i ], [ 8, %_ZN4llvh9StringRefC2EPKc.exit48.i ], [ 9, %_ZN4llvh9StringRefC2EPKc.exit38.i ], [ 3, %entry ]
   %retval.sroa.0.0.i3 = phi ptr [ @.str.123, %_ZN4llvh9StringRefC2EPKc.exit198.i ], [ @.str.122, %_ZN4llvh9StringRefC2EPKc.exit188.i ], [ @.str.121, %_ZN4llvh9StringRefC2EPKc.exit178.i ], [ @.str.120, %_ZN4llvh9StringRefC2EPKc.exit168.i ], [ @.str.119, %_ZN4llvh9StringRefC2EPKc.exit158.i ], [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit148.i ], [ @.str.117, %_ZN4llvh9StringRefC2EPKc.exit138.i ], [ @.str.116, %_ZN4llvh9StringRefC2EPKc.exit128.i ], [ @.str.115, %_ZN4llvh9StringRefC2EPKc.exit118.i ], [ @.str.114, %_ZN4llvh9StringRefC2EPKc.exit108.i ], [ @.str.113, %_ZN4llvh9StringRefC2EPKc.exit98.i ], [ @.str.112, %_ZN4llvh9StringRefC2EPKc.exit88.i ], [ @.str.111, %_ZN4llvh9StringRefC2EPKc.exit78.i ], [ @.str.110, %_ZN4llvh9StringRefC2EPKc.exit68.i ], [ @.str.109, %_ZN4llvh9StringRefC2EPKc.exit58.i ], [ @.str.108, %_ZN4llvh9StringRefC2EPKc.exit48.i ], [ @.str.107, %_ZN4llvh9StringRefC2EPKc.exit38.i ], [ @.str.106, %entry ]
   store ptr %retval.sroa.0.0.i3, ptr %ref.tmp6, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp6, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store i64 %retval.sroa.20.0.i, ptr %3, align 8
   store ptr %ref.tmp6, ptr %ref.tmp4, align 8, !alias.scope !280
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i, align 8, !alias.scope !280
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 5, ptr %LHSKind5.i.i.i, align 8, !alias.scope !280
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !280
   %4 = sext i32 %Kind to i64
   %switch.gep54 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.19, i64 0, i64 %4
@@ -4971,14 +4956,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %_ZN4llvh9St
   %switch.gep56 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %5
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   store ptr %switch.load57, ptr %ref.tmp11, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp11, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 %switch.load55, ptr %6, align 8
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !285
-  %RHS4.i.i.i41 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %ref.tmp11, ptr %RHS4.i.i.i41, align 8, !alias.scope !285
-  %LHSKind5.i.i.i42 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 2, ptr %LHSKind5.i.i.i42, align 8, !alias.scope !285
-  %RHSKind6.i.i.i43 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i43 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 5, ptr %RHSKind6.i.i.i43, align 1, !alias.scope !285
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3) #13
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
@@ -5005,12 +4990,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
   %ref.tmp5 = alloca %"class.llvh::StringRef", align 8
   %ref.tmp7 = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i.i, ptr %ref.tmp2.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i.i, ptr %Length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i)
@@ -5024,47 +5009,47 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %Separator.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   store ptr %ref.tmp.sroa.0.0.i, ptr %ref.tmp5, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i64 %ref.tmp.sroa.3.0.i, ptr %2, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 5, ptr %LHSKind.i.i, align 8, !alias.scope !296
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind.i.i, align 1, !alias.scope !296
   store ptr %ref.tmp5, ptr %ref.tmp4, align 8, !alias.scope !296
-  %RHS5.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
+  %RHS5.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr @.str.140, ptr %RHS5.i.i, align 8, !alias.scope !296
   %call8 = call { ptr, i64 } @_ZNK4llvh6Triple13getVendorNameEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %3 = extractvalue { ptr, i64 } %call8, 0
   store ptr %3, ptr %ref.tmp7, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %5 = extractvalue { ptr, i64 } %call8, 1
   store i64 %5, ptr %4, align 8
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !299
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %ref.tmp7, ptr %RHS4.i.i.i, align 8, !alias.scope !299
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !299
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 5, ptr %RHSKind6.i.i.i, align 1, !alias.scope !299
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8, !alias.scope !304
-  %RHS4.i.i.i24 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
+  %RHS4.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str.140, ptr %RHS4.i.i.i24, align 8, !alias.scope !304
-  %LHSKind5.i.i.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind5.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 2, ptr %LHSKind5.i.i.i25, align 8, !alias.scope !304
-  %RHSKind6.i.i.i26 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind6.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 3, ptr %RHSKind6.i.i.i26, align 1, !alias.scope !304
   store ptr %ref.tmp2, ptr %ref.tmp, align 8, !alias.scope !309
-  %RHS4.i.i.i55 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %Str, ptr %RHS4.i.i.i55, align 8, !alias.scope !309
-  %LHSKind5.i.i.i56 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind5.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 2, ptr %LHSKind5.i.i.i56, align 8, !alias.scope !309
-  %RHSKind6.i.i.i57 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind6.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 5, ptr %RHSKind6.i.i.i57, align 1, !alias.scope !309
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @_ZN4llvh6TripleC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp)
   %call.i.i64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
-  %Arch.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
-  %Arch3.i.i = getelementptr inbounds %"class.llvh::Triple", ptr %ref.tmp.i, i64 0, i32 1
+  %Arch.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Arch3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i.i, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
@@ -5074,7 +5059,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh6Triple11isArch64BitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %Arch.i, align 8
   %switch.cast = zext nneg i32 %0 to i51
   %switch.downshift = lshr i51 -832703874846312, %switch.cast
@@ -5086,7 +5071,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh6Triple11isArch32BitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %Arch.i, align 8
   %switch.cast = zext nneg i32 %0 to i51
   %switch.downshift = lshr i51 832703874829862, %switch.cast
@@ -5098,7 +5083,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh6Triple11isArch16BitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %Arch.i, align 8
   %switch.cast = zext nneg i32 %0 to i51
   %switch.downshift = lshr i51 16448, %switch.cast
@@ -5111,8 +5096,8 @@ entry:
 define hidden void @_ZNK4llvh6Triple19get32BitArchVariantEv(ptr noalias nonnull sret(%"class.llvh::Triple") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %agg.result, i64 0, i32 1
-  %Arch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %Arch3.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i, i64 24, i1 false)
   %0 = load i32, ptr %Arch3.i, align 8
   switch i32 %0, label %nrvo.skipdtor [
@@ -5213,8 +5198,8 @@ nrvo.skipdtor:                                    ; preds = %entry, %sw.bb, %sw.
 define hidden void @_ZNK4llvh6Triple19get64BitArchVariantEv(ptr noalias nonnull sret(%"class.llvh::Triple") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %agg.result, i64 0, i32 1
-  %Arch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %Arch3.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i, i64 24, i1 false)
   %0 = load i32, ptr %Arch3.i, align 8
   switch i32 %0, label %nrvo.skipdtor [
@@ -5331,8 +5316,8 @@ nrvo.skipdtor:                                    ; preds = %entry, %sw.bb, %sw.
 define hidden void @_ZNK4llvh6Triple23getBigEndianArchVariantEv(ptr noalias nonnull sret(%"class.llvh::Triple") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %agg.result, i64 0, i32 1
-  %Arch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %Arch3.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i, i64 24, i1 false)
   %0 = load i32, ptr %Arch3.i, align 8
   switch i32 %0, label %nrvo.skipdtor [
@@ -5456,7 +5441,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %sw.bb9, %sw
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh6Triple14isLittleEndianEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %Arch.i, align 8
   %1 = icmp ult i32 %0, 51
   %switch.cast = zext nneg i32 %0 to i51
@@ -5471,8 +5456,8 @@ entry:
 define hidden void @_ZNK4llvh6Triple26getLittleEndianArchVariantEv(ptr noalias nonnull sret(%"class.llvh::Triple") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %agg.result, i64 0, i32 1
-  %Arch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %Arch3.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Arch.i, ptr noundef nonnull align 8 dereferenceable(24) %Arch3.i, i64 24, i1 false)
   %0 = load i32, ptr %Arch3.i, align 8
   switch i32 %0, label %sw.default [
@@ -5570,7 +5555,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %entry, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh6Triple16isCompatibleWithERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %Other) local_unnamed_addr #7 align 2 {
 entry:
-  %Arch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 1
+  %Arch.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %Arch.i, align 8
   switch i32 %0, label %if.end [
     i32 29, label %land.lhs.true
@@ -5580,39 +5565,39 @@ entry:
   ]
 
 land.lhs.true:                                    ; preds = %entry
-  %Arch.i17 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 1
+  %Arch.i17 = getelementptr inbounds i8, ptr %Other, i64 32
   %1 = load i32, ptr %Arch.i17, align 8
   %cmp3 = icmp eq i32 %1, 1
   br i1 %cmp3, label %if.then, label %if.end
 
 land.lhs.true6:                                   ; preds = %entry
-  %Arch.i19 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 1
+  %Arch.i19 = getelementptr inbounds i8, ptr %Other, i64 32
   %2 = load i32, ptr %Arch.i19, align 8
   %cmp8 = icmp eq i32 %2, 29
   br i1 %cmp8, label %if.then, label %if.end
 
 land.lhs.true12:                                  ; preds = %entry
-  %Arch.i21 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 1
+  %Arch.i21 = getelementptr inbounds i8, ptr %Other, i64 32
   %3 = load i32, ptr %Arch.i21, align 8
   %cmp14 = icmp eq i32 %3, 2
   br i1 %cmp14, label %if.then, label %if.end
 
 land.lhs.true18:                                  ; preds = %entry
-  %Arch.i23 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 1
+  %Arch.i23 = getelementptr inbounds i8, ptr %Other, i64 32
   %4 = load i32, ptr %Arch.i23, align 8
   %cmp20 = icmp eq i32 %4, 30
   br i1 %cmp20, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true18, %land.lhs.true12, %land.lhs.true6, %land.lhs.true
-  %Vendor.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 3
+  %Vendor.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i32, ptr %Vendor.i, align 8
   %cmp22 = icmp eq i32 %5, 1
-  %SubArch.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 2
+  %SubArch.i = getelementptr inbounds i8, ptr %this, i64 36
   %6 = load i32, ptr %SubArch.i, align 4
-  %SubArch.i24 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 2
+  %SubArch.i24 = getelementptr inbounds i8, ptr %Other, i64 36
   %7 = load i32, ptr %SubArch.i24, align 4
   %cmp26 = icmp eq i32 %6, %7
-  %Vendor.i26 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 3
+  %Vendor.i26 = getelementptr inbounds i8, ptr %Other, i64 40
   %8 = load i32, ptr %Vendor.i26, align 8
   br i1 %cmp22, label %if.then23, label %if.else
 
@@ -5622,9 +5607,9 @@ if.then23:                                        ; preds = %if.then
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.then23
-  %OS.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 44
   %9 = load i32, ptr %OS.i, align 4
-  %OS.i27 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 4
+  %OS.i27 = getelementptr inbounds i8, ptr %Other, i64 44
   %10 = load i32, ptr %OS.i27, align 4
   %cmp33 = icmp eq i32 %9, %10
   br label %return
@@ -5635,34 +5620,34 @@ if.else:                                          ; preds = %if.then
   br i1 %or.cond56, label %land.lhs.true41, label %return
 
 land.lhs.true41:                                  ; preds = %if.else
-  %OS.i32 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i32 = getelementptr inbounds i8, ptr %this, i64 44
   %11 = load i32, ptr %OS.i32, align 4
-  %OS.i33 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 4
+  %OS.i33 = getelementptr inbounds i8, ptr %Other, i64 44
   %12 = load i32, ptr %OS.i33, align 4
   %cmp44 = icmp eq i32 %11, %12
   br i1 %cmp44, label %land.lhs.true45, label %return
 
 land.lhs.true45:                                  ; preds = %land.lhs.true41
-  %Environment.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i32, ptr %Environment.i, align 8
-  %Environment.i34 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 5
+  %Environment.i34 = getelementptr inbounds i8, ptr %Other, i64 48
   %14 = load i32, ptr %Environment.i34, align 8
   %cmp48 = icmp eq i32 %13, %14
   br i1 %cmp48, label %land.rhs49, label %return
 
 land.rhs49:                                       ; preds = %land.lhs.true45
-  %ObjectFormat.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 6
+  %ObjectFormat.i = getelementptr inbounds i8, ptr %this, i64 52
   %15 = load i32, ptr %ObjectFormat.i, align 4
-  %ObjectFormat.i35 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 6
+  %ObjectFormat.i35 = getelementptr inbounds i8, ptr %Other, i64 52
   %16 = load i32, ptr %ObjectFormat.i35, align 4
   %cmp52 = icmp eq i32 %15, %16
   br label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true6, %land.lhs.true, %land.lhs.true12, %land.lhs.true18
-  %Vendor.i36 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 3
+  %Vendor.i36 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load i32, ptr %Vendor.i36, align 8
   %cmp55 = icmp eq i32 %17, 1
-  %Arch.i38 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 1
+  %Arch.i38 = getelementptr inbounds i8, ptr %Other, i64 32
   %18 = load i32, ptr %Arch.i38, align 8
   %cmp59 = icmp eq i32 %0, %18
   br i1 %cmp55, label %if.then56, label %if.end73
@@ -5671,21 +5656,21 @@ if.then56:                                        ; preds = %if.end
   br i1 %cmp59, label %land.lhs.true60, label %return
 
 land.lhs.true60:                                  ; preds = %if.then56
-  %SubArch.i39 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 2
+  %SubArch.i39 = getelementptr inbounds i8, ptr %this, i64 36
   %19 = load i32, ptr %SubArch.i39, align 4
-  %SubArch.i40 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 2
+  %SubArch.i40 = getelementptr inbounds i8, ptr %Other, i64 36
   %20 = load i32, ptr %SubArch.i40, align 4
   %cmp63 = icmp eq i32 %19, %20
-  %Vendor.i42 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 3
+  %Vendor.i42 = getelementptr inbounds i8, ptr %Other, i64 40
   %21 = load i32, ptr %Vendor.i42, align 8
   %cmp67 = icmp eq i32 %21, 1
   %or.cond57 = select i1 %cmp63, i1 %cmp67, i1 false
   br i1 %or.cond57, label %land.rhs68, label %return
 
 land.rhs68:                                       ; preds = %land.lhs.true60
-  %OS.i43 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i43 = getelementptr inbounds i8, ptr %this, i64 44
   %22 = load i32, ptr %OS.i43, align 4
-  %OS.i44 = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 4
+  %OS.i44 = getelementptr inbounds i8, ptr %Other, i64 44
   %23 = load i32, ptr %OS.i44, align 4
   %cmp71 = icmp eq i32 %22, %23
   br label %return
@@ -5694,37 +5679,37 @@ if.end73:                                         ; preds = %if.end
   br i1 %cmp59, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.end73
-  %SubArch.i46 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 2
+  %SubArch.i46 = getelementptr inbounds i8, ptr %this, i64 36
   %24 = load i32, ptr %SubArch.i46, align 4
-  %SubArch3.i = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 2
+  %SubArch3.i = getelementptr inbounds i8, ptr %Other, i64 36
   %25 = load i32, ptr %SubArch3.i, align 4
   %cmp4.i = icmp eq i32 %24, %25
-  %Vendor6.i = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 3
+  %Vendor6.i = getelementptr inbounds i8, ptr %Other, i64 40
   %26 = load i32, ptr %Vendor6.i, align 8
   %cmp7.i = icmp eq i32 %17, %26
   %or.cond58 = select i1 %cmp4.i, i1 %cmp7.i, i1 false
   br i1 %or.cond58, label %land.lhs.true8.i, label %return
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %OS.i48 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i48 = getelementptr inbounds i8, ptr %this, i64 44
   %27 = load i32, ptr %OS.i48, align 4
-  %OS9.i = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 4
+  %OS9.i = getelementptr inbounds i8, ptr %Other, i64 44
   %28 = load i32, ptr %OS9.i, align 4
   %cmp10.i = icmp eq i32 %27, %28
   br i1 %cmp10.i, label %land.lhs.true11.i, label %return
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true8.i
-  %Environment.i49 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment.i49 = getelementptr inbounds i8, ptr %this, i64 48
   %29 = load i32, ptr %Environment.i49, align 8
-  %Environment12.i = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 5
+  %Environment12.i = getelementptr inbounds i8, ptr %Other, i64 48
   %30 = load i32, ptr %Environment12.i, align 8
   %cmp13.i = icmp eq i32 %29, %30
   br i1 %cmp13.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %land.lhs.true11.i
-  %ObjectFormat.i50 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 6
+  %ObjectFormat.i50 = getelementptr inbounds i8, ptr %this, i64 52
   %31 = load i32, ptr %ObjectFormat.i50, align 4
-  %ObjectFormat14.i = getelementptr inbounds %"class.llvh::Triple", ptr %Other, i64 0, i32 6
+  %ObjectFormat14.i = getelementptr inbounds i8, ptr %Other, i64 52
   %32 = load i32, ptr %ObjectFormat14.i, align 4
   %cmp15.i = icmp eq i32 %31, %32
   br label %return
@@ -5739,22 +5724,22 @@ define hidden void @_ZNK4llvh6Triple5mergeB5cxx11ERKS0_(ptr noalias sret(%"class
 entry:
   %LHS.i.i = alloca [3 x i32], align 4
   %RHS.i = alloca [3 x i32], align 4
-  %Vendor.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 3
+  %Vendor.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %Vendor.i, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %RHS.i)
-  %arrayidx2.i = getelementptr inbounds [3 x i32], ptr %RHS.i, i64 0, i64 1
-  %arrayidx3.i = getelementptr inbounds [3 x i32], ptr %RHS.i, i64 0, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %RHS.i, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %RHS.i, i64 8
   call void @_ZNK4llvh6Triple12getOSVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %RHS.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx2.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx3.i)
   %1 = load i32, ptr %RHS.i, align 4
   %2 = load i32, ptr %arrayidx2.i, align 4
   %3 = load i32, ptr %arrayidx3.i, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %LHS.i.i)
-  %arrayidx2.i.i = getelementptr inbounds [3 x i32], ptr %LHS.i.i, i64 0, i64 1
-  %arrayidx3.i.i = getelementptr inbounds [3 x i32], ptr %LHS.i.i, i64 0, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %LHS.i.i, i64 4
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %LHS.i.i, i64 8
   call void @_ZNK4llvh6Triple12getOSVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %Other, ptr noundef nonnull align 4 dereferenceable(4) %LHS.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx3.i.i)
   %4 = load i32, ptr %LHS.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %4, %1
@@ -5809,7 +5794,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store ptr %call.i.i, ptr %ref.tmp2.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp2.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   store i64 %call2.i.i, ptr %Length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i)
@@ -5830,7 +5815,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call4 = call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr %MArch.sroa.0.0, i64 %MArch.sroa.7.0) #13
   %1 = extractvalue { ptr, i64 } %call4, 0
   %2 = extractvalue { ptr, i64 } %call4, 1
-  %OS.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 4
+  %OS.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %OS.i, align 4
   switch i32 %3, label %sw.epilog [
     i32 5, label %sw.bb
@@ -5891,14 +5876,14 @@ if.end29:                                         ; preds = %if.end21, %_ZN4llvh
   ]
 
 sw.bb31:                                          ; preds = %if.end29
-  %Environment.i = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load i32, ptr %Environment.i, align 8
   %switch.tableidx = add i32 %7, -4
   %8 = icmp ult i32 %switch.tableidx, 6
   br i1 %8, label %switch.lookup, label %return
 
 sw.default36:                                     ; preds = %if.end29
-  %Environment.i39 = getelementptr inbounds %"class.llvh::Triple", ptr %this, i64 0, i32 5
+  %Environment.i39 = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load i32, ptr %Environment.i39, align 8
   switch i32 %9, label %sw.default39 [
     i32 9, label %return

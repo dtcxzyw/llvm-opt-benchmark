@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.PBEPARAM_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/evp/p5_crpt.c\00", align 1
 @__func__.PKCS5_PBE_keyivgen_ex = private unnamed_addr constant [22 x i8] c"PKCS5_PBE_keyivgen_ex\00", align 1
@@ -46,7 +42,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %lor.lhs.false2, label %if.then
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %param, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %param, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -92,7 +88,7 @@ if.then19:                                        ; preds = %if.end14
   br label %err
 
 if.end20:                                         ; preds = %if.end14
-  %iter21 = getelementptr inbounds %struct.PBEPARAM_st, ptr %call5, i64 0, i32 1
+  %iter21 = getelementptr inbounds i8, ptr %call5, i64 8
   %2 = load ptr, ptr %iter21, align 8
   %cmp22 = icmp eq ptr %2, null
   br i1 %cmp22, label %if.end26, label %if.else
@@ -106,7 +102,7 @@ if.end26:                                         ; preds = %if.end20, %if.else
   %storemerge = phi i32 [ %conv, %if.else ], [ 1, %if.end20 ]
   store i32 %storemerge, ptr %iter, align 4
   %3 = load ptr, ptr %call5, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %3, align 8
   %cmp29 = icmp eq ptr %pass, null
@@ -135,18 +131,18 @@ if.end44:                                         ; preds = %if.end39
   br i1 %cmp47, label %err, label %if.end50
 
 if.end50:                                         ; preds = %if.end44
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   %conv51 = sext i32 %passlen.addr.0 to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef %pass, i64 noundef %conv51) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr52 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %params, i64 80
   %conv54 = sext i32 %5 to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp53, ptr noundef nonnull @.str.3, ptr noundef %4, i64 noundef %conv54) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp53, i64 40, i1 false)
-  %incdec.ptr55 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 3
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp56, ptr noundef nonnull @.str.4, ptr noundef nonnull %iter) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr52, ptr noundef nonnull align 8 dereferenceable(40) %tmp56, i64 40, i1 false)
-  %incdec.ptr57 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 4
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %params, i64 160
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp58, ptr noundef nonnull @.str.5, ptr noundef %call, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr55, ptr noundef nonnull align 8 dereferenceable(40) %tmp58, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp59) #5

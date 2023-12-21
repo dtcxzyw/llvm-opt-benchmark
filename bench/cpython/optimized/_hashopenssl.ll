@@ -15,17 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
 %struct.PyModuleDef_Slot = type { i32, ptr }
-%struct.HMACobject = type { %struct._object, ptr, i8, %struct._PyMutex }
-%struct._PyMutex = type { i8 }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct._hashlibstate = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon }
-%struct.anon = type { i32 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.EVPobject = type { %struct._object, ptr, i8, %struct._PyMutex }
 %struct._internal_name_mapper_state = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [14 x i8] c"_hashlib.HMAC\00", align 1
@@ -262,7 +253,7 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_hmac_repr(ptr noundef %self) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @HMAC_CTX_get_md(ptr noundef %0) #9
   %call.i = tail call i32 @EVP_MD_get_type(ptr noundef %call) #9
@@ -271,13 +262,13 @@ entry:
 
 for.cond.i:                                       ; preds = %entry, %for.body.i
   %h.011.i8 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @py_hashes, %entry ]
-  %incdec.ptr.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i8, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %h.011.i8, i64 48
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %ossl_nid.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i8, i64 1, i32 3
+  %ossl_nid.i = getelementptr i8, ptr %h.011.i8, i64 72
   %2 = load i32, ptr %ossl_nid.i, align 8
   %cmp1.i = icmp eq i32 %2, %call.i
   br i1 %cmp1.i, label %py_digest_name.exit, label %for.cond.i, !llvm.loop !4
@@ -324,7 +315,7 @@ define internal void @_hmac_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %ctx = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %ctx, align 8
   tail call void @HMAC_CTX_free(ptr noundef %1) #9
   tail call void @PyObject_Free(ptr noundef %self) #9
@@ -473,14 +464,14 @@ if.then.i:                                        ; preds = %entry
   br label %_hashlib_HMAC_copy_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %use_mutex.i.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i8, ptr %use_mutex.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mutex.i.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %3 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 1
   br i1 %4, label %if.end.i.i, label %if.then.i.i.i
@@ -490,7 +481,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
-  %ctx.i.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %ctx.i.i, align 8
   %call.i.i = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %5) #9
   %6 = load i8, ptr %use_mutex.i.i, align 8
@@ -499,7 +490,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.
   br i1 %tobool2.not.i.i, label %locked_HMAC_CTX_copy.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %mutex4.i.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 3
+  %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %8 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %locked_HMAC_CTX_copy.exit.i, label %if.then.i5.i.i
@@ -530,11 +521,11 @@ if.then10.i:                                      ; preds = %if.end6.i
   br label %_hashlib_HMAC_copy_impl.exit
 
 if.end11.i:                                       ; preds = %if.end6.i
-  %ctx12.i = getelementptr inbounds %struct.HMACobject, ptr %call8.i, i64 0, i32 1
+  %ctx12.i = getelementptr inbounds i8, ptr %call8.i, i64 16
   store ptr %call.i, ptr %ctx12.i, align 8
-  %mutex.i = getelementptr inbounds %struct.HMACobject, ptr %call8.i, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %call8.i, i64 25
   store i8 0, ptr %mutex.i, align 1
-  %use_mutex.i = getelementptr inbounds %struct.HMACobject, ptr %call8.i, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %call8.i, i64 24
   store i8 0, ptr %use_mutex.i, align 8
   br label %_hashlib_HMAC_copy_impl.exit
 
@@ -579,7 +570,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 5
+  %ndim = getelementptr inbounds i8, ptr %view, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -591,11 +582,11 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 2
+  %use_mutex = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i8, ptr %use_mutex, align 8
   %8 = and i8 %7, 1
   %tobool12.not9 = icmp eq i8 %8, 0
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %view, i64 16
   %9 = load i64, ptr %len, align 8
   %cmp13 = icmp sgt i64 %9, 2047
   %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
@@ -612,7 +603,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #9
-  %mutex = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 3
+  %mutex = getelementptr inbounds i8, ptr %self, i64 25
   %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
@@ -622,7 +613,7 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %ctx = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %view, align 8
   %15 = load i64, ptr %len, align 8
@@ -640,7 +631,7 @@ PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, 
   br label %if.end28
 
 if.else:                                          ; preds = %if.end16
-  %ctx24 = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx24 = getelementptr inbounds i8, ptr %self, i64 16
   %18 = load ptr, ptr %ctx24, align 8
   %19 = load ptr, ptr %view, align 8
   %call27 = call i32 @HMAC_Update(ptr noundef %18, ptr noundef %19, i64 noundef %9) #9
@@ -772,14 +763,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %use_mutex.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %mutex.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 25
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -789,7 +780,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %if.end
-  %ctx.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %ctx.i, align 8
   %call.i = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call, ptr noundef %4) #9
   %5 = load i8, ptr %use_mutex.i, align 8
@@ -798,7 +789,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %locked_HMAC_CTX_copy.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 25
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %locked_HMAC_CTX_copy.exit, label %if.then.i5.i
@@ -879,7 +870,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @_hashlib_hmac_get_block_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @HMAC_CTX_get_md(ptr noundef %0) #9
   %cmp = icmp eq ptr %call, null
@@ -904,7 +895,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @_hashlib_hmac_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.HMACobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @HMAC_CTX_get_md(ptr noundef %0) #9
   %call.i = tail call i32 @EVP_MD_get_type(ptr noundef %call) #9
@@ -913,13 +904,13 @@ entry:
 
 for.cond.i:                                       ; preds = %entry, %for.body.i
   %h.011.i7 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @py_hashes, %entry ]
-  %incdec.ptr.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i7, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %h.011.i7, i64 48
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %ossl_nid.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i7, i64 1, i32 3
+  %ossl_nid.i = getelementptr i8, ptr %h.011.i7, i64 72
   %2 = load i32, ptr %ossl_nid.i, align 8
   %cmp1.i = icmp eq i32 %2, %call.i
   br i1 %cmp1.i, label %py_digest_name.exit, label %for.cond.i, !llvm.loop !4
@@ -979,7 +970,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %HMACtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 1
+  %HMACtype = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %HMACtype, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -990,7 +981,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %EVPXOFtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 2
+  %EVPXOFtype = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %EVPXOFtype, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -1001,7 +992,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %constructs = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 3
+  %constructs = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %constructs, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -1012,7 +1003,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %unsupported_digestmod_error = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 4
+  %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %unsupported_digestmod_error, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.end49, label %if.then41
@@ -1056,7 +1047,7 @@ if.then1.i67:                                     ; preds = %if.end.i64
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i64, %if.then1.i67, %if.then, %entry
-  %HMACtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 1
+  %HMACtype = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %HMACtype, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1079,7 +1070,7 @@ if.then1.i58:                                     ; preds = %if.end.i55
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i55, %if.then1.i58, %if.then5, %do.body1
-  %EVPXOFtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 2
+  %EVPXOFtype = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %EVPXOFtype, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -1102,7 +1093,7 @@ if.then1.i49:                                     ; preds = %if.end.i46
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i46, %if.then1.i49, %if.then12, %do.body8
-  %constructs = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 3
+  %constructs = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %constructs, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -1125,7 +1116,7 @@ if.then1.i40:                                     ; preds = %if.end.i37
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i37, %if.then1.i40, %if.then19, %do.body15
-  %unsupported_digestmod_error = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 4
+  %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %unsupported_digestmod_error, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.end28, label %if.then26
@@ -1148,7 +1139,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end28
 
 do.end28:                                         ; preds = %do.body22, %if.then26, %if.then1.i, %if.end.i
-  %hashtable = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 5
+  %hashtable = getelementptr inbounds i8, ptr %call.i, i64 40
   %15 = load ptr, ptr %hashtable, align 8
   %cmp29.not = icmp eq ptr %15, null
   br i1 %cmp29.not, label %if.end33, label %if.then30
@@ -1204,7 +1195,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1031, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1031, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp ne ptr %5, null
   %6 = icmp eq i64 %add2630, 2
@@ -1212,7 +1203,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end25
 
 if.end25:                                         ; preds = %skip_optional_pos
-  %arrayidx26 = getelementptr ptr, ptr %cond1031, i64 2
+  %arrayidx26 = getelementptr i8, ptr %cond1031, i64 16
   %7 = load ptr, ptr %arrayidx26, align 8
   %call27 = call i32 @PyObject_IsTrue(ptr noundef %7) #9
   %cmp28 = icmp slt i32 %call27, 0
@@ -1310,21 +1301,21 @@ if.then25:                                        ; preds = %if.end22
   br label %exit
 
 if.end26:                                         ; preds = %if.end22
-  %arrayidx27 = getelementptr ptr, ptr %cond1024, i64 1
+  %arrayidx27 = getelementptr i8, ptr %cond1024, i64 8
   %10 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @PyObject_GetBuffer(ptr noundef %10, ptr noundef nonnull %password, i32 noundef 0) #9
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end31, label %exit
 
 if.end31:                                         ; preds = %if.end26
-  %arrayidx32 = getelementptr ptr, ptr %cond1024, i64 2
+  %arrayidx32 = getelementptr i8, ptr %cond1024, i64 16
   %11 = load ptr, ptr %arrayidx32, align 8
   %call33 = call i32 @PyObject_GetBuffer(ptr noundef %11, ptr noundef nonnull %salt, i32 noundef 0) #9
   %cmp34.not = icmp eq i32 %call33, 0
   br i1 %cmp34.not, label %if.end36, label %exit
 
 if.end36:                                         ; preds = %if.end31
-  %arrayidx37 = getelementptr ptr, ptr %cond1024, i64 3
+  %arrayidx37 = getelementptr i8, ptr %cond1024, i64 24
   %12 = load ptr, ptr %arrayidx37, align 8
   %call38 = call i64 @PyLong_AsLong(ptr noundef %12) #9
   %cmp39 = icmp eq i64 %call38, -1
@@ -1340,7 +1331,7 @@ if.end44:                                         ; preds = %land.lhs.true40, %i
   br i1 %tobool45.not, label %skip_optional_pos, label %if.end47
 
 if.end47:                                         ; preds = %if.end44
-  %arrayidx48 = getelementptr ptr, ptr %cond1024, i64 4
+  %arrayidx48 = getelementptr i8, ptr %cond1024, i64 32
   %13 = load ptr, ptr %arrayidx48, align 8
   br label %skip_optional_pos
 
@@ -1351,7 +1342,7 @@ skip_optional_pos:                                ; preds = %if.end44, %if.end47
 
 exit:                                             ; preds = %land.lhs.true40, %if.end31, %if.end26, %if.end17, %cond.end9, %skip_optional_pos, %if.then25, %if.then15
   %return_value.0 = phi ptr [ null, %if.end17 ], [ null, %if.then25 ], [ null, %if.end26 ], [ null, %if.end31 ], [ null, %land.lhs.true40 ], [ %call49, %skip_optional_pos ], [ null, %if.then15 ], [ null, %cond.end9 ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %password, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %password, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool50.not = icmp eq ptr %14, null
   br i1 %tobool50.not, label %if.end52, label %if.then51
@@ -1361,7 +1352,7 @@ if.then51:                                        ; preds = %exit
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then51, %exit
-  %obj53 = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 1
+  %obj53 = getelementptr inbounds i8, ptr %salt, i64 8
   %15 = load ptr, ptr %obj53, align 8
   %tobool54.not = icmp eq ptr %15, null
   br i1 %tobool54.not, label %if.end56, label %if.then55
@@ -1417,7 +1408,7 @@ if.end15:                                         ; preds = %if.end
   br i1 %tobool16.not, label %skip_optional_kwonly, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %arrayidx19 = getelementptr ptr, ptr %cond1052, i64 1
+  %arrayidx19 = getelementptr i8, ptr %cond1052, i64 8
   %4 = load ptr, ptr %arrayidx19, align 8
   %tobool20.not = icmp eq ptr %4, null
   br i1 %tobool20.not, label %if.end30, label %if.then21
@@ -1434,7 +1425,7 @@ if.end26:                                         ; preds = %if.then21
 
 if.end30:                                         ; preds = %if.end26, %if.end18
   %noptargs.0 = phi i64 [ %dec, %if.end26 ], [ %sub, %if.end18 ]
-  %arrayidx31 = getelementptr ptr, ptr %cond1052, i64 2
+  %arrayidx31 = getelementptr i8, ptr %cond1052, i64 16
   %5 = load ptr, ptr %arrayidx31, align 8
   %tobool32.not = icmp eq ptr %5, null
   br i1 %tobool32.not, label %if.end46, label %if.then33
@@ -1460,7 +1451,7 @@ if.end40:                                         ; preds = %if.then33
 if.end46:                                         ; preds = %if.end40, %if.end30
   %noptargs.1 = phi i64 [ %dec42, %if.end40 ], [ %noptargs.0, %if.end30 ]
   %n_obj.0 = phi ptr [ %5, %if.end40 ], [ @_Py_NoneStruct, %if.end30 ]
-  %arrayidx47 = getelementptr ptr, ptr %cond1052, i64 3
+  %arrayidx47 = getelementptr i8, ptr %cond1052, i64 24
   %9 = load ptr, ptr %arrayidx47, align 8
   %tobool48.not = icmp eq ptr %9, null
   br i1 %tobool48.not, label %if.end62, label %if.then49
@@ -1486,7 +1477,7 @@ if.end56:                                         ; preds = %if.then49
 if.end62:                                         ; preds = %if.end56, %if.end46
   %noptargs.2 = phi i64 [ %dec58, %if.end56 ], [ %noptargs.1, %if.end46 ]
   %r_obj.0 = phi ptr [ %9, %if.end56 ], [ @_Py_NoneStruct, %if.end46 ]
-  %arrayidx63 = getelementptr ptr, ptr %cond1052, i64 4
+  %arrayidx63 = getelementptr i8, ptr %cond1052, i64 32
   %13 = load ptr, ptr %arrayidx63, align 8
   %tobool64.not = icmp eq ptr %13, null
   br i1 %tobool64.not, label %if.end78, label %if.then65
@@ -1512,7 +1503,7 @@ if.end72:                                         ; preds = %if.then65
 if.end78:                                         ; preds = %if.end72, %if.end62
   %noptargs.3 = phi i64 [ %dec74, %if.end72 ], [ %noptargs.2, %if.end62 ]
   %p_obj.0 = phi ptr [ %13, %if.end72 ], [ @_Py_NoneStruct, %if.end62 ]
-  %arrayidx79 = getelementptr ptr, ptr %cond1052, i64 5
+  %arrayidx79 = getelementptr i8, ptr %cond1052, i64 40
   %17 = load ptr, ptr %arrayidx79, align 8
   %tobool80.not = icmp eq ptr %17, null
   br i1 %tobool80.not, label %if.end94, label %if.then81
@@ -1533,7 +1524,7 @@ if.end89:                                         ; preds = %land.lhs.true85, %i
 
 if.end94:                                         ; preds = %if.end89, %if.end78
   %maxmem.0 = phi i64 [ %call83, %if.end89 ], [ 0, %if.end78 ]
-  %arrayidx95 = getelementptr ptr, ptr %cond1052, i64 6
+  %arrayidx95 = getelementptr i8, ptr %cond1052, i64 48
   %18 = load ptr, ptr %arrayidx95, align 8
   %call96 = call i64 @PyLong_AsLong(ptr noundef %18) #9
   %cmp97 = icmp eq i64 %call96, -1
@@ -1550,7 +1541,7 @@ skip_optional_kwonly:                             ; preds = %if.end94, %land.lhs
   %p_obj.1 = phi ptr [ %p_obj.0, %land.lhs.true98 ], [ %p_obj.0, %if.end94 ], [ %p_obj.0, %if.end89 ], [ %13, %if.end72 ], [ @_Py_NoneStruct, %if.end56 ], [ @_Py_NoneStruct, %if.end40 ], [ @_Py_NoneStruct, %if.end26 ], [ @_Py_NoneStruct, %if.end15 ]
   %maxmem.1 = phi i64 [ %maxmem.0, %land.lhs.true98 ], [ %maxmem.0, %if.end94 ], [ %call83, %if.end89 ], [ 0, %if.end72 ], [ 0, %if.end56 ], [ 0, %if.end40 ], [ 0, %if.end26 ], [ 0, %if.end15 ]
   %dklen.0 = phi i64 [ -1, %land.lhs.true98 ], [ %call96, %if.end94 ], [ 64, %if.end89 ], [ 64, %if.end72 ], [ 64, %if.end56 ], [ 64, %if.end40 ], [ 64, %if.end26 ], [ 64, %if.end15 ]
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %password, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %password, i64 16
   %19 = load i64, ptr %len.i, align 8
   %cmp.i49 = icmp sgt i64 %19, 2147483647
   br i1 %cmp.i49, label %if.then.i, label %if.end.i
@@ -1571,7 +1562,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %len5.i = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 2
+  %len5.i = getelementptr inbounds i8, ptr %salt, i64 16
   %23 = load i64, ptr %len5.i, align 8
   %cmp6.i = icmp sgt i64 %23, 2147483647
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
@@ -1673,7 +1664,7 @@ if.end47.i:                                       ; preds = %if.end42.i
   br i1 %cmp49.i, label %exit, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end47.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call48.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call48.i, i64 32
   %call53.i = call ptr @PyEval_SaveThread() #9
   %34 = load ptr, ptr %password, align 8
   %35 = load i64, ptr %len.i, align 8
@@ -1707,7 +1698,7 @@ do.end.i:                                         ; preds = %if.then1.i.i, %if.e
 
 exit:                                             ; preds = %do.end.i, %if.end51.i, %if.end47.i, %if.then45.i, %if.then40.i, %if.then34.i, %if.then29.i, %if.then22.i, %if.then15.i, %if.then11.i, %if.then7.i, %if.then3.i, %if.then.i, %land.lhs.true98, %land.lhs.true85, %if.then21, %if.end, %cond.end9, %if.then70, %if.then54, %if.then38
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then21 ], [ null, %land.lhs.true85 ], [ null, %land.lhs.true98 ], [ null, %if.then70 ], [ null, %if.then54 ], [ null, %if.then38 ], [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %if.then3.i ], [ null, %if.then7.i ], [ null, %if.then11.i ], [ null, %if.then15.i ], [ null, %if.then22.i ], [ null, %if.then29.i ], [ null, %if.then34.i ], [ null, %if.then40.i ], [ null, %do.end.i ], [ null, %if.then45.i ], [ null, %if.end47.i ], [ %call48.i, %if.end51.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %password, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %password, i64 8
   %41 = load ptr, ptr %obj, align 8
   %tobool104.not = icmp eq ptr %41, null
   br i1 %tobool104.not, label %if.end106, label %if.then105
@@ -1717,7 +1708,7 @@ if.then105:                                       ; preds = %exit
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then105, %exit
-  %obj107 = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 1
+  %obj107 = getelementptr inbounds i8, ptr %salt, i64 8
   %42 = load ptr, ptr %obj107, align 8
   %tobool108.not = icmp eq ptr %42, null
   br i1 %tobool108.not, label %if.end110, label %if.then109
@@ -1767,7 +1758,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %arrayidx2 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx2, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %view_a.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %view_b.i)
@@ -1813,7 +1804,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %0, i64 1
+  %retval.0.i.i.i = getelementptr i8, ptr %0, i64 40
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
@@ -1822,30 +1813,30 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %PyUnicode_DATA.exit.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
+  %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
   %15 = and i32 %b.val16.i, 32
   %tobool.not.i25.i = icmp eq i32 %15, 0
-  br i1 %tobool.not.i25.i, label %if.end.i32.i, label %if.then.i26.i
+  br i1 %tobool.not.i25.i, label %if.end.i31.i, label %if.then.i26.i
 
 if.then.i26.i:                                    ; preds = %PyUnicode_DATA.exit.i
-  %add.ptr.i.i28.i = getelementptr %struct.PyASCIIObject, ptr %1, i64 1
-  br label %PyUnicode_DATA.exit34.i
+  %retval.0.i.i29.i = getelementptr i8, ptr %1, i64 40
+  br label %PyUnicode_DATA.exit33.i
 
-if.end.i32.i:                                     ; preds = %PyUnicode_DATA.exit.i
+if.end.i31.i:                                     ; preds = %PyUnicode_DATA.exit.i
   %16 = getelementptr i8, ptr %1, i64 56
-  %op.val3.i33.i = load ptr, ptr %16, align 8
-  br label %PyUnicode_DATA.exit34.i
+  %op.val3.i32.i = load ptr, ptr %16, align 8
+  br label %PyUnicode_DATA.exit33.i
 
-PyUnicode_DATA.exit34.i:                          ; preds = %if.end.i32.i, %if.then.i26.i
-  %retval.0.i31.i = phi ptr [ %add.ptr.i.i28.i, %if.then.i26.i ], [ %op.val3.i33.i, %if.end.i32.i ]
+PyUnicode_DATA.exit33.i:                          ; preds = %if.end.i31.i, %if.then.i26.i
+  %retval.0.i30.i = phi ptr [ %retval.0.i.i29.i, %if.then.i26.i ], [ %op.val3.i32.i, %if.end.i31.i ]
   %17 = getelementptr i8, ptr %0, i64 16
   %a.val17.i = load i64, ptr %17, align 8
   %18 = getelementptr i8, ptr %1, i64 16
   %b.val18.i = load i64, ptr %18, align 8
   %cmp.not.i.i = icmp ne i64 %a.val17.i, %b.val18.i
-  %spec.select.i.i = select i1 %cmp.not.i.i, ptr %retval.0.i31.i, ptr %retval.0.i.i
+  %spec.select.i.i = select i1 %cmp.not.i.i, ptr %retval.0.i30.i, ptr %retval.0.i.i
   %spec.select4.i.i = zext i1 %cmp.not.i.i to i32
-  %call.i.i = tail call i32 @CRYPTO_memcmp(ptr noundef %spec.select.i.i, ptr noundef %retval.0.i31.i, i64 noundef %b.val18.i) #9
+  %call.i.i = tail call i32 @CRYPTO_memcmp(ptr noundef %spec.select.i.i, ptr noundef %retval.0.i30.i, i64 noundef %b.val18.i) #9
   %or.i.i = or i32 %call.i.i, %spec.select4.i.i
   br label %if.end43.i
 
@@ -1862,11 +1853,11 @@ land.lhs.true16.i:                                ; preds = %if.else.i
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %19 = load ptr, ptr @PyExc_TypeError, align 8
   %a.val.i = load ptr, ptr %2, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %a.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %a.val.i, i64 24
   %20 = load ptr, ptr %tp_name.i, align 8
   %21 = getelementptr i8, ptr %1, i64 8
   %b.val.i = load ptr, ptr %21, align 8
-  %tp_name22.i = getelementptr inbounds %struct._typeobject, ptr %b.val.i, i64 0, i32 1
+  %tp_name22.i = getelementptr inbounds i8, ptr %b.val.i, i64 24
   %22 = load ptr, ptr %tp_name22.i, align 8
   %call23.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.111, ptr noundef %20, ptr noundef %22) #9
   br label %_hashlib_compare_digest_impl.exit
@@ -1877,7 +1868,7 @@ if.end24.i:                                       ; preds = %land.lhs.true16.i, 
   br i1 %cmp26.i, label %_hashlib_compare_digest_impl.exit, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i
-  %ndim.i = getelementptr inbounds %struct.Py_buffer, ptr %view_a.i, i64 0, i32 5
+  %ndim.i = getelementptr inbounds i8, ptr %view_a.i, i64 36
   %23 = load i32, ptr %ndim.i, align 4
   %cmp29.i = icmp sgt i32 %23, 1
   br i1 %cmp29.i, label %if.then30.i, label %if.end31.i
@@ -1898,7 +1889,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   br label %_hashlib_compare_digest_impl.exit
 
 if.end35.i:                                       ; preds = %if.end31.i
-  %ndim36.i = getelementptr inbounds %struct.Py_buffer, ptr %view_b.i, i64 0, i32 5
+  %ndim36.i = getelementptr inbounds i8, ptr %view_b.i, i64 36
   %25 = load i32, ptr %ndim36.i, align 4
   %cmp37.i = icmp sgt i32 %25, 1
   br i1 %cmp37.i, label %if.then38.i, label %if.end39.i
@@ -1913,21 +1904,21 @@ if.then38.i:                                      ; preds = %if.end35.i
 if.end39.i:                                       ; preds = %if.end35.i
   %27 = load ptr, ptr %view_a.i, align 8
   %28 = load ptr, ptr %view_b.i, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %view_a.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %view_a.i, i64 16
   %29 = load i64, ptr %len.i, align 8
-  %len41.i = getelementptr inbounds %struct.Py_buffer, ptr %view_b.i, i64 0, i32 2
+  %len41.i = getelementptr inbounds i8, ptr %view_b.i, i64 16
   %30 = load i64, ptr %len41.i, align 8
-  %cmp.not.i36.i = icmp ne i64 %29, %30
-  %spec.select.i37.i = select i1 %cmp.not.i36.i, ptr %28, ptr %27
-  %spec.select4.i38.i = zext i1 %cmp.not.i36.i to i32
-  %call.i39.i = call i32 @CRYPTO_memcmp(ptr noundef %spec.select.i37.i, ptr noundef %28, i64 noundef %30) #9
-  %or.i40.i = or i32 %call.i39.i, %spec.select4.i38.i
+  %cmp.not.i35.i = icmp ne i64 %29, %30
+  %spec.select.i36.i = select i1 %cmp.not.i35.i, ptr %28, ptr %27
+  %spec.select4.i37.i = zext i1 %cmp.not.i35.i to i32
+  %call.i38.i = call i32 @CRYPTO_memcmp(ptr noundef %spec.select.i36.i, ptr noundef %28, i64 noundef %30) #9
+  %or.i39.i = or i32 %call.i38.i, %spec.select4.i37.i
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #9
   call void @PyBuffer_Release(ptr noundef nonnull %view_b.i) #9
   br label %if.end43.i
 
-if.end43.i:                                       ; preds = %if.end39.i, %PyUnicode_DATA.exit34.i
-  %rc.0.in.in.i = phi i32 [ %or.i.i, %PyUnicode_DATA.exit34.i ], [ %or.i40.i, %if.end39.i ]
+if.end43.i:                                       ; preds = %if.end39.i, %PyUnicode_DATA.exit33.i
+  %rc.0.in.in.i = phi i32 [ %or.i.i, %PyUnicode_DATA.exit33.i ], [ %or.i39.i, %if.end39.i ]
   %rc.0.in.i = icmp eq i32 %rc.0.in.in.i, 0
   %conv.i = zext i1 %rc.0.in.i to i64
   %call44.i = call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
@@ -1974,20 +1965,20 @@ if.end:                                           ; preds = %entry, %cond.end
   br i1 %cmp7.not, label %if.end9, label %exit
 
 if.end9:                                          ; preds = %if.end
-  %arrayidx10 = getelementptr ptr, ptr %cond14, i64 1
+  %arrayidx10 = getelementptr i8, ptr %cond14, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
   %call11 = call i32 @PyObject_GetBuffer(ptr noundef %2, ptr noundef nonnull %msg, i32 noundef 0) #9
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %if.end14, label %exit
 
 if.end14:                                         ; preds = %if.end9
-  %arrayidx15 = getelementptr ptr, ptr %cond14, i64 2
+  %arrayidx15 = getelementptr i8, ptr %cond14, i64 16
   %3 = load ptr, ptr %arrayidx15, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %md.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %md_len.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %md.i, i8 0, i64 64, i1 false)
   store i32 0, ptr %md_len.i, align 4
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load i64, ptr %len.i, align 8
   %cmp.i = icmp sgt i64 %4, 2147483647
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1998,7 +1989,7 @@ if.then.i:                                        ; preds = %if.end14
   br label %_hashlib_hmac_singleshot_impl.exit
 
 if.end.i:                                         ; preds = %if.end14
-  %len1.i = getelementptr inbounds %struct.Py_buffer, ptr %msg, i64 0, i32 2
+  %len1.i = getelementptr inbounds i8, ptr %msg, i64 16
   %6 = load i64, ptr %len1.i, align 8
   %cmp2.i = icmp sgt i64 %6, 2147483647
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
@@ -2047,7 +2038,7 @@ _hashlib_hmac_singleshot_impl.exit:               ; preds = %if.then.i, %if.then
 
 exit:                                             ; preds = %if.end9, %if.end, %cond.end, %_hashlib_hmac_singleshot_impl.exit
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ %retval.0.i, %_hashlib_hmac_singleshot_impl.exit ], [ null, %cond.end ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %key, i64 8
   %14 = load ptr, ptr %obj, align 8
   %tobool17.not = icmp eq ptr %14, null
   br i1 %tobool17.not, label %if.end19, label %if.then18
@@ -2057,7 +2048,7 @@ if.then18:                                        ; preds = %exit
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %exit
-  %obj20 = getelementptr inbounds %struct.Py_buffer, ptr %msg, i64 0, i32 1
+  %obj20 = getelementptr inbounds i8, ptr %msg, i64 8
   %15 = load ptr, ptr %obj20, align 8
   %tobool21.not = icmp eq ptr %15, null
   br i1 %tobool21.not, label %if.end23, label %if.then22
@@ -2111,7 +2102,7 @@ if.end15:                                         ; preds = %if.end
   br i1 %tobool16.not, label %skip_optional_pos, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %arrayidx19 = getelementptr ptr, ptr %cond1019, i64 1
+  %arrayidx19 = getelementptr i8, ptr %cond1019, i64 8
   %5 = load ptr, ptr %arrayidx19, align 8
   %tobool20.not = icmp ne ptr %5, null
   %tobool23.not = icmp eq i64 %add, 2
@@ -2119,7 +2110,7 @@ if.end18:                                         ; preds = %if.end15
   br i1 %or.cond, label %skip_optional_pos, label %if.end26
 
 if.end26:                                         ; preds = %if.end18
-  %arrayidx27 = getelementptr ptr, ptr %cond1019, i64 2
+  %arrayidx27 = getelementptr i8, ptr %cond1019, i64 16
   %6 = load ptr, ptr %arrayidx27, align 8
   br label %skip_optional_pos
 
@@ -2127,9 +2118,9 @@ skip_optional_pos:                                ; preds = %if.end18, %if.end15
   %msg_obj.1 = phi ptr [ %5, %if.end26 ], [ null, %if.end15 ], [ %5, %if.end18 ]
   %digestmod.0 = phi ptr [ %6, %if.end26 ], [ null, %if.end15 ], [ null, %if.end18 ]
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #9
-  %HMACtype.i = getelementptr inbounds %struct._hashlibstate, ptr %call.i.i, i64 0, i32 1
+  %HMACtype.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %7 = load ptr, ptr %HMACtype.i, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %key, i64 16
   %8 = load i64, ptr %len.i, align 8
   %cmp.i = icmp sgt i64 %8, 2147483647
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2178,11 +2169,11 @@ if.end19.i:                                       ; preds = %if.end12.i
   br i1 %cmp21.i, label %if.end37.thread25.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
-  %ctx25.i = getelementptr inbounds %struct.HMACobject, ptr %call20.i, i64 0, i32 1
+  %ctx25.i = getelementptr inbounds i8, ptr %call20.i, i64 16
   store ptr %call8.i, ptr %ctx25.i, align 8
-  %mutex.i = getelementptr inbounds %struct.HMACobject, ptr %call20.i, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %call20.i, i64 25
   store i8 0, ptr %mutex.i, align 1
-  %use_mutex.i = getelementptr inbounds %struct.HMACobject, ptr %call20.i, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %call20.i, i64 24
   store i8 0, ptr %use_mutex.i, align 8
   %cmp26.i = icmp ne ptr %msg_obj.1, null
   %cmp28.i = icmp ne ptr %msg_obj.1, @_Py_NoneStruct
@@ -2210,7 +2201,7 @@ if.then39.i:                                      ; preds = %if.then30.i
 
 exit:                                             ; preds = %if.then39.i, %if.end37.thread25.i, %if.end37.thread.i, %if.then30.i, %if.end24.i, %if.end3.i, %if.then2.i, %if.then.i, %if.end, %cond.end9
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.end3.i ], [ %call20.i, %if.then30.i ], [ %call20.i, %if.end24.i ], [ null, %if.then39.i ], [ null, %if.end37.thread.i ], [ null, %if.end37.thread25.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %key, i64 8
   %15 = load ptr, ptr %obj, align 8
   %tobool29.not = icmp eq ptr %15, null
   br i1 %tobool29.not, label %if.end31, label %if.then30
@@ -2262,7 +2253,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2318,7 +2309,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2374,7 +2365,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2430,7 +2421,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2486,7 +2477,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2542,7 +2533,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2598,7 +2589,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2654,7 +2645,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2710,7 +2701,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2766,7 +2757,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2822,7 +2813,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2878,7 +2869,7 @@ skip_optional_pos:                                ; preds = %if.end
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
   %cmp27 = icmp slt i32 %call26, 0
@@ -2937,7 +2928,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 5
+  %ndim = getelementptr inbounds i8, ptr %view, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp11 = icmp sgt i32 %5, 1
   br i1 %cmp11, label %if.then12, label %if.end14
@@ -2957,23 +2948,22 @@ if.end14:                                         ; preds = %if.end10, %entry
 
 if.end19:                                         ; preds = %if.end14
   %call20 = call i64 @EVP_MD_get_flags(ptr noundef nonnull %call16) #9
-  %and = and i64 %call20, 2
-  %cmp21.not = icmp eq i64 %and, 0
   %call.i28 = call ptr @PyModule_GetState(ptr noundef %module) #9
-  %EVPXOFtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i28, i64 0, i32 2
-  %type.0.in = select i1 %cmp21.not, ptr %call.i28, ptr %EVPXOFtype
+  %and = shl i64 %call20, 3
+  %type.0.in.idx = and i64 %and, 16
+  %type.0.in = getelementptr inbounds i8, ptr %call.i28, i64 %type.0.in.idx
   %type.0 = load ptr, ptr %type.0.in, align 8
   %call.i29 = call ptr @_PyObject_New(ptr noundef %type.0) #9
   %cmp.i30 = icmp eq ptr %call.i29, null
   br i1 %cmp.i30, label %exit, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end19
-  %mutex.i = getelementptr inbounds %struct.EVPobject, ptr %call.i29, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %call.i29, i64 25
   store i8 0, ptr %mutex.i, align 1
-  %use_mutex.i = getelementptr inbounds %struct.EVPobject, ptr %call.i29, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %call.i29, i64 24
   store i8 0, ptr %use_mutex.i, align 8
   %call2.i = call ptr @EVP_MD_CTX_new() #9
-  %ctx.i = getelementptr inbounds %struct.EVPobject, ptr %call.i29, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %call.i29, i64 16
   store ptr %call2.i, ptr %ctx.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %if.then5.i, label %if.end29
@@ -3024,7 +3014,7 @@ if.then1.i78:                                     ; preds = %if.end.i75
 if.end39:                                         ; preds = %if.end29
   %12 = load ptr, ptr %view, align 8
   %tobool40 = icmp ne ptr %12, null
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %view, i64 16
   %13 = load i64, ptr %len, align 8
   %tobool41 = icmp ne i64 %13, 0
   %or.cond = select i1 %tobool40, i1 %tobool41, i1 false
@@ -3133,7 +3123,7 @@ return:                                           ; preds = %if.end68, %if.then7
 define internal fastcc ptr @py_digest_by_name(ptr noundef %module, ptr noundef %name, i32 noundef %py_ht) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
-  %hashtable = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 5
+  %hashtable = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %hashtable, align 8
   %call2 = tail call ptr @_Py_hashtable_get(ptr noundef %0, ptr noundef %name) #9
   %cmp.not = icmp eq ptr %call2, null
@@ -3148,26 +3138,26 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then, %if.then, %if.then
-  %evp = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 5
+  %evp = getelementptr inbounds i8, ptr %call2, i64 32
   %1 = load ptr, ptr %evp, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then4, label %if.end25.thread21
 
 if.then4:                                         ; preds = %sw.bb
-  %ossl_name = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 2
+  %ossl_name = getelementptr inbounds i8, ptr %call2, i64 16
   %2 = load ptr, ptr %ossl_name, align 8
   %call5 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %2, ptr noundef null) #9
   store ptr %call5, ptr %evp, align 8
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.then
-  %evp_nosecurity = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 6
+  %evp_nosecurity = getelementptr inbounds i8, ptr %call2, i64 40
   %3 = load ptr, ptr %evp_nosecurity, align 8
   %cmp9 = icmp eq ptr %3, null
   br i1 %cmp9, label %if.then10, label %if.end25.thread21
 
 if.then10:                                        ; preds = %sw.bb8
-  %ossl_name11 = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 2
+  %ossl_name11 = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %ossl_name11, align 8
   %call12 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %4, ptr noundef nonnull @.str.78) #9
   store ptr %call12, ptr %evp_nosecurity, align 8
@@ -3205,7 +3195,7 @@ if.end25:                                         ; preds = %sw.bb20, %sw.bb22
   br i1 %cmp26, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.then, %if.else, %sw.epilog, %if.end25
-  %unsupported_digestmod_error = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 4
+  %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   %5 = load ptr, ptr %unsupported_digestmod_error, align 8
   tail call void (ptr, ptr, ...) @_setException(ptr noundef %5, ptr noundef nonnull @.str.79, ptr noundef %name)
   br label %return
@@ -3252,7 +3242,7 @@ entry:
   br i1 %cmp, label %if.end59, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %password, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %password, i64 16
   %0 = load i64, ptr %len, align 8
   %cmp2 = icmp sgt i64 %0, 2147483647
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -3263,7 +3253,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.then58
 
 if.end4:                                          ; preds = %if.end
-  %len5 = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 2
+  %len5 = getelementptr inbounds i8, ptr %salt, i64 16
   %2 = load i64, ptr %len5, align 8
   %cmp6 = icmp sgt i64 %2, 2147483647
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -3335,7 +3325,7 @@ if.end32:                                         ; preds = %if.end28
   br i1 %cmp34, label %if.then58, label %if.end37
 
 if.end37:                                         ; preds = %if.end32
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call33, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call33, i64 32
   %call39 = tail call ptr @PyEval_SaveThread() #9
   %8 = load ptr, ptr %password, align 8
   %9 = load i64, ptr %len, align 8
@@ -3408,7 +3398,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
-  %constructs = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 3
+  %constructs = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %constructs, align 8
   %call3 = tail call ptr @PyDict_GetItemWithError(ptr noundef %3, ptr noundef nonnull %digestmod) #9
   %cmp = icmp eq ptr %call3, null
@@ -3421,7 +3411,7 @@ if.then4:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then4
   %call.i9 = tail call ptr @PyModule_GetState(ptr noundef %module) #9
-  %unsupported_digestmod_error = getelementptr inbounds %struct._hashlibstate, ptr %call.i9, i64 0, i32 4
+  %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i9, i64 32
   %4 = load ptr, ptr %unsupported_digestmod_error, align 8
   %call10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.115, ptr noundef nonnull %digestmod) #9
   br label %return
@@ -3471,15 +3461,15 @@ if.end6.i:                                        ; preds = %for.body.i
   br i1 %cmp9.i, label %error.sink.split.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
-  %refcnt.i = getelementptr inbounds %struct.py_hashentry_t, ptr %call3.i, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 1, ptr %refcnt.i, align 4
-  %py_alias.i = getelementptr inbounds %struct.py_hashentry_t, ptr %h.019.i, i64 0, i32 1
+  %py_alias.i = getelementptr inbounds i8, ptr %h.019.i, i64 8
   %1 = load ptr, ptr %py_alias.i, align 8
   %cmp12.not.i = icmp eq ptr %1, null
   br i1 %cmp12.not.i, label %for.inc.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end11.i
-  %py_alias14.i = getelementptr inbounds %struct.py_hashentry_t, ptr %call3.i, i64 0, i32 1
+  %py_alias14.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %2 = load ptr, ptr %py_alias14.i, align 8
   %call15.i = tail call i32 @_Py_hashtable_set(ptr noundef nonnull %call.i2, ptr noundef %2, ptr noundef nonnull %call3.i) #9
   %cmp16.i = icmp slt i32 %call15.i, 0
@@ -3492,7 +3482,7 @@ if.end18.i:                                       ; preds = %if.then13.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end18.i, %if.end11.i
-  %incdec.ptr.i = getelementptr %struct.py_hashentry_t, ptr %h.019.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %h.019.i, i64 48
   %4 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq ptr %4, null
   br i1 %cmp1.not.i, label %py_hashentry_table_new.exit, label %for.body.i, !llvm.loop !9
@@ -3506,13 +3496,13 @@ error.i:                                          ; preds = %for.body.i, %error.
   br label %py_hashentry_table_new.exit.thread
 
 py_hashentry_table_new.exit.thread:               ; preds = %error.i, %entry
-  %hashtable4 = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 5
+  %hashtable4 = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %hashtable4, align 8
   %call3 = tail call ptr @PyErr_NoMemory() #9
   br label %return
 
 py_hashentry_table_new.exit:                      ; preds = %for.inc.i
-  %hashtable = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 5
+  %hashtable = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call.i2, ptr %hashtable, align 8
   br label %return
 
@@ -3550,7 +3540,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyType_FromSpecWithBases(ptr noundef nonnull @EVPXOFtype_spec, ptr noundef nonnull %0) #9
-  %EVPXOFtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 2
+  %EVPXOFtype = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %EVPXOFtype, align 8
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %return, label %if.end6
@@ -3570,7 +3560,7 @@ define internal i32 @hashlib_init_hmactype(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @HMACtype_spec) #9
-  %HMACtype = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 1
+  %HMACtype = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1, ptr %HMACtype, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -3591,7 +3581,7 @@ entry:
   %state = alloca %struct._internal_name_mapper_state, align 8
   %call = tail call ptr @PyFrozenSet_New(ptr noundef null) #9
   store ptr %call, ptr %state, align 8
-  %error = getelementptr inbounds %struct._internal_name_mapper_state, ptr %state, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %state, i64 8
   store i32 0, ptr %error, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
@@ -3638,13 +3628,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyDict_New() #9
-  %constructs = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 3
+  %constructs = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call2, ptr %constructs, align 8
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %m_methods = getelementptr inbounds %struct.PyModuleDef, ptr %call1, i64 0, i32 4
+  %m_methods = getelementptr inbounds i8, ptr %call1, i64 64
   %0 = load ptr, ptr %m_methods, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp7.not24 = icmp eq ptr %1, null
@@ -3724,7 +3714,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit38, %
   br i1 %cmp24, label %return, label %for.inc
 
 for.inc:                                          ; preds = %Py_DECREF.exit, %for.body
-  %incdec.ptr = getelementptr %struct.PyMethodDef, ptr %fdef.025, i64 1
+  %incdec.ptr = getelementptr i8, ptr %fdef.025, i64 32
   %11 = load ptr, ptr %incdec.ptr, align 8
   %cmp7.not = icmp eq ptr %11, null
   br i1 %cmp7.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
@@ -3750,7 +3740,7 @@ entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %0 = load ptr, ptr @PyExc_ValueError, align 8
   %call1 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.126, ptr noundef %0, ptr noundef null) #9
-  %unsupported_digestmod_error = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 4
+  %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call1, ptr %unsupported_digestmod_error, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -3787,7 +3777,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @py_hashentry_t_destroy_value(ptr noundef %entry1) #0 {
 entry:
-  %refcnt = getelementptr inbounds %struct.py_hashentry_t, ptr %entry1, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %entry1, i64 28
   %0 = load i32, ptr %refcnt, align 4
   %dec = add i32 %0, -1
   store i32 %dec, ptr %refcnt, align 4
@@ -3795,7 +3785,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
-  %evp = getelementptr inbounds %struct.py_hashentry_t, ptr %entry1, i64 0, i32 5
+  %evp = getelementptr inbounds i8, ptr %entry1, i64 32
   %1 = load ptr, ptr %evp, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end, label %if.then3
@@ -3806,7 +3796,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %evp_nosecurity = getelementptr inbounds %struct.py_hashentry_t, ptr %entry1, i64 0, i32 6
+  %evp_nosecurity = getelementptr inbounds i8, ptr %entry1, i64 40
   %2 = load ptr, ptr %evp_nosecurity, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end10, label %if.then7
@@ -3846,7 +3836,7 @@ define internal void @EVP_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %ctx = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %ctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %1) #9
   tail call void @PyObject_Free(ptr noundef %self) #9
@@ -3872,7 +3862,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 ; Function Attrs: nounwind uwtable
 define internal ptr @EVP_repr(ptr noundef %self) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @EVP_MD_CTX_md(ptr noundef %0) #9
   %call.i = tail call i32 @EVP_MD_get_type(ptr noundef %call) #9
@@ -3881,13 +3871,13 @@ entry:
 
 for.cond.i:                                       ; preds = %entry, %for.body.i
   %h.011.i9 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @py_hashes, %entry ]
-  %incdec.ptr.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i9, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %h.011.i9, i64 48
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %ossl_nid.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i9, i64 1, i32 3
+  %ossl_nid.i = getelementptr i8, ptr %h.011.i9, i64 72
   %2 = load i32, ptr %ossl_nid.i, align 8
   %cmp1.i = icmp eq i32 %2, %call.i
   br i1 %cmp1.i, label %py_digest_name.exit, label %for.cond.i, !llvm.loop !4
@@ -3910,7 +3900,7 @@ py_digest_name.exit:                              ; preds = %for.body.i, %entry,
 if.end:                                           ; preds = %py_digest_name.exit
   %3 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %3, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.119, ptr noundef nonnull %call11.i, ptr noundef %4, ptr noundef %self) #9
   %5 = load i64, ptr %call11.i, align 8
@@ -3970,7 +3960,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 5
+  %ndim = getelementptr inbounds i8, ptr %view, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -3982,11 +3972,11 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 2
+  %use_mutex = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i8, ptr %use_mutex, align 8
   %8 = and i8 %7, 1
   %tobool12.not9 = icmp eq i8 %8, 0
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %view, i64 16
   %9 = load i64, ptr %len, align 8
   %cmp13 = icmp sgt i64 %9, 2047
   %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
@@ -4003,7 +3993,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #9
-  %mutex = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex = getelementptr inbounds i8, ptr %self, i64 25
   %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
@@ -4019,7 +4009,7 @@ PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then
 
 while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
   %14 = load ptr, ptr %view, align 8
-  %ctx.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end5.i, %while.body.lr.ph.i
@@ -4058,7 +4048,7 @@ if.else:                                          ; preds = %if.end16
 
 while.body.lr.ph.i14:                             ; preds = %if.else
   %19 = load ptr, ptr %view, align 8
-  %ctx.i15 = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i15 = getelementptr inbounds i8, ptr %self, i64 16
   br label %while.body.i16
 
 while.body.i16:                                   ; preds = %if.end5.i22, %while.body.lr.ph.i14
@@ -4113,14 +4103,14 @@ if.then.i:                                        ; preds = %entry
   br label %EVP_digest_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %use_mutex.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mutex.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %2 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i.i, label %if.then.i.i.i
@@ -4130,7 +4120,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
-  %ctx.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %ctx.i.i, align 8
   %call.i.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %4) #9
   %5 = load i8, ptr %use_mutex.i.i, align 8
@@ -4139,7 +4129,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.
   br i1 %tobool2.not.i.i, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %mutex4.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %7 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
@@ -4195,14 +4185,14 @@ if.then.i:                                        ; preds = %entry
   br label %EVP_hexdigest_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %use_mutex.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mutex.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %2 = cmpxchg ptr %mutex.i.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i.i, label %if.then.i.i.i
@@ -4212,7 +4202,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
-  %ctx.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %ctx.i.i, align 8
   %call.i.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %4) #9
   %5 = load i8, ptr %use_mutex.i.i, align 8
@@ -4221,7 +4211,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.
   br i1 %tobool2.not.i.i, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %mutex4.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %7 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
@@ -4273,12 +4263,12 @@ entry:
   br i1 %cmp.i6.i, label %EVP_copy_impl.exit, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %entry
-  %mutex.i.i = getelementptr inbounds %struct.EVPobject, ptr %call.i.i, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 25
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.EVPobject, ptr %call.i.i, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i8 0, ptr %use_mutex.i.i, align 8
   %call2.i.i = tail call ptr @EVP_MD_CTX_new() #9
-  %ctx.i.i = getelementptr inbounds %struct.EVPobject, ptr %call.i.i, i64 0, i32 1
+  %ctx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call2.i.i, ptr %ctx.i.i, align 8
   %cmp4.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end.i
@@ -4304,14 +4294,14 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if
   br label %EVP_copy_impl.exit
 
 if.end.i:                                         ; preds = %do.body.i.i
-  %use_mutex.i7.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 2
+  %use_mutex.i7.i = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i8, ptr %use_mutex.i7.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i9.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mutex.i8.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex.i8.i = getelementptr inbounds i8, ptr %self, i64 25
   %5 = cmpxchg ptr %mutex.i8.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %if.end.i9.i, label %if.then.i.i.i
@@ -4321,7 +4311,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %if.end.i9.i
 
 if.end.i9.i:                                      ; preds = %if.then.i.i.i, %if.then.i.i, %if.end.i
-  %ctx.i10.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i10.i = getelementptr inbounds i8, ptr %self, i64 16
   %7 = load ptr, ptr %ctx.i10.i, align 8
   %call.i11.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call2.i.i, ptr noundef %7) #9
   %8 = load i8, ptr %use_mutex.i7.i, align 8
@@ -4330,7 +4320,7 @@ if.end.i9.i:                                      ; preds = %if.then.i.i.i, %if.
   br i1 %tobool2.not.i.i, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i9.i
-  %mutex4.i.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex4.i.i = getelementptr inbounds i8, ptr %self, i64 25
   %10 = cmpxchg ptr %mutex4.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %11 = extractvalue { i8, i1 } %10, 1
   br i1 %11, label %locked_EVP_MD_CTX_copy.exit.i, label %if.then.i5.i.i
@@ -4378,7 +4368,7 @@ declare i32 @EVP_MD_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @EVP_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #9
   %call1 = tail call i32 @EVP_MD_get_size(ptr noundef %call) #9
@@ -4390,7 +4380,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @EVP_get_block_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #9
   %call1 = tail call i32 @EVP_MD_get_block_size(ptr noundef %call) #9
@@ -4402,7 +4392,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @EVP_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @EVP_MD_CTX_md(ptr noundef %0) #9
   %call.i = tail call i32 @EVP_MD_get_type(ptr noundef %call) #9
@@ -4411,13 +4401,13 @@ entry:
 
 for.cond.i:                                       ; preds = %entry, %for.body.i
   %h.011.i3 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @py_hashes, %entry ]
-  %incdec.ptr.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i3, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %h.011.i3, i64 48
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %ossl_nid.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i3, i64 1, i32 3
+  %ossl_nid.i = getelementptr i8, ptr %h.011.i3, i64 72
   %2 = load i32, ptr %ossl_nid.i, align 8
   %cmp1.i = icmp eq i32 %2, %call.i
   br i1 %cmp1.i, label %py_digest_name.exit, label %for.cond.i, !llvm.loop !4
@@ -4594,14 +4584,14 @@ Py_DECREF.exit34:                                 ; preds = %if.then4, %if.then1
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %use_mutex.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i8, ptr %use_mutex.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.end.i18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %mutex.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 25
   %4 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 1
   br i1 %5, label %if.end.i18, label %if.then.i.i
@@ -4611,7 +4601,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then.i.i, %if.then.i, %if.end6
-  %ctx.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
   %6 = load ptr, ptr %ctx.i, align 8
   %call.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call2, ptr noundef %6) #9
   %7 = load i8, ptr %use_mutex.i, align 8
@@ -4620,7 +4610,7 @@ if.end.i18:                                       ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %locked_EVP_MD_CTX_copy.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i18
-  %mutex4.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 25
   %9 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %locked_EVP_MD_CTX_copy.exit, label %if.then.i5.i
@@ -4656,7 +4646,7 @@ Py_DECREF.exit25:                                 ; preds = %if.then8, %if.then1
   br label %return
 
 if.end10:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call, i64 32
   %call12 = tail call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %call2, ptr noundef nonnull %ob_sval.i, i64 noundef %length) #9
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %if.then14, label %if.end16
@@ -4716,14 +4706,14 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %use_mutex.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %use_mutex.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %mutex.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 25
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -4733,7 +4723,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %if.end7
-  %ctx.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %ctx.i, align 8
   %call.i = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %call3, ptr noundef %4) #9
   %5 = load i8, ptr %use_mutex.i, align 8
@@ -4742,7 +4732,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %locked_EVP_MD_CTX_copy.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.EVPobject, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 25
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %locked_EVP_MD_CTX_copy.exit, label %if.then.i5.i
@@ -4814,13 +4804,13 @@ if.end:                                           ; preds = %lor.lhs.false
 
 for.cond.i:                                       ; preds = %if.end, %for.body.i
   %h.011.i11 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @py_hashes, %if.end ]
-  %incdec.ptr.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i11, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %h.011.i11, i64 48
   %0 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %ossl_nid.i = getelementptr %struct.py_hashentry_t, ptr %h.011.i11, i64 1, i32 3
+  %ossl_nid.i = getelementptr i8, ptr %h.011.i11, i64 72
   %1 = load i32, ptr %ossl_nid.i, align 8
   %cmp1.i = icmp eq i32 %1, %call.i
   br i1 %cmp1.i, label %py_digest_name.exit, label %for.cond.i, !llvm.loop !4
@@ -4841,7 +4831,7 @@ py_digest_name.exit:                              ; preds = %for.body.i, %if.end
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %py_digest_name.exit
-  %error = getelementptr inbounds %struct._internal_name_mapper_state, ptr %arg, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %arg, i64 8
   store i32 1, ptr %error, align 8
   br label %if.end10
 
@@ -4852,7 +4842,7 @@ if.else:                                          ; preds = %py_digest_name.exit
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %error8 = getelementptr inbounds %struct._internal_name_mapper_state, ptr %arg, i64 0, i32 1
+  %error8 = getelementptr inbounds i8, ptr %arg, i64 8
   store i32 1, ptr %error8, align 8
   br label %if.end9
 

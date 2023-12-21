@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_aes_xts_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, %union.anon.0, %struct.xts128_context, ptr }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [240 x i8] }
-%struct.xts128_context = type { ptr, ptr, ptr, ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @ossl_aes256xts_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @aes_256_xts_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @aes_xts_einit }, %struct.ossl_dispatch_st { i32 3, ptr @aes_xts_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @aes_xts_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @aes_xts_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @aes_xts_cipher }, %struct.ossl_dispatch_st { i32 7, ptr @aes_xts_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @aes_xts_dupctx }, %struct.ossl_dispatch_st { i32 9, ptr @aes_256_xts_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_cipher_generic_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_generic_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @aes_xts_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @aes_xts_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_aes128xts_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @aes_128_xts_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @aes_xts_einit }, %struct.ossl_dispatch_st { i32 3, ptr @aes_xts_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @aes_xts_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @aes_xts_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @aes_xts_cipher }, %struct.ossl_dispatch_st { i32 7, ptr @aes_xts_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @aes_xts_dupctx }, %struct.ossl_dispatch_st { i32 9, ptr @aes_128_xts_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_cipher_generic_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_generic_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @aes_xts_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @aes_xts_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -102,19 +96,19 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %xts = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 3
+  %xts = getelementptr inbounds i8, ptr %vctx, i64 688
   %0 = load ptr, ptr %xts, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %key2 = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 3, i32 1
+  %key2 = getelementptr inbounds i8, ptr %vctx, i64 696
   %1 = load ptr, ptr %key2, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false1
-  %iv_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %iv_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %iv_set, align 4
   %2 = and i8 %bf.load, 4
   %tobool5 = icmp eq i8 %2, 0
@@ -137,10 +131,10 @@ if.then13:                                        ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %stream = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 4
+  %stream = getelementptr inbounds i8, ptr %vctx, i64 720
   %3 = load ptr, ptr %stream, align 8
   %cmp15.not = icmp eq ptr %3, null
-  %iv25 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 2
+  %iv25 = getelementptr inbounds i8, ptr %vctx, i64 32
   br i1 %cmp15.not, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
@@ -180,19 +174,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %xts = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 3
+  %xts = getelementptr inbounds i8, ptr %vctx, i64 688
   %0 = load ptr, ptr %xts, align 8
   %cmp.not = icmp eq ptr %0, null
-  %ks1 = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 1
+  %ks1 = getelementptr inbounds i8, ptr %vctx, i64 192
   %cmp4.not = icmp eq ptr %0, %ks1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp4.not
   br i1 %or.cond, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %key2 = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 3, i32 1
+  %key2 = getelementptr inbounds i8, ptr %vctx, i64 696
   %1 = load ptr, ptr %key2, align 8
   %cmp9.not = icmp eq ptr %1, null
-  %ks2 = getelementptr inbounds %struct.prov_aes_xts_ctx_st, ptr %vctx, i64 0, i32 2
+  %ks2 = getelementptr inbounds i8, ptr %vctx, i64 440
   %cmp13.not = icmp eq ptr %1, %ks2
   %or.cond11 = select i1 %cmp9.not, i1 true, i1 %cmp13.not
   br i1 %or.cond11, label %if.end16, label %return
@@ -203,9 +197,9 @@ if.end16:                                         ; preds = %if.end7
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %2 = load ptr, ptr %hw, align 8
-  %copyctx = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %2, i64 0, i32 2
+  %copyctx = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %copyctx, align 8
   tail call void %3(ptr noundef nonnull %call17, ptr noundef nonnull %vctx) #4
   br label %return
@@ -253,7 +247,7 @@ if.then4:                                         ; preds = %if.then2
 
 if.end5:                                          ; preds = %if.then2
   %0 = load i64, ptr %keylen, align 8
-  %keylen6 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen6 = getelementptr inbounds i8, ptr %vctx, i64 72
   %1 = load i64, ptr %keylen6, align 8
   %cmp7.not = icmp eq i64 %0, %1
   br i1 %cmp7.not, label %if.end10, label %return
@@ -310,7 +304,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enc1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
   %0 = trunc i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
@@ -331,7 +325,7 @@ if.end7:                                          ; preds = %if.then2, %if.end
   br i1 %cmp8.not, label %if.end22, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %keylen10 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen10 = getelementptr inbounds i8, ptr %vctx, i64 72
   %1 = load i64, ptr %keylen10, align 8
   %cmp11.not = icmp eq i64 %1, %keylen
   br i1 %cmp11.not, label %if.end13, label %if.then12
@@ -363,7 +357,7 @@ aes_xts_check_keys_differ.exit:                   ; preds = %land.lhs.true.i
   br label %return
 
 if.end17:                                         ; preds = %if.end13, %land.lhs.true.i
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %3 = load ptr, ptr %hw, align 8
   %4 = load ptr, ptr %3, align 8
   %call18 = tail call i32 %4(ptr noundef nonnull %vctx, ptr noundef nonnull %key, i64 noundef %keylen) #4
@@ -393,7 +387,7 @@ if.then4.i:                                       ; preds = %if.then2.i
 
 if.end5.i:                                        ; preds = %if.then2.i
   %5 = load i64, ptr %keylen.i, align 8
-  %keylen6.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen6.i = getelementptr inbounds i8, ptr %vctx, i64 72
   %6 = load i64, ptr %keylen6.i, align 8
   %cmp7.not.i = icmp eq i64 %5, %6
   br i1 %cmp7.not.i, label %if.end10.i, label %aes_xts_set_ctx_params.exit

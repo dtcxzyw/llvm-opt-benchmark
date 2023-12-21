@@ -37,57 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.arena_s = type { [2 x %struct.atomic_u_t], %struct.atomic_u_t, ptr, %struct.arena_stats_s, %struct.anon.2, %struct.anon.3, %struct.malloc_mutex_s, %struct.atomic_u_t, %struct.edata_list_active_t, %struct.malloc_mutex_s, %struct.pa_shard_s, i32, ptr, %struct.nstime_t, [0 x %struct.bin_s] }
-%struct.arena_stats_s = type { i64, i64, i64, i64, %struct.atomic_zu_t, i64, i64, i64, i64, i64, i64, %struct.pa_shard_stats_s, i64, i64, [12 x %struct.mutex_prof_data_t], [196 x %struct.arena_stats_large_s], %struct.nstime_t }
-%struct.atomic_zu_t = type { i64 }
-%struct.pa_shard_stats_s = type { i64, %struct.pac_stats_s }
-%struct.pac_stats_s = type { %struct.pac_decay_stats_s, %struct.pac_decay_stats_s, i64, %struct.atomic_zu_t, %struct.atomic_zu_t }
-%struct.pac_decay_stats_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s }
-%struct.locked_u64_s = type { %struct.atomic_u64_t }
-%struct.atomic_u64_t = type { i64 }
-%struct.arena_stats_large_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, i64 }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.atomic_u_t = type { i32 }
-%struct.edata_list_active_t = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr }
-%struct.pa_shard_s = type { ptr, %struct.atomic_zu_t, %struct.atomic_b_t, i8, %struct.pac_s, %struct.sec_s, %struct.hpa_shard_s, %struct.edata_cache_s, i32, ptr, ptr, ptr, ptr }
-%struct.pac_s = type { %struct.pai_s, %struct.ecache_s, %struct.ecache_s, %struct.ecache_s, ptr, ptr, ptr, %struct.exp_grow_s, %struct.malloc_mutex_s, %struct.san_bump_alloc_s, %struct.atomic_zu_t, %struct.decay_s, %struct.decay_s, ptr, ptr, %struct.atomic_zu_t }
-%struct.pai_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ecache_s = type { %struct.malloc_mutex_s, %struct.eset_s, %struct.eset_s, i32, i32, i8 }
-%struct.eset_s = type { [4 x i64], [200 x %struct.eset_bin_s], [200 x %struct.eset_bin_stats_s], %struct.edata_list_inactive_t, %struct.atomic_zu_t, i32 }
-%struct.eset_bin_s = type { %struct.edata_heap_t, %struct.edata_cmp_summary_s }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.edata_cmp_summary_s = type { i64, i64 }
-%struct.eset_bin_stats_s = type { %struct.atomic_zu_t, %struct.atomic_zu_t }
-%struct.edata_list_inactive_t = type { %struct.anon.5 }
-%struct.anon.5 = type { ptr }
-%struct.exp_grow_s = type { i32, i32 }
-%struct.san_bump_alloc_s = type { %struct.malloc_mutex_s, ptr }
-%struct.decay_s = type { %struct.malloc_mutex_s, i8, %struct.atomic_zd_t, %struct.nstime_t, %struct.nstime_t, i64, %struct.nstime_t, i64, i64, [200 x i64], i64 }
-%struct.atomic_zd_t = type { i64 }
-%struct.sec_s = type { %struct.pai_s, ptr, %struct.sec_opts_s, ptr, i32 }
-%struct.sec_opts_s = type { i64, i64, i64, i64, i64 }
-%struct.hpa_shard_s = type { %struct.pai_s, ptr, %struct.malloc_mutex_s, %struct.malloc_mutex_s, ptr, %struct.edata_cache_fast_s, %struct.psset_s, i64, i32, ptr, %struct.hpa_shard_opts_s, i64, %struct.hpa_shard_nonderived_stats_s, %struct.nstime_t }
-%struct.edata_cache_fast_s = type { %struct.edata_list_inactive_t, ptr, i8 }
-%struct.psset_s = type { [64 x %struct.hpdata_age_heap_t], [1 x i64], %struct.psset_bin_stats_s, %struct.psset_stats_s, %struct.hpdata_empty_list_t, [128 x %struct.hpdata_purge_list_t], [2 x i64], %struct.hpdata_hugify_list_t }
-%struct.hpdata_age_heap_t = type { %struct.ph_s }
-%struct.psset_bin_stats_s = type { i64, i64, i64 }
-%struct.psset_stats_s = type { [64 x [2 x %struct.psset_bin_stats_s]], [2 x %struct.psset_bin_stats_s], [2 x %struct.psset_bin_stats_s] }
-%struct.hpdata_empty_list_t = type { %struct.anon.6 }
-%struct.anon.6 = type { ptr }
-%struct.hpdata_purge_list_t = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr }
-%struct.hpdata_hugify_list_t = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr }
-%struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i64 }
-%struct.hpa_shard_nonderived_stats_s = type { i64, i64, i64, i64 }
-%struct.edata_cache_s = type { %struct.edata_avail_t, %struct.atomic_zu_t, %struct.malloc_mutex_s, ptr }
-%struct.edata_avail_t = type { %struct.ph_s }
-%struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
-%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.background_thread_stats_s = type { i64, i64, %struct.nstime_t, %struct.mutex_prof_data_t }
 %struct.cpu_set_t = type { [16 x i64] }
 %struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
@@ -125,13 +74,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @background_thread_create(ptr noundef %tsd, i32 noundef %arena_ind) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @background_thread_lock) #11
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -151,8 +100,8 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %call1 = tail call fastcc zeroext i1 @background_thread_create_locked(ptr noundef %tsd, i32 noundef %arena_ind)
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   ret i1 %call1
 }
 
@@ -166,31 +115,31 @@ entry:
   %rem = urem i64 %conv, %0
   %1 = load ptr, ptr @background_thread_info, align 8
   %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem, i32 2
-  %lock.i.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 1
+  %mtx = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %lock.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
-  %locked.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
   %2 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 104
   %3 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsd, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %4 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %4, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
@@ -203,81 +152,81 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %tobool.i.not, label %if.then8.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %malloc_mutex_lock.exit
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem, i32 3
+  %state = getelementptr inbounds i8, ptr %arrayidx, i64 168
   %7 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then, label %if.then8.critedge
 
 if.then:                                          ; preds = %land.rhs
   store i32 1, ptr %state, align 8
-  %indefinite_sleep.i.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem, i32 4
+  %indefinite_sleep.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 172
   store atomic i8 0, ptr %indefinite_sleep.i.i.i release, align 1
-  %next_wakeup.i.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem, i32 5
+  %next_wakeup.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 176
   tail call void @nstime_init(ptr noundef nonnull %next_wakeup.i.i.i, i64 noundef 0) #11
-  %npages_to_purge_new.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem, i32 6
-  %tot_sleep_time.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 %rem, i32 8
+  %npages_to_purge_new.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 184
+  %tot_sleep_time.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i.i, ptr noundef nonnull @nstime_zero) #11
   %8 = load i64, ptr @n_background_threads, align 8
   %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr @n_background_threads, align 8
-  %locked.i23 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i23 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 0, ptr %locked.i23 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %cmp10.not = icmp eq i32 %arena_ind, 0
   br i1 %cmp10.not, label %if.end21, label %if.then12
 
 if.then8.critedge:                                ; preds = %malloc_mutex_lock.exit, %land.rhs
-  %locked.i24 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i24 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 0, ptr %locked.i24 monotonic, align 1
   %call1.i26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   br label %return
 
 if.then12:                                        ; preds = %if.then
   %9 = load ptr, ptr @background_thread_info, align 8
-  %lock.i.i27 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i27 = getelementptr inbounds i8, ptr %9, i64 120
   %call.i.i28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i27) #11
   %cmp.i.not.i29 = icmp eq i32 %call.i.i28, 0
   br i1 %cmp.i.not.i29, label %if.end.i32, label %if.then.i30
 
 if.then.i30:                                      ; preds = %if.then12
-  %mtx15 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2
+  %mtx15 = getelementptr inbounds i8, ptr %9, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx15) #11
-  %locked.i31 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i31 = getelementptr inbounds i8, ptr %9, i64 160
   store atomic i8 1, ptr %locked.i31 monotonic, align 1
   br label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.then.i30, %if.then12
-  %n_lock_ops.i.i33 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i33 = getelementptr inbounds i8, ptr %9, i64 112
   %10 = load i64, ptr %n_lock_ops.i.i33, align 8
   %inc.i.i34 = add i64 %10, 1
   store i64 %inc.i.i34, ptr %n_lock_ops.i.i33, align 8
-  %prev_owner.i.i35 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i35 = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %prev_owner.i.i35, align 8
   %cmp.not.i.i36 = icmp eq ptr %11, %tsd
   br i1 %cmp.not.i.i36, label %malloc_mutex_lock.exit40, label %if.then.i.i37
 
 if.then.i.i37:                                    ; preds = %if.end.i32
   store ptr %tsd, ptr %prev_owner.i.i35, align 8
-  %n_owner_switches.i.i38 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i38 = getelementptr inbounds i8, ptr %9, i64 96
   %12 = load i64, ptr %n_owner_switches.i.i38, align 8
   %inc2.i.i39 = add i64 %12, 1
   store i64 %inc2.i.i39, ptr %n_owner_switches.i.i38, align 8
   br label %malloc_mutex_lock.exit40
 
 malloc_mutex_lock.exit40:                         ; preds = %if.end.i32, %if.then.i.i37
-  %cond = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %9, i64 8
   %call18 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #11
-  %locked.i41 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i41 = getelementptr inbounds i8, ptr %9, i64 160
   store atomic i8 0, ptr %locked.i41 monotonic, align 1
   %call1.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i27) #11
   br label %return
 
 if.end21:                                         ; preds = %if.then
-  %state.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 29
+  %state.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 832
   %13 = load i8, ptr %state.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i8 %13, 0
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
   %14 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %inc.i.i44 = add i8 %14, 1
   store i8 %inc.i.i44, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
@@ -353,7 +302,7 @@ if.end.i56:                                       ; preds = %if.then.i54, %if.th
 
 if.then.i.i61:                                    ; preds = %if.end.i56
   store ptr %tsd, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i62 = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i.i62 = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %22 = load i64, ptr %n_owner_switches.i.i62, align 8
   %inc2.i.i63 = add i64 %22, 1
   store i64 %inc2.i.i63, ptr %n_owner_switches.i.i62, align 8
@@ -423,51 +372,52 @@ lor.lhs.false:                                    ; preds = %for.body10
 if.end:                                           ; preds = %lor.lhs.false
   %5 = load ptr, ptr @background_thread_info, align 8
   %rem19 = urem i64 %indvars.iv, %.pre
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19, i32 2
-  %lock.i.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 1
+  %arrayidx20 = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19
+  %lock.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 120
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
+  %mtx = getelementptr inbounds i8, ptr %arrayidx20, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
-  %locked.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %arrayidx20, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
-  %n_lock_ops.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 112
   %6 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %6, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 104
   %7 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsd, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 96
   %8 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %8, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %state.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19, i32 3
+  %state.i = getelementptr inbounds i8, ptr %arrayidx20, i64 168
   store i32 1, ptr %state.i, align 8
-  %indefinite_sleep.i.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19, i32 4
+  %indefinite_sleep.i.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 172
   store atomic i8 0, ptr %indefinite_sleep.i.i.i release, align 1
-  %next_wakeup.i.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19, i32 5
+  %next_wakeup.i.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 176
   tail call void @nstime_init(ptr noundef nonnull %next_wakeup.i.i.i, i64 noundef 0) #11
-  %npages_to_purge_new.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19, i32 6
-  %tot_sleep_time.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19, i32 8
+  %npages_to_purge_new.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 184
+  %tot_sleep_time.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i.i, ptr noundef nonnull @nstime_zero) #11
   %9 = load i64, ptr @n_background_threads, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr @n_background_threads, align 8
-  %locked.i21 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i21 = getelementptr inbounds i8, ptr %arrayidx20, i64 160
   store atomic i8 0, ptr %locked.i21 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %10 = load i64, ptr @max_background_threads, align 8
@@ -505,7 +455,7 @@ for.body46:                                       ; preds = %for.body46.preheade
 
 if.then51:                                        ; preds = %for.body46
   %13 = inttoptr i64 %12 to ptr
-  %pa_shard = getelementptr inbounds %struct.arena_s, ptr %13, i64 0, i32 10
+  %pa_shard = getelementptr inbounds i8, ptr %13, i64 10648
   tail call void @pa_shard_set_deferral_allowed(ptr noundef %tsd, ptr noundef nonnull %pa_shard, i1 noundef zeroext true) #11
   br label %for.inc54
 
@@ -547,7 +497,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then8:                                         ; preds = %for.body
   %2 = inttoptr i64 %1 to ptr
-  %pa_shard = getelementptr inbounds %struct.arena_s, ptr %2, i64 0, i32 10
+  %pa_shard = getelementptr inbounds i8, ptr %2, i64 10648
   tail call void @pa_shard_set_deferral_allowed(ptr noundef %tsd, ptr noundef nonnull %pa_shard, i1 noundef zeroext false) #11
   br label %for.inc
 
@@ -564,10 +514,10 @@ return:                                           ; preds = %for.inc, %do.end3, 
 define internal fastcc zeroext i1 @background_threads_disable_single(ptr noundef %tsd, ptr noundef %info) unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
-  %state.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 29
+  %state.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 832
   %0 = load i8, ptr %state.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i8 %0, 0
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
   %1 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %inc.i.i = add i8 %1, 1
   store i8 %inc.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
@@ -578,47 +528,47 @@ if.then.i.i:                                      ; preds = %entry
   br label %pre_reentrancy.exit
 
 pre_reentrancy.exit:                              ; preds = %entry, %if.then.i.i
-  %lock.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %info, i64 120
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %pre_reentrancy.exit
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %info, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
-  %locked.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %info, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %pre_reentrancy.exit
-  %n_lock_ops.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %info, i64 112
   %2 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i14 = add i64 %2, 1
   store i64 %inc.i.i14, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %info, i64 104
   %3 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %if.end.i
   store ptr %tsd, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %info, i64 96
   %4 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %4, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i15
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %info, i64 168
   %5 = load i32, ptr %state, align 8
   %cmp3 = icmp eq i32 %5, 1
   br i1 %cmp3, label %if.then4, label %if.then11.critedge
 
 if.then4:                                         ; preds = %malloc_mutex_lock.exit
   store i32 0, ptr %state, align 8
-  %cond = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %info, i64 8
   %call6 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #11
-  %locked.i16 = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i16 = getelementptr inbounds i8, ptr %info, i64 160
   store atomic i8 0, ptr %locked.i16 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %6 = load i64, ptr %info, align 8
@@ -627,7 +577,7 @@ if.then4:                                         ; preds = %malloc_mutex_lock.e
   br i1 %tobool14.not, label %do.end18, label %if.then15
 
 if.then11.critedge:                               ; preds = %malloc_mutex_lock.exit
-  %locked.i17 = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i17 = getelementptr inbounds i8, ptr %info, i64 160
   store atomic i8 0, ptr %locked.i17 monotonic, align 1
   %call1.i19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %7 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
@@ -673,7 +623,7 @@ return:                                           ; preds = %if.then.i.i30, %do.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @background_thread_is_started(ptr nocapture noundef readonly %info) local_unnamed_addr #2 {
 entry:
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %info, i64 168
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 1
   ret i1 %cmp
@@ -691,7 +641,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %cond = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %info, i64 8
   %call2 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #11
   br label %return
 
@@ -792,13 +742,13 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %for.end
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @background_thread_lock) #11
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
@@ -827,50 +777,51 @@ for.body7:                                        ; preds = %malloc_mutex_lock.e
   %conv434 = phi i64 [ %conv4, %malloc_mutex_lock.exit26 ], [ 0, %malloc_mutex_lock.exit ]
   %i2.033 = phi i32 [ %inc13, %malloc_mutex_lock.exit26 ], [ 0, %malloc_mutex_lock.exit ]
   %9 = load ptr, ptr @background_thread_info, align 8
-  %mtx10 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 2
-  %lock.i.i = getelementptr inbounds %struct.anon, ptr %mtx10, i64 0, i32 1
+  %arrayidx9 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434
+  %lock.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 120
   %call.i.i18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i19 = icmp eq i32 %call.i.i18, 0
   br i1 %cmp.i.not.i19, label %if.end.i21, label %if.then.i20
 
 if.then.i20:                                      ; preds = %for.body7
+  %mtx10 = getelementptr inbounds i8, ptr %arrayidx9, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx10) #11
-  %locked.i = getelementptr inbounds %struct.anon, ptr %mtx10, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %arrayidx9, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then.i20, %for.body7
-  %n_lock_ops.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx10, i64 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 112
   %10 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i22 = add i64 %10, 1
   store i64 %inc.i.i22, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx10, i64 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 104
   %11 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i23 = icmp eq ptr %11, %tsdn
   br i1 %cmp.not.i.i23, label %malloc_mutex_lock.exit26, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %if.end.i21
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx10, i64 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 96
   %12 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i25 = add i64 %12, 1
   store i64 %inc2.i.i25, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit26
 
 malloc_mutex_lock.exit26:                         ; preds = %if.end.i21, %if.then.i.i24
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 3
+  %state = getelementptr inbounds i8, ptr %arrayidx9, i64 168
   store i32 0, ptr %state, align 8
-  %cond = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 1
+  %cond = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   %call = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond, ptr noundef null) #11
-  %indefinite_sleep.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 4
+  %indefinite_sleep.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 172
   store atomic i8 0, ptr %indefinite_sleep.i.i release, align 1
-  %next_wakeup.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 5
+  %next_wakeup.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 176
   tail call void @nstime_init(ptr noundef nonnull %next_wakeup.i.i, i64 noundef 0) #11
-  %npages_to_purge_new.i = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 6
-  %tot_sleep_time.i = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434, i32 8
+  %npages_to_purge_new.i = getelementptr inbounds i8, ptr %arrayidx9, i64 184
+  %tot_sleep_time.i = getelementptr inbounds i8, ptr %arrayidx9, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i, ptr noundef nonnull @nstime_zero) #11
-  %locked.i27 = getelementptr inbounds %struct.anon, ptr %mtx10, i64 0, i32 2
+  %locked.i27 = getelementptr inbounds i8, ptr %arrayidx9, i64 160
   store atomic i8 0, ptr %locked.i27 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %inc13 = add i32 %i2.033, 1
@@ -880,8 +831,8 @@ malloc_mutex_lock.exit26:                         ; preds = %if.end.i21, %if.the
   br i1 %cmp5, label %for.body7, label %for.end14, !llvm.loop !17
 
 for.end14:                                        ; preds = %malloc_mutex_lock.exit26, %malloc_mutex_lock.exit
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
+  %call1.i28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   br label %return
 
 return:                                           ; preds = %for.end, %for.end14
@@ -896,13 +847,13 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @background_thread_stats_read(ptr noundef %tsdn, ptr noundef %stats) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @background_thread_lock) #11
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -927,9 +878,9 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %malloc_mutex_lock.exit
-  %run_interval = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 2
+  %run_interval = getelementptr inbounds i8, ptr %stats, i64 16
   tail call void @nstime_copy(ptr noundef nonnull %run_interval, ptr noundef nonnull @nstime_zero) #11
-  %max_counter_per_bg_thd = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3
+  %max_counter_per_bg_thd = getelementptr inbounds i8, ptr %stats, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %max_counter_per_bg_thd, i8 0, i64 64, i1 false)
   %5 = load i64, ptr @n_background_threads, align 8
   store i64 %5, ptr %stats, align 8
@@ -938,17 +889,17 @@ if.end:                                           ; preds = %malloc_mutex_lock.e
   br i1 %cmp34.not, label %for.end.thread, label %for.body.lr.ph
 
 for.end.thread:                                   ; preds = %if.end
-  %num_runs1339 = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 1
+  %num_runs1339 = getelementptr inbounds i8, ptr %stats, i64 8
   store i64 0, ptr %num_runs1339, align 8
   br label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %max_wait_time4.i = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3, i32 1
-  %n_wait_times11.i = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3, i32 2
-  %n_spin_acquired17.i = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3, i32 3
-  %max_n_thds23.i = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3, i32 4
-  %n_owner_switches29.i = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3, i32 6
-  %n_lock_ops35.i = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 3, i32 8
+  %max_wait_time4.i = getelementptr inbounds i8, ptr %stats, i64 32
+  %n_wait_times11.i = getelementptr inbounds i8, ptr %stats, i64 40
+  %n_spin_acquired17.i = getelementptr inbounds i8, ptr %stats, i64 48
+  %max_n_thds23.i = getelementptr inbounds i8, ptr %stats, i64 56
+  %n_owner_switches29.i = getelementptr inbounds i8, ptr %stats, i64 64
+  %n_lock_ops35.i = getelementptr inbounds i8, ptr %stats, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -956,46 +907,47 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.036 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %num_runs.035 = phi i64 [ 0, %for.body.lr.ph ], [ %num_runs.2, %for.inc ]
   %7 = load ptr, ptr @background_thread_info, align 8
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %7, i64 %conv37, i32 2
-  %lock.i.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 1
+  %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %7, i64 %conv37
+  %mtx = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %lock.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %call.i.i22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.i.not = icmp eq i32 %call.i.i22, 0
   br i1 %cmp.i.i.not, label %if.end.i23, label %malloc_mutex_trylock.exit
 
 if.end.i23:                                       ; preds = %for.body
-  %n_lock_ops.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
   %8 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i24 = add i64 %8, 1
   store i64 %inc.i.i24, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 104
   %9 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i25 = icmp eq ptr %9, %tsdn
   br i1 %cmp.not.i.i25, label %if.end4, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %if.end.i23
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %10 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i27 = add i64 %10, 1
   store i64 %inc2.i.i27, ptr %n_owner_switches.i.i, align 8
   br label %if.end4
 
 malloc_mutex_trylock.exit:                        ; preds = %for.body
-  %locked.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %for.inc
 
 if.end4:                                          ; preds = %if.end.i23, %if.then.i.i26
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %7, i64 %conv37, i32 3
+  %state = getelementptr inbounds i8, ptr %arrayidx, i64 168
   %11 = load i32, ptr %state, align 8
   %cmp5.not = icmp eq i32 %11, 0
   br i1 %cmp5.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %tot_n_runs = getelementptr inbounds %struct.background_thread_info_s, ptr %7, i64 %conv37, i32 7
+  %tot_n_runs = getelementptr inbounds i8, ptr %arrayidx, i64 192
   %12 = load i64, ptr %tot_n_runs, align 8
   %add = add i64 %12, %num_runs.035
-  %tot_sleep_time = getelementptr inbounds %struct.background_thread_info_s, ptr %7, i64 %conv37, i32 8
+  %tot_sleep_time = getelementptr inbounds i8, ptr %arrayidx, i64 200
   tail call void @nstime_add(ptr noundef nonnull %run_interval, ptr noundef nonnull %tot_sleep_time) #11
   %call.i = tail call i32 @nstime_compare(ptr noundef nonnull %mtx, ptr noundef nonnull %max_counter_per_bg_thd) #11
   %cmp.i = icmp sgt i32 %call.i, 0
@@ -1006,7 +958,7 @@ if.then.i30:                                      ; preds = %if.then7
   br label %if.end.i29
 
 if.end.i29:                                       ; preds = %if.then.i30, %if.then7
-  %max_wait_time.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 1
+  %max_wait_time.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %call5.i = tail call i32 @nstime_compare(ptr noundef nonnull %max_wait_time.i, ptr noundef nonnull %max_wait_time4.i) #11
   %cmp6.i = icmp sgt i32 %call5.i, 0
   br i1 %cmp6.i, label %if.then7.i, label %if.end10.i
@@ -1016,7 +968,7 @@ if.then7.i:                                       ; preds = %if.end.i29
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end.i29
-  %n_wait_times.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 2
+  %n_wait_times.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %13 = load i64, ptr %n_wait_times.i, align 8
   %14 = load i64, ptr %n_wait_times11.i, align 8
   %cmp12.i = icmp ugt i64 %13, %14
@@ -1027,7 +979,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then13.i, %if.end10.i
-  %n_spin_acquired.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 3
+  %n_spin_acquired.i = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %15 = load i64, ptr %n_spin_acquired.i, align 8
   %16 = load i64, ptr %n_spin_acquired17.i, align 8
   %cmp18.i = icmp ugt i64 %15, %16
@@ -1038,7 +990,7 @@ if.then19.i:                                      ; preds = %if.end16.i
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then19.i, %if.end16.i
-  %max_n_thds.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 4
+  %max_n_thds.i = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %17 = load i32, ptr %max_n_thds.i, align 8
   %18 = load i32, ptr %max_n_thds23.i, align 8
   %cmp24.i = icmp ugt i32 %17, %18
@@ -1049,7 +1001,7 @@ if.then25.i:                                      ; preds = %if.end22.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end22.i
-  %n_owner_switches.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %19 = load i64, ptr %n_owner_switches.i, align 8
   %20 = load i64, ptr %n_owner_switches29.i, align 8
   %cmp30.i = icmp ugt i64 %19, %20
@@ -1071,7 +1023,7 @@ if.then37.i:                                      ; preds = %if.end34.i
 
 if.end11:                                         ; preds = %if.then37.i, %if.end34.i, %if.end4
   %num_runs.1 = phi i64 [ %num_runs.035, %if.end4 ], [ %add, %if.end34.i ], [ %add, %if.then37.i ]
-  %locked.i31 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i31 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 0, ptr %locked.i31 monotonic, align 1
   %call1.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   br label %for.inc
@@ -1085,7 +1037,7 @@ for.inc:                                          ; preds = %malloc_mutex_tryloc
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc
-  %num_runs13 = getelementptr inbounds %struct.background_thread_stats_s, ptr %stats, i64 0, i32 1
+  %num_runs13 = getelementptr inbounds i8, ptr %stats, i64 8
   store i64 %num_runs.2, ptr %num_runs13, align 8
   %cmp14.not = icmp eq i64 %num_runs.2, 0
   br i1 %cmp14.not, label %return, label %if.then16
@@ -1095,8 +1047,8 @@ if.then16:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.end, %if.then16, %for.end.thread, %malloc_mutex_lock.exit
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
+  %call1.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   ret i1 %tobool.i.not
 }
 
@@ -1184,58 +1136,59 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv17 = phi i64 [ %conv, %malloc_mutex_lock.exit ], [ 0, %for.cond.preheader ]
   %i.016 = phi i32 [ %inc, %malloc_mutex_lock.exit ], [ 0, %for.cond.preheader ]
   %6 = load ptr, ptr @background_thread_info, align 8
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 2
+  %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17
+  %mtx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %call11 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %mtx, ptr noundef nonnull @.str.1, i32 noundef 13, i32 noundef 1) #11
   br i1 %call11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %for.body
-  %cond = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 1
+  %cond = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %call14 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond, ptr noundef null) #11
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end13
-  %lock.i.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end17
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
-  %locked.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end17
-  %n_lock_ops.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
   %7 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %7, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 104
   %8 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %9 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %9, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 3
+  %state = getelementptr inbounds i8, ptr %arrayidx, i64 168
   store i32 0, ptr %state, align 8
-  %indefinite_sleep.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 4
+  %indefinite_sleep.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 172
   store atomic i8 0, ptr %indefinite_sleep.i.i release, align 1
-  %next_wakeup.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 5
+  %next_wakeup.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 176
   tail call void @nstime_init(ptr noundef nonnull %next_wakeup.i.i, i64 noundef 0) #11
-  %npages_to_purge_new.i = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 6
-  %tot_sleep_time.i = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17, i32 8
+  %npages_to_purge_new.i = getelementptr inbounds i8, ptr %arrayidx, i64 184
+  %tot_sleep_time.i = getelementptr inbounds i8, ptr %arrayidx, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i, ptr noundef nonnull @nstime_zero) #11
-  %locked.i14 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i14 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 0, ptr %locked.i14 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %inc = add i32 %i.016, 1
@@ -1294,7 +1247,7 @@ set_current_thread_affinity.exit:                 ; preds = %if.then, %cond.true
 
 if.end:                                           ; preds = %set_current_thread_affinity.exit, %entry
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %3, i64 0, i32 29
+  %state.i.i = getelementptr inbounds i8, ptr %3, i64 832
   %4 = load i8, ptr %state.i.i, align 8
   %cmp6.i.not = icmp eq i8 %4, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -1309,46 +1262,46 @@ tsd_fetch_impl.exit:                              ; preds = %if.end, %if.then11.
   %5 = load ptr, ptr @background_thread_info, align 8
   %idxprom.i = and i64 %0, 4294967295
   %arrayidx.i7 = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %idxprom.i
-  %mtx.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %idxprom.i, i32 2
-  %lock.i.i.i = getelementptr inbounds %struct.anon, ptr %mtx.i, i64 0, i32 1
+  %lock.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 120
   %call.i.i.i = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i.i) #11
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %tsd_fetch_impl.exit
+  %mtx.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 56
   call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx.i) #11
-  %locked.i.i = getelementptr inbounds %struct.anon, ptr %mtx.i, i64 0, i32 2
+  %locked.i.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 160
   store atomic i8 1, ptr %locked.i.i monotonic, align 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %tsd_fetch_impl.exit
-  %n_lock_ops.i.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx.i, i64 0, i32 8
+  %n_lock_ops.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 112
   %6 = load i64, ptr %n_lock_ops.i.i.i, align 8
   %inc.i.i.i = add i64 %6, 1
   store i64 %inc.i.i.i, ptr %n_lock_ops.i.i.i, align 8
-  %prev_owner.i.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx.i, i64 0, i32 7
+  %prev_owner.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 104
   %7 = load ptr, ptr %prev_owner.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, %retval.i.0
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %retval.i.0, ptr %prev_owner.i.i.i, align 8
-  %n_owner_switches.i.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx.i, i64 0, i32 6
+  %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 96
   %8 = load i64, ptr %n_owner_switches.i.i.i, align 8
   %inc2.i.i.i = add i64 %8, 1
   store i64 %inc2.i.i.i, ptr %n_owner_switches.i.i.i, align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %indefinite_sleep.i25.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %idxprom.i, i32 4
+  %indefinite_sleep.i25.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 172
   store atomic i8 1, ptr %indefinite_sleep.i25.i release, align 1
-  %next_wakeup.i31.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %idxprom.i, i32 5
+  %next_wakeup.i31.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 176
   call void @nstime_init(ptr noundef nonnull %next_wakeup.i31.i, i64 noundef -1) #11
   %cmp.i8 = icmp eq i32 %conv, 0
   br i1 %cmp.i8, label %if.then.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %malloc_mutex_lock.exit.i
-  %state.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %idxprom.i, i32 3
+  %state.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 168
   %9 = load i32, ptr %state.i, align 8
   %cmp2.not26.i = icmp eq i32 %9, 0
   br i1 %cmp2.not26.i, label %background_work.exit, label %while.body.i
@@ -1373,7 +1326,7 @@ while.cond.backedge.i:                            ; preds = %if.end.i, %while.bo
 background_work.exit:                             ; preds = %while.cond.backedge.i, %while.cond.preheader.i, %if.then.i
   store atomic i8 0, ptr %indefinite_sleep.i25.i release, align 1
   call void @nstime_init(ptr noundef nonnull %next_wakeup.i31.i, i64 noundef 0) #11
-  %locked.i25.i = getelementptr inbounds %struct.anon, ptr %mtx.i, i64 0, i32 2
+  %locked.i25.i = getelementptr inbounds i8, ptr %arrayidx.i7, i64 160
   store atomic i8 0, ptr %locked.i25.i monotonic, align 1
   %call1.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i) #11
   ret ptr null
@@ -1412,8 +1365,8 @@ entry:
   br i1 %cmp28, label %for.body, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %for.body, %entry
-  %state.i.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 29
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 1
+  %state.i.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 832
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
   br label %while.cond.outer
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1428,7 +1381,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 while.cond:                                       ; preds = %while.cond.outer, %while.body
   %1 = load ptr, ptr @background_thread_info, align 8
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %1, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %state, align 8
   %cmp3.not = icmp eq i32 %2, 0
   br i1 %cmp3.not, label %for.cond12.preheader, label %while.body
@@ -1450,9 +1403,9 @@ if.end:                                           ; preds = %while.body
 
 if.end.i:                                         ; preds = %if.end
   %5 = load ptr, ptr @background_thread_info, align 8
-  %locked.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i.i = getelementptr inbounds i8, ptr %5, i64 160
   store atomic i8 0, ptr %locked.i.i monotonic, align 1
-  %lock.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %5, i64 120
   %call1.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %6 = load i64, ptr @max_background_threads, align 8
   %cmp646.i = icmp ugt i64 %6, 1
@@ -1470,41 +1423,42 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
 
 if.end11.i:                                       ; preds = %for.body.i
   %10 = load ptr, ptr @background_thread_info, align 8
-  %mtx14.i = getelementptr inbounds %struct.background_thread_info_s, ptr %10, i64 %conv548.i, i32 2
-  %lock.i.i.i = getelementptr inbounds %struct.anon, ptr %mtx14.i, i64 0, i32 1
+  %arrayidx13.i = getelementptr inbounds %struct.background_thread_info_s, ptr %10, i64 %conv548.i
+  %lock.i.i.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 120
   %call.i.i.i = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i.i) #11
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end11.i
+  %mtx14.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 56
   call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx14.i) #11
-  %locked.i18.i = getelementptr inbounds %struct.anon, ptr %mtx14.i, i64 0, i32 2
+  %locked.i18.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 160
   store atomic i8 1, ptr %locked.i18.i monotonic, align 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end11.i
-  %n_lock_ops.i.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx14.i, i64 0, i32 8
+  %n_lock_ops.i.i.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 112
   %11 = load i64, ptr %n_lock_ops.i.i.i, align 8
   %inc.i.i.i = add i64 %11, 1
   store i64 %inc.i.i.i, ptr %n_lock_ops.i.i.i, align 8
-  %prev_owner.i.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx14.i, i64 0, i32 7
+  %prev_owner.i.i.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 104
   %12 = load ptr, ptr %prev_owner.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %12, %tsd
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsd, ptr %prev_owner.i.i.i, align 8
-  %n_owner_switches.i.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx14.i, i64 0, i32 6
+  %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 96
   %13 = load i64, ptr %n_owner_switches.i.i.i, align 8
   %inc2.i.i.i = add i64 %13, 1
   store i64 %inc2.i.i.i, ptr %n_owner_switches.i.i.i, align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %state.i = getelementptr inbounds %struct.background_thread_info_s, ptr %10, i64 %conv548.i, i32 3
+  %state.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 168
   %14 = load i32, ptr %state.i, align 8
   %cmp15.i = icmp eq i32 %14, 1
-  %locked.i19.i = getelementptr inbounds %struct.anon, ptr %mtx14.i, i64 0, i32 2
+  %locked.i19.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 160
   store atomic i8 0, ptr %locked.i19.i monotonic, align 1
   %call1.i21.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i) #11
   br i1 %cmp15.i, label %if.end20.i, label %malloc_mutex_lock.exit.for.inc_crit_edge.i
@@ -1515,7 +1469,6 @@ malloc_mutex_lock.exit.for.inc_crit_edge.i:       ; preds = %malloc_mutex_lock.e
 
 if.end20.i:                                       ; preds = %malloc_mutex_lock.exit.i
   %arrayidx8.i.le = getelementptr inbounds i8, ptr %vla, i64 %conv548.i
-  %arrayidx13.i = getelementptr inbounds %struct.background_thread_info_s, ptr %10, i64 %conv548.i
   %15 = load i8, ptr %state.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i8 %15, 0
   %16 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
@@ -1538,7 +1491,7 @@ pre_reentrancy.exit.i:                            ; preds = %if.then.i.i23.i, %i
 if.end.i25.i:                                     ; preds = %pre_reentrancy.exit.i
   %17 = inttoptr i64 %conv548.i to ptr
   %18 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !23
-  %call.i.i26.i = call i32 %18(ptr noundef %arrayidx13.i, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %17) #11
+  %call.i.i26.i = call i32 %18(ptr noundef nonnull %arrayidx13.i, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %17) #11
   %call3.i.i = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset.i.i, ptr noundef null) #11
   %cmp4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.not.i.i, label %background_thread_create_signals_masked.exit.i, label %if.then5.i.i
@@ -1599,31 +1552,31 @@ for.end.i:                                        ; preds = %for.inc.i, %if.else
   %n_created.1 = phi i32 [ %inc.i, %if.then25.i ], [ %n_created.0.ph, %if.else.i ], [ %n_created.0.ph, %if.end.i ], [ %n_created.0.ph, %for.inc.i ]
   %cmp644.i = phi i1 [ true, %if.then25.i ], [ true, %if.else.i ], [ false, %if.end.i ], [ false, %for.inc.i ]
   %25 = load ptr, ptr @background_thread_info, align 8
-  %lock.i.i29.i = getelementptr inbounds %struct.background_thread_info_s, ptr %25, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i29.i = getelementptr inbounds i8, ptr %25, i64 120
   %call.i.i30.i = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i29.i) #11
   %cmp.i.not.i31.i = icmp eq i32 %call.i.i30.i, 0
   br i1 %cmp.i.not.i31.i, label %if.end.i34.i, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %for.end.i
-  %mtx34.i = getelementptr inbounds %struct.background_thread_info_s, ptr %25, i64 0, i32 2
+  %mtx34.i = getelementptr inbounds i8, ptr %25, i64 56
   call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx34.i) #11
-  %locked.i33.i = getelementptr inbounds %struct.background_thread_info_s, ptr %25, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i33.i = getelementptr inbounds i8, ptr %25, i64 160
   store atomic i8 1, ptr %locked.i33.i monotonic, align 1
   br label %if.end.i34.i
 
 if.end.i34.i:                                     ; preds = %if.then.i32.i, %for.end.i
-  %n_lock_ops.i.i35.i = getelementptr inbounds %struct.background_thread_info_s, ptr %25, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i35.i = getelementptr inbounds i8, ptr %25, i64 112
   %26 = load i64, ptr %n_lock_ops.i.i35.i, align 8
   %inc.i.i36.i = add i64 %26, 1
   store i64 %inc.i.i36.i, ptr %n_lock_ops.i.i35.i, align 8
-  %prev_owner.i.i37.i = getelementptr inbounds %struct.background_thread_info_s, ptr %25, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i37.i = getelementptr inbounds i8, ptr %25, i64 104
   %27 = load ptr, ptr %prev_owner.i.i37.i, align 8
   %cmp.not.i.i38.i = icmp eq ptr %27, %tsd
   br i1 %cmp.not.i.i38.i, label %check_background_thread_creation.exit, label %if.then.i.i39.i
 
 if.then.i.i39.i:                                  ; preds = %if.end.i34.i
   store ptr %tsd, ptr %prev_owner.i.i37.i, align 8
-  %n_owner_switches.i.i40.i = getelementptr inbounds %struct.background_thread_info_s, ptr %25, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i40.i = getelementptr inbounds i8, ptr %25, i64 96
   %28 = load i64, ptr %n_owner_switches.i.i40.i, align 8
   %inc2.i.i41.i = add i64 %28, 1
   store i64 %inc2.i.i41.i, ptr %n_owner_switches.i.i40.i, align 8
@@ -1650,6 +1603,7 @@ for.body16:                                       ; preds = %for.cond12.preheade
   %conv1334 = phi i64 [ %conv13, %for.inc39 ], [ 1, %for.cond12.preheader ]
   %i.133 = phi i32 [ %inc40, %for.inc39 ], [ 1, %for.cond12.preheader ]
   %30 = load ptr, ptr @background_thread_info, align 8
+  %arrayidx18 = getelementptr inbounds %struct.background_thread_info_s, ptr %30, i64 %conv1334
   %arrayidx23 = getelementptr inbounds i8, ptr %vla, i64 %conv1334
   %31 = load i8, ptr %arrayidx23, align 1
   %32 = and i8 %31, 1
@@ -1657,43 +1611,42 @@ for.body16:                                       ; preds = %for.cond12.preheade
   br i1 %tobool.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %for.body16
-  %arrayidx18 = getelementptr inbounds %struct.background_thread_info_s, ptr %30, i64 %conv1334
   %call25 = call fastcc zeroext i1 @background_threads_disable_single(ptr noundef %tsd, ptr noundef %arrayidx18)
   br label %for.inc39
 
 if.else:                                          ; preds = %for.body16
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %30, i64 %conv1334, i32 2
-  %lock.i.i16 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 1
+  %lock.i.i16 = getelementptr inbounds i8, ptr %arrayidx18, i64 120
   %call.i.i17 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i16) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i17, 0
   br i1 %cmp.i.not.i, label %if.end.i18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
+  %mtx = getelementptr inbounds i8, ptr %arrayidx18, i64 56
   call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
-  %locked.i = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %arrayidx18, i64 160
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then.i, %if.else
-  %n_lock_ops.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx18, i64 112
   %33 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %33, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx18, i64 104
   %34 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i19 = icmp eq ptr %34, %tsd
   br i1 %cmp.not.i.i19, label %malloc_mutex_lock.exit, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %if.end.i18
   store ptr %tsd, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.mutex_prof_data_t, ptr %mtx, i64 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx18, i64 96
   %35 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %35, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i18, %if.then.i.i20
-  %state27 = getelementptr inbounds %struct.background_thread_info_s, ptr %30, i64 %conv1334, i32 3
+  %state27 = getelementptr inbounds i8, ptr %arrayidx18, i64 168
   %36 = load i32, ptr %state27, align 8
   %cmp28.not = icmp eq i32 %36, 0
   br i1 %cmp28.not, label %if.end35, label %do.end33
@@ -1706,7 +1659,7 @@ do.end33:                                         ; preds = %malloc_mutex_lock.e
   br label %if.end35
 
 if.end35:                                         ; preds = %do.end33, %malloc_mutex_lock.exit
-  %locked.i21 = getelementptr inbounds %struct.anon, ptr %mtx, i64 0, i32 2
+  %locked.i21 = getelementptr inbounds i8, ptr %arrayidx18, i64 160
   store atomic i8 0, ptr %locked.i21 monotonic, align 1
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i16) #11
   br label %for.inc39
@@ -1724,7 +1677,7 @@ for.end41.loopexit:                               ; preds = %for.inc39
 
 for.end41:                                        ; preds = %for.end41.loopexit, %for.cond12.preheader
   %39 = phi ptr [ %.pre, %for.end41.loopexit ], [ %1, %for.cond12.preheader ]
-  %state43 = getelementptr inbounds %struct.background_thread_info_s, ptr %39, i64 0, i32 3
+  %state43 = getelementptr inbounds i8, ptr %39, i64 168
   store i32 0, ptr %state43, align 8
   ret void
 }
@@ -1732,24 +1685,24 @@ for.end41:                                        ; preds = %for.end41.loopexit,
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @background_thread_pause_check(ptr noundef %tsdn, ptr noundef %info) unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %info, i64 168
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %mtx = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2
-  %locked.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %info, i64 56
+  %locked.i = getelementptr inbounds i8, ptr %info, i64 160
   store atomic i8 0, ptr %locked.i monotonic, align 1
-  %lock.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %info, i64 120
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #11
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @background_thread_lock) #11
-  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
+  store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -1768,8 +1721,8 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2) monotonic, align 8
-  %call1.i6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1)) #11
+  store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
+  %call1.i6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #11
   %call.i.i7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i) #11
   %cmp.i.not.i8 = icmp eq i32 %call.i.i7, 0
   br i1 %cmp.i.not.i8, label %if.end.i11, label %if.then.i9
@@ -1780,18 +1733,18 @@ if.then.i9:                                       ; preds = %malloc_mutex_lock.e
   br label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.then.i9, %malloc_mutex_lock.exit
-  %n_lock_ops.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %info, i64 112
   %4 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i12 = add i64 %4, 1
   store i64 %inc.i.i12, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %info, i64 104
   %5 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i13 = icmp eq ptr %5, %tsdn
   br i1 %cmp.not.i.i13, label %return, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %if.end.i11
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %info, i64 96
   %6 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i15 = add i64 %6, 1
   store i64 %inc2.i.i15, ptr %n_owner_switches.i.i, align 8
@@ -1811,7 +1764,7 @@ entry:
   %ts.i = alloca %struct.timespec, align 8
   %after_sleep.i = alloca %struct.nstime_t, align 8
   %call = tail call i32 @narenas_total_get() #11
-  %indefinite_sleep.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 4
+  %indefinite_sleep.i = getelementptr inbounds i8, ptr %info, i64 172
   %0 = load atomic i8, ptr %indefinite_sleep.i acquire, align 1
   %cmp14 = icmp ugt i32 %call, %ind
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
@@ -1838,7 +1791,7 @@ if.end.us:                                        ; preds = %for.body.us
   br i1 %cmp6.us, label %for.inc.us, label %if.end8.us
 
 if.end8.us:                                       ; preds = %if.end.us
-  %pa_shard.us = getelementptr inbounds %struct.arena_s, ptr %3, i64 0, i32 10
+  %pa_shard.us = getelementptr inbounds i8, ptr %3, i64 10648
   %call9.us = tail call i64 @pa_shard_time_until_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %pa_shard.us) #11
   %spec.select.us = tail call i64 @llvm.umin.i64(i64 %call9.us, i64 %ns_until_deferred.015.us)
   br label %for.inc.us
@@ -1864,7 +1817,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end8:                                          ; preds = %for.body
   %7 = inttoptr i64 %6 to ptr
-  %pa_shard = getelementptr inbounds %struct.arena_s, ptr %7, i64 0, i32 10
+  %pa_shard = getelementptr inbounds i8, ptr %7, i64 10648
   %call9 = tail call i64 @pa_shard_time_until_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %pa_shard) #11
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call9, i64 %ns_until_deferred.015)
   br label %for.inc
@@ -1885,15 +1838,15 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ts_wakeup.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %after_sleep.i)
-  %tot_n_runs.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 7
+  %tot_n_runs.i = getelementptr inbounds i8, ptr %info, i64 192
   %10 = load i64, ptr %tot_n_runs.i, align 8
   %inc.i = add i64 %10, 1
   store i64 %inc.i, ptr %tot_n_runs.i, align 8
-  %npages_to_purge_new.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 6
+  %npages_to_purge_new.i = getelementptr inbounds i8, ptr %info, i64 184
   store i64 0, ptr %npages_to_purge_new.i, align 8
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #11
   %11 = load i64, ptr %tv.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %12 = load i64, ptr %tv_usec.i, align 8
   %mul.i = mul nsw i64 %12, 1000
   call void @nstime_init2(ptr noundef nonnull %before_sleep.i, i64 noundef %11, i64 noundef %mul.i) #11
@@ -1902,10 +1855,10 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 
 if.then.i:                                        ; preds = %for.end
   store atomic i8 1, ptr %indefinite_sleep.i release, align 1
-  %next_wakeup.i41.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 5
+  %next_wakeup.i41.i = getelementptr inbounds i8, ptr %info, i64 176
   call void @nstime_init(ptr noundef nonnull %next_wakeup.i41.i, i64 noundef -1) #11
-  %cond.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 1
-  %lock.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %info, i64 8
+  %lock.i = getelementptr inbounds i8, ptr %info, i64 120
   %call1.i = call i32 @pthread_cond_wait(ptr noundef nonnull %cond.i, ptr noundef nonnull %lock.i) #11
   br label %if.end.i
 
@@ -1917,17 +1870,17 @@ do.end3.i:                                        ; preds = %for.end
   %cmp.i.i = icmp eq i64 %call6.i, -1
   %frombool.i.i.i = zext i1 %cmp.i.i to i8
   store atomic i8 %frombool.i.i.i, ptr %indefinite_sleep.i release, align 1
-  %next_wakeup.i.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 5
+  %next_wakeup.i.i = getelementptr inbounds i8, ptr %info, i64 176
   call void @nstime_init(ptr noundef nonnull %next_wakeup.i.i, i64 noundef %call6.i) #11
   call void @nstime_copy(ptr noundef nonnull %ts_wakeup.i, ptr noundef nonnull %before_sleep.i) #11
   call void @nstime_iadd(ptr noundef nonnull %ts_wakeup.i, i64 noundef %cond) #11
   %call7.i = call i64 @nstime_sec(ptr noundef nonnull %ts_wakeup.i) #11
   store i64 %call7.i, ptr %ts.i, align 8
   %call9.i = call i64 @nstime_nsec(ptr noundef nonnull %ts_wakeup.i) #11
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   store i64 %call9.i, ptr %tv_nsec.i, align 8
-  %cond12.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 1
-  %lock14.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 1
+  %cond12.i = getelementptr inbounds i8, ptr %info, i64 8
+  %lock14.i = getelementptr inbounds i8, ptr %info, i64 120
   %call15.i = call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond12.i, ptr noundef nonnull %lock14.i, ptr noundef nonnull %ts.i) #11
   br label %if.end.i
 
@@ -1943,7 +1896,7 @@ if.end.i:                                         ; preds = %do.end3.i, %if.then
 
 if.then24.i:                                      ; preds = %if.end.i
   call void @nstime_subtract(ptr noundef nonnull %after_sleep.i, ptr noundef nonnull %before_sleep.i) #11
-  %tot_sleep_time.i = getelementptr inbounds %struct.background_thread_info_s, ptr %info, i64 0, i32 8
+  %tot_sleep_time.i = getelementptr inbounds i8, ptr %info, i64 200
   call void @nstime_add(ptr noundef nonnull %tot_sleep_time.i, ptr noundef nonnull %after_sleep.i) #11
   br label %background_thread_sleep.exit
 
